@@ -17,9 +17,13 @@ Instruments are imported BY PATH and never copied:
 Data read:
     extracted/archives/method16-rp-b-data/SPECTRA-DATA.tsv         the Rydberg channel survey
     extracted/archives/restore-point-2-13/captures/AME2020-TableI.tsv   AME2020 Table I (Z, N)
+    nubase2020-Z0-10.txt (beside this file)     the NUBASE2020 ground-state lines for Z <= 10, verbatim
+                                                (Kondev, Wang, Huang, Naimi and Audi 2021); the
+                                                particle-bound list is DERIVED from it, never typed
 
-Reference implementations written here (R_ref, the sublattice hull) are the INDEPENDENT side of the
-encoding guard; the object under test is always the seated operator.
+Reference implementations written here (R_ref, the sublattice hull, the enumerative closure tests of
+the adjunction guard) are the INDEPENDENT side of the encoding guard; the object under test is always
+the seated operator.
 """
 from __future__ import annotations
 
@@ -272,9 +276,53 @@ def chessboard():
     return [(r, f) for r in range(1, 9) for f in range(1, 9)]
 
 
-def nuclide(zmax):
+def nuclide_fixture(zmax):
+    """The instrument's hand-typed particle-bound fixture -- kept only to be compared with the list
+    derived from NUBASE2020 below (C7e)."""
     ix = cy._nuclide(zmax)
     return sorted(tuple(ix.decode[i][v] for i, v in enumerate(c)) for c in ix.cells)
+
+
+NUBASE_EXCERPT = os.path.join(HERE, "nubase2020-Z0-10.txt")
+NUBASE_EXCERPT_MD5 = "56728dd35af7bd1906681ba56a9facf6"
+NUBASE_FULL_MD5 = "91e92411c7c609aa73b28136da61317f"        # nubase_4.mas20.txt, two public copies agree
+PROMPT_EMISSION = {"n", "2n", "3n", "p", "2p", "3p", "A"}
+
+
+def nubase_ground_states():
+    """Every NUBASE2020 ground-state line with Z <= 10, parsed by the file's own column format:
+    (A, Z, name, half-life field, first decay mode). The excerpt is the verbatim lines of the
+    evaluation's file (md5 of the full file recorded above); its own md5 is checked in C7."""
+    import hashlib
+    raw = open(NUBASE_EXCERPT, "rb").read()
+    rows = []
+    for l in raw.decode("utf-8").split("\n"):
+        if l.startswith("#") or not l.strip():
+            continue
+        A, Z, i = int(l[0:3]), int(l[4:7]), l[7]
+        if i != "0":
+            continue
+        T = l[69:78].strip()
+        br = l[119:].strip()
+        first = br.split(";")[0].split("=")[0].split(" ")[0].strip()
+        rows.append((A, Z, l[11:16].strip(), T, first))
+    return rows, hashlib.md5(raw).hexdigest()
+
+
+def particle_bound(zmax):
+    """The particle-bound nuclides with 1 <= Z <= zmax, DERIVED from NUBASE2020: a ground state is
+    particle-bound when the evaluation neither marks it p-unst nor lists prompt nucleon or alpha
+    emission (n, 2n, 3n, p, 2p, 3p, A) as its first decay mode. Returns (cells, unbound names)."""
+    rows, _ = nubase_ground_states()
+    cells, unbound = [], []
+    for A, Z, name, T, first in rows:
+        if Z < 1 or Z > zmax:
+            continue
+        if T == "p-unst" or first in PROMPT_EMISSION:
+            unbound.append(name)
+        else:
+            cells.append((Z, A - Z))
+    return sorted(cells), unbound
 
 
 def ame2020():
@@ -342,6 +390,44 @@ def crossing_population():
     return cells, occ
 
 
+def target_room(c, occ):
+    """The room left in the target subshell (e, f) of element Z before the move: capacity minus
+    the electrons it already holds in the ground configuration."""
+    Z, n, l, k, q, e, f, g = c
+    return 4 * f + 2 - occ[Z][(e, f)]
+
+
+def physical_moves(cells, occ):
+    """The Pauli filter: one electron taken, one placed (q = g = 1), into a subshell with room."""
+    return [c for c in cells if c[4] == 1 and c[7] == 1 and target_room(c, occ) >= 1]
+
+
+def followability_rows(pop, occ, configurational=False):
+    """For each selection class: cells, followable within one element, followable across the
+    118. Formal match (D9): the target (e, f) at the count g delivered equals the source (n, l) at
+    the occupancy k of some move. Configurational match: the target (e, f) at the occupancy it
+    holds AFTER the move, k_e + g, equals the source (n, l, k) of some move."""
+    S_all = {(c[1], c[2], c[3]) for c in pop}
+    SZ = {}
+    for c in pop:
+        SZ.setdefault(c[0], set()).add((c[1], c[2], c[3]))
+
+    def key(c):
+        if configurational:
+            return (c[5], c[6], occ[c[0]][(c[5], c[6])] + c[7])
+        return (c[5], c[6], c[7])
+
+    def rates(pred):
+        sub = [c for c in pop if pred(c)]
+        w = sum(1 for c in sub if key(c) in SZ[c[0]])
+        a = sum(1 for c in sub if key(c) in S_all)
+        return len(sub), w, Fraction(w, len(sub)), a, Fraction(a, len(sub))
+    return {nm: rates(p) for nm, p in (
+        ("all", lambda c: True), ("allowed", lambda c: abs(c[6] - c[2]) == 1),
+        ("forbidden", lambda c: abs(c[6] - c[2]) != 1), ("parity-conserving", lambda c: (c[6] - c[2]) % 2 == 0),
+        ("parity-changing", lambda c: (c[6] - c[2]) % 2 == 1))}
+
+
 # --------------------------------------------------------------------------- Z3 encodings
 
 from prover import cells_of, subset_vars, in_R, contains, meet, join  # noqa: E402
@@ -377,14 +463,71 @@ def ob_idempotent(X, S, cells, d, shape):
                       z3.And([z3.Implies(in_Rown(RX, c, cells, d, shape), RX[c]) for c in cells]))
 
 
-def ob_fibration(X, S, cells, d, shape):
-    """Fibre X over its first coordinate; each fibre's own closure lies inside the whole closure."""
+def ob_fibration(X, S, cells, d, shape, i=0):
+    """Fibre X over coordinate i; each fibre's own closure lies inside the whole closure."""
     out = []
-    for v in range(shape[0]):
-        Xv = {c: (X[c] if c[0] == v else z3.BoolVal(False)) for c in cells}
+    for v in range(shape[i]):
+        Xv = {c: (X[c] if c[i] == v else z3.BoolVal(False)) for c in cells}
         out += [z3.Implies(z3.And(nonempty(Xv, cells), in_Rown(Xv, c, cells, d, shape)),
-                           in_Rown(X, c, cells, d, shape)) for c in cells if c[0] == v]
+                           in_Rown(X, c, cells, d, shape)) for c in cells if c[i] == v]
     return z3.And(out)
+
+
+def graph_formulas(cells, S, h):
+    """The three predicates of Theorems 5 and 6 as Z3 formulas over membership variables S and an
+    integer-valued h on the box: S closed; the graph {(x, h(x)) : x in S} closed under the
+    coordinatewise meet and join of box x chain; h preserves meet and join on S."""
+    closedS = z3.And([z3.Implies(z3.And(S[a], S[b]), z3.And(S[meet(a, b)], S[join(a, b)]))
+                      for a in cells for b in cells])
+    closedSp = z3.And([z3.Implies(z3.And(S[a], S[b]),
+                                  z3.And(S[join(a, b)],
+                                         h[join(a, b)] == z3.If(h[a] >= h[b], h[a], h[b]),
+                                         S[meet(a, b)],
+                                         h[meet(a, b)] == z3.If(h[a] <= h[b], h[a], h[b])))
+                       for a in cells for b in cells])
+    hom = z3.And([z3.Implies(z3.And(S[a], S[b]),
+                             z3.And(h[join(a, b)] == z3.If(h[a] >= h[b], h[a], h[b]),
+                                    h[meet(a, b)] == z3.If(h[a] <= h[b], h[a], h[b])))
+                  for a in cells for b in cells])
+    return closedS, closedSp, hom
+
+
+def graph_truths(cells, Sset, hmap):
+    """The same three predicates decided by enumeration on a concrete S and h -- the independent
+    side of the encoding guard for Theorems 5 and 6."""
+    G = {(x, hmap[x]) for x in Sset}
+    closedS = all(meet(a, b) in Sset and join(a, b) in Sset for a in Sset for b in Sset)
+    closedSp = all((join(a, b), max(hmap[a], hmap[b])) in G and (meet(a, b), min(hmap[a], hmap[b])) in G
+                   for a in Sset for b in Sset)
+    hom = all(hmap[join(a, b)] == max(hmap[a], hmap[b]) and hmap[meet(a, b)] == min(hmap[a], hmap[b])
+              for a in Sset for b in Sset)
+    return closedS, closedSp, hom
+
+
+def guard_graph_encodings(shape, H, trials=120, seed=17):
+    """Encoding guard for T5/T6: on random (S, h) the three Z3 formulas, evaluated under the
+    assignment, must agree with the enumerative decision. Returns (instances, disagreements)."""
+    rnd = random.Random(seed)
+    cells = cells_of(shape)
+    S = subset_vars(cells, "s")
+    h = {c: z3.Int("h_%s" % (c,)) for c in cells}
+    forms = graph_formulas(cells, S, h)
+    bad = tot = 0
+    for _ in range(trials):
+        Sset = set(rnd.sample(cells, rnd.randint(1, len(cells))))
+        if rnd.random() < 0.5:                       # half the instances are closed sets, so both
+            Sset = hull(Sset)                        # branches of each predicate are exercised
+        hmap = {c: rnd.randrange(H) for c in cells}
+        if rnd.random() < 0.5:                       # half the maps are monotone in one coordinate
+            hmap = {c: min(H - 1, c[0]) for c in cells}
+        truths = graph_truths(cells, Sset, hmap)
+        for F, want in zip(forms, truths):
+            s = z3.Solver()
+            s.add([S[c] == (c in Sset) for c in cells] + [h[c] == hmap[c] for c in cells])
+            s.add(F)
+            tot += 1
+            bad += (s.check() == z3.sat) != want
+    return tot, bad
 
 
 def adjunction_obligation(shape, H, converse=False):
@@ -395,20 +538,13 @@ def adjunction_obligation(shape, H, converse=False):
     S = subset_vars(cells, "s")
     h = {c: z3.Int("h_%s" % (c,)) for c in cells}
     rng = z3.And([z3.And(h[c] >= 0, h[c] < H) for c in cells])
-    closedS = z3.And([z3.Implies(z3.And(S[a], S[b]), z3.And(S[meet(a, b)], S[join(a, b)]))
-                      for a in cells for b in cells])
-    closedSp = z3.And([z3.Implies(z3.And(S[a], S[b]),
-                                  z3.And(S[join(a, b)],
-                                         h[join(a, b)] == z3.If(h[a] >= h[b], h[a], h[b]),
-                                         S[meet(a, b)],
-                                         h[meet(a, b)] == z3.If(h[a] <= h[b], h[a], h[b])))
-                       for a in cells for b in cells])
+    closedS, closedSp, _ = graph_formulas(cells, S, h)
     s = z3.Solver()
     s.add(rng, closedSp, z3.Not(closedS))
     r = s.check()
-    g = z3.Solver()                                    # non-vacuity: S' closed, S non-trivial, h non-constant
+    g = z3.Solver()                                    # non-vacuity: S' closed, S proper, h non-constant ON S
     g.add(rng, closedSp, nonempty(S, cells), z3.Not(z3.And([S[c] for c in cells])),
-          z3.Or([h[a] != h[b] for a in cells for b in cells]))
+          z3.Or([z3.And(S[a], S[b], h[a] != h[b]) for a in cells for b in cells]))
     nv = g.check()
     n = z3.Solver()                                    # the converse: S closed => S' closed
     n.add(rng, closedS, nonempty(S, cells), z3.Not(closedSp))
@@ -439,18 +575,7 @@ def homomorphism_obligation(shape, H):
     S = subset_vars(cells, "s")
     h = {c: z3.Int("g_%s" % (c,)) for c in cells}
     rng = z3.And([z3.And(h[c] >= 0, h[c] < H) for c in cells])
-    closedS = z3.And([z3.Implies(z3.And(S[a], S[b]), z3.And(S[meet(a, b)], S[join(a, b)]))
-                      for a in cells for b in cells])
-    closedSp = z3.And([z3.Implies(z3.And(S[a], S[b]),
-                                  z3.And(S[join(a, b)],
-                                         h[join(a, b)] == z3.If(h[a] >= h[b], h[a], h[b]),
-                                         S[meet(a, b)],
-                                         h[meet(a, b)] == z3.If(h[a] <= h[b], h[a], h[b])))
-                       for a in cells for b in cells])
-    hom = z3.And([z3.Implies(z3.And(S[a], S[b]),
-                             z3.And(h[join(a, b)] == z3.If(h[a] >= h[b], h[a], h[b]),
-                                    h[meet(a, b)] == z3.If(h[a] <= h[b], h[a], h[b])))
-                  for a in cells for b in cells])
+    closedS, closedSp, hom = graph_formulas(cells, S, h)
     s = z3.Solver()
     s.add(rng, closedS, z3.Not(closedSp == hom))
     return s.check()

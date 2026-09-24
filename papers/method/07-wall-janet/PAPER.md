@@ -418,7 +418,7 @@ The general form of the point is this. **An index may bracket a quantity only al
 
 ## §10 · Verification record
 
-The machine checks behind this paper discharge 143 obligations, all passing — 115 EXHAUSTIVE, 15 GUARD (one SAMPLED fidelity guard, its negative control, and thirteen non-vacuity guards) and 13 MACHINE-CHECKED — and a self-test adds six negative controls, each of which must be and is refuted. Every number printed in this paper is produced there or is CITED.
+The machine checks behind this paper discharge 145 obligations, all passing — 117 EXHAUSTIVE, 15 GUARD (one SAMPLED fidelity guard, its negative control, and thirteen non-vacuity guards) and 13 MACHINE-CHECKED — and a self-test adds six negative controls, each of which must be and is refuted. Every number printed in this paper is produced there or is CITED.
 
 | object | status | family or box | count |
 |---|---|---|---|

@@ -418,55 +418,55 @@ places by claims stated more strongly than the record supports.
 
 | id | line(s) | severity | finding (short) | disposition |
 |---|---|---|---|---|
-| A-1 | 355 | BLOCKING | measurable-cells chain printed with cuts the check refutes; SOURCES misfiles it | |
-| A-2 | 263, 355 | MAJOR | index-cell cores in Madelung order, not D8's ground configuration; 1,755 vs 1,925 | |
-| A-3 | 3, 11, 37, 293–295 | BLOCKING | Proposition 3 "iff" — necessity unproved and false in general | |
-| A-4 | 283, 285, 404, 411 | MAJOR | Theorem 6 proof incomplete; fⁿ row mis-cited to Condon & Shortley | |
-| A-5 | 160, 414 | MAJOR | fidelity guard misdescribed (compares seated operator, not D3–D4; Z3 term never evaluated) | |
-| A-6 | 160, 414 | MAJOR | non-vacuity guard run on 4 pairs, not per obligation; none for 7×18 | |
-| A-7 | 156, 168 | MINOR | "every subset" / "2¹²⁶" — hypothesis includes observedness | |
-| A-8 | 54, 253, 418 | MAJOR | p is an unnamed normal approximation; exact p = 3.4 × 10⁻⁵; z sign conventional | |
-| A-9 | 11, 52, 305 | MAJOR | "five conventions in which a parent is written" — four, plus none | |
-| A-10 | 65–74, 255, 410, 418 | MAJOR | status vocabulary: MEASURED added (forbidden as a label), SAMPLED dropped | |
-| A-11 | check.py 1064 | MINOR | wrong arithmetic labels in section I | |
-| A-12 | 346, 349 | MINOR | per-limit row counts pinned only as multisets | |
-| A-13 | 261, 281, Fig. 5 | MINOR | three numbers unasserted (10.0; f-row; rounded spans) | |
-| A-14 | pp. 2, 4, 5, 6, 11, 16 | MAJOR | underscore and caret fallbacks on the page | |
-| A-15 | Fig. 1, p. 7 | MAJOR | plate title overprints row 1 | |
-| A-16 | pp. 3, 6 | MINOR | stranded §3 heading, blank page-thirds | |
-| A-17 | 54, 253, 259, 410 | MINOR | "channels" for index cells | |
-| A-18 | 100 | MINOR | D7 wording | |
-| A-19 | 124, 150 | MINOR | monotonicity line; converse of Theorem 2 | |
-| A-20 | 295 | MINOR | stripping applies to prefix conventions only | |
-| A-21 | 11, 28 | MINOR | "six boxes" | |
-| A-22 | 98, 303, 353 | MINOR | z / core charge / spectrum number undefined once | |
-| A-23 | 353 | MINOR | "which is what Corollary 2 predicts" | |
-| A-24 | 41–48, 322 | MINOR | "names a parent" = contains a parenthesis; C II, Ga II | |
-| R-1 | 3, 11, 37, 293 | BLOCKING | = A-3 (mathematician) | |
-| R-2 | 3, 11, 21–28, 227 | BLOCKING | E = 0 on (n+ℓ, Z) is automatic for any row partition of Z; (period, Z) also E = 0; left-step on (row, column) E = 136 | |
-| R-3 | 273–285 | MAJOR | = A-4 | |
-| R-4 | 124, 150 | MINOR | = A-19 | |
-| R-5 | 100 | MINOR | = A-18 | |
-| R-6 | 156, 168 | MINOR | = A-7 | |
-| R-7 | 126 | MINOR | "drawn band" undefined | |
-| R-8 | 213–217 | MINOR | say where the 2k′² content lies | |
-| R-9 | 3, 11, 269 | MAJOR | "one series per parent term" — per level, several per (level, ℓ); cite Racah 1942 | |
-| R-10 | 261 | MAJOR | "differ in nothing else" false; split confounded with ionisation stage | |
-| R-11 | 11, 346, 363 | MAJOR | "exactly the fine-structure interval" — rounded limits, no Ba IV level cited | |
-| R-12 | 303, 412 | MAJOR | provenance covers a third of the species; Sugar & Corliss 1985 missing | |
-| R-13 | 249–251 | MINOR | literature thresholds are not integers; Fermi 1928, Connerade 1978 | |
-| R-14 | 52, 312 | MINOR | J₁j and J₁ℓ notation named | |
-| R-15 | 50, 332 | MINOR | Ar II as the concrete single-limit capture | |
-| R-16 | 98 | MINOR | δ in §5 is the channel's mean defect | |
-| R-17 | 3, 11, 21–28 | BLOCKING | = R-2 (referee) | |
-| R-18 | 11, 50, 332 | MAJOR | Proposition 4 verifies the compilation's labelling rule | |
-| R-19 | 205, 213, 429 | MAJOR | Janet citation wrong; Janet's table not described; Stewart uncited | |
-| R-20 | References | MAJOR | missing standard references (Racah 1942, Cowan 1981, Nielson & Koster 1963, Martin & Wiese 1996, Sugar & Corliss 1985, Fermi 1928, Connerade 1978, Klechkovskii 1962, Hakala 1952, Schwarz & Rich 2010, Scerri 2009) | |
-| R-21 | References | MINOR | eleven uncited references | |
-| R-22 | 65–74, 391 | MAJOR | = A-10 + A-13 | |
-| R-23 | 379–385 | MINOR | companion study uncited; its test undefined here | |
-| R-24 | 353 | MINOR | = A-23 | |
-| R-25 | 11, 28 | MINOR | = A-21 | |
+| A-1 | 355 | BLOCKING | measurable-cells chain printed with cuts the check refutes; SOURCES misfiles it |  FIXED. §7 prints the chain with the cuts that produce it (Z ≤ 92; Z ≤ 83 and spectrum number ≤ 10; Z ≤ 83, spectrum number ≤ 6, ℓ ≤ 4), the last cut under both configuration rules (1,925 with D8's tabulated core, 1,755 in Madelung order, the 170 differing cells named), and the chain under the stated cuts beside it (61,152 / 12,720 / 7,950 / 3,550); "where series resolve" dropped. SOURCES.md moves the chain to "NOT reproduced" (item 5) and says the numbers reproduce but the procedure does not. |
+| A-2 | 263, 355 | MAJOR | index-cell cores in Madelung order, not D8's ground configuration; 1,755 vs 1,925 |  FIXED. §5 and §7 state which rule is in force at each number and print both: the obstacle identification 26,641 (Madelung) / 21,271 (tabulated, with the 4,675 + 565 + 130 accounted for) and the single-term cut 1,755 / 1,925; obligations for each; §10 lists both. |
+| A-3 | 3, 11, 37, 293–295 | BLOCKING | Proposition 3 "iff" — necessity unproved and false in general |  FIXED. Proposition 3 states the proved implication only (one printed limit determines the channel); the converse is said not to hold in general with the K/J reason; Ba III's label at two limits is a REFUTATION of "the outer label determines the parent" with its own status; thesis, abstract and §0 say "can fail … and does fail once", never "exactly when". |
+| A-4 | 283, 285, 404, 411 | MAJOR | Theorem 6 proof incomplete; fⁿ row mis-cited to Condon & Shortley |  FIXED. The highest-weight step is written out (a rectangle containing the top entry must have its corner there, else a higher entry exists), with induction on the term count; the run's 17,476 decrements with 0 below zero and an independent second-difference count are both obligations; Theorem 6 is PROVED given the CITED multiplet decomposition, and the fⁿ row is cited to Nielson and Koster (1963). |
+| A-5 | 160, 414 | MAJOR | fidelity guard misdescribed (compares seated operator, not D3–D4; Z3 term never evaluated) |  FIXED. `guard_encoding` now evaluates the Z3 term `in_R` under `z3.simplify` with the drawn X substituted, the seated `op_order` and the fresh `R_ref` on the same 300 draws and prints the three pairwise disagreement counts (0, 0, 0 over 3,578 cells); §2 and §10 describe exactly that, as SAMPLED. |
+| A-6 | 160, 414 | MAJOR | non-vacuity guard run on 4 pairs, not per obligation; none for 7×18 |  FIXED. `non_vacuous` runs for every (hypothesis, box) pair — thirteen GUARD lines, the 7×18 corner box included — before any obligation; §2 and §10 say so. |
+| A-7 | 156, 168 | MINOR | "every subset" / "2¹²⁶" — hypothesis includes observedness |  FIXED. "every subset X of the box that realises every value of both coordinates — so that the box is its own Â(X) by D2"; "2¹²⁶" removed; §10 says "every observing subset". |
+| A-8 | 54, 253, 418 | MAJOR | p is an unnamed normal approximation; exact p = 3.4 × 10⁻⁵; z sign conventional |  FIXED. The exact permutation distribution of the rank sum over all C(128, 7) = 94,525,795,200 assignments (midranks for the 12 ties) is computed: two-sided p = 3.4 × 10⁻⁵, one-sided 1.7 × 10⁻⁵, Mann and Whitney (1947) cited; the direction 773 of 847 cross pairs is printed; the normal approximation is named as tie-corrected without continuity correction and kept for comparison; the sign of z is said to carry no direction. |
+| A-9 | 11, 52, 305 | MAJOR | "five conventions in which a parent is written" — four, plus none |  FIXED. "four conventions, and a fifth class of rows writes none" in abstract, §0 and Table 2's title. |
+| A-10 | 65–74, 255, 410, 418 | MAJOR | status vocabulary: MEASURED added (forbidden as a label), SAMPLED dropped |  FIXED as the contract now stands. PAPER-SPEC §5 (revised 2026-09-24) admits MEASURED as a declared status word for a paper's own measured result with its sample stated, which is how Proposition 2 uses it; SAMPLED is used for the 300-draw guard (size and seed stated) in §2 and §10; seven status words, none merged. Deleting MEASURED is declined per the revised spec. |
+| A-11 | check.py 1064 | MINOR | wrong arithmetic labels in section I |  FIXED. Section I asserts 118 − 118 = 0 on (n+ℓ, Z) and on (period, Z), 110 − 90 = 20, 224 − 118 = 106, 256 − 118 = 138, each from the computed |ℛ(X)|, and E = box − cells on the three drawn tables. |
+| A-12 | 346, 349 | MINOR | per-limit row counts pinned only as multisets |  FIXED. `bylim` is asserted per limit: Ba III 20 at 289,100.000 and 2 at 306,650.000; Si I 15 at 65,747.760 and 18 at 66,035.000; Ne I 4 / 2 / 1 ascending; Ne II 29 / 8. |
+| A-13 | 261, 281, Fig. 5 | MINOR | three numbers unasserted (10.0; f-row; rounded spans) |  FIXED. `rec`s for the factor 10.0 and the full fⁿ row; Figure 5 prints the spans to the three decimals of the limits (17,550.000; 217,047.600; 25,840.700; 287.240) exactly as `span_labels` pins them, and the caption says so. |
+| A-14 | pp. 2, 4, 5, 6, 11, 16 | MAJOR | underscore and caret fallbacks on the page |  FIXED. Every subscript and superscript is Unicode (xᵢ, Eₙ, δₙ, Mₗ, Mₛ, mℓ, mₛ, tₘ, xₘ, a₋/a₊/b₋/b₊, yⱼ, ℓᵏ, pᵏ, dᵏ, fᵏ); pypdf text of all 22 rendered pages holds 0 underscores, 0 carets, 0 backslashes. The re-render also showed the stars in Theorem 6's (μ*, ν*) read as Markdown emphasis; replaced by (μ₀, ν₀). |
+| A-15 | Fig. 1, p. 7 | MAJOR | plate title overprints row 1 |  FIXED. Figure 1 is drawn by `figures.py` from `periodic_cells` and `E_of` with the title above the grid; `FIGURES.tsv` records the replacement and the plate's md5; `figures.py` re-run reproduces every md5. The five figure lines also lost their alt text, which the template was rendering as a stray "Figure n" line above each caption. |
+| A-16 | pp. 3, 6 | MINOR | stranded §3 heading, blank page-thirds |  FIXED in part. §3's heading is no longer stranded (page 7 carries it with its paragraph; Theorem 3 and Figure 1 follow on page 8), and every figure sits with its caption. Page 10 still ends ~35 % blank because Figure 3 opens page 11: a float rule of the shared template, which this paper's directory may not edit. Recorded. |
+| A-17 | 54, 253, 259, 410 | MINOR | "channels" for index cells |  FIXED. "cells" (keyed Z, spectrum number, 2S+1, ℓ) throughout §0, §5, Figure 4's caption and §10; Ti III nd at two multiplicities named as two cells. |
+| A-18 | 100 | MINOR | D7 wording |  FIXED. D7: "the number of (L, S) pairs in the decomposition of its multiplicity table, a pair counted as often as it occurs". |
+| A-19 | 124, 150 | MINOR | monotonicity line; converse of Theorem 2 |  FIXED. Lemma 2 proves monotonicity in its own paragraph; a Remark after Theorem 2 states and proves the converse for d = 2. |
+| A-20 | 295 | MINOR | stripping applies to prefix conventions only |  FIXED. The REFUTATION paragraph says the stripping removes the three prefix conventions and leaves the (J₁, j) pair intact, with the reason. |
+| A-21 | 11, 28 | MINOR | "six boxes" |  FIXED. "thirteen named boxes" in the abstract and §0; the table in §2 gives each obligation's boxes. |
+| A-22 | 98, 303, 353 | MINOR | z / core charge / spectrum number undefined once |  FIXED. D6 defines z, the spectrum number, once, and §7 uses "spectrum number" throughout. |
+| A-23 | 353 | MINOR | "which is what Corollary 2 predicts" |  FIXED. "consistent with, though not predicted by, the interleaving of Corollary 3"; the ceiling is called a fact about which series were captured. |
+| A-24 | 41–48, 322 | MINOR | "names a parent" = contains a parenthesis; C II, Ga II |  FIXED. §7 states the operational rule and names C II (5 rows, `(1S)` on a closed core) and Ga II (2), with an obligation. |
+| R-1 | 3, 11, 37, 293 | BLOCKING | = A-3 (mathematician) |  FIXED — as A-3. |
+| R-2 | 3, 11, 21–28, 227 | BLOCKING | E = 0 on (n+ℓ, Z) is automatic for any row partition of Z; (period, Z) also E = 0; left-step on (row, column) E = 136 |  FIXED. §0's table gains (period, Z) · 118 · 826 · 0 and the left-step table on its drawn (row, column) coordinates · 118 · 256 · 138 (and 120 · 256 · 136); Corollary 1 (contiguous rows against a totally ordered coordinate) is stated and proved after Theorem 1 and run on all 117 two-row partitions; §4 closes both indices and keeps them apart; the thesis and abstract claim what is shown — Z closes under any contiguous row partition, every drawn table is a corner-filled box — and the closed object is "the (n+ℓ, Z) presentation"; Figure 3's caption says the boxes are not comparable. The title is changed to the working title "The Parent-Term Wall and the Cost of a Drawn Coordinate"; SOURCES.md records the old title for the author and the source's contrast as a finding about the source. |
+| R-3 | 273–285 | MAJOR | = A-4 |  FIXED — as A-4. |
+| R-4 | 124, 150 | MINOR | = A-19 |  FIXED — as A-19. |
+| R-5 | 100 | MINOR | = A-18 |  FIXED — as A-18. |
+| R-6 | 156, 168 | MINOR | = A-7 |  FIXED — as A-7. |
+| R-7 | 126 | MINOR | "drawn band" undefined |  FIXED. The sentence now defines its object: "an index that is itself a closure — one of the form ℛ(Y) for some Y — never has a defect". |
+| R-8 | 213–217 | MINOR | say where the 2k′² content lies |  FIXED. "k′ = ⌈r/2⌉, and the pairing of consecutive rows into equal lengths is where the content lies" in §4; §0 says the pairing is the whole of what is unexplained. |
+| R-9 | 3, 11, 269 | MAJOR | "one series per parent term" — per level, several per (level, ℓ); cite Racah 1942 |  FIXED. D6/D7 and §6 state series per parent level, several per (level, ℓ) in Racah's pair coupling, with Racah (1942) cited (Physical Review 61, 537–538) and the compilation's own Ba III rows (20 at one limit) as the instance; the thesis says "a separate Rydberg series on each of its levels". |
+| R-10 | 261 | MAJOR | "differ in nothing else" false; split confounded with ionisation stage |  FIXED. The sentence is deleted; the Ti IV / Sr II pair is kept only as "illustrates the size of the effect and controls for nothing"; the charge distribution of both classes is printed (7 collapsed at spectrum numbers 3, 3, 3, 4, 8, 15, 16; 34 neutral and 29 singly ionised among the 121), the confound is stated in §0, §5 and §10, Fe XV and Fe XVI's small defects are named, and the argon-core nd sequence K I 0.2460 / Ca II 0.6341 / Sc III 0.6533 is given. |
+| R-11 | 11, 346, 363 | MAJOR | "exactly the fine-structure interval" — rounded limits, no Ba IV level cited |  FIXED in part. "exactly" is dropped; §8 says the two limits are the two levels by construction, so the difference is the compilation's fine-structure interval and not an independent test, printed "to the precision at which the limits are printed". The Ba IV ²P°₁/₂ level from NIST ASD is not cited: it could not be verified from the tree or in this session, and a number `check.py` does not produce is not printed (PAPER-SPEC §4). |
+| R-12 | 303, 412 | MAJOR | provenance covers a third of the species; Sugar & Corliss 1985 missing |  FIXED. `check.py` reads the compilation's own source list: 25 of 70 species attributed by compilation (Kaufman & Martin 2, Kramida & Martin 1, Sansonetti 2, NIST ASD 20), Sugar & Corliss 1985 and Sugar & Musgrove 1990, 1995 named as additional sources, 45 species with no species-level attribution; §7 prints that and cites all of them, with NIST ASD version 5.12 (Kramida et al. 2024). |
+| R-13 | 249–251 | MINOR | literature thresholds are not integers; Fermi 1928, Connerade 1978 |  FIXED. §5 says the literature places the collapse near these atomic numbers and makes it depend on ionisation stage, and does not give integers; Fermi (1928) and Connerade (1978) cited. |
+| R-14 | 52, 312 | MINOR | J₁j and J₁ℓ notation named |  FIXED. Table 2's paragraph names the (J₁, j) pair as J₁j coupling, says its first entry fixes the parent level only because every such core has a single term (all 30 rows), and names the `2[K]°` labels as Racah's pair coupling. |
+| R-15 | 50, 332 | MINOR | Ar II as the concrete single-limit capture |  FIXED. Ar II is the concrete case in §7 (core 3p⁴, 3 terms, 5 levels, 30 unnamed + 14 named rows, one printed limit), with an obligation. |
+| R-16 | 98 | MINOR | δ in §5 is the channel's mean defect |  FIXED. D6 defines the channel's mean defect and says the compilations tabulate it per channel; §5's sample paragraph says each cell carries the mean defect of the channel fitted there. |
+| R-17 | 3, 11, 21–28 | BLOCKING | = R-2 (referee) |  FIXED — as R-2. |
+| R-18 | 11, 50, 332 | MAJOR | Proposition 4 verifies the compilation's labelling rule |  FIXED. Proposition 4 is "the compilation's labelling convention holds on every row"; §0 and §7 say it confirms a rule applied without exception and is not a property of the thirteen spectra. |
+| R-19 | 205, 213, 429 | MAJOR | Janet citation wrong; Janet's table not described; Stewart uncited |  FIXED. Janet (1928) *La classification hélicoïdale des éléments chimiques* and Janet (1929) *Considérations sur la structure du noyau de l'atome*, both Imprimerie Départementale de l'Oise, Beauvais, as the search confirms; Stewart (2010) cited in §4; the left-step table described in one sentence (rows of n + ℓ, blocks f, d, p, s left to right, helium above beryllium); the closed object is the (n+ℓ, Z) presentation. SOURCES.md item 7 records the tree's own inconsistency. |
+| R-20 | References | MAJOR | missing standard references (Racah 1942, Cowan 1981, Nielson & Koster 1963, Martin & Wiese 1996, Sugar & Corliss 1985, Fermi 1928, Connerade 1978, Klechkovskii 1962, Hakala 1952, Schwarz & Rich 2010, Scerri 2009) |  FIXED in part. Added and cited: Racah 1942 (D7, §6), Cowan 1981 (§0, §6), Nielson & Koster 1963 (Theorem 6), Sugar & Corliss 1985 (§7), Fermi 1928 and Connerade 1978 (§5), Klechkovskii 1962 (§4), Mann & Whitney 1947 (Proposition 2), Martin & Wiese 1996 (Table 2) — details verified by search or from the compilation's own source list. Declined: Hakala 1952 (the search returns the journal inconsistently, so the details are unverified; the row-length formula is presented as arithmetic given the pairing, which Klechkovskii covers), Schwarz & Rich 2010 and Scerri 2009 (the paper takes no position on the left-step table's merit, cites Scerri 2020 for helium's placement, and a reference uncited in the body is what R-21 objects to). |
+| R-21 | References | MINOR | eleven uncited references |  FIXED. A script over the reference list finds every author-year cited in the body (Rydberg and Ritz at D6; Seaton at D6; Madelung at §4; Pauli at Theorem 6; Mendeleev at §3; Theodosiou at §7; Kramida et al. at §7; Racah 1942 at D7; Stewart at §4); Hund 1925 dropped. |
+| R-22 | 65–74, 391 | MAJOR | = A-10 + A-13 |  FIXED — as A-10 and A-13; "Every number printed in this paper is produced there or is CITED" is now true of every number the audit listed. |
+| R-23 | 379–385 | MINOR | companion study uncited; its test undefined here |  FIXED in part. §9 states the containment statement in one sentence, says the companion paper defines and tests it, and marks the column's totals as the column's own figures reproduced from it (EXHAUSTIVE over the column), with the test itself not defined or examined here. Moving the numbers out is declined: they are what the column holds and an obligation pins them. |
+| R-24 | 353 | MINOR | = A-23 |  FIXED — as A-23. |
+| R-25 | 11, 28 | MINOR | = A-21 |  FIXED — as A-21. |
 
 **Counts (distinct findings; a finding raised by more than one reader is counted once):**
 BLOCKING 3 — A-1; A-3 (= R-1); R-2 (= R-17).
@@ -475,3 +475,41 @@ R-18; R-19; R-20.
 MINOR 21 — A-7 (= R-6); A-11; A-12; A-13; A-16; A-17; A-18 (= R-5); A-19 (= R-4); A-20; A-21 (= R-25);
 A-22; A-23 (= R-24); A-24; R-7; R-8; R-13; R-14; R-15; R-16; R-21; R-23.
 Rows in the table: 49 (24 A, 25 R); distinct findings: 40.
+
+---
+
+## Repair record (2026-09-24)
+
+Written by the repairing drafter; nothing above this line was deleted or rewritten. A first repair
+attempt was cut off by a session limit with `PAPER.md`, `check.py`, `figures.py` and three figures
+already changed and `FIGURES.tsv` half-updated; this pass read that state, completed it, and wrote
+every disposition.
+
+**Dispositions.** 49 rows, none blank: 45 FIXED, 4 FIXED in part with the residue declined for a
+stated reason (A-16, R-11, R-20, R-23). By severity over the 40 distinct findings: BLOCKING 3 —
+all FIXED; MAJOR 16 — 14 FIXED, 2 FIXED in part (R-11, R-20); MINOR 21 — 19 FIXED, 2 FIXED in part
+(A-16, R-23). No finding was declined outright.
+
+**How the framing was resolved.** The paper now claims that Z, as the second coordinate, closes
+under any contiguous row partition (Theorem 1, Corollary 1: the n + ℓ rows, the periods, and all
+117 two-row partitions), and that every drawn table — eighteen-column, thirty-two-column, left-step
+— admits its whole box on its drawn coordinates by Lemma 3, with E = box − cells (36, 106, 138). The
+closure distinguishes a coordinate, not an ordering. Title changed to the working title "The
+Parent-Term Wall and the Cost of a Drawn Coordinate"; the old title is recorded in SOURCES.md.
+
+**What was run.** `export PATH=/home/user/Claude-Method-Works/method/bin:$PATH`; `python3 check.py`
+— 145 obligations, 0 failed (EXHAUSTIVE 117, GUARD 15, MACHINE-CHECKED 13), exit 0; `python3
+check.py --selftest` — 151, the six negative controls each refuted, exit 0 (both detached, never
+concurrent). `python3 papers/method/lint.py papers/method/07-wall-janet` — 0 hits. `python3
+papers/method/render.py papers/method/07-wall-janet` — 22 pages; every page rasterised and read;
+pypdf text extraction over all 22 pages: 0 underscores, 0 carets, 0 backslashes. `python3
+figures.py` re-run reproduces all five md5s in `FIGURES.tsv`. The five figures were read as images
+against their captions.
+
+**Obligations gained, none weakened.** 101 → 145 (see SOURCES.md's table). Every printed number
+was matched to a line of the check's output before this record was written.
+
+**Unresolved.** One layout artefact of the shared template (page 10's blank lower third, A-16),
+which this directory may not edit. The Ba IV level R-11 asks for is uncited for the reason given
+in its row. Hakala 1952, Schwarz & Rich 2010 and Scerri 2009 (R-20) are not added, for the reasons
+given in that row.

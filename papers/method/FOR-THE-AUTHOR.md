@@ -478,3 +478,16 @@ the two works the tree holds; the Ritz 1903 reference is restored. Fifty-two fin
 declined — a calibration against millimetre-wave coefficients not held in the tree. Still yours:
 the title, the prefactor question, and whether to compare the three implied polarisabilities with
 published values (the paper says it does not, and why).
+
+**The parent-term wall — repaired.** Working title now: *The Parent-Term Wall and the Cost of a
+Drawn Coordinate*; the old title is recorded for you. The paper now says what it can prove: Z as
+the second coordinate closes under any contiguous row partition — the n+ℓ rows, the periods, and
+all 117 two-row partitions — while every drawn table admits its whole box on its drawn coordinates,
+at defect 36 for the eighteen-column table, 106 for the thirty-two-column, and 138 for the
+left-step. "The closure distinguishes a coordinate, not an ordering." The measurable-cell chain is
+printed under the cuts that produce it and under the stated cuts beside it; the proposition is
+stated in the direction proved, with the Ba III case as a refutation of the converse; the
+collapse test uses the exact permutation distribution. Forty-five findings fixed, four fixed in part
+with the residue declined for a stated reason. Two things for you: the paper takes no position on
+the left-step table's merit and declines the references that would argue one, and the tree is
+inconsistent about Janet's 1928 and 1929 titles, so the paper cites what search confirms.

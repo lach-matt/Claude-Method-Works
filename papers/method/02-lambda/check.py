@@ -622,7 +622,8 @@ def structure():
     ok &= good
     row("EXHAUSTIVE", "Theorem 4, Lambda is graded",
         "%d cover relations found from the order alone (x < y with no cell between); %d of them "
-        "are unit steps y = x + e_i and %d raise rank by 1; bottom %s rank 3, top %s rank 20"
+        "are unit steps, y - x a unit vector, and %d raise rank by 1; bottom %s rank 3, top %s "
+        "rank 20"
         % (ncov, unit, ncov - bad4, "".join(map(str, BOTTOM)), "".join(map(str, TOP))), good)
 
     # rank sequence, Sperner

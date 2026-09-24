@@ -916,10 +916,11 @@ def compute(quiet=False):
                 return q
             k += 1
 
-    for form in ("p", "q"):
-        lo_r, hi_r, emp = None, None, []          # the running intersection, exactly
+    def emptyings(cors):
+        """The steps at which the running intersection of the corridors empties, exactly."""
+        lo_r, hi_r, emp = None, None, []
         for Z in STEPS:
-            lo, hi, _ = out["cor"][form][Z]
+            lo, hi, _ = cors[Z]
             nlo = lo if lo_r is None else (lo_r if lo is None or less(lo, lo_r) else lo)
             nhi = hi if hi_r is None else (hi_r if hi is None or less(hi_r, hi) else hi)
             if nlo is not None and nhi is not None and not less(nlo, nhi):
@@ -927,40 +928,57 @@ def compute(quiet=False):
                 lo_r, hi_r = lo, hi
             else:
                 lo_r, hi_r = nlo, nhi
-        NUM["empties_" + form] = emp
-        rep("EXHAUSTIVE", "form %s: the running intersection empties, exactly" % form, True, "%d times at %s" % (len(emp), emp))
-        # (i) a largest pairwise-disjoint set, by the greedy on the right endpoint
-        iv = sorted(STEPS, key=lambda Z: (fl(out["cor"][form][Z][1], math.inf), Z))
+        return emp
+
+    def disjoint(cors):
+        """A pairwise-disjoint subfamily by the greedy on the right endpoint, and whether it IS pairwise disjoint, exactly."""
+        iv = sorted(STEPS, key=lambda Z: (fl(cors[Z][1], math.inf), Z))
         chosen, last = [], None
         for Z in iv:
-            lo, hi, _ = out["cor"][form][Z]
+            lo, hi, _ = cors[Z]
             if last is None or (lo is not None and not less(lo, last)):
                 chosen.append(Z)
                 last = hi
-        NUM["disjoint_" + form] = chosen
         okd = True
         for x, y in itertools.combinations(chosen, 2):
-            cx, cy = out["cor"][form][x], out["cor"][form][y]
+            cx, cy = cors[x], cors[y]
 
             def le(u, l):
                 return u is not None and l is not None and not less(l, u)
             okd = okd and (le(cx[1], cy[0]) or le(cy[1], cx[0]))
+        return chosen, okd
+
+    def pierce(cors):
+        """Rational stabs, exhibited by the greedy, and the corridors none of them pierces; exact."""
+        stabs, unpierced = [], list(STEPS)
+        while unpierced:
+            Z0 = min(unpierced, key=lambda Z: (fl(cors[Z][1], math.inf), Z))
+            lo, hi, _ = cors[Z0]
+            q = just_below(lo, hi)
+            stabs.append(q)
+            unpierced = [Z for Z in unpierced if not inside(cors[Z], q)]
+        miss = [Z for Z in STEPS if not any(inside(cors[Z], q) for q in stabs)]
+        return stabs, miss
+
+    WANT_EMP = {"p": [37, 42, 43, 45, 55, 58, 64, 65, 80, 91, 96, 97, 103, 104],
+                "q": [25, 43, 58, 64, 65, 87, 91, 96, 97, 103, 104]}
+    for form in ("p", "q"):
+        emp = emptyings(out["cor"][form])
+        NUM["empties_" + form] = emp
+        rep("EXHAUSTIVE", "form %s: the running intersection empties exactly %d times, at %s" % (form, len(WANT_EMP[form]), WANT_EMP[form]),
+            emp == WANT_EMP[form], "%d times at %s" % (len(emp), emp))
+        # (i) a largest pairwise-disjoint set, by the greedy on the right endpoint
+        chosen, okd = disjoint(out["cor"][form])
+        NUM["disjoint_" + form] = chosen
         rep("EXHAUSTIVE", "form %s: %d corridors are pairwise disjoint, exactly" % (form, len(chosen)), okd,
             "%s" % [(Z, G.GROUND[Z][0]) for Z in chosen])
         # (ii) a piercing set of the same size, EXHIBITED as rationals and verified exactly
-        stabs, unpierced = [], list(STEPS)
-        while unpierced:
-            Z0 = min(unpierced, key=lambda Z: (fl(out["cor"][form][Z][1], math.inf), Z))
-            lo, hi, _ = out["cor"][form][Z0]
-            q = just_below(lo, hi)
-            stabs.append(q)
-            unpierced = [Z for Z in unpierced if not inside(out["cor"][form][Z], q)]
-        miss = [Z for Z in STEPS if not any(inside(out["cor"][form][Z], q) for q in stabs)]
+        stabs, miss = pierce(out["cor"][form])
         rep("EXHAUSTIVE", "form %s: %d exhibited rational slopes pierce all 106 corridors, exactly" % (form, len(stabs)),
             not miss and len(stabs) == len(chosen), "%s" % [str(q) for q in stabs])
         NUM["pierce_" + form] = [str(q) for q in stabs]
         rep("EXHAUSTIVE", "form %s: the piercing number is exactly %d" % (form, len(chosen)),
-            okd and not miss and len(stabs) == len(chosen))
+            okd and not miss and len(stabs) == len(chosen) and len(chosen) == {"p": 3, "q": 4}[form])
         # coverage by one slope: piecewise constant, so probe between consecutive endpoints, exactly
         es = sorted({key(x) for Z in STEPS for x in out["cor"][form][Z][:2] if x is not None},
                     key=functools.cmp_to_key(lambda A, B: sign(add(dict(A), neg(dict(B))))))
@@ -973,11 +991,55 @@ def compute(quiet=False):
         span = [(None if i == 0 else es[i - 1], None if i == len(es) else es[i]) for i in where]
         NUM["cover_" + form] = (best, [("−∞" if a is None else closed(a), "+∞" if b is None else closed(b)) for a, b in span])
         out.setdefault("cover", {})[form] = (best, span)       # the band as surds, for figures.py
-        rep("EXHAUSTIVE", "form %s: best coverage by one fixed slope, exactly" % form, True,
+        want_cov = {"p": (86, [(key({3: Fr(1, 3)}), key({2: Fr(1, 2)}))]),
+                    "q": (90, [(key({1: Fr(1)}), key({2: Fr(5, 9), 5: Fr(1, 9)}))])}[form]
+        rep("EXHAUSTIVE", "form %s: best coverage by one fixed slope is %d of 106, on exactly one band" % (form, want_cov[0]),
+            best == want_cov[0] and [(key(a), key(b)) for a, b in span] == want_cov[1],
             "%d of 106 on %s" % (best, NUM["cover_" + form][1]))
     rep("EXHAUSTIVE", "node-only: fourteen emptyings at 37 42 43 45 55 58 64 65 80 91 96 97 103 104",
         NUM["empties_p"] == [37, 42, 43, 45, 55, 58, 64, 65, 80, 91, 96, 97, 103, 104])
     rep("EXHAUSTIVE", "node-only: the three pairwise-disjoint corridors are B, La, Lr", NUM["disjoint_p"] == [5, 57, 103])
+    rep("EXHAUSTIVE", "node-only: B (-inf, sqrt2/2), La (sqrt2/2, (2+sqrt2)/2), Lr ((sqrt3+sqrt5)/2, (sqrt5+sqrt7)/2) as exact intervals",
+        ckey(out["cor"]["p"][5]) == (None, key({2: Fr(1, 2)}), False)
+        and ckey(out["cor"]["p"][57]) == (key({2: Fr(1, 2)}), key({1: Fr(1), 2: Fr(1, 2)}), False)
+        and ckey(out["cor"]["p"][103]) == (key({3: Fr(1, 2), 5: Fr(1, 2)}), key({5: Fr(1, 2), 7: Fr(1, 2)}), False))
+
+    # the lawrencium dependence.  The tabulated [Rn]5f14 7s2 7p is a calculated configuration; under the
+    # aufbau alternative [Rn]5f14 6d 7s2 the entrant at 103 is 6d and the census is re-run.  The data object
+    # is the imported table; it is swapped for this block only and restored whatever happens.
+    say("\n   the lawrencium dependence: Lr = [Rn]5f14 6d 7s2 in place of the tabulated 7p")
+    saved = G.GROUND[103]
+    G.GROUND[103] = ("Lr", "[Rn]5f14 6d 7s2", "2D3/2")
+    try:
+        assert G.occ_count(103) == 103 and entrant(103) == (6, 2) and entrant(104) == (6, 2)
+        alt = {Z: ent_corridor(Z, "p") for Z in STEPS}
+        ne_alt = sum(1 for Z in STEPS if nonempty(alt[Z]))
+        rep("EXHAUSTIVE", "Lr = 6d: the entrant's corridor is still non-empty at 106 of 106 (node-only)", ne_alt == 106, "%d of 106" % ne_alt)
+        rep("EXHAUSTIVE", "Lr = 6d: the corridor at 103 is (sqrt3/3, (sqrt3+sqrt5)/2), the Rf..Hs corridor, and it meets La's",
+            ckey(alt[103]) == (key({3: Fr(1, 3)}), key({3: Fr(1, 2), 5: Fr(1, 2)}), False) and ckey(alt[103]) == ckey(alt[104])
+            and less(alt[103][0], out["cor"]["p"][57][1]) and less(out["cor"]["p"][57][0], alt[103][1]))
+        rep("EXHAUSTIVE", "Lr = 6d: every corridor other than lawrencium's is unchanged",
+            all(ckey(alt[Z]) == ckey(out["cor"]["p"][Z]) for Z in STEPS if Z != 103))
+        ch_alt, okd_alt = disjoint(alt)
+        st_alt, miss_alt = pierce(alt)
+        rep("EXHAUSTIVE", "Lr = 6d: the largest pairwise-disjoint family is B, La and the piercing number is exactly 2",
+            ch_alt == [5, 57] and okd_alt and not miss_alt and len(st_alt) == 2,
+            "%s; stabs %s" % ([(Z, G.GROUND[Z][0]) for Z in ch_alt], [str(q) for q in st_alt]))
+        NUM["alt_disjoint"], NUM["alt_pierce"] = ch_alt, [str(q) for q in st_alt]
+        ends_alt = {key(x) for Z in STEPS for x in alt[Z][:2] if x is not None}
+        rep("EXHAUSTIVE", "Lr = 6d: 18 distinct endpoints, the ceiling (sqrt5+sqrt7)/2 no longer occurring",
+            len(ends_alt) == 18 and key({5: Fr(1, 2), 7: Fr(1, 2)}) not in ends_alt, "%d" % len(ends_alt))
+        emp_alt = emptyings(alt)
+        rep("EXHAUSTIVE", "Lr = 6d: the running intersection empties 12 times, the fourteen less 103 and 104",
+            emp_alt == [Z for Z in WANT_EMP["p"] if Z not in (103, 104)], "%s" % emp_alt)
+        TRalt = walk("p", 1e-6)
+        rec_alt = [(t["Z"], t["at"]) for t in TRalt if t["move"] != 0.0]
+        rep("EXHAUSTIVE", "Lr = 6d: the walk recalibrates 16 times, the eighteen less the Lr move and the Rf touch",
+            rec_alt == WANT18[:16], "%s" % rec_alt)
+        NUM["alt_recal"] = len(rec_alt)
+    finally:
+        G.GROUND[103] = saved
+    rep("EXHAUSTIVE", "the tabulated table is restored: Lr = [Rn]5f14 7s2 7p, entrant 7p", G.GROUND[103] == saved and entrant(103) == (7, 1))
 
     # 7. what the law does not do: prediction
     say("\n7  PREDICTION")
@@ -995,7 +1057,12 @@ def compute(quiet=False):
             else:
                 misses.append(Z)
         NUM["heldout_" + form] = (hits, ties, misses)
-        rep("EXHAUSTIVE", "form %s: held-out prediction at the carried slope, Z = 4..108" % form, True, "%d of 105, %d ties, misses %s" % (hits, ties, misses))
+        want_h = {"p": (88, 0, [19, 37, 42, 43, 45, 55, 58, 64, 65, 80, 81, 87, 91, 96, 97, 103, 104]),
+                  "q": (91, 0, [19, 25, 37, 43, 55, 58, 64, 65, 87, 91, 96, 97, 103, 104])}[form]
+        rep("MEASURED", "form %s: held-out prediction at the carried slope, Z = 4..108, is %d of 105 with %d ties" % (form, want_h[0], want_h[1]),
+            (hits, ties, misses) == want_h, "%d of 105, %d ties, misses %s" % (hits, ties, misses))
+    rep("EXHAUSTIVE", "node-only: the held-out misses are the recalibration sites less lithium",
+        NUM["heldout_p"][2] == [t["Z"] for t in TR if t["move"] != 0.0 and t["Z"] != 3])
     kscore, kmiss = 0, []
     for Z in STEPS:
         prev, S, pts = step(Z, "p")
@@ -1005,7 +1072,13 @@ def compute(quiet=False):
         else:
             kmiss.append(Z)
     NUM["kscore"], NUM["kmiss"] = kscore, kmiss
-    rep("EXHAUSTIVE", "the memoryless least-(n+l, n) rule", True, "%d of 106, misses %s" % (kscore, kmiss))
+    rep("EXHAUSTIVE", "the step-conditional least-(n+l, n) pick names the entrant at 96 of 106, missing Mo Rh Pd La Gd Au Ac Th Cm Lr",
+        (kscore, kmiss) == (96, [42, 45, 46, 57, 64, 79, 89, 90, 96, 103]), "%d of 106, misses %s" % (kscore, kmiss))
+    absorbed = sorted(set(out["aufbau_diff"]) - set(kmiss))
+    rep("EXHAUSTIVE", "the ten conditional misses are among the twenty aufbau exceptions; the ten absorbed are Cr Cu Nb Ru Ag Ce Pt Pa U Np",
+        set(kmiss) <= set(out["aufbau_diff"]) and absorbed == [24, 29, 41, 44, 47, 58, 78, 91, 92, 93],
+        "%s" % [G.GROUND[Z][0] for Z in absorbed])
+    NUM["absorbed"] = absorbed
     for form in ("p", "q"):
         notv = [Z for Z in STEPS if min(step(Z, form)[1], key=lambda s: (s[0] + s[1], s[0])) not in out["A"][form][Z]]
         rep("EXHAUSTIVE", "form %s: the least-(n+l, n) pick is a hull vertex at every step" % form, not notv, "not at %s" % notv)
@@ -1109,6 +1182,27 @@ def z3_checks(negative=False):
     s.add(pairwise(xs, ys, k), z3.And([z3.Or(xs[i] != xs[j], ys[i] != ys[j]) for i in range(k) for j in range(i + 1, k)]))
     nv2 = s.check() == z3.sat
     rep("GUARD", "non-vacuity: both hypotheses are satisfiable (k = 4)", nv1 and nv2)
+
+    # (ii) encoding fidelity.  The Z3 EXPRESSIONS built by pairwise() and strict_min() -- the very objects
+    # the obligations below quantify over -- are instantiated on random rational point sets by
+    # substitution and simplified to a Boolean, and that Boolean is compared with the fresh chain
+    # (independent) and with brute force.  Abscissae are rational, so the chain's point (x^2, y)
+    # carries the same x exactly (sqrt(x^2) = x in the surd arithmetic) and nothing is rounded.
+    XS = [z3.Real("x%d" % i) for i in range(5)]
+    YS = [z3.Real("y%d" % i) for i in range(5)]
+    A = z3.Real("a")
+
+    def rv(q):
+        q = Fr(q)
+        return z3.RealVal("%d/%d" % (q.numerator, q.denominator))
+
+    def z3_eval(expr, pairs):
+        r = z3.simplify(z3.substitute(expr, *pairs))
+        assert z3.is_true(r) or z3.is_false(r), r
+        return z3.is_true(r)
+
+    PW = {k: pairwise(XS[:k], YS[:k], k) for k in (2, 3, 4, 5)}
+    SM = {k: strict_min(XS[:k], YS[:k], A, k) for k in (2, 3, 4, 5)}
     rnd = random.Random(11)
     tot = dis = 0
     dis_ctrl = 0
@@ -1116,34 +1210,36 @@ def z3_checks(negative=False):
         k = rnd.randint(2, 5)
         pts = []
         while len(pts) < k:
-            p = (Fr(rnd.randint(0, 5)) ** 2 if rnd.random() < 0.5 else Fr(rnd.randint(0, 25)), rnd.randint(0, 6))
+            x = Fr(rnd.randint(0, 5)) if rnd.random() < 0.5 else Fr(rnd.randint(0, 25), rnd.randint(1, 4))
+            p = (x, rnd.randint(0, 6))
             if p not in pts:
                 pts.append(p)
-        # the encoding of "not in E(P - s)" evaluated concretely, against the chain (independent)
+        H = hull_chain([(x * x, y) for x, y in pts])
         for i in range(k):
-            s0 = pts[i]
-            others = [p for j, p in enumerate(pts) if j != i]
-            enc = all(not (u[0] == s0[0] and u[1] <= s0[1]) for u in others) and all(
-                not (u[0] < s0[0] < w[0]) or cross(u, s0, w) < 0 for u in others for w in others if u is not w)
-            ref = i in hull_chain(pts)
+            order = [i] + [j for j in range(k) if j != i]          # s is index 0 of the encoding
+            pairs = ([(XS[m], rv(pts[j][0])) for m, j in enumerate(order)]
+                     + [(YS[m], rv(pts[j][1])) for m, j in enumerate(order)])
+            enc = z3_eval(PW[k], pairs)
+            ref = i in H
             tot += 1
             dis += enc != ref
-            dis_ctrl += enc != (i in hull_chain(pts)[1:])     # a wrong reference: the chain without its first vertex
-    rep("GUARD", "encoding fidelity: the pairwise predicate = the chain on 300 random instances", dis == 0, "%d point-instances, %d disagreements" % (tot, dis))
+            dis_ctrl += enc != (i in H[1:])     # a wrong reference: the chain without its first vertex
+    rep("GUARD", "encoding fidelity: the Z3 pairwise predicate, instantiated and simplified, = the chain on 300 random instances",
+        dis == 0, "%d point-instances, %d disagreements" % (tot, dis))
     rep("GUARD", "negative control: a wrong reference is caught", dis_ctrl > 0, "%d disagreements" % dis_ctrl)
-    # the strict-minimiser encoding against brute force over a rational a
+    # the Z3 strict-minimiser expression against brute force over a rational a
     tot = dis = 0
     for _ in range(300):
         k = rnd.randint(2, 5)
         pts = [(Fr(rnd.randint(0, 25)), rnd.randint(0, 6)) for _ in range(k)]
         av = Fr(rnd.randint(-8, 8), rnd.randint(1, 4))
-        xr = [Fr(p[0]) for p in pts]      # rational abscissae here: x itself, not x^2
-        f = [p[1] - av * xr[j] for j, p in enumerate(pts)]
-        enc = all(f[0] < f[i] for i in range(1, k))
+        f = [p[1] - av * p[0] for p in pts]      # rational abscissae here: x itself, not x^2
+        enc = z3_eval(SM[k], [(XS[j], rv(pts[j][0])) for j in range(k)] + [(YS[j], rv(pts[j][1])) for j in range(k)] + [(A, rv(av))])
         ref = f.count(min(f)) == 1 and f[0] == min(f)
         tot += 1
         dis += enc != ref
-    rep("GUARD", "encoding fidelity: the strict-minimiser formula = brute force on 300 random instances", dis == 0)
+    rep("GUARD", "encoding fidelity: the Z3 strict-minimiser expression, instantiated, = brute force on 300 random instances", dis == 0,
+        "%d instances, %d disagreements" % (tot, dis))
 
     ok = True
     # --- forward: a strict minimiser is not in conv(P - s) + ray
@@ -1229,6 +1325,12 @@ def table(out):
             Z, G.GROUND[Z][0], name(e), e[0] - e[1] - 1, u,
             "−∞" if lo is None else closed(lo), "+∞" if hi is None else closed(hi), w,
             "" if lo is None else dec7(lo), "" if hi is None else dec7(hi)))
+    print("\nTable 3 -- the eighteen recalibrations of the node-only walk, eps = 1e-6\n")
+    print("| Z | element | entrant | kind | endpoint | endpoint (7 dp) | a after (7 dp) |")
+    print("|---|---|---|---|---|---|---|")
+    for Z, el, en, kind, at, cl, d7, a in NUM["table3"]:
+        print("| %d | %s | %s | %s | %s = %s | %s | %s |" % (Z, el, en, kind, at, cl, d7, a))
+    print("\nthe finished-form recalibrations (Z, endpoint):", NUM["real_sites_q"])
 
 
 def main():

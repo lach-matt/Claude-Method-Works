@@ -3,10 +3,12 @@
 
 Three kinds of figure and the script makes all three the same way it records them:
 
-  * the three computed plates are drawn here from the data check.py verifies, by importing
+  * the four computed plates are drawn here from the data check.py verifies, by importing
     check.py and calling the same functions the obligations call;
-  * the five archival plates are copied byte-for-byte from the audited image the caption
+  * the four archival plates are copied byte-for-byte from the audited image the caption
     check matched, and their md5 is recorded in FIGURES.tsv.
+
+File numbers match the paper's figure numbers: figN-*.png is Figure N.
 
     python3 figures.py
 """
@@ -43,12 +45,10 @@ plt.rcParams.update({"font.size": 9, "figure.dpi": 170,
 ARCHIVAL = [
     ("fig1-constraint-tree.png",
      "extracted/archives/the-method-1-6-figures-build8/figures/figure-7.1.png"),
-    ("fig3-rank-sequence.png",
+    ("fig2-rank-sequence.png",
      "extracted/archives/the-method-1-6-figures-build8/figures/figure-8.2.png"),
-    ("fig4-occupancy-measure.png",
+    ("fig4-interval-measure.png",
      "extracted/archives/restore-point-2-13/figures/fig05.png"),
-    ("fig5-caterpillar.png",
-     "extracted/archives/restore-point-2-13/figures/fig07.png"),
     ("fig6-rank-polynomial.png",
      "extracted/archives/restore-point-2-13/figures/fig08.png"),
 ]
@@ -117,7 +117,7 @@ def fig_poset():
                  "the grey number is how many of the 976 cells the generator lies under",
                  fontsize=9.5, color=INK)
     fig.tight_layout()
-    p = os.path.join(OUT, "fig2-generating-poset.png")
+    p = os.path.join(OUT, "fig3-generating-poset.png")
     fig.savefig(p)
     plt.close(fig)
     print("  drew   %-28s md5 %s" % (os.path.basename(p), md5(p)))
@@ -190,7 +190,52 @@ def fig_void():
     for sp in ("top", "right"):
         ax2.spines[sp].set_visible(False)
     fig.tight_layout()
-    p = os.path.join(OUT, "fig7-void.png")
+    p = os.path.join(OUT, "fig5-void.png")
+    fig.savefig(p)
+    plt.close(fig)
+    print("  drew   %-28s md5 %s" % (os.path.basename(p), md5(p)))
+
+
+def fig_caterpillar():
+    """The constraint graph read in the nesting order of Theorem 14: an arrow runs from a
+    coordinate to a coordinate whose range depends on it.  Edges are taken from the seven
+    bounds check.py verifies; only the positions are chosen by hand."""
+    names = {"n": "n", "l": "ℓ", "k": "k", "q": "q", "e": "e", "f": "f", "g": "g", "2S": "2S"}
+    pos = {"n": (0, 0), "l": (1, 0), "k": (2, 0), "q": (3, 0), "g": (4, 0), "f": (5, 0),
+           "e": (6, 0), "2S": (2, -1)}
+    label = {"l <= n-1": "ℓ ≤ n − 1", "k <= 4l+2": "k ≤ 4ℓ + 2", "q <= k": "q ≤ k",
+             "f <= e-1": "f ≤ e − 1", "g <= 4f+2": "g ≤ 4f + 2", "g <= q": "g ≤ q",
+             "2S <= k": "2S ≤ k"}
+    fig, ax = plt.subplots(figsize=(9.2, 3.4))
+    for nm, i, j, _f in chk.CONSTRAINTS:
+        a, b = chk.CO[j], chk.CO[i]                       # bounding -> bounded
+        (xa, ya), (xb, yb) = pos[a], pos[b]
+        pauli = nm in ("k <= 4l+2", "g <= 4f+2")
+        ax.annotate("", xy=(xb, yb), xytext=(xa, ya),
+                    arrowprops=dict(arrowstyle="-|>", color=(WARM if pauli else INK),
+                                    lw=1.3, shrinkA=16, shrinkB=16), zorder=1)
+        mx, my = (xa + xb) / 2, (ya + yb) / 2
+        if ya == yb:
+            ax.text(mx, my + 0.16, label[nm], ha="center", va="bottom", fontsize=8,
+                    color=(WARM if pauli else GREY))
+        else:
+            ax.text(mx + 0.08, my, label[nm], ha="left", va="center", fontsize=8, color=GREY)
+    for c, (x, y) in pos.items():
+        ax.text(x, y, names[c], ha="center", va="center", fontsize=10, color=INK, zorder=3,
+                bbox=dict(boxstyle="circle,pad=0.35", fc="white", ec=INK, lw=1.1))
+    ax.text(2, -1.42, "a leaf: factors out as (1 − zᵏ⁺¹)/(1 − z)", ha="center", va="top",
+            fontsize=8, color=COOL)
+    ax.text(4, -0.42, "two parents: g ≤ min(q, 4f + 2)", ha="center", va="top",
+            fontsize=8, color=WARM)
+    ax.set_xlim(-0.6, 6.6)
+    ax.set_ylim(-1.9, 0.75)
+    ax.set_aspect("equal")
+    ax.axis("off")
+    ax.set_title("a caterpillar: a path of seven with one pendant, read in the nesting order "
+                 "n, ℓ, k, 2S, q, e, f, g\nan arrow runs from a coordinate to one whose range "
+                 "it bounds; Pauli bounds in red", fontsize=9.5, color=INK)
+    fig.tight_layout()
+    p = os.path.join(OUT, "fig7-caterpillar.png")
     fig.savefig(p)
     plt.close(fig)
     print("  drew   %-28s md5 %s" % (os.path.basename(p), md5(p)))
@@ -236,4 +281,5 @@ if __name__ == "__main__":
     copy_archival()
     fig_poset()
     fig_void()
+    fig_caterpillar()
     fig_seed()
