@@ -628,3 +628,61 @@ entries — colour of the bulk element, smell and taste — that no tabulation c
 was verified by web search as to its bibliographic details and as to carrying the property named
 beside it. The paper still takes no number from any of them, and says so in §0 and §3; the
 instruments still name no source, and `SOURCES.md` records that the column is the paper's.
+
+---
+
+## The remaining open points, settled 2026-09-24 at the author's direction
+
+M asked for everything still open above to be taken care of. Each item was traced to what the
+tree and the literature could settle; the disposition is one of three — settled by a decision
+grounded in the paper, settled by a verification the search and the arXiv connector now allow, or
+closed as not reconstructible from anything held. Nothing above is deleted; this section is the
+record of what became of it.
+
+**The polarisation ratio (04).** *Retrieval dates* — settled: the chat export dates the writing of
+each capture, and the paper now prints 8 August 2026 (Cd I), 9 August (Rb I, Sr II) and 14 August
+(In I). *Author initials* — settled from publishers' records for all five entries that lacked them.
+*The implied polarisabilities against published values* — done, in a new §5.7: Cd⁺ 25.2(6),
+In⁺ 24.33, Sr²⁺ 5.813 a₀³ from Li, Yu and Sahoo 2018, Yu et al. 2015 and Mitroy, Safronova and
+Clark 2010, read through the arXiv connector; the implied values are 0.98, 1.08 and 1.76 of them,
+and would double under the other prefactor, so the comparison corroborates §2. *The Rb calibration
+(R-17, formerly declined)* — done in the same section against the published Rydberg–Ritz
+coefficients (Li et al. 2003, Mack et al. 2011): δ₀ within 4 × 10⁻⁴ and 2–4 × 10⁻³, δ₂ 11% and
+23% off, as a two-term low-n fit must be. Two new MEASURED obligations; 35 of 35, 40 of 40.
+*Seaton 1958 stating the ratio* — closed: still unread, nothing rests on it. *The 1.25 on fourteen
+channels* — closed as not reconstructible: the phrase occurs in the store only as itself, and the
+channel index carries no δ₂. *The two recorded discrepancies* — stay recorded.
+
+**The bracket (03).** *The lithium threshold* — settled: the paper takes the published ionisation
+energy, on the rule it applies everywhere else, and keeps the fitted limit as the sensitivity.
+
+**The parent-term wall (07).** *Which reading of "open-shell"* — settled: D8's, more than one core
+level, because that is the reading under which the wall exists; the ceiling paragraph says so and
+names Fe XV as what the looser reading would admit. *The Fe IV census* — closed: its level data is
+not in the tree. *The left-step table's merit* — unchanged: the paper takes no position, which was a
+choice of scope and not an open question.
+
+**The lattice (02).** *Whether the 715 admitted cells stay* — settled: they stay, because the
+model is the source's and the 976-cell object is what every other paper on the shelf takes as given;
+recorded in its source map, no text changed.
+
+**Order recovery (06).** *Rival's bound* — confirmed by search in the direction printed. *Janet's
+1928 imprint* — confirmed by search. *The three census figures* — closed as recorded: the store's own
+working notes already find that 141 matches no population, the 18,736 population is defined nowhere
+in the tree, and the defence statistic has no instrument. *The chapter with no cells* — closed:
+nothing to add.
+
+**The tower (05).** *Racah 1942a's end page* — closed: the APS record gives 537 and no range, as a
+one-page letter would; the first page stands.
+
+**Closure beyond the atom (10).** *The redundancy protocol* — closed as a reconstruction: no
+instrument in the store states a trial count, threshold or seed.
+
+**Closed already by the merge**, and needing no further word: every "whether this paper earns its
+place on the site" — the author put them on the site.
+
+**Not this pass's to touch, and still standing**: the record's own faults that the papers recorded
+rather than repaired — the record's `seaton.py` polarisabilities at twice the literature's, the
+"charge 6" ceiling that is true under neither reading, the mean-for-median channel, the fitted-for-
+published limit, and Czédli's table entry of 18 for 17 — each recorded in the relevant source map
+under the hold that governs the store.

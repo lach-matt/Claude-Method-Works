@@ -327,3 +327,6 @@ renamed in the paper (and only there; `check.py` keeps the instrument's names, w
 - the envelope functions `l*`, `h*` are written `l⋆`, `h⋆` because a bare asterisk is emphasis markup.
 
 None of these is a change of content.
+
+
+**Racah 1942a's end page — closed 2026-09-24.** A web search returns the APS record at Phys. Rev. 61, 537 and no page range; the entry is consistent with a one-page letter, and the paper keeps the first page only, as the volume's own reference style does.

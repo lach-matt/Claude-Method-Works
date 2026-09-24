@@ -283,6 +283,7 @@ in the source, and no check was altered to make a difference vanish.**
   second difference (Δ²T = 2e ≈ 6A/ν⁴), and the admissibility rule at order k = 1 (MV §23.10.4,
   the paper's D12) reads |Δ²T| > 5·2²q = 20q, i.e. e > 10q, which is also the filter §7 applies.
   Solved from D12, ν_V = (3Z²R/(10q))^{1/4} = **134.7 / 75.7 / 42.6**, smaller by 2^{1/4}.
+- **The lithium threshold, settled 2026-09-24 at the author's direction.** Table 6 held Li III twice — the database's published ionisation energy and a limit fitted to the series of theoretical levels — and chose neither. The paper now takes the published value, on the rule it applies to every other species (the tabulated limit, never one fitted from the series), and keeps the fitted row as the sensitivity of the ratio (0.865 against 0.876). No number changed; the caption says which is the paper's.
 - **Disposition:** the first draft presented the two thresholds as one (audit A-6). The paper now
   derives ν_V from D12 with the second difference named correctly and prints 134.7 / 75.7 / 42.6;
   I26 prints the 5q form beside it for the record.

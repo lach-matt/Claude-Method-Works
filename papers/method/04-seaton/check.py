@@ -500,6 +500,34 @@ def ob_prefactor_rb(wrong=False):
             "rcc": 6 * a_rcc / Kl}
 
 
+def ob_published(rows):
+    """§5.7: the implied polarisabilities of the p = 0 series against published values, and the Rb fits
+    against published Rydberg-Ritz coefficients.  Exact arithmetic on CITED inputs: Cd+ 25.2(6) (Li, Yu and
+    Sahoo 2018), In+ 24.33 (Yu et al. 2015; 24.01 Safronova et al. as quoted there), Sr2+ 5.813 RRPA and 5.792
+    RCCSDT (Mitroy, Safronova and Clark 2010, Table IV); 85Rb ns 3.1311804(10), 0.1784(6); nd3/2
+    1.3480917(4), -0.6029(3); nd5/2 1.3464657(3), -0.5960(2) (Li et al. 2003, as tabulated by Mack et al. 2011)."""
+    pub = {"Cd I f": [F(252, 10)], "In I f": [F(2433, 100), F(2401, 100)], "Sr II f": [F(5813, 1000), F(5792, 1000)]}
+    by = {r["name"]: r for r in rows}
+    out = {}
+    for name, vals in pub.items():
+        r = by[name]
+        imp = r["d0"] * K(r["l"]) / (6 * r["c"] ** 2)
+        out[name] = {"implied": imp, "ratios": [imp / v for v in vals], "ratios3": [2 * imp / v for v in vals]}
+    ok_alpha = (F(95, 100) < out["Cd I f"]["ratios"][0] < F(105, 100)
+                and all(F(105, 100) < x < F(110, 100) for x in out["In I f"]["ratios"])
+                and all(F(17, 10) < x < F(18, 10) for x in out["Sr II f"]["ratios"])
+                and all(x > F(19, 10) for n in out for x in out[n]["ratios3"]))
+    rb = {"s": (F(31311804, 10 ** 7), F(1784, 10 ** 4)),
+          "d3/2": (F(13480917, 10 ** 7), F(-6029, 10 ** 4)), "d5/2": (F(13464657, 10 ** 7), F(-5960, 10 ** 4))}
+    s, d = by["Rb I s"], by["Rb I d"]
+    dd0 = {"s": s["d0"] - rb["s"][0], "d3/2": d["d0"] - rb["d3/2"][0], "d5/2": d["d0"] - rb["d5/2"][0]}
+    rd2 = {"s": (s["d2"] - rb["s"][1]) / rb["s"][1], "d3/2": (d["d2"] - rb["d3/2"][1]) / rb["d3/2"][1],
+           "d5/2": (d["d2"] - rb["d5/2"][1]) / rb["d5/2"][1]}
+    ok_rb = abs(dd0["s"]) < F(4, 10 ** 4) and all(abs(dd0[k]) < F(4, 10 ** 3) for k in ("d3/2", "d5/2")) \
+        and all(abs(x) < F(3, 10) for x in rd2.values())
+    return out, ok_alpha, dd0, rd2, ok_rb
+
+
 def ob_prefactor():
     """The prefactor identity behind Theorem 1's displayed constant:
         6 / K(l)  ==  (3/4) / [ (l-1/2) l (l+1/2) (l+1) (l+3/2) ],
@@ -1037,6 +1065,14 @@ def main(selftest=False):
                     % (ind["rms"], max(r["rms"] for r in rows if r["name"] != "In I d"),
                        ind_ds[0], ind["n_lo"], ind_ds[-1], ind["n_hi"]))
     nl, worst = ob_limit_sensitivity()
+    pubs, ok_alpha, dd0, rd2, ok_rb = ob_published(rows)
+    allok &= report("MEASURED", "5.7: implied polarisabilities against published values (CITED), and doubled under 3/K", ok_alpha,
+                    "; ".join("%s %.2f: ratios %s, under 3/K %s" % (n, float(v["implied"]),
+                              ", ".join("%.3f" % float(x) for x in v["ratios"]), ", ".join("%.2f" % float(x) for x in v["ratios3"]))
+                              for n, v in pubs.items()))
+    allok &= report("MEASURED", "5.7: Rb I fits against the published 85Rb Rydberg-Ritz coefficients (CITED)", ok_rb,
+                    "d0 - published: " + ", ".join("%s %+.4f" % (k, float(v)) for k, v in dd0.items())
+                    + "; d2 relative: " + ", ".join("%s %+.1f%%" % (k, 100 * float(v)) for k, v in rd2.items()))
     allok &= report("MEASURED", "limit sensitivity: d(delta) = n*^3 dI / (2 z^2 R_M)", worst < 1e-4,
                     "%d levels, dI = 0.01 cm^-1, worst relative error %.2e" % (nl, worst))
 
