@@ -330,12 +330,12 @@ D6 and D7 give two numbers per index. **Coupling** counts the envelopes that bin
 
 | index | d | envelopes | coupling | redundancy | trial log |
 |---|---|---|---|---|---|
-| Λ | 8 | 56 | 28.6% | **61%** | «R1-Lambda» |
-| the product grid | 3 | 6 | 16.7% | **20%** | «R1-grid» |
-| a box ordering | 3 | 6 | 50.0% | below 5% | «R1-box» |
-| Janet as a down-set | 2 | 2 | 50.0% | below 5% | «R1-janet» |
-| the periodic table | 2 | 2 | 0.0% | below 5% | «R1-pt» |
-| the Gregorian calendar | 2 | 2 | 0.0% | below 5% | «R1-cal» |
+| Λ | 8 | 56 | 28.6% | **61%** | 5%:10/10, 10%:10/10, 20%:10/10, 30%:10/10, 41%:10/10, 50%:10/10, 61%:8/10, 70%:6/10 |
+| the product grid | 3 | 6 | 16.7% | **20%** | 5%:9/10, 10%:10/10, 20%:8/10, 30%:5/10 |
+| a box ordering | 3 | 6 | 50.0% | below 5% | 5%:7/10 |
+| Janet as a down-set | 2 | 2 | 50.0% | below 5% | 5%:5/10 |
+| the periodic table | 2 | 2 | 0.0% | below 5% | 5%:0/10 |
+| the Gregorian calendar | 2 | 2 | 0.0% | below 5% | 5%:0/10 |
 
 The Janet row is not the 118-cell index of Table 1 but the left-step table read as the down-set of the 118-element filling along n + ℓ — 724 cells, E = 0 — a choice made so that a deletion has interior cells to remove; the 118-cell form has coupling 100% and fails the first rung too. The choice is a convention of the same standing as the ladder.
 
@@ -347,11 +347,11 @@ The Janet row is not the 118-cell index of Table 1 but the left-step table read 
 
 | d | cells | E | redundancy | trial log |
 |---|---|---|---|---|
-| 8 | 976 | 0 | **61%** | «R3-8» |
-| 7 | 319 | 0 | **30%** | «R3-7» |
-| 6 | 165 | 0 | **30%** | «R3-6» |
-| 5 | 99 | 0 | **30%** | «R3-5» |
-| 4 | 33 | 0 | **5%** | «R3-4» |
+| 8 | 976 | 0 | **61%** | 5%:10/10, 10%:10/10, 20%:10/10, 30%:10/10, 41%:10/10, 50%:10/10, 61%:8/10, 70%:6/10 |
+| 7 | 319 | 0 | **30%** | 5%:10/10, 10%:10/10, 20%:8/10, 30%:9/10, 41%:6/10 |
+| 6 | 165 | 0 | **30%** | 5%:10/10, 10%:10/10, 20%:10/10, 30%:10/10, 41%:6/10 |
+| 5 | 99 | 0 | **30%** | 5%:10/10, 10%:10/10, 20%:9/10, 30%:9/10, 41%:7/10 |
+| 4 | 33 | 0 | **5%** | 5%:10/10, 10%:7/10 |
 | 3 | 12 | 0 | below resolution | no trial: ⌊0.05 × 12⌋ = 0 |
 
 Every projection is itself closed, so the comparison is between closed indexes throughout and is not contaminated by a change of defect. The rung reached is non-decreasing in d. This is one object at six dimensions, with the cell count falling alongside the dimension, which the design does not separate from it; it is a measurement of the convention on one object, not a law.
@@ -504,7 +504,7 @@ The third coordinate is a function of the second and is ordered by ℓ; it is a 
 
 ## §7 · Verification record
 
-The verification program prints one row per obligation and all pass; in self-test mode four negative controls are added, each of which must be reported as refuted and is. The row count and the distribution by status are those of the program's own summary, «SUMMARY».
+The verification program prints one row per obligation and all pass; in self-test mode four negative controls are added, each of which must be reported as refuted and is. The row count and the distribution by status are those of the program's own summary, 148 rows, 0 failed — MACHINE-CHECKED 8, EXHAUSTIVE 74, MEASURED 35, SAMPLED 16, REFUTATION 3, CITED 1, GUARD 11.
 
 **By object.**
 

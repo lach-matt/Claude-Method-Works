@@ -251,7 +251,7 @@
    "median_only": 38768,
    "both": 22598,
    "neither": 0,
-   "seconds": 17.4
+   "seconds": 16.4
   }
  ],
  "example": {
@@ -739,7 +739,7 @@
      2
     ]
    ],
-   "seconds": 1.2
+   "seconds": 1.1
   }
  ],
  "fibre_z3": [
@@ -837,7 +837,7 @@
    "reorderable_all": 16,
    "fraction_reorderable": 1.0,
    "step": 1,
-   "step_attained_at_full_box": false,
+   "step_attained_at_full_box": true,
    "max_proper_reorderable": 3,
    "doubly_irreducible": 2,
    "three_quarters": false,
@@ -855,7 +855,7 @@
    "reorderable_all": 64,
    "fraction_reorderable": 1.0,
    "step": 1,
-   "step_attained_at_full_box": false,
+   "step_attained_at_full_box": true,
    "max_proper_reorderable": 5,
    "doubly_irreducible": 2,
    "three_quarters": null,
@@ -873,7 +873,7 @@
    "reorderable_all": 256,
    "fraction_reorderable": 1.0,
    "step": 1,
-   "step_attained_at_full_box": false,
+   "step_attained_at_full_box": true,
    "max_proper_reorderable": 7,
    "doubly_irreducible": 2,
    "three_quarters": null,
@@ -891,7 +891,7 @@
    "reorderable_all": 506,
    "fraction_reorderable": 0.988,
    "step": 1,
-   "step_attained_at_full_box": false,
+   "step_attained_at_full_box": true,
    "max_proper_reorderable": 8,
    "doubly_irreducible": 2,
    "three_quarters": null,
@@ -909,7 +909,7 @@
    "reorderable_all": 3772,
    "fraction_reorderable": 0.921,
    "step": 1,
-   "step_attained_at_full_box": false,
+   "step_attained_at_full_box": true,
    "max_proper_reorderable": 11,
    "doubly_irreducible": 2,
    "three_quarters": null,
@@ -927,7 +927,7 @@
    "reorderable_all": 47416,
    "fraction_reorderable": 0.724,
    "step": 1,
-   "step_attained_at_full_box": false,
+   "step_attained_at_full_box": true,
    "max_proper_reorderable": 15,
    "doubly_irreducible": 2,
    "three_quarters": null,
@@ -946,7 +946,7 @@
    "reorderable_all": 158,
    "fraction_reorderable": 0.617,
    "step": 2,
-   "step_attained_at_full_box": false,
+   "step_attained_at_full_box": true,
    "max_proper_reorderable": 6,
    "doubly_irreducible": 0,
    "three_quarters": false,
@@ -965,7 +965,7 @@
    "reorderable_all": 1342,
    "fraction_reorderable": 0.328,
    "step": 2,
-   "step_attained_at_full_box": false,
+   "step_attained_at_full_box": true,
    "max_proper_reorderable": 10,
    "doubly_irreducible": 0,
    "three_quarters": null,
@@ -984,11 +984,11 @@
    "reorderable_all": 20068,
    "fraction_reorderable": 0.077,
    "step": 2,
-   "step_attained_at_full_box": false,
+   "step_attained_at_full_box": true,
    "max_proper_reorderable": 16,
    "doubly_irreducible": 0,
    "three_quarters": null,
-   "seconds": 0.8
+   "seconds": 0.7
   },
   {
    "box": [
@@ -1004,11 +1004,11 @@
    "reorderable_all": 3290,
    "fraction_reorderable": 0.05,
    "step": 4,
-   "step_attained_at_full_box": false,
+   "step_attained_at_full_box": true,
    "max_proper_reorderable": 12,
    "doubly_irreducible": 0,
    "three_quarters": false,
-   "seconds": 0.1
+   "seconds": 0.0
   }
  ],
  "projection_gap": [
@@ -1106,7 +1106,7 @@
      0
     ]
    ],
-   "seconds": 5.9
+   "seconds": 5.7
   }
  ],
  "d2_algorithm": [
@@ -1153,7 +1153,7 @@
    ],
    "instances": 41503,
    "agree": 41503,
-   "seconds": 39.0
+   "seconds": 37.1
   }
  ],
  "tree_exhaustive": [
@@ -1183,7 +1183,7 @@
    "closed": 4819,
    "scrambles": 346968,
    "scrambles_recovered": 346968,
-   "seconds": 49.7
+   "seconds": 49.0
   },
   {
    "box": [
@@ -1252,7 +1252,7 @@
    "exact_or_dual": 3,
    "admissible_orderings": 16,
    "root_orders_tried_max": 2,
-   "seconds": 24.8
+   "seconds": 24.3
   },
   {
    "cells": 216,
@@ -1274,7 +1274,7 @@
    ],
    "pairs": 36,
    "failures": 0,
-   "seconds": 1.0
+   "seconds": 1.1
   },
   {
    "box": [
@@ -1284,7 +1284,7 @@
    ],
    "pairs": 27,
    "failures": 0,
-   "seconds": 0.7
+   "seconds": 0.6
   },
   {
    "box": [
@@ -1478,7 +1478,7 @@
      "bijunctive_C": 15
     }
    },
-   "seconds": 20.0
+   "seconds": 19.7
   }
  ],
  "pair_constraint_exact": {
@@ -1528,7 +1528,7 @@
    "transfer_failures": 0,
    "majority_vs_two_clause_disagreements": null,
    "construction_verified": null,
-   "seconds": 0.2
+   "seconds": 0.3
   }
  },
  "bijunctive_exact": {
@@ -8026,11 +8026,10 @@
   ]
  },
  "counts": {
-  "EXHAUSTIVE": 62,
+  "EXHAUSTIVE": 72,
   "MACHINE-CHECKED": 28,
   "REFUTATION": 8,
-  "FAIL": 10,
   "SAMPLED": 3
  },
- "seconds": 277.6
+ "seconds": 273.3
 }
