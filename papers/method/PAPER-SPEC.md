@@ -72,6 +72,7 @@ numbered within their kind: Definition D1, Lemma 1, Theorem 1, Corollary 1, Figu
 | **SAMPLED** | a seeded pseudorandom sweep of a stated size; never exhaustive |
 | **CITED** | taken from the literature, with the source |
 | **REFUTATION** | a claim disproved by an explicit witness |
+| **MEASURED** | a number computed from cited data by a stated procedure — the paper's own result, with its sample stated; never a proof, never merged with PROVED |
 
 A machine-checked claim names its box. A sampled figure names its size and seed. "300/300" without
 a box or a seed is not a status.
@@ -114,8 +115,9 @@ or a caption:
   "ruling", "seated", "bundle", "working register";
 - process narration: "an earlier draft said", "this section previously read", "withdrawn",
   "corrected here", "recorded rather than repaired", "M ruled";
-- work labels: PINNED, RECOVERED, RECONSTRUCTED, HELD, BANKED, MEASURED-as-a-label, W-nnn,
-  FINDING-, DEF-, RUL-;
+- work labels: PINNED, RECOVERED, RECONSTRUCTED, HELD, BANKED, W-nnn, FINDING-, DEF-, RUL-, and
+  MEASURED / INFERRED used as provenance tags in the working record's sense. (MEASURED as a
+  declared status word of §5, for a paper's own measured result with its sample stated, is allowed.)
 - the words "warp" and the research tree's directory name;
 - file paths and extensions (`.py`, `.md`, `.tsv`, `.csv`).
 
