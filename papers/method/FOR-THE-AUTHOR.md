@@ -236,3 +236,27 @@ does not use it. If the cells exist somewhere they can be added.
 **6 · The verification record was stale against its own check.** Three obligations added late had
 never been printed into the paper; the record and the abstract now agree with the check at 90
 obligations, and a caption's fraction of 0.723 is 0.724 — a truncation, corrected.
+
+---
+
+## From the audits (added as each audit lands)
+
+**The closure law — the new seed theorem is half prior art.** The referee-reader found that the
+two-valued case of the paper's replacement seed law, seed({0,1}ᵈ) = the least m whose middle
+binomial coefficient reaches d, is Theorem 2.1 of Gábor Czédli, *Generating Boolean lattices by few
+elements and exchanging session keys* (2023), proved by the same Sperner argument. The refutation
+of the linear law stands, the extension to c ≥ 3 values may stand, and the paper is being
+re-scoped to cite Czédli and claim only what survives once his later work on the same question has
+been read. This is the case for the audit stage: the drafter had searched the literature and
+missed it.
+
+**The bracket — the paper's own replacement bound overreached.** The auditor found that the
+corollary replacing the source's inverted failure condition commits the same class of error it
+corrects: it proves the displacement is bounded by the larger gap and then asserts the smaller
+half-width. The deductive bound is the larger observed gap; re-measured, the tightest is about
+0.97 cm⁻¹ rather than 0.93, and the median about 5,400 rather than 4,300. The bound is also
+relative to the two neighbours, which are assumed unperturbed — a displacement of a level against
+its neighbours, not a perturbation of the series in the Lu–Fano sense — and the abstract had
+dropped that hypothesis. Separately, self-concordance of the Rydberg term is not scale-invariant, so
+the range over which it holds is a statement about wavenumbers and not about physics; the exact
+identities survive, the interpretive sentence does not. Both are being repaired.

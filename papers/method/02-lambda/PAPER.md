@@ -507,7 +507,6 @@ Every number printed above is recomputed by the accompanying checks, which disch
 - Birkhoff, G. (1937). Rings of sets. *Duke Mathematical Journal* **3**, 443–454.
 - Birkhoff, G. (1940). *Lattice Theory*. American Mathematical Society Colloquium Publications 25, New York.
 - Bohr, N. (1913). On the constitution of atoms and molecules. *Philosophical Magazine* **26**, 1–25.
-- Carathéodory, C. (1911). Über den Variabilitätsbereich der Fourier'schen Konstanten von positiven harmonischen Funktionen. *Rendiconti del Circolo Matematico di Palermo* **32**, 193–217.
 - Chvátal, V. (1979). A greedy heuristic for the set-covering problem. *Mathematics of Operations Research* **4**, 233–235.
 - Condon, E. U. and Shortley, G. H. (1935). *The Theory of Atomic Spectra*. Cambridge University Press, Cambridge.
 - de Moura, L. and Bjørner, N. (2008). Z3: an efficient SMT solver. In *Tools and Algorithms for the Construction and Analysis of Systems*, Lecture Notes in Computer Science 4963, Springer, 337–340.
@@ -515,12 +514,14 @@ Every number printed above is recomputed by the accompanying checks, which disch
 - Dushnik, B. and Miller, E. W. (1941). Partially ordered sets. *American Journal of Mathematics* **63**, 600–610.
 - Edelman, P. H. and Jamison, R. E. (1985). The theory of convex geometries. *Geometriae Dedicata* **19**, 247–270.
 - Freuder, E. C. (1982). A sufficient condition for backtrack-free search. *Journal of the ACM* **29**, 24–32.
+- Fulkerson, D. R. (1956). Note on Dilworth's decomposition theorem for partially ordered sets. *Proceedings of the American Mathematical Society* **7**, 701–702.
 - Hopcroft, J. E. and Karp, R. M. (1973). An n^{5/2} algorithm for maximum matchings in bipartite graphs. *SIAM Journal on Computing* **2**, 225–231.
 - Hund, F. (1925). Zur Deutung verwickelter Spektren, insbesondere der Elemente der Eisengruppe. *Zeitschrift für Physik* **33**, 345–371.
 - Johnson, D. S. (1974). Approximation algorithms for combinatorial problems. *Journal of Computer and System Sciences* **9**, 256–278.
 - Karp, R. M. (1972). Reducibility among combinatorial problems. In R. E. Miller and J. W. Thatcher, eds., *Complexity of Computer Computations*, Plenum, New York, 85–103.
 - König, D. (1931). Gráfok és mátrixok. *Matematikai és Fizikai Lapok* **38**, 116–119.
 - Lauritzen, S. L. (1996). *Graphical Models*. Oxford University Press, Oxford.
+- Monjardet, B. (1981). Metrics on partially ordered sets — a survey. *Discrete Mathematics* **35**, 173–184.
 - Moore, E. H. (1910). *Introduction to a Form of General Analysis*. Yale University Press, New Haven.
 - Pauli, W. (1925). Über den Zusammenhang des Abschlusses der Elektronengruppen im Atom mit der Komplexstruktur der Spektren. *Zeitschrift für Physik* **31**, 765–783.
 - Rota, G.-C. (1964). On the foundations of combinatorial theory I. Theory of Möbius functions. *Zeitschrift für Wahrscheinlichkeitstheorie und Verwandte Gebiete* **2**, 340–368.
