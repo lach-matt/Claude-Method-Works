@@ -542,3 +542,15 @@ Kreuzer–Skarke cells as predictions, the nuclide defect's stability across cut
 Z ≤ 10), the agreement law, the regression statistics, and the composability and
 mutual-information paragraphs. 118 findings fixed, one declined. Whether the paper that remains
 earns its place is yours to judge.
+
+**Order recovery — repaired, with a sharper law.** Title unchanged. The reorderability law now
+says: a pair constraint is bijunctive exactly when it is a partition constraint, so the bijunctive
+constraints at arity k number the Bell number B(k) — 2, 5, 15, 52 — and the first non-bijunctive
+constraint appears at three coordinates, proved for every k and exhausted through five. The
+difference-relation census the earlier draft counted is kept as a labelled auxiliary column, with
+the statement that its bijunctivity carries no two-clause consequence. A new corollary
+characterises every maximal sublattice of the Boolean cube from Rival's interval theorem. The
+hardness remark is corrected, Rival's bound printed the right way round, the propagation cost
+proved, and the Janet count taken from the uncapped data. All 12 major findings fixed; 24 of 26
+minor fixed. Three bibliographic details could not be verified through the proxy and are recorded
+as such; nothing in the results depends on them.
