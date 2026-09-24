@@ -130,8 +130,17 @@ spectra data of NIST", "the electron-configuration lattice". Provenance outward 
 Third person, present tense, professional. Short sentences. No hedging, no filler, no
 self-reference to the writing. The hierarchy-law paper's §0 is the register to match. Unicode
 mathematics (Λ, ℛ, ⟨X⟩, ≤, ∧, ∨, ∏, √, subscripts), no LaTeX; a displayed formula goes in an
-indented block or a fenced block; inline symbols in backticks where they carry subscripts that
-would otherwise be lost.
+indented block or a fenced block.
+
+**Typography rules learned from the first renders, binding on every paper:**
+- Mathematics in running text is plain text with Unicode subscripts and superscripts (φ_ij is
+  written φᵢⱼ, x^2 is x², 2^{d−2} is 2ᵈ⁻²). A backtick code span is for code and never for
+  mathematics: inside one, `_`, `^{}` and `\|` render literally on the page.
+- Where Unicode has no glyph for a subscript (a subscript letter outside the small set that
+  exists), write the expression in a display block instead of a code span, or rephrase.
+- A vertical bar inside a table cell breaks the table. Write absolute value and cardinality in
+  table cells with the Unicode bar ∣ (U+2223), never `|` or `\|`.
+- A caption is a paragraph beginning **Figure n.** directly under its image.
 
 ## 10. The audit stage
 

@@ -102,9 +102,7 @@ For two subshell points with radicands r₁ ≠ r₂ this is `Δn·(√r₁ + �
 
 **Lemma 1 (one inequality per rival).** Let P be finite, s ∈ P, and a ∈ ℝ. Then s is the unique minimiser of y − a·x over P if and only if for every r ∈ P ∖ {s}:
 
-- if x_r = x_s, then y_r > y_s;
-- if x_r > x_s, then a < slope(s, r);
-- if x_r < x_s, then a > slope(r, s).
+if x_r = x_s, then y_r > y_s; if x_r > x_s, then a < slope(s, r); if x_r < x_s, then a > slope(r, s).
 
 Consequently K(s) is empty if some r ≠ s has x_r = x_s and y_r ≤ y_s, and otherwise K(s) = (L, U) with
 
@@ -116,15 +114,17 @@ where an empty maximum is −∞ and an empty minimum is +∞; K(s) is non-empty
 
 **Theorem 1 (the hull theorem).** Let P ⊂ ℝ² be finite and s ∈ P. The following are equivalent:
 
-- (i) K(s) ≠ ∅: some slope makes s the unique minimiser of y − a·x;
-- (ii) s ∉ E(P ∖ {s}): s is a vertex of the lower hull of P;
-- (iii) no r ∈ P ∖ {s} has x_r = x_s and y_r ≤ y_s, and for every pair u, w ∈ P ∖ {s} with x_u < x_s < x_w the point s lies strictly below the line through u and w.
+**(i)** K(s) ≠ ∅: some slope makes s the unique minimiser of y − a·x;
 
-*Proof.* (i) ⇒ (ii). Suppose s ∈ E(P ∖ {s}): s = Σ_i λ_i p_i + (0, t) with p_i ∈ P ∖ {s}, λ_i ≥ 0, Σ λ_i = 1, t ≥ 0. For any a, the functional f_a(x, y) = y − a·x is affine, so f_a(s) = Σ λ_i f_a(p_i) + t ≥ min_i f_a(p_i). Hence some p_i ≠ s has f_a(p_i) ≤ f_a(s), and s is not the unique minimiser at a. As a was arbitrary, K(s) = ∅.
+**(ii)** s ∉ E(P ∖ {s}): s is a vertex of the lower hull of P;
 
-(ii) ⇒ (iii). Suppose (iii) fails. If some r has x_r = x_s and y_r ≤ y_s, then s = r + (0, y_s − y_r) ∈ E(P ∖ {s}). If some u, w with x_u < x_s < x_w have s on or above the line through them, write x_s = λx_u + (1 − λ)x_w with λ = (x_w − x_s)/(x_w − x_u) ∈ (0, 1); the point λu + (1 − λ)w lies on the segment [u, w] at abscissa x_s, and s is it plus (0, t) with t ≥ 0, so s ∈ E(P ∖ {s}). Either way (ii) fails.
+**(iii)** no r ∈ P ∖ {s} has x_r = x_s and y_r ≤ y_s, and for every pair u, w ∈ P ∖ {s} with x_u < x_s < x_w the point s lies strictly below the line through u and w.
 
-(iii) ⇒ (i). By Lemma 1 it suffices to show L < U, since the same-abscissa clause of (iii) is exactly the first condition of the lemma. If no point lies to the left of s then L = −∞ < U; if none lies to the right then U = +∞ > L. Otherwise let u attain L among the left points and w attain U among the right points, so x_u < x_s < x_w, and suppose L ≥ U, that is slope(u, s) ≥ slope(s, w). The slope of the line through u and w is the convex combination
+*Proof.* **(i) ⇒ (ii).** Suppose s ∈ E(P ∖ {s}): s = Σ_i λ_i p_i + (0, t) with p_i ∈ P ∖ {s}, λ_i ≥ 0, Σ λ_i = 1, t ≥ 0. For any a, the functional f_a(x, y) = y − a·x is affine, so f_a(s) = Σ λ_i f_a(p_i) + t ≥ min_i f_a(p_i). Hence some p_i ≠ s has f_a(p_i) ≤ f_a(s), and s is not the unique minimiser at a. As a was arbitrary, K(s) = ∅.
+
+**(ii) ⇒ (iii).** Suppose (iii) fails. If some r has x_r = x_s and y_r ≤ y_s, then s = r + (0, y_s − y_r) ∈ E(P ∖ {s}). If some u, w with x_u < x_s < x_w have s on or above the line through them, write x_s = λx_u + (1 − λ)x_w with λ = (x_w − x_s)/(x_w − x_u) ∈ (0, 1); the point λu + (1 − λ)w lies on the segment [u, w] at abscissa x_s, and s is it plus (0, t) with t ≥ 0, so s ∈ E(P ∖ {s}). Either way (ii) fails.
+
+**(iii) ⇒ (i).** By Lemma 1 it suffices to show L < U, since the same-abscissa clause of (iii) is exactly the first condition of the lemma. If no point lies to the left of s then L = −∞ < U; if none lies to the right then U = +∞ > L. Otherwise let u attain L among the left points and w attain U among the right points, so x_u < x_s < x_w, and suppose L ≥ U, that is slope(u, s) ≥ slope(s, w). The slope of the line through u and w is the convex combination
 
 > `slope(u, w) = [ (x_s − x_u)·slope(u, s) + (x_w − x_s)·slope(s, w) ] / (x_w − x_u)`,
 
@@ -144,13 +144,15 @@ At every step of the walk the admissible set carries several node counts, hence 
 
 **Theorem 2 (corridor = flanking edge slopes).** Let P be finite and let v₁, …, v_m be the vertices of its lower hull. Then:
 
-- (a) no two vertices share an abscissa, so the order by abscissa is strict;
-- (b) for each i, the corridor of v_i is (L_i, U_i) with `L_i = slope(v_{i−1}, v_i)` for i > 1 and L₁ = −∞, and `U_i = slope(v_i, v_{i+1})` for i < m and U_m = +∞;
-- (c) hence `U_i = L_{i+1}` for i < m: the edge slopes σ₁ < σ₂ < … < σ_{m−1} are strictly increasing, the corridors of the vertices are the consecutive open intervals (−∞, σ₁), (σ₁, σ₂), …, (σ_{m−1}, +∞), and they partition ℝ together with the edge slopes; at a = σ_i the minimum of y − a·x is attained at v_i, at v_{i+1}, and at exactly those points of P lying on the segment between them.
+**(a)** no two vertices share an abscissa, so the order by abscissa is strict;
 
-*Proof.* (a) If two vertices v, v′ share an abscissa with y_v ≤ y_{v′}, then v′ = v + (0, y_{v′} − y_v) ∈ E(P ∖ {v′}), so v′ is not a vertex.
+**(b)** for each i, the corridor of v_i is (L_i, U_i) with `L_i = slope(v_{i−1}, v_i)` for i > 1 and L₁ = −∞, and `U_i = slope(v_i, v_{i+1})` for i < m and U_m = +∞;
 
-(b) Fix a vertex v = v_i. By Theorem 1 its corridor (L, U) is non-empty, so L < U. Consider the points of P to the left of v. If there are none, L = −∞ by Lemma 1, and no vertex lies to the left of v since a vertex is a point of P. Otherwise let m₀ := L, the maximum of slope(r, v) over the left points, and let g be the line through v with slope m₀: g(x) = y_v + m₀·(x − x_v). Every point of P lies on or above g. For a left point r this is the maximality of m₀: slope(r, v) ≤ m₀ gives y_r ≥ g(x_r). For v itself it is equality. For a point r with x_r = x_v, y_r > y_v by Lemma 1. For a right point r, Lemma 1 gives y_r − y_v > a·(x_r − x_v) for every a in the non-empty interval (L, U); taking a slightly greater than L, y_r − y_v > m₀·(x_r − x_v), so r lies strictly above g. Let T be the set of left points attaining m₀; they lie on g, and distinct points of a non-vertical line have distinct abscissae, so T has a unique leftmost point u.
+**(c)** hence `U_i = L_{i+1}` for i < m: the edge slopes σ₁ < σ₂ < … < σ_{m−1} are strictly increasing, the corridors of the vertices are the consecutive open intervals (−∞, σ₁), (σ₁, σ₂), …, (σ_{m−1}, +∞), and they partition ℝ together with the edge slopes; at a = σ_i the minimum of y − a·x is attained at v_i, at v_{i+1}, and at exactly those points of P lying on the segment between them.
+
+*Proof.* **(a)** If two vertices v, v′ share an abscissa with y_v ≤ y_{v′}, then v′ = v + (0, y_{v′} − y_v) ∈ E(P ∖ {v′}), so v′ is not a vertex.
+
+**(b)** Fix a vertex v = v_i. By Theorem 1 its corridor (L, U) is non-empty, so L < U. Consider the points of P to the left of v. If there are none, L = −∞ by Lemma 1, and no vertex lies to the left of v since a vertex is a point of P. Otherwise let m₀ := L, the maximum of slope(r, v) over the left points, and let g be the line through v with slope m₀: g(x) = y_v + m₀·(x − x_v). Every point of P lies on or above g. For a left point r this is the maximality of m₀: slope(r, v) ≤ m₀ gives y_r ≥ g(x_r). For v itself it is equality. For a point r with x_r = x_v, y_r > y_v by Lemma 1. For a right point r, Lemma 1 gives y_r − y_v > a·(x_r − x_v) for every a in the non-empty interval (L, U); taking a slightly greater than L, y_r − y_v > m₀·(x_r − x_v), so r lies strictly above g. Let T be the set of left points attaining m₀; they lie on g, and distinct points of a non-vertical line have distinct abscissae, so T has a unique leftmost point u.
 
 u is a vertex. Suppose not: u = Σ λ_i p_i + (0, t) with p_i ∈ P ∖ {u}, λ_i ≥ 0 summing to 1, t ≥ 0. Since g is affine and every point lies on or above it, y_u = Σ λ_i y_i + t ≥ Σ λ_i g(x_i) + t = g(x_u) + t = y_u + t, so t = 0 and every p_i with λ_i > 0 lies on g. The points of P on g are T ∪ {v}, all of abscissa ≥ x_u. Then x_u = Σ λ_i x_i with every x_i ≥ x_u forces x_i = x_u for every i with λ_i > 0, and a point of g with abscissa x_u is u itself, contradicting p_i ≠ u.
 
@@ -158,7 +160,7 @@ No vertex lies strictly between u and v in abscissa. A point r with x_u < x_r < 
 
 Therefore u is the vertex immediately to the left of v, u = v_{i−1}, and L = slope(v_{i−1}, v_i). The statement for U is the mirror image under the reflection x ↦ −x, which sends slopes to their negatives, exchanges left with right, and sends the maximum defining L to the minimum defining U: the set of right points attaining U lies on a line h through v, every point lies on or above h, the rightmost such point w is a vertex, no vertex has abscissa strictly between x_v and x_w, and so w = v_{i+1} and U = slope(v_i, v_{i+1}).
 
-(c) By (b), U_i = slope(v_i, v_{i+1}) = L_{i+1}. Each corridor is non-empty (Theorem 1), so σ_{i−1} = L_i < U_i = σ_i, and the edge slopes increase strictly. The intervals (σ_{i−1}, σ_i), with σ₀ = −∞ and σ_m = +∞, are pairwise disjoint and their union with {σ₁, …, σ_{m−1}} is ℝ. At a = σ_i the values y − σ_i·x at v_i and at v_{i+1} agree, since σ_i is the slope between them. For a in (σ_{i−1}, σ_i) the point v_i is the unique minimiser, and each r ↦ y_r − a·x_r is continuous in a, so at a = σ_i the value at v_i is still at most the value at every point: v_i and v_{i+1} are minimisers. A point r attains the same value exactly when it lies on the line through v_i and v_{i+1}. Such an r with x_r < x_{v_i} would give slope(r, v_i) = σ_i > σ_{i−1} = L_i, contradicting the maximality in Lemma 1; symmetrically none lies right of v_{i+1}. So the minimisers at σ_i are exactly the points of P on the segment [v_i, v_{i+1}]. ∎ **PROVED.**
+**(c)** By (b), U_i = slope(v_i, v_{i+1}) = L_{i+1}. Each corridor is non-empty (Theorem 1), so σ_{i−1} = L_i < U_i = σ_i, and the edge slopes increase strictly. The intervals (σ_{i−1}, σ_i), with σ₀ = −∞ and σ_m = +∞, are pairwise disjoint and their union with {σ₁, …, σ_{m−1}} is ℝ. At a = σ_i the values y − σ_i·x at v_i and at v_{i+1} agree, since σ_i is the slope between them. For a in (σ_{i−1}, σ_i) the point v_i is the unique minimiser, and each r ↦ y_r − a·x_r is continuous in a, so at a = σ_i the value at v_i is still at most the value at every point: v_i and v_{i+1} are minimisers. A point r attains the same value exactly when it lies on the line through v_i and v_{i+1}. Such an r with x_r < x_{v_i} would give slope(r, v_i) = σ_i > σ_{i−1} = L_i, contradicting the maximality in Lemma 1; symmetrically none lies right of v_{i+1}. So the minimisers at σ_i are exactly the points of P on the segment [v_i, v_{i+1}]. ∎ **PROVED.**
 
 **EXHAUSTIVE**: at every step of the walk, in both forms, and on the 6,868 grid sets of §2, the floor and ceiling of every vertex, computed from Lemma 1, equal the slopes to its flanking vertices, computed from the hull, as exact elements of ℚ(√ℕ).
 
@@ -176,7 +178,7 @@ So the corridor is not an interval that happens to be non-empty: it is one of th
 
 *Proof.* Over the 106 steps the entrant's point has radicand r_e ≤ 6 (node-only) or r_e ≤ 13/2 (finished) and n_e ≤ 7; the largest ceiling over the walk is `U_max = √6 + √7 = 5.0952411` (node-only) and `(10√11 + 5√26)/9 = 6.5179273` (finished); the smallest finite floor is `L_min = 0` (node-only) and `−√14 = −3.7416574` (finished). These extremes are computed exactly (EXHAUSTIVE). Let s be any admissible subshell outside the frame, with quantum numbers (n, ℓ) and radicand r. Its radicand satisfies r ≤ n − 1 in the node-only form and r < n in the finished form, because p = n − ℓ − 1 ≤ n − 1 and the fractional part is below 1.
 
-First suppose n ≥ 38 (node-only) or n ≥ 56 (finished). If x_s > x_e, then by Lemma 1 the subshell can only lower the ceiling, and its candidate value is slope(e, s) = (n − n_e)/(√r − √r_e) ≥ (n − 7)/√(n − 1) =: φ(n) in the node-only form, or ≥ (n − 7)/√n =: ψ(n) in the finished form. Both are increasing for n ≥ 8: the derivative of φ is (n + 5)/(2(n − 1)^{3/2}) > 0 and that of ψ is (n + 7)/(2n^{3/2}) > 0. Now φ(38) = 31/√37 = 5.0963686 > U_max and ψ(56) = 49/√56 = 6.5479004 > U_max (EXHAUSTIVE, exact), so the candidate value exceeds the existing ceiling and the minimum in Lemma 1 is unchanged. If x_s < x_e, the subshell can only raise the floor, with candidate value slope(s, e) = (n_e − n)/(x_e − x_s) ≤ −(n − 7)/√r_e ≤ −31/√6 = −12.6556970 (node-only) or ≤ −49/√(13/2) = −19.2193812 (finished), each below L_min; and this case arises only when r_e > 0, in which case the frame already supplies a finite floor (Theorem 4 below), so the maximum is unchanged. If x_s = x_e, then n > n_e and the subshell imposes no constraint.
+First suppose n ≥ 38 (node-only) or n ≥ 56 (finished). If x_s > x_e, then by Lemma 1 the subshell can only lower the ceiling, and its candidate value is slope(e, s) = (n − n_e)/(√r − √r_e) ≥ (n − 7)/√(n − 1) =: φ(n) in the node-only form, or ≥ (n − 7)/√n =: ψ(n) in the finished form. Both are increasing for n ≥ 8: the derivative of φ is (n + 5)/(2(n − 1)√(n − 1)) > 0 and that of ψ is (n + 7)/(2n√n) > 0. Now φ(38) = 31/√37 = 5.0963686 > U_max and ψ(56) = 49/√56 = 6.5479004 > U_max (EXHAUSTIVE, exact), so the candidate value exceeds the existing ceiling and the minimum in Lemma 1 is unchanged. If x_s < x_e, the subshell can only raise the floor, with candidate value slope(s, e) = (n_e − n)/(x_e − x_s) ≤ −(n − 7)/√r_e ≤ −31/√6 = −12.6556970 (node-only) or ≤ −49/√(13/2) = −19.2193812 (finished), each below L_min; and this case arises only when r_e > 0, in which case the frame already supplies a finite floor (Theorem 4 below), so the maximum is unchanged. If x_s = x_e, then n > n_e and the subshell imposes no constraint.
 
 Second, every subshell with n ≤ 37 (node-only) or n ≤ 55 (finished), and every ℓ ≤ n − 1, is in the frame F(37, 36), respectively F(55, 54); and the corridors computed in those frames equal the corridors computed in F(15, 4) at all 106 steps (EXHAUSTIVE). The two cases exhaust the admissible subshells outside F(15, 4). ∎ **PROVED**, with its extremes and its two closed frames **EXHAUSTIVE**.
 
@@ -304,11 +306,15 @@ The walk of D8 is a placement rule, not a law: it says where in its corridor a i
 
 **Proposition 2 (the recalibration sites).** In the node-only form, with ε = 10⁻⁶:
 
-- (a) there are 18 recalibrations: the initial placement, 9 moves and 8 touches, at the steps of Table 3;
-- (b) the sites, and the endpoint reached at each, are the same for ε = 10⁻⁴, 10⁻⁶, 10⁻⁸ and 10⁻¹⁰, and every touch changes a by exactly 2ε;
-- (c) at every touch the endpoint reached is the endpoint at which a was last placed: the four consecutive pairs Mo/Tc, Gd/Tb, Cm/Bk and Lr/Rf have corridors sharing exactly one endpoint — 1, √2/2, (1 + √3)/2 and (√3 + √5)/2 respectively — one's ceiling being the other's floor;
-- (d) eight of the nine moves occur at the opening of the entering subshell; the ninth, at mercury, re-enters 6s, which had opened at caesium and been left at gold;
-- (e) every subshell fills at constant a — no move falls strictly between its opening and its completion — except 5d, open from lanthanum (57) to gold (79) and moved at cerium (58), and 6d, open from actinium (89) to the end of the table and moved at protactinium (91) and lawrencium (103).
+**(a)** there are 18 recalibrations: the initial placement, 9 moves and 8 touches, at the steps of Table 3;
+
+**(b)** the sites, and the endpoint reached at each, are the same for ε = 10⁻⁴, 10⁻⁶, 10⁻⁸ and 10⁻¹⁰, and every touch changes a by exactly 2ε;
+
+**(c)** at every touch the endpoint reached is the endpoint at which a was last placed: the four consecutive pairs Mo/Tc, Gd/Tb, Cm/Bk and Lr/Rf have corridors sharing exactly one endpoint — 1, √2/2, (1 + √3)/2 and (√3 + √5)/2 respectively — one's ceiling being the other's floor;
+
+**(d)** eight of the nine moves occur at the opening of the entering subshell; the ninth, at mercury, re-enters 6s, which had opened at caesium and been left at gold;
+
+**(e)** every subshell fills at constant a — no move falls strictly between its opening and its completion — except 5d, open from lanthanum (57) to gold (79) and moved at cerium (58), and 6d, open from actinium (89) to the end of the table and moved at protactinium (91) and lawrencium (103).
 
 **MEASURED**, from the corridors of Table 1 by the rule of D8; (b) is the invariance of the measurement under the rule's parameter. A second, independently written implementation of the same rule over a candidate set truncated at n ≤ 8 with the first empty subshell of each ℓ finds the same 18 sites, the same nine values to within 10⁻¹⁵, and the same partition into moves and touches; its candidate set lacks a ceiling at seven ns openings — lithium, sodium, potassium, rubidium, silver, caesium, francium — and that difference changes no site, since at each of those steps a arrives from below.
 
@@ -367,6 +373,17 @@ Both bounds are exhibited, so the general theorem that for intervals on a line t
 | **Theorem 3** | ✓ | extremes of L, U, r_e, n_e; the four bounds; frames F(37,36), F(55,54) and eight others | — | — |
 | Table 1, Table 2 | — | 106 corridors; 19 endpoints, min gap 0.0267; 138 in the finished form, min gap 0.0002178 | — | — |
 | Proposition 1 | ✓ | (u+v)(u−v) = u²−v² on a 3×3 grid; four floors exact | — | — |
+
+**The exhausted families, named.** 106 steps: Z = 3 to 108, each in the node-only and the finished form. 6,868 grid sets: every set of two, three, four or five distinct points of {(√r, n) : r ∈ {0, 1, 4, 9}, n ∈ {0, 1, 2, 3}}. 108 electron counts: Z = 1 to 108. Ten frames: F(8,4), F(12,4), F(20,4), F(30,4), F(15,14), F(8,14), F(37,36), F(55,54), F(7,4) and F(8,4) in the finished form, each at 106 steps. 20 probes: one rational strictly between each pair of consecutive endpoints and one beyond each end.
+
+**The obligation count.** One hundred and thirteen obligations run and none fails: 89 EXHAUSTIVE, 17 guards, and 7 MACHINE-CHECKED. The self-test adds three negative controls, each of which must be reported as refuted, and each is: a hull algorithm that keeps collinear points, which disagrees with the corridor identity at 18 of the 106 steps; the wrong crossing formula (√(n − 1) + √(n − 4))/2, which fails against potassium's floor; and the false claim that the strict minimiser is always the point of least y, which Z3 returns satisfiable with a model. A fourth control runs in every run, inside the encoding guard: a deliberately wrong reference — the hull without its first vertex — is caught with 300 disagreements.
+
+**The two guards on the machine check.** *Non-vacuity*: both hypotheses — "s is the strict minimiser at some a" and "the pairwise condition holds for four distinct points" — are satisfiable. *Encoding fidelity*: the Z3 predicate for "s ∉ E(P ∖ {s})" is evaluated on 300 pseudorandom point sets of two to five points (1,041 point instances, seed 11) and agrees with the monotone-chain hull in every case, while the deliberately wrong reference disagrees 300 times; and the strict-minimiser formula agrees with brute-force minimisation over a rational slope on 300 further instances. These 600 instances are a guard on the encoding and not a result of the paper.
+
+**The measured and the counted**, in the same columns:
+
+| object | PROVED | EXHAUSTIVE | MACHINE-CHECKED (Z3) | CITED / MEASURED |
+|---|---|---|---|---|
 | **Theorem 4** | ✓ | both forms, 106 steps; without g, the eleven 5f exceptions | — | — |
 | Corollary 2 | — | Ce and Pa corridors exact; Pa's floor from 5g | — | the arrival at Pa MEASURED |
 | Table 3, Proposition 2 | — | four consecutive pairs share one endpoint, exact | — | MEASURED, ε ∈ {10⁻⁴, 10⁻⁶, 10⁻⁸, 10⁻¹⁰}; independent implementation agrees |
@@ -375,12 +392,6 @@ Both bounds are exhibited, so the general theorem that for intervals on a line t
 | Proposition 4 | — | 20 probes between 19 endpoints; 139 between 138 | — | — |
 | §8, prediction | — | Madelung pick 96 of 106; Madelung pick a vertex at 106 steps, two forms | — | walk scores MEASURED |
 | exact arithmetic | — | every sign by rational enclosure; deepest 24 digits; least certified magnitude 4.43 × 10⁻⁸ | — | linear independence CITED (Besicovitch 1940) |
-
-**The exhausted families, named.** 106 steps: Z = 3 to 108, each in the node-only and the finished form. 6,868 grid sets: every set of two, three, four or five distinct points of {(√r, n) : r ∈ {0, 1, 4, 9}, n ∈ {0, 1, 2, 3}}. 108 electron counts: Z = 1 to 108. Ten frames: F(8,4), F(12,4), F(20,4), F(30,4), F(15,14), F(8,14), F(37,36), F(55,54), F(7,4) and F(8,4) in the finished form, each at 106 steps. 20 probes: one rational strictly between each pair of consecutive endpoints and one beyond each end.
-
-**The obligation count.** One hundred and thirteen obligations run and none fails: 89 EXHAUSTIVE, 17 guards, and 7 MACHINE-CHECKED. The self-test adds three negative controls, each of which must be reported as refuted, and each is: a hull algorithm that keeps collinear points, which disagrees with the corridor identity at 18 of the 106 steps; the wrong crossing formula (√(n − 1) + √(n − 4))/2, which fails against potassium's floor; and the false claim that the strict minimiser is always the point of least y, which Z3 returns satisfiable with a model. A fourth control runs in every run, inside the encoding guard: a deliberately wrong reference — the hull without its first vertex — is caught with 300 disagreements.
-
-**The two guards on the machine check.** *Non-vacuity*: both hypotheses — "s is the strict minimiser at some a" and "the pairwise condition holds for four distinct points" — are satisfiable. *Encoding fidelity*: the Z3 predicate for "s ∉ E(P ∖ {s})" is evaluated on 300 pseudorandom point sets of two to five points (1,041 point instances, seed 11) and agrees with the monotone-chain hull in every case, while the deliberately wrong reference disagrees 300 times; and the strict-minimiser formula agrees with brute-force minimisation over a rational slope on 300 further instances. These 600 instances are a guard on the encoding and not a result of the paper.
 
 **What is not machine-checked, and why.** Theorem 2 is proved and exhaustively verified on the atomic steps and the grid family; its statement quantifies over the hull's vertex order, which is not first-order in the point coordinates without enumerating orderings, and the exhaustive family is where its content lies. Theorem 3 rests on two inequalities proved by a derivative and evaluated exactly at n = 38 and n = 56, and on two closed frames checked exhaustively. The walk is a measurement with a stated parameter; its exactness argument is in §6. The converse direction of Theorem 1 is machine-checked for up to four points in a bounded box because the universal quantifier over a makes the obligation harder for the solver; the proof is general.
 
