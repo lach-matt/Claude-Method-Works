@@ -15,7 +15,13 @@ discharged here, in one of four ways:
   EXHAUSTIVE             every case of a stated finite family visited
   MEASURED               computed from the level tables held in the tree, with the
                          seated instrument imported by path as the object under test
-                         and a fresh implementation as its reference
+                         and an independent implementation of the rule as its reference
+  ARITHMETIC             a proved closed form evaluated at stated points and printed to
+                         a stated precision (floating point, or a float rendering of an
+                         exact value); it carries no proof status of its own -- the
+                         status is the theorem's -- and is never counted as PROVED
+  GUARD                  a precondition of a MACHINE-CHECKED or MEASURED row; if a guard
+                         fails, the rows it guards are reported as failed, not as ok
 
     python3 check.py              every obligation, one line each, summary, exit 1 on failure
     python3 check.py --selftest   the same plus the negative controls
@@ -33,6 +39,7 @@ import random
 import re
 import statistics
 import sys
+from decimal import Decimal, localcontext
 from fractions import Fraction as F
 
 HERE = os.path.dirname(os.path.abspath(__file__))
@@ -57,6 +64,8 @@ RULED = load_by_path("ruled_bracket", "method/members/ruled_bracket.py")  # the 
 
 R_INF = F("109737.31568")          # cm^-1, CODATA 2018 (Tiesinga et al. 2021)
 R_FLOAT = 109737.31568
+R_EV = 13.605693122994             # eV, the Rydberg energy R_inf h c, CODATA 2018
+R_HARTREE = 0.5                    # hartree, exact
 
 # ------------------------------------------------------------------ bookkeeping
 
@@ -166,12 +175,12 @@ def part1():
     num("V_floor_asym_2", F(26, 9))
     low = 1 - F(26, 9) / F(32, 11)
     num("asym_low_pct_at_2", float(low) * 100)
-    ob("I11", "PROVED", abs(float(low) * 100 - 0.694) < 0.001,
-       "asymptote 4r/3 + 4/(9r) at nu = 2 is 26/9, low by %.3f%%" % (float(low) * 100))
+    ob("I11", "PROVED", low == F(1, 144),
+       "asymptote 4r/3 + 4/(9r) at nu = 2 is 26/9, low by exactly 1/144 = %.3f%%" % (float(low) * 100))
     d10 = V_exact(F(10)) - (F(40, 3) + F(4, 90))
     num("asym_gap_at_10", float(d10))
-    ob("I12", "PROVED", d10 == F(4, 9 * 10 * 299) and 5e-5 < float(d10) < 5e-4,
-       "gap at nu = 10 is 4/26910 = %.2e: exact to three decimals, not four" % float(d10))
+    ob("I12", "PROVED", d10 == F(4, 9 * 10 * 299) and F(1, 10000) < d10 < F(1, 1000),
+       "gap at nu = 10 is exactly 4/26910 = %.2e, between 10^-4 and 10^-3: exact to three decimals, not four" % float(d10))
     num("V_20", float(V_exact(F(20)))); num("V_10", float(V_exact(F(10)))); num("V_40", float(V_exact(F(40))))
     # depth and step interchangeable
     same = {V_exact(F(nu, h)) for nu, h in ((20, 1), (40, 2), (60, 3), (80, 4))}
@@ -185,13 +194,13 @@ def part1():
         w, e = w_e(R_INF, F(nu), F(h))
         tab.append((nu, h, float(w / T(R_INF, F(nu))), 4 * h / nu, float(e / T(R_INF, F(nu))), 3 * (h / nu) ** 2))
     num("frac_table", tab)
-    ob("I14", "PROVED", all(abs(a - b) < 2e-3 and abs(c - d) < 4e-5 for _, _, a, b, c, d in tab),
+    ob("I14", "ARITHMETIC", all(abs(a - b) < 2e-3 and abs(c - d) < 4e-5 for _, _, a, b, c, d in tab),
        "fractional forms at (20,1), (40,1), (40,2): w/T = %.6f, e/T = %.3e at (20,1)" % (tab[0][2], tab[0][4]))
 
     # the bits
     num("bits_10", math.log2(float(V_exact(F(10))))); num("bits_40", math.log2(float(V_exact(F(40)))))
     num("bits_floor", math.log2(32 / 11))
-    ob("I15", "PROVED", abs(NUMS["bits_10"] - 3.742) < 1e-3 and abs(NUMS["bits_40"] - 5.737) < 1e-3
+    ob("I15", "ARITHMETIC", abs(NUMS["bits_10"] - 3.742) < 1e-3 and abs(NUMS["bits_40"] - 5.737) < 1e-3
        and abs(NUMS["bits_floor"] - 1.5406) < 1e-4,
        "log2 V = %.3f bits at nu = 10, %.3f at nu = 40; log2(32/11) = %.4f" % (NUMS["bits_10"], NUMS["bits_40"], NUMS["bits_floor"]))
 
@@ -215,21 +224,27 @@ def part2():
     grid_identity("I17", "the quadratic model falls by lambda^2/2 under a full Newton step",
                   {"A": 2, "nu": 8}, ("A", "nu"), resid_newton)
     num("lam2_10", float(F(2, 3) * T(R_INF, F(10)))); num("lam2_100", float(F(2, 3) * T(R_INF, F(100))))
-    ob("I18", "PROVED", abs(NUMS["lam2_10"] - 731.5821) < 1e-3 and abs(NUMS["lam2_100"] - 7.31582) < 1e-4,
+    ob("I18", "ARITHMETIC", abs(NUMS["lam2_10"] - 731.5821) < 1e-3 and abs(NUMS["lam2_100"] - 7.31582) < 1e-4,
        "lambda^2 = %.4f cm^-1 at nu = 10, %.4f at nu = 100 (Z = 1)" % (NUMS["lam2_10"], NUMS["lam2_100"]))
     # self-concordance: 4 (T'')^3 - (T''')^2 = (576 A^2 / nu^12) (3A/2 - nu^2)
     grid_identity("I19", "4(T'')^3 - (T''')^2 = (576 A^2/nu^12)(3A/2 - nu^2): self-concordant iff nu^2 <= 3A/2",
                   {"A": 4, "nu": 14}, ("A", "nu"),
                   lambda A, nu: 4 * Tpp(A, nu) ** 3 - Tppp(A, nu) ** 2 - 576 * A * A / nu ** 12 * (F(3, 2) * A - nu * nu))
+    # the squared ratio is nu^2 / (3A/2): the self-concordance ratio scales as A^(-1/2), i.e. with the unit
+    grid_identity("I19b", "(T''')^2 / (4 (T'')^3) = nu^2 / (3A/2): the ratio |T'''|/(2 (T'')^(3/2)) is nu / sqrt(3A/2), not unit-free",
+                  {"A": 4, "nu": 14}, ("A", "nu"),
+                  lambda A, nu: Tppp(A, nu) ** 2 * (F(3, 2) * A) - 4 * Tpp(A, nu) ** 3 * nu * nu)
     sc = {Z: math.sqrt(1.5 * Z * Z * R_FLOAT) for Z in (1, 2, 6)}
     num("sc_bounds", sc)
+    sc_units = {"cm^-1": math.sqrt(1.5 * R_FLOAT), "eV": math.sqrt(1.5 * R_EV), "hartree": math.sqrt(1.5 * R_HARTREE)}
+    num("sc_bound_units", sc_units)
     ratio55 = (24 * R_FLOAT / 55 ** 5) / (2 * (6 * R_FLOAT / 55 ** 4) ** 1.5)
     ratio2 = (24 * R_FLOAT / 2 ** 5) / (2 * (6 * R_FLOAT / 2 ** 4) ** 1.5)
     num("sc_ratio_55", ratio55); num("sc_ratio_2", ratio2)
-    ob("I20", "PROVED", abs(sc[1] - 405.7) < 0.1 and abs(sc[2] - 811.4) < 0.1 and abs(sc[6] - 2434.2) < 0.2
-       and abs(ratio55 - 0.1356) < 1e-3,
-       "self-concordant for nu <= %.1f (Z=1), %.1f (Z=2), %.1f (Z=6); ratio |T'''|/2(T'')^1.5 = %.4f at nu = 2, %.4f at nu = 55"
-       % (sc[1], sc[2], sc[6], ratio2, ratio55))
+    ob("I20", "ARITHMETIC", abs(sc[1] - 405.7) < 0.1 and abs(sc[2] - 811.4) < 0.1 and abs(sc[6] - 2434.2) < 0.2
+       and abs(ratio55 - 0.1356) < 1e-3 and abs(sc_units["hartree"] - math.sqrt(0.75)) < 1e-12,
+       "nu <= sqrt(3A/2) with R in cm^-1: %.1f (Z=1), %.1f (Z=2), %.1f (Z=6); the same bound at Z = 1 with R in eV: %.2f, in hartree: %.3f; ratio |T'''|/2(T'')^1.5 in cm^-1 = %.4f at nu = 2, %.4f at nu = 55"
+       % (sc[1], sc[2], sc[6], sc_units["eV"], sc_units["hartree"], ratio2, ratio55))
     # the two gaps and the derivative between them
     gp = lambda A, nu: T(A, nu) - T(A, nu + 1)
     gm = lambda A, nu: T(A, nu - 1) - T(A, nu)
@@ -243,23 +258,42 @@ def part2():
     okk = all(gp(F(1), nu) < D(F(1), nu) < gm(F(1), nu) for nu in fam)
     ob("I22", "EXHAUSTIVE", okk, "g+ < 2A/nu^3 < g- at every nu in {5/4, 6/4, ..., 200}", "%d cases" % len(fam))
     # and w/2 against D: w/2 = D (1 + 3 s^2 + ...) exactly w/2 = 2 A nu h/(nu^2-h^2)^2
-    ob("I23", "PROVED", all(w_e(F(1), nu, F(1))[0] / 2 > D(F(1), nu) for nu in fam),
-       "w/2 > 2A/nu^3 for every nu > 1 (w/2 = D / (1 - h^2/nu^2)^2)", "%d cases" % len(fam))
+    ob("I23", "EXHAUSTIVE", all(w_e(F(1), nu, F(1))[0] / 2 > D(F(1), nu) for nu in fam),
+       "w/2 > 2A/nu^3 at every nu in {5/4, 6/4, ..., 200} (the general statement follows from I24)", "%d cases" % len(fam))
     grid_identity("I24", "w/2 = h (2A/nu^3) / (1 - h^2/nu^2)^2", {"A": 2, "nu": 8, "h": 8}, ("A", "nu", "h"),
                   lambda A, nu, h: w_e(A, nu, h)[0] / 2 - h * (2 * A / nu ** 3) / (1 - h * h / (nu * nu)) ** 2)
+    # the two gaps at step h against w and e: the larger gap is w/2 + e, the smaller w/2 - e
+    def resid_gaps(A, nu, h):
+        w, e = w_e(A, nu, h)
+        gminus = T(A, nu - h) - T(A, nu); gplus = T(A, nu) - T(A, nu + h)
+        return (gminus - (w / 2 + e)) ** 2 + (gplus - (w / 2 - e)) ** 2 + (gminus - A * h * (2 * nu - h) / (nu * nu * (nu - h) ** 2)) ** 2
+    grid_identity("I39", "g- = w/2 + e = A h (2nu - h)/(nu^2 (nu-h)^2) and g+ = w/2 - e: the larger gap exceeds the half-width by e",
+                  {"A": 2, "nu": 10, "h": 8}, ("A", "nu", "h"), resid_gaps)
+    grid_identity("I40", "g- = (w/2)(1 + 2/V): the excess of the deductive bound over the half-width is the fraction 2/V",
+                  {"A": 2, "nu": 10, "h": 8}, ("A", "nu", "h"),
+                  lambda A, nu, h: (lambda w, e: (T(A, nu - h) - T(A, nu)) * w - (w / 2) * (w + 2 * e))(*w_e(A, nu, h)))
+    ex = {r: float(2 / V_exact(F(r))) for r in (2, 10, 64)}
+    num("bound_excess", ex)
+    ob("I41", "ARITHMETIC", abs(ex[2] - 0.6875) < 1e-9 and abs(ex[64] - 0.0234) < 1e-3,
+       "2/V, the excess of the larger gap over w/2: %.4f at r = 2 (exactly 11/16), %.4f at r = 10, %.4f at r = 64" % (ex[2], ex[10], ex[64]))
     # critical depth table
     tab = {}
     for dT in (3000, 1000, 100, 10):
         tab[dT] = {Z: (2 * Z * Z * R_FLOAT / dT) ** (1 / 3) for Z in (1, 2)}
     num("nu_fail", tab)
-    ob("I25", "PROVED", abs(tab[3000][1] - 4.18) < 0.01 and abs(tab[3000][2] - 6.64) < 0.01 and abs(tab[10][2] - 44.4) < 0.1,
+    ob("I25", "ARITHMETIC", abs(tab[3000][1] - 4.18) < 0.01 and abs(tab[3000][2] - 6.64) < 0.01 and abs(tab[10][2] - 44.4) < 0.1,
        "nu_fail = (2Z^2R/|dT|)^(1/3): %.1f/%.1f (3000), %.1f/%.1f (1000), %.1f/%.1f (100), %.1f/%.1f (10) at Z = 1/2"
        % tuple(tab[d][Z] for d in (3000, 1000, 100, 10) for Z in (1, 2)))
     # nu_V
-    nuV = {q: (3 * R_FLOAT / (5 * q)) ** 0.25 for q in (0.0001, 0.001, 0.01)}
-    num("nu_V", nuV)
-    ob("I26", "PROVED", abs(nuV[0.0001] - 160.2) < 0.1 and abs(nuV[0.001] - 90.1) < 0.1 and abs(nuV[0.01] - 50.7) < 0.1,
-       "nu_V = (3Z^2R/5q)^(1/4) = %.1f, %.1f, %.1f at q = 10^-4, 10^-3, 10^-2 (Z = 1)" % (nuV[0.0001], nuV[0.001], nuV[0.01]))
+    # D12 at k = 1 reads |Delta^2 T| > 5 * 2^2 q = 20 q; the leading-order second difference is T'' = 6A/nu^4
+    # (twice e = 3A/nu^4), so 6A/nu^4 > 20 q  <=>  nu < (3A/(10 q))^(1/4)
+    nuV = {q: (3 * R_FLOAT / (10 * q)) ** 0.25 for q in (0.0001, 0.001, 0.01)}
+    nuV5 = {q: (3 * R_FLOAT / (5 * q)) ** 0.25 for q in (0.0001, 0.001, 0.01)}    # the e > 5q form, for the record
+    num("nu_V", nuV); num("nu_V_5q", nuV5)
+    ob("I26", "ARITHMETIC", abs(nuV[0.0001] - 134.7) < 0.1 and abs(nuV[0.001] - 75.7) < 0.1 and abs(nuV[0.01] - 42.6) < 0.1
+       and all(abs(nuV5[q] / nuV[q] - 2 ** 0.25) < 1e-9 for q in nuV),
+       "nu_V = (3Z^2R/(10q))^(1/4) from D12 at k = 1 (6A/nu^4 > 20q) = %.1f, %.1f, %.1f at q = 10^-4, 10^-3, 10^-2 (Z = 1); the form 3A/nu^4 > 5q would give %.1f, %.1f, %.1f, larger by 2^(1/4)"
+       % (nuV[0.0001], nuV[0.001], nuV[0.01], nuV5[0.0001], nuV5[0.001], nuV5[0.01]))
     # Aitken on the centred triple: closed form and the limit T/3
     def aitken(A, n):
         a, b, c = T(A, n - 1), T(A, n), T(A, n + 1)
@@ -268,7 +302,7 @@ def part2():
                   lambda A, n: aitken(A, n) - T(A, n) * (2 * n * n - 1) / (6 * n * n - 2))
     tab = [(n, float(T(R_INF, F(n))), float(aitken(R_INF, F(n))), float(T(R_INF, F(n)) / 3)) for n in (10, 20, 40, 80)]
     num("aitken_table", tab)
-    ob("I28", "PROVED", abs(tab[0][2] - 365.1793) < 1e-4 and abs(tab[1][2] - 91.4096) < 1e-4,
+    ob("I28", "ARITHMETIC", abs(tab[0][2] - 365.1793) < 1e-4 and abs(tab[1][2] - 91.4096) < 1e-4,
        "Aitken (n, T, A-hat, T/3): " + "; ".join("%d %.4f %.4f %.4f" % row for row in tab))
     num("aitken_bias_20", tab[1][1] - tab[1][2]); num("aitken_bias_40", tab[2][1] - tab[2][2])
 
@@ -320,7 +354,7 @@ def part3():
         est = [(Vpow(F(1000), p, F(1) / k) * (F(1) / k) * abs(p - 1) / 4000 - 1) * (1000 * k) ** 2 for k in (1, 2)]
         if abs(float(est[1] - c)) > 1e-3 or abs(float(est[0] - est[1])) > 4 * abs(float(est[1] - c)) + 1e-6:
             ok = False
-    ob("I32", "PROVED", ok, "hV|p-1|/(4x) = 1 + (p-2)(p+1)/12 (h/x)^2 + O((h/x)^4): coefficient recovered at h/x = 10^-3")
+    ob("I32", "ARITHMETIC", ok, "hV|p-1|/(4x) = 1 + (p-2)(p+1)/12 (h/x)^2 + O((h/x)^4): coefficient recovered from exact rational values at h/x = 10^-3 (the proof is in the text)")
     # signs of the differences of T
     fam = [(nu, j) for j in range(1, 8) for nu in range(2, 201)]
     def diff(vals):
@@ -362,7 +396,7 @@ def part3():
                 contain += 1
     ob("I34", "EXHAUSTIVE", ok and contain == 112 * 5,
        "ordered bracket: sign(f - p) = (-1)^(k+1+m) at every nu = 8..119, k = 1..5, m = 0..k+1",
-       "%d sign checks, %d two-sided brackets" % (cases, contain))
+       "%d sign checks; %d two-sided brackets, one per (nu, k), automatic since m = 0 and m = 1 have opposite parity" % (cases, contain))
     num("ordered_cases", cases); num("ordered_brackets", contain)
     # the noise bound 2^(k+1)
     ok = all(sum(math.comb(k + 1, i) for i in range(k + 2)) == 2 ** (k + 1) for k in range(0, 12))
@@ -387,9 +421,9 @@ def part3():
     law = (float(11 - d) / float(12 - d)) ** 3
     num("widths", widths[:7]); num("width_ratios", ratios[:6]); num("width_presumed", presumed)
     num("width_true", true_next); num("width_err_pct", 100 * (true_next - presumed) / true_next); num("width_law_ratio", law)
-    ob("I37", "PROVED", abs(widths[0] - 4799) < 1.5 and abs(presumed - 274.1) < 0.2 and abs(true_next - 281.7) < 0.1 and abs(law - 0.764) < 1e-3,
-       "widths at delta = 0.35: %.0f .. %.0f; presumed next %.1f, true %.1f (%.2f%% low); the law's ratio %.3f against the last observed %.3f"
-       % (widths[0], widths[6], presumed, true_next, NUMS["width_err_pct"], law, ratios[5]))
+    ob("I37", "ARITHMETIC", abs(widths[0] - 4799) < 1.5 and abs(presumed - 274.1) < 0.2 and abs(true_next - 281.7) < 0.1 and abs(law - 0.764) < 1e-3,
+       "widths at delta = 0.35, n = 5..11: %s; ratios %s; presumed next %.1f, true %.1f (%.2f%% low); the law's ratio %.3f against the last observed %.3f"
+       % (", ".join("%.0f" % w for w in widths[:7]), ", ".join("%.3f" % r for r in ratios[:6]), presumed, true_next, NUMS["width_err_pct"], law, ratios[5]))
     # the Sc VI deduction, as arithmetic
     d4, d5, lim, Z = F("1.0057"), F("0.9812"), F(892700), 6
     d2 = (d4 - d5) / (F(1, 16) - F(1, 25)); dinf = d4 - d2 / 16; d6 = dinf + d2 / 36
@@ -398,7 +432,7 @@ def part3():
     num("scvi", {"d2": float(d2), "dinf": float(dinf), "d6": float(d6), "E6": E(d6), "E_lo": E(d5), "E_hi": E(dinf),
                  "d_conv": float(conv), "E_hi_conv": E(conv), "width": E(dinf) - E(d5), "width_conv": E(conv) - E(d5)})
     s = NUMS["scvi"]
-    ob("I38", "PROVED", abs(s["d2"] - 1.0889) < 1e-4 and abs(s["E6"] - 736688) < 3 and abs(s["E_lo"] - 735860) < 3 and abs(s["E_hi_conv"] - 737380) < 3,
+    ob("I38", "ARITHMETIC", abs(s["d2"] - 1.0889) < 1e-4 and abs(s["E6"] - 736688) < 3 and abs(s["E_lo"] - 735860) < 3 and abs(s["E_hi_conv"] - 737380) < 3,
        "two-point solve: delta2 = %.4f, delta_inf = %.4f, delta(6s) = %.4f; E(6s) = %.0f in [%.0f, %.0f]; with convexity [%.0f, %.0f]"
        % (s["d2"], s["dinf"], s["d6"], s["E6"], s["E_lo"], s["E_hi"], s["E_lo"], s["E_hi_conv"]))
 
@@ -428,7 +462,14 @@ def contained_py(c, a, b):
     return lo <= c <= hi
 
 
+GUARDS_OK = {"G1": None, "G2": None}
+
+
 def z3_prove(oid, label, hyp, concl, vars_):
+    failed = [g for g, v in GUARDS_OK.items() if v is not True]
+    if failed:
+        ob(oid, "MACHINE-CHECKED", False, label, "NOT REPORTED: guard %s failed" % ", ".join(failed))
+        return False
     s = z3.Solver()
     s.add(z3.Not(z3.Implies(hyp, concl)))
     r = s.check()
@@ -455,7 +496,8 @@ def part4(selftest=False):
         enc = s.check() == z3.sat
         tot += 1
         bad += enc != contained_py(vc, va, vb)
-    ob("G1", "GUARD", bad == 0, "encoding fidelity: z3 `contained` agrees with a sorted-interval implementation", "%d instances, %d disagreements" % (tot, bad))
+    GUARDS_OK["G1"] = bad == 0
+    ob("G1", "GUARD", bad == 0, "encoding fidelity: z3 `contained` agrees with a sorted-interval implementation", "%d seeded random rational triples (seed 3), %d disagreements" % (tot, bad))
     if selftest:
         wrong = lambda c, a, b: (lambda lo, hi: lo < c < hi)(*sorted((a, b)))     # strict: wrong at the edges
         rnd = random.Random(3); badw = 0
@@ -479,6 +521,7 @@ def part4(selftest=False):
         # non-triviality: ask for a model where nothing coincides
         s.add(a != b, a != c, b != c, d0 != d1)
         allsat &= s.check() == z3.sat
+    GUARDS_OK["G2"] = allsat
     ob("G2", "GUARD", allsat, "non-vacuity: every hypothesis is satisfiable with all variables distinct")
     # M1 limit-free
     z3_prove("M1", "containment is invariant under T = I - E: min(a,b)<=c<=max(a,b) iff min(I-a,I-b)<=I-c<=max(I-a,I-b)",
@@ -509,6 +552,23 @@ SIX = {"Bi III": ("BiIII_asd.tsv", "BiIII_asd"), "C I": ("CI_full.tsv", "CI_full
 # four level tables of the later intake whose thresholds every channel row of that species states identically
 Q2LIM = {"AlI": (48278.480, 1), "GaI": (48387.634, 1), "NaI": (41449.451, 1), "KII": (255072.8, 2)}
 SP_MD = os.path.join(ROOT, "method/members/The_Method_1_6___Spectra_Compendium-2.md")
+
+
+def load_dict(src, key):
+    i = src.index(key + " = {"); depth, j = 0, i + len(key) + 3
+    while True:
+        if src[j] == "{":
+            depth += 1
+        elif src[j] == "}":
+            depth -= 1
+            if depth == 0:
+                break
+        j += 1
+    return eval(src[i + len(key) + 3:j + 1])
+
+
+def load_names():
+    return load_dict(open(os.path.join(DRV, "channels.py"), encoding="utf-8").read(), "NAME")
 
 
 def load_limits():
@@ -552,27 +612,55 @@ def load_table(path):
 
 
 def ref_series(members, lim, Z):
-    """Independent implementation of the strict test (the reference for the seated instrument).
+    """Reference implementation of D8, written from the definition and not from the instrument.
+    It differs from the instrument in every mechanical respect: exact decimal arithmetic at 40
+    digits (the instrument uses binary floats); the test is taken in quantum-defect space and the
+    floor is carried across by the exact inverse of Lemma 2's map (the instrument tests in energy
+    space); the floor is read from the decimal exponent of the printed string (the instrument
+    counts characters after the point); the admissibility ratio is formed from the level's own
+    term T as 2 T sqrt(T) / (q Z sqrt(R)) (the instrument forms 2 Z^2 R / (nu^3 q)); and members
+    are addressed by n (the instrument walks list positions).
     Returns (pass, fail, refused, cells) where cells = [(n, nu, verdict, lo, hi, E, q)]."""
-    R = R_FLOAT
-    d = {n: n - Z * math.sqrt(R / (lim - E)) for n, E, _ in members}
-    byn = {n: (E, s) for n, E, s in members}
-    p = f = r = 0; cells = []
-    for i in range(1, len(members) - 1):
-        n = members[i][0]
-        if members[i - 1][0] != n - 1 or members[i + 1][0] != n + 1:
-            continue
-        lo = lim - Z * Z * R / (n - min(d[n - 1], d[n + 1])) ** 2
-        hi = lim - Z * Z * R / (n - max(d[n - 1], d[n + 1])) ** 2
-        lo, hi = min(lo, hi), max(lo, hi)
-        E, s = byn[n]; q = qfloor(s); nu = n - d[n]
-        if 2 * Z * Z * R / (nu ** 3 * q) < 5:
-            r += 1; cells.append((n, nu, "REFUSED", lo, hi, E, q)); continue
-        if lo - q <= E <= hi + q:
-            p += 1; cells.append((n, nu, "pass", lo, hi, E, q))
-        else:
-            f += 1; cells.append((n, nu, "FAIL", lo, hi, E, q))
-    return p, f, r, cells
+    with localcontext() as ctx:
+        ctx.prec = 40
+        Rd = Decimal("109737.31568"); Id = Decimal(repr(lim)); Zd = Decimal(Z)
+        byn = {}
+        for n, E, s_ in members:
+            s_ = s_.strip()
+            Ed = Decimal(s_)
+            exp = Ed.as_tuple().exponent
+            q = Decimal(5) * Decimal(10) ** (exp - 1)          # half a unit in the last printed place
+            byn[n] = (Ed, q)
+
+        def delta_of(n, E):                                    # Lemma 2's map, inverted: E -> delta at fixed n
+            return Decimal(n) - Zd * (Rd / (Id - E)).sqrt()
+
+        def energy_of(n, d):                                   # delta -> E at fixed n
+            return Id - Zd * Zd * Rd / (Decimal(n) - d) ** 2
+
+        p = f = r = 0; cells = []
+        for n in sorted(byn):
+            if (n - 1) not in byn or (n + 1) not in byn:
+                continue
+            E, q = byn[n]
+            d_lo = min(delta_of(n - 1, byn[n - 1][0]), delta_of(n + 1, byn[n + 1][0]))
+            d_hi = max(delta_of(n - 1, byn[n - 1][0]), delta_of(n + 1, byn[n + 1][0]))
+            E_lo, E_hi = energy_of(n, d_hi), energy_of(n, d_lo)   # D5 with the labels ordered: E_lo <= E_hi
+            Tn = Id - E
+            r_adm = 2 * Tn * Tn.sqrt() / (q * Zd * Rd.sqrt())     # = 2 Z^2 R / (nu^3 q)
+            nu = Zd * (Rd / Tn).sqrt()
+            if r_adm < 5:
+                r += 1; cells.append((n, float(nu), "REFUSED", float(E_lo), float(E_hi), float(E), float(q))); continue
+            # D8 in delta space: E >= E_lo - q  <=>  delta(E) <= delta(E_lo - q), delta decreasing in E (Lemma 2);
+            # E <= E_hi + q  <=>  delta(E) >= delta(E_hi + q), vacuous when E_hi + q reaches the threshold
+            dn = delta_of(n, E)
+            ok_low = dn <= delta_of(n, E_lo - q)
+            ok_high = True if E_hi + q >= Id else dn >= delta_of(n, E_hi + q)
+            if ok_low and ok_high:
+                p += 1; cells.append((n, float(nu), "pass", float(E_lo), float(E_hi), float(E), float(q)))
+            else:
+                f += 1; cells.append((n, float(nu), "FAIL", float(E_lo), float(E_hi), float(E), float(q)))
+        return p, f, r, cells
 
 
 def series_rows():
@@ -607,6 +695,18 @@ def part5(results):
             store.append((nm, nm, key, sorted({(n, E, s) for n, E, s in v if E < lim}), lim, Z))
     q2_all = [f[:-4] for f in os.listdir(Q2) if f.endswith(".tsv")]
     num("tables_used", tables); num("raw_skipped", skipped); num("q2_without_threshold", len(q2_all) - len(Q2LIM))
+    NAMES = load_names()
+    for sp in SIX:
+        NAMES.setdefault(SIX[sp][1], sp)
+    for nm in Q2LIM:
+        NAMES.setdefault(nm, re.sub(r"([a-z])([IVX])", r"\1 \2", nm))
+    spectra_all = {NAMES.get(lname, lname) for lname, *_ in store}
+    num("spectra_in_tables", len(spectra_all))
+    skipped_levels = [x for x in skipped if x != "QD-CHECK"]
+    num("raw_skipped_levels", len(skipped_levels)); num("raw_skipped_other", [x for x in skipped if x == "QD-CHECK"])
+    ob("E0", "MEASURED", tables == 86 and "QD-CHECK" in skipped,
+       "the collection: %d level tables with a threshold, covering %d distinct spectra; %d level tables and %d cross-check file without a threshold set aside, and %d of a later intake"
+       % (tables, len(spectra_all), len(skipped_levels), len(skipped) - len(skipped_levels), len(q2_all) - len(Q2LIM)))
     # ---- Run B: every series with three consecutive members, seated instrument vs reference
     P = Fl = Rf = 0; cells_all = []; nser = 0; agree = True; triv_ok = triv_n = 0
     for lname, sp, key, mem, lim, Z in store:
@@ -629,9 +729,10 @@ def part5(results):
     ob("E1", "GUARD", agree, "the seated instrument and the independent reference agree cell for cell on every series", "%d cells" % len(cells_all))
     tot = P + Fl + Rf
     num("B_series", nser); num("B_cells", tot); num("B_pass", P); num("B_fail", Fl); num("B_refused", Rf)
-    num("B_pass_pct", 100.0 * P / (P + Fl)); num("B_species", len({c["species"] for c in cells_all}))
-    ob("E2", "MEASURED", tot > 0, "whole store, strict test: %d series, %d cells: %d pass, %d fail, %d refused (%.1f%% of tested pass)"
-       % (nser, tot, P, Fl, Rf, NUMS["B_pass_pct"]))
+    num("B_pass_pct", 100.0 * P / (P + Fl)); num("B_labels", len({c["species"] for c in cells_all}))
+    num("B_species", len({NAMES.get(c["species"], c["species"]) for c in cells_all}))
+    ob("E2", "MEASURED", tot > 0, "whole store, strict test: %d series across %d spectra (%d table labels), %d cells: %d pass, %d fail, %d refused (%.1f%% of tested pass)"
+       % (nser, NUMS["B_species"], NUMS["B_labels"], tot, P, Fl, Rf, NUMS["B_pass_pct"]))
     num("B_triv_ok", triv_ok); num("B_triv_n", triv_n)
     ob("E3", "MEASURED", triv_ok == triv_n, "the T-bracket (containment between neighbours) on the same cells: %d of %d" % (triv_ok, triv_n))
     # ---- Run A: the 285 tabulated series with cells, member for member
@@ -713,16 +814,40 @@ def part5(results):
     ob("E6", "MEASURED", NUMS["gap_lower_med"] > 1 > NUMS["gap_upper_med"],
        "measured gaps over 2Z^2R/nu^3 at %d cells: lower gap median %.3f, upper gap median %.3f (the derivative lies between)"
        % (len(lower), NUMS["gap_lower_med"], NUMS["gap_upper_med"]))
-    # ---- the bound in the silence: w/2 per held cell
-    bounds = []
+    # ---- the bound in the silence: the larger observed gap, max(E - E-, E+ - E), per held cell (Corollary 2)
+    bounds = []; toward_lower = 0
     for c in cells_all:
         if c["verdict"] == "pass":
-            bounds.append(((c["Ep"] - c["Em"]) / 2, 2 * c["Z"] ** 2 * R_FLOAT / c["nu"] ** 3, c["nu"], c["Z"], c["species"], c["series"], c["n"]))
+            g_lower, g_upper = c["E"] - c["Em"], c["Ep"] - c["E"]
+            toward_lower += g_lower >= g_upper
+            bounds.append((max(g_lower, g_upper), 2 * c["Z"] ** 2 * R_FLOAT / c["nu"] ** 3, c["nu"], c["Z"], c["species"], c["series"], c["n"],
+                           (c["Ep"] - c["Em"]) / 2))
     bounds.sort()
     num("bound_cells", len(bounds)); num("bound_tightest", bounds[:5]); num("bound_median", statistics.median(b[0] for b in bounds))
-    ob("E7", "MEASURED", len(bounds) > 0, "%d held cells each bound their own perturbation by w/2; tightest %.3f cm^-1 (%s %s n=%d, nu = %.1f); median %.1f"
-       % (len(bounds), bounds[0][0], bounds[0][4], bounds[0][5], bounds[0][6], bounds[0][2], NUMS["bound_median"]))
+    num("bound_toward_lower", toward_lower); num("halfwidth_tightest", min(b[7] for b in bounds))
+    num("halfwidth_median", statistics.median(b[7] for b in bounds))
+    ob("E7", "MEASURED", len(bounds) > 0 and all(b[0] >= b[7] for b in bounds),
+       "%d held cells each bound the displacement of their level relative to its neighbours by the larger observed gap; tightest %.3f cm^-1 (%s %s n=%d, nu = %.1f, where 2Z^2R/nu^3 = %.3f); median %.0f; the larger gap is toward n - 1 at %d of %d cells (Lemma 3); for the record, w/2 would read tightest %.3f, median %.0f"
+       % (len(bounds), bounds[0][0], bounds[0][4], bounds[0][5], bounds[0][6], bounds[0][2], bounds[0][1], NUMS["bound_median"],
+          toward_lower, len(bounds), NUMS["halfwidth_tightest"], NUMS["halfwidth_median"]))
     results["bounds"] = bounds
+    # ---- the floor's share of the verdicts (sensitivity of the split to the tolerance)
+    tested = [c for c in cells_all if c["verdict"] != "REFUSED"]
+    floor_only = sum(1 for c in tested if c["verdict"] == "pass" and not (c["lo"] <= c["E"] <= c["hi"]))
+    near = {}
+    for k in (2, 5):
+        near[k] = sum(1 for c in tested if c["verdict"] == "FAIL" and c["lo"] - k * c["q"] <= c["E"] <= c["hi"] + k * c["q"])
+    narrow = [c for c in tested if c["hi"] - c["lo"] < 2 * c["q"]]
+    narrow_held = sum(1 for c in narrow if c["verdict"] == "pass")
+    split = {}
+    for k in (0, 1, 2, 5):
+        pk = sum(1 for c in tested if c["lo"] - k * c["q"] <= c["E"] <= c["hi"] + k * c["q"])
+        split[k] = (pk, len(tested) - pk)
+    num("floor_only_passes", floor_only); num("fails_within", near); num("narrow_intervals", len(narrow)); num("narrow_held", narrow_held)
+    num("split_by_tolerance", split)
+    ob("E12", "MEASURED", split[1] == (P, Fl) and floor_only >= 0,
+       "the floor's share: %d of %d passes hold only because of the floor (E outside [E_lo, E_hi], inside [E_lo - q, E_hi + q]); %d of %d fails lie within 2q of an edge and %d within 5q; %d cells have E_hi - E_lo < 2q (%d of them held); pass/fail at tolerance 0, q, 2q, 5q: %d/%d, %d/%d, %d/%d, %d/%d"
+       % (floor_only, P, near[2], Fl, near[5], len(narrow), narrow_held, *split[0], *split[1], *split[2], *split[5]))
     # ---- order-k census with the admissibility rule
     census = {}
     for k in range(1, 7):
@@ -749,19 +874,46 @@ def part5(results):
     results["cells"] = cells_all
     # ---- the hydrogenic thresholds: Dirac term against the deficit
     alpha = 7.2973525693e-3; me_u = 5.48579909065e-4
-    iso = {"Li III": (3, 7.016003437, LIM["LiIII"][0]), "Be IV": (4, 9.012183065, LIM["BeIV"][0]), "B V": (5, 11.009305167, LIM["BV"][0])}
+    # the thresholds the tree holds, each with its provenance and its stated uncertainty
+    ladder = os.path.join(ROOT, "extracted/archives/method16-rp-b-data/LADDER-H-Ar-I-III.tsv")
+    li_asd = None
+    for line in open(ladder, encoding="utf-8"):
+        p = line.rstrip("\n").split("\t")
+        if len(p) >= 9 and p[1] == "Li III":
+            li_asd = (float(p[6]), float(p[8]))
+    assert li_asd is not None
+    thr = {  # species: (Z, atomic mass u [AME2020], I, +/-, source)
+        "Li III (ASD)": (3, 7.016003437, li_asd[0], li_asd[1], "NIST ASD 5.12 ionization energy, theoretical, retrieved 2026-08-10"),
+        "Li III (fit)": (3, 7.016003437, LIM["LiIII"][0], 0.36, "fitted to the series of theoretical levels (Yerokhin and Shabaev 2015)"),
+        "Be IV": (4, 9.012183065, LIM["BeIV"][0], 0.0008, "NIST ASD 5.12, theoretical"),
+        "B V": (5, 11.009305167, LIM["BV"][0], None, "fitted to the series of theoretical levels; no published uncertainty held"),
+    }
+    assert abs(thr["Be IV"][2] - 1756018.8100) < 1e-6 and abs(thr["B V"][2] - 2744111.38) < 1e-6 and abs(thr["Li III (fit)"][2] - 987662.29) < 1e-6
     rel = {}
-    for sp, (Z, M_atom, lim) in iso.items():
+    for sp, (Z, M_atom, lim, unc, src) in thr.items():
         M_nuc = M_atom - Z * me_u
         RM = R_FLOAT / (1 + me_u / M_nuc)
         deficit = lim - Z * Z * RM
         dirac = Z ** 4 * alpha ** 2 * RM / 4
-        rel[sp] = (deficit, dirac, deficit / dirac, lim - Z * Z * R_FLOAT)
+        rel[sp] = (deficit, dirac, deficit / dirac, lim - Z * Z * R_FLOAT, lim, unc, src)
     num("relativity", rel)
     ratios = [v[2] for v in rel.values()]
-    ob("E9", "MEASURED", all(0.85 < x < 0.92 for x in ratios),
-       "hydrogenic thresholds against Z^2 R_M: deficit/Dirac = " + ", ".join("%s %.3f" % (k, v[2]) for k, v in rel.items())
-       + "; Li III against 9 R_inf is %.2f cm^-1" % rel["Li III"][3])
+    ob("E9", "MEASURED", all(0.85 < x < 0.92 for x in ratios) and abs(rel["Li III (ASD)"][4] - 987661.0139) < 1e-6,
+       "hydrogenic thresholds I against Z^2 R_M (I, +/-; deficit; Dirac Z^4 a^2 R_M/4; ratio): "
+       + "; ".join("%s %.4f +/- %s, %.2f, %.2f, %.3f" % (k, v[4], ("%.4f" % v[5]) if v[5] is not None else "n/a", v[0], v[1], v[2]) for k, v in rel.items())
+       + "; Li III (fit) against 9 R_inf is %.2f cm^-1, Li III (ASD) %.2f" % (rel["Li III (fit)"][3], rel["Li III (ASD)"][3]))
+    # a threshold error dI shifts every quantum defect of the ion by d(delta) = dI nu^3 / (2 Z^2 R): the 9 R_inf error for Li III
+    dI = rel["Li III (fit)"][3]
+    coef = dI / (2 * 9 * R_FLOAT)
+    num("delta_err_coef", coef); num("delta_err_n7", coef * 7 ** 3); num("delta_err_n2", coef * 8)
+    ob("E9b", "ARITHMETIC", abs(coef * 343 - 0.0046) < 2e-4,
+       "a threshold written as 9 R_inf for Li III shifts delta by -(%.2f nu^3)/(2 Z^2 R) = -%.2e nu^3: -%.4f at n = 2, -%.4f at n = 7" % (dI, coef, coef * 8, coef * 343))
+    # the reduced mass: R_inf against R_M for the lightest species in the collection (lithium)
+    mM = me_u / (7.016003437 - 3 * me_u)
+    num("li_me_over_M", mM); num("li_nu_shift_per_nu", mM / 2); num("li_triple_spread", mM / 2)
+    ob("E13", "ARITHMETIC", 7e-5 < mM < 9e-5,
+       "reduced mass, lithium: m_e/M = %.2e; using R_inf for R_M shifts nu by nu (m_e/M)/2 = %.1e nu (%.1e at nu = 10), the same shift to within h (m_e/M)/2 = %.1e across a triple at h = 1"
+       % (mM, mM / 2, 5 * mM, mM / 2))
     # ---- rank one across power laws (fifteen exponents)
     exps = [-3, -2, -1, 1, 2, 3, 4, 5, 6, 7, 11, 15, 1.5, 2.5, 11 / 6]
     nus = [10 + 2 * i for i in range(40)]
@@ -771,7 +923,7 @@ def part5(results):
     import numpy as np
     sv = np.linalg.svd(np.array(M), compute_uv=False)
     num("sv1", float(sv[0])); num("sv2", float(sv[1]))
-    ob("E10", "PROVED", sv[1] / sv[0] < 1e-12, "centred log-matrix of 15 power laws over 40 values of nu: sigma1 = %.2f, sigma2/sigma1 = %.1e" % (sv[0], sv[1] / sv[0]))
+    ob("E10", "ARITHMETIC", sv[1] / sv[0] < 1e-12, "numerical corroboration of Lemma 7 (floating-point SVD): centred log-matrix of 15 power laws over 40 values of nu: sigma1 = %.2f, sigma2/sigma1 = %.1e" % (sv[0], sv[1] / sv[0]))
     # ---- the depth of the collection, and self-concordance across it
     def sc_ratio(Z, nu):
         A = Z * Z * R_FLOAT
@@ -784,10 +936,12 @@ def part5(results):
     num("cells_below_2", [(c["species"], c["series"], c["n"], c["nu"], c["Z"]) for c in below2])
     num("sc_worst", sc_worst); num("sc_margin", 1 / sc_worst)
     num("sc_worst_where", (worst["species"], worst["series"], worst["n"], worst["nu"], worst["Z"]))
-    ob("E11", "MEASURED", sc_worst < 1 and len(below2) <= 1,
-       "depth of the tested cells: nu from %.5f to %.2f; %d cell(s) below nu = 2 (%s n=%d); largest self-concordance ratio |T'''|/2(T'')^1.5 over the collection %.4f at nu = %.2f, Z = %d (margin %.2f); V at the shallowest cell is below 32/11 by %.1e"
+    sc_worst_hartree = sc_worst * math.sqrt(R_FLOAT / R_HARTREE)      # the same cell with A in hartree: the ratio scales as A^(-1/2)
+    num("sc_worst_hartree", sc_worst_hartree)
+    ob("E11", "MEASURED", sc_worst < 1 and len(below2) <= 1 and sc_worst_hartree > 1,
+       "depth of the tested cells: nu from %.5f to %.2f; %d cell(s) below nu = 2 (%s n=%d); the ratio |T'''|/2(T'')^1.5 at the deepest cell, nu = %.2f, Z = %d, is %.4f with R in cm^-1 and %.1f with R in hartree (the same cell); V at the shallowest cell is below 32/11 by %.1e"
        % (nu_min, nu_max, len(below2), below2[0]["species"] if below2 else "-", below2[0]["n"] if below2 else 0,
-          sc_worst, worst["nu"], worst["Z"], 1 / sc_worst,
+          worst["nu"], worst["Z"], sc_worst, sc_worst_hartree,
           num("V_deficit_shallowest", 1 - V_exact(nu_min) / float(F(32, 11)))))
 
 

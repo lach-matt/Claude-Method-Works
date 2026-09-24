@@ -465,44 +465,92 @@ The properties established here are not properties of atoms. Every one of them w
 
 ## §9 · Verification record
 
-Every number printed above is recomputed by the accompanying checks, which discharge **65** obligations in five kinds. The object under test is the same construction throughout, imported rather than restated; the reference implementations used by the guards are written independently.
+Every number printed above is recomputed by the accompanying checks, which discharge **72 rows, 0 failures** — 5 guards, 5 machine-checked obligations, 51 exhaustive families, 4 seeded samples and 7 citations — in under a minute, and a separate pass adds six negative controls, all refuted. The object under test is the same construction throughout, imported rather than restated; the reference implementations used by the guards are written independently; the solver is Z3 (de Moura and Bjørner 2008).
 
-| object | PROVED | MACHINE-CHECKED | EXHAUSTIVE | SAMPLED / CITED |
-|---|---|---|---|---|
-| Theorem 1, Λ is a sublattice | ✓ | **✓** all 13 variables integer (5 caps, 2 cells) | 475,800 pairs, 0 escapes | — |
-| Lemma 1, one monotone bound | ✓ | **✓** φ uninterpreted, a, b integer | — | — |
-| Lemma 2, a fixed point of ℛ is a sublattice | ✓ | **✓** every subset of a 3×3 box (2⁹) and of a 3×3×3 box (2²⁷) | — | — |
-| Theorem 2, ∣Λ∣ = 976, E(Λ) = 0 | — | — | 6,912 box points; closure and re-closure | — |
-| Tables 1–2, no bound redundant | — | — | 6,912 + 8,064 box points | — |
-| Theorem 3, distributive | ✓ | — | 289 coordinate triples | 200,000 cell triples, seed 20260921 |
-| Theorem 4, graded and modular | ✓ | — | 475,800 pairs; 3,749 covers | — |
-| Theorem 5, Sperner, 122 at rank 11 | — | — | exact matching over 115,162 comparabilities | Dilworth; König; Hopcroft–Karp CITED |
-| Theorem 6, seventeen irreducibles | ✓ | — | 976 cells, both cover sets | — |
-| Theorem 7, Birkhoff | — | — | 131,072 subsets; 475,800 pairs | Birkhoff CITED |
-| Theorem 8, twenty implications | ✓ | — | 131,072 words | — |
-| Corollary 2, order dimension 7 | — | — | width of a 17-element poset, exact matching | Dushnik–Miller CITED |
-| Theorem 9, the reflection | ✓ (no fixed point) | — | 976 cells | — |
-| Theorem 10, five forms of d | ✓ | — | 475,800 pairs | — |
-| Theorem 11, the metric | ✓ | — | 289 value triples | 200,000 cell triples, seed 20260922 |
-| Lemma 3, the caterpillar | ✓ | — | the graph of the seven bounds | — |
-| Theorem 12, the tree factorisation | ✓ | — | **1,944,000** coordinate boxes | — |
-| Theorem 13, seven comparisons | ✓ | **✓** lo, hi, test point, 5 caps integer | the same 1,944,000 boxes | Freuder CITED |
-| Proposition 1, the void-free fraction | — | — | 475,800 pairs | — |
-| Theorem 14, the nested expression | ✓ | — | every rank 3–20, exact integers | — |
-| Corollary 3 and Theorem 15, F(±1) | ✓ | — | exact integer evaluation; the split by k | — |
-| Lemma 4, the detachable leaf | ✓ | — | 60 exact rational points, above degree | — |
-| Corollary 4, not palindromic | — | — | the coefficient list and its reverse | — |
-| Theorem 16, the Möbius function | ✓ | — | 116,138 comparable pairs; 24,164 intervals | Rota; Birkhoff CITED |
-| Theorem 17, generating is covering | ✓ | — | — | 80 random subsets, seed 20260923 |
-| Theorem 18, seed(Λ) = 7 | — | — | exact branch and bound, limits 1–7 | Karp; Chvátal CITED |
+**Which results carry a written proof.** PROVED, with every step in the text: Theorems 1, 3, 4, 6, 8, 10, 11, 12, 13, 14, 15, 16 and 17, Lemmas 1, 2, 3 and 4, Corollaries 3, 6, 7 and 8, and the no-fixed-point half of Theorem 9. CITED where a theorem of the literature is used and not reproved: Birkhoff's representation (Theorem 7), Dilworth's theorem with König's and Fulkerson's reduction and the Hopcroft–Karp algorithm (Theorem 5), Dilworth's dimension theorem (Corollary 2), the linear-extension correspondence (Corollary 3), Freuder's width criterion (the converse remark after Theorem 12), Rota's crosscut theorem (Theorem 16) and Karp's NP-completeness (Theorem 18). Everything else — every count — is EXHAUSTIVE, with its family in the table below, or SAMPLED with its size and seed. The table lists every row the check prints, under the check's own label, in the check's own order.
 
-**The exhausted families, named.** 6,912: every point of the ambient box at the caps of D3. 8,064: the same box extended to k = 0, for the floor's marginal count. 475,800: every unordered pair of distinct cells. 115,162: every strictly comparable ordered pair; 116,138 with the diagonal. 131,072: every subset of the seventeen generators. 289: every triple of values drawn from one of the eight alphabets, summed over the eight. 1,944,000: every coordinate box [lo, hi] of the ambient box, that is every choice of lo ≤ hi in each of the eight alphabets. 24,164: every distinct generator-set difference D(y) ∖ D(x) over comparable pairs.
+| obligation, as the check labels it | status | family, box, witness or value, as the check prints it |
+|---|---|---|
+| non-vacuity, integer obligation | GUARD | hypothesis satisfiable with two distinct cells and caps ≥ 3: sat |
+| non-vacuity, monotone-bound obligation | GUARD | a monotone φ with two distinct admissible pairs exists: sat |
+| non-vacuity, subset obligation | GUARD | a PROPER non-empty fixed point of R exists in the 3x3x3 box: True |
+| encoding fidelity, membership | GUARD | 7312 cases compared, 0 disagreements, 0 skipped |
+| encoding fidelity, staircase | GUARD | 1352 cells compared against the closure operator under test, 0 disagreements, 0 skipped |
+| Theorem 1, Λ is a sublattice | MACHINE-CHECKED | all 13 variables INTEGER (5 caps, 2 cells): unsat |
+| Lemma 1, one monotone bound is closed | MACHINE-CHECKED | φ uninterpreted, monotone; a,b INTEGER: unsat |
+| Theorem 13, seven comparisons suffice | MACHINE-CHECKED | lo, hi, w and 5 caps all INTEGER: unsat |
+| Lemma 2, E(X) = 0 implies X is a sublattice | MACHINE-CHECKED | every one of 2⁹ subsets of the 3x3 box: unsat |
+| Lemma 2, E(X) = 0 implies X is a sublattice | MACHINE-CHECKED | every one of 2²⁷ subsets of the 3x3x3 box: unsat |
+| Theorem 2, ∣Λ∣ = 976 | EXHAUSTIVE | the construction and a fresh sieve of all 6912 box points agree: 976 cells, 14.12% of the box |
+| Theorem 2, the cell list, both directions | EXHAUSTIVE | 976 rows; rebuilt-not-printed 0, printed-not-rebuilt 0, order identical: True |
+| Table 2, no bound is redundant | EXHAUSTIVE | marginal exclusions l ≤ n-1: 308, k ≤ 4l+2: 564, q ≤ k: 575, f ≤ e-1: 200, g ≤ 4f+2: 24, g ≤ q: 673, 2S ≤ k: 300, k ≥ 1: 25 |
+| Corollary 1, the one coupling | EXHAUSTIVE | drop the Pauli half: 1000 cells, the 24 lost all have f = 0 and g = 3 |
+| Theorems 2 and 6, further cap settings | EXHAUSTIVE | 22121: 216 cells, E = 0, 11 join-irreducibles = the sum over i of (∣Ai∣ - 1) = 11; 33141: 1636 cells, E = 0, 21 join-irreducibles = the sum over i of (∣Ai∣ - 1) = 21; 43141: 2394 cells, E = 0, 22 join-irreducibles = the sum over i of (∣Ai∣ - 1) = 22; 44241: 5157 cells, E = 0, 24 join-irreducibles = the sum over i of (∣Ai∣ - 1) = 24; 44262: 19109 cells, E = 0, 33 join-irreducibles = the sum over i of (∣Ai∣ - 1) = 33 |
+| Theorem 2, E(Λ) = 0 | EXHAUSTIVE | the staircase closure returns 976 cells, defect 0, set equality True |
+| Theorem 2, R is idempotent on Λ | EXHAUSTIVE | a second application changes nothing: True |
+| Theorem 1, closure on every pair | EXHAUSTIVE | all 475800 unordered pairs: 0 escapes under join or meet |
+| Theorem 4, rank is modular | EXHAUSTIVE | all 475800 pairs: 0 violations of rank(a ∨ b) + rank(a ∧ b) = rank a + rank b |
+| Theorem 3, the chain identity | EXHAUSTIVE | 289 coordinate triples over the eight alphabets: 0 failures |
+| Theorem 3, distributivity on cell triples | SAMPLED | 200000 triples, seed 20260921: 0 failures |
+| Theorem 4, Λ is graded | EXHAUSTIVE | 3749 cover relations, every one raising rank by 1; bottom 10101000 rank 3, top 31333133 rank 20 |
+| Theorem 5, Λ is Sperner | EXHAUSTIVE | largest antichain 122 (maximum matching 854, minimum chain cover 122) = largest rank level 122 at rank 11; the rank sequence is log-concave: True |
+| Theorem 6, seventeen irreducibles | EXHAUSTIVE | 17 join-irreducible, 17 meet-irreducible, the sum over i of (∣Ai∣ - 1) = 17, and every join-irreducible is min{x : x[c] ≥ v} |
+| Table 3, the seventeen letters | EXHAUSTIVE | n ≥ 2 at rank 4 in 856 cells; k ≥ 2 at rank 4 in 826 cells; q ≥ 1 at rank 4 in 811 cells; e ≥ 2 at rank 4 in 784 cells; 2S ≥ 1 at rank 4 in 657 cells; n ≥ 3 at rank 5 in 428 cells; l ≥ 1 at rank 5 in 616 cells; e ≥ 3 at rank 5 in 392 cells; f ≥ 1 at rank 5 in 400 cells; g ≥ 1 at rank 5 in 491 cells; q ≥ 2 at rank 6 in 481 cells; 2S ≥ 2 at rank 6 in 338 cells; k ≥ 3 at rank 7 in 376 cells; g ≥ 2 at rank 8 in 171 cells; q ≥ 3 at rank 10 in 136 cells; 2S ≥ 3 at rank 10 in 94 cells; g ≥ 3 at rank 15 in 16 cells |
+| Theorem 7, the Birkhoff correspondence | EXHAUSTIVE | all 2¹⁷ = 131072 subsets tested: 976 are down-sets; cell → down-set is a bijection onto them |
+| Theorem 7, join is OR and meet is AND | EXHAUSTIVE | all 475800 pairs, both operations: 0 failures |
+| Theorem 8, twenty implications | EXHAUSTIVE | 20 covering relations in the generating poset: 9 within a coordinate, 11 between |
+| Theorem 8, the twenty implications written out | EXHAUSTIVE | n ≥ 3 → n ≥ 2; l ≥ 1 → n ≥ 2; q ≥ 2 → k ≥ 2; 2S ≥ 2 → k ≥ 2; k ≥ 3 → k ≥ 2; g ≥ 1 → q ≥ 1; q ≥ 2 → q ≥ 1; e ≥ 3 → e ≥ 2; f ≥ 1 → e ≥ 2; 2S ≥ 2 → 2S ≥ 1; k ≥ 3 → l ≥ 1; g ≥ 3 → f ≥ 1; g ≥ 2 → g ≥ 1; g ≥ 2 → q ≥ 2; q ≥ 3 → q ≥ 2; 2S ≥ 3 → 2S ≥ 2; q ≥ 3 → k ≥ 3; 2S ≥ 3 → k ≥ 3; g ≥ 3 → g ≥ 2; g ≥ 3 → q ≥ 3 |
+| Theorem 8, the twenty implications cut the space | EXHAUSTIVE | of 131072 seventeen-bit words, 976 satisfy all twenty and nothing else is imposed |
+| Corollary 2, order dimension 7 | EXHAUSTIVE | the generating poset has width 7, certified by a chain partition of the same size |
+| Corollary 2, the two certificates | EXHAUSTIVE | antichain {k ≥ 2, q ≥ 1, 2S ≥ 1, n ≥ 3, l ≥ 1, e ≥ 3, f ≥ 1}; chains n ≥ 2 < n ≥ 3 ∣ k ≥ 2 < q ≥ 2 < q ≥ 3 ∣ q ≥ 1 < g ≥ 1 < g ≥ 2 ∣ e ≥ 2 < e ≥ 3 ∣ 2S ≥ 1 < 2S ≥ 2 < 2S ≥ 3 ∣ l ≥ 1 < k ≥ 3 ∣ f ≥ 1 < g ≥ 3 |
+| Corollary 3, maximal chains | EXHAUSTIVE | 1113045672 maximal chains, every one of 17 covering steps, counted over all 976 cells |
+| Theorem 9, the reflection | EXHAUSTIVE | 8 of 976 cells have their image under x → top - x in Λ; 0 are fixed; they are 10111011 10112111 21111011 10221022 21112111 10222122 21221022 21222122 at ranks 6,8,8,10,10,12,12,14 |
+| Theorem 7, the bit accounting | EXHAUSTIVE | 17 bits carried per cell, 9.9307 needed to index 976 cells, surplus 7.0693; Λ is 0.7446% of the 2¹⁷ words |
+| Theorem 10, five forms of d | EXHAUSTIVE | all 475800 pairs: 0 disagreements among interval count, coordinate product, two-integer, one-rational and p-adic forms |
+| Theorem 10, d(x, x) = 1 | EXHAUSTIVE | all 976 cells: 0 exceptions |
+| Theorem 11, the coordinate triangle | EXHAUSTIVE | 289 value triples over the eight alphabets: 0 failures of ∣a-c∣+1 ≤ (∣a-b∣+1)(∣b-c∣+1) |
+| Theorem 11, the multiplicative triangle on cell triples | SAMPLED | 200000 triples, seed 20260922: 0 failures |
+| Theorem 11, the log-distorted chain | EXHAUSTIVE | per-axis cost log(∣Δ∣+1): first step log 2 = 0.6931, tenth step log(11/10) = 0.0953 |
+| Theorem 12, the tree factorisation | EXHAUSTIVE | every one of the 1944000 sub-boxes of the ambient box: 0 disagreements with direct enumeration |
+| Theorem 13, containment, both directions | EXHAUSTIVE | the same 1944000 sub-boxes: 0 disagreements with the enumerated count |
+| Proposition 1, the void is non-negative | EXHAUSTIVE | all 475800 pairs: 0 boxes hold more cells than they have points |
+| Proposition 1, the void-free fraction | EXHAUSTIVE | 134871 of 475800 pairs, 0.2835; the seven rates run 0.6995 (g ≤ q) to 0.9806 (g ≤ 4f+2), their product 0.2013, the lift 1.4081 |
+| Proposition 1, comparable pairs whose interval is a box | EXHAUSTIVE | 31604 of the 115162 strictly comparable pairs, 0.2744 |
+| Lemma 3, the constraint graph is a caterpillar | EXHAUSTIVE | 8 nodes, 7 edges, connected: a tree; degree sequence 11122223; removing the 3 leaves leaves a path: True; oriented from bounded to bounding coordinate it has no directed cycle: True |
+| Theorem 14, the nested form is the rank polynomial | EXHAUSTIVE | coefficient by coefficient over ranks 3 to 20, exact integers: True |
+| Corollary 4, F(1) = 976 and F(-1) = 2 | EXHAUSTIVE | exact integer evaluation; F'(1)/F(1) = 10801/976 = 11.0666, against the midpoint 23/2: skew -0.4334 |
+| Theorem 15, the free box vanishes at z = -1 | EXHAUSTIVE | Φ(1) = 6912, Φ(-1) = 0; 5 of the eight alphabets have even size (l, q, f, g, 2S) |
+| Theorem 15, the residue localises on k = 2 | EXHAUSTIVE | the alternating sum F(-1) splits by source occupancy as k=1: +0, k=2: +2, k=3: +0 |
+| Lemma 4, the detachable leaf | EXHAUSTIVE | the geometric identity on 60 exact rational points, degrees 0 to 5, 0 failures |
+| Lemma 4, the spin projection | EXHAUSTIVE | 319 seven-coordinate cells, every one carrying exactly k + 1 values of 2S (sum 976); the projection is closed, defect 0 |
+| Corollary 5, F is not palindromic | EXHAUSTIVE | forwards and backwards first part at rank 4, 5 against 4 |
+| Theorem 16, the Möbius function | EXHAUSTIVE | the closed form satisfies the defining recursion on all 116138 comparable pairs (115162 strict); 0 violations; values [-1, 0, 1] |
+| Theorem 16, the crosscut condition | EXHAUSTIVE | 24164 distinct intervals: the join of the atoms is the top exactly when the added generators form an antichain, and then the interval is Boolean; 0 exceptions |
+| Corollary 6, the Möbius function in coordinates | EXHAUSTIVE | all 116138 comparable pairs: mu is non-zero on 19079, exactly the 19079 void-free unit hypercubes; it equals the arithmetic Möbius function of N(y)/N(x) on 99034 pairs and differs on 17104, every one a unit hypercube with a void |
+| Theorem 17, the covering instance | EXHAUSTIVE | 102 elements: 25 alphabet slots and 77 envelope steps; 976 sets, one per cell |
+| Theorem 17, covering is generating | SAMPLED | 80 random subsets of size 4 to 10, seed 20260923: 0 disagreements with the closure operator under test |
+| Theorem 18, seed(Λ) = 7 | EXHAUSTIVE | branch and bound over 27 critical elements and 245 distinct witness signatures; lower bound 5; minimum 7; 13468 signature covers expanding to 24585 minimum covers; 976/7 = 139.4 |
+| Theorem 18, one cell in every minimum cover | EXHAUSTIVE | 1 cell lies in all 24585 minimum covers -- 21332130 -- and 0 of the 102 elements is witnessed by a unique cell; the smallest witness set has 4 cells |
+| Theorem 18, a local account of the common cell | EXHAUSTIVE | the cell witnesses 26 of the 102 elements; no one or two of them single it out, and three do: slot n = 2 (428 witnesses); slot e = 2 (392 witnesses); step g at 2S ≤ 0, value 3 (4 witnesses) |
+| Corollary 7, what every minimum seed contains | EXHAUSTIVE | null transition, q = 0 in 24585 of 24585; full transfer, q = k in 24585 of 24585; s → p in 24585 of 24585; p → s in 24585 of 24585; p → p in 24585 of 24585; s → s in 17403 of 24585 |
+| Corollary 8, no cell is removable | EXHAUSTIVE | R(Λ minus x) = Λ for all 976 cells through the closure operator under test, 0 exceptions |
+| Theorem 18, the minimum covers close | SAMPLED | 40 of the 24585 minimum covers, seed 20260924, run through the closure operator under test: 0 failures |
+| Theorem 18, the covers by cell | EXHAUSTIVE | 370 of 976 cells appear in a minimum cover; the median such cell in 59 (0.24%), the second most common in 14492 (58.9%), one in all 24585 |
+| Birkhoff | CITED | a finite distributive lattice is the down-sets of its poset of join-irreducibles |
+| Dilworth | CITED | the minimum chain cover equals the largest antichain |
+| Dushnik | CITED | order dimension; for a distributive lattice it is the width of the generating poset |
+| Rota | CITED | the crosscut theorem for the Möbius function |
+| Karp | CITED | minimum set cover is NP-complete |
+| Fulkerson | CITED | Dilworth's theorem from König's: the minimum chain cover is n minus a maximum matching of the strict order |
+| Stanley | CITED | the maximal chains of a finite distributive lattice are the linear extensions of its poset of join-irreducibles |
+
+**The exhausted families, named.** 6,912: every point of the ambient box at the caps of D3. 8,064: the same box extended to k = 0, for the floor's marginal count. 475,800: every unordered pair of distinct cells. 115,162: every strictly comparable ordered pair; 116,138 with the diagonal. 131,072: every subset of the seventeen generators. 289: every triple of values drawn from one of the eight alphabets, summed over the eight. 1,944,000: every coordinate box [lo, hi] of the ambient box, that is every choice of lo ≤ hi in each of the eight alphabets. 24,164: every distinct generator-set difference D(y) ∖ D(x) over comparable pairs. 24,585: every minimum seed, enumerated through 13,468 signature covers. 976: every single-cell deletion. The five further cap settings are named in their row.
 
 **The two guards on every machine-checked claim.** *Non-vacuity* — the hypothesis of each obligation is shown satisfiable, and with a non-triviality demand: two distinct cells and caps at least 3 for the integer obligation; a monotone φ with two distinct admissible pairs for Lemma 1; a **proper** non-empty fixed point of ℛ inside the 3×3×3 box for Lemma 2. *Encoding fidelity* — the solver's membership formula is compared with an independently written implementation on every one of the 6,912 box points and on 400 random integer tuples drawn from a range wider than the box, 7,312 comparisons, **0** disagreements and **0** skipped; and the subset harness's staircase predicate is compared cell by cell against the same closure operator used in Theorem 2, 1,352 comparisons over three box shapes, **0** disagreements and **0** skipped. An obligation is not reported unless both guards pass.
 
-**The negative controls, all refuted.** Six, run as a separate pass. (1) Replace one bound by a bound on a sum, g + q ≤ 3: the solver returns `sat` with the explicit witness x = (3,1,3,3,3,0,0,0), y = (2,1,3,1,2,1,1,1), whose join violates it — a sum bound does not close. (2) Drop monotonicity from Lemma 1: `sat`. (3) Assert the Möbius closed form without its antichain condition: refuted on 13,489 pairs of a sweep, where the true value is 0 and the unconditional formula gives ±1. (4) Claim a union of sublattices is a sublattice: refuted, 2 escaping joins in the union of two principal down-sets at incomparable generators. (5) Claim seed(Λ) = 6: refuted by the exhaustive search at limit 6. (6) Claim every coordinate box is full: refuted, the whole box holds 976 of 6,912 points.
+**The negative controls, all refuted.** Six, run as a separate pass (78 rows in all). (1) Replace one bound by a bound on a sum, g + q ≤ 3: the solver returns `sat` with the explicit witness x = (3,1,3,3,3,0,0,0), y = (2,1,3,1,2,1,1,1), whose join (3,1,3,3,3,1,1,1) has g + q = 4 — a sum bound does not close; the witness is verified concretely, so the printed pair does not depend on which model the solver returns. (2) Drop monotonicity from Lemma 1: `sat`. (3) Assert the Möbius closed form without its antichain condition: refuted on 13,489 pairs of a sweep, where the true value is 0 and the unconditional formula gives ±1. (4) Claim a union of sublattices is a sublattice: refuted, 2 escaping joins in the union of two principal down-sets at incomparable generators. (5) Claim seed(Λ) = 6: refuted by the exhaustive search at limit 6. (6) Claim every coordinate box is full: refuted, the whole box holds 976 of 6,912 points.
 
-**What is not machine-checked, and why.** The counts of §2 to §7 are computations at one cap setting and are not of a shape a solver decides; they carry EXHAUSTIVE with their family named. Theorem 5's upper bound rests on Dilworth's theorem and an exact maximum matching, not on a solver. Theorem 16's proof uses two cited theorems whose own proofs are in the literature; what is checked here is the instance, on every comparable pair. Theorem 18 is an exhaustive search whose completeness is argued in its proof and not certified by an external tool: the branching rule is complete because every cover must contain a set witnessing the chosen uncovered element, and the pruning bound is valid because pairwise-disjoint elements require distinct sets. Distributivity on cell triples and the multiplicative triangle on cell triples are **SAMPLED**, each 200,000 triples with its seed stated, because the full families have 1.5 × 10⁸ and 9.3 × 10⁸ members; in both cases the general statement is PROVED and the sample is a transcription check, not the evidence.
+**What is not machine-checked, and why.** The counts of §2 to §7 are computations at one cap setting (five further settings for the defect and the generator count) and are not of a shape a solver decides; they carry EXHAUSTIVE with their family named. Theorem 5's upper bound rests on Dilworth's theorem and an exact maximum matching, not on a solver. Theorem 16's proof uses two cited theorems whose own proofs are in the literature; what is checked here is the instance, on every comparable pair. Theorem 18 is an exhaustive search whose completeness is argued in its proof and not certified by an external tool: the branching rule is complete because every cover must contain a set witnessing the chosen uncovered element, and the pruning bound is valid because pairwise-disjoint elements require distinct sets. Distributivity on cell triples and the multiplicative triangle on cell triples are **SAMPLED**, each 200,000 triples with its seed stated, because the full families have 1.5 × 10⁸ and 9.3 × 10⁸ members; in both cases the general statement is PROVED and the sample is a transcription check, not the evidence. Theorem 17's covering criterion is PROVED, and the 80-subset sample beside it is likewise a transcription check.
 
 ---
 
@@ -519,7 +567,7 @@ Every number printed above is recomputed by the accompanying checks, which disch
 - Edelman, P. H. and Jamison, R. E. (1985). The theory of convex geometries. *Geometriae Dedicata* **19**, 247–270.
 - Freuder, E. C. (1982). A sufficient condition for backtrack-free search. *Journal of the ACM* **29**, 24–32.
 - Fulkerson, D. R. (1956). Note on Dilworth's decomposition theorem for partially ordered sets. *Proceedings of the American Mathematical Society* **7**, 701–702.
-- Hopcroft, J. E. and Karp, R. M. (1973). An n^{5/2} algorithm for maximum matchings in bipartite graphs. *SIAM Journal on Computing* **2**, 225–231.
+- Hopcroft, J. E. and Karp, R. M. (1973). An n⁵⁄² algorithm for maximum matchings in bipartite graphs. *SIAM Journal on Computing* **2**, 225–231.
 - Hund, F. (1925). Zur Deutung verwickelter Spektren, insbesondere der Elemente der Eisengruppe. *Zeitschrift für Physik* **33**, 345–371.
 - Johnson, D. S. (1974). Approximation algorithms for combinatorial problems. *Journal of Computer and System Sciences* **9**, 256–278.
 - Karp, R. M. (1972). Reducibility among combinatorial problems. In R. E. Miller and J. W. Thatcher, eds., *Complexity of Computer Computations*, Plenum, New York, 85–103.

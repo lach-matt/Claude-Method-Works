@@ -306,3 +306,15 @@ and the headline "valid at p = 0" is contradicted by the record's own orbital-co
 p = 0 is necessary, not sufficient, and the class becomes p = 0 and uncollapsed, with the collapse
 literature the tree holds cited. And one removal was wrong: the Ritz 1903 reference the earlier
 pass stripped as unheld is held in two compendia, and is restored.
+
+**The chemical index — the audit finds the paper overclaims, and the repair narrows it.** One
+statement printed as exhaustive is false physics: for equivalent electrons the exchange integral
+equals the direct one at every order, so the claim about which radial quantities are discarded at
+f/f does not hold. Beyond that, the auditors found the closure carries less weight than the text
+gives it — the valence seat is a full block, so closure reduces to two subvalence cells sharing a
+dependency and rests on five sole-occupant assignments — that eighteen of the twenty outer-seat
+properties have no supplier in the sense the paper's own definition requires, so the monotone climb
+measures label incoherence rather than a boundary, and that the routing is declared and checked
+against a record outside the paper rather than derived. The repair's brief is to make the paper
+claim exactly what survives, even if that leaves a shorter paper and a different title. Whether the
+narrowed paper still earns a place on the site is yours to judge when you see it.

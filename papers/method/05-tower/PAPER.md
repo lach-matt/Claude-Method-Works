@@ -45,7 +45,7 @@ Five are adjoined, in the order the physics forces: the target's total spin, the
 **Status words.** Six are used and never merged.
 
 | status | meaning |
-|---∣---|
+|---|---|
 | **PROVED** | a proof is written out below and every step is justified; a proof ends with ∎ |
 | **MACHINE-CHECKED** | Z3 returned `unsat` on the negation of an obligation whose variables range over a named domain — the unbounded integers where stated, otherwise every subset of a named finite box — with the non-vacuity and encoding-fidelity guards passed first |
 | **EXHAUSTIVE** | a decision procedure visited every case in a stated finite family, and the family's size is printed |
@@ -94,7 +94,7 @@ and
 **D9 (the coordinates).** The thirteen coordinates, in the order in which they enter, with the shorthand used throughout:
 
 | # | symbol | what it labels |
-|---∣---∣---|
+|---|---|---|
 | 1 | n | the parent configuration's principal quantum number |
 | 2 | ℓ | the parent subshell's orbital angular momentum |
 | 3 | k | the number of electrons occupying that parent subshell |
@@ -147,7 +147,7 @@ Each stage is the extension of the one below by a single new coordinate, and the
 **Table 1. The tower at the caps of D11.** *Box* is the product of the alphabet sizes of the stage. *Fill* is |Λₛ| / |Box|. *Pairs* is the number of unordered pairs of distinct cells; the first four were tested one by one, the last two decided by the ambient sweep instead.
 
 | stage | new coordinate | its bound | cells | box | fill | pairs |
-|---∣---∣---∣---∣---∣---∣---|
+|---|---|---|---|---|---|---|
 | Λ₈ | — | — | 976 | 6,912 | 14.12% | 475,800 |
 | Λ₉ | 2S′ | 0 ≤ 2S′ ≤ g | 1,654 | 27,648 | 5.98% | 1,367,031 |
 | Λ₁₀ | v | 2S′ ≤ v ≤ g | 2,535 | 110,592 | 2.29% | 3,211,845 |
@@ -198,7 +198,7 @@ which are ²P; ¹S, ¹D, ³P; and ²P, ²D, ⁴S — the textbook anchors, EXHAU
 **Proposition 5 (the two realised maxima are not monotone).** With σ and μ as in D12,
 
 | k | 1 | 2 | 3 | 4 | 5 | 6 |
-|---∣---∣---∣---∣---∣---∣---|
+|---|---|---|---|---|---|---|
 | σ(1, k) = max 2S of pᵏ | 1 | 2 | 3 | 2 | 1 | 0 |
 | μ(1, k) = max 2J of pᵏ | 3 | 4 | 5 | 4 | 3 | 0 |
 
@@ -219,7 +219,7 @@ The envelope admits cells the exact physics does not. That gap is a count, and i
 **Table 2. The exact fibre against the admissible one.** The *admitted* column is the stage's own cell count, since the stage is the sum of the admissible fibres. All at the caps of D11.
 
 | axis | coordinate | admissible fibre | exact fibre | admitted | realised | realised share |
-|---∣---∣---∣---∣---∣---∣---|
+|---|---|---|---|---|---|---|
 | 9 | 2S′ | [0, g] | the 2S values of terms(fᵍ) | 1,654 | 1,054 | 63.7% |
 | 10 | v | [2S′, g] | the occupancies at which a term of spin 2S′ first appears | 2,535 | 1,132 | 44.7% |
 | 11 | 2Jₚ | [0, φ̂(k)] | the 2J of the terms of ℓᵏ carrying the cell's own 2S | 13,585 | 2,310 | 17.0% |
@@ -369,7 +369,7 @@ The twelfth stage contributes **one** edge, not two. Its bound is 2K ≤ 2Jₚ +
 **Table 3. The graph, stage by stage.** Cycle rank is |E| − |V| + c; treewidth is exact, by search over elimination orderings.
 
 | stage | vertices | edges | components | cycle rank | triangles | girth | treewidth |
-|---∣---∣---∣---∣---∣---∣---∣---|
+|---|---|---|---|---|---|---|---|
 | Λ₈ | 8 | 7 | 1 | 0 | 0 | — | 1 |
 | Λ₉ | 9 | 8 | 1 | 0 | 0 | — | 1 |
 | Λ₁₀ | 10 | 10 | 1 | 1 | 1 | 3 | 2 |
@@ -406,7 +406,7 @@ with defect zero. **EXHAUSTIVE** at all six stages for the sum, and as a set ide
 **Table 4. The sections, at three stages.** |A(t)| is the number of distinct parent tuples at transfer t, |B(t)| the number of distinct target tuples.
 
 | t | Λ₈: ∣A∣ × ∣B∣ | product | Λ₁₁: ∣A∣ × ∣B∣ | product | Λ₁₃: ∣A∣ × ∣B∣ | product |
-|---∣---∣---∣---∣---∣---∣---|
+|---|---|---|---|---|---|---|
 | 0 | 33 × 5 | 165 | 163 × 5 | 815 | 2,294 × 5 | 11,470 |
 | 1 | 33 × 10 | 330 | 163 × 20 | 3,260 | 2,294 × 20 | 45,880 |
 | 2 | 23 × 15 | 345 | 123 × 50 | 6,150 | 1,794 × 50 | 89,700 |
@@ -424,7 +424,7 @@ with defect zero. **EXHAUSTIVE** at all six stages for the sum, and as a set ide
 **Proposition 11 (the profile).** At every one of the six stages: |A(t)| is non-increasing in t, |B(t)| is non-decreasing, the sequence of section sizes is log-concave, and it attains its maximum at t = 2. The mean transfer ⟨q⟩ = Σₜ t·|A(t)|·|B(t)| / |Λ| rises up the tower:
 
 | stage | Λ₈ | Λ₉ | Λ₁₀ | Λ₁₁ | Λ₁₂ | Λ₁₃ |
-|---∣---∣---∣---∣---∣---∣---|
+|---|---|---|---|---|---|---|
 | ⟨q⟩ | 1.4631 | 1.6850 | 1.8304 | 1.8874 | 1.9141 | 1.9159 |
 
 **EXHAUSTIVE** at these caps. No value of the transfer improves both sides: raising it costs the parent and pays the target, monotonically, at every stage.
@@ -434,7 +434,7 @@ with defect zero. **EXHAUSTIVE** at all six stages for the sum, and as a set ide
 Three readings of the twelfth bound are available, and the paper prices all three at the same caps. Write j = 2Jₚ and let f be the cell's own target subshell.
 
 | reading | bound on 2K | arity | cells at Λ₁₂ | cells at Λ₁₃ | closed? | factorises? |
-|---∣---∣---∣---∣---∣---∣---|
+|---|---|---|---|---|---|---|
 | the cap | 0 ≤ 2K ≤ j + 2fₘₐₓ | 1 | 70,905 | 199,130 | **yes**, E = 0 | **yes**, defect 0 |
 | the cell's own f, upper bound only | 0 ≤ 2K ≤ j + 2f | 2 | 55,755 | 153,680 | no, E = 12,675 | no, defect 15,150 and 45,450 |
 | the exact triangle with parity | ∣j − 2f∣ ≤ 2K ≤ j + 2f, 2K ≡ j (mod 2) | 2 | 22,275 | 64,290 | no, E = 35,570 | — |
@@ -572,7 +572,7 @@ Every number printed above is recomputed by the paper's check program, which imp
 **Table 5. The verification record, by object.**
 
 | object | status | family, domain or witness |
-|---∣---∣---|
+|---|---|---|
 | Lemma 1, ℛ(X) is a sublattice | PROVED | — |
 | Lemma 2, distributivity | PROVED; EXHAUSTIVE | the coordinatewise extremes of Λ₈ are cells: (1,0,1,0,1,0,0,0) at rank 3 and (3,1,3,3,3,1,3,3) at rank 20 |
 | Lemma 3, a seed is a cover of steps and slots | PROVED; GUARD | 40 pseudorandom subsets of Λ₈, seed 11: cover-of-steps ⇔ regeneration in the fixed box, 40/40; cover-of-steps-and-slots ⇔ regeneration in the subset's own box, 40/40; the seed minus one cell fails both |
