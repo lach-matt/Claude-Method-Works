@@ -325,17 +325,29 @@ both are grounded the only honest way the corpus allows.
 derives the table in the scalar-relativistic (Koelling–Harmon) Hartree–Fock reduction with one
 admitted constant, c = 137, and reports that the same construction at c → ∞ misplaces eleven
 elements — Mn, Zn, Ag, Cd, Nd, Pm, Sm, Lu, Hg, Lr, Rf — and inverts the channel competition at
-thorium. The construction itself is **not held**: `LW1-README.md` records the delivery's objects
-1, 2, 4–8 and 10 as pending bank and object 11 as not held, because session 104 was never
-sealed, and `r2-scf.out` grades every figure of that family UNREPRODUCIBLE with a stated budget,
-record-carried and never withdrawn. So `webindex.py` **reads** the eleven from the paper's own
-sentence, cross-checks them against register 1706 and the SCF audit's table of configurations and
-entrant channels (the selftest asserts all three agree, in order), copies Figure 5 from
-`extracted/` with the md5 `extracted/LEDGER.tsv` records, and exports the block as `READ`. The page
-marks the eleven on the table, the element plate shows the result with the figure, the console
-answers `relativistic`, and the mode's `recompute` operation refuses with the reason rather than
-printing a table no instrument produced. `instruments.lowdin_construction` carries the passages,
-not Python, and the "Instrument source" toggle shows them as such.
+thorium. When this paragraph was first written the construction was **not held**: `LW1-README.md`
+records the delivery's objects 1, 2, 4–8 and 10 as pending bank and object 11 as not held, because
+session 104 was never sealed, and `r2-scf.out` grades every figure of that family UNREPRODUCIBLE
+with a stated budget. `webindex.py` still **reads** the eleven from the paper's own sentence,
+cross-checks them against register 1706 and the SCF audit's table of configurations and entrant
+channels (the selftest asserts all three agree, in order), copies Figure 5 from `extracted/` with
+the md5 `extracted/LEDGER.tsv` records, and exports that block as `READ` — but it is no longer the
+site's statement. The instrument has since been recovered (below), and **by the author's decision
+of 2026-09-24 the finding it produced is repaired**: `relativistic.repair` (RECOVERED) states the
+displaced set from the recovered instrument's own run — **Th and Rf** among the measured elements,
+**Z = 120** beyond them, and no other — with each element's entrants at both settings and which side
+nature is on (thorium's c → ∞ entrant departs from the observed channel; rutherfordium's is the
+observed channel, and it is the c = 137.035999 chain that departs), the scorer's figures at both
+settings, and the paper's eleven carried as the reading the paper printed, **superseded** (the
+elements where the chain differs from a restart walk at the same c, not from the constant). The
+table's filled marker follows the repaired set and a faint dashed ring marks the paper's eleven; the
+element plate leads with the recovered result and shows the paper's sentence beneath it as
+superseded, with Figure 5 captioned as the comparison the paper made; the console answers
+`relativistic` from the repair block; the mode's `element` and `eleven` operations answer from it
+too, and `recompute` still refuses, because the browser computes nothing of the chain — the tables
+are the instrument's, run in the repository. The paper's own text is rendered as it stands on the
+Papers page until the author reissues it; the store's repair is specified in `docs/R3-CLASS-CINF.md`.
+`instruments.lowdin_construction` carries the passages, not Python, and is marked held.
 
 **The request and its answer.** The site asked the Löwdin project for items 5, 2, 1, 11 and 12 of
 the standing REQUEST-LOWDIN and for one new object, a single-Z walk switchable between c = 137.035999
@@ -373,8 +385,12 @@ thorium takes 6d at c = 137.035999 and 5f at c → ∞ in both modes. Every valu
 computed here by the record's instrument — and never READ; the element plate gains *The walk,
 recovered* above the reconstruction, the relativistic-limit mode prints the recovered summary first,
 the tables are downloads (`data/lowdin/`), and two caveats say what changed: the construction is no
-longer "not held", and the eleven carry the finding above (`record-eleven`) in the site's own words.
-The reconstruction below stays as the site's second measurement.
+longer "not held", and the eleven carry the finding above and its repair (`record-eleven`) in the
+site's own words. `lowdin/chain/SCORE.tsv` (`lowdin_recover.py --score`) carries the record's scorer
+over the chain at both settings — 96 of 107 steps at either, 73 and 76 configurations, the step
+failures swapping Rf for Th — and `repair` reads it. The reconstruction below stays as the site's
+second measurement; its Hartree–Fock displaced set (Ce, Hf, Th, Rf, Ubn) contains the recovered
+instrument's three, which `repair.reconstruction` records.
 
 **The walk, reconstructed.** `tools/lowdin_walk.py` runs the record's own algorithm — the V^{N−1}
 chain of §II.2 with the Koelling–Harmon equation and one constant — in two fields it can build here:

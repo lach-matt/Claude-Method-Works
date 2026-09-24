@@ -60,13 +60,21 @@ the sessions printed, and `nlchain.py` replayed to session 48 hashes to the seal
 as the sessions ran). Run here, the instrument reproduces the sealed rows the sessions printed to
 every decimal (`lowdin/chain/`, `RUNS.tsv`, `CHECK.tsv`), and where it differs — the margin at Z = 19
 — the difference is the record's own fault F61.1 (rows below Z = 57 walked before the guard). **One
-finding, recorded and not repaired:** the paper session computed register 1706's eleven displaced
-elements by comparing the sealed chain with `rt/cinf.jsonl`, the table the project's own F59.3 had
-voided six sessions earlier as a restart walk at c = 137.035999, not c → ∞; at eight of the eleven
-that table's entrant is the observed one. Both tables re-derive here and the eleven reproduce from
-them; a genuine c → ∞ is run beside them by the record's own remedy, labelled as a run the record
-did not make: the chain with the constant removed moves at Th, Rf and Ubn only, and the record's own
-scorer passes its gate over the re-derived chain (73 of 107 configurations, 96 of 107 steps). See `docs/LOWDIN-RECOVERED.md` and `lowdin/README.md`.
+finding, recorded and then repaired on the author's decision (2026-09-24):** the paper session
+computed register 1706's eleven displaced elements by comparing the sealed chain with
+`rt/cinf.jsonl`, the table the project's own F59.3 had voided six sessions earlier as a restart walk
+at c = 137.035999, not c → ∞; at eight of the eleven that table's entrant is the observed one. Both
+tables re-derive here and the eleven reproduce from them; the chain with the constant removed, run
+by the record's own remedy, moves at **Th, Rf and Ubn only** (Th away from the observed channel, Rf
+toward it, Z = 120 unwitnessed), and the record's own scorer (`lowdin/chain/SCORE.tsv`) gives 96 of
+107 steps at either setting, 73 and 76 configurations, the step failures swapping Rf for Th. **The
+repair is applied wherever this repository speaks for itself** — the site states the displaced set
+from the recovered instrument (RECOVERED) and carries the paper's eleven as printed, superseded —
+**and specified for the store**, where a Register entry is never edited: `docs/R3-CLASS-CINF.md`
+gives every volume site with both texts and the draft entry citing 1706, and `tools/r3_cinf.py`
+executes it as a dry run with reverse guards, writing nothing under `method/` until the author
+approves the wording (the same posture as the withdrawn-law class, `R3-CLASS-WL.md`, held under
+RUL-128). See `docs/LOWDIN-RECOVERED.md` and `lowdin/README.md`.
 
 **`papers/` holds independent application papers prepared for publication**, and is the one tree
 here that is neither mirror nor generated: `method/` and `drive/` are resource material for it and it
@@ -185,7 +193,7 @@ hydrogenic and Dirac levels, and it carries a demonstrable failure mode — see
 operators at build; `--selftest` pins the table's census and ledger md5 — see `docs/ISOTOPES.md`)
 and **`tools/docfigures.py`**, which
 checks the numbers *this* file and `docs/` state about the repository against the tree.
-**Run it after any pass that changes a count** — 124 pinned figures, ~8 s, exits 1 on drift. The
+**Run it after any pass that changes a count** — 126 pinned figures, ~8 s, exits 1 on drift. The
 last fourteen are the totals `pointers.py` and `arith.py` report, which their own selftests do not
 cover: those pin individual sites, so a change in a corpus-wide total passes them silently. It exists
 because `CLAUDE.md` claimed 559 artefacts held against 431 absent when the true figures were 702 and

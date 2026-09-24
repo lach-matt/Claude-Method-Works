@@ -165,7 +165,7 @@ _PRIVATE_RX = [re.compile(x) for x in PRIVATE_PATTERNS]
 # names the site may print that a pattern would otherwise catch: the walk table
 # is this repository's own reconstruction, not one of the books, and the two
 # captures are public tables (PDG, spglib) written with their provenance
-PUBLIC_NAMES = {"LOWDIN-WALK.tsv": "the walk table",
+PUBLIC_NAMES = {"LOWDIN-WALK.tsv": "the walk table", "SCORE.tsv": "the scorer table",
                 "PDG-2026.tsv": "the PDG capture", "SPACEGROUPS-spglib.tsv": "the space-group capture",
                 "THE-HIERARCHY-LAW.md": "the hierarchy law paper",
                 "NUCBANDS-levels.tsv": "the band-level capture", "NUCBANDS-bands.tsv": "the band capture",
@@ -295,9 +295,9 @@ CAVEATS = [
              "banked as an archive; its code has since been RECOVERED from the "
              "project's own conversations (every file written, edited and printed "
              "by tool calls, rebuilt and held against every printed window) and run "
-             "here. The eleven displaced elements are READ from the paper's own "
-             "statement; what the recovered instrument returns sits beside them "
-             "with its own status, never in their place."},
+             "here. The displaced set this site states is what that recovered "
+             "instrument returns (RECOVERED); the paper's eleven are READ from the "
+             "paper's own sentence and carried as the reading it printed, superseded."},
     {"id": "record-eleven",
      "text": "The paper's eleven were computed by its own final session as the "
              "elements where the chain's entrant differs from a second table the "
@@ -307,9 +307,14 @@ CAVEATS = [
              "observed configuration), so the eleven measure the chain's memory "
              "against a memoryless restart at one c, not the constant. Re-derived "
              "here, both tables reproduce and the eleven reproduce from them; at "
-             "eight of the eleven the restart entrant is the observed one. Recorded, "
-             "not repaired: the paper's statement stands as READ, and the comparison "
-             "at a genuine c \u2192 \u221e is shown beside it as RECOVERED."},
+             "eight of the eleven the restart entrant is the observed one. Repaired by "
+             "the author's decision (2026-09-24): the displaced set this site states is "
+             "the recovered instrument's \u2014 the chain at c \u2192 \u221e differs from "
+             "the chain at c = 137 at thorium and rutherfordium among the measured "
+             "elements and at Z = 120 beyond them, and nowhere else \u2014 RECOVERED; "
+             "the paper's eleven are shown as the reading the paper printed, "
+             "superseded, and the paper's own text is shown as it stands until the "
+             "author reissues it."},
     {"id": "walk-reconstructed",
      "text": "The reconstructed walk (tools/lowdin_walk.py) is this site's own "
              "rebuild of the paper's construction from its statement, run in two "
@@ -720,6 +725,7 @@ def record_walk_block():
         return None, {}
     runs = _tsv_rows(os.path.join(LOWDIN_CHAIN, "RUNS.tsv")) if os.path.exists(os.path.join(LOWDIN_CHAIN, "RUNS.tsv")) else []
     check = _tsv_rows(os.path.join(LOWDIN_CHAIN, "CHECK.tsv")) if os.path.exists(os.path.join(LOWDIN_CHAIN, "CHECK.tsv")) else []
+    scores = _tsv_rows(os.path.join(LOWDIN_CHAIN, "SCORE.tsv")) if os.path.exists(os.path.join(LOWDIN_CHAIN, "SCORE.tsv")) else []
     ledger = _tsv_rows(os.path.join(LOWDIN_DIR, "LEDGER.tsv")) if os.path.exists(os.path.join(LOWDIN_DIR, "LEDGER.tsv")) else []
     sym = {z: s for s, z in populate.SYMBOL_TO_Z.items()}
     sym.update(SYMBOLS_ABOVE_108)
@@ -768,6 +774,10 @@ def record_walk_block():
         "displaced": {k: [x["symbol"] for x in v] for k, v in displaced.items()},
         "displaced_detail": displaced,
         "thorium": {k: v["entrant"] for k, v in th.items()},
+        "scorer": {r["key"]: {"config": r["config_score"], "step": r["step_score"],
+                              "config_failures": [int(x) for x in r["config_failures"].split()],
+                              "step_failures": [int(x) for x in r["step_failures"].split()],
+                              "status": r["status"], "what": r["what"]} for r in scores},
     }
     ledger_summary = {"files": len(ledger), "statuses": {}, "sealed_matches": [r["file"] for r in ledger if "MATCH" in r.get("sealed_sha256", "")]}
     for r in ledger:
@@ -787,6 +797,58 @@ def record_walk_block():
                      for Z, d in sorted(per_z.items())],
     }
     return block, per_z
+
+
+def repair_block(relb, record, walk):
+    """The finding on the paper's eleven, repaired by the author's decision of 2026-09-24: the
+    displaced set the site states is the recovered instrument's own -- the chain at c -> inf
+    against the chain at c = 137.035999, both run here by the record's code -- and the paper's
+    eleven are carried as the reading the paper printed, superseded. Nothing here is READ from
+    the paper: every figure is the recovered instrument's, RECOVERED. None when the record is
+    absent, in which case the site falls back to the paper's eleven, READ."""
+    if not record:
+        return None
+    sm = record["summary"]
+    det = sm["displaced_detail"]["chain_cinf"]
+    witnessed = [d for d in det if d["Z"] <= 108 and d["observed"]]
+    unwitnessed = [d for d in det if not (d["Z"] <= 108 and d["observed"])]
+    def side(d):
+        if not d["observed"]:
+            return "no ground configuration is measured beyond Z = 108; the row is unwitnessed at either setting"
+        if d["at_other"] == d["observed"] and d["at_c137"] != d["observed"]:
+            return "the c \u2192 \u221e entrant is the observed channel; the chain at c = 137.035999 departs from it"
+        if d["at_c137"] == d["observed"] and d["at_other"] != d["observed"]:
+            return "the c \u2192 \u221e entrant departs from the observed channel; the chain at c = 137.035999 holds it"
+        if d["at_c137"] == d["observed"] == d["at_other"]:
+            return "both settings hold the observed channel"
+        return "neither setting holds the observed channel"
+    hf = ((walk or {}).get("summary", {}).get("fields", {}).get("hf") or {}).get("displaced") or []
+    hf_syms = [x["symbol"] for x in hf]
+    paper_eleven = [e["symbol"] for e in relb["eleven"]]
+    paper_det = sm["displaced_detail"]["paper"]
+    return {
+        "status": populate.RECOVERED,
+        "decision": "the author's, 2026-09-24: the finding on the paper's eleven is repaired, not only recorded",
+        "statement": "Repeated with the constant removed, the construction's entrant moves at thorium (6d to 5f, away from the "
+                     "observed 6d), at rutherfordium (5f to 6d, the observed channel) and at Z = 120 (8s to 7d, beyond the last "
+                     "measured element), and at no other element; silver and mercury do not move. The paper's eleven were the chain "
+                     "measured against a second table that had run at c = 137.035999 in restart mode.",
+        "displaced": [d["symbol"] for d in det],
+        "witnessed": [d["symbol"] for d in witnessed],
+        "unwitnessed": [d["symbol"] for d in unwitnessed],
+        "detail": [dict(d, against_nature=side(d)) for d in det],
+        "comparison": "the chain at c = 137.035999 against the chain at c \u2192 \u221e, the record's own instrument at both settings",
+        "restart_displaced": sm["displaced"]["restart_cinf"],
+        "paper_eleven": paper_eleven,
+        "paper_eleven_status": "superseded: the elements where the chain differs from a restart walk at the same c, not from the constant",
+        "paper_eleven_restart_holds_observed": sum(1 for d in paper_det if d["at_other"] == d["observed"]),
+        "paper_eleven_displaced_here": [s for s in paper_eleven if s in {d["symbol"] for d in det}],
+        "scorer": sm.get("scorer", {}),
+        "reconstruction": {"hf_displaced": hf_syms, "record_set_within": all(d["symbol"] in hf_syms for d in det),
+                           "note": "the site's reconstruction, run before the instrument was recovered, displaced these in the record's field; "
+                                   "the recovered instrument's set is measured against it"},
+        "paper_text": "the paper's own sentence stands as printed on this site until the author reissues the paper; the plate marks it superseded",
+    }
 
 
 # ---------------------------------------------------------------------------
@@ -3771,6 +3833,11 @@ def build(spectra, out_dir=OUT, write=True, log=print, with_particles=False, war
     relb["walk"] = walk
     record, record_rows = record_walk_block()
     relb["record"] = record
+    relb["repair"] = repair_block(relb, record, walk)
+    if record:
+        relb["instrument"] = {"held": True,
+                              "note": "the record's own instrument, recovered from the project's conversations into lowdin/rt and run here; "
+                                      "its tables are shipped and its text is not"}
     record_z = {Z for Z, d in record_rows.items() if d["displaced"].get("chain_cinf")}
     record_paper_z = {Z for Z, d in record_rows.items() if d["displaced"].get("paper")}
     walk_z = {e["Z"] for e in (walk or {}).get("entrants", []) if e["displaced"]}
@@ -3804,7 +3871,7 @@ def build(spectra, out_dir=OUT, write=True, log=print, with_particles=False, war
         if write:
             os.makedirs(os.path.join(out_dir, "lowdin"), exist_ok=True)
         for fn in sorted(os.listdir(LOWDIN_CHAIN)):
-            if not (fn.endswith(".jsonl") or fn in ("RUNS.tsv", "CHECK.tsv")):
+            if not (fn.endswith(".jsonl") or fn in ("RUNS.tsv", "CHECK.tsv", "SCORE.tsv")):
                 continue
             with open(os.path.join(LOWDIN_CHAIN, fn), "rb") as fh:
                 rb = fh.read()
@@ -3812,7 +3879,7 @@ def build(spectra, out_dir=OUT, write=True, log=print, with_particles=False, war
                 with open(os.path.join(out_dir, "lowdin", fn), "wb") as fh:
                     fh.write(rb)
             record_copies.append({"file": "data/lowdin/" + fn, "bytes": len(rb), "md5": hashlib.md5(rb).hexdigest(),
-                                  "what": "the recovered instrument's run: " + ({t["file"]: t["label"] for t in record["tables"].values()}.get(fn) or ("the run table" if fn == "RUNS.tsv" else "the chain's check against the sealed steps")) + "; RECOVERED"})
+                                  "what": "the recovered instrument's run: " + ({t["file"]: t["label"] for t in record["tables"].values()}.get(fn) or ("the run table" if fn == "RUNS.tsv" else "the record's scorer over the chain at both settings" if fn == "SCORE.tsv" else "the chain's check against the sealed steps")) + "; RECOVERED"})
     walk_copy = None
     if walk and os.path.exists(WALK_TSV):
         with open(WALK_TSV, "rb") as fh:
@@ -3859,7 +3926,8 @@ def build(spectra, out_dir=OUT, write=True, log=print, with_particles=False, war
             "held": (rec["closure"]["cell_held"] if rec["closure"] else None),
             "populated": rec["populated"],
             "counts": counts,
-            "relativistic": Z in rel_z,
+            "relativistic": Z in (record_z if record else rel_z),
+            "paper_eleven": Z in rel_z,
             "walk_displaced": Z in walk_z,
             "walk_lx_displaced": Z in walk_lx_z,
             "record_displaced": Z in record_z,
@@ -3944,9 +4012,10 @@ def build(spectra, out_dir=OUT, write=True, log=print, with_particles=False, war
             "python": None,
             "file": PUBLIC_PAPERS["THE-LOWDIN-SOLUTION-2.md"],
             "status": populate.READ,
-            "held": False,
-            "source": "the scalar-relativistic construction is not held; the "
-                      "paper's own statement is shown in its place",
+            "held": bool(record),
+            "source": ("the record's own instrument, recovered into lowdin/rt and run here; its tables are shipped "
+                       "under data/lowdin/ and its text is not" if record else
+                       "the scalar-relativistic construction is not held; the paper's own statement is shown in its place"),
             "text": "\n\n".join(t for t in [
                 relb["statement"], relb["construction"], relb["thorium"]] if t)}),
         "relativistic": relb,
@@ -4389,8 +4458,31 @@ def selftest(warp_root=WARP_ROOT):
     check("relativistic: the paper's eleven line names the same eleven",
           all(e["symbol"] in rel["sources"]["paper"]["eleven_text"] for e in rel["eleven"]), True)
     check("relativistic: thorium sentence read", bool(rel["thorium"]), True)
-    check("relativistic: instrument recorded as not held", rel["instrument"]["held"], False)
+    check("relativistic: instrument recorded as held once the record is recovered", rel["instrument"]["held"], bool(rel.get("record")))
     rec = rel.get("record")
+    rp = rel.get("repair")
+    check("repair: present exactly when the record is", bool(rp), bool(rec))
+    if rp:
+        check("repair: status RECOVERED, never READ", rp["status"], populate.RECOVERED)
+        check("repair: the displaced set is Th, Rf and Ubn -- Th and Rf witnessed, Ubn beyond the last measured element",
+              (rp["displaced"], rp["witnessed"], rp["unwitnessed"]), (["Th", "Rf", "Ubn"], ["Th", "Rf"], ["Ubn"]))
+        check("repair: at Th the c -> inf entrant departs from nature, at Rf it is the observed channel",
+              [d["against_nature"].split(";")[0] for d in rp["detail"] if d["symbol"] in ("Th", "Rf")],
+              ["the c \u2192 \u221e entrant departs from the observed channel", "the c \u2192 \u221e entrant is the observed channel"])
+        check("repair: the paper's eleven are carried, superseded, and one of them (Rf) is displaced here",
+              (rp["paper_eleven"], rp["paper_eleven_displaced_here"]), (["Mn", "Zn", "Ag", "Cd", "Nd", "Pm", "Sm", "Lu", "Hg", "Lr", "Rf"], ["Rf"]))
+        check("repair: at eight of the eleven the restart table holds the observed channel", rp["paper_eleven_restart_holds_observed"], 8)
+        check("repair: the reconstruction's Hartree-Fock displaced set contains the record's three",
+              (rp["reconstruction"]["record_set_within"], rp["reconstruction"]["hf_displaced"]), (True, ["Ce", "Hf", "Th", "Rf", "Ubn"]))
+        if rp["scorer"]:
+            check("repair: the record's scorer gives 96 of 107 steps at either setting, 73 and 76 configurations",
+                  {k: (v["config"], v["step"]) for k, v in rp["scorer"].items()}, {"chain": ("73/107", "96/107"), "chain_cinf": ("76/107", "96/107")})
+            check("repair: the step failures swap Rf for Th between the settings",
+                  (sorted(set(rp["scorer"]["chain"]["step_failures"]) - set(rp["scorer"]["chain_cinf"]["step_failures"])),
+                   sorted(set(rp["scorer"]["chain_cinf"]["step_failures"]) - set(rp["scorer"]["chain"]["step_failures"]))), ([104], [90]))
+        check("repair: layout flags exactly the repaired set, and the paper's eleven apart",
+              (sorted(e["symbol"] for e in index["layout"] if e["relativistic"]), sum(1 for e in index["layout"] if e["paper_eleven"])),
+              (["Rf", "Th", "Ubn"], 11))
     if rec:
         check("record: status RECOVERED, never flattened; the instrument is lowdin/rt", (rec["status"], rec["instrument"].startswith("lowdin/rt")), (populate.RECOVERED, True))
         check("record: four tables -- the chain to 120, the sealed comparison table and restart rows at c -> inf to 108, the chain at c -> inf to 120",
@@ -4406,9 +4498,9 @@ def selftest(warp_root=WARP_ROOT):
         check("record: no chain row differs from a sealed step; the margins that differ are the pre-guard rows (F61.1)", (sm["sealed_check"].get("DIFFERS", 0), sm["sealed_check"].get("entrant only", 0)), (0, 0))
         check("record: the ledger holds 28 files, one partial, and two sealed digests match", (rec["ledger"]["files"], rec["ledger"]["statuses"].get("RECOVERED-PARTIAL"), sorted(rec["ledger"]["sealed_matches"])), (28, 1, ["cinf.py", "t7b_hf.py"]))
         check("record: a caveat carries the finding on the eleven, in the site's words", any(c["id"] == "record-eleven" for c in index["caveats"]), True)
-    check("relativistic: layout flags exactly eleven",
-          sum(1 for e in index["layout"] if e["relativistic"]), 11)
-    check("relativistic: Th is not among the eleven", 90 in {e["Z"] for e in rel["eleven"]}, False)
+    check("relativistic: the paper's eleven flagged exactly eleven",
+          sum(1 for e in index["layout"] if e["paper_eleven"]), 11)
+    check("relativistic: Th is not among the paper's eleven", 90 in {e["Z"] for e in rel["eleven"]}, False)
     figs = index["figures"]
     check("figure 5 held and md5 matches extracted/LEDGER.tsv",
           bool(figs) and all(f["ok"] for f in figs), True)
@@ -4507,11 +4599,11 @@ def selftest(warp_root=WARP_ROOT):
     check("instruments: the nine with python, then the walk's ten, in order",
           [n for n, r in ins.items() if r.get("python")],
           [n for n, *_ in INSTRUMENTS] + ([n for n, *_ in WALK_INSTRUMENTS] if walk else []))
-    check("instruments: the tenth is the unheld construction, text only",
+    check("instruments: the tenth is the construction, text only, held once the record is recovered",
           (ins.get("lowdin_construction", {}).get("python"),
            ins.get("lowdin_construction", {}).get("held"),
            bool(ins.get("lowdin_construction", {}).get("text"))),
-          (None, False, True))
+          (None, bool(rel.get("record")), True))
     parses = True
     for name, rec in ins.items():
         if not rec.get("python"):

@@ -1,0 +1,31 @@
+entry number 1793  (NOTE: R3-CLASS-WL.md drafts 1793-1794 for the withdrawn-law class; whichever class applies first takes the number)
+The_Method_1_6-2.md                             4 substitution(s); reverse recovers the old md5 4aef772bad512b84d8c0888386472a74
+The_Method_1_6___The_Register-2.md              2 substitution(s) + the entry; reverse recovers the old md5 79aaf239a42c1649e914b7cba9d5ce2a
+THE-LOWDIN-SOLUTION-2.md                        4 substitution(s); reverse recovers the old md5 4a06e8930b9f7a7a8226dca2db39e35c
+The_Method_1_6___Mathematical_Compendium-2.md   1 substitution(s); reverse recovers the old md5 99a616ec551ecd3bdb67f81119f9c483
+The_Method_1_6___The_Physics_Compendium-2.md    4 substitution(s); reverse recovers the old md5 5a9646100eae8fba6a2c601a549d54db
+The_Method_1_6___The_Index_of_Indices-2.md      3 substitution(s); reverse recovers the old md5 27d387ef8a6175c1b9c85437fe3a7588
+kinds.py --write: 13', '326', '402', '449', '590', '615', '617', '618', '681', '727', '738', '790', '819', '872', '930', '945', '977', '1055', '1059', '1080', '1127', '1131', '1135', '1140', '1211', '1249', '1275', '1292', '1316', '1331', '1339', '1400', '1401', '1409', '1434', '1582', '1602', '1607', '1792']
+written
+   kinds L23: '| **a correction** | 149 | 370 | something written wrong and put right' -> '| **a correction** | 150 | 370 | something written wrong and put right'
+   kinds L31: '*The kinds overlap: a correction is usually also a measurement, and a ' -> '*The kinds overlap: a correction is usually also a measurement, and a '
+  '1 to 1792\\b'                                   0 sites
+  '1 to 1793\\b'                                   main:7373 The_Register-2.md:6 The_Register-2.md:65
+  '\\b1,?635 entries\\b'                           0 sites
+  '\\b1,?636 entries\\b'                           main:7373 The_Register-2.md:6 The_Register-2.md:65
+  'eleven elements apart'                          0 sites
+  'Mn, Zn, Ag, Cd, Nd, Pm, Sm, Lu, Hg, Lr, Rf'     main:9775 The_Register-2.md:6367 The_Register-2.md:6615 Mathematical_Compendium-2.md:3216
+  'register 1793\\b'                               main:9777 main:9870 Mathematical_Compendium-2.md:3216 The_Physics_Compendium-2.md:230 The_Physics_Compendium-2.md:241 The_Physics_Compendium-2.md:607 The_Index_of_Indices-2.md:1934 The_Index_of_Indices-2.md:1943
+  the paper's remaining 'eleven' lines: [156, 160]
+main bundle reverse recovers md5 49065309b0c4fe8e055f693aed295cca == BUILD90: True
+compendia bundle reverse recovers md5 ea5becc40e13debe4faaf6c7e0cde960 == BUILD180: True
+new MANIFEST.tsv                                      22,991 B  md5 1ed569407b3f261abd290c642a0e48c4     343 lines
+new THE-LOWDIN-SOLUTION-2.md                          38,743 B  md5 9b327fcfa7cdb077b3c3d74b1d0b64c3     260 lines
+new The_Method_1_6-2.md                              779,788 B  md5 82b07d236acd88474d09b519f82f6c41  11,858 lines
+new The_Method_1_6___Mathematical_Compendium-2.md    309,561 B  md5 2b27672490888f5bc8d3dc2fc9b9e903   3,802 lines
+new The_Method_1_6___The_Index_of_Indices-2.md       118,596 B  md5 6f7ffea9730519d8ab808e03981e8b14   2,094 lines
+new The_Method_1_6___The_Physics_Compendium-2.md      61,690 B  md5 80109b4526cc9960e1d42462764d43b2     882 lines
+new The_Method_1_6___The_Register-2.md             1,205,917 B  md5 375a2e1a0a8602306791c851adfe70e4   6,615 lines
+new bundle The_Method_1_6_BUILD91_main_and_register.md  1,985,872 B  md5 7d056e31a931a3c6802eea739af91e0f  18,478 lines  2 members
+new bundle The_Method_1_6_BUILD181_compendia_papers_audits.md  5,758,649 B  md5 53a2eff4c53e073a406ed9d4dd6c9d75  65,425 lines  341 members
+DRY RUN -- nothing written; BUILD90 and BUILD180 stay live

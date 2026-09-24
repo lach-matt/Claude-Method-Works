@@ -3,7 +3,8 @@
 *The Löwdin project's own scalar-relativistic chain — the instrument register 1701 witnesses and
 `THE-LOWDIN-SOLUTION-2.md` §II.2 states — read out of the project's hundred conversations, seated as
 a generated tree, run here to Z = 120, and checked against every sealed step the sessions printed.
-Every value RECOVERED, never READ; and one finding about the record, recorded and not repaired.*
+Every value RECOVERED, never READ; and one finding about the record, recorded — and, on the author's
+decision of 2026-09-24, repaired where this repository speaks for itself and specified for the store.*
 
 ## What was missing, and where it was
 
@@ -152,7 +153,7 @@ project registered the fault at session 59 (`FAULT-F59.3.md`), voided the table,
 `cinf2.py` (c rebound where the field reads it, with a can-fail probe that shows gold's 1s moving by
 314 Ha), and ran it on the 13 exposed rows only. No full c → ∞ walk was ever run.
 
-## The finding: register 1706's eleven rest on the voided table
+## The finding, and its repair: register 1706's eleven rest on the voided table
 
 `THE-LOWDIN-SOLUTION-2.md` §VIII and register 1706 state that the identical walk at c → ∞ disagrees
 with Λ_chain at eleven elements — Mn, Zn, Ag, Cd, Nd, Pm, Sm, Lu, Hg, Lr, Rf — and that every one of
@@ -174,25 +175,59 @@ the other three (Nd, Pm, Sm) the chain's 4f is the observed and the second table
 paper's sentence has the error on the wrong side at eight of eleven, because its second table was a
 restart walk that reads the observed configuration at every step.
 
-This is recorded, not repaired. The paper's statement stands as READ, register 1706 is not edited,
-and no site string says the paper is wrong: the site carries the paper's eleven as READ, the two
-tables the paper session compared as RECOVERED beside them (both re-derived here by the record's
-instrument, so the eleven reproduce from them), and the comparison at a genuine c → ∞ — restart rows
-by the record's own remedy, and the chain itself re-run with the constant removed — as RECOVERED,
-labelled as runs the record did not make. What the genuine comparison returns is in the runs
-section above. The retraction audit's category for this is a withdrawn value asserted as current
-(`RETRACTION-AUDIT.tsv`, `docs/R3-REPAIR-PLAN.md`); this one differs in that the withdrawing record
-(F59.3) is the project's own and preceded the paper.
+**The repair (the author's decision, 2026-09-24).** The finding was first recorded and not
+repaired; the author then ruled that it be repaired. The repair rests on the record's own
+instrument, not on a reconstruction — G0c's condition for withdrawing a recorded finding — and it
+has two halves.
+
+*What is measured.* The chain at c = 137.035999 against the chain at c → ∞, both by the recovered
+instrument (`LAMBDA-CHAIN.jsonl` against `LAMBDA-CINF-CHAIN.jsonl`, the constant removed by the
+record's own F59.3 remedy): the entrant differs at **Th** (6d → 5f, away from the observed 6d), **Rf**
+(5f → 6d, the observed channel; it is the chain at c = 137.035999 that departs) and **Z = 120**
+(8s → 7d, unwitnessed), and at no other row. Silver and mercury do not move. The record's own scorer
+`nlcfg.py show` over both tables (`lowdin/chain/SCORE.tsv`, written by `--score`): the entrant equals
+the observed gain at **96 of 107** steps at either setting, with the step failures swapping Rf for
+Th (`[25, 30, 43, 47, 48, 64, 71, 80, 96, 103, 104]` at c = 137.035999, `[…, 90, 96, 103]` at c → ∞),
+and the configuration matches **73** and **76** of 107. The restart rows, same mode at both settings,
+differ at Nd, Pm, Sm, Th and Lr. The site's reconstruction (`tools/lowdin_walk.py`, run before the
+instrument was recovered) had displaced Ce, Hf, Th, Rf and Ubn in the record's field: the recovered
+instrument's three are all among its five. So the corrected statement is: **the construction is
+scalar-relativistic at thorium** — the equation without light files the actinide opening under 5f
+where nature has 6d — **and indifferent to c at every other measured row**, rutherfordium moving the
+other way; the eleven were the chain's memory against a memoryless restart at one c.
+
+*Where it is applied.* Everything this repository speaks for itself is repaired in this commit: the
+site states the displaced set from the recovered instrument (`relativistic.repair`, RECOVERED, the
+table's marker following it) and carries the paper's eleven as the reading the paper printed,
+superseded, beside the paper's own text as it stands; this document, `docs/WEB-INDEX.md`,
+`docs/LOWDIN-WALK.md` and `CLAUDE.md` say so; `tools/docfigures.py` pins the figures. The store —
+register 1706, the paper's abstract, relativistic clause, §VIII and Figure 5 caption, §35's three
+sites, the Mathematical Compendium's twin-operator entry, the Physics Compendium's Λ_cinf entry and
+the Index of Indices' — is repaired by the corpus's own mechanic and not by hand: a Register entry
+is never edited, the repair is a new appended entry citing 1706, and volume sites are repaired in
+place under a guarded build with that entry. **`docs/R3-CLASS-CINF.md` specifies it** — every site
+with both texts, the draft entry, the figure — and **`tools/r3_cinf.py` executes it** as a dry run
+(count-asserted substitutions, member and bundle reverse guards recovering the old md5s, the new
+bundles' md5s printed, nothing written under `method/` without `--write`). It waits on the author's
+approval of the wording, as the withdrawn-law class did; until it is applied, the paper as seated
+still prints the eleven, and the site says so on the plate. The retraction audit's category for this
+is a withdrawn value asserted as current (`RETRACTION-AUDIT.tsv`, `docs/R3-REPAIR-PLAN.md`); this
+one differs in that the withdrawing record (F59.3) is the project's own and preceded the paper.
 
 ## What the site does with it
 
 `tools/webindex.py`'s `record_walk_block` reads `lowdin/chain/` and carries the four tables, the
-run table, the ledger's summary and the check into `data/index.js` as `relativistic.record`, with
-every element's rows under every setting in its own file; the element plate gains *The walk,
-recovered* above *The walk, reconstructed*, the relativistic-limit mode prints the recovered summary
-before the reconstruction's, and the caveats say what changed: the construction is no longer "not
-held", the reconstruction stays as the site's second measurement, and the eleven carry the finding
-above as a caveat in the site's own words. The public build prints no session numbers, no register
+run table, the scorer table, the ledger's summary and the check into `data/index.js` as
+`relativistic.record`, with every element's rows under every setting in its own file; `repair_block`
+states the repaired result beside it as `relativistic.repair` (RECOVERED: the displaced set Th, Rf,
+Ubn with each element's entrants at both settings and which side nature is on, the paper's eleven
+superseded, the scorer at both settings, the reconstruction's set measured against the record's).
+The table's filled marker follows the repaired set and a faint dashed ring marks the paper's eleven
+as printed; the element plate's *Relativistic limit* leads with the recovered result and shows the
+paper's own sentence beneath it as superseded; *The walk, recovered* sits above *The walk,
+reconstructed*; the relativistic-limit mode answers from the repair block; and the caveats say what
+changed: the construction is held, the reconstruction stays as the site's second measurement, and
+the eleven carry the finding and its repair in the site's own words. The public build prints no session numbers, no register
 numbers and no path into the store; the project's faults are named by their own labels (F59.3,
 F61.1), which are not the books'. The reconstruction (`docs/LOWDIN-WALK.md`) is unchanged and is not
 withdrawn: it is a second measurement, and where it disagrees with the recovered instrument that

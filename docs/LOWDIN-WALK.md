@@ -186,7 +186,12 @@ and Fr (7s over 7p by 0.0308).
 **The two settings against each other, in the record's field.** The entrants differ at **5**
 elements: Ce (5d | 4f), Hf (4f | 5d), Th (6d | 5f), Rf (5f | 6d) and Ubn (8s | 7d). Register
 1706's eleven are Mn, Zn, Ag, Cd, Nd, Pm, Sm, Lu, Hg, Lr, Rf. **One** is displaced here too,
-**Rf**; ten are not; four are displaced here and not in the record. At Th the entrant is **6d at
+**Rf**; ten are not; four are displaced here and not in the record. *(Measured later, and recorded
+here without changing the figures above: the record's own instrument, recovered and run at both
+settings — `docs/LOWDIN-RECOVERED.md` — displaces exactly Th, Rf and Ubn, all three among this
+field's five, and the eleven are superseded by the author's decision of 2026-09-24; the comparison
+above is kept as it was made, against the paper's list, because a measurement is not restated when
+its reference moves.)* At Th the entrant is **6d at
 c = 137.035999 and 5f at c → ∞**: the record's own c = 137 entrant, and the record's own
 statement that the competition inverts at c → ∞ — what this field lacks is the path clause by
 which the record's entrant survives the inversion (register 1703's collapse criterion, which no

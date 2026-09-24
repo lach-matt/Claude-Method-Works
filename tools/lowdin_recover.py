@@ -635,6 +635,51 @@ def collect(pairs, out=OUT):
     return rows
 
 
+SCORE_RX = re.compile(r"CONFIG score (\d+)/(\d+)\s+STEP \(`ok`\) score (\d+)/(\d+)")
+FAIL_RX = re.compile(r"^\s*(config|step)\s+failures\s*:\s*\[([^\]]*)\]", re.M)
+
+
+def score_runs(out=OUT, keys=("chain", "chain_cinf")):
+    """Run the record's own scorer, nlcfg.py, over each chain-mode table in lowdin/chain and
+    write SCORE.tsv: nlcfg reads nlchain.jsonl beside itself, so each table is copied under that
+    name into a runtime built from lowdin/rt (shooters compiled, the table generated), and `show`
+    is parsed.
+    The scorer's GATE dict is the last session's pin on the c = 137.035999 chain (73/107, 96/107)
+    and is not consulted; `show` prints both scores and both failure lists for any table."""
+    import subprocess, tempfile
+    cd = os.path.join(out, "chain")
+    rt = os.path.join(out, "rt")
+    rows = []
+    for key in keys:
+        fn = RUN_SPECS[key][0]
+        src = os.path.join(cd, fn)
+        if not os.path.exists(src):
+            continue
+        with tempfile.TemporaryDirectory(prefix="lowdin-score-") as td:
+            # nlcfg imports nlchain, which loads the compiled shooters and the generated table, so
+            # the sandbox is a full runtime built from the seated tree (the same route as --runtime)
+            final = {f: open(os.path.join(rt, f)).read() for f in sorted(os.listdir(rt)) if f.endswith((".py", ".c"))}
+            sandbox, _ = make_runtime(final, td)
+            shutil.copy(src, os.path.join(sandbox, "nlchain.jsonl"))
+            p = subprocess.run([sys.executable, "nlcfg.py", "show"], cwd=sandbox, capture_output=True, text=True, timeout=900)
+        m = SCORE_RX.search(p.stdout)
+        if p.returncode != 0 or not m:
+            raise RuntimeError("nlcfg.py show failed on %s: %s" % (fn, (p.stderr or p.stdout)[-400:]))
+        fails = {k: [int(x) for x in v.split(",") if x.strip()] for k, v in FAIL_RX.findall(p.stdout)}
+        rows.append({"key": key, "file": fn, "scorer": "nlcfg.py show", "config_score": "%s/%s" % (m.group(1), m.group(2)),
+                     "step_score": "%s/%s" % (m.group(3), m.group(4)),
+                     "config_failures": " ".join(map(str, fails.get("config", []))), "step_failures": " ".join(map(str, fails.get("step", []))),
+                     "status": "RECOVERED" if RUN_SPECS[key][4] == "record" else "RECOVERED (a run the record did not make)",
+                     "what": "the record's scorer over this table: the chain's configuration against the observed one at each Z <= 108 (CONFIG), "
+                             "and its entrant against the observed gain (STEP); the scorer's own GATE pins the c = 137.035999 chain and is not consulted"})
+    cols = ["key", "file", "scorer", "config_score", "step_score", "config_failures", "step_failures", "status", "what"]
+    with open(os.path.join(cd, "SCORE.tsv"), "w") as fh:
+        fh.write("\t".join(cols) + "\n")
+        for r in rows:
+            fh.write("\t".join(str(r[c]) for c in cols) + "\n")
+    return rows
+
+
 # ------------------------------------------------------------------ selftest
 
 def selftest():
@@ -681,6 +726,7 @@ def main(argv=None):
     ap.add_argument("--check-out", metavar="TSV", help="with --check-chain: also write the verdicts as a table")
     ap.add_argument("--runtime", metavar="DIR", help="write a runnable copy (compiles the shooters, generates the table)")
     ap.add_argument("--collect", nargs="+", metavar="KEY=JSONL", help="copy run outputs into lowdin/chain with RUNS.tsv and CHECK.tsv; keys: " + ", ".join(RUN_SPECS))
+    ap.add_argument("--score", action="store_true", help="run the record's scorer nlcfg.py over the chain-mode tables in lowdin/chain; writes SCORE.tsv")
     ap.add_argument("--out", default=OUT)
     a = ap.parse_args(argv)
     if a.selftest:
@@ -698,6 +744,10 @@ def main(argv=None):
         rows = collect([tuple(x.split("=", 1)) for x in a.collect], a.out)
         for r in rows:
             print("  %-13s %-26s %4d rows  Z %-8s md5 %s" % (r["key"], r["file"], r["rows"], r["Z_range"], r["md5"][:12]))
+        return 0
+    if a.score:
+        for r in score_runs(a.out):
+            print("  %-11s %-24s CONFIG %-8s STEP %-8s step failures: %s" % (r["key"], r["file"], r["config_score"], r["step_score"], r["step_failures"]))
         return 0
     if a.runtime:
         rt, out = make_runtime(final, a.runtime)

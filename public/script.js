@@ -610,13 +610,20 @@
       if (isHover) ctx.globalAlpha = 0.6;
       ctx.stroke(); ctx.globalAlpha = 1; ctx.lineWidth = 1;
     }
-    // the markers: a filled dot for one of the eleven the record displaces at c → ∞ (READ), a
-    // hollow one for a displacement in the reconstructed walk (RECONSTRUCTED), top right
-    if (s >= 14 && (e.relativistic || e.walk_displaced)) {
+    // the markers: a filled dot for an element the recovered instrument displaces at c → ∞
+    // (RECOVERED; the paper's eleven when no record is held, READ), a hollow one for a
+    // displacement in the reconstructed walk (RECONSTRUCTED), and a faint dashed ring for one
+    // of the eleven as the paper printed them, superseded — top right
+    const paperOnly = e.paper_eleven && !e.relativistic;
+    if (s >= 14 && (e.relativistic || e.walk_displaced || paperOnly)) {
       const d = Math.max(2, s * 0.045);
       let mx = R.x + R.w - d * 1.8, my = R.y + d * 1.8;
       if (e.relativistic) {
         ctx.beginPath(); ctx.arc(mx, my, d, 0, Math.PI * 2); ctx.fillStyle = C.rel; ctx.fill();
+        mx -= d * 2.8;
+      } else if (paperOnly) {
+        ctx.beginPath(); ctx.arc(mx, my, d * 0.9, 0, Math.PI * 2); ctx.strokeStyle = C.rel; ctx.lineWidth = Math.max(1, d * 0.35);
+        ctx.setLineDash([d * 0.7, d * 0.5]); ctx.globalAlpha = 0.55; ctx.stroke(); ctx.setLineDash([]); ctx.globalAlpha = 1; ctx.lineWidth = 1;
         mx -= d * 2.8;
       }
       if (e.walk_displaced) {
@@ -626,6 +633,7 @@
         ctx.textAlign = 'right'; ctx.textBaseline = 'top'; ctx.font = F(s * 0.032, 'sans');
         const parts = [];
         if (e.relativistic) parts.push('displaced at c → ∞');
+        else if (paperOnly) parts.push('the paper\'s eleven (superseded)');
         if (e.walk_displaced) parts.push('reconstructed walk');
         ctx.fillStyle = C.muted;
         ctx.fillText(parts.join(' · '), R.x + R.w - d * 6, R.y + d * 0.9);
@@ -654,7 +662,7 @@
         ctx.textAlign = 'right'; ctx.textBaseline = 'top';
         ctx.font = F(s * 0.075);
         ctx.fillStyle = e.counts.measured ? C.measured : C.muted;
-        ctx.fillText(e.counts.measured ? `${e.counts.measured} m` : `${e.counts.rows}`, p.x + s * 0.915, p.y + s * 0.075 + (s >= 150 && (e.relativistic || e.walk_displaced) ? s * 0.04 : 0));
+        ctx.fillText(e.counts.measured ? `${e.counts.measured} m` : `${e.counts.rows}`, p.x + s * 0.915, p.y + s * 0.075 + (s >= 150 && (e.relativistic || e.walk_displaced || e.paper_eleven) ? s * 0.04 : 0));
       }
     }
     if (s >= 150) {
@@ -1719,7 +1727,7 @@
         ${c.placement ? row('helium at 2 instead', `E = ${c.placement.helium_at_2.E}, priced at ${c.placement.priced} cells`, 'READ', c.placement.source) : ''}
         ${row('set aside', c.set_aside, 'PINNED', 'the lanthanides and actinides, set aside below the table')}
       </div>${c.placement && (state.layout === 'table' || state.layout === 'table3d') ? `<div class="actions"><button type="button" data-act="helium-toggle">${state.heliumAt === 2 ? 'Draw helium at group 18 (IUPAC)' : 'Draw helium at group 2 (E = ' + c.placement.helium_at_2.E + ')'}</button></div>` : ''}`)}
-      ${(() => { const rel = ix.relativistic, lim = ix.limits; if (!rel && !lim) return ''; let b = ''; if (rel) { const paper = (rel.sources || {}).paper || {}; b += `<div class="fields">${row('displaced at c → ∞', esc((rel.eleven || []).map((x) => x.symbol).join(', ')), 'READ', `${(paper.title || 'the Löwdin paper')} L${paper.eleven_line}`, true)}${row('instrument', 'not held — the construction is record-carried; nothing here computes it', null, esc((rel.instrument && rel.instrument.note) || ''), true)}${rel.walk && rel.walk.summary && rel.walk.summary.compare ? row('the walk, reconstructed', esc(`${rel.walk.summary.compare.displaced.length} displaced at c → ∞ in the ${rel.walk.primary === 'hf' ? 'Hartree–Fock' : 'local-exchange'} field (${rel.walk.summary.compare.displaced.map((d) => d.symbol).join(', ') || 'none'}); ${rel.walk.summary.compare.in_eleven.length} of the record's eleven`), 'RECONSTRUCTED', 'tools/lowdin_walk.py over LOWDIN-WALK.tsv: the record\'s construction rebuilt from its statement; placed beside the record, never in its place', true) : ''}</div>`; } if (lim) { b += `<p class="note" style="margin-top:8px">Every cell carries the bound the csv records; by kind: ${(lim.kinds || []).map((k) => `<span class="dot dot-lim-${k.kind}"></span>${esc(LIMIT_LABEL[k.kind] || k.kind)} ${k.count.toLocaleString()}`).join(' · ')} ${badge('DERIVED', 'kind by the stated rule; the note is READ')}</p><div class="actions"><button type="button" data-act="color-limit">Colour cells by limit</button><button type="button" data-act="color-grade">by grade</button></div>`; } return section('The relativistic limit and the bounds', b); })()}
+      ${(() => { const rel = ix.relativistic, lim = ix.limits; if (!rel && !lim) return ''; let b = ''; if (rel) { const paper = (rel.sources || {}).paper || {}; b += `<div class="fields">${rel.repair ? row('displaced at c → ∞', esc(rel.repair.displaced.join(', ')) + ` <span class="plain">(${esc(rel.repair.witnessed.join(', '))} among the measured elements; ${esc(rel.repair.unwitnessed.join(', '))} beyond them)</span>`, 'RECOVERED', esc(rel.repair.comparison), true) + row('as the paper printed it', esc(rel.repair.paper_eleven.join(', ')) + ' <span class="plain">— superseded</span>', 'READ', `${(paper.title || 'the Löwdin paper')} L${paper.eleven_line}; ${esc(rel.repair.paper_eleven_status)}`, true) : row('displaced at c → ∞', esc((rel.eleven || []).map((x) => x.symbol).join(', ')), 'READ', `${(paper.title || 'the Löwdin paper')} L${paper.eleven_line}`, true)}${rel.record ? row('instrument', 'recovered — the record\'s own code, run here', 'RECOVERED', esc((rel.instrument && rel.instrument.note) || ''), true) : row('instrument', 'not held — the construction is record-carried; nothing here computes it', null, esc((rel.instrument && rel.instrument.note) || ''), true)}${rel.walk && rel.walk.summary && rel.walk.summary.compare ? row('the walk, reconstructed', esc(`${rel.walk.summary.compare.displaced.length} displaced at c → ∞ in the ${rel.walk.primary === 'hf' ? 'Hartree–Fock' : 'local-exchange'} field (${rel.walk.summary.compare.displaced.map((d) => d.symbol).join(', ') || 'none'}); ${rel.walk.summary.compare.in_eleven.length} of the record's eleven`), 'RECONSTRUCTED', 'tools/lowdin_walk.py over LOWDIN-WALK.tsv: the record\'s construction rebuilt from its statement; placed beside the record, never in its place', true) : ''}</div>`; } if (lim) { b += `<p class="note" style="margin-top:8px">Every cell carries the bound the csv records; by kind: ${(lim.kinds || []).map((k) => `<span class="dot dot-lim-${k.kind}"></span>${esc(LIMIT_LABEL[k.kind] || k.kind)} ${k.count.toLocaleString()}`).join(' · ')} ${badge('DERIVED', 'kind by the stated rule; the note is READ')}</p><div class="actions"><button type="button" data-act="color-limit">Colour cells by limit</button><button type="button" data-act="color-grade">by grade</button></div>`; } return section('The relativistic limit and the bounds', b); })()}
       ${section('Caveats that travel with every value', `<ul class="note">${(ix.caveats || []).map((v) => `<li>${esc(v.text)}</li>`).join('')}</ul>`)}
       <div class="actions"><button type="button" data-act="open-prov">Provenance and sources</button></div>
       <div class="cite">${esc(citation(rootNode))}</div>`;
@@ -1810,7 +1818,7 @@
       ${d.paper !== null && d.paper !== undefined ? row('displaced as the paper counted it', d.paper ? 'yes <span class="rel-tag">chain ≠ restart at c = 137.035999</span>' : 'no', 'RECOVERED', 'the paper\'s eleven are the elements where the chain\'s entrant differs from the second table\'s; that table ran at c = 137.035999 in restart mode (the project\'s own fault F59.3)', true) : ''}
       ${d.chain_cinf !== null && d.chain_cinf !== undefined ? row('displaced at a genuine c → ∞, chained', d.chain_cinf ? 'yes <span class="rel-tag walk-tag">entrants differ</span>' : 'no', 'RECOVERED', 'the chain at c = 137.035999 against the chain at c → ∞ by the record\'s F59.3 remedy; a run the record never made', true) : ''}
       ${d.restart_cinf !== null && d.restart_cinf !== undefined ? row('displaced at a genuine c → ∞, restart', d.restart_cinf ? 'yes' : 'no', 'RECOVERED', 'restart rows at c = 137.035999 against restart rows at c → ∞ (the record ran 13 of these rows, the rest are run here)', true) : ''}
-      ${row('in the record', e.relativistic ? 'one of the eleven the paper displaces' : 'not among the eleven', 'READ', 'the Löwdin paper', true)}
+      ${row('as the paper printed it', e.paper_eleven ? 'one of the eleven — superseded' : 'not among the eleven', 'READ', rel.repair ? rel.repair.paper_eleven_status : 'the Löwdin paper', true)}
     </div>
     <p class="note">${esc(caveat('record-eleven'))}</p>`;
     return section('The walk, recovered', body, badge('RECOVERED', R.instrument));
@@ -1846,7 +1854,7 @@ const WALK_FIELD_LABEL = { hf: 'Hartree–Fock, non-local exchange (the paper\'s
         ${c1 && c1.observed_gain !== '-' ? row('observed gain at this Z', `${esc(c1.observed_gain)} — the c = 137 entrant ${c1.agree === 'yes' ? 'agrees' : 'differs'}`, 'READ', 'the observed configurations table: the channel that gained an electron from Z − 1 to Z. The chain never moves an electron, so a rearranged step (Cr, Cu, Pd, La, Gd, Th …) reads as a disagreement under this reading') : ''}
       </div>`;
     }
-    body += `<div class="fields">${e.relativistic ? row('in the record', 'one of the eleven the Löwdin paper displaces', 'READ', 'the Löwdin paper') : row('in the record', 'not among the eleven', 'READ', 'the Löwdin paper')}</div>
+    body += `<div class="fields">${rel.repair ? row('in the record', rel.repair.displaced.includes(e.symbol) ? 'displaced at c → ∞ by the recovered instrument' : 'not displaced by the recovered instrument', 'RECOVERED', rel.repair.comparison) : ''}${e.paper_eleven ? row('as the paper printed it', 'one of the eleven — superseded', 'READ', 'the Löwdin paper') : row('as the paper printed it', 'not among the eleven', 'READ', 'the Löwdin paper')}</div>
       <p class="note">${esc(caveat('walk-reconstructed'))}</p>`;
     return section('The walk, reconstructed', body, badge('RECONSTRUCTED', `${walk.instrument} over ${walk.table.file}, md5 ${walk.table.md5.slice(0, 12)}; primary field ${walk.primary}`));
   }
@@ -1855,20 +1863,22 @@ const WALK_FIELD_LABEL = { hf: 'Hartree–Fock, non-local exchange (the paper\'s
     const src = rel.sources || {}, paper = src.paper || {};
     const cite = `${(paper.title || 'the Löwdin paper')} L${paper.eleven_line}; the SCF audit`;
     const hit = (rel.eleven || []).find((x) => x.Z === e.Z);
+    const rp = rel.repair, rd = rp ? rp.detail.find((x) => x.Z === e.Z) : null;
     const fig = (state.index.figures || [])[0];
     let body = `<div class="fields">
-      ${row('displaced at c → ∞', hit ? `yes <span class="rel-tag">one of the eleven</span>` : 'no', 'READ', hit ? cite : cite + ': not among the eleven')}
+      ${rp ? row('displaced at c → ∞', rd ? `yes <span class="rel-tag">${esc(rd.at_c137)} at c = 137.035999 · ${esc(rd.at_other)} at c → ∞${rd.observed ? ' · observed ' + esc(rd.observed) : ''}</span>` : 'no', 'RECOVERED', rd ? `${esc(rp.comparison)}; ${esc(rd.against_nature)}` : `${esc(rp.comparison)}: the entrant is the same at both settings`, true) : ''}
+      ${rp ? row('as the paper printed it', hit ? `one of the eleven <span class="rel-tag">superseded</span>` : 'not among the eleven', 'READ', `${cite}; ${esc(rp.paper_eleven_status)}`, true) : row('displaced at c → ∞', hit ? `yes <span class="rel-tag">one of the eleven</span>` : 'no', 'READ', hit ? cite : cite + ': not among the eleven')}
       ${hit ? row('observed configuration', esc(hit.configuration || '—'), 'READ', 'the SCF audit over the observed configurations table') : ''}
       ${hit ? row('entrant channel', esc(hit.entrant || '—'), 'READ', 'the SCF audit: the channel the relativistic walk enters at this Z') : ''}
       ${e.Z === 90 && rel.thorium ? row('thorium', esc(rel.thorium), 'READ', `${(paper.title || 'the Löwdin paper')} L${paper.thorium_line}`, true) : ''}
       ${row('c', rel.c, 'READ', esc(rel.construction || 'the one admitted constant'))}
       ${rel.record ? row('instrument', 'recovered — the record\'s own code, read out of the project\'s conversations and run here', 'RECOVERED', esc(rel.record.note || ''), true) : row('instrument', 'not held — nothing computed here', null, esc((rel.instrument && rel.instrument.note) || ''), true)}
     </div>`;
-    if (hit || e.Z === 90) {
-      body += `<div class="callout is-plain">${esc(rel.statement || '')}</div>`;
-      if (fig && fig.file) body += `<figure class="plate-fig"><a href="data/${esc(fig.file)}" target="_blank" rel="noopener" title="open the figure at full size"><img src="data/${esc(fig.file)}" alt="${esc(fig.caption || 'Figure 5')}" loading="lazy"></a><figcaption>${esc(fig.caption || '')} · md5 ${esc((fig.md5 || '').slice(0, 12))} as the ledger records ${badge('READ', 'the figure as the repository holds it')}</figcaption></figure>`;
+    if (hit || e.Z === 90 || rd) {
+      body += rp ? `<div class="callout is-plain">${esc(rp.statement)} ${badge('RECOVERED', rp.decision)}</div><div class="callout is-plain">As the paper printed it, superseded: ${esc(rel.statement || '')} ${badge('READ', rp.paper_text)}</div>` : `<div class="callout is-plain">${esc(rel.statement || '')}</div>`;
+      if (fig && fig.file) body += `<figure class="plate-fig"><a href="data/${esc(fig.file)}" target="_blank" rel="noopener" title="open the figure at full size"><img src="data/${esc(fig.file)}" alt="${esc(fig.caption || 'Figure 5')}" loading="lazy"></a><figcaption>${esc(fig.caption || '')} · md5 ${esc((fig.md5 || '').slice(0, 12))} as the ledger records ${badge('READ', 'the figure as the repository holds it')}${rp ? ' · drawn from the comparison the paper made, superseded: the second table ran at c = 137.035999 in restart mode' : ''}</figcaption></figure>`;
     }
-    return section('Relativistic limit', body, badge('READ', 'the paper\'s own result; the construction is not held'));
+    return section('Relativistic limit', body, rel.repair ? badge('RECOVERED', 'the recovered instrument\'s result; the paper\'s own sentence beside it, superseded') : badge('READ', 'the paper\'s own result; the construction is not held'));
   }
 
   function limitsSection(e) {
@@ -3923,7 +3933,7 @@ const WALK_FIELD_LABEL = { hf: 'Hartree–Fock, non-local exchange (the paper\'s
   B <El>              rows where B in the csv disagrees with B computed, and rows where B is not a bound
   ladder <El>         the Λ₈ steps, with any failing constraint
   limits <El>         the bound the csv records on its cells, by kind; series limits as printed
-  relativistic        the eleven elements displaced at c → ∞ (READ; the construction is not held), and the reconstruction beside them
+  relativistic        the elements displaced at c → ∞ by the recovered instrument (RECOVERED), the paper's eleven beside them (READ, superseded), and the reconstruction
   walk <El>           the element in the reconstructed walk at both settings (RECONSTRUCTED; tools/lowdin_walk.py)
   lattice             the whole index as a lattice: sites, known cells, the axes and their source
   particles           what the sources state of the binders and particles beyond the electron
@@ -4080,7 +4090,10 @@ const WALK_FIELD_LABEL = { hf: 'Hartree–Fock, non-local exchange (the paper\'s
         const rel = ix.relativistic;
         if (!rel) return 'no relativistic block in this build of data/index.js';
         const paper = (rel.sources || {}).paper || {};
-        const lines = [`${rel.statement || ''} ${st('READ')}`, `source: ${paper.title || 'the Löwdin paper'} L${paper.eleven_line}; the SCF audit`, ''];
+        const rp = rel.repair;
+        const lines = rp ? [`${rp.statement} ${st('RECOVERED')}`, rp.decision, `displaced: ${rp.displaced.join(', ')} — ${rp.witnessed.join(', ')} among the measured elements, ${rp.unwitnessed.join(', ')} beyond them`]
+          : [`${rel.statement || ''} ${st('READ')}`, `source: ${paper.title || 'the Löwdin paper'} L${paper.eleven_line}; the SCF audit`, ''];
+        if (rp) { for (const d of rp.detail) lines.push(`  ${d.symbol.padEnd(3)} Z=${String(d.Z).padEnd(4)} ${d.at_c137} at c = 137.035999 · ${d.at_other} at c → ∞${d.observed ? ' · observed ' + d.observed : ''} — ${d.against_nature}`); lines.push('', `as the paper printed it, superseded ${st('READ')} — ${rel.statement || ''}`, `source: ${paper.title || 'the Löwdin paper'} L${paper.eleven_line}; ${rp.paper_eleven_status}`); }
         for (const x of rel.eleven || []) lines.push(`${x.symbol.padEnd(3)} Z=${String(x.Z).padEnd(4)} ${(x.configuration || '').padEnd(24)} entrant ${x.entrant || '?'}`);
         if (rel.thorium) lines.push('', rel.thorium);
         if (rel.record) {
@@ -4094,6 +4107,7 @@ const WALK_FIELD_LABEL = { hf: 'Hartree–Fock, non-local exchange (the paper\'s
           if (dp.chain_cinf) lines.push(`  displaced at a genuine c → ∞, chained: ${dp.chain_cinf.length} — ${dp.chain_cinf.join(', ') || 'none'}`);
           if (dp.restart_cinf) lines.push(`  displaced at a genuine c → ∞, restart: ${dp.restart_cinf.length} — ${dp.restart_cinf.join(', ') || 'none'}`);
           if (sm.thorium) lines.push(`  Th: ${Object.entries(sm.thorium).map(([k, v]) => `${k} ${v}`).join(', ')}`);
+          if (sm.scorer) Object.entries(sm.scorer).forEach(([k, v]) => lines.push(`  the record's scorer over ${k}: configurations ${v.config}, steps ${v.step}; step failures ${v.step_failures.join(' ')}`));
           lines.push(`  ${caveat('record-eleven')}`);
         } else {
           lines.push('', `instrument: not held — ${(rel.instrument && rel.instrument.note) || ''}`, (rel.instrument && rel.instrument.note) || '');
@@ -4138,7 +4152,7 @@ const WALK_FIELD_LABEL = { hf: 'Hartree–Fock, non-local exchange (the paper\'s
             }
             lines.push(`    displaced in this field: ${wf.displaced ? 'yes' : 'no'}${wf.c137 && wf.c137.observed_gain !== '-' ? `; observed gain ${wf.c137.observed_gain} (${wf.c137.agree === 'yes' ? 'the c = 137 entrant agrees' : 'the c = 137 entrant differs'}) ${st('READ')}` : ''}`);
           }
-          lines.push(`  in the record: ${e.relativistic ? 'one of the eleven' : 'not among the eleven'} ${st('READ')}`);
+          lines.push(`  in the record: ${(ix.relativistic.repair ? (ix.relativistic.repair.displaced.includes(e.symbol) ? 'displaced at c → ∞ by the recovered instrument' : 'not displaced by the recovered instrument') + ' ' + st('RECOVERED') + '; ' : '')}as the paper printed it: ${e.paper_eleven ? 'one of the eleven (superseded)' : 'not among the eleven'} ${st('READ')}`);
           lines.push(`  ${caveat('walk-reconstructed')}`);
           return lines.join('\n');
         });
@@ -6366,14 +6380,14 @@ var SOLVERS, LIB;
   var MODE_RELATIVISTIC = {
     id: 'relativistic',
     title: 'The relativistic limit (c = 137 against c → ∞)',
-    status: READ,
-    statusNote: 'The Löwdin paper: the observed table is irreducibly relativistic. The record\'s construction is not held: the Löwdin project\'s reply of 2026-09-18 locates the c → ∞ path in a delivery that never arrived, and the project has since concluded. So the mode reads the record\'s result (READ) and, beside it, carries a RECONSTRUCTION: tools/lowdin_walk.py runs the record\'s own algorithm — the V^{N−1} chain with the Koelling–Harmon equation — in a local-exchange field, at both settings, into LOWDIN-WALK.tsv. The reconstruction is never the record\'s number; where the two disagree, the disagreement is the measurement.',
-    description: 'Quantum mechanics supplies the range of configurations; the speed of light, entering once as c = 137 through the scalar-relativistic reduction of the Dirac equation, decides which of them the observed table holds. Repeated with c sent to infinity, the record\'s construction misplaces eleven elements and inverts the channel competition at thorium. That construction is not held, so this mode reports the paper\'s own result, READ, and refuses to recompute its c → ∞ table. What it can show beside the record is the reconstructed walk (RECONSTRUCTED): the same chain, run here in a field that is not the record\'s, with its entrant, runner-up, margin and candidate spectrum at every Z at both settings, and the reconstruction\'s own list of displaced elements measured against the Löwdin paper\'s eleven.',
+    status: RECOVERED,
+    statusNote: 'The Löwdin paper states that the observed table is irreducibly relativistic, on eleven displaced elements. The record\'s own instrument has since been recovered from the project\'s conversations and run here at both settings (RECOVERED): the chain with the constant removed differs from the chain at c = 137.035999 at thorium and rutherfordium among the measured elements and at Z = 120 beyond them, and nowhere else; the paper\'s eleven were the chain against a second table that had run at c = 137.035999 in restart mode. By the author\'s decision of 2026-09-24 the mode states the recovered instrument\'s result and carries the paper\'s eleven beside it as the reading the paper printed, superseded (READ). Beside both, a RECONSTRUCTION: tools/lowdin_walk.py runs the same chain in fields built here, at both settings, into LOWDIN-WALK.tsv; where it disagrees with the recovered instrument, the disagreement is the measurement.',
+    description: 'Quantum mechanics supplies the range of configurations; the speed of light, entering once as c = 137 through the scalar-relativistic reduction of the Dirac equation, decides which of them the observed table holds. Repeated with c sent to infinity by the record\'s own recovered instrument, the construction moves its entrant at thorium (6d to 5f, away from the observed channel), at rutherfordium (5f to 6d, the observed channel) and at Z = 120 (8s to 7d), and at no other element; the paper\'s eleven, silver and mercury among them, were a comparison against a restart walk at c = 137.035999 and are carried superseded. The mode reports the recovered tables (RECOVERED), the paper\'s eleven (READ, superseded) and the reconstructed walk (RECONSTRUCTED), and still recomputes nothing in the browser: the c → ∞ table is the instrument\'s, run in the repository.',
     inputs: [sel('Z'),
              { name: 'operation', label: 'operation', type: 'select', default: 'element',
-               options: [{ value: 'element', label: 'is this element displaced at c → ∞? (the record)' },
+               options: [{ value: 'element', label: 'is this element displaced at c → ∞? (the recovered instrument)' },
                          { value: 'walk', label: 'this element in the reconstructed walk, both settings' },
-                         { value: 'eleven', label: 'the eleven, with their entrant channels (the record)' },
+                         { value: 'eleven', label: 'the displaced set, and the paper\'s eleven beside it' },
                          { value: 'compare', label: 'the reconstruction against the record' },
                          { value: 'recompute', label: 'recompute the c → ∞ table' }] }],
     source: { instrument: 'lowdin_construction', file: 'the Löwdin paper',
@@ -6388,10 +6402,14 @@ var SOLVERS, LIB;
       var walk = rel.walk;
       var wcite = walk ? walk.instrument + ' over ' + walk.table.file + ' (md5 ' + walk.table.md5.slice(0, 12) + ')' : '';
       var fmt6 = function (v) { return (v === null || v === undefined) ? '—' : v.toFixed(6); };
+      var rp = rel.repair;
       if (op === 'recompute') {
-        rows.push(row('c → ∞ table', 'not computable here', null, inst.note || 'the construction is not held'));
-        rows.push(row('why', 'the record\'s scalar-relativistic construction (Koelling–Harmon Hartree–Fock, c = 137) and its repetition at c → ∞ are not held; the delivery that would have carried them never arrived', null, inst.note || ''));
-        rows.push(row('what is held', 'the paper\'s statement and the SCF audit\'s table of the eleven', READ, cite));
+        rows.push(row('c → ∞ table', 'not computable here', null, rp ? 'the page computes nothing of the chain; the table is the recovered instrument\'s, run in the repository and shipped as data' : (inst.note || 'the construction is not held')));
+        rows.push(row('why', rp ? 'the self-consistent field is the record\'s own code, recovered and run in the repository; the browser carries its tables, not its solver' : 'the record\'s scalar-relativistic construction (Koelling–Harmon Hartree–Fock, c = 137) and its repetition at c → ∞ are not held; the delivery that would have carried them never arrived', null, inst.note || ''));
+        if (rp) {
+          rows.push(row('what is held', 'the recovered instrument\'s chain at both settings: displaced at ' + rp.displaced.join(', '), RECOVERED, rp.comparison));
+          rows.push(row('as the paper printed it', rp.paper_eleven.join(', ') + ' — superseded', READ, cite + '; ' + rp.paper_eleven_status));
+        } else rows.push(row('what is held', 'the paper\'s statement and the SCF audit\'s table of the eleven', READ, cite));
         if (walk && walk.summary && walk.summary.compare) {
           var cp = walk.summary.compare;
           rows.push(row('the walk, reconstructed', 'a c → ∞ table exists here as a reconstruction, not the record\'s: Z = ' + cp.Z_first + ' to ' + cp.Z_last + ' at both settings, in ' + Object.keys(walk.fields || { lx: 1 }).length + ' field(s); the primary is ' + (walk.primary || 'lx'), RECONSTRUCTED, wcite));
@@ -6459,17 +6477,25 @@ var SOLVERS, LIB;
         var prim = wr.fields[walk.primary] || wr.fields[order[0]];
         if (prim && prim.c137 && prim.c137.observed_gain !== '-') rows.push(row('observed gain at this Z', prim.c137.observed_gain + ' — the primary field\'s c = 137 entrant ' + (prim.c137.agree === 'yes' ? 'agrees' : 'differs'), READ, 'the observed configurations table: the channel that gained an electron from Z − 1 to Z; the chain never moves an electron'));
         var inEleven = rel.eleven.some(function (e) { return e.Z === Zw; });
-        rows.push(row('in the record', inEleven ? 'one of the eleven the Löwdin paper displaces' : 'not among the eleven', READ, cite));
+        if (rp) rows.push(row('in the record', rp.displaced.indexOf(recw.symbol) >= 0 ? 'displaced at c → ∞ by the recovered instrument' : 'not displaced by the recovered instrument', RECOVERED, rp.comparison));
+        rows.push(row('as the paper printed it', inEleven ? 'one of the eleven — superseded' : 'not among the eleven', READ, cite));
         return { rows: rows, ok: true, walk: wr, primary: walk.primary, text: caveat(ctx.index, 'walk-reconstructed') || '' };
       }
       if (op === 'eleven') {
-        rows.push(row('elements displaced at c → ∞', rel.eleven.length, READ, cite));
+        if (rp) {
+          rows.push(row('elements displaced at c → ∞', rp.displaced.length, RECOVERED, rp.comparison));
+          rp.detail.forEach(function (d) {
+            rows.push(row(d.symbol + ' (Z = ' + d.Z + ')', d.at_c137 + ' at c = 137.035999 → ' + d.at_other + ' at c → ∞' + (d.observed ? '; observed ' + d.observed : ''), RECOVERED, d.against_nature));
+          });
+          if (rp.scorer && rp.scorer.chain && rp.scorer.chain_cinf) rows.push(row('the record\'s scorer, both settings', 'steps ' + rp.scorer.chain.step + ' | ' + rp.scorer.chain_cinf.step + '; configurations ' + rp.scorer.chain.config + ' | ' + rp.scorer.chain_cinf.config, RECOVERED, 'c = 137.035999 | c → ∞; the step failures swap Rf for Th'));
+          rows.push(row('the paper\'s eleven', rp.paper_eleven.join(', ') + ' — superseded', READ, cite + '; ' + rp.paper_eleven_status + '; at ' + rp.paper_eleven_restart_holds_observed + ' of the eleven the restart table holds the observed channel'));
+        } else rows.push(row('elements displaced at c → ∞', rel.eleven.length, READ, cite));
         rel.eleven.forEach(function (e) {
-          rows.push(row(e.symbol + ' (Z = ' + e.Z + ')', (e.configuration || '') + ' → entrant ' + (e.entrant || '?'), READ, 'the SCF audit: the eleven in the observed table, over the observed configurations'));
+          rows.push(row(e.symbol + ' (Z = ' + e.Z + ')' + (rp ? ', as printed' : ''), (e.configuration || '') + ' → entrant ' + (e.entrant || '?'), READ, 'the SCF audit: the eleven in the observed table, over the observed configurations' + (rp ? '; superseded' : '')));
         });
         if (rel.thorium) rows.push(row('thorium', rel.thorium, READ, (paper.title || 'the Löwdin paper') + ' L' + paper.thorium_line));
-        rows.push(row('instrument', 'not held — nothing computed here', null, inst.note || ''));
-        return { rows: rows, ok: true, text: 'The Löwdin paper: ' + ((src.paper && src.paper.eleven_text) || '') };
+        rows.push(row('instrument', rp ? 'recovered — the record\'s own code, run in the repository' : 'not held — nothing computed here', rp ? RECOVERED : null, inst.note || ''));
+        return { rows: rows, ok: true, text: rp ? rp.statement : 'The Löwdin paper: ' + ((src.paper && src.paper.eleven_text) || '') };
       }
       var Z = int(values.Z);
       if (Z === null || Z < 1 || Z > 120) return fail('Z must be an integer from 1 to 120');
@@ -6478,7 +6504,12 @@ var SOLVERS, LIB;
       var rec = got.rec, hit = null;
       for (var i = 0; i < rel.eleven.length; i++) if (rel.eleven[i].Z === Z) hit = rel.eleven[i];
       rows.push(row('element', rec.symbol + ' (Z = ' + Z + ')', READ, 'the observed configurations table'));
-      rows.push(row('displaced at c → ∞', hit ? 'yes' : 'no', READ, cite + (hit ? '' : ': not among the eleven')));
+      var rd = null;
+      if (rp) for (var j = 0; j < rp.detail.length; j++) if (rp.detail[j].Z === Z) rd = rp.detail[j];
+      if (rp) {
+        rows.push(row('displaced at c → ∞', rd ? 'yes' : 'no', RECOVERED, rd ? rp.comparison + ': ' + rd.at_c137 + ' at c = 137.035999, ' + rd.at_other + ' at c → ∞' + (rd.observed ? ', observed ' + rd.observed : '') + '; ' + rd.against_nature : rp.comparison + ': the entrant is the same at both settings'));
+        rows.push(row('as the paper printed it', hit ? 'one of the eleven — superseded' : 'not among the eleven', READ, cite + '; ' + rp.paper_eleven_status));
+      } else rows.push(row('displaced at c → ∞', hit ? 'yes' : 'no', READ, cite + (hit ? '' : ': not among the eleven')));
       if (hit) {
         rows.push(row('observed configuration', hit.configuration || '—', READ, 'the SCF audit over the observed configurations table'));
         rows.push(row('entrant channel', hit.entrant || '—', READ, 'the SCF audit: the channel the relativistic walk enters at this Z'));
@@ -6486,8 +6517,8 @@ var SOLVERS, LIB;
       if (Z === 90 && rel.thorium) rows.push(row('thorium', rel.thorium, READ, (paper.title || 'the Löwdin paper') + ' L' + paper.thorium_line));
       if (!rec.populated) rows.push(row('note', 'above Z = 108 the construction\'s 107-row table does not reach; the record carries csv rows only', null));
       rows.push(row('c', rel.c, READ, rel.construction || 'the one admitted constant'));
-      rows.push(row('instrument', 'not held — nothing computed here', null, inst.note || ''));
-      return { rows: rows, ok: true, text: rel.statement || '' };
+      rows.push(row('instrument', rp ? 'recovered — the record\'s own code, run in the repository' : 'not held — nothing computed here', rp ? RECOVERED : null, inst.note || ''));
+      return { rows: rows, ok: true, text: rp ? rp.statement : (rel.statement || '') };
     },
     selftest: async function (ctx) {
       var ck = new Checker();
@@ -6495,26 +6526,37 @@ var SOLVERS, LIB;
       ck.ok('data/index.js carries the relativistic block', !!rel, !!rel, true);
       if (!rel) return ck.result();
       ck.eq('eleven elements READ from the paper', rel.eleven.length, 11);
-      var lay = (ctx.index.layout || []).filter(function (e) { return e.relativistic; });
-      ck.eq('layout flags exactly the eleven', lay.length, 11);
+      var rp = rel.repair;
+      var lay = (ctx.index.layout || []).filter(function (e) { return e.paper_eleven; });
+      ck.eq('layout flags the paper\'s eleven exactly', lay.length, 11);
       var byZ = function (a, b) { return a - b; };
       ck.eq('the flagged Z are the eleven', lay.map(function (e) { return e.Z; }).sort(byZ).join(','), rel.eleven.map(function (e) { return e.Z; }).sort(byZ).join(','));
       ck.ok('every one of the eleven carries an entrant channel', rel.eleven.every(function (e) { return !!e.entrant; }), rel.eleven.filter(function (e) { return !e.entrant; }).length, 0);
-      ck.eq('Th (90) is not among the eleven', rel.eleven.some(function (e) { return e.Z === 90; }), false);
+      ck.eq('Th (90) is not among the paper\'s eleven', rel.eleven.some(function (e) { return e.Z === 90; }), false);
       ck.ok('the thorium inversion sentence is carried', !!rel.thorium, !!rel.thorium, true);
-      ck.eq('instrument recorded as not held', !!(rel.instrument && rel.instrument.held), false);
+      ck.eq('instrument recorded as held exactly when the record is recovered', !!(rel.instrument && rel.instrument.held), !!rel.record);
+      if (rp) {
+        ck.eq('repair: the recovered instrument displaces Th, Rf and Ubn', rp.displaced.join(','), 'Th,Rf,Ubn');
+        var layR = (ctx.index.layout || []).filter(function (e) { return e.relativistic; }).map(function (e) { return e.symbol; }).sort().join(',');
+        ck.eq('repair: the table marks exactly the repaired set', layR, 'Rf,Th,Ubn');
+        ck.eq('repair: the paper\'s eleven are carried, superseded', rp.paper_eleven.join(','), rel.eleven.map(function (e) { return e.symbol; }).join(','));
+      }
+      // Both directions of the recovered instrument's result: Th is displaced (6d at c = 137.035999,
+      // 5f at c → ∞, away from the observed channel) and Hg is not — the paper's eleven had it the
+      // other way round, against a restart table at one c. Without the record the paper's reading holds.
+      var yesTh = rp ? 'yes' : 'no', yesAg = rp ? 'no' : 'yes';
       var r1 = await MODE_RELATIVISTIC.run({ Z: 47, operation: 'element' }, ctx);
-      ck.eq('Ag: displaced at c → ∞ = yes', r1.ok ? r1.rows[1].value : r1.message, 'yes');
+      ck.eq('Ag: displaced at c → ∞ = ' + yesAg, r1.ok ? r1.rows[1].value : r1.message, yesAg);
       var r2 = await MODE_RELATIVISTIC.run({ Z: 26, operation: 'element' }, ctx);
       ck.eq('Fe: displaced at c → ∞ = no', r2.ok ? r2.rows[1].value : r2.message, 'no');
-      // Both directions, as the Löwdin project's reply of 2026-09-18 recommends: Hg is displaced,
-      // Th is a collapse-criterion row and the null-difference control. A c switch
-      // that displaced everything would pass a displacement-only test; Th is what catches it.
       var r4 = await MODE_RELATIVISTIC.run({ Z: 80, operation: 'element' }, ctx);
-      ck.eq('Hg: displaced at c → ∞ = yes (displacement direction)', r4.ok ? r4.rows[1].value : r4.message, 'yes');
+      ck.eq('Hg: displaced at c → ∞ = ' + yesAg + ' (the paper\'s reading superseded)', r4.ok ? r4.rows[1].value : r4.message, yesAg);
+      if (rp) ck.eq('Hg: as the paper printed it, one of the eleven', r4.ok ? r4.rows[2].value : r4.message, 'one of the eleven — superseded');
       var r5 = await MODE_RELATIVISTIC.run({ Z: 90, operation: 'element' }, ctx);
-      ck.eq('Th: displaced at c → ∞ = no (the null-difference control)', r5.ok ? r5.rows[1].value : r5.message, 'no');
-      ck.ok('Th carries the thorium inversion sentence, not a displacement', r5.ok && r5.rows.some(function (r) { return r.label === 'thorium'; }), r5.ok, true);
+      ck.eq('Th: displaced at c → ∞ = ' + yesTh + ' (the inversion, and the entrant with it)', r5.ok ? r5.rows[1].value : r5.message, yesTh);
+      ck.ok('Th carries the thorium inversion sentence', r5.ok && r5.rows.some(function (r) { return r.label === 'thorium'; }), r5.ok, true);
+      var r6 = await MODE_RELATIVISTIC.run({ Z: 104, operation: 'element' }, ctx);
+      ck.eq('Rf: displaced at c → ∞ = yes at either reading', r6.ok ? r6.rows[1].value : r6.message, 'yes');
       var r3 = await MODE_RELATIVISTIC.run({ Z: 47, operation: 'recompute' }, ctx);
       ck.eq('recompute refuses and prints no number', r3.ok ? r3.rows[0].value : r3.message, 'not computable here');
       var noNumber = r3.ok && r3.rows.every(function (r) { return typeof r.value !== 'number'; });

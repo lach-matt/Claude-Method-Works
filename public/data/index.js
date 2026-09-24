@@ -2,8 +2,8 @@ window.__mi = window.__mi || {}; window.__mi.index = {
  "meta": {
   "title": "The Master Index",
   "subtitle": "Every element on every axis of every index, each value carrying the status the data gives it",
-  "built": "2026-09-24T17:34:50+00:00",
-  "commit": "5f7a034a640e",
+  "built": "2026-09-24T20:41:34+00:00",
+  "commit": "ff31bc17c5b2",
   "generator": "tools/webindex.py over tools/populate.py",
   "names_note": "Element names are IUPAC labels for search only; they are not a figure of the index, which carries symbols.",
   "url": "https://lach-matt.github.io/Claude-Method-Works/",
@@ -12,9 +12,9 @@ window.__mi = window.__mi || {}; window.__mi.index = {
    "title": "The Master Index",
    "year": 2026,
    "url": "https://lach-matt.github.io/Claude-Method-Works/",
-   "commit": "5f7a034a640e",
-   "text": "Lach, M. (2026). The Master Index, edition 5f7a034a640e. https://lach-matt.github.io/Claude-Method-Works/",
-   "bibtex": "@misc{lach2026_method_index,\n  author = {Lach, M.},\n  title = {The Master Index},\n  year = {2026},\n  howpublished = {\\url{https://lach-matt.github.io/Claude-Method-Works/}},\n  note = {edition 5f7a034a640e}\n}"
+   "commit": "ff31bc17c5b2",
+   "text": "Lach, M. (2026). The Master Index, edition ff31bc17c5b2. https://lach-matt.github.io/Claude-Method-Works/",
+   "bibtex": "@misc{lach2026_method_index,\n  author = {Lach, M.},\n  title = {The Master Index},\n  year = {2026},\n  howpublished = {\\url{https://lach-matt.github.io/Claude-Method-Works/}},\n  note = {edition ff31bc17c5b2}\n}"
   },
   "history": [
    {
@@ -303,6 +303,13 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "files": 5,
     "url": "https://github.com/lach-matt/Claude-Method-Works/commit/5f7a034a640eb3b707a9f0402b197e0b039bd430",
     "note": null
+   },
+   {
+    "date": "2026-09-24",
+    "commit": "ff31bc1",
+    "files": 130,
+    "url": "https://github.com/lach-matt/Claude-Method-Works/commit/ff31bc17c5b2e56c70da215766049e19110ff3c5",
+    "note": null
    }
   ]
  },
@@ -500,6 +507,12 @@ window.__mi = window.__mi || {}; window.__mi.index = {
    "bytes": 1544,
    "md5": "b5d2c46e1d828ccc5135193bb905b68a",
    "what": "the recovered instrument's run: the run table; RECOVERED"
+  },
+  {
+   "file": "data/lowdin/SCORE.tsv",
+   "bytes": 998,
+   "md5": "d6fc9e72954e93d8a55e7828162eba57",
+   "what": "the recovered instrument's run: the record's scorer over the chain at both settings; RECOVERED"
   },
   {
    "file": "figures/FIG6relativisticvsnonrelativistic.png",
@@ -11586,8 +11599,8 @@ window.__mi = window.__mi || {}; window.__mi.index = {
    "python": null,
    "file": "the Löwdin paper",
    "status": "READ",
-   "held": false,
-   "source": "the scalar-relativistic construction is not held; the paper's own statement is shown in its place",
+   "held": true,
+   "source": "the record's own instrument, recovered into lowdin/rt and run here; its tables are shipped under data/lowdin/ and its text is not",
    "text": "Executed across the entire table with the inverse fine-structure constant c = 137.035999 as the only number supplied, the construction reproduces the observed filling order at all 107 elements for which ground configurations are known (Z = 2–108), locates the three genuine exceptions to the secondary rule exactly where nature has them and derives them from the physics of orbital collapse, proves that no g block exists anywhere below Z = 121, and shows that the observed table is irreducibly relativistic: with the speed of light taken to infinity, the same construction misplaces eleven elements, silver and mercury among them.\n\nFinally, one physical constant is admitted, because the atom itself admits it: the speed of light, entering through the scalar-relativistic reduction of the Dirac equation as c = 137.035999 in Hartree atomic units.\n\n*(Relativistic clause.) The law is scalar-relativistic in an essential way: repeating the entire construction with c → ∞ changes the entrant channel at eleven elements, and inverts the underlying channel competition at thorium besides."
   }
  },
@@ -11745,8 +11758,8 @@ window.__mi = window.__mi || {}; window.__mi.index = {
    }
   },
   "instrument": {
-   "held": false,
-   "note": "the scalar-relativistic construction and its c -> inf repetition are not held; the figures are the paper's own"
+   "held": true,
+   "note": "the record's own instrument, recovered from the project's conversations into lowdin/rt and run here; its tables are shipped and its text is not"
   },
   "walk": {
    "status": "RECONSTRUCTED",
@@ -17420,6 +17433,115 @@ window.__mi = window.__mi || {}; window.__mi.index = {
      "restart137": "6d",
      "restart_cinf": "5f",
      "chain_cinf": "5f"
+    },
+    "scorer": {
+     "chain": {
+      "config": "73/107",
+      "step": "96/107",
+      "config_failures": [
+       24,
+       29,
+       41,
+       42,
+       44,
+       45,
+       46,
+       47,
+       59,
+       60,
+       61,
+       62,
+       63,
+       65,
+       66,
+       67,
+       68,
+       69,
+       70,
+       78,
+       79,
+       91,
+       92,
+       93,
+       94,
+       95,
+       96,
+       97,
+       98,
+       99,
+       100,
+       101,
+       102,
+       103
+      ],
+      "step_failures": [
+       25,
+       30,
+       43,
+       47,
+       48,
+       64,
+       71,
+       80,
+       96,
+       103,
+       104
+      ],
+      "status": "RECOVERED",
+      "what": "the record's scorer over this table: the chain's configuration against the observed one at each Z <= 108 (CONFIG), and its entrant against the observed gain (STEP); the scorer's own GATE pins the c = 137.035999 chain and is not consulted"
+     },
+     "chain_cinf": {
+      "config": "76/107",
+      "step": "96/107",
+      "config_failures": [
+       24,
+       29,
+       41,
+       42,
+       44,
+       45,
+       46,
+       47,
+       59,
+       60,
+       61,
+       62,
+       63,
+       65,
+       66,
+       67,
+       68,
+       69,
+       70,
+       78,
+       79,
+       90,
+       94,
+       95,
+       97,
+       98,
+       99,
+       100,
+       101,
+       102,
+       103
+      ],
+      "step_failures": [
+       25,
+       30,
+       43,
+       47,
+       48,
+       64,
+       71,
+       80,
+       90,
+       96,
+       103
+      ],
+      "status": "RECOVERED (a run the record did not make)",
+      "what": "the record's scorer over this table: the chain's configuration against the observed one at each Z <= 108 (CONFIG), and its entrant against the observed gain (STEP); the scorer's own GATE pins the c = 137.035999 chain and is not consulted"
+     }
     }
    },
    "entrants": [
@@ -18828,6 +18950,196 @@ window.__mi = window.__mi || {}; window.__mi.index = {
      "sealed": "exact"
     }
    ]
+  },
+  "repair": {
+   "status": "RECOVERED",
+   "decision": "the author's, 2026-09-24: the finding on the paper's eleven is repaired, not only recorded",
+   "statement": "Repeated with the constant removed, the construction's entrant moves at thorium (6d to 5f, away from the observed 6d), at rutherfordium (5f to 6d, the observed channel) and at Z = 120 (8s to 7d, beyond the last measured element), and at no other element; silver and mercury do not move. The paper's eleven were the chain measured against a second table that had run at c = 137.035999 in restart mode.",
+   "displaced": [
+    "Th",
+    "Rf",
+    "Ubn"
+   ],
+   "witnessed": [
+    "Th",
+    "Rf"
+   ],
+   "unwitnessed": [
+    "Ubn"
+   ],
+   "detail": [
+    {
+     "Z": 90,
+     "symbol": "Th",
+     "at_c137": "6d",
+     "at_other": "5f",
+     "observed": "6d",
+     "against_nature": "the c → ∞ entrant departs from the observed channel; the chain at c = 137.035999 holds it"
+    },
+    {
+     "Z": 104,
+     "symbol": "Rf",
+     "at_c137": "5f",
+     "at_other": "6d",
+     "observed": "6d",
+     "against_nature": "the c → ∞ entrant is the observed channel; the chain at c = 137.035999 departs from it"
+    },
+    {
+     "Z": 120,
+     "symbol": "Ubn",
+     "at_c137": "8s",
+     "at_other": "7d",
+     "observed": null,
+     "against_nature": "no ground configuration is measured beyond Z = 108; the row is unwitnessed at either setting"
+    }
+   ],
+   "comparison": "the chain at c = 137.035999 against the chain at c → ∞, the record's own instrument at both settings",
+   "restart_displaced": [
+    "Nd",
+    "Pm",
+    "Sm",
+    "Th",
+    "Lr"
+   ],
+   "paper_eleven": [
+    "Mn",
+    "Zn",
+    "Ag",
+    "Cd",
+    "Nd",
+    "Pm",
+    "Sm",
+    "Lu",
+    "Hg",
+    "Lr",
+    "Rf"
+   ],
+   "paper_eleven_status": "superseded: the elements where the chain differs from a restart walk at the same c, not from the constant",
+   "paper_eleven_restart_holds_observed": 8,
+   "paper_eleven_displaced_here": [
+    "Rf"
+   ],
+   "scorer": {
+    "chain": {
+     "config": "73/107",
+     "step": "96/107",
+     "config_failures": [
+      24,
+      29,
+      41,
+      42,
+      44,
+      45,
+      46,
+      47,
+      59,
+      60,
+      61,
+      62,
+      63,
+      65,
+      66,
+      67,
+      68,
+      69,
+      70,
+      78,
+      79,
+      91,
+      92,
+      93,
+      94,
+      95,
+      96,
+      97,
+      98,
+      99,
+      100,
+      101,
+      102,
+      103
+     ],
+     "step_failures": [
+      25,
+      30,
+      43,
+      47,
+      48,
+      64,
+      71,
+      80,
+      96,
+      103,
+      104
+     ],
+     "status": "RECOVERED",
+     "what": "the record's scorer over this table: the chain's configuration against the observed one at each Z <= 108 (CONFIG), and its entrant against the observed gain (STEP); the scorer's own GATE pins the c = 137.035999 chain and is not consulted"
+    },
+    "chain_cinf": {
+     "config": "76/107",
+     "step": "96/107",
+     "config_failures": [
+      24,
+      29,
+      41,
+      42,
+      44,
+      45,
+      46,
+      47,
+      59,
+      60,
+      61,
+      62,
+      63,
+      65,
+      66,
+      67,
+      68,
+      69,
+      70,
+      78,
+      79,
+      90,
+      94,
+      95,
+      97,
+      98,
+      99,
+      100,
+      101,
+      102,
+      103
+     ],
+     "step_failures": [
+      25,
+      30,
+      43,
+      47,
+      48,
+      64,
+      71,
+      80,
+      90,
+      96,
+      103
+     ],
+     "status": "RECOVERED (a run the record did not make)",
+     "what": "the record's scorer over this table: the chain's configuration against the observed one at each Z <= 108 (CONFIG), and its entrant against the observed gain (STEP); the scorer's own GATE pins the c = 137.035999 chain and is not consulted"
+    }
+   },
+   "reconstruction": {
+    "hf_displaced": [
+     "Ce",
+     "Hf",
+     "Th",
+     "Rf",
+     "Ubn"
+    ],
+    "record_set_within": true,
+    "note": "the site's reconstruction, run before the instrument was recovered, displaced these in the record's field; the recovered instrument's set is measured against it"
+   },
+   "paper_text": "the paper's own sentence stands as printed on this site until the author reissues the paper; the plate marks it superseded"
   }
  },
  "limits": {
@@ -22124,11 +22436,11 @@ window.__mi = window.__mi || {}; window.__mi.index = {
   },
   {
    "id": "relativistic-not-held",
-   "text": "The scalar-relativistic construction (Koelling–Harmon Hartree–Fock at c = 137) behind the Löwdin paper was never banked as an archive; its code has since been RECOVERED from the project's own conversations (every file written, edited and printed by tool calls, rebuilt and held against every printed window) and run here. The eleven displaced elements are READ from the paper's own statement; what the recovered instrument returns sits beside them with its own status, never in their place."
+   "text": "The scalar-relativistic construction (Koelling–Harmon Hartree–Fock at c = 137) behind the Löwdin paper was never banked as an archive; its code has since been RECOVERED from the project's own conversations (every file written, edited and printed by tool calls, rebuilt and held against every printed window) and run here. The displaced set this site states is what that recovered instrument returns (RECOVERED); the paper's eleven are READ from the paper's own sentence and carried as the reading it printed, superseded."
   },
   {
    "id": "record-eleven",
-   "text": "The paper's eleven were computed by its own final session as the elements where the chain's entrant differs from a second table the project had sealed as its c → ∞ walk. The project's own fault record F59.3, written before the paper, established that the second table ran at c = 137 in restart mode (each step from the observed configuration), so the eleven measure the chain's memory against a memoryless restart at one c, not the constant. Re-derived here, both tables reproduce and the eleven reproduce from them; at eight of the eleven the restart entrant is the observed one. Recorded, not repaired: the paper's statement stands as READ, and the comparison at a genuine c → ∞ is shown beside it as RECOVERED."
+   "text": "The paper's eleven were computed by its own final session as the elements where the chain's entrant differs from a second table the project had sealed as its c → ∞ walk. The project's own fault record F59.3, written before the paper, established that the second table ran at c = 137 in restart mode (each step from the observed configuration), so the eleven measure the chain's memory against a memoryless restart at one c, not the constant. Re-derived here, both tables reproduce and the eleven reproduce from them; at eight of the eleven the restart entrant is the observed one. Repaired by the author's decision (2026-09-24): the displaced set this site states is the recovered instrument's — the chain at c → ∞ differs from the chain at c = 137 at thorium and rutherfordium among the measured elements and at Z = 120 beyond them, and nowhere else — RECOVERED; the paper's eleven are shown as the reading the paper printed, superseded, and the paper's own text is shown as it stands until the author reissues it."
   },
   {
    "id": "walk-reconstructed",
@@ -22180,6 +22492,7 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "lambda8_steps": 0
    },
    "relativistic": false,
+   "paper_eleven": false,
    "walk_displaced": false,
    "walk_lx_displaced": false,
    "record_displaced": false,
@@ -22215,6 +22528,7 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "lambda8_steps": 1
    },
    "relativistic": false,
+   "paper_eleven": false,
    "walk_displaced": false,
    "walk_lx_displaced": false,
    "record_displaced": false,
@@ -22253,6 +22567,7 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "lambda8_steps": 2
    },
    "relativistic": false,
+   "paper_eleven": false,
    "walk_displaced": false,
    "walk_lx_displaced": false,
    "record_displaced": false,
@@ -22292,6 +22607,7 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "lambda8_steps": 3
    },
    "relativistic": false,
+   "paper_eleven": false,
    "walk_displaced": false,
    "walk_lx_displaced": false,
    "record_displaced": false,
@@ -22330,6 +22646,7 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "lambda8_steps": 4
    },
    "relativistic": false,
+   "paper_eleven": false,
    "walk_displaced": false,
    "walk_lx_displaced": false,
    "record_displaced": false,
@@ -22370,6 +22687,7 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "lambda8_steps": 5
    },
    "relativistic": false,
+   "paper_eleven": false,
    "walk_displaced": false,
    "walk_lx_displaced": false,
    "record_displaced": false,
@@ -22409,6 +22727,7 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "lambda8_steps": 6
    },
    "relativistic": false,
+   "paper_eleven": false,
    "walk_displaced": false,
    "walk_lx_displaced": false,
    "record_displaced": false,
@@ -22449,6 +22768,7 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "lambda8_steps": 7
    },
    "relativistic": false,
+   "paper_eleven": false,
    "walk_displaced": false,
    "walk_lx_displaced": false,
    "record_displaced": false,
@@ -22489,6 +22809,7 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "lambda8_steps": 8
    },
    "relativistic": false,
+   "paper_eleven": false,
    "walk_displaced": false,
    "walk_lx_displaced": false,
    "record_displaced": false,
@@ -22529,6 +22850,7 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "lambda8_steps": 9
    },
    "relativistic": false,
+   "paper_eleven": false,
    "walk_displaced": false,
    "walk_lx_displaced": false,
    "record_displaced": false,
@@ -22569,6 +22891,7 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "lambda8_steps": 10
    },
    "relativistic": false,
+   "paper_eleven": false,
    "walk_displaced": false,
    "walk_lx_displaced": false,
    "record_displaced": false,
@@ -22609,6 +22932,7 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "lambda8_steps": 11
    },
    "relativistic": false,
+   "paper_eleven": false,
    "walk_displaced": false,
    "walk_lx_displaced": false,
    "record_displaced": false,
@@ -22649,6 +22973,7 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "lambda8_steps": 12
    },
    "relativistic": false,
+   "paper_eleven": false,
    "walk_displaced": false,
    "walk_lx_displaced": false,
    "record_displaced": false,
@@ -22690,6 +23015,7 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "lambda8_steps": 13
    },
    "relativistic": false,
+   "paper_eleven": false,
    "walk_displaced": false,
    "walk_lx_displaced": false,
    "record_displaced": false,
@@ -22730,6 +23056,7 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "lambda8_steps": 14
    },
    "relativistic": false,
+   "paper_eleven": false,
    "walk_displaced": false,
    "walk_lx_displaced": false,
    "record_displaced": false,
@@ -22770,6 +23097,7 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "lambda8_steps": 15
    },
    "relativistic": false,
+   "paper_eleven": false,
    "walk_displaced": false,
    "walk_lx_displaced": false,
    "record_displaced": false,
@@ -22810,6 +23138,7 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "lambda8_steps": 16
    },
    "relativistic": false,
+   "paper_eleven": false,
    "walk_displaced": false,
    "walk_lx_displaced": false,
    "record_displaced": false,
@@ -22849,6 +23178,7 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "lambda8_steps": 17
    },
    "relativistic": false,
+   "paper_eleven": false,
    "walk_displaced": false,
    "walk_lx_displaced": false,
    "record_displaced": false,
@@ -22889,6 +23219,7 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "lambda8_steps": 18
    },
    "relativistic": false,
+   "paper_eleven": false,
    "walk_displaced": false,
    "walk_lx_displaced": false,
    "record_displaced": false,
@@ -22929,6 +23260,7 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "lambda8_steps": 19
    },
    "relativistic": false,
+   "paper_eleven": false,
    "walk_displaced": false,
    "walk_lx_displaced": false,
    "record_displaced": false,
@@ -22969,6 +23301,7 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "lambda8_steps": 20
    },
    "relativistic": false,
+   "paper_eleven": false,
    "walk_displaced": false,
    "walk_lx_displaced": false,
    "record_displaced": false,
@@ -23009,6 +23342,7 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "lambda8_steps": 21
    },
    "relativistic": false,
+   "paper_eleven": false,
    "walk_displaced": false,
    "walk_lx_displaced": false,
    "record_displaced": false,
@@ -23049,6 +23383,7 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "lambda8_steps": 22
    },
    "relativistic": false,
+   "paper_eleven": false,
    "walk_displaced": false,
    "walk_lx_displaced": false,
    "record_displaced": false,
@@ -23088,6 +23423,7 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "lambda8_steps": 23
    },
    "relativistic": false,
+   "paper_eleven": false,
    "walk_displaced": false,
    "walk_lx_displaced": false,
    "record_displaced": false,
@@ -23126,7 +23462,8 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "witnessed": 0,
     "lambda8_steps": 24
    },
-   "relativistic": true,
+   "relativistic": false,
+   "paper_eleven": true,
    "walk_displaced": false,
    "walk_lx_displaced": false,
    "record_displaced": false,
@@ -23166,6 +23503,7 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "lambda8_steps": 25
    },
    "relativistic": false,
+   "paper_eleven": false,
    "walk_displaced": false,
    "walk_lx_displaced": false,
    "record_displaced": false,
@@ -23206,6 +23544,7 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "lambda8_steps": 26
    },
    "relativistic": false,
+   "paper_eleven": false,
    "walk_displaced": false,
    "walk_lx_displaced": false,
    "record_displaced": false,
@@ -23245,6 +23584,7 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "lambda8_steps": 27
    },
    "relativistic": false,
+   "paper_eleven": false,
    "walk_displaced": false,
    "walk_lx_displaced": false,
    "record_displaced": false,
@@ -23284,6 +23624,7 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "lambda8_steps": 28
    },
    "relativistic": false,
+   "paper_eleven": false,
    "walk_displaced": false,
    "walk_lx_displaced": false,
    "record_displaced": false,
@@ -23322,7 +23663,8 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "witnessed": 9,
     "lambda8_steps": 29
    },
-   "relativistic": true,
+   "relativistic": false,
+   "paper_eleven": true,
    "walk_displaced": false,
    "walk_lx_displaced": false,
    "record_displaced": false,
@@ -23363,6 +23705,7 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "lambda8_steps": 30
    },
    "relativistic": false,
+   "paper_eleven": false,
    "walk_displaced": false,
    "walk_lx_displaced": false,
    "record_displaced": false,
@@ -23404,6 +23747,7 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "lambda8_steps": 31
    },
    "relativistic": false,
+   "paper_eleven": false,
    "walk_displaced": false,
    "walk_lx_displaced": false,
    "record_displaced": false,
@@ -23444,6 +23788,7 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "lambda8_steps": 32
    },
    "relativistic": false,
+   "paper_eleven": false,
    "walk_displaced": false,
    "walk_lx_displaced": false,
    "record_displaced": false,
@@ -23483,6 +23828,7 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "lambda8_steps": 33
    },
    "relativistic": false,
+   "paper_eleven": false,
    "walk_displaced": false,
    "walk_lx_displaced": false,
    "record_displaced": false,
@@ -23522,6 +23868,7 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "lambda8_steps": 34
    },
    "relativistic": false,
+   "paper_eleven": false,
    "walk_displaced": false,
    "walk_lx_displaced": false,
    "record_displaced": false,
@@ -23561,6 +23908,7 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "lambda8_steps": 35
    },
    "relativistic": false,
+   "paper_eleven": false,
    "walk_displaced": false,
    "walk_lx_displaced": false,
    "record_displaced": false,
@@ -23600,6 +23948,7 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "lambda8_steps": 36
    },
    "relativistic": false,
+   "paper_eleven": false,
    "walk_displaced": false,
    "walk_lx_displaced": false,
    "record_displaced": false,
@@ -23639,6 +23988,7 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "lambda8_steps": 37
    },
    "relativistic": false,
+   "paper_eleven": false,
    "walk_displaced": false,
    "walk_lx_displaced": false,
    "record_displaced": false,
@@ -23679,6 +24029,7 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "lambda8_steps": 38
    },
    "relativistic": false,
+   "paper_eleven": false,
    "walk_displaced": false,
    "walk_lx_displaced": false,
    "record_displaced": false,
@@ -23718,6 +24069,7 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "lambda8_steps": 39
    },
    "relativistic": false,
+   "paper_eleven": false,
    "walk_displaced": false,
    "walk_lx_displaced": false,
    "record_displaced": false,
@@ -23757,6 +24109,7 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "lambda8_steps": 40
    },
    "relativistic": false,
+   "paper_eleven": false,
    "walk_displaced": false,
    "walk_lx_displaced": false,
    "record_displaced": false,
@@ -23796,6 +24149,7 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "lambda8_steps": 41
    },
    "relativistic": false,
+   "paper_eleven": false,
    "walk_displaced": false,
    "walk_lx_displaced": false,
    "record_displaced": false,
@@ -23835,6 +24189,7 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "lambda8_steps": 42
    },
    "relativistic": false,
+   "paper_eleven": false,
    "walk_displaced": false,
    "walk_lx_displaced": false,
    "record_displaced": false,
@@ -23875,6 +24230,7 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "lambda8_steps": 43
    },
    "relativistic": false,
+   "paper_eleven": false,
    "walk_displaced": false,
    "walk_lx_displaced": false,
    "record_displaced": false,
@@ -23914,6 +24270,7 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "lambda8_steps": 44
    },
    "relativistic": false,
+   "paper_eleven": false,
    "walk_displaced": false,
    "walk_lx_displaced": false,
    "record_displaced": false,
@@ -23953,6 +24310,7 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "lambda8_steps": 45
    },
    "relativistic": false,
+   "paper_eleven": false,
    "walk_displaced": false,
    "walk_lx_displaced": false,
    "record_displaced": false,
@@ -23991,7 +24349,8 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "witnessed": 0,
     "lambda8_steps": 46
    },
-   "relativistic": true,
+   "relativistic": false,
+   "paper_eleven": true,
    "walk_displaced": false,
    "walk_lx_displaced": false,
    "record_displaced": false,
@@ -24030,7 +24389,8 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "witnessed": 12,
     "lambda8_steps": 47
    },
-   "relativistic": true,
+   "relativistic": false,
+   "paper_eleven": true,
    "walk_displaced": false,
    "walk_lx_displaced": false,
    "record_displaced": false,
@@ -24071,6 +24431,7 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "lambda8_steps": 48
    },
    "relativistic": false,
+   "paper_eleven": false,
    "walk_displaced": false,
    "walk_lx_displaced": false,
    "record_displaced": false,
@@ -24111,6 +24472,7 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "lambda8_steps": 49
    },
    "relativistic": false,
+   "paper_eleven": false,
    "walk_displaced": false,
    "walk_lx_displaced": false,
    "record_displaced": false,
@@ -24150,6 +24512,7 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "lambda8_steps": 50
    },
    "relativistic": false,
+   "paper_eleven": false,
    "walk_displaced": false,
    "walk_lx_displaced": false,
    "record_displaced": false,
@@ -24189,6 +24552,7 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "lambda8_steps": 51
    },
    "relativistic": false,
+   "paper_eleven": false,
    "walk_displaced": false,
    "walk_lx_displaced": false,
    "record_displaced": false,
@@ -24228,6 +24592,7 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "lambda8_steps": 52
    },
    "relativistic": false,
+   "paper_eleven": false,
    "walk_displaced": false,
    "walk_lx_displaced": false,
    "record_displaced": false,
@@ -24267,6 +24632,7 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "lambda8_steps": 53
    },
    "relativistic": false,
+   "paper_eleven": false,
    "walk_displaced": false,
    "walk_lx_displaced": false,
    "record_displaced": false,
@@ -24306,6 +24672,7 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "lambda8_steps": 54
    },
    "relativistic": false,
+   "paper_eleven": false,
    "walk_displaced": false,
    "walk_lx_displaced": false,
    "record_displaced": false,
@@ -24346,6 +24713,7 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "lambda8_steps": 55
    },
    "relativistic": false,
+   "paper_eleven": false,
    "walk_displaced": false,
    "walk_lx_displaced": true,
    "record_displaced": false,
@@ -24386,6 +24754,7 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "lambda8_steps": 56
    },
    "relativistic": false,
+   "paper_eleven": false,
    "walk_displaced": false,
    "walk_lx_displaced": false,
    "record_displaced": false,
@@ -24425,6 +24794,7 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "lambda8_steps": 57
    },
    "relativistic": false,
+   "paper_eleven": false,
    "walk_displaced": true,
    "walk_lx_displaced": false,
    "record_displaced": false,
@@ -24464,6 +24834,7 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "lambda8_steps": 58
    },
    "relativistic": false,
+   "paper_eleven": false,
    "walk_displaced": false,
    "walk_lx_displaced": false,
    "record_displaced": false,
@@ -24502,7 +24873,8 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "witnessed": 0,
     "lambda8_steps": 59
    },
-   "relativistic": true,
+   "relativistic": false,
+   "paper_eleven": true,
    "walk_displaced": false,
    "walk_lx_displaced": false,
    "record_displaced": false,
@@ -24541,7 +24913,8 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "witnessed": 0,
     "lambda8_steps": 60
    },
-   "relativistic": true,
+   "relativistic": false,
+   "paper_eleven": true,
    "walk_displaced": false,
    "walk_lx_displaced": false,
    "record_displaced": false,
@@ -24580,7 +24953,8 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "witnessed": 0,
     "lambda8_steps": 61
    },
-   "relativistic": true,
+   "relativistic": false,
+   "paper_eleven": true,
    "walk_displaced": false,
    "walk_lx_displaced": false,
    "record_displaced": false,
@@ -24620,6 +24994,7 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "lambda8_steps": 62
    },
    "relativistic": false,
+   "paper_eleven": false,
    "walk_displaced": false,
    "walk_lx_displaced": false,
    "record_displaced": false,
@@ -24659,6 +25034,7 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "lambda8_steps": 63
    },
    "relativistic": false,
+   "paper_eleven": false,
    "walk_displaced": false,
    "walk_lx_displaced": false,
    "record_displaced": false,
@@ -24698,6 +25074,7 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "lambda8_steps": 64
    },
    "relativistic": false,
+   "paper_eleven": false,
    "walk_displaced": false,
    "walk_lx_displaced": false,
    "record_displaced": false,
@@ -24737,6 +25114,7 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "lambda8_steps": 65
    },
    "relativistic": false,
+   "paper_eleven": false,
    "walk_displaced": false,
    "walk_lx_displaced": false,
    "record_displaced": false,
@@ -24776,6 +25154,7 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "lambda8_steps": 66
    },
    "relativistic": false,
+   "paper_eleven": false,
    "walk_displaced": false,
    "walk_lx_displaced": false,
    "record_displaced": false,
@@ -24815,6 +25194,7 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "lambda8_steps": 67
    },
    "relativistic": false,
+   "paper_eleven": false,
    "walk_displaced": false,
    "walk_lx_displaced": false,
    "record_displaced": false,
@@ -24854,6 +25234,7 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "lambda8_steps": 68
    },
    "relativistic": false,
+   "paper_eleven": false,
    "walk_displaced": false,
    "walk_lx_displaced": false,
    "record_displaced": false,
@@ -24893,6 +25274,7 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "lambda8_steps": 69
    },
    "relativistic": false,
+   "paper_eleven": false,
    "walk_displaced": false,
    "walk_lx_displaced": false,
    "record_displaced": false,
@@ -24931,7 +25313,8 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "witnessed": 1,
     "lambda8_steps": 70
    },
-   "relativistic": true,
+   "relativistic": false,
+   "paper_eleven": true,
    "walk_displaced": false,
    "walk_lx_displaced": true,
    "record_displaced": false,
@@ -24972,6 +25355,7 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "lambda8_steps": 71
    },
    "relativistic": false,
+   "paper_eleven": false,
    "walk_displaced": true,
    "walk_lx_displaced": false,
    "record_displaced": false,
@@ -25011,6 +25395,7 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "lambda8_steps": 72
    },
    "relativistic": false,
+   "paper_eleven": false,
    "walk_displaced": false,
    "walk_lx_displaced": false,
    "record_displaced": false,
@@ -25050,6 +25435,7 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "lambda8_steps": 73
    },
    "relativistic": false,
+   "paper_eleven": false,
    "walk_displaced": false,
    "walk_lx_displaced": false,
    "record_displaced": false,
@@ -25089,6 +25475,7 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "lambda8_steps": 74
    },
    "relativistic": false,
+   "paper_eleven": false,
    "walk_displaced": false,
    "walk_lx_displaced": false,
    "record_displaced": false,
@@ -25128,6 +25515,7 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "lambda8_steps": 75
    },
    "relativistic": false,
+   "paper_eleven": false,
    "walk_displaced": false,
    "walk_lx_displaced": false,
    "record_displaced": false,
@@ -25167,6 +25555,7 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "lambda8_steps": 76
    },
    "relativistic": false,
+   "paper_eleven": false,
    "walk_displaced": false,
    "walk_lx_displaced": false,
    "record_displaced": false,
@@ -25206,6 +25595,7 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "lambda8_steps": 77
    },
    "relativistic": false,
+   "paper_eleven": false,
    "walk_displaced": false,
    "walk_lx_displaced": false,
    "record_displaced": false,
@@ -25245,6 +25635,7 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "lambda8_steps": 78
    },
    "relativistic": false,
+   "paper_eleven": false,
    "walk_displaced": false,
    "walk_lx_displaced": false,
    "record_displaced": false,
@@ -25283,7 +25674,8 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "witnessed": 5,
     "lambda8_steps": 79
    },
-   "relativistic": true,
+   "relativistic": false,
+   "paper_eleven": true,
    "walk_displaced": false,
    "walk_lx_displaced": false,
    "record_displaced": false,
@@ -25324,6 +25716,7 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "lambda8_steps": 80
    },
    "relativistic": false,
+   "paper_eleven": false,
    "walk_displaced": false,
    "walk_lx_displaced": false,
    "record_displaced": false,
@@ -25364,6 +25757,7 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "lambda8_steps": 81
    },
    "relativistic": false,
+   "paper_eleven": false,
    "walk_displaced": false,
    "walk_lx_displaced": false,
    "record_displaced": false,
@@ -25403,6 +25797,7 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "lambda8_steps": 82
    },
    "relativistic": false,
+   "paper_eleven": false,
    "walk_displaced": false,
    "walk_lx_displaced": false,
    "record_displaced": false,
@@ -25443,6 +25838,7 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "lambda8_steps": 83
    },
    "relativistic": false,
+   "paper_eleven": false,
    "walk_displaced": false,
    "walk_lx_displaced": false,
    "record_displaced": false,
@@ -25482,6 +25878,7 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "lambda8_steps": 84
    },
    "relativistic": false,
+   "paper_eleven": false,
    "walk_displaced": false,
    "walk_lx_displaced": false,
    "record_displaced": false,
@@ -25521,6 +25918,7 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "lambda8_steps": 85
    },
    "relativistic": false,
+   "paper_eleven": false,
    "walk_displaced": false,
    "walk_lx_displaced": false,
    "record_displaced": false,
@@ -25560,6 +25958,7 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "lambda8_steps": 86
    },
    "relativistic": false,
+   "paper_eleven": false,
    "walk_displaced": false,
    "walk_lx_displaced": false,
    "record_displaced": false,
@@ -25600,6 +25999,7 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "lambda8_steps": 87
    },
    "relativistic": false,
+   "paper_eleven": false,
    "walk_displaced": false,
    "walk_lx_displaced": true,
    "record_displaced": false,
@@ -25639,6 +26039,7 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "lambda8_steps": 88
    },
    "relativistic": false,
+   "paper_eleven": false,
    "walk_displaced": false,
    "walk_lx_displaced": true,
    "record_displaced": false,
@@ -25677,7 +26078,8 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "witnessed": 0,
     "lambda8_steps": 89
    },
-   "relativistic": false,
+   "relativistic": true,
+   "paper_eleven": false,
    "walk_displaced": true,
    "walk_lx_displaced": false,
    "record_displaced": true,
@@ -25717,6 +26119,7 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "lambda8_steps": 90
    },
    "relativistic": false,
+   "paper_eleven": false,
    "walk_displaced": false,
    "walk_lx_displaced": false,
    "record_displaced": false,
@@ -25756,6 +26159,7 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "lambda8_steps": 91
    },
    "relativistic": false,
+   "paper_eleven": false,
    "walk_displaced": false,
    "walk_lx_displaced": false,
    "record_displaced": false,
@@ -25795,6 +26199,7 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "lambda8_steps": 92
    },
    "relativistic": false,
+   "paper_eleven": false,
    "walk_displaced": false,
    "walk_lx_displaced": false,
    "record_displaced": false,
@@ -25834,6 +26239,7 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "lambda8_steps": 93
    },
    "relativistic": false,
+   "paper_eleven": false,
    "walk_displaced": false,
    "walk_lx_displaced": false,
    "record_displaced": false,
@@ -25873,6 +26279,7 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "lambda8_steps": 94
    },
    "relativistic": false,
+   "paper_eleven": false,
    "walk_displaced": false,
    "walk_lx_displaced": false,
    "record_displaced": false,
@@ -25912,6 +26319,7 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "lambda8_steps": 95
    },
    "relativistic": false,
+   "paper_eleven": false,
    "walk_displaced": false,
    "walk_lx_displaced": false,
    "record_displaced": false,
@@ -25951,6 +26359,7 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "lambda8_steps": 96
    },
    "relativistic": false,
+   "paper_eleven": false,
    "walk_displaced": false,
    "walk_lx_displaced": false,
    "record_displaced": false,
@@ -25990,6 +26399,7 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "lambda8_steps": 97
    },
    "relativistic": false,
+   "paper_eleven": false,
    "walk_displaced": false,
    "walk_lx_displaced": false,
    "record_displaced": false,
@@ -26029,6 +26439,7 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "lambda8_steps": 98
    },
    "relativistic": false,
+   "paper_eleven": false,
    "walk_displaced": false,
    "walk_lx_displaced": false,
    "record_displaced": false,
@@ -26068,6 +26479,7 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "lambda8_steps": 99
    },
    "relativistic": false,
+   "paper_eleven": false,
    "walk_displaced": false,
    "walk_lx_displaced": false,
    "record_displaced": false,
@@ -26107,6 +26519,7 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "lambda8_steps": 100
    },
    "relativistic": false,
+   "paper_eleven": false,
    "walk_displaced": false,
    "walk_lx_displaced": false,
    "record_displaced": false,
@@ -26146,6 +26559,7 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "lambda8_steps": 101
    },
    "relativistic": false,
+   "paper_eleven": false,
    "walk_displaced": false,
    "walk_lx_displaced": false,
    "record_displaced": false,
@@ -26184,7 +26598,8 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "witnessed": 0,
     "lambda8_steps": 102
    },
-   "relativistic": true,
+   "relativistic": false,
+   "paper_eleven": true,
    "walk_displaced": false,
    "walk_lx_displaced": true,
    "record_displaced": false,
@@ -26224,6 +26639,7 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "lambda8_steps": 103
    },
    "relativistic": true,
+   "paper_eleven": true,
    "walk_displaced": true,
    "walk_lx_displaced": false,
    "record_displaced": true,
@@ -26260,6 +26676,7 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "lambda8_steps": 104
    },
    "relativistic": false,
+   "paper_eleven": false,
    "walk_displaced": false,
    "walk_lx_displaced": false,
    "record_displaced": false,
@@ -26296,6 +26713,7 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "lambda8_steps": 105
    },
    "relativistic": false,
+   "paper_eleven": false,
    "walk_displaced": false,
    "walk_lx_displaced": false,
    "record_displaced": false,
@@ -26332,6 +26750,7 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "lambda8_steps": 106
    },
    "relativistic": false,
+   "paper_eleven": false,
    "walk_displaced": false,
    "walk_lx_displaced": false,
    "record_displaced": false,
@@ -26368,6 +26787,7 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "lambda8_steps": 107
    },
    "relativistic": false,
+   "paper_eleven": false,
    "walk_displaced": false,
    "walk_lx_displaced": false,
    "record_displaced": false,
@@ -26401,6 +26821,7 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "lambda8_steps": 0
    },
    "relativistic": false,
+   "paper_eleven": false,
    "walk_displaced": false,
    "walk_lx_displaced": false,
    "record_displaced": false,
@@ -26434,6 +26855,7 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "lambda8_steps": 0
    },
    "relativistic": false,
+   "paper_eleven": false,
    "walk_displaced": false,
    "walk_lx_displaced": false,
    "record_displaced": false,
@@ -26467,6 +26889,7 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "lambda8_steps": 0
    },
    "relativistic": false,
+   "paper_eleven": false,
    "walk_displaced": false,
    "walk_lx_displaced": false,
    "record_displaced": false,
@@ -26500,6 +26923,7 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "lambda8_steps": 0
    },
    "relativistic": false,
+   "paper_eleven": false,
    "walk_displaced": false,
    "walk_lx_displaced": true,
    "record_displaced": false,
@@ -26533,6 +26957,7 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "lambda8_steps": 0
    },
    "relativistic": false,
+   "paper_eleven": false,
    "walk_displaced": false,
    "walk_lx_displaced": false,
    "record_displaced": false,
@@ -26566,6 +26991,7 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "lambda8_steps": 0
    },
    "relativistic": false,
+   "paper_eleven": false,
    "walk_displaced": false,
    "walk_lx_displaced": false,
    "record_displaced": false,
@@ -26599,6 +27025,7 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "lambda8_steps": 0
    },
    "relativistic": false,
+   "paper_eleven": false,
    "walk_displaced": false,
    "walk_lx_displaced": false,
    "record_displaced": false,
@@ -26632,6 +27059,7 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "lambda8_steps": 0
    },
    "relativistic": false,
+   "paper_eleven": false,
    "walk_displaced": false,
    "walk_lx_displaced": false,
    "record_displaced": false,
@@ -26665,6 +27093,7 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "lambda8_steps": 0
    },
    "relativistic": false,
+   "paper_eleven": false,
    "walk_displaced": false,
    "walk_lx_displaced": false,
    "record_displaced": false,
@@ -26698,6 +27127,7 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "lambda8_steps": 0
    },
    "relativistic": false,
+   "paper_eleven": false,
    "walk_displaced": false,
    "walk_lx_displaced": false,
    "record_displaced": false,
@@ -26731,6 +27161,7 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "lambda8_steps": 0
    },
    "relativistic": false,
+   "paper_eleven": false,
    "walk_displaced": false,
    "walk_lx_displaced": false,
    "record_displaced": false,
@@ -26762,7 +27193,8 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "witnessed": 0,
     "lambda8_steps": 0
    },
-   "relativistic": false,
+   "relativistic": true,
+   "paper_eleven": false,
    "walk_displaced": true,
    "walk_lx_displaced": true,
    "record_displaced": true,
