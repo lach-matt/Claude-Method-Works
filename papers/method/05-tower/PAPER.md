@@ -590,7 +590,7 @@ Two further figures are reported beside the theorem because each is a bound a re
 
 ## §10 · Verification record
 
-Every number printed above is recomputed by the paper's check program, which imports the construction by path and never copies it; the reference implementations used by the guards are written independently inside the check program itself. The program reports one line per obligation under exactly one of the status words of §0, and it exits non-zero on any failure; the solver is Z3 (de Moura and Bjørner 2008, CITED), version 5.1.0. **The run behind this paper reports 122 obligations — 99 EXHAUSTIVE, 8 MACHINE-CHECKED, 7 REFUTATION, 8 GUARD — with 0 failures**, and the selftest's five negative controls are all refuted. Below, *family* names what an EXHAUSTIVE row visited, *domain* names what a MACHINE-CHECKED row ranged over, and *witness* is what a REFUTATION prints.
+Every number printed above is recomputed by the paper's check program, which imports the construction by path and never copies it; the reference implementations used by the guards are written independently inside the check program itself. The program reports one line per obligation under exactly one of the status words of §0, and it exits non-zero on any failure; the solver is Z3 (de Moura and Bjørner 2008, CITED), version 5.1.0. **The run behind this paper reports 148 obligations — 115 EXHAUSTIVE, 9 MACHINE-CHECKED, 10 REFUTATION, 14 GUARD — with 0 failures**, and the selftest's six negative controls are all refuted. Below, *family* names what an EXHAUSTIVE row visited, *domain* names what a MACHINE-CHECKED row ranged over, and *witness* is what a REFUTATION prints.
 
 **Table 5. The verification record, by object.**
 

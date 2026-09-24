@@ -554,3 +554,14 @@ hardness remark is corrected, Rival's bound printed the right way round, the pro
 proved, and the Janet count taken from the uncapped data. All 12 major findings fixed; 24 of 26
 minor fixed. Three bibliographic details could not be verified through the proxy and are recorded
 as such; nothing in the results depends on them.
+
+**The tower — repaired.** Title unchanged. The thirteenth axis is carried as a monotone envelope,
+like the four before it: the exact doublet fails meet-closure at the audit's witness, the band the
+construction uses is exactly its least envelope, and the 70,905 cells the band admits beyond the
+doublet are one value per cell of the twelfth stage, with the realised share 64.4 per cent. The
+envelope theorem is stated fibre-wise with two parent indices, and Table 2 now prints, for every
+axis, the least envelope beside what the construction admits — equal at three axes, larger at
+three — which is what the source's "carried as its monotone envelope" actually means. The
+coupling scheme is named, one outer electron applied as bookkeeping at every g, the parent-J
+coordinate taken from ℓᵏ before the transfer, and the constant a labelling convention. All 49
+findings fixed. One reference lacks an end page the proxy would not serve.
