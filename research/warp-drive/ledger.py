@@ -145,13 +145,58 @@ Applied, candidate by candidate (the owner was READ before each decision):
        OPENED.
   S9   the Drive folder's device specification as a supply -- warpfolder.py
        (FLASH_IS_A_RECONSTRUCTION_MECHANISM).  SEATED, REFUSED.
-  linearised stability -- NOT OPENED: NO INSTRUMENT ASKS IT.  stability.py
-       asks the CLASSICAL radial stability of concentric.py's shell
-       (Poisson-Visser), and throatmass.py names Anderson-Molina-Paris-Mottola
-       only for the domain of validity; nothing evaluates their criterion (no
-       gauge-invariant perturbation unbounded in time) on anything.  It waits
-       for the calculations docket that builds that instrument.
-       WAITS_FOR_ITS_INSTRUMENT records it, and LEDGER.md prints it.
+  linearised stability -- OPENED by DOCKET 64 as D26 (linstab.py).  At
+       DOCKETS 62/63 it was NOT OPENED because no instrument asked it:
+       stability.py asked only the CLASSICAL radial stability of
+       concentric.py's shell, and nothing evaluated Anderson-Molina-Paris-
+       Mottola's criterion on anything.  That deferral is what the principle's
+       second half is for, and DOCKET 64 built the instrument.
+       WAITS_FOR_ITS_INSTRUMENT is now empty, and LEDGER.md prints "none"
+       rather than dropping the section.
+
+===============================================================================
+5.  DOCKET 64, AS M RULED IT
+===============================================================================
+
+M ruled that all DOCKET 64 calculations run and be seated.  Five instruments
+were seated first -- noise.py, hpscentre.py, qeihps.py, linstab.py and
+formation.py -- and every row below is ASKED of them.  This file reads their
+CORRECTED attributes, which are in places weaker than the ruling's section C
+wording, because the ruling never saw the full verifier verdicts for three of
+the lines; where the two differ the weaker, better-supported statement is the
+one printed here:
+
+  D22  OPEN -> SURVEY, owner noise.CORRIDOR_APPLICATION.  C1 is a THEOREM in
+       the flat model H1-H6 only; on the corridor H2 fails and the curved
+       decision is O2's.  The Einstein-Langevin surrogate figure is printed
+       from noise.EL_VACUUM_LOG10_NEG_LN_P, never typed.
+  D24  stays OPEN, owner formation.NUCLEATION_PRICEABLE_FROM_SOURCE, whose
+       value is NOT DETERMINED: the neck is a recipe with free functions and
+       its price has not been computed.  "Cannot be priced from the source"
+       was withdrawn by formation.py's verification and is not printed.
+  D25  stays OPEN and UNCHANGED, owner stockgate.GATE.  formation.py evaluates
+       no conjunct anew and re-prices none; stockgate's figures are not
+       re-printed a second time.  The survey names a CONDENSED body (Proxima b);
+       what is open is "primitive" and "accessible".
+  D26  NEW, OPEN, owner linstab.SEMICLASSICAL_EVALUABLE_ON_DEMAND, text
+       linstab.D26_CLAIM with the IFF narrowed to GMMPS's reported mode and
+       "recorded or shown" in place of a proof.
+  O5   stays OPEN, re-owned to hpscentre.O5_CLOSED; the throat-geodesic
+       verdict is qeihps.VERDICT_THROAT_GEODESIC, "NOT A TEST".
+  O2   stays OPEN; its answer now names D22's curved distribution question.
+
+Not opened, each because it is the SAME question as an existing row (a
+second row for one question is the over-representation the principle
+forbids): the curved smeared variance (O2's); Kontou's QEI on HPS (O5's);
+formation (D24's third part).  The phase1 D4 restatement is a requirement
+question for M, not a row: PENDING_RULINGS records it and phase1.py is not
+edited.
+
+DOCKET 64's lines withdrew claims their own reports had made before seating.
+Each is kept on its owner (noise.WITHDRAWN, hpscentre.WITHDRAWN,
+linstab.WITHDRAWN, qeihps.VERDICT_THROAT_GEODESIC_WITHDRAWN, formation.py's
+[W1]-[W7]).  None was ever on this board, so none is a W row here; the board
+wording DOCKET 64 replaced is kept in SUPERSEDED_WORDING.
 """
 
 import math
@@ -172,10 +217,16 @@ import excite
 import fewsterteo
 import fluctuation
 import foliation
+import formation
 import higgs
+import hpscentre
 import latticectc
+import linstab
+import noise
 import nonstatic
 import overturn
+import phase1
+import qeihps
 import stockgate
 import throatmass
 import tolman
@@ -429,22 +480,44 @@ DEMAND = [
      "it: %s" % ("; ".join(latticectc.HYPOTHESES),
                  latticectc.CODIM1_CTC_REFUSAL)),
 
-    # ----- the board catching up with the tree: fluctuation.py. -------------
+    # ----- the board catching up with the tree: fluctuation.py.  DOCKET 64:
+    # noise.py prices the smeared fluctuation in flat space and the row moves
+    # OPEN -> SURVEY; the wording it replaces is D22_DOCKET62 (kept). -------
     ("D22",
-     "THE SEMICLASSICAL DEBT.  Every demand row is a demand on <rho> inside "
-     "G = 8 pi G <T>, and Kuo & Ford's measure of that equation's error, "
-     "Delta, is re-derived exactly in flat space: the pointwise measure is "
-     "recomputed two independent ways, and Delta >= 1/3 is PROVED (z3) for "
-     "EVERY zero-mean Gaussian state, without Kuo & Ford's diagonal "
-     "assumption.  The pointwise Delta is sign-blind -- it condemns thermal "
-     "radiation too -- so it cannot be the demand.  THE SMEARED PRICE AT THE "
-     "CORRIDOR'S OWN SCALES IS OPEN",
-     OPEN, ("fluctuation", "PRICES_THE_CORRIDOR"),
-     "the SMEARED fluctuation priced at the corridor's scales -- the width b "
-     "and Fewster's sampling time -- which needs the curved-space "
-     "renormalisation of quartic operator products Kuo & Ford said did not "
-     "exist.  If it is of order one there, the demand column must be written "
-     "about a distribution rather than an expectation"),
+     "THE SMEARED FLUCTUATION DOES NOT RESTATE THE DEMAND, IN FLAT SPACE.  "
+     "fluctuation.py's pointwise T1 stands (Delta' >= 1/2, Delta >= 1/3 for "
+     "every zero-mean Gaussian state, z3), and it is sign-blind, so it cannot "
+     "be the demand.  For the free minimal scalar in Minkowski (noise.py, "
+     "flat model %s), Fewster's sampled energy density is bounded below AS "
+     "AN OPERATOR by -C/tau^4 (C1_FLAT_THEOREM = %s).  The demanded density "
+     "is therefore the mean of no state and, under H6 (the quantum spectral "
+     "measure), the outcome of no measurement.  Vacuum SD_0 = %.6f C/tau^4 "
+     "at every tau.  T1 fails under smearing (T1_SURVIVES_SMEARING = %s): "
+     "thermal Delta'_f < 1/2 for tau > %.6f beta.  Under the Gaussian "
+     "Einstein-Langevin surrogate -- a different reading of 'distribution', "
+     "not H6 -- the probability is not zero: with the VACUUM's noise kernel "
+     "at b = 1 m it is exp(-10^%.3f), below exp(-10^%d); a state with a "
+     "larger noise kernel is not computed (EL_SURROGATE_NONVACUUM_COMPUTED "
+     "= %s).  ON THE CORRIDOR THIS IS A %s: H2 fails, (b/l_G)^2 = %.0f, "
+     "and the curved decision is %s's"
+     % (", ".join(sorted(noise.HYPOTHESES)), noise.C1_FLAT_THEOREM,
+        noise.SD0_OVER_C, noise.T1_SURVIVES_SMEARING,
+        noise.TAU_STAR_OVER_BETA, noise.EL_VACUUM_LOG10_NEG_LN_P,
+        int(math.floor(noise.EL_VACUUM_LOG10_NEG_LN_P)),
+        noise.EL_SURROGATE_NONVACUUM_COMPUTED, noise.CORRIDOR_APPLICATION,
+        noise.B_OVER_LG_SQUARED, noise.CURVED_PART_CARRIED_BY),
+     SURVEY, ("noise", "CORRIDOR_APPLICATION"),
+     "%s's absolute QEI evaluated on the corridor: by FFR 1004.0179 note "
+     "[18] it decides the distribution question there, with no variance at "
+     "all.  The smeared curved variance itself, were it wanted, needs no NEW "
+     "renormalisation (Hu & Verdaguer 3.2, READ; "
+     "CURVED_VARIANCE_NEEDS_QUARTIC_RENORMALISATION = %s), and its "
+     "finiteness is %s.  Or a failure of H3 (%s: %s) -- a "
+     "self-adjoint extension other than Friedrichs need not keep the bound"
+     % (noise.CURVED_PART_CARRIED_BY,
+        noise.CURVED_VARIANCE_NEEDS_QUARTIC_RENORMALISATION,
+        noise.CURVED_VARIANCE_FINITENESS, noise.HYPOTHESES["H3"][0],
+        noise.HYPOTHESES["H3"][1])),
 
     # ----- the principle applied (docstring section 4): each of these has an
     # instrument in the tree, so each gets its row now.  DOCKET 62's
@@ -489,13 +562,36 @@ DEMAND = [
      % (create.BORDE, create.BORDE_SINGULARITY,
         create.EXOTIC_MATTER_HELPS_CREATION,
         create.any_escape_stays_in_lorentzian_gr(),
-        create.theorems_apply_to_enlargement(), create.ROUTE_COST),
-     OPEN, ("create", "NUCLEATION_STATUS"),
-     "the nucleation construction run rather than named (%s, %s here), or "
-     "the 'find one and enlarge it' route priced; and for any configuration "
-     "that changes no topology, the passage from flat space to it priced at "
-     "all -- no instrument in the tree does that yet"
-     % (create.NUCLEATION_LITERATURE, create.NUCLEATION_STATUS)),
+        create.theorems_apply_to_enlargement(), create.ROUTE_COST)
+     # DOCKET 64 appends; nothing above is replaced.
+     + ".  THE PASSAGE IS PRICED (formation.py, DOCKET 64; F1 THEOREM under: "
+     "%s).  Across a sphere the Kodama energy the passage carries is "
+     "-m_1(R), the object's own enclosed negative mass, by any route at any "
+     "speed; the extra outgoing radial null deficit is -(W_1 - 1)/(2 pi R) "
+     "per passage, duration-independent (F2, THEOREM, adding: %s).  "
+     "T^{0r} != 0 at some instant wherever m_1 != 0, with zero net momentum "
+     "by symmetry (PHASE1_D4_POINTWISE_DURING_PASSAGE = %s -- a question for "
+     "M, recorded under PENDING_RULINGS).  Nucleation READ (%s): the neck is "
+     "a recipe with free smooth functions (%s); its price has not been "
+     "computed (NUCLEATION_PRICED = %s), and whether it is priceable from the "
+     "source is %s"
+     % ("; ".join(formation.F1_THEOREM),
+        "; ".join(h for h in formation.F2_THEOREM
+                  if h not in formation.F1_THEOREM),
+        formation.PHASE1_D4_POINTWISE_DURING_PASSAGE,
+        formation.NUCLEATION_SOURCE,
+        ", ".join(formation.NUCLEATION_FREE_FUNCTIONS),
+        formation.NUCLEATION_PRICED,
+        formation.NUCLEATION_PRICEABLE_FROM_SOURCE),
+     OPEN, ("formation", "NUCLEATION_PRICEABLE_FROM_SOURCE"),
+     "the nucleation construction COMPUTED -- the neck recipe written out "
+     "and integrated (%s, %s in create.py); or an observed throat, priced by "
+     "F1 as m_final(R) - m_initial(R) (the find-and-enlarge route: %s); the "
+     "surface layer at R_s priced, since every formation.py figure lies on "
+     "one side of it; or a passage with U != 0, which is outside F1.  The "
+     "wording this replaces is kept (SUPERSEDED_WORDING, DOCKET 64)"
+     % (create.NUCLEATION_LITERATURE, create.NUCLEATION_STATUS,
+        create.ROUTE_COST)),
 
     ("D25",
      "THE DESTINATION STOCK GATE.  stock.py derives it and stockgate.py "
@@ -509,30 +605,117 @@ DEMAND = [
      "destination"
      % ((stockgate.GATE,)
         + stockgate.binding_under("as-composed 59", "CI chondrite")
-        + stockgate.binding_under("as-composed 59", "stellar photosphere")),
+        + stockgate.binding_under("as-composed 59", "stellar photosphere"))
+     # DOCKET 64 appends; the figures above are stockgate's and are NOT
+     # re-printed below (formation.py's [W1]: over-representation).
+     + ".  DOCKET 64 (formation.py): %s.  The aperture search covered "
+     "'aperture' and its synonyms; %d files hit (%s among them) and none "
+     "gives the arrival aperture a value (formation.APERTURE_SEARCH).  "
+     "Survey: condensed body found = %s (%s); "
+     "confirmed reservoir = %s; primitive measured = %s; accessible "
+     "measured = %s; the data constrain bodies = %s"
+     % (formation.D25_VERDICT,
+        len(set(formation.APERTURE_HITS)
+            | set(formation.APERTURE_SYNONYM_HITS)),
+        " and ".join(sorted(
+            f for f in ("ledger.py", "stockgate.py")
+            if f in formation.APERTURE_HITS)) or "neither this file nor "
+        "stockgate.py",
+        formation.SURVEY_CONDENSED_BODY_FOUND,
+        formation.SURVEY_CONDENSED_BODY,
+        formation.SURVEY_CONFIRMED_RESERVOIR,
+        formation.SURVEY_PRIMITIVE_MEASURED,
+        formation.SURVEY_ACCESSIBLE_MEASURED,
+        formation.SURVEY_CONSTRAINS_BODIES),
      OPEN, ("stockgate", "GATE"),
      "the destination's arrival aperture surveyed for a condensed, "
      "primitive body holding M(p,s) x m_payload of accessible mass -- a "
      "snow-line condition, so a condition on orbital radius at the "
      "destination, which the arrival coordinate does not yet carry.  "
      "Separation energy is not priced by stockgate.py and no figure here is "
-     "an energy"),
+     "an energy.  After DOCKET 64: an instrument that gives the arrival "
+     "aperture a value, as an orbital-radius band at the destination; the "
+     "formation-epoch disc T(a), P(a) there (NOT-FOUND, "
+     "formation.SNOWLINE_SEARCH); and, for the condensed body the survey "
+     "does name, its primitive (volatile) state and its accessibility "
+     "measured"),
+
+    # ----- DOCKET 64: linearised stability, opened by the docket that built
+    # its instrument (docstring section 4).  Text ASKED of linstab.py. ------
+    ("D26",
+     "%s.  inf beta^2_crit over m > 0 = %s (classical radial sector: %s)"
+     % (linstab.D26_CLAIM, linstab.BETA2_CRIT_INFIMUM,
+        linstab.CLASSICAL_RADIAL_STATUS),
+     OPEN, ("linstab", "SEMICLASSICAL_EVALUABLE_ON_DEMAND"),
+     linstab.D26_ANSWERED_BY),
 ]
+
+#: THE WORDING DOCKET 64 REPLACED ON DEMAND ROWS, kept for SUPERSEDED_WORDING.
+#: Typed here because it is HISTORY -- what the board said -- and not a result;
+#: the one computed clause (create.py's) is still asked.
+D22_DOCKET62 = (
+    "THE SEMICLASSICAL DEBT.  Every demand row is a demand on <rho> inside "
+    "G = 8 pi G <T>, and Kuo & Ford's measure of that equation's error, "
+    "Delta, is re-derived exactly in flat space: the pointwise measure is "
+    "recomputed two independent ways, and Delta >= 1/3 is PROVED (z3) for "
+    "EVERY zero-mean Gaussian state, without Kuo & Ford's diagonal "
+    "assumption.  The pointwise Delta is sign-blind -- it condemns thermal "
+    "radiation too -- so it cannot be the demand.  THE SMEARED PRICE AT THE "
+    "CORRIDOR'S OWN SCALES IS OPEN [status OPEN, owner "
+    "fluctuation.PRICES_THE_CORRIDOR] || the SMEARED fluctuation priced at "
+    "the corridor's scales -- the width b and Fewster's sampling time -- "
+    "which needs the curved-space renormalisation of quartic operator "
+    "products Kuo & Ford said did not exist.  If it is of order one there, "
+    "the demand column must be written about a distribution rather than an "
+    "expectation")
+D24_ANSWER_DOCKET62 = (
+    "[what would move it] the nucleation construction run rather than named "
+    "(%s, %s here), or the 'find one and enlarge it' route priced; and for "
+    "any configuration that changes no topology, the passage from flat "
+    "space to it priced at all -- no instrument in the tree does that yet "
+    "[owner create.NUCLEATION_STATUS]"
+    % (create.NUCLEATION_LITERATURE, create.NUCLEATION_STATUS))
 
 #: THE PRINCIPLE'S OTHER HALF (docstring section 4): a question with no
 #: instrument is opened by the docket that builds one.  (question, why it has
 #: no row yet, what opens it.)  Printed in LEDGER.md so a deferral is visible.
-WAITS_FOR_ITS_INSTRUMENT = [
-    ("linearised stability",
+WAITS_FOR_ITS_INSTRUMENT = []
+
+#: WHAT LEFT WAITS_FOR_ITS_INSTRUMENT, AND HOW.  (question, the docket that
+#: built its instrument, the row it became, why it waited -- as first written.)
+#: Kept so the deferral stays visible after it ended.
+OPENED_FROM_WAITING = [
+    ("linearised stability", "DOCKET 64", "D26",
      "no instrument asks it.  Anderson-Molina-Paris-Mottola state the validity "
      "criterion in print (no gauge-invariant perturbation unbounded in time), "
      "and the literature is split on Minkowski itself (AMM: infrared-stable; "
      "Galanda-Meda-Murro-Pinamonti-Schmid 2604.01047: linearly unstable, "
      "attributed to the renormalisation constants) -- as DOCKET 62's ruling "
      "reports them, not read here.  stability.py asks the "
-     "CLASSICAL radial stability of a shell, not this",
-     "the calculations docket, by building the instrument that evaluates the "
-     "criterion"),
+     "CLASSICAL radial stability of a shell, not this"),
+]
+
+#: QUESTIONS THAT NEED M'S RULING, recorded and NOT applied.  This file edits no
+#: peer and changes no requirement; it records the question so the board shows
+#: it.  (id, question, why it is asked -- with the owner's computed values --,
+#: the restatement proposed, and what waits on it.)
+PENDING_RULINGS = [
+    ("M-D64-1",
+     "phase1.py's D4 (not this board's D4): restate '%s' for the process?"
+     % [c for c in phase1.CONDITIONS if c[0] == "D4"][0][1],
+     "phase1.py classes any momentum flux as PROPULSION (is_transition with a "
+     "momentum flux and every other condition met returns %s).  formation.py "
+     "shows every U = 0 passage from flat space has T^{0r} != 0 at some "
+     "instant wherever m_1 != 0 (PHASE1_D4_POINTWISE_DURING_PASSAGE = %s; "
+     "THEOREM under F1's hypotheses), with zero net momentum by symmetry.  "
+     "Kept pointwise for the process, D4 makes every U = 0 formation "
+     "propulsion by phase1's own classifier"
+     % (phase1.is_transition(True, True, True, True, True),
+        formation.PHASE1_D4_POINTWISE_DURING_PASSAGE),
+     "DOCKET 64 ruling D.2, NOT APPLIED: (i) T^{0i} = 0 as a property of each "
+     "configuration g_s; (ii) zero NET momentum (no thrust) for the process "
+     "between them.  phase1.py is not edited",
+     "step 1a, the specification theorem, cannot state D4 until M rules"),
 ]
 
 # ---------------------------------------------------------------------------
@@ -661,8 +844,10 @@ SUPPLY = [
 # SUPERSEDED_WORDING.
 # ---------------------------------------------------------------------------
 
-OPEN_ROWS = [
-    ("O5",
+#: O5 AS DOCKET 62 WROTE IT (claim, answer), still computed from throatmass.py
+#: so the kept wording is the wording the board printed.  DOCKET 64 replaced
+#: it; SUPERSEDED_WORDING keeps it.
+O5_DOCKET62 = (
      "Does a self-consistent static semiclassical solution with m(r) < 0 exist "
      "at all?  NARROWED BY DOCKET 62 (throatmass.py), status unchanged.  %d "
      "self-consistent families are in print, %d of them with m < 0: in the "
@@ -682,8 +867,58 @@ OPEN_ROWS = [
         throatmass.NEGATIVE_MASS_SELF_CONSISTENT_FOUND,
         throatmass.NARROWING_3_STATUS),
      throatmass.O5_ANSWERED_BY + ".  Read Anderson-Hiscock-Samuel PRD 51 4337 "
-     "first",
-     ("throatmass", "O5_CLOSED")),
+     "first")
+
+
+def _hps_ll_denominator(power):
+    """HPS's ll-log denominator written as qeihps.py writes it, from
+    hpscentre.py's integer power -- so the two instruments' repairs can be
+    compared as strings rather than retyped."""
+    return "/(f^2 r)" if power == 1 else "/(f^2 r^%d)" % power
+
+
+OPEN_ROWS = [
+    ("O5",
+     "Does a self-consistent static semiclassical solution with m(r) < 0 exist "
+     "INSIDE THE DOMAIN ITS <T> IS ESTABLISHED FOR?  NARROWED BY DOCKET 64 "
+     "(hpscentre.py, qeihps.py), status unchanged.  HPS's system has %d "
+     "disagreements with Popov; conservation decides them uniquely (tt-log "
+     "coefficient %d, th %d, ll-log denominator %s), and qeihps.py's "
+     "independent single-change scan finds the same two HPS repairs (%s: %d "
+     "-> %d; %s: %s -> %s).  In that conserved system HPS's own throat data "
+     "have m < 0 in the flare, first at %.4f l_P (MEASURED; the %s reading "
+     "only).  A regular centre has %s (THEOREM, formal series; %s).  Every "
+     "non-flat analytic regular-centre solution of %s changes the sign of m "
+     "and is "
+     "not asymptotically flat (THEOREM, 3L0 + 4 > 0, L0 != -1); for the "
+     "nonlinear solutions non-flatness is %s, and their asymptotics are %s.  "
+     "m < 0 FOUND IN HPS'S SYSTEM = %s; FOUND INSIDE THE ESTABLISHED DOMAIN "
+     "= %s -- %s.  Which system HPS integrated: %s.  Kontou's requested "
+     "test: %s.  Fewster-Smith on HPS: %s.  On the throat geodesic: %s.  "
+     "%d of %d self-consistent families in print REPORT m < 0 "
+     "(throatmass.py, READ) -- true of what was reported, and no longer the "
+     "tree's finding"
+     % (hpscentre.PRINTED_DISAGREEMENTS,
+        hpscentre.CONSERVED["a_tt"], hpscentre.CONSERVED["a_th"],
+        _hps_ll_denominator(hpscentre.CONSERVED["ll_pow"]),
+        qeihps.REPAIR_CONSERVATION[0], qeihps.REPAIR_CONSERVATION[2],
+        qeihps.REPAIR_CONSERVATION[3], qeihps.REPAIR_DIMENSION[0],
+        qeihps.REPAIR_DIMENSION[2], qeihps.REPAIR_DIMENSION[3],
+        hpscentre.FIRST_NEGATIVE_M_THROAT_LP,
+        hpscentre.THROAT_M_NEGATIVE_READING, hpscentre.CENTRE_M_LEADING,
+        hpscentre.RECURSION_DIRECTION,
+        hpscentre.LINEAR_CENTRE_THEOREM_SCOPE,
+        hpscentre.NONLINEAR_CENTRE_NONFLATNESS,
+        hpscentre.NONLINEAR_CENTRE_ASYMPTOTICS,
+        hpscentre.M_NEGATIVE_FOUND_IN_HPS_SYSTEM,
+        hpscentre.M_NEGATIVE_FOUND_INSIDE_DOMAIN, hpscentre.DOMAIN_WORD,
+        hpscentre.HPS_INTEGRATED_THE_PRINTED_SYSTEM,
+        qeihps.KONTOU_REQUESTED_TEST_ON_HPS, qeihps.FEWSTER_SMITH_ON_HPS,
+        qeihps.VERDICT_THROAT_GEODESIC,
+        throatmass.FAMILIES_WITH_NEGATIVE_MASS,
+        throatmass.SELF_CONSISTENT_FAMILIES_RETURNED),
+     hpscentre.O5_ANSWERED_BY,
+     ("hpscentre", "O5_CLOSED")),
 
     ("O6",
      "THE BRANE-BULK TRANSDUCER.  NARROWED BY DOCKET 62 (branelink.py), NOT "
@@ -750,7 +985,14 @@ OPEN_ROWS = [
         fewsterteo.CORRIDOR_MODE_FUNCTIONS, fewsterteo.GAP_HYPOTHESIS,
         fewsterteo.CORRIDOR_SPECTRAL_GAP, fewsterteo.FLAT_SHORTFALL_ORDERS),
      fewsterteo.O2_ANSWERED_BY + ".  The right instrument is " +
-     fewsterteo.RIGHT_INSTRUMENT + " -- not Fewster & Teo's difference QEI",
+     fewsterteo.RIGHT_INSTRUMENT + " -- not Fewster & Teo's difference QEI"
+     # DOCKET 64 appends (ruling C, O2), worded as noise.py states it: the
+     # spectrum is bounded BELOW by the QEI bound, not equal to it.
+     + ".  It also decides D22's distribution question on the corridor "
+     "(noise.CURVED_PART_CARRIED_BY = %s): by FFR 1004.0179 note [18] every "
+     "measurement distribution is supported in the spectrum of the sampled "
+     "operator, which an absolute QEI bounds below"
+     % noise.CURVED_PART_CARRIED_BY,
      ("fewsterteo", "O2_CLOSED")),
 
     ("O3",
@@ -764,12 +1006,14 @@ OPEN_ROWS = [
      ("latticectc", "O3_CLOSED")),
 ]
 
-#: THE WORDING DOCKET 62 REPLACED.  (row id, as first written -- claim, then
-#: what would answer it -- and why it was replaced.)  KEPT, NEVER DELETED: a row
-#: rewritten in place is otherwise indistinguishable from one that always said
-#: the new thing, and three of these five said something now refuted.
+#: THE WORDING DOCKETS 62 AND 64 REPLACED.  (row id, the docket that replaced
+#: it, the wording as it stood -- claim, then what would answer it -- and why it
+#: was replaced.)  KEYED BY (row, docket): O5 was narrowed twice, and both of
+#: its earlier wordings are kept.  KEPT, NEVER DELETED: a row rewritten in
+#: place is otherwise indistinguishable from one that always said the new
+#: thing, and three of DOCKET 62's five said something now refuted.
 SUPERSEDED_WORDING = [
-    ("O5",
+    ("O5", "DOCKET 62",
      "Does a self-consistent static semiclassical solution with m(r) < 0 exist "
      "at all?  Fewster & Teo bound the NORMAL-ORDERED density relative to the "
      "static vacuum, so the bound is on rho_ren - rho_vac and not on rho_ren "
@@ -778,7 +1022,7 @@ SUPERSEDED_WORDING = [
      "true of Fewster & Teo and NOT a limit on QEIs: " +
      throatmass.NARROWING_3_STATUS + "; the answering solve is now named "
      "exactly (HPS's system, regular-centre data)"),
-    ("O6",
+    ("O6", "DOCKET 62",
      "THE BRANE-BULK TRANSDUCER.  DOCKET 61's intersection is structurally "
      "intact -- the two refusals genuinely cancel -- and dies on a coupling: "
      "neither GKLP paper states a coupling constant, a source model or an "
@@ -790,7 +1034,7 @@ SUPERSEDED_WORDING = [
      "is unsettled and no figure may be seated from it",
      "the cause of death is REFUTED -- true of the two papers read, false of "
      "the literature: " + branelink.COUPLING_SOURCE),
-    ("O7",
+    ("O7", "DOCKET 62",
      "OUR OWN BOOST RELATIVE TO THE PREFERRED BRANE FRAME.  The bulk saving is "
      "Delta_tau = (L/Gamma^2)[1/(1-B) - 1/(gamma-B)]: 94 ns at B ~ 0, and THE "
      "FULL LIGHT TIME as B approaches 1/beta.  B cannot be purchased, because "
@@ -802,7 +1046,7 @@ SUPERSEDED_WORDING = [
      "94 ns",
      "WRONG PROVENANCE: the saving at B = 0 is " + branelink.PROVENANCE_94NS +
      "; the dipole is a candidate for B, not the source of the figure"),
-    ("O2",
+    ("O2", "DOCKET 62",
      "Fewster & Teo give an EXACT static-spacetime QEI with no curvature cap, "
      "TIGHTER than Ford-Roman in the Minkowski limit, and the corridor is "
      "genuinely static so the class is right.  It has never been evaluated on "
@@ -813,7 +1057,7 @@ SUPERSEDED_WORDING = [
      "Fewster-Teo constant at the optimal sampler; the mode functions it "
      "waits on are NOT-FOUND; and the right instrument is Fewster & Smith's "
      "ABSOLUTE QEI"),
-    ("O3",
+    ("O3", "DOCKET 62",
      "Whether ANY braneworld shortcut yields a closed timelike curve.  Every "
      "published 'no' is a one-extra-dimension or flat-bulk result; the single "
      "'yes' needs two extra dimensions and two inequivalent preferred frames "
@@ -823,6 +1067,31 @@ SUPERSEDED_WORDING = [
      "an explicit codimension-one CTC is no longer enough -- a hand-written "
      "metric answers nothing -- and the flat-bulk 'no' is now a THEOREM (D21), "
      "forced rather than contingent"),
+    # ----- DOCKET 64.  O5's DOCKET 62 wording, and the two demand rows whose
+    # wording DOCKET 64 replaced rather than extended (D24's claim, D25 and O2
+    # were only appended to, so nothing of theirs was replaced). -------------
+    ("O5", "DOCKET 64",
+     O5_DOCKET62[0] + " || " + O5_DOCKET62[1],
+     "the question is narrowed to the ESTABLISHED domain: m < 0 is found in "
+     "HPS's own conserved system (hpscentre.M_NEGATIVE_FOUND_IN_HPS_SYSTEM = "
+     "%s), outside the domain the AHS approximation is established for.  "
+     "throatmass.py's NOT-FOUND describes what HPS REPORTED and stays true "
+     "of that, but is no longer printed as the tree's finding; the row is "
+     "re-owned to hpscentre.O5_CLOSED"
+     % hpscentre.M_NEGATIVE_FOUND_IN_HPS_SYSTEM),
+    ("D22", "DOCKET 64", D22_DOCKET62,
+     "the smeared price is computed in flat space (noise.py: C1 a THEOREM in "
+     "H1-H6) and reaches the corridor only as a SURVEY, so the row moves OPEN "
+     "-> SURVEY; 'needs the curved-space renormalisation of quartic operator "
+     "products' is wrong as to NEW renormalisation (Hu & Verdaguer 3.2, "
+     "READ), and the finiteness it does need is NAMED, not run (Fewster "
+     "1208.5399 Sec. 3.3); fluctuation.PRICES_THE_CORRIDOR stays False and "
+     "stays true of fluctuation.py"),
+    ("D24", "DOCKET 64", D24_ANSWER_DOCKET62,
+     "the third part -- the passage from flat space to a configuration that "
+     "changes no topology -- is priced by formation.py (F1, F2), so 'no "
+     "instrument in the tree does that yet' is no longer true; the row is "
+     "re-owned to formation.NUCLEATION_PRICEABLE_FROM_SOURCE"),
 ]
 
 # ---------------------------------------------------------------------------
@@ -1058,9 +1327,20 @@ def report():
         print("  NOT OPENED, WAITING FOR ITS INSTRUMENT: %s" % q)
         print("       %s" % _one_line(why, 96))
         print("       opened by: %s" % _one_line(opener, 96))
+    if not WAITS_FOR_ITS_INSTRUMENT:
+        print("  NOT OPENED, WAITING FOR ITS INSTRUMENT: none")
+    for q, docket, rid, _why in OPENED_FROM_WAITING:
+        print("       (was waiting: %s -- opened by %s as %s)" % (q, docket, rid))
 
-    print("\nOPEN-ROW WORDING REPLACED BY DOCKET 62, KEPT: %s  (--md prints it)"
-          % ", ".join(r[0] for r in SUPERSEDED_WORDING))
+    print("\nPENDING M'S RULING -- RECORDED, NOT APPLIED")
+    for pid, q, why, proposal, waits in PENDING_RULINGS:
+        print("  %-8s %s" % (pid, _one_line(q, 94)))
+        print("       %s" % _one_line(why, 96))
+        print("       proposed: %s" % _one_line(proposal, 86))
+        print("       waiting on it: %s" % _one_line(waits, 81))
+
+    print("\nROW WORDING REPLACED, KEPT: %s  (--md prints it)"
+          % ", ".join("%s (%s)" % (r[0], r[1]) for r in SUPERSEDED_WORDING))
 
     print("\nCLOSED -- WAS OPEN, NOW ANSWERED")
     for rid, claim, answer in CLOSED_ROWS:
@@ -1099,6 +1379,19 @@ established and refuted so far, not a census of what is establishable.
 """
 
 
+#: CELL WIDTHS FOR LEDGER.md.  The rows DOCKET 64 wrote are longer than any
+#: before them, and a cell cut at a fixed width drops the end of a claim --
+#: which is where this tree puts its qualifications.  The selftest checks that
+#: no demand, open, superseded or pending cell is cut (the closed and withdrawn
+#: tables are summaries and keep their shorter widths).
+W_DEMAND_CLAIM = 2400
+W_DEMAND_MOVES = 700
+W_OPEN_CLAIM = 2400
+W_OPEN_ANSWER = 800
+W_WAS = 1400
+W_WHY = 600
+
+
 def _cell(text, width):
     """One table cell: one line, cut at `width`, and every '|' escaped so a
     claim like E_pos/|E_neg| cannot split the row into extra columns."""
@@ -1119,7 +1412,8 @@ def to_markdown():
     for rid, claim, st, owner, moves in DEMAND:
         src = "%s.%s" % owner if owner else "*(a paper -- see the note)*"
         L.append("| %s | **%s** | %s | `%s` | %s |"
-                 % (rid, st, _cell(claim, 900), src, _cell(moves, 700)))
+                 % (rid, st, _cell(claim, W_DEMAND_CLAIM), src,
+                    _cell(moves, W_DEMAND_MOVES)))
 
     L += ["", "## Right -- the supply", "",
           "| id | status | mechanism | note |", "|---|---|---|---|"]
@@ -1137,31 +1431,55 @@ def to_markdown():
 
     L += ["", "## Open, and what would answer each", ""]
     for rid, claim, answer, owner in OPEN_ROWS:
-        L += ["### %s" % rid, "", _one_line(claim, 1400), "",
-              "**Would be answered by:** %s" % _one_line(answer, 600), "",
+        L += ["### %s" % rid, "", _one_line(claim, W_OPEN_CLAIM), "",
+              "**Would be answered by:** %s"
+              % _one_line(answer, W_OPEN_ANSWER), "",
               "*Asked:* `%s.%s = %s`" % (owner[0], owner[1], ask(owner)), ""]
     for rid, claim, _st, owner, moves in open_demand():
-        L += ["### %s (a demand row)" % rid, "", _one_line(claim, 1400), "",
-              "**Would be answered by:** %s" % _one_line(moves, 600), "",
+        L += ["### %s (a demand row)" % rid, "",
+              _one_line(claim, W_OPEN_CLAIM), "",
+              "**Would be answered by:** %s"
+              % _one_line(moves, W_OPEN_ANSWER), "",
               "*Asked:* `%s.%s = %s`" % (owner[0], owner[1], ask(owner)), ""]
     L += ["### Not opened: waiting for its instrument", "",
           "A question with no instrument is opened by the docket that builds",
-          "one (the principle in `ledger.py`'s docstring, section 4).", "",
-          "| question | why it has no row yet | what opens it |",
-          "|---|---|---|"]
-    for q, why, opener in WAITS_FOR_ITS_INSTRUMENT:
-        L.append("| %s | %s | %s |"
-                 % (_cell(q, 80), _cell(why, 600), _cell(opener, 200)))
+          "one (the principle in `ledger.py`'s docstring, section 4).", ""]
+    if WAITS_FOR_ITS_INSTRUMENT:
+        L += ["| question | why it has no row yet | what opens it |",
+              "|---|---|---|"]
+        for q, why, opener in WAITS_FOR_ITS_INSTRUMENT:
+            L.append("| %s | %s | %s |"
+                     % (_cell(q, 80), _cell(why, W_WHY), _cell(opener, 200)))
+    else:
+        L.append("**None.**")
+    L += ["", "Opened since, by the docket that built the instrument:", "",
+          "| question | opened by | as row | why it had waited |",
+          "|---|---|---|---|"]
+    for q, docket, rid, why in OPENED_FROM_WAITING:
+        L.append("| %s | %s | %s | %s |"
+                 % (_cell(q, 80), docket, rid, _cell(why, W_WHY)))
     L.append("")
 
-    L += ["## Open-row wording replaced by DOCKET 62", "",
+    L += ["## Pending M's ruling -- recorded, not applied", "",
+          "This file edits no peer and changes no requirement. A question",
+          "that needs M's ruling is recorded here so the board shows it.", "",
+          "| id | question | why it is asked | proposed | waiting on it |",
+          "|---|---|---|---|---|"]
+    for pid, q, why, proposal, waits in PENDING_RULINGS:
+        L.append("| %s | %s | %s | %s | %s |"
+                 % (pid, _cell(q, 200), _cell(why, W_WHY),
+                    _cell(proposal, W_WHY), _cell(waits, 200)))
+    L.append("")
+
+    L += ["## Row wording replaced by DOCKETS 62 and 64", "",
           "Kept, never deleted: a row rewritten in place is otherwise",
           "indistinguishable from one that always said the new thing.", "",
-          "| id | as first written (claim \\|\\| answer) | why it was replaced |",
-          "|---|---|---|"]
-    for rid, was, why in SUPERSEDED_WORDING:
-        L.append("| %s | %s | %s |"
-                 % (rid, _cell(was, 900), _cell(why, 400)))
+          "| id | replaced by | as it stood (claim \\|\\| answer) "
+          "| why it was replaced |",
+          "|---|---|---|---|"]
+    for rid, docket, was, why in SUPERSEDED_WORDING:
+        L.append("| %s | %s | %s | %s |"
+                 % (rid, docket, _cell(was, W_WAS), _cell(why, W_WHY)))
     L.append("")
 
     L += ["## Closed -- was open, now answered", "",
@@ -1220,6 +1538,64 @@ def check(path=LEDGER_MD):
     return 1
 
 
+def _superseded_keys_unique(entries):
+    """True iff no (row, docket) key occurs twice in `entries`."""
+    keys = [(r[0], r[1]) for r in entries]
+    return len(keys) == len(set(keys))
+
+
+def _withdrawn_needles_64():
+    """Wordings DOCKET 64 withdrew or corrected, each with its source.  Held
+    as data for the needle check; none of them is a result."""
+    return [
+        "exp(-10^142)",                       # noise.CORRECTED (computed)
+        "no confirmed condensed reservoir",   # formation [W2]
+        "confirms no condensed reservoir",    # formation [W2], ruling C text
+        "cannot be priced from the source",   # formation [W3]
+        "OBSTRUCTION IS PROVED",              # linstab.WITHDRAWN
+        "ONE RENORMALISATION CONSTANT",       # linstab.WITHDRAWN
+        "Planck-scale runaways",              # linstab.WITHDRAWN
+        "nothing grows from it",              # linstab.WITHDRAWN
+        "0.0074335 ",                         # hpscentre.WITHDRAWN (typed K)
+        "two misprints and two errors",       # hpscentre.WITHDRAWN
+        "domain of validity for",             # hpscentre.WITHDRAWN (DOMAIN)
+        "SATISFIED --",                       # qeihps withdrawn verdict form
+        "PROVED NOT EVALUABLE",               # formation [W6]
+        "HPS integrated the PRINTED",         # hpscentre.WITHDRAWN
+    ]
+
+
+def _truncated_cells(demand_claim=None, demand_moves=None, open_claim=None,
+                     open_answer=None, was=None, why=None):
+    """(table, id) of every demand, open, superseded or pending cell that
+    _one_line would cut at the given widths (default: the module's)."""
+    dc = W_DEMAND_CLAIM if demand_claim is None else demand_claim
+    dm = W_DEMAND_MOVES if demand_moves is None else demand_moves
+    oc = W_OPEN_CLAIM if open_claim is None else open_claim
+    oa = W_OPEN_ANSWER if open_answer is None else open_answer
+    wa = W_WAS if was is None else was
+    wh = W_WHY if why is None else why
+
+    def cut(text, width):
+        return _one_line(text, width) != " ".join(text.split())
+    out = []
+    for r in DEMAND:
+        if cut(r[1], dc) or cut(r[4], dm):
+            out.append(("demand", r[0]))
+        if r[2] == OPEN and (cut(r[1], oc) or cut(r[4], oa)):
+            out.append(("open demand", r[0]))
+    for r in OPEN_ROWS:
+        if cut(r[1], oc) or cut(r[2], oa):
+            out.append(("open", r[0]))
+    for r in SUPERSEDED_WORDING:
+        if cut(r[2], wa) or cut(r[3], wh):
+            out.append(("superseded", r[0] + " " + r[1]))
+    for r in PENDING_RULINGS:
+        if cut(r[2], wh) or cut(r[3], wh):
+            out.append(("pending", r[0]))
+    return out
+
+
 def selftest():
     ok = True
 
@@ -1240,7 +1616,11 @@ def selftest():
     # RE-PINNED 10 -> 11: D14 (the addressing theorem, DOCKET 60) is asked of
     # certify.THEOREM_SCOPE, because the scope line IS the claim -- a device
     # specified by (Phi, m) of r alone has no parameter for a destination.
-    chk("every owned row's attribute still exists on its peer", asked, 27)
+    chk("every owned row's attribute still exists on its peer", asked, 28)
+    # RE-PINNED 27 -> 28 BY DOCKET 64, to what this loop counts after the
+    # edit: +1 D26 (linstab.SEMICLASSICAL_EVALUABLE_ON_DEMAND).  D22 and D24
+    # were already owned and are RE-OWNED (noise.CORRIDOR_APPLICATION,
+    # formation.NUCLEATION_PRICEABLE_FROM_SOURCE), which moves no count.
     # RE-PINNED 11 -> 23 BY DOCKETS 62 AND 63, to what this loop counts after
     # the edit (the DOCKET 63 ruling projected 20; that was a prediction, not
     # a pin).  +6 D15-D20 and +3 S6-S8, owners as DOCKET 63 named them; +1
@@ -1259,6 +1639,7 @@ def selftest():
         open_asked, len(OPEN_ROWS))
 
     print("\n2. THE PEERS STILL SAY WHAT THE ROWS SAY THEY SAY")
+    row = dict((r[0], r) for r in DEMAND + SUPPLY)
     chk("certify.py's scope is unmoved",
         ask(("certify", "THEOREM_SCOPE")), "static and spherically symmetric only")
     chk("foliation.py does not dispute the identity",
@@ -1315,23 +1696,75 @@ def selftest():
          latticectc.RANK2_TIMELIKE_SPAN_HAS_CTC), (True, False, True))
     chk("DOCKET 57's two routes are NOT independent at codimension one",
         latticectc.DOCKET57_ROUTES_INDEPENDENT_AT_CODIM1, False)
-    chk("fluctuation.py does not price the corridor, so D22 stays OPEN",
-        ask(("fluctuation", "PRICES_THE_CORRIDOR")), False)
+    # D22, DOCKET 64 (ruling C): the row is asked of noise.py now.  Its status
+    # is THIS file's ruling, and the check ties it to the owner's own word, so
+    # a noise.py that moved its corridor application off SURVEY turns it red.
+    chk("noise.py: C1 is a THEOREM in the flat model, and D22's status IS "
+        "noise.CORRIDOR_APPLICATION",
+        (noise.C1_FLAT_THEOREM, ask(("noise", "CORRIDOR_APPLICATION")),
+         row["D22"][2] == noise.CORRIDOR_APPLICATION), (True, SURVEY, True))
+    chk("  the curved part is carried by an existing OPEN row (O2), not a new "
+        "one",
+        (noise.CURVED_PART_CARRIED_BY in [r[0] for r in OPEN_ROWS],
+         noise.ROW_TO_OPEN), (True, None))
+    chk("  and noise.py no longer claims to decide D22 (DECIDES_D22 withdrawn)",
+        (noise.DECIDES_D22, "DECIDES_D22 = True" in noise.WITHDRAWN),
+        (False, True))
+    chk("  H2 fails on the corridor: (b/l_G)^2 = noise.B_OVER_LG_SQUARED > 1, "
+        "and the owner agrees",
+        (noise.B_OVER_LG_SQUARED > 1.0, noise.H2_SATISFIED_BY_CORRIDOR),
+        (True, False))
+    chk("  D22 prints the owner's figures at the precision the ruling named",
+        all(t in row["D22"][1] for t in (
+            "%.6f C/tau^4" % noise.SD0_OVER_C,
+            "%.6f beta" % noise.TAU_STAR_OVER_BETA,
+            "(b/l_G)^2 = %.0f" % noise.B_OVER_LG_SQUARED)), True)
+    # The EL-surrogate bound: the ruling typed exp(-10^142) and computation
+    # refutes it (noise.CORRECTED).  The exponent printed is floor() of the
+    # owner's computed log10(-ln P), so it cannot drift from the owner.
+    _el = int(math.floor(noise.EL_VACUUM_LOG10_NEG_LN_P))
+    chk("  the EL-surrogate bound D22 prints is the owner's computed one",
+        (("below exp(-10^%d)" % _el) in row["D22"][1],
+         noise.EL_VACUUM_BELOW_EXP_MINUS_10_141 == (_el == 141),
+         noise.EL_VACUUM_BELOW_EXP_MINUS_10_142), (True, True, False))
+    chk("fluctuation.py does not price the corridor, and that stays true of "
+        "fluctuation.py (D22 is no longer asked of it)",
+        (ask(("fluctuation", "PRICES_THE_CORRIDOR")), row["D22"][3][0]),
+        (False, "noise"))
     chk("  and its bound is sign-blind and needs no diagonal G",
         (fluctuation.POINTWISE_DELTA_DISCRIMINATES_SIGN,
          fluctuation.BOUND_NEEDS_DIAGONAL_G), (False, False))
     chk("branelink.py: S5's four figures are NOT measured (S5 stays OPEN)",
         ask(("branelink", "S5_FIGURES_MEASURED")), False)
     # The principle's rows (docstring section 4), each asked of its owner.
-    row = dict((r[0], r) for r in DEMAND + SUPPLY)
     chk("transit.py: the traversal is moved earlier, not removed (D23)",
         (ask(("transit", "TRAVERSAL_IS_REMOVED")), transit.BEATS_LIGHT),
         (False, False))
     chk("  and S5's note carries D23's amortisation reading",
         ("AMORTISATION SCHEME" in row["S5"][4],
          ("%.4g years" % PROXIMA_LY) in row["S5"][4]), (True, True))
-    chk("create.py: nucleation is NOT-RUN, so D24 stays OPEN",
-        ask(("create", "NUCLEATION_STATUS")), "NOT-RUN")
+    chk("create.py: nucleation is NOT-RUN (create.py's own word, unmoved)",
+        create.NUCLEATION_STATUS, "NOT-RUN")
+    # D24, DOCKET 64.  The ruling asked for NUCLEATION_PRICEABLE_FROM_SOURCE
+    # = False; formation.py's verification withdrew that (not a proved
+    # obstruction) and the owner now says NOT DETERMINED.  The weaker word is
+    # the one asked, and the row stays OPEN because the price is not computed.
+    chk("formation.py: nucleation READ, not computed, priceability NOT "
+        "DETERMINED -- so D24 stays OPEN",
+        (ask(("formation", "NUCLEATION_PRICEABLE_FROM_SOURCE")),
+         formation.NUCLEATION_PRICED, formation.NUCLEATION_NECK_EXPLICIT,
+         row["D24"][2]), (formation.NOT_DETERMINED, False, False, OPEN))
+    chk("  and the withdrawn 'cannot be priced' is kept on the owner",
+        formation.NUCLEATION_PRICEABLE_FROM_SOURCE_WITHDRAWN[0], False)
+    chk("  D24 prints F1's and F2's hypotheses as the owner names them",
+        ("; ".join(formation.F1_THEOREM) in row["D24"][1],
+         formation.H_NULL in row["D24"][1],
+         set(formation.F2_THEOREM) - set(formation.F1_THEOREM)
+         == {formation.H_NULL}), (True, True, True))
+    chk("  and the D4 observation is the owner's computed flag",
+        ("PHASE1_D4_POINTWISE_DURING_PASSAGE = %s"
+         % formation.PHASE1_D4_POINTWISE_DURING_PASSAGE) in row["D24"][1],
+        True)
     chk("  exotic matter does not help creation; no escape stays in GR",
         (create.EXOTIC_MATTER_HELPS_CREATION,
          create.any_escape_stays_in_lorentzian_gr()), (False, False))
@@ -1341,6 +1774,45 @@ def selftest():
         ("binds on %s at %.4g"
          % stockgate.binding_under("as-composed 59", "CI chondrite"))
         in row["D25"][1], True)
+    # D25, DOCKET 64: stays OPEN; formation.py narrows nothing and its
+    # verification withdrew both "NARROWED" and "no confirmed condensed
+    # reservoir".  stockgate's figures appear ONCE (over-representation).
+    _bind = "%.4g" % stockgate.binding_under("as-composed 59",
+                                             "CI chondrite")[1]
+    chk("D25 stays OPEN, printing formation.D25_VERDICT, and stockgate's "
+        "figure appears once",
+        (row["D25"][2], formation.D25_VERDICT in row["D25"][1],
+         formation.D25_VERDICT.startswith("OPEN AND UNCHANGED"),
+         row["D25"][1].count(_bind)), (OPEN, True, True, 1))
+    chk("  the survey names a CONDENSED body; primitive and accessible are "
+        "unmeasured; no reservoir is claimed either way",
+        (formation.SURVEY_CONDENSED_BODY_FOUND,
+         formation.SURVEY_PRIMITIVE_MEASURED,
+         formation.SURVEY_ACCESSIBLE_MEASURED,
+         formation.SURVEY_CONFIRMED_RESERVOIR,
+         formation.SURVEY_CONFIRMED_RESERVOIR_WITHDRAWN[0]),
+        (True, False, False, formation.UNDETERMINED, False))
+    chk("  and the aperture hit count D25 prints is the owner's",
+        ("%d files hit" % len(set(formation.APERTURE_HITS)
+                              | set(formation.APERTURE_SYNONYM_HITS)))
+        in row["D25"][1], True)
+    # D26, DOCKET 64: opened by the docket that built its instrument.
+    chk("linstab.py: D26 is OPEN because the semiclassical sector is not "
+        "evaluable on any demand configuration",
+        (ask(("linstab", "SEMICLASSICAL_EVALUABLE_ON_DEMAND")),
+         row["D26"][2], linstab.D26_STATUS), (False, OPEN, OPEN))
+    chk("  its text and answer are the owner's, not retyped",
+        (row["D26"][1].startswith(linstab.D26_CLAIM),
+         row["D26"][4] == linstab.D26_ANSWERED_BY), (True, True))
+    chk("  classical radial THEOREM, infimum -1/4, the wall formula at u",
+        (linstab.CLASSICAL_RADIAL_STATUS, linstab.BETA2_CRIT_INFIMUM,
+         linstab.DEVICE_IS_WALL_FORMULA_AT_U), (THEOREM, "-1/4", True))
+    chk("  the IFF is narrowed and 'recorded or shown' replaces a proof",
+        ("recorded or shown" in linstab.D26_CLAIM,
+         "GMMPS's reported" in linstab.D26_CLAIM,
+         linstab.ALPHA_ZERO_ROOT_GROWTH), (True, True, OPEN))
+    chk("  hpscentre is one of the scan's positive controls",
+        "hpscentre" in linstab.POSITIVE_CONTROLS, True)
     chk("warpfolder.py: the flash is not a reconstruction mechanism (S9)",
         ask(("warpfolder", "FLASH_IS_A_RECONSTRUCTION_MECHANISM")), False)
     chk("  heating restores the symmetry; the budget is unconnected",
@@ -1360,6 +1832,28 @@ def selftest():
     chk("  and none of them is also a row",
         [w[0] for w in WAITS_FOR_ITS_INSTRUMENT
          if any(w[0] in r[1].lower() for r in DEMAND + SUPPLY)], [])
+    # Those two rows are vacuous on an empty list, so the move itself is
+    # checked: what left the list is a row now, and the row it names exists.
+    chk("linearised stability left the waiting list and IS a row (D26)",
+        ([w[0] for w in WAITS_FOR_ITS_INSTRUMENT],
+         [(q, rid, rid in row and q in row[rid][1].lower())
+          for q, _d, rid, _w in OPENED_FROM_WAITING]),
+        ([], [("linearised stability", "D26", True)]))
+    chk("  and LEDGER.md prints 'None.' rather than dropping the section",
+        "### Not opened: waiting for its instrument\n\nA question with no "
+        "instrument is opened by the docket that builds\none (the principle "
+        "in `ledger.py`'s docstring, section 4).\n\n**None.**"
+        in to_markdown(), True)
+    # The phase1 D4 question (DOCKET 64 ruling D.2) is recorded for M, not
+    # applied.  Its premise is computed on both owners, so it can fail.
+    chk("the phase1 D4 question is PENDING M's ruling, on computed premises",
+        ([p[0] for p in PENDING_RULINGS],
+         [c for c in phase1.CONDITIONS if c[0] == "D4"][0][1]
+         .startswith("no momentum"),
+         phase1.is_transition(True, True, True, True, True),
+         phase1.is_transition(False, True, True, True, True),
+         formation.PHASE1_D4_POINTWISE_DURING_PASSAGE),
+        (["M-D64-1"], True, False, True, False))
 
     print("\n3. THE EXCHANGE RATE, RE-DERIVED FROM ASKED CONSTANTS")
     chk("Lambda is overturn.py's", LAMBDA, overturn.LAMBDA)
@@ -1379,8 +1873,16 @@ def selftest():
     #   WITHDRAWN 6 -> 8: W7 and W8, both of them DOCKET 61's own passes.
     #   REFUSED 3 -> 4: the closed row counts here, not as an opening.
     chk("the status census", c,
-        {THEOREM: 17, NARROWED: 1, MEASURED: 3, SURVEY: 1, OPEN: 10,
+        {THEOREM: 17, NARROWED: 1, MEASURED: 3, SURVEY: 2, OPEN: 10,
          WITHDRAWN: 13, REFUSED: 9})
+    # RE-PINNED BY DOCKET 64 to what statuses() returned after the edit (not
+    # typed from the ruling, which did not predict it).  The moves only:
+    #   D22 OPEN -> SURVEY (noise.py: C1 a THEOREM in the flat model; the
+    #     corridor application a SURVEY).       SURVEY 1 -> 2, OPEN -1.
+    #   D26 new, OPEN (linstab.py).             OPEN +1, so OPEN 10 -> 10.
+    #   Linearised stability left WAITS_FOR_ITS_INSTRUMENT (not a status).
+    #   O5 re-owned to hpscentre.py; D24 re-owned to formation.py.
+    #   No row closed, none withdrawn, none refused.
     # RE-PINNED BY THE FIX PASS ON DOCKETS 62/63, to what statuses() returns:
     #   OPEN 7 -> 10: D23 (the first trip, transit.py), D24 (formation,
     #     create.py), D25 (the destination stock gate, stockgate.py) -- the
@@ -1444,11 +1946,33 @@ def selftest():
         [r[0] for r in OPEN_ROWS if ask(r[3])], [])
     chk("the five narrowed rows are all still open",
         sorted(r[0] for r in OPEN_ROWS), ["O2", "O3", "O5", "O6", "O7"])
-    chk("every narrowed row's replaced wording is kept",
-        sorted(r[0] for r in SUPERSEDED_WORDING),
+    # RE-KEYED BY DOCKET 64 (ruling C, O5).  This compared sorted ids with the
+    # OPEN ids, and O5's second entry (DOCKET 64 replacing DOCKET 62's
+    # wording) would have turned it red for a correct reason.  Entries are
+    # keyed by (row, docket) now, and the check is on SETS.
+    chk("every narrowed row's replaced wording is kept (as sets)",
+        set(r[0] for r in OPEN_ROWS) <= set(r[0] for r in SUPERSEDED_WORDING),
+        True)
+    chk("  DOCKET 62's entries are exactly the five O rows it narrowed",
+        sorted(r[0] for r in SUPERSEDED_WORDING if r[1] == "DOCKET 62"),
         sorted(r[0] for r in OPEN_ROWS))
+    chk("  DOCKET 64's are the rows whose wording it replaced, not extended",
+        sorted(r[0] for r in SUPERSEDED_WORDING if r[1] == "DOCKET 64"),
+        ["D22", "D24", "O5"])
+    chk("  no (row, docket) key is used twice",
+        _superseded_keys_unique(SUPERSEDED_WORDING), True)
+    chk("  CONTROL: a duplicated (row, docket) key is caught",
+        _superseded_keys_unique(SUPERSEDED_WORDING + SUPERSEDED_WORDING[:1]),
+        False)
+    chk("  every superseded id is a row on this board",
+        [r[0] for r in SUPERSEDED_WORDING
+         if r[0] not in [x[0] for x in DEMAND + SUPPLY + OPEN_ROWS]], [])
     chk("and each says why it was replaced",
-        all(bool(r[2]) for r in SUPERSEDED_WORDING), True)
+        all(bool(r[3]) for r in SUPERSEDED_WORDING), True)
+    chk("  O5's DOCKET 62 wording is kept verbatim as the board printed it",
+        [r[2] for r in SUPERSEDED_WORDING
+         if r[:2] == ("O5", "DOCKET 64")],
+        [O5_DOCKET62[0] + " || " + O5_DOCKET62[1]])
     ids = [r[0] for r in DEMAND + SUPPLY + OPEN_ROWS + CLOSED_ROWS
            + WITHDRAWN_ROWS]
     chk("no R-1 row (it is O7 renamed) -- and its owner agrees",
@@ -1477,6 +2001,46 @@ def selftest():
         [n for n in needles if n in md + needles[0]], needles[:1])
     chk("the 9/64 is not applied to C_F, on its owner",
         fewsterteo.NINE_64_APPLIES_TO_C_F, False)
+    # O5, DOCKET 64: re-owned to hpscentre.py; every figure asked.
+    o5 = [r for r in OPEN_ROWS if r[0] == "O5"][0]
+    chk("O5 is asked of hpscentre.py, which says it did not close",
+        (o5[3], ask(o5[3]), throatmass.O5_CLOSED),
+        (("hpscentre", "O5_CLOSED"), False, False))
+    chk("  m < 0 found in HPS's system, NOT inside the established domain",
+        (hpscentre.M_NEGATIVE_FOUND_IN_HPS_SYSTEM,
+         hpscentre.M_NEGATIVE_FOUND_INSIDE_DOMAIN,
+         hpscentre.THROAT_M_NEGATIVE_READING, hpscentre.AHS_REACHED),
+        (True, False, "CONSERVED", False))
+    chk("  which system HPS integrated is NOT DETERMINED (the claim withdrawn)",
+        (hpscentre.HPS_INTEGRATED_THE_PRINTED_SYSTEM,
+         "NOT DETERMINED" in o5[1]), ("NOT DETERMINED", True))
+    # The two instruments found the repairs independently; this compares
+    # qeihps.py's scan with hpscentre.py's printed -> conserved change, so a
+    # disagreement between the peers turns it red.
+    chk("  qeihps.py's two repairs ARE hpscentre.py's printed -> conserved",
+        (qeihps.REPAIR_CONSERVATION[2:],
+         qeihps.REPAIR_DIMENSION[2:],
+         hpscentre.PRINTED["a_th"] == hpscentre.CONSERVED["a_th"]),
+        ((hpscentre.PRINTED["a_tt"], hpscentre.CONSERVED["a_tt"]),
+         (_hps_ll_denominator(hpscentre.PRINTED["ll_pow"]),
+          _hps_ll_denominator(hpscentre.CONSERVED["ll_pow"])), True))
+    chk("  the first m < 0 is printed as the owner pins it, in l_P",
+        ("first at %.4f l_P" % hpscentre.FIRST_NEGATIVE_M_THROAT_LP) in o5[1],
+        True)
+    chk("  the throat-geodesic verdict is qeihps.py's 'NOT A TEST'",
+        (qeihps.VERDICT_THROAT_GEODESIC.startswith("NOT A TEST"),
+         ("On the throat geodesic: " + qeihps.VERDICT_THROAT_GEODESIC)
+         in o5[1]), (True, True))
+    chk("  Kontou's test is the owner's (FO and FFKP both OPEN), F-S REFUSED",
+        (qeihps.KONTOU_REQUEST_FOUND,
+         qeihps.KONTOU_REQUESTED_TEST_ON_HPS in o5[1],
+         qeihps.FEWSTER_SMITH_ON_HPS.startswith("REFUSED"),
+         qeihps.DOCKET62_INSTRUMENT_STANDS), (True, True, True, False))
+    _tm = "-- %s, not NO" % throatmass.NEGATIVE_MASS_SELF_CONSISTENT_FOUND
+    chk("  throatmass's NOT-FOUND is no longer printed as the tree's finding",
+        (_tm in o5[1], _tm in O5_DOCKET62[0]), (False, True))
+    chk("  and O5 answers with hpscentre.O5_ANSWERED_BY, not throatmass's",
+        o5[2], hpscentre.O5_ANSWERED_BY)
     chk("O5's narrowing #3 is demoted on its owner",
         (throatmass.NO_QEI_CAN_BOUND_RHO_REN,
          throatmass.SEPARATES_O5_FROM_O2_PERMANENTLY), (False, False))
@@ -1499,6 +2063,36 @@ def selftest():
         fewsterteo.SEC7_TRANSPLANTABLE_TO_NEGATIVE_M, False)
     chk("fluctuation.py's own flag that it moves no row is unmoved",
         fluctuation.LEDGER_ROW_MOVES, False)
+    o2 = [r for r in OPEN_ROWS if r[0] == "O2"][0]
+    chk("O2's answer now names D22's curved question (ruling C addendum)",
+        ("D22's distribution question" in o2[2],
+         "note [18]" in o2[2]), (True, True))
+
+    print("\n4c. DOCKET 64: WHAT WAS WITHDRAWN OR CORRECTED IS NOT PRINTED")
+    # Each needle is a wording a DOCKET 64 verifier or computation withdrew.
+    # LEDGER.md must carry none of them; the superseded and withdrawn tables
+    # hold only the board's OWN earlier wording, which contains none.
+    needles64 = _withdrawn_needles_64()
+    md = to_markdown()
+    chk("no withdrawn DOCKET 64 wording appears in LEDGER.md",
+        [n for n in needles64 if n.lower() in md.lower()], [])
+    chk("  CONTROL: the search fires on a copy with one planted",
+        [n for n in needles64
+         if n.lower() in (md + needles64[2]).lower()], [needles64[2]])
+    chk("  each withdrawal is kept on its owner, not deleted",
+        (len(noise.WITHDRAWN) > 0, len(hpscentre.WITHDRAWN) > 0,
+         len(linstab.WITHDRAWN) > 0,
+         qeihps.VERDICT_THROAT_GEODESIC_WITHDRAWN.startswith("WITHDRAWN"),
+         formation.D25_VERDICT_WITHDRAWN.startswith("WITHDRAWN")),
+        (True, True, True, True, True))
+    # No cell DOCKET 64 made long is cut in LEDGER.md: a cut drops the end of
+    # a claim, which is where its qualification sits.
+    cut = _truncated_cells()
+    chk("no demand, open, superseded or pending cell is cut in LEDGER.md",
+        cut, [])
+    chk("  CONTROL: at the widths before DOCKET 64 it would have cut some",
+        len(_truncated_cells(demand_claim=900, open_claim=1400,
+                             open_answer=600, was=900, why=400)) > 0, True)
 
     print("\n5. THE BALANCE REFUSES TO INVENT A LADDER")
     chk("every balance row whose mechanism fails carries NO gap number",
