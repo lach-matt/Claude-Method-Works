@@ -134,3 +134,69 @@ not the count. This is the case for running the selftest and not only the check.
 calendar, a chessboard, a box ordering and the nuclide chart — objects outside this paper, whose
 numbers its checks do not produce. A caption number that no check carries is not allowed, so the
 plate is not used.
+
+---
+
+## The Closure Law of a Finite Index
+
+**1 · The box seed law is false from five dimensions, and a new law is proved in its place.** Both
+compendia state that a full box on d coordinates with c values each seeds at d + c − 2, exact by
+branch and bound — both verifications at three dimensions, where it holds. It holds at two, three
+and four dimensions for every c and fails at five: the two-valued five-dimensional box is generated
+by four cells against the law's five. This was re-derived here independently from the definition
+alone, with the four generators found explicitly. The paper proves the true law — seed equals
+c − 2 plus the least m whose middle binomial coefficient reaches d — with the upper bound from
+Bollobás's set-pair inequality and the lower bound by an antichain construction, reducing to
+Sperner's theorem at c = 2. The theorem is new; the source has no law beyond the linear one.
+
+**2 · The Carathéodory number does not bound the seed from below.** Both cited facts are correct,
+but the number bounds how many generators reach one point of a hull, and the relevant breadth is
+that of the object generated, not the ambient. A two-cell chain in three dimensions is closed and
+seeds at two. The paper states what the number does bound, gives the refutation, and proves the
+bound that survives: a seed is at least the size of the largest alphabet.
+
+**3 · "Roughly one in five" measures at 44 per cent.** The source says roughly one in five of the
+sets passing every proper-projection test fail closure, and names no family. Over the family its own
+witness lives in, 117 subsets pass the projection test and 52 are open. The paper prints the family
+and the figure; the phrase is not printed.
+
+**4 · A greedy seed table is wrong at its first entry.** It gives the 3×3 box a seed of four; the
+exact value is three, and the source's own later section already retracts every size that table
+reports. Nothing from it is printed. Confirmed here independently.
+
+**5 · Two references were completed from the literature**, not from memory: the Bergman 1977 and
+Queyranne–Tardella 2008 papers, which the record held with volume and pages only, were confirmed by
+search and now carry title and identifier.
+
+---
+
+## Closure Beyond the Atom
+
+**1 · The one failing obligation was a fixture bug, fixed in the fixture.** The witness the run
+produced is a genuine witness — both members in the parity set, their join outside it — and the
+fixture had written the pair's two components in the other order. It now compares them unordered
+and re-verifies all four properties. The measurement was not touched. The paper prints the witness.
+
+**2 · Two sources disagree with each other on one defect, and neither reproduces.** One says the
+electromagnetic extension has a defect of 3, another 3,900; measured, 9,278. The paper prints the
+measurement and supplies a proof — a closed index extended by a map that fails to preserve the join
+cannot be closed — so the qualitative claim rests on a theorem rather than on a number that does not
+reproduce.
+
+**3 · The nuclide defect of 9 and the defect of 2 are two populations**, particle-bound light
+nuclides against the whole evaluation, as a correction already in the record states. The paper
+carries both as separate rows with the difference stated. Its cell counts at low Z differ from the
+stated ones by five each way; the defect is 9 either way.
+
+**4 · Six languages would give fifteen pairs, not ten.** The measured operator-bearing set is five,
+and all ten of their pairs agree. The count survives, the membership is not the roster's, and the
+paper asserts no roster.
+
+**5 · "Parity repeats it" overstates.** Both parity figures reproduce, but they are the
+within-element pair only; across the table the parity split does not reverse. The crossing belongs
+to the |Δℓ| = 1 split, and the paper prints all four parity figures and says so.
+
+**6 · Redundancy's protocol is a reconstruction.** The sources define redundancy but state no trial
+count, threshold or seed. The reconstruction that reproduces all six published values is stated in
+full in the paper and every figure it yields is marked as sampled. If the original protocol is
+recorded somewhere, it should replace the reconstruction.

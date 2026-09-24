@@ -66,30 +66,39 @@ def fig_example():
           "the same cells, relabelled")
 
     ax = fig.add_subplot(gs[0, 2])
-    ax.set_title("may precede, on the first coordinate", fontsize=10, pad=8)
     vals, P = E["vals"], E["P"]
-    n = len(vals)
-    pos = {i: (i, 0) for i in range(n)}
-    for i in range(n):
-        for j in range(n):
-            if i == j or not P[i][j]:
+    idx = {v: k for k, v in enumerate(vals)}
+    lay = [idx[v] for v in r0]                    # nodes left to right in the recovered order
+    n = len(lay)
+    pos = {k: (k, 0.0) for k in range(n)}
+    for a in range(n):
+        for b in range(n):
+            if a == b:
                 continue
-            rad = 0.34 if j > i else -0.34
-            ax.add_patch(FancyArrowPatch(pos[i], pos[j], connectionstyle="arc3,rad=%.2f" % rad,
-                                         arrowstyle="-|>", mutation_scale=7,
-                                         color=BLUE if j > i else RED, lw=0.8,
-                                         shrinkA=9, shrinkB=9))
-    for i, v in enumerate(vals):
-        ax.add_patch(plt.Circle(pos[i], 0.22, facecolor="white", edgecolor="#333333", lw=0.9,
+            i, j = lay[a], lay[b]
+            if not P[i][j]:
+                continue
+            if b > a:
+                rad, col, y = 0.16 + 0.10 * (b - a), BLUE, 1
+            else:
+                rad, col, y = -0.55, RED, -1
+            ax.add_patch(FancyArrowPatch(pos[a], pos[b], connectionstyle="arc3,rad=%.2f" % (y * rad),
+                                         arrowstyle="-|>", mutation_scale=6,
+                                         color=col, lw=0.7, shrinkA=7, shrinkB=7, zorder=2))
+    for k in range(n):
+        ax.add_patch(plt.Circle(pos[k], 0.20, facecolor="white", edgecolor="#333333", lw=0.9,
                                 zorder=3))
-        ax.text(pos[i][0], pos[i][1], str(v), ha="center", va="center", fontsize=8, zorder=4)
-    ax.set_xlim(-0.7, n - 0.3)
-    ax.set_ylim(-1.05, 1.05)
+        ax.text(pos[k][0], pos[k][1], str(vals[lay[k]]), ha="center", va="center",
+                fontsize=7.5, zorder=4)
+    ax.set_xlim(-0.8, n - 0.2)
+    ax.set_ylim(-1.5, 1.5)
+    ax.set_aspect("equal")
     ax.axis("off")
     tie = E["ties"][0]
-    ax.set_xlabel("")
-    ax.text(0.5, 0.02, "a total preorder: one tie, %d↔%d" % (tie[0], tie[1]),
-            transform=ax.transAxes, ha="center", fontsize=8, color="#444444")
+    ax.text(0.5, 0.955, "may precede", transform=ax.transAxes, ha="center", fontsize=10)
+    ax.text(0.5, 0.055, "a total preorder; one tie: %d ⊑ %d and %d ⊑ %d"
+            % (tie[0], tie[1], tie[1], tie[0]), transform=ax.transAxes, ha="center", fontsize=7.5,
+            color="#444444")
 
     _grid(fig.add_subplot(gs[0, 3]), rec, 5, 4, BLUE, "recovered",
           "%d of the 2,880 orderings admit it" % E["admissible"])
@@ -110,7 +119,7 @@ def fig_arity():
     ax.bar(xs, [1] * len(ms), color=LIGHT, edgecolor=GREY, lw=0.5, width=0.62)
     ax.bar(xs, [b / t for b, t in zip(bij, tot)], color=BLUE, width=0.62)
     for i, (b, t) in enumerate(zip(bij, tot)):
-        ax.text(i, b / t + 0.035, "%d/%d" % (b, t), ha="center", fontsize=8)
+        ax.text(i, 1.025, "{:,} / {:,}".format(b, t), ha="center", fontsize=7.5)
     ax.axvline(1.5, color=RED, ls="--", lw=1.1)
     ax.text(1.56, 0.30, "the boundary", color=RED, fontsize=8, rotation=90)
     ax.set_xticks(list(xs))
@@ -145,8 +154,9 @@ def fig_amplification():
     fig, ax = plt.subplots(figsize=(6.4, 3.2))
     ax.hist(v, bins=60, color=BLUE, edgecolor="none")
     ax.axvline(0, color=RED, ls="--", lw=1.2)
-    ax.text(0, ax.get_ylim()[1] * 0.96, " an undetectable insertion would sit here",
-            color=RED, fontsize=8, va="top")
+    ax.annotate("an undetectable insertion would sit here", xy=(0, ax.get_ylim()[1] * 0.20),
+                xytext=(max(v) * 0.34, ax.get_ylim()[1] * 0.97), color=RED, fontsize=8,
+                va="top", arrowprops=dict(arrowstyle="->", color=RED, lw=0.8))
     ax.axvline(A["min"], color="#333333", lw=1.0)
     ax.text(A["min"], ax.get_ylim()[1] * 0.62, "  minimum %d" % A["min"], fontsize=8)
     ax.axvline(A["median"], color="#333333", ls=":", lw=1.0)

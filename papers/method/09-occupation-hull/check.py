@@ -516,6 +516,50 @@ def compute(quiet=False):
                 "differ at %s" % d if d else "identical at 106 steps")
             if form == "q" and (N, lm) == (8, 4):
                 NUM["q_frame8_differs"] = d
+    # the frame LEMMA: the extremes it needs, and the two closed frames it certifies
+    EXTREME = {}
+    for form in ("p", "q"):
+        maxU = minL = None
+        maxr = Fr(0)
+        maxn = 0
+        for Z in STEPS:
+            lo, hi, _ = out["cor"][form][Z]
+            assert hi is not None
+            if maxU is None or less(maxU, hi):
+                maxU = hi
+            if lo is not None and (minL is None or less(lo, minL)):
+                minL = lo
+            pt = point(ents[Z], occ(Z - 1), form)
+            maxr, maxn = max(maxr, pt[0]), max(maxn, pt[1])
+        EXTREME[form] = (maxU, minL, maxr, maxn)
+        NUM["extreme_" + form] = (closed(maxU), dec7(maxU), closed(minL), dec7(minL), str(maxr), maxn)
+    wantp = (key({6: Fr(1), 7: Fr(1)}), key({}), Fr(6), 7)
+    wantq = (key({11: Fr(10, 9), 26: Fr(5, 9)}), key({14: Fr(-1)}), Fr(13, 2), 7)
+    for form, want in (("p", wantp), ("q", wantq)):
+        maxU, minL, maxr, maxn = EXTREME[form]
+        rep("EXHAUSTIVE", "form %s: over the 106 steps max U, min L, max radicand and max n of the entrant" % form,
+            (key(maxU), key(minL), maxr, maxn) == want,
+            "U <= %s, L >= %s, r_e <= %s, n_e <= %d" % (closed(maxU), closed(minL), maxr, maxn))
+    # Lemma 4's two inequalities, exactly.  phi(n) = (n-7)/sqrt(n-1) at n = 38; psi(n) = (n-7)/sqrt(n) at n = 56.
+    phi38 = scale(sqrt_rat(Fr(1, 37)), Fr(31))
+    psi56 = scale(sqrt_rat(Fr(1, 56)), Fr(49))
+    rep("EXHAUSTIVE", "Lemma 4, form p: 31/sqrt(37) exceeds the largest U", less(EXTREME["p"][0], phi38),
+        "%s = %s > %s" % (closed(phi38), dec7(phi38), dec7(EXTREME["p"][0])))
+    rep("EXHAUSTIVE", "Lemma 4, form q: 49/sqrt(56) exceeds the largest U", less(EXTREME["q"][0], psi56),
+        "%s = %s > %s" % (closed(psi56), dec7(psi56), dec7(EXTREME["q"][0])))
+    # and the left-hand halves: a rival above the entrant and left of it has a slope below min L
+    lp = scale(sqrt_rat(Fr(1, 6)), Fr(-31))
+    lq = scale(sqrt_rat(Fr(2, 13)), Fr(-49))
+    rep("EXHAUSTIVE", "Lemma 4, form p: -31/sqrt(6) falls below the smallest L", less(lp, EXTREME["p"][1]),
+        "%s < %s" % (dec7(lp), dec7(EXTREME["p"][1])))
+    rep("EXHAUSTIVE", "Lemma 4, form q: -49/sqrt(13/2) falls below the smallest L", less(lq, EXTREME["q"][1]),
+        "%s < %s" % (dec7(lq), dec7(EXTREME["q"][1])))
+    # the two closed frames: every subshell the lemma does not cover, admitted
+    for form, N, lm in (("p", 37, 36), ("q", 55, 54)):
+        d = [Z for Z in STEPS if ckey(ent_corridor(Z, form, N, lm)) != ckey(out["cor"][form][Z])]
+        rep("EXHAUSTIVE", "form %s: frame n <= %d, l <= %d gives the n <= 15, l <= 4 corridors" % (form, N, lm),
+            not d, "differ at %s" % d if d else "identical at 106 steps")
+
     # the instrument's frame n <= 7 differs at exactly three ceilings
     d7 = [Z for Z in STEPS if ckey(ent_corridor(Z, "p", 7, 4)) != ckey(out["cor"]["p"][Z])]
     rep("EXHAUSTIVE", "node-only: the frame n <= 7 differs from the full set at exactly Fr, Ra, Lr", d7 == [87, 88, 103], "%s" % d7)
@@ -717,49 +761,99 @@ def compute(quiet=False):
 
     # 6. the running intersection, the piercing number, one fixed slope
     say("\n6  ONE SLOPE FOR MANY STEPS")
+    def inside(c, q):
+        """Is the rational q strictly inside the corridor c?  Exact."""
+        lo, hi, bad = c
+        if bad:
+            return False
+        r = {1: q} if q != 0 else {}
+        return (lo is None or less(lo, r)) and (hi is None or less(r, hi))
+
+    def just_below(lo, hi):
+        """The greedy stab: a rational in (lo, hi) within 10^-7 of hi.  Exact."""
+        if hi is None:
+            return Fr(math.ceil(float(val(lo)))) + 1 if lo is not None else Fr(0)
+        k = 7
+        while True:
+            d = 10 ** k
+            q = Fr(int(math.floor(float(val(hi)) * d)), d)
+            r = {1: q} if q else {}
+            if less(r, hi) and (lo is None or less(lo, r)):
+                return q
+            k += 1
+
+    def between(a, b):
+        """A rational strictly between two surds (or the open ends), exact."""
+        if a is None:
+            return (Fr(math.floor(float(val(b)))) - 1) if b is not None else Fr(0)
+        if b is None:
+            return Fr(math.ceil(float(val(a)))) + 1
+        k = 1
+        while True:
+            d = 10 ** k
+            q = Fr(int((val(a) + val(b)) / 2 * d), d)
+            if less(a, {1: q} if q else {}) and less({1: q} if q else {}, b):
+                return q
+            k += 1
+
     for form in ("p", "q"):
-        lo_r, hi_r, emp = -math.inf, math.inf, []
+        lo_r, hi_r, emp = None, None, []          # the running intersection, exactly
         for Z in STEPS:
             lo, hi, _ = out["cor"][form][Z]
-            L, U = fl(lo, -math.inf), fl(hi, math.inf)
-            nlo, nhi = max(lo_r, L), min(hi_r, U)
-            if nlo >= nhi:
+            nlo = lo if lo_r is None else (lo_r if lo is None or less(lo, lo_r) else lo)
+            nhi = hi if hi_r is None else (hi_r if hi is None or less(hi_r, hi) else hi)
+            if nlo is not None and nhi is not None and not less(nlo, nhi):
                 emp.append(Z)
-                lo_r, hi_r = L, U
+                lo_r, hi_r = lo, hi
             else:
                 lo_r, hi_r = nlo, nhi
         NUM["empties_" + form] = emp
-        rep("EXHAUSTIVE", "form %s: the running intersection empties" % form, True, "%d times at %s" % (len(emp), emp))
-        iv = []
-        for Z in STEPS:
+        rep("EXHAUSTIVE", "form %s: the running intersection empties, exactly" % form, True, "%d times at %s" % (len(emp), emp))
+        # (i) a largest pairwise-disjoint set, by the greedy on the right endpoint
+        iv = sorted(STEPS, key=lambda Z: (fl(out["cor"][form][Z][1], math.inf), Z))
+        chosen, last = [], None
+        for Z in iv:
             lo, hi, _ = out["cor"][form][Z]
-            iv.append((fl(lo, -math.inf), fl(hi, math.inf), Z))
-        iv.sort(key=lambda t: t[1])
-        chosen, last = [], -math.inf
-        for L, U, Z in iv:
-            if L >= last:
+            if last is None or (lo is not None and not less(lo, last)):
                 chosen.append(Z)
-                last = U
+                last = hi
         NUM["disjoint_" + form] = chosen
-        rep("EXHAUSTIVE", "form %s: greedy pairwise-disjoint set = piercing number" % form, True, "%d: %s" % (len(chosen), [(Z, G.GROUND[Z][0]) for Z in chosen]))
-        # pairwise disjointness of the chosen, exactly
         okd = True
         for x, y in itertools.combinations(chosen, 2):
             cx, cy = out["cor"][form][x], out["cor"][form][y]
-            # disjoint iff U_x <= L_y or U_y <= L_x
+
             def le(u, l):
                 return u is not None and l is not None and not less(l, u)
             okd = okd and (le(cx[1], cy[0]) or le(cy[1], cx[0]))
-        rep("EXHAUSTIVE", "form %s: the chosen corridors are pairwise disjoint, exactly" % form, okd)
-        # coverage by one slope: piecewise constant, so probe between consecutive distinct endpoints
-        ends = sorted(set(x for L, U, Z in iv for x in (L, U) if math.isfinite(x)))
-        probes = [ends[0] - 1] + [(ends[i] + ends[i + 1]) / 2 for i in range(len(ends) - 1)] + [ends[-1] + 1]
-        cov = [(sum(1 for L, U, Z in iv if L < p < U), i) for i, p in enumerate(probes)]
+        rep("EXHAUSTIVE", "form %s: %d corridors are pairwise disjoint, exactly" % (form, len(chosen)), okd,
+            "%s" % [(Z, G.GROUND[Z][0]) for Z in chosen])
+        # (ii) a piercing set of the same size, EXHIBITED as rationals and verified exactly
+        stabs, unpierced = [], list(STEPS)
+        while unpierced:
+            Z0 = min(unpierced, key=lambda Z: (fl(out["cor"][form][Z][1], math.inf), Z))
+            lo, hi, _ = out["cor"][form][Z0]
+            q = just_below(lo, hi)
+            stabs.append(q)
+            unpierced = [Z for Z in unpierced if not inside(out["cor"][form][Z], q)]
+        miss = [Z for Z in STEPS if not any(inside(out["cor"][form][Z], q) for q in stabs)]
+        rep("EXHAUSTIVE", "form %s: %d exhibited rational slopes pierce all 106 corridors, exactly" % (form, len(stabs)),
+            not miss and len(stabs) == len(chosen), "%s" % [str(q) for q in stabs])
+        NUM["pierce_" + form] = [str(q) for q in stabs]
+        rep("EXHAUSTIVE", "form %s: the piercing number is exactly %d" % (form, len(chosen)),
+            okd and not miss and len(stabs) == len(chosen))
+        # coverage by one slope: piecewise constant, so probe between consecutive endpoints, exactly
+        es = sorted({key(x) for Z in STEPS for x in out["cor"][form][Z][:2] if x is not None},
+                    key=functools.cmp_to_key(lambda A, B: sign(add(dict(A), neg(dict(B))))))
+        es = [dict(k) for k in es]
+        probes = ([between(None, es[0])] + [between(es[i], es[i + 1]) for i in range(len(es) - 1)]
+                  + [between(es[-1], None)])
+        cov = [(sum(1 for Z in STEPS if inside(out["cor"][form][Z], q)), i) for i, q in enumerate(probes)]
         best = max(cov)[0]
         where = [i for c, i in cov if c == best]
-        span = [(ends[i - 1] if i > 0 else -math.inf, ends[i] if i < len(ends) else math.inf) for i in where]
-        NUM["cover_" + form] = (best, [(round(a, 7), round(b, 7)) for a, b in span])
-        rep("EXHAUSTIVE", "form %s: best coverage by one fixed slope" % form, True, "%d of 106 on %s" % (best, NUM["cover_" + form][1]))
+        span = [(None if i == 0 else es[i - 1], None if i == len(es) else es[i]) for i in where]
+        NUM["cover_" + form] = (best, [("−∞" if a is None else closed(a), "+∞" if b is None else closed(b)) for a, b in span])
+        rep("EXHAUSTIVE", "form %s: best coverage by one fixed slope, exactly" % form, True,
+            "%d of 106 on %s" % (best, NUM["cover_" + form][1]))
     rep("EXHAUSTIVE", "node-only: fourteen emptyings at 37 42 43 45 55 58 64 65 80 91 96 97 103 104",
         NUM["empties_p"] == [37, 42, 43, 45, 55, 58, 64, 65, 80, 91, 96, 97, 103, 104])
     rep("EXHAUSTIVE", "node-only: the three pairwise-disjoint corridors are B, La, Lr", NUM["disjoint_p"] == [5, 57, 103])

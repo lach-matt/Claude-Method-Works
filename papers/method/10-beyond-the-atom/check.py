@@ -786,6 +786,14 @@ def check_redundancy(D):
     rd, log = redundancy(gridNe, 4)
     eq("SAMPLED", "R4", "survey grid with N_e = Z - c + 1 adjoined: envelopes, coupling, redundancy, E",
        (nenv, cp, rd, E(gridNe)), (12, Fraction(4, 12), Fraction(0), 20808), ne_E=20808)
+    # the witness that N_e does not preserve the join (Corollary 3's hypothesis, verified not assumed)
+    G = set(D["grid"])
+    ne = lambda c: c[0] - c[1] + 1
+    a, b = (3, 1, 0), (5, 4, 0)
+    j = tuple(map(max, a, b))
+    eq("EXHAUSTIVE", "R4b", "N_e fails to preserve the join on the survey grid: the pair, the join, N_e of each, max",
+       (a in G, b in G, j in G, ne(a), ne(b), ne(j), max(ne(a), ne(b)) != ne(j)),
+       (True, True, True, 3, 2, 2, True))
 
 
 def check_quotient(D):
@@ -844,6 +852,29 @@ def check_quotient(D):
         eq("EXHAUSTIVE", oid, "adjoining %s: E" % name, E(X), want)
     VALUES["adj_dl"] = 1654
     VALUES["adj_dS"] = 3812
+    # each adjoined map fails to preserve the join somewhere on Lambda_9 -- the hypothesis of
+    # Corollary 3, exhibited rather than inferred from the measured defect.
+    S9 = set(L9)
+    wits = {}
+    for nm, fn in (("|dl|", lambda c: abs(dl(c))), ("|dS|", lambda c: abs(dS(c))),
+                   ("(|dl|,|dS|)", lambda c: (abs(dl(c)), abs(dS(c))))):
+        w = None
+        for a, b in itertools.combinations(L9, 2):
+            j = tuple(map(max, a, b))
+            if j not in S9:
+                continue
+            fa, fb, fj = fn(a), fn(b), fn(j)
+            top = max(fa, fb) if not isinstance(fa, tuple) else tuple(map(max, fa, fb))
+            if fj != top:
+                w = (a, b, j, fa, fb, fj, top)
+                break
+        wits[nm] = w
+    eq("EXHAUSTIVE", "Q6d", "each adjoined map fails to preserve the join on Lambda_9: a witness for each of |dl|, |dS|, (|dl|,|dS|)",
+       tuple(w is not None for w in wits.values()), (True, True, True), join_witnesses=wits)
+    for nm in ("|dl|", "|dS|", "(|dl|,|dS|)"):
+        a, b, j, fa, fb, fj, top = wits[nm]
+        rec("EXHAUSTIVE", "Q6d.", "  %-12s %s v %s = %s, values %s and %s, at the join %s, join of values %s"
+            % (nm, a, b, j, fa, fb, fj, top), fj != top)
     # composability and the electromagnetic condition
     src = {(c[0], c[1], c[2], c[7]) for c in L9}
     comp = {c for c in L9 if (c[4], c[5], c[6], c[8]) in src}

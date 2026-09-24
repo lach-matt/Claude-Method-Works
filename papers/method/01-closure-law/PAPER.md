@@ -364,22 +364,23 @@ The image of a join under a difference is not determined; it is bracketed. That 
 
 ### The product rule
 
-**Proposition 4 (products factorise).** Let `A` be a non-empty index on a coordinate set `I` and `B` a non-empty index on a disjoint coordinate set `J`, and let `A × B` denote the index on `I ∪ J` whose cells are the concatenations. Then
+**Proposition 4 (products factorise).** Let `P` be a non-empty index on a coordinate set `I` and `Q` a non-empty index on a disjoint coordinate set `J`, and let `P × Q` denote the index on `I ∪ J` whose cells are the concatenations. Then
 
-> `ℛ(A × B) = ℛ(A) × ℛ(B)`,  and  `E(A × B) = |A|·E(B) + |B|·E(A) + E(A)·E(B)`.
+> `ℛ(P × Q) = ℛ(P) × ℛ(Q)`,  and  `E(P × Q) = |P|·E(Q) + |Q|·E(P) + E(P)·E(Q)`.
 
-**Proof.** *Alphabets.* For `i ∈ I`, `π_i(A × B) = π_i(A)` because `B` is non-empty; likewise on `J`. So `Box(A × B) = Box(A) × Box(B)`.
+**Proof.** *Alphabets.* For `i ∈ I`, `π_i(P × Q) = π_i(P)` because `Q` is non-empty; likewise on `J`. So `Box(P × Q) = Box(P) × Box(Q)`.
 
-*Boundaries.* For `i, j ∈ I` with `i ≠ j` and `a ∈ A_j`, the cells of `A × B` whose `j`-coordinate is at most `a` are exactly the concatenations `y⌢z` with `y ∈ A`, `y_j ≤ a`, `z ∈ B`, and their `i`-coordinate is `y_i`. So the boundary function of the product on `I` is that of `A`, and likewise on `J`. For `i ∈ I` and `j ∈ J`, the condition `y_j ≤ a` places no restriction on the `I`-part, so the boundary function is `max π_i(A)` at every `a`, and the constraint `x_i ≤ max π_i(A)` holds on all of `Box(A × B)`: the cross constraints are vacuous. The inequalities cutting `ℛ(A × B)` out of `Box(A) × Box(B)` are therefore exactly the inequalities of `A` on the `I`-part together with those of `B` on the `J`-part, which is to say `ℛ(A × B) = ℛ(A) × ℛ(B)`.
+*Boundaries.* For `i, j ∈ I` with `i ≠ j` and `a ∈ A_j`, the cells of `P × Q` whose `j`-coordinate is at most `a` are exactly the concatenations of a `y ∈ P` with `y_j ≤ a` and a `z ∈ Q`, and their `i`-coordinate is `y_i`. So the boundary function of the product on `I` is that of `P`, and likewise on `J`. For `i ∈ I` and `j ∈ J`, the condition `y_j ≤ a` places no restriction on the `I`-part, so the boundary function is `max π_i(P)` at every `a`, and the constraint `x_i ≤ max π_i(P)` holds on all of `Box(P × Q)`: the cross constraints are vacuous. The inequalities cutting `ℛ(P × Q)` out of `Box(P) × Box(Q)` are therefore exactly the inequalities of `P` on the `I`-part together with those of `Q` on the `J`-part, which is to say `ℛ(P × Q) = ℛ(P) × ℛ(Q)`.
 
-*The defect.* `|ℛ(A × B)| = |ℛ(A)|·|ℛ(B)| = (|A| + E(A))·(|B| + E(B))`, so
+*The defect.* `|ℛ(P × Q)| = |ℛ(P)|·|ℛ(Q)| = (|P| + E(P))·(|Q| + E(Q))`, so
 
-> `E(A × B) = (|A| + E(A))(|B| + E(B)) − |A||B| = |A|·E(B) + |B|·E(A) + E(A)·E(B)`. ∎
+> `E(P × Q) = (|P| + E(P))(|Q| + E(Q)) − |P||Q| = |P|·E(Q) + |Q|·E(P) + E(P)·E(Q)`. ∎
 
-**PROVED**, **MACHINE-CHECKED** over every subset of `2×2×2`, `3×3×3` and `2×3×4` with the two factors quantified over, and **EXHAUSTIVE** over all 945 pairs `(A, B)` with `A` a subset of a `3×2` box and `B` a subset of a `2×2`, with 0 closure failures and 0 identity failures.
+**PROVED**, **MACHINE-CHECKED** over every subset of `2×2×2`, `3×3×3` and `2×3×4` with the two factors quantified over, and **EXHAUSTIVE** over all 945 pairs `(P, Q)` with `P` a subset of a `3×2` box and `Q` a subset of a `2×2`, with 0 closure failures and 0 identity failures.
 
-Defects therefore multiply as well as add across a product: a closed factor beside an open one already costs `|A|·E(B)`, and two open factors cost a cross term besides. A product is closed exactly when both factors are.
+Defects therefore multiply as well as add across a product: a closed factor beside an open one already costs `|P|·E(Q)`, and two open factors cost a cross term besides. Every term of the identity is non-negative and `|P|, |Q| ≥ 1`, so with Theorem 3 a product is closed exactly when both its factors are.
 
+---
 
 ## §8 · Bands and the triangle
 
@@ -594,7 +595,7 @@ Every number printed above is recomputed by the machine checks, or marked CITED.
 - **3,713 closed sets** — every closed subset of a `4×4` and a `3×5` box, each tested against its own fibre extremes.
 - **438 projections** — every closed subset of `2×2×2` projected onto each of the six proper coordinate sets.
 - **117 subsets** — every subset of `2×2×2` with at least two cells whose three two-fold projections are all closed.
-- **945 pairs** — every `A` in a `3×2` box against every `B` in a `2×2`.
+- **945 pairs** — every `P` in a `3×2` box against every `Q` in a `2×2`.
 - **Three caps** (Table 2) — every unordered pair of cells of `{(a,b,c) : |a−b| ≤ c}` at caps 8, 12 and 16.
 - **5,111 pairs `(G, X)`** — every closed subset `X` of a `3×3` or `2×2×2` box against every non-empty `G ⊆ X`.
 - **219 closed sets** — every closed subset of a `3×3` or a `2×2×2` box, each with its exact minimum cover computed.

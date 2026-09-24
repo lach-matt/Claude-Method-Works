@@ -75,7 +75,7 @@ Throughout `d ≥ 1` is finite and `X` is a finite non-empty set of `d`-tuples o
 
 **D7 (redundancy).** Fix a seed. For a fraction `t`, draw a uniformly random subset of `X` of size `|X| − ⌊t|X|⌋` and ask whether ℛ of it equals `X` exactly. Run `T` independent trials (`T = 10` for `|X| < 3000`, `T = 5` above). The fraction `t` **recovers** when at least 80% of its trials recover. The **redundancy** of `X` is the largest `t` in the ladder 5, 10, 20, 30, 41, 50, 61, 70, 82, 90 per cent that recovers, the ladder being climbed in increasing order and stopped at the first failure. Redundancy is **SAMPLED**; the seed and the per-rung trial counts are printed with every figure.
 
-**D8 (extension, quotient).** Let `h : X → C` map an index into a finite chain. The **extension of `X` by `h`** is `X^h := { (x, h(x)) : x ∈ X }`, an index on `d + 1` coordinates. The **quotient of `X` by `h`** is the image `h(X) ⊆ C`. More generally for `h : X → C_1 × ⋯ × C_m` the quotient is the image index on `m` coordinates. An extension keeps every cell of `X` distinct; a quotient identifies cells `h` cannot separate.
+**D8 (extension, quotient).** Let `C = C_1 × ⋯ × C_m` be a finite product of chains, with the coordinatewise meet and join, and let `h : X → C`. The **extension of `X` by `h`** is `X^h := { (x, h(x)) : x ∈ X }`, an index on `d + m` coordinates. The **quotient of `X` by `h`** is the image index `h(X) ⊆ C` on `m` coordinates. An extension keeps every cell of `X` distinct; a quotient identifies cells `h` cannot separate. For `m = 1` the extension adjoins a single coordinate.
 
 **D9 (composability).** In an index whose cells are **moves** — a cell carrying a source state and a target state — a cell is **followable** when its target state is the source state of some cell of the index. A cell that is not followable ends where nothing begins. The relevant source and target states are named where each such index is defined (§3.1, §5.5).
 
@@ -140,13 +140,13 @@ Every defect reported in this paper is computed at the single fibre — one inde
 
 ### 2.3 A coordinate cannot repair an index
 
-**Theorem 5 (an extension never repairs).** Let `S` be a subset of a box `B`, `C` a finite chain, `h : B → C` any map, and `S^h := { (x, h(x)) : x ∈ S } ⊆ B × C`. If `S^h` is closed under the meet and join of `B × C` then `S` is closed under the meet and join of `B`.
+**Theorem 5 (an extension never repairs).** Let `S` be a subset of a box `B`, `C` a finite product of chains, `h : B → C` any map, and `S^h := { (x, h(x)) : x ∈ S } ⊆ B × C`. If `S^h` is closed under the meet and join of `B × C` then `S` is closed under the meet and join of `B`.
 
-*Proof.* Let `a, b ∈ S`. Then `(a, h(a))` and `(b, h(b))` lie in `S^h`, so their join `(a ∨ b, h(a) ∨ h(b))` lies in `S^h`. Every element of `S^h` has first component in `S`, so `a ∨ b ∈ S`. The same argument with the meet gives `a ∧ b ∈ S`. ∎ **PROVED**, and **MACHINE-CHECKED** over every subset `S` of 3 × 3 with every `h` into a 3-chain, and every subset of 2 × 2 × 2 with every `h` into a 2-chain.
+*Proof.* Let `a, b ∈ S`. Then `(a, h(a))` and `(b, h(b))` lie in `S^h`, so their join `(a ∨ b, h(a) ∨ h(b))` lies in `S^h`. Every element of `S^h` has first component in `S`, so `a ∨ b ∈ S`. The same argument with the meet gives `a ∧ b ∈ S`. ∎ **PROVED**. The proof uses only that `C` carries coordinatewise meet and join, so it holds for any `m`. **MACHINE-CHECKED** at `m = 1` over every subset `S` of 3 × 3 with every `h` into a 3-chain, and every subset of 2 × 2 × 2 with every `h` into a 2-chain.
 
-**Theorem 6 (the criterion).** Let `S ⊆ B` be closed under meet and join and `h : B → C`. Then `S^h` is closed under meet and join **if and only if** `h` restricted to `S` preserves them: `h(a ∨ b) = h(a) ∨ h(b)` and `h(a ∧ b) = h(a) ∧ h(b)` for all `a, b ∈ S`.
+**Theorem 6 (the criterion).** Let `S ⊆ B` be closed under meet and join, `C` a finite product of chains, and `h : B → C`. Then `S^h` is closed under meet and join **if and only if** `h` restricted to `S` preserves them: `h(a ∨ b) = h(a) ∨ h(b)` and `h(a ∧ b) = h(a) ∧ h(b)` for all `a, b ∈ S`.
 
-*Proof.* (⇐) For `a, b ∈ S`, `a ∨ b ∈ S` by hypothesis and `h(a ∨ b) = h(a) ∨ h(b)`, so `(a, h(a)) ∨ (b, h(b)) = (a ∨ b, h(a) ∨ h(b)) = (a ∨ b, h(a ∨ b)) ∈ S^h`; likewise for the meet. (⇒) Let `a, b ∈ S`. The join of their graph points is `(a ∨ b, h(a) ∨ h(b))`, which by hypothesis lies in `S^h`; every element of `S^h` is of the form `(x, h(x))`, and its first component here is `a ∨ b`, so its second component is `h(a ∨ b)`. Hence `h(a ∨ b) = h(a) ∨ h(b)`. Likewise for the meet. ∎ **PROVED**, and **MACHINE-CHECKED** over the same two boxes.
+*Proof.* (⇐) For `a, b ∈ S`, `a ∨ b ∈ S` by hypothesis and `h(a ∨ b) = h(a) ∨ h(b)`, so `(a, h(a)) ∨ (b, h(b)) = (a ∨ b, h(a) ∨ h(b)) = (a ∨ b, h(a ∨ b)) ∈ S^h`; likewise for the meet. (⇒) Let `a, b ∈ S`. The join of their graph points is `(a ∨ b, h(a) ∨ h(b))`, which by hypothesis lies in `S^h`; every element of `S^h` is of the form `(x, h(x))`, and its first component here is `a ∨ b`, so its second component is `h(a ∨ b)`. Hence `h(a ∨ b) = h(a) ∨ h(b)`. Likewise for the meet. ∎ **PROVED**, again for any `m`, and **MACHINE-CHECKED** at `m = 1` over the same two boxes.
 
 **Refutation 1 (the converse of Theorem 5 fails, `d = 2`).** The claim "*if `S` is closed under meet and join then so is `S^h`*" is false. **Witness**, on the box 3 × 3 with `C = {0, 1, 2}`: take
 
@@ -156,9 +156,9 @@ Every defect reported in this paper is computed at the single fibre — one inde
 
 **Refutation 2 (the same at `d = 3`).** On the box 2 × 2 × 2 with `C = {0, 1}`: `S = { (0,0,0), (1,1,1) }`, closed; `h(0,0,0) = 1` and `h = 0` elsewhere. The join of the two graph points is `((1,1,1), 1) ∉ S^h`. ∎ **REFUTATION**, verified the same two ways.
 
-**Corollary 3 (the price of a derived coordinate).** Let `X` be closed, `E(X) = 0`, and let `h : X → C` fail to preserve the meet or the join at some pair of cells of `X`. Then `E(X^h) > 0`.
+**Corollary 3 (the price of a derived coordinate).** Let `X` be closed, `E(X) = 0`, `C` a finite product of chains, and let `h : X → C` fail to preserve the meet or the join at some pair of cells of `X` whose meet or join is in `X`. Then `E(X^h) > 0`.
 
-*Proof.* `X` is a sublattice of its box by Corollary 1. By Theorem 6 the extension `X^h` is then not a sublattice of its box. By Corollary 1 again, contrapositively, `E(X^h) > 0`. ∎ **PROVED.**
+*Proof.* `X` is a sublattice of its box by Corollary 1, so the hypothesis of Theorem 6 is met and every meet and join of cells of `X` lies in `X`. By Theorem 6 the extension `X^h` is then not a sublattice of its own box, which is `Box(X) × C`, itself a product of chains. By Corollary 1, contrapositively, `E(X^h) > 0`. ∎ **PROVED.**
 
 Corollary 3 is the structural content of two measurements made below: adjoining `|Δℓ|` and `|ΔS|` to Λ₉ (§5.4) and adjoining the electron count to a spectroscopic survey grid (§4.4). Neither map preserves the join, and neither extension is closed.
 
@@ -316,7 +316,7 @@ The `r²` is computed in exact rational arithmetic; the `p`-value uses the close
 | 4 | 33 | 0 | **5%** |
 | 3 | 12 | 0 | **0%** |
 
-Every projection is itself closed, so the comparison is between closed indexes throughout and is not contaminated by a change of defect. Redundancy falls monotonically with `d`. This is one object at six dimensions; it is a measurement, not a law, and the cell counts fall with `d` as well, which the design does not separate from the dimension.
+Every projection is itself closed, so the comparison is between closed indexes throughout and is not contaminated by a change of defect. Redundancy is non-decreasing in `d`, and falls by a factor of twelve between eight coordinates and four. This is one object at six dimensions; it is a measurement, not a law, and the cell counts fall with `d` as well, which the design does not separate from the dimension.
 
 ![**Figure 3.** Left: redundancy against the number of coordinates, measured on Λ projected onto its first d, at seed 20260809. Every projection is closed. Right: redundancy against coupling over the six indexes of Table 2; the least-squares fit gives r² = 0.002. Points that coincide carry both labels.](figures/figure-3-redundancy.png)
 
@@ -332,7 +332,9 @@ A coordinate that is a function of coordinates the index already carries adds no
 | redundancy | **20%** | **0%** |
 | E | **0** | **20,808** |
 
-The envelope count doubles and the coupling rises, and by both of the measures usually taken as favourable the index looks better coupled. Recovery becomes strictly harder, and the index stops being closed. Corollary 3 says why: `N_e` is decreasing in `c`, so it does not preserve the join, and the extension of a closed index by a map that fails to preserve the join is not closed.
+The envelope count doubles and the coupling rises — both movements that a reading of coupling as a proxy for reconstructibility would call favourable. Recovery instead fails at the very first rung, 5%, and the index stops being closed.
+
+Corollary 3 says why, and its hypothesis is verified rather than assumed. `N_e` is decreasing in the core charge, so it does not preserve the join; the witness is the pair of cells `(Z, c, ℓ) = (3, 1, 0)` and `(5, 4, 0)`, both in the grid, with `N_e = 3` and `N_e = 2`. Their join is `(5, 4, 0)`, also in the grid, with `N_e = 2`, while the join of the two values is 3. A closed index extended by a map that fails to preserve the join is not closed.
 
 ---
 
@@ -350,15 +352,19 @@ Both are differences of two coordinates of the index. On Λ₉ at these caps `�
 
 **Lemma 3 (the interval property).** Let `g(x) = x_i − x_j` for coordinates `i ≠ j`. For any two cells `a, b`, both `g(a ∨ b)` and `g(a ∧ b)` lie in the closed interval between `g(a)` and `g(b)`.
 
-*Proof.* Write `s = (a_i, b_i)` and `t = (a_j, b_j)`. For the join, `g(a ∨ b) = max(s) − max(t)`. Let `m` be an index attaining `max(s)` and `n` an index attaining `max(t)`. Then
+*Proof.* Write `s₁ = a_i`, `s₂ = b_i`, `t₁ = a_j`, `t₂ = b_j`, and `g₁ = s₁ − t₁ = g(a)`, `g₂ = s₂ − t₂ = g(b)`.
 
-> `max(s) − max(t) = s_m − t_n ≤ s_m − t_m = g` evaluated at `m`,
+*The join.* `g(a ∨ b) = max(s₁, s₂) − max(t₁, t₂)`. Choose `m ∈ {1, 2}` with `s_m = max(s₁, s₂)` and `n ∈ {1, 2}` with `t_n = max(t₁, t₂)`. Since `t_n ≥ t_m`,
 
-because `t_n ≥ t_m`; and
+> `g(a ∨ b) = s_m − t_n ≤ s_m − t_m = g_m`;
 
-> `max(s) − max(t) = s_m − t_n ≥ s_n − t_n = g` evaluated at `n`,
+and since `s_m ≥ s_n`,
 
-because `s_m ≥ s_n`. So `g(a ∨ b)` is at most one of the two values `g(a), g(b)` and at least the other, hence lies between them. For the meet, let `m` attain `min(s)` and `n` attain `min(t)`. Then `min(s) − min(t) = s_m − t_n ≥ s_m − t_m` because `t_n ≤ t_m`, and `min(s) − min(t) = s_m − t_n ≤ s_n − t_n` because `s_m ≤ s_n`. Again the value lies between the two. ∎ **PROVED**, and **EXHAUSTIVE** for `Δℓ` and `ΔS` on all **1,367,031** pairs of Λ₉, with zero violations.
+> `g(a ∨ b) = s_m − t_n ≥ s_n − t_n = g_n`.
+
+So `g_n ≤ g(a ∨ b) ≤ g_m` with `m, n ∈ {1, 2}`, which places `g(a ∨ b)` between `min(g₁, g₂)` and `max(g₁, g₂)`.
+
+*The meet.* `g(a ∧ b) = min(s₁, s₂) − min(t₁, t₂)`. Choose `m` with `s_m = min(s₁, s₂)` and `n` with `t_n = min(t₁, t₂)`. Since `t_n ≤ t_m`, `g(a ∧ b) = s_m − t_n ≥ s_m − t_m = g_m`; and since `s_m ≤ s_n`, `g(a ∧ b) = s_m − t_n ≤ s_n − t_n = g_n`. Again the value lies between `g₁` and `g₂`. ∎ **PROVED**, and **EXHAUSTIVE** for `Δℓ` and `ΔS` on all **1,367,031** pairs of Λ₉, with zero violations.
 
 **Corollary 4 (the convexity criterion).** Let `X` be a sublattice of its box, `g` a difference of two coordinates, and `C ⊆ ℤ` an interval. Then `{ x ∈ X : g(x) ∈ C }` is a sublattice.
 
@@ -412,13 +418,19 @@ All 1,654 cells map somewhere, and the image is the full 2 × 4 box. Its defect 
 
 > `E = 9,278`.
 
-Adjoining `|Δℓ|` alone gives `E = 1,654`; adjoining `|ΔS|` alone gives `E = 3,812`. Corollary 3 accounts for all three: by Lemma 3, `Δℓ` of a join lies *between* the two values, and Refutation 3 exhibits a pair where it is strictly between, so `Δℓ` — and a fortiori `|Δℓ|` — does not preserve the join on Λ₉. A selection rule divides an index; it does not extend one, and the difference between the two readings is 9,278 cells.
+Adjoining `|Δℓ|` alone gives `E = 1,654`; adjoining `|ΔS|` alone gives `E = 3,812`.
+
+Corollary 3 accounts for all three, and its hypothesis is exhibited for each map rather than inferred from the defect. For `|Δℓ|` the witness is Refutation 3's pair: both members have `|Δℓ| = 1`, their join has `|Δℓ| = 0`, and 0 is not the join of 1 with 1. For `|ΔS|` the witness is
+
+> `(1, 0, 1, 0, 1, 0, 0, 1, 0)` and `(1, 0, 1, 1, 1, 0, 1, 0, 1)`, with `|ΔS| = 1` each,
+
+whose join `(1, 0, 1, 1, 1, 0, 1, 1, 1)` is again a cell of Λ₉ and has `|ΔS| = 0`. The same pair witnesses the failure for the two maps taken together. A selection rule divides an index; it does not extend one, and the difference between the two readings is 9,278 cells.
 
 **A second, independent measurement on the same cells.** Whether a cell is dipole-allowed (`|Δℓ| = 1` and `ΔS = 0`: **264** of the 1,654) and whether it is followable in the sense of D9 (**1,169** of the 1,654) are almost unrelated. The binary entropy of "allowed" is `H = 0.633` bits, and the mutual information (Shannon 1948) between "allowed" and "followable" is **0.0004 bits** — six parts in ten thousand of what is available. Selection and composition are separate structures on the same index.
 
 ### 5.5 The crossing
 
-The measurement that follows is on a different population, built from the observed ground configurations of all **118 elements**, as tabulated by NIST (Kramida, Ralchenko, Reader and the NIST ASD Team 2024). A cell is a move between two distinct occupied subshells of one element: `(Z, n, ℓ, k, q, e, f, g)`, where the subshell `(n, ℓ)` of element `Z` holds `k` electrons, `q` of them are taken, and `g ≤ min(q, 4f+2)` are placed in the occupied subshell `(e, f)`. There are **4,325** such cells, all distinct.
+The measurement that follows is on a different population, built from the observed ground configurations of all **118 elements**, as tabulated by NIST (Kramida, Ralchenko, Reader and the NIST ASD Team 2024). A cell is a move between two distinct occupied subshells of one element: `(Z, n, ℓ, k, q, e, f, g)`, where the subshell `(n, ℓ)` of element `Z` holds `k` electrons, `1 ≤ q ≤ k` of them are taken, and `1 ≤ g ≤ min(q, 4f+2)` of those are placed in another occupied subshell `(e, f)` of the same element. There are **4,325** such cells, all distinct.
 
 A move is **followable** when its target — the subshell `(e, f)` at the occupancy `g` it delivers — is itself the source subshell, at that occupancy, of some move in the population. Two scopes are measured: *within one element*, where the matching move must belong to the same `Z`; and *across the table*, where it may belong to any of the 118.
 
@@ -432,7 +444,7 @@ A move is **followable** when its target — the subshell `(e, f)` at the occupa
 | parity-conserving, Δℓ even | 606 | 233 (**38.4%**) | 544 (89.8%) |
 | parity-changing, Δℓ odd | 3,719 | 749 (**20.1%**) | 3,142 (84.5%) |
 
-**The crossing is the first two data rows.** Within one element a dipole-allowed move is followable 11.6% of the time against the forbidden 40.7%; across the 118 elements the order reverses, 89.7% against 77.9%. The rule that forbids composition inside an atom is the rule that enables it between atoms.
+**The crossing is the second and third rows.** Within one element a dipole-allowed move is followable 11.6% of the time against the forbidden 40.7%; across the 118 elements the order reverses, 89.7% against 77.9%. The rule that forbids composition inside an atom is the rule that enables it between atoms.
 
 The parity split reproduces half of this and not the other half. Splitting instead on the parity of `Δℓ` gives 38.4% against 20.1% within one element — the same direction, conserving above changing — but across the table the order does **not** reverse: 89.8% against 84.5%, conserving still above changing. The crossing proper belongs to the `|Δℓ| = 1` split, and the parity split is a weaker companion to its within-element half only. Both figures are printed because the difference between them is a result.
 
@@ -478,12 +490,12 @@ Two further readings are special, and they are special for different reasons. A 
 
 ## §7 · Verification record
 
-The verification program runs **95 obligations** and all pass; in self-test mode it runs 99, the four added being negative controls that must be reported as refuted and are. The distribution by status, in the plain run:
+The verification program runs **102 obligations** and all pass; in self-test mode it runs 106, the four added being negative controls that must be reported as refuted and are. The distribution by status, in the plain run:
 
 | status | count |
 |---|---|
 | MACHINE-CHECKED | 8 |
-| EXHAUSTIVE | 71 |
+| EXHAUSTIVE | 78 |
 | SAMPLED | 9 |
 | REFUTATION | 2 |
 | GUARD | 5 |
@@ -502,7 +514,7 @@ The verification program runs **95 obligations** and all pass; in self-test mode
 | Theorem 5, extension never repairs | ✓ | ✓ 2 obligations: (3×3, h into a 3-chain), (2×2×2, h into a 2-chain) | — | — |
 | Theorem 6, the criterion | ✓ | ✓ 2 obligations, same two boxes | — | — |
 | Refutations 1 and 2 | — | Z3 reports the converse satisfiable on both boxes | witness verified by enumeration | — |
-| Corollary 3 | ✓ | — | — | — |
+| Corollary 3 | ✓ | — | its hypothesis exhibited for all four maps used (§4.4, §5.4) | — |
 | Table 1, fourteen indexes | — | — | every cell of every index, closure computed in full | — |
 | the periodic table's 36 | — | — | the 36 named and matched | — |
 | the nuclide populations | — | — | 5 cutoffs; 3,558 AME2020 rows at 5 cutoffs | AME2020 **CITED** |
@@ -513,7 +525,7 @@ The verification program runs **95 obligations** and all pass; in self-test mode
 | Refutation 3, the parity witness | — | — | exhaustive pair search over 840 cells | — |
 | Tables 2 and 3, redundancy | — | — | coupling exact on every envelope | **SAMPLED**, seed 20260809 |
 | §4.2, r² and p | — | — | exact rational r²; quadrature agrees to 5.5 × 10⁻¹⁴ | — |
-| §5.4, quotient and extensions | — | — | all 1,654 cells, three extensions closed in full | — |
+| §5.4, quotient and extensions | — | — | all 1,654 cells, three extensions closed in full; a join-failure witness for each map | — |
 | §5.5, the crossing | — | — | all 4,325 moves, five classes, two scopes | ground configurations **CITED** |
 | §6, the five languages | — | — | four indexes at d ≥ 3, ten pairs each | — |
 

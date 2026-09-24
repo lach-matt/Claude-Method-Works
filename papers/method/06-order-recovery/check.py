@@ -924,6 +924,39 @@ def section_census():
     return CENSUS
 
 
+def section_projection_gap(CENSUS):
+    """Pointwise is not enough: every PAIR PROJECTION reorderable, and X not.  Exhaustive over
+    every observed subset of each box, with the smallest witness printed."""
+    print("\nH2. Every pair projection reorderable does not make X reorderable")
+    rows = []
+    for shape in [(2, 2, 2), (2, 2, 3), (2, 2, 2, 2)]:
+        t = time.time()
+        C = CENSUS[shape]
+        cells, reord, obs = C["cells"], C["reord"], C["obs"]
+        N = len(cells)
+        d = len(shape)
+        n = gap = allpairs = 0
+        wit = None
+        for m in np.nonzero(obs)[0]:
+            X = [cells[i] for i in range(N) if m >> i & 1]
+            n += 1
+            ok = all(reorderable_brute(sorted({(c[i], c[j]) for c in X}), 2)
+                     for i in range(d) for j in range(i + 1, d))
+            allpairs += ok
+            if ok and not reord[m]:
+                gap += 1
+                if wit is None or len(X) < len(wit):
+                    wit = X
+        rows.append(dict(box=list(shape), observed=n, all_pairs_reorderable=allpairs,
+                         reorderable=int((reord & obs).sum()), gap=gap,
+                         witness=[list(c) for c in wit] if wit else None,
+                         seconds=round(time.time() - t, 1)))
+        report("EXHAUSTIVE", "box %s: %d observed subsets, %d with every pair projection reorderable, %d of those not reorderable"
+               % ("x".join(map(str, shape)), n, allpairs, gap), gap > 0,
+               "smallest witness (%d cells): %s" % (len(wit), wit) if wit else "no witness")
+    put("projection_gap", rows)
+
+
 def section_d2_algorithm(CENSUS):
     print("\nH. The d = 2 decision by root enumeration + Theorem 1, against the brute-force census")
     rows = []
@@ -1315,6 +1348,7 @@ def main():
     section_interval_characterisation()
     section_interval_lemma()
     CENSUS = section_census()
+    section_projection_gap(CENSUS)
     section_d2_algorithm(CENSUS)
     section_tree(CENSUS, cells, L216, TREE)
     section_removal()

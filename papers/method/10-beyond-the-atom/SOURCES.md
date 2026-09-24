@@ -2,11 +2,11 @@
 
 Paper: `PAPER.md`, "Closure beyond the atom: the defect of other indexes, redundancy, and the
 electromagnetic quotient". Drafted 2026-09-21 (resumed run). Every number in the paper is produced
-by `check.py` — 95 obligations in the plain run, 99 with `--selftest`, all passing — or is CITED.
+by `check.py` — 102 obligations in the plain run, 106 with `--selftest`, all passing — or is CITED.
 
 Run: `export PATH=/home/user/Claude-Method-Works/method/bin:$PATH; python3 check.py --selftest`
-→ `99 obligations, 0 failed` (MACHINE-CHECKED 8, EXHAUSTIVE 71, SAMPLED 9, REFUTATION 6, GUARD 5).
-The plain run is 95 (REFUTATION 2).
+→ `106 obligations, 0 failed` (MACHINE-CHECKED 8, EXHAUSTIVE 78, SAMPLED 9, REFUTATION 6, GUARD 5).
+The plain run is 102 (REFUTATION 2).
 
 Instruments imported by path, never copied: `research/warp-drive/prover.py` (the Z3 harness and its
 `cells_of` / `meet` / `join` / `in_R` / `subset_vars` / `contains` / `prove` / `non_vacuous`);
@@ -270,10 +270,19 @@ The paper prints all four parity figures and says explicitly that the crossing p
    sources. The paper states the 540, the three published bounds all 540 satisfy, and that none falls
    in the sparsely populated tip — and says in §0 and §3.5 that this is weaker than a lookup.
 
-8. **Bit cost (D10).** This paper's own construction, to put defects of different sizes on one scale.
+8. **Proposition 1 and the join witnesses.** Three claims the sources assert or leave implicit are
+   turned into checked obligations rather than repeated. That ℛ and the sublattice hull are the same
+   operator is asserted in the language table (both read E = 100 on the three-coordinate periodic
+   table) and is measured here on every subset of two small boxes and on three larger indexes (T3,
+   T3b); the general identity is cited to the hierarchy-law paper. That a derived coordinate breaks
+   closure is asserted; the join failure of Nₑ on the survey grid (R4b) and of |Δℓ|, |ΔS| and the pair
+   on Λ₉ (Q6d) are each exhibited as a named pair of cells, so Corollary 3's hypothesis is verified
+   rather than inferred backwards from the measured defect.
+
+9. **Bit cost (D10).** This paper's own construction, to put defects of different sizes on one scale.
    No source figure; every value is computed (C13, C13b).
 
-9. **The fibration caveat.** Appendix D.5.5's own finding — that E falls as a fibration is refined
+10. **The fibration caveat.** Appendix D.5.5's own finding — that E falls as a fibration is refined
    and reaches zero by refinement alone — is stated in the sources as a measurement on one
    thirty-two-element index. The paper proves it: Theorem 4 (fibring by a coordinate never raises the
    total defect) and Corollary 2 (the finest fibration gives zero, because a singleton is a full box).

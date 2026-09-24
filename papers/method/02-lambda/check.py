@@ -1220,13 +1220,20 @@ def selftest():
     s = z3.Solver()
     s.add(z3.Not(z3.Implies(z3.And(sm(X), sm(Y)), z3.And(sm(J), sm(M)))))
     r = s.check()
-    res.append(r == z3.sat)
-    wit = ""
-    if r == z3.sat:
-        mo = s.model()
-        wit = "x = %s, y = %s" % ("".join(str(mo.eval(v, True)) for v in X),
-                                  "".join(str(mo.eval(v, True)) for v in Y))
-    row("SELFTEST", "sum bound g + q <= 3 is not closed", "%s; %s" % (r, wit), r == z3.sat)
+    # the witness the paper prints, verified concretely so the printed pair does not depend
+    # on which model the solver happens to return
+    wx, wy = (3, 1, 3, 3, 3, 0, 0, 0), (2, 1, 3, 1, 2, 1, 1, 1)
+
+    def sum_ok(t):
+        return in_range(t, CAPS) and admissible(t) and t[IG] + t[IQ] <= 3
+
+    named = sum_ok(wx) and sum_ok(wy) and not sum_ok(join(wx, wy))
+    res.append(r == z3.sat and named)
+    row("SELFTEST", "sum bound g + q <= 3 is not closed",
+        "%s; the named witness x = %s, y = %s has join %s with g + q = %d"
+        % (r, "".join(map(str, wx)), "".join(map(str, wy)),
+           "".join(map(str, join(wx, wy))), join(wx, wy)[IG] + join(wx, wy)[IQ]),
+        r == z3.sat and named)
 
     # (2) drop monotonicity and the bound lemma fails
     phi = z3.Function("nphi", z3.IntSort(), z3.IntSort())
