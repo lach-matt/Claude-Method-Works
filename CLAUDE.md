@@ -69,8 +69,9 @@ named box with both guards, or exact arithmetic, with negative controls under `-
 figures with their record, its source map naming every claim of the volumes the check could not
 reproduce, and its three-reader audit with every finding dispositioned. `PAPER-SPEC.md` is the
 contract, `lint.py` mirrors this site's guard, `pdf/` holds the review renders the site offers as
-downloads, and `FOR-THE-AUTHOR.md` lists what each paper leaves to the author, four working titles
-among them. `webindex.py` reads them as research-tree papers marked `own_figures`, so their figures
+downloads, and `FOR-THE-AUTHOR.md` lists what each paper leaves to the author and records what the
+author has since settled (2026-09-24: the titles, the lawrencium configuration, the polarisation
+prefactor, the sources of the forty-two chemical properties). `webindex.py` reads them as research-tree papers marked `own_figures`, so their figures
 are carried from their directories with md5s measured at build. The same directory is on the book
 branch, where it was built; a change is made on one branch and carried to the other by hand. See
 `papers/method/PUBLISHING-NOTES.md`.

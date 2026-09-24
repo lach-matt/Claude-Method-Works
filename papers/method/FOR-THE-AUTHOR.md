@@ -565,3 +565,66 @@ three — which is what the source's "carried as its monotone envelope" actually
 coupling scheme is named, one outer electron applied as bookkeeping at every g, the parent-J
 coordinate taken from ℓᵏ before the transfer, and the constant a labelling convention. All 49
 findings fixed. One reference lacks an end page the proxy would not serve.
+
+---
+
+## Settled 2026-09-24, at the author's direction
+
+M asked for four of the items above to be done rather than left. Each decision, its ground and
+where it landed. Nothing else in this file changes; the items are kept above as the record of what
+was open.
+
+**1 · The titles.** Six titles had been carried as working titles from the repair pass — the
+lattice (02), the polarisation ratio (04), the parent-term wall (07), the chemical index (08), the
+occupation hull (09) and closure beyond the atom (10). All six stand as the settled titles: each was
+chosen by its audit to say exactly what the paper proves, and re-reading each against its abstract
+found no word to change. Two are re-cased to match the shelf — 08 and 10 were in sentence case where
+the other eight are in title case — and no word of either moved: *Closing the Chemical Properties: a
+Classification Index for the Elements*; *Closure beyond the Atom: the Defect of an Index, Its Zeros
+by Theorem, and the Electromagnetic Quotient*. The titles each paper carried earlier stay recorded in
+its `SOURCES.md`.
+
+**2 · The lawrencium configuration.** The occupation-hull paper adopts the tabulated 7p¹ at Z = 103.
+Three grounds, recorded in its `SOURCES.md`: D3 defines the data as the NIST tabulation at every Z,
+and substituting one entry would make the data the author's at exactly one site; the tabulated entry
+is the relativistic coupled-cluster prediction (Eliav, Kaldor and Ishikawa 1995) and the one
+measurement on the atom, the first ionisation potential (Sato et al. 2015), is consistent with it, so
+it is the better-supported configuration and not merely the recorded one; and the 6d¹ case loses
+nothing by being the sensitivity rather than the headline — it stays computed, printed and checked,
+and Theorem 5 states both piercing numbers. The paper's §1 and the paragraph after Theorem 5's proof
+now say so; the theorem, the check and the tables are unchanged, and the member's OBSERVED docstring
+is still not edited.
+
+**3 · The prefactor.** Settled as a factor-2 slip in the record, not a units convention: the
+compendia define K(ℓ) = ℓ(ℓ+1)(2ℓ−1)(2ℓ+1)(2ℓ+3), the paper's K, so 3αz²/K and the derived 6αz²/K
+differ by exactly two, and a series outside the paper's sample decides between them. On the Rb ng
+series the measured defect is δ_g = 0.00405(6) at n = 30 (Afrousheh et al. 2006); Rb⁺'s dipole
+polarisability is 9.116(9) a₀³ from spectroscopy (Berl et al. 2020) and 9.11 a₀³ from relativistic
+coupled-cluster theory (Lim, Laerdahl and Schwerdtfeger 2000), which owes nothing to a quantum defect.
+Then 6α/K(4) = 0.003946 and 3α/K(4) = 0.001973: the measurement is 2.6% above the first and 2.05
+times the second, and with c₂/n² and Lemma 4's quadrupole term at Berl's α_q = 38.4 a₀⁵ the model
+gives 0.004080, inside the measurement's uncertainty. The paper says so in §2 ("The prefactor"), the
+check carries the arithmetic as its ninth MEASURED obligation with the 3/K form as a fifth negative
+control, and the three references are added, verified by web search since the publishers' pages are
+behind the proxy. One consequence for the record is recorded and not repaired: the store's
+`seaton.py` inverts the 3/K form, so every polarisability it reports is twice the literature's. The
+comparison of the three implied polarisabilities of Table 3 with published values is still not made,
+for the reason it was not before — the published values for Cd⁺, In⁺ and Sr²⁺ could not be verified
+here — and the question it would have addressed is now settled on rubidium instead.
+
+**4 · The thirty-six properties.** Table 1 of the chemical index carries a fifth column naming, for
+every one of the forty-two, the public tabulation in which a reader finds it: eleven the NIST Atomic
+Spectra Database (the six already named, and the closed-core term, the successive ionisation
+energies, the emission spectrum, the Landé g of the ground level and whether it carries unpaired
+spin, all read off the same tables), and thirty-one the twenty-one compilations now in the
+References — AME2020 and NUBASE2020, the IUPAC isotopic compositions, Sears's neutron cross sections,
+Bearden and Burr's core levels, Shannon's ionic radii, Slater's atomic radii, Cordero's covalent
+radii, Desclaux's Dirac–Fock subshell radii, Pauling's scale and Allred's values, Andersen's electron
+affinities, Lever's ligand-field spectra, Wells's structural chemistry, Donohue's structures of the
+elements, Ho's thermal conductivities, Samsonov's handbook for hardness, the CRC Handbook in its
+current edition for density, the two transition temperatures and resistivity, Greenwood and Earnshaw
+for oxidation states, metallic character and reactivity, and Emsley's two books for the descriptive
+entries — colour of the bulk element, smell and taste — that no tabulation carries. Every reference
+was verified by web search as to its bibliographic details and as to carrying the property named
+beside it. The paper still takes no number from any of them, and says so in §0 and §3; the
+instruments still name no source, and `SOURCES.md` records that the column is the paper's.

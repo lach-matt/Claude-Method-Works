@@ -6,7 +6,7 @@ Every number the paper prints is produced here, or is CITED.  Exact arithmetic
 Z3 for the two real-arithmetic obligations; stdlib otherwise.
 
     python3 check.py              every obligation, one line each, a summary; exit 1 on failure
-    python3 check.py --selftest   the same, plus three negative controls that must be REFUTED
+    python3 check.py --selftest   the same, plus five negative controls that must be REFUTED
 
 Instruments are imported by path and never copied:
   recovered/ritz.py            the level data of the thirteen series (read with ast, since the
@@ -475,6 +475,31 @@ def ob_z3_quadrupole(lmax=8):
     return all(results), nonvac, compared, disagree
 
 
+def ob_prefactor_rb(wrong=False):
+    """Theorem 1's prefactor tested on a series outside the sample, in exact arithmetic on CITED values.
+    Rb ng: delta_g(n = 30) = 0.00405(6) (Afrousheh, Bohlouli-Zanjani, Petrus and Martin 2006);
+    alpha_d(Rb+) = 9.116(9) a0^3 and alpha_q = 38.4(6) a0^5 (Berl, Sackett, Gallagher and Nunkaew 2020);
+    alpha_d = 9.11 a0^3 by relativistic coupled cluster (Lim, Laerdahl and Schwerdtfeger 2000).
+    The dipole limit is 6 alpha/K(4) under Theorem 1 and 3 alpha/K(4) under the working record's form;
+    the n-dependent value at n = 30 adds c2/n^2 and the first-order quadrupole shift of -alpha_q/(2 r^6),
+    alpha_q n^3 <r^-6>/2 with <r^-6> from Lemma 4's closed form (z = 1).  With wrong=True the 3/K form
+    is carried through the same arithmetic and must miss the measurement (a negative control)."""
+    l, n = 4, 30
+    a, aq = F(9116, 1000), F(384, 10)
+    a_rcc = F(911, 100)
+    meas, unc = F(405, 100000), F(6, 100000)
+    Kl = K(l)
+    six, three = 6 * a / Kl, 3 * a / Kl
+    c0 = three if wrong else six
+    c2 = c0 * F(-l * (l + 1), 3)
+    quad = aq * n ** 3 * r6_formula(n, l) / 2
+    full = c0 + c2 / F(n * n) + quad
+    ok = (abs(full - meas) <= unc and F(100, 100) < meas / six < F(105, 100)
+          and F(19, 10) < meas / three < F(21, 10) and F(100, 100) < meas / (6 * a_rcc / Kl) < F(105, 100))
+    return {"six": six, "three": three, "full": full, "meas": meas, "unc": unc, "ok": ok, "K": Kl,
+            "rcc": 6 * a_rcc / Kl}
+
+
 def ob_prefactor():
     """The prefactor identity behind Theorem 1's displayed constant:
         6 / K(l)  ==  (3/4) / [ (l-1/2) l (l+1/2) (l+1) (l+3/2) ],
@@ -878,6 +903,10 @@ def main(selftest=False):
                     "degree 5 in l, checked at %d values of l" % famp)
     allok &= report("EXHAUSTIVE", "l^5 6/K(l) < 3/4 and strictly increasing over l in 1..200", monop,
                     "%d values; reaches %.6f at l = 200" % (famp, tail))
+    rb = ob_prefactor_rb()
+    allok &= report("MEASURED", "the prefactor on Rb ng (outside the sample): 6a/K(4) against 3a/K(4), CITED inputs", rb["ok"],
+                    "K(4) = %d; 6a/K = %.6f (a = 9.116), %.6f (a = 9.11); 3a/K = %.6f; with c2/n^2 and the quadrupole term at n = 30: %.6f; measured %.5f +/- %.5f"
+                    % (rb["K"], float(rb["six"]), float(rb["rcc"]), float(rb["three"]), float(rb["full"]), float(rb["meas"]), float(rb["unc"])))
 
     # 3  Theorem 1
     fam3, ok3 = ob_ratio_identity()
@@ -1052,6 +1081,9 @@ def main(selftest=False):
         moved = r3(stp["p0_median"]) != SOURCE_STAT["p0_median"] or r3(stp["p0_sd"]) != SOURCE_STAT["p0_sd"]
         allok &= report("REFUTED", "control: Cd I 4f raised by 5 cm^-1 moves the p = 0 statistic", moved,
                         "median %.3f sd %.3f" % (stp["p0_median"], stp["p0_sd"]))
+        rbw = ob_prefactor_rb(wrong=True)
+        allok &= report("REFUTED", "control: the 3a/K(4) prefactor carried through the Rb ng arithmetic misses the measurement", not rbw["ok"],
+                        "gives %.6f against %.5f +/- %.5f" % (float(rbw["full"]), float(rbw["meas"]), float(rbw["unc"])))
 
     print()
     n = len(RESULTS)

@@ -1,7 +1,7 @@
 # SOURCES.md — provenance map for 07-wall-janet (not published)
 
-Paper: `PAPER.md`, **"The Parent-Term Wall and the Cost of a Drawn Coordinate"** — a working title
-adopted in the 2026-09-24 repair. **The title the paper carried from 2026-09-21 to 2026-09-24 was
+Paper: `PAPER.md`, **"The Parent-Term Wall and the Cost of a Drawn Coordinate"** — adopted as a working title
+in the 2026-09-24 repair and settled as the title the same day, at the author's direction. **The title the paper carried from 2026-09-21 to 2026-09-24 was
 "The Parent-Term Wall and the Janet Collapse"**, and it is recorded here for the author, who may
 restore it: it was changed because the audit (R-2 / R-17) showed the paper's first half is not a
 result about Janet's ordering but about which coordinate is drawn, and the collapse statistic of §5
