@@ -303,3 +303,6 @@ except where Theorem 2 names further settings. The completeness of the branch-an
 Theorem 18's proof and not certified by an external tool. Theorem 16's cited steps (Birkhoff, Rota)
 are not machine-checked. Distributivity on cell triples and the multiplicative triangle on cell
 triples are SAMPLED transcription checks of proved statements.
+
+
+**The 715 cells admitted without physical restriction — settled 2026-09-24 at the author's direction: they stay.** The 515 cells with g < q and the 200 with source equal to target are admitted because the index carries no coordinate for prior occupancy and the model of a cell is the one the source states (D1); removing them would make Λ a different object from the 976-cell index every other paper on the shelf, and the tower built on it, takes as given. The paper already states the model once and labels the two populations in its verification record (D1 row), so no text changes; the count is a fact about the model, recorded beside it.

@@ -287,8 +287,10 @@ readable through the alphaXiv connector and serve as restatements:
   one" — and give the entry "I. Rival, Maximal Sublattices of Finite Distributive Lattices,
   Proc. Amer. Math. Soc. 37 (1973), 417–420". Title, volume and pages confirmed. **The cardinality
   bound's wording is not confirmed**: the source volume prints `|K| ≤ (3/2)|L|` (vacuous), the audit
-  gives `|L| ≤ (3/2)|K|`, and the paper prints the audit's direction. **Marked for M** to confirm
-  against the paper itself. Nothing in the paper's proofs depends on it.
+  gives `|L| ≤ (3/2)|K|`, and the paper prints the audit's direction. **Confirmed 2026-09-24 by web search**: a lattice-theory reference (the
+  Freese–Ježek–Nation notes as indexed by a search engine) states Rival's result as "if L is a maximal
+  sublattice of a distributive lattice K with |K| > 2, then |K| ≤ (3/2)|L|" — the audit's direction,
+  which the paper prints. Nothing in the paper's proofs depends on it.
 - **Green and Cohen (2008)**: Takhanov, *On the induced problem for fixed-template CSPs*,
   arXiv:1708.08292 (v3), §1 ("Motivation") and §3.1, restate the problem (permutations of each
   variable's domain making the permuted relations max-closed), that "to find such permutations is
@@ -301,8 +303,9 @@ readable through the alphaXiv connector and serve as restatements:
   confirmed from search listings; the max-closed tractability theorem is stated in the paper as
   Takhanov and the CSP literature restate it. The abstract itself was not reachable.
 - **Janet**: the French imprint *La classification hélicoïdale des éléments chimiques* (Beauvais,
-  Imprimerie Départementale de l'Oise) is 1928, per the audit (A-24); the paper cites 1928. Not
-  independently verified through the proxy. **Marked for M.**
+  Imprimerie Départementale de l'Oise) is 1928, per the audit (A-24); the paper cites 1928.
+  **Confirmed 2026-09-24 by web search** (the *Foundations of Chemistry* biography of Janet gives
+  the imprint, place and year).
 
 **Citation forms not independently verified**: the pagination of Baker and Pixley (1975). Nothing in
 the paper's results depends on it.
@@ -311,3 +314,6 @@ the paper's results depends on it.
 
 Figure 4's caption fractions are 1.000, **0.724** (47,416/65,536 = 0.72351), 0.077, 0.050, as
 `check.py`'s `fraction_reorderable` prints them (audit A-28 — this file previously said 0.723).
+
+
+**The three census figures marked for M — closed 2026-09-24 as recorded, not reconciled.** The store was searched for the populations behind them. The 114-of-141 plate is already the subject of a finding in the record's own working notes, which report that neither 141 nor 114 matches any measurable population; the 18,736 is the number of sets the source's growth procedure reached at 2×3×3 and compared with its own exhaustion, and the definition of that population is printed nowhere in the tree — only the prose of the procedure survives, without its code; the defence statistic's two stated values have no instrument. The paper prints what it measured and names the family, which is all the tree supports; nothing more can be reconciled here.

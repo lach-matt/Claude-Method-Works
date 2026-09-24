@@ -258,3 +258,6 @@ Unchanged: NOT-RUN is not SILENT; agreement at d = 2 is withheld; the roster is 
 ## 8. Figures
 
 `figures/figure-1-periodic-table.png` is now computed by `figures.py` from C2 / C2b (the audited plate it replaces had its title across the first row of cells and no legend, AUDIT A-38); Figures 2–4 are computed from `check.py`'s VALUES. `FIGURES.tsv` carries the md5 of each after the final run.
+
+
+**The redundancy protocol — closed 2026-09-24 as a reconstruction.** The store was searched for an instrument stating the trial count, threshold or seed behind the source's redundancy figures; none exists in the seated members, the recovered tree or the extracted archives (the word occurs only in audit scripts about other things). D7 stays the paper's own stated convention, marked SAMPLED, which is what the tree supports.

@@ -225,7 +225,11 @@ would then be XV, not 6 either. Neither reading gives 6. The paper prints the me
 in the form the classification supports ("no core with more than one level above spectrum number
 IV") and states the two Fe species explicitly so the reader can see which reading is in force. The
 audited draft's "which is what Corollary 2 predicts" is gone (A-23): the ceiling is a fact about
-which series were captured.
+which series were captured. **Settled 2026-09-24 at the author's direction:** the reading in force is
+D8's — more than one core level — because that is the reading under which the wall exists at all (a
+one-level core gives one limit per ℓ); the paper's ceiling paragraph now says so, and names Fe XV as
+the species the looser reading would admit. The compendia's "charge 6" is true under neither
+reading and stays recorded here, not printed.
 
 **3. The Fe IV series census is not reproduced, and is not printed.** Both compendia state that
 Fe IV's 3d⁴ core carries sixteen LS terms, that the capture shows 13 of them across 24 distinct

@@ -256,8 +256,10 @@ the ratio to Seaton 1958 should itself be revisited.
   *"In I — NIST ASD levels, fetched live 2026-08-14"*. The Cd I, Rb I and Sr II captures name the
   database and its references but no date. The two archives holding them are dated 2026-08-24 in
   `drive/MANIFEST.tsv`, and the seated retrieval record for the ground configurations gives
-  2026-08-09. **The tightest statement the record supports is "August 2026"**, and that is what the
-  paper prints. A per-species retrieval date is **marked for M**.
+  2026-08-09. **Settled 2026-09-24**: the chat export dates each capture's writing — the Cd I capture
+  was written on 2026-08-08, Rb I and Sr II on 2026-08-09, and In I's header dates its fetch
+  2026-08-14 — so the paper now prints "8 August 2026 (Cd I), 9 August (Rb I and Sr II) and 14 August
+  (In I)" in §3 and "retrieved 8–14 August 2026" in the reference.
 - **Limits.** Cd I: Cd II (5s ²S₁/₂) = 72,540.05 ± 0.13 cm⁻¹, marked PUBLISHED in the capture header.
   In I: In II ¹S₀ = 46,670.107, from the capture header. Sr II: 88,965.18, from the capture header.
   Rb I: 33,690.81 — **the Rb I capture header reads "limit fitted", and that line is stale**: register
@@ -336,3 +338,13 @@ plotted values, the medians and the band widths are unchanged and come from `sta
 not changed. The three captions were checked number by number: 1.150, 0.206, −0.015, 0.177, nine
 series with ℓ ≥ 1, thirteen in all, and 15% / 10% / 56% for the three p = 0 series in the panel order
 drawn — every one of them a line of `check.py`'s output.
+
+
+## Settled 2026-09-24, second pass (the remaining open points)
+
+- **The implied polarisabilities are now compared with published values (§5.7)**, read through the alphaXiv connector, which serves arXiv texts the proxy does not: Cd⁺ 25.2(6) a₀³ (Li, Yu and Sahoo 2018, Table VI, CCSD + experiment); In⁺ 24.33 a₀³ at 0.62% (Yu et al. 2015, Table I, final) beside the 24.01 of Safronova et al. quoted there; Sr²⁺ 5.813 (RRPA) and 5.792 (RCCSDT) from Mitroy, Safronova and Clark 2010, Table IV, which also lists Rb⁺ at 9.076 (RRPA), 9.11(4) (RCCSDT) and 9.0 (spectral analysis). The implied 24.76, 26.20 and 10.21 come out at 0.98, 1.08 and 1.76 of the published values; under 3/K every ratio would be at least 1.96. The check carries the arithmetic as a MEASURED obligation.
+- **The Rb fits are calibrated against the published coefficients (R-17, formerly declined)**: Li et al. 2003's ⁸⁵Rb values as tabulated in Mack et al. 2011, Table I (read through alphaXiv; Mack's own ⁸⁷Rb values beside them). δ₀ agrees to 4 × 10⁻⁴ (s) and 2–4 × 10⁻³ (d); δ₂ differs by 11% and 23%, as a two-term fit over n ≤ 12 must against fits over n ≥ 19. A MEASURED obligation. The np coefficients were not compared: Li et al.'s paper itself could not be read, and Mack's table carries s and d only.
+- **Author initials**: filled from the publishers' records found by search — Bethe, H. A. and Salpeter, E. E.; Born, M. and Heisenberg, W.; Mayer, J. E. and Goeppert Mayer, M.; Seaton, M. J.; Theodosiou, C. E., Inokuti, M. and Manson, S. T., with that paper's title, "Quantum defect values for positive atomic ions".
+- **Seaton 1958 itself** is still unread — the ADS scan did not come through the connector — and nothing in the paper rests on it; the search index's summary of the paper says it treats the polarisation potential −α⟨r⁻⁴⟩/2 and the defect it produces, which is consistent with the attribution the paper does not make. Closed.
+- **The 1.25 on fourteen channels**: closed as not reconstructible. The store's only occurrences of the phrase are the sentence itself, its generator, and two unrelated instruments that happen to run fourteen channels; the channel index the paper draws on carries one defect per channel and no δ₂, so the ratio cannot be re-measured on it.
+- **The two discrepancies of the record** (a limit marked fitted that the record says is published; a mean where the convention says median) stay recorded above and not repaired.

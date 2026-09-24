@@ -2,8 +2,8 @@ window.__mi = window.__mi || {}; window.__mi.index = {
  "meta": {
   "title": "The Master Index",
   "subtitle": "Every element on every axis of every index, each value carrying the status the data gives it",
-  "built": "2026-09-24T16:38:16+00:00",
-  "commit": "de3f57411c0a",
+  "built": "2026-09-24T17:18:57+00:00",
+  "commit": "60ceaf592284",
   "generator": "tools/webindex.py over tools/populate.py",
   "names_note": "Element names are IUPAC labels for search only; they are not a figure of the index, which carries symbols.",
   "url": "https://lach-matt.github.io/Claude-Method-Works/",
@@ -12,9 +12,9 @@ window.__mi = window.__mi || {}; window.__mi.index = {
    "title": "The Master Index",
    "year": 2026,
    "url": "https://lach-matt.github.io/Claude-Method-Works/",
-   "commit": "de3f57411c0a",
-   "text": "Lach, M. (2026). The Master Index, edition de3f57411c0a. https://lach-matt.github.io/Claude-Method-Works/",
-   "bibtex": "@misc{lach2026_method_index,\n  author = {Lach, M.},\n  title = {The Master Index},\n  year = {2026},\n  howpublished = {\\url{https://lach-matt.github.io/Claude-Method-Works/}},\n  note = {edition de3f57411c0a}\n}"
+   "commit": "60ceaf592284",
+   "text": "Lach, M. (2026). The Master Index, edition 60ceaf592284. https://lach-matt.github.io/Claude-Method-Works/",
+   "bibtex": "@misc{lach2026_method_index,\n  author = {Lach, M.},\n  title = {The Master Index},\n  year = {2026},\n  howpublished = {\\url{https://lach-matt.github.io/Claude-Method-Works/}},\n  note = {edition 60ceaf592284}\n}"
   },
   "history": [
    {
@@ -303,13 +303,20 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "files": 59,
     "url": "https://github.com/lach-matt/Claude-Method-Works/commit/d7cd27bbea11ae560c54fd8b4d2d519a02a8ec21",
     "note": null
+   },
+   {
+    "date": "2026-09-24",
+    "commit": "60ceaf5",
+    "files": 6,
+    "url": "https://github.com/lach-matt/Claude-Method-Works/commit/60ceaf592284db2c901348bfeb0b6508ade59836",
+    "note": null
    }
   ]
  },
  "papers": {
   "file": "data/papers.js",
-  "bytes": 1233161,
-  "md5": "9695acf5843ba2f21e74c604f78164ad",
+  "bytes": 1238020,
+  "md5": "4f7cc82648f565ce6869194dba48fe99",
   "protocol": "data/papers.js sets window.__mi.papers, loaded on demand",
   "papers": [
    {
@@ -488,10 +495,10 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "subtitle": "Matthew Lach · Independent Researcher · 24 September 2026",
     "author": "Lach, M.",
     "held": true,
-    "bytes": 68214,
-    "md5": "5bfabac7892086e6b6e02a700b176935",
+    "bytes": 68429,
+    "md5": "926975e66269639e584887eb7776e7b2",
     "md5_recorded": null,
-    "words": 12340,
+    "words": 12376,
     "note": "the paper as the author wrote it, from the repository's papers directory rather than the store: no ledger row records its md5, so the md5 is measured at build and the file's last commit is recorded beside it; nothing in it is edited for the site",
     "tree": {
      "path": "papers/method/03-bracket/PAPER.md",
@@ -499,8 +506,8 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     },
     "pdf": {
      "file": "papers/bracket/03-bracket.pdf",
-     "bytes": 506602,
-     "md5": "69f32593a541e8a2ad03e4a2ef53eaee",
+     "bytes": 506621,
+     "md5": "ac4557a4763ba1ba1a1f42fdc0b317ba",
      "commit": "27dd39c"
     },
     "pdf_note": null,
@@ -517,10 +524,10 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "subtitle": "Matthew Lach · Independent Researcher · 24 September 2026",
     "author": "Lach, M.",
     "held": true,
-    "bytes": 57549,
-    "md5": "d4ee460eb18ce32e608c75a10c97c28b",
+    "bytes": 61730,
+    "md5": "877df5a2ee365480bbba85202441b299",
     "md5_recorded": null,
-    "words": 10690,
+    "words": 11371,
     "note": "the paper as the author wrote it, from the repository's papers directory rather than the store: no ledger row records its md5, so the md5 is measured at build and the file's last commit is recorded beside it; nothing in it is edited for the site",
     "tree": {
      "path": "papers/method/04-seaton/PAPER.md",
@@ -528,8 +535,8 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     },
     "pdf": {
      "file": "papers/polarisation-ratio/04-seaton.pdf",
-     "bytes": 358295,
-     "md5": "c708b1d832ec514a57d2c74e6b2e034c",
+     "bytes": 365197,
+     "md5": "a1f1352e8f8a11dee2d2734ee8d9b62e",
      "commit": "27dd39c"
     },
     "pdf_note": null,
@@ -604,10 +611,10 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "subtitle": "Matthew Lach · Independent Researcher · 24 September 2026",
     "author": "Lach, M.",
     "held": true,
-    "bytes": 76864,
-    "md5": "2e505259b494332a181c18caf6fe0620",
+    "bytes": 77182,
+    "md5": "71017d79798b043dcc4f48af8031e746",
     "md5_recorded": null,
-    "words": 14085,
+    "words": 14144,
     "note": "the paper as the author wrote it, from the repository's papers directory rather than the store: no ledger row records its md5, so the md5 is measured at build and the file's last commit is recorded beside it; nothing in it is edited for the site",
     "tree": {
      "path": "papers/method/07-wall-janet/PAPER.md",
@@ -615,8 +622,8 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     },
     "pdf": {
      "file": "papers/parent-term-wall/07-wall-janet.pdf",
-     "bytes": 540831,
-     "md5": "798aed4ed502b72ae2c258afe427689b",
+     "bytes": 540996,
+     "md5": "7d9da28b922f3cb88acbc55fb7aa35f4",
      "commit": "27dd39c"
     },
     "pdf_note": null,
@@ -727,8 +734,8 @@ window.__mi = window.__mi || {}; window.__mi.index = {
   },
   {
    "file": "data/papers.js",
-   "bytes": 1233161,
-   "md5": "9695acf5843ba2f21e74c604f78164ad",
+   "bytes": 1238020,
+   "md5": "4f7cc82648f565ce6869194dba48fe99",
    "what": "the released papers, rendered"
   },
   {
@@ -751,14 +758,14 @@ window.__mi = window.__mi || {}; window.__mi.index = {
   },
   {
    "file": "data/papers/bracket/03-bracket.pdf",
-   "bytes": 506602,
-   "md5": "69f32593a541e8a2ad03e4a2ef53eaee",
+   "bytes": 506621,
+   "md5": "ac4557a4763ba1ba1a1f42fdc0b317ba",
    "what": "The Bracket: a Guarantee on Rydberg Levels, and What It Costs, as a PDF; md5 measured at build, commit 27dd39c"
   },
   {
    "file": "data/papers/polarisation-ratio/04-seaton.pdf",
-   "bytes": 358295,
-   "md5": "c708b1d832ec514a57d2c74e6b2e034c",
+   "bytes": 365197,
+   "md5": "a1f1352e8f8a11dee2d2734ee8d9b62e",
    "what": "The Domain of the Polarisation Ratio δ₂/δ₀ = −ℓ(ℓ+1)/3: a Necessary Condition from the Core Configuration, Tested on Thirteen Rydberg Series, as a PDF; md5 measured at build, commit 27dd39c"
   },
   {
@@ -775,8 +782,8 @@ window.__mi = window.__mi || {}; window.__mi.index = {
   },
   {
    "file": "data/papers/parent-term-wall/07-wall-janet.pdf",
-   "bytes": 540831,
-   "md5": "798aed4ed502b72ae2c258afe427689b",
+   "bytes": 540996,
+   "md5": "7d9da28b922f3cb88acbc55fb7aa35f4",
    "what": "The Parent-Term Wall and the Cost of a Drawn Coordinate, as a PDF; md5 measured at build, commit 27dd39c"
   },
   {
