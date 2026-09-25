@@ -478,10 +478,17 @@ def hypotheses():
                      "whole hold b/c (achievable.hold_time), the configuration "
                      "being static over the hold; staticity supplies this and, "
                      "through MODEL-STATIC, D14's premise", "DEFINING"),
+        "H_closed": ("the closed-universe case of Tipler's Theorem 5, with its "
+                     "additional assumptions, as Borde gr-qc/9406053 section VIII.A "
+                     "gives it (READ via create.py)", "OWNER"),
         "H_aim": ("aimability (M-S1A-P2) is a property of the device's WHOLE "
-                  "geometry, which must single out a POINT destination, not a "
-                  "sphere; a subsystem may supply it, and one that does breaks "
-                  "spherical symmetry.  M's picture: 'consider the device shape a "
+                  "geometry, which must single out a DISTANT POINT destination, "
+                  "not a sphere, from where the device sits with its user; a "
+                  "subsystem may supply it, and one that does breaks spherical "
+                  "symmetry.  The 'distant point from where the device sits' is "
+                  "this file's reading of M's 'the user aims the device' (a "
+                  "spherical device singles out its own centre, which is not a "
+                  "distant point).  M's picture: 'consider the device shape a "
                   "cylinder.  The idea is the user aims the device, the corridor "
                   "is like another agent that verifies it'", "DEFINING"),
         "H_S": ("S(b; mu, alpha) > 1, the amount and scale at which D7 refuses",
@@ -891,8 +898,9 @@ def requirements(F):
             "(M-S1A-P2, on the board: %s), of the device's whole geometry "
             "(H_aim).  With D14 it excludes every static spherically symmetric "
             "member of C; the classes it empties are computed from the verdicts "
-            "and printed in M's RULINGS below (achievable.py: '%s').  M's device "
-            "is a CYLINDER aimed by its user, the corridor verifying: a finite "
+            "and printed in M's RULINGS below (achievable.py: '%s').  M's "
+            "illustrative shape ('consider the device shape a cylinder'), aimed "
+            "by its user with the corridor verifying: a finite "
             "cylinder lies in K5, where no owner writes an invariant contraction "
             "criterion (R1 is not supplied there), and K4 is its infinite "
             "idealisation, where O4 forces u < 0 and D14's scope flag leaves a "
@@ -1031,9 +1039,9 @@ def requirements(F):
             "= %s); dynamically '%s' -- READ, and whether 'reasonable' excludes "
             "the source a throat needs is not determined here.  M ruled a closed "
             "causal curve and a Borde pathology disqualifying AT THE SEAT "
-            "(M-S1A-P3 (i), as M scoped it): no owner places either at the seat, "
-            "so the creation routes stay OPEN, and a singular throat is part of "
-            "M's own mechanism (DOCKET 66).  "
+            "(M-S1A-P3 (i), as M scoped it): no owner places either at the seat "
+            "(the creation classes' verdicts are the class table's), and a "
+            "singular throat is part of M's own mechanism (DOCKET 66).  "
             "Topology change "
             "is kinematically possible (KINEMATICALLY_POSSIBLE = %s).  "
             "Nucleation (Pisana et al.) is READ, its price not computed "
@@ -1370,13 +1378,15 @@ def classes():
          "note": "u < 0 somewhere is forced (O4), but no persistence figure "
                  "exists on this object.  The infinite idealisation of M's "
                  "cylinder; D14's scope flag leaves a one-bit parameter, and "
-                 "whether that suffices for aiming is decided by no owner"},
+                 "whether that suffices for aiming is decided by no owner.  "
+                 "OPEN here means unpriced, not escaped"},
         {"id": "K5", "object": "C", "space": "C", "lits": {"sph": False, "axial": False},
          "name": "no symmetry (incl. finite axial corridors)",
          "hyps": [],
          "note": "R1 is not supplied here: no owner writes an invariant "
-                 "criterion for a general spacetime.  M's FINITE cylinder lies "
-                 "here, as does any device carrying an aiming subsystem"},
+                 "criterion for a general spacetime.  A finite cylinder (M's "
+                 "illustrative shape) lies here, as does any device carrying an "
+                 "aiming subsystem.  OPEN here means UNPRICED, not escaped"},
         {"id": "S-1", "object": "S", "space": "S", "lits": {"wl": True},
          "name": "the seat by cumulative lensing of ordinary matter",
          "hyps": ["H_seat"],
@@ -1398,15 +1408,18 @@ def classes():
         {"id": "W-create-cc", "object": "W", "space": "W",
          "lits": {"created": True, "cc": True},
          "name": "throat created, causally compact interpolation",
-         "hyps": ["H_cc"], "note": "create.py calls manufacture 'closed'; M "
-                                  "ruled causality violation disqualifying "
-                                  "(M-S1A-P3), and the two now agree (V7)"},
+         "hyps": ["H_cc"], "note": "create.py calls manufacture 'closed'; the "
+                                  "CTC Geroch forces lies in the interpolating "
+                                  "region, and M-S1A-P3 disqualifies a CTC AT "
+                                  "THE SEAT only (V7)"},
         {"id": "W-create-ncc", "object": "W", "space": "W",
          "lits": {"created": True, "cc": False},
          "name": "throat created, causal compactness dropped",
-         "hyps": [], "note": "Borde's escapes: none stays in Lorentzian GR "
-                             "without a pathology (READ); M ruled a pathology "
-                             "disqualifying (M-S1A-P3)"},
+         "hyps": [], "note": "Borde's escapes (READ): under H_closed, a pathology "
+                             "(Tipler's route) or a departure from Lorentzian GR; "
+                             "in the open case nothing is shown.  M-S1A-P3 "
+                             "disqualifies a pathology AT THE SEAT only, and a "
+                             "singular throat is M's own mechanism"},
         {"id": "W-enlarge", "object": "W", "space": "W", "lits": {"created": False},
          "name": "an existing throat found and enlarged",
          "hyps": [], "note": "a metric change; premise unpriced: nobody has "
@@ -1482,7 +1495,7 @@ def facts(z3, V, F):
          "gate": create.any_escape_stays_in_lorentzian_gr() is False,
          "held": "create.any_escape_stays_in_lorentzian_gr() = %s (READ)"
                  % create.any_escape_stays_in_lorentzian_gr(),
-         "hyps": [],
+         "hyps": ["H_closed"],
          # Borde gr-qc/9406053 VIII.A: dropping causal compactness either ends
          # in a pathology (Tipler's Theorem 5 route: closed-universe case, under
          # additional assumptions) or leaves Lorentzian GR (weakened curvature
@@ -1544,10 +1557,13 @@ ROUTE_DROP = ("aimability",)
 PROP_TEXT = {"ctc": "a closed causal curve (in the interpolating region, not "
                     "shown to be at the seat)",
              "pathology": "a Borde pathology (a singularity or a point at infinity)",
-             "pathology_or_nongr": "either a Borde pathology (Tipler's route, "
-                                   "closed-universe case, under additional "
-                                   "assumptions) or a departure from Lorentzian GR "
-                                   "(Borde's other two escapes)"}
+             "pathology_or_nongr": "either a Borde pathology (Tipler's route) or "
+                                   "a departure from Lorentzian GR (Borde's other "
+                                   "two escapes) -- UNDER H_closed only (the "
+                                   "closed-universe case, with Tipler's additional "
+                                   "assumptions); for an open or asymptotically "
+                                   "flat universe that drops causal compactness no "
+                                   "source here forces either"}
 
 
 def derive(model, drop=()):
@@ -1855,7 +1871,13 @@ def escapes(model, verdicts, route=None):
          "-- and a device carrying the aiming subsystem is not spherically "
          "symmetric, so it lands in K4 or K5 (OPEN).  Formation-time aiming does "
          "not help while the operating configuration is spherical during the "
-         "hold.  What 'verifies' requires of a metric: NO OWNER."),
+         "hold.  What 'verifies' requires of a metric: NO OWNER.  K5's OPEN "
+         "means UNPRICED, not escaped: a uniform negative core inside such a "
+         "device still meets D7's pointwise duration bound under H_flat -- no "
+         "owner prices it in K5.  A spherical device CENTRED ON THE DESTINATION "
+         "singles out its centre; building it there presupposes reaching the "
+         "destination first, the question D23 prices for the reconstruction "
+         "route and no owner prices for C."),
         ("H_cc", ["none (create.py READ)"],
          "drop causal compactness: the throat lands in W-create-ncc, where "
          "Borde's escapes give either a pathology (Tipler's route) or a "
@@ -1968,6 +1990,9 @@ QUOTES = (
     ("ledger:M-S1A-P2", "the corridor is like another agent that verifies it"),
     ("ledger:M-S1A-P3", "My ruling refers to the seat/destination"),
     ("ledger:M-S1A-P5", "should derive the classical"),
+    ("ledger:M-S1A-P1", "it triggers the higgs field, and atomic mass forms"),
+    ("ledger:M-S1A-P1", "the conditions for a higgs field or something like it are also present"),
+    ("ledger:M-S1A-P3", "Singular occurs in the throat where the geometry is compressed to binary information"),
     ("drivensource", "INNER horizon"),
     ("drivensource", "Gibbons-Hull/Witten"),
 )
@@ -1996,6 +2021,25 @@ def misquotes(quotes=QUOTES):
 #: (ledger.RULED_BY_M, M-S1A-P1 .. P5) and are asked from there.  Nothing is
 #: pending until a new question is recorded here.
 PENDING_FOR_M = []
+
+#: Dockets M's rulings open.  Named here so they are tracked; neither has run,
+#: and nothing in this file rests on either.
+DOCKETS_OPENED = [
+    ("DOCKET 65", "M-S1A-P1",
+     "mass formation at the seat: M's mechanism ('As soon as the information "
+     "hits the seat, it triggers the higgs field, and atomic mass forms') and "
+     "M's consideration ('If the elements required for seating are present, then "
+     "the conditions for a higgs field or something like it are also present'), "
+     "tested against D15, D16, S9 and a full energy and conservation-law account."),
+    ("DOCKET 66", "M-S1A-P3",
+     "seating at a topological defect, with M's throat-compression mechanism "
+     "('Singular occurs in the throat where the geometry is compressed to binary "
+     "information, and then push to the seat').  A TENSION TO SETTLE THERE, not "
+     "in code: P3 (i) disqualifies a pathology at the seat and P3 (ii) makes "
+     "topological defects seating sites, and a SINGULAR defect (an idealised "
+     "conical string) falls under both."),
+]
+
 
 def ruling_effect(model):
     """What each step-1a ruling changed HERE, COMPUTED: each ruled requirement
@@ -2048,8 +2092,9 @@ DIVERGENCES = [
      "<= 1).  Whether that empties the K3 instance is not decided here: no "
      "requirement R1-R12 is written for a region inside a horizon."),
     ("V7", "create.py: manufacture 'closed'",
-     "no longer a divergence: M ruled causality violation disqualifying "
-     "(M-S1A-P3), and W-create-cc is EMPTY here as create.py says."),
+     "the creation classes are not emptied here: M scoped M-S1A-P3 to the SEAT "
+     "('My ruling refers to the seat/destination'), and create.py's CTC lies in "
+     "the interpolating region, which no owner places at the seat."),
     ("V8", "DOCKET 62 R6 note: Fewster & Smith widen the covered set",
      "true of its class; it is not evaluated on the corridor, so H_flat is not "
      "discharged."),
@@ -2250,8 +2295,10 @@ def headline(model, verdicts, ent):
              "gauge-only configurations (advance over flat %g).  Its passage is "
              "priced, not refused (R10, RT)."
              % (" and is aimable (M-S1A-P2)" if aim_on else "",
-                "Reading 1 admits exactly those; reading 3 (static, spherical) "
-                "admits none, since those fail aimability (D14)." if aim_on else
+                "Reading 1 admits the pointwise-contracting endpoints, and those "
+                "also held and aimable are instances of C; reading 3 (static, "
+                "spherical) admits no instance of C, since every such endpoint "
+                "fails aimability (D14)." if aim_on else
                 "Readings 1 and 3 agree: every endpoint either admits contains a C.",
                 model["F"]["milne"]["advance_over_flat"]))
     return "\n".join(L)
@@ -2450,12 +2497,16 @@ def report():
                                   d3["guard"], d3["antiderivative_checked"])))
     print(_wrap("COMPARISON: " + d3["comparison"]))
     print("\n" + "=" * 79 + "\nM's RULINGS IN FORCE, AND WHAT EACH CHANGED HERE\n" + "=" * 79)
+    eff = ruling_effect(model)
     for rr in ledger.RULED_BY_M:
         print("  %s  %s" % (rr[0], rr[1]))
         print(_wrap(rr[3]))
-        eff = ruling_effect(model)
         if rr[0] in eff:
             print(_wrap("HERE (computed): " + eff[rr[0]]))
+    print("\n" + "=" * 79 + "\nDOCKETS OPENED BY M's RULINGS, NOT YET RUN\n" + "=" * 79)
+    for did, ruling, text in DOCKETS_OPENED:
+        print("  %s  (%s, on the board: %s)" % (did, ruling, ruled(ruling)))
+        print(_wrap(text))
     print("\n" + "=" * 79 + "\nPENDING FOR M -- what changes either way\n" + "=" * 79)
     if not PENDING_FOR_M:
         print("  none")
@@ -2827,8 +2878,9 @@ def selftest():
             sv.add(member(_z3, Vz, "W"), Vz[prop])
             out.append(sv.check() == _z3.sat)
         return tuple(out)
-    chk("ctl", "M-S1A-P3 bites AT THE SEAT: a CTC or a pathology at the seat is "
-        "not a member", seat_defect_admitted(), (False, False))
+    chk("ctl", "M-S1A-P3 is WIRED at the seat (a wiring check, true by "
+        "construction; no owner places a defect there)", seat_defect_admitted(),
+        (False, False))
     REQUIRE_OVERRIDE["chronology"] = REQUIRE_OVERRIDE["pathology"] = False
     try:
         admitted = seat_defect_admitted()
@@ -2851,6 +2903,8 @@ def selftest():
         m2, v2, h2 = rerun()
     chk("ctl", "P2 alone off the board: K1 EMPTY IF, K6b OPEN",
         (v2["K1"]["verdict"], v2["K6b"]["verdict"]), (EMPTY_IF, OPEN_V))
+    chk("chk", "every docket opened is named by a ruling on the board",
+        [d for d, r, _t in DOCKETS_OPENED if not ruled(r)], [])
     eff = ruling_effect(model)
     chk("chk", "the ruling effects are computed: P2 moves K1 and K6b, P3 moves nothing",
         (eff["M-S1A-P2"].count("without it"), "none" in eff["M-S1A-P3"]), (2, True))
@@ -2937,7 +2991,7 @@ def selftest():
         (cls_hyps(model, "S-1"), "H_seat" in theorem_statement(model)), (["H_seat"], True))
 
     chk("chk", "the T headline line runs the three D3 readings and needs the hold",
-        ("Reading 1 admits exactly those" in model["headline"]
+        ("Reading 1 admits the pointwise-contracting endpoints" in model["headline"]
          and "held for one light-crossing" in model["headline"]
          and "is aimable" in model["headline"]), True)
     chk("chk", "every step-1a ruling is on the board and placed; nothing pending",
