@@ -107,8 +107,9 @@ HERE from two owners; it carries the transition equation's own hypotheses
 
     IT DOES NOT RANK THE OPEN CLASSES.  Which is most promising is M's.
     IT DOES NOT TOTAL THE GAPS.  Orders on different quantities do not add.
-    IT DOES NOT RULE.  Every place where the theorem needs a requirement M has
-      not ruled is printed under PENDING FOR M, with what changes either way.
+    IT DOES NOT RULE.  A requirement M has ruled is in force only while its
+      ruling is on the board (ledger.RULED_BY_M, asked); anything still unruled
+      is printed under PENDING FOR M, with what changes either way.
     IT DOES NOT DISCHARGE AN ASSUMED HYPOTHESIS.  H_flat stays ASSUMED until
       O2 closes, and if O2 closes this file prints RE-ASK rather than guess
       which way.
@@ -175,13 +176,31 @@ VERDICTS = (EMPTY, EMPTY_IF, OPEN_V, NONEMPTY)
 #: The one word this file must never use as a status or verdict.
 FORBIDDEN_STATUS_WORD = "DECLARED"
 
-#: M'S PENDING RULINGS THAT CHANGE A VERDICT.  None means "not ruled": the
-#: requirement is NOT imposed.  The selftest sets each to True to show what the
-#: ruling would change -- it never sets it in a reading.
-PENDING_REQUIREMENTS = {
-    "chronology": None,     # is a closed causal curve disqualifying?  (P3)
-    "pathology": None,      # is a singularity / point at infinity?    (P3)
+#: THE REQUIREMENTS M'S RULINGS IMPOSE, and the ledger row that carries each.
+#: A requirement is in force exactly while its ruling is on the board
+#: (ledger.RULED_BY_M) -- asked, never set here.
+RULING_OF = {
+    "aimability": "M-S1A-P2",    # aiming is a required function, not the sole one
+    "chronology": "M-S1A-P3",    # a closed causal curve disqualifies a device
+    "pathology": "M-S1A-P3",     # so does a Borde pathology
 }
+
+#: OVERRIDES, for the selftest's controls only: None defers to the ledger.
+REQUIRE_OVERRIDE = {"aimability": None, "chronology": None, "pathology": None}
+
+
+def ruled(pid):
+    return any(r[0] == pid for r in ledger.RULED_BY_M)
+
+
+def in_force(name, drop=()):
+    """Is the requirement `name` imposed?  `drop` switches one off, so a verdict
+    can be derived WITHOUT it and a second, independent route shown."""
+    if name in drop:
+        return False
+    if REQUIRE_OVERRIDE[name] is not None:
+        return REQUIRE_OVERRIDE[name]
+    return ruled(RULING_OF[name])
 
 
 # ============================================================ 1. THE ASKS
@@ -239,6 +258,12 @@ def row(rid):
 
 def st(rid):
     return row(rid)[0]
+
+
+def st_ruling(rid):
+    """A ruling's status, or NOT RULED while it is off the board -- so a ruling
+    withdrawn from the ledger turns the requirement back, not the file red."""
+    return st(rid) if ruled(rid) else "NOT RULED (%s is not on the board)" % rid
 
 
 def _quiet(fn, *a, **kw):
@@ -521,13 +546,13 @@ def objects(F):
             "('%s').  phase1's D3 is a SLICE statement ('%s'), and a slice "
             "statement is gauge (ledger D3; foliation section 6: with both "
             "mouths anchored at U = 0 the slice length is driven to %.4f%% of "
-            "the areal gap, NONSTATIC_ANCHOR_CLOSES_D3 = %s), so this file "
-            "reads T's D3 per R1 -- pointwise invariant contraction on K -- and "
-            "records that reading for M (P4).  IF D3 is read per R1 (P4) AND the "
-            "endpoint g_1 is held for one light-crossing b/c (D7 -- phase1's "
-            "D1-D5 contain no hold requirement), g_1 is an instance of C and "
-            "every C verdict applies to it; without the hold it lies outside C, "
-            "and D7 says it transmits nothing.  The PASSAGE "
+            "the areal gap, NONSTATIC_ANCHOR_CLOSES_D3 = %s).  On M's ruling "
+            "M-S1A-P4 this file runs THREE readings of D3 side by side (the D3 "
+            "COMPARISON below): under readings 1 and 3 an endpoint held for one "
+            "light-crossing b/c (D7 -- phase1's D1-D5 contain no hold "
+            "requirement) contains an instance of C and C's verdicts apply; "
+            "reading 2 also admits gauge-only configurations; without the hold "
+            "an endpoint lies outside C and D7 says it transmits nothing.  The PASSAGE "
             "the board prices is formation.py's family, f: 0 (flat) -> 1 "
             "(certify's metric), areal radii held fixed (U = 0), on R^3 -- no "
             "topology change."
@@ -541,10 +566,13 @@ def objects(F):
             "M's ruling as spec.py records it: 'DROP THE LEAD.  KEEP THE SEAT.'  "
             "What is required is that the matter exist at both ends and "
             "traverse under the same physics.  As spec.DOES (the tuple, which "
-            "this file uses) specifies it: %s.  DOES NOT: %s.  'Not required "
-            "to contract' is a READING of M's quotation ('nothing else'), not "
-            "spec.py's text -- the word 'contract' occurs in spec.py: %s -- and "
-            "is listed for M (P1).  S IS NOT A TRANSITION: a positive lens "
+            "this file uses) specifies it: %s.  DOES NOT: %s.  M RULED THE SEAT "
+            "IS AN EXPANSION and is not required to contract (M-S1A-P1, on the "
+            "board: %s; the word 'contract' occurs in spec.py: %s).  M's "
+            "mechanism for it -- the arriving information triggers the Higgs "
+            "field and atomic mass forms -- is DOCKET 65's to test and is NOT "
+            "part of S until it lands; seating at a topological defect "
+            "(M-S1A-P3 (ii)) is DOCKET 66's.  S IS NOT A TRANSITION: a positive lens "
             "mass lengthens proper distance (certify.theorem_holds() = %s: "
             "contraction iff m < 0), so S fails phase1's D3.  R5-S and SR1 "
             "constrain the NULL congruence; the focus of a massive payload's "
@@ -558,7 +586,7 @@ def objects(F):
             "recorded not repaired: spec.py's prose DOES paragraph still says "
             "'UNIVERSAL in Sturm's sense' (%s) and spec.report() still prints "
             "the struck ANEC line and the withdrawn 65 orders (%s)."
-            % ("; ".join(spec.DOES), "; ".join(spec.DOES_NOT),
+            % ("; ".join(spec.DOES), "; ".join(spec.DOES_NOT), ruled("M-S1A-P1"),
                "contract" in open(spec.__file__, encoding="utf-8").read().lower(),
                F["certify_iff"],
                "UNIVERSAL in Sturm" in spec.__doc__,
@@ -825,10 +853,10 @@ def requirements(F):
                noise.CURVED_PART_CARRIED_BY)},
 
         {"id": "R5-C", "applies_to": ["C"],
-         "title": "A DESTINATION PARAMETER, on the corridor -- NOT used as an exclusion",
-         "status": "D14 %s; S6 %s; beyond static spherical and axial: %s"
-                   % (st("D14"), st("S6"), NO_OWNER),
-         "rows": ["D14", "D15", "D16", "S6"], "see": [],
+         "title": "A DESTINATION PARAMETER, on the corridor -- REQUIRED on M's ruling (not sole)",
+         "status": "D14 %s; S6 %s; %s; beyond static spherical and axial: %s"
+                   % (st("D14"), st("S6"), st_ruling("M-S1A-P2"), NO_OWNER),
+         "rows": ["D14", "D15", "D16", "S6", "M-S1A-P2"], "see": [],
          "owners": [("certify", "THEOREM_SCOPE"), ("excite", "ROLE1_DOMINATED_BY_OWN_SOURCE"),
                     ("excite", "TAIL_RATE_IS_MASS"), ("excite", "DISPLACEMENT_IS_ULTRALOCAL")],
          "hypotheses": ["static spherical symmetry, for the undefinedness theorem",
@@ -844,12 +872,14 @@ def requirements(F):
             "address, ROLE1_DOMINATED_BY_OWN_SOURCE = %s), because the "
             "displacement returns at rate exactly m_h (D15, TAIL_RATE_IS_MASS "
             "= %s) and is ultralocal (D16, DISPLACEMENT_IS_ULTRALOCAL = %s).  "
-            "DOCKET 62 wrote R5 as 'a device that cannot be aimed is not a "
-            "device'; D14 proves the destination UNDEFINED, not that the "
-            "contraction fails to reach B, and no ruling makes aimability "
-            "binding -- so no class is emptied by it (P2)."
+            "M RULED AIMABILITY A REQUIRED FUNCTION, not the only one "
+            "(M-S1A-P2, on the board: %s).  With D14 it excludes every static "
+            "spherically symmetric member of C: K1 and K6b, static by definition "
+            "(achievable.py: '%s'), are emptied by it; the other spherical "
+            "classes lose their static members and stay OPEN; K4's one-bit "
+            "parameter is undecided."
             % (excite.ROLE1_DOMINATED_BY_OWN_SOURCE, excite.TAIL_RATE_IS_MASS,
-               excite.DISPLACEMENT_IS_ULTRALOCAL)},
+               excite.DISPLACEMENT_IS_ULTRALOCAL, ruled("M-S1A-P2"), MODEL_STATIC_TEXT)},
 
         {"id": "R6", "applies_to": ["C"],
          "title": "A MATTER MODEL OUTSIDE H_M0 -- the crack the tree cannot close",
@@ -949,7 +979,7 @@ def requirements(F):
          "status": "D24 %s; part 3 %s; nucleation %s; find-and-enlarge %s"
                    % (st("D24"), formation.STATUS["D24 part 3: F1, F2, transverse bound (this family), D4"],
                       formation.STATUS["D24 nucleation"], formation.STATUS["D24 find-and-enlarge"]),
-         "rows": ["D24"], "see": [],
+         "rows": ["D24", "M-S1A-P3"], "see": [],
          "owners": [("formation", "F1_THEOREM"), ("formation", "F2_THEOREM"),
                     ("formation", "TRANSVERSE_BOUND"), ("formation", "SEATED_COMPACT_SUPPORT"),
                     ("formation", "NUCLEATION_PRICEABLE_FROM_SOURCE"), ("formation", "NUCLEATION_PRICED"),
@@ -979,7 +1009,10 @@ def requirements(F):
             "causality violation kinematically, with no matter assumption "
             "(GEROCH_NEEDS_MATTER_ASSUMPTION = %s, EXOTIC_MATTER_HELPS_CREATION "
             "= %s); dynamically '%s' -- READ, and whether 'reasonable' excludes "
-            "the source a throat needs is not determined here.  Topology change "
+            "the source a throat needs is not determined here.  M RULED a closed "
+            "causal curve and a Borde pathology DISQUALIFYING (M-S1A-P3 (i)), so "
+            "both creation routes are EMPTY; find-and-enlarge is untouched.  "
+            "Topology change "
             "is kinematically possible (KINEMATICALLY_POSSIBLE = %s).  "
             "Nucleation (Pisana et al.) is READ, its price not computed "
             "(NUCLEATION_PRICED = %s), priceability %s.  Find-and-enlarge: %s.  "
@@ -993,20 +1026,24 @@ def requirements(F):
 
         {"id": "R11", "applies_to": ["Rec"],
          "title": "FOR THE RECONSTRUCTION ROUTE: a destination stock, a receiver, a bit count",
-         "status": "D23 %s; D25 %s; S5 %s; D13 %s; O3 %s, O6 %s, O7 %s; D21 %s; S9 %s"
-                   % tuple(st(r) for r in ("D23", "D25", "S5", "D13", "O3", "O6",
-                                           "O7", "D21", "S9")),
-         "rows": ["D13", "D21", "D23", "D25", "S5", "S9", "O3", "O6", "O7"], "see": [],
+         "status": "D23 %s; D25 %s; S5 %s; D13 %s; O3 %s, O6 %s, O7 %s; D21 %s; S9 %s; "
+                   "M-S1A-P5 %s"
+                   % (tuple(st(r) for r in ("D23", "D25", "S5", "D13", "O3", "O6",
+                                            "O7", "D21", "S9")) + (st_ruling("M-S1A-P5"),)),
+         "rows": ["D13", "D21", "D23", "D25", "S5", "S9", "O3", "O6", "O7",
+                  "M-S1A-P5"], "see": [],
          "owners": [("transit", "TRAVERSAL_IS_REMOVED"), ("transit", "READING_CARRIES_NOTHING_ALONE"),
                     ("stockgate", "GATE"), ("formation", "APERTURE_STATUS"),
                     ("branelink", "S5_FIGURES_MEASURED"), ("branelink", "S5_OWED"),
                     ("branelink", "O6_CLOSED"), ("branelink", "O7_CLOSED"),
                     ("latticectc", "O3_CLOSED"), ("latticectc", "LATTICE_THEOREM"),
                     ("warpfolder", "FLASH_IS_A_RECONSTRUCTION_MECHANISM"),
-                    ("warpfolder", "HEATING_TO_EW_SCALE_RESTORES_SYMMETRY")],
-         "hypotheses": ["what is specified, at what fidelity, and whether "
-                        "classical or quantum: three rulings unmade (DOCKET 62, "
-                        "R11 note)"],
+                    ("warpfolder", "HEATING_TO_EW_SCALE_RESTORES_SYMMETRY"),
+                    ("transit", "IT_IS_A_MOVE_NOT_A_COPY"), ("transit", "CARRIES_SUBSTANCE"),
+                    ("transit", "CHANNEL_IS_CONSUMED_BY_USE"), ("transit", "BEATS_LIGHT")],
+         "hypotheses": ["M RULED: 'both. Quantum first, which should derive the "
+                        "classical' (M-S1A-P5): the specification is a quantum "
+                        "state; the fidelity is not yet fixed"],
          "statement":
             "The channel must be traversed at <= c to exist, so its advantage "
             "over light is zero by construction (D23; "
@@ -1019,13 +1056,22 @@ def requirements(F):
             "(D13 %s); a bulk carrier is O6/O7, and whether any "
             "braneworld shortcut yields a CTC is O3 (the flat-bulk quotient is "
             "settled by D21).  S9, the Drive folder's device, is a "
-            "reconstruction-route specification REFUSED on two counts: short "
+            "reconstruction-route specification REFUSED on two counts (below).  "
+            "ON M's RULING M-S1A-P5 the specification is QUANTUM FIRST, so "
+            "transit.py's results bind it: it is a move, not a copy "
+            "(IT_IS_A_MOVE_NOT_A_COPY = %s), the channel is consumed by use "
+            "(CHANNEL_IS_CONSUMED_BY_USE = %s), it carries no substance -- the "
+            "matter must already be there (CARRIES_SUBSTANCE = %s, which is D25's "
+            "stock gate) -- and it does not beat light (BEATS_LIGHT = %s).  S9 is "
+            "refused: short "
             "by %.1f orders ON ITS OWN NUMBERS (the specification against "
             "itself, not a gap against this board's demand), and its mechanism "
             "is inverted (HEATING_TO_EW_SCALE_RESTORES_SYMMETRY = %s)."
             % (transit.READING_CARRIES_NOTHING_ALONE, transit.TRAVERSAL_IS_REMOVED,
                F["proxima_ly"], stockgate.GATE, formation.APERTURE_STATUS,
                branelink.S5_OWED, branelink.S5_FIGURES_MEASURED, st("D13"),
+               transit.IT_IS_A_MOVE_NOT_A_COPY, transit.CHANNEL_IS_CONSUMED_BY_USE,
+               transit.CARRIES_SUBSTANCE, transit.BEATS_LIGHT,
                F["S9_orders"],
                warpfolder.HEATING_TO_EW_SCALE_RESTORES_SYMMETRY)},
 
@@ -1061,7 +1107,7 @@ def requirements(F):
          "title": "THE TRANSITION, with D4 as M restated it (M-D64-1)",
          "status": "%s; the passage statement %s (formation.py, F1's hypotheses)"
                    % (st("M-D64-1"), formation.STATUS["D24 part 3: F1, F2, transverse bound (this family), D4"]),
-         "rows": ["M-D64-1"], "see": ["D24"],
+         "rows": ["M-D64-1", "M-S1A-P4"], "see": ["D24"],
          "owners": [("phase1", "D4_RESTATED_ON_M_RULING"), ("phase1", "D4_AS_FIRST_WRITTEN"),
                     ("phase1", "CONDITIONS"), ("formation", "PHASE1_D4_POINTWISE_DURING_PASSAGE"),
                     ("formation", "SEATED_COMPACT_SUPPORT")],
@@ -1086,7 +1132,8 @@ def requirements(F):
             "region; formation.py's family meets neither, so no owner decides "
             "whether that passage can lead -- and a lead is not required.  "
             "Theorem 5 (all value in amortisation) is likewise not required by "
-            "M's scope."
+            "M's scope.  D3 is run under three readings on M's ruling M-S1A-P4 "
+            "(the D3 COMPARISON)."
             % (formation.PHASE1_D4_POINTWISE_DURING_PASSAGE, unread,
                phase1.is_transition(False, True, True, True, True, net_momentum=True),
                phase1.alcubierre_is_propulsion())},
@@ -1158,8 +1205,9 @@ def requirements(F):
          "title": "M's SCOPE CLAUSE -- no lead required, traversal under the same physics",
          "status": "D5 %s (its owner a paper, Olum PRL 81 3567: unaskable by any "
                    "instrument here); the causal-structure step %s; the delay figure "
-                   "%s (composite.survey)" % (st("D5"), CITED, MEASURED),
-         "rows": ["D5"], "see": [],
+                   "%s (composite.survey); M-S1A-P1 %s"
+                   % (st("D5"), CITED, MEASURED, st_ruling("M-S1A-P1")),
+         "rows": ["D5", "M-S1A-P1"], "see": [],
          "owners": [("spec", "DOES_NOT")],
          "hypotheses": ["'conjugate point => not achronal' is a standard "
                         "causal-structure result spec.DOES states and no owner "
@@ -1177,7 +1225,9 @@ def requirements(F):
             "not; the seat's own content is SR1.  A positive-mass lens delays "
             "its signal (composite.survey(+2e-3): delay %+.4e, seats = %s); the "
             "same mass negative seats and arrives early (early = %s), which "
-            "needs negative mass and so is C's question."
+            "needs negative mass and so is C's question.  M RULED the seat an "
+            "EXPANSION (M-S1A-P1): no contraction requirement binds S, which is "
+            "what the positive lens delivers."
             % (st("D5"), sf["composite_plus"]["delay"], sf["composite_plus"]["seats"],
                sf["composite_minus"]["early"])},
 
@@ -1305,16 +1355,21 @@ def classes():
          "note": "tubes and non-uniform sustained fields; strong-field "
                  "ordinary focusing; a seat WITH a lead (needs negative mass: "
                  "C's question), where the Kerr-Newman ergoregion is spec.HALTED's "
-                 "one untested door"},
+                 "one untested door.  Two candidates M opened are S-3's until "
+                 "tested: mass formation at the seat (DOCKET 65, M-S1A-P1) and "
+                 "seating at a topological defect (DOCKET 66, M-S1A-P3 (ii))"},
         {"id": "W-create-cc", "object": "W", "space": "W",
          "lits": {"created": True, "cc": True},
          "name": "throat created, causally compact interpolation",
-         "hyps": ["H_cc"], "note": "create.py calls manufacture 'closed' (V7)"},
+         "hyps": ["H_cc"], "note": "create.py calls manufacture 'closed'; M "
+                                  "ruled causality violation disqualifying "
+                                  "(M-S1A-P3), and the two now agree (V7)"},
         {"id": "W-create-ncc", "object": "W", "space": "W",
          "lits": {"created": True, "cc": False},
          "name": "throat created, causal compactness dropped",
          "hyps": [], "note": "Borde's escapes: none stays in Lorentzian GR "
-                             "without a pathology (READ)"},
+                             "without a pathology (READ); M ruled a pathology "
+                             "disqualifying (M-S1A-P3)"},
         {"id": "W-enlarge", "object": "W", "space": "W", "lits": {"created": False},
          "name": "an existing throat found and enlarged",
          "hyps": [], "note": "a metric change; premise unpriced: nobody has "
@@ -1323,6 +1378,12 @@ def classes():
          "name": "the reconstruction route", "hyps": [],
          "note": "R11 open in every part"},
     ]
+
+
+#: D14's own words for what it costs the priced object, asked from the row.
+D14_PRICED_OBJECT = "the whole demand side prices an object that cannot have a destination"
+#: achievable.py's words that its model is static over the hold.
+MODEL_STATIC_TEXT = "corridor is static over the interval"
 
 
 def facts(z3, V, F):
@@ -1350,6 +1411,17 @@ def facts(z3, V, F):
          "hyps": ["H_M0", "H_model", "H_static", "H_S", "H_flat"],
          "f": z3.Implies(z3.And(V["rhoneg"], V["m0"], V["model"], V["sgt1"],
                                 V["H_flat"]), z3.Not(V["persist"]))},
+        {"name": "D14", "space": "C",
+         "gate": st("D14") == THEOREM,
+         "held": "ledger D14 %s ('%s')" % (st("D14"), D14_PRICED_OBJECT),
+         "hyps": ["H_sph"],
+         "f": z3.Implies(z3.And(V["sph"], V["static"]), z3.Not(V["aim"]))},
+        {"name": "MODEL-STATIC", "space": "C",
+         "gate": MODEL_STATIC_TEXT in " ".join(
+             open(achievable.__file__, encoding="utf-8").read().split()),
+         "held": "achievable.py: '%s'" % MODEL_STATIC_TEXT,
+         "hyps": ["H_model"],
+         "f": z3.Implies(V["model"], V["static"])},
         {"name": "O4", "space": "C",
          "gate": st("O4").startswith("CLOSED") and axial.AXIS_ESCAPES_THE_SIGN is False,
          "held": "ledger O4 '%s'; axial.AXIS_ESCAPES_THE_SIGN = %s"
@@ -1382,7 +1454,7 @@ def facts(z3, V, F):
 def _vars(z3):
     names = ("sph", "axial", "negm", "reg", "m0", "model", "sgt1", "contracts",
              "rhoneg", "persist", "u_neg", "H_flat", "wl", "ball", "bh",
-             "created", "cc", "ctc", "pathology")
+             "created", "cc", "ctc", "pathology", "static", "aim")
     return dict((n, z3.Bool(n)) for n in names)
 
 
@@ -1392,22 +1464,23 @@ def space_constraint(z3, V, space):
     return z3.BoolVal(True)
 
 
-def member(z3, V, space):
-    """What it is to be an instance of the object.  C: contracts (R1) and holds
-    for a light-crossing (D7).  S: a seat that is a device, not a black hole
-    (SR2).  W: M's pending rulings, imposed only if M makes them."""
+def member(z3, V, space, drop=()):
+    """What it is to be an instance of the object.  C: contracts (R1), holds
+    for a light-crossing (D7) and, on M's ruling M-S1A-P2, can be aimed.  S: a
+    seat that is a device, not a black hole (SR2).  Every object, on M's ruling
+    M-S1A-P3: no closed causal curve and no Borde pathology."""
+    cs = []
     if space == "C":
-        return z3.And(V["contracts"], V["persist"])
+        cs += [V["contracts"], V["persist"]]
+        if in_force("aimability", drop):
+            cs.append(V["aim"])
     if space == "S":
-        return z3.Not(V["bh"])
-    if space == "W":
-        cs = []
-        if PENDING_REQUIREMENTS["chronology"]:
-            cs.append(z3.Not(V["ctc"]))
-        if PENDING_REQUIREMENTS["pathology"]:
-            cs.append(z3.Not(V["pathology"]))
-        return z3.And(*cs) if cs else z3.BoolVal(True)
-    return z3.BoolVal(True)
+        cs.append(z3.Not(V["bh"]))
+    if in_force("chronology", drop):
+        cs.append(z3.Not(V["ctc"]))
+    if in_force("pathology", drop):
+        cs.append(z3.Not(V["pathology"]))
+    return z3.And(*cs) if cs else z3.BoolVal(True)
 
 
 def _lit(z3, V, lits):
@@ -1417,17 +1490,25 @@ def _lit(z3, V, lits):
 
 ASSUMABLE = ("H_flat",)
 
+#: THE INDEPENDENT ROUTE: every verdict is derived a second time with this
+#: ruled requirement switched off, so a class emptied by aimability also shows
+#: whether it is emptied without it (the persistence route, D4 + D7).
+ROUTE_DROP = ("aimability",)
+
 PROP_TEXT = {"ctc": "a closed causal curve",
              "pathology": "a Borde pathology (a singularity or a point at infinity)"}
 
 
-def derive(model):
-    """Each class verdict by z3, with the unsat core naming the facts used."""
+def derive(model, drop=()):
+    """Each class verdict by z3, with the unsat core naming the facts used.
+    `drop` names a ruled requirement to switch off, for the independent route."""
     import z3
     V = _vars(z3)
     fs = [f for f in facts(z3, V, model["F"]) if f["gate"]]
-    model["facts_in_force"] = [f["name"] for f in fs]
-    model["facts_refused"] = [f["name"] for f in facts(z3, V, model["F"]) if not f["gate"]]
+    if not drop:
+        model["facts_in_force"] = [f["name"] for f in fs]
+        model["facts_refused"] = [f["name"] for f in facts(z3, V, model["F"])
+                                  if not f["gate"]]
     out = {}
     for K in model["classes"]:
         sp = K["space"]
@@ -1435,7 +1516,8 @@ def derive(model):
         def solve(assume):
             s = z3.Solver()
             s.set(unsat_core=True)
-            s.add(space_constraint(z3, V, sp), _lit(z3, V, K["lits"]), member(z3, V, sp))
+            s.add(space_constraint(z3, V, sp), _lit(z3, V, K["lits"]),
+                  member(z3, V, sp, drop))
             for f in fs:
                 if f["space"] == sp:
                     s.assert_and_track(f["f"], z3.Bool("fact:" + f["name"]))
@@ -1485,12 +1567,24 @@ LIT_HYPS = {"sph": ["H_sph"], "reg": ["H_reg"], "m0": ["H_M0"],
             "ball": ["H_ball"], "cc": ["H_cc"], "wl": ["H_seat"]}
 
 
-def hyp_check(model, verdicts):
+def route_hyps(model, cid, verdicts):
+    """The hypotheses ONE route's verdict rests on: what its proof used plus what
+    the class's positive literals define, in the class's stated order."""
+    K = [k for k in model["classes"] if k["id"] == cid][0]
+    need = required_hyps(model, cid, verdicts) | set(
+        h for k, v in K["lits"].items() if v for h in LIT_HYPS.get(k, []))
+    return [h for h in K["hyps"] if h in need] + sorted(need - set(K["hyps"]))
+
+
+def hyp_check(model, verdicts, *more):
     """[(class, missing, padded)] for every class whose STATED hypotheses do not
-    equal what its proof used plus what its positive literals define."""
+    equal what its proofs used -- on every route given -- plus what its positive
+    literals define."""
     bad = []
     for K in model["classes"]:
-        req = required_hyps(model, K["id"], verdicts)
+        req = set()
+        for vs in (verdicts,) + more:
+            req |= required_hyps(model, K["id"], vs)
         lit = set(h for k, v in K["lits"].items() if v for h in LIT_HYPS.get(k, []))
         stated = set(K["hyps"])
         missing = sorted(req - stated)
@@ -1536,7 +1630,7 @@ def class_of(model, space, assignment):
     return hits[0] if len(hits) == 1 else None
 
 
-def entailment(model, verdicts):
+def entailment(model, verdicts, drop=()):
     """z3: an instance of C lies in the OPEN classes (under H_flat), or in the
     OPEN and EMPTY IF classes (without it); each OPEN class is consistent with
     every fact in force."""
@@ -1546,7 +1640,7 @@ def entailment(model, verdicts):
     ks = [K for K in model["classes"] if K["space"] == "C"]
     opens = [K for K in ks if verdicts[K["id"]]["verdict"] == OPEN_V]
     conds = [K for K in ks if verdicts[K["id"]]["verdict"] == EMPTY_IF]
-    base = [space_constraint(z3, V, "C"), member(z3, V, "C")] + [f["f"] for f in fs]
+    base = [space_constraint(z3, V, "C"), member(z3, V, "C", drop)] + [f["f"] for f in fs]
 
     def unsat(extra):
         s = z3.Solver()
@@ -1565,7 +1659,8 @@ def entailment(model, verdicts):
             continue
         sp = K["space"]
         fsp = [f["f"] for f in allf if f["space"] == sp]
-        cb = [space_constraint(z3, V, sp), member(z3, V, sp), _lit(z3, V, K["lits"])] + fsp
+        cb = [space_constraint(z3, V, sp), member(z3, V, sp, drop),
+              _lit(z3, V, K["lits"])] + fsp
         if sp == "C":
             cb.append(V["H_flat"])
         s = z3.Solver()
@@ -1590,14 +1685,8 @@ def landing(model, space, lits):
             and all(lits.get(k, v) == v for k, v in K["lits"].items())]
 
 
-def escapes(model, verdicts):
-    """ONE ESCAPE PER HYPOTHESIS a verdict rests on, and one per OPEN ledger row
-    no hypothesis escape already carries.  WHAT BREAKING IT REOPENS is COMPUTED
-    where it can be: for an ASSUMED hypothesis, the classes whose verdict it
-    carries; for a DEFINING hypothesis of an EMPTY / EMPTY IF class, the
-    classes a candidate lands in when that literal is flipped, keeping only
-    those not themselves EMPTY."""
-    H, F = model["hyps"], model["F"]
+def _reopen(model, verdicts):
+    """{hypothesis: classes breaking it reopens}, for one verdict set."""
     reopen = {}
     for K in model["classes"]:
         if verdicts[K["id"]]["verdict"] not in (EMPTY, EMPTY_IF):
@@ -1613,13 +1702,24 @@ def escapes(model, verdicts):
             for h in LIT_HYPS.get(k, []):
                 lit_h.add(h)
                 reopen.setdefault(h, set()).update(lands)
-        # a hypothesis of a fact the proof used, and not a literal of the
-        # class: breaking it removes the fact, and the class itself reopens
         fmap = dict((f["name"], f) for f in _facts_plain(model))
         for fn in verdicts[K["id"]]["facts"]:
             for h in fmap[fn]["hyps"]:
                 if h not in lit_h and h not in verdicts[K["id"]]["assumed"]:
                     reopen.setdefault(h, set()).add(K["id"])
+    return reopen
+
+
+def escapes(model, verdicts, route=None):
+    """ONE ESCAPE PER HYPOTHESIS a verdict rests on, and one per OPEN ledger row
+    no hypothesis escape already carries.  WHAT BREAKING IT REOPENS is COMPUTED
+    where it can be: for an ASSUMED hypothesis, the classes whose verdict it
+    carries; for a DEFINING hypothesis of an EMPTY / EMPTY IF class, the
+    classes a candidate lands in when that literal is flipped, keeping only
+    those not themselves EMPTY."""
+    H, F = model["hyps"], model["F"]
+    reopen = _reopen(model, verdicts)
+    reopen_route = _reopen(model, route) if route is not None else {}
     o1 = o1_figures()
     routes = [
         ("H_flat", ["O2", "D22 (curved part)"],
@@ -1693,13 +1793,19 @@ def escapes(model, verdicts):
         ("H_collapse", ["none (spec.py)"],
          "a collapse criterion other than 2GM/c^2 >= l for the ball: none "
          "computed."),
+        ("H_cc", ["none (create.py READ; ruling M-S1A-P3)"],
+         "drop causal compactness: the throat lands in W-create-ncc, where "
+         "Borde's escapes force a pathology (create.py, READ) and M-S1A-P3 "
+         "disqualifies it.  So breaking H_cc reopens nothing while that ruling "
+         "stands."),
     ]
     out = []
-    for key, rows, route in routes:
+    for key, rows, route_txt in routes:
         text, kind = H[key]
         out.append({"hyp": key, "text": text, "kind": kind,
-                    "reopens": sorted(reopen.get(key, set())), "rows": rows,
-                    "route": route})
+                    "reopens": sorted(reopen.get(key, set())),
+                    "reopens_route": sorted(reopen_route.get(key, set())),
+                    "rows": rows, "route": route_txt})
     fixed = [
         ("H3", "noise.py's H3: %s (%s)" % noise.HYPOTHESES["H3"], ["D22"],
          "a self-adjoint extension other than Friedrichs need not keep the bound "
@@ -1722,14 +1828,10 @@ def escapes(model, verdicts):
         ("causal-step", "conjugate point => not achronal (CITED)", ["D5"],
          "SR3's traversal clause rests on a standard causal-structure result no "
          "owner re-proves; B must lie strictly past the focus."),
-        ("S-contract", "S is not required to contract (a reading of M's "
-                       "quotation; PENDING P1)", [],
-         "if M requires S to contract, S must be a C and R1-R4 bind it; a positive "
-         "lens does not contract (certify.theorem_holds)."),
     ]
     for key, text, rows, route in fixed:
         out.append({"hyp": key, "text": text, "kind": "OWNER" if key not in
-                    ("objects", "S-contract") else "SCOPE", "reopens": None,
+                    ("objects",) else "SCOPE", "reopens": None,
                     "rows": rows, "route": route})
     # An OPEN row is folded into a hypothesis escape only where that escape IS
     # the row's open question (H_flat is O2's curved QEI).  Every other open
@@ -1822,31 +1924,26 @@ def misquotes(quotes=QUOTES):
     return bad
 
 
-PENDING_FOR_M = [
-    ("P1", "Is S required to contract?",
-     "spec.py drops the LEAD and never says 'contract'; this file reads M's "
-     "'nothing else' as not requiring it.",
-     "If yes: S must be a C, R1-R4 bind it, and S-1's positive lens does not "
-     "meet R2."),
-    ("P2", "Is aimability binding (DOCKET 62's R5)?",
-     "D14 proves the destination UNDEFINED on the static spherical object, not "
-     "that the contraction fails to reach B.",
-     "If yes: every static spherically symmetric MEMBER of K0-K3 and K6 is "
-     "excluded (D14) -- no class is static spherical by definition, so no class "
-     "empties whole; K4's one-bit parameter is undecided."),
-    ("P3", "Is a closed causal curve, or a Borde pathology, disqualifying?",
-     "create.py calls causally compact manufacture 'closed'; no requirement R1-R12 "
-     "forbids causality violation as written.",
-     "If yes: W-create-cc (chronology) and W-create-ncc (pathology) become EMPTY."),
-    ("P4", "Is phase1's D3 read per R1?",
-     "phase1's D3 is a slice statement and a slice statement is gauge; the anchor "
-     "lemma does not close it (foliation.NONSTATIC_ANCHOR_CLOSES_D3 = False).",
-     "If no: T admits K0 members (Milne satisfies a slice D3 in flat space)."),
-    ("P5", "For Rec: what is specified, at what fidelity, classical or quantum?",
-     "DOCKET 62's R11 note records these three rulings as unmade.  No verdict "
-     "rests on them: Rec is OPEN.",
-     "Any ruling fixes R11's bit count, which S5 owes (branelink.S5_OWED)."),
-]
+#: M's rulings on the five questions step 1a put to M are on the board
+#: (ledger.RULED_BY_M, M-S1A-P1 .. P5) and are asked from there.  Nothing is
+#: pending until a new question is recorded here.
+PENDING_FOR_M = []
+
+#: What each of M's step-1a rulings changed in THIS file, keyed by ledger id.
+RULING_EFFECT = {
+    "M-S1A-P1": "S carries no contraction requirement; S-1 stays NONEMPTY.  The "
+                "mass-formation mechanism is DOCKET 65's, not S's.",
+    "M-S1A-P2": "aimability joins C's membership; with D14, K1 and K6b are EMPTY "
+                "without H_flat.  The persistence route is still derived and "
+                "printed beside it.",
+    "M-S1A-P3": "no closed causal curve and no Borde pathology in any object's "
+                "membership: W-create-cc and W-create-ncc are EMPTY.  Seating at "
+                "a topological defect is DOCKET 66's.",
+    "M-S1A-P4": "three readings of phase1's D3 are run side by side (the D3 "
+                "COMPARISON).",
+    "M-S1A-P5": "R11 is stated on a quantum specification, and transit.py's four "
+                "results bind it.",
+}
 
 DIVERGENCES = [
     ("V1", "DOCKET 62 R2: 'over-determined three ways' including Olum",
@@ -1855,7 +1952,9 @@ DIVERGENCES = [
     ("V2", "DOCKET 62 R4: 72.599", "REFUSED: gap 0 on an asymptotically flat corridor "
      "(fewsterteo.py); 71.256 stands."),
     ("V3", "DOCKET 62 R5: 'a device that cannot be aimed is not a device'",
-     "not used as an exclusion (P2)."),
+     "M ruled aimability REQUIRED but not the device's only function "
+     "(M-S1A-P2); it is used as an exclusion, and nothing here treats it as "
+     "sufficient."),
     ("V4", "DOCKET 62 R9 as a separate requirement",
      "folded into R4: DOCKET 64 D ruled the requirement is not restated about a "
      "distribution, so R9 refuses exactly R4's set in the flat model under H6."),
@@ -1870,8 +1969,8 @@ DIVERGENCES = [
      "<= 1).  Whether that empties the K3 instance is not decided here: no "
      "requirement R1-R12 is written for a region inside a horizon."),
     ("V7", "create.py: manufacture 'closed'",
-     "W-create-cc is OPEN here because no requirement forbids causality violation "
-     "(P3); the owner's word is printed beside it."),
+     "no longer a divergence: M ruled causality violation disqualifying "
+     "(M-S1A-P3), and W-create-cc is EMPTY here as create.py says."),
     ("V8", "DOCKET 62 R6 note: Fewster & Smith widen the covered set",
      "true of its class; it is not evaluated on the corridor, so H_flat is not "
      "discharged."),
@@ -1885,7 +1984,10 @@ WHAT_IT_DOES_NOT_SAY = [
     "It does not say K1 is empty unconditionally: its verdict needs H_flat, ASSUMED.",
     "It does not declare impossible anything spec.py establishes: S-1 is NONEMPTY.",
     "It does not say the seat is new: '%s' (spec.DOES_NOT)." % spec.DOES_NOT[0],
-    "It does not use aimability, chronology or pathology as exclusions (P2, P3).",
+    "It uses aimability, chronology and pathology only as M ruled them "
+    "(M-S1A-P2, M-S1A-P3), and never treats aimability as sufficient.",
+    "It does not include M's mass-formation mechanism or seating at a topological "
+    "defect in S: those are DOCKETS 65 and 66, untested.",
     "It does not decide whether a transition can lead; a lead is not required.",
     "It does not quote O1's two figures as MEASURED, nor any SI formation price.",
     "It does not rank the open classes or total any gaps.",
@@ -1919,6 +2021,82 @@ def re_ask(model=None):
     return ["%s.%s" % (m, a) for m, a, want in RE_ASK_PINS if A(m, a) != want]
 
 
+def _static_length(m, R):
+    """Antiderivative of the static radial length element dR/sqrt(1 - 2m/R) for
+    CONSTANT m (valid for R > 2m): sqrt(R(R - 2m)) + 2m ln(sqrt(R) + sqrt(R - 2m)).
+    d3_readings checks its derivative in sympy before using it."""
+    return math.sqrt(R * (R - 2.0 * m)) + 2.0 * m * math.log(math.sqrt(R) + math.sqrt(R - 2.0 * m))
+
+
+#: The mixed-sign witness for reading 3 (in units of the inner place's areal
+#: radius): m = D3_WITNESS_M[0] on [R_A, R_MID], D3_WITNESS_M[1] on (R_MID, R_B].
+#: A witness of what the criterion admits -- a mass profile, not a device.
+D3_WITNESS_R = (1.0, 2.0, 10.0)
+D3_WITNESS_M = (-0.3, 0.05)
+
+
+def d3_readings(F):
+    """M-S1A-P4: 'run both scenarios and compare.  Maybe its a combination.'
+    Three readings of phase1's D3, what each admits, and a z3 lemma tying the
+    third (the combination) to the first.  COMPUTED HERE."""
+    import sympy as sp
+    import z3
+    # LEMMA (z3): with x = 2m/R < 1 and y = sqrt(1 - x) > 0, the static length
+    # element 1/y is >= 1 exactly when x >= 0, and < 1 exactly when x < 0.
+    x, y = z3.Reals("x y")
+    s = z3.Solver()
+    s.add(x < 1, y > 0, y * y == 1 - x, z3.Not((y <= 1) == (x >= 0)))
+    lemma = s.check() == z3.unsat
+    # VACUITY GUARD: the false strengthening 'element >= 1 for every x < 1' fails
+    g = z3.Solver()
+    g.add(x < 1, y > 0, y * y == 1 - x, z3.Not(y <= 1))
+    guard = g.check() == z3.sat
+    # the antiderivative, checked symbolically before it is used
+    Rs, ms = sp.symbols("R m", real=True)
+    anti = sp.sqrt(Rs * (Rs - 2 * ms)) + 2 * ms * sp.log(sp.sqrt(Rs) + sp.sqrt(Rs - 2 * ms))
+    d = sp.diff(anti, Rs) - 1 / sp.sqrt(1 - 2 * ms / Rs)
+    anti_ok = all(abs(float(d.subs({Rs: r, ms: mm}))) < 1e-12
+                  for r in (1.0, 2.5, 7.0) for mm in (-0.3, 0.05, 0.2))
+    ra, rm, rb = D3_WITNESS_R
+    m1, m2 = D3_WITNESS_M
+    length = (_static_length(m1, rm) - _static_length(m1, ra)
+              + _static_length(m2, rb) - _static_length(m2, rm))
+    gap = rb - ra
+    return {
+        "lemma": lemma, "guard": guard, "antiderivative_checked": anti_ok,
+        "witness_length": length, "witness_gap": gap,
+        "witness_net": length / gap - 1.0,
+        "milne": F["milne"],
+        "readings": [
+            ("1", "R1, pointwise and invariant",
+             "an endpoint whose K has m < 0 at every point: an instance of C over K "
+             "(held for b/c), and C's verdicts apply"),
+            ("2", "phase1's slice D3, read literally",
+             "also configurations with m >= 0 everywhere: Milne, exactly flat, "
+             "gives Gamma = %g on a slice with advance over flat %g -- K0's "
+             "gauge-only members, a contraction with no invariant content"
+             % (F["milne"]["gamma"], F["milne"]["advance_over_flat"])),
+            ("3", "net contraction along the STATIC slice between the two fixed "
+                  "places (the combination: D3's integrated form, R1's invariance)",
+             "by the lemma, an admitted endpoint has m < 0 somewhere between the "
+             "places, and by H_R1 that sub-region is itself a C (K1-K6).  It admits "
+             "mixed-sign corridors reading 1 prices only over their negative part: "
+             "the witness m = %g on [%g, %g], %g on (%g, %g] has static length "
+             "%.6f against the areal gap %g (net %+.4f%%).  Defined for STATIC "
+             "configurations only -- the static slice is the Killing slicing; off "
+             "it a slice length is gauge (foliation) -- and a static spherically "
+             "symmetric endpoint fails aimability (D14, M-S1A-P2)"
+             % (m1, ra, rm, m2, rm, rb, length, gap, 100.0 * (length / gap - 1.0))),
+        ],
+        "comparison": (
+            "Readings 1 and 3 agree: every endpoint that either admits contains a C, "
+            "over K (1) or over its m < 0 sub-region (3), so C's verdicts decide "
+            "both.  Only reading 2 admits configurations with no m < 0 anywhere, "
+            "and on those the advance over flat is %g (Milne)."
+            % F["milne"]["advance_over_flat"]),
+    }
+
+
 def fill_objects(model, verdicts):
     F = model["F"]
     ri = class_of(model, "C", {"sph": True, "negm": F["certify_negm"],
@@ -1947,6 +2125,15 @@ def headline(model, verdicts, ent):
              % (", ".join(e) or "none",
                 ("  EMPTY IF %s: %s." % (" and ".join(ass), ", ".join(c))) if c else "",
                 ", ".join(o) or "none"))
+    if not c and ent["without_H_flat"]:
+        L.append("So, with every ruling in force and NO assumed hypothesis, every "
+                 "contracting, aimable corridor lies in %s (z3: entailed).  Each "
+                 "OPEN class is propositionally consistent with the facts encoded "
+                 "and in force in its own space (of %s) (z3: %s) -- a check over "
+                 "those encoded implications, not over the tree."
+                 % (", ".join(o), ", ".join(ent["facts_encoded"]),
+                    "all sat" if all(x[1] for x in ent["opens_consistent"])
+                    else "NOT all sat"))
     if ent["with_H_flat"] and c:
         L.append("So, under %s, every contracting corridor lies in %s; if %s "
                  "fails it may also lie in %s (z3: entailed).  Each OPEN class is "
@@ -1961,22 +2148,39 @@ def headline(model, verdicts, ent):
                      ("Rec", "Rec (the reconstruction route)")):
         parts = ["%s %s" % (v, ", ".join(by(sp, v))) for v in VERDICTS if by(sp, v)]
         L.append("OVER %s: %s." % (name, "; ".join(parts)))
-    L.append("T (the transition): IF phase1's D3 is read per R1 (%s) AND the "
-             "endpoint is held for one light-crossing (D7), its endpoint is an "
-             "instance of C and inherits C's verdicts; without the hold it lies "
-             "outside C and transmits nothing (D7).  Its passage is priced, not "
-             "refused (R10, RT)." % ("PENDING P4" if any(p[0] == "P4" for p in PENDING_FOR_M)
-                                    else "P4"))
+    rv = model["verdicts_route"]
+    diff = [K["id"] for K in model["classes"]
+            if rv[K["id"]]["verdict"] != verdicts[K["id"]]["verdict"]]
+    if diff:
+        L.append("WITHOUT %s (the independent route): %s."
+                 % (" and ".join(ROUTE_DROP), "; ".join(
+                     ("%s %s%s by %s" % (k, rv[k]["verdict"],
+                                          (" " + " and ".join(rv[k]["assumed"]))
+                                          if rv[k]["assumed"] else "",
+                                          " + ".join(rv[k]["facts"])))
+                     if rv[k]["verdict"] in (EMPTY, EMPTY_IF) else "%s %s" % (k, rv[k]["verdict"])
+                     for k in diff)))
+    L.append("T (the transition), under the three readings of D3 run on M's ruling "
+             "M-S1A-P4: under readings 1 and 3 an endpoint held for one "
+             "light-crossing (D7) contains an instance of C, over K or over its "
+             "m < 0 sub-region, and inherits C's verdicts; reading 2 also admits "
+             "gauge-only configurations (advance over flat %g).  Without the hold "
+             "an endpoint lies outside C and transmits nothing (D7).  Its passage "
+             "is priced, not refused (R10, RT)." % model["F"]["milne"]["advance_over_flat"])
     return "\n".join(L)
 
 
 def run():
     model = build()
     verdicts = derive(model)
+    route = derive(model, drop=ROUTE_DROP)
     fill_objects(model, verdicts)
     ent = entailment(model, verdicts)
     model["verdicts"], model["entailment"] = verdicts, ent
-    model["escapes"] = escapes(model, verdicts)
+    model["verdicts_route"] = route
+    model["entailment_route"] = entailment(model, route, drop=ROUTE_DROP)
+    model["escapes"] = escapes(model, verdicts, route)
+    model["d3"] = d3_readings(model["F"])
     model["partition"] = partition_check(model)
     model["headline"] = headline(model, verdicts, ent)
     return model
@@ -2003,12 +2207,27 @@ def theorem_statement(model):
     for cid in [K["id"] for K in model["classes"]]:
         vv = v[cid]
         K = cls[cid]
+        rr = model["verdicts_route"][cid]
+        route_txt = ""
+        if rr["verdict"] != vv["verdict"]:
+            if rr["verdict"] in (EMPTY, EMPTY_IF):
+                route_txt = ("  Independently, without %s: %s%s, by %s, under %s."
+                             % (" and ".join(ROUTE_DROP), rr["verdict"],
+                                (" " + " and ".join(rr["assumed"]) + " (ASSUMED)")
+                                if rr["assumed"] else "",
+                                " + ".join(rr["facts"]),
+                                ", ".join(route_hyps(model, cid, model["verdicts_route"]))))
+            else:
+                route_txt = ("  Without %s it is %s: the verdict rests on that "
+                             "ruling." % (" and ".join(ROUTE_DROP), rr["verdict"]))
         if vv["verdict"] == EMPTY:
             L.append(_wrap("(%d) [%s] %s -- the class '%s' (%s) is EMPTY of "
-                           "instances of %s, by %s, under %s."
+                           "instances of %s, by %s, under %s.%s"
                            % (n, K["object"], cid, K["name"], defn(cid), K["object"],
                                           " + ".join(vv["facts"]),
-                                          ", ".join(K["hyps"]) or "no hypothesis"), 2))
+                                          ", ".join(route_hyps(model, cid, v))
+                                          or "no hypothesis",
+                                          route_txt), 2))
         elif vv["verdict"] == EMPTY_IF:
             L.append(_wrap("(%d) [%s] %s -- the class '%s' (%s) is EMPTY of "
                            "instances of %s IF %s (ASSUMED), by %s, under %s." %
@@ -2044,7 +2263,8 @@ def theorem_statement(model):
                       else "NOT all sat"), 2))
     L.append(_wrap("(%d) The requirements hold as stated in the table, each on the "
                    "object named there; every limitation is a named hypothesis "
-                   "there or an escape below." % (n + 1), 2))
+                   "there or an escape below.  M's rulings in force: %s."
+                   % (n + 1, ", ".join(r[0] for r in ledger.RULED_BY_M)), 2))
     return "\n".join(L)
 
 
@@ -2085,12 +2305,13 @@ def report():
             for h in r["hypotheses"])))
 
     print("\n" + "=" * 79 + "\nTHE CLASS TABLE\n" + "=" * 79)
-    print("  %-13s %-4s %-9s %-24s %s" % ("class", "obj", "verdict", "facts used",
-                                         "stated hypotheses"))
+    print("  %-13s %-4s %-9s %-9s %-24s %s" % ("class", "obj", "verdict", "w/o aim",
+                                              "facts used", "stated hypotheses"))
     for K in model["classes"]:
         vv = model["verdicts"][K["id"]]
-        print("  %-13s %-4s %-9s %-24s %s"
+        print("  %-13s %-4s %-9s %-9s %-24s %s"
               % (K["id"], K["object"], vv["verdict"],
+                 model["verdicts_route"][K["id"]]["verdict"],
                  (" + ".join(vv["facts"]) + (" | " + ",".join(vv["assumed"])
                                              if vv["assumed"] else "")) or "-",
                  ", ".join(K["hyps"]) or "-"))
@@ -2117,13 +2338,37 @@ def report():
         print("  E%-3d %s  [%s]" % (i, x["hyp"], x["kind"]))
         print(_wrap(x["text"]))
         if x["reopens"] is not None:
-            print(_wrap("BREAKING IT REOPENS (computed): %s"
+            print(_wrap("BREAKING IT REOPENS (computed, every ruling in force): %s"
                         % (", ".join(x["reopens"]) or "nothing")))
+            if x.get("reopens_route") != x["reopens"]:
+                print(_wrap("  and without %s: %s" % (" and ".join(ROUTE_DROP),
+                                                       ", ".join(x["reopens_route"])
+                                                       or "nothing")))
         if x["rows"]:
             print(_wrap("LEDGER: %s" % ", ".join(x["rows"])))
         print(_wrap("KNOWN ROUTE: " + x["route"]))
 
+    print("\n" + "=" * 79 + "\nTHE D3 COMPARISON (M-S1A-P4: run both, and the combination)\n"
+          + "=" * 79)
+    d3 = model["d3"]
+    for rid, name, admits in d3["readings"]:
+        print("  reading %s  %s" % (rid, name))
+        print(_wrap("ADMITS: " + admits))
+    print(_wrap("LEMMA (z3): with x = 2m/R < 1, the static length element "
+                "1/sqrt(1 - x) >= 1 exactly when m >= 0: %s; vacuity guard (the "
+                "false 'always >= 1' is refuted): %s; the antiderivative checked "
+                "in sympy: %s." % ("PROVED" if d3["lemma"] else "NOT PROVED",
+                                  d3["guard"], d3["antiderivative_checked"])))
+    print(_wrap("COMPARISON: " + d3["comparison"]))
+    print("\n" + "=" * 79 + "\nM's RULINGS IN FORCE, AND WHAT EACH CHANGED HERE\n" + "=" * 79)
+    for rr in ledger.RULED_BY_M:
+        print("  %s  %s" % (rr[0], rr[1]))
+        print(_wrap(rr[3]))
+        if rr[0] in RULING_EFFECT:
+            print(_wrap("HERE: " + RULING_EFFECT[rr[0]]))
     print("\n" + "=" * 79 + "\nPENDING FOR M -- what changes either way\n" + "=" * 79)
+    if not PENDING_FOR_M:
+        print("  none")
     for pid, q, why, change in PENDING_FOR_M:
         print("  %s  %s" % (pid, q))
         print(_wrap(why))
@@ -2329,13 +2574,20 @@ def selftest():
 
     print("\n4. THE VERDICTS AS DERIVED AT THIS HEAD (pins; the report never reads them)")
     v = model["verdicts"]
-    want = {"K0": EMPTY, "K1": EMPTY_IF, "K6a": OPEN_V, "K6b": OPEN_V, "K2": OPEN_V,
+    want = {"K0": EMPTY, "K1": EMPTY, "K6a": OPEN_V, "K6b": EMPTY, "K2": OPEN_V,
             "K3": OPEN_V, "K4": OPEN_V, "K5": OPEN_V, "S-1": NONEMPTY, "S-2": EMPTY,
-            "S-3": OPEN_V, "W-create-cc": OPEN_V, "W-create-ncc": OPEN_V,
+            "S-3": OPEN_V, "W-create-cc": EMPTY, "W-create-ncc": EMPTY,
             "W-enlarge": OPEN_V, "Rec": OPEN_V}
-    chk("pin", "every class verdict", dict((k, v[k]["verdict"]) for k in want), want)
-    chk("pin", "K1's proof uses D4 + D7 (not D2) and assumes exactly H_flat",
-        (v["K1"]["facts"], v["K1"]["assumed"]), (["D4", "D7"], ["H_flat"]))
+    chk("pin", "every class verdict, every ruling in force",
+        dict((k, v[k]["verdict"]) for k in want), want)
+    vr = model["verdicts_route"]
+    want_r = dict(want, K1=EMPTY_IF, K6b=OPEN_V)
+    chk("pin", "every class verdict without aimability (the independent route)",
+        dict((k, vr[k]["verdict"]) for k in want_r), want_r)
+    chk("pin", "K1 is emptied by D14 + MODEL-STATIC, assuming nothing",
+        (v["K1"]["facts"], v["K1"]["assumed"]), (["D14", "MODEL-STATIC"], []))
+    chk("pin", "without aimability K1's proof uses D4 + D7 (not D2), assumes H_flat",
+        (vr["K1"]["facts"], vr["K1"]["assumed"]), (["D4", "D7"], ["H_flat"]))
     chk("pin", "K0's proof uses D2 alone", v["K0"]["facts"], ["D2"])
     chk("pin", "S-2's proof uses SR2 alone", v["S-2"]["facts"], ["SR2"])
     chk("z3", "entailment: under H_flat C lies in the OPEN classes; without, + EMPTY IF",
@@ -2349,8 +2601,10 @@ def selftest():
         model["realisation_ii"], "K1")
 
     print("\n5. EACH CLASS STATES EXACTLY WHAT ITS PROOF USED")
-    chk("chk", "no class misses a hypothesis its z3 core used, none is padded",
-        hyp_check(model, v), [])
+    chk("chk", "no class misses a hypothesis its z3 cores used, none is padded "
+        "(both routes)", hyp_check(model, v, vr), [])
+    chk("chk", "K1's aimability route rests on neither H_flat nor H_EFE",
+        [h for h in ("H_flat", "H_EFE") if h in route_hyps(model, "K1", v)], [])
 
     print("\n6. PLACEMENT AGAINST THE LIVE LEDGER, AND WHAT IS NOT RELIED ON")
     missing, doubled, used, unknown = placement(model)
@@ -2394,11 +2648,14 @@ def selftest():
     esc = dict((x["hyp"], x) for x in model["escapes"])
     chk("chk", "every hypothesis an EMPTY / EMPTY IF class states has an escape",
         [h for h in stated if h not in esc], [])
-    chk("chk", "  and breaking each reopens a class (computed, never empty)",
-        [h for h in stated if h in esc and not esc[h]["reopens"]], [])
-    chk("chk", "  H_flat reopens exactly K1; H_reg lands in K3; H_M0 in K2",
-        (esc["H_flat"]["reopens"], esc["H_reg"]["reopens"], esc["H_M0"]["reopens"]),
-        (["K1"], ["K3"], ["K2"]))
+    chk("chk", "  breaking each reopens a class on one route or the other -- "
+        "except H_cc, while M-S1A-P3 stands",
+        [h for h in stated if h in esc and not (esc[h]["reopens"]
+                                               or esc[h]["reopens_route"])], ["H_cc"])
+    chk("chk", "  H_flat reopens nothing with aimability, K1 without; H_reg K3; H_M0 K2",
+        (esc["H_flat"]["reopens"], esc["H_flat"]["reopens_route"],
+         esc["H_reg"]["reopens"], esc["H_M0"]["reopens"]),
+        ([], ["K1"], ["K3"], ["K2"]))
     chk("chk", "no escape is listed twice, and no open row twice",
         (len(esc) == len(model["escapes"]),
          len([x for x in model["escapes"] if x["kind"] == "OPEN ROW"])
@@ -2418,21 +2675,37 @@ def selftest():
 
     with ledger_status("D4", SURVEY):
         m2, v2, h2 = rerun()
-    chk("ctl", "ledger D4 -> SURVEY: K1 falls to OPEN, the headline moves",
-        (v2["K1"]["verdict"], h2 != base_head), (OPEN_V, True))
+    chk("ctl", "ledger D4 -> SURVEY: K1's persistence route falls to OPEN, the "
+        "headline moves, K1 stays EMPTY by D14",
+        (m2["verdicts_route"]["K1"]["verdict"], h2 != base_head, v2["K1"]["verdict"]),
+        (OPEN_V, True, EMPTY))
     with ledger_status("D7", SURVEY):
         m2, v2, h2 = rerun()
-    chk("ctl", "ledger D7 -> SURVEY: K1 falls to OPEN", v2["K1"]["verdict"], OPEN_V)
+    chk("ctl", "ledger D7 -> SURVEY: K1's persistence route falls to OPEN",
+        m2["verdicts_route"]["K1"]["verdict"], OPEN_V)
+    with ledger_status("D14", SURVEY):
+        m2, v2, h2 = rerun()
+    chk("ctl", "ledger D14 -> SURVEY: K1 falls back to EMPTY IF H_flat, K6b to OPEN",
+        (v2["K1"]["verdict"], v2["K6b"]["verdict"]), (EMPTY_IF, OPEN_V))
     with patched(foliation, "IDENTITY_DISPUTED", True):
         m2, v2, h2 = rerun()
     chk("ctl", "foliation.IDENTITY_DISPUTED -> True: K0 falls to OPEN, K1 (which "
         "never used D2) does not, the headline moves",
-        (v2["K0"]["verdict"], v2["K1"]["verdict"], h2 != base_head),
-        (OPEN_V, EMPTY_IF, True))
+        (v2["K0"]["verdict"], v2["K1"]["verdict"], m2["verdicts_route"]["K1"]["verdict"],
+         h2 != base_head), (OPEN_V, EMPTY, EMPTY_IF, True))
     with patched(drivensource, "CERTIFY_COROLLARY", "UNCHANGED"):
         m2, v2, h2 = rerun()
-    chk("ctl", "drivensource corollary un-narrowed: K1 falls to OPEN (D4 refused)",
-        (v2["K1"]["verdict"], "D4" in m2["facts_refused"]), (OPEN_V, True))
+    chk("ctl", "drivensource corollary un-narrowed: K1's persistence route falls "
+        "to OPEN (D4 refused)",
+        (m2["verdicts_route"]["K1"]["verdict"], "D4" in m2["facts_refused"]),
+        (OPEN_V, True))
+    with patched(ledger, "RULED_BY_M", [r for r in ledger.RULED_BY_M
+                                         if r[0] not in ("M-S1A-P2", "M-S1A-P3")]):
+        m2, v2, h2 = rerun()
+    chk("ctl", "M's rulings P2 and P3 taken off the board: K1 back to EMPTY IF, the "
+        "creation classes back to OPEN (the rulings are ASKED)",
+        (v2["K1"]["verdict"], v2["W-create-cc"]["verdict"], v2["W-create-ncc"]["verdict"]),
+        (EMPTY_IF, OPEN_V, OPEN_V))
     with patched(spec, "seat_over_collapse", lambda l: 0.5):
         m2, v2, h2 = rerun()
     chk("ctl", "spec.seat_over_collapse -> 0.5: S-2 falls to OPEN, S-1 stays",
@@ -2450,26 +2723,39 @@ def selftest():
         m2 = run()
     chk("ctl", "achievable.M_OVER_B -> 1e-80: realisation (ii) leaves K1 for K6b",
         m2["realisation_ii"], "K6b")
-    PENDING_REQUIREMENTS["chronology"] = True
+    REQUIRE_OVERRIDE["chronology"] = False
     try:
         m2, v2, h2 = rerun()
     finally:
-        PENDING_REQUIREMENTS["chronology"] = None
-    chk("ctl", "if M ruled chronology a requirement, W-create-cc becomes EMPTY",
-        (v2["W-create-cc"]["verdict"], v2["W-create-cc"]["facts"]),
-        (EMPTY, ["GEROCH-BORDE"]))
+        REQUIRE_OVERRIDE["chronology"] = None
+    chk("ctl", "chronology switched off: W-create-cc reopens, W-create-ncc (a "
+        "pathology) stays EMPTY",
+        (v2["W-create-cc"]["verdict"], v2["W-create-ncc"]["verdict"]), (OPEN_V, EMPTY))
+    chk("pin", "W-create-cc is emptied by GEROCH-BORDE, W-create-ncc by BORDE-ESCAPES",
+        (v["W-create-cc"]["facts"], v["W-create-ncc"]["facts"]),
+        (["GEROCH-BORDE"], ["BORDE-ESCAPES"]))
+    d3 = model["d3"]
+    chk("z3", "D3 lemma: static length element >= 1 exactly when m >= 0; guard refutes "
+        "the false strengthening; antiderivative checked",
+        (d3["lemma"], d3["guard"], d3["antiderivative_checked"]), (True, True, True))
+    chk("fig", "reading 3's mixed-sign witness is net contracted (length < gap)",
+        d3["witness_net"] < 0.0, True)
+    with patched(sys.modules[__name__], "D3_WITNESS_M", (-0.3, 0.3)):
+        d3b = d3_readings(model["F"])
+    chk("ctl", "the witness with the outer mass raised to +0.3 is NOT contracted",
+        d3b["witness_net"] > 0.0, True)
     mm = copy.deepcopy(model)
     [K for K in mm["classes"] if K["id"] == "K1"][0]["hyps"].remove("H_reg")
     chk("ctl", "K1 with H_reg dropped from its stated hypotheses fails the check",
-        [b[0] for b in hyp_check(mm, v)], ["K1"])
+        [b[0] for b in hyp_check(mm, v, vr)], ["K1"])
     mm = copy.deepcopy(model)
     [K for K in mm["classes"] if K["id"] == "K1"][0]["hyps"].remove("H_flat")
     chk("ctl", "K1 with H_flat dropped fails the check too",
-        [b[:2] for b in hyp_check(mm, v)], [("K1", ["H_flat"])])
+        [b[:2] for b in hyp_check(mm, v, vr)], [("K1", ["H_flat"])])
     mm = copy.deepcopy(model)
     [K for K in mm["classes"] if K["id"] == "K4"][0]["hyps"].append("H_flat")
     chk("ctl", "an OPEN class padded with an unused hypothesis fails the check",
-        [b[0] for b in hyp_check(mm, v)], ["K4"])
+        [b[0] for b in hyp_check(mm, v, vr)], ["K4"])
     vv = copy.deepcopy(v)
     vv["K5"]["verdict"] = FORBIDDEN_STATUS_WORD
     chk("ctl", "a verdict of %s is caught" % FORBIDDEN_STATUS_WORD,
@@ -2529,12 +2815,21 @@ def selftest():
          "flat" in model["hyps"]["H_flat"][0]), (False, True))
     chk("chk", "S-1 states its hypotheses (H_seat), and clause (3) prints them",
         (cls_hyps(model, "S-1"), "H_seat" in theorem_statement(model)), (["H_seat"], True))
-    chk("z3", "W-create-cc forced to a CTC and W-create-ncc to a pathology (derived)",
-        model["entailment"]["forced"], {"W-create-cc": ["ctc"],
-                                        "W-create-ncc": ["pathology"]})
-    chk("chk", "the T headline line is conditional on P4 and the hold",
-        ("IF phase1's D3 is read per R1" in model["headline"]
+    REQUIRE_OVERRIDE["chronology"] = REQUIRE_OVERRIDE["pathology"] = False
+    try:
+        m2 = run()
+    finally:
+        REQUIRE_OVERRIDE["chronology"] = REQUIRE_OVERRIDE["pathology"] = None
+    chk("z3", "with P3 switched off, W-create-cc is FORCED to a CTC and W-create-ncc "
+        "to a pathology (derived) -- what M-S1A-P3 disqualifies",
+        (m2["entailment"]["forced"], m2["verdicts"]["W-create-cc"]["verdict"]),
+        ({"W-create-cc": ["ctc"], "W-create-ncc": ["pathology"]}, OPEN_V))
+    chk("chk", "the T headline line runs the three D3 readings and needs the hold",
+        ("under readings 1 and 3" in model["headline"]
          and "held for one light-crossing" in model["headline"]), True)
+    chk("chk", "every step-1a ruling is on the board and placed; nothing pending",
+        ([r[0] for r in ledger.RULED_BY_M if r[0].startswith("M-S1A-")], PENDING_FOR_M),
+        (["M-S1A-P%d" % i for i in range(1, 6)], []))
     chk("ctl", "a withdrawn figure printed bare is caught",
         len(withdrawn_lines("the lead is 65 orders short")), 1)
     mm = copy.deepcopy(model)

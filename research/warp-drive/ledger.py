@@ -727,6 +727,74 @@ RULED_BY_M = [
         phase1.is_transition(False, True, True, True, True, net_momentum=True),
         phase1.is_transition(False, True, True, True, True, passage_flux=True)),
      "step 1a, the specification theorem, may now state D4"),
+
+    # M's five rulings on specthm.py's PENDING FOR M (step 1a review).  M's
+    # words are quoted; what is applied, and what is opened instead, is said.
+    ("M-S1A-P1",
+     "Is the seat (specthm's object S) required to contract?",
+     "a positive lens mass lengthens proper distance: contraction iff m < 0 "
+     "(certify.theorem_holds() = %s), so S-1's witness does not contract"
+     % certify.theorem_holds(),
+     "RULED BY M: NO -- 'I would imagine the seat is an expansion.'  APPLIED: "
+     "no contraction requirement binds S.  M's mechanism -- 'As soon as the "
+     "information hits the seat, it triggers the higgs field, and atomic mass "
+     "forms', with 'If the elements required for seating are present, then the "
+     "conditions for a higgs field or something like it are also present' -- is "
+     "NOT applied: M ruled it be TESTED AS A DOCKET (DOCKET 65), against D15, "
+     "D16, S9 and a full energy and conservation-law account",
+     "S-1 stands NONEMPTY with no contraction requirement; DOCKET 65 opens"),
+
+    ("M-S1A-P2",
+     "Is aimability binding (DOCKET 62's R5)?",
+     "D14 proves the destination UNDEFINED on a static spherically symmetric "
+     "device (THEOREM); no ruling had made aimability a requirement",
+     "RULED BY M: YES, NOT SOLE -- 'aiming is definitely part of it, but it "
+     "doesn't have to be the only function.'  APPLIED: aimability is a "
+     "REQUIRED function (necessary, not sufficient)",
+     "specthm imposes aimability on C; with D14 every static spherically "
+     "symmetric member fails it"),
+
+    ("M-S1A-P3",
+     "Is a closed causal curve, or a Borde pathology, disqualifying?",
+     "create.py reads Geroch and Borde: causally compact topology change forces "
+     "causality violation with no matter assumption "
+     "(GEROCH_NEEDS_MATTER_ASSUMPTION = %s), and no escape stays in Lorentzian "
+     "GR without a pathology (any_escape_stays_in_lorentzian_gr() = %s)"
+     % (create.GEROCH_NEEDS_MATTER_ASSUMPTION,
+        create.any_escape_stays_in_lorentzian_gr()),
+     "RULED BY M: BOTH readings of 'these are defects' -- (i) a closed causal "
+     "curve or a Borde pathology DISQUALIFIES a device: APPLIED; (ii) "
+     "topological defects are candidate SEATING SITES ('Seating occurs in a "
+     "place where matter can occur but not in its original geometric form'): "
+     "NOT applied, opened as DOCKET 66",
+     "specthm's throat-creation classes become EMPTY; DOCKET 66 opens"),
+
+    ("M-S1A-P4",
+     "Is phase1's D3 read per R1 (pointwise invariant contraction)?",
+     "phase1's D3 is a slice statement and a slice statement is gauge; the "
+     "anchor lemma does not close it (foliation.NONSTATIC_ANCHOR_CLOSES_D3 = %s)"
+     % foliation.NONSTATIC_ANCHOR_CLOSES_D3,
+     "RULED BY M: RUN BOTH AND COMPARE -- 'this can go either way according to "
+     "the math, so we should run both scenarios and compare. Maybe its a "
+     "combination of the two.'  APPLIED: specthm runs three readings -- R1 "
+     "pointwise, phase1's slice D3 literally, and net contraction along the "
+     "static slice between fixed places (the combination)",
+     "specthm prints what T admits under each reading, side by side"),
+
+    ("M-S1A-P5",
+     "For the reconstruction route: what is specified, at what fidelity, "
+     "classical or quantum?",
+     "DOCKET 62's R11 note recorded three rulings unmade; transit.py already "
+     "holds that teleportation is a move, not a copy "
+     "(IT_IS_A_MOVE_NOT_A_COPY = %s), consumes its channel "
+     "(CHANNEL_IS_CONSUMED_BY_USE = %s), carries no substance "
+     "(CARRIES_SUBSTANCE = %s) and does not beat light (BEATS_LIGHT = %s)"
+     % (transit.IT_IS_A_MOVE_NOT_A_COPY, transit.CHANNEL_IS_CONSUMED_BY_USE,
+        transit.CARRIES_SUBSTANCE, transit.BEATS_LIGHT),
+     "RULED BY M: BOTH, QUANTUM FIRST -- 'both. Quantum first, which should "
+     "derive the classical.'  APPLIED: the specification is a quantum state, "
+     "and the classical specification is derived from it",
+     "R11 is stated on a quantum specification; transit.py's four results bind it"),
 ]
 
 # ---------------------------------------------------------------------------
@@ -1887,7 +1955,8 @@ def selftest():
          phase1.is_transition(False, True, True, True, True, net_momentum=True),
          phase1.is_transition(False, True, True, True, True, passage_flux=True),
          formation.PHASE1_D4_POINTWISE_DURING_PASSAGE),
-        (["M-D64-1"], [], True, False, False, True, False))
+        (["M-D64-1", "M-S1A-P1", "M-S1A-P2", "M-S1A-P3", "M-S1A-P4",
+          "M-S1A-P5"], [], True, False, False, True, False))
 
     print("\n3. THE EXCHANGE RATE, RE-DERIVED FROM ASKED CONSTANTS")
     chk("Lambda is overturn.py's", LAMBDA, overturn.LAMBDA)
