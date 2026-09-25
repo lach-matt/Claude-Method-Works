@@ -64,9 +64,10 @@ MECHANISM, AS STATED -- THE TRIGGERED FIELD FORMING THE PAYLOAD'S ATOMIC MASS --
 IS REFUSED ON EVERY READING; ON DISPLACEMENT AND QUANTA IT IS REFUSED AS NET
 FORMATION ONLY, AND ATOMIC MASS CAN STILL FORM THERE AS MATTER WITH ITS
 ANTIMATTER (THE PAIR ROUTE, PRICED); ON TEMPLATE IT IS REFUSED ON
-H-UNSOURCED-SEAT ONLY, AND A SEAT PREPARED IN ADVANCE CAN STILL HAVE ITS
-ELEMENTS' HIGGS-GIVEN MASS RESTORED ON ARRIVAL (THE HELD-SEAT RELEASE ROUTE,
-PRICED; IT FORMS NO BARYONS).  NO READING IS REFUSED ON A CONTESTED
+P-UNIFORM AND H-UNSOURCED-SEAT, AND WHERE THE LATTER FAILS A SEAT PREPARED IN
+ADVANCE CAN STILL HAVE ITS ELEMENTS' HIGGS-GIVEN MASS RESTORED ON ARRIVAL (THE
+HELD-SEAT RELEASE ROUTE, PRICED; IT FORMS NO BARYONS).  NO READING IS REFUSED
+ON A CONTESTED
 FIGURE ALONE.  EACH COUNT IS LISTED ONLY AGAINST THE READINGS IT HAS A STATED
 REASON TO ANSWER, AND THE TABLE IN SECTION 5 GIVES THE REASON, AND THE REASON
 EACH OMITTED COUNT DOES NOT ANSWER.  THE SEAT SPLITS THREE WAYS.  WITH THE
@@ -241,10 +242,12 @@ the unsourced field at the seat is at v; any lower value needs a local source
 (D15, D16), and on H-UNSOURCED-SEAT nothing holds one there before arrival
 (M's sentence names no such source; only the information arrives); H-TREE.  So
 the no-P-UNIFORM claim holds for STOCK on H-PRESENT and not for its complement.
-H-UNSOURCED-SEAT is not vacuous: within D20's model a positive source holds
-0 < |phi| < v ((a) below).  Where it fails, TEMPLATE keeps a priced remainder,
-the held-seat release route (section 5 (d)).  H-PRESENT or not, the split is
-three-way: before arrival the seat is r = |phi|/v < 1 (TEMPLATE, C1), r = 1
+H-UNSOURCED-SEAT is not vacuous: within D20's model a positive source is an
+equilibrium on 0 < |phi| < v ((a) below) and a stable hold only on
+0.5774 v < |phi| < v.  Where it fails, TEMPLATE keeps a priced remainder,
+the held-seat release route (section 5 (d)), on that range only.  H-PRESENT
+or not, the split is three-way: before arrival the seat is r = |phi|/v < 1
+(TEMPLATE, C1), r = 1
 (STOCK on H-PRESENT, C5) or r > 1 (neither reading's claim: the trigger has
 nothing to give; holding r > 1 needs a source outside D20's model).  Giving
 present elements MORE mass would need raising |phi|, which is a displacement,
@@ -265,8 +268,8 @@ already on, and each is asked of its owner:
       0 < |phi| < v.  So a source of POSITIVE rest energy can only LOWER |phi|,
       and every Yukawa mass by the same fraction.  Raising |phi| above v,
       whether eps < 0 or eps > 2, would need a source of negative rest
-      energy.  Holding any eps costs 2/eps joules of source per joule of
-      field (excite.holding_ratio).
+      energy.  Holding eps costs 4(1-eps)^2/(eps(2-eps)) joules of source per
+      joule of field (excite.holding_ratio), 2/eps at small eps.
   (b) a displacement along a GAUGE direction.  It changes no mass and no
       derivative-free gauge-invariant local observable (D19,
       excite.FLAT_DIRECTIONS_ARE_INERT).
@@ -676,9 +679,10 @@ P-UNIFORM; TEMPLATE's also on H-UNSOURCED-SEAT; STOCK's does not, on H-PRESENT.
 
 THE MECHANISM AS STATED: REFUSED on every reading; on DISPLACEMENT and QUANTA
 as NET formation only -- atomic mass can still form there as matter with its
-antimatter (the pair route, PRICED); on TEMPLATE on H-UNSOURCED-SEAT only -- a
-seat prepared in advance can still have its elements' Higgs-given mass restored
-on arrival (the held-seat release route, PRICED; it forms no baryons).
+antimatter (the pair route, PRICED); on TEMPLATE on P-UNIFORM and
+H-UNSOURCED-SEAT -- where the latter fails, a seat prepared in advance can still
+have its elements' Higgs-given mass restored on arrival (the held-seat release
+route, PRICED; it forms no baryons).
 THE CONSIDERATION: TRUE (THEOREM on H-TREE); on P-UNIFORM it discriminates
 nothing.
 
@@ -709,25 +713,30 @@ WHAT SURVIVES:
       source rest energy per J of field (excite.holding_ratio; 2/eps at
       small eps).  (i) It forms no baryons: the elements were already
       there, and no Higgs coupling carries B (C3).  (ii) The energy: as
-      |phi| returns to v the field gives up its own energy, rho_EW
+      |phi| returns to v the field gives up its own energy, F = rho_EW
       eps^2(2-eps)^2 per unit volume (excite.holding_terms), and by energy
       conservation that is what pays for the elements' regained rest
       energy, which cannot exceed it; the rest is radiated (the selftest
-      checks the balance exactly over Fraction).  That field energy was
-      stored in advance by the source, which held 197.0 times as much rest
-      energy, so per joule regained at least 197.0 J of source rest energy
-      sat at the seat.  What becomes of the source at release is not
-      computed.  (iii) What can be regained: the electrons' part exactly,
-      eps x 3.010e-4 of the payload (3.010e-6 at eps = 1/100; H-TREE); the
-      nucleons' part is bounded by the first-order share only at small eps
-      (the largest central reading on the READ rows gives 1.719e-3 at
-      eps = 1/100, not a bound), and at large eps by the finite share, which
-      is OPEN.  Within D20's model a static hold is stable only below
-      eps = 0.4226 (excite.stability_edge).  (iv) It needs the seat prepared
-      in advance: something reached the destination first, at <= c, which
-      is D23's point for reconstruction, asked of the ledger
-      (transit.TRAVERSAL_IS_REMOVED = False).  The Higgs is an intermediary
-      here too, holding what the source stored, not the source (C4).
+      checks the balance exactly over Fraction).  With the elements' own
+      lowering at eps0 = 1e-12, 1e-6, 1/1000, 1/200: regained/F =
+      2.020e-10, 2.020e-4, 0.1815, 0.5013.  That field energy was stored
+      in advance: the phi-coupled rest energy at the seat (the prepared
+      source's with the elements') was 197.0 times as much, so per joule
+      regained at least 197.0 J of it sat at the seat.  What becomes of
+      the source at release is not computed.  (iii) What can be regained:
+      the electrons' part exactly, eps x 3.010e-4 of the payload (3.010e-6
+      at eps = 1/100; H-TREE); the nucleons' part is eps times the
+      first-order share at small eps (the largest READ nucleon row gives
+      1.716e-3 at eps = 1/100; an estimate, not a bound) and, up to the
+      stability edge, a finite response that is OPEN like the finite
+      share.  Within D20's model a static hold is stable only below
+      eps = 0.4226 (excite.stability_edge), on 0.5774 v < |phi| < v; a
+      TEMPLATE seat below that keeps no held-seat remainder.  (iv) It needs
+      the seat prepared in advance: something reached the destination
+      first, at <= c, which is D23's point for reconstruction, asked of
+      the ledger (transit.TRAVERSAL_IS_REMOVED = False).  The Higgs is an
+      intermediary here too, holding what the source stored, not the source
+      (C4).
 
 ===============================================================================
 6.  NAMED HYPOTHESES AND PREMISES -- EVERY LIMITATION, NONE BURIED
@@ -780,11 +789,13 @@ WHAT SURVIVES:
   H-UNSOURCED-SEAT Nothing at the seat holds |phi| below v before arrival.
           M's sentence names no such source: only the information arrives.
           C1 refuses TEMPLATE on it, with P-UNIFORM, D15 and D16.  It is not
-          vacuous: within D20's model a positive source holds 0 < |phi| < v
-          (section 1 (a)), at 2/eps J of source per J of field
-          (excite.holding_ratio).  Where it fails, TEMPLATE keeps a priced
-          remainder, the held-seat release route (section 5 (d)).  It does
-          not reach SWITCH-ON: the off state lies past D20's stability edge,
+          vacuous: within D20's model a positive source is an equilibrium on
+          0 < |phi| < v (section 1 (a)) and a stable hold only on
+          0.5774 v < |phi| < v, at 4(1-eps)^2/(eps(2-eps)) J of source per J
+          of field (excite.holding_ratio; 2/eps at small eps).  Where it
+          fails, TEMPLATE keeps a priced remainder, the held-seat release
+          route (section 5 (d)), on that range only.  It does not reach
+          SWITCH-ON: the off state lies past D20's stability edge,
           eps = 0.4226 (excite.stability_edge), where the medium is unstable
           and no static hold stands.
   H-RELEASE On the held-seat release route the trigger removes the prepared
@@ -899,6 +910,7 @@ human body (Braunstein; Nelms et al.) are NOT-FOUND: the proxy blocked both
 pages, and neither is used.
 """
 
+import ast
 import contextlib
 import inspect
 import io
@@ -2162,8 +2174,12 @@ PAIR_ROUTE_REFUSED = not PAIR_ROUTE_PRICED
 #: C1's premise on TEMPLATE, NAMED: M's sentence names no such source; only
 #: the information arrives.  Not vacuous: FIELD_CAN_BE_EXCITED (D20).
 H_UNSOURCED_SEAT = True
+#: Where a positive source is a STABLE hold, not only an equilibrium (0 < |phi|
+#: < v): above excite.stability_edge() in |phi|.  Computed, never typed.
+STABLE_RANGE = "%.4f v < |phi| < v" % (1 - excite.stability_edge())
 H_UNSOURCED_SEAT_STATUS = ("NAMED HYPOTHESIS of C1 on TEMPLATE; not vacuous: a "
-                           "positive source holds 0 < |phi| < v (D20)")
+                           "positive source is an equilibrium on 0 < |phi| < v and "
+                           "a stable hold only on %s (D20)" % STABLE_RANGE)
 #: H-RELEASE: on the held-seat release route the trigger removes the prepared
 #: source without doing work on the field or the elements.  What becomes of
 #: the source's own rest energy is not computed.
@@ -2193,26 +2209,27 @@ def held_release_balance(eps, eps0):
     measured mass), so at equilibrium their Higgs-given energy density at v is
     u = S(eps0)/(1 - eps0).  A prepared source holds eps > eps0; the trigger
     removes it (H-RELEASE) and phi relaxes to eps0.  The field gives up
-    F(eps) - F(eps0), the elements regain u (eps - eps0), the difference is
-    radiated, and the prepared source held S(eps) - u (1 - eps)."""
+    F(eps) - F(eps0), the elements regain u (eps - eps0), and the difference
+    is radiated."""
     S0, F0 = excite.holding_terms(eps0)
     S, Fe = excite.holding_terms(eps)
     u = S0 / (1 - eps0)
     released = Fe - F0
     regained = u * (eps - eps0)
     return {"field at eps": Fe, "source at eps": S, "field released": released,
-            "regained": regained, "radiated": released - regained,
-            "source held": S - u * (1 - eps)}
+            "regained": regained, "radiated": released - regained}
 
 
-def held_release_faults(eps, eps0s):
+def held_release_faults(eps, eps0s, balance=None):
     """[eps0] for every sampled eps0 at which the release does not balance as
     stated: radiated >= 0, regained <= F(eps), and S(eps)/regained >=
-    excite.holding_ratio(eps) (per joule regained, at least that much source
-    rest energy sat at the seat).  Empty = the accounting holds exactly."""
+    excite.holding_ratio(eps) (per joule regained, at least that much
+    phi-coupled rest energy sat at the seat).  Empty = the accounting holds
+    exactly.  `balance` replaces held_release_balance for the controls."""
+    balance = held_release_balance if balance is None else balance
     bad = []
     for e0 in eps0s:
-        b = held_release_balance(eps, e0)
+        b = balance(eps, e0)
         if not (b["radiated"] >= 0 and b["regained"] <= b["field at eps"]
                 and b["source at eps"] >= excite.holding_ratio(eps) * b["regained"]):
             bad.append(e0)
@@ -2225,10 +2242,51 @@ HELD_RELEASE_EPS0 = (Fraction(1, 10 ** 12), Fraction(1, 10 ** 6), Fraction(1, 10
                      Fraction(1, 200))
 
 
+def held_release_regained_shares(eps=None, eps0s=HELD_RELEASE_EPS0):
+    """[(eps0, regained/F(eps))], exact: how much of the field's energy the
+    elements regain at each sampled eps0 of their own; the rest is radiated."""
+    eps = HELD_SEAT_EPS if eps is None else eps
+    return [(e0, held_release_balance(eps, e0)["regained"] / excite.holding_terms(eps)[1])
+            for e0 in eps0s]
+
+
+def regained_shares_text(shares=None):
+    """The regained shares as the docstring and the report print them."""
+    shares = held_release_regained_shares() if shares is None else shares
+    fmt = lambda x: _e(float(x), 3) if x < Fraction(1, 100) else "%.4f" % x
+    lab = lambda e0: str(e0) if e0.denominator <= 1000 else _e(float(e0), 0)
+    return ("eps0 = %s: regained/F = %s" % (", ".join(lab(e0) for e0, _r in shares),
+                                             ", ".join(fmt(r) for _e0, r in shares)))
+
+
+def holding_ratio_form(source=None, field=None):
+    """(S eps (2-eps) == 4 (1-eps)^2 F as polynomials, the limit of eps S/F as
+    eps -> 0), from excite's own SOURCE_POLY and FIELD_POLY, exact over
+    Fraction: excite.holding_ratio is 4(1-eps)^2/(eps(2-eps)), and 2/eps is
+    only its small-eps limit."""
+    s_ = list(excite.SOURCE_POLY) if source is None else list(source)
+    f_ = list(excite.FIELD_POLY) if field is None else list(field)
+    P, pm = excite.P, excite.pmul
+    four = [4 * x for x in pm(P(1, -1), P(1, -1))]
+    lhs, rhs = pm(s_, P(0, 2, -1)), pm(four, f_)
+    n = max(len(lhs), len(rhs))
+    same = all((lhs[i] if i < len(lhs) else 0) == (rhs[i] if i < len(rhs) else 0)
+               for i in range(n))
+    ok = len(s_) > 1 and len(f_) > 2 and s_[0] == 0 and f_[0] == f_[1] == 0 and f_[2] != 0
+    return same, (Fraction(s_[1]) / Fraction(f_[2]) if ok else None)
+
+
 def self_lowering_per_kg_m3():
     """eps per kg/m^3 of Higgs-derived mass, asked of excite (D20's owner,
     linear): EPS_AT_FIXTURE / HOLD_HIGGS_DERIVED_KG_M3_AT_EPS_1E18."""
     return excite.EPS_AT_FIXTURE / excite.HOLD_HIGGS_DERIVED_KG_M3_AT_EPS_1E18
+
+
+def largest_read_nucleon_row(rows=None):
+    """The largest central reading among the READ nucleon rows alone (electrons
+    excluded): largest_central_reading(read_only=True) less the electrons."""
+    rows = share_rows() if rows is None else rows
+    return max(r[2] for r in rows[1:] if not r[1].startswith("CONTESTED"))
 
 
 def held_seat_route(eps=None):
@@ -2237,8 +2295,8 @@ def held_seat_route(eps=None):
     what it costs per joule of field (excite.holding_ratio), its Higgs-derived
     density (excite.exact_source_density), whether a static hold is stable
     there (excite.stability_edge), what the electrons regain (exact on H-TREE)
-    and the first-order figure for the nucleons (the largest central reading,
-    not a bound), whether it forms baryons (C3) and whether it needs a prior
+    and the first-order figure for the nucleons (eps x the largest READ nucleon
+    row, an estimate, not a bound), whether it forms baryons (C3) and whether it needs a prior
     arrival (D23)."""
     eps = HELD_SEAT_EPS if eps is None else eps
     S, Fe = excite.holding_terms(eps)
@@ -2251,7 +2309,7 @@ def held_seat_route(eps=None):
         "Higgs-derived kg/m^3": excite.exact_source_density(eps),
         "stable": eps < excite.stability_edge(),
         "electrons regained": float(eps) * share_rows()[0][2],
-        "first-order READ": float(eps) * HIGGS_SHARE_LARGEST_READ,
+        "nucleons first order": float(eps) * largest_read_nucleon_row(),
         "forms baryons": HIGGS_COUPLING_CARRIES_B_OR_L,
         "needs prior arrival": preparation_needs_prior_arrival(),
         "balance faults": held_release_faults(eps, HELD_RELEASE_EPS0),
@@ -2271,6 +2329,23 @@ def held_seat_route_priced(route=None):
 
 HELD_SEAT_ROUTE = held_seat_route()
 HELD_SEAT_ROUTE_PRICED = held_seat_route_priced()
+
+
+def held_seat_share_faults(route=None):
+    """[] iff the nucleons' figure is eps x the largest READ nucleon row and,
+    with the electrons', sums to eps x HIGGS_SHARE_LARGEST_READ (no double
+    count of the electrons)."""
+    r = HELD_SEAT_ROUTE if route is None else route
+    e = float(r["eps"])
+    out = []
+    if r["nucleons first order"] != e * largest_read_nucleon_row():
+        out.append("nucleons")
+    if not math.isclose(r["electrons regained"] + r["nucleons first order"],
+                        e * HIGGS_SHARE_LARGEST_READ, rel_tol=1e-12):
+        out.append("sum")
+    return out
+
+
 #: The route, as printed wherever TEMPLATE's remainder is named.
 HELD_SEAT_TEXT = (
     "the held-seat release route, where H-UNSOURCED-SEAT fails: a seat prepared "
@@ -2279,15 +2354,20 @@ HELD_SEAT_TEXT = (
     "Higgs-given mass.  It forms no baryons (C3: the elements were already "
     "there).  PRICED at eps = %s (excite.EPS_CHEMICAL): %s kg/m^3 of "
     "Higgs-derived mass where the templates sit, %.1f J of source rest energy "
-    "per J of field (excite.holding_ratio).  The field's own energy pays for "
-    "the regained rest energy, which cannot exceed it, so per joule regained "
-    "at least %.1f J of source rest energy sat at the seat.  The electrons' "
-    "part is regained exactly (%s of the payload at that eps, H-TREE); the "
-    "nucleons' is bounded by the first-order share only at small eps and by "
-    "the finite share, OPEN, at large eps.  It needs the seat prepared in "
-    "advance, a prior arrival at <= c (D23)"
+    "per J of field (excite.holding_ratio).  A static hold is stable only on "
+    "%s (excite.stability_edge): a TEMPLATE seat below that keeps no held-seat "
+    "remainder.  The field's own energy pays for the regained rest energy, "
+    "which cannot exceed it, and the rest is radiated (with the elements' own "
+    "lowering at %s), so per joule regained at least %.1f J of phi-coupled rest "
+    "energy (the prepared source's with the elements') sat at the seat.  The "
+    "electrons' part is regained exactly (%s of the payload at that eps, "
+    "H-TREE); the nucleons' is eps times the first-order share at small eps "
+    "(an estimate, not a bound) and, up to the stability edge, a finite "
+    "response that is OPEN like the finite share.  It needs the seat prepared "
+    "in advance, a prior arrival at <= c (D23)"
     % (HELD_SEAT_ROUTE["eps"], _e(HELD_SEAT_ROUTE["Higgs-derived kg/m^3"], 3),
-       HELD_SEAT_ROUTE["source per J of field"], HELD_SEAT_ROUTE["source per J of field"],
+       HELD_SEAT_ROUTE["source per J of field"], STABLE_RANGE, regained_shares_text(),
+       HELD_SEAT_ROUTE["source per J of field"],
        _e(HELD_SEAT_ROUTE["electrons regained"], 3)))
 
 # ===================================================================== M65-5
@@ -2577,8 +2657,8 @@ def mechanism_label():
         out += ("; on %s as NET formation only -- atomic mass can still form there as "
                 "matter with its antimatter (the pair route, PRICED)" % ", ".join(pair))
     if held:
-        out += ("; on %s on H-UNSOURCED-SEAT only -- a seat prepared in advance can "
-                "still have its elements' Higgs-given mass restored on arrival (the "
+        out += ("; on %s on P-UNIFORM and H-UNSOURCED-SEAT -- where the latter "
+                "fails, a seat prepared in advance can still have its elements' Higgs-given mass restored on arrival (the "
                 "held-seat release route, PRICED; it forms no baryons)" % ", ".join(held))
     return out
 
@@ -2707,8 +2787,9 @@ PROPOSED_ROWS = (
      "|phi| < v there before arrival), by C1 alone: " + _C1_TEMPLATE + ".  "
      "H-PRESENT or not, " + THREE_WAY + ".  EXCITATION is "
      "refused as NET formation only: what remains is the pair route (S12), "
-     "priced.  TEMPLATE is refused on H-UNSOURCED-SEAT only: what remains is "
-     "the held-seat release route (S13), priced, which forms no baryons.  What "
+     "priced.  TEMPLATE is refused on P-UNIFORM and H-UNSOURCED-SEAT; where the "
+     "latter fails, what remains is the held-seat release route (S13), priced, "
+     "which forms no baryons.  What "
      "remains of STOCK is reconstruction from stock.  OPEN, and "
      "no verdict rests on it: the FINITE Higgs share, what the field gives "
      "with it switched off, not computed and not read; whether it exceeds half "
@@ -2769,8 +2850,9 @@ PROPOSED_ROWS = (
      "OPEN", ("massform", "HELD_SEAT_ROUTE_PRICED"),
      "a way to prepare and release the source at the seat (not computed here); "
      "what becomes of the source's own rest energy at release (H-RELEASE); the "
-     "finite Higgs share (S10 (open)), which sets what the nucleons regain at "
-     "large eps; H-UNSOURCED-SEAT holding in the case at hand, which closes the "
+     "finite response of the nucleon mass to |phi| (OPEN, like the finite share "
+     "of S10 (open)), which sets what the nucleons regain up to the stability "
+     "edge; H-UNSOURCED-SEAT holding in the case at hand, which closes the "
      "route; a source outside D20's model"),
     ("S10 (open)", "SUPPLY",
      "OPEN ITEM, a candidate question for a future docket: the FINITE Higgs share "
@@ -2877,7 +2959,9 @@ def doc_figures():
         ("held-seat ratio", "%.1f J" % HELD_SEAT_ROUTE["source per J of field"]),
         ("held-seat ratio times", "%.1f times" % HELD_SEAT_ROUTE["source per J of field"]),
         ("held-seat electrons", _e(HELD_SEAT_ROUTE["electrons regained"], 3)),
-        ("held-seat first order", _e(HELD_SEAT_ROUTE["first-order READ"], 3)),
+        ("held-seat first order", _e(HELD_SEAT_ROUTE["nucleons first order"], 3)),
+        ("stable range", "%.4f v < |phi| < v" % (1 - excite.stability_edge())),
+        ("regained shares", regained_shares_text()),
         ("stability edge", "eps = %.4f" % excite.stability_edge()),
         ("self lowering", "eps of %s per %s kg/m^3" % (
             _e(excite.EPS_AT_FIXTURE, 0), _e(excite.HOLD_HIGGS_DERIVED_KG_M3_AT_EPS_1E18, 3))),
@@ -3295,6 +3379,46 @@ STALE_WORDING = (
      r"(?i)about an off (?:state|field) at the seat|with the field switched off \(heavy"
      r"|at the off state C1|so no off state and no", None,
      "C1 is about an off state at the seat, which this reading does not assume."),
+    # ---- round 7
+    ("R7-2 the holding price is excite's exact ratio; 2/eps is its small-eps limit",
+     r"(?i)(?:costs|at) 2/eps (?:J|joules)\b", None,
+     "Holding any eps costs 2/eps joules of source per joule of field "
+     "(excite.holding_ratio)."),
+    ("R7-3 a positive source is an equilibrium below v, a stable hold only in the "
+     "stable range", r"(?i)source holds 0 < \|phi\| < v", None,
+     "It is not vacuous: within D20's model a positive source holds 0 < |phi| < v."),
+    ("R7-1 the nucleons' first-order figure is never a bound",
+     r"(?i)(?:first-order|at first order|nucleon row|largest central reading)[^;]*"
+     r"\ban? (?:upper |lower )?bound\b", r"(?i)\b(?:not|none|never) an? (?:upper )?bound",
+     "The nucleons' part at first order (the largest READ nucleon row) gives "
+     "1.716e-3 at eps = 1/100, an upper bound."),
+    ("R7-1 the first-order share is an estimate of the nucleons' part, not its bound",
+     r"(?i)bounded by the first-order share", None,
+     "The nucleons' part is bounded by the first-order share only at small eps."),
+    ("R7-5 the Higgs is an intermediary, never the source", r"(?i)\bHiggs(?: field)? is "
+     r"(?:the|its) source", None, "The Higgs is the source here (C4)."),
+    ("R7-5 H-UNSOURCED-SEAT does not reach SWITCH-ON", r"(?i)\breach(?:es)? SWITCH-ON",
+     r"(?i)does not reach SWITCH-ON",
+     "It also reaches SWITCH-ON: the off state lies past D20's stability edge."),
+    ("R7-5 the release radiates the rest", r"(?i)\b(?:none|nothing) (?:of it )?is radiated",
+     None, "The field pays for the regained rest energy; none is radiated."),
+    ("R7-4 the floor counts the phi-coupled rest energy, the elements' included",
+     r"(?i)J of source rest energy sat at the seat|the source, which held [\d.]+ times",
+     None, "So per joule regained at least 197.0 J of source rest energy sat at the seat."),
+    ("R7-5 TEMPLATE is refused on P-UNIFORM and H-UNSOURCED-SEAT, not the latter only",
+     r"(?i)on H-UNSOURCED-SEAT only", None,
+     "On TEMPLATE it is refused on H-UNSOURCED-SEAT only."),
+    ("R7-5 the report's lowering is per kg/m^3 of Higgs-derived mass",
+     r"eps per kg/m\^3\s+\S+\s+inside the measured mass", None,
+     "      the matter's own lowering, eps per kg/m^3    4.5407e-30  inside the measured "
+     "mass"),
+    ("R7-1 S13's mover: the finite response sets the nucleons' regain, not the share",
+     r"finite Higgs share \(S10 \(open\)\), which sets", None,
+     "the finite Higgs share (S10 (open)), which sets what the nucleons regain at "
+     "large eps"),
+    ("R7-5 H-PRESENT: the matter's own lowering sits inside the measured mass",
+     r"(?i)negligible beside the measured mass", None,
+     "The matter's own D20 lowering is negligible beside the measured mass."),
 )
 
 
@@ -3304,6 +3428,34 @@ def stale_wording(units=None, table=None):
     table = STALE_WORDING if table is None else table
     return [(i, s) for i, pat, unless, _old in table for s in units
             if re.search(pat, s) and not (unless and re.search(unless, s))]
+
+
+def selftest_labels(src=None):
+    """Every literal chk() label in this file's source: the first argument, or
+    the left side of its % format, read with ast (round 7)."""
+    src = inspect.getsource(sys.modules[__name__]) if src is None else src
+    out = []
+    for node in ast.walk(ast.parse(src)):
+        if (isinstance(node, ast.Call) and getattr(node.func, "id", "") == "chk"
+                and node.args):
+            a = node.args[0]
+            a = a.left if isinstance(a, ast.BinOp) else a
+            if isinstance(a, ast.Constant) and isinstance(a.value, str):
+                out.append(a.value)
+    return out
+
+
+#: The STALE_WORDING entries the selftest labels are scanned against.
+LABEL_SCAN = ("R6-A the seat split is three-way, never 'exhaustive' alone",)
+
+
+def stale_labels(labels=None, ids=LABEL_SCAN):
+    """[(id, label)] for every non-CONTROL selftest label carrying retired
+    wording (a CONTROL label names the old wording it plants)."""
+    labels = selftest_labels() if labels is None else labels
+    return [(i, lab) for i, pat, unless, _old in STALE_WORDING if i in ids
+            for lab in labels if not lab.startswith("CONTROL")
+            and re.search(pat, lab) and not (unless and re.search(unless, lab))]
 
 
 def _intro(doc=None):
@@ -3343,9 +3495,10 @@ def guard_locations(doc=None, rep=None, rows=None, reasons=None, readings=None,
         loc["reason %s %s" % (name, cid)] = why
     for name, what, _c in readings:
         loc["reading %s" % name] = what
-    for cid, _n, _o, st, _c, what in COUNTS_ON_THE_MECHANISM:
+    for cid, _n, own, st, _c, what in COUNTS_ON_THE_MECHANISM:
         loc["count %s" % cid] = what
         loc["count %s status" % cid] = st
+        loc["count %s owner" % cid] = own[1]
     for name, text in remainders.items():
         loc["remainder %s" % name] = text
     for name, text in survives:
@@ -3383,10 +3536,12 @@ REQUIRED_WORDING = (
     ("R6-B section 0 (caps): C1 on TEMPLATE rests on H-UNSOURCED-SEAT", "doc 0",
      "WHICH ON H-UNSOURCED-SEAT NOTHING HOLDS THERE BEFORE ARRIVAL",
      "WHICH NOTHING PLACES THERE (H-TREE)"),
-    ("R6-C section 0 (caps): TEMPLATE refused on H-UNSOURCED-SEAT only", "doc 0",
-     "ON TEMPLATE IT IS REFUSED ON H-UNSOURCED-SEAT ONLY, AND A SEAT PREPARED IN "
-     "ADVANCE CAN STILL HAVE ITS ELEMENTS' HIGGS-GIVEN MASS RESTORED ON ARRIVAL "
-     "(THE HELD-SEAT RELEASE ROUTE, PRICED; IT FORMS NO BARYONS)", "ON TEMPLATE"),
+    ("R6-C/R7 section 0 (caps): TEMPLATE refused on P-UNIFORM and H-UNSOURCED-SEAT",
+     "doc 0", "ON TEMPLATE IT IS REFUSED ON P-UNIFORM AND H-UNSOURCED-SEAT, AND WHERE "
+     "THE LATTER FAILS A SEAT PREPARED IN ADVANCE CAN STILL HAVE ITS ELEMENTS' "
+     "HIGGS-GIVEN MASS RESTORED ON ARRIVAL (THE HELD-SEAT RELEASE ROUTE, PRICED; IT "
+     "FORMS NO BARYONS)", "ON TEMPLATE IT IS REFUSED ON H-UNSOURCED-SEAT ONLY, AND A "
+     "SEAT PREPARED IN ADVANCE"),
     ("R6-C section 0 (M65-1): TEMPLATE keeps a priced remainder", "doc 0",
      "Without H-UNSOURCED-SEAT, TEMPLATE keeps a priced remainder, the held-seat "
      "release route", "TEMPLATE has no remainder"),
@@ -3411,9 +3566,19 @@ REQUIRED_WORDING = (
      "arrival)"),
     ("SF3 section 1 gives C1's reason on TEMPLATE", "doc 1", _C1_TEMPLATE,
      "that needs phi = 0 at the seat before arrival"),
-    ("R6-B section 1: H-UNSOURCED-SEAT is not vacuous", "doc 1",
+    ("R6-B/R7 section 1: H-UNSOURCED-SEAT is not vacuous, on the stable range",
+     "doc 1", "H-UNSOURCED-SEAT is not vacuous: within D20's model a positive source "
+     "is an equilibrium on 0 < |phi| < v ((a) below) and a stable hold only on "
+     + STABLE_RANGE + ".  Where it fails, TEMPLATE keeps a priced remainder, the "
+     "held-seat release route (section 5 (d)), on that range only",
      "H-UNSOURCED-SEAT is not vacuous: within D20's model a positive source holds "
-     "0 < |phi| < v", "H-UNSOURCED-SEAT"),
+     "0 < |phi| < v ((a) below).  Where it fails, TEMPLATE keeps a priced remainder, "
+     "the held-seat release route (section 5 (d))"),
+    ("R7-2 section 1 (a): the exact holding ratio, 2/eps its limit", "doc 1",
+     "Holding eps costs 4(1-eps)^2/(eps(2-eps)) joules of source per joule of field "
+     "(excite.holding_ratio), 2/eps at small eps",
+     "Holding any eps costs 2/eps joules of source per joule of field "
+     "(excite.holding_ratio)"),
     ("R6-A section 1: three-way", "doc 1", "H-PRESENT or not, " + THREE_WAY,
      "The split is exhaustive, H-PRESENT or not"),
     ("NOTE section 1: no P-UNIFORM on H-PRESENT", "doc 1",
@@ -3457,10 +3622,11 @@ REQUIRED_WORDING = (
     ("SF4 section 5 table scopes C2", "doc 5", "C2 answers a SMALL displacement only; "
      "a finite one is OPEN, and C3 carries the refusal regardless",
      "C2 answers a SMALL displacement only (H-LINEAR), a finite one being OPEN"),
-    ("R6-C section 5 verdict line names the held-seat route", "doc 5",
-     "on TEMPLATE on H-UNSOURCED-SEAT only -- a seat prepared in advance can still "
-     "have its elements' Higgs-given mass restored on arrival (the held-seat release "
-     "route, PRICED; it forms no baryons)", "and nothing on TEMPLATE"),
+    ("R6-C/R7 section 5 verdict line names the held-seat route", "doc 5",
+     "on TEMPLATE on P-UNIFORM and H-UNSOURCED-SEAT -- where the latter fails, a "
+     "seat prepared in advance can still have its elements' Higgs-given mass "
+     "restored on arrival (the held-seat release route, PRICED; it forms no "
+     "baryons)", "on TEMPLATE on H-UNSOURCED-SEAT only -- a seat prepared in advance"),
     ("R6-C section 5 (d): the held-seat release route", "doc 5",
      "(d) THE HELD-SEAT RELEASE ROUTE, TEMPLATE's remainder where H-UNSOURCED-SEAT "
      "fails, and the reading closest to M's mechanism", "(d)"),
@@ -3470,13 +3636,32 @@ REQUIRED_WORDING = (
     ("R6-C section 5 (d)(ii): the field's own energy pays, and cannot be exceeded",
      "doc 5", "by energy conservation that is what pays for the elements' regained "
      "rest energy, which cannot exceed it", "the field pays"),
-    ("R6-C section 5 (d)(ii): per joule regained, the source held more", "doc 5",
+    ("R6-C section 5 (d)(ii): per joule regained, at least", "doc 5",
      "so per joule regained at least", "so per joule regained"),
-    ("R6-C section 5 (d)(iii): first-order share at small eps only", "doc 5",
-     "the nucleons' part is bounded by the first-order share only at small eps",
-     "the nucleons' part is the first-order share"),
-    ("R6-C section 5 (d)(iii): finite share OPEN at large eps", "doc 5",
-     "and at large eps by the finite share, which is OPEN", "and at large eps"),
+    ("R7-4 section 5 (d)(ii): the phi-coupled rest energy, the elements' included",
+     "doc 5", "the phi-coupled rest energy at the seat (the prepared source's with "
+     "the elements') was", "stored in advance by the source, which held"),
+    ("R7-5 section 5 (d)(ii): the rest is radiated", "doc 5",
+     "which cannot exceed it; the rest is radiated", "which cannot exceed it; none is "
+     "radiated"),
+    ("R7-2 section 5 (d): 2/eps is the small-eps limit", "doc 5",
+     "(excite.holding_ratio; 2/eps at small eps)", "(excite.holding_ratio; eps/2 at "
+     "small eps)"),
+    ("R7-1 section 5 (d)(iii): eps times the first-order share, at small eps", "doc 5",
+     "the nucleons' part is eps times the first-order share at small eps (the largest "
+     "READ nucleon row gives", "the nucleons' part is bounded by the first-order "
+     "share only at small eps (the largest central reading on the READ rows gives"),
+    ("R7-1 section 5 (d)(iii): not a bound", "doc 5", "; an estimate, not a bound)",
+     ", an upper bound)"),
+    ("R7-1 section 5 (d)(iii): the finite response OPEN up to the edge", "doc 5",
+     "and, up to the stability edge, a finite response that is OPEN like the finite "
+     "share", "and at large eps by the finite share, which is OPEN"),
+    ("R7-3 section 5 (d)(iii): stable range; none below it", "doc 5",
+     "(excite.stability_edge), on " + STABLE_RANGE + "; a TEMPLATE seat below that "
+     "keeps no held-seat remainder", "(excite.stability_edge)."),
+    ("R7-5 section 5 (d): intermediary, not the source (C4)", "doc 5",
+     "The Higgs is an intermediary here too, holding what the source stored, not the "
+     "source (C4)", "The Higgs is the source here (C4)"),
     ("R6-C section 5 (d)(iv): a prior arrival (D23)", "doc 5",
      "It needs the seat prepared in advance: something reached the destination "
      "first, at <= c, which is D23's point for reconstruction", "(iv)"),
@@ -3503,8 +3688,22 @@ REQUIRED_WORDING = (
      "H-PRESENT or not, the split is exhaustive"),
     ("R6-B section 6 names H-UNSOURCED-SEAT", "doc 6",
      "H-UNSOURCED-SEAT Nothing at the seat holds |phi| below v before arrival", ""),
-    ("R6-B section 6: H-UNSOURCED-SEAT is not vacuous", "doc 6",
-     "It is not vacuous: within D20's model a positive source holds 0 < |phi| < v", ""),
+    ("R6-B/R7 section 6: H-UNSOURCED-SEAT is not vacuous, on the stable range", "doc 6",
+     "It is not vacuous: within D20's model a positive source is an equilibrium on "
+     "0 < |phi| < v (section 1 (a)) and a stable hold only on " + STABLE_RANGE,
+     "It is not vacuous: within D20's model a positive source holds 0 < |phi| < v"),
+    ("R7-2 section 6: the exact holding ratio, 2/eps its limit", "doc 6",
+     "at 4(1-eps)^2/(eps(2-eps)) J of source per J of field (excite.holding_ratio; "
+     "2/eps at small eps)", "at 2/eps J of source per J of field (excite.holding_ratio)"),
+    ("R7-3 section 6: the remainder on the stable range only", "doc 6",
+     "the held-seat release route (section 5 (d)), on that range only",
+     "the held-seat release route (section 5 (d))"),
+    ("R7-5 section 6: H-UNSOURCED-SEAT does not reach SWITCH-ON", "doc 6",
+     "It does not reach SWITCH-ON: the off state lies past D20's stability edge",
+     "It also reaches SWITCH-ON: the off state lies past D20's stability edge"),
+    ("R7-5 section 6 H-PRESENT: the lowering sits inside the measured mass", "doc 6",
+     "sits inside the measured mass, so |phi| = v here names that phi",
+     "is negligible beside the measured mass, so |phi| = v here names that phi"),
     ("R6-C section 6 names H-RELEASE", "doc 6",
      "H-RELEASE On the held-seat release route the trigger removes the prepared "
      "source without doing work on the field or the elements", ""),
@@ -3533,9 +3732,11 @@ REQUIRED_WORDING = (
      "by C1 on P-UNIFORM"),
     ("R6-A S10 claim: three-way", "S10 claim", "H-PRESENT or not, " + THREE_WAY,
      "H-PRESENT or not, the STOCK/TEMPLATE split is exhaustive"),
-    ("R6-C S10 claim names the held-seat route", "S10 claim",
-     "TEMPLATE is refused on H-UNSOURCED-SEAT only: what remains is the held-seat "
-     "release route (S13), priced, which forms no baryons", "TEMPLATE has no remainder"),
+    ("R6-C/R7 S10 claim names the held-seat route", "S10 claim",
+     "TEMPLATE is refused on P-UNIFORM and H-UNSOURCED-SEAT; where the latter fails, "
+     "what remains is the held-seat release route (S13), priced, which forms no "
+     "baryons", "TEMPLATE is refused on H-UNSOURCED-SEAT only: what remains is the "
+     "held-seat release route (S13), priced, which forms no baryons"),
     ("SF4 S10 claim scopes C2", "S10 claim", C2_SCOPE, "by C2 and C3"),
     ("NOTE S10 claim: no verdict rests on it lists TEMPLATE", "S10 claim",
      "SWITCH-ON and TEMPLATE on C1, and DISPLACEMENT on C3 regardless",
@@ -3612,13 +3813,22 @@ REQUIRED_WORDING = (
      "Higgs-given mass", "the field restores the mass"),
     ("R6-C remainder (i): no baryons", "remainder TEMPLATE",
      "It forms no baryons (C3: the elements were already there)", ""),
-    ("R6-C remainder (ii): the field pays, and cannot be exceeded", "remainder TEMPLATE",
-     "The field's own energy pays for the regained rest energy, which cannot exceed it, "
-     "so per joule regained at least", "The source pays"),
-    ("R6-C remainder (iii): first order at small eps only; finite OPEN",
-     "remainder TEMPLATE", "the nucleons' is bounded by the first-order share only at "
-     "small eps and by the finite share, OPEN, at large eps", "the nucleons' is the "
-     "first-order share"),
+    ("R6-C remainder (ii): the field pays, cannot be exceeded, the rest radiated",
+     "remainder TEMPLATE", "The field's own energy pays for the regained rest energy, "
+     "which cannot exceed it, and the rest is radiated (with the elements' own "
+     "lowering at", "The source pays"),
+    ("R7-4 remainder (ii): the floor is phi-coupled rest energy, the elements' included",
+     "remainder TEMPLATE", "J of phi-coupled rest energy (the prepared source's with "
+     "the elements') sat at the seat", "J of source rest energy sat at the seat"),
+    ("R7-3 remainder: a stable hold only on the stable range; none below it",
+     "remainder TEMPLATE", "A static hold is stable only on " + STABLE_RANGE
+     + " (excite.stability_edge): a TEMPLATE seat below that keeps no held-seat "
+     "remainder", ""),
+    ("R6-C/R7 remainder (iii): eps times the first-order share, not a bound; finite "
+     "OPEN", "remainder TEMPLATE", "the nucleons' is eps times the first-order share "
+     "at small eps (an estimate, not a bound) and, up to the stability edge, a finite "
+     "response that is OPEN like the finite share", "the nucleons' is bounded by the "
+     "first-order share only at small eps and by the finite share, OPEN, at large eps"),
     ("R6-C remainder (iv): a prior arrival (D23)", "remainder TEMPLATE",
      "It needs the seat prepared in advance, a prior arrival at <= c (D23)", ""),
     ("R6-B S10 mover: H-UNSOURCED-SEAT failing moves TEMPLATE (literal)", "S10 moves",
@@ -3642,6 +3852,34 @@ REQUIRED_WORDING = (
      "only if it was off at the seat"),
     ("R6-B fn C1: below v refuted on H-UNSOURCED-SEAT", "fn C1",
      "for below v, by H-UNSOURCED-SEAT", ""),
+    # ---- round 7
+    ("R7-1 S13 mover: the finite response, OPEN, up to the stability edge", "S13 moves",
+     "the finite response of the nucleon mass to |phi| (OPEN, like the finite share of "
+     "S10 (open)), which sets what the nucleons regain up to the stability edge",
+     "the finite Higgs share (S10 (open)), which sets what the nucleons regain at "
+     "large eps"),
+    ("R7-5 fn C1: H-UNSOURCED-SEAT does not reach SWITCH-ON", "fn C1",
+     "it does not reach SWITCH-ON's off state", "it also reaches SWITCH-ON's off state"),
+    ("R7-5 SURVIVES: the Higgs an intermediary, not the source (C4)",
+     "survives the held-seat release route", "The Higgs is an intermediary, holding "
+     "what the source stored, not the source (C4)", "The Higgs is the source (C4)"),
+    ("R7-5 COUNTS C1 owner: on TEMPLATE, H-UNSOURCED-SEAT", "count C1 owner",
+     "on TEMPLATE, H-UNSOURCED-SEAT", ""),
+    ("R7-3/5 report: H-UNSOURCED-SEAT's sub-line, an equilibrium, stable on a range",
+     "report", "H-UNSOURCED-SEAT: NAMED HYPOTHESIS of C1 on TEMPLATE; not vacuous: a "
+     "positive source is an equilibrium on 0 < |phi| < v and a stable hold only on "
+     + STABLE_RANGE, "H-UNSOURCED-SEAT: NAMED HYPOTHESIS of C1 on TEMPLATE; not "
+     "vacuous: a positive source holds 0 < |phi| < v"),
+    ("R7-1 report: the nucleons' first-order figure is not a bound", "report",
+     "not a bound; finite OPEN", "an upper bound; finite OPEN"),
+    ("R7-5 report: the lowering is per kg/m^3 of Higgs-derived mass", "report",
+     "of Higgs-derived mass, inside the measured mass", "inside the measured mass"),
+    ("R7-3 report: the stable range, and no remainder below it", "report",
+     "a stable hold only on " + STABLE_RANGE + "; below it no held-seat remainder", ""),
+    ("R7-4 report: the regained shares, the rest radiated", "report",
+     regained_shares_text() + "; the rest is radiated", ""),
+    ("R7-4 section 5 (d)(ii): the regained shares at the eps0 samples", "doc 5",
+     "With the elements' own lowering at " + regained_shares_text(), ""),
 )
 
 
@@ -3828,6 +4066,9 @@ DERIVED_ASSIGNMENTS = (
      "HELD_SEAT_ROUTE = {}"),
     ("HELD_SEAT_ROUTE_PRICED", r"^HELD_SEAT_ROUTE_PRICED = held_seat_route_priced\(\)$",
      "HELD_SEAT_ROUTE_PRICED = True"),
+    ("STABLE_RANGE", r'^STABLE_RANGE = "%\.4f v < \|phi\| < v" % '
+                     r'\(1 - excite\.stability_edge\(\)\)$',
+     'STABLE_RANGE = "0.5774 v < |phi| < v"'),
 )
 
 
@@ -3984,7 +4225,7 @@ def report():
     print("        (names of the premise C5's code reads: %s)"
           % (reads_p_uniform(trigger_gives_the_elements_their_mass) or "none"))
     _p("the matter's own lowering, eps per kg/m^3", _e(self_lowering_per_kg_m3(), 4),
-       "inside the measured mass")
+       "of Higgs-derived mass, inside the measured mass")
     print("      THE HELD-SEAT RELEASE ROUTE (TEMPLATE's remainder; H-UNSOURCED-SEAT fails)")
     h = HELD_SEAT_ROUTE
     _p("eps priced (excite.EPS_CHEMICAL)", str(h["eps"]), "asked")
@@ -3994,15 +4235,20 @@ def report():
     _p("  field F (J/m^3), what pays the regain", _e(h["field J/m^3"], 4), "D20")
     _p("  J of source per J of field", "%.4f" % h["source per J of field"],
        "excite.holding_ratio")
+    _hf = holding_ratio_form()
+    _p("  = 4(1-eps)^2/(eps(2-eps)); eps x it -> 2", "%s; %s" % (_hf[0], _hf[1]),
+       "exact, excite's polynomials")
     _p("  Higgs-derived density of the source", _e(h["Higgs-derived kg/m^3"], 4) + " kg/m^3",
        "excite.exact_source_density")
     _p("  stable (eps below the stability edge)", h["stable"],
        "edge %.4f, excite" % excite.stability_edge())
+    print("        a stable hold only on %s; below it no held-seat remainder" % STABLE_RANGE)
     _p("  balance faults over the eps0 samples", str(h["balance faults"]),
        "exact over Fraction; H-RELEASE")
+    print("        %s; the rest is radiated" % regained_shares_text())
     _p("  electrons regained / payload mass", _e(h["electrons regained"], 4),
        "exact on H-TREE")
-    _p("  nucleons at first order (largest READ)", _e(h["first-order READ"], 4),
+    _p("  nucleons at first order (largest READ row)", _e(h["nucleons first order"], 4),
        "not a bound; finite OPEN")
     _p("  forms baryons (C3)", h["forms baryons"], "the elements were there")
     _p("  needs a prior arrival at <= c (D23)", h["needs prior arrival"],
@@ -5211,7 +5457,7 @@ def selftest():
         excite.EPS_AT_FIXTURE / excite.HOLD_HIGGS_DERIVED_KG_M3_AT_EPS_1E18)
     # B: H-UNSOURCED-SEAT, named and load-bearing
     chk("R6-B H-UNSOURCED-SEAT is a NAMED HYPOTHESIS of C1 on TEMPLATE, and not vacuous "
-        "(a positive source holds 0 < |phi| < v)",
+        "(a positive source is an equilibrium on 0 < |phi| < v)",
         (H_UNSOURCED_SEAT, H_UNSOURCED_SEAT_STATUS.startswith("NAMED HYPOTHESIS"),
          FIELD_CAN_BE_EXCITED,
          all(not a for _iv, sg, a in source_sign_table() if sg > 0)), (True, True, True, True))
@@ -5243,14 +5489,14 @@ def selftest():
     chk("  the elements are in equilibrium at their own lowering: the release radiates "
         "only at second order (0 <= radiated <= 4 d^2, F'' <= 8 there)",
         0 <= _b2["radiated"] <= 4 * _d * _d, True)
-    chk("  the source held holding_ratio(eps) J per J of field (asked of excite)",
+    chk("  the phi-coupled rest energy is holding_ratio(eps) J per J of field (excite)",
         _h["source (rho_EW)"] / _h["field (rho_EW)"], excite.holding_ratio(HELD_SEAT_EPS))
     chk("CONTROL R6-C past the stability edge the balance fails (the check can fire)",
         held_release_faults(Fraction(3, 5), [Fraction(1, 2)]), [Fraction(1, 2)])
     chk("R6-C (iii) the electrons regain eps x their share exactly; the nucleons' "
-        "first-order figure is eps x the largest READ central reading",
+        "first-order figure is eps x the largest READ nucleon row",
         (_h["electrons regained"] == float(HELD_SEAT_EPS) * share_rows()[0][2],
-         _h["first-order READ"] == float(HELD_SEAT_EPS) * HIGGS_SHARE_LARGEST_READ),
+         _h["nucleons first order"] == float(HELD_SEAT_EPS) * largest_read_nucleon_row()),
         (True, True))
     chk("  and the hold is stable at the eps priced; CONTROL at eps = 1/2 it is not, "
         "and the route is not priced there",
@@ -5269,7 +5515,7 @@ def selftest():
          "held-seat release route (S13)" in [r for r in PROPOSED_ROWS if r[0] == "S10"][0][2],
          [(r[3], r[4]) for r in PROPOSED_ROWS if r[0] == "S13"]),
         (True, True, True, True, [("OPEN", ("massform", "HELD_SEAT_ROUTE_PRICED"))]))
-    chk("R6-C TEMPLATE prints refused on H-UNSOURCED-SEAT only, remainder priced; the "
+    chk("R6-C TEMPLATE prints refused on H-UNSOURCED-SEAT, remainder priced; the "
         "mechanism line names it",
         (reading_label("TEMPLATE"), "held-seat release route, PRICED" in mechanism_label()),
         ("REFUSED on H-UNSOURCED-SEAT; remainder the held-seat release route, PRICED",
@@ -5301,6 +5547,72 @@ def selftest():
             "it is TEMPLATE at |phi| = 0, refused on C1", "it is the STOCK reading"))
             if k == ("SWITCH-ON", "C5") else v) for k, v in READING_REASONS.items()}))),
         True)
+    # ---- ROUND 7 (round-6 verifiers)
+    # 1: the nucleons' figure, electrons excluded
+    chk("R7-1 the nucleons' first-order figure is eps x the largest READ nucleon row, "
+        "and with the electrons' it sums to eps x HIGGS_SHARE_LARGEST_READ",
+        held_seat_share_faults(), [])
+    chk("  it is 1.7157e-3 at eps = 1/100 (electrons 3.0102e-6, not counted twice)",
+        ("%.4e" % _h["nucleons first order"], "%.4e" % _h["electrons regained"]),
+        ("1.7157e-03", "3.0102e-06"))
+    chk("CONTROL R7-1 the round-6 expression, eps x (electrons + nucleons), is caught",
+        held_seat_share_faults(dict(_h, **{"nucleons first order":
+                                            float(HELD_SEAT_EPS) * HIGGS_SHARE_LARGEST_READ})),
+        ["nucleons", "sum"])
+    # 2: the holding price is the owner's exact ratio; 2/eps its limit
+    chk("R7-2 excite.holding_ratio is 4(1-eps)^2/(eps(2-eps)) as polynomials, and "
+        "eps x it -> 2 as eps -> 0 (exact, excite's own SOURCE_POLY, FIELD_POLY)",
+        holding_ratio_form(), (True, 2))
+    _r = excite.holding_ratio(HELD_SEAT_EPS)
+    _ee = Fraction(excite.stability_edge())
+    chk("  at eps = 1/100 it equals the closed form; 2/eps overstates it, over 2x at the edge",
+        (_r == 4 * (1 - HELD_SEAT_EPS) ** 2 / (HELD_SEAT_EPS * (2 - HELD_SEAT_EPS)),
+         _r < 2 / HELD_SEAT_EPS, excite.holding_ratio(_ee) < Fraction(1, 2) * (2 / _ee)),
+        (True, True, True))
+    _F = list(excite.FIELD_POLY)
+    chk("CONTROL R7-2 a price of 2/eps fails the exact form; a price of eps/2 fails the "
+        "limit",
+        (holding_ratio_form(source=[2 * x for x in _F[1:]])[0],
+         holding_ratio_form(source=[0] + [x / 2 for x in _F])[1] == 2), (False, False))
+    # 3: an equilibrium on 0 < |phi| < v, a stable hold only on the stable range
+    _eh = excite.stability_edge()
+    chk("R7-3 the stable range is (1 - excite.stability_edge()) v < |phi| < v, and the "
+        "route is priced just inside it and not just outside",
+        (STABLE_RANGE == "%.4f v < |phi| < v" % (1 - _eh),
+         held_seat_route_priced(held_seat_route(Fraction(_eh) - Fraction(1, 10 ** 6))),
+         held_seat_route_priced(held_seat_route(Fraction(_eh) + Fraction(1, 10 ** 6)))),
+        (True, True, False))
+    chk("  it is stated wherever the route's reach is: the status, the remainder, "
+        "sections 1, 5 and 6",
+        [STABLE_RANGE in _norm(t) for t in (H_UNSOURCED_SEAT_STATUS, HELD_SEAT_TEXT,
+                                             _doc_section(1), _doc_section(5),
+                                             _doc_section(6))], [True] * 5)
+    # 4: the floor, and how loose it is at the samples
+    _sh = held_release_regained_shares()
+    chk("R7-4 regained/F at every eps0 sample is below 1 (the rest radiated), and the "
+        "sampled figures are printed", (all(0 < x < 1 for _e0, x in _sh),
+                                        regained_shares_text() in _norm(__doc__),
+                                        regained_shares_text() in _rep), (True, True, True))
+    # 5: the guard gaps round 6 left
+    chk("R7-5 no selftest label says 'exhaustive' without 'three-way' (CONTROL labels "
+        "quote old wording and are exempt)", stale_labels(), [])
+    chk("CONTROL R7-5 the round-5 label, planted in this source, is caught",
+        bool(stale_labels(selftest_labels(inspect.getsource(sys.modules[__name__]).replace(
+            'chk("R6-A the seat splits three ways', 'chk("R6-A the STOCK/TEMPLATE split is '
+            'exhaustive')))), True)
+    _bal = lambda e, e0, **kw: dict(held_release_balance(e, e0), **kw)
+    _e0 = HELD_RELEASE_EPS0[:1]
+    chk("CONTROL R7-5 each balance conjunct can fire alone: regained above the field's "
+        "energy; S below holding_ratio x regained",
+        (held_release_faults(HELD_SEAT_EPS, _e0, lambda e, e0: _bal(
+            e, e0, **{"field at eps": held_release_balance(e, e0)["regained"] / 2})),
+         held_release_faults(HELD_SEAT_EPS, _e0, lambda e, e0: _bal(
+             e, e0, **{"source at eps": Fraction(0)}))), (list(_e0), list(_e0)))
+    chk("CONTROL R7-5 a route with balance faults is not priced",
+        held_seat_route_priced(dict(_h, **{"balance faults": [Fraction(1, 200)]})), False)
+    chk("CONTROL R7-5 a D23 row with the right owner and the wrong text is not read as "
+        "D23's point", preparation_needs_prior_arrival(
+            (D23_ROW[0], "a destination-side arrangement", D23_ROW[2], D23_ROW[3])), False)
     chk("nothing is repaired, no peer is edited", (NOTHING_IS_REPAIRED, EDITS_A_PEER), (True, False))
 
     print()
