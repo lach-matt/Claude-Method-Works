@@ -257,6 +257,29 @@ def _scope_line(doc):
     return m.group(1)
 
 
+def duration_scope_split():
+    """The duration bound's SCOPE, split into its MATTER-AND-STATE clauses
+    (H_M0's) and its SPACETIME clause (H_flat's), so flatness is carried by one
+    hypothesis and one escape only.  Raises if the owner's scope no longer has
+    exactly one clause naming flat space."""
+    items = [s.strip(" .") for s in
+             _scope_line(achievable.duration_bound.__doc__).split(",")]
+    flat = [s for s in items if "flat" in s]
+    matter = [s for s in items if "flat" not in s]
+    if len(flat) != 1 or not matter:
+        raise ValueError("duration_bound's SCOPE changed shape -- specthm is stale")
+    return matter, flat[0]
+
+
+def _claim_status(doc, letter):
+    """The status word an owner's docstring gives its lettered claim, e.g.
+    '(a) REGULAR CENTRE, FORMAL SERIES -- THEOREM': asked, not retyped."""
+    m = re.search(r"\(%s\) [^\n]*? -- (THEOREM|MEASURED|SURVEY|OPEN)" % letter, doc)
+    if not m:
+        raise ValueError("owner no longer states a status for claim (%s)" % letter)
+    return m.group(1)
+
+
 # ====================================================== 2. THE FIGURES
 
 _SLOW = {}
@@ -355,6 +378,7 @@ def figures():
         "S_linear_in_mu": lin, "dd_x": dd_x,
         "b_over_lG": math.sqrt(A("noise", "B_OVER_LG_SQUARED")),
         "f_sun_m": f_sun, "f_sun_AU": f_sun / spec.AU,
+        "published_sun_AU": published_sun_au(),
         "lenses": [(n, spec.focal_length(M, b), spec.focal_length(M, b) / spec.AU)
                    for n, M, b in spec.LENSES],
         "f_ast_ly": f_ast / spec.LIGHT_YEAR,
@@ -372,6 +396,16 @@ def figures():
         "certify_iff": certify.theorem_holds(),
         "tube_w_over_l": tube_w_over_l, "tube_rs_over_w": tube_rs_over_w,
     }
+
+
+def published_sun_au():
+    """The published solar focus as spec.py cites it ('~550 AU'), read from
+    spec's own source -- spec's selftest prints it and compares nothing with it."""
+    m = re.search(r"published solar gravitational lens focus(?: is)?:?\s*~(\d+)",
+                  open(spec.__file__, encoding="utf-8").read())
+    if not m:
+        raise ValueError("spec.py no longer cites a published solar focus")
+    return float(m.group(1))
 
 
 def sr2_identity():
@@ -397,13 +431,20 @@ def hypotheses():
     return {
         "H_sph": (formation.H_SPH, "DEFINING"),
         "H_R1": ("'contracts' means %s (foliation.INVARIANT_CRITERION), the "
-                 "definition R1" % foliation.INVARIANT_CRITERION, "DEFINING"),
+                 "definition R1, at EVERY point of K.  This is narrower than "
+                 "phase1's integrated D3 (d_s(A,B) decreasing): a corridor "
+                 "contracted on a proper sub-region K' only is not a member of C "
+                 "over K, and K' itself -- in spherical symmetry a shell between "
+                 "two areal radii, i.e. two places -- is priced as its own C"
+                 % foliation.INVARIANT_CRITERION, "DEFINING"),
         "H_EFE": (formation.H_EFE + " -- its tt component dm/dr = 4 pi r^2 rho",
                   "OWNER"),
         "H_reg": ("regular centre, m(0) = 0 (drivensource.CERTIFY_COROLLARY: "
                   "'%s')" % drivensource.CERTIFY_COROLLARY, "DEFINING"),
-        "H_M0": ("the negative energy is carried by the matter of the duration "
-                 "bound's own SCOPE: '%s'" % _scope_line(achievable.duration_bound.__doc__),
+        "H_M0": ("the negative energy is carried by the matter, in the state, of "
+                 "the duration bound's own SCOPE: %s (achievable.duration_bound; "
+                 "its remaining clause, '%s', is H_flat's and is not repeated here)"
+                 % (", ".join(duration_scope_split()[0]), duration_scope_split()[1]),
                  "DEFINING"),
         "H_model": ("achievable.py's model: a UNIFORM negative-density core of "
                     "radius alpha*b carrying M = mu*b*c^2/G "
@@ -428,6 +469,13 @@ def hypotheses():
                        "(spec.collapse_bound's criterion)", "OWNER"),
         "H_cc": ("the interpolating spacetime is causally compact (Borde, READ "
                  "by create.py)", "DEFINING"),
+        "H_seat": ("what S-1's membership rests on: the weak-field focal formula "
+                   "(SR1, MEASURED); a NULL congruence -- a massive payload's "
+                   "focus is velocity-dependent and computed by NO OWNER; impact "
+                   "parameter b >= the lens radius; the causal step 'conjugate "
+                   "point => not achronal' (CITED, escape causal-step); and the "
+                   "endpoint gate (R5-S, CHECKED, a code path, not a theorem)",
+                   "DEFINING"),
     }
 
 
@@ -441,7 +489,10 @@ def objects(F):
             "A region K between two FIXED PLACES A and B -- a place is a fixed "
             "areal radius (nonstatic.py's anchor lemma) -- on which proper "
             "distance is contracted in the sense of R1 at every point, held for "
-            "at least one light-crossing b/c (D7).  The quantity acted on is "
+            "at least one light-crossing b/c (D7).  'At every point' is part of "
+            "the definition (H_R1) and is narrower than phase1's integrated D3: "
+            "a corridor contracted on a proper sub-region only is priced as a C "
+            "over that sub-region.  The quantity acted on is "
             "proper distance, not light time (phase1.py Theorem 1).  m < 0 "
             "locally is compatible with M_ADM >= 0 "
             "(certify.REQUIRES_NEGATIVE_TOTAL_MASS = %s).  The board prices two "
@@ -449,8 +500,9 @@ def objects(F):
             "m/sqrt(r^2+a^2) - m/max(r,R_s), m = %g, a = %g, R_s = %g in "
             "certify's unit; m < 0 at every sampled radius "
             "(conformastatic_forces_negative_mass() = %s) with a regular "
-            "centre, but its core is Plummer, NOT uniform (a fraction %.3e of "
-            "its mass lies outside R_s, linstab.py's formula), so it is in "
+            "centre, but its core is Plummer, NOT uniform: the Plummer density "
+            "falls over the scale a (separately, a fraction %.3e of its mass "
+            "lies outside R_s, linstab.py's formula), so it is in "
             "class %s under H_M0 and in K2 otherwise -- K1's figure does not "
             "price it until the mean-value step is seated.  (ii) "
             "achievable.py's scale model, (mu, alpha) = (%g, %g): class %s at "
@@ -471,8 +523,11 @@ def objects(F):
             "mouths anchored at U = 0 the slice length is driven to %.4f%% of "
             "the areal gap, NONSTATIC_ANCHOR_CLOSES_D3 = %s), so this file "
             "reads T's D3 per R1 -- pointwise invariant contraction on K -- and "
-            "records that reading for M (P4).  So T's endpoint g_1 contracts in "
-            "R1's sense, and every C verdict applies to it.  The PASSAGE "
+            "records that reading for M (P4).  IF D3 is read per R1 (P4) AND the "
+            "endpoint g_1 is held for one light-crossing b/c (D7 -- phase1's "
+            "D1-D5 contain no hold requirement), g_1 is an instance of C and "
+            "every C verdict applies to it; without the hold it lies outside C, "
+            "and D7 says it transmits nothing.  The PASSAGE "
             "the board prices is formation.py's family, f: 0 (flat) -> 1 "
             "(certify's metric), areal radii held fixed (U = 0), on R^3 -- no "
             "topology change."
@@ -545,6 +600,21 @@ def objects(F):
 def _source(fn):
     import inspect
     return inspect.getsource(fn)
+
+
+B_ROWS = ("B1", "B2", "B3", "B4")
+
+
+def b_rows_sentence():
+    """R12's headline sentence, only when every balance row is REFUSED; any
+    other state of the four rows is printed row by row and marked RE-ASK."""
+    sts = [st(b) for b in B_ROWS]
+    if all(x == REFUSED for x in sts):
+        return ("OVER THE MECHANISMS EXAMINED no mechanism supplies negative "
+                "enclosed mass at all (%s: each %s, no ladder)."
+                % (", ".join(B_ROWS), REFUSED))
+    return ("RE-ASK: the balance rows are no longer all %s (%s)."
+            % (REFUSED, ", ".join("%s %s" % (b, x) for b, x in zip(B_ROWS, sts))))
 
 
 # ============================================== 5. THE REQUIREMENTS
@@ -685,8 +755,8 @@ def requirements(F):
                     ("noise", "DEMAND_RESTATED_ABOUT_DISTRIBUTION_CHANGES_REQUIREMENT"),
                     ("noise", "CURVED_PART_CARRIED_BY")],
          "hypotheses": ["H_M0", "H_flat (ASSUMED)", "H_static", "H_model", "H_reg",
-                        "for the massive extension and D22's reading: noise.py's "
-                        "H3 '%s' -- %s" % noise.HYPOTHESES["H3"]],
+                        "for D22's reading: noise.py's H3 '%s' -- %s"
+                        % noise.HYPOTHESES["H3"]],
          "statement":
             "A corridor that does not hold for one light-crossing T = b/c "
             "transmits nothing (D7).  THE FLAT BOUND: if <T_00> stays below rho "
@@ -709,11 +779,11 @@ def requirements(F):
             "b = 1 m: %.4e Pa demanded against %.4e Pa allowed, 10^%.3f, i.e. "
             "%.3f + 2 log10(b / 1 m) orders; S = 1 only at b_x = %.4e m = %.4f "
             "l_P, 'l_P times an O(1) number by construction, NOT evidence'.  "
-            "WHAT mu = %g IS: concentric.py's SEAT + LEAD window edge "
-            "(concentric.survey at 0.6 mu: seats = %s, leads = %s; at mu: seats "
-            "= %s, leads = %s, inside the shell = %s -- and the lead is "
-            "interior-only, withdrawn there).  It is not a contraction "
-            "threshold: contraction is linear in m for every m > 0.  ON C's OWN "
+            "WHAT mu = %g IS: %s (concentric.survey at 0.6 mu: seats = %s, "
+            "leads = %s; at mu: seats = %s, leads = %s, inside the shell = %s -- "
+            "and the lead is interior-only, withdrawn there).  It is not a "
+            "contraction threshold: contraction is linear in m for every m > 0.  "
+            "ON C's OWN "
             "DEMAND (composed here, section 3): S is linear in mu (S(2mu)/S(mu) "
             "= %.12g), Delta d = (G/c^2) M Lambda with Lambda = %.10g at R_s/b "
             "= %g, a/b = %g (phase1.lam(), = overturn.LAMBDA: %s), so S = "
@@ -738,7 +808,12 @@ def requirements(F):
                achievable.VERDICT_KIND, noise.CORRIDOR_APPLICATION,
                F["closed_rel"], F["closed_points"], F["mu"], F["alpha"],
                F["demand_Pa"], F["allow_Pa"], F["log10S1"], F["log10S1"],
-               F["b_x"], F["b_x_lP"], F["mu"], below["seats"], below["leads"],
+               F["b_x"], F["b_x_lP"], F["mu"],
+               ("concentric.py's SEAT + LEAD window edge"
+                if (below["seats"], at["seats"], at["leads"]) == (False, True, True)
+                else "RE-ASK -- the survey no longer places mu at concentric's "
+                     "SEAT + LEAD edge"),
+               below["seats"], below["leads"],
                at["seats"], at["leads"], at["inside_shell"], F["S_linear_in_mu"],
                F["Lambda"], phase1.R_SHELL / phase1.B_RAY, phase1.A_CORE / phase1.B_RAY,
                F["Lambda_is_overturn"], F["alpha"], F["dd_x"], F["dd_owner"],
@@ -830,17 +905,21 @@ def requirements(F):
                         % qeihps.HPS_STATE_HADAMARD_ESTABLISHED],
          "statement":
             "In HPS's CONSERVED system their own throat data have m < 0 in the "
-            "flare from %.4f l_P (MEASURED, %s reading only).  A regular centre "
-            "has %s (THEOREM, formal series; %s).  Every non-flat analytic "
-            "regular-centre solution of %s changes the sign of m and is not "
-            "asymptotically flat (THEOREM).  Nonlinear non-flatness is %s; "
+            "flare from %.4f l_P (%s, hpscentre (d), %s reading only).  A "
+            "regular centre has %s (%s, hpscentre (a), formal series; %s).  "
+            "Every non-flat analytic regular-centre solution of %s changes the "
+            "sign of m and is not asymptotically flat (%s, hpscentre (b), for "
+            "that system only).  Nonlinear non-flatness is %s; "
             "their asymptotics are %s.  m < 0 FOUND IN HPS's SYSTEM = %s; FOUND "
             "INSIDE THE ESTABLISHED DOMAIN = %s.  Which system HPS integrated: "
             "%s.  Kontou's requested test: %s.  %d of %d families in print "
             "REPORT m < 0 -- true of what was reported."
-            % (hpscentre.FIRST_NEGATIVE_M_THROAT_LP, hpscentre.THROAT_M_NEGATIVE_READING,
-               hpscentre.CENTRE_M_LEADING, hpscentre.RECURSION_DIRECTION,
-               hpscentre.LINEAR_CENTRE_THEOREM_SCOPE, hpscentre.NONLINEAR_CENTRE_NONFLATNESS,
+            % (hpscentre.FIRST_NEGATIVE_M_THROAT_LP, _claim_status(hpscentre.__doc__, "d"),
+               hpscentre.THROAT_M_NEGATIVE_READING,
+               hpscentre.CENTRE_M_LEADING, _claim_status(hpscentre.__doc__, "a"),
+               hpscentre.RECURSION_DIRECTION,
+               hpscentre.LINEAR_CENTRE_THEOREM_SCOPE, _claim_status(hpscentre.__doc__, "b"),
+               hpscentre.NONLINEAR_CENTRE_NONFLATNESS,
                hpscentre.NONLINEAR_CENTRE_ASYMPTOTICS, hpscentre.M_NEGATIVE_FOUND_IN_HPS_SYSTEM,
                hpscentre.M_NEGATIVE_FOUND_INSIDE_DOMAIN,
                hpscentre.HPS_INTEGRATED_THE_PRINTED_SYSTEM, qeihps.KONTOU_REQUESTED_TEST_ON_HPS,
@@ -937,7 +1016,7 @@ def requirements(F):
             "aperture is %s.  S5: the bit count is owed (%s); the four figures "
             "once seated are not measured (S5_FIGURES_MEASURED = %s).  D13: a "
             "brane-confined carrier travels at <= c in its induced metric "
-            "(THEOREM-NARROWED); a bulk carrier is O6/O7, and whether any "
+            "(D13 %s); a bulk carrier is O6/O7, and whether any "
             "braneworld shortcut yields a CTC is O3 (the flat-bulk quotient is "
             "settled by D21).  S9, the Drive folder's device, is a "
             "reconstruction-route specification REFUSED on two counts: short "
@@ -946,14 +1025,16 @@ def requirements(F):
             "is inverted (HEATING_TO_EW_SCALE_RESTORES_SYMMETRY = %s)."
             % (transit.READING_CARRIES_NOTHING_ALONE, transit.TRAVERSAL_IS_REMOVED,
                F["proxima_ly"], stockgate.GATE, formation.APERTURE_STATUS,
-               branelink.S5_OWED, branelink.S5_FIGURES_MEASURED, F["S9_orders"],
+               branelink.S5_OWED, branelink.S5_FIGURES_MEASURED, st("D13"),
+               F["S9_orders"],
                warpfolder.HEATING_TO_EW_SCALE_RESTORES_SYMMETRY)},
 
         {"id": "R12", "applies_to": ["C"],
          "title": "THE ENGINEERING SIDE for the corridor: a supply that survives its arithmetic",
-         "status": "%s (candidates.LIST_IS_EXHAUSTIVE = %s); B1-B4 %s; S1 %s, "
+         "status": "%s (candidates.LIST_IS_EXHAUSTIVE = %s); %s; S1 %s, "
                    "S2 %s, S3 %s; D11 %s"
-                   % (r12_status, candidates.LIST_IS_EXHAUSTIVE, st("B1"), st("S1"),
+                   % (r12_status, candidates.LIST_IS_EXHAUSTIVE,
+                      ", ".join("%s %s" % (b, st(b)) for b in B_ROWS), st("S1"),
                       st("S2"), st("S3"), st("D11")),
          "rows": ["D11", "B1", "B2", "B3", "B4", "S1", "S2", "S3"], "see": ["S4"],
          "owners": [("candidates", "LIST_IS_EXHAUSTIVE"), ("candidates", "REQUIREMENT_SCALES_AS"),
@@ -964,8 +1045,7 @@ def requirements(F):
                         "D11 is a corpus question, not a physics one"
                         % (phase1.R_SHELL / phase1.B_RAY, phase1.A_CORE / phase1.B_RAY)],
          "statement":
-            "OVER THE MECHANISMS EXAMINED no mechanism supplies negative "
-            "enclosed mass at all (B1-B4, REFUSED, no ladder).  The corridor "
+            "%s  The corridor "
             "demands %.6g kg per metre of contraction (ledger.EXCHANGE_RATE) "
             "and %s over the Proxima span.  S1 is refused on KIND, S2 because "
             "the Casimir sign inverts for real mirrors, S4 on the EFT cutoff "
@@ -973,7 +1053,8 @@ def requirements(F):
             "DEADLINE, fails MAGNITUDE.  The mechanism list is not exhaustive, "
             "so this is a %s.  DOCKET 62's 'the tree can PROVE the right side "
             "is empty' is not used (divergence V5)."
-            % (F["exchange"], [r for r in ledger.balance() if r[0] == "B2"][0][2],
+            % (b_rows_sentence(),
+               F["exchange"], [r for r in ledger.balance() if r[0] == "B2"][0][2],
                st("S3"), r12_status)},
 
         {"id": "RT", "applies_to": ["T"],
@@ -1036,14 +1117,21 @@ def requirements(F):
                         "a NULL congruence; a massive payload's focus is "
                         "velocity-dependent and computed by NO OWNER"],
          "statement":
-            "A whole null congruence leaving A reconverges at B by cumulative "
-            "weak-field lensing, f = b^2 c^2/(4 G M), NEC, WEC and DEC "
-            "satisfied everywhere.  Validated against a number this project did "
-            "not produce: the Sun at b = R_sun gives f = %.5e m = %.2f AU "
-            "against the published ~550 AU (spec's selftest pins it to 1e-3).  "
-            "%s.  Weyl focusing is sign-blind (composite.py); Ricci focusing "
-            "needs T_kk > 0, which ordinary matter has."
-            % (F["f_sun_m"], F["f_sun_AU"],
+            "spec.DOES: '%s'.  Each null geodesic passing a positive lens mass "
+            "M at impact parameter b >= the lens radius has a conjugate point at "
+            "f(b) = b^2 c^2/(4 G M) (the source-at-infinity focus), through "
+            "vacuum, NEC, WEC and DEC satisfied everywhere.  f grows with b "
+            "(spherical aberration): at a given B only the rays of ONE impact "
+            "parameter reconverge on the axis -- a focal line, not a point focus "
+            "of the whole congruence -- and f(R_lens) is the lens's MINIMUM "
+            "range, so a declared range must be >= f(R_lens).  The Sun at b = "
+            "R_sun gives f = %.5e m = %.2f AU; spec's selftest pins f to its "
+            "own figure at 1e-3, and spec cites the published value, ~550 AU "
+            "(%.2f%% apart, computed here from spec's figure and pinned by no "
+            "selftest).  %s.  Weyl focusing is sign-blind (composite.py); Ricci "
+            "focusing needs T_kk > 0, which ordinary matter has."
+            % ("; ".join(spec.DOES), F["f_sun_m"], F["f_sun_AU"],
+               100.0 * abs(F["f_sun_AU"] / F["published_sun_AU"] - 1.0),
                "; ".join("%s %.5g AU" % (n, au) for n, _f, au in F["lenses"]
                          if n != "10 km asteroid")
                + "; 10 km asteroid %.1f ly" % F["f_ast_ly"])},
@@ -1068,25 +1156,29 @@ def requirements(F):
 
         {"id": "SR3", "applies_to": ["S"],
          "title": "M's SCOPE CLAUSE -- no lead required, traversal under the same physics",
-         "status": "%s + %s (the causal-structure step and D5)" % (MEASURED, CITED),
+         "status": "D5 %s (its owner a paper, Olum PRL 81 3567: unaskable by any "
+                   "instrument here); the causal-structure step %s; the delay figure "
+                   "%s (composite.survey)" % (st("D5"), CITED, MEASURED),
          "rows": ["D5"], "see": [],
          "owners": [("spec", "DOES_NOT")],
          "hypotheses": ["'conjugate point => not achronal' is a standard "
                         "causal-structure result spec.DOES states and no owner "
                         "re-proves (CITED); it makes B timelike-reachable only for "
                         "B strictly past the focus",
-                        "D5's owner is a paper (Olum PRL 81 3567), CITED"],
+                        "D5's owner is a paper (Olum PRL 81 3567); ledger.unaskable() "
+                        "lists it: %s" % ("D5" in ledger.unaskable())],
          "statement":
             "No lead is required (M: 'DROP THE LEAD').  None is available from "
-            "ordinary matter: a lead needs negative energy (D5, CITED, no "
-            "symmetry assumed), which is C's open question (K2, K3, S-3) -- "
+            "ordinary matter: a lead needs negative energy (D5, %s, owner a "
+            "paper, no symmetry assumed), which is C's open question (K2, K3, "
+            "S-3) -- "
             "D5 does not say negative energy is unavailable.  The traversal "
             "half of M's scope is met by any subluminal trajectory, lens or "
             "not; the seat's own content is SR1.  A positive-mass lens delays "
             "its signal (composite.survey(+2e-3): delay %+.4e, seats = %s); the "
             "same mass negative seats and arrives early (early = %s), which "
             "needs negative mass and so is C's question."
-            % (sf["composite_plus"]["delay"], sf["composite_plus"]["seats"],
+            % (st("D5"), sf["composite_plus"]["delay"], sf["composite_plus"]["seats"],
                sf["composite_minus"]["early"])},
 
         {"id": "SR4", "applies_to": ["S"],
@@ -1138,12 +1230,17 @@ def classes():
     against what the z3 proof used."""
     return [
         {"id": "K0", "object": "C", "space": "C", "lits": {"sph": True, "negm": False},
-         "name": "gauge-only contraction",
+         "name": "not contracted at every point of K",
          "hyps": ["H_sph", "H_R1"],
-         "note": "witnesses as spacetimes: Milne, open FRW dust, Schwarzschild "
-                 "under Painleve-Gullstrand-E slicing or bent between anchored "
-                 "mouths; and the charged body with rho >= 0 and a regular "
-                 "centre (R3), which has m >= 0 everywhere"},
+         "note": "two kinds of member.  (i) m >= 0 throughout K: contraction "
+                 "here is gauge only -- witnesses as spacetimes: Milne, open FRW "
+                 "dust, Schwarzschild under Painleve-Gullstrand-E slicing or "
+                 "bent between anchored mouths; and the charged body with "
+                 "rho >= 0 and a regular centre (R3), which has m >= 0 "
+                 "everywhere.  (ii) m < 0 on a proper sub-region K' of K only: "
+                 "invariantly contracted on K' (D2), and by H_R1 K' is priced as "
+                 "its own C, landing in K1-K6.  K0's EMPTY verdict is about C "
+                 "over K, and says nothing against K'"},
         {"id": "K1", "object": "C", "space": "C",
          "lits": {"sph": True, "negm": True, "reg": True, "m0": True, "model": True,
                   "sgt1": True},
@@ -1172,8 +1269,10 @@ def classes():
          "name": "matter or state outside H_M0",
          "hyps": ["H_sph", "H_reg"],
          "note": "NMC scalar (O1 = S4, one refusal), interacting fields, "
-                 "classical sources, boundaries, non-Hadamard states; O5's HPS "
-                 "field (xi = 1/6) is K2's open instance"},
+                 "massive fields, classical sources, non-Hadamard states; O5's "
+                 "HPS field (xi = 1/6) is K2's open instance.  A BOUNDARY is not "
+                 "a K2 feature: it breaks H_flat (the flat, boundary-free QEI), "
+                 "whose escape reopens K1"},
         {"id": "K3", "object": "C", "space": "C",
          "lits": {"sph": True, "negm": True, "reg": False},
          "name": "non-regular centre",
@@ -1193,7 +1292,10 @@ def classes():
                  "criterion for a general spacetime"},
         {"id": "S-1", "object": "S", "space": "S", "lits": {"wl": True},
          "name": "the seat by cumulative lensing of ordinary matter",
-         "hyps": [], "note": "witness: the Sun"},
+         "hyps": ["H_seat"],
+         "note": "witness: the Sun.  The verdict's evidential status is MEASURED "
+                 "(the focal formula) + CITED (the causal step) + CHECKED (the "
+                 "endpoint gate), not THEOREM"},
         {"id": "S-2", "object": "S", "space": "S", "lits": {"wl": False, "ball": True},
          "name": "Sturm-universal seating over a uniform ball",
          "hyps": ["H_ball", "H_collapse"], "note": "spec.py's own withdrawal"},
@@ -1315,6 +1417,9 @@ def _lit(z3, V, lits):
 
 ASSUMABLE = ("H_flat",)
 
+PROP_TEXT = {"ctc": "a closed causal curve",
+             "pathology": "a Borde pathology (a singularity or a point at infinity)"}
+
 
 def derive(model):
     """Each class verdict by z3, with the unsat core naming the facts used."""
@@ -1377,7 +1482,7 @@ def _facts_plain(model):
 
 LIT_HYPS = {"sph": ["H_sph"], "reg": ["H_reg"], "m0": ["H_M0"],
             "model": ["H_model", "H_static"], "sgt1": ["H_S"], "axial": ["H_axial"],
-            "ball": ["H_ball"], "cc": ["H_cc"]}
+            "ball": ["H_ball"], "cc": ["H_cc"], "wl": ["H_seat"]}
 
 
 def hyp_check(model, verdicts):
@@ -1451,13 +1556,29 @@ def entailment(model, verdicts):
         if opens else unsat([V["H_flat"]])
     without_h = unsat([z3.Not(z3.Or(*[_lit(z3, V, K["lits"]) for K in opens + conds]))]) \
         if (opens + conds) else unsat([])
-    consistent = []
-    for K in opens:
+    # every OPEN class, in EVERY space, is propositionally consistent with the
+    # facts in force in its space; and what those facts FORCE on its members
+    allf = [f for f in facts(z3, V, model["F"]) if f["gate"]]
+    consistent, forced = [], {}
+    for K in model["classes"]:
+        if verdicts[K["id"]]["verdict"] != OPEN_V:
+            continue
+        sp = K["space"]
+        fsp = [f["f"] for f in allf if f["space"] == sp]
+        cb = [space_constraint(z3, V, sp), member(z3, V, sp), _lit(z3, V, K["lits"])] + fsp
+        if sp == "C":
+            cb.append(V["H_flat"])
         s = z3.Solver()
-        s.add(*(base + [V["H_flat"], _lit(z3, V, K["lits"])]))
+        s.add(*cb)
         consistent.append((K["id"], s.check() == z3.sat))
+        for prop in ("ctc", "pathology"):
+            s = z3.Solver()
+            s.add(*(cb + [z3.Not(V[prop])]))
+            if s.check() == z3.unsat:
+                forced.setdefault(K["id"], []).append(prop)
     return {"with_H_flat": with_h, "without_H_flat": without_h,
-            "opens_consistent": consistent}
+            "opens_consistent": consistent, "forced": forced,
+            "facts_encoded": [f["name"] for f in allf]}
 
 
 # ================================================ 7. ESCAPES, PENDING, V
@@ -1534,7 +1655,11 @@ def escapes(model, verdicts):
         ("H_model", ["D7"],
          "mean value over the core: for fixed enclosed negative mass over the "
          "core some point is at least as negative as the mean, so the pointwise "
-         "duration bound would refuse a non-uniform profile a fortiori.  "
+         "duration bound would refuse a non-uniform profile on the SAME support "
+         "volume a fortiori.  A profile whose negative density extends beyond "
+         "the core (Plummer's does) has a less negative mean over its larger "
+         "support, and the a fortiori step then needs a support bound that is "
+         "not seated either.  "
          "Elementary, and NOT SEATED in any owner: until it is, certify.py's "
          "seated metric sits in %s." % model.get("realisation_i")),
         ("H_static", ["D7"],
@@ -1549,11 +1674,15 @@ def escapes(model, verdicts):
          "a field equation other than G_ab = 8 pi T_ab: outside every owner "
          "here."),
         ("H_R1", ["D2", "D3", "D10"],
-         "none inside spherical symmetry: a slice criterion admits exactly flat "
-         "space as 'contracted' (Milne, advance over flat %g), and with m >= 0 "
-         "the far end moves (nonstatic.py's displacement bound, %.1f%% of the gap "
-         "at W = 2) -- so reopening K0 reopens nothing physical."
-         % (F["milne"]["advance_over_flat"], 100.0 * F["disp_W2"])),
+         "none inside spherical symmetry.  What is SHOWN for K0's m >= 0 "
+         "members: a slice criterion admits exactly flat space as 'contracted' "
+         "(Milne, advance over flat %g); Schwarzschild between anchored mouths "
+         "keeps its Shapiro DELAY (%.3f M); and with m >= 0 a sustained slice "
+         "contraction moves the far end (nonstatic.py's displacement bound, "
+         "%.1f%% of the gap at W = 2).  K0's members with m < 0 on a proper "
+         "sub-region are not reopened by breaking H_R1: their sub-region is "
+         "already priced as its own C."
+         % (F["milne"]["advance_over_flat"], F["shapiro"], 100.0 * F["disp_W2"])),
         ("H_ball", ["none (spec.py; not a ledger row)"],
          "none computed.  A tube of width w = %g l meeting Sturm's u carries "
          "r_s/w = %.4g by a spherical Schwarzschild criterion (computed here from "
@@ -1574,9 +1703,10 @@ def escapes(model, verdicts):
     fixed = [
         ("H3", "noise.py's H3: %s (%s)" % noise.HYPOTHESES["H3"], ["D22"],
          "a self-adjoint extension other than Friedrichs need not keep the bound "
-         "(ledger D22).  Breaking it reopens R4's MASSIVE extension and D22's "
-         "reading; K1 with the massless field (achievable.duration_bound's own "
-         "scope) is untouched."),
+         "(ledger D22).  Breaking it reopens D22's reading.  K1 does not rest "
+         "on it: D7's own row says the bound is '%s' (ledger D7), a statement "
+         "about expectation values over Hadamard states that no self-adjoint "
+         "extension enters." % D7_STATE_INDEPENDENCE),
         ("electrovac", "pure electrovac, spherical symmetry, non-negative bare "
          "mass, rho >= 0 in the body (drivensource.SCOPE and section 4)", ["D4"],
          "breaking it moves the charged body out of K0; not measured: %s"
@@ -1615,6 +1745,11 @@ def escapes(model, verdicts):
                     "kind": "OPEN ROW", "reopens": None, "rows": [rid],
                     "route": " ".join(str(ans).split())})
     return out
+
+
+#: D7's own words for why no branch escapes the bound, asked from the row.
+D7_STATE_INDEPENDENCE = re.search(r"(STATE-INDEPENDENT over Hadamard states)",
+                                  " ".join(row("D7")[1].split())).group(1)
 
 
 def open_row_ids():
@@ -1662,6 +1797,9 @@ QUOTES = (
     ("ledger:D6", "NO purely spatially averaged quantum inequalities over bounded "
                   "regions in 4D Minkowski"),
     ("ledger:S3", "Passes KIND and DEADLINE, fails MAGNITUDE"),
+    ("ledger:D7", "STATE-INDEPENDENT over Hadamard states"),
+    ("drivensource", "INNER horizon"),
+    ("drivensource", "Gibbons-Hull/Witten"),
 )
 
 
@@ -1693,7 +1831,9 @@ PENDING_FOR_M = [
     ("P2", "Is aimability binding (DOCKET 62's R5)?",
      "D14 proves the destination UNDEFINED on the static spherical object, not "
      "that the contraction fails to reach B.",
-     "If yes: every static spherically symmetric class is excluded by R5-C."),
+     "If yes: every static spherically symmetric MEMBER of K0-K3 and K6 is "
+     "excluded (D14) -- no class is static spherical by definition, so no class "
+     "empties whole; K4's one-bit parameter is undecided."),
     ("P3", "Is a closed causal curve, or a Borde pathology, disqualifying?",
      "create.py calls causally compact manufacture 'closed'; no requirement R1-R12 "
      "forbids causality violation as written.",
@@ -1702,6 +1842,10 @@ PENDING_FOR_M = [
      "phase1's D3 is a slice statement and a slice statement is gauge; the anchor "
      "lemma does not close it (foliation.NONSTATIC_ANCHOR_CLOSES_D3 = False).",
      "If no: T admits K0 members (Milne satisfies a slice D3 in flat space)."),
+    ("P5", "For Rec: what is specified, at what fidelity, classical or quantum?",
+     "DOCKET 62's R11 note records these three rulings as unmade.  No verdict "
+     "rests on them: Rec is OPEN.",
+     "Any ruling fixes R11's bit count, which S5 owes (branelink.S5_OWED)."),
 ]
 
 DIVERGENCES = [
@@ -1720,7 +1864,11 @@ DIVERGENCES = [
     ("V6", "drivensource.OVERTURN_L2: the point-charge break 'IS EMPTY'",
      "the emptiness is proved for bodies with non-negative bare mass; the point "
      "charge carries a -infinite bare mass, outside that hypothesis, so K3 carries "
-     "it OPEN."),
+     "it OPEN.  The owner has a second route: under Gibbons-Hull/Witten's Q <= M "
+     "(charge.py, confirmed in drivensource section 4) the point charge's m < 0 "
+     "region lies inside the INNER horizon r_- (drivensource.inner_horizon_ratio "
+     "<= 1).  Whether that empties the K3 instance is not decided here: no "
+     "requirement R1-R12 is written for a region inside a horizon."),
     ("V7", "create.py: manufacture 'closed'",
      "W-create-cc is OPEN here because no requirement forbids causality violation "
      "(P3); the owner's word is printed beside it."),
@@ -1795,22 +1943,30 @@ def headline(model, verdicts, ent):
     e, c, o = by("C", EMPTY), by("C", EMPTY_IF), by("C", OPEN_V)
     ass = sorted(set(a for k in c for a in verdicts[k]["assumed"]))
     L.append("OVER C (the contracting corridor): the classes partition C (z3).  "
-             "EMPTY: %s.  EMPTY IF %s: %s.  OPEN: %s."
-             % (", ".join(e) or "none", " and ".join(ass) or "-",
-                ", ".join(c) or "none", ", ".join(o) or "none"))
+             "EMPTY: %s.%s  OPEN: %s."
+             % (", ".join(e) or "none",
+                ("  EMPTY IF %s: %s." % (" and ".join(ass), ", ".join(c))) if c else "",
+                ", ".join(o) or "none"))
     if ent["with_H_flat"] and c:
         L.append("So, under %s, every contracting corridor lies in %s; if %s "
                  "fails it may also lie in %s (z3: entailed).  Each OPEN class is "
-                 "consistent with every owner fact in force (z3: %s)."
+                 "propositionally consistent with the facts encoded and in force "
+                 "in its own space (of %s) (z3: %s) -- a check over those encoded "
+                 "implications, not over the tree."
                  % (" and ".join(ass), ", ".join(o), " and ".join(ass), ", ".join(c),
+                    ", ".join(ent["facts_encoded"]),
                     "all sat" if all(x[1] for x in ent["opens_consistent"])
                     else "NOT all sat"))
     for sp, name in (("S", "S (M's scoped seat)"), ("W", "W (the throat gate)"),
                      ("Rec", "Rec (the reconstruction route)")):
         parts = ["%s %s" % (v, ", ".join(by(sp, v))) for v in VERDICTS if by(sp, v)]
         L.append("OVER %s: %s." % (name, "; ".join(parts)))
-    L.append("T (the transition): its endpoint is a C configuration and inherits "
-             "C's verdicts; its passage is priced, not refused (R10, RT).")
+    L.append("T (the transition): IF phase1's D3 is read per R1 (%s) AND the "
+             "endpoint is held for one light-crossing (D7), its endpoint is an "
+             "instance of C and inherits C's verdicts; without the hold it lies "
+             "outside C and transmits nothing (D7).  Its passage is priced, not "
+             "refused (R10, RT)." % ("PENDING P4" if any(p[0] == "P4" for p in PENDING_FOR_M)
+                                    else "P4"))
     return "\n".join(L)
 
 
@@ -1861,16 +2017,31 @@ def theorem_statement(model):
                             ", ".join(K["hyps"])), 2))
         elif vv["verdict"] == NONEMPTY:
             L.append(_wrap("(%d) [%s] %s -- '%s' is NONEMPTY: witness the Sun, "
-                           "f = %.2f AU (spec.focal_length), satisfying NEC, WEC and "
-                           "DEC." % (n, K["object"], cid, K["name"],
-                                     model["F"]["f_sun_AU"]), 2))
+                           "f(R_sun) = %.2f AU (spec.focal_length), NEC, WEC and DEC "
+                           "satisfied, under %s: %s.  Its evidential status is %s "
+                           "+ %s + %s, not %s."
+                           % (n, K["object"], cid, K["name"], model["F"]["f_sun_AU"],
+                              ", ".join(K["hyps"]),
+                              "; ".join(H[h][0] for h in K["hyps"]),
+                              MEASURED, CITED, CHECKED, THEOREM), 2))
         else:
             continue
         n += 1
     opens = [K["id"] for K in model["classes"] if v[K["id"]]["verdict"] == OPEN_V]
-    L.append(_wrap("(%d) Every other class is OPEN: %s.  Nothing in the tree "
-                   "decides them, and each is consistent with every owner fact in "
-                   "force." % (n, ", ".join(opens)), 2))
+    ent = model["entailment"]
+    forced = ent["forced"]
+    fsent = "".join("  %s's members are FORCED to carry %s by the facts in force "
+                    "(z3; the facts are READ by create.py); %s empties only if M "
+                    "rules P3." % (cid, " and ".join(PROP_TEXT[p] for p in props), cid)
+                    for cid, props in sorted(forced.items()))
+    L.append(_wrap("(%d) Every other class is OPEN: %s.  No requirement in force "
+                   "empties any of them.%s  Each OPEN class is propositionally consistent "
+                   "with the facts encoded and in force in its space -- %s -- "
+                   "(z3: %s); that is a check over those encoded implications, not "
+                   "consistency with the whole tree."
+                   % (n, ", ".join(opens), fsent, ", ".join(ent["facts_encoded"]),
+                      "all sat" if all(x[1] for x in ent["opens_consistent"])
+                      else "NOT all sat"), 2))
     L.append(_wrap("(%d) The requirements hold as stated in the table, each on the "
                    "object named there; every limitation is a named hypothesis "
                    "there or an escape below." % (n + 1), 2))
@@ -2056,6 +2227,10 @@ def o1_figures_are_ledger_text():
     return hits
 
 
+def cls_hyps(model, cid):
+    return [K for K in model["classes"] if K["id"] == cid][0]["hyps"]
+
+
 @contextlib.contextmanager
 def patched(obj, attr, value):
     old = getattr(obj, attr)
@@ -2131,8 +2306,12 @@ def selftest():
     chk("fig", "a positive lens seats LATE (composite +2e-3); the negative one early",
         (sf["composite_plus"]["seats"], sf["composite_plus"]["delay"] > 0.0,
          sf["composite_minus"]["early"]), (True, True, True))
-    chk("fig", "spec.py's selftest passes (the solar focus against ~550 AU)",
+    chk("fig", "spec.py's selftest passes (it pins f_sun to its own 547.6 AU)",
         sf["spec_selftest_ok"], True)
+    chk("fig", "the published ~550 AU is read from spec.py, and it is NOT within "
+        "spec's 1e-3 of f_sun", (F["published_sun_AU"],
+                                 abs(F["f_sun_AU"] / F["published_sun_AU"] - 1.0) > 1e-3),
+        (550.0, True))
     chk("fig", "SR2: the owners' coefficients are pi c^4/4G and 3c^4/(8 pi G)",
         sr2_identity()[:2], (True, True))
     import sympy
@@ -2322,6 +2501,40 @@ def selftest():
     chk("ctl", "a misquoted owner fragment is caught",
         misquotes((("bounds", "priced on the MAGNITUDE axis"),)),
         [("bounds", "priced on the MAGNITUDE axis")])
+    with ledger_status("D5", SURVEY):
+        m2 = build()
+    chk("ctl", "ledger D5 -> SURVEY: SR3's status moves (D5 asked, not typed)",
+        [r["status"] for r in m2["requirements"] if r["id"] == "SR3"]
+        != [r["status"] for r in model["requirements"] if r["id"] == "SR3"], True)
+    bal = ledger.balance
+    with patched(ledger, "balance", lambda: [
+            (r[0], r[1], r[2], r[3], "a supply figure") if r[0] == "B3" else r
+            for r in bal()]):
+        m2 = build()
+    r12 = [r for r in m2["requirements"] if r["id"] == "R12"][0]
+    chk("ctl", "ledger B3 given a supply figure: R12 prints B3 MEASURED and RE-ASK",
+        ("B3 " + MEASURED in r12["status"], r12["statement"].startswith("RE-ASK")),
+        (True, True))
+    with patched(achievable, "M_OVER_B", 1.0e-3):
+        _SLOW.clear()
+        try:
+            m2 = build()
+        finally:
+            _SLOW.clear()
+    chk("ctl", "mu moved off concentric's edge: R4 prints RE-ASK for mu, not the edge",
+        "RE-ASK -- the survey no longer places mu" in
+        [r for r in m2["requirements"] if r["id"] == "R4"][0]["statement"], True)
+    chk("chk", "H_M0 carries no flat-space clause; H_flat carries it (one escape)",
+        ("flat space" in model["hyps"]["H_M0"][0].split("its remaining clause")[0],
+         "flat" in model["hyps"]["H_flat"][0]), (False, True))
+    chk("chk", "S-1 states its hypotheses (H_seat), and clause (3) prints them",
+        (cls_hyps(model, "S-1"), "H_seat" in theorem_statement(model)), (["H_seat"], True))
+    chk("z3", "W-create-cc forced to a CTC and W-create-ncc to a pathology (derived)",
+        model["entailment"]["forced"], {"W-create-cc": ["ctc"],
+                                        "W-create-ncc": ["pathology"]})
+    chk("chk", "the T headline line is conditional on P4 and the hold",
+        ("IF phase1's D3 is read per R1" in model["headline"]
+         and "held for one light-crossing" in model["headline"]), True)
     chk("ctl", "a withdrawn figure printed bare is caught",
         len(withdrawn_lines("the lead is 65 orders short")), 1)
     mm = copy.deepcopy(model)
