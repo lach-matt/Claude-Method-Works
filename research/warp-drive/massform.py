@@ -2933,8 +2933,11 @@ PROPOSED_ROWS = (
      "nothing in DOCKET 65; S5's own owed items stand"),
 )
 #: Not opened, and why (one row per question).  The finite Higgs share left
-#: this list when it was seated as ledger row O8 (OPEN): a question with a row
-#: is not also "not opened".
+#: this list when DOCKET 65's seating opened it as ledger row O8 (OPEN).  The
+#: approved list carried it here, and by the board's principle for opening a
+#: row (ledger.py docstring section 4) it would have stayed here and in S10's
+#: note: O8 is an exception, stated there, and whether it stays a row is
+#: pending M (ledger.PENDING_RULINGS, M-D65-2).
 NOT_OPENED = ("the first-order Higgs share as one figure (C2 of S10 prints only "
               "measures)",
               "the information counts (supporting note N-INFO; no verdict)",

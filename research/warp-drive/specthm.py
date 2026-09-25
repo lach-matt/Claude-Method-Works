@@ -592,9 +592,13 @@ def objects(F):
             "expansion' (M-S1A-P1, on the board: %s; the word 'contract' occurs "
             "in spec.py: %s).  M's "
             "mechanism for it -- the arriving information triggers the Higgs "
-            "field and atomic mass forms -- is DOCKET 65's to test and is NOT "
-            "part of S until it lands; seating at a topological defect "
-            "(M-S1A-P3 (ii)) is DOCKET 66's.  S IS NOT A TRANSITION: a positive lens "
+            "field and atomic mass forms -- was tested by DOCKET 65, which HAS "
+            "RUN (SR5): as stated, as a supply, it is %s (S10), so it is NOT "
+            "part of S; its priced remainders S11-S13 are OPEN, not refused, and "
+            "the held-seat release route (S13), which forms no baryons, is a "
+            "priced S-3 candidate.  Seating at a topological defect (M-S1A-P3 "
+            "(ii)), with QET folded in by M-D65-1, is DOCKET 66's.  S IS NOT A "
+            "TRANSITION: a positive lens "
             "mass lengthens proper distance (certify.theorem_holds() = %s: "
             "contraction iff m < 0), so S fails phase1's D3.  R5-S and SR1 "
             "constrain the NULL congruence; the focus of a massive payload's "
@@ -610,6 +614,7 @@ def objects(F):
             "the struck ANEC line and the withdrawn 65 orders (%s)."
             % ("; ".join(spec.DOES), "; ".join(spec.DOES_NOT), ruled("M-S1A-P1"),
                "contract" in open(spec.__file__, encoding="utf-8").read().lower(),
+               massform.mechanism_label(),
                F["certify_iff"],
                "UNIVERSAL in Sturm" in spec.__doc__,
                "65 orders" in _source(spec.report)),
@@ -1335,10 +1340,12 @@ def requirements(F):
             "route (S13, HELD_SEAT_ROUTE_PRICED = %s), the reading closest to M's "
             "mechanism, which needs the seat prepared in advance (a prior "
             "arrival, D23) and forms no baryons.  M's consideration is %s (D27, "
-            "CONSIDERATION_HOLDS = %s).  The triggered field has no energy to give "
-            "about v (D29, HIGGS_FIELD_SUPPLIES_THE_MASS_ENERGY = %s; H-REAL is "
-            "claimed there, not computed).  The finite Higgs share is %s (O8, "
-            "O8_CLOSED = %s) and no DOCKET 65 verdict rests on it.  Reconstruction "
+            "CONSIDERATION_HOLDS = %s).  The triggered field %s (D29, "
+            "HIGGS_FIELD_SUPPLIES_THE_MASS_ENERGY = %s; H-REAL is claimed there, "
+            "not computed).  The finite Higgs share is %s (O8, O8_CLOSED = %s) and "
+            "no DOCKET 65 verdict rests on it; O8 is seated as a row by exception "
+            "to the board's principle for opening one, and whether it stays a row "
+            "is pending M (%s).  Reconstruction "
             "from destination stock survives (RECONSTRUCTION_SURVIVES = %s; S5's "
             "note).  No requirement on C is applied here, and S-1's witness is "
             "untouched: its lens forms no mass.  M ruled Quantum Energy "
@@ -1348,8 +1355,15 @@ def requirements(F):
                massform.mechanism_label(), massform.ANOMALY_ROUTE_PRICED,
                massform.PAIR_ROUTE_PRICED, massform.HELD_SEAT_ROUTE_PRICED,
                massform.CONSIDERATION_VERDICT, massform.CONSIDERATION_HOLDS,
+               # Built from the owner's flag, so a flip moves the sentence
+               # (and ledger.theorem_owner_disagreements() turns red).
+               ("HAS energy to give about v, AGAINST D29's THEOREM"
+                if massform.HIGGS_FIELD_SUPPLIES_THE_MASS_ENERGY
+                else "has no energy to give about v"),
                massform.HIGGS_FIELD_SUPPLIES_THE_MASS_ENERGY,
                massform.FINITE_HIGGS_SHARE_STATUS, massform.O8_CLOSED,
+               ", ".join(p[0] for p in ledger.PENDING_RULINGS if "O8" in p[1])
+               or "NOT RECORDED",
                massform.RECONSTRUCTION_SURVIVES, ruled("M-D65-1"))},
     ]
 
@@ -1465,15 +1479,19 @@ def classes():
                  "ordinary focusing; a seat WITH a lead (needs negative mass: "
                  "C's question), where the Kerr-Newman ergoregion is spec.HALTED's "
                  "one untested door.  DOCKET 65 HAS RUN (SR5): M's mass-formation "
-                 "mechanism as stated is %s as a supply (S10), and its held-seat "
+                 "mechanism as stated, as a supply, is %s (S10).  Its held-seat "
                  "release route (S13, OPEN, HELD_SEAT_ROUTE_PRICED = %s) -- a seat "
                  "prepared in advance with a source holding |phi| below v, released "
-                 "by the arriving trigger, a prior arrival first (D23) -- is a "
-                 "PRICED S-3 candidate, stable only on %s within excite's "
-                 "section-3 model.  Seating at a topological defect (DOCKET 66, "
-                 "M-S1A-P3 (ii), with QET folded in by M-D65-1) is S-3's until "
-                 "tested" % (massform.MECHANISM_VERDICT[0],
-                             massform.HELD_SEAT_ROUTE_PRICED, massform.STABLE_RANGE)},
+                 "by the arriving trigger on H-RELEASE (%s: the source removed "
+                 "without doing work; what becomes of its own rest energy is not "
+                 "computed), a prior arrival first (D23) -- forms no baryons: the "
+                 "elements must already be at the seat as templates, and only their "
+                 "Higgs-given mass is restored (C3).  It is a PRICED S-3 candidate, "
+                 "stable only on %s within excite's section-3 model.  Seating at a "
+                 "topological defect (DOCKET 66, M-S1A-P3 (ii), with QET folded in "
+                 "by M-D65-1) is S-3's until tested"
+                 % (massform.mechanism_label(), massform.HELD_SEAT_ROUTE_PRICED,
+                    massform.H_RELEASE_STATUS, massform.STABLE_RANGE)},
         {"id": "W-create-cc", "object": "W", "space": "W",
          "lits": {"created": True, "cc": True},
          "name": "throat created, causally compact interpolation",
@@ -2110,21 +2128,38 @@ def misquotes(quotes=QUOTES):
 #: pending until a new question is recorded here.
 PENDING_FOR_M = []
 
+def m_d65_1():
+    """(M's answer, M's words, the literature clause) of ledger.RULED_BY_M
+    M-D65-1, ASKED: DOCKET 66's record prints these, and a copy typed here
+    could drift from M's words with nothing to catch it."""
+    import re
+    r = [x for x in ledger.RULED_BY_M if x[0] == "M-D65-1"]
+    if len(r) != 1:
+        raise ValueError("ledger.RULED_BY_M no longer holds one M-D65-1")
+    why, ruling = " ".join(r[0][2].split()), " ".join(r[0][3].split())
+    ans = re.search(r"M's answer: '([^']+)'", ruling)
+    words = re.search(r"verbatim: '([^']+)'", why)
+    lit = re.search(r"CITED, not READ: (.+)$", why)
+    if not (ans and words and lit):
+        raise ValueError("ledger M-D65-1 no longer carries M's answer, M's words "
+                         "and a CITED-not-READ literature clause")
+    return ans.group(1), words.group(1), lit.group(1)
+
+
 #: Dockets M's rulings open, and whether each has run.  DOCKET 65 has RUN
 #: (massform.py; its rows are placed in SR5, its verdicts ASKED below); DOCKET
 #: 66 has not run, and nothing in this file rests on it.
 DOCKETS_OPENED = [
     ("DOCKET 65", "M-S1A-P1",
-     "mass formation at the seat: M's mechanism ('As soon as the information "
-     "hits the seat, it triggers the higgs field, and atomic mass forms') and "
-     "M's consideration ('If the elements required for seating are present, then "
-     "the conditions for a higgs field or something like it are also present'), "
-     "tested against D15, D16, S9 and a full energy and conservation-law account.  "
-     "RUN (massform.py; seated as D27-D29, S10-S13, O8; placed in SR5): the "
-     "mechanism as stated is %s on %s (massform.MECHANISM_VERDICT), with its "
-     "priced remainders OPEN, not refused (S11-S13); the consideration is %s "
-     "(massform.CONSIDERATION_VERDICT)."
-     % (massform.MECHANISM_VERDICT[0], ", ".join(massform.MECHANISM_VERDICT[1]),
+     # M's words asked of massform (M_MECHANISM, M_CONSIDERATION), which checks
+     # them against the board's M-S1A-P1; the selftest checks them here too.
+     "mass formation at the seat: M's mechanism ('%s') and M's consideration "
+     "('%s'), tested against D15, D16, S9 and a full energy and conservation-law "
+     "account.  RUN (massform.py; seated as D27-D29, S10-S13, O8; placed in "
+     "SR5): the mechanism as stated is %s (massform.mechanism_label()), with "
+     "its priced remainders OPEN, not refused (S11-S13); the consideration is "
+     "%s (massform.CONSIDERATION_VERDICT)."
+     % (massform.M_MECHANISM, massform.M_CONSIDERATION, massform.mechanism_label(),
         massform.CONSIDERATION_VERDICT)),
     ("DOCKET 66", "M-S1A-P3",
      "seating at a topological defect, with M's throat-compression mechanism "
@@ -2133,14 +2168,13 @@ DOCKETS_OPENED = [
      "in code: P3 (i) disqualifies a pathology at the seat and P3 (ii) makes "
      "topological defects seating sites, and a SINGULAR defect (an idealised "
      "conical string) falls under both.  NOT YET RUN.  M'S ADDITION (M-D65-1, "
-     "RULED BY M: FOLD INTO DOCKET 66 -- M: 'Fold into D66'): Quantum Energy "
+     "RULED BY M: FOLD INTO DOCKET 66 -- M: '%s'): Quantum Energy "
      "Teleportation, information arriving at the destination creating a local "
      "negative-energy region there, is tested HERE, beside seating at a "
-     "topological defect, not as a docket of its own.  M's words: 'consider the "
-     "idea that the introduction of information into a space that never "
-     "previously contained it would be considered exotic matter'.  Its "
-     "literature (Hotta 2008; Funai & Martin-Martinez arXiv:1701.03805; Ikeda "
-     "arXiv:2301.02666; review arXiv:2505.04689) is CITED, not READ."),
+     "topological defect, not as a docket of its own.  M's words: '%s'.  Its "
+     "literature (%s) is CITED, not READ."
+     # All three asked of ledger.RULED_BY_M's M-D65-1, never retyped here.
+     % m_d65_1()),
 ]
 
 
@@ -2157,9 +2191,10 @@ def ruling_effect(model):
     return {
         "M-S1A-P1": "S carries no contraction requirement; S-1 is %s.  The "
                     "mass-formation mechanism is DOCKET 65's, not S's: DOCKET 65 "
-                    "has run (SR5), the mechanism as stated is %s as a supply "
-                    "(S10), and it moves no class verdict here."
-                    % (v["S-1"]["verdict"], massform.MECHANISM_VERDICT[0]),
+                    "has run (SR5), the mechanism as stated, as a supply, is %s "
+                    "(S10); its priced remainders S11-S13 are OPEN, not refused, "
+                    "and it moves no class verdict here."
+                    % (v["S-1"]["verdict"], massform.mechanism_label()),
         "M-S1A-P2": "aimability joins C's membership (H_aim).  Classes it moves: "
                     "%s." % ("; ".join(p2) or "none"),
         "M-S1A-P3": "no closed causal curve and no Borde pathology AT THE SEAT of "
@@ -2217,9 +2252,11 @@ WHAT_IT_DOES_NOT_SAY = [
     "It does not include seating at a topological defect in S, nor Quantum Energy "
     "Teleportation (folded in by M-D65-1): both are DOCKET 66's, untested.",
     "It does not say atomic mass cannot appear at a seat: DOCKET 65 refuses M's "
-    "mechanism AS STATED as a supply (S10, %s), and its priced remainders "
-    "S11-S13 are OPEN, not refused; the held-seat route S13 is a priced S-3 "
-    "candidate, not a member of S-1." % massform.MECHANISM_VERDICT[0],
+    "mechanism AS STATED as a supply (S10: %s), and its priced remainders "
+    "S11-S13 are OPEN, not refused; the held-seat release route S13, on "
+    "H-RELEASE, forms no baryons (the elements must already be at the seat) "
+    "and is a priced S-3 candidate, not a member of S-1."
+    % massform.mechanism_label(),
     "It does not decide whether a transition can lead; a lead is not required.",
     "It does not quote O1's two figures as MEASURED, nor any SI formation price.",
     "It does not rank the open classes or total any gaps.",
@@ -2699,6 +2736,70 @@ WITHDRAWN_NEEDLES = ("65 orders", "sixty-five", "18.5 orders", "1.5456e19",
                      "PROTECTS ACHRONALITY")
 
 
+#: Wording that called DOCKET 65 pending after it ran.  Scanned over the whole
+#: report and every object definition, not over one list.
+STALE_DOCKET65 = ("DOCKET 65's to test", "until it lands", "DOCKETS 65 and 66, untested")
+_STALE65 = re.compile(r"(?i)DOCKET 65(?:'s)? (?:is |remains |stays )?"
+                      r"(?:untested|not yet run|to test|still to run)")
+
+
+def stale_docket65(text):
+    """[phrase] of `text` that still calls DOCKET 65 untested or pending."""
+    t = " ".join(text.split())
+    return ([p for p in STALE_DOCKET65 if p.casefold() in t.casefold()]
+            + [m.group(0) for m in _STALE65.finditer(t)])
+
+
+def _sentences65(text):
+    return re.split(r"(?<=[.])\s+(?=[A-Z(])", " ".join(text.split()))
+
+
+def bare_refusals(text):
+    """[sentence] that prints the refusal of M's mechanism without both priced
+    remainders massform attaches to it: DISPLACEMENT and QUANTA refused as NET
+    formation only (the pair route), and TEMPLATE's held-seat release route.
+    M's rule: never refuse a reading whose remainder is priced (massform's
+    refusal 9; its own guard, unqualified_refusals, sees only 'every reading',
+    so a sentence that LISTS the readings slips past it)."""
+    trig = [", ".join(massform.MECHANISM_VERDICT[1]).casefold(),
+            "refused as a supply", "refuses m's mechanism",
+            "mechanism as stated is refused", "as a supply, is refused"]
+    bad = []
+    for sent in _sentences65(text):
+        c = sent.casefold()
+        if any(t in c for t in trig) and not (
+                "net formation" in c and "held-seat release route" in c):
+            bad.append(sent[:160])
+    return bad
+
+
+def d66_copy_faults(text):
+    """[fault] where DOCKET 66's printed copy of M-D65-1 differs from the
+    board: a QUOTES fragment of ledger:M-D65-1 missing, or its arXiv ids not
+    the ledger row's."""
+    t = _norm(text)
+    bad = ["missing: " + f for o, f in QUOTES
+           if o == "ledger:M-D65-1" and _norm(f) not in t]
+    board = " ".join(str(x) for x in [r for r in ledger.RULED_BY_M
+                                      if r[0] == "M-D65-1"][0])
+    ids = lambda u: sorted(set(re.findall(r"\d{4}\.\d{4,5}", u)))
+    if ids(text) != ids(board):
+        bad.append("arXiv ids %s, board %s" % (ids(text), ids(board)))
+    return bad
+
+
+def d65_quote_faults(text):
+    """[fault] where DOCKET 65's record quotes M (mechanism, consideration)
+    other than as the board's M-S1A-P1 row does; two quotes are required."""
+    board = _norm(" ".join(str(x) for x in [r for r in ledger.RULED_BY_M
+                                            if r[0] == "M-S1A-P1"][0]))
+    qs = re.findall(r"M's (?:mechanism|consideration) \('([^']+)'\)", text)
+    bad = ["not on the board: " + q for q in qs if _norm(q) not in board]
+    if len(qs) != 2:
+        bad.append("%d quotes of M, want 2" % len(qs))
+    return bad
+
+
 def withdrawn_lines(text):
     """Printed lines carrying a withdrawn figure without saying so."""
     bad = []
@@ -3157,14 +3258,69 @@ def selftest():
         "literature CITED, not READ",
         (ruled("M-D65-1"), "M-D65-1" in d66, "FOLD INTO DOCKET 66" in d66,
          "CITED, not READ" in d66, "NOT YET RUN" in d66), (True,) * 5)
-    chk("chk", "the S-3 note: DOCKET 65 has run, S13 a priced S-3 candidate, "
-        "DOCKET 66 still untested",
+    chk("chk", "the S-3 note: DOCKET 65 has run, S13 a priced S-3 candidate that "
+        "forms no baryons, on H-RELEASE (asked), DOCKET 66 still untested",
         [("DOCKET 65 HAS RUN" in K["note"], "PRICED S-3 candidate" in K["note"],
-          "until tested" in K["note"]) for K in model["classes"] if K["id"] == "S-3"],
-        [(True, True, True)])
-    chk("chk", "nothing still calls DOCKET 65 untested", 
-        [t for t in WHAT_IT_DOES_NOT_SAY + [d65] if "DOCKETS 65 and 66, untested" in t],
-        [])
+          "forms no baryons" in K["note"], "H-RELEASE" in K["note"],
+          massform.H_RELEASE_STATUS in K["note"], "until tested" in K["note"])
+         for K in model["classes"] if K["id"] == "S-3"],
+        [(True,) * 6])
+    chk("chk", "WHAT_IT_DOES_NOT_SAY's S13 sentence carries the same two limits",
+        [("forms no baryons" in t, "H-RELEASE" in t) for t in WHAT_IT_DOES_NOT_SAY
+         if "S13" in t], [(True, True)])
+    _out = render(model)
+    _defs = [o["definition"] for o in model["objects"]]
+    chk("chk", "nothing still calls DOCKET 65 untested or pending (whole report, "
+        "every object definition)",
+        [stale_docket65(t) for t in [_out] + _defs if stale_docket65(t)], [])
+    chk("ctl", "the old object-S sentence, planted back, is caught",
+        [p in stale_docket65("M's mechanism is DOCKET 65's to test and is NOT part "
+                             "of S until it lands") for p in STALE_DOCKET65[:2]]
+        + [bool(stale_docket65("DOCKET 65 is untested"))], [True, True, True])
+    chk("chk", "every printed refusal of M's mechanism carries both priced "
+        "remainders (NET formation; the held-seat release route)",
+        bare_refusals(_out), [])
+    chk("ctl", "the bare DOCKET 65 and M-S1A-P1 wordings, planted back, are caught",
+        len(bare_refusals(
+            "RUN: the mechanism as stated is REFUSED on %s (massform.MECHANISM_VERDICT), "
+            "with its priced remainders OPEN.  The mechanism as stated is REFUSED as "
+            "a supply (S10), and it moves no class verdict here."
+            % ", ".join(massform.MECHANISM_VERDICT[1]))), 2)
+    _eff = ruling_effect(model)["M-S1A-P1"]
+    _every = ", ".join(massform.MECHANISM_VERDICT[1])
+    chk("chk", "DOCKET 65's record and the M-S1A-P1 effect print "
+        "massform.mechanism_label(), S11-S13 OPEN; massform's refusal-9 guard "
+        "passes them with 'every reading' in place of the list",
+        (massform.mechanism_label() in d65, massform.mechanism_label() in _eff,
+         "S11-S13" in _eff,
+         massform.unqualified_refusals(d65.replace(_every, "every reading")),
+         massform.unqualified_refusals(_eff.replace(_every, "every reading"))),
+        (True, True, True, [], []))
+    chk("chk", "DOCKET 66's copy of M-D65-1 is the board's: M's words, the "
+        "answer, CITED not READ, the same arXiv ids",
+        (d66_copy_faults(d66), m_d65_1()[1] in d66), ([], True))
+    chk("ctl", "a misquote of M, or a wrong arXiv id, in DOCKET 66 is caught",
+        (len(d66_copy_faults(d66.replace("introduction", "arrival"))),
+         len(d66_copy_faults(d66.replace("2301.02666", "2301.02667")))), (1, 1))
+    chk("chk", "DOCKET 65's two quotes of M are the board's M-S1A-P1 words",
+        d65_quote_faults(d65), [])
+    chk("ctl", "a misquote of M in DOCKET 65's record is caught",
+        len(d65_quote_faults(d65.replace("it triggers", "it starts"))), 1)
+    chk("chk", "D27-D29's owners still say what the THEOREM rows say "
+        "(ledger.theorem_owner_disagreements)",
+        ledger.theorem_owner_disagreements(), [])
+    for _attr, _flip, _rid in (("CONSIDERATION_HOLDS", False, "D27"),
+                               ("HIGGS_FIELD_SUPPLIES_THE_MASS_ENERGY", True, "D29")):
+        with patched(massform, _attr, _flip):
+            m2 = build()
+            _dis = ledger.theorem_owner_disagreements()
+        chk("ctl", "massform.%s -> %s: SR5 moves and the board check names %s"
+            % (_attr, _flip, _rid),
+            ([r["statement"] for r in m2["requirements"] if r["id"] == "SR5"]
+             != [sr5["statement"]], _dis), (True, [_rid]))
+    chk("chk", "SR5 says O8 is seated by exception, pending M (the board's M-D65-2)",
+        ("by exception" in sr5["statement"], "M-D65-2" in sr5["statement"]),
+        (True, True))
     mm = copy.deepcopy(model)
     [K for K in mm["classes"] if K["id"] == "K2"][0]["lits"]["m0"] = True
     pc = partition_check(mm)
