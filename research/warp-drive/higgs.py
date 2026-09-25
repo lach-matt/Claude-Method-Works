@@ -87,8 +87,9 @@ TWO CAVEATS, AND THEY ARE NOT SMALL.
       some fifty-four orders, and that excess IS THE COSMOLOGICAL CONSTANT
       PROBLEM.  So the magnitude is real as a contribution and is cancelled, by
       something nobody has identified, down to a number we do measure.
-  (b) IT IS UNIFORM WHERE NOTHING SOURCES IT.  It is the same inside the
-      throat as outside it, and it is already included in whatever Lambda is.
+  (b) IT IS UNIFORM WHERE NOTHING SOURCES IT (P-UNIFORM, a named premise:
+      massform.P_UNIFORM_STATUS).  It is the same inside the throat as
+      outside it, and it is already included in whatever Lambda is.
       IT CAN BE DISPLACED IN ONE PLACE ONLY BY FILLING THAT PLACE WITH A SOURCE
       WHOSE REST ENERGY IS 2/eps TIMES THE FIELD ENERGY IT BUYS.  A resource
       you can put somewhere only by putting something far larger there is not

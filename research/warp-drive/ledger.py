@@ -157,8 +157,9 @@ Applied, candidate by candidate (the owner was READ before each decision):
   the FINITE Higgs share of atomic mass -- massform.py.  NOT A ROW, ON M's
        RULING M-D65-2 ('Fold into S10 (Recommended)').  The question is
        internal to the REFUSED row S10, it gates nothing ("nothing in DOCKET
-       65 moves on it") and nothing computes it, so by the principle's second
-       half it is recorded where its owner records it: as the OPEN item
+       65 moves on it") and nothing computes it, so by the principle's clause
+       on questions internal to an already-REFUSED row that gate nothing it is
+       recorded where its owner records it: as the OPEN item
        "S10 (open)" inside S10's note, a candidate question for a future
        docket.  DOCKET 65's seating first opened it as its own row, O8; M was
        asked which it should be and ruled the fold, and O8 is not seated.
@@ -234,6 +235,10 @@ DOCKET 65 tested M's mechanism (M-S1A-P1) in massform.py, and M ruled its rows
   S5             note appended: reconstruction from destination stock survives
                  M's mechanism (massform.RECONSTRUCTION_SURVIVES).
 
+Not opened: massform.NOT_OPENED (asked), each internal to S10 or S13 or gating
+nothing (the selftest asks each item: it names S10 or S13, says 'no verdict',
+or is the H-FLAV-only sub-count, whose owner says it carries no verdict).
+
 A SUPPLY row has one note, so S10-S13 carry the proposed claim followed by
 what would move it, both asked; S10's note then carries the item S10 (open),
 its text and what would move it, asked too.  massform.py asks THIS file for D23 (the
@@ -245,7 +250,10 @@ import find each other empty.
 M's QET ruling is on RULED_BY_M as M-D65-1: Quantum Energy Teleportation is not
 a docket of its own; it is FOLDED INTO DOCKET 66.  Its literature is CITED, not
 READ -- nothing in this tree has read those papers.  M's ruling on the finite
-Higgs share is M-D65-2: folded into S10's note, not a row.  Nothing from
+Higgs share is M-D65-2: folded into S10's note, not a row.  M's ruling on
+DOCKET 67 is M-D65-3: the audit of the external results the board's refusals
+rest on is OPENED, to run after DOCKET 65 is seated and before DOCKET 66 (NOT
+YET RUN; specthm's DOCKETS_OPENED records it); no row here.  Nothing from
 DOCKET 65 is pending M.
 """
 
@@ -785,6 +793,24 @@ M_D65_1_WORDS = ("consider the idea that the introduction of information into a 
                  "space that never previously contained it would be considered "
                  "exotic matter")
 M_D65_1_ANSWER = "Fold into D66"
+#: The QET literature as it was named to M, CITED, not READ -- held once.
+M_D65_1_LITERATURE = ("Hotta 2008; Funai & Martin-Martinez arXiv:1701.03805; "
+                      "Ikeda arXiv:2301.02666; review arXiv:2505.04689; "
+                      "arXiv:2506.19878")
+#: M-D65-3 (DOCKET 67): the question exactly as it was put to M, M's words
+#: verbatim -- they hold apostrophes, so every cell quotes them in double
+#: quotes -- and M's answer verbatim.
+M_D65_3_QUESTION = ("Should I open a docket auditing the external results the "
+                    "board's refusals rest on (theorem / measurement / "
+                    "extrapolation; hypotheses, the data each used, re-derived "
+                    "or machine-checked, graded STANDS / NARROWED / WRONG / "
+                    "DATA-DEPENDENT)? If so, when?")
+M_D65_3_WORDS = ("I didn't expect proving warp theory travel easy, but I'm "
+                 "starting suspect that some of the previously established math "
+                 "from outside art may be inaccurate or incomplete, or even "
+                 "wrong. My justification is that some previous physicists may "
+                 "have all lacked certain data")
+M_D65_3_ANSWER = "After D65, before D66"
 #: M-D65-2's question exactly as it was put to M, and M's answer verbatim.
 M_D65_2_QUESTION = ("The finite Higgs share (how much of atomic mass the Higgs "
                     "gives with the field switched off entirely): keep it as its "
@@ -794,6 +820,11 @@ M_D65_2_ANSWER = "Fold into S10 (Recommended)"
 #: Two fragments of the option M chose, as it was described to M (verbatim).
 M_D65_2_OPTION = ("an open item inside S10's note, not a separate row",
                   "It stays a named candidate for a future docket")
+
+#: DOCKET 65's seated row ids, built from massform.PROPOSED_ROWS (the rows,
+#: not the S10 (open) item or the S5 append), for M-S1A-P1's unblocks cell.
+D65_SEATED_IDS = ", ".join(r[0] for r in massform.PROPOSED_ROWS
+                           if re.fullmatch(r"[DS]\d+", r[0]))
 
 #: QUESTIONS M HAS RULED ON, same shape, kept so the ruling has its question.
 #: The last two fields now read: what M ruled, and what it unblocks.
@@ -835,7 +866,8 @@ RULED_BY_M = [
      "conditions for a higgs field or something like it are also present' -- is "
      "NOT applied: M ruled it be TESTED AS A DOCKET (DOCKET 65), against D15, "
      "D16, S9 and a full energy and conservation-law account",
-     "S-1 stands NONEMPTY with no contraction requirement; DOCKET 65 opens"),
+     "S-1 stands NONEMPTY with no contraction requirement; DOCKET 65 opens.  "
+     "DOCKET 65 has run: %s (massform.py)" % D65_SEATED_IDS),
 
     ("M-S1A-P2",
      "Is aimability binding (DOCKET 62's R5)?",
@@ -907,18 +939,20 @@ RULED_BY_M = [
      "Should Quantum Energy Teleportation (information arriving at the "
      "destination creates a local negative-energy region there) be tested as "
      "its own docket?",
-     "M's words, verbatim: '" + M_D65_1_WORDS + "'.  The literature anchor, "
-     "CITED, not READ: Hotta 2008; Funai & Martin-Martinez arXiv:1701.03805; "
-     "Ikeda arXiv:2301.02666; review arXiv:2505.04689",
+     "M's words, verbatim: '" + M_D65_1_WORDS + "'.  The question's "
+     "parenthetical is the question's description as put to M, not READ.  The "
+     "literature anchor, CITED, not READ: " + M_D65_1_LITERATURE,
      # The ruling cell is the one LEDGER.md and the report print, so M's words
      # and the literature's status are carried here too, not only in `why` --
-     # from the SAME constant, so the two copies cannot differ.
+     # from the SAME constants, so the two copies cannot differ.
      "RULED BY M: FOLD INTO DOCKET 66 -- M's answer: '" + M_D65_1_ANSWER + "'.  "
-     "M's words, verbatim: '" + M_D65_1_WORDS + "'.  The QET literature (Hotta "
-     "2008; Funai & Martin-Martinez arXiv:1701.03805; Ikeda arXiv:2301.02666; "
-     "review arXiv:2505.04689) is CITED, not READ.  APPLIED: no separate "
-     "docket and no row; QET is tested inside DOCKET 66",
-     "DOCKET 66 tests QET beside seating at a topological defect"),
+     "M's words, verbatim: '" + M_D65_1_WORDS + "'.  The QET literature ("
+     + M_D65_1_LITERATURE + ") is CITED, not READ; the question's parenthetical "
+     "is the question's description as put to M, not READ.  APPLIED: no "
+     "separate docket and no row; QET is to be tested inside DOCKET 66 (NOT "
+     "YET RUN)",
+     "DOCKET 66 (NOT YET RUN) is to test QET beside seating at a topological "
+     "defect"),
 
     # M's second ruling at DOCKET 65's seating.  The seating had opened the
     # finite share as its own row, O8; the question was put to M as below.
@@ -938,6 +972,38 @@ RULED_BY_M = [
      "seated, and the OPEN census is statuses()'s without it",
      "S10's note carries the finite share as an OPEN item; massform.NOT_OPENED "
      "lists it again; specthm's SR5 places no O8"),
+
+    # M's third ruling at DOCKET 65's seating: DOCKET 67, the audit of the
+    # external results the board's refusals rest on.  M's words are quoted
+    # verbatim; the three published errors this project has already caught
+    # are ASKED of their owners (fluctuation.py, massform.py), never retyped.
+    ("M-D65-3",
+     M_D65_3_QUESTION,
+     'M\'s words, verbatim: "' + M_D65_3_WORDS + '".  Three published errors '
+     "this project has already caught, each asked of its owner: Kuo & Ford's "
+     "printed 'rho < 0 => Delta > 1' (fluctuation.KF_CLAIM_NEGATIVE_MEANS_DELTA_"
+     "GT_1 = %s, %s) and the 1/2 their eq. (3.41) prints where 1/4 holds "
+     "(fluctuation.KF_341_HALF_IS_TYPOGRAPHICAL = %s); Tye-Wong's printed "
+     "10^%.0f at alpha_W ~ 1/%g against the arithmetic 10^%.2f, %.2f decades "
+     "off (massform.TW_PRINTED_LOG10, TW_ALPHA_INV, log10_suppression); "
+     "Rubakov-Shaposhnikov's printed 10^%.0f at alpha_W = 1/%g against the "
+     "arithmetic 10^%.2f (massform.RS96_PRINTED_LOG10, RS96_ALPHA_INV, "
+     "log10_suppression)"
+     % (fluctuation.KF_CLAIM_NEGATIVE_MEANS_DELTA_GT_1,
+        ("refuted by z3" if not fluctuation.KF_CLAIM_NEGATIVE_MEANS_DELTA_GT_1
+         else "NOT refuted, AGAINST fluctuation.py's record"),
+        fluctuation.KF_341_HALF_IS_TYPOGRAPHICAL,
+        massform.TW_PRINTED_LOG10, massform.TW_ALPHA_INV[1],
+        massform.log10_suppression(1.0 / massform.TW_ALPHA_INV[1]),
+        abs(massform.log10_suppression(1.0 / massform.TW_ALPHA_INV[1])
+            - massform.TW_PRINTED_LOG10),
+        massform.RS96_PRINTED_LOG10, massform.RS96_ALPHA_INV,
+        massform.log10_suppression(1.0 / massform.RS96_ALPHA_INV)),
+     "RULED BY M: OPEN IT -- M's answer: '" + M_D65_3_ANSWER + "'.  M's words, "
+     'verbatim: "' + M_D65_3_WORDS + '".  APPLIED: DOCKET 67 is opened on '
+     "specthm's DOCKETS_OPENED, NOT YET RUN; no row here",
+     "DOCKET 67, NOT YET RUN, runs after DOCKET 65 is seated and before "
+     "DOCKET 66"),
 ]
 
 # ---------------------------------------------------------------------------
@@ -963,6 +1029,19 @@ def _s5_docket65_append():
 #: The SUPPLY rows' names for DOCKET 65's priced remainders are massform's own
 #: (massform.SURVIVES); S10's is a label for M's mechanism, not a result.
 S10_NAME = "M's mechanism: atomic mass formed at the seat by the triggered Higgs field"
+
+
+def s10_name_faults(name=None):
+    """[fault] where S10's label is not a label for M's mechanism: it must
+    begin "M's mechanism" and name 'by the triggered Higgs field', or it reads
+    as a refusal of what S12 and S13 price."""
+    name = S10_NAME if name is None else name
+    bad = []
+    if not name.startswith("M's mechanism"):
+        bad.append("does not begin \"M's mechanism\"")
+    if "by the triggered Higgs field" not in name:
+        bad.append("does not name 'by the triggered Higgs field'")
+    return bad
 
 
 def _survives_name(word):
@@ -1388,7 +1467,21 @@ SUPERSEDED_WORDING = [
      "changes no topology -- is priced by formation.py (F1, F2), so 'no "
      "instrument in the tree does that yet' is no longer true; the row is "
      "re-owned to formation.NUCLEATION_PRICEABLE_FROM_SOURCE"),
+    # ----- DOCKET 65.  S5's first sentence, replaced in place when S11-S13
+    # were seated: S5 was the only priced row and is no longer. ------------
+    ("S5", "DOCKET 65",
+     "THE ONLY ROW ON THIS LEDGER WITH A PRICE RATHER THAN A REFUSAL",
+     "S11-S13, DOCKET 65's priced remainders, are priced OPEN rows too"),
 ]
+
+
+def superseded_dockets(table=None):
+    """'62, 64 and 65': the dockets SUPERSEDED_WORDING names, built from the
+    table, for the section header."""
+    table = SUPERSEDED_WORDING if table is None else table
+    ns = sorted(set(int(r[1].split()[1]) for r in table))
+    return (", ".join(str(n) for n in ns[:-1]) + " and " + str(ns[-1])
+            if len(ns) > 1 else str(ns[0]))
 
 # ---------------------------------------------------------------------------
 # WHAT WAS OPEN AND IS NOW ANSWERED.  KEPT, NEVER DELETED, for the reason the
@@ -1810,7 +1903,7 @@ def to_markdown():
                     _cell(proposal, W_WHY), _cell(waits, W_WHY)))
     L.append("")
 
-    L += ["## Row wording replaced by DOCKETS 62 and 64", "",
+    L += ["## Row wording replaced by DOCKETS %s" % superseded_dockets(), "",
           "Kept, never deleted: a row rewritten in place is otherwise",
           "indistinguishable from one that always said the new thing.", "",
           "| id | replaced by | as it stood (claim \\|\\| answer) "
@@ -2009,23 +2102,61 @@ def missing_qualifiers(rows=None):
 
 
 _VERBATIM = re.compile(r"verbatim: '([^']+)'")
+#: M-D65-3's words hold apostrophes, so every cell quotes them in double quotes.
+_VERBATIM_DQ = re.compile(r'verbatim: "([^"]+)"')
+#: (the constant M's words are held in, the pattern that finds a printed copy)
+#: per DOCKET 65 ruling that quotes M verbatim.
+_M_WORDS = {"M-D65-1": (M_D65_1_WORDS, _VERBATIM),
+            "M-D65-3": (M_D65_3_WORDS, _VERBATIM_DQ)}
 
 
-def verbatim_faults(qrow=None, md=None):
-    """[fault] where a printed copy of M's words in M-D65-1 -- `why`, the ruling
-    cell (which LEDGER.md and the report print), or LEDGER.md's M-D65-1 line --
-    is not exactly M_D65_1_WORDS, or where a copy is missing."""
-    qrow = [r for r in RULED_BY_M if r[0] == "M-D65-1"][0] if qrow is None else qrow
+def verbatim_faults(qrow=None, md=None, rid="M-D65-1"):
+    """[fault] where a printed copy of M's words in a DOCKET 65 ruling (`rid`:
+    M-D65-1 or M-D65-3) -- `why`, the ruling cell (which LEDGER.md and the
+    report print), or LEDGER.md's line for it -- is not exactly the constant
+    the words are held in, or where a copy is missing."""
+    qrow = [r for r in RULED_BY_M if r[0] == rid][0] if qrow is None else qrow
     md = to_markdown() if md is None else md
-    line = [l for l in md.splitlines() if l.startswith("| M-D65-1 |")]
+    words, pat = _M_WORDS[rid]
+    line = [l for l in md.splitlines() if l.startswith("| %s |" % rid)]
     bad = []
     for where, text, want in (("why", qrow[2], 1), ("ruling cell", qrow[3], 1),
                               ("LEDGER.md", " ".join(line), 1)):
-        got = _VERBATIM.findall(" ".join(text.split()))
+        got = pat.findall(" ".join(text.split()))
         if len(got) != want:
             bad.append("%s: %d verbatim copies, want %d" % (where, len(got), want))
-        bad += ["%s: '%s'" % (where, g) for g in got if g != M_D65_1_WORDS]
+        bad += ["%s: '%s'" % (where, g) for g in got if g != words]
     return bad
+
+
+def m_d65_1_faults(qrow=None):
+    """[fault] where M-D65-1 misdescribes QET's standing: the literature named
+    to M incomplete (arXiv:2506.19878 was named), QET said to be TESTED in
+    DOCKET 66 while that docket has not run, or the question's parenthetical
+    printed as READ rather than as the question's own description."""
+    qrow = [r for r in RULED_BY_M if r[0] == "M-D65-1"][0] if qrow is None else qrow
+    why, ruling = " ".join(qrow[2].split()), " ".join(qrow[3].split())
+    bad = []
+    for aid in ("1701.03805", "2301.02666", "2505.04689", "2506.19878"):
+        if not ("arXiv:%s" % aid in why and "arXiv:%s" % aid in ruling):
+            bad.append("arXiv:%s missing from why or the ruling cell" % aid)
+    if "QET is to be tested inside DOCKET 66 (NOT YET RUN)" not in ruling:
+        bad.append("the ruling cell does not say QET is TO BE tested (NOT YET RUN)")
+    if re.search(r"QET is tested inside", ruling):
+        bad.append("the ruling cell says QET IS tested, present tense")
+    clause = "the question's description as put to M, not READ"
+    if not (clause in why and clause in ruling):
+        bad.append("the question's parenthetical is not attributed to the question")
+    return bad
+
+
+def p1_unblocks_faults(text=None):
+    """[fault] where M-S1A-P1's unblocks cell does not say DOCKET 65 has run and
+    which rows it seated, built from massform's ids."""
+    text = ([r for r in RULED_BY_M if r[0] == "M-S1A-P1"][0][4]
+            if text is None else text)
+    want = "DOCKET 65 has run: %s (massform.py)" % D65_SEATED_IDS
+    return [] if want in " ".join(text.split()) else ["missing: " + want]
 
 
 @contextlib.contextmanager
@@ -2040,12 +2171,53 @@ def _scratch(attr, value):
         g[attr] = keep
 
 
+#: DOCKET 65's POLARITY: (row, the phrase in which the seated text states a
+#: DIRECTION, the owner predicate that direction reports, asked NOW).  massform
+#: owns both the typed text and the flag, and either can drift alone, so each
+#: seated row's text direction is tied here to the owner value it states.  Red
+#: if the phrase is missing from the row or the owner disagrees.
+POLARITY = (
+    ("D27", "arrival switches nothing on",
+     lambda: not massform.FIELD_SWITCHED_ON_BY_ARRIVAL),
+    ("D28", "costs at least", lambda: massform.pair_floor_j() > 0),
+    ("D28", "leaves B units of antibaryon number", lambda: massform.COUNTS["B"] > 0),
+    ("D29", "has no energy to give about v",
+     lambda: not massform.HIGGS_FIELD_SUPPLIES_THE_MASS_ENERGY),
+    ("S10", "REFUSED, gap None", lambda: massform.MECHANISM_VERDICT[0] == REFUSED),
+    # S11's text states its price per transition and its limits; it carries no
+    # 'PRICED' word, so its priced direction is the stated exponent.
+    ("S11", "exp(-4 pi/alpha_W) per transition", lambda: massform.ANOMALY_ROUTE_PRICED),
+    ("S11", "extra leptons (D28)", lambda: massform.extra_leptons() > 0),
+    ("S11", "Two-particle collisions: CONTESTED",
+     lambda: massform.COLLIDER_RATE_STATUS == "CONTESTED"),
+    ("S12", "Priced, not refused", lambda: massform.PAIR_ROUTE_PRICED),
+    ("S13", "PRICED at eps", lambda: massform.HELD_SEAT_ROUTE_PRICED),
+    ("S5", "survives M's mechanism: no mass forms at the seat",
+     lambda: massform.RECONSTRUCTION_SURVIVES),
+)
+
+
+def polarity_faults(rows=None, table=None):
+    """[(row, phrase, fault)] for every POLARITY entry whose phrase the seated
+    row does not carry, or whose owner, asked now, disagrees with it."""
+    table = POLARITY if table is None else table
+    out = []
+    for rid, phrase, owner_says in table:
+        if phrase not in _row_text(rid, rows):
+            out.append((rid, phrase, "phrase missing"))
+        elif not owner_says():
+            out.append((rid, phrase, "owner disagrees"))
+    return out
+
+
 def theorem_owner_disagreements():
     """[row id] of D27-D29 whose owner, asked NOW, no longer says what the
     THEOREM row says: D27 CONSIDERATION_HOLDS True; D28 the pair floor, above
     the rest energy by exactly B mu_min c^2; D29 HIGGS_FIELD_SUPPLIES_THE_
-    MASS_ENERGY False.  The rows' text is massform's, so only the owner's
-    VALUE can drift from it."""
+    MASS_ENERGY False.  This compares owner VALUES only.  The rows' text and
+    the owner values are separate objects on massform and either can drift
+    alone, so the text's DIRECTION is tied to the values by POLARITY
+    (polarity_faults), checked beside this in selftest 4d."""
     row = dict((r[0], r) for r in DEMAND)
     bad = []
     if ask(row["D27"][3]) is not True:
@@ -2332,7 +2504,8 @@ def selftest():
          phase1.is_transition(False, True, True, True, True, passage_flux=True),
          formation.PHASE1_D4_POINTWISE_DURING_PASSAGE),
         (["M-D64-1", "M-S1A-P1", "M-S1A-P2", "M-S1A-P3", "M-S1A-P4",
-          "M-S1A-P5", "M-D65-1", "M-D65-2"], [], True, False, False, True, False))
+          "M-S1A-P5", "M-D65-1", "M-D65-2", "M-D65-3"], [], True, False, False,
+         True, False))
 
     print("\n3. THE EXCHANGE RATE, RE-DERIVED FROM ASKED CONSTANTS")
     chk("Lambda is overturn.py's", LAMBDA, overturn.LAMBDA)
@@ -2453,6 +2626,22 @@ def selftest():
     chk("  DOCKET 64's are the rows whose wording it replaced, not extended",
         sorted(r[0] for r in SUPERSEDED_WORDING if r[1] == "DOCKET 64"),
         ["D22", "D24", "O5"])
+    chk("  DOCKET 65's is S5's replaced first sentence (it was the only priced "
+        "row), and the sentence is no longer on S5",
+        ([r[2] for r in SUPERSEDED_WORDING if r[1] == "DOCKET 65"],
+         [r[0] for r in SUPERSEDED_WORDING if r[1] == "DOCKET 65"],
+         any("THE ONLY ROW ON THIS LEDGER WITH A PRICE RATHER THAN A REFUSAL" in r[4]
+             for r in SUPPLY if r[0] == "S5")),
+        (["THE ONLY ROW ON THIS LEDGER WITH A PRICE RATHER THAN A REFUSAL"], ["S5"],
+         False))
+    chk("  the section header names the dockets the table holds, built from it",
+        (superseded_dockets(),
+         "## Row wording replaced by DOCKETS 62, 64 and 65" in to_markdown()),
+        ("62, 64 and 65", True))
+    chk("  CONTROL: the table without its DOCKET 65 entry would print the old "
+        "header, '62 and 64' (built, not typed)",
+        superseded_dockets([r for r in SUPERSEDED_WORDING if r[1] != "DOCKET 65"]),
+        "62 and 64")
     chk("  no (row, docket) key is used twice",
         _superseded_keys_unique(SUPERSEDED_WORDING), True)
     chk("  CONTROL: a duplicated (row, docket) key is caught",
@@ -2653,7 +2842,7 @@ def selftest():
          M_D65_1_WORDS in _qet[0][2],
          "CITED, not READ" in _qet[0][2],
          all(a in _qet[0][2] for a in ("Hotta 2008", "1701.03805",
-                                       "2301.02666", "2505.04689"))),
+                                       "2301.02666", "2505.04689", "2506.19878"))),
         (1, True, True, True, True, True))
     _raw = to_markdown()
     _md = " ".join(_raw.split())
@@ -2729,7 +2918,8 @@ def selftest():
          "consider the idea that the introduction of information" in _md,
          "CITED, not READ" in _md,
          all(a in _md for a in ("Hotta 2008", "arXiv:1701.03805",
-                                "arXiv:2301.02666", "arXiv:2505.04689")),
+                                "arXiv:2301.02666", "arXiv:2505.04689",
+                                "arXiv:2506.19878")),
          [c for c in _truncated_cells() if c[0] == "ruled"]),
         (True, True, True, True, []))
     chk("the finite share is NOT a row, on M's ruling, stated in the docstring "
@@ -2748,6 +2938,126 @@ def selftest():
         (True, True))
     chk("nothing DOCKET 65 seated carries the status word DECLARED",
         [r[0] for r in massform.PROPOSED_ROWS if "DECLARED" in r[3]], [])
+    # DOCKET 65's closing round.
+    _seated65 = {"D27", "D28", "D29", "S10", "S11", "S12", "S13", "S10 (open)",
+                 "S5 (note)"}
+    chk("massform.PROPOSED_ROWS' ids are exactly what this board seats from "
+        "DOCKET 65 (the rows, the S10 (open) item and the S5 append)",
+        set(r[0] for r in massform.PROPOSED_ROWS), _seated65)
+    chk("  CONTROL: a proposed row this board does not seat (D30) is caught here",
+        set(r[0] for r in massform.PROPOSED_ROWS + (("D30",),)) == _seated65, False)
+    chk("every seated row's text DIRECTION agrees with the owner value it states "
+        "(POLARITY: phrase on the row, owner asked)", polarity_faults(), [])
+    _inv = {"arrival switches nothing on": "arrival switches the field on",
+            "costs at least": "costs",
+            "leaves B units of antibaryon number": "leaves nothing",
+            "has no energy to give about v": "has energy to give about v",
+            "REFUSED, gap None": "PRICED, gap None",
+            "exp(-4 pi/alpha_W) per transition": "no price per transition",
+            "extra leptons (D28)": "no extra leptons",
+            "Two-particle collisions: CONTESTED": "Two-particle collisions: SETTLED",
+            "Priced, not refused": "Refused, not priced",
+            "PRICED at eps": "REFUSED at eps",
+            "survives M's mechanism: no mass forms at the seat":
+                "is refused with M's mechanism: mass forms at the seat"}
+    _ctl = []
+    for _rid, _phrase, _p in POLARITY:
+        _r2 = dict(_rows, **{_rid: tuple(x.replace(_phrase, _inv[_phrase], 1)
+                                          if isinstance(x, str) else x
+                                          for x in _rows[_rid])})
+        if (_rid, _phrase, "phrase missing") not in polarity_faults(_r2):
+            _ctl.append((_rid, _phrase))
+    chk("  CONTROL: each phrase inverted on a private copy of its row is caught",
+        _ctl, [])
+    for _attr, _flip, _rid, _phrase in (
+            ("FIELD_SWITCHED_ON_BY_ARRIVAL", True, "D27", "arrival switches nothing on"),
+            ("PAIR_ROUTE_PRICED", False, "S12", "Priced, not refused"),
+            ("RECONSTRUCTION_SURVIVES", False, "S5",
+             "survives M's mechanism: no mass forms at the seat")):
+        _keep = getattr(massform, _attr)
+        setattr(massform, _attr, _flip)
+        try:
+            _got = polarity_faults()
+        finally:
+            setattr(massform, _attr, _keep)
+        chk("  CONTROL: massform.%s -> %s is caught on %s (owner disagrees)"
+            % (_attr, _flip, _rid), _got, [(_rid, _phrase, "owner disagrees")])
+    chk("S10's label is a label for M's mechanism, not a refusal of what S12 "
+        "and S13 price", s10_name_faults(), [])
+    chk("  CONTROL: 'atomic mass formed at the seat' as the label is caught",
+        len(s10_name_faults("atomic mass formed at the seat")), 2)
+    chk("M-D65-1 names the literature as it was named to M (arXiv:2506.19878 "
+        "included), QET TO BE tested in DOCKET 66 (NOT YET RUN), and the "
+        "question's parenthetical as the question's description, not READ",
+        m_d65_1_faults(), [])
+    _q1 = list(_qet[0])
+    _q1[3] = _q1[3].replace("QET is to be tested inside DOCKET 66 (NOT YET RUN)",
+                            "QET is tested inside DOCKET 66")
+    _q2 = list(_qet[0])
+    _q2[2] = _q2[2].replace("; arXiv:2506.19878", "")
+    _q3 = list(_qet[0])
+    _q3[3] = _q3[3].replace("; the question's parenthetical is the question's "
+                            "description as put to M, not READ", "")
+    chk("  CONTROL: the old wording ('QET is tested inside DOCKET 66'), the "
+        "literature without 2506.19878, and the parenthetical unattributed are "
+        "each caught",
+        [len(m_d65_1_faults(tuple(q))) > 0 for q in (_q1, _q2, _q3)], [True] * 3)
+    chk("M-S1A-P1's unblocks cell says DOCKET 65 has run and names its rows, "
+        "built from massform's ids", p1_unblocks_faults(), [])
+    chk("  CONTROL: the cell as it stood ('DOCKET 65 opens' alone) is caught",
+        len(p1_unblocks_faults("S-1 stands NONEMPTY with no contraction "
+                               "requirement; DOCKET 65 opens")), 1)
+    _d67 = [r for r in RULED_BY_M if r[0] == "M-D65-3"]
+    chk("M-D65-3: DOCKET 67 OPENED by M -- the question exactly as put to M, "
+        "M's answer verbatim, M's words verbatim in `why`, the ruling cell and "
+        "LEDGER.md, NOT YET RUN and its order in what it unblocks",
+        (len(_d67), _d67[0][1] == M_D65_3_QUESTION,
+         _d67[0][3].startswith("RULED BY M: OPEN IT -- M's answer: '%s'"
+                               % M_D65_3_ANSWER),
+         verbatim_faults(_d67[0], _raw, rid="M-D65-3"),
+         "NOT YET RUN" in _d67[0][4],
+         "after DOCKET 65 is seated and before DOCKET 66" in _d67[0][4],
+         M_D65_3_QUESTION in _md, "'%s'" % M_D65_3_ANSWER in _md),
+        (1, True, True, [], True, True, True, True))
+    chk("  the three caught errors in M-D65-3 are asked of their owners, and "
+        "the figures printed are the owners' (regenerated now)",
+        ("fluctuation.KF_CLAIM_NEGATIVE_MEANS_DELTA_GT_1 = %s, refuted by z3"
+         % fluctuation.KF_CLAIM_NEGATIVE_MEANS_DELTA_GT_1 in _d67[0][2],
+         fluctuation.KF_CLAIM_NEGATIVE_MEANS_DELTA_GT_1,
+         "KF_341_HALF_IS_TYPOGRAPHICAL = %s" % fluctuation.KF_341_HALF_IS_TYPOGRAPHICAL
+         in _d67[0][2],
+         "printed 10^%.0f at alpha_W ~ 1/%g against the arithmetic 10^%.2f, %.2f "
+         "decades off" % (massform.TW_PRINTED_LOG10, massform.TW_ALPHA_INV[1],
+                          massform.log10_suppression(1.0 / massform.TW_ALPHA_INV[1]),
+                          abs(massform.log10_suppression(1.0 / massform.TW_ALPHA_INV[1])
+                              - massform.TW_PRINTED_LOG10)) in _d67[0][2],
+         "printed 10^%.0f at alpha_W = 1/%g against the arithmetic 10^%.2f"
+         % (massform.RS96_PRINTED_LOG10, massform.RS96_ALPHA_INV,
+            massform.log10_suppression(1.0 / massform.RS96_ALPHA_INV)) in _d67[0][2]),
+        (True, False, True, True, True))
+    _q = list(_d67[0])
+    _q[3] = _q[3].replace("I'm starting suspect", "I'm starting to suspect", 1)
+    chk("  CONTROL: M's words in M-D65-3 corrected ('starting to suspect') in the "
+        "ruling cell only is caught", len(verbatim_faults(tuple(_q), _raw,
+                                                           rid="M-D65-3")) > 0, True)
+    chk("massform.NOT_OPENED (asked): each item is internal to S10 or S13, or "
+        "gates nothing -- names S10 or S13, says 'no verdict', or is the "
+        "H-FLAV-only sub-count whose owner says it carries no verdict",
+        ([i for i in massform.NOT_OPENED
+          if not ("S10" in i or "S13" in i or "no verdict" in i
+                  or ("H-FLAV only" in i and "no verdict"
+                      in massform.electron_family_shortfall.__doc__.casefold()))],
+         len(massform.NOT_OPENED) > 0), ([], True))
+    chk("the docstring names section 4's clause (not 'the principle's second "
+        "half') for the finite share, section 6's Not-opened sentence, and "
+        "M-D65-3",
+        ("so by the principle's clause\n       on questions internal to an "
+         "already-REFUSED row that gate nothing it is\n       recorded" in __doc__,
+         "principle's second\n       half it is recorded" in __doc__,
+         "Not opened: massform.NOT_OPENED (asked), each internal to S10 or S13 "
+         "or gating\nnothing" in __doc__,
+         "M's ruling on\nDOCKET 67 is M-D65-3" in __doc__),
+        (True, False, True, True))
 
     print("\n5. THE BALANCE REFUSES TO INVENT A LADDER")
     chk("every balance row whose mechanism fails carries NO gap number",

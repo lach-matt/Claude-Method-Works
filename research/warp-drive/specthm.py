@@ -330,7 +330,15 @@ def unnamed_hypotheses(sr5, rested=None):
 
 #: DOCKET 65's rows and rulings as SR5 places them.  The finite Higgs share is
 #: no row (M-D65-2: an OPEN item inside S10's note), so no O row is placed.
-SR5_ROWS = ["D27", "D28", "D29", "S10", "S11", "S12", "S13", "M-D65-1", "M-D65-2"]
+SR5_ROWS = ["D27", "D28", "D29", "S10", "S11", "S12", "S13", "M-D65-1", "M-D65-2",
+            "M-D65-3"]
+
+#: What S13's S-3 candidacy rests on, stated once and printed wherever the
+#: candidacy is: M's framing of the mechanism as the seat's (ledger M-S1A-P1).
+#: S13 moves no mass -- the templates are already at the seat, only
+#: information arrives -- which is Rec's defining feature, not S's.
+S13_CANDIDACY = ("on M's framing of the mechanism as the seat's (M-S1A-P1); it "
+                 "moves no mass, as Rec does not")
 
 
 def seated65():
@@ -691,7 +699,7 @@ def objects(F):
             "RUN (SR5): as stated, as a supply, it is %s (S10), so it is NOT "
             "part of S; its remainders S11-S13 (%s) are OPEN, not refused, and "
             "the held-seat release route (S13, on H-RELEASE), which forms no "
-            "baryons, is a %s S-3 candidate.  Seating at a topological defect (M-S1A-P3 "
+            "baryons, is a %s S-3 candidate %s.  Seating at a topological defect (M-S1A-P3 "
             "(ii)), with QET folded in by M-D65-1, is DOCKET 66's.  S IS NOT A "
             "TRANSITION: a positive lens "
             "mass lengthens proper distance (certify.theorem_holds() = %s: "
@@ -710,7 +718,7 @@ def objects(F):
             % ("; ".join(spec.DOES), "; ".join(spec.DOES_NOT), ruled("M-S1A-P1"),
                "contract" in open(spec.__file__, encoding="utf-8").read().lower(),
                massform.mechanism_label(), priced65(),
-               priced65(massform.HELD_SEAT_ROUTE_PRICED),
+               priced65(massform.HELD_SEAT_ROUTE_PRICED), S13_CANDIDACY,
                F["certify_iff"],
                "UNIVERSAL in Sturm" in spec.__doc__,
                "65 orders" in _source(spec.report)),
@@ -1398,10 +1406,12 @@ def requirements(F):
          # table cuts a status at 84 characters, and a cut there must never
          # leave 'S10 REFUSED' standing without what is not refused.
          "status": "D27 %s; D28 %s; D29 %s; S11 %s, S12 %s, S13 %s (its "
-                   "remainders, %s); M-D65-1 %s; M-D65-2 %s; S10 %s (the mechanism "
-                   "as stated, as a supply, massform.MECHANISM_VERDICT%s)"
+                   "remainders, %s); M-D65-1 %s; M-D65-2 %s; M-D65-3 %s; S10 %s "
+                   "(the mechanism as stated, as a supply, "
+                   "massform.MECHANISM_VERDICT%s)"
                    % (tuple(st(r) for r in ("D27", "D28", "D29", "S11", "S12", "S13"))
                       + (priced65(), st_ruling("M-D65-1"), st_ruling("M-D65-2"),
+                         st_ruling("M-D65-3"),
                          st("S10"), (": " + s10_scope()) if s10_scope() else "")),
          "rows": list(SR5_ROWS),
          "see": ["D15", "D16", "D20", "D23", "S5"],
@@ -1411,7 +1421,8 @@ def requirements(F):
                     ("massform", "ANOMALY_ROUTE_PRICED"), ("massform", "PAIR_ROUTE_PRICED"),
                     ("massform", "HELD_SEAT_ROUTE_PRICED"),
                     ("massform", "FINITE_HIGGS_SHARE_STATUS"),
-                    ("massform", "RECONSTRUCTION_SURVIVES"), ("massform", "STABLE_RANGE")],
+                    ("massform", "RECONSTRUCTION_SURVIVES"), ("massform", "STABLE_RANGE"),
+                    ("massform", "COLLIDER_RATE_STATUS")],
          "hypotheses": ["H-LINEAR: C2 measures the Higgs share as the first-order "
                         "response of the nucleon mass, the QCD scale held fixed, so "
                         "it answers %s (massform.C2_SCOPE)" % massform.C2_SCOPE,
@@ -1452,7 +1463,9 @@ def requirements(F):
             "AS STATED, as a supply of payload mass, is %s (S10: %s).  That is "
             "NOT a refusal of every way atomic mass can appear at a seat: its "
             "remainders are %s and OPEN, not refused -- the anomaly route "
-            "(S11, ANOMALY_ROUTE_PRICED = %s), the pair route (S12, "
+            "(S11, ANOMALY_ROUTE_PRICED = %s; its two-particle collider rate %s "
+            "(massform.COLLIDER_RATE_STATUS), and it must emit N_n extra "
+            "leptons, D28), the pair route (S12, "
             "PAIR_ROUTE_PRICED = %s; its floor is D28, on H-BL and H-AME) and the "
             "held-seat release route (S13, HELD_SEAT_ROUTE_PRICED = %s, on "
             "H-RELEASE: %s), the reading closest to M's "
@@ -1464,13 +1477,17 @@ def requirements(F):
             "(massform.FINITE_HIGGS_SHARE_STATUS): an OPEN item inside S10's "
             "note, not a row, on M's ruling M-D65-2 (on the board: %s; M: '%s'), "
             "and no DOCKET 65 verdict rests on it.  Reconstruction "
-            "from destination stock survives (RECONSTRUCTION_SURVIVES = %s; S5's "
+            "from destination stock %s (RECONSTRUCTION_SURVIVES = %s; S5's "
             "note).  No requirement on C is applied here, and S-1's witness is "
             "untouched: its lens forms no mass.  M ruled Quantum Energy "
             "Teleportation FOLDED INTO DOCKET 66 (M-D65-1, on the board: %s); it "
-            "is not tested here."
+            "is not tested here.  M ruled DOCKET 67 OPENED (M-D65-3, on the "
+            "board: %s): the audit of the external results the board's refusals "
+            "rest on, NOT YET RUN, after DOCKET 65 and before DOCKET 66; nothing "
+            "here rests on it."
             % (massform.M_MECHANISM, massform.MECHANISM_VERDICT[0],
                massform.mechanism_label(), priced65(), massform.ANOMALY_ROUTE_PRICED,
+               massform.COLLIDER_RATE_STATUS,
                massform.PAIR_ROUTE_PRICED, massform.HELD_SEAT_ROUTE_PRICED,
                massform.H_RELEASE_STATUS,
                massform.CONSIDERATION_VERDICT, massform.CONSIDERATION_HOLDS,
@@ -1482,7 +1499,11 @@ def requirements(F):
                massform.HIGGS_FIELD_SUPPLIES_THE_MASS_ENERGY,
                massform.FINITE_HIGGS_SHARE_STATUS, ruled("M-D65-2"),
                ledger.M_D65_2_ANSWER,
-               massform.RECONSTRUCTION_SURVIVES, ruled("M-D65-1"))},
+               # Built from the owner's flag, so a flip moves the sentence.
+               ("survives" if massform.RECONSTRUCTION_SURVIVES
+                else "DOES NOT survive, AGAINST S5's note"),
+               massform.RECONSTRUCTION_SURVIVES, ruled("M-D65-1"),
+               ruled("M-D65-3"))},
     ]
 
 
@@ -1604,13 +1625,14 @@ def classes():
                  "without doing work; what becomes of its own rest energy is not "
                  "computed), a prior arrival first (D23) -- forms no baryons: the "
                  "elements must already be at the seat as templates, and only their "
-                 "Higgs-given mass is restored (C3).  It is a %s S-3 candidate, "
+                 "Higgs-given mass is restored (C3).  It is a %s S-3 candidate %s, "
                  "stable only on %s within excite's section-3 model.  Seating at a "
                  "topological defect (DOCKET 66, M-S1A-P3 (ii), with QET folded in "
                  "by M-D65-1) is S-3's until tested"
                  % (massform.mechanism_label(), massform.HELD_SEAT_ROUTE_PRICED,
                     massform.H_RELEASE_STATUS,
-                    priced65(massform.HELD_SEAT_ROUTE_PRICED), massform.STABLE_RANGE)},
+                    priced65(massform.HELD_SEAT_ROUTE_PRICED), S13_CANDIDACY,
+                    massform.STABLE_RANGE)},
         {"id": "W-create-cc", "object": "W", "space": "W",
          "lits": {"created": True, "cc": True},
          "name": "throat created, causally compact interpolation",
@@ -2131,14 +2153,28 @@ def escapes(model, verdicts, route=None):
         if rid in carried:
             continue
         ans = row(rid)[2]
+        lab = "KNOWN ROUTE"
         if ans is None and rid == "S5":
             ans = branelink.S5_OWED
         if ans is None and rid in massform_moves():
+            # massform's movers name what would move the row AND what closes
+            # it ('H-UNSOURCED-SEAT holding ... closes the route'), so they
+            # are printed under massform's own label, never as a KNOWN ROUTE.
             ans = massform_moves()[rid]
+            lab = "WHAT WOULD MOVE IT (massform)"
         out.append({"hyp": "OPEN " + rid, "text": ledger._one_line(row(rid)[1], 200),
                     "kind": "OPEN ROW", "reopens": None, "rows": [rid],
-                    "route": " ".join(str(ans).split())})
+                    "route": " ".join(str(ans).split()), "route_label": lab})
     return out
+
+
+def mislabelled_routes(escs):
+    """[hyp] of every escape printed as a KNOWN ROUTE whose route is massform's
+    movers (a SUPPLY row of DOCKET 65) or names what CLOSES the route."""
+    return [x["hyp"] for x in escs
+            if x.get("route_label", "KNOWN ROUTE") == "KNOWN ROUTE"
+            and ("closes the route" in x["route"]
+                 or any(r in massform_moves() for r in x["rows"]))]
 
 
 #: D7's own words for why no branch escapes the bound, asked from the row.
@@ -2217,6 +2253,10 @@ QUOTES = (
     ("ledger:M-D65-1", "CITED, not READ"),
     ("ledger:M-D65-2", "Fold into S10 (Recommended)"),
     ("ledger:M-D65-2", "FOLD INTO S10's NOTE"),
+    ("ledger:M-D65-3", "some of the previously established math from outside art "
+                       "may be inaccurate or incomplete, or even wrong"),
+    ("ledger:M-D65-3", "some previous physicists may have all lacked certain data"),
+    ("ledger:M-D65-3", "After D65, before D66"),
 )
 
 
@@ -2262,21 +2302,52 @@ def pending_here():
 
 
 def m_d65_1():
-    """(M's answer, M's words, the literature clause) of ledger.RULED_BY_M
-    M-D65-1, ASKED: DOCKET 66's record prints these, and a copy typed here
-    could drift from M's words with nothing to catch it."""
+    """(M's answer, M's words, the literature clause, the question's own
+    description of QET -- its parenthetical) of ledger.RULED_BY_M M-D65-1,
+    ASKED: DOCKET 66's record prints these, and a copy typed here could drift
+    from M's words, or describe QET in this file's words, with nothing to catch
+    it."""
     import re
     r = [x for x in ledger.RULED_BY_M if x[0] == "M-D65-1"]
     if len(r) != 1:
         raise ValueError("ledger.RULED_BY_M no longer holds one M-D65-1")
+    q = " ".join(r[0][1].split())
     why, ruling = " ".join(r[0][2].split()), " ".join(r[0][3].split())
     ans = re.search(r"M's answer: '([^']+)'", ruling)
     words = re.search(r"verbatim: '([^']+)'", why)
     lit = re.search(r"CITED, not READ: (.+)$", why)
-    if not (ans and words and lit):
-        raise ValueError("ledger M-D65-1 no longer carries M's answer, M's words "
-                         "and a CITED-not-READ literature clause")
-    return ans.group(1), words.group(1), lit.group(1)
+    par = re.search(r"\((.+?)\) be tested", q)
+    if not (ans and words and lit and par):
+        raise ValueError("ledger M-D65-1 no longer carries M's answer, M's words, "
+                         "a CITED-not-READ literature clause and the question's "
+                         "parenthetical")
+    return ans.group(1), words.group(1), lit.group(1), par.group(1)
+
+
+#: The one description of the QET protocol this board prints in its own words,
+#: as the CITED, not READ, literature is described -- never 'information
+#: creates'.
+QET_PROTOCOL = ("information arriving at the destination enabling a local "
+                "operation that extracts energy and leaves a negative energy "
+                "density there, as the CITED, not READ, literature is described")
+
+
+def m_d65_3():
+    """(the question as put to M, M's answer, M's words, what it unblocks) of
+    ledger.RULED_BY_M M-D65-3, ASKED: DOCKET 67's record prints these, never a
+    copy typed here."""
+    import re
+    r = [x for x in ledger.RULED_BY_M if x[0] == "M-D65-3"]
+    if len(r) != 1:
+        raise ValueError("ledger.RULED_BY_M no longer holds one M-D65-3")
+    q, ruling, unb = (" ".join(r[0][1].split()), " ".join(r[0][3].split()),
+                      " ".join(r[0][4].split()))
+    ans = re.search(r"M's answer: '([^']+)'", ruling)
+    words = re.search(r'verbatim: "([^"]+)"', ruling)
+    if not (ans and words and "NOT YET RUN" in unb):
+        raise ValueError("ledger M-D65-3 no longer carries M's answer, M's words "
+                         "and NOT YET RUN")
+    return q, ans.group(1), words.group(1), unb
 
 
 #: Dockets M's rulings open, and whether each has run.  DOCKET 65 has RUN
@@ -2309,13 +2380,44 @@ def dockets_opened():
      "topological defects seating sites, and a SINGULAR defect (an idealised "
      "conical string) falls under both.  NOT YET RUN.  M'S ADDITION (M-D65-1, "
      "RULED BY M: FOLD INTO DOCKET 66 -- M: '%s'): Quantum Energy "
-     "Teleportation, information arriving at the destination creating a local "
-     "negative-energy region there, is tested HERE, beside seating at a "
-     "topological defect, not as a docket of its own.  M's words: '%s'.  Its "
-     "literature (%s) is CITED, not READ."
-     # All three asked of ledger.RULED_BY_M's M-D65-1, never retyped here.
-     % m_d65_1()),
+     "Teleportation -- as the question put to M described it, '%s' (the "
+     "QUESTION's description, not READ; the protocol itself: %s) -- is to be "
+     "tested HERE, beside seating at a topological defect, not as a docket of "
+     "its own; nothing here decides it.  M's words: '%s'.  Its literature (%s) "
+     "is CITED, not READ."
+     # M's answer, the question's parenthetical, M's words and the literature
+     # are asked of ledger.RULED_BY_M's M-D65-1, never retyped here; the
+     # protocol clause is QET_PROTOCOL, the one wording the board allows.
+     % (m_d65_1()[0], m_d65_1()[3], QET_PROTOCOL, m_d65_1()[1], m_d65_1()[2])),
+    ("DOCKET 67", "M-D65-3",
+     "the audit of the external results the board's refusals rest on -- the "
+     "question put to M: \"%s\".  RULED BY M: OPEN IT -- M: '%s'; M's words: "
+     "\"%s\".  NOT YET RUN; on the board it unblocks: '%s'.  Nothing in this "
+     "file rests on it."
+     # All four asked of ledger.RULED_BY_M's M-D65-3, never retyped here.
+     % m_d65_3()),
     ]
+
+
+def d66_qet_faults(text):
+    """[fault] where DOCKET 66's record describes QET in this file's own words:
+    the question's description not attributed to the question, the protocol
+    clause not QET_PROTOCOL, 'information ... creates/creating' in the board's
+    own words, or a result asserted ('shows', 'proves', 'is exotic')."""
+    t = " ".join(text.split())
+    par = m_d65_1()[3]
+    bad = []
+    if ("as the question put to M described it, '%s' (the QUESTION's "
+            "description, not READ" % par) not in t:
+        bad.append("the question's description is not attributed to the question")
+    if QET_PROTOCOL not in t:
+        bad.append("the protocol clause is not the CITED-not-READ one")
+    rest = t.replace(par, "")
+    if re.search(r"information[^.]{0,80}\bcreat", rest, re.I):
+        bad.append("'information creates' in the board's own words")
+    if re.search(r"\b(shows|proves)\b|\bis exotic\b", rest, re.I):
+        bad.append("a result asserted")
+    return bad
 
 
 #: Dockets M's rulings open, as they stand at import (dockets_opened() is what
@@ -2781,7 +2883,7 @@ def report():
                                                        or "nothing")))
         if x["rows"]:
             print(_wrap("LEDGER: %s" % ", ".join(x["rows"])))
-        print(_wrap("KNOWN ROUTE: " + x["route"]))
+        print(_wrap(x.get("route_label", "KNOWN ROUTE") + ": " + x["route"]))
 
     print("\n" + "=" * 79 + "\nTHE D3 COMPARISON (M-S1A-P4: run both, and the combination)\n"
           + "=" * 79)
@@ -3014,10 +3116,12 @@ def patched(obj, attr, value):
 
 @contextlib.contextmanager
 def ledger_status(rid, status):
-    """Replace one DEMAND row's status for the duration -- a scratch copy of the
-    board, restored after."""
-    new = [(r[0], r[1], status, r[3], r[4]) if r[0] == rid else r for r in ledger.DEMAND]
-    with patched(ledger, "DEMAND", new):
+    """Replace one DEMAND or SUPPLY row's status for the duration -- a scratch
+    copy of the board, restored after."""
+    table = "DEMAND" if any(r[0] == rid for r in ledger.DEMAND) else "SUPPLY"
+    new = [(r[0], r[1], status, r[3], r[4]) if r[0] == rid else r
+           for r in getattr(ledger, table)]
+    with patched(ledger, table, new):
         yield
 
 
@@ -3385,12 +3489,13 @@ def selftest():
     chk("chk", "SR5 places DOCKET 65's rows and both its rulings, M-D65-1 and "
         "M-D65-2, on S alone; no O row (the finite share is in S10's note)",
         (sr5["rows"], sr5["applies_to"]),
-        (["D27", "D28", "D29", "S10", "S11", "S12", "S13", "M-D65-1", "M-D65-2"], ["S"]))
+        (["D27", "D28", "D29", "S10", "S11", "S12", "S13", "M-D65-1", "M-D65-2",
+          "M-D65-3"], ["S"]))
     chk("ask", "SR5's status carries each row's asked status and S10 is "
         "massform.MECHANISM_VERDICT[0]",
         (all(("%s %s" % (r, st(r))) in sr5["status"]
              for r in ("D27", "D28", "D29", "S10", "S11", "S12", "S13",
-                       "M-D65-1", "M-D65-2")),
+                       "M-D65-1", "M-D65-2", "M-D65-3")),
          st("S10") == massform.MECHANISM_VERDICT[0] == REFUSED), (True, True))
     # SR5's status names every premise S10's refusal rests on wherever the
     # owner's label does: SWITCH-ON and TEMPLATE on P-UNIFORM.
@@ -3455,6 +3560,37 @@ def selftest():
     chk("ctl", "ledger D27 -> SURVEY: SR5's status moves (asked, not typed)",
         [r["status"] for r in m2["requirements"] if r["id"] == "SR5"]
         != [sr5["status"]], True)
+    _moved = {}
+    for _r in ("D27", "D28", "D29", "S10", "S11", "S12", "S13"):
+        with ledger_status(_r, SURVEY):
+            _s2 = [r["status"] for r in build()["requirements"] if r["id"] == "SR5"][0]
+        _moved[_r] = (_s2 != sr5["status"], "%s %s" % (_r, SURVEY) in _s2,
+                      "%s %s" % (_r, st(_r)) in _s2)
+    chk("ctl", "every board row SR5 places, set SURVEY on a scratch board: SR5's "
+        "status moves and prints the scratch status, never a typed one",
+        _moved, dict((r, (True, True, False)) for r in _moved))
+    chk("chk", "SR5 names S11's limits beside its PRICED flag: the collider rate "
+        "asked of massform.COLLIDER_RATE_STATUS, and the N_n extra leptons (D28)",
+        ("its two-particle collider rate %s (massform.COLLIDER_RATE_STATUS)"
+         % massform.COLLIDER_RATE_STATUS in sr5["statement"],
+         "extra leptons, D28" in sr5["statement"],
+         ("massform", "COLLIDER_RATE_STATUS") in sr5["owners"]), (True, True, True))
+    with patched(massform, "COLLIDER_RATE_STATUS", "SETTLED"):
+        _st2 = [r["statement"] for r in build()["requirements"] if r["id"] == "SR5"][0]
+    chk("ctl", "massform.COLLIDER_RATE_STATUS -> SETTLED: SR5's statement moves "
+        "and no 'CONTESTED' collider rate is left typed",
+        ("collider rate SETTLED (massform.COLLIDER_RATE_STATUS)" in _st2,
+         "collider rate CONTESTED" in _st2), (True, False))
+    chk("chk", "SR5's reconstruction clause is built from massform's flag",
+        ("stock survives (RECONSTRUCTION_SURVIVES = True" in sr5["statement"],
+         massform.RECONSTRUCTION_SURVIVES), (True, True))
+    with patched(massform, "RECONSTRUCTION_SURVIVES", False):
+        _st2 = [r["statement"] for r in build()["requirements"] if r["id"] == "SR5"][0]
+    chk("ctl", "massform.RECONSTRUCTION_SURVIVES -> False: SR5's clause moves and "
+        "'stock survives (' is not left typed",
+        ("stock survives (" in _st2,
+         "DOES NOT survive, AGAINST S5's note (RECONSTRUCTION_SURVIVES = False"
+         in _st2), (False, True))
     with patched(massform, "HELD_SEAT_ROUTE_PRICED", False):
         m2 = build()
         _w13 = [t for t in what_it_does_not_say() if "S13" in t]
@@ -3497,6 +3633,18 @@ def selftest():
               for r in ("S11", "S12", "S13")),
          [x["hyp"] for x in model["escapes"] if "O8" in x["rows"]]),
         ({"S11": True, "S12": True, "S13": True}, []))
+    _rendered = " ".join(render(model).split())
+    chk("chk", "those escapes print massform's movers under 'WHAT WOULD MOVE IT "
+        "(massform)', never as a KNOWN ROUTE (S13's movers name what closes it)",
+        (mislabelled_routes(model["escapes"]),
+         [x["route_label"] for x in model["escapes"]
+          if x["kind"] == "OPEN ROW" and x["rows"][0] in ("S11", "S12", "S13")],
+         "WHAT WOULD MOVE IT (massform): " + esc65["S13"] in _rendered,
+         "KNOWN ROUTE: " + esc65["S13"] in _rendered),
+        ([], ["WHAT WOULD MOVE IT (massform)"] * 3, True, False))
+    chk("ctl", "S13's escape relabelled KNOWN ROUTE on a private copy is caught",
+        mislabelled_routes([dict(x, route_label="KNOWN ROUTE") if "S13" in x["rows"]
+                            else x for x in model["escapes"]]), ["OPEN S13"])
     d65, d66 = dockets_opened()[0][2], dockets_opened()[1][2]
     chk("chk", "DOCKET 65's record carries P-UNIFORM beside SWITCH-ON's refusal and "
         "the consideration's second half (asked of massform)",
@@ -3524,6 +3672,44 @@ def selftest():
         "literature CITED, not READ",
         (ruled("M-D65-1"), "M-D65-1" in d66, "FOLD INTO DOCKET 66" in d66,
          "CITED, not READ" in d66, "NOT YET RUN" in d66), (True,) * 5)
+    chk("chk", "DOCKET 66 describes QET as the question put to M described it "
+        "(attributed, not READ) and the protocol only as the CITED literature is "
+        "described; it asserts no result", d66_qet_faults(d66), [])
+    chk("ctl", "the record as it stood ('information arriving ... creating a local "
+        "negative-energy region there, is tested HERE') is caught",
+        len(d66_qet_faults(
+            "M'S ADDITION (M-D65-1): Quantum Energy Teleportation, information "
+            "arriving at the destination creating a local negative-energy region "
+            "there, is tested HERE.  M's words: '%s'." % m_d65_1()[1])) >= 3, True)
+    chk("ctl", "a rewrite that pre-judges DOCKET 66 in M's favour ('shows that "
+        "information arriving ... IS exotic matter') is caught",
+        d66_qet_faults(d66.replace(
+            "is to be tested HERE", "which shows that information arriving at the "
+            "destination IS exotic matter, as M said, is to be tested HERE")),
+        ["a result asserted"])
+    d67 = dockets_opened()[2][2]
+    chk("chk", "DOCKET 67 is on the record, opened by M-D65-3 (on the board), "
+        "NOT YET RUN, with the question as put to M and M's words asked of the "
+        "board",
+        (dockets_opened()[2][:2], ruled("M-D65-3"), "NOT YET RUN" in d67,
+         m_d65_3()[0] in d67, m_d65_3()[2] in d67,
+         "after DOCKET 65 is seated and before DOCKET 66" in d67),
+        (("DOCKET 67", "M-D65-3"), True, True, True, True, True))
+    chk("chk", "SR5 says DOCKET 67 is OPENED, NOT YET RUN, and nothing here rests "
+        "on it", ("M ruled DOCKET 67 OPENED (M-D65-3, on the board: %s)"
+                  % ruled("M-D65-3") in sr5["statement"],
+                  "NOT YET RUN, after DOCKET 65 and before "
+                  "DOCKET 66; nothing here rests on it" in sr5["statement"]),
+        (True, True))
+    _q3 = [r for r in ledger.RULED_BY_M if r[0] == "M-D65-3"][0]
+    _mis3 = (_q3[0], _q3[1], _q3[2],
+             _q3[3].replace("or even wrong", "or even false"), _q3[4])
+    with patched(ledger, "RULED_BY_M", [(_mis3 if r[0] == "M-D65-3" else r)
+                                        for r in ledger.RULED_BY_M]):
+        _mq3 = misquotes()
+    chk("ctl", "M's words in M-D65-3 corrected in the ruling cell is caught (the "
+        "quote check reads the printed cell)", [q[1][:24] for q in _mq3],
+        ["some of the previously e"])
     chk("chk", "the S-3 note: DOCKET 65 has run, S13 a priced S-3 candidate that "
         "forms no baryons, on H-RELEASE (asked), DOCKET 66 still untested",
         [("DOCKET 65 HAS RUN" in K["note"], "PRICED S-3 candidate" in K["note"],
@@ -3533,6 +3719,13 @@ def selftest():
         [(True,) * 6])
     _Snote = [K["note"] for K in model["classes"] if K["id"] == "S-3"][0]
     _Sdef = [o["definition"] for o in model["objects"] if o["id"] == "S"][0]
+    chk("chk", "the S-3 note and object S say what S13's candidacy rests on (M's "
+        "framing, M-S1A-P1) and that it moves no mass, as Rec does not",
+        ("S-3 candidate " + S13_CANDIDACY in _Snote,
+         "S-3 candidate " + S13_CANDIDACY in _Sdef), (True, True))
+    chk("ctl", "the note as it stood ('S-3 candidate' with no basis) is caught",
+        "S-3 candidate " + S13_CANDIDACY in _Snote.replace(" " + S13_CANDIDACY, ""),
+        False)
     chk("chk", "massform.mechanism_label() appears verbatim in the S-3 note, the "
         "object-S definition and WHAT_IT_DOES_NOT_SAY",
         (massform.mechanism_label() in _Snote, massform.mechanism_label() in _Sdef,

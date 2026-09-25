@@ -2683,20 +2683,38 @@ REMAINDER_RESTORES_MASS = {"TEMPLATE": HELD_SEAT_ROUTE_PRICED}
 COUNT_SCOPE = {("DISPLACEMENT", "C2"): "for a small displacement only"}
 
 
-def reading_premises(name, verdicts=None, c1_status=None):
-    """The named premises a reading refused on C1 ALONE rests on, ASKED of C1's
-    status: 'on P-UNIFORM' gives P-UNIFORM, and 'on <reading> also on <H>' adds
-    that hypothesis (H-UNSOURCED-SEAT on TEMPLATE).  So SWITCH-ON's and
-    TEMPLATE's refusals are printed on their premises, never unconditional --
-    the same limit mechanism_label() prints."""
+def reading_premises(name, verdicts=None, c1_status=None, any_count=False):
+    """The named premises a reading refused on ONE count rests on, ASKED of
+    that count's status.  On C1: 'on P-UNIFORM' gives P-UNIFORM, and 'on
+    <reading> also on <H>' adds that hypothesis (H-UNSOURCED-SEAT on TEMPLATE).
+    With any_count, a refusal on any other single count whose status reads
+    'THEOREM ... on <H-...> [and <H-...>]' gives those tokens, less the
+    reading's own case definition (reading_case_definition: H-PRESENT defines
+    the STOCK case, so it is not a premise of C5's refusal but its case).  So
+    SWITCH-ON's, TEMPLATE's and STOCK's refusals are printed on their premises,
+    never unconditional -- the same limit mechanism_label() prints."""
     v, cs = (READING_VERDICTS if verdicts is None else verdicts)[name]
-    c1 = (dict((c[0], c[3]) for c in COUNTS_ON_THE_MECHANISM)["C1"]
-          if c1_status is None else c1_status)
-    if v != "REFUSED" or list(cs) != ["C1"]:
+    statuses = dict((c[0], c[3]) for c in COUNTS_ON_THE_MECHANISM)
+    c1 = statuses["C1"] if c1_status is None else c1_status
+    if v != "REFUSED" or len(cs) != 1:
         return []
-    prem = ["P-UNIFORM"] if "on P-UNIFORM" in c1 else []
-    m = re.search(r"on %s also on ([A-Z][\w-]*)" % re.escape(name), c1)
-    return prem + ([m.group(1)] if m else [])
+    if list(cs) == ["C1"]:
+        prem = ["P-UNIFORM"] if "on P-UNIFORM" in c1 else []
+        m = re.search(r"on %s also on ([A-Z][\w-]*)" % re.escape(name), c1)
+        return prem + ([m.group(1)] if m else [])
+    if not any_count:
+        return []
+    m = re.match(r"THEOREM\b[^;]*? on ((?:[HP]-[A-Z-]+)(?:(?:,| and) [HP]-[A-Z-]+)*)",
+                 statuses[cs[0]])
+    toks = re.findall(r"[HP]-[A-Z-]+", m.group(1)) if m else []
+    return [t for t in toks if t not in reading_case_definition(name)]
+
+
+def reading_case_definition(name):
+    """The hypotheses a reading's OWN case is defined by, asked of READINGS'
+    text for it ('with their measured mass (H-PRESENT)' on STOCK)."""
+    what = [w for n, w, _c in READINGS if n == name]
+    return re.findall(r"\b[HP]-[A-Z][A-Z-]*[A-Z]\b", what[0]) if what else []
 
 
 def reading_label(name, verdicts=None, c1_status=None):
@@ -2747,6 +2765,20 @@ def mechanism_label():
             and not REMAINDER_RESTORES_MASS.get(r) and "on P-UNIFORM" in c1]
     if prem:
         out += "; on %s on P-UNIFORM (C1 alone)" % ", ".join(prem)
+    # A reading refused on ONE other count is refused on that count's own
+    # premises, asked of its status (STOCK on C5, a THEOREM on H-TREE, with
+    # H-PRESENT defining the STOCK case), so beside SWITCH-ON's and TEMPLATE's
+    # scoped refusals it never reads unconditional.
+    for r in rs:
+        cs = READING_VERDICTS[r][1]
+        if v != "REFUSED" or len(cs) != 1 or list(cs) == ["C1"]:
+            continue
+        p = reading_premises(r, any_count=True)
+        if p:
+            d = reading_case_definition(r)
+            out += "; on %s on %s (%s alone%s)" % (
+                r, " and ".join(p), cs[0],
+                ("; %s is its case definition" % " and ".join(d)) if d else "")
     if pair:
         out += ("; on %s as NET formation only -- atomic mass can still form there as "
                 "matter with its antimatter (the pair route, PRICED)" % ", ".join(pair))
@@ -2874,7 +2906,9 @@ PROPOSED_ROWS = (
     ("S10", "SUPPLY",
      "M's mechanism, \"As soon as the information hits the seat, it triggers "
      "the higgs field, and atomic mass forms\", as a supply of payload mass.  "
-     "REFUSED, gap None, reading by reading, on no contested-only count, and "
+     # The verdict word is the owner's, MECHANISM_VERDICT[0], never typed.
+     + MECHANISM_VERDICT[0]
+     + ", gap None, reading by reading, on no contested-only count, and "
      "each count only where it has a stated reason to answer: SWITCH-ON by C1 "
      "alone (the field is already on, D27, on P-UNIFORM); EXCITATION, "
      "displacement branch, by C3, and by C2 for " + C2_SCOPE + " (the field "
@@ -2883,7 +2917,8 @@ PROPOSED_ROWS = (
      "0.309 on all rows, and an illustration of margin reaches 0.236 on the "
      "READ rows, none a bound; no Higgs coupling carries net B or L); "
      "EXCITATION, quanta branch, by C3 alone; CREATION by C4 (the field has no "
-     "energy to give, D29) and C3; STOCK, with the elements present as "
+     "energy to give about v, and its one release, vacuum decay, forms no atomic "
+     "mass at the seat, D29) and C3; STOCK, with the elements present as "
      "elements (H-PRESENT), by C5 alone, PRIOR MASS (they already carry their "
      "Higgs-given mass, since fermion masses are proportional to phi where they "
      "are; on H-PRESENT it needs no P-UNIFORM); TEMPLATE, its complement "
@@ -2916,7 +2951,7 @@ PROPOSED_ROWS = (
      "The anomaly route: B + L violated by the SU(2) anomaly over a gauge-Higgs "
      "saddle whose height the vev sets.  Zero temperature: INSTANTON "
      "tunnelling, exp(-4 pi/alpha_W) per transition, alpha_W from READ m_W and "
-     "v; B/3 transitions.  Over the barrier, the SPHALERON: E_sph ~ %.0f TeV "
+     "v (NAMED-NOT-READ, via G_F); B/3 transitions.  Over the barrier, the SPHALERON: E_sph ~ %.0f TeV "
      "(READ), ~%s x the 3 baryons' rest energy.  Thermal: unsuppressed above "
      "T_c, vev approximately zero; below T_c down to T*, the READ broken-phase "
      "rate with the vev finite.  Two-particle collisions: CONTESTED (the "
@@ -3639,6 +3674,15 @@ _PHI0_DEF = "templates at the seat without their Higgs-given mass (phi = 0 there
 #: WORDING REQUIRED where each round-5 and round-6 fix landed.  (id, locator,
 #: exact phrase (normalised), the OLD wording the control puts back in its place).
 REQUIRED_WORDING = (
+    # DOCKET 65's closing round: two row phrases, each with the wording it
+    # replaced as its control.
+    ("D65-close S10 claim: CREATION refused in D29's own words", "S10 claim",
+     "CREATION by C4 (the field has no energy to give about v, and its one "
+     "release, vacuum decay, forms no atomic mass at the seat, D29) and C3",
+     "CREATION by C4 (the field has no energy to give, D29) and C3"),
+    ("D65-close S11 claim: v is NAMED-NOT-READ, via G_F", "S11 claim",
+     "alpha_W from READ m_W and v (NAMED-NOT-READ, via G_F); B/3 transitions",
+     "alpha_W from READ m_W and v; B/3 transitions"),
     ("SF3 intro defines TEMPLATE", "intro", _TEMPLATE_DEF,
      "the elements' templates sit at the seat WITHOUT their mass"),
     ("R6-A intro: the split is three-way", "intro", THREE_WAY,
@@ -4834,6 +4878,42 @@ def selftest():
     chk("SWITCH-ON's refusal is printed on P-UNIFORM in the mechanism label "
         "(C1 is a THEOREM on it)",
         "on SWITCH-ON on P-UNIFORM (C1 alone)" in mechanism_label(), True)
+    chk("STOCK's refusal is printed on C5's premise in the mechanism label, asked "
+        "of C5's status: H-TREE, with H-PRESENT the STOCK case's definition",
+        ("; on STOCK on H-TREE (C5 alone; H-PRESENT is its case definition)"
+         in mechanism_label(),
+         reading_premises("STOCK", any_count=True), reading_premises("STOCK"),
+         reading_case_definition("STOCK")),
+        (True, ["H-TREE"], [], ["H-PRESENT"]))
+    _keep_counts = COUNTS_ON_THE_MECHANISM
+    globals()["COUNTS_ON_THE_MECHANISM"] = tuple(
+        (c[0], c[1], c[2], "THEOREM (PRIOR MASS); needs no P-UNIFORM", c[4], c[5])
+        if c[0] == "C5" else c for c in _keep_counts)
+    try:
+        _lab_c5 = mechanism_label()
+        _prem_c5 = reading_premises("STOCK", any_count=True)
+    finally:
+        globals()["COUNTS_ON_THE_MECHANISM"] = _keep_counts
+    chk("CONTROL C5's status edited to name no hypothesis drops STOCK's premise "
+        "clause from the label (asked of the status, not typed)",
+        ("on STOCK on" in _lab_c5, _prem_c5), (False, []))
+    _s10_claim = [r for r in PROPOSED_ROWS if r[0] == "S10"][0][2]
+    _src = open(__file__, encoding="utf-8").read()
+    chk("S10's claim carries the owner's verdict word, MECHANISM_VERDICT[0], "
+        "interpolated and not typed (the source is read: no literal '\"REFUSED, "
+        "gap None' beside the asked status)",
+        (MECHANISM_VERDICT[0] + ", gap None, reading by reading" in _s10_claim,
+         "MECHANISM_VERDICT[0]\n     + \", gap None" in _src,
+         '"REFUSED, gap' + ' None, reading' in _src),
+        (True, True, False))
+    _hd = " ".join(higgs.__doc__.split())
+    _pu = ("IT IS UNIFORM WHERE NOTHING SOURCES IT (P-UNIFORM, a named premise: "
+           "massform.P_UNIFORM_STATUS)")
+    chk("higgs.py's caveat (b) names P-UNIFORM as the premise it is here "
+        "(P_UNIFORM_STATUS asked)", (_pu in _hd, P_UNIFORM_STATUS), (True, "PREMISE"))
+    chk("CONTROL higgs.py's caveat (b) as it stood, naming no premise, is caught",
+        _pu in _hd.replace(" (P-UNIFORM, a named premise: massform.P_UNIFORM_STATUS)",
+                           ""), False)
     chk("CONTROL were P-UNIFORM false, it would discriminate",
         derive_consideration(True, discriminates=True), "TRUE")
     chk("D15 asked of excite", excite.TAIL_RATE_IS_MASS, True)
