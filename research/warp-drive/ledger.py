@@ -3432,7 +3432,9 @@ def selftest():
             massform.log10_suppression(1.0 / massform.RS96_ALPHA_INV)) in _d67[0][2]),
         (True, False, False, True, True, True))
     _d4 = [r for r in RULED_BY_M if r[0] == "M-D65-4"]
-    _d63span, _d63text = paper_d63_marker()
+    _d63faults = paper_d63_faults()
+    _d63span, _d63text = (paper_d63_marker() if not _d63faults
+                          else ("%d" % PAPER_D63_MARKER_LINE, "MARKER NOT FOUND"))
     chk("M-D65-4: the paper's caveat (b) QUALIFIED on M's ruling -- the question "
         "as put to M, M's answer verbatim, the ruling cell EQUAL to its template "
         "filled from the asked pieces (M's rule for the paper, the DOCKET 63 "
@@ -3463,7 +3465,7 @@ def selftest():
         "cell names it by its READ lines and text -- the paper's edits on M's "
         "ruling are named, not counted ('the one', 'the second', 'two' absent)"
         % _d63span,
-        (paper_d63_faults(), _d63span.startswith("%d" % PAPER_D63_MARKER_LINE),
+        (_d63faults, _d63span.startswith("%d" % PAPER_D63_MARKER_LINE),
          "(Corrected on M's ruling:" in _d63text, "DOCKET 63" in _d63text,
          "(paper/CLAIMS.md:%s: \"%s\")" % (_d63span, _d63text) in _d4[0][3],
          bool(re.search(r"\b(the one|the second|two) paper edits?\b",
@@ -3481,13 +3483,17 @@ def selftest():
              "specthm.py": open(HERE + "/specthm.py", encoding="utf-8").read(),
              "LEDGER.md": _raw}
     # The withdrawn phrases are assembled from pieces here, so the source
-    # scan finds them nowhere but where a planted copy would put them.
+    # scan finds them nowhere but where a planted copy would put them; the
+    # scan is by the WORD ('finalis..ed', 'finalis..ation'), since a planted
+    # phrase split across two string literals would hide from a phrase scan.
+    # M's own 'finalized' (M_PAPER_RULE_WORDS, M's spelling) is not the word.
     _old_edit = "the one paper edit since M " + "finalis" + "ed it, on M's ruling"
     _old_rule = "M's " + "finalis" + "ation rule"
+    _old_words = ("finalis" + "ed", "finalis" + "ation")
     chk("  the withdrawn phrases ('since M finalis.. it', 'finalis..ation rule') "
-        "stand nowhere in ledger.py, specthm.py or LEDGER.md (source-read)",
-        sorted(n for n, t in _srcs.items()
-               if _old_edit[22:36] in t or _old_rule[4:] in t), [])
+        "stand nowhere in ledger.py, specthm.py or LEDGER.md (source-read, by "
+        "the word)",
+        sorted(n for n, t in _srcs.items() if any(w in t for w in _old_words)), [])
     chk("  CONTROL: the phrase as it stood ('the one paper edit since M finalis.. "
         "it, on M's ruling') planted in the ruling cell fails the equality, and "
         "planted in the template would be found by the source scan",
