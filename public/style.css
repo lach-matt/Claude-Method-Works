@@ -464,6 +464,7 @@ dialog::backdrop { background: var(--backdrop); }
 /* ---- markers, limits facet ---- */
 .sw-rel { border-radius: 50%; background: var(--rel); width: 8px; height: 8px; margin: 0 1px; }
 .sw-walk { border-radius: 50%; background: transparent; border: 1.5px solid var(--walk); box-sizing: border-box; width: 8px; height: 8px; margin: 0 1px; }
+.sw-rel-paper { border-radius: 50%; background: transparent; border: 1.5px dashed var(--rel); opacity: 0.7; box-sizing: border-box; width: 8px; height: 8px; margin: 0 1px; }
 .walk-tag { background: var(--walk); }
 .sw-lim-ionisation-limit { background: var(--lim-ionisation-limit); }
 .sw-lim-unresolved { background: var(--lim-unresolved); }

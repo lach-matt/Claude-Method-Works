@@ -165,7 +165,7 @@ _PRIVATE_RX = [re.compile(x) for x in PRIVATE_PATTERNS]
 # names the site may print that a pattern would otherwise catch: the walk table
 # is this repository's own reconstruction, not one of the books, and the two
 # captures are public tables (PDG, spglib) written with their provenance
-PUBLIC_NAMES = {"LOWDIN-WALK.tsv": "the walk table",
+PUBLIC_NAMES = {"LOWDIN-WALK.tsv": "the walk table", "SCORE.tsv": "the scorer table",
                 "PDG-2026.tsv": "the PDG capture", "SPACEGROUPS-spglib.tsv": "the space-group capture",
                 "THE-HIERARCHY-LAW.md": "the hierarchy law paper",
                 "NUCBANDS-levels.tsv": "the band-level capture", "NUCBANDS-bands.tsv": "the band capture",
@@ -177,6 +177,7 @@ PUBLIC_NAMES = {"LOWDIN-WALK.tsv": "the walk table",
                 "KPOINTS-ADDITIVITY.tsv": "the k-point additivity capture", "PHONON-KPOINTS.tsv": "the second k-point implementation's capture",
                 "COREPS-HIGHSYM.tsv": "the corepresentation capture",
                 "THE-INDEX-OF-FIRST-ORDER-INDEXES.md": "the index of first-order indexes paper",
+                "RUNS.tsv": "the recovered walk's run table", "CHECK.tsv": "the recovered chain's check against the sealed steps",
                 "papers/method/01-closure-law/PAPER.md": "the closure-law paper",
                 "papers/method/02-lambda/PAPER.md": "the lattice paper",
                 "papers/method/03-bracket/PAPER.md": "the bracket paper",
@@ -301,18 +302,37 @@ CAVEATS = [
              "domain is not a finding against the equation."},
     {"id": "relativistic-not-held",
      "text": "The scalar-relativistic construction (Koelling\u2013Harmon "
-             "Hartree\u2013Fock at c = 137) and its repetition at c \u2192 \u221e "
-             "are not held: the code behind the L\u00f6wdin paper never arrived. "
-             "The eleven displaced elements are READ from the paper's own statement "
-             "and the site cannot recompute them."},
+             "Hartree\u2013Fock at c = 137) behind the L\u00f6wdin paper was never "
+             "banked as an archive; its code has since been RECOVERED from the "
+             "project's own conversations (every file written, edited and printed "
+             "by tool calls, rebuilt and held against every printed window) and run "
+             "here. The displaced set this site states is what that recovered "
+             "instrument returns (RECOVERED); the paper's eleven are READ from the "
+             "paper's own sentence and carried as the reading it printed, superseded."},
+    {"id": "record-eleven",
+     "text": "The paper's eleven were computed by its own final session as the "
+             "elements where the chain's entrant differs from a second table the "
+             "project had sealed as its c \u2192 \u221e walk. The project's own "
+             "fault record F59.3, written before the paper, established that the "
+             "second table ran at c = 137 in restart mode (each step from the "
+             "observed configuration), so the eleven measure the chain's memory "
+             "against a memoryless restart at one c, not the constant. Re-derived "
+             "here, both tables reproduce and the eleven reproduce from them; at "
+             "eight of the eleven the restart entrant is the observed one. Repaired by "
+             "the author's decision (2026-09-24): the displaced set this site states is "
+             "the recovered instrument's \u2014 the chain at c \u2192 \u221e differs from "
+             "the chain at c = 137 at thorium and rutherfordium among the measured "
+             "elements and at Z = 120 beyond them, and nowhere else \u2014 RECOVERED; "
+             "the paper's eleven are shown as the reading the paper printed, "
+             "superseded, and the paper's own text is shown as it stands until the "
+             "author reissues it."},
     {"id": "walk-reconstructed",
-     "text": "The walk shown beside the paper is a RECONSTRUCTION "
-             "(tools/lowdin_walk.py): the paper's construction rebuilt from its "
-             "statement and run in two fields, a local-exchange one and the paper's "
-             "own average-of-configuration Hartree\u2013Fock with non-local exchange, "
-             "neither of them the paper's code, which never arrived. Where it "
-             "agrees with the paper that is a measurement; where it disagrees "
-             "that is a measurement too. It is never the paper's number."},
+     "text": "The reconstructed walk (tools/lowdin_walk.py) is this site's own "
+             "rebuild of the paper's construction from its statement, run in two "
+             "fields, and is kept beside the record's recovered instrument as a "
+             "second measurement, not in its place. Where it agrees with the "
+             "record that is a measurement; where it disagrees that is a "
+             "measurement too. It is never the paper's number."},
     {"id": "limit-kind",
      "text": "A limit kind is a classification of the csv's own bound note by "
              "the stated rule: the note is READ, the kind is DERIVED, and the "
@@ -415,12 +435,22 @@ def relativistic():
                 e0 = l.find(". ", m.end())
                 return {"line": i, "text": l[s0:(e0 + 1 if e0 >= 0 else len(l))].strip()}
         return None
+    # the paper as first printed names the eleven as its result; the paper as corrected (the store's
+    # R3 class CINF, 2026-09-24) names them as the disagreements it first printed and withdraws them
     eleven_s = find(r"They disagree at eleven elements: ")
-    m = re.search(r"eleven elements: ([A-Z][a-z]?(?:, [A-Z][a-z]?)*), and ([A-Z][a-z]?)\.", eleven_s["text"])
-    symbols = m.group(1).split(", ") + [m.group(2)]
+    corrected = False
+    if eleven_s:
+        m = re.search(r"eleven elements: ([A-Z][a-z]?(?:, [A-Z][a-z]?)*), and ([A-Z][a-z]?)\.", eleven_s["text"])
+        symbols = m.group(1).split(", ") + [m.group(2)]
+    else:
+        eleven_s = find(r"the eleven disagreements this paper first printed \(")
+        m = re.search(r"first printed \(([A-Z][a-z]?(?:, [A-Z][a-z]?)*)\)", eleven_s["text"])
+        symbols = m.group(1).split(", ")
+        corrected = True
     c137 = find(r"scalar-relativistic reduction of the Dirac equation as c = 137")
-    thorium = find(r"inverts the underlying channel competition at thorium")
-    irreducible = find(r"irreducibly relativistic: with the speed of light taken to infinity")
+    thorium = find(r"inverts the (underlying )?channel competition at thorium")
+    irreducible = find(r"irreducibly relativistic: with the speed of light taken to infinity") or \
+        find(r"where the observed table is relativistic: with the speed of light taken to infinity")
     # register 1706, first paragraph, verbatim
     reg = _member_text("The_Method_1_6___The_Register-2.md").split("\n")
     i = reg.index("### 1706")
@@ -440,6 +470,7 @@ def relativistic():
     return {
         "status": populate.READ,
         "c": 137,
+        "paper_corrected": corrected,
         "statement": irreducible["text"] if irreducible else None,
         "construction": c137["text"] if c137 else None,
         "eleven": [{"symbol": sym, "Z": populate.SYMBOL_TO_Z[sym],
@@ -655,6 +686,195 @@ def walk_block():
         "entrants": fields[primary]["entrants"],
     }
     return block, per_z
+
+
+# ---------------------------------------------------------------------------
+# the record's own walk, recovered: lowdin/ (tools/lowdin_recover.py)
+# ---------------------------------------------------------------------------
+
+LOWDIN_DIR = os.path.join(REPO, "lowdin")
+LOWDIN_CHAIN = os.path.join(LOWDIN_DIR, "chain")
+RECORD_TABLES = {
+    # file -> (key, label, what it is, the record's own run or an extension)
+    "LAMBDA-CHAIN.jsonl": ("chain", "the chain at c = 137.035999",
+                           "nlchain.py 2 120: the walk on its own configuration at every step, the record's Lambda_chain re-derived", "record"),
+    "LAMBDA-CINF-SEALED.jsonl": ("restart137", "the table the paper compared against, as sealed",
+                                 "cinf.py walk 2 108 through runsealed.py: restart rows from the observed configuration, at c = 137.035999 -- "
+                                 "the record's own fault F59.3 established that this driver's c never reached the field; the row label clight = 1e6 is the driver's, and false", "record"),
+    "LAMBDA-CINF2.jsonl": ("restart_cinf", "restart rows at c -> inf",
+                           "cinf2.py walk 2 108: the record's F59.3 remedy, c rebound where the field reads it; the record ran it on 13 rows, the other 94 are run here", "extension"),
+    "LAMBDA-CINF-CHAIN.jsonl": ("chain_cinf", "the chain at c -> inf",
+                                "nlchain.py 2 120 after cinf2's patch: the identical walk with the constant removed, which the paper describes and the record never ran chained", "extension"),
+}
+
+
+def _read_jsonl(path):
+    rows = {}
+    with open(path) as fh:
+        for ln in fh:
+            ln = ln.strip()
+            if ln:
+                r = json.loads(ln)
+                rows[r["Z"]] = r
+    return rows
+
+
+def _tsv_rows(path):
+    with open(path, encoding="utf-8") as fh:
+        head = fh.readline().rstrip("\n").split("\t")
+        return [dict(zip(head, ln.rstrip("\n").split("\t"))) for ln in fh if ln.strip()]
+
+
+def record_walk_block():
+    """The Löwdin project's own instrument, recovered from the chat export into lowdin/ by
+    tools/lowdin_recover.py, and what it returns when run here: Lambda_chain to Z = 120
+    checked step by step against every sealed step the sessions printed, the c -> inf table the
+    paper compared against (re-derived as sealed, at the c the record's own fault F59.3 found it
+    ran at), restart rows at a genuine c -> inf by the record's remedy, and the chain at c -> inf.
+    Every value RECOVERED -- computed here by the record's instrument, whose text is recovered --
+    and never flattened to READ. None when lowdin/chain is absent."""
+    if not os.path.isdir(LOWDIN_CHAIN):
+        return None, {}
+    tables = {}
+    for fn, (key, label, what, kind) in RECORD_TABLES.items():
+        p = os.path.join(LOWDIN_CHAIN, fn)
+        if os.path.exists(p):
+            with open(p, "rb") as fh:
+                blob = fh.read()
+            tables[key] = {"file": fn, "label": label, "what": what, "kind": kind, "rows": _read_jsonl(p),
+                           "bytes": len(blob), "md5": hashlib.md5(blob).hexdigest()}
+    if "chain" not in tables:
+        return None, {}
+    runs = _tsv_rows(os.path.join(LOWDIN_CHAIN, "RUNS.tsv")) if os.path.exists(os.path.join(LOWDIN_CHAIN, "RUNS.tsv")) else []
+    check = _tsv_rows(os.path.join(LOWDIN_CHAIN, "CHECK.tsv")) if os.path.exists(os.path.join(LOWDIN_CHAIN, "CHECK.tsv")) else []
+    scores = _tsv_rows(os.path.join(LOWDIN_CHAIN, "SCORE.tsv")) if os.path.exists(os.path.join(LOWDIN_CHAIN, "SCORE.tsv")) else []
+    ledger = _tsv_rows(os.path.join(LOWDIN_DIR, "LEDGER.tsv")) if os.path.exists(os.path.join(LOWDIN_DIR, "LEDGER.tsv")) else []
+    sym = {z: s for s, z in populate.SYMBOL_TO_Z.items()}
+    sym.update(SYMBOLS_ABOVE_108)
+    chain = tables["chain"]["rows"]
+    per_z = {}
+    for Z in sorted(chain):
+        d = {"Z": Z, "symbol": sym.get(Z, "Z%d" % Z), "settings": {}}
+        for key, t in tables.items():
+            r = t["rows"].get(Z)
+            if r is None:
+                continue
+            d["settings"][key] = {"entrant": r["ent"], "D_ent": r["D_ent"], "margin": r["margin"],
+                                  "order": [[c, v] for c, v in r["order"][:8]], "channels": len(r["order"]),
+                                  "failed": sorted(r.get("fail", {})), "iterations": r.get("it_ref"),
+                                  "rungs": r.get("rungs"), "observed": r.get("rec_ent"), "agrees": r.get("ok"),
+                                  "reference": r.get("ref_cfg")}
+        st = d["settings"]
+        d["displaced"] = {
+            "paper": (st["chain"]["entrant"] != st["restart137"]["entrant"]) if "restart137" in st else None,
+            "restart_cinf": (st["restart137"]["entrant"] != st["restart_cinf"]["entrant"]) if "restart137" in st and "restart_cinf" in st else None,
+            "chain_cinf": (st["chain"]["entrant"] != st["chain_cinf"]["entrant"]) if "chain_cinf" in st else None,
+        }
+        per_z[Z] = d
+    ck = {int(r["Z"]): r for r in check}
+    for Z in per_z:
+        if Z in ck:
+            per_z[Z]["sealed_check"] = {"verdict": ck[Z]["verdict"], "detail": ck[Z]["detail"]}
+    verdicts = {}
+    for r in check:
+        verdicts[r["verdict"]] = verdicts.get(r["verdict"], 0) + 1
+    displaced = {k: [{"Z": Z, "symbol": d["symbol"],
+                      "at_c137": d["settings"]["chain" if k != "restart_cinf" else "restart137"]["entrant"],
+                      "at_other": d["settings"]["restart137" if k == "paper" else ("restart_cinf" if k == "restart_cinf" else "chain_cinf")]["entrant"],
+                      "observed": d["settings"]["chain"]["observed"]}
+                     for Z, d in sorted(per_z.items()) if d["displaced"].get(k)]
+                 for k in ("paper", "restart_cinf", "chain_cinf")}
+    scored = [d for Z, d in per_z.items() if Z <= 108 and d["settings"]["chain"]["observed"]]
+    agree = sum(1 for d in scored if d["settings"]["chain"]["agrees"])
+    th = per_z.get(90, {}).get("settings", {})
+    summary = {
+        "rows": {k: len(t["rows"]) for k, t in tables.items()},
+        "sealed_check": verdicts,
+        "steps_agreeing_with_observed": {"agree": agree, "scored": len(scored),
+                                         "note": "the chain's entrant against the observed configurations' gain at Z <= 108, step by step; "
+                                                 "the record's ordering-clause score is nlcfg.py's, in RUNS.tsv"},
+        "displaced": {k: [x["symbol"] for x in v] for k, v in displaced.items()},
+        "displaced_detail": displaced,
+        "thorium": {k: v["entrant"] for k, v in th.items()},
+        "scorer": {r["key"]: {"config": r["config_score"], "step": r["step_score"],
+                              "config_failures": [int(x) for x in r["config_failures"].split()],
+                              "step_failures": [int(x) for x in r["step_failures"].split()],
+                              "status": r["status"], "what": r["what"]} for r in scores},
+    }
+    ledger_summary = {"files": len(ledger), "statuses": {}, "sealed_matches": [r["file"] for r in ledger if "MATCH" in r.get("sealed_sha256", "")]}
+    for r in ledger:
+        ledger_summary["statuses"][r["status"]] = ledger_summary["statuses"].get(r["status"], 0) + 1
+    block = {
+        "status": populate.RECOVERED,
+        "instrument": "lowdin/rt, recovered by tools/lowdin_recover.py from the project's own conversations",
+        "note": "the code the walk ran on, read out of the export: every file written, edited and printed by the sessions' tool calls, rebuilt by "
+                "replaying the edits and held against every printed window; where the sessions printed a sealed digest it is matched",
+        "tables": {k: {kk: v[kk] for kk in ("file", "label", "what", "kind", "bytes", "md5")} | {"rows": len(v["rows"])} for k, v in tables.items()},
+        "runs": [{k: r[k] for k in r} for r in runs],
+        "ledger": ledger_summary,
+        "summary": summary,
+        "entrants": [{"Z": Z, "symbol": d["symbol"], **{k: v["entrant"] for k, v in d["settings"].items()},
+                      "displaced_paper": d["displaced"]["paper"], "displaced_chain_cinf": d["displaced"]["chain_cinf"],
+                      "displaced_restart_cinf": d["displaced"]["restart_cinf"], "sealed": (d.get("sealed_check") or {}).get("verdict")}
+                     for Z, d in sorted(per_z.items())],
+    }
+    return block, per_z
+
+
+def repair_block(relb, record, walk):
+    """The finding on the paper's eleven, repaired by the author's decision of 2026-09-24: the
+    displaced set the site states is the recovered instrument's own -- the chain at c -> inf
+    against the chain at c = 137.035999, both run here by the record's code -- and the paper's
+    eleven are carried as the reading the paper printed, superseded. Nothing here is READ from
+    the paper: every figure is the recovered instrument's, RECOVERED. None when the record is
+    absent, in which case the site falls back to the paper's eleven, READ."""
+    if not record:
+        return None
+    sm = record["summary"]
+    det = sm["displaced_detail"]["chain_cinf"]
+    witnessed = [d for d in det if d["Z"] <= 108 and d["observed"]]
+    unwitnessed = [d for d in det if not (d["Z"] <= 108 and d["observed"])]
+    def side(d):
+        if not d["observed"]:
+            return "no ground configuration is measured beyond Z = 108; the row is unwitnessed at either setting"
+        if d["at_other"] == d["observed"] and d["at_c137"] != d["observed"]:
+            return "the c \u2192 \u221e entrant is the observed channel; the chain at c = 137.035999 departs from it"
+        if d["at_c137"] == d["observed"] and d["at_other"] != d["observed"]:
+            return "the c \u2192 \u221e entrant departs from the observed channel; the chain at c = 137.035999 holds it"
+        if d["at_c137"] == d["observed"] == d["at_other"]:
+            return "both settings hold the observed channel"
+        return "neither setting holds the observed channel"
+    hf = ((walk or {}).get("summary", {}).get("fields", {}).get("hf") or {}).get("displaced") or []
+    hf_syms = [x["symbol"] for x in hf]
+    paper_eleven = [e["symbol"] for e in relb["eleven"]]
+    paper_det = sm["displaced_detail"]["paper"]
+    return {
+        "status": populate.RECOVERED,
+        "decision": "the author's, 2026-09-24: the finding on the paper's eleven is repaired, not only recorded",
+        "statement": "Repeated with the constant removed, the construction's entrant moves at thorium (6d to 5f, away from the "
+                     "observed 6d), at rutherfordium (5f to 6d, the observed channel) and at Z = 120 (8s to 7d, beyond the last "
+                     "measured element), and at no other element; silver and mercury do not move. The paper's eleven were the chain "
+                     "measured against a second table that had run at c = 137.035999 in restart mode.",
+        "displaced": [d["symbol"] for d in det],
+        "witnessed": [d["symbol"] for d in witnessed],
+        "unwitnessed": [d["symbol"] for d in unwitnessed],
+        "detail": [dict(d, against_nature=side(d)) for d in det],
+        "comparison": "the chain at c = 137.035999 against the chain at c \u2192 \u221e, the record's own instrument at both settings",
+        "restart_displaced": sm["displaced"]["restart_cinf"],
+        "paper_eleven": paper_eleven,
+        "paper_eleven_status": ("withdrawn in the paper's corrected text: the elements where the chain differs from a restart walk at the same c, not from the constant"
+                                if relb.get("paper_corrected") else
+                                "superseded: the elements where the chain differs from a restart walk at the same c, not from the constant"),
+        "paper_eleven_restart_holds_observed": sum(1 for d in paper_det if d["at_other"] == d["observed"]),
+        "paper_eleven_displaced_here": [s for s in paper_eleven if s in {d["symbol"] for d in det}],
+        "scorer": sm.get("scorer", {}),
+        "reconstruction": {"hf_displaced": hf_syms, "record_set_within": all(d["symbol"] in hf_syms for d in det),
+                           "note": "the site's reconstruction, run before the instrument was recovered, displaced these in the record's field; "
+                                   "the recovered instrument's set is measured against it"},
+        "paper_text": ("the paper's corrected text is the one this site renders; the eleven are carried as the reading it first printed and withdrew"
+                       if relb.get("paper_corrected") else
+                       "the paper's own sentence stands as printed on this site until the author reissues the paper; the plate marks it superseded"),
+    }
 
 
 # ---------------------------------------------------------------------------
@@ -1096,6 +1316,11 @@ def papers_block(out_dir=OUT, write=True, log=print, warp_root=None):
                 with open(os.path.join(out_dir, prel), "wb") as fh:
                     fh.write(pblob)
             pdf = {"file": prel, "bytes": len(pblob), "md5": hashlib.md5(pblob).hexdigest(), "commit": research_commit(spec["pdf"], warp_root)}
+            # the copy the author released to the Drive folder that is the original-input witness, where
+            # the mirror holds one under the same name (drive_sync.py --adopt): its manifest md5 against this file's
+            wrow = _manifest_row("/" + os.path.basename(spec["pdf"]))
+            if wrow:
+                pdf["witness"] = {"status": wrow["status"], "md5": wrow["md5"], "match": wrow["md5"] == pdf["md5"]}
         papers.append({
             "slug": slug, "short": spec["short"],
             "title": (h1 or {}).get("text") or spec["short"],
@@ -2265,6 +2490,41 @@ def _coreps(C, MI, HL, root):
 
 
 
+def _isotopes(MI, HL):
+    """The isotope index as the site carries it: the site's own instrument
+    (tools/isotopes.py) over the one nuclear table the repository holds, its
+    height, width and join deficit measured exactly there, its channel
+    measured here by the hierarchy law's five closure operators, and the two
+    asserted to agree. It is not a row of the research tree's register and
+    the block says so."""
+    IS = _tool_module("isotopes", os.path.join(TOOLS, "isotopes.py"))
+    b = IS.block(charts=True)
+    X = frozenset(tuple(r["coords"]) for r in b["rows"])
+    own_h, own_w = b["own_cell"]["height"], b["own_cell"]["width"]
+    K, h, w, closers, sizes = None, own_h, own_w, [], {}
+    if MI is not None and HL is not None:
+        old = sys.getrecursionlimit()
+        sys.setrecursionlimit(max(old, 20000))      # the law instrument's width is a recursive augmenting path; 3,558 cells overflow the default
+        try:
+            K, h, w = MI.cell(X)
+        finally:
+            sys.setrecursionlimit(old)
+        assert (h, w) == (own_h, own_w), "the law instrument's cell (%d, %d) disagrees with the isotope instrument's (%d, %d)" % (h, w, own_h, own_w)
+        cl, _box = HL.closures(X)
+        sizes = {L: len(cl[L]) for L in HL.LANGS}
+        closers = sorted(L for L in HL.LANGS if sizes[L] == len(X))
+        assert sizes["information"] - len(X) == b["demand"]["E"], "the information closure's deficit disagrees with the instrument's E"
+    b["cell"] = {"channel": K, "height": h, "width": w}
+    b["closers"] = closers
+    b["channel"] = {"status": "DERIVED" if K is not None else "NOT MEASURED",
+                    "closure_sizes": sizes, "cells": len(X), "own_cell_agrees": (h, w) == (own_h, own_w),
+                    "note": ("the channel is measured at build by the five closure operators of the hierarchy law over the chart in its own box, the same instruments that measure every index of the register; the height and width they return agree with the instrument's own exact measurement, and the information closure's deficit is the instrument's E"
+                             if K is not None else "the law's closure operators were not available at this build, so the channel is not measured; the height, width and E are the instrument's own")}
+    b["demand"]["meet_note"] += "; the two cells it asks for are the empty nucleus (0, 0) and the diproton (2, 0), and the order and algebra closures return the same two" if b["demand"]["meet_cells"] == [[0, 0], [2, 0]] else ""
+    b["in_progress"] = False
+    return b
+
+
 def _ledger_md5(rel):
     """The md5 extracted/LEDGER.tsv records for a file it resolved to, or None."""
     path = os.path.join(REPO, "extracted", "LEDGER.tsv")
@@ -2606,6 +2866,7 @@ def particle_index_block(root=WARP_ROOT, write=True, out_dir=OUT, commit=None):
     phonons = _phonons(mods["phonondex"], mods["mi"], mods["hlaw"], root) if all(mods.get(k) is not None for k in ("phonondex", "mi", "hlaw")) else None
     kpoints = _kpoints(mods["kpointdex"], mods["mi"], mods["hlaw"], root) if all(mods.get(k) is not None for k in ("kpointdex", "mi", "hlaw")) else None
     coreps = _coreps(mods["corepdex"], mods["mi"], mods["hlaw"], root) if all(mods.get(k) is not None for k in ("corepdex", "mi", "hlaw")) else None
+    isotopes = _isotopes(mods.get("mi"), mods.get("hlaw"))
     register = _register(root, mods)
     bonds = _bonds(mods["bonds"]) if mods.get("bonds") is not None else None
     predictions = None
@@ -2696,7 +2957,7 @@ def particle_index_block(root=WARP_ROOT, write=True, out_dir=OUT, commit=None):
         "status_note": "%s indexes of the particles that are not periodic atoms, read from the other session's instruments at build; every member carries its coordinates with their statuses, and every refused coordinate carries the measurement that refuses it" % ("four" if len(indexes) == 4 else "three"),
         "source": prov, "accounting": accounting, "indexes": indexes, "sweep": sweep, "quasiparticles": quasi, "subpop": subpop,
         "nuclear": nuclear, "bonds": bonds, "predictions": predictions, "gravity": gravity, "register": register,
-        "phonons": phonons, "kpoints": kpoints, "coreps": coreps,
+        "phonons": phonons, "kpoints": kpoints, "coreps": coreps, "isotopes": isotopes,
     }
     blob = (PARTICLES_PREFIX + json.dumps(public_obj(full), ensure_ascii=False, allow_nan=False) + WRAP_SUFFIX).encode("utf-8")
     if write:
@@ -2736,6 +2997,8 @@ def particle_index_block(root=WARP_ROOT, write=True, out_dir=OUT, commit=None):
         "kpoints": ({"members": kpoints["members"], "space_groups": kpoints["space_groups"]["with_a_member"], "cells": kpoints["cells"], "cell": kpoints["cell"], "projective": kpoints["projective"]["members"]} if kpoints else None),
         "coreps": ({"members": coreps["members"], "cells": coreps["cells"], "cell": coreps["cell"], "doubled_at_k": coreps["accounting"]["doubled_at_k"], "cases": {k: v["members"] for k, v in coreps["cases"].items() if k in ("a", "b", "c", "x")}} if coreps else None),
         "bonds": ({"refusals": len(bonds["refusals"]), "empty_channels": bonds["channels"]["empty"]} if bonds else None),
+        "isotopes": ({"members": isotopes["members"], "cells": isotopes["cells"], "cell": isotopes["cell"], "closers": isotopes["closers"], "E": isotopes["demand"]["E"],
+                      "measured": isotopes["census"]["measured"], "estimated": isotopes["census"]["estimated"], "refused": len(isotopes["refused"]), "site_own": True, "source_ok": isotopes["source"]["ok"]} if isotopes else None),
         "predictions": ({"total_E": predictions["total_E"], "predicting": predictions["partition"]["predicting"], "complete": predictions["partition"]["complete"],
                          "totals": predictions["adjudication"]["totals"], "site_ghosts": sum(v["E"] for v in predictions["by_index"].values())}
                         if predictions and not predictions.get("absent") else None),
@@ -3661,6 +3924,15 @@ def build(spectra, out_dir=OUT, write=True, log=print, with_particles=False, war
     rel_z = {e["Z"] for e in relb["eleven"]}
     walk, walk_rows = walk_block()
     relb["walk"] = walk
+    record, record_rows = record_walk_block()
+    relb["record"] = record
+    relb["repair"] = repair_block(relb, record, walk)
+    if record:
+        relb["instrument"] = {"held": True,
+                              "note": "the record's own instrument, recovered from the project's conversations into lowdin/rt and run here; "
+                                      "its tables are shipped and its text is not"}
+    record_z = {Z for Z, d in record_rows.items() if d["displaced"].get("chain_cinf")}
+    record_paper_z = {Z for Z, d in record_rows.items() if d["displaced"].get("paper")}
     walk_z = {e["Z"] for e in (walk or {}).get("entrants", []) if e["displaced"]}
     walk_lx_z = {e["Z"] for e in ((walk or {}).get("fields", {}).get("lx", {}).get("entrants", [])) if e["displaced"]}
     lim_block = limits(spectra)
@@ -3687,6 +3959,20 @@ def build(spectra, out_dir=OUT, write=True, log=print, with_particles=False, war
     nuclides = None
     if _pfull and _pfull.get("gravity") and not _pfull["gravity"].get("absent"):
         nuclides = nuclides_block(warp_modules(warp_root)["gravity"], _pfull["gravity"], out_dir, write)
+    record_copies = []
+    if record:
+        if write:
+            os.makedirs(os.path.join(out_dir, "lowdin"), exist_ok=True)
+        for fn in sorted(os.listdir(LOWDIN_CHAIN)):
+            if not (fn.endswith(".jsonl") or fn in ("RUNS.tsv", "CHECK.tsv", "SCORE.tsv")):
+                continue
+            with open(os.path.join(LOWDIN_CHAIN, fn), "rb") as fh:
+                rb = fh.read()
+            if write:
+                with open(os.path.join(out_dir, "lowdin", fn), "wb") as fh:
+                    fh.write(rb)
+            record_copies.append({"file": "data/lowdin/" + fn, "bytes": len(rb), "md5": hashlib.md5(rb).hexdigest(),
+                                  "what": "the recovered instrument's run: " + ({t["file"]: t["label"] for t in record["tables"].values()}.get(fn) or ("the run table" if fn == "RUNS.tsv" else "the record's scorer over the chain at both settings" if fn == "SCORE.tsv" else "the chain's check against the sealed steps")) + "; RECOVERED"})
     walk_copy = None
     if walk and os.path.exists(WALK_TSV):
         with open(WALK_TSV, "rb") as fh:
@@ -3707,6 +3993,7 @@ def build(spectra, out_dir=OUT, write=True, log=print, with_particles=False, war
     for Z in zs:
         rec = element_record(Z, spectra)
         rec["walk"] = walk_rows.get(Z)
+        rec["record_walk"] = record_rows.get(Z)
         rec = public_obj(rec)
         counts = _counts(rec)
         lim = _limit_counts(rec)
@@ -3732,9 +4019,12 @@ def build(spectra, out_dir=OUT, write=True, log=print, with_particles=False, war
             "held": (rec["closure"]["cell_held"] if rec["closure"] else None),
             "populated": rec["populated"],
             "counts": counts,
-            "relativistic": Z in rel_z,
+            "relativistic": Z in (record_z if record else rel_z),
+            "paper_eleven": Z in rel_z,
             "walk_displaced": Z in walk_z,
             "walk_lx_displaced": Z in walk_lx_z,
+            "record_displaced": Z in record_z,
+            "record_paper_displaced": Z in record_paper_z,
             "limits": lim,
         })
         log("  Z=%3d %-3s %7d B  rows %5d  measured %3d" % (
@@ -3760,11 +4050,14 @@ def build(spectra, out_dir=OUT, write=True, log=print, with_particles=False, war
             {"file": "data/index.js", "what": "the index: layout, closure, lattice, references, instruments, fixtures, manifest"},
             {"file": "data/elements/<Z>.js", "what": "one element's record, every ion and channel, with statuses; md5 per file in the manifest"},
             {"file": papers["file"], "bytes": papers["bytes"], "md5": papers["md5"], "what": "the released papers, rendered"},
-            *[{"file": "data/" + p["pdf"]["file"], "bytes": p["pdf"]["bytes"], "md5": p["pdf"]["md5"], "what": "%s, as a PDF; md5 measured at build, commit %s" % (p["title"], p["pdf"]["commit"] or "?")}
+            *[{"file": "data/" + p["pdf"]["file"], "bytes": p["pdf"]["bytes"], "md5": p["pdf"]["md5"],
+               "what": "%s, as a PDF; md5 measured at build, commit %s%s" % (p["title"], p["pdf"].get("commit") or "?",
+                                                                            "; byte-identical to the copy the author released to the witness folder" if (p["pdf"].get("witness") or {}).get("match") else "")}
               for p in papers["papers"] if p.get("pdf")],
             {"file": pindex["file"], "bytes": pindex["bytes"], "md5": pindex["md5"], "what": "the particle indexes: 572 members of the PDG 2026 table with their coordinates and statuses, the nuclear band levels, the gravity index and the register"} if pindex else None,
             {"file": nuclides["file"], "bytes": nuclides["bytes"], "md5": nuclides["md5"], "what": "the nuclides of AME2020 Table I with the banked levels: what the gravity and builder modes compute over"} if nuclides else None,
             walk_copy,
+            *record_copies,
             {"file": "figures/" + FIGURE, "what": "Figure 5 of the Löwdin paper, with its ledger md5"} if figures else None,
         ] if d],
         "sources": sources(),
@@ -3814,9 +4107,10 @@ def build(spectra, out_dir=OUT, write=True, log=print, with_particles=False, war
             "python": None,
             "file": PUBLIC_PAPERS["THE-LOWDIN-SOLUTION-2.md"],
             "status": populate.READ,
-            "held": False,
-            "source": "the scalar-relativistic construction is not held; the "
-                      "paper's own statement is shown in its place",
+            "held": bool(record),
+            "source": ("the record's own instrument, recovered into lowdin/rt and run here; its tables are shipped "
+                       "under data/lowdin/ and its text is not" if record else
+                       "the scalar-relativistic construction is not held; the paper's own statement is shown in its place"),
             "text": "\n\n".join(t for t in [
                 relb["statement"], relb["construction"], relb["thorium"]] if t)}),
         "relativistic": relb,
@@ -4042,6 +4336,20 @@ def selftest(warp_root=WARP_ROOT):
             check("coreps: the accounting 3,908 − 297 − 82 = 3,529, by case 3,138 / 12 / 297 / 82, 309 doubled at k over 86 groups", (cr["accounting"]["small_reps"], [cr["cases"][k]["members"] for k in "abcx"], cr["accounting"]["doubled_at_k"], cr["accounting"]["space_groups_with_a_doubled_level"], cr["accounting"]["small_reps"] - cr["cases"]["c"]["members"] - cr["cases"]["x"]["members"]), (3908, [3138, 12, 297, 82], 309, 86, 3529))
             check("coreps: the three coordinates determine the case with no exception", all({"a": (r["extra"]["corep_dim"] == r["extra"]["small_dim"] and r["extra"]["n_small"] == 1), "b": (r["extra"]["corep_dim"] == 2 * r["extra"]["small_dim"] and r["extra"]["n_small"] == 1), "c": (r["extra"]["corep_dim"] == 2 * r["extra"]["small_dim"] and r["extra"]["n_small"] == 2), "x": (r["extra"]["corep_dim"] == r["extra"]["small_dim"] and r["extra"]["n_small"] == 2)}[r["extra"]["case"]] for r in cr["rows"]), True)
             check("coreps: every conjugate-star member names its partner and no other does", all((r["extra"]["k2"] is not None) == (r["extra"]["case"] == "x") for r in cr["rows"]), True)
+        iso = pfull.get("isotopes")
+        if iso:
+            check("isotopes: 3,558 nuclides on 3,558 cells, injective, the site's own index and not a register row", (iso["members"], iso["cells"], iso["injective"], iso["site_own"], iso["instrument"]), (3558, 3558, True, True, "tools/isotopes.py"))
+            check("isotopes: cell (4, 295, 18), closed by information and statistics, the law's cell the instrument's own", (iso["cell"], iso["closers"], iso["channel"]["own_cell_agrees"], iso["own_cell"]["height"], iso["own_cell"]["width"]), ({"channel": 4, "height": 295, "width": 18}, ["information", "statistics"], True, 295, 18))
+            check("isotopes: the five closures over 3,558 cells: order 3,560, algebra 3,560, geometry 3,962, information 3,558, statistics 3,558", iso["channel"]["closure_sizes"], {"order": 3560, "algebra": 3560, "geometry": 3962, "information": 3558, "statistics": 3558})
+            check("isotopes: E = 0, the chart join-closed; the meet-closure asks for the empty nucleus and the diproton", (iso["demand"]["E"], iso["demand"]["cells"], iso["demand"]["meet_deficit"], iso["demand"]["meet_cells"]), (0, [], 2, [[0, 0], [2, 0]]))
+            check("isotopes: the witnesses attain the cell and are a chain and an antichain", (len(iso["witness"]["chain"]), len(iso["witness"]["antichain"]), iso["witness"]["chain"][0], iso["witness"]["chain"][-1], iso["witness"]["antichain"][0], iso["witness"]["antichain"][-1]), (295, 18, [1, 0], [118, 177], [63, 107], [80, 90]))
+            check("isotopes: 2,550 measured and 1,008 estimated masses; Z 0–118, N 0–177, A 1–295; 119 elements, 178 isotone lines, 295 isobar lines", [iso["census"][k] for k in ("measured", "estimated", "Z", "N", "A", "elements", "isotone_lines", "isobar_lines")], [2550, 1008, [0, 118], [0, 177], [1, 295], 119, 178, 295])
+            check("isotopes: mercury has the most isotopes (47), N = 85 the most isotones (31), A = 128 the most isobars (18); 62Ni the most bound", (iso["census"]["most_isotopes"], iso["census"]["most_isotones"], iso["census"]["most_isobars"], iso["census"]["most_bound"]["name"]), ({"Z": 80, "count": 47}, {"N": 85, "count": 31}, {"A": 128, "count": 18}, "62Ni"))
+            check("isotopes: seven candidate coordinates refused, each against a measurement; spin, parity and half-life not held", ([r["verdict"] for r in iso["refused"]], [r["coordinate"].split(",")[0] for r in iso["refused"]][:2]), (["REFUSED"] * 6 + ["NOT HELD"], ["A", "T_z"]))
+            check("isotopes: the refused charts measured: (Z, N, A) the same cell, (Z, N, T_z) at (178, 31), (Z, N, flag) at (295, 22)", (iso["refused"][0]["measurement"]["chart_ZNA"], iso["refused"][1]["measurement"]["chart_ZN_Tz"], iso["refused"][3]["measurement"]["chart_ZN_flag"]), ({"cells": 3558, "height": 295, "width": 18}, {"cells": 3558, "height": 178, "width": 31}, {"cells": 3558, "height": 295, "width": 22}))
+            check("isotopes: separation energies undefined on 119 (S_n) and 179 (S_p), negative on 27 and 211", [iso["census"][k] for k in ("S_n_undefined", "S_p_undefined", "S_n_negative", "S_p_negative")], [119, 179, 27, 211])
+            check("isotopes: the table is the ledger's own, carbon 12 exactly 12 u, every row two READ coordinates", (iso["source"]["ok"], next(r["extra"]["M_u"] for r in iso["rows"] if r["key"] == "C-12"), all(len(r["coords"]) == 2 and r["coords"] == [r["extra"]["Z"], r["extra"]["N"]] for r in iso["rows"]), [c["status"] for c in iso["coordinates"]]), (True, 12.0, True, ["READ", "READ"]))
+            check("isotopes: 56Fe by key with its binding energy from the table's own three entries", (next(r["extra"]["B_per_A_keV"] for r in iso["rows"] if r["key"] == "Fe-56") > 8790, next(r["extra"]["S_n"] for r in iso["rows"] if r["key"] == "H-2") == next(r["extra"]["B_keV"] for r in iso["rows"] if r["key"] == "H-2")), (True, True))
         bo = pfull.get("bonds")
         if bo:
             check("bonds: three refusals on three grounds, and no channel empty", (len(bo["refusals"]), bo["channels"]["empty"]), (3, []))
@@ -4115,6 +4423,8 @@ def selftest(warp_root=WARP_ROOT):
     for q in pp[4:]:
         check("papers: %s carries every figure it cites from its own directory, and its PDF with an md5" % q["slug"],
               (q["figures"] > 0, q["figures_ok"], bool(q["pdf"] and q["pdf"]["md5"]), q["masked"]), (True, True, True, []))
+    check("papers: the ten PDFs are byte-identical to the copies the author released to the witness folder, mirrored ok-adopted",
+          [((q["pdf"] or {}).get("witness") or {}).get("match") and ((q["pdf"] or {}).get("witness") or {}).get("status") for q in pp[4:]], ["ok-adopted"] * 10)
     check("papers: the index of first-order indexes paper comes from the research tree with its commit, four citations of unpublished material masked and its PDF withheld",
           (pp[3]["tree"]["path"], bool(pp[3]["tree"]["commit"]), pp[3]["pdf"], bool(pp[3]["pdf_note"]), sum(m["count"] for m in pp[3]["masked"]), sorted({m["kind"] for m in pp[3]["masked"]})),
           ("research/paper/THE-INDEX-OF-FIRST-ORDER-INDEXES.md", True, None, True, 8, ["a citation of an unpublished record", "a member's file name", "a path into the unpublished store", "the research tree's directory"]))
@@ -4159,6 +4469,9 @@ def selftest(warp_root=WARP_ROOT):
     if nd:
         check("nuclides: 3,558 nuclides of AME2020 Table I, the file's md5 the ledger's own", (nd["nuclides"], nd["source"]["md5"] == nd["source"]["md5_recorded"], bool(nd["source"]["md5_recorded"])), (3558, True, True))
         check("nuclides: 126 species with their banked levels travel with the table", nd["species"], 126)
+    iso = (index.get("particle_index") or {}).get("isotopes")
+    if iso:
+        check("isotopes: the site's own index, 3,558 on 3,558 cells at (4, 295, 18), E = 0, the table the ledger's own", (iso["members"], iso["cells"], iso["cell"], iso["E"], iso["site_own"], iso["source_ok"], iso["refused"]), (3558, 3558, {"channel": 4, "height": 295, "width": 18}, 0, True, True, 7))
     check("meta: the edition history is carried, oldest first, every row with a date", all(r["date"] for r in index["meta"]["history"]) and len(index["meta"]["history"]) >= 1, True)
     t = index["totals"]
     check("elements populated (LW1-ground.py)", t["populated"], 108)
@@ -4250,10 +4563,49 @@ def selftest(warp_root=WARP_ROOT):
     check("relativistic: the paper's eleven line names the same eleven",
           all(e["symbol"] in rel["sources"]["paper"]["eleven_text"] for e in rel["eleven"]), True)
     check("relativistic: thorium sentence read", bool(rel["thorium"]), True)
-    check("relativistic: instrument recorded as not held", rel["instrument"]["held"], False)
-    check("relativistic: layout flags exactly eleven",
-          sum(1 for e in index["layout"] if e["relativistic"]), 11)
-    check("relativistic: Th is not among the eleven", 90 in {e["Z"] for e in rel["eleven"]}, False)
+    check("relativistic: instrument recorded as held once the record is recovered", rel["instrument"]["held"], bool(rel.get("record")))
+    rec = rel.get("record")
+    rp = rel.get("repair")
+    check("repair: present exactly when the record is", bool(rp), bool(rec))
+    if rp:
+        check("repair: status RECOVERED, never READ", rp["status"], populate.RECOVERED)
+        check("repair: the displaced set is Th, Rf and Ubn -- Th and Rf witnessed, Ubn beyond the last measured element",
+              (rp["displaced"], rp["witnessed"], rp["unwitnessed"]), (["Th", "Rf", "Ubn"], ["Th", "Rf"], ["Ubn"]))
+        check("repair: at Th the c -> inf entrant departs from nature, at Rf it is the observed channel",
+              [d["against_nature"].split(";")[0] for d in rp["detail"] if d["symbol"] in ("Th", "Rf")],
+              ["the c \u2192 \u221e entrant departs from the observed channel", "the c \u2192 \u221e entrant is the observed channel"])
+        check("repair: the paper's eleven are carried, superseded, and one of them (Rf) is displaced here",
+              (rp["paper_eleven"], rp["paper_eleven_displaced_here"]), (["Mn", "Zn", "Ag", "Cd", "Nd", "Pm", "Sm", "Lu", "Hg", "Lr", "Rf"], ["Rf"]))
+        check("repair: at eight of the eleven the restart table holds the observed channel", rp["paper_eleven_restart_holds_observed"], 8)
+        check("repair: the reconstruction's Hartree-Fock displaced set contains the record's three",
+              (rp["reconstruction"]["record_set_within"], rp["reconstruction"]["hf_displaced"]), (True, ["Ce", "Hf", "Th", "Rf", "Ubn"]))
+        if rp["scorer"]:
+            check("repair: the record's scorer gives 96 of 107 steps at either setting, 73 and 76 configurations",
+                  {k: (v["config"], v["step"]) for k, v in rp["scorer"].items()}, {"chain": ("73/107", "96/107"), "chain_cinf": ("76/107", "96/107")})
+            check("repair: the step failures swap Rf for Th between the settings",
+                  (sorted(set(rp["scorer"]["chain"]["step_failures"]) - set(rp["scorer"]["chain_cinf"]["step_failures"])),
+                   sorted(set(rp["scorer"]["chain_cinf"]["step_failures"]) - set(rp["scorer"]["chain"]["step_failures"]))), ([104], [90]))
+        check("repair: layout flags exactly the repaired set, and the paper's eleven apart",
+              (sorted(e["symbol"] for e in index["layout"] if e["relativistic"]), sum(1 for e in index["layout"] if e["paper_eleven"])),
+              (["Rf", "Th", "Ubn"], 11))
+    if rec:
+        check("record: status RECOVERED, never flattened; the instrument is lowdin/rt", (rec["status"], rec["instrument"].startswith("lowdin/rt")), (populate.RECOVERED, True))
+        check("record: four tables -- the chain to 120, the sealed comparison table and restart rows at c -> inf to 108, the chain at c -> inf to 120",
+              {k: v["rows"] for k, v in rec["tables"].items()}, {"chain": 119, "restart137": 107, "restart_cinf": 107, "chain_cinf": 119})
+        check("record: the record's runs and the extensions are labelled as such", {k: v["kind"] for k, v in rec["tables"].items()}, {"chain": "record", "restart137": "record", "restart_cinf": "extension", "chain_cinf": "extension"})
+        sm = rec["summary"]
+        check("record: the paper's eleven reproduce from the chain against the sealed comparison table", sm["displaced"]["paper"], ["Mn", "Zn", "Ag", "Cd", "Nd", "Pm", "Sm", "Lu", "Hg", "Lr", "Rf"])
+        check("record: at a genuine c -> inf the chain moves at Th, Rf and Ubn; the restart rows at Nd, Pm, Sm, Th, Lr", (sm["displaced"]["chain_cinf"], sm["displaced"]["restart_cinf"]), (["Th", "Rf", "Ubn"], ["Nd", "Pm", "Sm", "Th", "Lr"]))
+        check("record: the chain's row against every sealed step the sessions printed: 112 witnessed, 112 reproduce (5 whole rows channel by channel), 6 unwitnessed", (sm["sealed_check"].get("exact", 0) + sm["sealed_check"].get("exact+order", 0) + sm["sealed_check"].get("entrant+depth (margin differs: F61.1)", 0), sm["sealed_check"].get("exact+order", 0), sm["sealed_check"].get("unwitnessed", 0)), (113, 5, 6))
+        check("record: at eight of the eleven the sealed comparison table's entrant is the observed one", sum(1 for d in sm["displaced_detail"]["paper"] if d["at_other"] == d["observed"]), 8)
+        check("record: thorium takes 6d at c = 137.035999 in both modes and 5f at c -> inf in both", sm["thorium"], {"chain": "6d", "restart137": "6d", "restart_cinf": "5f", "chain_cinf": "5f"})
+        check("record: the chain's entrant is the observed gain at 96 of 107 steps to Z = 108, the scorer's own figure", (sm["steps_agreeing_with_observed"]["agree"], sm["steps_agreeing_with_observed"]["scored"]), (96, 107))
+        check("record: no chain row differs from a sealed step; the margins that differ are the pre-guard rows (F61.1)", (sm["sealed_check"].get("DIFFERS", 0), sm["sealed_check"].get("entrant only", 0)), (0, 0))
+        check("record: the ledger holds 28 files, one partial, and two sealed digests match", (rec["ledger"]["files"], rec["ledger"]["statuses"].get("RECOVERED-PARTIAL"), sorted(rec["ledger"]["sealed_matches"])), (28, 1, ["cinf.py", "t7b_hf.py"]))
+        check("record: a caveat carries the finding on the eleven, in the site's words", any(c["id"] == "record-eleven" for c in index["caveats"]), True)
+    check("relativistic: the paper's eleven flagged exactly eleven",
+          sum(1 for e in index["layout"] if e["paper_eleven"]), 11)
+    check("relativistic: Th is not among the paper's eleven", 90 in {e["Z"] for e in rel["eleven"]}, False)
     figs = index["figures"]
     check("figure 5 held and md5 matches extracted/LEDGER.tsv",
           bool(figs) and all(f["ok"] for f in figs), True)
@@ -4318,6 +4670,7 @@ def selftest(warp_root=WARP_ROOT):
     check("manifest names .js files only",
           all(m["file"].endswith(".js") for m in index["manifest"]), True)
     h["walk"] = walk_block()[1].get(1)      # the build attaches the walk rows before serialising
+    h["record_walk"] = record_walk_block()[1].get(1)   # and the record's own walk beside it
     body = _compact(h).encode("utf-8")
     blob = wrap_element(1, body)
     check("element wrapper opens with the protocol prefix",
@@ -4351,11 +4704,11 @@ def selftest(warp_root=WARP_ROOT):
     check("instruments: the nine with python, then the walk's ten, in order",
           [n for n, r in ins.items() if r.get("python")],
           [n for n, *_ in INSTRUMENTS] + ([n for n, *_ in WALK_INSTRUMENTS] if walk else []))
-    check("instruments: the tenth is the unheld construction, text only",
+    check("instruments: the tenth is the construction, text only, held once the record is recovered",
           (ins.get("lowdin_construction", {}).get("python"),
            ins.get("lowdin_construction", {}).get("held"),
            bool(ins.get("lowdin_construction", {}).get("text"))),
-          (None, False, True))
+          (None, bool(rel.get("record")), True))
     parses = True
     for name, rec in ins.items():
         if not rec.get("python"):

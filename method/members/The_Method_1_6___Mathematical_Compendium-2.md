@@ -3213,7 +3213,7 @@ Proved — M §35; register 1707, 1709, 1711; Pulay 1969; Gerratt–Mills 1968.
 
 ### The twin operator, c → ∞
 
-**The identical entrant operator with the constant removed disagrees with the c = 137.035999 operator at eleven elements — Mn, Zn, Ag, Cd, Nd, Pm, Sm, Lu, Hg, Lr, Rf — every disagreement an error against nature, since the relativistic operator scores 107/107**
+**The identical entrant operator with the constant removed disagrees with the c = 137.035999 operator at Th (6d → 5f, away from the observed 6d), Rf (5f → 6d, the observed channel) and Z = 120 (8s → 7d, unwitnessed), and nowhere else; the eleven first printed here (Mn, Zn, Ag, Cd, Nd, Pm, Sm, Lu, Hg, Lr, Rf) were the c = 137.035999 operator against a restart walk at the same c, and are withdrawn (register 1793)**
 
 *the relativistic clause of the ordering law, five clauses (§35), measured rather than asserted*
 

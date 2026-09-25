@@ -2,8 +2,8 @@ window.__mi = window.__mi || {}; window.__mi.index = {
  "meta": {
   "title": "The Master Index",
   "subtitle": "Every element on every axis of every index, each value carrying the status the data gives it",
-  "built": "2026-09-24T17:18:57+00:00",
-  "commit": "60ceaf592284",
+  "built": "2026-09-25T03:22:12+00:00",
+  "commit": "6bfa080d1214",
   "generator": "tools/webindex.py over tools/populate.py",
   "names_note": "Element names are IUPAC labels for search only; they are not a figure of the index, which carries symbols.",
   "url": "https://lach-matt.github.io/Claude-Method-Works/",
@@ -12,9 +12,9 @@ window.__mi = window.__mi || {}; window.__mi.index = {
    "title": "The Master Index",
    "year": 2026,
    "url": "https://lach-matt.github.io/Claude-Method-Works/",
-   "commit": "60ceaf592284",
-   "text": "Lach, M. (2026). The Master Index, edition 60ceaf592284. https://lach-matt.github.io/Claude-Method-Works/",
-   "bibtex": "@misc{lach2026_method_index,\n  author = {Lach, M.},\n  title = {The Master Index},\n  year = {2026},\n  howpublished = {\\url{https://lach-matt.github.io/Claude-Method-Works/}},\n  note = {edition 60ceaf592284}\n}"
+   "commit": "6bfa080d1214",
+   "text": "Lach, M. (2026). The Master Index, edition 6bfa080d1214. https://lach-matt.github.io/Claude-Method-Works/",
+   "bibtex": "@misc{lach2026_method_index,\n  author = {Lach, M.},\n  title = {The Master Index},\n  year = {2026},\n  howpublished = {\\url{https://lach-matt.github.io/Claude-Method-Works/}},\n  note = {edition 6bfa080d1214}\n}"
   },
   "history": [
    {
@@ -299,24 +299,38 @@ window.__mi = window.__mi || {}; window.__mi.index = {
    },
    {
     "date": "2026-09-24",
-    "commit": "d7cd27b",
-    "files": 59,
-    "url": "https://github.com/lach-matt/Claude-Method-Works/commit/d7cd27bbea11ae560c54fd8b4d2d519a02a8ec21",
+    "commit": "5f7a034",
+    "files": 5,
+    "url": "https://github.com/lach-matt/Claude-Method-Works/commit/5f7a034a640eb3b707a9f0402b197e0b039bd430",
     "note": null
    },
    {
     "date": "2026-09-24",
-    "commit": "60ceaf5",
+    "commit": "ff31bc1",
+    "files": 130,
+    "url": "https://github.com/lach-matt/Claude-Method-Works/commit/ff31bc17c5b2e56c70da215766049e19110ff3c5",
+    "note": null
+   },
+   {
+    "date": "2026-09-24",
+    "commit": "a8aa7bf",
     "files": 6,
-    "url": "https://github.com/lach-matt/Claude-Method-Works/commit/60ceaf592284db2c901348bfeb0b6508ade59836",
+    "url": "https://github.com/lach-matt/Claude-Method-Works/commit/a8aa7bfe37d826830df51a279422f2adcbf0d0e6",
+    "note": null
+   },
+   {
+    "date": "2026-09-24",
+    "commit": "6bfa080",
+    "files": 15,
+    "url": "https://github.com/lach-matt/Claude-Method-Works/commit/6bfa080d1214e6a8d3e5db796402ec58028a6623",
     "note": null
    }
   ]
  },
  "papers": {
   "file": "data/papers.js",
-  "bytes": 1238020,
-  "md5": "4f7cc82648f565ce6869194dba48fe99",
+  "bytes": 1239668,
+  "md5": "1d81b9e68d069aa1e1b21788a317186a",
   "protocol": "data/papers.js sets window.__mi.papers, loaded on demand",
   "papers": [
    {
@@ -325,10 +339,10 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "subtitle": "Deriving the Structure of the Periodic Table from the Many-Electron Schrödinger Equation",
     "author": "Lach, M.",
     "held": true,
-    "bytes": 38040,
-    "md5": "4a06e8930b9f7a7a8226dca2db39e35c",
-    "md5_recorded": "4a06e8930b9f7a7a8226dca2db39e35c",
-    "words": 5859,
+    "bytes": 38743,
+    "md5": "9b327fcfa7cdb077b3c3d74b1d0b64c3",
+    "md5_recorded": "9b327fcfa7cdb077b3c3d74b1d0b64c3",
+    "words": 6008,
     "note": "the paper as the author wrote it, rendered at build; nothing in it is edited for the site, and its own citations are its own",
     "tree": null,
     "pdf": null,
@@ -450,7 +464,12 @@ window.__mi = window.__mi || {}; window.__mi.index = {
      "file": "papers/closure-law/01-closure-law.pdf",
      "bytes": 362493,
      "md5": "efda0adb9dc02584ae3bb5f43dc23db4",
-     "commit": "27dd39c"
+     "commit": "27dd39c",
+     "witness": {
+      "status": "ok-adopted",
+      "md5": "efda0adb9dc02584ae3bb5f43dc23db4",
+      "match": true
+     }
     },
     "pdf_note": null,
     "masked": [],
@@ -479,7 +498,12 @@ window.__mi = window.__mi || {}; window.__mi.index = {
      "file": "papers/lattice/02-lambda.pdf",
      "bytes": 809787,
      "md5": "75533f2246e75ef436a7e971e35c0307",
-     "commit": "27dd39c"
+     "commit": "27dd39c",
+     "witness": {
+      "status": "ok-adopted",
+      "md5": "75533f2246e75ef436a7e971e35c0307",
+      "match": true
+     }
     },
     "pdf_note": null,
     "masked": [],
@@ -508,7 +532,12 @@ window.__mi = window.__mi || {}; window.__mi.index = {
      "file": "papers/bracket/03-bracket.pdf",
      "bytes": 506621,
      "md5": "ac4557a4763ba1ba1a1f42fdc0b317ba",
-     "commit": "27dd39c"
+     "commit": "27dd39c",
+     "witness": {
+      "status": "ok-adopted",
+      "md5": "ac4557a4763ba1ba1a1f42fdc0b317ba",
+      "match": true
+     }
     },
     "pdf_note": null,
     "masked": [],
@@ -537,7 +566,12 @@ window.__mi = window.__mi || {}; window.__mi.index = {
      "file": "papers/polarisation-ratio/04-seaton.pdf",
      "bytes": 365197,
      "md5": "a1f1352e8f8a11dee2d2734ee8d9b62e",
-     "commit": "27dd39c"
+     "commit": "27dd39c",
+     "witness": {
+      "status": "ok-adopted",
+      "md5": "a1f1352e8f8a11dee2d2734ee8d9b62e",
+      "match": true
+     }
     },
     "pdf_note": null,
     "masked": [],
@@ -566,7 +600,12 @@ window.__mi = window.__mi || {}; window.__mi.index = {
      "file": "papers/tower/05-tower.pdf",
      "bytes": 606017,
      "md5": "b1fca4f6be8027b4da414dba7a94fd17",
-     "commit": "27dd39c"
+     "commit": "27dd39c",
+     "witness": {
+      "status": "ok-adopted",
+      "md5": "b1fca4f6be8027b4da414dba7a94fd17",
+      "match": true
+     }
     },
     "pdf_note": null,
     "masked": [],
@@ -595,7 +634,12 @@ window.__mi = window.__mi || {}; window.__mi.index = {
      "file": "papers/order-recovery/06-order-recovery.pdf",
      "bytes": 527483,
      "md5": "9f65e141cab5d77b75080870d9c96156",
-     "commit": "27dd39c"
+     "commit": "27dd39c",
+     "witness": {
+      "status": "ok-adopted",
+      "md5": "9f65e141cab5d77b75080870d9c96156",
+      "match": true
+     }
     },
     "pdf_note": null,
     "masked": [],
@@ -624,7 +668,12 @@ window.__mi = window.__mi || {}; window.__mi.index = {
      "file": "papers/parent-term-wall/07-wall-janet.pdf",
      "bytes": 540996,
      "md5": "7d9da28b922f3cb88acbc55fb7aa35f4",
-     "commit": "27dd39c"
+     "commit": "27dd39c",
+     "witness": {
+      "status": "ok-adopted",
+      "md5": "7d9da28b922f3cb88acbc55fb7aa35f4",
+      "match": true
+     }
     },
     "pdf_note": null,
     "masked": [],
@@ -653,7 +702,12 @@ window.__mi = window.__mi || {}; window.__mi.index = {
      "file": "papers/chemical-index/08-chemical-index.pdf",
      "bytes": 426155,
      "md5": "465d6c0eab3e4e5bb06acf9c01f7bd53",
-     "commit": "27dd39c"
+     "commit": "27dd39c",
+     "witness": {
+      "status": "ok-adopted",
+      "md5": "465d6c0eab3e4e5bb06acf9c01f7bd53",
+      "match": true
+     }
     },
     "pdf_note": null,
     "masked": [],
@@ -682,7 +736,12 @@ window.__mi = window.__mi || {}; window.__mi.index = {
      "file": "papers/occupation-law/09-occupation-hull.pdf",
      "bytes": 354736,
      "md5": "9d86f90ee094e01c61d6c23f1300e967",
-     "commit": "27dd39c"
+     "commit": "27dd39c",
+     "witness": {
+      "status": "ok-adopted",
+      "md5": "9d86f90ee094e01c61d6c23f1300e967",
+      "match": true
+     }
     },
     "pdf_note": null,
     "masked": [],
@@ -711,7 +770,12 @@ window.__mi = window.__mi || {}; window.__mi.index = {
      "file": "papers/closure-beyond/10-beyond-the-atom.pdf",
      "bytes": 535900,
      "md5": "cacbcbb131c57a7f029a833f2473e6a7",
-     "commit": "27dd39c"
+     "commit": "27dd39c",
+     "witness": {
+      "status": "ok-adopted",
+      "md5": "cacbcbb131c57a7f029a833f2473e6a7",
+      "match": true
+     }
     },
     "pdf_note": null,
     "masked": [],
@@ -734,8 +798,8 @@ window.__mi = window.__mi || {}; window.__mi.index = {
   },
   {
    "file": "data/papers.js",
-   "bytes": 1238020,
-   "md5": "4f7cc82648f565ce6869194dba48fe99",
+   "bytes": 1239668,
+   "md5": "1d81b9e68d069aa1e1b21788a317186a",
    "what": "the released papers, rendered"
   },
   {
@@ -748,66 +812,66 @@ window.__mi = window.__mi || {}; window.__mi.index = {
    "file": "data/papers/closure-law/01-closure-law.pdf",
    "bytes": 362493,
    "md5": "efda0adb9dc02584ae3bb5f43dc23db4",
-   "what": "The Closure Law of a Finite Index, as a PDF; md5 measured at build, commit 27dd39c"
+   "what": "The Closure Law of a Finite Index, as a PDF; md5 measured at build, commit 27dd39c; byte-identical to the copy the author released to the witness folder"
   },
   {
    "file": "data/papers/lattice/02-lambda.pdf",
    "bytes": 809787,
    "md5": "75533f2246e75ef436a7e971e35c0307",
-   "what": "The Lattice of Subshell Transitions, as a PDF; md5 measured at build, commit 27dd39c"
+   "what": "The Lattice of Subshell Transitions, as a PDF; md5 measured at build, commit 27dd39c; byte-identical to the copy the author released to the witness folder"
   },
   {
    "file": "data/papers/bracket/03-bracket.pdf",
    "bytes": 506621,
    "md5": "ac4557a4763ba1ba1a1f42fdc0b317ba",
-   "what": "The Bracket: a Guarantee on Rydberg Levels, and What It Costs, as a PDF; md5 measured at build, commit 27dd39c"
+   "what": "The Bracket: a Guarantee on Rydberg Levels, and What It Costs, as a PDF; md5 measured at build, commit 27dd39c; byte-identical to the copy the author released to the witness folder"
   },
   {
    "file": "data/papers/polarisation-ratio/04-seaton.pdf",
    "bytes": 365197,
    "md5": "a1f1352e8f8a11dee2d2734ee8d9b62e",
-   "what": "The Domain of the Polarisation Ratio δ₂/δ₀ = −ℓ(ℓ+1)/3: a Necessary Condition from the Core Configuration, Tested on Thirteen Rydberg Series, as a PDF; md5 measured at build, commit 27dd39c"
+   "what": "The Domain of the Polarisation Ratio δ₂/δ₀ = −ℓ(ℓ+1)/3: a Necessary Condition from the Core Configuration, Tested on Thirteen Rydberg Series, as a PDF; md5 measured at build, commit 27dd39c; byte-identical to the copy the author released to the witness folder"
   },
   {
    "file": "data/papers/tower/05-tower.pdf",
    "bytes": 606017,
    "md5": "b1fca4f6be8027b4da414dba7a94fd17",
-   "what": "The Tower over Λ: from Eight Coordinates to Thirteen, as a PDF; md5 measured at build, commit 27dd39c"
+   "what": "The Tower over Λ: from Eight Coordinates to Thirteen, as a PDF; md5 measured at build, commit 27dd39c; byte-identical to the copy the author released to the witness folder"
   },
   {
    "file": "data/papers/order-recovery/06-order-recovery.pdf",
    "bytes": 527483,
    "md5": "9f65e141cab5d77b75080870d9c96156",
-   "what": "Order Recovery and the Reorderability Law, as a PDF; md5 measured at build, commit 27dd39c"
+   "what": "Order Recovery and the Reorderability Law, as a PDF; md5 measured at build, commit 27dd39c; byte-identical to the copy the author released to the witness folder"
   },
   {
    "file": "data/papers/parent-term-wall/07-wall-janet.pdf",
    "bytes": 540996,
    "md5": "7d9da28b922f3cb88acbc55fb7aa35f4",
-   "what": "The Parent-Term Wall and the Cost of a Drawn Coordinate, as a PDF; md5 measured at build, commit 27dd39c"
+   "what": "The Parent-Term Wall and the Cost of a Drawn Coordinate, as a PDF; md5 measured at build, commit 27dd39c; byte-identical to the copy the author released to the witness folder"
   },
   {
    "file": "data/papers/chemical-index/08-chemical-index.pdf",
    "bytes": 426155,
    "md5": "465d6c0eab3e4e5bb06acf9c01f7bd53",
-   "what": "Closing the Chemical Properties: a Classification Index for the Elements, as a PDF; md5 measured at build, commit 27dd39c"
+   "what": "Closing the Chemical Properties: a Classification Index for the Elements, as a PDF; md5 measured at build, commit 27dd39c; byte-identical to the copy the author released to the witness folder"
   },
   {
    "file": "data/papers/occupation-law/09-occupation-hull.pdf",
    "bytes": 354736,
    "md5": "9d86f90ee094e01c61d6c23f1300e967",
-   "what": "An Occupation Law as a Lower Convex Hull, as a PDF; md5 measured at build, commit 27dd39c"
+   "what": "An Occupation Law as a Lower Convex Hull, as a PDF; md5 measured at build, commit 27dd39c; byte-identical to the copy the author released to the witness folder"
   },
   {
    "file": "data/papers/closure-beyond/10-beyond-the-atom.pdf",
    "bytes": 535900,
    "md5": "cacbcbb131c57a7f029a833f2473e6a7",
-   "what": "Closure beyond the Atom: the Defect of an Index, Its Zeros by Theorem, and the Electromagnetic Quotient, as a PDF; md5 measured at build, commit 27dd39c"
+   "what": "Closure beyond the Atom: the Defect of an Index, Its Zeros by Theorem, and the Electromagnetic Quotient, as a PDF; md5 measured at build, commit 27dd39c; byte-identical to the copy the author released to the witness folder"
   },
   {
    "file": "data/particles.js",
-   "bytes": 4200960,
-   "md5": "6813256c27d85af86d119dae4e593b49",
+   "bytes": 5274584,
+   "md5": "5d68f98671cd526d6f78d205f64d3d8c",
    "what": "the particle indexes: 572 members of the PDG 2026 table with their coordinates and statuses, the nuclear band levels, the gravity index and the register"
   },
   {
@@ -821,6 +885,48 @@ window.__mi = window.__mi || {}; window.__mi.index = {
    "bytes": 200468,
    "md5": "dcbc40204fe066ae46044be3d8029c86",
    "what": "the reconstructed walk, 476 rows, RECONSTRUCTED; the table the site reads"
+  },
+  {
+   "file": "data/lowdin/CHECK.tsv",
+   "bytes": 2574,
+   "md5": "4fd787e59101f8c7091f21c17db026bf",
+   "what": "the recovered instrument's run: the chain's check against the sealed steps; RECOVERED"
+  },
+  {
+   "file": "data/lowdin/LAMBDA-CHAIN.jsonl",
+   "bytes": 119274,
+   "md5": "ac04f04eb12b1794325aaa3968ac91f6",
+   "what": "the recovered instrument's run: the chain at c = 137.035999; RECOVERED"
+  },
+  {
+   "file": "data/lowdin/LAMBDA-CINF-CHAIN.jsonl",
+   "bytes": 118030,
+   "md5": "0a242cf90e8652fc76b613ad873113f3",
+   "what": "the recovered instrument's run: the chain at c -> inf; RECOVERED"
+  },
+  {
+   "file": "data/lowdin/LAMBDA-CINF-SEALED.jsonl",
+   "bytes": 107819,
+   "md5": "621711158a8c3879b9d2f0e30a5de5d0",
+   "what": "the recovered instrument's run: the table the paper compared against, as sealed; RECOVERED"
+  },
+  {
+   "file": "data/lowdin/LAMBDA-CINF2.jsonl",
+   "bytes": 107490,
+   "md5": "6eca56446d9a934f9f76c7a81796766b",
+   "what": "the recovered instrument's run: restart rows at c -> inf; RECOVERED"
+  },
+  {
+   "file": "data/lowdin/RUNS.tsv",
+   "bytes": 1544,
+   "md5": "b5d2c46e1d828ccc5135193bb905b68a",
+   "what": "the recovered instrument's run: the run table; RECOVERED"
+  },
+  {
+   "file": "data/lowdin/SCORE.tsv",
+   "bytes": 998,
+   "md5": "d6fc9e72954e93d8a55e7828162eba57",
+   "what": "the recovered instrument's run: the record's scorer over the chain at both settings; RECOVERED"
   },
   {
    "file": "figures/FIG6relativisticvsnonrelativistic.png",
@@ -10055,8 +10161,8 @@ window.__mi = window.__mi || {}; window.__mi.index = {
  "particles": null,
  "particle_index": {
   "file": "data/particles.js",
-  "bytes": 4200960,
-  "md5": "6813256c27d85af86d119dae4e593b49",
+  "bytes": 5274584,
+  "md5": "5d68f98671cd526d6f78d205f64d3d8c",
   "protocol": "data/particles.js sets window.__mi.particle_index, loaded on demand",
   "status_note": "four indexes of the particles that are not periodic atoms, read from the other session's instruments at build; every member carries its coordinates with their statuses, and every refused coordinate carries the measurement that refuses it",
   "source": {
@@ -10358,6 +10464,25 @@ window.__mi = window.__mi || {}; window.__mi.index = {
   "bonds": {
    "refusals": 3,
    "empty_channels": []
+  },
+  "isotopes": {
+   "members": 3558,
+   "cells": 3558,
+   "cell": {
+    "channel": 4,
+    "height": 295,
+    "width": 18
+   },
+   "closers": [
+    "information",
+    "statistics"
+   ],
+   "E": 0,
+   "measured": 2550,
+   "estimated": 1008,
+   "refused": 7,
+   "site_own": true,
+   "source_ok": true
   },
   "predictions": {
    "total_E": 4919,
@@ -11888,15 +12013,16 @@ window.__mi = window.__mi || {}; window.__mi.index = {
    "python": null,
    "file": "the Löwdin paper",
    "status": "READ",
-   "held": false,
-   "source": "the scalar-relativistic construction is not held; the paper's own statement is shown in its place",
-   "text": "Executed across the entire table with the inverse fine-structure constant c = 137.035999 as the only number supplied, the construction reproduces the observed filling order at all 107 elements for which ground configurations are known (Z = 2–108), locates the three genuine exceptions to the secondary rule exactly where nature has them and derives them from the physics of orbital collapse, proves that no g block exists anywhere below Z = 121, and shows that the observed table is irreducibly relativistic: with the speed of light taken to infinity, the same construction misplaces eleven elements, silver and mercury among them.\n\nFinally, one physical constant is admitted, because the atom itself admits it: the speed of light, entering through the scalar-relativistic reduction of the Dirac equation as c = 137.035999 in Hartree atomic units.\n\n*(Relativistic clause.) The law is scalar-relativistic in an essential way: repeating the entire construction with c → ∞ changes the entrant channel at eleven elements, and inverts the underlying channel competition at thorium besides."
+   "held": true,
+   "source": "the record's own instrument, recovered into lowdin/rt and run here; its tables are shipped under data/lowdin/ and its text is not",
+   "text": "Executed across the entire table with the inverse fine-structure constant c = 137.035999 as the only number supplied, the construction reproduces the observed filling order at all 107 elements for which ground configurations are known (Z = 2–108), locates the three genuine exceptions to the secondary rule exactly where nature has them and derives them from the physics of orbital collapse, proves that no g block exists anywhere below Z = 121, and shows where the observed table is relativistic: with the speed of light taken to infinity, the same construction moves its entrant at thorium, away from nature, at rutherfordium, toward it, and at Z = 120, and nowhere else.\n\nFinally, one physical constant is admitted, because the atom itself admits it: the speed of light, entering through the scalar-relativistic reduction of the Dirac equation as c = 137.035999 in Hartree atomic units.\n\n*(Relativistic clause.) The law is scalar-relativistic at one measured row: repeating the entire construction with c → ∞ inverts the channel competition at thorium and the entrant with it, moves the entrant at rutherfordium to the observed channel, and moves the first unwitnessed entrant at Z = 120; at every other row the entrant is the same at both settings.*"
   }
  },
  "relativistic": {
   "status": "READ",
   "c": 137,
-  "statement": "Executed across the entire table with the inverse fine-structure constant c = 137.035999 as the only number supplied, the construction reproduces the observed filling order at all 107 elements for which ground configurations are known (Z = 2–108), locates the three genuine exceptions to the secondary rule exactly where nature has them and derives them from the physics of orbital collapse, proves that no g block exists anywhere below Z = 121, and shows that the observed table is irreducibly relativistic: with the speed of light taken to infinity, the same construction misplaces eleven elements, silver and mercury among them.",
+  "paper_corrected": true,
+  "statement": "Executed across the entire table with the inverse fine-structure constant c = 137.035999 as the only number supplied, the construction reproduces the observed filling order at all 107 elements for which ground configurations are known (Z = 2–108), locates the three genuine exceptions to the secondary rule exactly where nature has them and derives them from the physics of orbital collapse, proves that no g block exists anywhere below Z = 121, and shows where the observed table is relativistic: with the speed of light taken to infinity, the same construction moves its entrant at thorium, away from nature, at rutherfordium, toward it, and at Z = 120, and nowhere else.",
   "construction": "Finally, one physical constant is admitted, because the atom itself admits it: the speed of light, entering through the scalar-relativistic reduction of the Dirac equation as c = 137.035999 in Hartree atomic units.",
   "eleven": [
    {
@@ -11966,12 +12092,12 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "entrant": "6d"
    }
   ],
-  "thorium": "*(Relativistic clause.) The law is scalar-relativistic in an essential way: repeating the entire construction with c → ∞ changes the entrant channel at eleven elements, and inverts the underlying channel competition at thorium besides.",
+  "thorium": "*(Relativistic clause.) The law is scalar-relativistic at one measured row: repeating the entire construction with c → ∞ inverts the channel competition at thorium and the entrant with it, moves the entrant at rutherfordium to the observed channel, and moves the first unwitnessed entrant at Z = 120; at every other row the entrant is the same at both settings.*",
   "sources": {
    "paper": {
     "title": "the Löwdin paper",
     "eleven_line": 156,
-    "eleven_text": "They disagree at eleven elements: Mn, Zn, Ag, Cd, Nd, Pm, Sm, Lu, Hg, Lr, and Rf.",
+    "eleven_text": "The table first compared against Λ_chain had not been that: the project's own audit found, before this paper was written, that its driver set c where the field never reads it, so it had walked at c = 137.035999 with each step restarted from the observed configuration, and the eleven disagreements this paper first printed (Mn, Zn, Ag, Cd, Nd, Pm, Sm, Lu, Hg, Lr, Rf) measured the chain's memory against a memoryless restart at one and the same c — at eight of them it was the restart, not the chain, that held nature's channel.",
     "construction_line": 27,
     "thorium_line": 45
    },
@@ -12047,8 +12173,8 @@ window.__mi = window.__mi || {}; window.__mi.index = {
    }
   },
   "instrument": {
-   "held": false,
-   "note": "the scalar-relativistic construction and its c -> inf repetition are not held; the figures are the paper's own"
+   "held": true,
+   "note": "the record's own instrument, recovered from the project's conversations into lowdin/rt and run here; its tables are shipped and its text is not"
   },
   "walk": {
    "status": "RECONSTRUCTED",
@@ -17417,6 +17543,2018 @@ window.__mi = window.__mi || {}; window.__mi.index = {
      "displaced": true
     }
    ]
+  },
+  "record": {
+   "status": "RECOVERED",
+   "instrument": "lowdin/rt, recovered by tools/lowdin_recover.py from the project's own conversations",
+   "note": "the code the walk ran on, read out of the export: every file written, edited and printed by the sessions' tool calls, rebuilt by replaying the edits and held against every printed window; where the sessions printed a sealed digest it is matched",
+   "tables": {
+    "chain": {
+     "file": "LAMBDA-CHAIN.jsonl",
+     "label": "the chain at c = 137.035999",
+     "what": "nlchain.py 2 120: the walk on its own configuration at every step, the record's Lambda_chain re-derived",
+     "kind": "record",
+     "bytes": 119274,
+     "md5": "ac04f04eb12b1794325aaa3968ac91f6",
+     "rows": 119
+    },
+    "restart137": {
+     "file": "LAMBDA-CINF-SEALED.jsonl",
+     "label": "the table the paper compared against, as sealed",
+     "what": "cinf.py walk 2 108 through runsealed.py: restart rows from the observed configuration, at c = 137.035999 -- the record's own fault F59.3 established that this driver's c never reached the field; the row label clight = 1e6 is the driver's, and false",
+     "kind": "record",
+     "bytes": 107819,
+     "md5": "621711158a8c3879b9d2f0e30a5de5d0",
+     "rows": 107
+    },
+    "restart_cinf": {
+     "file": "LAMBDA-CINF2.jsonl",
+     "label": "restart rows at c -> inf",
+     "what": "cinf2.py walk 2 108: the record's F59.3 remedy, c rebound where the field reads it; the record ran it on 13 rows, the other 94 are run here",
+     "kind": "extension",
+     "bytes": 107490,
+     "md5": "6eca56446d9a934f9f76c7a81796766b",
+     "rows": 107
+    },
+    "chain_cinf": {
+     "file": "LAMBDA-CINF-CHAIN.jsonl",
+     "label": "the chain at c -> inf",
+     "what": "nlchain.py 2 120 after cinf2's patch: the identical walk with the constant removed, which the paper describes and the record never ran chained",
+     "kind": "extension",
+     "bytes": 118030,
+     "md5": "0a242cf90e8652fc76b613ad873113f3",
+     "rows": 119
+    }
+   },
+   "runs": [
+    {
+     "key": "chain",
+     "file": "LAMBDA-CHAIN.jsonl",
+     "instrument": "nlchain.py",
+     "command": "SIC_NOCLAMP=1 SUBCELL=1 python3 nlchain.py 2 120",
+     "rows": "119",
+     "Z_range": "2-120",
+     "md5": "ac04f04eb12b1794325aaa3968ac91f6",
+     "python": "3.11.15",
+     "numpy": "2.4.4",
+     "kind": "record",
+     "status": "RECOVERED",
+     "what": "the chain on its own configuration at every step, Z = 2 to 120: the record's Lambda_chain re-derived by the record's instrument"
+    },
+    {
+     "key": "restart137",
+     "file": "LAMBDA-CINF-SEALED.jsonl",
+     "instrument": "cinf.py via runsealed.py",
+     "command": "python3 pack53/runsealed.py pack52/cinf.py walk 2 108 OUT",
+     "rows": "107",
+     "Z_range": "2-108",
+     "md5": "621711158a8c3879b9d2f0e30a5de5d0",
+     "python": "3.11.15",
+     "numpy": "2.4.4",
+     "kind": "record",
+     "status": "RECOVERED",
+     "what": "the table the paper compared against, re-derived as sealed: restart rows from the observed configuration; the record's fault F59.3 established that this driver's c never reached the field, so it runs at c = 137.035999 and its clight label is false"
+    },
+    {
+     "key": "restart_cinf",
+     "file": "LAMBDA-CINF2.jsonl",
+     "instrument": "cinf2.py",
+     "command": "python3 pack59/cinf2.py canfail && python3 pack59/cinf2.py walk 2 108 OUT",
+     "rows": "107",
+     "Z_range": "2-108",
+     "md5": "6eca56446d9a934f9f76c7a81796766b",
+     "python": "3.11.15",
+     "numpy": "2.4.4",
+     "kind": "extension",
+     "status": "RECOVERED (a run the record did not make)",
+     "what": "restart rows at a genuine c = 1e6 by the record's F59.3 remedy; the record ran 13 of these rows (the exposed set), the other 94 are run here"
+    },
+    {
+     "key": "chain_cinf",
+     "file": "LAMBDA-CINF-CHAIN.jsonl",
+     "instrument": "nlchain.py after cinf2.patch",
+     "command": "python3 cinf_chain.py 2 120 (cinf2.patch(1e6), then nlchain.main)",
+     "rows": "119",
+     "Z_range": "2-120",
+     "md5": "0a242cf90e8652fc76b613ad873113f3",
+     "python": "3.11.15",
+     "numpy": "2.4.4",
+     "kind": "extension",
+     "status": "RECOVERED (a run the record did not make)",
+     "what": "the chain at a genuine c = 1e6: the identical walk with the constant removed, which the paper describes and the record never ran chained"
+    }
+   ],
+   "ledger": {
+    "files": 28,
+    "statuses": {
+     "RECOVERED": 23,
+     "STORE": 1,
+     "RECOVERED-PARTIAL": 1,
+     "RECOVERED-REPLAYED": 3
+    },
+    "sealed_matches": [
+     "t7b_hf.py",
+     "cinf.py"
+    ]
+   },
+   "summary": {
+    "rows": {
+     "chain": 119,
+     "restart137": 107,
+     "restart_cinf": 107,
+     "chain_cinf": 119
+    },
+    "sealed_check": {
+     "exact+order": 5,
+     "exact": 107,
+     "entrant+depth (margin differs: F61.1)": 1,
+     "unwitnessed": 6
+    },
+    "steps_agreeing_with_observed": {
+     "agree": 96,
+     "scored": 107,
+     "note": "the chain's entrant against the observed configurations' gain at Z <= 108, step by step; the record's ordering-clause score is nlcfg.py's, in RUNS.tsv"
+    },
+    "displaced": {
+     "paper": [
+      "Mn",
+      "Zn",
+      "Ag",
+      "Cd",
+      "Nd",
+      "Pm",
+      "Sm",
+      "Lu",
+      "Hg",
+      "Lr",
+      "Rf"
+     ],
+     "restart_cinf": [
+      "Nd",
+      "Pm",
+      "Sm",
+      "Th",
+      "Lr"
+     ],
+     "chain_cinf": [
+      "Th",
+      "Rf",
+      "Ubn"
+     ]
+    },
+    "displaced_detail": {
+     "paper": [
+      {
+       "Z": 25,
+       "symbol": "Mn",
+       "at_c137": "3d",
+       "at_other": "4s",
+       "observed": "4s"
+      },
+      {
+       "Z": 30,
+       "symbol": "Zn",
+       "at_c137": "3d",
+       "at_other": "4s",
+       "observed": "4s"
+      },
+      {
+       "Z": 47,
+       "symbol": "Ag",
+       "at_c137": "4d",
+       "at_other": "5s",
+       "observed": "5s"
+      },
+      {
+       "Z": 48,
+       "symbol": "Cd",
+       "at_c137": "4d",
+       "at_other": "5s",
+       "observed": "5s"
+      },
+      {
+       "Z": 60,
+       "symbol": "Nd",
+       "at_c137": "4f",
+       "at_other": "5d",
+       "observed": "4f"
+      },
+      {
+       "Z": 61,
+       "symbol": "Pm",
+       "at_c137": "4f",
+       "at_other": "5d",
+       "observed": "4f"
+      },
+      {
+       "Z": 62,
+       "symbol": "Sm",
+       "at_c137": "4f",
+       "at_other": "5d",
+       "observed": "4f"
+      },
+      {
+       "Z": 71,
+       "symbol": "Lu",
+       "at_c137": "4f",
+       "at_other": "5d",
+       "observed": "5d"
+      },
+      {
+       "Z": 80,
+       "symbol": "Hg",
+       "at_c137": "5d",
+       "at_other": "6s",
+       "observed": "6s"
+      },
+      {
+       "Z": 103,
+       "symbol": "Lr",
+       "at_c137": "5f",
+       "at_other": "7p",
+       "observed": "7p"
+      },
+      {
+       "Z": 104,
+       "symbol": "Rf",
+       "at_c137": "5f",
+       "at_other": "6d",
+       "observed": "6d"
+      }
+     ],
+     "restart_cinf": [
+      {
+       "Z": 60,
+       "symbol": "Nd",
+       "at_c137": "5d",
+       "at_other": "4f",
+       "observed": "4f"
+      },
+      {
+       "Z": 61,
+       "symbol": "Pm",
+       "at_c137": "5d",
+       "at_other": "4f",
+       "observed": "4f"
+      },
+      {
+       "Z": 62,
+       "symbol": "Sm",
+       "at_c137": "5d",
+       "at_other": "4f",
+       "observed": "4f"
+      },
+      {
+       "Z": 90,
+       "symbol": "Th",
+       "at_c137": "6d",
+       "at_other": "5f",
+       "observed": "6d"
+      },
+      {
+       "Z": 103,
+       "symbol": "Lr",
+       "at_c137": "7p",
+       "at_other": "6d",
+       "observed": "7p"
+      }
+     ],
+     "chain_cinf": [
+      {
+       "Z": 90,
+       "symbol": "Th",
+       "at_c137": "6d",
+       "at_other": "5f",
+       "observed": "6d"
+      },
+      {
+       "Z": 104,
+       "symbol": "Rf",
+       "at_c137": "5f",
+       "at_other": "6d",
+       "observed": "6d"
+      },
+      {
+       "Z": 120,
+       "symbol": "Ubn",
+       "at_c137": "8s",
+       "at_other": "7d",
+       "observed": null
+      }
+     ]
+    },
+    "thorium": {
+     "chain": "6d",
+     "restart137": "6d",
+     "restart_cinf": "5f",
+     "chain_cinf": "5f"
+    },
+    "scorer": {
+     "chain": {
+      "config": "73/107",
+      "step": "96/107",
+      "config_failures": [
+       24,
+       29,
+       41,
+       42,
+       44,
+       45,
+       46,
+       47,
+       59,
+       60,
+       61,
+       62,
+       63,
+       65,
+       66,
+       67,
+       68,
+       69,
+       70,
+       78,
+       79,
+       91,
+       92,
+       93,
+       94,
+       95,
+       96,
+       97,
+       98,
+       99,
+       100,
+       101,
+       102,
+       103
+      ],
+      "step_failures": [
+       25,
+       30,
+       43,
+       47,
+       48,
+       64,
+       71,
+       80,
+       96,
+       103,
+       104
+      ],
+      "status": "RECOVERED",
+      "what": "the record's scorer over this table: the chain's configuration against the observed one at each Z <= 108 (CONFIG), and its entrant against the observed gain (STEP); the scorer's own GATE pins the c = 137.035999 chain and is not consulted"
+     },
+     "chain_cinf": {
+      "config": "76/107",
+      "step": "96/107",
+      "config_failures": [
+       24,
+       29,
+       41,
+       42,
+       44,
+       45,
+       46,
+       47,
+       59,
+       60,
+       61,
+       62,
+       63,
+       65,
+       66,
+       67,
+       68,
+       69,
+       70,
+       78,
+       79,
+       90,
+       94,
+       95,
+       97,
+       98,
+       99,
+       100,
+       101,
+       102,
+       103
+      ],
+      "step_failures": [
+       25,
+       30,
+       43,
+       47,
+       48,
+       64,
+       71,
+       80,
+       90,
+       96,
+       103
+      ],
+      "status": "RECOVERED (a run the record did not make)",
+      "what": "the record's scorer over this table: the chain's configuration against the observed one at each Z <= 108 (CONFIG), and its entrant against the observed gain (STEP); the scorer's own GATE pins the c = 137.035999 chain and is not consulted"
+     }
+    }
+   },
+   "entrants": [
+    {
+     "Z": 2,
+     "symbol": "He",
+     "chain": "1s",
+     "restart137": "1s",
+     "restart_cinf": "1s",
+     "chain_cinf": "1s",
+     "displaced_paper": false,
+     "displaced_chain_cinf": false,
+     "displaced_restart_cinf": false,
+     "sealed": "exact+order"
+    },
+    {
+     "Z": 3,
+     "symbol": "Li",
+     "chain": "2s",
+     "restart137": "2s",
+     "restart_cinf": "2s",
+     "chain_cinf": "2s",
+     "displaced_paper": false,
+     "displaced_chain_cinf": false,
+     "displaced_restart_cinf": false,
+     "sealed": "exact"
+    },
+    {
+     "Z": 4,
+     "symbol": "Be",
+     "chain": "2s",
+     "restart137": "2s",
+     "restart_cinf": "2s",
+     "chain_cinf": "2s",
+     "displaced_paper": false,
+     "displaced_chain_cinf": false,
+     "displaced_restart_cinf": false,
+     "sealed": "exact"
+    },
+    {
+     "Z": 5,
+     "symbol": "B",
+     "chain": "2p",
+     "restart137": "2p",
+     "restart_cinf": "2p",
+     "chain_cinf": "2p",
+     "displaced_paper": false,
+     "displaced_chain_cinf": false,
+     "displaced_restart_cinf": false,
+     "sealed": "exact"
+    },
+    {
+     "Z": 6,
+     "symbol": "C",
+     "chain": "2p",
+     "restart137": "2p",
+     "restart_cinf": "2p",
+     "chain_cinf": "2p",
+     "displaced_paper": false,
+     "displaced_chain_cinf": false,
+     "displaced_restart_cinf": false,
+     "sealed": "exact"
+    },
+    {
+     "Z": 7,
+     "symbol": "N",
+     "chain": "2p",
+     "restart137": "2p",
+     "restart_cinf": "2p",
+     "chain_cinf": "2p",
+     "displaced_paper": false,
+     "displaced_chain_cinf": false,
+     "displaced_restart_cinf": false,
+     "sealed": "exact"
+    },
+    {
+     "Z": 8,
+     "symbol": "O",
+     "chain": "2p",
+     "restart137": "2p",
+     "restart_cinf": "2p",
+     "chain_cinf": "2p",
+     "displaced_paper": false,
+     "displaced_chain_cinf": false,
+     "displaced_restart_cinf": false,
+     "sealed": "exact"
+    },
+    {
+     "Z": 9,
+     "symbol": "F",
+     "chain": "2p",
+     "restart137": "2p",
+     "restart_cinf": "2p",
+     "chain_cinf": "2p",
+     "displaced_paper": false,
+     "displaced_chain_cinf": false,
+     "displaced_restart_cinf": false,
+     "sealed": "exact"
+    },
+    {
+     "Z": 10,
+     "symbol": "Ne",
+     "chain": "2p",
+     "restart137": "2p",
+     "restart_cinf": "2p",
+     "chain_cinf": "2p",
+     "displaced_paper": false,
+     "displaced_chain_cinf": false,
+     "displaced_restart_cinf": false,
+     "sealed": "exact"
+    },
+    {
+     "Z": 11,
+     "symbol": "Na",
+     "chain": "3s",
+     "restart137": "3s",
+     "restart_cinf": "3s",
+     "chain_cinf": "3s",
+     "displaced_paper": false,
+     "displaced_chain_cinf": false,
+     "displaced_restart_cinf": false,
+     "sealed": "exact"
+    },
+    {
+     "Z": 12,
+     "symbol": "Mg",
+     "chain": "3s",
+     "restart137": "3s",
+     "restart_cinf": "3s",
+     "chain_cinf": "3s",
+     "displaced_paper": false,
+     "displaced_chain_cinf": false,
+     "displaced_restart_cinf": false,
+     "sealed": "exact"
+    },
+    {
+     "Z": 13,
+     "symbol": "Al",
+     "chain": "3p",
+     "restart137": "3p",
+     "restart_cinf": "3p",
+     "chain_cinf": "3p",
+     "displaced_paper": false,
+     "displaced_chain_cinf": false,
+     "displaced_restart_cinf": false,
+     "sealed": "exact"
+    },
+    {
+     "Z": 14,
+     "symbol": "Si",
+     "chain": "3p",
+     "restart137": "3p",
+     "restart_cinf": "3p",
+     "chain_cinf": "3p",
+     "displaced_paper": false,
+     "displaced_chain_cinf": false,
+     "displaced_restart_cinf": false,
+     "sealed": "exact"
+    },
+    {
+     "Z": 15,
+     "symbol": "P",
+     "chain": "3p",
+     "restart137": "3p",
+     "restart_cinf": "3p",
+     "chain_cinf": "3p",
+     "displaced_paper": false,
+     "displaced_chain_cinf": false,
+     "displaced_restart_cinf": false,
+     "sealed": "exact"
+    },
+    {
+     "Z": 16,
+     "symbol": "S",
+     "chain": "3p",
+     "restart137": "3p",
+     "restart_cinf": "3p",
+     "chain_cinf": "3p",
+     "displaced_paper": false,
+     "displaced_chain_cinf": false,
+     "displaced_restart_cinf": false,
+     "sealed": "exact"
+    },
+    {
+     "Z": 17,
+     "symbol": "Cl",
+     "chain": "3p",
+     "restart137": "3p",
+     "restart_cinf": "3p",
+     "chain_cinf": "3p",
+     "displaced_paper": false,
+     "displaced_chain_cinf": false,
+     "displaced_restart_cinf": false,
+     "sealed": "exact"
+    },
+    {
+     "Z": 18,
+     "symbol": "Ar",
+     "chain": "3p",
+     "restart137": "3p",
+     "restart_cinf": "3p",
+     "chain_cinf": "3p",
+     "displaced_paper": false,
+     "displaced_chain_cinf": false,
+     "displaced_restart_cinf": false,
+     "sealed": "exact"
+    },
+    {
+     "Z": 19,
+     "symbol": "K",
+     "chain": "4s",
+     "restart137": "4s",
+     "restart_cinf": "4s",
+     "chain_cinf": "4s",
+     "displaced_paper": false,
+     "displaced_chain_cinf": false,
+     "displaced_restart_cinf": false,
+     "sealed": "entrant+depth (margin differs: F61.1)"
+    },
+    {
+     "Z": 20,
+     "symbol": "Ca",
+     "chain": "4s",
+     "restart137": "4s",
+     "restart_cinf": "4s",
+     "chain_cinf": "4s",
+     "displaced_paper": false,
+     "displaced_chain_cinf": false,
+     "displaced_restart_cinf": false,
+     "sealed": "exact"
+    },
+    {
+     "Z": 21,
+     "symbol": "Sc",
+     "chain": "3d",
+     "restart137": "3d",
+     "restart_cinf": "3d",
+     "chain_cinf": "3d",
+     "displaced_paper": false,
+     "displaced_chain_cinf": false,
+     "displaced_restart_cinf": false,
+     "sealed": "exact"
+    },
+    {
+     "Z": 22,
+     "symbol": "Ti",
+     "chain": "3d",
+     "restart137": "3d",
+     "restart_cinf": "3d",
+     "chain_cinf": "3d",
+     "displaced_paper": false,
+     "displaced_chain_cinf": false,
+     "displaced_restart_cinf": false,
+     "sealed": "exact"
+    },
+    {
+     "Z": 23,
+     "symbol": "V",
+     "chain": "3d",
+     "restart137": "3d",
+     "restart_cinf": "3d",
+     "chain_cinf": "3d",
+     "displaced_paper": false,
+     "displaced_chain_cinf": false,
+     "displaced_restart_cinf": false,
+     "sealed": "exact"
+    },
+    {
+     "Z": 24,
+     "symbol": "Cr",
+     "chain": "3d",
+     "restart137": "3d",
+     "restart_cinf": "3d",
+     "chain_cinf": "3d",
+     "displaced_paper": false,
+     "displaced_chain_cinf": false,
+     "displaced_restart_cinf": false,
+     "sealed": "exact"
+    },
+    {
+     "Z": 25,
+     "symbol": "Mn",
+     "chain": "3d",
+     "restart137": "4s",
+     "restart_cinf": "4s",
+     "chain_cinf": "3d",
+     "displaced_paper": true,
+     "displaced_chain_cinf": false,
+     "displaced_restart_cinf": false,
+     "sealed": "exact"
+    },
+    {
+     "Z": 26,
+     "symbol": "Fe",
+     "chain": "3d",
+     "restart137": "3d",
+     "restart_cinf": "3d",
+     "chain_cinf": "3d",
+     "displaced_paper": false,
+     "displaced_chain_cinf": false,
+     "displaced_restart_cinf": false,
+     "sealed": "exact"
+    },
+    {
+     "Z": 27,
+     "symbol": "Co",
+     "chain": "3d",
+     "restart137": "3d",
+     "restart_cinf": "3d",
+     "chain_cinf": "3d",
+     "displaced_paper": false,
+     "displaced_chain_cinf": false,
+     "displaced_restart_cinf": false,
+     "sealed": "exact"
+    },
+    {
+     "Z": 28,
+     "symbol": "Ni",
+     "chain": "3d",
+     "restart137": "3d",
+     "restart_cinf": "3d",
+     "chain_cinf": "3d",
+     "displaced_paper": false,
+     "displaced_chain_cinf": false,
+     "displaced_restart_cinf": false,
+     "sealed": "exact"
+    },
+    {
+     "Z": 29,
+     "symbol": "Cu",
+     "chain": "3d",
+     "restart137": "3d",
+     "restart_cinf": "3d",
+     "chain_cinf": "3d",
+     "displaced_paper": false,
+     "displaced_chain_cinf": false,
+     "displaced_restart_cinf": false,
+     "sealed": "exact"
+    },
+    {
+     "Z": 30,
+     "symbol": "Zn",
+     "chain": "3d",
+     "restart137": "4s",
+     "restart_cinf": "4s",
+     "chain_cinf": "3d",
+     "displaced_paper": true,
+     "displaced_chain_cinf": false,
+     "displaced_restart_cinf": false,
+     "sealed": "exact"
+    },
+    {
+     "Z": 31,
+     "symbol": "Ga",
+     "chain": "4p",
+     "restart137": "4p",
+     "restart_cinf": "4p",
+     "chain_cinf": "4p",
+     "displaced_paper": false,
+     "displaced_chain_cinf": false,
+     "displaced_restart_cinf": false,
+     "sealed": "exact"
+    },
+    {
+     "Z": 32,
+     "symbol": "Ge",
+     "chain": "4p",
+     "restart137": "4p",
+     "restart_cinf": "4p",
+     "chain_cinf": "4p",
+     "displaced_paper": false,
+     "displaced_chain_cinf": false,
+     "displaced_restart_cinf": false,
+     "sealed": "exact"
+    },
+    {
+     "Z": 33,
+     "symbol": "As",
+     "chain": "4p",
+     "restart137": "4p",
+     "restart_cinf": "4p",
+     "chain_cinf": "4p",
+     "displaced_paper": false,
+     "displaced_chain_cinf": false,
+     "displaced_restart_cinf": false,
+     "sealed": "exact"
+    },
+    {
+     "Z": 34,
+     "symbol": "Se",
+     "chain": "4p",
+     "restart137": "4p",
+     "restart_cinf": "4p",
+     "chain_cinf": "4p",
+     "displaced_paper": false,
+     "displaced_chain_cinf": false,
+     "displaced_restart_cinf": false,
+     "sealed": "exact"
+    },
+    {
+     "Z": 35,
+     "symbol": "Br",
+     "chain": "4p",
+     "restart137": "4p",
+     "restart_cinf": "4p",
+     "chain_cinf": "4p",
+     "displaced_paper": false,
+     "displaced_chain_cinf": false,
+     "displaced_restart_cinf": false,
+     "sealed": "exact"
+    },
+    {
+     "Z": 36,
+     "symbol": "Kr",
+     "chain": "4p",
+     "restart137": "4p",
+     "restart_cinf": "4p",
+     "chain_cinf": "4p",
+     "displaced_paper": false,
+     "displaced_chain_cinf": false,
+     "displaced_restart_cinf": false,
+     "sealed": "exact"
+    },
+    {
+     "Z": 37,
+     "symbol": "Rb",
+     "chain": "5s",
+     "restart137": "5s",
+     "restart_cinf": "5s",
+     "chain_cinf": "5s",
+     "displaced_paper": false,
+     "displaced_chain_cinf": false,
+     "displaced_restart_cinf": false,
+     "sealed": "exact"
+    },
+    {
+     "Z": 38,
+     "symbol": "Sr",
+     "chain": "5s",
+     "restart137": "5s",
+     "restart_cinf": "5s",
+     "chain_cinf": "5s",
+     "displaced_paper": false,
+     "displaced_chain_cinf": false,
+     "displaced_restart_cinf": false,
+     "sealed": "exact+order"
+    },
+    {
+     "Z": 39,
+     "symbol": "Y",
+     "chain": "4d",
+     "restart137": "4d",
+     "restart_cinf": "4d",
+     "chain_cinf": "4d",
+     "displaced_paper": false,
+     "displaced_chain_cinf": false,
+     "displaced_restart_cinf": false,
+     "sealed": "exact"
+    },
+    {
+     "Z": 40,
+     "symbol": "Zr",
+     "chain": "4d",
+     "restart137": "4d",
+     "restart_cinf": "4d",
+     "chain_cinf": "4d",
+     "displaced_paper": false,
+     "displaced_chain_cinf": false,
+     "displaced_restart_cinf": false,
+     "sealed": "exact"
+    },
+    {
+     "Z": 41,
+     "symbol": "Nb",
+     "chain": "4d",
+     "restart137": "4d",
+     "restart_cinf": "4d",
+     "chain_cinf": "4d",
+     "displaced_paper": false,
+     "displaced_chain_cinf": false,
+     "displaced_restart_cinf": false,
+     "sealed": "exact"
+    },
+    {
+     "Z": 42,
+     "symbol": "Mo",
+     "chain": "4d",
+     "restart137": "4d",
+     "restart_cinf": "4d",
+     "chain_cinf": "4d",
+     "displaced_paper": false,
+     "displaced_chain_cinf": false,
+     "displaced_restart_cinf": false,
+     "sealed": "exact"
+    },
+    {
+     "Z": 43,
+     "symbol": "Tc",
+     "chain": "4d",
+     "restart137": "4d",
+     "restart_cinf": "4d",
+     "chain_cinf": "4d",
+     "displaced_paper": false,
+     "displaced_chain_cinf": false,
+     "displaced_restart_cinf": false,
+     "sealed": "exact"
+    },
+    {
+     "Z": 44,
+     "symbol": "Ru",
+     "chain": "4d",
+     "restart137": "4d",
+     "restart_cinf": "4d",
+     "chain_cinf": "4d",
+     "displaced_paper": false,
+     "displaced_chain_cinf": false,
+     "displaced_restart_cinf": false,
+     "sealed": "exact"
+    },
+    {
+     "Z": 45,
+     "symbol": "Rh",
+     "chain": "4d",
+     "restart137": "4d",
+     "restart_cinf": "4d",
+     "chain_cinf": "4d",
+     "displaced_paper": false,
+     "displaced_chain_cinf": false,
+     "displaced_restart_cinf": false,
+     "sealed": "exact"
+    },
+    {
+     "Z": 46,
+     "symbol": "Pd",
+     "chain": "4d",
+     "restart137": "4d",
+     "restart_cinf": "4d",
+     "chain_cinf": "4d",
+     "displaced_paper": false,
+     "displaced_chain_cinf": false,
+     "displaced_restart_cinf": false,
+     "sealed": "exact"
+    },
+    {
+     "Z": 47,
+     "symbol": "Ag",
+     "chain": "4d",
+     "restart137": "5s",
+     "restart_cinf": "5s",
+     "chain_cinf": "4d",
+     "displaced_paper": true,
+     "displaced_chain_cinf": false,
+     "displaced_restart_cinf": false,
+     "sealed": "exact"
+    },
+    {
+     "Z": 48,
+     "symbol": "Cd",
+     "chain": "4d",
+     "restart137": "5s",
+     "restart_cinf": "5s",
+     "chain_cinf": "4d",
+     "displaced_paper": true,
+     "displaced_chain_cinf": false,
+     "displaced_restart_cinf": false,
+     "sealed": "exact"
+    },
+    {
+     "Z": 49,
+     "symbol": "In",
+     "chain": "5p",
+     "restart137": "5p",
+     "restart_cinf": "5p",
+     "chain_cinf": "5p",
+     "displaced_paper": false,
+     "displaced_chain_cinf": false,
+     "displaced_restart_cinf": false,
+     "sealed": "exact"
+    },
+    {
+     "Z": 50,
+     "symbol": "Sn",
+     "chain": "5p",
+     "restart137": "5p",
+     "restart_cinf": "5p",
+     "chain_cinf": "5p",
+     "displaced_paper": false,
+     "displaced_chain_cinf": false,
+     "displaced_restart_cinf": false,
+     "sealed": "exact"
+    },
+    {
+     "Z": 51,
+     "symbol": "Sb",
+     "chain": "5p",
+     "restart137": "5p",
+     "restart_cinf": "5p",
+     "chain_cinf": "5p",
+     "displaced_paper": false,
+     "displaced_chain_cinf": false,
+     "displaced_restart_cinf": false,
+     "sealed": "exact"
+    },
+    {
+     "Z": 52,
+     "symbol": "Te",
+     "chain": "5p",
+     "restart137": "5p",
+     "restart_cinf": "5p",
+     "chain_cinf": "5p",
+     "displaced_paper": false,
+     "displaced_chain_cinf": false,
+     "displaced_restart_cinf": false,
+     "sealed": "exact"
+    },
+    {
+     "Z": 53,
+     "symbol": "I",
+     "chain": "5p",
+     "restart137": "5p",
+     "restart_cinf": "5p",
+     "chain_cinf": "5p",
+     "displaced_paper": false,
+     "displaced_chain_cinf": false,
+     "displaced_restart_cinf": false,
+     "sealed": "exact"
+    },
+    {
+     "Z": 54,
+     "symbol": "Xe",
+     "chain": "5p",
+     "restart137": "5p",
+     "restart_cinf": "5p",
+     "chain_cinf": "5p",
+     "displaced_paper": false,
+     "displaced_chain_cinf": false,
+     "displaced_restart_cinf": false,
+     "sealed": "exact"
+    },
+    {
+     "Z": 55,
+     "symbol": "Cs",
+     "chain": "6s",
+     "restart137": "6s",
+     "restart_cinf": "6s",
+     "chain_cinf": "6s",
+     "displaced_paper": false,
+     "displaced_chain_cinf": false,
+     "displaced_restart_cinf": false,
+     "sealed": "exact"
+    },
+    {
+     "Z": 56,
+     "symbol": "Ba",
+     "chain": "6s",
+     "restart137": "6s",
+     "restart_cinf": "6s",
+     "chain_cinf": "6s",
+     "displaced_paper": false,
+     "displaced_chain_cinf": false,
+     "displaced_restart_cinf": false,
+     "sealed": "exact"
+    },
+    {
+     "Z": 57,
+     "symbol": "La",
+     "chain": "5d",
+     "restart137": "5d",
+     "restart_cinf": "5d",
+     "chain_cinf": "5d",
+     "displaced_paper": false,
+     "displaced_chain_cinf": false,
+     "displaced_restart_cinf": false,
+     "sealed": "exact+order"
+    },
+    {
+     "Z": 58,
+     "symbol": "Ce",
+     "chain": "4f",
+     "restart137": "4f",
+     "restart_cinf": "4f",
+     "chain_cinf": "4f",
+     "displaced_paper": false,
+     "displaced_chain_cinf": false,
+     "displaced_restart_cinf": false,
+     "sealed": "exact"
+    },
+    {
+     "Z": 59,
+     "symbol": "Pr",
+     "chain": "4f",
+     "restart137": "4f",
+     "restart_cinf": "4f",
+     "chain_cinf": "4f",
+     "displaced_paper": false,
+     "displaced_chain_cinf": false,
+     "displaced_restart_cinf": false,
+     "sealed": "unwitnessed"
+    },
+    {
+     "Z": 60,
+     "symbol": "Nd",
+     "chain": "4f",
+     "restart137": "5d",
+     "restart_cinf": "4f",
+     "chain_cinf": "4f",
+     "displaced_paper": true,
+     "displaced_chain_cinf": false,
+     "displaced_restart_cinf": true,
+     "sealed": "unwitnessed"
+    },
+    {
+     "Z": 61,
+     "symbol": "Pm",
+     "chain": "4f",
+     "restart137": "5d",
+     "restart_cinf": "4f",
+     "chain_cinf": "4f",
+     "displaced_paper": true,
+     "displaced_chain_cinf": false,
+     "displaced_restart_cinf": true,
+     "sealed": "exact"
+    },
+    {
+     "Z": 62,
+     "symbol": "Sm",
+     "chain": "4f",
+     "restart137": "5d",
+     "restart_cinf": "4f",
+     "chain_cinf": "4f",
+     "displaced_paper": true,
+     "displaced_chain_cinf": false,
+     "displaced_restart_cinf": true,
+     "sealed": "exact"
+    },
+    {
+     "Z": 63,
+     "symbol": "Eu",
+     "chain": "4f",
+     "restart137": "4f",
+     "restart_cinf": "4f",
+     "chain_cinf": "4f",
+     "displaced_paper": false,
+     "displaced_chain_cinf": false,
+     "displaced_restart_cinf": false,
+     "sealed": "exact"
+    },
+    {
+     "Z": 64,
+     "symbol": "Gd",
+     "chain": "4f",
+     "restart137": "4f",
+     "restart_cinf": "4f",
+     "chain_cinf": "4f",
+     "displaced_paper": false,
+     "displaced_chain_cinf": false,
+     "displaced_restart_cinf": false,
+     "sealed": "exact"
+    },
+    {
+     "Z": 65,
+     "symbol": "Tb",
+     "chain": "4f",
+     "restart137": "4f",
+     "restart_cinf": "4f",
+     "chain_cinf": "4f",
+     "displaced_paper": false,
+     "displaced_chain_cinf": false,
+     "displaced_restart_cinf": false,
+     "sealed": "exact"
+    },
+    {
+     "Z": 66,
+     "symbol": "Dy",
+     "chain": "4f",
+     "restart137": "4f",
+     "restart_cinf": "4f",
+     "chain_cinf": "4f",
+     "displaced_paper": false,
+     "displaced_chain_cinf": false,
+     "displaced_restart_cinf": false,
+     "sealed": "exact"
+    },
+    {
+     "Z": 67,
+     "symbol": "Ho",
+     "chain": "4f",
+     "restart137": "4f",
+     "restart_cinf": "4f",
+     "chain_cinf": "4f",
+     "displaced_paper": false,
+     "displaced_chain_cinf": false,
+     "displaced_restart_cinf": false,
+     "sealed": "exact"
+    },
+    {
+     "Z": 68,
+     "symbol": "Er",
+     "chain": "4f",
+     "restart137": "4f",
+     "restart_cinf": "4f",
+     "chain_cinf": "4f",
+     "displaced_paper": false,
+     "displaced_chain_cinf": false,
+     "displaced_restart_cinf": false,
+     "sealed": "exact"
+    },
+    {
+     "Z": 69,
+     "symbol": "Tm",
+     "chain": "4f",
+     "restart137": "4f",
+     "restart_cinf": "4f",
+     "chain_cinf": "4f",
+     "displaced_paper": false,
+     "displaced_chain_cinf": false,
+     "displaced_restart_cinf": false,
+     "sealed": "exact"
+    },
+    {
+     "Z": 70,
+     "symbol": "Yb",
+     "chain": "4f",
+     "restart137": "4f",
+     "restart_cinf": "4f",
+     "chain_cinf": "4f",
+     "displaced_paper": false,
+     "displaced_chain_cinf": false,
+     "displaced_restart_cinf": false,
+     "sealed": "exact"
+    },
+    {
+     "Z": 71,
+     "symbol": "Lu",
+     "chain": "4f",
+     "restart137": "5d",
+     "restart_cinf": "5d",
+     "chain_cinf": "4f",
+     "displaced_paper": true,
+     "displaced_chain_cinf": false,
+     "displaced_restart_cinf": false,
+     "sealed": "exact"
+    },
+    {
+     "Z": 72,
+     "symbol": "Hf",
+     "chain": "5d",
+     "restart137": "5d",
+     "restart_cinf": "5d",
+     "chain_cinf": "5d",
+     "displaced_paper": false,
+     "displaced_chain_cinf": false,
+     "displaced_restart_cinf": false,
+     "sealed": "exact"
+    },
+    {
+     "Z": 73,
+     "symbol": "Ta",
+     "chain": "5d",
+     "restart137": "5d",
+     "restart_cinf": "5d",
+     "chain_cinf": "5d",
+     "displaced_paper": false,
+     "displaced_chain_cinf": false,
+     "displaced_restart_cinf": false,
+     "sealed": "exact"
+    },
+    {
+     "Z": 74,
+     "symbol": "W",
+     "chain": "5d",
+     "restart137": "5d",
+     "restart_cinf": "5d",
+     "chain_cinf": "5d",
+     "displaced_paper": false,
+     "displaced_chain_cinf": false,
+     "displaced_restart_cinf": false,
+     "sealed": "exact"
+    },
+    {
+     "Z": 75,
+     "symbol": "Re",
+     "chain": "5d",
+     "restart137": "5d",
+     "restart_cinf": "5d",
+     "chain_cinf": "5d",
+     "displaced_paper": false,
+     "displaced_chain_cinf": false,
+     "displaced_restart_cinf": false,
+     "sealed": "exact"
+    },
+    {
+     "Z": 76,
+     "symbol": "Os",
+     "chain": "5d",
+     "restart137": "5d",
+     "restart_cinf": "5d",
+     "chain_cinf": "5d",
+     "displaced_paper": false,
+     "displaced_chain_cinf": false,
+     "displaced_restart_cinf": false,
+     "sealed": "exact"
+    },
+    {
+     "Z": 77,
+     "symbol": "Ir",
+     "chain": "5d",
+     "restart137": "5d",
+     "restart_cinf": "5d",
+     "chain_cinf": "5d",
+     "displaced_paper": false,
+     "displaced_chain_cinf": false,
+     "displaced_restart_cinf": false,
+     "sealed": "exact"
+    },
+    {
+     "Z": 78,
+     "symbol": "Pt",
+     "chain": "5d",
+     "restart137": "5d",
+     "restart_cinf": "5d",
+     "chain_cinf": "5d",
+     "displaced_paper": false,
+     "displaced_chain_cinf": false,
+     "displaced_restart_cinf": false,
+     "sealed": "exact"
+    },
+    {
+     "Z": 79,
+     "symbol": "Au",
+     "chain": "5d",
+     "restart137": "5d",
+     "restart_cinf": "5d",
+     "chain_cinf": "5d",
+     "displaced_paper": false,
+     "displaced_chain_cinf": false,
+     "displaced_restart_cinf": false,
+     "sealed": "exact+order"
+    },
+    {
+     "Z": 80,
+     "symbol": "Hg",
+     "chain": "5d",
+     "restart137": "6s",
+     "restart_cinf": "6s",
+     "chain_cinf": "5d",
+     "displaced_paper": true,
+     "displaced_chain_cinf": false,
+     "displaced_restart_cinf": false,
+     "sealed": "exact+order"
+    },
+    {
+     "Z": 81,
+     "symbol": "Tl",
+     "chain": "6p",
+     "restart137": "6p",
+     "restart_cinf": "6p",
+     "chain_cinf": "6p",
+     "displaced_paper": false,
+     "displaced_chain_cinf": false,
+     "displaced_restart_cinf": false,
+     "sealed": "unwitnessed"
+    },
+    {
+     "Z": 82,
+     "symbol": "Pb",
+     "chain": "6p",
+     "restart137": "6p",
+     "restart_cinf": "6p",
+     "chain_cinf": "6p",
+     "displaced_paper": false,
+     "displaced_chain_cinf": false,
+     "displaced_restart_cinf": false,
+     "sealed": "unwitnessed"
+    },
+    {
+     "Z": 83,
+     "symbol": "Bi",
+     "chain": "6p",
+     "restart137": "6p",
+     "restart_cinf": "6p",
+     "chain_cinf": "6p",
+     "displaced_paper": false,
+     "displaced_chain_cinf": false,
+     "displaced_restart_cinf": false,
+     "sealed": "exact"
+    },
+    {
+     "Z": 84,
+     "symbol": "Po",
+     "chain": "6p",
+     "restart137": "6p",
+     "restart_cinf": "6p",
+     "chain_cinf": "6p",
+     "displaced_paper": false,
+     "displaced_chain_cinf": false,
+     "displaced_restart_cinf": false,
+     "sealed": "exact"
+    },
+    {
+     "Z": 85,
+     "symbol": "At",
+     "chain": "6p",
+     "restart137": "6p",
+     "restart_cinf": "6p",
+     "chain_cinf": "6p",
+     "displaced_paper": false,
+     "displaced_chain_cinf": false,
+     "displaced_restart_cinf": false,
+     "sealed": "unwitnessed"
+    },
+    {
+     "Z": 86,
+     "symbol": "Rn",
+     "chain": "6p",
+     "restart137": "6p",
+     "restart_cinf": "6p",
+     "chain_cinf": "6p",
+     "displaced_paper": false,
+     "displaced_chain_cinf": false,
+     "displaced_restart_cinf": false,
+     "sealed": "unwitnessed"
+    },
+    {
+     "Z": 87,
+     "symbol": "Fr",
+     "chain": "7s",
+     "restart137": "7s",
+     "restart_cinf": "7s",
+     "chain_cinf": "7s",
+     "displaced_paper": false,
+     "displaced_chain_cinf": false,
+     "displaced_restart_cinf": false,
+     "sealed": "exact"
+    },
+    {
+     "Z": 88,
+     "symbol": "Ra",
+     "chain": "7s",
+     "restart137": "7s",
+     "restart_cinf": "7s",
+     "chain_cinf": "7s",
+     "displaced_paper": false,
+     "displaced_chain_cinf": false,
+     "displaced_restart_cinf": false,
+     "sealed": "exact"
+    },
+    {
+     "Z": 89,
+     "symbol": "Ac",
+     "chain": "6d",
+     "restart137": "6d",
+     "restart_cinf": "6d",
+     "chain_cinf": "6d",
+     "displaced_paper": false,
+     "displaced_chain_cinf": false,
+     "displaced_restart_cinf": false,
+     "sealed": "exact"
+    },
+    {
+     "Z": 90,
+     "symbol": "Th",
+     "chain": "6d",
+     "restart137": "6d",
+     "restart_cinf": "5f",
+     "chain_cinf": "5f",
+     "displaced_paper": false,
+     "displaced_chain_cinf": true,
+     "displaced_restart_cinf": true,
+     "sealed": "exact"
+    },
+    {
+     "Z": 91,
+     "symbol": "Pa",
+     "chain": "5f",
+     "restart137": "5f",
+     "restart_cinf": "5f",
+     "chain_cinf": "5f",
+     "displaced_paper": false,
+     "displaced_chain_cinf": false,
+     "displaced_restart_cinf": false,
+     "sealed": "exact"
+    },
+    {
+     "Z": 92,
+     "symbol": "U",
+     "chain": "5f",
+     "restart137": "5f",
+     "restart_cinf": "5f",
+     "chain_cinf": "5f",
+     "displaced_paper": false,
+     "displaced_chain_cinf": false,
+     "displaced_restart_cinf": false,
+     "sealed": "exact"
+    },
+    {
+     "Z": 93,
+     "symbol": "Np",
+     "chain": "5f",
+     "restart137": "5f",
+     "restart_cinf": "5f",
+     "chain_cinf": "5f",
+     "displaced_paper": false,
+     "displaced_chain_cinf": false,
+     "displaced_restart_cinf": false,
+     "sealed": "exact"
+    },
+    {
+     "Z": 94,
+     "symbol": "Pu",
+     "chain": "5f",
+     "restart137": "5f",
+     "restart_cinf": "5f",
+     "chain_cinf": "5f",
+     "displaced_paper": false,
+     "displaced_chain_cinf": false,
+     "displaced_restart_cinf": false,
+     "sealed": "exact"
+    },
+    {
+     "Z": 95,
+     "symbol": "Am",
+     "chain": "5f",
+     "restart137": "5f",
+     "restart_cinf": "5f",
+     "chain_cinf": "5f",
+     "displaced_paper": false,
+     "displaced_chain_cinf": false,
+     "displaced_restart_cinf": false,
+     "sealed": "exact"
+    },
+    {
+     "Z": 96,
+     "symbol": "Cm",
+     "chain": "5f",
+     "restart137": "5f",
+     "restart_cinf": "5f",
+     "chain_cinf": "5f",
+     "displaced_paper": false,
+     "displaced_chain_cinf": false,
+     "displaced_restart_cinf": false,
+     "sealed": "exact"
+    },
+    {
+     "Z": 97,
+     "symbol": "Bk",
+     "chain": "5f",
+     "restart137": "5f",
+     "restart_cinf": "5f",
+     "chain_cinf": "5f",
+     "displaced_paper": false,
+     "displaced_chain_cinf": false,
+     "displaced_restart_cinf": false,
+     "sealed": "exact"
+    },
+    {
+     "Z": 98,
+     "symbol": "Cf",
+     "chain": "5f",
+     "restart137": "5f",
+     "restart_cinf": "5f",
+     "chain_cinf": "5f",
+     "displaced_paper": false,
+     "displaced_chain_cinf": false,
+     "displaced_restart_cinf": false,
+     "sealed": "exact"
+    },
+    {
+     "Z": 99,
+     "symbol": "Es",
+     "chain": "5f",
+     "restart137": "5f",
+     "restart_cinf": "5f",
+     "chain_cinf": "5f",
+     "displaced_paper": false,
+     "displaced_chain_cinf": false,
+     "displaced_restart_cinf": false,
+     "sealed": "exact"
+    },
+    {
+     "Z": 100,
+     "symbol": "Fm",
+     "chain": "5f",
+     "restart137": "5f",
+     "restart_cinf": "5f",
+     "chain_cinf": "5f",
+     "displaced_paper": false,
+     "displaced_chain_cinf": false,
+     "displaced_restart_cinf": false,
+     "sealed": "exact"
+    },
+    {
+     "Z": 101,
+     "symbol": "Md",
+     "chain": "5f",
+     "restart137": "5f",
+     "restart_cinf": "5f",
+     "chain_cinf": "5f",
+     "displaced_paper": false,
+     "displaced_chain_cinf": false,
+     "displaced_restart_cinf": false,
+     "sealed": "exact"
+    },
+    {
+     "Z": 102,
+     "symbol": "No",
+     "chain": "5f",
+     "restart137": "5f",
+     "restart_cinf": "5f",
+     "chain_cinf": "5f",
+     "displaced_paper": false,
+     "displaced_chain_cinf": false,
+     "displaced_restart_cinf": false,
+     "sealed": "exact"
+    },
+    {
+     "Z": 103,
+     "symbol": "Lr",
+     "chain": "5f",
+     "restart137": "7p",
+     "restart_cinf": "6d",
+     "chain_cinf": "5f",
+     "displaced_paper": true,
+     "displaced_chain_cinf": false,
+     "displaced_restart_cinf": true,
+     "sealed": "exact"
+    },
+    {
+     "Z": 104,
+     "symbol": "Rf",
+     "chain": "5f",
+     "restart137": "6d",
+     "restart_cinf": "6d",
+     "chain_cinf": "6d",
+     "displaced_paper": true,
+     "displaced_chain_cinf": true,
+     "displaced_restart_cinf": false,
+     "sealed": "exact"
+    },
+    {
+     "Z": 105,
+     "symbol": "Db",
+     "chain": "6d",
+     "restart137": "6d",
+     "restart_cinf": "6d",
+     "chain_cinf": "6d",
+     "displaced_paper": false,
+     "displaced_chain_cinf": false,
+     "displaced_restart_cinf": false,
+     "sealed": "exact"
+    },
+    {
+     "Z": 106,
+     "symbol": "Sg",
+     "chain": "6d",
+     "restart137": "6d",
+     "restart_cinf": "6d",
+     "chain_cinf": "6d",
+     "displaced_paper": false,
+     "displaced_chain_cinf": false,
+     "displaced_restart_cinf": false,
+     "sealed": "exact"
+    },
+    {
+     "Z": 107,
+     "symbol": "Bh",
+     "chain": "6d",
+     "restart137": "6d",
+     "restart_cinf": "6d",
+     "chain_cinf": "6d",
+     "displaced_paper": false,
+     "displaced_chain_cinf": false,
+     "displaced_restart_cinf": false,
+     "sealed": "exact"
+    },
+    {
+     "Z": 108,
+     "symbol": "Hs",
+     "chain": "6d",
+     "restart137": "6d",
+     "restart_cinf": "6d",
+     "chain_cinf": "6d",
+     "displaced_paper": false,
+     "displaced_chain_cinf": false,
+     "displaced_restart_cinf": false,
+     "sealed": "exact"
+    },
+    {
+     "Z": 109,
+     "symbol": "Mt",
+     "chain": "6d",
+     "chain_cinf": "6d",
+     "displaced_paper": null,
+     "displaced_chain_cinf": false,
+     "displaced_restart_cinf": null,
+     "sealed": "exact"
+    },
+    {
+     "Z": 110,
+     "symbol": "Ds",
+     "chain": "6d",
+     "chain_cinf": "6d",
+     "displaced_paper": null,
+     "displaced_chain_cinf": false,
+     "displaced_restart_cinf": null,
+     "sealed": "exact"
+    },
+    {
+     "Z": 111,
+     "symbol": "Rg",
+     "chain": "6d",
+     "chain_cinf": "6d",
+     "displaced_paper": null,
+     "displaced_chain_cinf": false,
+     "displaced_restart_cinf": null,
+     "sealed": "exact"
+    },
+    {
+     "Z": 112,
+     "symbol": "Cn",
+     "chain": "6d",
+     "chain_cinf": "6d",
+     "displaced_paper": null,
+     "displaced_chain_cinf": false,
+     "displaced_restart_cinf": null,
+     "sealed": "exact"
+    },
+    {
+     "Z": 113,
+     "symbol": "Nh",
+     "chain": "7p",
+     "chain_cinf": "7p",
+     "displaced_paper": null,
+     "displaced_chain_cinf": false,
+     "displaced_restart_cinf": null,
+     "sealed": "exact"
+    },
+    {
+     "Z": 114,
+     "symbol": "Fl",
+     "chain": "7p",
+     "chain_cinf": "7p",
+     "displaced_paper": null,
+     "displaced_chain_cinf": false,
+     "displaced_restart_cinf": null,
+     "sealed": "exact"
+    },
+    {
+     "Z": 115,
+     "symbol": "Mc",
+     "chain": "7p",
+     "chain_cinf": "7p",
+     "displaced_paper": null,
+     "displaced_chain_cinf": false,
+     "displaced_restart_cinf": null,
+     "sealed": "exact"
+    },
+    {
+     "Z": 116,
+     "symbol": "Lv",
+     "chain": "7p",
+     "chain_cinf": "7p",
+     "displaced_paper": null,
+     "displaced_chain_cinf": false,
+     "displaced_restart_cinf": null,
+     "sealed": "exact"
+    },
+    {
+     "Z": 117,
+     "symbol": "Ts",
+     "chain": "7p",
+     "chain_cinf": "7p",
+     "displaced_paper": null,
+     "displaced_chain_cinf": false,
+     "displaced_restart_cinf": null,
+     "sealed": "exact"
+    },
+    {
+     "Z": 118,
+     "symbol": "Og",
+     "chain": "7p",
+     "chain_cinf": "7p",
+     "displaced_paper": null,
+     "displaced_chain_cinf": false,
+     "displaced_restart_cinf": null,
+     "sealed": "exact"
+    },
+    {
+     "Z": 119,
+     "symbol": "Uue",
+     "chain": "8s",
+     "chain_cinf": "8s",
+     "displaced_paper": null,
+     "displaced_chain_cinf": false,
+     "displaced_restart_cinf": null,
+     "sealed": "exact"
+    },
+    {
+     "Z": 120,
+     "symbol": "Ubn",
+     "chain": "8s",
+     "chain_cinf": "7d",
+     "displaced_paper": null,
+     "displaced_chain_cinf": true,
+     "displaced_restart_cinf": null,
+     "sealed": "exact"
+    }
+   ]
+  },
+  "repair": {
+   "status": "RECOVERED",
+   "decision": "the author's, 2026-09-24: the finding on the paper's eleven is repaired, not only recorded",
+   "statement": "Repeated with the constant removed, the construction's entrant moves at thorium (6d to 5f, away from the observed 6d), at rutherfordium (5f to 6d, the observed channel) and at Z = 120 (8s to 7d, beyond the last measured element), and at no other element; silver and mercury do not move. The paper's eleven were the chain measured against a second table that had run at c = 137.035999 in restart mode.",
+   "displaced": [
+    "Th",
+    "Rf",
+    "Ubn"
+   ],
+   "witnessed": [
+    "Th",
+    "Rf"
+   ],
+   "unwitnessed": [
+    "Ubn"
+   ],
+   "detail": [
+    {
+     "Z": 90,
+     "symbol": "Th",
+     "at_c137": "6d",
+     "at_other": "5f",
+     "observed": "6d",
+     "against_nature": "the c → ∞ entrant departs from the observed channel; the chain at c = 137.035999 holds it"
+    },
+    {
+     "Z": 104,
+     "symbol": "Rf",
+     "at_c137": "5f",
+     "at_other": "6d",
+     "observed": "6d",
+     "against_nature": "the c → ∞ entrant is the observed channel; the chain at c = 137.035999 departs from it"
+    },
+    {
+     "Z": 120,
+     "symbol": "Ubn",
+     "at_c137": "8s",
+     "at_other": "7d",
+     "observed": null,
+     "against_nature": "no ground configuration is measured beyond Z = 108; the row is unwitnessed at either setting"
+    }
+   ],
+   "comparison": "the chain at c = 137.035999 against the chain at c → ∞, the record's own instrument at both settings",
+   "restart_displaced": [
+    "Nd",
+    "Pm",
+    "Sm",
+    "Th",
+    "Lr"
+   ],
+   "paper_eleven": [
+    "Mn",
+    "Zn",
+    "Ag",
+    "Cd",
+    "Nd",
+    "Pm",
+    "Sm",
+    "Lu",
+    "Hg",
+    "Lr",
+    "Rf"
+   ],
+   "paper_eleven_status": "withdrawn in the paper's corrected text: the elements where the chain differs from a restart walk at the same c, not from the constant",
+   "paper_eleven_restart_holds_observed": 8,
+   "paper_eleven_displaced_here": [
+    "Rf"
+   ],
+   "scorer": {
+    "chain": {
+     "config": "73/107",
+     "step": "96/107",
+     "config_failures": [
+      24,
+      29,
+      41,
+      42,
+      44,
+      45,
+      46,
+      47,
+      59,
+      60,
+      61,
+      62,
+      63,
+      65,
+      66,
+      67,
+      68,
+      69,
+      70,
+      78,
+      79,
+      91,
+      92,
+      93,
+      94,
+      95,
+      96,
+      97,
+      98,
+      99,
+      100,
+      101,
+      102,
+      103
+     ],
+     "step_failures": [
+      25,
+      30,
+      43,
+      47,
+      48,
+      64,
+      71,
+      80,
+      96,
+      103,
+      104
+     ],
+     "status": "RECOVERED",
+     "what": "the record's scorer over this table: the chain's configuration against the observed one at each Z <= 108 (CONFIG), and its entrant against the observed gain (STEP); the scorer's own GATE pins the c = 137.035999 chain and is not consulted"
+    },
+    "chain_cinf": {
+     "config": "76/107",
+     "step": "96/107",
+     "config_failures": [
+      24,
+      29,
+      41,
+      42,
+      44,
+      45,
+      46,
+      47,
+      59,
+      60,
+      61,
+      62,
+      63,
+      65,
+      66,
+      67,
+      68,
+      69,
+      70,
+      78,
+      79,
+      90,
+      94,
+      95,
+      97,
+      98,
+      99,
+      100,
+      101,
+      102,
+      103
+     ],
+     "step_failures": [
+      25,
+      30,
+      43,
+      47,
+      48,
+      64,
+      71,
+      80,
+      90,
+      96,
+      103
+     ],
+     "status": "RECOVERED (a run the record did not make)",
+     "what": "the record's scorer over this table: the chain's configuration against the observed one at each Z <= 108 (CONFIG), and its entrant against the observed gain (STEP); the scorer's own GATE pins the c = 137.035999 chain and is not consulted"
+    }
+   },
+   "reconstruction": {
+    "hf_displaced": [
+     "Ce",
+     "Hf",
+     "Th",
+     "Rf",
+     "Ubn"
+    ],
+    "record_set_within": true,
+    "note": "the site's reconstruction, run before the instrument was recovered, displaced these in the record's field; the recovered instrument's set is measured against it"
+   },
+   "paper_text": "the paper's corrected text is the one this site renders; the eleven are carried as the reading it first printed and withdrew"
   }
  },
  "limits": {
@@ -20713,11 +22851,15 @@ window.__mi = window.__mi || {}; window.__mi.index = {
   },
   {
    "id": "relativistic-not-held",
-   "text": "The scalar-relativistic construction (Koelling–Harmon Hartree–Fock at c = 137) and its repetition at c → ∞ are not held: the code behind the Löwdin paper never arrived. The eleven displaced elements are READ from the paper's own statement and the site cannot recompute them."
+   "text": "The scalar-relativistic construction (Koelling–Harmon Hartree–Fock at c = 137) behind the Löwdin paper was never banked as an archive; its code has since been RECOVERED from the project's own conversations (every file written, edited and printed by tool calls, rebuilt and held against every printed window) and run here. The displaced set this site states is what that recovered instrument returns (RECOVERED); the paper's eleven are READ from the paper's own sentence and carried as the reading it printed, superseded."
+  },
+  {
+   "id": "record-eleven",
+   "text": "The paper's eleven were computed by its own final session as the elements where the chain's entrant differs from a second table the project had sealed as its c → ∞ walk. The project's own fault record F59.3, written before the paper, established that the second table ran at c = 137 in restart mode (each step from the observed configuration), so the eleven measure the chain's memory against a memoryless restart at one c, not the constant. Re-derived here, both tables reproduce and the eleven reproduce from them; at eight of the eleven the restart entrant is the observed one. Repaired by the author's decision (2026-09-24): the displaced set this site states is the recovered instrument's — the chain at c → ∞ differs from the chain at c = 137 at thorium and rutherfordium among the measured elements and at Z = 120 beyond them, and nowhere else — RECOVERED; the paper's eleven are shown as the reading the paper printed, superseded, and the paper's own text is shown as it stands until the author reissues it."
   },
   {
    "id": "walk-reconstructed",
-   "text": "The walk shown beside the paper is a RECONSTRUCTION (tools/lowdin_walk.py): the paper's construction rebuilt from its statement and run in two fields, a local-exchange one and the paper's own average-of-configuration Hartree–Fock with non-local exchange, neither of them the paper's code, which never arrived. Where it agrees with the paper that is a measurement; where it disagrees that is a measurement too. It is never the paper's number."
+   "text": "The reconstructed walk (tools/lowdin_walk.py) is this site's own rebuild of the paper's construction from its statement, run in two fields, and is kept beside the record's recovered instrument as a second measurement, not in its place. Where it agrees with the record that is a measurement; where it disagrees that is a measurement too. It is never the paper's number."
   },
   {
    "id": "limit-kind",
@@ -20765,8 +22907,11 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "lambda8_steps": 0
    },
    "relativistic": false,
+   "paper_eleven": false,
    "walk_displaced": false,
    "walk_lx_displaced": false,
+   "record_displaced": false,
+   "record_paper_displaced": false,
    "limits": {
     "symmetry": 8
    }
@@ -20798,8 +22943,11 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "lambda8_steps": 1
    },
    "relativistic": false,
+   "paper_eleven": false,
    "walk_displaced": false,
    "walk_lx_displaced": false,
+   "record_displaced": false,
+   "record_paper_displaced": false,
    "limits": {
     "none": 7,
     "term": 3,
@@ -20834,8 +22982,11 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "lambda8_steps": 2
    },
    "relativistic": false,
+   "paper_eleven": false,
    "walk_displaced": false,
    "walk_lx_displaced": false,
+   "record_displaced": false,
+   "record_paper_displaced": false,
    "limits": {
     "none": 17,
     "no-analysis": 2,
@@ -20871,8 +23022,11 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "lambda8_steps": 3
    },
    "relativistic": false,
+   "paper_eleven": false,
    "walk_displaced": false,
    "walk_lx_displaced": false,
+   "record_displaced": false,
+   "record_paper_displaced": false,
    "limits": {
     "none": 24,
     "term": 6,
@@ -20907,8 +23061,11 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "lambda8_steps": 4
    },
    "relativistic": false,
+   "paper_eleven": false,
    "walk_displaced": false,
    "walk_lx_displaced": false,
+   "record_displaced": false,
+   "record_paper_displaced": false,
    "limits": {
     "no-analysis": 2,
     "ionisation-limit": 3,
@@ -20945,8 +23102,11 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "lambda8_steps": 5
    },
    "relativistic": false,
+   "paper_eleven": false,
    "walk_displaced": false,
    "walk_lx_displaced": false,
+   "record_displaced": false,
+   "record_paper_displaced": false,
    "limits": {
     "none": 28,
     "term": 7,
@@ -20982,8 +23142,11 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "lambda8_steps": 6
    },
    "relativistic": false,
+   "paper_eleven": false,
    "walk_displaced": false,
    "walk_lx_displaced": false,
+   "record_displaced": false,
+   "record_paper_displaced": false,
    "limits": {
     "none": 16,
     "coupling": 4,
@@ -21020,8 +23183,11 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "lambda8_steps": 7
    },
    "relativistic": false,
+   "paper_eleven": false,
    "walk_displaced": false,
    "walk_lx_displaced": false,
+   "record_displaced": false,
+   "record_paper_displaced": false,
    "limits": {
     "coupling": 20,
     "unresolved": 36,
@@ -21058,8 +23224,11 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "lambda8_steps": 8
    },
    "relativistic": false,
+   "paper_eleven": false,
    "walk_displaced": false,
    "walk_lx_displaced": false,
+   "record_displaced": false,
+   "record_paper_displaced": false,
    "limits": {
     "none": 4,
     "coupling": 26,
@@ -21096,8 +23265,11 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "lambda8_steps": 9
    },
    "relativistic": false,
+   "paper_eleven": false,
    "walk_displaced": false,
    "walk_lx_displaced": false,
+   "record_displaced": false,
+   "record_paper_displaced": false,
    "limits": {
     "term": 39,
     "none": 7,
@@ -21134,8 +23306,11 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "lambda8_steps": 10
    },
    "relativistic": false,
+   "paper_eleven": false,
    "walk_displaced": false,
    "walk_lx_displaced": false,
+   "record_displaced": false,
+   "record_paper_displaced": false,
    "limits": {
     "ionisation-limit": 6,
     "unresolved": 50,
@@ -21172,8 +23347,11 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "lambda8_steps": 11
    },
    "relativistic": false,
+   "paper_eleven": false,
    "walk_displaced": false,
    "walk_lx_displaced": false,
+   "record_displaced": false,
+   "record_paper_displaced": false,
    "limits": {
     "none": 13,
     "term": 42,
@@ -21210,8 +23388,11 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "lambda8_steps": 12
    },
    "relativistic": false,
+   "paper_eleven": false,
    "walk_displaced": false,
    "walk_lx_displaced": false,
+   "record_displaced": false,
+   "record_paper_displaced": false,
    "limits": {
     "none": 14,
     "ionisation-limit": 2,
@@ -21249,8 +23430,11 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "lambda8_steps": 13
    },
    "relativistic": false,
+   "paper_eleven": false,
    "walk_displaced": false,
    "walk_lx_displaced": false,
+   "record_displaced": false,
+   "record_paper_displaced": false,
    "limits": {
     "term": 48,
     "none": 22,
@@ -21287,8 +23471,11 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "lambda8_steps": 14
    },
    "relativistic": false,
+   "paper_eleven": false,
    "walk_displaced": false,
    "walk_lx_displaced": false,
+   "record_displaced": false,
+   "record_paper_displaced": false,
    "limits": {
     "coupling": 40,
     "unresolved": 72,
@@ -21325,8 +23512,11 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "lambda8_steps": 15
    },
    "relativistic": false,
+   "paper_eleven": false,
    "walk_displaced": false,
    "walk_lx_displaced": false,
+   "record_displaced": false,
+   "record_paper_displaced": false,
    "limits": {
     "coupling": 50,
     "unresolved": 78,
@@ -21363,8 +23553,11 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "lambda8_steps": 16
    },
    "relativistic": false,
+   "paper_eleven": false,
    "walk_displaced": false,
    "walk_lx_displaced": false,
+   "record_displaced": false,
+   "record_paper_displaced": false,
    "limits": {
     "coupling": 60,
     "unresolved": 84,
@@ -21400,8 +23593,11 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "lambda8_steps": 17
    },
    "relativistic": false,
+   "paper_eleven": false,
    "walk_displaced": false,
    "walk_lx_displaced": false,
+   "record_displaced": false,
+   "record_paper_displaced": false,
    "limits": {
     "term": 70,
     "unresolved": 90,
@@ -21438,8 +23634,11 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "lambda8_steps": 18
    },
    "relativistic": false,
+   "paper_eleven": false,
    "walk_displaced": false,
    "walk_lx_displaced": false,
+   "record_displaced": false,
+   "record_paper_displaced": false,
    "limits": {
     "none": 6,
     "no-analysis": 21,
@@ -21476,8 +23675,11 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "lambda8_steps": 19
    },
    "relativistic": false,
+   "paper_eleven": false,
    "walk_displaced": false,
    "walk_lx_displaced": false,
+   "record_displaced": false,
+   "record_paper_displaced": false,
    "limits": {
     "none": 22,
     "term": 68,
@@ -21514,8 +23716,11 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "lambda8_steps": 20
    },
    "relativistic": false,
+   "paper_eleven": false,
    "walk_displaced": false,
    "walk_lx_displaced": false,
+   "record_displaced": false,
+   "record_paper_displaced": false,
    "limits": {
     "term": 84,
     "unresolved": 102,
@@ -21552,8 +23757,11 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "lambda8_steps": 21
    },
    "relativistic": false,
+   "paper_eleven": false,
    "walk_displaced": false,
    "walk_lx_displaced": false,
+   "record_displaced": false,
+   "record_paper_displaced": false,
    "limits": {
     "term": 85,
     "unresolved": 108,
@@ -21590,8 +23798,11 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "lambda8_steps": 22
    },
    "relativistic": false,
+   "paper_eleven": false,
    "walk_displaced": false,
    "walk_lx_displaced": false,
+   "record_displaced": false,
+   "record_paper_displaced": false,
    "limits": {
     "coupling": 70,
     "unresolved": 114,
@@ -21627,8 +23838,11 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "lambda8_steps": 23
    },
    "relativistic": false,
+   "paper_eleven": false,
    "walk_displaced": false,
    "walk_lx_displaced": false,
+   "record_displaced": false,
+   "record_paper_displaced": false,
    "limits": {
     "coupling": 80,
     "unresolved": 120,
@@ -21663,9 +23877,12 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "witnessed": 0,
     "lambda8_steps": 24
    },
-   "relativistic": true,
+   "relativistic": false,
+   "paper_eleven": true,
    "walk_displaced": false,
    "walk_lx_displaced": false,
+   "record_displaced": false,
+   "record_paper_displaced": true,
    "limits": {
     "coupling": 90,
     "unresolved": 126,
@@ -21701,8 +23918,11 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "lambda8_steps": 25
    },
    "relativistic": false,
+   "paper_eleven": false,
    "walk_displaced": false,
    "walk_lx_displaced": false,
+   "record_displaced": false,
+   "record_paper_displaced": false,
    "limits": {
     "coupling": 100,
     "unresolved": 132,
@@ -21739,8 +23959,11 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "lambda8_steps": 26
    },
    "relativistic": false,
+   "paper_eleven": false,
    "walk_displaced": false,
    "walk_lx_displaced": false,
+   "record_displaced": false,
+   "record_paper_displaced": false,
    "limits": {
     "coupling": 110,
     "unresolved": 138,
@@ -21776,8 +23999,11 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "lambda8_steps": 27
    },
    "relativistic": false,
+   "paper_eleven": false,
    "walk_displaced": false,
    "walk_lx_displaced": false,
+   "record_displaced": false,
+   "record_paper_displaced": false,
    "limits": {
     "coupling": 120,
     "unresolved": 144,
@@ -21813,8 +24039,11 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "lambda8_steps": 28
    },
    "relativistic": false,
+   "paper_eleven": false,
    "walk_displaced": false,
    "walk_lx_displaced": false,
+   "record_displaced": false,
+   "record_paper_displaced": false,
    "limits": {
     "coupling": 130,
     "unresolved": 150,
@@ -21849,9 +24078,12 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "witnessed": 9,
     "lambda8_steps": 29
    },
-   "relativistic": true,
+   "relativistic": false,
+   "paper_eleven": true,
    "walk_displaced": false,
    "walk_lx_displaced": false,
+   "record_displaced": false,
+   "record_paper_displaced": true,
    "limits": {
     "term": 101,
     "none": 9,
@@ -21888,8 +24120,11 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "lambda8_steps": 30
    },
    "relativistic": false,
+   "paper_eleven": false,
    "walk_displaced": false,
    "walk_lx_displaced": false,
+   "record_displaced": false,
+   "record_paper_displaced": false,
    "limits": {
     "none": 8,
     "ionisation-limit": 2,
@@ -21927,8 +24162,11 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "lambda8_steps": 31
    },
    "relativistic": false,
+   "paper_eleven": false,
    "walk_displaced": false,
    "walk_lx_displaced": false,
+   "record_displaced": false,
+   "record_paper_displaced": false,
    "limits": {
     "term": 110,
     "unresolved": 165,
@@ -21965,8 +24203,11 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "lambda8_steps": 32
    },
    "relativistic": false,
+   "paper_eleven": false,
    "walk_displaced": false,
    "walk_lx_displaced": false,
+   "record_displaced": false,
+   "record_paper_displaced": false,
    "limits": {
     "coupling": 140,
     "unresolved": 171,
@@ -22002,8 +24243,11 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "lambda8_steps": 33
    },
    "relativistic": false,
+   "paper_eleven": false,
    "walk_displaced": false,
    "walk_lx_displaced": false,
+   "record_displaced": false,
+   "record_paper_displaced": false,
    "limits": {
     "coupling": 150,
     "unresolved": 177,
@@ -22039,8 +24283,11 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "lambda8_steps": 34
    },
    "relativistic": false,
+   "paper_eleven": false,
    "walk_displaced": false,
    "walk_lx_displaced": false,
+   "record_displaced": false,
+   "record_paper_displaced": false,
    "limits": {
     "coupling": 160,
     "unresolved": 183,
@@ -22076,8 +24323,11 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "lambda8_steps": 35
    },
    "relativistic": false,
+   "paper_eleven": false,
    "walk_displaced": false,
    "walk_lx_displaced": false,
+   "record_displaced": false,
+   "record_paper_displaced": false,
    "limits": {
     "term": 125,
     "unresolved": 189,
@@ -22113,8 +24363,11 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "lambda8_steps": 36
    },
    "relativistic": false,
+   "paper_eleven": false,
    "walk_displaced": false,
    "walk_lx_displaced": false,
+   "record_displaced": false,
+   "record_paper_displaced": false,
    "limits": {
     "no-analysis": 35,
     "unresolved": 192,
@@ -22150,8 +24403,11 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "lambda8_steps": 37
    },
    "relativistic": false,
+   "paper_eleven": false,
    "walk_displaced": false,
    "walk_lx_displaced": false,
+   "record_displaced": false,
+   "record_paper_displaced": false,
    "limits": {
     "term": 135,
     "unresolved": 198,
@@ -22188,8 +24444,11 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "lambda8_steps": 38
    },
    "relativistic": false,
+   "paper_eleven": false,
    "walk_displaced": false,
    "walk_lx_displaced": false,
+   "record_displaced": false,
+   "record_paper_displaced": false,
    "limits": {
     "term": 140,
     "unresolved": 201,
@@ -22225,8 +24484,11 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "lambda8_steps": 39
    },
    "relativistic": false,
+   "paper_eleven": false,
    "walk_displaced": false,
    "walk_lx_displaced": false,
+   "record_displaced": false,
+   "record_paper_displaced": false,
    "limits": {
     "term": 150,
     "unresolved": 207,
@@ -22262,8 +24524,11 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "lambda8_steps": 40
    },
    "relativistic": false,
+   "paper_eleven": false,
    "walk_displaced": false,
    "walk_lx_displaced": false,
+   "record_displaced": false,
+   "record_paper_displaced": false,
    "limits": {
     "coupling": 170,
     "unresolved": 213,
@@ -22299,8 +24564,11 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "lambda8_steps": 41
    },
    "relativistic": false,
+   "paper_eleven": false,
    "walk_displaced": false,
    "walk_lx_displaced": false,
+   "record_displaced": false,
+   "record_paper_displaced": false,
    "limits": {
     "coupling": 180,
     "unresolved": 219,
@@ -22336,8 +24604,11 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "lambda8_steps": 42
    },
    "relativistic": false,
+   "paper_eleven": false,
    "walk_displaced": false,
    "walk_lx_displaced": false,
+   "record_displaced": false,
+   "record_paper_displaced": false,
    "limits": {
     "coupling": 190,
     "unresolved": 225,
@@ -22374,8 +24645,11 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "lambda8_steps": 43
    },
    "relativistic": false,
+   "paper_eleven": false,
    "walk_displaced": false,
    "walk_lx_displaced": false,
+   "record_displaced": false,
+   "record_paper_displaced": false,
    "limits": {
     "coupling": 200,
     "unresolved": 231,
@@ -22411,8 +24685,11 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "lambda8_steps": 44
    },
    "relativistic": false,
+   "paper_eleven": false,
    "walk_displaced": false,
    "walk_lx_displaced": false,
+   "record_displaced": false,
+   "record_paper_displaced": false,
    "limits": {
     "coupling": 210,
     "unresolved": 237,
@@ -22448,8 +24725,11 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "lambda8_steps": 45
    },
    "relativistic": false,
+   "paper_eleven": false,
    "walk_displaced": false,
    "walk_lx_displaced": false,
+   "record_displaced": false,
+   "record_paper_displaced": false,
    "limits": {
     "coupling": 220,
     "unresolved": 243,
@@ -22484,9 +24764,12 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "witnessed": 0,
     "lambda8_steps": 46
    },
-   "relativistic": true,
+   "relativistic": false,
+   "paper_eleven": true,
    "walk_displaced": false,
    "walk_lx_displaced": false,
+   "record_displaced": false,
+   "record_paper_displaced": true,
    "limits": {
     "coupling": 230,
     "unresolved": 249,
@@ -22521,9 +24804,12 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "witnessed": 12,
     "lambda8_steps": 47
    },
-   "relativistic": true,
+   "relativistic": false,
+   "paper_eleven": true,
    "walk_displaced": false,
    "walk_lx_displaced": false,
+   "record_displaced": false,
+   "record_paper_displaced": true,
    "limits": {
     "none": 12,
     "term": 153,
@@ -22560,8 +24846,11 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "lambda8_steps": 48
    },
    "relativistic": false,
+   "paper_eleven": false,
    "walk_displaced": false,
    "walk_lx_displaced": false,
+   "record_displaced": false,
+   "record_paper_displaced": false,
    "limits": {
     "term": 164,
     "ionisation-limit": 1,
@@ -22598,8 +24887,11 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "lambda8_steps": 49
    },
    "relativistic": false,
+   "paper_eleven": false,
    "walk_displaced": false,
    "walk_lx_displaced": false,
+   "record_displaced": false,
+   "record_paper_displaced": false,
    "limits": {
     "term": 175,
     "unresolved": 264,
@@ -22635,8 +24927,11 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "lambda8_steps": 50
    },
    "relativistic": false,
+   "paper_eleven": false,
    "walk_displaced": false,
    "walk_lx_displaced": false,
+   "record_displaced": false,
+   "record_paper_displaced": false,
    "limits": {
     "coupling": 240,
     "unresolved": 270,
@@ -22672,8 +24967,11 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "lambda8_steps": 51
    },
    "relativistic": false,
+   "paper_eleven": false,
    "walk_displaced": false,
    "walk_lx_displaced": false,
+   "record_displaced": false,
+   "record_paper_displaced": false,
    "limits": {
     "coupling": 250,
     "unresolved": 276,
@@ -22709,8 +25007,11 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "lambda8_steps": 52
    },
    "relativistic": false,
+   "paper_eleven": false,
    "walk_displaced": false,
    "walk_lx_displaced": false,
+   "record_displaced": false,
+   "record_paper_displaced": false,
    "limits": {
     "coupling": 260,
     "unresolved": 282,
@@ -22746,8 +25047,11 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "lambda8_steps": 53
    },
    "relativistic": false,
+   "paper_eleven": false,
    "walk_displaced": false,
    "walk_lx_displaced": false,
+   "record_displaced": false,
+   "record_paper_displaced": false,
    "limits": {
     "term": 185,
     "unresolved": 288,
@@ -22783,8 +25087,11 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "lambda8_steps": 54
    },
    "relativistic": false,
+   "paper_eleven": false,
    "walk_displaced": false,
    "walk_lx_displaced": false,
+   "record_displaced": false,
+   "record_paper_displaced": false,
    "limits": {
     "ionisation-limit": 5,
     "unresolved": 291,
@@ -22821,8 +25128,11 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "lambda8_steps": 55
    },
    "relativistic": false,
+   "paper_eleven": false,
    "walk_displaced": false,
    "walk_lx_displaced": true,
+   "record_displaced": false,
+   "record_paper_displaced": false,
    "limits": {
     "term": 195,
     "unresolved": 297,
@@ -22859,8 +25169,11 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "lambda8_steps": 56
    },
    "relativistic": false,
+   "paper_eleven": false,
    "walk_displaced": false,
    "walk_lx_displaced": false,
+   "record_displaced": false,
+   "record_paper_displaced": false,
    "limits": {
     "term": 205,
     "unresolved": 300,
@@ -22896,8 +25209,11 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "lambda8_steps": 57
    },
    "relativistic": false,
+   "paper_eleven": false,
    "walk_displaced": true,
    "walk_lx_displaced": false,
+   "record_displaced": false,
+   "record_paper_displaced": false,
    "limits": {
     "term": 215,
     "unresolved": 306,
@@ -22933,8 +25249,11 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "lambda8_steps": 58
    },
    "relativistic": false,
+   "paper_eleven": false,
    "walk_displaced": false,
    "walk_lx_displaced": false,
+   "record_displaced": false,
+   "record_paper_displaced": false,
    "limits": {
     "coupling": 270,
     "unresolved": 312,
@@ -22969,9 +25288,12 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "witnessed": 0,
     "lambda8_steps": 59
    },
-   "relativistic": true,
+   "relativistic": false,
+   "paper_eleven": true,
    "walk_displaced": false,
    "walk_lx_displaced": false,
+   "record_displaced": false,
+   "record_paper_displaced": true,
    "limits": {
     "coupling": 280,
     "unresolved": 318,
@@ -23006,9 +25328,12 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "witnessed": 0,
     "lambda8_steps": 60
    },
-   "relativistic": true,
+   "relativistic": false,
+   "paper_eleven": true,
    "walk_displaced": false,
    "walk_lx_displaced": false,
+   "record_displaced": false,
+   "record_paper_displaced": true,
    "limits": {
     "coupling": 290,
     "unresolved": 324,
@@ -23043,9 +25368,12 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "witnessed": 0,
     "lambda8_steps": 61
    },
-   "relativistic": true,
+   "relativistic": false,
+   "paper_eleven": true,
    "walk_displaced": false,
    "walk_lx_displaced": false,
+   "record_displaced": false,
+   "record_paper_displaced": true,
    "limits": {
     "coupling": 300,
     "unresolved": 330,
@@ -23081,8 +25409,11 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "lambda8_steps": 62
    },
    "relativistic": false,
+   "paper_eleven": false,
    "walk_displaced": false,
    "walk_lx_displaced": false,
+   "record_displaced": false,
+   "record_paper_displaced": false,
    "limits": {
     "coupling": 310,
     "unresolved": 336,
@@ -23118,8 +25449,11 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "lambda8_steps": 63
    },
    "relativistic": false,
+   "paper_eleven": false,
    "walk_displaced": false,
    "walk_lx_displaced": false,
+   "record_displaced": false,
+   "record_paper_displaced": false,
    "limits": {
     "coupling": 320,
     "unresolved": 342,
@@ -23155,8 +25489,11 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "lambda8_steps": 64
    },
    "relativistic": false,
+   "paper_eleven": false,
    "walk_displaced": false,
    "walk_lx_displaced": false,
+   "record_displaced": false,
+   "record_paper_displaced": false,
    "limits": {
     "coupling": 330,
     "unresolved": 348,
@@ -23192,8 +25529,11 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "lambda8_steps": 65
    },
    "relativistic": false,
+   "paper_eleven": false,
    "walk_displaced": false,
    "walk_lx_displaced": false,
+   "record_displaced": false,
+   "record_paper_displaced": false,
    "limits": {
     "coupling": 340,
     "unresolved": 354,
@@ -23229,8 +25569,11 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "lambda8_steps": 66
    },
    "relativistic": false,
+   "paper_eleven": false,
    "walk_displaced": false,
    "walk_lx_displaced": false,
+   "record_displaced": false,
+   "record_paper_displaced": false,
    "limits": {
     "coupling": 350,
     "unresolved": 360,
@@ -23266,8 +25609,11 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "lambda8_steps": 67
    },
    "relativistic": false,
+   "paper_eleven": false,
    "walk_displaced": false,
    "walk_lx_displaced": false,
+   "record_displaced": false,
+   "record_paper_displaced": false,
    "limits": {
     "coupling": 360,
     "unresolved": 366,
@@ -23303,8 +25649,11 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "lambda8_steps": 68
    },
    "relativistic": false,
+   "paper_eleven": false,
    "walk_displaced": false,
    "walk_lx_displaced": false,
+   "record_displaced": false,
+   "record_paper_displaced": false,
    "limits": {
     "coupling": 370,
     "unresolved": 372,
@@ -23340,8 +25689,11 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "lambda8_steps": 69
    },
    "relativistic": false,
+   "paper_eleven": false,
    "walk_displaced": false,
    "walk_lx_displaced": false,
+   "record_displaced": false,
+   "record_paper_displaced": false,
    "limits": {
     "term": 225,
     "unresolved": 378,
@@ -23376,9 +25728,12 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "witnessed": 1,
     "lambda8_steps": 70
    },
-   "relativistic": true,
+   "relativistic": false,
+   "paper_eleven": true,
    "walk_displaced": false,
    "walk_lx_displaced": true,
+   "record_displaced": false,
+   "record_paper_displaced": true,
    "limits": {
     "term": 229,
     "ionisation-limit": 1,
@@ -23415,8 +25770,11 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "lambda8_steps": 71
    },
    "relativistic": false,
+   "paper_eleven": false,
    "walk_displaced": true,
    "walk_lx_displaced": false,
+   "record_displaced": false,
+   "record_paper_displaced": false,
    "limits": {
     "term": 240,
     "unresolved": 387,
@@ -23452,8 +25810,11 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "lambda8_steps": 72
    },
    "relativistic": false,
+   "paper_eleven": false,
    "walk_displaced": false,
    "walk_lx_displaced": false,
+   "record_displaced": false,
+   "record_paper_displaced": false,
    "limits": {
     "coupling": 380,
     "unresolved": 393,
@@ -23489,8 +25850,11 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "lambda8_steps": 73
    },
    "relativistic": false,
+   "paper_eleven": false,
    "walk_displaced": false,
    "walk_lx_displaced": false,
+   "record_displaced": false,
+   "record_paper_displaced": false,
    "limits": {
     "coupling": 390,
     "unresolved": 399,
@@ -23526,8 +25890,11 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "lambda8_steps": 74
    },
    "relativistic": false,
+   "paper_eleven": false,
    "walk_displaced": false,
    "walk_lx_displaced": false,
+   "record_displaced": false,
+   "record_paper_displaced": false,
    "limits": {
     "coupling": 400,
     "unresolved": 405,
@@ -23563,8 +25930,11 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "lambda8_steps": 75
    },
    "relativistic": false,
+   "paper_eleven": false,
    "walk_displaced": false,
    "walk_lx_displaced": false,
+   "record_displaced": false,
+   "record_paper_displaced": false,
    "limits": {
     "coupling": 410,
     "unresolved": 411,
@@ -23600,8 +25970,11 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "lambda8_steps": 76
    },
    "relativistic": false,
+   "paper_eleven": false,
    "walk_displaced": false,
    "walk_lx_displaced": false,
+   "record_displaced": false,
+   "record_paper_displaced": false,
    "limits": {
     "coupling": 420,
     "unresolved": 417,
@@ -23637,8 +26010,11 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "lambda8_steps": 77
    },
    "relativistic": false,
+   "paper_eleven": false,
    "walk_displaced": false,
    "walk_lx_displaced": false,
+   "record_displaced": false,
+   "record_paper_displaced": false,
    "limits": {
     "coupling": 430,
     "unresolved": 423,
@@ -23674,8 +26050,11 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "lambda8_steps": 78
    },
    "relativistic": false,
+   "paper_eleven": false,
    "walk_displaced": false,
    "walk_lx_displaced": false,
+   "record_displaced": false,
+   "record_paper_displaced": false,
    "limits": {
     "coupling": 440,
     "unresolved": 429,
@@ -23710,9 +26089,12 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "witnessed": 5,
     "lambda8_steps": 79
    },
-   "relativistic": true,
+   "relativistic": false,
+   "paper_eleven": true,
    "walk_displaced": false,
    "walk_lx_displaced": false,
+   "record_displaced": false,
+   "record_paper_displaced": true,
    "limits": {
     "term": 250,
     "unresolved": 435,
@@ -23749,8 +26131,11 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "lambda8_steps": 80
    },
    "relativistic": false,
+   "paper_eleven": false,
    "walk_displaced": false,
    "walk_lx_displaced": false,
+   "record_displaced": false,
+   "record_paper_displaced": false,
    "limits": {
     "ionisation-limit": 3,
     "term": 252,
@@ -23787,8 +26172,11 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "lambda8_steps": 81
    },
    "relativistic": false,
+   "paper_eleven": false,
    "walk_displaced": false,
    "walk_lx_displaced": false,
+   "record_displaced": false,
+   "record_paper_displaced": false,
    "limits": {
     "term": 265,
     "unresolved": 444,
@@ -23824,8 +26212,11 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "lambda8_steps": 82
    },
    "relativistic": false,
+   "paper_eleven": false,
    "walk_displaced": false,
    "walk_lx_displaced": false,
+   "record_displaced": false,
+   "record_paper_displaced": false,
    "limits": {
     "coupling": 450,
     "unresolved": 450,
@@ -23862,8 +26253,11 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "lambda8_steps": 83
    },
    "relativistic": false,
+   "paper_eleven": false,
    "walk_displaced": false,
    "walk_lx_displaced": false,
+   "record_displaced": false,
+   "record_paper_displaced": false,
    "limits": {
     "coupling": 460,
     "unresolved": 456,
@@ -23899,8 +26293,11 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "lambda8_steps": 84
    },
    "relativistic": false,
+   "paper_eleven": false,
    "walk_displaced": false,
    "walk_lx_displaced": false,
+   "record_displaced": false,
+   "record_paper_displaced": false,
    "limits": {
     "coupling": 470,
     "unresolved": 462,
@@ -23936,8 +26333,11 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "lambda8_steps": 85
    },
    "relativistic": false,
+   "paper_eleven": false,
    "walk_displaced": false,
    "walk_lx_displaced": false,
+   "record_displaced": false,
+   "record_paper_displaced": false,
    "limits": {
     "term": 275,
     "unresolved": 468,
@@ -23973,8 +26373,11 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "lambda8_steps": 86
    },
    "relativistic": false,
+   "paper_eleven": false,
    "walk_displaced": false,
    "walk_lx_displaced": false,
+   "record_displaced": false,
+   "record_paper_displaced": false,
    "limits": {
     "ionisation-limit": 2,
     "term": 278,
@@ -24011,8 +26414,11 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "lambda8_steps": 87
    },
    "relativistic": false,
+   "paper_eleven": false,
    "walk_displaced": false,
    "walk_lx_displaced": true,
+   "record_displaced": false,
+   "record_paper_displaced": false,
    "limits": {
     "term": 290,
     "unresolved": 477,
@@ -24048,8 +26454,11 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "lambda8_steps": 88
    },
    "relativistic": false,
+   "paper_eleven": false,
    "walk_displaced": false,
    "walk_lx_displaced": true,
+   "record_displaced": false,
+   "record_paper_displaced": false,
    "limits": {
     "term": 295,
     "unresolved": 480,
@@ -24084,9 +26493,12 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "witnessed": 0,
     "lambda8_steps": 89
    },
-   "relativistic": false,
+   "relativistic": true,
+   "paper_eleven": false,
    "walk_displaced": true,
    "walk_lx_displaced": false,
+   "record_displaced": true,
+   "record_paper_displaced": false,
    "limits": {
     "term": 305,
     "unresolved": 486,
@@ -24122,8 +26534,11 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "lambda8_steps": 90
    },
    "relativistic": false,
+   "paper_eleven": false,
    "walk_displaced": false,
    "walk_lx_displaced": false,
+   "record_displaced": false,
+   "record_paper_displaced": false,
    "limits": {
     "coupling": 480,
     "unresolved": 492,
@@ -24159,8 +26574,11 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "lambda8_steps": 91
    },
    "relativistic": false,
+   "paper_eleven": false,
    "walk_displaced": false,
    "walk_lx_displaced": false,
+   "record_displaced": false,
+   "record_paper_displaced": false,
    "limits": {
     "coupling": 490,
     "unresolved": 498,
@@ -24196,8 +26614,11 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "lambda8_steps": 92
    },
    "relativistic": false,
+   "paper_eleven": false,
    "walk_displaced": false,
    "walk_lx_displaced": false,
+   "record_displaced": false,
+   "record_paper_displaced": false,
    "limits": {
     "coupling": 500,
     "unresolved": 504,
@@ -24233,8 +26654,11 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "lambda8_steps": 93
    },
    "relativistic": false,
+   "paper_eleven": false,
    "walk_displaced": false,
    "walk_lx_displaced": false,
+   "record_displaced": false,
+   "record_paper_displaced": false,
    "limits": {
     "coupling": 510,
     "unresolved": 510,
@@ -24270,8 +26694,11 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "lambda8_steps": 94
    },
    "relativistic": false,
+   "paper_eleven": false,
    "walk_displaced": false,
    "walk_lx_displaced": false,
+   "record_displaced": false,
+   "record_paper_displaced": false,
    "limits": {
     "coupling": 520,
     "unresolved": 516,
@@ -24307,8 +26734,11 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "lambda8_steps": 95
    },
    "relativistic": false,
+   "paper_eleven": false,
    "walk_displaced": false,
    "walk_lx_displaced": false,
+   "record_displaced": false,
+   "record_paper_displaced": false,
    "limits": {
     "coupling": 530,
     "unresolved": 522,
@@ -24344,8 +26774,11 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "lambda8_steps": 96
    },
    "relativistic": false,
+   "paper_eleven": false,
    "walk_displaced": false,
    "walk_lx_displaced": false,
+   "record_displaced": false,
+   "record_paper_displaced": false,
    "limits": {
     "coupling": 540,
     "unresolved": 528,
@@ -24381,8 +26814,11 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "lambda8_steps": 97
    },
    "relativistic": false,
+   "paper_eleven": false,
    "walk_displaced": false,
    "walk_lx_displaced": false,
+   "record_displaced": false,
+   "record_paper_displaced": false,
    "limits": {
     "coupling": 550,
     "unresolved": 534,
@@ -24418,8 +26854,11 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "lambda8_steps": 98
    },
    "relativistic": false,
+   "paper_eleven": false,
    "walk_displaced": false,
    "walk_lx_displaced": false,
+   "record_displaced": false,
+   "record_paper_displaced": false,
    "limits": {
     "coupling": 560,
     "unresolved": 540,
@@ -24455,8 +26894,11 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "lambda8_steps": 99
    },
    "relativistic": false,
+   "paper_eleven": false,
    "walk_displaced": false,
    "walk_lx_displaced": false,
+   "record_displaced": false,
+   "record_paper_displaced": false,
    "limits": {
     "coupling": 570,
     "unresolved": 546,
@@ -24492,8 +26934,11 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "lambda8_steps": 100
    },
    "relativistic": false,
+   "paper_eleven": false,
    "walk_displaced": false,
    "walk_lx_displaced": false,
+   "record_displaced": false,
+   "record_paper_displaced": false,
    "limits": {
     "coupling": 580,
     "unresolved": 552,
@@ -24529,8 +26974,11 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "lambda8_steps": 101
    },
    "relativistic": false,
+   "paper_eleven": false,
    "walk_displaced": false,
    "walk_lx_displaced": false,
+   "record_displaced": false,
+   "record_paper_displaced": false,
    "limits": {
     "term": 315,
     "unresolved": 558,
@@ -24565,9 +27013,12 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "witnessed": 0,
     "lambda8_steps": 102
    },
-   "relativistic": true,
+   "relativistic": false,
+   "paper_eleven": true,
    "walk_displaced": false,
    "walk_lx_displaced": true,
+   "record_displaced": false,
+   "record_paper_displaced": true,
    "limits": {
     "term": 320,
     "unresolved": 561,
@@ -24603,8 +27054,11 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "lambda8_steps": 103
    },
    "relativistic": true,
+   "paper_eleven": true,
    "walk_displaced": true,
    "walk_lx_displaced": false,
+   "record_displaced": true,
+   "record_paper_displaced": true,
    "limits": {
     "nuclear": 1512,
     "symmetry": 8
@@ -24637,8 +27091,11 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "lambda8_steps": 104
    },
    "relativistic": false,
+   "paper_eleven": false,
    "walk_displaced": false,
    "walk_lx_displaced": false,
+   "record_displaced": false,
+   "record_paper_displaced": false,
    "limits": {
     "nuclear": 1528,
     "symmetry": 8
@@ -24671,8 +27128,11 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "lambda8_steps": 105
    },
    "relativistic": false,
+   "paper_eleven": false,
    "walk_displaced": false,
    "walk_lx_displaced": false,
+   "record_displaced": false,
+   "record_paper_displaced": false,
    "limits": {
     "nuclear": 1544,
     "symmetry": 8
@@ -24705,8 +27165,11 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "lambda8_steps": 106
    },
    "relativistic": false,
+   "paper_eleven": false,
    "walk_displaced": false,
    "walk_lx_displaced": false,
+   "record_displaced": false,
+   "record_paper_displaced": false,
    "limits": {
     "nuclear": 1560,
     "symmetry": 8
@@ -24739,8 +27202,11 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "lambda8_steps": 107
    },
    "relativistic": false,
+   "paper_eleven": false,
    "walk_displaced": false,
    "walk_lx_displaced": false,
+   "record_displaced": false,
+   "record_paper_displaced": false,
    "limits": {
     "nuclear": 1576,
     "symmetry": 8
@@ -24770,8 +27236,11 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "lambda8_steps": 0
    },
    "relativistic": false,
+   "paper_eleven": false,
    "walk_displaced": false,
    "walk_lx_displaced": false,
+   "record_displaced": false,
+   "record_paper_displaced": false,
    "limits": {
     "nuclear": 1592,
     "symmetry": 8
@@ -24801,8 +27270,11 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "lambda8_steps": 0
    },
    "relativistic": false,
+   "paper_eleven": false,
    "walk_displaced": false,
    "walk_lx_displaced": false,
+   "record_displaced": false,
+   "record_paper_displaced": false,
    "limits": {
     "nuclear": 1608,
     "symmetry": 8
@@ -24832,8 +27304,11 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "lambda8_steps": 0
    },
    "relativistic": false,
+   "paper_eleven": false,
    "walk_displaced": false,
    "walk_lx_displaced": false,
+   "record_displaced": false,
+   "record_paper_displaced": false,
    "limits": {
     "nuclear": 1624,
     "symmetry": 8
@@ -24863,8 +27338,11 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "lambda8_steps": 0
    },
    "relativistic": false,
+   "paper_eleven": false,
    "walk_displaced": false,
    "walk_lx_displaced": true,
+   "record_displaced": false,
+   "record_paper_displaced": false,
    "limits": {
     "nuclear": 1640,
     "symmetry": 8
@@ -24894,8 +27372,11 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "lambda8_steps": 0
    },
    "relativistic": false,
+   "paper_eleven": false,
    "walk_displaced": false,
    "walk_lx_displaced": false,
+   "record_displaced": false,
+   "record_paper_displaced": false,
    "limits": {
     "nuclear": 1648,
     "symmetry": 8
@@ -24925,8 +27406,11 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "lambda8_steps": 0
    },
    "relativistic": false,
+   "paper_eleven": false,
    "walk_displaced": false,
    "walk_lx_displaced": false,
+   "record_displaced": false,
+   "record_paper_displaced": false,
    "limits": {
     "nuclear": 1664,
     "symmetry": 8
@@ -24956,8 +27440,11 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "lambda8_steps": 0
    },
    "relativistic": false,
+   "paper_eleven": false,
    "walk_displaced": false,
    "walk_lx_displaced": false,
+   "record_displaced": false,
+   "record_paper_displaced": false,
    "limits": {
     "nuclear": 1680,
     "symmetry": 8
@@ -24987,8 +27474,11 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "lambda8_steps": 0
    },
    "relativistic": false,
+   "paper_eleven": false,
    "walk_displaced": false,
    "walk_lx_displaced": false,
+   "record_displaced": false,
+   "record_paper_displaced": false,
    "limits": {
     "nuclear": 1696,
     "symmetry": 8
@@ -25018,8 +27508,11 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "lambda8_steps": 0
    },
    "relativistic": false,
+   "paper_eleven": false,
    "walk_displaced": false,
    "walk_lx_displaced": false,
+   "record_displaced": false,
+   "record_paper_displaced": false,
    "limits": {
     "nuclear": 1712,
     "symmetry": 8
@@ -25049,8 +27542,11 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "lambda8_steps": 0
    },
    "relativistic": false,
+   "paper_eleven": false,
    "walk_displaced": false,
    "walk_lx_displaced": false,
+   "record_displaced": false,
+   "record_paper_displaced": false,
    "limits": {
     "nuclear": 1728,
     "symmetry": 8
@@ -25080,8 +27576,11 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "lambda8_steps": 0
    },
    "relativistic": false,
+   "paper_eleven": false,
    "walk_displaced": false,
    "walk_lx_displaced": false,
+   "record_displaced": false,
+   "record_paper_displaced": false,
    "limits": {
     "nuclear": 1744
    }
@@ -25109,9 +27608,12 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "witnessed": 0,
     "lambda8_steps": 0
    },
-   "relativistic": false,
+   "relativistic": true,
+   "paper_eleven": false,
    "walk_displaced": true,
    "walk_lx_displaced": true,
+   "record_displaced": true,
+   "record_paper_displaced": false,
    "limits": {
     "nuclear": 1760
    }
@@ -25121,962 +27623,962 @@ window.__mi = window.__mi || {}; window.__mi.index = {
   {
    "Z": 1,
    "file": "elements/1.js",
-   "bytes": 3953,
-   "md5": "dc2cfa904d55e67d3d24bb44b5579e61",
-   "payload_bytes": 3873,
-   "payload_md5": "992794d98fdfef8069956d22d91a09ae"
+   "bytes": 3972,
+   "md5": "f986fea4f00d5ff3eb3ec7ba6cd497ef",
+   "payload_bytes": 3892,
+   "payload_md5": "defb0ca5e6de5acd9658a57cf2622a93"
   },
   {
    "Z": 2,
    "file": "elements/2.js",
-   "bytes": 14686,
-   "md5": "cb4064b07d90eba2c46492eeb927f9ca",
-   "payload_bytes": 14606,
-   "payload_md5": "6a6a851a6a6b42f73c8c566fc552bd69"
+   "bytes": 15804,
+   "md5": "535cbbf82a0f29d5d5685b449297634e",
+   "payload_bytes": 15724,
+   "payload_md5": "60832148c179137d8ab5dcd5410126ec"
   },
   {
    "Z": 3,
    "file": "elements/3.js",
-   "bytes": 18079,
-   "md5": "0948aebb249822e882bf735dc2adfeed",
-   "payload_bytes": 17999,
-   "payload_md5": "257d628cecfe47c8c546b53c35ef243f"
+   "bytes": 19073,
+   "md5": "4b6cce1be7ade59174a581eb6053fb3a",
+   "payload_bytes": 18993,
+   "payload_md5": "0b3618087a7d471859007c51f11c6fb0"
   },
   {
    "Z": 4,
    "file": "elements/4.js",
-   "bytes": 23876,
-   "md5": "1025c14b8b5cf90b097840bbe5f31f5f",
-   "payload_bytes": 23796,
-   "payload_md5": "26ae14434651e4895b376f20ba7c9496"
+   "bytes": 25074,
+   "md5": "5b861497d6f14ca68ea87b82c5cd949c",
+   "payload_bytes": 24994,
+   "payload_md5": "599b2aea9a8123b4d2689236c01bde3b"
   },
   {
    "Z": 5,
    "file": "elements/5.js",
-   "bytes": 27887,
-   "md5": "d85c913ebb0af6235659d16d84582486",
-   "payload_bytes": 27807,
-   "payload_md5": "585ceece693bd139e1f3242ee7c83237"
+   "bytes": 29016,
+   "md5": "8642b72ab11c6245d7c737c793385783",
+   "payload_bytes": 28936,
+   "payload_md5": "66c4c79c5b48e5d88e36ad360f5fb79a"
   },
   {
    "Z": 6,
    "file": "elements/6.js",
-   "bytes": 33772,
-   "md5": "21e47dd44541ef743c53a09bb383d996",
-   "payload_bytes": 33692,
-   "payload_md5": "647ff85e58c2617b5af4ff0e070debde"
+   "bytes": 34917,
+   "md5": "7139c9bd35d61f440c523df38f92b053",
+   "payload_bytes": 34837,
+   "payload_md5": "5f13296e8da353879b494cf5c6de8ebe"
   },
   {
    "Z": 7,
    "file": "elements/7.js",
-   "bytes": 40561,
-   "md5": "dad463d4adc635fdd8566d7627ecd76d",
-   "payload_bytes": 40481,
-   "payload_md5": "c03f82bcb320915fe97c63860ea44452"
+   "bytes": 41706,
+   "md5": "3c6ce89ea6b6ce47c421ffc35d31faa0",
+   "payload_bytes": 41626,
+   "payload_md5": "8fc384ff3a44caa78606d3a1e0035289"
   },
   {
    "Z": 8,
    "file": "elements/8.js",
-   "bytes": 46627,
-   "md5": "0fb2156d098d5f088896a8318eddecf3",
-   "payload_bytes": 46547,
-   "payload_md5": "69769ed62c6c39c990f5390e2a0d6175"
+   "bytes": 47768,
+   "md5": "b8d17a74539a489491051a6b7ee677ce",
+   "payload_bytes": 47688,
+   "payload_md5": "6dff7061493c657af09e3655bddf3265"
   },
   {
    "Z": 9,
    "file": "elements/9.js",
-   "bytes": 52909,
-   "md5": "5cc5dfab5159b15968533feb7b7ea4e7",
-   "payload_bytes": 52829,
-   "payload_md5": "7b3499f6e35c81b7e0899e3bdb281fe9"
+   "bytes": 54050,
+   "md5": "effc3ed6cc68de4a3d0a045ebfe89b9e",
+   "payload_bytes": 53970,
+   "payload_md5": "c4d56ee559f117a0e72e6e26a4ad5f81"
   },
   {
    "Z": 10,
    "file": "elements/10.js",
-   "bytes": 58997,
-   "md5": "3ee359865c316819828c50c4df164689",
-   "payload_bytes": 58916,
-   "payload_md5": "9fdac28654cb6e0feaa051ffbf0ee199"
+   "bytes": 60092,
+   "md5": "5a3e9e2f2a558090c1b89eaddc8ff806",
+   "payload_bytes": 60011,
+   "payload_md5": "0ca91c54caf1854d6db0a66ce9904ad9"
   },
   {
    "Z": 11,
    "file": "elements/11.js",
-   "bytes": 63593,
-   "md5": "43e2e80941bd088cb99885130b1370fc",
-   "payload_bytes": 63512,
-   "payload_md5": "77ef5b1d809c94c28ef22141fa62ef5d"
+   "bytes": 64626,
+   "md5": "7100c8394ba0b176a8ec7d2fb6026d51",
+   "payload_bytes": 64545,
+   "payload_md5": "49e92307de777c92e18a05ff9063491c"
   },
   {
    "Z": 12,
    "file": "elements/12.js",
-   "bytes": 68718,
-   "md5": "0f83bd63bf3075c9466fa104c913a5d5",
-   "payload_bytes": 68637,
-   "payload_md5": "0c694607584e020e354b979216293eea"
+   "bytes": 70067,
+   "md5": "7189eea9045188430d6319503dda05e8",
+   "payload_bytes": 69986,
+   "payload_md5": "b6f4b498db07ecb7cae5deb2bfcf3180"
   },
   {
    "Z": 13,
    "file": "elements/13.js",
-   "bytes": 72865,
-   "md5": "36dfef93e2e80b7a77e8bf36031b5e8e",
-   "payload_bytes": 72784,
-   "payload_md5": "1f6890a657448c592d4db782414a9022"
+   "bytes": 74150,
+   "md5": "3738656115ae34e65ae1a14668a0c869",
+   "payload_bytes": 74069,
+   "payload_md5": "758fc03f2a4b483177e739ff79719421"
   },
   {
    "Z": 14,
    "file": "elements/14.js",
-   "bytes": 78516,
-   "md5": "bb735492c7c9df1d7f1ee059d1686edb",
-   "payload_bytes": 78435,
-   "payload_md5": "cc756d388e581c58a692b530614174da"
+   "bytes": 79815,
+   "md5": "b4c9e246ef69adf712e94c516c342eea",
+   "payload_bytes": 79734,
+   "payload_md5": "03bccec91fbb6084ded4dbb3c4c5177a"
   },
   {
    "Z": 15,
    "file": "elements/15.js",
-   "bytes": 84922,
-   "md5": "b5fe97fb7b8de6ad8b2024cee53227e5",
-   "payload_bytes": 84841,
-   "payload_md5": "8fe8506931fe375a137133be5f12b8ec"
+   "bytes": 86220,
+   "md5": "6e9f4e26261be23d759858fa8b9632e2",
+   "payload_bytes": 86139,
+   "payload_md5": "b9bf5e194e202db16ed971cfaddf0fc4"
   },
   {
    "Z": 16,
    "file": "elements/16.js",
-   "bytes": 90597,
-   "md5": "1fa5564993bb7e659f4d354afe7e4e04",
-   "payload_bytes": 90516,
-   "payload_md5": "2159d29684ca6798fc01610c9a419a03"
+   "bytes": 91895,
+   "md5": "d7f085cad2abc6b1f1d9964fa7f18f82",
+   "payload_bytes": 91814,
+   "payload_md5": "ff772fefe93657d929b35e56f9a1009e"
   },
   {
    "Z": 17,
    "file": "elements/17.js",
-   "bytes": 97506,
-   "md5": "5bcb396d515ef083909e9eea1780f56b",
-   "payload_bytes": 97425,
-   "payload_md5": "bdd392c828fdb884c05964ba44da0548"
+   "bytes": 98805,
+   "md5": "6f079b08c154cd6e2f0250566b4d8be6",
+   "payload_bytes": 98724,
+   "payload_md5": "a5875cab4d07d2646102dfd5011f1c17"
   },
   {
    "Z": 18,
    "file": "elements/18.js",
-   "bytes": 104617,
-   "md5": "14a4fa0592aaa9e869d0b8228fe8f792",
-   "payload_bytes": 104536,
-   "payload_md5": "88c65a2a129ccbe22c9de05e297f3eb9"
+   "bytes": 105916,
+   "md5": "1e48968beaa6d40f3620f7e15cbbf8d5",
+   "payload_bytes": 105835,
+   "payload_md5": "1009ef691fde2b61609f415aac0141d7"
   },
   {
    "Z": 19,
    "file": "elements/19.js",
-   "bytes": 108416,
-   "md5": "45bbedb08ea6bc2f2bcf4d3ca9e8ff86",
-   "payload_bytes": 108335,
-   "payload_md5": "4b90bc7ad49d0f7fde40e0ca44789038"
+   "bytes": 109726,
+   "md5": "4807e1b37eb2019ec6343eda80bdfa3d",
+   "payload_bytes": 109645,
+   "payload_md5": "2a1ce70404c77d53371d766e45128a71"
   },
   {
    "Z": 20,
    "file": "elements/20.js",
-   "bytes": 113831,
-   "md5": "80fee7cc31348bafb0098db1f468ecdb",
-   "payload_bytes": 113750,
-   "payload_md5": "146bf8f6173f868c2d6b9fe61d6a8b21"
+   "bytes": 115288,
+   "md5": "98163241b051e9621db8a692374201e7",
+   "payload_bytes": 115207,
+   "payload_md5": "0c465546834d09c1da21d2eb6e3dbf6b"
   },
   {
    "Z": 21,
    "file": "elements/21.js",
-   "bytes": 118485,
-   "md5": "0692da71261c8119759c42ad44ca8716",
-   "payload_bytes": 118404,
-   "payload_md5": "119420e1b0f43c22e2d9d506ae81b68d"
+   "bytes": 119880,
+   "md5": "547a4cb481bbf1fdf9e0bc2c74152062",
+   "payload_bytes": 119799,
+   "payload_md5": "61535b5afb31eec4fb62de6c0a515fd6"
   },
   {
    "Z": 22,
    "file": "elements/22.js",
-   "bytes": 124562,
-   "md5": "4a99be8743f0df277047489cb61cc4d1",
-   "payload_bytes": 124481,
-   "payload_md5": "7b2df8c8c191baac63e97834b66d723d"
+   "bytes": 125967,
+   "md5": "b9e395b5f3a2254818a7ad8e97631fb0",
+   "payload_bytes": 125886,
+   "payload_md5": "25168894b17599baeead177378e9aee5"
   },
   {
    "Z": 23,
    "file": "elements/23.js",
-   "bytes": 131446,
-   "md5": "3a1f015af6d2df11b9613875949eef17",
-   "payload_bytes": 131365,
-   "payload_md5": "8cc76e0970ff6dbc10f34864d4e2d9fb"
+   "bytes": 132852,
+   "md5": "a46211e5a1ce522f7cddb73e597fcf3f",
+   "payload_bytes": 132771,
+   "payload_md5": "7ba7162be16327ea5068bc37f5fea24b"
   },
   {
    "Z": 24,
    "file": "elements/24.js",
-   "bytes": 137445,
-   "md5": "d6a6518eb2aee7dac4535f0cc780f62b",
-   "payload_bytes": 137364,
-   "payload_md5": "8e058053107bda25a5a48491576ddd46"
+   "bytes": 138854,
+   "md5": "673123b5ebbb124b14d5915c851ee04a",
+   "payload_bytes": 138773,
+   "payload_md5": "d8f580063ef47f88741deb6ee286e8bc"
   },
   {
    "Z": 25,
    "file": "elements/25.js",
-   "bytes": 143323,
-   "md5": "518afba83af8e092c3493ca7604f97af",
-   "payload_bytes": 143242,
-   "payload_md5": "d346d4bfab0d3e5351841751bc986bb8"
+   "bytes": 144731,
+   "md5": "2f3f54924243dad191043b789ef04cdc",
+   "payload_bytes": 144650,
+   "payload_md5": "e46056f875165e4496a8642aa77b794f"
   },
   {
    "Z": 26,
    "file": "elements/26.js",
-   "bytes": 148769,
-   "md5": "adb77c171f318326b8cfe6d762cc7dfc",
-   "payload_bytes": 148688,
-   "payload_md5": "0d5f2accebd59c9a8e0e3690e583ecdc"
+   "bytes": 150148,
+   "md5": "44a766fc9f5576b750f8adb269e48ecc",
+   "payload_bytes": 150067,
+   "payload_md5": "7833ed57d847f34482eb2545a03027fc"
   },
   {
    "Z": 27,
    "file": "elements/27.js",
-   "bytes": 155284,
-   "md5": "c72e294539ba0a45448c411a830c9337",
-   "payload_bytes": 155203,
-   "payload_md5": "35d7d1c752eea0499ce4afe8fa23520d"
+   "bytes": 156661,
+   "md5": "560070c44e18f852e0fcfbe1d7eead08",
+   "payload_bytes": 156580,
+   "payload_md5": "016fccab441422cf9f749b046bb6d337"
   },
   {
    "Z": 28,
    "file": "elements/28.js",
-   "bytes": 161230,
-   "md5": "be83449ebdc6273fa74027eff1009d1a",
-   "payload_bytes": 161149,
-   "payload_md5": "2fcc85d40e8a6792d673e9e6afceb6a6"
+   "bytes": 162609,
+   "md5": "a539864f9f18dfedac23f3dab785b33e",
+   "payload_bytes": 162528,
+   "payload_md5": "25ef8b86959a88c2089302b24f33ba79"
   },
   {
    "Z": 29,
    "file": "elements/29.js",
-   "bytes": 167264,
-   "md5": "15c63fc4b3897f9a8f4c91f22ad1cfeb",
-   "payload_bytes": 167183,
-   "payload_md5": "b71e3897d4da8d28940508da75cedd37"
+   "bytes": 168639,
+   "md5": "bfe35f96323ec4517572a5da21d878a1",
+   "payload_bytes": 168558,
+   "payload_md5": "2d3b6762afa81ef83ae2b16e7c4bd4d0"
   },
   {
    "Z": 30,
    "file": "elements/30.js",
-   "bytes": 173124,
-   "md5": "f4ac3f2fc2f1113273101c239c909097",
-   "payload_bytes": 173043,
-   "payload_md5": "bf823ee8329d64d4c76c216c7dd2e649"
+   "bytes": 174503,
+   "md5": "d4289f23dba23fe5462e52769b4c2489",
+   "payload_bytes": 174422,
+   "payload_md5": "ee661a0875dac0a133dfa7675db928d4"
   },
   {
    "Z": 31,
    "file": "elements/31.js",
-   "bytes": 177136,
-   "md5": "c16bf60bc63704e65345642631e11d6e",
-   "payload_bytes": 177055,
-   "payload_md5": "0bb9d8f81d9ad3bad824f2229e08d199"
+   "bytes": 178455,
+   "md5": "369674e07db96a6287698489493057d7",
+   "payload_bytes": 178374,
+   "payload_md5": "198b65327ba3a595dece0d2a0115f071"
   },
   {
    "Z": 32,
    "file": "elements/32.js",
-   "bytes": 183263,
-   "md5": "e2bc3ca174eefd4d1c8cd2b75d263ff9",
-   "payload_bytes": 183182,
-   "payload_md5": "b13a25d25a44a8d8a56c8c9a74150383"
+   "bytes": 184594,
+   "md5": "f298df630e8828fe6548765baa75a7f9",
+   "payload_bytes": 184513,
+   "payload_md5": "6ced8bf258c889c808d226f06f32c5c7"
   },
   {
    "Z": 33,
    "file": "elements/33.js",
-   "bytes": 189838,
-   "md5": "a5489b401299e21fb270a06141df4129",
-   "payload_bytes": 189757,
-   "payload_md5": "7cd7908058c2eb944690022bddfad4af"
+   "bytes": 191169,
+   "md5": "d92d736c34c1a47f8746fe11b3f56627",
+   "payload_bytes": 191088,
+   "payload_md5": "9c399228001e3a992f82e9f931c24cef"
   },
   {
    "Z": 34,
    "file": "elements/34.js",
-   "bytes": 195793,
-   "md5": "bb2f60caad0cb57df57e2057aa812a15",
-   "payload_bytes": 195712,
-   "payload_md5": "dbb1bfdd1a14fed23be415764e2e4eb7"
+   "bytes": 197216,
+   "md5": "dbaf228a3e2d20a0ae82f93b9f44e383",
+   "payload_bytes": 197135,
+   "payload_md5": "538ae51991f04949dac5f0c0630e0e43"
   },
   {
    "Z": 35,
    "file": "elements/35.js",
-   "bytes": 201742,
-   "md5": "de9ba56fee0c069fa328fcba9158c7ac",
-   "payload_bytes": 201661,
-   "payload_md5": "61ec1d75e6b7bd1eec2fd9136d70ed72"
+   "bytes": 203161,
+   "md5": "c926740fee568708e6592ca641dfb85a",
+   "payload_bytes": 203080,
+   "payload_md5": "a59c90926c88c5d1e3b11ec761798175"
   },
   {
    "Z": 36,
    "file": "elements/36.js",
-   "bytes": 208010,
-   "md5": "069c277d986c87c98927dd69d1be7485",
-   "payload_bytes": 207929,
-   "payload_md5": "2d86f5d42cc0e942f57061dfd5501e0e"
+   "bytes": 209429,
+   "md5": "85a9b4475ce7a4ee13536e7473f1a887",
+   "payload_bytes": 209348,
+   "payload_md5": "bfa6e24f1b8eb9e8f158967b6a222e5c"
   },
   {
    "Z": 37,
    "file": "elements/37.js",
-   "bytes": 212049,
-   "md5": "95a8d7d4d2fb8ae146828fd95538aa3e",
-   "payload_bytes": 211968,
-   "payload_md5": "36ce1472f5fe3949f5378880dc93279b"
+   "bytes": 213360,
+   "md5": "a1a58399ba7226c0278e546002573d81",
+   "payload_bytes": 213279,
+   "payload_md5": "59cabbe7e30cee4331c3e905528e982e"
   },
   {
    "Z": 38,
    "file": "elements/38.js",
-   "bytes": 218079,
-   "md5": "8b06965f7476f4797f85ae175f60c48b",
-   "payload_bytes": 217998,
-   "payload_md5": "0fc7af6f1b9c0d6f81fc7bc78ed90894"
+   "bytes": 219624,
+   "md5": "dc5463f6da737f0a0a8d0791f0e1e072",
+   "payload_bytes": 219543,
+   "payload_md5": "d048194643fe4ff6cb402bdb9b2d7f2c"
   },
   {
    "Z": 39,
    "file": "elements/39.js",
-   "bytes": 222216,
-   "md5": "047326d7747ad81b0e722ac9d4ce90b5",
-   "payload_bytes": 222135,
-   "payload_md5": "7bddd5748760a1faf171c52339ab917f"
+   "bytes": 223714,
+   "md5": "7fbf98c45377979c262f3e5c06a8d0d6",
+   "payload_bytes": 223633,
+   "payload_md5": "36289798269fb6b98f7b5a685f5fd261"
   },
   {
    "Z": 40,
    "file": "elements/40.js",
-   "bytes": 228747,
-   "md5": "7986163406b4854db4cd409d1f23e41a",
-   "payload_bytes": 228666,
-   "payload_md5": "51f084fb506e66a6895f5001e720d787"
+   "bytes": 230258,
+   "md5": "12dada0288ff2197997c2cebaf43d1de",
+   "payload_bytes": 230177,
+   "payload_md5": "389b33f66a50020800d9f00413c84d86"
   },
   {
    "Z": 41,
    "file": "elements/41.js",
-   "bytes": 234752,
-   "md5": "4c03dc869a8e2807ad929816d2641811",
-   "payload_bytes": 234671,
-   "payload_md5": "43b5b7407922baf9b1e4dac62dbf88de"
+   "bytes": 236267,
+   "md5": "0816beca7651d132209e867080878cae",
+   "payload_bytes": 236186,
+   "payload_md5": "6177e92a648ecd3060e57631f6a3f700"
   },
   {
    "Z": 42,
    "file": "elements/42.js",
-   "bytes": 240712,
-   "md5": "300baa6b66e72a7a553c8e79b1740bbf",
-   "payload_bytes": 240631,
-   "payload_md5": "412abcdd7a55515b20a66779de0a8569"
+   "bytes": 242224,
+   "md5": "f1ed0e033e4f6aa743873e020c0408b0",
+   "payload_bytes": 242143,
+   "payload_md5": "790ae181749c513aaaf49ca108fd1f9d"
   },
   {
    "Z": 43,
    "file": "elements/43.js",
-   "bytes": 246325,
-   "md5": "0ec06404d605fc7e55f2cf0103158375",
-   "payload_bytes": 246244,
-   "payload_md5": "101385f186644c346b0d5f381b1488d2"
+   "bytes": 247836,
+   "md5": "2869d87485e8e78e0d46029ed4c27b5b",
+   "payload_bytes": 247755,
+   "payload_md5": "3e5b17c1675f878f25d80466106b1697"
   },
   {
    "Z": 44,
    "file": "elements/44.js",
-   "bytes": 252433,
-   "md5": "488e074add4233dc609749eebb7c9ecb",
-   "payload_bytes": 252352,
-   "payload_md5": "4590c70e4ea7d7bb5ebd238ec5817777"
+   "bytes": 253942,
+   "md5": "af008eb95f2213b496e16c2beb0cbe3f",
+   "payload_bytes": 253861,
+   "payload_md5": "fa539fd4b2829d7b741f1d0337727489"
   },
   {
    "Z": 45,
    "file": "elements/45.js",
-   "bytes": 258384,
-   "md5": "3e235a0625b62251bd03888f420ba022",
-   "payload_bytes": 258303,
-   "payload_md5": "59c0efa4c836cf2b50dffe570b2fc0ad"
+   "bytes": 259905,
+   "md5": "e333a27490633d2450baceaf3348d40c",
+   "payload_bytes": 259824,
+   "payload_md5": "439e644c6b5ebbce99c6d3cf6380bd3a"
   },
   {
    "Z": 46,
    "file": "elements/46.js",
-   "bytes": 264259,
-   "md5": "a90e59673f572e15ef59e8a2cbc787e3",
-   "payload_bytes": 264178,
-   "payload_md5": "8bc9cdb9f87533497304128ebd0d7023"
+   "bytes": 265796,
+   "md5": "149de28b820fc8811975922dc715d757",
+   "payload_bytes": 265715,
+   "payload_md5": "59bd714042bfd2c15eb6b4fa191caae9"
   },
   {
    "Z": 47,
    "file": "elements/47.js",
-   "bytes": 270281,
-   "md5": "2813b3d88b8f878bc74996655fc008fe",
-   "payload_bytes": 270200,
-   "payload_md5": "aae3263c5f9b8f7ca66006ddb48a92a0"
+   "bytes": 271680,
+   "md5": "1e8a72a7a6016df6acc3a8e880ca7ccd",
+   "payload_bytes": 271599,
+   "payload_md5": "e62ba24c305bedfcc70f6e39569a976f"
   },
   {
    "Z": 48,
    "file": "elements/48.js",
-   "bytes": 275967,
-   "md5": "fe06dfdbf7c3692924db34a9516b7c19",
-   "payload_bytes": 275886,
-   "payload_md5": "38f0b323abb0eabad3ea0a935e2c78ac"
+   "bytes": 277490,
+   "md5": "8ef42aa87e1f5968c26cc189cae2e4a5",
+   "payload_bytes": 277409,
+   "payload_md5": "7bc462b7495d3c2d6d39952694090638"
   },
   {
    "Z": 49,
    "file": "elements/49.js",
-   "bytes": 280723,
-   "md5": "d659af0d81aa291c318c2b71fa624867",
-   "payload_bytes": 280642,
-   "payload_md5": "225f90c2b661820dac206f134947ec51"
+   "bytes": 282176,
+   "md5": "e412773639a3335d5e618e22a6f3cc5e",
+   "payload_bytes": 282095,
+   "payload_md5": "2fa98e14fd5b5066476c34a081006fc3"
   },
   {
    "Z": 50,
    "file": "elements/50.js",
-   "bytes": 287264,
-   "md5": "e64a59ebf65d09a8c1bbe78ce4760e08",
-   "payload_bytes": 287183,
-   "payload_md5": "78a91e4b1c868589ab7d57cd74dbedba"
+   "bytes": 288793,
+   "md5": "e1449f2245d8013189f36184eecd5c83",
+   "payload_bytes": 288712,
+   "payload_md5": "85cac4111d78e1160ce3f75eb428823e"
   },
   {
    "Z": 51,
    "file": "elements/51.js",
-   "bytes": 293192,
-   "md5": "fc23c343cb02c632889cdec64813fc3d",
-   "payload_bytes": 293111,
-   "payload_md5": "6492b9edfd81a2e2983d08f1595ba3c1"
+   "bytes": 294701,
+   "md5": "7a0f0e0ac8b874fc8790dbf0cdfb5b8d",
+   "payload_bytes": 294620,
+   "payload_md5": "0f6743ede012b5aee631e65b6d45cc82"
   },
   {
    "Z": 52,
    "file": "elements/52.js",
-   "bytes": 299162,
-   "md5": "504d2bcc1307dac67f123f4c580f646e",
-   "payload_bytes": 299081,
-   "payload_md5": "bfa8150e687a5eda1f921babf08572db"
+   "bytes": 300683,
+   "md5": "53351441d87a99b6b144fc3a20fa68ad",
+   "payload_bytes": 300602,
+   "payload_md5": "ec87e207ac0d8ea9c00dcf3fda678dc2"
   },
   {
    "Z": 53,
    "file": "elements/53.js",
-   "bytes": 305098,
-   "md5": "656965562a0c915e50e53a508522e99c",
-   "payload_bytes": 305017,
-   "payload_md5": "39310da7d44dad17f307d3ef663d5ac0"
+   "bytes": 306630,
+   "md5": "33042a6edad7ee0fbae3788c2bab4e32",
+   "payload_bytes": 306549,
+   "payload_md5": "2ce0b73a0c14bd5f16b18282757b08f3"
   },
   {
    "Z": 54,
    "file": "elements/54.js",
-   "bytes": 314521,
-   "md5": "f4aa4795c27a37b8f45ca51724ad6e2c",
-   "payload_bytes": 314440,
-   "payload_md5": "12ab48c679206524fc9008f93d368c57"
+   "bytes": 316064,
+   "md5": "b2c6b8ba982af917bc861835a56f27b5",
+   "payload_bytes": 315983,
+   "payload_md5": "798b723c088205ba534986c0ebe5e080"
   },
   {
    "Z": 55,
    "file": "elements/55.js",
-   "bytes": 318846,
-   "md5": "44ccf7e399274c0294f8efe9f88b87b0",
-   "payload_bytes": 318765,
-   "payload_md5": "bab4cf3640f0d026f4947e5e2dc5b9b0"
+   "bytes": 320279,
+   "md5": "1440bdc4af653a59ba6cc078bb34bd4b",
+   "payload_bytes": 320198,
+   "payload_md5": "f270c6441f0753b07dfd4fbbc5a8ffe0"
   },
   {
    "Z": 56,
    "file": "elements/56.js",
-   "bytes": 324685,
-   "md5": "f73b2c59570889e448626b117ef59d73",
-   "payload_bytes": 324604,
-   "payload_md5": "effc84eafdfee69c618b9f3f22a7f5aa"
+   "bytes": 326274,
+   "md5": "d7bfa91b0f75c053cb2494704fa2eb52",
+   "payload_bytes": 326193,
+   "payload_md5": "b4d1a03ac48a4a2b9d0a1d37e7355dd7"
   },
   {
    "Z": 57,
    "file": "elements/57.js",
-   "bytes": 328830,
-   "md5": "552c85a0ec7d56f82d3b05a0ec987786",
-   "payload_bytes": 328749,
-   "payload_md5": "ea11ed3bd3b0e149d21e6af3e8d2115a"
+   "bytes": 330495,
+   "md5": "cc4035338692a8573372a562bab97d00",
+   "payload_bytes": 330414,
+   "payload_md5": "cbaf275cc76ffcb808d703f49fe47e1a"
   },
   {
    "Z": 58,
    "file": "elements/58.js",
-   "bytes": 335609,
-   "md5": "f349e1ed0b22de2555862581ef18acb5",
-   "payload_bytes": 335528,
-   "payload_md5": "d4fb5a701c668c1805171d658e3320f4"
+   "bytes": 337214,
+   "md5": "cf6d2d10e8409559ec1600b7a9e48ecf",
+   "payload_bytes": 337133,
+   "payload_md5": "da2b42d7a8376fc062e6ceded3d59e24"
   },
   {
    "Z": 59,
    "file": "elements/59.js",
-   "bytes": 341524,
-   "md5": "5413c235041696265b63937d089e20d3",
-   "payload_bytes": 341443,
-   "payload_md5": "7436236e8fb10dd43359af63fa45ced9"
+   "bytes": 343142,
+   "md5": "6e5065a07d0e1f7db2425554d29e499c",
+   "payload_bytes": 343061,
+   "payload_md5": "016edbae4fe251864bd1b784179120ba"
   },
   {
    "Z": 60,
    "file": "elements/60.js",
-   "bytes": 347640,
-   "md5": "af1d928edf63231b14fce9e05b546012",
-   "payload_bytes": 347559,
-   "payload_md5": "4f6e71169ae23e4bd24ec5b64e4154e4"
+   "bytes": 349255,
+   "md5": "f21848837785afe6d17642fb91a1ff25",
+   "payload_bytes": 349174,
+   "payload_md5": "c7b54350ad11df73fcbf9e99f76aaba2"
   },
   {
    "Z": 61,
    "file": "elements/61.js",
-   "bytes": 353497,
-   "md5": "6d28a5e496ea5e3cbdd94d94aadcba42",
-   "payload_bytes": 353416,
-   "payload_md5": "dcbac992371db21e8b59cc073b7bf2f3"
+   "bytes": 355115,
+   "md5": "6bdf8eb38891c1f1b51ca7fa1c961e97",
+   "payload_bytes": 355034,
+   "payload_md5": "e797b2e6597c608867d49dcf67c65889"
   },
   {
    "Z": 62,
    "file": "elements/62.js",
-   "bytes": 359546,
-   "md5": "d33868cbd1f2bc3af18d1c657a3c5954",
-   "payload_bytes": 359465,
-   "payload_md5": "f9d41dfd6fec20ab008fcd3fa8f45217"
+   "bytes": 361166,
+   "md5": "f5f0f531449a2a696d427081479e6f83",
+   "payload_bytes": 361085,
+   "payload_md5": "9dd357297398cac384e52b26d361915d"
   },
   {
    "Z": 63,
    "file": "elements/63.js",
-   "bytes": 365541,
-   "md5": "e5f4e60ee5586d00a41e9bfa4f3710dd",
-   "payload_bytes": 365460,
-   "payload_md5": "1c5645ae19375e5be4f5a918cb84b365"
+   "bytes": 367162,
+   "md5": "07cdbe79db946b27340505d3758fcd73",
+   "payload_bytes": 367081,
+   "payload_md5": "74abf6feeb53d646106aa01b69cd1647"
   },
   {
    "Z": 64,
    "file": "elements/64.js",
-   "bytes": 371735,
-   "md5": "65df56b18528265df8c577bdd53f5776",
-   "payload_bytes": 371654,
-   "payload_md5": "8985c087913f5ce1f87f25f2c6a4c5b9"
+   "bytes": 373356,
+   "md5": "8429b424baebe0dec13e69443212fc9f",
+   "payload_bytes": 373275,
+   "payload_md5": "b3378e9e86463a3cb9af840bacccb6fb"
   },
   {
    "Z": 65,
    "file": "elements/65.js",
-   "bytes": 377681,
-   "md5": "f35a5bea710be012dac5a6e9ff914f07",
-   "payload_bytes": 377600,
-   "payload_md5": "747dca31b70f73523a9ca87e16ce709a"
+   "bytes": 379302,
+   "md5": "0a7ba19de732b3c230dff84b016e6326",
+   "payload_bytes": 379221,
+   "payload_md5": "b60486f78c744dc455c50b78e26712b9"
   },
   {
    "Z": 66,
    "file": "elements/66.js",
-   "bytes": 383750,
-   "md5": "eacad6e6ce208de793d22599a9f45f58",
-   "payload_bytes": 383669,
-   "payload_md5": "e48f3a775a182cb38a072c76a8856743"
+   "bytes": 385370,
+   "md5": "089123f9164846efd77f72e9a58a30ab",
+   "payload_bytes": 385289,
+   "payload_md5": "b08698d8b079b0f8d22357c3e6052323"
   },
   {
    "Z": 67,
    "file": "elements/67.js",
-   "bytes": 389739,
-   "md5": "3888af98415193850d05eddc89841f31",
-   "payload_bytes": 389658,
-   "payload_md5": "885fda4999ed330e6deaf3b790035c37"
+   "bytes": 391358,
+   "md5": "c60a44a2c9879479922f43abd33e628c",
+   "payload_bytes": 391277,
+   "payload_md5": "26d2a26a1001da6a5786797f35472f2c"
   },
   {
    "Z": 68,
    "file": "elements/68.js",
-   "bytes": 395744,
-   "md5": "92f55ad0faea4b41aac2479b79cba788",
-   "payload_bytes": 395663,
-   "payload_md5": "61fcf1d955834be7d09673e5498d9016"
+   "bytes": 397366,
+   "md5": "b34e3ee058eaec1602069814b6f089a3",
+   "payload_bytes": 397285,
+   "payload_md5": "92552e82437d2c1faa3539e106d57575"
   },
   {
    "Z": 69,
    "file": "elements/69.js",
-   "bytes": 401825,
-   "md5": "ae021c7fe5f153c9c9f2501888b488fd",
-   "payload_bytes": 401744,
-   "payload_md5": "1f26ba8696672fd13a7b20e253829641"
+   "bytes": 403447,
+   "md5": "bb1f0f75e202fc7cecaf4e576f4c7575",
+   "payload_bytes": 403366,
+   "payload_md5": "d877b3537782698a4f129d6caece853f"
   },
   {
    "Z": 70,
    "file": "elements/70.js",
-   "bytes": 408157,
-   "md5": "96dfc2be34a278539847051cd18d52e6",
-   "payload_bytes": 408076,
-   "payload_md5": "a63d1e2a6660abdcc10a11e2c1307792"
+   "bytes": 409777,
+   "md5": "ea913987e4fb461a1ff9e7c7b4dee9ea",
+   "payload_bytes": 409696,
+   "payload_md5": "cbbccd210a4d0dfb8018f3ffdf9372db"
   },
   {
    "Z": 71,
    "file": "elements/71.js",
-   "bytes": 412358,
-   "md5": "8199216e927e21103f10cff8bef47b8d",
-   "payload_bytes": 412277,
-   "payload_md5": "75dac08997f606218bffd478a96157a9"
+   "bytes": 413945,
+   "md5": "76f5a042cf0c74c9c4c27572e25bc3a9",
+   "payload_bytes": 413864,
+   "payload_md5": "3155306094f67f29a38b8eb9bd8b48d1"
   },
   {
    "Z": 72,
    "file": "elements/72.js",
-   "bytes": 418670,
-   "md5": "6e6a5a9e94942078707638147c7d199b",
-   "payload_bytes": 418589,
-   "payload_md5": "4751e7518262e648b03a7d4a33f7ad76"
+   "bytes": 420231,
+   "md5": "8bf68e00a740bdc9391038834610d36d",
+   "payload_bytes": 420150,
+   "payload_md5": "b40efb28f948ed392c413a9d373cd553"
   },
   {
    "Z": 73,
    "file": "elements/73.js",
-   "bytes": 424631,
-   "md5": "e5b44d03262e55c3a006b288781803b5",
-   "payload_bytes": 424550,
-   "payload_md5": "8170dcd647f4ec044e43a990f5b53252"
+   "bytes": 426192,
+   "md5": "e69ae5ed8ee758426303fcd0ba3370f0",
+   "payload_bytes": 426111,
+   "payload_md5": "c4d49c88cf57073f6874dad242b49e5e"
   },
   {
    "Z": 74,
    "file": "elements/74.js",
-   "bytes": 430593,
-   "md5": "9fe1373a3beb39000accb162e7c4cabf",
-   "payload_bytes": 430512,
-   "payload_md5": "a8abbacf3cb85540d9f9e03e542f0123"
+   "bytes": 432155,
+   "md5": "ad91d6be941ef8d42cfadf5d961d0713",
+   "payload_bytes": 432074,
+   "payload_md5": "0bad67e72406ca66c1e398fc5e9451e2"
   },
   {
    "Z": 75,
    "file": "elements/75.js",
-   "bytes": 436507,
-   "md5": "82c01c0f8745ee6e1238a70d3debb774",
-   "payload_bytes": 436426,
-   "payload_md5": "e4b8cd46efc38968663181a6c4b22d96"
+   "bytes": 438066,
+   "md5": "ba331237d75a35d6f3c0bfd6c964b08e",
+   "payload_bytes": 437985,
+   "payload_md5": "26191062fe6c792b1e2eb740edaee6c1"
   },
   {
    "Z": 76,
    "file": "elements/76.js",
-   "bytes": 442369,
-   "md5": "7fca6e790af77742bcbec75aae50b577",
-   "payload_bytes": 442288,
-   "payload_md5": "220c46c0db2cc0678364445e6126c52e"
+   "bytes": 443930,
+   "md5": "e79d60f10224dd17da44ec592abb38de",
+   "payload_bytes": 443849,
+   "payload_md5": "2e5e784a13733ae2de94caf90ab423c2"
   },
   {
    "Z": 77,
    "file": "elements/77.js",
-   "bytes": 448500,
-   "md5": "f2c845dae7eec2a93108bef5699aeb25",
-   "payload_bytes": 448419,
-   "payload_md5": "626afd2acd00b73b73fe6ea230c9dfe1"
+   "bytes": 450045,
+   "md5": "f4ab04312039ede24ba45cb184cbcc84",
+   "payload_bytes": 449964,
+   "payload_md5": "3da7d49e57d9b802167131e49bd25849"
   },
   {
    "Z": 78,
    "file": "elements/78.js",
-   "bytes": 454600,
-   "md5": "3e6a94fb656a9ee0831ba04d9e98553c",
-   "payload_bytes": 454519,
-   "payload_md5": "f0e7c34b224d6e1d793c21648e3859d0"
+   "bytes": 456145,
+   "md5": "f37d31d44df6adb2f976624a14818462",
+   "payload_bytes": 456064,
+   "payload_md5": "d2d2a6f77f7137f82bdf1da6a38f77e3"
   },
   {
    "Z": 79,
    "file": "elements/79.js",
-   "bytes": 460623,
-   "md5": "dbed94108483ce2bc51de1af511f711f",
-   "payload_bytes": 460542,
-   "payload_md5": "0180f9866b99a0540de9e15ebfd2217d"
+   "bytes": 462227,
+   "md5": "2389f71fe9634fdda1be08992f335941",
+   "payload_bytes": 462146,
+   "payload_md5": "d7a991f752962bb5de3334727151b532"
   },
   {
    "Z": 80,
    "file": "elements/80.js",
-   "bytes": 466710,
-   "md5": "723d3873a12486f7d6feee3971b7aaee",
-   "payload_bytes": 466629,
-   "payload_md5": "afafcd4b55522655965630fbd6483129"
+   "bytes": 468294,
+   "md5": "086c353f8a2ac0b51992c4feb3b2d375",
+   "payload_bytes": 468213,
+   "payload_md5": "adcae591945b44bce5385f56eaa4c2d1"
   },
   {
    "Z": 81,
    "file": "elements/81.js",
-   "bytes": 471121,
-   "md5": "645b2ec04dd3e965161714075fe61471",
-   "payload_bytes": 471040,
-   "payload_md5": "7ad0e8f75892d0b049b4fd545e5bf4dd"
+   "bytes": 472681,
+   "md5": "eaef260581bef52ccb2c14072e6a5708",
+   "payload_bytes": 472600,
+   "payload_md5": "de44aebd389f5b2b4c87de6c6842326d"
   },
   {
    "Z": 82,
    "file": "elements/82.js",
-   "bytes": 477558,
-   "md5": "b860cb94f8d842ac4eb1fb9acb4bbf83",
-   "payload_bytes": 477477,
-   "payload_md5": "37100ba43608d97681375f9cfe906e43"
+   "bytes": 479146,
+   "md5": "84a9e28eb0a84db8883972e08c606db3",
+   "payload_bytes": 479065,
+   "payload_md5": "0079dad798f514f2e3f268c78a0e1820"
   },
   {
    "Z": 83,
    "file": "elements/83.js",
-   "bytes": 483348,
-   "md5": "a2a39f6900ce0b5bf0b07761bea78e19",
-   "payload_bytes": 483267,
-   "payload_md5": "a971e1bc07ad777a28e296ba0eace0a8"
+   "bytes": 484909,
+   "md5": "06890ef80eb146aa3a23e7b256f20c02",
+   "payload_bytes": 484828,
+   "payload_md5": "052bb93c20d2e9db9317d54e196965ee"
   },
   {
    "Z": 84,
    "file": "elements/84.js",
-   "bytes": 489614,
-   "md5": "253610a52016b0de4e75bfa18b123376",
-   "payload_bytes": 489533,
-   "payload_md5": "ed49518c40bfb761d84a319b70009cca"
+   "bytes": 491165,
+   "md5": "99a053b2ce6b7e6ed64afe80b90e471d",
+   "payload_bytes": 491084,
+   "payload_md5": "170f7d2b1cfa60ef533eccbd0b54150f"
   },
   {
    "Z": 85,
    "file": "elements/85.js",
-   "bytes": 495597,
-   "md5": "10772d1ab067b84996d0191bedcdea0c",
-   "payload_bytes": 495516,
-   "payload_md5": "9059aaa77dab9f7f9024f9012813dd29"
+   "bytes": 497167,
+   "md5": "7954db7f919746be5ad5c5fab7a03033",
+   "payload_bytes": 497086,
+   "payload_md5": "087818df62f275152782bdd847e06a06"
   },
   {
    "Z": 86,
    "file": "elements/86.js",
-   "bytes": 502016,
-   "md5": "6b4821a24c1382874a2d05802917c438",
-   "payload_bytes": 501935,
-   "payload_md5": "c6fdbbd619b18988c469c3ad3c932f6f"
+   "bytes": 503614,
+   "md5": "7653d5bd390f50a6cff1a38eef31370e",
+   "payload_bytes": 503533,
+   "payload_md5": "43f140b01d01fb1de2ad71f5ae5a7521"
   },
   {
    "Z": 87,
    "file": "elements/87.js",
-   "bytes": 506174,
-   "md5": "9e93372ee6c7cfbd99a3bec593d5ed50",
-   "payload_bytes": 506093,
-   "payload_md5": "5005ff8c8c60e9af41b26bb0c2dad6fe"
+   "bytes": 507727,
+   "md5": "f4435c34ebe83ca0398c69b3cb5a83fb",
+   "payload_bytes": 507646,
+   "payload_md5": "320176513d43bcfba5acc23c14af73b1"
   },
   {
    "Z": 88,
    "file": "elements/88.js",
-   "bytes": 512473,
-   "md5": "da8818875115523e066fd12176809ff7",
-   "payload_bytes": 512392,
-   "payload_md5": "3aa6df06e889bffd62bedc4e32e2c879"
+   "bytes": 514122,
+   "md5": "e751b13decf7a1b44bba591ba4e48133",
+   "payload_bytes": 514041,
+   "payload_md5": "580d38b4bcffc897e8c291b5d44db335"
   },
   {
    "Z": 89,
    "file": "elements/89.js",
-   "bytes": 516489,
-   "md5": "09781cbe919896a453f150427efb1a2a",
-   "payload_bytes": 516408,
-   "payload_md5": "d85dd00a20e3fa579931ab701f0e87c3"
+   "bytes": 518142,
+   "md5": "c6c2f130907c3407a8db1974134bd3c7",
+   "payload_bytes": 518061,
+   "payload_md5": "4be3c77f15f120cf3ccb872c1c3d0d68"
   },
   {
    "Z": 90,
    "file": "elements/90.js",
-   "bytes": 522983,
-   "md5": "9b3174c829a62aa6eda715cdacb055ae",
-   "payload_bytes": 522902,
-   "payload_md5": "c58f8d4c91aeca10f78119cbbde03cd7"
+   "bytes": 524650,
+   "md5": "b2a29204cd69537dbf7fa4287a5de740",
+   "payload_bytes": 524569,
+   "payload_md5": "9dbcb6774b414a98bba2913d68053b04"
   },
   {
    "Z": 91,
    "file": "elements/91.js",
-   "bytes": 529128,
-   "md5": "03478fe98cb35df257fa6d175dce567e",
-   "payload_bytes": 529047,
-   "payload_md5": "c1742a5bb73c65ebdfaf65b54d624ead"
+   "bytes": 530799,
+   "md5": "7fe41e177de9f5f080b06bed99835a23",
+   "payload_bytes": 530718,
+   "payload_md5": "5b1d43c76bf71f408e22a26a33350533"
   },
   {
    "Z": 92,
    "file": "elements/92.js",
-   "bytes": 535135,
-   "md5": "19f8ffc27b5d71ab31c067e210c00d77",
-   "payload_bytes": 535054,
-   "payload_md5": "5f645ae87aca152c01609b7b8744d4b5"
+   "bytes": 536813,
+   "md5": "ebf8976809facf822aee760b9e5fdf7e",
+   "payload_bytes": 536732,
+   "payload_md5": "aeb5a5dfd5adccf1ea519c76e37b896c"
   },
   {
    "Z": 93,
    "file": "elements/93.js",
-   "bytes": 541248,
-   "md5": "0ef5728c9f723b460c75bc431da39780",
-   "payload_bytes": 541167,
-   "payload_md5": "809e39f765b06956dc644aa0d727e513"
+   "bytes": 542929,
+   "md5": "6c0e2a8aaf9b58b2f3f4cbcf739ea39c",
+   "payload_bytes": 542848,
+   "payload_md5": "bf6a56d05d766a90e9fcba4126bb7558"
   },
   {
    "Z": 94,
    "file": "elements/94.js",
-   "bytes": 547071,
-   "md5": "0f06d3d8a522120200f09d7def03b05e",
-   "payload_bytes": 546990,
-   "payload_md5": "07b8a612592e5e7361088a8a14d1d3cf"
+   "bytes": 548752,
+   "md5": "e5bd5c3bc1787c7101d0f0fc5b206384",
+   "payload_bytes": 548671,
+   "payload_md5": "09a119d0843ce276d0018b2cbb568991"
   },
   {
    "Z": 95,
    "file": "elements/95.js",
-   "bytes": 553178,
-   "md5": "b519ed4848d03e361f2a3c0f55ac321a",
-   "payload_bytes": 553097,
-   "payload_md5": "f4b5d855550f2676d2a0eb104c7cf3c0"
+   "bytes": 554849,
+   "md5": "02dbb131cdd1c97b39d3e57397575344",
+   "payload_bytes": 554768,
+   "payload_md5": "f7f71d42d3521487fd80e84284c2a4c4"
   },
   {
    "Z": 96,
    "file": "elements/96.js",
-   "bytes": 559245,
-   "md5": "b27ad6d3f28d6adfc41210e8cc5acf44",
-   "payload_bytes": 559164,
-   "payload_md5": "8a2cd94d8713a3d6407dfa506620bb62"
+   "bytes": 560924,
+   "md5": "a362a18c86e4183504e8c8a158f6eb81",
+   "payload_bytes": 560843,
+   "payload_md5": "bd4cc48d17e5bf4f4bb96b17be99282e"
   },
   {
    "Z": 97,
    "file": "elements/97.js",
-   "bytes": 565250,
-   "md5": "0ddcd5c48e36e0d13fe6943363ecedd2",
-   "payload_bytes": 565169,
-   "payload_md5": "aeced8a17dd208c50047482d8e3fac41"
+   "bytes": 566931,
+   "md5": "b1beb849d407f3adf35e960626b63e07",
+   "payload_bytes": 566850,
+   "payload_md5": "03cad0cc29b4013434042b8b8bc81d7f"
   },
   {
    "Z": 98,
    "file": "elements/98.js",
-   "bytes": 571255,
-   "md5": "2d893a5e92d63312310b3b97f37cf818",
-   "payload_bytes": 571174,
-   "payload_md5": "228353b1971491994dfdeff32bfb9303"
+   "bytes": 572926,
+   "md5": "5bc7068a37af03fefb8333783471673d",
+   "payload_bytes": 572845,
+   "payload_md5": "b153b27d7ffd1e5bf828138a3cd72f17"
   },
   {
    "Z": 99,
    "file": "elements/99.js",
-   "bytes": 577240,
-   "md5": "e984cb0120da495e2dc9be81c6569e22",
-   "payload_bytes": 577159,
-   "payload_md5": "993c57b282f434632b31936ff23c34de"
+   "bytes": 578914,
+   "md5": "6864bfa9f32ae4a78059a2da659e73a6",
+   "payload_bytes": 578833,
+   "payload_md5": "d70ba1cb4bb26c0eacee98d47d0856ca"
   },
   {
    "Z": 100,
    "file": "elements/100.js",
-   "bytes": 583337,
-   "md5": "7e6edc77f1faeb1188f7bf8776097a0f",
-   "payload_bytes": 583255,
-   "payload_md5": "46c84d43e94a273663da249a2c9216a8"
+   "bytes": 585014,
+   "md5": "b0637520cb8e2259f8c983f19ddc815a",
+   "payload_bytes": 584932,
+   "payload_md5": "dc971016dd9a69857b377172c7c7ea4f"
   },
   {
    "Z": 101,
    "file": "elements/101.js",
-   "bytes": 589371,
-   "md5": "1b81eb3a155deff8f0f6a073f0d2f73f",
-   "payload_bytes": 589289,
-   "payload_md5": "5e9d28e2e33f4364659af9152aaf5dd3"
+   "bytes": 591049,
+   "md5": "1ac9fb99e18c8009d8fc725dcb69cad8",
+   "payload_bytes": 590967,
+   "payload_md5": "15c27bc76aba88a3e15491188bb5c1d7"
   },
   {
    "Z": 102,
    "file": "elements/102.js",
-   "bytes": 595806,
-   "md5": "d04484662b655a2f5aba0376e0ee4520",
-   "payload_bytes": 595724,
-   "payload_md5": "2bea7e24bb3a1587b0ebd5bd10ab719c"
+   "bytes": 597484,
+   "md5": "b5a852bbdebbd8f8f399c613e5aaba42",
+   "payload_bytes": 597402,
+   "payload_md5": "f931b2f11ed8914a62f715ae34af17ff"
   },
   {
    "Z": 103,
    "file": "elements/103.js",
-   "bytes": 600057,
-   "md5": "17aee091158248621835059305e0195a",
-   "payload_bytes": 599975,
-   "payload_md5": "0c756c64ce26105990499eb575a61864"
+   "bytes": 601736,
+   "md5": "f8ce049c9a6b87c10a73ddc973857019",
+   "payload_bytes": 601654,
+   "payload_md5": "74ba85976f16095519ba6740f6975146"
   },
   {
    "Z": 104,
    "file": "elements/104.js",
-   "bytes": 570906,
-   "md5": "a4383e725d179ce5a92a249833fd187d",
-   "payload_bytes": 570824,
-   "payload_md5": "2b09634ff8d7cfdbe0e517360a6d4ddd"
+   "bytes": 572574,
+   "md5": "138fd27013ea3b1b4e594ce818d51bfc",
+   "payload_bytes": 572492,
+   "payload_md5": "09cccca78fc8a881df1ef57cd8873459"
   },
   {
    "Z": 105,
    "file": "elements/105.js",
-   "bytes": 576701,
-   "md5": "a887ec00e2c8e78cd423ac36a6f40ae3",
-   "payload_bytes": 576619,
-   "payload_md5": "2a2e8ee195976953c38ce489947c3adf"
+   "bytes": 578377,
+   "md5": "cbbcd68412516365f192109d575cc8ad",
+   "payload_bytes": 578295,
+   "payload_md5": "83c2c6c946edbc0670a3750c6098930e"
   },
   {
    "Z": 106,
    "file": "elements/106.js",
-   "bytes": 582477,
-   "md5": "8649bc456c036e51e2f4a11bc4a9bac8",
-   "payload_bytes": 582395,
-   "payload_md5": "1829cb57f6ff61c9b410658ef1a17742"
+   "bytes": 584157,
+   "md5": "6035c4f94787b53845fabc0d3c56883a",
+   "payload_bytes": 584075,
+   "payload_md5": "96a2727d791785dc6442b98362d094e8"
   },
   {
    "Z": 107,
    "file": "elements/107.js",
-   "bytes": 588315,
-   "md5": "1ab915fcfbed07d23f71db767800c91f",
-   "payload_bytes": 588233,
-   "payload_md5": "d49338024f356e8687ae9e8d7ca5f3b3"
+   "bytes": 589999,
+   "md5": "f4d9a9601d2c3070effe66e9b9520a3e",
+   "payload_bytes": 589917,
+   "payload_md5": "5d1512c10fee53b808dd83335d611df2"
   },
   {
    "Z": 108,
    "file": "elements/108.js",
-   "bytes": 594088,
-   "md5": "7ac1da3cbe86054071b68a6224d1407f",
-   "payload_bytes": 594006,
-   "payload_md5": "a79bfae5059971e643a266439a1d2f48"
+   "bytes": 595746,
+   "md5": "7861081529069eed40bf7ecffd66aece",
+   "payload_bytes": 595664,
+   "payload_md5": "fdd326135d478322d8625d97f2c68aa6"
   },
   {
    "Z": 109,
    "file": "elements/109.js",
-   "bytes": 511780,
-   "md5": "7b3f1da32b7b124d4b43861fd4d8c3a5",
-   "payload_bytes": 511698,
-   "payload_md5": "2630ef19dce441e20459e36433977447"
+   "bytes": 512680,
+   "md5": "2d7bfab962e54b3aaaf0dcaf81e6e86b",
+   "payload_bytes": 512598,
+   "payload_md5": "e1051e3ea53ae1b94b3ed9fffc1744c1"
   },
   {
    "Z": 110,
    "file": "elements/110.js",
-   "bytes": 516753,
-   "md5": "95d03edb05f6e1c0e680371ebf66d5d0",
-   "payload_bytes": 516671,
-   "payload_md5": "98302c73140fc4f790de85133955a6ea"
+   "bytes": 517619,
+   "md5": "41f79c9ef2320be77931210dfee137b7",
+   "payload_bytes": 517537,
+   "payload_md5": "2213dd38faf6f677340a7ab52d42fbe6"
   },
   {
    "Z": 111,
    "file": "elements/111.js",
-   "bytes": 521685,
-   "md5": "4c703adaf0e5cbbf0f1df52c0e2ad983",
-   "payload_bytes": 521603,
-   "payload_md5": "3ca012f0d5483aec7b9b00c0e84e3283"
+   "bytes": 522554,
+   "md5": "a1f57210300bedf9bf75de664103f735",
+   "payload_bytes": 522472,
+   "payload_md5": "91e6377af0e8345f6045b337f3da1946"
   },
   {
    "Z": 112,
    "file": "elements/112.js",
-   "bytes": 526702,
-   "md5": "5a9bd8c35b8c878002c0af3ce2432dc3",
-   "payload_bytes": 526620,
-   "payload_md5": "6ad2954931dc9074412a9cdfba165a9e"
+   "bytes": 527603,
+   "md5": "0a5c85542581b93d568ddab6f423903a",
+   "payload_bytes": 527521,
+   "payload_md5": "6e889a22f52d9d2530b7c967d78d7f47"
   },
   {
    "Z": 113,
    "file": "elements/113.js",
-   "bytes": 529698,
-   "md5": "1454e85c014cc7e4e31f61cf50906418",
-   "payload_bytes": 529616,
-   "payload_md5": "9853cf7d5fb02e707ea97037c744161b"
+   "bytes": 530584,
+   "md5": "a2e6e885eef67ddbbdff71a48c2ca36b",
+   "payload_bytes": 530502,
+   "payload_md5": "0fe1f00bcc70ac793853ad8377435db0"
   },
   {
    "Z": 114,
    "file": "elements/114.js",
-   "bytes": 534754,
-   "md5": "e23fd1c8af11a9a734758ce9be93fded",
-   "payload_bytes": 534672,
-   "payload_md5": "ef06b6473f9588d766973837c5fb321b"
+   "bytes": 535656,
+   "md5": "b2cc7861c9807335f3cc61bc6415ab20",
+   "payload_bytes": 535574,
+   "payload_md5": "3237d12a8993ad186c3e5187c720c753"
   },
   {
    "Z": 115,
    "file": "elements/115.js",
-   "bytes": 539812,
-   "md5": "2205894ab004b20e9943c76cfc722043",
-   "payload_bytes": 539730,
-   "payload_md5": "a1b716bb9efbae10d9a4f64a30ae63fe"
+   "bytes": 540704,
+   "md5": "34afe0b4fd8133b01ee2b6dd2366929a",
+   "payload_bytes": 540622,
+   "payload_md5": "83fa1b14e1a32af22e8ac86072473301"
   },
   {
    "Z": 116,
    "file": "elements/116.js",
-   "bytes": 544748,
-   "md5": "ca49b55f6edc83867ef99b7b26bbb6a2",
-   "payload_bytes": 544666,
-   "payload_md5": "22ee501c0d972802dbc2e9a61fcbce11"
+   "bytes": 545634,
+   "md5": "b2e2f662f41d66940b7b40a27abc42e8",
+   "payload_bytes": 545552,
+   "payload_md5": "d05d8f534da9af924c8073d1646e2ac7"
   },
   {
    "Z": 117,
    "file": "elements/117.js",
-   "bytes": 549754,
-   "md5": "6552134344947fa941dbf4938e7c84f1",
-   "payload_bytes": 549672,
-   "payload_md5": "b9a3791aa307e0a583e534ac1e4dc2b7"
+   "bytes": 550645,
+   "md5": "fb2bbdaaee7167f89868dee55877a2bd",
+   "payload_bytes": 550563,
+   "payload_md5": "650b51f026a8622f9e8bccb37182fb80"
   },
   {
    "Z": 118,
    "file": "elements/118.js",
-   "bytes": 554747,
-   "md5": "dd0be236183be44569f5b3ee6cca8da9",
-   "payload_bytes": 554665,
-   "payload_md5": "d0d645bee67f991eb11fc7c7afefb6bc"
+   "bytes": 555639,
+   "md5": "e369e602e44518e781b168c4d9fd2f52",
+   "payload_bytes": 555557,
+   "payload_md5": "06394761f88e93dbb3051e21349a047a"
   },
   {
    "Z": 119,
    "file": "elements/119.js",
-   "bytes": 676212,
-   "md5": "90fd1dd091183c621f83ab31ee081fc5",
-   "payload_bytes": 676130,
-   "payload_md5": "7d9a5f29a2b7f57bdf59d1cd0ec6059c"
+   "bytes": 677117,
+   "md5": "a6db7c864a6362400ec20ce28072924b",
+   "payload_bytes": 677035,
+   "payload_md5": "062702caffcd273a329be140d15c0f9b"
   },
   {
    "Z": 120,
    "file": "elements/120.js",
-   "bytes": 721019,
-   "md5": "d17a312f6414e9578b3161b65c622f23",
-   "payload_bytes": 720937,
-   "payload_md5": "4619712bcf499b6e094252bccbf5f1ff"
+   "bytes": 721977,
+   "md5": "59163e1dba57a565c84627d150856da1",
+   "payload_bytes": 721895,
+   "payload_md5": "4917e097fb5a38304b60af07ab7b9266"
   }
  ],
  "protocol": {

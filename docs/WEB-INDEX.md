@@ -325,17 +325,30 @@ both are grounded the only honest way the corpus allows.
 derives the table in the scalar-relativistic (Koelling–Harmon) Hartree–Fock reduction with one
 admitted constant, c = 137, and reports that the same construction at c → ∞ misplaces eleven
 elements — Mn, Zn, Ag, Cd, Nd, Pm, Sm, Lu, Hg, Lr, Rf — and inverts the channel competition at
-thorium. The construction itself is **not held**: `LW1-README.md` records the delivery's objects
-1, 2, 4–8 and 10 as pending bank and object 11 as not held, because session 104 was never
-sealed, and `r2-scf.out` grades every figure of that family UNREPRODUCIBLE with a stated budget,
-record-carried and never withdrawn. So `webindex.py` **reads** the eleven from the paper's own
-sentence, cross-checks them against register 1706 and the SCF audit's table of configurations and
-entrant channels (the selftest asserts all three agree, in order), copies Figure 5 from
-`extracted/` with the md5 `extracted/LEDGER.tsv` records, and exports the block as `READ`. The page
-marks the eleven on the table, the element plate shows the result with the figure, the console
-answers `relativistic`, and the mode's `recompute` operation refuses with the reason rather than
-printing a table no instrument produced. `instruments.lowdin_construction` carries the passages,
-not Python, and the "Instrument source" toggle shows them as such.
+thorium. When this paragraph was first written the construction was **not held**: `LW1-README.md`
+records the delivery's objects 1, 2, 4–8 and 10 as pending bank and object 11 as not held, because
+session 104 was never sealed, and `r2-scf.out` grades every figure of that family UNREPRODUCIBLE
+with a stated budget. `webindex.py` still **reads** the eleven from the paper's own sentence,
+cross-checks them against register 1706 and the SCF audit's table of configurations and entrant
+channels (the selftest asserts all three agree, in order), copies Figure 5 from `extracted/` with
+the md5 `extracted/LEDGER.tsv` records, and exports that block as `READ` — but it is no longer the
+site's statement. The instrument has since been recovered (below), and **by the author's decision
+of 2026-09-24 the finding it produced is repaired**: `relativistic.repair` (RECOVERED) states the
+displaced set from the recovered instrument's own run — **Th and Rf** among the measured elements,
+**Z = 120** beyond them, and no other — with each element's entrants at both settings and which side
+nature is on (thorium's c → ∞ entrant departs from the observed channel; rutherfordium's is the
+observed channel, and it is the c = 137.035999 chain that departs), the scorer's figures at both
+settings, and the paper's eleven carried as the reading the paper printed, **superseded** (the
+elements where the chain differs from a restart walk at the same c, not from the constant). The
+table's filled marker follows the repaired set and a faint dashed ring marks the paper's eleven; the
+element plate leads with the recovered result and shows the paper's sentence beneath it as
+superseded, with Figure 5 captioned as the comparison the paper made; the console answers
+`relativistic` from the repair block; the mode's `element` and `eleven` operations answer from it
+too, and `recompute` still refuses, because the browser computes nothing of the chain — the tables
+are the instrument's, run in the repository. The store's repair (`docs/R3-CLASS-CINF.md`) was applied the same day as entry 1793 and BUILD91/BUILD181,
+so the Papers page renders the paper's corrected text, and `relativistic()` reads the eleven from the
+clause that withdraws them (`paper_corrected`).
+`instruments.lowdin_construction` carries the passages, not Python, and is marked held.
 
 **The request and its answer.** The site asked the Löwdin project for items 5, 2, 1, 11 and 12 of
 the standing REQUEST-LOWDIN and for one new object, a single-Z walk switchable between c = 137.035999
@@ -352,6 +365,42 @@ the **null-difference control** — a broken c switch that displaced everything 
 displacement-only test — so the seventh mode's selftest now asserts both directions, displacement at
 Hg and identity at Th. The bank did not arrive, the Löwdin project has concluded, and the author's
 ruling was that anything still needed is this repository's to build.
+
+**The walk, recovered.** The record's own instrument is now held: `tools/lowdin_recover.py` reads
+it out of the Löwdin project's hundred conversations into `lowdin/rt` (28 files, 23 RECOVERED, 3
+RECOVERED-REPLAYED, 1 RECOVERED-PARTIAL, 1 STORE; 154 of 157 printed windows reproduced; `cinf.py`
+and `rt/t7b_hf.py` at the sessions' own sealed digests — `docs/LOWDIN-RECOVERED.md`), and run here it
+returns four tables in `lowdin/chain/` that `record_walk_block` carries into `index.js` as
+`relativistic.record`, with each element's rows under every setting in its own file: the chain at
+c = 137.035999 to Z = 120 (**Λ_chain re-derived**: every sealed step the sessions printed reproduces
+to the decimal except the margins of rows below Z = 57 that the record's own F61.1 identifies as
+pre-guard, and the record's scorer `nlcfg.py` passes its own gate over it, 73 of 107 configurations
+and 96 of 107 steps); the table the paper compared against, re-derived as sealed (restart rows from
+the observed configuration at c = 137.035999 — the record's F59.3 found its driver's c never reached
+the field); restart rows at a genuine c → ∞ by the record's own remedy `cinf2.py` (the record ran 13
+of them, the other 94 are run here); and the chain at a genuine c → ∞, which the paper describes and
+the record never ran. The paper's eleven reproduce exactly from the first two (Mn, Zn, Ag, Cd, Nd,
+Pm, Sm, Lu, Hg, Lr, Rf), and at eight of them the comparison table's entrant is the observed one; at
+a genuine c → ∞ the chain moves at **Th, Rf and Ubn** only, and the restart rows at Nd, Pm, Sm, Th and Lr;
+thorium takes 6d at c = 137.035999 and 5f at c → ∞ in both modes. Every value is **RECOVERED** —
+computed here by the record's instrument — and never READ; the element plate gains *The walk,
+recovered* above the reconstruction, the relativistic-limit mode prints the recovered summary first,
+the tables are downloads (`data/lowdin/`), and two caveats say what changed: the construction is no
+longer "not held", and the eleven carry the finding above and its repair (`record-eleven`) in the
+site's own words. `lowdin/chain/SCORE.tsv` (`lowdin_recover.py --score`) carries the record's scorer
+over the chain at both settings — 96 of 107 steps at either, 73 and 76 configurations, the step
+failures swapping Rf for Th — and `repair` reads it. The reconstruction below stays as the site's
+second measurement; its Hartree–Fock displaced set (Ce, Hf, Th, Rf, Ubn) contains the recovered
+instrument's three, which `repair.reconstruction` records.
+
+**The released PDFs as witness.** The author released the ten papers on 2026-09-24 as PDFs into the
+Prints & Proofs folder that Ruling 56 makes the original-input witness. They were fetched by id
+through the Drive connector, decoded and seated in the mirror by `drive_sync.py --adopt` under
+`drive/The Method Prints & Proofs/` with `ok-adopted` rows (byte counts checked against Drive's
+metadata; that route supplies no checksum), and every one is byte-identical to the render in
+`papers/method/pdf/`. `papers_block` records that on each paper's `pdf.witness` — the manifest's
+status and md5 and whether it matches — the page says "matches the released copy" beside the PDF
+link, and the selftest pins all ten.
 
 **The walk, reconstructed.** `tools/lowdin_walk.py` runs the record's own algorithm — the V^{N−1}
 chain of §II.2 with the Koelling–Harmon equation and one constant — in two fields it can build here:
@@ -775,6 +824,36 @@ of the explorer (`coreps`: degeneracy across, small-representation dimension up,
 the page, coloured by case). The k-point index's third coordinate loses its gloss with it: it is the
 largest small-representation dimension and not the degeneracy, which time reversal exceeds at 118
 of its groups.
+
+**The isotope index** (`_isotopes`, from **`tools/isotopes.py`**, this repository's own instrument
+and not one of the research tree's — it is **not a row of the register**, the register's count of 27
+does not include it, and the block and the page both say so): a member is a nuclide of AME2020
+Table I, the one nuclear table the repository holds, the neutron included, on **Z and N, both READ**
+— **3,558 members on 3,558 cells**, an injective chart, at **K4, cell (4, 295, 18)**, closed by
+information and statistics, **E = 0**: the chart of nuclides is join-closed, so the index demands
+nothing and draws no ghost. The cell is measured twice: the instrument measures height and width
+exactly on two coordinates (a chain is a non-decreasing run of N over the members sorted by (Z, N),
+an antichain a strictly decreasing one, both by patience sorting, both witnessed — the chain runs
+from (1, 0) to (118, 177) and the antichain is the eighteen nuclides from (63, 107) to (80, 90)),
+and the build measures the same chart with the hierarchy law's five closure operators (order and
+algebra 3,560, geometry 3,962, information and statistics 3,558) and asserts the two agree; the
+meet-closure asks for two cells, the empty nucleus (0, 0) and the diproton (2, 0), which is exactly
+what the order and algebra closures add. Each member carries its mass excess with its uncertainty
+and quality flag (2,550 measured, 1,008 estimated, at the status the table gives it), its mass in u
+(A + Δ/(u c²), the one constant CODATA 2018's and marked EMPIRICAL), its binding energy from three of
+the table's own entries (B = Z Δ(¹H) + N Δ(n) − Δ, the electrons cancelling exactly; ⁶²Ni the most
+bound at 8,794.555 keV per nucleon on the rounded table's rows) and its one- and two-nucleon
+separation energies where the neighbour is in the table (S_n undefined on 119, S_p on 179). Seven
+candidate coordinates are refused, each against a measurement: A (a function of the two, the chart
+on (Z, N, A) at the same cell), T_z (charted anyway, at height 178 and width 31, and refused as a
+relabelling that separates nothing new), the mass excess (a magnitude, 3,481 distinct values on
+3,558 rows), the quality flag (provenance of the value, not a property of the nuclide; charted
+anyway at (295, 22)), B and B/A, the separation energies (magnitudes, and not total), and spin,
+parity and half-life, which are **NOT HELD**: the repository holds no NUBASE table, and the
+instrument invents none. The eleventh index of the explorer (`isotopes`: N across, Z up, coloured
+by the quality flag); a member's plate opens the same nuclide in the gravity index and in the
+gravity mode. `python3 tools/isotopes.py --selftest` pins the table's census, its ledger md5 and
+the exact cell; `--charts` runs the three refused charts (about 25 s). See `docs/ISOTOPES.md`.
 
 **The predictions block** at 27dd39c spans 27 indexes: **4,919** demanded, **2,045** forbidden by
 five non-monotone bounds (the three-quark flavour bound, the gravity image, and one each for the

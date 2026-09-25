@@ -610,13 +610,20 @@
       if (isHover) ctx.globalAlpha = 0.6;
       ctx.stroke(); ctx.globalAlpha = 1; ctx.lineWidth = 1;
     }
-    // the markers: a filled dot for one of the eleven the record displaces at c → ∞ (READ), a
-    // hollow one for a displacement in the reconstructed walk (RECONSTRUCTED), top right
-    if (s >= 14 && (e.relativistic || e.walk_displaced)) {
+    // the markers: a filled dot for an element the recovered instrument displaces at c → ∞
+    // (RECOVERED; the paper's eleven when no record is held, READ), a hollow one for a
+    // displacement in the reconstructed walk (RECONSTRUCTED), and a faint dashed ring for one
+    // of the eleven as the paper printed them, superseded — top right
+    const paperOnly = e.paper_eleven && !e.relativistic;
+    if (s >= 14 && (e.relativistic || e.walk_displaced || paperOnly)) {
       const d = Math.max(2, s * 0.045);
       let mx = R.x + R.w - d * 1.8, my = R.y + d * 1.8;
       if (e.relativistic) {
         ctx.beginPath(); ctx.arc(mx, my, d, 0, Math.PI * 2); ctx.fillStyle = C.rel; ctx.fill();
+        mx -= d * 2.8;
+      } else if (paperOnly) {
+        ctx.beginPath(); ctx.arc(mx, my, d * 0.9, 0, Math.PI * 2); ctx.strokeStyle = C.rel; ctx.lineWidth = Math.max(1, d * 0.35);
+        ctx.setLineDash([d * 0.7, d * 0.5]); ctx.globalAlpha = 0.55; ctx.stroke(); ctx.setLineDash([]); ctx.globalAlpha = 1; ctx.lineWidth = 1;
         mx -= d * 2.8;
       }
       if (e.walk_displaced) {
@@ -626,6 +633,7 @@
         ctx.textAlign = 'right'; ctx.textBaseline = 'top'; ctx.font = F(s * 0.032, 'sans');
         const parts = [];
         if (e.relativistic) parts.push('displaced at c → ∞');
+        else if (paperOnly) parts.push('the paper\'s eleven (superseded)');
         if (e.walk_displaced) parts.push('reconstructed walk');
         ctx.fillStyle = C.muted;
         ctx.fillText(parts.join(' · '), R.x + R.w - d * 6, R.y + d * 0.9);
@@ -654,7 +662,7 @@
         ctx.textAlign = 'right'; ctx.textBaseline = 'top';
         ctx.font = F(s * 0.075);
         ctx.fillStyle = e.counts.measured ? C.measured : C.muted;
-        ctx.fillText(e.counts.measured ? `${e.counts.measured} m` : `${e.counts.rows}`, p.x + s * 0.915, p.y + s * 0.075 + (s >= 150 && (e.relativistic || e.walk_displaced) ? s * 0.04 : 0));
+        ctx.fillText(e.counts.measured ? `${e.counts.measured} m` : `${e.counts.rows}`, p.x + s * 0.915, p.y + s * 0.075 + (s >= 150 && (e.relativistic || e.walk_displaced || e.paper_eleven) ? s * 0.04 : 0));
       }
     }
     if (s >= 150) {
@@ -1719,7 +1727,7 @@
         ${c.placement ? row('helium at 2 instead', `E = ${c.placement.helium_at_2.E}, priced at ${c.placement.priced} cells`, 'READ', c.placement.source) : ''}
         ${row('set aside', c.set_aside, 'PINNED', 'the lanthanides and actinides, set aside below the table')}
       </div>${c.placement && (state.layout === 'table' || state.layout === 'table3d') ? `<div class="actions"><button type="button" data-act="helium-toggle">${state.heliumAt === 2 ? 'Draw helium at group 18 (IUPAC)' : 'Draw helium at group 2 (E = ' + c.placement.helium_at_2.E + ')'}</button></div>` : ''}`)}
-      ${(() => { const rel = ix.relativistic, lim = ix.limits; if (!rel && !lim) return ''; let b = ''; if (rel) { const paper = (rel.sources || {}).paper || {}; b += `<div class="fields">${row('displaced at c → ∞', esc((rel.eleven || []).map((x) => x.symbol).join(', ')), 'READ', `${(paper.title || 'the Löwdin paper')} L${paper.eleven_line}`, true)}${row('instrument', 'not held — the construction is record-carried; nothing here computes it', null, esc((rel.instrument && rel.instrument.note) || ''), true)}${rel.walk && rel.walk.summary && rel.walk.summary.compare ? row('the walk, reconstructed', esc(`${rel.walk.summary.compare.displaced.length} displaced at c → ∞ in the ${rel.walk.primary === 'hf' ? 'Hartree–Fock' : 'local-exchange'} field (${rel.walk.summary.compare.displaced.map((d) => d.symbol).join(', ') || 'none'}); ${rel.walk.summary.compare.in_eleven.length} of the record's eleven`), 'RECONSTRUCTED', 'tools/lowdin_walk.py over LOWDIN-WALK.tsv: the record\'s construction rebuilt from its statement; placed beside the record, never in its place', true) : ''}</div>`; } if (lim) { b += `<p class="note" style="margin-top:8px">Every cell carries the bound the csv records; by kind: ${(lim.kinds || []).map((k) => `<span class="dot dot-lim-${k.kind}"></span>${esc(LIMIT_LABEL[k.kind] || k.kind)} ${k.count.toLocaleString()}`).join(' · ')} ${badge('DERIVED', 'kind by the stated rule; the note is READ')}</p><div class="actions"><button type="button" data-act="color-limit">Colour cells by limit</button><button type="button" data-act="color-grade">by grade</button></div>`; } return section('The relativistic limit and the bounds', b); })()}
+      ${(() => { const rel = ix.relativistic, lim = ix.limits; if (!rel && !lim) return ''; let b = ''; if (rel) { const paper = (rel.sources || {}).paper || {}; b += `<div class="fields">${rel.repair ? row('displaced at c → ∞', esc(rel.repair.displaced.join(', ')) + ` <span class="plain">(${esc(rel.repair.witnessed.join(', '))} among the measured elements; ${esc(rel.repair.unwitnessed.join(', '))} beyond them)</span>`, 'RECOVERED', esc(rel.repair.comparison), true) + row('as the paper printed it', esc(rel.repair.paper_eleven.join(', ')) + ' <span class="plain">— superseded</span>', 'READ', `${(paper.title || 'the Löwdin paper')} L${paper.eleven_line}; ${esc(rel.repair.paper_eleven_status)}`, true) : row('displaced at c → ∞', esc((rel.eleven || []).map((x) => x.symbol).join(', ')), 'READ', `${(paper.title || 'the Löwdin paper')} L${paper.eleven_line}`, true)}${rel.record ? row('instrument', 'recovered — the record\'s own code, run here', 'RECOVERED', esc((rel.instrument && rel.instrument.note) || ''), true) : row('instrument', 'not held — the construction is record-carried; nothing here computes it', null, esc((rel.instrument && rel.instrument.note) || ''), true)}${rel.walk && rel.walk.summary && rel.walk.summary.compare ? row('the walk, reconstructed', esc(`${rel.walk.summary.compare.displaced.length} displaced at c → ∞ in the ${rel.walk.primary === 'hf' ? 'Hartree–Fock' : 'local-exchange'} field (${rel.walk.summary.compare.displaced.map((d) => d.symbol).join(', ') || 'none'}); ${rel.walk.summary.compare.in_eleven.length} of the record's eleven`), 'RECONSTRUCTED', 'tools/lowdin_walk.py over LOWDIN-WALK.tsv: the record\'s construction rebuilt from its statement; placed beside the record, never in its place', true) : ''}</div>`; } if (lim) { b += `<p class="note" style="margin-top:8px">Every cell carries the bound the csv records; by kind: ${(lim.kinds || []).map((k) => `<span class="dot dot-lim-${k.kind}"></span>${esc(LIMIT_LABEL[k.kind] || k.kind)} ${k.count.toLocaleString()}`).join(' · ')} ${badge('DERIVED', 'kind by the stated rule; the note is READ')}</p><div class="actions"><button type="button" data-act="color-limit">Colour cells by limit</button><button type="button" data-act="color-grade">by grade</button></div>`; } return section('The relativistic limit and the bounds', b); })()}
       ${section('Caveats that travel with every value', `<ul class="note">${(ix.caveats || []).map((v) => `<li>${esc(v.text)}</li>`).join('')}</ul>`)}
       <div class="actions"><button type="button" data-act="open-prov">Provenance and sources</button></div>
       <div class="cite">${esc(citation(rootNode))}</div>`;
@@ -1785,7 +1793,35 @@
   function relSection(e, rec) {
     const rel = state.index.relativistic;
     if (!rel) return '';
-    return relRecordSection(e, rel) + walkSection(e, rec, rel);
+    return relRecordSection(e, rel) + recordWalkSection(e, rec, rel) + walkSection(e, rec, rel);
+  }
+  const RECORD_SETTING_LABEL = { chain: 'the chain at c = 137.035999', restart137: 'the table the paper compared against (restart, c = 137.035999)', restart_cinf: 'restart rows at c → ∞', chain_cinf: 'the chain at c → ∞' };
+  function recordWalkSection(e, rec, rel) {
+    // the record's own instrument, RECOVERED from the project's conversations and run here (lowdin/);
+    // its rows at this Z under every setting run, the check of the chain's row against the sealed
+    // step the sessions printed, and what the four settings say about displacement
+    const R = rel.record;
+    if (!R) return '';
+    const wr = rec && rec.record_walk;
+    if (!wr || !wr.settings) return section('The walk, recovered', `<p class="note">no row at Z = ${e.Z}: the recovered chain runs Z = 2 to 120</p>`, badge('RECOVERED', R.instrument));
+    const fmtD = (v) => (v === null || v === undefined) ? '—' : v.toFixed(5);
+    const one = (k) => {
+      const r = wr.settings[k];
+      if (!r) return '';
+      const t = (R.tables || {})[k] || {};
+      return row(RECORD_SETTING_LABEL[k] || k, `<strong>${esc(r.entrant)}</strong> <span class="plain">D = ${fmtD(r.D_ent)} Ha · margin ${fmtD(r.margin)} over ${r.order[1] ? esc(r.order[1][0]) : '—'} · ${r.channels} channels${r.failed.length ? `, ${r.failed.length} refused (${esc(r.failed.join(', '))})` : ''} · ${r.iterations} iterations${r.observed ? ` · observed gain ${esc(r.observed)}, ${r.agrees ? 'agrees' : 'differs'}` : ''} · candidates: ${r.order.slice(0, 6).map((x) => `${esc(x[0])} ${x[1].toFixed(5)}`).join(' · ')}</span>`, 'RECOVERED', `${esc(t.what || '')}${t.kind === 'extension' ? ' — a run the record did not make' : ''}`, true);
+    };
+    const d = wr.displaced || {}, sc = wr.sealed_check;
+    let body = `<div class="fields">
+      ${one('chain')}${one('restart137')}${one('restart_cinf')}${one('chain_cinf')}
+      ${sc ? row('against the sealed step', `${esc(sc.verdict)}${sc.detail ? ' — ' + esc(sc.detail) : ''}`, 'RECOVERED', 'the chain\'s row here against the step the sessions printed when they sealed it; a margin that differs below Z = 57 while the entrant and its depth agree is the record\'s own fault F61.1 (rows walked before the convergence guard)', true) : ''}
+      ${d.paper !== null && d.paper !== undefined ? row('displaced as the paper counted it', d.paper ? 'yes <span class="rel-tag">chain ≠ restart at c = 137.035999</span>' : 'no', 'RECOVERED', 'the paper\'s eleven are the elements where the chain\'s entrant differs from the second table\'s; that table ran at c = 137.035999 in restart mode (the project\'s own fault F59.3)', true) : ''}
+      ${d.chain_cinf !== null && d.chain_cinf !== undefined ? row('displaced at a genuine c → ∞, chained', d.chain_cinf ? 'yes <span class="rel-tag walk-tag">entrants differ</span>' : 'no', 'RECOVERED', 'the chain at c = 137.035999 against the chain at c → ∞ by the record\'s F59.3 remedy; a run the record never made', true) : ''}
+      ${d.restart_cinf !== null && d.restart_cinf !== undefined ? row('displaced at a genuine c → ∞, restart', d.restart_cinf ? 'yes' : 'no', 'RECOVERED', 'restart rows at c = 137.035999 against restart rows at c → ∞ (the record ran 13 of these rows, the rest are run here)', true) : ''}
+      ${row('as the paper printed it', e.paper_eleven ? 'one of the eleven — superseded' : 'not among the eleven', 'READ', rel.repair ? rel.repair.paper_eleven_status : 'the Löwdin paper', true)}
+    </div>
+    <p class="note">${esc(caveat('record-eleven'))}</p>`;
+    return section('The walk, recovered', body, badge('RECOVERED', R.instrument));
   }
 
 const WALK_FIELD_LABEL = { hf: 'Hartree–Fock, non-local exchange (the paper\'s field, rebuilt)', lx: 'local exchange (Hartree–Fock–Slater)' };
@@ -1818,7 +1854,7 @@ const WALK_FIELD_LABEL = { hf: 'Hartree–Fock, non-local exchange (the paper\'s
         ${c1 && c1.observed_gain !== '-' ? row('observed gain at this Z', `${esc(c1.observed_gain)} — the c = 137 entrant ${c1.agree === 'yes' ? 'agrees' : 'differs'}`, 'READ', 'the observed configurations table: the channel that gained an electron from Z − 1 to Z. The chain never moves an electron, so a rearranged step (Cr, Cu, Pd, La, Gd, Th …) reads as a disagreement under this reading') : ''}
       </div>`;
     }
-    body += `<div class="fields">${e.relativistic ? row('in the record', 'one of the eleven the Löwdin paper displaces', 'READ', 'the Löwdin paper') : row('in the record', 'not among the eleven', 'READ', 'the Löwdin paper')}</div>
+    body += `<div class="fields">${rel.repair ? row('in the record', rel.repair.displaced.includes(e.symbol) ? 'displaced at c → ∞ by the recovered instrument' : 'not displaced by the recovered instrument', 'RECOVERED', rel.repair.comparison) : ''}${e.paper_eleven ? row('as the paper printed it', 'one of the eleven — superseded', 'READ', 'the Löwdin paper') : row('as the paper printed it', 'not among the eleven', 'READ', 'the Löwdin paper')}</div>
       <p class="note">${esc(caveat('walk-reconstructed'))}</p>`;
     return section('The walk, reconstructed', body, badge('RECONSTRUCTED', `${walk.instrument} over ${walk.table.file}, md5 ${walk.table.md5.slice(0, 12)}; primary field ${walk.primary}`));
   }
@@ -1827,20 +1863,22 @@ const WALK_FIELD_LABEL = { hf: 'Hartree–Fock, non-local exchange (the paper\'s
     const src = rel.sources || {}, paper = src.paper || {};
     const cite = `${(paper.title || 'the Löwdin paper')} L${paper.eleven_line}; the SCF audit`;
     const hit = (rel.eleven || []).find((x) => x.Z === e.Z);
+    const rp = rel.repair, rd = rp ? rp.detail.find((x) => x.Z === e.Z) : null;
     const fig = (state.index.figures || [])[0];
     let body = `<div class="fields">
-      ${row('displaced at c → ∞', hit ? `yes <span class="rel-tag">one of the eleven</span>` : 'no', 'READ', hit ? cite : cite + ': not among the eleven')}
+      ${rp ? row('displaced at c → ∞', rd ? `yes <span class="rel-tag">${esc(rd.at_c137)} at c = 137.035999 · ${esc(rd.at_other)} at c → ∞${rd.observed ? ' · observed ' + esc(rd.observed) : ''}</span>` : 'no', 'RECOVERED', rd ? `${esc(rp.comparison)}; ${esc(rd.against_nature)}` : `${esc(rp.comparison)}: the entrant is the same at both settings`, true) : ''}
+      ${rp ? row('as the paper printed it', hit ? `one of the eleven <span class="rel-tag">superseded</span>` : 'not among the eleven', 'READ', `${cite}; ${esc(rp.paper_eleven_status)}`, true) : row('displaced at c → ∞', hit ? `yes <span class="rel-tag">one of the eleven</span>` : 'no', 'READ', hit ? cite : cite + ': not among the eleven')}
       ${hit ? row('observed configuration', esc(hit.configuration || '—'), 'READ', 'the SCF audit over the observed configurations table') : ''}
       ${hit ? row('entrant channel', esc(hit.entrant || '—'), 'READ', 'the SCF audit: the channel the relativistic walk enters at this Z') : ''}
       ${e.Z === 90 && rel.thorium ? row('thorium', esc(rel.thorium), 'READ', `${(paper.title || 'the Löwdin paper')} L${paper.thorium_line}`, true) : ''}
       ${row('c', rel.c, 'READ', esc(rel.construction || 'the one admitted constant'))}
-      ${row('instrument', 'not held — nothing computed here', null, esc((rel.instrument && rel.instrument.note) || ''), true)}
+      ${rel.record ? row('instrument', 'recovered — the record\'s own code, read out of the project\'s conversations and run here', 'RECOVERED', esc(rel.record.note || ''), true) : row('instrument', 'not held — nothing computed here', null, esc((rel.instrument && rel.instrument.note) || ''), true)}
     </div>`;
-    if (hit || e.Z === 90) {
-      body += `<div class="callout is-plain">${esc(rel.statement || '')}</div>`;
-      if (fig && fig.file) body += `<figure class="plate-fig"><a href="data/${esc(fig.file)}" target="_blank" rel="noopener" title="open the figure at full size"><img src="data/${esc(fig.file)}" alt="${esc(fig.caption || 'Figure 5')}" loading="lazy"></a><figcaption>${esc(fig.caption || '')} · md5 ${esc((fig.md5 || '').slice(0, 12))} as the ledger records ${badge('READ', 'the figure as the repository holds it')}</figcaption></figure>`;
+    if (hit || e.Z === 90 || rd) {
+      body += rp ? `<div class="callout is-plain">${esc(rp.statement)} ${badge('RECOVERED', rp.decision)}</div><div class="callout is-plain">${rel.paper_corrected ? 'The paper\'s own statement, as corrected: ' : 'As the paper printed it, superseded: '}${esc(rel.statement || '')} ${badge('READ', rp.paper_text)}</div>` : `<div class="callout is-plain">${esc(rel.statement || '')}</div>`;
+      if (fig && fig.file) body += `<figure class="plate-fig"><a href="data/${esc(fig.file)}" target="_blank" rel="noopener" title="open the figure at full size"><img src="data/${esc(fig.file)}" alt="${esc(fig.caption || 'Figure 5')}" loading="lazy"></a><figcaption>${esc(fig.caption || '')} · md5 ${esc((fig.md5 || '').slice(0, 12))} as the ledger records ${badge('READ', 'the figure as the repository holds it')}${rp ? ' · drawn from the comparison the paper made, superseded: the second table ran at c = 137.035999 in restart mode' : ''}</figcaption></figure>`;
     }
-    return section('Relativistic limit', body, badge('READ', 'the paper\'s own result; the construction is not held'));
+    return section('Relativistic limit', body, rel.repair ? badge('RECOVERED', 'the recovered instrument\'s result; the paper\'s own sentence beside it, superseded') : badge('READ', 'the paper\'s own result; the construction is not held'));
   }
 
   function limitsSection(e) {
@@ -2086,9 +2124,10 @@ const WALK_FIELD_LABEL = { hf: 'Hartree–Fock, non-local exchange (the paper\'s
     phonons: { x: 'SITE', y: 'NIRR', z: 'DMAX', colour: 'extra:system' },
     kpoints: { x: 'LITTLE', y: 'NSR', z: 'DMAX', colour: 'extra:bravais' },
     coreps: { x: 'CDIM', y: 'SDIM', z: 'NSM', colour: 'extra:case' },
+    isotopes: { x: 'N', y: 'Z', z: null, colour: 'extra:quality' },
   };
-  const PSHORT = { fundamental: 'Fundamental particles', mesons: 'Mesons', baryons: 'Baryons', spin4: 'Spin-4 mesons', nucbands: 'Nuclear band states', fqh: 'Hall quasiparticles', bosonqp: 'Bosonic excitations', readrezayi: 'Read–Rezayi primaries', deformedbands: 'Deformed band levels', gravity: 'Gravity index', phonons: 'Phonon sites', kpoints: 'k-points', coreps: 'Corepresentations' };
-  const PLABEL = { Q3: 'charge Q', '2J': 'spin J', '2I': 'isospin I', GEN: 'generation', COL: 'colour representation', P: 'parity', S: 'strangeness', C: 'charm', B: 'beauty', STAT: 'statistics', ORD: 'order of the phase', CHORD: 'order of the charge', M: 'inverse filling 1/ν', K: 'level k', 'extra:kind': 'kind', 'extra:pdg_status': 'PDG status', 'extra:table': 'mechanism (MR ΔI = 1, AMR ΔI = 2)', 'extra:el': 'nuclide', X: 'spin decade (rank)', Y: 'charge decade (rank)', F: 'forced angular momentum', B: 'horizon-bound class', L: 'level status', E: 'mass evidence', D: 'dimension', SITE: 'site-symmetry order', NIRR: 'distinct irreps', DMAX: 'maximum degeneracy', LITTLE: 'little-group order', NSR: 'small representations', 'extra:system': 'crystal system', 'extra:bravais': 'Bravais lattice', CDIM: 'degeneracy (corep dimension)', SDIM: 'small-representation dimension', NSM: 'species fusing', 'extra:case': 'Herring case' };
+  const PSHORT = { fundamental: 'Fundamental particles', mesons: 'Mesons', baryons: 'Baryons', spin4: 'Spin-4 mesons', nucbands: 'Nuclear band states', fqh: 'Hall quasiparticles', bosonqp: 'Bosonic excitations', readrezayi: 'Read–Rezayi primaries', deformedbands: 'Deformed band levels', gravity: 'Gravity index', phonons: 'Phonon sites', kpoints: 'k-points', coreps: 'Corepresentations', isotopes: 'Isotopes' };
+  const PLABEL = { Q3: 'charge Q', '2J': 'spin J', '2I': 'isospin I', GEN: 'generation', COL: 'colour representation', P: 'parity', S: 'strangeness', C: 'charm', B: 'beauty', STAT: 'statistics', ORD: 'order of the phase', CHORD: 'order of the charge', M: 'inverse filling 1/ν', K: 'level k', 'extra:kind': 'kind', 'extra:pdg_status': 'PDG status', 'extra:table': 'mechanism (MR ΔI = 1, AMR ΔI = 2)', 'extra:el': 'nuclide', X: 'spin decade (rank)', Y: 'charge decade (rank)', F: 'forced angular momentum', B: 'horizon-bound class', L: 'level status', E: 'mass evidence', D: 'dimension', SITE: 'site-symmetry order', NIRR: 'distinct irreps', DMAX: 'maximum degeneracy', LITTLE: 'little-group order', NSR: 'small representations', 'extra:system': 'crystal system', 'extra:bravais': 'Bravais lattice', CDIM: 'degeneracy (corep dimension)', SDIM: 'small-representation dimension', NSM: 'species fusing', 'extra:case': 'Herring case', Z: 'proton number Z', N: 'neutron number N', 'extra:quality': 'mass quality (M measured, E estimated)' };
   const half = (v) => (v % 2 ? `${v}/2` : String(v / 2));
   const axisLabel = (px, name) => (px && (px.id === 'nucbands' || px.id === 'deformedbands') && name === '2I' ? 'spin I' : (PLABEL[name] || name));
   const third = (v) => (v % 3 === 0 ? String(v / 3) : `${v}/3`).replace('-', '−');
@@ -2176,6 +2215,14 @@ const WALK_FIELD_LABEL = { hf: 'Hartree–Fock, non-local exchange (the paper\'s
         members: blk.members, charted: blk.charted, cells: blk.cells, cell: blk.cell, closers: blk.closers || [], refused: blk.refused || [], unplaced: [], unplaced_why: '',
         source: { text: blk.source.text, status: blk.source.status, note: blk.source.note }, raw: blk, in_progress: !!blk.in_progress,
         rows: blk.rows.map((r, i) => ({ i, name: r.name, key: r.key, coords: r.coords, extra: r.extra })) });
+    }
+    const iso = P.isotopes;
+    if (iso && !iso.absent && iso.rows) {
+      out.push({ id: 'isotopes', family: 'isotopes', title: iso.title, short: PSHORT.isotopes, member: iso.member, coordinates: iso.coordinates,
+        members: iso.members, charted: iso.charted, cells: iso.cells, cell: iso.cell, closers: iso.closers || [], refused: iso.refused || [], unplaced: [], unplaced_why: '',
+        source: { text: `${iso.source.citation}: ${iso.members.toLocaleString()} nuclides, the file's md5 ${iso.source.ok ? 'the recorded one' : 'NOT the recorded one'}`, status: iso.source.status, note: iso.source.note },
+        raw: iso, in_progress: false,
+        rows: iso.rows.map((r, i) => ({ i, name: r.name, key: r.key, coords: r.coords, extra: r.extra })) });
     }
     const q = P.quasiparticles || {};
     const fq = q.seated;
@@ -2387,8 +2434,8 @@ const WALK_FIELD_LABEL = { hf: 'Hartree–Fock, non-local exchange (the paper\'s
     }
     const starts = [], within = [];
     for (const px of particleIndexes()) for (const r of px.rows) {
-      const n = r.name.toLowerCase();
-      if (n.startsWith(t)) starts.push([px, r]); else if (n.includes(t)) within.push([px, r]);
+      const n = r.name.toLowerCase(), k = r.key.toLowerCase();
+      if (n.startsWith(t) || k.startsWith(t)) starts.push([px, r]); else if (n.includes(t) || k.includes(t)) within.push([px, r]);
     }
     for (const [px, r] of starts.concat(within).slice(0, 8)) out.push({ path: r.name, note: `${px.short} · ${px.coordinates.map((c, k) => `${c.name} ${r.coords[k] === null ? '?' : r.coords[k]}`).join(' ')}`, go: ['p', px.id, r.key] });
     return out;
@@ -2415,6 +2462,7 @@ const WALK_FIELD_LABEL = { hf: 'Hartree–Fock, non-local exchange (the paper\'s
     else if (px.id === 'phonons') extra = renderPhononPlate(px);
     else if (px.id === 'kpoints') extra = renderKpointPlate(px);
     else if (px.id === 'coreps') extra = renderCorepPlate(px);
+    else if (px.id === 'isotopes') extra = renderIsotopePlate(px);
     else if (px.id === 'readrezayi') extra = section('The levels', `<div class="fields">${row('observed levels', px.observed.map((o) => `k = ${o.k}: ν = ${esc(o.nu)} (${esc(o.name)})`).join(' · '), 'READ', 'named plateaux; the rest of the reach is the series\' own continuation', true)}${row('validated', px.validation.map((v) => `${esc(v.what)}: ${v.agrees ? 'agrees' : 'DISAGREES'}`).join(' · '), 'DERIVED', 'the closed form against the values the literature fixes', true)}${row('verdict', `<b>${esc(px.verdict)}</b> — ${esc(px.why)}`, px.verdict_status, null, true)}${row('fermions', `${px.fermions.length}`, 'DERIVED', esc(px.fermions_note), true)}</div>`);
     else if (px.id === 'bosonqp') extra = section('The three rules', `<div class="fields">${px.rules.map((r) => row(esc(r.rule), esc(r.text), 'DERIVED', null, true)).join('')}${px.excluded.map((x) => row('excluded: ' + esc(x.name), `${esc(x.parts.join(' + '))} → 2J in {${x.spins.join(', ')}}: ${esc(x.why)}`, 'DERIVED', 'the computation refuses it, not a choice', true)).join('')}${px.relation ? row('the relation', `${px.relation.qp_subset_of_bosons ? 'a subset of the bosons' : 'not a subset of the bosons'}; ${px.relation.qp_sublattice ? 'a sublattice' : 'not a sublattice'}`, px.relation.status, esc(px.relation.note || ''), true) : ''}</div>`);
     else if (px.id === 'spin4' && px.raw && px.raw.reach) { const s = px.raw; extra = section('A sub-population, seated on its own reach', `<p class="note">The ten mesons of spin 4: a sub-population of <button type="button" class="pchip" data-pgo="mesons">the meson index</button> with ${esc(s.held_constant.coordinate)} = ${s.held_constant.value} held constant, so it is not a coordinate here and the effective arity is ${s.arity.effective}. ${badge('DERIVED', esc(s.held_constant.note))}</p>
@@ -2457,11 +2505,11 @@ const WALK_FIELD_LABEL = { hf: 'Hartree–Fock, non-local exchange (the paper\'s
       </div>`) : ''); }
     else if (px.id === 'fundamental' && px.colour_rule) extra = section('The colour assignment', `<p class="note">Not in the capture: ${px.colour_rule.map((c) => `${esc(c.what)} → ${c.dimension}`).join(' · ')} ${badge('PINNED', 'the Standard Model\'s definition, printed rather than hidden')}</p>${px.collisions ? `<p class="note"><b>${px.collisions.length} cells hold two members</b> — ${esc(px.collisions_note)} ${badge('DERIVED')}</p>` : ''}`);
     else if (px.conjugation) extra = section('Antimatter, measured rather than seated', `<p class="note">${px.conjugation.pairs} particle–antiparticle pairs, ${px.conjugation.split} split by the chart and ${px.conjugation.collided} collided${px.conjugation.note ? '; ' + esc(px.conjugation.note) : ''}. ${badge('DERIVED')}</p>`);
-    return `<div class="kind">a particle index${px.in_progress ? ' · in progress' : ''}</div>
+    return `<div class="kind">${px.family === 'isotopes' ? 'an index of this site, from its own instrument' : 'a particle index'}${px.in_progress ? ' · in progress' : ''}</div>
       <h2 class="node-title">${esc(px.title)}</h2>
       <p class="node-sub">One member is ${esc(px.member)}.</p>
       <div class="stats">
-        <div class="stat"><b>${px.members.toLocaleString()}</b><span>members ${badge(px.family === 'pdg' || px.family === 'nuclear' ? 'READ' : 'DERIVED', px.family === 'pdg' ? 'rows of the table the capture keeps' : px.family === 'nuclear' ? 'levels of the published data table the capture keeps, those carrying both coordinates' : 'members the instrument computes from its stated rule')}</span></div>
+        <div class="stat"><b>${px.members.toLocaleString()}</b><span>members ${badge(px.family === 'pdg' || px.family === 'nuclear' || px.family === 'isotopes' ? 'READ' : 'DERIVED', px.family === 'pdg' ? 'rows of the table the capture keeps' : px.family === 'nuclear' ? 'levels of the published data table the capture keeps, those carrying both coordinates' : px.family === 'isotopes' ? 'rows of the mass table, every one carrying both coordinates' : 'members the instrument computes from its stated rule')}</span></div>
         <div class="stat"><b>${px.charted}</b><span>charted ${badge('DERIVED', 'members with every coordinate printed, so each lands on a cell')}</span></div>
         <div class="stat"><b>${px.cells}</b><span>cells ${badge('DERIVED', 'the instrument\'s own count over the members')}</span></div>
         <div class="stat"><b>K${px.cell.channel}</b><span>closure channel ${badge('DERIVED', `height ${px.cell.height}, width ${px.cell.width}; closed by ${px.closers.length ? px.closers.join(', ') : 'no language'}`)}</span></div>
@@ -2530,6 +2578,24 @@ const WALK_FIELD_LABEL = { hf: 'Hartree–Fock, non-local exchange (the paper\'s
         ${g.nuclear_spin ? row('a nuclear-spin table, measured and not seated', nuclearSpinText(g.nuclear_spin), 'DERIVED', esc(g.nuclear_spin.note) + ' Refuses: ' + g.nuclear_spin.refuses.map(esc).join(' '), true) : ''}
       </div>
       <p class="note">The eleventh solver mode computes the same quantities for any nuclide, ion, molecule or particle from the same tables. <button type="button" class="ghost open-ix" data-solver="gravity">Open the gravity mode →</button></p>`);
+  }
+  function renderIsotopePlate(px) {
+    const b = px.raw, c = b.census, ch = b.channel, de = b.demand, wt = b.witness, oc = b.own_cell;
+    return section('The reading', `<p class="note">${esc(b.site_own_note)} ${badge('READ', 'the one nuclear table the repository holds, by its recorded md5')}</p>
+      <div class="fields">
+        ${row('the table', `${c.rows.toLocaleString()} nuclides, Z ${c.Z[0]}–${c.Z[1]}, N ${c.N[0]}–${c.N[1]}, A ${c.A[0]}–${c.A[1]}; ${c.measured.toLocaleString()} masses measured, ${c.estimated.toLocaleString()} estimated`, 'READ', `${esc(b.source.citation)}; ${esc(b.source.note)}`, true)}
+        ${row('the chart', `${c.elements} elements (the neutron counted at Z = 0), ${c.isotone_lines} isotone lines, ${c.isobar_lines} isobar lines; injective: ${b.injective ? 'every nuclide its own cell' : 'NOT injective'}`, 'DERIVED', `the most isotopes at Z = ${c.most_isotopes.Z} (${c.most_isotopes.count}), the most isotones at N = ${c.most_isotones.N} (${c.most_isotones.count}), the most isobars at A = ${c.most_isobars.A} (${c.most_isobars.count})`, true)}
+        ${row('the cell, measured twice', `height ${oc.height}, width ${oc.width} by the instrument's own exact 2-D measurement; the law's operators return ${px.cell.height}, ${px.cell.width}: ${ch.own_cell_agrees ? 'agree' : 'DISAGREE'}`, oc.status, esc(oc.note), true)}
+        ${row('the channel', px.cell.channel === null ? 'not measured at this build' : `K${px.cell.channel}, closed by ${px.closers.join(' and ')}`, ch.status, `${esc(ch.note)}${ch.closure_sizes && Object.keys(ch.closure_sizes).length ? '; closure sizes over ' + ch.cells.toLocaleString() + ' cells: ' + Object.entries(ch.closure_sizes).map(([L, n]) => `${L} ${n.toLocaleString()}`).join(', ') : ''}`, true)}
+        ${row('the demand', `E = ${de.E}${de.E === 0 ? ': join-closed, no ghost to draw' : ''}`, de.status, esc(de.note), true)}
+        ${row('the meet, for the shape', `${de.meet_deficit} cells asked for${de.meet_cells.length ? ': ' + de.meet_cells.map((m) => `(${m.join(', ')})${m[0] === 0 && m[1] === 0 ? ' the empty nucleus' : m[0] === 2 && m[1] === 0 ? ' the diproton' : ''}`).join(', ') : ''}`, 'DERIVED', esc(de.meet_note), true)}
+        ${row('a chain attaining the height', `${wt.chain.length} members, (${wt.chain[0].join(', ')}) → … → (${wt.chain[wt.chain.length - 1].join(', ')})`, 'DERIVED', esc(wt.chain_note), true)}
+        ${row('an antichain attaining the width', wt.antichain.map((a) => `(${a.join(', ')})`).join(' '), 'DERIVED', esc(wt.antichain_note), true)}
+        ${row('the most bound', `${esc(c.most_bound.name)} at ${fmtVal(c.most_bound.B_per_A_keV)} keV per nucleon`, 'DERIVED', 'from the rounded table\'s own rows; the evaluation\'s unrounded file differs in the last figure', true)}
+        ${row('separation energies', `S_n not defined on ${c.S_n_undefined}, S_p on ${c.S_p_undefined}; negative on ${c.S_n_negative} and ${c.S_p_negative}`, 'DERIVED', esc(b.formulas.note), true)}
+        ${row('the formulas', `${esc(b.formulas.mass_u)} · ${esc(b.formulas.binding_keV)} · ${esc(b.formulas.separation)}`, b.formulas.status, b.constants.map((k) => `${k.symbol} = ${k.value_keV} keV, ${k.status}: ${k.source}`).join('; '), true)}
+      </div>
+      <details><summary>Refused coordinates, each against a measurement (${px.refused.length})</summary><div class="fields">${px.refused.map((r) => row(esc(r.coordinate), `<b>${esc(r.verdict)}</b> — ${esc(r.why)}${r.measurement ? `<div class="note mono" style="margin-top:4px">${esc(JSON.stringify(r.measurement))}</div>` : ''}`, r.status, null, true)).join('')}</div></details>`);
   }
   function renderPhononPlate(px) {
     const p = px.raw, g = p.guards;
@@ -2659,6 +2725,18 @@ const WALK_FIELD_LABEL = { hf: 'Hartree–Fock, non-local exchange (the paper\'s
         ${row('horizon bound by dimension', dims.map((D, i) => `D = ${D}: ${coordTick('B', x.B_by_D[i])}`).join(' · '), 'DERIVED', 'from the exact solutions only; a bound exists, not where', true)}
       </div>
       <p class="note"><button type="button" class="ghost open-ix" data-solver="gravity" data-fill='${esc(JSON.stringify({ species: `^${x.A}${x.el}${x.q ? x.q + '+' : ''}` }))}'>Compute this body in the gravity mode →</button></p>`);
+    } else if (px.id === 'isotopes') {
+      const gpx = pindexOf('gravity'), grs = gpx ? gpx.rows.filter((g) => g.key.startsWith(`${x.A}${x.sym}-`)) : [];
+      const sep = (v) => (v === null || v === undefined ? 'not defined: the neighbour is not in the table' : `${fmtVal(v)} keV`);
+      printed = section('The nuclide', `<div class="fields">
+        ${row('nuclide', `${x.A}${esc(x.sym)} — Z = ${x.Z}, N = ${x.N}, A = ${x.A}`, 'READ', 'the table\'s own row; A is recomputed as Z + N and matched the printed A', true)}
+        ${row('mass excess', `${fmtVal(x.dm_keV)} ± ${fmtVal(x.unc_keV)} keV`, x.quality === 'M' ? 'READ' : 'ESTIMATED', x.quality === 'M' ? 'measured, by the table\'s own flag' : 'estimated, by the table\'s own flag (# in the source); carried at the status the table gives it', true)}
+        ${row('mass', `${x.M_u} u`, x.quality === 'M' ? 'DERIVED' : 'ESTIMATED', 'A + Δ / (u c²), the one constant CODATA 2018\'s', true)}
+        ${row('binding energy', `${fmtVal(x.B_keV)} keV · ${fmtVal(x.B_per_A_keV)} keV per nucleon`, x.quality === 'M' ? 'DERIVED' : 'ESTIMATED', 'B = Z Δ(¹H) + N Δ(n) − Δ, from three of the table\'s own entries; the electrons cancel exactly', true)}
+        ${row('S_n · S_p', `${sep(x.S_n)} · ${sep(x.S_p)}`, 'DERIVED', 'one-neutron and one-proton separation energies, differences of B with the neighbour where the table holds it; a negative value is the table\'s own, not a finding', true)}
+        ${row('S_2n · S_2p', `${sep(x.S_2n)} · ${sep(x.S_2p)}`, 'DERIVED', 'two-nucleon separation energies, likewise', true)}
+      </div>
+      <p class="note">${grs.length ? `The same nuclide in the gravity index, in the ${grs.length} charge state${grs.length === 1 ? '' : 's'} its level tables bank: ${grs.slice(0, 8).map((g) => pchip(gpx, g)).join(' ')}${grs.length > 8 ? ' …' : ''} ` : 'Not in the gravity index: no level table of this element is banked there. '}<button type="button" class="ghost open-ix" data-solver="gravity" data-fill='${esc(JSON.stringify({ species: `^${x.A}${x.sym}` }))}'>Compute this body in the gravity mode →</button></p>`);
     } else if (px.id === 'phonons') {
       printed = section('The site', `<div class="fields">
         ${row('space group', `${x.sg} (${esc(x.system)})`, 'READ', 'the international number', true)}
@@ -2826,6 +2904,14 @@ const WALK_FIELD_LABEL = { hf: 'Hartree–Fock, non-local exchange (the paper\'s
       ${px ? (id === 'phonons' ? renderPhononPlate(px) : id === 'kpoints' ? renderKpointPlate(px) : renderCorepPlate(px)) : ''}
       <details><summary>Refused coordinates, each with its ground (${blk.refused.length})</summary><div class="fields">${blk.refused.map((r) => row(esc(r.coordinate), `<b>${esc(r.verdict)}</b> — ${esc(r.why)}${r.measurement ? `<div class="note mono" style="margin-top:4px">${esc(JSON.stringify(r.measurement))}</div>` : ''}`, r.status, null, true)).join('')}</div></details>`;
   }
+  function renderIsotopes(b, openIx) {
+    const px = pindexOf('isotopes'), c = b.census, de = b.demand;
+    return `<h3>${esc(b.title)} ${openIx('isotopes')} <span class="muted">(an index of this site)</span></h3>
+      <p class="note">One member is ${esc(b.member)}. ${b.members.toLocaleString()} members on ${b.cells.toLocaleString()} cells, one each; closure channel ${b.cell.channel === null ? 'not measured' : 'K' + b.cell.channel} (height ${b.cell.height}, width ${b.cell.width}), closed by ${b.closers.length ? esc(b.closers.join(' and ')) : 'no language'}; E = ${de.E}. ${badge('DERIVED', 'the height, width and E by the site\'s own instrument, exactly; the channel by the law\'s operators at build')} ${esc(b.site_own_note)}</p>
+      <div class="tbl-wrap"><table class="t"><thead><tr><th>coordinate</th><th>meaning</th><th>status</th></tr></thead><tbody>${b.coordinates.map((x) => `<tr><td class="mono">${esc(x.name)}</td><td class="wrap">${esc(x.meaning)}</td><td>${badge(x.status)}</td></tr>`).join('')}</tbody></table></div>
+      ${px ? renderIsotopePlate(px) : ''}
+      <p class="note">Every member's plate carries its mass excess with its uncertainty and flag, its mass in u, its binding energy and its separation energies, all from the table's own entries, and opens the same nuclide in the gravity mode. Search by name: <span class="mono">56Fe</span>, <span class="mono">U-238</span>.</p>`;
+  }
   function renderBonds(b) {
     const m = b.molecular, pw = b.particle;
     return `<h3>${esc(b.title)} <span class="muted">(in progress on the other session)</span></h3><p class="note">${esc(b.status_note)}</p>
@@ -2937,6 +3023,7 @@ const WALK_FIELD_LABEL = { hf: 'Hartree–Fock, non-local exchange (the paper\'s
     if (px.phonons && !px.phonons.absent) html += renderCrystalIndex(px.phonons, 'phonons', openIx);
     if (px.kpoints && !px.kpoints.absent) html += renderCrystalIndex(px.kpoints, 'kpoints', openIx);
     if (px.coreps && !px.coreps.absent) html += renderCrystalIndex(px.coreps, 'coreps', openIx);
+    if (px.isotopes && !px.isotopes.absent) html += renderIsotopes(px.isotopes, openIx);
     if (px.bonds) html += renderBonds(px.bonds);
     if (px.predictions && !px.predictions.absent) html += renderPredictions(px.predictions);
     const q = px.quasiparticles;
@@ -3261,7 +3348,7 @@ const WALK_FIELD_LABEL = { hf: 'Hartree–Fock, non-local exchange (the paper\'s
         <div class="paper-layout">
           <nav class="paper-toc" aria-label="Contents">${pp.headings.filter((h) => h.level >= 2 && h.level <= 3).map((h) => `<a href="#${esc(h.id)}" data-h="${esc(h.id)}" class="toc-${h.level}">${esc(h.text)}</a>`).join('')}
             <div class="note" style="margin-top:10px">${pp.figures.length ? `figures ${pp.figures.filter((f) => f.held).length} held${pp.figures.some((f) => !f.held) ? `, ${pp.figures.filter((f) => !f.held).length} not held` : ''}; every held figure's md5 ${pp.figures.every((f) => !f.held || f.ok) ? 'matches the ledger' : 'DRIFTS from the ledger'}` : 'no figures; the paper is its text and its tables'}</div>
-            <div class="note" style="margin-top:6px"><a href="#" data-act="paper-cite">cite this paper</a>${pp.pdf ? ` · <a href="${DATA}${esc(pp.pdf.file)}" target="_blank" rel="noopener" title="md5 ${esc(pp.pdf.md5)}">PDF</a>` : ''}${pp.tree ? `<div class="note" style="margin-top:6px">from the research tree, commit <span class="mono">${esc(pp.tree.commit || '?')}</span>; no ledger row, md5 measured at build</div>` : ''}${pp.masked && pp.masked.length ? `<div class="note" style="margin-top:6px"><b>Masked at build:</b> ${pp.masked.map((m) => `${m.count} × ${esc(m.kind)}`).join(', ')} — each site carries a visible mark, because this site cites nothing from the unpublished books; nothing else in the text is edited. ${badge('READ', 'the count the generator records')}</div>` : ''}${pp.pdf_note ? `<div class="note" style="margin-top:6px"><b>PDF withheld:</b> ${esc(pp.pdf_note)}.</div>` : ''}</div>
+            <div class="note" style="margin-top:6px"><a href="#" data-act="paper-cite">cite this paper</a>${pp.pdf ? ` · <a href="${DATA}${esc(pp.pdf.file)}" target="_blank" rel="noopener" title="md5 ${esc(pp.pdf.md5)}">PDF</a>${pp.pdf.witness && pp.pdf.witness.match ? ` <span class="ok" title="the copy the author released to the witness folder, mirrored with an ${esc(pp.pdf.witness.status || '')} manifest row, has the same md5">matches the released copy</span>` : ''}` : ''}${pp.tree ? `<div class="note" style="margin-top:6px">from the research tree, commit <span class="mono">${esc(pp.tree.commit || '?')}</span>; no ledger row, md5 measured at build</div>` : ''}${pp.masked && pp.masked.length ? `<div class="note" style="margin-top:6px"><b>Masked at build:</b> ${pp.masked.map((m) => `${m.count} × ${esc(m.kind)}`).join(', ')} — each site carries a visible mark, because this site cites nothing from the unpublished books; nothing else in the text is edited. ${badge('READ', 'the count the generator records')}</div>` : ''}${pp.pdf_note ? `<div class="note" style="margin-top:6px"><b>PDF withheld:</b> ${esc(pp.pdf_note)}.</div>` : ''}</div>
           </nav>
           <article class="paper" id="paper-article">${pp.html}</article>
         </div>`;
@@ -3846,7 +3933,7 @@ const WALK_FIELD_LABEL = { hf: 'Hartree–Fock, non-local exchange (the paper\'s
   B <El>              rows where B in the csv disagrees with B computed, and rows where B is not a bound
   ladder <El>         the Λ₈ steps, with any failing constraint
   limits <El>         the bound the csv records on its cells, by kind; series limits as printed
-  relativistic        the eleven elements displaced at c → ∞ (READ; the construction is not held), and the reconstruction beside them
+  relativistic        the elements displaced at c → ∞ by the recovered instrument (RECOVERED), the paper's eleven beside them (READ, superseded), and the reconstruction
   walk <El>           the element in the reconstructed walk at both settings (RECONSTRUCTED; tools/lowdin_walk.py)
   lattice             the whole index as a lattice: sites, known cells, the axes and their source
   particles           what the sources state of the binders and particles beyond the electron
@@ -4003,10 +4090,28 @@ const WALK_FIELD_LABEL = { hf: 'Hartree–Fock, non-local exchange (the paper\'s
         const rel = ix.relativistic;
         if (!rel) return 'no relativistic block in this build of data/index.js';
         const paper = (rel.sources || {}).paper || {};
-        const lines = [`${rel.statement || ''} ${st('READ')}`, `source: ${paper.title || 'the Löwdin paper'} L${paper.eleven_line}; the SCF audit`, ''];
+        const rp = rel.repair;
+        const lines = rp ? [`${rp.statement} ${st('RECOVERED')}`, rp.decision, `displaced: ${rp.displaced.join(', ')} — ${rp.witnessed.join(', ')} among the measured elements, ${rp.unwitnessed.join(', ')} beyond them`]
+          : [`${rel.statement || ''} ${st('READ')}`, `source: ${paper.title || 'the Löwdin paper'} L${paper.eleven_line}; the SCF audit`, ''];
+        if (rp) { for (const d of rp.detail) lines.push(`  ${d.symbol.padEnd(3)} Z=${String(d.Z).padEnd(4)} ${d.at_c137} at c = 137.035999 · ${d.at_other} at c → ∞${d.observed ? ' · observed ' + d.observed : ''} — ${d.against_nature}`); lines.push('', `${rel.paper_corrected ? 'the paper\'s own statement, as corrected' : 'as the paper printed it, superseded'} ${st('READ')} — ${rel.statement || ''}`, `source: ${paper.title || 'the Löwdin paper'} L${paper.eleven_line}; ${rp.paper_eleven_status}`); }
         for (const x of rel.eleven || []) lines.push(`${x.symbol.padEnd(3)} Z=${String(x.Z).padEnd(4)} ${(x.configuration || '').padEnd(24)} entrant ${x.entrant || '?'}`);
         if (rel.thorium) lines.push('', rel.thorium);
-        lines.push('', `instrument: not held — ${(rel.instrument && rel.instrument.note) || ''}`, (rel.instrument && rel.instrument.note) || '');
+        if (rel.record) {
+          const R = rel.record, sm = R.summary || {};
+          lines.push('', `the walk, recovered ${st('RECOVERED')} — ${R.instrument}`, R.note);
+          Object.entries(R.tables || {}).forEach(([k, t]) => lines.push(`  ${k}: ${t.rows} rows — ${t.label}${t.kind === 'extension' ? ' (a run the record did not make)' : ''}`));
+          if (sm.sealed_check) lines.push(`  the chain against the sealed steps the sessions printed: ${Object.entries(sm.sealed_check).map(([k, v]) => `${k} ${v}`).join(', ')}`);
+          if (sm.steps_agreeing_with_observed) lines.push(`  entrant = observed gain at ${sm.steps_agreeing_with_observed.agree} of ${sm.steps_agreeing_with_observed.scored} steps to Z = 108`);
+          const dp = sm.displaced || {};
+          if (dp.paper) lines.push(`  displaced as the paper counted it (chain ≠ restart at c = 137.035999): ${dp.paper.length} — ${dp.paper.join(', ') || 'none'}`);
+          if (dp.chain_cinf) lines.push(`  displaced at a genuine c → ∞, chained: ${dp.chain_cinf.length} — ${dp.chain_cinf.join(', ') || 'none'}`);
+          if (dp.restart_cinf) lines.push(`  displaced at a genuine c → ∞, restart: ${dp.restart_cinf.length} — ${dp.restart_cinf.join(', ') || 'none'}`);
+          if (sm.thorium) lines.push(`  Th: ${Object.entries(sm.thorium).map(([k, v]) => `${k} ${v}`).join(', ')}`);
+          if (sm.scorer) Object.entries(sm.scorer).forEach(([k, v]) => lines.push(`  the record's scorer over ${k}: configurations ${v.config}, steps ${v.step}; step failures ${v.step_failures.join(' ')}`));
+          lines.push(`  ${caveat('record-eleven')}`);
+        } else {
+          lines.push('', `instrument: not held — ${(rel.instrument && rel.instrument.note) || ''}`, (rel.instrument && rel.instrument.note) || '');
+        }
         const walk = rel.walk;
         if (walk && walk.summary && walk.summary.compare) {
           const cp = walk.summary.compare;
@@ -4047,7 +4152,7 @@ const WALK_FIELD_LABEL = { hf: 'Hartree–Fock, non-local exchange (the paper\'s
             }
             lines.push(`    displaced in this field: ${wf.displaced ? 'yes' : 'no'}${wf.c137 && wf.c137.observed_gain !== '-' ? `; observed gain ${wf.c137.observed_gain} (${wf.c137.agree === 'yes' ? 'the c = 137 entrant agrees' : 'the c = 137 entrant differs'}) ${st('READ')}` : ''}`);
           }
-          lines.push(`  in the record: ${e.relativistic ? 'one of the eleven' : 'not among the eleven'} ${st('READ')}`);
+          lines.push(`  in the record: ${(ix.relativistic.repair ? (ix.relativistic.repair.displaced.includes(e.symbol) ? 'displaced at c → ∞ by the recovered instrument' : 'not displaced by the recovered instrument') + ' ' + st('RECOVERED') + '; ' : '')}as the paper printed it: ${e.paper_eleven ? 'one of the eleven (superseded)' : 'not among the eleven'} ${st('READ')}`);
           lines.push(`  ${caveat('walk-reconstructed')}`);
           return lines.join('\n');
         });
@@ -6275,14 +6380,14 @@ var SOLVERS, LIB;
   var MODE_RELATIVISTIC = {
     id: 'relativistic',
     title: 'The relativistic limit (c = 137 against c → ∞)',
-    status: READ,
-    statusNote: 'The Löwdin paper: the observed table is irreducibly relativistic. The record\'s construction is not held: the Löwdin project\'s reply of 2026-09-18 locates the c → ∞ path in a delivery that never arrived, and the project has since concluded. So the mode reads the record\'s result (READ) and, beside it, carries a RECONSTRUCTION: tools/lowdin_walk.py runs the record\'s own algorithm — the V^{N−1} chain with the Koelling–Harmon equation — in a local-exchange field, at both settings, into LOWDIN-WALK.tsv. The reconstruction is never the record\'s number; where the two disagree, the disagreement is the measurement.',
-    description: 'Quantum mechanics supplies the range of configurations; the speed of light, entering once as c = 137 through the scalar-relativistic reduction of the Dirac equation, decides which of them the observed table holds. Repeated with c sent to infinity, the record\'s construction misplaces eleven elements and inverts the channel competition at thorium. That construction is not held, so this mode reports the paper\'s own result, READ, and refuses to recompute its c → ∞ table. What it can show beside the record is the reconstructed walk (RECONSTRUCTED): the same chain, run here in a field that is not the record\'s, with its entrant, runner-up, margin and candidate spectrum at every Z at both settings, and the reconstruction\'s own list of displaced elements measured against the Löwdin paper\'s eleven.',
+    status: RECOVERED,
+    statusNote: 'The Löwdin paper states that the observed table is irreducibly relativistic, on eleven displaced elements. The record\'s own instrument has since been recovered from the project\'s conversations and run here at both settings (RECOVERED): the chain with the constant removed differs from the chain at c = 137.035999 at thorium and rutherfordium among the measured elements and at Z = 120 beyond them, and nowhere else; the paper\'s eleven were the chain against a second table that had run at c = 137.035999 in restart mode. By the author\'s decision of 2026-09-24 the mode states the recovered instrument\'s result and carries the paper\'s eleven beside it as the reading the paper printed, superseded (READ). Beside both, a RECONSTRUCTION: tools/lowdin_walk.py runs the same chain in fields built here, at both settings, into LOWDIN-WALK.tsv; where it disagrees with the recovered instrument, the disagreement is the measurement.',
+    description: 'Quantum mechanics supplies the range of configurations; the speed of light, entering once as c = 137 through the scalar-relativistic reduction of the Dirac equation, decides which of them the observed table holds. Repeated with c sent to infinity by the record\'s own recovered instrument, the construction moves its entrant at thorium (6d to 5f, away from the observed channel), at rutherfordium (5f to 6d, the observed channel) and at Z = 120 (8s to 7d), and at no other element; the paper\'s eleven, silver and mercury among them, were a comparison against a restart walk at c = 137.035999 and are carried superseded. The mode reports the recovered tables (RECOVERED), the paper\'s eleven (READ, superseded) and the reconstructed walk (RECONSTRUCTED), and still recomputes nothing in the browser: the c → ∞ table is the instrument\'s, run in the repository.',
     inputs: [sel('Z'),
              { name: 'operation', label: 'operation', type: 'select', default: 'element',
-               options: [{ value: 'element', label: 'is this element displaced at c → ∞? (the record)' },
+               options: [{ value: 'element', label: 'is this element displaced at c → ∞? (the recovered instrument)' },
                          { value: 'walk', label: 'this element in the reconstructed walk, both settings' },
-                         { value: 'eleven', label: 'the eleven, with their entrant channels (the record)' },
+                         { value: 'eleven', label: 'the displaced set, and the paper\'s eleven beside it' },
                          { value: 'compare', label: 'the reconstruction against the record' },
                          { value: 'recompute', label: 'recompute the c → ∞ table' }] }],
     source: { instrument: 'lowdin_construction', file: 'the Löwdin paper',
@@ -6297,10 +6402,14 @@ var SOLVERS, LIB;
       var walk = rel.walk;
       var wcite = walk ? walk.instrument + ' over ' + walk.table.file + ' (md5 ' + walk.table.md5.slice(0, 12) + ')' : '';
       var fmt6 = function (v) { return (v === null || v === undefined) ? '—' : v.toFixed(6); };
+      var rp = rel.repair;
       if (op === 'recompute') {
-        rows.push(row('c → ∞ table', 'not computable here', null, inst.note || 'the construction is not held'));
-        rows.push(row('why', 'the record\'s scalar-relativistic construction (Koelling–Harmon Hartree–Fock, c = 137) and its repetition at c → ∞ are not held; the delivery that would have carried them never arrived', null, inst.note || ''));
-        rows.push(row('what is held', 'the paper\'s statement and the SCF audit\'s table of the eleven', READ, cite));
+        rows.push(row('c → ∞ table', 'not computable here', null, rp ? 'the page computes nothing of the chain; the table is the recovered instrument\'s, run in the repository and shipped as data' : (inst.note || 'the construction is not held')));
+        rows.push(row('why', rp ? 'the self-consistent field is the record\'s own code, recovered and run in the repository; the browser carries its tables, not its solver' : 'the record\'s scalar-relativistic construction (Koelling–Harmon Hartree–Fock, c = 137) and its repetition at c → ∞ are not held; the delivery that would have carried them never arrived', null, inst.note || ''));
+        if (rp) {
+          rows.push(row('what is held', 'the recovered instrument\'s chain at both settings: displaced at ' + rp.displaced.join(', '), RECOVERED, rp.comparison));
+          rows.push(row('as the paper printed it', rp.paper_eleven.join(', ') + ' — superseded', READ, cite + '; ' + rp.paper_eleven_status));
+        } else rows.push(row('what is held', 'the paper\'s statement and the SCF audit\'s table of the eleven', READ, cite));
         if (walk && walk.summary && walk.summary.compare) {
           var cp = walk.summary.compare;
           rows.push(row('the walk, reconstructed', 'a c → ∞ table exists here as a reconstruction, not the record\'s: Z = ' + cp.Z_first + ' to ' + cp.Z_last + ' at both settings, in ' + Object.keys(walk.fields || { lx: 1 }).length + ' field(s); the primary is ' + (walk.primary || 'lx'), RECONSTRUCTED, wcite));
@@ -6368,17 +6477,25 @@ var SOLVERS, LIB;
         var prim = wr.fields[walk.primary] || wr.fields[order[0]];
         if (prim && prim.c137 && prim.c137.observed_gain !== '-') rows.push(row('observed gain at this Z', prim.c137.observed_gain + ' — the primary field\'s c = 137 entrant ' + (prim.c137.agree === 'yes' ? 'agrees' : 'differs'), READ, 'the observed configurations table: the channel that gained an electron from Z − 1 to Z; the chain never moves an electron'));
         var inEleven = rel.eleven.some(function (e) { return e.Z === Zw; });
-        rows.push(row('in the record', inEleven ? 'one of the eleven the Löwdin paper displaces' : 'not among the eleven', READ, cite));
+        if (rp) rows.push(row('in the record', rp.displaced.indexOf(recw.symbol) >= 0 ? 'displaced at c → ∞ by the recovered instrument' : 'not displaced by the recovered instrument', RECOVERED, rp.comparison));
+        rows.push(row('as the paper printed it', inEleven ? 'one of the eleven — superseded' : 'not among the eleven', READ, cite));
         return { rows: rows, ok: true, walk: wr, primary: walk.primary, text: caveat(ctx.index, 'walk-reconstructed') || '' };
       }
       if (op === 'eleven') {
-        rows.push(row('elements displaced at c → ∞', rel.eleven.length, READ, cite));
+        if (rp) {
+          rows.push(row('elements displaced at c → ∞', rp.displaced.length, RECOVERED, rp.comparison));
+          rp.detail.forEach(function (d) {
+            rows.push(row(d.symbol + ' (Z = ' + d.Z + ')', d.at_c137 + ' at c = 137.035999 → ' + d.at_other + ' at c → ∞' + (d.observed ? '; observed ' + d.observed : ''), RECOVERED, d.against_nature));
+          });
+          if (rp.scorer && rp.scorer.chain && rp.scorer.chain_cinf) rows.push(row('the record\'s scorer, both settings', 'steps ' + rp.scorer.chain.step + ' | ' + rp.scorer.chain_cinf.step + '; configurations ' + rp.scorer.chain.config + ' | ' + rp.scorer.chain_cinf.config, RECOVERED, 'c = 137.035999 | c → ∞; the step failures swap Rf for Th'));
+          rows.push(row('the paper\'s eleven', rp.paper_eleven.join(', ') + ' — superseded', READ, cite + '; ' + rp.paper_eleven_status + '; at ' + rp.paper_eleven_restart_holds_observed + ' of the eleven the restart table holds the observed channel'));
+        } else rows.push(row('elements displaced at c → ∞', rel.eleven.length, READ, cite));
         rel.eleven.forEach(function (e) {
-          rows.push(row(e.symbol + ' (Z = ' + e.Z + ')', (e.configuration || '') + ' → entrant ' + (e.entrant || '?'), READ, 'the SCF audit: the eleven in the observed table, over the observed configurations'));
+          rows.push(row(e.symbol + ' (Z = ' + e.Z + ')' + (rp ? ', as printed' : ''), (e.configuration || '') + ' → entrant ' + (e.entrant || '?'), READ, 'the SCF audit: the eleven in the observed table, over the observed configurations' + (rp ? '; superseded' : '')));
         });
         if (rel.thorium) rows.push(row('thorium', rel.thorium, READ, (paper.title || 'the Löwdin paper') + ' L' + paper.thorium_line));
-        rows.push(row('instrument', 'not held — nothing computed here', null, inst.note || ''));
-        return { rows: rows, ok: true, text: 'The Löwdin paper: ' + ((src.paper && src.paper.eleven_text) || '') };
+        rows.push(row('instrument', rp ? 'recovered — the record\'s own code, run in the repository' : 'not held — nothing computed here', rp ? RECOVERED : null, inst.note || ''));
+        return { rows: rows, ok: true, text: rp ? rp.statement : 'The Löwdin paper: ' + ((src.paper && src.paper.eleven_text) || '') };
       }
       var Z = int(values.Z);
       if (Z === null || Z < 1 || Z > 120) return fail('Z must be an integer from 1 to 120');
@@ -6387,7 +6504,12 @@ var SOLVERS, LIB;
       var rec = got.rec, hit = null;
       for (var i = 0; i < rel.eleven.length; i++) if (rel.eleven[i].Z === Z) hit = rel.eleven[i];
       rows.push(row('element', rec.symbol + ' (Z = ' + Z + ')', READ, 'the observed configurations table'));
-      rows.push(row('displaced at c → ∞', hit ? 'yes' : 'no', READ, cite + (hit ? '' : ': not among the eleven')));
+      var rd = null;
+      if (rp) for (var j = 0; j < rp.detail.length; j++) if (rp.detail[j].Z === Z) rd = rp.detail[j];
+      if (rp) {
+        rows.push(row('displaced at c → ∞', rd ? 'yes' : 'no', RECOVERED, rd ? rp.comparison + ': ' + rd.at_c137 + ' at c = 137.035999, ' + rd.at_other + ' at c → ∞' + (rd.observed ? ', observed ' + rd.observed : '') + '; ' + rd.against_nature : rp.comparison + ': the entrant is the same at both settings'));
+        rows.push(row('as the paper printed it', hit ? 'one of the eleven — superseded' : 'not among the eleven', READ, cite + '; ' + rp.paper_eleven_status));
+      } else rows.push(row('displaced at c → ∞', hit ? 'yes' : 'no', READ, cite + (hit ? '' : ': not among the eleven')));
       if (hit) {
         rows.push(row('observed configuration', hit.configuration || '—', READ, 'the SCF audit over the observed configurations table'));
         rows.push(row('entrant channel', hit.entrant || '—', READ, 'the SCF audit: the channel the relativistic walk enters at this Z'));
@@ -6395,8 +6517,8 @@ var SOLVERS, LIB;
       if (Z === 90 && rel.thorium) rows.push(row('thorium', rel.thorium, READ, (paper.title || 'the Löwdin paper') + ' L' + paper.thorium_line));
       if (!rec.populated) rows.push(row('note', 'above Z = 108 the construction\'s 107-row table does not reach; the record carries csv rows only', null));
       rows.push(row('c', rel.c, READ, rel.construction || 'the one admitted constant'));
-      rows.push(row('instrument', 'not held — nothing computed here', null, inst.note || ''));
-      return { rows: rows, ok: true, text: rel.statement || '' };
+      rows.push(row('instrument', rp ? 'recovered — the record\'s own code, run in the repository' : 'not held — nothing computed here', rp ? RECOVERED : null, inst.note || ''));
+      return { rows: rows, ok: true, text: rp ? rp.statement : (rel.statement || '') };
     },
     selftest: async function (ctx) {
       var ck = new Checker();
@@ -6404,26 +6526,37 @@ var SOLVERS, LIB;
       ck.ok('data/index.js carries the relativistic block', !!rel, !!rel, true);
       if (!rel) return ck.result();
       ck.eq('eleven elements READ from the paper', rel.eleven.length, 11);
-      var lay = (ctx.index.layout || []).filter(function (e) { return e.relativistic; });
-      ck.eq('layout flags exactly the eleven', lay.length, 11);
+      var rp = rel.repair;
+      var lay = (ctx.index.layout || []).filter(function (e) { return e.paper_eleven; });
+      ck.eq('layout flags the paper\'s eleven exactly', lay.length, 11);
       var byZ = function (a, b) { return a - b; };
       ck.eq('the flagged Z are the eleven', lay.map(function (e) { return e.Z; }).sort(byZ).join(','), rel.eleven.map(function (e) { return e.Z; }).sort(byZ).join(','));
       ck.ok('every one of the eleven carries an entrant channel', rel.eleven.every(function (e) { return !!e.entrant; }), rel.eleven.filter(function (e) { return !e.entrant; }).length, 0);
-      ck.eq('Th (90) is not among the eleven', rel.eleven.some(function (e) { return e.Z === 90; }), false);
+      ck.eq('Th (90) is not among the paper\'s eleven', rel.eleven.some(function (e) { return e.Z === 90; }), false);
       ck.ok('the thorium inversion sentence is carried', !!rel.thorium, !!rel.thorium, true);
-      ck.eq('instrument recorded as not held', !!(rel.instrument && rel.instrument.held), false);
+      ck.eq('instrument recorded as held exactly when the record is recovered', !!(rel.instrument && rel.instrument.held), !!rel.record);
+      if (rp) {
+        ck.eq('repair: the recovered instrument displaces Th, Rf and Ubn', rp.displaced.join(','), 'Th,Rf,Ubn');
+        var layR = (ctx.index.layout || []).filter(function (e) { return e.relativistic; }).map(function (e) { return e.symbol; }).sort().join(',');
+        ck.eq('repair: the table marks exactly the repaired set', layR, 'Rf,Th,Ubn');
+        ck.eq('repair: the paper\'s eleven are carried, superseded', rp.paper_eleven.join(','), rel.eleven.map(function (e) { return e.symbol; }).join(','));
+      }
+      // Both directions of the recovered instrument's result: Th is displaced (6d at c = 137.035999,
+      // 5f at c → ∞, away from the observed channel) and Hg is not — the paper's eleven had it the
+      // other way round, against a restart table at one c. Without the record the paper's reading holds.
+      var yesTh = rp ? 'yes' : 'no', yesAg = rp ? 'no' : 'yes';
       var r1 = await MODE_RELATIVISTIC.run({ Z: 47, operation: 'element' }, ctx);
-      ck.eq('Ag: displaced at c → ∞ = yes', r1.ok ? r1.rows[1].value : r1.message, 'yes');
+      ck.eq('Ag: displaced at c → ∞ = ' + yesAg, r1.ok ? r1.rows[1].value : r1.message, yesAg);
       var r2 = await MODE_RELATIVISTIC.run({ Z: 26, operation: 'element' }, ctx);
       ck.eq('Fe: displaced at c → ∞ = no', r2.ok ? r2.rows[1].value : r2.message, 'no');
-      // Both directions, as the Löwdin project's reply of 2026-09-18 recommends: Hg is displaced,
-      // Th is a collapse-criterion row and the null-difference control. A c switch
-      // that displaced everything would pass a displacement-only test; Th is what catches it.
       var r4 = await MODE_RELATIVISTIC.run({ Z: 80, operation: 'element' }, ctx);
-      ck.eq('Hg: displaced at c → ∞ = yes (displacement direction)', r4.ok ? r4.rows[1].value : r4.message, 'yes');
+      ck.eq('Hg: displaced at c → ∞ = ' + yesAg + ' (the paper\'s reading superseded)', r4.ok ? r4.rows[1].value : r4.message, yesAg);
+      if (rp) ck.eq('Hg: as the paper printed it, one of the eleven', r4.ok ? r4.rows[2].value : r4.message, 'one of the eleven — superseded');
       var r5 = await MODE_RELATIVISTIC.run({ Z: 90, operation: 'element' }, ctx);
-      ck.eq('Th: displaced at c → ∞ = no (the null-difference control)', r5.ok ? r5.rows[1].value : r5.message, 'no');
-      ck.ok('Th carries the thorium inversion sentence, not a displacement', r5.ok && r5.rows.some(function (r) { return r.label === 'thorium'; }), r5.ok, true);
+      ck.eq('Th: displaced at c → ∞ = ' + yesTh + ' (the inversion, and the entrant with it)', r5.ok ? r5.rows[1].value : r5.message, yesTh);
+      ck.ok('Th carries the thorium inversion sentence', r5.ok && r5.rows.some(function (r) { return r.label === 'thorium'; }), r5.ok, true);
+      var r6 = await MODE_RELATIVISTIC.run({ Z: 104, operation: 'element' }, ctx);
+      ck.eq('Rf: displaced at c → ∞ = yes at either reading', r6.ok ? r6.rows[1].value : r6.message, 'yes');
       var r3 = await MODE_RELATIVISTIC.run({ Z: 47, operation: 'recompute' }, ctx);
       ck.eq('recompute refuses and prints no number', r3.ok ? r3.rows[0].value : r3.message, 'not computable here');
       var noNumber = r3.ok && r3.rows.every(function (r) { return typeof r.value !== 'number'; });
