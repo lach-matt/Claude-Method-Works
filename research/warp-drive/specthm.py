@@ -1485,12 +1485,15 @@ def requirements(F):
             "is not tested here.  M ruled DOCKET 67 OPENED (M-D65-3, on the "
             "board: %s): the audit of the external results the board's refusals "
             "rest on, NOT YET RUN, after DOCKET 65 and before DOCKET 66, so "
-            "nothing here is yet graded by it; what it audits is what every "
-            "refusal here rests on: the %d facts in force (%s; DOCKET 67's record "
-            "lists each with what holds it) and the external results the escapes "
-            "name.  M ruled the paper's caveat (b) QUALIFIED on P-UNIFORM "
-            "(M-D65-4, on the board: %s; M: '%s'): the one paper edit since M "
-            "finalised it, and no verdict here moves on it."
+            "nothing here is yet graded by it; what it audits lies BENEATH what "
+            "every refusal here rests on -- the %d facts in force, %s -- namely "
+            "the outside results each declares: %s; and the outside results the "
+            "escapes name: %s.  M ruled the paper's caveat (b) QUALIFIED on "
+            "P-UNIFORM (M-D65-4, on the board: %s; M: '%s'): a paper edit on M's "
+            "ruling under M's rule for the paper (\"%s\", verbatim from the "
+            "session, witnessed by the lead); the paper's other marked edit on "
+            "M's ruling is DOCKET 63's (paper/CLAIMS.md:%s), and no verdict here "
+            "moves on it."
             % (massform.M_MECHANISM, massform.MECHANISM_VERDICT[0],
                massform.mechanism_label(), priced65(), massform.ANOMALY_ROUTE_PRICED,
                massform.COLLIDER_RATE_STATUS,
@@ -1510,8 +1513,9 @@ def requirements(F):
                 else "DOES NOT survive, AGAINST S5's note"),
                massform.RECONSTRUCTION_SURVIVES, ruled("M-D65-1"),
                ruled("M-D65-3"), len(facts_in_force_names()),
-               ", ".join(facts_in_force_names()), ruled("M-D65-4"),
-               ledger.M_D65_4_ANSWER)},
+               d67_clauses()[0], d67_clauses()[1], d67_clauses()[2],
+               ruled("M-D65-4"), ledger.M_D65_4_ANSWER, ledger.M_PAPER_RULE_WORDS,
+               ledger.paper_d63_marker()[0])},
     ]
 
 
@@ -1673,10 +1677,87 @@ D14_PRICED_OBJECT = "the whole demand side prices an object that cannot have a d
 MODEL_STATIC_TEXT = "corridor is static over the interval"
 
 
+def _owner_words(text, pattern, owner):
+    """Words READ out of an owner's own docstring or constant by regex, never
+    retyped; raises if the owner no longer says them."""
+    m = re.search(pattern, " ".join(str(text).split()))
+    if not m:
+        raise ValueError("%s no longer records '%s'" % (owner, pattern))
+    return m.groups() if m.re.groups > 1 else m.group(1)
+
+
+def facts_outside():
+    """{fact name: (rests, outside)} -- the outside result each fact in force
+    declares, ASKED of its owner module's own docstring and constants by regex
+    (an arXiv id or a named theorem, with the owner's own READ / read-at-source
+    / prior-art word), and whether the fact's proof RESTS on it or the owner
+    only names it.  A fact whose owner names no outside result it rests on is
+    this board's own (z3 / sympy / the model), and says so."""
+    d2_moves = _owner_words([r for r in ledger.DEMAND if r[0] == "D2"][0][4],
+                            r"(\d+ z3 obligations, all unsat)", "ledger D2")
+    d4_thm, d4_two = (_owner_words(drivensource.__doc__,
+                                   r"(POSITIVE ENERGY THEOREM FOR EINSTEIN-MAXWELL "
+                                   r"\(Gibbons & Hull; Witten\))", "drivensource.py"),
+                      _owner_words(drivensource.__doc__,
+                                   r"(Two independent closures agreeing)", "drivensource.py"))
+    d7_id, d7_read = _owner_words(
+        bounds.__doc__, r'Fewster, "Lectures on quantum energy inequalities", '
+        r"(arXiv:1208\.5399) Sec\. 1\.3, (read at source)", "bounds.py")
+    d7_eq = _owner_words(bounds.__doc__, r"Fewster arXiv:1208\.5399 (Eq\. \(4\)): if "
+                         r"<T_00> stays below rho for a DURATION tau", "bounds.py")
+    d14_why = _owner_words(certify.__doc__, r"PRIOR ART, (RECORDED FIRST BECAUSE IT "
+                           r"GOES AGAINST US)", "certify.py")
+    d14_chk = _owner_words([r for r in ledger.DEMAND if r[0] == "D14"][0][4],
+                           r"(dL/dtheta = dL/dphi = 0 is machine-checked)", "ledger D14")
+    ms_rec = _owner_words(achievable.__doc__,
+                          r"(Fewster 1208\.5399 Eq\. \(4\), read at source)", "achievable.py")
+    o4_prior, o4_gap = (_owner_words(axial.__doc__, r"(Weyl and Levi-Civita had this "
+                                     r"metric in 1917-1919)", "axial.py"),
+                        _owner_words(axial.__doc__, r"(PRIOR ART WAS NOT SEARCHED AT "
+                                     r"SOURCE THIS PASS)", "axial.py"))
+    sr2_thms, sr2_drop = _owner_words(
+        spec.__doc__, r"every theorem in the way \((Olum, Ford-Roman, Q <= M)\) is a "
+        r"theorem about that demand\. (M's scope drops it)", "spec.py")
+    gb_names, gb_abs = _owner_words(
+        create.__doc__, r"(Geroch \(1967\), Tipler \(1977\), and Borde "
+        r"\(gr-qc/9406053\)), whose (abstract) is explicit", "create.py")
+    be_tipler = _owner_words(create.ESCAPES[0][2],
+                             r"(Tipler): a singularity or A POINT AT INFINITY", "create.ESCAPES")
+    return {
+        "D2": (False, "prior art only, not what the proof rests on -- "
+                      "foliation.EXTERNAL_PRIOR_ART: '%s'; the theorem's own proof is '%s' "
+                      "(ledger D2), this board's own" % (foliation.EXTERNAL_PRIOR_ART, d2_moves)),
+        "D4": (False, "names the %s (via charge.py) for the second closure only -- '%s' "
+                      "(drivensource.py) -- so the corollary's narrowing does not rest on "
+                      "it; the counterexample is Reissner-Nordstrom's own m(R), this "
+                      "board's arithmetic" % (d4_thm, d4_two)),
+        "D7": (True, "RESTS on Fewster %s %s, %s (bounds.py) -- the duration QEI itself"
+                     % (d7_id, d7_eq, d7_read)),
+        "D14": (False, "prior art only -- certify.PRIOR_ART '%s', %s (certify.py); %s "
+                       "(ledger D14), this board's own"
+                       % (certify.PRIOR_ART, d14_why, d14_chk)),
+        "MODEL-STATIC": (False, "none for the assumption itself (achievable.py's model, "
+                                "this board's own); achievable.py's outside record, "
+                                "'%s', is D7's bound" % ms_rec),
+        "O4": (False, "none rested on; axial.py: '%s' and '%s' -- six sympy residuals, "
+                      "this board's own" % (o4_prior, o4_gap)),
+        "SR2": (False, "none rested on; spec.py names '%s' as the theorems '%s' -- the "
+                       "seat is sympy, this board's own" % (sr2_thms, sr2_drop)),
+        "GEROCH-BORDE": (True, "RESTS on %s, its %s and body quoted verbatim in "
+                               "create.BORDE, BORDE_SINGULARITY, BORDE_DYNAMICS (READ is "
+                               "this file's word for those quotations)" % (gb_names, gb_abs)),
+        "BORDE-ESCAPES": (True, "RESTS on Borde gr-qc/9406053's own three escapes, quoted "
+                                "in create.ESCAPES (%s named in the first)" % be_tipler),
+    }
+
+
 def facts(z3, V, F):
     """The owner facts, each GATED on its owner's live word.  A fact whose
-    gate fails is not admitted, and the verdicts that used it fall to OPEN."""
+    gate fails is not admitted, and the verdicts that used it fall to OPEN.
+    Each carries 'outside' -- the outside result it declares, asked of its
+    owner (facts_outside()) -- and 'rests', whether its proof rests on it."""
     sr2 = sr2_identity()
+    fo = facts_outside()
     out = [
         {"name": "D2", "space": "C",
          "gate": st("D2") == THEOREM and foliation.IDENTITY_DISPUTED is False,
@@ -1741,6 +1822,8 @@ def facts(z3, V, F):
          "f": z3.Implies(z3.And(V["created"], z3.Not(V["cc"])),
                          z3.Or(V["pathology"], V["nongr"]))},
     ]
+    for f in out:
+        f["rests"], f["outside"] = fo[f["name"]]
     return out
 
 
@@ -2017,16 +2100,14 @@ def _reopen(model, verdicts):
     return reopen
 
 
-def escapes(model, verdicts, route=None):
-    """ONE ESCAPE PER HYPOTHESIS a verdict rests on, and one per OPEN ledger row
-    no hypothesis escape already carries.  WHAT BREAKING IT REOPENS is COMPUTED
-    where it can be: for an ASSUMED hypothesis, the classes whose verdict it
-    carries; for a DEFINING hypothesis of an EMPTY / EMPTY IF class, the
-    classes a candidate lands in when that literal is flipped, keeping only
-    those not themselves EMPTY."""
+def escape_texts(model=None):
+    """[(hyp, text, route)] of every escape's own text and route, asked of the
+    owners now -- the part of escapes() that needs no verdicts, so DOCKET 67's
+    record and SR5 can ask what outside results the escapes name.  With no
+    model, hypotheses() and figures() are asked directly."""
+    if model is None:
+        model = {"hyps": hypotheses(), "F": figures()}
     H, F = model["hyps"], model["F"]
-    reopen = _reopen(model, verdicts)
-    reopen_route = _reopen(model, route) if route is not None else {}
     o1 = o1_figures()
     routes = [
         ("H_flat", ["O2", "D22 (curved part)"],
@@ -2120,13 +2201,6 @@ def escapes(model, verdicts, route=None):
          "Borde's escapes give either a pathology (Tipler's route) or a "
          "departure from Lorentzian GR."),
     ]
-    out = []
-    for key, rows, route_txt in routes:
-        text, kind = H[key]
-        out.append({"hyp": key, "text": text, "kind": kind,
-                    "reopens": sorted(reopen.get(key, set())),
-                    "reopens_route": sorted(reopen_route.get(key, set())),
-                    "rows": rows, "route": route_txt})
     fixed = [
         ("H3", "noise.py's H3: %s (%s)" % noise.HYPOTHESES["H3"], ["D22"],
          "a self-adjoint extension other than Friedrichs need not keep the bound "
@@ -2150,14 +2224,11 @@ def escapes(model, verdicts, route=None):
          "SR3's traversal clause rests on a standard causal-structure result no "
          "owner re-proves; B must lie strictly past the focus."),
     ]
-    for key, text, rows, route in fixed:
-        out.append({"hyp": key, "text": text, "kind": "OWNER" if key not in
-                    ("objects",) else "SCOPE", "reopens": None,
-                    "rows": rows, "route": route})
+    open_rows = []
     # An OPEN row is folded into a hypothesis escape only where that escape IS
     # the row's open question (H_flat is O2's curved QEI).  Every other open
     # row keeps its own escape with the ledger's full route.
-    carried = set(r for x in out if x["kind"] == ASSUMED for r in x["rows"])
+    carried = set(r for key, rows, _t in routes if H[key][1] == ASSUMED for r in rows)
     for rid in open_row_ids():
         if rid in carried:
             continue
@@ -2171,9 +2242,40 @@ def escapes(model, verdicts, route=None):
             # are printed under massform's own label, never as a KNOWN ROUTE.
             ans = massform_moves()[rid]
             lab = "WHAT WOULD MOVE IT (massform)"
-        out.append({"hyp": "OPEN " + rid, "text": ledger._one_line(row(rid)[1], 200),
+        open_rows.append((rid, ledger._one_line(row(rid)[1], 200),
+                          " ".join(str(ans).split()), lab))
+    texts = ([(k, H[k][0], r) for k, _rows, r in routes]
+             + [(k, t, r) for k, t, _rows, r in fixed]
+             + [("OPEN " + rid, t, r) for rid, t, r, _lab in open_rows])
+    return texts, routes, fixed, open_rows
+
+
+def escapes(model, verdicts, route=None):
+    """ONE ESCAPE PER HYPOTHESIS a verdict rests on, and one per OPEN ledger row
+    no hypothesis escape already carries.  WHAT BREAKING IT REOPENS is COMPUTED
+    where it can be: for an ASSUMED hypothesis, the classes whose verdict it
+    carries; for a DEFINING hypothesis of an EMPTY / EMPTY IF class, the
+    classes a candidate lands in when that literal is flipped, keeping only
+    those not themselves EMPTY.  The texts and routes are escape_texts()'s."""
+    H = model["hyps"]
+    reopen = _reopen(model, verdicts)
+    reopen_route = _reopen(model, route) if route is not None else {}
+    _texts, routes, fixed, open_rows = escape_texts(model)
+    out = []
+    for key, rows, route_txt in routes:
+        text, kind = H[key]
+        out.append({"hyp": key, "text": text, "kind": kind,
+                    "reopens": sorted(reopen.get(key, set())),
+                    "reopens_route": sorted(reopen_route.get(key, set())),
+                    "rows": rows, "route": route_txt})
+    for key, text, rows, route_ in fixed:
+        out.append({"hyp": key, "text": text, "kind": "OWNER" if key not in
+                    ("objects",) else "SCOPE", "reopens": None,
+                    "rows": rows, "route": route_})
+    for rid, text, ans, lab in open_rows:
+        out.append({"hyp": "OPEN " + rid, "text": text,
                     "kind": "OPEN ROW", "reopens": None, "rows": [rid],
-                    "route": " ".join(str(ans).split()), "route_label": lab})
+                    "route": ans, "route_label": lab})
     return out
 
 
@@ -2267,7 +2369,10 @@ QUOTES = (
     ("ledger:M-D65-3", "some previous physicists may have all lacked certain data"),
     ("ledger:M-D65-3", "After D65, before D66"),
     ("ledger:M-D65-4", "Yes, qualify it (Recommended)"),
-    ("ledger:M-D65-4", "the one paper edit since M finalised it, on M's ruling"),
+    ("ledger:M-D65-4", "a paper edit on M's ruling under M's rule for the paper"),
+    ("ledger:M-D65-4", "No further edit will be made to it unless a finding changes "
+                       "any of the already existing paper"),
+    ("ledger:M-D65-4", "the paper's other marked edit on M's ruling is DOCKET 63's"),
 )
 
 
@@ -2335,13 +2440,15 @@ def m_d65_1():
     return ans.group(1), words.group(1), lit.group(1), par.group(1)
 
 
-#: The one description of the QET protocol this board prints in its own words,
-#: naming its describer -- this board, from the cited abstracts, not READ --
-#: never 'information creates'.
+#: The one description of the QET protocol this board prints, naming its
+#: describer -- the lead, not this tree -- never 'information creates'.
+#: PROVENANCE: the description is the lead's, from the session; the tree
+#: holds no abstract of the cited papers (ledger.M_D65_1_LITERATURE) to
+#: check it against, so it is not READ into this tree.
 QET_PROTOCOL = ("information arriving at the destination enabling a local "
                 "operation that extracts energy and leaves a negative energy "
-                "density there, as this board describes it from the cited "
-                "abstracts, not READ")
+                "density there, as the lead describes it, not READ into this "
+                "tree")
 
 
 def m_d65_3():
@@ -2388,8 +2495,9 @@ D67_T = (
      "the audit of the external results the board's refusals rest on -- the "
      "question put to M: \"%s\".  RULED BY M: OPEN IT -- M: '%s'; M's words: "
      "\"%s\".  NOT YET RUN, so nothing here is yet graded by it; on the board it "
-     "unblocks: '%s'.  What it audits is what every refusal here rests on: the "
-     "facts in force -- %s -- and the external results the escapes name.")
+     "unblocks: '%s'.  What it audits lies BENEATH what every refusal here rests "
+     "on -- the facts in force, %s -- namely the outside results each declares: "
+     "%s; and the outside results the escapes name: %s.")
 
 _FACTS_IN_FORCE = []
 
@@ -2404,21 +2512,81 @@ def facts_in_force_names():
 
 
 def facts_in_force_clause():
-    """The facts in force, each with the held-by text its owner gives it, and
-    which of them are READ or CITED outside results -- what DOCKET 67 audits;
-    asked, never typed."""
+    """The facts in force, each with the outside result it declares, ASKED of
+    its owner (facts_outside(), via facts()): what DOCKET 67 audits lies
+    beneath them.  Never a regex over the held-by labels: that listed two and
+    dropped D7, whose duration QEI bounds.py READs at source."""
     facts_in_force_names()
-    read = [f["name"] for f in _FACTS_IN_FORCE
-            if re.search(r"\b(READ|CITED)\b", f["held"])]
-    return ("%s; of these, READ or CITED outside results: %s"
-            % ("; ".join("%s (held by: %s)" % (f["name"], f["held"])
-                         for f in _FACTS_IN_FORCE), ", ".join(read) or "none"))
+    return "; ".join("%s: %s" % (f["name"], f["outside"]) for f in _FACTS_IN_FORCE)
+
+
+def facts_resting_on_outside():
+    """[name] of the facts in force whose proof RESTS on an outside result,
+    asked of facts_outside() through facts()."""
+    facts_in_force_names()
+    return [f["name"] for f in _FACTS_IN_FORCE if f["rests"]]
+
+
+#: An outside result named in an escape's own text: an arXiv id with the name
+#: before it, or a name carrying the owner's READ / CITED / NOT-RUN word.
+_OUTSIDE_ID = re.compile(r"(?:arXiv:)?(gr-qc/\d{7}|\d{4}\.\d{4,5})")
+_OUTSIDE_NAMED = re.compile(
+    r"(?<![A-Za-z:])((?:[A-Z][A-Za-z]+(?:[-&' ]+(?:[A-Z][A-Za-z]+|&))*)[^.;():]{0,25}?"
+    r"(?:arXiv:)?(?:gr-qc/\d{7}|\d{4}\.\d{4,5}))")
+_OUTSIDE_STATUS = r"\b(READ at source|read at source|READ|CITED|REFUTED|NOT-RUN)\b"
+_OUTSIDE_WORD = re.compile(
+    r"\(((?:[A-Z][A-Za-z]+(?:[-&' ]+[A-Z][A-Za-z]+)*, (?:READ|CITED)[^()]*)|READ|CITED)\)")
+
+
+def escapes_outside_results(model=None):
+    """[text] the outside results the escapes name, regexed from the escapes'
+    own texts and routes (escape_texts()): each arXiv id with the name before
+    it and the owner's status word after it where one follows in the same
+    sentence, and each parenthetical carrying READ / CITED / NOT-RUN; asked,
+    never typed, and printed in DOCKET 67's record and SR5."""
+    found = []
+    for _hyp, text, route in escape_texts(model)[0]:
+        blob = " ".join((text + " " + route).split())
+        for m in _OUTSIDE_ID.finditer(blob):
+            window = blob[max(0, m.start() - 60):m.end()]
+            named = [n for n in _OUTSIDE_NAMED.finditer(window) if n.end() == len(window)]
+            item = named[0].group(1) if named else m.group(0)
+            # the owner's status word: just before the name, or after the id
+            # within the same sentence
+            head = blob[max(0, m.end() - len(item) - 12):m.end() - len(item)]
+            tail = re.split(r"\.\s+(?=[A-Z])", blob[m.end():m.end() + 120])[0]
+            word = (re.search(_OUTSIDE_STATUS + r":?\s*$", head)
+                    or re.search(_OUTSIDE_STATUS, tail))
+            if word:
+                item += " (%s)" % word.group(1)
+            if item not in found:
+                found.append(item)
+        for m in _OUTSIDE_WORD.finditer(blob):
+            item = m.group(1)
+            if item in ("READ", "CITED"):
+                # a bare status word: carry the clause it qualifies
+                item = blob[:m.start()].rstrip().rsplit(".", 1)[-1].strip()[-60:] + " (%s)" % item
+            if item not in found:
+                found.append(item)
+    return found
+
+
+def escapes_outside_clause(model=None):
+    return "; ".join(escapes_outside_results(model)) or "none"
+
+
+def d67_clauses():
+    """(the facts in force by name, the outside result each declares, the
+    outside results the escapes name) -- DOCKET 67's asked clauses, shared by
+    its record and SR5's statement."""
+    return (", ".join(facts_in_force_names()), facts_in_force_clause(),
+            escapes_outside_clause())
 
 
 def dockets_opened():
     """DOCKETS_OPENED, built NOW from the owners (massform's verdicts and
-    flags, ledger's M-D65-1 and M-D65-3, the facts in force), so a moved owner
-    moves the record."""
+    flags, ledger's M-D65-1 and M-D65-3, the facts in force and the outside
+    results they and the escapes declare), so a moved owner moves the record."""
     return [
     ("DOCKET 65", "M-S1A-P1",
      # M's words asked of massform (M_MECHANISM, M_CONSIDERATION), which checks
@@ -2441,9 +2609,10 @@ def dockets_opened():
      # protocol clause is QET_PROTOCOL, the one wording the board allows.
      D66_T % (m_d65_1()[0], m_d65_1()[3], QET_PROTOCOL, m_d65_1()[1], m_d65_1()[2])),
     ("DOCKET 67", "M-D65-3",
-     # The four fragments asked of ledger.RULED_BY_M's M-D65-3, the facts in
-     # force asked of facts(); never retyped here.
-     D67_T % (m_d65_3() + (facts_in_force_clause(),))),
+     # The four fragments asked of ledger.RULED_BY_M's M-D65-3; the facts in
+     # force, the outside result each declares and the outside results the
+     # escapes name asked of facts() and escape_texts(); never retyped here.
+     D67_T % (m_d65_3() + d67_clauses())),
     ]
 
 
@@ -3779,12 +3948,13 @@ def selftest():
                     "is not exotic matter in M's sense.")
         == D66_T % (m_d65_1()[0], m_d65_1()[3], QET_PROTOCOL, m_d65_1()[1],
                     m_d65_1()[2]), False)
-    chk("chk", "QET_PROTOCOL names its describer (this board, from the cited "
-        "abstracts, not READ) and the record prints it as 'the protocol, ...', "
-        "not 'the protocol itself'",
-        ("as this board describes it from the cited abstracts, not READ" in QET_PROTOCOL,
+    chk("chk", "QET_PROTOCOL names its describer (the lead, not READ into this "
+        "tree -- the tree holds no abstract to witness 'the cited abstracts') and "
+        "the record prints it as 'the protocol, ...', not 'the protocol itself'",
+        ("as the lead describes it, not READ into this tree" in QET_PROTOCOL,
+         "cited abstracts" in QET_PROTOCOL,
          "the protocol itself" in d66, "the protocol, " + QET_PROTOCOL in d66),
-        (True, False, True))
+        (True, False, False, True))
     d67 = dockets_opened()[2][2]
     chk("chk", "DOCKET 67 is on the record, opened by M-D65-3 (on the board), "
         "NOT YET RUN, with the question as put to M and M's words asked of the "
@@ -3794,21 +3964,52 @@ def selftest():
          "after DOCKET 65 is seated and before DOCKET 66" in d67),
         (("DOCKET 67", "M-D65-3"), True, True, True, True, True))
     _fif = facts_in_force_names()
-    chk("ask", "DOCKET 67's record says what it audits, built from the escapes' "
-        "facts in force (asked: equal to derive()'s, non-empty, each with its "
-        "held-by text, the READ ones named) -- not that nothing here rests on it",
+    _rests = facts_resting_on_outside()
+    _regex_only = [f["name"] for f in _facts_plain(model)
+                   if f["gate"] and re.search(r"\b(READ|CITED)\b", f["held"])]
+    chk("ask", "DOCKET 67's record says what it audits lies BENEATH the facts in "
+        "force (asked: equal to derive()'s, non-empty, each named with the "
+        "outside result its owner declares -- facts_outside(), regexed from the "
+        "owners), and the outside results the escapes name (regexed from the "
+        "escapes' own texts, non-empty) -- not that nothing here rests on it",
         (_fif == model["facts_in_force"], len(_fif) > 0,
-         all("%s (held by: %s)" % (f["name"], f["held"]) in d67
+         all("%s: %s" % (f["name"], f["outside"]) in d67
              for f in _facts_plain(model) if f["gate"]),
-         "of these, READ or CITED outside results: GEROCH-BORDE, BORDE-ESCAPES"
-         in d67,
+         "-- the facts in force, %s -- namely the outside results each declares: "
+         "%s; and the outside results the escapes name: %s."
+         % d67_clauses() in d67,
+         len(escapes_outside_results()) > 0,
          "NOT YET RUN, so nothing here is yet graded by it" in d67,
+         "What it audits is what every refusal here rests on" in d67,
          "Nothing in this file rests on it" in d67, "nothing here rests on it" in d67),
-        (True, True, True, True, True, False, False))
+        (True, True, True, True, True, True, False, False, False))
+    chk("ask", "the facts whose proof RESTS on an outside result are asked of "
+        "their owners, and D7 is among them (bounds.py READs Fewster 1208.5399 at "
+        "source): equal to the asked set, non-empty; the escapes' list names "
+        "Fewster & Smith gr-qc/0702056 READ at source and Borde READ by create.py",
+        (_rests == [f["name"] for f in _facts_plain(model) if f["gate"] and f["rests"]],
+         len(_rests) > 0, "D7" in _rests,
+         "D7: RESTS on Fewster arXiv:1208.5399 Eq. (4), read at source (bounds.py)"
+         in d67,
+         any(x.startswith("Fewster & Smith") and "gr-qc/0702056" in x
+             and "READ at source" in x for x in escapes_outside_results()),
+         "Borde, READ by create.py" in escapes_outside_results()),
+        (True, True, True, True, True, True))
+    chk("ctl", "the regex-only derivation as it stood (READ|CITED over the held-by "
+        "labels) lists two and drops D7; planted as the clause, it fails the "
+        "equality -- and a fact's outside result dropped from the record fails it",
+        (_regex_only, "D7" in _regex_only, _regex_only == _rests,
+         d67.replace(facts_in_force_clause(),
+                     "of these, READ or CITED outside results: " + ", ".join(_regex_only))
+         == D67_T % (m_d65_3() + d67_clauses()),
+         d67.replace("; D7: %s" % [f for f in _facts_plain(model)
+                                   if f["name"] == "D7"][0]["outside"], "")
+         == D67_T % (m_d65_3() + d67_clauses())),
+        (["GEROCH-BORDE", "BORDE-ESCAPES"], False, False, False, False))
     chk("chk", "DOCKET 67's record EQUALS D67_T filled from the asked fragments and "
-        "the facts clause; D67_T and D66_T carry no result word in the board's own "
-        "words (either direction)",
-        (d67 == D67_T % (m_d65_3() + (facts_in_force_clause(),)),
+        "the three asked clauses; D67_T and D66_T carry no result word in the "
+        "board's own words (either direction)",
+        (d67 == D67_T % (m_d65_3() + d67_clauses()),
          _RESULT_WORDS.findall(D67_T), _RESULT_WORDS.findall(D66_T),
          re.findall(r"\b(has run|HAS RUN|STANDS|WRONG|NARROWED|expected to)\b",
                     D67_T + D66_T)),
@@ -3816,28 +4017,48 @@ def selftest():
     chk("ctl", "'HAS RUN' planted in the record, and 'Every result it audits is "
         "expected to STAND' appended, each fail the equality",
         (d67.replace("NOT YET RUN", "HAS RUN", 1)
-         == D67_T % (m_d65_3() + (facts_in_force_clause(),)),
+         == D67_T % (m_d65_3() + d67_clauses()),
          d67 + "  Every result it audits is expected to STAND."
-         == D67_T % (m_d65_3() + (facts_in_force_clause(),))), (False, False))
+         == D67_T % (m_d65_3() + d67_clauses())), (False, False))
+    _old_clause = "the one paper edit since M " + "finalis" + "ed it"
     chk("chk", "SR5 says DOCKET 67 is OPENED, NOT YET RUN, so nothing here is yet "
-        "graded by it, and names the facts in force it audits (asked count and "
-        "names); and M-D65-4, the paper's caveat (b), on the board",
+        "graded by it, and carries the same asked clause as the record (the facts "
+        "in force by count and name, the outside result each declares, the "
+        "outside results the escapes name); and M-D65-4, the paper's caveat (b), "
+        "on the board, with M's rule for the paper verbatim and the DOCKET 63 "
+        "marker's lines READ back -- the paper's edits named, not counted",
         ("M ruled DOCKET 67 OPENED (M-D65-3, on the board: %s)"
          % ruled("M-D65-3") in sr5["statement"],
          "NOT YET RUN, after DOCKET 65 and before DOCKET 66, so nothing here is "
-         "yet graded by it; what it audits is what every refusal here rests on: "
-         "the %d facts in force (%s; " % (len(_fif), ", ".join(_fif))
-         in sr5["statement"],
+         "yet graded by it; what it audits lies BENEATH what every refusal here "
+         "rests on -- the %d facts in force, %s -- namely the outside results each "
+         "declares: %s; and the outside results the escapes name: %s."
+         % ((len(_fif),) + d67_clauses()) in sr5["statement"],
          "nothing here rests on it" in sr5["statement"],
+         "what it audits is what every refusal here rests on" in sr5["statement"],
          "M ruled the paper's caveat (b) QUALIFIED on P-UNIFORM (M-D65-4, on the "
-         "board: %s; M: '%s')" % (ruled("M-D65-4"), ledger.M_D65_4_ANSWER)
-         in sr5["statement"], ruled("M-D65-4")),
-        (True, True, False, True, True))
+         "board: %s; M: '%s'): a paper edit on M's ruling under M's rule for the "
+         "paper (\"%s\", verbatim from the session, witnessed by the lead); the "
+         "paper's other marked edit on M's ruling is DOCKET 63's (paper/CLAIMS.md:"
+         "%s), and no verdict here moves on it."
+         % (ruled("M-D65-4"), ledger.M_D65_4_ANSWER, ledger.M_PAPER_RULE_WORDS,
+            ledger.paper_d63_marker()[0]) in sr5["statement"],
+         ruled("M-D65-4"),
+         bool(re.search(r"\b(the one|the second|two) paper edits?\b", sr5["statement"])),
+         _old_clause[16:] in sr5["statement"],
+         # the withdrawn word stands nowhere in this file's source (the control
+         # below assembles it from pieces)
+         "finalis" + "ed it" in open(__file__, encoding="utf-8").read()),
+        (True, True, False, False, True, True, False, False, False))
     chk("ctl", "the statement as it stood ('nothing here rests on it'), planted, "
         "fails the check above",
         "nothing here rests on it" not in sr5["statement"].replace(
             ", so nothing here is yet graded by it", "; nothing here rests on it"),
         False)
+    chk("ctl", "the clause as it stood ('the one paper edit since M finalis.. it') "
+        "planted in SR5's statement is caught by the check above",
+        _old_clause[16:] in sr5["statement"].replace(
+            "a paper edit on M's ruling under M's rule for the paper", _old_clause), True)
     chk("chk", "WHAT IT DOES NOT SAY carries the DOCKET 67 line (NOT YET RUN)",
         any("DOCKET 67 (M-D65-3) is NOT YET RUN" in t and "have been audited" in t
             for t in what_it_does_not_say()), True)
