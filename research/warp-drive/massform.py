@@ -385,8 +385,9 @@ rests on it: STOCK is refused on prior mass (C5), SWITCH-ON and TEMPLATE on C1,
 and C2 is listed only on DISPLACEMENT, and there for a SMALL displacement only;
 a finite one is OPEN, and C3 carries the refusal regardless: a small
 displacement of phi is exactly a first-order response.  It is carried as an
-OPEN item, a candidate question for a future docket (ledger row O8, seated
-from this file's rows).
+OPEN item, a candidate question for a future docket (S10 (open)): on M's
+ruling M-D65-2 it is carried inside ledger row S10's note, not as a row of its
+own.
 
 ===============================================================================
 3.  M65-3  ENERGY -- THE SOURCE M'S SENTENCE IMPLIES, AND THE CARRIER
@@ -1697,6 +1698,22 @@ MASS_PROPORTIONAL_TO_PHI = (_norm("and the fermions are proportional to phi")
 #: H-PRESENT is a CASE DEFINITION (it says which case STOCK is), named; the
 #: masses it names are READ, the case itself is not a finding.
 H_PRESENT_STATUS = "NAMED CASE DEFINITION; the masses it names are READ"
+#: H-TREE (section 6), asked by specthm's SR5 so the placement names it: prior
+#: mass (C5), C1's reason on TEMPLATE and the electrons' exact regain rest on it.
+H_TREE_STATUS = ("NAMED HYPOTHESIS: m_f = y_f v/sqrt(2), at tree level in unitary "
+                 "gauge, as the READ source states it; each Yukawa carries the "
+                 "capture's mass scheme")
+#: H-TREE-V (section 6), asked by specthm's SR5: C4's THEOREM, and so D29,
+#: rests on it (C4's status says so; the selftest checks the two agree).
+H_TREE_V_STATUS = ("NAMED HYPOTHESIS: the field-energy theorem is for the "
+                   "tree-level potential; beyond it, what C4 needs is that v "
+                   "stays a local minimum, which the stable and the READ "
+                   "metastable case both keep")
+#: D20'S MODEL (section 6), asked by specthm's SR5: D27's 'a source of positive
+#: rest energy can only LOWER |phi|' and S10's and S13's movers rest on it.
+D20_MODEL_STATUS = ("NAMED MODEL: a source whose mass comes from phi, rising "
+                    "with |phi|, as every SM mass does; a source outside it (a "
+                    "negative-sign portal coupling, say) could raise |phi|")
 
 
 def trigger_gives_the_elements_their_mass(elements_massive=None, mass_prop_phi=None):
@@ -1900,12 +1917,6 @@ C2_CONTESTED_ONLY = not (HIGGS_SHARE_LARGEST_READ < 0.5)
 #: No count reads it and no verdict rests on it.
 FINITE_HIGGS_SHARE_STATUS = "OPEN"
 FINITE_HIGGS_SHARE_EXCEEDS_HALF = None
-#: Whether ledger row O8 (the finite share, seated from PROPOSED_ROWS) has
-#: CLOSED.  ledger.py asks every OPEN_ROWS owner this question and fails if one
-#: answers True, so O8 is owned by this flag rather than by the status string
-#: (a non-empty "OPEN" would read as True there).  DERIVED from the status,
-#: never typed: the row closes exactly when the status stops being OPEN.
-O8_CLOSED = FINITE_HIGGS_SHARE_STATUS != "OPEN"
 
 # ===================================================================== M65-3
 def rest_energy_j(kg=None):
@@ -2672,12 +2683,32 @@ REMAINDER_RESTORES_MASS = {"TEMPLATE": HELD_SEAT_ROUTE_PRICED}
 COUNT_SCOPE = {("DISPLACEMENT", "C2"): "for a small displacement only"}
 
 
-def reading_label(name, verdicts=None):
+def reading_premises(name, verdicts=None, c1_status=None):
+    """The named premises a reading refused on C1 ALONE rests on, ASKED of C1's
+    status: 'on P-UNIFORM' gives P-UNIFORM, and 'on <reading> also on <H>' adds
+    that hypothesis (H-UNSOURCED-SEAT on TEMPLATE).  So SWITCH-ON's and
+    TEMPLATE's refusals are printed on their premises, never unconditional --
+    the same limit mechanism_label() prints."""
+    v, cs = (READING_VERDICTS if verdicts is None else verdicts)[name]
+    c1 = (dict((c[0], c[3]) for c in COUNTS_ON_THE_MECHANISM)["C1"]
+          if c1_status is None else c1_status)
+    if v != "REFUSED" or list(cs) != ["C1"]:
+        return []
+    prem = ["P-UNIFORM"] if "on P-UNIFORM" in c1 else []
+    m = re.search(r"on %s also on ([A-Z][\w-]*)" % re.escape(name), c1)
+    return prem + ([m.group(1)] if m else [])
+
+
+def reading_label(name, verdicts=None, c1_status=None):
     v = (READING_VERDICTS if verdicts is None else verdicts)[name][0]
+    prem = reading_premises(name, verdicts, c1_status)
     if v == "REFUSED" and REMAINDER_FORMS_MASS.get(name):
         return "REFUSED as net formation; remainder the pair route, PRICED"
     if v == "REFUSED" and REMAINDER_RESTORES_MASS.get(name):
-        return "REFUSED on H-UNSOURCED-SEAT; remainder the held-seat release route, PRICED"
+        return ("REFUSED on %s; remainder the held-seat release route, PRICED"
+                % " and ".join(prem or ["H-UNSOURCED-SEAT"]))
+    if prem:
+        return "REFUSED on %s (C1 alone)" % " and ".join(prem)
     return v
 
 
@@ -2692,10 +2723,14 @@ def reading_row(name, verdicts=None):
     row = "%s on %s" % (v, ", ".join(whole)) if whole else v
     if part:
         row += " (%s)" % "; ".join(part)
+    prem = reading_premises(name, verdicts)
     if v == "REFUSED" and REMAINDER_FORMS_MASS.get(name):
         row += " -- as net formation; remainder the pair route, PRICED"
     elif v == "REFUSED" and REMAINDER_RESTORES_MASS.get(name):
-        row += " -- on H-UNSOURCED-SEAT; remainder the held-seat release route, PRICED"
+        row += (" -- on %s; remainder the held-seat release route, PRICED"
+                % " and ".join(prem or ["H-UNSOURCED-SEAT"]))
+    elif prem:
+        row += " -- on %s" % " and ".join(prem)
     return row
 
 
@@ -2704,6 +2739,14 @@ def mechanism_label():
     pair = [r for r in rs if v == "REFUSED" and REMAINDER_FORMS_MASS.get(r)]
     held = [r for r in rs if v == "REFUSED" and REMAINDER_RESTORES_MASS.get(r)]
     out = "%s on %s" % (v, ", ".join(rs))
+    # A reading refused on C1 alone, outside the held-seat case, is refused on
+    # C1's premise: C1 is a THEOREM on P-UNIFORM (its status is asked), so the
+    # label says so beside TEMPLATE's scope, and never reads unconditional.
+    c1 = dict((c[0], c[3]) for c in COUNTS_ON_THE_MECHANISM)["C1"]
+    prem = [r for r in rs if v == "REFUSED" and READING_VERDICTS[r][1] == ["C1"]
+            and not REMAINDER_RESTORES_MASS.get(r) and "on P-UNIFORM" in c1]
+    if prem:
+        out += "; on %s on P-UNIFORM (C1 alone)" % ", ".join(prem)
     if pair:
         out += ("; on %s as NET formation only -- atomic mass can still form there as "
                 "matter with its antimatter (the pair route, PRICED)" % ", ".join(pair))
@@ -2714,12 +2757,19 @@ def mechanism_label():
     return out
 
 
-def derive_consideration(holds=None, discriminates=None):
+def derive_consideration(holds=None, discriminates=None, uniform=None):
+    """The consideration's verdict.  Its second half rests on P-UNIFORM (a
+    PREMISE): it discriminates nothing BECAUSE the vev is uniform, so where
+    that is the reason the verdict says so, and never reads unconditional."""
     holds = CONSIDERATION_HOLDS if holds is None else holds
     discriminates = CONSIDERATION_DISCRIMINATES if discriminates is None else discriminates
+    uniform = VEV_IS_UNIFORM if uniform is None else uniform
     if not holds:
         return "NOT ESTABLISHED"
-    return "TRUE" if discriminates else "TRUE, AND DISCRIMINATES NOTHING"
+    if discriminates:
+        return "TRUE"
+    return ("TRUE, AND, ON P-UNIFORM, DISCRIMINATES NOTHING" if uniform
+            else "TRUE, AND DISCRIMINATES NOTHING")
 
 
 CONSIDERATION_VERDICT = derive_consideration()
@@ -2847,7 +2897,7 @@ PROPOSED_ROWS = (
      "remains of STOCK is reconstruction from stock.  OPEN, and "
      "no verdict rests on it: the FINITE Higgs share, what the field gives "
      "with it switched off, not computed and not read; whether it exceeds half "
-     "is undecided here (O8); STOCK is refused on C5, SWITCH-ON and "
+     "is undecided here (S10 (open)); STOCK is refused on C5, SWITCH-ON and "
      "TEMPLATE on C1, and DISPLACEMENT on C3 regardless",
      MECHANISM_VERDICT[0], ("massform", "MECHANISM_VERDICT"),
      "STOCK moves only if H-TREE fails; " + H_PRESENT_FAILING + "; "
@@ -2866,13 +2916,16 @@ PROPOSED_ROWS = (
      "The anomaly route: B + L violated by the SU(2) anomaly over a gauge-Higgs "
      "saddle whose height the vev sets.  Zero temperature: INSTANTON "
      "tunnelling, exp(-4 pi/alpha_W) per transition, alpha_W from READ m_W and "
-     "v; B/3 transitions.  Over the barrier, the SPHALERON: E_sph ~ 9 TeV "
-     "(READ), ~3.2e3 x the 3 baryons' rest energy.  Thermal: unsuppressed above "
+     "v; B/3 transitions.  Over the barrier, the SPHALERON: E_sph ~ %.0f TeV "
+     "(READ), ~%s x the 3 baryons' rest energy.  Thermal: unsuppressed above "
      "T_c, vev approximately zero; below T_c down to T*, the READ broken-phase "
      "rate with the vev finite.  Two-particle collisions: CONTESTED (the "
      "prevalent semiclassical results find exponential suppression; Tye-Wong "
      "dissent; CMS decides nothing).  It must emit N_n "
-     "extra leptons (D28)",
+     "extra leptons (D28)"
+     # Both figures ASKED of their owners (E_SPH_TEV, esph_over_three_baryons);
+     # row_figures() regenerates them, so a typed copy cannot drift green.
+     % (E_SPH_TEV[E_SPH_USED], _e(esph_over_three_baryons(E_SPH_TEV[E_SPH_USED]), 1)),
      "OPEN", ("massform", "ANOMALY_ROUTE_PRICED"),
      "a READ prefactor (turns the exponent into a rate); a settlement of the "
      "collider-energy dispute (Tye-Wong against Bezrukov et al., Khoze-Milne "
@@ -2908,12 +2961,12 @@ PROPOSED_ROWS = (
      "a way to prepare and release the source at the seat (not computed here); "
      "what becomes of the source's own rest energy at release (H-RELEASE); the "
      "finite response of the nucleon mass to |phi| (OPEN, like the finite share "
-     "of O8), which sets what the nucleons regain up to the stability "
+     "of S10 (open)), which sets what the nucleons regain up to the stability "
      "edge; H-UNSOURCED-SEAT holding in the case at hand, which closes the "
      "route; a source outside D20's model; a source whose mass rises convexly "
      "with |phi| (outside excite's section-3 model; not computed), which could "
      "extend the route below the stability edge"),
-    ("O8", "OPEN",
+    ("S10 (open)", "SUPPLY",
      "OPEN ITEM, a candidate question for a future docket: the FINITE Higgs share "
      "of atomic mass -- the nucleon mass with phi at v, less the nucleon mass "
      "with phi switched off, where the heavy-quark thresholds and the QCD scale "
@@ -2922,7 +2975,7 @@ PROPOSED_ROWS = (
      "it (H-LINEAR).  No DOCKET 65 verdict rests on it: STOCK is refused on prior "
      "mass (C5), SWITCH-ON and TEMPLATE on C1, and DISPLACEMENT on C3 "
      "regardless",
-     "OPEN", ("massform", "O8_CLOSED"),
+     "OPEN", ("massform", "FINITE_HIGGS_SHARE_STATUS"),
      "a computation of the nucleon mass with the field switched off, or a READ "
      "source giving it; nothing in DOCKET 65 moves on it"),
     ("S5 (note)", "SUPPLY",
@@ -2932,14 +2985,16 @@ PROPOSED_ROWS = (
      "OPEN (unchanged)", ("massform", "RECONSTRUCTION_SURVIVES"),
      "nothing in DOCKET 65; S5's own owed items stand"),
 )
-#: Not opened, and why (one row per question).  The finite Higgs share left
-#: this list when DOCKET 65's seating opened it as ledger row O8 (OPEN).  The
-#: approved list carried it here, and by the board's principle for opening a
-#: row (ledger.py docstring section 4) it would have stayed here and in S10's
-#: note: O8 is an exception, stated there, and whether it stays a row is
-#: pending M (ledger.PENDING_RULINGS, M-D65-2).
+#: Not opened, and why (one row per question).  The finite Higgs share is
+#: here as M approved it: the seating first opened it as a ledger row (O8), and
+#: M ruled M-D65-2, 'Fold into S10 (Recommended)' -- an open item inside S10's
+#: note, not a separate row (ledger.RULED_BY_M; the board's principle for
+#: opening a row, ledger.py docstring section 4).
 NOT_OPENED = ("the first-order Higgs share as one figure (C2 of S10 prints only "
               "measures)",
+              "the finite Higgs share (OPEN: not computed, not read; whether it "
+              "exceeds half is undecided here; S10 (open), a candidate question "
+              "for a future docket)",
               "the information counts (supporting note N-INFO; no verdict)",
               "how the held-seat source is prepared and released, and what becomes "
               "of its rest energy (H-RELEASE; S13)",
@@ -3034,6 +3089,8 @@ def row_figures():
     return [("S10", "%.3f of atomic mass" % HIGGS_SHARE_LARGEST_READ),
             ("S10", "%.3f on all rows" % HIGGS_SHARE_LARGEST_ALL),
             ("S10", "reaches %.3f on the READ rows" % HIGGS_SHARE_READ_MARGIN),
+            ("S11", "E_sph ~ %.0f TeV" % E_SPH_TEV[E_SPH_USED]),
+            ("S11", "~%s x the 3 baryons" % _e(esph_over_three_baryons(E_SPH_TEV[E_SPH_USED]), 1)),
             ("S13", "%.1f J of source rest energy" % HELD_SEAT_ROUTE["source per J of field"]),
             ("S13", "%s kg/m^3" % _e(HELD_SEAT_ROUTE["Higgs-derived kg/m^3"], 3)),
             ("S13", "below eps = %.4f" % excite.stability_edge())]
@@ -3480,8 +3537,8 @@ STALE_WORDING = (
      "      the matter's own lowering, eps per kg/m^3    4.5407e-30  inside the measured "
      "mass"),
     ("R7-1 S13's mover: the finite response sets the nucleons' regain, not the share",
-     r"finite Higgs share \(O8\), which sets", None,
-     "the finite Higgs share (O8), which sets what the nucleons regain at "
+     r"finite Higgs share \(S10 \(open\)\), which sets", None,
+     "the finite Higgs share (S10 (open)), which sets what the nucleons regain at "
      "large eps"),
     ("R7-5 H-PRESENT: the matter's own lowering sits inside the measured mass",
      r"(?i)negligible beside the measured mass", None,
@@ -3814,7 +3871,7 @@ REQUIRED_WORDING = (
     ("SF4 S10 claim scopes C2", "S10 claim", C2_SCOPE, "by C2 and C3"),
     ("NOTE S10 claim: no verdict rests on it lists TEMPLATE", "S10 claim",
      "SWITCH-ON and TEMPLATE on C1, and DISPLACEMENT on C3 regardless",
-     "(O8)"),
+     "(S10 (open))"),
     ("R6-F D27 claim defines TEMPLATE", "D27 claim", _TEMPLATE_DEF_ROW, _PHI0_DEF),
     ("R6-F D27 claim gives C1's reason on TEMPLATE", "D27 claim", _C1_TEMPLATE,
      "C1 refuses"),
@@ -3827,7 +3884,7 @@ REQUIRED_WORDING = (
     ("R6-B D27 mover: TEMPLATE's movers include H-UNSOURCED-SEAT", "D27 moves",
      TEMPLATE_MOVES, "TEMPLATE moves only if C1 reverses (P-UNIFORM, D15 or D16)"),
     ("R6-C S13 claim is the held-seat route", "S13 claim", HELD_SEAT_TEXT, ""),
-    ("NOTE O8: no verdict rests on it lists TEMPLATE", "O8 claim",
+    ("NOTE S10 (open): no verdict rests on it lists TEMPLATE", "S10 (open) claim",
      "SWITCH-ON and TEMPLATE on C1", "SWITCH-ON on C1"),
     ("R6-F report header", "report",
      "M65-1 PRESENCE -- SWITCH-ON, STOCK, TEMPLATE AND EXCITATION",
@@ -3843,8 +3900,11 @@ REQUIRED_WORDING = (
      "DISPLACEMENT REFUSED on C3 (C2 for a small displacement only) -- as net "
      "formation", "DISPLACEMENT REFUSED on C2, C3 -- as net formation"),
     ("R6-C report: TEMPLATE's row names its priced remainder", "report",
-     "TEMPLATE REFUSED on C1 -- on H-UNSOURCED-SEAT; remainder the held-seat release "
-     "route, PRICED", "TEMPLATE REFUSED on C1"),
+     "TEMPLATE REFUSED on C1 -- on P-UNIFORM and H-UNSOURCED-SEAT; remainder the "
+     "held-seat release route, PRICED", "TEMPLATE REFUSED on C1"),
+    ("FIX65 report: SWITCH-ON's row names its premise (C1 is a THEOREM on P-UNIFORM)",
+     "report", "SWITCH-ON REFUSED on C1 -- on P-UNIFORM",
+     "SWITCH-ON REFUSED on C1 "),
     ("R6-C report: the mechanism line names the held-seat route", "report",
      "(the held-seat release route, PRICED; it forms no baryons)", "(the pair route, PRICED)"),
     ("SF3 READINGS defines TEMPLATE", "reading TEMPLATE", _TEMPLATE_DEF,
@@ -3981,8 +4041,8 @@ REQUIRED_WORDING = (
     # ---- round 7
     ("R7-1 S13 mover: the finite response, OPEN, up to the stability edge", "S13 moves",
      "the finite response of the nucleon mass to |phi| (OPEN, like the finite share of "
-     "O8), which sets what the nucleons regain up to the stability edge",
-     "the finite Higgs share (O8), which sets what the nucleons regain at "
+     "S10 (open)), which sets what the nucleons regain up to the stability edge",
+     "the finite Higgs share (S10 (open)), which sets what the nucleons regain at "
      "large eps"),
     ("R7-5 fn C1: H-UNSOURCED-SEAT does not reach SWITCH-ON", "fn C1",
      "within excite's section-3 model it does not reach SWITCH-ON's off",
@@ -4596,7 +4656,8 @@ def report():
         print("        %s: %s" % (name, text))
     print()
     print("      LEDGER ROWS (seated by ledger.py, which asks their text here; "
-          "this file edits no peer)")
+          "this file edits no peer).  'S5 (note)' is appended to S5's note and "
+          "'S10 (open)' is an OPEN item inside S10's note, not a row (M-D65-2)")
     for rid, side, claim, st, owner, moves in PROPOSED_ROWS:
         print("        %-9s %-6s %-16s owner %s.%s" % (rid, side, st, owner[0], owner[1]))
         print("          %s" % claim)
@@ -4713,7 +4774,10 @@ def selftest():
                  or (r[1] == "OPEN" and r[0] in opn
                      and opn[r[0]][1:] == (r[2], r[5], r[4]))
                  or (r[0] == "S5 (note)" and sup["S5"][2] == r[3].split(" (")[0]
-                     and s5_add.split(": ", 1)[1] in sup["S5"][4]))], [])
+                     and s5_add.split(": ", 1)[1] in sup["S5"][4])
+                 # M-D65-2: the finite share is an OPEN item inside S10's note.
+                 or (r[0] == "S10 (open)" and r[0] not in opn
+                     and r[2] in sup["S10"][4] and r[5] in sup["S10"][4]))], [])
     chk("every proposed status is in the ledger's vocabulary",
         [r[3] for r in PROPOSED_ROWS
          if r[3].split(" (")[0] not in (ledger.THEOREM, ledger.MEASURED, ledger.OPEN,
@@ -4759,7 +4823,17 @@ def selftest():
     chk("  higgs's caveat (b) words begin 'IT IS UNIFORM' (asked for its words)",
         higgs.CAVEAT_B_AS_FIRST_WRITTEN.startswith("IT IS UNIFORM"), True)
     chk("so the consideration discriminates nothing", CONSIDERATION_DISCRIMINATES, False)
-    chk("CONSIDERATION VERDICT", CONSIDERATION_VERDICT, "TRUE, AND DISCRIMINATES NOTHING")
+    chk("CONSIDERATION VERDICT", CONSIDERATION_VERDICT,
+        "TRUE, AND, ON P-UNIFORM, DISCRIMINATES NOTHING")
+    chk("CONTROL the consideration's second half carries P-UNIFORM only where "
+        "the premise is its reason",
+        (derive_consideration(True, False, True), derive_consideration(True, False, False),
+         derive_consideration(True, True, True), "P-UNIFORM" in CONSIDERATION_VERDICT),
+        ("TRUE, AND, ON P-UNIFORM, DISCRIMINATES NOTHING", "TRUE, AND DISCRIMINATES NOTHING",
+         "TRUE", True))
+    chk("SWITCH-ON's refusal is printed on P-UNIFORM in the mechanism label "
+        "(C1 is a THEOREM on it)",
+        "on SWITCH-ON on P-UNIFORM (C1 alone)" in mechanism_label(), True)
     chk("CONTROL were P-UNIFORM false, it would discriminate",
         derive_consideration(True, discriminates=True), "TRUE")
     chk("D15 asked of excite", excite.TAIL_RATE_IS_MASS, True)
@@ -4902,6 +4976,12 @@ def selftest():
         ("H-LINEAR" in _doc_section(6),
          "H-LINEAR" in [c for c in COUNTS_ON_THE_MECHANISM if c[0] == "C2"][0][3],
          "H-LINEAR" in [r for r in PROPOSED_ROWS if r[0] == "S10"][0][2]), (True, True, True))
+    chk("H-TREE-V and D20'S MODEL, asked by specthm's SR5, are named in section 6; "
+        "C4's status rests on H-TREE-V",
+        ("H-TREE-V" in _doc_section(6), "D20'S MODEL" in _doc_section(6),
+         "H-TREE-V" in [c for c in COUNTS_ON_THE_MECHANISM if c[0] == "C4"][0][3],
+         H_TREE_V_STATUS.startswith("NAMED HYPOTHESIS"),
+         D20_MODEL_STATUS.startswith("NAMED MODEL")), (True,) * 5)
     chk("DISPLACEMENT and QUANTA print as refused as NET formation, remainder priced",
         [reading_label(r) for r in ("DISPLACEMENT", "QUANTA")],
         ["REFUSED as net formation; remainder the pair route, PRICED"] * 2)
@@ -5234,14 +5314,23 @@ def selftest():
         (FINITE_HIGGS_SHARE_STATUS, FINITE_HIGGS_SHARE_EXCEEDS_HALF), ("OPEN", None))
     chk("  no count reads it",
         [c[1] for c in COUNTS_ON_THE_MECHANISM if "FINITE" in c[1]], [])
-    chk("  it is in S10's claim and movers and an OPEN row O8, not also 'not opened'",
+    chk("  it is in S10's claim and movers, in NOT_OPENED and the item S10 (open)",
         ("FINITE Higgs share" in [r for r in PROPOSED_ROWS if r[0] == "S10"][0][2],
          "finite Higgs share" in [r for r in PROPOSED_ROWS if r[0] == "S10"][0][5],
          any("finite Higgs share" in n for n in NOT_OPENED),
-         [(r[1], r[3], r[4]) for r in PROPOSED_ROWS if r[0] == "O8"]),
-        (True, True, False, [("OPEN", "OPEN", ("massform", "O8_CLOSED"))]))
-    chk("  O8_CLOSED is derived from the status: False while it is OPEN",
-        (O8_CLOSED, O8_CLOSED == (FINITE_HIGGS_SHARE_STATUS != "OPEN")), (False, True))
+         [(r[1], r[3], r[4]) for r in PROPOSED_ROWS if r[0] == "S10 (open)"]),
+        (True, True, True, [("SUPPLY", "OPEN", ("massform", "FINITE_HIGGS_SHARE_STATUS"))]))
+    # M-D65-2 (ledger.RULED_BY_M): 'Fold into S10 (Recommended)' -- an open item
+    # inside S10's note, not a separate row.  The board is asked, at call time.
+    _lg = _ledger()
+    chk("  on M's ruling M-D65-2 it is in S10's note on the board and is no row "
+        "of its own (no O row, no row id beyond S10)",
+        ([r for r in _lg.RULED_BY_M if r[0] == "M-D65-2"] != [],
+         [r for r in PROPOSED_ROWS if r[0] == "S10 (open)"][0][2]
+         in [r for r in _lg.SUPPLY if r[0] == "S10"][0][4],
+         [r[0] for r in _lg.OPEN_ROWS + _lg.DEMAND + _lg.SUPPLY
+          if "FINITE Higgs share" in " ".join(str(x) for x in r[1:3])]),
+        (True, True, []))
     chk("section 2 carries H-LINEAR on every share sentence (no flat claim)",
         flat_share_claims(), [])
     chk("CONTROL a flat 'Nothing near one half.' is caught",
@@ -5300,6 +5389,12 @@ def selftest():
     rowtext = {r[0]: _norm(r[2]) for r in PROPOSED_ROWS}
     chk("every figure a proposed row prints is regenerated",
         [(rid, s_) for rid, s_ in row_figures() if s_ not in rowtext[rid]], [])
+    _s11f = [s_ for rid, s_ in row_figures() if rid == "S11"]
+    _drift = dict(rowtext)
+    _drift["S11"] = rowtext["S11"].replace(_s11f[1], _s11f[1].replace("~", "~1", 1))
+    chk("CONTROL a drifted S11 figure (the sphaleron over 3 baryons) is caught",
+        (len(_s11f), [(rid, s_) for rid, s_ in row_figures() if s_ not in _drift[rid]]),
+        (2, [("S11", _s11f[1])]))
     chk("no docstring numeral is stale or unregenerated (two-sided)", stray, [])
     ndoc = _norm(__doc__)
     first = ndoc.replace("3226 times", "3227 times", 1)
@@ -5432,8 +5527,20 @@ def selftest():
         ["REFUSED on C3 (C2 for a small displacement only) -- as net formation; "
          "remainder the pair route, PRICED",
          "REFUSED on C3 -- as net formation; remainder the pair route, PRICED",
-         "REFUSED on C1 -- on H-UNSOURCED-SEAT; remainder the held-seat release "
-         "route, PRICED"])
+         "REFUSED on C1 -- on P-UNIFORM and H-UNSOURCED-SEAT; remainder the "
+         "held-seat release route, PRICED"])
+    chk("SWITCH-ON's label and row carry C1's premise, P-UNIFORM (asked of C1's "
+        "status), and never read unconditional",
+        (reading_label("SWITCH-ON"), reading_row("SWITCH-ON"),
+         reading_premises("SWITCH-ON"), reading_premises("TEMPLATE")),
+        ("REFUSED on P-UNIFORM (C1 alone)", "REFUSED on C1 -- on P-UNIFORM",
+         ["P-UNIFORM"], ["P-UNIFORM", "H-UNSOURCED-SEAT"]))
+    chk("CONTROL a C1 status without P-UNIFORM drops the premise from the label "
+        "(asked, not typed)",
+        (reading_label("SWITCH-ON", c1_status="THEOREM (D15, D16)"),
+         reading_label("TEMPLATE", c1_status="THEOREM (D15, D16)")),
+        ("REFUSED", "REFUSED on H-UNSOURCED-SEAT; remainder the held-seat release "
+         "route, PRICED"))
     chk("  and the report prints exactly those rows",
         all(reading_row(r) in _rep for r in ALL_READINGS), True)
     chk("CONTROL refusal 8 fires on a coupling row relabelled READ",
@@ -5680,15 +5787,16 @@ def selftest():
     chk("R6-C TEMPLATE prints refused on H-UNSOURCED-SEAT, remainder priced; the "
         "mechanism line names it",
         (reading_label("TEMPLATE"), "held-seat release route, PRICED" in mechanism_label()),
-        ("REFUSED on H-UNSOURCED-SEAT; remainder the held-seat release route, PRICED",
-         True))
+        ("REFUSED on P-UNIFORM and H-UNSOURCED-SEAT; remainder the held-seat release "
+         "route, PRICED", True))
     REMAINDER_RESTORES_MASS["TEMPLATE"] = False
     try:
         _bare_t = (reading_label("TEMPLATE"), "held-seat" in mechanism_label())
     finally:
         REMAINDER_RESTORES_MASS["TEMPLATE"] = HELD_SEAT_ROUTE_PRICED
-    chk("CONTROL R6-C without a priced remainder TEMPLATE prints bare REFUSED",
-        _bare_t, ("REFUSED", False))
+    chk("CONTROL R6-C without a priced remainder TEMPLATE prints no remainder "
+        "(refused on C1's premises alone)",
+        _bare_t, ("REFUSED on P-UNIFORM and H-UNSOURCED-SEAT (C1 alone)", False))
     chk("CONTROL R6-C refusal 9 fires on the old section-5 verdict line (pair route "
         "only)", bool(unqualified_refusals(
             "THE MECHANISM AS STATED: REFUSED on every reading; on DISPLACEMENT and "

@@ -471,6 +471,8 @@ APERTURE_HITS = {                     # READ, classified by hand, per file
     "branelink.py": "the Friis antenna aperture (a different object)",
     "device.py": "the device's transverse aperture, 5 lambda (a different object)",
     "index3.py": "the APERTURE index row for beamed.py (a different object)",
+    "specthm.py": "asks formation.APERTURE_STATUS in requirement R11 (on Rec): "
+                  "its owners and statement; no aperture value of its own",
 }
 APERTURE_SYNONYM_PATTERN = (r"arrival (radius|band|window|zone|orbit|site)|"
                             r"capture (band|radius)|orbital radius")

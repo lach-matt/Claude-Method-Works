@@ -154,17 +154,14 @@ Applied, candidate by candidate (the owner was READ before each decision):
        second half is for, and DOCKET 64 built the instrument.
        WAITS_FOR_ITS_INSTRUMENT is now empty, and LEDGER.md prints "none"
        rather than dropping the section.
-  O8   the FINITE Higgs share of atomic mass -- massform.py.  SEATED AS AN
-       OPEN ROW BY DOCKET 65's SEATING INSTRUCTION, AN EXCEPTION TO THE
-       PRINCIPLE'S SECOND HALF, NOT AN APPLICATION OF IT: the question is
-       internal to the REFUSED row S10 (S10's note already records it), it
-       gates nothing ("nothing in DOCKET 65 moves on it"), and nothing
-       computes it.  By the principle it would stay in S10's note.  M's
-       approved proposal named it "S10 (open)" on the SUPPLY side, beside
-       "S5 (note)", and listed it among what DOCKET 65 did NOT open; the
-       seating made it O8.  The exception is counted, not hidden: the OPEN
-       census is 14 with it and 13 by the principle, and the choice is put to
-       M as PENDING_RULINGS M-D65-2.
+  the FINITE Higgs share of atomic mass -- massform.py.  NOT A ROW, ON M's
+       RULING M-D65-2 ('Fold into S10 (Recommended)').  The question is
+       internal to the REFUSED row S10, it gates nothing ("nothing in DOCKET
+       65 moves on it") and nothing computes it, so by the principle's second
+       half it is recorded where its owner records it: as the OPEN item
+       "S10 (open)" inside S10's note, a candidate question for a future
+       docket.  DOCKET 65's seating first opened it as its own row, O8; M was
+       asked which it should be and ruled the fold, and O8 is not seated.
 
 ===============================================================================
 5.  DOCKET 64, AS M RULED IT
@@ -228,20 +225,18 @@ DOCKET 65 tested M's mechanism (M-S1A-P1) in massform.py, and M ruled its rows
   S11, S12, S13  SUPPLY, OPEN: the anomaly route, the pair route and the
                  held-seat release route -- priced remainders, not refusals.
                  Their names are massform.SURVIVES's.
-  O8             OPEN_ROWS: the FINITE Higgs share of atomic mass, owned by
-                 massform.O8_CLOSED (derived from FINITE_HIGGS_SHARE_STATUS),
-                 because every O row is asked whether it CLOSED.  No DOCKET 65
-                 verdict rests on it.  AN EXCEPTION TO SECTION 4's PRINCIPLE,
-                 stated there: internal to REFUSED S10 and gating nothing, it
-                 would by the principle stay in S10's note; the seating
-                 opened it as a row, the OPEN census counts it (14, where the
-                 principle gives 13), and whether it stays a row is PENDING
-                 M's ruling (M-D65-2).
+  S10 (open)     NOT A ROW: the FINITE Higgs share of atomic mass, an OPEN
+                 item carried inside S10's note -- massform's item, asked, its
+                 status massform.FINITE_HIGGS_SHARE_STATUS.  No DOCKET 65
+                 verdict rests on it.  The seating first opened it as the row
+                 O8; M ruled M-D65-2, 'Fold into S10 (Recommended)', and it is
+                 folded back (section 4).
   S5             note appended: reconstruction from destination stock survives
                  M's mechanism (massform.RECONSTRUCTION_SURVIVES).
 
 A SUPPLY row has one note, so S10-S13 carry the proposed claim followed by
-what would move it, both asked.  massform.py asks THIS file for D23 (the
+what would move it, both asked; S10's note then carries the item S10 (open),
+its text and what would move it, asked too.  massform.py asks THIS file for D23 (the
 held-seat route needs a prior arrival) and for M's words, and it does so only
 at CALL time, never while it is being imported: this file asks massform for
 its rows during its own import, and two modules that each need the other at
@@ -249,11 +244,16 @@ import find each other empty.
 
 M's QET ruling is on RULED_BY_M as M-D65-1: Quantum Energy Teleportation is not
 a docket of its own; it is FOLDED INTO DOCKET 66.  Its literature is CITED, not
-READ -- nothing in this tree has read those papers.
+READ -- nothing in this tree has read those papers.  M's ruling on the finite
+Higgs share is M-D65-2: folded into S10's note, not a row.  Nothing from
+DOCKET 65 is pending M.
 """
 
+import contextlib
+import io
 import math
 import os
+import re
 import sys
 import textwrap
 
@@ -774,29 +774,26 @@ OPENED_FROM_WAITING = [
 #: peer and changes no requirement; it records the question so the board shows
 #: it.  (id, question, why it is asked -- with the owner's computed values --,
 #: the restatement proposed, and what waits on it.)
-PENDING_RULINGS = [
-    # DOCKET 65's seating opened O8, which docstring section 4's principle
-    # would have kept in S10's note.  The seating is applied; the choice is M's.
-    ("M-D65-2",
-     "O8, the FINITE Higgs share of atomic mass: keep it as its own OPEN row, "
-     "or record it inside S10's note as M's approved proposal did ('S10 "
-     "(open)', on the SUPPLY side)?",
-     "Section 4's principle gives no row to an unsettled question internal to "
-     "an already-REFUSED row that gates nothing.  O8 is internal to S10 (S10 "
-     "is %s; its note records the share as OPEN), it gates nothing (O8's own "
-     "answer: '%s'), and nothing computes it (massform.FINITE_HIGGS_SHARE_STATUS "
-     "= %s).  The approved proposal listed it among what DOCKET 65 did NOT "
-     "open; the seating made it O8"
-     % (massform.MECHANISM_VERDICT[0], massform.PROPOSED_ROWS[
-         [r[0] for r in massform.PROPOSED_ROWS].index("O8")][5].split("; ")[-1],
-        massform.FINITE_HIGGS_SHARE_STATUS),
-     "fold O8 back into S10's note: drop the row, restore the 'S10 (open)' "
-     "item and massform's NOT_OPENED entry, and re-pin the OPEN census from "
-     "statuses() (14 -> 13); or keep O8 as a row on M's ruling, the exception "
-     "stated in section 4",
-     "the OPEN census (14 with O8, 13 without); specthm's SR5 placement of O8 "
-     "and its open-row escape"),
-]
+#: DOCKET 65's one pending question (M-D65-2, the finite Higgs share) has been
+#: RULED by M and is on RULED_BY_M; nothing is pending.
+PENDING_RULINGS = []
+
+#: M'S OWN WORDS FOR DOCKET 65's RULINGS, each held ONCE and interpolated into
+#: every cell that prints it, so no cell can carry a variant under the label
+#: "verbatim" (the selftest extracts every printed copy and compares).
+M_D65_1_WORDS = ("consider the idea that the introduction of information into a "
+                 "space that never previously contained it would be considered "
+                 "exotic matter")
+M_D65_1_ANSWER = "Fold into D66"
+#: M-D65-2's question exactly as it was put to M, and M's answer verbatim.
+M_D65_2_QUESTION = ("The finite Higgs share (how much of atomic mass the Higgs "
+                    "gives with the field switched off entirely): keep it as its "
+                    "own open row O8, or record it inside S10's note as the "
+                    "approved proposal had it?")
+M_D65_2_ANSWER = "Fold into S10 (Recommended)"
+#: Two fragments of the option M chose, as it was described to M (verbatim).
+M_D65_2_OPTION = ("an open item inside S10's note, not a separate row",
+                  "It stays a named candidate for a future docket")
 
 #: QUESTIONS M HAS RULED ON, same shape, kept so the ruling has its question.
 #: The last two fields now read: what M ruled, and what it unblocks.
@@ -910,21 +907,37 @@ RULED_BY_M = [
      "Should Quantum Energy Teleportation (information arriving at the "
      "destination creates a local negative-energy region there) be tested as "
      "its own docket?",
-     "M's words, verbatim: 'consider the idea that the introduction of "
-     "information into a space that never previously contained it would be "
-     "considered exotic matter'.  The literature anchor, CITED, not READ: "
-     "Hotta 2008; Funai & Martin-Martinez arXiv:1701.03805; Ikeda "
-     "arXiv:2301.02666; review arXiv:2505.04689",
+     "M's words, verbatim: '" + M_D65_1_WORDS + "'.  The literature anchor, "
+     "CITED, not READ: Hotta 2008; Funai & Martin-Martinez arXiv:1701.03805; "
+     "Ikeda arXiv:2301.02666; review arXiv:2505.04689",
      # The ruling cell is the one LEDGER.md and the report print, so M's words
-     # and the literature's status are carried here too, not only in `why`.
-     "RULED BY M: FOLD INTO DOCKET 66 -- M's answer: 'Fold into D66'.  M's "
-     "words, verbatim: 'consider the idea that the introduction of information "
-     "into a space that never previously contained it would be considered "
-     "exotic matter'.  The QET literature (Hotta 2008; Funai & Martin-Martinez "
-     "arXiv:1701.03805; Ikeda arXiv:2301.02666; review arXiv:2505.04689) is "
-     "CITED, not READ.  APPLIED: no separate docket and no row; QET is tested "
-     "inside DOCKET 66",
+     # and the literature's status are carried here too, not only in `why` --
+     # from the SAME constant, so the two copies cannot differ.
+     "RULED BY M: FOLD INTO DOCKET 66 -- M's answer: '" + M_D65_1_ANSWER + "'.  "
+     "M's words, verbatim: '" + M_D65_1_WORDS + "'.  The QET literature (Hotta "
+     "2008; Funai & Martin-Martinez arXiv:1701.03805; Ikeda arXiv:2301.02666; "
+     "review arXiv:2505.04689) is CITED, not READ.  APPLIED: no separate "
+     "docket and no row; QET is tested inside DOCKET 66",
      "DOCKET 66 tests QET beside seating at a topological defect"),
+
+    # M's second ruling at DOCKET 65's seating.  The seating had opened the
+    # finite share as its own row, O8; the question was put to M as below.
+    ("M-D65-2",
+     M_D65_2_QUESTION,
+     "Section 4's principle gives no row to an unsettled question internal to "
+     "an already-REFUSED row that gates nothing.  The finite share is internal "
+     "to S10 (S10 is %s), it gates nothing (its own answer: '%s'), and nothing "
+     "computes it (massform.FINITE_HIGGS_SHARE_STATUS = %s).  The option M "
+     "chose was described to M as '%s'; '%s'"
+     % ((massform.MECHANISM_VERDICT[0], PROPOSED["S10 (open)"][5].split("; ")[-1],
+         massform.FINITE_HIGGS_SHARE_STATUS) + M_D65_2_OPTION),
+     "RULED BY M: FOLD INTO S10's NOTE -- M's answer: '" + M_D65_2_ANSWER + "'.  "
+     "APPLIED: no row; the finite share stays an OPEN item inside S10's note "
+     "(massform's item 'S10 (open)', its status massform.FINITE_HIGGS_SHARE_"
+     "STATUS, asked), a candidate question for a future docket.  O8 is not "
+     "seated, and the OPEN census is statuses()'s without it",
+     "S10's note carries the finite share as an OPEN item; massform.NOT_OPENED "
+     "lists it again; specthm's SR5 places no O8"),
 ]
 
 # ---------------------------------------------------------------------------
@@ -959,6 +972,22 @@ def _survives_name(word):
     if len(hits) != 1:
         raise ValueError("massform.SURVIVES no longer names one %r route" % word)
     return hits[0]
+
+
+def _s10_open_item():
+    """massform's item "S10 (open)" -- the FINITE Higgs share -- as S10's note
+    carries it on M's ruling M-D65-2 ('Fold into S10 (Recommended)'): an OPEN
+    item inside S10's note, not a row.  Its text and movers are asked; it must
+    still be an OPEN item on the SUPPLY side owned by FINITE_HIGGS_SHARE_STATUS,
+    and that status must still read OPEN, or this raises rather than carrying
+    a closed item as open."""
+    r = PROPOSED["S10 (open)"]
+    if (r[1], r[3], r[4]) != ("SUPPLY", OPEN, ("massform", "FINITE_HIGGS_SHARE_STATUS")) \
+            or getattr(massform, r[4][1]) != OPEN:
+        raise ValueError("massform's S10 (open) is no longer an OPEN item of S10 "
+                         "-- ledger row S10's note is stale")
+    return ("S10 (open), an OPEN item inside this note and not a row (M-D65-2): "
+            + r[2] + ".  WHAT WOULD MOVE IT: " + r[5])
 
 
 def _proposed_supply(rid, name):
@@ -1082,7 +1111,9 @@ SUPPLY = [
 
     # ----- DOCKET 65: massform.py, seated on M's ruling.  S10 REFUSED (gap
     # None); S11-S13 the priced remainders, OPEN.  All asked. ---------------
-    _proposed_supply("S10", S10_NAME),
+    # S10's note carries the item S10 (open) on M's ruling M-D65-2.
+    _proposed_supply("S10", S10_NAME)[:4]
+    + (_proposed_supply("S10", S10_NAME)[4] + ".  " + _s10_open_item(),),
     _proposed_supply("S11", _survives_name("anomaly")),
     _proposed_supply("S12", _survives_name("pair")),
     _proposed_supply("S13", _survives_name("held-seat")),
@@ -1125,8 +1156,9 @@ O5_DOCKET62 = (
      "first")
 
 
-#: THE FIVE O ROWS DOCKET 62 NARROWED (docstring section 4).  Named, because
-#: OPEN_ROWS is no longer only them: DOCKET 65 opened O8.
+#: THE FIVE O ROWS DOCKET 62 NARROWED (docstring section 4).  Named, so the
+#: checks on narrowed rows ask for them by name and a later O row cannot be
+#: mistaken for one of them.
 DOCKET62_NARROWED = ("O2", "O3", "O5", "O6", "O7")
 
 
@@ -1266,10 +1298,8 @@ OPEN_ROWS = [
      latticectc.O3_ANSWERED_BY,
      ("latticectc", "O3_CLOSED")),
 
-    # ----- DOCKET 65: the next free id.  Question and answer asked of
-    # massform.PROPOSED_ROWS; the owner is the flag that says whether it
-    # closed, massform.O8_CLOSED, derived there from FINITE_HIGGS_SHARE_STATUS.
-    ("O8", PROPOSED["O8"][2], PROPOSED["O8"][5], PROPOSED["O8"][4]),
+    # DOCKET 65 opens no O row: the finite Higgs share, first seated here as
+    # O8, is an OPEN item inside S10's note on M's ruling M-D65-2.
 ]
 
 #: THE WORDING DOCKETS 62 AND 64 REPLACED.  (row id, the docket that replaced
@@ -1523,6 +1553,11 @@ def statuses():
     return c
 
 
+def pending_rulings():
+    """PENDING_RULINGS as printed (none since M ruled M-D65-2)."""
+    return list(PENDING_RULINGS)
+
+
 def balance():
     """[(id, what, demand, supply, gap in orders or None)] -- the two sides.
 
@@ -1574,8 +1609,18 @@ def report():
 
     print("\nRIGHT -- THE SUPPLY")
     for rid, what, st, owner, note in SUPPLY:
-        print("  %-4s %-9s %-46s" % (rid, st, what[:46]))
-        print("       %s" % _one_line(note, 100))
+        # The name in full (a cut name can change the meaning: S10's cut read
+        # as a refusal of atomic mass formed at a seat, which S11-S13 price).
+        print("  %-4s %-9s %s" % (rid, st, what))
+        if owner == ("massform", "MECHANISM_VERDICT"):
+            # M's mechanism: its one-line is massform.mechanism_label(), asked
+            # and printed whole, so the refusal never prints without the
+            # priced remainders beside it (M's rule).
+            print(textwrap.fill("as stated: " + massform.mechanism_label(), 96,
+                                initial_indent="       ",
+                                subsequent_indent="         "))
+        else:
+            print("       %s" % _one_line(note, 100))
 
     print("\nTHE BALANCE")
     for rid, what, dem, sup, gap in balance():
@@ -1604,15 +1649,20 @@ def report():
 
     print("\nRULED BY M -- APPLIED")
     for pid, q, why, ruling, unblocks in RULED_BY_M:
-        print("  %-8s %s" % (pid, _one_line(q, 94)))
+        # The question in full as well: M-D65-2's is printed exactly as it
+        # was put to M.
+        print(textwrap.fill(pid.ljust(8) + " " + " ".join(q.split()), 96,
+                            initial_indent="  ", subsequent_indent="           "))
         # In full, never cut: a ruling carries M's own words (M-D65-1).
         print(textwrap.fill("ruled: " + " ".join(ruling.split()), 96,
                             initial_indent="       ",
                             subsequent_indent="         "))
-        print("       unblocks: %s" % _one_line(unblocks, 86))
+        print(textwrap.fill("unblocks: " + " ".join(unblocks.split()), 96,
+                            initial_indent="       ",
+                            subsequent_indent="         "))
     print("\nPENDING M'S RULING -- RECORDED, NOT APPLIED%s"
           % ("" if PENDING_RULINGS else ": none"))
-    for pid, q, why, proposal, waits in PENDING_RULINGS:
+    for pid, q, why, proposal, waits in pending_rulings():
         print("  %-8s %s" % (pid, _one_line(q, 94)))
         print("       %s" % _one_line(why, 96))
         print("       proposed: %s" % _one_line(proposal, 86))
@@ -1667,7 +1717,8 @@ established and refuted so far, not a census of what is establishable.
 #: one note, and the old fixed 2000 would have cut them.
 W_DEMAND_CLAIM = 2400
 W_DEMAND_MOVES = 1200             # DOCKET 65: D27's movers run past 1000
-W_SUPPLY_NOTE = 4000              # DOCKET 65: S10's claim and movers, one note
+W_SUPPLY_NOTE = 5000              # DOCKET 65: S10's claim and movers, one note,
+                                  # and the item S10 (open) (M-D65-2)
 W_OPEN_CLAIM = 2400
 W_OPEN_ANSWER = 800
 W_WAS = 1400
@@ -1746,17 +1797,17 @@ def to_markdown():
           "| id | question | ruling | unblocks |", "|---|---|---|---|"]
     for pid, q, why, ruling, unblocks in RULED_BY_M:
         L.append("| %s | %s | %s | %s |"
-                 % (pid, _cell(q, 200), _cell(ruling, W_WHY), _cell(unblocks, 200)))
+                 % (pid, _cell(q, W_WHY), _cell(ruling, W_WHY), _cell(unblocks, W_WHY)))
     L.append("")
     L += ["## Pending M's ruling -- recorded, not applied", "",
           "This file edits no peer and changes no requirement. A question",
           "that needs M's ruling is recorded here so the board shows it.", "",
           "| id | question | why it is asked | proposed | waiting on it |",
           "|---|---|---|---|---|"]
-    for pid, q, why, proposal, waits in PENDING_RULINGS:
+    for pid, q, why, proposal, waits in pending_rulings():
         L.append("| %s | %s | %s | %s | %s |"
-                 % (pid, _cell(q, 200), _cell(why, W_WHY),
-                    _cell(proposal, W_WHY), _cell(waits, 200)))
+                 % (pid, _cell(q, W_WHY), _cell(why, W_WHY),
+                    _cell(proposal, W_WHY), _cell(waits, W_WHY)))
     L.append("")
 
     L += ["## Row wording replaced by DOCKETS 62 and 64", "",
@@ -1882,12 +1933,14 @@ def _truncated_cells(demand_claim=None, demand_moves=None, open_claim=None,
     for r in SUPERSEDED_WORDING:
         if cut(r[2], wa) or cut(r[3], wh):
             out.append(("superseded", r[0] + " " + r[1]))
-    for r in PENDING_RULINGS:
-        if cut(r[2], wh) or cut(r[3], wh):
+    # Every cell of a pending ruling: its question states what M approved.
+    for r in pending_rulings():
+        if cut(r[1], wh) or cut(r[2], wh) or cut(r[3], wh) or cut(r[4], wh):
             out.append(("pending", r[0]))
-    # A ruling cell carries M's own words (M-D65-1): it is never cut either.
+    # A ruling carries M's own words (M-D65-1) and its question as put to M
+    # (M-D65-2): neither is ever cut, nor what it unblocks.
     for r in RULED_BY_M:
-        if cut(r[3], wh):
+        if cut(r[1], wh) or cut(r[3], wh) or cut(r[4], wh):
             out.append(("ruled", r[0]))
     return out
 
@@ -1898,19 +1951,42 @@ def _truncated_cells(demand_claim=None, demand_moves=None, open_claim=None,
 #: every one, so a qualifier deleted at the owner would reach LEDGER.md green.
 #: Each is a named hypothesis, a scope or an admission the row rests on; a
 #: count, not a presence, so deleting one of several occurrences is caught.
+#: The bare hypothesis tokens are pinned by WHOLE-ROW count as well as in one
+#: phrase each: a phrase pin covers one context, and every other occurrence of
+#: the token (D27's 'on H-PRESENT it needs no P-UNIFORM', HELD_SEAT_TEXT's
+#: H-TREE and H-UNSOURCED-SEAT, _C1_TEMPLATE's H-TREE) could otherwise be
+#: deleted at the owner and reach LEDGER.md green.  The counts are what
+#: _row_text returned when they were pinned.
 SEATED_QUALIFIERS = {
+    # D27's scope: 'can only LOWER |phi|' is a claim within D20's model, and
+    # without the phrase it reads unconditional.
     "D27": (("Where H-UNSOURCED-SEAT fails", 1), ("measured masses (H-PRESENT)", 1),
-            ("within excite's section-3 model", 1)),
-    "D28": (("both NAMED-NOT-READ", 1),),
+            ("within excite's section-3 model", 1), ("Within D20's model", 1),
+            ("H-PRESENT", 5), ("H-UNSOURCED-SEAT", 4), ("H-TREE", 3), ("P-UNIFORM", 6)),
+    # D28's 'at least': the pair floor is PROVED as a floor; without it the
+    # row states an exact cost, which is false.
+    "D28": (("both NAMED-NOT-READ", 1), ("H-BL", 1), ("H-AME", 1),
+            ("negligible at payload scale", 1), ("costs at least", 1)),
+    "D29": (("H-REAL", 2), ("claimed and not computed", 1), ("not established", 1),
+            ("INFERENCE", 1)),
     "S10": (("as NET formation only", 1), ("on P-UNIFORM)", 1), ("H-LINEAR", 1),
             ("none a bound", 1), ("OPEN, and no verdict rests on it", 1),
-            ("elements (H-PRESENT)", 1)),
-    "S11": (("CONTESTED", 1),),
-    "S12": (("(not computed here)", 1),),
+            ("elements (H-PRESENT)", 1),
+            ("H-PRESENT", 5), ("H-UNSOURCED-SEAT", 3), ("H-TREE", 2), ("P-UNIFORM", 6),
+            # The item S10 (open), carried in S10's note on M's ruling M-D65-2
+            # (these pins were O8's while it was seated as a row): its
+            # admissions, and 'undecided'/'H-LINEAR' counted over the note.
+            ("(H-LINEAR)", 1), ("Not computed and not read here", 1),
+            ("whether it exceeds half is undecided here", 2),
+            ("H-LINEAR", 2), ("undecided", 2)),
+    # S11's admission that v is NAMED-NOT-READ (via alpha_W).
+    "S11": (("CONTESTED", 1), ("dissent", 1), ("decides nothing", 1), ("unproven", 1),
+            ("alpha_W's NAMED-NOT-READ", 1)),
+    # S12's 'at least': the carrier supplies the pair floor or more.
+    "S12": (("(not computed here)", 1), ("supplies at least the pair floor", 1)),
     "S13": (("Within excite's section-3 model", 2), ("not a bound", 1),
-            ("H-RELEASE", 3)),
-    "O8": (("(H-LINEAR)", 1), ("Not computed and not read here", 1),
-           ("whether it exceeds half is undecided here", 1)),
+            ("H-RELEASE", 3), ("H-UNSOURCED-SEAT", 2), ("H-TREE", 1),
+            ("(not computed here)", 1)),
 }
 
 
@@ -1930,6 +2006,38 @@ def missing_qualifiers(rows=None):
             if t.count(phrase) < n:
                 out.append((rid, phrase, t.count(phrase), n))
     return out
+
+
+_VERBATIM = re.compile(r"verbatim: '([^']+)'")
+
+
+def verbatim_faults(qrow=None, md=None):
+    """[fault] where a printed copy of M's words in M-D65-1 -- `why`, the ruling
+    cell (which LEDGER.md and the report print), or LEDGER.md's M-D65-1 line --
+    is not exactly M_D65_1_WORDS, or where a copy is missing."""
+    qrow = [r for r in RULED_BY_M if r[0] == "M-D65-1"][0] if qrow is None else qrow
+    md = to_markdown() if md is None else md
+    line = [l for l in md.splitlines() if l.startswith("| M-D65-1 |")]
+    bad = []
+    for where, text, want in (("why", qrow[2], 1), ("ruling cell", qrow[3], 1),
+                              ("LEDGER.md", " ".join(line), 1)):
+        got = _VERBATIM.findall(" ".join(text.split()))
+        if len(got) != want:
+            bad.append("%s: %d verbatim copies, want %d" % (where, len(got), want))
+        bad += ["%s: '%s'" % (where, g) for g in got if g != M_D65_1_WORDS]
+    return bad
+
+
+@contextlib.contextmanager
+def _scratch(attr, value):
+    """Replace one module-level table for the duration, restored after."""
+    g = globals()
+    keep = g[attr]
+    g[attr] = value
+    try:
+        yield
+    finally:
+        g[attr] = keep
 
 
 def theorem_owner_disagreements():
@@ -1974,8 +2082,9 @@ def selftest():
     # specified by (Phi, m) of r alone has no parameter for a destination.
     chk("every owned row's attribute still exists on its peer", asked, 35)
     # RE-PINNED 28 -> 35 BY DOCKET 65, to what this loop counts after the
-    # seating: +3 D27-D29 and +4 S10-S13, each asked of massform.py (O8 is an
-    # O row and is counted by the next check, not this one).
+    # seating: +3 D27-D29 and +4 S10-S13, each asked of massform.py.  (The
+    # finite share, seated first as O8 and folded into S10's note on M's
+    # ruling M-D65-2, is no row and adds no owner here.)
     # RE-PINNED 27 -> 28 BY DOCKET 64, to what this loop counts after the
     # edit: +1 D26 (linstab.SEMICLASSICAL_EVALUABLE_ON_DEMAND).  D22 and D24
     # were already owned and are RE-OWNED (noise.CORRIDOR_APPLICATION,
@@ -2223,7 +2332,7 @@ def selftest():
          phase1.is_transition(False, True, True, True, True, passage_flux=True),
          formation.PHASE1_D4_POINTWISE_DURING_PASSAGE),
         (["M-D64-1", "M-S1A-P1", "M-S1A-P2", "M-S1A-P3", "M-S1A-P4",
-          "M-S1A-P5", "M-D65-1"], ["M-D65-2"], True, False, False, True, False))
+          "M-S1A-P5", "M-D65-1", "M-D65-2"], [], True, False, False, True, False))
 
     print("\n3. THE EXCHANGE RATE, RE-DERIVED FROM ASKED CONSTANTS")
     chk("Lambda is overturn.py's", LAMBDA, overturn.LAMBDA)
@@ -2243,18 +2352,18 @@ def selftest():
     #   WITHDRAWN 6 -> 8: W7 and W8, both of them DOCKET 61's own passes.
     #   REFUSED 3 -> 4: the closed row counts here, not as an opening.
     chk("the status census", c,
-        {THEOREM: 20, NARROWED: 1, MEASURED: 3, SURVEY: 2, OPEN: 14,
+        {THEOREM: 20, NARROWED: 1, MEASURED: 3, SURVEY: 2, OPEN: 13,
          WITHDRAWN: 13, REFUSED: 10})
     # RE-PINNED BY DOCKET 65 to what statuses() returned after the seating
     # (M: "Seat as proposed"), every status asked of massform.PROPOSED_ROWS:
     #   THEOREM 17 -> 20: D27, D28, D29.
-    #   OPEN 10 -> 14: S11, S12, S13 (priced remainders) and O8 (the finite
-    #     Higgs share).  S5 stays OPEN; its note is appended to, not moved.
-    #     O8 is the exception docstring section 4 states: by the principle's
-    #     second half it would stay in S10's note and OPEN would be 13.  Which
-    #     it is is M's (PENDING_RULINGS M-D65-2); section 4d asserts it.
+    #   OPEN 10 -> 13: S11, S12, S13 (priced remainders).  S5 stays OPEN;
+    #     its note is appended to, not moved.  The seating first opened the
+    #     finite Higgs share as O8 and statuses() gave 14; M ruled M-D65-2
+    #     ('Fold into S10 (Recommended)'), O8 left OPEN_ROWS for S10's note,
+    #     and this is RE-PINNED 14 -> 13 to what statuses() returned after it.
     #   REFUSED 9 -> 10: S10, M's mechanism as a supply (gap None).
-    #   M-D65-1 is a ruling, not a status, and moves no count.
+    #   M-D65-1 and M-D65-2 are rulings, not statuses, and move no count.
     # RE-PINNED BY DOCKET 64 to what statuses() returned after the edit (not
     # typed from the ruling, which did not predict it).  The moves only:
     #   D22 OPEN -> SURVEY (noise.py: C1 a THEOREM in the flat model; the
@@ -2326,12 +2435,11 @@ def selftest():
         [r[0] for r in OPEN_ROWS if ask(r[3])], [])
     chk("the five narrowed rows are all still open",
         [r for r in DOCKET62_NARROWED if r not in [x[0] for x in OPEN_ROWS]], [])
-    # DOCKET 65 opened O8 (the finite Higgs share); it narrowed nothing, so the
-    # checks on narrowed rows are about DOCKET62_NARROWED, not every O row.
-    # This check once compared the whole OPEN_ROWS list with the five; the
-    # board moved, and the five are asked for by name instead.
-    chk("  and the only O row that is not one of them is DOCKET 65's O8",
-        sorted(r[0] for r in OPEN_ROWS if r[0] not in DOCKET62_NARROWED), ["O8"])
+    # DOCKET 65 opens no O row: the finite Higgs share, first seated as O8, is
+    # an OPEN item in S10's note on M's ruling M-D65-2.  The five are asked for
+    # by name (DOCKET62_NARROWED), and no other O row stands beside them.
+    chk("  and there is no O row beside them (O8 folded into S10's note, M-D65-2)",
+        sorted(r[0] for r in OPEN_ROWS if r[0] not in DOCKET62_NARROWED), [])
     # RE-KEYED BY DOCKET 64 (ruling C, O5).  This compared sorted ids with the
     # OPEN ids, and O5's second entry (DOCKET 64 replacing DOCKET 62's
     # wording) would have turned it red for a correct reason.  Entries are
@@ -2342,8 +2450,6 @@ def selftest():
     chk("  DOCKET 62's entries are exactly the five O rows it narrowed",
         sorted(r[0] for r in SUPERSEDED_WORDING if r[1] == "DOCKET 62"),
         sorted(DOCKET62_NARROWED))
-    chk("  and O8, new and never narrowed, has no replaced wording",
-        [r for r in SUPERSEDED_WORDING if r[0] == "O8"], [])
     chk("  DOCKET 64's are the rows whose wording it replaced, not extended",
         sorted(r[0] for r in SUPERSEDED_WORDING if r[1] == "DOCKET 64"),
         ["D22", "D24", "O5"])
@@ -2506,12 +2612,29 @@ def selftest():
         (all(row[r][1] in [n for n, _t in massform.SURVIVES]
              for r in ("S11", "S12", "S13")),
          len(set(row[r][1] for r in ("S11", "S12", "S13")))), (True, 3))
-    chk("O8 is massform's question and answer, owned by O8_CLOSED (False)",
-        (opn["O8"][1] == PROPOSED["O8"][2], opn["O8"][2] == PROPOSED["O8"][5],
-         opn["O8"][3], ask(opn["O8"][3]), massform.FINITE_HIGGS_SHARE_STATUS),
-        (True, True, ("massform", "O8_CLOSED"), False, OPEN))
-    chk("  CONTROL: an owner answering its status string would read as CLOSED",
-        bool(massform.FINITE_HIGGS_SHARE_STATUS), True)
+    # M-D65-2 (RULED_BY_M): 'Fold into S10 (Recommended)'.  The finite share
+    # is an OPEN item inside S10's note, asked of massform, and no row.
+    chk("the finite share (massform's S10 (open)) is in S10's note, text and "
+        "movers asked, OPEN on its owner, and is no row (M-D65-2)",
+        (PROPOSED["S10 (open)"][2] in row["S10"][4],
+         PROPOSED["S10 (open)"][5] in row["S10"][4],
+         "not a row (M-D65-2)" in row["S10"][4],
+         massform.FINITE_HIGGS_SHARE_STATUS,
+         [r[0] for r in OPEN_ROWS if r[0] == "O8" or "FINITE Higgs share" in r[1]],
+         "S10 (open)" in [r[0] for r in DEMAND + SUPPLY + OPEN_ROWS]),
+        (True, True, True, OPEN, [], False))
+    _keep = massform.FINITE_HIGGS_SHARE_STATUS
+    massform.FINITE_HIGGS_SHARE_STATUS = "COMPUTED"
+    try:
+        _raised = False
+        try:
+            _s10_open_item()
+        except ValueError:
+            _raised = True
+    finally:
+        massform.FINITE_HIGGS_SHARE_STATUS = _keep
+    chk("  CONTROL: a finite share no longer OPEN on its owner is not carried as "
+        "an OPEN item (it raises)", _raised, True)
     chk("S5 stays OPEN and its note carries DOCKET 65's append, asked",
         (row["S5"][2], _s5_docket65_append() in row["S5"][4],
          massform.RECONSTRUCTION_SURVIVES), (OPEN, True, True))
@@ -2526,13 +2649,42 @@ def selftest():
     _qet = [r for r in RULED_BY_M if r[0] == "M-D65-1"]
     chk("M-D65-1: QET folded into DOCKET 66, M quoted, literature CITED not READ",
         (len(_qet), _qet[0][3].startswith("RULED BY M: FOLD INTO DOCKET 66"),
-         "'Fold into D66'" in _qet[0][3],
-         "introduction of information into a space that never previously "
-         "contained it would be considered exotic matter" in _qet[0][2],
+         "'%s'" % M_D65_1_ANSWER in _qet[0][3],
+         M_D65_1_WORDS in _qet[0][2],
          "CITED, not READ" in _qet[0][2],
          all(a in _qet[0][2] for a in ("Hotta 2008", "1701.03805",
                                        "2301.02666", "2505.04689"))),
         (1, True, True, True, True, True))
+    _raw = to_markdown()
+    _md = " ".join(_raw.split())
+    chk("M's words in M-D65-1 are ONE sentence wherever printed: `why`, the "
+        "ruling cell and LEDGER.md each quote exactly M_D65_1_WORDS",
+        verbatim_faults(_qet[0], _raw), [])
+    for _where, _mut in ((3, "ruling cell"), (2, "why"), (None, "LEDGER.md line")):
+        _q = list(_qet[0])
+        _m = _raw
+        _bad = "consider that the introduction"
+        if _where is None:
+            _m = _raw.replace("consider the idea that the introduction", _bad)
+        else:
+            _q[_where] = _q[_where].replace("consider the idea that the introduction",
+                                            _bad, 1)
+        chk("  CONTROL: 'consider the idea that the' shortened in the %s only is "
+            "caught" % _mut, len(verbatim_faults(tuple(_q), _m)) > 0, True)
+    chk("  CONTROL: a copy of M's words dropped from the ruling cell is caught",
+        len(verbatim_faults((_qet[0][0], _qet[0][1], _qet[0][2],
+                             _qet[0][3].replace("verbatim: '", "roughly: '"),
+                             _qet[0][4]), _raw)) > 0, True)
+    _ms2 = [r for r in RULED_BY_M if r[0] == "M-D65-2"]
+    chk("M-D65-2 is RULED: the question exactly as put to M, M's answer "
+        "verbatim, the fold APPLIED, and nothing pending",
+        (len(_ms2), _ms2[0][1] == M_D65_2_QUESTION,
+         _ms2[0][3].startswith("RULED BY M: FOLD INTO S10's NOTE"),
+         "M's answer: '%s'" % M_D65_2_ANSWER in _ms2[0][3],
+         all("'%s'" % f in _ms2[0][2] for f in M_D65_2_OPTION),
+         M_D65_2_QUESTION in _md, "'%s'" % M_D65_2_ANSWER in _md,
+         PENDING_RULINGS, "O8" not in [r[0] for r in OPEN_ROWS]),
+        (1, True, True, True, True, True, True, [], True))
     chk("  and M-D65-1 opens no row (QET is DOCKET 66's, not the board's)",
         [r[0] for r in DEMAND + SUPPLY + OPEN_ROWS if "QET" in r[1]
          or "Teleportation" in r[1]], [])
@@ -2566,21 +2718,34 @@ def selftest():
                                           else x for x in _rows[rid])})))]
     chk("  CONTROL: deleting any one qualifier from its row is caught (each)",
         _ctl, [])
-    _md = " ".join(to_markdown().split())
-    chk("M-D65-1 as LEDGER.md PRINTS it: M's words, CITED not READ, the anchors",
-        ("introduction of information into a space that never previously "
-         "contained it would be considered exotic matter" in _md,
+    _d28 = dict(_rows, D28=tuple(x.replace("costs at least ", "costs ", 1)
+                                 if isinstance(x, str) else x for x in _rows["D28"]))
+    chk("  CONTROL: D28 with 'at least' deleted (a floor read as an exact cost) "
+        "is caught", [q[:2] for q in missing_qualifiers(_d28) if q[0] == "D28"],
+        [("D28", "costs at least")])
+    chk("M-D65-1 as LEDGER.md PRINTS it: M's whole sentence, CITED not READ, "
+        "the anchors; no ruling's question, ruling or unblocks cell is cut",
+        (M_D65_1_WORDS in _md,
+         "consider the idea that the introduction of information" in _md,
          "CITED, not READ" in _md,
          all(a in _md for a in ("Hotta 2008", "arXiv:1701.03805",
                                 "arXiv:2301.02666", "arXiv:2505.04689")),
          [c for c in _truncated_cells() if c[0] == "ruled"]),
-        (True, True, True, []))
-    chk("O8 is an EXCEPTION to section 4's principle, stated and put to M",
-        ("O8   the FINITE Higgs share" in __doc__,
-         "AN EXCEPTION TO THE" in __doc__,
-         [p[0] for p in PENDING_RULINGS if "O8" in p[1]],
-         opn["O8"][3], ask(opn["O8"][3])),
-        (True, True, ["M-D65-2"], ("massform", "O8_CLOSED"), False))
+        (True, True, True, True, []))
+    chk("the finite share is NOT a row, on M's ruling, stated in the docstring "
+        "(sections 4 and 6) and in the census comment's re-pin",
+        ("NOT A ROW, ON M's\n       RULING M-D65-2" in __doc__,
+         "S10 (open)     NOT A ROW" in __doc__,
+         "Nothing from\nDOCKET 65 is pending M" in __doc__,
+         "O8   the FINITE Higgs share" in __doc__), (True, True, True, False))
+    _buf = io.StringIO()
+    with contextlib.redirect_stdout(_buf):
+        report()
+    _rep = " ".join(_buf.getvalue().split())
+    chk("the plain report prints S10's name whole and massform.mechanism_label() "
+        "whole beside it (a cut there read as a bare refusal)",
+        (S10_NAME in _rep, " ".join(massform.mechanism_label().split()) in _rep),
+        (True, True))
     chk("nothing DOCKET 65 seated carries the status word DECLARED",
         [r[0] for r in massform.PROPOSED_ROWS if "DECLARED" in r[3]], [])
 
