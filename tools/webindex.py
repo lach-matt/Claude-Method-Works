@@ -177,7 +177,18 @@ PUBLIC_NAMES = {"LOWDIN-WALK.tsv": "the walk table", "SCORE.tsv": "the scorer ta
                 "KPOINTS-ADDITIVITY.tsv": "the k-point additivity capture", "PHONON-KPOINTS.tsv": "the second k-point implementation's capture",
                 "COREPS-HIGHSYM.tsv": "the corepresentation capture",
                 "THE-INDEX-OF-FIRST-ORDER-INDEXES.md": "the index of first-order indexes paper",
-                "RUNS.tsv": "the recovered walk's run table", "CHECK.tsv": "the recovered chain's check against the sealed steps"}
+                "RUNS.tsv": "the recovered walk's run table", "CHECK.tsv": "the recovered chain's check against the sealed steps",
+                "papers/method/01-closure-law/PAPER.md": "the closure-law paper",
+                "papers/method/02-lambda/PAPER.md": "the lattice paper",
+                "papers/method/03-bracket/PAPER.md": "the bracket paper",
+                "papers/method/04-seaton/PAPER.md": "the polarisation-ratio paper",
+                "papers/method/05-tower/PAPER.md": "the tower paper",
+                "papers/method/06-order-recovery/PAPER.md": "the order-recovery paper",
+                "papers/method/07-wall-janet/PAPER.md": "the parent-term wall paper",
+                "papers/method/08-chemical-index/PAPER.md": "the chemical-index paper",
+                "papers/method/09-occupation-hull/PAPER.md": "the occupation-law paper",
+                "papers/method/10-beyond-the-atom/PAPER.md": "the closure-beyond-the-atom paper",
+                }
 
 
 def private_hits(text):
@@ -942,6 +953,50 @@ RESEARCH_PAPERS = {
         # corpus" is the tree's own numbers, and the handoff documents are named as what was withdrawn
         "own_terms": {r"\brulings?\b", r"\bseated members?\b", r"\bcorpus\b", r"\bhandoffs?\b"},
     },
+    # the ten papers built from the books for this site (papers/method/, 2026-09): each carries its
+    # own figures in its directory, its PDF in papers/method/pdf/, and was written under the
+    # contract in papers/method/PAPER-SPEC.md, whose lint mirrors this guard; the figures are copied
+    # from the paper's directory and their md5 measured at build, there being no ledger row
+    "papers/method/01-closure-law/PAPER.md": {
+        "slug": "closure-law", "short": "the closure-law paper",
+        "pdf": "papers/method/pdf/01-closure-law.pdf", "own_figures": True, "origin": "the repository's papers directory",
+    },
+    "papers/method/02-lambda/PAPER.md": {
+        "slug": "lattice", "short": "the lattice paper",
+        "pdf": "papers/method/pdf/02-lambda.pdf", "own_figures": True, "origin": "the repository's papers directory",
+    },
+    "papers/method/03-bracket/PAPER.md": {
+        "slug": "bracket", "short": "the bracket paper",
+        "pdf": "papers/method/pdf/03-bracket.pdf", "own_figures": True, "origin": "the repository's papers directory",
+    },
+    "papers/method/04-seaton/PAPER.md": {
+        "slug": "polarisation-ratio", "short": "the polarisation-ratio paper",
+        "pdf": "papers/method/pdf/04-seaton.pdf", "own_figures": True, "origin": "the repository's papers directory",
+    },
+    "papers/method/05-tower/PAPER.md": {
+        "slug": "tower", "short": "the tower paper",
+        "pdf": "papers/method/pdf/05-tower.pdf", "own_figures": True, "origin": "the repository's papers directory",
+    },
+    "papers/method/06-order-recovery/PAPER.md": {
+        "slug": "order-recovery", "short": "the order-recovery paper",
+        "pdf": "papers/method/pdf/06-order-recovery.pdf", "own_figures": True, "origin": "the repository's papers directory",
+    },
+    "papers/method/07-wall-janet/PAPER.md": {
+        "slug": "parent-term-wall", "short": "the parent-term wall paper",
+        "pdf": "papers/method/pdf/07-wall-janet.pdf", "own_figures": True, "origin": "the repository's papers directory",
+    },
+    "papers/method/08-chemical-index/PAPER.md": {
+        "slug": "chemical-index", "short": "the chemical-index paper",
+        "pdf": "papers/method/pdf/08-chemical-index.pdf", "own_figures": True, "origin": "the repository's papers directory",
+    },
+    "papers/method/09-occupation-hull/PAPER.md": {
+        "slug": "occupation-law", "short": "the occupation-law paper",
+        "pdf": "papers/method/pdf/09-occupation-hull.pdf", "own_figures": True, "origin": "the repository's papers directory",
+    },
+    "papers/method/10-beyond-the-atom/PAPER.md": {
+        "slug": "closure-beyond", "short": "the closure-beyond-the-atom paper",
+        "pdf": "papers/method/pdf/10-beyond-the-atom.pdf", "own_figures": True, "origin": "the repository's papers directory",
+    },
 }
 # the edition history the site shows: the commits that changed public/ or the
 # generator, each with a note written for the site (the commit subjects are
@@ -1148,112 +1203,6 @@ def research_commit(rel, warp_root=None):
     return WARP_COMMIT or _git_last_commit(rel)
 
 
-# the ten research papers of 2026-09-24, released by the author as PDFs into the Drive folder that
-# Ruling 56 makes the original-input witness, mirrored here by drive_sync.py --adopt (their manifest
-# rows read ok-adopted: byte count checked against Drive's metadata, no Drive checksum supplied).
-# The site reads each PDF: its title from the PDF's own metadata, its standfirst, byline, abstract
-# and section headings from the text pypdf extracts, and it carries the PDF itself; nothing is
-# retyped, and the guard measures that the text cites nothing from the books
-PDF_PAPERS = [
-    ("drive/The Method Prints & Proofs/01-closure-law.pdf", "closure-law", "the closure law paper"),
-    ("drive/The Method Prints & Proofs/02-lambda.pdf", "lambda", "the lattice of subshell transitions paper"),
-    ("drive/The Method Prints & Proofs/03-bracket.pdf", "bracket", "the bracket paper"),
-    ("drive/The Method Prints & Proofs/04-seaton.pdf", "polarisation-ratio", "the polarisation ratio paper"),
-    ("drive/The Method Prints & Proofs/05-tower.pdf", "tower", "the tower paper"),
-    ("drive/The Method Prints & Proofs/06-order-recovery.pdf", "order-recovery", "the order recovery paper"),
-    ("drive/The Method Prints & Proofs/07-wall-janet.pdf", "parent-term-wall", "the parent-term wall paper"),
-    ("drive/The Method Prints & Proofs/08-chemical-index.pdf", "chemical-index", "the chemical index paper"),
-    ("drive/The Method Prints & Proofs/09-occupation-hull.pdf", "occupation-hull", "the occupation hull paper"),
-    ("drive/The Method Prints & Proofs/10-beyond-the-atom.pdf", "beyond-the-atom", "the closure beyond the atom paper"),
-]
-PDF_SECTION_RX = re.compile(r"^\s*(§\s?\d+[A-Za-z]?)\s*[·.:]\s*(.{3,120}?)\s*$")
-
-
-def pdf_paper(rel, slug, short, out_dir=OUT, write=True):
-    """One released PDF as the site reads it: the file's bytes from the mirror with its manifest
-    row, the text pypdf extracts (title, standfirst, byline, abstract, section headings), the
-    guard's measurement over that text, and the PDF copied out as a download."""
-    try:
-        import pypdf
-    except ImportError as exc:  # pragma: no cover
-        raise SystemExit("pypdf is needed to read the released PDFs (pip install pypdf): %s" % exc)
-    path = os.path.join(REPO, rel)
-    with open(path, "rb") as fh:
-        blob = fh.read()
-    reader = pypdf.PdfReader(io.BytesIO(blob))
-    pages = [(pg.extract_text() or "") for pg in reader.pages]
-    text = "\n".join(pages)
-    meta = reader.metadata or {}
-    title = re.sub(r"\s+", " ", str(meta.get("/Title") or "")).strip()
-    first = [ln.strip() for ln in pages[0].split("\n") if ln.strip()]
-    # the title occupies the first line or lines; the standfirst follows to the byline
-    byline = next((ln for ln in first[:14] if "·" in ln and "Lach" in ln), None)
-    i_title_end = 0
-    joined = ""
-    for i, ln in enumerate(first[:6]):
-        joined = (joined + " " + ln).strip()
-        if title and re.sub(r"\s+", " ", joined) == title:
-            i_title_end = i + 1
-            break
-    if not i_title_end:
-        i_title_end = 1
-        title = title or first[0]
-    stand = []
-    for ln in first[i_title_end:14]:
-        if ln == byline:
-            break
-        stand.append(ln)
-    standfirst = re.sub(r"(\w)[‐-]\s+(\w)", r"\1\2", " ".join(stand)).strip()
-    a = text.find("Abstract")
-    b = re.search(r"\n\s*§\s?0\b", text[a:]) if a >= 0 else None
-    abstract = text[a + len("Abstract"):a + (b.start() if b else 3000)].strip() if a >= 0 else ""
-    abstract = re.sub(r"(\w)[‐-]\n(\w)", r"\1\2", abstract)
-    abstract = re.sub(r"\s+", " ", abstract)
-    headings = []
-    seen = set()
-    for ln in text.split("\n"):
-        m = PDF_SECTION_RX.match(ln)
-        if m and m.group(1).replace(" ", "") not in seen:
-            seen.add(m.group(1).replace(" ", ""))
-            headings.append({"level": 2, "text": "%s · %s" % (m.group(1).replace(" ", ""), m.group(2)), "id": "s-%s-%s" % (slug, re.sub(r"\D", "", m.group(1)))})
-    row = _manifest_row(rel[len("drive/"):] if rel.startswith("drive/") else rel)   # manifest paths are relative to drive/
-    prel = "papers/%s/%s" % (slug, os.path.basename(rel))
-    if write:
-        os.makedirs(os.path.join(out_dir, "papers", slug), exist_ok=True)
-        with open(os.path.join(out_dir, prel), "wb") as fh:
-            fh.write(blob)
-    md5 = hashlib.md5(blob).hexdigest()
-    own = [h for h in private_hits(text) if h in _OWN_SECTION_MARKS]
-    book = [h for h in private_hits(text) if h not in _OWN_SECTION_MARKS]
-    html = ('<p class="paper-standfirst"><em>%s</em></p>' % html_escape(standfirst) if standfirst else "") + \
-           ('<h2 id="abstract-%s">Abstract</h2><p>%s</p>' % (slug, html_escape(abstract)) if abstract else "") + \
-           ('<p class="note">The paper is carried as the PDF the author released, %d pages; the text above is read from it at build and not retyped. '
-            'Open the PDF for the paper itself.</p>' % len(pages))
-    return {
-        "slug": slug, "short": short, "kind": "pdf",
-        "title": title, "subtitle": byline,
-        "standfirst": standfirst, "abstract": abstract,
-        "author": SITE_AUTHOR, "held": True,
-        "bytes": len(blob), "md5": md5,
-        "md5_recorded": row["md5"] if row else None,
-        # the mirror's row, without its path or id: the mirror is not public, its manifest is
-        "mirror": {"file": os.path.basename(rel), "status": row["status"] if row else None,
-                   "released": (row["drive_modified"] or "")[:10] if row else None},
-        "pages": len(pages), "words": len(text.split()),
-        "headings": headings, "figures": [],
-        "arxiv": sorted({m.group(1) for m in ARXIV_NEW.finditer(text)} | {m.group(1) for m in ARXIV_OLD.finditer(text)}),
-        "doi": sorted({m.group(1).rstrip(".)") for m in DOI_RX.finditer(text)}),
-        "pdf": {"file": prel, "bytes": len(blob), "md5": md5},
-        "pdf_note": None, "masked": [],
-        "html": html,
-        "book_citations": book, "own_section_marks": own, "own_terms": [],
-        "note": "the paper as the author released it, a PDF in the Drive folder that is the original-input witness, "
-                "mirrored here with its manifest row (%s: the byte count checked against Drive's metadata, no Drive checksum "
-                "supplied); its title, standfirst, byline, abstract and section headings are read from the PDF at build, "
-                "nothing is retyped, and the guard measures that its text cites nothing from the books" % ((row or {}).get("status") or "no manifest row"),
-    }
-
-
 def papers_block(out_dir=OUT, write=True, log=print, warp_root=None):
     """The released papers as the site reads them: each rendered to HTML at
     build from its seated text (the text is the author's own and is shipped as
@@ -1329,9 +1278,27 @@ def papers_block(out_dir=OUT, write=True, log=print, warp_root=None):
         slug = spec["slug"]
         figs = []
 
-        def img_r(alt, src, _figs=figs):
-            _figs.append({"ref": src, "file": None, "held": False})
-            return '<span class="fig-missing">[figure %s: not carried]</span>' % html_escape(os.path.basename(src))
+        figdir = os.path.join(out_dir, "papers", slug, "figures")
+
+        def img_r(alt, src, _figs=figs, _slug=slug, _figdir=figdir, _dir=os.path.dirname(path), _own=spec.get("own_figures")):
+            name = os.path.basename(src)
+            f = os.path.join(_dir, src) if _own else None
+            if not (f and os.path.isfile(f)):
+                _figs.append({"ref": src, "file": None, "held": False})
+                return '<span class="fig-missing">[figure %s: not carried]</span>' % html_escape(name)
+            # the paper's own figure, beside its text: no ledger row records it, so its md5 is
+            # measured at build and the copy is the file as the paper's directory holds it
+            with open(f, "rb") as fh:
+                blob = fh.read()
+            rel = "papers/%s/figures/%s" % (_slug, name)
+            if write:
+                os.makedirs(_figdir, exist_ok=True)
+                with open(os.path.join(_figdir, name), "wb") as fh:
+                    fh.write(blob)
+            _figs.append({"ref": src, "file": rel, "held": True, "bytes": len(blob), "md5": hashlib.md5(blob).hexdigest(),
+                          "md5_recorded": None, "ok": True, "note": "the paper's own figure; md5 measured at build, no ledger row"})
+            alt = re.sub(r"[*_]", "", alt).strip()
+            return '<img src="data/%s" alt="%s" loading="lazy">' % (rel, html_escape(alt))
         body, headings = md_to_html(text, {"img": img_r})
         h1 = next((h for h in headings if h["level"] == 1), None)
         arx = sorted({m.group(1) for m in ARXIV_NEW.finditer(text)} | {m.group(1) for m in ARXIV_OLD.finditer(text)})
@@ -1349,6 +1316,11 @@ def papers_block(out_dir=OUT, write=True, log=print, warp_root=None):
                 with open(os.path.join(out_dir, prel), "wb") as fh:
                     fh.write(pblob)
             pdf = {"file": prel, "bytes": len(pblob), "md5": hashlib.md5(pblob).hexdigest(), "commit": research_commit(spec["pdf"], warp_root)}
+            # the copy the author released to the Drive folder that is the original-input witness, where
+            # the mirror holds one under the same name (drive_sync.py --adopt): its manifest md5 against this file's
+            wrow = _manifest_row("/" + os.path.basename(spec["pdf"]))
+            if wrow:
+                pdf["witness"] = {"status": wrow["status"], "md5": wrow["md5"], "match": wrow["md5"] == pdf["md5"]}
         papers.append({
             "slug": slug, "short": spec["short"],
             "title": (h1 or {}).get("text") or spec["short"],
@@ -1371,19 +1343,13 @@ def papers_block(out_dir=OUT, write=True, log=print, warp_root=None):
             "book_citations": [h for h in private_hits(text) if h not in _OWN_SECTION_MARKS and h not in spec.get("own_terms", set())],
             "own_section_marks": [h for h in private_hits(text) if h in _OWN_SECTION_MARKS],
             "own_terms": [h for h in private_hits(text) if h in spec.get("own_terms", set())],
-            "note": ("the paper as the author wrote it, from the repository's research tree rather than the store: "
+            "note": ("the paper as the author wrote it, from " + spec.get("origin", "the repository's research tree") + " rather than the store: "
                      "no ledger row records its md5, so the md5 is measured at build and the file's last commit "
                      "is recorded beside it; nothing in it is edited for the site" if not masked else
-                     "the paper as the author wrote it, from the repository's research tree, its md5 measured at build on the text "
+                     "the paper as the author wrote it, from " + spec.get("origin", "the repository's research tree") + ", its md5 measured at build on the text "
                      "as written and its last commit recorded; %d citation%s of unpublished material %s masked at build, each with a "
                      "visible mark, because the site cites nothing from the books, and nothing else in it is edited" % (sum(m["count"] for m in masked), "s" if sum(m["count"] for m in masked) != 1 else "", "are" if sum(m["count"] for m in masked) != 1 else "is")),
         })
-    for rel, slug, short in PDF_PAPERS:
-        if os.path.isfile(os.path.join(REPO, rel)):
-            papers.append(pdf_paper(rel, slug, short, out_dir, write))
-        else:
-            papers.append({"slug": slug, "short": short, "title": short, "held": False, "author": SITE_AUTHOR, "kind": "pdf",
-                           "note": "released by the author as a PDF; its file is not in this mirror, so the site lists it and shows nothing in its place"})
     for slot in PAPER_SLOTS:
         papers.append(dict(slot, author=SITE_AUTHOR))
     blob = (PAPERS_PREFIX + json.dumps(papers, ensure_ascii=False, allow_nan=False) + WRAP_SUFFIX).encode("utf-8")
@@ -1391,8 +1357,7 @@ def papers_block(out_dir=OUT, write=True, log=print, warp_root=None):
         with open(os.path.join(out_dir, PAPERS_JS), "wb") as fh:
             fh.write(blob)
     summary = [{k: p.get(k) for k in ("slug", "title", "subtitle", "author", "held", "bytes", "md5",
-                                        "md5_recorded", "words", "note", "tree", "pdf", "pdf_note", "masked", "kind", "pages", "mirror",
-                                        "abstract", "book_citations")}
+                                        "md5_recorded", "words", "note", "tree", "pdf", "pdf_note", "masked")}
                | {"headings": len(p.get("headings", [])), "figures": len(p.get("figures", [])),
                   "figures_ok": all(f.get("ok") for f in p.get("figures", []) if f.get("held")),
                   "arxiv": len(p.get("arxiv", [])), "doi": len(p.get("doi", []))}
@@ -4086,8 +4051,8 @@ def build(spectra, out_dir=OUT, write=True, log=print, with_particles=False, war
             {"file": "data/elements/<Z>.js", "what": "one element's record, every ion and channel, with statuses; md5 per file in the manifest"},
             {"file": papers["file"], "bytes": papers["bytes"], "md5": papers["md5"], "what": "the released papers, rendered"},
             *[{"file": "data/" + p["pdf"]["file"], "bytes": p["pdf"]["bytes"], "md5": p["pdf"]["md5"],
-               "what": ("%s, as a PDF; the paper as released, md5 against the mirror's manifest (%s)" % (p["title"], (p.get("mirror") or {}).get("status") or "no row")
-                        if p.get("kind") == "pdf" else "%s, as a PDF; md5 measured at build, commit %s" % (p["title"], p["pdf"].get("commit") or "?"))}
+               "what": "%s, as a PDF; md5 measured at build, commit %s%s" % (p["title"], p["pdf"].get("commit") or "?",
+                                                                            "; byte-identical to the copy the author released to the witness folder" if (p["pdf"].get("witness") or {}).get("match") else "")}
               for p in papers["papers"] if p.get("pdf")],
             {"file": pindex["file"], "bytes": pindex["bytes"], "md5": pindex["md5"], "what": "the particle indexes: 572 members of the PDG 2026 table with their coordinates and statuses, the nuclear band levels, the gravity index and the register"} if pindex else None,
             {"file": nuclides["file"], "bytes": nuclides["bytes"], "md5": nuclides["md5"], "what": "the nuclides of AME2020 Table I with the banked levels: what the gravity and builder modes compute over"} if nuclides else None,
@@ -4452,26 +4417,14 @@ def selftest(warp_root=WARP_ROOT):
             check("quasiparticles: 230 space groups, 32 point groups, 73 arithmetic classes",
                   [pfull["quasiparticles"]["no_table"][k] for k in ("space_groups", "point_groups", "arithmetic_classes")], [230, 32, 73])
     pp = index["papers"]["papers"]
-    check("papers: the four released papers, then the ten released as PDFs, in order", [p["slug"] for p in pp],
-          ["lowdin", "three-body", "languages", "indexes"] + [s for _r, s, _s in PDF_PAPERS])
+    SITE_PAPERS = ["lowdin", "three-body", "languages", "indexes"] + ["closure-law", "lattice", "bracket", "polarisation-ratio", "tower", "order-recovery", "parent-term-wall", "chemical-index", "occupation-law", "closure-beyond"]
+    check("papers: the fourteen released papers, in order", [p["slug"] for p in pp], SITE_PAPERS)
     check("papers: all fourteen are held", [p["held"] for p in pp], [True] * 14)
-    pdfp = [p for p in pp if p.get("kind") == "pdf"]
-    check("papers: the ten PDFs carry the mirror's md5 and an ok-adopted manifest row",
-          [(p["md5"] == p["md5_recorded"], p["mirror"]["status"]) for p in pdfp], [(True, "ok-adopted")] * 10)
-    check("papers: the ten PDFs' titles are read from the PDFs' own metadata",
-          [p["title"] for p in pdfp],
-          ["The Closure Law of a Finite Index", "The Lattice of Subshell Transitions",
-           "The Bracket: a Guarantee on Rydberg Levels, and What It Costs",
-           "The Domain of the Polarisation Ratio \u03b4\u2082/\u03b4\u2080 = \u2212\u2113(\u2113+1)/3: a Necessary Condition from the Core Configuration, Tested on Thirteen Rydberg Series",
-           "The Tower over \u039b: from Eight Coordinates to Thirteen", "Order Recovery and the Reorderability Law",
-           "The Parent-Term Wall and the Cost of a Drawn Coordinate", "Closing the Chemical Properties: a Classification Index for the Elements",
-           "An Occupation Law as a Lower Convex Hull",
-           "Closure beyond the Atom: the Defect of an Index, Its Zeros by Theorem, and the Electromagnetic Quotient"])
-    check("papers: every PDF paper is over ten thousand words and over fifteen pages, with an abstract and a byline",
-          all(p["words"] > 10000 and p["pages"] > 15 and len(p["abstract"]) > 200 and p["subtitle"] for p in pdfp), True)
-    check("papers: the ten PDF papers cite nothing from the books, measured by the guard with their own section marks excluded",
-          [p["book_citations"] for p in pdfp], [[]] * 10)
-    check("papers: the ten PDFs are carried as downloads with their md5", all(p["pdf"] and p["pdf"]["md5"] == p["md5"] for p in pdfp), True)
+    for q in pp[4:]:
+        check("papers: %s carries every figure it cites from its own directory, and its PDF with an md5" % q["slug"],
+              (q["figures"] > 0, q["figures_ok"], bool(q["pdf"] and q["pdf"]["md5"]), q["masked"]), (True, True, True, []))
+    check("papers: the ten PDFs are byte-identical to the copies the author released to the witness folder, mirrored ok-adopted",
+          [((q["pdf"] or {}).get("witness") or {}).get("match") and ((q["pdf"] or {}).get("witness") or {}).get("status") for q in pp[4:]], ["ok-adopted"] * 10)
     check("papers: the index of first-order indexes paper comes from the research tree with its commit, four citations of unpublished material masked and its PDF withheld",
           (pp[3]["tree"]["path"], bool(pp[3]["tree"]["commit"]), pp[3]["pdf"], bool(pp[3]["pdf_note"]), sum(m["count"] for m in pp[3]["masked"]), sorted({m["kind"] for m in pp[3]["masked"]})),
           ("research/paper/THE-INDEX-OF-FIRST-ORDER-INDEXES.md", True, None, True, 8, ["a citation of an unpublished record", "a member's file name", "a path into the unpublished store", "the research tree's directory"]))
@@ -4488,6 +4441,10 @@ def selftest(warp_root=WARP_ROOT):
         check("papers: after masking, the index paper cites nothing from the books, measured by the guard with its own section marks and its own terms excluded", (idx_paper["book_citations"], sorted(idx_paper["own_terms"])), ([], sorted(RESEARCH_PAPERS["research/warp-drive/paper/THE-INDEX-OF-FIRST-ORDER-INDEXES.md"]["own_terms"])))
         check("papers: the mask leaves a visible mark at every site but the directory rewrite", idx_paper["html"].count("withheld on this site"), 7)
         check("papers: its render carries every heading of the source", len(idx_paper["headings"]), sum(1 for ln in open(research_path("research/warp-drive/paper/THE-INDEX-OF-FIRST-ORDER-INDEXES.md", warp_root), encoding="utf-8") if ln.startswith("#")))
+    for q in full_papers:
+        if q.get("held") and q["slug"] in SITE_PAPERS[4:]:
+            check("papers: %s cites nothing from the books, measured by the guard with its own section marks excluded" % q["slug"],
+                  (q["book_citations"], q["own_terms"]), ([], []))
     lang = next((p for p in full_papers if p["slug"] == "languages"), None)
     if lang:
         check("papers: the hierarchy law paper cites nothing from the books, measured by the guard with its own section marks excluded",

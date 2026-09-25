@@ -393,22 +393,14 @@ failures swapping Rf for Th — and `repair` reads it. The reconstruction below 
 second measurement; its Hartree–Fock displaced set (Ce, Hf, Th, Rf, Ubn) contains the recovered
 instrument's three, which `repair.reconstruction` records.
 
-**Ten papers released as PDFs.** On 2026-09-24 the author released ten research papers — *The Closure Law
-of a Finite Index*, *The Lattice of Subshell Transitions*, *The Bracket*, *The Domain of the Polarisation
-Ratio*, *The Tower over Λ*, *Order Recovery and the Reorderability Law*, *The Parent-Term Wall*, *Closing
-the Chemical Properties*, *An Occupation Law as a Lower Convex Hull* and *Closure beyond the Atom* — as
-PDFs into the Prints & Proofs folder that Ruling 56 makes the original-input witness. They are in no git
-branch and exist only as PDFs, so they came in by the mirror's own route: fetched by id through the Drive
-connector, decoded and seated by `drive_sync.py --adopt` under `drive/The Method Prints & Proofs/` with
-`ok-adopted` rows (byte counts checked against Drive's metadata; Drive supplies no checksum by that
-route). `PDF_PAPERS` in `webindex.py` names them and `pdf_paper` reads each at build with pypdf: the
-title from the PDF's own metadata, the standfirst and byline from the first page, the abstract up to §0,
-the `§n · title` lines as headings, the page and word counts, and the guard's measurement over the whole
-text (every one cites nothing from the books; their own § marks are excluded as the other research
-papers' are). Nothing is retyped: the page shows the standfirst and abstract, lists the sections, and
-carries the PDF itself inline with a download and its md5 against the manifest's. The selftest pins the
-ten titles, the manifest match, the word and page floors and the empty citation lists. `data/papers.js`
-now carries fourteen papers.
+**The released PDFs as witness.** The author released the ten papers on 2026-09-24 as PDFs into the
+Prints & Proofs folder that Ruling 56 makes the original-input witness. They were fetched by id
+through the Drive connector, decoded and seated in the mirror by `drive_sync.py --adopt` under
+`drive/The Method Prints & Proofs/` with `ok-adopted` rows (byte counts checked against Drive's
+metadata; that route supplies no checksum), and every one is byte-identical to the render in
+`papers/method/pdf/`. `papers_block` records that on each paper's `pdf.witness` — the manifest's
+status and md5 and whether it matches — the page says "matches the released copy" beside the PDF
+link, and the selftest pins all ten.
 
 **The walk, reconstructed.** `tools/lowdin_walk.py` runs the record's own algorithm — the V^{N−1}
 chain of §II.2 with the Koelling–Harmon equation and one constant — in two fields it can build here:
@@ -1019,6 +1011,24 @@ shown on the card and in the reader, and the guard measures zero book citations 
 PDF beside it is the paper as written and is **withheld** (`pdf_withheld`, `pdf_note`) until the
 author reissues it without them. Its last commit is the tree's commit (`--warp-commit`) where the
 file is not in this checkout.
+
+**Ten papers built from the books are the fifth to the fourteenth** (`RESEARCH_PAPERS`:
+`papers/method/<NN>-<slug>/PAPER.md`, from the repository's own papers directory). They were
+written for this site under the contract in `papers/method/PAPER-SPEC.md` — every definition
+before use, every result proved in full, every decidable claim machine-checked by Z3 over a named
+box with both guards or by exact arithmetic, and no citation of the books, enforced by a lint that
+mirrors this guard — then audited from three points of view, repaired against every finding, and
+independently re-verified; each directory holds the text, the check, the figures, the figure record,
+the source map and the audit with its dispositions. **Their figures are carried** (`own_figures`):
+the image handler resolves each against the paper's own directory, copies it to
+`data/papers/<slug>/figures/`, and measures its md5 at build, there being no ledger row — the first
+research-tree papers had every image replaced by a placeholder, and that branch of the handler
+still does so for a paper without `own_figures`. The PDF beside each, in `papers/method/pdf/`, is the
+review render and is offered as a download with its md5. The card's note names the papers directory
+as the origin (`origin`). The selftest asserts the fourteen in order, that every one of the ten
+carries every figure it cites and its PDF, and that the guard measures zero book citations in each;
+the guard's name map (`PUBLIC_NAMES`) carries each paper's path so that the path the site prints
+resolves to the paper's short name and not to a file name.
 
 **Figures from the data.** The *Figures* dialog draws five figures in the browser, as SVG, from
 `index.js` when it opens — no image, no typed number, each caption naming its block and status,

@@ -19,6 +19,7 @@ lattice, and asserts nothing about the main paper's subject matter.
 | `Muon_Catalysed_Fusion_v1.1.md` | The muon-catalysed fusion paper. Supersedes `recovered/Muon_Catalysed_Fusion_v1.0.md` (1 Aug 2026). Revises §3.2, §4 and §5; §§1–2, 3.1, 3.3–3.6 and 6 stand. |
 | `Corrigendum_MuCF_v1_0.md` | The seven corrections to v1.0, as a standalone formal corrigendum. |
 | `Muon_Collection_Budget_v1.0.md` | The per-stage collection budget the companion's §5.5 names as its deciding open item. Built from published MuSIC, Mu2e, COMET and PSI figures. |
+| `method/` | The ten research papers built from the six volumes for the website, one directory each with text, machine check, figures, source map and audit; `method/PAPER-SPEC.md` is their contract and `method/PUBLISHING-NOTES.md` records how they reached the site. |
 
 ## Provenance and status
 

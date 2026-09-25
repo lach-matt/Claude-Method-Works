@@ -2,8 +2,8 @@ window.__mi = window.__mi || {}; window.__mi.index = {
  "meta": {
   "title": "The Master Index",
   "subtitle": "Every element on every axis of every index, each value carrying the status the data gives it",
-  "built": "2026-09-24T21:59:06+00:00",
-  "commit": "a8aa7bfe37d8",
+  "built": "2026-09-25T03:22:12+00:00",
+  "commit": "6bfa080d1214",
   "generator": "tools/webindex.py over tools/populate.py",
   "names_note": "Element names are IUPAC labels for search only; they are not a figure of the index, which carries symbols.",
   "url": "https://lach-matt.github.io/Claude-Method-Works/",
@@ -12,9 +12,9 @@ window.__mi = window.__mi || {}; window.__mi.index = {
    "title": "The Master Index",
    "year": 2026,
    "url": "https://lach-matt.github.io/Claude-Method-Works/",
-   "commit": "a8aa7bfe37d8",
-   "text": "Lach, M. (2026). The Master Index, edition a8aa7bfe37d8. https://lach-matt.github.io/Claude-Method-Works/",
-   "bibtex": "@misc{lach2026_method_index,\n  author = {Lach, M.},\n  title = {The Master Index},\n  year = {2026},\n  howpublished = {\\url{https://lach-matt.github.io/Claude-Method-Works/}},\n  note = {edition a8aa7bfe37d8}\n}"
+   "commit": "6bfa080d1214",
+   "text": "Lach, M. (2026). The Master Index, edition 6bfa080d1214. https://lach-matt.github.io/Claude-Method-Works/",
+   "bibtex": "@misc{lach2026_method_index,\n  author = {Lach, M.},\n  title = {The Master Index},\n  year = {2026},\n  howpublished = {\\url{https://lach-matt.github.io/Claude-Method-Works/}},\n  note = {edition 6bfa080d1214}\n}"
   },
   "history": [
    {
@@ -317,13 +317,20 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "files": 6,
     "url": "https://github.com/lach-matt/Claude-Method-Works/commit/a8aa7bfe37d826830df51a279422f2adcbf0d0e6",
     "note": null
+   },
+   {
+    "date": "2026-09-24",
+    "commit": "6bfa080",
+    "files": 15,
+    "url": "https://github.com/lach-matt/Claude-Method-Works/commit/6bfa080d1214e6a8d3e5db796402ec58028a6623",
+    "note": null
    }
   ]
  },
  "papers": {
   "file": "data/papers.js",
-  "bytes": 354832,
-  "md5": "ff9c3d21064c69653572f66189e3bc3b",
+  "bytes": 1239668,
+  "md5": "1d81b9e68d069aa1e1b21788a317186a",
   "protocol": "data/papers.js sets window.__mi.papers, loaded on demand",
   "papers": [
    {
@@ -341,11 +348,6 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "pdf": null,
     "pdf_note": null,
     "masked": null,
-    "kind": null,
-    "pages": null,
-    "mirror": null,
-    "abstract": null,
-    "book_citations": null,
     "headings": 25,
     "figures": 6,
     "figures_ok": true,
@@ -367,11 +369,6 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "pdf": null,
     "pdf_note": null,
     "masked": null,
-    "kind": null,
-    "pages": null,
-    "mirror": null,
-    "abstract": null,
-    "book_citations": null,
     "headings": 16,
     "figures": 3,
     "figures_ok": true,
@@ -401,11 +398,6 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     },
     "pdf_note": null,
     "masked": [],
-    "kind": null,
-    "pages": null,
-    "mirror": null,
-    "abstract": null,
-    "book_citations": [],
     "headings": 29,
     "figures": 0,
     "figures_ok": true,
@@ -447,11 +439,6 @@ window.__mi = window.__mi || {}; window.__mi.index = {
       "count": 1
      }
     ],
-    "kind": null,
-    "pages": null,
-    "mirror": null,
-    "abstract": null,
-    "book_citations": [],
     "headings": 41,
     "figures": 0,
     "figures_ok": true,
@@ -464,64 +451,64 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "subtitle": "Matthew Lach · Independent Researcher · 24 September 2026",
     "author": "Lach, M.",
     "held": true,
-    "bytes": 362493,
-    "md5": "efda0adb9dc02584ae3bb5f43dc23db4",
-    "md5_recorded": "efda0adb9dc02584ae3bb5f43dc23db4",
-    "words": 15354,
-    "note": "the paper as the author released it, a PDF in the Drive folder that is the original-input witness, mirrored here with its manifest row (ok-adopted: the byte count checked against Drive's metadata, no Drive checksum supplied); its title, standfirst, byline, abstract and section headings are read from the PDF at build, nothing is retyped, and the guard measures that its text cites nothing from the books",
-    "tree": null,
+    "bytes": 84129,
+    "md5": "ee64bebad45ae6f593575940957f0794",
+    "md5_recorded": null,
+    "words": 15462,
+    "note": "the paper as the author wrote it, from the repository's papers directory rather than the store: no ledger row records its md5, so the md5 is measured at build and the file's last commit is recorded beside it; nothing in it is edited for the site",
+    "tree": {
+     "path": "papers/method/01-closure-law/PAPER.md",
+     "commit": "27dd39c"
+    },
     "pdf": {
      "file": "papers/closure-law/01-closure-law.pdf",
      "bytes": 362493,
-     "md5": "efda0adb9dc02584ae3bb5f43dc23db4"
+     "md5": "efda0adb9dc02584ae3bb5f43dc23db4",
+     "commit": "27dd39c",
+     "witness": {
+      "status": "ok-adopted",
+      "md5": "efda0adb9dc02584ae3bb5f43dc23db4",
+      "match": true
+     }
     },
     "pdf_note": null,
     "masked": [],
-    "kind": "pdf",
-    "pages": 27,
-    "mirror": {
-     "file": "01-closure-law.pdf",
-     "status": "ok-adopted",
-     "released": "2026-09-24"
-    },
-    "abstract": "Let X be a finite non-empty set of d-tuples whose coordinates take values in finite chains. Two things can be read off X without any outside knowledge: the set of values it realises at each coordinate, and, for each ordered pair of coordinates (i, j), the monotone bound φᵢⱼ(a) = max{ yᵢ : y ∈ X, yⱼ ≤ a }. The cells admitted by those two readings form a set ℛ(X) ⊇ X, and the difference E(X) = |ℛ(X)| − |X| is the index’s closure defect. This paper establishes what ℛ is. It is a closure operator — extensive, monotone and idempotent — whose image is always a sublattice of the product of chains, and it is the smallest such sublattice containing X: ℛ(X) = ⟨X⟩. Consequently X is closed under coordinatewise minimum and maximum exactly when E(X) = 0, which identifies a combinatorial defect with a lattice-theoretic property. The identification rests on a classical theorem — a sublattice of a finite product of lattices is determined by its two-fold projections, Baker and Pixley’s interpolation theorem for algebras with a majority term, the projection-determination property that Bergman named — and the paper says exactly which step is imported and which is proved here. Six consequences follow and are developed in full: the boundary functions are the pointwise least isotone bound system representing X, so a closed index carries a canonical system of inequalities; the closed subsets of a fixed ambient form a Moore family whose own defect is exactly 2ⁿ − |Cl(U)| for an ambient of n cells, so the family of closed indexes is itself maximally open, its own closure being the entire power set; projections of closed sets are closed and the converse fails; adjoining a derived coordinate never repairs closure, the graph of a map being closed precisely when the map is a lattice homomorphism, which excludes every coordinate difference; the bands |a − b| ≤ k are sublattices while the triangle region |a − b| ≤ c ≤ a + b is joinclosed and meet-broken, with explicit witnesses; and the minimum generating set of a closed index is an exact minimum set cover, with a closed-form law for the ordered simplex — the lattice of Young diagrams in a box — and, for the full box, Czédli’s law for the generating number of a direct power of a chain, given here a second proof from Bollobás’s set-pair inequality and used to refute the linear law that a small sample suggests. Every decidable claim is machine-checked by an SMT solver over every subset of a named finite box, or decided exhaustively over a stated finite family: 53 machine-checked obligations, 47 exhaustive families, 6 refutations — five by explicit witness and one by solver — and 8 results taken from the literature.",
-    "book_citations": [],
-    "headings": 11,
-    "figures": 0,
+    "headings": 22,
+    "figures": 5,
     "figures_ok": true,
     "arxiv": 2,
     "doi": 5
    },
    {
-    "slug": "lambda",
+    "slug": "lattice",
     "title": "The Lattice of Subshell Transitions",
     "subtitle": "Matthew Lach · Independent Researcher · 24 September 2026",
     "author": "Lach, M.",
     "held": true,
-    "bytes": 809787,
-    "md5": "75533f2246e75ef436a7e971e35c0307",
-    "md5_recorded": "75533f2246e75ef436a7e971e35c0307",
-    "words": 17781,
-    "note": "the paper as the author released it, a PDF in the Drive folder that is the original-input witness, mirrored here with its manifest row (ok-adopted: the byte count checked against Drive's metadata, no Drive checksum supplied); its title, standfirst, byline, abstract and section headings are read from the PDF at build, nothing is retyped, and the guard measures that its text cites nothing from the books",
-    "tree": null,
+    "bytes": 96099,
+    "md5": "373d519616aac14cf3c2ee288255b6d2",
+    "md5_recorded": null,
+    "words": 18001,
+    "note": "the paper as the author wrote it, from the repository's papers directory rather than the store: no ledger row records its md5, so the md5 is measured at build and the file's last commit is recorded beside it; nothing in it is edited for the site",
+    "tree": {
+     "path": "papers/method/02-lambda/PAPER.md",
+     "commit": "27dd39c"
+    },
     "pdf": {
-     "file": "papers/lambda/02-lambda.pdf",
+     "file": "papers/lattice/02-lambda.pdf",
      "bytes": 809787,
-     "md5": "75533f2246e75ef436a7e971e35c0307"
+     "md5": "75533f2246e75ef436a7e971e35c0307",
+     "commit": "27dd39c",
+     "witness": {
+      "status": "ok-adopted",
+      "md5": "75533f2246e75ef436a7e971e35c0307",
+      "match": true
+     }
     },
     "pdf_note": null,
     "masked": [],
-    "kind": "pdf",
-    "pages": 29,
-    "mirror": {
-     "file": "02-lambda.pdf",
-     "status": "ok-adopted",
-     "released": "2026-09-24"
-    },
-    "abstract": "A subshell transition between atomic configurations is specified by eight integers: the shell, subshell and occupancy of the source, the number q of electrons removed from it, the shell and subshell of the target and the number g of electrons placed there, and the spin label 2S of the source. Four physical facts — the hydrogenic node count, the Pauli capacity, conservation of the moved electrons, and the addition of spins — cut the eight-fold product down to a set Λ, and each of them does so by one inequality of the same shape, one coordinate bounded by a nondecreasing function of one other; six of the seven inequalities are exact physical rules and the seventh, the spin bound, is the monotone envelope of one. A transition here is a change of configuration labels and not a spectral line: no selection rule, energy or intensity enters, and nothing is tested against measured spectra. This paper shows what that shape buys. Λ is a sublattice of its ambient box: machine-checked with all variables integer, so the result holds at every cap and not at one. At the caps used here Λ has 976 cells in a box of 6,912, it is distributive and its rank function is modular with equality, its largest antichain equals its largest rank level, and it is the lattice of down-sets of a seventeen-element poset whose twenty covering relations are the seven bounds read a second time. The number seventeen is Σᵢ(|Aᵢ| − 1), a closed form in the alphabets. A multiplicative distance d(x, y) = ∏ᵢ(|Δᵢ| + 1) counts the points of the box between two cells and equals a divisor count under a prime encoding; its logarithm is an ℓ¹ metric. Because the constraint graph is a tree — a caterpillar, a path of seven with one pendant — the number of cells in any coordinate box has a product form with no inclusion–exclusion, verified on all 1,944,000 subboxes; the whole index is one nested sum F whose coefficient function is its own membership predicate, with F(1) = 976 and F(−1) = 2. The Möbius function is ±1 on antichain differences — the sign the parity of the number of generators added — and zero elsewhere, verified against the defining recursion on all 116,138 comparable pairs. Its non-zero values sit exactly on the 19,079 comparable pairs whose box is a unit hypercube inside Λ, so it is decided by the same seven comparisons that decide containment, and it agrees with the number-theoretic Möbius function of N(y)/N(x) everywhere except on the 17,104 unit hypercubes that carry a void. Finally, seven cells generate the whole of Λ under the pairwise-envelope closure; an exhaustive branch-and-bound finds 24,585 minimum generating sets, exactly one cell lies in all of them, no covering obligation is met by a unique cell, no single cell can be removed from Λ without the closure restoring it, and every minimum generating set contains a null transition, a full transfer and each of the channels s → p, p → s and p → p. The closure defect and the closed-form generator count are re-measured at five further cap settings, from 216 to 19,109 cells, and hold at each.",
-    "book_citations": [],
-    "headings": 10,
-    "figures": 0,
+    "headings": 13,
+    "figures": 8,
     "figures_ok": true,
     "arxiv": 0,
     "doi": 0
@@ -532,30 +519,30 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "subtitle": "Matthew Lach · Independent Researcher · 24 September 2026",
     "author": "Lach, M.",
     "held": true,
-    "bytes": 506621,
-    "md5": "ac4557a4763ba1ba1a1f42fdc0b317ba",
-    "md5_recorded": "ac4557a4763ba1ba1a1f42fdc0b317ba",
-    "words": 12275,
-    "note": "the paper as the author released it, a PDF in the Drive folder that is the original-input witness, mirrored here with its manifest row (ok-adopted: the byte count checked against Drive's metadata, no Drive checksum supplied); its title, standfirst, byline, abstract and section headings are read from the PDF at build, nothing is retyped, and the guard measures that its text cites nothing from the books",
-    "tree": null,
+    "bytes": 68429,
+    "md5": "926975e66269639e584887eb7776e7b2",
+    "md5_recorded": null,
+    "words": 12376,
+    "note": "the paper as the author wrote it, from the repository's papers directory rather than the store: no ledger row records its md5, so the md5 is measured at build and the file's last commit is recorded beside it; nothing in it is edited for the site",
+    "tree": {
+     "path": "papers/method/03-bracket/PAPER.md",
+     "commit": "27dd39c"
+    },
     "pdf": {
      "file": "papers/bracket/03-bracket.pdf",
      "bytes": 506621,
-     "md5": "ac4557a4763ba1ba1a1f42fdc0b317ba"
+     "md5": "ac4557a4763ba1ba1a1f42fdc0b317ba",
+     "commit": "27dd39c",
+     "witness": {
+      "status": "ok-adopted",
+      "md5": "ac4557a4763ba1ba1a1f42fdc0b317ba",
+      "match": true
+     }
     },
     "pdf_note": null,
     "masked": [],
-    "kind": "pdf",
-    "pages": 21,
-    "mirror": {
-     "file": "03-bracket.pdf",
-     "status": "ok-adopted",
-     "released": "2026-09-24"
-    },
-    "abstract": "A Rydberg series is monotone in its principal quantum number, so a level with a measured neighbour on each side lies between them. That containment — the bracket — is a deduction: it fits no parameter, assumes no functional form, and returns an interval rather than a value. This paper states the bracket, proves that it is invariant under the choice of ionisation threshold (so it applies where the threshold is unknown), and proves the exact condition under which a displaced level leaves its interval: the displacement must exceed the gap on that side, and for the term T = Z²R/ν² the two gaps enclose the derivative 2Z²R/ν³. The price of the guarantee is the ratio V of the bracket’s width to the error of linear interpolation from the same two neighbours. For the Rydberg term V is a rational function of one variable, V = 4r³/(3r² − 1) with r = ν/h, in which Z and R cancel identically; it is increasing in r, so its floor over ν ≥ 2h is 32/11; and for any monotone triple whatever, V > 2. The width and the price move in opposite directions under the only free choice, the step h, for every strictly convex monotone function. The asymptotic form 8y′²/y″ of the width–price product is eight times the Newton decrement of the term function, and for a Rydberg series λ² = (2/3)T, exactly and in every unit of energy; the self-concordance condition on the term function, by contrast, holds only up to a depth that scales with the unit, and the paper states it as such and draws nothing from it. Aitken’s Δ² applied to the same series lands at T(2n² − 1)/(6n² − 2), not at zero. Every identity is checked in exact rational arithmetic on a grid above its degree; the four containment statements are discharged by an SMT solver over linear real arithmetic. The test is then run on 1,551 interior cells of measured levels from the NIST Atomic Spectra Database across 395 series: the containment statement holds at every one, the sharper quantum-defect form holds at 1,145 and fails at 406, with the share of those verdicts that the tolerance alone decides stated; and each held cell, with its neighbours taken as unperturbed, bounds the displacement of its level relative to those neighbours by the larger of its two observed gaps, the tightest to 0.97 cm⁻¹.",
-    "book_citations": [],
-    "headings": 11,
-    "figures": 0,
+    "headings": 14,
+    "figures": 5,
     "figures_ok": true,
     "arxiv": 0,
     "doi": 0
@@ -566,30 +553,30 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "subtitle": "Matthew Lach · Independent Researcher · 24 September 2026",
     "author": "Lach, M.",
     "held": true,
-    "bytes": 365197,
-    "md5": "a1f1352e8f8a11dee2d2734ee8d9b62e",
-    "md5_recorded": "a1f1352e8f8a11dee2d2734ee8d9b62e",
-    "words": 11064,
-    "note": "the paper as the author released it, a PDF in the Drive folder that is the original-input witness, mirrored here with its manifest row (ok-adopted: the byte count checked against Drive's metadata, no Drive checksum supplied); its title, standfirst, byline, abstract and section headings are read from the PDF at build, nothing is retyped, and the guard measures that its text cites nothing from the books",
-    "tree": null,
+    "bytes": 61730,
+    "md5": "877df5a2ee365480bbba85202441b299",
+    "md5_recorded": null,
+    "words": 11371,
+    "note": "the paper as the author wrote it, from the repository's papers directory rather than the store: no ledger row records its md5, so the md5 is measured at build and the file's last commit is recorded beside it; nothing in it is edited for the site",
+    "tree": {
+     "path": "papers/method/04-seaton/PAPER.md",
+     "commit": "27dd39c"
+    },
     "pdf": {
      "file": "papers/polarisation-ratio/04-seaton.pdf",
      "bytes": 365197,
-     "md5": "a1f1352e8f8a11dee2d2734ee8d9b62e"
+     "md5": "a1f1352e8f8a11dee2d2734ee8d9b62e",
+     "commit": "27dd39c",
+     "witness": {
+      "status": "ok-adopted",
+      "md5": "a1f1352e8f8a11dee2d2734ee8d9b62e",
+      "match": true
+     }
     },
     "pdf_note": null,
     "masked": [],
-    "kind": "pdf",
-    "pages": 18,
-    "mirror": {
-     "file": "04-seaton.pdf",
-     "status": "ok-adopted",
-     "released": "2026-09-24"
-    },
-    "abstract": "A Rydberg series converging on an ionic core has a quantum defect δ(n) that is not one number but a curve, δ(n) = δ₀ + δ₂/(n − δ₀)². When the running electron does not enter the core, the leading interaction beyond the Coulomb tail is the core’s dipole polarisation, and first-order perturbation theory fixes the ratio of the two coefficients without a free parameter: δ₂/δ₀ = −ℓ(ℓ+1)/3. The relation is standard; this paper states it, derives it from the hydrogenic expectation value ⟨r⁻⁴⟩ through the Kramers–Pasternack recursion, and tests it on thirteen Rydberg series of Cd I, In I, Rb I and Sr II fitted from the NIST level tables by an exact, scan-certified least-squares procedure. The series are split by p, the number of occupied subshells of the channel’s orbital angular momentum ℓ in the ground configuration of the core. Writing ρ for the fitted ratio divided by −ℓ(ℓ+1)/3, the three series with p = 0 give median ρ = 1.150 with population standard deviation 0.206; the six series with p ≥ 1 and ℓ ≥ 1 give median ρ = −0.015 with standard deviation 0.177; the four s series have polarisation value 0 and no ratio. The paper’s claim about the domain is a necessary condition: p ≥ 1 puts a channel outside the relation’s hypothesis, and the relation carries no information there. p = 0 alone is not sufficient, because a p = 0 orbital that has collapsed into the core penetrates; the three p = 0 series here are nf series on cores well below the 4f collapse threshold, and the criterion the paper states is p = 0 together with that condition. Two further results ride on the same fit: the sign of δ₂ follows p — negative on every p = 0 series, positive on every series with p ≥ 4 — and the quadrupole polarisation term, whose n-dependence is derived here, pushes ρ above 1, which is the side on which all three p = 0 values lie. The paper states what the split establishes and what a sample of thirteen series cannot: on these four cores p = 0 and ℓ ≥ 3 are the same partition, and every p = 0 series is an nf series, the lowest ℓ at which the polarisation model can be tried on these cores.",
-    "book_citations": [],
-    "headings": 7,
-    "figures": 0,
+    "headings": 10,
+    "figures": 3,
     "figures_ok": true,
     "arxiv": 0,
     "doi": 1
@@ -600,30 +587,30 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "subtitle": "Matthew Lach · Independent Researcher · 24 September 2026",
     "author": "Lach, M.",
     "held": true,
-    "bytes": 606017,
-    "md5": "b1fca4f6be8027b4da414dba7a94fd17",
-    "md5_recorded": "b1fca4f6be8027b4da414dba7a94fd17",
-    "words": 19352,
-    "note": "the paper as the author released it, a PDF in the Drive folder that is the original-input witness, mirrored here with its manifest row (ok-adopted: the byte count checked against Drive's metadata, no Drive checksum supplied); its title, standfirst, byline, abstract and section headings are read from the PDF at build, nothing is retyped, and the guard measures that its text cites nothing from the books",
-    "tree": null,
+    "bytes": 106462,
+    "md5": "ed3c42e6f6bcbf5d8a060ddd212ed365",
+    "md5_recorded": null,
+    "words": 19511,
+    "note": "the paper as the author wrote it, from the repository's papers directory rather than the store: no ledger row records its md5, so the md5 is measured at build and the file's last commit is recorded beside it; nothing in it is edited for the site",
+    "tree": {
+     "path": "papers/method/05-tower/PAPER.md",
+     "commit": "27dd39c"
+    },
     "pdf": {
      "file": "papers/tower/05-tower.pdf",
      "bytes": 606017,
-     "md5": "b1fca4f6be8027b4da414dba7a94fd17"
+     "md5": "b1fca4f6be8027b4da414dba7a94fd17",
+     "commit": "27dd39c",
+     "witness": {
+      "status": "ok-adopted",
+      "md5": "b1fca4f6be8027b4da414dba7a94fd17",
+      "match": true
+     }
     },
     "pdf_note": null,
     "masked": [],
-    "kind": "pdf",
-    "pages": 30,
-    "mirror": {
-     "file": "05-tower.pdf",
-     "status": "ok-adopted",
-     "released": "2026-09-24"
-    },
-    "abstract": "A one-electron transition of an atom can be written as a tuple of small non-negative integers: the shell, subshell and occupancy of the parent configuration, the number of electrons transferred, the shell, subshell and occupancy of the target, and the spins and couplings that the transition’s angular momenta carry. The set of tuples admitted by the hydrogenic radial solution, the Pauli principle, counting and vector coupling is a finite subset Λ of a product of chains. This paper studies the sequence obtained by adjoining the angular-momentum coordinates one at a time: the target’s spin, seniority, the core’s total angular momentum, the core–orbit resultant and the total. Six stages result, of 976, 1,654, 2,535, 13,585, 70,905 and 199,130 cells, every one a sublattice of its own coordinate box and every one projecting exactly onto the stage below. The paper proves the general facts behind that sequence for arbitrary caps. A coordinate bounded between two monotone functions, each of a single already-present coordinate, always extends a sublattice to a sublattice (Theorem 1 — a case of a standard fact about sublattices of products of chains, proved here because its shape is used again); for any prescribed exact set the smallest such extension containing it exists, is unique and is computed fibre by fibre — the monotone envelope (Theorem 2); the triangle region {|a − b| ≤ c ≤ a + b} is closed under coordinatewise maximum and not under coordinatewise minimum, with explicit witnesses for both of its inequalities (Theorem 3); the band Bₖ = {|a − b| ≤ k} is a sublattice for every constant k, while the three-variable region {|a − b| ≤ c} with c free is join-closed and is not (Theorem 4). Together these sort the exact set a new coordinate can carry (Theorem 5): an interval between monotone bounds of one coordinate each closes exactly; a triangle in two coordinates does not close; and a triangle with one side held constant does not close either, but its least envelope is the band, a sublattice of arity 1. In the tower every bound has arity 1, so every stage closes, and every one of the five adjoined coordinates is carried as an envelope of its exact set — realised shares 63.7, 44.7, 17.0, 31.4 and 64.4 per cent. At the last step the envelope is B₁ and the whole loss is a parity congruence: the exact doublet 2J = 2K ± 1 is carried as the triplet |2J − 2K| ≤ 1. The construction’s bound is the least envelope at the tenth axis, at the thirteenth and, under the wider reading of its exact set, at the eleventh; at the ninth and the twelfth it is a larger member of the envelope family, the least envelopes admitting 1,638 and 60,320 cells against 1,654 and 70,905. Theorems 1, 3 and 4 and the closure half of Theorem 5 are machine-checked over the integers, so they hold at every cap and not at one box, with a non-vacuity guard and an encoding-fidelity guard passed first. 1 Three further structures are computed exactly. The constraint graph of the thirteenth stage has thirteen vertices and thirteen edges, cycle rank 1 from the tenth stage upward, girth 3, treewidth 2, and the transfer as the cut: no edge joins a parent coordinate to a target coordinate, so every path between the two blocks runs through it. Over that transfer every stage factorises with defect zero into a product of a parent section and a target section, the parent sections falling and the target sections rising; replacing the constant in the core–orbit bound by the cell’s own subshell breaks the factorisation by 15,150 cells at the twelfth stage and 45,450 at the thirteenth, and imposing the exact triangle instead breaks closure outright, leaving 22,275 cells with a closure defect of 35,570. The first stage has seventeen join-irreducibles, twenty covering relations and exactly 1,113,045,672 maximal chains, counted by dynamic programming over the cover relations; the five stage-to-stage rank correspondences are gap-free intervals with monotone endpoints whose composition contains the direct correspondence with a slack of at most two rank units; and the first three stages are regenerated by minimum sets of 7, 8 and 9 cells, each found by exact branch and bound and each certified minimal by a solver over every subset of a dominance-reduced family of covering signatures.",
-    "book_citations": [],
-    "headings": 11,
-    "figures": 0,
+    "headings": 16,
+    "figures": 5,
     "figures_ok": true,
     "arxiv": 0,
     "doi": 0
@@ -634,30 +621,30 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "subtitle": "Matthew Lach · Independent Researcher · 24 September 2026",
     "author": "Lach, M.",
     "held": true,
-    "bytes": 527483,
-    "md5": "9f65e141cab5d77b75080870d9c96156",
-    "md5_recorded": "9f65e141cab5d77b75080870d9c96156",
-    "words": 17797,
-    "note": "the paper as the author released it, a PDF in the Drive folder that is the original-input witness, mirrored here with its manifest row (ok-adopted: the byte count checked against Drive's metadata, no Drive checksum supplied); its title, standfirst, byline, abstract and section headings are read from the PDF at build, nothing is retyped, and the guard measures that its text cites nothing from the books",
-    "tree": null,
+    "bytes": 99827,
+    "md5": "2068827c6de027a76a57325e6bb13e3a",
+    "md5_recorded": null,
+    "words": 17919,
+    "note": "the paper as the author wrote it, from the repository's papers directory rather than the store: no ledger row records its md5, so the md5 is measured at build and the file's last commit is recorded beside it; nothing in it is edited for the site",
+    "tree": {
+     "path": "papers/method/06-order-recovery/PAPER.md",
+     "commit": "27dd39c"
+    },
     "pdf": {
      "file": "papers/order-recovery/06-order-recovery.pdf",
      "bytes": 527483,
-     "md5": "9f65e141cab5d77b75080870d9c96156"
+     "md5": "9f65e141cab5d77b75080870d9c96156",
+     "commit": "27dd39c",
+     "witness": {
+      "status": "ok-adopted",
+      "md5": "9f65e141cab5d77b75080870d9c96156",
+      "match": true
+     }
     },
     "pdf_note": null,
     "masked": [],
-    "kind": "pdf",
-    "pages": 28,
-    "mirror": {
-     "file": "06-order-recovery.pdf",
-     "status": "ok-adopted",
-     "released": "2026-09-24"
-    },
-    "abstract": "A finite index is a set of tuples over finite alphabets. It is closed when it contains the coordinatewise meet and join of any two of its cells — but meet and join are defined only once each alphabet has been given a linear order, so closure is a property of the pair (index, ordering) and never of the index alone. This paper asks what an index can say about its own ordering. Three results answer it. First, closure is equivalent to the vanishing of the staircase defect E: an index is closed exactly when it is the fixed point of its own monotone envelopes, which gives an index its alphabet, its bounds and its membership test from its cells alone. Second, define u ⊑ v on one coordinate when every meet of a cell over u with a cell over v lies over u and every join lies over v. The relation ⊑ is transitive for every index whatever, and an order s on that coordinate closes the index exactly when ⊑ is reflexive and contains s; so the index is closable on that coordinate exactly when ⊑ is a total preorder, and the admissible orders are precisely the linear extensions of ⊑. At two coordinates this is a complete criterion, equivalent to the statement that every fibre is an interval and no fibre nests strictly inside another. Above two coordinates the pointwise criterion is necessary and not sufficient, but when the constraint graph is a tree the joint condition factorises over its edges, and a memoised dynamic program rooted anywhere recovers every admissible ordering system with at most Σᵢ | Aᵢ|! evaluations — the sum of the alphabets’ permutation counts rather than their product. Third, with all orders unknown the problem is a constraint system on orientation variables; the constraint a pair of cells imposes is invariant under reversing all of its own orientations and contains the two constant assignments, and every such relation arises. Such a constraint is bijunctive — closed under the ternary majority, hence expressible by two-clauses — exactly when it is a partition constraint, “the orientations agree on each block of a partition of the coordinates on which the cells differ”; the bijunctive constraints at arity k therefore number the Bell number B(k): 2, 5, 15, 52 of 2, 8, 128, 32,768. The first non-bijunctive constraint appears at three coordinates, with an explicit six-cell witness, and counting bijunctivity on the auxiliary difference relation instead — where every relation at arity three is majority-closed — has no two-clause consequence, because an exclusive-or is not bijunctive. The growth step of the reorderable family is 2ᵈ⁻² at every censused box of dimension d ≤ 4, and at the full Boolean box the drop is 2ᵈ⁻² for every d, from a tight bound on proper sublattices: 3·2ᵈ⁻², three quarters, which every maximal sublattice attains. Every finite claim is recomputed: 111 obligations, 28 of them machine-checked by Z3 over every subset of a named box that uses every value and, where an order is unknown, over every total order on the named coordinate. The electron-configuration index Λ is the worked case throughout; its eight orders are recovered from a bag of 976 cells with all eight alphabets independently permuted, and the recovery is exact up to the 16 orderings that admit Λ at all, out of 11,943,936. 1",
-    "book_citations": [],
-    "headings": 9,
-    "figures": 0,
+    "headings": 36,
+    "figures": 5,
     "figures_ok": true,
     "arxiv": 0,
     "doi": 0
@@ -668,30 +655,30 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "subtitle": "Matthew Lach · Independent Researcher · 24 September 2026",
     "author": "Lach, M.",
     "held": true,
-    "bytes": 540996,
-    "md5": "7d9da28b922f3cb88acbc55fb7aa35f4",
-    "md5_recorded": "7d9da28b922f3cb88acbc55fb7aa35f4",
-    "words": 13982,
-    "note": "the paper as the author released it, a PDF in the Drive folder that is the original-input witness, mirrored here with its manifest row (ok-adopted: the byte count checked against Drive's metadata, no Drive checksum supplied); its title, standfirst, byline, abstract and section headings are read from the PDF at build, nothing is retyped, and the guard measures that its text cites nothing from the books",
-    "tree": null,
+    "bytes": 77182,
+    "md5": "71017d79798b043dcc4f48af8031e746",
+    "md5_recorded": null,
+    "words": 14144,
+    "note": "the paper as the author wrote it, from the repository's papers directory rather than the store: no ledger row records its md5, so the md5 is measured at build and the file's last commit is recorded beside it; nothing in it is edited for the site",
+    "tree": {
+     "path": "papers/method/07-wall-janet/PAPER.md",
+     "commit": "27dd39c"
+    },
     "pdf": {
      "file": "papers/parent-term-wall/07-wall-janet.pdf",
      "bytes": 540996,
-     "md5": "7d9da28b922f3cb88acbc55fb7aa35f4"
+     "md5": "7d9da28b922f3cb88acbc55fb7aa35f4",
+     "commit": "27dd39c",
+     "witness": {
+      "status": "ok-adopted",
+      "md5": "7d9da28b922f3cb88acbc55fb7aa35f4",
+      "match": true
+     }
     },
     "pdf_note": null,
     "masked": [],
-    "kind": "pdf",
-    "pages": 22,
-    "mirror": {
-     "file": "07-wall-janet.pdf",
-     "status": "ok-adopted",
-     "released": "2026-09-24"
-    },
-    "abstract": "An index is a set of cells on ordered coordinates. From the cells alone a reader may recover, for each ordered pair of coordinates, how far one reaches given the other; the cells those recovered bounds admit form a closure ℛ(X), and the external definition cost E(X) = |ℛ(X)| − |X| counts the cells a reader would reconstruct and the index denies. This paper computes E for the elemental index under six presentations and proves why each comes out as it does. On (period, group) the eighteen-column table holds 90 cells in a box of 126 and E = 36; the thirty-six are period 1 groups 2–17 and periods 2 and 3 groups 3–12, and the value is forced, because the table occupies both extreme corners of its box and a lemma proved here shows that any two-coordinate index doing so admits its whole box. Of the thirty-six, 25 are slots for an orbital that does not exist (ℓ > n − 1: 1d, 1p, 2d) and 11 are slots for one that exists and is filled later (3d, and the slot helium vacates); moving helium to group 2 takes E to 20, so sixteen of the thirty-six are the cost of one drawing convention. The same corner lemma gives the thirty-twocolumn table E = 106 and Janet’s left-step table, on its own drawn row and column coordinates, E = 138. Against atomic number the picture inverts: with Z as the second coordinate, any partition of Z into contiguous rows laid out in order is a chain in the product order, and a chain is a fixed point of ℛ, so the n + ℓ rows give E = 0 and the periods give E = 0 alike (118 cells in boxes of 944 and 826). The closure therefore distinguishes a coordinate, not a table: it is the group or column coordinate that costs, and it is Z that closes. Both closure theorems are proved and then machine-checked by an SMT solver over every subset of thirteen named boxes. The second half measures the parent-term wall on a compilation of 596 Rydberg channels across 70 species and 28 elements. The LS terms of ℓᵏ are counted exhaustively over all 17,476 Slater determinants of the relevant configurations and checked against an independent count; a closed-shell or one-electron core carries one term, a p² or p⁴ core three, a d⁴ core sixteen. 225 rows have a core with more than one level, 132 name the parent in the label and 93 do not, and every one of the 93 belongs to a species printing a single limit. A parent is written in four conventions, and a fifth class of rows writes none; a census run with the commonest convention alone sees 80 of the 139 rows that carry one. Four species print two or more limits, and in each the limits and the parents are in bijection. One outer label, Ba III’s nd 2[3/2]* J=2 , is printed at both of that species’ limits, 17,550.000 cm⁻¹ apart, so a label without its parent is two channels there and not a duplicated one.",
-    "book_citations": [],
-    "headings": 11,
-    "figures": 0,
+    "headings": 14,
+    "figures": 5,
     "figures_ok": true,
     "arxiv": 0,
     "doi": 1
@@ -702,98 +689,98 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "subtitle": "Matthew Lach · Independent Researcher · 24 September 2026",
     "author": "Lach, M.",
     "held": true,
-    "bytes": 426155,
-    "md5": "465d6c0eab3e4e5bb06acf9c01f7bd53",
-    "md5_recorded": "465d6c0eab3e4e5bb06acf9c01f7bd53",
-    "words": 16189,
-    "note": "the paper as the author released it, a PDF in the Drive folder that is the original-input witness, mirrored here with its manifest row (ok-adopted: the byte count checked against Drive's metadata, no Drive checksum supplied); its title, standfirst, byline, abstract and section headings are read from the PDF at build, nothing is retyped, and the guard measures that its text cites nothing from the books",
-    "tree": null,
+    "bytes": 91342,
+    "md5": "3dd9eb7aacd41f0a75ec1b489e97da5d",
+    "md5_recorded": null,
+    "words": 16696,
+    "note": "the paper as the author wrote it, from the repository's papers directory rather than the store: no ledger row records its md5, so the md5 is measured at build and the file's last commit is recorded beside it; nothing in it is edited for the site",
+    "tree": {
+     "path": "papers/method/08-chemical-index/PAPER.md",
+     "commit": "27dd39c"
+    },
     "pdf": {
      "file": "papers/chemical-index/08-chemical-index.pdf",
      "bytes": 426155,
-     "md5": "465d6c0eab3e4e5bb06acf9c01f7bd53"
+     "md5": "465d6c0eab3e4e5bb06acf9c01f7bd53",
+     "commit": "27dd39c",
+     "witness": {
+      "status": "ok-adopted",
+      "md5": "465d6c0eab3e4e5bb06acf9c01f7bd53",
+      "match": true
+     }
     },
     "pdf_note": null,
     "masked": [],
-    "kind": "pdf",
-    "pages": 28,
-    "mirror": {
-     "file": "08-chemical-index.pdf",
-     "status": "ok-adopted",
-     "released": "2026-09-24"
-    },
-    "abstract": "An index is a finite set of cells in a product of finite chains. Its reconstruction ℛ admits a cell of the ambient grid whenever, for every ordered pair of coordinates, some occupied cell lies at least as low on the second and at least as high on the first; its defect is E = ∣ℛ(X)∣ − ∣X∣, and the index is closed when E = 0. A closed index is exactly a system of monotone staircase inequalities, so closure asserts that the classification has no hole a monotone rule could not have left. This paper indexes forty-two chemical properties of a chemical element on three coordinates — the kind of quantity a property is (count, symmetry, size, energy, rate), the seat in the species it belongs to (the nucleus, the core, the subvalence shell, the valence shell, the aggregate), and the dependency, which of a physics parameter, a role of the charge, or a Slater integral supplies it. The twenty-two properties of the subvalence and valence shells occupy fourteen cells of a 4 × 2 × 3 box, and those fourteen close: E = 0, over all 288 orderings of the realised coordinate values, sixteen of which close. The paper states what that closure is made of. The valence seat occupies every cell of its 4 × 3 block, and a full block is closed under every ordering; the whole content of E = 0 is that the two subvalence cells share a dependency, which is a position a closing ordering can place at the bottom corner. Beside a full block, 30 of the 66 possible pairs of subvalence cells close, and 6,432 of the 1,961,256 fourteen-cell subsets of the box close under some ordering. Seven of the fourteen cells have a single occupant, and emptying any one of three of them — the coordination number, the centrifugal barrier, the ground term — leaves thirteen cells that close under no ordering. Before the ground term was reassigned, thirteen cells gave minimum E = 1 under every ordering, and the vacancy was one of exactly two cells; the paper prints both and the fill that was chosen. Admitting the three outer seats raises the minimum defect to 2, 7, 10 and 18, but the dependency label is nominal at eighteen of the twenty outer-seat properties, so the climb measures the labels and not the properties. A second index merges the twenty-one parameters of real atoms, indexed on (source, domain), with the nine occurrences of the charge, indexed on (role, regime), along the one axis the two share: the charge regime is the parameter domain at finer resolution. Nine cells, E = 0, and as a subset of the full 4 × 6 grid the nine are exactly the band ⌊s/2⌋ ≤ d ≤ s + ⌊s/3⌋. The amplitude index — the Slater integrals of a subshell pair — closes on twenty cells as the triangle 0 ≤ i ≤ ℓ once indexed on position within sequence rather than on multipole rank; for equivalent electrons the exchange integral is the direct integral at every rank, so the twenty cells name ten radial quantities. Nothing here predicts the value of any property. The index closes, and the paper says what the closure weighs. 1",
-    "book_citations": [],
-    "headings": 11,
-    "figures": 0,
+    "headings": 31,
+    "figures": 3,
     "figures_ok": true,
     "arxiv": 1,
     "doi": 1
    },
    {
-    "slug": "occupation-hull",
+    "slug": "occupation-law",
     "title": "An Occupation Law as a Lower Convex Hull",
-    "subtitle": "Matthew Lach · Independent Researcher · 24 September 2026",
+    "subtitle": "The rule that the entering electron takes the subshell of least ν = n − a·√r is the minimisation of the linear functional y − a·x over a finite point set {(√r, n)}; only a vertex of that set's lower convex hull can be chosen, the slopes that choose a given vertex are exactly the open interval between its two flanking hull-edge slopes, and along the 106 tabulated ground-configuration steps from lithium to hassium the tabulated entrant is such a vertex at every step, with no lower bound on its slope exactly when it carries no radial node.",
     "author": "Lach, M.",
     "held": true,
-    "bytes": 354736,
-    "md5": "9d86f90ee094e01c61d6c23f1300e967",
-    "md5_recorded": "9d86f90ee094e01c61d6c23f1300e967",
-    "words": 13705,
-    "note": "the paper as the author released it, a PDF in the Drive folder that is the original-input witness, mirrored here with its manifest row (ok-adopted: the byte count checked against Drive's metadata, no Drive checksum supplied); its title, standfirst, byline, abstract and section headings are read from the PDF at build, nothing is retyped, and the guard measures that its text cites nothing from the books",
-    "tree": null,
+    "bytes": 76158,
+    "md5": "6ae95254b4f4fec6433bdafaed75b1f0",
+    "md5_recorded": null,
+    "words": 14213,
+    "note": "the paper as the author wrote it, from the repository's papers directory rather than the store: no ledger row records its md5, so the md5 is measured at build and the file's last commit is recorded beside it; nothing in it is edited for the site",
+    "tree": {
+     "path": "papers/method/09-occupation-hull/PAPER.md",
+     "commit": "27dd39c"
+    },
     "pdf": {
-     "file": "papers/occupation-hull/09-occupation-hull.pdf",
+     "file": "papers/occupation-law/09-occupation-hull.pdf",
      "bytes": 354736,
-     "md5": "9d86f90ee094e01c61d6c23f1300e967"
+     "md5": "9d86f90ee094e01c61d6c23f1300e967",
+     "commit": "27dd39c",
+     "witness": {
+      "status": "ok-adopted",
+      "md5": "9d86f90ee094e01c61d6c23f1300e967",
+      "match": true
+     }
     },
     "pdf_note": null,
     "masked": [],
-    "kind": "pdf",
-    "pages": 21,
-    "mirror": {
-     "file": "09-occupation-hull.pdf",
-     "status": "ok-adopted",
-     "released": "2026-09-24"
-    },
-    "abstract": "An occupation law for the periodic table, proposed here, assigns to each admissible subshell (n, ℓ) with occupancy q the number ν = n − a·√r, r = n − ℓ − 1 + q/(2(2ℓ+1)), and says that the electron entering at atomic number Z takes the subshell of least ν. This paper reads the law as geometry. Each admissible subshell is the point (√r, n) of a plane, ν is the value of y − a·x there, and the law selects the point a line of slope a reaches first when raised from below. Two classical facts are stated in this setting and proved for completeness: only a vertex of the lower convex hull of the point set can be selected for any slope, and every vertex is selected for some slope (Theorem 1); the set of slopes selecting a given vertex is exactly the open interval between the slopes of the two hull edges that meet there, so the corridors of the vertices partition the slope axis (Theorem 2). What is new begins with the frame: the corridor of the entrant is the same over every finite set of subshells that contains those with n ≤ 12 and ℓ ≤ 4, and over the unbounded set (Theorem 3). Read against the ground configurations of the 108 neutral atoms tabulated in the NIST Atomic Spectra Database — of which the entries for lawrencium and for rutherfordium to hassium rest on calculation rather than spectroscopy — the entrant is a hull vertex at every one of the 106 steps from Z = 3 to Z = 108, in both the node-only and the finished form of the radicand; the 106 node-only corridors have nineteen distinct endpoints, each an element of ℚ(√2, √3, √5, √6, √7); the corridor has no lower bound exactly when the entering subshell is node-free, n − ℓ − 1 = 0 (Theorem 4), which is 26 steps of the 106, and at the two f openings the two cases are realised — cerium, where 4f opens with no floor, and protactinium, where 5f opens with p = 1, floor 0 and ceiling (1 + √3)/2. A slope carried from step to step and moved only when its corridor forces it is recalibrated 18 times, at nine of which it moves and at eight of which it merely touches an endpoint it already sits on; every subshell fills at constant slope except 5d, moved once at cerium, and 6d, moved at protactinium and at lawrencium. Three slopes suffice for all 106 corridors, and three are necessary given the tabulated 7p¹ at lawrencium, whose corridor is disjoint from boron’s and lanthanum’s; under the aufbau alternative 6d¹ at lawrencium the piercing number is 2. The best single slope covers 86 of 106. Every identity is decided in exact arithmetic on sums of square roots, the hull theorem is discharged by an SMT solver for up to five points in one direction and four in the other, and the law is placed: it orders subshells and constrains nothing but membership of an interval — it does not value.",
-    "book_citations": [],
-    "headings": 10,
-    "figures": 0,
+    "headings": 13,
+    "figures": 3,
     "figures_ok": true,
     "arxiv": 0,
     "doi": 1
    },
    {
-    "slug": "beyond-the-atom",
+    "slug": "closure-beyond",
     "title": "Closure beyond the Atom: the Defect of an Index, Its Zeros by Theorem, and the Electromagnetic Quotient",
     "subtitle": "Matthew Lach · Independent Researcher · 24 September 2026",
     "author": "Lach, M.",
     "held": true,
-    "bytes": 535900,
-    "md5": "cacbcbb131c57a7f029a833f2473e6a7",
-    "md5_recorded": "cacbcbb131c57a7f029a833f2473e6a7",
-    "words": 15154,
-    "note": "the paper as the author released it, a PDF in the Drive folder that is the original-input witness, mirrored here with its manifest row (ok-adopted: the byte count checked against Drive's metadata, no Drive checksum supplied); its title, standfirst, byline, abstract and section headings are read from the PDF at build, nothing is retyped, and the guard measures that its text cites nothing from the books",
-    "tree": null,
+    "bytes": 83493,
+    "md5": "34d185fab40f662a1cf2bfe400149774",
+    "md5_recorded": null,
+    "words": 15167,
+    "note": "the paper as the author wrote it, from the repository's papers directory rather than the store: no ledger row records its md5, so the md5 is measured at build and the file's last commit is recorded beside it; nothing in it is edited for the site",
+    "tree": {
+     "path": "papers/method/10-beyond-the-atom/PAPER.md",
+     "commit": "27dd39c"
+    },
     "pdf": {
-     "file": "papers/beyond-the-atom/10-beyond-the-atom.pdf",
+     "file": "papers/closure-beyond/10-beyond-the-atom.pdf",
      "bytes": 535900,
-     "md5": "cacbcbb131c57a7f029a833f2473e6a7"
+     "md5": "cacbcbb131c57a7f029a833f2473e6a7",
+     "commit": "27dd39c",
+     "witness": {
+      "status": "ok-adopted",
+      "md5": "cacbcbb131c57a7f029a833f2473e6a7",
+      "match": true
+     }
     },
     "pdf_note": null,
     "masked": [],
-    "kind": "pdf",
-    "pages": 25,
-    "mirror": {
-     "file": "10-beyond-the-atom.pdf",
-     "status": "ok-adopted",
-     "released": "2026-09-24"
-    },
-    "abstract": "A finite set X of cells over d ordered coordinates has a canonical superset ℛ(X): the cells of its own box that its monotone pairwise bounds admit. The closure defect E(X) = ∣ℛ(X)∣ − ∣X∣ counts what the coordinates imply and the set denies. This paper identifies ℛ. It is a closure operator on the observed box, proved and machine-checked, and its fixed points are exactly the sublattices of the box — a theorem of Queyranne and Tardella (2008) whose short proof is written out. Hence a set cut from a box by inequalities a·xᵢ − b·xⱼ ≥ c with a, b ≥ 0 is closed by theorem: the atomic lattice Λ, its nine- and ten-coordinate extensions, a box ordering, a product grid and Janet’s leftstep table all have E = 0 for that reason and not as a measurement. A cut whose value set has a hole need not close: the χ = ±6 slice of the Kreuzer–Skarke list is open for that reason alone (E = 540), and on the atomic index the spin rule ΔS = 0 closes (526 cells, E = 0) while the orbital rule ∣Δℓ∣ = 1 does not (840 cells, E = 750), with the witness printed. The defects that are measurements name their cells: 36 for the periodic table, 7 for the calendar, 9 and 12 for the particle-bound nuclides through Z = 7 and Z = 10 — every one a nuclide NUBASE2020 lists as unbound — 2 for the AME2020 evaluation, 975 for the witnessed channels of a spectroscopic survey. The defect belongs to the coordinatisation: a relabelling of the months takes the calendar from 7 to 0, fibring by a coordinate never raises it while a general partition can, and an adjoined coordinate never repairs an index. A redundancy convention is reported with its rungs and trial counts and is not a law. The electric-dipole rules act on the atomic index as a quotient onto a full rectangle whose E = 0 says nothing, while adjoined as coordinates they give E = 9,278; and a crossing previously reported in the followability of ground-configuration moves does not occur once the moves are restricted to physical one-electron transfers into a subshell with room.",
-    "book_citations": [],
-    "headings": 8,
-    "figures": 0,
+    "headings": 33,
+    "figures": 4,
     "figures_ok": true,
     "arxiv": 0,
     "doi": 1
@@ -811,8 +798,8 @@ window.__mi = window.__mi || {}; window.__mi.index = {
   },
   {
    "file": "data/papers.js",
-   "bytes": 354832,
-   "md5": "ff9c3d21064c69653572f66189e3bc3b",
+   "bytes": 1239668,
+   "md5": "1d81b9e68d069aa1e1b21788a317186a",
    "what": "the released papers, rendered"
   },
   {
@@ -825,61 +812,61 @@ window.__mi = window.__mi || {}; window.__mi.index = {
    "file": "data/papers/closure-law/01-closure-law.pdf",
    "bytes": 362493,
    "md5": "efda0adb9dc02584ae3bb5f43dc23db4",
-   "what": "The Closure Law of a Finite Index, as a PDF; the paper as released, md5 against the mirror's manifest (ok-adopted)"
+   "what": "The Closure Law of a Finite Index, as a PDF; md5 measured at build, commit 27dd39c; byte-identical to the copy the author released to the witness folder"
   },
   {
-   "file": "data/papers/lambda/02-lambda.pdf",
+   "file": "data/papers/lattice/02-lambda.pdf",
    "bytes": 809787,
    "md5": "75533f2246e75ef436a7e971e35c0307",
-   "what": "The Lattice of Subshell Transitions, as a PDF; the paper as released, md5 against the mirror's manifest (ok-adopted)"
+   "what": "The Lattice of Subshell Transitions, as a PDF; md5 measured at build, commit 27dd39c; byte-identical to the copy the author released to the witness folder"
   },
   {
    "file": "data/papers/bracket/03-bracket.pdf",
    "bytes": 506621,
    "md5": "ac4557a4763ba1ba1a1f42fdc0b317ba",
-   "what": "The Bracket: a Guarantee on Rydberg Levels, and What It Costs, as a PDF; the paper as released, md5 against the mirror's manifest (ok-adopted)"
+   "what": "The Bracket: a Guarantee on Rydberg Levels, and What It Costs, as a PDF; md5 measured at build, commit 27dd39c; byte-identical to the copy the author released to the witness folder"
   },
   {
    "file": "data/papers/polarisation-ratio/04-seaton.pdf",
    "bytes": 365197,
    "md5": "a1f1352e8f8a11dee2d2734ee8d9b62e",
-   "what": "The Domain of the Polarisation Ratio δ₂/δ₀ = −ℓ(ℓ+1)/3: a Necessary Condition from the Core Configuration, Tested on Thirteen Rydberg Series, as a PDF; the paper as released, md5 against the mirror's manifest (ok-adopted)"
+   "what": "The Domain of the Polarisation Ratio δ₂/δ₀ = −ℓ(ℓ+1)/3: a Necessary Condition from the Core Configuration, Tested on Thirteen Rydberg Series, as a PDF; md5 measured at build, commit 27dd39c; byte-identical to the copy the author released to the witness folder"
   },
   {
    "file": "data/papers/tower/05-tower.pdf",
    "bytes": 606017,
    "md5": "b1fca4f6be8027b4da414dba7a94fd17",
-   "what": "The Tower over Λ: from Eight Coordinates to Thirteen, as a PDF; the paper as released, md5 against the mirror's manifest (ok-adopted)"
+   "what": "The Tower over Λ: from Eight Coordinates to Thirteen, as a PDF; md5 measured at build, commit 27dd39c; byte-identical to the copy the author released to the witness folder"
   },
   {
    "file": "data/papers/order-recovery/06-order-recovery.pdf",
    "bytes": 527483,
    "md5": "9f65e141cab5d77b75080870d9c96156",
-   "what": "Order Recovery and the Reorderability Law, as a PDF; the paper as released, md5 against the mirror's manifest (ok-adopted)"
+   "what": "Order Recovery and the Reorderability Law, as a PDF; md5 measured at build, commit 27dd39c; byte-identical to the copy the author released to the witness folder"
   },
   {
    "file": "data/papers/parent-term-wall/07-wall-janet.pdf",
    "bytes": 540996,
    "md5": "7d9da28b922f3cb88acbc55fb7aa35f4",
-   "what": "The Parent-Term Wall and the Cost of a Drawn Coordinate, as a PDF; the paper as released, md5 against the mirror's manifest (ok-adopted)"
+   "what": "The Parent-Term Wall and the Cost of a Drawn Coordinate, as a PDF; md5 measured at build, commit 27dd39c; byte-identical to the copy the author released to the witness folder"
   },
   {
    "file": "data/papers/chemical-index/08-chemical-index.pdf",
    "bytes": 426155,
    "md5": "465d6c0eab3e4e5bb06acf9c01f7bd53",
-   "what": "Closing the Chemical Properties: a Classification Index for the Elements, as a PDF; the paper as released, md5 against the mirror's manifest (ok-adopted)"
+   "what": "Closing the Chemical Properties: a Classification Index for the Elements, as a PDF; md5 measured at build, commit 27dd39c; byte-identical to the copy the author released to the witness folder"
   },
   {
-   "file": "data/papers/occupation-hull/09-occupation-hull.pdf",
+   "file": "data/papers/occupation-law/09-occupation-hull.pdf",
    "bytes": 354736,
    "md5": "9d86f90ee094e01c61d6c23f1300e967",
-   "what": "An Occupation Law as a Lower Convex Hull, as a PDF; the paper as released, md5 against the mirror's manifest (ok-adopted)"
+   "what": "An Occupation Law as a Lower Convex Hull, as a PDF; md5 measured at build, commit 27dd39c; byte-identical to the copy the author released to the witness folder"
   },
   {
-   "file": "data/papers/beyond-the-atom/10-beyond-the-atom.pdf",
+   "file": "data/papers/closure-beyond/10-beyond-the-atom.pdf",
    "bytes": 535900,
    "md5": "cacbcbb131c57a7f029a833f2473e6a7",
-   "what": "Closure beyond the Atom: the Defect of an Index, Its Zeros by Theorem, and the Electromagnetic Quotient, as a PDF; the paper as released, md5 against the mirror's manifest (ok-adopted)"
+   "what": "Closure beyond the Atom: the Defect of an Index, Its Zeros by Theorem, and the Electromagnetic Quotient, as a PDF; md5 measured at build, commit 27dd39c; byte-identical to the copy the author released to the witness folder"
   },
   {
    "file": "data/particles.js",
