@@ -246,7 +246,8 @@ H-UNSOURCED-SEAT is not vacuous: within D20's model a positive source is an
 equilibrium on 0 < |phi| < v ((a) below) and, within excite's section-3
 model (source rest mass proportional to phi), a stable hold only on
 0.5774 v < |phi| < v.  Where it fails, TEMPLATE keeps a priced remainder,
-the held-seat release route (section 5 (d)), on that range only.  H-PRESENT
+the held-seat release route (section 5 (d)), on that range only, within
+excite's section-3 model.  H-PRESENT
 or not, the split is three-way: before arrival the seat is r = |phi|/v < 1
 (TEMPLATE, C1), r = 1
 (STOCK on H-PRESENT, C5) or r > 1 (neither reading's claim: the trigger has
@@ -798,7 +799,8 @@ WHAT SURVIVES:
           on 0.5774 v < |phi| < v, at 4(1-eps)^2/(eps(2-eps)) J of source per J
           of field (excite.holding_ratio; 2/eps at small eps).  Where it
           fails, TEMPLATE keeps a priced remainder, the held-seat release
-          route (section 5 (d)), on that range only.  Within excite's
+          route (section 5 (d)), on that range only, within excite's
+          section-3 model.  Within excite's
           section-3 model (source rest mass proportional to phi) it does not
           reach SWITCH-ON: the off state lies past D20's stability edge,
           eps = 0.4226 (excite.stability_edge), where the medium is unstable
@@ -3899,6 +3901,12 @@ REQUIRED_WORDING = (
     ("R8 report: the nucleon label excludes the electrons", "report",
      "nucleons at first order (largest READ row)", "electrons and nucleons at first "
      "order"),
+    ("R12 section 1: the remainder's range is scoped to excite's section-3 model",
+     "doc 1", "on that range only, within excite's section-3 model",
+     "on that range only.  H-PRESENT"),
+    ("R12 section 6: the remainder's range is scoped to excite's section-3 model",
+     "doc 6", "on that range only, within excite's section-3 model",
+     "on that range only.  Within excite's"),
     ("R8 report: the stable range within D20's model", "report",
      "within excite's section-3 model (source rest mass proportional to phi), a stable "
      "hold only on", "within D20's model, a stable hold only on"),
