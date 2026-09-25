@@ -31,25 +31,35 @@ of M breaks the build.
 
 IN M'S TERMS.  The information is the TRIGGER.  The Higgs field, once
 triggered, is what makes atomic mass form.  Mass has an energy, and the energy
-has to come from somewhere; M's sentence names the triggered Higgs field.  So
-the source M names is the one tested first (section 3).  The sentence can be
-read four ways, and every result below says which reading it answers:
+has to come from somewhere.  M's sentence names no source; the only candidate
+source in M's sentence is the triggered Higgs field, so that is the one tested
+first (section 3).  The sentence can be read five ways, and every result below
+says which reading it answers, and why:
 
-    SWITCH-ON   arrival turns on a field that was off at the seat;
-    EXCITATION  arrival displaces the field, or makes Higgs quanta, and mass
-                forms from that;
-    CREATION    the triggered field supplies the energy of the mass that forms;
-    STOCK       the elements are already at the seat (M's consideration
-                presupposes them) and the triggered field gives them their mass.
+    SWITCH-ON     arrival turns on a field that was off at the seat;
+    EXCITATION, in two branches:
+      DISPLACEMENT  arrival displaces the field, and mass forms from that;
+      QUANTA        arrival makes Higgs quanta, and mass forms from them;
+    CREATION      the triggered field supplies the energy of the mass that
+                  forms;
+    STOCK         the elements are already at the seat (M's consideration
+                  presupposes them) and the triggered field gives them their
+                  mass.
 
 ===============================================================================
 0.  THE ANSWER
 ===============================================================================
 
 THE CONSIDERATION IS TRUE, AND IT SINGLES OUT NO PLACE.  THE MECHANISM, AS
-STATED, IS REFUSED ON EVERY READING.  NO READING IS REFUSED ON A CONTESTED
-FIGURE ALONE.  ONE COUNT, C2, ANSWERS ALL FOUR READINGS; THE OTHERS ANSWER ONE
-OR TWO EACH, AND THE TABLE IN SECTION 5 SAYS WHICH.
+STATED -- THE TRIGGERED FIELD FORMING THE PAYLOAD'S ATOMIC MASS -- IS REFUSED ON
+EVERY READING; ON DISPLACEMENT AND QUANTA IT IS REFUSED AS NET FORMATION ONLY,
+AND ATOMIC MASS CAN STILL FORM THERE AS MATTER WITH ITS ANTIMATTER (THE PAIR
+ROUTE, PRICED).  NO READING IS REFUSED ON A CONTESTED
+FIGURE ALONE.  EACH COUNT IS LISTED ONLY AGAINST THE READINGS IT HAS A STATED
+REASON TO ANSWER, AND THE TABLE IN SECTION 5 GIVES THE REASON, AND THE REASON
+EACH OMITTED COUNT DOES NOT ANSWER.  TWO READINGS KEEP A REMAINDER: EXCITATION
+(THE PAIR ROUTE, PRICED) AND STOCK (RECONSTRUCTION FROM STOCK, WHERE NO MASS
+FORMS).
 
   M65-1 PRESENCE.  The consideration holds, and more strongly than M put it.
      An electron of the measured mass REQUIRES a nonzero Higgs field where it
@@ -61,28 +71,43 @@ OR TWO EACH, AND THE TABLE IN SECTION 5 SAYS WHICH.
      field CAN be triggered: a local source displaces phi (D15, D16), at a
      price, and within D20's model a source of positive rest energy can only
      LOWER |phi|, and every Yukawa mass with it.  What excitation makes forms
-     no net baryon number (C3).
+     no net baryon number (C3).  It CAN form atomic mass as matter-antimatter
+     pairs, with the carrier paying at least the pair floor and the
+     antibaryons held apart; the Higgs is then an intermediary, not the
+     source.  That is EXCITATION's remainder, the pair route, and it is
+     priced (section 4), not dismissed.
   M65-2 SHARE.  C2: the Higgs gives the payload 3.010e-4 of its mass through
      the electrons, and the nucleons 9.28 % (FLAG 2+1) to 10.85 % (FLAG 2+1+1)
      of theirs by the READ sigma terms.  The largest central reading of all
      the READ rows is Ji's quark-mass term in his m_s -> 0 column, 17.04 % of
      the nucleon.  Only if the heavy-quark trace-anomaly coupling is counted,
-     which is CONTESTED as a mass share, does it reach 0.2944 to 0.3066.  On
-     every reading the Higgs supplies less than half of the atomic mass.  The
-     rest is QCD.  This answers every reading.
-  M65-3 THE SOURCE M NAMES.  C4: the triggered Higgs field has no energy to
-     give.  Its energy density about v is (1/2)phi_t^2 + (1/2)|grad phi|^2 +
-     rho_EW eps^2(2-eps)^2, a sum of squares, zero only in the vacuum
-     (THEOREM, asked of higgs.T_scalar and excite).  Any change of phi about v
-     COSTS energy.  The one way a Higgs field could RELEASE energy is decay of
-     a metastable electroweak vacuum to a deeper one.  At the measured masses
-     metastability is preferred but not established: "we cannot
-     conclusively establish the fate of the EW vacuum, although metastability
-     is now preferred at 99.3% CL", and "the main source of uncertainty" is
-     the top mass (READ).  If it decays, a bubble of true vacuum expands at
-     near the speed of light, with "the different masses of fundamental
-     particles in the bubble interior" (READ).  That forms no atomic mass at
-     the seat: it replaces the vacuum in which atomic masses have their
+     which is CONTESTED as a mass share, does it reach 0.2944 to 0.3066.
+     Every row puts the Higgs below half of the atomic mass -- as a
+     FIRST-ORDER (sigma-term) response at the physical point with the QCD
+     scale held fixed (H-LINEAR); the finite share with the field switched
+     off, where the heavy-quark thresholds and the QCD scale move too, is not
+     computed and not read.  The rest is QCD.  This answers SWITCH-ON, DISPLACEMENT and STOCK, where only
+     the quark-mass part of the nucleon moves with phi.  It does NOT answer
+     CREATION or QUANTA: if the triggered field or its quanta paid for the
+     mass, the QCD share would be paid out of that same energy, so how the
+     nucleon's mass divides says nothing there.
+  M65-3 THE ONLY CANDIDATE SOURCE IN M'S SENTENCE.  C4: the triggered Higgs
+     field has no energy to give.  Its energy density about v is
+     (1/2)phi_t^2 + (1/2)|grad phi|^2 + rho_EW eps^2(2-eps)^2, a sum of
+     squares, zero only in the vacuum (THEOREM on H-TREE-V, asked of
+     higgs.T_scalar and excite, for the real scalar higgs.T_scalar models;
+     that the doublet's other components and the gauge fields add only
+     non-negative terms is H-REAL, claimed and not computed).  Any change of
+     phi about v COSTS energy.  The one way a Higgs field could RELEASE
+     energy is decay of a metastable electroweak vacuum to a deeper one.  At
+     the central measured masses metastability is preferred but not
+     established: "we cannot conclusively establish the fate of the EW
+     vacuum, although metastability is now preferred at 99.3% CL", and "the
+     main source of uncertainty" is the top mass (READ).  If it decays, a
+     bubble of true vacuum expands at near the speed of light, with "the
+     different masses of fundamental particles in the bubble interior"
+     (READ).  INFERENCE from that READ text: decay forms no atomic mass at
+     the seat, since it replaces the vacuum in which atomic masses have their
      values.  Stable or metastable, then, the field supplies no mass-energy
      at the seat.  The energy must come in the signal's CARRIER: Mc^2 =
      6.2913e18 J, 1504 megatons, or 1.9975 Mc^2 with B and L conserved.
@@ -91,22 +116,31 @@ OR TWO EACH, AND THE TABLE IN SECTION 5 SAYS WHICH.
      Higgs coupling carries B or L.  The payload holds 4.2109e28 baryons and
      2.3132e28 electrons, so B - L = N_n = 1.8977e28.  With B and L conserved,
      making it from energy needs at least 1.9975 Mc^2, and 4.2109e28 units of
-     antibaryon number must be held apart.  The only Standard Model violation
-     of B comes from the SU(2) anomaly, with Delta B = Delta L = 3 per unit
-     of Chern-Simons number.  At zero temperature it is instanton tunnelling,
-     suppressed by 10^-160.95 per transition (a figure that inherits
-     NAMED-NOT-READ through v); the payload needs 1.4036e28 transitions.
-     Thermally, or at high energy, it goes over the sphaleron, a gauge-Higgs
-     saddle whose height the vev sets, 3226 times the rest energy of the 3
-     baryons one transition makes.  Above T_c the thermal transitions are
-     unsuppressed and the vev is approximately zero.  Below T_c they keep
-     running down to T* = 131.7 GeV, where the vev is finite (READ).  At
-     collider energies the rate is CONTESTED, and it is recorded, not
-     resolved.  C3 answers the EXCITATION and CREATION readings.
+     antibaryon number must be held apart: that is the pair route, priced.
+     The only Standard Model violation of B comes from the SU(2) anomaly,
+     with Delta B = Delta L = 3 per unit of Chern-Simons number.  At zero
+     temperature it is INSTANTON tunnelling, suppressed by 10^-160.95 per
+     transition (a figure that inherits NAMED-NOT-READ through v); the
+     payload needs 1.4036e28 transitions.  Thermally it goes over the
+     SPHALERON (whether two-particle collisions at high energy do is
+     CONTESTED, section 4), a gauge-Higgs saddle whose height the vev sets,
+     3226 times the rest energy of the 3 baryons one transition makes.  Above
+     T_c the thermal sphaleron transitions are unsuppressed and the vev is
+     approximately zero.  Below T_c they keep running down to T* = 131.7
+     GeV, where the vev is finite (READ).  At collider energies the
+     two-particle rate is CONTESTED: the prevalent semiclassical results find
+     it exponentially suppressed, resting on conjectures they state as
+     unproven, and Tye and Wong dissent, stating that "both estimates involve
+     assumptions based on intuitions as well as approximations remaining to
+     be fully justified"; it is recorded, not resolved, and nothing is
+     refused on it.  C3
+     answers DISPLACEMENT, QUANTA and CREATION.
   M65-5 WHAT SURVIVES.  Reconstruction from destination stock (D25,
      transit.CARRIES_SUBSTANCE = False).  That is the STOCK reading, less its
      claim that mass forms: no mass forms, and the Higgs triggers nothing.
-     The anomaly route also survives, PRICED, not dismissed.
+     Two routes on which atomic mass CAN form also survive, PRICED, not
+     dismissed: the pair route (EXCITATION's remainder) and the anomaly
+     route.
 
 ===============================================================================
 1.  M65-1  PRESENCE -- THE SWITCH-ON AND EXCITATION READINGS
@@ -155,10 +189,13 @@ already on, and each is asked of its owner:
   (c) making Higgs QUANTA.  Each costs m_h c^2 and lives about 2e-22 s
       (excite.QUANTUM_LIFETIME_S, one significant figure by excite's refusal
       6).  A number state has <delta phi> = 0 (excite section 0).  Their
-      decays carry no net B or L (C3, section 4).
+      decays carry no net B or L (C3, section 4).  They CAN end in atomic
+      mass, as matter with its antimatter: the pair route of section 4, paid
+      for by the carrier, with the Higgs an intermediary, not the source.
 
 So the field CAN be triggered, in the sense of excited.  Doing so costs energy
 (section 3), lowers |phi| or makes quanta, and forms no net baryon number.
+What remains of EXCITATION is the pair route, priced in section 4.
 And where a displacement does change m_e, the result is an exact dilation, not
 new mass (D18, excite.ELECTRON_MASS_IS_A_RULER: "THEOREM given alpha fixed (H2)
 and clamped point nuclei").
@@ -178,7 +215,7 @@ there is no off state at the seat for arrival to end.
 ===============================================================================
 
 The payload is stock.HUMAN (ICRP Reference Man, CITED by stock.py) at stock.py's
-own default of 70 kg, asked through inspect.  No fraction is retyped.  The
+own default of 70 kg, asked through inspect (regenerated).  No fraction is retyped.  The
 atom count of element e is f_e M / (A_r(e) u).  The electrons number Z per
 atom, with Z READ from the AME2020 capture through gravity.symbol_to_Z().  The
 nucleons number A per atom, on H-A.  Every count, and so every payload share
@@ -198,13 +235,21 @@ THE MEASURES OF THE NUCLEONS' HIGGS PART, KEPT APART:
      comes from quark masses, i.e. from the Higgs.  Both averages are READ,
      and the tension between them is recorded: "there is now a 2.7 sigma
      difference between the N_f = 2 + 1 and N_f = 2 + 1 + 1 FLAG averages"
-     (FLAG p.273), which FLAG traces to a fitting prior on the 2+1+1 side.
-     Which is right is CONTESTED, and neither is chosen: both are printed and
+     (FLAG p.273).  FLAG finds it "unlikely to be due to the inclusion of
+     charm quarks in the sea" and names the open issue: "The control of
+     excited-state contributions remains an issue", citing PNDME 21's
+     narrow-width prior; and "The N_f = 2 + 1 + 1 lattice average is in
+     agreement with Hoferichter et al." (FLAG p.274).  Which is right is
+     CONTESTED, and neither is chosen: both are printed and
      the verdict uses the larger.  The chiQCD lattice gives 9(2)(1)% (READ).
   JI.  Table I of Ji's decomposition gives the quark mass term b as 160 MeV
      (m_s -> 0) and 110 MeV (m_s -> infinity), READ: 17.04 % and 11.72 % of
      the nucleon.  His prose rounds this to "about 1/8".  Ji rounded every
-     entry to 10 MeV and puts its uncertainty at 5 to 10 MeV (READ).
+     entry to 10 MeV; the errors he did not show (higher orders, the sigma
+     term, the current quark masses) come to 5 to 10 MeV (READ).  His
+     largest uncertainty is larger: "The largest uncertainty is from the
+     matrix element <P|m_s ss|P>, which could be larger than the difference
+     of the two estimates shown" (p.6, READ), and that difference is 50 MeV.
   HEAVY QUARKS.  The SVZ relation gives f_TQ = (2/27)(1 - f_l) for each of c,
      b, t (Ellis-Olive-Savage eq. (10), READ; SVZ 1978 CITED).  The coupling
      sum is 2/9 + (7/9) f_l, which is 0.3066 and 0.2944 here against
@@ -228,12 +273,15 @@ turns on it.
     NO SINGLE HIGGS SHARE IS PRINTED.  The verdict uses only the LARGEST
     CENTRAL READING, computed twice: over the READ rows alone (0.1719 of the
     payload) and over all of them (0.3090).  It is a largest central value,
-    not a bound: uncertainties are dropped.  With each READ row's stated
-    uncertainty added at its largest (3 sigma linearly for FLAG, 10 MeV for
-    Ji), the READ rows reach 0.1826.  Nothing near one half.
+    not a bound: uncertainties are dropped.  AN ILLUSTRATION OF MARGIN, not
+    a bound either: FLAG's rows moved up by 3 sigma linearly (3 sigma is
+    this file's choice, not a stated uncertainty), Ji's by his 10 MeV of
+    omitted error plus that difference of his two estimates, which he
+    says the strange matrix element's uncertainty "could be larger than".
+    The READ rows then reach 0.2362.  Nothing near one half.
 
 ===============================================================================
-3.  M65-3  ENERGY -- THE SOURCE M'S SENTENCE NAMES, AND THE CARRIER
+3.  M65-3  ENERGY -- THE SOURCE M'S SENTENCE IMPLIES, AND THE CARRIER
 ===============================================================================
 
 THE TRIGGERED FIELD HAS NO ENERGY TO GIVE ABOUT v.  For the Higgs field the
@@ -241,19 +289,22 @@ energy density, asked of higgs.T_scalar, is
 
     T_00 = (1/2) phi_t^2 + (1/2) |grad phi|^2 + V(phi).
 
-The selftest checks this decomposition exactly, on a rational grid that settles
-a polynomial of degree two in each derivative.  Measured from the vacuum, V(phi)
+The selftest checks this decomposition exactly, on a rational grid of five
+points per axis (at least three are needed, and the function refuses fewer),
+which settles a polynomial of degree two in each derivative.  Measured from the vacuum, V(phi)
 - V(v) = rho_EW eps^2 (2 - eps)^2 with phi = v(1 - eps) (excite.FIELD_POLY,
 equal to excite.FIELD_CLOSED); that is the square of eps(2 - eps).  Every term
 is a square, so the field's energy above the vacuum is >= 0, and zero only
-where phi_t = 0, grad phi = 0 and |phi| = v.  (This is the real scalar
-higgs.T_scalar models; the doublet's other components and the gauge fields
-add energy terms of the same non-negative kind, not computed here.)  ANY change of phi about v COSTS
+where phi_t = 0, grad phi = 0 and |phi| = v.  ANY change of phi about v COSTS
 energy; the present vacuum has none to give up.  THEOREM, on the tree-level
-potential (H-TREE-V).
+potential (H-TREE-V), for the real scalar that higgs.T_scalar models.  That
+the doublet's other components and the gauge fields add only non-negative
+terms is claimed, NOT computed and NOT read: it is the named hypothesis H-REAL
+(section 6), and C4 and D29 carry it.
 
-THE ONE WAY A HIGGS FIELD COULD RELEASE ENERGY.  Beyond tree level the
-potential has a deeper minimum at large field: "the Higgs vacuum does not
+THE ONE WAY A HIGGS FIELD COULD RELEASE ENERGY.  Beyond tree level, at the
+central measured masses, the potential has a deeper minimum at large field:
+"the Higgs vacuum does not
 reside in the configuration of minimal energy, but in a metastable state close
 to a phase transition" (Buttazzo et al. 1307.3536 p.3, READ).  The instability
 sets in at "10^10-10^12 GeV" in field value (p.32).  STATUS, AS THE SOURCE
@@ -261,7 +312,7 @@ GIVES IT: vacuum stability up to the Planck scale "is excluded at 2.8 sigma",
 the stability condition is M_t < (171.53 +/- 0.42) GeV, and "the main source of
 uncertainty in eq. (64) comes from M_t" (p.20); "we cannot conclusively
 establish the fate of the EW vacuum" (p.31).  Degrassi et al. 1205.6497 give
-the earlier 2 sigma (READ).  So metastability is PREFERRED, not established,
+the earlier 2 sigma, for M_h < 126 GeV (READ).  So metastability is PREFERRED, not established,
 and it turns on the top mass.  If the vacuum is metastable, "the SM vacuum is
 likely to survive for times that are enormously longer than any significant
 astrophysical age" (p.31).  If a bubble of true vacuum nucleates, it expands
@@ -273,9 +324,11 @@ way" (p.54).
 
 WHAT THAT MEANS FOR M'S MECHANISM, EXACTLY.  If the SM vacuum is stable, the
 triggered field has no energy to release at all.  If it is metastable, its one
-release is vacuum decay, which forms no atomic mass at the seat: inside the
-bubble fundamental particles have different masses, and the energy goes into a
-wall moving at near c.  Whether any local process at a seat could nucleate such
+release is vacuum decay.  That it forms no atomic mass at the seat is an
+INFERENCE from the READ text, not a sentence of it: inside the bubble
+fundamental particles have different masses, the energy goes into a wall
+moving at near c, and the bubble destroys what it meets.  What matters for C4
+is that v stays a local minimum, which both cases keep.  Whether any local process at a seat could nucleate such
 a bubble is NOT computed here.  Either way the Higgs field supplies no
 mass-energy at the seat, so the top-mass dependence does not reach C4.
 
@@ -294,9 +347,18 @@ information bounds confirm that neither supplies any:
      minimum heat of erasing 2.4120e41 bits.  Heat has B = 0.  Reversible
      transfer has no minimum cost (nopath.LANDAUER_IS_THE_WEAKER_HALF), and an
      inequality on dissipation turns nothing into mass.
-  BEKENSTEIN, for a body of energy Mc^2 within R = 1 m (H-R).  I <=
-     2 pi E R/(hbar c ln 2) = 1.8038e45 bits (nopath.bekenstein_bits).  It
-     bounds bits BY energy; more bits need more energy, never the reverse.
+  BEKENSTEIN, for a body of energy Mc^2 within R = 1 m (H-R).  The bound
+     is S <= 2 pi E R/(hbar c) (READ), here 1.8038e45 bits in bit units
+     (nopath.bekenstein_bits).  WHAT IT IS, held with its caution: an entropy
+     bound whose widely accepted proven version is Casini's (one of several
+     viable formulations), "an
+     information-theoretic statement about state distinguishability"; it is
+     "often interpreted as a fundamental limit on the information that can be
+     stored by physical objects", but "this interpretation remains folklore
+     rather than established fact" (Hayden and Wang, 2309.07436v3, abstract
+     p.1 and pp.2-3, READ).  So this file does NOT read the figure as the
+     most information such a body can hold.  In either reading it bounds by
+     energy; it supplies none.
      The ratio of the two counts is 2 pi R k_B T / (hbar c) = 7478,
      INDEPENDENT OF THE MASS.  They break even only for R < hbar c/(2 pi k_B
      T) = 0.134 mm.  How many bits a human actually is: no reliable figure
@@ -323,6 +385,15 @@ cheaply.  Gravitational binding could, but it is of order G M/(R c^2) = 5.2e-26
 of the rest energy at R = 1 m: negligible at payload scale.)  AND THE ANTIMATTER
 MUST GO SOMEWHERE: at least 4.2109e28 units of antibaryon number, held apart
 from all matter.
+
+THE PAIR ROUTE, PRICED.  This is what remains of the EXCITATION reading, and
+it is listed in what survives.  Atomic mass CAN form as matter with its
+antimatter.  The carrier supplies at least the pair floor, 1.9975 Mc^2; the
+antibaryons, 4.2109e28 units of antibaryon number, are held apart; the Higgs,
+where it appears (a displacement relaxing, or its quanta decaying), is an
+intermediary, not the source, since it has no energy to give about v (C4).
+Nothing is refused on the antimatter by-product: it is priced, and whether it
+can be held apart is not computed here.
 
 B - L.  The payload's B - L = N_n = 1.8977e28 must be balanced by -N_n outside
 it.  On the pair route that balance is the antimatter.  On a B-violating,
@@ -351,8 +422,8 @@ by the vev.  Two regimes, kept apart:
      PRINTED.  To make the payload's 1.4036e28 transitions, (attempts) x
      (prefactor) must reach 10^189.10.  RECORDED, NOT REPAIRED: Rubakov &
      Shaposhnikov's own eq. (2.8) prints 10^-170 at alpha_W = 1/29, where the
-     arithmetic gives 10^-158.27, 11.73 decades apart; Tye-Wong's pairing is
-     1.6 decades off (section 8).
+     arithmetic gives 10^-158.27, 11.73 decades apart; Tye-Wong's p.2
+     pairing is 1.73 decades off (section 8).
   OVER THE BARRIER: THE SPHALERON.  E_sph = 4.740 TeV x B, with B between
      1.56 and 2.72 (READ).  The READ values at the measured Higgs mass are
      9.11 TeV (Tye-Wong, pure SU(2)), 9.08 TeV (Funakubo et al.) and 9.0 TeV
@@ -374,18 +445,51 @@ by the vev.  Two regimes, kept apart:
      where the vev is finite: the broken phase "at T < T_c GeV where it is
      finite" (READ).  The READ fit, "in the physically interesting
      temperature range 130 GeV < T < T_c", is log(Gamma/T^4) = (0.83 +/-
-     0.01)T/GeV - (147.7 +/- 1.9).  At T* that is -38.39, a rate of 2.13e-17
-     T^4; at 155 GeV, -19.05.  In this window fermions carry nonzero Yukawa
-     masses, whose size v(T) this file does not compute.
+     0.01)T/GeV - (147.7 +/- 1.9).  Its T_c is its own paper's, "T_c = (159
+     +/- 1) GeV" (1404.3565 abstract, READ), and broken_phase_ln_rate() is
+     bounded by that 159 GeV, not by 1508.07161's 159.5.  The fit was
+     measured "In the interval 140 <~ T <~ 155 GeV" (p.3) and extended "down
+     to T ~ 130 GeV" on its match to perturbation theory (p.4), so the
+     report's 159 GeV lies at the stated range's edge and outside the
+     measured interval.  At T* that is -38.39, a rate of 2.13e-17 T^4; at
+     155 GeV, -19.05.  In this window fermions carry nonzero Yukawa masses,
+     whose size v(T) this file does not compute.
   In the Standard Model alone the crossover yields no net asymmetry: "EWBG
      is unable to explain the observed baryon asymmetry within the SM alone"
      (READ).
-  AT COLLIDER ENERGIES: CONTESTED.  Tye-Wong find no exponential
-     suppression above E_sph.  Bezrukov et al. find suppression to at least
-     250 TeV, on their own stated s-wave hypothesis.  Funakubo et al. find an
-     overlap factor of about 10^-155 that survives any band structure.  CMS
-     bounds only the Tye-Wong prefactor, at 0.021.  NOT RESOLVED HERE, AND NO
-     REFUSAL RESTS ON IT.
+  AT COLLIDER ENERGIES: CONTESTED, WITH THE BALANCE AS THE SOURCES GIVE IT.
+     This is the two-particle rate at energies near and above E_sph, not the
+     instanton's T = 0 factor and not the thermal sphaleron rate.
+     (i) The prevalent result.  Bezrukov, Levkov, Rebbi, Rubakov and Tinyakov
+     find that B + L violation "remains exponentially suppressed up to very
+     high energies of at least 30 sphaleron masses (250 TeV)" (hep-ph/0304180
+     and hep-ph/0305300, abstracts p.1, READ), for s-wave scattering, on the
+     conjecture that the two-particle exponent is the few-particle limit,
+     "although not proven rigorously" (hep-ph/0304180 p.2, READ).  Khoze and
+     Milne, computing from the instanton side, find the 't Hooft exponent
+     reduced by "not more than ~ 30%" and instantons "exponentially
+     suppressed by at least e^(-(4 pi/alpha_w) 0.70)" (2011.07167 printed
+     p.9 and p.16, READ), while "there is no rigorous proof of
+     exponentiation" (p.13, READ) and the result is "based in part on an
+     assumption that there are no additional exponentially growing"
+     contributions at higher orders (p.15, READ).  These are results resting
+     on unproven conjectures and assumptions, not theorems.
+     (ii) The dissent.  Tye and Wong claim B + L violation "without the
+     exponential tunneling suppression" above the barrier (1505.03690,
+     CONTESTED); their later paper agrees "with this estimate for a single
+     sphaleron" and claims multi-sphaleron resonance changes it, and itself
+     calls the other side "the prevalent picture" (1710.07223 pp.2 and 11,
+     CONTESTED).  Funakubo, Fuyuto and Senaha rebut it with an overlap
+     suppression of about 10^-155 that remains "regardless of the band
+     structure" (1612.05431 p.4, READ).  The rebuttal is not conceded:
+     1710.07223 cites it (its ref. [27], p.13) and keeps the claim.
+     (iii) Experiment.  CMS, with 35.9 fb^-1 at 13 TeV, sets "An upper limit
+     of 0.021" on the fraction of quark-quark interactions above 9 TeV that
+     make the transition (1805.06013 abstract, READ).  An upper limit cannot
+     contradict an exponentially small rate, and Tye-Wong's own event count
+     is "A very crude order of magnitude estimate" (READ), so the experiment
+     does not decide it.
+     NOT RESOLVED HERE, AND NO REFUSAL RESTS ON IT.
 
 ===============================================================================
 5.  M65-5  VERDICT, READING BY READING, FROM PINNED BOOLEANS WITH OWNERS
@@ -399,18 +503,36 @@ checks it returns OPEN.  Nothing in the verdict is typed.
   C1 FIELD_SWITCHED_ON_BY_ARRIVAL = False       (M65-1; D15, D16, P-UNIFORM)
   C2 HIGGS_SUPPLIES_MOST_ATOMIC_MASS = False    (M65-2; READ rows alone)
   C3 HIGGS_COUPLING_CARRIES_B_OR_L = False      (M65-4; Yukawa charges)
-  C4 HIGGS_FIELD_SUPPLIES_THE_MASS_ENERGY = False (M65-3; T_00, V, READ decay)
+  C4 HIGGS_FIELD_SUPPLIES_THE_MASS_ENERGY = False (M65-3; T_00, V on H-TREE-V
+                                                 and H-REAL; decay by inference)
 
-  READING      COUNTS THAT ANSWER IT   RESULT
-  SWITCH-ON    C1, C2                  REFUSED
-  EXCITATION   C3, C2                  REFUSED (the field can be excited, at a
-                                       cost, lowering |phi|; no net B forms)
-  CREATION     C4, C3, C2              REFUSED
-  STOCK        C2                      REFUSED as stated; what remains is
-                                       survivor (a), where no mass forms
+  READING       COUNTS THAT ANSWER IT   RESULT
+  SWITCH-ON     C1, C2                  REFUSED
+  DISPLACEMENT  C2, C3                  REFUSED as net formation and as a
+                                        raising of atomic mass; what remains
+                                        is the pair route (survivor b)
+  QUANTA        C3                      REFUSED as net formation; what
+                                        remains is the pair route (survivor b)
+  CREATION      C4, C3                  REFUSED; the energy must come in the
+                                        carrier
+  STOCK         C2                      REFUSED as stated; what remains is
+                                        survivor (a), where no mass forms
 
-C2 is the only count on the STOCK reading, so that reading's refusal rests on
-it alone.  The selftest shows it: with C2 reversed, the STOCK reading stands.
+WHY EACH COUNT ANSWERS, AND WHY EACH OMITTED ONE DOES NOT (READING_REASONS,
+checked in the selftest: every count, on every reading, carries a stated
+reason, listed or omitted).  C2 answers SWITCH-ON, DISPLACEMENT and STOCK
+because there the mass in question is the mass phi gives, and only the quark-
+mass part of the nucleon moves with phi.  C2 does NOT answer CREATION or
+QUANTA: there the energy of the whole mass would come from the field or its
+quanta, the QCD share included, so how the nucleon's mass divides is silent.
+C3 answers DISPLACEMENT, QUANTA and CREATION because each makes matter from
+the field or its energy, and no Higgs coupling carries net B.  C4 answers
+CREATION only: the other readings do not claim the field pays.  C1 answers
+SWITCH-ON only.
+
+C2 is the only count on the STOCK reading, and C3 the only count on QUANTA, so
+each of those refusals rests on one count.  The selftest shows it: with C2
+reversed STOCK stands; with C3 reversed QUANTA stands.
 
 THE MECHANISM AS STATED: REFUSED on every reading.
 THE CONSIDERATION: TRUE (THEOREM on H-TREE); on P-UNIFORM it discriminates
@@ -422,8 +544,13 @@ WHAT SURVIVES:
       the stock's masses were already given by the uniform vev.  The Higgs's
       part is a precondition already met everywhere, which is M's
       consideration, and it is not a trigger.  S5 and D25 stand unchanged.
-  (b) THE ANOMALY ROUTE, priced in section 4.  B + L is violated by the SU(2)
-      anomaly, crossed over a gauge-Higgs saddle whose height the vev sets.
+  (b) THE PAIR ROUTE, priced in section 4: EXCITATION's remainder.  Atomic
+      mass forms as matter with its antimatter; the carrier supplies at
+      least the pair floor; the antibaryons are held apart; the Higgs is an
+      intermediary, not the source.
+  (c) THE ANOMALY ROUTE, priced in section 4.  B + L is violated by the SU(2)
+      anomaly: instanton tunnelling at T = 0, the sphaleron thermally and at
+      high energy, over a gauge-Higgs saddle whose height the vev sets.
 
 ===============================================================================
 6.  NAMED HYPOTHESES AND PREMISES -- EVERY LIMITATION, NONE BURIED
@@ -434,8 +561,21 @@ WHAT SURVIVES:
           (PDG: MS-bar u, d, s at 2 GeV; m_c(m_c), m_b(m_b); t direct), so each
           Yukawa carries that scheme.
   H-TREE-V The field-energy theorem of section 3 is for the tree-level
-          potential (excite's Mexican hat).  Beyond it, the READ metastability
-          of section 3 is the whole of what changes, and it is carried there.
+          potential (excite's Mexican hat).  Beyond it, what matters for C4 is
+          that v stays a local minimum, which both the stable and the READ
+          metastable case keep; the metastable case's one release is carried
+          in section 3.
+  H-REAL  The field-energy theorem is PROVED for the real scalar that
+          higgs.T_scalar models.  That the doublet's other components and the
+          gauge fields add only non-negative terms to T_00 is claimed, not
+          computed from an owner and not read.  C4's THEOREM and D29 carry it.
+  H-LINEAR C2 measures the Higgs share as the FIRST-ORDER response of the
+          nucleon mass to the quark masses (sigma terms, Feynman-Hellmann) at
+          the physical point, with the QCD scale held fixed.  STOCK and
+          SWITCH-ON ask what the field GIVES, a finite counterfactual; with
+          the field switched off the heavy-quark thresholds move and the QCD
+          scale moves with them.  That finite share is NOT computed and NOT
+          read.  C2 is the only count on STOCK, so STOCK's refusal carries it.
   P-UNIFORM Where nothing sources it the vev takes one value everywhere.  A
           PREMISE: supported by the constancy of measured fermion masses, not
           read here, and asserted by no owner boolean.  C1 and the
@@ -480,12 +620,15 @@ WHAT SURVIVES:
    7. TREATING k_B T ln 2 AS THE ENERGY OF A BIT.  It is a bound on erasure.
    8. COUNTING THE HEAVY-QUARK COUPLING AS HIGGS-MADE MASS.  It is printed as
       CONTESTED.
-   9. DISMISSING THE ANOMALY ROUTE.  It is priced.
+   9. DISMISSING A PRICED ROUTE.  The pair route and the anomaly route are
+      both priced and both listed in what survives.
   10. A FIGURE HELD WITHOUT ITS SOURCE TEXT.  Every READ number used here
       appears in a quotation held in SOURCES, and the selftest checks it.
   11. THE STATUS WORD M RETIRED.  No status here is that word.
-  12. COUNTING ONE OBJECTION TWICE.  Each count is reported against the
-      readings it answers, and no count is claimed as independent of another.
+  12. COUNTING ONE OBJECTION TWICE, OR A COUNT AGAINST A READING IT DOES NOT
+      ANSWER.  Each count is reported only against the readings it has a
+      stated reason to answer, and no count is claimed as independent of
+      another.
 
 Every refusal is a flag DERIVED at selftest time, from the computed objects or
 from a scan of this docstring, the report and the proposed rows, and each scan
@@ -497,19 +640,21 @@ has a control that plants a violation and must catch it.
 
 THEOREM: the consideration on H-TREE; D15, D16, D18, D19 as excite states them;
 the sign of the holding source within D20's model; the field-energy theorem on
-H-TREE-V; the Yukawa charges; the pair floor; energy conservation.  MEASURED:
+H-TREE-V and H-REAL; the Yukawa charges; the pair floor; energy conservation.
+INFERENCE FROM READ TEXT: that vacuum decay forms no atomic mass at the seat.  MEASURED:
 every count, share, energy and exponent, each carrying its inputs' status.
 Through v, every Yukawa, alpha_W, E_sph formula value and exponent INHERITS
 NAMED-NOT-READ.  Through u = gravity.U_KG (CODATA 2018) and stock.ATOMIC_MASS,
 every count and payload share INHERITS NAMED-NOT-READ.  READ: every figure in
 SOURCES marked READ, including both FLAG sigma_piN averages.  CONTESTED: which
 sigma_piN is right; the heavy-quark terms as a mass share; the collider rate.
-PREMISE: P-UNIFORM.
+PREMISE: P-UNIFORM.  CAUTION HELD: the Bekenstein figure is not read as an
+information capacity (Hayden and Wang).
 
 DIVERGENCES FROM THE SOURCES, RECORDED AND NOT REPAIRED.  Rubakov & Shaposhnikov
 print 10^-170 for exp(-4 pi/alpha_W) at alpha_W = 1/29 (arithmetic: 10^-158.27).
-Tye-Wong pair 10^-162 with alpha_W ~ 1/30 on p.2 (arithmetic: 10^-163.73; their
-p.7 pairing with 1/29.7 gives 10^-162.09).  Tye-Wong's 4.75 TeV x 1.91 is 9.07,
+Tye-Wong pair 10^-162 with alpha_W ~ 1/30 on p.2 (arithmetic: 10^-163.73, so
+1.73 decades off; their p.7 pairing with 1/29.7 gives 10^-162.09).  Tye-Wong's 4.75 TeV x 1.91 is 9.07,
 not their 9.11.  chiQCD's abstract and p.5 differ on quark and glue energy.
 
 DIVERGENCE FROM THE DOCKET TEXT.  The docket calls the CMB temperature READ.
@@ -740,6 +885,14 @@ SOURCES = {
                    "and in the broken phase in the physically interesting "
                    "temperature range 130 GeV < T < T_c it can be parametrized as "
                    "log(Gamma/T^4) = (0.83 +/- 0.01)T/GeV - (147.7 +/- 1.9)."),
+    "DRT-Tc": ("READ", "D'Onofrio, Rummukainen, Tranberg 1404.3565: abstract p.1 "
+               "(its own T_c, which bounds its fit); p.3 (the measured interval); "
+               "p.4 (the extension)",
+               "the cross-over is sharply defined at T_c = (159 +/- 1) GeV.  /  In "
+               "the interval 140 <~ T <~ 155 GeV the broken phase rate is very "
+               "close to a pure exponential  /  the match gives us confidence to "
+               "extend the range of validity of our fit (7) down to T ~ 130 GeV, "
+               "in order to cover the physically interesting range."),
     "RS96-coll": ("CITED", "Rubakov & Shaposhnikov hep-ph/9603208 printed p.3, refs "
                   "[39] Ringwald NPB 330 (1990) 1 and [40] Espinosa NPB 343 (1990) "
                   "310, neither read",
@@ -758,6 +911,35 @@ SOURCES = {
               "sphaleron masses (250 TeV).  /  up to the energy 8 M_W/alpha_W ~ "
               "20TeV the suppression is still high: the suppression factor is "
               "smaller than e^-60 ~ 10^-26 for alpha_W ~ 1/30."),
+    "BLRRT-PLB": ("READ", "Bezrukov, Levkov, Rebbi, Rubakov, Tinyakov hep-ph/0305300 "
+                  "(PLB 574 (2003) 75): abstract p.1",
+                  "We also derive lower bounds on the tunneling exponent which show "
+                  "that baryon number violation remains exponentially suppressed up "
+                  "to very high energies of at least 30 sphaleron masses (250 TeV)."),
+    "BLRRT-conj": ("READ", "Bezrukov et al. hep-ph/0304180, Sec. I p.2",
+                   "This approach is based on the conjecture that, with exponential "
+                   "accuracy, the two-particle initial state can be substituted by a "
+                   "multiparticle one provided that the number of particles is not "
+                   "parametrically large (although not proven rigorously, this "
+                   "conjecture was checked in several orders of perturbation theory "
+                   "in E/E_sph in gauge theory [31, 35] and explicitly in quantum "
+                   "mechanics with two degrees of freedom [36, 37])."),
+    "KM-2020": ("READ", "Khoze & Milne, arXiv:2011.07167v1 (IPPP/20/56): printed p.9 "
+                "(PDF p.10), p.13 (PDF p.14), p.15 and p.16 (PDF pp.16-17)",
+                "The instanton suppression factor is significant with the minimal "
+                "value of the holy-grail function, F ~ 0.70, loosing only 30% of "
+                "the original 't Hooft instanton suppression. ... Electroweak "
+                "instantons remain exponentially suppressed by at least "
+                "e^(-(4 pi/alpha_w) 0.70) and are unobservable in high energy 2 "
+                "particle collisions for any value of the energy.  /  So, while "
+                "there is no rigorous proof of exponentiation, we are comfortably "
+                "optimistic that the Mueller correction does exponentiate  /  This "
+                "was based in part on an assumption that there are no additional "
+                "exponentially growing (and unphysical, as explained at the end of "
+                "section 3.1) contributions generated at higher orders in instanton "
+                "perturbation theory.  /  the the 't Hooft suppression in the "
+                "exponent is reduced by not more than ~ 30% over the entire energy "
+                "range."),
     "TW-claim": ("CONTESTED", "Tye & Wong 1505.03690 (PRD 92 (2015) 045005): "
                  "abstract p.1; printed p.5 (the 10^{4+/-2} estimate)",
                  "We show that the baryon-lepton number violating processes can "
@@ -766,6 +948,23 @@ SOURCES = {
                  "height (sphaleron energy) at 9.0 TeV.  /  A very crude order of "
                  "magnitude estimate gives 10^{4+/-2} such events in the coming "
                  "Large Hadron Collider (LHC) run at 14 TeV"),
+    "TW-2017": ("CONTESTED", "Tye & Wong arXiv:1710.07223v1: abstract p.1; p.2; "
+                "Sec. II-III p.3; Sec. XIII p.11; ref. [27] p.13 (it cites the "
+                "rebuttal, and replies to it on p.3)",
+                "there is a discrepancy of about 70 orders of magnitude between the "
+                "two estimates  /  We agree with this estimate for a single "
+                "sphaleron. However, we claim that multi-sphaleron processes can "
+                "drastically change the picture.  /  Recently we proposed that the "
+                "existing estimate of the cross-sections of such processes in the "
+                "prevalent picture are off (too small) by many orders of magnitude. "
+                " /  [27] K. Funakubo, K. Fuyuto, and E. Senaha, 'Does a band "
+                "structure affect sphaleron processes?,' arXiv:1612.05431  /  It "
+                "is clear that both estimates involve assumptions based on "
+                "intuitions as well as approximations remaining to be fully "
+                "justified.  /  Admittedly, the estimate (4) is only an order of "
+                "magnitude guesstimate  /  As argued at times in the literature "
+                "(see e.g., Ref.[26] and recently in [27])  /  However, the above "
+                "argument is somewhat misleading."),
     "FFS-rebut": ("READ", "Funakubo, Fuyuto, Senaha 1612.05431, p.4",
                   "the overlap between the coherent state and the in-state "
                   "composed of two particles whose total momentum is E_sph yields "
@@ -775,7 +974,9 @@ SOURCES = {
                   "structure, which is not properly discussed in Ref. [8]"),
     "CMS": ("READ", "CMS Collaboration 1805.06013 (JHEP 11 (2018) 042): abstract p.1, "
             "Sec. 8.2 p.17",
-            "An upper limit of 0.021 is set at 95% confidence level on the "
+            "The data sample corresponds to an integrated luminosity of 35.9 "
+            "fb^-1 collected with the CMS experiment at the LHC in proton-proton "
+            "collisions at a center-of-mass energy of 13 TeV in 2016. ... An upper limit of 0.021 is set at 95% confidence level on the "
             "fraction of all quark-quark interactions above the nominal threshold "
             "energy of 9 TeV resulting in the sphaleron transition."),
     "Sakharov": ("READ", "Rubakov & Shaposhnikov hep-ph/9603208, Sec. 1, p.2 "
@@ -850,7 +1051,9 @@ SOURCES = {
                  "N_f = 2 + 1 : sigma_piN = 42.2(2.4) MeV Refs. [102-106]. (448)"),
     "FLAG-tension": ("READ", "FLAG 2024, arXiv:2411.04268v3, p.273",
                      "Notably, there is now a 2.7 sigma difference between the N_f "
-                     "= 2 + 1 and N_f = 2 + 1 + 1 FLAG averages. ... In "
+                     "= 2 + 1 and N_f = 2 + 1 + 1 FLAG averages. This is unlikely "
+                     "to be due to the inclusion of charm quarks in the sea. The "
+                     "control of excited-state contributions remains an issue. In "
                      "particular, the PNDME 21 study utilizes a narrow-width prior "
                      "in their fitting analysis ... If this constraint is relaxed "
                      "then a sigma term of around 42 MeV is obtained."),
@@ -892,13 +1095,18 @@ SOURCES = {
     "Ji-eighth": ("READ", "X. Ji, arXiv:hep-ph/9410274, bullet p.7",
                   "The quark mass term accounts for about 1/8 of the nucleon mass. "
                   "About half of which or more is carried by the strange quark."),
-    "Ji-table": ("READ", "X. Ji, arXiv:hep-ph/9410274, Table I p.9; the rounding, "
-                 "p.6",
+    "Ji-table": ("READ", "X. Ji, arXiv:hep-ph/9410274, Table I p.9; the omitted "
+                 "errors, the rounding and the largest uncertainty, p.6",
                  "TABLE I. A decomposition of the nucleon mass into different "
                  "contributions. ... mass type  H_i  M_i  m_s -> 0 (MeV)  m_s -> "
-                 "infinity (MeV) ... quark mass  psibar m psi  b  160  110  /  The "
-                 "total effect on individual numbers is about 5 to 10 MeV. Thus I "
-                 "have rounded up the numbers to nearest 10 MeV."),
+                 "infinity (MeV) ... quark mass  psibar m psi  b  160  110  /  I "
+                 "have not shown the errors due to omission of higher-order "
+                 "perturbative effects and errors on the sigma-term and current "
+                 "quark masses. The total effect on individual numbers is about 5 "
+                 "to 10 MeV. Thus I have rounded up the numbers to nearest 10 MeV. "
+                 "The largest uncertainty is from the matrix element "
+                 "<P|m_s ss|P>, which could be larger than the difference of the "
+                 "two estimates shown."),
     "chiQCD": ("READ", "Yang et al. (chiQCD), arXiv:1808.08677v2 (PRL 121, 212001), "
                "abstract p.1 and p.5 (the abstract and p.5 disagree on quark and "
                "glue energy, 33/37 % against 32/36 %: recorded, not repaired)",
@@ -919,6 +1127,22 @@ SOURCES = {
                    "S <= 2 pi E R / hbar c. (1)  [k_B = 1];  'The amount of "
                    "information that can be registered by a physical system is "
                    "I = S(E)/k_B ln 2' (Lloyd p.7)"),
+    "HW-folk": ("READ", "Hayden & Wang, 'What exactly does Bekenstein bound?', "
+                "arXiv:2309.07436v3: abstract p.1; printed p.2 (PDF p.3); printed "
+                "p.3 (PDF p.4)",
+                "The Bekenstein bound posits a maximum entropy for matter with "
+                "finite energy confined to a spatial region. It is often "
+                "interpreted as a fundamental limit on the information that can be "
+                "stored by physical objects.  /  The key insight of Casini's "
+                "formulation is that the Bekenstein bound can be understood as an "
+                "information-theoretic statement about state distinguishability  /  "
+                "Casini's entropy bound is a widely accepted proven version of the "
+                "Bekenstein bound, but it is not the only viable formulation "
+                "[10, 11]. A general interpretation of the Bekenstein bound is that "
+                "it represents a fundamental limit on the information content "
+                "carried by matter [7, 12]. ... However, it is important to note "
+                "that this interpretation remains folklore rather than established "
+                "fact"),
     "Braunstein": ("NOT-FOUND", "S. L. Braunstein, 'A fun talk on teleportation' "
                    "(egress-blocked; not opened)",
                    "NOT QUOTED -- page could not be fetched; figure known only "
@@ -946,14 +1170,16 @@ PINS = (
     ("TW-FFS-esph", "9.11", 9.11), ("TW-FFS-esph", "9.08", 9.08),
     ("TW-FFS-esph", "4.75", 4.75), ("TW-FFS-esph", "1.31", 1.31),
     ("TW-FFS-esph", "0.60", 0.60), ("TW-claim", "9.0 TeV", 9.0),
-    ("DR-Tc", "159.5", 159.5), ("DRT-rate", "131.7", 131.7),
+    ("DR-Tc", "159.5 +/- 1.5", 159.5), ("DRT-rate", "131.7", 131.7),
     ("DRT-rate", "(18 +/- 3)", 18.0),
     ("DRT-rate", "(8.0 +/- 1.3) x 10^-7", 8.0e-7),
     ("DRT-broken", "(0.83 +/- 0.01)", 0.83), ("DRT-broken", "(147.7 +/- 1.9)", 147.7),
     ("DRT-broken", "130 GeV", 130.0),
-    ("CMS", "0.021", 0.021),
+    ("CMS", "0.021", 0.021), ("CMS", "35.9", 35.9), ("CMS", "13 TeV", 13.0),
+    ("DG-2012", "126 GeV", 126.0),
     ("TW-size", "1/29.7", 29.7), ("TW-size", "1/30", 30.0),
     ("RS96-2.8", "1/29", 29.0), ("RS96-2.8", "10^-170", -170.0),
+    ("TW-size", "10^-162", -162.0), ("DRT-Tc", "(159 +/- 1)", 159.0),
     ("FLAG-tension", "2.7 sigma", 2.7),
     ("BU-mt", "(171.53 +/- 0.42)", 171.53), ("BU-mt", "2.8 sigma", 2.8),
     ("BU-life", "99.3%", 99.3), ("DG-2012", "2 sigma", 2.0),
@@ -970,7 +1196,11 @@ COUPLING_SUM_HRKM = 0.305       # READ               HRKM-24
 CHIQCD_QUARK_CONDENSATE = 9.0   # %    READ          chiQCD
 CHIQCD_QUARTER_ANOMALY = 23.0   # %    READ          chiQCD
 JI_QUARK_MASS_MEV = {"m_s -> 0": 160.0, "m_s -> infinity": 110.0}   # READ Ji-table
-JI_ROUNDING_MEV = 10.0          # READ  Ji-table: the larger stated effect
+JI_ROUNDING_MEV = 10.0          # READ  Ji-table: the omitted-error effect, larger end
+#: The difference of Ji's two estimates, which his largest uncertainty "could be
+#: larger than" (READ Ji-table): computed from the two READ rows, never typed.
+JI_ESTIMATE_DIFFERENCE_MEV = (JI_QUARK_MASS_MEV["m_s -> 0"]
+                              - JI_QUARK_MASS_MEV["m_s -> infinity"])
 B_KM_RANGE = (1.56, 2.72)       # READ               RS96-esph
 TW_B_TERMS = (1.31, 0.60)       # READ               TW-FFS-esph
 TW_PREFACTOR_TEV = 4.75         # READ, rounded (section 4 check)
@@ -983,10 +1213,15 @@ RATE_SYMM_READ = 8.0e-7         # READ  DRT-rate eq.(8): THE figure
 RATE_COEFF_SYMM = 18.0          # READ  DRT-rate: 18 alpha_W^5, a cross-check only
 BROKEN_FIT = (0.83, 147.7)      # READ  DRT-broken: ln(Gamma/T^4) = a T/GeV - b
 BROKEN_FIT_LOW_GEV = 130.0      # READ  DRT-broken: the fit's stated lower end
+BROKEN_FIT_HIGH_GEV = 159.0     # READ  DRT-Tc: its own paper's T_c bounds the fit
 CMS_PEF_BOUND = 0.021           # READ  CMS
+CMS_LUMI_FB = 35.9              # READ  CMS: fb^-1
+CMS_SQRT_S_TEV = 13.0           # READ  CMS
+DG_MH_CONDITION_GEV = 126.0     # READ  DG-2012: its 2 sigma holds "for M_h < 126 GeV"
 TW_ALPHA_INV = (29.7, 30.0)     # READ  TW-size, the two pairings
 RS96_ALPHA_INV = 29.0           # READ  RS96-2.8
 RS96_PRINTED_LOG10 = -170.0     # READ  RS96-2.8
+TW_PRINTED_LOG10 = -162.0       # READ  TW-size, printed with alpha_W ~ 1/30 (p.2)
 
 # fragments quoted in this module's docstring, each against its source
 QUOTED = (
@@ -1031,6 +1266,37 @@ QUOTED = (
                    "interior"),
     ("MRS-bubble", "it expands at the speed of light, destroying everything in its "
                    "way"),
+    ("Ji-table", "The largest uncertainty is from the matrix element <P|m_s ss|P>, "
+                 "which could be larger than the difference of the two estimates "
+                 "shown"),
+    ("FLAG-tension", "unlikely to be due to the inclusion of charm quarks in the sea"),
+    ("FLAG-tension", "The control of excited-state contributions remains an issue"),
+    ("FLAG-HRKM23", "The N_f = 2 + 1 + 1 lattice average is in agreement with "
+                    "Hoferichter et al"),
+    ("DG-2012", "for M_h < 126 GeV"),
+    ("DRT-Tc", "T_c = (159 +/- 1) GeV"),
+    ("DRT-Tc", "In the interval 140 <~ T <~ 155 GeV"),
+    ("DRT-Tc", "down to T ~ 130 GeV"),
+    ("HW-folk", "an information-theoretic statement about state distinguishability"),
+    ("HW-folk", "often interpreted as a fundamental limit on the information that "
+                "can be stored by physical objects"),
+    ("HW-folk", "this interpretation remains folklore rather than established fact"),
+    ("BLRRT", "remains exponentially suppressed up to very high energies of at least "
+              "30 sphaleron masses (250 TeV)"),
+    ("BLRRT-PLB", "remains exponentially suppressed up to very high energies of at "
+                  "least 30 sphaleron masses (250 TeV)"),
+    ("BLRRT-conj", "although not proven rigorously"),
+    ("KM-2020", "not more than ~ 30%"),
+    ("KM-2020", "exponentially suppressed by at least e^(-(4 pi/alpha_w) 0.70)"),
+    ("KM-2020", "there is no rigorous proof of exponentiation"),
+    ("KM-2020", "based in part on an assumption that there are no additional "
+                "exponentially growing"),
+    ("TW-claim", "without the exponential tunneling suppression"),
+    ("TW-2017", "with this estimate for a single sphaleron"),
+    ("TW-2017", "the prevalent picture"),
+    ("FFS-rebut", "regardless of the band structure"),
+    ("CMS", "An upper limit of 0.021"),
+    ("TW-claim", "A very crude order of magnitude estimate"),
 )
 
 # Quotations in the docstring whose owner is a peer module, not a paper.
@@ -1042,6 +1308,13 @@ OWNER_TEXTS = {
 
 def _norm(s):
     return re.sub(r"\s+", " ", s)
+
+
+def _e(x, p):
+    """%.pe with the exponent written as the docstring writes it: 6.2913e18."""
+    return re.sub(r"e([+-])0*(\d)",
+                  lambda m: "e" + ("-" if m.group(1) == "-" else "") + m.group(2),
+                  "%.*e" % (p, x))
 
 
 # ===================================================================== M65-1
@@ -1268,22 +1541,30 @@ def largest_central_reading(rows=None, read_only=False):
     return ele + max(nucs)
 
 
-def read_rows_with_stated_uncertainty():
-    """The READ rows with each one's stated uncertainty added at its largest:
-    FLAG central + 3 x (err_piN + err_s), linearly, no correlation assumed; Ji
-    + 10 MeV, his own larger stated effect.  An illustration of margin."""
+MARGIN_SIGMAS = 3                # THIS FILE'S CHOICE for FLAG, not a stated uncertainty
+
+
+def read_rows_margin_illustration():
+    """An ILLUSTRATION OF MARGIN on the READ rows, not a bound: FLAG central +
+    MARGIN_SIGMAS x (err_piN + err_s), linearly, no correlation assumed (the 3
+    is this file's choice); Ji + his 10 MeV of omitted error + the 50 MeV
+    difference of his two estimates, which he says his largest uncertainty
+    "could be larger than" -- so even this is not Ji's uncertainty at its
+    largest."""
     pm = payload_masses()
     nuc, M = pm["nucleon rest"], PAYLOAD_KG
     ele = share_rows()[0][2]
-    cands = [sigma_fraction(a + 3 * SIGMA_ERR[k][0], b + 3 * SIGMA_ERR[k][1])
+    cands = [sigma_fraction(a + MARGIN_SIGMAS * SIGMA_ERR[k][0],
+                            b + MARGIN_SIGMAS * SIGMA_ERR[k][1])
              for k, (a, b, _s) in SIGMA_MEASURES.items()]
-    cands += [(mev + JI_ROUNDING_MEV) / M_N_MEV for mev in JI_QUARK_MASS_MEV.values()]
+    cands += [(mev + JI_ROUNDING_MEV + JI_ESTIMATE_DIFFERENCE_MEV) / M_N_MEV
+              for mev in JI_QUARK_MASS_MEV.values()]
     return ele + max(cands) * nuc / M
 
 
 HIGGS_SHARE_LARGEST_ALL = largest_central_reading()
 HIGGS_SHARE_LARGEST_READ = largest_central_reading(read_only=True)
-HIGGS_SHARE_READ_WITH_UNCERTAINTY = read_rows_with_stated_uncertainty()
+HIGGS_SHARE_READ_MARGIN = read_rows_margin_illustration()
 #: C2.  The charitable reading of "atomic mass forms": MOST of it.
 HIGGS_SUPPLIES_MOST_ATOMIC_MASS = HIGGS_SHARE_LARGEST_ALL >= 0.5
 #: Would C2 still refuse on the READ rows alone?  (It must, or it is
@@ -1295,7 +1576,7 @@ def rest_energy_j(kg=None):
     return warpfolder.rest_energy_j(PAYLOAD_KG if kg is None else kg)
 
 
-# ---- THE SOURCE M NAMES: the triggered field's energy about v
+# ---- THE ONLY CANDIDATE SOURCE IN M'S SENTENCE: the triggered field's energy about v
 def field_energy_is_a_square():
     """V(v(1-eps)) - V(v) in units of rho_EW (excite.FIELD_POLY, equal to
     excite.FIELD_CLOSED) is exactly (eps (2 - eps))^2.  A real square: >= 0,
@@ -1304,12 +1585,19 @@ def field_energy_is_a_square():
     return list(excite.FIELD_POLY) == list(excite.FIELD_CLOSED) == excite.pmul(q, q)
 
 
+T00_GRID_MIN_POINTS = 3         # a degree-2 polynomial per axis needs 3 points
+
+
 def t00_decomposes(grid=(-2, -1, 0, 1, 2), Vs=(Fraction(0), Fraction(1), Fraction(5, 3)),
                    tscalar=None):
     """higgs.T_scalar's T_00 equals (1/2) phi_t^2 + (1/2)|grad phi|^2 + V,
     exactly, at every point of the rational grid.  T_scalar is of degree two in
-    each derivative and one in V, and the grid has five points per axis, so
-    agreement on it is agreement everywhere."""
+    each derivative and one in V, and the grid has five points per axis (it
+    REFUSES fewer than three distinct points, and fewer than two V values), so
+    agreement on it is agreement everywhere.  For the REAL scalar T_scalar
+    models: the doublet and gauge terms are H-REAL."""
+    if len(set(grid)) < T00_GRID_MIN_POINTS or len(set(Vs)) < 2:
+        raise ValueError("grid too small to settle a degree-2 polynomial")
     tscalar = higgs.T_scalar if tscalar is None else tscalar
     half = Fraction(1, 2)
     for a in grid:
@@ -1358,10 +1646,17 @@ def field_supplies_mass_energy(metastable, releases_about_v=None, decay_forms=No
     return rel or (metastable and dec)
 
 
-#: C4.  Evaluated in BOTH cases; the top-mass dependence (which case holds)
-#: cannot reach it unless the two disagree, and the selftest checks they agree.
-HIGGS_FIELD_SUPPLIES_THE_MASS_ENERGY = (field_supplies_mass_energy(True)
-                                        or field_supplies_mass_energy(False))
+def c4_combined(releases_about_v=None, decay_forms=None):
+    """C4 over BOTH cases, stable or metastable: True if either case lets the
+    field supply the mass-energy.  The top mass (which case holds) cannot reach
+    it unless the two cases disagree."""
+    return (field_supplies_mass_energy(True, releases_about_v, decay_forms)
+            or field_supplies_mass_energy(False, releases_about_v, decay_forms))
+
+
+#: C4.  THEOREM on H-TREE-V and H-REAL for the release about v; an INFERENCE
+#: from READ text for the decay case.
+HIGGS_FIELD_SUPPLIES_THE_MASS_ENERGY = c4_combined()
 
 # ---- the carrier, and supporting note N-INFO (no verdict)
 T_CMB = permute.T_CMB                  # CITED (Fixsen 2009 per permute.py)
@@ -1394,8 +1689,9 @@ def break_even_radius_m(T=None):
 
 
 N_INFO = ("SUPPORTING NOTE, NO VERDICT: by energy conservation a bit brings only "
-          "its carrier's energy; Landauer prices erasure, Bekenstein bounds bits "
-          "by energy.  It answers a link M did not state.")
+          "its carrier's energy; Landauer prices erasure; Bekenstein bounds entropy "
+          "by energy and size, and its reading as an information capacity is held "
+          "as folklore (HW-folk).  It answers a link M did not state.")
 
 # ===================================================================== M65-4
 # Every Standard Model Yukawa term, as its field content with (B, L) charges.
@@ -1532,8 +1828,9 @@ def symmetric_rate_crosscheck(aw=None):
 
 def broken_phase_ln_rate(t_gev):
     """ln(Gamma/T^4) = 0.83 T/GeV - 147.7, the READ fit, stated for
-    130 GeV < T < T_c.  Refuses a temperature outside that range."""
-    if not (BROKEN_FIT_LOW_GEV <= t_gev <= T_C_GEV):
+    130 GeV < T < T_c with T_c its own paper's 159 GeV (DRT-Tc), measured over
+    140-155 GeV.  Refuses a temperature outside the stated range."""
+    if not (BROKEN_FIT_LOW_GEV <= t_gev <= BROKEN_FIT_HIGH_GEV):
         raise ValueError("outside the READ fit's stated range")
     a, b = BROKEN_FIT
     return a * t_gev - b
@@ -1543,7 +1840,7 @@ def broken_phase_ln_rate(t_gev):
 COLLIDER_RATE_STATUS = "CONTESTED"
 #: Transitions keep running below T_c, where the vev is finite: derived from
 #: the READ T* < T_c and the READ words.
-SPHALERONS_RUN_WHERE_VEV_IS_FINITE = (T_FREEZE_GEV < T_C_GEV
+SPHALERONS_RUN_WHERE_VEV_IS_FINITE = (T_FREEZE_GEV < min(T_C_GEV, BROKEN_FIT_HIGH_GEV)
                                       and _in("DRT-vev", "where it is finite"))
 VEV_ABOVE_TC_IS_APPROXIMATELY_ZERO = _in("DRT-vev", "approximately zero")
 
@@ -1557,6 +1854,21 @@ def anomaly_route_priced():
 
 ANOMALY_ROUTE_PRICED = anomaly_route_priced()
 
+
+def pair_route_priced():
+    """The pair route (EXCITATION's remainder) is PRICED iff its floor and the
+    antibaryon number to be held apart are finite numbers, and the Higgs is not
+    its source (C4 False: an intermediary, not the source)."""
+    figs = (pair_floor_j(), pair_floor_j() / rest_energy_j(), COUNTS["B"])
+    return all(math.isfinite(float(x)) for x in figs) and not HIGGS_FIELD_SUPPLIES_THE_MASS_ENERGY
+
+
+PAIR_ROUTE_PRICED = pair_route_priced()
+#: Would the pair route be refused on its antimatter by-product?  No premise
+#: disqualifies it here; whether the antimatter can be held apart is not
+#: computed.  Derived: the route is priced, not refused.
+PAIR_ROUTE_REFUSED = not PAIR_ROUTE_PRICED
+
 # ===================================================================== M65-5
 #: (id, pinned boolean name, owner, status, contested_only, what it answers).
 #: True means the link the mechanism needs HOLDS on this count.
@@ -1567,27 +1879,102 @@ COUNTS_ON_THE_MECHANISM = (
      "the field was off at the seat and arrival turns it on"),
     ("C2", "HIGGS_SUPPLIES_MOST_ATOMIC_MASS",
      ("massform", "HIGGS_SHARE_LARGEST_READ"),
-     "MEASURED from READ fractions; counts inherit NAMED-NOT-READ", C2_CONTESTED_ONLY,
+     "MEASURED from READ fractions, as first-order response (H-LINEAR); counts "
+     "inherit NAMED-NOT-READ", C2_CONTESTED_ONLY,
      "the Higgs is what makes (most of) atomic mass"),
     ("C3", "HIGGS_COUPLING_CARRIES_B_OR_L",
      ("massform", "YUKAWA_TERMS"), "THEOREM (perturbative SM)", False,
      "what the triggered field makes carries the payload's net B"),
     ("C4", "HIGGS_FIELD_SUPPLIES_THE_MASS_ENERGY",
-     ("massform", "T00_DECOMPOSES, FIELD_ENERGY_IS_A_SQUARE; READ decay text"),
-     "THEOREM on H-TREE-V; READ for the decay case", False,
+     ("massform", "c4_combined; T00_DECOMPOSES, FIELD_ENERGY_IS_A_SQUARE, READ decay text"),
+     "THEOREM on H-TREE-V and H-REAL; inference from READ text for the decay case",
+     False,
      "the triggered field supplies the energy of the mass"),
 )
 
 #: (reading, what M would mean, the counts that answer it).
 READINGS = (
     ("SWITCH-ON", "arrival turns on a field that was off at the seat", ("C1", "C2")),
-    ("EXCITATION", "arrival displaces the field or makes Higgs quanta, and mass "
-                   "forms from that", ("C3", "C2")),
+    ("DISPLACEMENT", "EXCITATION: arrival displaces the field, and mass forms "
+                     "from that", ("C2", "C3")),
+    ("QUANTA", "EXCITATION: arrival makes Higgs quanta, and mass forms from them",
+     ("C3",)),
     ("CREATION", "the triggered field supplies the energy of the mass that forms",
-     ("C4", "C3", "C2")),
+     ("C4", "C3")),
     ("STOCK", "the elements are at the seat and the triggered field gives them "
               "their mass", ("C2",)),
 )
+
+#: {(reading, count): (answers?, the stated reason)}.  EVERY count on EVERY
+#: reading carries a reason, listed or omitted; the selftest checks the table is
+#: complete and agrees with READINGS, so no count is set against a reading
+#: without an argument, and none is left off one without an argument either.
+_C2_YES = ("the mass in question is the mass phi gives, and only the quark-mass "
+           "part of the nucleon moves with phi")
+_C2_NO = ("the whole mass-energy would come from the field or its quanta, the QCD "
+          "share included, so how the nucleon's mass divides is silent")
+_C3_YES = ("matter is made from the field or its energy, and no Higgs coupling "
+           "carries net B or L")
+_C4_NO = "this reading does not claim the field pays for the mass"
+_C1_NO = "C1 is about an off state at the seat, which this reading does not assume"
+READING_REASONS = {
+    ("SWITCH-ON", "C1"): (True, "the reading needs the field off at the seat before "
+                                "arrival; on P-UNIFORM it is already on (D15, D16)"),
+    ("SWITCH-ON", "C2"): (True, _C2_YES),
+    ("SWITCH-ON", "C3"): (False, "switching on claims no new B; it is silent"),
+    ("SWITCH-ON", "C4"): (False, _C4_NO),
+    ("DISPLACEMENT", "C1"): (False, _C1_NO),
+    ("DISPLACEMENT", "C2"): (True, _C2_YES + "; within D20's model a positive "
+                                   "source only LOWERS |phi|"),
+    ("DISPLACEMENT", "C3"): (True, _C3_YES),
+    ("DISPLACEMENT", "C4"): (False, _C4_NO),
+    ("QUANTA", "C1"): (False, _C1_NO),
+    ("QUANTA", "C2"): (False, _C2_NO),
+    ("QUANTA", "C3"): (True, _C3_YES + ": quanta decay to pairs"),
+    ("QUANTA", "C4"): (False, "quanta are paid for by what makes them, and this "
+                              "reading does not claim the field pays"),
+    ("CREATION", "C1"): (False, _C1_NO),
+    ("CREATION", "C2"): (False, _C2_NO),
+    ("CREATION", "C3"): (True, _C3_YES),
+    ("CREATION", "C4"): (True, "the reading claims the field supplies the energy; "
+                               "about v it has none to give, and its one release "
+                               "(decay) forms no atomic mass at the seat"),
+    ("STOCK", "C1"): (False, "the elements are present; the field is on (the "
+                             "consideration), which STOCK assumes"),
+    ("STOCK", "C2"): (True, _C2_YES),
+    ("STOCK", "C3"): (False, "the elements are already there; no B is made"),
+    ("STOCK", "C4"): (False, "no mass-energy is created on this reading"),
+}
+
+#: What remains of each reading once refused, and whether it is priced.
+READING_REMAINDERS = {
+    "SWITCH-ON": "none: the field is already on",
+    "DISPLACEMENT": "the pair route (survivor b): atomic mass as matter with its "
+                    "antimatter, the carrier paying the pair floor",
+    "QUANTA": "the pair route (survivor b): atomic mass as matter with its "
+              "antimatter, the carrier paying the pair floor",
+    "CREATION": "the energy must come in the carrier",
+    "STOCK": "survivor (a): reconstruction from stock, where no mass forms",
+}
+
+
+def reading_reason_table_complete(readings=None, reasons=None, counts=None):
+    """[] iff every (reading, count) pair has a stated reason, the reason's
+    answers-flag agrees with READINGS, and every reason is a real sentence."""
+    readings = READINGS if readings is None else readings
+    reasons = READING_REASONS if reasons is None else reasons
+    counts = [c[0] for c in COUNTS_ON_THE_MECHANISM] if counts is None else counts
+    bad = []
+    for name, _w, cids in readings:
+        for c in counts:
+            r = reasons.get((name, c))
+            if r is None:
+                bad.append((name, c, "no stated reason"))
+            elif r[0] != (c in cids):
+                bad.append((name, c, "reason disagrees with the listing"))
+            elif len(r[1].split()) < 5:
+                bad.append((name, c, "reason too short to be an argument"))
+    return bad
 
 
 def derive_verdict(values, contested=None):
@@ -1638,6 +2025,26 @@ def derive_mechanism(readings):
 READING_VERDICTS = derive_readings()
 MECHANISM_VERDICT = derive_mechanism(READING_VERDICTS)
 
+#: The readings whose remainder is a PRICED route on which atomic mass forms.
+#: A refusal there is a refusal of NET formation only, and every printed
+#: verdict says so (M's rule: never refuse a reading whose remainder is priced).
+REMAINDER_FORMS_MASS = {"DISPLACEMENT": PAIR_ROUTE_PRICED, "QUANTA": PAIR_ROUTE_PRICED}
+
+
+def reading_label(name, verdicts=None):
+    v = (READING_VERDICTS if verdicts is None else verdicts)[name][0]
+    if v == "REFUSED" and REMAINDER_FORMS_MASS.get(name):
+        return "REFUSED as net formation; remainder the pair route, PRICED"
+    return v
+
+
+def mechanism_label():
+    qualified = [r for r in MECHANISM_VERDICT[1] if reading_label(r) != MECHANISM_VERDICT[0]]
+    return "%s on %s%s" % (MECHANISM_VERDICT[0], ", ".join(MECHANISM_VERDICT[1]),
+                           ("; on %s as NET formation only -- atomic mass can still form "
+                            "there as matter with its antimatter (the pair route, PRICED)"
+                            % ", ".join(qualified)) if qualified else "")
+
 
 def derive_consideration(holds=None, discriminates=None):
     holds = CONSIDERATION_HOLDS if holds is None else holds
@@ -1656,12 +2063,20 @@ SURVIVES = (
      "vev.  The Higgs's part is a precondition met everywhere -- M's "
      "consideration -- not a trigger.  S5 and D25 unchanged."
      % transit.CARRIES_SUBSTANCE),
+    ("the pair route",
+     "EXCITATION's remainder.  Atomic mass forms as matter with its antimatter.  "
+     "PRICED in M65-4: the carrier supplies at least %.4f Mc^2 (%s J); %s units "
+     "of antibaryon number are held apart; the Higgs is an intermediary, not "
+     "the source (C4).  Nothing is refused on the antimatter by-product; whether "
+     "it can be held apart is not computed."
+     % (pair_floor_j() / rest_energy_j(), _e(pair_floor_j(), 4), _e(COUNTS["B"], 4))),
     ("the anomaly route",
      "B + L violated by the SU(2) anomaly, crossed over a gauge-Higgs saddle "
      "whose height the vev sets (E_sph = (4 pi v/g) B).  PRICED in M65-4: "
-     "instanton tunnelling at zero temperature, the sphaleron thermally (above "
-     "T_c and in the broken-phase window down to T*); the collider exponent is "
-     "%s and is not resolved." % COLLIDER_RATE_STATUS),
+     "INSTANTON tunnelling at zero temperature (the exp(-4 pi/alpha_W) factor); "
+     "the SPHALERON thermally (above T_c and in the broken-phase window down to "
+     "T*); the two-particle collider rate is %s and is not resolved."
+     % COLLIDER_RATE_STATUS),
 )
 RECONSTRUCTION_SURVIVES = (not transit.CARRIES_SUBSTANCE) and bool(stockgate.GATE)
 NOTHING_IS_REPAIRED = True
@@ -1701,42 +2116,69 @@ PROPOSED_ROWS = (
      "The Higgs field has no energy to give about v: its energy density above "
      "the vacuum, (1/2)phi_t^2 + (1/2)|grad phi|^2 + rho_EW eps^2(2-eps)^2, is "
      "a sum of squares (higgs.T_scalar, excite.FIELD_POLY), so any change of "
-     "phi about v costs energy.  Its one release is decay of a metastable "
-     "vacuum, which is preferred at the measured masses but not established "
-     "(top-mass dependent, READ 1307.3536) and forms no atomic mass at the seat "
-     "(READ 1809.06923: a bubble expanding at near c, with different particle "
-     "masses inside)",
+     "phi about v costs energy.  Proved for the real scalar higgs.T_scalar "
+     "models; that the doublet's other components and the gauge fields add "
+     "only non-negative terms is H-REAL, claimed and not computed.  Its one "
+     "release is decay of a metastable vacuum, which is preferred at the "
+     "central measured masses but not established (top-mass dependent, READ "
+     "1307.3536).  That decay forms no atomic mass at the seat is an INFERENCE "
+     "from READ text (1809.06923: a bubble expanding at near c, with different "
+     "particle masses inside, destroying what it meets)",
      "THEOREM", ("massform", "HIGGS_FIELD_SUPPLIES_THE_MASS_ENERGY"),
-     "a potential whose electroweak minimum is not a local minimum; a source "
+     "a potential whose electroweak minimum is not a local minimum; H-REAL "
+     "failing (a doublet or gauge term of negative energy density); a source "
      "reading vacuum decay as forming atomic mass.  The top mass does not move "
      "it: the case split covers both stable and metastable"),
     ("S10", "SUPPLY",
      "M's mechanism, \"As soon as the information hits the seat, it triggers "
      "the higgs field, and atomic mass forms\", as a supply of payload mass.  "
-     "REFUSED, gap None, reading by reading and on no contested-only count: "
-     "SWITCH-ON by C1 (the field is already on, D27) and C2; EXCITATION by C3 "
-     "(no Higgs coupling carries net B or L; the field can be excited, at a "
-     "cost, lowering |phi|) and C2; CREATION by C4 (the field has no energy to "
-     "give, D29), C3 and C2; STOCK by C2 alone (the Higgs supplies at most "
-     "0.172 of atomic mass on the READ rows, 0.309 on all, as largest central "
-     "readings), and what remains of it is reconstruction from stock",
+     "REFUSED, gap None, reading by reading, on no contested-only count, and "
+     "each count only where it has a stated reason to answer: SWITCH-ON by C1 "
+     "(the field is already on, D27) and C2; EXCITATION, displacement branch, "
+     "by C2 and C3 (the field can be excited, at a cost, lowering |phi|; no "
+     "Higgs coupling carries net B or L); EXCITATION, quanta branch, by C3 "
+     "alone; CREATION by C4 (the field has no energy to give, D29) and C3; "
+     "STOCK by C2 alone (the largest central reading is 0.172 of atomic mass on "
+     "the READ rows and 0.309 on all rows; an illustration of margin reaches "
+     "0.236 on the READ rows; none is a bound; all first-order, H-LINEAR).  "
+     "EXCITATION is refused as NET "
+     "formation only: what remains is the pair route (S12), priced.  What "
+     "remains of STOCK is reconstruction from stock",
      "REFUSED", ("massform", "MECHANISM_VERDICT"),
      "the STOCK reading moves if C2 reverses (a READ quark-mass share above "
-     "half); SWITCH-ON needs C1 and C2 both to reverse; EXCITATION needs C3 and "
-     "C2; CREATION needs C4, C3 and C2"),
+     "half); QUANTA if C3 reverses; SWITCH-ON needs C1 and C2 both to reverse; "
+     "DISPLACEMENT needs C2 and C3; CREATION needs C4 and C3"),
     ("S11", "SUPPLY",
      "The anomaly route: B + L violated by the SU(2) anomaly over a gauge-Higgs "
-     "saddle whose height the vev sets.  Zero temperature: instanton "
+     "saddle whose height the vev sets.  Zero temperature: INSTANTON "
      "tunnelling, exp(-4 pi/alpha_W) per transition, alpha_W from READ m_W and "
-     "v; B/3 transitions.  Over the barrier: E_sph ~ 9 TeV (READ), ~3.2e3 x the "
-     "3 baryons' rest energy.  Thermal: unsuppressed above T_c, vev "
-     "approximately zero; below T_c down to T*, the READ broken-phase rate "
-     "with the vev finite.  Collider energies: CONTESTED.  It must emit N_n "
+     "v; B/3 transitions.  Over the barrier, the SPHALERON: E_sph ~ 9 TeV "
+     "(READ), ~3.2e3 x the 3 baryons' rest energy.  Thermal: unsuppressed above "
+     "T_c, vev approximately zero; below T_c down to T*, the READ broken-phase "
+     "rate with the vev finite.  Two-particle collisions: CONTESTED (the "
+     "prevalent semiclassical results find exponential suppression; Tye-Wong "
+     "dissent; CMS decides nothing).  It must emit N_n "
      "extra leptons (D28)",
      "OPEN", ("massform", "ANOMALY_ROUTE_PRICED"),
      "a READ prefactor (turns the exponent into a rate); a settlement of the "
-     "collider-energy dispute (Tye-Wong against Bezrukov et al. and Funakubo "
-     "et al.); a READ G_F (lifts alpha_W's NAMED-NOT-READ)"),
+     "collider-energy dispute (Tye-Wong against Bezrukov et al., Khoze-Milne "
+     "and Funakubo et al.: Bezrukov et al. and Khoze-Milne rest on conjectures "
+     "or assumptions they state as unproven, Funakubo et al. argue at leading "
+     "WKB order, and Tye-Wong state that \"both estimates involve assumptions "
+     "based on intuitions as well as approximations remaining to be fully "
+     "justified\"); a READ "
+     "G_F (lifts alpha_W's NAMED-NOT-READ)"),
+    ("S12", "SUPPLY",
+     "The pair route, EXCITATION's remainder: atomic mass forms as matter with "
+     "its antimatter, B and L conserved.  The carrier supplies at least the "
+     "pair floor Mc^2 + B mu_min c^2 (D28); B units of antibaryon number are "
+     "held apart; the Higgs, where it appears, is an intermediary, not the "
+     "source (D29).  Priced, not refused: no premise here disqualifies an "
+     "antimatter by-product",
+     "OPEN", ("massform", "PAIR_ROUTE_PRICED"),
+     "a way to hold the antibaryons apart (not computed here); H-BL or H-AME "
+     "failing (moves the floor); the Higgs field shown to supply energy (D29 "
+     "reversed)"),
     ("S5 (note)", "SUPPLY",
      "APPEND to S5's note: DOCKET 65 -- reconstruction from destination stock "
      "survives M's mechanism: no mass forms at the seat and the Higgs plays no "
@@ -1751,13 +2193,6 @@ NOT_OPENED = ("the Higgs share (C2 of S10)",
 
 
 # ================================================================ doc figures
-def _e(x, p):
-    """%.pe with the exponent written as the docstring writes it: 6.2913e18."""
-    return re.sub(r"e([+-])0*(\d)",
-                  lambda m: "e" + ("-" if m.group(1) == "-" else "") + m.group(2),
-                  "%.*e" % (p, x))
-
-
 def doc_figures():
     """[(label, the string the docstring prints)], each regenerated now from its
     computation.  The guard (doc_figure_guard) is two-sided."""
@@ -1776,7 +2211,9 @@ def doc_figures():
         ("coupling 2+1", "%.4f" % float(coupling_sum(Fraction(F_LIGHT["FLAG 2+1"])))),
         ("largest READ", "%.4f of the payload" % HIGGS_SHARE_LARGEST_READ),
         ("largest all", "(%.4f)" % HIGGS_SHARE_LARGEST_ALL),
-        ("READ with uncertainty", "reach %.4f" % HIGGS_SHARE_READ_WITH_UNCERTAINTY),
+        ("READ margin illustration", "reach %.4f" % HIGGS_SHARE_READ_MARGIN),
+        ("Ji estimate difference", "difference is %g MeV" % JI_ESTIMATE_DIFFERENCE_MEV),
+        ("payload kg", "own default of %g kg" % PAYLOAD_KG),
         ("T_CMB", "T_CMB = %.4f" % T_CMB),
         ("Mc^2", _e(rest_energy_j(), 4) + " J"),
         ("megatons", "%.0f megatons" % warpfolder.megatons(rest_energy_j())),
@@ -1792,6 +2229,7 @@ def doc_figures():
         ("B/(M/m_p)", "%.4f" % (c["B"] / warpfolder.baryons_in(PAYLOAD_KG))),
         ("pair floor", "%.4f Mc^2" % (pair_floor_j() / rest_energy_j())),
         ("mu_min", "%.4f MeV" % MU_MIN[0]),
+        ("mu_min nuclide", "(%d%s)" % (MU_MIN[2], MU_MIN[1])),
         ("G M/(R c^2)", _e(gravitational_binding_order(), 1)),
         ("1/alpha_W", "1/%.2f" % (1.0 / aw)),
         ("suppression", "10^%.2f" % log10_suppression()),
@@ -1802,6 +2240,8 @@ def doc_figures():
                                        - RS96_PRINTED_LOG10)),
         ("TW 1/30", "10^%.2f" % log10_suppression(1.0 / 30.0)),
         ("TW 1/29.7", "10^%.2f" % log10_suppression(1.0 / 29.7)),
+        ("TW gap", "%.2f decades off" % abs(log10_suppression(1.0 / TW_ALPHA_INV[1])
+                                             - TW_PRINTED_LOG10)),
         ("TW product", "%.2f TeV x %.2f is %.2f" % (TW_PREFACTOR_TEV, sum(TW_B_TERMS),
                                                     TW_PREFACTOR_TEV * sum(TW_B_TERMS))),
         ("2 m_W/alpha_W", "%.3f TeV" % esph_formula_tev(1.0)),
@@ -1826,15 +2266,49 @@ def doc_figures():
 def row_figures():
     """[(row id, the string the row prints)], regenerated now."""
     return [("S10", "%.3f of atomic mass" % HIGGS_SHARE_LARGEST_READ),
-            ("S10", "%.3f on all" % HIGGS_SHARE_LARGEST_ALL)]
+            ("S10", "%.3f on all rows" % HIGGS_SHARE_LARGEST_ALL),
+            ("S10", "reaches %.3f on the READ rows" % HIGGS_SHARE_READ_MARGIN)]
 
 
-#: Numerals the docstring prints that are neither regenerated nor held in a
-#: source: section and docket numbers, equation labels, and structural small
-#: integers.  Every entry is a literal, never a result.
-DOC_LITERALS = frozenset({
-    "3.11", "65", "63", "2024", "2018", "2020", "2009", "2013", "0.01", "10", "12", "11",
-    "56", "1976", "1984", "1990", "1967", "1978", "1961", "14", "1.6"})
+#: Numerals the docstring prints that are neither regenerated, pinned, quoted
+#: nor cited, and only those: the python version, DOCKET 63, two years (Fixsen
+#: 2009, 't Hooft 1976), the study label ETM 19, and the 16 of the formula
+#: exp(-16 pi^2/g^2).  Every entry is a literal, never a result
+#: (literals_that_are_results), and every entry is needed (unneeded_literals).
+DOC_LITERALS = frozenset({"3.11", "63", "2009", "1976", "19", "16"})
+
+
+def _figure_numerals(s):
+    """The numerals a regenerated figure string carries, with the '10^' of a
+    power written out of it (so 10^-160.95 carries 160.95, not 10)."""
+    return _numerals(re.sub(r"10\^", "", s))
+
+
+def unneeded_literals(literals=None, doc=None):
+    """[] iff every DOC_LITERALS entry is printed in the docstring (once the
+    regenerated figures are struck) and is not already allowed otherwise: an
+    allowance the docstring does not need is a hole the guard does not need."""
+    literals = DOC_LITERALS if literals is None else literals
+    doc = _norm(__doc__ if doc is None else doc)
+    struck = doc
+    for _lab, s in sorted(doc_figures(), key=lambda f: -len(f[1])):
+        struck = struck.replace(s, " ")
+    present = _numerals(struck)
+    other = _allowed_numerals(struck)
+    return sorted(l for l in literals
+                  if l not in present or l in other or (l.isdigit() and int(l) < 10))
+
+
+def literals_that_are_results(literals=None, figures=None):
+    """[] iff no DOC_LITERALS entry is a numeral of any regenerated figure (a
+    doc figure or a proposed-row figure): a literal may never stand in for a
+    computed result."""
+    literals = DOC_LITERALS if literals is None else literals
+    figures = (doc_figures() + row_figures()) if figures is None else figures
+    out = set()
+    for _lab, fs in figures:
+        out |= literals & _figure_numerals(fs)
+    return sorted(out)
 
 
 _NUM = re.compile(r"(?<![A-Za-z_\d.^])\d+(?:\.\d+)?(?:e-?\d+)?(?![A-Za-z_\d])")
@@ -1844,29 +2318,37 @@ def _numerals(text):
     return set(_NUM.findall(text))
 
 
-def _source_numerals():
+def _allowed_numerals(struck_doc):
+    """NARROWED.  The numerals a docstring may print without regenerating them:
+    each PIN's numeral (checked against its source and the value used); the
+    numerals inside the docstring's own double-quoted spans (each span is
+    checked verbatim against a held text by check_quotes); and the numerals of
+    the SOURCES LOCATORS (page, equation and arXiv citations), never of the
+    held texts themselves."""
     out = set()
-    for st, loc, t in SOURCES.values():
-        out |= _numerals(loc) | _numerals(t)
-        out |= set(re.findall(r"\d+\.\d+", loc))      # arXiv ids inside 'arXiv:NNNN.NNNNvK' 
     for _k, numeral, _v in PINS:
         out |= _numerals(numeral)
+    for q in _DQ.findall(struck_doc):
+        out |= _numerals(q)
+    for _st, loc, _t in SOURCES.values():
+        out |= _numerals(loc) | set(re.findall(r"\d+\.\d+", loc))
     return out
 
 
 def doc_figure_guard(doc=None, figures=None):
     """TWO-SIDED.  Every occurrence of every regenerated figure is struck from
     the docstring (so a duplicate goes stale only by leaving a numeral behind);
-    then every numeral left must be a source's, a PIN's, a small integer, or a
-    DOC_LITERALS entry.  Returns the offending numerals (empty = clean), and
-    the regenerated figures the docstring does not print at all."""
+    then every numeral left must be a PIN's, one inside a checked quotation, a
+    locator's, a small integer, or a DOC_LITERALS entry (_allowed_numerals).
+    Returns the offending numerals (empty = clean), and the regenerated
+    figures the docstring does not print at all."""
     doc = _norm(__doc__ if doc is None else doc)
     figures = doc_figures() if figures is None else figures
     missing = [(lab, s) for lab, s in figures if s not in doc]
     struck = doc
     for _lab, s in sorted(figures, key=lambda f: -len(f[1])):
         struck = struck.replace(s, " ")
-    allowed = _source_numerals() | DOC_LITERALS
+    allowed = _allowed_numerals(struck) | DOC_LITERALS
     stray = sorted(n for n in _numerals(struck)
                    if n not in allowed and not (n.isdigit() and int(n) < 10))
     return stray, missing
@@ -1970,7 +2452,8 @@ def scan_text():
 _BITS = re.compile(r"(\d+(?:\.\d+)?(?:e[+-]?\d+)?)\s+(?:erased\s+)?bits")
 
 
-def refusal_flags(text=None, readings=None, rows=None, contested=None):
+def refusal_flags(text=None, readings=None, rows=None, contested=None, survives=None,
+                  reasons=None):
     """{refusal number: (name, value)}.  Every value DERIVED, from the computed
     objects or a scan of `text`; True would mean the refusal is broken."""
     text = scan_text() if text is None else text
@@ -1978,6 +2461,8 @@ def refusal_flags(text=None, readings=None, rows=None, contested=None):
     rows = share_rows() if rows is None else rows
     t = _norm(text)
     contested = mechanism_contested() if contested is None else contested
+    survives = SURVIVES if survives is None else survives
+    reasons = READING_REASONS if reasons is None else reasons
     known_bits = (landauer_bits(), bekenstein_bits(), bekenstein_bits(R=0.875))
     bits = [float(b) for b in _BITS.findall(t)]
     return {
@@ -2004,17 +2489,20 @@ def refusal_flags(text=None, readings=None, rows=None, contested=None):
         8: ("COUNTS_HEAVY_QUARK_COUPLING_AS_HIGGS_MADE_MASS",
             any(not r[1].startswith("CONTESTED") for r in rows
                 if "coupling" in r[0] or "sigma_c" in r[0])),
-        9: ("DISMISSES_THE_ANOMALY_ROUTE",
-            not ANOMALY_ROUTE_PRICED or not any("anomaly" in n for n, _t in SURVIVES)),
+        9: ("DISMISSES_A_PRICED_ROUTE",
+            not ANOMALY_ROUTE_PRICED or not PAIR_ROUTE_PRICED
+            or not any("anomaly" in n for n, _t in survives)
+            or not any("pair" in n for n, _t in survives)),
         10: ("HOLDS_A_FIGURE_WITHOUT_ITS_SOURCE_TEXT", bool(check_quotes())),
         11: ("USES_THE_RETIRED_STATUS_WORD",
              bool(re.search(r"\bDECLARED\b", t))
              or any(s == "DECLARED" for s, _l, _x in SOURCES.values())
              or any(r[3] == "DECLARED" for r in PROPOSED_ROWS)),
-        12: ("COUNTS_ONE_OBJECTION_TWICE",
+        12: ("COUNTS_ONE_OBJECTION_TWICE_OR_ONE_THAT_DOES_NOT_ANSWER",
              bool(re.search(r"(?i)(four (independent )?counts|each (count )?alone "
                             r"(is )?sufficient|independent counts|each alone "
-                            r"suffices)", t))),
+                            r"suffices|answers (all|every) (four |five )?readings?)", t))
+             or bool(reading_reason_table_complete(reasons=reasons))),
     }
 
 
@@ -2099,27 +2587,35 @@ def report():
        "central, not a bound")
     _p("largest central reading, all rows", "%.4f" % HIGGS_SHARE_LARGEST_ALL,
        "central, not a bound")
-    _p("READ rows with stated uncertainty at largest", "%.4f"
-       % HIGGS_SHARE_READ_WITH_UNCERTAINTY, "illustration")
-    _p("C2 HIGGS_SUPPLIES_MOST_ATOMIC_MASS", HIGGS_SUPPLIES_MOST_ATOMIC_MASS, "every reading")
+    _p("READ rows, margin illustration (not a bound)", "%.4f"
+       % HIGGS_SHARE_READ_MARGIN, "FLAG +%d sigma (file's choice)" % MARGIN_SIGMAS)
+    print("        Ji row + %g MeV omitted error + %g MeV difference of his two"
+          % (JI_ROUNDING_MEV, JI_ESTIMATE_DIFFERENCE_MEV))
+    print("        estimates, which his largest uncertainty 'could be larger than'")
+    _p("C2 HIGGS_SUPPLIES_MOST_ATOMIC_MASS", HIGGS_SUPPLIES_MOST_ATOMIC_MASS,
+       "SWITCH-ON, DISPLACEMENT, STOCK")
     print()
     print("=" * 79)
-    print("M65-3  ENERGY -- THE SOURCE M NAMES, AND THE CARRIER")
+    print("M65-3  ENERGY -- THE ONLY CANDIDATE SOURCE IN M'S SENTENCE, AND THE CARRIER")
     print("=" * 79)
     _p("higgs.T_scalar T_00 = phi_t^2/2 + |grad|^2/2 + V", T00_DECOMPOSES,
-       "THEOREM, exact grid")
+       "THEOREM, exact grid, real scalar")
+    print("      H-REAL: doublet and gauge terms non-negative -- claimed, not computed")
     _p("V(phi) - V(v) = rho_EW (eps(2-eps))^2", FIELD_ENERGY_IS_A_SQUARE,
        "asked of excite")
     _p("rho_EW (excite.RHO_EW)", "%.4e J/m^3" % excite.RHO_EW, "inherits NAMED-NOT-READ")
     _p("the field releases energy about v", HIGGS_FIELD_RELEASES_ENERGY_ABOUT_V,
-       "THEOREM on H-TREE-V")
+       "THEOREM on H-TREE-V, H-REAL")
     _p("metastability preferred (1307.3536)", METASTABILITY_PREFERRED, "READ")
     _p("the vacuum's fate established", VACUUM_FATE_ESTABLISHED, "READ")
     _p("  and it turns on the top mass", METASTABILITY_TURNS_ON_TOP_MASS, "READ")
     _p("decay: different particle masses inside", DECAY_CHANGES_PARTICLE_MASSES, "READ")
     _p("decay: destroys everything in its way", DECAY_DESTROYS_WHAT_IT_MEETS, "READ")
+    _p("  (Degrassi's earlier 2 sigma holds for M_h <", "%g GeV" % DG_MH_CONDITION_GEV, "READ")
     _p("vacuum decay forms atomic mass at the seat",
-       VACUUM_DECAY_FORMS_ATOMIC_MASS_AT_THE_SEAT)
+       VACUUM_DECAY_FORMS_ATOMIC_MASS_AT_THE_SEAT, "INFERENCE from READ text")
+    _p("C4 stable case / metastable case",
+       "%s / %s" % (field_supplies_mass_energy(False), field_supplies_mass_energy(True)))
     _p("C4 HIGGS_FIELD_SUPPLIES_THE_MASS_ENERGY", HIGGS_FIELD_SUPPLIES_THE_MASS_ENERGY,
        "CREATION")
     E = rest_energy_j()
@@ -2130,7 +2626,10 @@ def report():
     _p("T_CMB (permute.T_CMB)", "%.4f K" % T_CMB, "CITED")
     _p("k_B T ln 2 (nopath.landauer_energy)", "%.6e J" % nopath.landauer_energy(1.0, T_CMB))
     _p("erased bits whose minimum heat = Mc^2", "%.6e" % landauer_bits(), "inherits CITED")
-    _p("Bekenstein, E = Mc^2, R = 1 m (H-R)", "%.6e bits" % bekenstein_bits())
+    _p("Bekenstein, E = Mc^2, R = 1 m (H-R)", "%.6e bits" % bekenstein_bits(),
+       "bound, in bit units")
+    print("      not read as an information capacity: 'folklore rather than "
+          "established fact' (HW-folk)")
     _p("ratio (computed from the two counts)", "%.4f" % (bekenstein_bits() / landauer_bits()))
     _p("ratio 2 pi R k_B T/(hbar c), no M", "%.4f" % bek_over_landauer_closed())
     _p("break-even R = hbar c/(2 pi k_B T)", "%.6e m" % break_even_radius_m())
@@ -2147,7 +2646,7 @@ def report():
     _p("(B, L) of the anomaly vertex, N_F = %d" % N_F,
        str(tuple(str(x) for x in THOOFT_DELTA_B_L)), "READ rule reproduced")
     _p("C3 HIGGS_COUPLING_CARRIES_B_OR_L", HIGGS_COUPLING_CARRIES_B_OR_L,
-       "EXCITATION, CREATION")
+       "DISPLACEMENT, QUANTA, CREATION")
     _p("B - L of the payload = N_n", "%.6e" % c["B_minus_L"])
     lb = lightest_baryon()
     _p("lightest baryon in the capture", "%s %.6f MeV" % lb, "READ")
@@ -2158,6 +2657,8 @@ def report():
     _p("pair floor / Mc^2", "%.6f" % (pair_floor_j() / E), "THEOREM")
     _p("mirror antipayload / Mc^2 (CPT)", "2", "THEOREM")
     _p("antibaryon number to be held apart", "%.6e" % c["B"])
+    _p("THE PAIR ROUTE (EXCITATION's remainder) priced", PAIR_ROUTE_PRICED,
+       "Higgs an intermediary")
     aw, g = alpha_w()
     _p("g = 2 m_W / v", "%.6f" % g, "inherits NAMED-NOT-READ")
     _p("alpha_W = g^2/4pi", "%.6f = 1/%.4f" % (aw, 1 / aw))
@@ -2193,15 +2694,24 @@ def report():
     _p("freeze-out T*", "%.1f GeV = %.4e K" % (T_FREEZE_GEV, t_kelvin(T_FREEZE_GEV)), "READ")
     _p("transitions run below T_c, vev finite", SPHALERONS_RUN_WHERE_VEV_IS_FINITE,
        "READ T* < T_c")
-    for T in (T_FREEZE_GEV, 140.0, 155.0, 159.0):
+    _p("fit bounded by its own paper's T_c (DRT-Tc)", "%.1f GeV" % BROKEN_FIT_HIGH_GEV, "READ")
+    for T in (T_FREEZE_GEV, 140.0, 155.0, BROKEN_FIT_HIGH_GEV):
         ln = broken_phase_ln_rate(T)
+        note = "READ fit" if 140.0 <= T <= 155.0 else "READ fit, outside 140-155 measured"
         _p("  broken phase ln(Gamma/T^4) at %.1f GeV" % T, "%.2f (%.2e)" % (ln, math.exp(ln)),
-           "READ fit")
-    print("      collider energies: %s --" % COLLIDER_RATE_STATUS)
-    for key in ("TW-claim", "BLRRT", "FFS-rebut", "CMS"):
+           note)
+    print("      two-particle collisions near and above E_sph: %s --" % COLLIDER_RATE_STATUS)
+    print("        (not the instanton's T = 0 factor; not the thermal sphaleron rate)")
+    for role, key in (("prevalent", "BLRRT"), ("prevalent", "BLRRT-PLB"),
+                      ("  on", "BLRRT-conj"), ("prevalent", "KM-2020"),
+                      ("dissent", "TW-claim"), ("dissent", "TW-2017"),
+                      ("rebuttal", "FFS-rebut"), ("experiment", "CMS")):
         st, loc, _t = SOURCES[key]
-        print("        %-10s %-9s %s" % (key, st, loc[:60]))
-    print("      NOT RESOLVED; no refusal rests on it.")
+        print("        %-10s %-10s %-9s %s" % (role, key, st, loc[:52]))
+    print("      CMS: PEF < %g at %g TeV, %g fb^-1 -- an upper limit; it decides nothing"
+          % (CMS_PEF_BOUND, CMS_SQRT_S_TEV, CMS_LUMI_FB))
+    print("      the prevalent results rest on unproven conjectures, not theorems;")
+    print("      the rebuttal is not conceded.  NOT RESOLVED; no refusal rests on it.")
     print()
     print("=" * 79)
     print("M65-5  VERDICT, READING BY READING")
@@ -2213,12 +2723,15 @@ def report():
     print()
     for name, what, cids in READINGS:
         v = READING_VERDICTS[name]
-        print("      %-11s %-9s on %-12s (answered by %s)"
-              % (name, v[0], ", ".join(v[1]), ", ".join(cids)))
+        print("      %-12s %s on %s (answered by %s)"
+              % (name, reading_label(name), ", ".join(v[1]), ", ".join(cids)))
         print("                  %s" % what)
+        for cid in [c[0] for c in COUNTS_ON_THE_MECHANISM]:
+            yes, why = READING_REASONS[(name, cid)]
+            print("                  %s %s: %s" % (cid, "answers" if yes else "does not", why))
+        print("                  remainder: %s" % READING_REMAINDERS[name])
     print()
-    print("      THE MECHANISM AS STATED: %s on %s"
-          % (MECHANISM_VERDICT[0], ", ".join(MECHANISM_VERDICT[1])))
+    print("      THE MECHANISM AS STATED: %s" % mechanism_label())
     print("      THE CONSIDERATION:       %s" % CONSIDERATION_VERDICT)
     print()
     print("      WHAT SURVIVES")
@@ -2454,6 +2967,15 @@ def selftest():
     rows = share_rows()
     chk("every share row inherits the counts' NAMED-NOT-READ",
         all(r[4] == SHARE_INHERITS for r in rows), True)
+    chk("  and SHARE_INHERITS says so: NAMED-NOT-READ, gravity.U_KG, stock.ATOMIC_MASS",
+        [w for w in ("NAMED-NOT-READ", "gravity.U_KG", "stock.ATOMIC_MASS")
+         if w not in SHARE_INHERITS], [])
+    _buf = io.StringIO()
+    with contextlib.redirect_stdout(_buf):
+        report()
+    chk("  and the report prints it in full",
+        "every row inherits NAMED-NOT-READ (u = gravity.U_KG, stock.ATOMIC_MASS)"
+        in _buf.getvalue(), True)
     chk("the heavy-quark rows (couplings, sigma_c) are labelled CONTESTED as mass",
         all(r[1] == "CONTESTED as mass" for r in rows
             if "coupling" in r[0] or "sigma_c" in r[0]), True)
@@ -2464,8 +2986,22 @@ def selftest():
         max((r for r in rows[1:] if not r[1].startswith("CONTESTED")),
             key=lambda r: r[2])[0], "nucleons: Ji quark mass term, m_s -> 0")
     chk("largest READ-only central reading is under one half", HIGGS_SHARE_LARGEST_READ < 0.5, True)
-    chk("  and so with the stated uncertainties added at their largest",
-        HIGGS_SHARE_READ_WITH_UNCERTAINTY < 0.5, True)
+    chk("  and so is the margin illustration (FLAG +3 sigma; Ji +10 +50 MeV)",
+        HIGGS_SHARE_READ_MARGIN < 0.5, True)
+    chk("  Ji's two-estimate difference is computed from the READ rows: 50 MeV",
+        JI_ESTIMATE_DIFFERENCE_MEV, 50.0)
+    chk("  and his 'largest uncertainty' sentence is held (p.6)",
+        _in("Ji-table", "The largest uncertainty is from the matrix element <P|m_s ss|P>, "
+                        "which could be larger than the difference of the two "
+                        "estimates shown"), True)
+    chk("  the margin figure is the Ji m_s -> 0 row + 10 + 50 MeV",
+        round(HIGGS_SHARE_READ_MARGIN, 6),
+        round(rows[0][2] + (160.0 + 10.0 + 50.0) / M_N_MEV
+              * payload_masses()["nucleon rest"] / PAYLOAD_KG, 6))
+    chk("  and the docstring calls it an illustration, not a bound, with 3 sigma "
+        "the file's choice",
+        ("AN ILLUSTRATION OF MARGIN, not a bound" in _norm(__doc__),
+         "3 sigma is this file's choice" in _norm(__doc__)), (True, True))
     chk("largest central reading of all is under one half", HIGGS_SHARE_LARGEST_ALL < 0.5, True)
     chk("C2 HIGGS_SUPPLIES_MOST_ATOMIC_MASS", HIGGS_SUPPLIES_MOST_ATOMIC_MASS, False)
     chk("C2 does NOT rest on a CONTESTED figure alone", C2_CONTESTED_ONLY, False)
@@ -2479,6 +3015,65 @@ def selftest():
         T00_DECOMPOSES, True)
     chk("CONTROL the grid test fires on a T_00 missing the gradient term",
         t00_decomposes(tscalar=lambda d, V: [[d[0] ** 2 / 2 + V]]), False)
+    _g = inspect.signature(t00_decomposes).parameters["grid"].default
+    chk("the T_00 grid has at least 3 distinct points per axis (5 as claimed)",
+        (len(set(_g)) >= T00_GRID_MIN_POINTS, len(set(_g))), (True, 5))
+    try:
+        t00_decomposes(grid=(0, 1))
+        _refused = False
+    except ValueError:
+        _refused = True
+    chk("CONTROL a 2-point grid (cannot settle degree 2) is refused", _refused, True)
+    chk("H-LINEAR is named in section 6, in C2's status and in S10",
+        ("H-LINEAR" in _doc_section(6),
+         "H-LINEAR" in [c for c in COUNTS_ON_THE_MECHANISM if c[0] == "C2"][0][3],
+         "H-LINEAR" in [r for r in PROPOSED_ROWS if r[0] == "S10"][0][2]), (True, True, True))
+    chk("DISPLACEMENT and QUANTA print as refused as NET formation, remainder priced",
+        [reading_label(r) for r in ("DISPLACEMENT", "QUANTA")],
+        ["REFUSED as net formation; remainder the pair route, PRICED"] * 2)
+    REMAINDER_FORMS_MASS["DISPLACEMENT"] = False
+    try:
+        bare = reading_label("DISPLACEMENT")
+    finally:
+        REMAINDER_FORMS_MASS["DISPLACEMENT"] = PAIR_ROUTE_PRICED
+    chk("  and the mechanism line names them; a control without a priced remainder "
+        "prints bare REFUSED", ("as NET formation only" in mechanism_label(), bare),
+        (True, "REFUSED"))
+    chk("Ji's two-estimate difference is DERIVED from the READ rows (not typed)",
+        JI_ESTIMATE_DIFFERENCE_MEV == (JI_QUARK_MASS_MEV["m_s -> 0"]
+                                       - JI_QUARK_MASS_MEV["m_s -> infinity"])
+        and bool(re.search(r"(?m)^JI_ESTIMATE_DIFFERENCE_MEV = \(JI_QUARK_MASS_MEV",
+                           open(__file__, encoding="utf-8").read())), True)
+    chk("PAIR_ROUTE_PRICED is DERIVED by pair_route_priced() (not typed)",
+        PAIR_ROUTE_PRICED == pair_route_priced()
+        and bool(re.search(r"(?m)^PAIR_ROUTE_PRICED = pair_route_priced\(\)",
+                           open(__file__, encoding="utf-8").read())), True)
+    chk("the dissent's own admission is held in TW-2017, and S11 states the caveats "
+        "on both sides",
+        ("both estimates involve assumptions" in SOURCES["TW-2017"][2],
+         "Funakubo et al. argue at leading" in [r for r in PROPOSED_ROWS if r[0] == "S11"][0][5],
+         "whose results rest on unproven" in [r for r in PROPOSED_ROWS if r[0] == "S11"][0][5]),
+        (True, True, False))
+    chk("H-REAL is named in section 6, in C4's status and in D29",
+        ("H-REAL" in _doc_section(6),
+         "H-REAL" in [c for c in COUNTS_ON_THE_MECHANISM if c[0] == "C4"][0][3],
+         "H-REAL" in [r for r in PROPOSED_ROWS if r[0] == "D29"][0][2]), (True, True, True))
+    chk("the decay case is labelled an INFERENCE from READ text (C4 status, D29)",
+        ("inference from READ text" in [c for c in COUNTS_ON_THE_MECHANISM
+                                        if c[0] == "C4"][0][3],
+         "INFERENCE from READ text" in [r for r in PROPOSED_ROWS if r[0] == "D29"][0][2]),
+        (True, True))
+    chk("metastability is stated at the central measured masses; Degrassi's "
+        "condition kept",
+        ("at the central measured masses" in _norm(__doc__),
+         "for M_h < 126 GeV" in _norm(__doc__), _in("DG-2012", "for M_h < 126 GeV")),
+        (True, True, True))
+    chk("H-TREE-V says only that v stays a local minimum (no 'whole of what changes')",
+        ("v stays a local minimum" in _norm(_doc_section(6)),
+         "the whole of what changes" in _norm(__doc__)), (True, False))
+    chk("M's sentence is never said to NAME the source",
+        [p_ for p_ in ("source M names", "M'S SENTENCE NAMES", "M's sentence names the")
+         if p_ in __doc__ or p_ in scan_text()], [])
     chk("V(phi) - V(v) IS (eps(2-eps))^2 in rho_EW (asked of excite)",
         FIELD_ENERGY_IS_A_SQUARE, True)
     chk("  zero exactly at eps = 0 and 2 (|phi| = v), positive elsewhere sampled",
@@ -2494,6 +3089,14 @@ def selftest():
     chk("C4 HIGGS_FIELD_SUPPLIES_THE_MASS_ENERGY", HIGGS_FIELD_SUPPLIES_THE_MASS_ENERGY, False)
     chk("C4 is the same whether the vacuum is stable or metastable",
         (field_supplies_mass_energy(False), field_supplies_mass_energy(True)), (False, False))
+    chk("C4 IS the combination of the two cases",
+        HIGGS_FIELD_SUPPLIES_THE_MASS_ENERGY,
+        field_supplies_mass_energy(True) or field_supplies_mass_energy(False))
+    chk("  and is assigned from c4_combined() in this source",
+        bool(re.search(r"^HIGGS_FIELD_SUPPLIES_THE_MASS_ENERGY = c4_combined\(\)$",
+                       inspect.getsource(sys.modules[__name__]), re.M)), True)
+    chk("CONTROL the combination flips if decay formed atomic mass (metastable case "
+        "reaches it)", c4_combined(decay_forms=True), True)
     chk("CONTROL were decay to form atomic mass, C4 would flip in the metastable case only",
         (field_supplies_mass_energy(False, decay_forms=True),
          field_supplies_mass_energy(True, decay_forms=True)), (False, True))
@@ -2543,8 +3146,10 @@ def selftest():
            alpha_w(M_W_GEV * 1.01)[0] / aw, 1.0201, 1e-12)
     chk("Tye-Wong: alpha_W = 1/29.7 gives 10^-162.09",
         round(log10_suppression(1 / 29.7), 2), -162.09)
-    chk("  and 1/30 gives 10^-163.73 -- the p.2 pairing is 1.6 decades off",
+    chk("  and 1/30 gives 10^-163.73",
         round(log10_suppression(1 / 30.0), 2), -163.73)
+    chk("  so the p.2 pairing (printed 10^-162) is 1.73 decades off",
+        round(abs(log10_suppression(1 / TW_ALPHA_INV[1]) - TW_PRINTED_LOG10), 2), 1.73)
     chk("RS96 eq. (2.8): 1/29 gives 10^-158.27, printed 10^-170",
         (round(log10_suppression(1 / RS96_ALPHA_INV), 2), RS96_PRINTED_LOG10),
         (-158.27, -170.0))
@@ -2581,29 +3186,92 @@ def selftest():
     except ValueError:
         refused = True
     chk("CONTROL the fit refuses a temperature outside its stated range", refused, True)
+    try:
+        broken_phase_ln_rate(159.3)
+        refused_hi = False
+    except ValueError:
+        refused_hi = True
+    chk("CONTROL the fit refuses 159.3 GeV: bounded by its own T_c, 159 GeV",
+        (refused_hi, BROKEN_FIT_HIGH_GEV), (True, 159.0))
+    chk("  and 159 GeV lies outside the measured 140-155 GeV (held, p.3)",
+        (not (140.0 <= BROKEN_FIT_HIGH_GEV <= 155.0),
+         _in("DRT-Tc", "In the interval 140 <~ T <~ 155 GeV")), (True, True))
     chk("collider rate CONTESTED", COLLIDER_RATE_STATUS, "CONTESTED")
     chk("the Tye-Wong claim is held as CONTESTED", SOURCES["TW-claim"][0], "CONTESTED")
     chk("the anomaly route is priced (every figure finite)", ANOMALY_ROUTE_PRICED, True)
+    chk("the pair route is priced, not refused; the Higgs is not its source",
+        (PAIR_ROUTE_PRICED, PAIR_ROUTE_REFUSED, HIGGS_FIELD_SUPPLIES_THE_MASS_ENERGY),
+        (True, False, False))
+    chk("  and both routes are in what survives",
+        [n for n, _t in SURVIVES], ["reconstruction from destination stock",
+                                    "the pair route", "the anomaly route"])
+    chk("the collider balance is held as the sources give it (statuses)",
+        [(k, SOURCES[k][0]) for k in ("BLRRT", "BLRRT-PLB", "BLRRT-conj", "KM-2020",
+                                      "TW-claim", "TW-2017", "FFS-rebut", "CMS")],
+        [("BLRRT", "READ"), ("BLRRT-PLB", "READ"), ("BLRRT-conj", "READ"),
+         ("KM-2020", "READ"), ("TW-claim", "CONTESTED"), ("TW-2017", "CONTESTED"),
+         ("FFS-rebut", "READ"), ("CMS", "READ")])
+    chk("  the rebuttal is not conceded: TW-2017 cites 1612.05431 and keeps the claim",
+        (_in("TW-2017", "arXiv:1612.05431"),
+         _in("TW-2017", "we claim that multi-sphaleron processes can drastically "
+                        "change the picture")), (True, True))
+    chk("  the prevalent results are held as resting on conjecture, not theorem",
+        (_in("BLRRT-conj", "although not proven rigorously"),
+         _in("KM-2020", "there is no rigorous proof of exponentiation"),
+         "not theorems" in _norm(__doc__)), (True, True, True))
+    _coll = _norm(__doc__)[_norm(__doc__).index("AT COLLIDER ENERGIES"):]
+    _coll = _coll[:_coll.index("NOT RESOLVED HERE")]
+    chk("  instanton and sphaleron kept apart: the collider paragraph disowns both "
+        "the T = 0 factor and the thermal rate",
+        "not the instanton's T = 0 factor and not the thermal sphaleron rate" in _coll, True)
+    chk("  and S11 and SURVIVES name INSTANTON (T = 0) and SPHALERON separately",
+        [("INSTANTON" in t and "SPHALERON" in t)
+         for t in ([r[2] for r in PROPOSED_ROWS if r[0] == "S11"]
+                   + [t for n, t in SURVIVES if n == "the anomaly route"])], [True, True])
+    chk("the Bekenstein bound is held with Hayden-Wang's caution, not as a capacity",
+        (_in("HW-folk", "this interpretation remains folklore rather than established fact"),
+         "does NOT read the figure as the most information such a body can hold"
+         in _norm(__doc__)), (True, True))
 
     # ------------------------------------------------------------ M65-5
     vals = mechanism_values()
     cont = mechanism_contested()
     chk("the counts' values", vals, {"C1": False, "C2": False, "C3": False, "C4": False})
     chk("no count on the mechanism is contested-only", [c for c, v in cont.items() if v], [])
+    ALL5 = ["CREATION", "DISPLACEMENT", "QUANTA", "STOCK", "SWITCH-ON"]
     chk("READING VERDICTS",
         {r: v for r, v in READING_VERDICTS.items()},
-        {"SWITCH-ON": ("REFUSED", ["C1", "C2"]), "EXCITATION": ("REFUSED", ["C2", "C3"]),
-         "CREATION": ("REFUSED", ["C2", "C3", "C4"]), "STOCK": ("REFUSED", ["C2"])})
-    chk("MECHANISM VERDICT", MECHANISM_VERDICT,
-        ("REFUSED", ["CREATION", "EXCITATION", "STOCK", "SWITCH-ON"]))
-    chk("C2 answers every reading", all("C2" in cids for _n, _w, cids in READINGS), True)
+        {"SWITCH-ON": ("REFUSED", ["C1", "C2"]), "DISPLACEMENT": ("REFUSED", ["C2", "C3"]),
+         "QUANTA": ("REFUSED", ["C3"]), "CREATION": ("REFUSED", ["C3", "C4"]),
+         "STOCK": ("REFUSED", ["C2"])})
+    chk("MECHANISM VERDICT", MECHANISM_VERDICT, ("REFUSED", ALL5))
+    chk("every count on every reading carries a stated reason that agrees with the "
+        "listing", reading_reason_table_complete(), [])
+    chk("  C2 is NOT set against CREATION or QUANTA, and says why",
+        [(r, READING_REASONS[(r, "C2")][0]) for r in ("CREATION", "QUANTA")],
+        [("CREATION", False), ("QUANTA", False)])
+    chk("CONTROL a count listed with no stated reason is caught",
+        len(reading_reason_table_complete(reasons={k: v for k, v in READING_REASONS.items()
+                                                   if k != ("STOCK", "C2")})) > 0, True)
+    chk("CONTROL C2 listed against CREATION without an argument for it is caught",
+        len(reading_reason_table_complete(
+            readings=tuple((n, w, c + ("C2",)) if n == "CREATION" else (n, w, c)
+                           for n, w, c in READINGS))) > 0, True)
+    chk("every reading states its remainder; EXCITATION's is the pair route",
+        (sorted(READING_REMAINDERS) == ALL5,
+         all("pair route" in READING_REMAINDERS[r] for r in ("DISPLACEMENT", "QUANTA"))),
+        (True, True))
     chk("CONTROL every count reversed -> the mechanism STANDS on every reading",
         derive_mechanism(derive_readings({k: True for k in vals}, cont)),
-        ("STANDS ON A READING", ["CREATION", "EXCITATION", "STOCK", "SWITCH-ON"]))
+        ("STANDS ON A READING", ALL5))
     chk("CONTROL C2 alone reversed -> the STOCK reading stands, the others refused",
         {r: v[0] for r, v in derive_readings(dict(vals, C2=True), cont).items()},
-        {"SWITCH-ON": "REFUSED", "EXCITATION": "REFUSED", "CREATION": "REFUSED",
-         "STOCK": "STANDS"})
+        {"SWITCH-ON": "REFUSED", "DISPLACEMENT": "REFUSED", "QUANTA": "REFUSED",
+         "CREATION": "REFUSED", "STOCK": "STANDS"})
+    chk("CONTROL C3 alone reversed -> the QUANTA reading stands, the others refused",
+        {r: v[0] for r, v in derive_readings(dict(vals, C3=True), cont).items()},
+        {"SWITCH-ON": "REFUSED", "DISPLACEMENT": "REFUSED", "QUANTA": "STANDS",
+         "CREATION": "REFUSED", "STOCK": "REFUSED"})
     chk("CONTROL C1 alone reversed -> SWITCH-ON still refused, on C2",
         derive_readings(dict(vals, C1=True), cont)["SWITCH-ON"], ("REFUSED", ["C2"]))
     chk("CONTROL C2 contested-only -> STOCK is OPEN, not REFUSED",
@@ -2669,6 +3337,22 @@ def selftest():
         doc_figure_guard(doc=ndoc.replace("2e-22 s", "3e-22 s"))[0] != [], True)
     chk("CONTROL a stale exponent (10^-160.95 -> 10^-161.95) is caught",
         doc_figure_guard(doc=ndoc.replace("10^-160.95", "10^-161.95", 1))[0] != [], True)
+    chk("CONTROL a stale payload (70 kg -> 7 kg) is caught",
+        doc_figure_guard(doc=ndoc.replace("own default of 70 kg", "own default of 7 kg"))
+        != ([], []), True)
+    chk("CONTROL a stale Tye-Wong gap (1.73 -> 1.6 decades) is caught",
+        doc_figure_guard(doc=ndoc.replace("1.73 decades off", "1.6 decades off")) != ([], []),
+        True)
+    chk("CONTROL a numeral held only in a source's TEXT is no longer allowed "
+        "(planted 'at 99.8 %')",
+        "99.8" in doc_figure_guard(doc=ndoc + " at 99.8 %")[0], True)
+    chk("no DOC_LITERALS entry is a computed result", literals_that_are_results(), [])
+    chk("every DOC_LITERALS entry is needed (printed, and allowed no other way)",
+        unneeded_literals(), [])
+    chk("CONTROL an unneeded literal ('1.6', printed nowhere) is caught",
+        unneeded_literals(DOC_LITERALS | {"1.6"}), ["1.6"])
+    chk("CONTROL a literal that is a result ('1.73') is caught",
+        literals_that_are_results(DOC_LITERALS | {"1.73"}), ["1.73"])
 
     # ----------------------------------------------- refusals, derived
     chk("refusals enumerated in the docstring match the flags",
@@ -2690,6 +3374,14 @@ def selftest():
     chk("CONTROL refusal 3 fires if a reading were refused on a contested count",
         refusal_flags(text, readings={"X": ("REFUSED", ["C2"])},
                       contested={"C2": True})[3][1], True)
+    chk("CONTROL refusal 9 fires if the pair route were dropped from what survives",
+        refusal_flags(text, survives=tuple(x for x in SURVIVES
+                                           if x[0] != "the pair route"))[9][1], True)
+    chk("CONTROL refusal 12 fires on 'C2 answers every reading'",
+        refusal_flags(text + " C2 answers every reading")[12][1], True)
+    chk("CONTROL refusal 12 fires on a reading-reason table with a hole",
+        refusal_flags(text, reasons={k: v for k, v in READING_REASONS.items()
+                                     if k != ("QUANTA", "C3")})[12][1], True)
     chk("CONTROL refusal 8 fires on a coupling row relabelled READ",
         refusal_flags(text, rows=[(r[0], "READ", r[2], r[3], r[4]) if "coupling" in r[0]
                                   else r for r in share_rows()])[8][1], True)
