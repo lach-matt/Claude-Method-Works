@@ -2871,8 +2871,9 @@ PROPOSED_ROWS = (
      "rho_EW eps^2(2-eps)^2 per unit volume, as |phi| relaxes to the elements' "
      "own lowering eps0 (excite.holding_terms); by energy conservation, the source removed "
      "without doing work (H-RELEASE), that pays for the regained rest energy "
-     "and the rest is radiated, checked exactly over Fraction.  Within D20's "
-     "model a static hold is stable only below eps = %.4f (excite.stability_edge)"
+     "and the rest is radiated, checked exactly over Fraction.  Within excite's "
+     "section-3 model (source rest mass proportional to phi) a static hold is "
+     "stable only below eps = %.4f (excite.stability_edge)"
      % excite.stability_edge(),
      "OPEN", ("massform", "HELD_SEAT_ROUTE_PRICED"),
      "a way to prepare and release the source at the seat (not computed here); "
@@ -2880,7 +2881,9 @@ PROPOSED_ROWS = (
      "finite response of the nucleon mass to |phi| (OPEN, like the finite share "
      "of S10 (open)), which sets what the nucleons regain up to the stability "
      "edge; H-UNSOURCED-SEAT holding in the case at hand, which closes the "
-     "route; a source outside D20's model"),
+     "route; a source outside D20's model; a source whose mass rises convexly "
+     "with |phi| (outside excite's section-3 model; not computed), which could "
+     "extend the route below the stability edge"),
     ("S10 (open)", "SUPPLY",
      "OPEN ITEM, a candidate question for a future docket: the FINITE Higgs share "
      "of atomic mass -- the nucleon mass with phi at v, less the nucleon mass "
@@ -3411,6 +3414,9 @@ STALE_WORDING = (
      r"(?i)2/eps", r"(?i)small[- ]eps|limit|-> ?2/eps|overstat|2/eps overstates",
      "Holding any eps costs 2/eps joules of source per joule of field "
      "(excite.holding_ratio)."),
+    ("R11 no sentence ties stability to bare D20's model",
+     r"(?i)D20's model[^.]*\bstab|\bstab[^.]*D20's model", r"section-3",
+     "Within D20's model a static hold is stable only on 0.5774 v < |phi| < v."),
     ("R8 the report's holding-ratio label never gives 2/eps as the value",
      r"(?i)J of source per J of field \(2/eps\)", None,
      "  J of source per J of field (2/eps)    197.0050"),
@@ -3950,6 +3956,17 @@ REQUIRED_WORDING = (
     ("R7-5 SURVIVES: the Higgs an intermediary, not the source (C4)",
      "survives the held-seat release route", "The Higgs is an intermediary, holding "
      "what the source stored, not the source (C4)", "The Higgs is the source (C4)"),
+    ("R11 H_UNSOURCED_SEAT_STATUS: the stable range within excite's section-3 model",
+     "report", "a stable hold only on " + STABLE_RANGE + " within excite's section-3 "
+     "model (source rest mass proportional to phi)", "a stable hold only on "
+     + STABLE_RANGE + " (D20)"),
+    ("R11 S13 claim: the stability edge within excite's section-3 model", "S13 claim",
+     "Within excite's section-3 model (source rest mass proportional to phi) a static "
+     "hold is stable only below", "Within D20's model a static hold is stable only "
+     "below"),
+    ("R11 S13 moves: a convex-mass source could extend the route", "S13 moves",
+     "a source whose mass rises convexly with |phi| (outside excite's section-3 model; "
+     "not computed)", ""),
     ("R7-5 COUNTS C1 owner: on TEMPLATE, H-UNSOURCED-SEAT", "count C1 owner",
      "on TEMPLATE, H-UNSOURCED-SEAT", ""),
     ("R7-3/5 report: H-UNSOURCED-SEAT's sub-line, an equilibrium, stable on a range",
