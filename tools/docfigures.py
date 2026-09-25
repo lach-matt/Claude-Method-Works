@@ -110,6 +110,16 @@ def _is_finding(site):
     return bool(site.get("census_class")) or site.get("verdict") in _FINDING_VERDICTS
 
 
+def _nested_isotopes():
+    """{Z: isotopes block} from the element files the site ships, as the page reads them."""
+    out = {}
+    for Z in range(1, 121):
+        t = (ROOT / "public" / "data" / "elements" / ("%d.js" % Z)).read_text(encoding="utf-8")
+        body = t[t.index("] = ") + 4:t.rstrip().rindex("}") + 1]
+        out[Z] = json.loads(body).get("isotopes") or {"rows": []}
+    return out
+
+
 def _site_index():
     """public/data/index.js, the generated site index, read as data: the file is
     `window.__mi = ...; window.__mi.index = {...};` and the object is JSON."""
@@ -331,6 +341,9 @@ def checks():
          {"members": 3558, "cells": 3558, "cell": {"channel": 4, "height": 295, "width": 18}, "closers": ["information", "statistics"], "E": 0,
           "measured": 2550, "estimated": 1008, "refused": 7, "site_own": True, "source_ok": True},
          (_site_index()["particle_index"] or {}).get("isotopes")),
+        ("docs/WEB-INDEX.md", "nested isotopes: 3,557 nuclides over 118 elements, iron 32, none at 119 and 120",
+         [3557, 118, 32, 0, 0],
+         (lambda d: [sum(len(b["rows"]) for b in d.values()), sum(1 for b in d.values() if b["rows"]), len(d[26]["rows"]), len(d[119]["rows"]), len(d[120]["rows"])])(_nested_isotopes())),
         ("docs/ISOTOPES.md", "isotope instrument: 3,558 rows, height 295, width 18, E 0, 2,550 measured and 1,008 estimated, 62Ni the most bound",
          [3558, 295, 18, 0, 2550, 1008, "62Ni"],
          [(_tool_json("isotopes.py", ["--json"]) or {}).get("members"),

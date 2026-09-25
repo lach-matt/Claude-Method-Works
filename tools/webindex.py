@@ -3896,6 +3896,43 @@ def _csv_only_element(Z, spectra):
     }
 
 
+_NUCLIDES_BY_Z = None
+
+
+def nuclides_by_element():
+    """Each element's nuclides, for the nested view: the rows of the one nuclear table held with
+    that proton number, read by the site's isotope instrument (tools/isotopes.py). What the table
+    prints is READ; what the instrument derives from the table alone (the mass in u, the binding per
+    nucleon, the separation energies) is DERIVED, and the status of every field travels with it.
+    Returns {Z: block}; an element the table holds no nuclide of gets an empty block that says so."""
+    global _NUCLIDES_BY_Z
+    if _NUCLIDES_BY_Z is None:
+        IS = _tool_module("isotopes", os.path.join(TOOLS, "isotopes.py"))
+        head = {"source": "the 2020 atomic mass evaluation (AME2020), Table I",
+                "instrument": "tools/isotopes.py",
+                "status": {"A": "READ", "N": "READ", "dm_keV": "READ", "unc_keV": "READ", "quality": "READ",
+                           "M_u": "DERIVED", "B_per_A_keV": "DERIVED", "S_n": "DERIVED", "S_p": "DERIVED"},
+                "note": "the element's nuclides as the mass table lists them, the neutron number read and the "
+                        "quality flag carried (M measured, E estimated from systematics); nothing is inferred "
+                        "about stability, spin, parity or half-life, which the table does not print"}
+        by = {}
+        for m in IS.members():
+            x = m["extra"]
+            if x["Z"] < 1:
+                continue
+            by.setdefault(x["Z"], []).append({
+                "name": m["name"], "key": m["key"], "A": x["A"], "N": x["N"],
+                "dm_keV": x["dm_keV"], "unc_keV": x["unc_keV"], "quality": x["quality"], "M_u": x["M_u"],
+                "B_per_A_keV": x["B_per_A_keV"], "S_n": x["S_n"], "S_p": x["S_p"]})
+        out = {}
+        for Z in range(1, 121):
+            rows = sorted(by.get(Z, []), key=lambda r: r["A"])
+            out[Z] = dict(head, rows=rows, measured=sum(1 for r in rows if r["quality"] == "M"),
+                          **({} if rows else {"empty": "the table holds no nuclide with this proton number"}))
+        _NUCLIDES_BY_Z = out
+    return _NUCLIDES_BY_Z
+
+
 def element_record(Z, spectra):
     if Z in populate.LW1.GROUND:
         rec = populate.populate(Z, spectra)
@@ -3994,6 +4031,7 @@ def build(spectra, out_dir=OUT, write=True, log=print, with_particles=False, war
         rec = element_record(Z, spectra)
         rec["walk"] = walk_rows.get(Z)
         rec["record_walk"] = record_rows.get(Z)
+        rec["isotopes"] = nuclides_by_element().get(Z)
         rec = public_obj(rec)
         counts = _counts(rec)
         lim = _limit_counts(rec)
@@ -4671,8 +4709,17 @@ def selftest(warp_root=WARP_ROOT):
           all(m["file"].endswith(".js") for m in index["manifest"]), True)
     h["walk"] = walk_block()[1].get(1)      # the build attaches the walk rows before serialising
     h["record_walk"] = record_walk_block()[1].get(1)   # and the record's own walk beside it
+    h["isotopes"] = nuclides_by_element().get(1)          # and the element's nuclides, for the nested view
     body = _compact(h).encode("utf-8")
     blob = wrap_element(1, body)
+    nbz = nuclides_by_element()
+    check("nested isotopes: every nuclide of the table but the neutron sits under its element, 3,557 over 118 elements",
+          (sum(len(b["rows"]) for b in nbz.values()), sum(1 for b in nbz.values() if b["rows"])), (3557, 118))
+    check("nested isotopes: iron holds 32 nuclides, 45Fe to 76Fe; hydrogen 1H to 7H; Z = 119 and 120 none",
+          (len(nbz[26]["rows"]), nbz[26]["rows"][0]["name"], nbz[26]["rows"][-1]["name"], [r["name"] for r in nbz[1]["rows"]], nbz[119]["rows"], nbz[120]["rows"]),
+          (32, "45Fe", "76Fe", ["1H", "2H", "3H", "4H", "5H", "6H", "7H"], [], []))
+    check("nested isotopes: measured and estimated counted apart, 2,549 and 1,008 (the neutron the 2,550th measured)",
+          (sum(b["measured"] for b in nbz.values()), sum(len(b["rows"]) - b["measured"] for b in nbz.values())), (2549, 1008))
     check("element wrapper opens with the protocol prefix",
           blob.decode("utf-8").startswith(
               "window.__mi = window.__mi || {}; "

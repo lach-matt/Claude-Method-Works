@@ -315,6 +315,27 @@ quantities, with a button into the gravity mode. **It draws no bond and defines 
 on the site is that a bond cannot be indexed, and the row that would carry a bond order carries
 that refusal instead. Everything not derivable from what is held is refused by name.
 
+**Names as well as formulas.** The builder, the gravity mode (body and reference), the two
+equation modes, every mode's element input and the search box read a species by name as well as
+by formula, through one reader in the solver module (`resolveName`, exported on
+`window.MI.solverLib`). It reads an element by its IUPAC name or a spelling IUPAC also accepts
+(aluminum, cesium, sulphur); an isotope by name (deuterium, tritium, protium) or as a name with its
+mass number (carbon-14, uranium 235 — the spaced form only where A exceeds Z, since a small number
+after an element is a spectroscopic stage elsewhere on the page); an ion (sulfate, ammonium,
+iron(III)); a salt by cation and anion with the counts fixed by charge balance (sodium chloride,
+aluminium sulfate, ammonium sulfate, iron(III) oxide); a binary compound by its Greek prefixes
+(carbon dioxide, dinitrogen tetroxide, sulfur hexafluoride); and a short table of trivial names
+(water, heavy water, ammonia, methane, glucose, the common acids). A name is a naming convention,
+not a figure of the index, so the reading is always shown beside the result ("Water" read as H₂O —
+a trivial name), a metal whose charge is not fixed is refused without its Stock numeral (iron
+oxide) and a non-metal's compound without its prefix (carbon oxide), and a name in no table is
+refused rather than guessed. In an equation an element name reads as the element's usual
+substance, so "methane + oxygen → carbon dioxide + water" balances as CH₄ + 2 O₂ → CO₂ + 2 H₂O. The
+formula always wins where the text is one, so NO is nitric oxide and No is nobelium. In the search
+box a molecule or ion opens the builder and the gravity mode with its formula, a nuclide opens in
+its element's nest, and a number above Z after an element (Fe 56) is read as a mass number. The
+builder's and the balancer's browser selftests pin the readings.
+
 ## The relativistic limit and the bounds facet
 
 Two facets put the solution range and its limit on the same node, in the author's framing —
@@ -854,6 +875,22 @@ instrument invents none. The eleventh index of the explorer (`isotopes`: N acros
 by the quality flag); a member's plate opens the same nuclide in the gravity index and in the
 gravity mode. `python3 tools/isotopes.py --selftest` pins the table's census, its ledger md5 and
 the exact cell; `--charts` runs the three refused charts (about 25 s). See `docs/ISOTOPES.md`.
+
+**The isotopes in the nest.** The same nuclides also sit inside each element in the nested view.
+`nuclides_by_element()` in `webindex.py` reads them from the isotope instrument and writes each
+element's own into its element file as `isotopes` — 3,557 nuclides over 118 elements, the neutron
+the one row with no element, Z = 119 and 120 none — with the status of every field beside them:
+A, N, the mass excess, its uncertainty and the quality flag READ; the mass in u, the binding per
+nucleon and the separation energies DERIVED. The nested view packs one dashed circle beside the
+ions, lettered A with its count; zoomed in, each nuclide is a circle filled where the mass is
+measured and ringed where it is estimated, its mass number written on it. A nuclide has its own
+plate (identity, the mass excess with its uncertainty and flag, the mass, the binding per nucleon,
+S_n and S_p or why they are not defined, its neighbours, and buttons into the isotope index, the
+gravity mode and the builder), its own route (`#/Fe/iso/56`, and `#/Fe/iso` for the circle) and
+its crumb; the element plate lists the nuclides as chips, dashed where the mass is estimated. The
+nuclides open in the nest even when elements open as lattice slabs, because the slab's axes are
+ionisation stage and ℓ and a nuclide has neither. Nothing about stability, spin, parity or
+half-life is drawn: the table does not print it.
 
 **The predictions block** at 27dd39c spans 27 indexes: **4,919** demanded, **2,045** forbidden by
 five non-monotone bounds (the three-quark flavour bound, the gravity image, and one each for the

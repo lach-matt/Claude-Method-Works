@@ -163,6 +163,7 @@ h1, h2, h3, h4 { margin: 0; }
 .pchip:hover { border-color: var(--accent); }
 .pchip.is-current { background: var(--accent); color: #fff; border-color: var(--accent); }
 .pchip.gchip-forbidden { border-style: dashed; color: var(--muted); }
+.pchip.is-est { border-style: dashed; color: var(--muted); }
 .pchip.gchip-unplaced { border-color: #b5651d; color: #b5651d; }
 .pchip.gchip-open { border-color: var(--accent); color: var(--accent); }
 .pnav { display: flex; align-items: center; justify-content: space-between; gap: 8px; margin: 10px 0; }

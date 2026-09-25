@@ -10,7 +10,7 @@ python3 tools/docfigures.py               # the drift report; exit 1 if anything
 python3 tools/docfigures.py -v            # same, every row printed
 ```
 
-**126 pinned figures, ~8 s, stdlib only.** Fast enough to run at the top of a session.
+**127 pinned figures, ~8 s, stdlib only.** Fast enough to run at the top of a session.
 
 ## Why it exists
 
