@@ -75,7 +75,8 @@ THE BALANCE is the difference, in orders of magnitude, and the honest reading of
 it is NOT always "how far short we are".  Two rows on this ledger are short by a
 finite, quotable number.  One is short by a number that no engineering can move
 because the ceiling is a-INDEPENDENT.  And one is not short at all -- DOCKET 56's
-reconstruction route has a PRICE, which is the only row here that does.
+reconstruction route has a PRICE, and until DOCKET 65 it was the only row here
+that did; DOCKET 65's remainders S11-S13 are priced too (section 6).
 
     A ROW WHERE THE DEMAND IS REFUSED RATHER THAN EXPENSIVE IS MARKED REFUSED
     AND CARRIES NO GAP.  A gap implies a ladder.  Where the sign inverts before
@@ -198,6 +199,41 @@ Each is kept on its owner (noise.WITHDRAWN, hpscentre.WITHDRAWN,
 linstab.WITHDRAWN, qeihps.VERDICT_THROAT_GEODESIC_WITHDRAWN, formation.py's
 [W1]-[W7]).  None was ever on this board, so none is a W row here; the board
 wording DOCKET 64 replaced is kept in SUPERSEDED_WORDING.
+
+===============================================================================
+6.  DOCKET 65, AS M RULED IT
+===============================================================================
+
+DOCKET 65 tested M's mechanism (M-S1A-P1) in massform.py, and M ruled its rows
+"Seat as proposed".  Every one is ASKED of massform.PROPOSED_ROWS at run time
+-- text, status and owner -- and none is retyped here:
+
+  D27, D28, D29  DEMAND, each a THEOREM on hypotheses its own row names
+                 (M's consideration computed; the pair floor; the field has no
+                 energy to give about v).
+  S10            SUPPLY, M's mechanism as a supply of payload mass.  Its status
+                 IS massform.MECHANISM_VERDICT[0], REFUSED reading by reading;
+                 gap None, since no ladder is quoted for a refusal.
+  S11, S12, S13  SUPPLY, OPEN: the anomaly route, the pair route and the
+                 held-seat release route -- priced remainders, not refusals.
+                 Their names are massform.SURVIVES's.
+  O8             OPEN_ROWS: the FINITE Higgs share of atomic mass, owned by
+                 massform.O8_CLOSED (derived from FINITE_HIGGS_SHARE_STATUS),
+                 because every O row is asked whether it CLOSED.  No DOCKET 65
+                 verdict rests on it.
+  S5             note appended: reconstruction from destination stock survives
+                 M's mechanism (massform.RECONSTRUCTION_SURVIVES).
+
+A SUPPLY row has one note, so S10-S13 carry the proposed claim followed by
+what would move it, both asked.  massform.py asks THIS file for D23 (the
+held-seat route needs a prior arrival) and for M's words, and it does so only
+at CALL time, never while it is being imported: this file asks massform for
+its rows during its own import, and two modules that each need the other at
+import find each other empty.
+
+M's QET ruling is on RULED_BY_M as M-D65-1: Quantum Energy Teleportation is not
+a docket of its own; it is FOLDED INTO DOCKET 66.  Its literature is CITED, not
+READ -- nothing in this tree has read those papers.
 """
 
 import math
@@ -223,6 +259,7 @@ import higgs
 import hpscentre
 import latticectc
 import linstab
+import massform          # DOCKET 65; it asks THIS file only at call time
 import noise
 import nonstatic
 import overturn
@@ -652,6 +689,25 @@ DEMAND = [
      linstab.D26_ANSWERED_BY),
 ]
 
+# ----- DOCKET 65 (massform.py), seated on M's ruling "Seat as proposed". -----
+
+#: massform's rows as it states them, by id -- ASKED, never retyped.
+PROPOSED = dict((r[0], r) for r in massform.PROPOSED_ROWS)
+
+
+def _proposed_status(rid):
+    """A proposed row's status, which must be one of this board's words: a
+    status outside the vocabulary raises rather than seating a new word."""
+    st = PROPOSED[rid][3]
+    if st not in STATUSES:
+        raise ValueError("massform proposes %s as %r, not a ledger status"
+                         % (rid, st))
+    return st
+
+
+DEMAND += [(rid, PROPOSED[rid][2], _proposed_status(rid), PROPOSED[rid][4],
+            PROPOSED[rid][5]) for rid in ("D27", "D28", "D29")]
+
 #: THE WORDING DOCKET 64 REPLACED ON DEMAND ROWS, kept for SUPERSEDED_WORDING.
 #: Typed here because it is HISTORY -- what the board said -- and not a result;
 #: the one computed clause (create.py's) is still asked.
@@ -808,6 +864,21 @@ RULED_BY_M = [
      "exists yet",
      "R11 is stated on a quantum specification; transit.py's four results bind "
      "it IF it is carried by teleportation as an unknown quantum state"),
+
+    # M's ruling at DOCKET 65's seating.  M's words are quoted verbatim; the
+    # literature is CITED as the question was put, and nothing here has READ it.
+    ("M-D65-1",
+     "Should Quantum Energy Teleportation (information arriving at the "
+     "destination creates a local negative-energy region there) be tested as "
+     "its own docket?",
+     "M's words, verbatim: 'consider the idea that the introduction of "
+     "information into a space that never previously contained it would be "
+     "considered exotic matter'.  The literature anchor, CITED, not READ: "
+     "Hotta 2008; Funai & Martin-Martinez arXiv:1701.03805; Ikeda "
+     "arXiv:2301.02666; review arXiv:2505.04689",
+     "RULED BY M: FOLD INTO DOCKET 66 -- M's answer: 'Fold into D66'.  APPLIED: "
+     "no separate docket and no row; QET is tested inside DOCKET 66",
+     "DOCKET 66 tests QET beside seating at a topological defect"),
 ]
 
 # ---------------------------------------------------------------------------
@@ -817,6 +888,41 @@ RULED_BY_M = [
 # inverts, or the mechanism fails, BEFORE the magnitude is reached, and a gap
 # would imply a ladder that is not there.
 # ---------------------------------------------------------------------------
+
+def _s5_docket65_append():
+    """massform's "S5 (note)" row is an instruction -- 'APPEND to S5's note:
+    <text>' -- so what is appended is the text after that prefix, asked.  The
+    row must leave S5's status as it is (its status reads 'OPEN (unchanged)')."""
+    prefix = "APPEND to S5's note: "
+    row = PROPOSED["S5 (note)"]
+    if not row[2].startswith(prefix) or row[3].split(" (")[0] != OPEN:
+        raise ValueError("massform's S5 note is no longer an append to an OPEN "
+                         "S5 -- ledger row S5 is stale")
+    return row[2][len(prefix):]
+
+
+#: The SUPPLY rows' names for DOCKET 65's priced remainders are massform's own
+#: (massform.SURVIVES); S10's is a label for M's mechanism, not a result.
+S10_NAME = "M's mechanism: atomic mass formed at the seat by the triggered Higgs field"
+
+
+def _survives_name(word):
+    """The one massform.SURVIVES name containing `word`, asked; raises if the
+    owner no longer names exactly one such route."""
+    hits = [n for n, _t in massform.SURVIVES if word in n]
+    if len(hits) != 1:
+        raise ValueError("massform.SURVIVES no longer names one %r route" % word)
+    return hits[0]
+
+
+def _proposed_supply(rid, name):
+    """A DOCKET 65 SUPPLY row: (id, name, status, owner, note).  A SUPPLY row has
+    ONE note, so it carries the proposed claim and then what would move it, both
+    asked of massform.PROPOSED_ROWS."""
+    r = PROPOSED[rid]
+    return (rid, name, _proposed_status(rid), r[4],
+            r[2] + ".  WHAT WOULD MOVE IT: " + r[5])
+
 
 SUPPLY = [
     ("S1", "negative effective mass (band curvature)", REFUSED, None,
@@ -844,7 +950,9 @@ SUPPLY = [
 
     ("S5", "the reconstruction route: specification, not mass", OPEN,
      ("branelink", "S5_FIGURES_MEASURED"),
-     "THE ONLY ROW ON THIS LEDGER WITH A PRICE RATHER THAN A REFUSAL.  No mass "
+     # "THE ONLY ROW" until DOCKET 65: S11-S13 are priced OPEN rows too.
+     "THE FIRST ROW ON THIS LEDGER WITH A PRICE RATHER THAN A REFUSAL, AND THE "
+     "ONLY ONE UNTIL DOCKET 65 SEATED S11-S13.  No mass "
      "traverses, so the demand rows D1-D4 and D7 are not instantiated and go "
      "silent.  Bounded by D13 FOR A BRANE-CONFINED CARRIER and therefore not a "
      "shortcut ON THE BRANE; a bulk carrier is not bounded by it, which is O6. "
@@ -864,7 +972,9 @@ SUPPLY = [
      "the destination at <= c first, so this row is an AMORTISATION SCHEME "
      "with a minimum setup of %.4g years at Proxima, not a transport route; "
      "and D25's stock gate must hold at the destination"
-     % (branelink.S5_FIGURES_STATUS, branelink.S5_OWED, PROXIMA_LY)),
+     % (branelink.S5_FIGURES_STATUS, branelink.S5_OWED, PROXIMA_LY)
+     # DOCKET 65 appends (massform "S5 (note)"); nothing above is replaced.
+     + ".  " + _s5_docket65_append()),
 
     # ----- DOCKET 63: the Higgs as supply.  All REFUSED, all gap None. ------
     ("S6", "Higgs displacement as an ADDRESS", REFUSED,
@@ -923,6 +1033,13 @@ SUPPLY = [
         warpfolder.ENERGY_BUDGET_IS_CONNECTED_TO_THE_CHAIN,
         warpfolder.HEATING_TO_EW_SCALE_RESTORES_SYMMETRY,
         "; ".join(warpfolder.NOT_ADJUDICATED))),
+
+    # ----- DOCKET 65: massform.py, seated on M's ruling.  S10 REFUSED (gap
+    # None); S11-S13 the priced remainders, OPEN.  All asked. ---------------
+    _proposed_supply("S10", S10_NAME),
+    _proposed_supply("S11", _survives_name("anomaly")),
+    _proposed_supply("S12", _survives_name("pair")),
+    _proposed_supply("S13", _survives_name("held-seat")),
 ]
 
 # ---------------------------------------------------------------------------
@@ -960,6 +1077,11 @@ O5_DOCKET62 = (
         throatmass.NARROWING_3_STATUS),
      throatmass.O5_ANSWERED_BY + ".  Read Anderson-Hiscock-Samuel PRD 51 4337 "
      "first")
+
+
+#: THE FIVE O ROWS DOCKET 62 NARROWED (docstring section 4).  Named, because
+#: OPEN_ROWS is no longer only them: DOCKET 65 opened O8.
+DOCKET62_NARROWED = ("O2", "O3", "O5", "O6", "O7")
 
 
 def _hps_ll_denominator(power):
@@ -1097,6 +1219,11 @@ OPEN_ROWS = [
      % latticectc.CODIM1_CTC_REFUSAL,
      latticectc.O3_ANSWERED_BY,
      ("latticectc", "O3_CLOSED")),
+
+    # ----- DOCKET 65: the next free id.  Question and answer asked of
+    # massform.PROPOSED_ROWS; the owner is the flag that says whether it
+    # closed, massform.O8_CLOSED, derived there from FINITE_HIGGS_SHARE_STATUS.
+    ("O8", PROPOSED["O8"][2], PROPOSED["O8"][5], PROPOSED["O8"][4]),
 ]
 
 #: THE WORDING DOCKETS 62 AND 64 REPLACED.  (row id, the docket that replaced
@@ -1392,8 +1519,12 @@ def report():
     for rid, claim, st, owner, moves in DEMAND:
         print("  %-4s %-9s %s" % (rid, st, _one_line(claim, 96)))
         if owner:
-            print("       asked: %s.%s = %s"
-                  % (owner[0], owner[1], str(ask(owner))[:58]))
+            # An owner that is a function (D28's massform.pair_floor_j) is
+            # shown by its value at the owner's defaults, not by its address.
+            v = ask(owner)
+            print("       asked: %s.%s%s = %s"
+                  % (owner[0], owner[1], "()" if callable(v) else "",
+                     str(v() if callable(v) else v)[:58]))
 
     print("\nRIGHT -- THE SUPPLY")
     for rid, what, st, owner, note in SUPPLY:
@@ -1481,10 +1612,13 @@ established and refuted so far, not a census of what is establishable.
 #: CELL WIDTHS FOR LEDGER.md.  The rows DOCKET 64 wrote are longer than any
 #: before them, and a cell cut at a fixed width drops the end of a claim --
 #: which is where this tree puts its qualifications.  The selftest checks that
-#: no demand, open, superseded or pending cell is cut (the closed and withdrawn
-#: tables are summaries and keep their shorter widths).
+#: no demand, supply, open, superseded or pending cell is cut (the closed and
+#: withdrawn tables are summaries and keep their shorter widths).  DOCKET 65
+#: added the supply note to that check: S10 carries its claim and its movers in
+#: one note, and the old fixed 2000 would have cut them.
 W_DEMAND_CLAIM = 2400
-W_DEMAND_MOVES = 700
+W_DEMAND_MOVES = 1200             # DOCKET 65: D27's movers run past 1000
+W_SUPPLY_NOTE = 4000              # DOCKET 65: S10's claim and movers, one note
 W_OPEN_CLAIM = 2400
 W_OPEN_ANSWER = 800
 W_WAS = 1400
@@ -1518,7 +1652,7 @@ def to_markdown():
           "| id | status | mechanism | note |", "|---|---|---|---|"]
     for rid, what, st, _o, note in SUPPLY:
         L.append("| %s | **%s** | %s | %s |"
-                 % (rid, st, _cell(what, 80), _cell(note, 2000)))
+                 % (rid, st, _cell(what, 80), _cell(note, W_SUPPLY_NOTE)))
 
     L += ["", "## The balance", "",
           "| id | quantity | demand | supply | gap |", "|---|---|---|---|---|"]
@@ -1671,15 +1805,16 @@ def _withdrawn_needles_64():
 
 
 def _truncated_cells(demand_claim=None, demand_moves=None, open_claim=None,
-                     open_answer=None, was=None, why=None):
-    """(table, id) of every demand, open, superseded or pending cell that
-    _one_line would cut at the given widths (default: the module's)."""
+                     open_answer=None, was=None, why=None, supply_note=None):
+    """(table, id) of every demand, supply, open, superseded or pending cell
+    that _one_line would cut at the given widths (default: the module's)."""
     dc = W_DEMAND_CLAIM if demand_claim is None else demand_claim
     dm = W_DEMAND_MOVES if demand_moves is None else demand_moves
     oc = W_OPEN_CLAIM if open_claim is None else open_claim
     oa = W_OPEN_ANSWER if open_answer is None else open_answer
     wa = W_WAS if was is None else was
     wh = W_WHY if why is None else why
+    sn = W_SUPPLY_NOTE if supply_note is None else supply_note
 
     def cut(text, width):
         return _one_line(text, width) != " ".join(text.split())
@@ -1689,6 +1824,9 @@ def _truncated_cells(demand_claim=None, demand_moves=None, open_claim=None,
             out.append(("demand", r[0]))
         if r[2] == OPEN and (cut(r[1], oc) or cut(r[4], oa)):
             out.append(("open demand", r[0]))
+    for r in SUPPLY:
+        if cut(r[4], sn):
+            out.append(("supply", r[0]))
     for r in OPEN_ROWS:
         if cut(r[1], oc) or cut(r[2], oa):
             out.append(("open", r[0]))
@@ -1721,7 +1859,10 @@ def selftest():
     # RE-PINNED 10 -> 11: D14 (the addressing theorem, DOCKET 60) is asked of
     # certify.THEOREM_SCOPE, because the scope line IS the claim -- a device
     # specified by (Phi, m) of r alone has no parameter for a destination.
-    chk("every owned row's attribute still exists on its peer", asked, 28)
+    chk("every owned row's attribute still exists on its peer", asked, 35)
+    # RE-PINNED 28 -> 35 BY DOCKET 65, to what this loop counts after the
+    # seating: +3 D27-D29 and +4 S10-S13, each asked of massform.py (O8 is an
+    # O row and is counted by the next check, not this one).
     # RE-PINNED 27 -> 28 BY DOCKET 64, to what this loop counts after the
     # edit: +1 D26 (linstab.SEMICLASSICAL_EVALUABLE_ON_DEMAND).  D22 and D24
     # were already owned and are RE-OWNED (noise.CORRIDOR_APPLICATION,
@@ -1969,7 +2110,7 @@ def selftest():
          phase1.is_transition(False, True, True, True, True, passage_flux=True),
          formation.PHASE1_D4_POINTWISE_DURING_PASSAGE),
         (["M-D64-1", "M-S1A-P1", "M-S1A-P2", "M-S1A-P3", "M-S1A-P4",
-          "M-S1A-P5"], [], True, False, False, True, False))
+          "M-S1A-P5", "M-D65-1"], [], True, False, False, True, False))
 
     print("\n3. THE EXCHANGE RATE, RE-DERIVED FROM ASKED CONSTANTS")
     chk("Lambda is overturn.py's", LAMBDA, overturn.LAMBDA)
@@ -1989,8 +2130,15 @@ def selftest():
     #   WITHDRAWN 6 -> 8: W7 and W8, both of them DOCKET 61's own passes.
     #   REFUSED 3 -> 4: the closed row counts here, not as an opening.
     chk("the status census", c,
-        {THEOREM: 17, NARROWED: 1, MEASURED: 3, SURVEY: 2, OPEN: 10,
-         WITHDRAWN: 13, REFUSED: 9})
+        {THEOREM: 20, NARROWED: 1, MEASURED: 3, SURVEY: 2, OPEN: 14,
+         WITHDRAWN: 13, REFUSED: 10})
+    # RE-PINNED BY DOCKET 65 to what statuses() returned after the seating
+    # (M: "Seat as proposed"), every status asked of massform.PROPOSED_ROWS:
+    #   THEOREM 17 -> 20: D27, D28, D29.
+    #   OPEN 10 -> 14: S11, S12, S13 (priced remainders) and O8 (the finite
+    #     Higgs share).  S5 stays OPEN; its note is appended to, not moved.
+    #   REFUSED 9 -> 10: S10, M's mechanism as a supply (gap None).
+    #   M-D65-1 is a ruling, not a status, and moves no count.
     # RE-PINNED BY DOCKET 64 to what statuses() returned after the edit (not
     # typed from the ruling, which did not predict it).  The moves only:
     #   D22 OPEN -> SURVEY (noise.py: C1 a THEOREM in the flat model; the
@@ -2061,17 +2209,25 @@ def selftest():
     chk("no O row's owner says it closed",
         [r[0] for r in OPEN_ROWS if ask(r[3])], [])
     chk("the five narrowed rows are all still open",
-        sorted(r[0] for r in OPEN_ROWS), ["O2", "O3", "O5", "O6", "O7"])
+        [r for r in DOCKET62_NARROWED if r not in [x[0] for x in OPEN_ROWS]], [])
+    # DOCKET 65 opened O8 (the finite Higgs share); it narrowed nothing, so the
+    # checks on narrowed rows are about DOCKET62_NARROWED, not every O row.
+    # This check once compared the whole OPEN_ROWS list with the five; the
+    # board moved, and the five are asked for by name instead.
+    chk("  and the only O row that is not one of them is DOCKET 65's O8",
+        sorted(r[0] for r in OPEN_ROWS if r[0] not in DOCKET62_NARROWED), ["O8"])
     # RE-KEYED BY DOCKET 64 (ruling C, O5).  This compared sorted ids with the
     # OPEN ids, and O5's second entry (DOCKET 64 replacing DOCKET 62's
     # wording) would have turned it red for a correct reason.  Entries are
     # keyed by (row, docket) now, and the check is on SETS.
     chk("every narrowed row's replaced wording is kept (as sets)",
-        set(r[0] for r in OPEN_ROWS) <= set(r[0] for r in SUPERSEDED_WORDING),
+        set(DOCKET62_NARROWED) <= set(r[0] for r in SUPERSEDED_WORDING),
         True)
     chk("  DOCKET 62's entries are exactly the five O rows it narrowed",
         sorted(r[0] for r in SUPERSEDED_WORDING if r[1] == "DOCKET 62"),
-        sorted(r[0] for r in OPEN_ROWS))
+        sorted(DOCKET62_NARROWED))
+    chk("  and O8, new and never narrowed, has no replaced wording",
+        [r for r in SUPERSEDED_WORDING if r[0] == "O8"], [])
     chk("  DOCKET 64's are the rows whose wording it replaced, not extended",
         sorted(r[0] for r in SUPERSEDED_WORDING if r[1] == "DOCKET 64"),
         ["D22", "D24", "O5"])
@@ -2209,6 +2365,63 @@ def selftest():
     chk("  CONTROL: at the widths before DOCKET 64 it would have cut some",
         len(_truncated_cells(demand_claim=900, open_claim=1400,
                              open_answer=600, was=900, why=400)) > 0, True)
+
+    print("\n4d. DOCKET 65: EVERY SEATED ROW IS massform.py's, ASKED")
+    row = dict((r[0], r) for r in DEMAND + SUPPLY)
+    opn = dict((r[0], r) for r in OPEN_ROWS)
+    chk("D27-D29 are massform's rows exactly (claim, status, owner, movers)",
+        [rid for rid in ("D27", "D28", "D29")
+         if row[rid][1:] != tuple(massform.PROPOSED_ROWS[
+             [p[0] for p in massform.PROPOSED_ROWS].index(rid)][2:])], [])
+    chk("  each a THEOREM, owned by massform",
+        [(row[r][2], row[r][3][0]) for r in ("D27", "D28", "D29")],
+        [(THEOREM, "massform")] * 3)
+    chk("S10's status IS massform.MECHANISM_VERDICT[0], REFUSED, asked of it",
+        (row["S10"][2], massform.MECHANISM_VERDICT[0], row["S10"][3]),
+        (REFUSED, REFUSED, ("massform", "MECHANISM_VERDICT")))
+    chk("S11-S13 are OPEN, owned by the flags that say each route is PRICED",
+        [(row[r][2], row[r][3], ask(row[r][3])) for r in ("S11", "S12", "S13")],
+        [(OPEN, ("massform", a), True) for a in (
+            "ANOMALY_ROUTE_PRICED", "PAIR_ROUTE_PRICED", "HELD_SEAT_ROUTE_PRICED")])
+    chk("  each note carries massform's claim and its movers, uncut",
+        [r for r in ("S10", "S11", "S12", "S13")
+         if not (PROPOSED[r][2] in row[r][4] and PROPOSED[r][5] in row[r][4])], [])
+    chk("  and their names are massform.SURVIVES's, asked, one route each",
+        (all(row[r][1] in [n for n, _t in massform.SURVIVES]
+             for r in ("S11", "S12", "S13")),
+         len(set(row[r][1] for r in ("S11", "S12", "S13")))), (True, 3))
+    chk("O8 is massform's question and answer, owned by O8_CLOSED (False)",
+        (opn["O8"][1] == PROPOSED["O8"][2], opn["O8"][2] == PROPOSED["O8"][5],
+         opn["O8"][3], ask(opn["O8"][3]), massform.FINITE_HIGGS_SHARE_STATUS),
+        (True, True, ("massform", "O8_CLOSED"), False, OPEN))
+    chk("  CONTROL: an owner answering its status string would read as CLOSED",
+        bool(massform.FINITE_HIGGS_SHARE_STATUS), True)
+    chk("S5 stays OPEN and its note carries DOCKET 65's append, asked",
+        (row["S5"][2], _s5_docket65_append() in row["S5"][4],
+         massform.RECONSTRUCTION_SURVIVES), (OPEN, True, True))
+    chk("S5 no longer claims to be the only priced row (S11-S13 are priced)",
+        ("THE ONLY ROW ON THIS LEDGER WITH A PRICE" in row["S5"][4],
+         "S11-S13" in row["S5"][4]), (False, True))
+    chk("massform asks D23 of this board, and gets this board's row",
+        massform.d23_row()[:4] == [r for r in DEMAND if r[0] == "D23"][0][:4],
+        True)
+    chk("  and its held-seat route needs that prior arrival",
+        massform.preparation_needs_prior_arrival(), True)
+    _qet = [r for r in RULED_BY_M if r[0] == "M-D65-1"]
+    chk("M-D65-1: QET folded into DOCKET 66, M quoted, literature CITED not READ",
+        (len(_qet), _qet[0][3].startswith("RULED BY M: FOLD INTO DOCKET 66"),
+         "'Fold into D66'" in _qet[0][3],
+         "introduction of information into a space that never previously "
+         "contained it would be considered exotic matter" in _qet[0][2],
+         "CITED, not READ" in _qet[0][2],
+         all(a in _qet[0][2] for a in ("Hotta 2008", "1701.03805",
+                                       "2301.02666", "2505.04689"))),
+        (1, True, True, True, True, True))
+    chk("  and M-D65-1 opens no row (QET is DOCKET 66's, not the board's)",
+        [r[0] for r in DEMAND + SUPPLY + OPEN_ROWS if "QET" in r[1]
+         or "Teleportation" in r[1]], [])
+    chk("nothing DOCKET 65 seated carries the status word DECLARED",
+        [r[0] for r in massform.PROPOSED_ROWS if "DECLARED" in r[3]], [])
 
     print("\n5. THE BALANCE REFUSES TO INVENT A LADDER")
     chk("every balance row whose mechanism fails carries NO gap number",

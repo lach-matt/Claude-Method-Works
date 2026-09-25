@@ -1698,7 +1698,9 @@ FINDINGS = [
  #           what could move it.  It is not 0: the house reads 0 for a
  #           question left UNDECIDED (NU-OPEN), and the ledger does not leave
  #           the balance undecided -- it prints REFUSED in every gap.  S5, the
- #           one priced row, is OPEN and is not a transport route (D23).
+ #           first priced row, is OPEN and is not a transport route (D23);
+ #           DOCKET 65's priced S11-S13 price atomic mass formed at a seat, not
+ #           negative enclosed mass, so they move no balance row and not Y.
  #   Z = +1  the demand column prints the specification the supply would have
  #           to meet: kg per metre, and kg for the Proxima span.  The gap
  #           column's 'no number' refuses a DIFFERENCE, for want of a supply
@@ -1709,7 +1711,7 @@ FINDINGS = [
  # and E(X) does not move.  The text QUOTES the file; every quotation and the
  # census are checked against LEDGER.md by the selftest, never typed as results.
  ("LEDGER-BALANCE-REFUSED", +1, -1, +1, "LEDGER.md",
-  "the board of the warp result, and its own verdict sits on all three axes. X: the demand is identified -- D1 and D2 THEOREM, contraction requires negative enclosed Misner-Sharp mass in every foliation -- and priced, D11 MEASURED at '1.348948e+26 kg per metre'. Y: every balance row reads '**REFUSED** -- no ladder, so no number', because 'no mechanism supplies negative enclosed mass at all'; S5, 'THE ONLY ROW ON THIS LEDGER WITH A PRICE RATHER THAN A REFUSAL', is OPEN and D23 makes it 'an AMORTISATION SCHEME, not a transport route'. Z: the demand column prints the specification the supply would have to meet, '5.4194e+42 kg (2.72551e+12 solar masses)' for the Proxima span. Status census: THEOREM 17, THEOREM-NARROWED 1, MEASURED 3, SURVEY 2, OPEN 10, WITHDRAWN 13, REFUSED 9. A bound on what is established so far and not a completeness claim: '`COMPLETE` is not claimed and is not claimable'"),
+  "the board of the warp result, and its own verdict sits on all three axes. X: the demand is identified -- D1 and D2 THEOREM, contraction requires negative enclosed Misner-Sharp mass in every foliation -- and priced, D11 MEASURED at '1.348948e+26 kg per metre'. Y: every balance row reads '**REFUSED** -- no ladder, so no number', because 'no mechanism supplies negative enclosed mass at all'; S5, 'THE FIRST ROW ON THIS LEDGER WITH A PRICE RATHER THAN A REFUSAL, AND THE ONLY ONE UNTIL DOCKET 65 SEATED S11-S13', is OPEN and D23 makes it 'an AMORTISATION SCHEME, not a transport route'; DOCKET 65's priced rows price atomic mass formed at a seat, not negative enclosed mass, and no balance row moves. Z: the demand column prints the specification the supply would have to meet, '5.4194e+42 kg (2.72551e+12 solar masses)' for the Proxima span. Status census: THEOREM 20, THEOREM-NARROWED 1, MEASURED 3, SURVEY 2, OPEN 14, WITHDRAWN 13, REFUSED 10. A bound on what is established so far and not a completeness claim: '`COMPLETE` is not claimed and is not claimable'"),
 ]
 
 # The fragments of LEDGER-BALANCE-REFUSED's text that quote LEDGER.md.  The
@@ -1720,7 +1722,7 @@ LEDGER_QUOTES = (
     "1.348948e+26 kg per metre",
     "**REFUSED** -- no ladder, so no number",
     "no mechanism supplies negative enclosed mass at all",
-    "THE ONLY ROW ON THIS LEDGER WITH A PRICE RATHER THAN A REFUSAL",
+    "THE FIRST ROW ON THIS LEDGER WITH A PRICE RATHER THAN A REFUSAL, AND THE ONLY ONE UNTIL DOCKET 65 SEATED S11-S13",
     "an AMORTISATION SCHEME, not a transport route",
     "5.4194e+42 kg (2.72551e+12 solar masses)",
     "`COMPLETE` is not claimed and is not claimable",

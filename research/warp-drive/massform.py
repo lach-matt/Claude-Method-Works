@@ -8,12 +8,13 @@ IN M'S OWN TERMS.
 
 Run under python3 (3.11) from research/warp-drive.  STDLIB ONLY.  It imports
 higgs, excite, warpfolder, stock, stockgate, transit, ledger, nopath, permute,
-gravity and pdgcapture from this directory and COPIES NONE OF THEM: every figure
-an owner holds is ASKED of it at run time.  The selftest checks with `inspect`
-that no callable used here is a local re-implementation carrying an owner's
-name, checks by identity that each asked constant IS the owner's object, and
-reads this file's own source to confirm each one is assigned from its owner.
-It edits no peer.
+gravity and pdgcapture from this directory -- ledger at call time only, since
+ledger.py asks this file for its rows while it is itself being imported -- and
+COPIES NONE OF THEM: every figure an owner holds is ASKED of it at run time.
+The selftest checks with `inspect` that no callable used here is a local
+re-implementation carrying an owner's name, checks by identity that each asked
+constant IS the owner's object, and reads this file's own source to confirm
+each one is assigned from its owner.  It edits no peer.
 
 M's mechanism, verbatim (ledger.RULED_BY_M, row M-S1A-P1):
 
@@ -384,8 +385,8 @@ rests on it: STOCK is refused on prior mass (C5), SWITCH-ON and TEMPLATE on C1,
 and C2 is listed only on DISPLACEMENT, and there for a SMALL displacement only;
 a finite one is OPEN, and C3 carries the refusal regardless: a small
 displacement of phi is exactly a first-order response.  It is carried as an
-OPEN item, a candidate question for a future docket (the proposed row S10
-(open)).
+OPEN item, a candidate question for a future docket (ledger row O8, seated
+from this file's rows).
 
 ===============================================================================
 3.  M65-3  ENERGY -- THE SOURCE M'S SENTENCE IMPLIES, AND THE CARRIER
@@ -935,7 +936,11 @@ from fractions import Fraction
 import gravity
 import excite
 import higgs
-import ledger
+# ledger is NOT imported here.  Since DOCKET 65 was seated, ledger.py asks this
+# file for its rows while ledger is being imported, so this file may not need
+# ledger while IT is being imported, or whichever loads first finds the other
+# empty.  Everything this file asks of the board -- M's words, D23, the rows
+# it checks are seated -- is asked at call time, through _ledger().
 import nopath
 import pdgcapture
 import permute
@@ -975,7 +980,19 @@ IMPORTS = (
 _MODS = {"higgs": higgs, "excite": excite, "warpfolder": warpfolder,
          "stock": stock, "stockgate": stockgate, "transit": transit,
          "nopath": nopath, "permute": permute, "gravity": gravity,
-         "pdgcapture": pdgcapture, "ledger": ledger}
+         "pdgcapture": pdgcapture}
+
+
+def _ledger():
+    """ledger.py, imported at CALL time, never at import (see the import block):
+    ledger asks this file for PROPOSED_ROWS during its own import."""
+    import ledger
+    return ledger
+
+
+def _mod(name):
+    """An owner module by name: _MODS's, or the ledger, asked at call time."""
+    return _ledger() if name == "ledger" else _MODS[name]
 
 # ------------------------------------------------------------------ M's words
 M_MECHANISM = ("As soon as the information hits the seat, it triggers the higgs "
@@ -1883,6 +1900,12 @@ C2_CONTESTED_ONLY = not (HIGGS_SHARE_LARGEST_READ < 0.5)
 #: No count reads it and no verdict rests on it.
 FINITE_HIGGS_SHARE_STATUS = "OPEN"
 FINITE_HIGGS_SHARE_EXCEEDS_HALF = None
+#: Whether ledger row O8 (the finite share, seated from PROPOSED_ROWS) has
+#: CLOSED.  ledger.py asks every OPEN_ROWS owner this question and fails if one
+#: answers True, so O8 is owned by this flag rather than by the status string
+#: (a non-empty "OPEN" would read as True there).  DERIVED from the status,
+#: never typed: the row closes exactly when the status stops being OPEN.
+O8_CLOSED = FINITE_HIGGS_SHARE_STATUS != "OPEN"
 
 # ===================================================================== M65-3
 def rest_energy_j(kg=None):
@@ -2201,8 +2224,11 @@ H_UNSOURCED_SEAT_STATUS = ("NAMED HYPOTHESIS of C1 on TEMPLATE; not vacuous: a "
 H_RELEASE_STATUS = "NAMED HYPOTHESIS of the held-seat release route"
 #: The eps the route is priced at: excite's chemically visible probe, ASKED.
 HELD_SEAT_EPS = excite.EPS_CHEMICAL
-#: D23, asked of the ledger (the first trip).
-D23_ROW = [r for r in ledger.DEMAND if r[0] == "D23"][0]
+def d23_row():
+    """D23, asked of the ledger (the first trip), at call time: ledger.py asks
+    this file for its rows while it is imported, so no module-level value here
+    may need the ledger."""
+    return [r for r in _ledger().DEMAND if r[0] == "D23"][0]
 
 
 def preparation_needs_prior_arrival(row=None):
@@ -2210,7 +2236,7 @@ def preparation_needs_prior_arrival(row=None):
     something to reach the destination at <= c first; its owner,
     transit.TRAVERSAL_IS_REMOVED, is False (the traversal is moved earlier,
     not removed).  A seat prepared in advance is such an arrangement."""
-    row = D23_ROW if row is None else row
+    row = d23_row() if row is None else row
     return (row[3] == ("transit", "TRAVERSAL_IS_REMOVED")
             and getattr(transit, row[3][1]) is False
             and "had to reach the destination at <= c" in _norm(row[1]))
@@ -2316,8 +2342,10 @@ def held_seat_route(eps=None):
     density (excite.exact_source_density), whether a static hold is stable
     there (excite.stability_edge), what the electrons regain (exact on H-TREE)
     and the first-order figure for the nucleons (eps x the largest READ nucleon
-    row, an estimate, not a bound), whether it forms baryons (C3) and whether it needs a prior
-    arrival (D23)."""
+    row, an estimate, not a bound) and whether it forms baryons (C3).  Whether
+    it needs a prior arrival (D23) is preparation_needs_prior_arrival(), asked
+    of the ledger at call time and so not part of this dict, which is built at
+    import (HELD_SEAT_ROUTE) while the ledger may be importing this file."""
     eps = HELD_SEAT_EPS if eps is None else eps
     S, Fe = excite.holding_terms(eps)
     return {
@@ -2331,7 +2359,6 @@ def held_seat_route(eps=None):
         "electrons regained": float(eps) * share_rows()[0][2],
         "nucleons first order": float(eps) * largest_read_nucleon_row(),
         "forms baryons": HIGGS_COUPLING_CARRIES_B_OR_L,
-        "needs prior arrival": preparation_needs_prior_arrival(),
         "balance faults": held_release_faults(eps, HELD_RELEASE_EPS0),
     }
 
@@ -2820,7 +2847,7 @@ PROPOSED_ROWS = (
      "remains of STOCK is reconstruction from stock.  OPEN, and "
      "no verdict rests on it: the FINITE Higgs share, what the field gives "
      "with it switched off, not computed and not read; whether it exceeds half "
-     "is undecided here (S10 (open)); STOCK is refused on C5, SWITCH-ON and "
+     "is undecided here (O8); STOCK is refused on C5, SWITCH-ON and "
      "TEMPLATE on C1, and DISPLACEMENT on C3 regardless",
      MECHANISM_VERDICT[0], ("massform", "MECHANISM_VERDICT"),
      "STOCK moves only if H-TREE fails; " + H_PRESENT_FAILING + "; "
@@ -2881,12 +2908,12 @@ PROPOSED_ROWS = (
      "a way to prepare and release the source at the seat (not computed here); "
      "what becomes of the source's own rest energy at release (H-RELEASE); the "
      "finite response of the nucleon mass to |phi| (OPEN, like the finite share "
-     "of S10 (open)), which sets what the nucleons regain up to the stability "
+     "of O8), which sets what the nucleons regain up to the stability "
      "edge; H-UNSOURCED-SEAT holding in the case at hand, which closes the "
      "route; a source outside D20's model; a source whose mass rises convexly "
      "with |phi| (outside excite's section-3 model; not computed), which could "
      "extend the route below the stability edge"),
-    ("S10 (open)", "SUPPLY",
+    ("O8", "OPEN",
      "OPEN ITEM, a candidate question for a future docket: the FINITE Higgs share "
      "of atomic mass -- the nucleon mass with phi at v, less the nucleon mass "
      "with phi switched off, where the heavy-quark thresholds and the QCD scale "
@@ -2895,7 +2922,7 @@ PROPOSED_ROWS = (
      "it (H-LINEAR).  No DOCKET 65 verdict rests on it: STOCK is refused on prior "
      "mass (C5), SWITCH-ON and TEMPLATE on C1, and DISPLACEMENT on C3 "
      "regardless",
-     "OPEN", ("massform", "FINITE_HIGGS_SHARE_STATUS"),
+     "OPEN", ("massform", "O8_CLOSED"),
      "a computation of the nucleon mass with the field switched off, or a READ "
      "source giving it; nothing in DOCKET 65 moves on it"),
     ("S5 (note)", "SUPPLY",
@@ -2905,12 +2932,11 @@ PROPOSED_ROWS = (
      "OPEN (unchanged)", ("massform", "RECONSTRUCTION_SURVIVES"),
      "nothing in DOCKET 65; S5's own owed items stand"),
 )
-#: Not opened, and why (one row per question).
+#: Not opened, and why (one row per question).  The finite Higgs share left
+#: this list when it was seated as ledger row O8 (OPEN): a question with a row
+#: is not also "not opened".
 NOT_OPENED = ("the first-order Higgs share as one figure (C2 of S10 prints only "
               "measures)",
-              "the finite Higgs share (OPEN: not computed, not read; whether it "
-              "exceeds half is undecided here; S10 (open), a candidate question "
-              "for a future docket)",
               "the information counts (supporting note N-INFO; no verdict)",
               "how the held-seat source is prepared and released, and what becomes "
               "of its rest energy (H-RELEASE; S13)",
@@ -3451,8 +3477,8 @@ STALE_WORDING = (
      "      the matter's own lowering, eps per kg/m^3    4.5407e-30  inside the measured "
      "mass"),
     ("R7-1 S13's mover: the finite response sets the nucleons' regain, not the share",
-     r"finite Higgs share \(S10 \(open\)\), which sets", None,
-     "the finite Higgs share (S10 (open)), which sets what the nucleons regain at "
+     r"finite Higgs share \(O8\), which sets", None,
+     "the finite Higgs share (O8), which sets what the nucleons regain at "
      "large eps"),
     ("R7-5 H-PRESENT: the matter's own lowering sits inside the measured mass",
      r"(?i)negligible beside the measured mass", None,
@@ -3785,7 +3811,7 @@ REQUIRED_WORDING = (
     ("SF4 S10 claim scopes C2", "S10 claim", C2_SCOPE, "by C2 and C3"),
     ("NOTE S10 claim: no verdict rests on it lists TEMPLATE", "S10 claim",
      "SWITCH-ON and TEMPLATE on C1, and DISPLACEMENT on C3 regardless",
-     "(S10 (open))"),
+     "(O8)"),
     ("R6-F D27 claim defines TEMPLATE", "D27 claim", _TEMPLATE_DEF_ROW, _PHI0_DEF),
     ("R6-F D27 claim gives C1's reason on TEMPLATE", "D27 claim", _C1_TEMPLATE,
      "C1 refuses"),
@@ -3798,7 +3824,7 @@ REQUIRED_WORDING = (
     ("R6-B D27 mover: TEMPLATE's movers include H-UNSOURCED-SEAT", "D27 moves",
      TEMPLATE_MOVES, "TEMPLATE moves only if C1 reverses (P-UNIFORM, D15 or D16)"),
     ("R6-C S13 claim is the held-seat route", "S13 claim", HELD_SEAT_TEXT, ""),
-    ("NOTE S10 (open): no verdict rests on it lists TEMPLATE", "S10 (open) claim",
+    ("NOTE O8: no verdict rests on it lists TEMPLATE", "O8 claim",
      "SWITCH-ON and TEMPLATE on C1", "SWITCH-ON on C1"),
     ("R6-F report header", "report",
      "M65-1 PRESENCE -- SWITCH-ON, STOCK, TEMPLATE AND EXCITATION",
@@ -3952,8 +3978,8 @@ REQUIRED_WORDING = (
     # ---- round 7
     ("R7-1 S13 mover: the finite response, OPEN, up to the stability edge", "S13 moves",
      "the finite response of the nucleon mass to |phi| (OPEN, like the finite share of "
-     "S10 (open)), which sets what the nucleons regain up to the stability edge",
-     "the finite Higgs share (S10 (open)), which sets what the nucleons regain at "
+     "O8), which sets what the nucleons regain up to the stability edge",
+     "the finite Higgs share (O8), which sets what the nucleons regain at "
      "large eps"),
     ("R7-5 fn C1: H-UNSOURCED-SEAT does not reach SWITCH-ON", "fn C1",
      "within excite's section-3 model it does not reach SWITCH-ON's off",
@@ -4365,7 +4391,7 @@ def report():
     _p("  nucleons at first order (largest READ row)", _e(h["nucleons first order"], 4),
        "not a bound; finite OPEN")
     _p("  forms baryons (C3)", h["forms baryons"], "the elements were there")
-    _p("  needs a prior arrival at <= c (D23)", h["needs prior arrival"],
+    _p("  needs a prior arrival at <= c (D23)", preparation_needs_prior_arrival(),
        "ledger D23, asked")
     _p("  PRICED", HELD_SEAT_ROUTE_PRICED, "on H-RELEASE, a named hypothesis")
     print()
@@ -4566,7 +4592,8 @@ def report():
     for name, text in SURVIVES:
         print("        %s: %s" % (name, text))
     print()
-    print("      PROPOSED LEDGER ROWS (text only; ledger.py is not edited)")
+    print("      LEDGER ROWS (seated by ledger.py, which asks their text here; "
+          "this file edits no peer)")
     for rid, side, claim, st, owner, moves in PROPOSED_ROWS:
         print("        %-9s %-6s %-16s owner %s.%s" % (rid, side, st, owner[0], owner[1]))
         print("          %s" % claim)
@@ -4596,7 +4623,7 @@ def selftest():
 
     # ---------------------------------------------- imported, never copied
     for modname, names in IMPORTS:
-        mod = _MODS[modname]
+        mod = _mod(modname)
         for n in names:
             obj = getattr(mod, n, None)
             chk("%s.%s exists" % (modname, n), obj is not None, True)
@@ -4639,6 +4666,7 @@ def selftest():
     chk("N_F is recounted from the capture now", N_F, n_generations())
 
     # ------------------------------------------------------- M's words
+    ledger = _ledger()
     row = [r for r in ledger.RULED_BY_M if r[0] == M_ROW][0]
     text = _norm(" ".join(str(x) for x in row))
     chk("M's mechanism is verbatim in ledger row M-S1A-P1", M_MECHANISM in text, True)
@@ -4666,8 +4694,23 @@ def selftest():
                            ("S9", ledger.REFUSED, ("warpfolder", "FLASH_IS_A_RECONSTRUCTION_MECHANISM"))):
         chk("ledger %s is %s, owned by %s.%s" % ((rid, st) + owner),
             (sup[rid][2], sup[rid][3]), (st, owner))
-    chk("the proposed ids are free on the board",
-        [r[0] for r in PROPOSED_ROWS if r[0] in dem or r[0] in sup], [])
+    # SEATED (DOCKET 65, M: "Seat as proposed").  This check first asked that
+    # the proposed ids be FREE on the board; the board has moved, so it now
+    # asks that every row is seated there as this file states it -- the text,
+    # status and owner ledger.py carries are the ones asked here.
+    opn = {r[0]: r for r in ledger.OPEN_ROWS}
+    s5_add = [r for r in PROPOSED_ROWS if r[0] == "S5 (note)"][0][2]
+    chk("every proposed row is seated on the board as stated here",
+        [r[0] for r in PROPOSED_ROWS
+         if not ((r[1] == "DEMAND" and r[0] in dem
+                  and dem[r[0]][1:] == (r[2], r[3], r[4], r[5]))
+                 or (r[1] == "SUPPLY" and r[0] in sup
+                     and (sup[r[0]][2], sup[r[0]][3]) == (r[3], r[4])
+                     and r[2] in sup[r[0]][4] and r[5] in sup[r[0]][4])
+                 or (r[1] == "OPEN" and r[0] in opn
+                     and opn[r[0]][1:] == (r[2], r[5], r[4]))
+                 or (r[0] == "S5 (note)" and sup["S5"][2] == r[3].split(" (")[0]
+                     and s5_add.split(": ", 1)[1] in sup["S5"][4]))], [])
     chk("every proposed status is in the ledger's vocabulary",
         [r[3] for r in PROPOSED_ROWS
          if r[3].split(" (")[0] not in (ledger.THEOREM, ledger.MEASURED, ledger.OPEN,
@@ -5188,12 +5231,14 @@ def selftest():
         (FINITE_HIGGS_SHARE_STATUS, FINITE_HIGGS_SHARE_EXCEEDS_HALF), ("OPEN", None))
     chk("  no count reads it",
         [c[1] for c in COUNTS_ON_THE_MECHANISM if "FINITE" in c[1]], [])
-    chk("  it is in S10's claim and movers, in NOT_OPENED and a proposed OPEN row",
+    chk("  it is in S10's claim and movers and an OPEN row O8, not also 'not opened'",
         ("FINITE Higgs share" in [r for r in PROPOSED_ROWS if r[0] == "S10"][0][2],
          "finite Higgs share" in [r for r in PROPOSED_ROWS if r[0] == "S10"][0][5],
          any("finite Higgs share" in n for n in NOT_OPENED),
-         [(r[3], r[4]) for r in PROPOSED_ROWS if r[0] == "S10 (open)"]),
-        (True, True, True, [("OPEN", ("massform", "FINITE_HIGGS_SHARE_STATUS"))]))
+         [(r[1], r[3], r[4]) for r in PROPOSED_ROWS if r[0] == "O8"]),
+        (True, True, False, [("OPEN", "OPEN", ("massform", "O8_CLOSED"))]))
+    chk("  O8_CLOSED is derived from the status: False while it is OPEN",
+        (O8_CLOSED, O8_CLOSED == (FINITE_HIGGS_SHARE_STATUS != "OPEN")), (False, True))
     chk("section 2 carries H-LINEAR on every share sentence (no flat claim)",
         flat_share_claims(), [])
     chk("CONTROL a flat 'Nothing near one half.' is caught",
@@ -5618,10 +5663,10 @@ def selftest():
          held_seat_route_priced(held_seat_route(Fraction(1, 2)))), (True, False, False))
     chk("R6-C (iv) it needs a prior arrival: D23 asked of the ledger (owner "
         "transit.TRAVERSAL_IS_REMOVED = False)",
-        (_h["needs prior arrival"], D23_ROW[3], transit.TRAVERSAL_IS_REMOVED),
+        (preparation_needs_prior_arrival(), d23_row()[3], transit.TRAVERSAL_IS_REMOVED),
         (True, ("transit", "TRAVERSAL_IS_REMOVED"), False))
     chk("CONTROL R6-C a D23 row with another owner is not read as D23's point",
-        preparation_needs_prior_arrival((D23_ROW[0], D23_ROW[1], D23_ROW[2],
+        preparation_needs_prior_arrival((d23_row()[0], d23_row()[1], d23_row()[2],
                                          ("transit", "CARRIES_SUBSTANCE"))), False)
     chk("R6-C the route is PRICED, in READING_REMAINDERS, SURVIVES, S10 and S13",
         (HELD_SEAT_ROUTE_PRICED, HELD_SEAT_TEXT in READING_REMAINDERS["TEMPLATE"],
@@ -5743,7 +5788,8 @@ def selftest():
         held_seat_route_priced(dict(_h, **{"balance faults": [Fraction(1, 200)]})), False)
     chk("CONTROL R7-5 a D23 row with the right owner and the wrong text is not read as "
         "D23's point", preparation_needs_prior_arrival(
-            (D23_ROW[0], "a destination-side arrangement", D23_ROW[2], D23_ROW[3])), False)
+            (d23_row()[0], "a destination-side arrangement", d23_row()[2],
+             d23_row()[3])), False)
     chk("nothing is repaired, no peer is edited", (NOTHING_IS_REPAIRED, EDITS_A_PEER), (True, False))
 
     print()

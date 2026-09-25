@@ -399,6 +399,16 @@ READ_HITS = {
               "questions; claims none",
     "latticectc": "H3: branes are TEST hypersurfaces 'carrying no back-reaction' "
                   "-- disclaims it",
+    # massform.py became a DEMAND owner (D27-D29) when DOCKET 65 was seated.
+    # Its three hits were READ: every one is 'semiclassical' in the INSTANTON /
+    # WKB sense of electroweak B + L violation, nothing about gravity.
+    "massform": "D27-D29's owner since DOCKET 65: three 'semiclassical' hits, "
+                "each the electroweak instanton/sphaleron sense -- the docstring's "
+                "and S11's 'prevalent semiclassical results find it exponentially "
+                "suppressed' (collider B + L rate, CONTESTED) and a quoted source "
+                "text, 'suppressed by the semiclassical exponent exp(-4 pi / "
+                "alpha_W)' (Rubakov & Shaposhnikov) -- a tunnelling estimate, not "
+                "semiclassical gravity; claims no solution of (2.9)",
 }
 #: What this file READ about hpscentre.py's m < 0 solutions against AMM's
 #: H1-H3.  Everything else candidates() ASKS of the peers at run time.
