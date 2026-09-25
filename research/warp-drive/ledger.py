@@ -735,8 +735,9 @@ RULED_BY_M = [
      "a positive lens mass lengthens proper distance: contraction iff m < 0 "
      "(certify.theorem_holds() = %s), so S-1's witness does not contract"
      % certify.theorem_holds(),
-     "RULED BY M: NO -- 'I would imagine the seat is an expansion.'  APPLIED: "
-     "no contraction requirement binds S.  M's mechanism -- 'As soon as the "
+     "RULED BY M: NO, S IS NOT REQUIRED TO CONTRACT -- M's words: 'I would "
+     "imagine the seat is an expansion.'  APPLIED: no contraction requirement "
+     "binds S.  M's mechanism -- 'As soon as the "
      "information hits the seat, it triggers the higgs field, and atomic mass "
      "forms', with 'If the elements required for seating are present, then the "
      "conditions for a higgs field or something like it are also present' -- is "
@@ -747,10 +748,15 @@ RULED_BY_M = [
     ("M-S1A-P2",
      "Is aimability binding (DOCKET 62's R5)?",
      "D14 proves the destination UNDEFINED on a static spherically symmetric "
-     "device (THEOREM); no ruling had made aimability a requirement",
+     "device (ledger D14 %s); no ruling had made aimability a requirement"
+     % [r[2] for r in DEMAND if r[0] == "D14"][0],
      "RULED BY M: YES, NOT SOLE -- 'aiming is definitely part of it, but it "
-     "doesn't have to be the only function.'  APPLIED: aimability is a "
-     "REQUIRED function (necessary, not sufficient)",
+     "doesn't have to be the only function.'  CLARIFIED BY M: the device's "
+     "geometry must single out a POINT, not a sphere, and a subsystem may supply "
+     "it -- 'consider the device shape a cylinder.  The idea is the user aims "
+     "the device, the corridor is like another agent that verifies it.'  "
+     "APPLIED: aimability is a REQUIRED function (necessary, not sufficient) of "
+     "the device's whole geometry",
      "specthm imposes aimability on C; with D14 every static spherically "
      "symmetric member fails it"),
 
@@ -763,11 +769,16 @@ RULED_BY_M = [
      % (create.GEROCH_NEEDS_MATTER_ASSUMPTION,
         create.any_escape_stays_in_lorentzian_gr()),
      "RULED BY M: BOTH readings of 'these are defects' -- (i) a closed causal "
-     "curve or a Borde pathology DISQUALIFIES a device: APPLIED; (ii) "
-     "topological defects are candidate SEATING SITES ('Seating occurs in a "
-     "place where matter can occur but not in its original geometric form'): "
-     "NOT applied, opened as DOCKET 66",
-     "specthm's throat-creation classes become EMPTY; DOCKET 66 opens"),
+     "curve or a Borde pathology DISQUALIFIES, and CLARIFIED BY M it does so AT "
+     "THE SEAT ONLY: 'My ruling refers to the seat/destination.  Singular occurs "
+     "in the throat where the geometry is compressed to binary information, and "
+     "then push to the seat'.  APPLIED at the seat; a singular throat is not "
+     "disqualified.  (ii) topological defects are candidate SEATING SITES "
+     "('Seating occurs in a place where matter can occur but not in its "
+     "original geometric form'): NOT applied, opened as DOCKET 66, with M's "
+     "throat-compression mechanism",
+     "the seat of every object must be free of a closed causal curve and a "
+     "pathology; the throat-creation classes stay OPEN; DOCKET 66 opens"),
 
     ("M-S1A-P4",
      "Is phase1's D3 read per R1 (pointwise invariant contraction)?",
@@ -792,9 +803,11 @@ RULED_BY_M = [
      % (transit.IT_IS_A_MOVE_NOT_A_COPY, transit.CHANNEL_IS_CONSUMED_BY_USE,
         transit.CARRIES_SUBSTANCE, transit.BEATS_LIGHT),
      "RULED BY M: BOTH, QUANTUM FIRST -- 'both. Quantum first, which should "
-     "derive the classical.'  APPLIED: the specification is a quantum state, "
-     "and the classical specification is derived from it",
-     "R11 is stated on a quantum specification; transit.py's four results bind it"),
+     "derive the classical.'  APPLIED: the specification is a quantum state; "
+     "the classical specification is to be derived from it, and no derivation "
+     "exists yet",
+     "R11 is stated on a quantum specification; transit.py's four results bind "
+     "it IF it is carried by teleportation as an unknown quantum state"),
 ]
 
 # ---------------------------------------------------------------------------

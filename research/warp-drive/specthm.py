@@ -475,8 +475,15 @@ def hypotheses():
                     "radius alpha*b carrying M = mu*b*c^2/G "
                     "(achievable.required_density)", "DEFINING"),
         "H_static": ("the density is held below its value at each point for the "
-                     "whole hold b/c (achievable.hold_time); the corridor's "
-                     "staticity supplies THIS and nothing else", "DEFINING"),
+                     "whole hold b/c (achievable.hold_time), the configuration "
+                     "being static over the hold; staticity supplies this and, "
+                     "through MODEL-STATIC, D14's premise", "DEFINING"),
+        "H_aim": ("aimability (M-S1A-P2) is a property of the device's WHOLE "
+                  "geometry, which must single out a POINT destination, not a "
+                  "sphere; a subsystem may supply it, and one that does breaks "
+                  "spherical symmetry.  M's picture: 'consider the device shape a "
+                  "cylinder.  The idea is the user aims the device, the corridor "
+                  "is like another agent that verifies it'", "DEFINING"),
         "H_S": ("S(b; mu, alpha) > 1, the amount and scale at which D7 refuses",
                 "DEFINING"),
         "H_flat": ("the flat-space, boundary-free duration QEI holds pointwise "
@@ -514,7 +521,8 @@ def objects(F):
             "A region K between two FIXED PLACES A and B -- a place is a fixed "
             "areal radius (nonstatic.py's anchor lemma) -- on which proper "
             "distance is contracted in the sense of R1 at every point, held for "
-            "at least one light-crossing b/c (D7).  'At every point' is part of "
+            "at least one light-crossing b/c (D7), and -- on M's ruling "
+            "M-S1A-P2 -- aimable by its whole geometry (H_aim).  'At every point' is part of "
             "the definition (H_R1) and is narrower than phase1's integrated D3: "
             "a corridor contracted on a proper sub-region only is priced as a C "
             "over that sub-region.  The quantity acted on is "
@@ -527,11 +535,15 @@ def objects(F):
             "(conformastatic_forces_negative_mass() = %s) with a regular "
             "centre, but its core is Plummer, NOT uniform: the Plummer density "
             "falls over the scale a (separately, a fraction %.3e of its mass "
-            "lies outside R_s, linstab.py's formula), so it is in "
-            "class %s under H_M0 and in K2 otherwise -- K1's figure does not "
-            "price it until the mean-value step is seated.  (ii) "
-            "achievable.py's scale model, (mu, alpha) = (%g, %g): class %s at "
-            "b = 1 m under H_M0 (S = 10^%.3f), K6b for b <= b_x."
+            "lies outside R_s, linstab.py's formula).  It satisfies the "
+            "literals of class %s under H_M0 (K2 otherwise); being static and "
+            "spherically symmetric (certify.THEOREM_SCOPE) it fails aimability "
+            "(D14, M-S1A-P2), so it is NOT an instance of C.  (ii) "
+            "achievable.py's scale model, (mu, alpha) = (%g, %g): the literals "
+            "of class %s at b = 1 m under H_M0 (S = 10^%.3f), K6b's for b <= "
+            "b_x; static and spherically symmetric too, so likewise not an "
+            "instance of C under M-S1A-P2 -- its persistence price stands on "
+            "the route without aimability."
             % (certify.REQUIRES_NEGATIVE_TOTAL_MASS, certify.M_SEATED,
                certify.A_CORE, certify.R_SHELL, F["certify_negm"],
                F["plummer_outside"], "{realisation_i}", F["mu"], F["alpha"],
@@ -548,11 +560,12 @@ def objects(F):
             "mouths anchored at U = 0 the slice length is driven to %.4f%% of "
             "the areal gap, NONSTATIC_ANCHOR_CLOSES_D3 = %s).  On M's ruling "
             "M-S1A-P4 this file runs THREE readings of D3 side by side (the D3 "
-            "COMPARISON below): under readings 1 and 3 an endpoint held for one "
-            "light-crossing b/c (D7 -- phase1's D1-D5 contain no hold "
-            "requirement) contains an instance of C and C's verdicts apply; "
-            "reading 2 also admits gauge-only configurations; without the hold "
-            "an endpoint lies outside C and D7 says it transmits nothing.  The PASSAGE "
+            "COMPARISON below).  An endpoint is an instance of C only if it "
+            "contracts, is held for one light-crossing b/c (D7 -- phase1's "
+            "D1-D5 contain no hold requirement) and is aimable (M-S1A-P2); "
+            "reading 3 is written for static spherically symmetric endpoints, "
+            "which fail aimability, so with every ruling in force it admits no "
+            "instance of C; reading 2 also admits gauge-only configurations.  The PASSAGE "
             "the board prices is formation.py's family, f: 0 (flat) -> 1 "
             "(certify's metric), areal radii held fixed (U = 0), on R^3 -- no "
             "topology change."
@@ -566,9 +579,10 @@ def objects(F):
             "M's ruling as spec.py records it: 'DROP THE LEAD.  KEEP THE SEAT.'  "
             "What is required is that the matter exist at both ends and "
             "traverse under the same physics.  As spec.DOES (the tuple, which "
-            "this file uses) specifies it: %s.  DOES NOT: %s.  M RULED THE SEAT "
-            "IS AN EXPANSION and is not required to contract (M-S1A-P1, on the "
-            "board: %s; the word 'contract' occurs in spec.py: %s).  M's "
+            "this file uses) specifies it: %s.  DOES NOT: %s.  M RULED S IS NOT "
+            "REQUIRED TO CONTRACT -- M's words: 'I would imagine the seat is an "
+            "expansion' (M-S1A-P1, on the board: %s; the word 'contract' occurs "
+            "in spec.py: %s).  M's "
             "mechanism for it -- the arriving information triggers the Higgs "
             "field and atomic mass forms -- is DOCKET 65's to test and is NOT "
             "part of S until it lands; seating at a topological defect "
@@ -860,6 +874,7 @@ def requirements(F):
          "owners": [("certify", "THEOREM_SCOPE"), ("excite", "ROLE1_DOMINATED_BY_OWN_SOURCE"),
                     ("excite", "TAIL_RATE_IS_MASS"), ("excite", "DISPLACEMENT_IS_ULTRALOCAL")],
          "hypotheses": ["static spherical symmetry, for the undefinedness theorem",
+                        "H_aim",
                         "the one-bit statement for the axial object is ledger "
                         "text (D14's DOCKET 62 scope flag), not an owner pin"],
          "statement":
@@ -873,11 +888,16 @@ def requirements(F):
             "displacement returns at rate exactly m_h (D15, TAIL_RATE_IS_MASS "
             "= %s) and is ultralocal (D16, DISPLACEMENT_IS_ULTRALOCAL = %s).  "
             "M RULED AIMABILITY A REQUIRED FUNCTION, not the only one "
-            "(M-S1A-P2, on the board: %s).  With D14 it excludes every static "
-            "spherically symmetric member of C: K1 and K6b, static by definition "
-            "(achievable.py: '%s'), are emptied by it; the other spherical "
-            "classes lose their static members and stay OPEN; K4's one-bit "
-            "parameter is undecided."
+            "(M-S1A-P2, on the board: %s), of the device's whole geometry "
+            "(H_aim).  With D14 it excludes every static spherically symmetric "
+            "member of C; the classes it empties are computed from the verdicts "
+            "and printed in M's RULINGS below (achievable.py: '%s').  M's device "
+            "is a CYLINDER aimed by its user, the corridor verifying: a finite "
+            "cylinder lies in K5, where no owner writes an invariant contraction "
+            "criterion (R1 is not supplied there), and K4 is its infinite "
+            "idealisation, where O4 forces u < 0 and D14's scope flag leaves a "
+            "one-bit parameter; what 'verifies' requires of a metric is written "
+            "by NO OWNER."
             % (excite.ROLE1_DOMINATED_BY_OWN_SOURCE, excite.TAIL_RATE_IS_MASS,
                excite.DISPLACEMENT_IS_ULTRALOCAL, ruled("M-S1A-P2"), MODEL_STATIC_TEXT)},
 
@@ -1009,9 +1029,11 @@ def requirements(F):
             "causality violation kinematically, with no matter assumption "
             "(GEROCH_NEEDS_MATTER_ASSUMPTION = %s, EXOTIC_MATTER_HELPS_CREATION "
             "= %s); dynamically '%s' -- READ, and whether 'reasonable' excludes "
-            "the source a throat needs is not determined here.  M RULED a closed "
-            "causal curve and a Borde pathology DISQUALIFYING (M-S1A-P3 (i)), so "
-            "both creation routes are EMPTY; find-and-enlarge is untouched.  "
+            "the source a throat needs is not determined here.  M ruled a closed "
+            "causal curve and a Borde pathology disqualifying AT THE SEAT "
+            "(M-S1A-P3 (i), as M scoped it): no owner places either at the seat, "
+            "so the creation routes stay OPEN, and a singular throat is part of "
+            "M's own mechanism (DOCKET 66).  "
             "Topology change "
             "is kinematically possible (KINEMATICALLY_POSSIBLE = %s).  "
             "Nucleation (Pisana et al.) is READ, its price not computed "
@@ -1043,7 +1065,9 @@ def requirements(F):
                     ("transit", "CHANNEL_IS_CONSUMED_BY_USE"), ("transit", "BEATS_LIGHT")],
          "hypotheses": ["M RULED: 'both. Quantum first, which should derive the "
                         "classical' (M-S1A-P5): the specification is a quantum "
-                        "state; the fidelity is not yet fixed"],
+                        "state; the fidelity is not yet fixed",
+                        "H_tele: for transit.py's results, the specification is "
+                        "carried by teleportation as an unknown quantum state"],
          "statement":
             "The channel must be traversed at <= c to exist, so its advantage "
             "over light is zero by construction (D23; "
@@ -1057,12 +1081,17 @@ def requirements(F):
             "braneworld shortcut yields a CTC is O3 (the flat-bulk quotient is "
             "settled by D21).  S9, the Drive folder's device, is a "
             "reconstruction-route specification REFUSED on two counts (below).  "
-            "ON M's RULING M-S1A-P5 the specification is QUANTUM FIRST, so "
-            "transit.py's results bind it: it is a move, not a copy "
+            "ON M's RULING M-S1A-P5 the specification is QUANTUM FIRST, the "
+            "classical one to be derived from it (M: 'should derive'; no "
+            "derivation exists yet).  IF it is carried by teleportation as an "
+            "unknown quantum state (H_tele), transit.py's results bind it: it is "
+            "a move, not a copy "
             "(IT_IS_A_MOVE_NOT_A_COPY = %s), the channel is consumed by use "
             "(CHANNEL_IS_CONSUMED_BY_USE = %s), it carries no substance -- the "
-            "matter must already be there (CARRIES_SUBSTANCE = %s, which is D25's "
-            "stock gate) -- and it does not beat light (BEATS_LIGHT = %s).  S9 is "
+            "matter must already be there (CARRIES_SUBSTANCE = %s, which D25's "
+            "stock gate prices) -- and it does not beat light (BEATS_LIGHT = %s).  "
+            "A KNOWN state can be re-prepared rather than teleported, and then "
+            "the channel is not consumed.  S9 is "
             "refused: short "
             "by %.1f orders ON ITS OWN NUMBERS (the specification against "
             "itself, not a gap against this board's demand), and its mechanism "
@@ -1225,9 +1254,10 @@ def requirements(F):
             "not; the seat's own content is SR1.  A positive-mass lens delays "
             "its signal (composite.survey(+2e-3): delay %+.4e, seats = %s); the "
             "same mass negative seats and arrives early (early = %s), which "
-            "needs negative mass and so is C's question.  M RULED the seat an "
-            "EXPANSION (M-S1A-P1): no contraction requirement binds S, which is "
-            "what the positive lens delivers."
+            "needs negative mass and so is C's question.  M ruled S is not "
+            "required to contract ('I would imagine the seat is an expansion', "
+            "M-S1A-P1): no contraction requirement binds S, and a positive lens "
+            "lengthens proper distance."
             % (st("D5"), sf["composite_plus"]["delay"], sf["composite_plus"]["seats"],
                sf["composite_minus"]["early"])},
 
@@ -1296,24 +1326,28 @@ def classes():
                   "sgt1": True},
          "name": "the priced corridor",
          "hyps": ["H_sph", "H_reg", "H_EFE", "H_M0", "H_model", "H_static",
-                  "H_S", "H_flat"],
-         "note": "contains achievable.py's family at every b > b_x.  Its proof "
-                 "does not use D2: the class is defined by m < 0, and D2 is "
-                 "what makes m < 0 the definition of contracting (K0, and the "
-                 "entailment)"},
+                  "H_S", "H_flat", "H_aim"],
+         "note": "achievable.py's family satisfies its literals at every b > "
+                 "b_x, but is static and spherically symmetric and so fails "
+                 "aimability (D14, M-S1A-P2).  Neither route uses D2: the class "
+                 "is defined by m < 0, and D2 is what makes m < 0 the definition "
+                 "of contracting (K0, and the entailment)"},
         {"id": "K6a", "object": "C", "space": "C",
          "lits": {"sph": True, "negm": True, "reg": True, "m0": True, "model": False},
          "name": "inside H_M0, profile not a uniform static core",
          "hyps": ["H_sph", "H_reg", "H_M0"],
-         "note": "contains certify.py's seated metric (Plummer core).  A "
-                 "mean-value route to K1 exists (some point is at least as "
-                 "negative as the mean) and is NOT SEATED in any owner"},
+         "note": "certify.py's seated metric (Plummer core) satisfies its "
+                 "literals, but is static and spherically symmetric and so is "
+                 "not an instance of C under M-S1A-P2.  Non-static members stay "
+                 "OPEN.  A mean-value route to K1 exists for the route without "
+                 "aimability and is NOT SEATED in any owner"},
         {"id": "K6b", "object": "C", "space": "C",
          "lits": {"sph": True, "negm": True, "reg": True, "m0": True, "model": True,
                   "sgt1": False},
          "name": "inside H_M0, uniform static core, S <= 1",
-         "hyps": ["H_sph", "H_reg", "H_M0", "H_model", "H_static"],
-         "note": "D7 does not refuse S <= 1"},
+         "hyps": ["H_sph", "H_reg", "H_M0", "H_model", "H_static", "H_aim"],
+         "note": "D7 does not refuse S <= 1; static and spherically symmetric, "
+                 "so it fails aimability (D14, M-S1A-P2)"},
         {"id": "K2", "object": "C", "space": "C",
          "lits": {"sph": True, "negm": True, "reg": True, "m0": False},
          "name": "matter or state outside H_M0",
@@ -1334,12 +1368,15 @@ def classes():
          "name": "infinite axial throats",
          "hyps": ["H_axial"],
          "note": "u < 0 somewhere is forced (O4), but no persistence figure "
-                 "exists on this object"},
+                 "exists on this object.  The infinite idealisation of M's "
+                 "cylinder; D14's scope flag leaves a one-bit parameter, and "
+                 "whether that suffices for aiming is decided by no owner"},
         {"id": "K5", "object": "C", "space": "C", "lits": {"sph": False, "axial": False},
          "name": "no symmetry (incl. finite axial corridors)",
          "hyps": [],
          "note": "R1 is not supplied here: no owner writes an invariant "
-                 "criterion for a general spacetime"},
+                 "criterion for a general spacetime.  M's FINITE cylinder lies "
+                 "here, as does any device carrying an aiming subsystem"},
         {"id": "S-1", "object": "S", "space": "S", "lits": {"wl": True},
          "name": "the seat by cumulative lensing of ordinary matter",
          "hyps": ["H_seat"],
@@ -1414,13 +1451,13 @@ def facts(z3, V, F):
         {"name": "D14", "space": "C",
          "gate": st("D14") == THEOREM,
          "held": "ledger D14 %s ('%s')" % (st("D14"), D14_PRICED_OBJECT),
-         "hyps": ["H_sph"],
+         "hyps": ["H_sph", "H_aim"],
          "f": z3.Implies(z3.And(V["sph"], V["static"]), z3.Not(V["aim"]))},
         {"name": "MODEL-STATIC", "space": "C",
          "gate": MODEL_STATIC_TEXT in " ".join(
              open(achievable.__file__, encoding="utf-8").read().split()),
          "held": "achievable.py: '%s'" % MODEL_STATIC_TEXT,
-         "hyps": ["H_model"],
+         "hyps": ["H_model", "H_static"],
          "f": z3.Implies(V["model"], V["static"])},
         {"name": "O4", "space": "C",
          "gate": st("O4").startswith("CLOSED") and axial.AXIS_ESCAPES_THE_SIGN is False,
@@ -1446,7 +1483,13 @@ def facts(z3, V, F):
          "held": "create.any_escape_stays_in_lorentzian_gr() = %s (READ)"
                  % create.any_escape_stays_in_lorentzian_gr(),
          "hyps": [],
-         "f": z3.Implies(z3.And(V["created"], z3.Not(V["cc"])), V["pathology"])},
+         # Borde gr-qc/9406053 VIII.A: dropping causal compactness either ends
+         # in a pathology (Tipler's Theorem 5 route: closed-universe case, under
+         # additional assumptions) or leaves Lorentzian GR (weakened curvature
+         # constraints; Euclidean path integral).  A DISJUNCTION, and M-S1A-P3
+         # does not disqualify leaving GR.
+         "f": z3.Implies(z3.And(V["created"], z3.Not(V["cc"])),
+                         z3.Or(V["pathology"], V["nongr"]))},
     ]
     return out
 
@@ -1454,7 +1497,8 @@ def facts(z3, V, F):
 def _vars(z3):
     names = ("sph", "axial", "negm", "reg", "m0", "model", "sgt1", "contracts",
              "rhoneg", "persist", "u_neg", "H_flat", "wl", "ball", "bh",
-             "created", "cc", "ctc", "pathology", "static", "aim")
+             "created", "cc", "ctc", "pathology", "static", "aim",
+             "ctc_seat", "path_seat", "nongr")
     return dict((n, z3.Bool(n)) for n in names)
 
 
@@ -1468,7 +1512,9 @@ def member(z3, V, space, drop=()):
     """What it is to be an instance of the object.  C: contracts (R1), holds
     for a light-crossing (D7) and, on M's ruling M-S1A-P2, can be aimed.  S: a
     seat that is a device, not a black hole (SR2).  Every object, on M's ruling
-    M-S1A-P3: no closed causal curve and no Borde pathology."""
+    M-S1A-P3 as M scoped it: no closed causal curve and no Borde pathology AT
+    THE SEAT ('My ruling refers to the seat/destination') -- a singular throat
+    is not disqualified."""
     cs = []
     if space == "C":
         cs += [V["contracts"], V["persist"]]
@@ -1477,9 +1523,9 @@ def member(z3, V, space, drop=()):
     if space == "S":
         cs.append(z3.Not(V["bh"]))
     if in_force("chronology", drop):
-        cs.append(z3.Not(V["ctc"]))
+        cs.append(z3.Not(V["ctc_seat"]))
     if in_force("pathology", drop):
-        cs.append(z3.Not(V["pathology"]))
+        cs.append(z3.Not(V["path_seat"]))
     return z3.And(*cs) if cs else z3.BoolVal(True)
 
 
@@ -1495,8 +1541,13 @@ ASSUMABLE = ("H_flat",)
 #: whether it is emptied without it (the persistence route, D4 + D7).
 ROUTE_DROP = ("aimability",)
 
-PROP_TEXT = {"ctc": "a closed causal curve",
-             "pathology": "a Borde pathology (a singularity or a point at infinity)"}
+PROP_TEXT = {"ctc": "a closed causal curve (in the interpolating region, not "
+                    "shown to be at the seat)",
+             "pathology": "a Borde pathology (a singularity or a point at infinity)",
+             "pathology_or_nongr": "either a Borde pathology (Tipler's route, "
+                                   "closed-universe case, under additional "
+                                   "assumptions) or a departure from Lorentzian GR "
+                                   "(Borde's other two escapes)"}
 
 
 def derive(model, drop=()):
@@ -1666,9 +1717,12 @@ def entailment(model, verdicts, drop=()):
         s = z3.Solver()
         s.add(*cb)
         consistent.append((K["id"], s.check() == z3.sat))
-        for prop in ("ctc", "pathology"):
+        for prop, expr in (("ctc", V["ctc"]), ("pathology", V["pathology"]),
+                           ("pathology_or_nongr", z3.Or(V["pathology"], V["nongr"]))):
+            if prop == "pathology_or_nongr" and "pathology" in forced.get(K["id"], []):
+                continue
             s = z3.Solver()
-            s.add(*(cb + [z3.Not(V[prop])]))
+            s.add(*(cb + [z3.Not(expr)]))
             if s.check() == z3.unsat:
                 forced.setdefault(K["id"], []).append(prop)
     return {"with_H_flat": with_h, "without_H_flat": without_h,
@@ -1760,8 +1814,10 @@ def escapes(model, verdicts, route=None):
          "the core (Plummer's does) has a less negative mean over its larger "
          "support, and the a fortiori step then needs a support bound that is "
          "not seated either.  "
-         "Elementary, and NOT SEATED in any owner: until it is, certify.py's "
-         "seated metric sits in %s." % model.get("realisation_i")),
+         "Elementary, and NOT SEATED in any owner.  It matters only on the "
+         "route without aimability: certify.py's seated metric satisfies the "
+         "literals of %s, but is static and spherically symmetric, so under "
+         "M-S1A-P2 it is not an instance of C at all." % model.get("realisation_i")),
         ("H_static", ["D7"],
          "a non-static hold: the pointwise bound needs the density held below "
          "at each point for the whole of b/c, which only staticity supplies here."),
@@ -1793,11 +1849,17 @@ def escapes(model, verdicts, route=None):
         ("H_collapse", ["none (spec.py)"],
          "a collapse criterion other than 2GM/c^2 >= l for the ball: none "
          "computed."),
-        ("H_cc", ["none (create.py READ; ruling M-S1A-P3)"],
+        ("H_aim", ["D14", "M-S1A-P2"],
+         "aiming supplied from outside the corridor's geometry.  M's picture is "
+         "exactly this split -- the user aims the device, the corridor verifies "
+         "-- and a device carrying the aiming subsystem is not spherically "
+         "symmetric, so it lands in K4 or K5 (OPEN).  Formation-time aiming does "
+         "not help while the operating configuration is spherical during the "
+         "hold.  What 'verifies' requires of a metric: NO OWNER."),
+        ("H_cc", ["none (create.py READ)"],
          "drop causal compactness: the throat lands in W-create-ncc, where "
-         "Borde's escapes force a pathology (create.py, READ) and M-S1A-P3 "
-         "disqualifies it.  So breaking H_cc reopens nothing while that ruling "
-         "stands."),
+         "Borde's escapes give either a pathology (Tipler's route) or a "
+         "departure from Lorentzian GR."),
     ]
     out = []
     for key, rows, route_txt in routes:
@@ -1900,6 +1962,12 @@ QUOTES = (
                   "regions in 4D Minkowski"),
     ("ledger:S3", "Passes KIND and DEADLINE, fails MAGNITUDE"),
     ("ledger:D7", "STATE-INDEPENDENT over Hadamard states"),
+    ("ledger:D14", D14_PRICED_OBJECT),
+    ("achievable", MODEL_STATIC_TEXT),
+    ("ledger:M-S1A-P1", "I would imagine the seat is an expansion"),
+    ("ledger:M-S1A-P2", "the corridor is like another agent that verifies it"),
+    ("ledger:M-S1A-P3", "My ruling refers to the seat/destination"),
+    ("ledger:M-S1A-P5", "should derive the classical"),
     ("drivensource", "INNER horizon"),
     ("drivensource", "Gibbons-Hull/Witten"),
 )
@@ -1929,21 +1997,32 @@ def misquotes(quotes=QUOTES):
 #: pending until a new question is recorded here.
 PENDING_FOR_M = []
 
-#: What each of M's step-1a rulings changed in THIS file, keyed by ledger id.
-RULING_EFFECT = {
-    "M-S1A-P1": "S carries no contraction requirement; S-1 stays NONEMPTY.  The "
-                "mass-formation mechanism is DOCKET 65's, not S's.",
-    "M-S1A-P2": "aimability joins C's membership; with D14, K1 and K6b are EMPTY "
-                "without H_flat.  The persistence route is still derived and "
-                "printed beside it.",
-    "M-S1A-P3": "no closed causal curve and no Borde pathology in any object's "
-                "membership: W-create-cc and W-create-ncc are EMPTY.  Seating at "
-                "a topological defect is DOCKET 66's.",
-    "M-S1A-P4": "three readings of phase1's D3 are run side by side (the D3 "
-                "COMPARISON).",
-    "M-S1A-P5": "R11 is stated on a quantum specification, and transit.py's four "
-                "results bind it.",
-}
+def ruling_effect(model):
+    """What each step-1a ruling changed HERE, COMPUTED: each ruled requirement
+    is switched off, the verdicts re-derived, and the classes that move named."""
+    v = model["verdicts"]
+
+    def moved(drop):
+        alt = derive(model, drop=drop)
+        return ["%s %s (without it: %s)" % (k, v[k]["verdict"], alt[k]["verdict"])
+                for k in sorted(v) if alt[k]["verdict"] != v[k]["verdict"]]
+    p2, p3 = moved(("aimability",)), moved(("chronology", "pathology"))
+    return {
+        "M-S1A-P1": "S carries no contraction requirement; S-1 is %s.  The "
+                    "mass-formation mechanism is DOCKET 65's, not S's."
+                    % v["S-1"]["verdict"],
+        "M-S1A-P2": "aimability joins C's membership (H_aim).  Classes it moves: "
+                    "%s." % ("; ".join(p2) or "none"),
+        "M-S1A-P3": "no closed causal curve and no Borde pathology AT THE SEAT of "
+                    "any object.  Classes it moves: %s.  Seating at a topological "
+                    "defect, and M's throat-compression mechanism, are DOCKET "
+                    "66's." % ("; ".join(p3) or "none -- no owner places a defect "
+                               "at a seat"),
+        "M-S1A-P4": "three readings of phase1's D3 are run side by side (the D3 "
+                    "COMPARISON).",
+        "M-S1A-P5": "R11 is stated on a quantum specification; transit.py's four "
+                    "results bind it under H_tele.",
+    }
 
 DIVERGENCES = [
     ("V1", "DOCKET 62 R2: 'over-determined three ways' including Olum",
@@ -1981,7 +2060,6 @@ DIVERGENCES = [
 
 WHAT_IT_DOES_NOT_SAY = [
     "It does not say a contracting corridor is impossible: the OPEN classes are open.",
-    "It does not say K1 is empty unconditionally: its verdict needs H_flat, ASSUMED.",
     "It does not declare impossible anything spec.py establishes: S-1 is NONEMPTY.",
     "It does not say the seat is new: '%s' (spec.DOES_NOT)." % spec.DOES_NOT[0],
     "It uses aimability, chronology and pathology only as M ruled them "
@@ -2070,7 +2148,7 @@ def d3_readings(F):
         "readings": [
             ("1", "R1, pointwise and invariant",
              "an endpoint whose K has m < 0 at every point: an instance of C over K "
-             "(held for b/c), and C's verdicts apply"),
+             "when also held for b/c AND aimable (M-S1A-P2), and C's verdicts apply"),
             ("2", "phase1's slice D3, read literally",
              "also configurations with m >= 0 everywhere: Milne, exactly flat, "
              "gives Gamma = %g on a slice with advance over flat %g -- K0's "
@@ -2079,19 +2157,24 @@ def d3_readings(F):
             ("3", "net contraction along the STATIC slice between the two fixed "
                   "places (the combination: D3's integrated form, R1's invariance)",
              "by the lemma, an admitted endpoint has m < 0 somewhere between the "
-             "places, and by H_R1 that sub-region is itself a C (K1-K6).  It admits "
-             "mixed-sign corridors reading 1 prices only over their negative part: "
+             "places.  WITHOUT aimability, by H_R1 that sub-region (held for b/c) "
+             "is itself a C (K1-K6), and reading 3 admits mixed-sign corridors "
+             "reading 1 prices only over their negative part: "
              "the witness m = %g on [%g, %g], %g on (%g, %g] has static length "
-             "%.6f against the areal gap %g (net %+.4f%%).  Defined for STATIC "
-             "configurations only -- the static slice is the Killing slicing; off "
-             "it a slice length is gauge (foliation) -- and a static spherically "
-             "symmetric endpoint fails aimability (D14, M-S1A-P2)"
+             "%.6f against the areal gap %g (net %+.4f%%).  Written for STATIC, "
+             "SPHERICALLY SYMMETRIC configurations only (Misner-Sharp m, areal R; "
+             "the static slice is the Killing slicing, and off it a slice length "
+             "is gauge), and every such configuration fails aimability (D14, "
+             "M-S1A-P2) -- so WITH every ruling in force reading 3 admits no "
+             "instance of C"
              % (m1, ra, rm, m2, rm, rb, length, gap, 100.0 * (length / gap - 1.0))),
         ],
         "comparison": (
-            "Readings 1 and 3 agree: every endpoint that either admits contains a C, "
-            "over K (1) or over its m < 0 sub-region (3), so C's verdicts decide "
-            "both.  Only reading 2 admits configurations with no m < 0 anywhere, "
+            "WITHOUT aimability, readings 1 and 3 agree: every endpoint that "
+            "either admits, held for b/c, contains a C, over K (1) or over its "
+            "m < 0 sub-region (3), so C's verdicts decide both.  WITH every ruling "
+            "in force, reading 1's C must also be aimable, and reading 3 admits "
+            "none.  Only reading 2 admits configurations with no m < 0 anywhere, "
             "and on those the advance over flat is %g (Milne)."
             % F["milne"]["advance_over_flat"]),
     }
@@ -2160,13 +2243,17 @@ def headline(model, verdicts, ent):
                                           " + ".join(rv[k]["facts"])))
                      if rv[k]["verdict"] in (EMPTY, EMPTY_IF) else "%s %s" % (k, rv[k]["verdict"])
                      for k in diff)))
+    aim_on = in_force("aimability")
     L.append("T (the transition), under the three readings of D3 run on M's ruling "
-             "M-S1A-P4: under readings 1 and 3 an endpoint held for one "
-             "light-crossing (D7) contains an instance of C, over K or over its "
-             "m < 0 sub-region, and inherits C's verdicts; reading 2 also admits "
-             "gauge-only configurations (advance over flat %g).  Without the hold "
-             "an endpoint lies outside C and transmits nothing (D7).  Its passage "
-             "is priced, not refused (R10, RT)." % model["F"]["milne"]["advance_over_flat"])
+             "M-S1A-P4: an endpoint is an instance of C only if it contracts, is "
+             "held for one light-crossing (D7)%s.  %s  Reading 2 also admits "
+             "gauge-only configurations (advance over flat %g).  Its passage is "
+             "priced, not refused (R10, RT)."
+             % (" and is aimable (M-S1A-P2)" if aim_on else "",
+                "Reading 1 admits exactly those; reading 3 (static, spherical) "
+                "admits none, since those fail aimability (D14)." if aim_on else
+                "Readings 1 and 3 agree: every endpoint either admits contains a C.",
+                model["F"]["milne"]["advance_over_flat"]))
     return "\n".join(L)
 
 
@@ -2250,8 +2337,10 @@ def theorem_statement(model):
     ent = model["entailment"]
     forced = ent["forced"]
     fsent = "".join("  %s's members are FORCED to carry %s by the facts in force "
-                    "(z3; the facts are READ by create.py); %s empties only if M "
-                    "rules P3." % (cid, " and ".join(PROP_TEXT[p] for p in props), cid)
+                    "(z3; the facts are READ by create.py).  M-S1A-P3 disqualifies "
+                    "a defect AT THE SEAT only, and no owner places this one "
+                    "there, so %s stays OPEN."
+                    % (cid, " and ".join(PROP_TEXT[p] for p in props), cid)
                     for cid, props in sorted(forced.items()))
     L.append(_wrap("(%d) Every other class is OPEN: %s.  No requirement in force "
                    "empties any of them.%s  Each OPEN class is propositionally consistent "
@@ -2364,8 +2453,9 @@ def report():
     for rr in ledger.RULED_BY_M:
         print("  %s  %s" % (rr[0], rr[1]))
         print(_wrap(rr[3]))
-        if rr[0] in RULING_EFFECT:
-            print(_wrap("HERE: " + RULING_EFFECT[rr[0]]))
+        eff = ruling_effect(model)
+        if rr[0] in eff:
+            print(_wrap("HERE (computed): " + eff[rr[0]]))
     print("\n" + "=" * 79 + "\nPENDING FOR M -- what changes either way\n" + "=" * 79)
     if not PENDING_FOR_M:
         print("  none")
@@ -2378,7 +2468,12 @@ def report():
         print("  %s  %s" % (vid, src))
         print(_wrap(why))
     print("\n" + "=" * 79 + "\nWHAT THE THEOREM DOES NOT SAY\n" + "=" * 79)
-    for s in WHAT_IT_DOES_NOT_SAY:
+    vk, rk = model["verdicts"]["K1"], model["verdicts_route"]["K1"]
+    for s in ["It does not say K1 is empty without M's rulings: it is %s by %s "
+              "only under M-S1A-P2 (with H_aim); without that ruling it is %s%s."
+              % (vk["verdict"], " + ".join(vk["facts"]), rk["verdict"],
+                 (" " + " and ".join(rk["assumed"]) + ", ASSUMED") if rk["assumed"]
+                 else "")] + WHAT_IT_DOES_NOT_SAY:
         print(_wrap("- " + s, 2))
     wr = withdrawn_ids()
     print("\n  withdrawn rows relied on: none (%s are listed in ledger.py and none "
@@ -2576,7 +2671,7 @@ def selftest():
     v = model["verdicts"]
     want = {"K0": EMPTY, "K1": EMPTY, "K6a": OPEN_V, "K6b": EMPTY, "K2": OPEN_V,
             "K3": OPEN_V, "K4": OPEN_V, "K5": OPEN_V, "S-1": NONEMPTY, "S-2": EMPTY,
-            "S-3": OPEN_V, "W-create-cc": EMPTY, "W-create-ncc": EMPTY,
+            "S-3": OPEN_V, "W-create-cc": OPEN_V, "W-create-ncc": OPEN_V,
             "W-enlarge": OPEN_V, "Rec": OPEN_V}
     chk("pin", "every class verdict, every ruling in force",
         dict((k, v[k]["verdict"]) for k in want), want)
@@ -2648,10 +2743,9 @@ def selftest():
     esc = dict((x["hyp"], x) for x in model["escapes"])
     chk("chk", "every hypothesis an EMPTY / EMPTY IF class states has an escape",
         [h for h in stated if h not in esc], [])
-    chk("chk", "  breaking each reopens a class on one route or the other -- "
-        "except H_cc, while M-S1A-P3 stands",
+    chk("chk", "  breaking each reopens a class on one route or the other",
         [h for h in stated if h in esc and not (esc[h]["reopens"]
-                                               or esc[h]["reopens_route"])], ["H_cc"])
+                                               or esc[h]["reopens_route"])], [])
     chk("chk", "  H_flat reopens nothing with aimability, K1 without; H_reg K3; H_M0 K2",
         (esc["H_flat"]["reopens"], esc["H_flat"]["reopens_route"],
          esc["H_reg"]["reopens"], esc["H_M0"]["reopens"]),
@@ -2723,17 +2817,43 @@ def selftest():
         m2 = run()
     chk("ctl", "achievable.M_OVER_B -> 1e-80: realisation (ii) leaves K1 for K6b",
         m2["realisation_ii"], "K6b")
-    REQUIRE_OVERRIDE["chronology"] = False
+    import z3 as _z3
+    Vz = _vars(_z3)
+
+    def seat_defect_admitted():
+        out = []
+        for prop in ("ctc_seat", "path_seat"):
+            sv = _z3.Solver()
+            sv.add(member(_z3, Vz, "W"), Vz[prop])
+            out.append(sv.check() == _z3.sat)
+        return tuple(out)
+    chk("ctl", "M-S1A-P3 bites AT THE SEAT: a CTC or a pathology at the seat is "
+        "not a member", seat_defect_admitted(), (False, False))
+    REQUIRE_OVERRIDE["chronology"] = REQUIRE_OVERRIDE["pathology"] = False
     try:
-        m2, v2, h2 = rerun()
+        admitted = seat_defect_admitted()
     finally:
-        REQUIRE_OVERRIDE["chronology"] = None
-    chk("ctl", "chronology switched off: W-create-cc reopens, W-create-ncc (a "
-        "pathology) stays EMPTY",
-        (v2["W-create-cc"]["verdict"], v2["W-create-ncc"]["verdict"]), (OPEN_V, EMPTY))
-    chk("pin", "W-create-cc is emptied by GEROCH-BORDE, W-create-ncc by BORDE-ESCAPES",
-        (v["W-create-cc"]["facts"], v["W-create-ncc"]["facts"]),
-        (["GEROCH-BORDE"], ["BORDE-ESCAPES"]))
+        REQUIRE_OVERRIDE["chronology"] = REQUIRE_OVERRIDE["pathology"] = None
+    chk("ctl", "  and with the ruling switched off both are admitted", admitted,
+        (True, True))
+    chk("z3", "the creation classes are OPEN: a CTC (W-create-cc) and a pathology OR "
+        "departure from GR (W-create-ncc) are forced, none shown at the seat",
+        (model["entailment"]["forced"], v["W-create-cc"]["verdict"],
+         v["W-create-ncc"]["verdict"]),
+        ({"W-create-cc": ["ctc"], "W-create-ncc": ["pathology_or_nongr"]},
+         OPEN_V, OPEN_V))
+    with patched(sys.modules[__name__], "MODEL_STATIC_TEXT", "a sentence achievable.py never wrote"):
+        m2, v2, h2 = rerun()
+    chk("ctl", "the MODEL-STATIC gate refused: K1 falls back to EMPTY IF, K6b to OPEN",
+        (v2["K1"]["verdict"], v2["K6b"]["verdict"], "MODEL-STATIC" in m2["facts_refused"]),
+        (EMPTY_IF, OPEN_V, True))
+    with patched(ledger, "RULED_BY_M", [r for r in ledger.RULED_BY_M if r[0] != "M-S1A-P2"]):
+        m2, v2, h2 = rerun()
+    chk("ctl", "P2 alone off the board: K1 EMPTY IF, K6b OPEN",
+        (v2["K1"]["verdict"], v2["K6b"]["verdict"]), (EMPTY_IF, OPEN_V))
+    eff = ruling_effect(model)
+    chk("chk", "the ruling effects are computed: P2 moves K1 and K6b, P3 moves nothing",
+        (eff["M-S1A-P2"].count("without it"), "none" in eff["M-S1A-P3"]), (2, True))
     d3 = model["d3"]
     chk("z3", "D3 lemma: static length element >= 1 exactly when m >= 0; guard refutes "
         "the false strengthening; antiderivative checked",
@@ -2815,18 +2935,11 @@ def selftest():
          "flat" in model["hyps"]["H_flat"][0]), (False, True))
     chk("chk", "S-1 states its hypotheses (H_seat), and clause (3) prints them",
         (cls_hyps(model, "S-1"), "H_seat" in theorem_statement(model)), (["H_seat"], True))
-    REQUIRE_OVERRIDE["chronology"] = REQUIRE_OVERRIDE["pathology"] = False
-    try:
-        m2 = run()
-    finally:
-        REQUIRE_OVERRIDE["chronology"] = REQUIRE_OVERRIDE["pathology"] = None
-    chk("z3", "with P3 switched off, W-create-cc is FORCED to a CTC and W-create-ncc "
-        "to a pathology (derived) -- what M-S1A-P3 disqualifies",
-        (m2["entailment"]["forced"], m2["verdicts"]["W-create-cc"]["verdict"]),
-        ({"W-create-cc": ["ctc"], "W-create-ncc": ["pathology"]}, OPEN_V))
+
     chk("chk", "the T headline line runs the three D3 readings and needs the hold",
-        ("under readings 1 and 3" in model["headline"]
-         and "held for one light-crossing" in model["headline"]), True)
+        ("Reading 1 admits exactly those" in model["headline"]
+         and "held for one light-crossing" in model["headline"]
+         and "is aimable" in model["headline"]), True)
     chk("chk", "every step-1a ruling is on the board and placed; nothing pending",
         ([r[0] for r in ledger.RULED_BY_M if r[0].startswith("M-S1A-")], PENDING_FOR_M),
         (["M-S1A-P%d" % i for i in range(1, 6)], []))
