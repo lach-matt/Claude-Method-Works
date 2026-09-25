@@ -50,16 +50,20 @@ says which reading it answers, and why:
 0.  THE ANSWER
 ===============================================================================
 
-THE CONSIDERATION IS TRUE, AND IT SINGLES OUT NO PLACE.  THE MECHANISM, AS
-STATED -- THE TRIGGERED FIELD FORMING THE PAYLOAD'S ATOMIC MASS -- IS REFUSED ON
-EVERY READING; ON DISPLACEMENT AND QUANTA IT IS REFUSED AS NET FORMATION ONLY,
-AND ATOMIC MASS CAN STILL FORM THERE AS MATTER WITH ITS ANTIMATTER (THE PAIR
-ROUTE, PRICED).  NO READING IS REFUSED ON A CONTESTED
+THE CONSIDERATION IS TRUE, AND, ON P-UNIFORM, IT SINGLES OUT NO PLACE.  THE
+MECHANISM, AS STATED -- THE TRIGGERED FIELD FORMING THE PAYLOAD'S ATOMIC MASS --
+IS REFUSED ON EVERY READING; ON DISPLACEMENT AND QUANTA IT IS REFUSED AS NET
+FORMATION ONLY, AND ATOMIC MASS CAN STILL FORM THERE AS MATTER WITH ITS
+ANTIMATTER (THE PAIR ROUTE, PRICED).  NO READING IS REFUSED ON A CONTESTED
 FIGURE ALONE.  EACH COUNT IS LISTED ONLY AGAINST THE READINGS IT HAS A STATED
 REASON TO ANSWER, AND THE TABLE IN SECTION 5 GIVES THE REASON, AND THE REASON
-EACH OMITTED COUNT DOES NOT ANSWER.  TWO READINGS KEEP A REMAINDER: EXCITATION
-(THE PAIR ROUTE, PRICED) AND STOCK (RECONSTRUCTION FROM STOCK, WHERE NO MASS
-FORMS).
+EACH OMITTED COUNT DOES NOT ANSWER.  STOCK IS REFUSED ON PRIOR MASS (C5): THE
+ELEMENTS AT THE SEAT ALREADY CARRY THEIR HIGGS-GIVEN MASS BEFORE ANYTHING
+ARRIVES, SO THE TRIGGER GIVES THEM NOTHING; THAT NEEDS NO P-UNIFORM.  THE FINITE
+HIGGS SHARE -- WHAT THE FIELD GIVES, MEASURED WITH IT SWITCHED OFF -- IS OPEN:
+NOT COMPUTED, NOT READ, AND WHETHER IT EXCEEDS HALF IS UNDECIDED HERE; NO
+VERDICT RESTS ON IT.  TWO READINGS KEEP A REMAINDER: EXCITATION (THE PAIR ROUTE,
+PRICED) AND STOCK (RECONSTRUCTION FROM STOCK, WHERE NO MASS FORMS).
 
   M65-1 PRESENCE.  The consideration holds, and more strongly than M put it.
      An electron of the measured mass REQUIRES a nonzero Higgs field where it
@@ -67,7 +71,13 @@ FORMS).
      uniform (P-UNIFORM, a named premise) the condition holds everywhere, with
      or without the elements, so it cannot be what triggers anything.  C1: the
      field is not switched on by arrival, because it is already on.  That
-     answers the SWITCH-ON reading only.  Under the EXCITATION reading the
+     answers the SWITCH-ON reading only.  C5, PRIOR MASS: on the STOCK
+     reading the elements are at the seat before anything arrives, and
+     elements of measured mass REQUIRE phi != 0 where they are, so they
+     already carry their Higgs-given mass; the trigger gives them nothing,
+     and no mass forms.  This needs NO P-UNIFORM: the elements' own measured
+     masses fix phi at their location (H-TREE, H-PRESENT).  That answers the
+     STOCK reading only.  Under the EXCITATION reading the
      field CAN be triggered: a local source displaces phi (D15, D16), at a
      price, and within D20's model a source of positive rest energy can only
      LOWER |phi|, and every Yukawa mass with it.  What excitation makes forms
@@ -77,20 +87,26 @@ FORMS).
      source.  That is EXCITATION's remainder, the pair route, and it is
      priced (section 4), not dismissed.
   M65-2 SHARE.  C2: the Higgs gives the payload 3.010e-4 of its mass through
-     the electrons, and the nucleons 9.28 % (FLAG 2+1) to 10.85 % (FLAG 2+1+1)
-     of theirs by the READ sigma terms.  The largest central reading of all
+     the electrons (H-TREE: their mass is proportional to phi); in the
+     nucleons, AT FIRST ORDER (H-LINEAR), the quark-mass part is 9.28 % (FLAG
+     2+1) to 10.85 % (FLAG 2+1+1) of their mass by the READ sigma terms.  The largest central reading of all
      the READ rows is Ji's quark-mass term in his m_s -> 0 column, 17.04 % of
      the nucleon.  Only if the heavy-quark trace-anomaly coupling is counted,
      which is CONTESTED as a mass share, does it reach 0.2944 to 0.3066.
      Every row puts the Higgs below half of the atomic mass -- as a
      FIRST-ORDER (sigma-term) response at the physical point with the QCD
-     scale held fixed (H-LINEAR); the finite share with the field switched
-     off, where the heavy-quark thresholds and the QCD scale move too, is not
-     computed and not read.  The rest is QCD.  This answers SWITCH-ON, DISPLACEMENT and STOCK, where only
-     the quark-mass part of the nucleon moves with phi.  It does NOT answer
-     CREATION or QUANTA: if the triggered field or its quanta paid for the
-     mass, the QCD share would be paid out of that same energy, so how the
-     nucleon's mass divides says nothing there.
+     scale held fixed (H-LINEAR).  At first order the rest is QCD.  THE
+     FINITE SHARE, with the field switched off, where the heavy-quark
+     thresholds and the QCD scale move too, is OPEN: not computed, not read,
+     and whether it exceeds half is undecided here.  C2 answers DISPLACEMENT
+     only: a small displacement of phi is exactly a first-order response, so
+     H-LINEAR applies and is the right measure there, and at first order,
+     with the QCD scale held fixed (H-LINEAR), only the quark-mass part
+     moves.  It does NOT answer SWITCH-ON or STOCK, which ask what the field
+     GIVES, the finite counterfactual C2 does not measure.  Nor does it
+     answer CREATION or QUANTA: if the triggered field or its quanta paid for
+     the mass, the QCD share would be paid out of that same energy, so how
+     the nucleon's mass divides says nothing there.
   M65-3 THE ONLY CANDIDATE SOURCE IN M'S SENTENCE.  C4: the triggered Higgs
      field has no energy to give.  Its energy density about v is
      (1/2)phi_t^2 + (1/2)|grad phi|^2 + rho_EW eps^2(2-eps)^2, a sum of
@@ -132,7 +148,8 @@ FORMS).
      it exponentially suppressed, resting on conjectures they state as
      unproven, and Tye and Wong dissent, stating that "both estimates involve
      assumptions based on intuitions as well as approximations remaining to
-     be fully justified"; it is recorded, not resolved, and nothing is
+     be fully justified" and calling their own figure "only an order of
+     magnitude guesstimate"; it is recorded, not resolved, and nothing is
      refused on it.  C3
      answers DISPLACEMENT, QUANTA and CREATION.
   M65-5 WHAT SURVIVES.  Reconstruction from destination stock (D25,
@@ -165,6 +182,17 @@ is supported by the measured constancy of fermion masses, which is not read
 here.  No owner boolean asserts it, so none is asked for it.  On P-UNIFORM the
 field at the seat before arrival already has the value it has wherever massive
 matter is measured, so arrival has nothing to switch on (C1).
+
+THE STOCK READING: PRIOR MASS (C5).  STOCK puts the elements at the seat before
+anything arrives, and asks the triggered field to give them their mass.  But an
+element present with its measured mass REQUIRES phi != 0 where it is, by the
+same READ proportionality, so the elements at the seat already carry their
+Higgs-given mass; the trigger has nothing left to give them, and no mass forms.
+This needs NO P-UNIFORM: it does not carry the field's value from anywhere
+else, because the elements' own measured masses fix phi at their location.  It
+rests on H-TREE and on H-PRESENT (an element present at the seat is present
+with its measured mass).  Giving them MORE mass would need raising |phi|, which
+is a displacement, and DISPLACEMENT answers that.
 
 THE EXCITATION READING.  There are exactly three ways to change a field that is
 already on, and each is asked of its owner:
@@ -231,8 +259,11 @@ THE MEASURES OF THE NUCLEONS' HIGGS PART, KEPT APART:
      is 41.0(8.8) and 44.9(6.4) MeV.  Each gives f_l = (sigma_piN + sigma_s)/
      m_N = 10.85 % and 9.28 %, with m_N = (m_p + m_n)/2 READ.  "The
      sigma_piN,s,c give the shift in M_N due to nonzero light-, strange- and
-     charm-quark masses" (FLAG).  THIS is the part of the nucleon mass that
-     comes from quark masses, i.e. from the Higgs.  Both averages are READ,
+     charm-quark masses" (FLAG).  AT FIRST ORDER (H-LINEAR: the response at
+     the physical point, with the QCD scale held fixed) this is the part of
+     the nucleon mass that moves with the quark masses, i.e. with the Higgs;
+     it is not the finite share the field gives, which is OPEN (below).
+     Both averages are READ,
      and the tension between them is recorded: "there is now a 2.7 sigma
      difference between the N_f = 2 + 1 and N_f = 2 + 1 + 1 FLAG averages"
      (FLAG p.273).  FLAG finds it "unlikely to be due to the inclusion of
@@ -270,15 +301,25 @@ figure here that H-A moves materially: raising every mean nucleon number by
 0.01 moves it by 0.1124 kg.  So it is printed to close the books, and nothing
 turns on it.
 
-    NO SINGLE HIGGS SHARE IS PRINTED.  The verdict uses only the LARGEST
-    CENTRAL READING, computed twice: over the READ rows alone (0.1719 of the
+    NO SINGLE HIGGS SHARE IS PRINTED.  C2 uses only the LARGEST CENTRAL
+    READING, computed twice: over the READ rows alone (0.1719 of the
     payload) and over all of them (0.3090).  It is a largest central value,
     not a bound: uncertainties are dropped.  AN ILLUSTRATION OF MARGIN, not
     a bound either: FLAG's rows moved up by 3 sigma linearly (3 sigma is
     this file's choice, not a stated uncertainty), Ji's by his 10 MeV of
     omitted error plus that difference of his two estimates, which he
     says the strange matrix element's uncertainty "could be larger than".
-    The READ rows then reach 0.2362.  Nothing near one half.
+    The READ rows then reach 0.2362.  Nothing near one half AT FIRST ORDER.
+
+THE FINITE SHARE IS OPEN.  What the field GIVES -- the nucleon mass with phi at
+v, less the nucleon mass with phi switched off -- is a finite counterfactual.
+With the field off the heavy-quark thresholds move and the QCD scale moves with
+them, so the first-order measures above do not settle it.  It is NOT computed
+and NOT read here, and whether it exceeds half is UNDECIDED here.  No verdict
+rests on it: STOCK is refused on prior mass (C5), SWITCH-ON on C1, and C2 is
+listed only on DISPLACEMENT, where a small displacement of phi is exactly a
+first-order response.  It is carried as an OPEN item, a candidate question for
+a future docket (the proposed row S10 (open)).
 
 ===============================================================================
 3.  M65-3  ENERGY -- THE SOURCE M'S SENTENCE IMPLIES, AND THE CARRIER
@@ -473,16 +514,25 @@ by the vev.  Two regimes, kept apart:
      exponentiation" (p.13, READ) and the result is "based in part on an
      assumption that there are no additional exponentially growing"
      contributions at higher orders (p.15, READ).  These are results resting
-     on unproven conjectures and assumptions, not theorems.
+     on conjectures and assumptions their authors state as unproven, not
+     theorems.  The dissent is no firmer, by its own account: Tye and Wong
+     write that "both estimates involve assumptions based on intuitions as
+     well as approximations remaining to be fully justified" (1710.07223
+     p.2, CONTESTED), and call their own figure "only an order of magnitude
+     guesstimate" (p.3).
      (ii) The dissent.  Tye and Wong claim B + L violation "without the
      exponential tunneling suppression" above the barrier (1505.03690,
      CONTESTED); their later paper agrees "with this estimate for a single
      sphaleron" and claims multi-sphaleron resonance changes it, and itself
      calls the other side "the prevalent picture" (1710.07223 pp.2 and 11,
      CONTESTED).  Funakubo, Fuyuto and Senaha rebut it with an overlap
-     suppression of about 10^-155 that remains "regardless of the band
-     structure" (1612.05431 p.4, READ).  The rebuttal is not conceded:
-     1710.07223 cites it (its ref. [27], p.13) and keeps the claim.
+     suppression of about 10^-155, found "in the leading order of the WKB
+     approximation", that remains "regardless of the band structure"
+     (1612.05431 p.4, READ).  The rebuttal is not conceded: 1710.07223 cites
+     it (its ref. [27], p.13) and replies to it on p.3 -- "As argued at times
+     in the literature (see e.g., Ref.[26] and recently in [27])", then
+     "However, the above argument is somewhat misleading" -- and keeps the
+     claim.
      (iii) Experiment.  CMS, with 35.9 fb^-1 at 13 TeV, sets "An upper limit
      of 0.021" on the fraction of quark-quark interactions above 9 TeV that
      make the transition (1805.06013 abstract, READ).  An upper limit cannot
@@ -501,56 +551,74 @@ does not rest on a CONTESTED figure alone.  The selftest builds that case and
 checks it returns OPEN.  Nothing in the verdict is typed.
 
   C1 FIELD_SWITCHED_ON_BY_ARRIVAL = False       (M65-1; D15, D16, P-UNIFORM)
-  C2 HIGGS_SUPPLIES_MOST_ATOMIC_MASS = False    (M65-2; READ rows alone)
+  C2 HIGGS_SUPPLIES_MOST_ATOMIC_MASS = False    (M65-2; READ rows alone; first
+                                                 order, H-LINEAR)
   C3 HIGGS_COUPLING_CARRIES_B_OR_L = False      (M65-4; Yukawa charges)
   C4 HIGGS_FIELD_SUPPLIES_THE_MASS_ENERGY = False (M65-3; T_00, V on H-TREE-V
                                                  and H-REAL; decay by inference)
+  C5 TRIGGER_GIVES_THE_ELEMENTS_THEIR_MASS = False (M65-1; PRIOR MASS: READ
+                                                 masses, H-TREE, H-PRESENT; no
+                                                 P-UNIFORM)
 
   READING       COUNTS THAT ANSWER IT   RESULT
-  SWITCH-ON     C1, C2                  REFUSED
+  SWITCH-ON     C1                      REFUSED
   DISPLACEMENT  C2, C3                  REFUSED as net formation and as a
                                         raising of atomic mass; what remains
-                                        is the pair route (survivor b)
+                                        is the pair route (survivor b), PRICED
   QUANTA        C3                      REFUSED as net formation; what
-                                        remains is the pair route (survivor b)
+                                        remains is the pair route (survivor
+                                        b), PRICED
   CREATION      C4, C3                  REFUSED; the energy must come in the
                                         carrier
-  STOCK         C2                      REFUSED as stated; what remains is
+  STOCK         C5                      REFUSED on prior mass; what remains is
                                         survivor (a), where no mass forms
 
 WHY EACH COUNT ANSWERS, AND WHY EACH OMITTED ONE DOES NOT (READING_REASONS,
 checked in the selftest: every count, on every reading, carries a stated
-reason, listed or omitted).  C2 answers SWITCH-ON, DISPLACEMENT and STOCK
-because there the mass in question is the mass phi gives, and only the quark-
-mass part of the nucleon moves with phi.  C2 does NOT answer CREATION or
-QUANTA: there the energy of the whole mass would come from the field or its
+reason, listed or omitted).  C2 answers DISPLACEMENT only: a small
+displacement of phi is exactly a first-order response, so H-LINEAR applies and
+is the right measure there, and at first order, with the QCD scale held fixed
+(H-LINEAR), only the quark-mass part moves.  C2 does NOT answer SWITCH-ON or
+STOCK: they ask what the field GIVES, a finite counterfactual with the field
+off, which C2 does not measure and which is OPEN.  C2 does NOT answer CREATION
+or QUANTA: there the energy of the whole mass would come from the field or its
 quanta, the QCD share included, so how the nucleon's mass divides is silent.
 C3 answers DISPLACEMENT, QUANTA and CREATION because each makes matter from
 the field or its energy, and no Higgs coupling carries net B.  C4 answers
 CREATION only: the other readings do not claim the field pays.  C1 answers
-SWITCH-ON only.
+SWITCH-ON only: it needs P-UNIFORM to carry the field's value to a seat where
+nothing massive is.  C5 answers STOCK only: there the elements are at the seat
+already, and their own measured masses fix phi where they are.
 
-C2 is the only count on the STOCK reading, and C3 the only count on QUANTA, so
-each of those refusals rests on one count.  The selftest shows it: with C2
-reversed STOCK stands; with C3 reversed QUANTA stands.
+C1 is the only count on SWITCH-ON, C3 the only count on QUANTA and C5 the only
+count on STOCK, so each of those refusals rests on one count.  The selftest
+shows it: with C1 reversed SWITCH-ON stands; with C3 reversed QUANTA stands;
+with C5 reversed STOCK stands.  SWITCH-ON's one count rests on the premise
+P-UNIFORM; STOCK's does not.
 
-THE MECHANISM AS STATED: REFUSED on every reading.
+THE MECHANISM AS STATED: REFUSED on every reading; on DISPLACEMENT and QUANTA
+as NET formation only -- atomic mass can still form there as matter with its
+antimatter (the pair route, PRICED).
 THE CONSIDERATION: TRUE (THEOREM on H-TREE); on P-UNIFORM it discriminates
 nothing.
 
 WHAT SURVIVES:
   (a) RECONSTRUCTION FROM DESTINATION STOCK.  stockgate.GATE is the condition,
-      and transit.CARRIES_SUBSTANCE = False.  No mass forms at the seat, and
-      the stock's masses were already given by the uniform vev.  The Higgs's
-      part is a precondition already met everywhere, which is M's
-      consideration, and it is not a trigger.  S5 and D25 stand unchanged.
+      and transit.CARRIES_SUBSTANCE = False.  No mass forms at the seat: the
+      stock's masses are already given where the stock is, by phi there
+      (prior mass, C5).  The Higgs's part is a precondition already met,
+      which is M's consideration, and it is not a trigger.  S5 and D25 stand
+      unchanged.
   (b) THE PAIR ROUTE, priced in section 4: EXCITATION's remainder.  Atomic
       mass forms as matter with its antimatter; the carrier supplies at
       least the pair floor; the antibaryons are held apart; the Higgs is an
       intermediary, not the source.
   (c) THE ANOMALY ROUTE, priced in section 4.  B + L is violated by the SU(2)
-      anomaly: instanton tunnelling at T = 0, the sphaleron thermally and at
-      high energy, over a gauge-Higgs saddle whose height the vev sets.
+      anomaly: instanton tunnelling at T = 0; thermally over the sphaleron,
+      above T_c and in the broken-phase window down to T*; whether
+      two-particle collisions at high energy cross it is CONTESTED (section
+      4) and not resolved; the sphaleron is a gauge-Higgs saddle whose height
+      the vev sets.
 
 ===============================================================================
 6.  NAMED HYPOTHESES AND PREMISES -- EVERY LIMITATION, NONE BURIED
@@ -571,15 +639,25 @@ WHAT SURVIVES:
           computed from an owner and not read.  C4's THEOREM and D29 carry it.
   H-LINEAR C2 measures the Higgs share as the FIRST-ORDER response of the
           nucleon mass to the quark masses (sigma terms, Feynman-Hellmann) at
-          the physical point, with the QCD scale held fixed.  STOCK and
-          SWITCH-ON ask what the field GIVES, a finite counterfactual; with
-          the field switched off the heavy-quark thresholds move and the QCD
-          scale moves with them.  That finite share is NOT computed and NOT
-          read.  C2 is the only count on STOCK, so STOCK's refusal carries it.
+          the physical point, with the QCD scale held fixed.  That is exactly
+          the measure for DISPLACEMENT, where a small displacement of phi is a
+          first-order response, and C2 is listed there.  STOCK and SWITCH-ON
+          ask what the field GIVES, a finite counterfactual; with the field
+          switched off the heavy-quark thresholds move and the QCD scale
+          moves with them.  That finite share is OPEN: NOT computed, NOT
+          read, and whether it exceeds half is undecided here.  C2 is
+          therefore NOT listed on STOCK or SWITCH-ON, and no verdict rests on
+          the finite share.
+  H-PRESENT An element present at the seat is present with its measured mass
+          (READ), since that mass is part of what the measurement names by
+          the element.  An element-template without its mass is not read in
+          any source and is not what STOCK places at the seat.  C5 rests on
+          it.
   P-UNIFORM Where nothing sources it the vev takes one value everywhere.  A
           PREMISE: supported by the constancy of measured fermion masses, not
           read here, and asserted by no owner boolean.  C1 and the
-          consideration's 'discriminates nothing' rest on it.
+          consideration's 'discriminates nothing' rest on it; C5 (prior mass)
+          does not.
   H-A     A_e is the nearest integer to stock.ATOMIC_MASS[e], and the natural
           mixture's mean nucleon number lies within 1/2 of it.  The selftest
           recomputes every count at A_e +/- 1/2 and checks that no boolean
@@ -621,7 +699,8 @@ WHAT SURVIVES:
    8. COUNTING THE HEAVY-QUARK COUPLING AS HIGGS-MADE MASS.  It is printed as
       CONTESTED.
    9. DISMISSING A PRICED ROUTE.  The pair route and the anomaly route are
-      both priced and both listed in what survives.
+      both priced and both listed in what survives, and no refusal of the
+      mechanism is printed without its priced remainder.
   10. A FIGURE HELD WITHOUT ITS SOURCE TEXT.  Every READ number used here
       appears in a quotation held in SOURCES, and the selftest checks it.
   11. THE STATUS WORD M RETIRED.  No status here is that word.
@@ -638,7 +717,8 @@ has a control that plants a violation and must catch it.
 8.  STATUSES AND DIVERGENCES, RECORDED
 ===============================================================================
 
-THEOREM: the consideration on H-TREE; D15, D16, D18, D19 as excite states them;
+THEOREM: the consideration on H-TREE; prior mass (C5) on H-TREE and H-PRESENT;
+D15, D16, D18, D19 as excite states them;
 the sign of the holding source within D20's model; the field-energy theorem on
 H-TREE-V and H-REAL; the Yukawa charges; the pair floor; energy conservation.
 INFERENCE FROM READ TEXT: that vacuum decay forms no atomic mass at the seat.  MEASURED:
@@ -648,7 +728,8 @@ NAMED-NOT-READ.  Through u = gravity.U_KG (CODATA 2018) and stock.ATOMIC_MASS,
 every count and payload share INHERITS NAMED-NOT-READ.  READ: every figure in
 SOURCES marked READ, including both FLAG sigma_piN averages.  CONTESTED: which
 sigma_piN is right; the heavy-quark terms as a mass share; the collider rate.
-PREMISE: P-UNIFORM.  CAUTION HELD: the Bekenstein figure is not read as an
+PREMISE: P-UNIFORM.  OPEN: the finite Higgs share (not computed, not read).
+CAUTION HELD: the Bekenstein figure is not read as an
 information capacity (Hayden and Wang).
 
 DIVERGENCES FROM THE SOURCES, RECORDED AND NOT REPAIRED.  Rubakov & Shaposhnikov
@@ -966,7 +1047,10 @@ SOURCES = {
                 "(see e.g., Ref.[26] and recently in [27])  /  However, the above "
                 "argument is somewhat misleading."),
     "FFS-rebut": ("READ", "Funakubo, Fuyuto, Senaha 1612.05431, p.4",
-                  "the overlap between the coherent state and the in-state "
+                  "It is shown that, in the leading order of the WKB "
+                  "approximation, the overlap between the coherent state and the "
+                  "n-particle state produces a multiplicative factor ... "
+                  "Therefore, the overlap between the coherent state and the in-state "
                   "composed of two particles whose total momentum is E_sph yields "
                   "a suppression factor ~ e^{-pi E_sph/m_W} ~ 10^-155, rendering "
                   "(B + L)-changing process unobservably small. ... Those types of "
@@ -1295,6 +1379,13 @@ QUOTED = (
     ("TW-2017", "with this estimate for a single sphaleron"),
     ("TW-2017", "the prevalent picture"),
     ("FFS-rebut", "regardless of the band structure"),
+    ("FFS-rebut", "in the leading order of the WKB approximation"),
+    ("TW-2017", "both estimates involve assumptions based on intuitions as well as "
+                "approximations remaining to be fully justified"),
+    ("TW-2017", "only an order of magnitude guesstimate"),
+    ("TW-2017", "As argued at times in the literature (see e.g., Ref.[26] and "
+                "recently in [27])"),
+    ("TW-2017", "However, the above argument is somewhat misleading"),
     ("CMS", "An upper limit of 0.021"),
     ("TW-claim", "A very crude order of magnitude estimate"),
 )
@@ -1407,6 +1498,41 @@ def field_switched_on_by_arrival(vev_uniform=None, massive_matter_present=None,
 
 
 FIELD_SWITCHED_ON_BY_ARRIVAL = field_switched_on_by_arrival()
+
+#: READ: fermion masses are proportional to phi (MRM-phi), derived from the held
+#: text, not typed.
+MASS_PROPORTIONAL_TO_PHI = (_norm("and the fermions are proportional to phi")
+                            in _norm(SOURCES["MRM-phi"][2]))
+H_PRESENT_STATUS = "NAMED HYPOTHESIS"
+
+
+def trigger_gives_the_elements_their_mass(elements_massive=None, mass_prop_phi=None):
+    """C5 (STOCK), PRIOR MASS.  STOCK puts the elements at the seat before
+    anything arrives.  An element present with its measured mass (H-PRESENT)
+    REQUIRES phi != 0 where it is, because its fermion masses are proportional
+    to phi there (READ, H-TREE); so its Higgs-given mass is already given, and
+    the trigger gives it nothing.  The link holds only if the elements LACK
+    that mass before arrival.  Inputs: the READ masses (e, u, d massive) and
+    the READ proportionality.  It reads nothing that carries phi's value from
+    elsewhere: the elements' own masses fix phi at their location."""
+    massive = CONSIDERATION_HOLDS if elements_massive is None else elements_massive
+    prop = MASS_PROPORTIONAL_TO_PHI if mass_prop_phi is None else mass_prop_phi
+    already_given = massive and prop
+    return not already_given
+
+
+#: C5.  THEOREM on H-TREE and H-PRESENT; needs no P-UNIFORM.
+TRIGGER_GIVES_THE_ELEMENTS_THEIR_MASS = trigger_gives_the_elements_their_mass()
+_P_UNIFORM_NAMES = ("P_UNIFORM", "VEV_IS_UNIFORM", "vev_uniform",
+                    "field_switched_on_by_arrival", "FIELD_SWITCHED_ON_BY_ARRIVAL",
+                    "CONSIDERATION_DISCRIMINATES")
+
+
+def reads_p_uniform(fn):
+    """[the P-UNIFORM names fn's code or parameters use].  Empty means fn cannot
+    depend on the premise."""
+    names = set(fn.__code__.co_names) | set(fn.__code__.co_varnames)
+    return sorted(n for n in _P_UNIFORM_NAMES if n in names)
 
 # ===================================================================== M65-2
 PAYLOAD_KG = inspect.signature(stock.feedstock_kg).parameters["payload_kg"].default
@@ -1565,11 +1691,19 @@ def read_rows_margin_illustration():
 HIGGS_SHARE_LARGEST_ALL = largest_central_reading()
 HIGGS_SHARE_LARGEST_READ = largest_central_reading(read_only=True)
 HIGGS_SHARE_READ_MARGIN = read_rows_margin_illustration()
-#: C2.  The charitable reading of "atomic mass forms": MOST of it.
+#: C2, AT FIRST ORDER (H-LINEAR): would a change of phi move MOST of atomic
+#: mass?  Listed on DISPLACEMENT only; the finite share is OPEN (below).
 HIGGS_SUPPLIES_MOST_ATOMIC_MASS = HIGGS_SHARE_LARGEST_ALL >= 0.5
 #: Would C2 still refuse on the READ rows alone?  (It must, or it is
 #: contested-only and cannot carry a refusal.)
 C2_CONTESTED_ONLY = not (HIGGS_SHARE_LARGEST_READ < 0.5)
+#: THE FINITE HIGGS SHARE -- the nucleon mass with phi at v, less the nucleon
+#: mass with phi switched off (heavy-quark thresholds and the QCD scale moving
+#: with it).  OPEN: not computed, not read.  Whether it exceeds half is
+#: UNDECIDED here, so its comparison with one half is None, never a boolean.
+#: No count reads it and no verdict rests on it.
+FINITE_HIGGS_SHARE_STATUS = "OPEN"
+FINITE_HIGGS_SHARE_EXCEEDS_HALF = None
 
 # ===================================================================== M65-3
 def rest_energy_j(kg=None):
@@ -1881,7 +2015,7 @@ COUNTS_ON_THE_MECHANISM = (
      ("massform", "HIGGS_SHARE_LARGEST_READ"),
      "MEASURED from READ fractions, as first-order response (H-LINEAR); counts "
      "inherit NAMED-NOT-READ", C2_CONTESTED_ONLY,
-     "the Higgs is what makes (most of) atomic mass"),
+     "at first order, a change of phi moves (most of) atomic mass"),
     ("C3", "HIGGS_COUPLING_CARRIES_B_OR_L",
      ("massform", "YUKAWA_TERMS"), "THEOREM (perturbative SM)", False,
      "what the triggered field makes carries the payload's net B"),
@@ -1890,11 +2024,17 @@ COUNTS_ON_THE_MECHANISM = (
      "THEOREM on H-TREE-V and H-REAL; inference from READ text for the decay case",
      False,
      "the triggered field supplies the energy of the mass"),
+    ("C5", "TRIGGER_GIVES_THE_ELEMENTS_THEIR_MASS",
+     ("massform", "trigger_gives_the_elements_their_mass; inputs CONSIDERATION_HOLDS "
+                  "(READ masses), MASS_PROPORTIONAL_TO_PHI (READ)"),
+     "THEOREM on H-TREE and H-PRESENT (PRIOR MASS); needs no P-UNIFORM", False,
+     "the elements at the seat lack their Higgs-given mass until the trigger "
+     "gives it"),
 )
 
 #: (reading, what M would mean, the counts that answer it).
 READINGS = (
-    ("SWITCH-ON", "arrival turns on a field that was off at the seat", ("C1", "C2")),
+    ("SWITCH-ON", "arrival turns on a field that was off at the seat", ("C1",)),
     ("DISPLACEMENT", "EXCITATION: arrival displaces the field, and mass forms "
                      "from that", ("C2", "C3")),
     ("QUANTA", "EXCITATION: arrival makes Higgs quanta, and mass forms from them",
@@ -1902,48 +2042,78 @@ READINGS = (
     ("CREATION", "the triggered field supplies the energy of the mass that forms",
      ("C4", "C3")),
     ("STOCK", "the elements are at the seat and the triggered field gives them "
-              "their mass", ("C2",)),
+              "their mass", ("C5",)),
 )
 
 #: {(reading, count): (answers?, the stated reason)}.  EVERY count on EVERY
 #: reading carries a reason, listed or omitted; the selftest checks the table is
 #: complete and agrees with READINGS, so no count is set against a reading
 #: without an argument, and none is left off one without an argument either.
-_C2_YES = ("the mass in question is the mass phi gives, and only the quark-mass "
-           "part of the nucleon moves with phi")
+_C2_YES = ("at first order, with the QCD scale held fixed (H-LINEAR), only the "
+           "quark-mass part moves")
+_C2_FINITE = ("the reading asks what the field GIVES, a finite counterfactual with "
+              "the field switched off (heavy-quark thresholds and the QCD scale "
+              "moving); C2 measures only the first-order response (H-LINEAR), and "
+              "the finite share is OPEN, not computed and not read")
 _C2_NO = ("the whole mass-energy would come from the field or its quanta, the QCD "
           "share included, so how the nucleon's mass divides is silent")
 _C3_YES = ("matter is made from the field or its energy, and no Higgs coupling "
            "carries net B or L")
 _C4_NO = "this reading does not claim the field pays for the mass"
 _C1_NO = "C1 is about an off state at the seat, which this reading does not assume"
+#: The prior-mass argument, as the table states it (C5 on STOCK).
+_C5_YES = ("PRIOR MASS: the elements are at the seat before anything arrives, and "
+           "elements of measured mass REQUIRE phi != 0 where they are (READ: "
+           "fermion masses are proportional to phi), so they already carry their "
+           "Higgs-given mass; the trigger gives them nothing, and no mass forms.  "
+           "Their own measured masses fix phi at their location, so this needs NO "
+           "P-UNIFORM (H-TREE, H-PRESENT)")
 READING_REASONS = {
     ("SWITCH-ON", "C1"): (True, "the reading needs the field off at the seat before "
                                 "arrival; on P-UNIFORM it is already on (D15, D16)"),
-    ("SWITCH-ON", "C2"): (True, _C2_YES),
+    ("SWITCH-ON", "C2"): (False, _C2_FINITE),
     ("SWITCH-ON", "C3"): (False, "switching on claims no new B; it is silent"),
     ("SWITCH-ON", "C4"): (False, _C4_NO),
+    ("SWITCH-ON", "C5"): (False, "SWITCH-ON does not place the elements at the seat "
+                                 "before arrival; carrying the field's value to a seat "
+                                 "where nothing massive is needs P-UNIFORM, which is "
+                                 "C1 (read with the elements already seated, it is "
+                                 "the STOCK reading)"),
     ("DISPLACEMENT", "C1"): (False, _C1_NO),
-    ("DISPLACEMENT", "C2"): (True, _C2_YES + "; within D20's model a positive "
-                                   "source only LOWERS |phi|"),
+    ("DISPLACEMENT", "C2"): (True, "a small displacement of phi is exactly a "
+                                   "first-order response, so H-LINEAR applies and is "
+                                   "the right measure there: " + _C2_YES
+                                   + "; within D20's model a positive source only "
+                                   "LOWERS |phi|"),
     ("DISPLACEMENT", "C3"): (True, _C3_YES),
     ("DISPLACEMENT", "C4"): (False, _C4_NO),
+    ("DISPLACEMENT", "C5"): (False, "the reading claims mass forms from displacing a "
+                                    "field already on, not that elements at the seat "
+                                    "lack their mass; raising a mass already given is "
+                                    "a displacement, which C2 answers"),
     ("QUANTA", "C1"): (False, _C1_NO),
     ("QUANTA", "C2"): (False, _C2_NO),
     ("QUANTA", "C3"): (True, _C3_YES + ": quanta decay to pairs"),
     ("QUANTA", "C4"): (False, "quanta are paid for by what makes them, and this "
                               "reading does not claim the field pays"),
+    ("QUANTA", "C5"): (False, "the reading claims mass forms from quanta, not that "
+                              "elements at the seat lack their mass"),
     ("CREATION", "C1"): (False, _C1_NO),
     ("CREATION", "C2"): (False, _C2_NO),
     ("CREATION", "C3"): (True, _C3_YES),
     ("CREATION", "C4"): (True, "the reading claims the field supplies the energy; "
                                "about v it has none to give, and its one release "
                                "(decay) forms no atomic mass at the seat"),
-    ("STOCK", "C1"): (False, "the elements are present; the field is on (the "
-                             "consideration), which STOCK assumes"),
-    ("STOCK", "C2"): (True, _C2_YES),
+    ("CREATION", "C5"): (False, "the reading claims the field pays for new mass, not "
+                                "that elements at the seat lack theirs"),
+    ("STOCK", "C1"): (False, "C1 needs P-UNIFORM to carry the field's value to a "
+                             "seat where nothing massive is; on STOCK the elements "
+                             "are at the seat and their own masses fix phi there, "
+                             "which is C5 (prior mass), not C1"),
+    ("STOCK", "C2"): (False, _C2_FINITE),
     ("STOCK", "C3"): (False, "the elements are already there; no B is made"),
     ("STOCK", "C4"): (False, "no mass-energy is created on this reading"),
+    ("STOCK", "C5"): (True, _C5_YES),
 }
 
 #: What remains of each reading once refused, and whether it is priced.
@@ -1954,7 +2124,8 @@ READING_REMAINDERS = {
     "QUANTA": "the pair route (survivor b): atomic mass as matter with its "
               "antimatter, the carrier paying the pair floor",
     "CREATION": "the energy must come in the carrier",
-    "STOCK": "survivor (a): reconstruction from stock, where no mass forms",
+    "STOCK": "survivor (a): reconstruction from stock, where no mass forms (the "
+             "elements' mass is already given where they are)",
 }
 
 
@@ -2038,6 +2209,17 @@ def reading_label(name, verdicts=None):
     return v
 
 
+def reading_row(name, verdicts=None):
+    """The report's row for a reading: 'REFUSED on C2, C3 -- as net formation;
+    remainder the pair route, PRICED' -- the counts first, then the
+    qualification, so the counts are never read as the remainder's."""
+    v, cs = (READING_VERDICTS if verdicts is None else verdicts)[name]
+    row = "%s on %s" % (v, ", ".join(cs)) if cs else v
+    if v == "REFUSED" and REMAINDER_FORMS_MASS.get(name):
+        row += " -- as net formation; remainder the pair route, PRICED"
+    return row
+
+
 def mechanism_label():
     qualified = [r for r in MECHANISM_VERDICT[1] if reading_label(r) != MECHANISM_VERDICT[0]]
     return "%s on %s%s" % (MECHANISM_VERDICT[0], ", ".join(MECHANISM_VERDICT[1]),
@@ -2059,9 +2241,10 @@ CONSIDERATION_VERDICT = derive_consideration()
 SURVIVES = (
     ("reconstruction from destination stock",
      "stockgate.GATE is the condition; transit.CARRIES_SUBSTANCE = %s.  No mass "
-     "forms at the seat; the stock's masses were already given by the uniform "
-     "vev.  The Higgs's part is a precondition met everywhere -- M's "
-     "consideration -- not a trigger.  S5 and D25 unchanged."
+     "forms at the seat: the stock's masses are already given where the stock "
+     "is, by phi there (prior mass, C5; no P-UNIFORM needed).  The Higgs's part "
+     "is a precondition already met -- M's consideration -- not a trigger.  S5 "
+     "and D25 unchanged."
      % transit.CARRIES_SUBSTANCE),
     ("the pair route",
      "EXCITATION's remainder.  Atomic mass forms as matter with its antimatter.  "
@@ -2094,11 +2277,16 @@ PROPOSED_ROWS = (
      "(source mass rising with |phi|, true of every SM mass) a source of "
      "positive rest energy can only LOWER |phi|: D20's source term "
      "4 eps(2-eps)(1-eps)^2 is positive only where 0 < |phi| < v, proved from "
-     "the factorisation",
+     "the factorisation.  On the STOCK reading the elements are at the seat "
+     "before anything arrives, and with their measured masses they already carry "
+     "their Higgs-given mass, so a trigger gives them nothing (PRIOR MASS, C5; "
+     "needs no P-UNIFORM, since their own masses fix phi where they are)",
      "THEOREM", ("massform", "CONSIDERATION_HOLDS"),
      "a fermion mass not proportional to phi at tree level (H-TREE fails); a "
      "failure of P-UNIFORM or of D15/D16's hypotheses; a source outside D20's "
-     "model; FIELD_SWITCHED_ON_BY_ARRIVAL is the boolean that would flip"),
+     "model; FIELD_SWITCHED_ON_BY_ARRIVAL is the boolean that would flip.  For "
+     "prior mass: H-PRESENT failing (elements present at the seat without their "
+     "measured mass); TRIGGER_GIVES_THE_ELEMENTS_THEIR_MASS would flip"),
     ("D28", "DEMAND",
      "Forming the payload from energy with B and L conserved costs at least "
      "Mc^2 + B mu_min c^2 (mu_min the least nuclear mass per nucleon among "
@@ -2134,20 +2322,29 @@ PROPOSED_ROWS = (
      "the higgs field, and atomic mass forms\", as a supply of payload mass.  "
      "REFUSED, gap None, reading by reading, on no contested-only count, and "
      "each count only where it has a stated reason to answer: SWITCH-ON by C1 "
-     "(the field is already on, D27) and C2; EXCITATION, displacement branch, "
-     "by C2 and C3 (the field can be excited, at a cost, lowering |phi|; no "
+     "alone (the field is already on, D27, on P-UNIFORM); EXCITATION, "
+     "displacement branch, by C2 and C3 (the field can be excited, at a cost, "
+     "lowering |phi|; at first order, H-LINEAR, the largest central reading is "
+     "0.172 of atomic mass on the READ rows and 0.309 on all rows, and an "
+     "illustration of margin reaches 0.236 on the READ rows, none a bound; no "
      "Higgs coupling carries net B or L); EXCITATION, quanta branch, by C3 "
-     "alone; CREATION by C4 (the field has no energy to give, D29) and C3; "
-     "STOCK by C2 alone (the largest central reading is 0.172 of atomic mass on "
-     "the READ rows and 0.309 on all rows; an illustration of margin reaches "
-     "0.236 on the READ rows; none is a bound; all first-order, H-LINEAR).  "
-     "EXCITATION is refused as NET "
-     "formation only: what remains is the pair route (S12), priced.  What "
-     "remains of STOCK is reconstruction from stock",
+     "alone; CREATION by C4 (the field has no energy to give, D29) and C3; STOCK "
+     "by C5 alone, PRIOR MASS (the elements at the seat already carry their "
+     "Higgs-given mass, since fermion masses are proportional to phi where they "
+     "are; needs no P-UNIFORM).  EXCITATION is refused as NET formation only: "
+     "what remains is the pair route (S12), priced.  What remains of STOCK is "
+     "reconstruction from stock.  OPEN, and no verdict rests on it: the FINITE "
+     "Higgs share, what the field gives with it switched off, not computed and "
+     "not read; whether it exceeds half is undecided here (S10 (open))",
      "REFUSED", ("massform", "MECHANISM_VERDICT"),
-     "the STOCK reading moves if C2 reverses (a READ quark-mass share above "
-     "half); QUANTA if C3 reverses; SWITCH-ON needs C1 and C2 both to reverse; "
-     "DISPLACEMENT needs C2 and C3; CREATION needs C4 and C3"),
+     "the STOCK reading moves if C5 reverses (H-TREE or H-PRESENT failing: "
+     "elements at the seat without their measured mass before arrival); "
+     "SWITCH-ON if C1 reverses (P-UNIFORM, D15 or D16 failing); QUANTA if C3 "
+     "reverses; DISPLACEMENT needs C2 and C3; CREATION needs C4 and C3.  The "
+     "finite Higgs share, OPEN (a candidate question for a future docket): "
+     "computed or read, it would say how much of atomic mass the field gives; "
+     "it moves no refusal here, since no count reads it and C2 is listed only "
+     "where a first-order response is the measure"),
     ("S11", "SUPPLY",
      "The anomaly route: B + L violated by the SU(2) anomaly over a gauge-Higgs "
      "saddle whose height the vev sets.  Zero temperature: INSTANTON "
@@ -2162,12 +2359,13 @@ PROPOSED_ROWS = (
      "OPEN", ("massform", "ANOMALY_ROUTE_PRICED"),
      "a READ prefactor (turns the exponent into a rate); a settlement of the "
      "collider-energy dispute (Tye-Wong against Bezrukov et al., Khoze-Milne "
-     "and Funakubo et al.: Bezrukov et al. and Khoze-Milne rest on conjectures "
-     "or assumptions they state as unproven, Funakubo et al. argue at leading "
-     "WKB order, and Tye-Wong state that \"both estimates involve assumptions "
-     "based on intuitions as well as approximations remaining to be fully "
-     "justified\"); a READ "
-     "G_F (lifts alpha_W's NAMED-NOT-READ)"),
+     "and Funakubo et al.): Bezrukov et al. and Khoze-Milne rest on conjectures "
+     "or assumptions they state as unproven; Funakubo et al. argue \"in the "
+     "leading order of the WKB approximation\"; Tye-Wong state that \"both "
+     "estimates involve assumptions based on intuitions as well as "
+     "approximations remaining to be fully justified\" and call their own "
+     "figure \"only an order of magnitude guesstimate\"; a READ G_F (lifts "
+     "alpha_W's NAMED-NOT-READ)"),
     ("S12", "SUPPLY",
      "The pair route, EXCITATION's remainder: atomic mass forms as matter with "
      "its antimatter, B and L conserved.  The carrier supplies at least the "
@@ -2179,6 +2377,17 @@ PROPOSED_ROWS = (
      "a way to hold the antibaryons apart (not computed here); H-BL or H-AME "
      "failing (moves the floor); the Higgs field shown to supply energy (D29 "
      "reversed)"),
+    ("S10 (open)", "SUPPLY",
+     "OPEN ITEM, a candidate question for a future docket: the FINITE Higgs share "
+     "of atomic mass -- the nucleon mass with phi at v, less the nucleon mass "
+     "with phi switched off, where the heavy-quark thresholds and the QCD scale "
+     "move too.  Not computed and not read here; whether it exceeds half is "
+     "undecided here.  The first-order (sigma-term) measures of C2 do not settle "
+     "it (H-LINEAR).  No DOCKET 65 verdict rests on it: STOCK is refused on prior "
+     "mass (C5), SWITCH-ON on C1",
+     "OPEN", ("massform", "FINITE_HIGGS_SHARE_STATUS"),
+     "a computation of the nucleon mass with the field switched off, or a READ "
+     "source giving it; nothing in DOCKET 65 moves on it"),
     ("S5 (note)", "SUPPLY",
      "APPEND to S5's note: DOCKET 65 -- reconstruction from destination stock "
      "survives M's mechanism: no mass forms at the seat and the Higgs plays no "
@@ -2187,7 +2396,11 @@ PROPOSED_ROWS = (
      "nothing in DOCKET 65; S5's own owed items stand"),
 )
 #: Not opened, and why (one row per question).
-NOT_OPENED = ("the Higgs share (C2 of S10)",
+NOT_OPENED = ("the first-order Higgs share as one figure (C2 of S10 prints only "
+              "measures)",
+              "the finite Higgs share (OPEN: not computed, not read; whether it "
+              "exceeds half is undecided here; S10 (open), a candidate question "
+              "for a future docket)",
               "the information counts (supporting note N-INFO; no verdict)",
               "the electron-family shortfall (H-FLAV only)")
 
@@ -2451,6 +2664,80 @@ def scan_text():
 
 _BITS = re.compile(r"(\d+(?:\.\d+)?(?:e[+-]?\d+)?)\s+(?:erased\s+)?bits")
 
+# ---- the collider balance, scanned (refusal 2)
+_CONJ_WORD = re.compile(r"(?i)conjectur|unproven|not proven|no rigorous proof")
+_CONJ_CLAIM = re.compile(r"(?i)\brest(?:s|ing)?\s+on\s+(?:[^.;:]{0,40}?)"
+                         r"(?:conjectur|unproven)")
+_FFS_NAMES = re.compile(r"Funakubo|Fuyuto|Senaha|FFS|1612\.05431")
+#: The dissent's own admission (TW-2017 p.2), held: the caveat on the other side.
+DISSENT_CAVEAT = "both estimates involve assumptions"
+
+
+def _clauses(unit):
+    """A unit's clauses, split at . ; : -- with 'et al.' and 'e.g.' protected."""
+    u = re.sub(r"\bet al\.", "et al", _norm(unit))
+    u = re.sub(r"\be\.g\.", "eg", u)
+    return [c for c in re.split(r"(?<=[.;:])\s+", u) if c.strip()]
+
+
+def one_sided_conjecture_claims(text):
+    """[(why, clause)] for every clause that (a) attributes a conjecture or an
+    unproven step to Funakubo et al. -- no held FFS text states one; they argue
+    in the leading order of the WKB approximation -- or (b) says the prevalent
+    results rest on conjectures without the dissent's own admission (TW-2017
+    p.2) in the same passage.  A passage is a blank-line-separated unit of the
+    scanned text (a docstring paragraph block, a report block, a proposed row).
+    Empty = the balance is kept on both sides."""
+    bad = []
+    for unit in re.split(r"\n\s*\n", text):
+        has_caveat = DISSENT_CAVEAT in _norm(unit)
+        for cl in _clauses(unit):
+            if _CONJ_WORD.search(cl) and _FFS_NAMES.search(cl):
+                bad.append(("conjecture attributed to Funakubo et al.", cl))
+            elif _CONJ_CLAIM.search(cl) and not has_caveat:
+                bad.append(("one-sided: no dissent caveat in the passage", cl))
+    return bad
+
+
+# ---- a refusal of the mechanism printed without its priced remainder (refusal 9)
+_EVERY = re.compile(r"(?i)refused on (?:every|all|each) readings?")
+
+
+def unqualified_refusals(text):
+    """[sentence] for every 'REFUSED on every reading' whose own sentence does
+    not go on to say that DISPLACEMENT and QUANTA are refused as NET formation
+    only.  M's rule: never refuse a reading whose remainder is priced."""
+    t = _norm(text)
+    bad = []
+    for m in _EVERY.finditer(t):
+        rest = re.split(r"(?<=[.])\s", t[m.end():], maxsplit=1)[0]
+        if not re.search(r"(?i)net formation", rest):
+            bad.append(t[max(0, m.start() - 60):m.end() + len(rest)])
+    return bad
+
+
+# ---- the Higgs share printed flat, without H-LINEAR (section 2)
+def flat_share_claims(doc=None):
+    """[phrase] for every docstring sentence that states the Higgs part of the
+    nucleon as a finite fact rather than a first-order response: 'THIS is the
+    part of the nucleon mass that comes from', or 'Nothing near one half' not
+    followed by 'AT FIRST ORDER'."""
+    d = _norm(__doc__ if doc is None else doc)
+    bad = [m.group(0) for m in re.finditer(r"THIS is the part of the nucleon mass", d)]
+    for m in re.finditer(r"(?i)nothing near one half", d):
+        if not d[m.end():m.end() + 20].strip().startswith("AT FIRST ORDER"):
+            bad.append(d[m.start():m.end() + 20])
+    return bad
+
+
+_ARXIV = re.compile(r"(?:arXiv:)?((?:hep-ph|hep-th|quant-ph)/\d{7}|\d{4}\.\d{4,5})")
+
+
+def arxiv_id(locator):
+    """The arXiv identifier a SOURCES locator names first, or None."""
+    m = _ARXIV.search(locator)
+    return m.group(1) if m else None
+
 
 def refusal_flags(text=None, readings=None, rows=None, contested=None, survives=None,
                   reasons=None):
@@ -2472,7 +2759,8 @@ def refusal_flags(text=None, readings=None, rows=None, contested=None, survives=
         2: ("RESOLVES_COLLIDER_DISPUTE",
             COLLIDER_RATE_STATUS != "CONTESTED" or SOURCES["TW-claim"][0] != "CONTESTED"
             or bool(re.search(r"(?i)collider[- ]energy dispute (is|was) "
-                              r"(settled|resolved)", t))),
+                              r"(settled|resolved)", t))
+            or bool(one_sided_conjecture_claims(text))),
         3: ("REFUSES_ON_A_CONTESTED_FIGURE_ALONE",
             any(v == "REFUSED" and all(contested.get(k, False) for k in cs)
                 for v, cs in readings.values())),
@@ -2492,7 +2780,8 @@ def refusal_flags(text=None, readings=None, rows=None, contested=None, survives=
         9: ("DISMISSES_A_PRICED_ROUTE",
             not ANOMALY_ROUTE_PRICED or not PAIR_ROUTE_PRICED
             or not any("anomaly" in n for n, _t in survives)
-            or not any("pair" in n for n, _t in survives)),
+            or not any("pair" in n for n, _t in survives)
+            or bool(unqualified_refusals(text))),
         10: ("HOLDS_A_FIGURE_WITHOUT_ITS_SOURCE_TEXT", bool(check_quotes())),
         11: ("USES_THE_RETIRED_STATUS_WORD",
              bool(re.search(r"\bDECLARED\b", t))
@@ -2549,6 +2838,12 @@ def report():
     _p("Higgs quanta with total rest energy Mc^2",
        "%.4e" % (rest_energy_j() / (higgs.M_HIGGS * higgs.GEV_IN_J)))
     _p("C1 FIELD_SWITCHED_ON_BY_ARRIVAL", FIELD_SWITCHED_ON_BY_ARRIVAL, "SWITCH-ON")
+    _p("fermion masses proportional to phi (MRM-phi)", MASS_PROPORTIONAL_TO_PHI, "READ")
+    _p("C5 TRIGGER_GIVES_THE_ELEMENTS_THEIR_MASS", TRIGGER_GIVES_THE_ELEMENTS_THEIR_MASS,
+       "STOCK: PRIOR MASS")
+    print("        the elements' own measured masses fix phi where they are; no P-UNIFORM")
+    print("        (names of the premise C5's code reads: %s)"
+          % (reads_p_uniform(trigger_gives_the_elements_their_mass) or "none"))
     print()
     print("=" * 79)
     print("M65-2  SHARE   (stock.HUMAN at %.0f kg, asked of stock.feedstock_kg)"
@@ -2593,7 +2888,10 @@ def report():
           % (JI_ROUNDING_MEV, JI_ESTIMATE_DIFFERENCE_MEV))
     print("        estimates, which his largest uncertainty 'could be larger than'")
     _p("C2 HIGGS_SUPPLIES_MOST_ATOMIC_MASS", HIGGS_SUPPLIES_MOST_ATOMIC_MASS,
-       "SWITCH-ON, DISPLACEMENT, STOCK")
+       "DISPLACEMENT (first order, H-LINEAR)")
+    _p("FINITE Higgs share (field switched off)", FINITE_HIGGS_SHARE_STATUS,
+       "not computed, not read")
+    _p("  exceeds one half?", str(FINITE_HIGGS_SHARE_EXCEEDS_HALF), "undecided here")
     print()
     print("=" * 79)
     print("M65-3  ENERGY -- THE ONLY CANDIDATE SOURCE IN M'S SENTENCE, AND THE CARRIER")
@@ -2707,11 +3005,17 @@ def report():
                       ("dissent", "TW-claim"), ("dissent", "TW-2017"),
                       ("rebuttal", "FFS-rebut"), ("experiment", "CMS")):
         st, loc, _t = SOURCES[key]
-        print("        %-10s %-10s %-9s %s" % (role, key, st, loc[:52]))
+        print("        %-10s %-10s %-9s arXiv %s" % (role, key, st, arxiv_id(loc)))
     print("      CMS: PEF < %g at %g TeV, %g fb^-1 -- an upper limit; it decides nothing"
           % (CMS_PEF_BOUND, CMS_SQRT_S_TEV, CMS_LUMI_FB))
-    print("      the prevalent results rest on unproven conjectures, not theorems;")
-    print("      the rebuttal is not conceded.  NOT RESOLVED; no refusal rests on it.")
+    print("      the prevalent results rest on conjectures and assumptions their authors")
+    print("      state as unproven, not theorems; the dissent is no firmer by its own")
+    print("      account -- Tye-Wong (1710.07223 p.2): 'both estimates involve assumptions")
+    print("      based on intuitions as well as approximations remaining to be fully")
+    print("      justified'; their own figure is 'only an order of magnitude guesstimate'")
+    print("      (p.3).  The rebuttal (1612.05431, 'in the leading order of the WKB")
+    print("      approximation') is not conceded: 1710.07223 replies on p.3, 'the above")
+    print("      argument is somewhat misleading'.  NOT RESOLVED; no refusal rests on it.")
     print()
     print("=" * 79)
     print("M65-5  VERDICT, READING BY READING")
@@ -2723,8 +3027,7 @@ def report():
     print()
     for name, what, cids in READINGS:
         v = READING_VERDICTS[name]
-        print("      %-12s %s on %s (answered by %s)"
-              % (name, reading_label(name), ", ".join(v[1]), ", ".join(cids)))
+        print("      %-12s %s (answered by %s)" % (name, reading_row(name), ", ".join(cids)))
         print("                  %s" % what)
         for cid in [c[0] for c in COUNTS_ON_THE_MECHANISM]:
             yes, why = READING_REASONS[(name, cid)]
@@ -3051,7 +3354,8 @@ def selftest():
     chk("the dissent's own admission is held in TW-2017, and S11 states the caveats "
         "on both sides",
         ("both estimates involve assumptions" in SOURCES["TW-2017"][2],
-         "Funakubo et al. argue at leading" in [r for r in PROPOSED_ROWS if r[0] == "S11"][0][5],
+         'Funakubo et al. argue "in the leading order of the WKB approximation"'
+         in [r for r in PROPOSED_ROWS if r[0] == "S11"][0][5],
          "whose results rest on unproven" in [r for r in PROPOSED_ROWS if r[0] == "S11"][0][5]),
         (True, True, False))
     chk("H-REAL is named in section 6, in C4's status and in D29",
@@ -3236,23 +3540,39 @@ def selftest():
     # ------------------------------------------------------------ M65-5
     vals = mechanism_values()
     cont = mechanism_contested()
-    chk("the counts' values", vals, {"C1": False, "C2": False, "C3": False, "C4": False})
+    chk("the counts' values", vals,
+        {"C1": False, "C2": False, "C3": False, "C4": False, "C5": False})
     chk("no count on the mechanism is contested-only", [c for c, v in cont.items() if v], [])
     ALL5 = ["CREATION", "DISPLACEMENT", "QUANTA", "STOCK", "SWITCH-ON"]
     chk("READING VERDICTS",
         {r: v for r, v in READING_VERDICTS.items()},
-        {"SWITCH-ON": ("REFUSED", ["C1", "C2"]), "DISPLACEMENT": ("REFUSED", ["C2", "C3"]),
+        {"SWITCH-ON": ("REFUSED", ["C1"]), "DISPLACEMENT": ("REFUSED", ["C2", "C3"]),
          "QUANTA": ("REFUSED", ["C3"]), "CREATION": ("REFUSED", ["C3", "C4"]),
-         "STOCK": ("REFUSED", ["C2"])})
+         "STOCK": ("REFUSED", ["C5"])})
     chk("MECHANISM VERDICT", MECHANISM_VERDICT, ("REFUSED", ALL5))
     chk("every count on every reading carries a stated reason that agrees with the "
         "listing", reading_reason_table_complete(), [])
-    chk("  C2 is NOT set against CREATION or QUANTA, and says why",
-        [(r, READING_REASONS[(r, "C2")][0]) for r in ("CREATION", "QUANTA")],
-        [("CREATION", False), ("QUANTA", False)])
+    chk("  C2 is listed on DISPLACEMENT only, and says why everywhere else",
+        [r for r in ALL5 if READING_REASONS[(r, "C2")][0]], ["DISPLACEMENT"])
+    chk("  C2's reason is the first-order one, H-LINEAR carried",
+        (_C2_YES, _C2_YES in READING_REASONS[("DISPLACEMENT", "C2")][1]),
+        ("at first order, with the QCD scale held fixed (H-LINEAR), only the "
+         "quark-mass part moves", True))
+    chk("  and C2 is off STOCK and SWITCH-ON because they ask the FINITE share, OPEN",
+        [("finite" in READING_REASONS[(r, "C2")][1] and "OPEN" in READING_REASONS[(r, "C2")][1])
+         for r in ("STOCK", "SWITCH-ON")], [True, True])
+    chk("  C5 (prior mass) is listed on STOCK only, and the table states the argument",
+        ([r for r in ALL5 if READING_REASONS[(r, "C5")][0]],
+         all(w in READING_REASONS[("STOCK", "C5")][1]
+             for w in ("already carry their Higgs-given mass", "NO P-UNIFORM",
+                       "REQUIRE phi != 0"))), (["STOCK"], True))
     chk("CONTROL a count listed with no stated reason is caught",
         len(reading_reason_table_complete(reasons={k: v for k, v in READING_REASONS.items()
-                                                   if k != ("STOCK", "C2")})) > 0, True)
+                                                   if k != ("STOCK", "C5")})) > 0, True)
+    chk("CONTROL C2 put back on STOCK without an argument for it is caught",
+        len(reading_reason_table_complete(
+            readings=tuple((n, w, c + ("C2",)) if n == "STOCK" else (n, w, c)
+                           for n, w, c in READINGS))) > 0, True)
     chk("CONTROL C2 listed against CREATION without an argument for it is caught",
         len(reading_reason_table_complete(
             readings=tuple((n, w, c + ("C2",)) if n == "CREATION" else (n, w, c)
@@ -3264,27 +3584,82 @@ def selftest():
     chk("CONTROL every count reversed -> the mechanism STANDS on every reading",
         derive_mechanism(derive_readings({k: True for k in vals}, cont)),
         ("STANDS ON A READING", ALL5))
-    chk("CONTROL C2 alone reversed -> the STOCK reading stands, the others refused",
-        {r: v[0] for r, v in derive_readings(dict(vals, C2=True), cont).items()},
-        {"SWITCH-ON": "REFUSED", "DISPLACEMENT": "REFUSED", "QUANTA": "REFUSED",
-         "CREATION": "REFUSED", "STOCK": "STANDS"})
+    _refd = {r: "REFUSED" for r in ALL5}
+    chk("CONTROL C5 alone reversed -> the STOCK reading stands, the others refused",
+        {r: v[0] for r, v in derive_readings(dict(vals, C5=True), cont).items()},
+        dict(_refd, STOCK="STANDS"))
+    chk("CONTROL C2 alone reversed -> every reading still refused (DISPLACEMENT on C3)",
+        ({r: v[0] for r, v in derive_readings(dict(vals, C2=True), cont).items()},
+         derive_readings(dict(vals, C2=True), cont)["DISPLACEMENT"]),
+        (_refd, ("REFUSED", ["C3"])))
     chk("CONTROL C3 alone reversed -> the QUANTA reading stands, the others refused",
         {r: v[0] for r, v in derive_readings(dict(vals, C3=True), cont).items()},
-        {"SWITCH-ON": "REFUSED", "DISPLACEMENT": "REFUSED", "QUANTA": "STANDS",
-         "CREATION": "REFUSED", "STOCK": "REFUSED"})
-    chk("CONTROL C1 alone reversed -> SWITCH-ON still refused, on C2",
-        derive_readings(dict(vals, C1=True), cont)["SWITCH-ON"], ("REFUSED", ["C2"]))
-    chk("CONTROL C2 contested-only -> STOCK is OPEN, not REFUSED",
-        derive_readings(vals, dict(cont, C2=True))["STOCK"], ("OPEN", ["C2"]))
-    chk("  and SWITCH-ON is then refused on C1 alone",
-        derive_readings(vals, dict(cont, C2=True))["SWITCH-ON"], ("REFUSED", ["C1"]))
+        dict(_refd, QUANTA="STANDS"))
+    chk("CONTROL C1 alone reversed -> the SWITCH-ON reading stands, the others refused",
+        {r: v[0] for r, v in derive_readings(dict(vals, C1=True), cont).items()},
+        dict(_refd, **{"SWITCH-ON": "STANDS"}))
+    chk("CONTROL C5 contested-only -> STOCK is OPEN, not REFUSED",
+        derive_readings(vals, dict(cont, C5=True))["STOCK"], ("OPEN", ["C5"]))
+    chk("CONTROL C2 contested-only -> DISPLACEMENT is refused on C3 alone",
+        derive_readings(vals, dict(cont, C2=True))["DISPLACEMENT"], ("REFUSED", ["C3"]))
+    # ---- the prior-mass argument, and its controls
+    chk("C5 TRIGGER_GIVES_THE_ELEMENTS_THEIR_MASS (prior mass)",
+        TRIGGER_GIVES_THE_ELEMENTS_THEIR_MASS, False)
+    chk("  and is assigned from its function in this source",
+        bool(re.search(r"^TRIGGER_GIVES_THE_ELEMENTS_THEIR_MASS = "
+                       r"trigger_gives_the_elements_their_mass\(\)$", src, re.M)), True)
+    chk("  its READ input, fermion masses proportional to phi, is derived from MRM-phi",
+        MASS_PROPORTIONAL_TO_PHI, True)
+    chk("CONTROL C5 flips if the elements at the seat lacked their measured mass",
+        trigger_gives_the_elements_their_mass(elements_massive=False), True)
+    chk("  and C5 so recomputed makes STOCK stand",
+        derive_readings(dict(vals, C5=trigger_gives_the_elements_their_mass(
+            elements_massive=consideration_holds(dict(MASS_MEV, e=0.0, u=0.0, d=0.0)))),
+            cont)["STOCK"], ("STANDS", []))
+    chk("CONTROL C5 flips if fermion masses were not proportional to phi",
+        trigger_gives_the_elements_their_mass(mass_prop_phi=False), True)
+    chk("C5 needs NO P-UNIFORM: its code reads no name of the premise",
+        reads_p_uniform(trigger_gives_the_elements_their_mass), [])
+    chk("  whereas C1's does (the scan can see the premise)",
+        reads_p_uniform(field_switched_on_by_arrival) != [], True)
+    chk("CONTROL a C5 that consulted P-UNIFORM would be caught",
+        reads_p_uniform(lambda massive=True: massive and VEV_IS_UNIFORM), ["VEV_IS_UNIFORM"])
+    chk("  and C5 is unmoved where C1 flips on P-UNIFORM failing",
+        (field_switched_on_by_arrival(vev_uniform=False),
+         trigger_gives_the_elements_their_mass()), (True, False))
+    chk("H-PRESENT is named in section 6 and in C5's status",
+        ("H-PRESENT" in _doc_section(6),
+         "H-PRESENT" in [c for c in COUNTS_ON_THE_MECHANISM if c[0] == "C5"][0][3]),
+        (True, True))
+    # ---- the finite share, OPEN
+    chk("the finite Higgs share is OPEN, its comparison with one half undecided (None)",
+        (FINITE_HIGGS_SHARE_STATUS, FINITE_HIGGS_SHARE_EXCEEDS_HALF), ("OPEN", None))
+    chk("  no count reads it",
+        [c[1] for c in COUNTS_ON_THE_MECHANISM if "FINITE" in c[1]], [])
+    chk("  it is in S10's claim and movers, in NOT_OPENED and a proposed OPEN row",
+        ("FINITE Higgs share" in [r for r in PROPOSED_ROWS if r[0] == "S10"][0][2],
+         "finite Higgs share" in [r for r in PROPOSED_ROWS if r[0] == "S10"][0][5],
+         any("finite Higgs share" in n for n in NOT_OPENED),
+         [(r[3], r[4]) for r in PROPOSED_ROWS if r[0] == "S10 (open)"]),
+        (True, True, True, [("OPEN", ("massform", "FINITE_HIGGS_SHARE_STATUS"))]))
+    chk("section 2 carries H-LINEAR on every share sentence (no flat claim)",
+        flat_share_claims(), [])
+    chk("CONTROL a flat 'Nothing near one half.' is caught",
+        flat_share_claims(_norm(__doc__).replace("one half AT FIRST ORDER",
+                                                 "one half. Really")) != [], True)
+    chk("CONTROL a flat 'THIS is the part of the nucleon mass that comes from' is caught",
+        flat_share_claims(__doc__ + " THIS is the part of the nucleon mass that comes "
+                          "from quark masses") != [], True)
+    chk("  and the finite share is said OPEN in sections 0, 2 and 6",
+        ["OPEN" in _norm(_doc_section(n)) and "finite" in _norm(_doc_section(n)).lower()
+         for n in (0, 2, 6)], [True, True, True])
     for k in sorted(vals):
         only = {j: (j != k) for j in vals}
         chk("CONTROL derive_verdict: only %s failing, contested-only -> OPEN" % k,
             derive_verdict(only, {k: True}), ("OPEN", [k]))
     chk("CONTROL recomputing C1 from its function flips it in its reading",
-        derive_readings(dict(vals, C1=field_switched_on_by_arrival(massive_matter_present=False),
-                             C2=True), cont)["SWITCH-ON"], ("STANDS", []))
+        derive_readings(dict(vals, C1=field_switched_on_by_arrival(massive_matter_present=False)),
+                        cont)["SWITCH-ON"], ("STANDS", []))
     for sh in (Fraction(-1, 2), Fraction(1, 2)):
         cc = counts(a_shift=sh)
         b = largest_central_reading(share_rows(cc)) >= 0.5
@@ -3382,6 +3757,80 @@ def selftest():
     chk("CONTROL refusal 12 fires on a reading-reason table with a hole",
         refusal_flags(text, reasons={k: v for k, v in READING_REASONS.items()
                                      if k != ("QUANTA", "C3")})[12][1], True)
+    # ---- B: the collider balance, both sides, scanned over docstring, report, rows
+    chk("the collider balance is kept on both sides everywhere scanned (refusal 2 scan)",
+        one_sided_conjecture_claims(text), [])
+    chk("CONTROL refusal 2 fires on a planted 'Funakubo et al. rest on unproven "
+        "conjectures'",
+        refusal_flags(text + "\n\nFunakubo et al. rest on unproven conjectures.")[2][1], True)
+    chk("CONTROL  ... and on the same planted inside S11's own passage",
+        bool(one_sided_conjecture_claims(
+            [" ".join(str(x) for x in r) for r in PROPOSED_ROWS if r[0] == "S11"][0]
+            + "  Funakubo et al. rest on unproven conjectures.")), True)
+    chk("CONTROL refusal 2 fires on a lone 'the prevalent results rest on unproven "
+        "conjectures, not theorems'",
+        refusal_flags(text + "\n\nthe prevalent results rest on unproven conjectures, "
+                             "not theorems.")[2][1], True)
+    _stripped = one_sided_conjecture_claims(
+        re.sub(r"\s+".join(DISSENT_CAVEAT.split()), "XXX", text))
+    chk("CONTROL with the dissent's admission struck, the scan catches the docstring's "
+        "section 0 and section 4, the report and S11",
+        [any(frag in c for _w, c in _stripped) for frag in (
+            "resting on conjectures they state as unproven",
+            "These are results resting on conjectures and assumptions their authors",
+            "the prevalent results rest on conjectures and assumptions their authors "
+            "state as unproven, not theorems",
+            "Bezrukov et al and Khoze-Milne rest on conjectures")], [True] * 4)
+    _rep = io.StringIO()
+    with contextlib.redirect_stdout(_rep):
+        report()
+    _rep = _norm(_rep.getvalue())
+    _sec4 = _norm(_doc_section(4))
+    chk("section 4 and the report each carry TW's p.2 admission and p.3 guesstimate",
+        [(DISSENT_CAVEAT in x, "only an order of magnitude guesstimate" in x)
+         for x in (_sec4, _rep)], [(True, True), (True, True)])
+    chk("'not conceded' cites TW's p.3 reply, held, in section 4 and the report",
+        (_in("TW-2017", "However, the above argument is somewhat misleading"),
+         "replies to it on p.3" in _sec4 and "somewhat misleading" in _sec4,
+         "replies on p.3" in _rep), (True, True, True))
+    chk("Funakubo et al.'s WKB order is held (1612.05431 p.4) and quoted, never "
+        "a conjecture",
+        (_in("FFS-rebut", "in the leading order of the WKB approximation"),
+         "in the leading order of the WKB approximation" in _sec4), (True, True))
+    chk("report locators print the arXiv id of every collider source",
+        [(k, arxiv_id(SOURCES[k][1]) is not None and ("arXiv %s" % arxiv_id(SOURCES[k][1]))
+          in _rep) for k in ("BLRRT", "BLRRT-PLB", "BLRRT-conj", "KM-2020", "TW-claim",
+                             "TW-2017", "FFS-rebut", "CMS")],
+        [(k, True) for k in ("BLRRT", "BLRRT-PLB", "BLRRT-conj", "KM-2020", "TW-claim",
+                             "TW-2017", "FFS-rebut", "CMS")])
+    chk("  and no locator is truncated to 'hep-ph/03'",
+        bool(re.search(r"hep-ph/03(?!\d)", _rep)), False)
+    # ---- C: the verdict line qualified, scanned
+    chk("no 'REFUSED on every reading' is printed without its NET-formation "
+        "qualification", unqualified_refusals(text), [])
+    chk("  the section-5 verdict line carries it",
+        "THE MECHANISM AS STATED: REFUSED on every reading; on DISPLACEMENT and QUANTA "
+        "as NET formation only" in _norm(_doc_section(5)), True)
+    chk("CONTROL refusal 9 fires on the old bare 'THE MECHANISM AS STATED: REFUSED on "
+        "every reading.'",
+        refusal_flags(text + "\n\nTHE MECHANISM AS STATED: REFUSED on every reading.\n")[9][1],
+        True)
+    chk("CONTROL  ... and on the section-5 line with its qualification struck",
+        bool(unqualified_refusals(__doc__.replace(
+            "REFUSED on every reading; on DISPLACEMENT and QUANTA\nas NET formation only",
+            "REFUSED on every reading.  On DISPLACEMENT and QUANTA\nsomething"))), True)
+    # ---- NOTES: survivor (c) matched to section 0; report rows
+    chk("survivor (c) says the sphaleron thermally, the collider case CONTESTED "
+        "(as section 0)",
+        ("the sphaleron thermally and at high energy" in _norm(__doc__),
+         "whether two-particle collisions at high energy cross it is CONTESTED"
+         in _norm(_doc_section(5))), (False, True))
+    chk("report rows read 'REFUSED on <counts> -- as net formation; remainder ...'",
+        [reading_row(r) for r in ("DISPLACEMENT", "QUANTA")],
+        ["REFUSED on C2, C3 -- as net formation; remainder the pair route, PRICED",
+         "REFUSED on C3 -- as net formation; remainder the pair route, PRICED"])
+    chk("  and the report prints exactly those rows",
+        all(reading_row(r) in _rep for r in ALL5), True)
     chk("CONTROL refusal 8 fires on a coupling row relabelled READ",
         refusal_flags(text, rows=[(r[0], "READ", r[2], r[3], r[4]) if "coupling" in r[0]
                                   else r for r in share_rows()])[8][1], True)
