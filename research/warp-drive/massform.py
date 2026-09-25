@@ -795,10 +795,13 @@ WHAT SURVIVES:
           0.5774 v < |phi| < v, at 4(1-eps)^2/(eps(2-eps)) J of source per J
           of field (excite.holding_ratio; 2/eps at small eps).  Where it
           fails, TEMPLATE keeps a priced remainder, the held-seat release
-          route (section 5 (d)), on that range only.  It does not reach
-          SWITCH-ON: the off state lies past D20's stability edge,
+          route (section 5 (d)), on that range only.  Within excite's
+          section-3 model (source rest mass proportional to phi) it does not
+          reach SWITCH-ON: the off state lies past D20's stability edge,
           eps = 0.4226 (excite.stability_edge), where the medium is unstable
-          and no static hold stands.
+          and no static hold stands.  A source whose mass rises convexly
+          with |phi| (D20'S MODEL; not computed) could hold it, and with the
+          elements seated that is TEMPLATE at |phi| = 0.
   H-RELEASE On the held-seat release route the trigger removes the prepared
           source without doing work on the field or the elements.  What
           becomes of the source's own rest energy is not computed.
@@ -1650,8 +1653,9 @@ def field_switched_on_by_arrival(vev_uniform=None, massive_matter_present=None,
     |phi| below v before arrival); the second by D15 and D16 together (any
     lower value needs a local source).  A source that did hold it, released
     by the trigger, is TEMPLATE's priced remainder, the held-seat release
-    route; it does not reach SWITCH-ON's off state, which lies past D20's
-    stability edge.  Owner: this function; inputs D15, D16, P-UNIFORM; on
+    route; within excite's section-3 model it does not reach SWITCH-ON's off
+    state, which lies past D20's stability edge (a source whose mass rises
+    convexly with |phi| could hold it; not computed).  Owner: this function; inputs D15, D16, P-UNIFORM; on
     TEMPLATE, H-UNSOURCED-SEAT."""
     vev_uniform = VEV_IS_UNIFORM if vev_uniform is None else vev_uniform
     present = CONSIDERATION_HOLDS if massive_matter_present is None else massive_matter_present
@@ -2748,8 +2752,11 @@ PROPOSED_ROWS = (
      "flip.  On H-PRESENT failing the case is TEMPLATE (r < 1) or a seat above v "
      "(r > 1: nothing to give; needs a source outside D20's model).  "
      + TEMPLATE_MOVES + ".  SWITCH-ON moves if C1 reverses (P-UNIFORM, D15 or D16); "
+     "within excite's section-3 model (source rest mass proportional to phi) "
      "H-UNSOURCED-SEAT failing does not reach it, since the off state lies past "
-     "D20's stability edge, where no static hold stands"),
+     "D20's stability edge, where no static hold stands; a source whose mass "
+     "rises convexly with |phi| (not computed) could hold it, and with the "
+     "elements seated that is TEMPLATE at |phi| = 0"),
     ("D28", "DEMAND",
      "Forming the payload from energy with B and L conserved costs at least "
      "Mc^2 + B mu_min c^2 (mu_min the least nuclear mass per nucleon among "
@@ -2811,7 +2818,9 @@ PROPOSED_ROWS = (
      MECHANISM_VERDICT[0], ("massform", "MECHANISM_VERDICT"),
      "STOCK moves only if H-TREE fails; " + H_PRESENT_FAILING + "; "
      + TEMPLATE_MOVES + "; SWITCH-ON moves if C1 reverses (P-UNIFORM, D15 or "
-     "D16); QUANTA if C3 reverses; DISPLACEMENT "
+     "D16), or if a source outside excite's section-3 model (mass rising "
+     "convexly with |phi|; not computed) holds the seat off; QUANTA if C3 "
+     "reverses; DISPLACEMENT "
      "needs C3, and C2 as well for a small displacement (a finite one reaches "
      "the finite share, OPEN; within D20's model a positive source only lowers "
      "|phi|); CREATION needs C4 and C3.  The finite Higgs share, OPEN (a "
@@ -3715,8 +3724,13 @@ REQUIRED_WORDING = (
      "the held-seat release route (section 5 (d)), on that range only",
      "the held-seat release route (section 5 (d))"),
     ("R7-5 section 6: H-UNSOURCED-SEAT does not reach SWITCH-ON", "doc 6",
-     "It does not reach SWITCH-ON: the off state lies past D20's stability edge",
-     "It also reaches SWITCH-ON: the off state lies past D20's stability edge"),
+     "section-3 model (source rest mass proportional to phi) it does not reach "
+     "SWITCH-ON: the off state lies past D20's stability edge", "It does not reach "
+     "SWITCH-ON: the off state lies past D20's stability edge"),
+    ("R9 section 6: the off state could be held by a convex-mass source", "doc 6",
+     "A source whose mass rises convexly with |phi| (D20'S MODEL; not computed) could "
+     "hold it, and with the elements seated that is TEMPLATE at |phi| = 0",
+     "No source whose mass comes from phi can hold it"),
     ("R7-5 section 6 H-PRESENT: the lowering sits inside the measured mass", "doc 6",
      "sits inside the measured mass, so |phi| = v here names that phi",
      "is negligible beside the measured mass, so |phi| = v here names that phi"),
@@ -3842,7 +3856,13 @@ REQUIRED_WORDING = (
      "is proportional to phi), a static hold is stable only on", "A static hold is "
      "stable only on"),
     ("R8 section 6: the stability edge needs excite's section-3 hypotheses", "doc 6",
-     "The stability edge of section 5 (d) needs excite's narrower section-3", ""),
+     "The stability edge of section 5 (d) needs excite's narrower section-3 "
+     "hypotheses: a static source of fixed number density whose rest mass is "
+     "proportional to phi.  A source whose mass rises convexly with |phi| could hold "
+     "stably below it; that is not computed", "The stability edge of section 5 (d) "
+     "needs excite's narrower section-3 hypotheses: a source whose mass comes from "
+     "phi, rising with |phi|.  No source whose mass comes from phi can hold stably "
+     "below it"),
     ("R8 section 5 (d)(ii): shares against the released energy", "doc 5",
      "regained/released = 2.020e-10", "regained/F = 2.020e-10"),
     ("R8 section 5 (d)(ii): the field relaxes to eps0, not v", "doc 5",
@@ -3854,9 +3874,11 @@ REQUIRED_WORDING = (
      "that pays for the regained rest energy and the rest is radiated",
      "that pays for the regained rest energy and all of it is regained"),
     ("R8 D27 mover: H-UNSOURCED-SEAT does not reach SWITCH-ON", "D27 moves",
-     "SWITCH-ON moves if C1 reverses (P-UNIFORM, D15 or D16); H-UNSOURCED-SEAT failing "
+     "SWITCH-ON moves if C1 reverses (P-UNIFORM, D15 or D16); within excite's "
+     "section-3 model (source rest mass proportional to phi) H-UNSOURCED-SEAT failing "
      "does not reach it, since the off state lies past D20's stability edge, where no "
-     "static hold stands", "SWITCH-ON moves if C1 reverses (P-UNIFORM, D15 or D16); "
+     "static hold stands; a source whose mass rises convexly with |phi| (not computed) "
+     "could hold it", "SWITCH-ON moves if C1 reverses (P-UNIFORM, D15 or D16); "
      "H-UNSOURCED-SEAT failing moves it too"),
     ("R8 report: the exact holding-ratio form label", "report",
      "= 4(1-eps)^2/(eps(2-eps)); eps x it -> 2", "= 2/eps at every eps; eps x it -> 2"),
@@ -3907,7 +3929,11 @@ REQUIRED_WORDING = (
      "the finite Higgs share (S10 (open)), which sets what the nucleons regain at "
      "large eps"),
     ("R7-5 fn C1: H-UNSOURCED-SEAT does not reach SWITCH-ON", "fn C1",
-     "it does not reach SWITCH-ON's off state", "it also reaches SWITCH-ON's off state"),
+     "within excite's section-3 model it does not reach SWITCH-ON's off",
+     "it also reaches SWITCH-ON's off state"),
+    ("R9 S10 mover: SWITCH-ON also moves on a source outside excite's model", "S10 moves",
+     "or if a source outside excite's section-3 model (mass rising convexly with "
+     "|phi|; not computed) holds the seat off", ""),
     ("R7-5 SURVIVES: the Higgs an intermediary, not the source (C4)",
      "survives the held-seat release route", "The Higgs is an intermediary, holding "
      "what the source stored, not the source (C4)", "The Higgs is the source (C4)"),
@@ -5638,10 +5664,27 @@ def selftest():
                                              _doc_section(6))], [True] * 5)
     # 4: the floor, and how loose it is at the samples
     _sh = held_release_regained_shares()
-    chk("R7-4 regained/F at every eps0 sample is below 1 (the rest radiated), and the "
-        "sampled figures are printed", (all(0 < x < 1 for _e0, x in _sh),
-                                        regained_shares_text() in _norm(__doc__),
-                                        regained_shares_text() in _rep), (True, True, True))
+
+    def _shares_recomputed(shares, eps=HELD_SEAT_EPS):
+        """Each share recomputed from excite.holding_terms directly, and the
+        energy closing: regained + radiated + F(eps0) == F(eps)."""
+        S_e, F_e = excite.holding_terms(eps)
+        ok = True
+        for e0, x in shares:
+            S0, F0 = excite.holding_terms(e0)
+            reg = S0 / (1 - e0) * (eps - e0)
+            ok = ok and x == reg / (F_e - F0) and reg + (F_e - F0 - reg) + F0 == F_e
+        return ok
+    chk("R7-4 regained/released at every eps0 sample is below 1 (the rest of what is "
+        "released is radiated; F(eps0) stays in the field), recomputed from excite, "
+        "and the sampled figures are printed",
+        (all(0 < x < 1 for _e0, x in _sh), _shares_recomputed(_sh),
+         regained_shares_text() in _norm(__doc__), regained_shares_text() in _rep),
+        (True, True, True, True))
+    _old = [(e0, held_release_balance(HELD_SEAT_EPS, e0)["regained"]
+             / excite.holding_terms(HELD_SEAT_EPS)[1]) for e0 in HELD_RELEASE_EPS0]
+    chk("CONTROL the old F(eps) denominator fails the recomputation",
+        _shares_recomputed(_old), False)
     # 5: the guard gaps round 6 left
     chk("R7-5 no selftest label says 'exhaustive' without 'three-way' (CONTROL labels "
         "quote old wording and are exempt)", stale_labels(), [])
