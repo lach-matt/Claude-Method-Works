@@ -713,13 +713,14 @@ WHAT SURVIVES:
       source rest energy per J of field (excite.holding_ratio; 2/eps at
       small eps).  (i) It forms no baryons: the elements were already
       there, and no Higgs coupling carries B (C3).  (ii) The energy: as
-      |phi| returns to v the field gives up its own energy, F = rho_EW
-      eps^2(2-eps)^2 per unit volume (excite.holding_terms), and by energy
-      conservation that is what pays for the elements' regained rest
-      energy, which cannot exceed it; the rest is radiated (the selftest
-      checks the balance exactly over Fraction).  With the elements' own
-      lowering at eps0 = 1e-12, 1e-6, 1/1000, 1/200: regained/F =
-      2.020e-10, 2.020e-4, 0.1815, 0.5013.  That field energy was stored
+      |phi| relaxes to the elements' own lowering eps0 the field releases
+      F(eps) - F(eps0), with F = rho_EW eps^2(2-eps)^2 per unit volume
+      (excite.holding_terms), and by energy conservation that is what pays
+      for the elements' regained rest energy, which cannot exceed it; the
+      rest is radiated (the selftest checks the balance exactly over
+      Fraction).  With the elements' own lowering at eps0 = 1e-12, 1e-6,
+      1/1000, 1/200: regained/released = 2.020e-10, 2.020e-4, 0.1834,
+      0.6695.  That field energy was stored
       in advance: the phi-coupled rest energy at the seat (the prepared
       source's with the elements') was 197.0 times as much, so per joule
       regained at least 197.0 J of it sat at the seat.  What becomes of
@@ -829,6 +830,10 @@ WHAT SURVIVES:
   D20'S MODEL  The sign of section 1 (a) holds for a source whose mass comes
           from phi, rising with |phi|, as every SM mass does.  A source outside
           that model (a negative-sign portal coupling, say) could raise |phi|.
+          The stability edge of section 5 (d) needs excite's narrower section-3
+          hypotheses: a static source of fixed number density whose rest mass
+          is proportional to phi.  A source whose mass rises convexly with
+          |phi| could hold stably below it; that is not computed.
 
 ===============================================================================
 7.  WHAT THIS FILE REFUSES
@@ -2243,11 +2248,16 @@ HELD_RELEASE_EPS0 = (Fraction(1, 10 ** 12), Fraction(1, 10 ** 6), Fraction(1, 10
 
 
 def held_release_regained_shares(eps=None, eps0s=HELD_RELEASE_EPS0):
-    """[(eps0, regained/F(eps))], exact: how much of the field's energy the
-    elements regain at each sampled eps0 of their own; the rest is radiated."""
+    """[(eps0, regained/released)], exact: of the energy the field RELEASES as
+    |phi| relaxes to the elements' own lowering eps0, F(eps) - F(eps0), how
+    much the elements regain; the rest of what it releases is radiated, and
+    F(eps0) stays in the field."""
     eps = HELD_SEAT_EPS if eps is None else eps
-    return [(e0, held_release_balance(eps, e0)["regained"] / excite.holding_terms(eps)[1])
-            for e0 in eps0s]
+    out = []
+    for e0 in eps0s:
+        b = held_release_balance(eps, e0)
+        out.append((e0, b["regained"] / b["field released"]))
+    return out
 
 
 def regained_shares_text(shares=None):
@@ -2255,7 +2265,7 @@ def regained_shares_text(shares=None):
     shares = held_release_regained_shares() if shares is None else shares
     fmt = lambda x: _e(float(x), 3) if x < Fraction(1, 100) else "%.4f" % x
     lab = lambda e0: str(e0) if e0.denominator <= 1000 else _e(float(e0), 0)
-    return ("eps0 = %s: regained/F = %s" % (", ".join(lab(e0) for e0, _r in shares),
+    return ("eps0 = %s: regained/released = %s" % (", ".join(lab(e0) for e0, _r in shares),
                                              ", ".join(fmt(r) for _e0, r in shares)))
 
 
@@ -2354,9 +2364,12 @@ HELD_SEAT_TEXT = (
     "Higgs-given mass.  It forms no baryons (C3: the elements were already "
     "there).  PRICED at eps = %s (excite.EPS_CHEMICAL): %s kg/m^3 of "
     "Higgs-derived mass where the templates sit, %.1f J of source rest energy "
-    "per J of field (excite.holding_ratio).  A static hold is stable only on "
+    "per J of field (excite.holding_ratio).  Within D20's model (a static source "
+    "of fixed number density whose rest mass is proportional to phi), a static "
+    "hold is stable only on "
     "%s (excite.stability_edge): a TEMPLATE seat below that keeps no held-seat "
-    "remainder.  The field's own energy pays for the regained rest energy, "
+    "remainder.  The energy the field releases as |phi| relaxes to the elements' "
+    "own lowering pays for the regained rest energy, "
     "which cannot exceed it, and the rest is radiated (with the elements' own "
     "lowering at %s), so per joule regained at least %.1f J of phi-coupled rest "
     "energy (the prepared source's with the elements') sat at the seat.  The "
@@ -2840,9 +2853,9 @@ PROPOSED_ROWS = (
      "reversed)"),
     ("S13", "SUPPLY",
      "TEMPLATE's remainder and the reading closest to M's mechanism -- "
-     + HELD_SEAT_TEXT + ".  The field gives up "
-     "rho_EW eps^2(2-eps)^2 per unit volume as |phi| returns to v "
-     "(excite.holding_terms); by energy conservation, the source removed "
+     + HELD_SEAT_TEXT + ".  The field releases F(eps) - F(eps0), with F = "
+     "rho_EW eps^2(2-eps)^2 per unit volume, as |phi| relaxes to the elements' "
+     "own lowering eps0 (excite.holding_terms); by energy conservation, the source removed "
      "without doing work (H-RELEASE), that pays for the regained rest energy "
      "and the rest is radiated, checked exactly over Fraction.  Within D20's "
      "model a static hold is stable only below eps = %.4f (excite.stability_edge)"
@@ -3381,9 +3394,12 @@ STALE_WORDING = (
      "C1 is about an off state at the seat, which this reading does not assume."),
     # ---- round 7
     ("R7-2 the holding price is excite's exact ratio; 2/eps is its small-eps limit",
-     r"(?i)(?:costs|at) 2/eps (?:J|joules)\b", None,
+     r"(?i)2/eps", r"(?i)small[- ]eps|limit|-> ?2/eps|overstat|2/eps overstates",
      "Holding any eps costs 2/eps joules of source per joule of field "
      "(excite.holding_ratio)."),
+    ("R8 the report's holding-ratio label never gives 2/eps as the value",
+     r"(?i)J of source per J of field \(2/eps\)", None,
+     "  J of source per J of field (2/eps)    197.0050"),
     ("R7-3 a positive source is an equilibrium below v, a stable hold only in the "
      "stable range", r"(?i)source holds 0 < \|phi\| < v", None,
      "It is not vacuous: within D20's model a positive source holds 0 < |phi| < v."),
@@ -3814,14 +3830,46 @@ REQUIRED_WORDING = (
     ("R6-C remainder (i): no baryons", "remainder TEMPLATE",
      "It forms no baryons (C3: the elements were already there)", ""),
     ("R6-C remainder (ii): the field pays, cannot be exceeded, the rest radiated",
-     "remainder TEMPLATE", "The field's own energy pays for the regained rest energy, "
-     "which cannot exceed it, and the rest is radiated (with the elements' own "
-     "lowering at", "The source pays"),
+     "remainder TEMPLATE", "The energy the field releases as |phi| relaxes to the "
+     "elements' own lowering pays for the regained rest energy, which cannot exceed "
+     "it, and the rest is radiated (with the elements' own lowering at",
+     "The field's own energy pays for the regained rest energy, which cannot exceed "
+     "it, and the rest is radiated (with the elements' own lowering at"),
+    ("R8 remainder (ii): per joule regained, at least", "remainder TEMPLATE",
+     "so per joule regained at least", "so per joule regained"),
+    ("R8 remainder: the stable range is within D20's model", "remainder TEMPLATE",
+     "Within D20's model (a static source of fixed number density whose rest mass "
+     "is proportional to phi), a static hold is stable only on", "A static hold is "
+     "stable only on"),
+    ("R8 section 6: the stability edge needs excite's section-3 hypotheses", "doc 6",
+     "The stability edge of section 5 (d) needs excite's narrower section-3", ""),
+    ("R8 section 5 (d)(ii): shares against the released energy", "doc 5",
+     "regained/released = 2.020e-10", "regained/F = 2.020e-10"),
+    ("R8 section 5 (d)(ii): the field relaxes to eps0, not v", "doc 5",
+     "relaxes to the elements' own lowering eps0 the field releases", "returns to v the "
+     "field gives up its own energy"),
+    ("R8 S13: the field releases F(eps) - F(eps0)", "S13 claim",
+     "The field releases F(eps) - F(eps0)", "The field gives up rho_EW"),
+    ("R8 S13: the rest is radiated", "S13 claim",
+     "that pays for the regained rest energy and the rest is radiated",
+     "that pays for the regained rest energy and all of it is regained"),
+    ("R8 D27 mover: H-UNSOURCED-SEAT does not reach SWITCH-ON", "D27 moves",
+     "SWITCH-ON moves if C1 reverses (P-UNIFORM, D15 or D16); H-UNSOURCED-SEAT failing "
+     "does not reach it, since the off state lies past D20's stability edge, where no "
+     "static hold stands", "SWITCH-ON moves if C1 reverses (P-UNIFORM, D15 or D16); "
+     "H-UNSOURCED-SEAT failing moves it too"),
+    ("R8 report: the exact holding-ratio form label", "report",
+     "= 4(1-eps)^2/(eps(2-eps)); eps x it -> 2", "= 2/eps at every eps; eps x it -> 2"),
+    ("R8 report: the nucleon label excludes the electrons", "report",
+     "nucleons at first order (largest READ row)", "electrons and nucleons at first "
+     "order"),
+    ("R8 report: the stable range within D20's model", "report",
+     "within D20's model, a stable hold only on", "a stable hold only on"),
     ("R7-4 remainder (ii): the floor is phi-coupled rest energy, the elements' included",
      "remainder TEMPLATE", "J of phi-coupled rest energy (the prepared source's with "
      "the elements') sat at the seat", "J of source rest energy sat at the seat"),
     ("R7-3 remainder: a stable hold only on the stable range; none below it",
-     "remainder TEMPLATE", "A static hold is stable only on " + STABLE_RANGE
+     "remainder TEMPLATE", "a static hold is stable only on " + STABLE_RANGE
      + " (excite.stability_edge): a TEMPLATE seat below that keeps no held-seat "
      "remainder", ""),
     ("R6-C/R7 remainder (iii): eps times the first-order share, not a bound; finite "
@@ -4242,7 +4290,8 @@ def report():
        "excite.exact_source_density")
     _p("  stable (eps below the stability edge)", h["stable"],
        "edge %.4f, excite" % excite.stability_edge())
-    print("        a stable hold only on %s; below it no held-seat remainder" % STABLE_RANGE)
+    print("        within D20's model, a stable hold only on %s; below it no held-seat "
+          "remainder" % STABLE_RANGE)
     _p("  balance faults over the eps0 samples", str(h["balance faults"]),
        "exact over Fraction; H-RELEASE")
     print("        %s; the rest is radiated" % regained_shares_text())
