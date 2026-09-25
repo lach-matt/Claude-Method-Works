@@ -2918,7 +2918,8 @@ PROPOSED_ROWS = (
      "READ rows, none a bound; no Higgs coupling carries net B or L); "
      "EXCITATION, quanta branch, by C3 alone; CREATION by C4 (the field has no "
      "energy to give about v, and its one release, vacuum decay, forms no atomic "
-     "mass at the seat, D29) and C3; STOCK, with the elements present as "
+     "mass at the seat -- an INFERENCE from READ text, D29) and C3; STOCK, with "
+     "the elements present as "
      "elements (H-PRESENT), by C5 alone, PRIOR MASS (they already carry their "
      "Higgs-given mass, since fermion masses are proportional to phi where they "
      "are; on H-PRESENT it needs no P-UNIFORM); TEMPLATE, its complement "
@@ -3678,8 +3679,15 @@ REQUIRED_WORDING = (
     # replaced as its control.
     ("D65-close S10 claim: CREATION refused in D29's own words", "S10 claim",
      "CREATION by C4 (the field has no energy to give about v, and its one "
-     "release, vacuum decay, forms no atomic mass at the seat, D29) and C3",
+     "release, vacuum decay, forms no atomic mass at the seat -- an INFERENCE "
+     "from READ text, D29) and C3",
      "CREATION by C4 (the field has no energy to give, D29) and C3"),
+    # The second closing pass: the decay clause carries D29's own label for it
+    # ('an INFERENCE from READ text'), not a flat statement citing D29.
+    ("D65-close S10 claim: the decay clause carries D29's INFERENCE label",
+     "S10 claim",
+     "forms no atomic mass at the seat -- an INFERENCE from READ text, D29) and C3",
+     "forms no atomic mass at the seat, D29) and C3"),
     ("D65-close S11 claim: v is NAMED-NOT-READ, via G_F", "S11 claim",
      "alpha_W from READ m_W and v (NAMED-NOT-READ, via G_F); B/3 transitions",
      "alpha_W from READ m_W and v; B/3 transitions"),

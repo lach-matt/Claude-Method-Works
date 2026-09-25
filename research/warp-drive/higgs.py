@@ -88,7 +88,9 @@ TWO CAVEATS, AND THEY ARE NOT SMALL.
       PROBLEM.  So the magnitude is real as a contribution and is cancelled, by
       something nobody has identified, down to a number we do measure.
   (b) IT IS UNIFORM WHERE NOTHING SOURCES IT (P-UNIFORM, a named premise:
-      massform.P_UNIFORM_STATUS).  It is the same inside the throat as
+      massform.P_UNIFORM_STATUS).  The paper's caveat (b) (paper/CLAIMS.md,
+      H92b) was qualified the same way on M's ruling M-D65-4 (ledger.py).
+      It is the same inside the throat as
       outside it, and it is already included in whatever Lambda is.
       IT CAN BE DISPLACED IN ONE PLACE ONLY BY FILLING THAT PLACE WITH A SOURCE
       WHOSE REST ENERGY IS 2/eps TIMES THE FIELD ENERGY IT BUYS.  A resource

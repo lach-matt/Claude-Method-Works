@@ -1703,8 +1703,9 @@ FINDINGS = [
  #           question left UNDECIDED (NU-OPEN), and the ledger does not leave
  #           the balance undecided -- it prints REFUSED in every gap.  S5, the
  #           first priced row, is OPEN and is not a transport route (D23);
- #           DOCKET 65's priced S11-S13 price atomic mass formed at a seat, not
- #           negative enclosed mass, so they move no balance row and not Y.
+ #           DOCKET 65's priced S11-S13 price atomic mass formed or restored
+ #           at a seat (S13 forms no baryons), not negative enclosed mass, so
+ #           they move no balance row and not Y.
  #   Z = +1  the demand column prints the specification the supply would have
  #           to meet: kg per metre, and kg for the Proxima span.  The gap
  #           column's 'no number' refuses a DIFFERENCE, for want of a supply

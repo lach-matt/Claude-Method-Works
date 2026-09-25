@@ -10185,7 +10185,7 @@ throat needs**, with the sign of `ρ` right as well. `amps.py` fell short by sev
 
 Two caveats, neither small: the **absolute normalisation of `V` is not measured** — the figure is the
 electroweak contribution to `Λ` under `V(0)=0`, exceeding the observed vacuum energy by **54.62 orders,
-which is the cosmological constant problem**; and **it is uniform where nothing sources it** — it can be
+which is the cosmological constant problem**; and **it is uniform where nothing sources it** (P-UNIFORM, a named premise: `massform.P_UNIFORM_STATUS`) — it can be
 displaced in one place only by filling that place with a source carrying about `2/ε` times the field energy it
 buys (`excite.py`; the first wording, "it does not localise", was false as written). **A resource you can put
 somewhere only by putting something far larger there is not a resource.**

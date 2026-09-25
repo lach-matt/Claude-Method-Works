@@ -331,10 +331,11 @@ def unnamed_hypotheses(sr5, rested=None):
 #: DOCKET 65's rows and rulings as SR5 places them.  The finite Higgs share is
 #: no row (M-D65-2: an OPEN item inside S10's note), so no O row is placed.
 SR5_ROWS = ["D27", "D28", "D29", "S10", "S11", "S12", "S13", "M-D65-1", "M-D65-2",
-            "M-D65-3"]
+            "M-D65-3", "M-D65-4"]
 
-#: What S13's S-3 candidacy rests on, stated once and printed wherever the
-#: candidacy is: M's framing of the mechanism as the seat's (ledger M-S1A-P1).
+#: What S13's S-3 candidacy rests on, stated once and printed at every site
+#: the candidacy is (the S object, the S-3 note, WHAT IT DOES NOT SAY): M's
+#: framing of the mechanism as the seat's (ledger M-S1A-P1).
 #: S13 moves no mass -- the templates are already at the seat, only
 #: information arrives -- which is Rec's defining feature, not S's.
 S13_CANDIDACY = ("on M's framing of the mechanism as the seat's (M-S1A-P1); it "
@@ -1406,12 +1407,12 @@ def requirements(F):
          # table cuts a status at 84 characters, and a cut there must never
          # leave 'S10 REFUSED' standing without what is not refused.
          "status": "D27 %s; D28 %s; D29 %s; S11 %s, S12 %s, S13 %s (its "
-                   "remainders, %s); M-D65-1 %s; M-D65-2 %s; M-D65-3 %s; S10 %s "
-                   "(the mechanism as stated, as a supply, "
+                   "remainders, %s); M-D65-1 %s; M-D65-2 %s; M-D65-3 %s; M-D65-4 %s; "
+                   "S10 %s (the mechanism as stated, as a supply, "
                    "massform.MECHANISM_VERDICT%s)"
                    % (tuple(st(r) for r in ("D27", "D28", "D29", "S11", "S12", "S13"))
                       + (priced65(), st_ruling("M-D65-1"), st_ruling("M-D65-2"),
-                         st_ruling("M-D65-3"),
+                         st_ruling("M-D65-3"), st_ruling("M-D65-4"),
                          st("S10"), (": " + s10_scope()) if s10_scope() else "")),
          "rows": list(SR5_ROWS),
          "see": ["D15", "D16", "D20", "D23", "S5"],
@@ -1483,8 +1484,13 @@ def requirements(F):
             "Teleportation FOLDED INTO DOCKET 66 (M-D65-1, on the board: %s); it "
             "is not tested here.  M ruled DOCKET 67 OPENED (M-D65-3, on the "
             "board: %s): the audit of the external results the board's refusals "
-            "rest on, NOT YET RUN, after DOCKET 65 and before DOCKET 66; nothing "
-            "here rests on it."
+            "rest on, NOT YET RUN, after DOCKET 65 and before DOCKET 66, so "
+            "nothing here is yet graded by it; what it audits is what every "
+            "refusal here rests on: the %d facts in force (%s; DOCKET 67's record "
+            "lists each with what holds it) and the external results the escapes "
+            "name.  M ruled the paper's caveat (b) QUALIFIED on P-UNIFORM "
+            "(M-D65-4, on the board: %s; M: '%s'): the one paper edit since M "
+            "finalised it, and no verdict here moves on it."
             % (massform.M_MECHANISM, massform.MECHANISM_VERDICT[0],
                massform.mechanism_label(), priced65(), massform.ANOMALY_ROUTE_PRICED,
                massform.COLLIDER_RATE_STATUS,
@@ -1503,7 +1509,9 @@ def requirements(F):
                ("survives" if massform.RECONSTRUCTION_SURVIVES
                 else "DOES NOT survive, AGAINST S5's note"),
                massform.RECONSTRUCTION_SURVIVES, ruled("M-D65-1"),
-               ruled("M-D65-3"))},
+               ruled("M-D65-3"), len(facts_in_force_names()),
+               ", ".join(facts_in_force_names()), ruled("M-D65-4"),
+               ledger.M_D65_4_ANSWER)},
     ]
 
 
@@ -1625,14 +1633,15 @@ def classes():
                  "without doing work; what becomes of its own rest energy is not "
                  "computed), a prior arrival first (D23) -- forms no baryons: the "
                  "elements must already be at the seat as templates, and only their "
-                 "Higgs-given mass is restored (C3).  It is a %s S-3 candidate %s, "
-                 "stable only on %s within excite's section-3 model.  Seating at a "
+                 "Higgs-given mass is restored (C3).  It is a %s S-3 candidate, "
+                 "stable only on %s within excite's section-3 model; the candidacy "
+                 "rests %s.  Seating at a "
                  "topological defect (DOCKET 66, M-S1A-P3 (ii), with QET folded in "
                  "by M-D65-1) is S-3's until tested"
                  % (massform.mechanism_label(), massform.HELD_SEAT_ROUTE_PRICED,
                     massform.H_RELEASE_STATUS,
-                    priced65(massform.HELD_SEAT_ROUTE_PRICED), S13_CANDIDACY,
-                    massform.STABLE_RANGE)},
+                    priced65(massform.HELD_SEAT_ROUTE_PRICED),
+                    massform.STABLE_RANGE, S13_CANDIDACY)},
         {"id": "W-create-cc", "object": "W", "space": "W",
          "lits": {"created": True, "cc": True},
          "name": "throat created, causally compact interpolation",
@@ -2257,6 +2266,8 @@ QUOTES = (
                        "may be inaccurate or incomplete, or even wrong"),
     ("ledger:M-D65-3", "some previous physicists may have all lacked certain data"),
     ("ledger:M-D65-3", "After D65, before D66"),
+    ("ledger:M-D65-4", "Yes, qualify it (Recommended)"),
+    ("ledger:M-D65-4", "the one paper edit since M finalised it, on M's ruling"),
 )
 
 
@@ -2325,11 +2336,12 @@ def m_d65_1():
 
 
 #: The one description of the QET protocol this board prints in its own words,
-#: as the CITED, not READ, literature is described -- never 'information
-#: creates'.
+#: naming its describer -- this board, from the cited abstracts, not READ --
+#: never 'information creates'.
 QET_PROTOCOL = ("information arriving at the destination enabling a local "
                 "operation that extracts energy and leaves a negative energy "
-                "density there, as the CITED, not READ, literature is described")
+                "density there, as this board describes it from the cited "
+                "abstracts, not READ")
 
 
 def m_d65_3():
@@ -2352,10 +2364,61 @@ def m_d65_3():
 
 #: Dockets M's rulings open, and whether each has run.  DOCKET 65 has RUN
 #: (massform.py; its rows are placed in SR5, its verdicts ASKED below); DOCKET
-#: 66 has not run, and nothing in this file rests on it.
+#: 66 has not run, and nothing in this file rests on it; DOCKET 67 (M-D65-3)
+#: is opened, NOT YET RUN, before DOCKET 66 -- it audits the external results
+#: every refusal here rests on, so nothing here is yet graded by it.
+#:
+#: The DOCKET 66 and 67 records are TEMPLATES filled from asked fragments; the
+#: selftest checks each printed record EQUALS its template so filled, so no
+#: verdict on a docket that has not run can be typed beside them, either way.
+D66_T = (
+     "seating at a topological defect, with M's throat-compression mechanism "
+     "('Singular occurs in the throat where the geometry is compressed to binary "
+     "information, and then push to the seat').  A TENSION TO SETTLE THERE, not "
+     "in code: P3 (i) disqualifies a pathology at the seat and P3 (ii) makes "
+     "topological defects seating sites, and a SINGULAR defect (an idealised "
+     "conical string) falls under both.  NOT YET RUN.  M'S ADDITION (M-D65-1, "
+     "RULED BY M: FOLD INTO DOCKET 66 -- M: '%s'): Quantum Energy "
+     "Teleportation -- as the question put to M described it, '%s' (the "
+     "QUESTION's description, not READ; the protocol, %s) -- is to be "
+     "tested HERE, beside seating at a topological defect, not as a docket of "
+     "its own; nothing here decides it.  M's words: '%s'.  Its literature (%s) "
+     "is CITED, not READ.")
+D67_T = (
+     "the audit of the external results the board's refusals rest on -- the "
+     "question put to M: \"%s\".  RULED BY M: OPEN IT -- M: '%s'; M's words: "
+     "\"%s\".  NOT YET RUN, so nothing here is yet graded by it; on the board it "
+     "unblocks: '%s'.  What it audits is what every refusal here rests on: the "
+     "facts in force -- %s -- and the external results the escapes name.")
+
+_FACTS_IN_FORCE = []
+
+
+def facts_in_force_names():
+    """The names of the facts in force, ASKED of facts() with the owners' live
+    gates (what derive() admits), computed once per import."""
+    if not _FACTS_IN_FORCE:
+        import z3
+        _FACTS_IN_FORCE.extend(f for f in facts(z3, _vars(z3), figures()) if f["gate"])
+    return [f["name"] for f in _FACTS_IN_FORCE]
+
+
+def facts_in_force_clause():
+    """The facts in force, each with the held-by text its owner gives it, and
+    which of them are READ or CITED outside results -- what DOCKET 67 audits;
+    asked, never typed."""
+    facts_in_force_names()
+    read = [f["name"] for f in _FACTS_IN_FORCE
+            if re.search(r"\b(READ|CITED)\b", f["held"])]
+    return ("%s; of these, READ or CITED outside results: %s"
+            % ("; ".join("%s (held by: %s)" % (f["name"], f["held"])
+                         for f in _FACTS_IN_FORCE), ", ".join(read) or "none"))
+
+
 def dockets_opened():
     """DOCKETS_OPENED, built NOW from the owners (massform's verdicts and
-    flags, ledger's M-D65-1), so a moved owner moves the record."""
+    flags, ledger's M-D65-1 and M-D65-3, the facts in force), so a moved owner
+    moves the record."""
     return [
     ("DOCKET 65", "M-S1A-P1",
      # M's words asked of massform (M_MECHANISM, M_CONSIDERATION), which checks
@@ -2373,49 +2436,47 @@ def dockets_opened():
         massform.mechanism_label(),
         priced65(), massform.CONSIDERATION_VERDICT, massform.P_UNIFORM_STATUS)),
     ("DOCKET 66", "M-S1A-P3",
-     "seating at a topological defect, with M's throat-compression mechanism "
-     "('Singular occurs in the throat where the geometry is compressed to binary "
-     "information, and then push to the seat').  A TENSION TO SETTLE THERE, not "
-     "in code: P3 (i) disqualifies a pathology at the seat and P3 (ii) makes "
-     "topological defects seating sites, and a SINGULAR defect (an idealised "
-     "conical string) falls under both.  NOT YET RUN.  M'S ADDITION (M-D65-1, "
-     "RULED BY M: FOLD INTO DOCKET 66 -- M: '%s'): Quantum Energy "
-     "Teleportation -- as the question put to M described it, '%s' (the "
-     "QUESTION's description, not READ; the protocol itself: %s) -- is to be "
-     "tested HERE, beside seating at a topological defect, not as a docket of "
-     "its own; nothing here decides it.  M's words: '%s'.  Its literature (%s) "
-     "is CITED, not READ."
      # M's answer, the question's parenthetical, M's words and the literature
      # are asked of ledger.RULED_BY_M's M-D65-1, never retyped here; the
      # protocol clause is QET_PROTOCOL, the one wording the board allows.
-     % (m_d65_1()[0], m_d65_1()[3], QET_PROTOCOL, m_d65_1()[1], m_d65_1()[2])),
+     D66_T % (m_d65_1()[0], m_d65_1()[3], QET_PROTOCOL, m_d65_1()[1], m_d65_1()[2])),
     ("DOCKET 67", "M-D65-3",
-     "the audit of the external results the board's refusals rest on -- the "
-     "question put to M: \"%s\".  RULED BY M: OPEN IT -- M: '%s'; M's words: "
-     "\"%s\".  NOT YET RUN; on the board it unblocks: '%s'.  Nothing in this "
-     "file rests on it."
-     # All four asked of ledger.RULED_BY_M's M-D65-3, never retyped here.
-     % m_d65_3()),
+     # The four fragments asked of ledger.RULED_BY_M's M-D65-3, the facts in
+     # force asked of facts(); never retyped here.
+     D67_T % (m_d65_3() + (facts_in_force_clause(),))),
     ]
+
+
+#: A result asserted on a docket that has NOT run, in EITHER direction: a verb
+#: making or showing exotic matter, 'is (not) exotic', 'cannot', 'fails',
+#: 'no negative'.
+_RESULT_WORDS = re.compile(
+    r"\b(shows|proves|makes|produces|generates|demonstrates|establishes|confirms)"
+    r"\b[^.]{0,60}\bexotic\b|\bis( not)? exotic\b|\bcannot\b|\bfails\b|"
+    r"\bno negative\b", re.I)
 
 
 def d66_qet_faults(text):
     """[fault] where DOCKET 66's record describes QET in this file's own words:
     the question's description not attributed to the question, the protocol
     clause not QET_PROTOCOL, 'information ... creates/creating' in the board's
-    own words, or a result asserted ('shows', 'proves', 'is exotic')."""
+    own words, the record not saying 'nothing here decides it', or a result
+    asserted either way (_RESULT_WORDS) in the board's own words -- M's words,
+    the question's description and QET_PROTOCOL removed first."""
     t = " ".join(text.split())
-    par = m_d65_1()[3]
+    par, words = m_d65_1()[3], m_d65_1()[1]
     bad = []
     if ("as the question put to M described it, '%s' (the QUESTION's "
             "description, not READ" % par) not in t:
         bad.append("the question's description is not attributed to the question")
     if QET_PROTOCOL not in t:
         bad.append("the protocol clause is not the CITED-not-READ one")
-    rest = t.replace(par, "")
+    if "nothing here decides it" not in t:
+        bad.append("the record does not say nothing here decides it")
+    rest = t.replace(par, "").replace(words, "")
     if re.search(r"information[^.]{0,80}\bcreat", rest, re.I):
         bad.append("'information creates' in the board's own words")
-    if re.search(r"\b(shows|proves)\b|\bis exotic\b", rest, re.I):
+    if _RESULT_WORDS.search(rest.replace(QET_PROTOCOL, "")):
         bad.append("a result asserted")
     return bad
 
@@ -2504,9 +2565,11 @@ def what_it_does_not_say():
     "mechanism AS STATED as a supply (S10: %s), and its remainders S11-S13 (%s) "
     "are OPEN, not refused; the held-seat release route S13, on H-RELEASE, "
     "forms no baryons (the elements must already be at the seat) and is a %s "
-    "S-3 candidate, not a member of S-1."
+    "S-3 candidate, not a member of S-1 (the candidacy rests %s)."
     % (massform.mechanism_label(), priced65(),
-       priced65(massform.HELD_SEAT_ROUTE_PRICED)),
+       priced65(massform.HELD_SEAT_ROUTE_PRICED), S13_CANDIDACY),
+    "It does not say the external results its refusals rest on have been "
+    "audited: DOCKET 67 (M-D65-3) is NOT YET RUN.",
     "It does not decide whether a transition can lead; a lead is not required.",
     "It does not quote O1's two figures as MEASURED, nor any SI formation price.",
     "It does not rank the open classes or total any gaps.",
@@ -2722,9 +2785,13 @@ def run():
 # ============================================================ 9. THE REPORT
 
 def _wrap(text, indent=6, width=96):
+    """Never breaks a hyphenated term across lines: SR5's status once printed
+    'held-\n      seat release route', and bare_refusals(), which reads the
+    printed report, rightly found the remainder missing from that sentence."""
     import textwrap
     return textwrap.fill(" ".join(str(text).split()), width=width,
-                         initial_indent=" " * indent, subsequent_indent=" " * indent)
+                         initial_indent=" " * indent, subsequent_indent=" " * indent,
+                         break_on_hyphens=False)
 
 
 def theorem_statement(model):
@@ -3486,16 +3553,16 @@ def selftest():
 
     # ---- DOCKET 65, seated (M: "Seat as proposed"); M-D65-1 folds QET into 66
     sr5 = [r for r in model["requirements"] if r["id"] == "SR5"][0]
-    chk("chk", "SR5 places DOCKET 65's rows and both its rulings, M-D65-1 and "
-        "M-D65-2, on S alone; no O row (the finite share is in S10's note)",
+    chk("chk", "SR5 places DOCKET 65's rows and its four rulings, M-D65-1 to "
+        "M-D65-4, on S alone; no O row (the finite share is in S10's note)",
         (sr5["rows"], sr5["applies_to"]),
         (["D27", "D28", "D29", "S10", "S11", "S12", "S13", "M-D65-1", "M-D65-2",
-          "M-D65-3"], ["S"]))
+          "M-D65-3", "M-D65-4"], ["S"]))
     chk("ask", "SR5's status carries each row's asked status and S10 is "
         "massform.MECHANISM_VERDICT[0]",
         (all(("%s %s" % (r, st(r))) in sr5["status"]
              for r in ("D27", "D28", "D29", "S10", "S11", "S12", "S13",
-                       "M-D65-1", "M-D65-2", "M-D65-3")),
+                       "M-D65-1", "M-D65-2", "M-D65-3", "M-D65-4")),
          st("S10") == massform.MECHANISM_VERDICT[0] == REFUSED), (True, True))
     # SR5's status names every premise S10's refusal rests on wherever the
     # owner's label does: SWITCH-ON and TEMPLATE on P-UNIFORM.
@@ -3687,6 +3754,37 @@ def selftest():
             "is to be tested HERE", "which shows that information arriving at the "
             "destination IS exotic matter, as M said, is to be tested HERE")),
         ["a result asserted"])
+    chk("ctl", "the widened guard: 'Information arriving makes exotic matter "
+        "there', 'QET demonstrates exotic matter at the destination', a "
+        "pre-judgement AGAINST M ('QET cannot meet the corridor's demand ... is "
+        "not exotic matter') and 'nothing here decides it' dropped are each caught",
+        [d66_qet_faults(d66 + "  Information arriving makes exotic matter there."),
+         d66_qet_faults(d66 + "  QET demonstrates exotic matter at the destination."),
+         d66_qet_faults(d66.replace(
+             "nothing here decides it.", "nothing here decides it.  QET cannot meet "
+             "the corridor's demand, and information arriving is not exotic matter "
+             "in M's sense.")),
+         d66_qet_faults(d66.replace("; nothing here decides it", ""))],
+        [["a result asserted"]] * 3
+        + [["the record does not say nothing here decides it"]])
+    chk("chk", "DOCKET 66's record EQUALS D66_T filled from the asked fragments "
+        "(M's answer, the question's description, QET_PROTOCOL, M's words, the "
+        "literature): nothing is added in the board's own words, either way",
+        d66 == D66_T % (m_d65_1()[0], m_d65_1()[3], QET_PROTOCOL, m_d65_1()[1],
+                        m_d65_1()[2]), True)
+    chk("ctl", "the pre-judgement AGAINST M planted after 'nothing here decides "
+        "it' fails the equality",
+        d66.replace("nothing here decides it.", "nothing here decides it.  QET "
+                    "cannot meet the corridor's demand, and information arriving "
+                    "is not exotic matter in M's sense.")
+        == D66_T % (m_d65_1()[0], m_d65_1()[3], QET_PROTOCOL, m_d65_1()[1],
+                    m_d65_1()[2]), False)
+    chk("chk", "QET_PROTOCOL names its describer (this board, from the cited "
+        "abstracts, not READ) and the record prints it as 'the protocol, ...', "
+        "not 'the protocol itself'",
+        ("as this board describes it from the cited abstracts, not READ" in QET_PROTOCOL,
+         "the protocol itself" in d66, "the protocol, " + QET_PROTOCOL in d66),
+        (True, False, True))
     d67 = dockets_opened()[2][2]
     chk("chk", "DOCKET 67 is on the record, opened by M-D65-3 (on the board), "
         "NOT YET RUN, with the question as put to M and M's words asked of the "
@@ -3695,12 +3793,54 @@ def selftest():
          m_d65_3()[0] in d67, m_d65_3()[2] in d67,
          "after DOCKET 65 is seated and before DOCKET 66" in d67),
         (("DOCKET 67", "M-D65-3"), True, True, True, True, True))
-    chk("chk", "SR5 says DOCKET 67 is OPENED, NOT YET RUN, and nothing here rests "
-        "on it", ("M ruled DOCKET 67 OPENED (M-D65-3, on the board: %s)"
-                  % ruled("M-D65-3") in sr5["statement"],
-                  "NOT YET RUN, after DOCKET 65 and before "
-                  "DOCKET 66; nothing here rests on it" in sr5["statement"]),
-        (True, True))
+    _fif = facts_in_force_names()
+    chk("ask", "DOCKET 67's record says what it audits, built from the escapes' "
+        "facts in force (asked: equal to derive()'s, non-empty, each with its "
+        "held-by text, the READ ones named) -- not that nothing here rests on it",
+        (_fif == model["facts_in_force"], len(_fif) > 0,
+         all("%s (held by: %s)" % (f["name"], f["held"]) in d67
+             for f in _facts_plain(model) if f["gate"]),
+         "of these, READ or CITED outside results: GEROCH-BORDE, BORDE-ESCAPES"
+         in d67,
+         "NOT YET RUN, so nothing here is yet graded by it" in d67,
+         "Nothing in this file rests on it" in d67, "nothing here rests on it" in d67),
+        (True, True, True, True, True, False, False))
+    chk("chk", "DOCKET 67's record EQUALS D67_T filled from the asked fragments and "
+        "the facts clause; D67_T and D66_T carry no result word in the board's own "
+        "words (either direction)",
+        (d67 == D67_T % (m_d65_3() + (facts_in_force_clause(),)),
+         _RESULT_WORDS.findall(D67_T), _RESULT_WORDS.findall(D66_T),
+         re.findall(r"\b(has run|HAS RUN|STANDS|WRONG|NARROWED|expected to)\b",
+                    D67_T + D66_T)),
+        (True, [], [], []))
+    chk("ctl", "'HAS RUN' planted in the record, and 'Every result it audits is "
+        "expected to STAND' appended, each fail the equality",
+        (d67.replace("NOT YET RUN", "HAS RUN", 1)
+         == D67_T % (m_d65_3() + (facts_in_force_clause(),)),
+         d67 + "  Every result it audits is expected to STAND."
+         == D67_T % (m_d65_3() + (facts_in_force_clause(),))), (False, False))
+    chk("chk", "SR5 says DOCKET 67 is OPENED, NOT YET RUN, so nothing here is yet "
+        "graded by it, and names the facts in force it audits (asked count and "
+        "names); and M-D65-4, the paper's caveat (b), on the board",
+        ("M ruled DOCKET 67 OPENED (M-D65-3, on the board: %s)"
+         % ruled("M-D65-3") in sr5["statement"],
+         "NOT YET RUN, after DOCKET 65 and before DOCKET 66, so nothing here is "
+         "yet graded by it; what it audits is what every refusal here rests on: "
+         "the %d facts in force (%s; " % (len(_fif), ", ".join(_fif))
+         in sr5["statement"],
+         "nothing here rests on it" in sr5["statement"],
+         "M ruled the paper's caveat (b) QUALIFIED on P-UNIFORM (M-D65-4, on the "
+         "board: %s; M: '%s')" % (ruled("M-D65-4"), ledger.M_D65_4_ANSWER)
+         in sr5["statement"], ruled("M-D65-4")),
+        (True, True, False, True, True))
+    chk("ctl", "the statement as it stood ('nothing here rests on it'), planted, "
+        "fails the check above",
+        "nothing here rests on it" not in sr5["statement"].replace(
+            ", so nothing here is yet graded by it", "; nothing here rests on it"),
+        False)
+    chk("chk", "WHAT IT DOES NOT SAY carries the DOCKET 67 line (NOT YET RUN)",
+        any("DOCKET 67 (M-D65-3) is NOT YET RUN" in t and "have been audited" in t
+            for t in what_it_does_not_say()), True)
     _q3 = [r for r in ledger.RULED_BY_M if r[0] == "M-D65-3"][0]
     _mis3 = (_q3[0], _q3[1], _q3[2],
              _q3[3].replace("or even wrong", "or even false"), _q3[4])
@@ -3719,13 +3859,25 @@ def selftest():
         [(True,) * 6])
     _Snote = [K["note"] for K in model["classes"] if K["id"] == "S-3"][0]
     _Sdef = [o["definition"] for o in model["objects"] if o["id"] == "S"][0]
-    chk("chk", "the S-3 note and object S say what S13's candidacy rests on (M's "
-        "framing, M-S1A-P1) and that it moves no mass, as Rec does not",
-        ("S-3 candidate " + S13_CANDIDACY in _Snote,
-         "S-3 candidate " + S13_CANDIDACY in _Sdef), (True, True))
-    chk("ctl", "the note as it stood ('S-3 candidate' with no basis) is caught",
-        "S-3 candidate " + S13_CANDIDACY in _Snote.replace(" " + S13_CANDIDACY, ""),
-        False)
+    _Swids = [t for t in what_it_does_not_say() if "S-3 candidate" in t]
+    chk("chk", "the S-3 note, object S and WHAT IT DOES NOT SAY say what S13's "
+        "candidacy rests on (M's framing, M-S1A-P1) and that it moves no mass, "
+        "as Rec does not -- in the note AFTER the stability clause, so 'stable "
+        "only on' attaches to the candidate, not to Rec",
+        ("the candidacy rests " + S13_CANDIDACY in _Snote,
+         "S-3 candidate " + S13_CANDIDACY in _Sdef,
+         [("the candidacy rests " + S13_CANDIDACY) in t for t in _Swids],
+         _Snote.index("stable only on") < _Snote.index("the candidacy rests"),
+         "as Rec does not, stable only on" in _Snote),
+        (True, True, [True], True, False))
+    chk("ctl", "the note as it stood ('S-3 candidate' with no basis), and the "
+        "WHAT IT DOES NOT SAY entry without it, are caught",
+        ("the candidacy rests " + S13_CANDIDACY
+         in _Snote.replace(" " + S13_CANDIDACY, ""),
+         [("the candidacy rests " + S13_CANDIDACY)
+          in t.replace(" (the candidacy rests %s)" % S13_CANDIDACY, "")
+          for t in _Swids]),
+        (False, [False]))
     chk("chk", "massform.mechanism_label() appears verbatim in the S-3 note, the "
         "object-S definition and WHAT_IT_DOES_NOT_SAY",
         (massform.mechanism_label() in _Snote, massform.mechanism_label() in _Sdef,

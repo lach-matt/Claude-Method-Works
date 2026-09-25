@@ -253,7 +253,9 @@ READ -- nothing in this tree has read those papers.  M's ruling on the finite
 Higgs share is M-D65-2: folded into S10's note, not a row.  M's ruling on
 DOCKET 67 is M-D65-3: the audit of the external results the board's refusals
 rest on is OPENED, to run after DOCKET 65 is seated and before DOCKET 66 (NOT
-YET RUN; specthm's DOCKETS_OPENED records it); no row here.  Nothing from
+YET RUN; specthm's DOCKETS_OPENED records it); no row here.  M's ruling on
+the paper's caveat (b) is M-D65-4: qualified on P-UNIFORM, a named premise --
+the one paper edit since M finalised it, on M's ruling.  Nothing from
 DOCKET 65 is pending M.
 """
 
@@ -799,7 +801,10 @@ M_D65_1_LITERATURE = ("Hotta 2008; Funai & Martin-Martinez arXiv:1701.03805; "
                       "arXiv:2506.19878")
 #: M-D65-3 (DOCKET 67): the question exactly as it was put to M, M's words
 #: verbatim -- they hold apostrophes, so every cell quotes them in double
-#: quotes -- and M's answer verbatim.
+#: quotes -- and M's answer verbatim.  PROVENANCE: M_D65_3_WORDS is verbatim
+#: from the session, witnessed by the lead against the transcript; the tree
+#: holds no copy of M's message, so nothing here can verify the constant
+#: against M -- the selftest checks every printed copy against it, no more.
 M_D65_3_QUESTION = ("Should I open a docket auditing the external results the "
                     "board's refusals rest on (theorem / measurement / "
                     "extrapolation; hypotheses, the data each used, re-derived "
@@ -811,6 +816,48 @@ M_D65_3_WORDS = ("I didn't expect proving warp theory travel easy, but I'm "
                  "wrong. My justification is that some previous physicists may "
                  "have all lacked certain data")
 M_D65_3_ANSWER = "After D65, before D66"
+#: M-D65-3's ruling cell, a TEMPLATE over (M_D65_3_ANSWER, M_D65_3_WORDS): the
+#: selftest checks the seated cell EQUALS the template filled from the
+#: constants, so no verdict on DOCKET 67 can be typed beside them.
+M_D65_3_RULING_T = ("RULED BY M: OPEN IT -- M's answer: '%s'.  M's words, "
+                    'verbatim: "%s".  APPLIED: DOCKET 67 is opened on '
+                    "specthm's DOCKETS_OPENED, NOT YET RUN; no row here")
+#: M-D65-3's `why` cell, a TEMPLATE filled by m_d65_3_why() from the owners'
+#: own records (fluctuation.py, massform.py): the characterisation is theirs,
+#: the figures are asked, and the lead-in counts what they record.
+M_D65_3_WHY_T = (
+    'M\'s words, verbatim: "%s" (verbatim from the session, witnessed by the '
+    "lead; the tree holds no copy to check them against).  What this project has already "
+    "RECORDED against outside results, each asked of its owner: two refutations "
+    "of a preprint version and two divergences recorded, not repaired.  "
+    "fluctuation.py, against arXiv %s -- the journal version, %s, is %s "
+    "(fluctuation.JOURNAL_VERSION_READ = %s), and its own clause holds: '%s': "
+    "Kuo & Ford's printed 'rho < 0 => Delta > 1' is %s (fluctuation.KF_CLAIM_"
+    "NEGATIVE_MEANS_DELTA_GT_1 = %s) and the 1/2 their eq. (3.41) prints where "
+    "1/4 holds is %s (fluctuation.KF_341_HALF_IS_TYPOGRAPHICAL = %s).  "
+    "massform.py, under its own heading '%s': Rubakov-Shaposhnikov's eq. (2.8) "
+    "prints 10^%.0f at alpha_W = 1/%g where the arithmetic gives 10^%.2f "
+    "(massform.RS96_PRINTED_LOG10, RS96_ALPHA_INV, log10_suppression); "
+    "Tye-Wong's p.2 pairing prints 10^%.0f at alpha_W ~ 1/%g where the "
+    "arithmetic gives 10^%.2f, %.2f decades off, and their p.7 pairing, "
+    "1/%g, gives 10^%.2f, which %s the printed figure (massform.TW_PRINTED_"
+    "LOG10, TW_ALPHA_INV, log10_suppression)")
+#: M-D65-4: the paper's caveat (b).  The question exactly as it was put to M
+#: and M's answer verbatim -- both verbatim from the session, witnessed by
+#: the lead; the tree holds no copy to check them against.  The clause the paper carries is
+#: held once and READ back from paper/CLAIMS.md by paper_caveat_b_faults().
+M_D65_4_QUESTION = ("The paper's caveat (b) states the Higgs vacuum's uniformity "
+                    "as fact; the tree now carries it as a named premise "
+                    "(P-UNIFORM). Does that count as a finding that changes the "
+                    "paper?")
+M_D65_4_ANSWER = "Yes, qualify it (Recommended)"
+PAPER_CAVEAT_B_LINE = 7228
+PAPER_CAVEAT_B_CLAUSE = ("on P-UNIFORM, a named premise (`massform.P_UNIFORM_STATUS`; "
+                         "DOCKET 65)")
+PAPER_CAVEAT_B_HEAD = "- **(b) It is uniform where nothing sources it**"
+M_D65_4_RULING_T = ("RULED BY M: YES, QUALIFY IT -- M's answer: '%s'.  APPLIED: "
+                    'paper/CLAIMS.md:%d caveat (b) carries "%s" -- the one paper '
+                    "edit since M finalised it, on M's ruling")
 #: M-D65-2's question exactly as it was put to M, and M's answer verbatim.
 M_D65_2_QUESTION = ("The finite Higgs share (how much of atomic mass the Higgs "
                     "gives with the field switched off entirely): keep it as its "
@@ -820,6 +867,80 @@ M_D65_2_ANSWER = "Fold into S10 (Recommended)"
 #: Two fragments of the option M chose, as it was described to M (verbatim).
 M_D65_2_OPTION = ("an open item inside S10's note, not a separate row",
                   "It stays a named candidate for a future docket")
+
+def _owner_phrase(doc, pattern, owner):
+    """A phrase READ out of an owner's own docstring by regex, never retyped;
+    raises if the owner no longer says it."""
+    m = re.search(pattern, " ".join(doc.split()))
+    if not m:
+        raise ValueError("%s no longer records '%s'" % (owner, pattern))
+    return m.groups() if m.re.groups > 1 else m.group(1)
+
+
+def m_d65_3_why():
+    """M-D65-3's `why` cell, built from the owners' own records: the preprint
+    version fluctuation.py checked and its clause on the journal version, its
+    two KF flags; massform.py's own heading and its two divergences, with
+    Tye-Wong's p.7 pairing printed beside the p.2 one."""
+    preprint = _owner_phrase(fluctuation.SOURCE, r"(gr-qc/\d+ v\d)", "fluctuation.SOURCE")
+    journal, jstatus = _owner_phrase(
+        fluctuation.__doc__,
+        r"The published version, (Phys\. Rev\. D 47, 4510 \(1993\)), is ([A-Z-]+)",
+        "fluctuation.py")
+    if (jstatus == "NAMED-NOT-READ") == bool(fluctuation.JOURNAL_VERSION_READ):
+        raise ValueError("fluctuation.py's docstring and JOURNAL_VERSION_READ disagree")
+    clause = _owner_phrase(
+        fluctuation.__doc__,
+        r"(MUST NOT be quoted as errors in the journal version until it is read)",
+        "fluctuation.py")
+    heading = _owner_phrase(
+        massform.__doc__, r"(DIVERGENCES FROM THE SOURCES, RECORDED AND NOT REPAIRED)",
+        "massform.py")
+    tw_p2 = massform.log10_suppression(1.0 / massform.TW_ALPHA_INV[1])
+    tw_p7 = massform.log10_suppression(1.0 / massform.TW_ALPHA_INV[0])
+    return M_D65_3_WHY_T % (
+        M_D65_3_WORDS, preprint, journal, jstatus, fluctuation.JOURNAL_VERSION_READ,
+        clause,
+        ("FALSE by z3" if not fluctuation.KF_CLAIM_NEGATIVE_MEANS_DELTA_GT_1
+         else "NOT refuted, AGAINST fluctuation.py's record"),
+        fluctuation.KF_CLAIM_NEGATIVE_MEANS_DELTA_GT_1,
+        ("typographical" if fluctuation.KF_341_HALF_IS_TYPOGRAPHICAL
+         else "NOT typographical, AGAINST fluctuation.py's record"),
+        fluctuation.KF_341_HALF_IS_TYPOGRAPHICAL,
+        heading,
+        massform.RS96_PRINTED_LOG10, massform.RS96_ALPHA_INV,
+        massform.log10_suppression(1.0 / massform.RS96_ALPHA_INV),
+        massform.TW_PRINTED_LOG10, massform.TW_ALPHA_INV[1], tw_p2,
+        abs(tw_p2 - massform.TW_PRINTED_LOG10),
+        massform.TW_ALPHA_INV[0], tw_p7,
+        ("rounds to" if round(tw_p7) == massform.TW_PRINTED_LOG10
+         else "does NOT round to"))
+
+
+def paper_caveat_b_line(path=None):
+    """paper/CLAIMS.md's line PAPER_CAVEAT_B_LINE, READ from the file."""
+    path = (os.path.join(os.path.dirname(os.path.abspath(__file__)), "paper", "CLAIMS.md")
+            if path is None else path)
+    with open(path, encoding="utf-8") as fh:
+        lines = fh.read().split("\n")
+    return lines[PAPER_CAVEAT_B_LINE - 1]
+
+
+def paper_caveat_b_faults(line=None):
+    """[fault] where the paper's caveat (b) (paper/CLAIMS.md:PAPER_CAVEAT_B_LINE)
+    does not carry the clause M-D65-4 applied, or still states the premise as
+    fact (the wording as it stood: 'It is uniform where nothing sources it.**
+    The same inside')."""
+    line = paper_caveat_b_line() if line is None else line
+    bad = []
+    if not line.startswith(PAPER_CAVEAT_B_HEAD):
+        bad.append("line %d is not caveat (b)" % PAPER_CAVEAT_B_LINE)
+    if PAPER_CAVEAT_B_CLAUSE not in line:
+        bad.append("caveat (b) does not carry '%s'" % PAPER_CAVEAT_B_CLAUSE)
+    if "It is uniform where nothing sources it.**" in line:
+        bad.append("caveat (b) states the premise as fact (the wording as it stood)")
+    return bad
+
 
 #: DOCKET 65's seated row ids, built from massform.PROPOSED_ROWS (the rows,
 #: not the S10 (open) item or the S5 append), for M-S1A-P1's unblocks cell.
@@ -935,6 +1056,9 @@ RULED_BY_M = [
 
     # M's ruling at DOCKET 65's seating.  M's words are quoted verbatim; the
     # literature is CITED as the question was put, and nothing here has READ it.
+    # PROVENANCE: the question's parenthetical is exactly the question as the
+    # lead put it to M -- verbatim from the session, witnessed by the lead
+    # against the transcript; the tree holds no copy and cannot verify it.
     ("M-D65-1",
      "Should Quantum Energy Teleportation (information arriving at the "
      "destination creates a local negative-energy region there) be tested as "
@@ -975,35 +1099,32 @@ RULED_BY_M = [
 
     # M's third ruling at DOCKET 65's seating: DOCKET 67, the audit of the
     # external results the board's refusals rest on.  M's words are quoted
-    # verbatim; the three published errors this project has already caught
-    # are ASKED of their owners (fluctuation.py, massform.py), never retyped.
+    # verbatim; `why` is m_d65_3_why(), built from what fluctuation.py and
+    # massform.py themselves record (two refutations of a preprint version,
+    # two divergences recorded and not repaired), every figure ASKED, never
+    # retyped; the ruling cell is M_D65_3_RULING_T filled from the constants.
     ("M-D65-3",
      M_D65_3_QUESTION,
-     'M\'s words, verbatim: "' + M_D65_3_WORDS + '".  Three published errors '
-     "this project has already caught, each asked of its owner: Kuo & Ford's "
-     "printed 'rho < 0 => Delta > 1' (fluctuation.KF_CLAIM_NEGATIVE_MEANS_DELTA_"
-     "GT_1 = %s, %s) and the 1/2 their eq. (3.41) prints where 1/4 holds "
-     "(fluctuation.KF_341_HALF_IS_TYPOGRAPHICAL = %s); Tye-Wong's printed "
-     "10^%.0f at alpha_W ~ 1/%g against the arithmetic 10^%.2f, %.2f decades "
-     "off (massform.TW_PRINTED_LOG10, TW_ALPHA_INV, log10_suppression); "
-     "Rubakov-Shaposhnikov's printed 10^%.0f at alpha_W = 1/%g against the "
-     "arithmetic 10^%.2f (massform.RS96_PRINTED_LOG10, RS96_ALPHA_INV, "
-     "log10_suppression)"
-     % (fluctuation.KF_CLAIM_NEGATIVE_MEANS_DELTA_GT_1,
-        ("refuted by z3" if not fluctuation.KF_CLAIM_NEGATIVE_MEANS_DELTA_GT_1
-         else "NOT refuted, AGAINST fluctuation.py's record"),
-        fluctuation.KF_341_HALF_IS_TYPOGRAPHICAL,
-        massform.TW_PRINTED_LOG10, massform.TW_ALPHA_INV[1],
-        massform.log10_suppression(1.0 / massform.TW_ALPHA_INV[1]),
-        abs(massform.log10_suppression(1.0 / massform.TW_ALPHA_INV[1])
-            - massform.TW_PRINTED_LOG10),
-        massform.RS96_PRINTED_LOG10, massform.RS96_ALPHA_INV,
-        massform.log10_suppression(1.0 / massform.RS96_ALPHA_INV)),
-     "RULED BY M: OPEN IT -- M's answer: '" + M_D65_3_ANSWER + "'.  M's words, "
-     'verbatim: "' + M_D65_3_WORDS + '".  APPLIED: DOCKET 67 is opened on '
-     "specthm's DOCKETS_OPENED, NOT YET RUN; no row here",
+     m_d65_3_why(),
+     M_D65_3_RULING_T % (M_D65_3_ANSWER, M_D65_3_WORDS),
      "DOCKET 67, NOT YET RUN, runs after DOCKET 65 is seated and before "
      "DOCKET 66"),
+
+    # M's fourth ruling at DOCKET 65's seating: the paper.  The completeness
+    # lens found paper/CLAIMS.md's caveat (b) stating the Higgs vacuum's
+    # uniformity as fact while massform seats it as the premise P-UNIFORM; the
+    # question was put to M as M_D65_4_QUESTION and M answered M_D65_4_ANSWER.
+    # The paper carries the clause (paper_caveat_b_faults() READS it back);
+    # the ruling cell is M_D65_4_RULING_T filled from the constants.
+    ("M-D65-4",
+     M_D65_4_QUESTION,
+     "The completeness lens's finding: paper/CLAIMS.md:%d caveat (b) stated "
+     "'It is uniform where nothing sources it' as fact; massform seats it as "
+     "P-UNIFORM (massform.P_UNIFORM_STATUS = %s).  The question and M's answer "
+     "are verbatim from the session, witnessed by the lead; the tree cannot "
+     "verify them" % (PAPER_CAVEAT_B_LINE, massform.P_UNIFORM_STATUS),
+     M_D65_4_RULING_T % (M_D65_4_ANSWER, PAPER_CAVEAT_B_LINE, PAPER_CAVEAT_B_CLAUSE),
+     "nothing; M's finalisation rule stands"),
 ]
 
 # ---------------------------------------------------------------------------
@@ -2504,8 +2625,8 @@ def selftest():
          phase1.is_transition(False, True, True, True, True, passage_flux=True),
          formation.PHASE1_D4_POINTWISE_DURING_PASSAGE),
         (["M-D64-1", "M-S1A-P1", "M-S1A-P2", "M-S1A-P3", "M-S1A-P4",
-          "M-S1A-P5", "M-D65-1", "M-D65-2", "M-D65-3"], [], True, False, False,
-         True, False))
+          "M-S1A-P5", "M-D65-1", "M-D65-2", "M-D65-3", "M-D65-4"], [], True,
+         False, False, True, False))
 
     print("\n3. THE EXCHANGE RATE, RE-DERIVED FROM ASKED CONSTANTS")
     chk("Lambda is overturn.py's", LAMBDA, overturn.LAMBDA)
@@ -3019,22 +3140,109 @@ def selftest():
          "after DOCKET 65 is seated and before DOCKET 66" in _d67[0][4],
          M_D65_3_QUESTION in _md, "'%s'" % M_D65_3_ANSWER in _md),
         (1, True, True, [], True, True, True, True))
-    chk("  the three caught errors in M-D65-3 are asked of their owners, and "
-        "the figures printed are the owners' (regenerated now)",
-        ("fluctuation.KF_CLAIM_NEGATIVE_MEANS_DELTA_GT_1 = %s, refuted by z3"
-         % fluctuation.KF_CLAIM_NEGATIVE_MEANS_DELTA_GT_1 in _d67[0][2],
-         fluctuation.KF_CLAIM_NEGATIVE_MEANS_DELTA_GT_1,
+    # EQUALITY, not substring presence: the seated cells must EQUAL their
+    # templates filled from the asked constants, so no verdict on a docket
+    # that has not run can be typed beside the required phrases (a planted
+    # 'DOCKET 67 has run: every audited result STANDS' passed substring
+    # guards green).
+    chk("  M-D65-3's ruling cell EQUALS M_D65_3_RULING_T filled from M's answer "
+        "and M's words, and `why` EQUALS the owners' record (m_d65_3_why())",
+        (_d67[0][3] == M_D65_3_RULING_T % (M_D65_3_ANSWER, M_D65_3_WORDS),
+         _d67[0][2] == m_d65_3_why()), (True, True))
+    chk("  CONTROL: 'DOCKET 67 has run: every audited result STANDS' planted in "
+        "the ruling cell is caught",
+        _d67[0][3] + "  DOCKET 67 has run: every audited result STANDS"
+        == M_D65_3_RULING_T % (M_D65_3_ANSWER, M_D65_3_WORDS), False)
+    _verdict = re.compile(r"\b(has run|HAS RUN|STANDS|WRONG|NARROWED|cannot|"
+                          r"fails|expected to|is not exotic|no negative)\b")
+    chk("  neither template carries a verdict word in the board's own words "
+        "(either direction) -- STANDS / NARROWED / WRONG enter only inside M's "
+        "asked question", (_verdict.findall(M_D65_3_RULING_T),
+                           _verdict.findall(M_D65_3_WHY_T)), ([], []))
+    chk("  the characterisation in `why` is the owners': fluctuation's preprint "
+        "version and its journal clause, massform's own heading, the p.7 "
+        "pairing beside the p.2 one -- and 'published errors' is nowhere",
+        ("against arXiv gr-qc/9304008 v1" in _d67[0][2],
+         "MUST NOT be quoted as errors in the journal version until it is read"
+         in _d67[0][2],
+         "'DIVERGENCES FROM THE SOURCES, RECORDED AND NOT REPAIRED'" in _d67[0][2],
+         "their p.7 pairing, 1/%g, gives 10^%.2f" % (
+             massform.TW_ALPHA_INV[0],
+             massform.log10_suppression(1.0 / massform.TW_ALPHA_INV[0])) in _d67[0][2],
+         "published errors" in _d67[0][2], "published errors" in M_D65_3_WHY_T,
+         "two refutations of a preprint version and two divergences recorded, "
+         "not repaired" in _d67[0][2]),
+        (True, True, True, True, False, False, True))
+    chk("  CONTROL: the lead-in as it stood ('Three published errors this project "
+        "has already caught') planted in `why` is caught",
+        _d67[0][2].replace("What this project has already RECORDED against "
+                           "outside results", "Three published errors this project "
+                           "has already caught") == m_d65_3_why(), False)
+    chk("  the figures in `why` are the owners' (regenerated now: KF flags, TW "
+        "p.2 and p.7, RS96)",
+        ("KF_CLAIM_NEGATIVE_MEANS_DELTA_GT_1 = %s" % fluctuation.KF_CLAIM_NEGATIVE_MEANS_DELTA_GT_1
+         in _d67[0][2],
+         fluctuation.KF_CLAIM_NEGATIVE_MEANS_DELTA_GT_1, fluctuation.JOURNAL_VERSION_READ,
          "KF_341_HALF_IS_TYPOGRAPHICAL = %s" % fluctuation.KF_341_HALF_IS_TYPOGRAPHICAL
          in _d67[0][2],
-         "printed 10^%.0f at alpha_W ~ 1/%g against the arithmetic 10^%.2f, %.2f "
+         "prints 10^%.0f at alpha_W ~ 1/%g where the arithmetic gives 10^%.2f, %.2f "
          "decades off" % (massform.TW_PRINTED_LOG10, massform.TW_ALPHA_INV[1],
                           massform.log10_suppression(1.0 / massform.TW_ALPHA_INV[1]),
                           abs(massform.log10_suppression(1.0 / massform.TW_ALPHA_INV[1])
                               - massform.TW_PRINTED_LOG10)) in _d67[0][2],
-         "printed 10^%.0f at alpha_W = 1/%g against the arithmetic 10^%.2f"
+         "prints 10^%.0f at alpha_W = 1/%g where the arithmetic gives 10^%.2f"
          % (massform.RS96_PRINTED_LOG10, massform.RS96_ALPHA_INV,
             massform.log10_suppression(1.0 / massform.RS96_ALPHA_INV)) in _d67[0][2]),
-        (True, False, True, True, True))
+        (True, False, False, True, True, True))
+    _d4 = [r for r in RULED_BY_M if r[0] == "M-D65-4"]
+    chk("M-D65-4: the paper's caveat (b) QUALIFIED on M's ruling -- the question "
+        "as put to M, M's answer verbatim, the ruling cell EQUAL to its template, "
+        "unblocks nothing (M's finalisation rule stands), printed in LEDGER.md",
+        (len(_d4), _d4[0][1] == M_D65_4_QUESTION,
+         _d4[0][3] == M_D65_4_RULING_T % (M_D65_4_ANSWER, PAPER_CAVEAT_B_LINE,
+                                          PAPER_CAVEAT_B_CLAUSE),
+         "'%s'" % M_D65_4_ANSWER in _d4[0][3],
+         _d4[0][4] == "nothing; M's finalisation rule stands",
+         M_D65_4_QUESTION in _md, "'%s'" % M_D65_4_ANSWER in _md,
+         "M's ruling on\nthe paper's caveat (b) is M-D65-4" in __doc__),
+        (1, True, True, True, True, True, True, True))
+    chk("  paper/CLAIMS.md:%d, READ now, is caveat (b) and carries the clause "
+        "M-D65-4 applied; the premise is not stated as fact" % PAPER_CAVEAT_B_LINE,
+        (paper_caveat_b_faults(),
+         massform.P_UNIFORM_STATUS in ("PREMISE",),
+         "massform.P_UNIFORM_STATUS = %s" % massform.P_UNIFORM_STATUS in _d4[0][2]),
+        ([], True, True))
+    chk("  CONTROL: the line as it stood ('It is uniform where nothing sources "
+        "it.** The same inside') is caught",
+        paper_caveat_b_faults("- **(b) It is uniform where nothing sources it.** "
+                              "The same inside the throat as outside, and already "
+                              "inside"),
+        ["line %d is not caveat (b)" % PAPER_CAVEAT_B_LINE,
+         "caveat (b) does not carry '%s'" % PAPER_CAVEAT_B_CLAUSE,
+         "caveat (b) states the premise as fact (the wording as it stood)"])
+    chk("  CONTROL: a verdict planted in M-D65-4's ruling cell is caught",
+        _d4[0][3] + "  The paper is otherwise confirmed."
+        == M_D65_4_RULING_T % (M_D65_4_ANSWER, PAPER_CAVEAT_B_LINE,
+                               PAPER_CAVEAT_B_CLAUSE), False)
+    # The superseded-wording header and M-S1A-P1's unblocks cell are BUILT
+    # (superseded_dockets(), D65_SEATED_IDS), not typed: the source is read,
+    # since a typed copy true today would go stale silently at DOCKET 68.
+    _src = open(__file__, encoding="utf-8").read().split("\ndef selftest():")[0]
+    chk("the superseded-wording header and M-S1A-P1's unblocks cell are built "
+        "in the source ('%% superseded_dockets()', '%% D65_SEATED_IDS'), and no "
+        "typed copy of either stands there",
+        (bool(re.search(r'"## Row wording replaced by DOCKETS %s" % superseded_dockets\(\)',
+                        _src)),
+         bool(re.search(r'"DOCKET 65 has run: %s \(massform\.py\)" % D65_SEATED_IDS', _src)),
+         bool(re.search(r'"## Row wording replaced by DOCKETS 62, 64 and 65"', _src)),
+         bool(re.search(r'"DOCKET 65 has run: D27, D28', _src))),
+        (True, True, False, False))
+    chk("  CONTROL: the typed literals, planted, would be found",
+        (bool(re.search(r'"## Row wording replaced by DOCKETS 62, 64 and 65"',
+                        _src + '\n"## Row wording replaced by DOCKETS 62, 64 and 65"')),
+         bool(re.search(r'"DOCKET 65 has run: D27, D28',
+                        _src + '\n"DOCKET 65 has run: D27, D28, D29, S10"'))),
+        (True, True))
     _q = list(_d67[0])
     _q[3] = _q[3].replace("I'm starting suspect", "I'm starting to suspect", 1)
     chk("  CONTROL: M's words in M-D65-3 corrected ('starting to suspect') in the "
