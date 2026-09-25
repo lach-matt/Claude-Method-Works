@@ -251,7 +251,9 @@
       byCharge.get(ch.charge).push(ch);
     }
     const charges = [...byCharge.keys()].sort((a, b) => a - b);
-    const pk = pack(charges.length, EL_R * 0.86);
+    // the element's nuclides, where the build carried them: one more circle packed beside the ions
+    const isoRows = (rec.isotopes && rec.isotopes.rows) || [];
+    const pk = pack(charges.length + (isoRows.length ? 1 : 0), EL_R * 0.86);
     const ladder = rec.lambda8 || [];
     const ions = charges.map((c, i) => {
       const chans = byCharge.get(c).slice().sort((a, b) => a.l - b.l);
@@ -277,7 +279,18 @@
       });
       return ion;
     });
-    return { ions };
+    let isotopes = null;
+    if (isoRows.length) {
+      const at = pk.pos[charges.length];
+      isotopes = { kind: 'isotopes', Z, dx: at.x, dy: at.y, r: pk.r, rec: rec.isotopes, nuclides: [],
+        nMeasured: isoRows.filter((r) => r.quality === 'M').length };
+      const pn = pack(isoRows.length, pk.r * 0.9);
+      isotopes.nuclides = isoRows.map((r, q) => ({
+        kind: 'nuclide', Z, A: r.A, N: r.N, dx: isotopes.dx + pn.pos[q].x, dy: isotopes.dy + pn.pos[q].y, r: pn.r,
+        rec: r, parent: isotopes,
+      }));
+    }
+    return { ions, isotopes };
   }
 
   // ---------------------------------------------------------------- loading (the data protocol)
@@ -363,7 +376,7 @@
   function parentOf(node) {
     if (node.kind === 'root') return null;
     if (node.kind === 'element' || node.kind === 'ghost') return rootNode;
-    if (node.kind === 'ion') return elementNode(node.Z);
+    if (node.kind === 'ion' || node.kind === 'isotopes') return elementNode(node.Z);
     if (node.kind === 'pindex') return rootNode;
     if (node.kind === 'particle' || node.kind === 'pghost') return pindexNode(node.id) || rootNode;
     return node.parent;
@@ -383,6 +396,8 @@
       case 'ion': return `${symbolOf(node.Z)} ${roman(node.charge)}`;
       case 'channel': return `${LSYM[node.l] || node.l}`;
       case 'cell': return `2S+1 = ${node.mult}`;
+      case 'isotopes': return `${symbolOf(node.Z)} isotopes`;
+      case 'nuclide': return `${symbolOf(node.Z)}-${node.A}`;
       case 'pindex': return node.px.short;
       case 'particle': return node.row.name;
       case 'pghost': return `demanded cell (${node.cell.join(', ')})`;
@@ -397,6 +412,8 @@
     if (node.kind === 'pindex') return `#/p/${node.id}`;
     if (node.kind === 'particle') return `#/p/${node.id}/${encodeURIComponent(node.row.key)}`;
     if (node.kind === 'pghost') return `#/p/${node.id}/ghost/${node.key}`;
+    if (node.kind === 'isotopes') return `#/${symbolOf(node.Z)}/iso`;
+    if (node.kind === 'nuclide') return `#/${symbolOf(node.Z)}/iso/${node.A}`;
     const parts = [symbolOf(node.Z)];
     if (node.charge) parts.push(roman(node.charge));
     if (node.l !== undefined) parts.push(LSYM[node.l] || String(node.l));
@@ -674,6 +691,7 @@
       if (tree) {
         drawLadder(e, tree, cx, cy);
         drawIons(e, tree, cx, cy);
+        drawIsotopes(e, tree, cx, cy);
       } else {
         if (!state.loadErrors.has(e.Z) && !state.pending.has(e.Z)) ensureElement(e.Z).catch(() => {});
         ctx.fillStyle = C.muted;
@@ -753,6 +771,50 @@
         ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
         ctx.fillText(`${e.symbol} ${roman(ion.charge)}`, x, y - rs * 0.82);
         drawChannels(ion, ox, oy);
+      }
+    }
+  }
+
+  // the element's nuclides: one circle beside the ions, dashed so it never reads as an ion; inside
+  // it one circle per nuclide of the mass table, filled where the mass is measured and ringed
+  // where it is estimated, the mass number written on it once it is large enough to read
+  function drawIsotopes(e, tree, ox, oy) {
+    const g = tree.isotopes;
+    if (!g) return;
+    const C = state.colors, k = state.cam.k, sel = state.selected;
+    const rs = g.r * k, x = ox + g.dx * k, y = oy + g.dy * k;
+    if (rs < 1.2 || x + rs < 0 || y + rs < 0 || x - rs > W() || y - rs > H()) return;
+    const inPath = sel && sel.Z === g.Z && (sel.kind === 'isotopes' || sel.kind === 'nuclide');
+    ctx.beginPath(); ctx.arc(x, y, rs, 0, Math.PI * 2);
+    ctx.fillStyle = C.surface; ctx.fill();
+    ctx.setLineDash([Math.max(2, rs * 0.06), Math.max(2, rs * 0.05)]);
+    ctx.lineWidth = sel && sel.kind === 'isotopes' && sel.Z === g.Z ? 2 : 1;
+    ctx.strokeStyle = inPath ? C.accent : C.lineStrong; ctx.stroke(); ctx.setLineDash([]);
+    if (rs >= 13 && rs < 45) {
+      ctx.fillStyle = C.text; ctx.font = F(Math.max(9, rs * 0.36), 'mono', '500');
+      ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+      ctx.fillText('A', x, y - rs * 0.12);
+      ctx.fillStyle = C.muted; ctx.font = F(Math.max(8, rs * 0.2), 'mono');
+      ctx.fillText(String(g.nuclides.length), x, y + rs * 0.3);
+      return;
+    }
+    if (rs < 45) return;
+    ctx.fillStyle = C.muted; ctx.font = F(Math.max(10, rs * 0.1), 'mono', '500');
+    ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+    ctx.fillText(`${e.symbol} isotopes · ${g.nuclides.length}`, x, y - rs * 0.84);
+    for (const n of g.nuclides) {
+      const r2 = n.r * k, nx = ox + n.dx * k, ny = oy + n.dy * k;
+      if (r2 < 1) continue;
+      const measured = n.rec.quality === 'M';
+      ctx.beginPath(); ctx.arc(nx, ny, r2, 0, Math.PI * 2);
+      if (measured) { ctx.fillStyle = C.measured; ctx.fill(); }
+      else { ctx.fillStyle = C.surface; ctx.fill(); ctx.strokeStyle = C.computed; ctx.lineWidth = Math.max(1, r2 * 0.12); ctx.stroke(); }
+      if (sel && sel.kind === 'nuclide' && sel.Z === n.Z && sel.A === n.A) { ctx.beginPath(); ctx.arc(nx, ny, r2 + 3, 0, Math.PI * 2); ctx.strokeStyle = C.accent; ctx.lineWidth = 2; ctx.stroke(); }
+      if (r2 >= 8) {
+        ctx.fillStyle = measured ? C.bg : C.text;
+        ctx.font = F(Math.max(8, r2 * (n.A >= 100 ? 0.62 : 0.8)), 'mono', '500');
+        ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+        ctx.fillText(String(n.A), nx, ny);
       }
     }
   }
@@ -1357,6 +1419,7 @@
     if (isParticleNode(node)) return 'lattice';
     if (node.kind === 'root') return state.layout === 'lattice' || state.layout === 'table3d' ? 'lattice' : 'plane';
     if (node.kind === 'ghost') return state.layout === 'table3d' ? 'lattice' : 'plane';
+    if (node.kind === 'isotopes' || node.kind === 'nuclide') return 'plane';   // the nuclides live in the nest, not on Λ_spectra's axes
     return state.elementView === 'lattice' ? 'lattice' : 'plane';
   }
   function enterView(node) {
@@ -1438,6 +1501,18 @@
         }
         return ion;
       }
+      const g = tree.isotopes;
+      if (g) {
+        const dx = w.x - (o.x + g.dx), dy = w.y - (o.y + g.dy);
+        if (dx * dx + dy * dy <= g.r * g.r) {
+          if (g.r * k < 45) return g;
+          for (const n of g.nuclides) {
+            const ex = w.x - (o.x + n.dx), ey = w.y - (o.y + n.dy);
+            if (ex * ex + ey * ey <= n.r * n.r * 1.4) return n;
+          }
+          return g;
+        }
+      }
       return el;
     }
     if (state.layout === 'table') {
@@ -1449,7 +1524,7 @@
   }
 
   function frameFor(node) {
-    if (node.kind === 'ion' || node.kind === 'channel' || node.kind === 'cell') {
+    if (node.kind === 'ion' || node.kind === 'channel' || node.kind === 'cell' || node.kind === 'isotopes' || node.kind === 'nuclide') {
       const o = ionOrigin(node.Z);
       return { cx: o.x + node.dx, cy: o.y + node.dy, r: node.r, w: node.r * 2, h: node.r * 2 };
     }
@@ -1503,6 +1578,8 @@
 
   async function goToPath(Z, charge, l, mult, opts = {}) {
     if (Z === 'p') return goToParticle(charge, l, opts);
+    if (Z === 'iso') return goToIsotope(charge, l, opts);
+    if (Z === 'solver') { openSolver(charge, l); return true; }
     const el = elementNode(Z);
     if (!el) return false;
     if (charge === undefined) { await select(el, opts); return true; }
@@ -1520,6 +1597,19 @@
     return true;
   }
 
+  async function goToIsotope(Z, A, opts = {}) {
+    const el = elementNode(Z);
+    if (!el) return false;
+    try { await ensureElement(Z); } catch (e) { await select(el, opts); return false; }
+    const tree = state.trees.get(Z);
+    if (!tree || !tree.isotopes) { await select(el, opts); return false; }
+    if (A === undefined || A === null || Number.isNaN(A)) { await select(tree.isotopes, opts); return true; }
+    const n = tree.isotopes.nuclides.find((x) => x.A === A);
+    if (!n) { await select(tree.isotopes, opts); return false; }
+    await select(n, opts);
+    return true;
+  }
+
   function parseHash(h) {
     const parts = (h || '').replace(/^#\/?/, '').split('/').filter(Boolean);
     if (!parts.length) return { root: true };
@@ -1528,6 +1618,7 @@
     const e = state.index.layout.find((x) => x.symbol.toLowerCase() === parts[0].toLowerCase() || String(x.Z) === parts[0]);
     if (!e) return null;
     const out = { Z: e.Z };
+    if (parts[1] && parts[1].toLowerCase() === 'iso') return { Z: e.Z, iso: true, A: parts[2] ? parseInt(parts[2], 10) : undefined };
     if (parts[1]) out.charge = fromRoman(parts[1].toUpperCase()) || parseInt(parts[1], 10) || undefined;
     if (parts[2]) out.l = parseL(parts[2]);
     if (parts[3]) out.mult = parseInt(parts[3], 10);
@@ -1545,6 +1636,7 @@
       const g = state.ghosts.find((x) => x.p === p.ghost.p && x.g === p.ghost.g);
       return g ? select({ kind: 'ghost', ...g }, { fly, ms, reveal }) : select(rootNode, { fly, ms, reveal });
     }
+    if (p.iso) return goToIsotope(p.Z, p.A, { fly, ms, reveal });
     return goToPath(p.Z, p.charge, p.l, p.mult, { fly, ms, reveal });
   }
 
@@ -1557,7 +1649,7 @@
       if (i) { const sep = document.createElement('span'); sep.className = 'sep'; sep.textContent = '›'; el.appendChild(sep); }
       const b = document.createElement('button');
       b.type = 'button';
-      b.textContent = n.kind === 'ion' ? roman(n.charge) : n.kind === 'channel' ? `ℓ=${n.l} ${LSYM[n.l] || ''}`.trim() : n.kind === 'cell' ? `mult ${n.mult}` : label(n);
+      b.textContent = n.kind === 'ion' ? roman(n.charge) : n.kind === 'channel' ? `ℓ=${n.l} ${LSYM[n.l] || ''}`.trim() : n.kind === 'cell' ? `mult ${n.mult}` : n.kind === 'isotopes' ? 'isotopes' : n.kind === 'nuclide' ? `A = ${n.A}` : label(n);
       if (i === path.length - 1) b.classList.add('is-current');
       b.addEventListener('click', () => select(n));
       el.appendChild(b);
@@ -1620,6 +1712,8 @@
       case 'ion': html = renderIon(node); break;
       case 'channel': html = renderChannel(node); break;
       case 'cell': html = renderCell(node); break;
+      case 'isotopes': html = renderIsotopeNest(node); break;
+      case 'nuclide': html = renderNuclide(node); break;
       case 'pindex': html = renderPIndex(node); break;
       case 'particle': html = renderParticle(node); break;
       case 'pghost': html = renderPGhost(node); break;
@@ -1671,6 +1765,13 @@
         const dlg = el.closest('dialog'); if (dlg && dlg.open) dlg.close();
         let fill = null; try { fill = el.dataset.fill ? JSON.parse(el.dataset.fill) : null; } catch (err) { fill = null; }
         openSolver(el.dataset.solver, fill);
+      });
+    });
+    root.querySelectorAll('[data-iso]').forEach((el) => {
+      el.addEventListener('click', () => {
+        const dlg = el.closest('dialog'); if (dlg && dlg.open) dlg.close();
+        const [Z, A] = el.dataset.iso.split('/');
+        goToIsotope(+Z, A === undefined || A === '' ? undefined : +A);
       });
     });
     root.querySelectorAll('[data-go]').forEach((el) => {
@@ -1917,6 +2018,7 @@ const WALK_FIELD_LABEL = { hf: 'Hartree–Fock, non-local exchange (the paper\'s
           ${row('ions', e.counts.ions, 'DERIVED', "counts over the record's COORDINATES-2.13 rows")}
         </div>`)}
         ${ions ? section('Ions', `<div class="chips">${ions.map((i) => `<button type="button" class="chip is-csv" data-go="${node.Z}/${i.charge}">${esc(e.symbol)} ${roman(i.charge)}</button>`).join('')}</div>`) : loadNote()}
+        ${isotopeSection(node.Z, rec)}
         ${walkSection(e, rec, state.index.relativistic || {})}
         ${limitsSection(e)}
         ${rec ? actions(node, { Z: rec.Z, symbol: rec.symbol, populated: rec.populated, note: rec.note, channels: rec.channels.length }) : ''}`;
@@ -1961,12 +2063,76 @@ const WALK_FIELD_LABEL = { hf: 'Hartree–Fock, non-local exchange (the paper\'s
           }).join('')}
           </tbody></table></div>`, badge('RECONSTRUCTED', (axisStatus('Lambda_8 cell') || {}).source));
       }
-      html += relSection(e, rec) + limitsSection(e) + elementReferences(e, rec);
+      html += isotopeSection(node.Z, rec) + relSection(e, rec) + limitsSection(e) + elementReferences(e, rec);
       html += actions(node, { ...rec, channels: `${rec.channels.length} channels — see the ion nodes` });
     } else {
       html += loadNote();
     }
     return html;
+  }
+
+  const sup = (n) => String(n).split('').map((c) => '⁰¹²³⁴⁵⁶⁷⁸⁹'[+c]).join('');
+  function nuclideChip(Z, r) {
+    return `<button type="button" class="pchip${r.quality === 'M' ? '' : ' is-est'}" data-iso="${Z}/${r.A}" title="${esc(r.quality === 'M' ? 'mass measured' : 'mass estimated from systematics')}">${sup(r.A)}${esc(symbolOf(Z))}</button>`;
+  }
+  function renderIsotopeNest(node) {
+    const sym = symbolOf(node.Z), e = state.index.layout.find((x) => x.Z === node.Z), blk = node.rec, st = blk.status || {};
+    const rows = blk.rows;
+    const most = rows.reduce((a, r) => (r.B_per_A_keV > (a ? a.B_per_A_keV : -1) ? r : a), null);
+    let html = `<div class="kind">isotopes · the nuclides of ${esc(e.name || sym)}</div>
+      <h2 class="node-title">${esc(sym)} isotopes</h2>
+      <p class="node-sub">${rows.length} nuclides, A = ${rows[0].A} to ${rows[rows.length - 1].A} · ${blk.measured} measured, ${rows.length - blk.measured} estimated</p>`;
+    html += section('The nuclides', `<p class="note">One circle per nuclide the mass table lists for Z = ${node.Z}, beside the ions in the nested view: filled where the mass is measured, ringed where it is estimated from systematics. The neutron number is ${badge(st.N)} and the quality flag ${badge(st.quality)}; nothing about stability, spin, parity or half-life is shown, because the table does not print it.</p>
+      <div class="pchips">${rows.map((r) => nuclideChip(node.Z, r)).join(' ')}</div>`);
+    html += section('Across them', `<div class="fields">
+      ${row('neutron numbers', `N = ${rows[0].N} to ${rows[rows.length - 1].N}`, st.N, blk.source)}
+      ${most ? row('most bound per nucleon', `${sup(most.A)}${esc(sym)} at ${most.B_per_A_keV.toLocaleString(undefined, { maximumFractionDigits: 3 })} keV`, st.B_per_A_keV, 'B = Z Δ(¹H) + N Δ(n) − Δ(Z, N), over the table\'s own mass excesses') : ''}
+      ${row('source', esc(blk.source), 'READ', esc(blk.note || ''), true)}
+      ${row('instrument', esc(blk.instrument), null, 'the site\'s isotope instrument, which also builds the isotope index', true)}
+    </div>
+    <div class="actions"><button type="button" data-pgo="isotopes">Open the isotope index</button></div>`);
+    html += actions(node, { kind: 'isotopes', Z: node.Z, symbol: sym, source: blk.source, status: st, rows });
+    return html;
+  }
+  function renderNuclide(node) {
+    const sym = symbolOf(node.Z), e = state.index.layout.find((x) => x.Z === node.Z), r = node.rec, st = (node.parent.rec || {}).status || {};
+    const f = (v, d = 3) => v === null || v === undefined ? null : Number(v).toLocaleString(undefined, { maximumFractionDigits: d });
+    const sepRow = (k, v, what) => v === null || v === undefined ? row(k, 'not defined', null, `the neighbour ${what} is not in the table`) : row(k, `${f(v)} keV${v < 0 ? ' (negative: unbound to that emission, as the table has it)' : ''}`, st[k], 'a difference of two binding energies, both from the table');
+    const others = node.parent.nuclides;
+    const i = others.indexOf(node);
+    let html = `<div class="kind">nuclide · an isotope of ${esc(e.name || sym)}</div>
+      <h2 class="node-title">${sup(r.A)}${esc(sym)} <span class="note" style="font-family:var(--font-body);font-size:15px;font-weight:400">${esc(e.name || sym)}-${r.A}</span></h2>
+      <p class="node-sub">Z = ${node.Z}, N = ${r.N}, A = ${r.A} · mass ${r.quality === 'M' ? 'measured' : 'estimated'}</p>`;
+    html += section('Identity', `<div class="fields">
+      ${row('protons Z', node.Z, 'READ', 'the element')}
+      ${row('neutrons N', r.N, st.N, blk_src(node))}
+      ${row('mass number A', r.A, st.A, 'A = Z + N on every row of the table')}
+      ${row('mass excess Δ', `${f(r.dm_keV, 4)} ± ${f(r.unc_keV, 4)} keV`, st.dm_keV, blk_src(node))}
+      ${row('quality', r.quality === 'M' ? 'measured' : 'estimated from systematics', st.quality, 'the table\'s own flag, carried and never flattened')}
+      ${row('atomic mass', `${f(r.M_u, 9)} u`, st.M_u, 'M = A + Δ / (u c²), the one constant u c² = 931,494.10242 keV')}
+      ${row('binding per nucleon', `${f(r.B_per_A_keV)} keV`, st.B_per_A_keV, 'B / A, B = Z Δ(¹H) + N Δ(n) − Δ(Z, N)')}
+      ${sepRow('S_n', r.S_n, `${sup(r.A - 1)}${sym}`)}
+      ${sepRow('S_p', r.S_p, `with Z − 1 and the same N`)}
+    </div>`);
+    html += section('Beside it', `<div class="pchips">${[others[i - 1], others[i + 1]].filter(Boolean).map((n) => nuclideChip(node.Z, n.rec)).join(' ')}</div>
+      <div class="actions">
+        <button type="button" data-pgo="isotopes" data-pkey="${esc(r.key)}">Open it in the isotope index</button>
+        <button type="button" class="ghost" data-solver="gravity" data-fill='${JSON.stringify({ species: '^' + r.A + sym }).replace(/'/g, '&#39;')}'>Relative gravity of ${sup(r.A)}${esc(sym)} →</button>
+        <button type="button" class="ghost" data-solver="builder" data-fill='${JSON.stringify({ formula: '^' + r.A + sym }).replace(/'/g, '&#39;')}'>Build it →</button>
+      </div>`);
+    html += actions(node, { kind: 'nuclide', Z: node.Z, symbol: sym, status: st, nuclide: r });
+    return html;
+  }
+  const blk_src = (node) => (node.parent.rec || {}).source || 'the mass table';
+
+  // the element plate's isotopes: the same nuclides the nested view packs beside the ions
+  function isotopeSection(Z, rec) {
+    const blk = rec && rec.isotopes;
+    if (!blk) return '';
+    if (!blk.rows.length) return section('Isotopes', `<p class="note">${esc(blk.empty || 'none')} — ${esc(blk.source)}.</p>`);
+    return section('Isotopes', `<p class="note">${blk.rows.length} nuclides, ${blk.measured} with a measured mass; in the nested view they are the dashed circle beside the ions. ${badge('READ', blk.source)}</p>
+      <div class="pchips">${blk.rows.map((r) => nuclideChip(Z, r)).join(' ')}</div>
+      <div class="actions"><button type="button" data-iso="${Z}/">Open them in the nest</button></div>`);
   }
 
   function renderIon(node) {
@@ -3590,13 +3756,54 @@ const WALK_FIELD_LABEL = { hf: 'Hartree–Fock, non-local exchange (the paper\'s
   }
 
   // ---------------------------------------------------------------- search
+  // a species by name or formula, for the search box: a nuclide opens in its element's nest, a
+  // molecule or ion opens in the builder, and a name the page cannot read says why
+  function namedSuggestions(raw) {
+    const lib = (window.MI || {}).solverLib;
+    if (!lib || !lib.resolveName) return [];
+    let nm = lib.resolveName(raw, 'atom');
+    const nuclide = raw.match(/^\^?(\d{1,3})([A-Z][a-z]?)$|^([A-Z][a-z]?)-(\d{1,3})$/);
+    if (!nm && nuclide) {
+      const sym = nuclide[2] || nuclide[3], A = parseInt(nuclide[1] || nuclide[4], 10), Z = lib.SYMBOL_Z[sym];
+      if (Z && A >= Z) nm = { kind: 'isotope', Z, A, formula: '^' + A + sym, display: String(A).split('').map((c) => '⁰¹²³⁴⁵⁶⁷⁸⁹'[+c]).join('') + sym, rule: 'a nuclide by its mass number' };
+    }
+    if (!nm) {
+      // a formula typed straight in: H2O, CO2, SO4^2-
+      if (/^[A-Z][A-Za-z0-9()[\]^+\-·]*$/.test(raw) && /[0-9()]|[A-Z].*[A-Z]/.test(raw)) {
+        const f = lib.parseFormula(raw);
+        if (!f.errors.length && Object.keys(f.counts).length) return [{ path: f.typeset, note: 'a formula · build it', go: ['solver', 'builder', { formula: raw }] },
+          { path: f.typeset, note: 'relative gravity of it', go: ['solver', 'gravity', { species: raw }] }];
+      }
+      return [];
+    }
+    if (nm.error) return [{ path: `${raw} ?`, note: nm.error.replace(/^"[^"]*": /, ''), go: nm.Z ? [nm.Z] : ['solver', 'builder', { formula: raw }] }];
+    if (nm.kind === 'element') return [];          // the element list below already carries it
+    if (nm.kind === 'isotope') {
+      const e = state.index.layout.find((x) => x.Z === nm.Z);
+      return [{ path: `${nm.display}`, note: `${e ? e.name : ''}-${nm.A} · a nuclide, in ${e ? e.symbol : ''}'s nest`, go: ['iso', nm.Z, nm.A] },
+        { path: `${nm.display}`, note: 'relative gravity of it', go: ['solver', 'gravity', { species: nm.formula }] }];
+    }
+    return [{ path: `${raw} → ${nm.display}`, note: `${nm.kind} · build it`, go: ['solver', 'builder', { formula: nm.formula }] },
+      { path: `${raw} → ${nm.display}`, note: 'relative gravity of it', go: ['solver', 'gravity', { species: nm.formula }] }];
+  }
   function suggestions(q) {
     const L = state.index.layout;
     const toks = q.trim().split(/\s+/).filter(Boolean);
     if (!toks.length) return [];
-    const t0 = toks[0].toLowerCase();
+    const named = namedSuggestions(q.trim());
+    if (named.length) return named.concat(suggestionsElements(q, toks).filter((it) => it.go.length !== 1 || !named.some((n) => n.go[1] === it.go[0]))).slice(0, 12);
+    return suggestionsElements(q, toks);
+  }
+  function suggestionsElements(q, toks) {
+    const L = state.index.layout;
+    const lib = (window.MI || {}).solverLib;
+    let t0 = toks[0].toLowerCase();
+    // an accepted alternative spelling reads as the element it names (aluminum, cesium, sulphur)
+    const zAlias = lib && lib.nameZ ? lib.nameZ(t0) : null;
+    if (zAlias && !L.some((e) => e.name && e.name.toLowerCase() === t0)) t0 = (L.find((e) => e.Z === zAlias) || {}).symbol.toLowerCase();
     const pm = particleSuggestions(q.trim().toLowerCase());
     let els = L.filter((e) => e.symbol.toLowerCase() === t0 || String(e.Z) === t0);
+    if (!els.length) els = L.filter((e) => e.name && e.name.toLowerCase() === t0);   // a full name is as exact as a symbol
     const exact = els.length === 1;
     if (!els.length) els = L.filter((e) => e.symbol.toLowerCase().startsWith(t0) || (e.name && e.name.toLowerCase().startsWith(t0)));
     if (!els.length) els = L.filter((e) => e.name && e.name.toLowerCase().includes(t0));
@@ -3608,6 +3815,8 @@ const WALK_FIELD_LABEL = { hf: 'Hartree–Fock, non-local exchange (the paper\'s
     }
     const e = els[0];
     const c = fromRoman(toks[1].toUpperCase()) || parseInt(toks[1], 10);
+    // a number above Z cannot be a stage, and is read as a mass number: Fe 56 is the nuclide
+    if (c > e.Z && /^\d+$/.test(toks[1]) && toks.length === 2) return [{ path: `${String(c).split('').map((d) => '⁰¹²³⁴⁵⁶⁷⁸⁹'[+d]).join('')}${e.symbol}`, note: `${e.name || ''}-${c} · a nuclide, in ${e.symbol}'s nest (a number above Z = ${e.Z} is a mass number, not a stage)`, go: ['iso', e.Z, c] }];
     if (!c || c < 1 || c > e.Z) return [{ path: `${e.symbol} ?`, note: `stage I–${roman(e.Z)}`, go: [e.Z] }];
     if (toks.length === 2) return [{ path: `${e.symbol} ${roman(c)}`, note: `ion, Nₑ = ${e.Z - c + 1}`, go: [e.Z, c] }];
     const l = parseL(toks[2]);
@@ -3652,7 +3861,7 @@ const WALK_FIELD_LABEL = { hf: 'Hartree–Fock, non-local exchange (the paper\'s
       }
       canvas.classList.add('is-dragging');
     });
-    const hoverKey = (n) => n ? `${n.kind}:${n.Z || ''}:${n.p || ''}:${n.g || ''}:${n.charge || ''}:${n.l === undefined ? '' : n.l}:${n.mult || ''}` : '';
+    const hoverKey = (n) => n ? `${n.kind}:${n.Z || ''}:${n.p || ''}:${n.g || ''}:${n.charge || ''}:${n.l === undefined ? '' : n.l}:${n.mult || ''}:${n.A || ''}` : '';
     canvas.addEventListener('pointermove', (ev) => {
       const rect = canvas.getBoundingClientRect();
       if (!pts.has(ev.pointerId)) {
@@ -3952,7 +4161,8 @@ const WALK_FIELD_LABEL = { hf: 'Hartree–Fock, non-local exchange (the paper\'s
     if (!tok) return null;
     const t = tok.toLowerCase();
     const L = state.index.layout;
-    return L.find((e) => e.symbol.toLowerCase() === t) || L.find((e) => String(e.Z) === t) || L.find((e) => e.name && e.name.toLowerCase() === t) || null;
+    const lib = (window.MI || {}).solverLib, z = lib && lib.nameZ ? lib.nameZ(tok) : null;
+    return L.find((e) => e.symbol.toLowerCase() === t) || L.find((e) => String(e.Z) === t) || L.find((e) => e.name && e.name.toLowerCase() === t) || (z ? L.find((e) => e.Z === z) : null) || null;
   }
   const st = (s) => `[${s}]`;
   async function withElement(tok, fn) {
@@ -4250,6 +4460,8 @@ const WALK_FIELD_LABEL = { hf: 'Hartree–Fock, non-local exchange (the paper\'s
       return out;
     }
     if (node.kind === 'ion') return { kind: 'ion', Z: node.Z, symbol: e.symbol, charge: node.charge, channels: node.rec, lambda8_step: node.step };
+    if (node.kind === 'isotopes') return { kind: 'isotopes', Z: node.Z, symbol: e.symbol, source: node.rec.source, status: node.rec.status, nuclides: node.rec.rows };
+    if (node.kind === 'nuclide') return { kind: 'nuclide', Z: node.Z, symbol: e.symbol, source: node.parent.rec.source, status: node.parent.rec.status, nuclide: node.rec };
     if (node.kind === 'channel') return { kind: 'channel', Z: node.Z, symbol: e.symbol, charge: node.charge, l: node.l, channel: node.rec };
     if (node.kind === 'cell') return { kind: 'cell', Z: node.Z, symbol: e.symbol, charge: node.charge, l: node.l, mult: node.mult, cell: node.rec, channel: { p: node.parent.rec.p, n0: node.parent.rec.n0, B_computed: node.parent.rec.B_computed, C_of_Z: node.parent.rec.C_of_Z, delta_equation: node.parent.rec.delta_equation } };
     return null;
@@ -4824,6 +5036,12 @@ var SOLVERS, LIB;
     if (!/^[-+]?(\d+\.?\d*|\.\d+)([eE][-+]?\d+)?$/.test(s)) return null;
     var x = Number(s);
     return isFinite(x) ? x : null;
+  }
+  function zOf(v) {
+    // an element input: its Z, its symbol or its name (19, K, potassium); null when it is none
+    var z = int(v);
+    if (z !== null) return z;
+    return nameZ(v);
   }
   function int(v) {
     var x = num(v);
@@ -5566,7 +5784,7 @@ var SOLVERS, LIB;
   }
 
   // ------------------------------------------------------------------ modes
-  var SELECTION = { Z: { name: 'Z', label: 'Z', type: 'number', default: 19, fromSelection: 'Z', help: 'atomic number, 1 to 120' },
+  var SELECTION = { Z: { name: 'Z', label: 'element', type: 'text', default: 19, fromSelection: 'Z', help: 'Z, symbol or name: 19, K or potassium' },
                     charge: { name: 'charge', label: 'stage (charge)', type: 'number', default: 1, fromSelection: 'charge', help: 'spectroscopic stage; 1 is neutral' },
                     l: { name: 'l', label: 'l', type: 'number', default: 0, fromSelection: 'l', help: '0 = s, 1 = p, 2 = d, 3 = f ...' },
                     mult: { name: 'mult', label: 'mult', type: 'number', default: '', fromSelection: 'mult', help: 'the measured row\'s multiplicity; blank picks the channel\'s only measured row' } };
@@ -5598,7 +5816,7 @@ var SOLVERS, LIB;
     inputs: [sel('Z'), sel('charge'), sel('l')],
     source: { instrument: 'channel_delta', file: 'tools/populate.py' },
     run: async function (values, ctx) {
-      var Z = int(values.Z), charge = int(values.charge), l = int(values.l);
+      var Z = zOf(values.Z), charge = int(values.charge), l = int(values.l);
       if (Z === null || charge === null || l === null) return fail('Z, charge and l must be integers');
       if (l < 0) return fail('l must be 0 or more');
       var got = await elementOrFail(ctx, Z);
@@ -5693,7 +5911,7 @@ var SOLVERS, LIB;
     source: { instrument: 'pauli_bound', file: 'tools/populate.py' },
     run: async function (values, ctx) {
       var l = int(values.l), p = int(values.p), n0 = int(values.n0);
-      var Z = int(values.Z), charge = int(values.charge);
+      var Z = zOf(values.Z), charge = int(values.charge);
       if (l === null || l < 0) return fail('l must be an integer, 0 or more');
       var rows = [], ch = null, rec = null, pSrc = 'typed', nSrc = 'typed';
       if (p === null || n0 === null) {
@@ -5795,7 +6013,7 @@ var SOLVERS, LIB;
     inputs: [sel('Z'), sel('l', { default: 2 })],
     source: { instrument: 'collapse_C', file: 'tools/populate.py' },
     run: async function (values, ctx) {
-      var Z = int(values.Z), l = int(values.l);
+      var Z = zOf(values.Z), l = int(values.l);
       if (Z === null || l === null || l < 0) return fail('Z and l must be integers, l 0 or more');
       var params = collapseParams(ctx.index);
       var z0 = params.Z0[l];
@@ -6251,7 +6469,7 @@ var SOLVERS, LIB;
         return { rows: rows, ok: true, series: res.series.map(function (s) { return { x: s.x, y: s.y, label: s.label }; }),
                  seriesLabel: name + ' solved per measured channel, by Z (pinned ' + coef[name] + ')', text: text };
       }
-      var Z = int(values.Z);
+      var Z = zOf(values.Z);
       var got = await elementOrFail(ctx, Z);
       if (got.fail) return got.fail;
       var rec = got.rec;
@@ -6452,7 +6670,7 @@ var SOLVERS, LIB;
       }
       if (op === 'walk') {
         if (!walk) return fail('no reconstructed walk in this build of data/index.js (LOWDIN-WALK.tsv was absent when webindex.py ran)');
-        var Zw = int(values.Z);
+        var Zw = zOf(values.Z);
         if (Zw === null || Zw < 1 || Zw > 120) return fail('Z must be an integer from 1 to 120');
         var recw = ctx.element(Zw) || await ctx.load(Zw);
         if (!recw) return fail('no record for Z = ' + Zw);
@@ -6497,7 +6715,7 @@ var SOLVERS, LIB;
         rows.push(row('instrument', rp ? 'recovered — the record\'s own code, run in the repository' : 'not held — nothing computed here', rp ? RECOVERED : null, inst.note || ''));
         return { rows: rows, ok: true, text: rp ? rp.statement : 'The Löwdin paper: ' + ((src.paper && src.paper.eleven_text) || '') };
       }
-      var Z = int(values.Z);
+      var Z = zOf(values.Z);
       if (Z === null || Z < 1 || Z > 120) return fail('Z must be an integer from 1 to 120');
       var got = await elementOrFail(ctx, Z);
       if (got.fail) return got.fail;
@@ -6815,6 +7033,174 @@ var SOLVERS, LIB;
     out.typeset = typesetFormula(f, out.charge) + (out.phase ? '(' + out.phase + ')' : '');
     return out;
   }
+
+  // ---------------------------------------------------------------- names
+  // A reader may name a species instead of writing its formula: an element by its IUPAC name or
+  // a spelling IUPAC also accepts (aluminum, cesium, sulphur), an isotope by name (deuterium,
+  // carbon-14), an ion (sulfate, ammonium, iron(III)), a compound by systematic composition
+  // (sodium chloride, iron(III) oxide, aluminium sulfate, dinitrogen tetroxide) or by a trivial
+  // name from a short table (water, ammonia, methane, glucose). A name is a naming convention and
+  // not a figure of the index: the reading is always shown beside the result, a metal whose
+  // charge is not fixed is refused without its numeral rather than guessed, and a name that is
+  // not in the tables is refused by name.
+  var ELEMENT_NAMES = (
+    'hydrogen helium lithium beryllium boron carbon nitrogen oxygen fluorine neon sodium magnesium ' +
+    'aluminium silicon phosphorus sulfur chlorine argon potassium calcium scandium titanium vanadium chromium ' +
+    'manganese iron cobalt nickel copper zinc gallium germanium arsenic selenium bromine krypton ' +
+    'rubidium strontium yttrium zirconium niobium molybdenum technetium ruthenium rhodium palladium silver cadmium ' +
+    'indium tin antimony tellurium iodine xenon caesium barium lanthanum cerium praseodymium neodymium ' +
+    'promethium samarium europium gadolinium terbium dysprosium holmium erbium thulium ytterbium lutetium hafnium ' +
+    'tantalum tungsten rhenium osmium iridium platinum gold mercury thallium lead bismuth polonium ' +
+    'astatine radon francium radium actinium thorium protactinium uranium neptunium plutonium americium curium ' +
+    'berkelium californium einsteinium fermium mendelevium nobelium lawrencium rutherfordium dubnium seaborgium bohrium hassium ' +
+    'meitnerium darmstadtium roentgenium copernicium nihonium flerovium moscovium livermorium tennessine oganesson ununennium unbinilium').split(' ');
+  var NAME_Z = {};
+  ELEMENT_NAMES.forEach(function (n, i) { NAME_Z[n] = i + 1; });
+  var NAME_ALIAS = { aluminum: 13, cesium: 55, sulphur: 16 };
+  Object.keys(NAME_ALIAS).forEach(function (n) { NAME_Z[n] = NAME_ALIAS[n]; });
+  var ISOTOPE_NAMES = { protium: [1, 1], deuterium: [1, 2], tritium: [1, 3] };
+  // the elements whose usual substance is a diatomic molecule: in an equation "oxygen" is O₂
+  var ELEMENTAL = { H: 'H2', N: 'N2', O: 'O2', F: 'F2', Cl: 'Cl2', Br: 'Br2', I: 'I2' };
+  // anions by name: [formula, charge, polyatomic]
+  var ANIONS = {
+    fluoride: ['F', -1], chloride: ['Cl', -1], bromide: ['Br', -1], iodide: ['I', -1], hydride: ['H', -1],
+    oxide: ['O', -2], sulfide: ['S', -2], sulphide: ['S', -2], selenide: ['Se', -2], telluride: ['Te', -2],
+    nitride: ['N', -3], phosphide: ['P', -3], arsenide: ['As', -3],
+    peroxide: ['O2', -2, true], hydroxide: ['OH', -1, true], cyanide: ['CN', -1, true], thiocyanate: ['SCN', -1, true],
+    nitrate: ['NO3', -1, true], nitrite: ['NO2', -1, true],
+    sulfate: ['SO4', -2, true], sulphate: ['SO4', -2, true], sulfite: ['SO3', -2, true], sulphite: ['SO3', -2, true],
+    'hydrogen sulfate': ['HSO4', -1, true], bisulfate: ['HSO4', -1, true], thiosulfate: ['S2O3', -2, true],
+    carbonate: ['CO3', -2, true], 'hydrogen carbonate': ['HCO3', -1, true], bicarbonate: ['HCO3', -1, true],
+    phosphate: ['PO4', -3, true], 'hydrogen phosphate': ['HPO4', -2, true], 'dihydrogen phosphate': ['H2PO4', -1, true],
+    acetate: ['CH3COO', -1, true], ethanoate: ['CH3COO', -1, true], oxalate: ['C2O4', -2, true],
+    permanganate: ['MnO4', -1, true], chromate: ['CrO4', -2, true], dichromate: ['Cr2O7', -2, true],
+    perchlorate: ['ClO4', -1, true], chlorate: ['ClO3', -1, true], chlorite: ['ClO2', -1, true], hypochlorite: ['ClO', -1, true],
+  };
+  var POLY_CATIONS = { ammonium: ['NH4', 1], hydronium: ['H3O', 1], oxonium: ['H3O', 1] };
+  // the elements whose compounds carry one charge in the usual naming; any other needs its numeral
+  var FIXED_CHARGE = { H: 1, Li: 1, Na: 1, K: 1, Rb: 1, Cs: 1, Fr: 1, Ag: 1, Be: 2, Mg: 2, Ca: 2, Sr: 2, Ba: 2, Ra: 2,
+    Zn: 2, Cd: 2, Al: 3, Ga: 3, Sc: 3, Y: 3, La: 3 };
+  // the non-metals, whose binary compounds are named by Greek prefixes rather than by charge
+  var NONMETALS = { H: 1, He: 1, B: 1, C: 1, N: 1, O: 1, F: 1, Ne: 1, Si: 1, P: 1, S: 1, Cl: 1, Ar: 1, As: 1, Se: 1, Br: 1,
+    Kr: 1, Te: 1, I: 1, Xe: 1, At: 1, Rn: 1 };
+  var GREEK = [['mono', 1], ['di', 2], ['tri', 3], ['tetra', 4], ['penta', 5], ['hexa', 6], ['hepta', 7], ['octa', 8], ['nona', 9], ['deca', 10]];
+  var IDE = { oxide: 'O', fluoride: 'F', chloride: 'Cl', bromide: 'Br', iodide: 'I', sulfide: 'S', sulphide: 'S', nitride: 'N',
+    phosphide: 'P', carbide: 'C', hydride: 'H', selenide: 'Se', telluride: 'Te', boride: 'B', silicide: 'Si', arsenide: 'As' };
+  var TRIVIAL = {
+    water: 'H2O', 'heavy water': 'D2O', ice: 'H2O', ammonia: 'NH3', methane: 'CH4', ethane: 'C2H6', propane: 'C3H8',
+    butane: 'C4H10', pentane: 'C5H12', hexane: 'C6H14', octane: 'C8H18', ethene: 'C2H4', ethylene: 'C2H4',
+    propene: 'C3H6', propylene: 'C3H6', ethyne: 'C2H2', acetylene: 'C2H2', benzene: 'C6H6', toluene: 'C7H8',
+    methanol: 'CH3OH', ethanol: 'C2H5OH', glycerol: 'C3H8O3', 'acetic acid': 'CH3COOH', 'ethanoic acid': 'CH3COOH',
+    'formic acid': 'HCOOH', 'methanoic acid': 'HCOOH', formaldehyde: 'CH2O', methanal: 'CH2O', acetone: 'C3H6O',
+    propanone: 'C3H6O', chloroform: 'CHCl3', trichloromethane: 'CHCl3', glucose: 'C6H12O6', fructose: 'C6H12O6',
+    sucrose: 'C12H22O11', urea: 'CO(NH2)2', ozone: 'O3', dioxygen: 'O2', dinitrogen: 'N2', dihydrogen: 'H2',
+    dichlorine: 'Cl2', difluorine: 'F2', dibromine: 'Br2', diiodine: 'I2', 'hydrogen peroxide': 'H2O2',
+    hydrazine: 'N2H4', phosphine: 'PH3', silane: 'SiH4', diborane: 'B2H6', 'nitric oxide': 'NO', 'nitrous oxide': 'N2O',
+    'sulfuric acid': 'H2SO4', 'sulphuric acid': 'H2SO4', 'sulfurous acid': 'H2SO3', 'nitric acid': 'HNO3',
+    'nitrous acid': 'HNO2', 'hydrochloric acid': 'HCl', 'hydrofluoric acid': 'HF', 'hydrobromic acid': 'HBr',
+    'hydroiodic acid': 'HI', 'phosphoric acid': 'H3PO4', 'carbonic acid': 'H2CO3', 'perchloric acid': 'HClO4',
+    'table salt': 'NaCl', 'baking soda': 'NaHCO3', 'washing soda': 'Na2CO3', 'caustic soda': 'NaOH', lye: 'NaOH',
+    quicklime: 'CaO', 'slaked lime': 'Ca(OH)2', silica: 'SiO2', 'laughing gas': 'N2O',
+  };
+  var ROMAN_NUM = { i: 1, ii: 2, iii: 3, iv: 4, v: 5, vi: 6, vii: 7, viii: 8 };
+  var SUPD = '⁰¹²³⁴⁵⁶⁷⁸⁹';
+  function nameKey(text) {
+    return String(text).trim().toLowerCase().replace(/\s+/g, ' ').replace(/\s*\(\s*/g, '(').replace(/\s*\)/g, ')').replace(/ ion$/, '').replace(/^the /, '');
+  }
+  function nameZ(text) {
+    // an element by Z, symbol or name: 26, Fe, iron, Iron; null when it is none of them
+    var t = String(text === null || text === undefined ? '' : text).trim();
+    if (!t) return null;
+    if (/^\d+$/.test(t)) { var z = parseInt(t, 10); return z >= 1 && z <= 120 ? z : null; }
+    var sy = t.charAt(0).toUpperCase() + t.slice(1).toLowerCase();
+    if (SYMBOL_Z[sy] && t.length <= 2) return SYMBOL_Z[sy];
+    return NAME_Z[t.toLowerCase()] || null;
+  }
+  function lcm(a, b) { var x = a, y = b; while (y) { var r = x % y; x = y; y = r; } return a / x * b; }
+  function part(f, n, poly) { return n === 1 ? f : (poly ? '(' + f + ')' + n : f + n); }
+  function greekSplit(w, table) {
+    // "tetroxide" -> [4, 'O'], "dinitrogen" -> [2, 'N']: a Greek count and a name, the prefix's
+    // final vowel elided before a vowel as the rules write it
+    if (table[w] !== undefined) return [1, table[w], false];
+    for (var i = GREEK.length - 1; i >= 0; i--) {
+      var p = GREEK[i][0], n = GREEK[i][1], rests = [w.slice(p.length)];
+      if (/[ao]$/.test(p)) rests.push(w.slice(p.length - 1));
+      if (w.indexOf(p) !== 0 && !(/[ao]$/.test(p) && w.indexOf(p.slice(0, -1)) === 0)) continue;
+      for (var k = 0; k < rests.length; k++) if (rests[k] && table[rests[k]] !== undefined && (k === 0 ? w.indexOf(p) === 0 : true)) return [n, table[rests[k]], true];
+    }
+    return null;
+  }
+  function cationOf(w) {
+    // "iron(iii)" -> ['Fe', 3], "sodium" -> ['Na', 1], "ammonium" -> ['NH4', 1, poly]; a metal whose
+    // charge is not fixed, without its numeral, is returned with charge null
+    if (POLY_CATIONS[w]) return [POLY_CATIONS[w][0], POLY_CATIONS[w][1], true];
+    var m = w.match(/^([a-z]+)(?:\((i{1,3}|iv|vi{0,3}|viii)\))?$/);
+    if (!m || !NAME_Z[m[1]]) return null;
+    var sym = ELEMENT_SYMBOLS[NAME_Z[m[1]] - 1];
+    if (m[2]) return [sym, ROMAN_NUM[m[2]], false, true];
+    return [sym, FIXED_CHARGE[sym] || null, false, false, m[1]];
+  }
+  function typesetName(formula) { return parseFormula(formula).typeset; }
+  function resolveName(text, context) {
+    // {formula, display, kind, rule, reading, Z?, A?} | {error, kind} | null (not a name)
+    var raw = String(text === null || text === undefined ? '' : text).trim();
+    if (!raw || /[0-9]/.test(raw) && !/^[A-Za-z]+[\s-]?\d{1,3}$/.test(raw.trim()) && !/\([ivxIVX]+\)/.test(raw)) return null;
+    var w = nameKey(raw), out = null;
+    var said = '"' + raw + '"';
+    // an isotope: carbon-14, carbon 14 (the spaced form only where A exceeds Z, since a small number
+    // after a name is a spectroscopic stage elsewhere on this page), deuterium
+    var im = w.match(/^([a-z]+)(-| )?(\d{1,3})$/);
+    if (im && NAME_Z[im[1]]) {
+      var Zi = NAME_Z[im[1]], Ai = parseInt(im[3], 10);
+      if (im[2] === ' ' && Ai <= Zi) return null;
+      if (Ai < Zi) return { error: said + ': a mass number below the proton number (A = ' + Ai + ' < Z = ' + Zi + ') names no nuclide', kind: 'isotope' };
+      var syi = ELEMENT_SYMBOLS[Zi - 1];
+      return { formula: '^' + Ai + syi, display: String(Ai).split('').map(function (c) { return SUPD[+c]; }).join('') + syi, kind: 'isotope', Z: Zi, A: Ai,
+               rule: 'an element name with its mass number', reading: said + ' read as the nuclide ' + syi + '-' + Ai };
+    }
+    if (ISOTOPE_NAMES[w]) {
+      var ip = ISOTOPE_NAMES[w];
+      return { formula: '^' + ip[1] + 'H', display: SUPD[ip[1]] + 'H', kind: 'isotope', Z: ip[0], A: ip[1], rule: 'the isotope\'s own name',
+               reading: said + ' read as the nuclide H-' + ip[1] };
+    }
+    if (TRIVIAL[w]) {
+      out = { formula: TRIVIAL[w], kind: 'molecule', rule: 'a trivial name, from the page\'s table of common names' };
+    } else if (NAME_Z[w]) {
+      var Z = NAME_Z[w], sym = ELEMENT_SYMBOLS[Z - 1];
+      if (context === 'substance' && ELEMENTAL[sym]) out = { formula: ELEMENTAL[sym], kind: 'element', Z: Z, rule: 'an element name, read as the element\'s usual molecule; write ' + sym + ' for the atom' };
+      else out = { formula: sym, kind: 'element', Z: Z, rule: 'the element\'s IUPAC name' + (NAME_ALIAS[w] ? ' (the spelling IUPAC also accepts)' : '') };
+    } else if (ANIONS[w]) {
+      var an = ANIONS[w];
+      out = { formula: an[0] + '^' + (Math.abs(an[1]) > 1 ? Math.abs(an[1]) : '') + '-', kind: 'ion', rule: 'an anion by name' };
+    } else if (cationOf(w) && (/\(/.test(w) || POLY_CATIONS[w])) {
+      var c1 = cationOf(w);
+      out = { formula: c1[0] + '^' + (c1[1] > 1 ? c1[1] : '') + '+', kind: 'ion', rule: POLY_CATIONS[w] ? 'a cation by name' : 'a cation by its Stock numeral' };
+    } else {
+      // two parts: a cation and an anion balanced by charge, or a Greek-prefix binary compound
+      var sp = w.indexOf(' ');
+      if (sp < 0) return null;
+      var first = w.slice(0, sp), rest = w.slice(sp + 1), cat = cationOf(first), ani = ANIONS[rest];
+      if (cat && ani && cat[1]) {
+        var n = lcm(cat[1], -ani[1]);
+        out = { formula: part(cat[0], n / cat[1], cat[2]) + part(ani[0], n / -ani[1], ani[2]), kind: 'compound',
+                rule: 'a cation and an anion by name, the counts fixed by charge balance (' + cat[0] + (cat[1] > 1 ? cat[1] : '') + '+ with ' + ani[0] + (-ani[1] > 1 ? -ani[1] : '') + '-)' };
+      } else {
+        var g1 = greekSplit(first, NAME_Z), g2 = greekSplit(rest, IDE);
+        if (g1 && g2 && (g1[2] || g2[2])) {
+          var s1 = ELEMENT_SYMBOLS[g1[1] - 1];
+          out = { formula: s1 + (g1[0] > 1 ? g1[0] : '') + g2[1] + (g2[0] > 1 ? g2[0] : ''), kind: 'compound', rule: 'a binary compound by its Greek-prefix name' };
+        } else if (cat && ani && !cat[1] && !NONMETALS[cat[0]]) {
+          return { error: said + ': ' + cat[4] + ' has more than one usual charge; give it as a Stock numeral, for example ' + cat[4] + '(II) ' + rest, kind: 'compound' };
+        } else if (g1 && g2) {
+          return { error: said + ': ' + first + ' forms more than one ' + rest + '; name it with a Greek prefix (' + first + ' mon' + rest + ', ' + first + ' di' + rest + ' …)', kind: 'compound' };
+        } else return null;
+      }
+    }
+    out.display = typesetName(out.formula);
+    out.reading = said + ' read as ' + out.display + ' — ' + out.rule;
+    return out;
+  }
+
   function describeReading(sp) {
     // "Fe³⁺: Fe 1, charge +3" -- how a species was read, for the rows that show it
     var els = Object.keys(sp.counts).map(function (e) { return e + ' ' + sp.counts[e]; }).join(', ');
@@ -6825,8 +7211,13 @@ var SOLVERS, LIB;
     return text.split(/\s\+\s|\s\+$|^\+\s/).map(function (t) { return t.trim(); }).filter(Boolean).map(function (t) {
       var m = t.match(/^(\d+(?:\.\d+)?|\d+\/\d+)\s*(.*)$/), coef = 1, formula = t;
       if (m && m[2]) { coef = m[1].indexOf('/') >= 0 ? parseInt(m[1].split('/')[0], 10) / parseInt(m[1].split('/')[1], 10) : parseFloat(m[1]); formula = m[2]; }
-      var f = parseFormula(formula, readings[normaliseFormula(formula)]);
-      return { coef: coef, formula: formula, counts: f.counts, charge: f.charge, phase: f.phase, errors: f.errors, notes: f.notes, typeset: f.typeset, ambiguous: f.ambiguous };
+      var f = parseFormula(formula, readings[normaliseFormula(formula)]), named = null;
+      if (f.errors.length) {
+        var nm = resolveName(formula, 'substance');
+        if (nm && nm.formula && nm.kind !== 'isotope') { named = formula; formula = nm.formula; f = parseFormula(formula, readings[normaliseFormula(formula)]); f.notes.unshift(nm.reading); }
+        else if (nm && nm.error) f.errors = [nm.error.replace(/^"[^"]*": /, '')];
+      }
+      return { coef: coef, formula: formula, named: named, counts: f.counts, charge: f.charge, phase: f.phase, errors: f.errors, notes: f.notes, typeset: f.typeset, ambiguous: f.ambiguous };
     });
   }
   function parseEquation(text, readings) {
@@ -7185,6 +7576,8 @@ var SOLVERS, LIB;
       ck.eq('H2 + O2 → H2O', co('H2 + O2 → H2O'), '2 H2 + O2 → 2 H2O');
       ck.eq('Fe + O2 → Fe2O3', co('Fe + O2 → Fe2O3'), '4 Fe + 3 O2 → 2 Fe2O3');
       ck.eq('C3H8 + O2 → CO2 + H2O', co('C3H8 + O2 → CO2 + H2O'), 'C3H8 + 5 O2 → 3 CO2 + 4 H2O');
+      ck.eq('by name: methane + oxygen → carbon dioxide + water, oxygen read as O2', co('methane + oxygen → carbon dioxide + water'), 'CH4 + 2 O2 → CO2 + 2 H2O');
+      ck.eq('by name: iron + oxygen → iron(III) oxide', co('iron + oxygen → iron(III) oxide'), '4 Fe + 3 O2 → 2 Fe2O3');
       ck.eq('KMnO4 + HCl → KCl + MnCl2 + H2O + Cl2', co('KMnO4 + HCl → KCl + MnCl2 + H2O + Cl2'), '2 KMnO4 + 16 HCl → 2 KCl + 2 MnCl2 + 8 H2O + 5 Cl2');
       ck.eq('redox, acidic: permanganate and iron(II)', co('MnO4- + Fe2+ → Mn2+ + Fe3+', { medium: 'acidic' }), 'MnO4- + 5 Fe2+ + 8 H+ → Mn2+ + 5 Fe3+ + 4 H2O');
       ck.eq('redox, acidic: dichromate and iron(II)', co('Cr2O7^2- + Fe2+ → Cr3+ + Fe3+', { medium: 'acidic' }), 'Cr2O7^2- + 6 Fe2+ + 14 H+ → 2 Cr3+ + 6 Fe3+ + 7 H2O');
@@ -7339,6 +7732,20 @@ var SOLVERS, LIB;
   }
   var ISO_H = { D: 2, T: 3 };
   function gravSpecies(text) {
+    // a formula, or a name the page reads into one: Water, carbon dioxide, iron(III) oxide, carbon-14
+    var sp = gravSpeciesFormula(text);
+    if (sp.errors.length || !sp.atoms.length) {
+      var nm = resolveName(text, 'atom');
+      if (nm && nm.formula) {
+        var sp2 = gravSpeciesFormula(nm.formula);
+        sp2.notes.unshift(nm.reading); sp2.named = nm; sp2.text = text;
+        return sp2;
+      }
+      if (nm && nm.error) sp.errors = [nm.error.replace(/^"[^"]*": /, '')];
+    }
+    return sp;
+  }
+  function gravSpeciesFormula(text) {
     // a formula with a charge and, optionally, isotopes: ^56Fe2+, 56Fe, Fe-56, U-238, D2O, H2O
     var f = normaliseFormula(text), iso = {}, notes = [];
     f = f.replace(/\^(\d+)([A-Z][a-z]?)/g, function (_m, a, el) { iso[el] = parseInt(a, 10); return el; });
@@ -7434,10 +7841,10 @@ var SOLVERS, LIB;
     statusNote: 'The gravity index\'s own arithmetic (the research tree\'s gravity instrument) run here over the AME2020 mass table and the banked levels in data/nuclides.js: the mass, the Schwarzschild radius, the dimensionless Kerr spin χ and Reissner–Nordström charge Q̃, the two angular-momentum facts, and the horizon-bound class in every dimension from 4 to 11 from the exact solutions only. Every input carries its status; a typed J carries none; no number is put on a horizon above four dimensions.',
     description: 'A body is a nuclide, an ion or a molecule written as a formula with its isotopes (^56Fe, ^56Fe2+, U-238, D2O, ^1H2^16O) or a particle of the indexes by name (p, e-, mu-, pi+, Lambda). M = A·u + mass excess − q·mₑ + the level\'s energy; r_s = 2GM/c²; χ = J ħ c / (G M²); Q̃ = q e / (M √(4π ε₀ G)); F cannot vanish when A + Ne is odd; F = 0 is established for an even-even nucleus with J = 0 by the pairing rule. Every quantity is set against a reference body as a ratio, which is the relative gravity: at equal distance the field scales as M. Where the angular momentum is not banked it is typed or refused, never inferred.',
     inputs: [
-      { name: 'species', label: 'body', type: 'text', default: '^56Fe', help: 'a formula with isotopes and charge (^56Fe2+, U-238, D2O), or a particle name once the indexes are loaded (p, mu-, pi+)' },
+      { name: 'species', label: 'body', type: 'text', default: '^56Fe', help: 'a formula with isotopes and charge (^56Fe2+, U-238, D2O), a name (iron-56, heavy water, uranium-238, water), or a particle name once the indexes are loaded (p, mu-, pi+)' },
       { name: 'two_j', label: '2J (optional)', type: 'number', default: '', help: 'twice the electronic angular momentum; blank uses the banked lowest level of a single species, or refuses' },
       { name: 'level', label: 'level (cm⁻¹, optional)', type: 'number', default: '', help: 'an excitation energy added to the mass exactly; blank uses the banked level' },
-      { name: 'reference', label: 'reference body', type: 'text', default: '^1H', help: 'the body every ratio is taken against; the same notation' },
+      { name: 'reference', label: 'reference body', type: 'text', default: '^1H', help: 'the body every ratio is taken against; the same notation, names included' },
     ],
     source: { instrument: 'members', file: 'the research tree\'s gravity instrument', also: ['forced', 'vanishes', 'bound_class', 'rows'] },
     run: async function (values, ctx) {
@@ -7561,9 +7968,9 @@ var SOLVERS, LIB;
     title: 'Build an atom, ion or molecule',
     status: DERIVED,
     statusNote: 'A formula read into what the index holds of it: each atom\'s record and banked ground level where held, the electrons, protons and nucleons counted, the exact mass from the mass table where every isotope is given, and the gravitational quantities of the gravity mode. It draws no bond and defines none: the finding on this site is that a bond cannot be indexed, and the builder carries that refusal rather than inventing a bond order.',
-    description: 'Write an atom, ion or molecule: Fe, Fe3+, ^56Fe2+, H2O, D2O, SO4^2-, NH4+, U-238, ^1H2^16O. The reader is the chemistry modes\' own, with isotopes as a caret prefix, leading digits or a dash. Values it cannot derive from what is held are refused by name.',
+    description: 'Write an atom, ion or molecule by formula or by name: Fe, Fe3+, ^56Fe2+, H2O, D2O, SO4^2-, NH4+, U-238, ^1H2^16O — or iron, water, carbon dioxide, iron(III) oxide, ammonium sulfate, sulfate, carbon-14, deuterium. A name is read into a formula by the page\'s naming rules (IUPAC element names, isotope names, Stock numerals and charge balance for salts, Greek prefixes for binary compounds, a short table of trivial names) and the reading is shown; a metal whose charge is not fixed is refused without its numeral. The reader is the chemistry modes\' own, with isotopes as a caret prefix, leading digits or a dash. Values it cannot derive from what is held are refused by name.',
     inputs: [
-      { name: 'formula', label: 'atom, ion or molecule', type: 'text', default: 'H2O', help: 'a formula with charge and, optionally, isotopes' },
+      { name: 'formula', label: 'atom, ion or molecule', type: 'text', default: 'H2O', help: 'a formula (H2O, Fe3+, ^56Fe) or a name (water, iron, carbon dioxide, iron(III) oxide, carbon-14)' },
       { name: 'two_j', label: '2J (optional)', type: 'number', default: '', help: 'for χ; blank uses the banked level of a single species, else refuses' },
     ],
     source: { instrument: 'parseFormula', file: 'this page\'s solver module', also: ['members'] },
@@ -7635,6 +8042,20 @@ var SOLVERS, LIB;
       ck.ok('¹²C at its banked level: the excitation mass is included, above 12 u by the level\'s energy', cb.M / g.K.U_KG > 12 && cb.level > 0 && cb.banked && cb.banked.L === 1, 'included', 'included');
       ck.ok('a molecule refuses χ and the bond', w2.tj === null, 'refused', 'refused');
       ck.ok('an unknown symbol is an error, not a guess', gravSpecies('Xx2').errors.length > 0, 'error', 'error');
+      // names read into formulas, the reading shown and nothing guessed
+      var atomsOf = function (t) { return gravSpecies(t).atoms.map(function (a) { return a.el + a.n + (a.A ? '@' + a.A : ''); }).join(' '); };
+      ck.eq('Water is read as H2O, the reading shown', [atomsOf('Water'), /read as H₂O/.test(gravSpecies('Water').notes[0])], ['H2 O1', true]);
+      ck.eq('carbon dioxide is read as CO2 by its Greek prefix', atomsOf('carbon dioxide'), 'C1 O2');
+      ck.eq('iron(III) oxide is read as Fe2O3 by charge balance', atomsOf('iron(III) oxide'), 'Fe2 O3');
+      ck.eq('aluminium sulfate is read as Al2(SO4)3', atomsOf('aluminium sulfate'), 'Al2 S3 O12');
+      ck.eq('ammonium sulfate is read as (NH4)2SO4', atomsOf('ammonium sulfate'), 'N2 H8 S1 O4');
+      ck.eq('dinitrogen tetroxide is read as N2O4', atomsOf('dinitrogen tetroxide'), 'N2 O4');
+      ck.eq('Iron and Aluminum read as the atom', [atomsOf('Iron'), atomsOf('Aluminum')], ['Fe1', 'Al1']);
+      ck.eq('carbon-14, deuterium and heavy water carry their isotopes', [atomsOf('carbon-14'), atomsOf('deuterium'), atomsOf('heavy water')], ['C1@14', 'H1@2', 'H2@2 O1']);
+      ck.eq('sulfate is the ion SO4^2-', [atomsOf('sulfate'), gravSpecies('sulfate').charge], ['S1 O4', -2]);
+      ck.ok('iron oxide is refused: iron\'s charge is not fixed', /Stock numeral/.test(gravSpecies('iron oxide').errors.join(' ')), 'refused', 'refused');
+      ck.ok('carbon oxide is refused: a non-metal is named by prefix', /Greek prefix/.test(gravSpecies('carbon oxide').errors.join(' ')), 'refused', 'refused');
+      ck.eq('an element input takes Z, symbol or name', [zOf('19'), zOf('K'), zOf('potassium'), zOf('Caesium'), zOf('cesium')], [19, 19, 19, 55, 55]);
       return ck.result();
     },
   };
@@ -7650,7 +8071,8 @@ var SOLVERS, LIB;
     janetCypherFixture: janetCypherFixture, lambdaCypherFixture: lambdaCypherFixture,
     label: label, roman: roman, FALLBACK_COEF: FALLBACK_COEF, COEF_NAMES: COEF_NAMES,
     parseFormula: parseFormula, checkEquation: checkEquation, checkAnswer: checkAnswer, balanceEquation: balanceEquation, SYMBOL_Z: SYMBOL_Z,
-    gravSpecies: gravSpecies, gravBody: gravBody, gravSetup: gravSetup, gravMembers: gravMembers, gravBound: gravBound
+    gravSpecies: gravSpecies, gravBody: gravBody, gravSetup: gravSetup, gravMembers: gravMembers, gravBound: gravBound,
+    resolveName: resolveName, nameZ: nameZ, zOf: zOf
   };
 
 if (typeof window !== 'undefined') { window.MI = window.MI || {}; window.MI.solvers = SOLVERS; window.MI.solverLib = LIB; }
