@@ -243,7 +243,8 @@ the unsourced field at the seat is at v; any lower value needs a local source
 (M's sentence names no such source; only the information arrives); H-TREE.  So
 the no-P-UNIFORM claim holds for STOCK on H-PRESENT and not for its complement.
 H-UNSOURCED-SEAT is not vacuous: within D20's model a positive source is an
-equilibrium on 0 < |phi| < v ((a) below) and a stable hold only on
+equilibrium on 0 < |phi| < v ((a) below) and, within excite's section-3
+model (source rest mass proportional to phi), a stable hold only on
 0.5774 v < |phi| < v.  Where it fails, TEMPLATE keeps a priced remainder,
 the held-seat release route (section 5 (d)), on that range only.  H-PRESENT
 or not, the split is three-way: before arrival the seat is r = |phi|/v < 1
@@ -730,7 +731,8 @@ WHAT SURVIVES:
       first-order share at small eps (the largest READ nucleon row gives
       1.716e-3 at eps = 1/100; an estimate, not a bound) and, up to the
       stability edge, a finite response that is OPEN like the finite
-      share.  Within D20's model a static hold is stable only below
+      share.  Within excite's section-3 model (source rest mass
+      proportional to phi) a static hold is stable only below
       eps = 0.4226 (excite.stability_edge), on 0.5774 v < |phi| < v; a
       TEMPLATE seat below that keeps no held-seat remainder.  (iv) It needs
       the seat prepared in advance: something reached the destination
@@ -791,8 +793,9 @@ WHAT SURVIVES:
           M's sentence names no such source: only the information arrives.
           C1 refuses TEMPLATE on it, with P-UNIFORM, D15 and D16.  It is not
           vacuous: within D20's model a positive source is an equilibrium on
-          0 < |phi| < v (section 1 (a)) and a stable hold only on
-          0.5774 v < |phi| < v, at 4(1-eps)^2/(eps(2-eps)) J of source per J
+          0 < |phi| < v (section 1 (a)) and, within excite's section-3
+          model (source rest mass proportional to phi), a stable hold only
+          on 0.5774 v < |phi| < v, at 4(1-eps)^2/(eps(2-eps)) J of source per J
           of field (excite.holding_ratio; 2/eps at small eps).  Where it
           fails, TEMPLATE keeps a priced remainder, the held-seat release
           route (section 5 (d)), on that range only.  Within excite's
@@ -2188,7 +2191,8 @@ H_UNSOURCED_SEAT = True
 STABLE_RANGE = "%.4f v < |phi| < v" % (1 - excite.stability_edge())
 H_UNSOURCED_SEAT_STATUS = ("NAMED HYPOTHESIS of C1 on TEMPLATE; not vacuous: a "
                            "positive source is an equilibrium on 0 < |phi| < v and "
-                           "a stable hold only on %s (D20)" % STABLE_RANGE)
+                           "a stable hold only on %s within excite's section-3 "
+                           "model (source rest mass proportional to phi)" % STABLE_RANGE)
 #: H-RELEASE: on the held-seat release route the trigger removes the prepared
 #: source without doing work on the field or the elements.  What becomes of
 #: the source's own rest energy is not computed.
@@ -2368,8 +2372,9 @@ HELD_SEAT_TEXT = (
     "Higgs-given mass.  It forms no baryons (C3: the elements were already "
     "there).  PRICED at eps = %s (excite.EPS_CHEMICAL): %s kg/m^3 of "
     "Higgs-derived mass where the templates sit, %.1f J of source rest energy "
-    "per J of field (excite.holding_ratio).  Within D20's model (a static source "
-    "of fixed number density whose rest mass is proportional to phi), a static "
+    "per J of field (excite.holding_ratio).  Within excite's section-3 model (a "
+    "static source of fixed number density whose rest mass is proportional to "
+    "phi), a static "
     "hold is stable only on "
     "%s (excite.stability_edge): a TEMPLATE seat below that keeps no held-seat "
     "remainder.  The energy the field releases as |phi| relaxes to the elements' "
@@ -3593,7 +3598,8 @@ REQUIRED_WORDING = (
      "that needs phi = 0 at the seat before arrival"),
     ("R6-B/R7 section 1: H-UNSOURCED-SEAT is not vacuous, on the stable range",
      "doc 1", "H-UNSOURCED-SEAT is not vacuous: within D20's model a positive source "
-     "is an equilibrium on 0 < |phi| < v ((a) below) and a stable hold only on "
+     "is an equilibrium on 0 < |phi| < v ((a) below) and, within excite's section-3 "
+     "model (source rest mass proportional to phi), a stable hold only on "
      + STABLE_RANGE + ".  Where it fails, TEMPLATE keeps a priced remainder, the "
      "held-seat release route (section 5 (d)), on that range only",
      "H-UNSOURCED-SEAT is not vacuous: within D20's model a positive source holds "
@@ -3715,7 +3721,8 @@ REQUIRED_WORDING = (
      "H-UNSOURCED-SEAT Nothing at the seat holds |phi| below v before arrival", ""),
     ("R6-B/R7 section 6: H-UNSOURCED-SEAT is not vacuous, on the stable range", "doc 6",
      "It is not vacuous: within D20's model a positive source is an equilibrium on "
-     "0 < |phi| < v (section 1 (a)) and a stable hold only on " + STABLE_RANGE,
+     "0 < |phi| < v (section 1 (a)) and, within excite's section-3 model (source rest "
+     "mass proportional to phi), a stable hold only on " + STABLE_RANGE,
      "It is not vacuous: within D20's model a positive source holds 0 < |phi| < v"),
     ("R7-2 section 6: the exact holding ratio, 2/eps its limit", "doc 6",
      "at 4(1-eps)^2/(eps(2-eps)) J of source per J of field (excite.holding_ratio; "
@@ -3852,9 +3859,10 @@ REQUIRED_WORDING = (
     ("R8 remainder (ii): per joule regained, at least", "remainder TEMPLATE",
      "so per joule regained at least", "so per joule regained"),
     ("R8 remainder: the stable range is within D20's model", "remainder TEMPLATE",
-     "Within D20's model (a static source of fixed number density whose rest mass "
-     "is proportional to phi), a static hold is stable only on", "A static hold is "
-     "stable only on"),
+     "Within excite's section-3 model (a static source of fixed number density whose "
+     "rest mass is proportional to phi), a static hold is stable only on",
+     "Within D20's model (a static source of fixed number density whose rest mass is "
+     "proportional to phi), a static hold is stable only on"),
     ("R8 section 6: the stability edge needs excite's section-3 hypotheses", "doc 6",
      "The stability edge of section 5 (d) needs excite's narrower section-3 "
      "hypotheses: a static source of fixed number density whose rest mass is "
@@ -3886,7 +3894,12 @@ REQUIRED_WORDING = (
      "nucleons at first order (largest READ row)", "electrons and nucleons at first "
      "order"),
     ("R8 report: the stable range within D20's model", "report",
-     "within D20's model, a stable hold only on", "a stable hold only on"),
+     "within excite's section-3 model (source rest mass proportional to phi), a stable "
+     "hold only on", "within D20's model, a stable hold only on"),
+    ("R10 no stable range is scoped to bare D20's model", "doc 5",
+     "Within excite's section-3 model (source rest mass proportional to phi) a static "
+     "hold is stable only below", "Within D20's model a static hold is stable only "
+     "below"),
     ("R7-4 remainder (ii): the floor is phi-coupled rest energy, the elements' included",
      "remainder TEMPLATE", "J of phi-coupled rest energy (the prepared source's with "
      "the elements') sat at the seat", "J of source rest energy sat at the seat"),
@@ -4316,7 +4329,8 @@ def report():
        "excite.exact_source_density")
     _p("  stable (eps below the stability edge)", h["stable"],
        "edge %.4f, excite" % excite.stability_edge())
-    print("        within D20's model, a stable hold only on %s; below it no held-seat "
+    print("        within excite's section-3 model (source rest mass proportional to "
+          "phi), a stable hold only on %s; below it no held-seat "
           "remainder" % STABLE_RANGE)
     _p("  balance faults over the eps0 samples", str(h["balance faults"]),
        "exact over Fraction; H-RELEASE")
