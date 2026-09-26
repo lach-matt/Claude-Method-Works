@@ -261,9 +261,10 @@ copy to check them against); the paper's other marked edit on M's ruling is
 DOCKET 63's, at the marker paper_d63_marker() READs back from paper/CLAIMS.md
 (PAPER_D63_MARKER_LINE) -- the paper's edits are not counted here, the
 markers are named and the reader counts.  M's ruling on the ruling id in the
-paper's clause is M-D65-5: added (M_D65_5_ANSWER), so both markers the paper
-carries from this board name a ruling; paper_caveat_b_faults() READs the
-clause back.  Nothing from
+paper's clause is M-D65-5: added (M_D65_5_ANSWER); the markers this file names
+each name a ruling, and the paper's DOCKET markers are asked of the paper by
+paper_docket_markers() and printed in M-D65-5's cell, a census the reader
+counts; paper_caveat_b_faults() READs the clause back.  Nothing from
 DOCKET 65 is pending M.
 """
 
@@ -889,18 +890,21 @@ PAPER_CAVEAT_B_HEAD = "- **(b) It is uniform where nothing sources it**"
 #: 2026-09-24, applied on M's ruling under this same rule), which the paper
 #: marks at PAPER_D63_MARKER_LINE -- the tree witnesses that marker by READING
 #: it (paper_d63_marker()), so the DOCKET 65 edit is not the paper's only
-#: edit on M's ruling: the paper marks both edits it carries from this board
-#: (DOCKET 65's at PAPER_CAVEAT_B_LINE, DOCKET 63's at PAPER_D63_MARKER_LINE);
-#: this file names both and counts neither.  Since M-D65-5 put the ruling id
-#: into the paper's clause, M_D65_4_RULING_T's "the paper's other marked edit
-#: on M's ruling is DOCKET 63's" is literally true of the paper: both markers
-#: name a ruling.
+#: edit on M's ruling: the paper marks the edits these rows name (DOCKET 65's
+#: at PAPER_CAVEAT_B_LINE, DOCKET 63's at PAPER_D63_MARKER_LINE); its other
+#: DOCKET markers are asked by paper_docket_markers() and printed in
+#: M-D65-5's cell; this file names them and counts none.  Since M-D65-5 put
+#: the ruling id into the paper's clause, M_D65_4_RULING_T's "the paper's
+#: other marked edit on M's ruling is DOCKET 63's" is what the paper's own
+#: markers say: the selftest asks paper_docket_markers() which markers name a
+#: ruling, and the answer is those at PAPER_CAVEAT_B_LINE and inside the
+#: DOCKET 63 marker, no other.
 M_PAPER_RULE_WORDS = ("the paper is finalized and in the website now. No further "
                       "edit will be made to it unless a finding changes any of the "
                       "already existing paper")
 #: paper/CLAIMS.md's DOCKET 63 marker starts on this line and runs to the
 #: close of its parenthesis (two lines in the paper); both fragments
-#: '(Corrected on M's ruling:' and 'DOCKET 63' must sit inside the one marker,
+#: '(Corrected on M's ruling:' and 'DOCKET 63' must sit inside the same marker,
 #: and the regex, never a typed copy, supplies the quoted text.
 PAPER_D63_MARKER_LINE = 7233
 PAPER_D63_MARKER_RE = re.compile(r"\(Corrected on M's ruling:.*?DOCKET 63\.\)", re.S)
@@ -908,7 +912,8 @@ PAPER_D63_MARKER_RE = re.compile(r"\(Corrected on M's ruling:.*?DOCKET 63\.\)", 
 #: clause, M's rule for the paper, the DOCKET 63 marker's lines and text):
 #: the paper's edits on M's ruling are NAMED by their markers, never counted.
 M_D65_4_RULING_T = ("RULED BY M: YES, QUALIFY IT -- M's answer: '%s'.  APPLIED: "
-                    'paper/CLAIMS.md:%d caveat (b) carries "%s" -- a paper edit on '
+                    'paper/CLAIMS.md:%d caveat (b) carries "%s" (as it now reads; the '
+                    "ruling id was added on M-D65-5) -- a paper edit on "
                     "M's ruling under M's rule for the paper (\"%s\", verbatim from "
                     "the session, witnessed by the lead); the paper's other marked "
                     "edit on M's ruling is DOCKET 63's (paper/CLAIMS.md:%s: \"%s\")")
@@ -933,15 +938,32 @@ M_D65_5_ANSWER = "add the id"
 M_D65_5_WHY = ("the lenses' finding of rounds 6-7: the paper marked DOCKET 65's "
                "edit by docket only, so the paper itself did not say the edit was "
                "ruled -- that record lived in ledger.py, LEDGER.md and higgs.py")
+#: The tail of M-D65-5's ruling cell, shared with specthm's SR5 through
+#: paper_markers_clause(): a TEMPLATE over (the caveat line, the DOCKET 63
+#: marker's lines READ back, the paper's DOCKET markers READ by
+#: paper_docket_markers()).  The markers the rows name are named; the paper's
+#: markers are printed as the paper carries them, and the reader counts.
+PAPER_MARKERS_CLAUSE_T = ("the markers these rows name each name a ruling (M-D65-4 at "
+                          "%d; 'on M's ruling', DOCKET 63 at %s); the paper's DOCKET "
+                          "markers, READ: %s")
 #: M-D65-5's ruling cell, a TEMPLATE over (M's answer, the caveat line and
-#: clause, the caveat line again, the DOCKET 63 marker's lines READ back):
-#: the selftest checks the seated cell EQUALS it, so no verdict can be typed
-#: beside it.
+#: clause, then PAPER_MARKERS_CLAUSE_T's pieces): the selftest checks the
+#: seated cell EQUALS it, so no verdict can be typed beside it.
 M_D65_5_RULING_T = ("RULED BY M: ADD THE ID -- M's answer: '%s'.  APPLIED: "
                     "paper/CLAIMS.md:%d's clause now reads \"%s\" (READ back by "
-                    "paper_caveat_b_faults()); both markers the paper carries from "
-                    "this board now name a ruling (M-D65-4 at %d; 'on M's ruling', "
-                    "DOCKET 63 at %s)")
+                    "paper_caveat_b_faults()); " + PAPER_MARKERS_CLAUSE_T)
+#: A DOCKET marker in the paper: the word and its number.
+PAPER_DOCKET_MARKER_RE = re.compile(r"DOCKET (\d+)")
+#: A COUNT of the paper's edits or markers in this board's own words -- what
+#: the selftests forbid in the M-D65-4 / M-D65-5 cells, the docstring, the
+#: source region around them and specthm's SR5: the items are NAMED and the
+#: paper's census is ASKED (paper_docket_markers()); nothing counts them.
+#: One vocabulary, here, imported by specthm rather than copied.
+COUNT_RE = re.compile(
+    r"\b(the one|the second|both|all|every|the only|"
+    r"(?:the |all |each of the )?(?:two|three|four|five|six|seven|eight|nine|ten|"
+    r"eleven|twelve)|(?<!DOCKET )\d+) (?:of the paper's )?(paper |marked |DOCKET )?"
+    r"(edits?|markers?)\b")  # a docket's own number ('DOCKET 63 marker') is not a count
 #: M-D65-2's question exactly as it was put to M, and M's answer verbatim.
 M_D65_2_QUESTION = ("The finite Higgs share (how much of atomic mass the Higgs "
                     "gives with the field switched off entirely): keep it as its "
@@ -1095,11 +1117,93 @@ def paper_d63_faults(lines=None):
             if f]
 
 
+def _marker_text(lines, i, pos=0):
+    """The text a DOCKET marker on line i (1-based), at column pos, belongs to:
+    the innermost parenthetical enclosing that token when one opens or closes
+    on the line before or after (the DOCKET 63 marker's parenthesis closes on
+    a later line than it opens -- its span is READ by paper_d63_marker()),
+    else the line itself.  Read out of the paper's lines, nothing typed; the
+    token is the one at pos, not the first 'DOCKET' on the line."""
+    lo = max(0, i - 2)
+    joined = "\n".join(lines[lo:i + 1])
+    off = sum(len(l) + 1 for l in lines[lo:i - 1])
+    tok = off + pos
+    depth, opener = 0, None
+    for k in range(tok - 1, -1, -1):
+        if joined[k] == ")":
+            depth += 1
+        elif joined[k] == "(":
+            if depth == 0:
+                opener = k
+                break
+            depth -= 1
+    if opener is None:
+        return lines[i - 1]
+    depth = 0
+    for k in range(tok, len(joined)):
+        if joined[k] == "(":
+            depth += 1
+        elif joined[k] == ")":
+            if depth == 0:
+                return joined[opener:k + 1]
+            depth -= 1
+    return lines[i - 1]
+
+
+def paper_docket_markers(lines=None):
+    """{docket: [(line, ruling_named)]} -- every 'DOCKET <n>' the paper carries,
+    READ from paper/CLAIMS.md by PAPER_DOCKET_MARKER_RE with its line number,
+    and for each whether the word 'ruling' stands in the marker's own text
+    (_marker_text(): the enclosing parenthetical, or the line).  Asked, never
+    typed: a marker added to or dropped from the paper moves the census."""
+    lines = _paper_lines() if lines is None else lines
+    out = {}
+    for i, line in enumerate(lines, 1):
+        for m in PAPER_DOCKET_MARKER_RE.finditer(line):
+            named = bool(re.search(r"\bruling\b", _marker_text(lines, i, m.start()), re.I))
+            out.setdefault(int(m.group(1)), []).append((i, named))
+    return out
+
+
+def paper_docket_markers_clause(lines=None):
+    """The census paper_docket_markers() returns, printed docket by docket:
+    'DOCKET <n> at <line>, <line> (no ruling named in those markers); DOCKET
+    <m> at <line> (a ruling named); ...' -- the parenthetical computed from
+    the per-marker flags, so the reader counts and this file does not."""
+    parts = []
+    for d, sites in sorted(paper_docket_markers(lines).items()):
+        named = [l for l, r in sites if r]
+        unnamed = [l for l, r in sites if not r]
+        if not unnamed:
+            what = "a ruling named"
+        elif not named:
+            what = "no ruling named in %s" % ("those markers" if len(sites) > 1
+                                              else "that marker")
+        else:
+            what = "a ruling named in the markers at %s; none in those at %s" % (
+                ", ".join("%d" % l for l in named), ", ".join("%d" % l for l in unnamed))
+        parts.append("DOCKET %d at %s (%s)" % (d, ", ".join("%d" % l for l, _r in sites),
+                                               what))
+    return "; ".join(parts) or "none"
+
+
+def paper_markers_clause():
+    """PAPER_MARKERS_CLAUSE_T filled from the caveat line, the DOCKET 63
+    marker's lines READ back and the paper's DOCKET markers READ -- the tail
+    of M-D65-5's ruling cell, and SR5's clause in specthm."""
+    try:
+        span = paper_d63_marker()[0]
+    except ValueError as e:
+        # The board still imports; the selftest goes red on paper_d63_faults().
+        span = "%d (MARKER NOT FOUND -- %s)" % (PAPER_D63_MARKER_LINE, e)
+    return PAPER_MARKERS_CLAUSE_T % (PAPER_CAVEAT_B_LINE, span, paper_docket_markers_clause())
+
+
 def m_d65_4_ruling():
     """M-D65-4's ruling cell: M_D65_4_RULING_T filled from M's answer, the
     caveat's line and clause, M's rule for the paper and the DOCKET 63 marker
-    READ back from the paper -- both of the paper's marked edits on M's ruling
-    named, neither counted."""
+    READ back from the paper -- the marked edits this file names (DOCKET 65's,
+    DOCKET 63's) named, none counted."""
     try:
         span, text = paper_d63_marker()
     except ValueError as e:
@@ -1117,15 +1221,17 @@ def m_d65_4_why():
 
 def m_d65_5_ruling():
     """M-D65-5's ruling cell: M_D65_5_RULING_T filled from M's answer, the
-    caveat's line and clause (READ back by paper_caveat_b_faults()) and the
-    DOCKET 63 marker's lines READ back from the paper."""
+    caveat's line and clause (READ back by paper_caveat_b_faults()), the
+    DOCKET 63 marker's lines READ back from the paper and the paper's DOCKET
+    markers READ (paper_docket_markers()) -- the cell ends in
+    paper_markers_clause()."""
     try:
         span = paper_d63_marker()[0]
     except ValueError as e:
         # The board still imports; the selftest goes red on paper_d63_faults().
         span = "%d (MARKER NOT FOUND -- %s)" % (PAPER_D63_MARKER_LINE, e)
     return M_D65_5_RULING_T % (M_D65_5_ANSWER, PAPER_CAVEAT_B_LINE, PAPER_CAVEAT_B_CLAUSE,
-                               PAPER_CAVEAT_B_LINE, span)
+                               PAPER_CAVEAT_B_LINE, span, paper_docket_markers_clause())
 
 
 def paper_caveat_b_line(path=None):
@@ -1335,7 +1441,7 @@ RULED_BY_M = [
     # status; the ruling cell is m_d65_4_ruling() -- M_D65_4_RULING_T filled
     # from the constants, M's rule for the paper (M_PAPER_RULE_WORDS) and the
     # DOCKET 63 marker READ back from the paper (paper_d63_marker()), so the
-    # paper's marked edits on M's ruling are named and neither is counted;
+    # marked edits this file names are named and none is counted;
     # unblocks is M_D65_4_UNBLOCKS_T filled from M's rule for the paper.
     ("M-D65-4",
      M_D65_4_QUESTION,
@@ -1349,7 +1455,9 @@ RULED_BY_M = [
     # the paper's clause now carries the id (PAPER_CAVEAT_B_CLAUSE, READ back
     # by paper_caveat_b_faults()); `why` is M_D65_5_WHY, the lenses' finding;
     # the ruling cell is m_d65_5_ruling() -- M_D65_5_RULING_T filled from the
-    # constants and the DOCKET 63 marker's lines READ back; unblocks is
+    # constants, the DOCKET 63 marker's lines READ back and the paper's DOCKET
+    # markers READ (paper_docket_markers(), a census the reader counts);
+    # unblocks is
     # M_D65_4_UNBLOCKS_T filled from M's rule for the paper, which stands.
     ("M-D65-5",
      M_D65_5_QUESTION,
@@ -3538,9 +3646,10 @@ def selftest():
     _d63faults = paper_d63_faults()
     _d63span, _d63text = (paper_d63_marker() if not _d63faults
                           else ("%d" % PAPER_D63_MARKER_LINE, "MARKER NOT FOUND"))
-    # A count of the paper's edits in the board's own words, in either of the
-    # file's vocabularies ('paper edits', 'marked edits').
-    _cnt = re.compile(r"\b(the one|the second|two) (paper |marked )?edits?\b")
+    # A count of the paper's edits or markers in the board's own words, in
+    # any of the file's vocabularies ('paper edits', 'marked edits',
+    # 'markers'); 'both' counts too.
+    _cnt = COUNT_RE
     chk("M-D65-4: the paper's caveat (b) QUALIFIED on M's ruling -- the question "
         "as put to M, M's answer verbatim, the ruling cell EQUAL to its template "
         "filled from the asked pieces (M's rule for the paper, the DOCKET 63 "
@@ -3572,7 +3681,8 @@ def selftest():
     chk("  paper/CLAIMS.md:%s, READ now, carries DOCKET 63's marker with both "
         "fragments ('(Corrected on M's ruling:', 'DOCKET 63'), and the ruling "
         "cell names it by its READ lines and text -- the paper's edits on M's "
-        "ruling are named, not counted ('the one', 'the second', 'two' absent)"
+        "ruling are named, not counted ('the one', 'the second', 'two', 'both' "
+        "absent before 'edit(s)' / 'marker(s)')"
         % _d63span,
         (_d63faults, _d63span.startswith("%d" % PAPER_D63_MARKER_LINE),
          "(Corrected on M's ruling:" in _d63text, "DOCKET 63" in _d63text,
@@ -3589,8 +3699,9 @@ def selftest():
     _region = _srcfull[_i0:_i1]
     chk("  no count of the paper's edits stands in ledger.py's source from the "
         "M-D65-4 constants through RULED_BY_M, comments included ('the one', "
-        "'the second', 'two' before 'paper edit(s)' / 'marked edit(s)'); the "
-        "region holds the constants and the M-D65-4 and M-D65-5 rows",
+        "'the second', 'two', 'both' before 'paper edit(s)' / 'marked edit(s)' / "
+        "'marker(s)'); the region holds the constants and the M-D65-4 and "
+        "M-D65-5 rows",
         (_cnt.findall(_region), "M_PAPER_RULE_WORDS = (" in _region,
          '("M-D65-4",' in _region, '("M-D65-5",' in _region),
         ([], True, True, True))
@@ -3599,7 +3710,18 @@ def selftest():
         "in that region is found",
         _cnt.findall(_region + "\n#: the paper carries two marked edits on M's "
                      "ruling, and this file names both and counts neither."),
-        [("two", "marked ")])
+        [("two", "marked ", "edits")])
+    chk("  CONTROL: a count APPENDED to the seated M-D65-5 cell, in each of the "
+        "vocabularies round 8's lenses planted ('all three markers ...', 'the "
+        "three markers ...', 'five markers ...', 'every marker ...', 'the only "
+        "markers ...'), is found by COUNT_RE",
+        [bool(COUNT_RE.search([r for r in RULED_BY_M if r[0] == "M-D65-5"][0][3]
+                              + " -- " + t)) for t in (
+            "all three markers the paper carries from this board name a ruling",
+            "the three markers name a ruling", "five markers the paper carries",
+            "the paper's five DOCKET markers", "every marker names a ruling",
+            "the only markers the paper carries")],
+        [True] * 6)
     chk("  CONTROL: the marker altered in a private copy of the paper's lines "
         "(the fragment '(Corrected on M's ruling:' dropped; 'DOCKET 63' dropped; "
         "the marker moved off line %d) is caught each way" % PAPER_D63_MARKER_LINE,
@@ -3656,7 +3778,8 @@ def selftest():
     chk("M-D65-5: the ruling id added to the paper's clause on M's ruling -- the "
         "row placed once, the question as the lead put it and M's answer "
         "verbatim, the ruling cell EQUAL to M_D65_5_RULING_T filled from the "
-        "constants and the DOCKET 63 marker's lines READ back, `why` the lenses' "
+        "constants, the DOCKET 63 marker's lines READ back and the paper's DOCKET "
+        "markers READ (paper_docket_markers_clause()), `why` the lenses' "
         "finding, unblocks M's rule for the paper (M_D65_4_UNBLOCKS_T), printed "
         "in LEDGER.md; paper/CLAIMS.md:%d, READ now, carries 'ruling M-D65-4' and "
         "the docstring names M-D65-5" % PAPER_CAVEAT_B_LINE,
@@ -3664,14 +3787,56 @@ def selftest():
          _d5[0][3] == m_d65_5_ruling(),
          _d5[0][3] == M_D65_5_RULING_T % (M_D65_5_ANSWER, PAPER_CAVEAT_B_LINE,
                                           PAPER_CAVEAT_B_CLAUSE, PAPER_CAVEAT_B_LINE,
-                                          _d63span),
+                                          _d63span, paper_docket_markers_clause()),
+         _d5[0][3].endswith(paper_markers_clause()),
          "'%s'" % M_D65_5_ANSWER in _d5[0][3],
          _d5[0][4] == M_D65_4_UNBLOCKS_T % M_PAPER_RULE_WORDS,
          M_D65_5_QUESTION in _md, "'%s'" % M_D65_5_ANSWER in _md,
          "ruling M-D65-4" in paper_caveat_b_line(),
          "DOCKET 65, ruling M-D65-4)" in PAPER_CAVEAT_B_CLAUSE,
          "M-D65-5" in __doc__),
-        (1, True, True, True, True, True, True, True, True, True, True, True))
+        (1, True, True, True, True, True, True, True, True, True, True, True, True))
+    _pdm = paper_docket_markers()
+    _d63lines = [int(x) for x in _d63span.split(" ")[0].split("-")]
+    _d63lines = list(range(_d63lines[0], _d63lines[-1] + 1))
+    chk("  the paper's DOCKET markers are ASKED (paper_docket_markers(), regex "
+        "'DOCKET <n>' with line numbers): the census is non-empty, holds DOCKET "
+        "65 at line %d with a ruling named and DOCKET 63 on a line inside the "
+        "marker paper_d63_marker() READs (%s) with a ruling named; the dockets "
+        "whose markers all name a ruling are those, no other; the cell prints "
+        "the census and no count of the paper's edits or markers stands in the "
+        "ruling cell, the unblocks cell or the docstring ('both' included)"
+        % (PAPER_CAVEAT_B_LINE, _d63span),
+        (len(_pdm) > 0, _pdm.get(65), [l in _d63lines for l, _r in _pdm.get(63, [])],
+         [r for _l, r in _pdm.get(63, [])],
+         sorted(d for d, sites in _pdm.items() if all(r for _l, r in sites)),
+         paper_docket_markers_clause() in _d5[0][3],
+         _cnt.findall(_d5[0][3] + " " + _d5[0][4] + " " + __doc__)),
+        (True, [(PAPER_CAVEAT_B_LINE, True)], [True], [True], [63, 65], True, []))
+    _l52 = _pdm.get(52, [(0, False)])[0][0]
+    _alt = [l.replace("DOCKET 52", "DOCKET 5", 1) if i + 1 == _l52 else l
+            for i, l in enumerate(_paper_lines())]
+    _planted = [l for l in _paper_lines()] + ["*(Corrected: the H92c gate was restated "
+                                              "-- `formation.py`, DOCKET 62.)*"]
+    chk("  CONTROL: 'both markers the paper carries from this board now name a "
+        "ruling' planted for the asked clause in M-D65-5's cell is found by the "
+        "count regex and fails the equality; a DOCKET 52 line altered in a "
+        "private copy of the paper's lines moves the census the cell prints (the "
+        "census check above would go red); a DOCKET 62 marker appended to the "
+        "private copy enters the census",
+        (_cnt.findall(_d5[0][3].replace("the markers these rows name each name a ruling",
+                                        "both markers the paper carries from this "
+                                        "board now name a ruling")),
+         _d5[0][3].replace("the markers these rows name each name a ruling",
+                           "both markers the paper carries from this board now name "
+                           "a ruling") == m_d65_5_ruling(),
+         paper_docket_markers_clause(_alt) == paper_docket_markers_clause(),
+         paper_docket_markers_clause(_alt) in _d5[0][3],
+         _pdm.get(52, []) != [] and 52 in paper_docket_markers(_alt)
+         and len(paper_docket_markers(_alt)[52]) == len(_pdm[52]) - 1,
+         paper_docket_markers(_planted).get(62), 62 in _pdm),
+        ([("both", "", "markers")], False, False, False, True,
+         [(len(_paper_lines()) + 1, False)], False))
     _old_b = PAPER_CAVEAT_B_CLAUSE.replace(", ruling M-D65-4)", ")")
     with _scratch("PAPER_CAVEAT_B_CLAUSE", _old_b):
         _old_b_faults = paper_caveat_b_faults()
@@ -3682,6 +3847,28 @@ def selftest():
         (_old_b_faults != [], _old_b.endswith("DOCKET 65)"), "ruling M-D65-4" in _old_b,
          _d5[0][3] + "  The paper is otherwise confirmed." == m_d65_5_ruling()),
         (True, True, False, False))
+    # The O4 row's 'six sympy residuals' is tied to its owner: axial.py's
+    # verify rows are commented '# V<n> -- ...', counted out of axial's source
+    # (imported, never copied); the row's number word must be that count.
+    import axial
+    _vrows = re.findall(r"^\s*# V(\d+) --", open(axial.__file__, encoding="utf-8").read(),
+                        re.M)
+    _o4_row = [r for r in CLOSED_ROWS if r[0] == "O4"][0][2]
+    _o4_word = re.search(r"axial\.py, (\w+) sympy residuals all 0", _o4_row)
+    _numwords = {"one": 1, "two": 2, "three": 3, "four": 4, "five": 5, "six": 6,
+                 "seven": 7, "eight": 8, "nine": 9, "ten": 10, "eleven": 11, "twelve": 12}
+    chk("O4's residual count ('%s sympy residuals') is axial.py's own: the row's "
+        "number word equals the count of '# V<n> --' rows in axial's source (%d, "
+        "numbered 1..%d)" % (_o4_word.group(1) if _o4_word else "?", len(_vrows),
+                              len(_vrows)),
+        (_o4_word is not None, _numwords.get(_o4_word.group(1)) if _o4_word else None,
+         sorted(int(v) for v in _vrows)),
+        (True, len(_vrows), list(range(1, len(_vrows) + 1))))
+    chk("  CONTROL: 'seven' planted in the O4 row is caught (its number word is not "
+        "axial's count)",
+        _numwords.get(re.search(r"axial\.py, (\w+) sympy residuals all 0",
+                                _o4_row.replace("six sympy", "seven sympy")).group(1))
+        == len(_vrows), False)
     # The superseded-wording header and M-S1A-P1's unblocks cell are BUILT
     # (superseded_dockets(), D65_SEATED_IDS), not typed: the source is read,
     # since a typed copy true today would go stale silently at DOCKET 68.

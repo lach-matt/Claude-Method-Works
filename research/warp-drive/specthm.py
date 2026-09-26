@@ -1494,8 +1494,7 @@ def requirements(F):
             "session, witnessed by the lead); the paper's other marked edit on "
             "M's ruling is DOCKET 63's (paper/CLAIMS.md:%s), and no verdict here "
             "moves on it.  M ruled the ruling id into the paper's clause "
-            "(M-D65-5, on the board: %s; M: '%s'), so both markers the paper "
-            "carries from this board name a ruling."
+            "(M-D65-5, on the board: %s; M: '%s'); on the board, %s."
             % (massform.M_MECHANISM, massform.MECHANISM_VERDICT[0],
                massform.mechanism_label(), priced65(), massform.ANOMALY_ROUTE_PRICED,
                massform.COLLIDER_RATE_STATUS,
@@ -1518,7 +1517,7 @@ def requirements(F):
                d67_clauses()[0], d67_clauses()[1], d67_clauses()[2],
                ruled("M-D65-4"), ledger.M_D65_4_ANSWER, ledger.M_PAPER_RULE_WORDS,
                ledger.paper_d63_marker()[0],
-               ruled("M-D65-5"), ledger.M_D65_5_ANSWER)},
+               ruled("M-D65-5"), ledger.M_D65_5_ANSWER, ledger.paper_markers_clause())},
     ]
 
 
@@ -1745,6 +1744,9 @@ def facts_outside():
     d7_fhr, d7_fhr_id = _owner_words(
         bounds.__doc__, r"(Ford-Helfer-Roman) prove nothing about null smearing; their "
         r"own text flags the companion result, verbatim, (gr-qc/0208045)", "bounds.py")
+    d7_corr, d7_null = _owner_words(
+        bounds.__doc__, r"\*\*(CORRECTED -- DOCKET 55)\.\*\* What stood here was .{0,200}? "
+        r"(THE NULL HALF IS FALSE), AND FALSE IN THE OPPOSITE DIRECTION", "bounds.py")
     sr2_demand = _owner_words(spec.__doc__, r"demanding that the device (BEAT LIGHT)",
                               "spec.py")
     return {
@@ -1757,10 +1759,10 @@ def facts_outside():
                       "Reissner-Nordstrom's own m(R), this board's arithmetic"
                       % (d4_thm, d4_route, d4_two)),
         "D7": (True, "RESTS on Fewster %s %s, %s (bounds.py) -- the duration QEI itself; "
-                     "bounds.py also records, beside it, %s %s (%s) and %s %s (its "
-                     "null-smearing clause, DOCKET 55)"
+                     "bounds.py also records, beside it, %s %s (%s) and %s %s (under "
+                     "bounds.py's own '%s' of its own null half: '%s')"
                      % (d7_id, d7_eq, d7_read, d7_fr, d7_fr_id, d7_fr_read, d7_fhr,
-                        d7_fhr_id)),
+                        d7_fhr_id, d7_corr, d7_null)),
         "D14": (False, "prior art only -- certify.PRIOR_ART '%s', %s (certify.py); %s "
                        "(ledger D14), this board's own"
                        % (certify.PRIOR_ART, d14_why, d14_chk)),
@@ -2572,67 +2574,139 @@ def facts_resting_on_outside():
 
 
 #: An outside result named in an escape's own text: an arXiv id with the name
-#: before it, or a name carrying the owner's READ / CITED / NOT-RUN word.  A
-#: status word is the OWNER'S provenance word for that result, taken only
-#: from the owner's sentence AFTER the id or from a parenthetical qualifying
-#: the name -- never from the clause before a colon (O6's 'is REFUTED: Kabat
-#: & Nomura ...' grades the row's own cause of death, not the paper), and
-#: never REFUTED, which is an audit grade, not a provenance word; 'NAMED-NOT-
-#: READ' and 'not READ' are not READ.
+#: before it, or a name carrying the owner's READ / CITED word.  The name is
+#: the OWNER'S: where the id sits inside a parenthesis, the owner's own
+#: parenthetical from its opening '(' up to the id (D24's 'Nucleation READ
+#: (Pisana, Shoshany, Antoniou, Kauffman & Lambropoulou, arXiv:2505.02210
+#: v4, ...)' -- an author run that crosses ', '); otherwise the capitalised-
+#: name chain before the id, which crosses ', ' too.  A status word is the
+#: OWNER'S provenance word for that result, taken only from the owner's
+#: sentence AFTER the id (with the qualifier that follows it, 'NOT-RUN in
+#: create.py') or from a parenthetical qualifying the name -- never from the
+#: clause before a colon (O6's 'is REFUTED: Kabat & Nomura ...' grades the
+#: row's own cause of death, not the paper), and never REFUTED, which is an
+#: audit grade, not a provenance word; 'NAMED-NOT-READ' and 'not READ' are
+#: not READ.  Items sharing an id are merged into one carrying every owner
+#: word, so no paper stands on the floor twice.
 _OUTSIDE_ID = re.compile(r"(?:arXiv:)?(gr-qc/\d{7}|\d{4}\.\d{4,5})")
+_OUTSIDE_NAME_RUN = r"(?:[A-Z][A-Za-z]*|&)(?:(?:[-&' ]+|, )(?:[A-Z][A-Za-z]*|&))*"
 _OUTSIDE_NAMED = re.compile(
-    r"(?<![A-Za-z:])((?:[A-Z][A-Za-z]+(?:[-&' ]+(?:[A-Z][A-Za-z]+|&))*)[^.;():]{0,25}?"
+    r"(?<![A-Za-z:])((?:" + _OUTSIDE_NAME_RUN + r")[^.;():]{0,25}?"
     r"(?:arXiv:)?(?:gr-qc/\d{7}|\d{4}\.\d{4,5}))")
 _OUTSIDE_STATUS = (r"(?<!NOT-)(?<!not )\b(READ at source|read at source|READ by the pass|"
-                   r"read via alphaXiv|READ|CITED|NOT-RUN)\b")
+                   r"read via alphaXiv|READ|CITED|NOT-RUN(?: in [a-z0-9_]+\.py)?)\b")
 _OUTSIDE_WORD = re.compile(
     r"\(((?:[A-Z][A-Za-z]+(?:[-&' ]+[A-Z][A-Za-z]+)*, (?:READ|CITED)[^()]*)|READ|CITED)\)")
 
 
-def outside_results_in(blob):
-    """[text] the outside results one escape's text names, by the rule above:
-    each arXiv id with the name before it and the owner's status word after
-    it in the same sentence, and each parenthetical carrying READ / CITED."""
+def _enclosing_paren(blob, start, end):
+    """(opener index, closer index) of the innermost parenthesis enclosing
+    blob[start:end], looking at most 200 characters each way, or None."""
+    depth, opener = 0, None
+    for k in range(start - 1, max(-1, start - 201), -1):
+        if blob[k] == ")":
+            depth += 1
+        elif blob[k] == "(":
+            if depth == 0:
+                opener = k
+                break
+            depth -= 1
+    if opener is None:
+        return None
+    depth = 0
+    for k in range(end, min(len(blob), end + 200)):
+        if blob[k] == "(":
+            depth += 1
+        elif blob[k] == ")":
+            if depth == 0:
+                return opener, k
+            depth -= 1
+    return None
+
+
+def _outside_items(blob):
+    """[(key, name, [status words])] the outside results one escape's text
+    names, by the rule above; key is the id where there is one, else the
+    parenthetical item itself."""
     blob = " ".join(blob.split())
-    found = []
+    items = []
+    prev_end = -1
     for m in _OUTSIDE_ID.finditer(blob):
-        window = blob[max(0, m.start() - 60):m.end()]
-        named = [n for n in _OUTSIDE_NAMED.finditer(window) if n.end() == len(window)]
-        item = named[0].group(1) if named else m.group(0)
+        item = None
+        paren = _enclosing_paren(blob, m.start(), m.end())
+        if paren:
+            # the owner's own parenthetical up to the id, after any earlier id
+            # inside the same parenthesis (H_M0's '(Fewster-Osterbrink
+            # 0708.2450, FFKP 2309.10848, ...)' names Fewster-Osterbrink and
+            # FFKP, each its own item -- pinned by a ctl in the selftest)
+            seg_start = max(paren[0] + 1, prev_end if prev_end > paren[0] else -1)
+            seg = blob[seg_start:m.start()].lstrip(",; ")
+            if seg == "" or re.fullmatch(_OUTSIDE_NAME_RUN + r",? ?", seg):
+                item = seg + m.group(0)
+        if item is None:
+            window = blob[max(0, m.start() - 60):m.end()]
+            named = [n for n in _OUTSIDE_NAMED.finditer(window) if n.end() == len(window)]
+            item = named[0].group(1) if named else m.group(0)
+        prev_end = m.end()
         # the owner's status word: after the id, within the same sentence
         tail = re.split(r"\.\s+(?=[A-Z])", blob[m.end():m.end() + 120])[0]
         word = re.search(_OUTSIDE_STATUS, tail)
-        if word:
-            item += " (%s)" % word.group(1)
-        if item not in found:
-            found.append(item)
+        items.append((m.group(1), item, [word.group(1)] if word else []))
     for m in _OUTSIDE_WORD.finditer(blob):
         item = m.group(1)
         if item in ("READ", "CITED"):
             # a bare status word: carry the clause it qualifies
             item = blob[:m.start()].rstrip().rsplit(".", 1)[-1].strip()[-60:] + " (%s)" % item
-        if item not in found:
-            found.append(item)
-    return found
+        items.append((item, item, []))
+    return items
+
+
+def _merge_outside(items):
+    """[text] the items merged by key: one entry per id, its name the longest
+    the owners give it, its parenthetical every owner word in order."""
+    merged = {}
+    order = []
+    for key, name, words in items:
+        if key not in merged:
+            merged[key] = [name, []]
+            order.append(key)
+        elif len(name) > len(merged[key][0]):
+            merged[key][0] = name
+        for w in words:
+            if w not in merged[key][1]:
+                merged[key][1].append(w)
+    out = []
+    for key in order:
+        name, words = merged[key]
+        out.append(name + (" (%s)" % "; ".join(words) if words else ""))
+    return out
+
+
+def outside_results_in(blob):
+    """[text] the outside results one escape's text names, by the rule above:
+    each arXiv id with the owner's name before it and the owner's status word
+    after it in the same sentence, and each parenthetical carrying READ /
+    CITED; items sharing an id merged."""
+    return _merge_outside(_outside_items(blob))
 
 
 def escapes_outside_results(model=None):
     """[text] A FLOOR: the outside results the escapes name with an arXiv id
-    or a READ / CITED / NOT-RUN word, regexed from the escapes' own texts and
-    routes (outside_results_in() over escape_texts(), the OPEN rows' texts
+    (carrying the owner's status word where one follows it in the sentence)
+    or a parenthesised READ / CITED, regexed from the escapes' own texts and
+    routes (_outside_items() over escape_texts(), the OPEN rows' texts
     untruncated -- escape_texts() cuts them to 200 characters for display,
-    which hid O6's '(READ by the pass)'); asked, never typed, printed in
-    DOCKET 67's record and SR5 under a label that says it is a floor.  The
-    escapes' texts name more (Fewster-Teo, Tipler, Tye-Wong, Bezrukov et al.,
-    ...): DOCKET 67's own extraction is the census, not this regex."""
-    found = []
+    which hid O6's '(READ by the pass)'), items sharing an id merged across
+    the escapes; asked, never typed, printed in DOCKET 67's record and SR5
+    under a label that says it is a floor.  The escapes' texts name more
+    (Fewster-Teo, Tipler, Tye-Wong, Bezrukov et al., ...): DOCKET 67's own
+    extraction is the census, not this regex."""
+    items = []
     for hyp, text, route in escape_texts(model)[0]:
         if hyp.startswith("OPEN "):
             text = str(row(hyp[5:])[1])
-        for item in outside_results_in(text + " " + route):
-            if item not in found:
-                found.append(item)
-    return found
+        items.extend(_outside_items(text + " " + route))
+    return _merge_outside(items)
 
 
 def escapes_outside_clause(model=None):
@@ -2642,8 +2716,9 @@ def escapes_outside_clause(model=None):
 #: The label the floor is printed under, in DOCKET 67's record and SR5: it
 #: says what the regex reaches and that the escapes' texts name more.
 ESCAPES_OUTSIDE_LABEL_T = ("A FLOOR, the outside results the escapes name with an arXiv "
-                           "id or a READ / CITED / NOT-RUN word (the escapes' texts name "
-                           "more; DOCKET 67's own extraction is the census): %s")
+                           "id (carrying the owner's status word where one follows it in "
+                           "the sentence) or a parenthesised READ / CITED (the escapes' "
+                           "texts name more; DOCKET 67's own extraction is the census): %s")
 
 
 def d67_clauses():
@@ -4111,18 +4186,68 @@ def selftest():
          outside_results_in("Author gr-qc/9304008 (READ by the pass)")),
         (["Author arXiv:0000.00000"], ["Kuo & Ford gr-qc/9304008"],
          ["Author gr-qc/9304008"], ["Author gr-qc/9304008 (READ by the pass)"]))
+    # The name beside an id is the OWNER'S: the arXiv:2505.02210 item that
+    # carries D24's 'read via alphaXiv' starts with the author run regexed
+    # from D24's own parenthetical; the items the earlier rule got right are
+    # unchanged; no id stands on the floor twice.
+    _d24_run = _owner_words(row("D24")[1], r"Nucleation READ \((.+?), arXiv:2505\.02210",
+                            "ledger D24")
+    _d24_items = [x for x in _eor if "arXiv:2505.02210" in x and "read via alphaXiv" in x]
+    _d24_route_word = _owner_words(row("D24")[2], r"arXiv:2505\.02210, Morse theory and "
+                                   r"0-surgery, (NOT-RUN in create\.py)\)", "ledger D24")
+    _ids_on_floor = [_OUTSIDE_ID.search(x).group(1) for x in _eor if _OUTSIDE_ID.search(x)]
+    chk("ask", "the arXiv:2505.02210 item carrying D24's 'read via alphaXiv' starts "
+        "with the author run regexed from D24's own parenthetical ('%s'); it "
+        "carries the route's own qualified word ('%s') in the same parenthetical, "
+        "so the paper stands on the floor once; the Fewster & Smith and Kabat & "
+        "Nomura items are as before; no id appears twice on the floor" % (
+            _d24_run, _d24_route_word),
+        (len(_d24_items), _d24_items and _d24_items[0].startswith(_d24_run + ", "),
+         _d24_items and _d24_items[0].endswith("(read via alphaXiv; %s)" % _d24_route_word),
+         [x for x in _eor if "arXiv:2505.02210" in x] == _d24_items,
+         "Fewster & Smith, absolute QEI, gr-qc/0702056 (READ at source)" in _eor,
+         "Kabat & Nomura arXiv:2309.05759 (READ by the pass)" in _eor,
+         [i for i in _ids_on_floor if _ids_on_floor.count(i) > 1]),
+        (1, True, True, True, True, True, []))
+    chk("ctl", "the two-name form as it stood ('Kauffman & Lambropoulou, "
+        "arXiv:2505.02210 (read via alphaXiv)') fails the author-run check; a "
+        "synthetic 'A, B & C arXiv:0000.00000' yields 'A, B & C arXiv:0000.00000'; "
+        "'(A, B, C & D, arXiv:0000.00000, CITED)' yields the run with the owner's "
+        "word; the two D24 sentences scanned apart yield two items for one id and "
+        "merged yield one",
+        ("Kauffman & Lambropoulou, arXiv:2505.02210 (read via alphaXiv)"
+         .startswith(_d24_run + ", "),
+         outside_results_in("A, B & C arXiv:0000.00000"),
+         outside_results_in("(A, B, C & D, arXiv:0000.00000, CITED)"),
+         len([x for x in outside_results_in(str(row("D24")[1]))
+              + outside_results_in(str(row("D24")[2])) if "arXiv:2505.02210" in x]),
+         len([x for x in outside_results_in(str(row("D24")[1]) + " " + str(row("D24")[2]))
+              if "arXiv:2505.02210" in x])),
+        (False, ["A, B & C arXiv:0000.00000"], ["A, B, C & D, arXiv:0000.00000 (CITED)"],
+         2, 1))
+    chk("ctl", "an owner's parenthetical naming two ids in a row (H_M0's route: "
+        "Fewster-Osterbrink 0708.2450, FFKP 2309.10848) yields one item per id, "
+        "each under its own name; a third id typed into it appears as a third item",
+        (outside_results_in("(Fewster-Osterbrink 0708.2450, FFKP 2309.10848, as "
+                            "qeihps.py reads them)"),
+         len(outside_results_in("(Fewster-Osterbrink 0708.2450, FFKP 2309.10848, "
+                                "Planted 0000.00001, as qeihps.py reads them)"))),
+        (["Fewster-Osterbrink 0708.2450", "FFKP 2309.10848"], 3))
     # The list is printed as a FLOOR, under a label in the method's own words
     # that says what the regex reaches; the escapes' texts name more.
-    chk("chk", "the escapes' list is labelled a FLOOR at both sites (DOCKET 67's "
-        "record and SR5), naming what the regex reaches (an arXiv id or a READ / "
-        "CITED / NOT-RUN word) and that the escapes' texts name more; names the "
+    chk("chk", "the escapes' list is labelled a FLOOR at the record and at SR5, "
+        "naming what the regex reaches (an arXiv id, carrying the owner's status "
+        "word where one follows it in the sentence, or a parenthesised READ / "
+        "CITED) and that the escapes' texts name more; names the "
         "texts carry without an id (Fewster-Teo, Tye-Wong, Tipler) are not on it",
-        ("and, A FLOOR, the outside results the escapes name with an arXiv id or a "
-         "READ / CITED / NOT-RUN word (the escapes' texts name more; DOCKET 67's "
-         "own extraction is the census): " in d67,
-         "and, A FLOOR, the outside results the escapes name with an arXiv id or a "
-         "READ / CITED / NOT-RUN word (the escapes' texts name more; DOCKET 67's "
-         "own extraction is the census): " in sr5["statement"],
+        ("and, A FLOOR, the outside results the escapes name with an arXiv id "
+         "(carrying the owner's status word where one follows it in the sentence) "
+         "or a parenthesised READ / CITED (the escapes' texts name more; DOCKET "
+         "67's own extraction is the census): " in d67,
+         "and, A FLOOR, the outside results the escapes name with an arXiv id "
+         "(carrying the owner's status word where one follows it in the sentence) "
+         "or a parenthesised READ / CITED (the escapes' texts name more; DOCKET "
+         "67's own extraction is the census): " in sr5["statement"],
          [n for n in ("Fewster-Teo", "Tye-Wong", "Tipler")
           if any(n in t + " " + r for _h, t, r in escape_texts()[0])],
          [n for n in ("Fewster-Teo", "Tye-Wong", "Tipler") if any(n in x for x in _eor)]),
@@ -4169,11 +4294,15 @@ def selftest():
         "gr-qc/0208045), regexed from bounds.py; SR2's paraphrase drops the DEMAND "
         "(the device 'BEAT LIGHT'), not the theorems",
         ("Fewster & Roman gr-qc/0209036 (read at source this pass) and "
-         "Ford-Helfer-Roman gr-qc/0208045" in _fo["D7"][1],
+         "Ford-Helfer-Roman gr-qc/0208045 (under bounds.py's own 'CORRECTED -- "
+         "DOCKET 55' of its own null half: 'THE NULL HALF IS FALSE')" in _fo["D7"][1],
+         "CORRECTED -- DOCKET 55" in " ".join(bounds.__doc__.split()),
+         "THE NULL HALF IS FALSE" in " ".join(bounds.__doc__.split()),
+         "its null-smearing clause" in _fo["D7"][1],
          "as the theorems about that demand -- that the device 'BEAT LIGHT' -- "
          "which M's scope drops ('M's scope drops it')" in _fo["SR2"][1],
          "as the theorems 'M's scope drops it'" in _fo["SR2"][1]),
-        (True, True, False))
+        (True, True, True, False, True, False))
     chk("ctl", "the regex-only derivation as it stood (READ|CITED over the held-by "
         "labels) lists two and drops D7; planted as the clause, it fails the "
         "equality -- and a fact's outside result dropped from the record fails it",
@@ -4220,20 +4349,39 @@ def selftest():
          "paper (\"%s\", verbatim from the session, witnessed by the lead); the "
          "paper's other marked edit on M's ruling is DOCKET 63's (paper/CLAIMS.md:"
          "%s), and no verdict here moves on it.  M ruled the ruling id into the "
-         "paper's clause (M-D65-5, on the board: %s; M: '%s'), so both markers the "
-         "paper carries from this board name a ruling."
+         "paper's clause (M-D65-5, on the board: %s; M: '%s'); on the board, %s."
          % (ruled("M-D65-4"), ledger.M_D65_4_ANSWER, ledger.M_PAPER_RULE_WORDS,
-            ledger.paper_d63_marker()[0], ruled("M-D65-5"), ledger.M_D65_5_ANSWER)
+            ledger.paper_d63_marker()[0], ruled("M-D65-5"), ledger.M_D65_5_ANSWER,
+            ledger.paper_markers_clause())
          in sr5["statement"],
          ruled("M-D65-4"), ruled("M-D65-5"),
          "M-D65-5 %s" % st("M-D65-5") in sr5["status"],
-         bool(re.search(r"\b(the one|the second|two) (paper |marked )?edits?\b",
-                        sr5["statement"])),
+         # the paper's markers are asked of ledger (paper_docket_markers()),
+         # printed in SR5 as the paper carries them, never counted here
+         ledger.paper_docket_markers_clause() in sr5["statement"],
+         "DOCKET 65 at %d (a ruling named)" % ledger.PAPER_CAVEAT_B_LINE
+         in sr5["statement"],
+         # the count vocabulary is ledger's (COUNT_RE), imported, not copied
+         bool(ledger.COUNT_RE.search(sr5["statement"])),
          _old_clause[16:] in sr5["statement"],
          # the withdrawn word stands nowhere in this file's source (the control
          # below assembles it from pieces)
          "finalis" + "ed it" in open(__file__, encoding="utf-8").read()),
-        (True, True, False, False, True, True, True, True, False, False, False))
+        (True, True, False, False, True, True, True, True, True, True, False, False,
+         False))
+    chk("ctl", "'both markers the paper carries from this board name a ruling' "
+        "planted for SR5's asked clause is found by the count regex and fails the "
+        "pinned statement",
+        (bool(ledger.COUNT_RE.search(
+                        sr5["statement"].replace(
+                            "; on the board, " + ledger.paper_markers_clause() + ".",
+                            ", so both markers the paper carries from this board "
+                            "name a ruling."))),
+         "; on the board, " + ledger.paper_markers_clause() + "."
+         in sr5["statement"].replace(
+             "; on the board, " + ledger.paper_markers_clause() + ".",
+             ", so both markers the paper carries from this board name a ruling.")),
+        (True, False))
     chk("ctl", "the statement as it stood ('nothing here rests on it'), planted, "
         "fails the check above",
         "nothing here rests on it" not in sr5["statement"].replace(
