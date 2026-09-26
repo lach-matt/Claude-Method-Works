@@ -259,8 +259,11 @@ a paper edit on M's ruling under M's rule for the paper (M_PAPER_RULE_WORDS,
 M's words verbatim from the session, witnessed by the lead; the tree holds no
 copy to check them against); the paper's other marked edit on M's ruling is
 DOCKET 63's, at the marker paper_d63_marker() READs back from paper/CLAIMS.md
-(PAPER_D63_MARKER_LINE) -- the paper's edits are not counted here, the two
-markers are named and the reader counts.  Nothing from
+(PAPER_D63_MARKER_LINE) -- the paper's edits are not counted here, the
+markers are named and the reader counts.  M's ruling on the ruling id in the
+paper's clause is M-D65-5: added (M_D65_5_ANSWER), so both markers the paper
+carries from this board name a ruling; paper_caveat_b_faults() READs the
+clause back.  Nothing from
 DOCKET 65 is pending M.
 """
 
@@ -834,13 +837,17 @@ M_D65_3_RULING_T = ("RULED BY M: OPEN IT -- M's answer: '%s'.  M's words, "
 #: (fluctuation_discrepancies()), the divergences massform.py records are the
 #: sentences under its own heading (massform_divergences()), the nouns are
 #: regexed from the owners ('discrepancies', 'refuted', 'typographical',
-#: 'divergences'), and the '2 of' figures are len() of the tuples naming the
-#: items the cell details.  The framing is SCOPED to what the cell cites, not
+#: 'divergences'), and the 'N of' numerators are len() of the tuples naming
+#: the items the cell details -- tuples TIED to the cell by the selftest:
+#: every fluct member is printed as 'fluctuation.<flag> = ' and no other KF_
+#: flag is (the balancing-verdict flag excepted), and every mass label is a
+#: substring of the cell naming exactly one sentence under massform's heading
+#: by its subject.  The framing is SCOPED to what the cell cites, not
 #: a project-wide total (hpscentre.py counts three disagreements of its own).
 #: Precedent: hpscentre.py withdrew a typed 'two misprints and two errors'
 #: for its asked 'three disagreements'.
 M_D65_3_WHY_ITEMS_FLUCT = ("KF_CLAIM_NEGATIVE_MEANS_DELTA_GT_1", "KF_341_HALF_IS_TYPOGRAPHICAL")
-M_D65_3_WHY_ITEMS_MASS = ("RS96 eq. (2.8)", "Tye-Wong p.2 pairing")
+M_D65_3_WHY_ITEMS_MASS = ("Rubakov-Shaposhnikov's eq. (2.8)", "Tye-Wong's p.2 pairing")
 M_D65_3_WHY_T = (
     'M\'s words, verbatim: "%s" (verbatim from the session, witnessed by the '
     "lead; the tree holds no copy to check them against).  Of what this project "
@@ -874,7 +881,7 @@ M_D65_4_QUESTION = ("The paper's caveat (b) states the Higgs vacuum's uniformity
 M_D65_4_ANSWER = "Yes, qualify it (Recommended)"
 PAPER_CAVEAT_B_LINE = 7228
 PAPER_CAVEAT_B_CLAUSE = ("on P-UNIFORM, a named premise (`massform.P_UNIFORM_STATUS`; "
-                         "DOCKET 65)")
+                         "DOCKET 65, ruling M-D65-4)")
 PAPER_CAVEAT_B_HEAD = "- **(b) It is uniform where nothing sources it**"
 #: M's RULE FOR THE PAPER, M's words verbatim.  PROVENANCE: verbatim from the
 #: session, witnessed by the lead; the tree holds no copy to check them
@@ -882,8 +889,12 @@ PAPER_CAVEAT_B_HEAD = "- **(b) It is uniform where nothing sources it**"
 #: 2026-09-24, applied on M's ruling under this same rule), which the paper
 #: marks at PAPER_D63_MARKER_LINE -- the tree witnesses that marker by READING
 #: it (paper_d63_marker()), so the DOCKET 65 edit is not the paper's only
-#: edit on M's ruling: the paper carries two marked edits on M's ruling, and
-#: this file names both and counts neither.
+#: edit on M's ruling: the paper marks both edits it carries from this board
+#: (DOCKET 65's at PAPER_CAVEAT_B_LINE, DOCKET 63's at PAPER_D63_MARKER_LINE);
+#: this file names both and counts neither.  Since M-D65-5 put the ruling id
+#: into the paper's clause, M_D65_4_RULING_T's "the paper's other marked edit
+#: on M's ruling is DOCKET 63's" is literally true of the paper: both markers
+#: name a ruling.
 M_PAPER_RULE_WORDS = ("the paper is finalized and in the website now. No further "
                       "edit will be made to it unless a finding changes any of the "
                       "already existing paper")
@@ -911,6 +922,26 @@ M_D65_4_WHY_T = ("The completeness lens's finding: paper/CLAIMS.md:%d caveat (b)
                  "seats it as P-UNIFORM (massform.P_UNIFORM_STATUS = %s).  The "
                  "question and M's answer are verbatim from the session, witnessed "
                  "by the lead; the tree holds no copy to check them against")
+#: M-D65-5: the ruling id in the paper's clause.  The question exactly as the
+#: lead put it to M and M's answer verbatim -- both verbatim from the session,
+#: witnessed by the lead; the tree holds no copy to check them against.
+M_D65_5_QUESTION = ("One item is yours, not the board's: the paper's new clause at "
+                    "CLAIMS.md:7228 names \"DOCKET 65\" but not the ruling id "
+                    "M-D65-4, unlike the DOCKET 63 marker at line 7233. Leaving it "
+                    "as you ruled unless you want the id added.")
+M_D65_5_ANSWER = "add the id"
+M_D65_5_WHY = ("the lenses' finding of rounds 6-7: the paper marked DOCKET 65's "
+               "edit by docket only, so the paper itself did not say the edit was "
+               "ruled -- that record lived in ledger.py, LEDGER.md and higgs.py")
+#: M-D65-5's ruling cell, a TEMPLATE over (M's answer, the caveat line and
+#: clause, the caveat line again, the DOCKET 63 marker's lines READ back):
+#: the selftest checks the seated cell EQUALS it, so no verdict can be typed
+#: beside it.
+M_D65_5_RULING_T = ("RULED BY M: ADD THE ID -- M's answer: '%s'.  APPLIED: "
+                    "paper/CLAIMS.md:%d's clause now reads \"%s\" (READ back by "
+                    "paper_caveat_b_faults()); both markers the paper carries from "
+                    "this board now name a ruling (M-D65-4 at %d; 'on M's ruling', "
+                    "DOCKET 63 at %s)")
 #: M-D65-2's question exactly as it was put to M, and M's answer verbatim.
 M_D65_2_QUESTION = ("The finite Higgs share (how much of atomic mass the Higgs "
                     "gives with the field switched off entirely): keep it as its "
@@ -957,10 +988,11 @@ def m_d65_3_why():
     """M-D65-3's `why` cell, built from the owners' own records: the counts
     and nouns of the lead-in (fluctuation_discrepancies(),
     massform_divergences(), the owners' own words by regex), the preprint
-    version fluctuation.py checked and its clause on the journal version, its
-    two KF flags; massform.py's own heading and the two divergences the cell
-    details, with Tye-Wong's p.7 pairing printed beside the p.2 one; and
-    fluctuation.py's balancing verdict, asked of its flags."""
+    version fluctuation.py checked and its clause on the journal version, the
+    KF flags the cell details; massform.py's own heading and the divergences
+    the cell details (the items M_D65_3_WHY_ITEMS_FLUCT / _MASS name, each
+    guarded present in the cell), with Tye-Wong's p.7 pairing printed beside
+    the p.2 one; and fluctuation.py's balancing verdict, asked of its flags."""
     n_fluct, n_not_exact = fluctuation_discrepancies()
     n_mass = len(massform_divergences())
     with open(fluctuation.__file__, encoding="utf-8") as fh:
@@ -1081,6 +1113,19 @@ def m_d65_4_why():
     """M-D65-4's `why` cell, M_D65_4_WHY_T filled from the caveat's line and
     massform's asked status."""
     return M_D65_4_WHY_T % (PAPER_CAVEAT_B_LINE, massform.P_UNIFORM_STATUS)
+
+
+def m_d65_5_ruling():
+    """M-D65-5's ruling cell: M_D65_5_RULING_T filled from M's answer, the
+    caveat's line and clause (READ back by paper_caveat_b_faults()) and the
+    DOCKET 63 marker's lines READ back from the paper."""
+    try:
+        span = paper_d63_marker()[0]
+    except ValueError as e:
+        # The board still imports; the selftest goes red on paper_d63_faults().
+        span = "%d (MARKER NOT FOUND -- %s)" % (PAPER_D63_MARKER_LINE, e)
+    return M_D65_5_RULING_T % (M_D65_5_ANSWER, PAPER_CAVEAT_B_LINE, PAPER_CAVEAT_B_CLAUSE,
+                               PAPER_CAVEAT_B_LINE, span)
 
 
 def paper_caveat_b_line(path=None):
@@ -1269,7 +1314,8 @@ RULED_BY_M = [
     # massform.py themselves record -- the discrepancies fluctuation.py
     # records against a preprint version, COUNTED from its KF flags, and the
     # divergences massform.py records under its own heading, COUNTED from its
-    # sentences; the cell details two of each -- every figure and count ASKED,
+    # sentences; the cell details the items M_D65_3_WHY_ITEMS_FLUCT / _MASS
+    # name, each guarded present in the cell -- every figure and count ASKED,
     # never retyped, and fluctuation's balancing verdict (its conclusion
     # SURVIVES, no ledger row moves) asked beside them; the ruling cell is
     # M_D65_3_RULING_T filled from the constants.
@@ -1289,12 +1335,26 @@ RULED_BY_M = [
     # status; the ruling cell is m_d65_4_ruling() -- M_D65_4_RULING_T filled
     # from the constants, M's rule for the paper (M_PAPER_RULE_WORDS) and the
     # DOCKET 63 marker READ back from the paper (paper_d63_marker()), so the
-    # paper's two marked edits on M's ruling are named and neither is counted;
+    # paper's marked edits on M's ruling are named and neither is counted;
     # unblocks is M_D65_4_UNBLOCKS_T filled from M's rule for the paper.
     ("M-D65-4",
      M_D65_4_QUESTION,
      m_d65_4_why(),
      m_d65_4_ruling(),
+     M_D65_4_UNBLOCKS_T % M_PAPER_RULE_WORDS),
+
+    # M's fifth ruling at DOCKET 65's seating: the ruling id in the paper's
+    # clause.  The lead put M_D65_5_QUESTION to M and M answered
+    # M_D65_5_ANSWER (both verbatim from the session, witnessed by the lead);
+    # the paper's clause now carries the id (PAPER_CAVEAT_B_CLAUSE, READ back
+    # by paper_caveat_b_faults()); `why` is M_D65_5_WHY, the lenses' finding;
+    # the ruling cell is m_d65_5_ruling() -- M_D65_5_RULING_T filled from the
+    # constants and the DOCKET 63 marker's lines READ back; unblocks is
+    # M_D65_4_UNBLOCKS_T filled from M's rule for the paper, which stands.
+    ("M-D65-5",
+     M_D65_5_QUESTION,
+     M_D65_5_WHY,
+     m_d65_5_ruling(),
      M_D65_4_UNBLOCKS_T % M_PAPER_RULE_WORDS),
 ]
 
@@ -2799,8 +2859,8 @@ def selftest():
          phase1.is_transition(False, True, True, True, True, passage_flux=True),
          formation.PHASE1_D4_POINTWISE_DURING_PASSAGE),
         (["M-D64-1", "M-S1A-P1", "M-S1A-P2", "M-S1A-P3", "M-S1A-P4",
-          "M-S1A-P5", "M-D65-1", "M-D65-2", "M-D65-3", "M-D65-4"], [], True,
-         False, False, True, False))
+          "M-S1A-P5", "M-D65-1", "M-D65-2", "M-D65-3", "M-D65-4", "M-D65-5"], [],
+         True, False, False, True, False))
 
     print("\n3. THE EXCHANGE RATE, RE-DERIVED FROM ASKED CONSTANTS")
     chk("Lambda is overturn.py's", LAMBDA, overturn.LAMBDA)
@@ -3331,12 +3391,18 @@ def selftest():
                           r"fails|expected to|is not exotic|no negative)\b")
     chk("  no template carries a verdict word in the board's own words "
         "(either direction) -- STANDS / NARROWED / WRONG enter only inside M's "
-        "asked question; M-D65-4's ruling and `why` templates are scanned too",
+        "asked question; M-D65-4's ruling and `why` templates and M-D65-5's "
+        "ruling template are scanned too",
         (_verdict.findall(M_D65_3_RULING_T), _verdict.findall(M_D65_3_WHY_T),
          _verdict.findall(M_D65_4_RULING_T), _verdict.findall(M_D65_4_WHY_T),
-         _verdict.findall(M_D65_4_UNBLOCKS_T)), ([], [], [], [], []))
+         _verdict.findall(M_D65_4_UNBLOCKS_T), _verdict.findall(M_D65_5_RULING_T)),
+        ([], [], [], [], [], []))
     _nf, _nne = fluctuation_discrepancies()
     _nm = len(massform_divergences())
+    # The 'second regex' in the COUNTS check below (a full stop followed by
+    # whitespace, over the same paragraph) is the SAME splitting rule as
+    # massform_divergences(): an arithmetic check of the split, not an
+    # independent count of the owner's sentences.
     chk("  the characterisation in `why` is the owners': fluctuation's preprint "
         "version and its journal clause, massform's own heading, the p.7 "
         "pairing beside the p.2 one -- and 'published errors' is nowhere",
@@ -3376,6 +3442,43 @@ def selftest():
          "refutation" in _d67[0][2], "refutation" in M_D65_3_WHY_T,
          "What this project has already RECORDED" in _d67[0][2]),
         (True, True, True, True, True, True, True, False, False, False))
+    # The tuples naming what the cell details are TIED to the cell: every
+    # fluct member is printed as 'fluctuation.<flag> = ' and no other KF_ flag
+    # is printed (KF_QUALITATIVE_CONCLUSION_SURVIVES, the balancing verdict,
+    # excepted; LEDGER_ROW_MOVES is not a KF_ name), and every mass label is a
+    # substring of the cell that is the subject of exactly one sentence of
+    # massform_divergences() (its surnames open the sentence; a 'p.N' in the
+    # label is in it).  The '%d of' numerators are these guarded len()s.
+    def _why_items(why, fl, ms):
+        kf_in_cell = {k for k in vars(fluctuation)
+                      if k.startswith("KF_") and "fluctuation.%s" % k in why}
+        return (all("fluctuation.%s = " % k in why for k in fl),
+                kf_in_cell == set(fl) | {"KF_QUALITATIVE_CONCLUSION_SURVIVES"},
+                all(m in why for m in ms),
+                [sum(1 for s in massform_divergences()
+                     if all(n in s[:40]
+                            for n in re.findall(r"[A-Z][a-z]+", m.split("'s")[0]))
+                     and all(p in s for p in re.findall(r"p\.\d+", m)))
+                 for m in ms])
+    chk("  the tuples naming what `why` details are tied to the cell: each fluct "
+        "member printed as 'fluctuation.<flag> = ' and no other KF_ flag printed "
+        "(the balancing-verdict flag excepted); each mass label in the cell and "
+        "the subject of exactly one sentence under massform's heading -- the "
+        "'%d of' numerators are these len()s" % len(M_D65_3_WHY_ITEMS_FLUCT),
+        _why_items(_d67[0][2], M_D65_3_WHY_ITEMS_FLUCT, M_D65_3_WHY_ITEMS_MASS),
+        (True, True, True, [1] * len(M_D65_3_WHY_ITEMS_MASS)))
+    with _scratch("M_D65_3_WHY_ITEMS_FLUCT", M_D65_3_WHY_ITEMS_FLUCT + ("KF_37_IS_EXACT",)):
+        _why3 = m_d65_3_why()
+        _tied3 = _why_items(_why3, M_D65_3_WHY_ITEMS_FLUCT, M_D65_3_WHY_ITEMS_MASS)
+    chk("  CONTROL: a third KF name appended to M_D65_3_WHY_ITEMS_FLUCT prints "
+        "'%d of the %d' and is caught by the tie (not printed as "
+        "'fluctuation.<flag> = ')" % (len(M_D65_3_WHY_ITEMS_FLUCT) + 1, _nf),
+        ("%d of the %d discrepancies" % (len(M_D65_3_WHY_ITEMS_FLUCT) + 1, _nf) in _why3,
+         _tied3[0], _tied3[1]), (True, False, False))
+    chk("  CONTROL: a mass label the cell does not carry ('RS96 eq. (2.8)', the "
+        "label as it stood) is caught",
+        _why_items(_d67[0][2], M_D65_3_WHY_ITEMS_FLUCT,
+                   ("RS96 eq. (2.8)",) + M_D65_3_WHY_ITEMS_MASS[1:])[2], False)
     chk("  fluctuation's balancing verdict is in `why`, asked of its flags: the "
         "conclusion SURVIVES and no ledger row moves",
         ("Kuo & Ford's qualitative conclusion SURVIVES (fluctuation.KF_QUALITATIVE_"
@@ -3435,6 +3538,9 @@ def selftest():
     _d63faults = paper_d63_faults()
     _d63span, _d63text = (paper_d63_marker() if not _d63faults
                           else ("%d" % PAPER_D63_MARKER_LINE, "MARKER NOT FOUND"))
+    # A count of the paper's edits in the board's own words, in either of the
+    # file's vocabularies ('paper edits', 'marked edits').
+    _cnt = re.compile(r"\b(the one|the second|two) (paper |marked )?edits?\b")
     chk("M-D65-4: the paper's caveat (b) QUALIFIED on M's ruling -- the question "
         "as put to M, M's answer verbatim, the ruling cell EQUAL to its template "
         "filled from the asked pieces (M's rule for the paper, the DOCKET 63 "
@@ -3459,7 +3565,10 @@ def selftest():
          _md.count(M_PAPER_RULE_WORDS),
          _d4[0][3].count("verbatim from the session, witnessed by the lead"),
          "M_PAPER_RULE_WORDS" in __doc__),
-        (True, True, 2, 1, True))
+        # LEDGER.md prints it as often as the board's cells carry it (M-D65-4's
+        # ruling and unblocks, M-D65-5's unblocks) -- asked of RULED_BY_M.
+        (True, True, sum(" ".join(str(c).split()).count(M_PAPER_RULE_WORDS)
+                         for r in RULED_BY_M for c in r), 1, True))
     chk("  paper/CLAIMS.md:%s, READ now, carries DOCKET 63's marker with both "
         "fragments ('(Corrected on M's ruling:', 'DOCKET 63'), and the ruling "
         "cell names it by its READ lines and text -- the paper's edits on M's "
@@ -3468,9 +3577,29 @@ def selftest():
         (_d63faults, _d63span.startswith("%d" % PAPER_D63_MARKER_LINE),
          "(Corrected on M's ruling:" in _d63text, "DOCKET 63" in _d63text,
          "(paper/CLAIMS.md:%s: \"%s\")" % (_d63span, _d63text) in _d4[0][3],
-         bool(re.search(r"\b(the one|the second|two) paper edits?\b",
-                        _d4[0][3] + " " + _d4[0][4] + " " + __doc__))),
+         bool(_cnt.search(_d4[0][3] + " " + _d4[0][4] + " " + __doc__))),
         ([], True, True, True, True, False))
+    # The same count regex over this file's SOURCE from the M-D65-4 constants
+    # through RULED_BY_M, comments included: a comment that counted ('the
+    # paper carries two marked edits on M's ruling') beside 'counts neither'
+    # stood there once, unseen by a regex whose vocabulary was 'paper edits'.
+    _srcfull = open(__file__, encoding="utf-8").read()
+    _i0 = _srcfull.index("#: M-D65-4: the paper's caveat (b).")
+    _i1 = _srcfull.index("\n]\n", _srcfull.index("\nRULED_BY_M = [", _i0))
+    _region = _srcfull[_i0:_i1]
+    chk("  no count of the paper's edits stands in ledger.py's source from the "
+        "M-D65-4 constants through RULED_BY_M, comments included ('the one', "
+        "'the second', 'two' before 'paper edit(s)' / 'marked edit(s)'); the "
+        "region holds the constants and the M-D65-4 and M-D65-5 rows",
+        (_cnt.findall(_region), "M_PAPER_RULE_WORDS = (" in _region,
+         '("M-D65-4",' in _region, '("M-D65-5",' in _region),
+        ([], True, True, True))
+    chk("  CONTROL: the comment as it stood ('the paper carries two marked edits "
+        "on M's ruling, and this file names both and counts neither') planted "
+        "in that region is found",
+        _cnt.findall(_region + "\n#: the paper carries two marked edits on M's "
+                     "ruling, and this file names both and counts neither."),
+        [("two", "marked ")])
     chk("  CONTROL: the marker altered in a private copy of the paper's lines "
         "(the fragment '(Corrected on M's ruling:' dropped; 'DOCKET 63' dropped; "
         "the marker moved off line %d) is caught each way" % PAPER_D63_MARKER_LINE,
@@ -3523,6 +3652,36 @@ def selftest():
          == m_d65_4_why(),
          _d4[0][4] + "; the paper is otherwise confirmed"
          == M_D65_4_UNBLOCKS_T % M_PAPER_RULE_WORDS), (False, False, False))
+    _d5 = [r for r in RULED_BY_M if r[0] == "M-D65-5"]
+    chk("M-D65-5: the ruling id added to the paper's clause on M's ruling -- the "
+        "row placed once, the question as the lead put it and M's answer "
+        "verbatim, the ruling cell EQUAL to M_D65_5_RULING_T filled from the "
+        "constants and the DOCKET 63 marker's lines READ back, `why` the lenses' "
+        "finding, unblocks M's rule for the paper (M_D65_4_UNBLOCKS_T), printed "
+        "in LEDGER.md; paper/CLAIMS.md:%d, READ now, carries 'ruling M-D65-4' and "
+        "the docstring names M-D65-5" % PAPER_CAVEAT_B_LINE,
+        (len(_d5), _d5[0][1] == M_D65_5_QUESTION, _d5[0][2] == M_D65_5_WHY,
+         _d5[0][3] == m_d65_5_ruling(),
+         _d5[0][3] == M_D65_5_RULING_T % (M_D65_5_ANSWER, PAPER_CAVEAT_B_LINE,
+                                          PAPER_CAVEAT_B_CLAUSE, PAPER_CAVEAT_B_LINE,
+                                          _d63span),
+         "'%s'" % M_D65_5_ANSWER in _d5[0][3],
+         _d5[0][4] == M_D65_4_UNBLOCKS_T % M_PAPER_RULE_WORDS,
+         M_D65_5_QUESTION in _md, "'%s'" % M_D65_5_ANSWER in _md,
+         "ruling M-D65-4" in paper_caveat_b_line(),
+         "DOCKET 65, ruling M-D65-4)" in PAPER_CAVEAT_B_CLAUSE,
+         "M-D65-5" in __doc__),
+        (1, True, True, True, True, True, True, True, True, True, True, True))
+    _old_b = PAPER_CAVEAT_B_CLAUSE.replace(", ruling M-D65-4)", ")")
+    with _scratch("PAPER_CAVEAT_B_CLAUSE", _old_b):
+        _old_b_faults = paper_caveat_b_faults()
+    chk("  CONTROL: the clause as it stood ('...; DOCKET 65)', no ruling id) "
+        "planted in PAPER_CAVEAT_B_CLAUSE is caught by paper_caveat_b_faults() "
+        "(the paper, READ, no longer carries it), and a verdict appended to "
+        "M-D65-5's ruling cell fails the equality",
+        (_old_b_faults != [], _old_b.endswith("DOCKET 65)"), "ruling M-D65-4" in _old_b,
+         _d5[0][3] + "  The paper is otherwise confirmed." == m_d65_5_ruling()),
+        (True, True, False, False))
     # The superseded-wording header and M-S1A-P1's unblocks cell are BUILT
     # (superseded_dockets(), D65_SEATED_IDS), not typed: the source is read,
     # since a typed copy true today would go stale silently at DOCKET 68.

@@ -7225,7 +7225,7 @@ scalar because a VEV has no gradient. **And every knob turns the wrong way:** gi
   cosmological constant under `V(0) = 0`, and it exceeds the observed vacuum energy by **54.62 orders
   — which is the cosmological constant problem.** Real as a contribution; cancelled, by something nobody
   has identified, down to a number we do measure.
-- **(b) It is uniform where nothing sources it** — on P-UNIFORM, a named premise (`massform.P_UNIFORM_STATUS`; DOCKET 65). The same inside the throat as outside, and already inside
+- **(b) It is uniform where nothing sources it** — on P-UNIFORM, a named premise (`massform.P_UNIFORM_STATUS`; DOCKET 65, ruling M-D65-4). The same inside the throat as outside, and already inside
   whatever `Λ` is. It *can* be displaced in one place — but only by filling that place with a source whose
   rest energy is `4(1−ε)²/(ε(2−ε))` times the field energy it buys, about `2/ε` for a small displacement `ε`,
   and the displacement relaxes to the vacuum within `ħ/(m_h c) = 1.58×10⁻¹⁸ m` of wherever the source stops.

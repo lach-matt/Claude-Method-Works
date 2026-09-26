@@ -89,7 +89,8 @@ TWO CAVEATS, AND THEY ARE NOT SMALL.
       something nobody has identified, down to a number we do measure.
   (b) IT IS UNIFORM WHERE NOTHING SOURCES IT (P-UNIFORM, a named premise:
       massform.P_UNIFORM_STATUS).  The paper's caveat (b) (paper/CLAIMS.md,
-      H92b) was qualified the same way on M's ruling M-D65-4 (ledger.py).
+      H92b) was qualified the same way on M's ruling M-D65-4 and M-D65-5 (the
+      ruling id added to the paper's clause) (ledger.py).
       It is the same inside the throat as
       outside it, and it is already included in whatever Lambda is.
       IT CAN BE DISPLACED IN ONE PLACE ONLY BY FILLING THAT PLACE WITH A SOURCE
