@@ -129,9 +129,14 @@ must answer.  No ledger row moves on it.
 
 STATUS OF THE SOURCE.  Checked against arXiv gr-qc/9304008 v1, its PDF TEXT
 LAYER, fetched twice through the alphaXiv connector; the page image was not
-viewed.  The published version, Phys. Rev. D 47, 4510 (1993), is
-NAMED-NOT-READ -- the discrepancies above are against v1 and MUST NOT be quoted
-as errors in the journal version until it is read.
+viewed.  A third copy, the PDF M placed in the Drive folder 'Warp', read through
+the Drive connector (2026-09-27), is the same v1: its header is
+'arXiv:gr-qc/9304008v1 6 Apr 1993', 'TUTP-93-1', 'February 1993'.
+
+The published version, Phys. Rev. D 47, 4510 (1993), is COMPARED-BY-M -- this
+file has not read it; M read it beside v1 and reports them identical (M's words
+in M_JOURNAL_COMPARISON).  So the discrepancies above are against v1, and they
+carry to the journal version on M's comparison, not on this file's reading.
 
 NOTHING IS REPAIRED.  Kuo & Ford is not edited; the discrepancies are recorded.
 """
@@ -140,7 +145,14 @@ import sys
 
 SOURCE = "Kuo & Ford, 'Semiclassical gravity theory and quantum fluctuations', gr-qc/9304008 v1"
 SOURCE_READ = "arXiv v1 PDF text layer, via alphaXiv, twice"
-JOURNAL_VERSION_READ = False                # PRD 47, 4510 -- NAMED-NOT-READ
+JOURNAL_VERSION_READ = False                # PRD 47, 4510 -- not read by this file
+JOURNAL_VERSION_COMPARED_BY_M = True        # COMPARED-BY-M: M read both, reports them identical
+#: M's words, verbatim from the session, witnessed by the lead; the tree holds
+#: no copy of the journal version to check them against.
+M_JOURNAL_COMPARISON = ("I cannot retrieve the published version, however, I have "
+                        "reviewed both. Both are exactly the same. The published "
+                        "version is an exact match publish in may of 1993. The paper "
+                        "was written in February 1993")
 PAGE_IMAGE_VIEWED = False
 
 # ------------------------------------------------ KF's printed equations, as READ
@@ -337,7 +349,8 @@ def report():
     print("fluctuation.py -- Kuo & Ford re-derived exactly")
     print("=" * 79)
     print("\n  source:  %s\n           %s" % (SOURCE, SOURCE_READ))
-    print("           journal version PRD 47 4510 read: %s\n" % JOURNAL_VERSION_READ)
+    print("           journal version PRD 47 4510 read by this file: %s; compared by M: %s\n"
+          % (JOURNAL_VERSION_READ, JOURNAL_VERSION_COMPARED_BY_M))
     print("  1. THE PRINTED EQUATIONS")
     rows = [
         ("(2.16) middle line", is_zero(sp, v['mid'] - v['rho'], m['s'], m['c'])),
@@ -502,7 +515,13 @@ def selftest():
         KF_QUALITATIVE_CONCLUSION_SURVIVES, not (_gap == 0 and _rho1 < 0))
 
     # ---- refusals
-    chk("the journal version is NOT claimed read", JOURNAL_VERSION_READ, False)
+    chk("the journal version is NOT claimed read by this file", JOURNAL_VERSION_READ, False)
+    _doc = " ".join(__doc__.split())
+    chk("  it is recorded COMPARED-BY-M, in the docstring and the flag, with M's words held",
+        ("is COMPARED-BY-M -- this file has not read it" in _doc,
+         JOURNAL_VERSION_COMPARED_BY_M, "Both are exactly the same" in M_JOURNAL_COMPARISON,
+         "NAMED-NOT-READ" in _doc),
+        (True, True, True, False))
     chk("the corridor is NOT priced", PRICES_THE_CORRIDOR, False)
     chk("no ledger row moves", LEDGER_ROW_MOVES, False)
     chk("nothing is repaired", NOTHING_IS_REPAIRED, True)

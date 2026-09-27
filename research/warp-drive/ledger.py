@@ -1043,11 +1043,14 @@ def m_d65_3_why():
         fluctuation.__doc__,
         r"The published version, (Phys\. Rev\. D 47, 4510 \(1993\)), is ([A-Z-]+)",
         "fluctuation.py")
-    if (jstatus == "NAMED-NOT-READ") == bool(fluctuation.JOURNAL_VERSION_READ):
-        raise ValueError("fluctuation.py's docstring and JOURNAL_VERSION_READ disagree")
+    if jstatus != ("READ" if fluctuation.JOURNAL_VERSION_READ else
+                   "COMPARED-BY-M" if fluctuation.JOURNAL_VERSION_COMPARED_BY_M
+                   else "NAMED-NOT-READ"):
+        raise ValueError("fluctuation.py's docstring and its journal-version flags disagree")
     clause = _owner_phrase(
         fluctuation.__doc__,
-        r"(MUST NOT be quoted as errors in the journal version until it is read)",
+        r"(they carry to the journal version on M's comparison, "
+        r"not on this file's reading)",
         "fluctuation.py")
     heading = _owner_phrase(
         massform.__doc__, r"(DIVERGENCES FROM THE SOURCES, RECORDED AND NOT REPAIRED)",
@@ -3524,8 +3527,9 @@ def selftest():
         "version and its journal clause, massform's own heading, the p.7 "
         "pairing beside the p.2 one -- and 'published errors' is nowhere",
         ("against arXiv gr-qc/9304008 v1" in _d67[0][2],
-         "MUST NOT be quoted as errors in the journal version until it is read"
-         in _d67[0][2],
+         "is COMPARED-BY-M (fluctuation.JOURNAL_VERSION_READ = False), and its own "
+         "clause holds: 'they carry to the journal version on M's "
+         "comparison, not on this file's reading'" in _d67[0][2],
          "'DIVERGENCES FROM THE SOURCES, RECORDED AND NOT REPAIRED'" in _d67[0][2],
          "their p.7 pairing, 1/%g, gives 10^%.2f" % (
              massform.TW_ALPHA_INV[0],
