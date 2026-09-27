@@ -28,3 +28,6 @@ Round 2 (16:33-17:35 UTC Sep 26): stopped on the WEEKLY limit (resets Oct 2 06:0
 Collected (round2_collected.json): 412 of 431 audited, 19 missing; 12 verifier results total.
 Unverified grades: NARROWED 248, STANDS 120, OPEN 33, DATA-DEPENDENT 7, WRONG 4.
 Resume after Oct 2 06:00 UTC with the same 12 run ids (cache replays the 412 audits).
+
+Round 3 (2026-09-27, M: "Test subagents first"): a probe agent returned; shards 0-3 resumed from cache with
+their run ids (tasks wius0utlb, wfc97uyel, wqbpqhqih, weejxoxl0); shards 4-11 held until these show no limit.
