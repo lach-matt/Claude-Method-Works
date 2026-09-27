@@ -1,0 +1,95 @@
+{
+ "key": "whitehead-convex-normal-neighbourhoods",
+ "name": "Whitehead: every point of a (non-degenerate) Lorentzian manifold has a convex normal neighbourhood",
+ "source": {
+  "located": "J. H. C. Whitehead, 'Convex regions in the geometry of paths', Quart. J. Math. (Oxford) 3 (1932) 33-42. Google Drive fileId 1LY79WDjcfFwDTSwgu5Qt6DtZ8PBgVXkD (title 'convex regions in the geometry of paths.pdf'), supplied by M. Identity from the file's own pages: 'CONVEX REGIONS IN THE GEOMETRY OF PATHS By J. H. C. WHITEHEAD (Princeton) [Received 15 August 1931]'; running heads '34 J. H. C. WHITEHEAD' ... '42 J. H. C. WH1TEHEAD'; sections 1-4 end on p. 42 with the theorem. The journal title and volume are NOT printed in the text layer that was read, so 'Quart. J. Math. 3' rests on the citation plus the matching page run 33-42, title, author and 1931 receipt date.",
+  "read_status": "READ (primary, pp. 33-42 in full, OCR text via Google Drive read_file_content). Several displayed formulas are garbled (e.g. the Lipschitz inequality (2.3) reads ')-n\\*(\\*o)| \\< A £ \\\\x\\\\-x\\\\\\\\'); the symbol Gamma is rendered 'T' or 'r j t'. Where a formula is garbled the prose around it is quoted instead.",
+  "via": "mcp__Google_Drive__read_file_content(fileId=1LY79WDjcfFwDTSwgu5Qt6DtZ8PBgVXkD). Supersedes the first audit's NAMED-NOT-READ."
+ },
+ "published_statement": "READ. Aim, p. 33: 'We shall show that any non-singular point in an affine, or projective, space of paths is contained in a simple, convex region which can be made as small as we please.' Definitions: 'Such a region will be called simple, because not more than one, and convex, because at least one path joins any two points.' Theorem, p. 42: 'If U is any open region in an affine apace of paths, and if P is any point in U, there is a simple and completely convex closed region con- taining P and contained in U. Another statement of this theorem is: an affine space of paths has a set of convex regions for a fundamental set of neighbourhoods.' Corollary: 'In particular the theorem'applies to the geodesies in a Riemannian space. A Riemannian space with a positive ds2 has a set of convex spheres for a fundamental set of neighbourhoods.' The word 'normal' enters only through the classical single-point theorem Whitehead cites (p. 33): 'A classical theorem ... asserts the existence of a region Cq containing a given point q in a Riemannian space, such that any point in Gq can be joined to q by one and only one geodetic segment which does not leave Cg. A similar theorem holds for the geometry of paths, and is equivalent to the statement that a normal coordinate-system exists having q as origin.'",
+ "published_hypotheses": [
+  "W1 AN AFFINE (OR PROJECTIVE) SPACE OF PATHS, direction-independent connection (p. 34 footnote): 'This note only applies to the restricted geometry of paths as apart from more general theories in which r j t [Gamma^i_jk] depend on the direction dx.' The main theorem makes no use of a metric or its signature; only the corollary is stated for 'a Riemannian space with a positive ds2'. The Levi-Civita connection of a Lorentzian metric is such a connection, so the theorem (not the corollary) covers it.",
+  "W2 REGULARITY = LIPSCHITZ CONNECTION ON A CELL (p. 34): 'We assume T to be defined in the region |xf| \\< 2, (2.2) to be bounded, continuous, and to satisfy a Lipschitz condition' [(2.3), OCR-garbled]. p. 37: 'We shall only need their continuity, and this follows from the Lipschitz condition, without assuming the existence* of dV/dx' [dGamma/dx]. For a Levi-Civita connection this is: metric C^{1,1} and non-degenerate on an open neighbourhood of the point. CORRECTION to the first audit, which called C^2 classical and C^{1,1} a later extension: Whitehead's own printed hypothesis is already Lipschitz Gamma.",
+  "W3 'NON-SINGULAR POINT' (p. 33): in context a point with a coordinate cell on which W2 holds.",
+  "W4 LOCAL AND SIZELESS: the region 'can be made as small as we please' (p. 33); no lower bound on its size is asserted anywhere.",
+  "NOT IN THE SOURCE: global hyperbolicity, causal structure, a hyperbolic chart, or 'normal neighbourhood of each of its points' as a stated conclusion (Whitehead proves 'simple' -- at most one path in the region joins two points -- and 'completely convex', with continuous dependence of the path on its end-points, p. 37)."
+ ],
+ "hypothesis_drift": [
+  "WEAKENED -- W2 DROPPED (qeihps.py:103-105, :436-439): the 'MET LOCALLY' verdict at qeihps.py:439 is computed from (f0 > 0 and r0 > 0), non-degeneracy at ONE point. Whitehead's printed hypothesis is a bounded, continuous, LIPSCHITZ connection on a whole coordinate cell (p. 34). The Christoffels of metric (2) are f'/2f, f'/2, -r r', r'/r (reaudit row 1), so W2 needs f, r in C^{1,1} and positive on a neighbourhood. The point test does not give it: f = 1/(1+|l|^{3/2}) passes the point test (f(0) = 1) but Gamma^l_tt is not Lipschitz at 0 (difference quotient 7.5e3 at h = 1e-8 and growing) and l = 0 and l = s^4/256 are two geodesics with the same initial data (reaudit rows 3-4; first audit rederive B). The tree itself records TAYLOR_RADIUS_OF_CONVERGENCE_PROVED = False (qeihps.py:338): off the throat HPS's metric is a jet plus a numerical solution. Plausible for a smooth ODE solution; not established in the tree.",
+  "ADDED BY FOLDING (qeihps.py:101-105): FFKP's requirement ('M globally hyperbolic, f supported in a SMALL SAMPLING DOMAIN: an open set inside a globally hyperbolic convex normal neighbourhood, one hyperbolic chart') is met by citing Whitehead alone. Whitehead supplies a simple, completely convex region and nothing causal (see NOT IN THE SOURCE). Global hyperbolicity of a small convex region and the hyperbolic chart come from elsewhere (Fewster-Smith 0702056 p. 7, asserted there without citation; READ by the first audit).",
+  "NAMING, minor: the tree says 'convex normal neighbourhood'. Whitehead's printed conclusion is 'simple and completely convex'; 'normal' appears only in the single-point classical theorem he cites (p. 33). The modern term (a region that is a normal neighbourhood of each of its points) is the textbook reading of Whitehead and is not quoted from him; with W2 it is not needed for the FFKP use beyond what 'simple, convex' gives. Recorded, not repaired.",
+  "'LORENTZIAN' (qeihps.py:103, canonical hypothesis): harmless. READ: the main theorem is about any affine space of paths (W1); signature enters only the Riemannian corollary.",
+  "SIZE (qeihps.py:114-117): READ -- Whitehead asserts no size ('can be made as small as we please', W4), and the tree labels its sub-Planckian remark a CAVEAT, which is correct. The first audit's scope note stands: that remark is bounded by computation in the angular directions only (pi r0 = 0.0763 l_P); on the throat worldline the tidal tensor vanishes."
+ ],
+ "data_at_publication": [
+  {
+   "quantity": "f(0) = e^L at HPS's plotted solution, L = ln f(0) = -2/3",
+   "value_then": "HPS 1997 (gr-qc/9701064) plotted solution with ln f(0) = -2/3, as seated at qeihps.py:329",
+   "value_now": "e^(-2/3) = 0.513417 (computed). Unchanged: it is a model input, not a measurement.",
+   "source_now": "rederive section A",
+   "moves_conclusion": "no: f(0) > 0 for every real L"
+  },
+  {
+   "quantity": "throat radius r0 = sqrt(-16 K^2 L), with K^2 = 1/(5760 pi)",
+   "value_then": "0.0242789 l_P at L = -2/3 (qeihps.py:130, :367)",
+   "value_now": "1/sqrt(540 pi) = 0.0242789 l_P (sympy exact, agrees). Over HPS's range -1 <= L < 0, r0 lies in (0, 0.0297354] l_P.",
+   "source_now": "rederive section A",
+   "moves_conclusion": "no: the metric stays non-degenerate for every L in -1 <= L < 0. It degenerates only at the excluded endpoint L = 0, where r0 = 0. The size caveat scales with r0 and stays sub-Planckian over the whole range."
+  },
+  {
+   "quantity": "throat fourth derivatives f''''(0)/f(0) and r''''(0)/r(0), which enter the jet metric used in rederive C",
+   "value_then": "259200 pi^2 (-L-1)/(L(3L+4)) and 129600 pi^2 (2-L^2)/(L^2(3L+4)) (qeihps.py:1112-1115)",
+   "value_now": "at L = -2/3: (2/9)/r0^4 and (7/9)/r0^4 (computed)",
+   "source_now": "rederive section C",
+   "moves_conclusion": "no: for the jet metric, Whitehead's convexity lemma holds on a coordinate ball of radius 0.718 r0 about the throat. No measured datum enters the theorem."
+  }
+ ],
+ "rederivation": {
+  "method": "sympy + numeric (plus the first audit's 17-check script re-run)",
+  "script_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/reaudit/whitehead_reaudit.py",
+  "outcome": "5 of 5 PASS (output whitehead_reaudit.out). Christoffels of -f dt^2 + dl^2 + r^2 dOmega^2 computed symbolically: all built from f'/f, f', r r', r'/r, so Whitehead's Lipschitz-Gamma hypothesis is C^{1,1} (and positivity) of f and r on a cell. The C^1-not-C^{1,1} metric f = 1/(1+|l|^{1.5}) passes the tree's point test yet violates Whitehead's (2.3) and has two geodesics l = 0, l = s^4/256 from the same data. One first-run FAIL was mine (I wrote s^4/144; 12c = (3/4)sqrt(c) gives c = 1/256), corrected; it matches the first audit. First audit's script re-run: ALL 17 CHECKS PASS.",
+  "agrees_with_source": "yes"
+ },
+ "later_literature": [
+  {
+   "ref": "E. Minguzzi, 'Convex neighborhoods for Lipschitz connections and sprays', Monatsh. Math. (2015), arXiv:1308.6675 (id from memory)",
+   "effect": "extends",
+   "what": "Whitehead's theorem for Lipschitz connections (C^{1,1} metrics): the regularity floor that the tree's pointwise hypothesis leaves out",
+   "read_status": "NAMED-NOT-READ (alphaXiv quota exceeded; arxiv.org blocked by the egress proxy)"
+  },
+  {
+   "ref": "M. Kunzinger, R. Steinbauer, M. Stojkovic, 'The exponential map of a C^{1,1}-metric', Diff. Geom. Appl. (2014), arXiv:1306.4776 (id from memory)",
+   "effect": "extends",
+   "what": "For C^{1,1} metrics, exp is a bi-Lipschitz local homeomorphism, and totally normal / convex neighbourhoods exist at that regularity",
+   "read_status": "NAMED-NOT-READ"
+  },
+  {
+   "ref": "P. Hartman & A. Wintner, Amer. J. Math. 73 (1951) (classic, no arXiv copy)",
+   "effect": "narrows",
+   "what": "Metrics of class C^{1,alpha} with alpha < 1 can have non-unique geodesics. The mechanism is rebuilt and machine-checked in rederive section B. NOTE (re-audit): Whitehead's own hypothesis (p. 34) is already a Lipschitz connection, so the C^{1,1} threshold is not a later narrowing of Whitehead but his printed condition; below it (Hartman-Wintner type) is outside the theorem.",
+   "read_status": "NAMED-NOT-READ (the mechanism was rebuilt here, not read)"
+  },
+  {
+   "ref": "E. Minguzzi, 'Lorentzian causality theory', Living Rev. Relativ. 22 (2019) 3",
+   "effect": "extends",
+   "what": "Every point of a spacetime has arbitrarily small convex normal neighbourhoods that are globally hyperbolic (causally convex). This is the qualifier FFKP and FS need beyond Whitehead.",
+   "read_status": "NAMED-NOT-READ; the same consequence is READ as an assertion in Fewster-Smith gr-qc/0702056 p.7 (cached text)"
+  },
+  {
+   "ref": "C.J. Fewster & C.J. Smith, gr-qc/0702056 p.7, p.17, p.23",
+   "effect": "confirms",
+   "what": "p.7: 'As every point x in M has such a neighbourhood U_x' (a globally hyperbolic convex normal neighbourhood). p.17: the definition of a small sampling domain. p.23: a worldline is a sampling domain 'provided that the track of gamma can be contained in a globally hyperbolic convex normal neighbourhood'.",
+   "read_status": "READ (scratchpad src/0702056.pages.txt:900-909, 1590-1593, 2400-2410)"
+  }
+ ],
+ "lacked_data": "M's hypothesis, tested for Whitehead 1932: the theorem is pure differential geometry and takes no physical input. No measured constant or observation enters it, so no later data can move it, and nothing the author lacked bears on it. What has changed since 1932 is knowledge about regularity, not data: the theorem was later shown to hold down to C^{1,1} metrics and to fail below that (the Hartman-Wintner mechanism, rebuilt and machine-checked here in section B). That narrows the tree's use of the theorem, not the theorem itself. qeihps.py checks non-degeneracy at one point, and the tree does not establish that HPS's metric is regular on a neighbourhood of the throat (TAYLOR_RADIUS_OF_CONVERGENCE_PROVED = False, qeihps.py:338). The data the tree does use, f(0) = e^(-2/3) and r0 = 0.0242789 l_P, are model inputs; they are re-derived exactly here, and no admissible value in HPS's range -1 <= L < 0 changes non-degeneracy. So for this result the evidence runs entirely against M's hypothesis, because the theorem has no data input. The limitation that does exist is the regularity hypothesis, which belongs to the tree's use and is named here.",
+ "grade": "NARROWED",
+ "grade_evidence": "READ at source. Whitehead proves that every point of an affine space of paths whose connection is bounded, continuous and Lipschitz on a coordinate cell lies in arbitrarily small simple, completely convex regions (pp. 33-34, 42). The theorem is true and applies to a Lorentzian Levi-Civita connection. The tree's use is NARROWED on the source's printed hypotheses: (1) qeihps.py:439 infers 'MET LOCALLY' from non-degeneracy at one point, while Whitehead requires a Lipschitz connection on a neighbourhood (metric C^{1,1}); the point test is shown insufficient (reaudit rows 3-4) and the tree records its Taylor radius as unproved (qeihps.py:338). (2) Whitehead supplies nothing causal, so the 'globally hyperbolic' and 'hyperbolic chart' parts of FFKP's domain hypothesis are not delivered by the citation. (3) Minor: 'convex normal' is the modern name, Whitehead's words are 'simple and completely convex'. The size caveat is consistent with Whitehead ('as small as we please'). Correction to the first audit recorded: C^{1,1} is Whitehead's own condition, not a later extension. Not WRONG: nothing contradicts, and the downstream FFKP status is OPEN, not claimed MET.",
+ "what_would_change_the_grade": "STANDS if the tree (a) establishes that HPS's metric functions f, r are C^{1,1} and positive on an open neighbourhood of the throat (a proved Taylor radius, TAYLOR_RADIUS_OF_CONVERGENCE_PROVED = True, or an ODE regularity argument) -- which is exactly Whitehead's printed hypothesis (2.2)-(2.3) -- and (b) cites a READ source for the globally hyperbolic small neighbourhood and hyperbolic chart instead of Whitehead alone. WRONG is not foreseeable: the theorem has no data input.",
+ "reverify_command": "python3 /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/reaudit/whitehead_reaudit.py   # expect 5 PASS, exit 0;  python3 /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/whitehead-convex-normal-neighbourhoods.py  # expect ALL 17 CHECKS PASS",
+ "report_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/reaudit/whitehead-convex-normal-neighbourhoods.json",
+ "pages_read": [
+  "Whitehead Quart. J. Math. 3: pp. 33-42 (whole paper incl. footnotes), OCR text layer"
+ ],
+ "supersedes_grade": "NARROWED (first audit, source NAMED-NOT-READ) -- superseded by NARROWED on a READ of the primary: same grade, now on Whitehead's printed Lipschitz-connection hypothesis (which also corrects the first audit's 'C^2 classical, C^{1,1} later' remark)."
+}
