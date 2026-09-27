@@ -49,7 +49,7 @@ digits, controls (G) on the infinite squeezed-vacuum state.
     KF (3.45)               Delta' >= 1/2, Delta >= 1/3; 6 and 6/7   EXACT
 
 ===============================================================================
-2. WHAT THAT DOES TO THEIR CONCLUSION -- IT SURVIVES, AND ITS INEQUALITY DOES NOT
+2. WHAT THAT DOES TO THEIR CONCLUSION -- NEITHER IT NOR ITS INEQUALITY SURVIVES
 ===============================================================================
 
 KF state after (3.8): "the condition for the expectation value of energy
@@ -61,7 +61,14 @@ counterexample.  What is true, and PROVED here (T2):
 
 At eps = 1/10, theta = 0 the exact Delta is 0.5134; KF's (3.8) gives 2.0118.
 Their qualitative conclusion -- fluctuations of order unity wherever rho < 0 --
-SURVIVES in every case they study.  The inequality they printed does not.
+does NOT survive either.  In their own case (ii), the squeezed coherent state,
+take theta = pi/2 and a displacement |alpha|^2 = (1 - e^{-2r})/8: this file's
+exact moments give <:T00^2:> = rho^2 IDENTICALLY, so Delta = 0, while
+rho = K s (s - c) < 0 for every squeeze r > 0 (at r = 1, rho = -0.4323 K).
+(CORRECTED -- DOCKET 67: this paragraph first read 'SURVIVES in every case they
+study'; the file never evaluated Delta on rho < 0 for alpha != 0.  Found by the
+DOCKET 67 audit, re-derived independently, and computed in the selftest.)
+What does survive is T1 below: every ZERO-MEAN Gaussian state has Delta >= 1/3.
 
 ===============================================================================
 3. A THEOREM STRONGER THAN THEIRS, AND WHAT IT COSTS THEM
@@ -99,8 +106,9 @@ Delta = 2/3 EXACTLY, at every point where rho != 0, on BOTH sides of zero.
 ===============================================================================
 
 The debt is real and is now stated exactly: semiclassical gravity's error term
-is Delta, and at a point Delta >= 1/3 for every state that carries negative
-energy by squeezing or by boundaries.
+is Delta, and at a point Delta >= 1/3 for every ZERO-MEAN state that carries
+negative energy by squeezing or by boundaries (T1) -- not for every state: a
+displaced squeezed state carries negative energy with Delta = 0 (section 2).
 
 BUT THE POINTWISE Delta CANNOT BE THE DEMAND ROW, for three reasons, each read
 at source or proved here:
@@ -149,7 +157,7 @@ KF_321_IS_EXACT = True
 KF_333_IS_EXACT = True
 KF_341_HALF_IS_TYPOGRAPHICAL = True
 KF_345_IS_EXACT = True
-KF_QUALITATIVE_CONCLUSION_SURVIVES = True
+KF_QUALITATIVE_CONCLUSION_SURVIVES = False   # DOCKET 67: refuted in their case (ii), section 2; computed in the selftest
 
 # ------------------------------------------------------------- what is new here
 POINTWISE_DELTA_DISCRIMINATES_SIGN = False  # thermal radiation gives 2/5
@@ -477,7 +485,21 @@ def selftest():
     chk("T2 PROVED: vac+2, rho<0 => Delta < 1", th['T2_lt_one'], True)
     chk("KF's 'rho<0 => Delta>1' REFUTED", th['KF_gt_one_refuted'], True)
     chk("  recorded", KF_CLAIM_NEGATIVE_MEANS_DELTA_GT_1, False)
-    chk("their qualitative conclusion survives", KF_QUALITATIVE_CONCLUSION_SURVIVES, True)
+    # KF's qualitative conclusion, tested in their case (ii) on rho < 0: along
+    # theta = pi/2 with |alpha|^2 = (1 - e^{-2r})/8 the exact moments give
+    # <:T00^2:> = rho^2 identically (Delta = 0) with rho = K s (s - c) < 0.
+    _sm = sorted((q['rho'].free_symbols | q['T2'].free_symbols) - {s, c, m['z'], m['K']}, key=str)
+    _Sm, _g, _w = _sm
+    _cur = {m['z']: -1, _g: 1, _w: 1, _Sm: sp.sqrt((1 - (c - s)**2) / 8)}
+    _gap = sp.simplify(sp.expand((q['T2'] - q['rho']**2).subs(_cur)).subs(c, sp.sqrt(1 + s**2)))
+    _rho_cur = sp.simplify(q['rho'].subs(_cur).subs(c, sp.sqrt(1 + s**2)))
+    _rho1 = float(sp.N(q['rho'].subs(_cur).subs({s: sp.sinh(1), c: sp.cosh(1), m['K']: 1}), 20))
+    chk("KF case (ii), squeezed coherent: <:T00^2:> - rho^2 = 0 identically on the curve", _gap, 0)
+    chk("  and rho = K s (s - c) there, negative for every r > 0",
+        sp.simplify(_rho_cur - m['K'] * s * (s - sp.sqrt(1 + s**2))), 0)
+    chk("  at r = 1, rho = -0.4323 K with Delta = 0", round(_rho1, 4), -0.4323)
+    chk("their qualitative conclusion ('Delta ~ 1 wherever rho < 0') does NOT survive",
+        KF_QUALITATIVE_CONCLUSION_SURVIVES, not (_gap == 0 and _rho1 < 0))
 
     # ---- refusals
     chk("the journal version is NOT claimed read", JOURNAL_VERSION_READ, False)

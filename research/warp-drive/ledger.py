@@ -841,13 +841,14 @@ M_D65_3_RULING_T = ("RULED BY M: OPEN IT -- M's answer: '%s'.  M's words, "
 #: 'divergences'), and the 'N of' numerators are len() of the tuples naming
 #: the items the cell details -- tuples TIED to the cell by the selftest:
 #: every fluct member is printed as 'fluctuation.<flag> = ' and no other KF_
-#: flag is (the balancing-verdict flag excepted), and every mass label is a
+#: flag is, and every mass label is a
 #: substring of the cell naming exactly one sentence under massform's heading
 #: by its subject.  The framing is SCOPED to what the cell cites, not
 #: a project-wide total (hpscentre.py counts three disagreements of its own).
 #: Precedent: hpscentre.py withdrew a typed 'two misprints and two errors'
 #: for its asked 'three disagreements'.
-M_D65_3_WHY_ITEMS_FLUCT = ("KF_CLAIM_NEGATIVE_MEANS_DELTA_GT_1", "KF_341_HALF_IS_TYPOGRAPHICAL")
+M_D65_3_WHY_ITEMS_FLUCT = ("KF_CLAIM_NEGATIVE_MEANS_DELTA_GT_1", "KF_341_HALF_IS_TYPOGRAPHICAL",
+                           "KF_QUALITATIVE_CONCLUSION_SURVIVES")
 M_D65_3_WHY_ITEMS_MASS = ("Rubakov-Shaposhnikov's eq. (2.8)", "Tye-Wong's p.2 pairing")
 M_D65_3_WHY_T = (
     'M\'s words, verbatim: "%s" (verbatim from the session, witnessed by the '
@@ -855,7 +856,8 @@ M_D65_3_WHY_T = (
     "has recorded against outside results, the items whose owners expose flags "
     "asked here: %d of the %d %s fluctuation.py records against a preprint "
     "version (its own words: the inequality after (3.8) %s -- \"%s\" -- and "
-    "(3.41)'s 1/2 \"%s\"; the rest, %d KF_*_IS_EXACT flags False), and %d of "
+    "(3.41)'s 1/2 \"%s\"; their qualitative conclusion, below; the rest, %d "
+    "KF_*_IS_EXACT flags False), and %d of "
     "the %d %s massform.py records under its own heading.  "
     "fluctuation.py, against arXiv %s -- the journal version, %s, is %s "
     "(fluctuation.JOURNAL_VERSION_READ = %s), and its own clause holds: '%s': "
@@ -987,11 +989,13 @@ def fluctuation_discrepancies():
     """The discrepancies fluctuation.py records against the preprint version,
     COUNTED from its module namespace: every KF_*_IS_EXACT flag that is False,
     plus KF_CLAIM_NEGATIVE_MEANS_DELTA_GT_1 False, plus
-    KF_341_HALF_IS_TYPOGRAPHICAL True.  Returns (total, not-exact count)."""
+    KF_341_HALF_IS_TYPOGRAPHICAL True, plus KF_QUALITATIVE_CONCLUSION_SURVIVES
+    False (DOCKET 67).  Returns (total, not-exact count)."""
     not_exact = sum(1 for k, v in vars(fluctuation).items()
                     if k.startswith("KF_") and k.endswith("_IS_EXACT") and v is False)
     total = (not_exact + (fluctuation.KF_CLAIM_NEGATIVE_MEANS_DELTA_GT_1 is False)
-             + (fluctuation.KF_341_HALF_IS_TYPOGRAPHICAL is True))
+             + (fluctuation.KF_341_HALF_IS_TYPOGRAPHICAL is True)
+             + (fluctuation.KF_QUALITATIVE_CONCLUSION_SURVIVES is False))
     return total, not_exact
 
 
@@ -1014,7 +1018,8 @@ def m_d65_3_why():
     KF flags the cell details; massform.py's own heading and the divergences
     the cell details (the items M_D65_3_WHY_ITEMS_FLUCT / _MASS name, each
     guarded present in the cell), with Tye-Wong's p.7 pairing printed beside
-    the p.2 one; and fluctuation.py's balancing verdict, asked of its flags."""
+    the p.2 one; and fluctuation.py's verdict on Kuo & Ford's qualitative
+    conclusion (DOCKET 67: it does not survive), asked of its flags."""
     n_fluct, n_not_exact = fluctuation_discrepancies()
     n_mass = len(massform_divergences())
     with open(fluctuation.__file__, encoding="utf-8") as fh:
@@ -1047,6 +1052,10 @@ def m_d65_3_why():
     heading = _owner_phrase(
         massform.__doc__, r"(DIVERGENCES FROM THE SOURCES, RECORDED AND NOT REPAIRED)",
         "massform.py")
+    not_survive = "fluctuation.py: \"%s\"" % _owner_phrase(
+        fluctuation.__doc__,
+        r"(a displaced squeezed state carries negative energy with Delta = 0 \(section 2\))",
+        "fluctuation.py")
     tw_p2 = massform.log10_suppression(1.0 / massform.TW_ALPHA_INV[1])
     tw_p7 = massform.log10_suppression(1.0 / massform.TW_ALPHA_INV[0])
     return M_D65_3_WHY_T % (
@@ -1071,7 +1080,7 @@ def m_d65_3_why():
          else "does NOT round to"),
         # Built from the owner's flags, so a flip moves the sentence.
         ("SURVIVES" if fluctuation.KF_QUALITATIVE_CONCLUSION_SURVIVES
-         else "does NOT survive, AGAINST fluctuation.py's record"),
+         else "does NOT survive -- %s" % not_survive),
         fluctuation.KF_QUALITATIVE_CONCLUSION_SURVIVES,
         ("no ledger row moves" if not fluctuation.LEDGER_ROW_MOVES
          else "a ledger row MOVES, AGAINST fluctuation.py's record"),
@@ -1422,8 +1431,8 @@ RULED_BY_M = [
     # divergences massform.py records under its own heading, COUNTED from its
     # sentences; the cell details the items M_D65_3_WHY_ITEMS_FLUCT / _MASS
     # name, each guarded present in the cell -- every figure and count ASKED,
-    # never retyped, and fluctuation's balancing verdict (its conclusion
-    # SURVIVES, no ledger row moves) asked beside them; the ruling cell is
+    # never retyped, and fluctuation's verdict on Kuo & Ford's conclusion
+    # and on the ledger (no row moves) asked beside them; the ruling cell is
     # M_D65_3_RULING_T filled from the constants.
     ("M-D65-3",
      M_D65_3_QUESTION,
@@ -3526,7 +3535,7 @@ def selftest():
     chk("  the lead-in's COUNTS are the owners': the printed '%d of the %d "
         "discrepancies' equals the count of fluctuation's KF flags recomputed "
         "here (KF_*_IS_EXACT False + the claim flag False + the typographical "
-        "flag True), the printed '%d of the %d divergences' equals the sentences "
+        "flag True + the conclusion flag False), the printed '%d of the %d divergences' equals the sentences "
         "under massform's heading, the nouns are the owners' ('discrepancies', "
         "'refuted', 'typographical', 'divergences'), the framing is scoped to "
         "the cited items, and 'refutation' is nowhere"
@@ -3537,7 +3546,8 @@ def selftest():
                                 "KF_38_IS_EXACT", "KF_319_IS_EXACT", "KF_323_IS_EXACT")
                     if getattr(fluctuation, k) is False)
          + (not fluctuation.KF_CLAIM_NEGATIVE_MEANS_DELTA_GT_1)
-         + fluctuation.KF_341_HALF_IS_TYPOGRAPHICAL,
+         + fluctuation.KF_341_HALF_IS_TYPOGRAPHICAL
+         + (not fluctuation.KF_QUALITATIVE_CONCLUSION_SURVIVES),
          "the rest, %d KF_*_IS_EXACT flags False" % _nne in _d67[0][2],
          "%d of the %d divergences massform.py records under its own heading"
          % (len(M_D65_3_WHY_ITEMS_MASS), _nm) in _d67[0][2],
@@ -3552,8 +3562,7 @@ def selftest():
         (True, True, True, True, True, True, True, False, False, False))
     # The tuples naming what the cell details are TIED to the cell: every
     # fluct member is printed as 'fluctuation.<flag> = ' and no other KF_ flag
-    # is printed (KF_QUALITATIVE_CONCLUSION_SURVIVES, the balancing verdict,
-    # excepted; LEDGER_ROW_MOVES is not a KF_ name), and every mass label is a
+    # is printed (LEDGER_ROW_MOVES is not a KF_ name), and every mass label is a
     # substring of the cell that is the subject of exactly one sentence of
     # massform_divergences() (its surnames open the sentence; a 'p.N' in the
     # label is in it).  The '%d of' numerators are these guarded len()s.
@@ -3561,7 +3570,7 @@ def selftest():
         kf_in_cell = {k for k in vars(fluctuation)
                       if k.startswith("KF_") and "fluctuation.%s" % k in why}
         return (all("fluctuation.%s = " % k in why for k in fl),
-                kf_in_cell == set(fl) | {"KF_QUALITATIVE_CONCLUSION_SURVIVES"},
+                kf_in_cell == set(fl),
                 all(m in why for m in ms),
                 [sum(1 for s in massform_divergences()
                      if all(n in s[:40]
@@ -3570,7 +3579,7 @@ def selftest():
                  for m in ms])
     chk("  the tuples naming what `why` details are tied to the cell: each fluct "
         "member printed as 'fluctuation.<flag> = ' and no other KF_ flag printed "
-        "(the balancing-verdict flag excepted); each mass label in the cell and "
+        "; each mass label in the cell and "
         "the subject of exactly one sentence under massform's heading -- the "
         "'%d of' numerators are these len()s" % len(M_D65_3_WHY_ITEMS_FLUCT),
         _why_items(_d67[0][2], M_D65_3_WHY_ITEMS_FLUCT, M_D65_3_WHY_ITEMS_MASS),
@@ -3578,7 +3587,7 @@ def selftest():
     with _scratch("M_D65_3_WHY_ITEMS_FLUCT", M_D65_3_WHY_ITEMS_FLUCT + ("KF_37_IS_EXACT",)):
         _why3 = m_d65_3_why()
         _tied3 = _why_items(_why3, M_D65_3_WHY_ITEMS_FLUCT, M_D65_3_WHY_ITEMS_MASS)
-    chk("  CONTROL: a third KF name appended to M_D65_3_WHY_ITEMS_FLUCT prints "
+    chk("  CONTROL: another KF name appended to M_D65_3_WHY_ITEMS_FLUCT prints "
         "'%d of the %d' and is caught by the tie (not printed as "
         "'fluctuation.<flag> = ')" % (len(M_D65_3_WHY_ITEMS_FLUCT) + 1, _nf),
         ("%d of the %d discrepancies" % (len(M_D65_3_WHY_ITEMS_FLUCT) + 1, _nf) in _why3,
@@ -3587,13 +3596,19 @@ def selftest():
         "label as it stood) is caught",
         _why_items(_d67[0][2], M_D65_3_WHY_ITEMS_FLUCT,
                    ("RS96 eq. (2.8)",) + M_D65_3_WHY_ITEMS_MASS[1:])[2], False)
-    chk("  fluctuation's balancing verdict is in `why`, asked of its flags: the "
-        "conclusion SURVIVES and no ledger row moves",
-        ("Kuo & Ford's qualitative conclusion SURVIVES (fluctuation.KF_QUALITATIVE_"
-         "CONCLUSION_SURVIVES = True) and no ledger row moves (fluctuation."
-         "LEDGER_ROW_MOVES = False)" in _d67[0][2],
+    chk("  fluctuation's verdict is in `why`, asked of its flags: Kuo & Ford's "
+        "qualitative conclusion does NOT survive, with the owner's own reason, "
+        "and no ledger row moves",
+        ("Kuo & Ford's qualitative conclusion does NOT survive -- fluctuation.py: "
+         "\"a displaced squeezed state carries negative energy with Delta = 0 "
+         "(section 2)\" (fluctuation.KF_QUALITATIVE_CONCLUSION_SURVIVES = False) and "
+         "no ledger row moves (fluctuation.LEDGER_ROW_MOVES = False)" in _d67[0][2],
          fluctuation.KF_QUALITATIVE_CONCLUSION_SURVIVES, fluctuation.LEDGER_ROW_MOVES),
-        (True, True, False))
+        (True, False, False))
+    chk("  CONTROL: the verdict as it stood ('conclusion SURVIVES') planted in "
+        "`why` is caught",
+        _d67[0][2].replace("conclusion does NOT survive -- ", "conclusion SURVIVES -- ")
+        == m_d65_3_why(), False)
     chk("  CONTROL: the lead-in as it stood ('Three published errors this project "
         "has already caught') planted in `why` is caught",
         _d67[0][2].replace("Of what this project has recorded against outside "
@@ -3610,21 +3625,22 @@ def selftest():
          "refutation" in "two refutations of a preprint version and two divergences"),
         (False, True))
     # The template follows the owner: a KF flag flipped (here, in-process and
-    # restored) moves the printed count, and the SURVIVES clause moves with
-    # its flag.
+    # restored) moves the printed count, and the conclusion clause moves with
+    # its flag (and leaves the count).
     _kf, _sv = fluctuation.KF_319_IS_EXACT, fluctuation.KF_QUALITATIVE_CONCLUSION_SURVIVES
     try:
         fluctuation.KF_319_IS_EXACT = True
-        fluctuation.KF_QUALITATIVE_CONCLUSION_SURVIVES = False
+        fluctuation.KF_QUALITATIVE_CONCLUSION_SURVIVES = True
         _moved = m_d65_3_why()
     finally:
         fluctuation.KF_319_IS_EXACT, fluctuation.KF_QUALITATIVE_CONCLUSION_SURVIVES = _kf, _sv
-    chk("  CONTROL: fluctuation.KF_319_IS_EXACT flipped True moves the printed "
-        "count to %d, and its conclusion flag flipped moves the verdict clause "
-        "(the template follows the owner)" % (_nf - 1),
-        ("%d of the %d discrepancies" % (len(M_D65_3_WHY_ITEMS_FLUCT), _nf - 1) in _moved,
+    chk("  CONTROL: fluctuation.KF_319_IS_EXACT and KF_QUALITATIVE_CONCLUSION_"
+        "SURVIVES flipped True move the printed count to %d and the verdict "
+        "clause to SURVIVES (the template follows the owner)" % (_nf - 2),
+        ("%d of the %d discrepancies" % (len(M_D65_3_WHY_ITEMS_FLUCT), _nf - 2) in _moved,
          "the rest, %d KF_*_IS_EXACT flags False" % (_nne - 1) in _moved,
-         "conclusion does NOT survive, AGAINST fluctuation.py's record" in _moved,
+         "qualitative conclusion SURVIVES (fluctuation.KF_QUALITATIVE_CONCLUSION_"
+         "SURVIVES = True)" in _moved,
          _moved == m_d65_3_why()), (True, True, True, False))
     chk("  the figures in `why` are the owners' (regenerated now: KF flags, TW "
         "p.2 and p.7, RS96)",
