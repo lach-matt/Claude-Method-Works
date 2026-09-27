@@ -1,0 +1,12 @@
+PASS massform y_e  Lbar H e_R: B = L = 0
+PASS massform y_d  Qbar H d_R: B = L = 0
+PASS massform y_u  Qbar Hc u_R: B = L = 0
+PASS (W1) no colour-singlet fermion bilinear carries B: 'SU(3) implies baryon conservation'  []
+PASS L-carrying bilinears exist and every one has Delta(B-L) = -Delta L != 0  [('L', 'L', 2), ('L', 'ec~', 2), ('L', 'nc~', 2), ('L~', 'L~', -2), ('ec', 'L~', -2), ('ec', 'ec', -2)]
+PASS (W2) eq.(20) l l phi phi: hypercharge 0, Delta L = 2, Delta B = 0, dimension 3/2+3/2+1+1 = 5
+PASS (W3) eq.(20) has Delta(B-L) = -2, so exact B-L (the tree's H-BL) forbids it
+PASS under H-BL + (W1): no fermion-bilinear coupling, any dimension, carries B or L
+PASS (H+H)QQQL: B = 1, L = 1, Y = 0, d = 8 -- a Higgs coupling carrying B that neither W1 nor H-BL excludes
+PASS SU(2)^2 anomaly per generation: B = L = 1/2, so B-L anomaly-free, B+L not ('baryon and lepton currents have anomalies')
+
+ALL PASS

@@ -1,0 +1,14 @@
+   tip speed 8011.06 m/s
+PASS tip speed 8011 m/s (pi*1.8*85000/60)
+   tree factors ['4.2485', '19.4470']
+PASS tree ring factors round to [4.2, 19.4]
+   T1000 composite row (2202.09783 Tab.I via Bolund 2007): 1950 MPa, 1520 kg/m3     ring factor 7.07  disc(nu=.3) 4.54
+   T1000G sheet value per WebSearch summary only (NOT READ): 6370 MPa, 1800         ring factor 4.26  disc(nu=.3) 2.74
+   Cu-2Be CG peak-aged UTS 1280 MPa (2005.04976 Tab.2), tree rho 8250               ring factor 20.34  disc(nu=.3) 13.06
+   Cu-2Be HPT+aged UTS 1375 MPa (2005.04976 Tab.2), tree rho 8250                   ring factor 19.62  disc(nu=.3) 12.60
+   BeCu yield 1000 MPa (2410.14855 Tab.2), tree rho 8250                            ring factor 23.01  disc(nu=.3) 14.78
+PASS every read value leaves the rotor over its limit as a ring and as a uniform disc
+PASS the composite row makes T1000 WORSE (ring x7.07 vs tree x4.25): the tree's fibre figure favours the rotor
+PASS measured peak-aged BeCu UTS (1280-1375 MPa) gives 19.6-20.3x, 1-5% above the tree 19.4x (lower strength only raises the factor)
+
+5 PASS, 0 FAIL

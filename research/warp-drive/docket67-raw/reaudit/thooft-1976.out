@@ -1,0 +1,21 @@
+PASS amplitude exp(-8pi^2/g^2) squared = exp(-16pi^2/g^2)
+PASS 16 pi^2/g^2 = 4 pi sin^2(theta)/alpha (so the OCR '4x137' must carry a pi: 4 pi x 137 x sin^2)  4*pi*s2/alpha
+PASS 16 pi^2/g^2 = 4 pi/alpha_W (tree's form, massform.py:531)
+== 't Hooft's route exp(-4 pi 137 sin^2): log10 factor
+   sin^2 = 0.2000  1/alpha_W = 27.41  factor 10^-149.57
+   sin^2 = 0.2229  1/alpha_W = 30.55  factor 10^-166.70
+   sin^2 = 0.2312  1/alpha_W = 31.68  factor 10^-172.91
+   sin^2 = 0.2500  1/alpha_W = 34.26  factor 10^-186.97
+   sin^2 = 0.3000  1/alpha_W = 41.11  factor 10^-224.36
+   sin^2 = 0.3500  1/alpha_W = 47.96  factor 10^-261.76
+   sin^2 = 0.4000  1/alpha_W = 54.81  factor 10^-299.15
+   RS96's printed 10^-170 is reproduced by the Thomson-alpha route at sin^2 = 0.2273 (1/alpha_W = 31.15)
+PASS RS96 10^-170 corresponds to sin^2 ~ 0.227 at alpha = 1/137 (INFERENCE, not RS96's stated route: RS96 prints 1/29)  0.2273
+PASS tree: 1/alpha_W = 29.49, factor 10^-160.95  1/aW = 29.4913, 10^-160.949
+   spread of the leading exponent between Thomson-alpha (sin^2 0.2312: 10^-172.91) and on-shell g (10^-160.95): 11.96 decades
+PASS eq.(24): Delta B = 2, Delta L = 2 at N_f = 2 ('two baryons equal six quarks' -> 'two antileptons')
+PASS eq.(24) per generation = one lepton + three quarks = the tree's THOOFT_VERTEX unit (Q x3, L x1)
+PASS generalised to N_f = 3 (tree): (B, L) = (3, 3); B - L conserved
+PASS eq.(12): fermions created = N = 8 doublets (6 quarks + 2 leptons); Delta Q5 = 2N = 16
+
+ALL PASS

@@ -1,0 +1,90 @@
+{
+ "key": "hep-th/0302039",
+ "name": "Popov (B1)-(B3): independent second printing of the AHS source term at xi = 1/6, m = 0",
+ "source": {
+  "located": "A. A. Popov, 'Analytical approximation of the stress-energy tensor of a quantized scalar field in static spherically symmetric spacetimes', arXiv:hep-th/0302039v2 (19 Feb 2003) -- confirmed from its own p.1: header 'arXiv:hep-th/0302039v2 19 Feb 2003', title as above, 'Arkady A. Popov, Department of Mathematics, Kazan State Pedagogical University, Mezhlauk 1 st., Kazan 420021, Russia', 'PACS number(s): 04.62.+v, 04.70.Dy'.",
+  "read_status": "READ (alphaXiv, hep-th/0302039v2)",
+  "via": "alphaXiv answer_pdf_queries(hep-th/0302039) returned v2 pp.1, 2, 4, 5, 8, 9, 10, 11, 12, 14, 15, 16 (abstract, Secs. I-VI, eqs. (1)-(8), (17)-(33), (42)-(83), Appendix A (A7)-(A8), Appendix B (B1)-(B3) in full, refs [1]-[15]); pp.3, 6, 7, 13 were not returned (eqs. (9)-(16), (34)-(41), (A1)-(A6)). HPS gr-qc/9701064v1 re-read the same way, pp.1-12."
+ },
+ "published_statement": "Popov (READ): p.10, after eqs. (67)-(68): 'The quantities of the second WKB order (phi^2)^(2) and the fourth WKB order (T^mu_nu)^(4) are equivalent to the analytical approximations <phi^2>_analytic and <T^mu_nu>_analytic of Anderson, Hiscock, and Samuel [4] (the constants m_DS and w_0 are equal to mu and lambda in their expressions for <phi^2>_analytic and <T^mu_nu>_analytic, respectively). In the coordinates (3) the expressions for (T^mu_nu)^(4) are given in Appendix B.' Appendix B (B1)-(B3), pp.14-16: prefactor 1/(46080 pi^2 r^8 f^4), brackets in r^2 and its derivatives, a log ln|4u_0^2/(m_DS^2 r^2)|; with u_0 = w_0 sqrt(r^2/f) (eqs. (20), (68)). As printed: (B1)'s xi-free log bracket contains '-116f'^2 f'' r^8 f' [M1]; (B3)'s (xi - 1/6)^2 log bracket opens '(2880r^4 f^4 - 21r^8 f'^4 - 8640r^4 f^4 (r^2)'' ...' and later in the same bracket carries '+ 7020r^8 f'^4' [M3: two f'^4 terms in one bracket, the small one being the misplaced term]. (B2) is printed in (r^2)' form and is dimensionally homogeneous [so M2 is in HPS, as the tree says]. HPS (READ, p.1): authors 'David Hochberg, Arkadiy Popov and Sergey V. Sushkov', Popov at 'Department of Mathematics, Kazan State Pedagogical University' -- the same author and institution as the 2003 paper. Owner (hpscentre.py:118-121, read): 'POPOV hep-th/0302039 v2 -- READ: eqs. (21), (55), (70), (83), Sec. IV, Sec. VI, Appendix B (B1)-(B3). Popov states his (T)^(4) IS the AHS analytic approximation (after eq. (67)); it is the independent second printing of HPS's source term used below.'; :139-153 the mapping 8 pi/(46080 pi^2) = K^2, 'HPS's ln f coefficient is MINUS Popov's', three disagreements M1, M2 (in HPS), M3 (in Popov), decided by conservation.",
+ "published_hypotheses": [
+  "Popov (READ): static spherically symmetric metric (3) ds^2 = f dtau^2 + drho^2 + r^2 dOmega^2 (Euclidean); scalar field of mass m, coupling xi; 'zero temperature vacuum state defined with respect to the timelike Killing vector' (p.2).",
+  "Popov (READ): (T)^(4) is the fourth WKB order of the HIGH-FREQUENCY part (w > w_0), valid under eps_WKB = |r|/(u_0 L) << 1, u_0 >> |r|/L >= 1 (eqs. (29)-(30)); m_DS arbitrary for m = 0 (below (55)); u_0 absorbable into m_DS for the conformal field (p.12).",
+  "Tree restriction (read): xi = 1/6, m = 0, so the (xi-1/6), (xi-1/6)^2 and m brackets drop (exact at that point).",
+  "HPS (READ): xi = 1/6, m = kappa = 0 (fn [20]), source term AHS eq. (4)."
+ ],
+ "hypothesis_drift": [
+  "CONFIRMED AT SOURCE: the tree's transcription of Popov (B1)-(B3) at xi = 1/6, m = 0 equals an independent transcription made here from the v2 text layer, all six brackets term by term (script P1). M1 (116 in Popov) and M3 (-21 r^8 f'^4 printed inside the (xi-1/6)^2 bracket) are as the tree states (P2). The log mapping (u_0 = w_0 sqrt(r^2/f) => ln|4u_0^2/(m_DS^2 r^2)| = ln(4w_0^2/(m_DS^2 f)), hence HPS's ln f coefficient is minus Popov's) follows from Popov's own (20), (68) (P3). 'After eq. (67)' is right up to the one-line definition (68) that sits between.",
+  "WEAKER THAN THE TREE SAYS (wording): 'independent second printing' / 'transcribed INDEPENDENTLY'. The two printings share an author (Arkadiy/Arkady A. Popov, Kazan State Pedagogical University, on both title pages, READ). They are separately typeset -- and differ at three places, which shows they were not copied -- but not independently derived. What this changes: nothing the tree concludes, because the adjudication is by conservation (unique conserved reading (116, 21, r^2), first audit C and script P2-P3), not by agreement between printings.",
+  "'IS' vs 'equivalent to': Popov writes 'equivalent to', with the constant identification m_DS = mu, w_0 = lambda. The tree's 'IS' is accurate at xi = 1/6, m = 0 where w_0 is absorbed into m_DS (Popov p.12).",
+  "Already named in the tree and still standing: M1, M2 were found in the arXiv v1 text layer of HPS, not the PRL journal text; the re-read of HPS here (v1, alphaXiv) again shows '+16 f'^2 f''/f^3' in (5)'s ln f bracket and '-4 f'^2 r'^2/(f^2 r)' in (6). Must not be quoted as errors of the journal version."
+ ],
+ "data_at_publication": [
+  {
+   "quantity": "K^2 normalisation",
+   "value_then": "1/(5760 pi), read in HPS",
+   "value_now": "unchanged; a pure number with no measured input",
+   "source_now": "computed: 8 pi/(46080 pi^2) = 1/(5760 pi) and 16 K^2/(8 pi) = 1/(2880 pi^2)",
+   "moves_conclusion": "no"
+  },
+  {
+   "quantity": "conformal-anomaly coefficient 1/(2880 pi^2)",
+   "value_then": "1/(2880 pi^2)",
+   "value_now": "unchanged; a theory constant",
+   "source_now": "computed: the trace of HPS's non-log part equals 16 K^2 [C^2 + (R_ab R^ab - R^2/3) + box R] identically",
+   "moves_conclusion": "no"
+  },
+  {
+   "quantity": "M1 slot (tt, f'^2 f'' ln-bracket)",
+   "value_then": "16 in HPS v1 text layer (READ); 116 in Popov (B1) (READ this run)",
+   "value_now": "116, the unique value that conserves",
+   "source_now": "first-audit check C; script P2-P3",
+   "moves_conclusion": "no"
+  },
+  {
+   "quantity": "M2 slot (ll, power of r)",
+   "value_then": "r^1 in HPS v1 text layer (READ); Popov (B2) homogeneous in (r^2)' form (READ)",
+   "value_now": "r^2",
+   "source_now": "script P3 (HPS at r^2 == Popov)",
+   "moves_conclusion": "no"
+  },
+  {
+   "quantity": "M3 slot (thth, f'^4 ln-bracket at xi = 1/6)",
+   "value_then": "+21 in HPS (READ); Popov prints -21 r^8 f'^4 inside the (xi-1/6)^2 bracket (READ)",
+   "value_now": "+21 (HPS sign convention), the unique value that conserves",
+   "source_now": "script P2",
+   "moves_conclusion": "no"
+  }
+ ],
+ "rederivation": {
+  "method": "sympy",
+  "script_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/reaudit/popov-hep-th_0302039.py",
+  "outcome": "17 checks, 0 FAIL (output /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/reaudit/popov-hep-th_0302039.out). P1: independent transcription of Popov v2 (B1)-(B3) at xi = 1/6, m = 0 == tree's hpscentre.build popov, 6/6 brackets. P2: printed Popov not conserved; with -21 r^8 f'^4 moved to the xi-free log bracket, conserved identically; printed B1 coefficient -116. P3: HPS (5)-(7) at (116, 21, r^2) == Popov with M3 restored and log sign flipped, exactly; log mapping from (20), (68). P4: scale part conserved and traceless. P5: (T)^(0) + low-frequency part cancel at m = 0 (AF/Boulware), (T)^(2) vanishes at xi = 1/6, m = 0. The first audit's 31 checks (HPS parse, Einstein side, unknown-coefficient conservation, anomaly trace) stand and are not repeated.",
+  "agrees_with_source": "yes"
+ },
+ "later_literature": [
+  {
+   "ref": "Hochberg, Popov, Sushkov gr-qc/9701064 (PRL 78 2050)",
+   "effect": "confirms",
+   "what": "The other printing; shares the author Popov; its (5)-(7) equal Popov (B1)-(B3) at the conserved reading (P3).",
+   "read_status": "READ (alphaXiv, v1)"
+  },
+  {
+   "ref": "Popov hep-th/0109166 (2001)",
+   "effect": "narrows",
+   "what": "States the AHS approximation (as used by HPS) is not applicable in Minkowski-plane x S^2; bears on where the source term may be used, not on the printing.",
+   "read_status": "READ (alphaXiv, v1)"
+  }
+ ],
+ "lacked_data": "No datum enters: 1/(5760 pi) and 1/(2880 pi^2) are pure numbers and the three slots are fixed by conservation. What the two printings lacked was typesetting redundancy by a second, unrelated author -- the reason 'independent' is narrowed to 'separately typeset'. Nothing found moves the conclusion.",
+ "grade": "STANDS",
+ "supersedes_grade": "OPEN",
+ "grade_evidence": "Popov v2 is now read at source, including Appendix B in full. Every claim the tree makes about it checks: the printed coefficients equal the tree's transcription term by term (independent re-transcription), M1 = 116 and M3's placement are as stated, the log mapping follows from Popov's (20)/(68), and the identification with AHS is Popov's own sentence (p.10). Conservation picks the same unique reading and Popov-with-M3-restored equals HPS exactly. The one overstatement -- 'independent' when both printings carry Popov's name -- is wording that no conclusion rests on (conservation, not agreement, decides), so it is recorded, not graded down.",
+ "what_would_change_the_grade": "To NARROWED: a tree site that uses the agreement of the two printings (rather than conservation) as evidence -- none found. Reading the PRL journal text of HPS would settle whether M1/M2 survive in the journal version; it does not bear on Popov.",
+ "reverify_command": "cd /tmp && PYTHONDONTWRITEBYTECODE=1 python3 /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/reaudit/popov-hep-th_0302039.py   # expect \"17 checks, 0 FAIL\", exit 0 (imports hpscentre.build read-only)",
+ "report_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/reaudit/hep-th_0302039.json",
+ "pages_read": [
+  "Popov hep-th/0302039v2: pp.1, 2, 4, 5, 8, 9, 10, 11, 12, 14, 15, 16",
+  "Hochberg-Popov-Sushkov gr-qc/9701064v1: pp.1-12"
+ ]
+}

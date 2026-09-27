@@ -1,0 +1,21 @@
+PASS eq(12) F(r) = (2/3) pi N (1+r^2)^(-3/2)
+PASS eq(12) Sigma(r) = (2/3) pi N r (1+r^2)^(-1/2)
+PASS eq(13) f(r) = (4/3) N (1+r^2)^(-2)  ['definite integral equal to 2/3']
+PASS   the q-integral int_0^inf dq/(1+q^2)^(5/2) = 2/3
+PASS eq(13) sigma(r) = (4/3) pi N r^2 (1+r^2)^(-1)
+PASS p.468 test {Sigma}^2/sigma = pi N/3 = Sigma(inf)/2
+PASS dm/dr = 4 pi r^2 phi integrated: m(r) = (4/3) pi N r^3 (1+r^2)^(-3/2)
+PASS fraction outside R (sphere) = 1-(1+(a/R)^2)^(-3/2): the tree's formula
+PASS CONTRAST: Plummer's PROJECTED (cylinder) fraction outside is 1/(1+r^2), not the tree's
+PASS Poisson: lap(-GM/sqrt(r^2+1)) = 4 pi G phi  (the potential pair is DERIVED, not in Plummer)
+PASS Schuster gamma = 1.2 is polytrope n = 5
+   Table I C at r=1'.5 (unit 7'.14): 727.8 printed 727
+PASS Table I: Sigma=3540 r/sqrt(1+r^2) at r=1.5/7.14 ~ printed 727 (+-1)
+PASS p.465 'expect 7080 stars' = 2 x 3540
+PASS p.468-9: sigma = 1160 r^2/(1+r^2), 1160 = (4/3) pi N -> N = 277
+PASS   Table V C at r=0'.5 (unit 2'): 1160*.0625/1.0625 = 68
+PASS   phi = 277/(2')^3 = 34.6 per (1')^3
+   tree data a=0.02 R_s=200.0: f = 0.0000000149999998125000021874999753906 (float 1.4999999687e-08)
+PASS tree's f = 1.4999999813e-8 at a=0.02, R_s=200
+
+17 PASS, 0 FAIL

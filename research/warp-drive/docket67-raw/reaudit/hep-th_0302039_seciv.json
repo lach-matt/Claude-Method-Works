@@ -1,0 +1,71 @@
+{
+ "key": "hep-th/0302039#seciv",
+ "name": "Popov Sec. IV: the high-frequency (AHS) part is state-independent; asymptotic flatness enters via the low-frequency part",
+ "source": {
+  "located": "A. A. Popov, 'Analytical approximation of the stress-energy tensor of a quantized scalar field in static spherically symmetric spacetimes', arXiv:hep-th/0302039v2 (19 Feb 2003) -- confirmed from its own p.1: header 'arXiv:hep-th/0302039v2 19 Feb 2003', title as above, 'Arkady A. Popov, Department of Mathematics, Kazan State Pedagogical University, Mezhlauk 1 st., Kazan 420021, Russia', 'PACS number(s): 04.62.+v, 04.70.Dy'.",
+  "read_status": "READ (alphaXiv, hep-th/0302039v2)",
+  "via": "alphaXiv answer_pdf_queries(hep-th/0302039) returned v2 pp.1, 2, 4, 5, 8, 9, 10, 11, 12, 14, 15, 16 (abstract, Secs. I-VI, eqs. (1)-(8), (17)-(33), (42)-(83), Appendix A (A7)-(A8), Appendix B (B1)-(B3) in full, refs [1]-[15]); pp.3, 6, 7, 13 were not returned (eqs. (9)-(16), (34)-(41), (A1)-(A6)). HPS gr-qc/9701064v1 re-read the same way, pp.1-12."
+ },
+ "published_statement": "Popov (READ): abstract 'The field is assumed to be both massive and massless, with an arbitrary coupling xi to the scalar curvature, and in a zero temperature vacuum state. The expressions for <phi^2> and <T^mu_nu> are divided into low- and high-frequency parts. The contributions of the high-frequency modes to these quantities are calculated for an arbitrary quantum state. As an example, the low-frequency contributions ... are calculated in asymptotically flat spacetimes in a quantum state corresponding to the Minkowski vacuum (Boulware quantum state).' p.2: 'The Anderson-Hiscock-Samuel approach [4] is used for derivation of the high-frequency contributions to these quantities. Being an ultraviolet effect, the high-frequency contribution is general in the sense that its value does not depend on the quantum state in which <phi^2>_ren and <T^mu_nu>_ren are taken. This contribution contains all the ultraviolet divergences and can be renormalized. The low-frequency contributions are determined by the quantum state and, as an example, such contributions are calculated in asymptotically flat spacetime ... Both parts of <T^mu_nu>_ren are separately conserved.' Sec. IV p.4: 'In the case r_c >~ L or for a massless field a small parameter does not exist. But we can evaluate the contribution to <T^mu_nu> of the high-frequency modes. For that it is necessary to impose a lower-limit cutoff w_0 on the integrals over w'. p.9 (59): '<T^mu_nu>_WKB = lim [<T>^HFC_unren - <T>_DS] = (T)^(0) + (T)^(2) + (T)^(4) + O(1/(u_0^2 L^4))', with (T)^(0) = u_0^4/(16 pi^2 r^4) diag(1, -1/3, -1/3) (62)-(64); p.10: '(T^mu_nu)^(4) ... equivalent to ... <T^mu_nu>_analytic of Anderson, Hiscock, and Samuel'. Sec. V p.10: 'The behavior of low-frequency modes is determined by the boundary conditions and the topological structure of the spacetime. If the spacetime is asymptotically flat ... (70)'. Sec. II p.2: 'Above, it is assumed that the field is in a zero temperature vacuum state defined with respect to the timelike Killing vector.' Owner (hpscentre.py:96-99, read): 'This is NOT a showing that the approximation is invalid there -- Popov (p.2, Sec. IV) shows the high-frequency part, which is the AHS expression, does not depend on the state; asymptotic flatness enters through the low-frequency part.'",
+ "published_hypotheses": [
+  "Static spherically symmetric spacetime (general, Sec. II).",
+  "High/low-frequency split at a cutoff w_0 on the Killing-frequency integrals (Sec. IV), with eps_WKB = |r|/(u_0 L) << 1 (29).",
+  "State: the computation is set up in 'a zero temperature vacuum state defined with respect to the timelike Killing vector' (Sec. II); state-independence of the high-frequency part is ASSERTED on ultraviolet grounds ('Being an ultraviolet effect', p.2; 'calculated for an arbitrary quantum state', abstract), with no state class named.",
+  "The high-frequency part is (T)^(0) + (T)^(2) + (T)^(4) + O(1/(u_0^2 L^4)); AHS = (T)^(4) (p.10).",
+  "Low-frequency part: fixed by the state, boundary conditions and topology; computed only for AF, Boulware-type modes, under (70)."
+ ],
+ "hypothesis_drift": [
+  "SUPPORTED: 'does not depend on the state' is Popov's own wording ('its value does not depend on the quantum state', p.2); 'asymptotic flatness enters through the low-frequency part' is Sec. V / eq. (70) verbatim in substance; the page citation 'p.2' is exact (the Sec. IV computation follows on pp.4-5, 8-10).",
+  "NARROWER THAN THE TREE (resolves the first audit's candidate 2): 'the high-frequency part, WHICH IS THE AHS EXPRESSION'. At source the high-frequency part is (T)^(0) + (T)^(2) + (T)^(4) + O(1/(u_0^2 L^4)) (59); AHS is the fourth WKB order (T)^(4) only. At xi = 1/6, m = 0, (T)^(2) vanishes (script P5) but (T)^(0) = w_0^4/(16 pi^2 f^2) diag(1, -1/3, -1/3, -1/3) does not; it is conserved and traceless and cancels against the low-frequency part only in the AF/Boulware case (P5). So 'is the AHS expression' holds up to the cutoff term (T)^(0) and the WKB remainder.",
+  "'SHOWS' vs 'ASSERTS': Popov asserts state-independence on ultraviolet grounds; the paper's derivation is performed inside the zero-temperature Killing-vacuum Green's function (Sec. II eq. (6)) and does not exhibit it for a named class of states. The first audit's candidate 1 (unqualified 'the state' vs 'arbitrary quantum state') is resolved in the tree's favour on wording -- Popov is equally unqualified -- but 'shows' is stronger than what the text does.",
+  "UNNAMED, harmless: AHS's analytic expression carries a temperature kappa (HPS fn [20], READ); only its kappa = 0 member can be the state-independent object; every tree use is at kappa = 0.",
+  "NO DRIFT toward M: the sentence is used only to refuse 'invalid' (hpscentre.py:95-96, 108-109)."
+ ],
+ "data_at_publication": [
+  {
+   "quantity": "numerical inputs",
+   "value_then": "none (analytic mode-sum split)",
+   "value_now": "none",
+   "source_now": "n/a",
+   "moves_conclusion": "no datum"
+  },
+  {
+   "quantity": "cutoff w_0 (Popov) = lambda (AHS); log scale m_DS = mu",
+   "value_then": "arbitrary",
+   "value_now": "arbitrary; for the conformal field absorbed into m_DS (Popov p.12)",
+   "source_now": "script P4 (scale part conserved, traceless), P5 ((T)^(0) conserved, traceless)",
+   "moves_conclusion": "no"
+  }
+ ],
+ "rederivation": {
+  "method": "sympy (shared Popov script)",
+  "script_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/reaudit/popov-hep-th_0302039.py",
+  "outcome": "17 checks, 0 FAIL. P5: (T)^(0) conserved and traceless by itself; (T)^(0) + LFC (75)-(76) = 0 at m = 0; (T)^(2) = 0 at xi = 1/6, m = 0 -- so the high-frequency part is AHS + (T)^(0) + remainder, and AF enters exactly where the tree says. P1-P4: AHS = (T)^(4) at xi = 1/6, m = 0 contains no state symbol and is conserved (with M3 restored), a necessary condition for the state-independence reading. The first audit's flat-space thermal illustration (C4) is carried, as illustration only.",
+  "agrees_with_source": "yes"
+ },
+ "later_literature": [
+  {
+   "ref": "Hochberg-Popov-Sushkov gr-qc/9701064 fn [20]",
+   "effect": "narrows",
+   "what": "AHS's analytic expression carries the temperature kappa (set to zero by HPS): the state-independent identification applies to its kappa = 0 member.",
+   "read_status": "READ (alphaXiv, v1)"
+  },
+  {
+   "ref": "arXiv:1809.06182 (thermal state in a long throat)",
+   "effect": "extends",
+   "what": "Carried from the first audit: title-level only.",
+   "read_status": "NAMED-NOT-READ"
+  }
+ ],
+ "lacked_data": "No datum enters the split. The cutoff and log scale are arbitrary then and now and carry no state (P4, P5). What would test the other half of the sentence -- an exact <T_ab> in a non-AF static geometry -- is still missing. Nothing found makes Sec. IV wrong; the narrowing is about what 'the high-frequency part' contains, not about state-independence.",
+ "grade": "NARROWED",
+ "supersedes_grade": "OPEN",
+ "grade_evidence": "Read at source. State-independence of the high-frequency part and the entry of asymptotic flatness through the low-frequency part are both Popov's statements (p.2; Sec. V, eq. (70)). But 'the high-frequency part, which is the AHS expression' is stronger than the source: the high-frequency part is (T)^(0) + (T)^(2) + (T)^(4) + O(...), and AHS is only (T)^(4); at xi = 1/6, m = 0 the cutoff term (T)^(0) remains and is removed only by the AF/Boulware low-frequency part (verified, P5). And Popov asserts, rather than shows, the state-independence. This is the first audit's pre-registered NARROWED case ('(T)^(4) is only a truncation of the high-frequency part'). O5 does not move: the tree uses the sentence only to refuse 'invalid', and the narrowing makes the AF dependence sharper.",
+ "what_would_change_the_grade": "To STANDS: reword hpscentre.py:96-98 to 'the high-frequency part, whose fourth WKB order is the AHS expression, is stated by Popov (p.2) not to depend on the state; asymptotic flatness enters through the low-frequency part, which in AF/Boulware cancels the cutoff term'. To WRONG: only if asymptotic flatness entered the high-frequency part -- it does not (Sec. IV uses (29)-(30) only).",
+ "reverify_command": "cd /tmp && PYTHONDONTWRITEBYTECODE=1 python3 /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/reaudit/popov-hep-th_0302039.py   # expect \"17 checks, 0 FAIL\", exit 0 (imports hpscentre.build read-only); sed -n 93,109p /home/user/Claude-Method-Works/research/warp-drive/hpscentre.py",
+ "report_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/reaudit/hep-th_0302039_seciv.json",
+ "pages_read": [
+  "Popov hep-th/0302039v2: pp.1, 2, 4, 5, 8, 9, 10, 11, 12, 14, 15, 16",
+  "Hochberg-Popov-Sushkov gr-qc/9701064v1: pp.1-12"
+ ]
+}

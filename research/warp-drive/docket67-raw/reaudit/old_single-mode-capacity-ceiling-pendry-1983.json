@@ -1,0 +1,78 @@
+{
+ "key": "single-mode-capacity-ceiling-pendry-1983",
+ "name": "Single-mode capacity ceiling sqrt(pi P/(3 hbar))/ln 2, claimed field-blind (Pendry 1983; Bekenstein & Schiffer)",
+ "source": {
+  "located": "J. B. Pendry, 'Quantum limits to the flow of information and entropy', J. Phys. A: Math. Gen. 16 (1983) 2161-2171, doi 10.1088/0305-4470/16/10/012. WebSearch listings (iopscience, OSTI ETDEWEB 5464956, Semantic Scholar) confirm the title, journal, pages and DOI. There is no arXiv copy because the paper predates arXiv. Restatements that would serve: Blencowe & Vitelli, arXiv:quant-ph/0001007 (2000); Bekenstein & Schiffer, Int. J. Mod. Phys. C 1 (1990) 355 (the arXiv copy is believed to be quant-ph/0311050, NOT confirmed).",
+  "read_status": "NAMED-NOT-READ",
+  "via": "Not reached at source and not reached through any restatement. Every alphaXiv call returned 'alphaXiv assistant quota exceeded': answer_pdf_queries on Bekenstein-Schiffer and on Blencowe-Vitelli by title and on quant-ph/0001007 by id, get_paper_content on quant-ph/0311050, and discover_papers. curl and WebFetch to arxiv.org, ar5iv, iopscience, osti.gov, semanticscholar.org and researchgate.net were all EGRESS_BLOCKED or CONNECT 403. No capture exists in the tree or the scratchpad. Two WebSearch engine summaries were seen, and neither counts as a verbatim read. (a) Pendry: a per-channel inequality between information flow and energy flow, insensitive to the dispersion relation, applying separately to each channel. The summary also prints '(pi T)/(3 hbar)', which is garbled and was not used. (b) Blencowe-Vitelli: a bound that holds for any particle statistics, with Caves-Drummond confirming Pendry's bound as the optimum capacity for bosons."
+ },
+ "published_statement": "NOT QUOTED, because the source was not read. The tree's form (branelink.py:38-39) is I_dot <= sqrt(pi P/(3 hbar))/ln 2 bits/s, i.e. S_dot <= sqrt(pi k^2 P/(3 hbar)). This audit re-derived it without reading the source: for one unidirectional thermal mode, P = pi k^2 T^2/(12 hbar) and S_dot = pi k^2 T/(6 hbar), so S_dot^2/P = pi k^2/(3 hbar) exactly, and a thermal occupation maximises S_dot at fixed P.",
+ "published_hypotheses": [
+  "NOT QUOTED from the source, which was not read. The hypotheses under which this audit re-derived the form, each named:",
+  "H1: one channel is one transverse mode, with 1+1 propagation, unidirectional and without reflection.",
+  "H2: a free mode; energy is measured from the band bottom (or from mu for a Fermi sea); zero-point flux is excluded.",
+  "H3: the dispersion w(k) is monotone onto [0, inf). This is the 'field-blind' clause. A bounded band or a counted rest energy gives a strictly lower achievable ratio, so the ceiling still bounds.",
+  "H4: a stationary state, with information identified with entropy. This needs an ideal noiseless receiver, i.e. a Holevo capacity argument, which was not read."
+ ],
+ "hypothesis_drift": [
+  "NOT CHECKABLE AGAINST THE SOURCE, which was not read. The drifts below are measured against the re-derived H1-H4. Every one concerns the O6/O7 pass's use of the ceiling, and branelink.py itself REFUSES that use.",
+  "branelink.py:38-42 carries 'field-blind' over to a carrier with gamma > 1 on a moving brane, which ADDS a frame change. Checks 5a-5c computed that for a unidirectional MASSLESS flux S_dot^2/P does not change under a boost: S' = D S and P' = D^2 P. The massive-carrier case was not computed and remains a named gap.",
+  "branelink.py:38-42 places the carrier in a 5D bulk, which DROPS H1 (single mode). Checks 6a-6b computed that N modes at total P carry sqrt(N) times the single-mode ceiling. The ceiling therefore does not carry over to a bulk carrier unless its modes are counted, which supports the tree's refusal (failure mode (4)).",
+  "branelink.py:39 calls it a 'capacity ceiling', which silently includes H4 (an ideal receiver). The pass pairs it with a LIGO-class receiver (branelink.py:31-33), so the ceiling bounds the rate and does not estimate it.",
+  "The tree does not state particle statistics. Computed: a fermion Fermi sea (electrons and holes) SATURATES the ceiling; a band of particles only, with its bottom at mu, reaches 1/sqrt 2 of it. It is an upper bound in every case tested. My own first-run expectation for the Fermi sea (pi/6) was wrong; the correction is recorded in the script.",
+  "branelink.py:350 (S5 N(A)) has no drift: it is identically the ceiling in bits (check 7)."
+ ],
+ "data_at_publication": [
+  {
+   "quantity": "hbar, the only physical constant in the ceiling (k_B cancels when the ceiling is in bits)",
+   "value_then": "1.0545887e-34 J s (CODATA 1973). This is the auditor's recollection, NOT read at source.",
+   "value_now": "1.054571817e-34 J s, exact since h = 6.62607015e-34 J s by definition (SI 2019)",
+   "source_now": "The 2019 SI definition, adopted by CODATA 2018 and 2022. Not re-read this stage.",
+   "moves_conclusion": "NO. Computed in check 8: the ceiling at P = 1 W moves from 1.437631e17 to 1.437642e17 bit/s, a relative change of 8.0e-6. The form is a theorem under H1-H4 and has no other datum."
+  }
+ ],
+ "rederivation": {
+  "method": "sympy",
+  "script_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/single-mode-capacity-ceiling-pendry-1983.py",
+  "outcome": "27 of 27 checks PASS. (1) The 1D thermal boson flux gives S_dot^2/P = pi/3, with Gamma(2)zeta(2) cross-checked by quadrature. (2) Bose-Einstein is the stationary point of s(n) - beta w n, and s(n) is strictly concave, so thermal is the maximum; 400 random non-thermal spectra reached at most 0.9226 of the ceiling. (3) The ceiling does not depend on dispersion: c|k|, k^2, k^3 and sqrt(k^2+m^2)-m all give pi/3 to within 5e-9. A bounded band stays below 1 at every finite T and approaches 1 only as T goes to 0; counting the rest energy caps it at 0.9339. (4) A fermion Fermi sea saturates pi/3; particles only with the band bottom at mu give pi/6. (5) For a massless unidirectional flux the ratio does not change under a Doppler shift. (6) N modes carry sqrt(N) times the ceiling. (7) branelink's N(A) is identical to the ceiling in bits. (8) The change in hbar moves the ceiling by 8.0e-6. (9) dP/dT equals the thermal-conductance quantum pi^2 k^2 T/(3h). Two first-run FAILs were my own errors, not findings about the source: a grid-trapezoid test in 3b, and the pi/6 expectation in 4b. Both are recorded in the script and were corrected by quadrature and derivation.",
+  "agrees_with_source": "not-run"
+ },
+ "later_literature": [
+  {
+   "ref": "Blencowe & Vitelli, arXiv:quant-ph/0001007 (2000). The search summary gives the journal as Phys. Rev. B 62, 052104; the auditor recalls Phys. Rev. A. The journal is UNVERIFIED.",
+   "effect": "extends",
+   "what": "Per the search summary only: the bound holds for any particle statistics and any reservoir temperatures, and through Holevo it gives a statistics-independent capacity bound. This agrees with the Fermi-sea saturation computed in check 4b.",
+   "read_status": "NAMED-NOT-READ (WebSearch summary only)"
+  },
+  {
+   "ref": "Caves & Drummond, Rev. Mod. Phys. 66 (1994) 481",
+   "effect": "confirms",
+   "what": "Per the Blencowe-Vitelli summary: confirms Pendry's bound as the optimum bosonic channel capacity, which supplies H4 for bosons.",
+   "read_status": "NAMED-NOT-READ"
+  },
+  {
+   "ref": "Bekenstein & Schiffer, Int. J. Mod. Phys. C 1 (1990) 355",
+   "effect": "confirms",
+   "what": "The tree names it as a second source (branelink.py:40). Its content was not reached.",
+   "read_status": "NAMED-NOT-READ"
+  },
+  {
+   "ref": "Jezouin et al., Science 342 (2013) 601 (arXiv:1502.07856); Meschke, Guichard & Pekola, Nature 444 (2006) 187",
+   "effect": "confirms",
+   "what": "The titles report measurements of the single-channel heat-flow quantum for electrons and for photons, which is the energy-flux half of check 9. Their values were not read, so they are named rather than quoted.",
+   "read_status": "NAMED-NOT-READ (titles only)"
+  },
+  {
+   "ref": "The one discover_papers search allowed this stage",
+   "effect": "contested",
+   "what": "It returned 'quota exceeded', so no search for narrowing or contradicting work was possible. 'contested' is entered only because the schema requires an effect: NO contesting paper was found or read.",
+   "read_status": "NOT RUN (quota)"
+  }
+ ],
+ "lacked_data": "Pendry in 1983 did not have three things: (i) measurements of the single-channel thermal-conductance quantum (photons 2006, electrons 2013, known here from titles only); (ii) a Holevo-capacity argument turning the entropy ceiling into a capacity (Caves-Drummond 1994, Blencowe-Vitelli 2000, known here from summaries); (iii) the exact post-2019 hbar. Evidence either way: (iii) was computed to move the ceiling by 8.0e-6, which is negligible. (i) and (ii), as far as the summaries show, confirm the result rather than narrow it, and check 9 re-derives the quantum that (i) measured. The result is a theorem of quantum statistics with hbar as its only datum. On the evidence gathered here, M's hypothesis is NOT supported for this result, with the caveat that nothing was read verbatim. What the tree's refused use lacks is a hypothesis, not data: a bulk carrier is not a single mode (sqrt(N), check 6), and the frame change for a massive carrier was not computed.",
+ "grade": "OPEN",
+ "grade_evidence": "The source and both restatements could not be reached this stage (alphaXiv quota exhausted; the sites that host the paper and its restatements are all EGRESS_BLOCKED). So the published statement cannot be quoted and drift cannot be measured against it, which by M's rule is OPEN, not STANDS. What the computation did establish (27 of 27 PASS): the tree's formula follows exactly from single-mode quantum statistics under the named H1-H4. It does not depend on dispersion. It stays an upper bound for bounded bands, for a counted rest energy and for both fermion cases. It does not change under a Doppler shift for a massless unidirectional flux. Its only datum has moved by 8.0e-6. It is NOT field-blind across mode count: N modes carry sqrt(N) times the single-mode ceiling. That is why the tree's refusal to apply it to a 5D-bulk carrier (branelink.py:38-42) holds up. No counterexample to the single-mode statement was found, so the result is not WRONG.",
+ "what_would_change_the_grade": "Read Pendry verbatim, through quant-ph/0001007 or Bekenstein-Schiffer once the alphaXiv quota resets, or at J. Phys. A 16, 2161 directly. If it states the bound under H1-H4, the single-mode statement becomes STANDS, and the tree's refused bulk-carrier use becomes NARROWED on the single-mode hypothesis (check 6) and on the uncomputed massive-carrier frame change. A hypothesis in the source that is missing from H1-H4, or a mismatched constant, is a discrepancy to record and re-check, not a refutation.",
+ "reverify_command": "python3 /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/single-mode-capacity-ceiling-pendry-1983.py   # expect 27 PASS and ALL PASS, exit 0; then retry alphaXiv answer_pdf_queries(paper='quant-ph/0001007') to lift OPEN",
+ "report_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/audits/single-mode-capacity-ceiling-pendry-1983.json"
+}

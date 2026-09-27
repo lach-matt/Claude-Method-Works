@@ -1,0 +1,15 @@
+     M_sun hole                           computed 8.83e+19 per baryon, printed 1e+18, ratio 88 (1.95 dex)
+     1e6 M_sun core in 1e10 M_sun gal.    computed 8.83e+21 per baryon, printed 1e+20, ratio 88 (1.95 dex)
+     1e10 M_sun galaxy all in hole        computed 8.83e+29 per baryon, printed 1e+28, ratio 88 (1.95 dex)
+     1e80 baryons in one hole             computed 7.42e+42 per baryon, printed 1e+40, ratio 742 (2.87 dex)
+PASS P1 three galactic figures are low by one common factor (~88, 1.94 dex)
+PASS P1 the final ~1e40 is low by ~740 (2.87 dex): a further ~0.9 dex beyond the common factor
+PASS P1 every printed figure is within 3 dex BELOW the BH formula (all order-of-magnitude underestimates)
+PASS P1 the common factor is close to 8 pi^2 = 79 (formula with h for hbar and no 4 pi would give it)   ratio/8pi^2 = 1.118
+PASS P2 1e9/1e40 = 1e-31
+PASS P3 comoving volume element ~ r^(3/2) near r = 0 (coefficient sqrt(2m))
+PASS P3 Weyl/Ricci ~ r^(-3/2) -> infinity: 'the Weyl tensor dominates near the singularity'
+PASS P4 C_abcd C^abcd = 48 m^2/r^6 = 48 (m/r^3)^2: component ~ inverse cube
+PASS P5 gap radiation -> maximal entropy: 31 dex with Penrose's printed figures, 33.9 dex with the BH formula   printed 31.0 dex, BH 33.87 dex; S_max(BH) = 7.42e+122
+
+9/9 PASS

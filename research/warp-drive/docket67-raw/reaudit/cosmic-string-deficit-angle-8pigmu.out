@@ -1,0 +1,26 @@
+PASS V1 h00 coefficient = 4G(mu+p)   [Vilenkin eq.20]
+PASS V1 h11 = h22 coefficient = 4G(mu-p) [eq.20]
+PASS V1 h33 coefficient = 4G(mu+p)   [eq.20]
+PASS V1 ln r harmonic off axis, flux 2 pi
+PASS V2 vacuum string p=-mu: h00 = h33 = 0, h11 = 8 G mu ln r [eq.21]
+PASS V3 eqs.(29)-(30) consistent to first order in G mu
+PASS V3 phi' range (1-4G mu)2pi -> deficit 8 pi G mu
+PASS V3 eq.(34): deflection = dphi - pi = 4 pi G mu = deficit/2
+PASS V4 d rho/dr = r^{-A/2}
+PASS V4 exact cone: deficit = pi*A
+PASS V4 deficit(mu,p) = 4 pi G (mu - p)
+PASS V4 regular rod p=0 ('regular massive rods'): deficit 4 pi G mu, NOT 8 pi G mu
+PASS V4 vacuum string p=-mu: deficit 8 pi G mu
+PASS V4 with tension tau = -p: 4 pi G (mu + tau) [= Hindmarsh-Kibble eq.4.6 deficit]
+     mu=+0.010 p=+0.000  deficit=+0.125664  deficit
+     mu=+0.010 p=-0.010  deficit=+0.251327  deficit
+     mu=-0.010 p=+0.000  deficit=-0.125664  EXCESS
+     mu=-0.010 p=+0.010  deficit=-0.251327  EXCESS
+     mu=+0.010 p=+0.020  deficit=-0.125664  EXCESS
+     mu=+0.010 p=+0.010  deficit=+0.000000  none
+PASS V5 excess with mu > 0 occurs, and only with p > mu
+PASS V5 for p <= 0 (rod or tension), excess iff mu < 0
+PASS V6 W'(0) - 1 = -4 G mu (canonical paraphrase '-8 pi G mu' is a normalisation slip)
+PASS V7 Newtonian potential U = 2G(mu+p) ln r; rod: 2 G mu ln r; vacuum string: 0
+
+18/18 PASS

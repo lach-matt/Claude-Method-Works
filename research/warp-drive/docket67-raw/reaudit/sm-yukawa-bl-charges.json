@@ -1,0 +1,101 @@
+{
+ "key": "sm-yukawa-bl-charges",
+ "name": "Perturbative SM: every Yukawa term is a fermion bilinear with zero net B and L",
+ "source": {
+  "located": "S. Weinberg, 'Baryon- and Lepton-Nonconserving Processes', Phys. Rev. Lett. 43 (1979) 1566-1570: Google Drive fileId 1uhNk7yNMtTkSdnKwZFKiSgQhgQMDFIV4 (title Weinberg_baryon.pdf), supplied by M. Identity confirmed from the file's own pages: title 'Baryon- and Lepton-Nonconserving Processes', author OCR 'Steven steinberg' at 'Lyman Laboratory of Physics, Harvard University ... Harvard-Smithsonian Center for Astrophysics' '(Received 18 August 1979)', running heads 'VOLUME 43, NUMBER 21 PHYSICAL REVIEW LETTERS 19 NOVEMBER 1979', page numbers 1566-1570; the file opens with the tail of the preceding Letter (Kazama & Yao) on p. 1566, and the 'Note added' names the following Letter 'F. Wilczek and A. Zee [following Letter, Phys. Rev. Lett. 43, 1571 (1979)]'. Anomaly caveat: 't Hooft PRL 37 (1976) 8, Drive fileId 1N8eRisJKTKW35tqqIj-Ho80cMRTnJDgB, READ (see the thooft-1976 re-audit).",
+  "read_status": "READ (both primaries, OCR text via Google Drive read_file_content). Weinberg's OCR interleaves the two-column layout: sentences are quoted verbatim as OCR'd; where a reading de-interleaves them it is marked [read: ...].",
+  "via": "mcp__Google_Drive__read_file_content(fileId=1uhNk7yNMtTkSdnKwZFKiSgQhgQMDFIV4) and (fileId=1N8eRisJKTKW35tqqIj-Ho80cMRTnJDgB)."
+ },
+ "published_statement": "READ, verbatim (OCR):\n(W0) p.1566: 'even without such a principle, the fact that the weak, electromagnet- ic, and strong interactions of ordinary quarks and leptons conserve baryon and lepton number can be understood as simply a consequence of the SU(2)S U(l) and SU(3) gauge symmetries.' [SU(2)⊗U(1)]\n(W1) p.1567, OCR-interleaved: 'The ordinary bosons which appear in the effective theory all have vanishing so that purely baryon bosonic terms number in and the lepton effective number, La- grangian conserve baryon number and lepton num- ber trivially. Also, for interactions involving a pair of ordinary fermions and any number of de- rivatives mediately and ordinary bosons, SU(3) implies baryon conservation. of ' QCD Hence im- the terms in the effective Lagrangian which vio- late baryon conservation must involve at least four fermion fields.' [read: bosons have vanishing B and L, so purely bosonic terms conserve both trivially; for interactions involving a pair of ordinary fermions and any number of derivatives and ordinary bosons, SU(3) immediately implies baryon conservation; hence B-violating terms must involve at least four fermion fields.]\n(W1b) p.1567, OCR verbatim: 'With M as assumed here, the only baryon-noncon- serving interactions given by the operators four fermion fields fields. of with practical d =6. interest These are those have just and no derivatives or boson' [read: the only B-nonconserving interactions of practical interest are those given by the d = 6 operators, with just four fermion fields and no derivatives or boson fields].\n(W2) p.1569: 'there is a possible lepton-nonconserving term in the effective Lagrangian with dimensionality d = 5: fabmn C iaL tjbL+k (m) @1 (n) ik~ jl +fabmn tiaL c tjbL+k (m) +l (n) ~ij~kl (20)' followed by OCR 'where loop expect graphs p f and are would f' to one be give or roughly more values scalar of of order order doublets. 1/M; ol'/M.' [read: f l^T C l phi^(m) phi^(n) eps eps + f' (...) (20), where phi^(m), phi^(n) are one or more scalar doublets; f and f' expected roughly of order 1/M, one-loop graphs giving values of order alpha/M]; OCR continues 'The interaction (20) would produce a neutrino ical mass is The well interaction limits, ...' [read: the interaction (20) would produce a neutrino mass], and 'masses of this order might perhaps be observable in neu- trino oscillation experiments.'\n(W3) p.1570, last note, OCR verbatim: '3In a tree the exactly Ref. O(10) graph, 8\\\\]. conserved. model, Of with course, f a = term GFmi2/M f of would form \\\\[Georgi vanish (20) is produced and if BNano- —L' [read, de-interleaved: 'In a tree graph, a term of form (20) is produced ... with f = G_F m^2/M [Georgi and Nanopoulos, Ref. 8]. Of course, f would vanish if B-L were exactly conserved.'].\n(A) p.1567, OCR verbatim: '(A) tbL =tbB. the number difference L. antileptons, —L has already quence of SU(3) couplings of of All the interaction—s baryon number (1)-(6) B and conserve lepton' [read: (A) All the interactions (1)-(6) conserve the difference B - L of baryon number and lepton number].\n't Hooft (anomaly caveat), p.8 abstract: 'In perturbation theory the total charge corresponding to such currents seems to be still conserved, but here it is shown that nonperturbative ef- fects can give rise to interactions that violate the charge conservation.' p.10: 'All currents that are coupled to gauge fields are anomaly free, hence the model is renormalizable. But the baryon and lepton currents have anomalies.'\nThe tree (canonical): 'FROM ENERGY, WITH B AND L CONSERVED. Every Yukawa term is a fermion bilinear. The selftest computes B = L = 0 for each one, so no Higgs coupling carries B or L (C3).' (massform.py:486-488); C3 status 'THEOREM (perturbative SM)' (:2451); hypotheses 'perturbative SM field content and B, L assignments (_Q table)', 'H-BL for the B - L balance'.",
+ "published_hypotheses": [
+  "READ, from Weinberg:",
+  "H-ORD (field content), p.1567, OCR interleaved: 'the g~ only superheavy particles mass with scale masses M are much the less \"ordinary\" than the par- ticles of the sort with which we are familiar' [read: the only particles with masses much less than M are the 'ordinary' particles of the sort with which we are familiar]; the list that follows is interleaved but legible in parts: 'left-handed', 'right-handed', 'gluons', 'Higgs', 'color-neutral', 'scalars', 'doublets'.",
+  "H-EFT, p.1567, OCR: 'which is obtained by integrating out effective theory all the superheavy degrees of freedom' (interleaved) [read: an SU(3)xSU(2)xU(1)-invariant effective field theory obtained by integrating out all the superheavy degrees of freedom]; d = 6 couplings 'roughly of order M' with the exponent lost in OCR ('M \".'); for (20) 'f and f' ... of order 1/M' (interleaved, see W2).",
+  "H-M, p.1566, OCR: 'mediat- ed by some unspecified \"superheavy\" with a characteristic mass M above, GeV. Such large masses are indicated say, particles, by the 10'4 ex- perimental lower bound' [read: M above, say, 10^14 GeV, indicated by the experimental lower bound on the proton lifetime].",
+  "The renormalizable-level statement W0 is 'a consequence of the SU(2)⊗U(1) and SU(3) gauge symmetries' -- it covers the interactions of ordinary quarks and leptons, i.e. the dimension <= 4 theory; violation enters only through the higher-dimension terms of the effective theory (d = 5 for L, d = 6 for B).",
+  "W1 is dimension-free: fermion-BILINEAR interactions with 'any number of de- rivatives' and 'ordinary bosons' conserve B, by SU(3).",
+  "W3: the d = 5 L-violating coefficient vanishes if B - L is exactly conserved.",
+  "From 't Hooft: conservation holds 'In perturbation theory'; nonperturbatively B and L are violated because 'the baryon and lepton currents have anomalies'."
+ ],
+ "hypothesis_drift": [
+  "CARRIED (B-half, inference form): the tree argues 'Every Yukawa term is a fermion bilinear ... so no Higgs coupling carries B'. Weinberg W1 is precisely this argument for B, at ANY dimension: 'for interactions involving a pair of ordinary fermions and any number of de- rivatives [OCR: 'mediately and'] ordinary bosons, SU(3) implies baryon conservation.' Reaudit (W1): no colour-singlet fermion bilinear carries B.",
+  "DROPPED (L-half), and the counterexample is the source's own: Weinberg eq. (20) (p.1569) is 'a possible lepton-nonconserving term ... with dimensionality d = 5' built from two lepton doublets and two scalar doublets -- a fermion-bilinear Higgs coupling with Delta L = 2 (reaudit (W2)). So 'fermion bilinear, so no Higgs coupling carries ... L' (massform.py:486-488, 171-172, 2918) is false without a further hypothesis; the bilinear structure alone gives B = 0, not L = 0. The tree's three Yukawa terms do carry L = 0 (computed), but the generalisation to 'no Higgs coupling' needs either d <= 4 (Weinberg's W0 scope) or exact B - L.",
+  "MIS-SCOPED, not missing: the tree names H-BL ('B - L is exactly conserved', massform.py:832-833) but attaches it to C3 only 'for the B - L balance' (canonical hypotheses). Weinberg's own note W3, 'f would vanish if B—L were exactly conserved', shows H-BL is exactly the hypothesis that removes (20). With H-BL applied to C3 itself, C3 holds for every fermion-bilinear Higgs coupling at every dimension: B = 0 by W1, and a bilinear with L != 0 has B = 0 so violates B - L (reaudit: every L-carrying colour-singlet bilinear has Delta(B-L) != 0).",
+  "DROPPED (renormalizability), residual class: Higgs couplings with >= 4 fermions. Weinberg restricts to d = 6 as the only case 'of practical interest' (W1b), leaving higher d unstated. (H+H) x QQQL at d = 8 carries B = L = 1, conserves B - L and Y (reaudit), so neither W1 nor H-BL excludes it; only d <= 4 does. 'SM' in 'THEOREM (perturbative SM)' (:2451) implies d <= 4 but the tree never names it (first audit's H-DIM4, unchanged).",
+  "RETAINED CORRECTLY: 'perturbative'. 't Hooft: 'In perturbation theory the total charge ... seems to be still conserved, but ... nonperturbative ef- fects can give rise to interactions that violate the charge conservation'; 'the baryon and lepton currents have anomalies'. The tree prices the anomaly route separately (S11). Reaudit: SU(2)^2 anomaly 1/2 per generation for both B and L.",
+  "UNNAMED BUT HARMLESS (first audit, unchanged): no nu_R in _Q; a Dirac nu_R Yukawa carries B = L = 0."
+ ],
+ "data_at_publication": [
+  {
+   "quantity": "B and L charges of the SM fields (1/3 per quark, 1 per lepton)",
+   "value_then": "assignments (1967-1979 SM)",
+   "value_now": "same assignments",
+   "source_now": "definitional; massform.py:2047-2048 matches (rederive (1))",
+   "moves_conclusion": "no: exact rationals, no measurement enters"
+  },
+  {
+   "quantity": "neutrino masses (these decide whether a dim-5 Weinberg term exists in nature)",
+   "value_then": "1979: no neutrino mass measured. READ: Weinberg p.1569, OCR 'The interaction (20) would produce a neutrino ical mass is The well interaction limits, ...' [read: (20) would produce a neutrino mass] and 'masses of this order might perhaps be observable in neu- trino oscillation experiments.' The magnitude he quotes is OCR-illegible ('roughly 10 ' to 10 ' eV') and is not used.",
+   "value_now": "at least two nonzero masses from oscillations (Delta m^2_21 ~ 7.4e-5 eV^2, |Delta m^2_31| ~ 2.5e-3 eV^2); Dirac vs Majorana UNDETERMINED",
+   "source_now": "PDG 2024 neutrino review, NAMED-NOT-READ (values recalled; quota and egress blocked the read). The grade uses nothing from these figures except 'nonzero'",
+   "moves_conclusion": "L-half only. If the mass is Majorana via the Weinberg operator, a Higgs coupling carries Delta L = 2 and the 'or L' part of C3 flips. If it is Dirac (nu_R Yukawa), C3 stands. The B-half is unaffected."
+  },
+  {
+   "quantity": "0nu-beta-beta half-life (tests Majorana mass, Delta L = 2)",
+   "value_then": "n/a",
+   "value_now": "T1/2(136Xe) > ~3.8e26 yr (KamLAND-Zen 2024)",
+   "source_now": "NAMED-NOT-READ (recalled)",
+   "moves_conclusion": "no: it is a lower limit and leaves Dirac vs Majorana open, so beyond dim 4 the L-half stays DATA-DEPENDENT"
+  },
+  {
+   "quantity": "proton lifetime (tests Delta B operators at dim >= 6)",
+   "value_then": "1979: limits of ~1e30-1e31 yr",
+   "value_now": "tau(p -> e+ pi0) > ~2.4e34 yr (Super-Kamiokande 2020)",
+   "source_now": "NAMED-NOT-READ (recalled)",
+   "moves_conclusion": "no: no Delta B has been observed, which supports the B-half the refusals use"
+  }
+ ],
+ "rederivation": {
+  "method": "numeric (exact rationals)",
+  "script_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/reaudit/sm-yukawa-bl-charges.py",
+  "outcome": "Exit 0, ALL PASS (output sm-yukawa-bl-charges.out). massform _Q and YUKAWA_TERMS read by AST (no import, nothing written): y_e, y_d, y_u all B = L = 0. (W1) no colour-singlet fermion bilinear (all SM Weyl fields incl. nu_R and conjugates) carries B. L-carrying bilinears exist (L L, L ec~, L nc~, ...) and every one has Delta(B-L) != 0. (W2) eq.(20) l l phi phi: Y = 0, Delta L = 2, Delta B = 0, d = 5. (W3) its Delta(B-L) = -2, so exact B - L forbids it. Hence under H-BL every fermion-bilinear coupling at any dimension carries B = L = 0. (H+H)QQQL: B = L = 1, Y = 0, d = 8 -- not excluded by W1 or H-BL. SU(2)^2 anomaly per generation B = L = 1/2. The first audit's exhaustive dim-4..8 enumeration (rederive/sm-yukawa-bl-charges.py, PASS) stands and agrees with the source at d = 5 and d = 6.",
+  "agrees_with_source": "yes"
+ },
+ "later_literature": [
+  {
+   "ref": "Weinberg, PRL 43 (1979) 1566 (READ this stage); Wilczek & Zee, PRL 43 (1979) 1571 (named in Weinberg's Note added)",
+   "effect": "narrows",
+   "what": "READ: B/L conservation of the ordinary interactions is 'a consequence of the SU(2)⊗U(1) and SU(3) gauge symmetries'; the first L violation is the d = 5 term (20) with scalar doublets; B violation needs 'at least four fermion fields' (d = 6); (20) vanishes if B - L is exact. Wilczek-Zee not read.",
+   "read_status": "READ (Weinberg); NAMED-NOT-READ (Wilczek-Zee)"
+  },
+  {
+   "ref": "Grzadkowski, Iskrzynski, Misiak, Rosiek, arXiv:1008.4884 (Warsaw basis)",
+   "effect": "confirms",
+   "what": "The dim-6 B-violating operators are four-fermion only, with no Higgs; this matches rederive (2d)",
+   "read_status": "NAMED-NOT-READ (alphaXiv quota exceeded; arxiv.org egress-blocked)"
+  },
+  {
+   "ref": "Lehman, arXiv:1410.4193; Liao & Ma, arXiv:1607.07309 (dim-7 SMEFT)",
+   "effect": "extends",
+   "what": "Dim-7 operators violate B - L, and Higgs-bearing Delta B = -Delta L operators exist; this matches rederive (2e)",
+   "read_status": "NAMED-NOT-READ"
+  },
+  {
+   "ref": "Neutrino oscillation discovery (Super-Kamiokande 1998) and the PDG 2024 neutrino review",
+   "effect": "narrows",
+   "what": "Data refute the minimal SM's massless neutrinos. Whether the completion is Dirac (C3 stands) or Majorana via the Weinberg operator (C3's L-half fails) is open",
+   "read_status": "NAMED-NOT-READ"
+  }
+ ],
+ "lacked_data": "M's hypothesis, tested. The SM's B/L accidental symmetry was built in 1967-1979 with massless neutrinos and no observed Delta B or Delta L. The datum it lacked is neutrino mass, established by oscillations from 1998. EVIDENCE THAT THIS MATTERS: a nonzero neutrino mass needs field content or operators beyond the minimal renormalizable SM. One completion the data allow is the dim-5 Weinberg operator, and it is a Higgs coupling carrying Delta L = 2 (computed here: gauge-invariant and non-vanishing). So the tree's 'no Higgs coupling carries ... L' is a theorem about the renormalizable model, not about nature. EVIDENCE THAT IT DOES NOT MOVE THE TREE'S CONCLUSION: (a) The other completion, a Dirac nu_R Yukawa, carries B = L = 0 (computed). (b) The refusals C3 carries (DISPLACEMENT, QUANTA, CREATION: 'forms no net baryon number') rest on B. No Higgs-bearing operator carries B below dimension 7, and every one at dims 5-7 violates B - L, which the tree's named H-BL excludes. (c) No Delta B has ever been observed (proton-lifetime limits, recalled, not read). So the later datum narrows the L-half and leaves the B-half standing. The one B-carrying class H-BL does not cover is at dimension >= 8 (e.g. (H+H)QQQL), and only renormalizability excludes it. Nothing here shows a computational error in the result or in massform's table. RE-AUDIT ADDITION (primary READ): the datum Weinberg lacked (neutrino mass) is one he anticipated -- he names (20) as the term that would produce a neutrino mass (OCR-interleaved, see W2). So the lack does not move his result; it bears on which completion nature chose, which decides the L-half of C3 only when H-BL is not assumed.",
+ "grade": "NARROWED",
+ "grade_evidence": "READ. The three listed terms are the complete gauge-invariant psi psi H set and each has B = L = 0 (re-derived); the B-half of the tree's inference ('fermion bilinear, so no B') is Weinberg's own argument, dimension-free ('SU(3) implies baryon conservation' for 'a pair of ordinary fermions and any number of de- rivatives [OCR: 'mediately and'] ordinary bosons'). The L-half is where the tree over-reaches: Weinberg's eq. (20) is a d = 5 fermion-bilinear coupling to scalar doublets that is 'lepton-nonconserving', so 'no Higgs coupling carries ... L' holds only under d <= 4 (the scope of Weinberg's 'consequence of the SU(2)⊗U(1) and SU(3) gauge symmetries') or under exact B - L (Weinberg: 'f would vanish if B—L were exactly conserved'). The tree has H-BL but scopes it to 'the B - L balance', not to C3, and never names d <= 4; with H-BL on C3 the whole bilinear class is covered at every dimension, leaving only >= 4-fermion Higgs couplings at d >= 8 such as (H+H)QQQL, which only d <= 4 excludes. The perturbative qualifier is correct per 't Hooft. No refusal the tree rests on C3 (net B from Higgs couplings) moves.",
+ "what_would_change_the_grade": "To STANDS: C3's hypotheses name d <= 4 (renormalizable SM), or attach H-BL to C3 itself and restrict 'Higgs coupling' to fermion-bilinear couplings (then Weinberg W1 + W3 cover every dimension). To DATA-DEPENDENT: a verdict comes to rest on the L-half without H-BL (Dirac vs Majorana open). To WRONG: a gauge-invariant d <= 4 Higgs coupling with B or L != 0 in SM content -- excluded by enumeration and by Weinberg W0.",
+ "reverify_command": "python3 /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/reaudit/sm-yukawa-bl-charges.py  # expect ALL PASS; mcp__Google_Drive__read_file_content(fileId='1uhNk7yNMtTkSdnKwZFKiSgQhgQMDFIV4') and search 'SU(3) implies baryon conservation', 'd = 5', 'exactly conserved'; sed -n '486,488p;832,834p;2044,2070p;2449,2452p' /home/user/Claude-Method-Works/research/warp-drive/massform.py",
+ "report_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/reaudit/sm-yukawa-bl-charges.json",
+ "pages_read": [
+  "Weinberg PRL 43: pp. 1566, 1567, 1568, 1569, 1570 (whole Letter incl. notes; Drive PDF, OCR)",
+  "'t Hooft PRL 37: pp. 8-11 (whole Letter; Drive PDF, OCR)"
+ ],
+ "supersedes_grade": "NARROWED (first audit, source NAMED-NOT-READ) -- superseded by this grade on a READ of Weinberg 1979 and 't Hooft 1976; same grade, narrowing now located in the source's own eq. (20) and note."
+}

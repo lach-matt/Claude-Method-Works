@@ -1,0 +1,92 @@
+{
+ "key": "material-strength-t1000-becu",
+ "name": "Tensile strength and density of T1000 carbon fibre and beryllium-copper",
+ "source": {
+  "located": "Maker data sheets: Toray Composite Materials America, 'TORAYCA T1000G Intermediate Modulus Carbon Fiber Data Sheet' (toraycma.com/wp-content/uploads/T1000G-Data-Sheet_02.16.2024.pdf); Materion / voestalpine 'Alloy 25 (C17200) Rod and Bar Data Sheet' and Materion 'Alloy 25 (C17200) Strip Data Sheet'. Secondary: PMC9000027 (QB2.0 vs C17200 mechanical properties). Neither material figure has an arXiv copy. The tree cites no source (warpfolder.py:222-224, status ORDER).",
+  "read_status": "NAMED-NOT-READ",
+  "via": "Not read at source. alphaXiv returned 'assistant quota exceeded' on answer_pdf_queries (x2), get_paper_content and discover_papers. WebFetch and curl to toraycma.com, toray-cfe.com, cf-composites.toray, fileserver.mates.it, materion.com, voestalpine.com, matweb.com, wikipedia.org and arxiv.org were refused by the egress proxy (403). The only views were WebSearch result summaries. T1000G: 6,370 MPa, 1.80 g/cm3, 294 GPa, 2.2%. C17200: '>1380 MPa (200 ksi)'; 1357 MPa peak-aged at 300 C for 2 h (PMC9000027); 8.36 g/cc for TD02 strip and 8.30 g/cm3 before heat treatment. These summaries are corroboration and sensitivity inputs only, never READ values."
+ },
+ "published_statement": "NOT READ AT SOURCE. As summarised by WebSearch, not quoted from the sheets: Toray T1000G carbon fibre has tensile strength 6,370 MPa, density 1.80 g/cm3, modulus 294 GPa and strain 2.2%. Beryllium-copper C17200 (Alloy 25), peak-aged, has UTS about 1,357-1,380+ MPa and density 8.30-8.36 g/cm3. The tree's use (warpfolder.py:224-227) is ('carbon fibre T1000', 6.4e9 Pa, 1800 kg/m^3) and ('beryllium-copper', 1.4e9 Pa, 8250 kg/m^3), status ORDER. These feed burst_speed_m_s = sqrt(sigma/rho) (warpfolder.py:328-330). The tip speed of 8,011 m/s exceeds that limit by 4.2x and 19.4x (warpfolder.py:113-118, 418-421, 564-570), so ROTOR_IS_WITHIN_MATERIAL_LIMITS = False (warpfolder.py:247).",
+ "published_hypotheses": [
+  "FIBRE, NOT COMPOSITE: the T1000G figure is the fibre's (impregnated-strand) strength along the fibre axis. It is not a laminate, transverse or biaxial strength. The test standard was not read.",
+  "TYPICAL VALUE: data-sheet figures are typical properties, not design allowables. The sheet's wording was not read.",
+  "TEMPER-DEPENDENT: BeCu strength depends on temper and form. Peak-aged C17200 is about 1.36-1.38+ GPa and 1/2H (TD02) is 580-690 MPa. Density also moves with age hardening (8.30 vs 8.36 g/cm3).",
+  "ROOM-TEMPERATURE, QUASI-STATIC, ULTIMATE strengths, with no fatigue and no safety factor. This was not read here."
+ ],
+ "hypothesis_drift": [
+  "DROPPED (geometry) at warpfolder.py:328-330 ('The classical rotor limit sqrt(sigma/rho), independent of radius') and warpfolder.py:117-118 ('A rotor asked to exceed sqrt(sigma/rho) does not spin; it disassembles'). sqrt(sigma/rho) is exact only for a THIN ROTATING RING (rederive R2: sigma = rho(omega R)^2). A uniform isotropic plane-stress disc peaks at the centre at (3+nu)/8 rho omega^2 R^2 (R3, R3c), so its ceiling is sqrt(8/(3+nu)) sqrt(sigma/rho), which is 1.557x for nu=0.3. A Stodola constant-stress profile satisfies equilibrium (R4), so for an isotropic material there is no fixed-multiple bound, only the taper h(R)/h0 = exp(-(v/v_b)^2/2). The conclusion survives: BeCu is over by 19.4x as a ring, 12.5x as a disc, and needs Stodola taper exp(-189), i.e. a hub > 3e72 m thick for an atom-thick rim (R7). T1000 is over by 4.2x as a ring and 2.7x as a disc. Its Stodola escape (taper 1.2e-4, R7b) is closed only by fibre ANISOTROPY, a hypothesis the tree does not name. The printed 4.2x and 19.4x are RING factors, stated for 'the rotor' without naming the geometry.",
+  "NAMED, not drift: the canonical hypothesis 'fibre strength, not a rotor laminate'. The direction was computed: a UD laminate (ORDER inputs Vf=0.6, resin 1200 kg/m^3) has sigma/rho 2.46e6 against the fibre's 3.56e6 (R8), which raises the ring factor from 4.2 to 5.1. Using the fibre figure favours the rotor, so it is conservative.",
+  "UNNAMED (grade/temper) at warpfolder.py:226: 'beryllium-copper' names no alloy or temper. 1.4 GPa is peak-aged C17200. Over the band [1.14,1.60] GPa x [8250,8360] kg/m^3 the ring factor is 18.2-21.7. A lower temper only raises it, so this is conservative.",
+  "UNNAMED (failure criterion, margin) at warpfolder.py:328-330, 564-570: UTS is compared with one principal stress, with no safety factor, fatigue or temperature. Every omission favours the rotor.",
+  "PRECISION, not drift: the selftest pins the ROUNDED factors [4.2, 19.4] (warpfolder.py:566-568), computed from ORDER inputs. The unrounded T1000 factor is 4.2485, 0.0015 below the rounding boundary. With the data-sheet 6,370 MPa it is 4.2585, which prints 4.3 (R5b). BeCu at 1.357-1.38 GPa prints 19.6-19.8. This is a digit discrepancy, not a refutation."
+ ],
+ "data_at_publication": [
+  {
+   "quantity": "T1000 tensile strength sigma",
+   "value_then": "6.4e9 Pa (warpfolder.py:225, ORDER, no source)",
+   "value_now": "6.37e9 Pa (6,370 MPa), T1000G sheet, per WebSearch summary only",
+   "source_now": "Toray T1000G Data Sheet 02.16.2024, NAMED-NOT-READ (egress-blocked)",
+   "moves_conclusion": "No. The factor goes 4.2485 -> 4.2585, so the printed digit changes 4.2 -> 4.3. Reversal needs sigma/rho x18.0 (ring) or x7.4 (uniform disc) (R5b, R6)."
+  },
+  {
+   "quantity": "T1000 density rho",
+   "value_then": "1800 kg/m^3 (ORDER)",
+   "value_now": "1.80 g/cm^3 (WebSearch summary of the sheet)",
+   "source_now": "Toray T1000G Data Sheet, NAMED-NOT-READ",
+   "moves_conclusion": "No; the value is identical."
+  },
+  {
+   "quantity": "BeCu UTS sigma",
+   "value_then": "1.4e9 Pa (warpfolder.py:226, ORDER, temper unnamed)",
+   "value_now": "Peak-aged C17200 about 1.357e9 Pa (PMC9000027), '>1380 MPa'; 1/2H is 580-690 MPa",
+   "source_now": "WebSearch summaries of PMC9000027, Aviva/AZoM/MatWeb; NAMED-NOT-READ",
+   "moves_conclusion": "No. The factor goes 19.45 -> 19.6-19.8, and the band gives 18.2-21.7. Reversal needs sigma/rho x378 (ring) or x156 (disc)."
+  },
+  {
+   "quantity": "BeCu density rho",
+   "value_then": "8250 kg/m^3 (ORDER)",
+   "value_now": "8.30 g/cm^3 before aging; 8.36 for TD02 strip (WebSearch summaries)",
+   "source_now": "Materion/voestalpine Alloy 25 and MatWeb TD02 via WebSearch; NAMED-NOT-READ",
+   "moves_conclusion": "No. The factor rises by at most 0.6%, against the rotor."
+  },
+  {
+   "quantity": "Rotor diameter and speed (the demand)",
+   "value_then": "1.8 m, 85,000 RPM (warpfolder.py:218-219, READ from the folder)",
+   "value_now": "unchanged (document figures)",
+   "source_now": "the folder (out of scope)",
+   "moves_conclusion": "Not a moving datum. The tip speed re-derives as 8011.0613 m/s = 2.6722e-5 c (R1)."
+  }
+ ],
+ "rederivation": {
+  "method": "sympy",
+  "script_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/material-strength-t1000-becu.py",
+  "outcome": "0 FAIL, 15 PASS. The tip speed of 8011.06 m/s reproduces. Derived symbolically: ring hoop stress rho(omega R)^2, so v_b = sqrt(sigma/rho) independent of R. Uniform disc (dsolve of the Navier equation): max (3+nu)/8 rho omega^2 R^2 at the centre, so the ceiling is 1.557 v_b. The Stodola profile satisfies equilibrium. The tree's [4.2, 19.4] reproduce (unrounded 4.2485, 19.4470). The sheet's 6,370 MPa gives 4.3, a rounding discrepancy. Reversal margins: T1000 x18.0 (ring) or x7.4 (disc); BeCu x378 or x156. The BeCu Stodola escape is excluded numerically (exp(-189)). The T1000 Stodola escape (1.2e-4) is excluded only by fibre anisotropy. A laminate is weaker per mass than the bare fibre (ORDER inputs).",
+  "agrees_with_source": "partly"
+ },
+ "later_literature": [
+  {
+   "ref": "Composite-flywheel burst literature via WebSearch summary (ScienceDirect S0263822315003360; 0020740383900875; Wang et al. 2024 Shock and Vibration doi:10.1155/vib/5587542)",
+   "effect": "confirms",
+   "what": "CFRP rotor burst tip speeds: 982 m/s tested, 898 m/s damage-limit, 1376/1797 m/s computed for 3D-CFRP discs, and 'in excess of 1000 m/s' for rims. All are 4.5-9x below the 8,011 m/s demanded, and all are below T1000's bare-fibre ring limit of 1,886 m/s, as expected for a laminate.",
+   "read_status": "WebSearch summary only; discover_papers quota exceeded; NAMED-NOT-READ"
+  },
+  {
+   "ref": "PMC9000027, QB2.0 vs C17200 mechanical properties",
+   "effect": "confirms",
+   "what": "Peak-aged C17200 at 1357 MPa, about 3% below the tree's 1.4 GPa. The printed factor becomes 19.8; the conclusion is unmoved.",
+   "read_status": "WebSearch summary only; NAMED-NOT-READ"
+  },
+  {
+   "ref": "arXiv:2005.04976, nanocrystalline copper-beryllium",
+   "effect": "extends",
+   "what": "Named as a route to higher-strength CuBe. It would need x378 in sigma/rho to reverse the BeCu row.",
+   "read_status": "NAMED-NOT-READ (quota exceeded, arxiv egress-blocked)"
+  }
+ ],
+ "lacked_data": "These are current engineering measurements, not a theory. The only datum movement found (6.4 -> 6.37 GPa; 1.4 -> about 1.36-1.38 GPa, per WebSearch summaries, not READ) changes only the printed first decimal. The computed margins: reversing 'outside material limits' needs specific strength x18 (T1000 ring) or x7.4 (disc), and x378 or x156 for BeCu. No temper or data-sheet revision of the named materials comes near that; the BeCu band gives 18.2-21.7x. The evidence runs AGAINST the lacked-data hypothesis for this result. What the tree lacked was a named GEOMETRY hypothesis: sqrt(sigma/rho) is the thin-ring limit. Stating it widens the margin for a uniform disc only by 1.56x, and it leaves T1000's conclusion resting on unnamed fibre anisotropy. Whether any material outside the two named reaches 6.4e7 J/kg was not read here and is outside the tree's claim.",
+ "grade": "NARROWED",
+ "grade_evidence": "The values could not be READ at source: the alphaXiv quota was exhausted and the Toray, Materion, voestalpine, MatWeb and Wikipedia hosts were egress-blocked. So the exact published figures are OPEN. WebSearch summaries corroborate them within 3% of the tree's ORDER values. The NARROWING rests on computation (15 PASS), not on reading. warpfolder.py:329 calls sqrt(sigma/rho) 'the classical rotor limit', and :117-118 says a rotor that exceeds it 'disassembles'. That limit is exact only for a thin ring (R2). A uniform disc allows 1.557x more (R3), and a Stodola profile has no fixed-multiple bound (R4). The 4.2x and 19.4x factors therefore hold on rings, a smaller class than 'the rotor'. ROTOR_IS_WITHIN_MATERIAL_LIMITS = False survives. For BeCu it holds on every geometry (x378 ring, x156 disc, Stodola exp(-189) excluded). For T1000 it holds for a ring and a disc, and against Stodola (1.2e-4) only under fibre anisotropy, which the tree does not name. Every other simplification favours the rotor. The pinned digit 4.2 becomes 4.3 at the data-sheet 6,370 MPa (R5b). That is a discrepancy, recorded and not repaired, and it must not be quoted as an error.",
+ "what_would_change_the_grade": "(a) READING the T1000G and Alloy 25 sheets at source: agreement leaves NARROWED with the source READ. Moving the conclusion would need a factor >18 (T1000) or >378 (BeCu) in sigma/rho. (b) The grade could move to STANDS if the owner named, at warpfolder.py:328-330 and 117-118, the thin-ring (or uniform disc with sqrt(8/(3+nu))) geometry and the fibre-anisotropy hypothesis. (c) Evidence that the CAD rotor is a profiled isotropic disc in a material with fibre-level biaxial strength would re-open the T1000 row. (d) The 4.2 -> 4.3 digit is the owner's decision, not repaired here.",
+ "reverify_command": "python3 /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/material-strength-t1000-becu.py",
+ "report_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/audits/material-strength-t1000-becu.json"
+}

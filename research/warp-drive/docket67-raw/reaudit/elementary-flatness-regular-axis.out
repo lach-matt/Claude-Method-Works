@@ -1,0 +1,17 @@
+PASS M1 grad X.grad X/(4X) = e^{-2Lambda} W'^2
+PASS M1 Lambda = 0: quantity -> W'(0)^2, so Property 5 <=> W'(0) = +1 (W > 0 off axis)
+PASS M2 d/dphi flow = rotation by angle W1*s in the local Cartesian chart (rate a = W1)
+PASS M2 chart check: dx^2+dy^2 = dr^2 + W1^2 r^2 dphi^2
+PASS M2 W1 = 1: d tau_{2pi} = Id and effective
+PASS M2 W1 = 1/2 (period-2pi cone of deficit pi): d tau_{2pi} != Id -> not a smooth axis
+PASS M2 W1 = 2: d tau_{2pi} = Id but NOT effective (d tau_pi = Id)
+PASS M2 period 2 pi k: normalised rate k W'(0), condition k W'(0) = 1
+PASS M3 orbit length / (2 pi distance) -> W'(0) = 1
+PASS M3 cone W = 0.9 r: ratio -> 0.9 (deficit 0.2 pi)
+PASS M4 Psi = (1/2) ln f(r^2): Psi' = r f'(r^2)/f(r^2) = O(r)
+PASS M4 example f = 1 + 3 r^2 + r^4, W = r: W Psi' -> 0
+PASS M4 owner's HYPOTHESES[0] alone does not give it: Psi = a log(r/(1+r)), W = r -> W Psi' -> a = 0.3
+PASS M4 and that Psi is not a smooth function of r^2 at the axis (Psi -> -inf)
+PASS M5 sigma^2 = W^2 = r^2 + O(r^3) >= 0 near axis, zero only at r = 0 (Property 4)
+
+15/15 PASS

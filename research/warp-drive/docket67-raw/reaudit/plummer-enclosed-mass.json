@@ -1,0 +1,77 @@
+{
+ "key": "plummer-enclosed-mass",
+ "name": "Plummer sphere enclosed-mass profile: fraction outside R_s = 1 - (1 + (a/R_s)^2)^(-3/2)",
+ "source": {
+  "located": "H. C. Plummer, 'On the Problem of Distribution in Globular Star Clusters', MNRAS 71 (1911) 460-470. Google Drive fileId 1SiEv9SIOU1HSb8Tftnl1tI4A2hIXHPwC (title 'HC Plummer .pdf', 386,422 bytes, md5 67b7f66079dad089518b8a5b02d6d8e8 of the downloaded copy in scratchpad d67/reaudit/src/plummer1911.pdf), supplied by M. Identity confirmed from the page images: title 'On the Problem of Distribution in Globular Star Clusters. By H. C. Plummer, M.A. (Plate 8.)'; running heads 'Mr. H. C. Plummer, On the Problem of  LXXI. 5,' and 'Mar. 1911. Distribution in Globular Star Clusters.'; page numbers 460-470; margin stamp '1911MNRAS..71..460P'; 'Provided by the NASA Astrophysics Data System'.",
+  "read_status": "READ (primary, all 14 PDF pages viewed as rendered images: pp. 460-470, Plate 8 'Curve of Apparent Density in Clusters', and Plates 9-10, which are E. E. Barnard's Mars photographs bound after the paper and unrelated). The Drive text layer is empty (ADS scan), so every quotation below is transcribed from the page image; equations (11)-(13) were read at 250 dpi.",
+  "via": "mcp__Google_Drive__read_file_content returned only ADS link text; mcp__Google_Drive__download_file_content -> base64 decoded -> pymupdf render -> Read (image). Supersedes the first audit's NAMED-NOT-READ; galpy stays a secondary witness."
+ },
+ "published_statement": "READ (transcribed from page images). Plummer prints a DENSITY law, not a potential and not the 3-D enclosed mass. p. 463: 'and the second by Schuster‡ for γ=1·2, namely, φ(r)=(1+r²)^(-5/2) . . . (11) except for a numerical factor which we can omit.' Units are scaled so the core radius is 1: 'or, choosing the units to give the results in the simplest form, since we are not concerned with absolute values,' (p. 463). p. 464: 'φ(r)=N(1+r²)^(-5/2), F(r)=(2/3)πN(1+r²)^(-3/2), Σ(r)=(2/3)πNr(1+r²)^(-1/2) (12)' and 'f(r)=(4/3)N(1+r²)^(-2), σ(r)=(4/3)πNr²(1+r²)^(-1) . (13)', where (p. 461) 'φ(r)dv denotes the number of stars in a small volume dv; f(r)da denotes the number of stars in a cylinder of small section da ...; and F(r)dr denotes the number of stars lying between the planes x = r and x = r + dr', Σ is the count between the centre and the plane x = r, and σ the count within projected radius r. The mass relation is Plummer's own, p. 462: 'Also, if m is the mass within the radius r, dp/dr = − cmφ/r² , dm/dr = 4πr²φ .' The tree's fraction is therefore NOT printed by Plummer; it is one integration of his (12) with his dm/dr = 4 pi r^2 phi: m(r) = (4/3) pi N r^3 (1+r^2)^(-3/2), fraction outside R = 1 - (1+(a/R)^2)^(-3/2) with a the unit (reaudit script, rows 7-8). This matches linstab.py:217 and :547-551 exactly. Plummer's own projected fraction outside, from (13), is 1/(1+r^2) -- a different quantity the tree correctly does not use (reaudit row 9).",
+ "published_hypotheses": [
+  "P1 NEWTONIAN SELF-GRAVITY, FLAT SPACE (p. 462): 'For convective equilibrium in a perfect gas we have p = atφ = bφ^γ ... Also, if m is the mass within the radius r, dp/dr = − cmφ/r² , dm/dr = 4πr²φ .' -- the enclosed mass is the flat-space volume integral of the density. This is the first audit's H1, now READ.",
+  "P2 THE DENSITY IS SCHUSTER'S gamma = 1.2 SOLUTION (p. 463, eq. 11), i.e. polytrope index 5 (reaudit row 11), spherically symmetric, with the scale set to unity by choice of units; it extends to infinity ('According to our present ideas the cluster has no finite boundary', p. 465). First audit's H2, now READ.",
+  "P3 PHYSICAL CONTEXT (p. 467): 'the distribution of stars in clusters resembles the distribution of density in a gravitating sphere of a particular kind of gas to which Schuster's solution applies.' Plummer himself finds it fails at the centre of M 3 (p. 470: 'found to be marked by a higher degree of condensation towards the centre than can be reconciled with the law'). The enclosed-mass fraction uses none of P3.",
+  "NOT IN THE SOURCE: the potential -GM/sqrt(r^2+a^2) (derived here by Poisson, reaudit row 10), any relativistic mass, and any negative mass."
+ ],
+ "hypothesis_drift": [
+  "P1 DROPPED at specthm.py:524 and :648-651 (unchanged from the first audit, now checked against the source's printed hypothesis): specthm prints 'a fraction %.3e of its mass lies outside R_s, linstab.py's formula' for certify.py's exact conformastatic metric, where Plummer's dm/dr = 4 pi r^2 phi (flat Poisson) is not the mass. First audit computed the Misner-Sharp fraction f(1 - m/2R_s), -5.0e-5 relative at m = 0.02, below the printed precision (its script re-run this stage: ALL CHECKS PASS). The tree never scopes the number as Newtonian or leading order.",
+  "P1 KEPT, to linear order, at linstab.py:215-219 and :927-932 (concentric.py via composite.py's linearised metric): exact there.",
+  "ATTRIBUTION, not drift in effect: linstab.py:215-217 speaks of 'a Plummer core' and uses the fraction for 'concentric.py's exact potential', a potential -m/sqrt(r^2+a^2) form (concentric.py:46, :163). Plummer printed the density (11)-(12), not the potential or the 3-D enclosed fraction; both follow from his density and his own dm/dr relation (reaudit rows 7-10), so the naming is fair, but the formula is derived from Plummer rather than quoted from him.",
+  "SIGN: Plummer's density is a positive star count; concentric.py:46 and certify.py use a core of mass -m. Under P1 the fraction does not depend on the sign (first audit). No change.",
+  "P3 DROPPED, harmless (the enclosed-mass relation needs only P1-P2).",
+  "Data: a = 0.02, R_s = 200.0 (concentric.py:155-156) give f = 1.4999999812500002e-8 (reaudit row 17; linstab's sympy value agrees)."
+ ],
+ "data_at_publication": [
+  {
+   "quantity": "a (Plummer scale; concentric.A_CORE / certify.A_CORE)",
+   "value_then": "0.02 (a tree design parameter)",
+   "value_now": "0.02 (concentric.py:155, certify.py:200)",
+   "source_now": "research/warp-drive/concentric.py:155; certify.py:200",
+   "moves_conclusion": "No. This is a chosen design parameter, not a measured datum, so there is no external value that could move."
+  },
+  {
+   "quantity": "R_s (R_SHELL)",
+   "value_then": "200.0",
+   "value_now": "200.0",
+   "source_now": "research/warp-drive/concentric.py:156; certify.py:200",
+   "moves_conclusion": "No; it is a design parameter. The resulting f is 1.4999999812500002e-8 at 50 digits, and linstab's sympy value agrees. specthm.py:524's float expression gives 1.499999968679333e-08, which is 8.4e-9 relative from cancellation. That is a numerical note, not an error: it still prints as 1.500e-08."
+  },
+  {
+   "quantity": "m (core mass; certify.M_SEATED)",
+   "value_then": "0.02 (certify.py:200); concentric.py surveys m up to 2e-2",
+   "value_now": "unchanged",
+   "source_now": "research/warp-drive/certify.py:200",
+   "moves_conclusion": "Not under H1, where the fraction is independent of m. In certify's exact metric the Misner-Sharp fraction is f(1 - m/2R_s): -2.5e-6, -1.25e-5, -2.5e-5 and -5.0e-5 relative at m = 1e-3, 5e-3, 1e-2 and 2e-2. All are below printed precision, and none changes the conclusion."
+  }
+ ],
+ "rederivation": {
+  "method": "sympy (+ the first audit's GR script re-run)",
+  "script_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/reaudit/plummer_reaudit.py",
+  "outcome": "17 of 17 PASS (output plummer_reaudit.out). From Plummer's printed density N(1+r^2)^(-5/2): his eq. (12) F and Sigma, eq. (13) f and sigma (incl. his 'definite integral equal to 2/3'), and his p. 468 test {Sigma}^2/sigma = pi N/3 = Sigma(inf)/2 are all reproduced exactly. His dm/dr = 4 pi r^2 phi integrates to m(r) = (4/3) pi N r^3 (1+r^2)^(-3/2), whose outside fraction at r = R/a is the tree's 1-(1+(a/R)^2)^(-3/2). The projected fraction 1/(1+r^2) differs. Poisson gives the potential pair (not in Plummer). Plummer's own numbers check: Table I C at 1'.5 = 727.8 (printed 727); 7080 = 2 x 3540; N = 277 from 1160 = (4/3) pi N; Table V C at 0'.5 = 68; 34.6 per (1')^3. First audit's script re-run: ALL CHECKS PASS.",
+  "agrees_with_source": "yes"
+ },
+ "later_literature": [
+  {
+   "ref": "discover_papers call attempted (restatements, generalisations and relativistic versions of the Plummer model)",
+   "effect": "extends",
+   "what": "The call returned 'alphaXiv assistant quota exceeded', so no later paper was located or read. This records that no search happened, not that no such paper exists. The effect value is filled only because the schema requires one; it carries no finding.",
+   "read_status": "NOT-READ (tool quota exceeded; arxiv.org egress-blocked)"
+  },
+  {
+   "ref": "galpy 1.12.0, galpy/potential/PlummerPotential.py (md5 9ce3712337920ed87880d0574cd0b23a) and galpy/df/isotropicPlummerdf.py (md5 48d67c2fb1e511c38e5a9a4cd7794853)",
+   "effect": "confirms",
+   "what": "A maintained software restatement: _mass(r) = (1 + b^2/r^2)^(-3/2) (line 156), _dens = (3/4pi) b^2 (r^2+b^2)^(-5/2) (line 74), and amp = GM as the total mass (lines 18-20). It agrees with the tree's formula and with the re-derivation.",
+   "read_status": "READ (source code, extracted locally from the PyPI wheel)"
+  }
+ ],
+ "lacked_data": "Nothing the enclosed-mass fraction depends on: it is exact algebra from Plummer's density under his own Newtonian mass relation, and a, R_s are design parameters. What Plummer lacked (a relativistic mass concept) is exactly the hypothesis the specthm use drops; the size of that gap was computed by the first audit (m/2R_s = 5e-5 relative).",
+ "grade": "NARROWED",
+ "grade_evidence": "READ at source. Plummer's paper prints the density (11)-(12) and states the Newtonian mass relation 'dm/dr = 4πr²φ' (p. 462); integrating gives the tree's fraction exactly (reaudit, 17/17), and his own printed projections and numbers are reproduced, so the source is correctly identified and the formula is correct under its printed hypothesis P1. The NARROWING is unchanged from the first audit but now rests on the source's own words: specthm.py:524/:648-651 apply the number as 'a fraction ... of its mass' to certify.py's exact metric, outside P1, without scoping it as Newtonian; the GR (Misner-Sharp) fraction differs by m/2R_s = 5.0e-5 relative, below the printed %.3e. Nothing resting on it moves (f > 0 under every definition). Minor attribution note: the fraction and the potential are derived from Plummer, not printed by him.",
+ "what_would_change_the_grade": "STANDS if specthm scoped the printed fraction as Newtonian/leading-order (or used a GR mass for certify's metric). WRONG would need Plummer's density to differ from N(1+r^2)^(-5/2) -- it does not (read at 250 dpi).",
+ "reverify_command": "python3 /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/reaudit/plummer_reaudit.py   # expect 17 PASS, exit 0;  python3 /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/plummer-enclosed-mass.py  # expect ALL CHECKS PASS",
+ "report_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/reaudit/plummer-enclosed-mass.json",
+ "pages_read": [
+  "Plummer MNRAS 71: pp. 460, 461, 462, 463, 464, 465, 466, 467, 468, 469, 470 and Plate 8 (page images); Plates 9-10 (Barnard, Mars) viewed and not relevant"
+ ],
+ "supersedes_grade": "NARROWED (first audit, source NAMED-NOT-READ) -- superseded by NARROWED on a READ of the primary: same grade, now on Plummer's printed Newtonian mass relation."
+}

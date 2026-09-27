@@ -1,0 +1,9 @@
+PASS Art.3/15: d2V/dx2+d2V/dy2+d2V/dz2 = 0 for V = m/D (away from the particle), either sign of m
+PASS Art.16: for force ~ 1/D^n, V ~ D^-(n-1)/(n-1): sum of 2nd derivs = (n-2) D^-(n+1) (zero only at n=2)
+   equilibria found: 400  with traceless Hessian of mixed signature: 400
+PASS Art.12/15: every equilibrium among fixed mixed-sign sources has d2V of both signs (one direction of 'translation')
+PASS Art.12: x'' = a^2 x integrates to C'e^{at}+C''e^{-at} ('a result which shews that x must increase continually')
+PASS Art.8 example: V inside a uniform spherical shell is the same at rho=R/3 and R/2 (=4 pi R): degenerate case
+PASS Art.20: with Newtonian attraction mu/D plus repulsion ~1/D^n, lap V = -(n-2) m D^-(n+1): independent of mu, negative for n>2
+
+6 PASS, 0 FAIL
