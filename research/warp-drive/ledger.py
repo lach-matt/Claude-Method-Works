@@ -1278,6 +1278,47 @@ D65_SEATED_IDS = ", ".join(r[0] for r in massform.PROPOSED_ROWS
 
 #: QUESTIONS M HAS RULED ON, same shape, kept so the ruling has its question.
 #: The last two fields now read: what M ruled, and what it unblocks.
+#: M-D67-1: arXiv and journal versions.  M ruled unprompted after Kuo &
+#: Ford's journal version could not be retrieved here and M compared it with
+#: arXiv v1.  M's words, verbatim from the session, witnessed by the lead; the
+#: tree holds no copy to check them against.
+M_D67_1_WORDS = ("a formal paper published to Arxiv.org carries the same weight as "
+                 "the same paper published in a journal and may be used for our "
+                 "purposes, as long as I have confirmed they are the same paper.")
+M_D67_1_QUESTION = ("(No question was put: M ruled after the journal version of Kuo & "
+                    "Ford, %s, could not be retrieved through this session's network "
+                    "policy and M read it beside arXiv %s.)")
+M_D67_1_RULING_T = ("RULED BY M: 'New Ruling: %s'  APPLIED where M has confirmed "
+                    "the pair -- Kuo & Ford: fluctuation.py records the journal "
+                    "version %s (fluctuation.JOURNAL_VERSION_COMPARED_BY_M = %s; M's "
+                    "words in fluctuation.M_JOURNAL_COMPARISON), so its findings against "
+                    "arXiv v1 carry the journal version's weight.  Its condition stands "
+                    "for every other source: an arXiv read carries a journal version's "
+                    "weight only once M has confirmed they are the same paper")
+
+
+def m_d67_1_row():
+    """M-D67-1's row, asked of fluctuation.py: the journal status is READ out of
+    its docstring and must agree with its flags."""
+    journal, jstatus = _owner_phrase(
+        fluctuation.__doc__,
+        r"The published version, (Phys\. Rev\. D 47, 4510 \(1993\)), is ([A-Z-]+)",
+        "fluctuation.py")
+    if (jstatus == "COMPARED-BY-M") != bool(fluctuation.JOURNAL_VERSION_COMPARED_BY_M):
+        raise ValueError("fluctuation.py's docstring and JOURNAL_VERSION_COMPARED_BY_M disagree")
+    preprint = _owner_phrase(fluctuation.SOURCE, r"(gr-qc/\d+ v\d)", "fluctuation.SOURCE")
+    return ("M-D67-1",
+            M_D67_1_QUESTION % (journal, preprint),
+            "fluctuation.py, against arXiv %s: the journal version, %s, is %s -- "
+            "M read both and reports: \"%s\" (verbatim from the session, witnessed "
+            "by the lead)" % (preprint, journal, jstatus, fluctuation.M_JOURNAL_COMPARISON),
+            M_D67_1_RULING_T % (M_D67_1_WORDS, jstatus,
+                                fluctuation.JOURNAL_VERSION_COMPARED_BY_M),
+            "DOCKET 67's audits and the per-source comments M ruled: an audit read "
+            "at arXiv stands for the journal version once M confirms the pair; "
+            "until then it stands for the arXiv version alone")
+
+
 RULED_BY_M = [
     ("M-D64-1",
      "phase1.py's D4 (not this board's D4): restate '%s' for the process?"
@@ -1476,6 +1517,10 @@ RULED_BY_M = [
      M_D65_5_WHY,
      m_d65_5_ruling(),
      M_D65_4_UNBLOCKS_T % M_PAPER_RULE_WORDS),
+
+    # M's ruling on arXiv and journal versions (DOCKET 67), asked of
+    # fluctuation.py's journal status by m_d67_1_row().
+    m_d67_1_row(),
 ]
 
 # ---------------------------------------------------------------------------
@@ -2979,7 +3024,8 @@ def selftest():
          phase1.is_transition(False, True, True, True, True, passage_flux=True),
          formation.PHASE1_D4_POINTWISE_DURING_PASSAGE),
         (["M-D64-1", "M-S1A-P1", "M-S1A-P2", "M-S1A-P3", "M-S1A-P4",
-          "M-S1A-P5", "M-D65-1", "M-D65-2", "M-D65-3", "M-D65-4", "M-D65-5"], [],
+          "M-S1A-P5", "M-D65-1", "M-D65-2", "M-D65-3", "M-D65-4", "M-D65-5",
+          "M-D67-1"], [],
          True, False, False, True, False))
 
     print("\n3. THE EXCHANGE RATE, RE-DERIVED FROM ASKED CONSTANTS")

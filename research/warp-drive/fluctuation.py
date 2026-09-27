@@ -62,12 +62,26 @@ counterexample.  What is true, and PROVED here (T2):
 At eps = 1/10, theta = 0 the exact Delta is 0.5134; KF's (3.8) gives 2.0118.
 Their qualitative conclusion -- fluctuations of order unity wherever rho < 0 --
 does NOT survive either.  In their own case (ii), the squeezed coherent state,
-take theta = pi/2 and a displacement |alpha|^2 = (1 - e^{-2r})/8: this file's
+take theta = pi/2, gamma = delta = 0 -- the plane of their Figs. 1-2 -- and a
+displacement |alpha|^2 = (1 - e^{-2r})/8: this file's
 exact moments give <:T00^2:> = rho^2 IDENTICALLY, so Delta = 0, while
 rho = K s (s - c) < 0 for every squeeze r > 0 (at r = 1, rho = -0.4323 K).
 (CORRECTED -- DOCKET 67: this paragraph first read 'SURVIVES in every case they
 study'; the file never evaluated Delta on rho < 0 for alpha != 0.  Found by the
 DOCKET 67 audit, re-derived independently, and computed in the selftest.)
+
+HOW THEIR FIG. 2 MAY HAVE COME TO SHOW Delta ~ 1 THERE -- A HYPOTHESIS, NOT A
+FINDING.  KF say Delta "is best determined by numerical evaluation of Delta
+using Eqs. (3.2), (3.18), and (3.19).  The figures illustrate the results."  On
+the curve above their printed (3.18) is exact, and their printed (3.19) is not:
+Delta formed from (3.18) and (3.19) as printed is 0.9920, 0.9976 and 0.9999 at
+r = 0.5, 1 and 2 -- Fig. 2's caption, "Otherwise, Delta ~ 1" -- where the exact
+Delta is 0.  With the exact <:T00^2:> in place of (3.19) that agreement goes.
+The HYPOTHESIS (KF_FIG2_FROM_PRINTED_319) is that Fig. 2 was computed from
+(3.19) as printed.  What is computed is only that the printed (3.19) reproduces
+the caption's Delta ~ 1 on this curve; whether their calculation used the
+misprinted form, or a correct one with the error only in the typesetting, the
+paper does not say and this file cannot tell.
 What does survive is T1 below: every ZERO-MEAN Gaussian state has Delta >= 1/3.
 
 ===============================================================================
@@ -136,7 +150,9 @@ the Drive connector (2026-09-27), is the same v1: its header is
 The published version, Phys. Rev. D 47, 4510 (1993), is COMPARED-BY-M -- this
 file has not read it; M read it beside v1 and reports them identical (M's words
 in M_JOURNAL_COMPARISON).  So the discrepancies above are against v1, and they
-carry to the journal version on M's comparison, not on this file's reading.
+carry to the journal version on M's comparison, not on this file's reading
+(ruling M-D67-1, ledger.RULED_BY_M: an arXiv paper M confirms is the same as the
+journal paper carries its weight).
 
 NOTHING IS REPAIRED.  Kuo & Ford is not edited; the discrepancies are recorded.
 """
@@ -170,6 +186,8 @@ KF_333_IS_EXACT = True
 KF_341_HALF_IS_TYPOGRAPHICAL = True
 KF_345_IS_EXACT = True
 KF_QUALITATIVE_CONCLUSION_SURVIVES = False   # DOCKET 67: refuted in their case (ii), section 2; computed in the selftest
+KF_FIG2_FROM_PRINTED_319 = "HYPOTHESIS"      # section 2: printed (3.19) reproduces Fig. 2's Delta ~ 1 where the exact Delta is 0
+KF_FIG2_PRINTED_DELTA = {0.5: 0.9920, 1: 0.9976, 2: 0.9999}  # r -> Delta from printed (3.18)/(3.19), on the curve; the selftest computes these
 
 # ------------------------------------------------------------- what is new here
 POINTWISE_DELTA_DISCRIMINATES_SIGN = False  # thermal radiation gives 2/5
@@ -513,6 +531,28 @@ def selftest():
     chk("  at r = 1, rho = -0.4323 K with Delta = 0", round(_rho1, 4), -0.4323)
     chk("their qualitative conclusion ('Delta ~ 1 wherever rho < 0') does NOT survive",
         KF_QUALITATIVE_CONCLUSION_SURVIVES, not (_gap == 0 and _rho1 < 0))
+
+    # ---- how Fig. 2 may have come to show Delta ~ 1 there: a HYPOTHESIS
+    def _delta_on_curve(rho_e, t2_e, r):
+        pt = {s: sp.sinh(r), c: sp.cosh(r), m['K']: 1}
+        rv = float(sp.N(rho_e.subs(_cur).subs(pt), 30))
+        tv = float(sp.N(t2_e.subs(_cur).subs(pt), 30))
+        return abs((tv - rv**2) / tv)
+    _r = sp.Rational
+    _printed = {k: round(_delta_on_curve(q['kf318'], q['kf319'], _r(k)), 4)
+                for k in KF_FIG2_PRINTED_DELTA}
+    _exact = {k: _delta_on_curve(q['rho'], q['T2'], _r(k)) for k in KF_FIG2_PRINTED_DELTA}
+    chk("on the curve their printed (3.18) is exact",
+        sp.simplify(sp.expand((q['kf318'] - q['rho']).subs(_cur))), 0)
+    chk("  Delta from their printed (3.18)/(3.19) on the curve, r = 0.5, 1, 2 (Fig. 2's 'Delta ~ 1')",
+        _printed, KF_FIG2_PRINTED_DELTA)
+    chk("  while the exact Delta there is 0 (below 1e-10 in 30-digit arithmetic)",
+        all(v < 1e-10 for v in _exact.values()), True)
+    chk("  CONTROL: the exact <:T00^2:> in place of (3.19) loses the agreement",
+        all(round(_delta_on_curve(q['kf318'], q['T2'], _r(k)), 4) == v
+            for k, v in KF_FIG2_PRINTED_DELTA.items()), False)
+    chk("  and the account is held a HYPOTHESIS, never a finding",
+        KF_FIG2_FROM_PRINTED_319, "HYPOTHESIS")
 
     # ---- refusals
     chk("the journal version is NOT claimed read by this file", JOURNAL_VERSION_READ, False)
