@@ -1,0 +1,60 @@
+PASS S0 md5 AMM_a  /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/amm_0209075.txt
+PASS S0 md5 AMM_b  /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/src/casmag/all/gr-qc_0209075v1.txt
+PASS S0 md5 GMMPS_a  /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/src/casmag/all/2604.01047v1.txt
+PASS S0 md5 GMMPS_b  /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d64/L4/galanda.txt
+PASS S0 AMM verbatim 'criterion p10'  
+PASS S0 AMM verbatim 'abstract'  
+PASS S0 AMM verbatim 'abstract flat'  
+PASS S0 AMM verbatim 'p9 leading-order solution'  
+PASS S0 AMM verbatim 'p12 alpha<0'  
+PASS S0 AMM verbatim 'p12 k=0 not treated'  
+PASS S0 AMM verbatim 'p12 tensor'  
+PASS S0 AMM second dump carries criterion  
+PASS S0 GMMPS verbatim 'abstract instability' (both dumps)  a=True b=True
+PASS S0 GMMPS verbatim 'Thm 3.6 value' (both dumps)  a=True b=True
+PASS S0 GMMPS verbatim '5.1 printed (64pi)^-1' (both dumps)  a=True b=True
+PASS S0 GMMPS verbatim 'Thm 4.16 bounded clause' (both dumps)  a=True b=True
+PASS S0 GMMPS verbatim 'Thm 4.16 growth clause' (both dumps)  a=True b=True
+PASS S0 GMMPS verbatim '5.1 slightly smaller than 0' (both dumps)  a=True b=True
+PASS S0 GMMPS verbatim '5.1 large -b2 only negative zero' (both dumps)  a=True b=True
+PASS S0 GMMPS verbatim '5.1 negative zero => unstable' (both dumps)  a=True b=True
+PASS S0 GMMPS verbatim '5.2 TT gamma0' (both dumps)  a=True b=True
+PASS S0 GMMPS verbatim '5.2.1 universality hypotheses' (both dumps)  a=True b=True
+PASS S0 GMMPS verbatim '5.2.1 attribution' (both dumps)  a=True b=True
+PASS S0 GMMPS verbatim '1.5 regardless' (both dumps)  a=True b=True
+PASS S0 GMMPS verbatim 'Thm 1.2 bound' (both dumps)  a=True b=True
+PASS S0 GMMPS verbatim 'Thm 1.2 any source' (both dumps)  a=True b=True
+PASS S0 GMMPS verbatim '5.3 gamma~' (both dumps)  a=True b=True
+PASS S0 GMMPS verbatim '5.2 TT zero = GW' (both dumps)  a=True b=True
+PASS S0 GMMPS verbatim '5.3 inputs' (both dumps)  a=True b=True
+PASS S1 J(0) = 1/(96 pi^2 m^2) from integral  1/(96*pi**2*mpos**2)
+PASS S1 J(0) = 1/(96 pi^2 m^2) from (4.17) limit  1/(96*pi**2*mpos**2)
+PASS S1 F_S'(0) from the (5.3) form  
+PASS S1 F_S(0) = 0 iff alpha = 0  
+PASS S1 F_S'(0)*c*kappa = 2 + kappa m^2/(144 pi^2) > 0 (simple root; IFT applies)  kappa*m**2/(144*pi**2) + 2
+PASS S1 first-order root = -2 kappa alpha m^4/(1+kappa m^2/(288 pi^2)), xi-free  
+PASS S1 d gamma0/d alpha < 0 => grows (gamma0<0) iff alpha > 0  
+PASS S2 5.3: -b0/b1 = -16 pi G alpha m^4 (kappa = 8 pi G)  
+PASS S3 full-F_S branch zero at b2=0.0 equals first-order root to 1e-15  root=-3.47961e-121 tgt=-3.47961e-121
+PASS S3 full-F_S branch zero at b2=1.0 equals first-order root to 1e-15  root=-3.47961e-121 tgt=-3.47961e-121
+PASS S3 full-F_S branch zero at b2=-1.0 equals first-order root to 1e-15  root=-3.47961e-121 tgt=-3.47961e-121
+PASS S3 full-F_S branch zero at b2=1.0e+100 equals first-order root to 1e-15  root=-3.47961e-121 tgt=-3.47961e-121
+PASS S3 full-F_S branch zero at b2=-1.0e+100 equals first-order root to 1e-15  root=-3.47961e-121 tgt=-3.47961e-121
+PASS S3 b2=-1e100 (5.1's 'large -b2'): TWO negative real zeros of F_S in (-1e-40,-1e-130)  sign changes=2
+PASS S3 b2=+1e100: exactly ONE negative zero (the branch root) and one in (0,4m^2)  neg=1 pos=1
+PASS S3 b2=-1e100: second negative zero ~ -b1/b2, |.| >> |gamma0|  zero=-1.2e-99 gamma0=-3.4796e-121
+PASS S3 b2 = 1e3 x b1^2/|b0| (3.45e+121): negative zero ~ -sqrt(|b0|/b2), NOT gamma0 (H not universal)  zero=-1.0831e-122
+PASS S3 alpha=0: gamma=0 is a zero of F_S (|F_S(1e-300)| tiny)  1.2e-299
+PASS S4 F_S(-w^2) = -Q(w^2) identically (zeros map gamma = -w^2)  
+PASS S4 gamma0<0 lies in Thm 4.16's growth clause (Q-zero -gamma0 > 0), not in (-4m^2,0)  
+PASS S4 b2=-1: full F_S has a real zero in (-1e3,-1e-3) (Planckian, J kept)  sign changes=1, quadratic estimate -12.0
+PASS S4 any negative F_S zero (Planckian included) maps to a Q-zero > 0 > -4m^2: Thm 4.16's GROWTH clause, which has no upper bound  
+PASS S5 a source S = K_{-L} f has S^ = 0 on the growing pole's shell w^2 = p^2 - L (residue vanishes)  
+PASS S6 beta2_crit(u=1) = 0  
+PASS S6 beta2_crit -> -1/4 as u -> oo  
+PASS S6 beta2_crit strictly decreasing on u>1 (so range (-1/4,0), inf not attained)  -2*(3*u**3 + 3*u**2 + 5*u + 1)
+PASS S7 5.3 m with Thm 3.6's alpha: 7.8e-3 eV reproduced (<2%)  0.0078848
+PASS S7 5.3 m with 5.1's printed (64 pi)^-1: >20% off (misprint)  0.0059225
+PASS S7 H0 67.36 -> 73.04 moves m by +4.1%; sign(gamma0) = -sign(alpha) is datum-free  1.0413
+
+58/58 checks pass

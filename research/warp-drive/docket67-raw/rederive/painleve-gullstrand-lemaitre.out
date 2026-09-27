@@ -1,0 +1,16 @@
+L1   PASS  Lemaitre Ricci tensor = 0 (vacuum)
+L2   PASS  W=1  U+sqrt(rs/R)=0  m-rs/2=0
+L3   PASS  dR = sqrt(rs/R)(drho - dtau); (rs/R) drho^2 - dtau^2 == -dtau^2 + (dR + sqrt(rs/R) dtau)^2  -> tau IS PG time
+L4   PASS  d/dr of MP eq.(2.5) = sqrt(1-f)/f, MP eq.(2.4)
+L5   PASS  PG (MP 2.7) Ricci = 0; induced metric on T=const is dr^2 + r^2 dOmega^2 (flat)
+G1   PASS  E=1: rdot = -sqrt(2M/r)
+G2   PASS  relative speed to static observer at E=1 = sqrt(2M/r) (r > 2M only)
+G3   PASS  p-family: W^2 == 1-2m/r+U^2 with W = 1/sqrt(p) = E~ ; W=1 <=> p=1 <=> E~=1 (PG); W>1 <=> E~>1 unbound
+F1   PASS  m_MS = r beta^2/(2N^2); n.n=-1; U_n^2 = 2m/r for ANY lapse N; shift = N sqrt(2m/r)
+F2   PASS  a_r = d_r N / N : normal observers geodesic iff d_r N = 0 (a_t = beta(t, r)*Derivative(N(t, r), r)/N(t, r))
+N1   PASS  |U| = sqrt(rs/R) > 1  <=>  0 < R < rs
+N2   PASS  sqrt(2*1/10) = 0.4472135955 (driven.py fixture 0.4472135955)
+Z1   PASS  negation unsat (unsat); hypotheses+W=1 satisfiable (sat) -> not vacuous
+Z2   PASS  drop W>0: counterexample exists (sat) [W = -1, R = 1, U = 0, m = 0, /0 = [else -> 0]]
+M1   PASS  m=-|m|: E=1 gives rdot^2 = -2*mu/r < 0; the tree's threshold_speed returns None for m<0 (consistent)
+ALL PASS

@@ -1,0 +1,35 @@
+PASS A0 m_N from capture = 938.9187555 MeV (canonical data_used)  -- m_p=938.272089 m_n=939.565422 m_N=938.9187555
+PASS A1 f_l(2+1+1) rounds to 10.85 %  -- 10.852909 %
+PASS A2 f_l(2+1) rounds to 9.28 %  -- 9.276628 %
+PASS B  sigma_piN 2+1+1 vs 2+1 tension = 2.7 sigma (uncorrelated)  -- 2.6988 sigma
+INFO sigma_s 2+1 vs 2+1+1: 0.358 sigma (no tension)
+INFO f_l(2+1+1) = 10.85(1.17) %, f_l(2+1) = 9.28(0.73) % (quadrature, uncorrelated; tree prints centrals only)
+INFO f_l(2+1+1) - f_l(2+1) = 1.147 sigma (sigma_s partly offsets the sigma_piN tension)
+PASS D0 massform F_LIGHT agrees with A
+INFO electron share 0.000301, nucleon-rest/payload 1.006793
+INFO tree HIGGS_SHARE_LARGEST_READ=0.1719 ALL=0.3090 MARGIN=0.2362; C2=False, C2_CONTESTED_ONLY=False
+INFO share row FLAG 2+1+1: 0.1096
+INFO share row FLAG 2+1: 0.0937
+INFO READ-row maximum is set by: 'nucleons: Ji quark mass term, m_s -> 0' (0.1719); FLAG does not set it
+PASS D1 FLAG rows do not set the READ maximum (Ji row does)
+INFO sigma_piN + sigma_s needed for the payload share to reach 1/2: 466.0 MeV
+INFO FLAG 2+1+1 central                            sigma sum  101.9 MeV -> share 0.1096 (< 0.5: True)
+INFO FLAG 2+1 central                              sigma sum   87.1 MeV -> share 0.0937 (< 0.5: True)
+INFO FLAG 2+1+1 +3 sigma (linear)                  sigma sum  147.8 MeV -> share 0.1588 (< 0.5: True)
+INFO FLAG 2+1+1 +5 sigma (linear)                  sigma sum  178.4 MeV -> share 0.1916 (< 0.5: True)
+INFO pheno 59.1(3.5) + FLAG 2+1 sigma_s 44.9       sigma sum  104.0 MeV -> share 0.1118 (< 0.5: True)
+INFO pheno +5 sigma + sigma_s +5 sigma             sigma sum  153.5 MeV -> share 0.1649 (< 0.5: True)
+INFO two-loop BChPT 55.9 + 44.9                    sigma sum  100.8 MeV -> share 0.1084 (< 0.5: True)
+INFO with sigma_c ETM19 107 (CONTESTED as mass)    sigma sum  208.9 MeV -> share 0.2243 (< 0.5: True)
+PASS D2 no candidate value, to 5 sigma, moves C2 (share < 1/2 on every one)
+INFO largest_central_reading(read_only) with sigma set to pheno+5sigma: 0.1719
+PASS D3 tree's own verdict function stays < 1/2 under the moved datum
+INFO isospin-convention shift 3.1 MeV moves f_l by 0.330 percentage points
+PASS F1 sigma - (M - M0) = c32 m^(3/2)/2 exactly  -- sigma - shift = c32*m**(3/2)/2
+PASS F2 sigma == finite shift iff M is linear in m (c32 = 0)
+PASS F3 sigma/shift = p for a pure power m^p
+INFO 59.1(3.5) [1506.04142 eq.21, charged-pion conv.] vs FLAG 2+1 42.2(2.4): 3.98 sigma; vs FLAG 2+1+1 60.9(6.5): 0.24 sigma
+INFO 59.0(3.5) [as restated in 2506.23902] vs FLAG 2+1 42.2(2.4): 3.96 sigma; vs FLAG 2+1+1 60.9(6.5): 0.26 sigma
+INFO 56.0(3.5) [~56, neutral-pion conv.; error assumed 3.5] vs FLAG 2+1 42.2(2.4): 3.25 sigma; vs FLAG 2+1+1 60.9(6.5): 0.66 sigma
+
+RESULT: ALL CHECKS PASS

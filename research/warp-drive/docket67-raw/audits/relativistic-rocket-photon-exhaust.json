@@ -1,0 +1,88 @@
+{
+ "key": "relativistic-rocket-photon-exhaust",
+ "name": "Relativistic rocket equation with exhaust at c (photon rocket; Ackeret 1946 form, uncited by owner) -- M0/M1 = sqrt((1+beta)/(1-beta)) = gamma(1+beta) to brake from beta to rest",
+ "source": {
+  "located": "Classic: J. Ackeret, 'Zur Theorie der Raketen', Helv. Phys. Acta 19 (1946) 103 -- pre-arXiv, attribution taken from the canonical entry's name; arrival.py cites no source for the formula. READ restatement/generalisation: An T. Le, 'Radiative steering of warp shells', arXiv:2606.22531v4, Sec. 2, Lemma 2.1 'Mass cost of a momentum path' and its proof, which the paper introduces with 'The corresponding mass cost follows from the relativistic rocket equation [16]' ([16] = P. G. Henriques and J. Natario, 'The rocket problem in general relativity', J. Optim. Theory Appl. 154 (2012) 500, arXiv:1105.5235).",
+  "read_status": "READ-VIA-RESTATEMENT",
+  "via": "Ackeret 1946 is NAMED-NOT-READ. alphaXiv discover_papers and get_paper_content both returned 'alphaXiv assistant quota exceeded' in this stage, so no fresh read was made. What was READ is alphaXiv page text of arXiv:2606.22531v4 harvested earlier in this workflow and cached at scratchpad/d67/src/casmag/all/2606.22531v4.txt (lines 315-361 for Lemma 2.1 + proof; lines 1941-1944 for refs [15],[16]). Lemma 2.1 is a strict generalisation of the tree's formula (arbitrary momentum path, arbitrary causal exhaust), whose equality case is exactly the photon-rocket formula; the reduction is carried out symbolically in the re-derivation script. Henriques-Natario 1105.5235 and Fuzfa 1902.03869 are NAMED-NOT-READ (cited by Le as [16] and [15]). A transcript harvest for earlier alphaXiv page text of 1105.5235 / 1902.03869 found none (scratchpad/d67/src/rocket/harvest.py)."
+ },
+ "published_statement": "Classic form (NAMED-NOT-READ at source): for a rocket whose exhaust is light, the rest-mass ratio needed to change speed from 0 to beta (or beta to 0) is M0/M1 = sqrt((1+beta)/(1-beta)). READ generalisation, Le 2606.22531v4 Lemma 2.1 verbatim (cached lines 318-331): 'Let P(s) be a C1 future timelike momentum on a finite interval in one Minkowski vector space, with F = -dP/ds future causal or zero. Set M = sqrt(-P^2), V = P/M, w = log(M_i/M), and E = -V.F. For E > 0 define eta = sqrt((F - E V)^2)/E, and set eta = 0 when E = 0. Then 0 <= eta <= 1 and L := Int sqrt((dV/ds)^2) ds = Int eta dw, d := arcosh(-V_i.V_f), log(M_i/M_f) - d = (L - d) + Int (1 - eta) dw >= 0. In particular, M_f/M_i <= e^{-L} <= e^{-d}. Equality in the first bound requires null nonzero flux almost everywhere with respect to dw; equality in the second requires a geodesic velocity path traversed without reversal, allowing coasts.' Gloss (line 355-356): 'Here eta is the magnitude of exhaust momentum per unit emitted energy in the instantaneous rest frame.' For a straight burn from beta to rest, d = artanh(beta) and e^{d} = sqrt((1+beta)/(1-beta)): the tree's formula is the equality case, and the lemma makes it a FLOOR on M_i/M_f.",
+ "published_hypotheses": [
+  "(Le L2.1) one Minkowski vector space: special relativity, flat spacetime -- Henriques-Natario 1105.5235 is the cited GR extension (NAMED-NOT-READ)",
+  "(Le L2.1) P(s) C1 and future timelike: the vehicle is a massive body with a well-defined total 4-momentum",
+  "(Le L2.1) F = -dP/ds future causal or zero: the ONLY change of the vehicle's 4-momentum is emission of future-causal momentum (exhaust); no absorbed or external momentum",
+  "(Le L2.1 equality, first bound) null exhaust almost everywhere (eta = 1): the exhaust is light/massless, collimated in the instantaneous rest frame (any angular spread lowers eta below 1; Le eq 2.6 'equality requires a single emission direction')",
+  "(Le L2.1 equality, second bound) geodesic velocity path without reversal: a straight-line burn in velocity space (for braking: from beta to rest along one line)",
+  "(classic, restated) M is REST mass: mass ratio counts total rest mass lost, i.e. propellant-plus-energy-source converted to exhaust"
+ ],
+ "hypothesis_drift": [
+  "DROPPED at arrival.py:13 -- 'This is a floor: no propulsion does better per unit energy.' The floor holds only under Le L2.1's F = -dP/ds future causal: the vehicle exchanges momentum ONLY through its own emitted exhaust. External-momentum propulsion is outside the class; the same file prices two such routes (reverse slingshot arrival.py:7-10, magsail arrival.py:14-15) that brake with zero rest-mass loss. The class the tree states ('no propulsion') is larger than the class the result holds on ('no self-contained reaction propulsion'). The verdict that rests on it (arrival.py:160-161, 'reverse slingshot IF the destination has a deflector; else a mass ratio of 3.73') is correctly conditioned for the slingshot alternative, but does not condition on the magsail or on any externally supplied momentum (e.g. beamed/decelerating-beam schemes) -- those are not evaluated here.",
+  "WEAKENED WORDING at arrival.py:13 -- 'per unit energy': the result bounds the REST-MASS ratio M_i/M_f, not energy; the two coincide only under the tree's own 100% mass-to-exhaust-energy hypothesis (arrival.py:127). Not an error under that hypothesis; named.",
+  "KEPT, correctly -- exhaust at exactly c (arrival.py:11, 33, 127 '100% conversion', 'perfect antimatter'): this is the equality condition eta = 1; any real exhaust has eta < 1 and pays MORE (re-derivation C2: M0/M1 = exp(artanh(beta)/u)). The tree calls the figure a 'floor' (arrival.py:13, 119) -- the direction is right.",
+  "IMPLICIT, not stated in arrival.py -- collimated single-direction exhaust (Le eq 2.6 equality). The canonical entry lists 'collimated exhaust' as a hypothesis but arrival.py does not state it; since non-collimation only raises the ratio, dropping it does not overstate the floor.",
+  "IMPLICIT -- flat spacetime during the burn: arrival.py does not state it; no gravitational term enters the code. Consistent with Le's 'one Minkowski vector space'.",
+  "IMPLICIT -- straight (non-turning) burn: satisfied by the 1-D braking the tree prices (Le's second equality condition).",
+  "NO ADDED hypothesis found."
+ ],
+ "data_at_publication": [
+  {
+   "quantity": "speed of light c",
+   "value_then": "c measured (~299,776 km/s range in the 1940s); the formula is dimensionless in beta and does not depend on its value",
+   "value_now": "299792458 m/s exact by SI definition (arrival.py:21 uses this)",
+   "source_now": "SI definition of the metre (1983); no measurement uncertainty",
+   "moves_conclusion": "No: M0/M1 depends only on beta = v/c."
+  },
+  {
+   "quantity": "validity of special-relativistic 4-momentum conservation (the only physical input)",
+   "value_then": "Michelson-Morley / Kennedy-Thorndike / Ives-Stilwell era tests",
+   "value_now": "local Lorentz invariance tested to high precision; Will, Living Rev. Rel. 17 (2014) 4, arXiv:1403.7377 Sec 2.1.2 (READ as cached page text, scratchpad/d67/src/casmag/all/1403.7377v1.txt p.12: e.g. polarization-diffusion bound |f(3)| < 1e-4, UHECR spectra 'show no evidence for violations of Lorentz invariance')",
+   "source_now": "arXiv:1403.7377 (cached page text)",
+   "moves_conclusion": "No: no measured Lorentz violation exists at a level that could move a dimensionless kinematic ratio at beta <= 0.99 by any amount the tree resolves."
+  },
+  {
+   "quantity": "tree inputs beta = 0.0476, 0.100, 0.316, 0.622, 0.866, 0.99",
+   "value_then": "n/a (design speeds chosen by the tree, not external data)",
+   "value_now": "re-computed: 1.0487888, 1.1055, 1.3871, 2.0715, 3.7316716, 14.1067 (independent stepwise 4-momentum integration agrees to <=2e-10 relative)",
+   "source_now": "rederive/relativistic-rocket-photon-exhaust.py C3-C4",
+   "moves_conclusion": "No."
+  }
+ ],
+ "rederivation": {
+  "method": "sympy",
+  "script_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/relativistic-rocket-photon-exhaust.py",
+  "outcome": "RE-DERIVATION OK, exit 0 (sympy 1.14.0). C1: from lab-frame 4-momentum conservation with forward photon emission, d(M gamma) = d(M gamma beta) = -dE, so M gamma(1-beta) is conserved; hence M0/M1 = sqrt((1+b)/(1-b)) = gamma(1+b) = exp(artanh b) -- symbolic identities verified, the last being Le L2.1's equality case e^{d}. C2: for rest-frame exhaust speed u, M(chi) = M0 exp(-chi/u) (sympy dsolve); u = 1 recovers the photon ratio and on a grid of beta in {0.01..0.99}, u in {0.05..0.999} every u<1 ratio exceeds it (min excess 1.0e-5 at u=0.999) -- the floor claim of arrival.py:13 holds within self-contained reaction propulsion. C3: independent stepwise integration of (E,P) with no closed form used agrees with the closed form at beta = 0.0476/0.5/0.866/0.99 to <= 1.5e-10 relative. C4 tree numbers: 1.0487888 (arrival.py:75) exact; 3.7316716 at beta=0.866 (report prints 3.7317) exact; 48.8 kg ('49 KILOGRAMS', :128) and 18.19 ('18x', :137) exact. DISCREPANCIES RECORDED, NOT REPAIRED: (a) arrival.py:137 '76x the fuel ratio' -- the photon formula gives a fuel-per-tonne ratio (3.7317-1)/(1.0487888-1) = 55.99, a mass-ratio ratio 3.558 and a log ratio 27.64; no reading found yields 76. This is arithmetic in the tree built on the result, not a defect of the result. (b) arrival.py:74 selftest literal 3.7314 labelled '(gamma = 2)': beta = 0.866 gives 3.7316716 and gamma = 2 exactly gives 2+sqrt3 = 3.7320508; 3.7314 matches neither but passes the 1e-4 tolerance (7.3e-5 rel); shipspec.py:142 carries 3.7314 as 'DERIVED'. A 7e-5 discrepancy, not an error. (c) arrival.py:127 '2.73 tonnes of perfect antimatter per tonne landed': 2.7317 t is the total rest mass converted; if the fuel is matter+antimatter annihilated in pairs, the antimatter share is 1.3658 t. Wording, recorded. C5: the tree's own slingshot (dv = 2U/(1+U^2), not audited here) delivers dv = 0.6236c at M_f/M_i = 1, illustrating that the floor does not bind propulsion outside Le's F-future-causal hypothesis (the arrival.py:13 drop).",
+  "agrees_with_source": "yes"
+ },
+ "later_literature": [
+  {
+   "ref": "An T. Le, arXiv:2606.22531v4 (2026), Lemma 2.1 and eq (2.6)",
+   "effect": "extends",
+   "what": "Generalises the photon-rocket formula to any C1 momentum path with causal exhaust: M_f/M_i <= e^{-L} <= e^{-d}, d the rapidity change, with equality iff null (photon), single-direction exhaust along a non-reversing geodesic velocity path. Confirms the tree's formula as the equality case AND confirms the tree's 'floor' reading, while making explicit the hypothesis F = -dP/ds future causal that arrival.py:13 drops. Also: turns cost extra (L >= d).",
+   "read_status": "READ (cached alphaXiv page text, scratchpad/d67/src/casmag/all/2606.22531v4.txt lines 315-361)"
+  },
+  {
+   "ref": "P. G. Henriques and J. Natario, 'The rocket problem in general relativity', J. Optim. Theory Appl. 154 (2012) 500, arXiv:1105.5235",
+   "effect": "extends",
+   "what": "Cited by Le as the source of the relativistic rocket equation; by its title, the GR generalisation of the rocket problem. Content not read here.",
+   "read_status": "NAMED-NOT-READ (alphaXiv quota exceeded; no cached page text found)"
+  },
+  {
+   "ref": "A. Fuzfa, 'Interstellar travels aboard radiation-powered rockets', Phys. Rev. D 99 (2019) 104081, arXiv:1902.03869",
+   "effect": "extends",
+   "what": "Cited by Le ([15]) for radiation-powered relativistic travel. Content not read here.",
+   "read_status": "NAMED-NOT-READ"
+  },
+  {
+   "ref": "discover_papers search for work narrowing/contradicting the relativistic rocket equation",
+   "effect": "contested",
+   "what": "NOT RUN TO COMPLETION: the single permitted discover_papers call returned 'alphaXiv assistant quota exceeded'. No contradicting literature was found because none could be searched; this is an absence of a search, not evidence of absence. ('contested' is used only because the schema requires an effect value; nothing contests the result in what was read.)",
+   "read_status": "NOT-READ (tool quota exceeded)"
+  }
+ ],
+ "lacked_data": "M's hypothesis tested for this result: the conclusion is a closed-form consequence of special-relativistic 4-momentum conservation and uses NO measured datum -- M0/M1 depends only on beta, and c enters only through beta (and is now exact by definition). What Ackeret (1946) did not have: (i) the modern precision tests of local Lorentz invariance (Will 1403.7377 Sec 2.1.2, READ as cached text) -- these confirm the input rather than move it; (ii) a realistic account of annihilation products (proton-antiproton annihilation goes largely to pions, part of whose energy ends in neutrinos and uncollimated gammas) -- NAMED here, no source READ in this stage, but by Le L2.1 any such loss lowers eta below 1 and can only RAISE the mass ratio, so it strengthens the tree's 'floor' reading rather than weakening it; (iii) the general-relativistic and arbitrary-path generalisations (Henriques-Natario 2012, NAMED-NOT-READ; Le 2026 Lemma 2.1, READ), which EXTEND the result and reduce to it in the tree's regime. Evidence either way: nothing found moves the conclusion; the only thing that moves is the class of propulsion to which it applies, which is a hypothesis the tree drops (arrival.py:13), not a datum the authors lacked.",
+ "grade": "NARROWED",
+ "grade_evidence": "The formula itself STANDS: re-derived symbolically from 4-momentum conservation, cross-checked by independent stepwise integration to 1.5e-10, identified as the equality case of Le 2606.22531v4 Lemma 2.1 (READ), with no datum that can move it. Every number resting on it in arrival.py:74-75,121-128, shipspec.py:142 and index3.py:85-86 is inside the result's class and re-computes (3.7314 vs 3.7317 is a 7e-5 recorded discrepancy). The grade is NARROWED, not STANDS, for ONE reason and only that: arrival.py:13 states the floor as 'no propulsion does better per unit energy', dropping the hypothesis (Le L2.1: F = -dP/ds future causal) that the vehicle's momentum changes only by its own exhaust; the result holds on self-contained reaction propulsion, a smaller class. The owner's own file prices two counterexamples to the unconditioned sentence (reverse slingshot, magsail). Separately recorded as discrepancies in the tree's arithmetic, not in the external result: '76x the fuel ratio' (arrival.py:137) computes to 55.99; '2.73 tonnes of perfect antimatter' (arrival.py:127) is total converted mass, antimatter share 1.37 t if paired. Out of this key's scope but observed while running arrival.py read-only: the report's magsail prose ('810 AU', '2.6 ly', arrival.py:150-152,159) does not match the table the same report prints (2002 AU and 0.08 ly for the 1000 km / 1e12 m^2 row) -- belongs to the magsail entry, not graded here.",
+ "what_would_change_the_grade": "-> STANDS if arrival.py:13 is read (or reworded) as 'no self-contained rocket does better' -- i.e. the floor is conditioned on momentum leaving only as exhaust -- since every other use is inside that class. -> OPEN would apply only if the SR input were in doubt, which nothing read supports. -> WRONG would need an isolated system that changes its rest-frame velocity by rapidity d while losing less than a fraction 1 - e^{-d} of its rest mass with only future-causal emission; Le L2.1's proof (READ) and the symbolic/numeric checks here exclude it. A read of Henriques-Natario 1105.5235 or a completed discover_papers search could add GR or radiation-reaction qualifications not seen here.",
+ "reverify_command": "python3 /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/relativistic-rocket-photon-exhaust.py && sed -n 315,361p /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/src/casmag/all/2606.22531v4.txt && cd /home/user/Claude-Method-Works/research/warp-drive && sed -n 11,13p arrival.py && sed -n 125,137p arrival.py && python3 arrival.py --selftest | head -8",
+ "report_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/audits/relativistic-rocket-photon-exhaust.json"
+}

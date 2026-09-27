@@ -1,0 +1,61 @@
+C1  THE IDENTITY (independent recomputation)
+  [ok] 8 pi u W + (W Psi')' + W Psi'^2 + W'' == 0 residual=0
+  [ok] u independent of Phi 
+
+C2  INTEGRATED FORM, GENERAL END VALUES
+  [ok] 8 pi u W = d/dr[-(W Psi' + W')] - W Psi'^2 
+      => INT_0^inf 8 pi u W = (W'(0) - k) + W(0)Psi'(0) - lim W Psi' - INT W Psi'^2
+      regular axis (W(0)=0, W'(0)=1), W Psi' -> 0, W' -> k:  = (1 - k) - INT W Psi'^2
+
+C3  COSMIC STRING (Psi' = 0): deficit = 8 pi mu
+  [ok] deficit angle 2pi(1-k) == 8 pi mu (G=1), i.e. Vilenkin's 8 pi G mu (axial.py sec.3 itself states the deficit is 8 pi G mu)
+      example core, delta=0.3: k = 7/10, mu = 0.075000000000, 1-4mu = 0.700000000000
+  [ok] u >= 0 string core has W' -> k = 1 - 4 mu < 1 (owner's form FAILS) 
+
+C4  OWNER'S FORM ALONE FORCES THE SIGN, CONTRACTION OR NOT
+      k = 1, regular axis:  INT 8 pi u W = -INT W Psi'^2 <= 0.  If u >= 0 everywhere,
+      then INT u W >= 0, so both sides vanish: Psi' == 0 and INT u W = 0 with u >= 0,
+      W > 0  =>  u == 0  =>  W'' = 0  =>  W = r.  (Pure sign argument; no contraction used.)
+  [ok] Psi'=0 owner-form profile (w0=0.4) with no contraction still has u<0 somewhere min u=-9.5493e-02 max u=2.1159e-02
+
+C5  VACUUM EXTERIOR: (A Psi')' = 0, A = W e^{Psi+Phi}
+  [ok] R^z_z = -(A Psi')'/A 
+      in vacuum A Psi' = const; A -> W e^{const} so W Psi' -> 0 iff const = 0 iff Psi' == 0
+      in the exterior: the owner's form admits only the sigma = 0 Levi-Civita exterior.
+
+C6  EXPLICIT CONTRACTING PROFILE WITH u >= 0 EVERYWHERE, CONICAL ASYMPTOTICS
+  [ok] W(0)=0 
+  [ok] W'(0)=1 (regular axis) 
+  [ok] W' -> k = 1 - delta = 2/5 (conical, NOT owner's W'->1) 
+  [ok] W Psi' -> 0 
+  [ok] Psi < 0 everywhere: axial contraction Gamma_z = e^{-Psi} > 1 Psi(0) = -1/20
+  [ok] 8 pi u at the axis = 2 delta/b^2 - 4 psi0/a^2 > 0 = 1/10
+  [ok] large r: u / (-W''/(8 pi W)) -> 1, and -W'' > 0, so u > 0 in the tail limit=1
+  [ok] min u on 24000-point grid over (0,12] is >= 0 min u = 5.6663894e-18
+  [ok] min u over [12,60] >= 0 min u = 3.89904e-393
+  [ok] INT 8 pi u W = (1-k) - INT W Psi'^2 INT 8piuW=0.598806215191908, 1-k=0.6, INT W Psi^2=0.00119378480809207, residual=-1.87e-32
+      mass per unit length mu = 0.149701553798 > 0; deficit/(2pi) = delta = 4 mu + INT W Psi'^2
+      Phi=0: u+p_r    min 5.99776e-18  max 0.0111857
+      Phi=0: u+p_z    min -0.00795774  max 0.00115086
+      Phi=0: u+p_phi  min 5.99776e-18  max 0.00851999
+      Phi = 0 violates the z-direction NEC somewhere.  Phi is FREE (u does not contain
+      it) so choose Phi = Psi: then 8 pi (u + p_z) = [(W Phi')' + W Phi'^2 - (W Psi')'
+      - W Psi'^2]/W = 0 identically, and the other two are checked below.
+  [ok] u unchanged by Phi = Psi 
+  [ok] Phi = Psi: u + p_z == 0 identically 
+  [ok] Phi = Psi: min u+p_r over (0,60] >= 0, tail ratio to -W''/(8 pi W) -> 1 min = 3.89904e-393
+  [ok]   and u+p_r at the axis = 3/(80*pi) > 0 
+  [ok] Phi = Psi: min u+p_phi over (0,60] >= 0, tail ratio to -W''/(8 pi W) -> 1 min = 3.89904e-393
+  [ok]   and u+p_phi at the axis = 3/(80*pi) > 0 
+      => with Phi = Psi the profile satisfies the WEC (u >= 0 and every u + p_i >= 0,
+         T diagonal, so type I) on the checked grid, with exact axis and tail limits.
+      DEC margin min_r [u - max|p_i|] on (0,12] = -0.00397887  (reported, not required)
+
+C7  THE TREE'S TRUNCATION r_max = 60
+  [ok] Gaussian tails of axial.py's profiles at r=60 below 1e-150 bound=1.489e-165
+
+VERDICT DATA:  identity re-derived (C1,C2); owner's form excludes every positive-mu
+static cylinder (C3,C4); under the literature's conical ('string') asymptotics a
+contracting static cylinder with u >= 0 everywhere exists (C6).
+
+ALL CHECKS OK

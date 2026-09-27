@@ -1,0 +1,139 @@
+{
+ "key": "pdg-2026-capture",
+ "name": "PDG masses via captures/PDG-2026.tsv (e, mu, tau, u, d, s, c, b, t, p, n, W; lightest baryon; charged-lepton count N_F)",
+ "source": {
+  "located": "Review of Particle Physics 2026 (Takahashi et al., PDG, Int. J. Mod. Phys. A 41, 2630011 (2026)) in its machine-readable form: mass_width_2026.txt ('MASSES, WIDTHS, AND MC ID NUMBERS FROM 2026 EDITION OF RPP ... generated on 11-May-2026 by the Berkeley Particle Data Group') and particle2026.csv, both shipped in scikit-hep particle 1.0.1 (installed at /usr/local/lib/python3.11/dist-packages/particle/data/). md5 e96a23be061430adc72d5b2ea5a93764 and b6f460a16e4cd93a5cc721f3aee1d6c2, identical to the capture header. Cross-read: CODATA 2018 and 2022 tables as held in scipy 1.17.1 constants/_codata.py (scratchpad d67/src/codata/x/). The mass_width_2024.txt and _2025.txt files in the same package give the two previous editions.",
+  "read_status": "READ",
+  "via": "PDG's own data file parsed independently by its stated FORTRAN column layout (not through pdgcapture.py or the particle loader). NOT READ this stage: the RPP printed text (W-mass mini-review, quark-mass scheme notes, the footnote on whether CDF 2022 enters the W average) -- the RPP is not on arXiv, the alphaXiv tools returned 'assistant quota exceeded' on every call (answer_pdf_queries x4, get_paper_content, discover_papers), and arxiv.org, pdg.lbl.gov, nature.com, cerncourier.com and ep-news.web.cern.ch are refused by the egress proxy. Those texts are NAMED-NOT-READ."
+ },
+ "published_statement": "PDG 2026 data file (GeV): e 5.1099895069E-04 +-1.6E-13; mu 1.056583755E-01; tau 1.77693E+00; u 2.16E-03 +-7.0E-05; d 4.70E-03 +-7.0E-05; s 9.29E-02 +-7.0E-04; c 1.273E+00 +-5.0E-03; b 4.186E+00 +-6.0E-03; t 1.7260E+02 +-2.7E-01; p 9.3827208943E-01 +-2.9E-10; n 9.395654219E-01 +-5.0E-10; W 8.0362E+01 +-8.0E-03. particle2026.csv: tau'(17) and nu(tau')(18) carry PDG status 4 (NotInPDT) and no mass (-1). The capture writes each mass with '%.9g' (pdgcapture.py:137): e 0.510998951, p 938.272089, n 939.565422, W 80362 MeV, etc.",
+ "published_hypotheses": [
+  "Quark masses are scheme-dependent: MS-bar u, d, s at mu = 2 GeV, m_c(m_c), m_b(m_b); the top is the direct-measurement average (as the tree itself states at massform.py:753; the PDG scheme notes are NAMED-NOT-READ this stage).",
+  "Each value is an average/fit of the measurements in the RPP database as of the 2026 edition (file generated 11-May-2026); e, p, n are CODATA 2022 (verified: PDG2026 = CODATA 2022 to 1e-9 relative).",
+  "The table lists observed states; status 4 (NotInPDT) marks entries not in the Particle Data Table -- the tau' and nu(tau') have no mass because none has been observed.",
+  "Uncertainties as printed (the file's +-err columns); the W average's treatment of CDF 2022 is stated in the RPP text, NAMED-NOT-READ."
+ ],
+ "hypothesis_drift": [
+  "DROPPED (N_F): massform.py:1041-1048 counts charged leptons in the capture and uses the count as the number of generations N_F -- the '3' of Rubakov-Shaposhnikov's '3 . 3 is due to colour and number of generations' (massform.py:1060, :4853), and feeds THOOFT_VERTEX (:2055), transitions_needed = ceil(B/N_F) (:2127), esph_over_three_baryons (:2141) and extra_leptons (:2155). The capture counts OBSERVED charged leptons; that there is no further SU(2)-doublet generation (heavy, unobserved) is a physical hypothesis the table does not carry. The tree names only the filter (tau' excluded 'by PDG's own status flag', massform.py:1043-1044), not the hypothesis. Call it H-3GEN. Evidence for it (LEP Z-width light-neutrino count ~3; Higgs-rate exclusion of a sequential chiral fourth generation) is NAMED-NOT-READ here.",
+  "REPRESENTATION, not drift of meaning: massform.py:211-212 says 'The electron mass in the capture is 0.510998951 MeV (READ)'. That is the capture's 9-significant-figure rendering (pdgcapture.py:137 '%.9g') of PDG's 0.51099895069 MeV; the gap 3.1e-10 MeV is 1.94 sigma of PDG's stated 1.6e-10. The sentence says 'in the capture', so it is accurate; the fixture chk('m_e READ 0.510998951 MeV') at massform.py:4842 checks the capture, not PDG. Same for p (gap 4.3e-7 MeV = 1.48 sigma) and n (1e-7 MeV = 0.20 sigma). A discrepancy of rounding, conclusion-inert (computed).",
+  "NONE on the quark-mass scheme: H-TREE at massform.py:751-754 names it ('MS-bar u, d, s at 2 GeV; m_c(m_c), m_b(m_b); t direct), so each Yukawa carries that scheme') and H_TREE_STATUS (massform.py:1702-1705) repeats it. The printed 'The top's is 0.9914' (massform.py:217) is therefore a scheme-bound figure the tree already labels: with an MS-bar m_t(m_t) of ~162.5 GeV (NAMED-NOT-READ) y_t would be ~0.933; 'of order one' (the only use, massform.py:4866) holds either way.",
+  "NONE on m_W's role: alpha_W = (2 m_W/v)^2/4pi at massform.py:2105-2110 is labelled 'm_W READ; v NAMED-NOT-READ', i.e. a tree-level on-shell coupling; that choice belongs to the sphaleron/instanton audits, not to this capture.",
+  "FIXTURE EDITION-DEPENDENCE (recorded, not a drift): chkrel('m_N = 938.9187555 MeV', 1e-12) at massform.py:4850 holds only for the 2026 edition's 9-s.f. rows; under CODATA 2018 m_N was 938.918754340, a move of 1.3e-6 MeV vs a fixture tolerance of 9.4e-10 MeV. The selftest states its fixtures are 'the capture's own rows' (massform.py:4840-4841), so this is by design; no conclusion reads m_N at that precision."
+ ],
+ "data_at_publication": [
+  {
+   "quantity": "m_e",
+   "value_then": "0.51099895000(15) MeV (PDG 2024/2025 files = CODATA 2018)",
+   "value_now": "0.51099895069(16) MeV (PDG 2026 file = CODATA 2022); capture 0.510998951",
+   "source_now": "mass_width_2026.txt; scipy _codata.py txt2022 line 1729",
+   "moves_conclusion": "No. Moved +6.9e-10 MeV = 4.60 sigma(2018), 1.4e-9 relative, common-mode with m_p (m_e/m_p = 5.4461702149e-4 under BOTH editions). The tree needs m_e > 0 (consideration, D27) and y_e ~ 1e-6: unmoved."
+  },
+  {
+   "quantity": "m_p",
+   "value_then": "938.27208816(29) MeV (CODATA 2018)",
+   "value_now": "938.27208943(29) MeV (CODATA 2022); capture 938.272089",
+   "source_now": "mass_width_2026.txt; scipy txt2022 line 1910",
+   "moves_conclusion": "No. +1.27e-6 MeV = 4.38 sigma(2018), 1.4e-9 relative; lightest baryon remains p; E_sph/(3 m_p) moves at 1e-9."
+  },
+  {
+   "quantity": "m_n",
+   "value_then": "939.5654205(5) MeV (CODATA 2018 939.56542052(54))",
+   "value_now": "939.5654219(5) MeV (CODATA 2022 939.56542194(48)); capture 939.565422",
+   "source_now": "mass_width_2026.txt; scipy txt2022 line 1871",
+   "moves_conclusion": "No. +1.42e-6 MeV = 2.63 sigma(2018)."
+  },
+  {
+   "quantity": "m_N = (m_p+m_n)/2 (derived)",
+   "value_then": "938.918754340 MeV (CODATA 2018)",
+   "value_now": "938.9187555 (capture, 9 s.f.) / 938.918755665 (unrounded PDG 2026)",
+   "source_now": "computed in rederive/pdg-2026-capture.py",
+   "moves_conclusion": "No conclusion; the 1e-12 selftest fixture is edition-bound (see drift)."
+  },
+  {
+   "quantity": "m_W",
+   "value_then": "80369 +- 13 MeV (PDG 2024 and 2025 files)",
+   "value_now": "80362 +- 8 MeV (PDG 2026 file). Contested: CDF 2022 80433.5 +- 9.4 MeV; CMS 80360.2 +- 9.9 MeV (both NAMED-NOT-READ, web-search snippets only; the snippet also quotes PDG 2026 '80362.5 +- 7.7' and compatibility 0.06% with CDF, 96.9% without)",
+   "source_now": "mass_width_2026.txt (READ); CDF/CMS NAMED-NOT-READ",
+   "moves_conclusion": "No (computed). alpha_W: 0.033908 (capture) / 0.033914 (2024) / 0.033969 (CDF). log10 exp(-4pi/alpha_W): -160.949 / -160.921 / -160.663 -- CDF shifts it by 0.29 decades out of ~161. E_sph ~ 2 m_W/alpha_W moves by -0.089% at CDF. No S11 verdict reads m_W at that precision."
+  },
+  {
+   "quantity": "m_u, m_d (MS-bar, 2 GeV)",
+   "value_then": "2.16 +- 0.07, 4.70 +- 0.07 MeV (2024, 2025)",
+   "value_now": "2.16 +- 0.07, 4.70 +- 0.07 MeV (2026)",
+   "source_now": "mass_width_2026.txt",
+   "moves_conclusion": "No. Unchanged; m_u > 0 at 30.9 sigma, which is all the consideration (massive e, u, d force phi != 0) needs."
+  },
+  {
+   "quantity": "m_t (direct)",
+   "value_then": "172.57 +- 0.29 GeV (2024), 172.56 +- 0.31 (2025)",
+   "value_now": "172.60 +- 0.27 GeV (2026); capture 172600 MeV",
+   "source_now": "mass_width_2026.txt",
+   "moves_conclusion": "No. y_t = 0.9912 / 0.9911 / 0.9914; the printed 0.9914 is the 2026 value; 'order one' unmoved. Direct-mass vs pole/MS-bar interpretation is named by H-TREE ('t direct')."
+  },
+  {
+   "quantity": "m_s, m_b (not in data_used but in the nine Yukawas)",
+   "value_then": "93.5 +- 0.8 MeV, 4183 +- 7 MeV (2024/2025)",
+   "value_now": "92.9 +- 0.7 MeV, 4186 +- 6 MeV (2026)",
+   "source_now": "mass_width_2026.txt",
+   "moves_conclusion": "No; only printed as Yukawas."
+  },
+  {
+   "quantity": "N_F (charged-lepton count)",
+   "value_then": "3 (e, mu, tau; tau' status 4, no mass)",
+   "value_now": "3 (same in 2026 particle2026.csv)",
+   "source_now": "particle2026.csv rows 17/-17/18/-18: status 4, mass -1",
+   "moves_conclusion": "The count does not move. Its reading as the number of generations rests on H-3GEN, unnamed in the tree (see drift)."
+  },
+  {
+   "quantity": "m_H (outside data_used; higgs.py:250 reads the same capture)",
+   "value_then": "125.20 +- 0.11 GeV (2024/2025)",
+   "value_now": "125.13 +- 0.11 GeV (2026)",
+   "source_now": "mass_width_2026.txt",
+   "moves_conclusion": "Not audited here (belongs to the vacuum-stability entry); recorded because it moved."
+  }
+ ],
+ "rederivation": {
+  "method": "numeric",
+  "script_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/pdg-2026-capture.py",
+  "outcome": "Exit 0, all checks PASS. (1) md5 of both PDG data files equals the capture header. (2) Independent FORTRAN-column parse of mass_width_2026.txt: every one of the 14 rows checked (e, mu, tau, u, d, s, c, b, t, p, n, W, Z, H) equals float('%.9g' % PDG) exactly; largest rounding gap 1.94 sigma (e), then 1.48 sigma (p). (3) PDG 2026 = CODATA 2022 and PDG 2024 = CODATA 2018 for e, p, n (scipy tables). (4) Recorded: CODATA 2018->2022 moved e, p, n by 4.60, 4.38, 2.63 sigma(2018), all ~1.4e-9 relative and common-mode; m_e/m_p = 5.4461702149e-4 in both. (5) Tree figures reproduced: m_N 938.9187555; m_e/m_p 5.446170221e-4; v = (sqrt2 G_F)^-1/2 = 246.21965 GeV from CODATA 2022 G_F; y_t 0.991364 (tree 0.9914), y_e 2.93503e-6 (tree 2.935e-6). (6) lightest baryon = p; charged leptons Q3=-3 = {e-, mu-, tau-}, N_F = 3; tau'/nu(tau') status 4 and massless-unmeasured in particle2026.csv. (7) W sensitivity: CDF 80433.5 shifts log10 instanton suppression by +0.286 of -160.949 and E_sph by -0.089%. Also run: `python3 pdgcapture.py --verify` -> 'ok the capture agrees with a fresh derivation of 572 rows'; `PYTHONDONTWRITEBYTECODE=1 python3.12 massform.py --selftest` -> every capture fixture [ok].",
+  "agrees_with_source": "yes"
+ },
+ "later_literature": [
+  {
+   "ref": "CODATA 2022 (Mohr et al., arXiv 2409.03787) as tabulated in scipy 1.17.1 _codata.py txt2022",
+   "effect": "confirms",
+   "what": "PDG 2026's e, p, n are CODATA 2022 exactly; the move from CODATA 2018 is 4.4-4.6 sigma for e and p but 1.4e-9 relative and common-mode, so every ratio the tree uses is unchanged.",
+   "read_status": "READ (NIST table via scipy); the CODATA paper text NAMED-NOT-READ"
+  },
+  {
+   "ref": "CMS W mass, arXiv 2412.13872 (Nature 2026, s41586-026-10168-5): 80360.2 +- 9.9 MeV",
+   "effect": "confirms",
+   "what": "Agrees with the capture's 80362 +- 8; the 2026 edition's drop from 80369 is consistent with its inclusion.",
+   "read_status": "NAMED-NOT-READ (web-search snippet only; alphaXiv quota exceeded, arxiv.org and nature.com egress-blocked)"
+  },
+  {
+   "ref": "CDF II W mass, Science 376, 170 (2022): 80433.5 +- 9.4 MeV",
+   "effect": "contested",
+   "what": "Incompatible with ATLAS/CMS/PDG 2026 (snippet: combination compatibility 0.06% with CDF, 96.9% without). Computed here: moves no conclusion the tree draws (0.29 decade in a ~161-decade suppression; 0.09% in E_sph).",
+   "read_status": "NAMED-NOT-READ (web-search snippet)"
+  },
+  {
+   "ref": "ATLAS+CMS top-mass combination, arXiv 2402.08713 (172.52 +- 0.33 GeV)",
+   "effect": "confirms",
+   "what": "Consistent with PDG 2026 172.60 +- 0.27; y_t moves in the fourth decimal.",
+   "read_status": "NAMED-NOT-READ (egress-blocked; value from memory, not used in any check)"
+  },
+  {
+   "ref": "Fourth-generation exclusions (e.g. arXiv 1204.1252, 1209.1101 on Higgs rates; LEP light-neutrino count)",
+   "effect": "narrows",
+   "what": "Would supply the evidence for H-3GEN, the hypothesis the tree's N_F reading drops; not read, so it is named as the missing hypothesis, not asserted either way.",
+   "read_status": "NAMED-NOT-READ"
+  }
+ ],
+ "lacked_data": "M's hypothesis tested for this result. What the earlier editions lacked, and did it matter: (a) PDG 2024/2025 lacked CODATA 2022 -- m_e, m_p, m_n then sat 4.60, 4.38, 2.63 sigma(2018) away from today's values, so here the premise is literally true: the earlier values were inaccurate at their own stated precision. But the move is 1.4e-9 relative and common-mode (the ratio m_e/m_p is 5.4461702149e-4 in both), so nothing the tree concludes moves (computed). (b) PDG 2024/2025 lacked (or pre-dated) CMS 2024 on m_W: 80369 -> 80362 MeV. Computed: alpha_W moves 0.02%, log10 suppression 0.03 decade. (c) The W mass is still CONTESTED (CDF 2022); taking CDF's value moves the instanton suppression by 0.29 decade of ~161 and E_sph by 0.09% -- no refusal or price the tree states reads m_W at that precision. (d) m_s moved 93.5 -> 92.9 and m_b 4183 -> 4186: printed as Yukawas only. (e) The tree's capture already IS the newest edition (2026), so relative to what exists nothing is lacked for the values. The one place where missing data could change the reading is N_F: a table of observed states cannot say that no heavier SU(2)-doublet generation exists; that is H-3GEN, unnamed in the tree; its supporting evidence exists in the literature but was not read here. Evidence either way: data did move (confirming M's premise in form), and it moved nothing the tree concludes (refuting it for this result's conclusions).",
+ "grade": "NARROWED",
+ "grade_evidence": "Every numerical datum STANDS: the capture reproduces PDG 2026's own data file to 9 s.f. (md5-verified; independent parse; largest rounding gap 1.94 sigma, e), e/p/n equal CODATA 2022, and every derived tree figure (m_N, m_e/m_p, y_t 0.9914, y_e 2.935e-6, lightest baryon p, count 3) re-derives. No moved datum moves a conclusion, computed for each: CODATA 2018->2022 (1.4e-9 relative, ratios unchanged), m_W 80369->80362 and the contested CDF 80433.5 (0.29 decade of ~161; 0.09% of E_sph), m_t, m_s, m_b. The quark-mass scheme and 't direct' are named by H-TREE (massform.py:751-754). The narrowing is one dropped hypothesis: massform.py:1041-1048 reads the count of OBSERVED charged leptons as the number of generations N_F that the anomaly vertex, ceil(B/N_F), E_sph/(N_F m_p) and the extra-lepton count use (:2055, :2127, :2141, :2155); the tree names only PDG's status filter, not H-3GEN (no further SU(2)-doublet generation). That is a limitation to be NAMED, not an error: the count is right and the hypothesis is empirically well supported in literature not read here. Not WRONG (no counterexample), not DATA-DEPENDENT (no moved or contested datum moves a conclusion). Discrepancies recorded, nothing repaired: the '(READ)' electron mass is the capture's 9-s.f. rendering, 1.94 sigma from PDG's printed value.",
+ "what_would_change_the_grade": "To STANDS: the tree names H-3GEN at n_generations() (massform.py:1041) as a hypothesis on which N_F's use rests -- or a READ source is cited for it. To DATA-DEPENDENT: a tree conclusion that reads m_W, m_e or m_p at the 1e-3 or finer level (none found), or an RPP text read showing the capture's W average is not the one the tree thinks it is. To WRONG: only a demonstrated mismatch between capture and PDG file (none: all 14 rows equal at 9 s.f.). The RPP text (W mini-review, CDF footnote, quark-mass scheme notes) remains NAMED-NOT-READ; reading it could add a hypothesis but cannot change a value the file already fixes.",
+ "reverify_command": "python3 /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/pdg-2026-capture.py && (cd /home/user/Claude-Method-Works/research/warp-drive && python3 pdgcapture.py --verify && PYTHONDONTWRITEBYTECODE=1 python3.12 massform.py --selftest | grep -E 'READ|N_F|lightest|y_t')",
+ "report_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/audits/pdg-2026-capture.json"
+}

@@ -1,0 +1,117 @@
+{
+ "key": "positive-mass-theorem",
+ "name": "Positive (ADM) mass theorem (Schoen-Yau 1979/1981, Witten 1981), inequality and rigidity clauses -- invoked as 'never in danger' since m(r) < 0 locally is compatible with M_ADM >= 0",
+ "source": {
+  "located": "R. Schoen & S.-T. Yau, Comm. Math. Phys. 65, 45 (1979) and 79, 47 / 79, 231 (1981); E. Witten, Comm. Math. Phys. 80, 381 (1981) -- no arXiv copies. Read via exact restatements: M. Eichmair, L.-H. Huang, D. A. Lee, R. Schoen, 'The spacetime positive mass theorem in dimensions less than eight', arXiv 1110.2087v2 (J. Eur. Math. Soc. 18, 83 (2016)), Theorem 1 p.1, history pp.2-3, Definition 3 (initial data, mu, J, DEC, asymptotic flatness, ADM E and P) pp.5-6; and L.-H. Huang & D. A. Lee, 'Equality in the spacetime positive mass theorem', arXiv 1706.03732v3 (Comm. Math. Phys. 2020), Theorem 1 and Corollary 4 pp.1-3, history p.2, Remark 2.11 p.7.",
+  "read_status": "READ-VIA-RESTATEMENT",
+  "via": "alphaXiv answer_pdf_queries on 1110.2087 (pp.1-7,10-12,17,22,30-32,42-46) and 1706.03732 (pp.1-9,12-14,19-21). Schoen-Yau 1979/1981 and Witten 1981 themselves NAMED-NOT-READ (restated by EHLS and Huang-Lee, both co-authored by R. Schoen or citing him directly). Later literature read: P. Cameron arXiv 2010.05086 (pp.1-23), N. de Aguiar Alves, A. G. S. Landulfo, B. Arderucio Costa arXiv 2408.00154 (pp.1-2,4,6,8,13-14). Penrose-Sorkin-Woolgar gr-qc/9301015 NAMED-NOT-READ (restated in 2010.05086 and 2408.00154 Theorem 4)."
+ },
+ "published_statement": "EHLS 1110.2087 p.1, Theorem 1 (Spacetime positive mass theorem): 'Let 3 <= n < 8 and let (M, g, k) be an n-dimensional asymptotically flat initial data set that satisfies the dominant energy condition. Then E >= |P|, where (E, P) is the ADM energy-momentum vector of (M, g, k).' History (p.2): 'The special case of Theorem 1 where k = 0 is called the time-symmetric case ... In the time-symmetric case, we have that P = 0 and the dominant energy condition becomes the assumption that the scalar curvature of g is nonnegative. The last named author and S.-T. Yau proved the time-symmetric case in dimension three in two articles from 1979 and 1981 ... In 1981, they considered the general case k != 0 in dimension three and succeeded in proving that E >= 0 by solving Jang's equation. Later, E. Witten discovered a completely different proof that E >= |P| in dimension three.' Rigidity (Huang-Lee 1706.03732 p.2): 'a separate argument is used to give a characterization of the equality case that if E = 0, then (M, g) is isometric to Euclidean space' (time-symmetric); for k != 0 Schoen-Yau and Eichmair 'show that if E = 0, then (M, g, k) can be isometrically embedded in Minkowski spacetime'; the E = |P| case was 'proved in three dimensions by R. Beig and P. Chrusciel using the spinor approach in 1996' and by Huang-Lee (Theorem 1, 3 <= n <= 7; Corollary 4 with, for n = 3, tr_g k = O(|x|^-s), s > 2).",
+ "published_hypotheses": [
+  "dimension: n = 3 for Schoen-Yau 1979/1981 and Witten 1981 (Witten: spin, automatic for orientable 3-manifolds); 3 <= n < 8 for EHLS 2016; all n for spin manifolds or with Schoen-Yau 2017 / Lohkamp (named in 1706.03732 p.2, not read)",
+  "initial data set (M, g, k) with g a COMPLETE C^2_loc Riemannian metric, k a C^1_loc symmetric 2-tensor (EHLS Def.3); no boundary (horizon-boundary versions exist, not used by the tree)",
+  "asymptotic flatness of type (p,q,q0,alpha): (g - delta, k) in W^{2,p}_{-q} x W^{1,p}_{-1-q}, q in ((n-2)/2, n-2), p > n, and mu, J in C^{0,alpha}_{-n-q0} (EHLS Def.3); Huang-Lee Remark 2.11 adds Ric_g, grad pi in C^0_{-2-q} to EHLS Theorem 1 for their rigidity argument",
+  "dominant energy condition on the slice: mu >= |J|_g with mu = (1/2)(R_g - |k|^2 + (tr k)^2), J = div k - d(tr k); in the time-symmetric case k = 0 this is R_g >= 0",
+  "the ADM mass is defined by the flux integral E = [1/(2(n-1)omega_{n-1})] lim oint (g_ij,i - g_ii,j) nu^j (EHLS Def.3) -- a property of the metric's fall-off, not of any field equation",
+  "rigidity (equality) clause is a separate theorem: time-symmetric E = 0 => Euclidean (Schoen-Yau); general data E = |P| => E = |P| = 0 and embedding in Minkowski (Beig-Chrusciel 1996, spin; Huang-Lee 2020, n <= 7, plus tr k = O(r^-s), s > 2 when n = 3)",
+  "no empirical data enter: the theorem is a mathematical implication whose physical input is the energy-condition hypothesis"
+ ],
+ "hypothesis_drift": [
+  "DROPPED, shown: the dominant energy condition, at phase1.py:397-399 ('bare negative mass ... forbidden by the positive mass theorem', which sets that candidate's Lambda slot to None and removes it from ranked()/the_winner()) and concentric.py:7-8 ('a BARE negative mass violates the positive mass theorem, and a result that needs one is not a device'). The theorem forbids E < 0 only under the DEC. Re-derived (C2): the static constant-NEGATIVE-density ball, g = dr^2/(1 + (8pi/3) rho0 r^2) + r^2 dOmega^2 inside, negative-mass Schwarzschild outside, is complete, smooth at a regular centre, horizon-free and asymptotically flat with E_ADM = -(4pi/3) rho0 R^3 < 0, and its slice has R_g = 16 pi rho = -16 pi rho0 < 0, so mu < 0: the hypothesis fails and the theorem is silent. z3 (C4 i) confirms 'PMT and not-DEC and E < 0' is satisfiable. Corroborated in the literature: de Aguiar Alves-Landulfo-Arderucio Costa 2408.00154 p.4 ('It is not surprising that the Einstein equations allow for negative-mass stars'; the Schwarzschild constant-density star with M < 0 has finite non-negative pressure below the Buchdahl bound and violates the DEC and NEC). The tree's own pair.py:103-112 states the DEC hypothesis correctly ('THE NEGATIVE MEMBER CANNOT EXIST AT ALL under the DEC'); phase1.py:397-399 and concentric.py:7-8 do not carry it.",
+  "DROPPED, unstated, harmless as to truth but VACUOUS: asymptotic flatness, completeness and the DEC are not written at certify.py:161-164, 487-489, 530-531, overturn.py:217 and 679-680, concentric.py:49-50 and 271-273, which use only 'M_ADM >= 0 (or = 0), so the theorem has nothing to object to / was never in danger'. z3 (C4 iv): E >= 0 entails nothing about the hypothesis, and (C4 ii) E < 0 entails not-DEC, so a DEC-violating configuration -- which every configuration here is (certify.py's own section 2 finds m(r) < 0 wherever the slice contracts; overturn.py:212-213 concedes pointwise WEC failure; concentric.py:51-53 concedes DEC failure) -- cannot put the theorem 'in danger' whatever its ADM mass, INCLUDING a bare negative mass. The 'never in danger' sentence is true, and it does not discriminate the concentric architecture from the bare negative mass. pair.py:147-149 already gives the correct reading ('the device satisfies the theorem's CONCLUSION while violating its HYPOTHESIS, and must').",
+  "CONTRADICTED by the theorem's rigidity clause, under named hypotheses: phase1.py:195-197 and 537-539 state 'No energy condition ... is violated by D1-D5 with M_ADM = 0'. With D2 (g_s = g_0 flat outside a compact K: asymptotically flat, M_ADM = 0 exactly), configurations held STATIC (phase1.py:90-93: K = 0 slices, T^{0i} = 0) and complete, the DEC on a K = 0 slice is R_g >= 0, and time-symmetric rigidity (E = 0 and R_g >= 0 => Euclidean; Huang-Lee p.2) makes the slice flat, contradicting D3 (d_s(A,B) strictly decreasing). So under those hypotheses an energy condition MUST fail -- the tree's own pair.py:124-129 and certify.py (m(r) < 0 locally) say so. Computed for the seated device (C3): the concentric slice g = (1 - 2 Phi) delta has R_g(0) = -2.9994e4 (closed form -12 m/a^3/(1-2m/a+2m/R_s)^2 at m = 5e-3, a = 0.02, R_s = 200) and int_{r<10a} R dV = -0.2318 < 0. Named escape: a non-static configuration (k != 0) can shorten slice distances on a bent spacelike slice of Minkowski space with every energy condition satisfied, which is a gauge choice, not a device. Recorded as a discrepancy internal to the tree; nothing repaired.",
+  "SHARPENED, not a drift against the tree: concentric.py:51-53 and pair.py:124-129 conclude 'the DEC fails'. For static data the rigidity hypothesis reduces to R_g >= 0 (EHLS p.2), so the contrapositive gives the stronger statement that the energy density seen by static observers, mu = R_g/2, is negative somewhere (WEC fails), which C3 computes directly.",
+  "WEAKENED REGULARITY, named, not checked here: concentric.py's Phi = m/sqrt(r^2+a^2) - m/max(r,R_s) has a jump in Phi' at R_s, so g is only Lipschitz there, below EHLS's C^2_loc; low-regularity positive-mass theorems (metrics with corners, Miao 2002; Lee-LeFloch) are not read in this audit. Irrelevant to any conclusion the tree draws, because the DEC fails at the core regardless (C3).",
+  "LINEARISATION does not touch the ADM value: concentric.py:139-141 notes Phi_max ~ 0.25 is not small, but the ADM energy is a flux integral of the metric as written (EHLS Def.3), and for g = (1-2Phi) delta it equals lim r^2 Phi'(r) = 0 exactly for r > R_s, with g - delta = m a^2/r^3 + O(r^-4) inside EHLS's fall-off window (C1 a). M_ADM = 0 is therefore exact for the prescribed metric, not only at linear order.",
+  "overturn.py's 'total mass is positive' (overturn.py:217, selftest 607) is the Euclidean integral of rho over the ball, not an ADM mass of any metric (overturn.py:209-211 disclaims a field-equation solution). It equals the Misner-Sharp / ADM mass only if rho is the areal-radius energy density of a static spherical solution; read that way the printed numbers give max 2m(r)/r = 39.79 (trapped in G = c = 1), so rho must be scaled by < 0.0251 for a static reading (C5). A units/scale note; linearity in rho makes the file's conclusion scale-free."
+ ],
+ "data_at_publication": [
+  {
+   "quantity": "empirical inputs to the theorem",
+   "value_then": "none -- a mathematical implication (1979/1981)",
+   "value_now": "none",
+   "source_now": "EHLS 1110.2087 Theorem 1; Huang-Lee 1706.03732 Theorem 1",
+   "moves_conclusion": "no"
+  },
+  {
+   "quantity": "m(R) of overturn.py two-zone profile (r0=1, R=2, b=1, a=1.5)",
+   "value_then": "+39.793507 (overturn.py selftest 600)",
+   "value_now": "39.7935069 = (4/3)pi(9.5), recomputed (C5)",
+   "source_now": "rederive/positive-mass-theorem.py C5",
+   "moves_conclusion": "no -- agrees"
+  },
+  {
+   "quantity": "m(r0) of the two-zone core",
+   "value_then": "-4.1887902",
+   "value_now": "-4.1887902 recomputed",
+   "source_now": "C5",
+   "moves_conclusion": "no -- agrees"
+  },
+  {
+   "quantity": "concentric.py docstring Phi(1000), Phi(1) (concentric.py:50-51)",
+   "value_then": "-6.2e-13 and +4.4e-3",
+   "value_now": "at the seated a = 0.02, R_s = 200, m = 5e-3: Phi(1000) = -1.000e-15, Phi(1) = +4.9740e-3; the docstring pair is reproduced to the printed digits by a = 0.5, R_s = 200 (-6.250e-13, +4.4471e-3)",
+   "source_now": "C6",
+   "moves_conclusion": "no -- a stale-parameter DISCREPANCY in the docstring (recorded, not repaired); M_ADM = 0 is independent of a (C1 a) and the selftest (concentric.py:268-270) checks the seated values"
+  },
+  {
+   "quantity": "concentric.py selftest Phi(r=1) at m = 5e-3 (concentric.py:268)",
+   "value_then": "4.9750e-3, tolerance 1e-6",
+   "value_now": "4.97400e-3 (difference 9.997e-7, inside the tolerance by 3e-10)",
+   "source_now": "C6",
+   "moves_conclusion": "no -- passes, with a margin of 3e-10 against its tolerance; noted"
+  },
+  {
+   "quantity": "bad(1000), the first (wrong) potential",
+   "value_then": "|bad| > 1e-6, ADM mass -m",
+   "value_now": "-2.0000e-5; ADM flux gives E = -m exactly (C1 b)",
+   "source_now": "C1 b, C6",
+   "moves_conclusion": "no -- agrees"
+  },
+  {
+   "quantity": "pair.py's M_ADM residual 'measured at -4.000e-15'",
+   "value_then": "-4.000e-15",
+   "value_now": "Phi(1000) = -4.000e-15 at m = 2e-2 (C6); ADM energy exactly 0 (C1 a)",
+   "source_now": "C1 a, C6",
+   "moves_conclusion": "no -- the residual is the Plummer a^2/r^3 tail, not a mass"
+  }
+ ],
+ "rederivation": {
+  "method": "sympy",
+  "script_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/positive-mass-theorem.py",
+  "outcome": "OVERALL OK (exit 0; sympy 1.14.0, z3 get_version_string() = 5.1.0). C1: ADM flux for g = psi(r) delta is -(1/2) lim r^2 psi'; concentric slice E = 0 exactly, the first (wrong) potential E = -m, linearised and isotropic Schwarzschild E = M for either sign. C2: R[dr^2/(1-2m/r)+r^2 dOmega^2] = 4m'/r^2 exactly; the negative-density ball is complete, regular, horizon-free, AF with E_ADM < 0 and R_g = -16 pi rho0 < 0 -- negative ADM mass not forbidden once the DEC fails. C3: exact R of the concentric slice = 4 Lap Phi/psi^2 + 6|Phi'|^2/psi^3; R(0) = -2.9994e4 < 0, int_{r<10a} R dV = -0.2318 -- the static hypothesis R_g >= 0 fails at the core. C4 (z3): 'PMT & not-DEC & E<0' SAT; 'PMT & E<0 |= not-DEC' valid; 'PMT & E=0 & not-flat |= not-DEC' valid (the rigidity use is sound); 'PMT & E>=0 & not-DEC' SAT (M_ADM >= 0 certifies nothing); with the DEC failing, E < 0 and E = 0 non-flat are both consistent. C5, C6: the tree's numbers reproduce; one docstring pair is stale (a = 0.5).",
+  "agrees_with_source": "yes"
+ },
+ "later_literature": [
+  {
+   "ref": "Eichmair-Huang-Lee-Schoen, arXiv 1110.2087 (JEMS 2016)",
+   "effect": "extends",
+   "what": "E >= |P| without spin for 3 <= n < 8 by MOTS; restates the 1979/1981 results and hypotheses exactly. Huang-Lee Remark 2.11 notes an extra regularity hypothesis (Ric_g, grad pi in C^0_{-2-q}) 'should also be added in the statement of [EHLS, Theorem 1]' -- a later narrowing of the 2016 higher-dimensional statement's regularity class, not of the 3D theorem the tree uses",
+   "read_status": "READ (alphaXiv, pp.1-7,10-12,17,22,30-32,42-46)"
+  },
+  {
+   "ref": "Huang-Lee, arXiv 1706.03732 (CMP 2020)",
+   "effect": "extends",
+   "what": "rigidity for general data: DEC and E = |P| => E = |P| = 0 (n <= 7, or any n where the inequality holds); embedding in Minkowski needs tr k = O(r^-s), s > 2 for n = 3. The tree's rigidity use is on static (k = 0) data, where the older Schoen-Yau equality case already suffices",
+   "read_status": "READ (alphaXiv, pp.1-9,12-14,19-21)"
+  },
+  {
+   "ref": "de Aguiar Alves, Landulfo, Arderucio Costa, arXiv 2408.00154 (2024)",
+   "effect": "confirms",
+   "what": "the Einstein equations admit static negative-mass stars (constant-density Schwarzschild star with M < 0, finite non-negative pressure) whose matter violates the DEC and the NEC -- exactly the class the positive mass theorem is silent on; they find those models dynamically unstable, and cite Penrose-Sorkin-Woolgar + Borde for positivity under AANEC and the null generic condition",
+   "read_status": "READ (alphaXiv, pp.1-2,4,6,8,13-14)"
+  },
+  {
+   "ref": "Penrose-Sorkin-Woolgar, gr-qc/9301015 (1993), via Cameron arXiv 2010.05086 and 2408.00154 Theorem 4",
+   "effect": "contested",
+   "what": "positivity of the ADM 4-momentum from null focusing and time delay (no achronal null line; with Borde, AANEC + null generic) instead of the DEC -- the kind of averaged-condition result that COULD exclude a bare negative mass while saying nothing about M_ADM = 0. Status: Cameron p.1 fn.1 records that PSW 'was never published', 'likely due to a lack of precision', with issues in the Section III time-delay estimates (the optical functions S+/- missing, per Chrusciel 2004); Cameron proves a version only for D >= 4 and obtains no M = 0 result",
+   "read_status": "PSW NAMED-NOT-READ; Cameron 2010.05086 READ (pp.1-23)"
+  }
+ ],
+ "lacked_data": "The positive mass theorem takes no measured input: it is an implication from geometric hypotheses (completeness, asymptotic flatness, DEC) to E >= |P| and, separately, E = 0 => flat. What later work supplied is mathematics, not data: proofs without spin in dimensions 3-7 (EHLS 2016) and in all dimensions (Schoen-Yau 2017, named not read), the general-data equality case (Beig-Chrusciel 1996; Huang-Lee 2020), and an extra regularity hypothesis for the 2016 statement (Huang-Lee Remark 2.11). None of these moves the 3+1, smooth, static case the tree uses; the recomputation here (C1-C4) agrees with the source. The physical input that the 1979-1981 authors assumed rather than measured is the DEC, and it was already known to fail for quantum fields (2408.00154 p.2 cites Casimir negative energy density). That failure does not falsify the theorem; it takes a configuration outside the theorem's scope. Every configuration on this board lies outside that scope, and the board says so itself (certify.py section 2, overturn.py:212-213, concentric.py:51-53, pair.py:124-129). So M's hypothesis gets no support for THIS result: the missing ingredient is not a datum the authors lacked but a hypothesis the tree drops at phase1.py:397-399 and concentric.py:7-8. Evidence the other way: the averaged-condition positivity results that were meant to cover exactly the quantum regime (Penrose-Sorkin-Woolgar 1993) are unpublished and have a recorded gap, and the rigorous D >= 4 version (Cameron) says nothing about M = 0. That is where the literature is genuinely incomplete, and the tree does not cite it.",
+ "grade": "NARROWED",
+ "grade_evidence": "The theorem as published STANDS: statement and hypotheses read via EHLS 1110.2087 and Huang-Lee 1706.03732, every re-derivation agrees (C1-C4), and no datum enters. The grade is NARROWED because the tree uses the theorem on a larger class than it covers. (1) phase1.py:397-399 and concentric.py:7-8 drop the DEC and treat 'negative ADM mass' as forbidden outright. C2 exhibits complete, regular, asymptotically flat static data with E_ADM < 0 and R_g < 0 that the theorem does not forbid, z3 C4(i) confirms the case is consistent, and 2408.00154 p.4 says the same in print. This exclusion carries phase1's ranking: the 'bare negative mass' Lambda slot is set to None, and the_winner() is 'static concentric corridor'. (2) The 'never in danger / nothing to object to' uses (certify.py:161-164, overturn.py:217 and 679-680, concentric.py:49-50 and 271-273) are true but vacuous, because every configuration here violates the DEC. They therefore cannot tell the concentric corridor apart from a bare negative mass (C4 ii, iv, v). (3) phase1.py:195-197 and 537-539 ('no energy condition is violated ... with M_ADM = 0') are contradicted by the theorem's rigidity clause for static, complete, compactly supported configurations. That is the tree's own pair.py argument, and C3 computes R_g(0) = -2.9994e4 < 0 for the seated device. The rigidity uses themselves (concentric.py:51-53, pair.py:124-129) are valid (C4 iii). Not WRONG: nothing refutes the theorem, and the drift is a dropped hypothesis, not a refuted conclusion. Not DATA-DEPENDENT: no datum enters.",
+ "what_would_change_the_grade": "To STANDS: (a) phase1.py:397-399 and concentric.py:7-8 restate the exclusion of the bare negative mass as conditional on the DEC, or re-ground it on a result that actually holds without the DEC; and (b) phase1.py:195-197/537-539 drop 'no energy condition is violated' in favour of pair.py's reading. A candidate for (a) is a Penrose-Sorkin-Woolgar-type theorem, under AANEC + null generic + global hyperbolicity, which rules out M_ADM < 0 but is silent at M = 0. It would have to be read at source, and its 3+1 status is contested (Cameron 2010.05086 fn.1), so citing it would move this item to OPEN for that sub-claim, not to STANDS. To WRONG: only a complete, asymptotically flat initial data set satisfying the DEC with E < |P|, which would contradict EHLS Theorem 1 and which nothing read here suggests exists. To OPEN: if the static reading of phase1's configurations (K = 0) is withdrawn, the rigidity contradiction in drift item 3 no longer follows and has to be re-posed for k != 0 data using Huang-Lee Corollary 4.",
+ "reverify_command": "python3 /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/positive-mass-theorem.py",
+ "report_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/audits/positive-mass-theorem.json"
+}

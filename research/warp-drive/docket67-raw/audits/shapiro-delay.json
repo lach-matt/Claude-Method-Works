@@ -1,0 +1,86 @@
+{
+ "key": "shapiro-delay",
+ "name": "Shapiro time delay (analytic weak-field form, logarithmic in closest approach)",
+ "source": {
+  "located": "Shapiro, I.I., 'Fourth Test of General Relativity', Phys. Rev. Lett. 13, 789 (1964) -- pre-arXiv, NAMED-NOT-READ. Read via exact restatement: C.M. Will, 'The Confrontation between General Relativity and Experiment', Living Rev. Relativ. 17 (2014) 4, arXiv:1403.7377, sec. 4.1.2, eq. (62)-(63), p.43; and LVC/Fermi/INTEGRAL, ApJL 848 L13 (2017), arXiv:1710.05834, sec. 4.3, eq. (3).",
+  "read_status": "READ-VIA-RESTATEMENT",
+  "via": "arXiv:1403.7377 pages 40, 43, 44 as returned verbatim by alphaXiv answer_pdf_queries in earlier runs of this workflow session (cached at d67/src/will/1403.7377.pages.txt, header records provenance); arXiv:1710.05834 page 6-7 cached at d67/src/1710.05834.cached.txt. In THIS stage alphaXiv returned 'assistant quota exceeded' for answer_pdf_queries, get_paper_content and discover_papers, and arxiv.org is refused by the egress proxy (CONNECT 403), so no fresh fetch was possible; the cached text is alphaXiv output, not a paraphrase."
+ },
+ "published_statement": "Will 2014 eq.(62), p.43: 'A radar signal sent across the solar system past the Sun to a planet or satellite and returned to the Earth suffers an additional non-Newtonian delay in its round-trip travel time, given by  dt = 2(1+gamma) M_sun ln[ (r_E + x_E.n)(r_e - x_e.n) / d^2 ]  where x_e (x_E) are the vectors, and r_e (r_E) are the distances from the Sun to the source (Earth)' (TEGP 7.2); for a near-grazing ray dt ~ (1/2)(1+gamma)[240 - 20 ln(d^2/r)] microseconds (eq. 63). Will: 'Irwin Shapiro's 1964 discovery of this effect as a theoretical consequence of GR'. 1710.05834 eq.(3): dt_S = -(1+gamma)/c^3 * int_{r_e}^{r_o} U(r(l)) dl along the wave path (Shapiro 1964; Krauss & Tremaine 1988; Longo 1988) -- linear in the potential U.",
+ "published_hypotheses": [
+  "PPN / weak-field, first post-Newtonian order: the delay is first order in M (in U); coefficient (1+gamma), gamma = 1 in GR",
+  "static (or uniformly moving, first order in v/c) point-mass source; Will sec. 4.1.3: moving-source correction is post^{3/2}-Newtonian (Kopeikin-Fomalont Jupiter 2002)",
+  "integral along the unperturbed straight line; d is the closest approach of that line to the source",
+  "round-trip radar form (factor 2 relative to one way); one-way form measured for PSR 1937+21 (Will p.43)",
+  "positive solar mass M_sun; no statement for M < 0",
+  "for extended sources 1710.05834 eq.(3) integrates the potential U along the path -- superposition, i.e. linearity in U"
+ ],
+ "hypothesis_drift": [
+  "DROPPED/MISAPPLIED (concentric.py:86-90, 325-328): the design rule 'shell delay / core advance ~ (L/R_s)/(2 ln(L/a))' and 'the core's advance carries a logarithm of its compactness' put the Plummer core radius a in the logarithm. The published form puts the CLOSEST APPROACH d of the straight line there; for the tree's own Plummer potential the first-order advance is 4m asinh((L/2)/sqrt(b^2+a^2)), i.e. ln(L/b) at the design point b = 1 >> a = 0.02. The a-form holds only on the smaller class b <~ a (ray through the core). Computed: exact first-order ratio 0.1315 (13.1 %) vs the owner's 0.0781 (7.8 %); the selftest check 'under 10 %' (concentric.py:327-328) and the rule 'make the core small' do not follow from Shapiro at b >> a (core advance/m = 22.8144 at a = 0.02 and 22.8152 at a = 0.002). The tree's own integrator agrees with ln(L/b): antisymmetric delay at m = 1e-3 is -1.98177e-2 against first-order ln(L/b) prediction -1.98144e-2 (ratio 1.0002) and against the ln(L/a) form -3.5463e-2 (ratio 0.559). Recorded as a discrepancy in the tree's use, not an error in the external result; the measured table (concentric.py:65-72) comes from integration, not from this formula, and is unaffected. Marked '~' by the owner (order-of-magnitude), which is why this is a discrepancy, not a refutation of 'nearly free'.",
+  "ADDED (composite.py:29, 52-53; concentric.py:6-7; specthm.py:1374-1381): extension to M < 0 ('the Shapiro delay, being linear, flips sign'). The published result states nothing for negative mass. Within the tree's prescribed linearised metric the first-order delay is exactly odd in M (sympy, S2) -- a mathematical property of the model, carried as a named hypothesis ('NEGATIVE MASS IS ASSUMED', composite.py WHAT IS NOT CLAIMED item 1); no datum exists for M < 0 either way.",
+  "WEAKENED/REINTERPRETED (composite.py:60-64, 342-344): the symmetric O(M^2) residue is attributed wholly to 'path lengthening of a bent ray'. In the tree's metric the null coordinate speed is 1 - 2Phi + 2Phi^2 + O(Phi^3) (sympy, S1), so an O(Phi^2) metric term also contributes; computed share 8.3e-5 of the 6.81e-3 residue (1.2 %). Attribution is right to ~99 %. Separately (named hypothesis, not checked here): the tree's metric is the LINEARISED one, so its O(M^2) residue is a statement about that model, not GR's second-order Schwarzschild delay; the published result is first order only and says nothing at O(M^2).",
+  "KEPT (composite.py:284-287): one-way form 2M ln[(x1+r1)/(x0+r0)] with gamma = 1 is exactly half of Will eq.(62) on the straight line, via (r0 - x0)(r0 + x0) = b^2 (sympy, S3). No drift.",
+  "KEPT (concentric.py:28-29): 'M_ADM = 0 makes the Shapiro gain CONVERGE' follows from linearity in U (1710.05834 eq.3): first-order integral of the tree's zero-monopole potential is 9.9825417 m at X = 1e3, 1e4, 1e5, 1e6 (rel. change 2e-11). No drift."
+ ],
+ "data_at_publication": [
+  {
+   "quantity": "PPN gamma (sets the coefficient (1+gamma)/2 of the delay)",
+   "value_then": "1964: no time-delay measurement existed; Shapiro's delay was a theoretical prediction of GR (gamma = 1) (Will 2014 p.43). Viking 1976: 0.1 % (Will p.43).",
+   "value_now": "gamma - 1 = (2.1 +- 2.3)e-5 (Cassini, Bertotti-Iess-Tortora 2003); (1+gamma)/2 within 0.0012 % of unity",
+   "source_now": "Will 2014, arXiv:1403.7377 p.43; repeated as 'best absolute bound on gamma_EM' in arXiv:1710.05834 sec. 4.3 (read, cached)",
+   "moves_conclusion": "No. Computed (S4): the 2-sigma envelope shifts the delay by at most 3.4e-5 relative, against composite's 0.6 % agreement and 1e-2 selftest tolerance. The tree's metric builds gamma = 1 in by construction, so the datum is not an input there at all."
+  },
+  {
+   "quantity": "composite.py fixture M = 2e-3, b = 0.3, x0 = -40, x1 = 35 (geometrized units)",
+   "value_then": "analytic 4.4154e-2 (composite.py:284-287)",
+   "value_now": "re-run: antisymmetric measured 4.44225e-2, analytic 4.41540e-2, ratio 1.0061 (0.6 %); delays +5.1227e-2 / -3.7618e-2 vs docstring +5.124e-2 / -3.762e-2",
+   "source_now": "tree code run read-only by d67/rederive/shapiro-delay.py --tree",
+   "moves_conclusion": "No; reproduces the owner's VALIDATION 3 and the docstring delays to the quoted digits."
+  },
+  {
+   "quantity": "concentric.py design ratio at L = 300, R_s = 200, a = 0.02, b = 1",
+   "value_then": "0.0781 ('about 8 %', concentric.py:90, 325-326)",
+   "value_now": "0.1315 by first-order Shapiro with the closest approach in the logarithm; tree's own integrator agrees with the latter (ratio 1.0002)",
+   "source_now": "computed, d67/rederive/shapiro-delay.py S5 and T",
+   "moves_conclusion": "Moves the owner-internal number (7.8 % -> 13.1 %) and falsifies the 'under 10 %' check and the 'make the core small' clause at this design point; does NOT move the measured seats-and-leads table, the withdrawn lead, or composite's verdict. Qualitatively the shell still costs a minority of the core's advance."
+  }
+ ],
+ "rederivation": {
+  "method": "sympy",
+  "script_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/shapiro-delay.py",
+  "outcome": "All checks as recorded (exit 0; with --tree also exit 0, ~22 s). S1 sympy: dt/dx = 1 - 2Phi + 2Phi^2 + O(Phi^3). S2 sympy: int_{x0}^{x1} 2M/r dx = 2M ln[(x1+r1)/(x0+r0)] exactly; exactly odd in M. S3 sympy: tree one-way form = half of Will eq.(62) at gamma = 1. S4 Cassini gamma moves the delay by <= 3.4e-5. S5 concentric design ratio: exact first order 0.1315 vs owner's 0.0781 -- DISCREPANCY (log argument b, not a). S6 zero-ADM first-order integral constant to 2e-11 over 1e3-1e6. S7 O(Phi^2) share of composite's symmetric residue 1.2 %. T: composite VALIDATION 3 reproduced (ratio 1.0061); concentric antisymmetric delay at m = 1e-3 matches ln(L/b) first order to 1.0002 and not the ln(L/a) form (0.559). No file under research/warp-drive was written (sys.dont_write_bytecode; git status clean).",
+  "agrees_with_source": "yes"
+ },
+ "later_literature": [
+  {
+   "ref": "Will 2014, arXiv:1403.7377 sec. 4.1.2 (Viking 1976 0.1 %; Cassini 2003 gamma-1 = (2.1+-2.3)e-5)",
+   "effect": "confirms",
+   "what": "The logarithmic first-order delay with coefficient (1+gamma)/2 is measured to 1.2e-5 at gamma = 1; closest approach 1.6 R_sun.",
+   "read_status": "READ (cached alphaXiv page text, p.43)"
+  },
+  {
+   "ref": "Will 2014, arXiv:1403.7377 sec. 4.1.3 (Kopeikin 2001; Kopeikin-Fomalont 2002 Jupiter; replies)",
+   "effect": "narrows",
+   "what": "For a moving source there is a post^{3/2}-Newtonian velocity correction to eq.(62); the static-source hypothesis is part of the formula. The tree's sources are static, so this does not bite.",
+   "read_status": "READ (cached alphaXiv page text, p.44)"
+  },
+  {
+   "ref": "LVC/Fermi/INTEGRAL, ApJL 848 L13 (2017), arXiv:1710.05834 sec. 4.3 eq.(3)-(4)",
+   "effect": "extends",
+   "what": "Shapiro delay as -(1+gamma) int U dl, linear in the potential, used with gamma_GW vs gamma_EM: -2.6e-7 <= gamma_GW - gamma_EM <= 1.2e-6. Supports the superposition the tree uses (core + shell).",
+   "read_status": "READ (cached alphaXiv page text, pp.6-7)"
+  },
+  {
+   "ref": "discover_papers search for second-order / negative-mass Shapiro literature",
+   "effect": "contested",
+   "what": "NOT RUN: alphaXiv returned 'assistant quota exceeded'. No later literature on O(M^2) delay or M < 0 was read in this stage; nothing is claimed from it.",
+   "read_status": "NOT READ (tool quota)"
+  }
+ ],
+ "lacked_data": "Shapiro in 1964 had no measurement of the effect at all -- it was a prediction; the data came later (Viking 0.1 % 1976, Cassini 1.2e-5 2003, Will 2014 p.43) and CONFIRMED the first-order form at gamma = 1, so on this result M's hypothesis runs the other way: the later data narrowed the uncertainty and moved nothing. What no one has, then or now, is any datum for M < 0; the tree's sign-flip use rests on the linearity of its prescribed metric (exact, S2), which is mathematics about the model, not physics confirmed by data -- a named hypothesis, neither supported nor refuted by measurement. The one discrepancy this audit finds is not in the external result and not caused by missing data: concentric.py puts the core radius where the published form puts the closest approach.",
+ "grade": "NARROWED",
+ "grade_evidence": "The external result STANDS on its own terms and in composite.py's use: the one-way form is exactly half of Will eq.(62) at gamma = 1 (sympy S3), the straight-line integral is exact (S2), VALIDATION 3 reproduces at 0.6 % (T), and the only moved datum (gamma, Cassini) shifts it by <= 3.4e-5 (S4). It is graded NARROWED because concentric.py:86-90 and 325-328 use it on a class where it does not hold as applied: the logarithm's argument is taken as the core radius a, valid only for b <~ a, while the design point has b = 1 >> a = 0.02. Computed there: 13.1 % not 7.8 %, the 'under 10 %' check and 'make the core small' rule do not follow; the tree's own integrator sides with the published form (ratio 1.0002 vs 0.559). The M < 0 extension is an added hypothesis (named in composite.py as assumed), exact within the model. Not WRONG: nothing in the external result is refuted, and the owner's '~' marks an estimate -- this is a discrepancy recorded, not repaired.",
+ "what_would_change_the_grade": "To STANDS: concentric.py's design rule restated with the closest approach (ln(L/sqrt(b^2+a^2))) or restricted to b <~ a -- i.e. the use brought inside the result's hypotheses. To OPEN on the O(M^2) side: if the tree were to quote its symmetric residue as GR's second-order delay (it does not now). To DATA-DEPENDENT: only a measurement of gamma departing from 1 at the 1e-2 level, excluded by Cassini at 1e-5. A fresh read of Shapiro 1964 itself (NAMED-NOT-READ here) could only change the source status, since Will's eq.(62) is the standard restatement.",
+ "reverify_command": "PYTHONDONTWRITEBYTECODE=1 python3 /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/shapiro-delay.py --tree ; grep -n 'Shapiro\\|(62)\\|2.1 ± 2.3' /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/src/will/1403.7377.pages.txt ; sed -n 86,90p /home/user/Claude-Method-Works/research/warp-drive/concentric.py",
+ "report_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/audits/shapiro-delay.json"
+}

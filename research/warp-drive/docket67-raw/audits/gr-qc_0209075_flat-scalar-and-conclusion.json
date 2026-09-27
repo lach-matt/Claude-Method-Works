@@ -1,0 +1,97 @@
+{
+ "key": "gr-qc/0209075#flat-scalar-and-conclusion",
+ "name": "AMM flat-space scalar sector (4.5b),(4.11), untreated k=0 global modes, and 'flat space is stable on scales >> Planck' conclusion (implicit O(1) fourth-order coefficients, H6)",
+ "source": {
+  "located": "arXiv:gr-qc/0209075 v1 (21 Sep 2002), Anderson, Molina-Paris, Mottola, 'Linear Response, Validity of Semi-Classical Gravity, and the Stability of Flat Space', PRD 67, 024026 (2003)",
+  "read_status": "READ",
+  "via": "alphaXiv get_paper_content(fullText) -- whole text layer (5,015 lines) saved to scratchpad/d67/amm_0209075.txt, sections I-V and appendices A,B read; plus answer_pdf_queries for pp. 1,5,10-13,16-17,20-21. The text layer drops Greek letters and some minus signs; every reconstructed formula used below is checked numerically in the re-derivation script rather than assumed."
+ },
+ "published_statement": "(4.5b) k^2[12 beta k^2 - 1/(4 pi G_N) + (k^2)^2 int_0^inf ds rho^(S)(s)/(s^3 (s + k^2 - i eps sgn k^0))] = 0 (Greek letters restored; the sign in front of 12 beta k^2 is not legible in the text layer). p.12: 'The net effect of either the covariant or canonical analysis is to remove the overall k^2 = 0 propagating solution from the scalar sector, as it is not dynamically allowed by the constraints. The possibility of a finite number of non-propagating (global) modes in the scalar sector at k = 0 cannot be excluded by this argument, and must be investigated by imposing appropriate boundary conditions at spatial infinity. We do not treat this possibility in this paper.' p.12-13: 'there are no scalar mode solutions (stable or otherwise) with 4 pi G_N |k^2| << 1, for exactly the same reason as in the tensor case ... (4.11) Re F^(S)(k^2/m^2) -> (1/(96 pi^2)) (1-6 xi)^2 log(|k^2|/m^2) as |k^2| -> inf, which shows that the linear response eq. cannot be satisfied for either sign of k^2 unless G_N|k^2| becomes of order unity.' p.13: 'there are no new solutions of the linear response equations, stable or unstable, far from the Planck regime, despite the opposite sign of the classical Einstein term in the scalar sector.' Abstract: the flat space solution 'for n = 4 is stable to all perturbations on distance scales much larger than the Planck length.' Section V p.14: 'provided we restrict ourselves to solutions with 4 pi G_N|k^2| <~ O(1). The exact finite number of order unity on the right hand side of this inequality determines the values of k^2 for which new Planckian solutions and instabilities will appear. Its value depends on both the matter theory and the values of the renormalized coefficients alpha and beta of the fourth order terms.' and '... a completely satisfactory stability of flat space for all local perturbations obeying the inequality (4.6).'",
+ "published_hypotheses": [
+  "N non-interacting scalar fields, arbitrary mass m and curvature coupling xi (II, p.5); large-N limit with S_eff -> N S_eff and 'G_N^-1, Lambda/G_N, alpha and beta are rescaled by a factor of N' (p.7)",
+  "Minkowski background with vanishing <T_ab> and cosmological term, matter in the Lorentz-invariant vacuum (IV, p.10)",
+  "linear response (3.4) via CTP in-in effective action; criterion is a NECESSARY condition only (III p.10; V p.13)",
+  "renormalisation by three subtractions at k^2 = 0 (4.4): Lambda, 1/G_N, (alpha, beta) take their k^2 = 0 renormalised values; requires m^2 > 0 (p.12; m -> 0 handled by renormalising at mu^2, (4.10), p.12-13)",
+  "positivity of the spectral functions rho^(T), rho^(S) (p.11; (B37) explicit)",
+  "the overall k^2 = 0 scalar root is removed by the constraint (conformal-factor) argument imported from refs [53,54] (p.12)",
+  "scalar k = 0 non-propagating global modes NOT treated (p.12)",
+  "'O(1)' size of the renormalised fourth-order coefficients alpha, beta: not stated as an assumption but made explicit as a dependence in V p.14",
+  "conclusion restricted to 'local perturbations obeying the inequality (4.6)' (p.14)"
+ ],
+ "hypothesis_drift": [
+  "DROPPED (scale): AMM p.7 rescale G_N^-1, alpha, beta by N; with N fields the polarisation term carries N, so the conclusion's 'Planck length' is the species-rescaled sqrt(N G) length. The tree keeps 'large-N free scalars' (linstab.py:99, 279; entry hypotheses) but states the scale as the Planck length (linstab.py:124-128, 289). Computed: N = 1e4 moves the beta = 0 root length by a factor 94.6 (about sqrt N). Negligible for Standard-Model-sized N (factor about 10 at N = 100); it matters only for very large N. Later literature uses exactly this species cutoff (2303.11091 eq. 1.35).",
+  "DROPPED (imported step): AMM's scalar result also rests on the constraint argument of refs [53,54] (p.12) that removes the overall k^2 = 0 propagating scalar root. The entry does not list it. At linstab.py:178-180 (ALPHA_ZERO_ROOT_GROWTH, 352) the tree calls growth from the gamma = 0 root 'outside AMM's treated modes (p. 12)'. AMM do treat the propagating k^2 = 0 scalar root (they remove it by that argument); what they leave untreated is only 'a finite number of non-propagating (global) modes ... at k = 0'. This makes the tree more conservative (OPEN), not an overclaim, so the OPEN status is unaffected.",
+  "ATTRIBUTION (weakened, not a hypothesis change): linstab.py:118-120 and 283-285 label H6 'implicit, p. 12' and quote 'cannot be satisfied except at k^2 approaching G_N^-1'. That sentence is AMM's TENSOR-sector sentence (p.12). The scalar-sector sentence is p.13: 'cannot be satisfied for either sign of k^2 unless G_N|k^2| becomes of order unity'. AMM make the dependence on alpha and beta explicit in V p.14, which the tree does cite at linstab.py:127-128. The O(1) assumption is unstated, but its role is stated.",
+  "SHARPENED (computed, not a drop): H6 as 'O(1)' is the sufficient form. Computed: the beta-driven scalar root sits at length sqrt(48 pi |beta|) l_P. At |beta| = 1 it is already at 4 pi G k^2 = 0.083 (12.3 l_P), so AMM's '<< 1' is an order-of-magnitude statement. For one sign of beta the root is tachyonic (growth); for the other it is a new massive scalar (real frequency). AMM's 'no new solutions, stable or unstable' therefore needs |beta| not >> 1 for BOTH signs, while 'stable' alone needs it only for the tachyonic sign. The tree's H6 (magnitude) covers both.",
+  "SCOPE (tree narrower than the abstract, in the honest direction): the abstract's unconditional 'stable to all perturbations on distance scales much larger than the Planck length' is qualified in AMM's own body (p.12 k = 0 global modes; p.14 alpha, beta dependence and 'local perturbations obeying (4.6)'). The tree carries H6 and the k = 0 caveat (linstab.py:121-128, 287-293), but not the p.14 'local perturbations obeying (4.6)' qualifier on the whole conclusion. It cites (4.6) only for the tensor step."
+ ],
+ "data_at_publication": [
+  {
+   "quantity": "beta, renormalised R^2 (fourth-order scalar-sector) coefficient at k^2 = 0 (dimensionless, AMM normalisation 12 beta k^2 vs 1/(4 pi G))",
+   "value_then": "unmeasured; AMM use no value and assume nothing beyond the p.14 remark that the breakdown scale depends on it",
+   "value_now": "still unmeasured. Sub-mm Yukawa tests bound it: with the beta-mode range lambda = sqrt(48 pi G |beta|), lambda < 0.03 cm (Hoyle et al. 2004, as used in Calmet-Hsu-Reeb 0803.1836 fn 11, which states c2, c3 < 1e61) gives |beta| < 2.3e60 (computed). A range of about 50 um from later torsion balances gives about 6e58 (NAMED-NOT-READ). Starobinsky R^2 inflation normalised to the CMB would give |beta| of order 1e9 if its R^2 term were this same beta (model-dependent; NAMED-NOT-READ)",
+   "source_now": "arXiv:0803.1836 fn 11 (READ); later torsion-balance and Planck-2018 inflation figures NAMED-NOT-READ",
+   "moves_conclusion": "YES for the unconditional abstract form: computed, sigma*beta = 1e9 gives a growing scalar mode at 3.88e5 l_P, 1e58 at 1.2e30 l_P, and the other sign gives a new massive mode at M = 2.6e-6 M_P for |beta| = 1e9. NO for the tree's H6-conditional form, which names exactly this dependence. The allowed range spans about 60 orders of magnitude, so data do not settle H6 either way."
+  },
+  {
+   "quantity": "N, number of matter species",
+   "value_then": "formal large N (p.7)",
+   "value_now": "order 1e2 Standard-Model degrees of freedom (not a new measurement; counted, not read here)",
+   "source_now": "counting argument; species cutoff M_P/sqrt(N) as in arXiv:2303.11091 eq. (1.35) (READ)",
+   "moves_conclusion": "Scale only: the breakdown length goes as sqrt(N) (computed factor 94.6 at N = 1e4, about 10 at N = 1e2). Qualitatively unchanged unless N is astronomically large."
+  },
+  {
+   "quantity": "coefficients of the logarithms, (1-6 xi)^2/(96 pi^2) in (4.11) and 1/(960 pi^2) in (4.9)",
+   "value_then": "computed from (B37)",
+   "value_now": "re-derived exactly here (sympy limits of rho/s^2)",
+   "source_now": "this re-derivation",
+   "moves_conclusion": "No. These are computed, not measured, and agree."
+  },
+  {
+   "quantity": "m (matter mass) and xi",
+   "value_then": "arbitrary m > 0 and xi",
+   "value_now": "any; the conclusion holds for every m > 0 and xi (the log coefficient is >= 0 and vanishes at xi = 1/6, handled by (4.12))",
+   "source_now": "(B37b), (B38) re-derived",
+   "moves_conclusion": "No."
+  },
+  {
+   "quantity": "G_N",
+   "value_then": "sets the unit (Planck length)",
+   "value_now": "CODATA value; it only sets the unit",
+   "source_now": "n/a",
+   "moves_conclusion": "No."
+  }
+ ],
+ "rederivation": {
+  "method": "sympy",
+  "script_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/gr-qc_0209075_flat-scalar-and-conclusion.py",
+  "outcome": "ALL PASS (sympy plus mpmath numerics, about 17 s). (1) The (4.4) three-subtraction identity holds exactly: 1/(s+x) - [1/s - x/s^2 + x^2/s^3] = -x^3/(s^3(s+x)), so no k-independent term survives and (4.5b) carries an overall k^2. (2) The log coefficients re-derive exactly from (B37): (1-6 xi)^2/(96 pi^2) for (4.11), 1/(960 pi^2) for (4.9), and the (B38) conformal form. (3) The (B44) closed form equals the spectral integral to 1.8e-14. (4) (B45): the printed magnitudes 1/15, 2/3, 2/3, 2 reproduce the spectral integral (max deviation 1e-14) for exactly one sign assignment: F_S*96 pi^2 = 1/15 + (2/3)(1-6 xi) - (2/3) m^2/k^2 + [(1-6 xi) - 2 m^2/k^2]^2 (-2+f). The signs were determined here because the text layer drops them. (5) Numerically, F_S - (1-6xi)^2/(96pi^2) ln(k^2/m^2) tends to a constant. (6) Growing-side scalar root, G = 1, m = 1e-19 M_P: beta = 0 gives 4piGk^2 = 11.0 (1.07 l_P); |beta| = 1 gives 0.083 (12.3 l_P); 1e3 gives 388 l_P; 1e9 gives 3.88e5 l_P (= sqrt(48 pi beta)); 1e58 gives 1.2e30 l_P. So AMM's conclusion holds for O(1) coefficients and H6 is load-bearing. (7) Species: N = 1e4 scales the root length by 94.6. (8) The bound |beta| < 2.3e60 (lambda < 0.03 cm) leaves H6 unfixed by data.",
+  "agrees_with_source": "yes"
+ },
+ "later_literature": [
+  {
+   "ref": "arXiv:2303.11091 (Ghosh, Kiritsis, Nitti, Nourry, JHEP 11 (2023) 098)",
+   "effect": "confirms",
+   "what": "Gravity with R^2, RicRic couplings plus a CFT4 around Minkowski. The scalar mode is never a ghost and is tachyonic for one sign of the R^2 coupling (their alpha > 0); it lies within EFT only if |alpha~| >> 1. This is AMM's result with H6 made explicit. They add the species cutoff M_P/sqrt(N) (eq. 1.35), and for O(1) coefficients the unstable modes are above the cutoff. Tensor sector with the CFT: two tachyonic tensor modes always, above the species cutoff for O(1) beta_eff (extends AMM's tensor sector; outside this entry).",
+   "read_status": "READ (pp. 1, 7-8, 11-13, 18-23, 25-26, 47, 57 via answer_pdf_queries)"
+  },
+  {
+   "ref": "arXiv:2512.00503 v2 (Ishibashi, Maeda, Okamura, 2025)",
+   "effect": "extends",
+   "what": "Holographic (strongly coupled CFT) matter, TT perturbations: d = 4 Minkowski is stable for gamma_4 < gamma_4* and unstable for gamma_4 >= gamma_4*. The onset depends on a matter/gravity parameter, not only on the Planck scale. This matter is outside AMM's free-massive-scalar hypothesis, so it does not contradict the entry, but it shows the conclusion is matter-dependent, as AMM p.14 says. Candidate roots with |m^2| ~ 1/|alpha_i| are set aside as unreliable, which is the H6 regime.",
+   "read_status": "READ (pp. 1-5, 7-9, 13-17, 23-25 via answer_pdf_queries)"
+  },
+  {
+   "ref": "arXiv:0803.1836 (Calmet, Hsu, Reeb, PRD 77 (2008) 125015)",
+   "effect": "extends",
+   "what": "Supplies the only observational handle on H6: from Stelle's Yukawa mapping and sub-mm tests (Hoyle et al. 2004), c2, c3 < 1e61 (fn 11). Computed here in AMM normalisation: |beta| < 2.3e60. Coefficients from O(1) to about 1e60 are allowed.",
+   "read_status": "READ (pp. 1-3, 5 via answer_pdf_queries)"
+  }
+ ],
+ "lacked_data": "What AMM had in 2002: no measured value of the renormalised fourth-order coefficients alpha and beta (none exists now either), sub-mm gravity tests down to about 0.2 mm, and no CMB evidence bearing on R^2 inflation. What came later: torsion-balance limits to tens of microns (NAMED-NOT-READ; per Calmet-Hsu-Reeb, which was READ, these still allow |beta| up to about 1e60), Planck-era CMB fits in which Starobinsky R^2 inflation is a favoured model (NAMED-NOT-READ; model-dependent, |beta| of order 1e9 only if that R^2 term is the same constant), and the species-cutoff literature (2303.11091, READ). Does it change the conclusion? The computed parts do not: the subtraction identity, both log coefficients, (B44) and (B45) re-derive exactly, and the no-root statement holds for O(1) coefficients (roots at 1.07 to 12.3 l_P). The unconditional abstract form does move with beta, and that is computed here (a growing mode at 3.9e5 l_P for |beta| = 1e9). But this is not a datum AMM lacked and got wrong. It is a constant nobody has measured, whose role AMM stated themselves on p.14. The tree already carries it as H6. So M's hypothesis gets no support against the flat-space computation. Its real content here is that the Planck-scale claim is conditional on an unmeasured constant (H6) and, for large N, on the species count. Both are named here as hypotheses, not errors.",
+ "grade": "NARROWED",
+ "grade_evidence": "The source was READ in full. Every closed-form element the tree uses re-derives exactly (script ALL PASS): the (4.4) subtractions leave no k-independent term; the (4.11)/(4.9) log coefficients; (B44); (B45) up to text-layer signs, fixed uniquely here; no scalar root at 4piG|k^2| << 1 for O(1) beta. The tree's use is already conditioned on H6, which is correct and computed to be load-bearing (|beta| = 1e9 gives a growing mode at 3.88e5 l_P). The grade is NARROWED rather than STANDS for two reasons. First, the tree drops AMM's p.7 species rescaling: the conclusion's scale is sqrt(N) l_P (computed factor 94.6 at N = 1e4). Second, it does not list the imported [53,54] constraint argument (p.12) on which the scalar result also rests. Mild: neither narrowing moves the tree's dependents. ALPHA_ZERO_ROOT_GROWTH stays OPEN, and the tree's 'outside AMM's treated modes' is if anything too conservative, since AMM remove the propagating k^2 = 0 root and leave only the k = 0 global modes. LITERATURE_SPLIT_IS_ONE_CONSTANT scoping ('Planckian only for O(1) values') becomes 'species-scale only for O(1) values'. Nothing here is WRONG. The misattributed quote at linstab.py:118-119 (tensor sentence, p.12, cited for the scalar and H6 claim) is a citation discrepancy, not a refutation.",
+ "what_would_change_the_grade": "To STANDS: the tree adds the species caveat (breakdown scale sqrt(N G), AMM p.7) and names the [53,54] constraint step, or a legible PRD version shows AMM's G_N is the physical Newton constant with N = 1. To DATA-DEPENDENT: if the tree used the unconditional abstract form without H6, since beta is unmeasured over about 60 orders of magnitude. To WRONG: only a computed scalar root at 4piG|k^2| << 1 with |alpha|, |beta| = O(1), N = O(1), m > 0, which the script does not find. OPEN would remain for the k = 0 global modes whatever happens here.",
+ "reverify_command": "python3 /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/gr-qc_0209075_flat-scalar-and-conclusion.py",
+ "report_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/audits/gr-qc_0209075_flat-scalar-and-conclusion.json"
+}

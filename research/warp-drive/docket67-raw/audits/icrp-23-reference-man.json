@@ -1,0 +1,124 @@
+{
+ "key": "icrp-23-reference-man",
+ "name": "ICRP Publication 23 (Reference Man) / Emsley, Nature's Building Blocks -- elemental composition of a 70 kg reference adult",
+ "source": {
+  "located": "ICRP Publication 23 (1975), Report of the Task Group on Reference Man, Pergamon (Snyder, Cook, Nasset, Karhausen, Howells, Tipton); free PDF at journals.sagepub.com/pb-assets/cmscontent/ANI/P_023_1975_Report_on_the_Task_Group_on_Reference_Man_rev0.pdf. Emsley, Nature's Building Blocks (OUP 2011) p.83.",
+  "read_status": "READ-VIA-RESTATEMENT",
+  "via": "ICRP 23 itself NAMED-NOT-READ: the PDF exceeds alphaXiv's 20 MB fetch limit, and journals.sagepub.com is refused by the egress proxy (curl CONNECT 403; WebFetch EGRESS_BLOCKED). No arXiv paper restating its whole-body gram table was found. READ instead: (i) ICRP's own publication page (icrp.org, via alphaXiv) -- abstract says P23 'is supplemented and amended by ICRP Publication 89'; (ii) Wikipedia 'Standard person' (via alphaXiv) quoting ICRP 23 p.335's definition verbatim and stating ICRP 23 has no elemental data for a Reference Woman; (iii) Emsley's column as RESTATED in Wikipedia 'Composition of the human body' (Mass (kg) column cites Emsley 2011 p.83), fetched 2026-09-26, saved at d67/wiki_composition_human_body.txt; (iv) ICRP 110 (2009) standard tissues via Kanematsu arXiv:1508.00226 Table I. Emsley is therefore READ-VIA-RESTATEMENT (tertiary), ICRP 23's composition table NAMED-NOT-READ."
+ },
+ "published_statement": "ICRP 23 (as quoted by Wikipedia 'Standard person', p.335): 'Reference man is defined as being between 20-30 years of age, weighing 70 kg, is 170 cm in height, and lives in a climate with an average temperature of from 10 C to 20 C. He is a Caucasian and is a Western European or North American in habitat and custom.' ICRP abstract: 'A unique comprehensive work on the reference male and female, including data on mass of the various organs of the body, chemical composition of the body ... While still the major source of reference data, this report is supplemented and amended by ICRP Publication 89.' Emsley (as restated): the average 70 kg adult body contains N 1.8 kg, Ca 1.0, P 0.78, K 0.14, S 0.14, Na 0.10, Cl 0.095, Mg 0.019, Fe 0.0042, F 0.0026, Zn 0.0023, ... Li 0.000007 kg (7 mg) ..., with 'at least detectable traces of 60 chemical elements'; the page adds 'The numbers in the table are averages of different numbers reported by different references.' ICRP 23's own gram table: NOT READ here.",
+ "published_hypotheses": [
+  "Reference Man is a single defined individual: male, 20-30 years, 70 kg, 170 cm, Caucasian, Western European / North American habitat (ICRP 23 p.335, READ via restatement)",
+  "ICRP 23 carries no elemental data for a Reference Woman (restatement)",
+  "ICRP 23 is supplemented and amended by ICRP 89 (2002) (ICRP page, READ); the revised reference male is heavier by 3 kg (restatement)",
+  "Emsley's figures are for 'the average 70 kg adult' and are compilations (the restating table: 'averages of different numbers reported by different references'); relative amounts 'vary by individual, mainly due to differences in the proportion of fat, muscle and bone'",
+  "a composition of 60 detected elements (restatement), of which the tree carries 59"
+ ],
+ "hypothesis_drift": [
+  "DROPPED -- the population definition. stockgate.py:288-289 and :345 say 'reference 70 kg adult'; stock.py:196-197 'reference adult'; ICRP 23's Reference Man is MALE, 20-30 y, 170 cm, Caucasian, with no Reference Woman elemental data. The tree's 'adult' is a wider class than the source defines. grep of research/warp-drive finds no 'male', 'Reference Woman', 'ICRP 89' or 'ICRP 110'.",
+  "DROPPED -- currency. ICRP's own page says P23 'is supplemented and amended by ICRP Publication 89'; no owner (stockgate.py:288, stock.py:196, massform.py:307) names the supersession. ICRP 110 (2009) standard tissues, READ via arXiv:1508.00226, give a whole body (M/F mean) of P 0.813 %, N 2.40 %, C 31.6 % against the tree's 1.113 %, 2.568 %, 22.8 %.",
+  "WEAKENED -- source attribution. stockgate.py:288-289/:345 and stock.py:196-197 cite 'ICRP 23 / Emsley' as one table, per-element source undistinguished (the canonical entry's own third hypothesis). Of the 56 rows below H shared with the Emsley restatement, 54 agree exactly; whether any row is ICRP 23's is uncheckable here (ICRP 23 NAMED-NOT-READ).",
+  "WEAKENED -- 'measured'. stockgate.py:36 'a reference adult has measured quantities of 59'. The restatement lists 60 (adds Ru 7 mg and Ra 3e-14 kg, plus four noble gases at ~1e-22 kg) and describes its table as averages over references. Ru at 7 mg is priced here at factor 24 against P's 1911 (Ru log eps 1.75 NAMED from A09, not read in this audit), so the omission moves nothing.",
+  "DISCREPANCY (not a refutation) -- two rows. stockgate.py:350 V 0.00011 g vs restatement 0.000020 kg (20 mg, consistent with its own fraction cell 2.6e-7); stockgate.py:356 Ga 0.0007 g vs restatement 0.0007 kg (0.7 g; its fraction cell 4.9e-6 gives 0.34 g). Which is Emsley's printed figure cannot be settled here. Neither moves a binder: V factor 0.9, Ga factor 179, against 1911.",
+  "DISCREPANCY -- O and C. The current restatement's run-together cells parse (fixed by atom-% consistency, computed: O 25.5 vs cell 26, C 9.8 vs 9.5, H 62.9 vs 63) as O 45 kg, C 13 kg against the tree's 43 000 / 16 000 g (stockgate.py:347). Effect: photosphere factor 1910.9 -> 1938.5 (+1.4 %), CI 10.70 -> 10.86; binders unchanged.",
+  "UNNAMED DATUM UNCERTAINTY -- lithium. stockgate.py:53-55 names the 9 % margin of Li on P but treats Li = 7 mg as fixed; the same restatement's fraction column gives Li 3.1e-8, i.e. 2.17 mg in 70 kg, 3.2x lower. The flip threshold, computed, is Li > 7.629 mg (+8.98 %).",
+  "UNNAMED DATUM UNCERTAINTY -- phosphorus, the binding element. stockgate.py:346 P 780 g (1.113 %); the restatement's own fraction column gives P 5-7e-3 (350-490 g), and ICRP 110 via Kanematsu gives 0.813 %. The photosphere binder passes to Li if P < 715.7 g (-8.24 %); the CI binder passes to N if P < 588.7 g (-24.5 %).",
+  "TRIVIAL -- normalisation. stock.py:472-473 checks K = 140 g at 70 kg, but stock.HUMAN is normalised over the 59-row total 70 085.9 g, so K*70 kg = 139.86 g (0.12 % low); rounds to 140, moves nothing.",
+  "CONFIRMED, no drift -- massform.py:824-826 H-LIST 'fractions sum to 0.99992': computed 0.9999231; stock.py:228-231 HUMAN equals the 59-row fractions to 6 dp (max |diff| 0), Li 0.007/70085.9 = 9.9877e-8 vs 9.988e-08 as printed."
+ ],
+ "data_at_publication": [
+  {
+   "quantity": "Reference body mass",
+   "value_then": "70 kg (ICRP 23, 1975, male)",
+   "value_now": "73 kg reference male / 60 kg female (ICRP 89, 2002) -- the +3 kg READ via restatement; the 60 kg is NAMED-NOT-READ",
+   "source_now": "Wikipedia 'Standard person' (restating Eckerman & Cristy); ICRP page: P23 supplemented and amended by P89",
+   "moves_conclusion": "No for any factor (M(p,s) is per kg); feedstock kg scales x1.0429."
+  },
+  {
+   "quantity": "Total-body phosphorus (the binding element)",
+   "value_then": "780 g of 70 085.9 g = 1.1129 % (tree, matches Emsley restatement)",
+   "value_now": "0.813 % (ICRP 110, M/F mean, computed from Kanematsu Table I); the restatement's own fraction column 0.5-0.7 %",
+   "source_now": "arXiv:1508.00226 Table I (READ); Wikipedia Composition of the human body fraction column (READ, tertiary)",
+   "moves_conclusion": "YES. Computed: photosphere binder passes P -> Li below 715.7 g; with ICRP 110 bulk (H,C,N,O,P,Ca replaced, rest held) the photosphere ranks Li 1752 > P 1395 and CI ranks C 9.02 > P 7.81 > N 7.53."
+  },
+  {
+   "quantity": "Total-body lithium",
+   "value_then": "7 mg (tree; Emsley restatement mass column)",
+   "value_now": "2.17 mg on the same restatement's fraction column (3.1e-8 x 70 kg); no primary re-measurement read",
+   "source_now": "Wikipedia Composition of the human body (READ, internally inconsistent)",
+   "moves_conclusion": "Direction-dependent: at 2.17 mg Li's factor falls to 0.28 of P's and the near-miss vanishes; above 7.629 mg Li binds at the photosphere."
+  },
+  {
+   "quantity": "Total-body potassium",
+   "value_then": "140 g (tree)",
+   "value_now": "0.14 kg (Emsley restatement); fraction cell 1.5-2e-3 (105-140 g)",
+   "source_now": "Wikipedia Composition of the human body (READ)",
+   "moves_conclusion": "No: K is third at 2.93x at the photosphere; stockgate's Finding C(ii) that 280 g was twice high is consistent with the restatement."
+  },
+  {
+   "quantity": "Total-body nitrogen",
+   "value_then": "1800 g = 2.568 %",
+   "value_now": "2.40 % (ICRP 110 via Kanematsu); restatement fraction cell 0.02-0.03",
+   "source_now": "arXiv:1508.00226 Table I; Wikipedia",
+   "moves_conclusion": "Only jointly with P and C: CI binder is P at 10.70 on the tree's data, C at 9.02 on ICRP 110 bulk."
+  },
+  {
+   "quantity": "Total-body carbon / oxygen",
+   "value_then": "16 000 g / 43 000 g",
+   "value_now": "13 / 45 kg (current restatement, parsed); ICRP 110 M/F mean C 31.6 %, O 52.8 %",
+   "source_now": "Wikipedia; arXiv:1508.00226",
+   "moves_conclusion": "Restatement values: no (+1.4 % on factor). ICRP 110 C 31.6 %: yes at CI chondrite, C becomes binding (9.02) -- a fatter 50/50 M/F body, i.e. a different reference population."
+  },
+  {
+   "quantity": "V, Ga, Ru rows",
+   "value_then": "V 0.11 mg, Ga 0.7 mg, Ru absent",
+   "value_now": "V 20 mg, Ga 0.7 g, Ru 7 mg on the restatement",
+   "source_now": "Wikipedia (READ)",
+   "moves_conclusion": "No: factors 0.9, 179, 24 against 1911."
+  }
+ ],
+ "rederivation": {
+  "method": "numeric",
+  "script_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/icrp-23-reference-man.py",
+  "outcome": "13 of 13 checks pass (output in rederive/icrp-23-reference-man.out). The tree's arithmetic reproduces exactly: stock.HUMAN = 59-row fractions to 6 dp; listed sum 0.9999231; N 0.025683, P 0.011129; K 139.86 g ~ 140 g; superseded 0.0040 = 280 g; photosphere binds P at 1910.9 with Li at 91.757 %; CI binds P at 10.70, N 8.076. Sensitivity (bisection with renormalisation): Li flip at 7.629 mg (+8.98 %); P flip to Li below 715.7 g (-8.24 %); P flip to N at CI below 588.7 g (-24.5 %). Alternative data READ here move the binder at both destinations: ICRP 110 bulk -> photosphere Li 1752 (P 1395), CI C 9.02 (P 7.81); restatement P 350-490 g -> photosphere Li ~1761, CI N ~8.1; restatement Li 2.17 mg -> P binds with K second at 651.8. Caveat on ICRP 110: Kanematsu's regional elemental weights are density-and-mass-weighted means, and the population is 50 % male / 50 % female, so it prices a different reference body, not a corrected Reference Man.",
+  "agrees_with_source": "partly"
+ },
+ "later_literature": [
+  {
+   "ref": "ICRP Publication 89 (2002), Basic anatomical and physiological data for use in radiological protection: reference values",
+   "effect": "narrows",
+   "what": "ICRP's own page says it supplements and amends P23; reference male revised +3 kg; the tree names neither.",
+   "read_status": "NAMED-NOT-READ (existence and supersession READ on icrp.org; content not read)"
+  },
+  {
+   "ref": "arXiv:1508.00226 (Kanematsu 2015), ICRP 110 standard tissues, Table I",
+   "effect": "contested",
+   "what": "Mass-weighted regional elemental weights for ICRP 110 reference adult male and female; whole body computed here P 0.813 %, N 2.40 %, C 31.6 %, O 52.8 %, H 10.2 %, Ca 1.53 %. Moves the binding element at both destinations when substituted.",
+   "read_status": "READ (pages 1-4 via alphaXiv)"
+  },
+  {
+   "ref": "Wikipedia 'Composition of the human body' (restating Emsley 2011 p.83 and others), revision live 2026-09-26",
+   "effect": "contested",
+   "what": "Mass column matches the tree in 54 of 56 shared rows below H; its own fraction column disagrees with its mass column for P (0.5-0.7 % vs 1.11 %) and Li (2.17 mg vs 7 mg).",
+   "read_status": "READ (tertiary)"
+  },
+  {
+   "ref": "Ellis KJ (1990), Reference man and woman more fully characterized, Biol Trace Elem Res 26-27:385",
+   "effect": "extends",
+   "what": "In vivo estimates of body composition for Reference Woman and by size/age/sex/race (per restatement).",
+   "read_status": "NAMED-NOT-READ"
+  },
+  {
+   "ref": "discover_papers call for later whole-body composition work",
+   "effect": "contested",
+   "what": "The call returned 'alphaXiv assistant quota exceeded'; the earlier two discover calls found no arXiv restatement of ICRP 23's gram table.",
+   "read_status": "NOT RUN (quota)"
+  }
+ ],
+ "lacked_data": "M's hypothesis, tested on this result. What ICRP 23 lacked in 1975: in vivo whole-body data for women and non-Western populations (ICRP 23 carries no Reference Woman elemental data; in vivo Reference Woman estimates came in 1990, per restatement), and the later anatomical review that became ICRP 89 (2002) and the voxel-phantom tissue set ICRP 110 (2009). Does having it change the conclusion? The source's own statement is not shown wrong: nothing here contradicts '780 g P in a 70 kg Reference Man' as a 1975 compilation for that defined male, and ICRP 23 itself could not be read. But the TREE's conclusion (D25: 'a reference adult binds on P at 10.70 against CI chondrite ... on P at 1911 against a stellar photosphere') does move with the later data: on ICRP 110's whole-body bulk (M/F mean, computed from READ Table I) the photosphere binder is Li (1752) and the CI binder is C (9.02). Evidence the other way: the magnitudes move by at most 1.2x (1911 -> 1752; 10.70 -> 9.02), so every order-of-magnitude conclusion (bulk-chemistry constraint, asteroid-class node near 10 kg/kg, star ~2e3 kg/kg) survives; and part of the move is a change of reference population (50/50 M/F, more adipose tissue), which is a hypothesis choice, not a correction of ICRP 23. So: the older data were incomplete for the class the tree uses ('adult'), and the binder identity -- not the scale -- depends on which data are taken.",
+ "grade": "DATA-DEPENDENT",
+ "grade_evidence": "(1) The tree's use reproduces to the digit (13/13; P 1910.9, Li 91.757 %, P 10.70 vs N 8.076, K 140 g). (2) The binding-element identity sits within 8-9 % of two data: Li flips it at +8.98 % (7.629 mg), P at -8.24 % (715.7 g), both computed. (3) Those data have moved or are contested in sources READ here: ICRP says P23 is amended by P89; ICRP 110 via arXiv:1508.00226 gives P 0.813 %, which hands the photosphere to Li (1752 > 1395) and, with C 31.6 %, hands CI to C (9.02 > 7.81); the Emsley restatement's own fraction column gives P 0.5-0.7 % and Li 2.17 mg. (4) The tree drops the source's hypotheses 'male' and 'supplemented and amended by ICRP 89'. (5) Not WRONG: no refuting counterexample to ICRP 23 is shown -- its table was unreadable here, the V/Ga/O/C disagreements are discrepancies against a tertiary restatement and move nothing, and the ICRP 110 comparison changes the reference population. (6) Not STANDS: a moved datum moves the binder. Magnitudes (1.9e3, ~10 kg/kg) are robust to within 1.2x on every alternative tried.",
+ "what_would_change_the_grade": "Reading ICRP 23's whole-body table (Snyder et al. 1975) and ICRP 89's reference-male elemental values at source: if ICRP 89 male keeps P >= 715.7 g per 70 kg-equivalent (>= 1.021 % by mass) and a primary Li body-content measurement lies below 7.63 mg with its uncertainty, the photosphere binder P would be robust for the reference male and the grade would go to NARROWED (holds for Reference Man, not for 'an adult'). If the ICRP 89 male P fraction falls below 1.021 %, or a primary Li figure exceeds 7.63 mg, the tree's D25 binder statement at the photosphere would be contradicted for its own payload (still recorded, not repaired). A read of Emsley p.83 itself would settle the V, Ga, O and C discrepancies.",
+ "reverify_command": "PYTHONDONTWRITEBYTECODE=1 python3 /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/icrp-23-reference-man.py",
+ "report_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/audits/icrp-23-reference-man.json"
+}

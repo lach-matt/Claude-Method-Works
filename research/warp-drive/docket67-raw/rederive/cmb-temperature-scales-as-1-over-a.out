@@ -1,0 +1,33 @@
+PASS  A1 f(p; a) == Planck(p; T_e a_e/a) identically
+PASS  A2 int x^2/(e^x-1) = 2 zeta(3) to 1e-30 (n_gamma ~ T^3 ~ a^-3; 40-digit quadrature)
+PASS  A3 int x^3/(e^x-1) = pi^4/15 to 1e-30 (rho_gamma ~ T^4 ~ a^-4)
+PASS  A2b n ~ T^3 => n(a)/n(a_e) = (a_e/a)^3 under T = T_e a_e/a
+PASS  A4 a chemical-potential (mu) distortion survives free streaming unchanged (not absorbed into T)
+PASS  B1 d(rho a^3)+p d(a^3)=0 for rho=sigma (C/a)^4, p=rho/3
+PASS  B2 continuity with w=1/3 solves to rho = C1/a^4
+PASS  C1 T0(1+z)/T0 - (1+z) == 0 symbolically
+PASS  C2 d/dT0 of the 'measured' ratio == 0 (T0 cannot enter)
+PASS  C3 tree constants T_CMB=2.7255, Z_REC=1089.92
+PASS  C4 live permute.ratio_from_temperature == scale_ratio_since for T0 in {1e-3,2.7255,3,1e6}
+PASS  C5 even an absurd T0 (1e6 K) passes the tree's near-check
+      T_rec(tree) = 2973.30246 K  (prints 2973.3)
+PASS  D1 2.7255*1090.92 = 2973.30246 K exactly -> prints 2973.3
+      T_rec(Fixsen 2009 unrounded 2.72548) = 2973.2806 K; move -7.34e-06 rel
+PASS  D2 T0 rounding 2.7255 -> 2.72548 moves T_rec by < 1e-5 rel and the ratio not at all
+      z* TT+lowE                        1+z* = 1091.30   T0(1+z*) = 2974.3 K
+      z* TE+lowE                        1+z* = 1090.57   T0(1+z*) = 2972.3 K
+      z* EE+lowE                        1+z* = 1088.80   T0(1+z*) = 2967.5 K
+      z* TT,TE,EE+lowE                  1+z* = 1090.95   T0(1+z*) = 2973.4 K
+      z* TT,TE,EE+lowE+lensing (tree)   1+z* = 1090.92   T0(1+z*) = 2973.3 K
+      z* +BAO                           1+z* = 1090.80   T0(1+z*) = 2973.0 K
+PASS  D3 Planck 2018 z* spread across data combinations < 0.3% of 1+z* (2.29e-03)
+PASS  D4 '1,091' (factor quoted) = round(1+z*) for every Planck column
+      eta = 6.127e-10 ; Saha x_e=0.5 at T = 3762 K ; x_e(2973.3 K) = 3.22e-03
+PASS  E1 Saha half-ionisation temperature lies in 3500-4000 K (not 2973 K)
+      => z at Saha half-ionisation, IF T ~ 1/a: 1379
+      beta = +0.0076 (Avgoustidis+2016 central (restated), z<~3): T(z*)/[T0(1+z*)] = 0.9482 if extrapolated to z*
+      beta = +0.0156 (+1 sigma): T(z*)/[T0(1+z*)] = 0.8966 if extrapolated to z*
+      beta = -0.0004 (-1 sigma): T(z*)/[T0(1+z*)] = 1.0028 if extrapolated to z*
+PASS  F1 beta=0 recovers the tree's ratio exactly
+
+ALL PASS

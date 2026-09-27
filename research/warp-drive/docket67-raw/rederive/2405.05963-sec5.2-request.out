@@ -1,0 +1,18 @@
+PASS C1 refs parsed = (17,30); FS not named (tree's map; circular)  -- (17, 30)
+PASS C2 quartic(8) at f=f''=1, r''=0 -> r0 = sqrt(1440 pi)  -- r0 = 12*sqrt(10)*sqrt(pi) = 67.2599 l_P (HPS: ~67)
+PASS C3a quartic(8) with f''=r''=0 reproduces eq.(9) r(0)=sqrt(-16K^2 ln f0)
+PASS C3b ln f0 = -2/3 -> r0 = 1/sqrt(540 pi)  -- 0.024279 l_P (HPS: ~0.02)
+PASS C3c class (9) max r0 at ln f0 = -1 is 1/sqrt(360 pi)  -- 0.029735 l_P: EVERY (9)-class throat is sub-Planckian
+     log10 r0 [plotted (9)] = -1.615
+     log10 r0 [(9) max] = -1.527
+     log10 r0 [quartic 67] = +1.828
+     log10 r0 [local 200] = +2.301
+     log10 r0 [local 300] = +2.477
+PASS C4a plotted throat is ~1.6 decades BELOW 'Planck length' (Kontou's lower end)
+PASS C4b 67 and 300 l_P round to order 10^2 (log10 in [1.5, 2.5))
+     throat R_tltl = f2/(2*f0) ; R_l th l th = -r2/r0 ; R_th ph th ph = r0**(-2) ; R_t th t th = 0
+PASS C5a |R_tltl| = |f''/(2f)|, |R_lthlth| = |r''/r|, R_thphthph = 1/r^2, R_tthtth = 0
+PASS C5b (9)-class plotted throat: l_P^2 |Riem|max = 540 pi = 1696 >> 1
+PASS C5c 67 l_P case: |R_tltl| = 1/2 l_P^-2 (Planckian, radius 1.414 l_P) though 1/r0^2 = 2.21e-04
+PASS C6 Kretschmann radius = r0/sqrt2 = 0.01717 l_P
+ALL PASS

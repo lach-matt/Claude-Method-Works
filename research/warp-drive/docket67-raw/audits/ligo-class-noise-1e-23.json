@@ -1,0 +1,85 @@
+{
+ "key": "ligo-class-noise-1e-23",
+ "name": "LIGO-class receiver strain noise 1e-23 Hz^-1/2; LIGO as operating read end (branelink.py H_NOISE, O6 bulk throughput)",
+ "source": {
+  "located": "No source is named by the tree: branelink.py:136 'H_NOISE = 1.0e-23  # Hz^-1/2, LIGO-class receiver' sits under branelink.py:134 'INPUTS -- the pass's design point and READ literature values', but unlike its neighbours (R_EOTWASH 'Lee et al. 2020', SME_LAB_BOUND 'Dreissen et al.') it carries no citation. The appropriate primary sources are the LIGO sensitivity papers: Buikema et al. 2020 PRD 102, 062003 (arXiv:2008.01301, O3) and Capote et al. (arXiv:2411.14607, O4), and the LIGO noise-curve documents (LIGO-T2000012 observing-scenario curves; aLIGO design curve).",
+  "read_status": "READ-VIA-RESTATEMENT",
+  "via": "alphaXiv answer_pdf_queries / get_paper_content / discover_papers all returned 'alphaXiv assistant quota exceeded' in this stage; arxiv.org, dcc.ligo.org, gwosc.org, pith.science and eprints.gla.ac.uk are refused by the egress proxy (curl CONNECT 403; WebFetch EGRESS_BLOCKED). What WAS read: the LIGO noise-curve data files redistributed inside the bilby 2.8.2 wheel from PyPI (pip download --no-deps bilby; files bilby/gw/detector/noise_curves/*.txt, whose README names the source 'AdLIGO https://dcc.ligo.org/LIGO-T2000012/public', 'A+ LIGO-T1500293', and warns 'Some of these may not (yet) be correct'): aLIGO_ZERO_DET_high_P_asd.txt (md5 99345f63e07233a22a9659fb6a472c48), aLIGO_O4_high_asd.txt (ea4b2bf6b552c1d520839af6a5620b92), aLIGO_late/mid/early_asd.txt, Aplus_asd.txt, LIGO_srd_asd.txt. These are DESIGN / PROJECTION curves, not measured run spectra. The measured O3/O4 ASDs (2008.01301, 2411.14607) are NAMED-NOT-READ; only WebSearch engine summaries were seen (O3 BNS ranges 111/134 Mpc H/L; O4 median BNS ranges 152/160 Mpc; O4 limited below 50 Hz by controls noise) -- those are summaries, not reads, and no number in the grade rests on them."
+ },
+ "published_statement": "No published statement is quoted by the tree. The curve data read (LIGO-published, via bilby): at f = 31.831 Hz (the seated omega_GW = 200 rad/s) the ASD is 8.242e-24 Hz^-1/2 (aLIGO ZERO_DET_high_P design), 9.208e-24 (aLIGO O4 high projection), 8.469e-24 (aLIGO late), 2.294e-23 (aLIGO mid), 8.489e-23 (aLIGO early), 5.170e-24 (A+), 1.491e-21 (initial-LIGO SRD). Frequency range where ASD <= 1e-23: design 28.3-2198 Hz, O4-high 30.2-2465 Hz, late 27.5-742 Hz, A+ 22.1-4027 Hz, SRD none. At 15.915 Hz (the WITHDRAWN as-scripted omega = 100 rad/s) every curve exceeds 1e-23 (design 3.116e-23, O4-high 3.136e-22).",
+ "published_hypotheses": [
+  "An ASD is a one-sided, frequency-dependent spectral density; a single number applies only at a stated frequency.",
+  "The curves are design/projection sensitivities (quantum + thermal + seismic models), not a measured stationary run spectrum; the bilby README warns some 'may not (yet) be correct'.",
+  "Stationary Gaussian noise is the model under which ASD -> SNR (rho^2 = 4 int |h~|^2/S_n df) holds.",
+  "Detector response to a GW depends on antenna pattern (F+, Fx) and polarization; strain at the detector equals the wave amplitude only at optimal orientation."
+ ],
+ "hypothesis_drift": [
+  "DROPPED -- frequency dependence (branelink.py:136, :209): H_NOISE is a frequency-blind constant and is the default hn of bulk_bits_per_watt(w, ...) for ANY w. The value 1e-23 holds for aLIGO-design/O4-class noise only for f >= ~28-30 Hz (O4-high band edge 30.2 Hz). The seated point f = 31.83 Hz sits 5% above the O4-high edge; as_scripted() (branelink.py:220, WITHDRAWN) applied the same 1e-23 at 15.92 Hz, where the curves read give 3.1e-23 to 3.1e-22 -- the withdrawn figure was therefore also optimistic in its noise, by a further factor 10-980 in throughput. A discrepancy in a withdrawn value, not a refutation of anything seated.",
+  "WEAKENED -- source status (branelink.py:134-136): listed among 'READ literature values' but no source is named for H_NOISE; the neighbouring inputs name theirs. The value is consistent with the curves read here (below), so this is a provenance gap, not a wrong number.",
+  "ADDED/IMPLICIT -- unit-SNR bit rate (branelink.py:209-211 '(h/h_n)^2 bits/s at unit SNR'): sympy confirms rho^2 = h^2 T/h_n^2 for a sinusoid in stationary noise of one-sided PSD h_n^2, so one unit-SNR window per h_n^2/h^2 seconds is exact. It silently assumes coherent, stationary integration over T1 = h_n^2/h^2 = 5.32e48 s = 1.69e41 yr (31 orders longer than the age of the universe) at the seated h = 4.3359e-48; LIGO's noise is non-stationary on hour scales. The rate is an asymptotic figure of merit, not an achievable link. This hypothesis only makes the bulk channel WORSE, i.e. it does not favour the route.",
+  "ADDED/IMPLICIT -- bits per unit-SNR window: the Shannon wideband low-SNR capacity P/(N0 ln 2) with P = h^2/2, N0 = h_n^2 is (h/h_n)^2/(2 ln 2) = 0.7213 (h/h_n)^2 bits/s (sympy). The tree's one bit per unit-SNR window is 1.39x the Shannon ceiling -- an O(1) discrepancy (0.142 order) in the bulk channel's favour, which makes the tree's 26.6-order EM margin conservative by that amount.",
+  "DROPPED -- antenna pattern: branelink.py:strain() takes h from the flux of a wave with equal + and x amplitudes; detector strain equals h only for optimal orientation (overhead source). Unstated; any other orientation lowers the bulk throughput (disfavours the route).",
+  "KEPT, tree's own -- 'graviton is a bulk degree of freedom' (branelink.py:44-45) is the condition under which LIGO is a BULK read end; it is the tree's dichotomy branch, not a property of LIGO, and is named there. LIGO being an operating GW detector is not in dispute but was not READ at source in this stage (search summaries only)."
+ ],
+ "data_at_publication": [
+  {
+   "quantity": "LIGO-class strain ASD at the transmitter frequency f_GW = 31.83 Hz",
+   "value_then": "1.0e-23 Hz^-1/2 (branelink.py:136; no source, no frequency stated)",
+   "value_now": "8.242e-24 (aLIGO design) / 9.208e-24 (O4-high projection) / 8.469e-24 (aLIGO late) / 5.170e-24 (A+ upgrade); 2.294e-23 (aLIGO mid) / 8.489e-23 (early) / 1.491e-21 (initial LIGO)",
+   "source_now": "LIGO noise curves (LIGO-T2000012 et al.) as redistributed in bilby 2.8.2 wheel, read at file; measured O3/O4 spectra (2008.01301, 2411.14607) NOT read",
+   "moves_conclusion": "No. Seated throughput 1.5347e-27 bits/s/W becomes 2.259e-27 (design, +0.168 order), 1.810e-27 (O4-high, +0.072), 2.140e-27 (late, +0.144), 5.743e-27 (A+, +0.573); 1e-23 is conservative against every operating-class curve. The EM-over-bulk margin 26.6213 orders stays >= 26.048 with every curve read. Early/mid/initial-LIGO curves make the bulk channel worse (margin larger)."
+  },
+  {
+   "quantity": "LIGO ASD at the WITHDRAWN as-scripted frequency 15.92 Hz",
+   "value_then": "1.0e-23 (same constant)",
+   "value_now": "3.116e-23 (design) to 3.136e-22 (O4-high); 1e-23 is outside every curve's band there",
+   "source_now": "same curve files",
+   "moves_conclusion": "Only the WITHDRAWN 6.1389e-27 figure, which was already withdrawn for omega vs 2 Omega; its noise input was also optimistic. Nothing seated moves."
+  },
+  {
+   "quantity": "bits per unit-SNR window (Shannon)",
+   "value_then": "1 bit per rho = 1 window: (h/h_n)^2 bits/s",
+   "value_now": "(h/h_n)^2/(2 ln 2) = 0.7213 (h/h_n)^2 bits/s wideband Shannon ceiling",
+   "source_now": "sympy in rederive script (Shannon-Hartley low-SNR limit)",
+   "moves_conclusion": "No -- bulk lower by 0.142 order, margin larger; direction unchanged."
+  }
+ ],
+ "rederivation": {
+  "method": "sympy",
+  "script_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/ligo-class-noise-1e-23.py",
+  "outcome": "ALL PASS (exit 0). (1) 4G/(D^2 c^3 w^2 h_n^2) at w = 200 rad/s, D = 4.2465 ly, h_n = 1e-23 gives 1.534730e-27 bits/s/W with constants retyped independently (CODATA G, c, Julian year), equal to branelink.corrected() (imported read-only, no bytecode written). (2) sympy: rho^2 = (2/S_n) int s^2 dt -> h^2 T/h_n^2, so unit-SNR rate = (h/h_n)^2; Shannon wideband limit / (h/h_n)^2 = 1/(2 ln 2) = 0.721348. (3) curves at 31.83 Hz: design 8.242e-24, O4-high 9.208e-24, late 8.469e-24, A+ 5.170e-24 (all <= 1e-23), mid 2.294e-23, early 8.489e-23, SRD 1.491e-21 (all > 1e-23); at 15.92 Hz every curve > 1e-23. (4) design/O4/late move the throughput by at most 0.168 order; with every curve including A+ the margin stays >= 26.048 orders (tree 26.6213). (5) T1 = 5.3191e48 s = 1.6855e41 yr for one unit-SNR bit.",
+  "agrees_with_source": "yes"
+ },
+ "later_literature": [
+  {
+   "ref": "Capote et al., 'Advanced LIGO detector performance in the fourth observing run', arXiv:2411.14607",
+   "effect": "confirms",
+   "what": "Search summary only: O4 median BNS ranges 152/160 Mpc; controls noise limits below 50 Hz; slight O4b/O4c improvements at 20-30 Hz. Consistent with an operating detector at ~1e-23 near 30 Hz, but no ASD value was read.",
+   "read_status": "NAMED-NOT-READ (alphaXiv quota exhausted; arxiv.org egress-blocked; WebSearch summary seen)"
+  },
+  {
+   "ref": "Buikema et al. 2020, PRD 102, 062003, arXiv:2008.01301 (O3)",
+   "effect": "confirms",
+   "what": "Search summary only: O3 BNS ranges 111 Mpc (H) / 134 Mpc (L), duty factors 74.6%/77.0%. No ASD value read.",
+   "read_status": "NAMED-NOT-READ"
+  },
+  {
+   "ref": "LIGO Detector Characterization in the second and third parts of O4, arXiv:2608.12193",
+   "effect": "extends",
+   "what": "Appeared in search results only; indicates LIGO operated through O4b/O4c. Not read.",
+   "read_status": "NAMED-NOT-READ"
+  },
+  {
+   "ref": "LIGO-T2000012 / aLIGO design / A+ noise curves (via bilby 2.8.2 wheel)",
+   "effect": "confirms",
+   "what": "1e-23 at 31.83 Hz is within 9-21% of aLIGO design/O4-high/late and conservative against all of them; A+ is 1.93x better.",
+   "read_status": "READ at file (redistributed data; primary DCC documents not reachable)"
+  }
+ ],
+ "lacked_data": "M's hypothesis tested: the tree's pass lacked (or did not record) a sourced, frequency-resolved noise curve -- 1e-23 was entered as a round 'LIGO-class' constant with no frequency. With the curves now read, the datum holds at the seated 31.83 Hz (8.2e-24 to 9.2e-24 for the aLIGO-design / O4-class curves, so 1e-23 is if anything pessimistic by 9-21%), and the planned A+ upgrade (5.2e-24) would raise the bulk throughput by 0.57 order -- the conclusion (EM beats the bulk channel by ~26 orders; O6's bulk branch unfavourable) does not move with any curve. Evidence against over-reading in either direction: (a) the missing frequency dependence DID matter for the withdrawn as-scripted point (15.9 Hz, where LIGO noise is 3-30x worse), so a frequency-blind constant is a real gap, but it only makes an already-withdrawn figure worse; (b) the unit-SNR rate needs 1.7e41 yr of coherent integration, a limitation the authors of the formula did not state and which only disfavours the route; (c) the measured O3/O4 run spectra, the data that would show whether an operating LIGO (as opposed to a design curve) actually reaches 1e-23 at 31.8 Hz, were not readable here -- the O4-high projection band edge sits at 30.2 Hz, only 5% below the transmitter frequency, so the measured value near 30 Hz could plausibly sit above 1e-23 by an O(1) factor; that would lower the bulk throughput and widen the margin, not change the direction.",
+ "grade": "NARROWED",
+ "grade_evidence": "The value 1e-23 Hz^-1/2 is a correct LIGO-class figure AT the seated transmitter frequency 31.83 Hz: LIGO design/O4-high/late curves read at file give 8.242e-24 / 9.208e-24 / 8.469e-24 there, and the seated throughput 1.5347e-27 bits/s/W (re-derived exactly) and the 26.6-order EM margin move by <= 0.17 order (<= 0.57 order with the A+ upgrade; margin >= 26.05 with every curve). It is NARROWED, not STANDS, because the tree uses it on a larger class than it holds: H_NOISE is a frequency-blind default in bulk_bits_per_watt(w) (branelink.py:209) while the datum holds only for f >= ~28-30 Hz up to ~0.7-2.5 kHz (at 15.92 Hz, the withdrawn point, every curve is 3-31x higher); the '(h/h_n)^2 bits/s' law adds unstated hypotheses (stationary coherent integration over 1.7e41 yr; optimal antenna orientation; one bit per unit-SNR window = 1.39x the Shannon ceiling); and it is labelled a READ literature value with no named source. Nothing here is WRONG: the seated figure and its conclusion stand on the narrower class, and every narrowing disfavours the bulk route rather than favouring it. The measured-spectrum part is OPEN (sources not readable this stage).",
+ "what_would_change_the_grade": "To STANDS: the tree names a source for H_NOISE and states its frequency validity (e.g. 'aLIGO design ASD at f_GW ~ 32 Hz'), restricts bulk_bits_per_watt's default hn to that band, and names the stationary-integration and one-bit-per-unit-SNR hypotheses. To DATA-DEPENDENT: a measured O3/O4 ASD (2008.01301 Fig. / 2411.14607 Fig., read at source once alphaXiv quota resets) showing LIGO's operating noise at 31.8 Hz differs from 1e-23 by more than O(1) -- still would not move the ~26-order conclusion unless by > 10^13 in ASD. To WRONG: only a computed contradiction of the seated throughput, which the re-derivation rules out.",
+ "reverify_command": "pip download --no-deps bilby==2.8.2 -d /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/pkg/ligo && PYTHONDONTWRITEBYTECODE=1 python3 /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/ligo-class-noise-1e-23.py",
+ "report_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/audits/ligo-class-noise-1e-23.json"
+}

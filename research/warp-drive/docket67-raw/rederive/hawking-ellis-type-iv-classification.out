@@ -1,0 +1,41 @@
+C1  Hawking-Ellis boost block
+C1a discriminant of char poly                              (-2*f + p + rho)*(2*f + p + rho)
+C1a disc == (rho+p)^2 - 4 f^2                              True  [ok]
+C1b z3: TypeIV-block and NEC on both radial nulls          unsat  [ok]
+C1c z3: real eigenvalue of block when disc<0               unsat  [ok]
+
+C2  classification at typefour.py WALL_POINTS (v_s=0.5, R=1, sigma=8)
+  (0.60,0.00)  lab: |T|=0.00154 r=0.5717 IV R=+0.00070 | static: |T|=0.00612 r=0.1435 IV R=-0.21057 | typefour.py: |T|=0.00612 r=0.1435
+  (0.90,0.00)  lab: |T|=0.15050 r=0.3284 IV R=+4.49587 | static: |T|=0.22317 r=0.2215 IV R=-7.38359 | typefour.py: |T|=0.22317 r=0.2215
+  (0.90,0.30)  lab: |T|=0.27804 r=0.2815 IV R=+8.28996 | static: |T|=0.15909 r=0.6425 IV R=-1.39573 | typefour.py: |T|=0.15909 r=0.6425
+  (1.00,0.00)  lab: |T|=0.25482 r=0.3123 IV R=+8.00000 | static: |T|=0.25482 r=0.3123 IV R=+8.00000 | typefour.py: |T|=0.25482 r=0.3123
+  (1.00,0.20)  lab: |T|=0.17442 r=0.4311 IV R=+4.70499 | static: |T|=0.28861 r=0.2585 IV R=+9.34650 | typefour.py: |T|=0.28861 r=0.2585
+  (1.05,0.40)  lab: |T|=0.21378 r=0.1081 IV R=-6.53049 | static: |T|=0.12612 r=0.5398 IV R=+2.40720 | typefour.py: |T|=0.12612 r=0.5398
+  (1.20,0.30)  lab: |T|=0.06968 r=0.0492 IV R=-2.36610 | static: |T|=0.01897 r=0.6937 IV R=+0.11173 | typefour.py: |T|=0.01897 r=0.6937
+C2a true Alcubierre Type IV at all 7 wall points           True  [ok]
+C2b comoving chart reproduces lab Ricci scalar (invariant) True  [ok]
+C2c typefour.py numbers = static metric numbers (6 fig)    True  [ok]
+C2d points where static Ricci scalar != Alcubierre (>1e-6) 6
+C2e min Im/|T| over wall points, true Alcubierre           0.0491641
+C2f min Im/|T| over wall points, typefour static           0.143547
+
+C3  typefour.py validation (Eulerian density) cannot separate the metrics
+C3 max |T^00_lab - T^00_static| over wall points           3.54371e-32  [ok]
+
+C4  hypersurface orthogonality of d_t (comoving Alcubierre), and the axis
+C4a (xi ^ dxi)_{txy}                                       y*(-(f(sqrt(x**2 + y**2 + z**2)) - 1)**2 - 4)*Subs(Derivative(f(_xi_1), _xi_1), _xi_1, sqrt(x**2 + y**2 + z**2))/(8*sqrt(x**2 + y**2 + z**2))
+C4a vanishes identically?                                  False  [ok]
+C4b on axis y=z=0                                          0
+   on-axis scan (true Alcubierre, sigma=8): Type IV where complex pair
+C4c axis samples with |T|>1e-6                             80
+C4c of which Type IV (complex pair)                        80
+
+C5  wall Type-IV fraction, proper-volume weighted (flat slices: dV = 2 pi rho dx drho)
+C5 alcubierre_lab sigma=8  Type-IV fraction (4472 pts)     0.988383
+C5 typefour_static sigma=8  Type-IV fraction (4472 pts)    0.973478
+C5 alcubierre_lab sigma=4  Type-IV fraction (8928 pts)     0.990773
+C5 alcubierre_lab sigma=16  Type-IV fraction (8974 pts)    0.976874
+C5 alcubierre_lab sigma=32  Type-IV fraction (17970 pts)   0.95622
+C5a sigma=8 true-Alcubierre fraction within 2 pts of Le Table 2 (0.987) True  [ok]
+
+ALL CHECKS OK

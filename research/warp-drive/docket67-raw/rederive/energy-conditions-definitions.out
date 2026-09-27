@@ -1,0 +1,67 @@
+(A) z3: implications among type-I effective forms (Martin-Moruno & Visser table, Curiel s2.1)
+  DEC => WEC  (the tree's 'the DEC requires the WEC')                    ok 
+  WEC => NEC                                                             ok 
+  SEC => NEC                                                             ok 
+  SEC does NOT imply WEC (counterexample exists)                         ok [rho = -1/4, p3 = 1/4, p2 = 1/4, p1 = 1/4]
+  WEC does NOT imply DEC: dec_holds(wec>=0) is necessary, not sufficient ok [rho = 0, p3 = 1/2, p2 = 1/2, p1 = 1/2]
+  flux-only 'DEC' (FEC) does NOT imply WEC                               ok [p1 = 0, rho = -1, p3 = 0, p2 = 0]
+  not WEC => not DEC (the only direction certify.py uses)                ok 
+
+(A') covariant check: DEC (H-E: T(V,V)>=0 and flux causal) => WEC, over a boosted type-I T, sampled
+  covariant DEC-true samples that fail WEC                               ok (234 DEC-true of 4000, 0 bad)
+
+(B) sympy: SEC contraction for unit timelike V equals w + T/2
+  V.V = -1                                                               ok 
+  (T_ab - T g_ab/2) V^a V^b - (w + T/2) == 0  (certify.py:351)           ok 
+
+(C) sympy: exact Einstein tensor of g = diag(-e^{2F}, e^{-2F}(dr^2 + r^2 dOmega^2))
+  Einstein tensor diagonal in the static orthonormal frame (type I)      ok 
+     rho   = (-r*Derivative(F(r), r)**2 + 2*r*Derivative(F(r), (r, 2)) + 4*Derivative(F(r), r))*exp(2*F(r))/r
+     p_r   = -exp(2*F(r))*Derivative(F(r), r)**2
+     p_t   = exp(2*F(r))*Derivative(F(r), r)**2
+  rho == e^{2F}(2 lap F - |grad F|^2)                                    ok 
+  rho + p_r == 2 e^{2F}(lap F - F'^2)                                    ok 
+  rho + p_t == 2 e^{2F} lap F                                            ok 
+  rho + p_r + 2 p_t (SEC) == 2 e^{2F} lap F                              ok 
+  lap(m/sqrt(r^2+a^2)) == -3 m a^2/(r^2+a^2)^(5/2) < 0 for m>0: NEC(radial), NEC(tangential), SEC, WEC fail for ALL 0<r<R_s ok 
+
+     r        rho(exact)     rho+p_r      rho+p_t     NECmin      WECmin(s<=10/11)  SECmin     | table T_00  ratio
+     0.005   -9.06158e+04 -9.15224e+04 -8.97092e+04 -9.15051e+04 -5.26355e+05 -4.80593e+05 | -9.0616e+04  1.0000  e^{-2Phi}=0.1437
+    r=0.005: rho<0, NEC, WEC, SEC all negative (exact)                   ok 
+    r=0.005: table NEC/WEC/SEC reproduced to 0.5%                        ok (-9.1505e+04 -5.2635e+05 -4.8059e+05)
+    r=0.005: table T_00 equals exact orthonormal rho to 0.5%             ok table/rho=1.0000
+     0.02    -1.21899e+04 -1.34750e+04 -1.09047e+04 -1.34506e+04 -7.62401e+04 -6.95026e+04 | -1.2190e+04  1.0000  e^{-2Phi}=0.2432
+    r=0.02: rho<0, NEC, WEC, SEC all negative (exact)                    ok 
+    r=0.02: table NEC/WEC/SEC reproduced to 0.5%                         ok (-1.3451e+04 -7.6240e+04 -6.9503e+04)
+    r=0.02: table T_00 equals exact orthonormal rho to 0.5%              ok table/rho=1.0000
+     0.05    -3.08873e+02 -3.95033e+02 -2.22713e+02 -3.93394e+02 -2.18218e+03 -1.98466e+03 | -3.0887e+02  1.0000  e^{-2Phi}=0.4759
+    r=0.05: rho<0, NEC, WEC, SEC all negative (exact)                    ok 
+    r=0.05: table NEC/WEC/SEC reproduced to 0.5%                         ok (-3.9339e+02 -2.1822e+03 -1.9847e+03)
+    r=0.05: table T_00 equals exact orthonormal rho to 0.5%              ok table/rho=1.0000
+     0.2     -4.74513e-01 -7.70530e-01 -1.78496e-01 -7.64901e-01 -4.11690e+00 -3.73164e+00 | -4.7451e-01  1.0000  e^{-2Phi}=0.8197
+    r=0.2: rho<0, NEC, WEC, SEC all negative (exact)                     ok 
+    r=0.2: table NEC/WEC/SEC reproduced to 0.5%                          ok (-7.6490e-01 -4.1169e+00 -3.7316e+00)
+    r=0.2: table T_00 equals exact orthonormal rho to 0.5%               ok table/rho=1.0000
+     1       -4.65637e-04 -8.81376e-04 -4.98986e-05 -8.73470e-04 -4.62502e-03 -4.18433e-03 | -4.6564e-04  1.0000  e^{-2Phi}=0.9610
+    r=1: rho<0, NEC, WEC, SEC all negative (exact)                       ok 
+    r=1: table NEC/WEC/SEC reproduced to 0.5%                            ok (-8.7347e-04 -4.6250e-03 -4.1843e-03)
+    r=1: table T_00 equals exact orthonormal rho to 0.5%                 ok table/rho=1.0000
+     10      -4.06336e-08 -8.07854e-08 -4.81823e-10 -8.00219e-08 -4.21690e-07 -3.81298e-07 | -4.0744e-08  1.0027  e^{-2Phi}=0.9962
+    r=10: rho<0, NEC, WEC, SEC all negative (exact)                      ok 
+    r=10: table NEC/WEC/SEC reproduced to 0.5%                           ok (-8.0022e-08 -4.2169e-07 -3.8130e-07)
+    r=10: table T_00 equals exact orthonormal rho to 0.5%                ok table/rho=1.0027
+  DISCREPANCY: orthonormal rho(r=1) != -4.8455e-4 (differs by >1%)       ok -4.656373e-04
+    -4.8455e-4 is the coordinate T_00 = e^{2Phi} rho                     ok -4.845395e-04
+    near() tolerance at |want|=4.8e-4 is 1e-3 absolute (check is vacuous) ok 
+  r=1 -|grad Phi|^2 == -3.9952e-4                                        ok -3.995204e-04 ratio 1.1655
+    ratio 1.21 (certify.py:94) is coordinate/|grad|^2; orthonormal ratio is 1.1655 ok coord 1.2128 orth 1.1655
+  m<0, r=0.05: orthonormal rho == +30.9245                               ok 30.92453
+  m<0, r=0.05: coordinate T_00 = e^{2Phi} rho == 14.7                    ok 14.7165
+
+(D) WEC infimum vs sampled minimum: with rho+p<0 the WEC infimum over all observers is -inf
+     s=0.909091   gamma^2(rho+s^2 p_min) = -4.6627e-03
+     s=0.99       gamma^2(rho+s^2 p_min) = -4.3875e-02
+     s=0.999999   gamma^2(rho+s^2 p_min) = -4.4069e+02
+  static observer (s=0) alone already fails WEC at every table radius    ok 
+
+ALL CHECKS PASS

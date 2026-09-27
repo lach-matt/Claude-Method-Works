@@ -1,0 +1,100 @@
+{
+  "key": "schwarzschild-generalised-painleve-gullstrand",
+  "name": "Schwarzschild vacuum solution in the generalised Painleve-Gullstrand chart with constant Lemaitre-Tolman-Bondi energy E (Painleve 1921, Gullstrand 1922; generalised form in e.g. Martel & Poisson gr-qc/0001069 -- none named by the owner)",
+  "docket": "67",
+  "stage": "12 of 286",
+  "source": {
+    "located": "Martel & Poisson, 'Regular coordinate systems for Schwarzschild and other spherical spacetimes', gr-qc/0001069v4 (Am. J. Phys. 69, 476, 2001), Sec. III eqs (3.1)-(3.6) and footnotes [9],[15]; first discovery of the family attributed there to Lake gr-qc/9407005 (1994), eq. (3) with c = p; the E = 0 member to Painleve, C. R. Acad. Sci. 173, 677 (1921) and Gullstrand, Arkiv Mat. Astron. Fys. 16(8), 1 (1922); the E < 0 (p > 1) branch to Gautreau & Hoffmann, Phys. Rev. D 17, 2552 (1978).",
+    "read_status": "READ",
+    "via": "alphaXiv answer_pdf_queries on gr-qc/0001069 (pages 1-6 returned, eqs (1.1), (2.1)-(2.7), (3.1)-(3.8), (4.1)-(4.5), footnotes [9],[15],[16] read verbatim) and on gr-qc/9407005 (both pages, eq. (3) read). Painleve 1921 and Gullstrand 1922 are NAMED-NOT-READ: only restated (by Martel-Poisson Sec. II and by MacLaurin 1911.05988 Sec. 3 and Sec. 5, which records that Painleve compared the two radial distances and 'concluded general relativity is self-contradictory'). Gautreau-Hoffmann 1978 NAMED-NOT-READ, restated exactly in Martel-Poisson footnote [9] (R_i = 2Mp/(p-1)) and MacLaurin Table 1 (r_max = 2M/(1-e^2))."
+  },
+  "published_statement": "Martel-Poisson (3.1)-(3.6), verbatim: 'we consider families such that E-tilde is the same for all observers within the family ... p = 1/E-tilde^2 = 1 - v_inf^2. We take p to be in the interval 0 < p <= 1, with p = 1 taking us back to the PG coordinates [15]. ... With the geodesic equations now given by t-dot = 1/(sqrt(p) f) and r-dot = -sqrt(1-pf)/sqrt(p), we find that u_alpha is now equal to a constant times the gradient of a time function T: u_alpha = -(1/sqrt p) d_alpha T (3.2), with T = t + int sqrt(1-pf)/f dr (3.3) ... the Schwarzschild metric takes the form ds^2 = -f dT^2 + 2 sqrt(1-pf) dT dr + p dr^2 + r^2 dOmega^2 (3.5), or ds^2 = -(1/p) dT^2 + p (dr + (1/p) sqrt(1-pf) dT)^2 + r^2 dOmega^2 (3.6). This metric is still regular at r = 2M ... the surfaces T = constant are no longer intrinsically flat. The induced metric is now ds^2 = p dr^2 + r^2 dOmega^2 ... R^phi_theta phi theta = -(1-p)/p'. Footnote [15]: 'For p > 1, or E-tilde < 1, the motion does not extend to infinity but starts at a turning-point radius r_max defined by f(r_max) = E-tilde^2. We exclude these cases because the resulting surfaces T = constant would not extend beyond r = r_max, and the new coordinates would not be defined everywhere.' Sec. IV, p.4: 'generalized to other static and spherically symmetric spacetimes'; Sec. V: the construction 'is therefore limited to radial, freely moving observers in static, spherically-symmetric spacetimes'. Lake (3): 'ds^2 = -(1-2m/r)dt^2 + 2 eps (1 - c + 2mc/r)^{1/2} dt dr + c dr^2 + r^2 dOmega^2 ... xi^alpha = delta^alpha_t is a Killing vector that is timelike for a(r) > 0 ... With 0 <= c <= 1, the r-t subspaces ... are free of coordinate singularities over the range 0 < r < infinity.' The owner's chart (foliation.py:184) is (3.6) under p = 1/(1+2E), T = sqrt(p) tau, i.e. E = (E-tilde^2 - 1)/2, verified as C1 below.",
+  "published_hypotheses": [
+    "Schwarzschild vacuum, f = 1 - 2M/r, geometrized units, M the Schwarzschild mass (Martel-Poisson (1.1); Lake solves R^a_b = 0 directly and finds m 'the effective gravitational mass')",
+    "E-tilde = conserved energy per unit rest mass of a family of INGOING RADIAL TIMELIKE GEODESIC observers, the same constant for the whole family; r-dot < 0 (Sec. II, III)",
+    "0 < p <= 1, i.e. E-tilde >= 1, i.e. E = (E-tilde^2 - 1)/2 >= 0: unbound or marginally bound observers ONLY; p > 1 (E < 0) EXCLUDED by footnote [15] because the T = const surfaces end at r_max with f(r_max) = E-tilde^2",
+    "Chart regular at r = 2M and covers the black-hole region and one exterior, NOT the white-hole region (Fig. 1 discussion, Sec. II); p -> 0 (E -> infinity) is the Eddington-Finkelstein limit (3.8)",
+    "The spacetime is static and spherically symmetric (Sec. IV, V); Lake: xi = d_t is a Killing vector, timelike where a(r) = 1 - 2m/r > 0",
+    "The T = const slices are intrinsically curved for p != 1 (one Riemann component -(1-p)/p) and are flat only for p = 1 (Sec. II, III)"
+  ],
+  "hypothesis_drift": [
+    "WEAKENED (domain, E < 0): foliation.py:199 'E < 0 (bound shells) gives Gamma < 1' names the bound branch as a member of the same family with no domain restriction. Martel-Poisson footnote [15] exclude p > 1 because the slice ends at r_max = -M/E (checked C7a-C7c: for E = -1/4, M = 1, r_max = 4 and the shift sqrt(2M/R + 2E) is imaginary at R = 10); MacLaurin 1911.05988 Table 1 restates the bound as r <= 2M/(1-e^2). Gamma = sqrt(1+2E) < 1 is correct where the chart exists. NOT LOAD-BEARING: the witness (:182, :48-51) is E > 0, and every dependent site (ledger D2, M-S1A-P4, specthm T, R1, QUOTES) rests on the E > 0 member or on section 6, which uses the curvature chart, not this one.",
+    "ADDED-THEN-ASSERTED (staticity): foliation.py:186-187 and :48 state 'the spacetime is STATIC' by the name of the solution; verify() V7-V12 (:676-724) contains no Killing-vector or hypersurface-orthogonality check. Martel-Poisson and Lake both state it (Sec. IV/V; Lake eq. (1) commentary). Closed here, not in the tree: C6a-C6d machine-check that xi = d/dtau is Killing (all 16 components of nabla_(a xi_b) = 0), timelike for R > 2M with xi.xi = -(1-2M/R)/(1+2E), and hypersurface-orthogonal (Frobenius xi ^ dxi = 0). The assertion is TRUE; the tree's verify() does not establish it. Recorded, not repaired.",
+    "RENAMED (no content drift): the owner calls E the 'LTB energy'. Martel-Poisson use p = 1/E-tilde^2 and never the LTB name; MacLaurin eq. (9)-(10) connects the same charts to 'the general Lemaitre[-Tolman-Bondi] coordinates for a spherically symmetric dust spacetime', and constant E is the LTB energy function of a dust shell family in vacuum. Consistent; the identification E = (E-tilde^2 - 1)/2 = (1/p - 1)/2 is verified as C1.",
+    "ATTRIBUTION (not a hypothesis): foliation.py:186 'Computed, not quoted (V7)' names no source for the chart. The chart is Martel-Poisson (3.6) = Lake (3) with c = p. The owner's Ricci computation stands on its own (C3 reproduces it by an independent code path) so the omission moves nothing.",
+    "NONE DROPPED that the tree uses: E constant (:182), M > 0 (:678 sympy positive), R > 2M for sections 6 and 8 (:259, :306) all sit inside the source's hypotheses; the source additionally permits 0 < R <= 2M (regularity across the horizon), which the tree does not use."
+  ],
+  "data_at_publication": [
+    {
+      "quantity": "physical/observational inputs to the result",
+      "value_then": "none -- the result is a coordinate identity on the Schwarzschild vacuum solution, symbolic in M and E (Martel-Poisson 2000; Lake 1994 'obtained directly from the vacuum Einstein equations')",
+      "value_now": "none; no PDG or measurement datum enters. C1-C6 hold symbolically for all M > 0, E >= 0, R > 0 (C6c for R > 2M)",
+      "source_now": "this audit's rederivation, run.log",
+      "moves_conclusion": "no -- there is no datum to move"
+    },
+    {
+      "quantity": "owner's own fixtures: M = 1, R1 = 10, R2 = 100, areal gap 90 (foliation.py:259, :537)",
+      "value_then": "chosen by the owner, not from the source",
+      "value_now": "recomputed with an independent Simpson integrator (n = 2e5): L/gap = 1.027240534, 0.673057927, 0.285058042, 0.021732702, 0.001868325, 0.000464434 for A = 0, 1, 2, 5, 20, 80; fixtures :960-962 agree to rel 3.5e-10, 2.4e-10, 9.0e-7; the A = 0 value agrees with the closed form int dR/sqrt(1-2/R) to 1e-9; max Gamma agrees at all six rows to < 2e-5",
+      "source_now": "rederive script C8; owner d3_table foliation.py:537-541",
+      "moves_conclusion": "no; L/gap strictly decreasing to 0.046 % of the gap, as :275-277 state"
+    },
+    {
+      "quantity": "Shapiro excess over the areal gap, 10M -> 100M",
+      "value_then": "5.011 M (foliation.py:72, :568-574)",
+      "value_now": "2 M ln(98/8) = 5.0111 M",
+      "source_now": "rederive script C9",
+      "moves_conclusion": "no"
+    }
+  ],
+  "rederivation": {
+    "method": "sympy",
+    "script_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/schwarzschild-generalised-painleve-gullstrand.py",
+    "outcome": "ALL 41 CHECKS PASS, 0 failures, 8.3 s (log beside the script: rederive/run.log). C1 owner's chart == Martel-Poisson (3.6) under p = 1/(1+2E), T = sqrt(p) tau. C2 (3.6) == Schwarzschild curvature form under M&P's dt = dT - sqrt(1-pf)/f dr. C3 Ricci_ab = 0, all 16 components, by a Riemann-contraction code path independent of the owner's V7. C3b Kretschmann = 48 M^2/R^6 exactly at three rational (M, R, E) points (E-independent: the curvature is Schwarzschild's, not flat). C4 g^{RR} = 1 - 2M/R, m = M. C5 Gamma = sqrt(1+2E) R-independent; unit normal (1, -v, 0, 0); Gamma^2 - U^2 = 1 - 2M/R; E = 0 -> Gamma = 1, E > 0 -> > 1, E < 0 -> < 1. C6 staticity (which the owner asserts and verify() does not check): d/dtau Killing (all 16 of nabla_(a xi_b) = 0), timelike for R > 2M, Frobenius xi ^ dxi = 0, and the tau = const slices are NOT Killing-orthogonal (xi_R = v/(1+2E) != 0) -- which is exactly the owner's point at :202-205. C7 E < 0: shift real only for R <= -M/E = r_max of M&P footnote [15]. C8 d3 table and fixtures reproduced by an independent Simpson integrator. C9 Shapiro 5.011 M. Two zero-tests needed exact rational points because sympy left sqrt(2E+1) sqrt(ER+M) - sqrt((2E+1)(ER+M)) uncombined (C1, the tau-R Ricci and Killing components, Kretschmann); every other identity closed symbolically. Two discrepancies in the owner RECORDED, NOT REPAIRED, neither moving a figure: foliation.py:512 docstring says 'Simpson' but the loop at :519-521 uses trapezoid weights (1 interior, 1/2 ends) -- the values are nonetheless correct to 1e-9 relative against a true Simpson rule at n = 2e5; and :964 checks anchoring on _bump while d3_table runs flat_top=True -- the profile actually run, tanh(x gap) tanh((1-x) gap), also vanishes at both mouths exactly (C8, last check).",
+    "agrees_with_source": "yes"
+  },
+  "later_literature": [
+    {
+      "ref": "MacLaurin, 'Schwarzschild spacetime under generalised Gullstrand-Painleve slicing', arXiv:1911.05988 (2019)",
+      "effect": "extends",
+      "what": "Restates Martel-Poisson exactly as eq. (4) with e = E-tilde, p = 1/e^2 ('Martel & Poisson [33] derived a similar coordinate eT, using instead a parameter p := 1/e^2 they limited to the rain and hail cases'), extends the family to e <= 0 (inside the horizon) and outgoing variants, states the 3-metric dr^2/e^2 + r^2 dOmega^2 with Riemann (1-e^2)/r^2 (= the owner's Gamma = |e| = sqrt(1+2E) everywhere the chart exists, eq. (18) 'ds = dr/|e|'), records that d_T is the Killing vector xi/e and that the slices are Einstein-simultaneous for the fallers, confirms drip charts (0 < e < 1, E < 0) are bounded by r < r_max = 2M/(1-e^2) with Gamma^T_rr diverging at the boundary, and notes the slices fail some asymptotic-flatness conditions at r -> infinity (ADM mass 'not valid' per [17, 8.3.1]) -- the latter does not touch the tree's use, which is pointwise Gamma and a finite slice 10M-100M.",
+      "read_status": "READ (alphaXiv, pages 1-11, 15, 18, 20)"
+    },
+    {
+      "ref": "Lake, 'A class of quasi-stationary regular line elements for the Schwarzschild geometry', gr-qc/9407005 (1994)",
+      "effect": "confirms",
+      "what": "Derives the same one-parameter family directly from R^a_b = 0 with c = const >= 0 (c = p = 1/(1+2E)): eq. (3); states d_t is Killing, timelike for r > 2m; regular on 0 < r < infinity for 0 <= c <= 1, i.e. E >= 0; 'The constant c has no invariant physical significance. (Whereas the surfaces t = constant have distinct properties for different choices of c, this is merely a choice of slicing of the spacetime.)' -- which is the owner's section 4 thesis (:200 'THE VERDICT SET BY A LABEL ON THE FOLIATION') stated in 1994.",
+      "read_status": "READ (alphaXiv, both pages)"
+    },
+    {
+      "ref": "Gautreau & Hoffmann, Phys. Rev. D 17, 2552 (1978)",
+      "effect": "extends",
+      "what": "The p > 1 (E < 0, bound) branch, with slices ending at R_i = 2Mp/(p-1) = -M/E; the source of the domain restriction the owner's :199 omits.",
+      "read_status": "NAMED-NOT-READ (restated in Martel-Poisson footnote [9],[15] and MacLaurin Table 1, Sec. 3)"
+    },
+    {
+      "ref": "Painleve 1921; Gullstrand 1922",
+      "effect": "confirms",
+      "what": "The E = 0 member (ds^2 = -dT^2 + (dr + sqrt(2M/r) dT)^2 + r^2 dOmega^2, flat slices); the owner's :197 'E = 0 is the ordinary PG slicing and gives Gamma = 1 exactly'.",
+      "read_status": "NAMED-NOT-READ (restated in Martel-Poisson Sec. II eq. (2.7))"
+    },
+    {
+      "ref": "discover_papers (one call): gr-qc/0606055, 2404.18431, 2512.16104, 0805.0206, 2209.02698, 2110.01814, 2510.07263, 1801.07146, 1202.2285",
+      "effect": "extends",
+      "what": "PG-type charts for Kerr, Schwarzschild-de Sitter, Lense-Thirring, Kiselev, collapse and cosmological embeddings. None narrows or contradicts the Schwarzschild generalised chart; none read beyond the abstract because none bears on the statement as used.",
+      "read_status": "abstracts only, from the discovery listing"
+    }
+  ],
+  "lacked_data": "M's hypothesis does not bite here, and the evidence is of the strongest kind available: the result is a coordinate identity on an exact vacuum solution, with no observational datum in its hypotheses or conclusion (C1-C6 hold symbolically in M, E, R). What Painleve (1921) and Gullstrand (1922) lacked was not data but the INTERPRETATION of r = 2M: the horizon was not understood until Lemaitre 1933 / Finkelstein 1958, and MacLaurin Sec. 5 records that Painleve, comparing dr/sqrt(1-2M/r) with dr, 'concluded general relativity is self-contradictory'. The metric they wrote is unchanged by that later understanding (Martel-Poisson (2.7) is Painleve's line element), and the tree's use -- Gamma = sqrt(1+2E) on R >= 10M, the E > 0 witness, the 10M-100M slice -- lives entirely outside the horizon where the 1921 interpretation and the modern one agree. Later measurement (EHT, gravitational-wave ringdown) tests whether astrophysical black holes ARE Schwarzschild/Kerr; it cannot move a statement about the Schwarzschild solution's coordinate charts. Evidence that could have changed the conclusion and did not: Lake 1994 rederived the family from R^a_b = 0 by computer algebra (GRTensor) and found nothing new -- 'it would be somewhat of a surprise if the form (3) is actually new'; this audit's independent Ricci and Kretschmann checks agree.",
+  "grade": "STANDS",
+  "grade_evidence": "Statement as used (foliation.py:182-192) is Martel-Poisson (3.6) under an explicit reparametrisation (C1), is vacuum with Kretschmann 48M^2/R^6 (C3, C3b), has m = M (C4), Gamma = sqrt(1+2E) at every areal radius where the chart exists (C5a), U and the invariant as stated (C5b-c), the E = 0 and E < 0 signs as stated (C5d), and the staticity the owner asserted without checking is now machine-checked true (C6a-d) while the slices are not Killing-orthogonal (C6e), which is the owner's thesis. The source's hypotheses (E constant, E >= 0, M > 0, static spherical vacuum, R > 2M for the tree's sections 6 and 8) contain the tree's. All owner fixtures reproduce by an independent integrator (C8, C9). The single hypothesis weakening -- :199 names E < 0 without the r_max = -M/E domain bound of M&P [15] -- is a remark, not a premise of any dependent site, and the statement it makes (Gamma < 1) is true on the chart's domain. Two internal discrepancies (docstring 'Simpson' vs trapezoid weights; anchoring fixture tests _bump not the flat_top profile run) are misprint-grade and move no figure: recorded per fluctuation.py precedent, not quoted as errors. No datum has moved because none enters.",
+  "what_would_change_the_grade": "To NARROWED: if any dependent site (ledger D2, M-S1A-P4, specthm T/R1/QUOTES) were found to rely on the E < 0 member at R > -M/E, or on the chart inside R <= 2M, or on Gamma > 1 'out to infinity' being an asymptotically-flat-slice statement (MacLaurin notes the slices fail some asymptotic-flatness conditions) -- none does on reading (ledger.py:1345-1349; specthm.py:486-488, :671-688, :803-836, :2370 quote only NONSTATIC_ANCHOR_CLOSES_D3 and d3_table()[-1], which come from section 6's curvature chart). To WRONG: a nonzero Ricci component of (3.6) for some p in (0,1], or a value of Gamma on tau = const differing from sqrt(1+2E) -- C3 and C5a exclude both symbolically. To DATA-DEPENDENT: not reachable; no datum enters.",
+  "reverify_command": "cd /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive && python3 schwarzschild-generalised-painleve-gullstrand.py && echo STANDS",
+  "report_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/audits/schwarzschild-generalised-painleve-gullstrand.json",
+  "rests_on_it_read": [
+    "ledger.py:1345-1349 M-S1A-P4 quotes foliation.NONSTATIC_ANCHOR_CLOSES_D3 (= False, foliation.py:867) -- established by section 6 (curvature chart f = 1 - 2M/R, C8 reproduces), not by the generalised PG chart itself",
+    "specthm.py:488 F['d3_frac'] = foliation.d3_table()[-1] (A = 80 row, 0.000464434, C8 reproduces); :671-688 class T definition, :803-836 class R1 statement (quotes d3_frac and shapiro 5.011, C9 reproduces); :2370 QUOTES check of the section 6 heading",
+    "foliation.py:48-59 verdict (ii), :859-860 STATICITY_WAS_THE_WRONG_NAME / HYPOTHESIS_ACTUALLY_USED -- rest on C5a and C6e: Gamma = sqrt(1+2E) > 1 for E > 0 on a static spacetime whose Killing field the slices are not orthogonal to"
+  ],
+  "nothing_touched": "No file under research/warp-drive, drive/ or method/ was edited; no git operation was run. Outputs: the rederivation script, its run.log, and this report, all under scratchpad/d67/."
+}

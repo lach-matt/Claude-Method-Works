@@ -1,0 +1,105 @@
+{
+ "key": "1807.06209",
+ "name": "Planck 2018 VI (A&A 641, A6): baryon-to-photon ratio eta ~ 6.1e-10 (warpfolder.py) and H_0 = 67.36 km/s/Mpc (cosmo.py -> permute.py)",
+ "source": {
+  "located": "Planck Collaboration, 'Planck 2018 results. VI. Cosmological parameters', arXiv:1807.06209v4 (ESO manuscript dated 10 Aug 2021). READ: abstract p.1; Table 1 p.15 (Plik/CamSpec, caption incl. '0.5 sigma' systematic note and 'Omega_m includes ... one neutrino with a mass of 0.06 eV'); Table 2 pp.16-17 (Omega_b h^2, H_0, Age, z_*, r_*, theta_*, caption 'Y_P ~ 0.2454'); T_CMB = 2.7255 K (Fixsen 2009); conclusions p.71 (H_0 'in substantial 4.4 sigma tension with the latest local determination by Riess et al. (2019)'; BBN 'good agreement'). NOT in the read set: Sect. 7.6 BBN (p.52).",
+  "read_status": "READ",
+  "via": "Verbatim alphaXiv answer_pdf_queries page text for 1807.06209v4 (17 pages: 1,2,13-17,24,26,27,39-43,62,71) returned in earlier D67 calls this session and harvested unmodified by src/casmag/allpages.py into /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/src/casmag/all/1807.06209v4.txt (96,246 bytes). Fresh calls this stage (answer_pdf_queries, get_paper_content fullText, discover_papers) all returned 'alphaXiv assistant quota exceeded'. Later literature READ the same way from cached verbatim pages: /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/src/casmag/all/2112.04510v3.txt (SH0ES) and /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/src/casmag/all/2503.14738v3.txt (DESI DR2)."
+ },
+ "published_statement": "Abstract (p.1): 'baryon density Omega_b h^2 = 0.0224 +- 0.0001 ... Assuming the base-LCDM cosmology, the inferred (model-dependent) late-Universe parameters are: Hubble constant H_0 = (67.4 +- 0.5) km s^-1 Mpc^-1 ... in significant, 3.6 sigma, tension with local measurements of the Hubble constant (which prefer a higher value).' Table 2 (TT,TE,EE+lowE+lensing, 68%): Omega_b h^2 = 0.02237 +- 0.00015; H_0 = 67.36 +- 0.54; Age = 13.797 +- 0.023 Gyr; z_* = 1089.92 +- 0.25; (+BAO: 0.02242 +- 0.00014, 67.66 +- 0.42). Conclusions (p.71): 'The Planck base-LCDM cosmology requires a Hubble constant H_0 = (67.4 +- 0.5) ..., in substantial 4.4 sigma tension with the latest local determination by Riess et al. (2019).' 'We find good agreement between the predictions of BBN for the Planck base-LCDM parameters and element abundance observations.' The baryon-to-photon ratio eta is NOT printed in the 17 pages READ (checked by search); Planck's measured quantity is Omega_b h^2, and eta follows by the standard conversion with T_CMB = 2.7255 K and the mean mass per baryon (re-derived here: eta = (6.124 +- 0.041)e-10).",
+ "published_hypotheses": [
+  "H1 base-LCDM: spatially flat, six parameters with flat priors, power-law adiabatic scalar spectrum, w = -1 (abstract; Table 1 caption).",
+  "H2 late-Universe parameters (H_0, Omega_m, age) are 'inferred (model-dependent)' under H1, not directly measured (abstract).",
+  "H3 one massive neutrino of 0.06 eV included in Omega_m; N_eff = 3.046 (Table 1 caption; abstract).",
+  "H4 helium fraction set by standard BBN, Y_P ~ 0.2454 (Table 2 caption); Omega_b h^2 is 'only weakly dependent on the cosmological model' (abstract).",
+  "H5 dataset/likelihood: TT,TE,EE+lowE+lensing, Plik; 'A total systematic uncertainty of around 0.5 sigma may be more realistic' (Table 1 caption).",
+  "H6 T_CMB = 2.7255 K (Fixsen 2009) -- enters the eta conversion as T^-3.",
+  "H7 Planck's own recorded caveat: its H_0 is in 3.6 sigma (abstract) / 4.4 sigma (conclusions, vs Riess et al. 2019) tension with local measurements."
+ ],
+ "hypothesis_drift": [
+  "DROPPED (non-load-bearing, computed): permute.py:29 'Measured, Planck 2018' and cosmo.py:22,34 'PINNED' drop H2 -- Planck calls H_0 'inferred (model-dependent)' under base-LCDM. The tree's verdict depends only on sign(H_0) (rederive F), which no model choice in play reverses.",
+  "DROPPED (non-load-bearing): permute.py:29-31, cosmo.py:34 carry the point value only -- the +-0.54 interval, the 0.5 sigma systematic note (H5) and Planck's own 3.6/4.4 sigma tension caveat (H7) are not recorded. The printed theta = 6.549e-18 /s moves 8.4% across the READ tension (7.101e-18 at SH0ES 73.04); the FALSIFIED verdict does not.",
+  "STATUS-WORD DISCREPANCY (in M's disfavour, i.e. the tree under-claims): warpfolder.py:229 marks ETA_BARYON 'Planck 2018 NAMED-NOT-READ'. The source is now READ: Planck prints Omega_b h^2 = 0.02237 +- 0.00015, not eta (not in the 17 pages read; Sect. 7.6 unread), and the conversion gives 6.124e-10, which rounds to the tree's 6.1e-10 and lies 0.6 sigma below Planck's central value -- the 2-s.f. rounding.",
+  "ADDED, NOT PLANCK'S (warpfolder.py:402-403): 'SM baryogenesis gives eta = 6.1e-10'. Planck measures the present baryon density; it makes no claim about which mechanism produced it. The tree attributes the observed value to the SM, which the D65-banked READ of 1206.2942 contradicts (SM EWBG insufficient) -- already recorded in audits/sakharov-1967.json. Discrepancy in the tree's prose, recorded not repaired; it points the same way as the tree's flag (the SM yields less, not more).",
+  "ADDED, NOT PLANCK'S (warpfolder.py:83-84): 'requires the Sakharov conditions and delivers eta ~ 6.1e-10 per photon' -- the conditions deliver no value; 6.1e-10 is the observed ratio (cross-ref audits/sakharov-1967.json). 'Per photon' is correct for the present-epoch n_b/n_gamma.",
+  "NOT LOAD-BEARING (computed, rederive E): ETA_BARYON occurs only at warpfolder.py:229 (assignment) and :403 (a print in report()); BLUEPRINT_SOURCES_BARYON_NUMBER = False (warpfolder.py:245) is a literal constant resting on net B = 0, as the canonical entry already states.",
+  "WORDING DISCREPANCY (permute.py:404-406): 'cross-checked by the Hubble time it implies' compares 1/H_0 in Gyr with 365.25*86400 s/yr against cosmo.hubble_time_gyr() with YR = 3.15576e7 s -- identical numbers, so the check holds for every H_0 (10,000 random values, 0 failures). It is a units consistency check, not an independent cross-check. Does not affect the verdict.",
+  "ANCILLARY, outside this key's load path (cosmo.py:22-23, 36): 'HORIZON_GPC = 14.26 PINNED' is labelled Planck 2018 but is not printed in the READ pages; flat base-LCDM with Planck's own Table 2 column gives 14.147 Gpc (integrator validated against Planck's r_*/theta_* = 13,872.8 Mpc to 0.04%). 14.26 is 0.80% high; WMAP-era h = 0.71, Omega_m = 0.27 gives 14.28 (origin NAMED-NOT-READ). A discrepancy, recorded not repaired; cosmo.py's 'recession at the horizon 3.204 c' would read ~3.18 c -- superluminal either way."
+ ],
+ "data_at_publication": [
+  {
+   "quantity": "Omega_b h^2 (-> eta)",
+   "value_then": "0.02237 +- 0.00015 (Table 2 TT,TE,EE+lowE+lensing; abstract 0.0224 +- 0.0001; +BAO 0.02242 +- 0.00014) -> eta = (6.124 +- 0.041)e-10",
+   "value_now": "No later CMB/BBN value READ this stage (ACT DR6, SPT-3G, PDG BBN review: NAMED-NOT-READ, alphaXiv quota exceeded). DESI DR2 2503.14738v3 eq.(2) normalises r_d to Planck's omega_b = 0.02236 (READ) -- a use of Planck, not a new measurement.",
+   "source_now": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/src/casmag/all/1807.06209v4.txt; /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/src/casmag/all/2503.14738v3.txt",
+   "moves_conclusion": "No, computed: eta enters no flag (rederive E). Across every Planck column READ, eta spans 6.06e-10 (TT+lowE) to 6.57e-10 (EE+lowE); the (c) closure rests on net B = 0 and holds for any eta."
+  },
+  {
+   "quantity": "T_CMB (eta conversion, n_gamma ~ T^3)",
+   "value_then": "2.7255 K (Fixsen 2009, adopted by Planck, READ)",
+   "value_now": "not re-read; +-0.0006 K quoted in the same Planck page",
+   "source_now": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/src/casmag/all/1807.06209v4.txt",
+   "moves_conclusion": "No: +-0.066% in eta."
+  },
+  {
+   "quantity": "mean mass per baryon (eta conversion)",
+   "value_then": "Y_P ~ 0.2454 (Table 2 caption); coefficient eta_10/(Omega_b h^2) = 273.75 (computed with CODATA via scipy 1.17.1)",
+   "value_now": "m_p-only 273.42 (-0.12%), m_u 275.41 (+0.6%)",
+   "source_now": "rederive section D",
+   "moves_conclusion": "No: all round to 6.1e-10 at the baseline Omega_b h^2."
+  },
+  {
+   "quantity": "H_0",
+   "value_then": "67.36 +- 0.54 km/s/Mpc (Table 2), base-LCDM inferred; SI 2.182989e-18 /s; theta = 3H_0 = 6.548967e-18 /s",
+   "value_now": "SH0ES 73.04 +- 1.04 (2112.04510v3 abstract, READ; 'a 5 sigma difference with ... Planck'); DESI DR2+BBN 68.51 +- 0.58 (eq.19, READ, 'independent of any CMB'); DESI DR2+CMB 68.17 +- 0.28 (READ); DESI+BBN vs SH0ES 4.5 sigma (READ)",
+   "source_now": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/src/casmag/all/2112.04510v3.txt; /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/src/casmag/all/2503.14738v3.txt",
+   "moves_conclusion": "The printed theta moves (6.549e-18 -> 6.628..7.101e-18, up to 8.4%); the conclusion 'expansion is a permutation: FALSIFIED' does not: every READ value is 70-243 sigma from zero and is_a_permutation flips only at H_0 = 0 exactly (rederive F, tree imported read-only)."
+  },
+  {
+   "quantity": "Mpc and year conventions (cosmo.py:30-32)",
+   "value_then": "MPC = 3.0856775814913673e22 m; YR = 3.15576e7 s",
+   "value_now": "IAU 2015 pc = 648000/pi au (au exact) reproduces MPC to 1e-16; YR = 365.25 x 86400 exactly",
+   "source_now": "exact definitions (rederive B, C)",
+   "moves_conclusion": "No."
+  },
+  {
+   "quantity": "comoving particle horizon (ancillary, cosmo.py:36)",
+   "value_then": "14.26 Gpc 'PINNED Planck 2018'",
+   "value_now": "14.147 Gpc derived from Planck 2018 Table 2 flat base-LCDM (not printed by Planck in the read pages)",
+   "source_now": "rederive section G",
+   "moves_conclusion": "Not this key's conclusion; cosmo.py's qualitative 'superluminal recession at the horizon' holds (3.2 c -> ~3.18 c)."
+  }
+ ],
+ "rederivation": {
+  "method": "sympy",
+  "script_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/1807.06209.py",
+  "outcome": "ALL PASS, exit 0 (output /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/1807.06209.out; git status of research/ clean, no bytecode written). A: 67.36, 0.02237, 13.797, 'inferred (model-dependent)', 3.6 sigma, 4.4 sigma, Y_P 0.2454, 2.7255 K all found verbatim in the READ text; cosmo.py H0_KMSMPC and AGE_GYR equal Table 2; eta not printed in the read pages. B: MPC equals IAU 648000/pi au; H_0 = 2.182989e-18 /s, theta = 6.548967e-18 reproduces the printed 6.549e-18. C: the 'Hubble time cross-check' is an identity for every H_0 (0/10,000 failures). D: sympy eta = 3 pi H100^2 Omega_b h^2 c^3 hbar^3 / (16 G T^3 k^3 m_b zeta(3)), linear in Omega_b h^2, ~T^-3; coefficient 273.75 (Y_P-weighted), eta = 6.1237e-10 -> '6.1e-10' at 2 s.f., offset -2.4e-12 vs sigma 4.1e-12. E: ETA_BARYON only at warpfolder.py:229, 403; the baryon flag is a literal. F: is_a_permutation False at H_0 = 67.36, 67.66, 73.04, 68.51, 68.17 (70-243 sigma from 0); True only at H_0 = 0. G (ancillary): age 13.795 Gyr reproduces 13.797; comoving distance to z_* 13,867 Mpc vs Planck r_*/theta_* 13,873; horizon 14.147 Gpc vs cosmo.py 14.26 (recorded discrepancy, 0.80%).",
+  "agrees_with_source": "yes"
+ },
+ "later_literature": [
+  {
+   "ref": "Riess et al. (SH0ES), arXiv:2112.04510v3",
+   "effect": "contested",
+   "what": "H_0 = 73.04 +- 1.04 km/s/Mpc; 'a 5 sigma difference with the prediction of H_0 from Planck CMB observations under LCDM'. Contests Planck's H_0 value (as Planck itself records at 3.6/4.4 sigma); does not touch sign(H_0), on which permute.py's verdict rests.",
+   "read_status": "READ (cached verbatim alphaXiv pages 1,7,9,33,36,38,52,55; abstract quoted)"
+  },
+  {
+   "ref": "DESI Collaboration, DESI DR2 Results II, arXiv:2503.14738v3",
+   "effect": "narrows",
+   "what": "DESI+BBN H_0 = 68.51 +- 0.58 'independent of any CMB anisotropy'; DESI+CMB 68.17 +- 0.28; 2.3 sigma DESI-vs-CMB discrepancy in LCDM; DESI+BBN vs SH0ES 4.5 sigma. An independent route lands 1.7% above Planck's 67.36 -- theta would read 6.66e-18 /s. Narrows the H_0 range, does not move the verdict.",
+   "read_status": "READ (cached verbatim alphaXiv pages incl. 4, 20-22)"
+  },
+  {
+   "ref": "ACT DR6 cosmological parameters (arXiv:2503.14452); PDG Big-Bang Nucleosynthesis review (Fields, Molaro, Sarkar)",
+   "effect": "extends",
+   "what": "Named as the later CMB and BBN determinations of Omega_b h^2 / eta; NO content asserted. Effect label is a placeholder category, not a finding.",
+   "read_status": "NAMED-NOT-READ (discover_papers, answer_pdf_queries and get_paper_content all returned 'alphaXiv assistant quota exceeded' this stage)"
+  }
+ ],
+ "lacked_data": "M's hypothesis tested for this result. What Planck 2018 lacked: SH0ES 2022 (73.04 +- 1.04, READ), DESI DR2 BAO (READ), ACT DR6 / SPT-3G / updated BBN rates (NAMED-NOT-READ). Evidence the missing data DO matter: for the H_0 VALUE they do -- Planck's H_0 is inferred under base-LCDM and is contested at 3.6-5 sigma by local data (Planck's own words and SH0ES's, both READ); the independent DESI+BBN route gives 68.51 +- 0.58. So the tree's 'Measured' / 'PINNED' drops a model dependence that later data make live, and its printed theta = 6.549e-18 /s is data-dependent at the 8% level. Evidence they do NOT change the tree's conclusions, computed: (i) permute.py's FALSIFIED verdict depends only on H_0 != 0; every value READ is 70-243 sigma from zero and the tree's own predicate flips only at H_0 = 0 exactly; no dataset on either side of the tension, and no model extension Planck considered, gives H_0 = 0. (ii) eta is not load-bearing anywhere (AST: one print), and across all Planck columns spans 6.06-6.57e-10; the (c) closure rests on net B = 0. Nothing found that shows Planck's reported numbers wrong; the moved datum is a contested VALUE, not a sign.",
+ "grade": "NARROWED",
+ "grade_evidence": "The measurements STAND as numbers and are transcribed correctly: H_0 = 67.36 +- 0.54 and Omega_b h^2 = 0.02237 +- 0.00015 READ in Table 2; eta re-derived as (6.124 +- 0.041)e-10, rounding to the tree's 6.1e-10; theta = 3H_0 = 6.548967e-18 /s reproduces the printed 6.549e-18; Mpc/year conventions exact. The grade is NARROWED, not STANDS, because the tree's use drops hypotheses the source states: Planck's H_0 is 'inferred (model-dependent)' under base-LCDM and carries Planck's own 3.6/4.4 sigma tension caveat, while permute.py:29 says 'Measured' and cosmo.py:22,34 'PINNED' with no interval (the value holds on the base-LCDM class; SH0ES 73.04 and DESI+BBN 68.51, both READ, lie outside Planck's 68% band). It is not DATA-DEPENDENT for the tree's conclusions: the FALSIFIED verdict (permute.py:504-506, obstruct.py:270-282) depends only on sign(H_0), shown robust at 70-243 sigma under every READ value; eta is not load-bearing (AST). Recorded, not repaired, none a refutation: warpfolder.py:229 'NAMED-NOT-READ' is now READ (Planck prints Omega_b h^2, not eta); warpfolder.py:402 'SM baryogenesis gives eta' is the tree's attribution, not Planck's, and is contradicted by the D65-banked 1206.2942 (see audits/sakharov-1967.json); permute.py:404-406's 'cross-check' is an identity; cosmo.py:36's 14.26 Gpc is 0.80% above the 14.147 Gpc Planck 2018's own column implies (ancillary, outside this key).",
+ "what_would_change_the_grade": "To STANDS: permute.py/cosmo.py recording H_0 as 'base-LCDM inferred, 67.36 +- 0.54, in 3.6-4.4 sigma tension with local H_0' -- the use would then match the source's class; the verdict is unchanged either way. To DATA-DEPENDENT: only if a tree conclusion came to rest on the VALUE of H_0 (e.g. a quantitative bound that changes between 67.36 and 73.04), or on eta's value. To WRONG: a READ source printing values different from those transcribed, or a measurement giving H_0 <= 0 -- none exists. Reading Sect. 7.6 (p.52), ACT DR6 and the PDG BBN review when alphaXiv quota resets would firm up the eta 'value_now' row; it cannot move the grade, since eta enters no flag.",
+ "reverify_command": "cd /tmp && PYTHONDONTWRITEBYTECODE=1 python3 /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/1807.06209.py  # expect ALL PASS, exit 0; then: cd /home/user/Claude-Method-Works && git status --short research  # expect clean",
+ "report_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/audits/1807.06209.json"
+}

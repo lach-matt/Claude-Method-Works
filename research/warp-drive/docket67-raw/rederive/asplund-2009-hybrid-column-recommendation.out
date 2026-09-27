@@ -1,0 +1,36 @@
+Table 1 photospheric dashes (all): ['As', 'Bi', 'Br', 'Cd', 'Cs', 'Hg', 'I', 'Pt', 'Re', 'Sb', 'Se', 'Ta', 'Te', 'U']
+payload elements with a Table 1 dash: ['As', 'Bi', 'Br', 'Cd', 'Cs', 'Hg', 'I', 'Sb', 'Se', 'Ta', 'Te', 'U']
+PASS H1 tree's 12 missing == Table 1 dashes within the payload  -- ['As', 'Bi', 'Br', 'Cd', 'Cs', 'Hg', 'I', 'Sb', 'Se', 'Ta', 'Te', 'U']
+PASS H1 every one of the 12 HAS a Table 1 meteoritic value
+PASS H1 payload elements absent from Table 1 altogether  -- []
+PASS H2 photospheric-only returns infinity  -- binds on I
+PASS H2 hybrid is finite  -- binds on P at 1910.87
+PASS H2 tree's own hybrid reproduces from READ Table 1  -- tree P 1910.87 vs here P 1910.87
+PASS H3 Si photospheric == meteoritic (the A09 sec 4.1 peg)
+met - phot over 59 non-volatile elements: median +0.000, mean -0.008, sd 0.093 dex
+PASS H3 fill is on the photospheric scale to within 0.05 dex (median)
+
+H4  the 12 filled elements in the hybrid, and the fall each needs to bind:
+   As  factor      9.1332   must fall 2.32 dex (x209) to overtake P
+   Bi  factor     10.4472   must fall 2.26 dex (x183) to overtake P
+   Br  factor    183.0368   must fall 1.02 dex (x10.4) to overtake P
+   Cd  factor    169.1543   must fall 1.05 dex (x11.3) to overtake P
+   Cs  factor     73.2392   must fall 1.42 dex (x26.1) to overtake P
+   Hg  factor     39.4431   must fall 1.69 dex (x48.4) to overtake P
+   I   factor     86.6340   must fall 1.34 dex (x22.1) to overtake P
+   Sb  factor     31.3083   must fall 1.79 dex (x61) to overtake P
+   Se  factor      1.6934   must fall 3.05 dex (x1.13e+03) to overtake P
+   Ta  factor     28.4191   must fall 1.83 dex (x67.2) to overtake P
+   Te  factor      0.7069   must fall 3.43 dex (x2.7e+03) to overtake P
+   U   factor     28.4121   must fall 1.83 dex (x67.3) to overtake P
+   closest: Br at 1.02 dex
+PASS H4 no filled element binds, nor is within 1 dex of binding  -- Br 1.02 dex
+PASS H4 the smallest margin exceeds the largest |met-phot| offset seen for any non-volatile element in Table 1  -- margin 1.02 vs max offset 0.29
+PASS H5 fill from AAG21 CI column: binder unchanged  -- P 1910.87 (A09-fill 1910.87); max fill change 0.03 dex
+PASS H5 fill from AG26 Table 3 (CI-Tc) values: binder unchanged  -- P 1910.87 (A09-fill 1910.87); max fill change 0.13 dex
+PASS H6 hybrid rule takes Li photospheric (determined) = 1.05
+   Li factor: hybrid (photospheric Li) 1753.36 ; with meteoritic Li 10.8112
+H7  mass share of the 12 filled elements in the hybrid column: 1.843e-07
+PASS H7 filling changes the normalisation by < 1e-6
+
+RESULT: ALL CHECKS PASS

@@ -1,0 +1,16 @@
+PASS A. 8 pi u W = -(W Psi')' - W Psi'^2 - W''  (residual 0); Phi absent from u: True
+PASS B+. core W=r0*sin(r/r0): u=1/(8*pi*r0**2), mu=1/4 - cos(R/r0)/4, deficit - 8 pi mu = 0, T^z_z = T^t_t: True
+PASS B-. core W=r0*sinh(r/r0): u=-1/(8*pi*r0**2), mu=1/4 - cosh(R/r0)/4, deficit - 8 pi mu = 0, T^z_z = T^t_t: True
+PASS B. positive core: the exterior cone closes (W'=cos(R/r0)=0, deficit 2pi) exactly at mu = 1/4 -- Gott bound G mu < 1/4
+PASS C. Psi' != 0 core: deficit 3.769911184 = 8 pi mu 3.766608136 + 2 pi INT W Psi'^2 0.003303049  (so deficit >= 8 pi mu)
+PASS D. linear: h_tt=4*(-mu + tau)*log(r), h_zz=4*(-mu + tau)*log(r), deficit=4*pi*(mu + tau), W Psi' -> -2*mu + 2*tau
+PASS D. tau = mu (boost invariant) gives 8 pi mu, h_tt = 0, W Psi' = 0
+PASS D'. first-order identity: 2pi(4 mu + 2(tau - mu)) = 4 pi (mu + tau)
+PASS E. mu=+0.01, tau=-0.02 (axial pressure 0.02 > mu): deficit = -pi/25 < 0 (EXCESS), W Psi' = -3/50 != 0 (tree hypothesis broken); NEC_z rho+p_z = 3/100 > 0, DEC fails (p_z > rho)
+   W'(0)-1 = -0.4  ->  axis mu = -(W'(0)-1)/4 = +0.100  (deficit)
+   W'(0)-1 = +0.0  ->  axis mu = -(W'(0)-1)/4 = -0.000  (none)
+   W'(0)-1 = +0.7  ->  axis mu = -(W'(0)-1)/4 = -0.175  (EXCESS, mu<0)
+   W'(0)-1 = +2.0  ->  axis mu = -(W'(0)-1)/4 = -0.500  (EXCESS, mu<0)
+PASS F. normalisation: W'(0)-1 = -4 G mu, not -8 pi G mu (deficit ANGLE 2pi(1-W'(0)) = 8 pi G mu)
+
+10/10 PASS

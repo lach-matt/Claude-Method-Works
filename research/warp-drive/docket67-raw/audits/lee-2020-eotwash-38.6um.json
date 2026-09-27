@@ -1,0 +1,79 @@
+{
+ "key": "lee-2020-eotwash-38.6um",
+ "name": "Eot-Wash inverse-square-law test: gravitational-strength (|alpha|=1) Yukawa excluded for ranges >= 38.6 um at 95% CL (Lee, Adelberger, Cook, Fleischer & Heckel, PRL 124, 101101 (2020), arXiv:2002.11761); merged with 'Eot-Wash short-range gravity bounds (as GLP eq. 39 applies them)'",
+ "source": {
+  "located": "arXiv:2002.11761, J. G. Lee, E. G. Adelberger, T. S. Cook, S. M. Fleischer, B. R. Heckel, 'New Test of the Gravitational 1/r^2 Law at Separations down to 52 um', Phys. Rev. Lett. 124, 101101 (published 2020-03-10). NOT OPENED IN THIS STAGE: alphaXiv answer_pdf_queries, get_paper_content and discover_papers all returned 'alphaXiv assistant quota exceeded' (three attempts); arxiv.org, ar5iv, export.arxiv.org, inspirehep, semanticscholar, researchgate and the IISER mirror are all refused by the egress proxy (403 / EGRESS_BLOCKED).",
+  "read_status": "READ-VIA-RESTATEMENT",
+  "via": "Two independent verbatim restatements, agreeing word for word on the load-bearing sentence: (a) an earlier in-session pass that READ the paper at source (task output /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/tasks/wdeywbcrd.output, block '=== SHORT-RANGE GRAVITY (torsion balance) ===') quoting the abstract: 'We took data at detector-attractor separations between 52 micrometres and 3.0 mm. Newtonian gravity gave an excellent fit to our data, limiting with 95% confidence any gravitational-strength Yukawa interactions to ranges < 38.6 micrometres.' and 'This implies that the dilaton or heavy graviton mass, and the radion unification mass must be greater than 5.1 meV and 7.1 TeV, respectively, and that the largest extra dimension must have a toroidal radius less than 30 micrometres', with chi^2 = 275.0 for nu = 285 (P = 0.654) and best Yukawa Delta chi^2 = 3.3 at lambda = 7.1 um; (b) this stage's WebSearch result text for the arXiv listing: 'Newtonian gravity gave an excellent fit to their data, limiting with 95% confidence any gravitational-strength Yukawa interactions to ranges < 38.6 um' and 'This form is a reasonable approximation for the effects of extra dimensions as long as the minimum separation attained in the experiment is greater than the size of the largest extra dimension.' GLP eq. (39) (Greene, Levin & Parikh, arXiv:1103.2174) is carried as the O6/O7 pass restated it (/tmp/o6o7/final.py:10, scratchpad a1/o67.txt:28, 'read in full' by that pass) and was NOT re-read in this stage."
+ },
+ "published_statement": "'Newtonian gravity gave an excellent fit to our data, limiting with 95% confidence any gravitational-strength Yukawa interactions to ranges < 38.6 micrometres' (abstract, data at separations 52 um to 3.0 mm); and, as the paper's own extra-dimension reading, 'the largest extra dimension must have a toroidal radius less than 30 micrometres' with dilaton/heavy-graviton mass > 5.1 meV and radion unification mass > 7.1 TeV. [READ-VIA-RESTATEMENT, see source.via]",
+ "published_hypotheses": [
+  "H1 Yukawa parametrisation of the deviation: V = -G m1 m2/r (1 + alpha exp(-r/lambda)) (the standard Eot-Wash form; the equation itself not re-read this stage)",
+  "H2 GRAVITATIONAL STRENGTH: the 38.6 um figure is the lambda at which the 95% CL curve crosses |alpha| = 1; for other alpha the excluded lambda differs",
+  "H3 95% confidence level, from a fit (Newtonian chi^2 = 275.0, nu = 285) with no significant Yukawa (best Delta chi^2 = 3.3 at 7.1 um, below their 2-sigma threshold)",
+  "H4 static source and detector masses, separations 52 um to 3.0 mm (18-fold and 120-fold attractor symmetries per the search result text)",
+  "H5 for an extra-dimension reading, the Yukawa form is an approximation valid only when the minimum separation exceeds the size of the largest extra dimension; the 30 um toroidal-radius figure carries its own alpha convention (NOT READ this stage)"
+ ],
+ "hypothesis_drift": [
+  "DROPPED H2 (|alpha| = 1) -- branelink.py:142 R_EOTWASH = 38.6e-6 and branelink.py:96-98, 288-292 use the |alpha|=1 range as the maximal compact radius r of a circle, and branelink.py:24-25 / :160 (EOTWASH_BOUNDS, echoed in ledger.py:1758 via ledger.py:1765) apply it to gamma*L through GLP eq. (39). The restated eq. (39), V = -(G m1 m2/(gamma L r)) coth(pi r/(gamma L)), is COMPUTED here (sympy + numeric image sum) to be Newton x (1 + 2 exp(-r/lambda) + ...) with lambda = gamma L/(2 pi): a Yukawa of alpha = 2, not |alpha| = 1 (a spin-2 KK graviton would carry alpha = 8/3; not read). So the bound on lambda that the circle actually faces is TIGHTER than 38.6 um, and Lee's own extra-dimension figure is 30 um. Direction: the tree's r is LOOSE (too large), not too small.",
+  "DIRECTION OF THE DATUM (use, not source) -- branelink.py:96-98 'at the maximal r = 38.6 um and beta = 1 gives |c| <= 6.37e-64'. Lee's result is an UPPER bound on r; |c| scales as r^-2 (branelink.py:288-292), so r = 38.6 um is the FLOOR of |c| over the Eot-Wash-allowed interval, not its ceiling. The '<=' is in beta only. COMPUTED: at beta = 1 the 1e-21 lab bound bites only for r < 3.0813e-26 m (3.80e8 reduced Planck lengths). The tree's sentence is literally true at the point it names; it is not a statement about all allowed r.",
+  "INTERNAL CONSISTENCY (use, not source; CONDITIONAL on K&N eq. 76-77's r being the circle radius with only the beta^2 dependence branelink codes -- K&N not re-read here) -- the tree's own clause branelink.py:160 EOTWASH_BOUNDS = 'gamma*L, not L' makes the admissible r <= 38.6 um / gamma; r = 38.6 um and beta = 1 (branelink.py:97, 288) are therefore not jointly admissible (gamma = infinity forces r -> 0). Applied consistently, the floor is |c| >= 6.3722e-64 (beta gamma)^2 and the lab bound bites at beta*gamma = 1.2527e21 -- a real but vacuous bound; at GW170817's beta = 3.741657e-08 the floor is 8.92e-79, 57 orders below 1e-21. The tree's conclusion 'does not bite' SURVIVES at every beta GW170817 allows; the figure '42 orders short' is the value at an inadmissible point.",
+  "PROVENANCE WORD -- branelink.py:25 '(All READ at source by the O6/O7 pass)' covers the Eot-Wash figure, but the O6/O7 pass's own source list (scratchpad a1/o67.txt:36) records Lee et al. as 'Obtained by web search; the PDF was not opened this pass', status RECOVERED. The value was READ at source by a different in-session pass (tasks/wdeywbcrd.output). A discrepancy of attribution, not of value: 38.6 um is correct.",
+  "KEPT: 95% CL (branelink.py:142) matches H3; the minimum-separation caveat H5 is met (52 um > 38.6 um) and is not needed by the tree's use."
+ ],
+ "data_at_publication": [
+  {
+   "quantity": "lambda_max for a gravitational-strength (|alpha|=1) Yukawa, 95% CL",
+   "value_then": "38.6 um (Lee et al. 2020; superseding Kapner et al. 2007's 56 um ISL / 44 um extra-dimension figures)",
+   "value_now": "38.6 um -- no tighter |alpha|=1 torsion-balance limit found in this stage's searches (HUST dual-modulation results return 59 um and 66 um-class figures at |alpha|=1). The 2026 review Murata, Fujiie & Suzuki arXiv:2605.18212 was located but NOT READ, so 'still the tightest' is not asserted",
+   "source_now": "WebSearch result text only (not READ); arXiv:2605.18212 NAMED-NOT-READ",
+   "moves_conclusion": "No moved datum."
+  },
+  {
+   "quantity": "lambda_max appropriate to the circle the tree applies it to (alpha = 2 from the restated GLP eq. 39; alpha = 8/3 for a KK graviton)",
+   "value_then": "not stated for alpha = 2; Lee's own 'largest extra dimension toroidal radius < 30 um' (alpha convention not read)",
+   "value_now": "same",
+   "source_now": "Lee et al. 2020 via restatement",
+   "moves_conclusion": "No. COMPUTED: branelink's |c| at r = 30 um is 1.0549e-63 (41.98 orders short) vs 6.3722e-64 (42.20 orders) at 38.6 um; round(orders) = 42 at both, the selftest pin at branelink.py:469-470 holds, and O6's EOTWASH_BOUNDS clause is qualitative and unaffected."
+  },
+  {
+   "quantity": "reduced Planck mass Mbar4 entering |c| with r",
+   "value_then": "higgs.reduced_planck_gev() (computed from hbar, c, G)",
+   "value_now": "unchanged (CODATA G)",
+   "source_now": "branelink.py:148 via higgs.py",
+   "moves_conclusion": "No."
+  }
+ ],
+ "rederivation": {
+  "method": "sympy",
+  "script_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/lee-2020-eotwash-38.6um.py",
+  "outcome": "ALL 11 CHECKS PASS (output in rederive/lee-2020-eotwash-38.6um.out). [1] sympy: coth(x) == 1 + 2 sum_k exp(-2kx); lim (coth(pi r/L) - 1)/exp(-2 pi r/L) = 2, so the restated GLP eq. (39) is a Yukawa with alpha = 2, lambda = gamma L/(2 pi); numeric image sum sum_n 1/(r^2 + n^2 L^2) == (pi/(rL)) coth(pi r/L) to <2e-11 at r/L = 0.3, 1, 2.5 (it is the 5D scalar Green's function on a circle). [2] branelink.sme_coefficient reproduces 6.372236e-64 at r = 38.6 um, beta = 1; at 30 um 1.0549e-63; ratio = (38.6/30)^2 exactly; 42 orders at both. [3] r_bite = 3.0813e-26 m at beta = 1. [4] with the tree's gamma*L clause: floor 6.3722e-64 (beta gamma)^2, bites at beta*gamma = 1.2527e21; at GW170817's beta floor 8.92e-79 (57.05 orders short). The measurement itself (a 95% CL fit to torsion data) cannot be re-derived: the data and exclusion curve are not in hand.",
+  "agrees_with_source": "partly"
+ },
+ "later_literature": [
+  {
+   "ref": "Murata, Fujiie & Suzuki, 'Short-Range Tests of the Gravitational Inverse-Square Law', arXiv:2605.18212 (May 2026)",
+   "effect": "extends",
+   "what": "A review updating short-range ISL constraints over the past decade (tabletop, Casimir, neutron scattering, colliders) with a common formalism and extra-dimension parametrizations -- per its search listing only; whether any post-2020 result tightens the |alpha|=1 crossing below 38.6 um is NOT known here",
+   "read_status": "NAMED-NOT-READ (alphaXiv quota exceeded; arxiv.org blocked)"
+  },
+  {
+   "ref": "HUST dual-modulation torsion-pendulum ISL tests (PRL 116, 131101 (2016); PRL 124, 051301 (2020); a later result 'down to 295 um' quoted at lambda = 59 um)",
+   "effect": "confirms",
+   "what": "Independent torsion-pendulum nulls; the |alpha|=1 crossings quoted in search result text (59 um, 66 um) are weaker than 38.6 um, with the strongest alpha bound claimed at 70-300 um. Consistent with, not tighter than, Lee et al. at |alpha|=1",
+   "read_status": "NAMED-NOT-READ (WebSearch result text only)"
+  },
+  {
+   "ref": "Eller, Ettengruber & Zander, arXiv:2508.04274 (2025)",
+   "effect": "extends",
+   "what": "Per the earlier in-session reading (tasks/wdeywbcrd.output): neutrino-oscillation fits give R <~ 0.2 um for a single large extra dimension without bulk masses and carry Lee et al.'s ~30 um as the gravity bound -- a model-dependent route tighter than Eot-Wash for that model, irrelevant to the tree's circle-radius use",
+   "read_status": "READ-VIA-RESTATEMENT (earlier in-session pass)"
+  }
+ ],
+ "lacked_data": "M's hypothesis for THIS result: the authors had torsion-balance data at 52 um - 3.0 mm with a Newtonian chi^2 = 275.0/285. What they lacked is not data but scope: their bound is a static-source Yukawa null, and it says nothing by itself about moving branes. The moving-brane application is GLP's (2011, before Lee), and the tree inherits it. No datum has moved since 2020 that changes the conclusion: no tighter |alpha|=1 limit was found (one 2026 review not read), and the question 'is 38.6 um right?' is answered yes by two agreeing verbatim restatements. EVIDENCE AGAINST M's hypothesis here: the measurement is a null with a large margin (Delta chi^2 = 3.3 at best) and no later torsion experiment reports a positive deviation. EVIDENCE FOR a limitation (not an error): the |alpha|=1 figure is applied to an alpha = 2 potential; the correct number is tighter, not looser, and moving it to Lee's own 30 um moves no tree conclusion (0.22 orders, same rounding). The tree's real exposure is in its own use -- the upper bound on r used as if it were a ceiling on |c|, and r = 38.6 um paired with beta = 1 against its own gamma*L clause -- and even there the conclusion ('the SME route does not bite') survives at every beta GW170817 allows.",
+ "grade": "NARROWED",
+ "grade_evidence": "The published statement (|alpha| = 1 Yukawa excluded for lambda >= 38.6 um at 95% CL) is exactly the number and CL the tree uses (branelink.py:142), confirmed by two agreeing verbatim restatements (source not re-opened this stage: alphaXiv quota exhausted, arxiv blocked). The tree DROPS the gravitational-strength hypothesis: it applies the |alpha|=1 range to a compact circle whose potential -- the restated GLP eq. (39) -- is COMPUTED here to carry alpha = 2 (alpha = 8/3 for a spin-2 KK graviton), for which the excluded range is smaller; Lee's own extra-dimension figure is 30 um. That is a hypothesis the tree drops, so NARROWED, and it is narrowed in the tree's DISFAVOUR only by being loose: COMPUTED, every downstream figure moves by <= 0.22 orders (42.20 -> 41.98) and none changes rounding, sign or verdict; O6's EOTWASH_BOUNDS clause is qualitative and untouched. Recorded, not repaired: (i) the r-direction -- 38.6 um is the floor of |c| over allowed r, the lab bound bites below r = 3.08e-26 m at beta = 1; (ii) conditional on K&N's form, r = 38.6 um with beta = 1 is inadmissible under the tree's own gamma*L clause, the consistent bound beta*gamma <= 1.25e21 is vacuous, and 'does not bite' survives at GW170817's beta (floor 57 orders below 1e-21); (iii) branelink.py:25's 'All READ at source by the O6/O7 pass' is not true of Lee et al. for that pass (a1/o67.txt:36 'the PDF was not opened this pass'), though another in-session pass did read it. Nothing here is WRONG: no counterexample, and the number is right.",
+ "what_would_change_the_grade": "To STANDS: the tree names the |alpha|=1 hypothesis at branelink.py:142 or uses the alpha-appropriate range (Lee's 30 um under its stated alpha, once read), and states that 38.6 um is the least-constraining r. To DATA-DEPENDENT: a post-2020 measurement (e.g. inside arXiv:2605.18212, not read) that moves the |alpha|=1 or alpha=2 crossing -- COMPUTED, it would need r below ~3e-26 m before O7's null moved, so only the stated number, not the verdict, is exposed. To OPEN: if a direct read of arXiv:2002.11761 contradicted both restatements. A direct read (alphaXiv answer_pdf_queries on 2002.11761 once the quota resets) should also confirm the alpha convention behind 30 um, and a re-read of GLP 1103.2174 eq. (39) and K&N 2309.05759 eqs. 76-77 would remove the CONDITIONAL on drift items 1 and 3.",
+ "reverify_command": "PYTHONDONTWRITEBYTECODE=1 python3 /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/lee-2020-eotwash-38.6um.py   # exit 0, 11 PASS; then alphaXiv answer_pdf_queries(paper='2002.11761', queries=['abstract 38.6 um 95% CL','toroidal radius 30 um alpha convention'])",
+ "report_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/audits/lee-2020-eotwash-38.6um.json"
+}

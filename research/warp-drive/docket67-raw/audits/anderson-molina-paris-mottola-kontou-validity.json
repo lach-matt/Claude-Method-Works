@@ -1,0 +1,101 @@
+{
+ "key": "anderson-molina-paris-mottola-kontou-validity",
+ "name": "Anderson-Molina-Paris-Mottola and Kontou: semiclassical gravity invalid at eps ~ 1",
+ "source": {
+  "located": "(1) P.R. Anderson, C. Molina-Paris, E. Mottola, 'Linear Response, Validity of Semi-Classical Gravity, and the Stability of Flat Space', arXiv:gr-qc/0209075v1 (21 Sep 2002), PRD 67, 024026 (2003) [AMM]. (2) The tree names 'Kontou' with no paper; the two Kontou works that speak to semiclassical validity and are banked here were read: E.-A. Kontou & K. Sanders, 'Energy conditions in general relativity and quantum field theory', arXiv:2003.01815v2 (CQG 37 (2020) 193001), pp.2, 35; and E.-A. Kontou, 'Wormhole Restrictions from Quantum Energy Inequalities', arXiv:2405.05963v2 (Universe 10 (2024) 291), pp.1, 19, 25. Which Kontou work the tree means is an IDENTIFICATION MADE BY THIS AUDIT, not by the tree. Flanagan-Wald is audited separately (audits/flanagan-wald-1996.json, NARROWED) and is not re-graded here. Restatement cross-read: Hu-Verdaguer arXiv:0802.0658v1 p.12, p.24 (cite AMM [113],[205] as 'proposed as a test for the validity of the semiclassical approximation').",
+  "read_status": "READ",
+  "via": "Banked arXiv text layers in the d67 scratchpad: amm_0209075.txt (88,588 bytes; gr-qc/0209075v1, pp.1-14 body + App. A start read: abstract, Sec. I pp.1-5, Sec. II p.7, Sec. III p.9-10 criterion, Sec. V pp.13-14); src/casmag/all/2003.01815v2.txt; src/casmag/all/2405.05963v2.txt; src/casmag/all/0802.0658v1.txt. In THIS stage alphaXiv returned 'assistant quota exceeded' for answer_pdf_queries (2405.05963, 2108.12668) and discover_papers, so no fresh alphaXiv page text was obtained; every quotation below is from the banked text layers, which are arXiv text extractions. AMM Appendix B and bibliography not read (not needed for the validity statement). Fewster-Kontou 2108.12668 ('A semiclassical singularity theorem') is NAMED-NOT-READ (quota)."
+ },
+ "published_statement": "AMM abstract (p.1): 'A quantitative test for the validity of the semi-classical approximation in gravity is given. The criterion proposed is that solutions to the semi-classical Einstein equations should be stable to linearized perturbations, in the sense that no gauge invariant perturbation should become unbounded in time.' AMM Sec. III (p.10): 'A necessary condition for the validity of the large N semi-classical equations of motion (2.9) is that the linear response equations (3.4) should have no solutions with finite non-singular initial data for which any linearized gauge invariant scalar quantity grows without bound.' AMM Sec. II (p.7): 'the modern framework of effective field theories suggests that we should regard the Planck scale as the physical UV cutoff which defines the extreme limit of possible validity of semi-classical gravity, and that we should confine our attention to only those predictions of the theory which involve length scales l much greater than the Planck length'; and (p.7) the large-N self-consistent solution is 'the exact solution of this equation without any perturbative re-expansion of G[g] ... the principal non-perturbative RG improved feature of the large N limit.' AMM Sec. V (p.13): 'this is a necessary, though perhaps not a sufficient condition'; flat space stable 'provided we restrict ourselves to solutions with 4 G_N |k^2| << O(1)'; (p.14) 'Further important and interesting examples to which the criterion may be applied are solutions with event horizons, such as Schwarzschild and de Sitter spacetimes ... In the Hartle-Hawking state one can construct a static solution to the semi-classical equations (2.9) that is quite close to the classical one near the horizon.' KONTOU-SANDERS 2003.01815 p.35: 'known violations of the AANEC involve Planck length distances [58, 125, 126, 127], where the validity of QFT in curved spacetimes and/or semiclassical quantum gravity is doubtful ... Violations at Planck scale are allowed, because they probably lie outside the range of validity of the semiclassical Einstein equation.' (p.2: '(iii) the violation has a transversal size of the order of the Planck length, where the validity of the theory is questionable.') KONTOU 2405.05963 p.19, on HPS's self-consistent wormhole [90]: 'The throat of the wormhole derived is of Planck length or up to the order 10^2 l_pl, so it is doubtful that it can be considered in the regime of the semiclassical approximation. However, it would be of interest to examine that wormhole solution using one of the QEIs for the nonminimally coupled fields derived in [17,30] to determine its exact validity.' p.25: 'A quantum gravity regime wormhole with a throat of Planck scale size [90] would not be traversable.' None of the three, on the pages read, states a threshold on a metric-perturbation amplitude eps (or h) at which semiclassical gravity ceases to apply.",
+ "published_hypotheses": [
+  "AMM H1: a background g that SOLVES the renormalised large-N semiclassical equations (2.9) (the linear response (3.4) is the first variation about a solution, p.8-9)",
+  "AMM H2: the large-N limit with N free quantum fields and N G finite (Sec. II); the state |in> in which (2.9) holds -- the verdict is 'for that particular geometry, at least not for that particular state' (p.13)",
+  "AMM H3: validity is judged on length scales l >> l_Pl; 4 G_N |k^2| << O(1) (pp.7, 13); fourth-order coefficients alpha, beta O(1)",
+  "AMM H4: the criterion is NECESSARY, not sufficient (p.13)",
+  "AMM H5: allowed gauge transformations (3.11), growing ones excluded if the action (2.7) is not invariant (p.10)",
+  "Kontou-Sanders: the Planck-scale exclusion is stated as 'probably' / 'doubtful' / 'questionable' -- a judgement, not a theorem",
+  "Kontou 2024: the HPS throat scale (1 to 10^2 l_P) is the stated reason for doubt; the exact validity is left to a future NMC-QEI test"
+ ],
+ "hypothesis_drift": [
+  "ATTRIBUTION DRIFT, AMM (substantive) -- throatmass.py:68-72 (carried into ledger.py:1684-1685 and LEDGER.md:204 'the corridor is EXPELLED rather than refuted') attributes to AMM the claim that 'eps ~ 1 lies outside semiclassical gravity's domain'. On the pages read AMM's domain boundaries are (a) length scales approaching l_Pl (p.7, p.13: 4 G_N|k^2| << O(1)) and (b) a growing gauge-invariant linear-response mode about a self-consistent solution (p.10). AMM describe their large-N solution as non-perturbative ('without any perturbative re-expansion', p.7) and name Schwarzschild horizons -- where h = 2M/r = 1 exactly (rederive C3) -- and the Hartle-Hawking static self-consistent solution as applications OF the criterion (p.14), i.e. an h = 1 geometry treated inside the framework, not expelled from it. The antecedent, as attributed to AMM, is not AMM's claim on the pages read.",
+  "ATTRIBUTION DRIFT, Kontou (substantive) -- the same site attributes the eps ~ 1 claim to 'Kontou'. Kontou-Sanders p.35 and p.2 place the doubtful region at PLANCK-LENGTH distances; Kontou 2024 p.19 doubts HPS's wormhole because its throat is 1-10^2 l_P, and p.25 calls a Planck-size throat 'quantum gravity regime'. The criterion is a length scale, not the metric amplitude. The tree's corridor has h = 1/2 exactly (rederive A1) at a free scale b; at a = 1 m it is 6.19e34 l_P (rederive B), so neither Kontou text places it outside the semiclassical regime.",
+  "DROPPED: AMM's criterion is a TEST that can pass or fail (necessary condition), and a failure NAMES something -- a gauge-invariant growing mode, and the conclusion that 'the quantum fluctuations of the geometry should be included' (p.13). throatmass.py:71-72 ('an expulsion names nothing') and EXPULSION_WORSE_THAN_NO_GO (throatmass.py:163) do not carry this. Under AMM a corridor that failed the criterion would be expelled WITH a named mode; one that passed would not be expelled. linstab.py (DOCKET 64) already records that AMM's criterion is not evaluable on the corridor because no self-consistent solution is in hand (AMM_NEEDS_A_SOLUTION) -- so the tree's own AMM instrument does not support the expulsion either.",
+  "DROPPED: large N (AMM H2), 'for that particular state' (AMM p.13), 'necessary, not sufficient' (AMM H4). Recorded; the tree applies nothing of AMM at this site, so no over-claim results from these drops beyond the attribution.",
+  "WEAKENED (hedge dropped): Kontou-Sanders say 'probably' / 'doubtful'; Kontou 2024 says 'doubtful' and asks for a test 'to determine its exact validity'. The tree's 'are right that ... lies outside' presents a firm domain boundary. The conditional 'If' partly preserves the hedge.",
+  "ADDED: the parameter 'eps' itself. eps is Flanagan-Wald's family parameter (audited separately, NARROWED for the same attribution). Neither AMM nor Kontou uses an eps of that kind; the tree's merger of three authors under one 'eps ~ 1' criterion is the tree's construction.",
+  "POSSIBLE SOURCE OF THE CONFLATION (reading, not asserted as the tree's intent): AMM p.2-3 restate Kuo-Ford's fluctuation-to-mean ratio Delta = <TT>_con/<T><T>, found 'of order unity' in many states including the Casimir vacuum -- a '~ 1' breakdown measure. AMM criticise it as coordinate dependent and propose linear response instead. That '~1' is a ratio of stress-tensor fluctuations, not a metric amplitude; Kuo-Ford 1993 is NAMED-NOT-READ (restated by AMM)."
+ ],
+ "data_at_publication": [
+  {
+   "quantity": "tree datum: eps identified with h = 2(M/b)/(a/b) at the core surface",
+   "value_then": "0.5 (throatmass.py:62-63; achievable.py M_OVER_B = 5.0e-3, A_OVER_B = 0.02)",
+   "value_now": "1/2 exactly (rederive A1, achievable.py imported read-only)",
+   "source_now": "achievable.py constants",
+   "moves_conclusion": "no -- and h enters none of the three sources' validity criteria (rederive B3); the sources' criteria turn on length scale."
+  },
+  {
+   "quantity": "Planck length l_P (sets AMM's 4 G|k^2| << O(1), Kontou-Sanders' and Kontou's Planck-scale boundary)",
+   "value_then": "l_Pl (Planck units; no numerical value enters AMM's or Kontou's conclusion)",
+   "value_now": "1.616255e-35 m = sqrt(hbar G/c^3) with CODATA 2018/2022 hbar = 1.054571817e-34, G = 6.67430e-11 (rederive A2, A3)",
+   "source_now": "CODATA recommended values (unchanged 2018 -> 2022 at this precision)",
+   "moves_conclusion": "no -- at a = 1 m, 4 G|k^2| ~ 1.0e-69; at 1 cm 1.0e-65; the condition fails only at a ~ few l_P (4.09 l_P gives 0.24; 1 l_P gives 4) (rederive B1, B2)."
+  },
+  {
+   "quantity": "HPS throat scale (Kontou 2024's reason for doubt)",
+   "value_then": "'of Planck length or up to the order 10^2 l_pl' (Kontou 2405.05963 p.19, reading HPS 1997)",
+   "value_now": "unchanged; throatmass.py records the largest self-consistent throat built as 4.849e-33 m (LEDGER.md:204) = 300 l_P",
+   "source_now": "throatmass.py / LEDGER.md:204 (READ data, not re-measured)",
+   "moves_conclusion": "no -- this is why Kontou doubts HPS, and it concerns throat SIZE, not the corridor's h."
+  }
+ ],
+ "rederivation": {
+  "method": "sympy",
+  "script_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/anderson-molina-paris-mottola-kontou-validity.py",
+  "outcome": "ALL PASS (15 checks, exit 0), sympy + z3 5.1.0. A1: h_core = 2(1/200)/(1/50) = 1/2 exactly from achievable.py. A2-A3: l_P = sqrt(hbar G/c^3) = 1.6162550e-35 m. B1-B2: AMM's 4G|k^2| ~ 4(l_P/a)^2 = 1.045e-69 at a = 1 m, 1.045e-65 at 1 cm, 0.239 at 4.09 l_P, 4.0 at 1 l_P, 4.0e-4 at 100 l_P -- the condition is met at every macroscopic corridor scale and fails only at a few l_P. B3: AMM's condition has no amplitude variable. C1-C2: the Schwarzschild Kretschmann scalar DERIVED from the metric is 48 M^2/r^6 = 12 h^2/r^4 with h = 2M/r, so at fixed h the curvature in Planck units is 12 h^2 (l_P/r)^4 -- set by scale, not by h (h = 1/2, r = 1 m: 2.0e-139). C3: h = 1 exactly at the horizon, the geometry AMM p.14 name as an application of their criterion. D1 (z3): under l_P^2|Riem| ~ h(l_P/L)^2 all four quadrants (eps~1 / eps<<1) x (sub-Planckian / Planckian) are SAT -- 'eps ~ 1' and the Planck criterion the sources state are logically independent. D2 (z3): forall h in (0,1], r >= 1e3 l_P: l_P^4 K <= 1.2e-11 (negation UNSAT); D3 vacuity guard SAT; D4 encoding guard: threshold 1.1e-11 is violated (SAT), so D2 can fail. ON RECORD: the first run used the bound < 1e-11, which is false at h = 1, r = 1e3 l_P (1.2e-11); z3 returned SAT and the check failed; the bound was corrected to the attained value 1.2e-11. NOT checkable here: AMM's flat-space stability proof itself (spectral positivity, App. B, unread) and whether the corridor passes AMM's criterion (needs a self-consistent solution; linstab.py records it as not evaluable).",
+  "agrees_with_source": "yes"
+ },
+ "later_literature": [
+  {
+   "ref": "Galanda, Meda, Murro, Pinamonti, Schmid, arXiv:2604.01047 (2026) [GMMPS]",
+   "effect": "contested",
+   "what": "Claims linear instability of Minkowski in semiclassical gravity (exponential growth for any nontrivial source, Thm 1.2), attributed to the renormalisation constants -- contesting AMM's flat-space STABILITY result, not AMM's validity criterion or its Planck-scale domain. Sibling d67 audits grade its parts STANDS/NARROWED/OPEN, and Thm 3.6 WRONG.",
+   "read_status": "READ-VIA-SIBLING-AUDITS (audits/2604.01047_*.json); not re-read in this stage"
+  },
+  {
+   "ref": "Hu & Verdaguer, arXiv:0802.0658v1 (Living Rev. Rel. 11 (2008) 3), p.12 and p.24",
+   "effect": "confirms",
+   "what": "Restates AMM as 'proposed as a test for the validity of the semiclassical approximation [205, 113]' and lists 'whether the fluctuations to mean ratio is a correct criterion' as open (p.24). Nothing there makes a metric-amplitude threshold the boundary.",
+   "read_status": "READ (banked text layer)"
+  },
+  {
+   "ref": "Kontou & Sanders, arXiv:2003.01815v2 (2020)",
+   "effect": "narrows",
+   "what": "Planck-scale distances 'probably lie outside the range of validity of the semiclassical Einstein equation' (p.35) -- a length-scale boundary; narrows the tree's eps reading to Planck-scale configurations.",
+   "read_status": "READ (banked text layer pp.2, 35)"
+  },
+  {
+   "ref": "Kontou, arXiv:2405.05963v2 (2024)",
+   "effect": "narrows",
+   "what": "Doubts HPS's self-consistent wormhole because its throat is 1-10^2 l_P (p.19) and asks for an NMC-QEI test to settle it; the tree's ledger already carries this as 'Kontou's requested test' (ledger.py:1727).",
+   "read_status": "READ (banked text layer pp.1, 19, 25)"
+  },
+  {
+   "ref": "Fewster & Kontou, arXiv:2108.12668 ('A semiclassical singularity theorem')",
+   "effect": "extends",
+   "what": "Candidate for a further Kontou statement on the semiclassical regime; not read.",
+   "read_status": "NAMED-NOT-READ (alphaXiv quota exceeded this stage)"
+  },
+  {
+   "ref": "discover_papers (this stage)",
+   "effect": "contested",
+   "what": "The one discover_papers call returned 'alphaXiv assistant quota exceeded'; later literature is limited to the banked set above.",
+   "read_status": "NOT RUN (quota)"
+  }
+ ],
+ "lacked_data": "M's hypothesis tested. What AMM had in 2002: a criterion and one evaluation (Minkowski, free scalar, vacuum); they explicitly lacked any evaluation on a curved self-consistent background, listing Schwarzschild and de Sitter as future work (p.14). What came later: GMMPS 2604.01047 contests the Minkowski evaluation itself (instability tied to renormalisation constants) -- that is a datum-like dependence on alpha, beta which AMM treated as O(1) (their H3), and it moves AMM's FLAT-SPACE STABILITY verdict, which is contested, not settled (sibling audits). It does NOT move the part the tree uses: AMM's domain boundary is scale-set (l >> l_Pl) plus a stability test, and no later datum turns it into an eps/h threshold. Kontou 2020/2024 had the HPS throat scale (1997) and CODATA l_P; neither has moved (l_P identical 2018 -> 2022 at 7 digits). No measured datum enters any of the three conclusions. Evidence either way: the missing data (curved-background linear response; the renormalisation constants) bear on WHETHER a given semiclassical solution is valid, which is AMM's test, and would be needed to decide the corridor; they do not supply the tree's antecedent. Having them would not change the finding that the sources state a Planck-length boundary rather than an eps ~ 1 boundary.",
+ "grade": "NARROWED",
+ "grade_evidence": "Statement and hypotheses READ at source (banked arXiv text layers of gr-qc/0209075v1, 2003.01815v2, 2405.05963v2). The tree's use at throatmass.py:68-72 (and ledger.py:1684-1685, LEDGER.md:204) attributes to AMM and Kontou the claim that eps ~ 1 lies outside semiclassical gravity's domain. The sources state a smaller, different domain restriction: length scales approaching the Planck length (AMM p.7 and p.13, 4 G_N|k^2| << O(1); Kontou-Sanders p.35 'probably'; Kontou 2024 p.19 'doubtful' for 1-10^2 l_P throats), plus, for AMM, a linear-stability TEST about a self-consistent solution. AMM treat the large-N equation non-perturbatively (p.7) and name the h = 1 Schwarzschild horizon as a place to APPLY the criterion (p.14). Computed: h is absent from AMM's condition (B3); at fixed h = 1/2 the Planck-unit curvature is 12 h^2 (l_P/r)^4 = 2.0e-139 at r = 1 m (C2, C4); eps ~ 1 and Planckian curvature are logically independent (z3 D1). So the sources place a configuration outside semiclassical gravity only at Planck scale -- a smaller class than 'eps ~ 1' -- and at the corridor's macroscopic scales their stated criteria do not expel it (AMM's stability test is undecided, per linstab.py). NARROWED, matching the sibling Flanagan-Wald audit. Not WRONG: nothing in AMM or Kontou is refuted, and the tree's sentence is conditional ('If ... are right'), so it asserts nothing false -- its antecedent is not the sources' claim on the pages read; this is an attribution discrepancy, recorded, not repaired. Not DATA-DEPENDENT: no measured datum enters the stated boundaries (l_P unchanged). Not OPEN: the statements were read at source; the one residual uncertainty is WHICH Kontou work the tree meant (it cites none), and Fewster-Kontou 2108.12668 is unread.",
+ "what_would_change_the_grade": "To STANDS: a passage in AMM (App. B or elsewhere unread) or in a Kontou work (e.g. Fewster-Kontou 2108.12668, or whichever paper the tree intended) stating that semiclassical gravity is invalid at metric-perturbation amplitude eps ~ 1 independent of scale; or the tree restricting the conditional to Planck-scale corridors (a ~ few l_P, where the rederive shows 4G|k^2| ~ 0.24-4). To OPEN: evidence that the tree meant a different, unreadable Kontou source. To WRONG: only if the tree asserted the attribution unconditionally AND a source were shown to state the contrary -- AMM p.14 comes close (it treats an h = 1 geometry within the framework), but the tree's sentence is conditional. The GMMPS flat-space instability, if it survives, bears on AMM's stability result, not on this grade.",
+ "reverify_command": "python3 /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/anderson-molina-paris-mottola-kontou-validity.py; S=/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67; sed -n '930,955p;1619,1636p;2331,2337p;2410,2418p' $S/amm_0209075.txt; sed -n '4539,4565p' $S/src/casmag/all/2003.01815v2.txt; sed -n '1290,1300p;1858,1860p' $S/src/casmag/all/2405.05963v2.txt; sed -n '66,72p' /home/user/Claude-Method-Works/research/warp-drive/throatmass.py",
+ "report_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/audits/anderson-molina-paris-mottola-kontou-validity.json"
+}

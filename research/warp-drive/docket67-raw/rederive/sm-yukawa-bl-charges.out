@@ -1,0 +1,47 @@
+(1) massform tables, recomputed:
+   y_e  Lbar H e_R    B=0 L=0
+   y_d  Qbar H d_R    B=0 L=0
+   y_u  Qbar Hc u_R   B=0 L=0
+(2) dim-4 psi psi phi operators (minimal SM):
+    ('H L~ ec~', 0, 0)
+    ('H Q uc', Fraction(0, 1), 0)
+    ('H Q~ dc~', Fraction(0, 1), 0)
+    ('H+ L ec', 0, 0)
+    ('H+ Q dc', Fraction(0, 1), 0)
+    ('H+ Q~ uc~', Fraction(0, 1), 0)
+   LH-type structures: ['H Q uc', 'H+ L ec', 'H+ Q dc'] == expected: True
+   dim-3 psi psi (bare mass) in minimal SM: []
+   dim-4 phi^4: [('H H H+ H+', 0, 0)]
+(2b) with a right-handed neutrino added:
+   new dim-4 Yukawa: [('H L nc', 0, 0), ('H+ L~ nc~', 0, 0)]
+   new dim-3 bare mass: [('nc nc', 0, -2), ('nc~ nc~', 0, 2)] (Majorana nu_R mass, L=-2, NO Higgs)
+(2c) dim-5 psi psi phi phi (minimal SM):
+    B/L-carrying: ('H H L L', 0, 2)
+    B/L-carrying: ('H+ H+ L~ L~', 0, -2)
+(2d) dim-6: 4-fermion B-violating (no Higgs) and psi psi phi^3:
+    B-violating 4-fermion structures: 8 e.g. [('L Q Q Q', Fraction(1, 1), 1), ('L Q dc~ uc~', Fraction(1, 1), 1), ('L~ Q~ Q~ Q~', Fraction(-1, 1), -1), ('L~ Q~ dc uc', Fraction(-1, 1), -1)]
+    psi psi phi^3 carrying B or L: []
+(2e) dim-7: psi^4 phi carrying B:
+    ('H L Q~ Q~ dc', Fraction(-1, 1), 1)
+    ('H L dc dc uc', Fraction(-1, 1), 1)
+    ('H L~ dc~ dc~ dc~', Fraction(1, 1), -1)
+    ('H Q~ dc dc ec~', Fraction(-1, 1), 1)
+    ('H+ L dc dc dc', Fraction(-1, 1), 1)
+    ('H+ L~ Q Q dc~', Fraction(1, 1), -1)
+    ('H+ L~ dc~ dc~ uc~', Fraction(1, 1), -1)
+    ('H+ Q dc~ dc~ ec', Fraction(1, 1), -1)
+    every one has Delta B = -Delta L: True
+    Higgs-bearing structures with Delta B = 0, Delta L != 0 (dim-6 psi^2 phi^3: none; dim-7 psi^4 phi): 8 [('H L L L ec', 0, 2), ('H L L Q dc', Fraction(0, 1), 2)]
+    NOTE: (2) is hypercharge/triality/doublet/chirality counting; flavour antisymmetry not imposed (irrelevant at dim 4, where the list is exact).
+(2f) dim-5..7 Higgs-bearing B/L carriers all violate B-L (so H-BL excludes them)?
+    all violate B-L: True  count 18
+(2g) dim-8 psi^4 phi^2 with Delta B = Delta L != 0 (B-L CONSERVING, Higgs-bearing): 18 [('H H L Q dc~ dc~', Fraction(1, 1), 1), ('H H L~ Q~ uc uc', Fraction(-1, 1), -1), ('H H Q Q dc~ ec~', Fraction(1, 1), 1)]
+(3) Weinberg contraction (eps L H)(eps L H), SU(2) invariance + non-vanishing:
+    max |O - O(U)| over 200 random SU(2): 2.5e-14  sample |O| = 0.188
+(4) anomaly coefficients per generation (LH Weyl basis):
+    B    SU(2)^2=1/2   Y^2=-1/2  SU(3)^2=0    grav=0
+    L    SU(2)^2=1/2   Y^2=-1/2  SU(3)^2=0    grav=1
+    B-L  SU(2)^2=0     Y^2=0     SU(3)^2=0    grav=-1
+    B+L  SU(2)^2=1     Y^2=-1    SU(3)^2=0    grav=1
+    B, L each anomalous under SU(2)^2 and Y^2, equally: B-L free of SM-gauge anomalies; B+L is not -> 'perturbative' is a NEEDED qualifier.  grav(B-L) = -1/gen without nu_R.
+RESULT: PASS

@@ -1,0 +1,84 @@
+{
+ "key": "fewster-teo-6.9-bessel-and-9-64",
+ "name": "Fewster & Teo (6.9): INT u^(2a-1) K_0(u)^2 du = 2^(2a-3) Gamma(a)^4/Gamma(2a), and the flat massless 9/64 comparison with Ford-Roman",
+ "source": {
+  "located": "C. J. Fewster & E. Teo, 'Bounds on negative energy densities in static space-times', arXiv:gr-qc/9812032v2 (Phys. Rev. D 59 (1999) 104016). (6.9) p.15 (Sec. 6, de Sitter); (1.1),(1.2) p.2; (2.18) p.6; (3.3)-(3.5) and the '9/64 of Ford and Roman's result' sentence p.7 (Sec. 3, citing [14] Fewster-Eveson); (6.10),(6.11) and 'the bound in (6.10) is then 9/64 that in (6.11), as observed in [14]' p.15-16. Ford & Roman's original papers (their [10,11]) NAMED-NOT-READ: their constant 3/(32 pi^2 t0^4) is taken as F&T restate it in (1.2) and as the Minkowski limit of F&T's (6.11).",
+  "read_status": "READ",
+  "via": "alphaXiv page text of gr-qc/9812032v2, returned VERBATIM by alphaXiv answer_pdf_queries in an earlier workflow run of this session and cached at scratchpad/d67/src/gr-qc_9812032.cached.txt (lines 51-75 (1.1)/(1.2); 830-835 (2.18); 1000-1011 the 9/64 sentence; 2088-2192 (6.7)-(6.10); p.16 (6.11)-(6.13)). At THIS stage alphaXiv answer_pdf_queries, get_paper_content and discover_papers all returned 'alphaXiv assistant quota exceeded' (tried once each, not routed around). The text layer drops the alpha and pi glyphs; (6.9)'s exponents are restored from layout ('u  1' -> u^(alpha-1), '2  3 t0  ( ) ( /2)^4' -> 2^(alpha-3) t0^(-alpha) Gamma(alpha/2)^4/Gamma(alpha)) and the restoration is machine-checked by T1/T2 (the restored form is the only one that matches quadrature and the Mellin route) and by T6 (it reproduces the paper's legible 9/64)."
+ },
+ "published_statement": "p.15: 'This can be explicitly evaluated using the integral  INT_0^oo du u^(alpha-1) K_0(t0 u)^2 = 2^(alpha-3) Gamma(alpha/2)^4 / (t0^alpha Gamma(alpha))  (6.9), to obtain rho-bar >= -(3/(32 pi^2 t0^4)) (9/64) (1 + (16/9)(5/3)(t0/alpha_dS)^2)  (6.10)' [alpha, pi restored; in (6.10) alpha is the de Sitter radius, a different symbol]. p.16: '... In the limit alpha -> oo or t0 -> 0, we expect to recover the results for Minkowski space. Indeed, the bound in (6.10) is then 9/64 that in (6.11), as was observed in [14].' p.7: 'There are several special cases in which this bound can be evaluated analytically [14], notably massless fields in two and four dimensions with the sampling function (1.1). ... In the latter case, the present bound is 9/64 of Ford and Roman's result.' With (1.1) f(t) = t0/(pi(t^2+t0^2)), (1.2) rho-hat >= -3/(32 pi^2 t0^4), (2.18) |(f^(1/2))^(w)|^2 = (4 t0/pi) K_0(t0|w|)^2.",
+ "published_hypotheses": [
+  "(6.9): a pure integral identity; convergent only for Re alpha > 0 (K_0(u) ~ -log u at 0), t0 > 0. F&T use it at alpha = 2, 4 (the 5v and 2v^3 terms of (6.8), integrated in v) and the flat case needs alpha = 5 (u^4). The domain is not printed.",
+  "the bound being compared (F&T (3.4) at mu = 0, n = 3; = Fewster-Eveson [14]): free real scalar field, massless, Minkowski space of 3+1 dimensions (n = 3), static (inertial) observer, time-averaged NORMAL-ORDERED energy density in the Fock space of the static (Minkowski) vacuum -- in flat space equal to the renormalised energy density Ford-Roman bound",
+  "sampling function: the Lorentzian (1.1) of width t0 (F&T's general class: smooth, non-negative, not necessarily even, sufficiently rapid decay; the Lorentzian is applied by F&T themselves)",
+  "the comparison bound: Ford & Roman's -3/(32 pi^2 t0^4) (1.2), valid for the same field, dimension and sampler; the ratio 9/64 is specific to the Lorentzian sampler -- it compares two different inequalities at ONE sampler"
+ ],
+ "hypothesis_drift": [
+  "PARAMETER LABEL (discrepancy, notational, no value moves): the tree writes (6.9) as INT u^(2a-1) K_0(u)^2 = 2^(2a-3) Gamma(a)^4/Gamma(2a) and calls a 'alpha' -- 'their (6.9) at alpha = 5/2' (fewsterteo.py:39), 'F&T (6.9) at alpha = 5/2' (fewsterteo.py:397-399), 'F&T (6.9) matches quadrature at alpha = %.1f' printing 1.0/1.5/2.5 (fewsterteo.py:485-494, 558-561), and the canonical entry's name. F&T's alpha is the exponent in u^(alpha-1) with Gamma(alpha/2)^4/Gamma(alpha); the two forms are identical under alpha_F&T = 2 a_tree (T4e, symbolic), and the flat case is alpha_F&T = 5, not 5/2. Read literally, F&T's (6.9) 'at alpha = 5/2' is a different integral, 0.35903 vs 0.52047 at t0 = 1 (T7). The tree's CODE is internally consistent (its own a-form at a = 5/2 equals F&T's at alpha = 5, T4d); only the label says 'their alpha'. Recorded, not repaired.",
+  "ATTRIBUTION (discrepancy, minor): the tree says the 9/64 is obtained through '(6.9) at alpha = 5/2' (fewsterteo.py:37-39, :155). F&T print the flat 9/64 in Sec. 3 (p.7) as a special case of (3.4) credited to Fewster-Eveson [14], and (6.9) is the integral of their Sec. 6 de Sitter calculation, whose Minkowski limit reproduces 9/64 'as observed in [14]' (p.16). Using (6.9) at alpha_F&T = 5 on (3.4) is a correct route to the same number (T4), and a route using neither (6.9) nor (2.18) gives it too (T5); the statement is right, the equation it is credited to is F&T's Sec. 6 tool.",
+  "HYPOTHESES LEFT IMPLICIT (not dropped in effect): the tree's list is 'flat, massless, Lorentzian sampler of width t0, alpha = 5/2' (fewsterteo.py:37-39). Implicit but not named: free real scalar field; n = 3 spatial dimensions (carried by the constant 1/(16 pi^3) = C_3/(2 pi (n+1)), fewsterteo.py:401, T4a); normal-ordered energy density w.r.t. the static vacuum measured by an inertial observer (in Minkowski the renormalised one, which is what Ford-Roman bound); Re alpha > 0 for (6.9). None is violated by the tree's use -- every use is flat, massless, 4D, Lorentzian.",
+  "SAMPLER SPECIFICITY (named correctly by the tree): the 9/64 is a ratio of two inequalities at the Lorentzian sampler only. The tree's refusal to apply 64/9 to C_F (fewsterteo.py:37-45, :157 NINE_64_APPLIES_TO_C_F = False; specthm.py:910, 955-981; ledger.py:3148-3149) is consistent with this hypothesis and is SUPPORTED by T5: the F&T/Fewster-Eveson flat massless bound for sampler g^2 is exactly (1/16 pi^2) INT (g'')^2 dt (Parseval constant pi checked, T5d), the same functional whose optimum over clamped samplers is C_F = mu_1^4/(16 pi^2). C_F already belongs to the 9/64 side; applying 64/9 again would double-count, as the tree says.",
+  "PI RESTORATION (inherited, confirmed): the tree's 1/(16 pi^3) presupposes the printed (3.4) prefactor C_n/(2 pi (n+1)) with the pi the text layer drops. T8: with 1/2 in place of 1/(2 pi) the ratio is 9 pi/64 = 0.4418, not the paper's legible '9/64'; so the paper's own words fix the pi and the tree's section 1(b) uses the correct one. (The same pi, dropped in the tree's QUOTATION of (3.2) at fewsterteo.py:29-30/465, is audited separately under key fewster-teo-3.2-minkowski.)"
+ ],
+ "data_at_publication": [
+  {
+   "quantity": "Ford-Roman flat massless Lorentzian coefficient, rho-hat >= -k/(pi^2 t0^4)",
+   "value_then": "k = 3/32 (F&T (1.2), 1998, restating Ford-Roman [10,11]; also the Minkowski limit of F&T (6.11))",
+   "value_now": "3/32 -- a derived mathematical constant, not a measurement; unchanged. Ford-Roman originals NAMED-NOT-READ here.",
+   "source_now": "F&T (1.2) and (6.11) as READ; no later restatement of the Ford-Roman constant was readable at this stage (alphaXiv quota)",
+   "moves_conclusion": "no -- nothing measured enters. If the Ford-Roman constant were other than 3/32 the RATIO would change but F&T's absolute bound 27/(2048 pi^2 t0^4) would not (T4b, T5b); the tree uses only the ratio, and only to refuse it."
+  },
+  {
+   "quantity": "F&T flat massless Lorentzian bound",
+   "value_then": "(9/64)(3/(32 pi^2 t0^4)) (F&T p.7, p.16)",
+   "value_now": "27/(2048 pi^2 t0^4), computed two independent ways here (T4b via (6.9)+(2.18); T5b via (1/16 pi^2) INT (g'')^2 = 27/(128 t0^4)/(16 pi^2))",
+   "source_now": "rederive/fewster-teo-6.9-bessel-and-9-64.py",
+   "moves_conclusion": "no"
+  },
+  {
+   "quantity": "refused adjustment log10(64/9)",
+   "value_then": "0.8519374645 (tree, fewsterteo.py:354, ruling print)",
+   "value_now": "0.851937464545 (computed)",
+   "source_now": "rederive script last line; tree selftest prints the same (rel 5.2e-11 against the 10-digit ruling print)",
+   "moves_conclusion": "no -- and it is refused by the tree, correctly (see drift 4)"
+  }
+ ],
+ "rederivation": {
+  "method": "sympy",
+  "script_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/fewster-teo-6.9-bessel-and-9-64.py",
+  "outcome": "ALL PASS, 25 checks, exit 0 (output in rederive/fewster-teo-6.9-bessel-and-9-64.out; ~3.5 min). T1: (6.9) vs mpmath tanh-sinh quadrature at 40 dps over alpha_F&T in {0.5,1,1.7,2,3,4,5,7.3,10} x t0 in {0.37,1,3}: max rel err 1.6e-20 (at alpha = 0.5, the quadrature's own floor on the log^2 endpoint; <= 3.8e-36 at every other alpha). My FIRST run set a 1e-25 threshold and FAILED on that 1.6e-20 -- a tolerance of mine, not a fault of (6.9); recorded, threshold relaxed to 1e-15 with the reason in the script. T1c: the tree's own points (a = 1, 3/2, 5/2 = alpha_F&T 2, 3, 5) agree to 3.8e-36, reproducing its 'rel < 1e-20'. T2 (independent route): Mellin transform M[K0](z) = 2^(z-2) Gamma(z/2)^2 checked by quadrature, and the Mellin-Parseval contour integral (1/2pi) INT M[K0](s/2+iy) M[K0](s/2-iy) dy reproduces (6.9) at s = 2, 3.3, 5 to <= 2.3e-41. T3: (2.18) (4 t0/pi) K0(t0 w)^2 = |FT sqrt(Lorentzian)|^2 at 4 points (quadosc) to < 1e-25. T4: C_3/(2 pi (n+1)) = 1/(16 pi^3); F&T bound = 27/(2048 pi^2 t0^4); ratio to 3/(32 pi^2 t0^4) = 9/64 EXACT; tree a-form == F&T alpha-form under alpha = 2a symbolically. T5 (route using neither (6.9) nor (2.18)): g = sqrt(t0/pi)(t^2+t0^2)^(-1/2), g^2 unit area, INT (g'')^2 dt = 27/(128 t0^4) symbolic, (1/16 pi^2) of it / Ford-Roman = 9/64 exact; Parseval INT_0^oo u^4|ghat|^2 = pi INT (g'')^2 to < 1e-30. T6: (6.10)/(6.11) -> 9/64 in the Minkowski limit. T7: label control, F&T's (6.9) at literal alpha = 5/2 is 0.35903 vs 0.52047 (the flat alpha = 5) -- notational discrepancy confirmed. T8: 1/2 in place of 1/(2 pi) gives 9 pi/64 -- the pi restoration is forced by the paper's legible 9/64. Also run read-only: python3 fewsterteo.py --selftest (PYTHONDONTWRITEBYTECODE=1), row '(b) F&T flat massless / Ford-Roman, exact' ok, its three (6.9) quadrature rows ok, log10(64/9) = 0.851937464545.",
+  "agrees_with_source": "yes"
+ },
+ "later_literature": [
+  {
+   "ref": "C. J. Fewster, 'Energy inequalities in quantum field theory', math-ph/0501073v1, eq. (61), p.21",
+   "effect": "confirms",
+   "what": "restates the flat massless 4D QWEI as -(1/16 pi^2) INT |f''(t)|^2 dt (sampling f^2), for all Hadamard states; 'first derived by Ford and Roman for Lorentzian functions f(t) = t0/(pi(t^2+t0^2))' and extended by Fewster-Eveson to compactly supported samplers. This is exactly the real-space functional of T5, from which 9/64 follows at the Lorentzian independently of (6.9).",
+   "read_status": "READ (verbatim alphaXiv page text cached at scratchpad/d67/src/fewster-teo-later-restatements.cached.txt, earlier workflow run of this session)"
+  },
+  {
+   "ref": "C. J. Fewster & C. J. Smith, 'Absolute quantum energy inequalities in curved spacetime', gr-qc/0702056v3, eq. (88), p.24",
+   "effect": "confirms",
+   "what": "flat massless check -(1/16 pi^3) INT_R+ |fhat(eta)|^2 eta^4 d eta, 'the same as the QEI for the massless field in Minkowski spacetime obtained in [9]' -- the pi-bearing prefactor 1/(16 pi^3) the tree uses (T4a).",
+   "read_status": "READ (same cache)"
+  },
+  {
+   "ref": "E.-A. Kontou & K. Sanders, 'Energy conditions in general relativity and quantum field theory', arXiv:2003.01815v2 (2020), p.21",
+   "effect": "narrows",
+   "what": "modern worldline QEIs are stated for f in C_0^infty with sampling f^2, and 'it does not seem possible to replace f^2 by a general positive test function h >= 0, because f = sqrt(h) may not be regular enough'. The Lorentzian is neither compactly supported nor excluded by this remark (sqrt of the Lorentzian is smooth and all integrals converge, T3/T5); F&T's own class (rapid decay) admits it. No change to the 9/64; a named boundary on the sampler class.",
+   "read_status": "READ (same cache)"
+  },
+  {
+   "ref": "discover_papers for later narrowing/contradiction (quantum inequality, Lorentzian sampling, Fewster, Ford-Roman)",
+   "effect": "contested",
+   "what": "NOT RUN TO RESULT: alphaXiv returned 'assistant quota exceeded'. No later paper contradicting (6.9) or the 9/64 was found, but none was searched for at this stage; the absence is not evidence. (6.9) is a standard Mellin-transform identity of K_0 (the a = b, mu = nu = 0 case of the classical Bessel-product integral); T2 derives it independently.",
+   "read_status": "NOT-SEARCHED (tool quota)"
+  }
+ ],
+ "lacked_data": "M's hypothesis tested for this result: it does not bite, and the evidence is computed rather than presumed. (6.9) is an identity of special functions and the 9/64 is a ratio of two closed-form lower bounds for one sampler; no measured quantity enters either (data_at_publication: the only input is Ford-Roman's 3/32, itself a derived constant). What F&T did not have in 1998 -- the Fewster-Smith absolute QEI (2007), the Hadamard/adiabatic generalisations, the compact-support framing of later reviews -- restates the same flat functional (math-ph/0501073 eq. 61, gr-qc/0702056 eq. 88) rather than moving it. The two things that COULD have been wrong were checked here, not trusted: the special-function identity (quadrature T1 and an independent Mellin-Parseval derivation T2) and the text-layer restoration of dropped glyphs (T7, T8 -- the paper's legible '9/64' is reproduced only with the restored alpha-form and the restored pi). What remains unknown is whether the Fewster-Eveson 4D bound is optimal (F&T p.7 report optimality, via Flanagan, only in 2D, where theirs is 1.5x weaker); that would change the absolute bound, not the 9/64 as a statement about two named inequalities, and not the tree's refusal, which applies neither.",
+ "grade": "STANDS",
+ "grade_evidence": "Statement READ at source (F&T gr-qc/9812032v2 p.15 (6.9), p.7 and p.16 the 9/64 sentences). (6.9) re-derived two ways (quadrature to 3.8e-36 at the tree's points; Mellin-Parseval contour to 2.3e-41), (2.18) checked numerically, the 9/64 reproduced EXACTLY in sympy through the tree's route (T4c) and through an independent real-space route that uses neither (6.9) nor (2.18) (T5c), and F&T's own Minkowski-limit statement (T6). The tree's use (flat, massless, 4D, Lorentzian, ratio only, refused for C_F) sits inside every published hypothesis; the refusal is supported by T5 (C_F already optimises the same functional). No datum enters. Two DISCREPANCIES recorded, neither moving a value and neither a refutation: the tree's 'alpha = 5/2' is its own half-parameter a = alpha_F&T/2 labelled as F&T's alpha (fewsterteo.py:39, 397-399, 485, 560; T7), and the 9/64 is credited to (6.9), F&T's Sec. 6 tool, where F&T state it in Sec. 3 crediting Fewster-Eveson [14]. Ford-Roman's 3/32 is taken via F&T's restatement (originals NAMED-NOT-READ).",
+ "what_would_change_the_grade": "NARROWED if a use of NINE_64 appeared outside flat/massless/4D/Lorentzian (e.g. applied to another sampler or to C_F -- currently pinned False in fewsterteo.py:157 and asserted in specthm.py and ledger.py). DATA-DEPENDENT or WRONG only if the Ford-Roman originals, once READ, printed a coefficient other than 3/32 for this sampler (the ratio would move; F&T's absolute bound would not). A later-literature search (not run: alphaXiv quota) could only extend this -- the identity and the ratio are re-derived here independently.",
+ "reverify_command": "python3 /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/fewster-teo-6.9-bessel-and-9-64.py  # ~3.5 min, exit 0 = ALL PASS; and read-only: cd /home/user/Claude-Method-Works/research/warp-drive && PYTHONDONTWRITEBYTECODE=1 python3 fewsterteo.py --selftest | grep -n '(b)\\|(6.9)\\|64/9'",
+ "report_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/audits/fewster-teo-6.9-bessel-and-9-64.json"
+}

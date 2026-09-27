@@ -1,0 +1,113 @@
+{
+ "key": "0708.2450",
+ "name": "Fewster & Osterbrink: no state-independent QEI for the non-minimally coupled scalar (xi > 0); state-dependent QEI for 0 < xi <= 1/4; H-bounds; and the ledger O1 figures computed on their construction",
+ "source": {
+  "located": "C.J. Fewster & L.W. Osterbrink, 'Quantum Energy Inequalities for the Non-Minimally Coupled Scalar Field', arXiv:0708.2450v2 [gr-qc], 23 Oct 2007 (J. Phys. A 41 (2008) 025402, reference as printed in 1809.05047 ref.[20] and 2309.10848 ref.[6]). Read: abstract and Sec.1 p.1-3; Sec.2 eqs (1)-(21) p.3-6; Sec.3 eqs (22)-(34) p.6-8 in full; Theorem 4.2 eqs (44)-(45); Theorem 4.3 eqs (52)-(54); Theorem 5.1 eq (65); Sec.5.2 eqs (69)-(72); Theorem 5.3 eq (90); Corollary 5.4 eqs (91)-(92); Sec.6 Conclusion p.20-21.",
+  "read_status": "READ",
+  "via": "alphaXiv get_paper_content(fullText=true) on arXiv:0708.2450 -- the full extracted text (4,137 lines) saved at scratchpad/d67/src/0708.2450.txt; Sections 1-3 read line by line, Sections 4-6 read at every theorem/corollary and the conclusion."
+ },
+ "published_statement": "Sec.3 p.6-8 (massless, xi > 0, 3+1 Minkowski): 'In this section we consider the massless quantised scalar quantum field with xi > 0 in a (3+1)-dimensional Minkowski space ... It will be shown that local averages of the energy density are unbounded from below on the class of Hadamard states.' One-particle states Psi_kappa = a^dag(h_kappa) Omega, h_kappa(k) = 4 pi sqrt2 (kappa - |k|/3) e^{-|k|/kappa}/kappa^2, <H> = 2 kappa/3 (26), <rho>(0,0) = -xi (2 kappa)^4/(3 pi^2) (29); j-particle states give (33) '<rho> < -rho_0 for all x in B(tau')' with total energy (34) '2 j kappa'/3 > 2 pi^2 rho_0/(xi kappa'^3) ... illustrating that the large negative energy density effects also require large positive overall energy, at least in this example.' 'Summarising, we have shown that to any bounded subset O of Minkowski space and arbitrary constant rho_0 > 0 there is a Hadamard state in which the expected energy density is less than -rho_0 throughout O. In particular any smearing rho_quant(f) with a non-negative compactly supported distribution f is unbounded from below on the class of Hadamard states.' Theorem 4.2: for xi in [0, 1/4], globally hyperbolic spacetime, timelike geodesic gamma, (rho_quant o gamma)(f^2) >= -Q_xi(f) with Q_xi(f) = Q~_A 1 + xi (:Phi^2: o gamma)(Q_B[f]) + xi (:Phi^2: o gamma)(Q_C[f]) (difference type). Abstract/Sec.5.2: 'Q(f) can be bounded by any power of the Hamiltonian greater than 2, while rho(f) cannot be bounded by powers less than 3' (footnote 1: 'it may be that rho(f) can only be bounded by powers of at least 4'; p.19: 'we cannot exclude the possibility that it might also hold for some p <= 2'). Sec.6: '(at least for massless fields in four-dimensional Minkowski space) ... the non-minimally coupled scalar field with xi > 0 admits states with arbitrarily large negative energy density over arbitrarily large bounded spacetime regions. Thus the non-minimally coupled field cannot obey QEIs of the type previously studied in the literature, in which there is a state-independent lower bound' ... 'negative energy effects with large magnitude, while possible over large regions, require more energy to achieve than positive energy densities of the same magnitude and that the energy budget for these two effects will grow with a different power.' '[absolute QEI] one would expect that this can also be adapted to the non-minimally coupled field.'",
+ "published_hypotheses": [
+  "H1 (Sec.3, non-existence) massless field, m = 0 ('we consider the massless quantised scalar quantum field')",
+  "H2 (Sec.3) four-dimensional (3+1) Minkowski space; Conclusion: 'at least for massless fields in four-dimensional Minkowski space'",
+  "H3 (Sec.3) coupling xi > 0 (any positive value: (29) is negative for every xi > 0)",
+  "H4 normal ordering against the Minkowski vacuum (difference-type energy density <rho_quant> = <rho_ren>_Psi - <rho_ren>_Omega, Sec.2 p.5)",
+  "H5 Hadamard states (finite-particle states with rapidly decaying h_kappa)",
+  "H6 region O bounded (a spacetime ball B(tau') of FO (31), by translation any bounded set); sampling f non-negative compactly supported",
+  "H7 (Theorem 4.2, state-dependent QEI) xi in [0, 1/4]; globally hyperbolic spacetime; averaging along a timelike GEODESIC with f = f^2; difference type relative to a reference Hadamard state",
+  "H8 (Sec.5.2 H-bounds, Theorem 5.3 / Corollary 5.4) 4D Minkowski, fixed smearing function f, Hadamard vector states in D(H^{p/2}); q >= 3 shown with ONE one-particle family (70)-(72)"
+ ],
+ "hypothesis_drift": [
+  "DROPPED H1+H2 at overturn.py:287-289: 'for a scalar with xi > 0 there is NO state-independent quantum energy inequality. The bound that forbids us does not exist in that theory.' FO prove it for the massless field in 4D Minkowski only (Sec.3 opening line; Conclusion 'at least for massless fields in four-dimensional Minkowski space'). Later literature supports the Minkowski N-copy argument more generally (1809.05047 p.14, 'even in Minkowski space'), but neither FO nor that paper proves the massive or curved-background case.",
+  "DROPPED H1+H2 at candidates.py:161-166: 'Given any bounded region O and any rho_0 > 0, they CONSTRUCT a Hadamard state ...' -- FO: 'any bounded subset O of MINKOWSKI space', massless field. The canonical entry already records 'spacetime setting not stated by owner'.",
+  "WEAKENED H7 (xi range) at candidates.py:170-173 and candidates.py:406 (NMC_COST_MOVES_TO): 'WHAT REPLACES IT is a STATE-DEPENDENT bound' is written for all xi > 0; FO's state-dependent QEI (Theorem 4.2/4.3) holds only for xi in [0, 1/4] (along timelike geodesics, difference type). For xi > 1/4 FO give no bound of either kind. (The board's two named values xi = 1/4 and 1/6 lie inside the range; the gap bites only for xi > 1/4.)",
+  "DROPPED H8 qualifier at candidates.py:172-176: the H-bound powers are for a FIXED smearing function in 4D Minkowski, and q >= 3 comes from one state family; FO themselves say p <= 2 is not excluded and q may need to be >= 4. candidates.py's wording of the powers is otherwise verbatim-faithful; NMC_COST_MOVES_TO 'global positive energy' is FO's Corollary 5.4 'large positive overall energies' (for a given smearing function) -- faithful.",
+  "ADDED at ledger.py:1976-1980 (O1): 'E_pos/|E_neg| = 3 pi/(32 f xi c0^3) >= 1039.13 at xi = 1/4 and >= 1803.55 at xi = 1/6, from Fewster & Osterbrink's own construction'. Neither the formula nor the figures are in FO. f and c0 are defined NOWHERE in the tree (grep of research/ returns only ledger.py/LEDGER.md; commit 8c31715 quotes the formula without definitions). This audit RECOVERED the reading that reproduces both figures to 3e-6: f = a uniform threshold as a fraction of the peak |rho(0,0)|, c0 = kappa*tau = radius of the largest FO spacetime ball B(tau) (their eq. 31) on which rho <= -f|rho(0,0)|, E_neg := f|rho(0,0)| * (4 pi/3) tau^3 (threshold x spatial-ball volume), E_pos := <H> = 2 kappa/3, minimised over f. That accounting is the tree's, not FO's; and it is not the state's negative energy (see rederivation: the same state's actual negative energy gives <H>/|E_neg| = 22.79 at xi = 1/4, 102.02 at xi = 1/6).",
+  "ADDED at ledger.py:1980-1983: 'LAMBDA CANCELS AND L CANCELS -- the overhead is a PURE NUMBER, which is WORSE than a power law ... a scale-free factor of 10^3 cannot be outrun at all'. The scale-freeness is exact for FO's one family (their scaling relation (27); j cancels) but it is a property of ONE state family, not a bound over states: FO prove no lower bound on <H>/|E_neg| over Hadamard states, and their general result (Corollary 5.4, fixed f) is itself a POWER law in H. 'cannot be outrun' is not in FO.",
+  "FAITHFUL at qeihps.py:86-92: massless, 4D Minkowski, xi > 0 and 'can also be adapted -- expected, NOT DONE' all match FO Sec.3 and Sec.6 verbatim.",
+  "FAITHFUL at specthm.py:1038-1043, 2155-2160: O1 figures labelled LEDGER TEXT (not MEASURED); 'state-dependent NMC bounds exist (Fewster-Osterbrink 0708.2450 ...)' -- true for xi in [0,1/4] along timelike geodesics (range not stated at that site)."
+ ],
+ "data_at_publication": [
+  {
+   "quantity": "<rho>(0,0) of the one-particle state Psi_kappa (FO 29)",
+   "value_then": "-xi (2 kappa)^4/(3 pi^2)",
+   "value_now": "-xi (2 kappa)^4/(3 pi^2), re-derived exactly (sympy) from FO's h_kappa and eq. (24); the full FO (28) also agrees identically in t and xi",
+   "source_now": "rederive/0708.2450.py sections 2-3",
+   "moves_conclusion": "no -- negative for every xi > 0, so the non-existence theorem stands on its hypotheses"
+  },
+  {
+   "quantity": "<H> of Psi_kappa and normalisation (FO 26)",
+   "value_then": "2 kappa/3, ||h|| = 1",
+   "value_now": "2 kappa/3, ||h|| = 1 (sympy exact)",
+   "source_now": "rederive/0708.2450.py section 1",
+   "moves_conclusion": "no"
+  },
+  {
+   "quantity": "particle number j needed for <rho> < -rho_0 on B(tau') (FO p.8)",
+   "value_then": "j > 6 pi^2 rho_0/(xi kappa'^4)",
+   "value_now": "sufficient j > 3 pi^2 rho_0/(8 xi kappa'^4) -- FO's printed j is 16 = 2^4 larger (the (2 kappa')^4 of (32) read as kappa'^4); the printed threshold 'less than -xi kappa^4 tau^4/(6 pi^2 tau'^4)' is likewise 16x weaker than (32)",
+   "source_now": "rederive/0708.2450.py section 4",
+   "moves_conclusion": "no -- a conservative discrepancy (misprint-class); (33) still holds. Recorded, not a refutation."
+  },
+  {
+   "quantity": "total energy of the j-particle state (FO 34)",
+   "value_then": "> 2 pi^2 rho_0/(xi kappa'^3)",
+   "value_now": "at FO's printed j, 2 j kappa'/3 = 4 pi^2 rho_0/(xi kappa'^3) (so (34) is true but loose by 2); the MINIMUM the construction needs is pi^2 rho_0/(4 xi kappa'^3), 8x below FO's printed constant",
+   "source_now": "rederive/0708.2450.py section 4",
+   "moves_conclusion": "not the theorem; it moves any energy 'price' read off (34)'s constant by a factor 8 downward. The ledger's O1 formula does NOT use (34)'s constant (it uses 2 kappa/3 and the true threshold), so O1 is unaffected by this item."
+  },
+  {
+   "quantity": "H-bound powers (FO Sec.5.2, Cor.5.4)",
+   "value_then": "Q(f) <= c (H+m)^p for any p > 2; rho(f) not bounded by H^q for q < 3 (q may need >= 4; p <= 2 not excluded)",
+   "value_now": "unchanged; no later sharpening found in the one discover_papers call",
+   "source_now": "0708.2450 p.14-19 (read); 1809.05047 does the analogous KMS analysis for the EED",
+   "moves_conclusion": "no"
+  },
+  {
+   "quantity": "ledger O1 E_pos/|E_neg| at xi = 1/4",
+   "value_then": ">= 1039.13 (ledger.py:1978, no definitions of f, c0, no instrument)",
+   "value_now": "1039.127 reproduced under the RECOVERED reading (spacetime ball B(tau), threshold fraction f = 0.3756, c0 = kappa tau = 0.144517, min over f); at FO's own f = 1/2 (eq. 30): 1124.43; with a t = 0 spatial ball instead: 141.31; with the state's ACTUAL negative energy on the t = 0 slice (the most negative slice for t in [0,2]): <H>/|E_neg| = 22.79",
+   "source_now": "rederive/0708.2450.py sections 6, 6b, 7, 7b",
+   "moves_conclusion": "yes for the reading 'compensating energy per unit negative energy of FO's state': that ratio is 22.79, not >= 1039.13 (a factor ~46). Under the ledger's implicit accounting (uniform certified threshold on a spacetime ball) the figure is reproduced. The figure is accounting-dependent and family-specific."
+  },
+  {
+   "quantity": "ledger O1 E_pos/|E_neg| at xi = 1/6",
+   "value_then": ">= 1803.55",
+   "value_now": "1803.552 reproduced (f = 0.3783, c0 = 0.137327); at f = 1/2: 1944.83; t = 0 spatial ball: 230.65; actual negative energy of the state: <H>/|E_neg| = 102.02",
+   "source_now": "rederive/0708.2450.py sections 6, 6b, 7, 7b",
+   "moves_conclusion": "same as xi = 1/4: reproduced under the recovered accounting, factor ~18 above the state's actual ratio"
+  }
+ ],
+ "rederivation": {
+  "method": "sympy",
+  "script_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/0708.2450.py",
+  "outcome": "17/17 checks PASS, exit 0 (output saved at rederive/0708.2450.out). (1) ||h_kappa|| = 1 and <H> = 2 kappa/3 exact. (2) Closed form F(s,r) = (sqrt2/pi)[1/(s^2+r^2) - 2s/(3(s^2+r^2)^2)], s = 1 + i t (kappa = 1), from FO (25). (3) FO (28) reproduced identically in t and xi; FO (29) rho(0,0) = -16 xi/(3 pi^2) exact, negative for every xi > 0 -- the non-existence theorem re-derived on its hypotheses (massless, 4D Minkowski). (4) j-step: FO's j exceeds the needed j by 16 = 2^4, (34) true but loose by 2, printed threshold 16x weak -- all conservative misprint-class discrepancies, none affects (33) or the theorem. (6/6b) Ledger O1: identity (2 kappa/3)/[f|rho(0,0)|(4pi/3)(c0/kappa)^3] = 3 pi/(32 f xi c0^3) shown symbolically, which identifies f and c0; minimising over f with c0 the radius of the largest FO spacetime ball B(tau) below threshold reproduces 1039.127 (ledger 1039.13, rel. -2.6e-6) and 1803.552 (ledger 1803.55, rel. +1.1e-6). (7/7b) Actual negative energy of the same one-particle state: integral of rho over the t = 0 slice equals <H> = 2/3 to 1e-6 (the xi-terms are divergences); int_{rho<0} rho d^3x = -0.029252 (xi = 1/4; rho < 0 for r < 0.37987 and r > 3.05379) and -0.006535 (xi = 1/6; r < 0.36567), so <H>/|E_neg| = 22.79 and 102.02; no slice t in [0,2] is more negative. The ledger figures exceed the state's actual ratio by >10x (46x, 18x).",
+  "agrees_with_source": "yes"
+ },
+ "later_literature": [
+  {
+   "ref": "C.J. Fewster & E.-A. Kontou, 'Quantum strong energy inequalities', arXiv:1809.05047v2 (Phys. Rev. D 99 (2019) 045001)",
+   "effect": "extends",
+   "what": "p.3: 'it is known that the nonminimally coupled scalar field cannot obey a state independent QWEI, as can be seen by explicit examples [20=FO]; the same argument also applies to QSEIs.' p.14: N-copy tensoring shows 'no state-independent QSEI can be valid, even in Minkowski space' (except massless minimal coupling). Theorem 5: state-dependent difference QSEI for xi in [0, 2 xi_c], m >= 0, any smooth timelike curve, globally hyperbolic. Footnote 4 p.24: 'The corresponding expression in Ref. [20] (FO) is missing the factor beta^{2-n} in one place, but the final results are correct' -- a second FO misprint, recorded by the authors, not a refutation. p.3 also asserts 'as shown in Ref. [28] (math-ph/0611058), nonminimally coupled fields obey state dependent QWEIs of both absolute and difference types' -- see the next row.",
+   "read_status": "READ (pp.1-3, 9, 11, 13-14, 17-19, 21-24, 26-27 via answer_pdf_queries)"
+  },
+  {
+   "ref": "C.J. Fewster, 'Quantum energy inequalities and local covariance II: categorical formulation', arXiv:math-ph/0611058v2 (Gen. Rel. Grav. 39 (2007) 1855)",
+   "effect": "contested",
+   "what": "Read to test 1809.05047's claim of an ABSOLUTE state-dependent NMC QWEI (which would bear on qeihps.ABSOLUTE_QEI_FOR_NMC = NOT-FOUND). The pages returned show: p.7 NMC 'renormalised energy density is unbounded from below even after averaging [22=FO]'; App. A: a DQI on the Wick square 'closely associated with a covariant absolute quantum inequality'; App. B: only FO's DIFFERENCE QEI for 0 <= xi <= 1/4 illustrated. No absolute energy-density QEI for NMC is stated in the pages read, so 1809.05047's gloss is not substantiated there; the tree's NOT-FOUND is not overturned by this reading, but the qeihps search missed a published sentence asserting the contrary, which should be recorded in that owner's audit.",
+   "read_status": "READ (pp.1-2, 6-9, 22, 24-27 via answer_pdf_queries; the Sec.3.2 DQI->AQI proposition not returned)"
+  },
+  {
+   "ref": "J.R. Fliss, B. Freivogel, E.-A. Kontou & D. Pardo Santos, 'Non-minimal coupling, negative null energy, and effective field theory', arXiv:2309.10848v1",
+   "effect": "narrows",
+   "what": "Confirms (p.4, Sec.III) arbitrarily negative smeared null energy for NMC, for EITHER sign of xi (wider than FO's xi > 0), and that it requires large field values (p.13-15: <:phi^2:> scales with N). Theorem IV.1: a state-dependent null QEI for ANY xi, curved spacetime, difference type. Under an EFT field cutoff |<:phi^2:>| < phi_max^2 (argued phi_max^2 <~ (8 pi G |xi|)^-1) a state-INDEPENDENT bound (DSNEC/SNEC, eqs (4), (91)-(96)) holds on the bounded-field class, and the effective ANEC holds. This narrows the practical force of 'the bound that forbids us does not exist in that theory' (overturn.py:288-289): within EFT validity a class-dependent bound exists.",
+   "read_status": "READ (pp.1-4, 7, 13-15, 17-19, 22-24, 29, 31 via answer_pdf_queries)"
+  }
+ ],
+ "lacked_data": "FO's Sec.3 result is a mathematical theorem, not a fit to measured data: its only inputs are the free-field definitions and an explicit state, and every number it uses re-derives exactly here ((26), (28), (29)); the printed looseness in j and (34) is conservative and cannot move the conclusion. So M's hypothesis ('previous physicists may have lacked certain data') finds NO datum that moves the non-existence theorem on its own hypotheses. What the authors lacked in 2007 was coverage, not data: (a) the massive and curved-background cases of the non-existence claim -- still not proved by them; 1809.05047 (2018) repeats the N-copy argument 'even in Minkowski space' for the EED, which supports but does not prove the massive/curved extension; (b) an absolute (Hadamard-renormalised) version -- FO: 'one would expect that this can also be adapted', still expected; 1809.05047 p.3 asserts it was shown in math-ph/0611058, but the pages of that paper read here show only the difference form for NMC; (c) the field-value dimension -- FFKP (2023) show that the negative energy is bought with large <:phi^2:>, and that an EFT cutoff on phi restores a state-independent (class-dependent) null bound; this does not change FO's theorem but does change how much the tree may conclude from it ('the bound ... does not exist in that theory' holds only for the theory without a field cutoff). For the ledger's O1 figures, the missing 'datum' is internal to the tree: f and c0 were never written down, and the chosen accounting (threshold x ball volume on a spacetime ball) was never compared with the state's actual negative energy; doing so moves the ratio from >= 1039.13 to 22.79 (xi = 1/4) and from >= 1803.55 to 102.02 (xi = 1/6). Evidence either way: the theorem survives every check; the figures survive only under an accounting that the tree never stated.",
+ "grade": "NARROWED",
+ "grade_evidence": "The theorem STANDS on FO's hypotheses: FO (26), (28), (29) re-derived exactly by sympy from their own h_kappa, rho(0,0) = -16 xi kappa^4/(3 pi^2) < 0 for every xi > 0, the scaling and j-particle steps hold (their printed constants are conservative: j 16x larger than needed, (34) loose by 2 -- discrepancies, not errors of the conclusion). It is NARROWED against the tree's use: (i) overturn.py:287-289 and candidates.py:161-166 drop 'massless' and '4D Minkowski', which are FO's stated hypotheses (Sec.3 first line; Conclusion 'at least for massless fields in four-dimensional Minkowski space'); qeihps.py:86-89 keeps them; (ii) candidates.py:170-173 attaches the state-dependent replacement bound to all xi > 0, while FO's Theorem 4.2/4.3 hold only for xi in [0, 1/4], geodesic worldlines, difference type; (iii) the ledger O1 figures (ledger.py:1976-1980) are not FO's -- they are the tree's own computation on FO's one-particle family, reproduced here to 3e-6 only under a recovered accounting (f = threshold fraction of the peak, c0 = radius of the largest FO spacetime ball B(tau) below threshold, E_neg := threshold x ball volume, min over f; f and c0 are defined nowhere in the tree); the same state's ACTUAL negative energy gives <H>/|E_neg| = 22.79 (xi = 1/4) and 102.02 (xi = 1/6), so as a statement about the compensating energy of FO's construction the '>= 1039.13 / >= 1803.55' is contradicted by computation, and 'a scale-free factor of 10^3 cannot be outrun at all' is a property of one state family, not a theorem (FO's general result is a power law in H at fixed f). Not WRONG: nothing in FO is refuted. Not DATA-DEPENDENT: no measured datum enters.",
+ "what_would_change_the_grade": "To STANDS: the tree restores 'massless, 4D Minkowski' at overturn.py:287-289 and candidates.py:161-166 and 'xi in (0, 1/4]' for the replacement bound, and either states f, c0 and the threshold-x-ball accounting at ledger.py:1976-1980 (with the actual-negative-energy ratios 22.79 / 102.02 beside them) or withdraws the figures. To a wider STANDS: a proof of the non-existence theorem for massive fields or curved backgrounds (none found here). Toward WRONG for O1 only: if the ledger's intended E_neg is the state's actual integrated negative energy, the '>=' figures are contradicted by this computation (22.79, 102.02) and the row's figures would be a withdrawn value -- that reading cannot be settled without the author's definition of f and c0, which the tree does not hold. The FO theorem itself would move only on a counterexample to (29) or to the Hadamard property of Psi_kappa, and none exists: (29) is re-derived exactly.",
+ "reverify_command": "python3 /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/0708.2450.py   # ~3-5 min; exit 0 = 17/17 checks; prints the O1 reproduction (1039.127, 1803.552) and the actual ratios (22.79, 102.02). Tree side: grep -n '1039.13\\|32 f xi' /home/user/Claude-Method-Works/research/warp-drive/*.py (only ledger.py:1978); sed -n 285,289p .../overturn.py; sed -n 159,178p .../candidates.py; sed -n 86,92p .../qeihps.py",
+ "report_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/audits/0708.2450.json"
+}

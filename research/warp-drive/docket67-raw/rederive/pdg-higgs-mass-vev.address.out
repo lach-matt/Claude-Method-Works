@@ -1,0 +1,581 @@
+
+address.py -- DOCKET 63, ROLE 1.  CAN A DISPLACED HIGGS VEV BE AN ADDRESS?
+
+    python3 address.py             the reading
+    python3 address.py --selftest  fixtures and controls
+
+M: "what would it take to excite a Higgs field at the endpoint?"  Asked which
+role the field is playing, M allowed all three.  ROLE 1 is ADDRESSING: a
+locally displaced vev as a physically distinguishable region -- a real address
+rather than a coordinate.  It was the most promising of the three because it
+needs only DETECTABILITY and no mass budget.
+
+IT DIES, AND NOT OF THE OBSTRUCTION THAT WAS EXPECTED.
+
+`higgs.py` owns the vev, the NEC identity and the Barcelo-Visser gate, and is
+IMPORTED here, never re-derived.  What is new is the detection side: the exact
+sensitivity coefficient of each observable to eps = dv/v, the exact energy of a
+linear displacement, the exact range of one, and -- the finding -- that ORDINARY
+MATTER ALREADY DOES THIS, better than any device could, and that the same source
+is seen 23 orders further away by an instrument nobody had to invent.
+
+===============================================================================
+1. WHAT THE DISPLACEMENT IS SENSITIVE THROUGH, AND THE CHANNEL THAT IS BLIND
+===============================================================================
+
+Every fermion mass is m_f = y_f v / sqrt(2), so d ln m_f / d ln v = 1 EXACTLY,
+at fixed Yukawa.  alpha = e^2/4pi hbar c contains no v at all: e = g sin(th_W)
+is a gauge coupling.  SO AT TREE LEVEL A DISPLACED VEV MOVES EVERY MASS AND
+LEAVES alpha ALONE.
+
+That single fact decides which clock can see it, and it rules OUT the channel a
+reader reaches for first.
+
+    An optical transition frequency, in units of the Rydberg, is a pure
+    function of alpha: nu_opt / c R_inf = F(alpha).  The electron mass CANCELS.
+    So an OPTICAL-TO-OPTICAL frequency RATIO -- the sharpest measurement in
+    physics, 3e-16 in Godun 2014 and heading below 1e-18 -- IS BLIND TO eps
+    THROUGH mu, AT TREE LEVEL, FOR A POINT NUCLEUS OF INFINITE MASS.
+
+    THAT IS NOT THIS FILE'S ASSERTION.  It is Godun et al.'s own B_E3 = B_E2 =
+    0 -- which they call "negligible", not zero -- READ FROM SOURCE below, and
+    it is the control this file must reproduce.
+
+    WITHDRAWN (DOCKET 63, W10).  The first draft said "IS EXACTLY BLIND".  IT
+    IS NOT.  Finite nuclear size adds (4/3) Z^4 (r_N/a_0)^2 / n^3 Rydberg to
+    every S level, and r_N/a_0 is proportional to m_e r_N, hence to v at tree
+    level (H2, r_N held fixed).  For hydrogen nu(1S-2S)/nu(2P-3D), with
+    x = r_p/a_0, finite_size_K() derives in sympy K = 28x^2/(14x^2 - 9) =
+    -7.87e-10 -- nonzero, same place, alpha fixed.  Recoil terms in m_e/M add
+    more.  Small; and under H2, where K_alpha = 0, it is the LEADING
+    same-place sensitivity.  Kept as OPTICAL_OPTICAL_IS_EXACTLY_BLIND = False.
+
+    AND THE BLINDNESS HAS A HYPOTHESIS, WHICH SECTION 7 CASHES: it holds for two
+    transitions AT THE SAME PLACE.  Two copies of the SAME optical clock in
+    DIFFERENT places do not cancel R_inf, because R_inf is proportional to m_e
+    and m_e is proportional to the LOCAL v.  A TRANSPORTED CLOCK CARRIES
+    COEFFICIENT EXACTLY +1, and it turns out to be the best channel here.
+
+The microwave hyperfine splitting does not cancel m_e:
+
+    nu_hf / c R_inf  ~  alpha^2 * g_I * (m_e/m_p) * F_rel(Z alpha)
+
+-- one factor alpha^2 from mu_B mu_N / a_0^3 against the Rydberg, and one
+factor (m_e/m_p) from the nuclear magneton.  So the OPTICAL-TO-CESIUM ratio
+carries exponent exactly +1 in mu = m_p/m_e and exactly 2 (plus relativistic
+corrections) in alpha.  THAT is the channel, and Godun's Cs-limited 6e-16 is
+TWICE their optical ratio's 3e-16 -- CS_CHANNEL_COARSER_BY, computed, is 2.
+
+    WITHDRAWN (DOCKET 63, W10).  The first draft said the Cs channel is "a
+    hundred times coarser than the blind one".  The factor is 2, not 100.
+
+===============================================================================
+2. HOW MUCH DOES mu MOVE?  THE PROTON IS NOT AS INERT AS THE 0.96% SUGGESTS
+===============================================================================
+
+The tempting statement is that the Higgs supplies 2m_u + m_d = 8.99 MeV of the
+proton's 938.272 MeV -- 0.96% -- so m_p barely moves and mu tracks m_e alone.
+The CONCLUSION survives.  THE REASON DOES NOT, and the correction is a factor
+that DEPENDS ON S: 24.0 at the valence 0.0096, 4.48 at S = 0.06 and 3.25 at
+S = 0.09 (NAIVE_CORRECTION_FACTOR, computed).
+
+    CORRECTED (DOCKET 63, ruling F6).  The first draft said "a factor of
+    thirty" here and "TWENTY-FOUR" below.  Twenty-four holds only at the
+    valence value S = 0.0096, which is a sum of current-quark masses and NOT a
+    Feynman-Hellmann fraction; at the scanned sigma-term values it is 3 to 4.5.
+
+Lambda_QCD is not independent of v.  One-loop threshold matching across the
+charm, bottom and top thresholds, with b_0(n_f) = 11 - 2 n_f/3 and
+b_0(n_f - 1) - b_0(n_f) = 2/3 at each, gives EXACTLY
+
+    Lambda_3 = Lambda_6^(7/9) * (m_c m_b m_t)^(2/27)
+
+-- so each heavy quark enters with power 2/27, and since every heavy quark mass
+is proportional to v,
+
+    d ln Lambda_QCD / d ln v  =  3 * 2/27  =  2/9     EXACTLY
+
+DERIVED IN THIS FILE OVER Fraction, not quoted.  Then by dimensional
+homogeneity m_p = Lambda f(m_q/Lambda), so d ln m_p/d ln Lambda = 1 - S with
+S = sum_q sigma_q/m_p the Feynman-Hellmann light-quark fraction, and
+
+    H1  alpha_s FIXED AT A HIGH SCALE:   d ln m_p/d ln v = 2/9 + (7/9) S
+    H2  Lambda_QCD ITSELF FIXED:         d ln m_p/d ln v = S
+
+H1 gives 0.229 at S = 0.0096 -- TWENTY-FOUR TIMES the naive 0.0096.  Both
+hypotheses are named because BOTH ARE IN THE LITERATURE and they are not the
+same physics; neither is assumed.  What matters is that they agree on the
+answer:
+
+    K_mu = d ln mu / d ln v = -7(1-S)/9  (H1)   or   S - 1  (H2)
+
+    S = 0.0096 :  K_mu = -0.7703 (H1)   -0.9904 (H2)
+    S = 0.06   :  K_mu = -0.7311 (H1)   -0.9400 (H2)
+
+O(1) AND NEGATIVE UNDER EVERY HYPOTHESIS, because the electron side carries it.
+THE 0.96% SPLIT IS THE RIGHT OBSERVATION ATTACHED TO THE WRONG TERM: mu is
+sensitive not because m_p is inert but because m_e is not.
+
+===============================================================================
+3. THE THRESHOLD, THE COST, AND WHY THE COST IS NOT THE COST
+===============================================================================
+
+eps_det = (fractional accuracy of an optical-to-Cs ratio) / |K_mu|, and Godun
+2014's absolute frequencies carry 6e-16, Cs-limited.  That is eps_det ~ 8e-16.
+
+The exact linear-regime energy density, with NO small-eps expansion:
+
+    V(v(1+eps)) / |V_min|  =  eps^2 (2 + eps)^2        EXACT
+                           ->  4 eps^2                  as eps -> 0
+
+sympy residual of that identity is 0.  At eps_det it is of order 1e16 J/m^3,
+which is large but is INSIDE the range of energies humans have released, so on
+the energy measure ADDRESSING LOOKS AFFORDABLE.
+
+IT IS NOT, AND THE ENERGY IS THE WRONG METER.  The displacement has to be
+SOURCED.  A fermion background sources the Higgs through its scalar density,
+and the static uniform solution of (nabla^2 - m_h^2) dphi = (m_psi/v) n is
+
+    eps  =  - rho_H c^2 / (v^2 m_h^2)  =  - rho_H c^2 / (8 |V_min|)   EXACT
+
+(v^2 m_h^2 = 2 lambda v^4 = 8 |V_min| exactly; sympy residual 0), with rho_H
+the HIGGS-DERIVED part of the mass density.  Holding eps_det therefore takes a
+source whose rest energy is 8|V_min| eps_det -- and that is 2/eps_det, some
+2.4e15, TIMES the field energy it buys (EXACTLY 8/(eps (2+eps)^2), which
+source_to_field_ratio() computes and the selftest expands in sympy).  PRICING
+ADDRESSING AT ITS FIELD ENERGY UNDERSTATES IT BY FIFTEEN ORDERS.
+
+    WITHDRAWN (DOCKET 63, W12).  The first draft said "1/(4 eps_det), some
+    1e15".  The file's own selftest pinned 2/eps; the two differ by a factor
+    of 8 (2.5e15 against 3.1e14 at eps = 8e-16).
+
+===============================================================================
+4. THE RANGE
+===============================================================================
+
+    WITHDRAWN (DOCKET 63, W13).  This heading first read "THE RANGE, AND IT IS
+    THE SAME OBSTRUCTION EVERY ROLE HITS".  It is not: role 3 falls to a
+    theorem that never mentions the Higgs mass (T_kk is a square -- ledger
+    D17), and role 2's m_e mechanism falls to an exact dilation (D18).  The
+    range is role 1's obstruction, and what is left of role 2's.
+
+lambda_h = hbar/(m_h c) = 1.5761e-18 m -- computed here from higgs.M_HIGGS, and
+0.0019 proton radii.  Outside a source, eps(r) = eps_0 (r_0/r) e^{-(r-r_0)/lam}.
+
+    PUSH THE FIELD TO 2v -- eps_0 = 1, the edge of the linear regime -- ACROSS A
+    WHOLE CUBIC METRE, AND IT IS UNDETECTABLE 54.7 ATTOMETRES OUTSIDE ITS OWN
+    SURFACE.
+
+At eps_0 = 1e-18 the range is not small, it is UNDEFINED: 1e-18 is already
+three orders below eps_det, so there is nothing to detect in contact, let alone
+at a distance.
+
+===============================================================================
+5. ULTRALOCALITY -- WHY A DISPLACED VEV IS NOT AN ADDRESS EVEN IN PRINCIPLE
+===============================================================================
+
+For a source varying on a scale L >> lambda_h the gradient term is negligible
+and the solution is ALGEBRAIC:
+
+    dphi(x) = -J(x)/m_h^2 * [1 + O((lambda_h/L)^2)],   (lambda_h/1 m)^2 = 2.5e-36
+
+So dphi AT A POINT IS A FUNCTION OF THE MASS DENSITY AT THAT POINT AND NOTHING
+ELSE.  There is no integral over the body, no falloff to read a distant source
+by, and no way to make the field say anything the local density does not
+already say.
+
+    A DISPLACED VEV IS NOT AN ADDRESS.  IT IS A CONTACT-ONLY READOUT OF LOCAL
+    MASS DENSITY, CARRYING STRICTLY LESS THAN THE DENSITY ITSELF.
+
+AND NATURE ALREADY RUNS THE EXPERIMENT.  Nuclear matter displaces the vev by
+eps = -3.26e-13 (H1) or -7.28e-14 (H2) -- 398 or 114 TIMES eps_det under the
+SAME hypothesis -- everywhere there is a nucleus, which is everywhere.  The
+largest Higgs displacement in the solar system is inside an ordinary atomic
+nucleus, it is two orders over threshold, and no measurement outside that
+nucleus has ever registered it.
+
+    CORRECTED (DOCKET 63, ruling F5).  The first draft gave only -7.28e-14 and
+    "NINETY TIMES".  That used the Higgs-derived fraction f = S, which is H2
+    ONLY, against this file's own refusal to choose, and then divided by the
+    H1 eps_det -- two hypotheses in one ratio.  The Higgs-derived fraction of
+    a nucleon is d ln m_p/d ln v: S under H2, 2/9 + 7S/9 = 0.268889 under H1
+    at S = 0.06.  Both are now carried (higgs_fraction()), and every ratio is
+    taken inside one hypothesis.  Role 1 is not
+untested; it is tested, at scale, continuously, with a null result that is
+built into the screening length.
+
+===============================================================================
+6. THE SAME SOURCE, SEEN 23 ORDERS FURTHER AWAY, BY GRAVITY
+===============================================================================
+
+Take the source that puts eps exactly at threshold over a 1 m sphere.  Its
+Higgs signature is readable at contact and nowhere else.  Its GRAVITATIONAL
+signature is readable by a 1e-9 m/s^2 gravimeter out to 1.4e7 m (H1) or
+2.6e7 m (H2).
+
+    ROLE 1 IS NOT MERELY EXPENSIVE.  IT IS STRICTLY DOMINATED, BY MORE THAN
+    TWENTY ORDERS OF MAGNITUDE, BY AN INSTRUMENT THAT ALREADY EXISTS AND READS
+    THE SAME SOURCE -- BECAUSE THE GRAVITON IS MASSLESS AND THE HIGGS IS NOT.
+
+===============================================================================
+7. THE PROBE ROUTE -- THE BEST CHANNEL, AND IT STILL FAILS, ON THE SOURCE
+===============================================================================
+
+Send something in and bring it back, so the field never has to reach the
+observer.  THERE ARE TWO PROBES AND THEY FAIL DIFFERENTLY.
+
+A PROBE THAT MUST RESOLVE THE REGION.  If the displaced region is no bigger
+than lambda_h, the probe needs de Broglie wavelength <= lambda_h, so p >= m_h c
+and E >= m_h c^2.  Its sensitivity is its rest-mass dependence, and that is
+
+    d ln E / d ln m  =  (m c^2/E)^2       EXACT (sympy residual 0)
+
+For an electron that ceiling is (m_e/m_h)^2 = 1.6658e-11, AT eps = 1.  Against
+the sharpest published clock ratio, 3e-16, the probe reads nothing until
+
+    eps >= 1.80e-5
+
+and holding THAT takes a source at 1.5e25 (H1) to 6.6e25 (H2) kg/m^3 --
+5.5e7 to 2.5e8 times nuclear density.  RESOLUTION AND SENSITIVITY ARE THE SAME FACTOR TURNED OPPOSITE WAYS.
+
+    AND THAT VERY FACTOR IS THE SOURCE EFFICIENCY.  A species of mass m and
+    energy E sources the Higgs as (m c^2/E)^2 per unit energy density, exactly
+    1 at rest and falling as the square thereafter.  ONE LEMMA FORBIDS BOTH
+    READING A SMALL REGION AND PAYING FOR A LARGE ONE WITH ENERGY INSTEAD OF
+    MASS.
+
+A PROBE THAT DOES NOT.  If the region is macroscopic the probe can be slow, and
+then it is simply a clock: nu_opt is proportional to c R_inf, R_inf to m_e, m_e
+to the LOCAL v, so a clock carried in and compared with its twin outside reads
+
+    d ln(nu_in/nu_out) / d eps  =  +1       EXACTLY
+
+THE BEST COEFFICIENT ANYWHERE IN THIS FILE, and at 1e-18 clock comparison it
+gives eps_det = 1e-18 -- three orders better than the stationary channel.
+ROLE 1's ONE SURVIVING ROUTE IS A COURIER, NOT A SIGNAL.
+
+IT DIES ON THE SOURCE, NOT ON THE DETECTOR.  A clock needs a bound atomic
+transition, so the region must be at least a Bohr radius across -- 3.36e7
+screening lengths -- and by section 5 the displacement is ultralocal, so the
+source must FILL it.  eps = 1e-18 across an atom takes
+
+    8.20e11 kg/m^3 (H1)  to  3.67e12 kg/m^3 (H2),
+    3.63e7 to 1.63e8 times the density of osmium
+
+(the first draft gave only the H2 figure; DOCKET 63 F5)
+
+and no bound optical transition exists in such a medium.  THE MEDIUM THAT MAKES
+THE SIGNAL DESTROYS THE INSTRUMENT THAT READS IT.  (That last clause is a
+JUDGEMENT about pressure ionisation and is flagged as one; the density ratio is
+not.)
+
+===============================================================================
+8. THE ONE LOOPHOLE WORTH THE NAME: A Th-229 NUCLEAR CLOCK AS THE COURIER
+===============================================================================
+
+An electronic clock reads eps through m_e alone, coefficient 1.  A NUCLEAR clock
+reads it through m_q/Lambda_QCD, and Flambaum (arXiv:0705.3704v2 eq. 9, READ
+FROM SOURCE) estimates a FIVE-ORDER enhancement for the 229-Th transition:
+
+    dw/w  ~  10^5 (2 da/a + 0.5 dX_q/X_q - 5 dX_s/X_s) (7 eV/w)
+
+X_q = m_q/Lambda and X_s = m_s/Lambda both move with v at d ln X/d ln v = 7/9
+under H1 and exactly 1 under H2, so the coefficient of eps is about -3.5e5 and
+
+    eps_det(Th-229 courier)  =  2.9e-24        -- EIGHT ORDERS BETTER
+
+(2.86e-24 under H1 with the corrected K_alpha of section 11; the first draft's
+2.84e-24 carried the withdrawn K_alpha)
+
+This is the best number in the file by a wide margin and it is NOT dismissed.
+It does not save Role 1, and the reason is section 9, not a budget.
+
+(Flambaum calls his own figure "a rough estimate"; it is carried as ORDER, and
+section 9's verdict does not depend on its value.)
+
+A NECESSARY HYPOTHESIS, STATED: eps = -rho c^2/(8|V_min|) is a COARSE-GRAINED
+statement.  lambda_h is 1.6 attometres and no matter is uniform at that scale --
+nucleons are 1.8 fm apart, so e^{-d/lambda_h} between two of them is about
+1e-496.  The formula is right for what a bound electron or a nucleus SAMPLES,
+which is the mean density over its own support, and it is NOT the pointwise
+field.  Every rho in this file is a coarse-grained mean and is used only where
+that is the right object.
+
+===============================================================================
+9. THE DOMINATION THEOREM.  GROWING THE SOURCE MAKES IT WORSE
+===============================================================================
+
+Put a source of mean density rho in a sphere of radius R.
+
+    HIGGS RANGE      d  =  lambda_h ln(eps_0/eps_det),  eps_0 proportional to rho
+                        so  d  grows as  ln rho
+    NEWTON RANGE     r  =  sqrt(G M/a_floor),  M proportional to rho
+                        so  r  grows as  sqrt(rho)
+
+    THEOREM.  r/d grows without bound as sqrt(rho)/ln(rho).  NO SOURCE STRENGTH
+    CLOSES THE GAP, AND EVERY INCREASE IN THE SOURCE WIDENS IT.
+
+That is not a comparison of two numbers, which could be argued about.  It is a
+comparison of two FUNCTIONS, and it is monotone.  The Higgs is massive and the
+graviton is not, and a screened field's reach is logarithmic in its source while
+an unscreened field's is a power.
+
+    ROLE 1 IS REFUTED, NOT PRICED.  There is no source, no detector and no
+    budget for which a displaced vev addresses a region better than weighing it.
+
+===============================================================================
+10. WHAT THIS FILE REFUSES
+===============================================================================
+
+TO RESOLVE H1 AGAINST H2.  What is held fixed when v varies is a question about
+physics above the electroweak scale and this file has no instrument for it.
+Both are carried, every number is reported under both, and the finding is that
+they AGREE.
+
+TO CALL S MEASURED.  The light-quark fraction sigma_q/m_p is read at three
+declared values spanning the naive valence sum and the lattice sigma-term
+range.  It is a SCAN, not a measurement, and no conclusion here turns on it.
+
+TO QUOTE A CODATA UNCERTAINTY.  m_p/m_e is measured to ~1e-11; that is NAMED-
+NOT-READ and it is not used, because the clock channel beats it by 10^4.5 and
+the argument does not need it.
+
+TO PRICE THE NONLINEAR REGIME.  A bubble -- of the true vacuum below ours,
+or a region held at phi = 0, which is a spinodal maximum and not a false
+vacuum -- is not this file's subject.  (The first draft said "a false-vacuum
+bubble", which names neither; DOCKET 63 F8/F10.)  Role 1 needs only detectability, and detectability fails inside the
+linear regime, which is the stronger place to fail.
+
+TO CALL PRESSURE IONISATION A MEASUREMENT.  Section 7's closing clause -- that
+no bound optical transition survives at 8.20e11 to 3.67e12 kg/m^3 -- is a
+JUDGEMENT.  The
+density ratio it rests on is computed; the ionisation claim is not, and no
+number here depends on it.
+
+TO CLAIM THE 0.96% FIGURE IS WRONG.  It is right about the valence quark masses
+and wrong only as a sensitivity coefficient.  Section 2 says which.
+
+===============================================================================
+11. DOCKET 63: WHAT THIS FILE GOT WRONG, KEPT RATHER THAN DELETED
+===============================================================================
+
+Every corrected figure is COMPUTED below; every withdrawn claim is a constant
+with its reason (WITHDRAWN, keyed by ledger row).
+
+  W10  "EXACTLY BLIND" and "a hundred times coarser" -- section 1.
+       OPTICAL_OPTICAL_IS_EXACTLY_BLIND = False, K_FINITE_SIZE_HYDROGEN,
+       CS_CHANNEL_COARSER_BY.
+  W11  K_alpha(H1) = -9.979521e-3.  THE SIGN WAS WRONG AND THE W THRESHOLD WAS
+       MISSING.  With alpha fixed at a high scale, 1/alpha(0) = 1/alpha(Lambda)
+       + SUM b_i ln(Lambda/m_i)/(2 pi), so d ln alpha/d ln v = +alpha SUM b_i
+       w_i/(2 pi): a heavier charged fermion screens over a shorter interval
+       and alpha(0) RISES.  The W (b = -22/3 + 1/3 = -7, w = 1) antiscreens.
+       One loop gives EXACTLY +43 alpha/(54 pi) = +1.849653e-3
+       (K_ALPHA_H1_COEFFICIENT = 43/54, over Fraction; the sign is checked in
+       sympy).  Consequences, computed: the Th-229 H1 coefficient moves from
+       -3.520e5 to -3.496e5, the optical/optical H1 row from -0.0682 to
+       +0.0126.  K_alpha_as_first_written() keeps the withdrawn formula so
+       the withdrawn number is reproduced, not typed.
+       THE RULING'S OWN CONSEQUENCE FIGURES DO NOT FOLLOW FROM ITS OWN
+       K_alpha, AND THIS FILE DOES NOT SEAT THEM.  DOCKET 63 ruling F7
+       printed "Th-229 H1 goes to about -3.48e5" and "the optical/optical H1
+       row goes to +0.0682".  Both are the WITHDRAWN K_alpha with its sign
+       flipped (+9.98e-3), not the ruling's own +43 alpha/(54 pi) =
+       +1.85e-3: dA x (-K_first) = +0.0682, and 1e5 (3.5 - 2 x 9.98e-3)
+       = 3.48e5, where the corrected product is dA x K = +0.0126 and
+       1e5 (3.5 - 2 K) = 3.496e5.  RULING_F7_PRINTED holds the two figures
+       as READ strings; RULING_F7_K_REQUIRED solves each, through the owning
+       function, for the K_alpha it would need; RULING_F7_FOLLOWS_FROM_ITS_
+       K_ALPHA and RULING_F7_IS_THE_SIGN_FLIP are COMPUTED by rounding each
+       candidate to the ruling's printed quantum.  The seated values are the
+       computed +0.0126331 and -3.49630e5.  A ruling-figure divergence,
+       RECORDED for M, not repaired in the ruling.
+  W12  "1/(4 eps_det)" -- section 3.  SOURCE_TO_FIELD_IS_QUARTER_OVER_EPS =
+       False; the factor between the two, ~8, is computed by asking
+       source_to_field_ratio() (it is 32/(2+eps)^2, 8 only as eps -> 0).
+  W13  "THE SAME OBSTRUCTION EVERY ROLE HITS" -- section 4.
+       SAME_OBSTRUCTION_EVERY_ROLE = False.
+  F5   The source fractions were H2 only -- sections 5 and 7.  EPS_NUCLEAR
+       and COURIER_SOURCE_KG_M3 now carry both hypotheses.
+  F6   "a factor of thirty" against "twenty-four" -- section 2.
+
+NOTHING IS REPAIRED.
+
+===============================================================================
+MEASURED
+===============================================================================
+
+  imported from higgs.py, never retyped
+      v                                                246.219640 GeV
+      m_h                                              125.130000 GeV
+      |V_min|                                        2.474168e+45 J/m^3
+      8|V_min| = v^2 m_h^2                           1.979335e+46 J/m^3
+
+  1. the QCD exponent, EXACT over Fraction
+      Lambda_6 power in Lambda_3                              7/9
+        power of m_c                                         2/27
+        power of m_b                                         2/27
+        power of m_t                                         2/27
+      d ln Lambda/d ln v                                      2/9
+
+  2. the sensitivity coefficients
+      S                                 dlnmp H1     K_mu H1    dlnmp H2     K_mu H2
+      naive valence 2m_u+m_d (0.0096)    0.229674   -0.770326    0.009581   -0.990419
+      sigma_piN ~ 56 MeV (0.0600)       0.268889   -0.731111    0.060000   -0.940000
+      with strange sigma term (0.0900)    0.292222   -0.707778    0.090000   -0.910000
+      naive-correction factor dlnmp(H1)/S                        
+        naive valence 2m_u+m_d                            23.9708
+        sigma_piN ~ 56 MeV                                 4.4815
+        with strange sigma term                            3.2469
+      K_alpha under H1, one loop, with W             1.849653e-03
+        = coefficient x alpha/pi, coefficient               43/54
+        WITHDRAWN first value (W11)                 -9.979521e-03
+      K_alpha under H2 (exact)                       0.000000e+00
+        |K_mu/K_alpha| under H1                            395.27
+
+  3. the channels, and the blind one
+      channel                              dln/deps     accuracy        eps_det
+      optical / optical (Godun ratio)       -0.0000      3.0e-16     BLIND (mu)
+      optical / Cs (Godun absolute)         -0.7311      6.0e-16     8.2067e-16
+      optical / Cs, future 1e-18            -0.7311      1.0e-18     1.3678e-18
+      optical/optical via K_alpha, H1        0.0126      3.0e-16     2.3747e-14
+        WITHDRAWN first value (W11)         -0.0682                            
+        ruling F7 printed (NOT SEATED)      +0.0682                   sign flip
+        the same, under H2                   0.0000      3.0e-16  BLIND (alpha)
+      H 1S-2S/2P-3D, finite size (H2)    -7.865e-10               NOT EXACTLY 0
+      Cs channel coarser than the ratio by                    2.0
+
+      THE ADOPTED THRESHOLD, H1 and S = 0.06:  eps_det = 8.2067e-16
+      THE ADOPTED THRESHOLD, H2 and S = 0.06:  eps_det = 6.3830e-16
+
+  4. the cost at threshold, and the cost that is not the cost
+      cost fraction eps^2(2+eps)^2 (H1 eps_det)       2.693988e-30
+      stored field energy                            6.665381e+15 J/m^3
+        as mass                                      7.416237e-02 kg/m^3
+        as TNT                                       1.593064e+06 t TNT/m^3
+      H1, f = 0.268889
+        Higgs-derived source density                 1.807364e+14 kg/m^3
+        total source density                         6.721603e+14 kg/m^3
+        as a fraction of nuclear density             2.511810e-03
+        source rest energy / field energy            2.437037e+15
+          2/eps_det (the W12 correction)             2.437037e+15
+      H2, f = 0.060000
+        Higgs-derived source density                 1.405728e+14 kg/m^3
+        total source density                         2.342880e+15 kg/m^3
+        as a fraction of nuclear density             8.755156e-03
+        source rest energy / field energy            3.133333e+15
+          2/eps_det (the W12 correction)             3.133333e+15
+        WITHDRAWN 1/(4 eps) was low by                        8.0
+
+  5. the range
+      lambda_h = hbar/(m_h c)                        1.576976e-18 m
+        in proton radii                              1.874228e-03
+        Bohr radius / lambda_h                       3.355646e+07
+      ultralocality error at L = 1 m                 2.486853e-36
+      source                                  eps_0        r_0 (m)   detection radius
+      field pushed to 2v, 1 m sphere        1.0e+00        1.0e+00 5.4778e-17 m outside
+      field pushed to 2v, nuclear-size      1.0e+00        1.0e-15 5.4695e-17 m outside
+      eps_0 = 1e-18 as proposed             1.0e-18        1.0e+00     NOT DETECTABLE
+      eps_0 = eps_det exactly               8.2e-16        1.0e+00     NOT DETECTABLE
+
+  6. what matter already does -- each ratio inside ONE hypothesis
+      medium                         rho (kg/m^3)         eps H1    /det H1         eps H2    /det H2
+      nuclear matter                    2.676e+17    -3.2672e-13  3.981e+02    -7.2905e-14  1.142e+02
+      white-dwarf core                  1.000e+09    -1.2209e-21  1.488e-06    -2.7244e-22  4.268e-07
+      osmium                            2.259e+04    -2.7581e-26  3.361e-11    -6.1545e-27  9.642e-12
+      water                             1.000e+03    -1.2209e-27  1.488e-12    -2.7244e-28  4.268e-13
+      laboratory vacuum 1e-10 Pa        1.000e-15    -1.2209e-45  1.488e-30    -2.7244e-46  4.268e-31
+      WITHDRAWN 'ninety times' (H2 f / H1 det)              88.84
+
+  7. the same source, read by gravity
+      H1
+        mass of the threshold 1 m sphere             2.815539e+15 kg
+        gravimetric range at 1e-9 m/s^2              1.370830e+07 m
+        Higgs range (same source)                    0.000000e+00 m
+        ratio to the 2v best case                    2.502497e+23
+        mass gravity reads at 1 m                    1.498284e+01 kg
+          its eps in a 1 m^3 box                     1.829318e-29
+          short of eps_det by                        4.486200e+13
+      H2
+        mass of the threshold 1 m sphere             9.813832e+15 kg
+        gravimetric range at 1e-9 m/s^2              2.559306e+07 m
+        Higgs range (same source)                    0.000000e+00 m
+        ratio to the 2v best case                    4.638541e+23
+        mass gravity reads at 1 m                    1.498284e+01 kg
+          its eps in a 1 m^3 box                     4.081950e-30
+          short of eps_det by                        1.563708e+14
+
+  8. the probe lemma
+      probe                                resolves (m)  dlnE/dlnm ceiling
+      electron                                1.577e-18       1.667697e-11
+      proton                                  1.577e-18       5.622252e-05
+      Higgs itself                            1.577e-18       5.000000e-01
+      (m_e/m_h)^2                                    1.667697e-11
+      eps a resolving probe needs                    1.798888e-05
+        its source, H1                               1.473361e+25 kg/m^3
+          / nuclear density                          5.505833e+07
+        its source, H2                               6.602839e+25 kg/m^3
+          / nuclear density                          2.467429e+08
+
+  9. the courier -- the best channel in the file
+      coefficient of eps                                 1.000000
+      eps_det at 1e-18 clock comparison              1.000000e-18
+        better than the stationary channel by        8.206687e+02
+      region needed (a Bohr radius)                  5.291772e-11 m
+        in screening lengths                         3.355646e+07
+      source that must fill it, H1                   8.190398e+11 kg/m^3
+        times osmium                                 3.625674e+07
+      source that must fill it, H2                   3.670512e+12 kg/m^3
+        times osmium                                 1.624839e+08
+
+ 10. the Th-229 loophole, computed rather than dismissed
+      H1                 coeff  -3.4963e+05  eps_det  2.8602e-24  source  2.3426e+06 kg/m^3
+      H2                 coeff  -4.5000e+05  eps_det  2.2222e-24  source  8.1567e+06 kg/m^3
+      H1 WITHDRAWN K_a   coeff  -3.5200e+05  eps_det  2.8409e-24
+      better than the electronic courier by          3.496301e+05
+        its source (H1), times osmium                1.037003e+02
+
+ 11. the domination theorem -- ln(rho) against sqrt(rho), H1
+      rho (kg/m^3)              eps    Higgs d (m)   Newton r (m)          r/d
+           1.000e+04     1.2209e-26     0.0000e+00     5.2875e+01          inf
+           1.000e+07     1.2209e-23     2.2887e-18     1.6720e+03   7.3056e+20
+           1.000e+10     1.2209e-20     1.3182e-17     5.2875e+04   4.0111e+21
+           1.000e+13     1.2209e-17     2.4075e-17     1.6720e+06   6.9450e+22
+           1.000e+16     1.2209e-14     3.4969e-17     5.2875e+07   1.5121e+24
+           2.676e+17     3.2672e-13     4.0152e-17     2.7352e+08   6.8121e+24
+           1.000e+22     1.2209e-08     5.6756e-17     5.2875e+10   9.3162e+26
+      AND THE LAST COLUMN IS MONOTONE INCREASING.  That is the
+      theorem: no source strength closes it.
+
+ 12. DOCKET 63: withdrawn, kept
+      W10  address.py section 1: an optical/optical ratio 'IS EXACTLY BLIND'
+          to eps, and the Cs channel is 'a hundred times coarser'
+          -> finite nuclear size gives K = 28x^2/(14x^2 - 9) = -7.8654e-10
+             in hydrogen (sympy, H2); the Cs channel is 2x
+             coarser, not 100x
+      W11  address.py K_alpha(H1) = -9.979521e-03
+          -> sign wrong and W threshold missing; one loop gives +43/54
+             alpha/pi = +1.849653e-03
+      W12  address.py section 3: the source outweighs the field by '1/(4
+          eps_det)'
+          -> the ratio is 2/eps (the selftest's own pin); the two differ by
+             a factor of 8
+      W13  address.py section 4: the range is 'THE SAME OBSTRUCTION EVERY
+          ROLE HITS'
+          -> role 3 falls to T_kk being a square, mass-independent (D17);
+             role 2's m_e mechanism to an exact dilation (D18)
+
+===============================================================================
+VERDICT
+===============================================================================
+
+  Role 1 needed only detectability and it does not have it.  The
+  displacement is ultralocal, so it is not an address but a contact
+  readout of local density; nuclear matter already holds one
+  398 (H1) or 114 (H2) times over threshold and nothing outside
+  the nucleus sees it; and the one source that would work is read by
+  an ordinary gravimeter twenty-three orders further out.  The Th-229
+  courier is eight orders better than the stationary channel and
+  changes nothing, because the gap it must close grows as
+  sqrt(rho)/ln(rho) and diverges.  REFUTED, NOT PRICED.
+

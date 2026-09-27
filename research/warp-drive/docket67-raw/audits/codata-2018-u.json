@@ -1,0 +1,93 @@
+{
+ "key": "codata-2018-u",
+ "name": "Atomic mass unit u (gravity.U_KG, CODATA 2018) and standard atomic weights (stock.ATOMIC_MASS)",
+ "source": {
+  "located": "CODATA 2018 (Tiesinga, Mohr, Newell, Taylor, Rev. Mod. Phys. 93, 025010 (2021); NIST table released 2019) for u; CIAAW standard atomic weights 2021 (Prohaska et al., Pure Appl. Chem. 94 (2022), DOI 10.1515/pac-2019-0603) and CIAAW isotopic compositions for the weights and H-A; CODATA 2022 (Mohr, Newell, Taylor, Tiesinga, arXiv:2409.03787) for the current u.",
+  "read_status": "READ-VIA-RESTATEMENT",
+  "via": "alphaXiv answer_pdf_queries/get_paper_content/discover_papers all returned 'assistant quota exceeded'; arxiv.org, physics.nist.gov and ciaaw.org refused at the egress proxy (403 on CONNECT). READ instead at verbatim machine transcriptions of the published tables: the NIST CODATA 2018 and 2022 ASCII tables held as txt2018/txt2022 in scipy 1.17.1 scipy/constants/_codata.py (line 1188: 'atomic mass constant 1.660 539 066 60 e-27 0.000 000 000 50 e-27 kg'; line 1642: '1.660 539 068 92 e-27 0.000 000 000 52 e-27 kg'), and the CIAAW 2021 standard atomic weights + isotopic compositions as transcribed in periodictable 2.1.0 periodictable/mass.py ('From https://www.ciaaw.org/atomic-weights.htm (2023-07-06)'). The RMP and Pure Appl. Chem. papers themselves are NAMED-NOT-READ."
+ },
+ "published_statement": "CODATA 2018: atomic mass constant m_u = (1/12) m(12C) = 1 u = 1.660 539 066 60(50) x 10^-27 kg (u_r 3.0e-10); energy equivalent 931.494 102 42(28) MeV; electron relative atomic mass 5.485 799 090 65(16) x 10^-4. CIAAW 2021 standard atomic weights (abridged/conventional where an interval is given): H 1.0080(2) [1.00784,1.00811] m; He 4.002602(2) g r; Li 6.94(6) [6.938,6.997] m; C 12.011(2) [12.0096,12.0116]; N 14.007(1) [14.00643,14.00728] m; O 15.999(1) [15.99903,15.99977] m; Ne 20.1797(6); Na 22.98976928(2); Mg 24.305(2) [24.304,24.307]; Al 26.9815384(3); Si 28.085(1); P 30.973761998(5); S 32.06(2) [32.059,32.076]; Cl 35.45(1) [35.446,35.457] m; K 39.0983(1); Ca 40.078(4) g; Fe 55.845(2); Zn 65.38(2) r (as transcribed in periodictable 2.1.0).",
+ "published_hypotheses": [
+  "u is defined as m(12C)/12, carbon-12 unbound, at rest, in its ground state (CIAAW/CODATA definition; restated in the table's name 'atomic mass constant', definition NAMED-NOT-READ in the RMP text).",
+  "CODATA 2018 is a least-squares adjustment over data available to 31 December 2018 (closure date NAMED-NOT-READ here); its stated standard uncertainty is 0.000 000 000 50e-27 kg.",
+  "A standard atomic weight applies to 'normal materials' (terrestrial); notes g (geological/biological materials outside the limits are known), m (modified compositions in commercial material), r (range of normal material prevents a more precise value) qualify each element (periodictable mass.py header, transcribing CIAAW).",
+  "Interval elements (H, Li, C, N, O, Mg, Si, S, Cl) carry an interval; the single figures above are the abridged/conventional values, not the value of any particular sample."
+ ],
+ "hypothesis_drift": [
+  "DROPPED (u uncertainty): gravity.py:479 'U_KG = 1.66053906660e-27' carries the CODATA 2018 central value as exact; its standard uncertainty 5.0e-37 kg (u_r 3.0e-10) is not carried. Computed effect on every count: < 1e-9 relative; nothing moves.",
+  "DROPPED (interval and 'normal material' scope of the standard atomic weights): stock.py:206-209 holds single figures for the interval elements (H 1.008, Li 6.94, C 12.011, N 14.007, O 15.999, Mg 24.305, Si 28.085, S 32.06, Cl 35.45), and massform.py:1772 divides by them. The CIAAW notes g (Ca: biological materials outside the limits are known), m (H, Li, N, O, Cl) and r (He, Zn) are not carried. Computed: moving H, C, N, O to their interval ends moves B by +4.23e-5 / -5.23e-5 relative, N_e by +5.28e-5 / -5.75e-5; no boolean moves. The Ca 'g' excursion is not computed (Ca is 1.43% of the payload mass).",
+  "ADDED, and named by the tree (H-A, massform.py:820-823, applied at massform.py:1756-1759 and 1773): B uses round(A_r(e)) in place of the natural mean nucleon number. Checked against the CIAAW isotopic compositions over their full intervals: H-A holds for all 14 listed elements; tightest Cl, mean A in [35.478, 35.490] against 35 + 1/2 (margin 0.010 nucleon at the heavy end), then Zn (65.4504, margin 0.050), Mg (margin 0.178). With the natural mean nucleon numbers B = 4.2128e28 and N_n = 1.8997e28, not the stated 4.2109e28 and 1.8977e28 (+0.047% and +0.104%); both lie inside the tree's own +/-1/2 bracket and every H-A boolean is unchanged. The data_used figures are H-A counts printed to 5 significant figures, one more than H-A supports for N_n; recorded as a precision discrepancy, not an error: the tree names H-A and selftests it at +/-1/2 (massform.py:5441-5445).",
+  "ATTRIBUTION: stock.py:206 carries no source for ATOMIC_MASS; the only attribution is massform.py:1758 ('the standard atomic weight') and the NAMED-NOT-READ at massform.py:891-893, 1754, 2888. At source the 14 HUMAN values equal CIAAW 2021 at the abridged figure for 10 elements and differ by rounding for Na (+1.0e-5 rel), P (+7.7e-6), K (-7.7e-6). He 4.003 against 4.002602 (+9.9e-5 rel) is a 4-significant-figure rounding; He is not in stock.HUMAN and does not enter this owner.",
+  "SCOPE OUTSIDE THIS OWNER (noted, not graded): stock.cosmic() (stock.py:243) applies these terrestrial standard atomic weights to Asplund 2009 solar photospheric abundances, a material the CIAAW 'normal terrestrial material' scope does not cover.",
+  "MIXED CONVERSION: massform.mu_min_mev (massform.py:2073-2086) adds AME2020 mass excesses in keV to A*U_MEV with U_MEV = U_KG/MEV_KG. U_MEV = 931.4941024171 MeV equals CODATA 2018's 931.494 102 42(28) MeV to -2.9e-9 MeV (-0.010 sigma). That AME2020 used the CODATA 2018 conversion is NAMED-NOT-READ here."
+ ],
+ "data_at_publication": [
+  {
+   "quantity": "atomic mass constant m_u (kg)",
+   "value_then": "1.660 539 066 60(50) x 10^-27 (CODATA 2018; tree gravity.U_KG = 1.66053906660e-27, equal exactly)",
+   "value_now": "1.660 539 068 92(52) x 10^-27 (CODATA 2022)",
+   "source_now": "NIST CODATA 2022 table as transcribed in scipy 1.17.1 _codata.py txt2022 line 1642; paper arXiv:2409.03787 NAMED-NOT-READ (alphaXiv quota)",
+   "moves_conclusion": "No. Relative move +1.397e-9 = 4.64 sigma of the 2018 uncertainty (4.46 sigma of 2022's). From the two tables, d ln u = dlnR_inf - 2 dln(alpha) - dln A_r(e) = -2.7e-13 + 1.370e-9 + 3.8e-11: the move is carried by alpha (2018 -> 2022 shift -4.55 sigma_2018). Recomputed: B, N_e, N_n move -1.397e-9 relative; largest central reading 0.3090178 -> 0.3090178; pair floor 1.99748468 -> 1.99748468 Mc^2; extra leptons > 0. All three H-A booleans unchanged."
+  },
+  {
+   "quantity": "u energy equivalent (MeV), enters mu_min via U_MEV",
+   "value_then": "931.494 102 42(28) (CODATA 2018); tree U_MEV 931.4941024171",
+   "value_now": "931.494 103 72(29) (CODATA 2022)",
+   "source_now": "scipy 1.17.1 _codata.py txt2022 line 1644",
+   "moves_conclusion": "No. mu_min 930.17458219 -> 930.17458349 MeV per nucleon; pair floor / Mc^2 unchanged to 1e-11."
+  },
+  {
+   "quantity": "standard atomic weights of the 14 HUMAN elements",
+   "value_then": "stock.ATOMIC_MASS: O 15.999, C 12.011, H 1.008, N 14.007, Ca 40.078, P 30.974, K 39.098, S 32.06, Na 22.990, Cl 35.45, Mg 24.305, Fe 55.845, Zn 65.38, Li 6.94",
+   "value_now": "CIAAW 2021: identical at the abridged figure except Na 22.98976928, P 30.973761998, K 39.0983 (max |rel diff| 1.0e-5)",
+   "source_now": "CIAAW 2021 (Prohaska et al. 2022) as transcribed in periodictable 2.1.0 mass.py element_mass",
+   "moves_conclusion": "No. B +8.5e-8, N_e +7.4e-8, N_n +9.7e-8 relative; interval extremes for H, C, N, O move B by at most 5.2e-5; no boolean moves."
+  },
+  {
+   "quantity": "mean nucleon number per element (H-A input)",
+   "value_then": "round(A_r): O 16, C 12, H 1, N 14, Ca 40, P 31, K 39, S 32, Na 23, Cl 35, Mg 24, Fe 56, Zn 65, Li 7",
+   "value_now": "CIAAW isotopic compositions: O 16.0045, C 12.0106, H 1.000145, N 14.00366, Ca 40.1156, P 31, K 39.1347, S 32.0956, Na 23, Cl 35.484 [35.478, 35.490], Mg 24.3206, Fe 55.9099, Zn 65.4504, Li 6.95 [6.922, 6.981]",
+   "source_now": "periodictable 2.1.0 mass.py isotope_abundance (CIAAW isotopic compositions 2021 / Meija 2016)",
+   "moves_conclusion": "No verdict moves. H-A holds for all 14 (tightest Cl, margin 0.010). Exact counts: B 4.2109e28 -> 4.2128e28 (+4.7e-4), N_n 1.8977e28 -> 1.8997e28 (+1.04e-3); largest central reading 0.30902 -> 0.30916 (< 0.5), pair floor 1.99748 -> 1.99795 Mc^2 (> 1.9), extra leptons 1.8997e28 (> 0). The binding closure, which the tree names as the one figure H-A moves materially (massform.py:1829-1830), is 0.502 kg on H-A integers and 0.535 kg on natural mean nucleon numbers, inside the tree's own bracket [-5.12, +6.12] kg."
+  },
+  {
+   "quantity": "B, N_e, N_n as the tree states them (data_used)",
+   "value_then": "B = 4.2109e28, N_e = 2.3132e28, N_n = 1.8977e28",
+   "value_now": "reproduced exactly from the tree's inputs (4.21086e28, 2.31318e28, 1.89768e28; massform.COUNTS matched to 1e-15); with all current data and exact mean nucleon numbers: 4.2128e28, 2.3132e28, 1.8997e28",
+   "source_now": "rederive/codata-2018-u.py",
+   "moves_conclusion": "No. The fourth-figure move in B and N_n is H-A's, not a moved datum's; no boolean in D28, S10, S12 moves."
+  }
+ ],
+ "rederivation": {
+  "method": "numeric",
+  "script_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/codata-2018-u.py",
+  "outcome": "Exit 0, VERDICT-INPUT AGREES (output in rederive/codata-2018-u.out). (1) gravity.U_KG == CODATA 2018 m_u exactly. (2) CODATA 2018 internal: m_e/A_r(e) = 1.660539066592e-27, rel diff -4.7e-12 from m_u (table rounding). (3) stock.ATOMIC_MASS vs CIAAW 2021: max |rel diff| over HUMAN 1.0e-5 (Na); over all 18 entries 9.9e-5 (He, 4-s.f. rounding). (4) H-A holds for all 14 HUMAN elements over the full CIAAW isotopic intervals; tightest Cl margin 0.010, Zn 0.050. (5) massform counts reproduced exactly (4.2109e28, 2.3132e28, 1.8977e28). Seven scenarios (tree; CODATA 2022 u; CIAAW 2021 weights; exact mean nucleon numbers; all current; HCNO interval low; HCNO interval high): the three H-A booleans (largest central reading < 0.5, pair floor > 1.9 Mc^2, extra leptons > 0) are identical in every one. Largest excursion of any count: N_n +1.04e-3 (exact mean nucleon number). (6) Binding closure 0.502 kg (H-A) vs 0.535 kg (natural), inside the tree's +/-1/2 bracket. (7) The 2018->2022 move in u (+1.397e-9) decomposes from the tables as 97% alpha (-2 dln alpha = +1.370e-9), 3% A_r(e).",
+  "agrees_with_source": "yes"
+ },
+ "later_literature": [
+  {
+   "ref": "CODATA 2022: Mohr, Newell, Taylor, Tiesinga, arXiv:2409.03787 (Rev. Mod. Phys. 97, 025002 (2025), citation NAMED-NOT-READ)",
+   "effect": "narrows",
+   "what": "m_u = 1.660 539 068 92(52)e-27 kg: moves +1.397e-9 relative, 4.64 sigma_2018, carried by the change in alpha; the 2018 value is superseded but no conclusion of this owner moves (all booleans unchanged to < 1e-8).",
+   "read_status": "READ-VIA-RESTATEMENT (NIST 2022 ASCII table in scipy 1.17.1 _codata.py txt2022); the paper itself NAMED-NOT-READ (alphaXiv quota exceeded, arxiv.org 403)"
+  },
+  {
+   "ref": "CIAAW standard atomic weights 2021: Prohaska et al., Pure Appl. Chem. 94 (2022), DOI 10.1515/pac-2019-0603",
+   "effect": "confirms",
+   "what": "The 14 HUMAN atomic weights stock.ATOMIC_MASS holds equal the current standard values at the abridged figure (max |rel diff| 1.0e-5).",
+   "read_status": "READ-VIA-RESTATEMENT (periodictable 2.1.0 mass.py, transcribed from ciaaw.org 2023-07-06); paper NAMED-NOT-READ"
+  },
+  {
+   "ref": "discover_papers search for later work",
+   "effect": "contested",
+   "what": "NOT RUN TO COMPLETION: discover_papers returned 'alphaXiv assistant quota exceeded'. No later literature beyond CODATA 2022 and CIAAW 2021 was searched; the list is a floor. (effect field set to 'contested' only because the schema requires a value; nothing here is contested.)",
+   "read_status": "NOT-READ (tool quota)"
+  }
+ ],
+ "lacked_data": "M's hypothesis, tested for this result. CODATA 2018 did lack data that later moved its value beyond its own stated uncertainty: the 2022 adjustment moves m_u by +1.397e-9 relative, 4.64 sigma of the 2018 uncertainty, and the two tables alone show the move is carried by alpha (alpha shifted -4.55 sigma_2018; -2 dln alpha = +1.370e-9 of the +1.397e-9). Which measurements drove the alpha change is NAMED-NOT-READ here. So, as evidence FOR M's hypothesis in general: a 2018 'recommended value' was incomplete at the 4-5 sigma level. As evidence on THIS tree's conclusions: the move is 1e-9 relative, and the booleans resting on u sit at margins of order 1e-1 (largest central reading 0.309 against 0.5; pair floor 1.997 against 1.9 Mc^2; extra leptons 1.9e28 against 0). Having the 2022 data changes no conclusion. For the atomic weights, the tree's values already equal the current CIAAW 2021 figures; the larger effect is not a lacked datum but the tree's own named approximation H-A (+0.1% in N_n), which also moves no conclusion. Evidence either way is computed in rederive/codata-2018-u.py.",
+ "grade": "STANDS",
+ "grade_evidence": "The value the tree uses is CODATA 2018's m_u exactly (read at the NIST table as transcribed in scipy txt2018, line 1188); the atomic weights equal CIAAW 2021 at the abridged figure (max |rel diff| 1.0e-5 on the payload elements); the tree's named H-A holds for all 14 payload elements over the full CIAAW isotopic intervals (tightest Cl, margin 0.010 nucleon); the tree's data_used (B 4.2109e28, N_e 2.3132e28, N_n 1.8977e28) are reproduced exactly. The one moved datum (u, CODATA 2022, +1.4e-9 = 4.6 sigma_2018) and every other substitution tried (current weights, interval extremes, exact mean nucleon numbers, all combined) leave every boolean resting on the counts (D28's floor, S10's C2 reading, S11/S12's extra leptons, the H-A selftest) unchanged. Hypothesis drifts found (uncertainty dropped, weight intervals and 'normal material' scope dropped, no attribution at stock.py:206, He rounding, 5-s.f. printing of H-A counts) are recorded as discrepancies and computed to move nothing. Caveat on the reading: the primary papers were not reached (alphaXiv quota exceeded; arxiv.org, NIST and ciaaw.org 403 at the proxy); the values were READ at verbatim machine transcriptions of the published tables, so read_status is READ-VIA-RESTATEMENT and the tree's own NAMED-NOT-READ status is not lifted by this audit.",
+ "what_would_change_the_grade": "OPEN if the transcriptions (scipy txt2018/txt2022, periodictable mass.py) were shown not to match the NIST/CIAAW primary tables; reading the RMP 93 025010 table and Prohaska 2022 Table 1 directly would upgrade the read to READ. DATA-DEPENDENT only if a conclusion's margin shrank to the 1e-3 level: that would take the C2 reading within ~0.001 of 0.5 or the floor within ~0.001 of 1.9 Mc^2, far from 0.309 and 1.997 now. NARROWED if the payload's isotopic composition were shown to lie outside the CIAAW intervals by more than 0.010 nucleon for chlorine (H-A's tightest margin), e.g. a non-terrestrial or isotopically enriched payload, or if stock.ATOMIC_MASS were applied in this owner to a non-terrestrial composition.",
+ "reverify_command": "PYTHONDONTWRITEBYTECODE=1 python3 /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/codata-2018-u.py  # needs scipy >= 1.15 (txt2022) and periodictable 2.1.0 in scratchpad/d67/pylib (pip install --target scratchpad/d67/pylib periodictable); exits 0 on AGREES",
+ "report_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/audits/codata-2018-u.json"
+}

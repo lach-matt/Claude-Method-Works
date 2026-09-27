@@ -1,0 +1,78 @@
+{
+ "key": "misner-sharp-hernandez-kinematics",
+ "name": "Misner-Sharp-Hernandez kinematic variables (U, Gamma) and their boost transformation under change of foliation (Hernandez & Misner 1966 named only in driven.py)",
+ "source": {
+  "located": "Misner & Sharp 1964, Phys. Rev. 136 B571 and Hernandez & Misner 1966, ApJ 143 452 -- neither has an arXiv copy. Read through three arXiv restatements: Hayward gr-qc/9408002 Section IV eq. (27) ('which is the form actually given by Misner & Sharp [4], with different notation', stated for ANY spatial hypersurface Sigma); Musco, Miller & Rezzolla gr-qc/0412063 Sections 2.1-2.2, eqs. (6),(7),(14) for Misner-Sharp (U = D_t R, Gamma = D_r R in the comoving frame, Gamma^2 = 1 + U^2 - 2M/R) and eqs. (15)-(20),(26) for Hernandez-Misner (observer time u, f du = a dt - b dr, metric -f^2 du^2 - 2fb dr du + R^2 dOmega^2, D_r = D_k - D_t, Gamma = D_k R - U); Escriva 2504.05813 eqs. (2.3),(2.5) (same definitions, comoving gauge, 'Gamma is called the generalised Lorentz factor').",
+  "read_status": "READ-VIA-RESTATEMENT",
+  "via": "alphaXiv answer_pdf_queries on gr-qc/9408002, gr-qc/0412063, 2504.05813 (page text read); Hernandez & Misner 1966 itself is NAMED-NOT-READ, Misner & Sharp 1964 itself is NAMED-NOT-READ; both are restated verbatim-with-equations in the papers read."
+ },
+ "published_statement": "Hayward gr-qc/9408002 (27): for any spatial hypersurface Sigma with coordinates (tau, xi), d/dxi tangent to Sigma, d/dtau orthogonal and tau proper time, metric ds^2 = r^2 dOmega^2 + e^lambda dxi^2 - dtau^2, the Misner-Sharp energy E = (r/2)(1 - g^{-1}(dr,dr)) rewrites as 1 - 2E/r = e^{-lambda} (r')^2 - rdot^2, 'which is the form actually given by Misner & Sharp [4]'. Hayward p.4: 'the only invariants of the metric and its first derivatives are functions of r and E'. Musco-Miller-Rezzolla gr-qc/0412063 (6),(7),(14): with D_t = (1/a) d/dt and D_r = (1/b) d/dmu in the comoving Lagrangian chart ds^2 = -a^2 dt^2 + b^2 dr^2 + R^2 dOmega^2, D_t R = U ('the radial component of the four-velocity in the associated Eulerian frame'), D_r R = Gamma ('a generalisation of the Lorentz factor'), Gamma^2 = 1 + U^2 - 2M/R. Hernandez-Misner (15)-(20),(26): observer time u along outgoing null rays, f du = a dt - b dr, D_k = (1/b) d/dr across the null slice, D_r = D_k - D_t, and Gamma = D_k R - U -- U and Gamma are the SAME fluid-frame quantities in both slicings.",
+ "published_hypotheses": [
+  "spherical symmetry (Hayward: assumed throughout, all objects respect it; Musco: 'restricting attention to spherical symmetry')",
+  "Hayward (27): any spatial hypersurface Sigma, tau proper time along its normal (the Phi = 0 gauge); no matter assumption, no staticity",
+  "Misner-Sharp form proper: perfect fluid T = (rho+p) u u + p g, comoving coordinates, (U, Gamma) defined with respect to the fluid four-velocity, which coincides with the comoving slice normal (Hayward Section IV 'adapt the (tau, xi) coordinates to the fluid'; Musco (1)-(7); Escriva (2.1)-(2.3))",
+  "Hernandez-Misner: outgoing null slicing (observer time), the fluid frame unchanged, Gamma = D_k R - U (Musco (26)); the slice normal is null",
+  "units G = c = 1; no numerical input"
+ ],
+ "hypothesis_drift": [
+  "ADDED/RENAMED (foliation.py:128-134, :381-382; the audit key's own name): the tree defines (U, Gamma) as components of dR on the SLICE NORMAL dyad of an arbitrary chart and calls their boost law 'the standard Misner-Sharp-Hernandez kinematics'. The sources define (U, Gamma) on the FLUID frame; Hernandez & Misner 1966's change of foliation leaves (U, Gamma) fixed (Musco (26): Gamma = D_k R - U; check C7b, residual 0). The boost law is a correct elementary fact about orthonormal dyads in the 2-d quotient, verified here (C3), but it is not Hernandez-Misner's operation. Attribution discrepancy, not a mathematical one.",
+  "ADDED (foliation.py:104-118): rapidity field w(t,r) arbitrary and 'every spherically symmetric unit timelike field is hypersurface orthogonal' -- in no source; verified here (C1, C6: Frobenius identically 0 in all 64 components).",
+  "DROPPED (foliation.py:128-134): perfect fluid and comoving coordinates. Legitimate: the invariant is geometric (Hayward (4),(27); check C4 with arbitrary lapse Phi(t,r), any matter). The tree's class (any spacelike foliation, any matter) is LARGER than Misner-Sharp's and is covered by Hayward's 'any spatial hypersurface'.",
+  "NARROWER FOLIATION CLASS THAN THE NAME SUGGESTS (foliation.py:104-118, :128-134; ledger D2 'in EVERY foliation'): the tree's foliations have unit timelike normals; the eponymous Hernandez-Misner slicing is NULL (check C7c, h^{uu} = 0) and lies outside that class. 'Every foliation' means every spacelike foliation. The tree does not use a null slicing, so no dependent is affected; recorded so the word 'every' is read at its true scope.",
+  "SIGN MISPRINT (foliation.py:129 prose 'U = -u^a d_a R' vs :650-652 code V3 'U = u^a d_aR'): with the minus sign the printed boost law would read U' = cosh(w) U - sinh(w) Gamma (check C5). The code, V3, V4 and every z3 obligation use the consistent + convention. A discrepancy in one prose line; not a refutation.",
+  "BRANCH HYPOTHESIS the tree names and the literature shows is non-vacuous (foliation.py:800-840, ident: G > 0): Escriva 2504.05813 Fig. 2 and Section 5.1 show Gamma < 0 regions (type-II fluctuations, R' < 0). The tree's range theorem is stated on the Gamma > 0 branch; that hypothesis is explicit in every obligation and is not dropped."
+ ],
+ "data_at_publication": [
+  {
+   "quantity": "none -- the result is a kinematic definition plus an identity; no measured constant, particle datum or cosmological parameter enters it (units G = c = 1)",
+   "value_then": "n/a",
+   "value_now": "n/a",
+   "source_now": "n/a (nothing in PDG or any measurement paper bears on it)",
+   "moves_conclusion": "no"
+  }
+ ],
+ "rederivation": {
+  "method": "sympy",
+  "script_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/misner-sharp-hernandez-kinematics.py",
+  "outcome": "ALL PASS (sympy 1.14.0 + z3 5.1.0; ~2 min). C1 boosted dyad orthonormal for arbitrary w(t,r); C2 U = +u^a d_aR, Gamma = n^a d_aR; C3 boost law exactly as foliation.py:131-132; C4 Gamma'^2 - U'^2 = Gamma^2 - U^2 = g^{ab} d_aR d_bR, and C4b Hayward (27) is its Phi = 0 member; C5 the :129 minus sign is inconsistent with the stated law (misprint); C6 Frobenius u'_[a d_b u'_c] = 0 identically, 64 components; C7 in the Hernandez-Misner observer-time chart the fluid frame gives U = D_t R and Gamma = D_k R - D_t R (Musco (20),(26)) -- the H-M re-slicing does NOT boost (U, Gamma) -- and the H-M slice normal is null; C8 Schwarzschild witness computed from the metrics: static slicing (0, sqrt(1-2m/R)) and Painleve-Gullstrand slicing (-sqrt(2m/R), 1) lie on one hyperbola and are joined by the tree's O12 boost (at m=1, R=4: cosh w = sqrt 2, sinh w = -1, w = -0.8814); C9 z3: O1 and O12 negations unsat, vacuity guard sat.",
+  "agrees_with_source": "yes"
+ },
+ "later_literature": [
+  {
+   "ref": "Hayward, 'Gravitational energy in spherical symmetry', gr-qc/9408002 (1996), Section II eq. (4), Section IV eq. (27), p.16",
+   "effect": "confirms",
+   "what": "(27) holds for any spatial hypersurface, not only comoving-fluid slices; 'the only invariants of the metric and its first derivatives are functions of r and E' -- exactly specthm R1's 'only foliation-invariant content of (U, Gamma)'; p.16: the velocity rdot 'is relative to the preferred frame determined by r, not the frame of some observer' (the fluid-frame reading of the source's U).",
+   "read_status": "READ"
+  },
+  {
+   "ref": "Musco, Miller & Rezzolla, 'Computations of primordial black hole formation', gr-qc/0412063 (2005), Sections 2.1-2.2",
+   "effect": "narrows",
+   "what": "Restates both formulations with equations. Hernandez-Misner's change of foliation is to a NULL slicing and leaves U and Gamma as fluid-frame scalars (Gamma = D_k R - U, eq. 26): the 'boost under change of foliation' is not what Hernandez & Misner 1966 contributes. Narrows the attribution, not the mathematics.",
+   "read_status": "READ"
+  },
+  {
+   "ref": "Escriva, 'A new approach for simulating PBH formation ... with the Misner-Sharp formalism', 2504.05813 (2025), eqs. (2.3),(2.5),(3.17), Fig. 2",
+   "effect": "extends",
+   "what": "Same definitions in the comoving gauge; Theta_pm = 2(U pm Gamma)/R and trapping horizons at U = -/+ Gamma; shows Gamma < 0 regions occur (type-II fluctuations), which is why the tree's explicit branch hypothesis Gamma > 0 is a real restriction rather than a formality.",
+   "read_status": "READ"
+  },
+  {
+   "ref": "Jai-akson & Yokokura, 'Revisiting Spherically Symmetric Spacetime I: Geometro-Hydrodynamics', 2601.03077 (2026), Sections 3.1, 4.1, Appendix B",
+   "effect": "extends",
+   "what": "General change of foliation-adapted frames in the 2-d normal plane N: frames adapted to any slice sigma = const are local linear combinations of the radial-slice frame (eqs. 67-77); with null rigging frames the reorientations form a Borel subgroup of SL(2,R) (not SO(1,1)), the orthonormal-dyad version of the same statement being the tree's boost. Confirms that the transformation is a frame reorientation in N, with dr the fixed covector.",
+   "read_status": "READ"
+  },
+  {
+   "ref": "Baumgarte, Shapiro & Teukolsky 1995, ApJ 443 717 (Hernandez-Misner implementation, cited by Musco et al.)",
+   "effect": "confirms",
+   "what": "Named by Musco et al. as the observer-time code Niemeyer & Jedamzik built on; not needed for the statement audited.",
+   "read_status": "NAMED-NOT-READ"
+  }
+ ],
+ "lacked_data": "M's hypothesis tested: the result carries no empirical input, so no datum measured since 1964/1966 can move it. What the authors did not have: (i) Hayward's 1994-96 covariant double-null treatment, which shows E and r are the only first-derivative invariants and that (27) holds on any spatial hypersurface -- this ENLARGES the class from comoving-fluid slices to the class the tree uses, and is the reason the tree may drop the fluid; (ii) the numerical experience (Musco 2005, Escriva 2025) that Gamma changes sign in throat-like configurations -- this is the tree's named branch hypothesis (G > 0 in every z3 obligation), not a dropped one. Evidence either way: C4 (identity with arbitrary lapse and any matter), C7b (H-M re-slicing leaves U, Gamma fixed), Escriva Fig. 2 (Gamma < 0 occurs). Verdict on M's hypothesis for THIS result: the later knowledge widens, it does not overturn; nothing the 1964-66 authors lacked changes the conclusion.",
+ "grade": "STANDS",
+ "grade_evidence": "The statement as used (U, Gamma as slice-normal components of dR; boost law under a change of spacelike foliation with arbitrary w(t,r); invariant Gamma^2 - U^2 = 1 - 2m/R) is re-derived here from scratch on the tree's chart (C1-C6), the invariant is Hayward (27) with the lapse restored (C4, C4b), the z3 obligations O1 and O12 are re-checked in an independent harness (C9), and a real spacetime off the diagonal ansatz (Painleve-Gullstrand vs static Schwarzschild) witnesses the law with a computed rapidity (C8). No datum enters. The class the tree uses is larger than the source's (any matter, any spacelike foliation) and holds on that larger class because the content is geometric. Two discrepancies are recorded and neither is a refutation: the name -- Hernandez & Misner 1966's re-slicing is null and leaves (U, Gamma) fixed (C7), so 'boost under change of foliation' is the tree's own elementary lemma, not theirs -- and the one-line sign misprint at foliation.py:129 (C5). Both are misprint/attribution class per the fluctuation.py precedent: recorded, nothing repaired.",
+ "what_would_change_the_grade": "NARROWED if ledger D2 or specthm R1 is found to invoke the law on a null slicing (Gamma' undefined; the H-M slicing is outside the class), on a non-spherically-symmetric rapidity field (Frobenius C6 then fails), or on the Gamma < 0 branch without naming it. WRONG only by a refuting counterexample to C3/C4 in spherical symmetry -- they are identities, so none is expected. A reading of Hernandez & Misner 1966 at source would settle the attribution note either way without moving the grade.",
+ "reverify_command": "python3 /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/misner-sharp-hernandez-kinematics.py   # exit 0, prints 'RESULT: ALL PASS'; needs sympy>=1.12 and z3-solver (pip install z3-solver); ~2 min",
+ "report_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/audits/misner-sharp-hernandez-kinematics.json"
+}

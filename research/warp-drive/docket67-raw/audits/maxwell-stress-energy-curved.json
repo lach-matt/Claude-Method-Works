@@ -1,0 +1,86 @@
+{
+ "key": "maxwell-stress-energy-curved",
+ "name": "Maxwell stress-energy tensor and curved-space Maxwell equations (Gauss law sqrt(-g) F^{tr} = Q) in dynamical spherical symmetry",
+ "source": {
+  "located": "Textbook definition with no single originating paper (Minkowski/Einstein era; MTW Sec.22, Landau-Lifshitz -- NAMED-NOT-READ). Read at source on arXiv in Carroll, Lecture Notes on General Relativity, gr-qc/9712019v1 (Dec 1997): eq (7.106) dynamical spherical metric ds^2 = -e^{2alpha(r,t)}dt^2 + e^{2beta(r,t)}dr^2 + r^2 dOmega^2; eq (7.107) T_mn = (1/4pi)(F_mr F_n^r - (1/4) g_mn F_rs F^rs); eq (7.108) 'Since we have spherical symmetry, the most general field strength tensor will have components F_tr = f(r,t) = -F_rt, F_thph = g(r,t) sin th = -F_phth'; eq (7.109) g^{mn} nabla_m F_ns = 0, nabla_[m F_nr] = 0; eq (7.112) F_tr = -q/r^2, F_thph = p sin th; eq (4.24)-(4.27) curved Maxwell equations and their form-language equivalence; eq (8.25)-(8.26) tracelessness. Corroborated in Bronnikov, Bolokhov, Nurbakova, Tynyshbay arXiv:2604.23741 (Apr 2026) p.2 eqs (2),(5),(6) and Kubiznak, Svitek, Tahamtan arXiv:2605.01811 (May 2026) Sec.III Theorem 1 (Frolov-Zelnikov 2011 p.166, restated).",
+  "read_status": "READ",
+  "via": "alphaXiv answer_pdf_queries on gr-qc/9712019 (pp.1,24,27,35-37,114-118,123-124,146,208-209,229), 2604.23741 (pp.1-7), 2605.01811 (pp.1-6,10,17-18), 0809.1003 (pp.1,13-15,34). Owner lines drivensource.py:77-88, 285-326, 334-343, 504-517, 450-460 read in the repo and match the canonical statements. The classic textbook originals (MTW, Landau-Lifshitz) are NAMED-NOT-READ; the result itself is read directly in an arXiv source, not via restatement of a classic."
+ },
+ "published_statement": "Carroll gr-qc/9712019 p.201: 'The energy-momentum tensor for electromagnetism is given by T_mn = (1/4pi)(F_mr F_n^r - (1/4) g_mn F_rs F^rs) (7.107) ... Since we have spherical symmetry, the most general field strength tensor will have components F_tr = f(r,t) = -F_rt, F_thph = g(r,t) sin th = -F_phth (7.108) ... F_tr corresponds to a radial electric field, while F_thph corresponds to a radial magnetic field ... The field equations in this case are both Einstein's equations and Maxwell's equations: g^{mn} nabla_m F_ns = 0, nabla_[m F_nr] = 0 (7.109).' p.202: RN with Delta = 1 - 2GM/r + G(p^2+q^2)/r^2, 'F_tr = -q/r^2, F_thph = p sin th (7.112). Conservatives are welcome to set p = 0 if they like.' p.107: curved Maxwell nabla_m F^{nm} = 4 pi J^n, nabla_[m F_nl] = 0, equivalently d(*F) = 4pi(*J), dF = 0. Bronnikov et al 2604.23741 p.2: 'the only admissible components of the Maxwell tensor F_mn are F_tr = -F_rt (a radial electric field) and F_thph = -F_phth (a radial magnetic field)'; 'T^t_t = T^u_u' for any L(f).",
+ "published_hypotheses": [
+  "Linear Maxwell Lagrangian, minimally coupled (Carroll p.108 eq 4.32: a nonminimal (1+alpha R)F coupling is excluded by the equivalence principle, 'alpha = 0')",
+  "Massless photon (Proca mass term absent; implicit in 'Maxwell')",
+  "Source-free region (J = 0) for eq (7.109)",
+  "Spherical symmetry: most general field has F_tr = f(t,r) AND F_thph = g(t,r) sin th (radial electric AND radial magnetic); p = 0 is a choice ('Conservatives are welcome to set p = 0')",
+  "Gaussian units, G = c = 1 in the tensor normalisation 1/(4pi); signature (-,+,+,+)",
+  "Metric (7.106) is time-dependent (dynamical) with the areal radius as coordinate; the tree's R(t,r) generalisation is a coordinate change covered by the covariant equations"
+ ],
+ "hypothesis_drift": [
+  "DROPPED (magnetic component): drivensource.py:285-286 'Maxwell stress-energy of the ONLY spherically symmetric field' and :302 'Spherical symmetry admits only F_{tr} (radial electric)'. The source (Carroll 7.108; Bronnikov 2604.23741 p.2) admits F_thph = g sin th as well. Computed here (rederive section C): dF = 0 forces g = P constant; the dyonic field satisfies both Maxwell sets in the full dynamical metric and gives rho = (Q^2+P^2)/(8 pi R^4), j = 0, p_r = -rho, p_T = rho, and m = M - (Q^2+P^2)/2R satisfies both Misner-Sharp equations for arbitrary Phi, Lambda, R. The word 'ONLY' is an overstatement of the ansatz's generality -- a DISCREPANCY in the tree's statement, not in its conclusion, which is invariant under Q^2 -> Q^2 + P^2.",
+  "NORMALISATION (comment only): drivensource.py:302-303 'Gauss' law sqrt(-g) F^{tr} = Q fixes it'. With the code's F_tr = Q e^{Phi+Lambda}/R^2 (line 305), sqrt(-g) F^{tr} = -Q sin(theta) (computed, rederive section B); the comment holds as sqrt(-g) F^{rt}/sin(theta) = Q. Sign and angular-density factor differ; the Maxwell residual the code actually checks (lines 309-310, selftest 511) is the correct d_a(sqrt(-g) F^{ab}) = 0 and passes. A discrepancy of wording; T is quadratic in Q, so nothing downstream moves.",
+  "SIGN CONVENTION (no effect): the tree's F_tr = +Q e^{Phi+Lambda}/R^2 corresponds, in Carroll's convention (7.112) F_tr = -q/r^2, to charge q = -Q. T is quadratic in F; checked.",
+  "IMPLICIT, NOT NAMED in the canonical hypotheses list: massless photon (m_gamma = 0) and minimal linear coupling. The owner's SCOPE (drivensource.py:459-460) and emwarp.py:183-185 NAME nonlinear electrodynamics as not covered; neither names m_gamma = 0 or nonminimal coupling. Both are part of what 'Maxwell' means, so this is an unnamed hypothesis rather than a drop. Computed (section G): a Proca term adds mu^2 A_t^2 e^{-2Phi}/(4pi) >= 0 to rho + p_r, so 'rho + p_r = 0 EXACTLY' (drivensource.py:88) is exact only at m_gamma = 0, and the correction points away from NEC violation.",
+  "SOURCE-SIDE DISCREPANCY (not the tree's): Carroll gr-qc/9712019v1 eq (1.111) prints T^{mn}_{e+m} = (-1/4pi)(F^{ml}F^n_l - (1/4)eta^{mn}F^2); computed here (section D) that prefactor gives T^00 = -(E^2+B^2)/8pi in signature (-,+,+,+). The same notes' (7.107) and (8.25) print +1/(4pi), which gives +(E^2+B^2)/8pi and agrees with the tree (drivensource.py:314-316). Recorded as a misprint in the 1997 v1 notes, not a refutation of anything."
+ ],
+ "data_at_publication": [
+  {
+   "quantity": "photon mass m_gamma (the tensor assumes 0)",
+   "value_then": "Carroll 1997 notes: no bound stated; best secure bound then was Pioneer-10/Jupiter, mu < 4e-16 eV (Davis, Goldhaber, Nieto 1975, as tabulated in Goldhaber-Nieto 0809.1003 Table I)",
+   "value_now": "mu < 1e-18 eV, reduced Compton wavelength > 2e11 m ~ 1.3 AU (Ryutov 2007, solar wind; Goldhaber-Nieto 0809.1003v5 eq (41) and Table I, read). The PDG listing is NAMED-NOT-READ here.",
+   "source_now": "arXiv:0809.1003v5 p.15 eq (41), p.34 Table I",
+   "moves_conclusion": "No. Computed: the Proca increment to rho + p_r is mu^2 A_t^2 e^{-2Phi}/(4pi) >= 0, i.e. (rho+p_r)/rho ~ 2(r/lambda)^2 = 5.1e-17 at r = 1 km and 2.1e-9 at Earth radius with lambda = 1.97e11 m. It can only move rho + p_r upward, never to NEC violation; 'EXACTLY' is exact only at m_gamma = 0."
+  },
+  {
+   "quantity": "magnetic monopole charge P (tree sets 0 without saying so)",
+   "value_then": "Carroll 1997 p.202: 'Isolated magnetic charges (monopoles) have never been observed in nature'",
+   "value_now": "No observation read in this audit (monopole search literature not read here)",
+   "source_now": "not read -- irrelevant to the conclusion",
+   "moves_conclusion": "No. Computed: every conclusion holds with Q^2 -> Q^2 + P^2 (rederive section C), so P = 0 or P != 0 gives the same saturation, j = 0 and frozen Misner-Sharp mass."
+  },
+  {
+   "quantity": "epsilon_0, G, c (owner file drivensource.py:278-280, CODATA 2018)",
+   "value_then": "EPS0 = 8.8541878128e-12 F/m, G = 6.67430e-11, c exact",
+   "value_now": "CODATA 2022 values not read in this audit",
+   "source_now": "not read",
+   "moves_conclusion": "No. They enter only the downstream SI conversion X_of_Q (drivensource.py:347-350), not this result: rho + p_r = 0, j = 0, p_T = rho are unit-free identities. The SI bridge Q^2/(8 pi eps0 a) is checked symbolically (section E) for any eps0."
+  }
+ ],
+ "rederivation": {
+  "method": "sympy",
+  "script_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/maxwell-stress-energy-curved.py",
+  "outcome": "ALL PASS (30 checks, exit 0; output in rederive/maxwell-stress-energy-curved.out). Independent of drivensource.py: (A) for a general F_tr = f(t,r) the curved Maxwell equations reduce to d_t G = d_r G = 0 with G = sqrt(-g)F^{tr}/sin(theta), so Q is forced constant; (B) the tree's field satisfies all four d_a(sqrt(-g)F^{ab}) = 0, gives rho = Q^2/(8 pi R^4), j = 0, p_r = -rho, p_T = rho -- agrees with drivensource.py:85; sqrt(-g)F^{tr} = -Q sin(theta) (comment discrepancy); (C) the dropped F_thph = P sin(theta): dF = 0 forces P constant, dyonic field satisfies both Maxwell sets, rho = (Q^2+P^2)/(8 pi R^4), saturation, tracelessness and the Misner-Sharp freeze all survive; (D) +1/(4pi) gives T^00 = (E^2+B^2)/8pi, Carroll (1.111)'s printed -1/(4pi) gives the negative -- source misprint; (E) SI exterior energy Q^2/(8 pi eps0 a); (F) for ANY L(f) (Bronnikov eq 5) T^t_t = T^r_r and T^t_r = 0 in the full dynamical metric, but T^th_th + T^t_t = L - f L_f and trace = 2(L - f L_f), so p_T = rho and tracelessness are Maxwell-only while radial saturation is not; (G) Proca increment mu^2 A_t^2 e^{-2Phi}/(4pi) >= 0.",
+  "agrees_with_source": "yes"
+ },
+ "later_literature": [
+  {
+   "ref": "Bronnikov, Bolokhov, Nurbakova, Tynyshbay, arXiv:2604.23741 (2026)",
+   "effect": "extends",
+   "what": "Static spherical NED with L(f): 'the only admissible components ... are F_tr and F_thph'; T^t_t = T^u_u for any L(f) (eq 6); Maxwell dyonic RN with q_e^2 + q_m^2 (eq 10). Confirms the magnetic component the tree drops and that radial saturation is not special to linear Maxwell (static case; section F here extends it to the dynamical metric).",
+   "read_status": "READ (pp.1-7)"
+  },
+  {
+   "ref": "Kubiznak, Svitek, Tahamtan, arXiv:2605.01811 (2026)",
+   "effect": "extends",
+   "what": "Generalised Birkhoff (Theorem 1, restating Frolov-Zelnikov 2011 p.166): T_AB = (1/2) T^C_C gamma_AB with R(x) non-constant gives an extra Killing vector; the dyonic ansatz A = phi(t,r)dt + p cos(theta) dphi satisfies it for ANY L(S,P). Names the R = const exception (Bertotti-Robinson AdS2 x S2), relevant to the ledger's 'EM_CLOSED_BY Birkhoff' but outside this definition. Confirms the Maxwell-case structure (T0 = T1) the tree computes.",
+   "read_status": "READ (pp.1-6, 10, 17-18)"
+  },
+  {
+   "ref": "Goldhaber & Nieto, arXiv:0809.1003v5, Rev. Mod. Phys. 82 (2010) 939",
+   "effect": "confirms",
+   "what": "Photon mass bound mu < 1e-18 eV (Ryutov 2007) -- the datum behind the implicit m_gamma = 0 hypothesis; first non-Coulomb correction of order (mu r)^2, consistent with the 2(r/lambda)^2 computed here.",
+   "read_status": "READ (pp.1, 13-15, 34)"
+  },
+  {
+   "ref": "Carroll, gr-qc/9712019v1 (1997)",
+   "effect": "confirms",
+   "what": "The source itself: (7.107) tensor, (7.108) general spherical field, (7.109) curved Maxwell, (8.26) tracelessness; (1.111) sign misprint recorded as a discrepancy.",
+   "read_status": "READ"
+  }
+ ],
+ "lacked_data": "M's hypothesis tested on this result. The result is a definition plus a symbolic identity; three data could bear on it. (1) Magnetic monopoles: unobserved in 1997 (Carroll p.202) and still unobserved as far as this audit read (monopole searches not read). Having one would not change the conclusion -- computed, Q^2 -> Q^2 + P^2 throughout. (2) Photon mass: the 1997-era secure bound was 4e-16 eV (Jupiter, 1975); now 1e-18 eV (Ryutov 2007, read via 0809.1003). The exactness of rho + p_r = 0 is conditional on m_gamma = 0, which no finite experiment can establish; but the computed Proca increment is non-negative, ~5e-17 of rho at 1 km, so no admissible value of this datum turns the field NEC-violating -- the conclusion the tree draws (EM makes no negative energy; saturation, not violation) is unmoved in either direction. (3) Vacuum nonlinearity (Euler-Heisenberg/QED): the owner already names nonlinear electrodynamics as out of scope; computed here that radial saturation and zero flux survive ANY L(f) in the full dynamical metric, so this datum cannot produce rho + p_r < 0 either; only p_T = rho and tracelessness are linear-Maxwell-specific. Evidence either way: no datum the authors lacked moves this result; the one thing that was 'incomplete' is the tree's own 'ONLY F_tr', and completing it leaves the conclusion intact.",
+ "grade": "STANDS",
+ "grade_evidence": "The stress-energy tensor (drivensource.py:314-316, +1/(4pi), Gaussian, G = c = 1) is Carroll's (7.107) exactly; the curved Maxwell equation the tree checks is d_a(sqrt(-g)F^{ab}) = 0, equivalent to Carroll's (7.109)/(4.24); an independent sympy re-derivation reproduces rho = Q^2/(8 pi R^4), j = 0, p_r = -rho, p_T = rho in the full time-dependent metric (30/30 checks pass). No numerical datum enters. Recorded discrepancies, none of which moves the conclusion: (i) the tree's 'ONLY F_tr' drops the source-admitted F_thph = P sin(theta) -- a statement overreach; computed that all conclusions hold with Q^2 + P^2, so the result holds on a LARGER class than the tree claims, not a smaller one (hence not NARROWED); (ii) the comment 'sqrt(-g) F^{tr} = Q' is -Q sin(theta) for the code's F -- wording, not computation; (iii) m_gamma = 0 and minimal linear coupling are implicit, not named; the Proca correction is >= 0 and ~1e-17 at km scale; (iv) Carroll's (1.111) sign is a misprint in the source, contradicted by its own (7.107).",
+ "what_would_change_the_grade": "NARROWED if the tree used this result beyond linear, minimally coupled, massless Maxwell (e.g. quoted p_T = rho or tracelessness for a nonlinear vacuum -- computed here to fail for L != c f), or if a downstream claim needed m_gamma = 0 exactly rather than the sign of rho + p_r. WRONG only if a spherically symmetric source-free solution of the curved Maxwell equations with rho + p_r != 0 or j != 0 were exhibited -- sections A and C show the general spherical field (F_tr and F_thph) admits none. Re-grading the 'ONLY' wording itself would require the tree to rest a conclusion on P = 0, which it does not.",
+ "reverify_command": "python3 /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/maxwell-stress-energy-curved.py  # expect 'RESULT: ALL PASS', exit 0; cross-check: cd /home/user/Claude-Method-Works/research/warp-drive && python3 drivensource.py --selftest",
+ "report_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/audits/maxwell-stress-energy-curved.json"
+}

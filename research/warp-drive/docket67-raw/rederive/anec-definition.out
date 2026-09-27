@@ -1,0 +1,49 @@
+==============================================================================
+A. overturn.py two-zone profile: chord integrals, closed form
+  chord(0) = 2*a*(R - r0) - 2*b*r0  at (a,b,r0,R)=(1.5,1,1,2): 1
+  d chord/dp (p<r0) = 2*a*p/sqrt(-p**2 + r0**2) - 2*a*p/sqrt(R**2 - p**2) + 2*b*p/sqrt(-p**2 + r0**2)
+  d chord/dp at p=0,.2,.5,.8,.99: ['0.0000', '0.7191', '2.1122', '5.3574', '33.3805']
+  min chord over p in [0,1): 1.0  over [1,2): 0.599249530663144
+  m(r0) = -4.188790204786391  m(R) = 39.79350694547072
+  scaling a=1.5 lam, b=lam: chord(0) = lambda  m(r0) = -4*pi*lambda/3
+  static perfect fluid, flat space, k=(1,1,0,0): T_kk = P + rho
+  straight null lines are affine geodesics of flat space with d lambda = dx,
+  so chord == published ANEC integral iff INT P dl = 0 on that chord (e.g. dust).
+==============================================================================
+B. parametrisation dependence
+  affine rescaling lambda'=c lambda: integral' = (1/c^2)*c * integral = integral/c
+  => sign is invariant, magnitude is not (normalisation of k is a choice)
+  toy: INT T dlambda = 1/2 ;  with positive weight 2 on [0,1): -1/2
+  => along a non-affine parameter the SIGN is not the ANEC sign in general
+==============================================================================
+C. anec.py coordinate lines vs the published definition (tree pipeline, copies)
+  C1 reproduce anec.py (x in [-2.5,2.5], n=90) and widen the window
+    y=0.0  n90 -0.080665 (rec -0.0807)   [-6,6] n240 -0.080665
+    y=0.2  n90 -0.086534 (rec -0.0865)   [-6,6] n240 -0.086534
+    y=0.3  n90 -0.094637 (rec -0.0946)   [-6,6] n240 -0.094637
+    y=0.5  n90 -0.129034 (rec -0.1290)   [-6,6] n240 -0.129034
+    y=0.8  n90 -0.344100 (rec -0.3441)   [-6,6] n240 -0.344100
+  C2 is the fixed-y coordinate line a null geodesic?  A^mu = k^b d_b k^mu + Gamma^mu_bc k^b k^c
+    y=0.0  max|A^y| = 0.000e+00   max|A^x - (k^x/k^t)A^t| = 1.365e-06
+    y=0.3  max|A^y| = 6.017e-01   max|A^x - (k^x/k^t)A^t| = 1.801e-06
+    y=0.8  max|A^y| = 1.881e-01   max|A^x - (k^x/k^t)A^t| = 1.271e-07
+  C3 on y=0 (a pregeodesic): conserved k_t and the affine parameter
+    x=-3.00  k_t = -1.000000   -(1+v) = -1.000000
+    x=-1.00  k_t = -1.250000   -(1+v) = -1.250000
+    x=-0.90  k_t = -1.416009   -(1+v) = -1.416009
+    x=+0.00  k_t = -1.500000   -(1+v) = -1.500000
+    x=+0.90  k_t = -1.416009   -(1+v) = -1.416009
+    => affine tangent K = k/(1+v) (K_t = -1, K^x = 1, so d lambda = dx)
+       and the published ANEC integral on y=0 is INT T_kk/(1+v)^2 dx
+    y=0 affine ANEC integral: -0.052410 (n240)  -0.052410 (n480);  anec.py coordinate -0.080665
+  C4 cross-check against the tree's own affine geodesic integrator (achronal.py copy)
+    achronal y0=0.0 geodesic INT T_kk dlambda = -0.052410  (C3 gives -0.052410)
+    achronal y0=0.3 geodesic INT T_kk dlambda = -0.060263  (anec.py line -0.094637)
+  C5 sign robustness of the coordinate-line integrals under the same positive weight
+    y=0.0  INT T_kk/(1+v)^2 dx = -0.052410
+    y=0.2  INT T_kk/(1+v)^2 dx = -0.053790
+    y=0.3  INT T_kk/(1+v)^2 dx = -0.055822
+    y=0.5  INT T_kk/(1+v)^2 dx = -0.065833
+    y=0.8  INT T_kk/(1+v)^2 dx = -0.149495
+
+written /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/anec-definition.out.json

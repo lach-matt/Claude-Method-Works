@@ -1,0 +1,84 @@
+{
+ "key": "plummer-potential",
+ "name": "Plummer-smoothed point-mass potential (Plummer 1911), used as the core model",
+ "source": {
+  "located": "Plummer, H. C. 1911, MNRAS 71, 460 ('On the problem of distribution in globular star clusters') -- pre-arXiv; the 1911 paper itself is NAMED-NOT-READ. The potential-density pair was read in an exact restatement: galpy 1.12.0 (Bovy; pypi wheel md5 87178c69b735417a3c6c8ca1c28a95d9), galpy/potential/PlummerPotential.py (md5 9ce3712337920ed87880d0574cd0b23a): Phi = -amp/sqrt(R^2+z^2+b^2) 'with amp = GM the total mass', _dens = 3/(4 pi) b^2 (r^2+b^2)^(-5/2), _mass(r) = (1+b^2/r^2)^(-3/2); the C extension agrees; galpy/df/isotropicPlummerdf.py restates the DF f(E) proportional to (-E)^(7/2).",
+  "read_status": "READ-VIA-RESTATEMENT",
+  "via": "galpy 1.12.0 source code (a software library, NOT the arXiv review the docket asks for). alphaXiv answer_pdf_queries / get_paper_content / discover_papers all returned 'assistant quota exceeded' (4 attempts, incl. Dehnen 2001 astro-ph/0011568 on Plummer softening); arxiv.org and export.arxiv.org CONNECT refused 403 by the egress proxy. The restated pair was then independently re-derived from Poisson's equation (sympy), so the MATHEMATICS is computed here; only the ATTRIBUTION to Plummer 1911 rests on the restatement."
+ },
+ "published_statement": "As restated (galpy PlummerPotential): Phi(r) = -GM/sqrt(r^2+b^2), total mass M, scale b; density rho(r) = (3M/4 pi b^3)(1+r^2/b^2)^(-5/2); enclosed mass M(<r) = M r^3/(r^2+b^2)^(3/2). Plummer 1911's own wording is not read.",
+ "published_hypotheses": [
+  "Newtonian gravity: grad^2 Phi = 4 pi G rho (weak field, |Phi| << c^2 implicit)",
+  "spherical symmetry",
+  "positive mass M > 0 (a stellar system); the density has INFINITE extent (no compact support), M(<r) -> M only as r -> infinity",
+  "as a stellar-dynamical model (Plummer 1911, restated by galpy's isotropicPlummerdf): a self-gravitating isotropic equilibrium with f(E) proportional to (-E)^(7/2) -- the equilibrium/DF part, not only the potential-density pair"
+ ],
+ "hypothesis_drift": [
+  "SIGN (added, owner-named): the tree's core has mass -m and negative density (concentric.py:44 'a Plummer-smoothed core of mass -m', 122-133). At the Newtonian level Poisson is linear, so the pair is sign-symmetric -- re-derived: grad^2[m/sqrt(r^2+a^2)] = -3 m a^2/(r^2+a^2)^(5/2), rho = Plummer profile of total mass exactly -m. No error; a hypothesis change the owner states.",
+  "EQUILIBRIUM / MATTER MODEL (dropped, owner-named): Plummer's model is a self-gravitating equilibrium; the tree uses only the potential-density pair and says 'not claimed as a solution of any matter model; no stability analysis' (concentric.py:145-147). Faithful to what is used.",
+  "WEAK FIELD (weakened, partly owner-named): the pair is Newtonian; the tree inserts it into ds^2 = -(1+2Phi)dt^2+(1-2Phi)dx^2 (composite.py:133-137) at Phi_max ~ m/a = 0.25 at the design point, which the owner names 'NOT small' (concentric.py:139-143). NOT named: for m >~ a/2 the model metric stops being Lorentzian at the core centre -- computed: Phi(0) = 0.9999, 1.9998, 3.9996 at m = 2e-2, 4e-2, 8e-2 (a = 0.02, R_s = 200), so g_xx = 1-2Phi < 0 for r < 0.0346, 0.0774, 0.1586. These are header-table rows (concentric.py:73-75). The ray at b = 1 never enters that region, and what rests on this result (specthm's mu = 5e-3 and 0.6 mu) has Phi(0) = 0.25, 0.15 -- Lorentzian everywhere. A property of the tree's model, not of Plummer's result.",
+  "'COMPACT' CORE (weakened, not named): concentric.py:42 'A compact NEGATIVE core'. Plummer's density has no compact support; 'compact' holds only as a scale ratio a << b << R_s. Computed: a fraction 1 - R_s^3/(R_s^2+a^2)^(3/2) = 1.500e-8 of the core mass lies OUTSIDE the shell at a = 0.02, R_s = 200. It does not affect M_ADM = 0: for r > R_s, Phi = m/sqrt(r^2+a^2) - m/r has no 1/r term (sympy limit r Phi -> 0), leading tail -m a^2/(2 r^3)."
+ ],
+ "data_at_publication": [
+  {
+   "quantity": "Plummer 1911's fit data (globular-cluster star counts) and the index-5 form",
+   "value_then": "NAMED-NOT-READ (the 1911 paper is not read here)",
+   "value_now": "not applicable to the tree's use",
+   "source_now": "none read",
+   "moves_conclusion": "NO -- the tree uses the pair as an exact Poisson identity (a smoothing kernel), not as a fit to clusters; no datum enters it."
+  },
+  {
+   "quantity": "Header M_ADM figures, concentric.py:50-51 'Phi(1000) = -6.2e-13, against Phi(1) = +4.4e-3'",
+   "value_then": "-6.2e-13 and +4.4e-3 as printed",
+   "value_now": "at the file's own design point (m = 5e-3, a = 0.02, R_s = 200): Phi(1) = +4.97400e-3, Phi(1000) = -1.0000e-15 (the owner's live adm_residual(5e-3) also returns -1.0000e-15). The printed pair is exactly the a = 0.5, R_s = 200 value (+4.4471e-3, -6.2500e-13); at a = 0.02 NO m gives both (Phi(1000) would need m = 3.1, then Phi(1) = 3.08).",
+   "source_now": "computed, rederive/plummer-potential.py section C",
+   "moves_conclusion": "NO -- a DISCREPANCY (the header figures are evidently from the a = 0.5 configuration its error 3, concentric.py:112-118, describes), recorded not repaired. The claim they illustrate -- no 1/r tail, M_ADM = 0 -- holds exactly at every a."
+  },
+  {
+   "quantity": "Selftest pin concentric.py:268 near('Phi at r = 1', ..., 4.9750e-3, 1e-6)",
+   "value_then": "4.9750e-3, tol 1e-6",
+   "value_now": "exact value at a = 0.02 is 4.97400e-3; 4.9750e-3 is the a = 0 (point-mass) value m - m/R_s. Off by 9.997e-7, inside the tolerance by 3.0e-10.",
+   "source_now": "computed, section C",
+   "moves_conclusion": "NO -- discrepancy in a pinned figure; the check passes by 3e-10 of margin, recorded not repaired."
+  },
+  {
+   "quantity": "Corridor trace ratio |tr T|/|max T| at b = 1 (concentric.py:104-107; 'traceless to 7.5e-4', line 356)",
+   "value_then": "3.99e-1, 1.97e-2, 7.55e-4 at a = 0.5, 0.1, 0.02 (owner finite differences, H = 1e-3)",
+   "value_now": "exact sympy Riemann of the same metric: 3.9902e-1, 1.9704e-2, 7.6397e-4; linear order in m: exactly 2a^2/(a^2+b^2) = 4.000e-1, 1.980e-2, 7.997e-4. Owner's live trace_ratio: 3.9902e-1, 1.9695e-2, 7.5468e-4 (1.2 % below exact at a = 0.02, finite-difference truncation).",
+   "source_now": "computed, sections D and F",
+   "moves_conclusion": "NO -- the owner's criterion (< 1e-3 at a = 0.02, monotone in compactness) holds on the exact value; the 7.55e-4 is 1.2 % low, a discrepancy. The design rule 'b/a >~ 50' now has a closed form: ratio ~ 2(a/b)^2 = 8.0e-4 at b/a = 50."
+  }
+ ],
+ "rederivation": {
+  "method": "sympy",
+  "script_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/plummer-potential.py",
+  "outcome": "ALL CHECKS PASS (exit 0). (A) grad^2[m/sqrt(r^2+a^2)] = -3ma^2/(r^2+a^2)^(5/2); rho is exactly the Plummer profile of total mass -m; M(<R) = -mR^3/(R^2+a^2)^(3/2); 1.5e-8 of the core mass lies outside R_s = 200. (B) -m/max(r,R_s): Laplacian 0 off R_s, continuous, Gauss jump 4 pi m => shell of mass +m; zero Hessian inside. (C) no 1/r term for r > R_s; tail -ma^2/(2r^3); header pair at concentric.py:50-51 matches a = 0.5 not a = 0.02; selftest pin 4.9750e-3 is the a = 0 value. (D) exact-metric optical tidal matrix reproduces the header ratios at a = 0.5, 0.1 to <0.1 % and gives 7.64e-4 (not 7.55e-4) at a = 0.02; linear-order tr T = -R_kk = +6ma^2/(b^2+a^2)^(5/2) (R_kk < 0: Ricci defocusing, as concentric.py:99-100 says), ratio = 2a^2/(a^2+b^2). (E) the model metric is non-Lorentzian at the core centre for m >= 2e-2 (not at mu = 5e-3 or 0.6 mu). (F) owner's live code reproduces its own header to 3 figures.",
+  "agrees_with_source": "yes"
+ },
+ "later_literature": [
+  {
+   "ref": "galpy 1.12.0, PlummerPotential.py / PlummerPotential.c / isotropicPlummerdf.py (Bovy; library, pypi)",
+   "effect": "confirms",
+   "what": "Implements Phi = -GM/sqrt(r^2+b^2), rho = (3/4pi) b^2 (r^2+b^2)^(-5/2) per unit GM, M(<r) = (1+b^2/r^2)^(-3/2); agrees term-for-term with the sympy re-derivation (sign and mass normalisation).",
+   "read_status": "READ (source code, in full)"
+  },
+  {
+   "ref": "Dehnen 2001, 'Towards optimal softening in 3D N-body codes', astro-ph/0011568",
+   "effect": "extends",
+   "what": "Named as the standard later treatment of Plummer softening (its force bias at r ~ eps). NOT READ: alphaXiv quota exceeded, arxiv.org 403. The effect label is the expected relation, not a finding; nothing from it is used in the grade.",
+   "read_status": "NAMED-NOT-READ"
+  },
+  {
+   "ref": "discover_papers call for narrowing/contradicting work",
+   "effect": "contested",
+   "what": "NOT RUN: alphaXiv returned 'assistant quota exceeded'. No later-literature finding is asserted either way; the label 'contested' marks only that the search is outstanding.",
+   "read_status": "NOT RUN (quota)"
+  }
+ ],
+ "lacked_data": "M's hypothesis tested for this result: the tree uses Plummer's potential-density pair as an exact solution of Poisson's equation (a smoothing kernel), not as Plummer's empirical fit to globular-cluster star counts. The identity contains no measured quantity -- sympy re-derives it from grad^2 Phi = 4 pi rho with nothing but the formula -- so no datum Plummer lacked in 1911 can move it. What later data could bear on (whether real clusters follow a Plummer profile) is not something the tree uses. Evidence against the hypothesis for THIS result: the re-derivation is closed-form and exact. The places where the tree's use goes beyond Plummer's regime are not missing data but hypothesis changes -- negative mass, strong field (Phi_max = 0.25 at the design point, up to ~4 in header-table rows, where the model metric degenerates at the core centre), infinite extent called 'compact' -- each listed as drift with its site.",
+ "grade": "STANDS",
+ "grade_evidence": "The result as used -- 'm/sqrt(r^2+a^2) is a Plummer-smoothed core of mass -m' (concentric.py:44-46, 167) -- is re-derived exactly (sympy): its Poisson density is the Plummer profile with total mass exactly -m, and with the shell term the monopoles cancel exactly (no 1/r term). The published pair (as restated by galpy) agrees in form, sign and normalisation. Every hypothesis the tree changes is either named by the owner (negative mass 122-133; no matter model/stability 145-147; weak field NOT small 139-143) or shown here not to move what rests on it (infinite extent: 1.5e-8 of the mass outside R_s, M_ADM still 0; metric degeneracy only for m >= 2e-2, not at specthm's mu = 5e-3 / 0.6 mu). No datum enters. Three DISCREPANCIES are recorded, not repaired, and none is a refutation: the header's Phi(1000) = -6.2e-13 / Phi(1) = +4.4e-3 (concentric.py:50-51) are a = 0.5 values (design point: -1.0e-15 / +4.974e-3); the selftest pin 4.9750e-3 (line 268) is the a = 0 value and passes by 3e-10 of its 1e-6 tolerance; the header's 7.55e-4 trace ratio (lines 107, 356) is a finite-difference value 1.2 % below the exact 7.64e-4. CAVEAT on the source: Plummer 1911 itself is NAMED-NOT-READ and the restatement read is a code library, not an arXiv review (alphaXiv quota exhausted, arxiv.org 403); STANDS rests on the computed mathematics, which needs no source, and the attribution alone rests on the restatement. Later literature was not searched (quota).",
+ "what_would_change_the_grade": "Nothing about the Poisson identity can change -- it is closed-form and machine-checked. The grade would move to NARROWED if something resting on this result were shown to use the core at m >~ a/2 (where the model metric's g_xx(0) < 0) or to require compact support of the core; to OPEN-on-attribution if Plummer 1911 read at source stated a different pair (not expected: galpy and every textbook form agree, but it is not read here). A read of Dehnen 2001 or a discover_papers pass could add NARROWED-type context on softening-force bias, which the tree does not use.",
+ "reverify_command": "PYTHONDONTWRITEBYTECODE=1 python3 /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/plummer-potential.py   # exit 0; add --no-tree to skip the read-only import of research/warp-drive/concentric.py",
+ "report_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/audits/plummer-potential.json"
+}

@@ -1,0 +1,107 @@
+{
+ "key": "ism-density-1-per-cc",
+ "name": "Diffuse ISM density 1 proton/cm^3 ('warm neutral medium') with m_p = 1.67262192e-27 kg",
+ "source": {
+  "located": "No single source is cited by the tree (arrival.py:26 carries only the comment '-- warm neutral medium'; stock.py:233 and stockgate.py:419 cite arrival.py). Audited against: Ferriere 2001, Rev. Mod. Phys. 73, 1031 (arXiv:astro-ph/0106359) p.5 and Table I p.36-37 -- the standard review for ISM phase densities; Crawford 2011, Acta Astronautica (arXiv:1010.4823) Table 4 p.22 -- the local ISM for interstellar-mission design; Frisch & Mueller 2011 (arXiv:1010.4507) p.3-4 -- the circumheliospheric medium and alpha Cen's G cloud; CODATA 2022 (arXiv:2409.03787) Table XXXII p.50 for m_p.",
+  "read_status": "READ",
+  "via": "alphaXiv answer_pdf_queries page text of all four; Redfield & Linsky 2008 (ApJ 673, 283) and Redfield & Falcon 2008 are NAMED-NOT-READ, used only as restated with numbers in Crawford 2011 Table 4 and sec.3 and Frisch & Mueller 2011 Table 1"
+ },
+ "published_statement": "Ferriere 2001 p.5: 'in the vicinity of the Sun, its density varies from ~1.5e-26 g cm^-3 in the hot medium to ~2e-20 - 2e-18 g cm^-3 in the densest molecular regions, with an average of about 2.7e-24 g cm^-3 ... This mass density ... corresponds to approximately one hydrogen atom per cubic centimeter.' Table I (n = TRUE number density of H nuclei near the Sun): molecular 1e2-1e6; cold atomic 20-50; WARM ATOMIC 0.2-0.5; warm ionized 0.2-0.5; hot ionized ~0.0065 cm^-3; mass densities 'include 70.4% H, 28.1% He, 1.5% heavier', rho = 1.42 m_P n (Fig.2 caption). Crawford 2011 Table 4: CHISM n_HI 0.19+-0.04, n_e 0.07+-0.02, n_Htot 0.26+-0.05; LIC n_HI >= 0.09, n_e 0.12+-0.04; G cloud (alpha Cen) n_HI >= 0.10; 'suggested conservative range for Icarus' n_Htot 0.15-0.43, n_e 0.05-0.21; Local Bubble n_Htot ~ n_e 0.005-0.04. Conclusion (2): 'assume the lowest likely density if considering braking devices which rely on transferring momentum ... to the surrounding medium (such as magsails)'. CODATA 2022: m_p = 1.672 621 925 95(52)e-27 kg.",
+ "published_hypotheses": [
+  "Ferriere's ~1 H/cm^3 is a SPACE AVERAGE (smoothed over all phases, including molecular clouds of 1e2-1e6 cm^-3) near the Galactic midplane at the solar circle -- not the density of any one phase",
+  "Ferriere's mass density includes He and metals: rho = 1.42 m_P n_H",
+  "WNM TRUE density 0.2-0.5 cm^-3 (Table I), from 21-cm emission/absorption comparisons (Dickey & Lockman 1990; Kulkarni & Heiles 1987)",
+  "Local-cloud densities (Crawford, Frisch-Mueller) come from UV absorption columns toward nearby stars plus in-situ heliospheric neutral/pickup-ion data; N(HI)/distance is a rigorous LOWER limit; the Sun sits in/near the LIC, alpha Cen A/B in the G cloud",
+  "Momentum-braking devices (magsails) couple to the IONISED component: n_p 0.05-0.20 cm^-3 in the warm local clouds, ~0.005 in the Local Bubble (Gros 2017 sec.2.1-2.2; Crawford sec.3 and concl.3)",
+  "The target star may lie in Local Bubble material rather than a cloud (Crawford concl.3), where n ~ 0.005 cm^-3"
+ ],
+ "hypothesis_drift": [
+  "LABEL WEAKENED/ALTERED: arrival.py:26 and stock.py:233 call n = 1 cm^-3 'the warm neutral medium'. The WNM's true density is 0.2-0.5 cm^-3 (Ferriere Table I, p.36); 1 cm^-3 is the all-phase space AVERAGE (Ferriere p.5). A misattribution of the number to a phase -- a discrepancy, not a refutation of the number.",
+  "DROPPED: helium/metal mass. arrival.py:27, stock.py:234, stockgate.py:419 set rho = n x m_p; Ferriere's own conversion is rho = 1.42 m_P n_H (Fig.2 caption), and his 2.7e-24 g/cc average is 1.614x the tree's 1.6726e-21 kg/m^3. (stock.py's feedstock uses cosmic mass fractions incl. He, so dividing by an H-only rho overstates its sweep volume by 1.42x at fixed n_H.)",
+  "DROPPED: ionisation state. arrival.py:142 ('Drag against the ISM at 1 proton/cm^3') and magsail_distance (arrival.py:41-52) apply ALL nuclei as the drag medium; a magnetic sail reflects only ions (Gros 2017 eq.1, n_p = f_ISM x 1e6 m^-3 with f_ISM ~ 0.1 local cloud / 0.005 Local Bubble). Measured ion density near the Sun is 0.055-0.12 cm^-3 (Frisch-Mueller p.3; Crawford p.7).",
+  "DROPPED: locality. The tree applies the average as the medium on the braking path and 'within a target system' (arrival.py:150-151, :159); the READ local medium is n_Htot 0.15-0.43 (Crawford Table 4), and alpha Cen's G cloud is only bounded below (n_HI >= 0.10); Local Bubble gaps between clouds are 0.005-0.04 (volume filling factor of clouds 6-19%, Crawford p.4).",
+  "ADDED (by the canonical hypotheses, arrival.py): 'uniform density along the braking path' -- Crawford p.5 reports no evidence of inhomogeneity inside the local warm clouds, but paths cross cloud boundaries into Local Bubble material; uniformity holds per-cloud, not per-path.",
+  "m_p: tree 1.67262192e-27 (stock.py:234, arrival.py:25) is CODATA-2018 truncated to 9 figures; relative offset -3.6e-9 from CODATA 2022 -- no drift of consequence."
+ ],
+ "data_at_publication": [
+  {
+   "quantity": "space-averaged ISM density at the solar circle",
+   "value_then": "tree: n = 1 cm^-3 (arrival.py:26), rho = 1.67262192e-21 kg/m^3",
+   "value_now": "~1 H/cm^3; 2.7e-24 g/cm^3 = 2.7e-21 kg/m^3 (n_H = 1.14 at 1.42 m_p)",
+   "source_now": "Ferriere 2001 astro-ph/0106359 p.5",
+   "moves_conclusion": "No for the number as a space average; its mass density is 1.61x the tree's (He omitted), which makes stock's sweep 1.61x SMALLER -- still > 1e5 km radius. Conclusion unmoved."
+  },
+  {
+   "quantity": "warm neutral medium true density",
+   "value_then": "tree: 1 cm^-3 ('warm neutral medium', arrival.py:26, stock.py:233)",
+   "value_now": "0.2-0.5 cm^-3",
+   "source_now": "Ferriere 2001 Table I p.36",
+   "moves_conclusion": "Stock: at WNM densities with He the sweep volume is 1.41-3.52x LARGER than the tree's -- the 'diffuse medium fails' conclusion is strengthened, not moved. Magsail: floor 2-5x longer on total nuclei."
+  },
+  {
+   "quantity": "local (circumheliospheric / LIC / G-cloud) total H density",
+   "value_then": "tree: 1 cm^-3",
+   "value_now": "CHISM n_Htot 0.26+-0.05; Icarus design range 0.15-0.43; G cloud n_HI >= 0.10; SF08 n(H0)=0.19, n_p=0.055",
+   "source_now": "Crawford 2011 arXiv:1010.4823 Table 4; Frisch & Mueller 2011 arXiv:1010.4507 p.3",
+   "moves_conclusion": "Stock: no (sweep larger by 1.6-4.7x). Arrival: yes -- see ion density row."
+  },
+  {
+   "quantity": "local ion (proton) density -- the magsail's drag medium",
+   "value_then": "tree: 1 cm^-3 (all nuclei treated as reflectable protons)",
+   "value_now": "n_e 0.07+-0.02 (CHISM), 0.12+-0.04 (LIC), design range 0.05-0.21; Local Bubble 0.005-0.04",
+   "source_now": "Crawford 2011 Table 4 and p.7-8; Gros 2017 arXiv:1707.02801 sec.2.1",
+   "moves_conclusion": "YES for arrival.py. magsail floor L = (gamma-1)mc^2/(rho v^2 A) scales as 1/n: the tree's own computed 2001.64 AU (selftest arrival.py:95) becomes 9,532 AU (n=0.21) to 40,033 AU (n=0.05); 16,680 AU on the LIC n_e 0.12; 400,328 AU = 6.33 ly in the hot Local Bubble, which exceeds the whole 4.37 ly trip. 'inside 810 AU -- comfortably within a target system' (arrival.py:150-151) does not survive; 'magsail, no fuel ... Closed' (arrival.py:159) survives only inside a warm cloud (alpha Cen's G cloud) and not for a Local-Bubble target."
+  },
+  {
+   "quantity": "proton mass",
+   "value_then": "1.67262192e-27 kg (CODATA-2018 truncated)",
+   "value_now": "1.67262192595(52)e-27 kg",
+   "source_now": "CODATA 2022 arXiv:2409.03787 Table XXXII p.50",
+   "moves_conclusion": "No: relative change 3.6e-9. Using m_p instead of m(1H) is a 5.4e-4 effect -- also immaterial."
+  }
+ ],
+ "rederivation": {
+  "method": "numeric",
+  "script_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/ism-density-1-per-cc.py",
+  "outcome": "REDERIVE OK, 17 checks, exit 0 (output banked in rederive/ism-density-1-per-cc.out). Loads arrival.py/stock.py/stockgate.py read-only (bytecode off; git status of research/ clean). (i) The three RHO_ISM agree exactly at 1.672621920e-21 kg/m^3. (ii) Ferriere's 2.7e-24 g/cc average = 1.137 H/cc at 1.42 m_p, i.e. the tree's n is right as an all-phase average but its rho omits He (x1.614). (iii) n=1 lies above Ferriere's WNM range and above every READ local total density (max 0.43). (iv) Stock consequent: sweep volume enters only as 1/rho; at every READ diffuse density with He the sweep is 1.41x (WNM 0.5) to 141x (Local Bubble) the tree's; the stockgate.py:1076 test 'radius > 1e5 km' holds at every diffuse density; it would fail only above n_H = 13.4 cm^-3, a cold-cloud density. (v) Arrival consequent: the magsail floor on the READ ion densities is 4.8x-200x the tree's 2001.64 AU (9,532 to 400,328 AU); in the hot Local Bubble it exceeds the 4.37 ly trip. TWO TREE-INTERNAL DISCREPANCIES found, recorded not repaired, NOT caused by the external datum: (a) arrival.py prose :151/:159 (and index3.py:86, launcher.py:180/291) print 810 AU while arrival.py's own selftest (:95) pins 2001.64 AU at the same RHO_ISM (ratio 2.471); (b) stock.py:119-120 and stockgate.py:201 print 7.18e25 m^3 / 2.58e5 km while ism_sweep_volume() now returns 7.9955e25 m^3 / 2.6725e5 km (1.114x) at the same RHO_ISM.",
+  "agrees_with_source": "partly"
+ },
+ "later_literature": [
+  {
+   "ref": "Crawford 2011, arXiv:1010.4823 (Acta Astronautica)",
+   "effect": "narrows",
+   "what": "Local medium on any path within 15 ly: n_Htot 0.15-0.43, n_e 0.05-0.21; Local Bubble 0.005-0.04; directs magsail studies to assume the LOWEST likely density; alpha Cen appears to lie in the G cloud, others may lie in Local Bubble material.",
+   "read_status": "READ (pp.1,3-8,10,12-15,21-22)"
+  },
+  {
+   "ref": "Frisch & Mueller 2011, arXiv:1010.4507",
+   "effect": "narrows",
+   "what": "CISM photoionisation model 26 (Slavin & Frisch 2008): n(H0)=0.19, n_e=0.065, n_p=0.055 cm^-3, T=6300 K; alpha Cen sightline G cloud; Local Bubble n < 0.005.",
+   "read_status": "READ (pp.1-9,13-14)"
+  },
+  {
+   "ref": "Gros 2017, arXiv:1707.02801",
+   "effect": "narrows",
+   "what": "Magsail braking couples to protons only (n_p = f_ISM 1e6 m^-3, f_ISM ~ 0.1 local cloud, 0.005 bubble); effective reflection area is velocity-dependent A(v) = 0.081 pi R^2 log^3(I/(beta I_c)), not a fixed A; finds Zubrin-Andrews estimates optimistic. Bears on the drag LAW in arrival.py as well as the density (the drag law is outside this key; recorded only).",
+   "read_status": "READ (pp.1-9)"
+  },
+  {
+   "ref": "Ferriere 2001, arXiv:astro-ph/0106359",
+   "effect": "confirms",
+   "what": "~1 H/cm^3 (2.7e-24 g/cc) is the all-phase space average near the Sun; WNM true density 0.2-0.5 cm^-3.",
+   "read_status": "READ (pp.1,5,7,9,12,14,36-38)"
+  },
+  {
+   "ref": "arXiv:2607.15352 (first 3D map of thermal phases in the local ISM, 2026); arXiv:2504.00093 (origin of the CLIC, 2025); arXiv:2509.08125 (2D HI map of the LISM, 2025)",
+   "effect": "extends",
+   "what": "Surfaced by discover_papers; titles/abstract snippets only. Not read; no claim taken from them.",
+   "read_status": "NAMED-NOT-READ"
+  }
+ ],
+ "lacked_data": "M's hypothesis tested. The tree cites no source, so 'what the authors had' is the textbook ~1 H/cm^3 average, which Ferriere 2001 already qualified in the same paragraph (it is an all-phase average; WNM is 0.2-0.5). The data a 1 cm^-3 user most plausibly lacked are the LOCAL measurements: UV absorption columns toward alpha Cen and nearby stars (Redfield & Linsky 2008, via Crawford Table 4), in-situ pickup-ion/neutral-He densities at the heliosphere (Bzowski et al. 2008; Slavin & Frisch 2008), and CII* electron densities (Redfield & Falcon 2008). These exist since 2008 and do change one conclusion: the magsail floor rises 4.8-200x on the ion density, so 'inside 810 AU, comfortably within a target system' does not hold, and a Local-Bubble target is not reachable by ISM braking at all on the tree's drag law. Evidence the other way: the stock.py conclusion ('the diffuse medium is the one that fails') is only strengthened by every lower density, and the space-averaged number itself is not wrong -- Ferriere's value stands. Nothing here shows earlier physicists were wrong; the external result is intact, the tree applied it to a narrower situation than it describes.",
+ "grade": "NARROWED",
+ "grade_evidence": "The external number stands as READ (Ferriere 2001 p.5: ~1 H/cm^3 all-phase space average) and m_p is correct to 3.6e-9 of CODATA 2022. But the tree uses it on a larger class than it holds: (1) as the 'warm neutral medium' -- WNM is 0.2-0.5 (Ferriere Table I); (2) as the local/destination medium -- READ n_Htot 0.15-0.43 (Crawford Table 4); (3) as the magsail's drag medium -- ions only, 0.05-0.21 locally and 0.005-0.04 in the Local Bubble; and (4) as a mass density without the x1.42 He factor. Re-derived consequences (exit 0): stock.py's verdict is unmoved (sweep 1.41x-141x LARGER at every READ diffuse density; radius > 1e5 km everywhere below n_H = 13.4); arrival.py's magsail floor moves 4.8x-200x and its 'within a target system' reading fails. Not WRONG (no refuted external statement), not DATA-DEPENDENT (the source datum has not moved since 2001; the tree drops its hypotheses). Two tree-internal discrepancies (810 vs 2001.64 AU; 7.18e25 vs 7.9955e25 m^3) are recorded, not graded, and not repaired.",
+ "what_would_change_the_grade": "STANDS if the tree's statements were restricted to 'the all-phase midplane average' and the magsail were priced on the measured local ion density (or on the G-cloud total with a stated coupling to neutrals, which no source read here supports). DATA-DEPENDENT if a direct measurement of the G cloud's volume density (only bounded below, n_HI >= 0.10) or of the medium at alpha Cen came in far from 0.1-0.4 cm^-3 -- the magsail distance tracks it as 1/n. OPEN would apply to any target star with no measured sightline (Crawford Table 2 M dwarfs).",
+ "reverify_command": "cd /tmp && python3 /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/ism-density-1-per-cc.py   # exit 0 = 17 checks hold; sources: alphaXiv answer_pdf_queries astro-ph/0106359 (p.5, Table I p.36), 1010.4823 (Table 4 p.22), 1010.4507 (p.3), 1707.02801 (sec.2), 2409.03787 (Table XXXII)",
+ "report_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/audits/ism-density-1-per-cc.json"
+}

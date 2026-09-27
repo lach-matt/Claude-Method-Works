@@ -1,0 +1,89 @@
+{
+ "key": "dark-energy-positive-rho",
+ "name": "Dark energy: negative pressure, positive energy density rho_Lambda > 0",
+ "source": {
+  "located": "The owner cites no source (status_word 'none'). The measurement is located at: Planck Collaboration, 'Planck 2018 results. VI. Cosmological parameters', arXiv:1807.06209v4, eq.(15) p.17 (Omega_Lambda, Lambda) and Sec.7.4.1 eqs.(49)-(50) p.43 (w0,wa; constant w); DESI Collaboration, 'DESI DR2 Results II', arXiv:2503.14738v3 (9 Oct 2025), abstract p.3, Table V p.20, Sec.VII pp.28-29, conclusions p.33. The discovery papers (Riess et al. 1998, Perlmutter et al. 1999) are NAMED-NOT-READ.",
+  "read_status": "READ",
+  "via": "Page text returned at source by alphaXiv answer_pdf_queries earlier in this session tree and banked verbatim at scratchpad d67/src/casmag/all/1807.06209v4.txt (pp.1,2,13-17,24,26,27,39-43,62,71) and 2503.14738v3.txt (pp.1,3-5,20-22,29-33). In this stage the alphaXiv quota was exhausted and arxiv.org / aanda.org / osti.gov / springer were egress-blocked; no live re-fetch was possible. Cross-check: astropy 8.0.1 Planck18.ecsv (Table 2, TT,TE,EE+lowE+lensing+BAO): H0 = 67.66, Om0 = 0.30966. RESUMED STAGE (2026-09-26): the report was re-verified, not re-written -- alphaXiv answer_pdf_queries (1807.06209, 2503.14738) and get_paper_content (2503.14738) again returned 'assistant quota exceeded', arxiv.org/export.arxiv.org refused by the egress proxy (403); every quoted figure re-grepped in the banked page text (1807.06209v4.txt lines 1259, 1469, 1476, 3096, 3179, 3202; 2503.14738v3.txt lines 507, 1083, 1173-1180, 1543, 1578, 2433; 2511.07526v1.txt lines 22, 639, 687); owner lines achievable.py:49, 52-53, 436-437, 549, 552-553 re-read at commit 6a4f469, file clean; rederive script re-run, exit 0, output in rederive/dark-energy-positive-rho.out."
+ },
+ "published_statement": "Planck 2018 VI eq.(15), p.17: 'Since we are considering a flat universe in this section, a constraint on Omega_m translates directly into a constraint on the dark-energy density parameter, giving Omega_Lambda = 0.6847 +- 0.0073 (68 %, TT,TE,EE+lowE+lensing). In terms of a physical density, this corresponds to Omega_Lambda h^2 = 0.3107 +- 0.0082, or cosmological constant Lambda = (4.24 +- 0.11) x 10^-66 eV^2 = (2.846 +- 0.076) x 10^-122 [m_Pl^2]'. Abstract: combined with SNe 'the dark-energy equation of state parameter is measured to be w0 = -1.03 +- 0.03, consistent with a cosmological constant'; eq.(50): 'w0 = -1.028 +- 0.031 (68 %, Planck TT,TE,EE+lowE+lensing+SNe+BAO)' with wa fixed to 0. DESI DR2 abstract p.3: 'This tension is alleviated by dark energy with a time-evolving equation of state parametrized by w0 and wa, which provides a better fit to the data, with a favored solution in the quadrant with w0 > -1 and wa < 0. This solution is preferred over LCDM at 3.1 sigma for the combination of DESI BAO and CMB data. When also including SNe, the preference for a dynamical dark energy model over LCDM ranges from 2.8 - 4.2 sigma depending on which SNe sample is used ... Unless there is an unknown systematic error associated with one or more datasets, it is clear that LCDM is being challenged'. Conclusions p.33: 'All combinations of available datasets we study favor mutually consistent results with w0 > -1 and wa < 0, apparently indicating a weakening dark energy today and a phantom crossing at some point in the past (in this parametrization).'",
+ "published_hypotheses": [
+  "Planck eq.(15): base-LCDM, spatially flat ('Since we are considering a flat universe'), w = -1, 6 parameters, one massive neutrino of 0.06 eV; late-time parameters are model-dependent inferences, not direct measurements.",
+  "Planck: GR with a homogeneous background; Omega_Lambda is the background (spatially averaged) quantity.",
+  "Planck Sec.7.4.1 p.43: w = p/rho of the background DE fluid; PPF perturbations; 'a single minimally-coupled canonical scalar field (quintessence) cannot cross w = -1 (Vikman 2005)'; crossing needs two fields (one phantom), vanishing sound speed, braiding or non-minimal couplings.",
+  "Planck: with Planck+BAO+SNe, Delta chi^2 = -1.4 for w0wa vs LCDM, 'not significant given the two additional parameters'.",
+  "DESI DR2: CPL parametrization w(a) = w0 + wa(1-a), which 'does not arise directly from an underlying physical model' (Sec.VII p.28); the phantom crossing is stated only 'in this parametrization' (p.33).",
+  "DESI DR2: significance depends on the SNe sample (Pantheon+ 2.8, Union3 3.8, DESY5 4.2 sigma) and on CMB lensing (3.1 -> 2.7 sigma without it); 'the least contorted way to reconcile our findings with LCDM is to exclude all constraints from SNe data ... and then dismiss the remaining 3.1 sigma discrepancy with DESI+CMB ... as a statistical fluke' (p.29).",
+  "DESI DR2: 'Unless there is an unknown systematic error associated with one or more datasets' (abstract).",
+  "Both: flat or nearly flat FLRW background, GR; DE is whatever sources expansion beyond matter and radiation (an effective background density, not a measured local T_ab)."
+ ],
+ "hypothesis_drift": [
+  "DROPPED (load-bearing for the wording, not for the practical verdict), achievable.py:52-53 and :436-437: the tree writes 'DARK ENERGY has negative PRESSURE and POSITIVE energy density. rho_Lambda > 0. It is the wrong sign of the wrong quantity' -- a claim about dark energy in general justified by the cosmological-constant case. For w = -1 the positivity is observer-independent (C1: T_ab u^a u^b = rho for every boost; NEC saturated). For a component with w < -1 it is not: a boosted observer measures rho[gamma^2(1+w) - w] < 0 once gamma^2 > w/(1+w) (C2, z3-proved in C3). The hypothesis w_de >= -1 is unstated, and it is exactly what DESI DR2 contests: every Table V w0wa fit is phantom at z > 0.35-0.50 (C5), where gamma ~ 2.1-2.8 (v ~ 0.88-0.93 c) suffices at z = 1.",
+  "DROPPED (non-load-bearing): model dependence. Planck's Omega_Lambda = 0.6847 is a flat-LCDM inference. The SIGN survives every extension read: DESI Table V gives Omega_DE = 1 - Omega_m between 0.647 and 0.707 in LCDM, LCDM+Omega_K, wCDM and w0waCDM (C4); CPL rho_DE(a) = rho_DE0 a^-3(1+w0+wa) exp(-3wa(1-a)) stays positive at every a when rho_DE0 > 0 (C5).",
+  "DROPPED (non-load-bearing): GR and component-attribution. Caldwell & Linder (arXiv:2511.07526) READ: 'the energy conditions do not apply separately to individual components of the cosmological fluid' and a w_de < -1 phase can be manufactured by mis-accounting normal (w >= -1) components; in modified gravity the 'dark energy' is an effective stress, not a T_00 the tree can point at. Either reading strengthens 'not an exception' for the total source; neither is stated by the tree.",
+  "DROPPED (non-load-bearing): uncertainties and source. No value, error bar or citation is carried at achievable.py:52 or :436; data_used is empty. The claim is qualitative (a sign), and the sign is measured at 93.8 sigma in Planck flat LCDM (0.6847/0.0073).",
+  "ADDED by the tree (interpretive, not in any source): 'the wrong quantity' -- that negative pressure cannot stand in for negative energy density. Correct for the energy conditions the warp specification needs (Lambda satisfies NEC, WEC, DEC and violates only SEC, C1), and it is the tree's own inference, not a published statement.",
+  "INTERNAL WORDING (not a finding about the external result): achievable.py:49 and :549 say 'TWO THINGS THAT LOOK LIKE EXCEPTIONS' while NOT_EXCEPTIONS (achievable.py:435-442) has three entries and the selftest asserts 3 (achievable.py:552-553). Recorded, not repaired."
+ ],
+ "data_at_publication": [
+  {
+   "quantity": "Omega_Lambda (sign of rho_Lambda)",
+   "value_then": "No value carried by the tree (qualitative 'rho_Lambda > 0'). Measured 1998-99 (Riess, Perlmutter; NAMED-NOT-READ); Planck 2018: 0.6847 +- 0.0073 (flat LCDM, READ eq.15)",
+   "value_now": "DESI DR2+CMB (LCDM) Omega_m = 0.3027 +- 0.0036 -> Omega_Lambda = 0.697; w0waCDM rows Omega_m 0.311-0.353 -> Omega_DE 0.647-0.689 (READ Table V); astropy Planck18 (TT,TE,EE+lowE+lensing+BAO) Om0 = 0.30966",
+   "source_now": "arXiv:2503.14738v3 Table V p.20; arXiv:1807.06209v4 eq.(15); astropy 8.0.1 Planck18.ecsv",
+   "moves_conclusion": "No. The sign is positive in every model and data combination read (C4). Omega_Lambda/sigma = 93.8 in Planck flat LCDM."
+  },
+  {
+   "quantity": "rho_Lambda c^2 (magnitude)",
+   "value_then": "not carried at achievable.py; higgs.py:214 carries RHO_LAMBDA_OBS = 6.0e-10 J/m^3 marked ORDER",
+   "value_now": "5.245e-10 J/m^3 (Planck Omega_L 0.6847, H0 67.36, computed C4); DESI rows 4.42e-10 to 5.77e-10 J/m^3; Lambda = 1.0891e-52 m^-2 = 4.2409e-66 eV^2, reproducing Planck's printed (4.24 +- 0.11)e-66",
+   "source_now": "computed from READ inputs (C4)",
+   "moves_conclusion": "No: the tree uses only the sign; higgs.py's 6.0e-10 is an order-of-magnitude figure consistent with these (not this entry's scope)."
+  },
+  {
+   "quantity": "dark-energy equation of state w (the tree's implicit w = -1)",
+   "value_then": "implied w = -1 (tree); Planck 2018: w0 = -1.028 +- 0.031 (wa = 0, +SNe+BAO), w0wa Delta chi^2 = -1.4, not significant (READ p.43)",
+   "value_now": "DESI DR2 w0waCDM: DESI+CMB w0 = -0.42 +- 0.21, wa = -1.75 +- 0.58; +Pantheon+ -0.838 +- 0.055, -0.62(+0.22,-0.19); +Union3 -0.667 +- 0.088, -1.09(+0.31,-0.27); +DESY5 -0.752 +- 0.057, -0.86(+0.23,-0.20); preference over LCDM 3.1 / 2.8 / 3.8 / 4.2 sigma. Constant-w DESI+CMB+SNe: -0.995 +- 0.023, -0.997 +- 0.027, -0.971 +- 0.021 (READ Table V)",
+   "source_now": "arXiv:2503.14738v3 abstract p.3, Table V p.20, p.33",
+   "moves_conclusion": "PARTLY -- the component-level wording only. Computed (C5): each w0wa fit is phantom for z > 0.354 / 0.405 / 0.440 / 0.496; there a DE-component observer boost gamma = 2.1-2.8 at z = 1 (1.36-1.78 as z -> inf) sees rho_DE < 0, so 'wrong sign' is not observer-independent for the component. It does NOT move (i) the comoving sign (rho_DE > 0 at all a), (ii) the total-fluid energy conditions (min past w_tot = -0.44 / -0.58 / -0.49 / -0.52 > -1, so total NEC and WEC hold for every observer, C3+C5), or (iii) the practical verdict: the component's rho+p at z = 1 is -7.6e-11 to -1.8e-10 J/m^3, needing gamma^2 ~ 1e56 to reach achievable.py's 1.806e46 Pa at b = 1 m (C6), and it is a homogeneous background that cannot be shaped. The datum is contested (2.8-4.2 sigma, parametrization- and SNe-dependent), not settled."
+  }
+ ],
+ "rederivation": {
+  "method": "sympy",
+  "script_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/dark-energy-positive-rho.py",
+  "outcome": "ALL CHECKS PASS (exit 0). C1 sympy: for T_ab = -rho g_ab every boosted observer sees rho, every null k gives 0 (NEC saturated), rho+3p = -2rho (SEC violated), rho = |p| (DEC holds). C2 sympy: perfect fluid T_ab u^a u^b = rho[gamma^2(1+w) - w]. C3 z3 (with vacuity guard): for rho > 0, gamma^2 >= 1, observer-independent non-negativity holds iff w >= -1 (UNSAT for w >= -1; SAT witness w = -3, gamma^2 = 2). C4: Planck Omega_L = 0.6847, H0 = 67.36 give Lambda = 1.0891e-52 m^-2 = 4.2409e-66 eV^2 (Planck prints 4.24 +- 0.11) and rho_Lambda c^2 = 5.245e-10 J/m^3; all eight DESI Table V rows give Omega_DE > 0. C5: CPL density closed form verified against the continuity equation; phantom-crossing redshifts 0.354-0.496; min past w_tot > -1 for every fit; Caldwell-Linder's printed 'w_tot > -0.53' reproduced (-0.5228) for their best fit (the Pantheon+ row reaches -0.577, still > -1). C6: component NEC violation ~1e-10 J/m^3, 56 orders below the tree's required density. C7: owner's 'TWO THINGS' heading vs three asserted entries confirmed (wording).",
+  "agrees_with_source": "yes"
+ },
+ "later_literature": [
+  {
+   "ref": "DESI Collaboration, DESI DR2 Results II, arXiv:2503.14738v3 (2025)",
+   "effect": "narrows",
+   "what": "w0 > -1, wa < 0 favoured at 2.8-4.2 sigma with a phantom crossing in the past 'in this parametrization'; Omega_DE > 0 in every model. Narrows the tree's implicit w = -1 at the component level; confirms rho_DE > 0.",
+   "read_status": "READ (banked alphaXiv page text, pp.3, 20, 28-29, 33)"
+  },
+  {
+   "ref": "R. R. Caldwell & E. V. Linder, 'Null Impact of the Null Energy Condition in Current Cosmology', arXiv:2511.07526v1 (Nov 2025)",
+   "effect": "confirms",
+   "what": "'under the current best-fit cosmological model no violation of the NEC takes place, past or future'; energy conditions apply to the total fluid; a w_de < -1 phase can be produced by mis-estimating the matter density with only w >= -1 components. Confirms the tree's practical verdict for the total source. Discrepancy recorded, not a refutation: the Fig.3 caption prints 'w_a ~ 1' where the text (p.4) prints 'w_a ~ -1'; the text's value reproduces their w_tot > -0.53 (C5).",
+   "read_status": "READ (banked alphaXiv page text, pp.1-6, scratchpad d67/src/casmag/all/2511.07526v1.txt)"
+  },
+  {
+   "ref": "Planck 2018 VI Sec.7.4.1, citing Vikman 2005 (astro-ph/0407107)",
+   "effect": "narrows",
+   "what": "a single minimally-coupled canonical scalar cannot cross w = -1; a crossing requires a phantom field, vanishing sound speed, braiding or non-minimal coupling. Vikman 2005 itself NAMED-NOT-READ.",
+   "read_status": "READ-VIA-RESTATEMENT (Planck p.43)"
+  },
+  {
+   "ref": "Chen et al., 'Evidence for evolving dark energy from DESI DR2 BAO and Pantheon+, DES-Dovekie, and Union3', arXiv:2508.10514 (EPJC 2026)",
+   "effect": "contested",
+   "what": "Search-result summary only: evolving-DE evidence persists with the recalibrated DES-Dovekie SN sample. Not read; no value taken from it.",
+   "read_status": "NAMED-NOT-READ (WebSearch snippet; alphaXiv quota exhausted, arxiv.org egress-blocked; the requested discover_papers call returned 'quota exceeded')"
+  }
+ ],
+ "lacked_data": "M's hypothesis tested. The tree (and ΛCDM-era authors) had Planck 2018: w0 = -1.028 +- 0.031, w0wa not preferred (Delta chi^2 = -1.4). The data that came later is DESI DR2 BAO (2025): a 2.8-4.2 sigma preference for w0 > -1, wa < 0 with a phantom crossing at z ~ 0.35-0.50 in CPL. Evidence FOR M's hypothesis: with it, the tree's unstated w = -1 is no longer the best fit, and the component-level 'wrong sign' becomes observer-dependent above the crossing (computed: gamma ~ 2.1-2.8 at z = 1). Evidence AGAINST it moving the conclusion: (1) rho_DE > 0 in the comoving frame in every model read; (2) the total cosmic fluid satisfies NEC and WEC at every past epoch in every DESI w0wa fit (min w_tot >= -0.58, computed; Caldwell-Linder READ); (3) the effect is ~1e-10 J/m^3 of homogeneous background, 56 orders short of the tree's own required density at b = 1 m; (4) the phantom episode is parametrization-dependent, SNe-sample-dependent, below 5 sigma, and reproducible by mis-accounting ordinary components. So the newer data narrows the tree's REASON (a sign that holds for Lambda does not hold, observer-independently, for a phantom component) without moving its VERDICT (dark energy is not a usable warp source).",
+ "grade": "NARROWED",
+ "grade_evidence": "The measurement stands: rho_Lambda > 0 (Planck eq.15, 93.8 sigma in flat LCDM; Omega_DE 0.647-0.707 in every DESI DR2 Table V model), and for w = -1 the sign is observer-independent and Lambda satisfies NEC/WEC/DEC, violating only SEC (sympy C1). But the tree states it for 'DARK ENERGY' with w = -1 implied, not stated (achievable.py:52-53, 436-437). Observer-independent positivity of a component holds iff w >= -1 (z3, C3), and every DESI DR2 w0wa fit has w_de < -1 for z > 0.35-0.50 (C5). So the statement holds on the smaller class w_de >= -1 (or for the total fluid, which satisfies NEC/WEC in every fit), and the tree drops that hypothesis. Not WRONG: no fit makes the comoving density negative, the total fluid never violates NEC, and the phantom episode is contested. Not DATA-DEPENDENT as the headline grade: the load-bearing use (NOT_EXCEPTIONS, 'not reached for later') does not move with any datum read (C6: ~56 orders short). Re-derivation agrees with both sources.",
+ "what_would_change_the_grade": "To STANDS: the owner states the hypothesis ('for w >= -1, or for the total cosmic fluid') or DESI DR3 / Euclid / Rubin return w consistent with -1, closing the phantom episode. To DATA-DEPENDENT: a >= 5 sigma, parametrization-independent detection of w_de < -1 that survives SNe recalibration AND shows a physical (not mis-accounted) phantom component -- that would make the component-level sign a moved datum, though still not a usable source. To WRONG: a measurement of Omega_DE < 0, or of total rho + p < 0 (w_tot < -1) at some epoch -- no dataset read gives either. A live re-read of 2503.14738 / 1807.06209 (blocked in this stage) would confirm, not change, the banked page text.",
+ "reverify_command": "python3 /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/dark-energy-positive-rho.py && grep -n 'Omega Λ\\|Ω Λ  = 0.6847' /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/src/casmag/all/1807.06209v4.txt && grep -n 'phantom crossing at some point' /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/src/casmag/all/2503.14738v3.txt && grep -n 'no violation of the NEC' /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/src/casmag/all/2511.07526v1.txt",
+ "report_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/audits/dark-energy-positive-rho.json"
+}

@@ -1,0 +1,99 @@
+{
+ "key": "si-2019-elementary-charge-and-codata-constants",
+ "name": "Exact SI elementary charge e = 1.602176634e-19 C and achievable.py's hbar, c, G (G = 6.67430e-11) for the reduced Planck mass in eV",
+ "source": {
+  "located": "The SI-2019 definition (CGPM 2018 Res. 1; BIPM SI Brochure 9th ed. 2019) fixes e = 1.602176634e-19 C exactly from 20 May 2019; the numerical values are the CODATA 2018 recommended values (Tiesinga, Mohr, Newell, Taylor, RMP 93, 025010 (2021), no arXiv copy), unchanged for e, c, h, hbar and G in CODATA 2022 (Mohr, Newell, Taylor, Tiesinga, arXiv:2409.03787, RMP 97, 025002 (2025)). The Planck-mass convention is GMMPS's (arXiv:2604.01047 sec. 5.3).",
+  "read_status": "READ-VIA-RESTATEMENT",
+  "via": "alphaXiv was unavailable in this stage: answer_pdf_queries (x3), get_paper_content and discover_papers all returned 'assistant quota exceeded'; arxiv.org direct is refused by the egress proxy (403). READ HERE: the NIST CODATA 2014, 2018 and 2022 ASCII tables as embedded in scipy 1.17.1 scipy/constants/_codata.py (md5 f65f9f0ee37f0d491374f1c629019d55, asserted by the script), parsed as text: txt2018 l.1298 and txt2022 l.1752 'elementary charge 1.602 176 634 e-19 (exact) C'; l.1437/1891 'Planck constant 6.626 070 15 e-34 (exact)'; l.1470/1924 'reduced Planck constant 1.054 571 817... e-34 (exact)'; l.1496/1950 'speed of light in vacuum 299 792 458 (exact)'; l.1430/1884 'Newtonian constant of gravitation 6.674 30 e-11 0.000 15 e-11'; l.1441/1895 'Planck mass energy equivalent in GeV 1.220 890 e19 0.000 014 e19'; txt2014 l.950 'elementary charge 1.602 176 6208 e-19 0.000 000 0098 e-19' (measured, pre-SI-2019). READ IN SIBLING STAGES OF THIS DOCKET, NOT RE-READ HERE: arXiv:2409.03787 pp.1-2,5,44-45,47,50-51,60,64 (audits/codata-2018-constants.json: 'the 2022 and 2018 recommended values of G are therefore identical'; 8 of 8 values typed from the PDF agree with scipy txt2022, corroborating the table copy); arXiv:2604.01047 pp.62-63 (audits/2604.01047_sec5.3-mass.json: 'In Planck units, kappa^-1 is the squared value of the reduced Planck mass M_P'). NAMED-NOT-READ: the BIPM SI Brochure and CGPM 2018 Resolution 1; the CODATA 2018 RMP paper itself."
+ },
+ "published_statement": "NIST CODATA 2018 and 2022 tables (READ): e = 1.602 176 634e-19 C (exact); c = 299 792 458 m/s (exact); h = 6.626 070 15e-34 J/Hz (exact); hbar = 1.054 571 817...e-34 J s (exact, printed with an ellipsis: the exact value is h/2pi); G = 6.674 30(15)e-11 m^3 kg^-1 s^-2, identical in 2018 and 2022; Planck mass energy equivalent 1.220 890(14)e19 GeV. CODATA 2014 (READ): e = 1.602 176 6208(98)e-19 C, measured. Convention (sibling-READ, GMMPS 5.3): M_P^2 = kappa^-1 = 1/(8 pi G), the reduced Planck mass.",
+ "published_hypotheses": [
+  "H1 (SI 2019): e, h, c are exact by definition, not measurement, from 20 May 2019 (tables mark them '(exact)'; the 2014 table gives e with u_r 6.1e-9) -- hence J -> eV is an exact division by e",
+  "H2 (display truncation): hbar = h/2pi exactly; the table's '1.054 571 817...' is a truncated display",
+  "H3 (G is measured and carries a standard uncertainty): u(G) = 0.000 15e-11, u_r 2.2e-5; per sibling-READ 2409.03787 this is an EXPANDED uncertainty (factor 3.9) over 16 mutually inconsistent inputs, and no new G datum entered 2018-2022",
+  "H4 (a recommended value is dated): valid as of its adjustment's closing date; a later adjustment supersedes it (for these five constants 2022 changed nothing)",
+  "H5 (convention, GMMPS): the M_P in Lambda = 6 Omega alpha (m/M_P)^4 M_P^2 and in 'Lambda ~= 7.15e-121 M_P^2' is the REDUCED Planck mass sqrt(hbar c/8 pi G)"
+ ],
+ "hypothesis_drift": [
+  "DROPPED H3 (G's uncertainty and the inconsistency of its inputs): achievable.py:302 types G_SI = 6.67430e-11 with no uncertainty, and linstab.py:626 uses it as exact. Computed NOT to narrow THIS use: along the tree's path m ~ G^(-1/2), so leaving the selftest's 2% window needs dG/G = +6.4% or -1.8% (> 450 CODATA sigma); CODATA +-1 sigma moves m by 1.12e-5, a +-1e-3 envelope by 5.0e-4. (The same dropped hypothesis DOES narrow other owners' 6-11 s.f. pins -- that is the sibling entry codata-2018-constants, NARROWED -- not linstab.)",
+  "WEAKENED H2 (discrepancy, not a refutation): achievable.py:299 types HBAR = 1.054571817e-34, the truncated display, not h/2pi: -6.127e-10 relative; Mbar moves 3.06e-10.",
+  "KEPT H1: linstab.py:321-323 'EXACT by the 2019 SI definition' agrees with both tables; the division by e at linstab.py:627 converts J to eV exactly as claimed.",
+  "KEPT H5, and it is load-bearing: linstab.py:624-627 computes sqrt(hbar c/8 pi G) c^2/e, the reduced convention GMMPS state; the non-reduced mass would give m = 3.95e-2 eV (+407%) and no (convention, alpha) combination with (64 pi)^-1 enters the 2% window (non-reduced + typo: 2.97e-2).",
+  "ADDED nothing. The in-file claim 'the only constant this file adds to achievable.py's' (linstab.py:322) was checked: the only top-level float-with-exponent assignment outside the GMMPS_* READ figures is line 323."
+ ],
+ "data_at_publication": [
+  {
+   "quantity": "e (C)",
+   "value_then": "1.602176634e-19 exact (CODATA 2018, SI 2019)",
+   "value_now": "1.602176634e-19 exact (CODATA 2022)",
+   "source_now": "NIST CODATA 2022 table (scipy txt2022 l.1752), READ; arXiv:2409.03787 Table XXXII sibling-READ",
+   "moves_conclusion": "no -- exact by definition; counterfactual pre-2019 CODATA 2014 e (1.6021766208(98)e-19) moves Mbar by 8.24e-9 (1.35 x its own 2014 u_r)"
+  },
+  {
+   "quantity": "hbar (J s)",
+   "value_then": "h/2pi exact; tree types 1.054571817e-34",
+   "value_now": "same, exact",
+   "source_now": "NIST CODATA 2022 table l.1924, READ",
+   "moves_conclusion": "no -- truncation -6.127e-10, Mbar +3.06e-10 with exact hbar"
+  },
+  {
+   "quantity": "c (m/s)",
+   "value_then": "299792458 exact",
+   "value_now": "299792458 exact",
+   "source_now": "NIST CODATA 2022 table l.1950, READ",
+   "moves_conclusion": "no (exact)"
+  },
+  {
+   "quantity": "G (m^3 kg^-1 s^-2)",
+   "value_then": "6.67430(15)e-11 (CODATA 2018)",
+   "value_now": "6.67430(15)e-11, identical (CODATA 2022); reanalyses of the same 16 inputs give 6.67390-6.67408 (1905.09551 Table 4) and 6.6740 +-0.0015 at 90% (2209.07416) -- sibling-READ, not re-read here",
+   "source_now": "NIST CODATA 2022 table l.1884, READ; arXiv:2409.03787, 1905.09551, 2209.07416 via audits/codata-2018-constants.json",
+   "moves_conclusion": "no -- m moves <= 5.0e-4 over a +-1e-3 envelope that contains every contested value; the 2% window needs |dG/G| >= 1.8%, the typo verdict (>20%) far more"
+  },
+  {
+   "quantity": "reduced Planck mass (eV)",
+   "value_then": "not printed by any source; computed 2.435323459e27 eV from the typed constants",
+   "value_now": "CODATA 2018/2022 Planck mass energy equivalent 1.220890(14)e19 GeV = 1.220890e28 eV; divided by sqrt(8 pi) = 5.01326 it agrees with the computed Mbar to -1.05e-7 (table u_r 1.15e-5)",
+   "source_now": "NIST CODATA 2018 l.1441 and 2022 l.1895, READ",
+   "moves_conclusion": "no"
+  }
+ ],
+ "rederivation": {
+  "method": "sympy",
+  "script_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/si-2019-elementary-charge-and-codata-constants.py",
+  "outcome": "0 FAIL, exit 0 (output in rederive/si-2019-elementary-charge-and-codata-constants.out). (1) The NIST 2018 and 2022 tables, parsed from text with exact Fractions, equal the typed e, c, G and hbar display; e, c, h, hbar marked '(exact)'; 2014 e carries an uncertainty. (2) Typed hbar = h/2pi truncated, -6.127e-10. (3) sympy: d ln Mbar/d ln(hbar, c, G, e) = (1/2, 5/2, -1/2, -1); non-reduced/reduced = sqrt(8 pi) exactly. (4) Mbar = 2.435323459e27 eV; the tree's linstab.reduced_planck_ev() (imported read-only, bytecode off, git status of research/ unchanged) equals the independent re-typing bit for bit; CODATA's own Planck mass / sqrt(8 pi) agrees to 1.05e-7. (5) GMMPS 5.3 inversion: 1/(64 pi^2) gives 7.885e-3 eV (+1.09% vs printed 7.8e-3), (64 pi)^-1 gives 5.923e-3 (-24.07%); tree gmmps_mass_ev reproduces both to 1e-14. (6) Counterfactuals: G +-1 sigma and +-1e-3, pre-2019 e: no verdict moves. (7) Sensitivity to G is -1/2 along the tree's path (printed Lambda held in M_P^2 units) and -1/4 physically (Lambda held in eV^2) -- both computed; the sibling audit 2604.01047_sec5.3-mass quotes only G^(-1/4), a difference of path, recorded, both negligible. One threshold in this script was first set by estimate at 2e-9 for the pre-2019 e shift and FAILED at 8.24e-9; the estimate was wrong, not the data, and the check was re-set to 1e-8 with the 2014 u_r printed beside it.",
+  "agrees_with_source": "yes"
+ },
+ "later_literature": [
+  {
+   "ref": "discover_papers (this stage)",
+   "effect": "extends",
+   "what": "the call was made and returned 'alphaXiv assistant quota exceeded'; no later literature was retrieved in this stage",
+   "read_status": "NOT-READ (tool unavailable)"
+  },
+  {
+   "ref": "arXiv:2409.03787 (CODATA 2022, Mohr, Newell, Taylor, Tiesinga)",
+   "effect": "confirms",
+   "what": "e, c, h, hbar exact and G identical to 2018 ('no new relevant input datum'); the NIST 2022 table READ here agrees",
+   "read_status": "READ in sibling stage (audits/codata-2018-constants.json); its table copy READ here"
+  },
+  {
+   "ref": "arXiv:1905.09551 (Merkatas, Toman, Possolo, Schlamminger 2019)",
+   "effect": "contested",
+   "what": "alternative statistical models on the same G data give 6.67390-6.67408, u up to 0.00030 -- a 5e-5 dispute; moves m here by <= 3e-5",
+   "read_status": "READ in sibling stage, not re-read here"
+  },
+  {
+   "ref": "arXiv:2209.07416 (Rinaldi, Middleton, Del Pozzo, Gair 2022)",
+   "effect": "contested",
+   "what": "G = 6.6740 +-0.0015 (90%): CODATA underestimates u(G) by up to ~10x; still inside the +-1e-3 envelope computed here",
+   "read_status": "READ in sibling stage, not re-read here"
+  }
+ ],
+ "lacked_data": "Tested both ways. e: nothing can be lacked -- since SI 2019 its value is a definition of the coulomb, not a measurement; before 2019 it was measured (CODATA 2014 1.6021766208(98)e-19, READ), and the 2014 -> 2018 change, 8.24e-9 relative (1.35 x the 2014 u_r), moves nothing here. hbar and c: exact, likewise. G: the one measured input, and the one where M's hypothesis has substance in general -- no new G datum entered CODATA 2022 and the 16 inputs disagree (expansion factor 3.9; reanalyses dispute the value at 5e-5 and the uncertainty up to ~10x; sibling-READ). For THIS result the evidence is against the missing/disputed data mattering: the use (reproduce GMMPS's 2-figure m within 2%, and show (64 pi)^-1 misses by > 20%) needs G to 1.8%, and the whole dispute is < 1e-3 (computed: m moves <= 5.0e-4). The load-bearing choice is not a datum at all but the convention (reduced vs non-reduced Planck mass, factor 5.01 in m), and the tree's choice is the one GMMPS state (sibling-READ).",
+ "grade": "STANDS",
+ "grade_evidence": "As used at linstab.py:321-323 and 624-633 -- e exact by SI 2019 to turn J into eV, and achievable.py's hbar, c, G in the reduced-Planck-mass formula for GMMPS's 5.3 inversion -- every value equals the NIST CODATA 2018 and 2022 tables READ here (e, c, h, hbar marked exact; G 6.674 30(15)e-11 unchanged in 2022); the formula re-derives in sympy; the tree's function equals an independent re-typing bit for bit and agrees with CODATA's own Planck mass/sqrt(8 pi) to 1.05e-7; and no moved or contested datum moves the conclusion it feeds (G over +-1e-3: m moves <= 5.0e-4 against a 2% window needing >= 1.8%; pre-2019 e: 8.24e-9). The dropped G uncertainty (H3) does not narrow THIS use, computed. Discrepancies recorded, not repaired: hbar typed as the truncated display (-6.13e-10); the sibling GMMPS audit's G^(-1/4) is the physical-path exponent while the tree's code path is G^(-1/2) (both computed, both negligible). Caveat on reading: the SI definition itself and the CODATA papers were not re-read in this stage (alphaXiv quota exhausted, arxiv.org refused by the proxy); the grade rests on the NIST table text READ here, corroborated by the sibling stage's READ of arXiv:2409.03787 (8 of 8 values agree with the same table copy).",
+ "what_would_change_the_grade": "OPEN if the NIST table copy in scipy were shown not to be faithful (it is corroborated against 2409.03787 by the sibling stage only). NARROWED if a later reading of GMMPS 5.3 showed their M_P is not the reduced Planck mass (the tree's 7.8e-3 reproduction would then rest on a convention the source does not use). DATA-DEPENDENT only if G moved by >= 1.8% -- no literature read suggests anything within 1e-3. Nothing about e can move it short of a redefinition of the SI.",
+ "reverify_command": "python3 -B /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/si-2019-elementary-charge-and-codata-constants.py ; echo exit=$?   # expects '0 FAIL', exit 0; reads research/warp-drive read-only",
+ "report_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/audits/si-2019-elementary-charge-and-codata-constants.json"
+}

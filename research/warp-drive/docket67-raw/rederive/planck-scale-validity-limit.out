@@ -1,0 +1,38 @@
+F1  Planck length
+  [PASS] tree value 1.61625502392855e-35 m reproduced (got 1.616255023928550e-35)
+  [PASS] agrees with CODATA 2022 1.616255(18)e-35 m 
+      G 1-sigma moves l_P by 1.12e-05 relative; every crossover is a multiple of l_P with a Lambda-only coefficient, so R/l_P does not move at all.
+F2  closed forms (sympy)
+  [PASS] Ford-Roman R/l_P = sqrt(3 Lambda/(32 pi^2)) sqrt(6)*sqrt(Lambda)/(8*pi)
+  [PASS] Casimir R/l_P = pi sqrt(Lambda/720) sqrt(5)*pi*sqrt(Lambda)/60
+  [PASS] NMC l_UV/l_P = sqrt(Lambda), R-independent sqrt(Lambda)
+  [PASS] spread NMC/FR = sqrt(32 pi^2/3), Lambda-free = 10.260399
+F3  numeric at the board's Lambda = 9.982529174195
+  [PASS] Ford-Roman 0.307933 l_P 
+  [PASS] Casimir    0.369917 l_P 
+  [PASS] NMC cutoff 3.159514 l_P 
+F4  convention dependence of the tree's two booleans
+   l_P = sqrt(hbar G/c^3)  (tree)     FR 0.3079  Cas 0.3699  NMC 3.1595   band[0.1,10]=True  sub-Planckian=True
+   sqrt(h G/c^3)  = sqrt(2 pi) l_P    FR 0.1228  Cas 0.1476  NMC 1.2605   band[0.1,10]=True  sub-Planckian=True
+   reduced sqrt(8 pi hbar G/c^3)      FR 0.0614  Cas 0.0738  NMC 0.6302   band[0.1,10]=False  sub-Planckian=True
+  [PASS] sub-Planckian holds in all three conventions 
+  [PASS] band test holds in tree convention 
+  [PASS] band test FAILS in the reduced convention (recorded, not a refutation) 
+F5  z3: Lambda windows (squares; exact reals)
+   tree     band holds for Lambda in [1.0528, 100.00]: z3 counterexample search -> unsat; board Lambda inside -> sat
+  [PASS] tree window proved (unsat = no Lambda in window fails) 
+  [PASS] board Lambda inside tree window 
+   reduced  band holds for Lambda in [26.4587, 2513.27]: z3 counterexample search -> unsat; board Lambda inside -> unsat
+  [PASS] reduced window proved (unsat = no Lambda in window fails) 
+  [PASS] board Lambda OUTSIDE reduced window 
+   FR crossover reaches l_P only for Lambda >= 32 pi^2/3 = 105.276; Casimir for Lambda >= 720/pi^2 = 72.951
+F6  independent breakdown measures
+   at the Ford-Roman crossover: l_P^2 * (8 pi G rho/c^4) = 26.551 ; l_P^2 * (G rho/c^4) = 1.056 ;  (l_P/R)^2 = 10.546
+   at the Casimir    crossover: l_P^2 * (8 pi G rho/c^4) = 18.399 ; l_P^2 * (G rho/c^4) = 0.732 ;  (l_P/R)^2 = 7.308
+  [PASS] curvature in Planck units is >= O(1) at both sub-Planckian crossovers 
+   NMC cutoff energy hbar c/l_UV: 0.3165 E_P (non-reduced), 1.5867 E_P (reduced); (E/M)^2 = 0.100 vs 2.518; with Burgess's loop factor (E/4 pi M)^2 = 0.0006 vs 0.0159
+  [PASS] NMC cutoff is below E_P non-reduced but ABOVE reduced M_p (convention-dependent) 
+   at l_UV = sqrt(Lambda) l_P: |8 pi G xi phi^2_max| = 2.5177 xi  -> reaches 1 at xi = 0.3972; conformal xi = 1/6 gives 0.420
+  [PASS] EFT field bound at the NMC crossover is xi-dependent (1 crossed at xi ~ 0.40) 
+
+RESULT: ALL CHECKS AS STATED

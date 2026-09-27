@@ -1,0 +1,39 @@
+[1] Wronskian proof of Sturm sufficiency (symbolic)
+  v = sin(sqrt m (x-a)) solves v'' + m v = 0                               ok 
+  v(a) = v(b) = 0, v > 0 between (next zero at a + pi/sqrt m)              ok 
+  W' = (m - q) u v  when u'' = -q u  (so W' <= 0 where q >= m, u,v > 0)    ok 
+  W(a) = -sqrt(m) u(a) <= 0 and W(b) = +sqrt(m) u(b) >= 0 if u >= 0        ok 
+      => u > 0 on the open stretch forces W == 0, u(a)=u(b)=0: a zero lies
+         in the CLOSED interval [a, a + pi/sqrt m].  Endpoint zero only if
+         q == m a.e. there and u is a multiple of v.
+[2] Raychaudhuri -> scalar Jacobi equation (4D null congruence)
+  theta=(D-2)U'/U  =>  U'' = -(R_kk + sigma^2) U/(D-2)                     ok 
+  D=4, sigma=0: q = (1/2)(8 pi G/c^4) T_kk = 4 pi G T_kk / c^4             ok 
+  m l^2 = pi^2  =>  T_kk = pi c^4/(4 G l^2)  (seatindex.T_COEFF / l^2)     ok 
+      D-dimensional threshold: T_kk = pi*c**4*(D - 2)/(8*G*l**2)  (D=4 hypothesis is load-bearing)
+  affine rescaling k -> a k leaves m l^2 invariant (q ~ a^2, l ~ 1/a)      ok 
+[3] Numbers: T_COEFF, ball ratios
+  T_COEFF = 9.50536e43 Pa m^2                                              ok 9.505325e+43
+  CODATA u_r(G)=2.2e-5 moves T_COEFF by 2.2e-5 only (no conclusion moves)  ok 
+  u_seat/u_collapse (stretch = radius l) = 2 pi^2/3                        ok 6.579736
+      stretch = diameter 2l (the longest contiguous chord of the ball): ratio = pi**2/6 = 1.6449  (still > 1)
+  diameter-chord ratio pi^2/6 > 1 (SR2 conclusion survives the factor 4)   ok 
+[4] Numeric: every solution has a zero in the stretch (random tests)
+  u(0)=0 source, q >= m on [A, A+L], L >= pi/sqrt m, hostile outside: zero in stretch ok 0/400 fail
+  every solution (random Pruefer phase) of q = m + 3 sin^2 5x has a zero in [0, pi/sqrt m] ok 0/400 fail
+  equality case q == m, u(a)=0: zero AT the endpoint a + pi/sqrt m (closed, not open) ok zero at 1.570797 vs 1.570796
+[5] Sturm is SUFFICIENT, not necessary: sub-Sturm slabs that seat
+  m l^2 = 0.5 pi^2, u(0)=0, approach 0.02, benign outside: SEATS (inside or after) ok first zero 0.9906 (stretch ends 0.6613)
+      => 'seating NEEDS u >= pi c^4/(4 G l^2)' (specthm SR2 wording) reads a
+         sufficient bound as necessary; the Lyapunov bound is the necessary one.
+[6] Shear / Weyl: 2x2 Jacobi J'' = -(q I + E) J, E traceless symmetric
+  Ricci part q >= m on length pi/sqrt m + arbitrary Weyl: det J = 0 within it ok 0/200 fail
+[7] Sturm needs T_kk, the tree feeds u: magnetic field (spec.py B*l invariant)
+  ray along B: T_kk = 0 (tension cancels energy; B never focuses it)       ok 
+  ray across B: T_kk = 2u = B^2/mu_0                                       ok 
+      B l with T_kk := u (tree)        = 1.54562e+19 T m
+      B l with T_kk = B^2/mu0 (across) = 1.09292e+19 T m (factor 1/sqrt 2)
+      B l along the field               = infinite (no focusing)
+  tree's invariant reproduces 1.5456e19 T m                                ok 
+
+RESULT: ALL CHECKS AGREE

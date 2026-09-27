@@ -1,0 +1,41 @@
+A: conservation of BV (2.2) on a curved (t,r) metric, arbitrary phi(t,r), arbitrary V
+PASS A1 div T_BV = (box phi - V' - xi R phi) d phi, identically (nu = t, r)
+PASS A1b angular components vanish
+PASS A2 control: FFKPS eq.(9) trace sign (-g box phi^2) is NOT conserved (misprint-class, null-irrelevant) :: residual_t = 4*(r*(2*F(t, r)*Derivative(A(t, r), t)**2*Derivative(F(t, r), t) - 2*F(t, r)*Derivative(A(t, r), t)*Derivative(B(t, r), t)*Derivative(F(t, r), t) - 3*F(t, r)*Derivative(A(t, r), t)*Derivative(F(t, r), (t, 2)) - F(t, r)*Derivative(A(t, r), (t, 2))*Derivative(F(t, r), t) + F(t, r)*Derivative(B(t, r), t)*Derivative(F(t, r), (t, 2)) + F(t, r)*Derivative(B(t, r), (t, 2))*Derivative(F(t, r), t) + F(t, r)*Derivative(F(t, r), (t, 3)) - 3*Derivative(A(t, r), t)*Derivative(F(t, r), t)**2 + Derivative(B(t, r), t)*Derivative(F(t, r), t)**2 + 3*Derivative(F(t, r), t)*Derivative(F(t, r), (t, 2)))*exp(4*B(t, r)) - r*(-2*F(t, r)*Derivative(A(t, r), r)*Derivative(B(t, r), t)*Derivative(F(t, r), r) + F(t, r)*Derivative(A(t, r), r)*Derivative(F(t, r), r, t) + 2*F(t, r)*Derivative(B(t, r), r)*Derivative(B(t, r), t)*Derivative(F(t, r), r) - F(t, r)*Derivative(B(t, r), r)*Derivative(F(t, r), r, t) - 2*F(t, r)*Derivative(B(t, r), t)*Derivative(F(t, r), (r, 2)) + F(t, r)*Derivative(F(t, r), r)*Derivative(A(t, r), r, t) - F(t, r)*Derivative(F(t, r), r)*Derivative(B(t, r), r, t) + F(t, r)*Derivative(F(t, r), (r, 2), t) + Derivative(A(t, r), r)*Derivative(F(t, r), r)*Derivative(F(t, r), t) - Derivative(B(t, r), r)*Derivative(F(t, r), r)*Derivative(F(t, r), t) - 2*Derivative(B(t, r), t)*Derivative(F(t, r), r)**2 + 2*Derivative(F(t, r), r)*Derivative(F(t, r), r, t) + Derivative(F(t, r), (r, 2))*Derivative(F(t, r), t))*exp(2*A(t, r) + 2*B(t, r)) + 2*(2*F(t, r)*Derivative(B(t, r), t)*Derivative(F(t, r), r) - F(t, r)*Derivative(F(t, r), r, t) - Derivative(F(t, r), r)*Derivative(F(t, r), t))*exp(2*A(t, r) + 2*B(t, r)))*exp(-2*A(t, r) - 4*B(t, r))/r
+B: null contraction
+PASS B0 k is null
+PASS B1 T_kk = (k.dphi)^2 + xi[G_kk phi^2 - kk nabla nabla phi^2]; V and trace terms absent
+PASS B2 BV (2.6): G_kk = [phi'^2 - xi (phi^2)'']/(kappa - xi phi^2)
+C: z3 case analysis of (2.6) at a strict extremum of phi^2 (phi' = 0, phi != 0)
+    xi<0 {'max': 'ALWAYS-VIOLATES', 'min': 'NEVER'}
+    xi>0,small {'max': 'NEVER', 'min': 'ALWAYS-VIOLATES'}
+    xi>0,large {'max': 'ALWAYS-VIOLATES', 'min': 'NEVER'}
+PASS C1 each case: exactly one extremum type violates, the other never does
+PASS C2 computed assignment == FFKPS 2023 restatement
+PASS C3 DISCREPANCY: BV prose (p.5) is the swap of its own eq. (2.6) in all three cases
+PASS C4 at a zero of phi with phi' != 0: NEC violated iff xi > 1/2 (unsat for 0 < xi <= 1/2)
+PASS C4b ... and always violated for xi > 1/2
+PASS C5 xi = 0: (2.6) numerator phi'^2 >= 0, no violation possible (unsat)
+D: on-shell test field in Minkowski
+PASS D0 phi = c + eps (t^2 + z^2) solves box phi = 0
+PASS D1 T_kk(origin) = -8 xi c eps :: -8*c*epsilon*xi
+PASS D2 T_00(origin) = -4 xi c eps :: -4*c*epsilon*xi
+PASS D3 numeric xi=1/6, c=eps=1e-20 (any tiny amplitude): T_kk<0 and T_00<0 :: T_kk=-1/7500000000000000000000000000000000000000 T_00=-1/15000000000000000000000000000000000000000
+PASS D4 along t=z=lam, phi^2 has a strict local MIN at lam=0 (c eps > 0): computed case 'xi>0,small -> min'
+PASS D5 test-field ANEC with fall-off: int T_kk = int phi'^2 - xi [(phi^2)']_boundary >= 0 when phi' -> 0 (flat space, FFKPS 17) :: identity: integrand = phi'^2 - xi d/dlam (phi^2)'; recorded, not a numeric test
+E: fully backreacted flat FRW (Jordan frame), V = m^2 phi^2/2
+PASS E0 flat FRW: G_kk = -2 Hdot (k = (1, 1/a, 0, 0))
+    constraint: -(-6*H**2*kappa + 6*H**2*p**2*xi + 12*H*p*pd*xi + m**2*p**2 + pd**2)/2
+PASS E1 closed form at a zero of phi: Hdot = (2 xi - 1) phidot^2/(2 kappa) (any H) :: pd**2*(xi - 1/2)/kappa
+PASS E2 constraint preserved by the integration :: max|C| = 9.12e-16
+PASS E3 field sub-Planckian throughout: max xi phi^2/kappa < 1 :: max = 0.0900
+PASS E4 phi crosses zero (oscillates) :: 13 crossings
+PASS E5 Hdot > 0 at every zero crossing -> G_kk = -2 Hdot < 0: Jordan-frame NEC violated ON-SHELL :: Hdot at crossings: 2.935e-02, 1.360e-02, 7.825e-03, 5.079e-03
+PASS E6 WEC: boosted observer (rapidity 3) at the first crossing sees G_vv < 0 :: G_vv = -5.861e+00
+PASS E7 comoving observer: G_tt = 3H^2 >= 0 everywhere (WEC violated only for boosted observers here) :: min 3H^2 = 6.476e-04
+PASS E8 control: Einstein-frame dH_E/dt_E <= 0 along the same solution (Einstein-frame NEC holds) :: max dH_E/dt_E = -4.922e-10 ; max Jordan Hdot = 3.283e-02
+F: FFKPS 2309.10848 eq.(13) null energy vs BV (2.2) contracted (discrepancy check, curved metric)
+PASS F1 BV (2.2) gives T_kk = (1-2xi)phi'^2 - 2xi phi kk nabla nabla phi + xi R_kk phi^2 (identity)
+PASS F2 DISCREPANCY: FFKPS eq.(13) as printed (-xi R_kk phi^2) differs from it by 2 xi R_kk phi^2 (zero in flat space; FFKPS eq.(16)/(18), the effective form, agrees with BV 2.6)
+
+SUMMARY: 29 PASS, 0 FAIL

@@ -1,0 +1,30 @@
+PASS A1 Lorentzian sampler integrates to 1   1
+PASS A2 (t0/pi) INT cos(W t)/(t^2+t0^2) = exp(-W t0), W>0   exp(-W*t_0)
+PASS B1 Eq.(12) -> V->oo integral -> Eq.(17) = -3/(32 pi^2 t0^4)   -3/(32*pi**2*t_0**4)
+PASS B2 Eq.(13) at m=0 equals Eq.(17)
+PASS C1 G(0) = 1   1
+PASS C2 G(y) strictly decreasing on 0..10 (massive bound tighter)   [1.0, 0.97828, 0.91274, 0.69401, 0.15062, 0.00418]
+PASS C3 substitution Eq.(13) -> Eq.(14) integrand
+PASS D1 EM Eq.(47) -> Eq.(48) = -3/(16 pi^2 t0^4) = 2 x scalar
+PASS E1 2D massless Eq.(19) at m=0 = -1/(8 pi t0^2)
+PASS E2 F(y) = (y^2/2)[K0+K2] -> 1 as y -> 0
+PASS F1 Lemma-B kernel PSD on 400 random spectra (min normalised eigenvalue >= -1e-12)   4.567e-05
+PASS G0 Bogoliubov transformations preserve the CCR (max err < 1e-8)   6.00e-11
+PASS G1 Eq.(9) exact >= Eq.(12) (occupied modes) on 21900 random squeezed states   max (bound - rho_hat)/|bound| = -1.880e-01 (must be <= 0)
+PASS G2 guard: the test is not vacuous -- negative rho-hat occurs   612 of 21900 (state, phase) pairs negative
+PASS G3 single-mode squeezed: min rho-hat / finite-V bound < 1 always, -> 1 as q -> 1   [np.float64(0.267949), np.float64(0.626789), np.float64(0.867609), np.float64(0.998587)]
+PASS G4 control: a bound with half the magnitude is violated by the q->1 single mode
+PASS H1 3hbar/(32pi^2 c^3 t0^4) at t0=L/c == 3 hbar c/(32 pi^2 L^4)
+PASS H2 ford_roman(1 nm) = 3.0031e8 J/m^3   3.00309e+08
+PASS H3 achievable quantum_bound(1)/ford_roman_allow(1/c) = 32 pi^2/3 = 105.276   105.275780
+PASS I1 static <T00>=rho0: rho-hat = rho0 for every t0
+PASS I2 Eq.(1) for all t0 => rho0 >= lim_{t0->oo} -3/(32pi^2 t0^4) = 0
+PASS J1 Fewster-Eveson bound with Ford-Roman's Lorentzian = 9/64 of Ford-Roman's   FE = 27/(2048*pi**2*t_0**4), ratio = 9/64
+PASS K1 crossover sqrt(3 Lambda/(32 pi^2)) = 0.307933 l_P   0.307933
+PASS K2 shortfall(1 nm) = 4.037e52   4.0371e+52
+PASS K3 crossover in l_P units is independent of G, hbar, c (only Lambda enters)
+PASS L1 Flanagan optimal 2D bound at the Lorentzian = 1/6 of Ford-Roman 2D (FE p.8: 'six times stronger')   INT f'^2/f = 1/(2*t_0**2)
+PASS L2 Fewster-Eveson 2D bound at the Lorentzian = 1/4 of Ford-Roman 2D (FE p.8: 'four times stronger')
+PASS L3 Lorentzian tail: t^2 f(t) -> t0/pi (decays as t^-2, outside FE's 'rapid decay' class)
+
+ALL PASS

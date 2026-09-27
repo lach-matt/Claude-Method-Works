@@ -1,0 +1,101 @@
+{
+ "key": "dust-shell-radial-instability-textbook",
+ "name": "A pressureless (dust) thin shell with flat interior and Schwarzschild exterior is radially unstable (used as the validation fixture)",
+ "source": {
+  "located": "The tree names NO source ('as a dust shell must be', stability.py:48; 'as it must be', stability.py:246). The published result it invokes is the radial stability of a static thin shell, Minkowski interior / Schwarzschild exterior: P.R. Brady, J. Louko & E. Poisson, PRD 44, 1891 (1991) [pre-arXiv, NAMED-NOT-READ], read via the exact reproduction in M. Ishak & K. Lake, arXiv:gr-qc/0108058v2 (PRD 65, 044011, 2002) eq (5) (Lake's potential), (7) (transparency, (M/2R)'' = Upsilon/(2R^3)(1+2P'/sigma')), (15)-(19) (V''>0 criterion), sec. III.B and Fig. 2 ('For P'/sigma' = 1 we find that R/m+ ~ 2.37 as m- -> 0 ... in agreement with previous results'); the V''>0 criterion and beta^2 = dp/dsigma as in E. Poisson & M. Visser arXiv:gr-qc/9506083v1 eqs (13), (23), (28) ('for V''(a0) > 0 the wormhole is stable, while for V''(a0) < 0 perturbations can grow (at least until the nonlinear regime is reached)'). The adiabatic-index form: P. LeMaitre & E. Poisson, Am. J. Phys. 87, 961 (2019) [NAMED-NOT-READ], via its restatement in T. Pitre, B. Schneider & E. Poisson arXiv:2604.05980v1 sec. X ('It is known [34] that these equilibrium configurations are radially stable whenever Gamma >= 3/2, Gamma := (d ln p/d ln sigma)_s'). The TRUE-dust equation of motion: C. Barcelo & J.L. Jaramillo arXiv:1112.5265v1 eqs (2)-(4) ('p ... that we set to zero consistently with the dust nature ... M = sqrt(1+adot^2) M0 - M0^2/(2a)').",
+  "read_status": "READ-VIA-RESTATEMENT",
+  "via": "alphaXiv page text. In THIS stage the alphaXiv quota was exhausted (answer_pdf_queries, get_paper_content and discover_papers all returned 'assistant quota exceeded'; direct arxiv.org is 403 at the egress proxy), so the verbatim alphaXiv <page> text returned earlier in this same workflow and cached at scratchpad d67/src/casmag/all/ was read instead: gr-qc_0108058v2.txt (md5 26cf595d20eaeeb5bfc27b4dc8891959, pages 1-13), gr-qc_9506083v1.txt (1e67535c0026a14c76e24f318357121c), 1112.5265v1.txt (af75e731279e5fc3731a3816e3e6dc46), 2604.05980v1.txt (9916ebc75c7859da12c37c59acc4458f). Brady-Louko-Poisson 1991 and LeMaitre-Poisson 2019 are NAMED-NOT-READ (restated only). NO source read states the fixture's exact claim (V''<0 at beta^2 = 0 for the ordinary shell) verbatim; it is COMPUTED here from the read formalism, in closed form, for every compactness."
+ },
+ "published_statement": "No published statement in the tree's words exists in any source read. What the sources state: (i) Ishak-Lake (gr-qc/0108058v2) eq (5): 'Rdot^2 = eps + ([m]/M)^2 - 2 eps mbar/R + (M/2R)^2 ... a quadratic identity and applies to both shells and wormholes'; stability 'V'' > 0' (15); sec. III.B: Brady-Louko-Poisson's shell around a Schwarzschild black hole, 'R/m+ ~ 2.37 as m- -> 0 and R/m+ ~ 3 as m- -> m+' at P'/sigma' = 1; sec. III.C.1: in the Lambda = 0 case 'surface tensions are not required to stabilize the shell at any radius'. (ii) Poisson-Visser (gr-qc/9506083v1) after eq (28): 'for V''(a0) > 0 ... stable, while for V''(a0) < 0 perturbations can grow (at least until the nonlinear regime is reached)'. (iii) PSP (2604.05980v1) sec. X restating LeMaitre-Poisson 2019: static shells, Minkowski interior / Schwarzschild exterior, barotropic, 'radially stable whenever Gamma >= 3/2' (Newtonian sequence). (iv) Barcelo-Jaramillo (1112.5265v1) eq (4): a dust shell (p = 0, M0 = 4 pi a^2 rho constant) with Minkowski interior obeys M = sqrt(1+adot^2) M0 - M0^2/(2a). THE COMPUTED STATEMENT (this audit): for the ordinary shell, V''(R0) = [2 beta^2 (3s+1) s^2 + (s-1)(3s^2+2s+1)/2]/(s^2 R0^2), s = sqrt(1-2M/R0); at beta^2 = 0, V'' = -(1-s)(3s^2+2s+1)/(2 s^2 R0^2) < 0 for EVERY 0 < M/R0 < 1/2; equivalently Gamma_crit = (3s^2+2s+1)/(4s^2) >= 3/2 while beta^2 = 0 gives Gamma = 0.",
+ "published_hypotheses": [
+  "thin shell (Israel/Lanczos, distributional surface layer), timelike, spherically symmetric (Ishak-Lake eq 1-2; PV sec. II)",
+  "vacuum on both sides: Minkowski interior (m- = 0), Schwarzschild exterior m+ = M > 0 (Ishak-Lake eq 22 with m- -> 0; BJ eq 1-2)",
+  "transparency / static embeddings in a neighbourhood of Sigma (Ishak-Lake eq 6, 12, 'we assume (12) and dc/dr = 0')",
+  "static equilibrium at R0 > 2M with V(R0) = V'(R0) = 0 (Ishak-Lake eq 14; PV eq 28) -- which REQUIRES the Lanczos surface pressure p0 = (1-s)^2/(16 pi R0 s) > 0",
+  "linearised spherically symmetric (l = 0) perturbations; V'' < 0 means perturbations grow only 'until the nonlinear regime' (PV after eq 28)",
+  "barotropic surface matter parameterised by beta^2 = P'/sigma' (PV eq 23; Ishak-Lake sec. II.D), with the caveat 'there is no guarantee that beta0 actually is the speed of sound' (PV sec. IV)",
+  "for the Gamma form: Gamma = d ln p / d ln sigma at fixed entropy, sigma the rest-mass density (PSP sec. X, eq 10.17; LeMaitre-Poisson's convention differs, PSP footnote: 'To maximize confusion, mu was denoted sigma in Ref. [34]')",
+  "for TRUE dust (BJ): p == 0 exactly, so M0 = 4 pi a^2 rho is constant"
+ ],
+ "hypothesis_drift": [
+  "LABEL 'dust' FOR beta^2 = 0 (stability.py:48 'UNSTABLE, as a dust shell must be'; stability.py:246 'a dust shell with mass outside is unstable'; and for the device stability.py:65 'dust included'): what the code computes (stability.py:167-176 _ms_at, p = p0 + beta2 (sigma - sigma0)) is a static shell with the Lanczos pressure p0 > 0 HELD CONSTANT (zero pressure RESPONSE), not a pressureless shell. A true dust shell (p == 0) has NO static configuration at all -- shown here: V = V' = 0 is unsatisfiable for M, R, m_s > 0 (sympy + z3), and Barcelo-Jaramillo eq (4) gives a_ddot = -(2Ma + M0^2)/(4a^3) < 0 at every instant. stability.py:45 ('no pressure response') and :241 ('at beta^2 = 0') state the hypothesis correctly; only the word 'dust' is wrong. A DISCREPANCY OF WORDING, NOT OF CONTENT: the code keeps the hypothesis. The canonical entry's own name ('A pressureless (dust) thin shell ... is radially unstable') inherits the misnomer; read literally, a pressureless shell is not 'radially unstable about an equilibrium' but has no equilibrium.",
+  "SOURCE DROPPED (stability.py:48, 246): the expected sign is asserted 'as it must be' with no source; it is now tied to Brady-Louko-Poisson 1991 (via Ishak-Lake), LeMaitre-Poisson 2019 (via PSP), and to a closed-form computation here. No source read states the beta^2 = 0 case verbatim.",
+  "SCOPE NARROWER THAN THE TRUTH (stability.py:47-49, 246-247 sample M/R = 0.01, 0.1, 0.2 only): z3 proves V''(beta^2 = 0) < 0 on the whole range 0 < M/R < 1/2. This is a strengthening, not a drift against the tree.",
+  "WHAT THE FIXTURE DOES NOT VALIDATE (stability.py:44 'the sign is the whole claim' vs stability.py:62-65 'ANY non-negative beta^2 -- dust included -- clears it'): the fixture pins only the sign of V'' at beta^2 = 0; the device verdict also rests on the SIGN OF THE beta^2 COEFFICIENT, which the fixture never exercises. That coefficient is 2(3s+1)s^2/(s^2 R^2) > 0 (z3, all 0<s<1), and the tree's beta2_crit(ordinary) reproduces the exact +0.003823, +0.046477, +0.122892 and Ishak-Lake's 2.37 at beta^2 = 1 -- so the gap is closed here, but by this audit, not by the tree's fixture.",
+  "UNNAMED AT THE FIXTURE (stability.py:39-50): vacuum both sides, transparency, linearity ('until the nonlinear regime', PV) and 'beta is not necessarily a sound speed' (PV sec. IV) are carried by the Poisson-Visser machinery named at stability.py:39-42 but not restated at the validation. Inherent to the machinery the tree names; none changes the fixture's conclusion."
+ ],
+ "data_at_publication": [
+  {
+   "quantity": "V''(R0) at beta^2 = 0, ordinary shell, R0 = 1, M/R = 0.01 / 0.1 / 0.2",
+   "value_then": "-3.036e-2 / -3.424e-1 / -8.169e-1 (stability.py:47-49, printed by the tree's finite-difference V_second)",
+   "value_now": "exact closed form -(1-s)(3s^2+2s+1)/(2s^2): -3.0356e-2 / -3.4238e-1 / -8.1694e-1; tree numerics -3.035794e-2 / -3.423783e-1 / -8.169365e-1 (rel. err. <= 6e-5, finite-difference h = 1e-5)",
+   "source_now": "rederive/dust-shell-radial-instability-textbook.py section 4",
+   "moves_conclusion": "no -- all three printed values agree with the exact form to their printed precision; sign fixed on the whole range"
+  },
+  {
+   "quantity": "BLP/Ishak-Lake beta^2 = 1 stability boundary, m- -> 0 (the published number the machinery must reproduce)",
+   "value_then": "R/m+ ~ 2.37 (Ishak-Lake 2002 sec. III.B, Fig. 2)",
+   "value_now": "R/M = 2.370393 from the closed form",
+   "source_now": "rederive section 7",
+   "moves_conclusion": "no"
+  },
+  {
+   "quantity": "Newtonian radial threshold Gamma_crit",
+   "value_then": "3/2 (LeMaitre-Poisson 2019 via PSP 2604.05980 sec. X)",
+   "value_now": "Gamma_crit(s) = (3s^2+2s+1)/(4s^2) -> 3/2 as M/R -> 0, > 3/2 for every M/R > 0",
+   "source_now": "rederive section 8",
+   "moves_conclusion": "no -- beta^2 = 0 gives Gamma = 0 < Gamma_crit everywhere"
+  },
+  {
+   "quantity": "physical data (constants, measurements)",
+   "value_then": "none -- the result is a closed-form statement of GR thin-shell dynamics in geometric units",
+   "value_now": "none",
+   "source_now": "n/a",
+   "moves_conclusion": "no datum enters"
+  }
+ ],
+ "rederivation": {
+  "method": "sympy",
+  "script_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/dust-shell-radial-instability-textbook.py",
+  "outcome": "ALL 32 CHECKS PASS (sympy exact + z3 nonlinear real arithmetic; stability.py imported READ-ONLY for comparison only). (1) From Lake's potential V = 1 - 2M_out/R - (dM/m_s - m_s/2R)^2 with m_s' = -8 pi R p, p' = beta^2 sigma': V(R0) = V'(R0) = 0 and V''(R0) = [2 beta^2 (3s+1)s^2 + (s-1)(3s^2+2s+1)/2]/(s^2 R0^2), s = sqrt(1-2M/R0). (2) z3: V''(beta^2=0) < 0 for all 0 < s < 1 (i.e. every compactness 0 < M/R < 1/2); the beta^2 coefficient > 0; V'' < 0 for every beta^2 <= 0; vacuity guard sat; beta^2_crit = (1-s)(3s^2+2s+1)/(4s^2(3s+1)) -> 0+ as M/R -> 0 and -> +oo as R -> 2M. (3) Weak field: V''(0) = -3M/R^3 + O((M/R)^2). (4) The tree's printed -3.036e-2, -3.424e-1, -8.169e-1 reproduced; the tree's V_second agrees with the exact form at M/R = 0.01...0.45 (rel <= 6e-5) and its beta2_crit(ordinary) at 0.01, 0.1, 0.2 (abs <= 4.3e-5). (5) The static ordinary shell carries Lanczos pressure 8 pi R p0 = (1-s)^2/(2s) > 0 (z3) -- it is NOT pressureless. (6) A TRUE dust shell (p == 0, m_s const) has no static solution: V = V' = 0 unsatisfiable (sympy solve empty; z3 unsat), and Barcelo-Jaramillo eq (4) gives a_ddot = -(2Ma + M0^2)/(4a^3) < 0 always. (7) beta^2 = 1 boundary R/M = 2.370393 vs Ishak-Lake 'R/m+ ~ 2.37'. (8) Gamma_crit = (3s^2+2s+1)/(4s^2), -> 3/2 (LeMaitre-Poisson via PSP) and > 3/2 for all M/R > 0 (z3).",
+  "agrees_with_source": "yes"
+ },
+ "later_literature": [
+  {
+   "ref": "T. Pitre, B. Schneider, E. Poisson, 'Self-gravitating thin shells are dynamically unstable on all angular scales', arXiv:2604.05980v1 (2026)",
+   "effect": "extends",
+   "what": "Same configuration (static barotropic perfect-fluid thin shell, Minkowski interior, Schwarzschild exterior): an unstable even-parity matter mode for every l >= 2 sampled, all compactness and Gamma sampled (Figs. 1-2). Restates LeMaitre-Poisson 2019: radially stable whenever Gamma >= 3/2. Does not touch the fixture's radial claim; it makes the ordinary shell unstable in MORE modes, and it is the reason stability.py already carries l >= 2 as NOT-RUN for the device.",
+   "read_status": "READ (alphaXiv page text cached earlier in this workflow; pages 1-4, 6-7, 9, 23, 37, 41, 47)"
+  },
+  {
+   "ref": "M. Ishak & K. Lake, arXiv:gr-qc/0108058v2 (2002)",
+   "effect": "confirms",
+   "what": "Reproduces Brady-Louko-Poisson 1991 (R/m+ ~ 2.37 at P'/sigma' = 1, m- -> 0); reproduced here to 2.370393 by the same closed form that gives V''(beta^2=0) < 0.",
+   "read_status": "READ (cached alphaXiv page text, 13 pages)"
+  },
+  {
+   "ref": "P. LeMaitre & E. Poisson, 'Equilibrium and stability of thin spherical shells in Newtonian and relativistic gravity', Am. J. Phys. 87, 961 (2019)",
+   "effect": "confirms",
+   "what": "The closest thing to a 'textbook' source for the fixture: radial stability iff Gamma above threshold (3/2 Newtonian). Beta^2 = 0 means Gamma = 0, below threshold at every compactness.",
+   "read_status": "NAMED-NOT-READ (restated in PSP 2604.05980 sec. X; alphaXiv quota exhausted this stage)"
+  },
+  {
+   "ref": "C. Barcelo & J.L. Jaramillo, arXiv:1112.5265v1 (2011)",
+   "effect": "narrows",
+   "what": "Narrows the WORD, not the result: its eq (4) for a genuine dust shell shows no static configuration exists (a_ddot < 0 always; the paper lowers a shell only 'with the help of some rigid strings' / 'external means'), so 'dust shell' cannot name the beta^2 = 0 static shell the tree computes.",
+   "read_status": "READ (cached alphaXiv page text, pages 1-2)"
+  },
+  {
+   "ref": "discover_papers (later-literature search)",
+   "effect": "contested",
+   "what": "NOT RUN: the one discover_papers call returned 'alphaXiv assistant quota exceeded'. Later literature beyond the cached PSP 2026 paper is therefore unsearched in this stage; recorded as a gap, not as absence of later work.",
+   "read_status": "NOT-RUN (quota)"
+  }
+ ],
+ "lacked_data": "M's hypothesis tested for this result. The result is a closed-form theorem of classical GR thin-shell dynamics: its inputs are the Israel junction condition, the conservation law and the definition beta^2 = dp/dsigma, and it contains NO measured quantity -- no constant, no observation, no extrapolated datum. There is therefore no datum the 1991 authors (or any restatement) could have lacked whose arrival moves the sign: the sign of V''(beta^2 = 0) = -(1-s)(3s^2+2s+1)/(2s^2R^2) is fixed by 0 < s < 1 alone (z3, every compactness). Evidence AGAINST the hypothesis for this result: an independent closed-form re-derivation agrees exactly with the tree's numbers, with Ishak-Lake's published 2.37, and with LeMaitre-Poisson's Newtonian Gamma = 3/2. What COULD move the physics is not data but model hypotheses, all named: (a) the thin-shell idealisation (zero thickness), (b) beta^2 as a sound speed ('no guarantee', PV sec. IV), (c) linearity (PV: growth 'until the nonlinear regime'), (d) l = 0 only -- and on (d) the later work (PSP 2026) found MORE instability (all l >= 2), not less. The one inaccuracy found is the tree's own word 'dust' for beta^2 = 0, which is a labelling discrepancy in the tree, not a flaw in the outside result.",
+ "grade": "STANDS",
+ "grade_evidence": "For the statement and hypotheses AS COMPUTED (stability.py:44-50, 167-176, 241-247: Minkowski interior, Schwarzschild exterior, static shell at V = V' = 0 with the Lanczos pressure p0 > 0, beta^2 = dp/dsigma = 0, linear l = 0): V''(R0) = -(1-s)(3s^2+2s+1)/(2 s^2 R0^2) < 0, proved by z3 for every 0 < M/R < 1/2 (the tree samples three points); the tree's printed -3.036e-2 / -3.424e-1 / -8.169e-1 and its numerics agree with the exact form; the same form reproduces Brady-Louko-Poisson's published R/m+ ~ 2.37 (Ishak-Lake) and LeMaitre-Poisson's Newtonian Gamma_crit = 3/2 (PSP); no datum enters. The sign-validation role therefore holds: the fixture discriminates the sign convention (a flipped convention would print V'' > 0 here). RECORDED, NOT GRADE-MOVING: (a) the word 'dust' (stability.py:48, 246, and :65 for the device) misnames the beta^2 = 0 static shell -- a true dust shell (p == 0) has no static configuration at all (shown: V = V' = 0 unsatisfiable; Barcelo-Jaramillo eq (4) a_ddot < 0), and the static ordinary shell carries p0 = (1-s)^2/(16 pi R s) > 0; the code keeps the correct hypothesis (stability.py:45 'no pressure response'), so this is a discrepancy of wording, not a narrowed class and not a refutation; (b) the tree names no source ('as it must be'); (c) the fixture does not exercise the beta^2 coefficient on which stability.py:62-65 also rests -- closed here (coefficient 2(3s+1)s^2 > 0, z3; tree beta2_crit reproduces the exact values). Not NARROWED: the result holds on a LARGER class (all compactness) than the tree uses, and no hypothesis the computation needs is dropped from the code. Scope carried with the grade: STANDS means LINEAR RADIAL instability of the zero-sound-speed static shell; it says nothing about l >= 1, which PSP 2026 (read) finds unstable for l >= 2 anyway.",
+ "what_would_change_the_grade": "NARROWED if the tree's verdict (or the canonical entry) is read as a claim about a literally PRESSURELESS static shell -- that object does not exist, so the statement would hold only on the beta^2 = 0 / p0 > 0 class the code actually computes; if the ledger quotes the fixture as 'a pressureless dust shell is radially unstable', it should read 'the zero-sound-speed (beta^2 = 0) static shell, with its Lanczos pressure p0 > 0, is linearly radially unstable at every compactness'. WRONG only on a computed V''(beta^2=0) >= 0 for some 0 < M/R < 1/2 under these hypotheses -- excluded here by z3. OPEN would apply to the attribution to Brady-Louko-Poisson 1991 / LeMaitre-Poisson 2019 verbatim (both NAMED-NOT-READ); reading them (LeMaitre-Poisson 2019 is on arXiv; BLP 1991 is not) when alphaXiv quota returns, and running the later-literature discover_papers call that returned 'quota exceeded', are the two open reads -- neither can move the computed sign.",
+ "reverify_command": "python3 /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/dust-shell-radial-instability-textbook.py   # expect 'ALL CHECKS PASS', exit 0; and python3 /home/user/Claude-Method-Works/research/warp-drive/stability.py --selftest",
+ "report_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/audits/dust-shell-radial-instability-textbook.json"
+}

@@ -1,0 +1,100 @@
+{
+ "key": "bound-systems-do-not-expand",
+ "name": "Atomic and bound systems do not partake of cosmological expansion (Bohr radius set by hbar, m_e, e; no scale factor)",
+ "source": {
+  "located": "The owner cites NO literature (permute.py:60-61, 243-245; canonical hypothesis 'no literature cited in file'). The standard literature for the claim, identified by title/venue through WebSearch only: Cooperstock, Faraoni & Vollick, 'The influence of the cosmological expansion on local systems', ApJ 503 (1998) 61, astro-ph/9803097; Carrera & Giulini, 'Influence of global cosmological expansion on local dynamics and kinematics', Rev. Mod. Phys. 82 (2010) 169, arXiv:0810.2712; Price, 'In an expanding universe, what doesn't expand?' (2005, gr-qc/0508052, with Romano); Bonnor, 'Size of a hydrogen atom in the expanding universe', Class. Quantum Grav. (1999); Faraoni & Jacques, arXiv:0707.1350. Classics behind them (Dicke & Peebles 1964; Einstein & Straus 1945; McVittie 1933) are NAMED-NOT-READ.",
+  "read_status": "NAMED-NOT-READ",
+  "via": "Not read. alphaXiv answer_pdf_queries / get_paper_content / discover_papers all returned 'assistant quota exceeded' (4 attempts, incl. a retry after the re-derivation); arxiv.org, export.arxiv.org, ar5iv, semanticscholar, alphaxiv.org, core.ac.uk, physics.umd.edu, scielo.br and ugr.es are all egress-blocked (curl 403 CONNECT / WebFetch EGRESS_BLOCKED). WebSearch returned titles, venues and search-engine summaries only; a summary is not a READ and nothing below is quoted from a source as verbatim. The result is instead RE-DERIVED here from the FLRW metric (step 4), which is the only evidence the grade rests on."
+ },
+ "published_statement": "No published statement is quoted: the tree cites none and the candidate sources could not be read (see source.via). The claim AS USED is the owner's own: 'The Bohr radius is set by hbar, m_e and e.  NONE OF THEM CONTAINS a.  Atoms do not expand, and neither do solar systems or bound galaxies.' (permute.py:60-61); 'hbar, m_e, e.  None of them is a function of the scale factor.' (permute.py:244, bohr_radius_contains_a() hardcoded False, asserted by chk at permute.py:425-426); restated at permute.py:534-536 and in obstruct.py:276-278 ('the Bohr radius contains no scale factor'). Search-engine summaries (NOT READ, recorded only as pointers): Cooperstock et al. 1998 conclude the expansion 'affects all scales, but the magnitude of the effect is essentially negligible for local systems, even at the scale of galactic clusters'; Price 2005 finds an 'all-or-nothing' behaviour set by a critical specific angular momentum -- tightly bound systems settle at fixed physical radius, weakly bound ones join the flow.",
+ "published_hypotheses": [
+  "H1 (tree, stated) hbar, m_e, e are constants -- not functions of time or of a(t).",
+  "H2 (tree, stated in canonical entry, not in the file) bound systems are decoupled from the Hubble flow; no literature cited.",
+  "H3 (tree's own, not external) a relabelling cannot change a dimensionless ratio of two physical lengths -- not audited here, it is the tree's argument, not an outside result.",
+  "H4 (needed by the re-derivation, UNSTATED in the tree) the local system is small enough that the metric perturbation is the Newtonian tidal term of the comoving Fermi frame: d2xi/dtau2 = (a''/a) xi (first order in curvature x size^2).",
+  "H5 (needed, unstated) 'bound' means bound in the presence of that tidal term: for gravitating systems, well inside the Schwarzschild-de Sitter force-balance radius (3GM/Lambda c^2)^(1/3); in Price's language (search summary, NOT READ), above the critical angular momentum.",
+  "H6 (needed for the tree's NUMBER, unstated) the recombination redshift Z_REC = 1089.92 is the Planck 2018 fit, which itself assumes standard recombination atomic physics, i.e. H1."
+ ],
+ "hypothesis_drift": [
+  "WEAKENED-TO-EXACT (permute.py:60-61, 244; permute.py:425-426): the tree states 'Atoms do not expand' as an exact zero and hardcodes bohr_radius_contains_a() = False. Re-derived: the equilibrium atomic radius DOES depend on the expansion, through a''/a, by delta a_B/a_B = (9/2)(a''/a) a0^2/(alpha c)^2 = 6.6e-69 today and -4.2e-60 at recombination. The tree's literal claim 'contains no a' is nonetheless EXACTLY true in the invariant sense: a''/a is invariant under a -> lam*a (check A2), so no scale factor enters. Drift recorded: the correct statement is 'does not scale with a; shifted by an amount set by a''/a', not 'unaffected'.",
+  "DROPPED (permute.py:60-61): the smallness hypothesis H4 is not stated; it is what makes the correction tidal (a''/a) rather than Hubble (H) and what licenses the Newtonian treatment.",
+  "DROPPED-BUT-IMPLIED-BY-'bound' (permute.py:61): H5. The tree writes 'bound galaxies', which is the right qualifier; the re-derivation shows it does real work -- illustrative galaxy- and cluster-mass systems (mass/radius NOT READ) sit at R/r_L = 0.09 and 0.18 with fractional tidal shifts 5.6e-4 and 4.5e-3, not 1e-60. 'Neither do solar systems' is safe by 22 orders (Earth orbit 6.3e-23).",
+  "DROPPED (permute.py:178-179, 234-240): H6. The tree reads 1090.92 'from the CMB temperature alone' (permute.py:64-67, 'Measured independently of any model of a(t)', permute.py:238-239), but temperature_at(z) = T0(1+z) so ratio_from_temperature() = 1+z identically (check G1): T_rec = 2973.3 K is computed from Z_REC, not measured, and Z_REC is a model fit assuming H1. A tree-internal discrepancy, recorded, not repaired; it does not touch the external result.",
+  "ADDED (canonical entry, not the file): 'bound systems decoupled from the Hubble flow (no literature cited in file)' -- the canonical extraction states H2; the file itself states only the conclusion."
+ ],
+ "data_at_publication": [
+  {
+   "quantity": "H0 (sets a''/a today and at recombination)",
+   "value_then": "not used by the claim in the tree (permute.py uses H0 only in obstruct.py's theta = 3 H0 row)",
+   "value_now": "67.36 +- 0.54 km/s/Mpc (Planck 2018 TT,TE,EE+lowE+lensing); 67.66 +- 0.42 (+BAO) -- READ by sibling audit planck-cosmological-parameters-via-2604.01047.json from arXiv:1807.06209v4 eq.(14), Table 2; local-ladder ~73 run as ILLUSTRATIVE only (SH0ES not READ)",
+   "source_now": "arXiv:1807.06209v4 via audits/planck-cosmological-parameters-via-2604.01047.json",
+   "moves_conclusion": "No, computed: delta a_B/a_B today 6.6e-69 (67.36), 6.8e-69 (67.66), 7.8e-69 (73); at recombination -4.2e-60 to -4.7e-60. The H0 tension moves these by ~17%, i.e. not at all on the scale of 1090."
+  },
+  {
+   "quantity": "Omega_Lambda (sign and size of a''/a today)",
+   "value_then": "not used",
+   "value_now": "0.6847 +- 0.0073 (Planck 2018), 0.6889 +- 0.0056 (+BAO), READ via the sibling audit",
+   "source_now": "arXiv:1807.06209v4 eq.(15), Table 2",
+   "moves_conclusion": "No: a''/a today = H0^2(Omega_L - Omega_m/2 - Omega_r) = 2.51e-36 s^-2; any Omega_L in [0,1] keeps |delta| < 1e-67."
+  },
+  {
+   "quantity": "a0, alpha, c (atomic scale and the atomic time unit a0/(alpha c))",
+   "value_then": "hbar, m_e, e named, no values",
+   "value_now": "a0 = 5.29177210544e-11 m, alpha = 7.2973525643e-3 (CODATA 2022), c exact -- READ-VIA-RESTATEMENT by sibling audit codata-2018-constants.json",
+   "source_now": "audits/codata-2018-constants.json, audits/codata-proton-mass.json",
+   "moves_conclusion": "No: CODATA 2018 -> 2022 moves alpha by -6.9e-10 relative."
+  },
+  {
+   "quantity": "Z_REC and T_CMB (the tree's 1090.92)",
+   "value_then": "Z_REC = 1089.92 (permute.py:179, 'Planck 2018'), T0 = 2.7255 K (permute.py:178, 'Fixsen 2009')",
+   "value_now": "not re-read this pass (Planck 1807.06209 z_* and Fixsen 2009 are other audits' objects); taken as the tree gives them",
+   "source_now": "permute.py:178-179 (tree values, NOT re-READ here)",
+   "moves_conclusion": "Not this result's conclusion. The claim 'atoms do not expand' is independent of Z_REC; only the tree's illustrative number is."
+  },
+  {
+   "quantity": "time variation of m_e or alpha between recombination and now (H1)",
+   "value_then": "assumed zero (permute.py:60, 244)",
+   "value_now": "CMB/BBN/quasar/atomic-clock constraints and varying-m_e proposals for the H0 tension exist in the literature but NONE was READ this pass (alphaXiv quota, arXiv egress-blocked); no value is asserted",
+   "source_now": "NAMED-NOT-READ",
+   "moves_conclusion": "Computed conditionally (check F1): the cosmic/atomic ratio growth is (1+z)/((1+dm)(1+da)); a 1% larger m_e*alpha at recombination gives 1080.1 instead of 1090.92, 10% gives 991.7. The qualitative conclusion (a pure number grew by ~10^3; no relabelling absorbs it) survives any variation below order unity; the precise 1090.92 would move one-for-one with it, and is in any case the Planck fit that assumes H1 (H6)."
+  }
+ ],
+ "rederivation": {
+  "method": "sympy",
+  "script_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/bound-systems-do-not-expand.py",
+  "outcome": "ALL PASS (14 checks). A1: Riemann tensor of flat FLRW computed symbolically -> geodesic deviation for comoving observers d2xi/dtau2 = (a''/a) xi, exactly isotropic. A2: a''/a invariant under a -> lam*a, so the tidal correction contains no scale factor. A3/A4: de Sitter a''/a = H^2 (time-independent), matter era -H^2/2. B1: classical circular orbit at fixed angular momentum shifts by delta = m q r0^3/K (q = a''/a), i.e. q a0^2/(alpha c)^2 for hydrogen. C: exact Dalgarno-Lewis first-order solution for V = -(1/2) m q r^2 on hydrogen 1s: F(r) = -r^3/3 - r^2, d<r>/d(lambda) = -27/2 a.u., hence delta<r>/<r> = (9/2) q a0^2/(alpha c)^2 (same sign and scaling as classical). D: with Planck 2018 inputs, delta a_B/a_B = 6.6e-69 today, -4.2e-60 at recombination; the drift since recombination moves the tree's 1090.92 by 5.1e-57 in absolute terms. E: Earth orbit 6.3e-23; illustrative 1e12 Msun @100 kpc 5.6e-4 (R/r_L = 0.090, r_L = 1.11 Mpc); 1e15 Msun @2 Mpc 4.5e-3 (R/r_L = 0.18). F1: ratio stays O(10^3) for |d(m_e alpha)| <= 10%. G1: permute.ratio_from_temperature == 1+z identically. H1: Coulomb-tidal balance (barrier) radius for hydrogen under the de Sitter asymptote is 4.3e12 m = 8.1e22 a0, so the inverted-oscillator metastability is irrelevant.",
+  "agrees_with_source": "yes"
+ },
+ "later_literature": [
+  {
+   "ref": "Cooperstock, Faraoni & Vollick, ApJ 503 (1998) 61, astro-ph/9803097",
+   "effect": "confirms",
+   "what": "Fermi-normal-frame treatment: search summary says the expansion affects all scales but negligibly for local systems up to clusters -- the same structure (tidal a''/a term) re-derived in A1-B1.",
+   "read_status": "NAMED-NOT-READ (WebSearch title/venue/summary only; alphaXiv quota exceeded, arXiv egress-blocked)"
+  },
+  {
+   "ref": "Price 2005 (with Romano), 'In an expanding universe, what doesn't expand?', gr-qc/0508052",
+   "effect": "narrows",
+   "what": "Search summary: 'all-or-nothing' -- above a critical specific angular momentum a system settles at fixed physical radius, below it joins the expansion; Faraoni & Jacques note it applies to a de Sitter background. Narrows 'bound' to 'tightly bound' (H5); for hydrogen the relevant scale is 8e22 a0 (check H1), so atoms are far on the 'nothing' side.",
+   "read_status": "NAMED-NOT-READ"
+  },
+  {
+   "ref": "Carrera & Giulini, Rev. Mod. Phys. 82 (2010) 169, arXiv:0810.2712",
+   "effect": "confirms",
+   "what": "Review restating Einstein-Straus, Dicke-Peebles and McVittie and estimating Solar-System effects; search summary says it justifies the Newtonian treatment in full GR. Consistent with E1.",
+   "read_status": "NAMED-NOT-READ"
+  },
+  {
+   "ref": "Bonnor 1999, 'Size of a hydrogen atom in the expanding universe'; Faraoni & Jacques 2007 arXiv:0707.1350; arXiv:1309.3503 (post-Newtonian); arXiv:1307.5818; arXiv:2011.01216; arXiv:2208.14192 (Rydberg atoms and vacuum gravitation)",
+   "effect": "extends",
+   "what": "Titles found by WebSearch only; they extend the question to exact solutions, post-Newtonian order and Rydberg-atom tests. None read; none is represented as confirming or contradicting.",
+   "read_status": "NAMED-NOT-READ"
+  }
+ ],
+ "lacked_data": "M's hypothesis tested for this result. The tree cites no author, so the 'authors' are the standard treatments (Dicke-Peebles 1964, Cooperstock et al. 1998, Price 2005, Carrera-Giulini 2010) -- none READ here. What later data could matter: (i) the discovery of cosmic acceleration (1998, after Dicke-Peebles; contemporaneous with Cooperstock et al.) changes the SIGN of a''/a today and makes it asymptotically constant (de Sitter, A3) -- computed effect on atoms 6.6e-69, on the Earth's orbit 6.3e-23, so it changes nothing for the tree's use; it does make 'bound' a real qualifier at galaxy/cluster scale (5.6e-4, 4.5e-3 for illustrative masses; R/r_L up to 0.18). (ii) Precision H0 and Omega_Lambda (Planck 2018, and the H0 tension): computed, moves delta by ~17%, i.e. nothing on the scale of 1090. (iii) Possible variation of m_e or alpha at recombination (constraints and proposals NOT READ): the only datum that could move the tree's NUMBER; computed conditionally, <= 10% variation leaves the ratio at 992-1212, so the conclusion 'a pure number grew by ~10^3' stands, while the tree's 1090.92 is itself a model fit that assumes no variation (H6). Evidence either way: no datum found that moves the conclusion; the variation-of-constants datum is the open one, and it bears on the precision of the tree's number, not on the claim.",
+ "grade": "STANDS",
+ "grade_evidence": "Graded on the re-derivation, not on a read source (every candidate source is NAMED-NOT-READ; the tree cites none). As used -- 'the Bohr radius contains no a, so (cosmic scale)/(atomic scale) is a pure number that grew by ~1090' -- the claim is re-derived from the FLRW Riemann tensor (sympy A1-A2): expansion reaches a local system only through the tidal term (a''/a) xi, which is invariant under rescaling a, so the atomic radius contains no scale factor exactly; its a''/a-induced shift is (9/2)(a''/a)a0^2/(alpha c)^2 (exact first-order Dalgarno-Lewis coefficient), 6.6e-69 today and -4.2e-60 at recombination, moving 1090.92 by 5e-57. No moved datum (H0 incl. the tension, Omega_Lambda, CODATA 2022) moves it. Recorded drift that does NOT reach the grade: the tree states 'atoms do not expand' as an exact zero and hardcodes it (a declaration where a computation belonged); it leaves unstated the smallness hypothesis H4 and the meaning of 'bound' H5, which does real work at galaxy/cluster scale (up to 4.5e-3); and it presents 1090.92 as 'measured from the CMB temperature alone' when ratio_from_temperature() is 1+z by construction and Z_REC is a Planck fit assuming constant m_e, alpha (tree-internal discrepancy, recorded, not repaired). The obstruct.py row EXPANSION-IS-A-RELABELLING rests primarily on theta = 3H0 and uses this result only as its 'sharper form', so it is doubly unaffected.",
+ "what_would_change_the_grade": "(a) Reading Cooperstock et al. 1998 / Carrera-Giulini 2010 / Price 2005 and finding the local correction is first order in H (Hubble drag) rather than tidal a''/a for bound systems -- would contradict check A1 and need an explanation of the discrepancy before any regrade. (b) A READ measurement of m_e*alpha at recombination differing from today's by order unity would make the tree's number, and the phrase 'none of them contains a' (via H1), DATA-DEPENDENT. (c) If the tree extended 'bound galaxies' to systems near or beyond (3GM/Lambda c^2)^(1/3), or to weakly bound systems below Price's critical angular momentum, the grade for that use would be NARROWED. (d) Once alphaXiv or arXiv is reachable, re-run with the sources READ; the grade is currently computation-backed only.",
+ "reverify_command": "python3 /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/bound-systems-do-not-expand.py && sed -n '58,73p;229,245p;423,428p;532,538p' /home/user/Claude-Method-Works/research/warp-drive/permute.py && sed -n '270,282p' /home/user/Claude-Method-Works/research/warp-drive/obstruct.py",
+ "report_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/audits/bound-systems-do-not-expand.json"
+}

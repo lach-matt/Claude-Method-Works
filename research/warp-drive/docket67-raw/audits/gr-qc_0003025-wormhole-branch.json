@@ -1,0 +1,98 @@
+{
+ "key": "gr-qc/0003025-wormhole-branch",
+ "name": "Barcelo-Visser: an entire branch of traversable wormholes exists for every xi > 0, requiring |phi| above ~ m_p/sqrt(xi) (trans-Planckian field or disturbingly large xi)",
+ "source": {
+  "located": "arXiv:gr-qc/0003025v2 (14 Jul 2000), C. Barcelo and M. Visser, 'Scalar fields, energy conditions, and traversable wormholes', Class. Quantum Grav. 17 (2000) 3843. Full text read end to end (all 25 pages incl. figures captions); saved at /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/src/gr-qc_0003025.txt",
+  "read_status": "READ",
+  "via": "alphaXiv get_paper_content(fullText=true), full extracted text read sequentially to 100%"
+ },
+ "published_statement": "Abstract: 'Among these classical solutions we find an entire branch of traversable wormholes for every xi > 0. ... For these traversable wormholes to exist we demonstrate that the scalar field must reach trans-Planckian values somewhere in the geometry.' Sect. 4 (p.16): 'In all these solutions the scalar field has to reach absolute values above ~ m_p/sqrt(xi), where m_p is the Planck mass. That is, either the scalar field acquires trans-Planckian values or the curvature coupling constant xi must become disturbingly large.' Exact form: the wormholes are the chi = pi/3 subfamily, continued through Phi_xi = -1/sqrt(6 xi) with Phi = phi/sqrt(6 kappa), i.e. through phi^2 = kappa/xi, kappa = 1/(8 pi G_N) (eqs. 3.17, 4.41-4.43). Supporting ANEC analysis sect. 2.3, eq. (2.11): case 1 xi<0 and case 2 xi>0 with phi^2<kappa/xi everywhere -> 'ANEC is satisfied'; case 3 (phi^2>kappa/xi somewhere) -> 'definitely the possibility of ANEC violations'.",
+ "published_hypotheses": [
+  "classical field theory: GR (kappa G = T) plus one real scalar, action (2.1) with -(1/2) xi R phi^2, signature (-+++), kappa = 1/(8 pi G_N)",
+  "MASSLESS: V(phi) = 0 for all exact solutions (sect. 3: 'To add a particle mass ... complicates the equations sufficiently to preclude the possibility of analytic results'; sect. 5: 'adding a Higgs mass results in analytically intractable equations')",
+  "static and spherically symmetric configurations only",
+  "xi > 0 (BV sign convention, conformal coupling at xi = +1/6)",
+  "wormholes only in the chi = pi/3 subfamily of the two-parameter (eta, chi) family generated from the Fisher/JNW minimal solution by the Bekenstein conformal map (3.17)",
+  "for 0 < xi <= 1/6 an extra condition on the integration constant: Phi_+ > exp(-sqrt((1-6xi)/(6xi)) pi/2) (4.43) [or Phi_- ... (3.39)]; no condition for xi > 1/6",
+  "traversable = two asymptotically flat regions, no horizon, no naked singularity (footnote 1, purely geometric)",
+  "ANEC argument (2.11): complete null geodesic, 'sufficiently smooth asymptotic behaviour' so boundary terms at infinity vanish; V drops out of the null contraction",
+  "stability NOT addressed (footnote 5: 'we have not addressed this problem here'); the effective Newton constant (4.47)/(5.51) changes sign between the two asymptotic regions",
+  "the gate '~ m_p/sqrt(xi)' is stated as an order of magnitude; the exact threshold is sqrt(kappa/xi)"
+ ],
+ "hypothesis_drift": [
+  "DROPPED (massless, V=0) at higgs.py:15-17 ('Barcelo-Visser prove a traversable wormhole branch for EVERY xi > 0, and the Higgs is the one Standard Model field whose xi is not optional') and higgs.py:128 ('they find an entire branch of traversable wormholes for every xi > 0'): BV's existence result is for a massless scalar with V=0; the Higgs carries the Mexican-hat potential and a 125 GeV mass, and BV say explicitly that adding a Higgs mass makes the equations intractable. The EXISTENCE half therefore does not transfer to the Higgs. The GATE half does transfer: V drops out of T_eff k k (BV eq. 2.6; machine-checked C2) and the case-1/case-2 ANEC positivity is V-independent (C3). The canonical hypotheses list for this entry omits the massless hypothesis.",
+  "DROPPED (stability / sign of G_eff) at higgs.py:15-18 ('THE ESCAPE xi'): BV do not address stability and note the effective Newton constant changes sign between the mouths; the tree presents the branch as the escape route without either caveat. Later literature (Bronnikov-Grinyok gr-qc/0201083, READ) shows the branch is catastrophically unstable for every xi > 0 under spherical perturbations. Does not move the tree's verdict, which refuses.",
+  "DISCREPANCY (sign convention, tree's comparison, not BV) at higgs.py:150-151 and 213, 471-480 ('Higgs inflation runs at xi ~ 1.7e4 ... TWENTY-EIGHT ORDERS BELOW'; report 'orders short 27.76'): Bezrukov-Shaposhnikov 0710.3755 (READ) write -(M^2 + xi h^2)R/2 and state 'In our notations the conformal coupling is xi = -1/6' (footnote 1). BV write (1/2)(kappa - xi phi^2)R with conformal coupling +1/6. Hence xi_BV = -xi_BS (C7) and Higgs inflation's xi ~ +1.76e4 is xi_BV ~ -1.76e4: BV's case 1, where ANEC is satisfied for every field value and sect. 3.6 finds only naked singularities. The magnitude comparison is across conventions; the correct reading is that Higgs inflation's coupling is on the WRONG HALF-LINE for BV's gate at all -- a discrepancy that STRENGTHENS the refusal, recorded, not repaired.",
+  "ADDED (phi = v) at higgs.py:141-148 (canonical hypothesis 'the Higgs doublet treated as one real scalar with phi = v'): BV's gate is on the largest |phi| reached anywhere in the geometry, not on a vacuum value. 'xi required = 9.8e31' holds for a Higgs field that stays at its VEV; a local excursion of |H| above v is not addressed by BV (nor priced by the tree at this site). Normalisation phi = v is correct: xi H^dag H R with |H|^2 = phi^2/2 reproduces BV's (1/2) xi R phi^2.",
+  "NOT DRIFT (substitution): higgs.py:143-145, 392 replace BV's '~ m_p' by the reduced Planck mass. This is BV's EXACT threshold, sqrt(kappa/xi) with kappa = 1/(8 pi G) = M_red^2 (C5); the literal 'm_p' reading would raise xi_required by exactly 8 pi (to 2.46e33), i.e. the tree's choice is the less demanding, exact one -- not in M's disfavour and not in M's favour.",
+  "QUOTES VERIFIED: higgs.py:36-38 (eq. 2.6 sentence), 121-127 (eq. 2.6 form, case 2 quote), 129-132 (gate quote, with '...' eliding ', where m_p is the Planck mass. That is,') all match the source text verbatim."
+ ],
+ "data_at_publication": [
+  {
+   "quantity": "kappa = 1/(8 pi G_N) (the only physical input to BV's gate)",
+   "value_then": "G_N (CODATA 1998, 6.673(10)e-11, not quoted by BV; BV give no number)",
+   "value_now": "G = 6.67430(15)e-11 m^3 kg^-1 s^-2 (CODATA 2018 = 2022); M_red = 2.435323e18 GeV",
+   "source_now": "CODATA 2018/2022 recommended value (NAMED-NOT-READ here; the tree's ladder.G uses it)",
+   "moves_conclusion": "no: 1-sigma of G and G_F moves xi_required by 4.6e-5 relative (C6)"
+  },
+  {
+   "quantity": "v (tree's application, phi = v)",
+   "value_then": "not in BV (Higgs undiscovered in 2000)",
+   "value_now": "v = (sqrt2 G_F)^(-1/2) = 246.21964 GeV from G_F = 1.1663788(6)e-5 GeV^-2",
+   "source_now": "PDG 2024 G_F (NAMED-NOT-READ here, as in higgs.py:209)",
+   "moves_conclusion": "no: xi_required = 9.782907e31 (tree prints 9.782907e31; prose 9.8e31); with the prose-rounded M_red = 2.4e18 it is 9.50e31 -- same order"
+  },
+  {
+   "quantity": "xi of Higgs inflation (tree's comparison)",
+   "value_then": "not in BV",
+   "value_now": "BS eq.(13) tree level xi_BS = 49000 sqrt(lambda) = 1.76e4 with m_H = 125.20 GeV (lambda = 0.1293); in BV sign xi_BV = -1.76e4",
+   "source_now": "Bezrukov-Shaposhnikov arXiv:0710.3755 (READ here; the tree marks it NAMED-NOT-READ); m_H PDG 2024 125.20(11) NAMED-NOT-READ; RG-improved/critical-point values (xi ~ 10 to 1e4) NAMED-NOT-READ",
+   "moves_conclusion": "no for the refusal; it moves the tree's sentence: the coupling is not '28 orders below' the gate but of the opposite sign (BV case 1, no ANEC violation at any field value)"
+  },
+  {
+   "quantity": "PPN gamma bound (BV sect. 5 compatibility claim only)",
+   "value_then": "gamma = 1 - (0.6 +/- 3.1)e-4 (VLBI, Eubanks et al. 1997), |omega| > 3000",
+   "value_now": "Cassini: gamma - 1 = (2.1 +/- 2.3)e-5 (Bertotti-Iess-Tortora 2003)",
+   "source_now": "NAMED-NOT-READ here",
+   "moves_conclusion": "not the gate; BV's compatibility claim needs phi small vs sqrt(kappa) in the solar neighbourhood and survives a ~13x tighter bound on the same argument; not checked here"
+  }
+ ],
+ "rederivation": {
+  "method": "sympy",
+  "script_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/gr-qc_0003025-wormhole-branch.py",
+  "outcome": "ALL 20 CHECKS PASS (exit 0). C1 sympy: BV (2.8)->(2.10) integration by parts is an identity. C2 sympy: V is absent from T_eff k^m k^n for a general phi(t,x,y,z) and exactly null k -- the gate is potential-independent. C3 z3: no counterexample to integrand positivity in case 1 (xi<0) or case 2 (xi>0, phi^2<kappa/xi). C4 z3: for xi in (0,1/4) and phi^2 > kappa/[xi(1-4xi)] the integrand is negative (BV's parenthetical), for xi>=1/4 it is positive for all phi; vacuity guard sat. C5 sympy: BV's exact gate |Phi| = 1/sqrt(6xi) is phi = sqrt(kappa/xi) = M_red/sqrt(xi) exactly, where kappa - xi phi^2 = 0. C6: xi_required = 9.782907e31, v/M_red = 1.011035e-16, spread 4.6e-5; literal-m_p reading = 8 pi x exact = 2.4587e33. C7 sympy: xi_BV = -xi_BS; Higgs-inflation xi_BV = -1.7618e4 (case 1); in BS sign M^2 + xi h^2 = 0 has no real root. Tree's own selftest (PYTHONDONTWRITEBYTECODE=1 python3 higgs.py --selftest) PASS; report prints 9.782907e31 and 'orders short 27.76'. Not checked here: the existence of the chi = pi/3 wormhole branch itself (implicit solutions (3.33)/(4.42), numerical integration not run) -- accepted as READ, and independently re-derived in Bronnikov-Grinyok gr-qc/0201083 eqs. (11)-(15).",
+  "agrees_with_source": "yes"
+ },
+ "later_literature": [
+  {
+   "ref": "Bronnikov & Grinyok, arXiv:gr-qc/0201083 (2002), 'Instability of wormholes with a nonminimally coupled scalar field'",
+   "effect": "narrows",
+   "what": "Re-derives BV's branch (their eqs. 11-15, same existence condition B0 > exp(pi sqrt((1-6xi)/(6xi))) for xi<1/6, none for xi>1/6) and proves it unstable for ANY xi > 0 under spherically symmetric perturbations: an effective potential well ~ -1/(4x^2) at the f = 0 sphere gives unbounded growth rates ('decay immediately and instantaneously' in linear theory). Assumes V = 0, static background.",
+   "read_status": "READ"
+  },
+  {
+   "ref": "Bronnikov & Starobinsky, arXiv:gr-qc/0612032 (2007), 'No realistic wormholes from ghost-free scalar-tensor phantom dark energy'",
+   "effect": "extends",
+   "what": "Theorem: no static or dynamic wormhole connecting two spatial infinities in any scalar-tensor theory with f(Phi) > 0 everywhere and a non-ghost scalar, for ANY potential U and without symmetry assumptions. For the nonminimal scalar f = kappa - xi phi^2, f > 0 is exactly phi^2 < kappa/xi: this generalises BV's gate beyond static, spherical, massless -- the refusal the tree draws is confirmed on a larger class. Also: wormholes with f < 0 regions (BV's, 'with 1/6 replaced by arbitrary xi > 0 [30]') are generically unstable and their remote mouths lie in antigravitating regions.",
+   "read_status": "READ"
+  },
+  {
+   "ref": "Bezrukov & Shaposhnikov, arXiv:0710.3755 (2008)",
+   "effect": "contested",
+   "what": "Not a result about BV; read to check the tree's comparison. Footnote 1: conformal coupling is xi = -1/6 in their notation; xi ~ 49000 sqrt(lambda). Establishes that the tree's xi_HI = 1.7e4 is the opposite sign of BV's xi.",
+   "read_status": "READ"
+  },
+  {
+   "ref": "discover_papers sweep (Barcelo-Visser non-minimal wormholes, 2018-2026: 1801.09769, 2204.10988 geodesics/orbits in the xi=1/6 BV wormhole)",
+   "effect": "confirms",
+   "what": "Later work uses the BV solutions as given (geodesics, circular-orbit stability); no refutation of the solutions or the gate found in the sweep.",
+   "read_status": "NAMED-NOT-READ (abstracts only)"
+  }
+ ],
+ "lacked_data": "What BV had in 2000: no Higgs discovery (they write 'we do not (currently) have direct proof of the existence of a fundamental Higgs scalar'), no stability analysis, no Higgs-inflation xi, PPN gamma at 3e-4. What came later: m_H = 125 GeV (2012), Bronnikov-Grinyok instability (2002), Bronnikov-Starobinsky no-go (2007), Higgs inflation xi (2007), Cassini gamma. Does any of it move the result? The GATE (|phi| must exceed sqrt(kappa/xi) somewhere) depends on no measured datum except G, and is a closed-form identity (C1-C5): the later data cannot move it, and Bronnikov-Starobinsky extend it to any potential and any symmetry. The EXISTENCE of the branch is also unmoved as mathematics, but the later literature narrows its physical standing (catastrophically unstable; one mouth has negative G_eff). The measured Higgs mass matters in the opposite direction from M's hypothesis: it confirms the Higgs has a potential, i.e. lies OUTSIDE BV's V = 0 class, so BV's existence claim does not reach the Higgs (a Higgs-sourced branch with the measured potential is OPEN here, not computed). Evidence against M's hypothesis for this result: the part the tree's refusal rests on is data-free and has been strengthened, not weakened, by later work; the one datum the tree compares against (Higgs-inflation xi) turns out, read at source, to lie on BV's no-wormhole half-line.",
+ "grade": "NARROWED",
+ "grade_evidence": "BV's statement and quoted text are READ verbatim and every closed-form step the gate rests on re-derives (20/20 checks, sympy+z3); no datum moves it (xi_required stable to 5e-5). NARROWED, not STANDS, because the tree uses the result on a larger class than BV proved: the wormhole-branch EXISTENCE is for a massless (V=0), static, spherically symmetric scalar, and higgs.py:15-17,128 apply it to the Higgs, which has a potential and a mass (BV: 'adding a Higgs mass results in analytically intractable equations'); the canonical hypothesis list omits 'massless'. The narrowing does NOT move the tree's verdict (higgs.py:512-514 refuses): the gate half is potential-independent (C2, C3) and is extended by Bronnikov-Starobinsky gr-qc/0612032 to any potential; the 'escape' half is further narrowed by Bronnikov-Grinyok gr-qc/0201083 (unstable for all xi>0). Separately recorded, not a grade driver: the tree's '28 orders below' (higgs.py:150-151) compares Higgs-inflation xi across opposite sign conventions -- in BV's sign it is -1.76e4, BV case 1, where no ANEC violation occurs at any field value; this strengthens the refusal and is a discrepancy, not a refutation. Nothing here is WRONG.",
+ "what_would_change_the_grade": "STANDS if the tree's use were restricted to the gate (necessary condition phi^2 > kappa/xi somewhere, V-independent) and the existence claim were stated for the massless scalar only, or if a Higgs-potential wormhole branch were exhibited (numerically integrating the V = lambda(phi^2-v^2)^2/4 nonminimal static spherical system). WRONG would need a static asymptotically flat traversable wormhole with phi^2 < kappa/xi everywhere and a non-ghost scalar -- excluded by BV (2.11) case 2 and by Bronnikov-Starobinsky's theorem. OPEN would apply only to the Higgs-potential existence question if graded on its own.",
+ "reverify_command": "python3 /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/gr-qc_0003025-wormhole-branch.py && (cd /home/user/Claude-Method-Works/research/warp-drive && PYTHONDONTWRITEBYTECODE=1 python3 higgs.py --selftest | tail -1) && grep -n -B3 'disturbingly' /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/src/gr-qc_0003025.txt",
+ "report_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/audits/gr-qc_0003025-wormhole-branch.json"
+}

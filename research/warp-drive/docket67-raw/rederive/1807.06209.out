@@ -1,0 +1,65 @@
+A. TRANSCRIPTION against the READ source text
+  [PASS] Table 2 TT,TE,EE+lowE+lensing H0 = 67.36 +- 0.54 printed 
+  [PASS] Table 2 Omega_b h^2 = 0.02237 +- 0.00015 printed 
+  [PASS] Table 2 Age 13.797 +- 0.023 printed 
+  [PASS] abstract: H0 'inferred (model-dependent)' assuming base-LCDM 
+  [PASS] abstract: 3.6 sigma tension with local H0 
+  [PASS] conclusions: 4.4 sigma tension with Riess et al. (2019) 
+  [PASS] Table 2 caption: Y_P ~ 0.2454 predicted by BBN 
+  [PASS] T_CMB = 2.7255 K (Fixsen 2009) adopted 
+     eta printed anywhere in the 17 READ pages: NO (Sec. 7.6, p.52, is NOT in the read set)
+  [PASS] cosmo.py:34 H0_KMSMPC = 67.36 equals Table 2 
+  [PASS] cosmo.py:35 AGE_GYR = 13.797 equals Table 2 
+
+B. SI CONVERSION and theta = 3 H_0 (permute.py:31)
+  [PASS] MPC = 3.0856775814913673e22 m equals IAU 648000/pi au 3.0856775814913672e+22
+     H0 = 2.182989e-18 /s   theta = 6.548967e-18 /s   Hubble time = 14.5159 Gyr
+  [PASS] theta printed '6.549e-18' reproduced 
+
+C. permute.py:404-406 'cross-checked by the Hubble time' is a tautology, not a cross-check
+  [PASS] cosmo YR = 3.15576e7 is exactly 365.25*86400 
+  [PASS] identity holds for EVERY H0 in 1..200 km/s/Mpc (so it can never fail) failures=0/10000
+
+D. eta FROM Omega_b h^2 (symbolic, then CODATA via scipy.constants)
+     eta = 3*pi*H100**2*Omega_bh2*c**3*hbar**3/(16*G*T**3*k**3*m_b*zeta(3))
+  [PASS] sympy: eta is linear in Omega_b h^2 and ~ T^-3 
+     eta_10 / (Omega_b h^2) with m_p                = 273.42
+     eta_10 / (Omega_b h^2) with m_u                = 275.41
+     eta_10 / (Omega_b h^2) with mean, Y_P=0.2454   = 273.75
+     Table 2 TT,TE,EE+lowE+lensing    Omega_b h^2 = 0.02237 -> eta = (0.612 +- 0.004)e-10
+     abstract                         Omega_b h^2 = 0.02240 -> eta = (0.613 +- 0.003)e-10
+     Table 2 +BAO                     Omega_b h^2 = 0.02242 -> eta = (0.614 +- 0.004)e-10
+     Table 2 TT+lowE (lowest)         Omega_b h^2 = 0.02212 -> eta = (0.606 +- 0.006)e-10
+     Table 2 EE+lowE (highest)        Omega_b h^2 = 0.02400 -> eta = (0.657 +- 0.033)e-10
+  [PASS] tree's 6.1e-10 equals Planck-derived eta at 2 s.f. (6.1237e-10)
+  [PASS] tree's 6.1e-10 inside the 68%% band of the baseline (offset -2.37e-12, sigma 4.11e-12; offset is the 2-s.f. rounding)
+     T_CMB +-0.0006 K moves eta by +-0.066%; the m_p-vs-mean-mass choice moves it -0.12%
+
+E. LOAD-BEARING: does any flag in warpfolder.py depend on ETA_BARYON?
+     ETA_BARYON Name nodes at lines: [229, 403]
+  [PASS] BLUEPRINT_SOURCES_BARYON_NUMBER is a literal constant (no computation) 
+  [PASS] ETA_BARYON used only in its assignment and one print (report()) 
+
+F. permute.py's falsification under every H0 value READ (tree imported read-only, cosmo patched in memory)
+     Planck 2018 TT,TE,EE+lowE+lensing  H0 =  67.36 +- 0.54 -> theta = 6.5490e-18 /s,   125 sigma from 0, is_a_permutation=False
+     Planck 2018 +BAO                   H0 =  67.66 +- 0.42 -> theta = 6.5781e-18 /s,   161 sigma from 0, is_a_permutation=False
+     SH0ES 2112.04510v3 baseline        H0 =  73.04 +- 1.04 -> theta = 7.1012e-18 /s,    70 sigma from 0, is_a_permutation=False
+     DESI DR2+BBN 2503.14738v3 eq.19    H0 =  68.51 +- 0.58 -> theta = 6.6608e-18 /s,   118 sigma from 0, is_a_permutation=False
+     DESI DR2+CMB 2503.14738v3          H0 =  68.17 +- 0.28 -> theta = 6.6277e-18 /s,   243 sigma from 0, is_a_permutation=False
+  [PASS] the verdict flips ONLY at H0 = 0 exactly (the conclusion depends on sign(H0), not its value) 
+     the PRINTED 6.549e-18 moves by 8.4% across the READ tension; the verdict does not
+
+G. ANCILLARY (cosmo.py:22 companions, same source): age and comoving particle horizon in flat base-LCDM
+     Omega_gamma h^2 = 2.4730e-05; age = 13.795 Gyr (Planck 13.797); horizon = 14.15 Gpc (cosmo.py 14.26)
+  [PASS] age reproduced to 0.1% (massless-neutrino approximation) 
+     integrator check: comoving distance to z_* = 13867.2 Mpc vs Planck r_*/theta_* = 13872.8 Mpc
+  [PASS] integrator reproduces Planck's own r_*/theta_* to 0.3% 
+     conformal horizon at z_* adds 280 Mpc; horizon today = 14.147 Gpc
+     RECORDED DISCREPANCY (not a refutation; outside this key's load path): cosmo.py:22/36 'HORIZON_GPC = 14.26 PINNED'
+       is 0.80% above the flat base-LCDM value 14.15 Gpc derived from the same Planck 2018 column;
+       14.26 Gpc is NOT printed in the 17 READ pages.  Its origin is NAMED-NOT-READ.
+       what-if h=0.6774, Om=0.3089 (Planck 2015 values, NAMED-NOT-READ)   horizon = 14.18 Gpc
+       what-if h=0.70, Om=0.30 (round values)                             horizon = 13.89 Gpc
+       what-if h=0.71, Om=0.27 (WMAP-era, NAMED-NOT-READ)                 horizon = 14.28 Gpc
+
+ALL PASS

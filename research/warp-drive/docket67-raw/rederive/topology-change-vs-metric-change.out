@@ -1,0 +1,39 @@
+C1/C2  explicit enlargement family on a fixed manifold (sympy)
+  C1 g^{tt} = -1 (dt timelike everywhere: t is a time function)          ok 
+  C1 det g = -(l^2+a^2)^2 sin^2(theta) != 0 for a>0 off the poles        ok 
+  C1 throat at l=0: R'(0) = 0                                            ok 
+  C1 flare-out at l=0: R''(0) = 1/a > 0                                  ok 
+  C1 throat radius R(0) = a(t): r0 -> r1 is a(t) moving, manifold fixed  ok 
+  C1 at a=0 the l=0 sphere collapses (R(0)=0): the pinch is the excluded limit ok 
+      G_ab k+^a k+^b at throat = 2*(-a(t)*Derivative(a(t), (t, 2)) - 1)/a(t)**2
+      G_ab k-^a k-^b at throat = 2*(-a(t)*Derivative(a(t), (t, 2)) - 1)/a(t)**2
+      (a -> A, a' -> adot, a'' -> addot): 2*(-A*addot - 1)/A**2 | 2*(-A*addot - 1)/A**2
+  C2 static limit (adot=addot=0): G_kk = -2/A^2 < 0 (NEC violated)       ok 
+      G_++ + G_-- at throat = 4*(-A*addot - 1)/A**2
+  C2 theta_+ = 0 surface at l_h = -a a'                                  ok [-A*adot]
+      G_++ at the theta_+=0 mouth = -2*(A*addot + adot**2 + 1)/(A**2*(adot**2 + 1))
+  C2 G_++(mouth) = -2(1 + adot^2 + A addot)/(A^2 (1+adot^2))             ok 
+  C2 z3: temporal mouth & NEC holding at it (G_++ >= 0) is unsat         ok 
+  C2 z3 vacuity guard: temporal mouth is sat                             ok 
+  C2 z3: NEC can hold at theta_+=0 surface only off-temporal (sat, spacelike) ok 
+
+C3  two nontrivial spatial topologies that differ (integer homology)
+  C3 b1(R3#(S1xS2)) = 1, b1(R3#2(S1xS2)) = 2: not homeomorphic           ok 
+  C3 tree predicate on (nontrivial, nontrivial) returns False            ok 
+  C3 => predicate says 'no topology change' for a genuine change (1 -> 2 handles) ok 
+
+C4  same nontrivial endpoints, non-product Lorentzian cobordism (dim 4)
+      chi(Sigma x I) = 0 ; chi(M) = 0 ; b1: 1 vs 2 ; b2: 1 vs 3
+  C4 chi(M) = 0 => Reinhart field exists => Lorentz metric, S1,S2 spacelike ok 
+  C4 b1(M) != b1(Sigma x I) => M not diffeomorphic to Sigma x [0,1]      ok 
+  C4 endpoints identical (both Sigma = S1xS2, nontrivial): tree predicate False ok 
+  C4 => Borde Thm 1 (compact => causally compact) forces a CTC in M anyway ok 
+
+C5  z3: the logic of Thm 1 against the tree's predicate
+  C5a product & cc & to & no-CTC is sat (theorem imposes nothing)        ok 
+  C5b same & not product & cc & to & no-CTC is unsat (CTC forced)        ok 
+  C5b vacuity guard: same & not product & cc & to is sat                 ok 
+  C5c 'same endpoints => no CTC forced' refuted: exists model same & forced ctc ok 
+  C5c 'product => no CTC forced' holds: no-CTC consistent under product  ok 
+
+  RE-DERIVATION OK

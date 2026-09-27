@@ -1,0 +1,108 @@
+{
+ "key": "2309.10848-thmiv.1",
+ "name": "Fliss-Freivogel-Kontou-Pardo Santos Thm IV.1, eq. (72): curved-spacetime worldvolume null QEI, state-dependent, any xi",
+ "source": {
+  "located": "arXiv:2309.10848v1 [hep-th], 19 Sep 2023 (dated 21 Sep 2023). Conventions p.5; eqs (7)-(13) pp.5-6; Sec. IV.A (Hadamard, eqs (54)-(60)) pp.15-17; small sampling domain eq. (66) p.17; eqs (61)-(71) pp.17-18; Theorem IV.1 / eq. (72) and 'holds for any value of the coupling constant' p.18; non-triviality (73)-(74) and 'we do not expect it to be optimal' p.19. Published as SciPost Phys. 16 (2024) 119 (journal reference READ-VIA-RESTATEMENT in Fliss-Rolph 2510.26247v2 ref. [24]); the journal version itself NAMED-NOT-READ.",
+  "read_status": "READ",
+  "via": "Full text of v1 as returned earlier by alphaXiv (cached at d67/src/2309.10848.txt; paginated copy d67/src/casmag/all/2309.10848v1.txt). In this stage alphaXiv answer_pdf_queries, get_paper_content and discover_papers all returned 'quota exceeded', and arxiv.org / scipost.org / semanticscholar are refused by the egress proxy (403), so no fresh fetch and no v2/journal text could be read. The quoted passages below are read from the cached v1 text."
+ },
+ "published_statement": "p.18: 'Theorem IV.1. Let f be any real-valued test function compactly supported in a small sampling domain. Let l^mu be a null vector field defined in the neighbourhood of support of f. Then, for all Hadamard states psi  <:rho_n:(f^2)>_psi >= -2 INT_D d^n alpha/(2pi)^n ((Q x Q)W_0)_kappa(fbar_alpha, f_alpha) - xi <:phi^2:(Q[f])>_psi, (72) where W_0 is the two-point function of the reference Hadamard state psi_0 and Q = l^mu nabla_mu.' With (69b) Q[f] = nabla_mu nabla_nu(l^mu l^nu f^2) + (1/2) R_mn l^mu l^nu f^2, f_alpha(x) = e^{i alpha x} f(x) (71), D the set of covectors satisfying (66). p.18: 'unlike those two inequalities [FO energy density, FK effective energy density], the QEI derived holds for any value of the coupling constant xi.' p.19: the bound is non-trivial in the sense of (74) and 'as this bound is derived by discarding positive terms we do not expect it to be optimal.' Left side is a DIFFERENCE: <:T_mn:>_psi = <T^ren>_psi - <T^ren>_psi0 (59), (65).",
+ "published_hypotheses": [
+  "P1 (M,g) globally hyperbolic, time-oriented, n dimensions; QFT on a FIXED background (algebraic quantization, p.15)",
+  "P2 free real scalar field, mass m, coupling xi real, field equation (box_g + m^2 + xi R)phi = 0 (10) with box_g := -g^mn nabla nabla (p.5); conventions (-,+,+,+), MTW (+,+,+) (p.5)",
+  "P3 psi and the reference psi_0 Hadamard (p.16, (54)); W_0 the two-point function of psi_0; left side normal-ordered relative to psi_0 (59),(65)",
+  "P4 f real-valued, smooth, compactly supported in a SMALL SAMPLING DOMAIN: open subset contained in a globally hyperbolic convex normal neighbourhood, covered by one hyperbolic chart: d/dx^0 future-pointing timelike and c|u_0| >= sqrt(sum_j u_j^2) for every causal covector (66) (p.17, following Fewster-Smith [20])",
+  "P5 l^mu a null vector field defined in a neighbourhood of supp f (p.18)",
+  "P6 Leibniz rule for Wick powers, Hollands-Wald axiom 10, in the form (62)-(63) (p.17): a renormalization prescription assumed, not derived",
+  "P7 the point-split operator rho_hat_n = l.nabla (x) l.nabla is symmetric and of positive type, giving (70) (p.18, citing [7],[20])",
+  "Scope: any real xi (p.18); not optimal (p.19)"
+ ],
+ "hypothesis_drift": [
+  "COPIED DISCREPANCY (not a drift by the tree, carried from the source): qeihps.py:99 copies Q[f] = nabla nabla(l l f^2) + (1/2) R_mn l^m l^n f^2 verbatim from (69b). The coefficient +1/2 is internally inconsistent in v1: eq.(9) (conserved, C1a) gives -1; eq.(13) as printed gives +1; eq.(61) as extracted gives +2 (C3). Inert for the tree's verdicts (nothing evaluates Q[f]); live if anyone ever evaluates (72) on HPS, where R_ll != 0 on any open supp f (C4b).",
+  "WEAKENED (re-labelled): qeihps.py:402-405 FORM_TAGS[FFKP] = {xi, domain, null} places 'Hadamard state psi' among inputs needed to EVALUATE, but in Thm IV.1 'for all Hadamard states psi' is a hypothesis of the theorem (P3). The tree still lists it (qeihps.py:107, 441) as NOT-ESTABLISHED and blocks on it, so 'applies IN FORM' (qeihps.py:96, 505-507) is true only of the three form tags; the verdict (NOT EVALUABLE, OPEN) is unaffected.",
+  "DROPPED (satisfied, not load-bearing): P2 free field / fixed background and P6 Leibniz-rule prescription are not listed at qeihps.py:94-117; HPS's field is a free conformally coupled (xi = 1/6, qeihps.py:325) scalar on a given metric, so P2 is met in form; P6 is a property of the Wick-power construction, not of HPS.",
+  "PARTLY CHECKED: the one-hyperbolic-chart part of P4 (eq. 66) is named at qeihps.py:103 but not computed; C4d computes it satisfiable at the throat in the static chart (d_t timelike since f(0) = e^{-2/3} > 0; c = 1.7169 away from coordinate poles). The convex-normal-neighbourhood part stays NAMED (Whitehead), as the tree says (qeihps.py:105, 438).",
+  "NO DRIFT: 'any xi' (qeihps.py:100, 385) matches p.18 verbatim; DIFFERENCE type via (59) (qeihps.py:108-109, 399) matches; l null (qeihps.py:106) matches P5 and g(l,l) = 0 exactly (C4a); the sub-Planckian sampling scale is correctly marked a CAVEAT, not a hypothesis (qeihps.py:112-115)."
+ ],
+ "data_at_publication": [
+  {
+   "quantity": "numerical inputs of Thm IV.1",
+   "value_then": "none -- a theorem in QFT on curved spacetime; the bound is a functional of f, l, W_0 and <:phi^2:>_psi",
+   "value_now": "none",
+   "source_now": "2309.10848v1 p.18",
+   "moves_conclusion": "no -- nothing to move"
+  },
+  {
+   "quantity": "conformal coupling xi_c = (n-2)/(4(n-1)) (FFKP (8)); HPS xi",
+   "value_then": "1/6 in n = 4",
+   "value_now": "1/6 (exact, definitional)",
+   "source_now": "2309.10848v1 p.5 eq.(8); qeihps.py:325",
+   "moves_conclusion": "no -- and Thm IV.1 holds for every real xi"
+  },
+  {
+   "quantity": "HPS throat f(0) = e^L, L = -2/3 (tree input, data_used)",
+   "value_then": "0.513417 (> 0)",
+   "value_now": "0.513417 (recomputed, C4d)",
+   "source_now": "qeihps.py:378 (HPS plotted value); rederive C4",
+   "moves_conclusion": "no -- only its sign enters (P4 met locally)"
+  },
+  {
+   "quantity": "HPS throat radius r(0) = sqrt(-16 K^2 L), K^2 = 1/(5760 pi) (tree input, data_used)",
+   "value_then": "0.02428 l_P",
+   "value_now": "0.02428 l_P (recomputed from the same formula)",
+   "source_now": "qeihps.py:354-356; rederive C4",
+   "moves_conclusion": "no -- only r(0) > 0 enters P4; the sub-Planckian size is a caveat, not a hypothesis"
+  },
+  {
+   "quantity": "R_mn l^m l^n near the HPS throat (enters Q[f] via the discrepant coefficient)",
+   "value_then": "not computed by FFKP or the tree",
+   "value_now": "-226800 pi^2 l^2 + O(l^4) (Planck units, L = -2/3); zero only at l = 0",
+   "source_now": "computed here, C4b/C4c; equals 8 pi (rho + p_l) of qeihps.py:174",
+   "moves_conclusion": "moves Q[f] (hence the printed right side of (72)) by -(3/2) xi <:phi^2:(R_ll f^2)> relative to the coefficient consistent with eq.(9); does not move the tree's OPEN verdict"
+  }
+ ],
+ "rederivation": {
+  "method": "sympy",
+  "script_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/2309.10848-thmiv.1.py",
+  "outcome": "EXIT 0, all 10 checks PASS (~110 s). C1: on a generic non-static 4-metric diag(-a,b,c,c)(t,x) with explicit functions and phi = sin(t+2x) + xt/3, xi = 3/10, m = 7/10, the off-shell Noether identity nabla^m T_mn + E d_n phi = 0 (E = g^ab nabla nabla phi - m^2 phi - xi R phi, the EL expression of FFKP action (7)) holds for FFKP eq.(9) to 2e-165 and FAILS for the eq.(12) Ricci sign (residual 0.356). C2: FFKP's own steps (10),(11) take (9) to (12) in every term except the Ricci term: (9) - (12) = 2 xi R_mn phi^2 exactly -- a sign discrepancy in (12)/(13). C3: for T_ll = (1-2xi)A - 2xi B + k xi R_ll phi^2 the Leibniz/IBP step (62)-(63) gives Q[f] Ricci coefficient -k: eq.(9) -> -1, eq.(13) as printed -> +1, eq.(61) as extracted -> +2; printed (64)/(69b)/(72) carry +1/2, consistent with none; (63) verified as a total divergence. C4: on HPS g(l,l) = 0 exactly; R_ll = (f' r' - 2 f r'')/(f r) in general and -226800 pi^2 l^2 + O(l^4) with HPS boundary data (L = -2/3), equal to 8 pi (rho + p_l) of qeihps.py:174; hyperbolic-chart condition (66) satisfiable at the throat (c = 1.7169). The structure of the proof (split (68), positivity bound (70), state dependence through <:phi^2:>) re-derives; only the curvature coefficient in Q[f] does not.",
+  "agrees_with_source": "partly"
+ },
+ "later_literature": [
+  {
+   "ref": "Fliss & Rolph, arXiv:2510.26247v2 ('Curious QNEIs from QNEC')",
+   "effect": "confirms",
+   "what": "p.4 (lines 155-165 of cached text): for the non-minimally coupled scalar 'one can construct states of arbitrarily negative expectation value of the timelike or null-contracted stress tensor, regardless of the domain over which it is smeared [23, 24]' -- the reason (72) must be state-dependent; also supplies the journal reference SciPost Phys. 16 (2024) 119 for FFKP.",
+   "read_status": "READ (cached alphaXiv full text, d67/src/casmag/all/2510.26247v2.txt)"
+  },
+  {
+   "ref": "Kontou, arXiv:2405.05963v2 = Universe 10 (2024) 291",
+   "effect": "extends",
+   "what": "Sec. 3 p.~9: state-dependent bounds for the non-minimally coupled field exist [17 = FFKP, 29, 30]; Sec. 5.2: HPS's self-consistent wormhole [90] should be examined 'using one of the QEIs for the nonminimally coupled fields derived in [17,30]' -- the request the tree answers as OPEN; no evaluation is given.",
+   "read_status": "READ (cached, d67/src/casmag/all/2405.05963v2.txt)"
+  },
+  {
+   "ref": "Fliss, arXiv:2605.18964v1 (Modave lectures on energy conditions, 2026)",
+   "effect": "contested",
+   "what": "eq.(1.45) restates the null energy with the same '+ 1/2 R_kk' inside -2 xi(...) as FFKP (13) (and prints phi for phi^2), while its flat eq.(1.44) and FFKP (9) carry +xi G_mn; the curved-space bound (72) is not restated -- only the flat DSNEC (3.46), where R = 0 and the coefficient question does not arise. So a 2026 restatement by an author repeats the (13) sign; it neither corrects nor confirms the (69b) coefficient.",
+   "read_status": "READ (cached, d67/src/casmag/all/2605.18964v1.txt, pp.9-10, 28-29)"
+  },
+  {
+   "ref": "Fliss, Freivogel, Kontou & Pardo Santos, arXiv:2412.10618 ('How negative can null energy be in large N CFTs?')",
+   "effect": "extends",
+   "what": "cited by 2510.26247 and 2605.18964 as indicating interactions may prevent the negative-energy pile-up of free theories; bears on whether state dependence is generic, not on (72)'s coefficient.",
+   "read_status": "NAMED-NOT-READ"
+  },
+  {
+   "ref": "discover_papers search for later work on 2309.10848",
+   "effect": "contested",
+   "what": "NOT RUN -- alphaXiv returned 'quota exceeded'; the literature above is what the d67 cache already held from earlier alphaXiv reads. A correction in the SciPost version or elsewhere is therefore neither found nor excluded.",
+   "read_status": "NOT-READ (tool quota)"
+  }
+ ],
+ "lacked_data": "Thm IV.1 is a mathematical theorem with no empirical input, so M's hypothesis in its data form does not bite: no measured datum enters (72) and none has moved (data_at_publication). What the authors did not have, and still nobody has, is the INPUT DATA to evaluate it on a specific curved background -- W_0 of a reference Hadamard state and <:phi^2:>_psi on HPS -- which is exactly why the tree's verdict is OPEN, and Kontou 2024 (Sec. 5.2) names the same absence. The one defect found is not a missing datum but an internal inconsistency in the v1 derivation (eq.(9) vs (12)/(13)/(61)/(64)): the Ricci coefficient in Q[f] printed as +1/2, where the conserved stress tensor of the paper's own action gives -1 (C1-C3). Evidence it matters: it is invisible in every application FFKP make (Minkowski DSNEC/SNEC, (75)-(93), R_mn = 0), which plausibly explains why it went unnoticed; evidence it matters for the tree: on HPS R_ll = -226800 pi^2 l^2 != 0 on any open supp f (C4b). Evidence against over-reading: no state violating the printed bound is exhibited (the bound is not sharp, p.19), the SciPost version is unread and may be corrected, and correcting the coefficient changes no verdict the tree draws from the theorem.",
+ "grade": "NARROWED",
+ "grade_evidence": "What the tree uses 'in form' STANDS: any real xi (p.18 verbatim), small sampling domain, null l, the DIFFERENCE structure (59) -- all read at source and re-checked (C4a, C4d). The printed right side does NOT carry over to the tree's class: the v1 derivation supports Q[f] with Ricci coefficient +1/2 only where R_mn l^m l^n = 0 on supp f (or xi = 0), because eq.(9) -- shown here to be the conserved stress tensor of action (7) (C1a, residual 2e-165) -- leads to -1, and eqs.(12)/(13)/(61) as printed are inconsistent with both (C1b, C2, C3). HPS's throat neighbourhood is outside that class (R_ll = -226800 pi^2 l^2, C4b), and qeihps.py:99 copies the +1/2. This is a discrepancy in v1, recorded, not a refutation (no counterexample state; journal version unread; must not be quoted as an error in SciPost Phys. 16, 119 until that is read). Consequence for the tree: none on its verdicts -- VERDICT_APPLICABLE_QEI stays OPEN and KONTOU_REQUESTED_TEST_ON_HPS stays 'applies in form, not evaluable', since the blocking inputs (W_0, <:phi^2:> on HPS, HPS's state Hadamard) are untouched; only the Q[f] display at qeihps.py:99 carries a coefficient the source's own eq.(9) does not support.",
+ "what_would_change_the_grade": "To STANDS: reading SciPost Phys. 16 (2024) 119 (or a v2) and finding (12)/(13)/(69b) corrected to the -1 coefficient consistent with (9) -- the theorem would then stand as the tree uses it in form, with the tree's display at qeihps.py:99 a stale copy. Also to STANDS: a convention under which both (9) and (12) hold together (none exists given (10)/(11), C2) or an error in C1 (re-run the script; it is exact differentiation evaluated at 30 digits). To WRONG: an explicit Hadamard state on a background with R_ll != 0 on supp f violating the printed (72) -- not attempted here, and not implied by the discrepancy since the bound is not sharp. To OPEN: if the journal version is shown to restate the theorem with a different Q[f] altogether whose derivation cannot be checked here.",
+ "reverify_command": "python3 /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/2309.10848-thmiv.1.py   # exit 0, 10 PASS; then: grep -n 'Q\\[f\\] =' /home/user/Claude-Method-Works/research/warp-drive/qeihps.py ; sed -n 600,645p /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/src/2309.10848.txt   # FFKP (12),(13) vs (9) at sed -n 505,560p",
+ "report_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/audits/2309.10848-thmiv.1.json"
+}

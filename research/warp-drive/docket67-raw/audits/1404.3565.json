@@ -1,0 +1,111 @@
+{
+ "key": "1404.3565",
+ "name": "D'Onofrio, Rummukainen & Tranberg (2014), 'The Sphaleron Rate in the Minimal Standard Model', arXiv:1404.3565v1 = PRL 113 (2014) 141602: symmetric-phase rate, broken-phase fit, T_c, freeze-out T*",
+ "source": {
+  "located": "arXiv:1404.3565v1 [hep-ph], 14 Apr 2014, 5 pages. Abstract p.1; Higgs 'approximately zero' p.1 (Introduction); inputs of the 3d effective theory eq.(4) p.2; lattice beta_G=9, V=32^3 a^3 p.3; T_c = 159 +/- 1 GeV p.3; v^2(T) 'close to zero' above T_c and 'can become negative' p.3; eq.(7) and the measured interval 140-155 GeV p.3; systematics (factor two, U(1)) p.4; eq.(8) p.4; extension to T ~ 130 GeV p.4; eq.(9), alpha = 0.1015, H^2 = pi^2 g* T^4/(90 M_Planck^2), g* = 106.75, footnote 1, T* p.4.",
+  "read_status": "READ",
+  "via": "alphaXiv page text of 1404.3565v1, all 5 pages, as returned by alphaXiv answer_pdf_queries in earlier D65/D67 workflow runs of this same session and recovered verbatim from the session transcripts into scratchpad/d67/src/1404.3565.cached.txt (the alphaXiv quota was exhausted at this stage, and arxiv.org/inspirehep.net are refused by the egress proxy -- no page was paraphrased or reconstructed). Sequel READ the same way: 1508.07161v1 (D'Onofrio & Rummukainen, PRD 93 (2016) 025003) pp.1-9 -> src/1508.07161.cached.txt. Later restatement READ: 2505.05607v1 (Matchev & Verner 2025) p.1-2 -> src/2505.05607.cached.txt. The PRL 113 141602 journal abstract was NOT read (only a web-search snippet, which prints 159 +/- 1)."
+ },
+ "published_statement": "Abstract p.1: 'the cross-over is sharply defined at T_c = (159 +/- 1) GeV. The sphaleron rate in the symmetric phase (T > T_c) is Gamma/T^4 = (18 +/- 3) alpha_W^5, and in the broken phase in the physically interesting temperature range 130 GeV < T < T_c it can be parametrized as log(Gamma/T^4) = (0.83 +/- 0.01)T/GeV - (147.7 +/- 1.9). The freeze-out temperature in the early Universe, where the Hubble rate wins over the baryon number violation rate, is T* = (131.7 +/- 2.3) GeV.' p.3: 'In the interval 140 <~ T <~ 155 GeV the broken phase rate is very close to a pure exponential, and can be parametrized as log Gamma_Broken/T^4 = (0.83 +/- 0.01) T/GeV - (147.7 +/- 1.9). (7) The error in the second constant is completely dominated by systematics.' p.4: 'Gamma_Symm./T^4 = (8.0 +/- 1.3) x 10^-7 ~ (18 +/- 3) alpha_W^5, (8) where, in the last form, factors of ln alpha_W have been absorbed in the numerical constant.' p.4: 'the match gives us confidence to extend the range of validity of our fit (7) down to T ~ 130 GeV'. p.4: 'The freeze-out temperature T* can now be solved from [11] Gamma(T*)/T*^3 = alpha H(T*), (9) where alpha ... can be approximated by a constant alpha = 0.1015 ... Taking H^2(T) = pi^2 g* T^4/(90 M_Planck^2), with g* = 106.75, we find T* = (131.7 +/- 2.3) GeV'. p.1: 'the symmetric phase at T > T_c, where the (expectation value of the) Higgs field was approximately zero, to the broken phase at T < T_c GeV where it is finite'. p.3: 'If the temperature is below T_c, v^2(T) is approximately linear in T, and at T > T_c, it is close to zero. The observable <phi^dagger phi> is ultraviolet divergent and is additively renormalized; because of additive renormalization, v^2(T) can become negative.'",
+ "published_hypotheses": [
+  "H-MSM: the minimal Standard Model is the complete electroweak-scale theory ('If the Standard Model is indeed the complete description', p.1); Higgs mass 125-126 GeV (p.1, p.4).",
+  "H-DR: dimensional reduction -- the non-perturbative infrared (k <~ g_W^2 T) physics is 'fully contained' in the 3d SU(2)+Higgs effective theory eq.(4), with m_3^2, g_3^2, lambda_3 from 1- and 2-loop matching to (alpha_S(M_W), G_F, M_Higgs, M_W, M_Z, M_top, T) (p.2); all fermionic modes treated perturbatively.",
+  "H-U1: the hypercharge U(1) field is omitted from the effective dynamics ('little effect on the infrared physics'), accounted only in the error budget: ~1% on E_sph and ~1 GeV on T_c (pp.2,4).",
+  "H-LL: Bodeker's leading-logarithmic Langevin dynamics, accurate to ln^-1(1/g_W), sigma_el ~ 0.9239 T (p.2); Higgs evolved by faster diffusive (heat-bath) dynamics.",
+  "H-LAT: a single lattice spacing beta_G = 9 and V = 32^3 a^3; symmetric-phase rate 'in practice indistinguishable from the continuum', broken-phase rate 'within a factor of two' of the continuum estimate; finite-volume effects negligible (p.3).",
+  "H-SYST: uncertainties of the leading-log approximation and lattice spacing 'may affect the rate by a factor of two'; these and the U(1) errors 'added linearly' into the +/-1.9 (p.4).",
+  "H-FIT-RANGE: eq.(7) MEASURED over 140 <~ T <~ 155 GeV; extended to T ~ 130 GeV on the match to perturbation theory with an ad hoc +1.6 shift of Burnier et al.'s rate (p.4); abstract states 130 GeV < T < T_c.",
+  "H-EQ: close to thermal equilibrium, Chern-Simons diffusion, Gamma defined by eq.(3) in the V,t -> infinity limit (p.1).",
+  "H-HUBBLE: T* is a COSMOLOGICAL freeze-out: radiation-dominated expanding Universe, cooling dT/dt = -HT, H^2 = pi^2 g* T^4/(90 M_Planck^2), g* = 106.75 (top-quark mass effect on g* neglected, footnote 1), alpha = 0.1015 constant to 0.5% (p.4, following Burnier-Laine-Shaposhnikov hep-ph/0511246).",
+  "H-COND: the 'approximately zero' Higgs above T_c is the additively renormalized, gauge-invariant condensate v^2/T^2 = 2<phi^dagger phi>/T, which 'can become negative'; there is 'no true phase transition' (abstract; p.3)."
+ ],
+ "hypothesis_drift": [
+  "DROPPED H-HUBBLE at massform.py:553-555 and in the S11 row text (massform.py:2951-2960, 'below T_c down to T*, the READ broken-phase rate'): the tree states 'B freezes out at T* = 131.7 GeV (READ), BELOW T_c, so transitions keep running in T* < T < T_c' inside the anomaly SUPPLY route for a payload, without naming that T* is set by the Hubble rate of a radiation-dominated Universe with g* = 106.75. The qualifier is held verbatim in the tree's own SOURCES quote (DRT-rate, massform.py:1141-1149, 'in the early Universe, where the Hubble rate wins'), but the prose, the S11 row and anomaly_route_priced() (massform.py:2195-2199, which evaluates broken_phase_ln_rate(T_FREEZE_GEV)) carry T* as a property of the window. Re-derived here: replacing H by 1/tau in the source's own eq.(9) moves the freeze-out temperature from 131.5 GeV (tau = 1/H = 2.7e-11 s) to 143.7 GeV (tau = 1e-15 s), 157.5 GeV (1e-20 s) and above the fit's range (165.8 GeV, 1e-23 s). The tree's derived boolean SPHALERONS_RUN_WHERE_VEV_IS_FINITE (massform.py:2190-2191) does not depend on this -- the broken-phase rate is finite anywhere in 130-159 GeV -- but the named window edge T* does.",
+  "ADDED inference at massform.py:548-552: from the source's 'approximately zero' Higgs the tree infers 'the Yukawa masses are approximately zero above T_c', adding the T = 0, tree-level, unitary-gauge proportionality 'masses ... proportional to phi' from Morrissey & Ramsey-Musolf 1206.2942 (MRM-phi, massform.py:1139-1141). The source says nothing about fermion masses; what it measures is the additively renormalized condensate 2<phi^dagger phi>/T, which 'can become negative' (p.3), with 'no true phase transition' (H-COND not carried). The tree itself hedges ('on the approximate-zero reading, and with H-THERM not asserted'), so this is an added, flagged inference, not an unflagged one.",
+  "WEAKENED-TO-ERRORBAR (not dropped): H-DR, H-U1, H-LL, H-LAT, H-SYST are not named as hypotheses in the tree's statement (canonical hypotheses list names only the fit range, the ln alpha_W cross-check and H-THERM); the tree carries them only inside the +/- figures it quotes in prose (massform.py:547, 557-558) while computing with central values only (RATE_SYMM_READ = 8.0e-7, BROKEN_FIT = (0.83, 147.7), massform.py:1480-1482). Since the anomaly route's verdict is 'priced iff every figure finite' (massform.py:2195-2199), no central-vs-error choice moves a tree verdict.",
+  "PRESERVED (no drift): the fit's stated range 130 GeV < T < T_c, its measured interval 140-155 GeV and the perturbative extension to ~130 GeV are all carried (massform.py:560-568, 2177-2183, selftest 5226-5243); the ln alpha_W absorption in the 18 alpha_W^5 form is carried as 'cross-check only' (massform.py:548-550); the fit is bounded by the paper's own T_c = 159 GeV, not 1508.07161's 159.5 (massform.py:1484).",
+  "LABEL (minor): canonical 'kind: measurement' -- the result is a lattice Monte Carlo computation in a perturbatively matched 3d effective theory, not an experimental measurement; its only experimental inputs are the SM parameters (M_H, M_W, M_Z, M_top, G_F, alpha_S)."
+ ],
+ "data_at_publication": [
+  {
+   "quantity": "Higgs mass M_H (input to the 3d matching)",
+   "value_then": "125-126 GeV (p.1, p.4; the 2012 ATLAS/CMS discovery range)",
+   "value_now": "125.20 +/- 0.11 GeV (PDG 2024, not read at source here); 125.1 +/- 0.3 GeV ATLAS+CMS 1503.07589 as READ in 1508.07161 p.1",
+   "source_now": "PDG RPP 2024 (Phys. Rev. D 110, 030001) -- NAMED-NOT-READ; 1503.07589 via 1508.07161v1 p.1 (READ-VIA-RESTATEMENT)",
+   "moves_conclusion": "No: the current value +/- 1 sigma lies wholly inside the 125-126 GeV range the authors used (checked in rederive script)."
+  },
+  {
+   "quantity": "M_top, M_W, M_Z, G_F, alpha_S(M_W) (inputs to the 3d matching)",
+   "value_then": "not printed in 1404.3565 (named only, p.2; values in ref [13]/[12] not read)",
+   "value_now": "m_W = 80.3692 GeV, G_F = 1.1663788e-5 GeV^-2 used in the cross-check; m_t ~ 172.6 GeV (PDG 2024, NAMED-NOT-READ)",
+   "source_now": "PDG 2024 (NAMED-NOT-READ)",
+   "moves_conclusion": "OPEN for the lattice numbers (the input values are not printed, so no shift can be computed here); for the tree's 18 alpha_W^5 cross-check the current m_W and G_F give 8.076e-7, inside 8.0 +/- 1.3e-7."
+  },
+  {
+   "quantity": "g* (relativistic degrees of freedom in H(T))",
+   "value_then": "106.75, 'We neglect g* changing slightly as the top quark becomes massive' (footnote 1 p.4)",
+   "value_now": "106.75 is the full-SM massless count; removing the top entirely gives 96.25",
+   "source_now": "counting (computed)",
+   "moves_conclusion": "No: g* from 106.75 to 96.25 moves T* by 0.063 GeV, against the printed +/- 2.3 GeV (computed)."
+  },
+  {
+   "quantity": "M_Planck in H^2 = pi^2 g* T^4/(90 M_Planck^2)",
+   "value_then": "not printed numerically",
+   "value_now": "G^-1/2 = 1.220890e19 GeV; reduced M = 2.4353e18 GeV",
+   "source_now": "CODATA 2018 (NAMED-NOT-READ)",
+   "moves_conclusion": "No for the printed T*: with M read as the reduced Planck mass (the only reading under which the printed formula equals 8 pi G rho/3) the re-solved T* is 131.55 GeV vs printed 131.7; reading M as G^-1/2 literally gives 129.59 GeV, still inside +/-2.3. A notational ambiguity in the printed formula, recorded as a discrepancy of notation, not an error."
+  },
+  {
+   "quantity": "alpha in eq.(9)",
+   "value_then": "0.1015, constant to 0.5% (from Burnier-Laine-Shaposhnikov hep-ph/0511246, not read)",
+   "value_now": "no later value read",
+   "source_now": "hep-ph/0511246 NAMED-NOT-READ",
+   "moves_conclusion": "No: a 0.5% change moves T* by 0.006 GeV (computed)."
+  },
+  {
+   "quantity": "T_c",
+   "value_then": "159 +/- 1 GeV (beta_G = 9, SU(2)+Higgs only)",
+   "value_now": "159.6 +/- 0.1 +/- 1.5 GeV (abstract 159.5 +/- 1.5), SU(2)xU(1), continuum limit, 1508.07161 p.1, p.8 (READ)",
+   "source_now": "1508.07161v1 (READ)",
+   "moves_conclusion": "No: the intervals overlap. 1508.07161 p.8 notes that at beta_G = 9 with U(1) the susceptibility peak is ~159.0 GeV and that the earlier agreement is 'partly coincidental'. DISCREPANCY recorded, not resolved: 1508.07161 p.1 attributes 'T_c = 159.5 +/- 1.5 GeV' to its ref.[20], described as the physical-Higgs sphaleron-rate study, whereas 1404.3565v1 prints 159 +/- 1; ref.[20]'s identity is not on the cached pages and the PRL abstract was not read. It affects only the tree's refusal bound 159.0 (massform.py:1484), not T*, the fit values at 131.7 or 155, or any verdict."
+  }
+ ],
+ "rederivation": {
+  "method": "sympy",
+  "script_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/1404.3565.py",
+  "outcome": "ALL 13 CHECKS PASS. (1) Tree arithmetic on eq.(7): ln rate at T* = 0.83 x 131.7 - 147.7 = -38.389 (rate 2.13e-17 T^4), at 155 GeV -19.05 -- agree. The natural-log reading of 'log' is consistent (fit at 159 GeV is 0.18 x the symmetric plateau ln 8.0e-7 = -14.04; a log10 reading would put it 3.6e9 below, incompatible with a smooth crossover). (2) eq.(8): 8.0e-7/18 implies alpha_W = 1/29.54; current m_W and G_F give alpha_W = 1/29.486 and 18 alpha_W^5 = 8.076e-7, inside 8.0 +/- 1.3e-7; the two printed forms carry the same ~16.5% error. (3) eq.(9) re-solved in closed form, T* = -W_{-1}(-a e^{-b}/c)/a (Lambert W, cross-checked by sympy nsolve): 131.548 GeV with M the reduced Planck mass (printed 131.7 +/- 2.3); 129.588 GeV if G^-1/2 is inserted literally into the printed H formula (still inside +/-2.3). The printed H^2 = pi^2 g* T^4/(90 M^2) equals 8 pi G rho/3 exactly iff M is reduced (ratio 1.000000000000). b +/- 1.9 alone gives +/- 2.31 GeV, reproducing the printed +/- 2.3. g* 106.75 -> 96.25 moves T* by 0.063 GeV; alpha x 1.005 by 0.006 GeV. (4) PDG-2024 M_H lies inside the authors' 125-126 GeV. (5) Illustration of the dropped H-HUBBLE: with H -> 1/tau in eq.(9), freeze-out at 132.7 (1e-11 s), 143.7 (1e-15 s), 157.5 (1e-20 s) and 165.8 GeV (1e-23 s, outside the fit's range).",
+  "agrees_with_source": "yes"
+ },
+ "later_literature": [
+  {
+   "ref": "arXiv:1508.07161 (D'Onofrio & Rummukainen, PRD 93 (2016) 025003)",
+   "effect": "confirms",
+   "what": "Same group, SU(2)xU(1) effective theory, three lattice spacings and a continuum limit: T_c = 159.6 +/- 0.1 +/- 1.5 GeV (abstract 159.5 +/- 1.5), consistent with 159 +/- 1; notes the beta_G = 9 agreement is 'partly coincidental' and that the sphaleron rate is 'in essence completely determined by the soft physics' (so not re-measured there). Narrows the precision of T_c's central value only; does not re-measure Gamma or T*.",
+   "read_status": "READ (pp.1-9, cached alphaXiv page text)"
+  },
+  {
+   "ref": "arXiv:2505.05607 (Matchev & Verner 2025, 'The Electroweak Sphaleron Revisited: I')",
+   "effect": "confirms",
+   "what": "Restates 'T_c ~ 159 GeV' for m_H = 125 GeV and 'freeze out at a temperature T* ~ 132 GeV', citing 1404.3565 as its ref.[29]; a restatement, not an independent determination.",
+   "read_status": "READ (p.1-2, cached alphaXiv page text)"
+  },
+  {
+   "ref": "'Nonperturbative determination of the sphaleron rate for first-order phase transitions', Phys. Rev. D (doi 10.1103/q1jq-gq9m); authors not verified here",
+   "effect": "extends",
+   "what": "Title only (web-search hit): extends lattice sphaleron-rate determinations to first-order transitions (beyond the minimal SM).",
+   "read_status": "NAMED-NOT-READ (web-search title only; discover_papers unavailable: alphaXiv quota exhausted)"
+  },
+  {
+   "ref": "'Baryogenesis from sphaleron decoupling', Phys. Rev. D 108, 063502 (2023)",
+   "effect": "extends",
+   "what": "Title only (web-search hit): uses sphaleron decoupling for baryogenesis; whether it revises T* not known here.",
+   "read_status": "NAMED-NOT-READ"
+  }
+ ],
+ "lacked_data": "What the authors had: the 2012 discovery range M_H = 125-126 GeV, a single lattice spacing (beta_G = 9), SU(2)+Higgs dynamics without U(1), leading-log Langevin dynamics, and a perturbative match to extend eq.(7) below 140 GeV. What came later: (a) a precise Higgs mass, 125.20 +/- 0.11 GeV -- inside their input range, so it does not move the conclusion (computed); (b) the continuum-limit, SU(2)xU(1) T_c of 1508.07161, 159.6 +/- 0.1 +/- 1.5 GeV -- consistent with 159 +/- 1 (READ), though the same paper records that the beta_G = 9 agreement is partly coincidental; (c) no later lattice re-measurement of the SM Gamma(T) at the physical Higgs mass was located here (discover_papers unavailable; a 2025 paper still quotes T* ~ 132 GeV from this source, READ). The ingredient that bounds these numbers is not missing data but approximations the authors name themselves -- leading-log dynamics and one lattice spacing, 'a factor of two' in the rate -- and a factor of two is ln 2 = 0.69 in ln Gamma, inside the stated +/-1.9, which already maps to the stated +/-2.3 GeV in T* (reproduced). Evidence against M's hypothesis for this result: every moved datum checked here (M_H, g*, alpha, M_Planck) leaves T*, T_c and the rates inside their printed errors. Evidence for a limitation (not an error): T* is a cosmological quantity -- it needs the Hubble rate -- and the tree applies it inside a payload SUPPLY route; that is a hypothesis the tree drops, not data the authors lacked.",
+ "grade": "NARROWED",
+ "grade_evidence": "The published numbers STAND as READ and re-derived: the tree's fit values at T* (-38.389) and 155 GeV (-19.05) reproduce exactly; 18 alpha_W^5 at current m_W, G_F lies inside 8.0 +/- 1.3e-7; eq.(9) re-solved from the printed inputs gives T* = 131.55 GeV (printed 131.7 +/- 2.3), and the +/-1.9 on the fit reproduces the +/-2.3; the current Higgs mass lies inside the authors' 125-126 GeV; 1508.07161 (READ) confirms T_c within errors. The grade is NARROWED, not STANDS, because the tree's use drops a hypothesis the source states: T* is 'the freeze-out temperature in the early Universe, where the Hubble rate wins' (abstract), computed with H^2 = pi^2 g* T^4/(90 M_Planck^2), g* = 106.75, whereas massform.py:553-555 and the S11 row (massform.py:2951-2960) use 'down to T*' as the lower edge of the broken-phase window inside a payload's anomaly SUPPLY route without naming H-HUBBLE. Computed here: with a cooling time tau in place of 1/H in the source's own eq.(9), the freeze-out edge moves from 131.5 GeV to 143.7 GeV (1e-15 s) and 157.5 GeV (1e-20 s). The tree's derived boolean SPHALERONS_RUN_WHERE_VEV_IS_FINITE and ANOMALY_ROUTE_PRICED (every figure finite) do not move, since the fit gives a finite rate anywhere in 130-159 GeV. Second, flagged: the Yukawa-mass inference above T_c (massform.py:548-552) is the tree's own addition on a renormalized condensate that 'can become negative' (p.3), already hedged by the tree (H-THERM not asserted). One discrepancy recorded, not resolved: 1508.07161 attributes 'T_c = 159.5 +/- 1.5 GeV' to its ref.[20] where 1404.3565v1 prints 159 +/- 1 (affects only the tree's refusal bound at 159.0). Nothing here is WRONG.",
+ "what_would_change_the_grade": "To STANDS: the tree names H-HUBBLE wherever it uses T* (or replaces 'down to T*' in a device setting by the fit's own stated lower end, 130 GeV, and states the cooling-rate dependence), and names H-COND beside the Yukawa inference. To DATA-DEPENDENT or WRONG: a later SM lattice determination of Gamma(T) at the physical Higgs mass beyond leading log / in the continuum limit that moves ln Gamma by more than the stated 1.9, or T* outside 131.7 +/- 2.3 -- none was located here (alphaXiv discover_papers unavailable at this stage; to be re-run). The version question (PRL abstract 159 vs 159.5) is settled by reading PRL 113, 141602 or arXiv 1404.3565v2 if one exists.",
+ "reverify_command": "python3 /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/1404.3565.py && grep -o 'Hubble rate wins\\|can become negative\\|106.75\\|0.1015\\|140' /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/src/1404.3565.cached.txt && sed -n 545,572p /home/user/Claude-Method-Works/research/warp-drive/massform.py",
+ "report_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/audits/1404.3565.json"
+}

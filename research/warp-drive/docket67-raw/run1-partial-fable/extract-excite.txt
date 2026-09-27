@@ -1,0 +1,10 @@
+DOCKET 67 EXTRACT -- owner excite.py (research/warp-drive/excite.py, 1905 lines, read whole)
+ledger rows owned by excite: D15 (TAIL_RATE_IS_MASS, THEOREM), D16 (DISPLACEMENT_IS_ULTRALOCAL, THEOREM),
+  D18 (ELECTRON_MASS_IS_A_RULER, THEOREM), D19 (FLAT_DIRECTIONS_ARE_INERT, THEOREM),
+  D20 (HOLD_HIGGS_DERIVED_KG_M3_AT_EPS_1E18, MEASURED), S6 (ROLE1_DOMINATED_BY_OWN_SOURCE, REFUSED),
+  S7 (ROLE2_REBINDS, REFUSED), W9 (excite.W9, WITHDRAWN).  S8's ledger text prints excite's band (owner higgs).
+specthm classes naming excite: R5-C (owners ROLE1_DOMINATED_BY_OWN_SOURCE, TAIL_RATE_IS_MASS, DISPLACEMENT_IS_ULTRALOCAL),
+  SR4 (ELECTRON_MASS_IS_A_RULER, FLAT_DIRECTIONS_ARE_INERT, ROLE2_REBINDS),
+  SR5 hypothesis 'excite's section-3 stability model' via massform.STABLE_RANGE = 1 - excite.stability_edge().
+specthm facts()/escapes: none names excite.
+Report run 2026-09-26: numbers as printed are in the StructuredOutput.

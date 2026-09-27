@@ -1,0 +1,4 @@
+b^2 = beta**2 ; T00 = 3*beta**2/4 ; spatial = [[beta**2/4, 0, 0], [0, beta**2/4, 0], [0, 0, beta**2/4]]
+lab-frame traceless spatial xx component = -2*beta**2*v**2/(3*v**2 - 3) = 2*beta**2*v**2/3
+at v = 370 km/s: aniso_xx / T00(beta=1) = 1.35397355283004e-6
+PASS C10 b^2=beta^2; preferred-frame spatial part = (beta^2/4) delta_ij (isotropic); lab anisotropy = (2/3) beta^2 gamma_v^2 v^2

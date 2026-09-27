@@ -1,0 +1,115 @@
+{
+ "key": "1208.5399-sec1.3",
+ "name": "Fewster Sec. 1.3: a priori Casimir-plate bound T_00 >= -C/(2l)^4; Casimir density 3-7% of the bound",
+ "source": {
+  "located": "arXiv:1208.5399v1 [gr-qc] (27 Aug 2012), C.J. Fewster, 'Lectures on quantum energy inequalities' (AEI Golm IMPRS lectures, March 2012), Sec. 1.3 p.13 and p.14; Eq.(3)-(4) p.10-11",
+  "read_status": "READ-VIA-RESTATEMENT",
+  "via": "This stage could NOT re-open the source: alphaXiv answer_pdf_queries, get_paper_content and discover_papers all returned 'alphaXiv assistant quota exceeded' (three attempts), and direct arxiv.org / export.arxiv.org / semanticscholar fetches are refused by the egress proxy (CONNECT 403). The page text of pp.10-15 WAS read at source earlier in this docket through alphaXiv (audit d67/audits/1208.5399.json, source.via) and its p.10, p.11, p.13 and p.14 passages are quoted verbatim there; every quotation below is taken from that verbatim page-text record, not from the tree. It is marked READ-VIA-RESTATEMENT rather than READ because this stage read the docket's verbatim transcription, not the PDF. Fewster's ref [31] Fewster-Pfenning math-ph/0602042 (the local-covariance basis of the a priori argument) is NAMED-NOT-READ."
+ },
+ "published_statement": "p.13: 'Consider a region between Casimir plates at z = +-L/2 in otherwise flat spacetime and an inertial trajectory parallel to the plates. Let l be the distance from this trajectory to the nearest plate in the t = 0 surface. Then no experiment conducted along the trajectory in a time interval of less than 2l can possibly know about the existence of the plates; it should be as if the experiment was conducted in Minkowski space. In particular the quantum energy inequalities apply, and [as the energy density is supposed constant along the trajectory] (4) gives an a priori bound T00 >= -C/(2l)^4 ~ -3.17/(2l)^4 = -0.20/l^4. By comparison, the known value of the Casimir energy density for the massless minimally coupled scalar field is T00 = -pi^2/(1140 L^4) - (pi^2/(48 L^4))(3 - 2cos^2(pi z/L))/cos^4(pi z/L) which ranges between 3-7% of the bound as z varies in [-L/2, L/2].' p.14: the a priori bound 'also applies to all stationary (Hadamard) states of the system ... There remains an interesting question as to why the Casimir energy density is a comparatively small proportion of the allowed bound.' Eq.(4), p.11: rho >= -C/tau^4, 'C ~ 3.17', from Eq.(3) p.10, of which Fewster says 'The bound is known not to be optimal.'",
+ "published_hypotheses": [
+  "P1 free massless MINIMALLY coupled real scalar field (the density quoted is for this field; Eq.(3) holds for m >= 0)",
+  "P2 ideal plates at z = +-L/2 with (Dirichlet) boundary conditions in otherwise flat spacetime -- the quoted density is the Dirichlet one (re-derived here from the Dirichlet image sum, B1-B4)",
+  "P3 inertial trajectory parallel to the plates at distance l from the nearer plate",
+  "P4 the energy density is constant along the trajectory (stationary state), so Eq.(4) applies with tau = 2l",
+  "P5 causal/locality argument: a measurement of duration < 2l cannot detect the plates, so the Minkowski QEI applies (basis: local covariance, ref [31], NAMED-NOT-READ)",
+  "P6 Hadamard states; the bound is state-independent and applies to all stationary Hadamard states of the plate system (p.14)",
+  "P7 Eq.(3), on which Eq.(4) and so the a priori bound rest, 'is known not to be optimal' (p.10) -- the 3-7% is a fraction of a valid, non-sharp bound"
+ ],
+ "hypothesis_drift": [
+  "ADDED STATUS WORD -- 'REFUTED BY MEASUREMENT' (achievable.py:205) and 'measures the Casimir density at 3-7%' (bounds.py:418; also 'the measurement that withdraws', bounds.py:341): Fewster's 3-7% is a CALCULATION -- a theoretical vacuum density of an ideal Dirichlet scalar divided by a derived bound. No measured quantity enters it. The Casimir experiments measure force/pressure between real metals, never the local energy density (docket audit casimir-force-measurements.json, READ there: Bressi 2002, Mohideen-Roy 1998, Lamoreaux 1997; Sopova-Ford quant-ph/0204125 p.15-16). Over-representation of status; the arithmetic is right.",
+  "DROPPED P1/P2 (field and boundary scope): achievable.py:205-214, bounds.py:60-66 and ledger.py:1998-2001 (W2) say 'Casimir' / 'the Casimir density' generically; the quoted density is the massless minimally coupled Dirichlet SCALAR. The tree's own Casimir elsewhere is the EM perfect-conductor density -pi^2 hbar c/(720 d^4) (achievable.py:31). Illustration, conditional on the unread hypothesis H_EM (EM a priori constant >= the scalar C; commonly 2C): the EM ideal-plate ratio is 0.432% of the scalar bound at the midpoint (0.216% at 2C) and -> 0 at the plates (script G1) -- so the narrowing does not reverse the direction for EM, but that step is not Fewster's and is not read here.",
+  "DROPPED P7 (non-optimality) at achievable.py:212-214 ('Saturation is not 3 %') and ledger.py:2000-2001 ('Three per cent is not a wall'): the ratio is to a bound Fewster calls 'known not to be optimal'. Against any sharper valid bound C_s <= C the ratio is R*C/C_s >= R. Saturation at the midpoint would require a sharp constant C_s = 0.2125 (1440) / 0.2143 (1140), i.e. C/14.9 (script E). Whether the sharp 4D constant is that small is not decided by anything read here; the 3-7% therefore refutes saturation of FEWSTER'S a priori bound, not saturation of 'the' QEI. (The sibling audit 1208.5399.json records the same drop at bounds.py:60-66, 340-366.)",
+  "RELABELLED BOUND: the withdrawn clause (achievable.py:41, restated :205; ledger.py:1998) is 'Casimir is THE FORD-ROMAN bound saturated'. Fewster's a priori bound is Eq.(4) -- the Fewster-Eveson Eq.(3) functional with the optimal clamped compactly-supported sampler over a window fixed at 2l by causality -- not Ford-Roman's Lorentzian -3/(32 pi^2 tau_0^4). Ford & Roman's own treatment (gr-qc/9510071 Sec. 2, READ in docket audit gr-qc_9510071.json) caps tau_0 <= 0.46 L precisely where the constant Casimir density EQUALS their Eq.(1) bound -- equality at the cap by construction. So Fewster's 3-7% does not refute 'saturated' in Ford-Roman's own sense; it shows that under a different, valid bound Casimir sits well inside. Recorded, not repaired.",
+  "OWNER'S REPRODUCTION FIGURES (achievable.py:210 '6.8% at the midpoint, 3.4% and 3.2% off it'): achievable.py contains no code computing them (grep: no casimir_fraction / 1140 in achievable.py). They are bounds.py casimir_fraction_of_bound at z/L = 0, 0.2, 0.4 = 6.760%, 3.354%, 3.198%, rounded (script F3, F4) -- consistent, and computed on Fewster's printed 1140, which is a DISCREPANCY (misprint) against the correct 1440 (script B5). On 1440 they round to 6.7%, 3.3%, 3.2%. The tree's pin near(mid, 0.0682, 1e-2) at bounds.py:557 is keyed to 1140 (sibling audit 1208.5399.json). Fewster's '3-7%' is unmoved.",
+  "NOT DROPPED: P3/P4 are carried ('a trajectory at distance l from a Casimir plate', achievable.py:207-208); P5 and P6 are not stated at the tree's site but the tree uses the result only as Fewster states it, so nothing is lost there."
+ ],
+ "data_at_publication": [
+  {
+   "quantity": "C, the clamped least eigenvalue of d^4/dt^4 over 16 pi^2 (Eq.(4))",
+   "value_then": "'C ~ 3.17' (Fewster p.11); '-0.20/l^4' (p.13)",
+   "value_now": "C = mu_1^4/(16 pi^2) = 3.1698579383, mu_1 = 4.7300407448627040260; C/16 = 0.198116",
+   "source_now": "computed here (script A1-A4): clamped boundary determinant 2k^2(1 - cos k cosh k), first root",
+   "moves_conclusion": "no -- a mathematical constant; printed value agrees to its digits"
+  },
+  {
+   "quantity": "conformal (uniform) part of the Dirichlet scalar Casimir density",
+   "value_then": "-pi^2/(1140 L^4) as printed in the arXiv text layer",
+   "value_now": "-pi^2/(1440 L^4)",
+   "source_now": "computed here: zeta-regularised mode sum E/A = -(pi^2/12 L^3) zeta(-3) = -pi^2/(1440 L^3) (script B5); sibling audit gets the same by a second route",
+   "moves_conclusion": "no -- midpoint ratio 6.7597% -> 6.7028%; range stays inside '3-7%'. A misprint: a DISCREPANCY, recorded, not a refutation"
+  },
+  {
+   "quantity": "minimal-coupling (position-dependent) part of the density",
+   "value_then": "-(pi^2/(48 L^4))(3 - 2cos^2(pi z/L))/cos^4(pi z/L)",
+   "value_now": "identical: (1/6) d_z^2 <phi^2>, <phi^2> = (1 - 3/cos^2(pi z/L))/(48 L^2) from the Dirichlet image sum",
+   "source_now": "computed here (script B1-B4)",
+   "moves_conclusion": "no -- agrees exactly"
+  },
+  {
+   "quantity": "range of the ratio rho/(C/(2l)^4) over z in [-L/2, L/2]",
+   "value_then": "'3-7%'",
+   "value_now": "[3.1964%, 6.7028%] (1440) / [3.1964%, 6.7597%] (1140); monotone decreasing in |z|; plate limit 16/mu_1^4 = 3.19640% in closed form",
+   "source_now": "computed here (script C1-C5)",
+   "moves_conclusion": "no"
+  },
+  {
+   "quantity": "the SHARP (optimal) 4D QEI constant for this problem",
+   "value_then": "unknown; Eq.(3) 'known not to be optimal' (p.10)",
+   "value_now": "not determined by anything read in this stage (later-literature search blocked: alphaXiv quota); saturation at the midpoint would need C_sharp = 0.2125, i.e. C/14.9",
+   "source_now": "script E (what saturation would require); no source read for the sharp value",
+   "moves_conclusion": "not Fewster's conclusion ('3-7% of THIS bound' is exact); it WOULD move the tree's stronger reading 'Casimir does not saturate the QEI' -- only toward saturation, since C_s <= C"
+  },
+  {
+   "quantity": "measured Casimir local energy density",
+   "value_then": "none -- no experiment measures it",
+   "value_now": "none -- experiments measure force/pressure (Bressi 2002 parallel plates 0.5-3 um at 15%; sphere-plate via PFA)",
+   "source_now": "docket audit casimir-force-measurements.json (READ there: quant-ph/0203002, physics/9805038; Sopova-Ford quant-ph/0204125)",
+   "moves_conclusion": "no datum to move; it is why 'REFUTED BY MEASUREMENT' is a mislabel"
+  }
+ ],
+ "rederivation": {
+  "method": "sympy",
+  "script_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/1208.5399-sec1.3.py",
+  "outcome": "0 FAIL over 25 checks, exit 0 (output rederive/1208.5399-sec1.3.out). A: clamped determinant = 2k^2(1 - cos k cosh k), mu_1 = 4.73004074486270402602, no smaller root, C = 3.16985793831 ('~3.17'), C/16 = 0.19812 ('0.20'). B: Dirichlet image sum gives <phi^2> = (1 - 3/cos^2(pi z/L))/(48 L^2); (1/6) d_z^2 <phi^2> equals Fewster's second term EXACTLY; zeta mode sum gives the conformal constant 1440, so the printed 1140 is a misprint (discrepancy). C: the ratio is strictly decreasing in |z| from 6.7028% (1440) / 6.7597% (1140) at the midpoint to the closed-form plate limit 16/mu_1^4 = 3.1964% -- Fewster's '3-7%' holds on either constant; the plate term's leading behaviour -1/(16 pi^2 l^4) is exact. D: -C/tau^4 increases with tau, so 2l is the tightest window the causal argument admits. E: saturation at the midpoint would need a sharp constant C/14.9. F: the tree's bounds.casimir_fraction_of_bound (imported read-only) reproduces the 1140 ratio at z/L = 0, 0.2, 0.4 to 1e-10 = 6.760%, 3.354%, 3.198%, which round to achievable.py's '6.8%, 3.4%, 3.2%'; on 1440 they round to 6.7%, 3.3%, 3.2%. G (conditional on unread H_EM): EM ideal-plate density is 0.432% of the scalar bound at midpoint, below the scalar minimum everywhere. Tree files untouched (md5 bounds.py 1339aec0cc876c7081e1f24b3153b338, achievable.py 62f72b04425b3a6e8a25f453494f616b, HEAD b8b929b; git status clean under research/).",
+  "agrees_with_source": "partly"
+ },
+ "later_literature": [
+  {
+   "ref": "arXiv:2301.01698 Fewster & Thompson, 'Quantum Energy Inequalities along stationary worldlines' (2023)",
+   "effect": "extends",
+   "what": "re-derives Eq.(3) as eq.(1.4) and extends it to stationary non-inertial worldlines (lower-order terms weaken the bound); does not revisit the Casimir ratio in what was read",
+   "read_status": "READ in docket audit 1208.5399.json (pp.1-4,7-9,12,15,18); not re-opened this stage (alphaXiv quota)"
+  },
+  {
+   "ref": "arXiv:gr-qc/9510071 Ford & Roman, 'Quantum field theory constrains traversable wormhole geometries' (PRD 53, 5496, 1996), Sec. 2",
+   "effect": "narrows",
+   "what": "for the Casimir constant density their Lorentzian QI holds only for tau_0 <= 0.46 L, and holds with EQUALITY at that cap by construction -- so 'Casimir saturates Ford-Roman' is true in Ford-Roman's own capped sense and is not refuted by Fewster's ratio to a different bound; narrows the tree's 'REFUTED' to Fewster's bound",
+   "read_status": "READ in docket audit gr-qc_9510071.json; not re-opened this stage"
+  },
+  {
+   "ref": "Casimir force measurements: Lamoreaux PRL 78, 5 (1997); Mohideen & Roy physics/9805038; Bressi et al. quant-ph/0203002; Sopova & Ford quant-ph/0204125",
+   "effect": "narrows",
+   "what": "only forces are measured; the local energy density is not; for dispersive plates the gap density acquires a positive position-dependent term (Sopova-Ford) -- which moves real plates further from any saturation, and removes the 'measurement' in 'REFUTED BY MEASUREMENT'",
+   "read_status": "READ in docket audit casimir-force-measurements.json; not re-opened this stage"
+  },
+  {
+   "ref": "arXiv:math-ph/0602042 Fewster & Pfenning, 'QEIs and local covariance I' (JMP 47, 082303, 2006)",
+   "effect": "confirms",
+   "what": "Fewster's stated basis ([31]) for importing the Minkowski QEI along a trajectory for duration < 2l",
+   "read_status": "NAMED-NOT-READ"
+  },
+  {
+   "ref": "discover_papers search for later work on the sharp 4D QEI constant / the Casimir-to-bound ratio",
+   "effect": "contested",
+   "what": "NOT RUN TO RESULT: alphaXiv returned 'quota exceeded'. Whether a sharp constant (or a tighter a priori bound near plates) has since been established is OPEN here; nothing is presumed either way",
+   "read_status": "NAMED-NOT-READ (search blocked)"
+  }
+ ],
+ "lacked_data": "M's hypothesis tested. Fewster (2012) needed no empirical datum: the result is the ratio of a closed-form vacuum density (Dirichlet image sum, known since the 1970s) to a derived bound with a mathematical constant. Every input he used re-derives here; the only defect is a misprint (1140 for 1440), which moves the midpoint 6.76% -> 6.70% and leaves '3-7%' intact. So on Fewster's own statement nothing he lacked changes his conclusion -- evidence: script B4, B5, C1-C5. What WAS lacking then, and is not supplied by anything read here, is the SHARP 4D QEI constant: Eq.(3) is 'known not to be optimal', and a sharp constant can only raise the ratio (C_s <= C => ratio >= 3-7%). Saturation at the midpoint would need C_s = C/14.9. That missing quantity does not touch Fewster's sentence but DOES bear on the tree's stronger reading ('Casimir does not saturate the QEI', 'three per cent is not a wall'), and only in the direction against the tree. The other datum the tree implies -- a measured Casimir energy density -- does not exist: experiments measure force (docket audit casimir-force-measurements.json). Real (dispersive) plates move the density away from saturation, not toward it (Sopova-Ford, READ in that audit).",
+ "grade": "NARROWED",
+ "grade_evidence": "Fewster's statement re-derives: C = 3.16986 (A1-A4), his minimal-coupling term exactly (B4), the ratio monotone from 6.70% (6.76% on his printed 1140) to 16/mu_1^4 = 3.196% at the plates (C1-C5) -- '3-7%' holds; 1140 is a misprint (B5), a discrepancy not a refutation. The tree's use is WIDER than the source in four named places, so NARROWED, not STANDS: (i) 'REFUTED BY MEASUREMENT' (achievable.py:205; bounds.py:341,418) -- a calculation, no measurement; (ii) 'Casimir' generically (achievable.py:205-214, ledger.py:1998-2001) for a Dirichlet minimally coupled scalar result; (iii) 'Saturation is not 3 %' (achievable.py:213) against a bound Fewster calls non-optimal -- against the sharp bound, saturation needs C_s = C/14.9 and is OPEN; (iv) the withdrawn claim names the FORD-ROMAN bound, which in Ford-Roman's own capped form (gr-qc/9510071, docket-READ) the Casimir density meets with equality at the cap. Not WRONG: no counterexample to the published statement, and the tree's withdrawal of 'Casimir saturates it' as an established fact stands (it was never shown); what narrows is 'REFUTED'. Not DATA-DEPENDENT: no measured datum enters. Caveat on reading: this stage read the p.13-14 text through the docket's verbatim page-text record (alphaXiv quota exhausted, arXiv blocked).",
+ "what_would_change_the_grade": "To STANDS: the tree's sites say 'Casimir (massless minimally coupled Dirichlet scalar) sits at 3-7% of Fewster's a priori bound, which is not optimal', drop 'MEASUREMENT', and do not equate Fewster's bound with Ford-Roman's -- or a read source establishes a sharp 4D constant with C_s >> C/14.9 (so the density stays far from any valid bound). To WRONG (for the tree's reading, not Fewster's): a read source establishing a sharp constant near C/14.9 or smaller, i.e. a valid bound the Casimir density actually meets. To OPEN: if a fresh read of 1208.5399 p.13 contradicted the docket's transcription (re-read when alphaXiv quota resets).",
+ "reverify_command": "python3 /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/1208.5399-sec1.3.py  # expect '0 FAIL', exit 0; then re-read arXiv:1208.5399 p.13-14 via alphaXiv answer_pdf_queries (queries: 'ranges between 3-7% of the bound', 'known not to be optimal') and compare with: grep -n 'REFUTED BY\\|3-7\\|measurement that withdraws' /home/user/Claude-Method-Works/research/warp-drive/achievable.py /home/user/Claude-Method-Works/research/warp-drive/bounds.py; sed -n 1998,2001p /home/user/Claude-Method-Works/research/warp-drive/ledger.py",
+ "report_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/audits/1208.5399-sec1.3.json"
+}

@@ -1,0 +1,67 @@
+{
+ "key": "gr-qc/9304008-eq2.16",
+ "name": "KF (2.16): <:T00:> in the vacuum + two-particle state",
+ "source": {
+  "located": "C.-I. Kuo & L. H. Ford, 'Semiclassical gravity theory and quantum fluctuations', arXiv gr-qc/9304008 v1 (6 Apr 1993; TUTP-93-1, Feb 1993), p.4: Eqs. (2.10)-(2.16); p.6: (3.7)-(3.8) and the negativity sentence. Journal version Phys. Rev. D 47, 4510 (1993) NAMED-NOT-READ.",
+  "read_status": "READ",
+  "via": "arXiv v1 PDF TEXT LAYER as returned by alphaXiv in earlier sessions of this docket and harvested verbatim to d67/src/casmag/all/gr-qc_9304008v1.txt (md5 f1a6628604751cf61b2a4bd411b00153, 39,849 bytes, produced by d67/src/casmag/allpages.py from the alphaXiv <paper id=...><page num=...> tool results). A fresh fetch in THIS stage failed: alphaXiv answer_pdf_queries, get_paper_content and discover_papers all returned 'assistant quota exceeded', and direct arxiv.org is refused by the egress proxy (CONNECT 403). Page image not viewed; journal version not read."
+ },
+ "published_statement": "v1 p.4, verbatim from the text layer: '|Psi> = 1/sqrt(1+eps^2) (|0> + eps|2>), (2.15) where |0> is the vacuum state satisfying a|0> = 0, and |2> = (1/sqrt2)(a+)^2|0> is the two particle state. Here we take eps, the relative amplitude of the two states, to be real for simplicity. For this state, <:T_ab(x):> = <Psi|:T_ab(x):|Psi> = eps/(1+eps^2) { sqrt2 (T_ab[f_k,f_k] + T_ab[f*_k,f*_k]) + 2 eps (T_ab[f_k,f*_k] + T_ab[f*_k,f_k]) } = K_ab eps/(1+eps^2) (2 eps - sqrt2 cos(2 theta)). (2.16)' with (2.12)-(2.14) T[f,f] = -K e^{2i theta}, T[f*,f] = T[f,f*] = K, T[f*,f*] = -K e^{-2i theta}, theta = k_r x^r, K_ab = (k_a k_b - (1/2) eta_ab k_r k^r)/(2 omega L^3), = k_a k_b/(2 omega L^3) for massless. p.6: 'From Eq.(2.16), it follows that the condition for the expectation value of energy density to be negative is cos(2 theta) > sqrt2 eps.'",
+ "published_hypotheses": [
+  "H1 free scalar field in FLAT spacetime (Minkowski), stress tensor as the bilinear form (2.11) T_mn[g,h] = d_m g d_n h - (1/2) eta_mn d_s g d^s h (minimal coupling, no mass term in (2.11))",
+  "H2 box normalisation, volume L^3, single plane-wave mode k, f_k = e^{i k.x}/sqrt(2 omega L^3) (implied by K_ab's 1/(2 omega L^3))",
+  "H3 massless for the simplified K_ab = k_a k_b/(2 omega L^3) (the general K_ab is also printed)",
+  "H4 normal ordering against the Minkowski vacuum: ':T_ab: = T_ab - <0|T_ab|0>' (p.4)",
+  "H5 state (2.15), superposition of |0> and the single-mode |2>, eps REAL 'for simplicity'",
+  "H6 the general-state expansion (2.10) in number eigenstates, from which (2.16)'s middle line is the c0,c2 specialisation"
+ ],
+ "hypothesis_drift": [
+  "DROPPED (harmless): eps REAL (H5) is not in the tree's hypothesis list (fluctuation.py:227 builds the state with sympy eps positive=True, fluctuation.py:175) -- the tree actually uses eps > 0, a sub-case of KF's eps real; the ratio final/middle = 1/2 is algebraic and holds for every real eps wherever rho != 0 (re-derivation C4), so the drop moves nothing.",
+  "DROPPED (harmless): massless (H3), box normalisation (H2), minimal coupling (H1) and Minkowski normal ordering (H4) are not listed in the tree's hypotheses for this key ('single mode, flat space', canonical entry); they are carried implicitly by fluctuation.py:179-180 (':T00: = K (2 a+a - z a^2 - zbar a+^2), from KF (2.10)-(2.14)'). The discrepancy (final = middle/2) is internal algebra between two printed lines and holds for ANY K_ab, so none of these moves it; the claim 'middle line EXACT' does rest on (2.12)-(2.14) as the definition of :T:, which re-derivation C1 recovers from (2.11) for a massless box mode.",
+  "SCOPE (kept, correct): the tree scopes the discrepancy to arXiv v1 and marks the journal version NAMED-NOT-READ (fluctuation.py:122-126, 135) and PAGE_IMAGE_VIEWED = False (fluctuation.py:136). This audit keeps the same scope; no drift.",
+  "UNSTATED (named here): 'final/exact = 1/2' presupposes rho != 0; on the zero set rho = 0 both lines vanish and agree (z3 C5). fluctuation.py:386 checks the symbolic ratio, which is correct generically; not a drift in substance.",
+  "UNSTATED (named here): the reading of the final line rests on the PDF TEXT LAYER being faithful (no leading '2' lost in extraction). The tree names this implicitly by PAGE_IMAGE_VIEWED = False (fluctuation.py:136); it is a named hypothesis of this audit too."
+ ],
+ "data_at_publication": [
+  {
+   "quantity": "final-line / exact <:T00:> ratio (the tree's only 'data_used')",
+   "value_then": "KF v1 print: final line K eps(2eps - sqrt2 cos2th)/(1+eps^2), middle line eps/(1+eps^2){sqrt2(T[f,f]+T[f*,f*]) + 2eps(T[f,f*]+T[f*,f])} = 2K eps(2eps - sqrt2 cos2th)/(1+eps^2); ratio 1/2 (not stated by KF; computed by the tree)",
+   "value_now": "1/2 identically, recomputed independently here (C4); at eps = 1/10, theta = 0: rho_exact/K = -0.240438, rho_final/K = -0.120219",
+   "source_now": "re-derivation d67/rederive/gr-qc_9304008-eq2.16.py (exact Fock matrices; KF's own (2.10) route agrees, C3)",
+   "moves_conclusion": "No. It is not an empirical datum: pure algebra, no measured input exists for this result. The factor does not move KF's sign condition cos2th > sqrt2 eps (z3 C6) but does move the magnitude of any Delta built on the final line: Delta_final = 1 - (2eps - sqrt2 cos2th)^2/(12(1+eps^2)) vs exact 1 - (...)^2/(3(1+eps^2)); on rho < 0 the infima are 5/6 vs 1/3 (z3 C7)."
+  }
+ ],
+ "rederivation": {
+  "method": "sympy",
+  "script_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/gr-qc_9304008-eq2.16.py",
+  "outcome": "ALL CHECKS PASS (output at rederive/gr-qc_9304008-eq2.16.out). Independent of fluctuation.py (no import, no shared code). C1: (2.12)-(2.14) follow from (2.11) for f = e^{i k.x}/sqrt(2 omega L^3), massless, with K_ab as printed; K_00 = omega/(2L^3). C2/C3: <Psi|:T00:|Psi> from exact Fock matrices equals KF's own general-state formula (2.10) at c0 = 1/sqrt(1+eps^2), c2 = eps/sqrt(1+eps^2): rho = 2K eps(2eps - sqrt2 cos2th)/(1+eps^2). C4: the MIDDLE line equals it exactly; the FINAL line equals exactly half of it, identically in eps and theta. C5 (z3, with vacuity guard SAT): final == exact iff rho == 0. C6 (z3): sign(final) == sign(exact) everywhere, and rho < 0 iff cos2th > sqrt2 eps -- KF's stated negativity condition is exact and unaffected by the slip. C7: exact <:T00^2:> = 12K^2 eps^2/(1+eps^2); Delta with the exact rho = 1 - (2eps - sqrt2 cos2th)^2/(3(1+eps^2)) (reproduces the tree's witness 0.5134 at eps = 1/10, theta = 0); Delta with the final line would be 0.8784 there. C8 (context only, belongs to the (3.7)/(3.8) keys): KF (3.8) is reproduced by NONE of the four combinations {final, middle} x {printed (3.7), exact <:T00^2:>}, so the dropped 2 in (2.16) does not by itself explain (3.8).",
+  "agrees_with_source": "partly"
+ },
+ "later_literature": [
+  {
+   "ref": "B. Freivogel & D. Krommydas, 'The Smeared Null Energy Condition', arXiv:1807.03808",
+   "effect": "extends",
+   "what": "Restates the vacuum-plus-two-particle class, attributing it to Kuo & Ford PRD 47 (1993) 4510 [their ref. 25], for |psi> = (sqrt3/2)|0_k> + (1/2)|2_k> in a continuum normalisation, and finds the smeared <T++> = (k/L)(1 - (sqrt3/2) cos(2x0.k) e^{-4 tau^2 k^2}) (their (24)): 'similar to that of [25], but due to the smearing the negative contribution ... is exponentially damped'. It does not print KF's single-mode coefficient, and a relative (constant : oscillating) coefficient CANNOT discriminate the factor 2, since KF's middle and final lines have the same relative coefficient and differ only overall. Their continuum convention was not reconciled with KF's box convention here.",
+   "read_status": "READ from cached text d67/src/1807.03808.txt (lines 840-925), obtained in an earlier stage of this docket"
+  },
+  {
+   "ref": "C. J. Fewster, 'Lectures on quantum energy inequalities', arXiv:1208.5399",
+   "effect": "confirms",
+   "what": "Context only: vacuum-plus-two-particle energy densities 'tend to form fringes reminiscent of interference patterns' -- the qualitative content of (2.16)'s cross term (negativity from the oscillating term, cos 2theta), not its coefficient.",
+   "read_status": "READ from cached text d67/src/0702056.recovered.txt (line ~2216), earlier stage"
+  },
+  {
+   "ref": "E.-A. Kontou & K. Sanders, 'Energy conditions in general relativity and quantum field theory', arXiv:2003.01815",
+   "effect": "extends",
+   "what": "Context only: multimode vacuum + two-particle states (Fewster-Roman) as the counterexample to null-worldline QEIs in 4D. No single-mode coefficient.",
+   "read_status": "READ from cached text d67/src/_cache_2003.01815.txt (line ~837), earlier stage"
+  }
+ ],
+ "lacked_data": "M's hypothesis does not bite on this result, and the evidence is the re-derivation itself: (2.16) is a closed-form Fock-space expectation value with NO empirical input -- no measured constant, no extrapolated datum. Everything needed (the canonical commutator, the box mode (2.12)-(2.14), the state (2.15)) was in Kuo & Ford's hands in 1993, and their own middle line and their own general formula (2.10) are both exact (C3, C4). The discrepancy is an algebra/transcription slip between two consecutive printed lines of v1 (a dropped overall 2), not a consequence of missing data. Having more data would change nothing. Evidence the other way -- that the slip matters: it does not move the sign of rho or the negativity condition cos2th > sqrt2 eps (z3 C6); it would halve rho and change any Delta built on it (C7), but (3.8) is not reproduced from either line (C8), so the slip is not the whole story of (3.8), which is a separate key. Whether PRD 47, 4510 carries the 2 is NAMED-NOT-READ.",
+ "grade": "STANDS",
+ "grade_evidence": "The tree's use is two flags and a ratio, scoped to arXiv v1: KF_216_MIDDLE_IS_EXACT = True, KF_216_FINAL_IS_EXACT = False, final/exact = 1/2 (fluctuation.py:33-35, 139-140, 384-386). All three are reproduced by an independent sympy derivation from first principles (exact Fock matrices) AND by KF's own general-state formula (2.10) (C2-C4), with (2.12)-(2.14) themselves recovered from (2.11) (C1), and z3 shows the two printed lines agree only on the zero set rho = 0 (C5, vacuity guard SAT). The tree records it as a discrepancy ('A dropped 2'), not a refutation, against v1 only with the journal version NAMED-NOT-READ -- which is exactly the right weight under M's rule (a misprint is a discrepancy, not WRONG): KF's physical content from (2.16) -- sign indefinite, negativity from the cross term, the condition cos2th > sqrt2 eps -- is exact and untouched (z3 C6). No hypothesis the tree drops moves the claim (the ratio is algebraic, independent of K_ab, eps real vs eps > 0, mass). No datum exists to move. Residual named hypotheses, which bound but do not lower the grade: (a) the v1 PDF text layer is faithful (page image not viewed; this stage read a cached harvest of earlier alphaXiv results because the connector was over quota); (b) the journal version is unread, so nothing here says the error stands in PRD 47, 4510; (c) the later-literature search did not run (quota).",
+ "what_would_change_the_grade": "To OPEN: the v1 page image showing a leading '2' before K_ab in the final line of (2.16) that the text layer dropped (then the discrepancy is an extraction artefact and KF_216_FINAL_IS_EXACT = False would be an unfounded flag against v1). To a different scope (not a different grade): reading PRD 47, 4510 -- if the journal prints 2K_ab eps(2eps - sqrt2 cos2th)/(1+eps^2), the discrepancy is v1-only, as the tree already scopes it. Nothing computable would move it: the ratio 1/2 is an identity. A change to (2.12)-(2.14) as the definition of :T: would move 'middle is exact' but not the internal inconsistency between the two lines.",
+ "reverify_command": "python3 /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/gr-qc_9304008-eq2.16.py   # exits 0 with 'ALL CHECKS PASS'; source text: grep -n -A30 '(2.15)' /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/src/casmag/all/gr-qc_9304008v1.txt ; tree side: cd /home/user/Claude-Method-Works/research/warp-drive && python3 fluctuation.py --selftest | grep '(2.16)'",
+ "report_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/audits/gr-qc_9304008-eq2.16.json",
+ "later_literature_search_note": "The one discover_papers call this stage made returned 'alphaXiv assistant quota exceeded'; no later paper restating KF (2.16)'s absolute coefficient was found here, and absence of a finding is not a finding."
+}

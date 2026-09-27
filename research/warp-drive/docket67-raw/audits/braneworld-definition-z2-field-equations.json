@@ -1,0 +1,74 @@
+{
+ "key": "braneworld-definition-z2-field-equations",
+ "name": "What a braneworld is: bulk field equations + brane action + junction conditions + Z2 identification (Randall-Sundrum-type construction)",
+ "source": {
+  "located": "Randall & Sundrum, 'An Alternative to Compactification', hep-th/9906064 (1999), eqs 3-5 and p.5; Shiromizu, Maeda & Sasaki, 'The Einstein Equations on the 3-Brane World', gr-qc/9910076 (2000), eqs 6, 12-16; Israel, Nuovo Cim. 44B, 1 (1966) = SMS ref [19], NAMED-NOT-READ, read via SMS eq 15 and Konya gr-qc/0605119 eq 19 (alpha=0).",
+  "read_status": "READ",
+  "via": "alphaXiv answer_pdf_queries page text for hep-th/9906064v1, gr-qc/9910076v3, gr-qc/0605119v4, 1211.5448v1. Israel 1966 itself: READ-VIA-RESTATEMENT (SMS eq 15; Konya eq 19)."
+ },
+ "published_statement": "RS2 (hep-th/9906064 p.2, eq 3): 'The action for our system is S = S_gravity + S_brane + S_brane', S_gravity = int d4x dy sqrt(-G){-Lambda + 2M^3 R}, S_brane = int d4x sqrt(-g_brane){V_brane + L_brane}'; 'The coupling to the branes ... and the related orbifold boundary conditions are described in Refs [8]'; eq 4 ds^2 = e^{-2k|y|} eta dx dx + dy^2; eq 5 'The solution holds only when ... V_brane = -V_brane' = 24 M^3 k, Lambda = -24 M^3 k^2'. RS2 p.5: 'we were initially interested in studying a theory without the orbifold boundary condition ... It is trivial to extend the set-up ... to a fully infinite extra dimension by allowing even and odd functions of z ... From now on we will consider this to be the case.' SMS (gr-qc/9910076): 'In the beginning we do not assume any conditions on the bulk spacetime. Later, we assume the Z2-symmetry and confinement of the matter energy momentum tensor on the brane, in accordance with the brane world scenario based on the Horava & Witten theory'; eq 13 T = -Lambda g + S delta(chi), S = -lambda q + tau, 'S should be evaluated by the variational principle of the 4-dimensional Lagrangian for matter fields'; eq 15 'The singular behaviour in the energy-momentum tensor leads us to the so-called Israel's junction condition [q]=0, [K_mu nu] = -kappa5^2 (S_mu nu - q_mu nu S/3)'; eq 16 'Now we impose the Z2-symmetry ... K+ = -K- = -(1/2) kappa5^2 (S - qS/3)'.",
+ "published_hypotheses": [
+  "5D bulk obeying Einstein's equations with (negative) bulk cosmological constant (RS2 eq 3; SMS eq 6, 13)",
+  "brane is a thin (distributional, delta-function) hypersurface with stress tensor S_mu nu from a brane Lagrangian (tension + matter) (RS2 eq 3; SMS eq 13-14)",
+  "Gaussian normal coordinate chi with a_mu = 0 near the brane (SMS eq 11-12)",
+  "Israel junction condition is DERIVED from the singular part of the Einstein equations with the delta source (SMS eq 15, citing Israel 1966)",
+  "Z2 symmetry about the brane is an ADDITIONAL, imposed assumption, motivated by Horava-Witten (SMS p.2-3 'we assume', 'we impose'); RS2 uses orbifold boundary conditions to regulate the KK sum and then drops them for the infinite extra dimension (RS2 p.5)",
+  "fine tuning V_brane = 24 M^3 k, Lambda = -24 M^3 k^2 (zero 4D cosmological constant), 'accepted without further explanation' (RS2 eq 5)"
+ ],
+ "hypothesis_drift": [
+  "ADDED (latticectc.py:79-80, :140-143 CODIM1_CTC_REFUSAL): Z2 identification listed as a required ingredient of 'a braneworld'. At source it is an imposed extra assumption (SMS 'Now we impose the Z2-symmetry'), RS2 itself drops the orbifold boundary condition for the infinite fifth dimension (p.5), and non-Z2 braneworlds are an established literature (Konya gr-qc/0605119 and its refs [10]: Battye-Carter, Carter-Uzan, Stoica-Tye-Wasserman, Padilla, Gergely...). Machine-checked here (C4, C4b): an asymmetric warp k1 != k2 solves the bulk equations on both sides and the full junction conditions with no Z2.",
+  "ADDED-AS-INDEPENDENT (latticectc.py:78-80): the four 'missing ingredients' are listed as four; at source the Israel junction condition is the distributional content of the bulk field equation with a brane source (SMS eq 15 'the singular behaviour ... leads us to'); machine-checked (C3): the delta-coefficient of G_mu nu equals the Israel condition exactly. Three are one requirement (field equations with a specified brane source) plus one optional symmetry.",
+  "ADDED (latticectc.py:78-81): thin-brane (junction-condition) form required. Smooth thick-brane braneworlds sourced by a bulk scalar have no junction condition and no brane action; machine-checked here (C5: A = b ln cosh(cy), kappa^2 phi'^2 = 3A'' >= 0, field equations hold). The DeWolfe-Freedman-Gubser-Karch construction (hep-th/9909134) is NAMED-NOT-READ; the check stands on its own computation. Discovered later literature (1910.09530, 2004.11398, 2011.11093) is the thick-brane line, titles/abstracts only.",
+  "CONSISTENT, not drift (latticectc.py:79-80): the quoted Israel form [K_ab] - h_ab[K] = -8 pi G5 S_ab matches Konya eq 19 (alpha=0) verbatim and SMS eq 15 after trace inversion in d=4 (C3, general symbolic identity), with K_ab = h nabla n, n pointing from - to +, [X] = X+ - X-.",
+  "CONSISTENT (latticectc.py:148-151 O3_ANSWERED_BY): the operative criterion for O3 asks only 'bulk satisfies its field equations with Israel junction conditions' -- no Z2, no separate brane action -- which is the source-level content; the stronger four-item list appears only in the refusal text (:78-81, :141-144).",
+  "INTERNAL ASYMMETRY (latticectc.py:20-23 H3 vs :78-81): the tree's own seated lattice theorem takes branes as TEST hypersurfaces 'carrying no back-reaction' -- i.e. no brane action entering a junction condition -- while the refusal disqualifies the refused construction partly for lacking those same ingredients. The flat bulk does satisfy the vacuum field equation; H3 is named, so this is a recorded scope difference, not an error. The lattice theorem is correctly styled a flat-quotient theorem, not a braneworld (junction) result.",
+  "STATUS: the tree cites no source for the definition ('none (no source cited)'): it was DECLARED; it is now READ at RS2 and SMS."
+ ],
+ "data_at_publication": [
+  {
+   "quantity": "none -- the result is a definition/construction; RS2 eq 5 and SMS eq 15-18 depend on no measured number",
+   "value_then": "n/a (k, M, Lambda free parameters; fine tuning 'accepted')",
+   "value_now": "n/a (later short-range gravity / collider bounds constrain k and M5, not the construction)",
+   "source_now": "n/a",
+   "moves_conclusion": "no"
+  }
+ ],
+ "rederivation": {
+  "method": "sympy",
+  "script_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/braneworld-definition-z2-field-equations.py",
+  "outcome": "26/26 PASS, exit 0. C1: for ds^2 = e^{-2A(y)} eta + dy^2, G^mu_nu = (6A'^2 - 3A'') delta, G^y_y = 6A'^2 (full Christoffel/Ricci computation). C2: A = k|y| reproduces RS2 eq 5 exactly (V = 24M^3 k, Lambda_RS = -24M^3 k^2 under 1/(2 kappa^2) = 2M^3), SMS k = kappa^2 lambda/6, SMS eq 18 Lambda_4 = 0. C3: the delta part of G_mu nu IS the Israel condition; the tree's form and SMS eq 15 are the same statement (general symbolic identity, d=4); Z2 gives K+ = -K- = -k q. C4/C4b: k1 != k2 asymmetric solution satisfies bulk equations on both sides, the jump condition (tension 3(k1+k2)/kappa^2) and the normal-normal constraint S^ab{K_ab} = [T_nn] -- Z2 not required. C5: smooth thick brane solves the field equations with a real scalar, no junction, no brane action. C6: NEC for this warp class <=> A'' >= 0; RS positive-tension brane satisfies it, a negative-tension brane violates it at the brane.",
+  "agrees_with_source": "yes"
+ },
+ "later_literature": [
+  {
+   "ref": "Konya, gr-qc/0605119 (2006/2007)",
+   "effect": "narrows",
+   "what": "Braneworld 'without Z2-symmetry': single brane between two bulks, generalized Israel condition [K]-h[K]+... = -kappa^2 S (eq 19, reduces to the tree's form at alpha=0); 'Most brane-world scenarios assume a Z2-symmetry ... motivated by ... Horava and Witten. However, many recent papers examine models not directly derived from M-theory' -- Z2 is an assumption, not a defining ingredient. (Also finds Z2-breaking terms decay at late times: cosmologically they revert to Z2 form -- evidence the RS-type Z2 form is the generic late-time endpoint, not that asymmetric ones are not braneworlds.)",
+   "read_status": "READ (alphaXiv page text)"
+  },
+  {
+   "ref": "Slagter, 1211.5448 (2012), 'On Closed Timelike Curves and Warped Brane World Models'",
+   "effect": "extends",
+   "what": "The one located CTC-in-braneworld paper: warped 5D Gott-pair identification allows a rotation-like generator overlapping the Gott region, but the effective SMS brane equations (with E_mu nu) give a non-conical asymptotic spacetime; no CTC established. Uses the SMS effective equations, i.e. the tree's admissibility standard. Does not answer O3 either way.",
+   "read_status": "READ (alphaXiv page text)"
+  },
+  {
+   "ref": "thick-brane line: 1910.09530, 2004.11398, 2011.11093, 2206.15145, 2609.14324 (discover_papers hits)",
+   "effect": "narrows",
+   "what": "Smooth domain-wall braneworlds with bulk scalars and no junction condition; asymmetric thick branes also exist (1910.09530, 2004.11398, 2407.14693). Confirms by title/abstract that thin-brane + Z2 is one class of braneworld, not the definition.",
+   "read_status": "NAMED-NOT-READ (abstracts only); the substantive point is carried by the C5 computation"
+  },
+  {
+   "ref": "Israel, Nuovo Cim. 44B, 1 (1966)",
+   "effect": "confirms",
+   "what": "Junction condition as quoted by the tree; read via SMS eq 15 and Konya eq 19.",
+   "read_status": "READ-VIA-RESTATEMENT (classic NAMED-NOT-READ)"
+  }
+ ],
+ "lacked_data": "M's hypothesis tested: this result is a construction/definition (RS 1999; SMS 2000; Israel 1966), not an inference from data. RS2 eq 5 is an identity between free parameters and a fine tuning the authors 'accept without further explanation'; SMS eq 15-18 are geometric identities. Nothing measured enters, so no later datum (LHC KK searches, sub-mm gravity bounds on k and M5, H0/Lambda) can move it -- those constrain parameter values within the construction, not what a braneworld is. The Z2 assumption was motivated by theory (Horava-Witten), not by data, and later work (Konya and refs) drops it without contradiction. Evidence: the sympy re-derivation reproduces every published equation with no numerical input. Having more data does not change the conclusion; what changes the tree's use is literature, not data -- asymmetric and thick braneworlds published 2000 onward.",
+ "grade": "NARROWED",
+ "grade_evidence": "The source-level content -- a braneworld is a bulk solving its field equations with a brane whose stress tensor comes from a brane action, the Israel condition being the delta part of those equations -- STANDS and is re-derived exactly (C1-C3, RS2 eq 5 and SMS eqs 15, 18 reproduced; the tree's Israel form is correct in the Poisson/Konya sign convention). But the tree's four-item list (latticectc.py:78-81, :141-143) is an RS-type-specific definition used as a general one: Z2 is an imposed extra hypothesis at source (SMS 'we impose'; RS2 drops the orbifold condition, p.5) and is machine-checked unnecessary (C4/C4b); the junction condition is not independent of the field equation (C3); thin branes are not required (C5). The tree's CONCLUSION survives the narrowing: CODIM1_CTC_IS_BRANEWORLD_RESULT = False rests on the refused metric having its stress tensor 'read off its own Einstein tensor', which fails even the loosest source-level definition (SMS eq 13: S from a brane Lagrangian, T specified). And O3_ANSWERED_BY (:148-151) already uses the narrower, correct criterion (field equations + Israel, no Z2). So: nothing WRONG, no discrepancy in the quoted formula; the definition as a general admissibility test holds on a smaller class (RS-type, thin, Z2) than the refusal text claims for 'a braneworld'.",
+ "what_would_change_the_grade": "To STANDS: the tree restating the refusal as 'no bulk field equation with a specified brane source (hence no Israel condition)' and marking Z2 and the thin-brane form as RS-type specializations, or a reading showing the tree means only the RS class. To WRONG: none foreseeable -- would need the refused construction to satisfy field equations with a specified source, which the tree's own record (stress read off the Einstein tensor) excludes. Reading DeWolfe-Freedman-Gubser-Karch (hep-th/9909134) and Battye-Carter-Mennim-Uzan (hep-th/0105091) at source would upgrade the thick-brane and asymmetric rows from computed+abstract to READ, not change the grade.",
+ "reverify_command": "python3 /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/braneworld-definition-z2-field-equations.py   # expect 26 PASS, FAILURES: 0, exit 0; and: sed -n 76,87p /home/user/Claude-Method-Works/research/warp-drive/latticectc.py; sed -n 140,151p /home/user/Claude-Method-Works/research/warp-drive/latticectc.py",
+ "report_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/audits/braneworld-definition-z2-field-equations.json"
+}

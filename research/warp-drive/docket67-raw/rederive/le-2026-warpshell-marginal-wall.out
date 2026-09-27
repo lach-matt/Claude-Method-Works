@@ -1,0 +1,23 @@
+PASS A1 sigma0 == tree statics()
+PASS A2 p0 == tree statics() (symbolic diff at x=0.3 and generic)
+   max rel |beta2_family - beta2_crit| over x in [1e-6, 0.95] = 0.000e+00
+PASS B1 dp0/dsigma0 at fixed m == beta^2_crit(x) (wall.py:281-284)
+PASS B2 identity holds symbolically in s
+PASS B3 V(R) == 0 for all R on the static-family law (neutral zero mode)
+PASS C1 V''=0: displacement v0*t solves R_ddot = 0 (linear drift, no e-folding)
+PASS C2 tau_efold = sqrt(2/|V''|) = 1/w, diverges as V''->0
+   lambda(1 g, 10 m) = 1.091137e-15 ; 0.2/lambda = 1.832950e+14
+PASS D1 shortfall 1.8e14 as printed (wall.py:5-9)
+PASS D2 Le App. K: 0.24/0.12 = 2.0 (warpshell.py:72)
+   p   k            tau_efold(1g,10m)/(R/c)   deta_max      shortfall 0.2/deta_max
+   0   2            1.0000e+00                1.0911e-15    1.8330e+14
+   1   16.67        1.0487e+07                1.1443e-08    1.7478e+07
+   2   138.9        1.0998e+14                1.2000e-01    1.6667e+00
+   3   1157         1.1533e+21                1.2584e+06    1.5893e-07
+PASS E1 p=0 reproduces the tree's 1.8e14
+PASS E2 p=1 (generic first-order redshift) shortfall ~1.7e7, still > 1
+PASS E3 p=2 shortfall 1.67, still > 1 (fails by the same factor as Le's own burn)
+PASS E4 p=3 passes (<1): the SIGN of the verdict is not fixed without App. J
+PASS E5 every p>0 gives a smaller shortfall than the tree's p=0
+
+OVERALL: ALL PASS

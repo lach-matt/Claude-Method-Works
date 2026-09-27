@@ -1,0 +1,78 @@
+{
+ "key": "si-speed-of-light",
+ "name": "Speed of light in vacuum, exact SI value (c = 299 792 458 m/s)",
+ "source": {
+  "located": "The defining statement is the SI (17th CGPM 1983 metre redefinition; retained as a defining constant in the revised SI of 20 May 2019). The SI Brochure / CGPM resolutions are not on arXiv. READ at source here: CODATA 2022, Mohr, Newell, Taylor, Tiesinga, arXiv:2409.03787 (30 Aug 2024), Table XXXII p.50 and Table XXXIII p.51 ('speed of light in vacuum c 299 792 458 m s^-1 exact'), p.60 ('these four constants were already exactly known as a result of the 1983 redefinition of the meter in terms of an exact value of c and the 2019 revision of the SI'), p.65 list of symbols ('c Speed of light in vacuum and one of the seven defining constants of the SI').",
+  "read_status": "READ-VIA-RESTATEMENT",
+  "via": "CODATA 2022 (arXiv:2409.03787) restates the SI definition exactly; the 1983 CGPM resolution and the 2019 SI Brochure themselves are NAMED-NOT-READ."
+ },
+ "published_statement": "CODATA 2022, Table XXXII (p.50): 'speed of light in vacuum  c  299 792 458 m s^-1  exact'. p.60: c, h, e, k, N_A are 'exactly known as a result of the 1983 redefinition of the meter in terms of an exact value of c and the 2019 revision of the SI'. The same table: G = 6.674 30(15) x 10^-11 m^3 kg^-1 s^-2, u_r 2.2e-5, 'identical to their 2018 values' (p.60).",
+ "published_hypotheses": [
+  "H1 (definitional): the metre is defined by fixing the numerical value of c at 299 792 458 when expressed in m s^-1, the second being defined by the caesium frequency. c therefore carries no uncertainty IN SI UNITS; this is a convention of the unit system, not a measurement.",
+  "H2 (physical content, not supplied by the definition): c is the invariant speed of special relativity and the vacuum speed of light; that real electromagnetic signals propagate at c requires vacuum, a massless photon and no vacuum dispersion -- empirical propositions tested separately (e.g. LHAASO GRB 221009A time-of-flight, arXiv:2402.06009).",
+  "H3: exactness is relative to the SI; in geometric units (the tree's derivations) c = 1 by convention and the SI value enters only on conversion to metres/seconds/joules."
+ ],
+ "hypothesis_drift": [
+  "NONE on the value: nonstatic.py:253 'C = 2.99792458e8  # m/s, exact' and transit.py:142 'C_SI = 2.99792458e8' are the SI value exactly (Fraction(literal) == 299792458), and the integer is exactly representable in IEEE-754 binary64 (< 2^53), so 'exact' survives into the float -- computed, rederive checks 3-5.",
+  "LABEL (canonical, not owner files): the merged key 'si-2019-c' dates the fix to 2019; per the source (CODATA 2022 p.60) c was fixed in 1983 and the 2019 revision retained it. Neither nonstatic.py nor transit.py states a year (grep for 2019/1983/CGPM returns nothing), so this is a labelling discrepancy in the audit's canonical entry, not in the tree.",
+  "ADDED physical hypothesis at transit.py:145 ('def arrival_time(D): return D/C_SI  # the classical channel, at c'): the SI definition does not supply that a real classical channel arrives in D/c; that is H2 plus a vacuum path. A real radio channel through the interstellar plasma is SLOWER (cold-plasma group delay >= 0; computed 0.054/0.540/5.40 ms at 1 GHz over Earth-Proxima for assumed n_e = 0.01/0.1/1 cm^-3 -- n_e not read at source). Direction: this can only make advantage_over_light <= 0, i.e. it does not move the tree's 'no advantage over light' conclusion; it is an idealisation erring toward the channel, not against the tree.",
+  "OBSERVATION (not a drift of c): transit.py:146 advantage_over_light(D) = arrival_time(D) - D/C_SI with arrival_time(D) = D/C_SI is an identity for ANY c > 0 (sympy: D/c - D/c = 0; float: bit-exact 0.0 at all four DISTANCES). The printed 0.000 therefore tests nothing about c; it records the channel model. The canonical hypothesis 'cancels identically in advantage_over_light' is accurate.",
+  "nonstatic.py:256 'LY = 9.4607304725808e15  # m, exact (Julian year x c)': computed 365.25 x 86400 x 299792458 = 9 460 730 472 580 800 exactly, equal to the literal and exactly representable in binary64 (even, < 2^54). No drift."
+ ],
+ "data_at_publication": [
+  {
+   "quantity": "c (SI)",
+   "value_then": "299 792 458 m/s exact (fixed 1983; retained 2019)",
+   "value_now": "299 792 458 m/s exact (CODATA 2022 Table XXXII)",
+   "source_now": "arXiv:2409.03787 p.50",
+   "moves_conclusion": "No. A defined constant cannot move; zero uncertainty by construction."
+  },
+  {
+   "quantity": "light-year (Julian year x c) used with c in nonstatic.proxima_span_m",
+   "value_then": "9.4607304725808e15 m (tree literal)",
+   "value_now": "9 460 730 472 580 800 m exact (computed from c and 365.25 d x 86400 s)",
+   "source_now": "rederive check 3",
+   "moves_conclusion": "No."
+  },
+  {
+   "quantity": "G, which divides c^4 in nonstatic.build_energy (E = R dW c^4/G) -- context, owned by another key",
+   "value_then": "6.67430e-11 (tree: 'CODATA 2018')",
+   "value_now": "6.674 30(15) x 10^-11, u_r 2.2e-5, identical to 2018",
+   "source_now": "arXiv:2409.03787 Table XXXII p.50 and p.60",
+   "moves_conclusion": "No. The whole relative uncertainty of build_energy's SI output is G's 2.2e-5 times 1 plus c's exact 0 times 4 (d ln E/d ln c = 4, computed)."
+  },
+  {
+   "quantity": "vacuum photon speed vs c (linear LIV energy scale)",
+   "value_then": "not an input of the tree",
+   "value_now": "E_QG,1 > 1.0e20 GeV subluminal (95% CL) -> |dv/c| <= 4.1e-35 for a 1 GHz photon, <= 5.5e-27 s over Earth-Proxima (computed)",
+   "source_now": "LHAASO, arXiv:2402.06009 Table I and Sec. IV",
+   "moves_conclusion": "No; bounds H2 far below any quantity the tree prints."
+  }
+ ],
+ "rederivation": {
+  "method": "sympy",
+  "script_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/si-speed-of-light.py",
+  "outcome": "ALL PASS (22 checks). Owner literals equal the SI integer exactly as rationals; exact in binary64; LY literal = Julian-year x c exactly; advantage_over_light is an identity for any c (symbolic) and bit-exact 0.0 in float at all four DISTANCES; nonstatic.band_ratio is independent of c (d/dc = 0) and equals 2 eps W/sqrt(W^2-1); build_energy scales as c^4 so c contributes zero uncertainty; tree G literal equals CODATA 2022 G; transit's Earth-Proxima 4.0175e16 m agrees with nonstatic PROXIMA_LY*LY to 2e-7; cold-plasma dispersion constant from CODATA 2022 constants reproduces 4.149 ms/(pc cm^-3) at 1 GHz and is positive (channel only slower).",
+  "agrees_with_source": "yes"
+ },
+ "later_literature": [
+  {
+   "ref": "LHAASO Collaboration, arXiv:2402.06009 (Stringent tests of Lorentz invariance violation from LHAASO observations of GRB 221009A)",
+   "effect": "confirms",
+   "what": "95% CL E_QG,1 > 1.0e20 GeV (subluminal), > 1.1e20 GeV (superluminal); E_QG,2 > 6.9e11 GeV; no energy-dependent photon speed detected. Assumes flat LCDM (H0 67.36, Om 0.315), z = 0.151, EBL model; EBL extremes move eta_1 limits by up to 18%. Supports H2 (photons propagate at c) to a level irrelevant to the tree.",
+   "read_status": "READ (pp.1-6, Table I)"
+  },
+  {
+   "ref": "arXiv:2508.08984 / 2508.07153 (Carpet-3 300 TeV photon from GRB 221009A as a hint of LIV)",
+   "effect": "contested",
+   "what": "Claims a 300 TeV photon at 4536 s may hint at (non-linear) LIV; bears on photon propagation at extreme energies, not on the SI value, and not on any radio/optical channel the tree models.",
+   "read_status": "NAMED-NOT-READ (abstract via discover_papers only)"
+  }
+ ],
+ "lacked_data": "M's hypothesis tested for this result: there is no 'data the authors lacked' for the value -- since 1983 c is a definition, so no future measurement can change 299 792 458 m/s; a better measurement would redefine the realised metre, not c. Evidence: CODATA 2022 lists it 'exact' with no uncertainty column (p.50) and excludes it from the 2018->2022 comparison because it is exactly known (p.60). The physical content the tree also leans on (transit.py:145, 'the classical channel, at c') is empirical and has been tested with data unavailable in 1983: LHAASO 2024 bounds any vacuum-dispersion speed deviation to <= 4e-35 of c for a GHz photon (computed from the read E_QG,1 bound). The one datum the tree does not model -- plasma along a real path -- makes signals slower, never faster, so the tree's no-advantage conclusion is unchanged either way. Having more data does not change the conclusion.",
+ "grade": "STANDS",
+ "grade_evidence": "Value and 'exact' status READ at CODATA 2022 (arXiv:2409.03787 Table XXXII p.50, p.60); owner literals nonstatic.py:253 and transit.py:142 equal it exactly and survive binary64 exactly; the uses resting on it (band_time_seconds, crossing_time_seconds, build_energy, band_ratio, transit D23 advantage_over_light) were re-derived symbolically and numerically with 22/22 checks passing; no datum can move a defined constant. Recorded, not repaired: (i) the canonical merged key 'si-2019-c' mis-dates the fix (1983, retained 2019) -- a label discrepancy outside the owner files; (ii) transit.py:145 adds the physical hypothesis that a classical channel runs at c, which the definition does not supply, but every correction to it (medium dispersion) is one-signed toward slower and cannot move the tree's conclusion; (iii) advantage_over_light is an identity, so its 0.000 is a statement of the model, not a test of c.",
+ "what_would_change_the_grade": "Nothing about the value can: only a CGPM redefinition of the SI that unfixed c would, and none exists (CODATA 2022). The ADDED hypothesis at transit.py:145 would become NARROWED only if the tree used 'arrival at D/c' as a physically achieved time (rather than an upper bound on any channel's speed) in a conclusion that needed equality -- it does not, as advantage_over_light is defined to be zero. A detected superluminal vacuum dispersion at radio frequencies of order >1e-12 would reopen H2; the read bound is 4e-35.",
+ "reverify_command": "python3 /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/si-speed-of-light.py",
+ "report_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/audits/si-speed-of-light.json"
+}

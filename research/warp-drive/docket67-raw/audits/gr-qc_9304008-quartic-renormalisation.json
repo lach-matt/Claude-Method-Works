@@ -1,0 +1,91 @@
+{
+ "key": "gr-qc/9304008-quartic-renormalisation",
+ "name": "KF: curved-space version requires renormalisation of quartic operator products not yet developed (1993)",
+ "source": {
+  "located": "C.-I. Kuo & L. H. Ford, 'Semiclassical gravity theory and quantum fluctuations', arXiv gr-qc/9304008 v1 (Apr 1993), Sec. V, paragraph on curved backgrounds. Journal version Phys. Rev. D 47, 4510 (1993) NAMED-NOT-READ.",
+  "read_status": "READ-VIA-RESTATEMENT",
+  "via": "This stage's own alphaXiv calls (answer_pdf_queries, get_paper_content, discover_papers) all returned 'quota exceeded'; arxiv.org, export.arxiv.org, archive.org and ADS are refused by the egress proxy. The Sec. V text used here is the verbatim text-layer excerpt saved at d67/src/gr-qc_9304008.note by this docket's sibling stage kuo-ford-1993-measure, which READ the full v1 text via alphaXiv get_paper_content(fullText=true) on 2026-09-26. Labelled READ-VIA-RESTATEMENT, not READ, because this stage did not itself fetch the page."
+ },
+ "published_statement": "KF gr-qc/9304008 v1 Sec. V (verbatim, per saved excerpt): 'The analysis in this paper was restricted to a flat spacetime background. In this case, the expectation values of quartic operators which appear in the dimensionless measure of the fluctuations, Delta, or in the Langevin equation, Eq.(4.27), may be defined in terms of normal ordered products. The generalization of this analysis to curved spacetime backgrounds will require a renormalization procedure for quartic operator products in such spacetimes, which has not yet been developed. Note that an alternative approach to fluctuations is to discuss only averaged quantities. If we were to average fields over finite space or time intervals, then we could define a quantity similar to Delta without invoking normal ordering. ... this procedure suffers from the defect that it introduces an arbitrary length or time scale into the problem.'",
+ "published_hypotheses": [
+  "H1 the remark concerns the POINTWISE quartic expectation values in Delta (3.2) and in the Langevin equation (4.27), which in flat space are defined by normal ordering w.r.t. the Minkowski vacuum",
+  "H2 curved (non-Minkowski) background -- no preferred vacuum to normal-order against",
+  "H3 TIME-INDEXED: 'has not yet been developed' is a statement about the literature as of Feb/Apr 1993",
+  "H4 scope exclusion stated by KF themselves: AVERAGED quantities can be defined 'without invoking normal ordering' (their objection to averaging is the arbitrary scale, not renormalisation)",
+  "H5 free massless minimally coupled scalar field (the paper's field, Lagrangian (2.1))"
+ ],
+ "hypothesis_drift": [
+  "FAITHFUL -- fluctuation.py:114-116 quotes the sentence verbatim and time-stamps it ('Their words, 1993'); checked string-for-string against the saved source text (Q0a-Q0c). The canonical hypotheses 'curved spacetime' and 'status of the literature as of 1993' match H2 and H3.",
+  "ADDED APPLICATION (scope widened) -- fluctuation.py:104-120 lists (c) as one of three reasons the file 'REFUSES to price the corridor's fluctuation demand', where (a)-(b) make the demand a SMEARED quantity at the corridor's scales. KF's remark (H1) is about POINTWISE normal-ordered quartic products; for averaged quantities KF say one can proceed 'without invoking normal ordering' (H4, Q0d). So (c) does not by KF's own words bear on the smeared price; it bears on the pointwise Delta the file already refuses as the demand row on grounds (a). Reason (c) is therefore redundant to the refusal rather than load-bearing, and the refusal stands on (a)-(b) and on the absence of the corridor's two-point function.",
+  "DROPPED TIME INDEX + SAME WIDENING -- ledger.py:750-763 (D22_DOCKET62, kept as SUPERSEDED_WORDING history): 'the SMEARED fluctuation priced at the corridor's scales ... which needs the curved-space renormalisation of quartic operator products Kuo & Ford said did not exist' (Q0e, Q0f). 'not yet developed' (1993) becomes an untimed 'did not exist', and the remark is attached to the smeared price KF excluded. Repeated in noise.py:198-200 as a quotation of the ledger.",
+  "PARTIAL CORRECTION, CORRECT AS FAR AS IT GOES -- ledger.py:1917-1924 (DOCKET 64) and noise.py:200-212 say the D22 wording is 'wrong ONLY AS TO NEW RENORMALISATION' for the curved VARIANCE (c-number counterterms cancel, Hu & Verdaguer 0802.0658 Sec. 3.2) and keep finiteness of the worldline-smeared variance NAMED, NOT RUN (Fewster 1208.5399 Sec. 3.3). Re-derived here: counterterm cancellation in any state (Q1) and reference-independence of the variance (Q3, Q4d). What the correction does not record: the POINTWISE quartic renormalisation KF said was undeveloped WAS developed after 1993 -- Brunetti-Fredenhagen-Koehler 1996 (state normal ordering w.r.t. a Hadamard reference; NAMED-NOT-READ) and Hollands & Wald 2001 (local covariant Wick polynomials via the Hadamard parametrix, unique up to finitely many local curvature/mass parameters; READ by sibling stage kuo-ford-1993-measure), and <T_ab(x)T_cd(x)>_ren for Hadamard states via the OPE (Perez & Sudarsky 2512.17789; READ by the same sibling stage). No file in the tree states the remark as still true in 2026, so this is an omission of later literature, not a false statement.",
+  "NOT CARRIED -- H5 (massless scalar) and the Langevin-equation half of H1 are not stated at the use sites; neither affects any flag here.",
+  "noise.py:211-212 ('Kuo & Ford's <:A^2:> in curved space needs a REFERENCE STATE for its normal ordering; Var = <A^2> - <A>^2 does not') is TRUE of KF's literal state normal ordering and re-derived here (Q2b-Q2d, Q4c-Q4d); Hadamard-parametrix ordering (Hollands-Wald) is a further reference-state-free route to the pointwise quantity, at the cost of local curvature ambiguities (shape shown in Q5). Narrower than the passage reads, not false."
+ ],
+ "data_at_publication": [
+  {
+   "quantity": "state of the literature on renormalising coincident quartic (Wick) operator products in curved spacetime",
+   "value_then": "1993: none, per KF ('has not yet been developed'); consistent with Hollands & Wald's own account that Brunetti-Fredenhagen-Koehler (1996) first constructed curved-space Wick polynomials (normal ordering w.r.t. an arbitrarily chosen Hadamard state, non-local in that choice) -- sibling READ of gr-qc/0103074 pp. 1,4, corroborated by a WebSearch snippet of the same passage",
+   "value_now": "BFK 1996 (CMP 180, 633); Hollands & Wald 2001 (CMP 223, 289, gr-qc/0103074): local covariant Wick polynomials exist, unique up to local curvature/mass terms times lower Wick powers; Perez & Sudarsky 2512.17789 (preprint, Jan 2026 v2): renormalised <T_ab T_cd> at a point for Hadamard states via the OPE, 'independent of the normal ordering chosen', explicit in 2D, 4D argued",
+   "source_now": "gr-qc/0103074 and 2512.17789 as READ by sibling stage d67/audits/kuo-ford-1993-measure.json (this stage's own reads refused on quota); BFK 1996 NAMED-NOT-READ",
+   "moves_conclusion": "YES for the time-indexed remark read as a present-tense blocker: the procedure now exists (with finite local ambiguities). NO for KF's 1993 statement, which was accurate when made. NO for any flag in rests_on_it: PRICES_THE_CORRIDOR = False is a fact about fluctuation.py (it computes no price) and the curved price is blocked in noise.py on the corridor's two-point function (fewsterteo.CORRIDOR_MODE_FUNCTIONS NOT-FOUND), not on KF."
+  },
+  {
+   "quantity": "numerical inputs",
+   "value_then": "none -- the result is a statement about mathematical technique, not a measurement",
+   "value_now": "none",
+   "source_now": "n/a",
+   "moves_conclusion": "no datum enters"
+  }
+ ],
+ "rederivation": {
+  "method": "sympy",
+  "script_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/gr-qc_9304008-quartic-renormalisation.py",
+  "outcome": "22/22 PASS, exit 0, ~2 s (sympy only; reads fluctuation.py/ledger.py read-only, imports nothing from research/). Q0: the tree's quotation occurs verbatim in the saved source text; the source restricts it to normal-ordered quartics and names averaging as avoiding normal ordering; ledger.py D22_DOCKET62 applies it to the smeared price and drops the time index. Q1: Var(A + c1) = Var(A) for generic A and unit-trace rho, while <(A+c1)^2> != <A^2> (H&V's mechanism). Q2 (exact single-mode Weyl algebra, inverse-Wick normal ordering w.r.t. two quasifree references): the reference change shifts a QUADRATIC product by a pure c-number, but shifts the QUARTIC product KF need by an OPERATOR-valued quadratic term (lower Wick power with c-number coefficients), so <:A^2:>_psi moves with the state psi -- KF's remark has real content: fixing <T> does not fix <T^2>. Q3: Var_psi(:A:_ref) is reference-independent identically. Q4: KF's Delta for a squeezed state S(1/2): with ONE quadrature (KF's single mode, theta = 0) Delta = 2/3 under BOTH references (recorded against over-reading: <:X^4:> = 3<:X^2:>^2 for any Gaussian pair); with TWO quadratures (T = :x^2: + :p^2:) Delta = 0.850360 (vacuum ref) vs 0.927451 (S(-1/5) ref), while Var(T) = 2.762195691 under both. Q5: :x^4:_s - :x^4:_t = -6(s-t):x^2:_t + 3(s-t)^2 -- the shape of the Hollands-Wald finite-renormalisation freedom in its simplest commutative instance (not a proof of their theorem). The literature-status half of the claim is READ, not computable.",
+  "agrees_with_source": "yes"
+ },
+ "later_literature": [
+  {
+   "ref": "S. Hollands & R. M. Wald, 'Local Wick polynomials and time ordered products of quantum fields in curved spacetime', gr-qc/0103074, CMP 223 (2001) 289",
+   "effect": "extends",
+   "what": "Existence of local covariant Wick polynomials (incl. quartic; derivative products 'defined in a similar manner') in globally hyperbolic spacetimes via the Hadamard parametrix, unique up to finitely many local curvature/mass parameters; state normal ordering 'depends on a choice of a reference state omega, which is itself a highly nonlocal quantity'. Supersedes 'not yet developed' as a present-tense claim; confirms noise.py:211-212's reference-state point for KF's literal ordering.",
+   "read_status": "READ by sibling stage kuo-ford-1993-measure (alphaXiv page text pp. 1-2, 4-5, 7, 20, 31-32, 35-38, 40-42); NOT re-read by this stage (alphaXiv quota exceeded); BFK-attribution passage corroborated by a WebSearch result snippet"
+  },
+  {
+   "ref": "R. Brunetti, K. Fredenhagen & M. Koehler, CMP 180 (1996) 633",
+   "effect": "extends",
+   "what": "First curved-space construction of Wick polynomials, by normal ordering w.r.t. an arbitrarily chosen Hadamard state -- KF's construction with a curved reference state; no locality/covariance imposed.",
+   "read_status": "NAMED-NOT-READ (restated in Hollands & Wald gr-qc/0103074 pp. 1, 4, per sibling read and WebSearch snippet)"
+  },
+  {
+   "ref": "A. Perez & D. Sudarsky, 'Renormalization of the Quantum Stress Tensor Fluctuations and the Limits of Semiclassical Gravity', arXiv:2512.17789 v2 (Jan 2026)",
+   "effect": "extends",
+   "what": "<T_ab(x)T_cd(x)>_ren for Hadamard states via the OPE, independent of the normal ordering chosen, ambiguities similar to <T_ab>'s; explicit in 2D, 4D argued; cites KF as the flat-space starting point. The direct successor to KF's curved-space programme. Preprint; peer review not checked.",
+   "read_status": "READ by sibling stage kuo-ford-1993-measure (alphaXiv pp. 1-7, 10, 13); NOT re-read by this stage"
+  },
+  {
+   "ref": "B. L. Hu & E. Verdaguer, 'Stochastic Gravity: Theory and Applications', arXiv:0802.0658 Sec. 3.2, 5.2.1",
+   "effect": "narrows",
+   "what": "Noise kernel (connected two-point function of T) needs no renormalisation beyond T's -- c-number counterterms cancel -- finite at separated points; divergent in the coincidence limit. Narrows KF's remark to the POINTWISE quartic; this is the tree's own DOCKET 64 correction, re-derived here (Q1, Q3).",
+   "read_status": "READ by sibling stages 0802.0658-sec3.2 and 0802.0658-sec5.2.1 (alphaXiv page text); NOT re-read by this stage"
+  },
+  {
+   "ref": "C. J. Fewster, arXiv:1208.5399 Sec. 3.3 (wavefront pull-back to a timelike curve)",
+   "effect": "extends",
+   "what": "The step that makes worldline-smeared products of restricted Hadamard two-point derivatives well defined; the tree marks it NAMED, NOT RUN and so does this audit.",
+   "read_status": "NAMED-NOT-READ by this stage"
+  },
+  {
+   "ref": "S. Hollands & R. M. Wald, 'Existence of local covariant time ordered products of quantum fields in curved spacetime', gr-qc/0111108",
+   "effect": "extends",
+   "what": "Surfaced by WebSearch (discover_papers refused on quota); companion construction of time-ordered products.",
+   "read_status": "NAMED-NOT-READ"
+  }
+ ],
+ "lacked_data": "M's hypothesis tested for THIS result. What Kuo & Ford lacked in 1993 was not a measured datum but a mathematical construction: renormalised coincident quartic (Wick) products on curved backgrounds, which arrived with microlocal methods (Brunetti-Fredenhagen-Koehler 1996; Hollands-Wald 2001) and, for <T T> itself, the OPE route (Perez-Sudarsky 2025/26). Evidence FOR the hypothesis: the limitation KF named has since been lifted, so 'has not yet been developed' is out of date and any reading of it as a present blocker (ledger.py:750-763's 'did not exist') is superseded. Evidence AGAINST over-reading it: (i) KF's statement was accurate when made and was explicitly time-indexed -- no error, no misprint, nothing to refute; (ii) the difficulty was real, not illusory: Q2/Q4 show the quartic's reference dependence is operator-valued and moves Delta, so fixing <T> does not fix <T^2>; (iii) the later construction is unique only up to finitely many local curvature terms times lower Wick powers (Hollands-Wald; shape in Q5), so a curved pointwise Delta computed today carries renormalisation constants -- a cousin of the 'arbitrary scale' KF held against averaging, stated here as NAMED inference, not computed; (iv) none of it moves a flag the tree hangs on this key: PRICES_THE_CORRIDOR = False stays true of fluctuation.py (no price is computed there), and the curved corridor price is blocked on the corridor's two-point function, which no later paper supplies.",
+ "grade": "NARROWED",
+ "grade_evidence": "The statement as QUOTED stands: fluctuation.py:114-116 reproduces KF Sec. V verbatim with the date (Q0a-Q0c), and its content is real (Q2b-Q2d, Q4c: the quartic's normal-ordering reference dependence is operator-valued and changes KF's Delta, while the variance does not, Q3/Q4d). It is NARROWED on two counts relative to the tree's use: (1) SCOPE -- KF's remark covers pointwise normal-ordered quartic products; KF themselves exempt averaged quantities ('without invoking normal ordering'), yet fluctuation.py:104-120 lists it as a reason to refuse the SMEARED corridor price and ledger.py:750-763 attaches it to 'the SMEARED fluctuation priced at the corridor's scales' (Q0d, Q0e); (2) TIME -- 'not yet developed' is a 1993 statement since superseded by BFK 1996 / Hollands-Wald 2001 and, for <TT>_ren, Perez-Sudarsky 2512.17789 (READ by a sibling stage; this stage's own reads refused on quota), and ledger.py:762 drops the time index. Both drifts are already partly caught by the tree (DOCKET 64 at ledger.py:1917-1924 and noise.py:198-212, correct for the variance via Hu-Verdaguer) and neither flips a flag in rests_on_it. Not WRONG: no counterexample and no computed contradiction to anything KF wrote; not DATA-DEPENDENT: no numerical input; not OPEN: the source text and the successors were read in this docket, though via a sibling stage's saved reads.",
+ "what_would_change_the_grade": "To STANDS: fluctuation.py's reason (c) confined to the pointwise Delta (which KF's remark concerns) and the tree recording that the construction was developed after 1993 (BFK 1996, Hollands-Wald 2001, Perez-Sudarsky 2025/26), with D22_DOCKET62's 'did not exist' already marked superseded. To OPEN: if the saved excerpt at d67/src/gr-qc_9304008.note were found not to match the v1 text on a direct read (this stage could not re-fetch it), or if the journal version PRD 47, 4510 (NAMED-NOT-READ) words Sec. V differently. To WRONG: only a pre-1993 published renormalisation of coincident quartic operator products in curved spacetime, which would make KF's 'has not yet been developed' false when written -- none is known to this audit (Hollands-Wald date the first construction to BFK 1996).",
+ "reverify_command": "python3 /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/gr-qc_9304008-quartic-renormalisation.py   # expect 22/22 PASS, exit 0; source text: cat /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/src/gr-qc_9304008.note",
+ "report_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/audits/gr-qc_9304008-quartic-renormalisation.json"
+}

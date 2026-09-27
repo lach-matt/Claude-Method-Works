@@ -1,0 +1,119 @@
+{
+ "key": "1711.00578",
+ "name": "Anglada et al. 2017: ALMA 1.3 mm detection of a 1-4 au dust belt around Proxima Cen, ~0.01 M_earth total by -3.5 size-law extrapolation to 50 km; 0.4 au warm dust and ~30 au belt marginal; 1.3 mm traces um-cm grains",
+ "source": {
+  "located": "G. Anglada et al., 'ALMA Discovery of Dust Belts Around Proxima Centauri', arXiv:1711.00578v1 [astro-ph.EP], 2 Nov 2017 (submitted ApJL; received 2017-10-15, accepted 2017-11-01; published ApJL 850, L6). Secs 1, 2, 3.1-3.4, abstract, Fig. 4.",
+  "read_status": "READ",
+  "via": "alphaXiv get_paper_content(fullText=true): the whole v1 text read, 9 pp. incl. references. The journal version (ApJL 850 L6) was NOT read; per the tree's precedent any v1 discrepancy recorded below MUST NOT be quoted against the journal version until it is read. Later work READ at source: MacGregor et al. 2018 arXiv:1802.08257 (whole paper, via answer_pdf_queries, pp.1-7); Faria et al. 2022 arXiv:2202.05188 (Table 1, Table C.1, sec 6); Burton et al. 2025 arXiv:2503.21890 (abstract, secs 1.2, 2.1, 3.1, 5)."
+ },
+ "published_statement": "Abstract: 'the discovery of a belt of dust orbiting around it at distances ranging between 1 and 4 au, approximately ... characteristic temperature of about 40 K ... The estimated total mass, including dust and bodies up to 50 km in size, is of the order of 0.01 Earth masses ... Our data also show a hint of warmer dust closer to the star. We also find signs of two additional features ... which, however, still require further observations to be confirmed: an outer extremely cold (about 10 K) belt around the star at about 30 au ... and ... a compact 1.3 mm emission source at a projected distance of about 1.2 arcsec'. Sec 3.2: the ACA 340+/-60 uJy unresolved source exceeds the 74+/-4 uJy photosphere; '~200 uJy of dust emission spread over a belt in a range of radii from ~1'' to ~3'', corresponding to ~1.3-4 au'; (m_dust/M_E) = 0.5 (S_nu/Jy)(T_d/K)^-1 (d/pc)^2 (nu/230 GHz)^-2 with kappa_nu = 2 cm^2 g^-1 (Beckwith 2000); (T_d/K) = 278 (L/Lsun)^0.25 (r/au)^-0.5 (Wyatt 2008); T_d ~ 40 K, m_d ~ 4e-6 M_E. 'The 1.3 mm continuum emission traces dust grains with um to cm sizes.' Equilibrium size distribution 'power-law of index -3.5 (Tanaka et al. 1996)'; 'if the primordial size distribution connects smoothly with the collisional cascade distribution, the total mass can be approximated by m_tot ~ m_dust (D_max/D_dust)^0.5 ... Taking D_dust ~ 1 cm, we obtain m_tot ~ 2200 m_dust (D_max/50 km)^0.5 ... if we integrate up to D_max ~ 50 km ... m_tot ~ 1e-2 M_E.' Warm component: 'it might be possible that a small amount of warmer dust, with a flux density of ~30 uJy is present at distances of ~0.4 au ... T_d ~ 90 K, a dust mass of ~5.5e-7 M_E, and a total mass of ~1e-3 M_E'. Sec 3.3: outer belt r ~ 30 au, i ~ 45 deg, ~1.7 mJy, T_d ~ 10 K, m_dust 1.4e-4 M_E, m_tot 0.33 M_E; 'we should emphasize that the detection of this outer belt is marginal'. Sec 1: Proxima b 'm_p sin i = 1.3 M_E ... at 0.05 au (Anglada-Escude et al. 2016)'.",
+ "published_hypotheses": [
+  "H1 (observational interpretation): the ACA flux in excess of the extrapolated photosphere (340 - 74 ~ 270 uJy) is steady thermal emission from circumstellar dust -- the star's emission is taken as the Ribas et al. 2017 photospheric model (74+/-4 uJy) plus negligible (~1 uJy) non-thermal emission extrapolated from 1-3 GHz; no time-variability analysis of the 13 ACA sessions is reported (all epochs combined)",
+  "H2: the ~200 uJy not seen by the 12-m array is spread over a solid angle >~7 ALMA beams, hence radii ~1''-3'' (~1.3-4 au); 'if a fraction of the emission was resolved out ... this conclusion still holds'",
+  "H3: dust opacity kappa_nu = 2 cm^2 g^-1 at 230 GHz (Beckwith et al. 2000); optically thin emission; Rayleigh-Jeans form B_nu ~ 2 nu^2 k T / c^2 (implicit in the S/T scaling)",
+  "H4: blackbody equilibrium temperature law T_d = 278 (L/Lsun)^0.25 (r/au)^-0.5 (Wyatt 2008), with L = 0.0015 Lsun (Ribas 2017) and d = 1.3 pc (van Leeuwen 2007)",
+  "H5: 1.3 mm continuum traces grains of um to cm size; D_dust ~ 1 cm",
+  "H6: collisional-cascade equilibrium size distribution of index -3.5 (Tanaka et al. 1996)",
+  "H7: the primordial size distribution 'connects smoothly' with the cascade distribution (following Wyatt & Dent 2002)",
+  "H8: extrapolation to D_max ~ 50 km (Greaves 2004; Wyatt 2007a); m_tot scales as (D_max/50 km)^0.5",
+  "H9 (stated by the authors): 'our data are insufficient for a proper modeling' -- the masses are 'a rough estimate'; the 0.4 au component is a 'hint'/'might be possible'; the 30 au belt and the 1.2'' source are 'marginal' and 'require further observations to be confirmed'",
+  "H10: Proxima b m_p sin i = 1.3 M_E at 0.05 au is imported from Anglada-Escude et al. 2016 (Doppler), not measured here"
+ ],
+ "hypothesis_drift": [
+  "DROPPED (formation.py:283-285, 443): the tree's statement names only the -3.5 size law and the 50 km cap; it drops H3 (kappa_nu = 2 cm^2/g, optically thin, Rayleigh-Jeans), H4 (T_d law, L, d), H5's D_dust ~ 1 cm and H7 (smooth connection of primordial and cascade distributions). The total mass depends linearly on kappa^-1 and on each of these; none is named. The tree uses the number only as 'reported' and then withdrawn, so the drop does not make the tree over-claim -- but the ~0.01 M_E is conditional on all of H1-H8, not on the size law alone.",
+  "DROPPED (formation.py:283-287): H1 -- the whole mass rests on the ACA excess being steady dust emission. The tree does not name H1 at the Anglada line, but it records its failure immediately after (formation.py:286-290, 458: SURVEY_BELT_1_4AU_WITHDRAWN_BY_SOURCE = True, MacGregor 2018 sec 4.2). Net: the tree's use is consistent with the source's fate; the hypothesis itself is unnamed.",
+  "SITE DISCREPANCY (formation.py:284-285, 443-444): 'Warm dust at ~0.4 au and a ~30 au belt are both marginal (abstract, 3.3)'. READ: the 0.4 au component is in sec 3.2 (last paragraph), not 3.3 and not in the abstract (the abstract says only 'a hint of warmer dust closer to the star', no radius); sec 3.3 is the 30 au belt only. The word 'marginal' is the paper's for the 30 au belt (sec 3.3) and the 1.2'' source (abstract, 3.4); for the warm dust the paper says 'hint' and 'might be possible'. MacGregor 2018 sec 4.2 paraphrases Anglada as calling (1) and (3) 'marginal detections'. A citation/wording discrepancy, not a change of substance: both components are tentative in the source.",
+  "WEAKENED-TOWARD-SOURCE (formation.py:283): '1-4 au belt' -- the abstract's 'between 1 and 4 au, approximately'; the sec 3.2 derivation gives '~1.3-4 au'. Consistent with the abstract; no drift of substance.",
+  "RETAINED (formation.py:298-299, 463): '1.3 mm continuum traces dust grains with um to cm sizes' is a verbatim quote of sec 3.2 (H5); 'Neither paper's own data constrain individual bodies' / SURVEY_CONSTRAINS_BODIES = False is consistent with the source, whose body-mass content is extrapolation (H6-H8), not measurement.",
+  "DATUM IMPORTED AT SECOND HAND (formation.py:292-295, 452-453): Proxima b m_p sin i = 1.3 M_E, a = 0.05 au is READ correctly from Anglada 2017 sec 1, which itself imports it from Anglada-Escude et al. 2016 (H10). The value has since moved (1.07 +/- 0.06 M_E, a = 0.04856 au; Faria et al. 2022 Table C.1) -- see data_at_publication; it does not move the tree's use."
+ ],
+ "data_at_publication": [
+  {
+   "quantity": "ACA 1.3 mm flux excess over photosphere attributed to steady dust (the input of the 1-4 au belt and of m_tot)",
+   "value_then": "340 +/- 60 uJy total, ~270 uJy excess, ~200 uJy assigned to the 1.3-4 au belt (Anglada 2017 sec 2, 3.1, 3.2)",
+   "value_now": "334 +/- 48 uJy combined, but NO quiescent excess: first 12 ACA sessions show no >3 sigma source (rms 68 uJy/beam, ~2 sigma central peak); the combined flux is dominated by a ~1 min flare on 2017-03-24 peaking at 100 +/- 4 mJy (MacGregor 2018 sec 3.2, 4.2); the same flare re-measured at 119 +/- 7 mJy and 463 mm flares found in ~50 h of ALMA data (Burton et al. 2025)",
+   "source_now": "MacGregor et al. 2018, arXiv:1802.08257 secs 3.2, 4.2, 5 (READ); Burton et al. 2025, arXiv:2503.21890 abstract, 3.1, 5 (READ)",
+   "moves_conclusion": "YES for the 1-4 au belt and its ~0.01 M_E: with no quiescent excess the dust flux input is removed ('no need to posit the cold belt at 1-4 AU'). Computed here (rederive F, approximate inverse-variance weighting of MacGregor's two sub-images): a flare-only reading gives a combined 261-312 uJy vs the measured 334 +/- 48, i.e. consistent; Anglada's quiescent three-component flux (~304 uJy in the ACA beam) against the first-12 image's <= ~2 sigma (~136 uJy) peak is a ~2.5 sigma tension. 'No need to posit' is not a proof of absence: a belt below the quiescent ACA limit is not excluded."
+  },
+  {
+   "quantity": "12-m central-source excess (input of the 0.4 au warm dust)",
+   "value_then": "106 +/- 12 uJy vs 74 +/- 4 uJy photosphere, ~30 uJy excess, marginal elongation PA ~130 deg (Anglada sec 2, 3.2)",
+   "value_now": "101 +/- 9 uJy, point-like in visibility fits, elongation ~2 sigma and varying between the two SBs; the ~30 uJy excess 'could also be plausibly explained by stellar emission' (coronal / small flares) (MacGregor 2018 sec 3.1, 4.2)",
+   "source_now": "MacGregor et al. 2018 arXiv:1802.08257 secs 3.1, 4.2 (READ)",
+   "moves_conclusion": "CONTESTED, not refuted: the warm component becomes unnecessary IF the excess is coronal; MacGregor's own words are conditional ('If ... then there is no evidence for any warm dust emission at ~0.4 AU')."
+  },
+  {
+   "quantity": "30 au belt flux (~1.7 mJy from azimuthal averaging of ~150-200 uJy peaks)",
+   "value_then": "marginal (Anglada sec 3.3)",
+   "value_now": "not affected by the flare; ACA visibilities do not cover the short spacings needed; 13 +10/-8 background sources > 150 uJy expected in the ACA primary beam; Galactic cirrus at b = -2 deg (MacGregor 2018 sec 4.2)",
+   "source_now": "MacGregor et al. 2018 arXiv:1802.08257 sec 4.2, 5 (READ)",
+   "moves_conclusion": "Stays marginal (as the source and the tree both say); background-count caution added. No confirmation found in the literature read."
+  },
+  {
+   "quantity": "distance d",
+   "value_then": "1.3 pc (van Leeuwen 2007)",
+   "value_now": "1.3012 +/- 0.0003 pc (Faria 2022 Table 1, Gaia); 1.3020 +/- 0.0001 pc (Burton 2025 sec 1.2, Gaia EDR3)",
+   "source_now": "arXiv:2202.05188 Table 1; arXiv:2503.21890 sec 1.2 (READ)",
+   "moves_conclusion": "No: m ~ d^2 shifts by +0.2-0.3% (rederive E)."
+  },
+  {
+   "quantity": "stellar luminosity L",
+   "value_then": "0.0015 Lsun (Ribas et al. 2017)",
+   "value_now": "0.0016 +/- 0.0006 Lsun (Boyajian 2012, as tabulated in Faria 2022 Table 1)",
+   "source_now": "arXiv:2202.05188 Table 1 (READ)",
+   "moves_conclusion": "No: T_d ~ L^0.25, m ~ 1/T_d; with d together m_tot x 0.986 (rederive E)."
+  },
+  {
+   "quantity": "Proxima b m_p sin i and a (used by formation.py:452-453, 882, 1133-1143)",
+   "value_then": "1.3 M_E at 0.05 au (Anglada 2017 sec 1, from Anglada-Escude 2016)",
+   "value_now": "1.07 +/- 0.06 M_E, a = 0.04856 +/- 0.00030 au (ESPRESSO TM RVs; CCF: 1.15 M_E) (Faria et al. 2022 Table C.1, sec 6)",
+   "source_now": "arXiv:2202.05188 Table C.1, sec 6 (READ)",
+   "moves_conclusion": "No for the tree's use: the minimum mass stays enormously above stockgate's 70 kg threshold (log10 of the ratio falls by log10(1.3/1.07) = 0.085). The tree's constant is correctly READ from Anglada 2017 but is a superseded value; recorded, not repaired."
+  },
+  {
+   "quantity": "Rayleigh-Jeans form in the mass formula (H3)",
+   "value_then": "implicit RJ, T_d = 40 K (belt), 90 K (warm), 10 K (outer)",
+   "value_now": "(computed) h nu/kT at 230 GHz = 0.276, 0.123, 1.104; Planck/RJ = 0.868, 0.940, 0.548 -> RJ masses low by x1.15, x1.06, x1.83",
+   "source_now": "computed, rederive D",
+   "moves_conclusion": "No for the belt's order of magnitude; the 30 au belt's 0.33 M_E would be ~0.6 M_E with a Planck function -- the direction is toward MORE mass, and the belt is marginal anyway. A named approximation, not an error: the paper calls the masses rough."
+  }
+ ],
+ "rederivation": {
+  "method": "sympy",
+  "script_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/1711.00578.py",
+  "outcome": "ALL CHECKS PASS (exit 0). (A) prefactor from M = S d^2/(kappa B_nu^RJ), kappa = 2 cm^2/g, 230 GHz: 0.4905 vs printed 0.5. (B) sympy: int D^3 D^-3.5 dD = 2 sqrt(Dmax) - 2 sqrt(Dmin), so m ~ Dmax^0.5; (50 km/1 cm)^0.5 = 2236 vs printed 2200. (C) T_d(1,2,4 au) = 54.7, 38.7, 27.4 K (~40 K); m_dust(200 uJy, 40 K) = 4.23e-6 M_E vs 4e-6; m_tot = 9.45e-3 vs ~1e-2; 30 au belt 1.44e-4 and 0.32 M_E vs 1.4e-4 and 0.33; T_d(30 au) = 10.0 K. ONE DISCREPANCY: the warm 0.4 au component with the printed inputs (30 uJy, 90 K) gives m_dust = 2.82e-7 M_E and m_tot = 6.3e-4, vs printed 5.5e-7 and ~1e-3 (factor 0.51; the printed dust mass needs ~59 uJy) -- in arXiv v1; journal version not read; a discrepancy, not a refutation, and the tree does not use this number. (D) RJ corrections x1.15/x1.06/x1.83 at 40/90/10 K. (E) moved d, L: m_tot x 0.986. (F) flare-only reading of MacGregor's sub-images reproduces 334 +/- 48 uJy within 1.5 sigma (261-312 uJy); Anglada's quiescent model vs the first-12 ACA image ~2.5 sigma tension (approximate).",
+  "agrees_with_source": "partly"
+ },
+ "later_literature": [
+  {
+   "ref": "MacGregor, Weinberger, Wilner, Kowalski & Cranmer 2018, ApJL 855 L2, arXiv:1802.08257",
+   "effect": "contradicts",
+   "what": "Re-analysis of the SAME ALMA data (2016.A.00013.S) by session and in 2 s bins: 'the entirety of the 1.3 mm emission detected by the ACA results from the short duration stellar flare ... Without the detection of a quiescent excess, there is no need to posit the cold belt at 1 - 4 AU' (sec 4.2); the 12-m ~30 uJy excess plausibly coronal, removing the need for 0.4 au dust (conditional); the 30 au belt not affected by the flare but 13 +10/-8 background sources > 150 uJy expected in the primary beam and short spacings missing. Contradicts the 1-4 au belt's evidential basis (not a proof of absence).",
+   "read_status": "READ (whole paper, pp. 1-7, via alphaXiv answer_pdf_queries)"
+  },
+  {
+   "ref": "Burton, MacGregor, Osten et al. 2025, ApJ (March 2025), arXiv:2503.21890",
+   "effect": "confirms",
+   "what": "Confirms the flare reading that removed the belt: ~50 h of ALMA 1.3 mm data (2017, 2019, 2021) contain 463 flares of 1e24-1e27 erg; the 2017-03-24 event re-measured at 119 +/- 7 mJy (MacGregor 2018: 100 +/- 4 -- a between-reanalyses discrepancy, recorded). Millimetre flaring from Proxima is common, which is the datum Anglada 2017 lacked. Does not address the 30 au belt.",
+   "read_status": "READ (abstract, secs 1.2, 2.1, 3.1, 3.3, 5 via answer_pdf_queries)"
+  },
+  {
+   "ref": "Faria et al. 2022, A&A, arXiv:2202.05188",
+   "effect": "narrows",
+   "what": "Moves an imported datum the tree carries from Anglada sec 1: Proxima b m_p sin i = 1.07 +/- 0.06 M_E (TM) / 1.15 (CCF), a = 0.04856 au; Gaia distance 1.3012 pc; L = 0.0016 +/- 0.0006 Lsun (Table 1). None moves the tree's conclusion.",
+   "read_status": "READ (Table 1, sec 6, Table C.1)"
+  },
+  {
+   "ref": "discover_papers hits not read: arXiv:2006.12503 (sterilizing impacts from a hypothetical debris belt between Proxima b and c); arXiv:2206.10851 (MIR light echoes of faint debris disks around flaring M dwarfs)",
+   "effect": "extends",
+   "what": "Titles/abstracts only; neither reports a new detection or non-detection of the Anglada belts in its abstract. Named, not read, and not relied on.",
+   "read_status": "NAMED-NOT-READ (abstract snippet from discover_papers only)"
+  }
+ ],
+ "lacked_data": "M's hypothesis tested -- SUPPORTED for this result, with a precise qualification. Anglada et al. HAD the relevant data (the 13 ACA sessions, integration-level visibilities) but combined all epochs (sec 2) and lacked the TIME-DOMAIN analysis and, more fundamentally, the prior knowledge that M dwarfs flare strongly at millimetre wavelengths: MacGregor 2018 reports the FIRST mm flare from Proxima ('Flares from M dwarf stars have not previously been well-studied at (sub)millimeter wavelengths', sec 4.1), and Burton 2025 finds 463 mm flares in ~50 h. Having that datum CHANGES the conclusion for the 1-4 au belt and its ~0.01 M_E: the dust-flux input goes to 'no quiescent excess', and the flare-only reading reproduces the combined ACA flux (computed here, 261-312 uJy vs 334 +/- 48). It PLAUSIBLY changes the 0.4 au component (MacGregor's coronal reading is conditional). It does NOT change the 30 au belt's status (marginal before and after; a background-count caution is added). Evidence the other way: 'no need to posit' is not a demonstrated absence -- a fainter belt below the quiescent ACA sensitivity (rms 68 uJy/beam in 12 sessions) is not excluded, and nothing read here measures an upper limit on belt mass. The EXTRAPOLATION itself (H3-H8) is not refuted by any datum read: it re-derives correctly (one v1 arithmetic discrepancy in the warm-component mass, unused by the tree), and its inputs d, L moved by <2% in the result. So the failure is in the observational premise H1, not in the size-law mathematics. For the TREE: formation.py already records the withdrawal (SURVEY_BELT_1_4AU_WITHDRAWN_BY_SOURCE = True, line 458) and does not rest D25 on the belt; D25's verdict (OPEN/UNDETERMINED) is unchanged by this audit. The one stale datum the tree carries from this paper -- Proxima b 1.3 M_E -- has moved to 1.07 M_E without moving the tree's threshold comparison.",
+ "grade": "DATA-DEPENDENT",
+ "grade_evidence": "The published conclusion (a 1-4 au dust belt holding ~0.01 M_E including bodies to 50 km) moves with a datum that has moved: the ACA excess it rests on (H1) is, on re-analysis of the same data, a ~1 min flare with no quiescent excess (MacGregor 2018 sec 3.2, 4.2, READ; flare prevalence confirmed by Burton 2025, READ); the 0.4 au component is contested (conditional coronal reading); the 30 au belt remains marginal. The extrapolation arithmetic re-derives (rederive A-C, E: prefactor 0.49 vs 0.5, exponent 0.5 by sympy, 2236 vs 2200, m_tot 9.45e-3 vs 1e-2, 30 au 0.32 vs 0.33 M_E), with one v1 discrepancy (warm-dust mass 2.8e-7 recomputed vs 5.5e-7 printed) that is a discrepancy, not WRONG, and is not used by the tree. Not WRONG: no counterexample shows the belt absent -- 'no need to posit' is not a refutation, and the source itself called the masses 'rough'. Not STANDS: a moved datum moves the conclusion. Not NARROWED as the primary grade: the tree does not use the result on a larger class than published; it drops hypotheses H1, H3, H4, H5, H7 from its one-line statement (formation.py:283-285) and mis-sites the 0.4 au component ('abstract, 3.3' should be sec 3.2; 'marginal' is the paper's word only for the 30 au belt and 1.2'' source), but it records the belt as WITHDRAWN (formation.py:286-290, 458) and rests nothing on the 0.01 M_E. The tree's own use (reported-then-withdrawn; SURVEY_CONSTRAINS_BODIES = False) is consistent with this grade.",
+ "what_would_change_the_grade": "To WRONG: a published deep quiescent ALMA/ACA (or JWST/far-IR) limit showing no dust at 1-4 au below the flux Anglada assigned (~200 uJy at 1.3 mm), read at source -- none was found in the one discover_papers call. To STANDS (for the belt): a confirmed quiescent mm excess at 1-4 au in flare-excised data (e.g. the 2019 Proxima Cen Campaign's 34 h of ACA data or the 2021 12-m data, 2019.A.00025.S, analysed for a steady component). For the 30 au belt: an independent detection or a background-source identification. Reading the ApJL 850 L6 journal version would settle whether the warm-dust mass discrepancy (5.5e-7 vs 2.8e-7 M_E) is in the record or only in arXiv v1. Tree-side: correcting formation.py:284-285's citation to 'sec 3.2 (0.4 au, a hint), sec 3.3 (30 au, marginal)' and naming H1/H3/H4 would bring the statement exactly to source; updating PROXIMA_B_MSINI_EARTH to 1.07 would not change any tree verdict.",
+ "reverify_command": "python3 /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/1711.00578.py  # exit 0 = all re-derivations agree; re-read sources: alphaXiv get_paper_content(url='https://arxiv.org/abs/1711.00578', fullText=true) sec 3.2-3.3; answer_pdf_queries(paper='1802.08257', ['sec 4.2 cold belt conclusion']); answer_pdf_queries(paper='2202.05188', ['Table C.1 Mp sin i planet b'])",
+ "report_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/audits/1711.00578.json"
+}

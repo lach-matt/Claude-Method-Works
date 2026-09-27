@@ -1,0 +1,16 @@
+A. Proxima heliocentric: v_t = 23.819 km/s, v_r = -22.204 km/s, |v| = 32.563 km/s, beta = 1.0862e-04
+   Proxima velocity ecliptic latitude 20.27 deg (in-plane part 30.546 km/s)
+   Earth-Proxima (circular, incl. rotation): 10.844 .. 61.837 km/s -> beta_rel 3.617e-05 .. 2.063e-04
+   Earth-Proxima (eccentric extremes, incl. rotation): 10.821 .. 62.326 km/s -> beta_rel 3.609e-05 .. 2.079e-04
+   receiver on Proxima b: orbital speed 47.17 km/s; worst-case bound beta_rel <= 3.652e-04 (orientation unknown)
+   sensitivity RV=-21.700: |v_sun| = 32.222 km/s
+   sensitivity RV=-25.404: |v_sun| = 34.824 km/s
+   sensitivity RV=-19.004: |v_sun| = 30.471 km/s
+B(i) Doppler-factor ratio extremes squared minus e^{-+2eta}: symbolic 0, 0; numeric [-1.1102230246251565e-16, -2.220446049250313e-16, 0.0] [0.0, 0.0, 0.0]
+B(i) generic frames, B in {1.23e-3, 0.5, 0.999387630, 0.99999993}: max |ln ratio|/eta = 0.999823 (<= 1 required)
+B(ii) collinear composition: B' - B = -b*(B - 1)*(B + 1)/(B*b + 1)
+      B = 0.0012336, b = 1e-4: B'-B = 1.000e-04, relative 8.106e-02
+      B = 0.99938763, b = 1e-4: B'-B = 1.224e-07, relative 1.225e-07
+      B = 0.99999993, b = 1e-4: B'-B = 1.400e-11, relative 1.400e-11
+C. priced escape save = T d ((1+B)/(1-B))^2 = T d D^4: spread between endpoints <= e^{4 eta} - 1 = 8.319e-04 at beta_rel = 2.079e-04 (any B)
+VERDICT: beta_rel in [3.61e-05, 2.08e-04] (star), <= 3.65e-04 (Proxima b); order 1e-4: YES

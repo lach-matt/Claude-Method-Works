@@ -1,0 +1,45 @@
+C1    OK   verbatim in source: abstract 'price'
+C1    OK   verbatim in source: abstract 'wide range'
+C1    OK   verbatim in source: BORDE
+C1    OK   verbatim in source: BORDE_SINGULARITY
+C1    OK   verbatim in source: BORDE_DYNAMICS
+C1    OK   verbatim in source: ESCAPES[0] quote
+C1    OK   verbatim in source: ESCAPES[1] quote
+C1    OK   verbatim in source: BORDE_CAUTION
+C2    OK   escape subsections A,B,C sit in SECTION IX (Concluding Comments); section VIII is 'A Few Words on Differentiability' -> the tree's 'section VIII.A' (specthm.py:587, :1850) is a section-number discrepancy
+C2    OK   Euclidean path integral is named BEFORE the subsections, as leaving the Lorentzian framework
+C2    OK   A, B, C are introduced as possibilities WITHIN the general Lorentzian framework
+      source routes (4): ['Euclidean path integral (leaves Lorentzian)', 'IX.A drop causal compactness', 'IX.B weaken curvature constraints', 'IX.C degenerate metrics']
+      tree routes   (3): ['drop causal compactness', 'weaken the curvature constraints', 'Euclidean path integral']
+C2    OK   len(create.ESCAPES) = 3 against 4 routes in the source: IX.C DEGENERATE METRICS is omitted
+C2    OK   IX.B: weakening curvature constraints does NOT remove the causality violation (Thm 1 stands)
+C2    OK   IX.B has a second sub-route INSIDE Einstein's equation (energy-condition violation, cf. wormhole creation) -- create.ESCAPES[1] records only 'altering Einstein's equation'
+C2    OK   IX.C: degenerate metrics, Horowitz in first-order standard GR, 'might well prove to be the correct approach'
+C2    OK   Sec. VIII: Theorem 1's conclusion needs a differentiable (C^1) vector field; with a C^0 metric it fails
+C2    OK   IX.A: Tipler Thm 5, closed-universe case, mild additional assumptions, singularity OR point at infinity
+C2    OK   the 'even if incomplete geodesics are admitted' sentence is conditional on the standard definition
+C2    OK   Theorem 1 located: time-oriented (removable, Sec. VII), causally compact, interpolating
+C2    OK   Theorem 3 located: dim >= 3, null generic condition (i), half-integral null convergence (ii)
+C3    OK   n=2: g(V,V) = -|V|^4 and signature (-,+..+) at a sample V (eig [-10, 10])
+C3    OK   n=3: g(V,V) = -|V|^4 and signature (-,+..+) at a sample V (eig [-10, 10, 10])
+C3    OK   n=4: g(V,V) = -|V|^4 and signature (-,+..+) at a sample V (eig [-14, 14, 14, 14])
+C3    OK   n=5: g(V,V) = -|V|^4 and signature (-,+..+) at a sample V (eig [-15, 15, 15, 15, 15])
+C4    OK   U = P + (b^2/2)M + bS is null
+C4    OK   R(U,U) is quartic in beta, leading coeff R(M,M)/4 -> cubic if R(M,M)=0: at most 4 null zero-directions
+C5    OK   d theta/du = -theta^2/(n-2), theta(0)=theta0>0: theta = theta0*(n - 2)/(n + theta0*u - 2) -> inf at u = -(n-2)/theta0, i.e. within affine distance (n-2)/theta0 in the direction of DECREASING u = the PAST under Lemma B's / proof step 4's convention (u increases to the future) -- agrees with Lemma B
+C5    OK   reversal u->-u, theta->-theta leaves the RHS of eq.(1) unchanged (theta^2, R(U,U), sigma^2 are even): the source's two conventions differ only in the sign attached to 'theta > 0' -- a DISCREPANCY, not an error
+C6    OK   T(V_eta,V_eta) = e^{2eta} T(U,U)/4 + O(1): a lower bound K over all boosts forces T(U,U) >= 0 (U=(1,1))
+C6    OK   T = C g: T(V,V) = -C for every unit timelike V, T(U,U) = 0 (Borde's example)
+C7    OK   chi(T^n)=0, chi(S^2 x S^{n-2})=4 (n even), chi(CP^2)=3
+C7    OK   Misner trick: # T^n lowers chi by 2, # S^2xS^{n-2} raises it by 2, # CP^2 (n=4) shifts parity -> any chi reaches 0 (n=4k)
+C7    OK   n=3 RS rule: chi = 2-2g is injective in genus -> every nontrivial oriented 2-surface transition forbidden
+C7    OK   n=7 example: chi(S^6) = 2 = chi((S^4 x S^2) # T^6) = 4 + 0 - 2
+C8    OK   all 5063 finite flows (N<=5): no cycle => every flow line ends on the final set (Thm 1's compactness step in discrete form)
+C8    OK   all 1441 finite forests (N<=5): connected => exactly one root (Thm 2's basin argument in discrete form)
+C9    OK   GEROCH-BORDE as encoded (created & cc -> ctc) is NOT implied by Thm 1 as read: countermodel has smooth_nondeg = False (degenerate / C^0 metric) -- the smoothness hypothesis is dropped
+C9    OK   with smooth_nondeg added, GEROCH-BORDE follows from Thm 1 (unsat)
+C9    OK   under H_closed + Tipler's extra assumptions (+ smooth), BORDE-ESCAPES follows from Tipler Thm 5 (unsat)
+C9    OK   without H_closed, BORDE-ESCAPES is NOT implied by anything Borde states (sat) -- specthm scopes it to H_closed, correctly
+C9    OK   in the H_closed case the source forces the PATHOLOGY disjunct itself; 'or nongr' is a weakening, harmless but not Borde's structure
+
+RESULT: ALL CHECKS AGREE WITH THE REPORT

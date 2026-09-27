@@ -1,0 +1,110 @@
+{
+ "key": "lodders-2003-apj-591-1220",
+ "name": "Lodders 2003: CI chondrite abundances and 50% condensation temperatures at 1e-4 bar",
+ "source": {
+  "located": "Lodders K. (2003) ApJ 591, 1220-1247, doi:10.1086/375492 (no arXiv copy; the title search on alphaXiv resolved to an unrelated paper)",
+  "read_status": "READ",
+  "via": "alphaXiv answer_pdf_queries on https://iopscience.iop.org/article/10.1086/375492/pdf. Pages read: p.1220 (abstract, sec.1), p.1222 (Table 1), p.1225 (Table 3, CI chondrite group means H..Ag), p.1236 (sec.3 pressure choice), p.1238 (sec.3.1-3.2, Table 7), pp.1239-1240 (Table 8, 50% T_C, solar-system composition, complete), pp.1241-1243 (Table 9, secs 3.3.1-3.3.8)."
+ },
+ "published_statement": "p.1236: 'The condensation temperatures and the 50% condensation temperatures are calculated for all elements at a total pressure of 10^-4 bar. This pressure was chosen because it is characteristic for the total pressure near 1 AU in the solar nebula (see Fegley 2000).' Table 8: 'Equilibrium Condensation Temperatures for a Solar-System Composition Gas ... Note. At 10^-4 bar total pressure. Solar system abundances from Table 2.' p.1238-1239: 'the 50% condensation temperature ... At this temperature, half of an element is in the gas and the other half is sequestered into condensates.' Table 3: 'Elemental Abundances in CI Chondrites', CI group weighted mean, ppm (e.g. P 920 +- 100, N 2940 +- 20, As 1.73 +- 0.06).",
+ "published_hypotheses": [
+  "H1 total pressure fixed at 1e-4 bar, 'characteristic for the total pressure near 1 AU in the solar nebula' (p.1236)",
+  "H2 gas of solar-system (protosolar, Table 2) composition for Table 8; Table 9 is the separate photospheric set, ~10 K lower (p.1238)",
+  "H3 full chemical equilibrium: 'condensates remain in equilibrium with the gas as temperature drops'; stated NOT to apply to giant-planet, brown-dwarf or cool stellar atmospheres (p.1238)",
+  "H4 trace elements condense into solid solution in chosen host phases, selected from meteorite mineral analyses, with activity coefficients from earlier studies (p.1239); 50% T_C of trace elements depend on host availability, not on their own abundance",
+  "H5 thermodynamic data as available in 2003 (CONDOR code, ~2000 gases, 1600 condensates); halogen and Hg values flagged by the author as 'among the more uncertain' (pp.1242-1243)",
+  "H6 pressure dependence stated: metal condensation T decreases with decreasing total pressure; troilite T independent of P below 1e-2 bar; Te, Pb change host between 1e-4 and 1e-6 bar (p.1243)",
+  "H7 CI abundances: weighted means over Alais, Ivuna, Orgueil, Revelstoke, Tonk analyses available by 2003, parenthesised outliers excluded (Table 3)"
+ ],
+ "hypothesis_drift": [
+  "KEPT, exact: H1. formation.py:501 LODDERS_PRESSURE_BAR = 1.0e-4 and stockgate.py:284-285 SOURCES['L03'] '50% condensation temperatures at 1e-4 bar' match p.1236; formation.py:271-274 calls them 'nebular', which the source's own reason for the pressure (near 1 AU in the solar nebula) supports.",
+  "DROPPED (named nowhere in the tree): H2 solar-system composition. stockgate.py:330 comments TCOND only as '50% condensation temperatures, K, at 1e-4 bar'; the values are Table 8 (solar-system composition), not Table 9. formation.py:271-277 never names composition as a hypothesis. It does not affect D25, because formation refuses to use T_c at the destination at all.",
+  "DROPPED: H3 equilibrium / H4 host-phase and activity-coefficient model. Not named at stockgate.py:166-181 or :735-746, where T_c labels destinations (VOLATILE_CUT = 500 K). The labels are a relative-volatility use, which LFME 2024 point (4) calls qualitative (no inherent link between T50 and a body's abundances).",
+  "DISCREPANCY (label): stockgate.py:331 TCOND H = 182 and He = 3 are called 50% T_c, but Table 8 prints no 50% value for H or He. 182 K is H's appearance T_C (water ice) and He is printed '<3'. 61 of the 63 TCOND entries equal Table 8's 50% T_C exactly (Ne 9.1 rounded to 9). No regime changes, because both stay below 500 K either way.",
+  "DISCREPANCY (attribution): stockgate.py:284-285 credits the 'CI chondrite' composition to L03, but stockgate.py:395-413 CHONDRITE is not L03 Table 3. Only 7 of 39 compared elements agree within 0.5%. P is 1040 ppm against L03's 920 (x1.130, +1.2 sigma), N is 3180 against 2940 (x1.082), and As is 18.5 ppm against 1.73 (x10.69, looks like a decimal slip). The table also sums to 1.0069 and is not renormalised (stockgate.py:534). The tree's values come from a source not identified here. This is a discrepancy in the tree, not an error in Lodders.",
+  "ADDED by the tree (its own inference, not in L03): formation.py:271-277 says turning 'primitive' into an orbital radius needs the formation-epoch disc T(a), P(a). This is consistent with H6 and with LFME 2024 point (3): '1e-4 bar is model specific'.",
+  "INTERNAL to the source (recorded, not the tree's): L03 sec.3.3.3 (p.1241) says Be is 50% condensed 'at 1421 K', while Table 8 gives 1452 K. The tree uses the table's value."
+ ],
+ "data_at_publication": [
+  {
+   "quantity": "total pressure of the condensation calculation",
+   "value_then": "1e-4 bar (a chosen model parameter, L03 p.1236)",
+   "value_now": "still tabulated at 1e-4 bar, now alongside 1e-2, 1e-6 and 1e-8 bar; called 'model specific' (LFME 2024 Table 1, point (3))",
+   "source_now": "Lodders, Fegley, Mezger & Ebel 2024, arXiv:2411.01362, Table 1 and p.28",
+   "moves_conclusion": "No. It is a hypothesis, not a measurement, and the tree carries it correctly. The pressure dependence (P 1421/1273/1142/1029 K at log P = -2/-4/-6/-8, computed span 392 K) strengthens formation's refusal to derive a radius."
+  },
+  {
+   "quantity": "50% T_C of P (the binder element's volatility)",
+   "value_then": "1229 K",
+   "value_now": "1273 K at 1e-4 bar",
+   "source_now": "arXiv:2411.01362 Table 1",
+   "moves_conclusion": "No. It stays far above VOLATILE_CUT = 500 K, so P-bound destinations stay ABUNDANCE-LIMITED (re-derived)."
+  },
+  {
+   "quantity": "50% T_C of Cl and Br",
+   "value_then": "948 K and 546 K",
+   "value_now": "418 K and 423 K (updated halogen thermodynamics, Lodders & Fegley 2023)",
+   "source_now": "arXiv:2411.01362 Table 1; arXiv:2301.03674",
+   "moves_conclusion": "Both cross stockgate's 500 K cut. No destination changes regime. condensed_budget: refractory x0.9975, rock x0.9983, rock+ice x0.9991 (computed). Does not move any tree conclusion."
+  },
+  {
+   "quantity": "50% T_C of N (the crust's binder)",
+   "value_then": "123 K",
+   "value_now": "124 K",
+   "source_now": "arXiv:2411.01362 Table 1",
+   "moves_conclusion": "No."
+  },
+  {
+   "quantity": "CI chondrite P abundance (sets the 749.08 kg figure)",
+   "value_then": "L03: 920 +- 100 ppm. The tree uses 1040 ppm, attributed to L03.",
+   "value_now": "989 +- 89 ppm (32 analyses)",
+   "source_now": "Lodders, Bergemann & Palme 2025, arXiv:2502.10575, Table 4 and p.33",
+   "moves_conclusion": "It moves the figure, not any verdict. Feedstock for 70 kg is 749.08 kg as the tree has it, 846.79 kg with L03's own 920, and 787.71 kg with 989 (computed). The Proxima-b comparison moves at most 0.103 dex against a ~21.9 dex margin."
+  },
+  {
+   "quantity": "CI chondrite N abundance",
+   "value_then": "L03: 2940 +- 20 ppm. The tree uses 3180.",
+   "value_now": "1965 +- 970 ppm, quality D, 49% SD, 'significantly lower'",
+   "source_now": "arXiv:2502.10575 Table 4 and abstract",
+   "moves_conclusion": "YES, for stockgate's Finding F label. N overtakes P as the CI binder when CI N < 2400 ppm (tree P), < 2123 (L03 P) or < 2282 (LBP25 P). With every LBP25 row substituted, the CI chondrite binds on N at factor 13.07 (914.91 kg) and is labelled VOLATILITY-LIMITED instead of ABUNDANCE-LIMITED (computed). The datum is contested: its 1 sigma spans the crossover. D25's verdict (primitive NOT-FOUND, radius REFUSED) does not move."
+  }
+ ],
+ "rederivation": {
+  "method": "numeric",
+  "script_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/lodders-2003-apj-591-1220.py",
+  "outcome": "ALL 11 CHECKS PASS (exit 0); output saved at rederive/lodders-2003-apj-591-1220.out. (1) formation's pressure constant and stockgate's SOURCES both say 1e-4 bar, matching L03 p.1236. (2) 61 of 63 TCOND entries equal L03 Table 8's 50% T_C; H and He are appearance T_C, not 50% values. (3) CHONDRITE against L03 Table 3: 7 of 39 agree within 0.5%; P x1.130, As x10.69, sum 1.0069. (4) The tree's binder P at 10.70115, i.e. 749.08 kg, is reproduced. The binder stays P under L03's 920 +- 100 and under every L03 row (factor 12.097, 846.79 kg). Under LBP 2025 rows the binder flips to N (13.07, 914.91 kg). (5) LFME 2024: 32 of 34 elements move by more than 1 K over 1e-2 to 1e-8 bar; S and Se are constant, as L03 sec.3.3.7 states for troilite. (6) Only Cl and Br cross the 500 K cut; no regime changes. (7) sympy: LFME 2024's own fit form 1e4/T = A + B log P reproduces O at 1e-4 bar (181.7 K against 182).",
+  "agrees_with_source": "partly"
+ },
+ "later_literature": [
+  {
+   "ref": "Lodders, Fegley, Mezger & Ebel 2024, arXiv:2411.01362 (submitted to Space Sci. Rev.)",
+   "effect": "extends",
+   "what": "Updated T50 for every element at 1e-2 to 1e-8 bar, same method as L03. At 1e-4 bar most values move by 44 K or less. Cl 948 to 418 K, Br 546 to 423 K, H now a fictive 7.4 K. The paper states '1e-4 bar is model specific' and that T50 has no inherent link to a body's abundances.",
+   "read_status": "READ (pp.1-2, 4-5, 10, 18-21, 25-29, 34, 36)"
+  },
+  {
+   "ref": "Lodders, Bergemann & Palme 2025, arXiv:2502.10575 (Space Sci. Rev., accepted)",
+   "effect": "narrows",
+   "what": "Revised CI composition: P 989 +- 89 ppm, N 1965 +- 970 ppm ('significantly lower'), C 37813, F 92. Non-volatile elements are similar to earlier estimates.",
+   "read_status": "READ (pp.1, 22-23, 33, 70-71, 75)"
+  },
+  {
+   "ref": "Lodders & Fegley 2023, arXiv:2301.03674 (halogen condensation temperatures)",
+   "effect": "narrows",
+   "what": "Source of the halogen T_c revision that LFME 2024 carries. L03 itself called halogens 'among the more uncertain'.",
+   "read_status": "NAMED-NOT-READ (found by discover_papers; its values read via LFME 2024 Table 1)"
+  },
+  {
+   "ref": "Lodders 2020, arXiv:1912.00844; Lodders, Palme & Gail 2009, arXiv:0901.1149; Wang et al. 2019, arXiv:1810.12741",
+   "effect": "extends",
+   "what": "Intermediate compilations of the same abundance and T_c lineage.",
+   "read_status": "NAMED-NOT-READ"
+  }
+ ],
+ "lacked_data": "M's hypothesis tested for this result. In 2003 Lodders lacked the post-2003 CI analyses (ICP-MS and isotope dilution on mg samples, Barrat 2012, Braukmueller 2018, King 2020, Palme & Zipfel 2022), the Ryugu and Bennu return samples, revised halogen thermodynamics, and 3D NLTE photospheric abundances. EVIDENCE THAT THE MISSING DATA MOVE THINGS: (a) CI N fell from 2940 to 1965 +- 970 ppm, enough in this tree to flip the CI chondrite's binder from P to N and its stockgate label to VOLATILITY-LIMITED. The new value is quality D with a 1 sigma that spans the crossover, so it is contested, not settled. (b) Cl and Br T50 fell by 530 and 123 K. EVIDENCE THAT THEY DO NOT: (c) P and the rock-forming elements move by 44 K or less, and every stockgate regime label is unchanged under the 2024 values. (d) CI P rose only from 920 to 989 ppm, which moves the feedstock figure by +5% against L03 (-5% against the tree's 1040); the 21.9 dex Proxima-b margin is untouched. (e) The 1e-4 bar hypothesis was a stated model choice in 2003 and is still one. Data did not overturn it; the author now says it more explicitly. Net: no datum Lodders lacked refutes the 2003 result. The volatility-ordering use stands. One tree-level label (the CI binder) is sensitive to a datum that has since moved and is contested.",
+ "grade": "DATA-DEPENDENT",
+ "grade_evidence": "The two halves grade differently. CONDENSATION TEMPERATURES: READ at source, and the tree reproduces Table 8 in 61 of 63 entries (H and He are appearance T_C mislabelled as 50%, a discrepancy). The 1e-4 bar hypothesis is carried exactly (formation.py:501, stockgate.py:284). D25's refusal is consistent with the source's own statement that T_c depend on pressure (p.1243) and with LFME 2024. The 2024 revision at the same pressure changes no regime label. This half, and D25's verdict (primitive NOT-FOUND, snow-line radius REFUSED), STAND. CI CHONDRITE: stockgate's CHONDRITE table (stockgate.py:395) is attributed to L03 but is not L03 Table 3 (7 of 39 within 0.5%; P 1040 against 920; As x10.7). That is a discrepancy, not a refutation. Under L03's own P the tree's 749.08 kg becomes 846.79 kg, which changes no verdict. The CI chondrite's stockgate label (binds on refractory P, ABUNDANCE-LIMITED; stockgate.py:166-181, which formation's PRIMITIVE conjunct rests on at formation.py:271) moves with CI N. N crosses over below ~2100 to 2400 ppm; LBP 2025 gives 1965 +- 970 ppm. Under the 2025 composition the binder is N (13.07, 914.91 kg), labelled VOLATILITY-LIMITED. A conclusion the tree draws moves with a datum that has moved and is contested, so the grade is DATA-DEPENDENT and not STANDS. It is not WRONG: no refuting computation contradicts Lodders 2003.",
+ "what_would_change_the_grade": "To STANDS: a settled CI N value above ~2400 ppm (e.g. from the forthcoming Lodders et al. 2025b 'Composition of CI-chondrites' or from Ryugu/Bennu bulk N), together with the tree citing the composition it actually uses. To NARROWED: if the tree used T_c quantitatively at a non-solar composition or pressure (it currently refuses to). To WRONG: only a demonstrated error in L03's computation at its stated hypotheses, and none was found.",
+ "reverify_command": "PYTHONDONTWRITEBYTECODE=1 python3 /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/lodders-2003-apj-591-1220.py",
+ "report_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/audits/lodders-2003-apj-591-1220.json"
+}

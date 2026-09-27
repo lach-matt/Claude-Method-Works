@@ -1,0 +1,80 @@
+import json
+D = "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67"
+R = {
+"key": "1005.0031-properly-traceless",
+"name": "Milton: the renormalised EM stress tensor in a source-free cavity is 'properly traceless'",
+"source": {
+ "located": "K. A. Milton, 'Local and Global Casimir Energies: Divergences, Renormalization, and the Coupling to Gravity', arXiv:1005.0031v1 [hep-th], 30 Apr 2010 (review). The phrase is p.15, first line, about eq. (58) on p.14; eq. (58) restates Deutsch & Candelas, Phys. Rev. D 20, 3063 (1979) [ref. 61], which is NAMED-NOT-READ (pre-arXiv). DC's construction read via restatement in Miao & Chu, arXiv:1706.09652v3 (2018) eqs. (1.1)-(1.3b), Tables 1-2.",
+ "read_status": "READ",
+ "via": "alphaXiv answer_pdf_queries on 1005.0031 (pp.1,4,6,11-15,25,27-28,30,39-41,49,52) and on 1706.09652 (pp.1-18). tolman.py:170-185, 290-311, 600-630, 950-962, 1125-1140, 2520-2540 read in the repo. Milton's sentence is read directly; DC 1979 (the originating calculation) only via Milton and Miao-Chu."
+},
+"published_statement": "Milton 1005.0031 p.14: 'as Deutsch and Candelas [61] showed many years ago, in the neighborhood of a curved surface for conformally invariant theories, <T_mu nu> diverges as eps^-3 ... <T_mu nu> ~ eps^-3 T(3) + eps^-2 T(2) + eps^-1 T(1) (57) ... For example, for the case of a sphere, the leading surface divergence has the form, for conformal fields, for r = a + eps, eps -> 0, <T_mu nu> = (A/eps^3) diag(2/a, 0, a, a sin^2 theta) (58), in spherical polar coordinates, where the constant is A = 1/720 pi^2 for a scalar field satisfying Dirichlet boundary conditions, or A = 1/60 pi^2 for the electromagnetic field satisfying perfect conductor boundary conditions.' p.15: 'Note that (58) is properly traceless. The cubic divergence in the energy density near the surface translates into the quadratic divergence in the energy found for a conducting ball [67]. The corresponding quadratic divergence in the stress corresponds to the absence of the cubic divergence in <T_rr>.' p.13 (Sect. 3): 'For flat surfaces and conformal theories (such as the conformal scalar ... or electromagnetism) those divergences are not present' with Brown-Maclay (49) and the wedge (50)-(52), both traceless tensors. p.15 caution: 'A priori, we do not know which energy-momentum tensor to employ, and the local vacuum-fluctuation energy density is to a large extent meaningless. It is the global energy, or the force between distinct bodies, that has an unambiguous value.'",
+"published_hypotheses": [
+ "The object is the LEADING surface divergence (order eps^-3) of <T_mu nu>, not the full tensor (eq. 57 has eps^-2 and eps^-1 terms T(2), T(1))",
+ "Near a CURVED surface; eq. (58) is the SPHERE, evaluated at r = a + eps (EXTERIOR), eps -> 0",
+ "Conformally invariant field theory (conformal scalar xi = 1/6, or electromagnetism in 4D)",
+ "Ideal boundary conditions: Dirichlet (scalar) or perfect conductor (EM) -- the value A_EM = 1/(60 pi^2) is for perfect-conductor BC",
+ "Flat background spacetime (the whole review is flat-space QFT with boundaries; gravity enters only as a coupling question in Sect. 6)",
+ "Renormalisation by subtraction of the no-boundary (Minkowski) value; the local tensor is ambiguous up to the choice of improvement term (for the scalar, xi)",
+ "Implicit in DC's construction, made explicit in Miao-Chu 1706.09652 eq. (1.2): tracelessness (lim <T^i_i> = O(1)) and conservation are IMPOSED on the divergent parts, then the coefficient tensors are solved for; 'properly traceless' is therefore a consistency property of the construction, not an independent finding"
+],
+"hypothesis_drift": [
+ "STRENGTHENED (leading-order -> exact): tolman.py:308-310 reads Milton as 'the flat-space trace is exactly zero' for 'the renormalised EM stress tensor in a source-free cavity'. Milton's sentence (p.15) is about eq. (58) only: the eps^-3 leading term near a sphere. Computed (rederive B2): eq. (58) with the metric evaluated at r = a + eps has trace -4A/(a^2 eps^2) + O(1/eps), cancelled only by T(2), which Milton does not display. The tree's exact claim is TRUE by another route computed here (rederive A1/A2: the Maxwell tensor is algebraically traceless for any F and for the symmetric point-split bilinear, so the Minkowski-subtracted <T> in a flat vacuum region is traceless exactly; and C7: the covariant DC form 2 alpha1 kbar_ij/x^3 + alpha1 (n_i n_j - h_ij/3) Tr kbar^2/x^2 is traceless at every r) -- but that route is not Milton's sentence. A citation-scope discrepancy, not a refutation.",
+ "SIDE CHANGED (exterior -> interior): Milton's eq. (58) is stated 'for r = a + eps' (exterior of a sphere); tolman.py:606-613 uses it inside the cavity (eps = a - r). Covered by DC's curvature dependence (Milton p.14: 'coefficient proportional to the sum of the principal curvatures'), restated covariantly in Miao-Chu eq. (1.3a) as 2 alpha1 kbar_ij/x^3: kbar flips sign across sides, Tr kbar^2 does not. Computed (rederive D1-D5): interior u = -2A hbar c/(a eps^3), p_r = -A hbar c/(a^2 eps^2), conservation cancels at eps^-3 on both sides; these are exactly tolman.py:609-610's values. Drift is real but the tree's interior use is correct.",
+ "DROPPED from the entry's hypothesis list (tolman.py:306-311 canonical hypotheses: renormalised EM, source-free cavity, flat space, no trace anomaly): PERFECT-CONDUCTOR boundary conditions. Needed for A_EM = 1/(60 pi^2) and for the eps^-3 profile (Milton p.14: for a plasma-model dielectric the divergences soften, <T00> ~ eps^-3 even for flat surfaces, eq. 55). NOT needed for tracelessness in the vacuum region (A1/A2 hold for any mirror). The tree names real mirrors elsewhere (DOCKET 54; Sopova-Ford K term at tolman.py:1138-1140), so the drop is local to this entry.",
+ "DROPPED: 'conformal field' and 'leading order in eps' are not named in tolman.py:306-311; 'no trace anomaly' is named (tolman.py:311, 959-961). EM is conformal in 4D classically, so the first is harmless for this field.",
+ "UNNAMED SCOPE CAUTION: Milton p.15 holds the local near-wall stress tensor to be 'to a large extent meaningless' and power divergences 'probably unobservable'; tolman.py:600-613 builds its positive-control profile from exactly that local eps^-3 term. Miao-Chu 1706.09652 p.1/p.9 argue the opposite for a true BCFT (coefficient fixed by central charges, 'must be physical'), but record DC's view that for Casimir with space on both sides the divergence 'originates from the unphysical nature of classical perfect conductor boundary conditions'. Contested in the literature; not a fault in the tree's algebra.",
+ "FLAT SPACE vs the tree's full-GR embedding: tolman.py (V8, ~line 313) joins the flat-space tensor to full GR. In curved spacetime a conformal field's renormalised trace is the Weyl anomaly (Miao-Chu eq. 2.12, Maxwell c = 1/10, a = 31/180), nonzero. The tree names 'flat-space trace' and the anomaly (tolman.py:309, 959-961). ESTIMATE here (rederive F, order of magnitude, generous curvature factor N = 24, scheme-dependent box-R term NOT included): curvature-squared anomaly / |u| ~ 6e-90 at eps = 1 fm and 6e-108 at 1 nm for a = 1 um. Not a moved conclusion; an estimate, not a bound.",
+ "ATTRIBUTION CONFIRMED: tolman.py:2534-2536 and 1135-1137 record A_EM = 1/(60 pi^2) from Milton eq. (58) 'quoting Deutsch-Candelas', RECOVERED via DOCKET 54's verbatim quotation, 'not re-read at source'. Re-read here at source: eq. (58), A = 1/60 pi^2 for EM, and 'properly traceless' all verbatim on pp.14-15. The status can move from RECOVERED/SINGLE-SOURCE to READ; A_EM is now corroborated by a second source (Miao-Chu Table 1, alpha1 = -1/(40 pi^2) -> A = 2|alpha1|/3 = 1/(60 pi^2), rederive C4)."
+],
+"data_at_publication": [
+ {
+  "quantity": "A_EM, coefficient of the leading eps^-3 near-surface divergence for EM with perfect-conductor BC (theory constant, not a measurement)",
+  "value_then": "1/(60 pi^2) (Deutsch-Candelas 1979 as restated by Milton 2010 eq. 58)",
+  "value_now": "1/(60 pi^2): Miao-Chu 1706.09652v3 Table 1 gives Maxwell alpha1 = -1/(40 pi^2) (from DC [8] and Kennedy et al. [14,15]); with the covariant form 2 alpha1 kbar_ij/x^3 on a sphere, A = -2 alpha1/3 = 1/(60 pi^2); consistency alpha1 = b4/2 with Fursaev's boundary central charge b4 = -1/(20 pi^2) (Table 2) holds. Miao-Chu also record 'a minus sign typo of beta4 for Maxwell field in [8]' -- a SUBLEADING coefficient the tree does not use.",
+  "source_now": "arXiv:1706.09652v3 pp.3-6, eqs. (1.3a), (2.13), Tables 1-2",
+  "moves_conclusion": "No. Computed (rederive C4-C6): identical value; the Dirichlet A = 1/(720 pi^2) also reproduced, EM/Dirichlet ratio 12."
+ },
+ {
+  "quantity": "Maxwell bulk central charges c, a (enter only the curved-space anomaly the tree names as excluded)",
+  "value_then": "not used by Milton 2010 (flat space)",
+  "value_now": "c = 1/10, a = 31/180 (Miao-Chu Table 2, read)",
+  "source_now": "arXiv:1706.09652v3 Table 2",
+  "moves_conclusion": "No. Order-of-magnitude ESTIMATE of the curvature-squared anomaly against |u| near the wall: < 1e-89 for eps >= 1 fm at a = 1 um (rederive F). The box-R term is scheme dependent and its coefficient was not read here; on dimensional grounds it enters at O((l_P/eps)^2), the same order as the delta the tree already bounds (tolman.py:620-626)."
+ }
+],
+"rederivation": {
+ "method": "sympy",
+ "script_path": D + "/rederive/1005.0031-properly-traceless.py",
+ "outcome": "ALL PASS (26 checks). A1/A2: Maxwell T^mu_mu = 0 identically for arbitrary F and for the symmetric point-split bilinear (so flat-space Minkowski-subtracted <T> is exactly traceless in a vacuum region). B1: eq. (58) traceless with the metric at r = a. B2: with the metric at r = a + eps the truncated eq. (58) has trace 2A(-2a + 3 eps)/(a^3 eps^2) -> -4A/(a^2 eps^2): 'properly traceless' is a leading-order statement. C1-C7: covariant DC form (Miao-Chu 1.3a,b) on a sphere reproduces eq. (58)'s structure (T^th_th : T_00 = 1:2), A = -2 alpha1/3 gives 1/(60 pi^2) for Maxwell and 1/(720 pi^2) for Dirichlet, alpha1 = b4/2 for both, and the covariant form is traceless at every r. D1-D7: conservation cancels at eps^-3 on both sides; the tree's interior u = -hbar c/(30 pi^2 a eps^3), p_r = -hbar c/(60 pi^2 a^2 eps^2) and m = -(hbar a)/(15 pi c eps^2) (tolman.py:606-610) are reproduced exactly. E1-E3: Brown-Maclay (49) and wedge (50) traceless; wedge (52) -> -pi^2/(720 a^4) EM plates. F1: anomaly ESTIMATE. G1: tolman.py's A_EM equals 1/(60 pi^2).",
+ "agrees_with_source": "yes"
+},
+"later_literature": [
+ {
+  "ref": "Miao & Chu, 'Universality for Shape Dependence of Casimir Effects from Weyl Anomaly', arXiv:1706.09652 (JHEP 2018)",
+  "effect": "confirms",
+  "what": "Restates DC covariantly: <T_ij> = 2 alpha1 kbar_ij/x^3 + ..., with tracelessness and conservation IMPOSED (eq. 1.2); ties alpha1 = b4/2 to the boundary Weyl-anomaly central charge; Maxwell alpha1 = -1/(40 pi^2), which reproduces A_EM = 1/(60 pi^2). Notes a sign typo in DC's subleading beta4 for Maxwell. Argues the near-boundary divergence is physical for BCFT, while recording DC's view that for Casimir with space on both sides it is an artefact of perfect-conductor BC.",
+  "read_status": "READ (pp.1-18 via answer_pdf_queries)"
+ },
+ {
+  "ref": "Khan & Khan, arXiv:2605.20230 (2026), 'A Maxwell Quadratic-Form Representation of the Parallel-Plate Casimir Trace'",
+  "effect": "extends",
+  "what": "Surfaced by the discover_papers search on 'trace'. Its 'trace' is a SPECTRAL (heat) trace of the Maxwell operator, not T^mu_mu; recovers -pi^2 hbar c/(720 a^3) for plates. Irrelevant to tracelessness; recorded so it is not mistaken for a contrary result.",
+  "read_status": "READ (pp.1-7, 24-37)"
+ },
+ {
+  "ref": "Deutsch & Candelas, Phys. Rev. D 20, 3063 (1979); Kennedy, Critchley & Dowker, Ann. Phys. 125, 346 (1980); Fursaev, JHEP 1512, 112 (2015); Herzog-Huang-Jensen arXiv:1510.00021",
+  "effect": "confirms",
+  "what": "Originating calculation and the central-charge values Miao-Chu use; seen only as cited/tabulated in 1706.09652 and 1005.0031.",
+  "read_status": "NAMED-NOT-READ"
+ }
+],
+"lacked_data": "M's hypothesis tested for THIS result. What the authors had: DC 1979 had the flat-space mode sums for ideal conductors and IMPOSED tracelessness and conservation to fix the coefficient tensors; Milton 2010 restated DC and had Sopova-Ford 2005 (plasma-model softening, cited on his p.14). What came later: the BCFT boundary-central-charge framework (Fursaev 2015; Herzog-Huang-Jensen 2016) and Miao-Chu 2017's universal relation alpha1 = b4/2. EVIDENCE AGAINST a data-driven revision: with that later input the coefficient is unchanged (1/(60 pi^2), computed C4-C5), and the tracelessness requirement is confirmed as part of the construction, not overturned. The one later-found fault is a sign typo in DC's SUBLEADING Maxwell beta4 (Miao-Chu p.6), which neither Milton's eq. (58) nor the tree uses. EVIDENCE FOR a real limitation (not missing data but a scope the tree must carry): real mirrors are not perfect conductors, so the eps^-3 profile and A_EM hold only above a plasma/skin-depth cutoff -- data Milton already had and the tree already names elsewhere. Tracelessness in the vacuum region does not depend on that datum at all (A1/A2). Conclusion: no datum the authors lacked moves this result.",
+"grade": "NARROWED",
+"grade_evidence": "Read at source: Milton's 'properly traceless' (1005.0031 p.15) is a statement about eq. (58) only -- the LEADING eps^-3 surface divergence, near a SPHERE, EXTERIOR (r = a + eps), conformal fields, ideal BC, flat space -- and the tracelessness is imposed in DC's construction (Miao-Chu eq. 1.2). tolman.py:308-310 uses it for a broader claim: that the full renormalised EM tensor in a source-free cavity has flat-space trace EXACTLY zero. Computed (B2): the published eq. (58), taken literally at r = a + eps, is traceless only at leading order. So the source supports a smaller class than the tree cites it for. The tree's broader claim is not wrong -- it is re-derived here by a different route (A1/A2 algebraic identity; C7 covariant form) -- and every number the tree takes from the source (A_EM; the interior u, p_r, m) is reproduced exactly (C4, D2-D6) and corroborated by a second, later source (Miao-Chu Table 1). No moved datum. Not WRONG: no counterexample and no contradiction; the gap is in what the citation carries, not in the physics.",
+"what_would_change_the_grade": "To STANDS: re-cite tracelessness of the flat-space vacuum-region tensor to the algebraic identity (rederive A1/A2) or to DC/Miao-Chu's imposed condition, keep Milton eq. (58) only for A_EM and the leading profile, and name 'perfect-conductor BC, leading order in eps' in the entry's hypotheses. To WRONG: a computed nonzero flat-space renormalised <T^mu_mu> for the Maxwell field strictly inside a vacuum region (none found; A2 excludes it for any symmetric point-split scheme with Minkowski subtraction). To DATA-DEPENDENT: a later determination of the Maxwell boundary central charge b4 differing from -1/(20 pi^2), which would move A_EM (not the tracelessness).",
+"reverify_command": "python3 " + D + "/rederive/1005.0031-properly-traceless.py  # exits 0, prints ALL PASS; source: alphaXiv answer_pdf_queries(paper='1005.0031', queries=['properly traceless','equation (58)']) -> pp.14-15; answer_pdf_queries(paper='1706.09652', queries=['Table 1 Maxwell alpha1','eq. (1.2)'])",
+"report_path": D + "/audits/1005.0031-properly-traceless.json"
+}
+json.dump(R, open(R["report_path"], "w"), indent=1)
+print("written", R["report_path"])

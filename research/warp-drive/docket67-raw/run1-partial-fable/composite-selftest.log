@@ -1,0 +1,45 @@
+VALIDATION 1 -- light deflection reproduces 4M/b
+  b=0.1: bend / (4M/b)                                                1.00283              1  ok
+  b=0.2: bend / (4M/b)                                                1.00028              1  ok
+
+VALIDATION 2 -- the tidal matrix is TRACELESS: vacuum, so pure Weyl
+  static, at closest approach: |trace| / |max component|          0.000162286              0  ok
+       h-independent at 1.6e-4 over an order of magnitude in step size,
+       so this residue is the metric's own O(Phi^2), not the difference.
+  along the ray, with Euler screen transport, the leak stays under 2 %           True           True  ok
+       leak = 9.290e-03.  Ricci focusing is OFF here; what focuses is shear.
+
+VALIDATION 3 -- the antisymmetric delay is the analytic Shapiro
+  antisymmetric part vs 2M ln[(x1+r1)/(x0+r0)]                        1.00608              1  ok
+  and a POSITIVE symmetric residue remains (path lengthening, ~M^2)           True           True  ok
+       antisym +4.44225e-02   analytic +4.41540e-02   sym residue +6.80482e-03
+
+THE HEADLINE -- both signs seat, only the arrival flips
+              M    conjugate       t - |dx| verdict
+       +2.0e-03        55.17    +5.1227e-02 seats, late
+       -2.0e-03        56.50    -3.7618e-02 SEATS + EARLY
+  the positive mass seats                                                True           True  ok
+  the negative mass seats TOO -- Weyl focusing is sign-blind             True           True  ok
+  and at nearly the same place (quadratic in M)                       1.02417              1  ok
+  the positive mass arrives late                                        False          False  ok
+  THE NEGATIVE MASS SEATS AND ARRIVES EARLY                              True           True  ok
+
+THE WINDOW -- bounded below by seating, above by the M^2 penalty
+            |M|    conjugate       t - |dx| verdict
+        5.0e-04         none    -1.0616e-02 early, no seat
+        2.0e-03        56.50    -3.7618e-02 *** SEATS + EARLY ***
+        1.0e-02        42.83    -7.9680e-02 *** SEATS + EARLY ***
+        4.0e-02        40.83    +6.1601e-01 seats, LATE
+  below the window: early but does not seat                     (False, True)  (False, True)  ok
+  inside the window: both                                        (True, True)   (True, True)  ok
+  still inside an order of magnitude up                          (True, True)   (True, True)  ok
+  above the window: seats, but the M^2 penalty wins             (True, False)  (True, False)  ok
+  so the window is bounded on BOTH sides                                 True           True  ok
+
+The error that cost two runs, kept as a test
+  focal length b^2/4M at the design point                               11.25          11.25  ok
+  a source INSIDE the focal length forms no image                       False          False  ok
+  the same mass with the source outside it does                          True           True  ok
+       Nothing about the physics changed between those two lines.
+
+  SELFTEST OK

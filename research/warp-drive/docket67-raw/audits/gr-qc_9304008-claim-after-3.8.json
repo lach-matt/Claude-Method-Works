@@ -1,0 +1,89 @@
+{
+ "key": "gr-qc/9304008-claim-after-3.8",
+ "name": "KF claim: rho < 0 (cos 2theta > sqrt2 eps) implies Delta > 1",
+ "source": {
+  "located": "C.-I. Kuo & L. H. Ford, 'Semiclassical gravity theory and quantum fluctuations', arXiv gr-qc/9304008 v1 (6 Apr 1993; TUTP-93-1, Feb 1993), p.5: (3.1)-(3.2); p.6: (3.7), (3.8) and the sentence after (3.8); p.9: squeezed-state conclusion. Journal version Phys. Rev. D 47, 4510 (1993) NAMED-NOT-READ.",
+  "read_status": "READ",
+  "via": "arXiv v1 PDF TEXT LAYER as returned by alphaXiv in earlier stages of this docket and harvested verbatim to d67/src/casmag/all/gr-qc_9304008v1.txt (md5 f1a6628604751cf61b2a4bd411b00153, 39,849 bytes). A fresh fetch in THIS stage failed: alphaXiv answer_pdf_queries, get_paper_content and discover_papers all returned 'assistant quota exceeded', and arxiv.org direct is refused by the egress proxy (CONNECT 403). Page image not viewed; journal version not read."
+ },
+ "published_statement": "v1 p.6, verbatim from the text layer: '... = K_ab K_mn 12 eps^2/(1+eps^2)^2. (3.7) From this result, Eq. (2.16), and the fact that K_00 = omega/(2L^3), we find that Delta(x) = (10 eps + sqrt2 cos(2 theta))/(12 eps). (3.8) From Eq.(2.16), it follows that the condition for the expectation value of energy density to be negative is cos(2 theta) > sqrt2 eps. In this case we have Delta(x) > 1. This indicates when the energy density is negative, the energy density fluctuations are large and the semiclassical theory is not a good approximation.' with p.5 (3.2): 'Delta(x) = | (<:T00^2(x):> - <:T00(x):>^2) / <:T00^2(x):> | ... Note that we have used normal ordering with respect to the Minkowski vacuum state to define the various operators.'",
+ "published_hypotheses": [
+  "H1 massless free scalar field in FLAT (Minkowski) spacetime, stress tensor bilinear (2.11), minimal coupling",
+  "H2 a single box-normalised plane-wave mode k (volume L^3), K_00 = omega/(2L^3)",
+  "H3 state (2.15) |Psi> = (|0> + eps|2>)/sqrt(1+eps^2), eps REAL 'for simplicity' (p.4)",
+  "H4 normal ordering of T00 and of T00^2 against the Minkowski vacuum (p.5)",
+  "H5 coincidence limit, purely temporal component: Delta(x) of (3.2), WITH the absolute value",
+  "H6 the inference is drawn from KF's own (3.8) (and (2.16) for the sign condition) -- 'In this case we have Delta(x) > 1' is a corollary of (3.8), not an independent computation"
+ ],
+ "hypothesis_drift": [
+  "SCOPE (named, not a drift against KF): the tree evaluates the claim against the EXACT Delta (fluctuation.py:55-58, 230, 237), not against KF's (3.8). As an inference FROM (3.8) KF's sentence is valid for every real eps != 0, with or without the |.| (re-derivation C8, z3); the fault lies upstream in (3.8), which the tree records separately (KF_38_IS_EXACT = False, fluctuation.py:142). The tree's wording 'With the exact Delta that is FALSE' carries that scope correctly.",
+  "UNDERSTATED (in KF's favour, not M's): fluctuation.py:57 says 'z3 finds the counterexample' and data_used names one witness (eps = 1/10, theta = 0). The truth is stronger: with the exact Delta there is NO point of the family with rho < 0 and Delta > 1 (C5, z3 UNSAT with vacuity guard SAT); indeed exact Delta <= 1 on the whole (eps, theta) plane, equality only at (sqrt2, cos2th = -1) and (-sqrt2, +1), both rho > 0 (C4). The claim fails at every rho < 0 point, not at a witness.",
+  "DROPPED (harmless): the absolute value of (3.2). The tree's exact Delta is written 1 - (2eps - sqrt2 cos2th)^2/(3(1+eps^2)) without |.| (fluctuation.py:40, 230, 237). On rho < 0 the bracket lies in (1/3, 1), so |.| changes nothing for this claim; on rho > 0 it can reach -1 (C4 equality points), where KF's Delta is +1. The tree's z3 test X^2 > 6(1+eps^2) (fluctuation.py:311) IS the |.|-correct form of 'Delta > 1'.",
+  "INHERITED (KF-side discrepancy, harmless for the tree): KF's printed sign condition cos(2theta) > sqrt2 eps is exact only for eps > 0; with eps real as KF state (H3), for eps < 0 the condition reverses to cos2th < sqrt2 eps (C10, z3; counter-point exists). The canonical name 'rho < 0 (cos 2theta > sqrt2 eps)' inherits the eps > 0 presumption, and the tree's sympy uses eps positive (fluctuation.py:175); the tree's z3 hypothesis is the sign-general e(2e - sqrt2 c) < 0 (fluctuation.py:305), so its refutation and T2 hold for all real eps. eps -> -eps is equivalent to theta -> theta + pi/2, so nothing physical moves.",
+  "DROPPED in the canonical list only: H1, H2, H4, H5 (flat, massless, single box mode, Minkowski normal ordering, coincidence limit, 00 component) are not in the canonical hypotheses ('vacuum + two-particle state'), but are stated in the owner file (fluctuation.py:14-18) and carried by its :T00: (fluctuation.py:179-180). K_00 cancels in Delta, so the claim's truth value does not depend on H2's normalisation (C2-C3).",
+  "SCOPE (kept, correct): the tree scopes the refutation to arXiv v1 and marks PRD 47, 4510 NAMED-NOT-READ, page image not viewed (fluctuation.py:122-126, 135-136). This audit keeps the same scope.",
+  "UNSTATED (named here): reading of the sentence rests on the v1 text layer. It is internally corroborated: (3.8) as extracted gives Delta > 1 iff rho < 0 exactly (C8), and the next sentence ('the energy density fluctuations are large') requires '>' -- so a mis-extracted inequality sign is implausible, but the page image was not viewed."
+ ],
+ "data_at_publication": [
+  {
+   "quantity": "exact Delta vs KF (3.8) at the tree's witness eps = 1/10, theta = 0 (the tree's only data_used)",
+   "value_then": "KF (3.8): (10 eps + sqrt2)/(12 eps) = 2.0118 (not evaluated by KF; computed by the tree)",
+   "value_now": "exact Delta = 0.513428, KF (3.8) = 2.011845, rho/K = -0.240438 (rho < 0) -- recomputed independently here (C11)",
+   "source_now": "d67/rederive/gr-qc_9304008-claim-after-3.8.py (exact truncated-Fock matrices, no code shared with fluctuation.py)",
+   "moves_conclusion": "No -- not an empirical datum; pure algebra. It confirms the tree's witness numbers exactly."
+  },
+  {
+   "quantity": "K_00 = omega/(2 L^3) (KF p.6) -- the only dimensional input",
+   "value_then": "omega/(2L^3) (box normalisation)",
+   "value_now": "omega/(2L^3), recovered from (2.11) for the box mode (C1)",
+   "source_now": "re-derivation C1",
+   "moves_conclusion": "No: K_00 cancels identically in Delta = |1 - rho^2/<:T^2:>| (C3). No measured constant enters the claim at all."
+  },
+  {
+   "quantity": "supremum / infimum of exact Delta on the rho < 0 region (the quantity the claim asserts about)",
+   "value_then": "KF: Delta > 1 (from (3.8))",
+   "value_now": "1/3 < Delta < 1, both bounds tight (inf approached as eps -> 0+ at theta = 0; sup as rho -> 0-), z3-proved (C5, C6); numeric sweep of 2e5 random points: max 0.999999988 on 9,004 rho<0 points (C12)",
+   "source_now": "re-derivation C5, C6, C12; agrees with the tree's T2 (fluctuation.py:60, 306-307, 476-477)",
+   "moves_conclusion": "It moves the INEQUALITY (Delta > 1 is false everywhere on rho < 0), not KF's qualitative conclusion: Delta is still of order unity (> 1/3) wherever rho < 0."
+  }
+ ],
+ "rederivation": {
+  "method": "z3",
+  "script_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/gr-qc_9304008-claim-after-3.8.py",
+  "outcome": "ALL CHECKS PASS, 32 checks, exit 0 (output rederive/gr-qc_9304008-claim-after-3.8.out); sympy + z3 5.1.0, independent of fluctuation.py. C1: :T00: = K(2a+a - z a^2 - zbar a+^2) from (2.11) for a massless box mode, K = omega/(2L^3). C2: exact truncated-Fock (D=8, exact for this state) <:T00:> = 2K eps(2eps - sqrt2 cos2th)/(1+eps^2) and <:T00^2:> = 12K^2 eps^2/(1+eps^2). C3: exact Delta = |1 - X^2/(3(1+eps^2))|, X = 2eps - sqrt2 cos2th. C4 (z3): exact Delta <= 1 for every real eps, theta; identity 6N - X^2 = 2(eps + sqrt2 cos2th)^2 + 6 sin^2 2th; equality only at (sqrt2, -1), (-sqrt2, +1), both rho > 0. C5 (z3, vacuity guards SAT for rho<0 and rho>0): no point with rho < 0 and Delta > 1 exists -- KF's claim fails at EVERY rho<0 point. C6: rho < 0 ==> Delta > 1/3, tight. C7 (z3): all four combinations {KF final (2.16), exact rho} x {KF printed (3.7), exact <:T^2:>} give Delta < 1 on rho < 0 -- no printed ingredient of KF yields Delta > 1; only (3.8) does. C8 (z3): GIVEN (3.8), rho < 0 ==> Delta_38 > 1 (and |Delta_38| > 1) for all real eps != 0 -- the sentence is a valid corollary of (3.8); (3.8) itself goes negative for small eps (KF print no |.|). C9: (3.8) = 1 - X/(12 eps), identical to 1 - [K^2 (eps X)/(1+eps^2)^2]/(3.7), i.e. CONSISTENT WITH the factor (eps X) left unsquared in rho^2 -- a conjecture about the slip's mechanism, not established. C10 (z3): KF's condition cos2th > sqrt2 eps is exact for eps > 0 and reverses for eps < 0. C11: witness 0.5134 / 2.0118 reproduced. C12: numeric sweep agrees.",
+  "agrees_with_source": "no"
+ },
+ "later_literature": [
+  {
+   "ref": "B. L. Hu, A. Roura & E. Verdaguer, 'Induced quantum metric fluctuations and the validity of semiclassical gravity', arXiv:gr-qc/0402029",
+   "effect": "narrows",
+   "what": "'An earlier criterion put forth by Kuo and Ford [5] used the variance of the fluctuations of the stress tensor operator compared to the mean value as a measure of the validity of SCG. As pointed out by Hu and Phillips [27, 28] (see reply by Ford and Wu [7]) such a criterion should be refined by considering the back reaction of those fluctuations on the metric.' Narrows the significance of Delta as a validity criterion (the tree's reason (a)/(b) at fluctuation.py:105-113 runs the same way); says nothing about the specific inequality Delta > 1.",
+   "read_status": "READ from cached text layer d67/src/casmag/all/gr-qc_0402029v1.txt lines 1-12, 103-109 (earlier-stage alphaXiv harvest)"
+  },
+  {
+   "ref": "A. Perez & D. Sudarsky, 'Renormalization of the Quantum Stress Tensor Fluctuations and the Limits of Semiclassical Gravity', arXiv:2512.17789 v2",
+   "effect": "extends",
+   "what": "Abstract: renormalises <T_ab(x)T_cd(x)> for Hadamard states on curved backgrounds by OPE and shows squeezed vacua 'fail to satisfy the natural semiclassicality criterion'. Extends KF's QUALITATIVE conclusion to curved space and supplies the quartic-operator renormalisation KF (Sec. V) said had 'not yet been developed'; does not restate the vac+2 inequality.",
+   "read_status": "READ (abstract and citation of KF, lines 1-40, 89-95, 1127-1129) from cached text d67/src/casmag/all/2512.17789v2.txt; body not read for this key"
+  },
+  {
+   "ref": "L. H. Ford & T. A. Roman, 'Averaged energy conditions and quantum inequalities', arXiv:gr-qc/9410043",
+   "effect": "confirms",
+   "what": "'recent work of Kuo and Ford [42, 43] indicates that in flat spacetime, negative energy densities are subject to large fluctuations.' The result propagated as the QUALITATIVE statement (large fluctuations), which the exact T2 bound 1/3 < Delta < 1 supports; the inequality Delta > 1 is not what was carried forward.",
+   "read_status": "READ from cached text d67/src/casmag/all/gr-qc_9410043v1.txt lines 2363-2368"
+  },
+  {
+   "ref": "B. Freivogel & D. Krommydas, 'The Smeared Null Energy Condition', arXiv:1807.03808",
+   "effect": "extends",
+   "what": "Restates the vacuum-plus-two-particle class citing KF PRD 47 4510 and smears it; no Delta and no single-mode fluctuation inequality printed (per sibling audit gr-qc/9304008-eq2.16).",
+   "read_status": "READ-VIA-RESTATEMENT (sibling audit's reading of d67/src/1807.03808.txt lines 840-925); not re-read for this key"
+  }
+ ],
+ "lacked_data": "M's hypothesis does not bite on this result, and the evidence is the re-derivation: the claim is a closed-form statement about a single-mode Fock expectation value with NO empirical input (K_00 cancels; C3). Everything needed -- the commutator, the box mode, the state (2.15), the definition (3.2) -- was in Kuo & Ford's hands in 1993, and their own ingredients suffice to see the claim fails: every combination of their printed (2.16)/(3.7) with the exact expressions gives Delta < 1 on rho < 0 (C7). The error is algebraic, entering at (3.8) (C9: consistent with an unsquared factor), and the sentence is a valid corollary of that wrong (3.8) (C8). No missing datum explains it and no new datum would change it. Evidence the other way -- that the error matters for the physics KF drew: it does not overturn the qualitative conclusion; the exact bound is 1/3 < Delta < 1 on rho < 0 (C6), fluctuations of order unity, and later work (Ford-Roman gr-qc/9410043; Perez-Sudarsky 2512.17789) carried forward only that qualitative conclusion. The criterion itself was later narrowed on physical, not data, grounds (Hu-Roura-Verdaguer gr-qc/0402029: back-reaction must be included).",
+ "grade": "WRONG",
+ "grade_evidence": "Graded on KF's printed inequality in arXiv v1 ('rho < 0 ... In this case we have Delta(x) > 1'), with Delta as KF define it in (3.2). A computed contradiction is SHOWN here, not a misprint: with the exact Delta = |1 - (2eps - sqrt2 cos2th)^2/(3(1+eps^2))| (exact Fock matrices, C2-C3, (2.12)-(2.14) recovered from (2.11), C1), z3 proves that NO state of the family has rho < 0 and Delta > 1 (C5, vacuity guard SAT), and in fact Delta < 1 at every rho < 0 point, 1/3 < Delta < 1 tight (C6); the tree's witness eps = 1/10, theta = 0 (exact 0.5134 vs (3.8) 2.0118) is one instance of a universal failure. It is not a typographical slip of the sentence: the sentence follows validly from KF's (3.8) (C8), and (3.8) is not reproduced by any combination of KF's own printed lines (C7) -- an algebraic error, consistent with an unsquared factor (C9, mechanism not established). Weight, both ways: (i) the tree's recorded use -- KF_CLAIM_NEGATIVE_MEANS_DELTA_GT_1 = False, 'refuted', scoped to v1 (fluctuation.py:55-64, 143, 309-312, 478-479) -- is CONFIRMED and sharpened (the tree says 'a counterexample'; the failure is everywhere on rho < 0); (ii) KF's QUALITATIVE conclusion survives exactly as the tree records (KF_QUALITATIVE_CONCLUSION_SURVIVES = True, fluctuation.py:152): Delta > 1/3, order unity, wherever rho < 0 -- so the error gives no relief to negative-energy semiclassics and nothing here is in M's favour; (iii) scope: v1 text layer only -- PRD 47, 4510 is NAMED-NOT-READ and the page image was not viewed, so nothing here says the journal version prints the same inequality. Residual named limits: this stage read a cached harvest of the alphaXiv v1 text (fresh fetch refused: quota / egress 403); discover_papers was quota-refused, so the later-literature record is from cached texts only.",
+ "what_would_change_the_grade": "To OPEN (for v1): the v1 page image showing a different (3.8) or a different inequality in the sentence than the text layer gives (implausible: the extracted (3.8) and '>' are mutually consistent and the next sentence requires '>', C8). To a narrower SCOPE, not a different grade: reading PRD 47, 4510 -- if the journal prints a corrected (3.8) and drops 'Delta > 1', the WRONG applies to v1 only (as the tree already scopes it). To NARROWED: a different state or definition of Delta under which KF's family was meant (e.g. Delta without normal ordering of T00^2, or a multimode vac+2 state) that the text does not state -- none is indicated at p.4-6. Nothing computable moves it: C4-C6 are z3 proofs over all real eps and all theta.",
+ "reverify_command": "PYTHONPATH=/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/pylib python3 /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/gr-qc_9304008-claim-after-3.8.py   # exits 0, 'ALL CHECKS PASS' (32); source text: grep -n -B3 -A8 '(3.8)' /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/src/casmag/all/gr-qc_9304008v1.txt ; tree side: cd /home/user/Claude-Method-Works/research/warp-drive && python3 fluctuation.py --selftest | grep -E 'REFUTED|T2 PROVED|witness|qualitative'",
+ "report_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/audits/gr-qc_9304008-claim-after-3.8.json",
+ "later_literature_search_note": "The one discover_papers call this stage made returned 'alphaXiv assistant quota exceeded'; later literature above is from texts cached in d67/src by earlier stages. Absence of a finding is not a finding."
+}

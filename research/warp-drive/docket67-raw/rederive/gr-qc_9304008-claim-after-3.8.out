@@ -1,0 +1,37 @@
+PASS  C1 T00[f,f]   = -K e^{2i theta}
+PASS  C1 T00[f*,f*] = -K e^{-2i theta}
+PASS  C1 T00[f,f*] = T00[f*,f] = K
+PASS  C2 exact <:T00:> = 2K eps (2eps - sqrt2 cos2th)/(1+eps^2)
+PASS  C2 exact <:T00^2:> = 12 K^2 eps^2/(1+eps^2)
+PASS  C2 truncation D=8 is exact for this state (a+^4|0> needs n=4 < 8)
+PASS  C3 1 - rho^2/<:T^2:> = 1 - X^2/(3(1+eps^2))
+      exact Delta = |1 - (2eps - sqrt2 cos2th)^2 / (3(1+eps^2))|   (KF (3.2) carries the absolute value)
+PASS  vacuity guard: rho < 0 is satisfiable
+PASS  vacuity guard: rho > 0 is satisfiable
+PASS  C4 exact Delta <= 1 for every real eps, theta  (X^2 <= 6N)
+PASS  C4 equality X^2 = 6N only at (eps, cos2th) = (sqrt2, -1) or (-sqrt2, 1), both rho > 0
+PASS  C4 identity: 6N - X^2 = 2(eps + sqrt2 cos2th)^2 + 6(1 - cos^2 2th)
+PASS  C5 rho < 0 ==> exact Delta < 1  (claim 'Delta > 1' false at EVERY rho<0 point)
+PASS  C5 z3: no point with rho < 0 and Delta > 1 exists
+PASS  C6 rho < 0 ==> exact Delta > 1/3  (X^2 < 2N)
+PASS  C6 1/3 approached: eps -> 0+, theta = 0
+PASS  C6 1 approached: X -> 0-, eps = 0.5, cos2th -> sqrt2*0.5 from above
+PASS  C7 [final x printed(3.7)]: rho<0 ==> Delta < 1
+PASS  C7 [final x exact]: rho<0 ==> Delta < 1
+PASS  C7 [exact x printed(3.7)]: rho<0 ==> Delta < 1
+PASS  C7 [exact x exact]: rho<0 ==> Delta < 1
+PASS  C8 (3.8) = 1 - X/(12 eps) identically
+PASS  C8 GIVEN (3.8): rho<0 ==> Delta_38 > 1 (no abs), all real eps != 0
+PASS  C8 GIVEN (3.8): rho<0 ==> |Delta_38| > 1
+PASS  C8 (3.8) itself can go negative (eps small, theta = pi/2): KF print no |.|
+PASS  C9 (3.8) == 1 - [K^2 (eps X)/N^2] / (3.7)  (eps X left unsquared) -- consistent-with only
+PASS  C10 eps > 0: rho < 0 <=> cos2th > sqrt2 eps
+PASS  C10 eps < 0: rho < 0 <=> cos2th < sqrt2 eps  (KF's printed condition reverses)
+PASS  C10 eps < 0 counter-point exists: cos2th > sqrt2 eps but rho > 0
+      witness eps=1/10, theta=0: exact Delta = 0.513428 ; KF (3.8) = 2.011845 ; rho/K = -0.240438
+PASS  C11 witness exact Delta = 0.5134
+PASS  C11 witness KF (3.8) = 2.0118
+      sweep: 9004 rho<0 points of 200000, max exact Delta there = 0.999999988
+PASS  C12 sweep: max exact Delta on rho<0 < 1
+
+ALL CHECKS PASS

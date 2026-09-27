@@ -1,0 +1,54 @@
+C1  linear response of the Higgs to a scalar source
+PASS     m_h^2 v^2 = 8|V_min| for the SM quartic: 2*lam*v**4 vs 2*lam*v**4
+PASS     eps = d/v = -J/(v m_h^2) = -rho_H c^2/(m_h^2 v^2) = -rho_H c^2/(8|V_min|)
+NOTE     NOTE: only the curvature m_h^2 = V''(v) enters; the trilinear/quartic (kappa_lambda, unmeasured to O(1)) does not, in the linear regime
+
+C2  sharp-edge exterior amplitude (planar, R >> lambda_h)
+PASS     (d^2/dx^2 - 1/L^2) eps = -(eps0/L^2) H(-x)  =>  exterior eps = (eps0/2) e^{-x/L}
+NOTE     address threshold (eps0 = eps_det = 1e-18, H1, S=0.06): 8.1904e+11 kg/m^3; with the edge factor 1/2 the threshold is 1.6381e+12
+NOTE     FINDING (discrepancy, conservative for the theorem): address.higgs_range overstates d by lambda_h ln 2 = 1.093e-18 m; at rho = 1e12 the true edge amplitude 6.105e-19 < eps_det, so the Higgs range there is 0, not 3.148e-19 m
+
+C3  the functional claim sqrt(rho) against ln(rho)
+PASS     lim_{rho->oo} A sqrt(rho)/ln(B rho) = oo
+PASS     dR/drho = A (ln(B rho) - 2) / (2 sqrt(rho) ln^2(B rho))  -> minimum at eps0/eps_det = e^2
+NOTE     FINDING: address.domination_ratio(9.828e+11) = 1.8232e+24  >  (2.457e+12) = 4.7840e+23 : the source GREW by 2.5x and r/d FELL -- contradicts address.py:316-317 'EVERY INCREASE IN THE SOURCE WIDENS IT' and :320 'it is monotone', on eps_det < eps0 < e^2 eps_det (rho 8.190e+11 .. 6.052e+12)
+PASS     the counterexample is real (computed with address.domination_ratio)
+PASS     sampled minimum of r/d sits at eps0/eps_det = 7.389 (e^2 = 7.389)
+NOTE     excite.py:1563-1569 already RECORDS this regime ('just above threshold ... d -> 0 there', check dom[0] > dom[1]); address.py section 9 prose does not
+
+C4  independent recomputation of excite.py's scan
+PASS     independent m_h^2 v^2/(hbar c)^3 = 1.979335e+46 J/m^3 vs tree 8|V_min| = 1.979335e+46
+         rho 1e+12  indep r/d 1.6796e+24  tree 1.6796e+24
+         rho 1e+14  indep r/d 6.9783e+23  tree 6.9783e+23
+         rho 1e+16  indep r/d 3.5632e+24  tree 3.5632e+24
+         rho 1e+18  indep r/d 2.3924e+25  tree 2.3924e+25
+         rho 1e+20  indep r/d 1.8007e+26  tree 1.8007e+26
+         rho 1e+22  indep r/d 1.4436e+27  tree 1.4436e+27
+PASS     independent = tree to 1e-9
+PASS     min r/d over excite's scan = 6.978e+23 > 1e20
+PASS     monotone increasing from 1e14 (excite's claim)
+PASS     and dom[0] > dom[1] (near-threshold regime, excite's claim)
+
+C5  sensitivity of the conclusion to every datum
+PASS     worst case over m_h x S x {H1,H2} x floor x eps_det: min r/d = 8.099e+20 (m_h 125.11, S 0.1060, H1, floor 1e-06, eps_det 2.86e-24) -- conclusion unmoved
+         m_h 125.13 -> 125.11 moves lambda_h by 1.60e-04 (fractional)
+
+C6  domain of 'grows without bound' at fixed R = 1 m
+NOTE     2GM/(Rc^2) = 1 at rho = 1.607e+26 kg/m^3; eps = 1 at rho = 8.190e+29; scan max 1e22 has 2GM/Rc^2 = 6.22e-05
+PASS     at the collapse density itself r/d = 1.292e+29: the verdict holds on the whole physical domain; 'without bound' is a statement about the formula only
+
+C7  point sources (linear Yukawa tail vs Newton), floor 1e-9, eps_det 2.86e-24
+PASS     electron Yukawa range 5.422e-17 m, Newton range 2.466e-16 m, ratio 4.5
+PASS     proton   Yukawa range 6.374e-17 m, Newton range 1.057e-14 m, ratio 165.8
+NOTE     crossover (f = 1): Newton range = Yukawa range at M = 3.64e-32 kg (4.00e-02 m_e) -- no source at or above one electron mass is out-read by the Higgs in this model
+
+C8  Shi arXiv:2107.04206 (contested for the SM: real Z2 scalar, source held FIXED)
+NOTE     Shi's valence coupling f = 0.0110 vs the tree's SVZ/H1 f = 0.2689 (x24.4)
+NOTE     1010->1210 boundary for a = 1 m: M_c = 2.70e+14 kg (Shi) -> 1.11e+13 kg with the tree's f; as a uniform 1 m sphere that is rho = 6.45e+13 / 2.64e+12 kg/m^3 -- inside excite's scan
+         rho 1e+14: light-horizon radius ~ 2.12 m (source scale 1 m); Newton range 5.29e+06 m; ratio 2.5e+06
+         rho 1e+16: light-horizon radius ~ 3.02 m (source scale 1 m); Newton range 5.29e+07 m; ratio 1.8e+07
+         rho 1e+18: light-horizon radius ~ 3.70 m (source scale 1 m); Newton range 5.29e+08 m; ratio 1.4e+08
+         rho 1e+22: light-horizon radius ~ 4.79 m (source scale 1 m); Newton range 5.29e+10 m; ratio 1.1e+10
+NOTE     ORDER-OF-MAGNITUDE only (Gaussian vs uniform sphere, asymptotic formula): even on Shi's contested non-perturbative branch gravity still out-reads the Higgs, by ~1e6-1e10 rather than >1e20, and the Higgs reach there scales as R sqrt(ln), not lambda_h ln rho
+
+RESULT: ALL ARITHMETIC CHECKS PASS

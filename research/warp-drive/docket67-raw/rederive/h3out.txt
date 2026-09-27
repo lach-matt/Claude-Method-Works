@@ -1,0 +1,26 @@
+PASS l=0: -Delta Pi_ql = ((q^2+1)/a^2) Pi_ql  [got (q**2 + 1)/a**2]
+PASS l=1: -Delta Pi_ql = ((q^2+1)/a^2) Pi_ql  [got (q**2 + 1)/a**2]
+PASS l=2: -Delta Pi_ql = ((q^2+1)/a^2) Pi_ql  [got (q**2 + 1)/a**2]
+PASS numeric spot l=0: 0.281663516068 vs 0.281663516068
+PASS q->0 radial mode chi/sinh(chi); L^2 integrand chi**2 diverges
+PASS McKean (n-1)^2/(4a^2) at n=3 = 1/a^2
+PASS C = omega_min = sqrt(1/a^2 + mu^2) = F&T (5.7), kappa = 1 [got sqrt(mu**2 + a**(-2))]
+PASS massless: C = 1/a [got 1/a]
+PASS Laplacian spectral bottom = 1/a^2 = C^2 (so '1/a' is the FREQUENCY gap)
+PASS (5.5) with q->omega' gives omega'^2 sqrt(omega'^2 - C^2) over [C,oo) [got omega_p**2*sqrt(-C**2 + omega_p**2)]
+PASS Q_3 closed form differentiates back to (3.5) integrand, and Q_3(1)=0 exactly
+PASS Q_3(1) = 0, Q_3(x) -> 1 as x -> oo
+PASS Q_3 increasing and in [0,1] on sampled [1.05, 21]
+PASS (5.6) LHS (1/4pi^3)*double == RHS (1/16pi^3)*single at C=0.5000  (rel 0.0e+00)
+PASS (5.6) LHS (1/4pi^3)*double == RHS (1/16pi^3)*single at C=1.0000  (rel 0.0e+00)
+PASS (5.6) LHS (1/4pi^3)*double == RHS (1/16pi^3)*single at C=1.7678  (rel 1.9e-17)
+PASS (5.6) LHS (1/4pi^3)*double == RHS (1/16pi^3)*single at C=35.3553  (rel 1.2e-15)
+PASS R(R x H^3_a) = -6/a^2 [got -6/a**2]
+PASS CONTROL: conformal coupling xi=1/6, massless: omega_min = 0 (gap closes)
+PASS general xi: C(xi) = sqrt((1-6 xi)/a^2 + mu^2) [got sqrt(mu**2 + (1 - 6*xi)/a**2)]; = 1/a only at xi=0, mu=0
+PASS F&T (2.2) field equation carries no xi R term (minimal coupling) -- READ, recorded
+PASS G_tt(ultrastatic open RW) = -3/a^2 [got -3/a**2]  -> rho = -3c^4/(8 pi G a^2) < 0
+PASS a_c/b = sqrt(A^3/(2m)); G and c cancel [got sqrt(2)*A**(3/2)/(2*sqrt(m))]
+PASS C_w = b/a_c = 25*sqrt(2) = 35.35533905932738 vs tree 35.35533905932738
+
+24/24 PASS

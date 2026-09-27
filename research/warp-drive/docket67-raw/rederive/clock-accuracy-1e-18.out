@@ -1,0 +1,58 @@
+(A) Godun et al. 2014, Table I (units 1e-16) -- READ
+PASS ratio total = sqrt(3.29^2+0.68^2) = 3.36 (Table I prints 3.36)   3.3595
+PASS nu_E3/nu_E2 = 0.932 829 404 530 964 65(31) -> 3.3e-16 fractional   3.323e-16
+PASS abstract/text '3 x 10^-16' is that figure rounded to 1 s.f.
+
+(B) state of the art, READ this session
+PASS BACON 2025 (2512.21428) Al+/Sr = 2.22e-18 (paper: 2.2e-18)
+PASS BACON 2025 (2512.21428) Al+/Yb = 3.24e-18 (paper: 3.2e-18)
+PASS BACON 2025 (2512.21428) Yb/Sr = 3.06e-18 (paper: 3.1e-18)
+PASS PTB Sr+/Yb+ 2026 (2603.23446) ratio 2.89e-18 (paper: 2.9e-18)
+PASS NO inter-species optical/optical ratio yet below 1e-18 (best 2.22e-18)
+PASS Lu+/Lu+ same-species (2512.07346): total 5.79e-19 < 1e-18; -2.4e-19 within 1 sigma
+PASS single-clock systematic uncertainties below 1e-18 exist (4 READ)
+PASS Th-229/Sr (2406.18719): 1.06e-12 fractional, systematics not yet evaluated
+
+(C) the tree's downstream figures, re-run at each measured datum
+PASS tree's COURIER_SOURCE at 1e-18 = excite.py pins 8.19956e11*MH^2 (H1), 3.67462e12*MH^2 (H2)   H1 8.19040e+11 H2 3.67051e+12 (m_h 125.13 READ)
+   fixture ORDER                acc 1.00e-18  eps_det 1.00e-18  src H1 8.190e+11 (x3.63e+07 Os)  H2 3.671e+12 (x1.62e+08 Os)
+PASS    courier eps_det equals the accuracy (coefficient 1)
+PASS    source > 1e7 x osmium under both hypotheses
+   Lu+ same-species validated   acc 5.79e-19  eps_det 5.79e-19  src H1 4.740e+11 (x2.10e+07 Os)  H2 2.124e+12 (x9.40e+07 Os)
+PASS    courier eps_det equals the accuracy (coefficient 1)
+PASS    source > 1e7 x osmium under both hypotheses
+   best inter-species ratio     acc 2.22e-18  eps_det 2.22e-18  src H1 1.819e+12 (x8.05e+07 Os)  H2 8.151e+12 (x3.61e+08 Os)
+PASS    courier eps_det equals the accuracy (coefficient 1)
+PASS    source > 1e7 x osmium under both hypotheses
+   Godun 2014 ratio             acc 3.36e-16  eps_det 3.36e-16  src H1 2.752e+14 (x1.22e+10 Os)  H2 1.233e+15 (x5.46e+10 Os)
+PASS    courier eps_det equals the accuracy (coefficient 1)
+PASS    source > 1e7 x osmium under both hypotheses
+
+(D) how far the verdict sits from the datum
+   accuracy at which the courier source falls to osmium density: H1 2.758e-26, H2 6.154e-27
+PASS that accuracy is > 6 orders below the best READ clock uncertainty (1.1e-19)
+
+(E) Th-229: the fixture carried to a nuclear clock
+   coeff -3.4963e+05 ; eps_det at 1e-18 2.860e-24 ; at the READ Th/Sr 1.06e-12 3.038e-18
+PASS tree's Th-229 eps_det at the fixture = 2.86e-24
+PASS at the measured Th/Sr precision Th-229 eps_det is WORSE than the 1e-18 electronic courier
+PASS Th-229 fixture gap to measured state is ~6 orders
+
+(F) section 9's domination theorem does not depend on eps_det's value
+PASS    fixture 1e-18 courier    gravimeter dominates by > 1e22 everywhere, tail diverging (min 6.98e+23, 1e30: 8.05e+30)
+PASS    Th-229 at fixture        gravimeter dominates by > 1e22 everywhere, tail diverging (min 2.59e+22, 1e30: 6.16e+30)
+PASS    Th-229 at READ Th/Sr     gravimeter dominates by > 1e22 everywhere, tail diverging (min 9.08e+23, 1e30: 8.27e+30)
+PASS    Lu+ validated            gravimeter dominates by > 1e22 everywhere, tail diverging (min 4.49e+23, 1e30: 7.95e+30)
+
+(G) the courier coefficient 'exactly 1' vs reduced mass (the tree's own, not external)
+   d ln R_M / d eps |_0 = (f*x + 1)/(x + 1)
+PASS    = 1 - x(1-f)/(1+x) exactly
+   H (m_e/m_p)  H1  coefficient 1 - 3.98e-04
+   H (m_e/m_p)  H2  coefficient 1 - 5.12e-04
+   87Sr         H1  coefficient 1 - 4.61e-06
+   87Sr         H2  coefficient 1 - 5.92e-06
+   27Al+        H1  coefficient 1 - 1.46e-05
+   27Al+        H2  coefficient 1 - 1.88e-05
+PASS    correction < 6e-4 in every case: eps_det moves by at most 0.051% (hydrogen, H2), no verdict moves
+
+ALL PASS

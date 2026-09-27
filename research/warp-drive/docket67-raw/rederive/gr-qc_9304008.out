@@ -1,0 +1,26 @@
+  [ok] C1a (3.44) Delta = Delta'/(1+Delta') holds when <:T^2:> >= rho^2 
+  [ok] C1b (3.44) Delta' = Delta/(1-Delta) holds when <:T^2:> >= rho^2 
+  [ok] C1c without that hypothesis (3.44) FAILS (SAT counterexample) e.g. <:T^2:>=1/2, rho=-1: Delta=1, Delta'/(1+Delta')=-1
+  [ok] C2a rho = 2K eps(2eps - sqrt2 cos2th)/(1+eps^2) -2*K*epsilon*(-2*epsilon + 2*sqrt(2)*cos(theta)**2 - sqrt(2))/(epsilon**2 + 1)
+  [ok] C2b <:T00^2:> = 12 K^2 eps^2/(1+eps^2) 12*K**2*epsilon**2/(epsilon**2 + 1)
+  [ok] C2c rho^2/<:T^2:> = (2eps - sqrt2 cos2th)^2/(3(1+eps^2)) 
+  [ok] C2d witness eps=1, cos2th=-1: rho > 0 and <:T^2:> < rho^2 rho=sqrt(2) + 2 ratio=2*sqrt(2)/3 + 1=1.942809
+  [ok] C2e there KF's |.| Delta = +0.9428 but the unsigned 1 - rho^2/<:T^2:> = -0.9428 KF=0.942809 unsigned=-0.942809
+  [ok] C3a z3: in vac+2, <:T^2:> < rho^2 never happens where rho < 0 (UNSAT) 
+  [ok] C3b z3: rho < 0 => <:T^2:> > (3/2) rho^2, so 1/3 < Delta there, |.| inactive 
+  [ok] C3d z3: rho < 0 => Delta < 1 with KF's own |.| (3.2), so the printed 'rho<0 => Delta>1' fails for the exact moments 
+  [ok] C3c vacuity guard: <:T^2:> < rho^2 IS reachable (SAT) in vac+2 with rho > 0 
+  [ok] C4 coherent: <:T^2:> - rho^2 = 0 identically, Delta = 0 (KF 3.21) 
+  [ok] C5a Wick: <:T00^2:> - rho^2 = (1/2) sum G_AB^2 
+  [ok] C5b numeric Isserlis control: <T^2> - rho^2 = (1/2) sum C^2 at a random covariance 
+  [ok] C5c z3: zero-mean Gaussian => <:T^2:> >= (3/2) rho^2 (> rho^2): |.| inactive, (3.44) valid 
+  [ok] C5d vacuity guard: the stronger <:T^2:> >= 2 rho^2 is refutable (SAT) 
+  [ok] C6a diagonal G: G00 = (rho+p1+p2+p3)/2, so (3.41)'s coefficient is 1/4, not the printed 1/2 
+  [ok] C6b diagonal G: G11 = (rho+p1-p2-p3)/2, so (3.42)'s coefficient is 1/4, not the printed 1/2 
+  [ok] C6c (3.43) with leading 1 equals the exact Delta' for diagonal G 
+  [ok] C6d (3.43) with 1: min 1/2 at xi = 0 (KF 3.45) and 6 at xi = (-1,-1,3) (KF 3.32 case) 
+  [ok] C6e (3.43) as printed with leading rho is NOT the exact Delta' (dimensionally inhomogeneous) 
+  [ok] C6f (3.43) stationary only at xi = 0 with value 1/2 (global min of a PD quadratic) 
+  [ok] C7 thermal isotropic radiation: p = rho/3, Delta' = 2/3, Delta = 2/5 
+
+RESULT: 24/24 checks pass

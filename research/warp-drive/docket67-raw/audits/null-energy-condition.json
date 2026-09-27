@@ -1,0 +1,91 @@
+{
+ "key": "null-energy-condition",
+ "name": "Null / weak energy conditions (definitions): NEC T_ab k^a k^b >= 0, its radial/transverse frame forms, Maxwell saturation, NEC as admissibility currency, 'ordinary matter satisfies T_kk >= 0'",
+ "source": {
+  "located": "Hawking & Ellis, The Large Scale Structure of Space-Time (CUP 1973) sec 4.3 -- no arXiv copy, NAMED-NOT-READ. Read via exact restatements: Kontou & Sanders, 'Energy conditions in general relativity and quantum field theory', arXiv:2003.01815 (2020): eq (26) NEC, Table 1 p.11, eq (15) Maxwell/Proca stress tensor, p.14-15 Maxwell satisfies NEC/WEC/DEC/SEC off-shell (eq 36, 38, Table 2), eq (39) and eq (32) non-minimally coupled scalar violates the NEC classically, p.17 'all pointwise energy conditions can be violated ... the NEC ... by the non-minimally coupled scalar field', Epstein-Glaser-Jaffe (QFT) p.17. Martin-Moruno & Visser, 'Classical and semi-classical energy conditions', arXiv:1702.05915 (2017): eq (2.6) NEC, type-I table p.6 'NEC rho + p_i >= 0', type-II null EM / aligned E field p.5, p.10 'Non-minimally coupled scalar fields can easily violate all the energy conditions even classically'.",
+  "read_status": "READ-VIA-RESTATEMENT",
+  "via": "alphaXiv answer_pdf_queries on 2003.01815 and 1702.05915 (page text returned and quoted); later literature hep-th/0512260 and 1305.2614 read at source through answer_pdf_queries. Hawking-Ellis 1973 itself not read."
+ },
+ "published_statement": "NEC: 'T_ab k^a k^b >= 0' for a null vector k [every null k] (Kontou-Sanders eq 26; Martin-Moruno-Visser eq 2.6 'for any null vector k^a'). 'For a perfect fluid the condition becomes rho + P >= 0' (K&S p.10); type I: 'NEC rho + p_i >= 0' (MM&V p.6). 'The NEC is the weakest of the four main pointwise energy conditions' (K&S p.11). Maxwell/Proca: energy density is a sum of squares (K&S eq 36), 'Thus the WEC holds and hence also the NEC ... the DEC also holds, even off-shell' (K&S p.15, Table 2). Minimally coupled scalar with V independent of g: DEC hence NEC hold (K&S p.14). Non-minimally coupled scalar (xi != 0): T_ab k^a k^b = (1-2 xi)(k.grad phi)^2 + xi G_kk phi^2 - 2 xi phi (k.grad)^2 phi can be made negative; 'the NEC is violated' (K&S eq 39, p.15); Minkowski test field phi = sin(mt): T_kk = m^2(1-2xi) at t=0, 2 xi m^2 at t = pi/2m (K&S eq 32, p.14). 'all pointwise energy conditions are systematically violated by quantum fields and also by some rather simple classical fields' (K&S abstract).",
+ "published_hypotheses": [
+  "definition, not theorem: quantifies over EVERY null vector at a point; 'holds' needs every null k, 'fails' needs one",
+  "4D Lorentzian (M,g), signature (-,+,+,+); physical form T_kk equals the geometric form R_kk/8pi only under the Einstein equation (K&S Table 1 'physical' vs 'geometric')",
+  "effective form rho + p_i >= 0 requires Hawking-Ellis type I (MM&V p.6); with an energy flux (T_0i != 0 in the frame) the general-direction form is MM&V eq 2.22-2.24, not the two diagonal sums",
+  "NEC-satisfying CLASSES as published: minimally coupled scalar with metric-independent potential (K&S p.14), Maxwell/Proca (p.15), perfect fluids with rho + P >= 0; NOT: non-minimally coupled scalar (xi != 0) classically (K&S p.15, 17; MM&V p.10), Galileon / kinetic-braiding theories (Rubakov 1305.2614: consistent, subluminal, ghost-free NEC violation), and quantum states of any Wightman field (Epstein-Glaser-Jaffe, K&S p.17)"
+ ],
+ "hypothesis_drift": [
+  "DROPPED 'DUST', driven.py:246-247: 'OPEN FRW (rho > 0, m > 0, j = 0, and the NEC contraction equals rho, STRICTLY SATISFIED)'. For open FRW the NEC contraction is rho + p (sympy, this audit, from the exact Einstein tensor); it equals rho only for dust. nonstatic.py:99-101 carries the qualifier ('which for open dust is exactly rho'); open radiation gives T_kk = (4/3) rho (sympy). DISCREPANCY, not a refutation: the witness is dust in nonstatic.py, the constant driven.py:755-757 reads is nonstatic's, and the sign ('strictly satisfied') holds for every rho + p > 0 fluid.",
+  "WEAKENED TO TWO DIRECTIONS, nonstatic.py:324-327, 351-352: the file checks T_kk for the outgoing radial k = u + n (= rho + p_r - 2j) and one transverse k = u + e_theta (= rho + p_T). Published NEC quantifies over every null k. General direction (sympy): T_kk = rho + p_T - 2 j c + (p_r - p_T) c^2, c = cos(angle to n). z3 counterexample: rho = 0, p_r = 1, p_T = 0, j = -3/8 passes outgoing, ingoing and transverse yet T_kk < 0 at c = -1/2. With j = 0 the two diagonal sums DO certify the full NEC (z3 unsat). The only configuration of which 'SATISFIED, strictly' is asserted (nonstatic.py:600, open dust) has j = 0 and is isotropic, so no printed verdict is affected. The residuals at :351-352 are correct identities (sympy), they are not a certificate of the NEC for j != 0.",
+  "ADDED/UNQUALIFIED 'CLASSICAL' (driven.py hypothesis 'classical stress-energy T_ab') and 'ORDINARY MATTER SATISFIES T_kk >= 0' (seatindex.py:93-94, :376, :405): the published satisfying classes are minimal coupling, Maxwell/Proca and rho + P >= 0 fluids; a classical, on-shell, non-minimally coupled scalar violates the NEC (K&S eq 32 re-derived here: xi = 1 gives T_kk = -m^2 at t = 0), as do Galileon-type theories stably (1305.2614). The tree itself carries this elsewhere (candidates.py:159-160 'violates the NEC and WEC AT THE CLASSICAL LEVEL'), and no verdict in rests_on_it uses 'classical implies NEC' as a premise: driven/nonstatic compute their witness, seatindex computes a positive required T_kk. So the narrowing is of a hypothesis LABEL, not of a verdict.",
+  "WORDING, seatindex.py:93-94 'It is positive, ordinary, energy-condition-satisfying matter': what is computed is T_kk > 0 along the focusing congruence (tkk_required(1e5) > 0, :376-377). That is necessary for, not sufficient for, the NEC (definition quantifies over all null k). The accurate reading is 'the requirement lies in the NEC-compatible sector / needs no NEC violation'; the neutron-star comparison (perfect fluid, rho + P > 0) does satisfy the full NEC.",
+  "NO DRIFT, drivensource.py:63-65, 87, selftest 512-517: 'Maxwell stress-energy SATURATES the NEC and never violates it'. Re-derived: T_kk = |P_perp E + n x B|^2/4pi on |n| = 1 (sympy, residual a multiple of |n|^2 - 1, with F_{i0} = E_i); inf over null directions is 0 for every sampled (E,B) (numeric, ratio to T_00 <= 5.6e-10, the principal null directions), so 'saturates' in the sense 'attains 0, never negative' is exact. 'rho + p_r = 0 EXACTLY in curved, time-dependent spherical symmetry': a purely radial F in an orthonormal frame gives T = (E^2/8pi) diag(1,-1,1,1) independently of the metric (frame algebra), checked also on exact Reissner-Nordstrom (rho = Q^2/8pi r^4, p_r = -rho, p_T = rho). Saturation is radial only: general direction T_kk = 2 rho sin^2(alpha), transverse = 2 rho > 0. Matches K&S p.15 and MM&V p.5 (aligned E field, type I/II).",
+  "NO DRIFT, latticectc.py:84-90, 141-148: 'the NEC fails on the u = 0.8 slice' uses the definition in its published direction (one negative null contraction suffices for failure). The figures behind it came from an unseated internal pass and are deliberately NOT seated; they cannot be checked here and are recorded as OPEN data, not as a finding."
+ ],
+ "data_at_publication": [
+  {
+   "quantity": "pi c^4 / (4 G), the SI coefficient of seatindex's T_kk threshold (seatindex.py:92)",
+   "value_then": "9.5054e43 Pa m^2",
+   "value_now": "9.50532e43 Pa m^2 with c exact and G = 6.67430e-11 m^3 kg^-1 s^-2 (CODATA 2022, unchanged from 2018)",
+   "source_now": "CODATA 2022 recommended G; computed in rederive/null-energy-condition.py (F)",
+   "moves_conclusion": "no -- agrees to 1e-5"
+  },
+  {
+   "quantity": "nuclear energy density used as the comparison scale (seatindex.py:370-374 'vs nuclear ~1e35 Pa')",
+   "value_then": "~1e35 Pa",
+   "value_now": "nuclear saturation energy density n0 (m_N - 16 MeV) = 0.16 fm^-3 x 922.9 MeV = 2.37e34 Pa; 1e35 Pa corresponds to ~4x saturation, inside the range of neutron-star cores",
+   "source_now": "standard nuclear saturation density n0 ~ 0.16 fm^-3 and binding ~16 MeV/nucleon (textbook values; not read at source in this audit); computed in rederive (F)",
+   "moves_conclusion": "no -- at l = 100 km the requirement 9.51e33 Pa is below both 2.37e34 and 1e35; the crossover moves from 31 km (tree's 1e35) to 63 km (saturation), and 'below nuclear density beyond about 100 km' (seatindex.py:406) holds either way. Recorded as a discrepancy of scale label ('nuclear' ~ 4x saturation), not an error."
+  },
+  {
+   "quantity": "NEC-violation figures on the u = 0.8 slice (latticectc.py:84-87)",
+   "value_then": "not seated (deliberately; from an internal /tmp pass)",
+   "value_now": "not available here",
+   "source_now": "none -- the tree refuses to seat them",
+   "moves_conclusion": "no -- the category is refused on other grounds (no bulk field equation, no junction condition, latticectc.py:141-145); the NEC figure is not load-bearing. OPEN as a datum."
+  }
+ ],
+ "rederivation": {
+  "method": "sympy",
+  "script_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/null-energy-condition.py",
+  "outcome": "ALL CHECKS PASS (exit 0; output in rederive/null-energy-condition.out). (A) Maxwell T_kk = |P_perp E + n x B|^2/4pi symbolically on the unit sphere, T_kk >= 0, inf over null directions -> 0 (max ratio 5.6e-10 over 20 random fields). (B) radial E field: orthonormal T = (E^2/8pi) diag(1,-1,1,1) metric-independently; radial NEC 0, transverse 2 rho, general 2 rho sin^2 alpha; exact RN Einstein tensor agrees. (C) open FRW from the exact Einstein tensor: T_kk = (adot^2 - 1 - a addot)/(4 pi a^2) = rho + p, rho = 3(adot^2-1)/(8 pi a^2) -- both nonstatic.py formulas confirmed; open dust p = 0, rho = 3A/(4 pi a^3) > 0, T_kk = rho strictly; open radiation T_kk = (4/3) rho (the 'dust' qualifier driven.py drops). (D) nonstatic identity rho + p_r - 2j with j = -T(u,n) confirmed; z3 sat: radial-out, radial-in and transverse >= 0 with NEC failing at c = -1/2 when j != 0; z3 unsat for j = 0. (E) K&S eq (32) re-derived from eq (7): T_kk = m^2(1-2xi) at t=0, 2 xi m^2 at t = pi/2m; xi = 1 gives -m^2 (classical on-shell NEC violation); xi = 0 gives (d_t phi)^2 >= 0. (F) pi c^4/4G = 9.50532e43; saturation energy density 2.37e34 Pa; 100 km claim holds.",
+  "agrees_with_source": "yes"
+ },
+ "later_literature": [
+  {
+   "ref": "Dubovsky, Gregoire, Nicolis, Rattazzi, 'Null energy condition and superluminal propagation', hep-th/0512260 (JHEP 2006)",
+   "effect": "narrows",
+   "what": "NEC violation implies instability for systems that are isotropic or have only subluminal excitations (incl. relativistic fluids and solids); stable NEC-violating effective theories exist but necessarily have an anisotropic background and superluminal modes. Supports 'healthy ordinary matter satisfies the NEC' only under isotropy/subluminality.",
+   "read_status": "READ (abstract, sec 4, sec 8 via answer_pdf_queries)"
+  },
+  {
+   "ref": "Rubakov, 'Consistent NEC-violation: towards creating a universe in the laboratory', arXiv:1305.2614 (2013)",
+   "effect": "narrows",
+   "what": "Kinetic-braiding / Galileon theories violate the NEC classically, stably, subluminally and ghost-free within GR (conditions eq 22, 27, 28). A classical NEC-violating class exists; 'classical matter satisfies the NEC' needs canonical kinetic terms.",
+   "read_status": "READ (abstract, sec 2.3 via answer_pdf_queries)"
+  },
+  {
+   "ref": "Kontou & Sanders, arXiv:2003.01815 (2020) sec 2.3 and Table 2",
+   "effect": "narrows",
+   "what": "Non-minimally coupled scalar violates all pointwise conditions including the NEC, off- and on-shell; Maxwell/Proca and minimally coupled scalars satisfy it off-shell; QFT violates all pointwise conditions (Epstein-Glaser-Jaffe).",
+   "read_status": "READ"
+  },
+  {
+   "ref": "Kontou & Sanders sec 2.2 (NEC not conserved by the dynamics: test field sin(mt), K&S p.14)",
+   "effect": "extends",
+   "what": "Validity of the NEC on a Cauchy surface does not propagate for test fields; a witness certified at one time is certified only there. Not used by the tree (its dust witness is certified for all t in closed form).",
+   "read_status": "READ"
+  },
+  {
+   "ref": "2609.16942 (NEC via optimal transport, 2026), 2512.20310 (NEC equivalent to variable lower bounds on timelike Ricci for C^2 metrics, 2025), 2604.16545 (energy conditions in static spherically symmetric spacetimes, 2026)",
+   "effect": "extends",
+   "what": "Recast / low-regularity formulations of the NEC; none changes the pointwise definition the tree uses for smooth metrics.",
+   "read_status": "NAMED-NOT-READ (discover_papers abstracts only)"
+  }
+ ],
+ "lacked_data": "M's hypothesis tested. The NEC is a DEFINITION (Hawking-Ellis 1973), so no datum enters it and no later measurement can move it: nothing the authors lacked changes the definition, and the re-derivation agrees. What WAS lacking in 1973, and has since arrived, bears on the companion belief 'ordinary / classical matter satisfies the NEC': (i) Epstein-Glaser-Jaffe 1965 already showed QFT violates positivity, (ii) non-minimally coupled scalars were shown to violate it classically (K&S sec 2.3, eq 32/39, re-derived here), (iii) Galileon / kinetic-braiding theories (2009-2013) supplied stable, subluminal classical NEC violation (Rubakov 1305.2614), and (iv) Dubovsky et al 2005 showed isotropic or subluminal NEC violators are unstable. So later work NARROWS the class of NEC-satisfying matter, exactly in M's sense of 'incomplete' -- but evidence the other way is equally firm: for the classes the tree actually computes on (open dust, Maxwell electrovac, a perfect-fluid neutron-star comparison) the NEC holds exactly, and no verdict in rests_on_it moves. The one datum the tree's NEC uses quantitatively (nuclear scale ~1e35 Pa) is a factor ~4 above saturation density but does not move the 100 km conclusion.",
+ "grade": "NARROWED",
+ "grade_evidence": "The definition as used is the published one (K&S eq 26, MM&V eq 2.6), and every computed use re-derives exactly (sympy/z3, all checks pass): Maxwell T_kk is a sum of squares with infimum 0 (saturation), radial electrovac rho + p_r = 0 metric-independently, open-dust T_kk = rho > 0 strictly, nonstatic's residual identities. NARROWED on two counts, neither of which moves a verdict: (1) the hypothesis 'classical stress-energy' / 'ordinary matter satisfies T_kk >= 0' (driven.py hypothesis; seatindex.py:93-94, :405) holds on a smaller class than stated -- minimal coupling, Maxwell/Proca, rho + P >= 0 fluids -- and a classical on-shell counterexample is SHOWN here (xi = 1 scalar, T_kk = -m^2); the tree acknowledges this at candidates.py:159-160; (2) nonstatic's two contractions certify the NEC only when j = 0 (z3 counterexample for j != 0), which is the only case it asserts. Discrepancies recorded, not repaired: driven.py:246-247 drops 'dust' (T_kk = rho + p, = 4/3 rho for radiation); seatindex's 'energy-condition-satisfying' is 'NEC-compatible' (T_kk > 0 on one congruence); seatindex's 'nuclear ~1e35 Pa' is ~4x saturation energy density (2.37e34 Pa). None is WRONG.",
+ "what_would_change_the_grade": "To STANDS: a ruling that the owners' hypothesis lists are to be read as 'the matter of the witness' (dust, Maxwell, perfect fluid) rather than 'classical/ordinary matter', together with 'dust' restored at driven.py:246-247 -- then the tree's use and the published class coincide. To WRONG: a verdict in rests_on_it shown to need 'classical implies NEC' as a premise, or a witness the tree calls NEC-satisfying shown to have a negative null contraction (none found: open dust is isotropic with j = 0, electrovac is a sum of squares). OPEN would apply to latticectc's u = 0.8 figures if they were ever seated without their source pass.",
+ "reverify_command": "python3 /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/null-energy-condition.py  # exit 0 = all checks pass; sources: alphaXiv answer_pdf_queries 2003.01815 (pp.10-17), 1702.05915 (pp.3-10)",
+ "report_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/audits/null-energy-condition.json"
+}

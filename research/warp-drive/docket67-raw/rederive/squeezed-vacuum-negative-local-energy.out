@@ -1,0 +1,23 @@
+PASS A1 <:T00:> = 2K sinh r (sinh r + cosh r cos(2chi+theta)), K = omega/(2V)  -- omega*(cos(-2*omega*t + 2*omega*x + theta)*sinh(2*r) + cosh(2*r) - 1)/(2*V)
+PASS A2 Fock control (N=120 truncation) r=0.3 theta=0.0: <aa>, <a^dag a> match -e^{i th} s c, s^2  -- max residual 6.7e-16 (truncation)
+PASS A2 Fock control (N=120 truncation) r=0.7 theta=1.1: <aa>, <a^dag a> match -e^{i th} s c, s^2  -- max residual 9.8e-16 (truncation)
+PASS A2 Fock control (N=120 truncation) r=1.2 theta=-2.0: <aa>, <a^dag a> match -e^{i th} s c, s^2  -- max residual 8.8e-09 (truncation)
+PASS B1 minimum over phase = 2K s(s-c) = -K(1-e^{-2r})  -- -omega*(exp(r) - 1)*(exp(r) + 1)*exp(-2*r)/(2*V)
+PASS B2 negative for EVERY r > 0 (s(s-c) = -s e^{-r} < 0)
+PASS B3 the dip SATURATES: lim_{r->oo} min = -K = -omega/(2V) (minus the mode's own zero-point density)
+PASS B4 cycle average = 2K sinh^2 r > 0 (energy per mode omega sinh^2 r)  -- omega*sinh(r)**2/V
+PASS B5 r=0.100 negative-phase fraction arccos(tanh r)/pi = 0.46822 (numeric 0.46822); positive/negative integral = 1.3691 > 1
+PASS B5 r=0.500 negative-phase fraction arccos(tanh r)/pi = 0.34709 (numeric 0.34709); positive/negative integral = 4.7914 > 1
+PASS B5 r=1.000 negative-phase fraction arccos(tanh r)/pi = 0.22442 (numeric 0.22442); positive/negative integral = 22.5338 > 1
+PASS B5 r=1.727 negative-phase fraction arccos(tanh r)/pi = 0.11203 (numeric 0.11203); positive/negative integral = 206.4587 > 1
+PASS B5 r=3.000 negative-phase fraction arccos(tanh r)/pi = 0.03167 (numeric 0.03167); positive/negative integral = 9532.9941 > 1
+PASS C1 r=0.5: <:T00:> = 0.720962 (closed form 0.720962), <:T00^2:>/rho^2 = 3.000000 (=3)
+PASS C1 r=1.0: <:T00:> = -0.372123 (closed form -0.372123), <:T00^2:>/rho^2 = 3.000000 (=3)
+PASS C1 r=0.8: <:T00:> = 1.219135 (closed form 1.219135), <:T00^2:>/rho^2 = 3.000000 (=3)
+PASS D1 <:T00:>(t+D, x+D) = <:T00:>(t, x): the negative regions move rigidly at c (free massless, vacuum)
+PASS D2 control: with mass m the group velocity k/sqrt(k^2+m^2) < 1 -- 'at c' needs the massless, vacuum hypothesis
+PASS E1 6 dB squeezing (pure state r=0.6908): min <:T00:>/K = -0.7488 = -(1-e^{-2r})
+PASS E1 10 dB squeezing (pure state r=1.1513): min <:T00:>/K = -0.9000 = -(1-e^{-2r})
+PASS E1 15 dB squeezing (pure state r=1.7269): min <:T00:>/K = -0.9684 = -(1-e^{-2r})
+
+21/21 PASS

@@ -1,0 +1,83 @@
+{
+ "key": "glp-eq39",
+ "name": "GLP eq. (39): Eot-Wash null bounds gamma*L, not L",
+ "source": {
+  "located": "B. Greene, J. Levin & M. Parikh, 'Brane-World Motion in Compact Dimensions', arXiv:1103.2174 [hep-th], 11 Mar 2011; Class. Quant. Grav. 28 (2011) 155013 (identification as printed in Kabat & Nomura 2309.05759v2 ref.[9] and GKLP 2206.13590v2 ref.[3]; the o6o7 pass's /tmp/o6o7/final.py:9 names 'GLP 1103.2174 eq 39'). GLP itself NOT read: alphaXiv returned 'assistant quota exceeded' on get_paper_content, answer_pdf_queries and discover_papers (5 attempts); arxiv.org, export.arxiv.org, archive.org, osti.gov, pubmed and npl.washington.edu are egress-blocked (403).",
+  "read_status": "READ-VIA-RESTATEMENT",
+  "via": "Kabat & Nomura, 'Induced Lorentz Violation on a Moving Braneworld', arXiv:2309.05759v2, full text cached at scratchpad/d67/src/2309.05759.cached.txt (md5 fd16b061341718ee1cd6eda53cde16be), p.19-20: 'The Newtonian potential on a moving brane was studied by Greene et al. in [9], who found that the relation between the 4-D and 5-D reduced Planck masses becomes M4 = (gamma 2 pi R)^{1/2} M5^{3/2} (72). For a moving brane r = gamma R ...' and footnote 8: 'In [9] this was expressed in terms of Newton's constant, G4 = G5/gamma 2 pi R with G4 = 1/8 pi M4^2 and G5 = 1/8 pi M5^3.' Also KN p.5 eq (10): boost with velocity beta gives a^mu = (-gamma beta 2 pi R, 0,0,0), r = gamma R ('boost-like isotropic'); eq (15) tilt: r = cos(theta) R; eq (22) lightlike: r = R. GKLP 2206.13590v2 (cached, md5 2d15fd1497e73b10f4c703a95d6b85ca) p.8 only says 'modifications to the Newtonian potential on a moving brane have been studied in [3]'. The restatement covers GLP's effective-size result; it does NOT restate GLP's equation numbering, the coth potential, or any Eot-Wash comparison. A web-search result summary of the GLP abstract (not a source read) says the potential is modified 'so as to effectively magnify the size of the extra dimension, L, by the Lorentz factor gamma' and 'even small extra dimensions are detectable by brane observers if the brane is moving sufficiently fast'."
+ },
+ "published_statement": "As restated by Kabat & Nomura (READ): for a brane moving with velocity beta around the S^1 of radius R (circumference L = 2 pi R), GLP found G4 = G5/(gamma 2 pi R), i.e. M4 = (gamma 2 pi R)^{1/2} M5^{3/2}: the effective compactification radius seen on the brane is r = gamma R. The specific form the tree relies on -- 'eq. (39)', V_brane(r) = -(G m1 m2/(gamma L r)) coth(pi r/(gamma L)) with Yukawa range gamma L/(2 pi), and its comparison to the Eot-Wash null -- is as quoted by the o6o7 pass (/tmp/o6o7/final.py:7-12); it is NOT READ here, and the equation number (39) is unverified.",
+ "published_hypotheses": [
+  "flat bulk M4 x S^1, single compact dimension of radius R (L = 2 pi R) (KN restatement, p.3)",
+  "brane a test hypersurface at fixed position on S^1 in its own frame, moving with constant velocity beta along S^1 relative to the frame singled out by the compactification ('boost-like isotropic', KN eq 9-13)",
+  "gravity propagates in the bulk (a 5D G5 / M5 exists) -- the potential is that of bulk gravity",
+  "Newtonian (weak-field, static-source) limit; sources at rest on the brane"
+ ],
+ "hypothesis_drift": [
+  "DROPPED -- gravity is a bulk field. The Eot-Wash null constrains the compact dimension only if Newtonian gravity sees it; branelink.py:24-26 and :160 (EOTWASH_BOUNDS = 'gamma*L, not L (GLP eq. 39)') and LEDGER.md:93 state the bound unconditionally, while branelink.py:40-53 (the O6 dichotomy) itself treats 'graviton brane-confined' as a live branch. On that branch the Eot-Wash null bounds nothing about L or gamma L. The canonical entry's hypothesis list ('moving brane with boost gamma through compact dimension of length L') omits it.",
+  "WEAKENED WORDING (scope) -- 'gamma*L' is the boost-like case. KN eq (15) gives r = R cos(theta) for a tilted brane and eq (22) r = R for lightlike b^mu; the general statement is that the null bounds the brane-frame effective radius r. branelink.py:142/:97 use R_EOTWASH as KN's r, and KN eq 73 (read) 'take[s] this relation to hold in general, i.e. even for a brane that is tilt-like', so the tree's computations use r correctly; only the label at branelink.py:24-26, :160 is narrower than 'r' and broader than its boost-like derivation. The canonical hypothesis says 'boost', so this is a scope note, not a dropped hypothesis in the entry.",
+  "DATUM/HYPOTHESIS MISMATCH, FLAGGED NOT FOUND -- branelink.py:142 R_EOTWASH = 38.6e-6 '(Lee et al. 2020, 95% CL (READ))' is used as the maximal r. By a web-search abstract summary (Lee et al. PRL 124, 101101; arXiv:2002.11761 NOT read here) 38.6 um is the range limit for 'gravitational-strength' Yukawa interactions, i.e. |alpha| = 1. The circle's leading deviation computed here (rederive step 4) is alpha = 2 (Newtonian image count; 8/3 with graviton tensor structure per Kehagias-Sfetsos, NAMED-NOT-READ) at lambda = r, for which the lambda limit is tighter; a search snippet reports ~30 um for a single extra dimension. If read and confirmed, the tree's 'maximal r = 38.6 um' is ~29% too large (r <= ~30 um; gamma L <= 188.5 um instead of 242.5 um). The qualitative claim 'bounds gamma L, not L' does not move.",
+  "WORDING DISCREPANCY (not a drift) -- branelink.py:24-25 'puts the Eot-Wash 38.6 um null on the PRODUCT gamma L': the 38.6 um figure bounds gamma L/(2 pi) = r, so gamma L <= 242.53 um; the pass's own final.py:7 says 'r = gamma*L/(2pi)' and branelink's code uses r, so no number in the tree is affected.",
+  "UNVERIFIED CITATION -- 'GLP eq. (39)': GLP not read, so the equation number cannot be confirmed. GKLP 2206.13590v2 eq (39) (READ, cached text) is the GW170817 bound -3e-15 <= Delta c/c <= +7e-16, and /tmp/o6o7/o67.py:137 cites that as 'GKLP as their eq (39)'. A GLP/GKLP label near-collision is possible; not asserted, recorded."
+ ],
+ "data_at_publication": [
+  {
+   "quantity": "Eot-Wash short-range Yukawa limit lambda at |alpha| = 1, 95% CL",
+   "value_then": "GLP 2011: not read (Kapner et al. 2007 would have been the then-current Eot-Wash figure, ~56 um at |alpha|=1 -- from memory, NOT READ); tree uses 38.6 um (Lee et al. 2020)",
+   "value_now": "38.6 um (Lee et al. 2020) per web-search abstract summary; no later superseding torsion-balance figure could be searched (discover_papers quota exhausted)",
+   "source_now": "J.G. Lee, E.G. Adelberger, T.S. Cook, S.M. Fleischer, B.R. Heckel, PRL 124, 101101 (2020), arXiv:2002.11761 -- NOT READ (abstract content via WebSearch summary only)",
+   "moves_conclusion": "No for the qualitative claim (the bound is on the product gamma L / on r for any lambda value). Yes for the number: the |alpha|=1 figure is not the circle's alpha (2 or 8/3); the appropriate limit is tighter (~30 um per a snippet, unread)."
+  },
+  {
+   "quantity": "gamma - 1 for our brane (bulk-graviton branch)",
+   "value_then": "not used by GLP",
+   "value_now": "<= 7e-16 (GW170817/GRB170817A via GKLP eq 38-39, READ in cached 2206.13590; seated in manyc.py)",
+   "source_now": "GKLP arXiv:2206.13590v2 p.12 eqs (38)-(39), citing LIGO/Virgo/Fermi/INTEGRAL 2017",
+   "moves_conclusion": "Not the statement, but its weight: in the only branch where Eot-Wash constrains the dimension at all (bulk gravity, boost-like), the tree's own seat forces gamma L - L <= 7e-16 L (<= 1.7e-19 m at L = 242.5 um). The distinction 'gamma L, not L' is exact in principle and numerically void under the tree's own GW170817 seat."
+  }
+ ],
+ "rederivation": {
+  "method": "sympy",
+  "script_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/glp-eq39.py",
+  "outcome": "ALL 15 CHECKS PASS (exit 0, ~1 s). (1) Boosting the lattice vector (t,y)=(0,L) gives the brane-frame identification (-gamma beta L, gamma L), interval L^2 preserved -- KN eq (10) reproduced; a static brane-frame field is therefore periodic with period gamma L. (2) Independent preferred-frame route: the wave operator on f(y - beta t) is (1-beta^2) f'', so the steady field is harmonic in eta = gamma xi with period gamma L -- same result without using the brane-frame identification. (3) The image sum sum_n 1/(r^2+n^2 a^2) = pi coth(pi r/a)/(a r) checked numerically at 4 points to 1e-8; with the 4-space Gauss-law point potential -G5 m/(pi R^2) it gives exactly V = -(G5 m1 m2/(a r)) coth(pi r/a), the pass's quoted form at a = gamma L; far field G4 = G5/(gamma L), which with G = 1/(8 pi M^2) is KN eq (72) M4 = (gamma 2 pi R)^{1/2} M5^{3/2} -- GLP's result as KN restate it. (4) coth z = 1 + 2 sum e^{-2kz}: leading deviation alpha = 2, lambda = gamma L/(2 pi) = gamma R = r. (5) 2 pi x 38.6 um = 242.531 um. (6) Under the tree's GW170817 seat, gamma L - L <= 1.698e-19 m. (7) Tilt-like r = R cos(theta) <= R.",
+  "agrees_with_source": "yes"
+ },
+ "later_literature": [
+  {
+   "ref": "Kabat & Nomura, arXiv:2309.05759v2 (2023)",
+   "effect": "confirms",
+   "what": "Restates GLP's G4 = G5/(gamma 2 pi R) (eq 72, fn 8) and generalises the effective radius: r = gamma R (boost, eq 10), R cos(theta) (tilt, eq 15), R (lightlike, eq 22), taking eq 72-73 'to hold in general'.",
+   "read_status": "READ (cached full text scratchpad/d67/src/2309.05759.cached.txt, p.3-6, 19-20)"
+  },
+  {
+   "ref": "Greene, Kabat, Levin & Menon (GKLP), arXiv:2206.13590v2 (2022)",
+   "effect": "extends",
+   "what": "Extends GLP's static Green's function to the retarded one (p.8: 'modifications to the Newtonian potential on a moving brane have been studied in [3] ... our goal here is merely to extend the analysis from a static Green's function to a retarded Green's function'); eq (38) Delta c/c = gamma - 1 and eq (39) the GW170817 bound, which, for bulk gravity, forces gamma - 1 <= 7e-16.",
+   "read_status": "READ (cached full text scratchpad/d67/src/2206.13590.cached.txt, p.8, 12, refs)"
+  },
+  {
+   "ref": "Lee, Adelberger, Cook, Fleischer & Heckel, PRL 124, 101101 (2020), arXiv:2002.11761",
+   "effect": "narrows",
+   "what": "Source of the 38.6 um datum: per web-search summary, 38.6 um is the 95% CL range limit for gravitational-strength (|alpha|=1) Yukawa; the same group's page summary says the experiment limits 'a single extra dimension to about 30 um'. If confirmed at source, the correct bound on r for the circle's alpha is tighter than the tree's 38.6 um.",
+   "read_status": "NAMED-NOT-READ (alphaXiv quota exhausted; arxiv.org, ar5iv, pubmed, npl.washington.edu egress-blocked; content from WebSearch result summaries only)"
+  },
+  {
+   "ref": "Kehagias & Sfetsos (1999), alpha = 8/3 per extra dimension for KK graviton exchange",
+   "effect": "narrows",
+   "what": "Tensor-structure strength of the first KK correction; would fix the alpha at which the Eot-Wash exclusion must be read. From memory, not searched or read.",
+   "read_status": "NAMED-NOT-READ"
+  },
+  {
+   "ref": "discover_papers for later work",
+   "effect": "contested",
+   "what": "The one permitted discover_papers call returned 'alphaXiv assistant quota exceeded'; no later-literature search was possible. Absence of a narrowing/contradicting paper here is NOT evidence none exists.",
+   "read_status": "NOT RUN (quota)"
+  }
+ ],
+ "lacked_data": "GLP (2011) is a kinematic result about flat M4 x S^1 -- the effective size seen by static brane sources is gamma L -- and needs no measured input; it is re-derived here twice (brane-frame identification, and preferred-frame steady field) and agrees with Kabat & Nomura's restatement. Data that came later: (a) the Eot-Wash 2020 limit (38.6 um at |alpha|=1, ~30 um for one extra dimension per snippet), which changes the NUMBER the tree attaches to r, not the claim; (b) GW170817 (2017), which GLP could not have had: for bulk gravity with boost-like motion it forces gamma - 1 <= 7e-16 (GKLP eq 38-39, READ), so the magnification gamma that GLP made observable is, on today's data, bounded to one part in 1.4e15 -- 'small extra dimensions are detectable if the brane is moving sufficiently fast' is closed by later data in the bulk-graviton branch, while the formula stands. This is evidence FOR M's hypothesis in the weak sense that later data removed the result's practical content, and AGAINST it in the strong sense: nothing GLP computed is wrong or incomplete on any datum found here.",
+ "grade": "NARROWED",
+ "grade_evidence": "The mathematical claim -- a static brane-frame potential has period gamma L, so the Yukawa range is gamma L/(2 pi) = gamma R and a short-range null bounds the product -- is re-derived by two independent routes (15/15 checks pass) and matches GLP as restated by Kabat & Nomura eq (10), (72), fn 8 (READ). It is NARROWED, not STANDS, because the tree states it unconditionally (branelink.py:24-26, :160; LEDGER.md:93) while it holds only (i) if gravity propagates in the bulk -- a branch branelink.py:40-53 itself keeps open -- and (ii) as 'gamma L' only for boost-like motion (the general bounded quantity is KN's r: R cos(theta) tilt-like, R lightlike). Two further items are recorded, not graded: the datum 38.6 um is (per unread abstract summary) the |alpha|=1 limit, not the alpha = 2 or 8/3 appropriate to a circle, so the tree's 'maximal r' is likely ~29% too large; and 'eq. (39)' is unverified (GLP not read; GKLP's eq 39 is the GW170817 bound). Not WRONG: nothing is refuted. Not OPEN: the result is closed-form and checked here, and its content is READ via restatement, though GLP's own text is not.",
+ "what_would_change_the_grade": "To STANDS: the tree restating the line as 'for bulk gravity and boost-like motion, the Eot-Wash null bounds r = gamma R' (the scope in which it is derived). To DATA-DEPENDENT on the number: reading Lee et al. 2020 (arXiv:2002.11761) and confirming that the one-extra-dimension limit is ~30 um rather than 38.6 um, which would move branelink's R_EOTWASH (and the Mbar5 and SME figures built on it) but not the qualitative claim. A reading of GLP 1103.2174 finding its eq (39) is not the coth potential would be a citation discrepancy, still not a refutation. A reading finding GLP's potential normalised differently (e.g. an extra pi) would be a convention discrepancy only; the form is fixed by the images.",
+ "reverify_command": "python3 /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/glp-eq39.py && grep -n 'r = γR\\|γ2πR\\|In \\[9\\]' /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/src/2309.05759.cached.txt && grep -n 'EOTWASH\\|GLP' /home/user/Claude-Method-Works/research/warp-drive/branelink.py",
+ "report_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/audits/glp-eq39.json"
+}

@@ -1,0 +1,47 @@
+{
+ "E_static(3sigma/eps)=0": true,
+ "gamma_needed == R/Rc": true,
+ "hyperbola gamma == R(t)/R0": true,
+ "lim_{t->oo} v": "1",
+ "wall energy / released vacuum energy": "1",
+ "R=1e-10 m: gamma, 1-v": [
+  "5.068e+16",
+  "1.947e-34"
+ ],
+ "R=1 m: gamma, 1-v": [
+  "5.068e+26",
+  "1.947e-54"
+ ],
+ "R=6.371e+06 m: gamma, 1-v": [
+  "3.229e+33",
+  "4.797e-68"
+ ],
+ "Yukawa rescaling (illustrative interior values, not READ)": {
+  "h_in = 1e10 GeV": {
+   "mass ratio h_in/v": "4.061e+07",
+   "m_e inside [GeV]": "2.075e+04"
+  },
+  "h_in = 1e12 GeV": {
+   "mass ratio h_in/v": "4.061e+09",
+   "m_e inside [GeV]": "2.075e+06"
+  },
+  "h_in = M_Pl = 1.22e19 GeV": {
+   "mass ratio h_in/v": "4.955e+16",
+   "m_e inside [GeV]": "2.532e+13"
+  }
+ },
+ "A & B & F satisfiable (inference not an entailment)": "sat",
+ "with H-BRIDGE (A&B -> not F): A&B&F": "unsat",
+ "c4_combined == rel | dec (valid)": true,
+ "not rel & not dec -> not C4 (valid)": true,
+ "tree: DECAY_CHANGES_PARTICLE_MASSES": true,
+ "tree: DECAY_DESTROYS_WHAT_IT_MEETS": true,
+ "tree: VACUUM_DECAY_FORMS_ATOMIC_MASS_AT_THE_SEAT": false,
+ "tree: HIGGS_FIELD_SUPPLIES_THE_MASS_ENERGY": false,
+ "tree held text mentions gravitational collapse": true,
+ "tree held text: \"near the speed of light\" and \"at the speed of light\"": [
+  true,
+  true
+ ]
+}
+ALL CHECKS AGREE

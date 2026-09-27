@@ -1,0 +1,30 @@
+PASS C1 T1: U = exp(i th sigma) (matrix exponential agrees)
+PASS C1 T1: U unitary
+PASS C1 T1: (UH)^dag(UH) - H^dag H == 0, any theta, any H
+PASS C1 T2: U = exp(i th sigma) (matrix exponential agrees)
+PASS C1 T2: U unitary
+PASS C1 T2: (UH)^dag(UH) - H^dag H == 0, any theta, any H
+PASS C1 T3: U = exp(i th sigma) (matrix exponential agrees)
+PASS C1 T3: U unitary
+PASS C1 T3: (UH)^dag(UH) - H^dag H == 0, any theta, any H
+PASS C1 Y: U = exp(i th sigma) (matrix exponential agrees)
+PASS C1 Y: U unitary
+PASS C1 Y: (UH)^dag(UH) - H^dag H == 0, any theta, any H
+PASS C1 Y physical normalisation exp(i alpha/2): H^dag H invariant
+PASS C2 -I is in SU(2): unitary and det = 1
+PASS C2 -I = exp(i pi sigma3) (an SU(2) element)
+PASS C2 -I = exp(i 2pi Y) with Y_H = 1/2 (a U(1)_Y element)
+PASS C2 -I maps (0, v/sqrt2) to (0, -v/sqrt2)
+PASS S1 W unitary
+PASS S1 det W = 1
+PASS S1 W H = (0, sqrt(H^dag H))
+PASS S2 char poly of M^2(H) equals that at (0, r) with r^2 = H^dag H
+PASS S2 eigenvalues at vev (L = (1/2) M2_ab W^a W^b): {g^2v^2/4 (x2), (g^2+g'^2)v^2/4, 0}
+PASS S3 Z6 generator (e^{2pi i/3}, -1, e^{2pi i Y}) acts trivially on Q,u,d,L,e,H
+PASS S3 -I in SU(2) acts as -1 on H (nontrivial, so survives any quotient)
+PASS S4 psi^dag H invariant when psi and H both rotate
+PASS S4 CONTROL psi^dag H CHANGES when H alone rotates (scope limit)
+PASS S5 (3/5)^2 + (4/5)^2 == 1 exactly
+PASS S5 the 4 generators span a 3-dim tangent space at the vev (rank 3)
+PASS S5 Q = (I + sigma3)/2 annihilates the vev (0,1); (I - sigma3)/2 moves it
+ALL PASS 29 / 29

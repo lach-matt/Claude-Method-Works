@@ -1,0 +1,42 @@
+  parsed ll_l: 18 terms
+  parsed th_n: 14 terms
+  parsed th_l: 19 terms
+PASS HPS text layer: K^2 = 1/(5760 pi) printed
+PASS 8 pi/(46080 pi^2) == 1/(5760 pi)  (tree mapping, hpscentre.py:139)
+  source slots: tt ln f f'^2f''/f^3 = 16; ll ln f f'^2r'^2/(f^2 r) = -4, /(f^2 r^2) = 0; thth ln f f'^4/f^4 = 21
+PASS M1 HPS side READ at source: tt ln-f coefficient printed 16
+PASS M2 HPS side READ at source: ll ln-f term printed -4 f'^2 r'^2/(f^2 r), no /(f^2 r^2)
+PASS M3 HPS side READ at source: thth ln-f carries +21 f'^4/f^4
+PASS tree transcription == independent parse of HPS text layer: tt_n
+PASS tree transcription == independent parse of HPS text layer: tt_l
+PASS tree transcription == independent parse of HPS text layer: ll_n
+PASS tree transcription == independent parse of HPS text layer: ll_l
+PASS tree transcription == independent parse of HPS text layer: th_n
+PASS tree transcription == independent parse of HPS text layer: th_l
+PASS G^t_t = 2r''/r + r'^2/r^2 - 1/r^2 (HPS (5) LHS)
+PASS G^l_l = f'r'/(fr) + r'^2/r^2 - 1/r^2 (HPS (6) LHS)
+PASS G^th_th = f''/2f + r''/r + f'r'/2fr - f'^2/4f^2 (HPS (7) LHS)
+PASS Bianchi: div G = 0 (own conservation law)
+  conserving (a_tt, a_th) at ll power 2: [{a_th: 21, a_tt: 116}]
+  conserving (a_tt, a_th) at ll power 1 (as printed): []
+PASS conservation with slots as UNKNOWNS, ll power 2: unique (116, 21)
+PASS conservation at printed ll power 1: no conserving pair
+PASS   reading (16, 0): conserved=False, expected False
+PASS   reading (16, 21): conserved=False, expected False
+PASS   reading (116, 0): conserved=False, expected False
+PASS   reading (116, 21): conserved=True, expected True
+PASS conserved reading: ln f part is TRACELESS
+PASS printed reading: ln f part is NOT traceless
+PASS non-log trace: 8 pi T^a_a = 16 K^2 [C^2 + (R_ab R^ab - R^2/3) + box R] (conformal anomaly, 1/2880 pi^2)
+PASS prefactor: 16 K^2/(8 pi) == 1/(2880 pi^2)
+PASS tree-Popov B1/tt non-log == parsed HPS non-log
+  tree-Popov B1/tt log (sign-flipped) minus CONSERVED reading: 0
+PASS tree-Popov B2/ll non-log == parsed HPS non-log
+  tree-Popov B2/ll log (sign-flipped) minus CONSERVED reading: 0
+PASS tree-Popov B3/thth non-log == parsed HPS non-log
+  tree-Popov B3/thth log (sign-flipped) minus CONSERVED reading: -21*Derivative(f(l), l)**4/f(l)**4
+PASS tree-Popov B1 log == conserved (116) tt log
+PASS tree-Popov B2 log == conserved (r^2) ll log
+PASS tree-Popov B3 log == conserved thth log minus 21 f'^4/f^4 (M3 as the tree states)
+
+31 checks, 0 FAIL

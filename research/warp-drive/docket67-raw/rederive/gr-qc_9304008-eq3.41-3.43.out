@@ -1,0 +1,33 @@
+PASS identity (-,+,+,+): phidot^2 = (rho+p1+p2+p3)/2   got=0  want=0
+PASS identity (-,+,+,+): phi_x^2 = (rho+p1-p2-p3)/2   got=0  want=0
+PASS identity (-,+,+,+): T00 = (1/2) sum_A d_A^2   got=0  want=0
+PASS identity (+,-,-,-): phidot^2 = (rho+p1+p2+p3)/2   got=0  want=0
+PASS identity (+,-,-,-): phi_x^2 = (rho+p1-p2-p3)/2   got=0  want=0
+PASS identity (+,-,-,-): T00 = (1/2) sum_A d_A^2   got=0  want=0
+G_AB = <:d_A phi d_B phi:>_C = Matrix([[-pi**2/(90*L**4), 0, 0, 0], [0, pi**2/(90*L**4), 0, 0], [0, 0, pi**2/(90*L**4), 0], [0, 0, 0, -pi**2/(30*L**4)]])
+PASS Casimir G off-diagonal zero   got=True  want=True
+PASS KF (3.33) rho = -pi^2/(90 L^4)   got=0  want=0
+PASS KF (3.32) xi = (-1,-1,3)   got=[-1, -1, 3]  want=[-1, -1, 3]
+PASS (3.41) printed 1/2 holds on the Casimir G   got=False  want=False
+PASS (3.41) with 1/4 holds on the Casimir G   got=0  want=0
+PASS (3.42) printed 1/2 holds on the Casimir G   got=False  want=False
+PASS (3.42) with 1/4 holds on the Casimir G   got=0  want=0
+   ratio printed/true for (3.41): 2
+PASS (3.40) <:T00^2:> = rho^2 + (1/2) sum_AB G_AB^2 (zero-mean quasifree)   got=0  want=0
+PASS   and it reduces to KF's diagonal-only (3.40) when G is diagonal (Casimir periodic: yes, see 2)   got=True  want=True
+PASS (3.43) coefficient implied by c=1/4   got=1/8  want=1/8
+PASS (3.43) coefficient implied by printed c=1/2   got=1/4  want=1/4
+PASS so the printed 1/8 is the c=1/4 value   got=[1/4]  want=[1/4]
+PASS Hadamard sum: quad = 4(1+|xi|^2)   got=0  want=0
+PASS Delta'(xi=0) = 1/2  [KF min]   got=1/2  want=1/2
+PASS Delta'(-1,-1,3) = 6  [KF]   got=6  want=6
+PASS Delta = 6/7  [KF (3.44)]   got=6/7  want=6/7
+   with the printed 1/2 carried through: min Delta' = 1 , periodic Delta' = 12 (KF print 1/2 and 6: not what 1/2 gives)
+PASS printed 1/2 carried through contradicts KF's own 1/2 and 6   got=True  want=True
+PASS Delta' from image-sum G + Wick = 6 (independent of (3.41)-(3.43))   got=6  want=6
+PASS (3.43) as printed (leading rho) equals the true Delta' identically   got=False  want=False
+PASS   ... it does only at rho = 1 (units-dependent), so the printed leading rho must read 1   got=0  want=0
+PASS z3: no xi with Delta' < 1/2   got=unsat  want=unsat
+PASS z3: Delta' = 1/2 only at xi = 0   got=unsat  want=unsat
+PASS VACUITY GUARD: a stronger bound (Delta' >= 3/4) is refuted   got=sat  want=sat
+ALL PASS

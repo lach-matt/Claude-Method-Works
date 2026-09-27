@@ -1,0 +1,111 @@
+{
+ "key": "adm-mass-definition",
+ "name": "ADM mass as the coefficient of the 1/r tail of the asymptotic potential (M_ADM = 0 of concentric.py's device; M_out = 0 flat exterior in stability.py)",
+ "source": {
+  "located": "R. Arnowitt, S. Deser, C.W. Misner, 'The Dynamics of General Relativity' (1962; reprint arXiv:gr-qc/0405109) -- the originating definition, NAMED-NOT-READ in this stage. The definition as used was READ in two exact modern restatements held as full text in the d67 cache: M. Eichmair, L.-H. Huang, D.A. Lee, R. Schoen, arXiv:1110.2087v2, Definition 3 pp.5-6 (asymptotic flatness of type (p,q,q0,alpha), q in ((n-2)/2, n-2); E = 1/(2(n-1)omega_{n-1}) lim oint (g_ij,i - g_ii,j) nu^j dH^{n-1}); S. McCormick, arXiv:2401.05128v1, Definitions 2.1-2.2 pp.4-5 (phi*gamma - delta = O(|x|^-tau), tau > (n-2)/2; 'By the work of Bartnik [10] and Chrusciel [26] it is now well-known that the ADM mass is well-defined and independent of the diffeomorphism phi'; 'asymptotic flatness alone is not sufficient to ensure that the ADM mass is in fact finite, however with the additional assumption that scalar curvature is integrable it turns out to be the case'). ADM's own shell self-energy result read via G. Dillon arXiv:1303.2706v3 pp.1-2, eqs (2),(4),(7): M(R) = M0(-1 + sqrt(1 + 2R0/R))R/R0, i.e. the total mass includes gravitational binding. Bartnik 1986 (CPAM 39, 661) and Chrusciel 1986 NAMED-NOT-READ (restated by McCormick).",
+  "read_status": "READ-VIA-RESTATEMENT",
+  "via": "alphaXiv answer_pdf_queries, get_paper_content and discover_papers all returned 'alphaXiv assistant quota exceeded' in this stage; arxiv.org and export.arxiv.org are refused by the egress proxy (curl CONNECT 403). The restatements were read directly from full-text copies already in the scratchpad cache: /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/src/casmag/all/1110.2087v2.txt lines 442-601, /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/src/casmag/all/2401.05128v1.txt lines 170-275, /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/src/casmag/all/1303.2706v3.txt lines 36-160. ADM 1962 itself is therefore NAMED-NOT-READ; the definition's content is also RE-DERIVED here (flux integral computed symbolically, C1-C2), not taken on trust. RE-CHECKED in pass S stage 27 (2026-09-26): alphaXiv answer_pdf_queries, get_paper_content and discover_papers again returned 'quota exceeded', and arxiv.org/export.arxiv.org were again refused (CONNECT 403); every quoted passage above was re-read in the cached full texts at the cited lines and matches (1110.2087v2.txt:488-540 type (p,q,q0,alpha) with q in ((n-2)/2, n-2) and the E flux; 2401.05128v1.txt:257-264 Bartnik/Chrusciel well-definedness and the integrable-scalar-curvature finiteness clause; 1303.2706v3.txt:36-165 bare vs renormalised shell mass, eq (7))."
+ },
+ "published_statement": "EHLS 1110.2087v2 Def.3 (pp.5-6): 'If (M, g, k) is asymptotically flat, one can define the ADM energy E and the ADM momentum P as E = 1/(2(n-1)omega_{n-1}) lim_{r->inf} int_{|x|=r} sum_{i,j} (g_ij,i - g_ii,j) nu^j_0 dH^{n-1}_0 ... Here, the integrals are computed in the coordinate chart M \\ K ~ R^n \\ B, nu^j_0 = x^j/|x| ...'. McCormick 2401.05128v1 Def.2.2 (p.5): the same flux, with 'By the work of Bartnik [10] and Chrusciel [26] it is now well-known that the ADM mass is well-defined and independent of the diffeomorphism phi used to define it.' For n = 3 the normalisation is 1/(16 pi); for g_ij = (1 - 2 Phi) delta_ij this is E = lim r^2 Phi'(r) (derived here, C1), so E is the coefficient of the 1/r tail of Phi exactly when the SPATIAL metric carries the same Phi as g_tt.",
+ "published_hypotheses": [
+  "H1 an asymptotically flat end: a compact K and a chart M \\ K ~ R^3 \\ B in which g - delta = O(|x|^-tau), d g = O(|x|^-tau-1), d^2 g = O(|x|^-tau-2), tau > (n-2)/2 = 1/2 (McCormick Def.2.1; EHLS Def.3 in weighted Sobolev form, q in (1/2, 1) for n = 3)",
+  "H2 finiteness needs integrable scalar curvature in addition to H1 (McCormick p.5); coordinate independence under H1+H2 is Bartnik 1986 / Chrusciel 1986 (NAMED-NOT-READ, restated by McCormick)",
+  "H3 E is a flux of the SPATIAL metric g_ij on a slice -- not of g_tt; the Newtonian identification 'E = coefficient of 1/r in Phi' holds when g_ij = (1 - 2 Phi) delta_ij + o(1/r) (derived here, C1-C2)",
+  "H4 the definition is kinematic: no field equation or energy condition enters; the mass it assigns includes gravitational binding energy (ADM shell self-energy, restated by Dillon 1303.2706 eqs (2),(7))",
+  "H5 regularity inside K is irrelevant to the definition (only the end matters); EHLS's C^2_loc completeness is for their theorem, not for E"
+ ],
+ "hypothesis_drift": [
+  "NONE on H1/H3 for the metric as written: concentric.py:163-168 potential with composite.py:35 metric ds^2 = -(1+2Phi)dt^2 + (1-2Phi)dx^2 puts the same Phi in g_ij, so 'the monopole of Phi' (concentric.py:178, 271) IS the ADM flux; g - delta = -2Phi = m a^2/r^3 + O(r^-5) (C3), decay tau = 3 > 1/2. The identification is correct, but it rests on composite.py:35's isotropic form (Psi = Phi), a condition the owners do not name at concentric.py:178.",
+  "WEAKENED -- linearisation scoped too narrowly: concentric.py:37-38 ('The conjugate point, M_ADM = 0, ... are all unaffected') and :139-141 (linearised weak field affects only 'the window's edges'). E = 0 is exact for the prescribed metric (C3), but the reading 'core of mass -m plus shell of mass +m, so the monopoles cancel' (concentric.py:42-50) identifies E with the sum of LINEAR source monopoles, which holds only to first order in m/a. The ADM mass includes binding (H4); the Newtonian post-linear estimate is -0.074 m at the design point m = 5e-3 (m/a = 0.25) and -0.29 m at m = 2e-2 (C8, an ESTIMATE, not a GR computation). 'M_ADM = 0 EXACTLY' (concentric.py:49, 77, 352) is therefore exact at the metric level and only first-order at the matter level.",
+  "DROPPED -- vacuum exterior / compact support: stability.py:16-19 ('EXTERIOR M_out = 0, i.e. FLAT MINKOWSKI'; 'INTERIOR Schwarzschild with M_in = -m'). M_ADM = 0 implies a flat exterior only with a vacuum spherically symmetric exterior (Birkhoff, whose mass parameter is then E). concentric.py's core is Plummer (concentric.py:44-46, 165-168), not compactly supported ('A compact NEGATIVE core', concentric.py:42, means small a, not compact support): its density is nonzero at every radius, so neither the region inside the shell nor the exterior is exactly vacuum. Size, computed (C6): core mass fraction outside R_s = 1.5000e-08 at a = 0.02, R_s = 200 -- NEGLIGIBLE, but stability.py's exact-GR statements hold for a truncated (point or compactly supported) core, a hypothesis it does not name.",
+  "CONSISTENT, NOT DRIFT: stability.py's exact model imposes M_out = 0 and derives the shell's proper mass m_s = R(sqrt(1+2m/R) - 1) = m - m^2/(2R) + O(m^3) (stability.py:25, 154-155; C7 verifies the Israel/Lake identity to M_out = 0 exactly). The shell is not literally concentric.py's '+m'; the two agree at linear order, and stability.py tunes where concentric.py assumes -- which is the correct way to keep E = 0 beyond linear order.",
+  "DISCREPANCY (printed numbers, not a refutation): concentric.py:50-51 print 'Phi(1000) = -6.2e-13, against Phi(1) = +4.4e-3'. At the file's own constants (m = 5e-3 per selftest :268, a = A_CORE = 0.02 :155, R_s = 200 :156) the values are -1.0000e-15 and +4.974000e-03 (C5). The printed pair reproduces exactly at a = 0.5 (-6.2500e-13, +4.447e-03) -- the a of the stale harness the file itself withdraws as its error 3 (concentric.py:113-120). The conclusion (no 1/r tail) is unaffected: both are >= 10^6 below a bare tail m/1000 = 5e-6. Recorded, not repaired.",
+  "MARGIN NOTE: concentric.py:268 near(Phi(1), 4.9750e-3, tol 1e-6) passes with margin 3.0e-10 (|4.974000e-3 - 4.975e-3| = 9.997e-7). Passes; fragile."
+ ],
+ "data_at_publication": [
+  {
+   "quantity": "Phi(1000) at the design point (monopole-residual witness)",
+   "value_then": "-6.2e-13 (concentric.py:50)",
+   "value_now": "-1.0000e-15 computed at m = 5e-3, a = 0.02, R_s = 200; analytic -m a^2/(2r^3) = -1.000e-15",
+   "source_now": "rederive/adm-mass-definition.py C3, C5 (and the tree's own adm_residual(5e-3), run read-only)",
+   "moves_conclusion": "no -- both are ~0 against a 1/r tail of 5e-6; the printed value is from a = 0.5"
+  },
+  {
+   "quantity": "Phi(1) at the design point",
+   "value_then": "+4.4e-3 (concentric.py:51)",
+   "value_now": "+4.974000e-03 (file constants); +4.447e-03 at a = 0.5",
+   "source_now": "rederive C5",
+   "moves_conclusion": "no -- the ratio Phi(1)/|Phi(1000)| only grows (5e12 vs 7e9)"
+  },
+  {
+   "quantity": "Core mass outside the shell (exterior non-vacuum fraction)",
+   "value_then": "not stated; implicitly 0 (stability.py:16-19 'FLAT MINKOWSKI')",
+   "value_now": "1.5000e-08 of m at a = 0.02, R_s = 200 (3a^2/(2R_s^2))",
+   "source_now": "rederive C6 (sympy, exact Plummer enclosed-mass)",
+   "moves_conclusion": "no numerically; yes in wording -- 'exactly flat exterior' needs a truncated core"
+  },
+  {
+   "quantity": "Post-linear (binding) contribution to the ADM mass of the matter content core(-m)+shell(+m)",
+   "value_then": "not stated; implicitly 0 (concentric.py:49 'EXACTLY')",
+   "value_now": "ESTIMATE -0.015 m, -0.074 m, -0.147 m, -0.294 m, -0.589 m at m = 1e-3, 5e-3, 1e-2, 2e-2, 4e-2 (a = 0.02, R_s = 200), dominated by the Plummer self-energy -(3pi/32) m^2/a",
+   "source_now": "rederive C8 (sympy integral + Newtonian second-order bookkeeping; not a GR solution)",
+   "moves_conclusion": "moves the SCOPE of 'EXACTLY' (metric level exact, matter level first-order); does not move E = 0 for the metric as written, and stability.py's tuned shell keeps E = 0 exactly in its own model"
+  }
+ ],
+ "rederivation": {
+  "method": "sympy",
+  "script_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/adm-mass-definition.py",
+  "outcome": "RE-RUN this stage: ALL CHECKS PASS (exit 0; output in rederive/adm-mass-definition.out). C1: flux of g = (1-2Phi)delta computed from Cartesian components equals r^2 Phi'(r); Phi = -M/r gives E = M. C2: Schwarzschild isotropic (1+M/2r)^4 delta gives E = M. C3: concentric.py exterior r^2 Phi' = m[1 - r^3/(r^2+a^2)^(3/2)] -> 0, leading 3ma^2/(2r^2); Phi ~ -ma^2/(2r^3); no 1/r term -> E = 0 exactly for the metric as written, decay inside the tau > 1/2 window. C4: the withdrawn first potential has E = -m (matches concentric.py:93-97). C5: printed Phi(1000), Phi(1) are the a = 0.5 values, not the file's. C6: Plummer tail outside R_s = 1.5e-8 m. C7: stability.py junction gives M_out = 0 exactly with m_s = m - m^2/2R + O(m^3). C8: Plummer self-energy -(3pi/32)M^2/a verified; post-linear estimate -7.4 % of m at the design point.",
+  "agrees_with_source": "yes"
+ },
+ "later_literature": [
+  {
+   "ref": "S. McCormick, 'An Overview of Bartnik's Quasi-Local Mass', arXiv:2401.05128v1 (2024)",
+   "effect": "confirms",
+   "what": "Restates the ADM flux, the decay window tau > (n-2)/2, well-definedness and chart independence (Bartnik, Chrusciel), and that finiteness needs integrable scalar curvature. The tree's metric (tau = 3; scalar curvature ~ Plummer density, r^-5 at large r, plus a shell delta at R_s inside K) meets all of them.",
+   "read_status": "READ (local full text, lines 170-275)"
+  },
+  {
+   "ref": "M. Eichmair, L.-H. Huang, D.A. Lee, R. Schoen, arXiv:1110.2087v2 (JEMS 2016)",
+   "effect": "confirms",
+   "what": "Definition 3: the ADM energy as a flux of g_ij in an AF chart; footnote 2 'There are several incompatible notions of asymptotic flatness in the literature' -- the tree's use sits inside every one of them (r^-3 decay).",
+   "read_status": "READ (local full text, lines 442-601)"
+  },
+  {
+   "ref": "G. Dillon, 'On the gravitational self-energy of a spherical shell', arXiv:1303.2706v3 (2013)",
+   "effect": "narrows",
+   "what": "Restates ADM's shell result M(R) = M0(-1 + sqrt(1+2R0/R))R/R0: the ADM mass of a matter distribution is its bare mass plus binding. This is what narrows 'monopoles cancel => M_ADM = 0' from the matter level to first order (the tree's metric-level zero is untouched). Dillon also argues the ADM shell solution is inconsistent with a test-particle interaction energy -- a claim about renormalisation not needed here, NOT adjudicated.",
+   "read_status": "READ pp.1-2 (local full text, lines 36-160)"
+  },
+  {
+   "ref": "J.S. Jaracz, 'Spherically symmetric counter examples to the Penrose inequality and the positive mass theorem under the assumption of the weak energy condition', arXiv:2206.12951v2 (2022)",
+   "effect": "extends",
+   "what": "p.1-2: 'The ADM energy is only well defined for certain types of coordinate systems, which are referred to as asymptotically flat' and notes inconsistent 'ADM energy' vs 'ADM mass' terminology; its counterexamples concern the PMT under WEC, not the definition -- context for pair.py's rigidity use, not graded here.",
+   "read_status": "READ pp.1-2 only (local full text)"
+  },
+  {
+   "ref": "N. de Aguiar Alves, B. Arderucio Costa, 'The Measure of a Mass', arXiv:2503.18963v1 (2025)",
+   "effect": "confirms",
+   "what": "Review of Komar/ADM/Bondi: 'the ADM mass is precisely the Hamiltonian of general relativity' (lines 90-96), ADM places the observer at spatial infinity (lines 83-86), and 'mass is more than the sum of its parts in relativity ... the total mass contain[s] local matter contributions ... [and] a nonlocal contribution from the geometry of spacetime itself' (lines 296-298). Supports H4 (ADM mass is not the sum of source monopoles beyond linear order), which is what narrows concentric.py:49's matter-level 'EXACTLY'; the metric-level zero is untouched.",
+   "read_status": "READ (local full text, lines 80-100, 275-300)"
+  },
+  {
+   "ref": "R. Bartnik, 'The mass of an asymptotically flat manifold', CPAM 39 (1986) 661; P.T. Chrusciel (1986)",
+   "effect": "narrows",
+   "what": "Supply the decay + integrable-scalar-curvature hypotheses under which the ADM mass is a geometric invariant (H1-H2). Not on arXiv.",
+   "read_status": "NAMED-NOT-READ (restated in McCormick 2401.05128 p.5; EHLS ref [5])"
+  },
+  {
+   "ref": "discover_papers (one call attempted)",
+   "effect": "contested",
+   "what": "Attempted in the original stage and again in this stage (question: ADM mass well-definedness, decay conditions, zero/negative ADM mass configurations); both returned 'alphaXiv assistant quota exceeded'. The later-literature set is what the local cache holds and is a floor.",
+   "read_status": "NOT RUN (quota, twice)"
+  }
+ ],
+ "lacked_data": "M's hypothesis tested for this result: the ADM mass is a DEFINITION with no empirical input, so there is no datum ADM (1959-62) could have lacked that moves it. What came later was rigour, not data: Bartnik and Chrusciel (1986) supplied the fall-off (tau > 1/2) and integrable-scalar-curvature hypotheses under which the flux is finite and chart-independent. Evidence that this later knowledge does NOT move the tree's use: the tree's metric decays as r^-3 (C3), far inside the window, so the flux is unambiguous and equals 0 exactly. Evidence that it DOES narrow the use, but through the tree's own hypotheses and not through missing data: (i) ADM's own shell result (via Dillon) already says the ADM mass counts binding energy, so 'monopoles of -m and +m cancel' is a first-order statement -- the tree's linearisation (named at concentric.py:139-141) reaches M_ADM = 0 at the matter level, which the tree says it does not (concentric.py:37-38); (ii) stability.py's flat exterior needs a compactly supported core, which the Plummer core is not (1.5e-8 effect). Neither is a failure of the external result. Verdict on M's hypothesis for this entry: evidence against -- the external definition is accurate and complete for this use.",
+ "grade": "NARROWED",
+ "grade_evidence": "The external definition STANDS as the tree applies it to its metric: read in two exact restatements (EHLS Def.3; McCormick Def.2.2), re-derived symbolically (C1-C2), and the tree's M_ADM = 0 is exactly zero for the metric it writes, with r^-3 decay (C3). No moved datum. The grade is NARROWED, not STANDS, because the tree uses it on a larger class than the hypotheses support, in two places: (1) stability.py:16-19 drops the vacuum-exterior / compact-support hypothesis that 'M_ADM = 0 => flat Minkowski exterior' needs (Birkhoff); the Plummer core leaves 1.5e-8 m outside R_s (C6) -- numerically negligible, a named-hypothesis omission; (2) concentric.py:37-38, 49-50 treat 'monopoles cancel => M_ADM = 0 EXACTLY' as untouched by linearisation, but the ADM mass counts binding (H4), so the matter-level identification holds to first order in m/a; post-linear estimate -7.4 % of m at the design point (C8, an estimate). Not WRONG: no counterexample to anything the tree computes; the metric-level zero is exact, and stability.py's own junction keeps M_out = 0 exactly by tuning the shell (C7). Separately recorded as a DISCREPANCY, not a refutation: concentric.py:50-51's printed Phi(1000) = -6.2e-13 and Phi(1) = +4.4e-3 are the a = 0.5 values, not the file's a = 0.02 values (-1.0e-15, +4.974e-3); the conclusion is unaffected. Scope of the grade: it grades the result AS THE TREE USES IT. The external definition itself (ADM flux of g_ij at spatial infinity, under tau > 1/2 decay and integrable scalar curvature) is not narrowed, contradicted or data-dependent by anything found here; M's hypothesis of missing data finds no purchase on a definition with no empirical input.",
+ "what_would_change_the_grade": "To STANDS: the owners name (a) the isotropic-form condition Psi = Phi behind 'monopole of Phi = ADM mass', (b) a truncated/compactly supported core (or the 1.5e-8 tail) in stability.py:16-19, and (c) that 'M_ADM = 0 EXACTLY' is metric-level, first-order at the matter level (or show, by a strong-field solution, that the shell can be retuned to keep E = 0 at m/a ~ 0.25-1). To WRONG: only a demonstration that the tree's written metric has a nonzero flux, which C3 rules out analytically. To OPEN: none -- the definition is checkable here and was checked; a later read of ADM 1962 at source (gr-qc/0405109, blocked this stage by quota and proxy) would upgrade the read_status, not the grade, unless its normalisation differed from EHLS/McCormick (C2 shows the EHLS normalisation returns the Schwarzschild M).",
+ "reverify_command": "python3 /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/adm-mass-definition.py ; sed -n '442,601p' /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/src/casmag/all/1110.2087v2.txt ; sed -n '170,275p' /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/src/casmag/all/2401.05128v1.txt ; cd /home/user/Claude-Method-Works/research/warp-drive && python3 -c \"import concentric as c; print(c.potential(5e-3)((1.0,0,0)), c.adm_residual(5e-3))\" && sed -n '44,52p;155,156p' concentric.py && sed -n '16,25p' stability.py",
+ "report_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/audits/adm-mass-definition.json"
+}

@@ -1,0 +1,123 @@
+{
+ "key": "gibbons-hull-1982-witten-1981-positive-energy-einstein-maxwell",
+ "name": "Positive energy theorem for Einstein-Maxwell (Gibbons & Hull; Witten): Q <= M",
+ "source": {
+  "located": "Gibbons & Hull, 'A Bogomolny bound for general relativity and solitons in N=2 supergravity', Phys. Lett. B 109 (1982) 190-194; Gibbons-Hawking-Horowitz-Perry, 'Positive mass theorems for black holes', Commun. Math. Phys. 88 (1983) 295-308; Witten, 'A new proof of the positive energy theorem', Commun. Math. Phys. 80 (1981) 381-402. None of the three is on arXiv.",
+  "read_status": "READ-VIA-RESTATEMENT",
+  "via": "Khuri & Weinstein arXiv:1307.5499 Theorem 2 (p.2, exact hypotheses and charged dominant energy condition, attributed to GHHP83 ref.7 and Bartnik-Chrusciel ref.8; Witten ref.5 for the spinor method); McCormick arXiv:1907.07967 Sec.3.3 (attribution 'first shown by Gibbons and Hull [10] for black holes with no surrounding charged matter, and then by GHHP [11] in the case where charged matter is present', and the pointwise condition (3.16)); Raulot arXiv:2509.05244 Thm 1-2 and eq.(3)-(4) ('extend the classical theorems of Gibbons-Hull [GH82], GHHP [GHHP83]'); Hirsch & Zhang arXiv:2608.24843 Thm 1.1 (cf. [11,3]) and Definition 2.3 / footnote 3. The classics themselves: NAMED-NOT-READ."
+ },
+ "published_statement": "Khuri-Weinstein 1307.5499 Theorem 2 (restating GHHP83/GH82): 'Let (M, g, k, E) be initial data for the Einstein-Maxwell equations with a strongly asymptotically flat end, and satisfying the charged dominant energy condition, then m >= |Q|. Suppose in addition that Tr k = 0, then equality holds if and only if the data set arises from the Majumdar-Papapetrou spacetime.' Here 2 mu_0 = R + (Tr k)^2 - |k|^2 - 2|E|^2, rho = (1/2) div E, Q = lim (1/4pi) INT_{S_r} g(E,nu), m the ADM mass, and the charged dominant energy condition is mu_0 >= |J| + |rho| (Gaussian units, c = G = 1). McCormick 1907.07967 Sec.3.3, time-symmetric form: (3.15) m_ADM >= |Q| holds if the pointwise condition (3.16) R(g) - 2|E|^2 >= 4|div E| holds, 'which amounts to asking that the mass density of matter is at least equal to the magnitude of the charge density, pointwise'; and 'Clearly we can write down initial data with very small mass density and very large charge density, and then one should not expect this inequality to hold. Indeed, we can see this inequality is violated by the counterexample given by Theorem 3.3, for sufficiently large Q.' Raulot 2509.05244 Thm 1 (n >= 4, spin, at least one AF end, DEC mu >= sqrt(|J|^2 + |varpi|^2) with varpi = (n-1) div E): E >= sqrt(|P|^2 + Q^2). Hirsch-Zhang 2608.24843 Thm 1.1 (admissible data, div E = div B = 0, charged DEC mu >= |J|): E >= sqrt(|P|^2 + Q_E^2 + Q_B^2), footnote 3: 'The PMT inequality still holds without this assumption by absorbing the divergence terms into the energy density.'",
+ "published_hypotheses": [
+  "Einstein-Maxwell initial data (M, g, k, E[, B]) on a complete 3-manifold (Raulot: spin, n >= 4 also)",
+  "at least one strongly asymptotically flat end: g_ij - delta_ij = O_2(r^-1), k_ij = o_1(r^-2), E = O_1(r^-2) (KW13 p.1-2); other ends complete, cylindrical, or an apparent-horizon inner boundary with the GHHP/Bartnik-Chrusciel boundary condition",
+  "charged dominant energy condition: mu_0 >= |J| + |rho| with rho = (1/2) div E -- the MATTER energy density (electromagnetic field energy removed) dominates both the matter momentum density and the matter CHARGE density, pointwise (KW13 eq.(2); McCormick (3.16); Raulot eq.(4))",
+  "Gaussian geometric units G = c = 1 (KW13 p.2)",
+  "for the ORIGINAL Gibbons-Hull 1982 form: black holes with no surrounding charged matter (div E = 0 outside the horizon) -- McCormick Sec.3.3; Hirsch-Zhang Def.2.3(5)",
+  "rigidity (equality => Majumdar-Papapetrou) needs Tr k = 0 in KW13 Thm 2, or the coupled Dirac-Jang solution (KW13 Thm 4), or Hirsch-Zhang 2026 (no charged matter)"
+ ],
+ "hypothesis_drift": [
+  "DROPPED -- the charged dominant energy condition (matter energy density >= |charge density| pointwise). drivensource.py:166-169 'Gibbons-Hull/Witten force Q <= M' and :629-630 'with Gibbons-Hull/Witten's Q <= M'; charge.py:28-32 (quoted at drivensource.py:33-34) 'forces Q <= M, so there is no charged configuration anywhere with a VACUUM region of positive potential'. The source forces Q <= M only for data whose matter is at least as massive as it is charged; rederive P5 exhibits a static Einstein-Maxwell shell with Q > M (mu = 0.01, Q = 1, a = 10: M = 0.059995), and P6 shows the electron, the proton and drivensource's own witness (4472 C on 1 m, 1 kg: Q/M = 2.59e13, no horizon) all violate the hypothesis by 13-21 orders. The tree's other route (N2, drivensource.py:51-52, 159-160: 'needs no positive energy theorem') is what actually covers those bodies, and the owner says so.",
+  "DROPPED -- completeness / asymptotic flatness of the data. specthm.py:2849-2856 (V6): 'under Gibbons-Hull/Witten's Q <= M ... the point charge's m < 0 region lies inside the INNER horizon'. A point charge with Q > M is a superextremal Reissner-Nordstrom slice, incomplete at r = 0 and outside the theorem's class, so the theorem does not supply Q <= M for a point charge; V6's antecedent is an assumption, correctly phrased as 'under', but its attribution to the theorem is not earned.",
+  "ADDED (attribution; a discrepancy, not a refutation) -- 'Witten' as an author of the Einstein-Maxwell bound. Witten 1981 proves m >= 0 (E >= |P|) in vacuum; the charged bound is Gibbons-Hull 1982 (black holes, no charged matter) and GHHP 1983 (charged matter under the charged DEC) using Witten's spinor method. drivensource.py:33-34, charge.py:28-29, specthm.py:1705, 2392, 2852.",
+  "KEPT -- q = Q/M in (0, 1] (drivensource.py:169, 366-368): the tree's numerical claim is stated only on the class where the theorem's conclusion holds, and inner_horizon_ratio is undefined outside it. No drift at that site.",
+  "NOT A DRIFT, scope note -- the theorem gives an ADM inequality m >= |Q|; 'r_c is inside the INNER horizon' is separate Reissner-Nordstrom arithmetic (rederive P1-P4), done by the tree itself and confirmed here."
+ ],
+ "data_at_publication": [
+  {
+   "quantity": "numerical inputs to the theorem",
+   "value_then": "none -- a theorem about initial data satisfying stated hypotheses",
+   "value_now": "none",
+   "source_now": "KW13 Thm 2; Raulot Thm 1; Hirsch-Zhang Thm 1.1 (all READ)",
+   "moves_conclusion": "no"
+  },
+  {
+   "quantity": "electron |Q|/M in geometric units (does ordinary matter meet the charged DEC?)",
+   "value_then": "2.0413e21 (CODATA 1973 e, m_e, G, eps0 -- recalled, NOT read at source this pass)",
+   "value_now": "2.0410e21 (e = 1.602176634e-19 exact, m_e = 9.1093837015e-31 recalled; G = 6.67430e-11 and eps0 = 8.8541878128e-12 READ from drivensource.py:278-280, CODATA 2018)",
+   "source_now": "rederive P6; PDG 2024 physical-constants table NOT read this pass -- the 1.6e-4 relative move is 21 orders below the margin",
+   "moves_conclusion": "no -- the hypothesis fails for ordinary matter by ~1e21 with either set; the theorem's conclusion is untouched"
+  },
+  {
+   "quantity": "proton |Q|/M in geometric units",
+   "value_then": "1.1117e18 (CODATA 1973, recalled)",
+   "value_now": "1.1116e18 (CODATA 2018, recalled/READ as above)",
+   "source_now": "rederive P6",
+   "moves_conclusion": "no"
+  },
+  {
+   "quantity": "drivensource witness 4472 C, 1 m, 1 kg bare: Q/M and r_c/a",
+   "value_then": "n/a (the owner's own 2026 witness)",
+   "value_now": "Q/M = 2.5948e13, M^2 - Q^2 = -1.485e-27 m^2 (no horizon), r_c/a = 0.4999847997 (matches drivensource.py:558)",
+   "source_now": "rederive P6, constants READ from drivensource.py:278-280",
+   "moves_conclusion": "no -- confirms the owner's r_c <= a arithmetic and shows the theorem's route does not apply to this witness"
+  }
+ ],
+ "rederivation": {
+  "method": "sympy",
+  "script_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/gibbons-hull-1982-witten-1981-positive-energy-einstein-maxwell.py",
+  "outcome": "ALL CHECKS PASS, exit 0 (sympy 1.14.0, z3 5.1.0, python3 3.11). P1: Misner-Sharp mass of RN is M - Q^2/(2r), zero at r_c = Q^2/(2M). P2: r_c/r_- = (1 + sqrt(1 - q^2))/2 symbolically; = 1/2 at q = 1; -> 1 as q -> 0+; horizons real iff Q <= M. P3 (z3): FORALL q in (0,1], r_c/r_- <= 1 -- negation unsat; strict inside (ratio = 1 unreachable) unsat; vacuity guard sat. P4: the owner's table at q = 0.5, 0.9, 0.99, 1.0 reproduced to 1e-12. P5: static charged thin shell M = mu - (mu^2 - Q^2)/(2a) (Israel junction, derived by sympy), Q - M = (Q - mu)(1 - (Q + mu)/(2a)); witness mu = 0.01, Q = 1, a = 10 gives M = 11999/200000 < Q with no horizon -- an Einstein-Maxwell configuration with Q > M, violating only the charged DEC (Q/mu = 100). P6: electron 2.041e21, proton 1.112e18 violation of |rho_e| <= mu with 1973 and 2018 constants (relative move 1.6e-4); the owner's witness has Q/M = 2.6e13, no horizon, r_c = 0.5 m < a = 1 m. The theorem itself (a spinor / Dirac-Jang argument over a non-compact manifold) is not finite and is not machine-checked here.",
+  "agrees_with_source": "partly"
+ },
+ "later_literature": [
+  {
+   "ref": "Khuri & Weinstein, 'Rigidity in the positive mass theorem with charge', J. Math. Phys. 54 (2013) 092501, arXiv:1307.5499",
+   "effect": "confirms",
+   "what": "Theorem 2 restates the inequality with its exact hypotheses (strongly AF, charged DEC mu_0 >= |J| + |rho|) and proves rigidity (=> Majumdar-Papapetrou) given a Dirac-Jang solution; Conjecture 2 states the full rigidity.",
+   "read_status": "READ (pp.1-7 via answer_pdf_queries)"
+  },
+  {
+   "ref": "Khuri, Weinstein & Yamada, 'Proof of the Riemannian Penrose inequality with charge for multiple black holes', J. Diff. Geom. 106 (2017), arXiv:1409.3271",
+   "effect": "extends",
+   "what": "Uses m >= |q| [GHHP] to close the |q| >= rho case of the charged Penrose inequality; assumes div E = div B = 0 (no charged matter); notes 'in the case when charged matter is present ... counterexamples exist [22]'.",
+   "read_status": "READ (pp.1-5, 9, 13, 31-32)"
+  },
+  {
+   "ref": "Khuri, Weinstein & Yamada, 'Extensions of the charged Riemannian Penrose inequality', CQG 32 (2015) 035019, arXiv:1410.5027",
+   "effect": "extends",
+   "what": "Charged Penrose inequality with compactly supported charge (Thm 1.3); spherically symmetric counterexample when charge extends to infinity (Thm 1.4); EMD positive mass theorem m >= |q|/sqrt(2) (Thm 4.1).",
+   "read_status": "READ (pp.1-11)"
+  },
+  {
+   "ref": "McCormick, 'On the charged Riemannian Penrose inequality with charged matter', arXiv:1907.07967 (2019/2021)",
+   "effect": "narrows",
+   "what": "Sec.3.3: m >= |Q| 'fails to hold under the standard charged dominant energy condition' R >= 2|E|^2 and requires the stronger pointwise (3.16) R - 2|E|^2 >= 4|div E| (matter density >= |charge density|); Theorem 3.3 builds smooth AF Einstein-Maxwell data with arbitrarily large Q at essentially fixed m -- a counterexample to the hypothesis-free phrasing the tree uses. Attribution: Gibbons-Hull 1982 for black holes without charged matter, GHHP 1983 with charged matter.",
+   "read_status": "READ (pp.1-3, 5-7, 9-18)"
+  },
+  {
+   "ref": "Raulot, 'Positive energy theorems for spin initial data with charge', CQG 43 (2026) 045011, arXiv:2509.05244",
+   "effect": "extends",
+   "what": "n >= 4, spin, at least one AF end, other ends arbitrary complete; DEC mu >= sqrt(|J|^2 + |varpi|^2) with varpi = (n-1) div E; E >= sqrt(|P|^2 + Q^2); trapped inner boundaries (Thm 3). Confirms the charge-density term is part of the hypothesis.",
+   "read_status": "READ (pp.1-17)"
+  },
+  {
+   "ref": "Hirsch & Zhang, 'Classification of maximally charged black holes', arXiv:2608.24843 (2026)",
+   "effect": "extends",
+   "what": "Full rigidity: equality E^2 = |P|^2 + Q_E^2 + Q_B^2 forces an embedding into Majumdar-Papapetrou, for admissible data with div E = div B = 0; footnote 3: the inequality survives charged matter 'by absorbing the divergence terms into the energy density', the rigidity does not.",
+   "read_status": "READ (pp.1-19)"
+  },
+  {
+   "ref": "Dain, 'Geometric inequalities for black holes', arXiv:1401.8166",
+   "effect": "confirms",
+   "what": "Reviews m >= 0 and the angular-momentum inequalities; explicitly omits the electromagnetic field ('most of the results ... can be generalized to include that case'). Context only; no restatement of Q <= M.",
+   "read_status": "READ (pp.1-6, 11-27)"
+  },
+  {
+   "ref": "Gibbons, Hawking, Horowitz & Perry, Commun. Math. Phys. 88 (1983) 295",
+   "effect": "extends",
+   "what": "The black-hole / charged-matter form of the bound by Witten's spinor method; the paper every restatement above cites for m >= |Q|.",
+   "read_status": "NAMED-NOT-READ (not on arXiv)"
+  },
+  {
+   "ref": "Chrusciel, Reall & Tod, 'On Israel-Wilson-Perjes black holes', CQG 23 (2006) 2519, arXiv:gr-qc/0512116",
+   "effect": "extends",
+   "what": "Rigidity of the equality case for electrovacuum data (used by KW13 and Hirsch-Zhang).",
+   "read_status": "NAMED-NOT-READ"
+  }
+ ],
+ "lacked_data": "M's hypothesis does not apply here: the result is a theorem with no measured input, and the one datum that governs its APPLICABILITY -- whether real matter satisfies |rho_e| <= mu_matter in geometric units -- was fixed by Thomson (1897) and Millikan (1909) at a violation of ~1e21 for the electron, decades before 1982; with the constants of the authors' era (CODATA 1973, recalled) and the constants the owner carries (CODATA 2018, drivensource.py:278-280, READ) the electron ratio moves by 1.6e-4 relative (rederive P6). Gibbons-Hull framed the bound as an N=2 supergravity Bogomolny bound, where the charge-mass hypothesis is explicit. Later data therefore changes neither the theorem nor its scope; what the later LITERATURE changed is the sharpness of the hypothesis statement (McCormick 2019 (3.16); Raulot 2025 eq.(4); Hirsch-Zhang 2026 fn.3), and that is the narrowing recorded here. Evidence either way: none that the conclusion moves; P5/P6 that the hypothesis is not idle.",
+ "grade": "NARROWED",
+ "grade_evidence": "The theorem as PUBLISHED (KW13 Thm 2; McCormick (3.15)-(3.16); Raulot Thm 1; Hirsch-Zhang Thm 1.1, all READ) forces m >= |Q| only for complete Einstein-Maxwell data with an asymptotically flat end whose MATTER energy density dominates its CHARGE density pointwise. The tree's phrasing 'Gibbons-Hull/Witten force Q <= M' (drivensource.py:166-169, 629-630; charge.py:28-32 quoted at drivensource.py:33-34) states no such hypothesis, and charge.py draws from it 'there is no charged configuration anywhere with a VACUUM region of positive potential'. rederive P5 shows a static Einstein-Maxwell shell with Q > M (sympy, Israel junction), McCormick Thm 3.3 (READ) gives smooth AF counterexamples under the mere charged DEC, and P6 shows every laboratory charge -- including the owner's own 4472 C witness at Q/M = 2.6e13 with no horizon -- lies outside the theorem's class. So the result holds on a smaller class than the tree's words claim: NARROWED, not WRONG, because (i) the owner's numerical claim r_c/r_- = (1 + sqrt(1 - q^2))/2 <= 1 is restricted to q in (0,1] and is confirmed by sympy and z3 (P2-P4), (ii) drivensource.py:51-52, 159-160 states N2 'needs no positive energy theorem', and specthm.py:1755-1759 records RESTS=False for ledger row D4, so no downstream grade rests on the dropped hypothesis, and (iii) the Witten attribution is a discrepancy, not a refutation. Not STANDS, because a hypothesis the source states is absent at every site that names the theorem; not DATA-DEPENDENT, because no datum moves it (P6); not OPEN, because the restatement was read in four independent later papers.",
+ "what_would_change_the_grade": "To STANDS: the owner restating the charged dominant energy condition (matter density >= |charge density| pointwise, complete AF data) at drivensource.py:166-169 and 629-630 and charge.py:28-32, and V6 (specthm.py:2849-2856) saying that Q <= M for a point charge is assumed, not supplied by the theorem -- a wording repair, which the chat-67 hold forbids this pass from making. To WRONG: a complete, strongly asymptotically flat Einstein-Maxwell data set satisfying mu_0 >= |J| + |rho| with m < |Q|, shown; none exists in the literature read and the spinor proof has no numerical input. To OPEN: nothing -- the restatement is read at source in KW13, McCormick, Raulot and Hirsch-Zhang; reading Gibbons-Hull 1982 itself (Phys. Lett. B 109, 190, not on arXiv) could only refine the attribution row.",
+ "reverify_command": "python3 /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/gibbons-hull-1982-witten-1981-positive-energy-einstein-maxwell.py && echo REVERIFIED",
+ "report_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/audits/gibbons-hull-1982-witten-1981-positive-energy-einstein-maxwell.json"
+}

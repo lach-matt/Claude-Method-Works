@@ -1,0 +1,91 @@
+import json
+SP = "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67"
+r = {
+ "key": "gklp-eq22",
+ "name": "GKLP eq. (22): bulk-shortcut saving Delta_tau as function of common boost B, extremised with g -> 1",
+ "source": {
+  "located": "Greene, Kabat, Levin, Porrati, 'Back to the Future: Causality on a Moving Braneworld', arXiv:2208.09014 (v3 24 Jan 2023), Phys. Rev. D 107, 025016 (2023). Identification of 'GKLP' with 2208.09014 confirmed by WebSearch (arXiv abs listing: authors Greene, Kabat, Levin, Porrati) and by this docket's sibling audit gklp-rank1-moving-brane-no-ctc.",
+  "read_status": "NAMED-NOT-READ",
+  "via": "NOT READ IN THIS STAGE: every alphaXiv call (answer_pdf_queries, get_paper_content, discover_papers) returned 'quota exceeded'; arxiv.org, www.osti.gov (CHORUS accepted manuscript), semanticscholar, paperswithcode, springer and alphaxiv.org are refused by the egress proxy (403 / EGRESS_BLOCKED). What eq. (22) says is known here only SECOND-HAND, from (i) this docket's sibling audit audits/gklp-rank1-moving-brane-no-ctc.json, which READ 2208.09014v3 at alphaXiv earlier today and recorded 'eq. 22 at cos theta = 1 equals eq. 20 (their eqs. 23-24)', with eq. 20 v = gamma(1+Gamma^2B^2beta^2)/(1-Gamma^2 B gamma beta^2) and eq. 25 w = -gamma(1+Gamma^2B^2beta^2)/(1+Gamma^2 B gamma beta^2) (rederive/gklp-rank1-moving-brane-no-ctc.py lines 'v22 = (gp - Bp)/(1 - Bp*gp)'); and (ii) the O6/O7 pass's own record (scratchpad a1/o67.txt: 'eq. (22) the extremised family'; 'forward v+ - 1 = (gamma-1)(1+B)/(1-B gamma), backward |v-| - 1 = (gamma-1)(1-B)/(1+B gamma) (GKLP eq. 22, extremised)'). Neither is a published restatement, so READ-VIA-RESTATEMENT is not claimed. The general (non-extremised) form of eq. (22), and what symbol the tree's 'g' denotes in it, are NOT recovered; the tree's own status word is 'as the pass read it'."
+ },
+ "published_statement": "NOT QUOTED VERBATIM (source unreadable in this stage). As recorded second-hand by the sibling D67 audit that read it: GKLP eq. (22) is a one-parameter family (parametrised by a cosine) of late-time front velocities seen by a brane observer boosted by B along the brane, on a brane moving at beta through the S1 of flat M4 x S1; at cos = 1 it reduces to eq. (20), v = gamma(1+Gamma^2B^2beta^2)/(1-Gamma^2 B gamma beta^2) (their eqs. 23-24), which equals (gamma - B)/(1 - B gamma), the relativistic composition of the brane-frame front speed gamma with the observer boost; the opposite extreme is eq. (25), w = -(gamma + B)/(1 + B gamma). Re-derived here from first principles (checks A-B), so the two extremes are established independently of the reading; the interior of the family is not quoted.",
+ "published_hypotheses": [
+  "G1 flat Lorentz-invariant bulk M4 x S1, purely spatial identification z ~ z + 2 pi R in the preferred (bulk) frame (per sibling reading of 2208.09014 eq. 1)",
+  "G2 ONE flat, unwrapped brane moving at constant 0 < beta < 1 through the compact direction; no back-reaction on the bulk (implicit)",
+  "G3 a brane observer boosted by a constant B along the brane; emitter and receiver at rest in that frame (the round-trip / out-and-back setting of GKLP sec. 4)",
+  "G4 the signal is a bulk field (free, massless for the commutator of sec. 5); the front is the LATE-TIME envelope, D >> 2 pi R",
+  "G5 kinematics only: no coupling, source model or emission rate (sibling and O6/O7 pass: 'no coupling constant, no source model, no emission rate in sixteen pages')"
+ ],
+ "hypothesis_drift": [
+  "ADDED, and stated as sufficiency -- ANTIPODAL GEOMETRY. 'extremised' (branelink.py:81, :278) takes the GW170817 propagation direction exactly antiparallel to Earth -> Proxima (cos = -1 vs cos = +1). The real sky does not have that: AT2017gfo (RA 13h09m48.085s, Dec -23d22m53.343s, Coulter et al. 2017) and Proxima (14h29m42.946s, -62d40m46.16s J2000) are 41.5385 deg apart, so the two PROPAGATION directions (NGC 4993 -> Earth, Earth -> Proxima) are 138.4615 deg apart, not 180. Computed here (check F): with the boost direction optimised over the whole sphere, the one-second price is B >= 0.9994645711, not 0.999387630 ((1-B) ratio 0.87436 = (1 + cos 41.54 deg)/2 to 1e-4). The extremised figure is therefore a NECESSARY floor (every geometry needs at least it), and 'B >= 0.999387630 buys one second' (branelink.py:82, :307 'escape: B >= %.9f buys 1 s') reads as sufficiency, which on the actual sky it is not. The optimum also fixes the boost DIRECTION: the fast axis must lie ~180.0 deg from the GW170817 propagation direction (179.988 deg found), i.e. ~41.5 deg off the Proxima line -- a direction requirement the tree does not state.",
+  "WEAKENED (approximation) -- 'g -> 1' plus 'saving fraction = forward excess' at the HALF-LIGHT-TIME point. b_for_saving (branelink.py:275-281) sets saving/T = d((1+B)/(1-B))^2, i.e. (a) gamma -> 1 and (b) 1 - 1/v replaced by v - 1. At 1 s both are harmless (exact B = 0.999387630477388 vs tree 0.999387630476246; (1-B) agrees to 1.9e-9). At T/2 both fail: gamma - 1 = 1.87e-8 is comparable to 1 - B = 7.5e-8 (B gamma - B is 25% of 1 - B), and the forward excess is O(1). COMPUTED (check E): at the tree's B = 0.999999925167 the exact saving is 0.400 of the light time, not 0.5; the exact extremised threshold for T/2 is B = 0.999999935193 (prints 0.99999994), and on the real sky 0.999999946058. branelink.py:82-83 'B >= 0.99999993 buys half the light time' is a DISCREPANCY IN THE TREE'S OWN ARITHMETIC (8th decimal), not in GKLP; its --selftest pins the linearised formula (branelink.py 'escape: B for half the light time' at tol 1e-8), so the pin cannot see it.",
+  "NOT NAMED AT THE SITE -- the supercritical ceiling. With the backward excess held at d, the forward direction becomes instantaneous at B* = 1 - 3.7416573e-8 (= 1 - sqrt(2d) to 1e-6, i.e. exactly B gamma = 1, W7's threshold Gamma = 1/beta); above it the forward leg runs into the past (GKLP's supercritical regime). The T/2 threshold (1 - B = 6.5e-8) lies only a factor 1.7 below 1 - B*; the tree's escape table does not mention that the family ends there.",
+  "NOT NAMED AT THE SITE -- the datum's own hypotheses. 'backward excess held at d = 7e-16' (branelink.py:279) inherits Abbott et al. 2017's upper bound, which assumes the gamma rays were emitted no earlier than the GW peak and uses the conservative 26 Mpc distance: 1.74 s/(26 Mpc/c) = 6.50e-16, rounded to 7e-16 (check G). The tree seats the bound in manyc.py; at this site it is a bare number.",
+  "KEPT, correctly named: the bulk-graviton condition (branelink.py:83-86; GKLM hedge), the common boost of both endpoints (b_for_saving docstring 'the common boost B'; W8), and 'UNTESTED, not excluded' (branelink.py:83) -- B is not measured and N = 1 multi-messenger event exists.",
+  "NOT CHECKABLE HERE: whether GKLP's eq. (22) contains a symbol g, and whether 'extremised' refers to a direction on the brane (as re-derived here) or to another parameter of their family. The tree's own word 'as the pass read it' already marks this; recorded, not repaired."
+ ],
+ "data_at_publication": [
+  {
+   "quantity": "d = (v_GW - v_EM)/v_EM upper bound (GW170817 / GRB 170817A)",
+   "value_then": "+7e-16 (Abbott et al. 2017, ApJL 848 L13; quoted by GKLM 2206.13590 as eq. 39 per sibling reading); two-sided band -3e-15 .. +7e-16",
+   "value_now": "unchanged: -3e-15 .. +7e-16; no later GW+EM speed measurement found (WebSearch snippet, LIGO-P1700294 / 1710.05833; O4 search returned no new counterpart bound -- not exhaustive, discover_papers unavailable)",
+   "source_now": "Abbott et al. arXiv:1710.05833 / LIGO-P1700294 (search snippet, not read in full this stage); manyc.py GW170817_BOUND_HI",
+   "moves_conclusion": "no -- and the sensitivity is computed: the same 1.74 s over the 40 Mpc best distance gives d = 4.23e-16 and B(1 s) = 0.999524146 instead of 0.999387630 (4th decimal). The escape stays 'B ~ 0.9994-0.9995, unmeasured'."
+  },
+  {
+   "quantity": "Proxima span",
+   "value_then": "4.2465 ly (foliation.proxima_span_m; light time 4.2465 Julian yr = 134009348.4 s)",
+   "value_now": "Gaia DR3 parallax 768.0665 +/- 0.0499 mas -> 1.30197 pc = 4.2465 ly (WebSearch snippet of the Proxima Centauri article)",
+   "source_now": "Gaia DR3 (via search snippet)",
+   "moves_conclusion": "no -- B depends on T only through sqrt(1/(T d)); a 1e-4 change in T moves B in the 8th decimal"
+  },
+  {
+   "quantity": "relative sky direction of the GW170817 source and Proxima",
+   "value_then": "not used: the pass extremised (antipodal propagation directions)",
+   "value_now": "sky separation 41.5385 deg; propagation directions 138.4615 deg apart (AT2017gfo Coulter et al. 2017; Proxima J2000)",
+   "source_now": "AT2017gfo position (Coulter et al. 2017) as quoted in arXiv:1710.06168, via WebSearch snippet; Proxima J2000 via search snippet",
+   "moves_conclusion": "yes, quantitatively not qualitatively -- B(1 s) rises from 0.999387630 to 0.999464571; B(T/2) from 0.99999993 (tree) / 0.99999994 (exact extremised) to 0.99999995. The escape remains UNTESTED, not excluded, at a slightly higher price and with a fixed direction."
+  }
+ ],
+ "rederivation": {
+  "method": "sympy",
+  "script_path": SP + "/rederive/gklp-eq22.py",
+  "outcome": "ALL CHECKS OK, exit 0, ~7 min (output rederive/gklp-eq22.out). A (sympy): in the brane rest frame the late-time front speed is gamma (min over winding density = gamma(1 - beta^2) = 1/gamma), isotropic because the identification vector has no brane component. B (sympy): for a boosted observer the exact arrival slope tau(c) solves a quadratic; 1/tau(+1) = (gamma - B)/(1 - gamma B) equals GKLP eq. 20 and -1/tau(-1) equals eq. 25 identically -- so eq. 22 at cos = 1 (per the sibling reading) is re-derived, not taken on trust. C (sympy series): first order in delta = gamma - 1, excess e(c) = delta Gamma^2 (1 + B c)^2, forward/backward = ((1+B)/(1-B))^2 -- the tree's r. D: the tree's b_for_saving reproduced without importing it: 0.999387630476 and 0.999999925167 (and branelink.py --selftest run read-only: SELFTEST OK). E (mpmath, 60 digits, backward excess held at d exactly, no approximation): B(1 s) = 0.999387630477388, agrees with the tree to 9 printed digits; B(T/2) = 0.999999935193 vs the tree's 0.99999993 -- at the tree's value the exact saving is 0.400 T; supercritical ceiling B* = 1 - 3.7416573e-8 = 1 - sqrt(2d). F: real sky (AT2017gfo vs Proxima, propagation directions 138.46 deg apart), boost direction optimised in the plane (out-of-plane tilts 5/20/45 deg checked worse): B(1 s) = 0.9994645711, B(T/2) = 0.999999946058; optimum puts the GW170817 propagation direction 179.99 deg from the fast axis; (1-B)_real/(1-B)_extremised = 0.87436 vs first-order prediction (1 + cos psi)/2 = 0.87425. G: 7e-16 = 1.74 s over 26 Mpc (6.50e-16) rounded; at 40 Mpc B(1 s) = 0.999524146.",
+  "agrees_with_source": "partly"
+ },
+ "later_literature": [
+  {
+   "ref": "Polychronakos, arXiv:2210.11497v3 (PLB 841, 137917, 2023)",
+   "effect": "extends",
+   "what": "Tilted and boosted branes in M4 x S1 -- the full 3-D brane anisotropy the O6/O7 pass named and did not search ('NOT-SEARCHED this pass'); round-trip time never negative (eq. 4.7), per the sibling audit's reading. The direction-dependent front computed in check F here is the object that paper treats in general; it would fix the interior of the family the tree extremises.",
+   "read_status": "NAMED-NOT-READ in this stage (READ by the sibling audit gklp-rank1-moving-brane-no-ctc for its periodicity vector eq. 2.4, which this stage did not re-read)"
+  },
+  {
+   "ref": "Debolt & Kagan, arXiv:2602.13448v1 (Feb 2026)",
+   "effect": "extends",
+   "what": "General boosted + tilted frames and accelerating branes; 'the bounds on the round-trip time first described in [GKLP] extend to our more general class of frames'; 'purely kinematic' (per sibling reading). Does not bear on the one-way escape price.",
+   "read_status": "NAMED-NOT-READ in this stage (READ by sibling audit)"
+  },
+  {
+   "ref": "'Braneworlds in constant and accelerated motion and their causal characteristics', JHEP 08 (2026) 192",
+   "effect": "extends",
+   "what": "Surfaced by WebSearch (link.springer.com/article/10.1007/JHEP08(2026)192); title only -- likely the journal version of the Debolt & Kagan line. Content not read (springer refused by the proxy).",
+   "read_status": "NAMED-NOT-READ"
+  },
+  {
+   "ref": "Abbott et al. (LVC, Fermi-GBM, INTEGRAL), arXiv:1710.05834, ApJL 848 L13 (2017)",
+   "effect": "confirms",
+   "what": "The datum: -3e-15 <= Delta v/v_EM <= +7e-16 from the 1.74 s lag; the upper bound assumes zero intrinsic delay at the 26 Mpc lower distance -- reproduced arithmetically in check G.",
+   "read_status": "NAMED-NOT-READ in this stage (bound confirmed by WebSearch snippets of 1710.05833 / LIGO-P1700294; seated in manyc.py as READ by an earlier pass)"
+  }
+ ],
+ "lacked_data": "What GKLP had: GKLP (2022-23) is a kinematic paper and uses no datum for eq. (22); the companion GKLM (2206.13590) already quotes the GW170817 bound (eq. 39), so the authors did not lack the one datum the tree feeds in. What came later: nothing that moves it -- no second GW event with an EM counterpart and a measured lag has been found in this stage (O4 search returned none; not exhaustive). Does missing data change the conclusion? For GKLP's eq. (22): no -- the extremes are closed-form kinematics, re-derived here exactly (checks A-B) and they hold for every beta, B. For the TREE'S use: the conclusion 'the escape is priced, UNTESTED, not excluded' is data-starved by construction -- one line of sight (N = 1) cannot bound a 3-vector B -- and that is correctly stated at branelink.py:83 and O7_ANSWERED_BY. But one piece of data the pass DID have and did not use moves the number: the sky positions of AT2017gfo and Proxima. Using them (check F) raises the one-second price from 0.999387630 to 0.999464571 and fixes the required boost direction. That is not data the physicists lacked; it is data the extremisation discarded. Evidence against M's hypothesis for this result: the external formula survives an independent first-principles derivation, and every discrepancy found is in the tree's application (antipodal geometry; linearisation at T/2), not in GKLP. Evidence for it in a weak sense: GKLP's results are kinematic in a flat, non-back-reacting bulk (G1, G2) and whether our bulk is that is unmeasured.",
+ "grade": "NARROWED",
+ "grade_evidence": "(1) The external content -- the two extremes of GKLP's family, v = (gamma - B)/(1 - B gamma) and w = -(gamma + B)/(1 + B gamma) -- is re-derived exactly from the bulk quotient (sympy checks A-B, identical to eqs. 20 and 25 as the sibling D67 audit read them). (2) The tree's use holds on a SMALLER class than it states: 'B >= 0.999387630 buys one second' (branelink.py:82, :307) is true only for antipodal GW170817/Proxima propagation directions; on the actual sky (138.46 deg apart) the sufficient price is B >= 0.9994645711 with the boost direction fixed (check F), so the tree's figure is a necessary floor presented as a sufficient price. (3) Under the tree's own named hypotheses the 1-second figure re-derives to all 9 printed digits (exact 0.999387630477 vs 0.999387630476), so it is not a numerical error. (4) The half-light-time figure 'B >= 0.99999993' (branelink.py:82-83) fails even inside the tree's named hypotheses: g -> 1 and saving = excess break down there (gamma - 1 = 1.87e-8 vs 1 - B = 7.5e-8); at B = 0.99999993 the exact saving is 0.400 T; the exact extremised threshold is 0.99999994 (0.999999935193). That is a DISCREPANCY in the tree's arithmetic in the 8th decimal, recorded, not repaired, and not a refutation of GKLP. (5) No datum has moved: d = 7e-16 is unchanged; its 26 Mpc/zero-delay hypotheses move B(1 s) only in the 4th decimal (0.99952 at 40 Mpc). (6) The source was NOT read in this stage (quota + proxy); the grade rests on first-principles re-derivation and on the sibling audit's reading of eqs. 20/22/25. The interior of eq. (22) and the meaning of 'g' remain OPEN; had the re-derivation not reproduced eqs. 20 and 25 identically, the grade would have been OPEN.",
+ "what_would_change_the_grade": "To STANDS: the tree restating the price as a necessary floor ('B >= 0.999387630 is required; on the real sky 0.99946457 with the boost anti-aligned to GW170817's propagation direction suffices') and replacing the T/2 figure with the exact 0.99999994 -- or a reading of 2208.09014 showing eq. (22) already builds in a geometry the tree matches. To OPEN: a reading of eq. (22) at source showing its family is NOT the direction-on-the-brane family re-derived here (e.g. 'g' a parameter with no gamma -> 1 meaning), in which case the tree's attribution would be unverified although the kinematics here stand on their own. To DATA-DEPENDENT: a second multi-messenger GW/EM lag from a different sky direction -- it would bound B's direction and could exclude the escape outright. WRONG is not reachable for GKLP from anything found: the formula is re-derived exactly; the only computed contradiction (T/2) is in the tree's linearisation.",
+ "reverify_command": "python3 " + SP + "/rederive/gklp-eq22.py   # ~7 min, prints ALL CHECKS OK; then read-only: cd /home/user/Claude-Method-Works/research/warp-drive && PYTHONDONTWRITEBYTECODE=1 python3 branelink.py --selftest | grep -E 'escape|SELFTEST'",
+ "report_path": SP + "/audits/gklp-eq22.json"
+}
+r["published_hypotheses_note"] = "second-hand (sibling D67 reading of 2208.09014v3); not re-read in this stage"
+json.dump(r, open(SP + "/audits/gklp-eq22.json", "w"), indent=1)
+print("written")

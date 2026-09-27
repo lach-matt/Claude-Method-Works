@@ -1,0 +1,115 @@
+{
+ "key": "fewster-teo-5.6-spectral-gap-bound",
+ "name": "Fewster & Teo (5.6): QEI bound on an ultrastatic spacetime with spectral gap C",
+ "source": {
+  "located": "C. J. Fewster & E. Teo, 'Bounds on negative energy densities in static space-times', arXiv:gr-qc/9812032v2 (16 Feb 1999; DAMTP-1998-160; Phys. Rev. D 59 (1999) 104016). Sec. 5 p.9-10, eqs (5.1)-(5.7) (static open Robertson-Walker); p.10-11 eqs (5.8)-(5.15) (Einstein static universe); Sec. 2 p.3 (class, eq. (2.2)); Sec. 3 p.6-7 eqs (3.1)-(3.5); Sec. 8 p.19 (concluding remarks); Appendix p.20 (sampler hypothesis).",
+  "read_status": "READ",
+  "via": "alphaXiv page text of gr-qc/9812032v2 (all 23 pages) as returned VERBATIM by alphaXiv answer_pdf_queries in earlier workflow runs of this same session, harvested from the transcripts into scratchpad/d67/src/gr-qc_9812032.harvest.txt (lines 2-3182 are one full copy; (5.6) at line 1387). Same precedent as the sibling audits fewster-teo-3.2-minkowski and fewster-teo-3.5-qn. At THIS stage alphaXiv answer_pdf_queries (x3), get_paper_content and discover_papers all returned 'alphaXiv assistant quota exceeded'; arxiv.org, export.arxiv.org, ar5iv, alphaxiv.org, semanticscholar, inspirehep and others are refused at the egress proxy (CONNECT 403) -- not routed around. The text layer drops every pi glyph; (5.6)'s 1/(16 pi^3) is restored by argument and machine-checked (rederive: (5.6) LHS -> RHS change of variables, and the 1/(4 pi^3) LHS prefactor from the (5.4) sum rule)."
+ },
+ "published_statement": "p.10: 'Hence, the quantum inequality (2.12) becomes rho >= -(1/(4 pi^3 a^3)) INT_0^oo dw INT_0^oo dq w_q q^2 |(f^{1/2})^(w + w_q)|^2. (5.5) Note that this bound is identical in form to that in (four-dimensional) Minkowski space. Both (3.2) and (5.5) can, in fact, be written as rho >= -(1/(4 pi^3)) INT_0^oo dw INT_C^oo dw' w'^2 sqrt(w'^2 - C^2) |(f^{1/2})^(w + w')|^2 = -(1/(16 pi^3)) INT_C^oo du |(f^{1/2})^(u)|^2 u^4 Q_3(u/C), (5.6) where C == sqrt(kappa/a^2 + mu^2), kappa = { 0 Minkowski space; 1 open universe, (5.7) and an explicit expression (and graph) for Q_3(x) can be found in [14]. The Minkowski space result is obviously recovered in the limit of infinite a. Furthermore, since Q_3(x) is an increasing function on [1, oo), the bound for general a is tighter than that in Minkowski space for all sampling functions f(t).' Setting (p.9-10): line element (5.1) ds^2 = -dt^2 + a^2[dchi^2 + sinh^2 chi (dtheta^2 + sin^2 theta dphi^2)]; modes (5.2) U_qlm = (2 w_q a^3)^{-1/2} Pi_ql(chi) Y_lm, w_q = sqrt((q^2+1)/a^2 + mu^2), 0 < q < oo; sum rule (5.4) SUM_lm |Pi_ql Y_lm|^2 = q^2/(2 pi^2), 'The right-hand side does not depend on the angular variables, as is expected of a system with isotropic symmetry.' (pi's restored; the text layer prints e.g. '1 4 3 a 3' for 1/(4 pi^3 a^3).)",
+ "published_hypotheses": [
+  "SPACETIME: exactly two -- 4D Minkowski (kappa = 0) and the 4D static open Robertson-Walker universe (5.1) with spatial section H^3 of scale a (kappa = 1) (p.10, (5.7)). (5.6) is NOT stated for general ultrastatic spacetimes; for the other ultrastatic example of the same section, the Einstein static universe, F&T derive a DIFFERENT bound, (5.12)-(5.15) (p.11).",
+  "the form rests on the position-independent sum rule (5.4) -- 'as is expected of a system with isotropic symmetry' (p.10): homogeneity/isotropy of the slice",
+  "free real scalar field of mass mu >= 0 (p.3), MINIMALLY coupled: field equation (2.2) carries no xi R term, and (5.2)'s w_q = sqrt((q^2+1)/a^2 + mu^2) carries no xi (contrast Sec. 4, where xi is explicit in (4.2)/(4.4))",
+  "C == sqrt(kappa/a^2 + mu^2) (5.7) -- the lower edge of w_q, i.e. the spectral gap of the open universe's frequency spectrum",
+  "static observer, sampling in its proper time; bound on the averaged NORMAL-ORDERED energy density in the Fock space of the static vacuum, which constrains the renormalised density only up to the static vacuum's own renormalised density, 'generally nonzero and potentially negative' (p.3; Sec. 8 p.19 'on the normal-ordered averaged energy density')",
+  "sampling function f 'arbitrary smooth, non-negative (although not necessarily even) ... of sufficiently rapid decay' (p.3); Appendix p.20: 'f is a smooth, non-negative function of t, decaying at least as fast as O(t^-2)'; the bound uses the transform of f^{1/2}",
+  "state class: states in the static-vacuum Fock space (p.3)"
+ ],
+ "hypothesis_drift": [
+  "WIDENED CLASS (name and use): the canonical entry names the result 'QEI bound on an ultrastatic spacetime with spectral gap C', and the tree applies (5.6) through GAP_HYPOTHESIS to the CORRIDOR: fewsterteo.py:95-97 ('an asymptotically flat complete spatial slice has Laplace spectrum running continuously down to zero, so w_min = 0, C = 0, ratio = 1, and (5.6) returns the flat bound exactly'), fewsterteo.py:173-177, specthm.py:954-955 ('at spectral gap %g the Fewster-Teo form returns the flat bound'), achievable.py:259-268. Published class: kappa in {0, 1} only -- Minkowski and the homogeneous static open universe -- with the form fixed by the isotropic sum rule (5.4). The corridor is neither ultrastatic (|g_tt| != 1) nor homogeneous. COMPUTED here that the gap alone does not fix the bound even inside ultrastatic, homogeneous spacetimes: F&T's own Einstein static universe (5.14) at mu a = 1 has gap C = 1/a yet returns ratio 0.09006 at C = 35.36 (H^3 (5.6): 0.04539), 1.04162 at C = 5 (LOOSER than flat; H^3: 0.46909) and 1.0000666 at C = 1 (H^3: 0.97432). So 'ratio() is a function of C alone' (fewsterteo.py:101, :177 WITNESS_PROPERTIES_INERT) is true of the tree's H^3 function, and false as a statement about ultrastatic spacetimes with gap C. Consequence for the corridor: (5.6) at C = 0 is literally Minkowski's massless bound, but that it is the CORRIDOR's bound is not a statement of F&T; the corridor's curved bound is unevaluated (the tree itself says so at specthm.py:2147-2150 'Fewster-Teo on the corridor itself is not evaluated', and carries H_flat as ASSUMED).",
+  "WIDENED CLASS (cavity): fewsterteo.py:97-100 and :215 evaluate the H^3 formula at C = 0.005 for 'a cavity at concentric.py's compensating shell' and report ratio 0.999999. A cavity is a bounded region with walls, not H^3; F&T's compact example (ESU) and Fewster's Casimir-plate discussion (1208.5399 Sec. 1.3, sibling audit) show such geometries change the bound's FORM, not just its lower limit. The number 0.999999385558 is correct for the H^3 formula (re-derived) and is not the cavity's bound.",
+  "DROPPED (unnamed at this site): MINIMAL COUPLING. The witness's C = 1/a_c holds only for xi = 0; computed here from the metric, R(R x H^3) = -6/a^2, so gap^2 = (1 - 6 xi)/a^2 and a conformally coupled field has C = 0 (no tightening). Canonical hypotheses say only 'massless scalar' (fewsterteo.py:73-80). Same finding as the sibling audit fewster-teo-3.5-qn (its rederive 11); independently re-derived here.",
+  "DROPPED (unnamed at this site): the bound is on the NORMAL-ORDERED density relative to the static vacuum (F&T p.3). For the H^3 witness the static vacuum's renormalised density is 'generally nonzero' (not evaluated here -- no source read this stage), so the witness ratio compares normal-ordered bounds only. The tree carries this caveat elsewhere (LEDGER.md:199, row O5), not at fewsterteo.py's witness; inert for the corridor, whose static vacuum at infinity is Minkowski's.",
+  "WEAKENED (sampler regularity): F&T require f smooth, non-negative, decaying at least O(t^-2) (p.3; Appendix p.20). The tree's sampler f = g^2 with g the clamped-beam fundamental on [0, b] (canonical hypothesis 4; fewsterteo.py:225-234) is compactly supported but only C^3 (g''(0) = 2 mu_1^2 != 0). The extension is covered elsewhere: Fewster 1208.5399 W^{2,2} remark, graded STANDS in audits/1208.5399-w22-remark.json for exactly this sampler in Minkowski; for H^3, u^4 |FT g|^2 ~ A/u^2 is integrable (checked here), so (5.6)'s right side is finite, but the density argument for H^3 is not in any source read here.",
+  "SPECIALISED (within scope, consistent): mass mu = 0, so C = 1/a_c (witness) and C = 0 (Minkowski).",
+  "NOT A DRIFT: 'lower limit C = spectral gap (w_min); on H^3 C = 1/a_c' (fewsterteo.py:77) is exact for the published open universe: re-derived from the H^3 heat kernel (coincidence limit (4 pi t)^(-3/2) e^(-t/a^2)) and from F&T's own (5.2)+(5.4), both giving local density sqrt(lam - 1/a^2)/(4 pi^2)."
+ ],
+ "data_at_publication": [
+  {
+   "quantity": "C (5.7) = sqrt(kappa/a^2 + mu^2)",
+   "value_then": "mathematical; no measured input",
+   "value_now": "unchanged",
+   "source_now": "gr-qc/9812032v2 p.10 (READ)",
+   "moves_conclusion": "no -- (5.6) contains no measured datum"
+  },
+  {
+   "quantity": "mu_1, clamped-beam fundamental (cos mu cosh mu = 1)",
+   "value_then": "4.730040744862704 (tree, achievable.FEWSTER_MU1)",
+   "value_now": "4.7300407448627040260240481... (mpmath findroot, 30 dps, this stage)",
+   "source_now": "computed",
+   "moves_conclusion": "no -- a mathematical constant"
+  },
+  {
+   "quantity": "witness gap C = b/a_c (tree data, not F&T)",
+   "value_then": "35.35533905932738",
+   "value_now": "35.35533905932737 recomputed; = 25 sqrt(2) = sqrt(2 (M/b)/(a/b)^3) at M/b = 0.005, a/b = 0.02",
+   "source_now": "computed (rederive part F, sympy)",
+   "moves_conclusion": "no -- G, c and b cancel exactly (sympy: C depends on M/b and a/b only), so no measured constant enters; M/b, a/b are the tree's design parameters"
+  },
+  {
+   "quantity": "G_SI used by achievable.required_density",
+   "value_then": "6.67430e-11 (achievable.py:302)",
+   "value_now": "not re-read at source this stage",
+   "source_now": "none read",
+   "moves_conclusion": "no -- cancels exactly in C (computed), so any value gives the same witness"
+  },
+  {
+   "quantity": "cavity gap C = b/R_s",
+   "value_then": "0.005 (R_s = 200 b, concentric.R_SHELL)",
+   "value_now": "0.005",
+   "source_now": "tree data",
+   "moves_conclusion": "no numerical move; the drift is the class, not the number"
+  }
+ ],
+ "rederivation": {
+  "method": "sympy",
+  "script_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/fewster-teo-5.6-spectral-gap-bound.py",
+  "outcome": "44/44 PASS (output: rederive/fewster-teo-5.6-spectral-gap-bound.out). Independent of fewsterteo.py's code (sympy + mpmath 30 dps; scipy/numpy for part G). (A) H^3 heat kernel solves the heat equation (sympy, residual 0); coincidence limit (4 pi t)^(-3/2) e^(-t/a^2); its inverse Laplace transform is the density sqrt(lam - C^2)/(4 pi^2), C = 1/a; F&T's (5.2)+(5.4) sum rule gives the same density; R(R x H^3) = -6/a^2 computed from the metric, so gap^2 = (1 - 6 xi)/a^2 (minimal -> 1/a^2, conformal -> 0). (B) the counting INT_C^u w^2 sqrt(w^2 - C^2) dw/(2 pi^2) over the flat u^4/(8 pi^2) equals the tree's Q_3 closed form to < 1e-20 at x = 1.5, 2, 7, 40; antiderivative verified; x^2 (1 - Q_3) -> 1; (5.6) LHS -> RHS change of variables symbolic. (C) INT g^2 = 1, INT g''^2 = mu^4, Parseval INT_0^oo |FT g''|^2 = pi mu^4 to rel 1.2e-9 (quadrature to 2000 + exact Si tail), (1/16 pi^3) pi mu^4 = mu^4/(16 pi^2) = 3.16985793831047. (D) ratio(C) re-measured: C = 35.3553 -> 0.04539391744 (tree 0.0453939, rel 3.8e-7); 20 -> 0.08072009594; 10 -> 0.1656314320; 5 -> 0.4690896854; 1 -> 0.9743214583; 0.1 -> 0.9997538865225 (rel 4.8e-13); 0.01 -> 0.9999975421913 (rel 3.1e-13); second route (numerator directly) agrees at the witness to 1.2e-9; witness orders 1.343002337; cavity 0.999999385558; monotone. (1 - ratio)/C^2 -> 0.02458 as C -> 0 (recorded; the tree states no small-C law). (E) Rayleigh quotient of an R-scaled bump = k/R^2 -> 0: inf spec = 0 on any slice containing arbitrarily large (nearly) flat balls -- the tree's GAP_HYPOTHESIS holds as a spectral statement. (F) witness gap recomputed, G and c cancel. (G) F&T's OWN Einstein static universe (5.14) at mu a = 1, gap C = 1/a, same sampler: C = 35.36 -> 0.09006 (H^3 0.04539); C = 5 -> 1.04162 (looser than flat); C = 1 -> 1.0000666; C = 0.1 -> 0.9999995; control C = 0.02 -> 0.99999942. The tree's own selftest (fewsterteo.py --selftest, run read-only with -B) also passes.",
+  "agrees_with_source": "yes"
+ },
+ "later_literature": [
+  {
+   "ref": "C. J. Fewster, 'Energy inequalities in quantum field theory', arXiv:math-ph/0501073 (2005)",
+   "effect": "narrows",
+   "what": "Eq. (17): restricted to static worldlines in static spacetimes with a static ground state as reference, INT dt <:T_ab u^a u^b:> g^2 >= -INT_0^oo du Q(u)|ghat(u)|^2 'where Q is monotone increasing and polynomially bounded' -- the general static bound carries a SPACETIME-DEPENDENT Q, of which (5.6)'s u^4 Q_3(u/C)/(16 pi^3) is the Minkowski/open-universe case; confirms that a single parameter C does not index the family. Also: 'In curved spacetimes (or even in compact flat spacetimes) it is of course possible to have a constant negative renormalised energy density, which could not satisfy a bound of the form above' -- bears on the cavity and on the normal-ordering hypothesis. Eq. (8) gives Q_3's closed form, matching the tree's.",
+   "read_status": "READ (page text cached in scratchpad/d67/src/citers_teo.json from an earlier alphaXiv call this session)"
+  },
+  {
+   "ref": "C. J. Fewster & C. J. Smith, 'Absolute quantum energy inequalities in curved spacetime', arXiv:gr-qc/0702056 (Ann. Henri Poincare 9 (2008) 425)",
+   "effect": "extends",
+   "what": "state-independent absolute QEI for the minimally coupled KG field on any 4D globally hyperbolic spacetime; the tree already names it the right instrument for O2 (fewsterteo.py:112-123) -- consistent with (5.6) not reaching the corridor",
+   "read_status": "NAMED-NOT-READ this stage (READ by the DOCKET 62 ruling per the tree; see sibling audits/gr-qc_0702056.json)"
+  },
+  {
+   "ref": "Fewster & Teo, arXiv:gr-qc/9908073 (PRD 61 (2000) 084012)",
+   "effect": "extends",
+   "what": "p.1-2: 'This method was extended to static spacetimes by the present authors [9]. Most recently, one of us has proved a rigorous quantum inequality valid for arbitrary smooth worldlines in general globally hyperbolic spacetimes and arbitrary smooth, compactly supported, positive sampling functions [10]' (Fewster gr-qc/9910060) -- the static-spacetime bounds are superseded in generality by the general-worldline QEI, still smooth samplers",
+   "read_status": "READ (page text cached in scratchpad/d67/src/citers_teo.json)"
+  },
+  {
+   "ref": "arXiv:gr-qc/9903055 (restatement of F&T's open-universe bound)",
+   "effect": "confirms",
+   "what": "restates the open static RW bound as <rho_min> = -A INT_0^oo ds INT_C^oo dw_k w_k^2 [w_k^2 - C^2]^{1/2} ... citing F&T [17], with the same lower limit C",
+   "read_status": "READ (page text cached in scratchpad/d67/src/citers_teo.json)"
+  },
+  {
+   "ref": "E.-A. Kontou & K. Sanders, 'Energy conditions in general relativity and quantum field theory', arXiv:2003.01815 (2020)",
+   "effect": "confirms",
+   "what": "'Historically, the first QEIs were difference QWEIs in Minkowski space, followed by difference QWEIs in static spacetimes [79]' -- (5.6) is a DIFFERENCE inequality (relative to the static vacuum), as F&T p.3 states",
+   "read_status": "READ (page text cached in scratchpad/d67/src/citers_teo.json)"
+  },
+  {
+   "ref": "discover_papers for later work on Fewster-Teo static/ultrastatic bounds",
+   "effect": "contested",
+   "what": "NOT RUN: returned 'alphaXiv assistant quota exceeded'. No paper found in this stage refutes (5.6) within its class; absence of a search result is not evidence either way.",
+   "read_status": "NOT-SEARCHED (quota)"
+  }
+ ],
+ "lacked_data": "M's hypothesis tested. What F&T had in 1998-99: the exact mode functions and sum rules of the homogeneous Robertson-Walker, de Sitter and (asymptotically, via Candelas) Schwarzschild spacetimes -- (5.6) needs no measured datum at all; it is a closed-form consequence of (2.12) and the isotropic sum rule (5.4). What came later: rigorous general-worldline QEIs (Fewster gr-qc/9910060), absolute QEIs (Fewster-Smith gr-qc/0702056), the general static form with spacetime-dependent Q(u) (Fewster math-ph/0501073 eq. 17). None of it changes (5.6) inside its class: re-derived here from the H^3 heat kernel independently of F&T's sum rule, and the tree's figures re-measured to 3e-13..3e-6. Evidence AGAINST 'lacked data changes the conclusion': no datum enters (5.6); the witness gap itself contains no measured constant (G and c cancel, computed). Where something IS missing it is not data F&T lacked but geometry the tree lacks: the corridor's mode functions (NOT-FOUND, confluent Heun, per the tree), without which neither the tightening nor 'the flat bound exactly' is a theorem for the corridor. The ESU computation shows the direction on the corridor is not fixed by the gap in either sense: a gapped compact homogeneous slice can give a LOOSER bound (C = 5: 1.0416). So having more data would not change F&T's result; it would be needed to evaluate a different spacetime.",
+ "grade": "NARROWED",
+ "grade_evidence": "(5.6) READ at source (gr-qc/9812032v2 p.10, alphaXiv page text harvested this session): stated for kappa in {0,1} -- Minkowski and the static open RW universe -- minimally coupled scalar of mass mu >= 0, C = sqrt(kappa/a^2 + mu^2), smooth non-negative rapidly decaying sampler, normal-ordered density w.r.t. the static vacuum, its form fixed by the isotropic sum rule (5.4). INSIDE that class the tree's use re-derives: C = 1/a_c is the H^3 gap (heat kernel and (5.4) agree), Q_3 and the (5.6) change of variables are exact, and every ratio the tree pins reproduces by independent code (witness 0.04539391744 vs 0.0453939; C = 0.1, 0.01 to 5e-13; cavity 0.999999). No datum moves anything (none enters; G, c cancel in the witness). NARROWED, not STANDS, because the tree uses it on a WIDER class: 'ultrastatic spacetime with spectral gap C' and, through GAP_HYPOTHESIS, the corridor and a cavity (fewsterteo.py:95-101, 173-177; specthm.py:954-955; achievable.py:259-268), and drops minimal coupling at this site. Computed counter-instance to the widened reading, from F&T's own paper: the Einstein static universe (5.14) at mu a = 1 has gap C = 1/a but ratio 0.09006 at C = 35.36 (vs 0.04539) and 1.04162 at C = 5 (looser than flat) -- the gap does not determine the bound. NOT WRONG: nothing in F&T is contradicted, and the tree's operative conclusions survive -- the refused 72.599/72.247 stay refused (each narrowing can only remove the H^3 tightening), 71.256 stands only under H_flat, which the tree already carries as ASSUMED, and O2 stays OPEN with Fewster-Smith named as the right instrument. What falls is the phrasing that (5.6) 'returns the flat bound exactly' ON THE CORRIDOR and that the cavity's ratio is 0.999999: those are H^3-formula evaluations, not the corridor's or the cavity's bounds.",
+ "what_would_change_the_grade": "To STANDS: the tree restricts its (5.6) statements to Minkowski/open RW, names minimal coupling, and states the corridor/cavity lines as H^3-formula evaluations under H_flat (a wording change; no number moves). To WRONG: only a computed contradiction of (5.6) inside kappa in {0,1} -- none found; the re-derivation agrees. To DATA-DEPENDENT: impossible for (5.6) itself (no datum). A reading of F&T's pages lost to the text layer (the Einstein-universe N(u) floor and the pi prefactors were restored by argument) could revise part G's numbers but not the fact that (5.12)-(5.15) differ in form from (5.6).",
+ "reverify_command": "cd /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive && PYTHONDONTWRITEBYTECODE=1 python3 fewster-teo-5.6-spectral-gap-bound.py   # 44/44 ok, ~4 min; source text: sed -n 1336,1400p ../src/gr-qc_9812032.harvest.txt ; tree: cd /home/user/Claude-Method-Works/research/warp-drive && python3 -B fewsterteo.py --selftest",
+ "report_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/audits/fewster-teo-5.6-spectral-gap-bound.json"
+}

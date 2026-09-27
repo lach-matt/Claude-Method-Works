@@ -1,0 +1,38 @@
+PASS  V1a Kulkarni-Nomizu products span the algebraic curvature tensors (rank)   rank=20
+PASS  V1b every basis element has Riemann symmetries incl. first Bianchi         20 elements
+PASS  V1c k.l = -1, screen orthonormal and orthogonal to k,l                     k.l=-1
+PASS  V1d Weyl tensor built from each basis element is totally trace-free        
+PASS  V1e tr T = R_ab k^a k^b on all 20 basis elements (=> every R, by linearity) exact rationals
+PASS  V1f tr T_Weyl = 0 on all 20 (Weyl focusing is trace-free)                  
+PASS  V1g T = T_Weyl + (1/2) R_kk I on all 20                                    
+PASS  V1v vacuity guard: R_kk != 0 on some basis element                         6 of 20 have R_kk != 0
+PASS  V1h Lambda-vacuum (R_ab = Lambda g_ab, not Ricci-flat): R_kk = Lambda g(k,k) = 0, tr T = 0 tr T = 0
+PASS  V2a Schwarzschild, symbolic M (any sign): all Ricci components = 0         
+PASS  V2b k null (generic E, L, r)                                               g(k,k)=0
+PASS  V2c exact Schwarzschild optical tidal matrix: tr T = 0 identically         T11=3*L**2*M/r**5 T22=-3*L**2*M/r**5 T12=0
+PASS  V2d eigenvalues +-3 M L^2/r^5 (sign of M only swaps the focusing direction) T11=3*L**2*M/r**5
+PASS  V3a linearised metric, null k along +x at closest approach: R_kk O(M) = 0  O(M) coeff=0
+PASS  V3b ... but O(M^2) != 0 (NOT an exact vacuum)                              R_kk = -40000/81 * M^2 + O(M^3)
+PASS  V3c along the whole ray (x, y, 0): R_kk O(M) = 0 identically               O(M^2) coeff = 2*(5*x**2 - 2*y**2)/(x**6 + 3*x**4*y**2 + 3*x**2*y**4 + y**6)
+       h-sweep of the tree's static ratio: h=0.004:1.710e-03, h=0.002:4.721e-04, h=0.001:1.623e-04, h=0.0005:8.482e-05, h=0.00025:6.546e-05, h=0.0001:6.001e-05, h=5e-05:5.917e-05
+PASS  V4a tree's static 1.62e-4 reproduced at its own h = 1e-3                   FD 1.6229e-04
+PASS  V4b DISCREPANCY: the ratio is NOT h-independent (composite.py:326 says it is): x29 over h 4e-3..5e-5 h=4e-3: 1.710e-03 -> h=5e-5: 5.917e-05
+PASS  V4c h -> 0 limit equals the exact-derivative value for the tree's k = (1,1,0,0) FD(h=5e-5) 5.9175e-05  exact 5.9001e-05
+PASS  V4d tree's k = (1,1,0,0) is NOT null in its metric: g(k,k) = -4 Phi        g(k,k) = -2.666667e-02
+PASS  V4e with an exactly null k and orthonormal screen: tr T = R_kk exactly (V1 at work) tr T = -2.001997e-03  R_kk = -2.001997e-03
+PASS  V4f on that correct screen |tr|/|max| = 8.693e-03 ~ 4|M|/(3b) = 8.889e-03: traceless to ~1%, NOT four digits 
+PASS  V4g tree-k exact ratio scales as M^2 (tr ~ M^3): the O(M^2) Ricci and the non-null-k term cancel ratios ['1.4782e-05', '5.9001e-05', '2.3500e-04']
+PASS  V4h int R_kk dx along the ray (O(M^2) coeff) = -pi/(4 b^3): linearised metric's fictitious ANEC integral is NEGATIVE, sign-blind numeric -29.088821  analytic -29.088821
+       vs Weyl focal power 4|M|/b^2: |int R_kk/2| / (4|M|/b^2) = pi|M|/(32 b) = 6.54e-04 at |M|=2e-3, 1.31e-02 at 4e-2
+PASS  V5a composite.tidal = -(MTW optical tidal matrix R_{a m b n} e^a k^m e^b k^n) tree diag (0.2213, -0.2212)  MTW diag (-0.2213, 0.2212)
+PASS  V5b physics, M>0: TANGENTIAL (z) neighbours converge, RADIAL (y) diverge (tree's geodesics) radial 1.0000e-03->2.4355e-03  tangential 1.0000e-03->1.3517e-04
+       MTW T for M>0 focuses z (T_zz = +0.2212 > 0): consistent with V5b.
+       composite.tidal gives T_yy = +0.2213 > 0 for M>0, i.e. evolves A'' = -T A focusing the RADIAL direction -- opposite to V5b.  Trace unaffected (V1); conjugate-point EXISTENCE for either sign unaffected at linear order (traceless T and -T both have one focusing eigendirection).  Recorded, not repaired.
+PASS  V5c M=+0.002: conjugate lambda identical under tree sign and MTW sign; truth direction tangential tree (55.166666666666664, 'radial')  MTW (55.166666666666664, 'tangential')  bundle 55.225
+PASS  V5c M=-0.002: conjugate lambda identical under tree sign and MTW sign; truth direction radial tree (56.5, 'tangential')  MTW (56.5, 'radial')  bundle 56.625
+PASS  V6a along-ray leak < 2e-2 at M = 2e-3 (composite.py:331 check)             leak = 9.290e-03
+PASS  V6b DISCREPANCY: leak is step-independent (n 450->1800), so NOT first-order Euler transport (composite.py:328-330) n=450 9.3650e-03, 900 9.2899e-03, 1800 9.2528e-03
+PASS  V6c leak scales linearly in |M| and matches the null-screen O(M^2) Ricci ratio (V4f) to 10% M=1e-3 4.625e-03, 2e-3 9.290e-03, 4e-3 1.901e-02 ; V4f 8.693e-03
+       extrapolated to the window rows (composite.py:62-68): 4|M|/(3b) = |M|=0.002: 0.9%, |M|=0.005: 2.2%, |M|=0.01: 4.4%, |M|=0.02: 8.9%, |M|=0.04: 17.8%
+
+31/31 checks PASS

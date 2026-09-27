@@ -1,0 +1,86 @@
+{
+ "key": "gr-qc/9304008-eq3.45",
+ "name": "KF (3.45): Delta' >= 1/2, Delta >= 1/3 (with diagonal G); Casimir 6 and 6/7",
+ "source": {
+  "located": "C.-I. Kuo & L. H. Ford, 'Semiclassical gravity theory and quantum fluctuations', arXiv gr-qc/9304008 v1 (6 Apr 1993; TUTP-93-1), Sec. III.C 'Casimir vacuum', pp. 9-12: Eqs. (3.27)-(3.33) (image sum, periodic z), (3.36)-(3.39) (Wick condition and factorisation), (3.40) (<:T00^2:>_C), (3.41)-(3.42), (3.43) (Delta'), (3.44), (3.45) and the paragraph following it (6 and 6/7). Journal version Phys. Rev. D 47, 4510 (1993) NAMED-NOT-READ.",
+  "read_status": "READ",
+  "via": "arXiv v1 PDF TEXT LAYER as returned by alphaXiv get_paper_content(fullText=true) in an earlier stage of this docket and harvested verbatim to d67/src/casmag/all/gr-qc_9304008v1.txt (md5 f1a6628604751cf61b2a4bd411b00153; eqs (3.30)-(3.45) at lines 1363-2154), with load-bearing quotes in d67/src/gr-qc_9304008.note. A fresh fetch in THIS stage failed: alphaXiv answer_pdf_queries and discover_papers both returned 'alphaXiv assistant quota exceeded'. Page image not viewed; journal version not read."
+ },
+ "published_statement": "KF v1 p.11-12, after (3.43)-(3.44): 'We may obtain lower bounds on Delta' and Delta. The minimum value of the right hand side of Eq. (3.43) is 1/2 and occurs when xi1 = xi2 = xi3 = 0. Thus we have that Delta' >= 1/2, Delta >= 1/3. (3.45) This means that the dimensionless Casimir energy density fluctuations are always at least of order unity. Note that this bound is independent of the details of the geometry of the boundaries. For the particular case of periodicity in one spatial direction, we have from Eq. (3.32) that xi1 = xi2 = -1 and xi3 = 3, so that Delta' = 6 and Delta = 6/7. The essential point here is that neither measure of the fluctuations is small, and hence we conclude that the gravitational field due to Casimir energy is not described by a fixed classical metric.' Inputs: (3.40) <:T00^2(x):>_C = <:T00:>_C^2 + (1/2)[<:phidot^2:>_C^2 + <:(phi_,x)^2:>_C^2 + <:(phi_,y)^2:>_C^2 + <:(phi_,z)^2:>_C^2]; (3.41) <:phidot^2:>_C^2 = (1/2)(rho+p1+p2+p3)^2; (3.42) <:(phi_,x)^2:>_C^2 = (1/2)(rho+p1-p2-p3)^2; (3.43) Delta' = (<:T00^2:> - rho^2)/rho^2 = (1/8)[(rho+xi1+xi2+xi3)^2 + (rho+xi1-xi2-xi3)^2 + (rho-xi1+xi2-xi3)^2 + (rho-xi1-xi2+xi3)^2], xi_i = p_i/rho (as printed in the v1 text layer); (3.44) Delta' = Delta/(1-Delta), Delta = Delta'/(1+Delta').",
+ "published_hypotheses": [
+  "K1 flat (Minkowski) spacetime background (Sec. V: 'The analysis in this paper was restricted to a flat spacetime background').",
+  "K2 massless scalar field with the minimally coupled stress tensor (p.11: 'for the massless scalar field we have' (3.41)); T00 = (1/2)(phidot^2 + |grad phi|^2).",
+  "K3 all quadratic and quartic operators normal ordered with respect to the MINKOWSKI vacuum, expectation taken in the Casimir vacuum (p.10, (3.34): ':T T:' 'normal ordered with respect to the Minkowski vacuum state').",
+  "K4 pointwise (coincidence-limit) quantities; Delta as in (3.2) with the absolute value; Delta' as in (3.43).",
+  "K5 Wick condition on the state: 'Wick's theorem applies to any quantum state |psi> for which there is a decomposition ... phi = phi+ + phi-, so that phi+|psi> = <psi|phi- = 0. Both the Minkowski and Casimir vacua satisfy this condition.' (p.11). This yields the factorisation (3.39).",
+  "K6 (implicit, not stated) only the DIAGONAL squares <:(d_A phi)^2:>^2 appear in (3.40), i.e. G_AB = <:d_A phi d_B phi:> is taken diagonal. Exact for the periodic-z example (G diagonal by symmetry, re-derived D1); KF nonetheless assert the bound is 'independent of the details of the geometry of the boundaries'.",
+  "K7 rho != 0 (Delta' is defined by division by rho^2)."
+ ],
+ "hypothesis_drift": [
+  "RECHARACTERISED (implicit restriction named as KF's assumption) -- fluctuation.py:79-80 'KF reach 1/3 assuming G diagonal; the proof here does not need it', and canonical hypothesis 'KF: G_AB diagonal', with BOUND_NEEDS_DIAGONAL_G = False (fluctuation.py:151). KF STATE no such assumption; their (3.40) simply carries only the diagonal squares (K6). Re-derived: the general Wick result is <:T00^2:> = rho^2 + (1/2) sum_AB G_AB^2 (A1), so KF's (3.40) equality holds only for diagonal G (E4); but the dropped remainder (1/2) sum_{A!=B} G_AB^2 is non-negative (A2), so (3.45) itself is TRUE for non-diagonal G as well (E5; E1 proves the full-G form). The tree's sentence is accurate about KF's written derivation; read as 'KF's bound needs diagonal G' it would under-represent KF -- their inequality holds a fortiori in the full scope they claim ('independent of the details of the geometry'). Mild over-representation in the tree's favour in the heading 'A THEOREM STRONGER THAN THEIRS' (fluctuation.py:64): what is stronger is the proof's explicit generality (mixed quasifree states, full G), not the truth of (3.45) within K5.",
+  "BROADENED (by the tree, for its own T1, attributed to itself) -- fluctuation.py:66-78 applies the Wick form to 'ANY zero-mean quasifree (Gaussian) state -- squeezed vacua, the Casimir vacuum, thermal states'; KF's K5 names pure vacuum-like states (Minkowski and Casimir vacua). Valid: normal-ordered moments of any zero-mean quasifree state (pure or mixed) factorise over the two-point function <:phi phi:>. This is T1, not KF (3.45), and the tree labels it as its own; the canonical hypothesis 'zero-mean Gaussian state' is the tree's hypothesis for T1, a superset of KF's K5.",
+  "STATED BY THE OWNER, NOT AT THE USE SITE -- K1, K2, K3 (flat, massless minimally coupled scalar, Minkowski normal ordering) are stated in fluctuation.py:15-17 but not repeated at fluctuation.py:49 or :79-80. Not dropped. K2 is load-bearing: with m > 0, T00 gains m^2 phi^2/2, a fifth square enters and 1/2 is no longer a floor (F1: z3 sat); the floor becomes Delta' >= 2/5, Delta >= 2/7 (F2).",
+  "UNRECORDED SOURCE DISCREPANCY (typographical, v1 text layer only) -- (3.43) as printed in the v1 text layer has 'rho' inside each bracket, (rho + xi1 + xi2 + xi3)^2 etc., where the dimensionally consistent and exact form has '1' (B3 exact with 1; B4 literal form not an identity; B5 literal form at xi = 0 gives rho^2/2, contradicting KF's own next sentence 'The minimum value ... is 1/2'). KF's own stated minimum 1/2 and the values 6, 6/7 are those of the '1' form, so this is a misprint, not an error of result. fluctuation.py:47-48 records (3.41)-(3.42) printing 1/2 for 1/4 and that 'the 1/8 of (3.43) is right', but is silent on the rho-for-1 in (3.43). Recorded here as a discrepancy against the arXiv v1 PDF text layer only (page image not viewed; journal version not read) -- per fluctuation.py:122-126 it MUST NOT be quoted as an error of the journal version.",
+  "SCOPE OF THE STATUS WORD -- 'READ (against arXiv v1 only)' is faithful: fluctuation.py:118-126 records JOURNAL_VERSION_READ = False and PAGE_IMAGE_VIEWED = False. Retained here unchanged."
+ ],
+ "data_at_publication": [
+  {
+   "quantity": "empirical inputs to (3.45)",
+   "value_then": "none -- (3.45) is an algebraic consequence of Wick factorisation and the massless minimally coupled stress tensor",
+   "value_now": "none",
+   "source_now": "re-derivation C1-C3, E1 (this stage)",
+   "moves_conclusion": "no -- no measured datum enters the bound"
+  },
+  {
+   "quantity": "zeta(4) in the periodic-z example (3.32)-(3.33)",
+   "value_then": "pi^4/90",
+   "value_now": "pi^4/90 (exact mathematical constant)",
+   "source_now": "sympy summation in D2",
+   "moves_conclusion": "no -- and it cancels in xi_i = p_i/rho, so Delta' = 6, Delta = 6/7 are independent of L and of zeta(4)"
+  }
+ ],
+ "rederivation": {
+  "method": "z3",
+  "script_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/gr-qc_9304008-eq3.45.py",
+  "outcome": "ALL CHECKS PASS (26/26, exit 0, ~1 s; output in rederive/gr-qc_9304008-eq3.45.out). sympy: general Wick <:T00^2:> = rho^2 + (1/2) sum_AB G_AB^2 (A1); KF (3.40) = its diagonal part, remainder (1/2) sum_{A!=B} G_AB^2 >= 0 (A2); <:phidot^2:> = (rho+p1+p2+p3)/2 so the squares in (3.41)-(3.42) carry 1/4, not the printed 1/2 (B1-B2), and the 1/8 of (3.43) is the 1/4-consistent one (B6); (3.43) is exact with 1 in place of the printed rho (B3), not literally (B4-B5); sum over the four Hadamard sign patterns (1 + s.xi)^2 = 4(1 + |xi|^2), so Delta' = (1+|xi|^2)/2 >= 1/2 with equality iff xi = 0 (C1-C2); Delta = Delta'/(1+Delta') is increasing, giving Delta >= 1/3 (C3-C4). Independent image sum for periodic z (KF (3.28)-(3.31)): G diagonal, rho = -pi^2/(90 L^4), xi = (-1,-1,3), Delta' = 6, Delta = 6/7 (D1-D6). z3: 4 sum G_AB^2 >= (tr G)^2 for EVERY real symmetric 4x4 G (no positivity, no diagonality) (E1), equality only at G = (tr/4) I (E2); vacuity guard -- the stronger 3 sum G^2 >= (tr G)^2 is refuted (E3); diagonal-only (3.40) is not an identity for non-diagonal G (E4) but the bound holds a fortiori (E5). Necessity guard: massive case (5 squares) -- 1/2 is not a floor (F1), 2/5 is (F2). The |.| of KF (3.2) is inert on this class (G1).",
+  "agrees_with_source": "yes"
+ },
+ "later_literature": [
+  {
+   "ref": "A. Perez & D. Sudarsky, 'Renormalization of the Quantum Stress Tensor Fluctuations and the Limits of Semiclassical Gravity', arXiv:2512.17789 v2 (2026)",
+   "effect": "extends",
+   "what": "Cites Ford and Kuo [7] as the Minkowski-spacetime start (p.1-2) and states 'our results agree in general lines with these earlier works and in the specific settings they considered'; gives a covariant OPE renormalisation of <T T> for Hadamard states. Its explicit squeezed/vacuum result, Delta T^2_{++} = 2<T_{++}>^2, is a 2D null-component statement, not the 4D T00 Casimir bound; context, not a test of (3.45). Preprint; peer review not checked.",
+   "read_status": "READ from cached verbatim text d67/src/casmag/all/2512.17789v2.txt (lines ~80-110, ~930-945), harvested in an earlier stage; no fresh fetch (quota)."
+  },
+  {
+   "ref": "B. L. Hu, A. Roura & E. Verdaguer, 'Induced quantum metric fluctuations and the validity of semiclassical gravity', gr-qc/0402029 (2004)",
+   "effect": "narrows",
+   "what": "p.2: 'An earlier criterion put forth by Kuo and Ford [5] used the variance of the fluctuations of the stress tensor operator compared to the mean value as a measure of the validity of SCG. As pointed out by Hu and Phillips [27, 28] (see reply by Ford and Wu [7]) such a criterion should be refined by considering the back reaction of those fluctuations on the metric.' Narrows the INTERPRETATION KF attach to (3.45) ('not described by a fixed classical metric'), not the inequality; consistent with the tree's refusal to use pointwise Delta as a demand row (fluctuation.py:98-120).",
+   "read_status": "READ from cached verbatim text d67/src/casmag/all/gr-qc_0402029v1.txt (lines ~100-110)."
+  },
+  {
+   "ref": "L. H. Ford & T. A. Roman, 'Averaged energy conditions and quantum inequalities', gr-qc/9410043 (1994)",
+   "effect": "confirms",
+   "what": "'recent work of Kuo and Ford [42, 43] indicates that in flat spacetime, negative energy densities are subject to large fluctuations' -- restates the qualitative conclusion only; no new computation of (3.45).",
+   "read_status": "READ from cached verbatim text d67/src/casmag/all/gr-qc_9410043v1.txt (line ~2365)."
+  },
+  {
+   "ref": "S. Hollands & R. M. Wald, gr-qc/0103074 (CMP 223 (2001) 289); N. G. Phillips & B. L. Hu, gr-qc/9611012 (PRD 55 (1997) 6123)",
+   "effect": "extends",
+   "what": "Curved-space local covariant Wick (incl. quartic) products (Hollands-Wald) supersede KF's 1993 'not yet developed' (K1 scope); Phillips-Hu compute curved-space vacuum energy-density fluctuations. Neither revisits the flat-space bound (3.45).",
+   "read_status": "Hollands-Wald READ in an earlier stage (kuo-ford-1993-measure audit; cached d67/src/gr-qc_0103074v2.txt); Phillips-Hu NAMED-NOT-READ (restated in 2512.17789 p.1)."
+  },
+  {
+   "ref": "discover_papers (this stage)",
+   "effect": "contested",
+   "what": "The one permitted discover_papers call for later work on the KF Delta / Casimir energy-density fluctuations returned 'alphaXiv assistant quota exceeded'. No search result is claimed; the list above is from texts cached in earlier stages, so absence of a narrowing/contradicting paper is NOT established.",
+   "read_status": "NOT RUN (quota)"
+  }
+ ],
+ "lacked_data": "M's hypothesis tested for (3.45): it is a theorem-type result -- an algebraic consequence of Wick factorisation (K5) and the massless minimally coupled scalar stress tensor (K2) in flat spacetime with Minkowski normal ordering (K1, K3). No measured quantity enters it (data_at_publication), and zeta(4) cancels in xi_i = p_i/rho, so the periodic-z values 6 and 6/7 are independent of L. Nothing the authors 'lacked' in 1993 moves the inequality: re-derived exactly and machine-checked, and it holds in a WIDER class than KF wrote down (non-diagonal G, E1/E5; mixed quasifree states, the tree's T1). What did come later changes SCOPE, not the result: (i) curved-space renormalisation of quartic Wick products (Brunetti-Fredenhagen-Koehler 1996, Hollands-Wald 2001, Perez-Sudarsky 2025/6) -- KF's (3.45) is a flat-space statement and says so; (ii) the Hu-Phillips / Hu-Roura-Verdaguer critique that a variance-to-mean criterion should include the metric back-reaction -- this bears on KF's INTERPRETIVE sentence ('not described by a fixed classical metric'), which the tree already declines to use as a demand row; (iii) the model dependence is real and is named here, not a data gap: with a mass the floor falls to Delta' >= 2/5, Delta >= 2/7 (F1-F2), and other fields (e.g. electromagnetic) were not checked here. Evidence against over-reading in M's favour: no counterexample exists within the stated hypotheses (E1 is a proof over all real symmetric G), and the only defect found is a v1 text-layer misprint in (3.43) (rho for 1), which KF's own next sentence and values contradict -- a discrepancy, not a refutation.",
+ "grade": "STANDS",
+ "grade_evidence": "Statement as used (fluctuation.py:49 'KF (3.45) Delta' >= 1/2, Delta >= 1/3; 6 and 6/7 EXACT', KF_345_IS_EXACT = True) re-derived independently of the tree: sympy shows Delta' = (1+|xi|^2)/2 from (3.43) (with 1 for the printed rho), so min 1/2 at xi = 0 and Delta >= 1/3 by monotonicity of (3.44); an independent image sum reproduces KF (3.32)-(3.33) and Delta' = 6, Delta = 6/7; z3 proves 4 sum G_AB^2 >= (tr G)^2 for every real symmetric G (with vacuity guard), so the bound needs neither diagonal G nor positivity -- confirming BOUND_NEEDS_DIAGONAL_G = False and showing KF's own inequality holds a fortiori beyond their diagonal (3.40). No datum enters. Hypothesis drift is characterisation only (KF's implicit diagonal restriction named as an 'assumption'; massless/flat/Minkowski-normal-ordering stated by the owner at fluctuation.py:15-17, not at the use site) and one UNRECORDED v1 text-layer misprint in (3.43) (rho for 1), which does not affect (3.45). Source read at the v1 text layer (cached verbatim harvest; fresh fetch failed on quota); journal version NAMED-NOT-READ, as the tree itself records.",
+ "what_would_change_the_grade": "To NARROWED: a use of (3.45) in the tree outside K1-K2 (curved background, massive field, non-minimal coupling, or a non-quasifree state) without naming the hypothesis -- the massive floor is 2/5 (F2), so such a use would overstate the bound. To OPEN on the misprint question only: reading the page image or the PRD 47, 4510 journal version could show '1' printed in (3.43) (then the discrepancy is a text-layer artefact) -- it cannot change the grade of (3.45). To WRONG: only a zero-mean quasifree state of the massless minimally coupled scalar in flat space with Delta' < 1/2 -- excluded by the z3 proof E1 given the Wick identity A1; a fault in A1 itself (e.g. a stress-tensor convention differing from KF (2.10)-(2.14)) would reopen it.",
+ "reverify_command": "python3 /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/gr-qc_9304008-eq3.45.py   # exits 0 with 'ALL CHECKS PASS'; source: sed -n 1905,2185p /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/src/casmag/all/gr-qc_9304008v1.txt ; tree side: cd /home/user/Claude-Method-Works/research/warp-drive && python3 fluctuation.py --selftest | grep -E 'Casimir|T1'",
+ "report_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/audits/gr-qc_9304008-eq3.45.json"
+}

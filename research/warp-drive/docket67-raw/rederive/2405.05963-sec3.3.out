@@ -1,0 +1,19 @@
+PASS A1 r_0^2 = 1/(540 pi) at L=-2/3
+     r_0 = 0.0242789 l_P ; r_0/sqrt2 = 0.0171677 l_P
+PASS A2 r_0 prints 0.0242789 (7 d.p.)
+PASS A3 r_0/sqrt2 prints 0.0171677 (7 d.p.)
+     non-zero orthonormal R_(abcd), a<b, c<d, at throat: {(2, 3, 2, 3): r0**(-2)}
+PASS B1 only R_(th ph th ph) survives, = 1/r_0^2
+PASS B2 Kretschmann at throat = 4/r_0^4
+PASS B3 Kretschmann radius (4/r_0^4)^(-1/4) = r_0/sqrt2
+PASS C1 z3: no L in [-1,0) gives r_0 >= 1 l_P
+     max r_0 over HPS range (L=-1) = 0.02974 l_P
+PASS C2 max r_0 = 1/sqrt(360 pi) < 1
+PASS D  z3: no k>=1, l>=l_P with l <= r_c/k (r_c = 0.0242789)
+PASS D  z3: no k>=1, l>=l_P with l <= Kretschmann radius/k (Kretschmann radius = 0.0171677)
+PASS E1a plane wave is vacuum (Ricci = 0)
+PASS E1b plane wave has R_abcd != 0 (R_uxux = -1)
+PASS E1c plane wave Kretschmann = 0 -> owner's 'kretschmann == 0' proxy would mark it MET though it is not Minkowski
+PASS E2 z3: exists r_c > 1 (proxy MET) admitting no l in [1, r_c/10]
+     witness r_c = 7/4
+ALL PASS

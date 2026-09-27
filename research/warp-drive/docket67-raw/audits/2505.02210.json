@@ -1,0 +1,99 @@
+{
+ "key": "2505.02210",
+ "name": "Pisana, Shoshany, Antoniou, Kauffman & Lambropoulou, 'Wormhole Nucleation via Topological Surgery in Lorentzian Geometry' (0-surgery / Morse theory; CP^2 connected sum (Misner trick) trades the naked singularity for CTCs; neck given by homotopies H1-H4)",
+ "source": {
+  "located": "arXiv:2505.02210v4 [gr-qc], dated 20 Apr 2026 on the arXiv stamp (first posted 2025-05-04), 24 pp. The whole text was read: abstract; sec. II (Defs 1-5, Prop. 1, eq. 1, Thms II.1-II.2); sec. III (eq. 2, Thms III.1-III.3, the Misner-trick chi arithmetic, kink number eqs 3-10, the 0-surgery cobordism chi(W)=chi(Sigma_i)-1, spin/Spin^c); sec. IV (eqs 11-24, Fig. 9 Hawking-Ellis types, Fig. 12 WEC, footnote-9 CTC, eq. 24 zeta>1); sec. V (rigging junction eqs 25-40, homotopies H1-H4 with eqs 41-42); sec. VI; refs [1]-[95].",
+  "read_status": "READ",
+  "via": "alphaXiv get_paper_content(url=https://arxiv.org/abs/2505.02210, fullText=true): 106,851 characters, read in four consecutive chunks (0-25k, 25k-50k, 50k-78k, 78k-end), 100% of the returned text. The later answer_pdf_queries / get_paper_content calls for later literature failed with 'alphaXiv assistant quota exceeded'."
+ },
+ "published_statement": "Abstract: 'We construct a model for the nucleation of a wormhole within a Lorentzian spacetime by employing techniques from topological surgery and Morse theory. In our framework, a 0-surgery process describes the neighborhood of the nucleation point inside a compact region of spacetime, yielding a singular Lorentzian cobordism that connects two spacelike regions with different topologies. To avoid the singularity at the critical point of the Morse function, we employ the Misner trick of taking a connected sum with a closed 4-manifold -- namely CP^2 -- to obtain an everywhere nondegenerate Lorentzian metric. This connected sum replaces the naked singularity with a region containing closed timelike curves. The obtained spacetime is nonsingular, but violates all the standard energy conditions.' Sec. IV.B: the Morse spacetime (13) has type-IV regions by criterion (19) (Fig. 9) and 'violates all the standard energy conditions'. Sec. IV.C: 'we find regions where T_mu nu w^mu w^nu < 0' (Fig. 12); a type-IV point p=(1,0,0,0) on CP^2; eq. (24): 'the numerical factor 2 is arbitrary and can be replaced by any real number zeta > 1 ... changing zeta merely shifts, thins, or expands the regions where the energy conditions are violated; it does not eliminate them altogether.' Sec. V.D: homotopies H1-H4 with smooth monotone b(eta), c(eta) and a path alpha(eta) in SO(4), 'Because the entire deformation is smooth and nonsingular, the resulting Lorentzian metric on the neck remains free of singularities, and no further explicit expression is required for our purposes.' Sec. I: 'The conclusions we present, apart from the investigations of the energy conditions on these spacetimes, are purely kinematic'.",
+ "published_hypotheses": [
+  "P1 classical, 4-dimensional; spacetime = manifold with everywhere non-degenerate TIME-ORIENTABLE Lorentzian metric, signature (-,+,+,+) (Def. 6); kinematic -- the metric is built from a Riemannian metric and a line field by eq. (2), not solved from field equations",
+  "P2 Hawking-Borde setting: the transition confined to a compact timelike tube W, dW = Sigma_i U T U Sigma_f (Fig. 2)",
+  "P3 kink(dW; g_L) = 1 -- ASSUMED, as the statement that the ambient spacetime is asymptotically flat ('may be assumed to be asymptotically flat', sec. III.D)",
+  "P4 a single 0-surgery (one index-1 Morse critical point, eq. 1), initial region Sigma_i = D^3 (simply connected, genus 0; footnote 5)",
+  "P5 Riemannian metric on M chosen as the graph metric (11) ('The choice of the Riemannian metric is arbitrary'); on CP^2 the Fubini-Study metric (23) with free Lambda > 0; the CP^2 line field (20)/(21) 'is not unique; other choices are possible'",
+  "P6 construction factor 2 in (2); eq. (24) notes any zeta > 1 is admissible; the paper's own metrics (22), (35), (36) use 2",
+  "P7 gluing by the Mars-Senovilla rigging formalism with sufficient C^1 matching [g_mu nu,alpha] = 0; annuli S^3_I x I with free profile functions a(tau), b(tau) (CP^2 side) and alpha(sigma), beta(sigma) (Morse side) subject to (37),(38),(40); neck S^3 x I of free radius R with free smooth b(eta), c(eta), alpha(eta)",
+  "P8 energy conditions: the standard SEC/NEC/WEC/DEC 'with no cosmological constant'; T_mu nu is whatever the constructed metric's Einstein tensor is (no matter model); evidence is pointwise Hawking-Ellis type and one WEC plot -- no integrated figure",
+  "P9 W admits NO spin structure (u(dW)=0 != kink=1 mod 2); only Spin^c (sec. III.E)",
+  "P10 explicit scope exclusion: 'We do not address the difficulties that compactly generated Cauchy horizons pose for quantum field theories -- most notably the divergent renormalized stress-energy tensor ... beyond the scope of the present classical analysis' (sec. I.A)"
+ ],
+ "hypothesis_drift": [
+  "FAITHFUL (no drift): formation.py:225-245 and 420-438 quote the abstract ('replaces the naked singularity with a region containing closed timelike curves'), eq. (19)/Fig. 9, Fig. 12, the type-IV point p=(1,0,0,0), H1-H4 with free b(eta), c(eta), alpha(eta), and 'No further explicit expression is required for our purposes' (sec. V) exactly as printed; NUCLEATION_EC_FIGURE=False ('no INTEGRATED energy-condition figure') is confirmed by the full read -- no integral of T appears anywhere in the paper; NUCLEATION_HAS_CTC=True is the abstract and is re-verified (footnote-9 curve, C9).",
+  "DROPPED (scope) at formation.py:225-245, 420-438 and ledger.py:652-669: P10 -- the paper's explicit exclusion of QFT on the compactly generated Cauchy horizon its CTC pocket creates (divergent renormalized stress tensor; its refs [38]-[40], Kay-Radzikowski-Wald). A price of the construction computed from the paper would be a CLASSICAL price only; the tree's D24 settle-condition ('the nucleation construction COMPUTED -- the neck recipe written out and integrated', ledger.py:662-663) does not carry this.",
+  "DROPPED at formation.py:225-245: P3 (kink(dW)=1 is an ASSUMPTION -- asymptotic flatness), P4 (Sigma_i = D^3, one 0-surgery), P1's time-orientability, and P9 (no spin structure, only Spin^c: fermions on W must be U(1)-charged). None changes the tree's conclusion (OPEN, not priced); each bounds what a future pricing may assume.",
+  "UNDER-LISTED at formation.py:424-425 (NUCLEATION_FREE_FUNCTIONS) and ledger.py:653-659: the free data is larger than b(eta), c(eta), alpha(eta), zeta. The paper also leaves free: the annulus profiles a(tau), b(tau), alpha(sigma), beta(sigma) (constrained only at endpoints by (37),(38),(40)); Lambda > 0; the neck radius R; the gluing radii chi_1 = tau_1 and xi_1 = sigma_1; the interval points eta_{-1}<...<eta_1, tau_0<tau_1, sigma_0<sigma_1; the Riemannian metric on M ('arbitrary', eq. 11); the CP^2 line field (20)/(21) ('not unique'); and the extent of the compact region W. The tree's 'whether the price depends on the free functions is NOT DETERMINED' stands a fortiori. Notational trap recorded: the paper reuses b for b(tau) and b(eta) (and again for H3 on [eta_0, eta_1/2]) and alpha for alpha(sigma) and alpha(eta); the tree's b(eta), alpha(eta) are the homotopy ones, correctly.",
+  "NUANCE, not drift, at formation.py:240, 424-425: 'the construction (2)/(24), whose zeta > 1 is also free' is what eq. (24) says, but the paper's own glued metrics (22), (35), (36) use zeta = 2, the paper states that zeta does not remove the EC violations, and its explicit CTC witness (footnote 9) is timelike only for zeta > 1.2771 (computed, C9b). zeta is free but not effect-free.",
+  "LOCALISATION (bears on D24's settle route), ledger.py:662-663 vs source sec. IV: the paper's EC violations sit in the Morse spacetime M (a type-IV band along the whole critical level set, re-derived C5e/C5g: present for every F beyond r = 0.8995 on the cone, thinning in angle) and in the CP^2 pocket (Fig. 12, the type-IV point) -- not in the neck, which is only the gluing region (sec. V). 'The neck recipe written out and integrated' would not by itself price the construction; the region W's extent enters any integral.",
+  "WORDING CONTRAST, not drift, formation.py:422 NUCLEATION_NECK_EXPLICIT=False: the paper calls its cobordism 'explicit' (sec. I, IV, VI); the tree's False means 'no closed-form neck METRIC is written', which is true as read (sec. V.D gives the homotopies, not the metric components). Both statements hold.",
+  "create.py:124-127, 250-251 ('named rather than leaned on', NOT-RUN) and specthm.py:1158-1159 ('READ, its price not computed') describe the paper accurately; no hypothesis is imported there."
+ ],
+ "data_at_publication": [
+  {
+   "quantity": "Lambda (Fubini-Study scale on CP^2; 'plays the role of a cosmological constant')",
+   "value_then": "free Lambda > 0; numerical work at Lambda = 6",
+   "value_now": "free parameter of the construction (no measured value enters)",
+   "source_now": "the paper itself (eqs 23, 28-30); no observational input. The observed cosmological constant was NOT read at source this session, so no identification with it is computed here",
+   "moves_conclusion": "no -- every topological and pointwise EC statement re-derived here holds for all Lambda > 0 (C9 checks Lambda = 1, 6, 100)"
+  },
+  {
+   "quantity": "construction factor zeta in (2)/(24)",
+   "value_then": "2 in all glued metrics; any zeta > 1 admissible",
+   "value_now": "same (mathematical choice)",
+   "source_now": "paper eq. (24)",
+   "moves_conclusion": "no for the paper's claims; the footnote-9 CTC witness needs zeta > 1.2771 (C9b), so the WITNESS moves with zeta, the claim that CTCs exist does not rest on it alone"
+  },
+  {
+   "quantity": "empirical data of any kind",
+   "value_then": "none -- the result is kinematic/topological plus a geometric classification of the Einstein tensor of a constructed metric",
+   "value_now": "none",
+   "source_now": "sec. I: 'purely kinematic'",
+   "moves_conclusion": "no measured datum exists to move"
+  }
+ ],
+ "rederivation": {
+  "method": "sympy",
+  "script_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/2505.02210.py",
+  "outcome": "36 checks, 0 FAIL (output /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/2505.02210.out). Agrees with the source on: kink integral (9) = 1 EXACTLY (antiderivative (u-1)/sqrt(2u^2-2u+1)) and (10), kink = 1; the Misner-trick chi shifts (+2,-2,+1,-1); chi(W)=1 forces genus -1 without CP^2 and chi(M#CP^2)=1 with it; u(S^1xS^2)=0 vs kink 1 (no spin structure); eq. (12) from (11) and g_L(grad f,grad f) < 0; (13) and (14) as coordinate forms of (12) with R = r^2; tetrad (18); with T := Einstein tensor the only tetrad components are T00, T01, T11, T22=T33 and (T00+T11)^2 - 4 T01^2 = 4 P /(F^2 (F+1)^4) with P the printed polynomial (fit spread 1e-12), so criterion (19) reduces to sign P as printed; type-IV region exists (212/400 samples); (21) is the real form of (20); (41) is exactly the radial reflection of (21); decomposition (42); H2 endpoints; R s1 = v with R in SO(4); H1-H3 nonsingular on S^3_R (sampled for R = 0.1-10, and analytically: w is parallel to x only on the real x-axis); degrees deg(w)=+3 (= chi(CP^2) index), deg(w_r)=deg(w1r)=deg(s)=deg(s1)=deg(v)=-1 at R = 1 and 2.5; footnote-9 curve closed, timelike and future-directed for g_L (22) at Lambda = 1, 6, 100; (23) pulled back by (28) equals (30) at Lambda = 6; junction values a(tau1), b(tau1), a', b' and (34), (37), (38), (40). ONE DISCREPANCY (recorded, not an error of the construction -- the fluctuation.py precedent): for Lambda != 6 the printed (23) and (28) do not pull back to (30) (max component difference 10.6); dropping the sqrt(6/Lambda) prefactor in (28), or rescaling (23) to 1/(1+Lambda r^2/6)[delta - (Lambda/6)(xx+x~x~)/(1+Lambda r^2/6)], restores (30) to 1e-13. A scale-convention slip; Lambda is a free scale and the paper's numerics use Lambda = 6, so nothing downstream moves. ONE REFINEMENT: the Fig. 9 caption's 'violations ... occur on the critical level set' holds as 'a band containing the cone |z| = r for r > 0.8995, thinning in angle to every F' (angular fraction 0.54 at sqrt F = 2, 0.01 at sqrt F = 100; none for F < 1). NOT checked here (stated, not re-derived): the WEC plot of Fig. 12 and the numerical type-IV point on CP^2; the flare-out/throat claims (16)-(17); the geodesic plots (Figs 7, 11); that the annulus line fields 'agree to first order across Sigma'; that the neck homotopy, built on Euclidean R^4 and 'interpreted' on S^3 x I, matches the annulus fields C^1 at eta_{-1}, eta_1 (the paper asserts, does not show); the no-Killing-vector claim for (22).",
+  "agrees_with_source": "yes"
+ },
+ "later_literature": [
+  {
+   "ref": "arXiv:2609.27136 (2026-09-22), 'Topological Obstructions to Riemannian-Lorentzian Continuation'",
+   "effect": "extends",
+   "what": "topic-adjacent: geometro-topological selection rules for signature-changing continuation (instanton continuation). Whether it engages 2505.02210 is NOT established.",
+   "read_status": "NAMED-NOT-READ (discover_papers abstract snippet only; full text blocked by alphaXiv quota)"
+  },
+  {
+   "ref": "arXiv:2603.01333 (2026-03-02), 'Generator Histories and Parity-Odd Curvature in Lorentzian Topology Change'",
+   "effect": "extends",
+   "what": "topic-adjacent: Lorentzian topology change resolved into ordered localized operations. Relation to 2505.02210 NOT established.",
+   "read_status": "NAMED-NOT-READ (abstract snippet only)"
+  },
+  {
+   "ref": "arXiv:2601.05957 (2026-01-09), 'Interpolated Topology Change in a Spin Cobordism and the Chiral Weyl Curvature Diagnostic'",
+   "effect": "extends",
+   "what": "topic-adjacent: regulated topology change on a SPIN cobordism -- the class 2505.02210's W is not in (P9). Relation NOT established.",
+   "read_status": "NAMED-NOT-READ (abstract snippet only)"
+  },
+  {
+   "ref": "arXiv:2202.09833 (2022), 'Topology change with Morse functions: progress on the Borde-Sorkin conjecture'",
+   "effect": "extends",
+   "what": "pre-dates the paper; concerns causal (dis)continuity of Morse (Yodzis-Sorkin) topology change, the singular Morse spacetime M that 2505.02210 then desingularizes by CP^2; the paper cites the related Dowker-Garcia-Surya [11] but does not discuss causal continuity. Bearing on the desingularized W NOT established.",
+   "read_status": "NAMED-NOT-READ (abstract snippet only)"
+  },
+  {
+   "ref": "arXiv:1812.00837 (2018), Antoniou, Kauffman & Lambropoulou, 'Topological surgery in cosmic phenomena'",
+   "effect": "confirms",
+   "what": "the authors' own precursor framework, cited as [26] for the notation of Def. 1; context, not independent confirmation.",
+   "read_status": "NAMED-NOT-READ (abstract snippet only)"
+  }
+ ],
+ "lacked_data": "M's hypothesis tested for this result. What the authors had: no empirical input at all -- the result is kinematic/topological (integers: chi, kink, degree, u-invariant) plus a pointwise Hawking-Ellis classification of the Einstein tensor of a constructed metric. What came later: nothing observational bears on it; the only 'later' items are 2026 topic-adjacent papers not read here. Does missing data change the conclusion? Evidence AGAINST: every topological claim is an integer re-derived exactly (C1, C2, C8); the EC classification is re-derived in closed form, D = 4P/(F^2(F+1)^4) (C5c), and holds for every Lambda > 0 (Lambda only scales CP^2; C9). The one moved-looking item is a scale-convention slip in (23)/(28) (C10a'), a discrepancy, not a refutation. Evidence FOR incompleteness (not wrongness): what the authors lacked is COMPUTATION, not data -- no integrated energy figure, no magnitude of T in the type-IV band (C5e/C5g show the band runs along the whole critical level set, so any integral depends on W's extent), several C^1 matchings asserted rather than shown, and the QFT back-reaction on the compactly generated Cauchy horizon explicitly excluded (P10). So the paper is incomplete in exactly the ways formation.py already records (OPEN, not priced), plus the scope exclusions the tree does not carry.",
+ "grade": "NARROWED",
+ "grade_evidence": "The source is READ in full and every closed-form claim the tree's reading rests on re-derives (36/36, sympy+numpy), with one scale-convention discrepancy (printed (23)+(28) give (30) only at Lambda = 6; C10a') that moves nothing. The tree's statements (formation.py:225-245, 420-438; create.py:124-127, 250-251; specthm.py:1158-1159; ledger.py:652-669) quote the paper faithfully and lean on nothing it does not say; the tree's conclusion -- READ, not priced, priceability NOT DETERMINED, no obstruction claimed -- is untouched. The grade is NARROWED ON HYPOTHESES, NOT ON CONCLUSION: the tree drops the paper's explicit classical-only scope (QFT on the compactly generated Cauchy horizon excluded, P10), the ASSUMED kink(dW)=1 (asymptotic flatness, P3), Sigma_i = D^3 (P4), time-orientability (P1) and the absence of a spin structure (P9), and it under-lists the free data (annulus profiles a, b, alpha, beta; Lambda; R; chi_1; xi_1; the Riemannian metric on M; the CP^2 line field; W's extent). One consequence is concrete: ledger.py:662-663's settle route 'the neck recipe written out and integrated' would not price the construction, because the paper's EC violations lie in M (a type-IV band along the whole critical level set, C5e/C5g) and in the CP^2 pocket, not in the neck -- and would price it only classically.",
+ "what_would_change_the_grade": "To STANDS: the tree carries P1, P3, P4, P9 and P10 as named hypotheses on NUCLEATION (and on D24's settle-condition), completes NUCLEATION_FREE_FUNCTIONS, and re-words D24's route to price the whole compact W (M's type-IV band + CP^2 pocket + annuli + neck), classical scope named. To WRONG (for the source): a shown counterexample to a checked item -- e.g. a zero of an H1-H3 numerator on S^3_R, or deg(w_r) != -1 -- none found; or a proof that the C^1 matching of the Euclidean-R^4 homotopy onto S^3 x I fails (asserted, not shown, in sec. V.D). To OPEN: nothing -- the source was readable and its finite content checkable. A later paper read in full that engages 2505.02210 (none read here; alphaXiv quota) could narrow or contest it further.",
+ "reverify_command": "python3 /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/2505.02210.py   # exit 0, 'SUMMARY: 36 checks, 0 FAIL'; ~2-4 min",
+ "report_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/audits/2505.02210.json"
+}

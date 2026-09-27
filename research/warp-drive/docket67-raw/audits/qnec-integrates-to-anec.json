@@ -1,0 +1,102 @@
+{
+ "key": "qnec-integrates-to-anec",
+ "name": "QNEC integrated along a complete null generator implies ANEC (boundary term [S'] vanishes)",
+ "source": {
+  "located": "Bousso, Fisher, Koeller, Leichenauer, Wall, 'Proof of the Quantum Null Energy Condition', arXiv:1509.02542 (PRD 93 024017, 2016), p.2 (the integration-to-ANEC sentence) and eqs (2.1)-(2.3) (definition of S''_out). Balakrishnan, Faulkner, Khandker, Wang, 'A General Proof of the QNEC', arXiv:1706.09432, eq (1.3): the per-generator integrated QNEC between cuts A and B. Ceyhan & Faulkner, 'Recovering the QNEC from the ANEC', arXiv:1812.04683, eq (3.19): QNEC as convexity of relative entropy in the cut.",
+  "read_status": "READ-VIA-RESTATEMENT",
+  "via": "NOT re-read at source in this stage. Every alphaXiv call was refused with 'alphaXiv assistant quota exceeded': answer_pdf_queries on 1509.02542, 1706.09432 and 1605.08072, get_paper_content on 1509.02542, and discover_papers. arxiv.org, export.arxiv.org, ar5iv.labs.arxiv.org and www.alphaxiv.org are EGRESS_BLOCKED (WebFetch; curl gives code 000). The quotations are taken from the sibling D67 audit qnec-bousso-fisher-leichenauer-wall-balakrishnan-faulkner-khandker-wang-ceyhan-faulkner.json, which READ these pages through alphaXiv answer_pdf_queries earlier in this docket: 1509.02542 abstract and pp.2, 4, 6-7; 1706.09432 pp.2, 8, 59, 62, 65; 1812.04683 pp.1-3, 15. A WebSearch in this stage corroborates only the titles and the listing of 1509.02542 and 1812.04683. The modular identity dK'(B) = -2pi INT_B^inf T is used as restated in the CF reading; its originals (Wall 2011; Casini-Teste-Torroba 2017) are NAMED-NOT-READ here."
+ },
+ "published_statement": "BFKLW 1509.02542 p.2 (as READ in the sibling audit): 'the right hand side can have any sign ... By integrating the QNEC along a null generator, we can obtain the ANEC, in situations where the boundary term S'_out vanishes at early and late times.' The QNEC, eq (2.2): <T_kk(p)> >= hbar/(2 pi sqrt(h(p))) delta^2 S_out/delta lambda(p)^2. This is the diagonal (delta-function) coefficient of the second functional derivative, at a point p on a stationary null surface where the expansion and shear of k vanish. BFKW 1706.09432 eq (1.3) gives the integrated per-generator form: Q_-(A,B;y) = INT_{dA}^{dB} dx^- <T_--> - (1/2pi) dS(B)/dx^-(y) + (1/2pi) dS(A)/dx^-(y) >= 0, in flat space with locally stationary cuts.",
+ "published_hypotheses": [
+  "H1: the boundary term S'_out vanishes at early AND late times. BFKLW state this as a CONDITION ('in situations where'), not as a consequence.",
+  "H2: the generator belongs to a stationary null surface of a FIXED background with no dynamical gravity (BFKLW p.4): a Minkowski Rindler horizon, a de Sitter horizon, or an eternal Schwarzschild/Kerr horizon. BFKW work in flat space only, and CF use Minkowski Rindler cuts.",
+  "H3: <T_kk> is the renormalised expectation value in a quantum STATE of a QFT in the proved class, and S_out is that state's entanglement entropy outside the cut.",
+  "H4: S''_out is the DIAGONAL coefficient of the second functional derivative. The per-generator integral that yields [S'] is BFKW eq (1.3), with S' the local first variation dS/dx^-(y) at the two cuts, not the FTC of an ordinary second derivative.",
+  "H5: an affine parameter along the generator, and cuts that are locally stationary (vanishing expansion/shear; BFKW K^+_ij = 0).",
+  "H6: CF additionally assume that the state has finite averaged null energy."
+ ],
+ "hypothesis_drift": [
+  "ASSERTED, NOT COMPUTED (H1): anec.py:37-38 says 'for a localised bubble that is asymptotically vacuum the boundary variation vanishes'. anec.py:155-159 says the same and stores it as 'a flag rather than computed'. qnec_implies_anec() (anec.py:154-160) takes no arguments and returns True, so the selftest check at anec.py:182 and shape.py:272 cannot fail whatever holds (rederive R5). The source makes [S'] = 0 a condition. rederive R2 (z3) shows it is load-bearing: UNSAT with S'(ends) = 0, SAT with [S'] = -1 (witness sum T = -0.0796), and SAT when only one end is fixed. rederive R3 shows that the integrated inequalities do not force it: a QNEC-saturating dS on a profile with ANE = 0.583 has [dS'] = 2pi ANE != 0. So the vanishing is a property of the state, not of the inequality.",
+  "ADDED INFERENCE (H1): the tree derives [S'] = 0 from 'asymptotically vacuum'. 'Asymptotically vacuum along the ray' concerns T -> 0 at the ends. S'(A -> -inf) concerns the entanglement of a region that contains the whole excitation. The link is plausible in flat space for pure states that approach the vacuum, but it is not shown in the tree and not stated in the sources read. On the warp background 'vacuum' and S_out are not defined (anec.py:37-38).",
+  "DROPPED (H2): anec.py:35-39 and 49-50 apply the integration on the curved Alcubierre metric (typefour.py). All three sources are flat space or stationary null surfaces of a fixed background. The tree's own later file anecscope.py:24-27 states 'ANEC IN CURVED SPACETIME. FALSE in general'. That contradicts the unconditional inference at anec.py:50 ('ANEC IS VIOLATED, SO QNEC FORBIDS THE CONFIGURATION') and index3.py:381-382, which were not updated.",
+  "DROPPED (H3): anec.py:40-47 contracts a CLASSICAL T = G/(8pi) (typefour.py:163) with no state and no S_out. The step 'QNEC ==> ANEC' needs S_out to exist. rederive R4 (illustrative): absorbing the tree's classical ANE would take a boundary term |[S'/A]| = 2pi|ANE|/(l_P^2 R). That is 2.03 times the Bekenstein-Hawking density per bubble radius at the tree's value and 1.32 times at the affine value, independent of R. This is the hbar -> 0 fact that on classical input the QNEC says what the NEC says.",
+  "WEAKENED, NOTATIONAL (H4): anec.py:35-37 writes 'INTEGRAL S'' dl = [S']' as an FTC. The published S'' is the diagonal functional coefficient. The per-generator statement that actually gives [S'] is BFKW eq (1.3). rederive R1 shows that the tree's formula is exactly that expression, so the tree's result is right in form (in the sources' class) and its derivation wording is loose.",
+  "WEAKENED (H5): anec.py:118-120 integrates dx with the non-affine k = (1, v+1, 0, 0). The sibling audit computes the affine on-axis value as -0.0524 against -0.0807, with the sign unchanged. Off-axis curves are not geodesics (Gamma^y_kk != 0).",
+  "NOT A DRIFT AGAINST THE TREE: the source needs only [S'] >= 0 (rederive R2), and the tree's '[S'] = 0' is a stronger sufficient condition. The tree's 'globally NO LOOSER AT ALL' (anec.py:78-79) is exact under H1: rederive R3(b) gives 2pi ANE = [S_rel'] + [dS'].",
+  "CITATION DISCREPANCY (recorded, not a refutation): anec.py:53 credits 'Bousso, Fisher, Leichenauer & Wall', the conjecture paper 1506.02669. The proof paper, which carries the integration sentence, adds Koeller (1509.02542)."
+ ],
+ "data_at_publication": [
+  {
+   "quantity": "coefficient hbar/2pi in the integrated inequality",
+   "value_then": "hbar/2pi (exact; BFKLW eq 2.2, BFKW eq 1.3 with hbar = 1)",
+   "value_now": "hbar/2pi (exact; Hollands-Longo 2503.04651 eq 1, per the sibling reading)",
+   "source_now": "arXiv:2503.04651 p.1 (READ in sibling audit)",
+   "moves_conclusion": "no. It is a modular (Bisognano-Wichmann) constant, not a measurement, and the sign logic of the step does not depend on its value (rederive R2 uses an arbitrary positive constant)."
+  },
+  {
+   "quantity": "empirical input to the implication",
+   "value_then": "none. The step is calculus plus a boundary condition on the state.",
+   "value_now": "none",
+   "source_now": "1509.02542 p.2; 1706.09432 eq 1.3 (via restatement)",
+   "moves_conclusion": "no datum exists to move"
+  },
+  {
+   "quantity": "the tree's ANEC integral on the y = 0 ray (the number the step is applied to)",
+   "value_then": "-0.0807 (anec.py:43, INT T_kk dx, non-affine k)",
+   "value_now": "-0.0524 (affine normalisation, sibling audits anec-definition.json and qnec-...json)",
+   "source_now": "rederive of sibling audits; anec.py:118-120",
+   "moves_conclusion": "no. The sign survives. It sets the illustrative boundary-term size in R4 (2.03 vs 1.32 times the S_BH density per radius)."
+  },
+  {
+   "quantity": "boundary term [S'] for the tree's configuration",
+   "value_then": "n/a",
+   "value_now": "never computed. No quantum state exists in the tree (canonical data_used: 'the function returns True unconditionally').",
+   "source_now": "anec.py:154-160",
+   "moves_conclusion": "this is the load-bearing unknown: [S'] < 0 lets the integrated QNEC hold while ANEC fails (R2 SAT)"
+  }
+ ],
+ "rederivation": {
+  "method": "z3",
+  "script_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/qnec-integrates-to-anec.py",
+  "outcome": "PASS (exit 0), 17 checks; output in rederive/qnec-integrates-to-anec.out. R1 sympy: INT_A^B S'' = S'(B) - S'(A), and the BFKW eq (1.3) expression is identical to the tree's 'INT T >= (hbar/2pi)[S']'. R2 z3 on a 12-cell generator: pointwise QNEC + S'(both ends) = 0 + sum T < 0 is UNSAT. [S'] >= 0 alone is UNSAT. [S'] = -1 is SAT (witness sum T = -0.0796, within the bound -1/2pi). Fixing only S'(start) = 0 is SAT. R3 sympy, with the null-plane modular identity dK(b) = 2pi INT_b^inf (l-b) T: dK'' = 2pi T. QNEC <=> S_rel'' >= 0. 2pi ANE = [S_rel'] + [dS'] exactly. With [dS'] = 0, ANEC already follows from monotonicity (S_rel' <= 0, S_rel'(+inf) = 0), without QNEC. On an explicit profile (T(0) = -1/2, ANE = 0.58346), the QNEC-saturating dS has [dS'] = 2pi ANE != 0, so the integrated inequality reads ANE >= ANE and the boundary condition is extra information about the state. R4 illustrative: the boundary term needed to absorb the tree's ANE is 2.03 (non-affine) or 1.32 (affine) times the Bekenstein-Hawking entropy density per bubble radius, independent of R. R5: anec.qnec_implies_anec() (read-only import, no bytecode written) takes no parameters and its body is 'return True'. Not checked: the QNEC itself (the proofs are not finite), and [S'] for any warp-background state (none exists).",
+  "agrees_with_source": "yes"
+ },
+ "later_literature": [
+  {
+   "ref": "Faulkner, Leigh, Parrikar, Wang, arXiv:1605.08072 (2016); Hartman, Kundu, Tajdini, arXiv:1610.05308 (2017)",
+   "effect": "confirms",
+   "what": "Flat-space ANEC proved independently of QNEC: by relative-entropy monotonicity (FLPW) and by causality (HKT). This matches rederive R3(c): given the boundary condition, monotonicity alone yields ANEC. It confirms the CONCLUSION of the step in Minkowski space and says nothing about curved backgrounds. The tree records this itself at anecscope.py:20-23.",
+   "read_status": "NAMED-NOT-READ in this stage (alphaXiv quota exceeded on 1605.08072). Known here through the tree's anecscope.py:20-23."
+  },
+  {
+   "ref": "Ceyhan & Faulkner, 'Recovering the QNEC from the ANEC', arXiv:1812.04683 (CMP 377, 2020)",
+   "effect": "extends",
+   "what": "Reverses the direction: QNEC follows from ANEC via half-sided modular inclusions, for Minkowski Rindler cuts and states of finite averaged null energy. The two are equivalent in that setting, so the integrated QNEC is 'no looser' than ANEC there, as the tree says.",
+   "read_status": "READ-VIA-RESTATEMENT (sibling audit's at-source reading pp.1-3, 15)"
+  },
+  {
+   "ref": "Hollands & Longo, 'A New Proof of the QNEC', arXiv:2503.04651 (2025)",
+   "effect": "narrows",
+   "what": "Rigorous proof on a dense set of vector states. 'Proving the QNEC for all vector states remains an open problem.' T_kk is ambiguity-free in curved space only on bifurcate Killing horizons (fn 2).",
+   "read_status": "READ-VIA-RESTATEMENT (sibling audit, pp.1-4)"
+  },
+  {
+   "ref": "Wall, 'Proving the Achronal ANEC from the GSL', arXiv:0910.5751",
+   "effect": "narrows",
+   "what": "ANEC fails on chronal geodesics of curved backgrounds. What survives is achronal ANEC, perturbatively in hbar about an NEC-satisfying background, which excludes an O(1) classical NEC violation like the warp bubble.",
+   "read_status": "READ-VIA-RESTATEMENT (sibling audit, pp.1-7)"
+  },
+  {
+   "ref": "'Curious QNEIs from QNEC: New Bounds on Null Energy in Quantum Field Theory', arXiv:2510.26247 (2025)",
+   "effect": "extends",
+   "what": "Surfaced by WebSearch for the integration sentence. From the title it derives null-energy inequalities from QNEC. Its content was not read, so no claim is made about what it shows.",
+   "read_status": "NAMED-NOT-READ (title/URL only; arxiv.org egress-blocked, alphaXiv quota exceeded)"
+  }
+ ],
+ "lacked_data": "M's hypothesis tested for this step. No empirical datum enters it: the step is the fundamental theorem of calculus applied to a proved inequality, plus a boundary condition on the state, and its only constant, hbar/2pi, is exact. So no physicist 'lacked data' that would move it, and none has moved (data_at_publication). BFKLW (2015) had the per-point QNEC. What they did not have was a general handle on the boundary term, which is why they wrote 'in situations where'. That gap was filled from the other side: FLPW (2016) and HKT (2016) proved flat-space ANEC directly, and CF (2018) showed QNEC and ANEC are equivalent for Minkowski Rindler cuts. Later work therefore CONFIRMS the conclusion in its class. Evidence the other way concerns the tree's use, not the published result. rederive R2-R3 show the boundary condition carries the whole conclusion and is not implied by the inequalities themselves. The tree asserts it for a curved background with a classical T and no state. The tree's own anecscope.py:24-27 already says ANEC is false in general in curved spacetime. And R4 shows that on classical input the only escape route, a nonzero [S'], would need a Planck-density entropy gradient (1.3-2.0 times S_BH per bubble radius), outside every fixed-background proof. Having more data would not change the step. What would change the tree's use is a curved-space theorem, or a computed state.",
+ "grade": "NARROWED",
+ "grade_evidence": "STANDS in the sources' class. rederive R1 shows that the integrated form INT T >= (hbar/2pi)[S'] is exactly BFKW eq (1.3) with the cuts sent to infinity. R2 (z3) shows that [S'] = 0, or even [S'] >= 0, forces ANEC (UNSAT). Later flat-space ANEC proofs (FLPW, HKT, named) and the CF equivalence confirm the conclusion there. NARROWED in the tree's use, which drops or asserts hypotheses the source states as conditions: (i) [S'] = 0 is ASSERTED at anec.py:37-38 and 155-159 and hard-coded as 'return True' (anec.py:154-160; R5). It is load-bearing (R2: SAT without it) and is not implied by the inequalities (R3: a QNEC-saturating profile has [dS'] = 2pi ANE != 0). (ii) The background is curved, while the sources cover a fixed flat or stationary-horizon background (anec.py:35-50), and the tree's own anecscope.py:24-27 concedes that curved-space ANEC is false in general. (iii) T is classical with no state or S_out (anec.py:40-47). (iv) The generator is non-affine (anec.py:118-120; the sign survives). Not WRONG: no computed contradiction of the published step, and the tree's conclusion is not shown false. Not DATA-DEPENDENT: no datum enters. Not OPEN: the step is finite and was checked here. The source was read via the sibling audit's at-source page quotes, not re-read in this stage (quota and egress), and that is recorded in source.via.",
+ "what_would_change_the_grade": "Toward STANDS for the tree's use: (a) a QNEC or ANEC theorem on null generators of a curved, non-stationary background of the warp type, together with a demonstration that the tree's rays are complete, affinely parametrised generators in its class; or (b) an explicit semiclassical state on the warp background with S_out computed and [S'] >= 0 shown, replacing the unconditional 'return True'. Toward WRONG for the step as the tree states it: a state in the tree's own setting with [S'] < 0 and negative ANE while QNEC holds pointwise. R2 shows this is logically allowed; a physical instance would be needed. Toward OPEN: a finding that the sibling audit misquoted BFKLW p.2 or BFKW eq (1.3), on re-reading at source when the alphaXiv quota resets.",
+ "reverify_command": "python3 /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/qnec-integrates-to-anec.py   # expect OVERALL: PASS, exit 0 (17 checks). Then re-read at source when the alphaXiv quota resets: answer_pdf_queries(paper='1509.02542', queries=['sentence on integrating QNEC along a null generator to obtain ANEC and the boundary term S_out']) and answer_pdf_queries(paper='1706.09432', queries=['eq (1.3) integrated QNEC Q_-(A,B;y)'])",
+ "report_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/audits/qnec-integrates-to-anec.json"
+}

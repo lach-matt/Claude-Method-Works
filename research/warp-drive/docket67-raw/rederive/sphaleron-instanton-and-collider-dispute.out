@@ -1,0 +1,51 @@
+PASS 4pi/alpha_W == 16 pi^2/g^2 (massform.py:530)
+PASS S_inst = 8pi^2/g^2 = 2pi/alpha_W, so exp(-2 S_inst) = exp(-4pi/alpha_W) (TW15 printed p.7)
+PASS E_sph prefactor: 2 m_W/alpha_W == 4 pi v/g == 2 pi v^2/m_W when g = 2 m_W/v (massform.py:522)
+PASS v from G_F = 246.2196 GeV  -- 246.21964
+PASS 1/alpha_W (tree) = 29.49  -- 29.4913
+PASS exp(-4pi/alpha_W) = 10^-160.95 (massform.py:531)  -- -160.9489
+PASS B/3 transitions = 1.4036e28 (massform.py:180)  -- 1.40363e+28
+PASS (attempts x prefactor) >= 10^189.10 (massform.py:533)  -- 189.0961
+RECORDED Rubakov-Shaposhnikov hep-ph/9603208 eq.(2.8) [tree capture; not in recovered pages]  -- arithmetic 10^-158.27 vs printed 10^-170 (gap 11.73 decades)
+RECORDED Tye-Wong 1505.03690 printed p.2 (alphaXiv p.3): exp(-4pi/alpha_W) ~ 10^-162, alpha_W ~ 1/30  -- arithmetic 10^-163.73 vs printed 10^-162 (gap -1.73 decades)
+PASS Tye-Wong 1505.03690 printed p.7 (alphaXiv p.8): exp(-2S) ~ 10^-162, alpha_W ~ 1/29.7
+PASS Matchev-Verner 2025 (2505.05607 p.12): 4pi/0.034 ~ 370, exp(-370) ~ 10^-161  -- 4pi/0.034 = 369.6 -> 10^-160.51
+RECORDED FFS 1612.05431 p.1 'e^{-S_instanton} ~ 10^-162'  -- with S_instanton = 2pi/alpha_W (TW15 p.7; sympy above) e^{-S} = 10^-80.47 and e^{-2S} = 10^-160.95; the printed 10^-162 matches e^{-2S}, so the printed exponent omits the factor 2 (misprint-class; the tree does not use this sentence)
+PASS prefactor 4pi v/g = 4.740 TeV at tree inputs (massform.py:537)  -- 4.73996 TeV
+PASS FFS eq.(8)-(10): (4pi v/g)(beta1+beta2) at tree inputs ~ 9.08 TeV  -- 9.0818 TeV
+RECORDED FFS input implied by eq.(10) with v = 246 GeV  -- g2 = 0.6523, m_W = g v/2 = 80.23 GeV (FFS do not print m_W)
+RECORDED TW15 eq.(1.2) prefactor at their v=246, m_W=80  -- 4pi v/g = 4.7529 TeV (printed 4.75); 4.75 x (1.31+0.60) = 9.0725 vs printed 9.11 (sibling audit: saddle B = 1.9170 at these inputs gives 9.111; the 0.4% is in the two-decimal coefficients)
+PASS 9.08 TeV / (3 m_p c^2) = 3226 ('~3.2e3', ledger S11)  -- 3225.79
+RECORDED TW15 printed p.4 (alphaXiv p.5)  -- 'turning on the U(1) coupling (sin^2 theta_W = 0.23) will lower the sphaleron energy by about a percent. So it is reasonable to use E_sph = 9.0 TeV': 9.11 x 0.99 = 9.02 TeV (consistent)
+      FFS overlap e^{-pi E_sph/m_W} at E_sph = 9.08 TeV, m_W = 80.2400: 10^-154.39
+      FFS overlap e^{-pi E_sph/m_W} at E_sph = 9.08 TeV, m_W = 80.3620: 10^-154.16
+      FFS overlap e^{-pi E_sph/m_W} at E_sph = 9.08 TeV, m_W = 80.3850: 10^-154.12
+      FFS overlap e^{-pi E_sph/m_W} at E_sph = 9.08 TeV, m_W = 80.3692: 10^-154.15
+RECORDED FFS p.4 'e^{-pi E_sph/m_W} ~ 10^-155'  -- arithmetic 10^-154.12 at m_W = 80.385 (range -154.0..-154.2 over m_W 80.24-80.39); printed 10^-155 is ~0.9 decade stronger -- rounding-class under '~', recorded, not a refutation; the tree quotes 'about 10^-155' (massform.py:598)
+PASS FFS p.4 'about 80 W bosons': E_sph/(sqrt2 m_W) with |k| ~ m_W each  -- 79.9
+PASS FFS p.4 (1/(4pi)^2)^80 ~ 10^-176  -- 10^-175.87
+PASS BLRRT p.7: e^-60 ~ 10^-26  -- 10^-26.058
+PASS BLRRT p.7: 8 M_W/alpha_W ~ 20 TeV at alpha_W = 1/30  -- 19.30 TeV (M_W = 80.4)
+RECORDED BLRRT abstract: '30 sphaleron masses (250 TeV)' and 'sphaleron energy (8 TeV)'  -- 250/30 = 8.33 TeV per sphaleron mass, i.e. their model's E_sph ~ 8.3 TeV; computed below for m_H = m_W
+PASS KM saddle solver converged at m_H = m_W (B stable under L 60->90)  -- B(1) = 1.82084 / 1.82084
+RECORDED E_sph in BLRRT's model (m_H = m_W, alpha_W = 1/30, M_W = 80.4)  -- B(1) = 1.8208 -> E_sph = 8.78 TeV; 30 x that = 264 TeV (their '8 TeV' and '250 TeV' are rounded low by ~5-6%)
+RECORDED Higgs-mass datum BLRRT lacked (m_H/m_W 1 -> 1.558)  -- B moves 1.8208 -> 1.9163 (+5.2%): the barrier they measured energies against is 5.2% lower than today's; their exponent F(E/E_sph) is stated to depend 'very weakly' on M_H (p.3) -- asserted, not computed there, and not computable here
+PASS B(m_H/m_W = 1.558) reproduces the sibling audit's 1.916 (FFS beta1+beta2)  -- 1.9163
+PASS KM Table 1 (simplified F) min F* = 0.701 at eps = 4 -> 'F ~ 0.70, loosing only 30%' (printed p.9)
+RECORDED KM Table 2 (full saddle equations) min F* = 0.696 at eps = 3  -- below the 0.70 of 'suppressed by at least e^{-(4pi/alpha_w) 0.70}' (printed p.9) by 0.004; in exponent: 0.64 decades at the tree's alpha_W. KM p.10 says F 'still does not drop far below 0.7'. The 'at least' is Table 1's, not Table 2's -- a wording discrepancy, recorded; '~30%' (p.16) holds for both (29.9%, 30.4%)
+      exp(-(4pi/alpha_W) F) at tree alpha_W, F = 0.700: 10^-112.66
+      exp(-(4pi/alpha_W) F) at tree alpha_W, F = 0.696: 10^-112.02
+      KM eps = E/(pi m_W/alpha_W): unit = 7.446 TeV; eps = 4 -> 29.8 TeV; eps = 30 -> 223 TeV; E_sph = 9.08 TeV -> eps = 1.22
+RECORDED TW17 printed p.4: 'E_0 = sqrt(6) pi m_W/alpha_W ~ 15 TeV'  -- at their own m_W ~ 80 GeV, alpha_W ~ 1/30 (p.1): 18.47 TeV; at tree inputs 18.24 TeV. Printed 15 is ~19% low (misprint-class; not used by the tree; the same E_0 formula is BLRRT-PLB eq.(8))
+PASS TW17 p.1: g ~ 0.645 <-> alpha_W = g^2/4pi ~ 1/30  -- 1/alpha = 30.21
+PASS TW17 p.1: m_W = g v/2 ~ 80 GeV at g = 0.645, v = 246  -- 79.34 GeV
+PASS TW17 eq.(41) solid-angle fraction, d = 4: exact = (1-c)^2 (2+c)/2
+RECORDED TW17 eq.(4)/(41) leading coefficient, d = 4  -- exact near threshold: 3/2 (1-c)^2; TW's (2^{d/2}/d)(1-c)^{d/2}: 1 (1-c)^2 -- order-unity factor dropped under their '~'
+      TW17 kappa(E_qq = 9.5 TeV; E_sph = 9.0, d = 4): TW form 7.11e-04, exact fraction 1.06e-03
+      TW17 kappa(E_qq = 10.0 TeV; E_sph = 9.0, d = 4): TW form 2.63e-03, exact fraction 3.88e-03
+      TW17 kappa(E_qq = 11.0 TeV; E_sph = 9.0, d = 4): TW form 9.11e-03, exact fraction 1.32e-02
+      TW17 kappa(E_qq = 13.0 TeV; E_sph = 9.0, d = 4): TW form 2.82e-02, exact fraction 3.99e-02
+RECORDED TW17 p.1 eq.(3) vs eq.(4)  -- prevalent kappa < 10^-70 vs TW kappa ~ 10^-3: the '~70 orders of magnitude' (p.1, p.3) is >= 67 decades by their own figures (70 - 3)
+RECORDED CMS 1805.06013 abstract: PEF < 0.021 (95% CL) at 13 TeV, E_sph = 9 TeV  -- TW's own kappa ~ 1e-3 (eq.(4), for 14 TeV) lies below 0.021, and the prevalent < 1e-70 lies below it; the limit excludes neither side (the tree: 'the experiment does not decide it', massform.py:608-610)
+
+23 PASS, 0 FAIL

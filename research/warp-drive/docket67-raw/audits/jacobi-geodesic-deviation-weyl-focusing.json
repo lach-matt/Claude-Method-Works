@@ -1,0 +1,93 @@
+{
+ "key": "jacobi-geodesic-deviation-weyl-focusing",
+ "name": "Null geodesic deviation (Jacobi) equation / optical tidal matrix; Weyl (shear) focusing and Ricci focusing (Raychaudhuri/Sachs optical equations)",
+ "source": {
+  "located": "Classics: Sachs, Proc. R. Soc. A 264, 309 (1961) (null optical scalars; Ricci = trace, Weyl = trace-free part of the optical tidal matrix) and the Jacobi/geodesic-deviation equation -- no arXiv copy, NAMED-NOT-READ. Restatements READ this stage from full texts cached in the docket scratchpad: (a) Gao & Wald, gr-qc/0007021v2 (CQG 17, 4999, 2000), eqs.(11)-(13) [src/casmag/all/gr-qc_0007021v2.txt lines 470-535]; (b) Kar & SenGupta, 'The Raychaudhuri equations: a brief review', gr-qc/0611123v1 (2006), p.11 eqs.(12)-(13) and p.13 eq.(17) [src/casmag/all/gr-qc_0611123v1.txt lines 545-745, 849-985]; (c) Kontou & Sanders arXiv:2003.01815v2 eq.(17) and Wall arXiv:0910.5751v2 abstract [cached].",
+  "read_status": "READ-VIA-RESTATEMENT",
+  "via": "This stage's alphaXiv calls were all refused 'alphaXiv assistant quota exceeded': answer_pdf_queries(1010.3416, Perlick Living Review -- the intended full restatement of the Sachs equations), get_paper_content(1010.3416, fullText), discover_papers x1. The restatements above were read directly from cached full text. The null SHEAR propagation equation with its Weyl source (Sachs's second optical equation) is not in any restatement read (Kar-SenGupta give the timelike analogue eq.(13) with C_cbad v^c v^d and say the null ones 'are available in [15,18]', not read); its content as the tree uses it -- trace = R_kk, trace-free part = Weyl, area focusing from the trace-free part quadratic and sign-blind -- is instead re-derived here (J1, J2) and cross-checked against the sibling proof audits/vacuum-ricci-flat-traceless-tidal.json V1 (tr T = R_kk and Weyl trace-free on a basis of all 4D curvature tensors)."
+ },
+ "published_statement": "Gao & Wald 2000 (READ, cached): 'if we define the matrix A^mu_nu(lambda) by d^2A^mu_nu/dlambda^2 = -Sum R_{alpha beta sigma}^mu k^alpha k^sigma A^beta_nu (11) with initial conditions A^mu_nu|p = 0 and (dA^mu_nu/dlambda)|p = delta^mu_nu, then q will be conjugate to p if and only if det A = 0 at q. We define G(lambda) = sqrt(det A(lambda)) (12) ... the Raychaudhuri equation yields G''/G = -(1/2)[sigma_ab sigma^ab + R_ab k^a k^b] (13) where sigma_ab denotes the shear of the congruence of null geodesics emanating from p.' Kar & SenGupta 2006 (READ, cached) p.13 eq.(17), attributed to 'Sachs [9] in 1961': 'dTheta/dlambda + (1/2)Theta^2 + sigma^2 - omega^2 = -R_ab k^a k^b', with 'affine parametrisation ... k_a k^a = 0 and k_a xi^a = 0' and an auxiliary null N^a, k_a N^a = -1, transverse metric h_ab = g_ab + k_a N_b + k_b N_a; timelike shear eq.(13): 'dsigma_ab/dlambda = ... + C_cbad v^c v^d + (1/2) R~_ab' -- the Weyl tensor sources shear; 'these are not equations but, essentially, identities'. Standard content (Sachs 1961, NAMED-NOT-READ; proved in the sibling V1 and re-derived here J1-J2): the optical tidal matrix T_ij = R_{a b c d} e_i^a k^b e_j^c k^d on an orthonormal screen orthogonal to null k has tr T = R_kk (Ricci focusing, first order, sign-bearing) and trace-free part = Weyl (shear-sourcing: astigmatic, and it focuses the area only at second order through sigma^2, which is sign-definite).",
+ "published_hypotheses": [
+  "k NULL, affinely parametrised geodesic tangent (Kar-SenGupta p.13: 'affine parametrisation ... k_a k^a = 0'); the screen trace equals R_kk only for null k",
+  "screen {e1, e2} orthonormal, orthogonal to k (and to an auxiliary null N, k.N = -1), parallel-transported along the ray",
+  "4D Lorentzian metric, Levi-Civita connection (the trace/trace-free split is pure algebra of the Riemann symmetries; the evolution equations are 'identities', Kar-SenGupta p.11)",
+  "congruence from a point p (Gao-Wald initial data A|p = 0, A'|p = delta), hence twist-free (omega = 0)",
+  "'vacuum => traceless' needs an EXACT solution of R_ab = 0 (or R_ab = Lambda g_ab); the conclusion is exact, not to an order",
+  "sign convention: Gao-Wald's R_{alpha beta sigma}^mu (Wald) with A'' = -R A; in MTW convention D^2 xi/dlambda^2 = -R^a_{bcd} k^b xi^c k^d, i.e. A'' = -T_MTW A with T_MTW as above"
+ ],
+ "hypothesis_drift": [
+  "DROPPED: null k in the vacuum test. concentric.trace_ratio (concentric.py:186) evaluates the tidal matrix with k = [1.0, 1.0, 0.0, 0.0], which in the tree's metric has g(k,k) = -4 Phi = -1.99e-2 at (0,1,0), m = 5e-3 (J4). On an exactly null k with orthonormal screen and exact Riemann of the same linearised metric, |trace|/|max| at a = 0.02 is 7.32e-3, not 7.55e-4 (J4). The tree's 7.55e-4 (quoted at concentric.py:106, 292 'to better than a tenth of a percent', 356 VERDICT 'traceless to 7.5e-4') is reproduced exactly (7.5468e-4), and equals, to 3.4 %, the O(m) Plummer-density term alone (2|lap Phi| / T_max = 7.81e-4): the non-null-k term cancels the linearised metric's own O(m^2) trace. So the 7.5e-4 is a recipe-dependent figure, not a measurement of 'how empty the corridor is' (concentric.py:183-184). At a = 0.5 and 0.1 the density term dominates on either recipe (0.399 vs 0.404; 1.97e-2 vs 2.62e-2) and the monotone conclusion 'compact core => vacuum corridor, b/a >~ 50' (concentric.py:105-111) STANDS as a statement about the core's density.",
+  "WEAKENED, NAMED: exact vacuum -> linearised weak field (named by the tree, concentric.py:139-141 'LINEARISED WEAK FIELD ... INDICATIVE'). Consequence computed (J2, symbolic): the linearised metric's null-screen trace at closest approach is 2 lap(Phi) at O(m) (density: -6 a^2 m/(a^2+b^2)^(5/2)) plus -4 m^2/b^4 at O(m^2) (a = 0), i.e. 4m/(3b) = 6.67e-3 of the Weyl part at m = 5e-3 -- about 8.5x the density term at a = 0.02. The a = 0.02 corridor is therefore limited by the linearisation, not by the core, at the 7e-3 level; this sits inside the tree's named limitation 2 but is not what 'traceless to 7.5e-4' says.",
+  "SIGN CONVENTION (discrepancy, concentric.py:207-208 via composite.tidal): composite.tidal returns -T_MTW (J5: tree T_yy = -1.50301e-2, MTW +1.50300e-2 at (0,1,0), a = 0.02), and survey integrates A'' = -T_tree A = +T_MTW A, the opposite of the Jacobi equation. Because T is traceless at O(m) the conjugate points barely move: re-run in an independent integrator the tree's sign reproduces the tree's 228.45 (228.482) while the correct sign gives 228.684, and geodesic-bundle truth (neighbour ray from the source point, perturbed 1e-6 rad) is 228.732; shifts -0.202, -0.095, -0.059, -0.034, +0.004 at m = 5e-3 ... 8e-2 (J6). The tree's 'conjugate point sits at 228.45 +- 0.04 over n = 1500 to 9000' (concentric.py:79-80) is numerically converged but 0.28 (7x the quoted +-0.04) from the true caustic of its own metric; every shift is < 0.1 % and no seat/no-seat verdict changes. Same finding as the sibling audit for composite.py (vacuum-ricci-flat-traceless-tidal.json, V5).",
+  "MINOR, no effect: screen e1, e2 = coordinate vectors (concentric.py:197), not unit (g(e,e) = 1 - 2 Phi(x0), Phi(x0) ~ 8e-6) and transported by first-order Euler (concentric.py:215-220). The independent RK4 orthonormal integration with the tree's sign gives 228.482 against the tree's own 228.480 (J6), so these contribute ~0.002.",
+  "PRECISION NOTE, not a drift: 'Weyl focusing is quadratic in the source' (concentric.py:6-7) is exact for the AREA: for traceless K, det(lam I - K) = lam^2 - k1^2 - k2^2 with no linear term and invariant under K -> -K (J1), i.e. Gao-Wald eq.(13)'s sigma^2. The conjugate point itself is reached at first order in the focal power 4|m|/b^2 (thin-lens 150 + (1/f - 1/150)^-1 = 225.0, 180.0, 163.6, 156.5, 153.2 vs integrated 228.7, 182.3, 165.4, 158.1, 154.5). 'Sign-blind' follows from tracelessness (J1) and is correct.",
+  "STANDS: 'THE SHELL DELAYS BUT DOES NOT FOCUS' (concentric.py:57-60). A constant Phi gives an identically zero Riemann tensor (J3), and adding the interior constant c = -m/R_s to the core changes the tidal matrix by 8.5e-5 relative, O(m c) (J3); the ray stays inside the shell (max_r < 200). The exact-GR statement (Birkhoff interior) is NAMED-NOT-READ here and not relied on.",
+  "STANDS: Jacobi initial data A = 0, A' = I at the source point and conjugate detection at det A <= 0 (concentric.py:198-214) match Gao-Wald eqs.(11)-(12) (conjugate iff det A = 0)."
+ ],
+ "data_at_publication": [
+  {
+   "quantity": "cosmological constant Lambda (the only physical datum that could enter 'vacuum')",
+   "value_then": "Lambda = 0 implicit (Sachs 1961; the tree's asymptotically flat linearised metric)",
+   "value_now": "Omega_Lambda = 0.6847 +- 0.0073 (Planck 2018 VI), as READ from cache by the sibling audit audits/1807.06209.json; not re-read this stage",
+   "source_now": "arXiv:1807.06209v4 (via sibling audit)",
+   "moves_conclusion": "No: R_ab = Lambda g_ab gives R_kk = Lambda g(k,k) = 0 for null k (immediate; proved symbolically in sibling V1h). Note the tree's non-null k would pick up Lambda g(k,k) = -4 Phi Lambda, which is negligible at corridor scales."
+  },
+  {
+   "quantity": "tree's prescribed parameters m = 5e-3 ... 8e-2, a = 0.02, b = 1, R_s = 200, x0 = -150, L = 300 (geometric units)",
+   "value_then": "prescribed (concentric.py:161-166)",
+   "value_now": "unchanged -- not an external datum",
+   "source_now": "concentric.py",
+   "moves_conclusion": "Not the external result. m/b sets the linearised metric's departure from vacuum, 4m/(3b) of the Weyl part on a null screen (J2): 6.7e-3 at m = 5e-3, 5.3e-2 at 4e-2, 0.107 at 8e-2."
+  }
+ ],
+ "rederivation": {
+  "method": "sympy",
+  "script_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/jacobi-geodesic-deviation-weyl-focusing.py",
+  "outcome": "32/32 PASS (exit 0, ~40 s; output rederive/jacobi-geodesic-deviation-weyl-focusing.out). J1 (sympy): traceless K -> det(lam I-K) = lam^2 - k1^2 - k2^2, sign-blind; with trace a linear -lam tr term (Ricci first order, sign-bearing). J2 (sympy, exact Riemann of -(1+2P)dt^2+(1-2P)dx^2, P = m/sqrt(r^2+a^2)+c, exact null k, orthonormal screen): O(m) trace = 2 lap P = -6a^2 m/(a^2+b^2)^(5/2); O(m^2) trace at a=0 = -4m^2/b^4. J3: constant P flat; shell constant moves T by 8.5e-5 relative. J4: tree's 3.9902e-1 / 1.9695e-2 / 7.5468e-4 reproduced; exact-null-screen values 4.037e-1 / 2.616e-2 / 7.317e-3; density-only 3.918e-1 / 1.935e-2 / 7.813e-4; tree FD h-dependence at a=0.02: 6.15e-4 / 7.55e-4 / 7.63e-4 at h = 4e-3 / 1e-3 / 2.5e-4. J5: composite.tidal = -T_MTW. J6: independent RK4 Jacobi integration with analytic Christoffels/Riemann, exactly null geodesic (|g(k,k)| <= 1.4e-7 at end), orthonormal parallel screen: conjugate points none / 228.68 / 182.27 / 165.44 / 158.06 / 154.46 at m = 3e-3 / 5e-3 / 1e-2 / 2e-2 / 4e-2 / 8e-2 vs tree none / 228.5 / 182.2 / 165.4 / 158.0 / 154.4; n = 3000 unchanged to 1e-3; geodesic-bundle truth 228.732 (m=5e-3), 165.524 (m=2e-2); tree sign reproduces tree's 228.45 (228.482) and is farther from bundle truth (0.250 vs 0.048).",
+  "agrees_with_source": "yes"
+ },
+ "later_literature": [
+  {
+   "ref": "Gao & Wald, gr-qc/0007021 (CQG 17, 4999, 2000), eqs.(11)-(13)",
+   "effect": "confirms",
+   "what": "Jacobi matrix from a point, conjugate iff det A = 0, G''/G = -(1/2)[sigma^2 + R_kk]: the exact equations concentric.survey implements (up to its sign convention).",
+   "read_status": "READ (cached full text, lines 470-535)"
+  },
+  {
+   "ref": "Kar & SenGupta, gr-qc/0611123 (2006), eqs.(12)-(13), (17)",
+   "effect": "confirms",
+   "what": "Null expansion equation with sigma^2 and R_kk (attributed to Sachs 1961); Weyl sources shear (timelike eq.13); equations are identities, independent of field equations.",
+   "read_status": "READ (cached full text)"
+  },
+  {
+   "ref": "Wall, arXiv:0910.5751 (PRD 2010), abstract",
+   "effect": "narrows",
+   "what": "'these theorems fail once the linearized graviton field is quantized, because then the renormalized shear squared term in the Raychaudhuri equation can be negative' -- the sign-definiteness of the sigma^2 (Weyl) focusing is a CLASSICAL statement; the tree uses it classically, so its use is unaffected.",
+   "read_status": "READ (cached full text, abstract lines 18-32)"
+  },
+  {
+   "ref": "Kontou & Sanders, arXiv:2003.01815 (CQG 2020), eq.(17)",
+   "effect": "confirms",
+   "what": "dtheta/dlambda = -R_ab k^a k^b - sigma_ab sigma^ab + omega_ab omega^ab - theta^2/(n-2), 'derived from the trace of the geodesic deviation equation'.",
+   "read_status": "READ (cached full text, lines 595-615)"
+  },
+  {
+   "ref": "Perlick, 'Gravitational lensing from a spacetime perspective', Living Rev. Relativ. (arXiv:1010.3416)",
+   "effect": "confirms",
+   "what": "Intended restatement of the Sachs optical equations incl. the null shear equation with its Weyl source. Not read (alphaXiv quota exceeded on two calls); nothing is taken from it.",
+   "read_status": "NAMED-NOT-READ"
+  },
+  {
+   "ref": "discover_papers ('Sachs optical equations', 'Weyl focusing', 'optical tidal matrix', 'geodesic deviation')",
+   "effect": "contested",
+   "what": "Call refused: alphaXiv quota exceeded. No later work narrowing or contradicting the classical identity was found or read this stage; the identity is proved for all 4D curvature tensors in the sibling V1, but that is not a literature reading.",
+   "read_status": "NAMED-NOT-READ (call refused)"
+  }
+ ],
+ "lacked_data": "M's hypothesis tested for this result: the Jacobi equation and the Ricci-trace / Weyl-trace-free split are geometric identities (Kar-SenGupta p.11: 'not equations but, essentially, identities'); they use NO measured datum, so no later datum can move them. The only physical quantity that could have been 'lacking' in 1961 is Lambda, measured since 1998; R_kk = Lambda g(k,k) = 0 for null k, so it does not move the conclusion. The one later development that does qualify the result is theoretical, not data: Wall 2010 (READ, abstract) shows the sign-definite sigma^2 term can go negative once the graviton is quantized -- the classical Weyl-focusing statement the tree uses is unaffected. Evidence either way, then: nothing the authors lacked changes the result. What the audit did find is on the tree's side: (i) the vacuum test at concentric.py:186 drops the null hypothesis, so 'traceless to 7.5e-4' is a recipe artefact (7.3e-3 on a null screen, dominated by the linearisation's O(m^2)); (ii) the Jacobi integration carries the opposite sign to the Jacobi equation, invisible except as a 0.2 shift (0.09 %) at m = 5e-3 because T is nearly traceless. Neither moves a seat/no-seat verdict: the independent integration reproduces every row (none at 3e-3; 228.7, 182.3, 165.4, 158.1, 154.5), and specthm's 'mu = 5e-3 is concentric's SEAT+LEAD edge; no seat at 0.6 mu' is independently confirmed for the seating half (no conjugate point within L = 300 at 3e-3; one at 228.7 at 5e-3).",
+ "grade": "NARROWED",
+ "grade_evidence": "The external result itself is not in question: the Jacobi equation with point-source data and det A = 0 conjugacy (Gao-Wald eqs.11-12, READ), the null Raychaudhuri/Sachs expansion equation (Gao-Wald eq.13, Kar-SenGupta eq.17, READ), the split tr T = R_kk / trace-free = Weyl (sibling V1 proof; J2 here on the tree's metric), and 'Weyl area focusing is quadratic and sign-blind' (J1) all re-derive. It is graded NARROWED because the tree applies it with a hypothesis dropped: concentric.trace_ratio (concentric.py:186) uses k = (1,1,0,0), which is not null (g(k,k) = -4 Phi = -1.99e-2), so the identity 'trace = R_kk, zero in vacuum' does not license reading its output as 'how empty the corridor is' (concentric.py:183-184). Computed: on an exactly null orthonormal screen the a = 0.02 ratio is 7.317e-3, ~9.7x the quoted 7.55e-4, and made of the O(m) core density (7.81e-4) plus the linearised metric's O(m^2) trace -4m^2/b^4 (6.67e-3). The claims resting on it: concentric's VERDICT 'traceless to 7.5e-4' (concentric.py:356) is recipe-dependent -- a DISCREPANCY, not a refutation, and within the tree's named limitation 2; 'compact core => vacuum corridor' as a density criterion stands (monotone on both recipes); 'the shell does not focus' stands (J3); the conjugate points stand to <= 0.25 (0.1 %) against an independent integration and geodesic-bundle truth, the residual being a sign convention in composite.tidal (J5-J6), again a discrepancy; specthm:R4's 'mu IS the SEAT+LEAD edge' is confirmed for its seating half (no seat at 3e-3, seat at 5e-3; the lead half is not this result's and is withdrawn as global in concentric.py itself). Recorded, nothing repaired, none quoted as an error of the source.",
+ "what_would_change_the_grade": "To STANDS: the vacuum test evaluated on an exactly null k with orthonormal screen (the source's hypothesis), with the O(m^2) linearisation trace reported as such -- the external result would then be used exactly as stated. To OPEN: if the re-derivation (J1-J6) and the sibling V1 proof failed to run and only the unread Sachs 1961 text remained. Nothing found here would move it to WRONG: no counterexample to the identity exists (it is proved for all 4D curvature tensors), and every tree-side discrepancy is below the seat/no-seat threshold. A strong-field (exact GR) treatment of the core, which the tree names as its weakest point (concentric.py:139-141), was not attempted and could move the window edges but not the identity.",
+ "reverify_command": "PYTHONDONTWRITEBYTECODE=1 python3 /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/jacobi-geodesic-deviation-weyl-focusing.py",
+ "report_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/audits/jacobi-geodesic-deviation-weyl-focusing.json"
+}

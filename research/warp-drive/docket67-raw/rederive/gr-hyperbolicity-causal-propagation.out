@@ -1,0 +1,20 @@
+PASS C1a L/2c with the IAU light year is exactly 2 Julian years -- 63115200.0000 s
+PASS C1b tree LIGHT_YEAR=9.4607e15 gives L/2c = 6.31150e7 s; pinned 6.3113e7 is inside the tree's 1e-3 tolerance (a rounding discrepancy, not an error) -- T_tree = 63114997 s, pinned 6.3113e7, rel diff 0.0000316
+PASS C1c in years (3.15576e7 s) = 2.0000 to the tree's tolerance -- 1.9999936 yr
+PASS C1d single_transition_penalty = 3/2 exactly (establishment L/2c + traversal L/c)
+PASS C1e GW170817 upper bound on v_gw moves L/2c by < 1e-7 s (far below any digit the tree uses) -- shift = 4.42e-08 s of 6.311520e+07 s
+PASS C2a identity R1_mn = -1/2 box h_mn + d_(m V_n) holds for all 10 components (generic h_mn)
+PASS C2b characteristic set of box: omega = +/- c k (speed c relative to the background) -- roots [-c*k, c*k]
+PASS C3a principal symbol g^{ab}xi_a xi_b = 0 with shift v gives coordinate speeds v +/- c -- [-c + v, c + v]
+PASS C3b so coordinate characteristic speed exceeds c wherever v != 0 (e.g. v = c/2 -> 3c/2), and equals c where v = 0 (the unchanged metric at the front)
+PASS C4 c_m = 0.5c: front of h = a + max(c, c_m) t = 4.500 -- exact-support 4.5000, quadrature 4.5000 (grid 0.0040)
+PASS C4 c_m = 1.0c: front of h = a + max(c, c_m) t = 4.500 -- exact-support 4.5000, quadrature 4.5000 (grid 0.0040)
+PASS C4 c_m = 1.5c: front of h = a + max(c, c_m) t = 6.500 -- exact-support 6.5000, quadrature 6.5000 (grid 0.0040)
+     -> with c_m <= c the metric-like field is unchanged outside the c-cone of the action;
+        with c_m = 1.5c it is changed out to 1.5 c t: Low's ray-cone hypothesis is load-bearing.
+PASS C5a floor at the far endpoint after a midpoint decision = L/2c = 2.0 yr (Low Sec. 4 form)
+PASS C5b tree's single-transition total 1.5 L/c = 6.0 yr is a protocol total (theorem floor + traversal), not the theorem's floor
+PASS C5c pre-positioned agents: completion after the FIRST ACTION can be ~0 (< L/2c), but knowledge at an endpoint still costs L/c >= L/2c
+
+15/15 PASS
+OUTCOME: ALL PASS

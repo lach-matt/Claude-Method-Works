@@ -1,0 +1,38 @@
+[1] Lagrange identity / Wronskian
+  PASS v L[u] - u L[v] == d/dx[p W]
+  PASS drift form: W' = -r W (constant only if r = 0)
+  PASS reversal maps u''+r u'+q u=0 to v''-r~ v'+q~ v=0 (drift flips sign) -- 0
+  PASS naive reflection keeping +r~ fails unless r = 0 (residual 2 r~ v') -- -2*U1*r(L - x)
+[2] transit.py's pair theorem (a substitution)
+  PASS v(x)=u(L-x) solves v'' + q(L-x) v = 0 (no self-adjointness used)
+[3] Sturm separation step, z3
+  PASS u0 zeros at 0,b + constant W + uL same sign at 0,b  => UNSAT
+[4] exact fold, transfer matrices (no discretisation)
+  PASS scan grid x approaches x hostiles: exact fold -- 0/960 mismatches
+  PASS random piecewise q (3000, seed 67): exact fold -- 0/3000 mismatches
+  PASS oscillation: #zeros(q)=#zeros(q~)=#neg Dirichlet eigs (FD, both) -- 0/120 disagreements (FD resolution)
+[5] the tree's own seats() (seatindex.py, by path)
+  PASS tree seats(): fold on the scan grid -- 0/160 mismatches; 0 disagree with exact
+       near-threshold (exterior tuned so the exact first zero sits at L +- small): tree fold mismatches 0/54; tree vs exact disagreements 12/54
+[6] only the Boolean folds
+       c=0.5  turn=1.4208284026365903   c'=10.6  turn=11.256990418180298
+       c=1.5  turn=2.2497583736266686   c'=9.6  turn=10.258625571971484
+       c=3.0  turn=3.6964912958162026   c'=8.1  turn=8.761833650345539
+  PASS turn positions differ under the fold (the fold is of seat/no-seat only)
+[7] non-self-adjoint drift form u'' + r u' + q u = 0 (RK4, fine)
+  PASS drift: reversing with r -> -r~ preserves the Boolean -- 0/30 mismatches
+       drift kept un-flipped (the naive reflection): 6/30 mismatches
+[8] 2x2 Jacobi J'' + T J = 0
+  PASS symmetric T: existence reversal-symmetric -- 0/40
+  PASS symmetric T: first conjugate from 0 is b  <=>  first conjugate from b (backward) is 0 -- 0/40 mismatches
+       NON-symmetric T (antisymmetric part added): existence mismatches 6/40, first-conjugate coincidence failures 4/40
+[9] selftest fixture m=6, l=0.9, L=12
+       c=0.5 exact 1.4208284026365903 / 11.256990418180298   tree 1.419 / 11.256
+  PASS fixture c=0.5 folds (exact and tree)
+       c=1.5 exact 2.2497583736266686 / 10.258625571971484   tree 2.247 / 10.257
+  PASS fixture c=1.5 folds (exact and tree)
+       c=3.0 exact 3.6964912958162026 / 8.761833650345539   tree 3.693 / 8.76
+  PASS fixture c=3.0 folds (exact and tree)
+       sturm number m l^2/pi^2 = 0.4924 (<1: not Sturm-universal); lyapunov L m l/4 = 16.20 (>1)
+
+ALL CHECKS AGREE

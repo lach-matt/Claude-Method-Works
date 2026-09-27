@@ -1,0 +1,42 @@
+C1  weak-field isotropic metric g = (1 - 2 Phi) delta
+  ok   flux = r^2 Phi'(r)   [got r**2*Derivative(Phi(r), r)]
+  ok   Phi = -M/r  ->  E = M   [got M]
+C2  Schwarzschild isotropic spatial metric
+  ok   (1+M/2r)^4 delta  ->  E = M   [got M]
+C3  concentric.py exterior potential (r > R_s)
+  ok   r^2 Phi' = m[1 - r^3/(r^2+a^2)^(3/2)]
+  ok   lim r^2 Phi' = 0  (M_ADM = 0 for the metric as written)   [got 0]
+  ok   leading flux 3 m a^2/(2 r^2)   [got 3*a**2*m/2 /r^2]
+  ok   Phi ~ -m a^2/(2 r^3), so g - delta = O(r^-3): inside the q > 1/2 window   [got -a**2*m/2 /r^3]
+  ok   no 1/r term: lim r*Phi = 0
+C4  the rejected first potential (constant -m/R_s applied everywhere)
+  ok   E_bad = -m   [got -m]
+C5  printed numbers
+     file params (m=5e-3,a=0.02,R_s=200): Phi(1) = +4.974000e-03   Phi(1000) = -1.0000e-15  (exact -1.000000e-15)
+     at a = 0.5                          : Phi(1) = +4.447136e-03   Phi(1000) = -6.2500e-13
+     docstring concentric.py:50-51       : Phi(1) = +4.4e-3        Phi(1000) = -6.2e-13
+  ok   docstring -6.2e-13 is NOT the file's parameters (got -1.00e-15)
+  ok   docstring pair reproduces at a = 0.5 (-6.25e-13, 4.45e-3)
+  ok   selftest near(4.9750e-3, tol 1e-6) passes, margin 2.999e-10
+  ok   selftest |Phi(1000)| < 1e-10 holds (1.0e-15) and would catch a monopole |M| > 1e-7
+     either value is >= 10^6 below a bare -m tail (m/1000 = 5e-6): conclusion unaffected
+C6  Plummer core is not compact (stability.py 'vacuum exterior')
+  ok   core mass fraction outside R_s ~ 3a^2/(2R_s^2)   [got 3*a**2/2/R^2]
+     at a = 0.02, R_s = 200: fraction = 1.5000e-08  -> exterior mass at R_s+ = 1.50e-08 m, decaying to 0; interior M_in = -m(1 - 1.50e-08)
+C7  stability.py junction (exact GR, point core)
+  ok   M_out - M_in = m_s sqrt(f_in) - m_s^2/2R  with M_out = 0
+  ok   m_s = m - m^2/(2R) + O(m^3)   [got m - m**2/(2*R)]
+  ok   sigma = m_s/(4 pi R^2) = (1/4 pi R)[sqrt(1+2m/R) - 1] (stability.py:25)
+C8  second-order Newtonian binding estimate (ESTIMATE, not GR)
+  ok   Plummer self-energy = -(3 pi/32) M^2/a   [got -3*pi/(32*a)]
+     m = 1e-03 : m/a = 0.05  U_total = -1.472e-05  = -0.015 m
+     m = 5e-03 : m/a = 0.25  U_total = -3.681e-04  = -0.074 m
+     m = 1e-02 : m/a = 0.50  U_total = -1.472e-03  = -0.147 m
+     m = 2e-02 : m/a = 1.00  U_total = -5.889e-03  = -0.294 m
+     m = 4e-02 : m/a = 2.00  U_total = -2.356e-02  = -0.589 m
+     => the ADM mass equals the sum of source monopoles only to O(m/a); at the design
+        point the post-linear term is ~7 % of m, ~29 % at m = 2e-2.  For the metric AS
+        WRITTEN (C3) E = 0 exactly; a full-GR realisation with rest masses -m, +m would
+        need the shell retuned at this order to keep M_ADM = 0 (cf. C7, where it is).
+
+RESULT: ALL CHECKS PASS

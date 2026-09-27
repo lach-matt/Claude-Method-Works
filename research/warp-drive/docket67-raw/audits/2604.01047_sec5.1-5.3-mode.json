@@ -1,0 +1,92 @@
+{
+ "key": "2604.01047#sec5.1-5.3-mode",
+ "name": "GMMPS reported S-sector infrared growing mode: real zero gamma_0 slightly below 0, gamma_0 ~ -b_0/b_1 = -16 pi G alpha~^S_1 m^4, H = sqrt(-gamma_0)",
+ "source": {
+  "located": "arXiv:2604.01047 v1 (Galanda, Meda, Murro, Pinamonti, Schmid, 'The semiclassical Einstein-Klein-Gordon system: asymptotic analysis of Minkowski spacetime', math-ph, 1 Apr 2026), secs. 5.1 (eq. 5.2, the S-sector zero), 5.3 (pp. 62-63, the -b0/b1 approximation and H), with Thm 3.6, Thm 4.16, Prop. 4.10, (4.5), (4.17), (4.30)",
+  "read_status": "READ-VIA-RESTATEMENT",
+  "via": "NOT re-opened in this stage: alphaXiv answer_pdf_queries and get_paper_content returned 'assistant quota exceeded' on four attempts, and arxiv.org, export.arxiv.org, alphaxiv.org, semanticscholar and inspirehep are refused by the egress proxy (403 / blocked). The statement is taken from two restatements, both from full-text reads at source: (i) this docket's own sibling audit audits/2604.01047_sec5.3-mass.json, which READ 2604.01047 at alphaXiv earlier today (pp. 1,2,7,23,27,33,37,40,59,60,62,63; 'sec. 5.1 eq. 5.2, sec. 5.3 read verbatim') and quotes 5.3 verbatim; (ii) the owner, linstab.py:127-199 (GMMPS_READ: 'body sections 1-5 and appendices A, B read in full'), which quotes 5.1 ('slightly smaller than 0'), Thm 4.16 ('Z strictly inside (-4m^2, 0)'), Prop. 4.10 ('b_0, b_1, b_2 != 0'), 1.5 and 5.2.1. The 5.1 sentence is available here ONLY through the owner's quotation."
+ },
+ "published_statement": "5.3 (pp. 62-63, verbatim per the sibling READ): 'the contribution due to the complex valued function J(z) in F^S is negligible. Hence, to find the negative zeros we study the equation b0 + b1 gamma + b2 gamma^2 = 0 ... In Planck units, kappa^-1 is the squared value of the reduced Planck mass M_P, and thus b1 is much larger than the remaining renormalisation constants. Hence ... gamma~ ~= -b0/b1 = -16 pi G alpha~^S_1 m^4 and it does not depend on the choice of alpha~^S_3 and xi. Thus, the effective Hubble parameter of the predicted de Sitter spacetime reads H = sqrt(-gamma~) ...'. 5.1 (per the owner's quotation, linstab.py:144-145): the S sector has a real zero gamma_0 'slightly smaller than 0', hence (via Thm 4.16) growth e^{sqrt|gamma_0| t}. Setting: (5.2) c = 6(1/6 - xi)^2, b0 = -alpha~^S_1 4 m^4/c, b1 = -(2/kappa)/c, a = 2m^2/(6xi - 1); (5.3) F^S(gamma) = gamma (a - gamma)^2 J(gamma) - (b0 + b1 gamma + b2 gamma^2), J the Stieltjes transform (4.17) of rho (4.5).",
+ "published_hypotheses": [
+  "one real Klein-Gordon field, mass m > 0, coupling xi with 2/(6xi - 1) < 4 (5.1, for Prop. 4.5) -- i.e. xi < 1/6 or xi > 1/4; xi = 1/6 excluded (c = 0)",
+  "Minkowski background, Poincare vacuum (Hadamard), past-compact metric and state perturbations as a forcing problem (1.8), de Donder gauge (Prop. 2.4); linearised semiclassical Einstein equations, S sector",
+  "alpha~^S_1 = 1/(64 pi^2) by Thm 3.6 (general local covariance + perturbative agreement); 5.1 prints (64 pi)^-1 (misprint, sibling audit)",
+  "alpha~^S_2 = 0 assumed (5.1): no renormalisation of Newton's constant, so b1 carries the bare kappa = 8 pi G",
+  "alpha~^S_3 (through b2) FREE",
+  "Thm 4.16: a zero Z of the dispersion function strictly inside (-4m^2, 0) gives exponential growth; Prop. 4.10 assumes b0, b1, b2 != 0 (owner quotation, linstab.py:179)",
+  "APPROXIMATION A1 (5.3): J term in F^S dropped for the negative zero",
+  "APPROXIMATION A2 (5.3): b2 gamma^2 dropped since 'b1 is much larger than the remaining renormalisation constants'",
+  "CONVENTION: gamma = -w^2 (F_S(-w^2) = -Q(w^2), (4.30)), so H = sqrt(-gamma_0) is the growth rate"
+ ],
+ "hypothesis_drift": [
+  "NONE DROPPED at file level for the S-sector setting: m > 0 and 2/(6xi-1) < 4 (linstab.py:133, 305), alpha~^S_1 = 1/(64 pi^2) (linstab.py:309-310), alpha~^S_2 = 0 (linstab.py:311), Thm 4.16's 'Z strictly inside (-4m^2, 0)' and Prop. 4.10's b_i != 0 (linstab.py:144, 179) are all carried. The canonical entry's hypothesis list names only alpha~^S_1 and 'J kept'; alpha~^S_2 = 0 and the xi condition are missing from the ENTRY, not from the owner (extraction gap, same as the sibling audit found).",
+  "A1 (J dropped) -- NOT inherited, strengthened: the owner keeps J and derives gamma_0 = -2 kappa alpha m^4/(1 + kappa m^2/(288 pi^2)) + O(alpha^2) (linstab.py:159-163, 591). Re-derived here exactly (K3). At GMMPS's matched m the J factor is 1 - 3.688e-63 (K5, computed from the exact zero).",
+  "A2 (b2 gamma^2 dropped) -- NOT inherited: the owner brackets the branch zero for |b2| <= 1e100 (linstab.py:636-658, 970-973). Computed here: the exact zero moves by a relative 2.9e-22 (xi = 0, 1/3) and 1.4e-20 (xi = -1) at |b2| = 1e100 (K5).",
+  "'locally' (linstab.py:346, 367) is CONSERVATIVE, not drift: for b2 >= 0 the bracket is GLOBAL in m and kappa -- z3 proves F_S(0) > 0 and F_S(-b0/b1) <= 0 for every alpha > 0, kappa > 0, J > 0, any a, so a real zero lies in [-2 kappa alpha m^4, 0), and that interval sits inside Thm 4.16's (-4m^2, 0) iff kappa m^2 < 2/alpha = 128 pi^2 (m < 35.5 M_P) (K4). For b2 < 0 the bound at -b0/b1 can fail (z3 sat, K4 control), so the owner's local restriction is needed in general.",
+  "WEAKENED WORDING in the tree's own claim, not source drift: D26_CLAIM (linstab.py:365-368, carried into specthm R8) says GMMPS's reported mode 'exists ... iff alpha~^S_1 != 0' and omits the companion 'grows iff alpha~^S_1 > 0' that LITERATURE_SPLIT_IS_ONE_CONSTANT carries (linstab.py:346). For alpha~^S_1 < 0 the branch zero lies at gamma > 0 (oscillatory, not growing; computed, K9), so the GROWING mode GMMPS report exists only for alpha~^S_1 > 0. 'exists iff != 0' is true of the ZERO, and D26 names it as 'the S-sector zero on the branch through gamma = 0', so it is accurate as worded but looser than line 346. Recorded, not repaired.",
+  "SCOPE NOTE: the tree's IFT argument does not use Prop. 4.10's b_i != 0; the exact zero is bracketed at b2 = 0 too (K5), which is GMMPS's own 5.3 approximation. Not drift.",
+  "READ-STATUS NOTE: canonical status word 'READ' holds for the owner (linstab.py GMMPS_READ); in THIS stage the source was not re-opened (quota / egress), so this audit's quotation of 5.1 is second-hand."
+ ],
+ "data_at_publication": [
+  {
+   "quantity": "alpha~^S_1 (sets sign and size of gamma_0)",
+   "value_then": "1/(64 pi^2) (Thm 3.6); printed (64 pi)^-1 in 5.1",
+   "value_now": "same -- a renormalisation constant fixed by a principle, no measurement exists",
+   "source_now": "2604.01047 Thm 3.6 via sibling READ and linstab.py:139-141",
+   "moves_conclusion": "no for existence and sign: any alpha > 0 gives the growing zero (K4, global for b2 >= 0); gamma_0 scales linearly with alpha. The misprint (64 pi)^-1 is also > 0, so it would scale gamma_0 by pi and not touch existence. Under AMM's k^2 = 0 condition the constant is 0 and gamma = 0 is an exact root (K9) -- a theory choice, not a datum"
+  },
+  {
+   "quantity": "kappa m^2 = (m/M_P)^2 (the small parameter; 'slightly smaller than 0')",
+   "value_then": "not fixed in 5.1 (any sub-Planckian m); 1.048e-59 at the 5.3 matched m = 7.885e-3 eV",
+   "value_now": "unchanged -- fixed by the matching, whose inputs (Lambda, Omega_Lambda, H0) are audited in the sibling 2604.01047#sec5.3-mass (STANDS; H0 tension moves m by +4.1%)",
+   "source_now": "sibling audit audits/2604.01047_sec5.3-mass.json (Planck 2018 1807.06209 and SH0ES 2112.04510, READ there)",
+   "moves_conclusion": "no: gamma_0/m^2 = -2 alpha kappa m^2 = -3.319e-62 at the matched m (K7); a 4% move in m moves this by ~8% and cannot change sign or the 'slightly below 0' character. The first-order forms stay within 0.5% of the exact zero for kappa m^2 <= 10 (K6)"
+  },
+  {
+   "quantity": "G (in kappa = 8 pi G, with alpha~^S_2 = 0)",
+   "value_then": "not printed; enters through M_P",
+   "value_now": "CODATA 2018 6.67430e-11 used in the script (as in research/warp-drive/achievable.py); a newer CODATA adjustment NOT re-read in this stage",
+   "source_now": "script constants; not re-read",
+   "moves_conclusion": "no: gamma_0 is linear in G at fixed m; no conceivable update of G (relative uncertainty ~1e-5) changes sign or existence"
+  },
+  {
+   "quantity": "H = sqrt(-gamma_0) at the matched m",
+   "value_then": "equated to the de Sitter Hubble rate via Lambda = 3 Omega H^2",
+   "value_now": "1.4365e-33 eV = 67.342 km/s/Mpc from the exact zero (K7) -- the matching closes to 1e-10 by construction",
+   "source_now": "computed here",
+   "moves_conclusion": "no (circular by construction of the matching); SH0ES H0 = 73.04 would re-match m (sibling), not alter this result"
+  }
+ ],
+ "rederivation": {
+  "method": "sympy",
+  "script_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/2604.01047_sec5.1-5.3-mode.py",
+  "outcome": "ALL PASS, 41 checks, exit 0 (log: rederive/2604.01047_sec5.1-5.3-mode.log). sympy: -b0/b1 = -2 kappa alpha m^4 = -16 pi G alpha m^4, xi-independent (K1); J(0) = 1/(96 pi^2 m^2) (K2); first-order branch zero with J kept = -2 kappa alpha m^4/(1 + kappa m^2/(288 pi^2)), xi-independent, F_S'(0)(1-6xi)^2 kappa = 12 + kappa m^2/(24 pi^2) > 0 (K3) -- the owner's linstab.py:159 formula confirmed independently. z3 (K4, NEW, stronger than the tree's claim): for alpha > 0, b2 >= 0 a real zero exists in [-2 kappa alpha m^4, 0) for ALL m, kappa, xi != 1/6 -- inside Thm 4.16's interval iff kappa m^2 < 128 pi^2; for b2 < 0 the bound can fail (sat). mpmath 160 digits (K5): exact zero of the full F_S at GMMPS's matched m for xi in {0, 1/3, -1}, b2 in {0, +-1e50, +-1e100}: gamma_0 = -3.31911458675e-62 m^2, |root/(-b0/b1) - 1| <= 1.4e-20 everywhere, J-kept formula agrees to 1e-124 at b2 = 0. Reach (K6, xi = 0, b2 = 0): both first-order forms within 0.5% up to kappa m^2 = 10; at kappa m^2 = 1000 -b0/b1 is 6.1% off and the first-order J-kept form 26.9% off (a first draft of the check predicted the J-kept form would stay within 1% there; it does not, and the check was corrected to the measurement). K8: F_S(-w^2) + Q(w^2) = 0 identically with (4.30) as restated -> growth rate w = sqrt(-gamma_0). K9 controls: alpha = 0 gives F_S(0) = 0 exactly; alpha < 0 puts the branch zero at gamma > 0 and the growing-side bracket does not fire. Owner's selftest (linstab.py --selftest) also run: 72 checks, 0 failed; git status of research/warp-drive unchanged.",
+  "agrees_with_source": "yes"
+ },
+ "later_literature": [
+  {
+   "ref": "discover_papers (recency) for later work on 2604.01047's instability",
+   "effect": "extends",
+   "what": "NOT RUN in this stage: alphaXiv returned 'assistant quota exceeded'. The sibling audit's discover_papers call earlier today found no paper re-deriving, narrowing or contradicting GMMPS 5.x (2604.01047 is Apr 2026); nearest 2206.07774 and 2512.00503, neither on this mode. That search is inherited, not repeated; this row claims nothing further.",
+   "read_status": "NAMED-NOT-READ (inherited abstract snippets from the sibling audit)"
+  },
+  {
+   "ref": "gr-qc/0209075 (Anderson, Molina-Paris, Mottola 2003, AMM)",
+   "effect": "contested",
+   "what": "Finds flat space linearly stable on sub-Planckian scales under a k^2 = 0 subtraction (4.4) that leaves no k-independent term in the scalar sector (4.5b). This docket's audit audits/gr-qc_0209075_renorm-4.4.json READ AMM p. 11 at source and graded its description of its own scheme STANDS; it corroborates the tree's step 'AMM's scheme = the alpha~^S_1 = 0 case' at order k^0. Under that scheme the branch zero is gamma = 0 exactly (K9): the mode's EXISTENCE is contested by a renormalisation CONDITION, not by a datum or a counterexample to GMMPS's arithmetic. Not adjudicated (linstab.py:353 SPLIT_ADJUDICATED_HERE = False).",
+   "read_status": "READ in the docket (audits/gr-qc_0209075_renorm-4.4.json, p. 11 verbatim); not re-read in this stage"
+  },
+  {
+   "ref": "arXiv:2604.01047 sec. 5.2.1 (GMMPS's own comparison with AMM)",
+   "effect": "narrows",
+   "what": "Per the owner's quotation (linstab.py:151-152, 195-197): 'This different behaviour is originated by the choice of the renormalisation parameters done in Theorem 3.6', against 1.5's 'regardless of renormalisation constants'. K1/K9 support 5.2.1: the branch zero vanishes at alpha~^S_1 = 0. GMMPS's internal discrepancy is recorded by the owner, not repaired, and is a discrepancy, not a refutation.",
+   "read_status": "READ-VIA-RESTATEMENT (owner's quotation)"
+  }
+ ],
+ "lacked_data": "M's hypothesis tested for this result. The existence of the growing zero and gamma_0 ~ -b0/b1 is a computation from (5.2)-(5.3) with NO measured input: the conclusion (a real zero just below 0, growth rate sqrt(-gamma_0)) depends only on the sign of alpha~^S_1 and on kappa m^2 being small, and both are re-derived here (K1-K5), the existence globally for b2 >= 0 (K4). So there is no datum the authors lacked that could move it: G, m and the cosmological inputs only rescale gamma_0 (K6-K7). Evidence against M's hypothesis for THIS result: the re-derivation agrees to 1e-20 or better at every (xi, b2) tried, and the one printed defect near it -- 5.1's (64 pi)^-1 -- is a misprint that would rescale gamma_0 by pi and cannot change sign or existence. What no one has: an empirical determination of the renormalisation constant alpha~^S_1. Thm 3.6 fixes it by a principle (general local covariance + perturbative agreement); AMM's k^2 = 0 subtraction corresponds to alpha~^S_1 = 0, where the mode is absent (branch zero exactly 0; whether anything grows from it is OPEN, linstab.py:350-352). That is a disagreement about a renormalisation CONDITION, and a measurement of the infrared k-independent response of gravity to a massive scalar vacuum would settle it; no such datum exists, and none is claimed here. It is named, not adjudicated.",
+ "grade": "STANDS",
+ "grade_evidence": "As the tree uses it -- GMMPS's reported S-sector mode, gamma_0 ~ -b0/b1 = -16 pi G alpha~^S_1 m^4 < 0 'slightly' below 0 with H = sqrt(-gamma_0), and the owner's J-kept refinement -2 kappa alpha m^4/(1 + kappa m^2/(288 pi^2)) -- re-derives exactly in sympy (K1-K3), holds by an exact zero of the FULL F_S at 160 digits (K5; |root/(-b0/b1) - 1| <= 1.4e-20 for |b2| <= 1e100, xi in {0, 1/3, -1}), and is machine-checked by z3 as a GLOBAL bracket for b2 >= 0 (K4), so the tree's 'locally' is conservative. The owner keeps both of GMMPS's approximations (J, b2) that the source drops and shows them negligible; its selftest passes (72/0). No measured datum enters the existence claim; the datum that moves (H0, via the sibling matching) rescales gamma_0 and cannot change its sign. Recorded, not repaired: (i) the canonical entry omits alpha~^S_2 = 0 and the xi condition, which the owner carries (linstab.py:305, 311); (ii) D26_CLAIM (linstab.py:365-368) says 'exists iff alpha~^S_1 != 0' without line 346's 'grows iff > 0' -- accurate of the zero, looser of the growing mode (K9: alpha < 0 gives an oscillatory zero); (iii) 5.1's (64 pi)^-1 misprint (owner and sibling). Contested but not graded here: the mode's existence under AMM's renormalisation condition (alpha~^S_1 = 0) -- a theory choice the tree already marks not adjudicated. CAVEAT ON THE READ: the source was not re-opened in this stage (alphaXiv quota exceeded; arxiv.org egress-blocked); 5.3 and eq. (5.2) rest on this docket's same-day verbatim READ (sibling audit), and the 5.1 sentence and the printed form of (5.3)'s F^S rest on the owner's full-text read.",
+ "what_would_change_the_grade": "OPEN (for the 5.1 sentence only) if a reviewer requires a first-hand read in this stage: re-run answer_pdf_queries on 2604.01047 for sec. 5.1 and eq. (5.3) when the alphaXiv quota resets; if F^S or (5.2) as printed differ from linstab.py's restatement (e.g. a different sign convention gamma = +w^2, or b1 carrying alpha~^S_2), re-run the script with the printed forms -- a sign flip in the convention would move the mode to the oscillatory side and the grade to WRONG-as-used only if the tree's statement then contradicts the printed text. NARROWED if the tree began citing D26's 'exists iff alpha~^S_1 != 0' as a statement about GROWTH (then the dropped 'alpha > 0' would be a hypothesis drop). WRONG only with a shown counterexample: an alpha > 0, b2 >= 0, kappa m^2 < 128 pi^2 point with no zero in [-2 kappa alpha m^4, 0) -- which K4 proves impossible given J > 0 on gamma < 4m^2. DATA-DEPENDENT never on present evidence: no datum sets the sign; an empirical fix of alpha~^S_1 (none exists) would decide existence, and AMM-vs-GMMPS would then belong here.",
+ "reverify_command": "python3 /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/2604.01047_sec5.1-5.3-mode.py && cd /home/user/Claude-Method-Works/research/warp-drive && python3 linstab.py --selftest 2>&1 | grep -n 'GMMPS 5.3\\|BRANCH\\|IFT\\|BRACKET at'",
+ "report_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/audits/2604.01047_sec5.1-5.3-mode.json"
+}

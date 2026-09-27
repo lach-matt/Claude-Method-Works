@@ -1,0 +1,61 @@
+PASS A1 transverse integral = -m^3/(6 pi)   -m**3/(6*pi)
+PASS A2 periodic scalar rho = -pi^2/(90 L^4)   -pi**2/(90*L**4)
+PASS B1 <T_mn> = (pi^2/90L^4) diag(-1,1,1,-3)  [FOP gr-qc/0609007 eq.24]   [-pi**2/90, pi**2/90, pi**2/90, -pi**2/30]
+PASS B2 T_00 = -pi^2/(90 L^4)  [Kuo-Ford gr-qc/9304008 eq.3.33]
+PASS B3 T_kk along winding null k=(1,0,0,1): -4 pi^2/(90 L^4) = 4 x rho   -2*pi**2/(45*L**4)
+PASS B4 T_kk along transverse null k=(1,1,0,0): 0 (ANEC holds, FOP p.10)
+PASS B5 traceless
+PASS C1 periodic(2a) per area = Dirichlet(a)+Neumann(a) = 2 x (-pi^2/(1440 a^3))
+PASS C2 EM plates pi^2/720 = 2 x scalar-Dirichlet pi^2/1440
+PASS C3 gjw.py's cycle(2D) density = scalar-Dirichlet plates at D = (1/2) x EM plates at D
+PASS D1 casimir_cycle(1 m) = 2.167e-28 Pa (gjw.py:84)   2.1669e-28
+PASS D2 tkk_required(1 m) = 9.505e43 Pa (gjw.py:84)   9.5053e+43
+PASS D3 gain(1 m) = 4.3866e71 (gjw.py:195; phase1.py:404 '4.39e71')   4.38665e+71
+PASS D4 closed form gain = 360 c^3 D^2/(pi G hbar) = 360 D^2/(pi l_P^2)   360*D**2*c**3/(pi*G*hbar)
+PASS D5 360/(pi l_P^2) numerically = 4.3866e71
+PASS D6 unity separation = sqrt(pi/360) l_P = 0.0934 l_P (gjw.py:93)   1.5098e-36 m = 0.0934 l_P
+PASS D7 D^2 scaling exact
+     CODATA 2022 via scipy 1.17.1: G = 6.67430e-11 +- 1.5e-15 ; hbar = 1.0545718176461565e-34 ; l_P = 1.616255e-35
+PASS E1 gain(1 m) with CODATA 2022 equals tree's to < 1e-8   4.386649e+71
+PASS E2 G 1-sigma (22 ppm) moves gain by 22 ppm -- no conclusion moves   rel 2.25e-05
+PASS E3 CODATA 2014 -> 2022 G shift moves gain by 3.3e-5 relative   3.30e-05
+     T_kk (winding) instead of rho:             gain(1 m) = 1.0967e+71
+     EM field (2 dof) instead of one scalar:     gain(1 m) = 2.1933e+71
+     EM + T_kk:                                  gain(1 m) = 5.4833e+70
+     phase1 'Casimir corridor' = plates pi^2/720 at d = 1 m: gain = 2.1933e+71
+     cycle = d + pi*l with pi*l = 2.35 d (MMP Fig.7 large-d slope): gain = 3.4530e+72
+PASS F1 every variant stays within [1e70, 1e73] -- 'about 1e71 short' survives each named variant
+PASS F2 T_kk correction is a factor-4 discrepancy, not a refutation
+PASS G1 MMP (5.24): -q/12 * 2pi/L at L = pi l equals -q/(6 l)
+PASS G2 per-field 2D antiperiodic Dirac Casimir = -(1/12)(2pi/L)  [2 zeta_H(-1,1/2) = 1/12]   zeta_H(-1,1/2) = 1/24
+PASS G3 total = cylinder - strip = -q/(8 l)  (the -q/8l of MMP 5.30)
+PASS G4 MMP (5.31): l = 16 r_e^3/(G_N q)   [16*r_e**3/(G_N*q)]
+PASS G5 MMP (5.31): E_min = -G_N q^2/(256 r_e^3)   -G_N*q**2/(256*r_e**3)
+     MMP p.24: N_f=1 analysis covers d < q^3 l_p; d = 1 m needs q > 3.955e+11 (parametric, NOT computed by MMP)
+     MMP p.5 SM embedding: d < electroweak length ~ hbar c/TeV = 1.973e-19 m; 1 m exceeds it by 5.07e+18
+     lightest charged SM fermion (electron) reduced Compton length 3.862e-13 m << 1 m: no massless charged SM fermion at metre scale
+PASS G6 MMP's SM-embedded construction does not reach metre separation (d_ew < 1e-18 m)
+     MMP stress (5.27): T_tt = -q/(8 pi l^2) * 1/(4 pi r_e^2): ~ q/(l^2 r_e^2), two lengths, x q
+     Butcher eq.68 (ln factor 1): throat radius a = 1e-15 m needs length L = 4.329e+27 m
+     Butcher eq.68 (ln factor 1): throat radius a = 1e-10 m needs length L = 4.329e+42 m
+     Butcher eq.68 (ln factor 1): throat radius a = 1e-06 m needs length L = 4.329e+54 m
+     Butcher eq.68 inverted (ln factor 1): throat length L = 1 m allows radius a = 6.136e-25 m = 3.796e+10 l_P
+PASS H1 two-length escape from the single-length Planck landing is real but small: L = 1 m gives a >> l_P (1e10 l_P) yet a < 1e-18 m
+PASS H2 a nuclear-size throat (1 fm) needs L = 4.3e27 m, beyond the Hubble radius (~1.4e26 m): 'macroscopic in principle' is not metre-scale
+     (Butcher: magnitude sufficient 'in principle', but T_kk = 0 for null rays parallel to the throat,
+      so the static wormhole is NOT stabilised -- sec. IV A. Recorded, not extrapolated.)
+
+RESULT: ALL PASS
+{
+ "gain_1m_tree": 4.3866486656126995e+71,
+ "gain_1m_codata2022": 4.3866486629249147e+71,
+ "g_tkk": 1.0966621664031749e+71,
+ "g_em": 2.1933243328063497e+71,
+ "g_em_tkk": 5.4833108320158744e+70,
+ "g_plate": 2.1933243328063497e+71,
+ "g_mmp_len": 3.4529643767675805e+72,
+ "mmp_q_for_1m": 395515377029.01697,
+ "mmp_d_ew": 1.9732698033839643e-19,
+ "butcher_L_for_a_1fm": 4.3294486976163876e+27,
+ "butcher_a_for_L_1m": 6.13558250940301e-25
+}

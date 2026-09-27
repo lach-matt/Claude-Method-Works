@@ -1,0 +1,94 @@
+{
+ "key": "iau-nominal-solar-mass",
+ "name": "Solar mass value tagged IAU nominal",
+ "kind": "measurement",
+ "source": {
+  "located": "Prsa et al. 2016, 'Nominal values for selected solar and planetary quantities: IAU 2015 Resolution B3', arXiv:1605.09788 (reproduces the Resolution 'essentially verbatim', Sec. 3; the Resolution text itself is arXiv:1510.07674, named, not separately read). Current G: CODATA 2022, Mohr et al., arXiv:2409.03787, Table XXXII and Sec. I.B.11.",
+  "read_status": "READ",
+  "via": "alphaXiv answer_pdf_queries on 1605.09788 (pp. 1-15: Resolution text, Table 1, Sec. 4 rationale, Appendix A) and on 2409.03787 (pp. 1-2, 5, 45, 47, 50, 60, 64)"
+ },
+ "published_statement": "IAU 2015 B3 Table 1: '1(GM)_sun^N = 1.327 124 4 x 10^20 m^3 s^-2', nominal values 'by definition exact and ... expressed in SI units ... conversion factors only ... not as the true solar properties' (Rec. 1). Rec. 5: 'if SI masses are explicitly needed, they should be expressed in terms of (GM)_object/G, where the estimate of the Newtonian constant G should be specified in the publication (for example, the 2014 CODATA value is G = (6.67408 +- 0.00031) x 10^-11)'. Appendix A: with NSFA's G = 6.67428e-11 (CODATA 2006) 'a nominal solar mass of M_sun^N = 1.988416 x 10^30 kg'; with CODATA 2014 G, 'a solar mass of M_sun = (1.988475 +- 0.000092) x 10^30 kg'; users must state G and M_sun 'taking care that their chosen values satisfy GM_sun = (GM)_sun^N'. B3 defines NO nominal solar mass in kilograms: only the mass parameter GM is nominal.",
+ "published_hypotheses": [
+  "H1 (Noting 3): G is 'one of the least precisely determined constants', the error in GM_sun is five orders of magnitude smaller -- hence GM, not M, is nominalized.",
+  "H2 (Rec. 1, Table 1 caption): nominal values are exact conversion factors chosen close to current best estimates, NOT the true solar properties; symbols without N denote actual estimates with uncertainties.",
+  "H3 (Rec. 5): any SI (kg) mass is (GM)/G with the G used stated in the publication; a kg solar mass is therefore G-dependent and carries G's uncertainty.",
+  "H4 (Sec. 4): (GM)_sun^N is the best available measurement (Petit & Luzum 2010) rounded to the precision at which TCB and TDB values agree.",
+  "H5 (Noting 1): solar mass is not secularly constant; nominal values need not track it.",
+  "H6 (App. A): chosen G and M_sun must satisfy G*M_sun = (GM)_sun^N."
+ ],
+ "hypothesis_drift": [
+  "ADDED/WEAKENED -- the tag 'IAU nominal' (nonstatic.py:255; ledger.py:332; the value itself foliation.py:581) labels a kilogram figure as the IAU nominal quantity. B3 nominalizes only (GM)_sun (H2, H3); no kg value is nominal, and 1.98840e30 is neither of the two kg figures B3's Appendix A prints (1.988416e30 under CODATA 2006; 1.988475e30 under CODATA 2014). A label imprecision, not a numerical error: the value is GM_N/G_2018 = 1.988409871e30 kg printed to five significant figures (truncated; rounding gives 1.98841e30).",
+  "KEPT IN SUBSTANCE -- H3 (state the G used): nonstatic.py:254 G = 6.67430e-11 'CODATA 2018'; foliation.py:580 G_NEWTON = 6.67430e-11; ledger.py:331 reads foliation.G_NEWTON. The G is stated beside the mass, as Rec. 5 asks.",
+  "DROPPED TO FIVE FIGURES -- H6 (G*M_sun = GM_N): the tree's G*M_SUN = 1.3271138e20 m^3 s^-2 against GM_N = 1.3271244e20, relative -4.964e-6 (nonstatic.py:254-255, foliation.py:580-581). 0.22 sigma of G's 2.2e-5 relative uncertainty. A last-digit discrepancy, recorded, not a refutation.",
+  "KEPT -- H2 (conversion factor only): M_SUN is used solely as a reporting unit (nonstatic.py:570 kg / M_SUN; ledger.py:2128, 2150, 2297 required_negative_mass(PROXIMA_M) / M_SUN); no conclusion treats it as a physical property.",
+  "TREE-INTERNAL SPREAD (not drift from the source, recorded): other warp-drive modules carry 1.98847e30 (ladder.py:64, designpoint.py:92, warpenergy.py:95, warpshell.py:120), 1.98892e30 (nopath.py:168, pair.py:193, reverse.py:107, spectra.py:146) and 1.989e30 (budget.py:114); max spread 2.6e-4 relative. paper/CLAIMS.md:6389 (H82c) prints 5.4194e42 kg = 2.7254e12 M_sun, implying M_sun = 1.988479e30; ledger B2 (ledger.py:2124-2129) prints 2.7255e12 from the same 5.4194e42 kg with 1.98840e30. The 2.7254/2.7255 last-digit split is the M_SUN choice alone (computed)."
+ ],
+ "data_at_publication": [
+  {
+   "quantity": "(GM)_sun^N",
+   "value_then": "1.3271244e20 m^3 s^-2, exact by definition (IAU 2015 B3 Table 1)",
+   "value_now": "1.3271244e20 m^3 s^-2 (a definition; unchanged)",
+   "source_now": "arXiv:1605.09788 Table 1",
+   "moves_conclusion": "no -- definitional"
+  },
+  {
+   "quantity": "Newtonian constant G",
+   "value_then": "B3: CODATA 2014 G = 6.67408(31)e-11 (App. A also CODATA 2006 6.67428e-11 per NSFA); tree: 6.67430e-11 CODATA 2018",
+   "value_now": "6.67430(15)e-11, u_r 2.2e-5 (CODATA 2022, identical to 2018; 'no new value'; 3.9 expansion factor retained)",
+   "source_now": "arXiv:2409.03787 Table XXXII, Sec. I.B.11, Sec. XV.A",
+   "moves_conclusion": "no -- the tree's G is current. CODATA 2014->2018 moves a kg solar mass by -3.3e-5 (1.988475e30 -> 1.988410e30); any kg figure moves with G at 2.2e-5 (1 sigma), and across the full 5.5e-4 spread of the 16 G measurements at worst; solar-mass-unit figures computed as X/(GM_N) are G-independent (computed: B2 = c^2 d/(LAMBDA GM_N))"
+  },
+  {
+   "quantity": "tree M_SUN vs GM_N/G_2018",
+   "value_then": "1.98840e30 kg (nonstatic.py:255, foliation.py:581)",
+   "value_now": "1.988409871e30 +- 4.47e25 kg (computed, exact rationals)",
+   "source_now": "rederive/iau-nominal-solar-mass.py section 2",
+   "moves_conclusion": "no -- -4.964e-6 relative: build throughput 2.720744289e13 -> 2.720730782e13 M_sun; B2 2.72551e12 -> 2.72549e12 M_sun (both 2.7255e12 at five figures); H83d match dW 0.10017112 -> 0.10017162, inside nonstatic.py:699's 1e-5 tolerance. It WOULD fail nonstatic.py:680's 1e-9 pin if M_SUN were replaced, which is a fixture property, not a verdict"
+  },
+  {
+   "quantity": "secular d(GM_sun)/dt / GM_sun",
+   "value_then": "not quantified in B3 (Noting 1 says masses are not secularly constant)",
+   "value_now": "(-10.2 +- 1.4)e-14 per year (3 sigma), EPM2019",
+   "source_now": "Pitjeva et al. 2022, arXiv:2201.09804 Sec. 3",
+   "moves_conclusion": "no -- 1.1e-12 relative over 2015-2026, six orders below the tree's truncation"
+  }
+ ],
+ "rederivation": {
+  "method": "sympy",
+  "script_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/iau-nominal-solar-mass.py",
+  "outcome": "ALL CHECKS PASS (exit 0), exact rational arithmetic. (1) B3 App. A reproduced: GM_N/G_2006 = 1.988415829e30 (printed 1.988416e30), GM_N/G_2014 = 1.988475415e30 +- 9.24e25 (printed 1.988475(92)e30). (2) GM_N/G_2018 = 1.988409871e30 +- 4.47e25 kg; the tree's 1.98840e30 differs by -4.964e-6 relative = 0.22 sigma of G; six-figure value is 1.98841e30, so the tree truncates. (3) nonstatic.build_energy(Proxima, dW=1) reproduces its pin 2.720744289e13 M_sun; with GM_N it is 2.720730782e13 (shift exactly -4.964e-6); the H83d match dW = 0.100171 holds both ways (0.10017112 / 0.10017162). (4) B2 = 5.41940e42 kg = 2.72551e12 M_sun (tree) or 2.72549e12 (GM_N, G-independent); CLAIMS H82c's 2.7254e12 implies M_sun = 1.988479e30, and 5.4194e42 kg divided by 1.98847e30 vs 1.98840e30 gives 2.72541e12 vs 2.72551e12 -- the printed last-digit split is the M_SUN choice alone. (5) tree-internal spread of M_SUN across modules 2.6e-4 relative. (6) secular GM drift 2015-2026 = -1.12e-12.",
+  "agrees_with_source": "yes"
+ },
+ "later_literature": [
+  {
+   "ref": "Mohr, Newell, Taylor, Tiesinga 2024, CODATA 2022, arXiv:2409.03787",
+   "effect": "confirms",
+   "what": "G = 6.67430(15)e-11 unchanged from 2018 (no new G data; expansion factor 3.9 kept; BIPM-14 and JILA-18 residuals 7.75 and -6.80 before expansion). The tree's declared G is the current recommended value; G remains the limiting and internally discrepant datum for any kg solar mass, exactly as B3's H1 anticipated.",
+   "read_status": "READ (pp. 1-2, 5, 45, 47, 50, 60, 64)"
+  },
+  {
+   "ref": "Pitjeva, Pitjev, Pavlov, Turygin 2022, arXiv:2201.09804",
+   "effect": "extends",
+   "what": "Measures d(GM_sun)/dt / GM_sun = (-10.2 +- 1.4)e-14 /yr (EPM2019) and -2.9e-14 < Gdot/G < +4.6e-14 /yr: quantifies B3's 'not secularly constant'; negligible (1e-12 over a decade) against every tree figure.",
+   "read_status": "READ (pp. 1-3, 5-6)"
+  },
+  {
+   "ref": "Mamajek et al. 2015, IAU 2015 Resolution B3, arXiv:1510.07674",
+   "effect": "confirms",
+   "what": "The Resolution itself; its text is reproduced verbatim in arXiv:1605.09788 Sec. 3, which was read.",
+   "read_status": "NAMED-NOT-READ (content read via 1605.09788's verbatim reproduction)"
+  },
+  {
+   "ref": "Petit & Luzum 2010 (IERS TN 36) / Luzum et al. 2011 (IAU 2009 system)",
+   "effect": "confirms",
+   "what": "The measured GM_sun from which the nominal value is rounded (B3 Sec. 4); not on arXiv, not read; no tree figure depends on digits beyond the nominal 1.3271244e20.",
+   "read_status": "NAMED-NOT-READ"
+  }
+ ],
+ "lacked_data": "M's hypothesis tested. What B3's authors (2015-16) lacked: a consistent G. They had CODATA 2014 G = 6.67408(31)e-11 and knew the G measurements disagreed 'by several times the formal errors' (App. A). What came later: CODATA 2018 moved G to 6.67430(15)e-11 (a +3.3e-5 shift, moving a kg solar mass from 1.988475e30 to 1.988410e30) and CODATA 2022 kept it with NO new G data -- the discrepancy is not resolved (2409.03787 Sec. XVI.C.2). Also later: a measured secular GM_sun drift of -1.02e-13/yr (2201.09804). Does having it change the conclusion? No, evidence both ways: (a) B3's design anticipated exactly this missing datum -- it nominalized GM, not M, so the nominal definition is immune to G by construction; (b) the tree already uses the post-B3 G, so the 'later data' is already in its value; (c) quantities the tree reports in solar masses are G-independent when formed with GM_N, and its actual figures differ from those by -4.96e-6; kg figures (B2 = 5.4194e42 kg, EXCHANGE_RATE 1.348948e26 kg/m) carry G's 2.2e-5 (1 sigma) and at most the 5.5e-4 full spread of the 16 G measurements -- no verdict on the board depends on a figure at that precision (the refusals concern orders of magnitude, e.g. ~1e12 solar masses of NEGATIVE mass). So the lacked datum is real and still lacking, but it does not move this result as the tree uses it.",
+ "grade": "STANDS",
+ "grade_evidence": "Source READ (arXiv:1605.09788). The tree's M_SUN = 1.98840e30 kg is GM_N/G with the tree's own stated G (CODATA 2018 = CODATA 2022), reproduced to -4.964e-6 relative (0.22 sigma of G) by an exact-rational sympy script that also reproduces B3's own App. A kg figures. B3's substantive hypotheses are honoured: G is stated beside the mass (H3), M_SUN is used only as a reporting unit (H2). No moved datum moves a conclusion: G is unchanged 2018->2022; the GM secular drift is 1e-12; the truncation shifts build throughput and B2 by 5e-6 and the H83d match stays inside its tolerance. DISCREPANCIES RECORDED, NOT REPAIRED, NOT REFUTATIONS: (i) the tag 'IAU nominal' is imprecise -- B3 nominalizes GM only and prints no kg value equal to 1.98840e30; (ii) five-figure truncation (1.98840 vs 1.98841) breaks App. A's G*M_sun = GM_N by -4.96e-6; (iii) the tree carries four different M_SUN values across modules (1.98840 / 1.98847 / 1.98892 / 1.989 e30, spread 2.6e-4), and the H83d 2.7254e12 vs B2 2.7255e12 last-digit split is that choice alone.",
+ "what_would_change_the_grade": "NARROWED if a board conclusion were shown to treat the kg solar mass as exact/definitional (G-free) where the result needs better than G's 2.2e-5, or if a verdict hinged on the fifth significant figure of a solar-mass-denominated figure (it would then need GM_N and the tree's truncation would matter). DATA-DEPENDENT if a new G determination moved CODATA's recommended value by more than the tree's reporting precision in a place where a kg figure is compared against a threshold. Nothing currently read supports either.",
+ "reverify_command": "python3 /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/iau-nominal-solar-mass.py  # exits 0 on ALL CHECKS PASS; plus: grep -n 'M_SUN\\s*=\\|^G\\s*=\\|G_NEWTON\\s*=' /home/user/Claude-Method-Works/research/warp-drive/{nonstatic,foliation,ledger}.py",
+ "report_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/audits/iau-nominal-solar-mass.json"
+}

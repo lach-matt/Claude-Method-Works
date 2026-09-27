@@ -1,0 +1,66 @@
+{
+ "key": "2604.01047#spectral-j",
+ "name": "GMMPS spectral density rho(M) (4.5) and its Stieltjes transform J (4.17)",
+ "source": {
+  "located": "arXiv:2604.01047v1 [math-ph], 1 Apr 2026: Galanda, Meda, Murro, Pinamonti, Schmid, 'The Semiclassical Einstein-Klein-Gordon System: Asymptotic Analysis of Minkowski Spacetime'. Read: Thm 1.1 (p.10), Prop 3.3 eqs (3.11)-(3.13) (pp.27-28), eq (4.5) (p.41), Props 4.2/4.5 and Cor 4.4 (pp.43-46), Prop 4.10 eqs (4.17)-(4.18) (p.48), Lemma 4.13 (p.52), eq (4.30) (p.58), eq (5.3) (p.60).",
+  "read_status": "READ",
+  "via": "alphaXiv answer_pdf_queries on 2604.01047 (two batched calls, page text returned). Independent normalisation cross-check READ at source in Anderson-Molina-Paris-Mottola gr-qc/0209075, App. B eqs (B37a,b)."
+ },
+ "published_statement": "(4.5) p.41: K_0[phi] = Box INT_{4m^2}^inf rho(M) G^M_ret(phi) dM, rho(M) = (1/(16 pi^2)) sqrt(1 - 4m^2/M) (1/M). (3.12)-(3.13) p.27-28: K_0 = Box INT varrho(M)/M G_ret(x,M) dM with 'the positive-defined spectral density' varrho(M) = (1/(16 pi^2)) sqrt(1-4m^2/M) Theta(M-4m^2), so rho = varrho/M. (4.17) p.48 (Prop 4.10): 'the Stieltjes transform of the density rho(M) given in (4.5), described by the complex-valued function J(z) := INT_{4m^2}^inf rho(M)/(M - z) dM = (1/(8 pi^2)) ( 1/z - (4m^2 - z) m arccsc(2m/sqrt z) / (m sqrt(4m^2 - z) z^{3/2}) ), z in D', with (4.18) D = {z in C | Im z != 0 or (Im z = 0, Re z < 4m^2)}. J(0) is not stated in the source. Positivity of rho is used verbatim in Lemma 4.13's proof ('rho(M) is positive and thus the integration function is positive'); monotonicity of J is not stated as such (Prop 4.5 states monotonicity of F(w^2) = (w^2+c) g(-w^2) for general positive varsigma).",
+ "published_hypotheses": [
+  "H1 free real Klein-Gordon scalar of mass m > 0 with curvature coupling xi, on Minkowski (R^4, eta)",
+  "H2 Poincare-vacuum (Hadamard) two-point function G_+ = omega_0,2; rho is the Kallen-Lehmann density of G_+^2 (pp.28-29), i.e. a one-loop, free-field quantity",
+  "H3 rho supported on M >= 4m^2 (two-particle threshold), Theta(M - 4m^2)",
+  "H4 J defined on D (4.18): the complex plane cut along [4m^2, inf); the closed form (4.17) is asserted on all of D",
+  "H5 (for Lemma 4.13's use of J, not for J itself) a_1, a_2 in (-inf, 4m^2) strictly (Prop 4.12)"
+ ],
+ "hypothesis_drift": [
+  "NONE DROPPED for the formulas: linstab.py:579 rho = sqrt(1-4m^2/M)/(16 pi^2 M) is (4.5) verbatim (tagged '# (4.5)'); linstab.py:581-584 J417 is (4.17) verbatim including the redundant m/m factor; linstab.py:617-621 J_closed is (4.17) after cancelling (4m^2-z)/sqrt(4m^2-z) = sqrt(4m^2-z), 'as printed' is accurate.",
+  "ADDED by the tree, DISCHARGED here: 'J monotone' (linstab.py:639, 752) is not stated in GMMPS; it follows from H3 + rho >= 0 (J' = INT rho/(M-z)^2 > 0 on real z < 4m^2), computed here (C6).",
+  "ADDED by the tree, DISCHARGED here but GUARD UNSTATED: the bracket bound 4 J(0)/(4+|g|) <= J(g) <= J(0) (linstab.py:638-639, 652, 752, 770) is the tree's own; it holds for g <= 0 only (z3, C7; the lower bound FAILS for g in (0, 4m^2), C7 control). The docstrings write M/(M+|g|), which silently presumes g < 0. Every call site (linstab.py:805, 810, 973, 976, 983) evaluates it at g <= 0 (glin < 0 for alpha > 0, glin = 0 at alpha = 0, g* = -|b_1/b_2| < 0); no call passes alpha < 0. Recorded, not a fault in any computed result.",
+  "IMPLICIT in the tree, SATISFIED: m > 0 (H1) is not named at linstab.py:155-164 or 578-586 but the tree works in m = 1 units (linstab.py:611, 617, 647, 757); J(0) = 1/(96 pi^2 m^2) diverges as m -> 0, so the massless case is outside this result.",
+  "H2 (free field, vacuum state, one loop) is not restated at the owner's J lines; the tree uses J only inside GMMPS's own setting (F_S (5.3), F_TT (5.4)), where H2 holds by construction. Not a drift of use.",
+  "linstab.py:163-164 'J(0) = 1/(96 pi^2 m^2) derived two independent ways' is a tree derivation, not a GMMPS statement (GMMPS never print J(0)); correctly labelled as derived, and re-derived here (C2, C3 from both sides)."
+ ],
+ "data_at_publication": [
+  {
+   "quantity": "scalar mass m (the only parameter of rho and J besides pi)",
+   "value_then": "free parameter; rho, J are closed-form functions of m for every m > 0 (GMMPS 5.3 later fix m ~ 7.8e-3 eV by matching Lambda, a separate result)",
+   "value_now": "free parameter; no measurement enters (4.5) or (4.17)",
+   "source_now": "not applicable: (4.5)/(4.17) are exact one-loop free-field expressions; J(z; m) = J(z/m^2; 1)/m^2 by dimensional scaling",
+   "moves_conclusion": "no - no datum enters; the formulas are exact for every m > 0"
+  }
+ ],
+ "rederivation": {
+  "method": "sympy",
+  "script_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/2604.01047_spectral-j.py",
+  "outcome": "ALL PASS (exit 0), 22 assertions, nothing imported from the tree. C1 (4.5) == (3.13)/M and rho >= 0 on M >= 4m^2. C2 J(0) = INT rho/M = 1/(96 pi^2 m^2) exact (sympy). C3 limit of printed (4.17) at z -> 0+ AND z -> 0- both = 1/(96 pi^2) (the tree checks only 0+). C4 printed (4.17), principal branches, vs the defining integral: real z in [-200, 3.999] max rel err 3.5e-34 and Im(4.17) = 0 exactly on the real axis below 4m^2 (the tree compares only Re); complex z in all four quadrants including Re z > 4m^2 with Im z = +-0.01 (i.e. all of D (4.18)) max rel err ~1e-40 -- the printed domain claim holds on the principal branch. C5 Prop 4.5's separately printed L(K) closed form (log/asinh) equals -[(w^2+c) J(-w^2)]^{-1} with J from (4.17), rel diff 7e-35 -- two independent printed forms of the source agree on the growing side z < 0. C6 J strictly increasing on [-400, 3.5] and J' = INT rho/(M-z)^2 > 0; d/dz (4.17) matches the integral. C7 z3: M >= 4, g <= 0 => 4/(4-g) <= M/(M-g) <= 1 (negation unsat); control: fails for g in (0,4) (sat); numeric bound holds at g = -1e-8..-1e6. C8 Lemma 4.13's A'' integrand identity. C9 scoping: at a_1 = a_2 = 4m^2 (the TT value) A'(4m^2-) is finite (-> 0), so Lemma 4.13's '+inf' limit needs Prop 4.12's strict a_i < 4m^2 -- consistent with the source, not used by the tree. C10 independent normalisation: GMMPS T*varrho and S*varrho equal AMM gr-qc/0209075 (B37a) rho_T and (B37b) rho_S exactly, so the 1/(16 pi^2) of (3.13), hence of (4.5), is confirmed by a 2002 derivation by different authors and a different method (dimensional regularisation). Also run: linstab.py --selftest J rows ([ok] J(0) integral, 4.17 limit, 4.17 vs integral at gamma = 1, 3, -1, -5).",
+  "agrees_with_source": "yes"
+ },
+ "later_literature": [
+  {
+   "ref": "Anderson, Molina-Paris, Mottola, gr-qc/0209075 (2002), App. B (B37a,b), (B44)-(B47)",
+   "effect": "confirms",
+   "what": "Earlier independent computation of the same free-scalar spectral functions in Minkowski vacuum; with GMMPS's operators T = (1/60)(Box-4m^2)^2 and S = (2/3)(m^2 + (1-6xi)Box/2)^2 applied to varrho, the sector weights coincide exactly with AMM's rho_T, rho_S (C10). Same threshold 4m^2, same positivity.",
+   "read_status": "READ (App. B pages 17-21 via alphaXiv answer_pdf_queries)"
+  },
+  {
+   "ref": "arXiv:2512.00503 (2025), 'Instability thresholds for de Sitter and Minkowski spacetimes in holographic semiclassical gravity'",
+   "effect": "extends",
+   "what": "Same question (semiclassical stability of Minkowski) with a strongly coupled holographic field in place of the free scalar -- a different spectral density, i.e. outside H1/H2; does not bear on (4.5)/(4.17) as a free-field computation.",
+   "read_status": "NAMED-NOT-READ (title and abstract from discover_papers only)"
+  },
+  {
+   "ref": "arXiv:2605.24103 (2026), 'Probing the limits of the semiclassical Einstein equation'",
+   "effect": "extends",
+   "what": "Validity of the semiclassical Einstein equation in general; no statement on this spectral density surfaced.",
+   "read_status": "NAMED-NOT-READ (title and abstract from discover_papers only)"
+  }
+ ],
+ "lacked_data": "No empirical datum enters (4.5) or (4.17): rho is the Kallen-Lehmann density of the square of the free massive vacuum two-point function, a closed-form one-loop computation in m, and J is its Stieltjes transform. There is therefore nothing the authors could have lacked in the measurement sense; the conclusion is exact for every m > 0. Evidence either way: (for) exact agreement of the printed closed form with the defining integral on the whole cut plane D to ~1e-34..1e-40, agreement of GMMPS's two separately printed forms (4.17) and Prop 4.5's L(K), and exact agreement of the normalisation with the independent 2002 AMM computation (B37a,b); (against) none found. What the result genuinely cannot carry is model content, not data: it is the free-field, vacuum-state, one-loop density (H1, H2) with m > 0; an interacting or strongly coupled field (e.g. 2512.00503's holographic matter) or the massless limit (J(0) ~ 1/m^2 diverges) falls outside it. Those are named hypotheses, not missing data, and the tree uses J only inside GMMPS's own free-scalar setting.",
+ "grade": "STANDS",
+ "grade_evidence": "Statement READ at source (pp.27-28, 41, 48); the tree's rho (linstab.py:579) and J (linstab.py:581-584, 617-621) are the printed (4.5) and (4.17) verbatim. Re-derivation (sympy + mpmath + z3, 22/22 PASS): J(0) = 1/(96 pi^2 m^2) exact from the integral and from both one-sided limits of (4.17); (4.17) = defining integral on all of D (real axis both sides of 0, complex z in all quadrants, Re z > 4m^2 off-axis) to <= 3.5e-34 relative; Im(4.17) = 0 on real z < 4m^2; rho >= 0 on M >= 4m^2; J strictly increasing on real z < 4m^2; the tree's bracket bound 4J(0)/(4+|g|) <= J(g) <= J(0) machine-checked for g <= 0 (z3 unsat) and its failure for g > 0 shown as a control; normalisation independently confirmed against AMM (B37). No datum enters. Discrepancies recorded, none repaired and none affecting the result: (i) the printed (4.17) carries a redundant m/m factor; (ii) p.41 writes check-varrho + b_2 h_2 where p.48-50 write check-rho + b_2 h_2 (notation, since rho = varrho/M, not a different object); (iii) the tree's bracket-bound docstrings leave the guard g <= 0 implicit (M/(M+|g|)); every call site satisfies it.",
+ "what_would_change_the_grade": "NARROWED if a call site evaluated s_root_bracket/b2_root_bracket at g > 0 (e.g. alpha < 0 passed to s_root_bracket), where the lower bound 4J(0)/(4+|g|) is false (C7 control) -- none does today. NARROWED if the tree used J outside the free-scalar vacuum setting (H1/H2) or at m = 0. WRONG only if a point of D were shown where the printed (4.17) departs from INT rho/(M-z) beyond numerical error, or if a later computation contradicted the 1/(16 pi^2) normalisation that AMM (B37) independently confirms.",
+ "reverify_command": "python3 /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/2604.01047_spectral-j.py && (cd /home/user/Claude-Method-Works/research/warp-drive && python3 linstab.py --selftest | grep -E 'J\\(0\\)|4\\.17')",
+ "report_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/audits/2604.01047_spectral-j.json"
+}

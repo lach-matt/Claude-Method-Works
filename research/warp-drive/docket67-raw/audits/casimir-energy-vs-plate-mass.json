@@ -1,0 +1,112 @@
+{
+ "key": "casimir-energy-vs-plate-mass",
+ "name": "Casimir energy against the plate's rest energy (DOCKET 53)",
+ "source": {
+  "located": "No external source is cited by the owner: the figure is a typed literal in ledger.py:2136 (introduced in commit f6dff52, 'ledger.py: the warp work's state.py'; owner None; no instrument in research/ computes it -- grep for 2.72e-8 finds only ledger.py, LEDGER.md and their .pyc). The physics it stands on is (i) the ideal-plate Casimir energy per unit area E/A = -pi^2 hbar c/(720 a^3) (Casimir 1948, Proc. K. Ned. Akad. Wet. 51, 793 -- no arXiv copy), read via Bordag, Mohideen, Mostepanenko, Phys. Rep. 353, 1 (2001), arXiv:quant-ph/0106045, eqs (2.36), (4.26), (4.27), (4.31), (5.53)-(5.60) and the p.155 validity statement; (ii) the Lifshitz formula (Lifshitz 1956, NAMED-NOT-READ; restated in the same review eq (4.26)); (iii) the equivalence of Casimir energy and gravitating mass, Fulling, Milton, Parashar, Romeo, Shajesh, Wagner, 'How does Casimir energy fall?', arXiv:hep-th/0702091 (PRD 76, 025004, 2007); (iv) CODATA 2018 / 2022 constants (arXiv:2409.03787 and the NIST tables). Context: Sopova & Ford, arXiv:quant-ph/0204125; Lobo & Crawford, arXiv:gr-qc/0204038; Bressi et al., arXiv:quant-ph/0203002.",
+  "read_status": "READ-VIA-RESTATEMENT",
+  "via": "alphaXiv answer_pdf_queries, get_paper_content and discover_papers all returned 'assistant quota exceeded' in this stage; arxiv.org is refused by the egress proxy (403, logged, not routed around). READ instead from verbatim alphaXiv <page> text harvested earlier in this session by sibling stages, md5-asserted by the rederive script: d67/src/casmag/bmm.pages.txt (quant-ph/0106045 pp.1,11,24,26,79,80,107,109,140,147,155-157,190-249 subset; md5 cff7755d3f159002da4e32e6c857ec9c), src/casmag/all/hep-th_0702091v2.txt (e47c1b77...), quant-ph_0204125v2.txt (9bc43e48...), gr-qc_0204038v2.txt (5ed2b910...), quant-ph_0203002v1.txt (9081bb7e...), 2409.03787v1.txt (cc640485...); NIST CODATA 2018/2022 tables from scipy 1.17.1 _codata.py (f65f9f0e...). Casimir 1948 and Lifshitz 1956 are NAMED-NOT-READ (restated only). The CONSTRUCTION behind 2.72e-8 is RECONSTRUCTED here (not recorded anywhere in the tree)."
+ },
+ "published_statement": "Restated Casimir result (quant-ph/0106045 eq (4.31), READ): 'If both bodies are ideal metals the dielectric permittivity eps2(i xi) -> oo ... we obtain the Casimir result for the force per unit area and energy density F(0)ss(a) = -(pi^2/240) hbar c/a^4, E(0)ren_S(a) = -(pi^2/720) hbar c/a^3.' Validity (p.155, READ): 'The original Casimir result (1.3) is valid only for perfect conductors of infinitely high conductivity, i.e. for the planes which fully reflect the electromagnetic oscillations of arbitrary frequency. In fact, for sufficiently high frequency any metal becomes transparent.' Small separations (eq (4.27), READ): 'At small distances a << lambda_0 ... E_ren_S(a) = -H/(12 pi a^2)' (van der Waals). Gravitation (hep-th/0702091 abstract, READ): 'the associated Casimir energy gravitates just as required by the equivalence principle, and that therefore the inertial and gravitational masses of a system possessing Casimir energy E_c are both E_c/c^2.' THE TREE'S USE: ledger.py:1550-1552 (S2) 'the plate outweighs its own Casimir energy for every material that exists'; ledger.py:2134-2138 (B4) demand '|E_Cas| >= M c^2 for the apparatus', supply '|E_Cas|/(M c^2) <= 2.72e-8 for hydrogen, the lightest conceivable sheet', status REFUSED with no gap. RECONSTRUCTED CONSTRUCTION (sympy, this stage): two identical sheets, each one hydrogen atom per a0^2, at gap a = a0, ideal-plate energy: R = pi^2 hbar/(1440 a0 m_H c) = pi^2 alpha (m_e/m_H)/1440 = 2.7224e-8 (CODATA 2018 and 2022 alike); the same formula also arises as one sheet at gap 2a0 with one atom per (2a0)^2.",
+ "published_hypotheses": [
+  "Casimir 1948 (as restated): perfect conductors ('fully reflect ... arbitrary frequency'), two infinite parallel plates (area S -> oo), zero temperature, renormalised interaction energy (the Minkowski contribution in the gap subtracted; plate self-energies not part of E).",
+  "Lifshitz (eq (4.26), as restated): macroscopic continuum media described by eps(i xi) at imaginary frequency; planar semispaces; T = 0; the ideal result is the limit eps -> oo.",
+  "Real metals (eqs (5.54)-(5.60)): plasma model eps(i xi) = 1 + omega_p^2/xi^2; the perturbative finite-conductivity series works for a >= lambda_p; at a << lambda_0 the interaction crosses to non-retarded van der Waals, E = -H/(12 pi a^2).",
+  "Fulling et al.: parallel conducting plates in a weak static gravitational field; the renormalised Casimir energy's gravitational and inertial masses are both E_c/c^2 (so comparing |E_Cas| with M c^2 is the right comparison).",
+  "Sopova-Ford (context): the local energy density diverges at the boundaries even with dispersion ('a breakdown of a continuum description'), and there is a positive self-energy density outside a single plate -- the self-energy is not in the interaction energy E and must be carried by the plate's mass."
+ ],
+ "hypothesis_drift": [
+  "UNRECORDED CONSTRUCTION (ledger.py:2136): the figure 2.72e-8 is a typed literal with no owner (status_word none, owner None), no instrument computes it, and the construction (gap, sheet areal density, number of sheets) is written nowhere. Reconstructed here: R = pi^2 hbar/(1440 d m c) with d = a0, m = m_H (two sheets at gap a0, one H per a0^2); a search over simple constructions finds exactly this formula (also as one sheet at gap 2a0) and nothing else rounding to 2.72e-8. This is the tree's own named failure mode ('prose quoting a number no instrument was asked for', ledger.py:33 on bounds.py) applied to itself. A discrepancy of provenance, not of value: the value reproduces to 3 s.f.",
+  "DROPPED -- validity of the ideal formula at the scale used (ledger.py:2136 'for hydrogen'): the construction applies the perfect-conductor energy at a gap of one Bohr radius, where the review states the formula is 'valid only for perfect conductors' and the interaction crosses to van der Waals (eq (4.27)). Computed here, this drop is CONSERVATIVE for the tree: for any two identical passive plates with |r| <= 1 at imaginary frequency, the Lifshitz integrand ln(1 - r^2 e^{-2qa}) is monotone in r^2, so |E_Lifshitz| <= |E_ideal| at every gap (sympy derivative; z3 unsat on the polynomial form; also for opposite-sign r1 r2); the plasma model gives E/E_ideal = 0.0085 at a = 0.03 delta0 rising to 0.961 at 100 delta0, matching the BMM (5.60)-derived series 1 - 4u + (72/5)u^2 - (320/7 - 32 pi^2/147)u^3 to 1.0e-6 at a/delta0 = 100. Named hypotheses the bound then needs: H-PASSIVE (|r_TE|,|r_TM| <= 1 at imaginary frequencies; no gain media), H-PLANAR-INFINITE, H-T0, H-CONTINUUM (a macroscopic eps description).",
+  "DROPPED -- H-GAP-GE-SPACING and H-SPACING-GE-A0 (ledger.py:2136-2137 'the lightest conceivable sheet'): the construction needs the gap a >= the sheet's site spacing d (so a continuum mirror exists at that gap) and d >= a0. With them, R <= pi^2 hbar/(1440 d m c); a lighter (sparser) sheet raises d and LOWERS R, so 'lightest sheet' is not what maximises the ratio -- the product d x m is. Outside the continuum (d > a, aligned sparse H lattices), an illustrative London pair estimate with C6(H-H) = 6.499 a.u. (NAMED-NOT-READ) gives 9.4e-8 at gap a0 (where that asymptote is itself invalid), 8.3e-9 at 1.5 a0: the 2.72e-8 is a value of the continuum construction, not a bound on every interaction at that gap.",
+  "WEAKENED WORD -- 'hydrogen, the lightest conceivable sheet' (ledger.py:2136-2137): hydrogen is not the maximiser even among conceivable atomic sheets. Computed with the same formula (CODATA 2022): muonium 2.40e-7, positronium (radius 2a0, mass 2m_e) 1.25e-5; and 'every material that exists' (ledger.py:1550-1552) includes degenerate matter -- at the tree's own nuclear saturation density 2.3e17 kg/m^3 (core.py:263), d = n^-1/3 = 1.94e-15 m, R = 7.43e-4. The numeric bound '<= 2.72e-8' therefore covers ordinary atomic matter with site mass >= m_H and spacing >= a0, not the class the sentence names. Every one of these is still < 1, so the CONCLUSION of S2/B4 is unaffected.",
+  "ADDED, and harmless: M in B4 counts only the two sheets (no frame, spacers or support); any real apparatus has more mass, so the omission makes the ratio an overestimate -- conservative for the refusal.",
+  "IMPLICIT, and consistent with the source: comparing |E_Cas| with M c^2 presumes Casimir energy gravitates as E/c^2 -- READ in Fulling et al. (hep-th/0702091), who state it 'disproves recent claims in the literature' to the contrary. And the plate's divergent boundary self-energy (Sopova-Ford) is positive and belongs to M, so it can only raise M."
+ ],
+ "data_at_publication": [
+  {
+   "quantity": "Bohr radius a0 (the construction's gap and site spacing)",
+   "value_then": "5.29177210903(80)e-11 m (CODATA 2018; the tree's address.py literal; the vintage DOCKET 53 used is not recorded)",
+   "value_now": "5.29177210544(82)e-11 m (CODATA 2022)",
+   "source_now": "arXiv:2409.03787 (READ, saved text md5 cc640485...); NIST 2022 table via scipy _codata.py",
+   "moves_conclusion": "No. R moves -6.7e-10 relative (2018 -> 2022, all constants together); 2.7224e-8 both years."
+  },
+  {
+   "quantity": "hydrogen atom mass m_H (site mass)",
+   "value_then": "not recorded; m_H = m_p + m_e - Ry(reduced) = 1.6735328378e-27 kg (CODATA 2018) or m_p = 1.6726219237e-27 kg",
+   "value_now": "1.6735328401e-27 kg (CODATA 2022 m_p + m_e - binding)",
+   "source_now": "NIST CODATA 2022 via scipy (proton mass, electron mass, alpha)",
+   "moves_conclusion": "No. m_H gives 2.72243e-8, m_p gives 2.72392e-8; both print 2.72e-8."
+  },
+  {
+   "quantity": "fine-structure constant alpha and m_e/m (identity R = pi^2 alpha m_e/(1440 m))",
+   "value_then": "alpha^-1 = 137.035999084(21) (CODATA 2018)",
+   "value_now": "alpha^-1 = 137.035999177(21) (CODATA 2022)",
+   "source_now": "arXiv:2409.03787 (READ)",
+   "moves_conclusion": "No (~1e-9)."
+  },
+  {
+   "quantity": "the margin: log10(1/R)",
+   "value_then": "7.565 orders (hydrogen construction)",
+   "value_now": "7.565 orders; 3.13 orders at the tree's own nuclear density (R = 7.43e-4); 4.90 for positronium",
+   "source_now": "computed, rederive section F",
+   "moves_conclusion": "No. The refusal needs R < 1; the smallest margin found on any material considered is 3.1 orders."
+  },
+  {
+   "quantity": "ideal-plate energy coefficient pi^2/720 and its real-metal reduction",
+   "value_then": "Casimir 1948: pi^2/720 (perfect conductor)",
+   "value_now": "unchanged theory; measured force coefficient at 15% precision over 0.5-3.0 um (Bressi et al. 2002, READ abstract); real metals reduce |E| below ideal by 10-20% at ~1 um (BMM p.155, READ) and by x0.20 at a = delta0 (computed, plasma model)",
+   "source_now": "quant-ph/0203002 (READ); quant-ph/0106045 (READ)",
+   "moves_conclusion": "No; every correction lowers |E_Cas| and so strengthens the refusal."
+  }
+ ],
+ "rederivation": {
+  "method": "sympy",
+  "script_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/casimir-energy-vs-plate-mass.py",
+  "outcome": "RC 0, 0 failures. (A) six source texts md5-asserted; the load-bearing strings of BMM eqs (4.27), (4.31), (5.60) and p.155, Fulling et al.'s E_c/c^2 abstract, and Lobo-Crawford's 'the mass of the plates have not been taken into account' found verbatim. (B) CODATA 2018/2022 parsed; a0 = hbar/(alpha m_e c) to 1e-9 in both. (C) sympy: two sheets at gap a0 with one site of mass m per a0^2 give R = pi^2 hbar/(1440 a0 m c) = pi^2 alpha (m_e/m)/1440; R(m_H) = 2.722434e-8, R(m_p) = 2.723917e-8 in both vintages; 2018->2022 move -6.7e-10; margin 7.565 orders. (D) reconstruction search over 96 simple constructions: 4 hits, all the same formula (two sheets gap a0 spacing a0, or one sheet gap 2a0 spacing 2a0; m_H or m_p) -- the literal is reproducible but its construction is not unique and is recorded nowhere. (E) Lifshitz bound: d/dR ln(1 - R x) = -x/(1 - R x) (sympy); z3 unsat for 1 - R x < 1 - x and for (1 + R x)(1 - x) > 1 on [0,1]x(0,1) (vacuity guard sat): |E_Lifshitz| <= |E_ideal| for any identical (or opposite-sign) passive pair with |r| <= 1; numeric plasma-model eta = E/E_ideal = 0.0085, 0.028, 0.077, 0.204, 0.422, 0.709, 0.881, 0.961 at a/delta0 = 0.03 ... 100, strictly below 1 and monotone; agrees with the energy series integrated from BMM (5.60) to 1.2e-4 at 30 and 1.0e-6 at 100. (F) general R = pi^2 hbar/(1440 d m c): hydrogen 2.72e-8, muonium 2.40e-7, positronium 1.25e-5, nuclear matter at the tree's 2.3e17 kg/m^3 7.43e-4 -- all < 1, hydrogen not the maximum; R >= 1 requires d <= (pi^2/1440) hbar/(m c) = 0.00685 reduced Compton wavelengths (2.6e-15 m for electrons, 1.4e-18 m for protons). (G, illustrative, NAMED-NOT-READ inputs) ideal-metal thermal limit zeta(3)kT/(8 pi a^2): 6.6e-13 at 300 K, a-independent; London C6 pair estimate 9.4e-8 at gap a0 (invalid there), 8.3e-9 at 1.5 a0, all < 1e-6.",
+  "agrees_with_source": "partly"
+ },
+ "later_literature": [
+  {
+   "ref": "Fulling, Milton, Parashar, Romeo, Shajesh, Wagner, 'How does Casimir energy fall?', arXiv:hep-th/0702091 (PRD 76, 025004 (2007))",
+   "effect": "confirms",
+   "what": "Casimir energy of parallel plates gravitates with inertial and gravitational mass E_c/c^2 -- the premise that makes |E_Cas| versus M c^2 the right comparison.",
+   "read_status": "READ (abstract and p.1-3 harvested page text, md5 e47c1b77902a087aa4a451c4fb32cc4f)"
+  },
+  {
+   "ref": "Bordag, Mohideen, Mostepanenko, Phys. Rep. 353, 1 (2001), arXiv:quant-ph/0106045",
+   "effect": "narrows",
+   "what": "The ideal formula holds only for perfect conductors; finite conductivity reduces the force (eq (5.60)); at a << lambda_0 the interaction is van der Waals, E = -H/(12 pi a^2). Narrows the construction's validity at a = a0, in the direction that strengthens the refusal (|E| falls).",
+   "read_status": "READ (harvested pages, md5 cff7755d3f159002da4e32e6c857ec9c)"
+  },
+  {
+   "ref": "Sopova & Ford, arXiv:quant-ph/0204125 (PRD 66, 045026 (2002))",
+   "effect": "extends",
+   "what": "Local energy density diverges at the boundaries even with dispersion; a positive self-energy density outside a single plate; the net density between plates can be negative only when omega_p a > 100. The self-energy is positive and is carried by the plate -- it can only raise M.",
+   "read_status": "READ (pp.1-2 and conclusion, md5 9bc43e4838b9a24d30e082607744ef58)"
+  },
+  {
+   "ref": "Lobo & Crawford, arXiv:gr-qc/0204038 (2002)",
+   "effect": "confirms",
+   "what": "On a Casimir-supported superluminal configuration: 'the analysis is probably not complete, because the mass of the plates have not been taken into account' -- the same omission the tree's S2/B4 prices.",
+   "read_status": "READ (the sentence and its section, md5 5ed2b9102777d5e7444d210a0c5ec934)"
+  },
+  {
+   "ref": "Bressi, Carugno, Onofrio, Ruoso, arXiv:quant-ph/0203002 (PRL 88, 041804 (2002))",
+   "effect": "confirms",
+   "what": "Parallel-plate Casimir force measured over 0.5-3.0 um, force coefficient at 15% precision -- the magnitude scale is measured, not only computed.",
+   "read_status": "READ (abstract, md5 9081bb7e5b939e3228db532d78065ebe)"
+  },
+  {
+   "ref": "discover_papers (this stage): later work on Casimir energy versus apparatus mass",
+   "effect": "contested",
+   "what": "NOT RUN: alphaXiv returned 'assistant quota exceeded'. No search for later literature could be made; the schema forces an effect value, and the true status of this row is OPEN.",
+   "read_status": "NOT READ -- tool quota exhausted"
+  }
+ ],
+ "lacked_data": "M's hypothesis, tested for this result, and the evidence runs one way. What the originators lacked: Casimir (1948) had no measurement and treated perfect conductors; Lifshitz's real-material theory (1956, NAMED-NOT-READ) and the measurements (Bressi et al. 2002 at 15%, READ) came later, as did the settlement that Casimir energy gravitates as E/c^2 (Fulling et al. 2007, READ, against 'recent claims' otherwise). Does the later data change the conclusion? Computed: every datum that came later moves |E_Cas| DOWN, not up -- finite conductivity (x0.20 at a = delta0, x0.0085 at 0.03 delta0), the van der Waals crossover, and the passivity bound |E_Lifshitz| <= |E_ideal| (z3); and the gravitation result confirms the comparison. Constants moved 2018 -> 2022 by -6.7e-10 in R. So nothing a 1948 author lacked could lift the ratio toward 1. What the TREE lacked is different: it never recorded its own construction, and its words 'lightest conceivable' and 'every material that exists' outrun the number -- positronium (1.25e-5) and the tree's own nuclear density (7.43e-4) exceed 2.72e-8, while staying below 1 by 4.9 and 3.1 orders. The one direction the conclusion could move is a material that breaks H-PASSIVE (gain media, |r| > 1), or a mirror whose reflecting gap is below 0.7% of its constituents' reduced Compton wavelength; neither exists in any data read here, and neither is established not to exist -- recorded as the named hypotheses.",
+ "grade": "NARROWED",
+ "grade_evidence": "The conclusion the refusal needs (|E_Cas| < M c^2; B4 REFUSED, no gap) is re-derived and holds with margin: 2.7224e-8 reproduced (CODATA 2018 and 2022 alike) from the reconstructed construction R = pi^2 hbar/(1440 a0 m_H c); the ideal formula is proved an upper bound on the Lifshitz energy for any passive identical pair (sympy + z3, vacuity-guarded) and the plasma model sits 4-99% below it; Casimir energy gravitates as E/c^2 (READ). It is NARROWED, not STANDS, because the tree's statement drops hypotheses the number needs and names a class wider than the number covers: (1) the construction is unrecorded and the literal is owned by no instrument (ledger.py:2136); (2) '<= 2.72e-8' holds under H-CONTINUUM, H-GAP-GE-SPACING, spacing >= a0 and site mass >= m_H -- i.e. ordinary atomic matter -- not for 'the lightest conceivable sheet' (positronium 1.25e-5, muonium 2.40e-7) nor for 'every material that exists' (the tree's own nuclear density gives 7.43e-4); (3) it also needs H-PASSIVE, H-PLANAR-INFINITE, H-T0. None of these moves B4's verdict: every case computed stays below 1 by at least 3.1 orders, and R >= 1 would need a reflecting gap below 0.00685 of the constituents' reduced Compton wavelength. Not WRONG: no counterexample to the conclusion was found or constructed; the over-reach is in the attached number and its qualifier, a discrepancy, not a refutation. Later-literature search could not run (quota), so the later-literature leg is OPEN.",
+ "what_would_change_the_grade": "STANDS if the tree recorded its construction and restated B4 as '<= 2.72e-8 for sheets of site mass >= m_H and spacing >= a0 (continuum, passive, T = 0)', or replaced the number with the general bound pi^2 hbar/(1440 d m c) and the scope it covers. WRONG only if a real material were shown with |E_Cas| >= M c^2 -- e.g. an active (gain) medium with |r| > 1 at imaginary frequency sustaining a static Casimir energy, or a mirror whose gap is below 0.7% of its constituents' reduced Compton wavelength; none is known in anything read here. DATA-DEPENDENT only if the refusal came to hinge on the third digit (it hinges on R < 1, with >= 3 orders to spare). A discover_papers run finding a later paper that exhibits Casimir energy comparable to apparatus rest energy would re-open it.",
+ "reverify_command": "python3 -B /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/casimir-energy-vs-plate-mass.py  # expect RC 0, 'RESULT: 0 failure(s)'; tree literal: grep -n '2.72e-8' /home/user/Claude-Method-Works/research/warp-drive/ledger.py",
+ "report_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/audits/casimir-energy-vs-plate-mass.json"
+}

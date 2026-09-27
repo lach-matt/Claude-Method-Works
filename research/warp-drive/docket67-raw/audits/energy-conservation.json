@@ -1,0 +1,113 @@
+{
+ "key": "energy-conservation",
+ "name": "Energy conservation: the carrier must deliver at least Mc^2",
+ "source": {
+  "located": "The result is the classical conservation of energy (Noether 1918, time-translation invariance) combined with E >= Mc^2 for a body of rest mass M (Einstein 1905). Neither classic was reachable here, so both are NAMED-NOT-READ. What was READ are restatements held as cached arXiv text in this docket's scratchpad: (a) S. M. Carroll, Lecture Notes on General Relativity, gr-qc/9712019v1, p.37 eq. (1.113) (flat space: 'd_mu T^{mu nu} = 0 ... The nu = 0 equation corresponds to conservation of energy'; 'the proof follows for any individual source of matter from the equations of motion') and p.114 eq. (4.23) (curved space: 'nabla_mu T^{mu nu} = 0. This equation expresses the conservation of energy in the presence of a gravitational field'), both LOCAL statements; (b) M. Hotta, 'Quantum Energy Teleportation: An Introductory Review', arXiv:1101.3954v1, p.16 and p.40, which gives the global Hamiltonian form the tree actually needs; (c) E.-A. Kontou and K. Sanders, arXiv:2003.01815v2, pp.22 and 27 (the Hamiltonian is bounded below, while the energy density at a point is unbounded below); (d) the docket's own positive-mass-theorem audit (EHLS arXiv:1110.2087 Theorem 1, read there via alphaXiv): E >= |P| only under the dominant energy condition.",
+  "read_status": "READ-VIA-RESTATEMENT",
+  "via": "This stage could not open any paper afresh. alphaXiv answer_pdf_queries, get_paper_content and discover_papers each returned 'alphaXiv assistant quota exceeded'. arxiv.org is refused by the egress proxy (curl CONNECT 403; WebFetch EGRESS_BLOCKED). Every quotation here comes from source text already cached in scratchpad/d67/src by earlier stages of DOCKET 67: src/gr-qc_9712019.alphaxiv_pages.txt (alphaXiv page text, pp.37, 114), src/casmag/all/1101.3954v1.txt (full arXiv v1 text, pp.1, 4-5, 14, 16, 20-23, 33-34, 39-42), src/_cache_2003.01815.txt (alphaXiv page text, pp.22, 27) and audits/positive-mass-theorem.json. Noether 1918 (English translation physics/0503066) was not reached and is NAMED-NOT-READ, as are Einstein 1905 and Carroll's chapter 5 (Killing vectors and conserved charges). The global Killing-vector form of the theorem is therefore demonstrated here by computation (C6), not read."
+ },
+ "published_statement": "Local form, flat space (Carroll gr-qc/9712019 p.37): 'T^{mu nu} has the even more important property of being conserved. In this context, conservation is expressed as the vanishing of the \"divergence\": d_mu T^{mu nu} = 0 (1.113) ... The nu = 0 equation corresponds to conservation of energy ... the proof follows for any individual source of matter from the equations of motion obeyed by that kind of matter.' Local form, curved space (p.114): 'nabla_mu T^{mu nu} = 0 (4.23). This equation expresses the conservation of energy in the presence of a gravitational field.' Global Hamiltonian form (Hotta 1101.3954 p.16): 'After completion of the protocol, the total energy of the field is equal to E_A - E_B. Therefore, the input energy E_A is not smaller than the output energy E_B: E_A >= E_B, because the total energy does not become negative. Note that the positive local energy +E_A of the field in region A compensates for the negative local energy -E_B of the field in region B'; p.40: 'the total energy must be nonnegative'. Positivity (Kontou-Sanders 2003.01815 p.27): 'the stability condition that the Hamiltonian operator H is bounded from below'; p.22: 'the expectation value of the energy density at a point is unbounded below'.",
+ "published_hypotheses": [
+  "H-EOM: every matter source obeys its equations of motion; d_mu T^{mu nu} = 0 follows from them 'for any individual source of matter' (Carroll p.37)",
+  "H-TT (time translation): a GLOBAL conserved energy needs a time-translation symmetry. In Noether's theorem this is invariance of the action; in GR it is a timelike Killing vector or asymptotic flatness (ADM). nabla_mu T^{mu nu} = 0 is LOCAL (Carroll p.114) and has no integral form without one. From Noether, NAMED-NOT-READ here; computed in C6.",
+  "H-ISO: the system is isolated, and energy is counted over all of it, sender included. In Hotta p.16 the output E_B is balanced by the input E_A infused at a DIFFERENT site.",
+  "H-POS: the Hamiltonian is bounded from below and the total energy is nonnegative (Hotta pp.16, 40; Kontou-Sanders p.27). In classical GR the corresponding condition is the dominant energy condition (EHLS Thm 1, via audits/positive-mass-theorem.json). Local energy density may be negative and is 'unbounded below' at a point (Kontou-Sanders p.22).",
+  "H-REST: a body of rest mass M has energy >= Mc^2 in any inertial frame, with equality at rest (Einstein 1905, NAMED-NOT-READ; standard)",
+  "No empirical datum enters the theorem. c is exact in SI."
+ ],
+ "hypothesis_drift": [
+  "DROPPED H-TT, massform.py:445-448 and 2038 (N_INFO). 'That is energy conservation. THEOREM.' is stated with no time-translation or stationarity premise. Conservation of a global energy needs one: C6 computes dH/dt = +w w' q^2 != 0 for a time-dependent Lagrangian and 0 for a constant one. The same holds for where the energy is counted. The Killing energy at infinity of a body at rest at Earth's surface is (1 - 6.96e-10) Mc^2 (C4), so 'at least Mc^2' is a LOCAL-frame floor. The tree names only the payload's SELF-binding, 5.2e-26 (massform.py:493-495, H-AME at 827-829), not the external potential. Numerically negligible, but unnamed.",
+  "DROPPED H-POS, massform.py:445-448 and 2098-2102 (pair_floor_j 'the least energy that makes the payload from energy'). The floor needs every other product (radiation, antimatter, any remainder) to carry nonnegative energy. z3 C5d: with a negative-energy by-product allowed, 'E_carrier < Mc^2' is satisfiable. C5e: with it excluded, that is UNSAT. Hotta p.16 shows the case physically: a local gain E_B at the destination is paid by a local negative energy -E_B there. massform does not name the premise. The tree elsewhere uses the positive mass theorem, whose own audit (positive-mass-theorem.json) records that it forbids negative energy only under the DEC.",
+  "DROPPED H-ISO in the sentence 'A signal carries energy only through its carrier' (massform.py:445) and in N-INFO 'By energy conservation a bit brings only its carrier's energy' (massform.py:452, 2038). Energy conservation does NOT imply this locally. In Quantum Energy Teleportation (Hotta 1101.3954 abstract p.1, pp.5, 16) a classical message lets the destination extract E_B > 0 'without breaking any known physical laws', with no energy carried by the message. The global statement survives: E_A >= E_B, where E_A is infused at the SENDER's site (p.16), and the input 'is lower bounded by the sum of the teleported energies extracted from other distant sites' (p.42). So the claim holds as a GLOBAL budget that counts the sender's infusion, not as a statement about what the carrier brings. ledger.py:250-252 records QET's literature as 'CITED, not READ'. It is read here. This bears on DOCKET 66, which is not run here.",
+  "IMPLICIT, and handled elsewhere rather than dropped: no energy store at the seat. The floor is on the carrier only if nothing at the destination supplies energy. z3 C5c: with a seat store allowed, 'E_carrier < Mc^2' is satisfiable. massform covers this by reading rather than in the THEOREM sentence: STOCK (C5, prior mass), TEMPLATE/H-UNSOURCED-SEAT, and the S13 held-seat route, whose balance names H-RELEASE (massform.py:812-814, 2986-2998). The canonical entry's listed hypothesis (H-RELEASE) is present and correctly scoped to S13. The S13 balance at massform.py:717-726 is an internal accounting (radiated >= 0 is checked, massform.py:2280-2292) and it needs H-POS for the radiated part, which it checks.",
+  "DROPPED (conservative direction): electric-charge conservation in the pair floor (massform.py:486-495, 2098-2102; D28 at 2876-2888). The floor conserves B and L only. With Q also conserved, the antibaryons must be neutralised by the lightest B = 0 positive carrier, the positron, so the per-nucleon cost is the least ATOMIC mass per nucleon: 56Fe, 930.4118 MeV against the nuclear 930.1746 MeV. The least floor becomes 1.99774 Mc^2 (C3), 2.544e-4 Mc^2 above the tree's 1.99748. The L budget allows it: 1.955e28 positrons <= N_e = 2.313e28, and the remainder goes to antineutrinos. The tree's figure therefore stays a valid floor ('at least'), but pair_floor_j's docstring 'the least energy' holds only on B and L, as it says. This is a discrepancy of tightness, recorded and not repaired, and it is not an error."
+ ],
+ "data_at_publication": [
+  {
+   "quantity": "Mc^2, M = 70 kg (payload: a chosen figure, not a measurement)",
+   "value_then": "6.2913e18 J (massform.py:446)",
+   "value_now": "6291286251157723480 J exactly (c = 299792458 m/s exact SI)",
+   "source_now": "SI definition of the metre (c exact); C1 exact over sympy integers",
+   "moves_conclusion": "no -- reproduced to all printed digits"
+  },
+  {
+   "quantity": "megatons",
+   "value_then": "1504 megatons (massform.py:169)",
+   "value_now": "1503.6535 Mt with 1 Mt = 4.184e15 J by definition (warpfolder.py:191)",
+   "source_now": "C1",
+   "moves_conclusion": "no -- rounds to 1504"
+  },
+  {
+   "quantity": "atomic mass unit u (enters mu_min)",
+   "value_then": "931.49410242 MeV (CODATA 2018; massform.py:1011, labelled NAMED-NOT-READ in the tree)",
+   "value_now": "931.49410372 MeV (CODATA 2022, as shipped in scipy 1.17.1's constants table; the module docstring still says '2018' while the values are 2022)",
+   "source_now": "scipy.constants.physical_constants (machine-readable restatement, not the CODATA paper)",
+   "moves_conclusion": "no -- mu_min moves by 1.3e-6 MeV and the floor ratio by 1.4e-9; it stays 1.9975 (C2)"
+  },
+  {
+   "quantity": "electron mass m_e c^2",
+   "value_then": "tree's MASS_MEV['e'] (READ rows)",
+   "value_now": "0.51099895069 MeV (CODATA 2022 via scipy)",
+   "source_now": "scipy.constants",
+   "moves_conclusion": "no (C2)"
+  },
+  {
+   "quantity": "mu_min, least nuclear mass per nucleon (AME2020 capture, measured rows)",
+   "value_then": "930.1746 MeV, 56Fe (massform.py:491)",
+   "value_now": "930.1745822 MeV, 56Fe, recomputed from gravity.nuclides() (C2). AME2020 is the capture the tree holds; no newer evaluation was read here.",
+   "source_now": "tree's AME2020 capture, recomputed",
+   "moves_conclusion": "no"
+  },
+  {
+   "quantity": "B, the payload's baryon count (stock.HUMAN composition)",
+   "value_then": "4.2109e28 (massform.py:481)",
+   "value_now": "4.210860e28, with B m_u c^2/Mc^2 = 0.998900 (C2). The composition is NAMED-NOT-READ in the tree and was not re-read here.",
+   "source_now": "tree counts",
+   "moves_conclusion": "no -- the floor ratio 1 + B mu_min/(Mc^2) depends on composition only through binding and the n-p mass difference (about 1e-3), and no verdict reads the fourth decimal"
+  }
+ ],
+ "rederivation": {
+  "method": "sympy",
+  "script_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/energy-conservation.py",
+  "outcome": "OVERALL OK, exit 0 (sympy 1.14.0, z3 5.1.0; imports the tree read-only). C1: Mc^2 = 6291286251157723480 J exactly, 1503.65 Mt, so 6.2913e18 J and 1504 reproduce. C2: the tree's MU_MIN (56Fe, 930.1745822 MeV) and 1.9974847 reproduce exactly; CODATA 2022 u shifts the ratio by 1.4e-9. C3: with Q conserved the least floor is 1.9977391 Mc^2 (+2.544e-4, 56Fe atomic 930.4118 MeV per nucleon); the tree's floor is lower, so it is still a floor. C4: Killing energy at Earth's surface is (1 - 6.96e-10) Mc^2; the tree's self-binding 5.2e-26 reproduces. C5 (z3, LRA): balance + {E_store = 0, E_rad >= 0, E_other >= 0, E_anti >= B mu} |= E_carrier >= Mc^2 + B mu (valid); B free |= E_carrier >= Mc^2 (valid); drop E_store = 0 -> E_carrier < Mc^2 SAT; drop E_other >= 0 -> SAT; with both kept, UNSAT. C6: for L = q'^2/2 - w(t)^2 q^2/2, on shell dH/dt = +w w' q^2, and 0 when w is constant: Noether energy needs time translation. The first run of C6 FAILED on a sign error in MY expected expression (-w w' q^2); the computed dH/dt = -dL/dt|explicit = +w w' q^2 is correct, and the check was corrected. That was an error in the auditor's script, not in the source or the tree.",
+  "agrees_with_source": "yes"
+ },
+ "later_literature": [
+  {
+   "ref": "M. Hotta, 'Quantum Energy Teleportation: An Introductory Review', arXiv:1101.3954v1 (2011), protocols from 2008",
+   "effect": "narrows",
+   "what": "Energy conservation holds globally: E_A >= E_B 'because the total energy does not become negative' (p.16), and Alice 'cannot withdraw energy larger than E_A - E_B' (p.40). But a classical message lets the destination extract E_B from vacuum entanglement, leaving negative local energy -E_B there (p.5: 'even if we have zero energy in a region ... its energy can be extracted from the vacuum fluctuation ... generating negative energy density around there'). So 'a signal carries energy only through its carrier' is not implied by energy conservation locally. It holds only as a global budget that includes the sender's infusion E_A. E_B decays with distance, as a power law |n_B - n_A|^-9/2 in the critical Ising chain (p.40, eq. 44).",
+   "read_status": "READ (cached arXiv v1 full text, scratchpad/d67/src/casmag/all/1101.3954v1.txt)"
+  },
+  {
+   "ref": "K. Ikeda, 'Demonstration of Quantum Energy Teleportation on Superconducting Quantum Hardware', arXiv:2301.02666v5",
+   "effect": "extends",
+   "what": "Reports QET realised on IBM superconducting hardware, 'consistent with the exact solution of the theory', using only local operations and classical communication (abstract, p.1). No energy magnitude at payload scale is claimed.",
+   "read_status": "READ (abstract p.1 only, cached text scratchpad/d67/src/casmag/all/2301.02666v5.txt)"
+  },
+  {
+   "ref": "E.-A. Kontou and K. Sanders, 'Energy conditions in general relativity and quantum field theory', arXiv:2003.01815v2 (2020)",
+   "effect": "confirms",
+   "what": "The QFT analogue of positivity is 'the stability condition that the Hamiltonian operator H is bounded from below' (p.27), while 'the expectation value of the energy density at a point is unbounded below' (p.22). 'Negative energy densities can only persist for long times when the system is not isolated or the spacetime is not asymptotically flat' (p.27). This confirms that the global floor stands on H-POS and H-ISO, and that it is a global and not a local statement.",
+   "read_status": "READ (cached alphaXiv page text pp.22, 27)"
+  },
+  {
+   "ref": "M. Eichmair, L.-H. Huang, D. A. Lee, R. Schoen, arXiv:1110.2087 (spacetime positive mass theorem), via this docket's audits/positive-mass-theorem.json",
+   "effect": "narrows",
+   "what": "E >= |P| for asymptotically flat data only under the dominant energy condition. That audit exhibits complete, regular, asymptotically flat data with E_ADM < 0 once the DEC fails. Classical exotic matter could therefore be the negative-energy by-product of z3 C5d.",
+   "read_status": "READ-VIA-RESTATEMENT (read at alphaXiv by the positive-mass-theorem stage; not re-read here)"
+  },
+  {
+   "ref": "discover_papers search for later work",
+   "effect": "contested",
+   "what": "NOT RUN: alphaXiv discover_papers returned 'quota exceeded'. The later-literature list is limited to what the docket had already cached, and it is a floor, not a census.",
+   "read_status": "NOT-RUN"
+  }
+ ],
+ "lacked_data": "M's hypothesis is that earlier physicists lacked certain data. The theorem itself contains no measured datum: energy conservation follows from a symmetry, and E >= Mc^2 from Lorentz invariance. So no measurement made since can move it, and none of the tree's inputs has moved it either: CODATA 2018 to 2022 shifts the pair floor by 1.4e-9 (C2), and 6.2913e18 J and 1504 Mt are exact arithmetic on a chosen M. That is evidence AGAINST the hypothesis for this result's conclusion. What came later is not data but refinement of scope: quantum inequalities (negative local energy density allowed, bounded when smeared) and QET (2008; a first hardware demonstration reported in arXiv:2301.02666). Both show the LOCAL reading 'a signal brings only its carrier's energy' is stronger than conservation implies. They also confirm the GLOBAL budget, E_A >= E_B (Hotta p.16). Having that later knowledge narrows the tree's wording and moves no number: the global floor Mc^2 (or 1.9975 Mc^2, or 1.9977 Mc^2 with Q) still binds the total energy that must enter the isolated system. The magnitude of any QET-type local gain at payload scale is NOT computed here; the only figure read is a power-law decay with distance in a spin chain (Hotta p.40).",
+ "grade": "NARROWED",
+ "grade_evidence": "The theorem as published stands, and every re-derivation agrees. The global budget follows from the energy balance under H-TT, H-ISO and H-POS (z3 C5a/C5b valid). Every tree number reproduces exactly (C1, C2), and no datum moves it (C2: 1.4e-9). The grade is NARROWED, not STANDS, because massform.py:445-448 and 452/2038 use the result on a larger class than it covers, without naming four hypotheses. (1) H-TT, time translation: C6 computes the failure of Noether energy without it, and C4 puts the floor in the local frame (a 7e-10 deficit at Earth). (2) H-POS, no negative-energy by-product: z3 C5d SAT without it and C5e UNSAT with it; Hotta p.16 shows the local case, and the positive-mass audit the classical case under DEC failure. (3) H-ISO, the global budget including the sender: 'a signal carries energy only through its carrier' and 'a bit brings only its carrier's energy' are narrowed by QET, where the destination gains E_B from a message carrying no energy, paid by E_A >= E_B at the sender (Hotta pp.5, 16, 40). (4) The pair floor drops Q conservation, in the conservative direction: the tree's 1.9975 stays a valid floor, and the least floor with Q is 1.9977 (C3), a tightness discrepancy that is not an error. It is not WRONG: nothing refutes energy conservation, and no tree number is contradicted. It is not DATA-DEPENDENT: no datum moves the conclusion. It is not OPEN: the statement is READ via restatement and the finite content is machine-checked, although Noether 1918 and Einstein 1905 themselves are NAMED-NOT-READ (alphaXiv quota exhausted, arXiv egress-blocked). No tree verdict is moved: D28's floor is still a floor, S12 is still priced, and S13's balance names H-RELEASE and checks radiated >= 0.",
+ "what_would_change_the_grade": "The grade moves to STANDS if the owner's THEOREM sentence (massform.py:445-448) and N-INFO (452/2038) are read as the global budget of an isolated system with a time-translation symmetry and a Hamiltonian bounded below. That means naming H-TT, H-ISO and H-POS, and counting the sender's own energy input in 'the carrier'. Only M rules on the tree's wording; nothing is repaired here. A read of Noether 1918 (physics/0503066) at source would lift the NAMED-NOT-READ on the classic but would not change the grade. The grade would move to WRONG only if a computed contradiction appeared: a mechanism under which the isolated system's total energy entering is below Mc^2 with every product's energy nonnegative. None is known, and C5e shows none exists under the stated hypotheses. A future DOCKET 66 computation of QET-type extraction at payload scale would bound how far the LOCAL reading fails. It could not move the global floor, since E_A >= E_B (Hotta p.16).",
+ "reverify_command": "python3 /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/energy-conservation.py; echo exit=$?",
+ "report_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/audits/energy-conservation.json"
+}

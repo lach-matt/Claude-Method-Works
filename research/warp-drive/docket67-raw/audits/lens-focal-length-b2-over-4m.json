@@ -1,0 +1,81 @@
+{
+ "key": "lens-focal-length-b2-over-4m",
+ "name": "Gravitational-lens focal length b^2/(4M) (source-at-infinity focus); a source inside it forms no real image",
+ "source": {
+  "located": "Textbook weak-field result with no single owning paper: Einstein's deflection alpha = 4GM/(c^2 b) (Ann. Phys. 49 (1916) 769, pre-arXiv), the thin-lens point-mass lens equation (Refsdal 1964, pre-arXiv), the solar-gravitational-lens focal distance b^2/(2 r_g) = b^2 c^2/(4GM) (Turyshev & Toth, e.g. arXiv:1703.05783), and the Jacobi/optical-tidal-matrix account of conjugate points and astigmatic thin bundles (Perlick, Living Rev. Relativ., arXiv:1010.3416). composite.py itself cites no paper for b^2/4M.",
+  "read_status": "NAMED-NOT-READ",
+  "via": "NOT reached at source this stage. alphaXiv answer_pdf_queries on 1703.05783 and 1010.3416, get_paper_content(1703.05783, fullText) and discover_papers all returned 'alphaXiv assistant quota exceeded'. curl to arxiv.org, export.arxiv.org, www.alphaxiv.org, api.semanticscholar.org and r.jina.ai: CONNECT 403 from the egress proxy (proxy status lists arxiv.org/export.arxiv.org as connect_rejected). No lensing text is in the d67/src cache. The only external text READ here is Barcelo & Visser gr-qc/0003025 (cached d67/src/gr-qc_0003025.txt line 2429-2432, eq. 5.52), restating the VLBI value gamma = 1 - (0.6 +/- 3.1) x 10^-4 -- used only for the gamma-sensitivity line R6. The grade therefore rests NOT on a source read but on a first-principles machine re-derivation (sympy Riemann tensor + two independent numeric Jacobi integrations), reported below."
+ },
+ "published_statement": "NOT READ at source. The textbook form the tree uses, re-derived here rather than quoted: a light ray passing a mass M at impact parameter b (weak field, M << b; thin lens, b << distances) is deflected toward it by alpha = 4M/b (G = c = 1); rays at impact parameter b from a source at infinity cross the axis at f = b/alpha = b^2/(4M); for a point source at distance D_s the rays at that b reconverge at D_i with 1/D_s + 1/D_i = 4M/b^2, which is positive (a real image/caustic) only when D_s > b^2/(4M). (For the Sun at b = R_sun this is the ~550 AU solar-lens focus; not read here.)",
+ "published_hypotheses": [
+  "weak field: |M|/b << 1 (linear in M; corrections O(M/b))",
+  "thin lens: b << D_s, D_i (deflection treated as a kink at the lens plane)",
+  "fixed impact parameter b (f depends on b, so the lens has a focal LINE, not a focal point; 'no real image' refers to the rays at that b)",
+  "vacuum exterior along the ray: b larger than the lens radius (point-mass / Schwarzschild exterior)",
+  "geometric optics (null geodesics; the wavelength small against 4GM/c^2 for the null focus to be a light focus)",
+  "GR value of the PPN parameter gamma = 1 in alpha = 2(1+gamma)M/b",
+  "positive M for the axisymmetric (axis-crossing) reading; for M < 0 the axisymmetric lens diverges"
+ ],
+ "hypothesis_drift": [
+  "WEAKENED ROUTE for M < 0 -- composite.py:290-293 applies b^2/(4|M|) to M < 0 while the canonical hypothesis says it 'follows from the 4M/b deflection'. For M < 0 the 4M/b deflection is repulsive: rays at b never cross the axis, so there is no axis-crossing focus. The |M| value is nevertheless CORRECT for what composite.py actually measures (det A = 0 of the thin Jacobi bundle): R1-R2 show the integrated optical tidal matrix is astigmatic, azimuthal power +4M/b^2 (= alpha/b) and radial power -4M/b^2 (= -d alpha/db), trace 0, so the focusing direction has power 4|M|/b^2 for either sign -- azimuthal for M>0, RADIAL for M<0. The number stands; the stated derivation route ('the 4M/b deflection') holds only for M>0; for M<0 it is the b-gradient of the deflection. Unnamed in composite.py:290-293 and in the canonical hypotheses.",
+  "DROPPED 'fixed b' -- composite.py:290-293 docstring 'A source INSIDE this forms no real image' and the specthm QUOTES entry ('composite', 'forms no real image') (specthm.py:2373) carry no 'at this b' qualifier. R4b SHOWS the bare sentence is false for the lens as a whole: the same point source at D_s = 5, M = 2e-3, seen through b = 0.15 (f = 2.8125 < 5) seats at D_i = 5.95 numerically (thin-lens 6.43). The TREE'S USE is at fixed b = 0.3 (composite.py:122, 384-386; SR1 specthm.py:1309 names the congruence at b), so the use is correct and the drift is in the wording.",
+  "DROPPED 'thin lens / weak field, to O(M/b)' -- composite.py:48-49 and 290-293 state f = b^2/4M as exact. Measured here: the effective threshold lies in (11.0, 11.5] rather than at 11.25 (R4 sweep), and the conjugate at source 40 sits at 55.87 (Born, both signs) and 55.27 / 56.48 (bent ray, M = +/-2e-3) against the thin-lens 55.65 -- corrections of relative order M/b = 0.0067. composite.py's own table (55.16 / 56.52; its selftest run prints 55.17 / 56.50) shows the same offsets. The selftest's inside case D_s = 5 is 6.25 inside f and is untouched by corrections of this size.",
+  "DROPPED 'finite run' in the SR1 dependent -- specthm.py:1309 names 'source outside the focal length (composite.py: a real image forms)' as the seating hypothesis. Outside f is NECESSARY, not sufficient, inside a finite affine window: the conjugate lies at D_s + f D_s/(D_s - f), e.g. D_s = 12 gives D_i ~ 180 (thin) / 213 (numeric), beyond composite's lam = 75. composite.py's survey seats only if D_s + D_i <= lam; SR1 does not name the window.",
+  "KEPT: vacuum along the ray (SR1 specthm.py:1309 names 'b >= the lens radius'); null congruence (SR1 names it); weak field (SR1 names it); positive M (SR1 names it -- narrower than composite.py's |M|)."
+ ],
+ "data_at_publication": [
+  {
+   "quantity": "design point b, M (geometric units, G = c = 1)",
+   "value_then": "b = 0.3, M = 2.0e-3 -> f = 11.25 (composite.py:384)",
+   "value_now": "f = 45/4 = 11.25 exactly (sympy Rational, R3)",
+   "source_now": "computed here; not a measured datum",
+   "moves_conclusion": "no -- exact arithmetic"
+  },
+  {
+   "quantity": "inside case",
+   "value_then": "x0 = -5 (D_s = 5), lam = 60 (composite.py:385)",
+   "value_now": "thin-lens D_i = -9 (virtual); numeric Born and bent ray: no conjugate in lam = 60 for either sign",
+   "source_now": "computed here (R3, R4)",
+   "moves_conclusion": "no -- margin 6.25 against O(M/b)*f ~ 0.1 corrections"
+  },
+  {
+   "quantity": "PPN gamma in alpha = 2(1+gamma)M/b (the only physical datum a focal length can carry)",
+   "value_then": "gamma = 1 (composite.py's metric is GR by construction; no datum enters)",
+   "value_now": "VLBI gamma = 1 - (0.6 +/- 3.1)e-4 as restated in Barcelo & Visser gr-qc/0003025 eq. 5.52 (READ in cache); the later Cassini figure is NOT read here",
+   "source_now": "gr-qc/0003025 eq. 5.52 (restatement of the VLBI result)",
+   "moves_conclusion": "no -- |df/f| <= 4.9e-4 (3 sigma), moving f = 11.25 by 5.6e-3 (R6)"
+  }
+ ],
+ "rederivation": {
+  "method": "sympy",
+  "script_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/lens-focal-length-b2-over-4m.py",
+  "outcome": "ALL CHECKS PASS (exit 0; output in rederive/lens-focal-length-b2-over-4m.out). R1 sympy: Riemann of the linearised metric -(1+2Phi)dt^2+(1-2Phi)dx^2 contracted with k = (1,1,0,0): T_yy = Phi_xx + 2Phi_yy, T_zz = Phi_xx + 2Phi_zz, T_yz = 2Phi_yz; trace = 2 nabla^2 Phi (traceless in vacuum). R2 sympy: along y = b with Phi = -M/r, int T dx = diag(-4M/b^2 radial, +4M/b^2 azimuthal), equal to (d alpha/db, alpha/b) with alpha = 4M/b; focusing power 4|M|/b^2 for M of either sign -> b^2/(4|M|) is right for the det A = 0 criterion. R3 sympy: 1/D_s + 1/D_i = 1/f gives D_i = f D_s/(D_s - f) > 0 iff D_s > f; design f = 45/4; source 40 -> lambda_conj = 55.652 thin-lens. R4 numeric (own RK4 code, not composite.py's): source 40 conjugate 55.866 (Born, both signs), 55.273 (bent, M = +2e-3), 56.479 (bent, M = -2e-3) vs composite's 55.16 / 56.52 -- sign ordering and split (1.21 vs 1.36) reproduced; source 5 no conjugate in lam 60 for all four; D_s sweep: no conjugate for D_s <= 11.0, first in (11.0, 11.5], consistent with f = 11.25 to O(M/b). R4b: same D_s = 5 at b = 0.15 seats (numeric D_i 5.95, thin 6.43) -- the fixed-b qualifier is load-bearing. R6: gamma at VLBI value moves f by < 0.006. R5: composite.selftest() run read-only (python -B, git status of research/ clean) -> SELFTEST OK, printing 55.17 / 56.50.",
+  "agrees_with_source": "yes"
+ },
+ "later_literature": [
+  {
+   "ref": "S.G. Turyshev & V.T. Toth, arXiv:1703.05783 (wave-theoretical solar gravitational lens; focal line b^2/(2 r_g))",
+   "effect": "extends",
+   "what": "UNVERIFIED -- named as the wave-optics / focal-line treatment of the same focus; the enum value is a placeholder, NOT established here, because the paper was not read (alphaXiv quota exceeded; arxiv.org CONNECT 403).",
+   "read_status": "NAMED-NOT-READ"
+  },
+  {
+   "ref": "V. Perlick, 'Gravitational lensing from a spacetime perspective', arXiv:1010.3416",
+   "effect": "extends",
+   "what": "UNVERIFIED -- named as the Jacobi-field/conjugate-point account the det A = 0 criterion belongs to; enum value is a placeholder, not established here (not read).",
+   "read_status": "NAMED-NOT-READ"
+  },
+  {
+   "ref": "discover_papers (the one allowed later-literature search)",
+   "effect": "contested",
+   "what": "NOT RUN TO RESULT -- returned 'alphaXiv assistant quota exceeded'. No later work was read that narrows, contradicts or extends the result; the 'contested' enum value here is a placeholder meaning 'unsearched', not a finding of contest.",
+   "read_status": "NOT-REACHED"
+  }
+ ],
+ "lacked_data": "M's hypothesis for THIS result: nothing the result depends on was unavailable to its originators. The focal length b^2/(4M) is a consequence of the linearised field equations and the geodesic/Jacobi equation, with one physical parameter (PPN gamma, fixed at 1 by GR). Evidence against a data gap: (i) R1-R4 re-derive it here from the metric alone, with no measured input; (ii) the only datum, gamma, is measured at 1 - (0.6 +/- 3.1)e-4 (VLBI, as restated in gr-qc/0003025 eq. 5.52), which moves f by < 5e-4 relative. What IS incomplete is not data but the STATEMENT as the tree carries it: it holds at fixed b, to O(M/b), and for M < 0 only in the thin-bundle (det A = 0) sense, not as an axis-crossing focus. Those are named hypotheses, not errors of the originators, and no later datum changes the conclusion.",
+ "grade": "NARROWED",
+ "grade_evidence": "The arithmetic and the physics are re-derived and agree: f = 45/4 = 11.25 exactly; 1/D_s + 1/D_i = 4|M|/b^2 with a real conjugate iff D_s > f; the source-40 conjugate reproduced by an independent integration (55.87 Born; 55.27/56.48 bent vs composite 55.16/56.52); source 5 does not seat for either sign; |M| is correct for M < 0 because the integrated tidal matrix is astigmatic with power magnitude 4|M|/b^2 on one axis. It is NARROWED, not STANDS, because the class the tree states is wider than the class that holds: (a) 'a source inside it forms no real image' (composite.py:290-293, quoted at specthm.py:2373) is true only for rays at that b -- R4b shows the same D_s = 5 source seats through b = 0.15; (b) the canonical hypothesis 'follows from the 4M/b deflection' covers only M > 0; for M < 0 the value comes from -d alpha/db (radial focusing) and there is no axis-crossing focus; (c) b^2/4M is exact only to O(M/b) (threshold measured in (11.0, 11.5]); (d) the dependent SR1 (specthm.py:1309) treats 'outside the focal length' as the seating condition when inside a finite run it is necessary, not sufficient. None of these touches the tree's actual numbers: the use at fixed b = 0.3 with D_s = 40 and D_s = 5 is correct. No source was READ (NAMED-NOT-READ): the grade rests on the machine re-derivation, not on a quotation.",
+ "what_would_change_the_grade": "To STANDS: the owners carry the qualifiers as named hypotheses -- 'at fixed impact parameter b', 'to O(M/b)', 'for M < 0 in the thin-bundle (det A = 0) sense, from -d alpha/db' -- and SR1 names the finite window D_s + f D_s/(D_s - f) <= lam; plus a source read at alphaXiv (e.g. 1703.05783 or 1010.3416) confirming the textbook statement. To WRONG: a computed conjugate point for a source at D_s < f at the SAME b in the weak-field thin-lens regime, or a det A = 0 focal length for M < 0 differing from b^2/(4|M|) at first order -- neither was found (R2, R4). To DATA-DEPENDENT: only a gamma measurement departing from 1 at the 1e-2 level, excluded by the VLBI figure read here.",
+ "reverify_command": "cd /tmp && python3 -B /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/lens-focal-length-b2-over-4m.py --run-composite; echo exit=$?",
+ "report_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/audits/lens-focal-length-b2-over-4m.json"
+}

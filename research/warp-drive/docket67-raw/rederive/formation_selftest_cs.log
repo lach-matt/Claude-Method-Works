@@ -1,0 +1,111 @@
+formation.py --selftest
+  kinds: res = symbolic residual, num = computed figure, CTL = a control
+  that can fail, cns = consistency (not a control), pin = record pin
+
+1. THE FAMILY -- both ends symbolic, and a broken family that must fail
+  [ok] res U = 0 (areal radius held)                                        0
+  [ok] res W = W_1^f                                                        0
+  [ok] res m = (R/2)(1 - W_1^{2f})                                          0
+  [ok] res j = fdot omega W_1^f e^{-f phi}/(4 pi R)                         0
+  [ok] res p_T time part = (omega/8pi) e^{-2f phi}(fdd - (phi+omega) fd^2)  0
+  [ok] res EV-W at U=0:  D_t W = 4 pi R j                                   0
+  [ok] res MS-t at U=0:  D_t m = -4 pi R^2 j W                              0
+  [ok] res metric diagonal with R^2 dOmega^2 (spherical symmetry)           {0}
+  [ok] res T_kk = rho + p_r - 2j, outgoing null k = u + n                   0
+  [ok] res T_kk = rho + p_r + 2j, ingoing null k = u - n                    0
+  [ok] res rho, p_r carry no time derivative                                {'rho': False, 'p_r': False}
+  [ok] res f = 0: all ten G_ab components vanish (FLAT)                     {0}
+  [ok] res f = 1: metric = certify's conformastatic, componentwise          {0}
+  [ok] res f = 1: rho, p_r, p_T = the static conformastatic values          {0}
+  [ok] CTL broken family (Lambda = -f phi) is NOT flat at f = 0             True
+  [ok] pin seated constants read from certify as rationals m, a, R_s        (1/50, 1/50, 200)
+  [ok] CTL phi_in = certify.phi at r = 0.005 (relative to m/r)              2.7755575615628914e-17
+  [ok] CTL phi_in = certify.phi at r = 1 (relative to m/r)                  1.734723475976807e-16
+  [ok] CTL phi_in = certify.phi at r = 150 (relative to m/r)                0.0
+  [ok] CTL phi_out = certify.phi at r = 250 (relative to m/r)               2.696797997322378e-17
+  [ok] CTL phi_out = certify.phi at r = 1000 (relative to m/r)              6.431296978467244e-17
+  [ok] CTL INDEPENDENT: 8 pi rho (sympy) vs certify FD at r=1, rel          2.0448983223567453e-07
+  [ok] CTL INDEPENDENT: 8 pi p_r (sympy) vs certify FD at r=1, rel          1.1254954807569392e-07
+  [ok] CTL INDEPENDENT: 8 pi p_T (sympy) vs certify FD at r=1, rel          5.11289273132686e-08
+  [ok] num the family's lapse gradient at f = 1/2, r = 1 (nonzero)          True
+
+2. THE PRICE PER SPHERE -- F1
+  [ok] res j e^{f phi}/fdot depends on t only through f                     True
+  [ok] res INT 4 pi R^2 j dtau = R (W_1 - 1), any f(t)                      0
+  [ok] res INT 4 pi R^2 j W dtau = R (W_1^2 - 1)/2 = -m_1, any f(t)         0
+  [ok] res ENCODING GUARD: z3 poly = s^3 r phi_in' (sympy)                  0
+  [ok] res ENCODING GUARD: z3 poly = r s^3 r phi_out' (sympy)               0
+  [ok] CTL the encoding guard rejects a drifted polynomial (-m r^3)         True
+  [ok] res z3: W_1 > 1 for 0 < r (inside the shell), all m, a > 0           True
+  [ok] res z3: W_1 < 1 outside (r > R_s > m)                                True
+  [ok] res z3: W_1 > 0 outside                                              True
+  [ok] CTL VACUITY GUARD: 'W_1 > 1 outside' is refutable                    True
+  [ok] res ADM mass of the seated object is 0 (concentric.py's M_ADM = 0)   0
+  [ok] res lim r^3 phi_out = -m a^2/2 (not compact support: fails D2)       0
+  [ok] pin phase1 D2 is 'compact support', and SEATED_COMPACT_SUPPORT is False ('compact support', True)
+  [ok] num the shell receives positive Kodama mass                          True
+  [ok] num   and the exterior side carries almost none: |m_1(R_s+)| < 1e-6  True
+  [ok] num K(r=1) = -m_1 from the family's RAW Misner-Sharp m at f = 1      True
+  [ok] cns E(r=1) in kg agrees with nonstatic.build_energy's units          2.638544540306102e+25
+
+3. INTEGRALS OVER REAL PASSAGES -- raw stress tensor, three profiles
+  [ok] res profile smoothstep runs f = 0 -> 1                               (0, 1)
+  [ok] res profile smoothstep at rest at both ends                          (0, 0)
+  [ok] res profile sine       runs f = 0 -> 1                               (0, 1)
+  [ok] res profile sine       at rest at both ends                          (0, 0)
+  [ok] res profile overshoot  runs f = 0 -> 1                               (0, 1)
+  [ok] res profile overshoot  at rest at both ends                          (0, 0)
+  [ok] num INT j dtau = (W_1-1)/(4 pi R), profile smoothstep (25 digits)    True
+  [ok] CTL 4 pi R^2 INT j dtau (raw) = on_seated E, smoothstep              True
+  [ok] CTL 4 pi R^2 INT j W dtau (raw) = on_seated K, smoothstep            True
+  [ok] CTL -2 INT j dtau (raw) = on_seated radial deficit (F2), smoothstep  True
+  [ok] num INT transverse time part = -(omega^2/8pi) INT f_tau^2, smoothstep True
+  [ok] num   and it is <= -(omega^2/8pi)/tau_p  (Cauchy-Schwarz), smoothstep True
+  [ok] num INT j dtau = (W_1-1)/(4 pi R), profile sine       (25 digits)    True
+  [ok] CTL 4 pi R^2 INT j dtau (raw) = on_seated E, sine                    True
+  [ok] CTL 4 pi R^2 INT j W dtau (raw) = on_seated K, sine                  True
+  [ok] CTL -2 INT j dtau (raw) = on_seated radial deficit (F2), sine        True
+  [ok] num INT transverse time part = -(omega^2/8pi) INT f_tau^2, sine       True
+  [ok] num   and it is <= -(omega^2/8pi)/tau_p  (Cauchy-Schwarz), sine       True
+  [ok] num INT j dtau = (W_1-1)/(4 pi R), profile overshoot  (25 digits)    True
+  [ok] CTL 4 pi R^2 INT j dtau (raw) = on_seated E, overshoot               True
+  [ok] CTL 4 pi R^2 INT j W dtau (raw) = on_seated K, overshoot             True
+  [ok] CTL -2 INT j dtau (raw) = on_seated radial deficit (F2), overshoot   True
+  [ok] num INT transverse time part = -(omega^2/8pi) INT f_tau^2, overshoot  True
+  [ok] num   and it is <= -(omega^2/8pi)/tau_p  (Cauchy-Schwarz), overshoot  True
+  [ok] CTL F1 without rest: linear profile (f' = 1 at both ends) gives the same INT j (True, True)
+  [ok] CTL the transverse integrals DIFFER between profiles                 3
+  [ok] CTL doubling the duration leaves the radial integral fixed           True
+  [ok] CTL   and halves the transverse one exactly (the lapse depends on f only) True
+  [ok] pin phase1 D4 is stated as T^{0i} = 0 (READ from phase1.CONDITIONS)  True
+  [ok] CTL under D4 as restated, this passage is a transition, not propulsion True
+  [ok] num INT j dtau != 0 on every profile, so D4 fails pointwise; the attribute agrees (False, False)
+
+4. D24's OTHER PARTS -- READ, and OPEN
+  [ok] pin create.py still names nucleation NOT-RUN                         NOT-RUN
+  [ok] pin nucleation: no closed-form neck; a recipe with free functions    (False, True, True)
+  [ok] pin nucleation: not priced; priceability NOT DETERMINED (W3 kept)    (False, 'NOT DETERMINED', False)
+  [ok] pin nucleation: CTCs; qualitative EC evidence, no integrated figure  (True, True, False)
+
+5. D25 -- unchanged; the named searches recomputed; the gate predicate
+  [ok] CTL the aperture search's file set = the classified record           []
+  [ok] CTL the aperture synonyms search's file set = the classified record  []
+  [ok] CTL the snow line search's file set = the classified record          []
+  [ok] pin the aperture record says NOT EVALUABLE: NOT-FOUND (search named) True
+  [ok] pin gate with no aperture returns NOT-EVALUABLE (a definition)       NOT-EVALUABLE
+  [ok] CTL gate can return True (a body inside, primitive, enough mass)     True
+  [ok] CTL and False (same body, devolatilised)                             False
+  [ok] CTL and False (primitive, but under the mass)                        False
+  [ok] CTL and UNDETERMINED for Proxima b (condensed, primitive unmeasured), synthetic aperture UNDETERMINED
+  [ok] num Proxima b's minimum mass exceeds stockgate's 70 kg threshold (log10) True
+  [ok] pin survey: condensed body found; primitive, accessible unmeasured; reservoir UNDETERMINED (True, False, False, 'UNDETERMINED', False)
+  [ok] pin survey: the papers' data constrain no individual bodies          False
+  [ok] pin stockgate's T_c are nebular, at 1e-4 bar (READ from its SOURCES) True
+
+6. EVERY NAMED HYPOTHESIS IS DISCHARGED BY A PASSING ROW
+  [ok] CTL F1, F2 and transverse hypotheses without a discharging row       []
+  [ok] CTL every hypothesis the outgoing-null rows use is named in F2_THEOREM []
+  [ok] CTL and F2 names every F1 hypothesis (F2 extends F1)                 []
+  [ok] CTL   and the outgoing-null rows do use a hypothesis F1 lacks        True
+
+  SELFTEST OK, 94 checks: 30 residual, 15 numeric, 36 control, 1 consistency, 12 pin

@@ -1,0 +1,77 @@
+{
+ "key": "irrationality-sqrt2-degenerate-span",
+ "name": "Irrational s: (m s + n)^2 > 0 for all nonzero integer (m, n) (sqrt 2 irrational)",
+ "source": {
+  "located": "Classic: irrationality of sqrt 2 (Euclid, Elements X; the Pythagorean/Aristotle tradition) -- no arXiv copy exists, so it is NAMED-NOT-READ in the original. The theorem was read in an exact restatement with proof: L. Jeneva Clark, 'Grationality, with a Spoon', arXiv:2508.08267v1 [math.HO], 28 Jul 2025, sec. 2.1-2.4 pp.1-5 (Tennenbaum's descent proof, 1950s, citing Conway & Shipman, 'Extreme proofs I: the irrationality of sqrt 2', Math. Intelligencer 35(3):2-7, 2013 -- not on arXiv, NAMED-NOT-READ). The tree's consequence 'causal but not stably causal' was checked against E. Minguzzi & M. Sanchez, 'The causal hierarchy of spacetimes', arXiv:gr-qc/0609119v3, Def. 3.52 p.37, Prop. 3.54 p.37, Thm. 3.56 p.38 (stable causality <=> time function, Hawking [26] = 1968).",
+  "read_status": "READ-VIA-RESTATEMENT",
+  "via": "alphaXiv answer_pdf_queries: title query 'Extreme proofs I' resolved to arXiv:2508.08267 (all 21 pages returned verbatim; Conway-Shipman itself is not on arXiv); gr-qc/0609119 pp.1,2,9,35-40,53-58 returned verbatim."
+ },
+ "published_statement": "arXiv:2508.08267 p.5 (restating Tennenbaum): 'By the Carpets Theorem, the uncarpeted area (2 squares) equals the doubly carpeted area (1 square). Because these squares have integer side lengths, this \"smallest\" case is not the smallest, leading to a contradiction, implying sqrt 2 is irrational.' p.2: the proof 'hinges only on the well-ordering axiom of positive integers and on the Carpets Theorem'. Algebraic content (re-derived here): a^2 = 2b^2 with a,b positive integers => (2b-a)^2 = 2(a-b)^2 with 0 < a-b < b, contradicting minimality. Stable causality, gr-qc/0609119 Def. 3.52: '(M,g) is stably causal if ... (i) There exists g~ in Con(M) such that g < g~ and g~ is causal', where 'g < g' iff all the causal vectors for g are timelike for g''; Thm 3.56: stably causal <=> admits a time function <=> admits a temporal function.",
+ "published_hypotheses": [
+  "a, b positive integers (the side lengths); well-ordering of the positive integers (a smallest counterexample exists)",
+  "the Carpets Theorem (area bookkeeping; algebraically the identity (2b-a)^2 - 2(a-b)^2 = 2b^2 - a^2)",
+  "for the consequence used by the tree, (m s + n) = 0 with integers (m,n) != (0,0) iff s = -n/m is rational (m != 0) -- elementary",
+  "stable causality (Minguzzi-Sanchez Def 3.52): existence of SOME Lorentzian metric with strictly wider cones that is causal; any such g~, not only translation-invariant ones"
+ ],
+ "hypothesis_drift": [
+  "latticectc.py:404-408 (selftest): the statement at :54-58 is for s irrational, but the check instantiates s = math.sqrt(2.0), which is the dyadic RATIONAL 6369051672525773/2^52; for that s the claim is false at (m,n) = (2^52, -6369051672525773), where m s + n = 0 exactly (computed, rederive E). Inside the tree's box |m|,|n| <= 60 the float and exact sqrt 2 agree (box minimum (29 sqrt2 - 41)^2 = 1.4868e-4 vs tolerance 1e-12). A DISCREPANCY in the instrument's witness, not a refutation of the theorem, and the canonical entry already names it 'a finite float check, not exact'.",
+  "latticectc.py:405-408: the tolerance (ms+n)^2 <= 1e-12 means |ms+n| <= 1e-6; for EXACT sqrt 2 this test fires (a false 'causal vector') at the Pell pair m = 470832 (rederive E). The box check therefore cannot be extended to certify positivity; at |m| <= 60 it is four decades clear. Scope of the check, not of the theorem.",
+  "latticectc.py:56: 'span(L) contains the null vector (1,1,0), so there is no global linear time function' -- ADDED STEP, weaker than what 'not stably causal' (:57, :123) needs: Thm 3.56 requires the absence of ANY time function, linear or not. The conclusion nevertheless holds, by a route the tree does not print: each slice p + span(L) projects to a compact 2-torus on which the constant field (1,1,0) is g-null hence g~-timelike for every g~ > g; by compactness it stays g~-timelike under small direction changes, and the lattice vectors (m, m, ms+n) approach that direction ((ms+n)/m -> 0, Dirichlet/Pell), so every g~ > g has a closed timelike curve on the slice. For translation-invariant widenings g - eps dt^2 this is computed exactly (rederive C: eps = 1e-2, 1e-6, 1e-12, 1e-24 answered by (2,-3), (29,-41), (985,-1393), (1136689,-1607521)); the general-g~ step is by hand (compactness), not machine-checked.",
+  "latticectc.py:54-57: 'no CTC' uses the lattice theorem (closed causal curve iff L contains a nonzero causal vector, latticectc.py:111-114) -- a separate canonical entry (covering-space-lift-flat-quotient, future-causal-cone-convex), not audited here; nothing dropped relative to this entry."
+ ],
+ "data_at_publication": [
+  {
+   "quantity": "s (the irrational generator slope)",
+   "value_then": "irrational s in the statement (:54); float math.sqrt(2.0) in the selftest (:404)",
+   "value_now": "exact sqrt 2 (sympy); float = 6369051672525773/2^52 exactly",
+   "source_now": "computed, rederive A,E",
+   "moves_conclusion": "No: the float value is rational, but inside |m|,|n|<=60 its (ms+n)^2 agrees with exact sqrt 2 to far below the 1.49e-4 box minimum; the exact theorem carries the statement."
+  },
+  {
+   "quantity": "box minimum of (m sqrt2 + n)^2, 0<|m|<=60",
+   "value_then": "not printed (tree reports 0 hits at tol 1e-12)",
+   "value_now": "1.48676779973949584e-4 at (29,-41), the convergent 41/29",
+   "source_now": "computed at 40 digits, rederive C",
+   "moves_conclusion": "No: margin over the tolerance is > 8 decades."
+  },
+  {
+   "quantity": "first |m| at which the 1e-12 tolerance fires for exact sqrt 2",
+   "value_then": "not considered",
+   "value_now": "470832 (Pell pair)",
+   "source_now": "computed, rederive E",
+   "moves_conclusion": "No at the tree's box of 60; it bounds how far the float check could ever be extended."
+  }
+ ],
+ "rederivation": {
+  "method": "sympy",
+  "script_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/irrationality-sqrt2-degenerate-span.py",
+  "outcome": "ALL PASS (exit 0), sympy + z3 + exact integers. (A) |m g1 + n g2|^2 = (ms+n)^2 identically in signature (-,+,+) (latticectc.py:166-168 convention); Gram A=s^2, C=1, H=s, AC-H^2 = 0 for every s; g1 - s g2 = (1,1,0), null; rank 2 so L is discrete. (B) no nonzero (m,n) with n^2 = 2m^2 in the tree's box and for m <= 10^6; descent identity (2b-a)^2 - 2(a-b)^2 = 2b^2 - a^2 (sympy); z3: a,b>0, a^2=2b^2 => b<a<2b is unsat-negated (vacuity guard: premises sat over R); z3 bounded integer box unsat. (C) |2m^2-n^2| >= 1 so |m sqrt2 + n| >= 1/(|m| sqrt2 + |n|): positivity strict but not uniform; widened invariant cones g - eps dt^2 admit a causal lattice vector for every eps tested; any L-invariant linear form has a null covector. (D) rational s = p/q: q g1 - p g2 = (q,q,0) is null, so irrationality is load-bearing. (E) math.sqrt(2.0) = 6369051672525773/2^52 is rational, annihilated by (2^52, -6369051672525773); tree's own float check reproduces 0 hits. (F) Gram determinant is a nonzero polynomial, so the degenerate set is measure zero.",
+  "agrees_with_source": "yes"
+ },
+ "later_literature": [
+  {
+   "ref": "arXiv:2508.08267 (Clark 2025, 'Grationality, with a Spoon')",
+   "effect": "confirms",
+   "what": "Restates Tennenbaum's descent proof and generalises the method (non-grationality of 3, 5, 6; n grational iff perfect square). No contradiction of irrationality of sqrt 2 exists or is possible; it is a closed theorem of elementary number theory.",
+   "read_status": "READ (all 21 pages)"
+  },
+  {
+   "ref": "arXiv:gr-qc/0609119 (Minguzzi & Sanchez 2008)",
+   "effect": "confirms",
+   "what": "Def 3.52 / Prop 3.54 / Thm 3.56 give the stable-causality definition the tree's 'causal but not stably causal' must meet; the compactness argument above meets it for arbitrary g~ > g, not only invariant ones.",
+   "read_status": "READ (pp.1,2,9,35-40,53-58)"
+  },
+  {
+   "ref": "arXiv:2608.06678 (Puel Martins, Costa e Silva, Espinoza 2026, 'Transverse stable causality in Lorentzian foliations')",
+   "effect": "extends",
+   "what": "The one discover_papers hit on stable causality of flat quotients; restates the cone-widening definition (sec. 4, p.8) and the equivalences (Fig. 1), gives flat R^3 examples (Rem. 4.2, Ex. 8.2 cylinder quotient totally vicious) but does not treat rank-2 lattice quotients with a degenerate span. Neither narrows nor contradicts.",
+   "read_status": "READ (pp.1,3,8,9,11,21,23,27-30)"
+  }
+ ],
+ "lacked_data": "M's hypothesis does not bite here: the result is a pure-mathematics theorem with no empirical input; no datum the ancients or Tennenbaum lacked could move it, and the re-derivation (exact descent identity + z3 strict-descent inequality with vacuity guard) closes it. The only 'data' in play are the tree's own numerical stand-ins, and the move there is internal: the tree's float s is itself rational (6369051672525773/2^52), a discrepancy that does not change the conclusion inside the checked box (margin 1.49e-4 vs 1e-12) and never touches the exact statement. Evidence either way: FOR 'nothing lacked' -- the proof uses only integers and well-ordering, both fully specified; AGAINST -- none found. The adjacent consequence 'not stably causal' needed one step the tree does not print (compactness of the torus slice for non-invariant widenings); that is an argument gap in the tree's wording at :56, not missing data, and the conclusion survives it.",
+ "grade": "STANDS",
+ "grade_evidence": "Statement as used at latticectc.py:54-58 (s irrational => (ms+n)^2 > 0 for nonzero integer (m,n); span degenerate, contains null (1,1,0); causal but not stably causal; measure zero) re-derived exactly: norm identity, Gram determinant 0, descent identity and z3-checked strict descent for sqrt 2, rational-s counterexample showing the hypothesis is load-bearing, not-stably-causal via widened cones (computed for invariant widenings, by compactness for general ones), measure zero via nonzero Gram polynomial. No moved datum. Recorded discrepancies (not refutations, nothing repaired): the selftest's s = math.sqrt(2.0) is rational (:404); the 1e-12 tolerance would false-fire at m = 470832 (:405-408); the printed reason 'no global linear time function' (:56) is weaker than stable causality requires, though the conclusion holds.",
+ "what_would_change_the_grade": "NARROWED if the tree used the float check (:404-408) as the proof of positivity rather than as a sanity check, or extended its box past |m| = 470832 at tolerance 1e-12; NARROWED for the 'not stably causal' clause if the compactness step for non-invariant g~ were shown to fail (e.g. if span(L)'s projection were not compact -- it is, for any rank-2 lattice). Nothing can make the irrationality of sqrt 2 WRONG or DATA-DEPENDENT.",
+ "reverify_command": "python3 /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/irrationality-sqrt2-degenerate-span.py   # needs sympy, z3-solver (pip install z3-solver); ~1 min; exit 0 = ALL PASS",
+ "report_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/audits/irrationality-sqrt2-degenerate-span.json"
+}

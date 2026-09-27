@@ -1,0 +1,70 @@
+E1 source identity
+  [ok] md5 of saved Borde text: got '17c67ada52d92fc44065246ef92fee8c', want '17c67ada52d92fc44065246ef92fee8c'
+
+E2 phrases the tree attributes to Borde (section 4 and ESCAPES)
+  [ok] verbatim in source: 'a highly undesirable feature...' (create.py:82-84, 213-214): got True, want True
+  [ok] verbatim in source: 'such an alteration would have to be fair...' (create.py:86-87, 216-217): got True, want True
+  [ok] verbatim in source: 'a point at infinity...' (create.py:82, 213): got True, want True
+  [ok] verbatim in source: 'their true value is not so much that the...' (create.py:93-96, 227-230): got True, want True
+  [ok] tree's unquoted 'abandons the Lorentzian framework altogether' is a paraphrase of source 'abandon the Lorentzian framework altogether': got True, want True
+
+E3 Sec. IX route count against the tree's
+  [ok] Sec. IX subsection headers: got [('A', 'Dropping causal compactness'), ('B', 'Weakening the curvature constraints'), ('C', 'Degenerate metrics')], want [('A', 'Dropping causal compactness'), ('B', 'Weakening the curvature constraints'), ('C', 'Degenerate metrics')]
+  [ok] Euclidean route stated before the list, as outside the Lorentzian framework: got True, want True
+  [ok] len(create.ESCAPES): got 3, want 3
+  [ok] routes in source: got 4, want 4
+  [ok] source routes missing from the tree: got ['C'], want ['C']
+  [ok] create.py:78 heading says 'ALL THREE': got True, want True
+  [ok] create.py:349 says 'BORDE'S THREE ESCAPES': got True, want True
+  [ok] create.py mentions degenerate metrics anywhere: got False, want False
+
+E4 Borde's framing of the list
+  [ok] 'several interesting possibilities' (non-exhaustive): got True, want True
+  [ok] C: 'this might well prove to be the correct approach': got True, want True
+  [ok] C: 'use these kinds of singularities in order to get topology change': got True, want True
+  [ok] C: Horowitz 'even in standard general relativity (couched in first-order language)': got True, want True
+  [ok] C: causal structure 'will not necessarily be well-defined': got True, want True
+  [ok] intro: degenerate-metric route named as one of 'two ways in which classical evolution may be rescued': got True, want True
+
+E5 B]'s two sub-routes
+  [ok] B keeps causality violations: 'this would not affect the presence of causality violations': got True, want True
+  [ok] B sub-route 1: 'alter einstein's equation': got True, want True
+  [ok] B sub-route 2: energy-condition violation large enough to violate (ii): got True, want True
+  [ok] B sub-route 2 is tied to wormhole creation in the source: got True, want True
+  [ok] create.ESCAPES[1] records sub-route 2: got False, want False
+  [ok] create.ESCAPES[1] records 'would not affect ... causality violations': got False, want False
+
+E6 A]'s hypotheses
+  [ok] A: 'in the closed universe case': got True, want True
+  [ok] A: 'under some mild additional assumptions': got True, want True
+  [ok] A: singularity needs 'the significant additional assumption' of an upper bound on timelike lengths: got True, want True
+  [ok] create.ESCAPES[0] carries the closed-universe case: got False, want False
+  [ok] specthm.py carries H_closed (closed-universe case of Tipler's Theorem 5): got True, want True
+  [ok] specthm PROP_TEXT: open/asymptotically-flat case 'no source here forces either': got True, want True
+
+E7 Sec. VIII: the C^0 route
+  [ok] 'need not be diffeomorphic, even if causality violations are forbidden': got True, want True
+  [ok] create.py names the C^0 route: got False, want False
+
+E8 section citation
+  [ok] specthm.py cites 'section VIII.A' / 'VIII.A' for the escapes: got True, want True
+  [ok] source Sec. VIII is 'A Few Words on Differentiability': got True, want True
+  [ok] the escapes are in Sec. IX: got True, want True
+
+E9 the ESCAPES flags are literals
+  [ok] every in-GR flag in ESCAPES is an ast.Constant (hand-set, not computed): got True, want True
+  [ok] the flags: got [False, False, False], want [False, False, False]
+
+E10 z3: does 'no route stays in Lorentzian GR without a pathology' follow?
+  [ok] tree's three under H_closed (Euc, A_closed, B1): got 'FOLLOWS', want 'FOLLOWS'
+  [ok] + B's second sub-route (EC violation): got 'FOLLOWS', want 'FOLLOWS'
+  [ok] tree's three WITHOUT H_closed (A open): got 'UNDETERMINED', want 'UNDETERMINED'
+  [ok] Borde's four under H_closed (+ C degenerate): got 'UNDETERMINED', want 'UNDETERMINED'
+  [ok] + Sec. VIII C^0 route: got 'UNDETERMINED', want 'UNDETERMINED'
+  [ok] C read as Borde's word 'singularities' (P_C true): got 'FOLLOWS', want 'FOLLOWS'
+  [ok] C read as Garcia-Heveling's 'nothing special happens' and inside GR (G_C, not P_C): got 'FAILS', want 'FAILS'
+  [ok] C read as leaving standard (second-order, non-degenerate) GR (not G_C): got 'FOLLOWS', want 'FOLLOWS'
+  [ok] specthm BORDE-ESCAPES formula implied by Tipler Thm 5 under H_closed: got unsat, want unsat
+  [ok] ... and not implied without H_closed: got sat, want sat
+
+49 checks, 0 failures

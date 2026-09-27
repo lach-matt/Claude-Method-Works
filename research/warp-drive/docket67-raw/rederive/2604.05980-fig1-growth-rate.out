@@ -1,0 +1,62 @@
+L = [[-(-8*Gamma*l - 4*Gamma + 2*l**3 - l**2 + 9*l + 6)/(4*(2*l + 1)), -l*(l + 1)*((Gamma - 1)*(2*l + 1) - 1)/(2*(2*l + 1))], [-((Gamma - 1)*(2*l + 1) - 1)/(2*(2*l + 1)), -l*(l + 1)*(-Gamma*(2*l + 1) + 4)/(4*(2*l + 1))]]
+trace = (Gamma*l**2 + Gamma*l + 4*Gamma - l**2 - l - 6)/4
+det = -l*(l - 1)*(l + 1)*(2*Gamma*l**2 + Gamma*l - 6*Gamma - 4*l + 8)/(16*(2*l + 1))
+PASS l=0: lambda = Gamma - 3/2 (p.41)
+PASS l=1: eigenvalues {0, (3Gamma-4)/2} (10.57)
+PASS l=1: zero mode j = h (translation)
+PASS (10.52b) combination (2l+1)(Gamma-w^2) - (2l^3-l^2+9l+6)/4 = (2l+1)(L11 - w^2)
+PASS (10.52b) denominator (2l+1)Gamma - 2(l+1) proportional to L12
+PASS (10.53a,b) forcing structure: (L F)_h/F_h = -(l-1)(2Gamma+l-2)/4  [got -(l - 1)*(2*Gamma + l - 2)/4]
+
+Newtonian l=2 coefficient kappa_2(Gamma) = Im omega sqrt(R^3/GM):
+   Gamma =   1.50   kappa_2 = 0.62731
+   Gamma =   1.60   kappa_2 = 0.59532
+   Gamma =   1.80   kappa_2 = 0.54772
+   Gamma =   2.00   kappa_2 = 0.51470
+   Gamma =   2.20   kappa_2 = 0.49072
+   Gamma =   2.40   kappa_2 = 0.47262
+   Gamma =   3.00   kappa_2 = 0.43798
+   Gamma =   5.00   kappa_2 = 0.39415
+   Gamma = 100.00   kappa_2 = 0.34842
+PASS kappa_2(Gamma=2) = 0.51470, i.e. 14% below the tree's 0.6
+PASS kappa_2(Gamma=2) sits below Fig.1-left's lowest y-tick 0.52 by 0.0053 (axis floor; a dot there is consistent only if the axis limit is < 0.52)
+PASS Newtonian kappa_2 over Gamma in [1.8,2.4]: 0.4726 .. 0.5477 (spread 15.9%) -- not flat in Gamma
+PASS on the radially stable class Gamma >= 3/2, kappa_2 <= 0.6273 (at Gamma = 3/2); 0.6 is inside (0.346, 0.627]
+   kappa_2 = 0.6 exactly at Gamma = 1.5840 (Newtonian l = 2)
+PASS stiff limit Gamma -> oo: kappa_2 -> sqrt(0.12) = 0.3464
+
+l dependence at Gamma = 2 (Newtonian):
+   l =   2   kappa_l = 0.5147   kappa_l/(l/2) = 0.5147
+   l =   3   kappa_l = 1.0901   kappa_l/(l/2) = 0.7267
+   l =   4   kappa_l = 1.6298   kappa_l/(l/2) = 0.8149
+   l =   5   kappa_l = 2.1539   kappa_l/(l/2) = 0.8616
+   l =  10   kappa_l = 4.7020   kappa_l/(l/2) = 0.9404
+   l =  20   kappa_l = 9.7260   kappa_l/(l/2) = 0.9726
+   l = 100   kappa_l = 49.7452   kappa_l/(l/2) = 0.9949
+PASS kappa_l increases monotonically with l (2..100)
+PASS kappa_3 = 1.0901 > 0.6: the tree's constant understates l >= 3 by a factor >= 1.82
+PASS kappa_l/(l/2) -> 1 (eikonal, membrane with pressure: omega^2 = -(p/sigma) k^2 = -l^2/4)
+PASS L depends only on (l, Gamma): no residual scale
+PASS tree rho_max 2.657927437e-4 reproduced at k=0.6 (2.657927437e-04)
+PASS tree R_min 964.4 m (N<1) at k=0.6 (964.8)
+PASS tree R 4.478398718 km (N<0.1) at k=0.6 (4.478398718)
+PASS tree 1% binding: 1034.4 AU, 2.075e9 Msun at k=0.6 (1034.4 AU, 2.075e+09 Msun)
+PASS tree x=0.3: 4.327e10 Msun at k=0.6 (4.327e+10)
+   typefour.py:290 efoldings(1e6 kg, 10 m) at k=0.6: 947.7
+
+   k source                rho_max(kg/m^3)  R_min(1e6kg,N<1)  R(N<0.1)   M_1%%(Msun)  R_1%%(AU)  M_x0.3(Msun)  N(1e6kg,10m)
+   tree 0.6               2.6579e-04         964.8 m         4478.4 m  2.075e+09    1034.4   4.327e+10   947.7
+   Newt l=2 G=1.5         2.4315e-04         993.9 m         4613.3 m  2.169e+09    1081.5   4.524e+10   990.9
+   Newt l=2 G=2           3.6120e-04         871.1 m         4043.2 m  1.78e+09     887.4   3.712e+10   813
+   Newt l=2 G=2.4         4.2837e-04         822.9 m         3819.7 m  1.634e+09     814.8   3.408e+10   746.5
+   Newt l=3 G=2           8.0519e-05        1436.6 m         6668.1 m  3.77e+09    1879.5   7.861e+10   1722
+   Newt l=4 G=2           3.6021e-05        1878.4 m         8718.7 m  5.637e+09    2810.0   1.175e+11   2574
+   Newt l=10 G=2          4.3279e-06        3806.7 m        17669.0 m  1.626e+10    8106.7   3.391e+11   7427
+PASS typefour.py:290 (N > 100) survives any k >= 0.0633; min Newtonian l=2 over Gamma>=3/2 is sqrt(0.12)=0.346 -> N = 547.2
+PASS the '2e9 Msun over 1000 AU' order survives l=2 Newtonian (M scales as k): 1.78e+09 Msun, 887 AU
+
+   tree's counter-rotating Vlasov wall, Eq (2.7) Gamma at x = 1e-9: 2.000000
+PASS the tree's own wall maps to Gamma -> 2 (= 4/3 x 3/2) in the Newtonian limit, where kappa_2 = 0.5147 not 0.6
+   (a collisionless shell is not a barotropic fluid under non-radial perturbation; this mapping is radial-only)
+
+RESULT: ALL PASS

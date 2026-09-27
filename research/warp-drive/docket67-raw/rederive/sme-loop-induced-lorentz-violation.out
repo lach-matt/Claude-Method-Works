@@ -1,0 +1,4 @@
+PASS C1 eq.77: I_grav(b2=0,m=0,mu->0) = -zeta(3)/4 exactly (sympy)  u-int = -2, t-int = 3*sqrt(pi)/4, coefficient of zeta(3) = -1/4
+PASS C2 eq.77 mu r -> inf asymptote at pi mu r = 8  I = -2.879025e-6, -(1/3)x^2 e^-2x = -2.4007504e-6, ratio 1.1992188
+PASS C2 eq.77 mu r -> inf asymptote at pi mu r = 15  I = -7.743433e-12, -(1/3)x^2 e^-2x = -7.0182172e-12, ratio 1.1033333
+PASS C3 s=tu Bessel reduction = direct 2-D quadrature at (b2,pi m r,pi mu r)=(0.5,0.7,0.3), w=1  direct -8.965543991  reduced -8.965543991

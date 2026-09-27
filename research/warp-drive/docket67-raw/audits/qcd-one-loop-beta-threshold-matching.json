@@ -1,0 +1,107 @@
+{
+ "key": "qcd-one-loop-beta-threshold-matching",
+ "name": "One-loop QCD beta coefficient b_0 = 11 - 2n_f/3 and heavy-quark threshold matching of Lambda_QCD",
+ "source": {
+  "located": "b_0: D.J. Gross & F. Wilczek, PRL 30, 1343 (1973); H.D. Politzer, PRL 30, 1346 (1973) -- pre-arXiv. Threshold chain in the published form the tree reproduces: A. Coc, N.J. Nunes, K.A. Olive, J.-P. Uzan, E. Vangioni, astro-ph/0610733 (PRD 76, 023511, 2007), p.4 eqs. (13)-(14). Restatement of b_0 with the higher coefficients: R.J. Hill & M.P. Solon, arXiv:1409.8290, eq. (109). One-loop MSbar decoupling (alpha_s continuous at mu = m_Q): Chetyrkin-Kniehl-Steinhauser hep-ph/9708255.",
+  "read_status": "READ-VIA-RESTATEMENT",
+  "via": "IN THIS STAGE NO PDF COULD BE OPENED: alphaXiv answer_pdf_queries, get_paper_content and discover_papers all returned 'assistant quota exceeded'; arxiv.org is refused by the egress proxy (CONNECT 403, confirmed by curl). What stands in their place, each at its true status: (a) Coc et al. eqs. (13)-(14) and footnote 1, and Hill-Solon eq. (109) (b_0 = 11 - 2n_f/3 with b_1..b_3) were READ at source IN THIS DOCKET by sibling audit dlnlambdaqcd-dlnv-2-9 (alphaXiv, astro-ph/0610733 pp.1-7, 9-10; 1409.8290 pp.1, 15, 17-18, 22-23, 37, 39, 42-44, 46-48); their quotations are used here as that audit transcribed them, not re-read. (b) Gross-Wilczek and Politzer 1973: NAMED-NOT-READ; b_0 is taken as restated in Hill-Solon eq. (109). (c) CKS hep-ph/9708255: NAMED-NOT-READ. The group-theory half of b_0 (C_A = 3, T_F = 1/2) is COMPUTED here from explicit Gell-Mann matrices; the one-loop coefficients 11/3 and 4/3 multiplying them are textbook input, checked only against the Nielsen-Hughes spin formula (a heuristic restatement, not a derivation)."
+ },
+ "published_statement": "Coc et al. 2007 eq. (13) (as READ by the sibling audit): 'Lambda = mu (m_c m_b m_t / mu^3)^(2/27) exp(-2 pi/(9 alpha_s(mu)))' 'for mu > m_t up to some unification scale in the standard model'; eq. (14): 'Delta Lambda/Lambda = R Delta alpha/alpha + (2/27)(3 Delta v/v + Delta h_c/h_c + Delta h_b/h_b + Delta h_t/h_t)'; footnote 1: 'In supersymmetric models, additional thresholds related to squark and gluino masses would affect this relation.' b_0(n_f) = 11 - 2n_f/3 (Gross-Wilczek/Politzer 1973, restated Hill-Solon eq. 109). With Delta alpha = Delta h = 0 this is exactly the tree's Lambda_3 = Lambda_6^(7/9)(m_c m_b m_t)^(2/27) and d ln Lambda_3/d ln v = 2/9.",
+ "published_hypotheses": [
+  "One-loop running: 1/alpha_s(mu) = (b_0/2 pi) ln(mu/Lambda), b_0(n_f) = 11 - 2n_f/3 (SU(3), n_f Dirac quarks in the fundamental); no b_1 or higher",
+  "Leading-order decoupling: alpha_s continuous at each heavy threshold mu = m_Q (exact at one loop in MSbar only at mu = m_Q; at other mu the one-loop decoupling log ln(mu^2/m^2)/(6 pi) applies)",
+  "Scale mu between m_t and 'some unification scale'; Standard-Model coloured content in that interval (footnote 1: extra coloured thresholds change the relation)",
+  "Heavy-quark masses m_Q = h_Q v; the variation split into Delta h_Q and Delta v",
+  "High-scale coupling variation tied to Delta alpha by a GUT-dependent R (R-term zero when alpha_s is held fixed at the high scale, the tree's H1)",
+  "Light quarks u, d, s below every heavy threshold (n_f = 3 theory at hadronic scales)"
+ ],
+ "hypothesis_drift": [
+  "DROPPED (order of the expansion): 'one-loop' is stated at address.py:88 but the conclusion is printed as '2/9 EXACTLY' at address.py:97 and consumed with no order qualifier at address.py:498-500 (dln_lambda_dln_v docstring: 'every heavy mass is proportional to v'), address.py:506-507 (dln_mp_dln_v H1), address.py:528-531 (alpha_thresholds w = 2/9), address.py:769-770 (dln_X_dln_v H1), excite.py:164-165 ('2/9 + 7S/9 under H1'), excite.py:1400-1401 (chk 'd ln Lambda / d ln v = 2/9'), excite.py:1540. The 'EXACT' is exact rational arithmetic of the one-loop truncation, not of the physical derivative: beyond one loop it is 0.23006 (NLO) / 0.23501 (NNLO) computed here, 0.23839 (Hill-Solon N3LO via sibling). MITIGATION, both ways: excite.py:285 lists 'the Yukawa-running correction to 2/9' among items 'none is answered here and none is quoted as answered'.",
+  "WEAKENED (which mass is proportional to v): address.py:94-95 'every heavy quark mass is proportional to v' leaves the mass unspecified. At one loop it does not matter (computed: matching at mu = kappa m_Q, any fixed kappa, gives 2/9 exactly). Beyond one loop it does: with Yukawas (m_Q at a fixed high scale mu0) proportional to v, the threshold m_Q(m_Q) scales as v^(1/(1 + 2 alpha_s/pi)) at one-loop gamma_m, which is part of the computed beyond-LO shift. The tree names this only as the OPEN 'Yukawa-running correction' (excite.py:285).",
+  "DROPPED: Coc et al.'s SM-coloured-content scope (footnote 1). address.py:103 'H1 alpha_s FIXED AT A HIGH SCALE' carries no clause that no further coloured states lie between m_t and that scale; any would add their own 2/3-type steps (and their own v-dependence) to the exponent sum.",
+  "ADDED (at a consuming site, not in the source): address.py:528 'w = 2/9 for a light quark whose threshold is hadronic, i.e. Lambda_QCD' uses d ln Lambda_3/d ln v as the v-scaling of the QED thresholds of u, d, s. The source result gives Lambda_3's v-dependence; that hadronic QED thresholds scale as Lambda_3 (rather than as a hadron mass, which carries the (1 - S) + S mix of address.py:506-507) is an extra modelling hypothesis of the W11 computation.",
+  "NOT A DRIFT (checked): b_0(n_f) = 11 - 2n_f/3 at address.py:465-467 and the step 2/3 at address.py:470-472 are exact as one-loop coefficients; address.py's _lambda_exponent_direct (address.py:475-495) returns (7/9, {t,b,c: 2/27}) and dln_lambda_dln_v() = 2/9, identical to an independent sympy derivation and to Coc et al. eq. (13).",
+  "NOT A DRIFT (checked): H1 'alpha_s fixed at a high scale' corresponds to Coc's Delta alpha = 0; H2 (Lambda fixed) is named separately and the choice is refused (address.py:108-110, 461 H1_VS_H2_IS_REFUSED)."
+ ],
+ "data_at_publication": [
+  {
+   "quantity": "b_0(n_f) = (11/3) C_A - (4/3) T_F n_f with C_A = 3, T_F = 1/2",
+   "value_then": "11 - 2n_f/3 (1973; exact group theory x one-loop coefficients)",
+   "value_now": "unchanged; C_A = 3, T_F = 1/2, C_F = 4/3 recomputed here from explicit Gell-Mann matrices",
+   "source_now": "computed (rederive section 1-2); Hill-Solon 1409.8290 eq. (109) READ by sibling audit",
+   "moves_conclusion": "no -- no measured datum enters b_0 or the one-loop 2/9"
+  },
+  {
+   "quantity": "number of heavy thresholds between Lambda_3 and the high scale (c, b, t)",
+   "value_then": "three (Coc 2007)",
+   "value_now": "three in the SM; no new coloured state found (LHC) -- NAMED-NOT-READ in this stage",
+   "source_now": "not read here",
+   "moves_conclusion": "each extra coloured Dirac triplet with mass proportional to v would add a term; the one-loop sum is not robust to BSM content, which the tree does not name"
+  },
+  {
+   "quantity": "alpha_s(M_Z) (enters only beyond one loop)",
+   "value_then": "not used (one loop needs none)",
+   "value_now": "0.1180(9), PDG 2024 -- NAMED-NOT-READ in this stage",
+   "source_now": "PDG 2024 (not opened: alphaXiv quota, arXiv egress-blocked)",
+   "moves_conclusion": "no -- the NNLO value moves only 0.23490 .. 0.23512 over 0.1171 .. 0.1189 (computed)"
+  },
+  {
+   "quantity": "MSbar masses m_c(m_c), m_b(m_b), m_t(m_t)",
+   "value_then": "not used numerically (only their v-scaling)",
+   "value_now": "1.2730, 4.183, 162.5 GeV (PDG 2024, NAMED-NOT-READ)",
+   "source_now": "not read here",
+   "moves_conclusion": "no -- they set only the threshold scales of the beyond-LO correction"
+  },
+  {
+   "quantity": "beyond-one-loop value of d ln Lambda_3/d ln v (H1, S = 0)",
+   "value_then": "2/9 = 0.22222 (one loop)",
+   "value_now": "0.23006 NLO, 0.23501 NNLO (numerical RG, this stage); 0.23738 / 0.23920 / 0.23839 NLO/NNLO/N3LO (Hill-Solon closed form, via sibling); per quark: t 0.0760 vs 0.0757, b 0.0786 vs 0.0790, c 0.0804 vs 0.0837",
+   "source_now": "computed (rederive sections 5-6); Hill-Solon 1409.8290 eqs. (39), (119) as transcribed and checked by sibling audit",
+   "moves_conclusion": "moves 2/9 by +5.8% .. +7.3%, hence f(H1) and K_mu(H1) by a few per cent; does not move the sign or O(1) size of K_mu, nor any order-of-magnitude conclusion (sibling audit: D20, S6, S7 unmoved)"
+  }
+ ],
+ "rederivation": {
+  "method": "sympy",
+  "script_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/qcd-one-loop-beta-threshold-matching.py",
+  "outcome": "0 failures, exit 0 (python3, ~25 s). (1) From explicit Gell-Mann matrices: Tr(T^aT^b) = delta/2, f^acd f^bcd = 3 delta, sum T^aT^a = 4/3 -- so (11/3)C_A - (4/3)T_F n_f = 11 - 2n_f/3; Nielsen-Hughes spin formula reproduces 11 and -2/3; step b_0(n-1) - b_0(n) = 2/3 for all n; b_0 > 0 iff n_f <= 16. (2) sympy chain with alpha_s continuous at mu = m_Q: Lambda_3 = Lambda_6^(7/9)(m_c m_b m_t)^(2/27), dimension closes (7/9 + 6/27 = 1), d ln Lambda_3/d ln v = 2/9; each exponent telescopes to (2/3)/b_0(3). address.py's beta0, _lambda_exponent_direct, dln_lambda_dln_v and dln_mp_dln_v('H1') imported read-only and agree exactly. (3) At one loop, matching at mu = kappa m_Q leaves 2/9 unchanged and kappa only rescales Lambda_3 by a v-independent constant; the one-loop decoupling log 1/(6 pi) equals (b_lo - b_hi)/(4 pi). (4) INDEPENDENT beyond-LO route: numerical RG with alpha_s(mu0 = 1 TeV) and m_Q(mu0) proportional to v held fixed, thresholds found at m_Q(m_Q), Lambda_3 read as the scale where alpha_s^(3) reaches 0.35 (and 0.5, agreeing to 1e-10, as massless n_f = 3 requires): LO 0.222222 (reproduces the tree), NLO 0.23006 (+3.5%), NNLO 0.23501 (+5.8%); alpha_s(M_Z) +- 0.0009 moves NNLO by < 0.1%. (5) Per quark at NNLO vs Hill-Solon N3LO (sibling's transcription): top 0.07595 vs 0.07567 (+0.4%), bottom 0.07861 vs 0.07899 (-0.5%), charm 0.08045 vs 0.08373 (-3.9%) -- the charm leg carries the spread, matching Hill-Solon's 'poorly convergent alpha_s(m_c) expansion'; recorded as a truncation spread between two routes, not an error in either. NLO differs more (+3.5% vs +6.8%) because resummed running and expansion at alpha(m_Q) differ at that order.",
+  "agrees_with_source": "yes"
+ },
+ "later_literature": [
+  {
+   "ref": "R.J. Hill, M.P. Solon, arXiv:1409.8290 (2014), eqs. (39), (61), (109), (119), (120)",
+   "effect": "extends",
+   "what": "The heavy-quark scalar matrix elements f_Q through O(alpha_s^3): LO is (2/27)(1 - lambda) per quark, i.e. the tree's 2/27; beyond LO the sum at lambda = 0 is 0.23839 (N3LO). Confirmed independently here by numerical RG at NNLO for top and bottom to < 0.5%; charm differs by 3.9% between the routes.",
+   "read_status": "READ in this docket by sibling audit dlnlambdaqcd-dlnv-2-9; not re-opened in this stage (alphaXiv quota)"
+  },
+  {
+   "ref": "A. Coc et al., astro-ph/0610733 (2007), eqs. (13)-(14), footnote 1",
+   "effect": "confirms",
+   "what": "Published one-loop form identical to the tree's chain (sympy difference 0 in the sibling audit), with the SM-content scope the tree drops.",
+   "read_status": "READ in this docket by sibling audit; not re-opened in this stage"
+  },
+  {
+   "ref": "M.A. Shifman, A.I. Vainshtein, V.I. Zakharov, PLB 78, 443 (1978)",
+   "effect": "confirms",
+   "what": "Heavy-quark theorem m_Q<QbarQ> = (2/27)(1 - lambda) m_N at LO: an independent (trace-anomaly) route to the same 2/27 per heavy quark.",
+   "read_status": "NAMED-NOT-READ; READ-VIA-RESTATEMENT in Hill-Solon eq. (101) by sibling audits svz-1978 and dlnlambdaqcd-dlnv-2-9"
+  },
+  {
+   "ref": "K.G. Chetyrkin, B.A. Kniehl, M. Steinhauser, hep-ph/9708255 (1997); Grozin et al. 1107.5970 (2011)",
+   "effect": "extends",
+   "what": "Decoupling of alpha_s and masses to O(alpha_s^3): the machinery beyond continuous one-loop matching. The two-loop constant c2 = 11/72 used in the NNLO run here enters at < 0.1% (sibling scan).",
+   "read_status": "NAMED-NOT-READ"
+  },
+  {
+   "ref": "discover_papers for this stage",
+   "effect": "contested",
+   "what": "NOT RUN: alphaXiv returned 'assistant quota exceeded'. No later work was searched in this stage; the entries above are those READ or surfaced by sibling audits in this docket. A search is owed.",
+   "read_status": "NOT RUN"
+  }
+ ],
+ "lacked_data": "M's hypothesis tested for this result. What the authors used: b_0 = 11 - 2n_f/3 (1973) is group theory times a one-loop coefficient -- it uses no measured datum, and nothing measured since (alpha_s, quark masses, the absence of new coloured states at the LHC) can move it; C_A = 3, T_F = 1/2 are recomputed here exactly. The one-loop threshold chain (Coc et al. 2007) likewise uses no datum: 7/9 and 2/27 are ratios of b_0's. What they did not use was higher-order QCD, and that was a choice, not missing data -- two-loop running and the O(alpha_s^3) decoupling constants (CKS 1997) existed in 2007. What came later: the O(alpha_s^3) heavy-quark matrix elements (Hill-Solon 2014) and the current alpha_s(M_Z) = 0.1180(9). Does having them change the conclusion? The number, yes, by a computed +5.8% (NNLO, numerical RG here) to +7.3% (N3LO, Hill-Solon): d ln Lambda_3/d ln v = 0.235 .. 0.238, not 2/9 'EXACTLY'. The conclusions resting on it (K_mu O(1) and negative; order-of-magnitude densities), no. Evidence against M's hypothesis for THIS result: the one-loop value is data-free and reproduced exactly by two routes; the refinements are stable (< 0.1% over the alpha_s band). Evidence for it in its weak form: the only datum that could genuinely move the one-loop sum is the particle content between m_t and the high scale, which is an assumption about unmeasured physics, not a measured value -- the tree drops it silently.",
+ "grade": "NARROWED",
+ "grade_evidence": "The computation is right as a one-loop statement: b_0 = 11 - 2n_f/3 recomputed from explicit SU(3) generators (C_A = 3, T_F = 1/2); the chain Lambda_3 = Lambda_6^(7/9)(m_c m_b m_t)^(2/27) and d ln Lambda_3/d ln v = 2/9 re-derived in sympy, identical to address.py's own functions (imported read-only) and to Coc et al. eq. (13) (READ in this docket by the sibling audit); robust at one loop to the matching point (any fixed kappa). But the tree uses it as the physical derivative, 'EXACTLY' (address.py:97, 498-500, 506-507, 528-531, 769-770; excite.py:164-165, 1400-1401, 1540), keeping 'one-loop' only at address.py:88. Beyond one loop, computed here by an independent numerical-RG route, it is 0.23006 (NLO) and 0.23501 (NNLO), and 0.23839 by Hill-Solon's N3LO closed form; top and bottom legs agree between routes to 0.5%, the charm leg spreads 3.9%. The SM-coloured-content scope (Coc footnote 1) is also dropped. Not WRONG: no counterexample; 2/9 is the correct one-loop value and the tree lists the Yukawa-running correction as OPEN (excite.py:285). Not DATA-DEPENDENT: no measured datum enters the one-loop value, and the beyond-LO shift is stable to < 0.1% over alpha_s(M_Z) +- 0.0009. Not STANDS: 'exactly' is claimed on a larger class (the physical derivative) than the one-loop class on which it holds. SOURCE LIMIT, stated: no PDF was opened in this stage (alphaXiv quota exhausted, arXiv 403); the published statement rests on the sibling audit's in-docket READ of Coc et al. and Hill-Solon, and Gross-Wilczek/Politzer are NAMED-NOT-READ. The re-derivation half of the grade is independent of that limit. Consistent with sibling audits dlnlambdaqcd-dlnv-2-9 and svz-1978 (both NARROWED on the same leading-order qualifier).",
+ "what_would_change_the_grade": "To STANDS: the owners carry 'one loop, alpha_s continuous at m_Q, SM coloured content between m_t and the high scale' wherever 2/9 is consumed (address.py:97, 498-500, 528, 769; excite.py:164-165, 1400, 1540), or quote the beyond-LO 0.235 .. 0.238. To DATA-DEPENDENT: a coloured BSM state between m_t and the high scale (with or without v-dependent mass) would move the one-loop sum; so would a downstream use sensitive to the few-per-cent shift. To WRONG: a consuming conclusion that needs 2/9 to better than ~5% (none found). To OPEN on the reading half: if the sibling audit's in-docket READ is held insufficient, re-open astro-ph/0610733 p.4 and 1409.8290 eq. (109) at alphaXiv once the quota resets; run the owed discover_papers search.",
+ "reverify_command": "python3 /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/qcd-one-loop-beta-threshold-matching.py  # expect '0 failures', exit 0 (~25 s; sympy; imports research/warp-drive/address.py read-only). Sources when alphaXiv is available: answer_pdf_queries('astro-ph/0610733', eqs. 13-14 p.4, footnote 1); answer_pdf_queries('1409.8290', eqs. 39, 101, 109, 119-120). Tree sites: grep -n '2/9\\|One-loop\\|beta0' research/warp-drive/address.py research/warp-drive/excite.py",
+ "report_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/audits/qcd-one-loop-beta-threshold-matching.json"
+}

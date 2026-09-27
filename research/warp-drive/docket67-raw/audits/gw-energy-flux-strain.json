@@ -1,0 +1,82 @@
+{
+ "key": "gw-energy-flux-strain",
+ "name": "GW energy flux F = c^3 omega^2 h^2/(16 pi G) relating strain to luminosity",
+ "source": {
+  "located": "The GW energy-flux formula of linearised GR in the short-wave (Isaacson) regime: Maggiore, Gravitational Waves Vol. 1 (OUP 2007) eqs. 1.135-1.136, 1.146, 1.151, 1.153 (Isaacson 1968 behind it). READ in D. Gerosa & C. Owen, 'Gravitational waves from compact binaries', GGI Florence PhD class 2026, lecture notes L01_gwpropagation.pdf pp.3-5 (md5 09606aaa58c39b05a4abab3d75b23152) and L03_binaries1.pdf pp.2-3 (md5 ba3f262e3b8feb57c07f5a7f94d30566), fetched from raw.githubusercontent.com/dgerosa/gwbinaries_florence_2026/main/lectures/ and saved under scratchpad d67/src/gwflux/; the notes state they number equations after Maggiore's book. Handwritten, no text layer: read as rendered page images (L01_p3-5.png, L03_p2-3.png).",
+  "read_status": "READ-VIA-RESTATEMENT",
+  "via": "alphaXiv answer_pdf_queries (0903.0338, gr-qc/0501041), get_paper_content (0903.0338) and discover_papers ALL returned 'alphaXiv assistant quota exceeded'; arxiv.org, export.arxiv.org, link.springer.com, pubmed, wikipedia, semanticscholar, inspirehep are egress-blocked (403 CONNECT). The only readable restatement located was the Gerosa GGI-2026 notes (lecture notes, not a refereed paper) restating Maggiore eq. 1.153 by number. Maggiore 2007, Isaacson 1968 and Sathyaprakash & Schutz 2009 (arXiv:0903.0338) are NAMED-NOT-READ. The restatement's coefficient is independently machine-checked here (rederive check 1: it is the unique coefficient consistent with the quadrupole luminosity the tree itself uses)."
+ },
+ "published_statement": "Gerosa L01 p.5, G = c = 1, eq. (1.153): 'dE/(dA dt) = +t^00 = (1/32 pi) <hdot^TT_ij hdot^TT_ij> = (1/16 pi) <hdot_+^2 + hdot_x^2>'; boxed: 'dE/dt = (r^2/32 pi) \\int dOmega <hdot^TT_ij hdot^TT_ij>' ('GW energy flux'), obtained from t^00 = (1/32pi)<hdot^TT_ij hdot^TT_ij> = (1/16pi)<hdot_+^2 + hdot_x^2> (1.135-1.136), t^0r (1.146) and the far-field form h^TT_ij(t,r) = (1/r) f_ij(t - r/c) (p.4-5). With G and c restored: F = c^3/(16 pi G) <hdot_+^2 + hdot_x^2>. L03 p.2 (Maggiore 3.330-3.336) gives, for a rotating quadrupole (binary on a fixed circular orbit), h_+ ~ (1+cos^2 theta)/2 cos(2 w_s t_ret), h_x ~ cos theta sin(2 w_s t_ret), 'face-on: circular polarisation; edge-on: linear polarisation h_+', dP/dOmega = (r^2/16pi)<hdot_+^2 + hdot_x^2> with the pattern [((1+cos^2 theta)/2)^2 + cos^2 theta], 'Emission is largest in the direction perpendicular to the orbital plane'. The single-amplitude form F = c^3 w^2 h^2/(16 pi G) used by the tree is NOT printed in the source read; it follows from (1.153) only when h^2 = <h_+^2 + h_x^2> (e.g. circular polarisation of peak h in each polarisation).",
+ "published_hypotheses": [
+  "Linearised GR about a background: g = gbar + h with a separation of scales, either lambda-bar << L_B or f_GW >> f_B (L01 p.2-3)",
+  "Short-wave (Isaacson) averaging over a length lbar with lambda-bar << lbar << L_B; t_mu_nu defined only as that average (L01 p.3, eqs. 1.122-1.130)",
+  "Away from the source (T_mu_nu = 0 at the evaluation point; nabla ~ partial) (L01 p.4)",
+  "Far zone: h^TT_ij = (1/r) f_ij(t - r/c) + O(1/r^2), i.e. outgoing radiation, r >> lambda (L01 p.4-5)",
+  "TT gauge / TT projection; two polarisations h_+, h_x (L01 p.4)",
+  "Four spacetime dimensions, massless spin-2 field propagating at c (implicit throughout: retarded time t - r/c)",
+  "For the angular pattern: quadrupole (slow-motion) approximation, source in the x-y plane rotating at w_s, radiating at 2 w_s (L03 p.2)"
+ ],
+ "hypothesis_drift": [
+  "DROPPED -- the polarisation content of h. branelink.py:204-206 writes the flux as c^3 w^2 h^2/(16 pi G) with a single h; the published form is c^3/(16 pi G)<hdot_+^2 + hdot_x^2>. The tree's form is exact iff h^2 = <h_+^2 + h_x^2> (total mean-square strain; = the per-polarisation peak for a circular wave). For a linearly polarised wave of peak amplitude h the flux is c^3 w^2 h^2/(32 pi G) (rederive check 3b), so reading the tree's h as a linear peak understates it by sqrt 2. branelink.py:209-211 (bulk_bits_per_watt) reuses the same h inside (h/h_n)^2 without saying which amplitude it is. A convention unstated, not an error: under the sky-rms reading it is exact (check 3a).",
+  "USED-FALSE-FOR-THE-SOURCE -- isotropic emission. branelink.py:204-206 and 214-217 put L/(4 pi D^2) at Proxima for the spinning rod (branelink.py:199-201). The rod's quadrupole is the binary's rotating quadrupole (check 2a-2b reproduces L03 p.2's pattern exactly), so its emission is anisotropic: flux at polar angle theta over the isotropic figure runs from 5/2 (face-on, along the spin axis) to 5/16 (edge-on) (check 4b). The tree's h is therefore the SKY-RMS strain, not the strain at Proxima, and the rod's axis relative to the Proxima line is never specified. The canonical entry names isotropy as a hypothesis; the owner's docstring does not say it is false for this source.",
+  "DROPPED (satisfied) -- far zone and short-wave averaging. Not named at branelink.py:204-206; at the design point lambda_GW = 9.42e6 m, D/lambda = 4.27e9, source size / lambda = 1.06e-5, v_tip/c = 1.67e-5 (checks 6a, 6b). The hypothesis holds; its omission changes nothing here.",
+  "DROPPED (unnamed) -- 4D massless graviton. branelink.py:43-44 places this link on the branch 'graviton IS a bulk degree of freedom'; the 4D flux formula then applies only to the energy carried by the 4D massless (zero) mode at distances far above any compactification scale, with no leakage into massive modes at omega = 200 rad/s. The tree does not name this; nothing in the source read addresses a 5D bulk. Named here, not tested."
+ ],
+ "data_at_publication": [
+  {
+   "quantity": "G (enters h as h ~ G: L ~ G and h ~ sqrt(G L))",
+   "value_then": "6.67430e-11 m^3 kg^-1 s^-2 (foliation.py:580, the tree's value)",
+   "value_now": "6.67430e-11 is the CODATA 2018 recommended value; the CODATA 2022 value was NOT re-read this pass (alphaXiv quota, egress)",
+   "source_now": "NOT READ this pass",
+   "moves_conclusion": "No. h is linear in G; the conclusion is a 26.6-order gap, so only a change of order 10^26 in G could move it; no measured G differs from 6.674e-11 by more than ~5e-4 relative."
+  },
+  {
+   "quantity": "c",
+   "value_then": "2.99792458e8 m/s (foliation.py:579)",
+   "value_now": "2.99792458e8 m/s, exact by SI definition",
+   "source_now": "SI definition",
+   "moves_conclusion": "No."
+  },
+  {
+   "quantity": "D = L_PROXIMA (h ~ 1/D)",
+   "value_then": "4.2465 ly x 9.4607304725808e15 m = 4.01750e16 m (foliation.py:582-587)",
+   "value_now": "Gaia DR3 parallax of Proxima Cen not re-read this pass",
+   "source_now": "NOT READ this pass",
+   "moves_conclusion": "No. h ~ 1/D and bits/s/W ~ 1/D^2; a 1e-3 revision moves the 26.62-order gap by < 1e-3 orders."
+  },
+  {
+   "quantity": "omega_GW = 2 Omega (the frequency in the formula)",
+   "value_then": "2 x 100 rad/s (branelink.py:161, OMEGA_GW_OVER_OMEGA)",
+   "value_now": "2 Omega confirmed: L03 p.2 prints cos(2 w_s t_ret) for a rotating quadrupole; branelink's own check proves the period pi/Omega; rederive check 2a reproduces 2 Omega",
+   "source_now": "Gerosa L03 p.2 (Maggiore 3.330-331)",
+   "moves_conclusion": "No -- already corrected in the tree (the withdrawn Omega figure is 2x in h)."
+  },
+  {
+   "quantity": "Design inputs M, l, Omega and H_NOISE",
+   "value_then": "1e6 kg, 100 m, 100 rad/s; 1e-23 Hz^-1/2 (branelink.py:135-136)",
+   "value_now": "inputs, not data; H_NOISE belongs to a different relation (not this result)",
+   "source_now": "n/a",
+   "moves_conclusion": "Not a datum of this result."
+  }
+ ],
+ "rederivation": {
+  "method": "sympy",
+  "script_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/gw-energy-flux-strain.py",
+  "outcome": "ALL PASS (15 checks, ~20 s). (1) For branelink's own rod quadrupole, the published flux c^3/(32 pi G)<hdot^TT_ij hdot^TT_ij> with the far-field strain (2G/(c^4 r)) Lambda Q'' (NAMED, not read), integrated over the sphere, equals G/(5c^5)<Q'''Q'''> = (2/45) G M^2 l^4 Omega^6/c^5 exactly -- the flux coefficient is the unique one consistent with the luminosity the tree seats. (2) The rod's h_+ ~ A0(1+cos^2 th)/2 cos 2 Omega t and h_x ~ A0 cos th sin 2 Omega t with A0 = G M l^2 Omega^2/(3 c^4 r): the source's binary pattern; <hdot^TT hdot^TT> = 2<hdot_+^2 + hdot_x^2> (1/32pi <-> 1/16pi). (3a) The tree's h^2 = 4 G L/(c^3 w^2 D^2) equals the SKY AVERAGE of <h_+^2 + h_x^2> exactly. (3b) linear polarisation of peak h: F = c^3 w^2 h^2/(32 pi G); (3c) circular of peak h: F = c^3 w^2 h^2/(16 pi G) -- the tree's form. (4) Face-on A0^2 = (5/2) h_tree^2; flux(theta)/isotropic = 5/2 face-on, 5/16 edge-on. (5) h_tree = 4.3359e-48 reproduced (L_GW = 1.2250e-22 W); face-on peak 6.8556e-48, edge-on peak 3.4278e-48; if bits/s ~ (peak/h_n)^2 the 26.62-order EM-over-bulk gap lies in [26.22, 26.82] depending on the unspecified rod orientation. (6) D/lambda = 4.27e9, l/lambda = 1.06e-5, v/c = 1.67e-5: far-zone and slow-motion hypotheses hold. Out of scope, recorded only: a uniform 100 m rod at 100 rad/s carries peak tensile stress ~ rho Omega^2 l^2/8 = 9.8e10 Pa at steel density -- a design-point observation on the source, not on this formula.",
+  "agrees_with_source": "yes"
+ },
+ "later_literature": [
+  {
+   "ref": "arXiv:2405.16423 (EOB energy flux and waveform, slow-spinning binaries)",
+   "effect": "confirms",
+   "what": "Located by WebSearch; the search snippet quotes dE/dt = \\int (1/16 pi G)(hdot_+^2 + hdot_x^2) r^2 dOmega, the same flux in the (+, x) form (G explicit, c = 1). Snippet only; the paper was not opened (arxiv.org egress-blocked). The mandated discover_papers call returned 'alphaXiv assistant quota exceeded', so no survey for narrowing/contradicting/extending work was run; no claim is made either way beyond this snippet. (Sathyaprakash & Schutz 2009, arXiv:0903.0338, was located but not readable; it is recorded under source.via, not here.)",
+   "read_status": "NAMED-NOT-READ (search snippet only); discover_papers NOT RUN (quota)"
+  }
+ ],
+ "lacked_data": "M's hypothesis tested for this result. The flux formula is a theorem of linearised GR (Isaacson averaging), not a fit: it has no empirical input beyond c and G, and it is a closed-form identity that is machine-checked here against the quadrupole luminosity. Data that came later and bear on it: (i) the Hulse-Taylor and double-pulsar orbital decay and (ii) LIGO-Virgo strain measurements from 2015 on are tests of the quadrupole emission/flux chain in the strong-source regime; neither was READ this pass, so neither is offered as evidence either way. (iii) GW170817's bound |v_gw - c|/c <= 7e-16 -- READ elsewhere in the tree (manyc.GW170817_BOUND_HI, branelink.py:132) -- supports the massless-at-c hypothesis the formula's retarded time t - r/c presumes, on the 4D side. What the tree lacks is not a datum the formula's authors lacked but two specifications of its own: the orientation of the rod's spin axis relative to the Proxima line (moves h by a factor between sqrt(5/16) and sqrt(5/2) in rms, sqrt(5/8) to sqrt(5/2) in detector-seen peak) and which amplitude h denotes. Neither moves the conclusion: the EM link beats the bulk link by 26.22 to 26.82 orders instead of 26.62. On the bulk-graviton branch the question whether a 5D bulk graviton's energy at omega = 200 rad/s is carried by the 4D zero mode is not addressed by the 4D formula and is not tested here. Evidence neither way that earlier physicists' missing data changes this result.",
+ "grade": "NARROWED",
+ "grade_evidence": "The published flux F = c^3/(16 pi G)<hdot_+^2 + hdot_x^2> (Maggiore eq. 1.153, READ via Gerosa GGI-2026 L01 p.5) is reproduced and machine-checked: with branelink's own rod quadrupole it integrates to the (2/45) G M^2 l^4 Omega^6/c^5 luminosity exactly, and the tree's h = (2/(D w)) sqrt(G L/c^3) reproduces 4.3359e-48. But the tree's single-h form holds on a smaller class than its use states: (a) it is exact only for h^2 = <h_+^2 + h_x^2> (circular polarisation, or total rms), and is 2x high in flux for a linear wave of peak h -- a polarisation hypothesis the owner (branelink.py:204-206, 209-211) drops; (b) it uses isotropic emission for a source whose pattern is proven anisotropic here (flux ratio 5/2 face-on to 5/16 edge-on, check 4b), so h is the sky-rms, not the strain at Proxima, and the rod's orientation is unspecified. No computed contradiction: no moved datum and no orientation moves the conclusion (EM over bulk: 26.22-26.82 orders vs the seated 26.62). Not WRONG, not DATA-DEPENDENT. Caveat on the reading: the source is a lecture-notes restatement of a textbook equation, not a refereed arXiv paper, because every arXiv route was down this pass.",
+ "what_would_change_the_grade": "To STANDS: the owner names h as the sky-rms total strain sqrt(<<h_+^2 + h_x^2>>) (or the face-on circular peak with the 5/2 factor) and states that isotropy is used as a sky average for an anisotropic source. To OPEN: a reading of Maggiore 1.153 / Isaacson 1968 / arXiv:0903.0338 at source that disagreed with the Gerosa restatement's coefficient (improbable: check 1 fixes the coefficient by the quadrupole luminosity). To WRONG: only a computed contradiction of the flux identity itself, e.g. a failure of check 1 -- none found. A specified rod orientation would replace the [26.22, 26.82] range with a single figure, not change the grade.",
+ "reverify_command": "python3 /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/gw-energy-flux-strain.py   # exits 0, 'ALL PASS'; and: cd /home/user/Claude-Method-Works/research/warp-drive && python3 branelink.py | grep 'O6  corrected'   # h = 4.3359e-48; source pages: scratchpad d67/src/gwflux/L01_p5.png (eq. 1.153), L03_p2.png (pattern)",
+ "report_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/audits/gw-energy-flux-strain.json"
+}

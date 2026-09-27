@@ -1,0 +1,73 @@
+A. tree value vs CIAAW 2024 standard atomic weight (READ)
+   stock.py's 18 values are identical to stockgate.py's for the same symbols: True
+   note: O tree 15.999 = CIAAW abridged conventional value, outside [15.99903, 15.99977] by rounding only
+   note: Tl tree 204.38 = CIAAW abridged conventional value, outside [204.382, 204.385] by rounding only
+   entries consistent with the 2024 standard (in interval, or within U + tree rounding): 63 / 63
+   entries that are neither the 2024 abridged value nor the 2024 value correctly rounded:
+     Ar tree 39.948   2024 ('I', 39.792, 39.963, 39.95)  prior: 39.948(1) (standard value before the 2017 interval)
+     Zr tree 91.224   2024 ('V', 91.222, 0.003, 91.222)  prior: 91.224(2) (standard value before the 2024 revision)
+
+B. re-derivation: CIAAW 2024 isotopic composition (READ) x AME2020 masses (tree capture)
+   H   sum x_i m_i = 1.00797   tree 1.008    |d| = 0.00003  ok
+   He  sum x_i m_i = 4.00260   tree 4.003    |d| = 0.00040  ok
+   Li  sum x_i m_i = 6.96746   tree 6.94     |d| = 0.02746  ok
+   C   sum x_i m_i = 12.01064   tree 12.011   |d| = 0.00036  ok
+   N   sum x_i m_i = 14.00686   tree 14.007   |d| = 0.00014  ok
+   O   sum x_i m_i = 15.99940   tree 15.999   |d| = 0.00040  ok
+   Ne  sum x_i m_i = 20.18005   tree 20.18    |d| = 0.00005  ok
+   Na  sum x_i m_i = 22.98977   tree 22.99    |d| = 0.00023  ok
+   Mg  sum x_i m_i = 24.30546   tree 24.305   |d| = 0.00046  ok
+   Al  sum x_i m_i = 26.98154   tree 26.982   |d| = 0.00046  ok
+   Si  sum x_i m_i = 28.08500   tree 28.085   |d| = 0.00000  ok
+   P   sum x_i m_i = 30.97376   tree 30.974   |d| = 0.00024  ok
+   S   sum x_i m_i = 32.06745   tree 32.06    |d| = 0.00745  ok
+   Cl  sum x_i m_i = 35.45214   tree 35.45    |d| = 0.00214  ok
+   K   sum x_i m_i = 39.09830   tree 39.098   |d| = 0.00030  ok
+   Ca  sum x_i m_i = 40.07802   tree 40.078   |d| = 0.00002  ok
+   Fe  sum x_i m_i = 55.84514   tree 55.845   |d| = 0.00014  ok
+   Zn  sum x_i m_i = 65.37778   tree 65.38    |d| = 0.00222  ok
+   worst relative difference, re-derived vs tree: 3.96e-03
+
+C. 'normal material' hypothesis: solar-system isotopes (A09 Table 3, READ) x AME2020
+   H  solar-system weight 1.00785  vs tree 1.008    relative -1.536e-04
+   He solar-system weight 4.00244  vs tree 4.003    relative -1.400e-04
+   N  solar-system weight 14.00536  vs tree 14.007   relative -1.173e-04
+   Ne solar-system weight 20.13128  vs tree 20.18    relative -2.414e-03
+   Ar solar-system weight 36.27540  vs tree 39.948   relative -9.193e-02
+   K  solar-system weight 39.09947  vs tree 39.098   relative +3.761e-05
+   tree baseline selftests: stockgate rc=0, stock rc=0
+   CIAAW-2024 abridged    binder flips over 30 (payload x destination) cells: 0 ; max |rel. shift| of factor 2.49e-05
+                          regimes equal: True ; stock binding ('P', 1910.4400348368274) vs ('P', 1910.4876251803541) ; stock rank order equal: True
+                          Z_hybrid 0.013370 vs 0.013370 ; XYZ_photospheric (0.73741, 0.24922, 0.01337) vs (0.73739, 0.24924, 0.01337)
+                          Ar mass fraction 7.3411e-05 vs 7.3406e-05 (rel +0.000)
+                          condensed budget max rel shift 2.52e-05 ; selftests under this table: stockgate rc=1 fails=['   H dominates                                                        FAIL got=0.7374066874817551 want=0.737388'], stock rc=1 fails=['   at this factor                                               FAIL 1910.4 != 1910.5']
+   solar-system isotopes  binder flips over 30 (payload x destination) cells: 0 ; max |rel. shift| of factor 1.78e-04
+                          regimes equal: True ; stock binding ('P', 1910.2136014034756) vs ('P', 1910.4876251803541) ; stock rank order equal: True
+                          Z_hybrid 0.013362 vs 0.013370 ; XYZ_photospheric (0.73739, 0.24925, 0.01336) vs (0.73739, 0.24924, 0.01337)
+                          Ar mass fraction 6.6668e-05 vs 7.3406e-05 (rel -0.092)
+                          condensed budget max rel shift 5.65e-04 ; selftests under this table: stockgate rc=1 fails=['   11 bulk elements                                                   FAIL got=1910.9065967591134 want=1911.19', '   59 as-composed elements                                            FAIL got=1910.5819031883207 want=1910.87'], stock rc=1 fails=['   at this factor                                               FAIL 1910.2 != 1910.5']
+   A09 (arXiv:0909.0948 sec 3.12, READ) present-day photosphere X=0.7381 Y=0.2485 Z=0.0134; the tree's photospheric column gives (0.7374, 0.2492, 0.0134)
+
+D. massform H-A: A_e = round(stock.ATOMIC_MASS[e]); mean nucleon number within 1/2 (CIAAW 2024 compositions)
+   O  A_e= 16  Abar=16.0045  margin to 1/2: 0.4955 ok
+   C  A_e= 12  Abar=12.0106  margin to 1/2: 0.4894 ok
+   H  A_e=  1  Abar=1.0001  margin to 1/2: 0.4999 ok
+   N  A_e= 14  Abar=14.0038  margin to 1/2: 0.4962 ok
+   Ca A_e= 40  Abar=40.1156  margin to 1/2: 0.3844 ok
+   P  A_e= 31  Abar=31.0000  margin to 1/2: 0.5000 ok
+   K  A_e= 39  Abar=39.1347  margin to 1/2: 0.3653 ok
+   S  A_e= 32  Abar=32.0956  margin to 1/2: 0.4044 ok
+   Na A_e= 23  Abar=23.0000  margin to 1/2: 0.5000 ok
+   Cl A_e= 35  Abar=35.4840  margin to 1/2: 0.0160 ok
+   Mg A_e= 24  Abar=24.3206  margin to 1/2: 0.1794 ok
+   Fe A_e= 56  Abar=55.9099  margin to 1/2: 0.4099 ok
+   Zn A_e= 65  Abar=65.4504  margin to 1/2: 0.0496 ok
+   Li A_e=  7  Abar=6.9515  margin to 1/2: 0.4515 ok
+   smallest margin: 0.0160
+
+E. interval elements flattened to one conventional value: verdicts at the interval ends
+   all interval elements at lower bound   binder flips 0 ; stock binding P ; rank equal True ; max |rel. shift| 1.48e-04
+   all at upper bound                     binder flips 0 ; stock binding P ; rank equal True ; max |rel. shift| 8.09e-03
+   Cl mean nucleon number over the CIAAW interval: [35.4780, 35.4900]; |Abar - 35| < 1/2 throughout: True
+
+RESULT: PASS (0 failures)

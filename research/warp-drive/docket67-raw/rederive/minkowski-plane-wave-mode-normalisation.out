@@ -1,0 +1,16 @@
+PASS C1 KG norm coefficient of delta^n(k-k'), norm=2   got=1 want=1
+PASS C1 KG norm coefficient of delta^n(k-k'), norm=1   got=2 want=2
+PASS C2 CCR coefficient of delta^n(x-x'), norm=2   got=I want=I
+PASS C2 CCR coefficient of delta^n(x-x'), norm=1   got=2*I want=2*I
+PASS C3 Wightman(eps) vs Hadamard 1/(4pi^2 eps^2), norm=2   got=1/(4*pi**2*epsilon**2) want=1/(4*pi**2*epsilon**2)
+PASS C3 Wightman(eps) vs Hadamard 1/(4pi^2 eps^2), norm=1   got=1/(2*pi**2*epsilon**2) want=1/(2*pi**2*epsilon**2)
+PASS C4 (2.10) on plane waves -> (3.2) density, norm=2   got=-omega/(2*(2*pi)**n) want=-omega/(2*(2*pi)**n)
+PASS C4 (2.10) on plane waves -> (3.2) density, norm=1   got=-omega/(2*pi)**n want=-omega/(2*pi)**n
+PASS C5 route 2 prefactor, norm=2   got=1 want=1
+PASS C5 route 2 prefactor, norm=1   got=1/2 want=1/2
+PASS C6a transcribed (3.2) -> coefficient of INT u^4 F(u) du is -1/(16 pi^2)   got=-1/(16*pi**2) want=-1/(16*pi**2)
+PASS C6b with 1/(16 pi^3) (transcribed 5.6): ratio to Ford-Roman = 9/64   got=9/64 want=9/64
+PASS C6c with 1/(16 pi^2) (transcribed 3.2 + mode norm): ratio = 9 pi/64   got=9*pi/64 want=9*pi/64
+PASS C6d numeric INT v^4 K0^2 = 27 pi^2/512 (rel 1e-15)   got=1 want=1
+
+14/14 PASS

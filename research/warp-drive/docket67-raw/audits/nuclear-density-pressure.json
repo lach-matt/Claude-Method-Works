@@ -1,0 +1,82 @@
+{
+ "key": "nuclear-density-pressure",
+ "name": "Nuclear density energy scale ~1e35 Pa (seatindex.py:95, :370-375, :406): the universal-seating threshold T_kk >= pi c^4/(4 G l^2) is 'BELOW nuclear density' at l = 100 km",
+ "source": {
+  "located": "No source is cited by the tree (seatindex.py:370 prints 'vs nuclear ~1e35 Pa' with no reference; canonical status_word 'none'). The datum it stands for is the nuclear saturation density n0 ~ 0.16 fm^-3 (rho_s ~ 2.7e14 g/cm^3), standardly quoted from e.g. Lattimer & Prakash, astro-ph/0002232 (ApJ 550, 426, 2001) and arXiv:1512.07820 (Phys. Rep. 621, 127, 2016). NOT READ in this stage: every alphaXiv tool (answer_pdf_queries, get_paper_content, discover_papers) returned 'assistant quota exceeded'; arxiv.org, export.arxiv.org, aanda.org, infn.it are egress-blocked (proxy 403, logged). Only WebSearch result summaries were available: they attribute 'rho_s = 2.7 x 10^14 g cm^-3, n_s = 0.16 baryons fm^-3' to Lattimer-Prakash and 'n_sat = 0.164 +- 0.007 fm^-3, B = 15.86 +- 0.57 MeV' to a PMC-hosted review -- a search-engine summary, not a source reading, and not used as evidence for the grade. c, G, m_n, m_p: CODATA 2018 read from scipy 1.17.1 physical_constants (wheel already in scratchpad/d67/src/codata).",
+  "read_status": "NAMED-NOT-READ",
+  "via": "Attempted: alphaXiv answer_pdf_queries(1512.07820), get_paper_content(1512.07820, fullText), discover_papers, answer_pdf_queries(astro-ph/0002232) -- all quota-exceeded; curl/WebFetch arxiv.org, aanda.org, chimera.roma1.infn.it -- EGRESS_BLOCKED. WebSearch x2 (snippets only). The grade is therefore built so it does not rest on any unread value: n0 is a scanned parameter and the break-even n0 is computed, and the tree's OWN saturation constant (2.3e17 kg/m^3, warpdrive.py:148, emwarp.py:225, drivespec.py:39) is used as an internal comparand needing no external read."
+ },
+ "published_statement": "No published statement is quoted by the tree. The conventional datum (NOT READ here): nuclear saturation density n0 ~ 0.16 fm^-3, mass density ~2.7e14 g cm^-3 = 2.7e17 kg m^-3, energy per nucleon at saturation ~ -16 MeV; symmetric nuclear matter has zero pressure at saturation by definition of the saturation point (dE/dn = 0). The tree's statement: seatindex.py:95-96 'at l ~ 100 km it is BELOW nuclear density. Matter that seats a conjugate point exists in nature; it is called a neutron star.'; :370 'vs nuclear ~1e35 Pa'; :374-375 chk('at 100 km the requirement is BELOW nuclear density', tkk_required(1.0e5) < 1.0e35); :405-406 'below nuclear density beyond about 100 km'.",
+ "published_hypotheses": [
+  "(datum, not read) n0 is the density at which symmetric nuclear matter's energy per nucleon is minimal; its energy density is eps0 = n0 (m_N c^2 + E/A) and its pressure there is zero (symmetric matter) -- so the correct 'nuclear' comparand for T_kk is an ENERGY density, not a pressure",
+  "(physics used by the tree) for a perfect fluid T_kk = (eps + p)(k.u)^2; comparing T_kk with eps requires the null vector normalised to k.u = -1 (unit energy in the fluid frame, the affine length measured in metres in that frame) and p << eps",
+  "(physics used by the tree) the Sturm threshold is for a STRETCH of affine length l carrying q = (4 pi G/c^4) T_kk; 'below nuclear density' compares only the density, not whether a region of that density and extent l can exist"
+ ],
+ "hypothesis_drift": [
+  "UNIT/QUANTITY WORDING (discrepancy, not a refutation): the tree writes '1e35 Pa' and the canonical key says 'pressure', but the only physically meaningful 'nuclear' comparand is the saturation ENERGY density (pressure at saturation is ~0 for symmetric matter). Owner seatindex.py:370. The comparison itself is energy-density-to-T_kk and is the right kind.",
+  "VALUE (computed discrepancy, internal): 1e35 Pa = 624 MeV/fm^3 is 4.84x the tree's OWN saturation density 2.3e17 kg/m^3 x c^2 = 2.067e34 Pa (warpdrive.py:148, emwarp.py:225, drivespec.py:39 vs seatindex.py:370,375). Against eps0 = n0(m_N c^2 - 16 MeV) it is 4.23x at n0 = 0.16 fm^-3 (3.98x-4.66x over n0 = 0.145-0.170). 1e35 Pa corresponds to ~4 n0 -- a neutron-star-core energy density, not 'nuclear density'. Rendered margin at 100 km is x10.5 in the tree; x2.49 at n0 = 0.16; x2.17 with the tree's own constant.",
+  "DROPPED (named normalisation): T_kk = (eps + p) w^2 with w = -k.u (sympy-checked); the tree compares T_kk to eps directly (seatindex.py:370-375), which silently takes w = 1 and p = 0. Both are true at the natural normalisation and at saturation (p >= 0 above it only helps), so the drop does not move the verdict, but it is a hypothesis and is now named.",
+  "DROPPED (geometry, affects the adjacent sentence seatindex.py:95-96 'it is called a neutron star', not the density comparison): a uniform BALL of diameter l at the threshold density has 2GM/(Rc^2) = pi^2/6 = 1.645 for EVERY l (sympy, exact; weak-field estimate) -- past Buchdahl 8/9, i.e. no static star realises a ball-shaped universal seat at any l. A thin rod (radius a << l) has G mu/c^2 = pi^2 a^2/(4 l^2) and is not so excluded. An illustrative 1.4 Msun, R = 12 km star (values NOT READ) has <eps> = 3.46e34 Pa, Sturm ratio 0.21 along its diameter -- it supplies nuclear density but not a 100 km stretch of it. The neutron-star sentence therefore needs the named hypothesis 'the seating region is elongated along the ray, not a compact ball'. Recorded, not repaired."
+ ],
+ "data_at_publication": [
+  {
+   "quantity": "'nuclear' energy scale the tree compares against",
+   "value_then": "1.0e35 Pa (seatindex.py:370,375; no source)",
+   "value_now": "eps0 = n0 (m_N c^2 + E/A) = 2.366e34 Pa at n0 = 0.16 fm^-3, E/A = -16 MeV (2.14e34-2.51e34 over n0 = 0.145-0.170); tree's own 2.3e17 kg/m^3 gives 2.067e34 Pa",
+   "source_now": "n0, E/A NOT READ at source here (conventional values; WebSearch snippets attribute n_s = 0.16 fm^-3 to Lattimer-Prakash astro-ph/0002232 and n_sat = 0.164 +- 0.007 fm^-3 to a review -- snippet only). m_N from CODATA 2018 via scipy. Tree constant from warpdrive.py:148.",
+   "moves_conclusion": "NO. tkk_required(100 km) = 9.505e33 Pa is below eps0 for every scanned n0 and below the tree's own 2.067e34 Pa; the conclusion flips only if n0 < 0.0643 fm^-3 (0.40 of 0.16) -- computed break-even. The MARGIN moves from x10.5 to x2.2-2.6."
+  },
+  {
+   "quantity": "crossover length l* where the threshold equals nuclear energy density ('beyond about 100 km', :406)",
+   "value_then": "implied by 1e35 Pa: l* = 30.8 km (the tree says 'about 100 km')",
+   "value_now": "61.5-65.5 km for n0 = 0.17-0.15 (63.4 km at 0.16); 67.8 km with the tree's own 2.3e17",
+   "source_now": "computed in rederive/nuclear-density-pressure.py",
+   "moves_conclusion": "NO. 100 km is beyond the true crossover in every case, so 'below nuclear density beyond about 100 km' holds; the tree's own 1e35 would put the crossover at 31 km, i.e. the tree's number and its prose disagree by 3x, and the corrected crossover (~63 km) sits closer to the prose."
+  },
+  {
+   "quantity": "pi c^4 / (4 G) and tkk_required(1e5 m)",
+   "value_then": "9.50536e43 Pa m^2; 9.5054e33 Pa (G = 6.67430e-11)",
+   "value_now": "9.505325e43 Pa m^2; 9.505325e33 Pa (CODATA 2018 G = 6.67430(15)e-11, c exact)",
+   "source_now": "scipy 1.17.1 physical_constants (CODATA 2018)",
+   "moves_conclusion": "NO (agrees to 4e-6; G's 2.2e-5 relative uncertainty is irrelevant to an order-of-magnitude comparison)."
+  }
+ ],
+ "rederivation": {
+  "method": "sympy",
+  "script_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/nuclear-density-pressure.py",
+  "outcome": "SELFTEST OK, 14/14 checks (output rederive/nuclear-density-pressure.out). (1) T_COEFF = 9.505325e43 Pa m^2 and tkk(100 km) = 9.505325e33 Pa = 59.33 MeV/fm^3 reproduce the tree. (2) 1e35 Pa = 624.2 MeV/fm^3; exceeds eps0 by 3.98x-4.66x (n0 0.170-0.145) and the tree's own 2.3e17 kg/m^3 c^2 by 4.84x. (3) Verdict 'tkk(100 km) < nuclear' TRUE with 1e35, with every scanned n0, and with the tree's own constant; break-even n0 = 0.0643 fm^-3. (4) Crossover l* = 30.8 km (1e35) vs 61.5-67.8 km (saturation / tree constant); 100 km beyond all. (5) sympy: perfect-fluid T_kk = (eps+p) w^2 exactly; uniform ball of diameter l at threshold has 2GM/(Rc^2) = pi^2/6 for all l; thin rod G mu/c^2 = pi^2 a^2/(4 l^2). Illustrative 1.4 Msun / 12 km star: <eps> = 1.46 eps0, Sturm ratio 0.209 along the diameter.",
+  "agrees_with_source": "partly"
+ },
+ "later_literature": [
+  {
+   "ref": "WebSearch summary attributing n_sat = 0.164 +- 0.007 fm^-3, B = 15.86 +- 0.57 MeV (1 sigma) to a review on PMC (PMC9177417, 'Constraining neutron-star matter with microscopic and macroscopic collisions')",
+   "effect": "confirms",
+   "what": "Saturation density within the scanned 0.145-0.170 band; conclusion unmoved (break-even 0.064).",
+   "read_status": "NAMED-NOT-READ (search snippet; pmc.ncbi.nlm.nih.gov not fetched, alphaXiv quota exhausted)"
+  },
+  {
+   "ref": "arXiv:2405.02748 'A Bayesian mixture model approach to quantifying the empirical nuclear saturation point'",
+   "effect": "extends",
+   "what": "Title indicates a quantified empirical saturation-point uncertainty; values not read.",
+   "read_status": "NAMED-NOT-READ (listed by WebSearch; arxiv.org egress-blocked)"
+  },
+  {
+   "ref": "arXiv:2007.07117 Horowitz et al., 'Insights into nuclear saturation density from parity violating electron scattering'",
+   "effect": "contested",
+   "what": "Title indicates PVES data bear on the saturation density; whether it lowers n0 was not read. Even a 10% lower n0 (0.145) leaves the verdict intact (tkk100/eps0 = 0.443).",
+   "read_status": "NAMED-NOT-READ"
+  },
+  {
+   "ref": "arXiv:1512.07820 Lattimer & Prakash, 'The Equation of State of Hot, Dense Matter and Neutron Stars' (2016)",
+   "effect": "confirms",
+   "what": "The standard reference for n_s = 0.16 fm^-3 per the search summary; not read.",
+   "read_status": "NAMED-NOT-READ (alphaXiv quota exceeded; arxiv.org blocked)"
+  }
+ ],
+ "lacked_data": "M's hypothesis tested: the tree's '~1e35 Pa' carries no source and no author; nothing was 'lacked' by an external physicist -- the saturation density has been known to ~5% for decades and the tree already holds a correct-order value (2.3e17 kg/m^3) in three other files. Evidence AGAINST M's hypothesis here: the conclusion is insensitive to any plausible datum -- it needs only n0 > 0.064 fm^-3, 2.5x below every quoted value. Evidence FOR a discrepancy (in the tree, not in outside physics): the tree's own number overstates nuclear energy density ~4x and is inconsistent with its own constant by 4.84x, inflating the rendered margin from x2.5 to x10.5. The adjacent 'it is called a neutron star' sentence rests on a geometry the tree does not name; the missing piece there is a hypothesis, not a datum.",
+ "grade": "NARROWED",
+ "grade_evidence": "The comparison the tree draws -- tkk_required(100 km) = 9.505e33 Pa lies below nuclear density -- is re-derived TRUE against the tree's 1e35, against eps0(n0) for every n0 in 0.145-0.170 fm^-3, and against the tree's own 2.3e17 kg/m^3; it would flip only for n0 < 0.0643 fm^-3 (computed). Not STANDS, because (a) the statement as used, '~1e35 Pa' as nuclear density, is a ~4x overstatement (4.23x at n0 = 0.16; 4.84x against the tree's own constant -- a computed internal inconsistency, a discrepancy and not a refutation), so the margin is x2.2-2.6, not x10.5, and the implied crossover is ~63 km, not 31 km; (b) two hypotheses are dropped and now named: T_kk equals eps only for w = -k.u = 1 and p ~ 0 (true at saturation; sympy-checked form), and the neutron-star sentence at :95-96 needs an elongated seating region, since a uniform ball at threshold has compactness pi^2/6 > 1 for every l (sympy). Not WRONG: no counterexample to the verdict exists over any plausible datum. Not DATA-DEPENDENT: no moved or contested datum moves the conclusion. Caveat carried: the saturation density itself was NOT READ at source in this stage (alphaXiv quota exhausted, arXiv egress-blocked); the grade is built on a parameter scan and the tree's own constant so it does not rest on the unread value.",
+ "what_would_change_the_grade": "To STANDS: seatindex.py:370/375 would need its figure to be the saturation energy density (~2.4e34 Pa, or the tree's own 2.3e17 c^2) with the normalisation w = 1, p ~ 0 and the elongated-region geometry named -- and n0 READ at source (e.g. 1512.07820) once alphaXiv quota resets. To WRONG: a source reading n0 < 0.064 fm^-3 (not plausible), or showing the comparison should be to pressure (it should not: T_kk = (eps+p)w^2). To OPEN: a ruling that an unread datum forbids any grade, even one robust to the datum by a factor 2.5.",
+ "reverify_command": "python3 /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/nuclear-density-pressure.py && grep -n 'nuclear\\|1.0e35' /home/user/Claude-Method-Works/research/warp-drive/seatindex.py && grep -n 'RHO_NUC\\|NUCLEAR_DENSITY =\\|saturation density' /home/user/Claude-Method-Works/research/warp-drive/warpdrive.py /home/user/Claude-Method-Works/research/warp-drive/emwarp.py /home/user/Claude-Method-Works/research/warp-drive/drivespec.py",
+ "report_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/audits/nuclear-density-pressure.json"
+}

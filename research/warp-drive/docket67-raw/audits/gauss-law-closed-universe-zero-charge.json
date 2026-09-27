@@ -1,0 +1,84 @@
+{
+ "key": "gauss-law-closed-universe-zero-charge",
+ "name": "Gauss's law / divergence theorem on a compact boundaryless spatial manifold forces total electric charge to be exactly zero",
+ "source": {
+  "located": "No single originating paper; the tree cites none (permute.py:126-130, 337-340 carry no reference). It is textbook folklore (Landau-Lifshitz, Classical Theory of Fields; Misner-Thorne-Wheeler) -- NAMED-NOT-READ. arXiv statements located by WebSearch only: arXiv:0912.0225 ('Electrostatics in a closed universe'), arXiv:1409.0105 ('A Shape Dynamics Tutorial'), arXiv:1508.06910 ('Electrodynamics on Cosmological Scales') -- NAMED-NOT-READ (search-engine summaries, not page text). The charge-without-charge limb (the flux on a non-bounding 2-cycle) IS read verbatim: de Aguiar Alves & Arderucio Costa, arXiv:2503.18963v1 pp.6-7; Wheeler-Misner geon restated in Pisana-Shoshany-Antoniou arXiv:2505.02210v4 p.1.",
+  "read_status": "NAMED-NOT-READ",
+  "via": "This stage: alphaXiv answer_pdf_queries / get_paper_content / discover_papers all returned 'alphaXiv assistant quota exceeded' (0912.0225, 1509.01636); arxiv.org, export.arxiv.org, alphaxiv.org, inspirehep.net, ui.adsabs.harvard.edu, pdg.lbl.gov, semanticscholar are egress-blocked (proxy 403, organization policy; not routed around). WebSearch (search summaries only) located the statements; those summaries are not treated as READ. READ material is limited to verbatim alphaXiv page text harvested earlier this session in /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/src/casmag/all/: 2503.18963v1.txt (pp.6-7), 2505.02210v4.txt (p.1), 0809.1003v5.txt (p.15 eq.41, p.34 Table I), 1807.06209v4.txt (abstract p.1). The grade therefore rests on the re-derivation (computed), not on a source reading."
+ },
+ "published_statement": "Not read at source (see source.read_status). Search-summary wording (NAMED-NOT-READ, not quoted as source): 'On a compact space the total electric charge must be zero. This is a consequence of the Gauss constraint' and 'Maxwell's equations imply that the total charge in a closed universe must always be zero ... does not rely on the assumption of homogeneity and isotropy'. READ verbatim, arXiv:2503.18963v1 p.7: 'In the extended Reissner-Nordstrom geometry, the total charge can be similarly calculated as an integral on a two-surface dSigma at infinity. After applying Stokes' theorem, the resulting integrand d*F, where F is the Faraday tensor, vanishes identically, and no spacelike three-surface whose boundary is dSigma contains a singularity. The charge is nowhere to be localized!' The mathematical content re-derived here: for a globally defined vector field E on a compact Riemannian 3-manifold without boundary, int div E dV = 0; with Maxwell's div E = rho (massless U(1), E a section of the untwisted bundle), int rho dV = 0.",
+ "published_hypotheses": [
+  "H1 spatial slice compact without boundary (compactness, not positive curvature: flat T^3 qualifies; D1)",
+  "H2 Maxwell (massless-photon, exact U(1)) Gauss constraint div E = rho holding on the whole slice",
+  "H3 E is a single-valued global section of the untwisted (trivial-charge-conjugation-holonomy) bundle, so div E is a global divergence",
+  "H4 'total charge' means the source integral int rho dV (not the flux through a non-bounding 2-cycle, which can be nonzero: charge without charge, D4; 2503.18963 p.7)",
+  "Not required (by-hand, D3): smoothness of rho -- point charges are covered distributionally; magnetic monopoles -- div B = rho_m with B global gives int rho_m = 0 as well, and a theta/Witten term adds theta*div B, also integrating to zero; orientability of space -- the Riemannian divergence theorem uses the density and holds on non-orientable compact manifolds (via the orientation double cover); not machine-checked here"
+ ],
+ "hypothesis_drift": [
+  "DROPPED H2 (massless photon) -- permute.py:126-130, :337-340, :344, :560-563 say only 'Gauss's law'. Under Proca the static Gauss law is -lap A0 + m^2 A0 = rho, and a uniform net charge on T^3 is an exact solution (A0 = rho0/m^2, E = 0; D5). 'Exactly zero' holds only at m_gamma = 0.",
+  "OVERSTATED 'not by observation' -- permute.py:130 ('Not approximately, not by observation -- FORCED, by topology') and :562. The force needs topology (H1) AND the massless U(1) Gauss constraint (H2); m_gamma = 0 is a theoretical premise that observation bounds (< 1e-18 eV) but cannot establish.",
+  "DROPPED H3 (untwisted bundle) -- permute.py:338-339 ('Gauss on a manifold with no boundary: the integral of a divergence vanishes') holds only when E is a global vector field. With a charge-conjugation twist (C* / C-periodic boundary conditions; Alice-type holonomy) E(x+L) = -E(x), Gauss's law holds locally on a compact boundaryless space and a net charge is carried (D6 continuum: charge q with E = +-q/2; D7 z3 lattice: total charge 2 SAT, total = 2 x face-crossing flux). The C* literature (Lucini-Patella-Ramos-Tantalo arXiv:1509.01636, NAMED-NOT-READ, located by WebSearch) uses exactly this to put charged states in a finite periodic volume.",
+  "IMPLICIT but consistent H4 -- the tree's 'total charge' is the source integral; pair.py:82-86 already records charge without charge (mouths +-Q). No drift: D4 confirms zero source integral with flux Q through each S^2 of S^1 x S^2.",
+  "CODE: total_charge_forced_zero(closed) returns bool(closed) (permute.py:337-340) -- the theorem is hardcoded, not computed; the selftests at permute.py:468-470 and spectra.py:157 check a constant. The canonical entry's hypothesis 'no magnetic-monopole / wormhole-mouth exception discussed' is not a drift in substance: monopoles do not break the result (by-hand, see published_hypotheses) and wormhole mouths are H4-consistent (D4)."
+ ],
+ "data_at_publication": [
+  {
+   "quantity": "photon mass m_gamma (the theorem's 'exactly' assumes 0)",
+   "value_then": "No value stated in the tree; the classic statement assumes Maxwell (m_gamma = 0 exactly).",
+   "value_now": "mu < ~1e-18 eV, reduced Compton wavelength > ~2e11 m (1.3 AU) (Ryutov 2007, solar wind), Goldhaber-Nieto arXiv:0809.1003v5 eq.(41) p.15 and Table I p.34, READ (cached verbatim page text). Computed here: hbar c / 1e-18 eV = 1.973e11 m = 1.32 AU. PDG 2024/2025 listing NAMED-NOT-READ (pdg.lbl.gov egress-blocked).",
+   "source_now": "arXiv:0809.1003v5 p.15 eq.(41), p.34 Table I",
+   "moves_conclusion": "Yes in status, no in magnitude. At any m_gamma > 0 a net charge is admissible on a compact slice (D5, exact solution), so 'FORCED exactly' becomes 'allowed, at a potential A0 = rho_bar/m^2 that diverges as m -> 0'. An upper bound can never set m = 0, so the exactness is a premise, not a measured fact. No observation contradicts m = 0."
+  },
+  {
+   "quantity": "spatial curvature / closedness of the actual universe",
+   "value_then": "Not used: the tree applies the theorem conditionally, 'in a closed index' / 'spatially closed universe'.",
+   "value_now": "Omega_K = 0.001 +- 0.002 (Planck 2018 + BAO), arXiv:1807.06209v4 abstract p.1, READ (cached verbatim).",
+   "source_now": "arXiv:1807.06209v4 p.1",
+   "moves_conclusion": "No. The claim is conditional on closure, and closure means compactness (H1), which Omega_K cannot decide: flat and hyperbolic spaces also admit compact quotients (T^3 is D1's witness). Whether our universe is a closed index is undecided by this datum."
+  }
+ ],
+ "rederivation": {
+  "method": "sympy",
+  "script_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/gauss-law-closed-universe-zero-charge.py",
+  "outcome": "ALL CHECKS PASS (24 checks, ~5 s; sympy 1.14.0, z3 5.1.0). D1: int_T3 div E = 0 for a generic periodic field with 12 free coefficients; uniform rho0 > 0 inadmissible. D2: int_S3 sqrt(h) div V = 0 for a smooth non-gradient field projected from R^4 (metric verified round). D3: a point charge q on S^3 has flux q through every chi-sphere and forces -q at the antipode; net 0. D4: S^1 x S^2, E = Q/(4pi) d_psi, div E = 0 (total source charge 0) with flux Q through each S^2 -- charge without charge, consistent with the tree. D5 (counterexample to dropped H2): Proca -lap A0 + m^2 A0 = rho solved by A0 = rho0/m^2, E = 0 with net charge rho0(2pi)^3 != 0; A0 -> oo as m -> 0; Proca length at 1e-18 eV = 1.973e11 m = 1.32 AU. D6 (counterexample to dropped H3): C-antiperiodic E on S^1 carries net charge q (E = +-q/2); on C-twisted T^3 int div E = -2b(2pi)^2 != 0. D7 z3 on a periodic 3^3 lattice (81 integer links): 'total charge != 0' UNSAT untwisted (a universal statement over all integer link fields on this box), with vacuity guards SAT (system satisfiable; nonzero local charge exists); C-twisted across one face: total 2 SAT, odd total UNSAT (total = 2 x face-crossing flux for integer links), total 1 SAT with real links.",
+  "agrees_with_source": "partly"
+ },
+ "later_literature": [
+  {
+   "ref": "de Aguiar Alves & Arderucio Costa, 'The Measure of a Mass', arXiv:2503.18963v1 (2025)",
+   "effect": "confirms",
+   "what": "pp.6-7: by Stokes the total charge of extended Reissner-Nordstrom is a 2-surface integral whose bulk integrand d*F vanishes identically -- 'The charge is nowhere to be localized!'. The source integral is zero while flux on a non-bounding 2-cycle is not (H4; D4).",
+   "read_status": "READ (verbatim cached alphaXiv page text, src/casmag/all/2503.18963v1.txt pp.6-7)"
+  },
+  {
+   "ref": "Pisana, Shoshany & Antoniou, arXiv:2505.02210v4 (2025)",
+   "effect": "confirms",
+   "what": "p.1 restates Wheeler-Misner geons: 'unquantized electric charge can be recovered from its non-trivial topological features -- obtaining mass without mass and charge without charge' (Wheeler 1957, Misner-Wheeler NAMED-NOT-READ).",
+   "read_status": "READ (verbatim cached page text, p.1)"
+  },
+  {
+   "ref": "Lucini, Patella, Ramos & Tantalo, arXiv:1509.01636, JHEP 02 (2016) 076; with Kronfeld-Wiese / Polley-Wiese C-periodic boundary conditions",
+   "effect": "narrows",
+   "what": "With periodic boundary conditions Gauss's law and large gauge transformations forbid charged states in a finite volume (agrees with H1-H3); with C* boundary conditions charged states can be constructed consistently. That is a closed boundaryless space with net charge once H3 is dropped; D6/D7 reproduce the mechanism.",
+   "read_status": "NAMED-NOT-READ (WebSearch summary only; alphaXiv quota exceeded, arXiv egress-blocked)"
+  },
+  {
+   "ref": "Goldhaber & Nieto, arXiv:0809.1003v5, Rev. Mod. Phys. 82 (2010) 939",
+   "effect": "narrows",
+   "what": "The photon-mass bound 1e-18 eV behind the implicit H2: tight, but a bound, so 'exactly zero' rests on the theory's m = 0.",
+   "read_status": "READ (cached verbatim p.15 eq.41, p.34 Table I)"
+  },
+  {
+   "ref": "arXiv:0912.0225, arXiv:1409.0105, arXiv:1508.06910",
+   "effect": "confirms",
+   "what": "Located by WebSearch as statements that total charge on a compact space / closed universe vanishes by the Gauss constraint, independent of homogeneity.",
+   "read_status": "NAMED-NOT-READ (search-engine summary; not page text)"
+  }
+ ],
+ "lacked_data": "M's hypothesis tested. The result is a theorem, and no datum enters its mathematics: D1-D4 and D7 are exact and data-free. Two premises can carry data. (a) Photon mass: the classic statement assumes m_gamma = 0. The best bound has moved from 4e-16 eV (Jupiter, 1975) to 1e-18 eV (Ryutov 2007; 0809.1003 Table I, READ). That movement tightens the premise and never refutes it, yet no bound can make it exact. If a nonzero m_gamma were ever measured, 'forced exactly zero' would fail (D5). That is evidence the tree's 'not by observation' (permute.py:130) overstates: the conclusion is topology plus a premise that observation supports but cannot close. (b) Closure of the actual universe: Omega_K = 0.001 +- 0.002 (1807.06209, READ) cannot decide compactness. The tree's use is conditional, so this does not move it. (c) The 'data' that matters most is structural, not numerical: whether the gauge bundle can carry a charge-conjugation twist. Earlier authors did not lack that data; the C* construction (Kronfeld-Wiese 1991, Lucini et al. 2016, NAMED-NOT-READ) is a known extension of the theory. It narrows the statement without refuting it. No evidence was found that the result is wrong on its own hypotheses.",
+ "grade": "NARROWED",
+ "grade_evidence": "THE THEOREM STANDS ON ITS HYPOTHESES, and it is re-derived exactly here: T^3 (D1), round S^3 with a non-gradient field (D2), point charges (D3), and a z3 universal statement over all integer link fields on a periodic 3^3 lattice (D7, UNSAT, vacuity-guarded). THE TREE'S STATEMENT-AS-USED IS WIDER THAN THE THEOREM, on two dropped hypotheses, and each has a counterexample SHOWN here. (1) Massless photon: permute.py:126-130 and :562 claim 'forced by topology, not by observation'. Under Proca, a net charge on a compact T^3 is an exact solution (D5), so exactness needs m_gamma = 0, which is bounded (< 1e-18 eV, READ) but not established. (2) Untwisted bundle: permute.py:338-339. A C-antiperiodic E on a compact boundaryless space carries net charge q (D6), and z3 finds total charge 2 on the C-twisted lattice (D7). This is the mechanism of C* boundary conditions (1509.01636, NAMED-NOT-READ). Charge without charge (D4) is consistent with the tree (pair.py:82-86). The theorem is hardcoded: permute.py:337-340 returns bool(closed). NOT WRONG: nothing refutes the result on its hypotheses. A narrowing is not a refutation. NOT DATA-DEPENDENT in the strict sense: no datum has moved against m_gamma = 0; the photon-mass bound only tightened. CAVEAT: the classic source was not read at source (alphaXiv quota exhausted; arXiv egress-blocked). The grade rests on computation, and this row is re-gradable once the statement is read. VERDICT MOVEMENT: (a) permute.report 'TRUE FOR CHARGE' (permute.py:511-512) and apply.py:96/252 ('closure constrains charge, not E') stand under H2+H3. Neither exception creates an energy constraint, so the sign-commitment route closure at apply.py:252 does not move. (b) spectra.py:157's count of 1 inherits H3: under a C-twist the global charge is not a single Z-value (lattice total = 2 x face flux; literature says conserved mod 2, NAMED-NOT-READ). Whether obstruct.py:305-314 SPECTRAL-CURRENCY (CLOSED-NEGATIVE, which also rests on Bekenstein) moves was not adjudicated here. That is a missing label at these sites, not a repaired finding.",
+ "what_would_change_the_grade": "-> STANDS if the tree names H2 (massless U(1) Maxwell) and H3 (untwisted bundle / no C-holonomy) at permute.py:126-130, 337-340 and drops 'not by observation' at :130/:562, or if the closed index is shown to exclude C-twisted bundles by construction. -> DATA-DEPENDENT if a nonzero photon mass were measured. -> WRONG only if a globally defined E with div E = rho and int rho != 0 were exhibited on a compact boundaryless manifold, which D1/D2/D7 exclude on their boxes. -> A reading of the classic statement at source (e.g. arXiv:0912.0225 or 1409.0105 once alphaXiv quota returns) would convert source.read_status and could add hypotheses not seen here.",
+ "reverify_command": "python3 /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/gauss-law-closed-universe-zero-charge.py  # expect 'ALL CHECKS PASS' (needs sympy and z3-solver); owner sites: sed -n '123,139p;335,351p;465,472p;508,513p;557,565p' /home/user/Claude-Method-Works/research/warp-drive/permute.py; sed -n '150,158p' /home/user/Claude-Method-Works/research/warp-drive/spectra.py; READ evidence: tr '\\n' ' ' < /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/src/casmag/all/2503.18963v1.txt | grep -o 'The astute reader.\\{600\\}'; tr '\\n' ' ' < /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/src/casmag/all/0809.1003v5.txt | grep -o '.\\{120\\}10 *−18.\\{80\\}' | head -2",
+ "report_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/audits/gauss-law-closed-universe-zero-charge.json"
+}

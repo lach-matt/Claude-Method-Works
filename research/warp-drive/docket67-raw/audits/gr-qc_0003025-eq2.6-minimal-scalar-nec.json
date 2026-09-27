@@ -1,0 +1,85 @@
+{
+ "key": "gr-qc/0003025-eq2.6-minimal-scalar-nec",
+ "name": "Null energy condition for a minimally coupled scalar: T_kk = (k.grad phi)^2 >= 0 for any potential (Barcelo-Visser eq. 2.6, xi = 0)",
+ "source": {
+  "located": "arXiv gr-qc/0003025v2 (Barcelo & Visser, 'Scalar fields, energy conditions, and traversable wormholes', 7 Mar 2000, rev. 14 Jul 2000; CQG 17 (2000) 3843 per their gr-qc/0205066 ref. [8]); sect. 2.1-2.2, eqs. (2.1)-(2.6), pp. 3-5",
+  "read_status": "READ",
+  "via": "alphaXiv answer_pdf_queries on gr-qc/0003025 (pages 1-8, 10-12, 17, 21-25 returned); journal version NOT read"
+ },
+ "published_statement": "Eq. (2.6): G_mn k^m k^n = (1/kappa)[T^eff]_mn k^m k^n = [phi'^2 - xi (phi^2)''] / (kappa - xi phi^2) >= 0, with phi' = k^m d_m phi along an affinely parametrised null geodesic. Verbatim, p. 5: 'This condition is clearly satisfied by minimally coupled scalars.' (i.e. xi = 0: G_kk = phi'^2/kappa >= 0.) Context p. 5: 'because our analysis is completely classical ...'. p. 4 (same section): in the minimally coupled case the WEC 'is generically satisfied. Only a large negative potential, for example, a negative cosmological constant, could provide a violation of WEC'; the SEC is violated by a positive potential.",
+ "published_hypotheses": [
+  "classical field theory ('our analysis is completely classical', p. 5); T is the classical stress tensor, not <T>",
+  "action (2.1): S = (1/2) int sqrt(-g) kappa R + int sqrt(-g) ( -(1/2) g^mn d_m phi d_n phi - V(phi) - (1/2) xi R phi^2 ): Einstein-Hilbert gravity, a single real scalar, canonical (positive) two-derivative kinetic term, signature (-,+,+,+) (v^2 = -1), ARBITRARY potential V(phi)",
+  "minimal coupling xi = 0 for the quoted sentence (the eq. itself is xi-general, with T^eff of eq. (2.3))",
+  "arbitrary curved metric: k null (g_mn k^m k^n = 0), extended to an affinely parametrised null geodesic field",
+  "no quantum, averaging or stability hypothesis: pointwise statement"
+ ],
+ "hypothesis_drift": [
+  "DROPPED 'classical' -- ledger.py:502-508 (D17: 'closed for ANY minimally coupled scalar, any potential, any mass: T_kk = (k.d phi)^2 >= 0'; its failure-of-hypotheses field names ONLY 'a non-minimal coupling') and excite.py:212-215 ('T_kk = (k.grad phi)^2 >= 0 for any minimally coupled scalar, any potential, any mass'). The source is explicitly classical (p. 5), and its authors' own gr-qc/0205066 (READ) says NEC violations 'show up in semiclassical quantum gravity ... at first order in hbar'. higgs.py never states the word 'classical' (grep: no match); canonical.json attributes it to higgs.py:25 by implication of the Lagrangian. specthm.py:1044-1046 KEEPS it ('satisfies the NEC classically'). The tree treats quantum minimally coupled fields elsewhere (achievable.py:251,370; fewsterteo.py:116; bounds.py:346), so the omission is in the D17/excite wording and D17's escape list, not a tree-wide blindness.",
+  "DROPPED 'canonical, two-derivative kinetic term' -- ledger.py:502-508 (D17 'ANY minimally coupled scalar') and specthm.py:1044 ('Any minimally coupled scalar satisfies the NEC classically'). The source's class is fixed by action (2.1). Computed here (check B): for a classical minimally coupled P(X,phi), T_kk = P_X (k.dphi)^2, so k-essence with P_X < 0 (e.g. P = X - X^2 at X = 9/2: T_kk = -8 (k.dphi)^2) violates; Rubakov 1401.4024 (READ) reviews minimally coupled Galileon/Horndeski theories that violate the NEC STABLY. higgs.py:25/326-341 and excite.py:215 (the ghost control) DO carry the canonical hypothesis, and the SM Higgs is canonical at tree level, so the application (S8) is inside the class.",
+  "WEAKENED/REWORDED 'NEC' -> 'negative energy' -- ledger.py:503 (D17 'the Higgs as a source of negative energy ... is closed') and ledger.py:1610 (S8 'Higgs as a negative-energy source at the endpoint'). What eq. (2.6) closes is NEC violation (T_kk < 0), not negative energy density: the source itself (p. 4) says a minimally coupled scalar violates the WEC with a large negative potential, and higgs.py:83-85 records that the electroweak vacuum 'carries genuinely NEGATIVE potential energy density' (check E: rho = V_min = -1.1865e8 GeV^4 < 0 under V(0)=0, rho + p = 0 exactly). The tree's own higgs.py is internally consistent (w = -1 saturation); the D17/S8 row titles are the narrower-than-worded sites. Because a throat's flare-out demand is a NEC demand, the verdict as a NEC statement is unaffected.",
+  "SCOPE OF THE CHECK, not of the theorem: higgs.py:325 machine-checks on the flat metric ETA only; the source's statement is for any metric. Closed here by check A (symbolic metric: T_kk - (k.dphi)^2 = -g_kk (X/2+V) identically) and A2 (explicit curved Lorentzian rational metric, exact radical null k).",
+  "ADDED (legitimately, verified) 'any number of real components' -- endpoint.py:77-79 (T_kk = SUM_a (k.grad phi_a)^2) and the canonical entry's 'single real scalar (Higgs doublet treated as one real field)' (higgs.py). Not in the source (single scalar). Verified here: holds for any positive-semidefinite target metric (z3, C2), FAILS for an indefinite one (z3 sat, C2), and the gauged doublet gives T_kk = 2|k.DH|^2 + gauge-field F_ka F_k^a >= 0 (z3, C: w.k = 0 with k null implies w.w >= 0). The extension is true for the SM Higgs.",
+  "NOT A DRIFT, RECORDED FOR COMPLETENESS: minimal coupling itself is 'non-generic and unstable to quantum corrections' (gr-qc/0205066, READ); the tree carries this (higgs.py:113-117, the xi escape routed to S4/O1)."
+ ],
+ "data_at_publication": [
+  {
+   "quantity": "scalar potential V(phi), in the tree the SM Higgs potential (m_h, v, lambda; V_min = -m_h^2 v^2/8)",
+   "value_then": "not used: the source takes V arbitrary (2000; Higgs undiscovered, no value entered)",
+   "value_now": "tree's READ capture m_h = 125.13 GeV (higgs.M_HIGGS, run 2026-09-26), v ~ 246.22 GeV, V_min = -1.1865e8 GeV^4",
+   "source_now": "higgs.py M_HIGGS_READ_GEV (capture row PDGID_HIGGS); PDG not re-read in this audit",
+   "moves_conclusion": "NO. dT_kk/dV = -g_kk, identically zero for null k (check A, symbolic metric); V drops out exactly for every value, sign and shape. No datum of any kind enters the conclusion."
+  },
+  {
+   "quantity": "the tree's own sample ranges (V in +-1e30 GeV^4 rational, gradients in [-5,5]; 4000 and 300 configurations)",
+   "value_then": "n/a (tree inputs, not source inputs)",
+   "value_now": "superseded by a symbolic identity on an arbitrary metric (check A)",
+   "source_now": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/gr-qc_0003025-eq2.6-minimal-scalar-nec.py",
+   "moves_conclusion": "NO -- a sampled grid is replaced by an identity; nothing depended on the ranges."
+  }
+ ],
+ "rederivation": {
+  "method": "sympy",
+  "script_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/gr-qc_0003025-eq2.6-minimal-scalar-nec.py",
+  "outcome": "0 FAIL, 21 PASS (sympy 1.14.0, z3 get_version_string() = 5.1.0). A: T_kk = (k.dphi)^2 - g_kk (X/2 + V) identically on a fully symbolic metric, so the potential drops out exactly for null k; A2: exact on a curved rational Lorentzian metric with a radical null k. B: T_mn = P_X d_m phi d_n phi + g_mn P derived by metric variation of sqrt(-g) P(X,phi) (Jacobi formula checked), so T_kk = P_X (k.dphi)^2 -- canonical gives BV; phantom and k-essence with P_X < 0 give T_kk < 0 (the canonical hypothesis is load-bearing). C/C2 (z3): null k, w.k = 0 => w.w >= 0 (unsat negation), so gauge fields and the gauged doublet keep T_kk >= 0; PSD target metric => T_kk >= 0, indefinite => counterexample. D: eq. (2.6) numerator follows from the source's eq. (2.3); at xi = 0 it is phi'^2. D-prose DISCREPANCY: the three case statements printed beside eq. (2.6) (arXiv v2, p. 5: xi<0 'any local minimum of phi^2 violates'; xi>0 small |phi| 'any local maximum'; xi>0 large |phi| 'any local minimum') each have the extremum type opposite to what eq. (2.6) as printed gives at an extremum with phi != 0 (computed: max, min, max). This is outside the xi = 0 result; the tree inherits it at higgs.py:121-122 ('ANY LOCAL MAXIMUM OF phi^2 VIOLATES'), whose conclusion 'POINTWISE NEC VIOLATION IS CHEAP' survives with minima in place of maxima. Recorded, not repaired; a misprint-class discrepancy of the arXiv text, NOT to be quoted as an error of CQG 17 (2000) 3843 until that version is read. E: vev rho = V_min < 0, rho + p = 0 exactly.",
+  "agrees_with_source": "yes"
+ },
+ "later_literature": [
+  {
+   "ref": "arXiv:gr-qc/0205066 (Barcelo & Visser 2002, 'Twilight for the energy conditions?')",
+   "effect": "confirms",
+   "what": "'If xi = 0 (so-called minimal coupling) then the SEC is violated classically, though DEC, WEC, and NEC are satisfied.' Same authors restating the result as classical.",
+   "read_status": "READ (alphaXiv, pp. 1-12)"
+  },
+  {
+   "ref": "arXiv:gr-qc/0205066 (same)",
+   "effect": "narrows",
+   "what": "'minimal coupling is non-generic and unstable to quantum corrections'; quantum NEC violations 'show up in semiclassical quantum gravity ... at first order in hbar'. Limits the result to classical fields and to a coupling that is not RG-stable -- both hypotheses the D17 row does not name (the tree routes xi to S4/O1 and quantum fields to its QEI files).",
+   "read_status": "READ"
+  },
+  {
+   "ref": "arXiv:1401.4024 (Rubakov 2014, 'The Null Energy Condition and its violation')",
+   "effect": "narrows",
+   "what": "For minimally coupled first-derivative L = F(X^IJ, pi^I): rho + p = 2 dF/dX^IJ pi-dot^I pi-dot^J; NEC violation requires non-positive-definite dF/dX, which is inconsistent with stability (Buniy-Hsu-Murray), modulo the ghost-condensate loophole -- confirms the canonical case and its multi-field PSD generalisation. But minimally coupled second-derivative (Galileon/Horndeski) scalars admit stable, subluminal NEC-violating solutions (sect. 4.1, 0 < alpha < 3). 'Any minimally coupled scalar' is therefore true only for the canonical first-derivative class.",
+   "read_status": "READ (alphaXiv, pp. 1-10, 14-19, 27, 34-36)"
+  },
+  {
+   "ref": "arXiv:2503.22515 ('NEC violation and beyond Horndeski physics in light of DESI DR2')",
+   "effect": "extends",
+   "what": "Abstract: DESI DR2 evidence for w crossing -1 revives NEC-violating (beyond-Horndeski) dark-energy models. A datum hinting at cosmological NEC violation would need a scalar outside BV's class; it does not bear on eq. (2.6) inside it.",
+   "read_status": "NAMED-NOT-READ (discover_papers abstract only)"
+  },
+  {
+   "ref": "arXiv:2503.19955 ('How Much NEC Breaking Can the Universe Endure?')",
+   "effect": "extends",
+   "what": "Abstract: quantum fields can violate the NEC; constraints in cosmology. Quantum side, outside the classical hypothesis.",
+   "read_status": "NAMED-NOT-READ (discover_papers abstract only)"
+  }
+ ],
+ "lacked_data": "M's hypothesis tested on this result: it does NOT apply. Eq. (2.6) at xi = 0 is an algebraic identity -- T_kk = (k.dphi)^2 because g_kk = 0 kills every term multiplied by g_mn -- and no measured number enters it (check A: dT_kk/dV = -g_kk = 0 identically). In 2000 the Higgs was undiscovered; today m_h is measured (tree READ value 125.13 GeV), and the move is irrelevant by construction. What came later is theory, not data: stable NEC violation by minimally coupled NON-canonical (Galileon/Horndeski, ghost-condensate) scalars (Rubakov 1401.4024) and the emphasis on quantum NEC violation (gr-qc/0205066) -- both fall outside BV's stated hypotheses (classical, canonical) and so narrow the tree's WORDING, not the source. The one datum-like development, DESI DR2's hint of w < -1 (abstract only, not read), would if confirmed require such an outside-class field; it cannot refute the identity. Evidence against M's hypothesis here: exact symbolic proof on an arbitrary metric. Evidence for it: none found.",
+ "grade": "NARROWED",
+ "grade_evidence": "The mathematics STANDS exactly: re-derived symbolically on an arbitrary metric (check A), exactly on a curved metric (A2), from the source's own eq. (2.3) (D), and extended correctly to the tree's multi-component/gauged Higgs (C, C2); no datum enters (dT_kk/dV = 0). The grade is NARROWED, not STANDS, solely because two owners use it on a larger class than the source states: ledger.py:502-508 (D17: 'closed for ANY minimally coupled scalar', failure field naming only non-minimal coupling) and excite.py:212-215 drop 'classical'; D17 and specthm.py:1044 drop 'canonical two-derivative' (computed counterexample: minimally coupled k-essence with P_X < 0 gives T_kk < 0; minimally coupled Galileons violate the NEC stably, 1401.4024 READ); and D17/S8 word NEC as 'negative energy', whereas the source (p. 4) and higgs.py:83-85 itself show a minimally coupled scalar can carry negative energy density (vev: rho = V_min < 0, rho + p = 0). Inside the source's hypotheses -- which the SM Higgs meets at the classical level, and which higgs.py and excite.py's ghost control carry -- the tree's verdict S8 (classical role 3 closed) is untouched. Not WRONG: no counterexample within the stated class exists (A is an identity). Separate discrepancy recorded, not graded here: the source's prose case statements beside eq. (2.6) swap maxima and minima relative to eq. (2.6) as printed, inherited at higgs.py:121-122; the 'pointwise NEC violation is cheap' conclusion survives.",
+ "what_would_change_the_grade": "-> STANDS if the D17 row (ledger.py:502-508) and excite.py:212-215 name 'classical' and 'canonical two-derivative kinetic term' as hypotheses (and D17's failure field lists quantum states and non-canonical kinetic terms beside non-minimal coupling), and D17/S8 say 'NEC-violating' rather than 'negative energy'. -> WRONG only if a classical, canonical, two-derivative, minimally coupled scalar with T_kk < 0 were exhibited, which check A rules out as an identity. -> OPEN is not reachable: the source is read and the claim is finite and machine-checked.",
+ "reverify_command": "python3 /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/gr-qc_0003025-eq2.6-minimal-scalar-nec.py",
+ "report_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/audits/gr-qc_0003025-eq2.6-minimal-scalar-nec.json"
+}

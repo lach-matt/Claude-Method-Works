@@ -1,0 +1,43 @@
+A  brane rest frame: late-time front speed gamma, isotropic
+  OK   min_s f(s) = 1/gamma  (front speed gamma)   f_min = -beta**2/sqrt(1 - beta**2) + sqrt(-1/(beta**2 - 1)) = gamma(1 - beta^2) = 1/gamma; residual at beta = 0.1, 0.6, 0.99: [0.0, 0.0, 0.0]
+  OK   identification vector has zero brane components -> isotropic
+B  boosted observer (boost B along x): exact arrival slope tau(c)
+  OK   tau(+1) = (1 - gamma B)/(gamma - B) solves the front equation
+  OK   tau(-1) = (1 + gamma B)/(gamma + B) solves the front equation
+  OK   1/tau(+1) == GKLP eq. 20 v (= eq. 22 at cos = 1, per sibling reading)
+  OK   -1/tau(-1) == GKLP eq. 25 w
+C  first order in delta = gamma - 1
+  OK   e(c) = delta * Gamma^2 (1 + B c)^2 at first order   e1 = -(Bs*cc + 1)**2/((Bs - 1)*(Bs + 1))
+  OK   forward/backward = ((1+B)/(1-B))^2 -- the tree's r
+D  the tree's formula (branelink.b_for_saving), reproduced WITHOUT importing it
+  OK   tree B(1 s) = 0.999387630 (9 digits)   0.999387630476246
+  OK   tree B(T/2) prints 0.99999993 (%.8f)   0.999999925166855
+     the tree's saving model: fraction = d ((1+B)/(1-B))^2 -- i.e. gamma -> 1 AND
+     saving fraction taken equal to the forward EXCESS (1 - 1/v ~ v - 1).
+E  EXACT, backward excess held at d, no linearisation
+  OK   B* (forward instantaneous) = 1 - eps*, eps* ~ sqrt(2d)   B* = 0.999999962583427, 1-B* = 3.7416573e-8, sqrt(2d) = 3.7416574e-8
+     B(1 s)  exact = 0.999387630477388   tree = 0.999387630476246   (1-B) ratio exact/tree = 0.999999998135
+  OK   1 s: exact agrees with the tree to its 9 printed digits
+     B(T/2)  exact = 0.999999935192595   tree = 0.999999925166855
+     at the tree's B(T/2) = 0.999999925167 the exact saving fraction is 0.4 (not 0.5); gamma-1 = 1.87083e-8
+  OK   T/2: the tree's threshold does NOT buy half the light time (exact saving < 0.5)
+  OK   T/2: exact threshold differs from the tree's in the 8th decimal   0.99999994 vs 0.99999993
+  OK   T/2: exact threshold lies below B* (still subcritical)
+     decomposition at T/2: linear fraction=excess (tree) 0.9999999252 | g->1 with exact fraction 0.9999999471 | exact 0.9999999352
+F  REAL SKY GEOMETRY (not extremised)
+     angle(Proxima, AT2017gfo) on the sky = 41.538537 deg; between PROPAGATION directions = 138.46146 deg
+  OK   the two propagation directions are NOT antiparallel (extremisation is a bound, not the sky)
+     real sky: B(1 s) = 0.9994645711  (tree, extremised: 0.9993876305); optimal fast axis -41.5269 deg from Proxima
+     (1-B) real/extremised = 0.87435591; anti-alignment prediction (1 + cos psi)/2 = 0.87425494
+     angle of the optimal fast axis from the GW170817 propagation direction: 179.98837 deg
+     real sky: B(T/2) = 0.999999946058 (tree 0.999999925167, exact-extremised 0.999999935193)
+  OK   real sky needs a LARGER B than the extremised figure (extremised = necessary floor)
+     first-order check: ratio needed 10660237.0, ratio at real B 10651988.0
+  OK   out-of-plane tilts (5, 20, 45 deg) of the optimal axis do not do better
+G  datum: d
+     1.74 s over 26 Mpc = 6.50199e-16 (published rounds to 7e-16); over 40 Mpc = 4.22629e-16
+  OK   7e-16 is 1.74 s / (26 Mpc / c) rounded up
+     tree formula at d(40 Mpc) = 4.226e-16: B(1 s) = 0.999524146 (vs 0.99938763)
+  OK   B(1 s) moves only in the 4th decimal with d (conclusion 'B ~ 0.9994-0.9995, unmeasured' unchanged)
+
+ALL CHECKS OK

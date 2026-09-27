@@ -1,0 +1,95 @@
+{
+ "key": "birkhoff-theorem",
+ "name": "Birkhoff's (Jebsen-Birkhoff) theorem: a spherically symmetric vacuum (Ricci = 0) region is locally part of maximally extended Schwarzschild (mass parameter M of any sign; M = 0 is Minkowski)",
+ "kind": "theorem",
+ "source": {
+  "located": "J.T. Jebsen, Ark. Mat. Astr. Fys. 15 nr.18 (1921); G.D. Birkhoff, Relativity and Modern Physics (Harvard 1923) p.253 -- neither on arXiv. Read through: H.-J. Schmidt, gr-qc/9709071 (Grav. Cosmol. 3 (1997) 185), pp.1-2, 8-9, 14-16; R. Goswami & G.F.R. Ellis, arXiv:1101.4520 (GRG 43 (2011) 2157), pp.1, 3-4 eqs.(42)-(54); S. Deser & J. Franklin, gr-qc/0408067 (Am.J.Phys. 73 (2005) 261), pp.2, 5-8 eqs.(22)-(26); N.V. Johansen & F. Ravndal, physics/0508163 pp.1-3 (history); R. Ghosh, A.K. Mishra, A. Chowdhury, arXiv:2411.09193 pp.1-2 (restated hypotheses, regular-centre corollary).",
+  "read_status": "READ-VIA-RESTATEMENT",
+  "via": "The 1921/1923 originals are NAMED-NOT-READ; the theorem is READ as restated and re-proved in gr-qc/9709071 (coordinate-free proof), 1101.4520 (covariant 1+1+2 proof, both branches written out) and gr-qc/0408067 (Weyl-method proof, dm/dt = 0 from the g_tr variation). All five restatements agree on the content."
+ },
+ "published_statement": "Schmidt gr-qc/9709071 p.2: 'The Birkhoff theorem states that every spherically symmetric vacuum solution of Einstein's general relativity theory is part of the Schwarzschild solution; therefore, the solution possesses a four-dimensional isometry group, at least locally ... the popular formulation \"every spherically symmetric vacuum solution is static\" is misleading, because inside the horizon, the Schwarzschild black hole is not static.' Goswami-Ellis 1101.4520 p.1: 'any spherically symmetric solution of the vacuum field equations has an extra symmetry: it must be either locally static or spatially homogeneous'; p.4: '(local) Birkhoff Theorem: Any C^2 solution of Einstein's equations in empty space, which is of the class LRS-II in an open set S, is locally equivalent to part of maximally extended Schwarzschild solution in S', with the static branch eq.(51) (r > 2m) and the spatially homogeneous branch eq.(54) ('a part of the Schwarzschild solution inside the Schwarzschild radius'). Deser-Franklin gr-qc/0408067 eqs.(24)-(26): variation gives b = b(t), a = 1 - 2m(t)/r, and dm/dt = 0. Johansen-Ravndal physics/0508163 p.1: Birkhoff (1923) 'showed that the static Schwarzschild metric (1) is a solution outside any mass distribution, even when this varies with time as long as the spherical symmetry is maintained'; Jebsen 1921 first. Ghosh et al. 2411.09193 p.1: 'along with the regularity of the spacetime at the centre, it implies that the metric inside an empty spherical cavity must be the Minkowski'.",
+ "published_hypotheses": [
+  "Einstein's field equations of GR (Schmidt p.2; Ghosh et al. p.2: 'Birkhoff's theorem is a direct consequence of GR field equations, its applicability in the modified gravity landscape is not generally guaranteed'; Goswami-Ellis p.1: 'not true for gravitational theories with a scalar degree of freedom')",
+  "vacuum, R_ab = 0 (Lambda = 0 for the Schwarzschild form; with Lambda the class is Schwarzschild-(A)dS plus, for Lambda > 0, direct products of constant-curvature 2-spaces -- Schmidt p.8 first case and footnote 3; Goswami-Ellis p.6)",
+  "exact spherical symmetry (SO(3) orbits; Goswami-Ellis generalise to LRS-II)",
+  "local: holds on an open set, 'independent of boundary conditions at infinity' (Goswami-Ellis p.1); no asymptotic flatness assumed",
+  "regularity C^2 (Goswami-Ellis p.4; Ghosh et al. p.2 note Bergmann-Cahen-Komar 1965 weaken it to C^0 piecewise-differentiable -- that restatement NAMED-NOT-READ)",
+  "time dependence NOT assumed; staticity is a conclusion, and only where the extra Killing field is timelike (r > 2M); where it is spacelike (r < 2M) the region is spatially homogeneous (Schmidt p.2; Goswami-Ellis eqs.(51),(54))",
+  "the mass parameter m is an integration constant of either sign (Goswami-Ellis eq.(49)-(51) 'the constant m is the constant of integration'); nothing in the theorem fixes it -- flatness of a cavity needs the extra hypothesis of a regular centre (Ghosh et al. p.1)"
+ ],
+ "hypothesis_drift": [
+  "WEAKENED -- foliation.py:186-187 ('RICCI IS IDENTICALLY ZERO -- this is Schwarzschild, vacuum, and the spacetime is STATIC') and foliation.py:48-51 ('Schwarzschild -- vacuum, Ricci identically 0, m = M > 0, STATIC -- ... returns Gamma = sqrt(1+2E) > 1 AT EVERY AREAL RADIUS, out to infinity'); also V9 at :708-709 ('> 1 EVERYWHERE'). The generalised PG chart is non-degenerate at every R > 0 (det of the (tau,R) block = -1/(1+2E), B5b), so it covers R <= 2M, where the Killing field d_tau has norm -(1-2M/R)/(1+2E) >= 0 (B5a, B5d) and no Killing combination is timelike (B5e): that region is NOT static (Schmidt gr-qc/9709071 p.2; Goswami-Ellis eq.(54)). 'The spacetime is STATIC' is true on R > 2M only. foliation.py itself names the trapped region at :165-168 and in GAMMA_RANGE (:856), so the drift is in the witness's wording, not in the file's mathematics. Effect on what rests on it: the witness's conclusion ('driven.py's criterion declares the whole Schwarzschild exterior contracted, with positive mass, in a static spacetime', :194-195) needs only R > 2M, where staticity holds -- it survives with the domain named.",
+  "UNCOMPUTED STEP, now closed -- foliation.py:186 infers 'Ricci = 0 => Schwarzschild => static' without exhibiting the isometry or the Killing field (canonical entry notes this). Re-derived here: explicit isometry t = tau/sqrt(1+2E) + F(R), F' = -sqrt(2M/R+2E)/(sqrt(1+2E)(1-2M/R)), valid on each side of R = 2M (B4c), and d_tau is Killing and hypersurface-orthogonal (B5c). The inference holds where the source says it holds; not a drift in substance.",
+  "DROPPED -- wall.py:179-181 and wall.py:664-666 ('a spherical shell's interior is exactly flat by BIRKHOFF at any compactness whatever'): Birkhoff alone gives an interior Schwarzschild with SOME mass parameter M_in; flatness needs two further hypotheses the file does not state: (i) the cavity is empty (vacuum) and (ii) the centre is regular, which forces M_in = 0 because the Kretschmann scalar is 48 M^2/r^6 (B6a-c; Ghosh et al. 2411.09193 p.1 states the regular-centre condition explicitly). The tree's own device is a counter-instance to the unqualified wording: stability.py:18-19 is a spherical shell whose interior is Schwarzschild with M_in = -m, not flat (B7). wall.py's actual object (the 3.97 g/m^2 balloon with an empty cavity, :176-179) satisfies both hypotheses, so the corrected sentence -- 'an EMPTY spherical cavity with a REGULAR centre is exactly flat by Birkhoff' -- carries wall.py:183-187's conclusion unchanged.",
+  "DROPPED (all four owners), immaterial at the tree's scales -- Lambda = 0. With Lambda > 0 (measured since 1998; Planck 2018 Omega_Lambda = 0.6847 +/- 0.0073, arXiv:1807.06209 eq.15) the Birkhoff class is Schwarzschild-de Sitter (B9a) and an empty regular cavity is de Sitter with Kretschmann 8 Lambda^2/3 != 0 (B9b), so 'EXACTLY flat' (wall.py:179-180) is strictly false in a Lambda > 0 universe. The departure at wall.py's R = 4478 m is Lambda R^2/3 = 7.3e-46 (B9c), so no conclusion moves.",
+  "DROPPED (all four owners) -- the GR field equations are an unnamed hypothesis. Birkhoff fails generically in theories with a scalar/helicity-0 degree of freedom (Goswami-Ellis 1101.4520 p.1; Ghosh et al. 2411.09193 p.2 and p.4, which recover it only on the 'Einstein branch' of quadratic/higher-curvature gravity). The tree works in GR throughout, so this is a naming gap, not a wrong use.",
+  "STRONGER THAN NEEDED, harmless -- linstab.py:209-210 P2 'static vacuum on both sides': staticity is a consequence of Birkhoff, not an independent hypothesis. For M_in = -m < 0, f_in = 1 + 2m/R > 0 at every R > 0, so d_t is timelike everywhere and the interior is static with no horizon (B7a); the exterior M_out = 0 is Minkowski. What linstab's radial-perturbation analysis (P3, linstab.py:211-212) actually needs is Birkhoff's constancy of M in each vacuum region while the shell moves (B1c, B2b-c: dm = 0 in vacuum); that holds and is unnamed.",
+  "ADDED beyond the theorem, named elsewhere -- stability.py:18-21 treats 'the core ... as a Schwarzschild point mass -m interior to R'; linstab.py specthm R8 carries 'Schwarzschild with M_in = -m down to r = 0, i.e. m(0) != 0'. Birkhoff covers only the vacuum annulus between core and shell and says nothing about r = 0; with M_in < 0 continued to r = 0 the centre is a curvature singularity (Kretschmann -> infinity, B7b). The shell junction (stability.sigma, stability.py:132-135; B8) uses f_in at r = R only, so it rests on Birkhoff over a neighbourhood of the shell, which holds for any interior core of mass -m. The point-mass idealisation is the tree's own hypothesis and is already named as R8's m(0) != 0."
+ ],
+ "data_at_publication": [
+  {
+   "quantity": "numerical inputs to the theorem",
+   "value_then": "none -- a mathematical consequence of the vacuum field equations and spherical symmetry (Jebsen 1921, Birkhoff 1923)",
+   "value_now": "none",
+   "source_now": "gr-qc/9709071; 1101.4520; gr-qc/0408067 (proofs contain no measured constant)",
+   "moves_conclusion": "no -- there is no datum to move"
+  },
+  {
+   "quantity": "cosmological constant Lambda (the one physical input the Lambda = 0 statement silently fixes)",
+   "value_then": "0 (1923 statement is for R_ab = 0; accelerated expansion unknown)",
+   "value_now": "Lambda = 3 H0^2 Omega_Lambda / c^2 = 1.09e-52 m^-2 (Planck 2018: H0 = 67.36 +/- 0.54 km/s/Mpc, Omega_Lambda = 0.6847 +/- 0.0073, eqs.14-15); 1.28e-52 m^-2 at a distance-ladder-scale H0 = 73 (SH0ES 74.03 +/- 1.42 as quoted in 1807.06209 p.26)",
+   "source_now": "arXiv:1807.06209 (Planck 2018 VI) eqs.(14)-(15), p.26; computed in rederive B9c",
+   "moves_conclusion": "changes the exact statement (the class becomes Schwarzschild-de Sitter; an empty regular cavity is de Sitter, not Minkowski: B9a-b) but not any tree conclusion: Lambda R^2/3 = 7.3e-46 (Planck) or 8.6e-46 (H0 = 73) at wall.py's R = 4478 m; the H0 tension moves this by a factor 1.17"
+  }
+ ],
+ "rederivation": {
+  "method": "sympy",
+  "script_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/birkhoff-theorem.py",
+  "outcome": "30/30 PASS. B1: in the areal chart G_tr = (2/r) b_t, G_tt e^{-2A} r^2 = d/dr[r(1-e^{-2B})] (first integral 2M, any sign), G_rr fixes A_r = -B_r uniquely, G_thth then automatic -> Schwarzschild, time dependence removable. B2: covariant double-null form (covers trapped and untrapped regions): Misner-Sharp m_u = (1/2) R^2 e^{-2s}(R_u G_uv - R_v G_uu) and the v analogue, so vacuum => m constant. B3: for Lambda = 0 the constant-r branch is not vacuum (G_uv = e^{2s}/r0^2) and a null grad r forces m = r/2, contradicting dm = 0. B4: foliation.py V7/V8 recomputed (Ricci = 0 all 16; MS mass = M) and an explicit isometry to Schwarzschild exhibited on f != 0. B5: |d_tau|^2 = -(1-2M/R)/(1+2E), timelike iff R > 2M; chart non-degenerate at all R > 0; xi^dxi = 0; at R = M the norm is +1/2 (not static), at R = 3M -1/6. B6: Kretschmann 48 M^2/r^6; regular centre iff M = 0; M = 0 gives Riemann = 0. B7: M_in = -m gives no horizon (static everywhere) and a singular centre. B8: stability.sigma(R,-m,0) = (sqrt(1+2m/R)-1)/(4 pi R) > 0. B9: Lambda generalisation solves G + Lambda g = 0; empty cavity has Kretschmann 8 Lambda^2/3; Lambda R^2/3 = 7.29e-46 at R = 4478 m.",
+  "agrees_with_source": "yes"
+ },
+ "later_literature": [
+  {
+   "ref": "H.-J. Schmidt, gr-qc/9709071 (1997)",
+   "effect": "narrows",
+   "what": "Coordinate-free proof (extra Killing vector from the vanishing traceless 2D Ricci); explicitly corrects the popular wording 'every spherically symmetric vacuum solution is static' -- not static inside the horizon; extends to any dimension and signature; with Lambda > 0 a product of constant-curvature 2-spaces is a further spherically symmetric Einstein space not of Schwarzschild form.",
+   "read_status": "READ (pp.1-17 returned)"
+  },
+  {
+   "ref": "R. Goswami & G.F.R. Ellis, arXiv:1101.4520 (GRG 43, 2011)",
+   "effect": "extends",
+   "what": "Birkhoff re-proved for LRS-II vacuum: locally static (eq.51, r > 2m) or locally spatially homogeneous (eq.54, r < 2m); 'almost Birkhoff': almost spherical vacuum is almost static, for open sets not meeting the horizon; fails for non-vacuum (LTB) and for scalar-tensor theories; holds for electrovac and Lambda.",
+   "read_status": "READ (pp.1-7)"
+  },
+  {
+   "ref": "R. Ghosh, A.K. Mishra, A. Chowdhury, arXiv:2411.09193 (2024)",
+   "effect": "extends",
+   "what": "Birkhoff holds on the Einstein branch of quadratic and a class of higher-curvature gravities; fails in general where a helicity-0 mode exists; restates that a flat empty cavity needs regularity at the centre, and that C^2 can be weakened (Bergmann-Cahen-Komar 1965).",
+   "read_status": "READ (pp.1-8)"
+  },
+  {
+   "ref": "S. Deser & J. Franklin, gr-qc/0408067 (2004)",
+   "effect": "confirms",
+   "what": "Weyl-method derivation; the g_tr variation yields dm/dt = 0 -- Birkhoff as absence of monopole radiation; credits Jebsen 1921.",
+   "read_status": "READ (pp.1-9)"
+  },
+  {
+   "ref": "N.V. Johansen & F. Ravndal, physics/0508163 (2005)",
+   "effect": "confirms",
+   "what": "History: Jebsen 1921 first, Birkhoff 1923, Alexandrow 1923, Eiesland 1925.",
+   "read_status": "READ (pp.1-5)"
+  },
+  {
+   "ref": "K. Schleich & D.M. Witt, arXiv:0908.4110 (J.Math.Phys. 51, 2010)",
+   "effect": "extends",
+   "what": "Birkhoff with cosmological constant (cited by 2411.09193 ref.[18]).",
+   "read_status": "NAMED-NOT-READ"
+  }
+ ],
+ "lacked_data": "Birkhoff/Jebsen had no data to lack: the theorem uses no measured quantity, and every later proof (1997, 2004, 2011, 2024) re-derives the same content; the re-derivation here agrees (30/30). Two later developments bear on it, and neither moves a tree conclusion. (1) Lambda: unknown in 1923, measured positive since 1998 (Planck 2018 Omega_Lambda = 0.6847). With Lambda > 0 the theorem's class is Schwarzschild-de Sitter, so an empty regular cavity is de Sitter, and 'exactly flat' is strictly false -- but the departure at the tree's largest shell (R = 4478 m) is 7.3e-46. (2) Whether GR is the right theory: Birkhoff is specific to GR-like field equations and fails generically with a scalar/helicity-0 mode (1101.4520, 2411.09193). That is a hypothesis about the theory, not a datum the 1920s authors lacked; the tree assumes GR throughout. Evidence against M's hypothesis for this result: the statement has been re-proved covariantly, coordinate-free and in 1+1+2 form with no change of content; the one known correction to how it is quoted (static only outside the horizon) is a correction to popular wording, and the tree's foliation.py wording falls on the wrong side of it.",
+ "grade": "NARROWED",
+ "grade_evidence": "The theorem STANDS as published (re-derived 30/30 in sympy, including the covariant double-null form that covers trapped regions and the degenerate branches). The tree uses it on a larger class than the theorem gives in two places: (a) foliation.py:48-51 and :186-187 call the generalised-PG Schwarzschild 'STATIC' on a chart that covers every R > 0 (B5b), while the extra Killing field is timelike only at R > 2M (B5a, B5d; Schmidt p.2, Goswami-Ellis eq.54); (b) wall.py:179-181 / :664-666 say 'a spherical shell's interior is exactly flat by BIRKHOFF' without the empty-cavity and regular-centre hypotheses, which the tree's own device (stability.py:18-19, M_in = -m) violates (B6, B7). A further unnamed hypothesis in all owners is Lambda = 0 (B9: strictly, Lambda > 0 makes the cavity de Sitter). In every case the conclusion resting on it survives once the hypothesis is named: the foliation witness needs only R > 2M; wall.py's balloon has an empty regular cavity; linstab/stability use Birkhoff only on the vacuum neighbourhoods of the shell, where M is constant (B1c, B2) and static (B7a); Lambda's effect is 7.3e-46. Nothing is WRONG; no datum moves a conclusion, so not DATA-DEPENDENT.",
+ "what_would_change_the_grade": "To STANDS: if foliation.py's witness restricted 'STATIC' to R > 2M (or said 'static exterior') and wall.py stated 'empty cavity, regular centre (M_in = 0), Lambda = 0' -- i.e. the tree's statements matched the theorem's class. To DATA-DEPENDENT: only if a tree conclusion depended on flatness at a precision near Lambda R^2 ~ 1e-45 at R ~ 4.5 km, or on shells at R comparable to the de Sitter radius sqrt(3/Lambda) ~ 1.7e26 m. To WRONG: a spherically symmetric C^2 vacuum solution of GR with Lambda = 0 not locally isometric to Schwarzschild -- none exists (B1-B3 and all five read restatements).",
+ "reverify_command": "python3 /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/birkhoff-theorem.py   # expect '30/30 PASS', exit 0; tree sites: sed -n '44,52p;180,198p;700,710p' /home/user/Claude-Method-Works/research/warp-drive/foliation.py; sed -n '176,182p;662,666p' /home/user/Claude-Method-Works/research/warp-drive/wall.py; sed -n '14,21p;128,135p' /home/user/Claude-Method-Works/research/warp-drive/stability.py; sed -n '205,214p' /home/user/Claude-Method-Works/research/warp-drive/linstab.py",
+ "report_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/audits/birkhoff-theorem.json"
+}

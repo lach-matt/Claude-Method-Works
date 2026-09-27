@@ -1,0 +1,122 @@
+{
+ "key": "weak-field-isotropic-metric-and-newtonian-limit",
+ "name": "Static isotropic weak-field metric and Newtonian limit (Phi = G M/(c^2 r)); proper distance on the slice is int e^{-Phi} dl, and coordinate light time is int e^{-2Phi} dl",
+ "source": {
+  "located": "Textbook result, no single originating paper. The weak-field/post-Newtonian metric is READ in C.M. Will, 'The Confrontation between General Relativity and Experiment', arXiv:1403.7377v1 (Living Rev. Relativ. 17 (2014) 4): sec. 3.2 p.28 eq (30) U = int rho'|x-x'|^-1 d^3x'; p.29 ordering rules U ~ v^2 ~ Pi ~ p/rho ~ eps and 'A consistent post-Newtonian limit requires determination of g_00 correct through O(eps^2), g_0i through O(eps^3/2), and g_ij through O(eps)'; Table 2 p.29 (gamma = beta = 1 in GR); Box 2 p.30-31 (standard PPN gauge, G = c = 1, metric g_00 = -1 + 2U - 2 beta U^2 + ..., g_ij = (1 + 2 gamma U) delta_ij + O(eps^2)); sec. 4.1 pp.40-43 (deflection (1+gamma)/2 eq 59; round-trip delay 2(1+gamma)M ln(...) eq 62; Cassini gamma - 1 = (2.1 +- 2.3)e-5); Table 4 p.44; beta - 1 = (-4.1 +- 7.8)e-5 p.45. Supplementary: C. Barcelo & M. Visser, arXiv:gr-qc/0003025v2 eq (5.52) p.20, VLBI gamma = 1 - (0.6 +- 3.1)e-4 (the bound as of 2000). The exact relations d = int e^{-Phi} dl, t = int e^{-2Phi} dl for the tree's metric are definitions/identities re-derived here (C1), not taken from any paper.",
+  "read_status": "READ-VIA-RESTATEMENT",
+  "via": "alphaXiv was unavailable at this stage: answer_pdf_queries(1403.7377), get_paper_content(1403.7377, fullText) and discover_papers all returned 'alphaXiv assistant quota exceeded'; arxiv.org and export.arxiv.org are refused by the egress proxy (403 CONNECT). The Will 2014 page text (pp.1-2, 6-7, 12-14, 17, 19, 26, 28-31, 34, 40-45, 48, 51-52, 59, 64, 75-76, 89-91, 96, 100, 106) was RECOVERED VERBATIM from alphaXiv answer_pdf_queries results returned to earlier DOCKET 67 workflow agents of this session (transcripts wf_69a37fa6-f73/agent-a2edb8e604e7720e0.jsonl:45, agent-ad1cc0c9d810e5e90.jsonl:40, wf_787976b6-09a/agent-a40e5bdbfd78ce440.jsonl:44), saved at d67/src/will/1403.7377.pages.txt; that is the source's own page text, read here, not a paraphrase. Barcelo-Visser read from the local cache d67/src/gr-qc_0003025.txt lines 2420-2440. Einstein 1916 (the Newtonian limit), Eddington 1922 / Robertson (beta, gamma), Nordtvedt 1968 / Will 1971 (PPN), and Bertotti-Iess-Tortora, Nature 425 (2003) 374 (Cassini) are NAMED-NOT-READ; each is restated by Will 2014 at the pages above. Graded READ-VIA-RESTATEMENT because the classics are read only through that review."
+ },
+ "published_statement": "Will 2014 (arXiv:1403.7377) p.28: 'in this limit, the spacetime metric g predicted by nearly every metric theory of gravity has the same structure. It can be written as an expansion about the Minkowski metric (eta_mu nu = diag(-1,1,1,1)) in terms of dimensionless gravitational potentials ... in imitation of the Newtonian gravitational potential U(x,t) = int rho(x',t)|x-x'|^-1 d^3x' (30).' p.29: 'The \"order of smallness\" is determined according to the rules U ~ v^2 ~ Pi ~ p/rho ~ eps ... (we use units in which G = c = 1) ... A consistent post-Newtonian limit requires determination of g_00 correct through O(eps^2), g_0i through O(eps^3/2), and g_ij through O(eps).' Box 2 p.31: 'g_00 = -1 + 2U - 2 beta U^2 - 2 xi Phi_W + ... + O(eps^3), ... g_ij = (1 + 2 gamma U) delta_ij + O(eps^2).' Table 2 p.29: gamma 'How much space-curvature produced by unit rest mass?' value in GR 1; beta 'How much nonlinearity in the superposition law for gravity?' value in GR 1. p.43: round-trip delay 'delta t = 2(1 + gamma) M_sun ln(...) (62)'; Cassini 2003 'gamma - 1 = (2.1 +- 2.3) x 10^-5'. TREE'S USE (phase1.py:70-81): 'For a static metric in isotropic form, g_tt = -e^{2Phi}, g_ij = e^{-2Phi} delta_ij, a payload at rest at A has four-velocity u = e^{-Phi} d/dt ... d(A,B) = int e^{-Phi} dl THE TRANSITION QUANTITY ... t(A,B) = int e^{-2Phi} dl THE PROPULSION QUANTITY. ONE Phi, TWO EXPONENTS, RATIO EXACTLY 2 (unified.py measured 1.9940 to 2.0229 over both signs of Phi).' SI conversion (phase1.py:364-366): 'Delta d = (G/c^2) M Lambda' as G_SI * M_kg / C_SI**2 * lam(b, a, Rs).",
+ "published_hypotheses": [
+  "W1 (Will p.26) metric theory: symmetric metric, test bodies on geodesics, special-relativistic non-gravitational physics in local Lorentz frames (EEP)",
+  "W2 (Will p.28) slow-motion, weak-field limit: expansion about Minkowski in potentials of graded smallness",
+  "W3 (Will p.29) ordering U ~ v^2 ~ Pi ~ p/rho ~ eps -- in particular stresses/pressures small compared with rest-mass density, p/rho = O(eps)",
+  "W4 (Will p.29) the expansion is only fixed through O(eps^2) in g_00 and O(eps) in g_ij; the O(eps^2) term of g_ij is NOT determined by the post-Newtonian limit",
+  "W5 (Will Box 2 p.30) standard PPN gauge (isotropic g_ij at this order), G the Newtonian constant measured far from the system, U zero at infinity",
+  "W6 (Will Table 2) GR values gamma = beta = 1; experimental: gamma - 1 = (2.1 +- 2.3)e-5 (Cassini), beta - 1 = (-4.1 +- 7.8)e-5",
+  "W7 (Will eq 30) U is sourced by rest-mass density rho; the review's sources are positive-mass (solar system) bodies"
+ ],
+ "hypothesis_drift": [
+  "SIGN CONVENTION (implicit, not an error): with g_tt = -e^{2Phi} the Newtonian identification is Phi = -U = -GM/(c^2 r) (C3a/b). The canonical entry's name writes 'Phi = G M/(c^2 r)'. phase1 is internally consistent because its M is the MAGNITUDE of a NEGATIVE core mass: phi_device = +m/sqrt(r^2+a^2) - m/max(r,R_s) with m > 0 (phase1.py:261-263), 'everything above needs M < 0' (phase1.py:204), and contraction_law takes a positive M_kg (phase1.py:364-366). The negative-mass hypothesis is therefore carried by prose at phase1.py:204 and specthm.py:641 ('m < 0 locally'), not by the sign of contraction_law's argument. Recorded as a labelling discrepancy in the canonical name, not a refutation.",
+  "SINGLE-Phi EXPONENTIAL FORM (ADDED as an ansatz, which the canonical hypotheses already say): Will's W4 fixes g_ij only through O(eps). The tree's e^{-2Phi} fixes the O(Phi^2) term of g_ij at coefficient 2; exact Schwarzschild in isotropic coordinates (Ricci-flat, C3e) has 3/2 (C3d), while g_00 agrees through O(U^2) (beta = 1, C3c). For non-constant Phi the ansatz's Einstein tensor has G_ij purely quadratic in grad Phi and G_tt = e^{4Phi}(2 lap Phi - |grad Phi|^2) (C4b-d): it is an exact GR vacuum solution for no non-constant Phi, and it demands stresses of O(Phi^2). Inside W3 (p/rho = O(eps)) this is consistent; it is a definition of the tree's device metric, not a claim about GR's strong field (phase1.py:67-69).",
+  "'RATIO EXACTLY 2' (WORDING, already bounded by the canonical hypothesis): exact for the EXPONENTS by construction; for the SAVINGS the exact identity (1-e^{-2Phi}) = (1-e^{-Phi})(1+e^{-Phi}) makes the ratio 1 + e^{-Phi} = 2 - Phi + Phi^2/2 - ..., equal to 2 only at Phi = 0 (C2a-c). The owner prints both 'EXACTLY 2' and the measured 1.9940-2.0229 side by side (phase1.py:79-80), and the selftest carries rtol 5e-3 at m = 2e-2 (phase1.py:461); the measured values correspond to effective Phi = 6.0e-3 and -2.26e-2 (C2d/e). Consistent, first order. In PPN terms the ratio is (1+gamma)/gamma, so it also carries the hypothesis gamma = 1 (W6), which phase1 does not state.",
+  "WEAK FIELD DROPPED AT THE PRICE FIGURES (the one narrowing): contraction_law is the first-order (weak-field) law Delta d = m Lambda. phase1.py:180-181 and its selftest phase1.py:508-510, and index3.py:673, apply it to contract a 4 ly corridor by 1 % (2.57e10 M_sun) and by 50 % (1.28e12 M_sun). Lambda as used is the FULL-CROSSING integral (C6), so the endpoints lie outside the shell, R_s <= L/2; then the peak potential on the ray is Phi_max ~ m/b >= (Delta d/L) e^2/2 for ANY choice of R_s/b (C8a), and = 40.06 (Delta d/L) at the tree's R_s/b = 200. At 50 %: Phi_max >= 1.85 for any geometry, 19.93 at the tree's -- not weak field; the exact ansatz contraction int(1-e^{-Phi}) at the m the linear law demands is 80.6 b against the 200 b required (ratio 0.403, C8c). At 1 %: Phi_max = 0.399 at the tree's geometry, exact ansatz contraction 0.944 of the linear law (C8d) -- the weak-field law is ~6 % optimistic there, beyond the 1e-3 selftest tolerance printed on the figure. What GR (rather than the ansatz) gives at Phi ~ 20 is not computed here and is OPEN.",
+  "gamma = 1 FOR A NEGATIVE-MASS SOURCE (hypothesis carried, not stated): Will's data (W7) are all positive-mass solar-system sources. In GR the linearised field equations are linear in T, so gamma = 1 is predicted for either sign; but no measurement of gamma exists for a negative-mass source, since none is known. phase1 needs M < 0 (phase1.py:204)."
+ ],
+ "data_at_publication": [
+  {
+   "quantity": "PPN gamma (sets the light/proper saving ratio (1+gamma)/gamma and the g_ij coefficient)",
+   "value_then": "1, the GR prediction (Einstein 1916; Eddington-Robertson gamma); tree implicitly 1",
+   "value_now": "gamma - 1 = (2.1 +- 2.3)e-5 (Cassini 2003, Bertotti-Iess-Tortora), Will Table 4 limit 2.3e-5; VLBI 2e-4; as of 2000 VLBI 1 - (0.6 +- 3.1)e-4",
+   "source_now": "Will arXiv:1403.7377 p.43 and Table 4 p.44 (READ via recovered page text); Barcelo-Visser gr-qc/0003025 eq 5.52 (READ, local cache)",
+   "moves_conclusion": "No. Ratio (1+gamma)/gamma over the Cassini 1-sigma band is 1.999956 to 2.000002 (C5): 2e-5, 100x inside the tree's rtol 5e-3; the transition quantity int(1+gamma U)dl moves by 2e-5 relative."
+  },
+  {
+   "quantity": "PPN beta",
+   "value_then": "1 (GR); the ansatz e^{2Phi} gives beta = 1 (C3a)",
+   "value_now": "beta - 1 = (-4.1 +- 7.8)e-5 (Mercury/Messenger, adopting Cassini gamma)",
+   "source_now": "Will arXiv:1403.7377 p.45 (READ via recovered page text)",
+   "moves_conclusion": "No. beta enters g_00 at O(U^2) only; neither d = int e^{-Phi} dl (spatial metric) nor the first-order law depends on it."
+  },
+  {
+   "quantity": "G, Newtonian constant (contraction_law G_SI)",
+   "value_then": "6.67430e-11 m^3 kg^-1 s^-2 (phase1.py:212) = CODATA 2018",
+   "value_now": "6.67430(15)e-11, CODATA 2022 identical to 2018",
+   "source_now": "Mohr et al. arXiv:2409.03787v1 Table XXXII p.50 (READ in the sibling audit uniform-sphere-newtonian-potential-redshift.json; not re-read this stage)",
+   "moves_conclusion": "No (u_r 2.2e-5)."
+  },
+  {
+   "quantity": "c",
+   "value_then": "2.99792458e8 m/s (phase1.py:212)",
+   "value_now": "exact by SI definition",
+   "source_now": "CODATA 2022 arXiv:2409.03787 (sibling audit)",
+   "moves_conclusion": "No."
+  },
+  {
+   "quantity": "solar mass used to quote 'one solar mass buys 14.7 km'",
+   "value_then": "SOLAR_MASS = 1.98892e30 kg (phase1.py:213)",
+   "value_now": "GM_sun = 1.3271244e20 m^3/s^2 (IAU 2015 Resolution B3 nominal; NAMED, not re-read this stage) -> GM_sun/c^2 = 1476.6 m, M_sun = GM_sun/G = 1.98841e30 kg",
+   "source_now": "IAU 2015 B3 (NAMED-NOT-READ here; audited separately under si-astro-constants-c-g-msun-ly)",
+   "moves_conclusion": "No. 14744.2 m (tree) vs 14740.4 m (GM_sun/c^2 x Lambda): 2.6e-4 relative, inside the selftest rtol 1e-3 (C7)."
+  },
+  {
+   "quantity": "Lambda (geometric factor in Delta d = (G/c^2) M Lambda)",
+   "value_then": "2[ln(2R_s/sqrt(b^2+a^2)) - 1] = 9.982529 at b = 1, a = 0.02, R_s = 200 (phase1.py:359-361)",
+   "value_now": "exact full-crossing integral 2 ln((X0+R_s)/B) - 2 X0/R_s = 9.9825417 (X0 = sqrt(R_s^2-b^2), B = sqrt(b^2+a^2)), derived and checked against mpmath quadrature to 1e-12",
+   "source_now": "re-derived here (C6a-c)",
+   "moves_conclusion": "No. The tree's form is the b/R_s -> 0 limit of the exact form (C6c); relative difference 1.3e-6."
+  },
+  {
+   "quantity": "measured savings ratio",
+   "value_then": "1.9940 (m = 2e-2) to 2.0229 (m = -8e-2), unified.py:19-23",
+   "value_now": "reproduced today by read-only import: 1.994007 and 2.022848; effective Phi 6.0e-3 and -2.26e-2 in 1 + e^{-Phi}",
+   "source_now": "rederive C2d/C2e (phase1.py md5 570d707a45d42b9903f946a6e050126c, unified.py md5 0453a54bf0253ef80ca305e122628653)",
+   "moves_conclusion": "No. Exactly the first-order departure -Phi the identity predicts."
+  },
+  {
+   "quantity": "peak potential Phi_max on the ray at the tree's price figures (weak-field validity datum)",
+   "value_then": "not stated by the tree",
+   "value_now": "1 % of 4 ly: 0.399 at R_s/b = 200 (>= 0.037 for any R_s/b); 50 %: 19.93 at R_s/b = 200 (>= 1.85 for any R_s/b)",
+   "source_now": "computed here (C8a-d) from the tree's own phi_device and proper_contraction",
+   "moves_conclusion": "YES for the 50 % figure: outside the weak field the linear law does not hold (exact ansatz gives 0.403 of it); ~6 % at the 1 % figure. It does not move Theorem 1 or specthm object C."
+  }
+ ],
+ "rederivation": {
+  "method": "sympy",
+  "script_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/weak-field-isotropic-metric-and-newtonian-limit.py",
+  "outcome": "27/27 PASS (exit 0; output d67/rederive/weak-field-isotropic-metric-and-newtonian-limit.out). C1: u = e^{-Phi} d_t is unit; g_0i = 0 so its rest space is the t-slice; slice length e^{-Phi} dl; null ray dt = e^{-2Phi} dl -- EXACT for the metric, no weak-field assumption. C2: savings ratio = 1 + e^{-Phi} exactly, = 2 iff Phi = 0, series 2 - Phi + Phi^2/2; tree's 1.994007 and 2.022848 reproduced. C3: with Phi = -U the ansatz matches Will Box 2 with beta = 1, gamma = 1; isotropic Schwarzschild (verified Ricci-flat, C3e) agrees in g_00 through O(U^2) and differs in g_ij at O(U^2) (3/2 vs 2). C4: Einstein tensor of the ansatz for arbitrary Phi(x,y,z): G_0i = 0, G_tt = e^{4Phi}(2 lap Phi - |grad Phi|^2), G_xx = |grad Phi|^2 - 2 Phi_x^2, G_xy = -2 Phi_x Phi_y -- stresses purely second order. C5: Cassini band moves (1+gamma)/gamma by <= 4.4e-5. C6: exact full-crossing Lambda = 9.9825417 vs tree 9.982529 (1.3e-6). C7: M_sun datum moves 14.7 km by 2.6e-4. C8: Phi_max >= (Delta d/L) e^2/2 for any shell with endpoints outside it; 50 % of 4 ly needs Phi_max >= 1.85 (19.93 at the tree's geometry) and the exact ansatz contraction is 0.403 of the linear law; at 1 % it is 0.944.",
+  "agrees_with_source": "yes"
+ },
+ "later_literature": [
+  {
+   "ref": "C.M. Will, arXiv:1403.7377 (Living Rev. Relativ. 17 (2014) 4)",
+   "effect": "confirms",
+   "what": "Post-Newtonian metric g_00 = -1 + 2U - 2 beta U^2, g_ij = (1 + 2 gamma U) delta_ij through the orders the limit fixes; gamma - 1 = (2.1 +- 2.3)e-5 (Cassini 2003), beta - 1 = (-4.1 +- 7.8)e-5: the first-order isotropic form and gamma = 1 confirmed to 2.3e-5 for positive-mass sources.",
+   "read_status": "READ via page text recovered verbatim from earlier alphaXiv results in this session (d67/src/will/1403.7377.pages.txt)"
+  },
+  {
+   "ref": "B. Bertotti, L. Iess, P. Tortora, Nature 425 (2003) 374 (Cassini)",
+   "effect": "confirms",
+   "what": "gamma - 1 = (2.1 +- 2.3)e-5 from Shapiro-delay Doppler tracking at 1.6 R_sun closest approach",
+   "read_status": "NAMED-NOT-READ; restated by Will 2014 p.43"
+  },
+  {
+   "ref": "C. Barcelo & M. Visser, arXiv:gr-qc/0003025v2 eq (5.52)",
+   "effect": "confirms",
+   "what": "VLBI light deflection gamma = 1 - (0.6 +- 3.1)e-4 (bound as of 2000)",
+   "read_status": "READ (local cache d67/src/gr-qc_0003025.txt)"
+  },
+  {
+   "ref": "discover_papers (one call: exponential metric / PPN gamma / Newtonian limit / isotropic coordinates)",
+   "effect": "contested",
+   "what": "NOT REACHED: returned 'alphaXiv assistant quota exceeded'. Later work on the exponential (Yilmaz-type) metric and post-Cassini gamma tests (e.g. BepiColombo, Gaia) was not read this stage; nothing is claimed from it either way. 'contested' is used only because the schema requires an effect value; no contest is asserted.",
+   "read_status": "NOT READ (tool quota)"
+  }
+ ],
+ "lacked_data": "What the originators had: Einstein's 1916 Newtonian limit and the Eddington-Robertson gamma, beta rested on the 1919 eclipse deflection (tens of percent) and Mercury's perihelion; the PPN framework (Nordtvedt 1968, Will 1971) on 1970s radar/VLBI at 1e-3. What came later: Cassini 2003 fixes gamma - 1 = (2.1 +- 2.3)e-5, and Messenger-era fits beta - 1 = (-4.1 +- 7.8)e-5 (Will 2014 pp.43-45, READ). Evidence AGAINST M's hypothesis for this result: the later, far better data moved nothing -- the first-order isotropic form and gamma = beta = 1 were confirmed, and the tree's quantity (1+gamma)/gamma moves by 2e-5 (computed, C5). The exact relations d = int e^{-Phi} dl, t = int e^{-2Phi} dl are geometry of the stated metric and cannot be moved by any datum (C1). Evidence that data IS lacking, in the tree's use: every gamma measurement is for a POSITIVE-mass source; phase1 needs M < 0 (phase1.py:204). GR's linearised equations are linear in T, so GR predicts gamma = 1 for either sign, but that is a prediction; no negative-mass source exists to test it. That gap is OPEN empirically and does not change the conclusion inside GR. The one place a conclusion moves is not a datum but a regime: the tree applies the first-order law at Phi_max ~ 20 (50 % figure), where the weak-field result was never claimed to hold (Will p.28-29, W2/W3/W4).",
+ "grade": "NARROWED",
+ "grade_evidence": "Theorem 1 as the tree states it STANDS: for the static metric g_tt = -e^{2Phi}, g_ij = e^{-2Phi} delta_ij the static observer's slice length is int e^{-Phi} dl and the coordinate light time int e^{-2Phi} dl exactly (C1, sympy), and the Newtonian identification Phi = -U with beta = gamma = 1 matches the post-Newtonian metric READ in Will 2014 Box 2 p.31 (C3); 'ratio exactly 2' is exact for the exponents and first order for the savings (1 + e^{-Phi}, C2), which the owner's own measured 1.9940-2.0229 and rtol 5e-3 already reflect; Cassini gamma moves it 2e-5 (C5); Lambda's closed form agrees with the exact full-crossing integral to 1.3e-6 (C6); G, c, M_sun move nothing (C7). NARROWED because the tree drops the weak-field hypothesis where it prices with the result: contraction_law (phase1.py:364-366) is the first-order law, and phase1.py:180-181, 508-510 and index3.py:673 apply it to 50 % of a 4 ly corridor, which requires Phi_max >= 1.85 for ANY shell geometry with the endpoints outside the shell and 19.93 at the tree's own R_s/b = 200 (C8a-b); there the exact ansatz contraction is 0.403 of the linear law (C8c), and at the 1 % figure 0.944 (C8d). Two further items are recorded, not graded against the result: the canonical name's 'Phi = G M/(c^2 r)' is the standard -GM/(c^2 r) with M the magnitude of a negative mass (phase1.py:204, 261-263); and the single-Phi ansatz is a GR vacuum only to first order (C3d, C4), which phase1 declares as its metric form. Nothing is repaired; the discrepancies are recorded.",
+ "what_would_change_the_grade": "To STANDS: the tree restricting contraction_law's quoted figures to Phi_max << 1 (e.g. stating the 50 % figure as outside the law's domain), or a strong-field GR computation of the contraction at the 50 % configuration that happens to reproduce m*Lambda. To WRONG: nothing in reach -- no counterexample to the first-order relations exists; a measured gamma departing from 1 by more than ~5e-3 would move the ratio (1+gamma)/gamma outside the tree's rtol 5e-3, and Cassini's (2.1 +- 2.3)e-5 excludes that by ~200 sigma. To DATA-DEPENDENT: a measurement of gamma for a negative-mass source differing from 1 (no such source is known). To OPEN: none -- the source was read through recovered page text; if that recovery were ruled inadmissible, the source status would drop to NAMED-NOT-READ while the re-derivations (C1-C8) stand on their own.",
+ "reverify_command": "cd /tmp && PYTHONDONTWRITEBYTECODE=1 python3 /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/weak-field-isotropic-metric-and-newtonian-limit.py ; grep -n '(1 + 2γU )δ\\|(2.1 ± 2.3)\\|U ∼ v' /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/src/will/1403.7377.pages.txt ; sed -n 178,181p /home/user/Claude-Method-Works/research/warp-drive/phase1.py ; sed -n 506,510p /home/user/Claude-Method-Works/research/warp-drive/phase1.py",
+ "report_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/audits/weak-field-isotropic-metric-and-newtonian-limit.json"
+}

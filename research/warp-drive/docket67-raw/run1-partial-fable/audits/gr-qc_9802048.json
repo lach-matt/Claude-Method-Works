@@ -1,0 +1,98 @@
+{
+ "key": "gr-qc/9802048",
+ "name": "Hochberg & Visser (1998), 'The null energy condition in dynamic wormholes', PRL 81, 746 (gr-qc/9802048v3): result (4), NEC violation on an open interval at any (dynamic) throat",
+ "source": {
+  "located": "arXiv:gr-qc/9802048v3 (18 Jun 1998), PRL 81, 746 (1998); four pages, all read. Proof of result (4) is deferred by the PRL to gr-qc/9802046 (PRD 58, 044021), also read: definitions 4.1.1-4.1.5, Table 1, section 5.1 eqs. (49)-(60), section 6.1.4, section 7.",
+  "read_status": "READ",
+  "via": "alphaXiv answer_pdf_queries on gr-qc/9802048 (full text, pages 1-4) and on gr-qc/9802046 (pp. 1,4,5,11,14-16,18-22,27,29-31)"
+ },
+ "published_statement": "PRL p.1, verbatim: '(4) For each one of these throats there will be an open interval such that the transverse averaged NEC (transverse averaged over the throat after it is pushed out in the appropriate null direction) is violated throughout the open interval.' Together with (1) two throats, one per null direction, coalescing only when static; (2) T_ab l^a l^b <= 0 on each throat (eqs. 7-8); (3) an open region in the null hypersurface through the throat, whose closure intersects the throat, on which T_ab l^a l^b < 0 (eq. 13). The PRL says of (4): 'the fourth result follows from appropriate modifications of the integrated constraint Eq. (11). See [11,14] for details' -- the proof is in gr-qc/9802046 eq. (53): for a throat satisfying the AVERAGED flare-out condition int sqrt(gamma) sgn(dtheta/du) d^2x > 0 (eq. 36), int_Sigma sqrt(gamma) sgn(T_ab l^a l^b) d^2x < 0, with the explicit warning 'this has nothing to do with the violation of the averaged null energy condition, or ANEC'. Discussion sentence quoted by the tree, verbatim (PRL p.3): 'the suspension of the NEC is essentially an illusion in that if one ever succeeds in passing through the wormhole and reaching the other universe then one must have passed a throat as defined above and there must be NEC violations at or near this throat.'",
+ "published_hypotheses": [
+  "H1 Sigma is a compact two-dimensional orientable spacelike surface embedded two-sidedly in (3+1) spacetime; l_pm are the two orthogonal null geodesic congruences, affinely parametrised (PRL p.1 'Basic Definitions'; 9802046 sec. 4.1, technical aside p.11 on non-affine parametrisation).",
+  "H2 Throat = marginally anti-trapped surface WITH RESPECT TO ONE null congruence: theta_pm = 0 on Sigma (eq. 4) and dtheta_pm/du_pm >= 0 (eq. 5, 'simple flare-out'). The NEC conclusion is for the SAME null vector that defines the throat (9802046 p.19: 'you must use the same null geodesic congruence').",
+  "H3 For the STRICT results (3),(4): the strengthened flare-out, eq. (9) -- at least one variation u = eps f(x) with A[Sigma(eps f)] > A[Sigma] (PRL p.3); equivalently 9802046's strong / averaged / N-fold-degenerate flare-out (Table 1). With H2 alone only the weak inequality T_ab l^a l^b <= 0 follows (eq. 8: 'violated or on the verge of being violated').",
+  "H4 Twist omega_pm = 0 -- automatic for an orthogonal (hypersurface-orthogonal) congruence, and preserved along u by the twist equation (9802046 eqs. 55-57).",
+  "H5 Einstein equations with zero torsion, to pass from R_ab l^a l^b <= 0 (eq. 7, pure geometry) to T_ab l^a l^b <= 0 (eq. 8). With torsion the conclusion is stated for the combination 4pi T_ll + H H l l (9802046 eq. 63) and torsion 'promotes' the violation.",
+  "H6 Sufficient differentiability for the Taylor expansion theta(x,u) = theta(x,0) + u dtheta/du + O(u^2) (9802046 eq. 38); degenerate throats need the odd-order expansion (39)-(40).",
+  "H0 NOT assumed, explicitly: asymptotic flatness, causality conditions, symmetry, staticity, embeddability, topology (abstract and p.1)."
+ ],
+ "hypothesis_drift": [
+  "foliation.py:243-244 (D5 'theta_+ = (2/R)(U + Gamma) and its derivative along the ray') and :246-247 ('NEC violation on an open interval at any throat'): DROPPED H3. D5 restates only theta and its first derivative -- the simple flare-out (H2). Under H2 alone the paper proves T_ll <= 0 (eq. 8), not the strict open-interval violation; the strict result needs eq. (9). The rederivation's check A exhibits the boundary model (dtheta = 0, R_ll = 0). Discrepancy, not refutation: in spherical symmetry with dtheta/du > 0 strictly at the throat, H3 holds automatically (9802046 p.27), which is the case in every concrete throat the rederivation found.",
+  "foliation.py:246-247 and driven.py:94-95: NOT RESTATED H5 (Einstein equations). Eq. (7) R_ll <= 0 is pure Raychaudhuri; the NEC statement about T needs GR. The board is GR, so harmless, but the hypothesis is named nowhere by either owner.",
+  "driven.py:895 ('the averaged NEC is violated on an open interval around every throat'): (a) DROPS 'transverse' -- the paper's (4) is an average OVER THE THROAT SURFACE (a sgn-weighted surface integral, 9802046 eq. 53), and the paper warns it 'has nothing to do with ... ANEC', which is averaged ALONG a null geodesic; driven.py:95 gets this right ('TRANSVERSE AVERAGED NEC'), :895 does not. (b) 'around every throat' STRENGTHENS 'at or near': the PRL's open set (eqs. 12-13) 'may include the hypersurface Sigma(0) itself but does not necessarily have to do so, its closure must however certainly intersect Sigma(0)'. Both are wording drifts in the summary paragraph, not in the citation at :94-98.",
+  "driven.py:96-98 and :517-518 (REFUTED row): ADDED the traversal => throat bridge. The quoted 'suspension ... is essentially an illusion ... if one ever succeeds in passing through ... one must have passed a throat as defined above' is a DISCUSSION sentence, not result (4); its argument (a traversing null bundle's area must pass a minimum) is given only for the spherically symmetric worked example (9802046 sec. 6.1.4). It carries the unstated hypothesis that the traversing congruence's cross-sectional area attains an interior local minimum, i.e. that an H&V throat exists on the traversal. Later literature CONTESTS exactly this: Maeda-Harada-Carr 0901.1153 and Tomikawa-Izumi-Shiromizu 1503.01926 exhibit trapped-everywhere cosmological Ellis-FLRW geometries with NO H&V throat that satisfy the dominant energy condition and connect two Friedmann regions (see later_literature). The theorem is silent there, not contradicted. The tree's REFUTED row also cites Olum, and driven.py:109-114 says Olum governs; the row does not move, but its H&V citation is conditional on the corridor being crossed at an H&V throat.",
+  "driven.py:94 'result (4) ... for each throat': the citation of the PRL for (4) is a citation of a statement whose proof the PRL itself defers ('See [11,14] for details'); the load-bearing text is gr-qc/9802046 eq. (53) and definition 4.1.3. A citation-locus discrepancy only.",
+  "Neither owner names H2's clause that the NEC violation is with respect to the SAME null vector that defines the throat, nor result (1) that a dynamic wormhole has TWO throats (one per direction) so 'at any throat' means at the throat of the direction actually travelled. foliation.py's D5 uses theta_+ only, which is one of the two; consistent for one-way traversal."
+ ],
+ "data_at_publication": [
+  {
+   "quantity": "none -- the result is a theorem of Lorentzian geometry (Raychaudhuri equation) plus the Einstein equations; no measured or fitted number enters the statement, the hypotheses or the proof",
+   "value_then": "n/a",
+   "value_now": "n/a",
+   "source_now": "n/a (nothing to look up in PDG or a measurement paper)",
+   "moves_conclusion": "no -- no datum exists that could move it; the only way it moves is by a change of theory (non-Einstein field equations), and even then eq. (7) R_ll <= 0 survives untouched"
+  }
+ ],
+ "rederivation": {
+  "method": "sympy",
+  "script_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/gr-qc_9802048.py",
+  "outcome": "15/15 checks OK, exit 0 (sympy 1.14.0 + z3 5.1.0). A (z3, general): eq. (7) R_ll <= 0 follows from theta = 0, dtheta/du >= 0, omega = 0, sigma^2 >= 0; strict R_ll < 0 from dtheta/du > 0; the weak hypothesis alone is satisfiable with R_ll = 0 (boundary model, which is exactly why the paper needs eq. 9); the omega = 0 hypothesis is load-bearing (lemma fails if twist is allowed); hypotheses non-vacuous. B (sympy): the Taylor-remainder identity A(e) - A(0) - e A'(0) = int_0^e (e - s) A''(s) ds behind eqs. (9)-(10), and the degenerate case A = e^4 where A'' > 0 only on the punctured interval (the 'at or near' subtlety). C (sympy, concrete): ds^2 = -dt^2 + a(t)^2[dl^2 + (b^2 + l^2) dOmega^2]; affine radial null geodesics k_pm verified null and geodesic; theta = div k = (2/R) dR/dlambda verified; Raychaudhuri with shear 0, twist 0 verified against the Ricci tensor of the metric for both congruences; for a = 1 + t/4 (expanding), 1 - t/4 (contracting), 1 (static) at t = 1, b = 1: every marginal surface with dtheta >= 0 has R_kk < 0 there and at affine displacements +/- 1/20 along its own null ray; the two dynamic throats sit on opposite sides of the centre (expanding: + throat at l = -0.268, before the centre; contracting: after it), coalesce at l = 0 when static, and the second root of theta = 0 (|l| = 3.73) has dtheta < 0 and R_kk > 0 -- an apparent-horizon-type surface the paper excludes, where the NEC holds; a = 1 + t^2 has no marginal surface at all and a ray covers comoving distance pi/4 only. D (closed form + z3): an H&V marginal surface exists in this metric iff |adot| b <= 1/2 (max of |l|/(b^2+l^2) is 1/(2b)); Tomikawa et al.'s DEC window adot^2 b^2 >= 2/3 is disjoint from it, so their energy-condition-satisfying 'wormhole' has no H&V throat -- and the threshold |adot| b = 1/2 is exactly Maeda-Harada-Carr's 'no trapping horizon for t_0 < 2b' with a = t/t_0 (0901.1153 eq. 4.61), an independent corroboration. NOT re-derived: the non-symmetric result (4) itself (the sgn-weighted surface average, 9802046 eq. 53), which needs a non-uniform surface; in spherical symmetry (4) reduces to (3).",
+  "agrees_with_source": "yes"
+ },
+ "later_literature": [
+  {
+   "ref": "Hochberg & Visser, gr-qc/9802046, PRD 58, 044021 (1998)",
+   "effect": "extends",
+   "what": "The companion paper holding the proof of (4): flare-out taxonomy (simple / strong / strongly anti-trapped / averaged / f-averaged / N-fold degenerate, Table 1), eqs. (49)-(60), torsion (violation worsened, eq. 65), worked spherical examples, and sec. 7: spatial flare-out does not imply null flare-out when dynamic.",
+   "read_status": "READ (alphaXiv, pp. 1,4,5,11,14-16,18-22,27,29-31)"
+  },
+  {
+   "ref": "Hayward, gr-qc/9805019, IJMPD 8, 373 (1999)",
+   "effect": "confirms",
+   "what": "Defines a generic wormhole horizon as a temporal outer trapping horizon (strict flare-out) and states 'the null energy condition is violated everywhere on a generic wormhole horizon' from the Einstein equation; notes H&V's strict flare-out is implied by his definition but not conversely (H&V allow spatial horizons), and that with non-strict flare-out 'negative energy could just barely be avoided in very special cases' which are traversibly unstable.",
+   "read_status": "READ (alphaXiv, pp. 1-5)"
+  },
+  {
+   "ref": "Hochberg & Visser, gr-qc/9901020 (1999 proceedings)",
+   "effect": "confirms",
+   "what": "The authors' own restatement: same definitions, same eqs. (20)-(23), same open-neighbourhood argument; no correction, no change of definition; 'This should now settle the issue'.",
+   "read_status": "READ (alphaXiv, pp. 1-10)"
+  },
+  {
+   "ref": "Visser, Kar & Dadhich, gr-qc/0301003, PRL 90, 201102 (2003)",
+   "effect": "narrows",
+   "what": "Narrows the AMOUNT, not the existence: static spherically symmetric wormholes whose volume-integrated ANEC-violating matter can be made arbitrarily small while the ANEC line integral stays finite and negative and the local violation at the throat remains (eq. 33: p_r = -1/(8 pi (2m)^2) at the throat). 'ANEC violations are certainly needed'.",
+   "read_status": "READ (alphaXiv, pp. 1-4)"
+  },
+  {
+   "ref": "Maeda, Harada & Carr, arXiv:0901.1153, PRD 79, 044034 (2009)",
+   "effect": "contested",
+   "what": "Re-derives that the NEC is violated on every H&V and Hayward throat (their eq. 3.8) and then exhibits cosmological wormholes -- self-similar Friedmann-Friedmann numerical solutions and the analytic Ellis-FLRW metric (4.53) with a = t/t_0 -- that satisfy the DOMINANT energy condition everywhere (t_0 <= b), connect two Friedmann universes, and have no trapping horizon (t_0 < 2b): 'the Hochberg-Visser and Hayward conditions are avoided because the spacetimes are trapped everywhere'. They define the throat on a spacelike hypersurface instead. This contests the Discussion's traversal => throat bridge and the definition of 'wormhole', not theorem (4).",
+   "read_status": "READ (alphaXiv, pp. 1,3-10)"
+  },
+  {
+   "ref": "Tomikawa, Izumi & Shiromizu, arXiv:1503.01926 (2015)",
+   "effect": "contested",
+   "what": "Hybrid throat definition k = theta_+ - theta_- = 0 with r.grad k > 0; the dynamical Ellis wormhole satisfies the DEC with a throat in their sense for adot^2 b^2 >= 2/3, adot^2 < 1/b^2 (eqs. 62-63), a past-trapped throat of Hubble size; 'it seems hard or impossible to construct such [small] wormholes without violating the energy condition'. Rederivation check D shows this window is disjoint from the range in which any H&V marginal surface exists.",
+   "read_status": "READ (alphaXiv, pp. 1-7)"
+  },
+  {
+   "ref": "Cataldo, Cruz & Salgado, arXiv:2603.14718 (2026)",
+   "effect": "extends",
+   "what": "No-go theorem in Unimodular Gravity: b'(r_0) <= 1 alone forces rho + p_r <= 0 at the throat (eq. 27), static spherically symmetric only; cites the PRL as [6] for the GR statement. Extends the static special case to a non-GR field equation; says nothing dynamic.",
+   "read_status": "READ (alphaXiv, pp. 1-9)"
+  },
+  {
+   "ref": "arXiv:2602.00524 'Null Raychaudhuri Equation and the Impossibility of Traversable Wormholes in Unimodular Gravity' (2026); arXiv:2602.18231 'Dynamical wormholes' (numerical, 2026); arXiv:2604.00134 'Does a wormhole survive a cosmological bounce?' (2026)",
+   "effect": "extends",
+   "what": "Surfaced by discover_papers as recent work on the same defocusing argument and on dynamical wormholes; not read here, so their effect is taken from abstracts only.",
+   "read_status": "NAMED-NOT-READ"
+  }
+ ],
+ "lacked_data": "M's hypothesis does not apply to this result, and the evidence is direct: the paper uses no data. Its inputs are the Raychaudhuri equation (1), the definition of a throat (4)-(5),(9), the twist equation, and the Einstein equations; every step was re-run here symbolically and the sign lemma machine-checked. What the authors lacked in 1998 was not data but LATER DEFINITIONS and EXAMPLES: Hayward's trapping-horizon wormhole (1998-99, read), Maeda-Harada-Carr's trapped-everywhere cosmological wormholes (2009, read) and Tomikawa et al.'s hybrid throat (2015, read). None of these changes conclusion (4): each re-derives that the NEC is violated on an H&V throat (0901.1153 eq. 3.8). What they change is the reach of the Discussion sentence 'if one ever succeeds in passing through the wormhole ... there must be NEC violations at or near this throat', which holds only where an H&V throat exists on the traversal; in a geometry trapped everywhere (|adot| b > 1/2 in the Ellis-FLRW family, check D) no such throat exists and the theorem is silent. Also since 1998: quantum-inequality bounds (Ford-Roman, cited by Hayward) and VKD 2003 constrain HOW MUCH violation is needed, not WHETHER. No measurement made after 1998 bears on the result.",
+ "grade": "STANDS",
+ "grade_evidence": "Statement as used -- 'NEC violation on an open interval at any throat' (foliation.py:246-247), 'for each throat ... the TRANSVERSE AVERAGED NEC is violated' (driven.py:94-95) -- matches the PRL's result (4) verbatim, with the throat defined as the paper defines it (null flare-out, foliation.py D5). Re-derivation agrees on all 15 checks: the sign lemma (7) is a z3 theorem, its strict form needs exactly the strict flare-out the paper adds in eq. (9), and a concrete dynamic spherical wormhole shows results (1)-(3) as stated, including the two displaced throats and the excluded apparent-horizon root where the NEC holds. No datum enters. Later literature confirms (Hayward; H&V 1999; Maeda-Harada-Carr's own eq. 3.8) or narrows only the amount (VKD 2003). The drifts found are named hypotheses (H3 strict flare-out and H5 Einstein equations not restated; 'transverse' dropped at driven.py:895) and one contested Discussion sentence that the tree quotes beside the theorem -- discrepancies to record, not refutations, per the fluctuation.py precedent.",
+ "what_would_change_the_grade": "NARROWED if the tree's corridor were shown to be crossed with no H&V throat on the traversal -- e.g. a trapped-everywhere geometry of the Maeda-Harada-Carr / Tomikawa class (in the Ellis-FLRW family: |adot| b > 1/2, check D) -- because then the theorem is silent and driven.py:517-518's REFUTED row would rest on Olum alone; or if foliation.py's D5 throat were a degenerate marginal surface with dtheta_+/du = 0 and no area-increasing variation, where only the weak T_ll <= 0 follows. WRONG would need a surface satisfying eqs. (4),(5),(9) in a GR spacetime with T_ab l^a l^b >= 0 throughout every neighbourhood along l -- which the z3 check says cannot exist given the Raychaudhuri equation, so a refutation would have to fault the Raychaudhuri equation or the twist lemma. DATA-DEPENDENT cannot arise: there is no datum.",
+ "reverify_command": "python3 /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/gr-qc_9802048.py  # expects 15 OK rows and exit 0 (~2 min; needs sympy and z3-solver); then re-read gr-qc/9802048 p.1 result (4) and p.3 eqs. (9)-(13) and gr-qc/9802046 eqs. (36),(53) via alphaXiv answer_pdf_queries",
+ "report_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/audits/gr-qc_9802048.json"
+}

@@ -1,0 +1,24 @@
+  [ok] massless: k^r k_r = 0 
+  [ok] C1 (2.12)-(2.14) follow from (2.11) with K_ab as printed 
+  [ok] C1 K_00 = w/(2 L^3) 
+  [ok] state normalised 
+      exact <:T00:> = -2*K*epsilon*(-2*epsilon + 2*sqrt(2)*cos(theta)**2 - sqrt(2))/(epsilon**2 + 1)
+  [ok] C3 KF (2.10) at c0,c2 equals Fock result 
+  [ok] C4 middle line == exact 
+  [ok] C4 final line == exact/2 identically (final/exact = 1/2)
+  [ok] C5 z3: final == exact <=> rho == 0 (unsat of negation) 
+  [ok] C5 z3 vacuity guard: a point with final != exact exists 
+  [ok] C6 z3: sign(final) == sign(exact) everywhere (negativity region unchanged) 
+  [ok] C6 z3: rho < 0 <=> cos2th > sqrt2 eps (KF's stated condition) 
+  [ok] C7 exact <:T00^2:> = 12 K^2 eps^2/(1+eps^2) (= 12*K**2*epsilon**2/(epsilon**2 + 1))
+  [ok] C7 Delta_exact = 1 - (2eps - sqrt2 cos2th)^2/(3(1+eps^2)) 
+  [ok] C7 Delta with final line = 1 - (2eps - sqrt2 cos2th)^2/(12(1+eps^2)) 
+      at eps=1/10, th=0:  rho_exact/K = -0.240438  rho_final/K = -0.120219  Delta_exact = 0.5134  Delta_final = 0.8784
+      scan over rho<0: inf Delta_exact ~ 0.3521 (-> 1/3), inf Delta_final ~ 0.8380 (-> 5/6)
+  [ok] C7 z3: rho<0 => (2eps-sqrt2 c)^2 < 2(1+eps^2) => Delta_exact > 1/3, Delta_final > 5/6 
+      C8 context: (3.8) from final,printed(3.7)     not reproduced
+      C8 context: (3.8) from final,exact            not reproduced
+      C8 context: (3.8) from middle,printed(3.7)    not reproduced
+      C8 context: (3.8) from middle,exact           not reproduced
+
+ALL CHECKS PASS

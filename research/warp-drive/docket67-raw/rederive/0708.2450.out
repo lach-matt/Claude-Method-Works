@@ -1,0 +1,47 @@
+1. normalisation and energy of Psi_kappa (FO eq. 25-26)
+     ||h||^2 = 1    <H> = 2*kappa/3
+  PASS  ||h_kappa|| = 1
+  PASS  <Psi_kappa|H Psi_kappa> = 2 kappa/3 (FO 26)
+2. the one-particle wave function in closed form (kappa = 1)
+  PASS  F(s,r) = (sqrt2/pi)[1/(s^2+r^2) - 2s/(3(s^2+r^2)^2)]
+3. energy density at the spatial origin (FO eq. 28) and at the spacetime origin (29)
+  PASS  rho(t,0) = FO (28) with kappa=1, identically in t and xi
+  PASS  rho(0,0) = -xi (2 kappa)^4/(3 pi^2) (FO 29)
+4. the j-particle step (FO 32-34): arithmetic as printed
+     j printed  > 6*pi**2*rho_0/(kappa'**4*xi)    j needed > 3*pi**2*rho_0/(8*kappa'**4*xi)    ratio = 16
+  PASS  printed j exceeds the needed j (sufficient: (33) still holds), by 16 = 2^4
+     2 j kappa'/3 at the printed j = 4*pi**2*rho_0/(kappa'**3*xi)  ; FO print  > 2 pi^2 rho_0/(xi kappa'^3)
+  PASS  FO (34) lower bound 2pi^2 rho0/(xi k'^3) is below 2jk'/3 at their j (true, loose by 2)
+     the minimum total energy the construction needs =  pi**2*rho_0/(4*kappa'**3*xi)
+  PASS  (34) tau-form: 1/kappa'^3 = tau'^3/(kappa tau)^3 with kappa' = kappa tau/tau'
+  PASS  FO 'energy density less than -xi k^4 tau^4/(6 pi^2 tau'^4)': true, 16x weaker than (32)
+5. theorem content: for every xi > 0 the construction gives rho < -rho_0 on any ball
+  PASS  rho(0,0) < 0 for every xi > 0 (sign of -16 xi/(3 pi^2))
+6. the ledger O1 figures: 3 pi/(32 f xi c0^3)
+  PASS  (2 kappa/3)/[f |rho(0,0)| (4pi/3)(c0/kappa)^3] == 3 pi/(32 f xi c0^3)
+     => f is a fraction of the peak |rho(0,0)|, c0 = kappa*tau a ball radius.
+     xi=1/4 spacetime: min_f 3pi/(32 f xi c0^3) = 1039.24 at f=0.38 (c0=0.14396); at FO's f=1/2: c0=0.12797 -> 1124.43   [ledger: 1039.13]
+     xi=1/4 t=0 slice: min_f 3pi/(32 f xi c0^3) = 141.31 at f=0.36 (c0=0.28504); at FO's f=1/2: c0=0.24726 -> 155.86   [ledger: 1039.13]
+     xi=1/6 spacetime: min_f 3pi/(32 f xi c0^3) = 1803.58 at f=0.38 (c0=0.13713); at FO's f=1/2: c0=0.12203 -> 1944.83   [ledger: 1803.55]
+     xi=1/6 t=0 slice: min_f 3pi/(32 f xi c0^3) = 230.65 at f=0.36 (c0=0.27712); at FO's f=1/2: c0=0.24104 -> 252.36   [ledger: 1803.55]
+6b. refine f (bounded scalar minimisation) and compare with the ledger
+     xi=1/4: min = 1039.127 at f = 0.3756, c0 = 0.144517 ; ledger 1039.13 ; rel diff -2.59e-06
+  PASS  xi=1/4: ledger O1 figure reproduced (spacetime ball B(tau) of FO (31), min over f) to 0.05%
+     xi=1/6: min = 1803.552 at f = 0.3783, c0 = 0.137327 ; ledger 1803.55 ; rel diff 1.11e-06
+  PASS  xi=1/6: ledger O1 figure reproduced (spacetime ball B(tau) of FO (31), min over f) to 0.05%
+7. the TRUE negative energy on the t = 0 slice, one particle, kappa = 1
+     xi=1/4: zeros of rho(0,r) at r=['0.37987', '3.05379'] ; int_{rho<0} rho d^3x = -0.029252 ; int rho d^3x = 0.666667 (<H> = 0.666667) ; <H>/|E_neg| = 22.7906
+  PASS  xi=1/4: integral of rho over the t=0 slice equals <H> = 2/3 (xi-terms are divergences)
+     xi=1/6: zeros of rho(0,r) at r=['0.36567'] ; int_{rho<0} rho d^3x = -0.006535 ; int rho d^3x = 0.666667 (<H> = 0.666667) ; <H>/|E_neg| = 102.0185
+  PASS  xi=1/6: integral of rho over the t=0 slice equals <H> = 2/3 (xi-terms are divergences)
+7b. other time slices (t in [0,2]): is t = 0 the slice with the most negative energy?
+     xi=1/4: most negative slice E_neg = -0.029258 -> <H>/|E_neg| = 22.786
+  PASS  xi=1/4: ledger figure exceeds the state's actual <H>/|E_neg| on every slice t in [0,2] by > 10x
+     xi=1/6: most negative slice E_neg = -0.006535 -> <H>/|E_neg| = 102.018
+  PASS  xi=1/6: ledger figure exceeds the state's actual <H>/|E_neg| on every slice t in [0,2] by > 10x
+
+SUMMARY
+  FO Sec. 3 re-derived: (26), (28), (29) exact; (33) holds; (34) and the
+  printed threshold are TRUE but loose (a dropped 2^4 in j, a factor 2 in (34)).
+  xi=1/4: formula min over f: spacetime ball 1039.24, t=0 ball 141.31 ; true <H>/|E_neg| = 22.791
+  xi=1/6: formula min over f: spacetime ball 1803.58, t=0 ball 230.65 ; true <H>/|E_neg| = 102.018

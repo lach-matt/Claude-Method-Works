@@ -1,0 +1,67 @@
+A. THE TREE'S QUOTATIONS AGAINST THE SOURCE TEXT (Borde gr-qc/9406053v1)
+  create.BORDE occurs verbatim in Borde                                  got=True     want=True     ok
+  create.BORDE_SINGULARITY occurs verbatim in Borde                      got=True     want=True     ok
+  create.BORDE_DYNAMICS occurs verbatim in Borde                         got=True     want=True     ok
+  create.BORDE_CAUTION occurs verbatim in Borde                          got=True     want=True     ok
+  docstring/ESCAPES phrase 'topology change is only to be had at a p' in got=True     want=True     ok
+  docstring/ESCAPES phrase 'a condition satisfied in a very wide ran' in got=True     want=True     ok
+  docstring/ESCAPES phrase 'highly undesirable feature' in Borde         got=True     want=True     ok
+  docstring/ESCAPES phrase 'would have to be fairly severe' in Borde     got=True     want=True     ok
+  create.GEROCH_NEEDS_MATTER_ASSUMPTION is False                         got=False    want=False    ok
+  create.EXOTIC_MATTER_HELPS_CREATION is False                           got=False    want=False    ok
+  Borde: 'causality violation' means at least one CTC                    got=True     want=True     ok
+  Borde Theorem 1 is stated for a (time-oriented) spacetime              got=True     want=True     ok
+  Borde: weakening curvature constraints 'would not affect the presence  got=True     want=True     ok
+  Borde names energy-condition violation as a route past Theorem 3 (worm got=True     want=True     ok
+  2505.02210 Thm III.2 restates Geroch: compact W, spacelike boundary, n got=True     want=True     ok
+  2505.02210 Def. 6: spacetime = everywhere non-degenerate TIME-ORIENTAB got=True     want=True     ok
+  2505.02210 ref [7] prints the Geroch year as 2004 (misprint; Borde ref got=True     want=True     ok
+
+B. THE ESCAPE LIST
+  create.ESCAPES has 3 entries                                           got=3        want=3        ok
+  Borde sec IX has A, B, C inside 'the general Lorentzian framework'     got=True     want=True     ok
+  Borde: 'even within the general Lorentzian framework there are still s got=True     want=True     ok
+  create.ESCAPES names 'degenerate metrics' (Borde IX.C)                 got=False    want=False    ok
+  create.ESCAPES[1] mentions energy-condition violation (Borde IX.B seco got=False    want=False    ok
+
+C. REINHART-SORKIN / POINCARE-HOPF ARITHMETIC (sympy integers)
+  every closed 3-manifold listed has chi = 0 (odd dim)                   got=True     want=True     ok
+  chi(CP2)=3, chi(S2xS2)=4, chi(T4)=0                                    got=(3, 4, 0) want=(3, 4, 0) ok
+  chi(M#V) = chi(M)+chi(V)-2 (n even), by Mayer-Vietoris count           got=True     want=True     ok
+  wormhole creation S^3 -> S^1xS^2 by one 1-handle: chi(W) = -1          got=-1       want=-1       ok
+  so (n=4 even, RS rule needs chi(W)=0) no nowhere-vanishing field: need got=False    want=False    ok
+  Misner trick: chi(W # CP2) = 0  (the 2505.02210 choice)                got=0        want=0        ok
+  alternative: chi(W # S2xS2 # T4) = -1+4-2+0-2 = -1 (even steps cannot  got=-1       want=-1       ok
+  n=3 RS rule: 2-2g1 = 2-2g2 <=> g1 = g2                                 got=True     want=True     ok
+  2-D trousers chi = 2-2*0-3 = -1 != 0 (singular)                        got=-1       want=-1       ok
+  2-D cylinder chi = 0 (admits a Lorentz metric)                         got=0        want=0        ok
+
+D. BORDE'S 2-D EXAMPLE, BUILT: cylinder [-1,1] x S^1 as  empty -> S^1 u S^1
+  V nowhere zero on [-1,1]                                               got=True     want=True     ok
+  det g = -1 everywhere (nondegenerate, Lorentzian)                      got=True     want=True     ok
+  g(V,V) < 0 everywhere (time-orientable by V)                           got=True     want=True     ok
+  boundary circles x=+-1 spacelike: g(d_theta,d_theta) = +1              got=(1.0, 1.0) want=(1.0, 1.0) ok
+  circle x=0 closed, tangent d_theta = V(0): g = -1  => a CTC            got=-1.0     want=-1.0     ok
+  past integral curve from x=0.9 has no past endpoint on a boundary (x - got=True     want=True     ok
+  and winds unboundedly (accumulates on the closed timelike orbit x=0)   got=True     want=True     ok
+
+E. DROP CAUSAL COMPACTNESS: a slit cylinder changes slice topology with NO CTC
+  g^{-1}(dt,dt) = -1 (global time function => no closed causal curve)    got=-1.0     want=-1.0     ok
+  initial slice S^1: chi = 0 ; final slice S^1 minus a point: chi = 1 (n got=(0, 1)   want=(0, 1)   ok
+      ARGUED, NOT COMPUTED: the slit spoils causal compactness (closure of I+(p) for p
+      below the slit tip reaches the removed set), so Theorem 1 does not apply; H_cc is
+      load-bearing -- this is Borde's own reason for imposing it (sec. III.B).
+
+F. z3: finite core of Theorem 1, and the Theorem 1 / Theorem 3 split
+  n=3 acyclic successor map: some orbit never exits  (expect unsat)      got=unsat    want=unsat    ok
+  n=3 vacuity guard, cycle allowed: non-exiting orbit exists (expect sat got=sat      want=sat      ok
+  n=5 acyclic successor map: some orbit never exits  (expect unsat)      got=unsat    want=unsat    ok
+  n=5 vacuity guard, cycle allowed: non-exiting orbit exists (expect sat got=sat      want=sat      ok
+  n=7 acyclic successor map: some orbit never exits  (expect unsat)      got=unsat    want=unsat    ok
+  n=7 vacuity guard, cycle allowed: non-exiting orbit exists (expect sat got=sat      want=sat      ok
+  Thm1: created & cc & exotic & no CTC  (expect unsat: exotic matter can got=unsat    want=unsat    ok
+  Thm3: created & cc & Einstein & NCC & generic  (expect unsat)          got=unsat    want=unsat    ok
+  created & cc & Einstein & exotic: NOT excluded by Thm1+Thm3 (expect sa got=sat      want=sat      ok
+    ... and in that model ctc is True                                    got=True     want=True     ok
+
+51 checks, 0 FAIL

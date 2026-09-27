@@ -1,0 +1,92 @@
+{
+ "key": "penrose-weyl-curvature-hypothesis",
+ "name": "Penrose's Weyl curvature hypothesis: early universe had near-zero Weyl curvature / low gravitational entropy; gravitational clumping raises it",
+ "source": {
+  "located": "Primary: R. Penrose, 'Singularities and time-asymmetry', in S.W. Hawking & W. Israel (eds.), General Relativity: An Einstein Centenary Survey (CUP 1979) -- pre-arXiv classic, bibliographic data from memory, NOT READ. Intended restatement: T. Clifton, G.F.R. Ellis, R. Tavakol, 'A Gravitational Entropy Proposal', arXiv:1303.5612 (Class. Quantum Grav. 30, 125009 (2013)) -- located (its arXiv listing surfaced in a WebSearch result list) but NOT READ: every alphaXiv call in this stage (answer_pdf_queries x2, get_paper_content x1, discover_papers x1) returned 'alphaXiv assistant quota exceeded'; arxiv.org and export.arxiv.org are refused by the egress proxy (403, recorded at $HTTPS_PROXY/__agentproxy/status), WebFetch reports EGRESS_BLOCKED for arxiv.org, and semanticscholar, inspirehep, ADS, crossref, core, archive.org, wikipedia are all 403 from the sandbox. No cached copy of 1303.5612 or any WCH restatement exists in d67/src/ (grep for 'Weyl curvature hypothesis'/'gravitational entropy' over src/ found none). The owner lines in research/warp-drive/permute.py WERE read at source (lines 80-100, 265-280, 430-450, 495-560).",
+  "read_status": "NAMED-NOT-READ",
+  "via": "No source text obtained: alphaXiv quota exhausted for this stage; arXiv and all mirrors egress-blocked (organisation policy -- not retried or routed around). WebSearch returned titles and a search-engine summary only, which is not a reading and is not quoted as one."
+ },
+ "published_statement": "NOT QUOTED -- the source was not read. What follows is the standard gloss, from memory, and MUST NOT be treated as a quotation: Penrose (1979) proposed that the Weyl curvature is constrained to vanish (or be small) at initial singularities while unconstrained at final ones, as the geometric origin of the thermodynamic arrow of time, and heuristically associated Weyl curvature with gravitational entropy. The tree's version (READ): 'The early universe was in a state of extremely low GRAVITATIONAL entropy -- Weyl curvature near zero, Penrose's hypothesis -- and gravitational clumping raises it. Structure formation is genuinely a relaxation' (permute.py:87-91).",
+ "published_hypotheses": [
+  "NOT READ at source; listed as the tree records them and as the standard gloss (unverified):",
+  "H1 (tree, canonical entry) gravitational entropy exists and is measured by Weyl curvature -- a conjecture; no general definition is accepted (literature claim, not READ here).",
+  "H2 (tree) clumping increases gravitational entropy.",
+  "H3 (gloss, unverified) the constraint applies at INITIAL singularities (past-type), not at final ones -- the time-asymmetry is imposed as a boundary condition, not derived.",
+  "H4 (gloss, unverified) the hypothesis is a conjecture about the universe's initial state, offered to explain the second law; it is not a theorem of GR."
+ ],
+ "hypothesis_drift": [
+  "STATUS DROPPED inside the tree (READ): permute.py:88-89 names it 'Penrose's hypothesis', but permute.py:441-443 prints 'Penrose: the early universe had near-zero Weyl curvature, so gravitational clumping IS a relaxation' and permute.py:543-545 prints 'the early universe had near-zero Weyl curvature and gravitational clumping raises entropy, so STRUCTURE FORMATION genuinely is a relaxation' -- the conjecture is stated as fact in the verdict text.",
+  "DECLARED, NOT COMPUTED (READ): permute.py:273 hardcodes RELAXATION_BELONGS_TO = 'the rearrangement' and permute.py:439-440 checks it against the same literal -- the chk is tautological; the scorecard row 'it is a structural relaxation / SPLIT / the REARRANGEMENT relaxes' (permute.py:507-508) rests on this literal plus the named hypothesis, while its other half (isentropic expansion, permute.py:434-437) IS computed.",
+  "H1 WEAKENED to 'measured by Weyl curvature' (permute.py:88-89) without naming a measure: computed here (C2) that C_abcd C^abcd = 48M^2/r^6 in a Ricci-flat Schwarzschild exterior and is identical for the time-reversed (white-hole) geometry, so a Weyl scalar carries no arrow by itself; any Weyl-entropy reading needs a chosen measure and the past-singularity boundary condition (H3). The tree names neither.",
+  "ADDED (permute.py:90-91, 544-546): 'relaxation' == increase of gravitational entropy. The WCH (as glossed, unverified) constrains the initial state; 'relaxation' is the tree's own term, supplied by it, not by the source.",
+  "SCOPE (unverified against source): tree says 'the early universe' (permute.py:88, 441, 543); the standard gloss restricts the constraint to the initial singularity. Not asserted as a drift until read.",
+  "H2 REGIME DROPPED (permute.py:89-90, 544-545): 'clumping raises it' is computed here (C3) only for the linear, sub-horizon Einstein-de Sitter regime and only for Weyl/Ricci and Hubble-normalised Weyl-electric ratios, where it reduces to Poisson's equation (|E|/rho = delta/sqrt(6) in both modes). The tree states it without regime or measure."
+ ],
+ "data_at_publication": [
+  {
+   "quantity": "maximal gravitational entropy scale S_max ~ S_BH(mass of observable universe) (enters 'extremely low' and Penrose's 1-in-10^(10^123))",
+   "value_then": "order N_b ~ 1e80 baryons (Penrose's order of magnitude, from memory, NOT READ) -> S_BH/k = 7.42e122 (computed)",
+   "value_now": "Planck 2018 Omega_b h^2 = 0.02237, H_0 = 67.36 (READ in sibling audit d67/audits/1807.06209.json, Table 2) with comoving particle horizon 14.26 Gpc (assumed, NOT READ) -> N_b = 8.96e79, S_BH/k = 5.96e122 (computed)",
+   "source_now": "arXiv:1807.06209 Table 2 via d67/audits/1807.06209.json; computed in d67/rederive/penrose-weyl-curvature-hypothesis.py C5",
+   "moves_conclusion": "No. The exponent moves by -0.09 dex (log10 122.9 -> 122.8)."
+  },
+  {
+   "quantity": "present radiation entropy (the 'actual' entropy the gap is measured against)",
+   "value_then": "order 1e88 (commonly quoted, NOT READ)",
+   "value_now": "T_CMB = 2.7255 K (READ in 1807.06209 audit) -> photons s/k = 1479 cm^-3, S/k = 5.28e89; with neutrinos (g_s = 3.909) S/k = 1.03e90 over the same assumed volume (computed)",
+   "source_now": "computed, C5",
+   "moves_conclusion": "No. Gap log10(S_BH/S_rad) = 32.9 dex (1979-order input) vs 32.8 dex (Planck 2018); >30 dex either way. The factor-of-10^1-2 difference from the commonly quoted 1e88 is volume/convention, not a moved datum."
+  },
+  {
+   "quantity": "early-universe smoothness (the observational content of 'Weyl near zero')",
+   "value_then": "1979: CMB isotropy known at the dipole/~1e-4 level (from memory, NOT READ); primordial anisotropy not yet detected",
+   "value_now": "primary anisotropy ~1e-5 detected (COBE 1992 onward; NOT READ here, no number quoted as read)",
+   "source_now": "not read in this stage",
+   "moves_conclusion": "Not a reversal: later data support a near-FLRW (C1: exactly conformally flat) early state, i.e. small Weyl. They do not test the ENTROPY interpretation."
+  }
+ ],
+ "rederivation": {
+  "method": "sympy",
+  "script_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/penrose-weyl-curvature-hypothesis.py",
+  "outcome": "ALL CHECKS PASS (exit 0; output in rederive/penrose-weyl-curvature-hypothesis.out). C1: FLRW k=0,+1,-1 -- all 256 Weyl components vanish identically (conformally flat), so 'Weyl near zero' == 'near FLRW'. C2: Schwarzschild R_ab = 0 and C_abcd C^abcd = Kretschmann = 48M^2/r^6; same scalar for the white-hole time-reverse -- no arrow from the scalar alone. C3: linear sub-horizon EdS dust, growing (Phi const, delta ~ a) and decaying (Phi ~ a^-5/2, delta ~ a^-3/2) modes: |E|/rho = delta/sqrt(6) exactly in both, and |E|/H^2 rises iff delta rises -- 'clumping raises the Weyl measure' holds in this regime for these measures, and is Poisson's equation. C4: virial E = -K gives C = dE/dT = -3Nk_B/2 < 0 (negative heat capacity; the standard thermodynamic reason clumped states are favoured under gravity -- a kinetic-entropy argument, not a Weyl one). C5: S_BH ~ 10^122.9 (1e80 baryons) vs 10^122.8 (Planck 2018) vs S_rad ~ 10^90; gap > 30 dex under both. What is NOT checkable here: that any Weyl-based quantity IS an entropy (no accepted definition; a conjecture, not a finite claim), and the nonlinear (virialised, black-hole) regime.",
+  "agrees_with_source": "not-run"
+ },
+ "later_literature": [
+  {
+   "ref": "T. Clifton, G.F.R. Ellis, R. Tavakol, arXiv:1303.5612 (2013)",
+   "effect": "extends",
+   "what": "Bel-Robinson-based gravitational entropy measure; per a WebSearch engine summary (NOT a reading) it increases with structure formation for scalar RW perturbations and is 'in keeping with' the WCH. Consistent with C3 here.",
+   "read_status": "NAMED-NOT-READ (search-result summary only; alphaXiv quota exhausted, arXiv 403)"
+  },
+  {
+   "ref": "arXiv:2004.10222, 'Thermodynamics of Shearing Massless Scalar Field Spacetimes is Inconsistent With the Weyl Curvature Hypothesis'",
+   "effect": "contested",
+   "what": "Title claims an inconsistency of a gravitational-entropy thermodynamics with the WCH in a scalar-field class; content not read.",
+   "read_status": "NAMED-NOT-READ (title in WebSearch results)"
+  },
+  {
+   "ref": "arXiv:2211.11017, 'Weyl entropy behaviour and Naked Singularities'",
+   "effect": "contested",
+   "what": "Title only; bears on Weyl-entropy monotonicity near singularities.",
+   "read_status": "NAMED-NOT-READ (title in WebSearch results)"
+  },
+  {
+   "ref": "arXiv:2205.02985, 'Gravitational Entropy in Szekeres Class I Models'; arXiv:2605.20611, 'Gravitational entropy in Petrov Type I spacetimes'",
+   "effect": "extends",
+   "what": "Titles only; apply CET-type measures to inhomogeneous / Petrov I classes.",
+   "read_status": "NAMED-NOT-READ (titles in WebSearch results)"
+  },
+  {
+   "ref": "W.B. Bonnor (1985/1987) collapsing radiating sphere with decreasing Weyl measure",
+   "effect": "contested",
+   "what": "Commonly cited as a counterexample to C^2-type measures increasing monotonically -- from memory only.",
+   "read_status": "NAMED-NOT-READ (from memory; no restatement read)"
+  }
+ ],
+ "lacked_data": "What Penrose (1979) lacked: the detection of primordial CMB anisotropy (~1e-5, COBE 1992 onward) and precision cosmological parameters. Evidence either way, computed here: (a) the modern baryon count (Planck 2018, READ via sibling audit) moves the gravitational-maximum exponent by -0.09 dex (10^122.9 -> 10^122.8) and leaves a >30 dex gap to the radiation entropy (C5) -- the 'extremely low entropy' conclusion does not move; (b) the later smoothness data support the geometric half (near-FLRW, and FLRW has C_abcd == 0 exactly, C1); (c) neither datum bears on the ENTROPY interpretation, which is a missing DEFINITION, not missing data -- no measurement since 1979 decides whether Weyl curvature measures entropy. So M's hypothesis is not supported for this result on present evidence: the part that depends on data is unmoved; the part that is uncertain is uncertain for conceptual, not observational, reasons.",
+ "grade": "OPEN",
+ "grade_evidence": "The source could not be read in this stage: Penrose 1979 is pre-arXiv and its intended restatement (arXiv:1303.5612) was unreachable -- alphaXiv returned 'quota exceeded' on all four calls, and arXiv plus every mirror is egress-blocked (403, not retried). Under M's rules an unread source is OPEN, never flattened. What WAS established, and would carry into a graded audit: (1) computed -- FLRW is exactly conformally flat (C1), so the observational half ('early universe near-zero Weyl') is equivalent to near-homogeneity and is not contradicted by any datum used; (2) computed -- 'clumping raises it' holds for Weyl/Ricci and Hubble-normalised Weyl-electric ratios in linear EdS in both modes (C3), but Weyl scalars carry no arrow by themselves (C2) and no finite check decides that any Weyl quantity IS an entropy; (3) READ in the tree -- permute.py drops the hypothesis status at 441-443 and 543-547 and the scorecard's 'REARRANGEMENT relaxes' half rests on a hardcoded literal checked against itself (273, 439-440). Once the source is read, the expected grade is NARROWED (regime and measure dropped, conjecture printed as fact), not WRONG: nothing here refutes the hypothesis, and nothing here upgrades it from conjecture.",
+ "what_would_change_the_grade": "To NARROWED: reading Penrose's statement via an arXiv restatement (1303.5612 sec. 1, or a WCH review) confirming (i) it is a conjecture on initial singularities, (ii) no accepted definition of gravitational entropy -- then the tree's unqualified use at permute.py:441-443, 543-547 and the literal at 273 are narrowing drifts. To STANDS: the tree carrying 'Penrose's conjecture' at every use and computing, not hardcoding, RELAXATION_BELONGS_TO for a named measure in a named regime (C3 shows this is possible in linear theory), with the source read and agreeing. To WRONG: a READ counterexample (e.g. 2004.10222, Bonnor) showing a Weyl measure DEcreasing under clumping in the regime the tree uses, reproduced here -- a measure-dependent failure would narrow, not refute. To DATA-DEPENDENT: a datum that moves the >30 dex entropy gap, which C5 shows none has.",
+ "reverify_command": "python3 /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/penrose-weyl-curvature-hypothesis.py; sed -n '87,91p;273p;439,443p;507,508p;543,547p' /home/user/Claude-Method-Works/research/warp-drive/permute.py",
+ "report_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/audits/penrose-weyl-curvature-hypothesis.json"
+}

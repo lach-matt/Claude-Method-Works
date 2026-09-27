@@ -1,0 +1,135 @@
+{
+ "key": "gr-qc/9702026",
+ "name": "Pfenning & Ford, 'The unphysical nature of \"Warp Drive\"' (CQG 14 (1997) 1743; arXiv gr-qc/9702026v3): flat-space Ford-Roman QI applied to Alcubierre -> wall-thickness bound and total energy",
+ "source": {
+  "located": "arXiv gr-qc/9702026v3 (dated March 20, 1997; v3 posted 15 Mar 2001), all 11 pages returned; cross-read in Pfenning's thesis gr-qc/9805037 ch.5 (identical text, eqs 5.1-5.30)",
+  "read_status": "READ",
+  "via": "alphaXiv answer_pdf_queries(gr-qc/9702026) full page text pp.1-11; alphaXiv answer_pdf_queries(gr-qc/9805037) pp.66-79"
+ },
+ "published_statement": "Eq.(22)/(5.22): Delta <= (3/4) sqrt(3/pi) v_b/alpha^2 [Planck units]; eq.(23) 'as an example, if we let alpha = 1/10, then Delta <= 10^2 v_b L_Planck ... Thus, unless v_b is extremely large, the wall thickness cannot be much above the Planck scale.' Eq.(28) E = -(1/12) v_b^2 (R^2/Delta + Delta/12); with R = 100 m and eq.(23): eq.(29) 'E <= -6.2x10^70 v_b L_Planck ~ -6.2x10^65 v_b grams'; eq.(31) 'E <= -3x10^20 M_galaxy v_b ... roughly ten orders of magnitude greater than the total mass of the entire visible universe.' Delta = 1 m, R = 100 m: 'on the order of a quarter of a solar mass'. Summary: 'a bubble with a radius the size of one electron Compton wavelength would require a negative energy of the order E ~ -400 M_sun.' Abstract: 'bubble wall thickness is on the order of only a few hundred Planck lengths'.",
+ "published_hypotheses": [
+  "H1 free, massless scalar field in 4D; Ford-Roman 1995 QI with Lorentzian sampling, eq.(9): (tau0/pi) Int <T_uv u^u u^v>/(tau^2+tau0^2) >= -3/(32 pi^2 tau0^4) (minimal coupling implicit); massive scalar stated 'even more restrictive', EM field 'larger by a factor of sqrt2' (stated, not derived)",
+  "H2 the FLAT-space QI applied directly to the curved Alcubierre metric, justified by the Ford-Roman 1996 argument that it holds when the sampling time is <= the smallest local curvature radius; the exact curved treatment 'would be exceptionally difficult' (p.2)",
+  "H3 sampling time t0 = alpha * r_min, r_min = 2 Delta/(sqrt3 v_b) from the largest orthonormal Riemann component |R_tyty| (eq.18-20), with 0 < alpha << 1 UNSPECIFIED; alpha = 1/10 is 'an example' (eq.23)",
+  "H4 v_s(t) ~ v_b constant over the sampling interval (sampling time << velocity-change time)",
+  "H5 observer = Alcubierre's Eulerian geodesic (u_mu = (-1,0,0,0)) sampled at the bubble equator crossing, geodesic approximated as x(t) ~ f(rho) v_b t (eq.11)",
+  "H6 Delta/rho ~ v_b t0/rho << 1 (eq.21) to drop the (1-f) term",
+  "H7 order-of-magnitude: piecewise-linear shape function (eq.4) stands for any shape via the leading Taylor term f'(rho) ~ 1/Delta (eq.13)",
+  "H8 semiclassical identification <T_uv u^u u^v> = G_00/8pi (eq.8): the quantum field alone sources the Alcubierre geometry",
+  "H9 energy figure: constant-velocity bubble, R = 100 m, Delta saturating eq.(23), energy = integral of Eulerian-measured density over the t=0 slice (eq.25)",
+  "H10 Alcubierre geometry (metric eq.1), 4D, G = c = hbar = 1"
+ ],
+ "hypothesis_drift": [
+  "DROPPED alpha: certify.py:25 and PRIOR_ART_RESULT certify.py:394 print 'Delta <= 10^2 v_b L_Planck' with no alpha; the source's bound is Delta <= 0.7329 v_b/alpha^2 L_P (eq.22) and 10^2 is the alpha = 1/10 example (eq.23). Delta_max scales as alpha^-2 (alpha = 1/3 -> 6.6, alpha = 1/30 -> 660 v_b L_P; computed). Same drop in nullbound.py:157-159 pfenning_ford_thickness() = 100 L_P and nullbound.py:211 D_pf = 1.616255e-33 m, which also fixes v_b = 1.",
+  "WEAKENED/BROADENED field hypothesis: the tree's hypothesis list for certify.py reads 'free quantum field (Ford-Roman setting)'; the source's QI is for a free MASSLESS (minimally coupled) scalar (eq.9), with massive scalar and EM only asserted (p.11). A non-minimally coupled scalar is not covered, and the tree itself records at overturn.py:285-289 (Fewster & Osterbrink 0708.2450) that for xi > 0 there is no state-independent QEI.",
+  "ADDED generality: overturn.py:59-61 (L4) 'exceeds every bound any known quantum inequality permits ... [candidates.py, Pfenning-Ford]' -- P&F apply ONE inequality (Ford-Roman Lorentzian, massless scalar); 'every known QI' is not their statement and is qualified by the tree's own overturn.py:285-289.",
+  "STRENGTHENED beyond source: overturn.py:280-283 'crossovers sit at 0.307933 l_P and 0.369917 l_P. Sub-Planckian, which is Pfenning-Ford's conclusion' -- P&F conclude an UPPER bound Delta <~ 10^2 v_b L_P, 'a few hundred Planck lengths' (abstract), 'hundreds or thousands of Planck lengths' (Summary), 'cannot be much above the Planck scale'; not sub-Planckian. The two crossover numbers are the tree's own (switch.py:138, paper/CLAIMS.md:2215), not P&F's. Also the list name 'force warp-bubble walls to sub-Planckian thickness' carries the same drift.",
+  "INHERITED DISCREPANCY: certify.py:38-40 keeps 'E ~ -400 M_sun' for a one-Compton-wavelength bubble as 'ONE NUMBER OF THEIRS IS WORTH KEEPING'; the source's own eq.(28) with eq.(23) at v_b = 1 gives -2.06e5 M_sun (x514), also reproduced by scaling Van Den Broeck 1999 eq.(9) by R^2 (2.07e5 M_sun). The tree's comparison against 196 MJ goes the same direction (the gap widens), but the pinned number does not follow from the source's formulas.",
+  "DROPPED R and v_b on the energy: certify.py:27-28 'E ~ -3e20 M_galaxy v_b' and anec.py:66 / index3.py:386 'the 10^62 kg figure' -- source: E <= -6.2e65 v_b g = -6.2e62 v_b kg for R = 100 m with Delta saturating eq.(23) (H9); the figure scales as R^2/Delta, so it is a statement about a 100 m bubble at the alpha = 1/10 bound, not a generic warp-drive cost. anec.py uses it only as a characterisation (not a value) -- noted, not a fault.",
+  "DROPPED (not stated by the tree anywhere in the four owners): H4 constant v_b over the sampling window; H5 Eulerian-geodesic observer at the equator; H6 Delta/rho << 1; H7 order-of-magnitude shape-function substitution; H8 semiclassical identification <T> = G/8pi.",
+  "INTERPRETIVE, neither supported nor refuted by the source: anec.py:60-61 'their bound ON THE WALL THICKNESS really is an artefact of [a TIMELIKE instrument]' -- the source does use a timelike (Eulerian worldline) QI; that the bound is an 'artefact' is the tree's reading. No null-sampled replacement exists in 4D (Fewster & Roman gr-qc/0209036, named in anec.py:58-59 and Kontou-Olum ref [22]; not read here).",
+  "CONSISTENT (no drift): certify.py:21-22 'sampling time held below the local curvature radius' = eqs.(19)-(20); certify.py:43-45 quotes 'would be exceptionally difficult' verbatim (p.2); certify.py:28-29 'roughly ten orders of magnitude greater than the total mass of the entire visible universe' verbatim; specthm.py:1766-1768 records it as prior art only, rests=False, which is how it is used."
+ ],
+ "data_at_publication": [
+  {
+   "quantity": "Planck length L_P",
+   "value_then": "~1.6e-33 cm (implied by eq.29 conversions)",
+   "value_now": "1.616255e-35 m",
+   "source_now": "CODATA 2022 (NIST)",
+   "moves_conclusion": "no"
+  },
+  {
+   "quantity": "Planck mass (L_P -> grams conversion)",
+   "value_then": "implied 1e-5 g per L_P in eq.(29) (6.2e70 L_P -> 6.2e65 g)",
+   "value_now": "m_P = 2.176434e-5 g",
+   "source_now": "CODATA 2022",
+   "moves_conclusion": "no: the gram figure recomputed from eq.(28) is 6.94e65 g (paper 6.2e65, ratio 0.89); the intermediate '6.2e70 L_P' is 1.94x the computed 3.19e70 -- a compensating discrepancy in an intermediate, recorded"
+  },
+  {
+   "quantity": "Milky Way / 'typical galaxy' mass",
+   "value_then": "1e12 M_sun = 2e45 g (eq.30)",
+   "value_now": "~0.8-1.5e12 M_sun (range of current dynamical estimates)",
+   "source_now": "literature range; not read at source in this audit",
+   "moves_conclusion": "no: E/M_MW = 2.3e20 to 4.4e20 (computed) vs paper 3e20"
+  },
+  {
+   "quantity": "mass of the visible universe (implicit in 'ten orders')",
+   "value_then": "not stated; implied ~1e53 kg",
+   "value_now": "observable-universe baryons 1.50e53 kg, all matter 9.6e53 kg (Planck 2018 H0=67.4, Omega_b=0.0493, Omega_m=0.315, comoving radius 46.5 Gly)",
+   "source_now": "Planck 2018 parameters (arXiv 1807.06209) -- values used from memory, not re-read in this audit",
+   "moves_conclusion": "no: 9.67 orders vs baryons, 8.86 vs all matter (computed); 'roughly ten' holds for baryonic mass, ~9 for total matter"
+  },
+  {
+   "quantity": "electron Compton wavelength",
+   "value_then": "not printed",
+   "value_now": "2.42631023538e-12 m",
+   "source_now": "CODATA 2022",
+   "moves_conclusion": "no datum moved, but the paper's -400 M_sun is not reproduced by its own formula at any standard reading: lambda_C -> 2.06e5 M_sun, reduced lambda_C -> 5.2e3 M_sun (computed); 400 M_sun needs R = 0.044 lambda_C or v_b = 1.95e-3. DISCREPANCY, recorded"
+  },
+  {
+   "quantity": "QI coefficient 3/(32 pi^2) (Ford-Roman 1995, Lorentzian sampling, massless scalar)",
+   "value_then": "3/(32 pi^2 tau0^4)",
+   "value_now": "unchanged for that sampling function; Fewster-Eveson 1998 gives general-sampling form -(1/16pi^2) Int g''^2 (as restated in Kontou-Olum 1410.0665 eq.2)",
+   "source_now": "Kontou & Olum 1410.0665 (READ)",
+   "moves_conclusion": "no"
+  },
+  {
+   "quantity": "alpha (sampling time / curvature radius)",
+   "value_then": "1/10 'as an example'",
+   "value_now": "a choice, not a datum; Kontou-Olum's first-order curvature correction scales as R_max t0^2 = alpha^2 (computed) -> ~0.7% at alpha = 0.1",
+   "source_now": "computed here from eq.(18)-(20) + Kontou-Olum eq.(130) structure",
+   "moves_conclusion": "the bound moves as alpha^-2 (a hypothesis, not a datum); no measured value to move"
+  },
+  {
+   "quantity": "bubble radius R",
+   "value_then": "100 m (a design choice)",
+   "value_now": "choice",
+   "source_now": "n/a",
+   "moves_conclusion": "E scales as R^2 (computed); not a datum"
+  }
+ ],
+ "rederivation": {
+  "method": "sympy",
+  "script_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/gr-qc_9702026.py",
+  "outcome": "Every closed-form step re-derived and agrees: eq.(10) from (8)+(9); eq.(12)/(15) r_s^2 = v^2(1-f)^2(t^2+beta^2); eq.(14); eq.(16) contour integral = pi/(t0 beta (t0+beta)); eq.(17); eq.(19) r_min = 2Delta/(sqrt3 v_b); eq.(22) coefficient = 3sqrt3/(4sqrtpi) = (3/4)sqrt(3/pi) = 0.7329 (the arXiv text layer's '3/4 sqrt3 pi' is the layout of sqrt(3/pi), confirmed by the algebra and by the thesis eq.5.22), alpha = 1/10 -> 73.3 v_b L_P ('10^2'); angular integral 8pi/3 -> -v^2/12 (eq.26); radial integral R^2/Delta + Delta/12 (eq.28). Numbers: R = 100 m -> E = 6.94e62 kg = 6.94e65 g (paper 6.2e65 g, x0.89) = 3.47e20 x (2e45 g) (paper 3e20); ten-orders claim: 9.67 orders vs baryons. DISCREPANCIES recorded, not refutations: (a) intermediate '6.2e70 v_b L_P' is 1.94x the computed 3.19e70 L_P, compensated by a 1e-5 g/L_P conversion so the gram figure agrees; (b) 'E ~ -400 M_sun' for R = lambda_C is not reproduced: own formula gives -2.06e5 M_sun (x514), independently matched by Van Den Broeck eq.(9) scaled by R^2 (2.07e5); (c) Delta = 1 m, R = 100 m gives 0.56 M_sun vs 'on the order of a quarter' (x2.2). Van Den Broeck eq.(9) (6.3e29 kg) reproduced by the 1/12 formula to <1%, confirming the formula and constants. Exit 0.",
+  "agrees_with_source": "partly"
+ },
+ "later_literature": [
+  {
+   "ref": "Van Den Broeck, 'A warp drive with more reasonable total energy requirements', CQG 16 (1999) 3973, arXiv gr-qc/9905084",
+   "effect": "narrows",
+   "what": "Keeps P&F's wall bound Delta <= 10^2 v_s L_P (his eq.6) and their eq.(28), but a pocket geometry B(r_s) with a 3e-15 m outer bubble and 200 m inner diameter needs only a few solar masses (E_IV ~ -6.3e29 kg, E_II- ~ -1.4e30 kg, E_II+ ~ +4.9e30 kg) and satisfies the flat-space QI for Eulerian observers. The 1e62 kg energy conclusion is specific to the Alcubierre geometry at R = 100 m, not to warp geometries generally; the wall bound and Planck-scale structure survive ('structure with sizes only a few orders of magnitude above the Planck scale; this seems to be generic'). Also restates P&F's figure as E ~ -6.2e62 v_s kg.",
+   "read_status": "READ (alphaXiv, full text pp.1-9)"
+  },
+  {
+   "ref": "Kontou & Olum, 'Quantum inequality in spacetimes with small curvature', PRD 91 (2015) 104005, arXiv 1410.0665",
+   "effect": "confirms",
+   "what": "Proves (from Fewster & Smith's absolute QEI, gr-qc/0702056) that for a massless minimally coupled scalar on a timelike geodesic the flat-space QI holds with first-order corrections in the Ricci tensor and its derivatives, small when R_max t0^2, R''_max t0^4, R'''_max t0^5 << 1; 'The present paper explicitly confirms this claim [Ford-Roman: flat-space QIs apply in curved spacetime at small sampling times]' and cites P&F as ref [7]. Caveats it adds: curvature must be small over the whole causal diamond of the sampled segment, and there are renormalization ambiguities a, b. For the P&F setting the leading correction ~ R_max t0^2 = alpha^2 = 0.01 (computed; ~0.7% of the Gaussian flat term) -- order-of-magnitude estimate, since Kontou-Olum's bound uses Ricci and Gaussian sampling.",
+   "read_status": "READ (alphaXiv, full text pp.1-21)"
+  },
+  {
+   "ref": "Pfenning, PhD thesis 'Quantum inequality restrictions on negative energy densities in curved spacetimes' (Tufts 1998), arXiv gr-qc/9805037, ch.5",
+   "effect": "confirms",
+   "what": "Same authors' text verbatim (eqs 5.1-5.30), with eq.(5.22) Delta <= (3/4) sqrt(3/pi) v_b/alpha^2, and the claim that the flat-space application is known to be valid from the thesis's own short-sampling expansion (sec.3.3) -- which is derived for STATIC spacetimes, while Alcubierre is not static. Repeats the 6.2e70 L_P and -400 M_sun figures (so the discrepancies are not arXiv-version artefacts).",
+   "read_status": "READ (alphaXiv, pp.1-14, 66-79)"
+  },
+  {
+   "ref": "Fewster & Roman, 'Null energy conditions in quantum field theory', PRD 67 (2003) 044003, arXiv gr-qc/0209036",
+   "effect": "extends",
+   "what": "No null-averaged QI exists in 4D for the massless scalar; bears on anec.py's reading that the P&F wall bound is an artefact of the TIMELIKE instrument: there is no null-sampled replacement bound.",
+   "read_status": "NAMED-NOT-READ (cited by Kontou-Olum ref [22] and anec.py:58-59)"
+  },
+  {
+   "ref": "Fewster & Osterbrink, arXiv 0708.2450 (non-minimally coupled scalar QEIs)",
+   "effect": "narrows",
+   "what": "For xi > 0 there is no state-independent QEI (as the tree records at overturn.py:285-289): P&F's conclusion is conditional on H1 (minimal coupling / EM).",
+   "read_status": "NAMED-NOT-READ (restated by the tree, not read in this audit)"
+  }
+ ],
+ "lacked_data": "What the authors lacked in 1997, and whether having it changes the conclusion. (1) A proven curved-spacetime QI for a NON-static metric: they said the exact treatment 'would be exceptionally difficult' and used the flat QI at short sampling (H2). Supplied later: Fewster & Smith (2008) and Kontou & Olum (1410.0665, READ) prove the flat form plus first-order Ricci corrections, small when t0 is below curvature radii; for P&F's choice t0 = alpha r_min the leading correction scales as alpha^2 (computed 0.01 at alpha = 0.1). Evidence AGAINST M's hypothesis for this result: the one gap the authors named was later closed in their favour to first order. (2) Cosmological masses (Milky Way ~0.8-1.5e12 M_sun, observable-universe baryons 1.5e53 kg): the moved values shift E/M_gal within 2.3e20-4.4e20 and leave 'roughly ten orders' at 9.7 (baryons) -- no change. (3) Later constructions, not data: Van Den Broeck 1999 (READ) shows the ~1e62 kg total energy is geometry-specific (few solar masses in a pocket geometry that still satisfies the QI); non-minimal coupling (0708.2450, named) has no state-independent QEI. These narrow the scope (Alcubierre geometry; minimally coupled scalar or EM field) rather than reversing the wall-thickness conclusion, which Van Den Broeck keeps. (4) Not lacking data but arithmetic: two printed figures do not follow from the paper's own formulas (6.2e70 L_P, x1.94; -400 M_sun, x514 low) -- discrepancies, recorded; the qualitative conclusions they illustrate stand. Net: no datum the authors lacked moves their conclusion within H1-H10; later work narrows the class it applies to.",
+ "grade": "NARROWED",
+ "grade_evidence": "The source's derivation stands as published: every closed-form step (eqs 10, 12, 14-17, 19, 22, 26, 28) is re-derived symbolically and agrees; the headline R = 100 m energy is reproduced to 11% in grams (6.94e65 g vs 6.2e65 g) and 3.47e20 vs 3e20 M_galaxy; no moved datum (CODATA 2022, Milky Way mass, Planck-2018 baryon mass) changes a conclusion; the one gap the authors named (flat QI on a curved metric) was later confirmed to first order by Kontou & Olum 1410.0665 (READ). It is NARROWED for three reasons. (i) The tree's use drops hypotheses the result needs: alpha (certify.py:25, 394; nullbound.py:157-159, 211), the massless minimally coupled scalar broadened to 'free quantum field' (non-minimal coupling has no state-independent QEI, per the tree's own overturn.py:285-289), and R = 100 m and v_b on the energy figure (anec.py:66, index3.py:386). (ii) overturn.py:59-61 and 280-283 attribute to P&F more than they state: 'every known QI' and 'sub-Planckian', where P&F bound the wall at a few hundred Planck lengths. (iii) Later work (Van Den Broeck gr-qc/9905084, READ) confirms the wall bound but limits the total-energy conclusion to the Alcubierre geometry. Recorded as a discrepancy, not a refutation: the -400 M_sun figure the tree keeps (certify.py:38-40) is 514x below the paper's own formula (2.06e5 M_sun, matched independently by scaling Van Den Broeck eq.9). Not WRONG: no counterexample to the inequality or the bound is shown here.",
+ "what_would_change_the_grade": "To STANDS: the tree restates the bound as Delta <= 0.733 v_b/alpha^2 L_P (10^2 at alpha = 1/10), names the massless minimally coupled scalar or EM field and the Alcubierre geometry at R = 100 m, removes 'sub-Planckian ... Pfenning-Ford's conclusion' and 'every known QI' from the P&F attribution, and drops or corrects the -400 M_sun figure. To WRONG: a computed counterexample, meaning a minimally coupled free scalar state on an Alcubierre wall that satisfies the curved-spacetime QEI (Fewster-Smith / Kontou-Olum form, including second-order curvature terms) with Delta much larger than 0.733 v_b/alpha^2 L_P at small alpha. To DATA-DEPENDENT: none foreseeable, since the bound contains no measured input apart from hbar, G and c. To OPEN: none, because the source was READ in full.",
+ "reverify_command": "python3 /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/gr-qc_9702026.py   # exit 0; prints the eq.(22) coefficient 0.732904, E(R=100 m) = 6.943e62 kg, and the DISCREPANCY line for -400 M_sun (x514)",
+ "report_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/audits/gr-qc_9702026.json"
+}

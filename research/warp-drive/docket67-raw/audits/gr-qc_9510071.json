@@ -1,0 +1,92 @@
+{
+ "key": "gr-qc/9510071",
+ "name": "Ford & Roman, QI with Casimir: constant negative density incompatible unless tau_0 <~ 0.46 L",
+ "source": {
+  "located": "L.H. Ford & T.A. Roman, 'Quantum field theory constrains traversable wormhole geometries', arXiv:gr-qc/9510071v1 (31 Oct 1995), TUTP-95-4; journal Phys. Rev. D 53, 5496 (1996). Sec. 2 pp.4-6, eqs. (1),(3)-(9); Sec. 4.5 p.18-19 eqs. (85)-(88) (MTY plates, tau_0 = f s, f ~ 0.1); Sec. 6.",
+  "read_status": "READ",
+  "via": "alphaXiv get_paper_content fullText=true on gr-qc/9510071 (arXiv v1; all 4,291 lines saved; Sec. 1-2, 4.5 and 6 plus references read verbatim, Sec. 3-5 wormhole algebra not needed and skimmed only via grep). Journal version PRD 53, 5496 NOT read. Ref. [13] (Ford-Roman PRD 51, 4277, gr-qc/9410043, where eq. (1) is proven) not re-read; eq. (1) restated identically in gr-qc/9607003 eq.(17), read."
+ },
+ "published_statement": "Sec. 2, p.5: 'The specific example of the Casimir effect may be useful as an illustration. Here one has a constant negative energy density, which would not be possible if Eq. (1) holds for all tau_0. However, if we impose some restrictions on the allowable values of tau_0, then the inequality does in fact still apply. Let us consider a massless scalar field with periodicity of length L in the z-direction. Let us also consider an observer moving with velocity v in the +z-direction. In the rest frame of this observer ... <T_mn u^m u^n> = -(pi^2/(45 L^4))(1+3v^2) gamma^2 (3) ... Eq. (1) becomes ... tau_0 <= (3L/2pi)(5/6)^(1/4)[(1+3v^2)gamma^2]^(-1/4) (5). Thus for the special case of a static observer (v = 0), we must have tau_0 <= (3L/2pi)(5/6)^(1/4) ~ 0.46 L (6).' Then with tau_0 = f l_1 = fL/gamma: 'g(1/sqrt3) = (3/2pi)(5/8)^(1/4) ~ 0.42 (9). Thus if we restrict tau_0 < 0.42 l_1, then the Minkowski space quantum inequality also holds in the compactified spacetime.' Eq. (1): (tau_0/pi) int <T_mn u^m u^n> dtau/(tau^2+tau_0^2) >= -3/(32 pi^2 tau_0^4) 'for all tau_0', proven (Ref. [13]) for 'a free, massless, minimally coupled scalar field in an arbitrary quantum state' in 'Minkowski spacetime (without boundaries)'.",
+ "published_hypotheses": [
+  "H1 Eq. (1) is proven only for a free, massless, minimally coupled, real scalar field in Minkowski spacetime without boundaries, inertial observer, Lorentzian sampling function (Sec. 2 p.4; Sec. 6 'strictly derived only for a massless, minimally coupled scalar field').",
+  "H2 The Casimir illustration is a massless scalar with PERIODIC identification of length L in z (a compactified spacetime, no plates), in its vacuum; energy density taken as eq.(3), coefficient pi^2/45.",
+  "H3 The 0.46 L figure is for a STATIC observer (v = 0); for arbitrary v the cap is tau_0 < 0.42 l_1 with l_1 = L/gamma (eqs. 7-9).",
+  "H4 Application of Eq.(1) to curved/bounded spacetimes is an ARGUED premise ('we argue', 'the basic premise of this paper'), requiring tau_0 small compared with local radii of curvature and the proper distance to boundaries; the Casimir example is offered as an illustration of that premise, not a theorem about bounded spacetimes.",
+  "H5 Semiclassical: <T_mn> is a renormalised expectation value; fluctuations ignored (Sec. 1); no CTCs; static spherically symmetric wormholes for the paper's main result.",
+  "H6 Applied to Casimir PLATES only in Sec. 4.5 (MTY wormhole), heuristically: 'the constraint on the choice of tau_0 is that discussed in the Casimir effect example in Sec. 2. Take tau_0 = f s ... A reasonable choice of f in this case would seem to be f ~ 0.1'."
+ ],
+ "hypothesis_drift": [
+  "ADDED/CHANGED (canonical gloss, not bounds.py prose): the canonical entry lists the hypothesis 'Casimir plates separated by L'; the source's calculation (eqs. 3-9) is a periodic identification of period L with no plates (H2). bounds.py:67-70 itself says only 'a constant negative Casimir density' and is faithful on this point. The authors themselves later restate the example as plates (gr-qc/9607003 p.2-3: 'we proved that the inequality Eq. (1) holds in the case of the Casimir effect for sampling times much smaller than the distance between the plates'), so the gloss has author precedent, but the 0.46 number is the periodic scalar's, not a plate figure. For constant plate densities the analogous cap is 1.085 L (computed, C8, not in source) -- a different number.",
+  "DROPPED bounds.py:70: 'rescued only by capping tau_0 <~ 0.46 L' drops the static-observer qualifier (H3). Over all observer velocities the source's cap is tau_0 < 0.42 l_1 = 0.42 L/gamma (eq. 9), which is the binding one.",
+  "DROPPED bounds.py:67-70: field content (H1) -- Eq.(1) and therefore the 0.46 cap are for one free massless minimally coupled real scalar; the source does not claim the number for the EM field or for real Casimir plates.",
+  "WEAKENED/ADDED at use, bounds.py:67-68: 'Ford & Roman say the same from the other side' -- the same as Fewster's '3-7 % of the bound', i.e. that Casimir does NOT saturate the QI. The source does not address saturation. What it computes is that the constant density EXCEEDS the Eq.(1) bound for tau_0 above the cap and EQUALS it exactly at the cap (the cap is defined by equality: saturation by construction at tau_0 = 0.456 L); below the cap the ratio is (tau_0/tau_max)^4 (C9: 0.23 % at the source's own 'reasonable' f = 0.1 of Sec. 4.5, 9 % at tau_0 = L/4). So F-R corroborate non-saturation only under the extra premise that tau_0 is taken well below the cap, which is the source's premise H4 and its Sec. 4.5 choice f ~ 0.1 -- a supportable reading, but it is the tree's inference, not F-R's statement.",
+  "NARROWED 'only' at bounds.py:70: the rescue-by-cap is needed only for the Minkowski-form bound Eq.(1). Later exact QIs derived in the compactified/bounded spacetime itself (Pfenning thesis gr-qc/9805037 eq. 1.21; Fewster-Teo gr-qc/9812032 Sec. 1-2) are difference inequalities relative to the static vacuum, so the Casimir vacuum satisfies them for all tau_0 with no cap. The tree's 'the inequality' is Eq.(1), for which 'only' is correct."
+ ],
+ "data_at_publication": [
+  {
+   "quantity": "Casimir energy density coefficient in eq.(3) for a massless real scalar, period L",
+   "value_then": "pi^2/45 (paper, eq. 3)",
+   "value_now": "pi^2/90 for ONE real scalar, computed here two independent ways (exponential cutoff minus continuum; dim-reg + zeta(-3)); pi^2/45 is the value for two real degrees of freedom (e.g. the periodic EM field)",
+   "source_now": "computed: rederive/gr-qc_9510071.py checks C5a, C5b (sympy, exact). Cross-check: periodic modes = 2 x Dirichlet(L/2) + zero mode, with scalar Dirichlet plate energy -pi^2/(1440 a^3) per area (half of the EM pi^2/720 restated in Ford 0911.3597 eq.1 and Fewster 1208.5399 p.8).",
+   "moves_conclusion": "Moves the NUMBER, not the qualitative conclusion. With field content matched to Eq.(1) the static cap is 0.5425 L (not 0.46 L) and the moving-observer cap 0.505 l_1 (not 0.42 l_1): a factor 2^(1/4) = 1.189. The constant density still violates Eq.(1) for all tau_0 and is still rescued by capping tau_0 at about half of L. Recorded as a DISCREPANCY in arXiv v1 (possible coefficient misprint or EM value carried over), NOT a refutation; it must not be quoted as an error in the journal version (PRD 53, 5496), which was not read."
+  },
+  {
+   "quantity": "QI constant for Lorentzian sampling, massless scalar, 4D",
+   "value_then": "3/(32 pi^2) (Ford-Roman 1995, Ref. [13])",
+   "value_now": "(9/64) x 3/(32 pi^2): Fewster-Eveson 1998 (gr-qc/9805024) bound, 'the present bound is 9/64 of Ford and Roman's result' as restated in Fewster-Teo gr-qc/9812032 Sec. 3 (read). Optimal 4D constant still unknown (Ford 0911.3597 p.4-5; Fewster 1208.5399 p.10 'known not to be optimal').",
+   "source_now": "gr-qc/9812032 p.7 (read); rederive C7",
+   "moves_conclusion": "A tighter (stronger) bound lowers the cap by (9/64)^(1/4) = 0.612: 0.279 L with the paper's coefficient, 0.332 L with the matched coefficient. Direction of the conclusion unchanged (cap still a fraction of L); only the number moves. The tree quotes 0.46 L as F-R's figure, which it is."
+  },
+  {
+   "quantity": "Empirical data",
+   "value_then": "none -- the result is a theorem-plus-calculation in free QFT; no measured input",
+   "value_now": "none needed",
+   "source_now": "n/a",
+   "moves_conclusion": "no"
+  }
+ ],
+ "rederivation": {
+  "method": "sympy",
+  "script_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/gr-qc_9510071.py",
+  "outcome": "ALL PASS (exit 0). From the paper's own eq.(3): static cap = (3/2pi)(5/6)^(1/4) L = 0.456190 L (eq. 6 '~0.46 L' agrees); g(v) minimised at v^2 = 1/3 with g = (3/2pi)(5/8)^(1/4) = 0.424533 (eq. 9 '~0.42' agrees); the (1+3v^2)gamma^2 dependence of eq.(3) follows exactly from the boost structure T_mn = A(eta_mn - 4 z_m z_n); Lorentzian normalised so eq.(4) follows. INDEPENDENTLY computed: the vacuum energy density of one real massless scalar of period L is -pi^2/(90 L^4) (two methods), exactly half the paper's pi^2/45; matched caps 0.542505 L (static) and 0.504858 l_1 (moving). Sensitivity: Fewster-Eveson constant lowers caps by 0.612372. Illustration outside the source: constant plate densities (conformal scalar / EM) give cap 1.08501 L > L/2. Fraction of bound at tau_0 = 0.1 L: 0.231 % (paper coeff), 0.115 % (matched); 100 % at the cap by construction.",
+  "agrees_with_source": "partly"
+ },
+ "later_literature": [
+  {
+   "ref": "Ford & Roman, gr-qc/9607003, PRD 55, 2082 (1997)",
+   "effect": "confirms",
+   "what": "Re-derives Eq.(1) (their eq. 17) by a plane-wave method, adds EM (3/(16pi^2)) and massive-scalar QIs; restates the 1995 Casimir result as 'Eq. (1) holds in the case of the Casimir effect for sampling times much smaller than the distance between the plates' (restated as plates, and as 'much smaller', not as a 0.46 L threshold).",
+   "read_status": "READ (alphaXiv answer_pdf_queries, pp.1-17)"
+  },
+  {
+   "ref": "Fewster & Teo, gr-qc/9812032, PRD 59, 104016 (1999)",
+   "effect": "narrows",
+   "what": "QIs in static spacetimes for general sampling functions, bounding the normal-ordered density relative to the static vacuum; records that the Fewster-Eveson flat bound is 9/64 of Ford-Roman's for the Lorentzian; notes the F-R wormhole application was justified only by short sampling times and 'it would be desirable to verify this calculation using the full curved space results'.",
+   "read_status": "READ (alphaXiv answer_pdf_queries, pp.1-23)"
+  },
+  {
+   "ref": "Pfenning, PhD thesis, gr-qc/9805037 (1998)",
+   "effect": "extends",
+   "what": "Short-sampling-time expansion (eq. 3.52-3.54) gives a derived version of F-R's 'small compared to curvature radius / distance to boundary' premise; exact bounded-space QIs are measured relative to the vacuum energy (eq. 1.21), e.g. near a mirror rho_Ren >= -3/(32pi^2 t0^4) + 1/(16pi^2(t0^2+z^2)^2) - 1/(16pi^2 z^4) (eq. 4.92), reducing to Eq.(1) for z >> t0. Supports H4 and shows the tau_0 cap is an artefact of using the flat-space bound.",
+   "read_status": "READ (alphaXiv answer_pdf_queries; pp.1,3,11-13,40,43,50,52,56-57,59,65 returned)"
+  },
+  {
+   "ref": "Fewster, Lectures on QEIs, arXiv:1208.5399 (2012) Sec. 1.3",
+   "effect": "extends",
+   "what": "A priori bound T_00 >= -C/(2l)^4 from local covariance for a trajectory at distance l from a plate; plate Casimir density at 3-7 % of it. This is the result bounds.py pairs with F-R; it is a different bound (optimal-eigenvalue constant C ~ 3.17, compact-support sampling) from Eq.(1) with a Lorentzian, so the two percentages are not the same measurement.",
+   "read_status": "READ (alphaXiv answer_pdf_queries pp.1-15, 27, 29, 45-48)"
+  },
+  {
+   "ref": "Ford, arXiv:0911.3597 (2009)",
+   "effect": "confirms",
+   "what": "Review: QIs restrict negative energy; optimal 4D constant unknown; restates plate EM Casimir T_mn = (pi^2/720a^4) diag(-1,1,1,-3). No restatement of the periodic coefficient.",
+   "read_status": "READ (alphaXiv answer_pdf_queries pp.1-10)"
+  }
+ ],
+ "lacked_data": "What the authors lacked in 1995: (i) the sharper Lorentzian QI constant (Fewster-Eveson 1998, 9/64 of theirs) -- with it the cap drops from 0.456 L to 0.279 L (their coefficient) or 0.332 L (matched coefficient); (ii) exact QIs in the compactified/bounded spacetime itself (Pfenning-Ford 1997-98, Fewster-Teo 1999), which bound the density relative to the static vacuum and need no cap at all for the Casimir vacuum; (iii) a rigorous derivation of the 'small tau_0' premise (Pfenning thesis eq. 3.54), which later confirmed it. None of these REVERSES the published qualitative conclusion (a constant negative density is incompatible with the flat-space Eq.(1) for all tau_0 and compatible with it only for tau_0 below a fraction of L). They move the NUMBER 0.46 and show the 'rescue' is specific to using the flat-space bound. Separately, and not a matter of missing data: the paper's eq.(3) coefficient pi^2/45 is, by computation here, twice the one-real-scalar value; with matched field content the cap is 0.54 L. So M's hypothesis is borne out in the narrow sense that the printed number is not robust (moves by factors 0.61-1.19 across later inputs and the coefficient check), and not borne out in the sense of a wrong conclusion: nothing found here refutes the qualitative statement the tree quotes. Nothing here bears on whether Casimir 'saturates' the QI in the sense bounds.py needs; that rests on Fewster 1208.5399, audited separately.",
+ "grade": "NARROWED",
+ "grade_evidence": "(a) The quoted words at bounds.py:68-70 are verbatim-accurate to arXiv v1 Sec. 2 p.5 (READ). (b) From the paper's own eq.(3) the numbers re-derive exactly: 0.456190 L (eq. 6) and 0.424533 (eq. 9); rederive C2-C4 PASS. (c) The result holds on a smaller class than the tree's use carries: a periodic massless minimally coupled real scalar (not plates, which the canonical gloss adds), a STATIC observer (0.42 l_1 = 0.42 L/gamma over all v, which bounds.py:70 drops), and the flat-space form of the QI only (so 'only by capping' is true for Eq.(1), not for the exact bounded-space QIs of Pfenning/Fewster-Teo). (d) The tree's 'say the same' (non-saturation) is an inference: at the cap the density equals the bound by construction; non-saturation follows only for tau_0 well below the cap (0.23 % at the source's own f = 0.1). (e) DISCREPANCY, not refutation: eq.(3)'s pi^2/45 is 2x the computed one-real-scalar value pi^2/90 (C5a, C5b), moving the cap to 0.5425 L; the qualitative conclusion survives; journal version not read, so this must not be quoted as an error in PRD 53, 5496. Not WRONG (no counterexample to the qualitative claim), not DATA-DEPENDENT (no measured input), not OPEN (read and checked).",
+ "what_would_change_the_grade": "To STANDS: bounds.py:70 carrying 'for a static observer, periodic massless scalar, flat-space QI' (or quoting 0.42 l_1), and the journal version PRD 53, 5496 printing pi^2/90 (or 0.54 L), or an explanation of pi^2/45 (e.g. a complex field) that matches Eq.(1)'s field content. To WRONG: only a demonstration that a constant negative density satisfies Eq.(1) for all tau_0 -- impossible, since the sampled constant is independent of tau_0 while the bound tends to 0 (C1). If the journal version confirms pi^2/45 for one real scalar, the discrepancy stands as recorded (a coefficient discrepancy that moves 0.46 -> 0.54, grade still NARROWED, not WRONG).",
+ "reverify_command": "python3 /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/gr-qc_9510071.py  # expect ALL PASS, exit 0; then read gr-qc/9510071 Sec. 2 eqs. (3)-(9) and compare with bounds.py:67-70 (grep -n '9510071' /home/user/Claude-Method-Works/research/warp-drive/bounds.py)",
+ "report_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/audits/gr-qc_9510071.json"
+}

@@ -1,0 +1,33 @@
+PASS A0 Bianchi: Einstein side of this transcription is conserved identically -- 0
+PASS A1 conserved reading (M1, M2) = (116, 2): divergence of source = 0 at 3 random points -- [0.0, 0.0, 0.0]
+PASS A2 printed reading (16, 1): divergence of source != 0 (control) -- [-0.06584362139917696, -43.892575520521014, 0.2076693396009383]
+PASS A3 (16, 2) i.e. M2 repaired, M1 as printed: still not conserved -- [-1663.5532333438687, 7.310536669968173, -5253.640835241595]
+PASS B  eq.(8) = -(r^4/K^2) x [ll eq. at r'=f'=0], exactly (independent of f''', r''') -- 0
+PASS B' same eq.(8) from the printed reading (M1, M2 vanish at r' = f' = 0)
+PASS C  at f''=r''=0, eq.(8) is linear in r(0)^2 with the single root -16 K^2 ln f(0) -- [-16*K**2*L]
+PASS C' real positive r(0) iff ln f(0) < 0 (HPS's upper bound is forced; -1 is a choice)
+     solve(-16 K^2 L > 0): L < 0
+     K = 0.007434 l_P ; r(0) = sqrt(32/3) K = 3.26599 K = 0.02428 l_P
+PASS D  r(0) at ln f(0) = -2/3 rounds to HPS's printed 'r(0) ~ 0.02 l_P' -- 0.02428 l_P
+     control: eq.(8) at f=f''=1, r''=0 positive roots (l_P): [67.25989459677514]
+     conserved: f''''(0) = (-L - 1)*exp(L)/(128*L*(3*L + 4)) ; r''''(0) = -(L**2 - 2)/(64*(-L)**(3/2)*(3*L + 4)) ; det = -256*(3*log(f0) + 4)/(f0*r0)
+     printed: f''''(0) = (-L - 1)*exp(L)/(128*L*(3*L + 4)) ; r''''(0) = -(L**2 - 2)/(64*(-L)**(3/2)*(3*L + 4)) ; det = -256*(3*log(f0) + 4)/(f0*r0)
+PASS E0 4th-derivative data identical in both readings at l = 0
+PASS E1 4th-order determinant = -256 (3 ln f + 4)/(f r)  (K = 1) -- -256*(3*log(f0) + 4)/(f0*r0)
+PASS E2 r''''(0) at ln f(0) = -2/3 equals 7 sqrt(6)/768 K^-3 (tree, hpscentre.py:204) -- 7*sqrt(6)/768
+     f''''(0)/K^-4 at -2/3 = exp(-2/3)/512 = 0.0010027678106105313
+PASS E3 r''''(0) > 0 on all of -1 <= ln f(0) < 0 (grid 1e-3): a minimum throughout HPS's range -- min 0.01562
+     f''''(0) sign over the range: min 0, max 1.951
+PASS E5 f4(0) = 0 exactly at ln f(0) = -1, > 0 on (-1, 0), < 0 on (-4/3, -1): the lower bound -1 coincides with f having a 4th-order local minimum at the throat -- COMPUTED; HPS state no reason
+PASS E4 |3 ln f + 4| >= 1 on HPS's range (determinant nonzero at l = 0 for every allowed datum)
+     conserved   DOP853 first r'=1 at l = 6.947365 K = 0.05165 l_P ; |ll residual| max on [0.5,40]K = 1.43e-11
+     conserved   Radau  first r'=1 at l = 6.947365 K = 0.05165 l_P ; |ll residual| max on [0.5,40]K = 1.39e-12
+     conserved   LSODA  first r'=1 at l = 6.947365 K = 0.05165 l_P ; |ll residual| max on [0.5,40]K = 1.81e-11
+     printed-M1  DOP853 first r'=1 at l = 6.946559 K = 0.05164 l_P ; |ll residual| max on [0.5,40]K = 0.000566
+     printed-M1  Radau  first r'=1 at l = 6.946559 K = 0.05164 l_P ; |ll residual| max on [0.5,40]K = 0.000566
+     printed-M1  LSODA  first r'=1 at l = 6.946559 K = 0.05164 l_P ; |ll residual| max on [0.5,40]K = 0.000566
+PASS F1 conserved reading: r' crosses 1 (m < 0) before l = 8 K, three integrators agree to 1e-6 -- [6.947365441429555, 6.947365441466182, 6.947365441840061]
+PASS F2 first m < 0 in l_P rounds to the tree's FIRST_NEGATIVE_M_THROAT_LP = 0.0516 -- 0.051646
+PASS F3 conserved reading keeps the ll constraint (|residual| < 1e-6 on [0.5, 40] K) -- 1.43e-11
+
+ALL PASS

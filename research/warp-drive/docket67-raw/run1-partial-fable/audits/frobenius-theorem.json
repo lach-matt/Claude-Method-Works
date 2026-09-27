@@ -1,0 +1,71 @@
+{
+ "key": "frobenius-theorem",
+ "name": "Frobenius theorem: a unit timelike field u' is hypersurface orthogonal iff u'_[a d_b u'_c] = 0",
+ "source": {
+  "located": "Classic: G. Frobenius, J. reine angew. Math. 82 (1877) 230-315 (after Deahna 1840, Clebsch 1866); textbook form Wald, General Relativity (1984) App. B Thm B.3.2; J. M. Lee, Intro. to Smooth Manifolds, Thm 19.12 (local) / 19.21 (global). No arXiv copy of the classic. Exact restatements READ at alphaXiv: (1) Ellis & van Elst, gr-qc/9812046 (Cargese lectures 1998, v5 2008), Sec. 2.1.2 eq. (11) defines omega_ab = tilde-nabla_[a u_b], Sec. 2.4 p.12: 'When the vorticity vanishes: 1. The fluid flow is hypersurface-orthogonal, and there exists a cosmic time function t such that u_a = -g(x^b) nabla_a t'; (2) Del Porro, Liberati & Mazza, arXiv:2504.07215 (2025), Sec. 1 p.2: 'by Frobenius' theorem, a vector field is orthogonal to a family of codimension-one hypersurfaces if, and only if, its twist tensor vanishes identically everywhere in the manifold', with eq. (2.9) omega_ab := nabla_[a u_b] + u_[a a_b]; (3) Blixt, Jimenez Cano & Wojnar, arXiv:2408.16513 (2024), Sec. 2.2.2 pp.3-4: 'Local Frobenius theorem [20] states that involutive distributions are completely integrable ... every smooth 1-dimensional distribution is integrable', the Global Frobenius theorem (maximal integral manifolds form a foliation), and Thm 2.3: the (n-1)-distribution orthogonal to an observer u is 'a foliation when omega_mu nu = 0'.",
+  "read_status": "READ-VIA-RESTATEMENT",
+  "via": "alphaXiv answer_pdf_queries on gr-qc/9812046, 2504.07215, 2408.16513 (and gr-qc/0611123 Kar & SenGupta, which names the theorem and cites Poisson 2004). The 1877 classic and Wald App. B are NAMED-NOT-READ."
+ },
+ "published_statement": "Frobenius (dual / 1-form version, as restated by Ellis-van Elst Sec 2.4, Del Porro et al. Sec 1 & 2.1, Blixt et al. Thm 2.3): for a smooth, nowhere-vanishing (here: unit timelike, so nowhere zero) vector field u_a on a smooth manifold with torsion-free connection, the (n-1)-distribution orthogonal to u is integrable -- u is orthogonal to a family of codimension-one hypersurfaces, i.e. locally u_a = -g nabla_a t for functions g, t -- if and only if the twist omega_ab = h_a^c h_b^d nabla_[c u_d] vanishes, equivalently u_[a nabla_b u_c] = 0. The local theorem gives integral manifolds through every point; the global theorem (Lee) says the maximal connected integral manifolds form a foliation. A 1-dimensional distribution is always integrable.",
+ "published_hypotheses": [
+  "smooth (C^infinity in Lee; C^1 suffices for the classical proof) manifold and vector field / 1-form",
+  "the 1-form is nowhere vanishing on the region considered (guaranteed here by g(u',u') = -1)",
+  "connection torsion-free (Levi-Civita), so that the antisymmetrised covariant derivative equals the antisymmetrised partial derivative and the condition is a statement about d(u') alone",
+  "the conclusion is LOCAL: existence of integral hypersurfaces through each point and of local functions (g, t); a foliation of the whole region follows from the global Frobenius theorem; a single global time function needs more (e.g. Ellis-van Elst state the cosmic time function without a domain qualifier)",
+  "no field equations, no energy condition, no data: it is a theorem of differential topology proved from ODE existence and uniqueness"
+ ],
+ "hypothesis_drift": [
+  "ADDED (correct but unstated): 'spherically symmetric' at foliation.py:110,:113 must mean SO(3)-invariant, which forces the angular components of u' to vanish; the construction u' = cosh(w) u + sinh(w) n (:108, :660) enforces this. A unit timelike field whose components depend on (t,r) only but carries an angular component is NOT covered and generically has nonzero twist (rederivation C6: 6 nonzero components for the Minkowski rigid rotor; C7: 12 for a phi-carrying field). The tree's prose sentence at :113 is true under the SO(3) reading and false under the weaker 'components depend on (t,r)' reading. No owner line drops it, but no owner line names it either.",
+  "WEAKENED (locality not stated): the theorem is local; foliation.py:116 'Each such u' is the normal of a foliation' and :144 'EVERY VALUE IN IT IS REALISED BY A FOLIATION' are stated over the chart without the word 'locally'. For GAMMA_RANGE (:856) and ledger D2 this is harmless because Gamma is pointwise and the kernel of u' is spanned by s = sinh(w)u + cosh(w)n, d_theta, d_phi with vanishing brackets (rederivation C5a-c), so the integral curves of s in the (t,r) plane times the spheres foliate the chart domain (global Frobenius on the domain where w is smooth). The stronger claim :117 'in the chart adapted to it the metric is again -e^{2Phi'}dt'^2 + ...' needs a coordinate t' and is local. Named hypothesis: 'on the domain of the chart where w is smooth; coordinates adapted to the leaves exist locally'.",
+  "'w arbitrary' (:111) must be read 'arbitrary smooth'; the sympy Function is implicitly C^infinity. Named hypothesis, not a drop.",
+  "NOT A DRIFT, a check: the tree writes the condition with partial derivatives d_b (:111, :666-668) where the theorem is stated with nabla_b; rederivation C1 confirms all 64 components agree (Christoffel symbols cancel under [abc] for the Levi-Civita connection).",
+  "STATUS WORD: 'verified, sympy' (:104) covers the twist computation only; the integrability theorem is invoked by name with no citation and no status word. Not an error -- it is a standard theorem -- but the citation (Frobenius 1877; Wald Thm B.3.2; Lee Thm 19.12/19.21) is absent from the owner."
+ ],
+ "data_at_publication": [
+  {
+   "quantity": "none -- the result is a theorem of differential topology with no numerical input",
+   "value_then": "n/a",
+   "value_now": "n/a",
+   "source_now": "n/a",
+   "moves_conclusion": "no datum exists to move it; the tree's data_used 'none; 64 components each simplify to 0' is confirmed (rederivation C2)"
+  }
+ ],
+ "rederivation": {
+  "method": "sympy",
+  "script_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/frobenius-theorem.py",
+  "outcome": "13/13 checks pass in 2.8 s (sympy 1.14.0). C1 covariant twist == partial twist, 64 components. C2 u'_[a nabla_b u'_c] = 0 for symbolic w(t,r), Phi(t,r), Lambda(t,r), R(t,r): 0 nonzero components (independent re-computation of foliation.py V5). C3 u'.u' = -1 (V6). C4 the CONVERSE direction constructed, not assumed, for the family the tree leans on: Schwarzschild, static chart, rapidity boosting the static observer to the generalised Painleve-Gullstrand observer of energy E: u'_a = -sqrt(1+2E) d_a tau with tau = t + int v/(f k) dr, both components agree, so the integrating factor is the constant k and the leaves are the generalised PG slices; that field's twist vanishes. C5 the kernel of u' is spanned by s = sinh(w)u + cosh(w)n (u'.s = 0, s.s = +1) together with d_theta, d_phi, and [d_theta,s] = [d_phi,s] = 0, so involutivity is exhibited directly (the 2-d quotient argument at :114-115 made explicit). C6 VACUITY GUARD: the rigidly rotating Minkowski observer gamma(d_t + Omega d_phi) has 6 nonzero twist components, so the test discriminates. C7 a phi-carrying field in spherical coordinates has 12 nonzero twist components -- 'spherically symmetric' must mean SO(3)-invariant. Discrepancy recorded, not repaired: the C7 probe's Lorentz factor depends on theta as well as (t,r), so its docstring label '(t,r)-dependent' is loose; C6 is the clean guard and C7's conclusion is unaffected.",
+  "agrees_with_source": "yes"
+ },
+ "later_literature": [
+  {
+   "ref": "Ellis & van Elst, gr-qc/9812046 (1998; v5 2008), Sec. 2.4",
+   "effect": "confirms",
+   "what": "restates: vorticity zero <=> hypersurface-orthogonal, with u_a = -g nabla_a t; also eq. (27) shows nonzero vorticity obstructs 3-surfaces orthogonal to the flow",
+   "read_status": "READ (pages 7, 9, 12-13 via answer_pdf_queries)"
+  },
+  {
+   "ref": "Blixt, Jimenez Cano & Wojnar, arXiv:2408.16513 (2024), Thm 2.3, Prop 4.1, Sec. 4.3",
+   "effect": "extends",
+   "what": "states local and global Frobenius (citing Lee [20]) and proves Prop 4.1: in Minkowski the boosted observer (cosh lambda, -sinh lambda, 0, 0) defines a foliation iff lambda_y = lambda_z = 0 -- i.e. a boost whose rapidity depends only on the (t,x) plane is foliation-generating for ANY such lambda, which is exactly the tree's lemma in the flat 1+1 reduction; Sec. 4.3 gives Schwarzschild examples (radially boosted observers vorticity-free, Example 3 eq. (77))",
+   "read_status": "READ (pages 1-14 via answer_pdf_queries)"
+  },
+  {
+   "ref": "Del Porro, Liberati & Mazza, arXiv:2504.07215 (2025), Sec. 1, 2.1, 3.1-3.3",
+   "effect": "extends",
+   "what": "uses Frobenius as stated and studies the complementary regime (twisting aether, universal horizons needing only omega_ab = 0 on the horizon); notes (p.26) that in the spherically symmetric limit the twist components vanish identically, consistent with the tree's :113. Does not narrow or contradict the theorem.",
+   "read_status": "READ (pages 1-15, 22, 26, 29, 32 via answer_pdf_queries)"
+  },
+  {
+   "ref": "Kar & SenGupta, gr-qc/0611123 (2006), Sec. II.B",
+   "effect": "confirms",
+   "what": "'From the Frobenius theorem [18 = Poisson 2004], we know that hypersurface orthogonal vector fields must necessarily have zero rotation'; radial Painleve-Gullstrand geodesic field in Schwarzschild written as u_a = d_a phi (the tree's V7 family, E = 0)",
+   "read_status": "READ (pages 5-14 via answer_pdf_queries)"
+  }
+ ],
+ "lacked_data": "M's hypothesis (earlier workers lacked data) does not apply to this result: it is a theorem of pure mathematics (Frobenius 1877, proved from ODE existence and uniqueness; Blixt et al. p.4 citing Lee), with no measured input at any point in its history, so there is no datum the authors could have lacked and none that later measurement could move. Evidence: the rederivation reproduces both directions for the tree's family from the metric ansatz alone (C2, C4), and the only way the conclusion could fail as the tree uses it is a hypothesis failure (non-SO(3)-invariant field, non-smooth w, torsion) -- each of which is named above and none of which is a datum.",
+ "grade": "STANDS",
+ "grade_evidence": "Statement as used (foliation.py:104-116) matches the published iff (READ-VIA-RESTATEMENT in three arXiv sources, each quoting the same condition); every hypothesis the theorem carries is satisfied by the tree's construction (unit timelike => nowhere zero; Levi-Civita => torsion-free, C1; w smooth); the twist computation is independently re-derived (C2, 0/64 nonzero); the converse direction the tree invokes without proof is CONSTRUCTED for the Schwarzschild generalised-PG family (C4, integrating factor sqrt(1+2E)) and exhibited as direct involutivity for the general ansatz (C5); the check is non-vacuous (C6). No datum enters. Later literature (2024, 2025) uses the theorem unchanged and Blixt et al. Prop 4.1 is the flat-space instance of the tree's lemma. The two named hypotheses the owner leaves implicit (SO(3)-invariance in the strong sense; locality of the adapted chart) do not narrow any claim that rests on it -- GAMMA_RANGE and ledger D2 are pointwise statements over spherically symmetric fields, which is exactly the class the construction produces.",
+ "what_would_change_the_grade": "NARROWED if any downstream owner uses :113 for a field with angular components (e.g. a rotating or phi-boosted observer) -- C6/C7 show such fields have twist and are not hypersurface orthogonal; or if a rest-on-it claim needs a single GLOBAL time function on a non-simply-connected or horizon-crossing domain, where only local integrability is supplied. WRONG only by a counterexample: a smooth twist-free nowhere-zero 1-form with no local integral hypersurfaces, which the theorem excludes. OPEN would apply if a downstream claim depended on the theorem in a non-Levi-Civita (torsion) setting, where the partial/covariant equivalence (C1) fails.",
+ "reverify_command": "python3 /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/frobenius-theorem.py  # exit 0 iff all 13 checks pass",
+ "report_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/audits/frobenius-theorem.json"
+}

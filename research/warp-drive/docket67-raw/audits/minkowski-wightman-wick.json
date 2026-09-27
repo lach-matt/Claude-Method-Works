@@ -1,0 +1,95 @@
+{
+ "key": "minkowski-wightman-wick",
+ "name": "Minkowski vacuum Wightman function W = 1/(4 pi^2 sigma), Wick's theorem, and 1/(u-i0)^n = (1/(n-1)!) INT w^(n-1) e^{-iwu}",
+ "source": {
+  "located": "PRIMARY READ: C.J. Fewster, L.H. Ford & T.A. Roman, 'Probability distributions for quantum stress tensors in four dimensions', arXiv:1204.3570v1 (16 Apr 2012), Phys. Rev. D 85, 125038 -- Eqs. (12)-(16) (Wick's theorem for moments of smeared normal-ordered squares, mu_2 = 2 INT INT f f <phi phi'>^2), Eq. (24) (<phi(t)phi(t')> = -1/(4 pi^2 (t-t'-i eps)^2) = (1/4pi^2) INT_0^oo a e^{-ia(t-t'-i eps)} da), Eq. (25) (<phidot phidot'> = 3/(2 pi^2 (t-t'-i eps)^4) = (1/4pi^2) INT a^3 e^{...}), Eqs. (31)-(34) (rho_S, <phidot d_i phi'> = 0, <d_i phi d_j phi'> = (1/3) delta_ij <phidot phidot'>), Table I, Appendix A Eqs. (A1)-(A2) (general-p two-point function on the time axis; fhat(w) = INT f e^{iwt}). LATER, READ: Schiappacasse, Fewster & Ford arXiv:1711.09477 (2017). CLASSICS NAMED-NOT-READ: the textbook Minkowski Wightman function (Birrell & Davies 1982, cited by FFR as ref [1]) and G.C. Wick, Phys. Rev. 80, 268 (1950) -- both only through FFR 1204.3570's restatement on the time axis. The off-worldline form 1/(4 pi^2 sigma) is not printed in the pages read; its worldline restriction (Eq. 24) and derivatives (Eqs. 25, 32, 33) are, and the off-worldline form is re-derived here (it reproduces all four, and box W = 0).",
+  "read_status": "READ-VIA-RESTATEMENT",
+  "via": "alphaXiv answer_pdf_queries on 1204.3570 (pages 1-2, 4-8, 21, 23, 25 returned: abstract, Sec. II.A, Sec. III.A-B with Eqs. (12)-(36), Table I, App. A, App. B, references) and on 1711.09477 (pages 1-7, 15-16, 18-19, 22, 25-26, 29). The tree's owner cites 1204.3570 Eq. (25) and Table I explicitly (noise.py:73-76, 957); the Fourier identity at n = 8 is not printed in any source read (FFR print n = 2, 4 and the general-p form (A1)) and is re-derived here."
+ },
+ "published_statement": "FFR 1204.3570: 'By Wick's theorem, this quantity [G_n = <:phi^2:(x_1) ... :phi^2:(x_n)>] is equal to the sum of all contractions ... no phi(x_i) is contracted with the other copy of itself ... each contraction contributing a factor <phi(x_i)phi(x_j)>' (Eqs. 13-15); 'mu_2 = 2 INT dx1 dx2 f(x1) f(x2) <phi(x1)phi(x2)>^2' (Eq. 16); '<phi(t)phi(t')> = -1/(4 pi^2 (t-t'-i eps)^2) = (1/4pi^2) INT_0^oo d alpha alpha e^{-i alpha(t-t'-i eps)}' (Eq. 24); '<phidot(t)phidot(t')> = 3/(2 pi^2 (t-t'-i eps)^4) = (1/4pi^2) INT_0^oo d alpha alpha^3 e^{-i alpha(t-t'-i eps)}' (Eq. 25); '<phidot(t) d_i phi(t')>_{x=x'=0} = 0' (Eq. 32), '<d_i phi(t) d_j phi(t')>_{x=x'=0} = (1/3) delta_ij <phidot phidot'>' (Eq. 33), 'C_n(rho_S) = (1/2^n + 3/6^n) C_n(phidot^2)' (Eq. 34); Table I n = 2: phi^2 -> 2, phidot^2 -> 9/2, rho_S -> 3/2; general p: '<phi(t)phi(t')> = (1/4pi^2) INT_0^oo dw w^p e^{-iw(t-t'-i eps)}' (A1) with 'fhat(w) = INT dt f(t) e^{iwt}' (A2). THE TREE'S USE (noise.py:69-70): '<:rho(t)::rho(t'):>_0 = 3/(2 pi^4 (t-t'-i0)^8), from d_A d'_B of 1/(4 pi^2 sigma), and 1/(u-i0)^8 = (1/7!) INT w^7 e^{-iwu}', giving (V) Var_0[rho(f)] = (1/(3360 pi^4)) INT_0^oo w^7 |fhat(w)|^2 dw (noise.py:66).",
+ "published_hypotheses": [
+  "free (non-interacting) real scalar field phi, massless, four-dimensional Minkowski spacetime (FFR abstract, Sec. III.B)",
+  "minimally coupled (FFR 1711.09477 Sec. IV.A 'minimally coupled massless scalar'; 1204.3570 energy density Eq. (31) is the minimal rho_S = (1/2)(phidot^2 + d_i phi d_i phi))",
+  "state = Minkowski vacuum; all quadratic operators normal ordered with respect to it (FFR p.2), so the vacuum mean is zero",
+  "the vacuum is quasifree (Gaussian), which is what makes Wick's theorem hold ('free fields [in the sense that the Wick expansion is valid]', FFR after Eq. (26))",
+  "sampling in time only, on an inertial worldline at a fixed spatial point x = x' = 0 (FFR Eqs. (24)-(27), (32)-(33))",
+  "positive-frequency i eps prescription t - t' - i eps (boundary value from the lower half plane), FFR Eqs. (24), (25), (A1)",
+  "real sampling function f; moments exact for the Lorentzian (Table I, 'These results hold for arbitrary smearing on the time axis' refers to Eqs. (31)-(36)); the smeared normal-ordered square is a priori a symmetric operator whose self-adjoint extensions all share the vacuum moments (FFR p.2)"
+ ],
+ "hypothesis_drift": [
+  "NO DRIFT in the owner on field content or state: noise.py:62-64 states 'any real sampler f(t) on an inertial worldline, Minkowski vacuum, massless minimally coupled scalar, rho = (1/2) SUM_A (d_A phi)^2', matching FFR's hypotheses (massless, minimal, vacuum, normal-ordered, time-only sampling).",
+  "CANONICAL ENTRY NARROWER THAN OWNER (not a drift in the tree): the canonical 'hypotheses' field lists only 'massless minimal scalar, Minkowski vacuum'; the owner's text at noise.py:62-64 also carries 'inertial worldline' and the normal-ordered energy density, and noise.py:388-392 applies Wick's theorem to the normal-ordered squares. 'Quasifree state' (the hypothesis Wick's theorem needs) is implicit in 'Minkowski vacuum' and is named explicitly for Gaussian states elsewhere in the owner (noise.py:102).",
+  "PHASE DROPPED IN THE CANONICAL NAME, NOT IN THE TREE: the canonical entry's name states the identity for general n as '1/(u-i0)^n = (1/(n-1)!) INT w^(n-1) e^{-iwu}'. As a general-n statement that is missing the factor i^n: the correct identity is 1/(u-i0)^n = (i^n/(n-1)!) INT_0^oo w^(n-1) e^{-iwu} dw, so the unphased form holds iff n = 0 mod 4 (computed here, n = 1..8, rederive part (3); FFR's n = 2 Eq. (24) carries the minus sign that i^2 = -1 supplies). The owner uses n = 8 only and says so: noise.py:397-399 'the identity 1/(u-i0)^n = (1/(n-1)!) INT_0^oo w^(n-1) e^{-iwu} dw, since i^n = 1 for n = 8'. A restatement discrepancy in the canonical wording; it binds no use in the tree.",
+  "IMPLICIT FINITENESS CONDITION (weakened hypothesis, noise.py:62-63 'For any real sampler f(t)'): formula (V) is a finite number only when INT_0^oo w^7 |fhat|^2 dw < oo, i.e. fhat decaying faster than w^-4; for a box sampler the integral grows like W^6/3 (computed, rederive part (4)) and Var_0 = +oo (rho(f)|0> not normalisable). Read in [0, oo] the equality still holds, and every sampler the tree actually evaluates satisfies the condition: Lorentzian and Gaussian (exponential decay) and Fewster's clamped sampler (fhat ~ F4 (e^{iw}-1)/(iw)^5, integrand ~ w^-3, computed here). Recorded as a named hypothesis the owner leaves implicit; it moves no figure.",
+  "i0 PRESCRIPTION HANDLED CORRECTLY: noise.py:388-411 differentiates W at real u > 0 (away from coincidence) and supplies the -i0 through the Fourier identity; squaring (u-i0)^-4 into (u-i0)^-8 is legitimate because both factors are boundary values from the same half-plane -- the same step FFR take in Eqs. (16)/(A1). The owner itself names the worldline wavefront-set argument for the curved case as 'NAMED, NOT RUN' (noise.py:207-210) and refuses the curved evaluation (noise.py:226); the result audited here is used only in the flat model."
+ ],
+ "data_at_publication": [
+  {
+   "quantity": "kappa = 1/(3360 pi^4), the coefficient of (V)",
+   "value_then": "not printed by FFR in this form; implied by their Eq. (25) + Eqs. (32)-(34) + Table I a_2(rho_S) = 3/2 (2012)",
+   "value_now": "1/(3360 pi^4) = (3/(2 pi^4))/7!, exact (sympy, rederive part (4)); pure number, no physical datum",
+   "source_now": "rederive/minkowski-wightman-wick.py part (4); FFR 1204.3570 Table I",
+   "moves_conclusion": "no -- a mathematical constant; nothing to move"
+  },
+  {
+   "quantity": "D_00 coefficient 3/(2 pi^2) and <:rho::rho':> coefficient 3/(2 pi^4)",
+   "value_then": "3/(2 pi^2) (FFR Eq. (25), 2012)",
+   "value_now": "3/(2 pi^2) and 3/(2 pi^4), exact (sympy from 1/(4 pi^2 sigma))",
+   "source_now": "rederive part (1)-(2)",
+   "moves_conclusion": "no"
+  },
+  {
+   "quantity": "FFR Table I second moments (Lorentzian) a_2 = 2, 9/2, 3/2",
+   "value_then": "2, 9/2, 3/2 (exact rationals, MAPLE, 2012)",
+   "value_now": "2, 9/2, 3/2 reproduced exactly two ways (point-split + Fourier identity; FFR App. A n=2 rule)",
+   "source_now": "rederive part (4)",
+   "moves_conclusion": "no"
+  },
+  {
+   "quantity": "K_F = 19.80242121506098 (noise.py:336, Fewster's clamped sampler, tau = 1)",
+   "value_then": "19.80242121506098 (tree fixture, two routes in noise.py)",
+   "value_now": "19.80242121506098 recomputed from scratch here (exact fhat as exponential sum, quadrature to W plus closed-form asymptotic tail to order w^-14; W = 250 and W = 400 agree to 4e-19 relative; agreement with fixture 3.0e-17 relative)",
+   "source_now": "rederive part (5); mu_1 = 4.730040744862704 from cosh mu cos mu = 1",
+   "moves_conclusion": "no -- a mathematical number of the sampler's shape; reproduced independently"
+  },
+  {
+   "quantity": "physical constants (hbar, c) entering downstream EL_VACUUM_LOG10_NEG_LN_P",
+   "value_then": "via achievable.py",
+   "value_now": "not a datum of this result (the kernel is in natural units; hbar/c^3 enters only in el_vacuum_log10_neg_ln_p, noise.py:344-356, audited under the constants entries)",
+   "source_now": "n/a for this result",
+   "moves_conclusion": "no, for this result"
+  }
+ ],
+ "rederivation": {
+  "method": "sympy",
+  "script_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/minkowski-wightman-wick.py",
+  "outcome": "ALL PASS, 28 PASS lines, exit 0 (output in rederive/minkowski-wightman-wick.out; script md5 45429ee49a4ada09d6a1ec39fd10c812). Independent of noise.py (not imported). (1) From W = 1/(4 pi^2 sigma): worldline W = -1/(4 pi^2 u^2) = FFR Eq.(24); D_00 = 3/(2 pi^2 u^4) = FFR Eq.(25); D_0i = 0 = Eq.(32); D_ij = (1/3) delta_ij D_00 = Eq.(33); box W = 0 off the cone; positive-frequency representation of W(u - i eps) checked numerically to 2e-18. (2) Wick's theorem <0|:A^2::B^2:|0> = 2<AB>^2 checked in an exact truncated 2-mode Fock space over 20 random complex mode pairs (max err 8e-15); <:rho::rho':>_0 = (1/2) SUM_AB D_AB^2 = 3/(2 pi^4 u^8); ratio 1/3 to <:phidot^2 phidot'^2:> = FFR Eq.(34). (3) INT_0^oo w^(n-1) e^{-iw(u-i eps)} dw = (n-1)!/(i^n (u-i eps)^n) for n = 1..8 (sympy + mpmath at eps = 1.5, rel err <= 2e-16); the unphased form holds exactly at n = 4, 8 and fails (rel err 1.4-2.0) at n = 1,2,3,5,6,7 -- the tree's n = 8 is exact. (4) kappa = 1/(3360 pi^4); Lorentzian K = 3/(512 pi^4); a_2 = 2, 9/2, 3/2 = FFR Table I; FFR App. A n=2 rule gives 9/2; Gaussian K = 1/(70 pi^4); (1+cos)^2 angular integral 8/3; Beta integral s^7/140; box sampler makes the (V) integral grow like W^6/3. (5) K_F = 19.80242121506098 from scratch, 3.0e-17 relative to the fixture.",
+  "agrees_with_source": "yes"
+ },
+ "later_literature": [
+  {
+   "ref": "Schiappacasse, Fewster & Ford, 'Vacuum Quantum Stress Tensor Fluctuations: A Diagonalization Approach', arXiv:1711.09477 (2017)",
+   "effect": "confirms",
+   "what": "Independent Bogoliubov diagonalization of the time-averaged :phidot^2: (massless minimal scalar, Minkowski vacuum, same mode structure Eqs. (2.6)-(2.10), (4.11)-(4.12)) reproduces the moment-based tail exponent c = alpha/3 within 6% for Lorentzian and compactly supported samplers; no disagreement with the two-point function or low moments of 1204.3570 is reported. Caveat named there: field quantized in a sphere of radius R, possibly sensitive to the boundary for alpha = 0.6, 0.7.",
+   "read_status": "READ (alphaXiv page text pp.1-7, 15-16, 18-19, 22, 25-26)"
+  },
+  {
+   "ref": "Fewster & Ford, 'Probability Distributions for Quantum Stress Tensors Measured in a Finite Time Interval', arXiv:1508.02359 (2015)",
+   "effect": "extends",
+   "what": "Extends the moment machinery (same two-point function and Wick expansion) to compactly supported samplers; cited in 1711.09477 Sec. II as Ref. [12].",
+   "read_status": "NAMED-NOT-READ (restated in 1711.09477 Sec. II)"
+  },
+  {
+   "ref": "arXiv:1909.07295, 2104.04446, 2211.12001 (space-and-time averaged stress tensor fluctuations); arXiv:2212.01520 (review); arXiv:1409.7516 (FFR, 2D and 4D)",
+   "effect": "extends",
+   "what": "Returned by discover_papers; titles/abstracts extend the programme to spacetime averaging and frequency spectra. None returned as contradicting the vacuum two-point function or the Wick second moment.",
+   "read_status": "NAMED-NOT-READ (abstracts only)"
+  }
+ ],
+ "lacked_data": "M's hypothesis tested: did the authors lack data that would change this result? The result has NO empirical input. The Wightman function 1/(4 pi^2 sigma) follows from canonical quantization of the free massless Klein-Gordon field with the positive-frequency vacuum; Wick's theorem is an algebraic identity of quasifree states; the Fourier identity is an exact integral. Every numerical input (kappa, 3/(2 pi^2), 3/(2 pi^4), Table I a_2, K_F) is a mathematical number, re-derived here exactly or to 3e-17 -- no datum exists that could move it. Evidence against the result from later work: none found; 1711.09477 (2017) reproduces the moment-based conclusions by an independent method. Where data could bear, it bears on the MODEL HYPOTHESES, not the theorem: whether the corridor's matter is a free, massless, minimally coupled scalar in flat space (the owner refuses nonminimal coupling, interacting fields and the curved evaluation explicitly, noise.py:220-226), and FFR's own caveat that the 65 moments may not determine the distribution (Stieltjes criterion fails, 1204.3570 Eq. (47)) -- which bears on distribution fits, not on the exact second moment the tree uses. Having more data does not change this conclusion.",
+ "grade": "STANDS",
+ "grade_evidence": "Statement and hypotheses as used match the source (FFR 1204.3570 Eqs. (14)-(16), (24), (25), (32)-(34), Table I, (A1)-(A2)): massless, minimal, free, Minkowski vacuum (quasifree), normal ordering, inertial worldline, time-only real sampler, positive-frequency i eps. Re-derivation (sympy + numeric, independent of noise.py) agrees on every coefficient: D_00, D_ij, <:rho::rho':>_0 = 3/(2 pi^4 u^8), kappa = 1/(3360 pi^4), FFR Table I a_2 = 2, 9/2, 3/2, Lorentzian and Gaussian K, and K_F = 19.80242121506098 to 3e-17. No physical datum enters, so none can move. Two discrepancies recorded, neither a refutation and neither binding a use: (i) the canonical entry's general-n wording of the Fourier identity omits the phase i^n (correct only for n = 0 mod 4); the tree uses n = 8 and states 'since i^n = 1 for n = 8' (noise.py:397-399); (ii) 'any real sampler' (noise.py:63) leaves implicit the finiteness condition fhat = O(w^(-4-delta)); every sampler the tree evaluates meets it.",
+ "what_would_change_the_grade": "NARROWED if the tree applied (V) or the kernel outside flat space / off the vacuum / to a nonminimal or interacting field / to a sampler with fhat not decaying faster than w^-4 and quoted a finite figure (none found in noise.py; the owner refuses those cases at noise.py:220-226). NARROWED on the canonical wording if a future owner uses the unphased identity at n not divisible by 4. WRONG only on a computed contradiction of a coefficient -- none found (28/28 checks pass). OPEN would apply only if FFR 1204.3570 could not be read; it was.",
+ "reverify_command": "python3 /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/minkowski-wightman-wick.py   # expects 28 PASS lines and 'ALL PASS', exit 0 (~25 s; needs sympy, mpmath, numpy)",
+ "report_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/audits/minkowski-wightman-wick.json"
+}

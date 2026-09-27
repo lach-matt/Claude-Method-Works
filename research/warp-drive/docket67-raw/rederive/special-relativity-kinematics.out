@@ -1,0 +1,40 @@
+A. proper time of an inertial worldline from ds^2 = c^2 dt^2 - dx^2
+  tau = D/(beta*gamma*c)                                                   PASS D*sqrt(1 - beta**2)/(beta*c)
+B. Lorentz boost preserves the interval; time coefficient is gamma
+  (ct')^2 - x'^2 == ct^2 - x^2                                             PASS 
+  moving clock: t' = t/gamma                                               PASS 
+  gamma(b1+b2 relativistic) == g1 g2 (1+b1 b2)                             PASS 
+C. photon-rocket identity used as a self-check at arrival.py:71-73
+  squares agree: (1+b)/(1-b) == gamma^2 (1+b)^2                            PASS 
+  z3: no 0<=b<1 with sqrt((1+b)/(1-b)) != gamma(1+b)                       PASS unsat
+D. kinetic energy (gamma-1)mc^2 used by magsail_distance (arrival.py:51)
+  (gamma-1)mc^2 = m v^2/2 + 3 m v^4/(8 c^2) + O(v^6)                       PASS 
+E. numbers printed and pinned by arrival.py
+  gamma(sqrt(3)/2) == 2 exactly                                            PASS 
+  arrival.gamma(0.866) = 1.999824 (rel. err to 2: 8.80e-05 < tol 1e-3)     PASS 1.9998240
+  trip 4.24 ly @0.866 = 4.89607 yr                                         PASS 
+  shipboard 4.24 ly @0.866 = 2.44825 yr (selftest pins 2.4487 at tol 1e-3) PASS 2.44825
+  selftest pin 2.4487 vs computed 2.44825                                  RECORD rel diff 1.8e-04 (inside its stated tol 1e-3; pin was written for gamma=2 exactly: 4.24/(0.866*2)=2.44804)
+  LY = Julian year * c = 9460730472580800 m (arrival.py uses 9.4607304726e15) PASS 9.460730e+15
+  c = 299792458 m/s exact (SI definition)                                  PASS 
+F. constant-beta idealisation: a floor on proper time, and its size at finite acceleration
+  d(beta*gamma)/d(beta) = gamma^3 > 0 on (0,1)  => dtau/dx = 1/(c beta gamma) decreasing in beta PASS 
+  consequence                                                              RECORD for ANY speed profile with max beta_p over distance D: tau >= D/(c beta_p gamma_p); equality only if |v| = beta_p c everywhere (instantaneous boosts). Same for Earth time t >= D/(beta_p c).
+  1 g ramp distance to 0.866c = (gamma-1)c^2/a = 0.969 ly (< D/2, profile feasible) PASS 
+  4.24 ly, peak 0.866c, 1 g accel + 1 g brake                              RECORD shipboard 3.881 yr vs constant-beta 2.448 yr (+59%); Earth 6.015 vs 4.896 yr (+23%)
+  finite-acceleration shipboard time exceeds the constant-beta figure      PASS 
+  same at 0.0476c, 1 g                                                     RECORD shipboard 89.0208 vs 88.9747 yr (+0.052%) -- negligible at low beta
+G. flat-spacetime hypothesis: size of the dropped gravitational term (weak field, GM/(r c^2))
+  GM_sun/(1 AU c^2)                                                        RECORD 9.87e-09  (vs tree tolerance 1e-3 and vs gamma-1 = 1.1e-3 at 0.0476c)
+  dropped term / (gamma-1) at 0.0476c = 8.7e-06  (< 1e-4)                  PASS 
+  scope                                                                    RECORD cruise only; near a compact deflector (the arrival network's nodes) GM/(r c^2) is O(0.1) and the flat hypothesis fails there -- the tree does not apply gamma there
+H. sensitivity to the one astronomical datum (distance 4.24 ly)
+  tau and t are linear in D: d ln tau / d ln D = 1                         PASS 
+  any revision dD/D moves both times by the same dD/D                      RECORD ratio shipboard/Earth = 1/gamma independent of D
+I. prose vs code at rests_on_it sites of arrival.py report (RECORD, not SR findings)
+  arrival.py:150-151 prose '810 AU' (1000 km sail, 1000 t, 0.048c)         RECORD code prints 2002 AU
+  arrival.py:152 prose '2.6 ly' (same sail from 0.87c)                     RECORD code prints 0.084 ly
+  arrival.py:137 prose '18x the speed for 76x the fuel ratio'              RECORD speed ratio 18.2; fuel-per-tonne ratio 56.0; M0/M1 ratio 3.56; ln(M0/M1) ratio 27.6 -- 76 not reproduced by these
+  the gamma values in all three sites are the SR values (discrepancies are not in gamma) PASS 
+
+OVERALL PASS

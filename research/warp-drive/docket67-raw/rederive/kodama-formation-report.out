@@ -1,0 +1,65 @@
+formation.py -- DOCKET 64, LINE 5.  D24 (FORMATION) AND D25 (THE DESTINATION
+STOCK GATE).  Each is asked only what can be asked of it here.
+
+    python3 formation.py             the reading
+    python3 formation.py --selftest  every identity, every control, every figure
+
+Needs sympy, mpmath and z3 (pypi; see PROOF-ASSISTANT.md), but only inside
+functions: the import itself is stdlib-only.  Runs under python3 (3.11).
+Imports certify, nonstatic, stockgate, create, phase1, foliation and ladder
+from this directory by path and copies none of them.
+
+===============================================================================
+THE PRICE ON THE SEATED OBJECT  (m = a = 1/50, R_s = 200; geometric units,
+lengths in certify's unit L)
+===============================================================================
+  r        side W_1          R            E=R(W1-1)    K=-m_1       radial NEC   om^2/8pi    
+  0.005    in   1.05707e+00  1.89533e-03  1.08161e-04  1.11248e-04  -4.79204e+00 1.22552e-04 
+  0.02     in   1.35355e+00  9.86236e-03  3.48687e-03  4.10327e-03  -5.70551e+00 3.64654e-03 
+  0.05     in   1.32016e+00  3.44922e-02  1.10432e-02  1.28110e-02  -1.47731e+00 3.06964e-03 
+  0.2      in   1.09852e+00  1.81075e-01  1.78393e-02  1.87180e-02  -8.65922e-02 3.51293e-04 
+  1        in   1.01999e+00  9.80301e-01  1.95943e-02  1.97901e-02  -3.24512e-03 1.55844e-05 
+  10       in   1.00200e+00  9.98102e+00  1.99619e-02  1.99819e-02  -3.18913e-05 1.58835e-07 
+  100      in   1.00020e+00  9.99900e+01  1.99980e-02  2.00000e-02  -3.18342e-07 1.59123e-09 
+  250      out  1.00000e+00  2.50000e+02  -1.92000e-10 -1.92000e-10 4.88924e-16  2.34684e-26 
+  1000     out  1.00000e+00  1.00000e+03  -1.20000e-11 -1.20000e-11 1.90986e-18  5.72958e-30 
+
+  Kodama mass deposited at the shell, m_1(R_s+) - m_1(R_s-) = 2.00010e-02
+  ADM mass of the seated object (limit)                       = 0
+  lim r^3 phi_out (not compactly supported: fails phase1 D2) = -1/250000
+  at r = 1: E = 1.95943e-02 L,  i.e. 2.63854e+25 kg per metre of L (c^2/G, foliation.py)
+
+  transverse, this family:  INT extra dtau <= -(omega^2/8pi)/tau_p
+  radial, every U=0 passage: INT extra dtau  = -(W_1 - 1)/(2 pi R)
+
+  F1 hypotheses: spherical symmetry (-e^{2Phi}dt^2 + e^{2Lambda}dr^2 + R^2 dOmega^2); G_ab = 8 pi T_ab (T defined from the metric; convention tied to certify); U = 0: the sphere's areal radius held fixed throughout the passage; W > 0 at the sphere throughout (untrapped); the passage runs from f = 0 (flat) to f = 1 (seated)
+  F2 adds:       outgoing radial null k = u + n, u Eulerian, normalised -u.k = 1
+  transverse adds: this family only: p_T depends on the lapse and Lambda chosen; f is C^1 and at rest at both ends (f_tau = 0)
+
+===============================================================================
+D25 -- OPEN AND UNCHANGED; the READ survey
+===============================================================================
+  mass threshold: stockgate.py's own (python3 stockgate.py); not re-priced
+  aperture:  NOT EVALUABLE: aperture NOT-FOUND (search named)
+             grep -il -E 'aperture' research/warp-drive/*.py (formation.py excluded): beamed.py -- an optical transmitter aperture (a different object); branelink.py -- the Friis antenna aperture (a different object); device.py -- the device's transverse aperture, 5 lambda (a different object); index3.py -- the APERTURE index row for beamed.py (a different object); ledger.py -- D25's own row text; specthm.py -- asks formation.APERTURE_STATUS in requirement R11 (on Rec): its owners and statement; no aperture value of its own; stockgate.py -- the GATE text itself: names the arrival aperture, no value || synonyms: grep -il -E 'arrival (radius|band|window|zone|orbit|site)|capture (band|radius)|orbital radius' research/warp-drive/*.py (formation.py excluded): ledger.py -- D25's own row text; stockgate.py -- prose: the snow line, i.e. orbital radius, is the selector; warpdrive.py -- a muonic-atom orbital radius (a different object) || no hit assigns the corridor's arrival aperture a value
+  snow line: grep -il -E 'snow.line|hayashi|nebula|disc temperature|disk temperature' research/warp-drive/*.py (formation.py excluded): ledger.py -- D25's own row text; stockgate.py -- snow-line PROSE and RHO_DISC (a density); no T(a), P(a)
+  gate(aperture=None) -> NOT-EVALUABLE
+  READ Anglada et al. 2017    arXiv:1711.00578   1-4 au belt, ~0.01 M_earth total by -3.5 extrapolation to 50 km (sec 3.2); 0.4 au and 30 au components marginal (abstract, sec 3.3); Proxima b m_p sin i = 1.3 M_earth at 0.05 au (sec 1, Anglada-Escude et al. 2016)
+  READ MacGregor et al. 2018  arXiv:1802.08257   ACA excess is a ~1 min flare: 'no need to posit the cold belt at 1-4 AU' (sec 4.2); 12-m excess plausibly coronal; 30 au belt: 13+10-8 background sources > 150 uJy expected in the ACA primary beam (sec 4.2); PMS luminosity change (sec 1)
+  condensed body in the sources read: Proxima b (m_p sin i = 1.3 M_earth, a = 0.05 au); its minimum mass / stockgate's 70 kg threshold = 1.04e+22
+  primitive measured: False; accessible measured: False; reservoir: UNDETERMINED
+
+  D24: ANSWERED FOR THE THIRD PART: the passage from flat space to the seated object, no topology change, priced per sphere exactly (F1, F2: THEOREM; the seated table MEASURED; E = R Delta W is nonstatic.py section 4's, credited).  The row stays OPEN on nucleation (READ, not computed) and on find-and-enlarge
+  D25: OPEN AND UNCHANGED: no conjunct is newly evaluated.  The mass threshold is stockgate.py's (cited, not re-priced); the aperture is NOT EVALUABLE: NOT-FOUND (search named); the formation-epoch snow line is NOT-FOUND and a present-luminosity radius REFUSED.  NEW, READ: MacGregor 2018 withdraws the 1-4 au belt; the only condensed body in the sources read is Proxima b, whose primitive and accessible status is unmeasured
+  nucleation: READ, OPEN (not computed); EC evidence: eq. (19) Hawking-Ellis criterion on the Morse spacetime (13): type-IV regions (Fig. 9) | WEC violated, T_ab w^a w^b < 0, on a region of CP^2 (Fig. 12) | a type-IV point p = (1,0,0,0) on CP^2 (sec. IV)
+
+  STATUS
+    D24 part 3: F1, F2, transverse bound (this family), D4     THEOREM
+    D24 part 3: the table on the seated object                 MEASURED
+    D24 part 3: E = R Delta W (Eulerian half of F1)            THEOREM, PRIOR (nonstatic.py section 4)
+    D24 nucleation                                             READ, OPEN (not computed)
+    D24 find-and-enlarge                                       OPEN
+    D25                                                        OPEN, UNCHANGED
+    D25 survey                                                 SURVEY (READ)
+    D25 aperture                                               NOT EVALUABLE: aperture NOT-FOUND (search named)
+    D25 formation snow line                                    NOT-FOUND; a present-luminosity radius REFUSED

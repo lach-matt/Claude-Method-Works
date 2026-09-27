@@ -1,0 +1,100 @@
+{
+ "key": "codata-pdg-constants",
+ "name": "CODATA/PDG constants: m_e, m_p, proton rms charge radius, Bohr radius, fine-structure constant (address.py:424-429)",
+ "source": {
+  "located": "The five literals are the CODATA 2018 recommended values (Tiesinga, Mohr, Newell, Taylor, RMP 93, 025010 (2021); no arXiv copy) and, for m_e and m_p, the PDG RPP 2024/2025 values, which are the CODATA 2018 numbers. Superseded by CODATA 2022 (Mohr, Newell, Taylor, Tiesinga, arXiv:2409.03787, RMP 97, 025002 (2025)) and, for m_e/m_p, by PDG RPP 2026.",
+  "read_status": "READ-VIA-RESTATEMENT",
+  "via": "alphaXiv returned 'assistant quota exceeded' on answer_pdf_queries, get_paper_content and discover_papers in this stage. READ HERE instead, all md5-asserted by the rederive script: (1) arXiv:2409.03787v1 page text saved in d67/src/casmag/all/2409.03787v1.txt (md5 cc640485b0d9f0fe202f38989dac6a2b; pages 1-3,5,10-12,15-17,21,23-24,41,44-47,49-55,57-58,60-65 present): p.2 'the scattering values of r_p and r_d should not be included in the 2022 adjustment. This is because there is a lack of consensus on how the experimental data should be analyzed'; p.15 eq.(50) 'E(4)_nucl = (2/3) m_e c^2 (Z alpha)^4/n^3 (m_r/m_e)^3 (r_N/lambda_C)^2 delta_l0 ... solely due to the finite rms charge radius r_N'; tables: 'proton rms charge radius r_p 8.4075(64) x 10^-16 m', '1/alpha 137.035 999 177(21)', 'm_e c^2 0.510 998 950 69(16) MeV', 'm_p c^2 938.272 089 43(29) MeV'; Table XXXVIII rows alpha -4.5, a_0 -4.5, r_p -0.4 (D_r in units of u(2018)); p.62 the three alpha inputs Berkeley-18 137.035 999 046(27), LKB-20 137.035 999 206(11), NW-23 137.035 999 166(15), expansion factor 2.5. (2) The NIST CODATA 2006/2010/2014/2018/2022 allascii tables as embedded in scipy 1.17.1 scipy/constants/_codata.py (md5 f65f9f0ee37f0d491374f1c629019d55): 2018 l.1227/1275/1335/1456/1463 carry the tree's five literals digit for digit. (3) PDG RPP 2024 'Physical Constants' review text, d67/src/casmag/all/https___pdg.lbl.gov_2024_reviews_rpp2024-rev-phys-constants.pdf.txt (md5 ca6b368328d0a55b79d527ee0a437b77): 'Mainly from CODATA ... 2018'; m_e 0.510 998 950 00(15) MeV, m_p 938.272 088 16(29) MeV, alpha = 1/137.035 999 084(21) with footnote 'CODATA recommended value at Q^2 = 0. At Q^2 ~ m_W^2 the value is ~1/128. A world average of the latest data yields alpha^-1 = 137.035999178(8)'; 'Updated values reflecting the 2022 CODATA recommended values ... will be incorporated in future editions'. (4) PDG RPP mass tables mass_width_2024/2025/2026.txt from the particle 1.0.1 wheel (md5s asserted). NAMED-NOT-READ: the CODATA 2018 RMP paper itself; the muonic-hydrogen (CREMA) and e-p scattering papers (Mainz A1, PRad) whose radii are quoted only as CODATA 2022 cites them."
+ },
+ "published_statement": "CODATA 2018 (as READ in the NIST table and restated verbatim by PDG 2024): m_e c^2 = 0.510 998 950 00(15) MeV; m_p c^2 = 938.272 088 16(29) MeV; proton rms charge radius r_p = 0.8414(19) x 10^-15 m; Bohr radius a_0 = 5.291 772 109 03(80) x 10^-11 m; alpha^-1 = 137.035 999 084(21), 'CODATA recommended value at Q^2 = 0' (PDG 2024 footnote). CODATA 2022 (READ, arXiv:2409.03787): 0.510 998 950 69(16) MeV; 938.272 089 43(29) MeV; r_p = 8.4075(64) x 10^-16 m; a_0 = 5.291 772 105 44(82) x 10^-11 m; alpha^-1 = 137.035 999 177(21).",
+ "published_hypotheses": [
+  "A least-squares adjustment over all input data judged relevant and consistent, with expansion factors applied where inputs disagree (2.5 on the six alpha-determining items D1-D6 in 2022, p.62) -- the adjustment's internal method is READ only in summary here.",
+  "r_p (2018) combined H/D spectroscopy, muonic hydrogen Lamb shift and e-p scattering; r_p (2022) EXCLUDES scattering 'because there is a lack of consensus on how the experimental data should be analyzed' (p.2, READ).",
+  "r_p is defined as the rms charge radius entering the leading finite-size term eq.(50), which is model-independent at order (Z alpha)^4 and carries the reduced-mass factor (m_r/m_e)^3 (p.15, READ).",
+  "alpha is the low-energy (Q^2 = 0) value, determined from atom-recoil (Cs, Rb) and a_e measurements (p.62 READ; PDG 2024 footnote READ).",
+  "Values are for the physical world (present vacuum), not functions of the Higgs vev: no CODATA statement concerns how r_p, m_e or alpha vary with v."
+ ],
+ "hypothesis_drift": [
+  "LABEL/VINTAGE (address.py:424-429): the tree's comment says 'PDG/CODATA' without a year; the values are CODATA 2018 = PDG 2024/2025 exactly (READ), and are NOT the current CODATA 2022 / PDG 2026 values. A dropped qualifier (vintage), not a wrong value.",
+  "ADDED, and named by the tree (address.py:47-49, 847-848 'alpha fixed and r_N fixed (H2), so x = r_N/a_0 is proportional to m_e, hence to v'): holding r_p fixed as v varies is the tree's H2, outside anything CODATA measures; CODATA gives r_p at the physical v only. Not a drift from the source; recorded so it is not mistaken for a CODATA statement.",
+  "DROPPED FACTOR (address.py:844-862, finite_size_K_sympy; closed form at 834-841): CODATA 2022 eq.(50), READ p.15, carries (m_r/m_e)^3 in the leading finite-size term; the tree's shift '(4/3) Z^4 x^2/n^3 Rydberg' sets m_r = m_e. Computed (sympy): with the factor K = 28 rho^2 x^2/(14 rho^2 x^2 - 9), rho = m_r/m_e = 0.999455679, so |K| is SMALLER by 0.1088% -- 11x the W10 pin tolerance (1e-4, address.py:1610-1611), no verdict affected. The tree names 'recoil (m_e/M) omitted, which only adds' (address.py:849); for this particular recoil factor the direction is a decrease -- a discrepancy in the phrase, recorded, not a refutation (the full recoil contribution to the ratio is not computed here).",
+  "STRENGTHENED, harmless (address.py:848 'uniform-sphere nucleus, leading order'): eq.(50) needs only the rms radius, not a uniform-sphere model; the tree's model hypothesis is stronger than required and gives the same leading term.",
+  "PRECISION (address.py:1610-1611): K_FINITE_SIZE_HYDROGEN is pinned at -7.8654e-10 to 1e-4, but CODATA 2018's own u_r(r_p) = 2.26e-3 gives K a u_r of 4.5e-3 -- the pin is 45x tighter than the datum supports. The same holds for 'lambda_h in proton radii' 1.8732e-3 @1e-3 (address.py:1397), which already sits at +5.49e-4 on 2018 data through the m_h switch 125.20 -> 125.13. Over-precision of a pin, not an error in any conclusion.",
+  "alpha AT LOW ENERGY (address.py:570, the tree's stated hypothesis 'alpha at low energy used in K_alpha'): consistent with the source -- CODATA alpha is the Q^2 = 0 value (PDG 2024 footnote, READ), and d ln alpha(0)/d ln m = -alpha(0) d(alpha^-1(0))/d ln m exactly (sympy identity), so alpha(0) is the correct input to 43 alpha/(54 pi) at one loop. No drift."
+ ],
+ "data_at_publication": [
+  {
+   "quantity": "m_e c^2 (MeV) -- M_E_MEV, address.py:424; section 7 probe ceiling (m_e/m_h)^2",
+   "value_then": "0.51099895000(15) (CODATA 2018 = PDG 2024/2025; tree literal identical)",
+   "value_now": "0.51099895069(16) (CODATA 2022 = PDG 2026); +1.350e-9 relative = +4.60 u(2018)",
+   "source_now": "arXiv:2409.03787 table (READ, saved text); NIST table scipy txt2022 l.1729; PDG mass_width_2026.txt",
+   "moves_conclusion": "No. (m_e/m_h)^2 and the exact probe ceiling move +2.70e-9; eps >= 1.798888e-5 moves -2.7e-9; the tree's pin 1.665833e-11*MH^-2 @1e-5 holds (sandbox)."
+  },
+  {
+   "quantity": "m_p c^2 (MeV) -- M_P_MEV, address.py:425; S_SCAN[0] = 8.990/m_p",
+   "value_then": "938.27208816(29) (CODATA 2018 = PDG 2024/2025)",
+   "value_now": "938.27208943(29) (CODATA 2022 = PDG 2026); +1.354e-9 = +4.38 u(2018)",
+   "source_now": "arXiv:2409.03787 (READ); scipy txt2022 l.1910; PDG mass_width_2026.txt",
+   "moves_conclusion": "No. S_SCAN[0] = 9.581442e-3 moves -1.35e-9; its uncertainty is dominated by QUARK_SUM_MEV (a separate NAMED-NOT-READ input, not audited here)."
+  },
+  {
+   "quantity": "proton rms charge radius r_p (m) -- R_PROTON_M, address.py:427; W10 K_FINITE_SIZE_HYDROGEN and lambda_h/r_p",
+   "value_then": "0.8414(19)e-15 (CODATA 2018; includes scattering)",
+   "value_now": "0.84075(64)e-15 (CODATA 2022; scattering excluded); -7.725e-4 relative = -0.34 u(2018) (paper Table XXXVIII prints -0.4). History, READ in the NIST tables: 2006 0.8768(69), 2010 0.8775(51), 2014 0.8751(61), then 2018 0.8414(19): a -3.85% move, 5.27 combined sigma (the proton-radius puzzle). Contested scattering extractions quoted here only as named values (NAMED-NOT-READ): Mainz A1 ~0.879, PRad 0.831 fm.",
+   "source_now": "arXiv:2409.03787 p.2 and table (READ); NIST tables scipy txt2006-txt2022",
+   "moves_conclusion": "Conclusion no; numeric pins yes. K moves -0.154% (2022), +8.17% (2014), +9.14% (0.879), -2.46% (0.831); |K| spans a factor 1.119 over every radius considered and stays negative and nonzero, so W10 (optical/optical NOT exactly blind) is invariant. Sandbox selftest of address.py with each radius: exactly 2 numeric pin failures (W10 K @1e-4; lambda_h/r_p @1e-3), 0 verdict flips; ledger.py's rendered LEDGER.md drifts on the printed W10 number only; excite.py and higgs.py selftests unchanged (rc 0)."
+  },
+  {
+   "quantity": "Bohr radius a_0 (m) -- A_BOHR_M, address.py:428; courier region, W10 x = r_p/a_0",
+   "value_then": "5.29177210903(80)e-11 (CODATA 2018)",
+   "value_now": "5.29177210544(82)e-11 (CODATA 2022); -6.784e-10 = -4.49 u(2018)",
+   "source_now": "arXiv:2409.03787 Table XXXVIII (D_r -4.5, READ); scipy txt2022 l.1681",
+   "moves_conclusion": "No. a_0/lambda_h = 3.355646e7 moves -6.8e-10 (printed 3.36e7; pin 3.3575e7 @1e-3 holds); 'no atom fits in the screening length' holds for every CODATA vintage."
+  },
+  {
+   "quantity": "fine-structure constant 1/alpha -- ALPHA_EM, address.py:429; W11 K_alpha(H1) = 43 alpha/(54 pi)",
+   "value_then": "137.035999084(21) (CODATA 2018), at Q^2 = 0",
+   "value_now": "137.035999177(21) (CODATA 2022), +6.79e-10 = +4.43 u(2018), driven by LKB-20 (Rb recoil); the three inputs themselves disagree (Berkeley-18 046(27) vs LKB-20 206(11): 5.5 combined sigma, computed from the READ values), handled by an expansion factor 2.5. PDG 2024 world average 137.035999178(8).",
+   "source_now": "arXiv:2409.03787 p.62, Table XXXVIII (READ); PDG 2024 constants footnote (READ)",
+   "moves_conclusion": "No. K_alpha(H1) = 1.849653e-3 moves -6.8e-10 (pin @1e-6 holds). Even the full Cs-Rb spread (1.2e-9 relative) is 3 orders below the pin; the value at Q^2 ~ m_W^2 (~1/128) is not the right input (see the identity in the rederivation)."
+  }
+ ],
+ "rederivation": {
+  "method": "sympy",
+  "script_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/codata-pdg-constants.py",
+  "outcome": "RC 0, 0 failures. (A) the five address.py literals, parsed from address.py itself, equal the NIST CODATA 2018 table entries exactly; 2022 values and shifts printed; r_p history 2006-2022 printed, 2014->2018 move 5.27 combined sigma. The saved arXiv:2409.03787 text (md5-asserted) prints r_p 8.4075(64), 1/alpha 137.035 999 177(21), m_e 0.510 998 950 69(16), m_p 938.272 089 43(29), the scattering exclusion, and Table XXXVIII's r_p row. (B) PDG 2024 and 2025 m_e, m_p = tree = CODATA 2018; PDG 2026 = CODATA 2022. (C) each table is internally consistent: a_0 = hbar/(alpha m_e c) to 2.8e-12 (2018) and 5.2e-12 (2022); m_e c^2/e to 7.5e-12. (D) sympy from CODATA eq.(50): with m_r = m_e it reproduces the tree's 28x^2/(14x^2-9) exactly; with the (m_r/m_e)^3 factor K = 28 rho^2 x^2/(14 rho^2 x^2 - 9), |K| smaller by 0.1088%. (E) every rests_on_it number recomputed under CODATA 2018 and 2022 and under five other radii: largest 2022 move -0.154% (K, via r_p); all others <= 2.7e-9; K negative and nonzero for every radius; tree pins: under 2022 exactly two fail (W10 K @1e-4 by -1.55e-3; lambda_h/r_p @1e-3 by +1.32e-3), both through r_p. (F) sympy identity d ln alpha(0)/d ln m = -alpha(0) d(alpha^-1)/d ln m: the one-loop K_alpha takes alpha(0). Sandbox (d67/sandbox/cpdg, copies of the tree, live tree untouched): address.py selftest base rc0; c22/rp14/rpmainz/rpprad rc1 with exactly the two pin failures above; excite/higgs rc0 in all; ledger rc0 base, rc1 in c22/rp14 solely on LEDGER.md's printed W10 number.",
+  "agrees_with_source": "yes"
+ },
+ "later_literature": [
+  {
+   "ref": "Mohr, Newell, Taylor, Tiesinga, CODATA 2022, arXiv:2409.03787 (RMP 97, 025002 (2025))",
+   "effect": "narrows",
+   "what": "Supersedes all five values: m_e, m_p, a_0, alpha move 4.4-4.6 u(2018) (all driven by alpha, LKB-20); r_p moves -0.34 u(2018) to 0.84075(64) fm, uncertainty 3x smaller, with e-p scattering excluded for lack of consensus. Narrows the datum; no tree conclusion moves.",
+   "read_status": "READ (saved page text, md5 cc640485b0d9f0fe202f38989dac6a2b) plus NIST 2022 table via scipy"
+  },
+  {
+   "ref": "PDG RPP 2024 'Physical Constants' (Robinson, Zyla) and PDG RPP 2026 mass table",
+   "effect": "confirms",
+   "what": "PDG 2024 restates the tree's CODATA 2018 values verbatim and states alpha is 'CODATA recommended value at Q^2 = 0'; PDG 2026 mass table adopts CODATA 2022 m_e, m_p.",
+   "read_status": "READ (saved review text md5 ca6b368328d0a55b79d527ee0a437b77; particle 1.0.1 mass_width_2024/2025/2026.txt)"
+  },
+  {
+   "ref": "Kuzmenko, Kuzmenko, Avishai, Band, arXiv:2302.06288 (2023), finite nuclear size effects in hydrogen",
+   "effect": "extends",
+   "what": "Abstract/intro READ: uses r_p = 0.8414(19) fm; 'The FNS corrections to the ground-state energy are shown to be smaller than the electron-nucleus reduced mass corrections' -- consistent with the tree's own caveat (address.py:51) that recoil terms are not small beside the finite-size K; not read further, so no number is taken from it.",
+   "read_status": "READ (abstract and introduction only, saved text md5 016724a83840b77987e1242f0a31f012)"
+  },
+  {
+   "ref": "discover_papers (this stage): later proton-radius, alpha and mass determinations",
+   "effect": "contested",
+   "what": "NOT RUN: alphaXiv returned 'assistant quota exceeded'. The proton-radius dispute is recorded only as CODATA 2022 states it (READ, p.2); the scattering radii 0.879 (Mainz A1) and 0.831 (PRad) fm are NAMED-NOT-READ. Schema forces an effect value; the true status of this row is OPEN.",
+   "read_status": "NOT READ -- tool quota exhausted"
+  }
+ ],
+ "lacked_data": "M's hypothesis has a real instance here, and the evidence cuts both ways. FOR: the proton radius is exactly a case where earlier adjustments lacked data -- CODATA 2006/2010/2014 put r_p at 0.8768-0.8775 fm from H spectroscopy and e-p scattering; the muonic-hydrogen Lamb shift and newer H measurements moved it to 0.8414 fm in 2018, a -3.85% shift of 5.27 combined sigma (computed from the READ tables), and CODATA 2022 then dropped scattering altogether because its analysis lacks consensus (READ). alpha likewise moved 4.5 u(2018) when LKB-20 arrived, and its three inputs still disagree at 5.5 sigma (Cs vs Rb). AGAINST, for this tree: none of it changes a conclusion. W10's K scales as r_p^2, so a pre-2018 radius would make |K| 8-9% larger and a PRad-like radius 2.5% smaller -- the claim 'optical/optical is NOT exactly blind' needs only K != 0, which holds at every radius (a point nucleus is the only way to get zero). Every other rests_on_it number moves by <= 2.7e-9. What the tree carries is the CODATA 2018 vintage, superseded but not wrong; the only consequence of the newer data is that two tight numeric pins (W10 K @1e-4 and lambda_h/r_p @1e-3) fail with CODATA 2022 inputs, which is an over-precision of pins (K's own 2018 u_r is 4.5e-3), not a moved verdict.",
+ "grade": "STANDS",
+ "grade_evidence": "The five literals are the CODATA 2018 values digit for digit (READ in the NIST table and in PDG 2024's verbatim restatement; m_e and m_p also = PDG 2024/2025 mass tables). Each table is internally consistent to <1e-11. CODATA 2022 (READ) supersedes them: m_e, m_p, a_0, alpha by 4.4-4.6 u(2018) (~1e-9 relative), r_p by -0.34 u(2018) (-7.7e-4). Recomputed, no rests_on_it conclusion moves: K_finite stays negative and nonzero across the whole historical and contested r_p span (factor 1.119), K_alpha(H1), the probe ceiling, eps >= 1.80e-5, a_0/lambda_h and S_SCAN[0] move <= 2.7e-9. Sandbox selftests with 2022 values and with 2014/scattering radii: 0 verdict flips; two numeric pins fail, both through r_p. Recorded, not repaired: the tree's 'PDG/CODATA' label omits the vintage; its finite-size shift omits eq.(50)'s (m_r/m_e)^3 (|K| -0.109%, beyond the 1e-4 pin, not the verdict); the W10 pin is 45x tighter than r_p's own uncertainty. The status word NAMED-NOT-READ in address.py is now READ-VIA-RESTATEMENT for 2018 and READ for 2022. Not STANDS-by-default: the later-literature search could not run (quota), so 'no post-2022 datum moves it' is established only up to CODATA 2022 / PDG 2026.",
+ "what_would_change_the_grade": "DATA-DEPENDENT only if a tree conclusion came to hinge on r_p at the ~1% level (none does now: the verdict needs K != 0) or on m_e/a_0/alpha at <1e-8. NARROWED if the tree's printed K (-7.8654e-10 at 5 s.f.) were treated as a physical result rather than a CODATA-2018-conditional number, since the omitted (m_r/m_e)^3 factor (-0.109%), recoil terms the tree itself names, and r_p's own uncertainty (4.5e-3 in K) all exceed its pin. WRONG only if a literal were shown to differ from the CODATA 2018 entry it claims (it does not, 5/5). A discover_papers run finding a post-2024 radius outside 0.83-0.88 fm would still not flip W10; it would move the pinned number.",
+ "reverify_command": "python3 -B /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/codata-pdg-constants.py  # expect RC 0; sandbox: bash /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/sandbox/cpdg/run.sh c22 && cat .../sandbox/cpdg/logs/c22/RC",
+ "report_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/audits/codata-pdg-constants.json"
+}

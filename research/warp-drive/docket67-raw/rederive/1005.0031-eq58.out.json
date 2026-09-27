@@ -1,0 +1,164 @@
+{
+ "A1": {
+  "ok": true,
+  "msg": "orthonormal reading of (58): -u + p_r + 2 p_t = 0 at order eps^-3 (traceless)"
+ },
+ "A2": {
+  "ok": null,
+  "msg": "TEXT-LAYER coordinate reading diag(2/a,0,a,a sin^2 th) (contravariant) has trace A*(a**4*(sin(theta)**4 + 1) - 2)/(a*epsilon**3) != 0 -> the alphaXiv text layer has lost the typography of (58) (entries must be 1/a^3, 1/(a^3 sin^2 th) for 'properly traceless'); DISCREPANCY, not refutation"
+ },
+ "A3": {
+  "ok": true,
+  "msg": "reading with T^thth = A/(a^3 eps^3) is traceless at r = a"
+ },
+ "B-exterior": {
+  "ok": true,
+  "msg": "exterior: conservation forces p_r = -A/a**2/eps^2 (tree: -A/(a^2 eps^2))"
+ },
+ "B-interior": {
+  "ok": true,
+  "msg": "interior: conservation forces p_r = -A/a**2/eps^2 (tree: -A/(a^2 eps^2))"
+ },
+ "B-u-int": {
+  "ok": true,
+  "msg": "interior u from the odd continuation: -2*A/(a*epsilon**3) (tree: -hbar c/(30 pi^2 a eps^3) at A=1/(60pi^2))"
+ },
+ "C1": {
+  "ok": true,
+  "msg": "Saharian 0708.1187 (14.21) interior eps = -1/(30pi^2 a (a-r)^3), p = -1/(60pi^2 a^2 (a-r)^2) == tree's u, p_r with A_EM = 1/(60 pi^2) EXACTLY"
+ },
+ "C2": {
+  "ok": true,
+  "msg": "Saharian convention T^k_i = diag(eps,-p,-pperp,-pperp): eps - p - 2 pperp = -p at eps^-3 order (i.e. traceless at eps^-3, p enters at eps^-2) -- consistent"
+ },
+ "C3": {
+  "ok": true,
+  "msg": "Saharian (16.24) interior cylinder T^0_0 = -1/(60 pi^2 a (a-r)^3) = 1/2 sphere: coefficient proportional to kappa1+kappa2 (Deutsch-Candelas structure)"
+ },
+ "C4": {
+  "ok": true,
+  "msg": "Milton (58) with A_D = 1/(720 pi^2) reproduces Milton (130) u ~ 1/(360 pi^2 a (r-a)^3): internal consistency"
+ },
+ "D1": {
+  "ok": true,
+  "msg": "leading m(r) = -a*hbar/(15*pi*c*epsilon**2) (tree: -(hbar a)/(15 pi c eps^2))"
+ },
+ "D2": {
+  "ok": true,
+  "msg": "chi = 2G|m|/(a c^2) = 2*l_P**2/(15*pi*epsilon**2)"
+ },
+ "D3": {
+  "ok": true,
+  "msg": "V16 re-run: lim eps->0 |delta| 15 pi eps^2/l_P^2 = -1 (delta -> chi/2 at leading order)"
+ },
+ "D4": {
+  "ok": true,
+  "msg": "crossover coefficient K_SF/A_EM = 15*sqrt(2)*pi/32 = 2.082601; a_c/skin = 0.480169"
+ },
+ "D5": {
+  "ok": true,
+  "msg": "chi(137.8 nm) = 5.83862e-58 (tree banked 5.84e-58, recomputed 5.8386e-58)"
+ },
+ "D6": {
+  "ok": true,
+  "msg": "delta(l_P) = 0.021221; delta = 1 at eps = 0.1456731 l_P"
+ },
+ "D7": {
+  "ok": null,
+  "msg": "every tree magnitude built on A_EM (u, p_r, m, chi, delta) is linear in A; crossover coefficient ~ 1/A; signs independent of A (tolman.py:1059-1060 says the same)"
+ },
+ "E0": {
+  "ok": true,
+  "msg": "Debye(u3,v3) vs scipy at nu=40, x=35: [11.090504197, -15.756818348, 1.512451484, -1.524839785] vs [11.090504202, -15.756818344, np.float64(1.512451471), np.float64(-1.524839773)]"
+ },
+ "E1": {
+  "ok": true,
+  "msg": "eps(r=1e-3 a) = -0.03807 a^-4 (published eps(0) = -0.0381 a^-4)"
+ },
+ "E1b": {
+  "ok": true,
+  "msg": "centre equation of state eps(0) = 3 p(0): -0.03807 vs 3*-0.01269"
+ },
+ "E2": {
+  "ok": true,
+  "msg": "exact EM mode sum, interior: lim (a-r)^3 eps = -0.0033770 vs -1/(30 pi^2) = -0.0033774 (ratio 0.99988) -> A_EM = 1.6884780e-03 vs 1/(60 pi^2) = 1.6886864e-03"
+ },
+ "E3": {
+  "ok": true,
+  "msg": "exact EM mode sum, interior: lim (a-r)^2 p_r = -0.0016891 vs -1/(60 pi^2) = -0.0016887 (ratio 1.00023)"
+ },
+ "E4": {
+  "ok": null,
+  "msg": "A extracted vs alternatives: 1/(30pi^2) [factor 2]: ratio 0.500; 1/(120pi^2) [factor 1/2]: ratio 2.000; 1/(720pi^2) [Dirichlet]: ratio 11.999"
+ },
+ "_table": [
+  [
+   0.2,
+   -0.005103923132496,
+   -0.002756194197588771,
+   80
+  ],
+  [
+   0.15,
+   -0.004582713315160448,
+   -0.002465571268405641,
+   107
+  ],
+  [
+   0.12,
+   -0.004301369462725387,
+   -0.002299601063361817,
+   135
+  ],
+  [
+   0.1,
+   -0.004125875115092297,
+   -0.002192194470585186,
+   162
+  ],
+  [
+   0.08,
+   -0.003959517092733929,
+   -0.0020872320359045186,
+   203
+  ],
+  [
+   0.065,
+   -0.003840491958688382,
+   -0.0020100340580157484,
+   250
+  ],
+  [
+   0.05,
+   -0.0037262016966263414,
+   -0.00193407420219071,
+   324
+  ],
+  [
+   0.04,
+   -0.003652558038384685,
+   -0.001884087839697135,
+   404
+  ],
+  [
+   0.03,
+   -0.003580899303153635,
+   -0.0018345958743307678,
+   535
+  ]
+ ],
+ "_fits": {
+  "2": [
+   -0.0033850183383795263,
+   -0.0016914692039332205
+  ],
+  "3": [
+   -0.003376955999689684,
+   -0.0016890826987221144
+  ],
+  "4": [
+   -0.003377414125823454,
+   -0.0016889482243159963
+  ]
+ }
+}

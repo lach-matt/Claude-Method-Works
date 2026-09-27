@@ -1,0 +1,87 @@
+{
+ "key": "misner-sharp-1964-mass-and-equations",
+ "name": "Misner-Sharp mass function and its evolution equations (MS-r: D_r m = 4 pi R^2 (rho W + j U); MS-t: D_t m = -4 pi R^2 (p_r U + j W)); identity W^2 = 1 - 2m/R + U^2 -- as used by drivensource.py (Birkhoff-in-MS-variables closure of the driven EM branch; PG margin W = 1)",
+ "source": {
+  "located": "C. W. Misner & D. H. Sharp, Phys. Rev. 136, B571 (1964) -- no arXiv copy. Read via S. A. Hayward, 'Gravitational energy in spherical symmetry', Phys. Rev. D 53, 1938 (1996), arXiv gr-qc/9408002v2: eq.(4) E = (1/2) r (1 - g^{-1}(dr,dr)) in units G = 1; eq.(27) 1 - 2E/r = e^{-lambda}(r')^2 - rdot^2, 'which is the form actually given by Misner & Sharp [4]'; eq.(28a) E' = 4 pi r^2 (T00 r' - T01 rdot), eq.(28b) Edot = 4 pi r^2 e^{-lambda} (T01 r' - T11 rdot) for GENERAL T in the gauge ds^2 = r^2 dOmega^2 + e^lambda dchi^2 - dtau^2; eq.(31)-(32) MS's perfect fluid, comoving: E' = 4 pi r^2 rho r', Edot = -4 pi r^2 p rdot. The flux-carrying MS-t/MS-r in proper-derivative form read in L. Herrera & N. O. Santos, 'Dynamics of dissipative gravitational collapse', arXiv gr-qc/0410014 (2004): eq.(25) D_t m = 4 pi [-(P_r + eps) U - (qB + eps) E](rB)^2, eq.(30) D_R m = 4 pi [mu + eps + (qB + eps) U/E](rB)^2, E = [1 + U^2 - 2m/R]^{1/2} (eq.22), extending Misner-Sharp [1] and Misner 1965 [2].",
+  "read_status": "READ-VIA-RESTATEMENT",
+  "via": "alphaXiv answer_pdf_queries on gr-qc/9408002v2 (pp.1-2, 4, 6-7, 9, 12-17, 19, 21-22) and gr-qc/0410014v2 (pp.1-9). Misner-Sharp 1964 itself NAMED-NOT-READ (no arXiv copy); its equations are taken from Hayward's explicit restatement ('the form actually given by Misner & Sharp') and Herrera-Santos' extension. Both restatements re-derived here from scratch (C2a-e) and agree exactly with the tree's MS-r/MS-t."
+ },
+ "published_statement": "Hayward (gr-qc/9408002 p.4, eq.4): 'The Misner-Sharp spherically symmetric gravitational energy ... may be defined in units G = 1 by E = (1/2) r (1 - g^{-1}(dr,dr))'; 'Note that E is an invariant.' p.12 eq.(27): '1 - 2E/r = e^{-lambda}(r')^2 - rdot^2 which is the form actually given by Misner & Sharp [4], with different notation.' p.12 eq.(28): 'E' = 4 pi r^2 (T00 r' - T01 rdot)', 'Edot = 4 pi r^2 e^{-lambda}(T01 r' - T11 rdot)' with T00 = T(d/dtau, d/dtau), T01 = T(d/dtau, d/dchi), T11 = T(d/dchi, d/dchi). Misner-Sharp's perfect fluid (eq.31-32): 'E' = 4 pi r^2 rho r'', 'Edot = -4 pi r^2 p rdot', '(32b) expresses the rate Edot of work done by the force 4 pi r^2 p due to pressure.' p.7 eq.(11) and Prop.4: 'In vacuo, E is constant and the solution is locally isometric to the Schwarzschild solution with energy E' ('a proof of Birkhoff's theorem'). Herrera-Santos (gr-qc/0410014 p.7-8): eq.(25) 'D_t m = 4 pi [-(P_r + eps) U - (qB + eps) E] (rB)^2', eq.(30) 'D_R m = 4 pi [mu + eps + (qB + eps) U/E] (rB)^2', with U = r D_t B (areal velocity, eq.21), E = (rB)'/B = [1 + U^2 - 2m/R]^{1/2} (eq.22), D_t = A^{-1} d_t, D_R = (1/R') d_r.",
+ "published_hypotheses": [
+  "spherical symmetry; all objects respect it (Hayward p.2: 'assumed implicitly in the Propositions')",
+  "r (R) the areal radius; E defined on metric spheres from r and g^{-1}(dr,dr) (coordinate-free, an invariant)",
+  "units G = c = 1",
+  "for the evolution equations: Einstein equations G = 8 pi T with NO cosmological constant (Hayward eq.10a-c; Maeda-Nozawa 0709.1199 p.1-3: the Lambda-generalised mass is a different function, reducing to MS 'without a cosmological constant')",
+  "MS 1964 original setting: perfect fluid T = (rho + p) u u + p g, comoving coordinates (d/dtau = fluid velocity, so no flux term), adiabatic collapse",
+  "Herrera-Santos 2004 setting: anisotropic fluid with radial heat flux q and null radiation eps, comoving, metric (3) shear-free 'for simplicity' (the D_t m, D_R m equations themselves are shown here to need no shear-free assumption, C2d-e on the general diagonal metric)",
+  "Birkhoff content (Hayward Prop.4, vacuum): E constant; local isometry to Schwarzschild uses the (Dr)^2 != 0 branch (Maeda-Nozawa 0709.1199 Prop.1: r = const gives the Nariai-type class instead)"
+ ],
+ "hypothesis_drift": [
+  "BROADENED, and supported (nonstatic.py:56-70, used at drivensource.py:94-96, 339-342): MS 1964's comoving perfect fluid -> arbitrary anisotropic T with outward flux j = -T_ab u^a n^b, in any diagonal (Eulerian-observer) slicing. Hayward eq.(28a,b) already holds for general T; re-derived here from a fresh Einstein tensor (C1c, C1d) and mapped exactly onto Hayward (28a,b) at Phi = 0 (C2b, C2c) and Herrera-Santos (25),(30) at eps = 0 with q_hat = j, E = W (C2d, C2e). Sign convention of j checked (C1e). No harm.",
+  "DROPPED, unstated: Lambda_c = 0. nonstatic.py:297 sets T = Ein/(8 pi) (G = 8 pi T), and drivensource.py:98 states 'm(R) = M - Q^2/(2R), M CONSTANT'; SCOPE (drivensource.py:457-459) names 'pure electrovac, spherical symmetry' but not Lambda_c = 0. Derived here (C6a-d): with G + Lambda_c g = 8 pi T, MS-r gains +(Lambda_c/2) R^2 W and MS-t gains +(Lambda_c/2) R^2 U, and the frozen electrovac solution is m = M - Q^2/(2R) + Lambda_c R^3/6 with M still CONSTANT (agrees with Maeda-Nozawa eq.2.7 at n = 4, alpha = 0: m_gen = m_MS - Lambda r^3/6). The load-bearing conclusion (m frozen, no EM degree of freedom, EM_CLOSED_BY) survives exactly; only the displayed formula needs the named hypothesis. Size at measured Lambda_c: 4.9e-19 of the Q^2/2R term at Q = 1 C, R = 1 m (C10).",
+  "DROPPED, unstated: dR != 0 for the label 'That is Birkhoff's theorem for Einstein-Maxwell' (drivensource.py:101) and 'm at a given areal radius' (drivensource.py:104-105). Shown (C7a): Bertotti-Robinson AdS2 x S2 with R = |Q| constant solves G = 8 pi T_EM exactly and is NOT Reissner-Nordstrom; its MS mass is m = |Q|/2 = M - Q^2/(2R) with M = |Q| (C7b), so 'the mass function is frozen' still holds, but the local-RN form of Birkhoff needs dR != 0 (the vacuum analogue is Maeda-Nozawa Prop.1's r = const Nariai-type branch). Non-load-bearing for EM_CLOSED_BY.",
+  "OVERSTATED at the tree (not a drift in the external result): drivensource.py:286 'Maxwell stress-energy of the ONLY spherically symmetric field' and :302 'Spherical symmetry admits only F_{tr} (radial electric)' omit the magnetic monopole F_{theta phi} = P sin(theta), which satisfies Maxwell and dF = 0 in the full dynamical metric (C4a, C4b). Computed: rho = (Q^2 + P^2)/(8 pi R^4), j = 0, p_r = -rho (C4c-e), and the Birkhoff-in-MS residuals vanish with Q^2 -> Q^2 + P^2 (C5a, C5b). A discrepancy in wording; every conclusion survives with the dyonic charge.",
+  "CARRIED FAITHFULLY: spherical symmetry and areal radius (canonical hypotheses); the identity W^2 = 1 - 2m/R + U^2 is Hayward eq.(4)/(27) in Eulerian variables (C1a, C1b); obligation E3 (drivensource.py:435-439) keeps W > 0 in its hypothesis set, and z3 shows that hypothesis is load-bearing (C9b: W = -1, U = 0, m = 0 satisfies the identity with W != 1 but U^2 = 2m/R).",
+  "ATTRIBUTION absent, not wrong: drivensource.py never cites Misner-Sharp 1964 (canonical status_word 'none'); it takes the equations from nonstatic.py, which re-derives them from the Einstein tensor (nonstatic.py:282-305, residuals at :340-343). The tree's MS-t with flux is the Hernandez-Misner / Herrera-Santos extension, not MS 1964's adiabatic equation."
+ ],
+ "data_at_publication": [
+  {
+   "quantity": "cosmological constant Lambda_c (enters MS-r/MS-t and the explicit frozen m(R))",
+   "value_then": "0 -- not in Misner-Sharp 1964 (G = 8 pi T); Lambda_c > 0 was not measured until 1998",
+   "value_now": "Lambda_c = (1.089 +/- 0.03) x 10^-52 m^-2: from Omega_Lambda = 0.6847 +/- 0.0073, H0 = 67.36 +/- 0.54 km/s/Mpc, and Planck's own 4.24e-66 eV^2 (two routes agree to 2e-4, C10a)",
+   "source_now": "Planck 2018 VI, arXiv 1807.06209v4, eq.(15) and Table 2 (TT,TE,EE+lowE+lensing) -- READ p.16-17",
+   "moves_conclusion": "NO for the load-bearing claim: M constant and m frozen hold exactly with Lambda_c (C6c-d). The displayed formula m(R) = M - Q^2/(2R) becomes M - Q^2/(2R) + Lambda_c R^3/6; ratio of the added term 4.9e-19 (Q = 1 C, R = 1 m), 4.9e-15 (1 uC, 1 cm), 4.9e-7 (1 C, 1 km) (C10)."
+  },
+  {
+   "quantity": "every other input",
+   "value_then": "none -- MS mass and evolution equations are symbolic identities of the Einstein tensor (units G = c = 1, Gaussian EM units)",
+   "value_now": "none",
+   "source_now": "n/a (canonical data_used: 'symbolic only')",
+   "moves_conclusion": "no datum exists to move"
+  }
+ ],
+ "rederivation": {
+  "method": "sympy",
+  "script_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/misner-sharp-1964-mass-and-equations.py",
+  "outcome": "ALL PASS, exit 0, ~6 s (output in rederive/misner-sharp-1964-mass-and-equations.out; md5 of script bef8daff177066e439e6b2b71eedd6e3). Independent of the tree (nothing imported from research/warp-drive). C1: from a fresh Einstein tensor of ds^2 = -e^{2Phi}dt^2 + e^{2Lam}dr^2 + R^2 dOmega^2, m = (R/2)(1 - g^{ab}R_a R_b) = (R/2)(1 - W^2 + U^2), identity W^2 = 1 - 2m/R + U^2, MS-r and MS-t hold identically with rho = T_uu, p_r = T_nn, j = -T_un (residual 0). C2: Hayward (27), (28a), (28b) at Phi = 0 and Herrera-Santos (25), (30) at eps = 0 reproduced (residual 0). C3: MS 1964's comoving j = 0 form. C4: dyonic F (Q and P) satisfies Maxwell + Bianchi; rho = (Q^2+P^2)/(8 pi R^4), j = 0, p_r = -rho. C5: d(m_MS - [M - (Q^2+P^2)/2R]) = 0 on shell (both components). C6: with Lambda_c the MS equations gain (Lambda_c/2)R^2 W, (Lambda_c/2)R^2 U, frozen m = M - Q^2/2R + Lambda_c R^3/6. C7: Bertotti-Robinson (dR = 0) solves Einstein-Maxwell, not RN, m = |Q|/2 frozen. C8: Lemaitre/PG slicing gives m = r_s/2, W = 1, U = -sqrt(2m/R) exactly (confirms drivensource.py pg_witness claims :373-387, docstring :175-190). C9 (z3 5.1.0): E3 negation unsat with W > 0; drift guard sat without it. C10: Lambda_c from Planck two ways, magnitudes above.",
+  "agrees_with_source": "yes"
+ },
+ "later_literature": [
+  {
+   "ref": "S. A. Hayward, PRD 53, 1938 (1996), arXiv gr-qc/9408002",
+   "effect": "confirms",
+   "what": "Restates MS exactly (eq.27), gives the general-T variation formulae (28a,b) the tree's MS-r/MS-t reduce to, the vacuum Birkhoff proof via E constant (Prop.4), and the MS perfect-fluid form (32a,b). Re-derived here C2a-c.",
+   "read_status": "READ (alphaXiv, pp.1-2, 4, 6-7, 9, 12-17, 19, 21-22)"
+  },
+  {
+   "ref": "L. Herrera & N. O. Santos (2004), arXiv gr-qc/0410014 (journal ref not read here)",
+   "effect": "extends",
+   "what": "Misner-Sharp dynamical equations with radial heat flux, anisotropy and null radiation: D_t m = -4 pi (P_r U + qB E) R^2, D_R m = 4 pi (mu + qB U/E) R^2 (eps = 0) -- the tree's MS-t/MS-r with j = qB, W = E. Their metric is shear-free, but the equations hold on the general diagonal metric (C2d-e).",
+   "read_status": "READ (alphaXiv, pp.1-9)"
+  },
+  {
+   "ref": "H. Maeda & M. Nozawa, PRD 77, 064031 (2008), arXiv 0709.1199",
+   "effect": "narrows",
+   "what": "Generalised MS mass with Lambda and Gauss-Bonnet (eq.2.7); at n = 4, alpha = 0 it is m_MS - Lambda r^3/6, i.e. the plain MS mass is the Lambda = 0 object (the tree's unnamed hypothesis). Variation formulae (2.18-19) identical in form. Vacuum classification Prop.1: (Dr)^2 != 0 gives the Birkhoff solution, r = const gives Nariai-type -- the dR != 0 hypothesis. Also notes Hayward's positivity proof needs an extra lemma (not used by this key).",
+   "read_status": "READ (alphaXiv, pp.1-6, 9-10)"
+  },
+  {
+   "ref": "R.-G. Cai, L.-M. Cao, Y.-P. Hu & N. Ohta (2009), arXiv 0910.2387 (journal ref not read here)",
+   "effect": "narrows",
+   "what": "The MS form (1.2) and unified first law (1.3) are 'applicable for Einstein gravity without cosmological constant in four dimensions'; in f(R) (and scalar-tensor) a generalised MS energy exists only under the integrability constraint (3.13). Narrows the result to GR/Lovelock -- the tree works in GR (canonical hypothesis 'Einstein field equations'), so its use is inside the class.",
+   "read_status": "READ (alphaXiv, pp.1-14)"
+  },
+  {
+   "ref": "Planck Collaboration, Planck 2018 results VI, arXiv 1807.06209",
+   "effect": "contested",
+   "what": "Not a paper on MS: the measurement that Lambda_c > 0 (Omega_Lambda = 0.6847 +/- 0.0073, Lambda = 4.24e-66 eV^2). 'contested' here only in the sense that it moves the Lambda_c = 0 hypothesis MS 1964 took for granted; it does not move the tree's conclusion (C6, C10).",
+   "read_status": "READ (alphaXiv, pp.1, 14-17)"
+  }
+ ],
+ "lacked_data": "M's hypothesis tested for this result. What Misner & Sharp had in 1964: GR with G = 8 pi T, a perfect fluid, comoving coordinates; the result is a DEFINITION (an invariant of the metric, Hayward eq.4) plus IDENTITIES of the Einstein tensor -- no measured number enters it. Data that came later and bears on it: (a) Lambda_c > 0 (1998; Planck 2018 value 1.089e-52 m^-2). Having it changes the displayed electrovac formula by +Lambda_c R^3/6 but NOT the conclusion: re-derived with Lambda_c (C6), M is still constant and m still frozen; the correction is 5e-19 of the charge term at laboratory scale (C10). (b) Dissipation/flux and anisotropy (Hernandez-Misner 1966, Herrera-Santos 2004): the equations extend exactly; the tree already uses the extended form and it re-derives (C1, C2d-e). (c) Modified gravity (f(R), scalar-tensor; Cai et al. 2009): the MS form is specific to Einstein/Lovelock gravity -- this is a theory hypothesis, not a datum, and no measurement has selected f(R) over GR. Evidence either way: no datum that has moved moves this result; the only moved quantity (Lambda_c) is shown computationally not to move the tree's conclusion. M's hypothesis is not supported for this result.",
+ "grade": "NARROWED",
+ "grade_evidence": "The external result itself STANDS: the MS mass (Hayward eq.4/27 restating MS 1964), the identity W^2 = 1 - 2m/R + U^2, and the flux-carrying MS-r/MS-t re-derive exactly from a fresh Einstein tensor and match both READ restatements (sympy C1-C3, all residuals 0), and drivensource.py applies them correctly: the electrovac source has j = 0, p_r = -rho, both MS residuals vanish for M constant, and the on-shell difference m_MS - (M - Q^2/2R) has zero gradient (C4-C5); the PG witness claims re-derive (C8); E3 is z3-discharged with its W > 0 hypothesis load-bearing (C9). Graded NARROWED -- not WRONG, and not in M's favour -- only because the tree's use leaves hypotheses unnamed that the result needs for the exact displayed statements: (i) Lambda_c = 0 for 'm(R) = M - Q^2/(2R)' (drivensource.py:98; with Lambda_c it is + Lambda_c R^3/6, C6); (ii) dR != 0 for the local-RN reading of 'Birkhoff's theorem for Einstein-Maxwell' (drivensource.py:101; Bertotti-Robinson is an exact dR = 0 counter-case, C7); and a wording discrepancy (iii) 'the ONLY spherically symmetric field ... admits only F_tr' (drivensource.py:286, 302) omits magnetic charge (C4). At each of the three the tree's load-bearing conclusion -- the mass function is frozen, so pure spherically symmetric electrovac cannot drive contraction (EM_CLOSED_BY) -- was recomputed and survives exactly (Q^2 -> Q^2 + P^2; M constant with Lambda_c; m = |Q|/2 frozen at dR = 0). No moved datum moves it (Lambda_c effect 4.9e-19 at 1 C, 1 m). Nothing repaired; discrepancies recorded.",
+ "what_would_change_the_grade": "To STANDS: the tree naming Lambda_c = 0 (or G = 8 pi T without Lambda) and dR != 0 in drivensource.py's SCOPE/docstring and replacing 'the ONLY spherically symmetric field' with the dyonic statement (Q^2 -> Q^2 + P^2) -- no conclusion changes. To WRONG: an exact spherically symmetric Einstein-Maxwell solution (Maxwell F SO(3)-invariant, G = 8 pi T_EM) whose MS mass has a nonzero gradient off the Q^2/2R profile -- C4-C7 exhaust the invariant 2-forms (E dt^dr + P sin(theta) dtheta^dphi) and both dR branches and find none. To DATA-DEPENDENT: a measurement preferring a gravity theory in which the MS form fails (f(R)/scalar-tensor without the (3.13) constraint, Cai et al. 2009); none exists. To OPEN: nothing -- the classic is NAMED-NOT-READ but its content is READ in two restatements and re-derived.",
+ "reverify_command": "python3 /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/misner-sharp-1964-mass-and-equations.py   # expect 'ALL PASS', exit 0 (sympy >= 1.12; z3-solver for C9: pip install z3-solver)",
+ "report_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/audits/misner-sharp-1964-mass-and-equations.json"
+}

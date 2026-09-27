@@ -1,0 +1,53 @@
+C1  eq.(65) error budget from the components the text names (p.19-20)
+  REC  2.0 x 0.76 (M_t exp alone)                                                     1.520
+  REC  quadrature of 2.0(0.76+0.3), 0.5 (a3), 0.3 (th, eq.64)                         1.735
+  REC  quadrature without the 0.3 top-mass theory error                               1.628
+  PASS printed +-1.5 reproduces only as 2.0 x 0.76 (|1.52-1.5| < 0.05)
+  DISC eq.(65): the stated quadrature of the named components gives +-1.74 (or +-1.63 without the 0.3 top theory error), not the printed +-1.5
+C2  '2.8 sigma (99.8% C.L. one-sided)' (p.20)
+  REC  z with printed +-1.5 and dM_h 0.24                                             2.929
+  REC  z with the full stated budget                                                  2.541
+  REC  one-sided CL of 2.8 sigma, %                                                   99.744
+  REC  sigma of one-sided 99.8%                                                       2.878
+  PASS every reading excludes stability at > 2.5 sigma (conclusion robust)
+  DISC 2.8 sigma is 99.74% one-sided (rounds to 99.7, printed 99.8%); recomputed z = 2.93 (printed budget) or 2.54 (full budget) brackets 2.8
+C3  eq.(66) vs eq.(64) inverted (p.20 'We can express the stability condition of eq.(64) as')
+  REC  eq.(64) inverted at M_h = 125.15, a3 = 0.1184: M_t,crit                        171.115
+  REC  printed eq.(66) central                                                        171.53
+  REC  difference, GeV                                                                0.415
+  REC  quadrature of 0.15, 0.23, 0.15 (the three printed components)                  0.313
+  REC  ... plus the 0.3 top-mass theory error of p.20                                 0.433
+  PASS component sizes follow eq.(64): 0.3/2 = 0.15, 0.5/2 = 0.25 ~ 0.23, 0.24/2 = 0.12 ~ 0.15
+  DISC eq.(66) central 171.53 is 0.41 GeV above eq.(64) inverted (171.12); the linear eq.(64) is stated only 'in the neighbourhood of the measured values' and 171.5 lies 1.8 GeV away, so a curvature of the boundary is a possible cause -- NOT computed here
+  DISC eq.(66) +-0.42 is not the quadrature of its three printed components (0.31); it reproduces (0.43) only if the 0.3 GeV top theory error is added
+  REC  AFS 1707.08124 m_t,crit (m_h 125.09, a_s 0.1181), for comparison               171.18
+C4  top mass against the bound, THEN (p.20 inputs)
+  REC  THEN (173.34 +- 0.76) vs eq.(66) 171.53 +- 0.42: z                             2.084
+  PASS THEN metastability side (z > 0) for eq.(66) 171.53 +- 0.42
+  REC  THEN (173.34 +- 0.76) vs eq.(64) inverted 171.12 +- 0.31: z                    2.707
+  PASS THEN metastability side (z > 0) for eq.(64) inverted 171.12 +- 0.31
+  REC  sigma of the p.31 '99.3% CL' (one-sided)                                       2.457
+C5  NOW: eq.(64)/(66) linearisation at PDG 2024 (as READ in 2401.08811 Table I)
+  REC  M_t^MC 172.57(29): M_h,crit (eq.64)                                            128.346
+  REC  M_t^MC 172.57(29): z = (M_h,crit - 125.20)/sigma [sigma incl. 0.3 top th]      2.858
+  PASS M_t^MC 172.57(29): still on the metastable side (z > 0)
+  REC  M_t^sigma 172.4(7): M_h,crit (eq.64)                                           128.006
+  REC  M_t^sigma 172.4(7): z = (M_h,crit - 125.20)/sigma [sigma incl. 0.3 top th]     1.666
+  PASS M_t^sigma 172.4(7): still on the metastable side (z > 0)
+  REC  eq.(66) shifted to today's M_h, a_s (eq.64 slopes): M_t,crit                   171.412
+  REC  Hiller 2401.08811 full analysis M_t,crit (alpha_lambda,eff > 0)                171.10
+  PASS the 'preferred, not established' status holds under both top masses (z between 1 and 4 sigma, never > 5)
+  REC  spread of z between the two top-mass definitions                               1.191
+C6  eq.(67): Lambda_I in '10^10-10^12' then and now (Landau gauge, Lambda_I ~ 13 Lambda_V)
+  REC  THEN central: log10 Lambda_I  (log10 Lambda_V = 9.50)                          10.614
+  PASS THEN central inside 10^10-10^12
+  REC  NOW M_t^MC: log10 Lambda_I  (log10 Lambda_V = 10.13)                           11.248
+  PASS NOW M_t^MC inside 10^10-10^12
+  REC  NOW M_t^sigma: log10 Lambda_I  (log10 Lambda_V = 10.30)                        11.418
+  PASS NOW M_t^sigma inside 10^10-10^12
+C7  the tree's case split (massform.field_supplies_mass_energy = rel or (metastable and dec))
+  PASS C4 identical for stable and metastable at rel = dec = False
+  PASS C4 in the metastable case flips if dec = True: the INFERENCE (decay forms no mass at the seat) is load-bearing, the top mass is not
+
+DISCREPANCIES RECORDED (not refutations): 4
+ALL PASS

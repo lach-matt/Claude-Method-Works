@@ -1,0 +1,38 @@
+PASS C1a J = g g'/N^3 (bottom strip) :: g(theta)*Derivative(g(theta), theta)/(2*g(theta)**2 - 2*g(theta) + 1)**(3/2)
+PASS C1b eq.(9) integral over g:0->1 equals 1 (exact, antiderivative (u-1)/sqrt(Q)) :: I = 1, numeric 1.000000000000000
+PASS C1c eq.(10) top-strip integral :: J_top(g'=1) = (1 - u)/(2*u**2 - 2*u + 1)**(3/2), integral = 1.000000000000000 (paper: 1 with footnote-4 sign convention)
+PASS C1d kink = (1/2)(I9 + I10) = 1 :: 
+PASS C2a Misner-trick shifts chi(W#N)-chi(W)=chi(N)-2 :: {'S2xS2': 2, 'S1xS3': -2, 'CP2': 1, 'RP4': -1}
+PASS C2b chi(W)=1 needs genus -1 (impossible) :: genus solutions [-1]
+PASS C2c Sigma_i = D^3: chi(M # CP2) = 1 = kink :: chi = 1
+PASS C2d u(S1xS2)=0 != kink mod 2 = 1 -> no spin structure :: u=0
+PASS C3a g_L = delta - ((n+2)/n) df df  [eq. 12] :: 
+PASS C3b g_L(grad_R f, grad_R f) = -g_R^{-1}(df,df) < 0 :: 
+PASS C4a eq.(13) is eq.(12) in (z,r,theta,phi) :: max|diff| = 2.13e-14 (300 random points)
+PASS C4b eq.(14) pulls back to eq.(13), R = r^2 :: max|diff| = 4.26e-14
+PASS C5a tetrad (18) reproduces metric (13) :: max|diff| = 3.6e-15
+PASS C5b only T00,T01,T11,T22=T33 nonzero in tetrad (18) [T := G, units 8piG=1, no Lambda] :: max off-block 0.0e+00, |T22-T33| 4.8e-14
+PASS C5c sign[(T00+T11)^2-4T01^2] = sign[printed polynomial] (criterion 19) :: D/P ratio range [1.289e-07, 1.144e+03]; best monomial fit D = 4 * P / (F^2 (F+1)^4), relative spread 1.1e-12
+PASS C5d type-IV region exists on (13) (P<0 somewhere) :: of 400 random (z,r): type I 188, type IV 212
+PASS C5e type-IV region vs the critical level set |z|=r (paper Fig. 9: violations 'occur on the critical level set') :: P on the cone = -32*r**6 + 16*r**2 + 4, negative for r > 0.8995 (sqrt(F) > 1.2720); P(z,0) and P(0,r) are perfect squares (type I/II on the axes); type-IV angular fraction of the (z,r) half-plane at sqrt(F)=1: 0.00, sqrt(F)=2: 0.54, sqrt(F)=3: 0.39, sqrt(F)=5: 0.25, sqrt(F)=20: 0.06, sqrt(F)=100: 0.01 -- a band containing the cone beyond r = 0.899, narrowing with F, not confined to the cone; near the critical point (F < 1) no type IV
+PASS C5g degree-8 part of P is a perfect square vanishing on the cone: the type-IV band persists along |z|=r to every F, thinning in angle :: rho^8 coefficient = (-sin(phi_) + cos(phi_))**2*(sin(phi_) + cos(phi_))**2*(sin(phi_)**2 + cos(phi_)**2)**2; on the cone P = -32*r**6 + 16*r**2 + 4 < 0 for all r > 0.8995, so an energy integral over W depends on W's extent
+PASS C6a (21) U1 is the real form of (20) U1 :: 
+PASS C6b (41) = radial reflection w - 2(w.x)x/r^2 of (21) :: 
+PASS C6c (42) decomposition w_r = w1r + w2r (w2r carries the minus sign) :: 
+PASS C6d H2 endpoints: c=1 -> w1r, c=0 -> s :: 
+PASS C6e R s1 = v, det R = +1 (R in SO(4)) :: 
+PASS C7a H1,H2,H3 numerators nonzero on S^3_R (sampled, lambda in [0,1]) :: R=0.1: min|H1|=0.000986 min|H2|=0.00101 min|H3|=0.0963; R=0.5: min|H1|=0.0911 min|H2|=0.0911 min|H3|=0.42; R=1: min|H1|=0.48 min|H2|=0.48 min|H3|=0.731; R=2: min|H1|=1.88 min|H2|=1.19 min|H3|=1.19; R=10: min|H1|=10 min|H2|=3.06 min|H3|=3.07
+PASS C7b w || x only on the real x-axis (so H1 has no zero off the origin, any lambda) :: solutions: [{t: 0, x: 0, y: 0, z: 0}, {t: 0, x: k/2, y: -I*k/2, z: 0}, {t: 0, x: k/2, y: I*k/2, z: 0}, {t: 0, x: k, y: 0, z: 0}]
+PASS C8a deg(w (21)) = +3 = index of CP2 field (chi(CP2)=3) :: 3.000000
+PASS C8b deg(w_r/|w_r|) = -1 = deg(v/|v|) (paper sec. V.D) :: identity: 1.000000, w (21): 3.000000, w_r (41): -1.000000, w1r: -1.000000, s: -1.000000, s1: -1.000000, v Morse: -1.000000, w_r (41), R=2.5: -1.000000, v, R=2.5: -1.000000
+PASS C9 footnote-9 curve is closed, timelike and future-directed for g_L (22) :: Lambda=6: max g_L(g',g')=-2.827e-04, min g_FS(g',w)=1.898e-04; Lambda=1: max g_L(g',g')=-1.696e-03, min g_FS(g',w)=1.139e-03; Lambda=100: max g_L(g',g')=-1.696e-05, min g_FS(g',w)=1.139e-05
+PASS C9b the footnote-9 curve stays timelike for zeta > zeta_min (Lambda-independent: conformal factor cancels) :: zeta_min = 1.2771 (curve is a CTC for zeta=2 iff zeta_min < 2)
+PASS C10a (23) pulled back by (28) equals (30) at Lambda = 6 (the paper's numerical value) :: max|diff| = 1.35e-13
+PASS C10a' DISCREPANCY (recorded, not an error of the construction): printed (23)+(28) do NOT give (30) for Lambda != 6 :: printed pair max|diff| = 10.6 at Lambda in {0.5,2,20}; dropping the sqrt(6/Lambda) prefactor of (28): 2.1e-13; or rescaling (23) to 1/(1+Lambda r^2/6)[delta - (Lambda/6)(xx+x~x~)/(1+Lambda r^2/6)]: 4.8e-13 -- a scale-convention slip; Lambda is a free scale so nothing downstream moves
+PASS C10b junction: a(tau1)=A(chi1), 1-b(tau1)^2 = B^2 -> b = sin :: 
+PASS C10c C1 matching: a' = (1/2)cos, b' = sqrt(Lambda/6) cos :: 
+PASS C11a (34) is (11) in coordinates (33) :: 
+PASS C11b (37) alpha=beta=xi1 and (38) alpha'=beta'=1 give C0 and C1 matching :: 
+PASS C11c (40) 2a(tau0)=R with b(tau0)=0 is the round S^3 of radius R :: a(tau0)=R/2
+
+SUMMARY: 36 checks, 0 FAIL

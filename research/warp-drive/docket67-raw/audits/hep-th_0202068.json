@@ -1,0 +1,87 @@
+{
+ "key": "hep-th/0202068",
+ "name": "Khusnutdinov-Sushkov 2002 short-throat self-consistent wormhole",
+ "source": {
+  "located": "N.R. Khusnutdinov & S.V. Sushkov, 'Ground state energy in a wormhole space-time', arXiv:hep-th/0202068, Phys. Rev. D 65, 084028 (15 April 2002)",
+  "read_status": "READ-VIA-RESTATEMENT",
+  "via": "Paper body NOT read: alphaXiv answer_pdf_queries / get_paper_content / discover_papers all returned 'assistant quota exceeded' (3 attempts); arxiv.org, export.arxiv.org, alphaxiv.org, journals.aps.org, osti.gov, kpfu.ru, inspirehep, semanticscholar all EGRESS_BLOCKED (403). What was read: the abstract as excerpted by WebSearch (three independent queries returned the same abstract sentences, consistent with the APS/OSTI/ResearchGate abstract pages), and the short-throat metric r = a + |rho|, R = -8 delta(rho)/a as restated in WebSearch excerpts of arXiv:1003.0344 (vacuum polarization of a massive scalar in a wormhole spacetime) and related Khusnutdinov-lineage papers. No equation, table or section of the KS body was seen."
+ },
+ "published_statement": "Abstract (as excerpted): 'The ground state energy of the massive scalar field with non-conformal coupling xi on the short-throat flat-space wormhole background is calculated by using zeta renormalization approach. ... We show that the stable configuration of wormholes can exist for xi > 0.123. In particular case of massive conformal scalar field with xi = 1/6, the radius of throat of stable wormhole a ~ 0.16/m. The self-consistent wormhole has the radius of throat a ~ 0.0141 l_P and the mass of scalar boson m ~ 11.35 m_P (l_P and m_P are the Planck length and mass, respectively).'",
+ "published_hypotheses": [
+  "Background: short-throat flat-space wormhole -- two copies of Minkowski space with balls excised and boundaries identified; r = a + |rho|, flat for rho != 0, curvature concentrated at the throat (R = -8 delta(rho)/a, per later restatement)",
+  "Field: a single massive scalar field, mass m, with non-conformal coupling xi to curvature",
+  "Quantity: ground-state (vacuum / Casimir-type) energy, zeta-function renormalisation, with heat-kernel coefficients",
+  "Stability = the ground-state energy as a function of a has a minimum; exists only for xi > 0.123",
+  "xi = 1/6 case: stable throat a ~ 0.16/m",
+  "'Self-consistent' wormhole: an additional condition (NOT READ here -- its exact form is in the unread body) that fixes m ~ 11.35 m_P and hence a ~ 0.0141 l_P",
+  "Implicit: semiclassical treatment (quantised matter on a classical geometry), one scalar only, no graviton loop; result sits at a < l_P and m > m_P"
+ ],
+ "hypothesis_drift": [
+  "ADDED (tacit) SMOOTHNESS AT THE THROAT -- throatmass.py:134-136 and the --selftest cross-check at throatmass.py:356-362 assign KS 'm = r_0/2 > 0 at the throat' via the smooth-throat substitution r' = 0. In KS's geometry r' jumps from -1 to +1 at rho = 0 (r'' = 2 delta(rho)); the Misner-Sharp mass is exactly 0 on both flat sides and undefined at the throat itself. m = a/2 at the throat is the limit of every smooth even regularisation with |r'| <= 1 (computed), not a quantity of KS's geometry. The sign conclusion the tree draws (no m < 0; 'm < 0 reported' = False) survives -- m = 0 off-throat, m >= 0 under every such regularisation, ADM mass 0 on each side -- but the VALUE r_0/2 is regularisation-defined for this family, and the throatmass.py:24-28 SERIES_RESULT premise (finite r''(0)) fails for it.",
+  "DROPPED: the meaning of 'self-consistent' -- throatmass.py:122-130 lists KS among 'self-consistent solution families' beside HPS gr-qc/9701064 (which solves local semiclassical Einstein equations). KS's exterior is exactly flat, G_mu_nu = 0 for rho != 0, so the geometry is a solution of the LOCAL semiclassical equations off the throat only if <T_mu_nu>_ren vanishes there; the paper's self-consistency condition fixes one number (m ~ 11.35 m_P) and so appears to be a global/energy condition, not the local equations. The exact condition is NOT READ -- recorded as an unverified drift, not a finding.",
+  "DROPPED: the regime -- a ~ 0.0141 l_P is sub-Planckian and requires a scalar of mass ~ 11.35 m_P (trans-Planckian); the tree seats r_0 = 0.0141 l_P (throatmass.py:181) without these hypotheses. Does not move the tree's use: KS is not the largest throat (HPS 300 l_P sets LARGEST_THROAT_M, throatmass.py:193-194).",
+  "DROPPED: xi > 0.123 for any stable configuration and the thin-shell (negative surface energy sigma = -1/(2 pi a), G = c = 1, computed) character of the throat; the tree's label 'xi = 1/6 minimum' (throatmass.py:181) is consistent with the abstract: 0.16/11.35 = 0.014097 -> 0.0141 (computed), so the self-consistent radius is the xi = 1/6 stable minimum evaluated at m = 11.35 m_P -- an arithmetic inference, the body's own statement of it NOT READ.",
+  "No drift in the number: r_0 = 0.0141 l_P as the tree records it (throatmass.py:136, :181) matches the abstract."
+ ],
+ "data_at_publication": [
+  {
+   "quantity": "a (throat radius) in Planck units",
+   "value_then": "0.0141 l_P (dimensionless, theoretical output)",
+   "value_now": "0.0141 l_P (no later correction found)",
+   "source_now": "abstract as excerpted; no erratum located",
+   "moves_conclusion": "No -- dimensionless theoretical output, not a datum; the tree's sign conclusion (m not negative) holds for any a > 0"
+  },
+  {
+   "quantity": "Planck length l_P used to convert (tree: achievable.L_PLANCK)",
+   "value_then": "CODATA 1998 l_P = 1.6160(12)e-35 m (the value available in 2002)",
+   "value_now": "1.616255e-35 m (tree, achievable.py:303, CODATA 2018; CODATA 2022 arXiv:2409.03787 keeps G = 6.67430e-11 and this l_P -- recalled, not re-read in this stage)",
+   "source_now": "CODATA 2018/2022",
+   "moves_conclusion": "No -- a 1.6e-4 relative shift in the metre conversion of 0.0141 l_P; KS does not enter LARGEST_THROAT_M (HPS 300 l_P does) and no sign depends on it"
+  },
+  {
+   "quantity": "scalar mass m in Planck units",
+   "value_then": "11.35 m_P (theoretical output of the self-consistency condition)",
+   "value_now": "no measured particle near m_P; no datum exists",
+   "source_now": "none -- trans-Planckian",
+   "moves_conclusion": "No datum can move it; it marks the result as outside the semiclassical domain (a hypothesis, not a data point)"
+  }
+ ],
+ "rederivation": {
+  "method": "sympy",
+  "script_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/hep-th_0202068.py",
+  "outcome": "ALL PASS (24 checks). (A) 0.16/11.35 = 0.014096916 -> 0.0141: the abstract's xi = 1/6 stable radius a = 0.16/m at m = 11.35 m_P reproduces a = 0.0141 l_P. (B) r = a + |rho|: Misner-Sharp m = (r/2)(1 - r'^2) = 0 exactly on both sides. (C) two smooth even regularisations (a + sqrt(rho^2+eps^2) - eps; a + eps ln cosh(rho/eps)): r'(0) = 0, m(0) = a/2 exactly, m >= 0 on a numeric grid. (D) shell energy int rho_E 4 pi r^2 dl -> -1.99956 / -1.99961 (a = 1, eps = 1e-3) i.e. -2a, sigma = -1/(2 pi a); int R drho -> -7.989 / -7.994 vs the restated -8/a; 3-curvature formula R = -2(2 r r'' + r'^2 - 1)/r^2 derived from the metric by sympy. (E) r''(0) = 1/eps -> infinity: the tree's series premise fails for this family.",
+  "agrees_with_source": "partly"
+ },
+ "later_literature": [
+  {
+   "ref": "arXiv:1405.1283, Butcher, 'Casimir energy of a long wormhole throat', PRD 90, 024019 (2014)",
+   "effect": "extends",
+   "what": "Long-throat (R x S^2) ultrastatic wormhole: renormalised Casimir energy density negative for all timelike observers above a fixed throat radius, of sufficient magnitude to stabilise a long-throated wormhole 'far larger than the Planck scale, at least in principle' -- moves the scale question KS answered at 0.0141 l_P; does not address KS's short throat directly",
+   "read_status": "NAMED-NOT-READ (WebSearch excerpt of abstract only)"
+  },
+  {
+   "ref": "Khusnutdinov (& co.), 'The Casimir effect in a wormhole spacetime', CQG 23 (2006) 669 [iopscience 10.1088/0264-9381/23/3/006]; Khusnutdinov PRD 67, 124020 (2003)",
+   "effect": "extends",
+   "what": "Same zeta approach with the throat surrounded by a spherical shell / finite throat length",
+   "read_status": "NAMED-NOT-READ (WebSearch excerpt only)"
+  },
+  {
+   "ref": "gr-qc/0501105, Garattini, CQG 22, 1105 (2005)",
+   "effect": "extends",
+   "what": "Graviton one-loop self-sustained wormholes, r_0 ~ 0.447-1.159 l_P (seated separately in throatmass.py:137-139)",
+   "read_status": "NAMED-NOT-READ in this stage (audited separately)"
+  },
+  {
+   "ref": "arXiv:1003.0344, vacuum polarization of a massive scalar field in a wormhole spacetime",
+   "effect": "confirms",
+   "what": "Restates the short-throat metric r = a + |rho| and R = -8 delta(rho)/a used in the rederivation",
+   "read_status": "READ-VIA-RESTATEMENT (WebSearch excerpt only)"
+  }
+ ],
+ "lacked_data": "KS 2002 is a pure one-loop QFT-on-fixed-background computation; its only numerical inputs are the Planck units (and xi, m as parameters). No measurement later arrived that bears on it: G and hbar have not moved materially (CODATA 2018/2022 G = 6.67430e-11), and the output (a ~ 0.0141 l_P, m ~ 11.35 m_P) lies where no data exists or is foreseeably obtainable. What the authors lacked is theoretical, not data: graviton loops (added by Garattini 2005), back-reaction beyond the thin-shell ansatz, and a trustworthy theory at a < l_P. Evidence either way: having CODATA 2022 moves the metre value by ~1e-4 relative and changes no conclusion; nothing supports M's hypothesis for this result, and nothing refutes it -- the regime is simply outside the reach of data.",
+ "grade": "NARROWED",
+ "grade_evidence": "The number the tree seats (r_0 = 0.0141 l_P, xi = 1/6) matches the abstract and is arithmetically consistent with its a = 0.16/m at m = 11.35 m_P (computed). The tree's per-family sign 'm < 0 reported: False' survives (computed: Misner-Sharp m = 0 on both flat sides; m >= 0 and m(0) = a/2 under every tested smooth even regularisation; ADM mass 0). NARROWED because the tree's statement 'm = r_0/2 > 0 at the throat' and its --selftest cross-check use the smooth-throat substitution r' = 0, a hypothesis KS's thin-shell geometry does not satisfy (r' jumps -1 -> +1, r''(0) -> infinity; m at the throat is regularisation-defined), and because the tree drops the sub-Planckian/trans-Planckian regime and xi > 0.123. A second possible narrowing -- that KS's 'self-consistent' is a global condition, not a solution of the local semiclassical equations like HPS -- is supported by the flat exterior (G_mu_nu = 0 off the throat) but the paper's condition was NOT READ, so it is recorded as OPEN inside this grade, not counted as evidence. No misprint or refutation was found; nothing is WRONG. The grade rests on the abstract (via search excerpt) and a restated metric: the KS body was unreadable here (alphaXiv quota; arXiv/APS egress-blocked).",
+ "what_would_change_the_grade": "Reading the KS body (hep-th/0202068) at source: (i) if its metric is a smooth throat rather than r = a + |rho| the smoothness drift disappears (-> STANDS on the sign and value); (ii) if its self-consistency condition is the local semiclassical Einstein equation with <T_mu_nu>_ren = 0 off the throat, the 'self-consistent family' classification stands; if it is a global energy balance, the tree's grouping of KS with HPS narrows further; (iii) if the 0.0141 l_P figure is NOT the xi = 1/6 case, the tree's label 'xi = 1/6 minimum' becomes a discrepancy (not a refutation).",
+ "reverify_command": "python3 /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/hep-th_0202068.py && sed -n 122,140p /home/user/Claude-Method-Works/research/warp-drive/throatmass.py && sed -n 178,185p /home/user/Claude-Method-Works/research/warp-drive/throatmass.py",
+ "report_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/audits/hep-th_0202068.json"
+}

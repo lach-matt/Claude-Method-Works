@@ -1,0 +1,40 @@
+PASS E1 B_2=1/6, B_4=-1/30, B_6=1/42 (recurrence, exact) :: (Fraction(1, 6), Fraction(-1, 30), Fraction(1, 42))
+PASS E1 Euler's formula at k=3 gives zeta(6)/pi^6 = 1/945 exactly :: 1/945
+PASS E1 cross-check: mpmath zeta(6) - pi^6/945 = 0 to 55 digits :: 1.01734306198444913971451792979
+PASS E1 cross-check: sympy.zeta(6) == pi^6/945 symbolically
+PASS E1 the tree's route: nsimplify(zeta(6)/pi^6) = 1/945
+PASS E1 CONTROL k=1: zeta(2)/pi^2 = 1/6 :: 1/6
+PASS E1 CONTROL k=2: zeta(4)/pi^4 = 1/90 :: 1/90
+PASS E2 Machin enclosure is consistent with mpmath pi :: 4.669158931212896e-56
+PASS E2 PROVED 333/106 < pi (333/106 < PL) :: 8.321962752908752e-05
+PASS E2 PROVED pi < 355/113 (PU < 355/113) :: 2.667641890624223e-07
+PASS E2 continued fraction of pi begins [3;7,15,1,292,1,1,1,2,1,3,1] :: [3, 7, 15, 1, 292, 1, 1, 1, 2, 1, 3, 1]
+PASS E2 convergents 3, 22/7, 333/106, 355/113, 103993/33102 :: [Fraction(3, 1), Fraction(22, 7), Fraction(333, 106), Fraction(355, 113), Fraction(103993, 33102)]
+PASS E2 numerators match 2603.09719 eq (12) (A002485: 3, 22, 333, 355, 103993)
+PASS E2 333/106 is an even-index (lower) convergent, 355/113 odd-index (upper)
+   pi - 333/106 = 8.32196e-5 ; 355/113 - pi = 2.66764e-7
+PASS E3 INT_30^oo x^-7 dx = 1/(6*30^6) (sympy, exact)
+PASS E3 n^-7 <= INT_{n-1}^n x^-7 for n = 2..200 (exact)
+PASS E3 lo7 <= zeta(7) <= hi7 (mpmath, 60 digits) :: 1.008349277381922826839798
+PASS E3 1/(6*31^6) < true tail < 1/(6*30^6) :: 2.0664923e-10
+PASS E4a 108000 = (2/3)*180*900 [rho^2 = pi^4/900, ||g^2||_1 = 180(z6-z7)/pi^3]
+   B(tau=beta) = 0.128300159012 ; B(beta/10) = 1.2830016 ; crossing tau*/beta = 0.256600318
+PASS E4e B(tau=beta) < 1/2 numerically :: 0.128300159
+PASS E4e B(tau=beta/10) > 1/2 numerically (so the beta/10 'guard' query is FALSE, not merely unproved)
+PASS E4b EXACT BOX PROOF (no z3): claim holds on the tree's box at tau = beta
+PASS E4b CONTROL: box proof fails at tau = beta/10
+PASS E4b CONTROL: box proof fails with coefficient x10
+PASS E4e ROBUST: pi in (3, 22/7) with z7 >= 1 (N=1, no tail) still proves at tau = beta
+   weakest upper bound on pi the crude box proof tolerates: 3.154859 (lower 333/106, lo7); 3.145419 (lower 3, z7>=1)
+PASS E4e MEASURED margin: the box proof tolerates an upper bound on pi >= 22/7 in both settings :: (3.154858546620908, 3.145419421892282)
+PASS E4e the z7 UPPER bound (the 1/(6*30^6) tail) is not used by the proof -- LHS decreases in z7
+PASS E4c z3 (independent encoding) proves the claim at tau = beta; hypotheses sat
+PASS E4c z3: NOT provable at tau = beta/10
+PASS E4c z3: NOT provable with coefficient x10
+PASS E4c z3: still proves WITHOUT the z7 upper bound (tail hypothesis idle for the proof)
+PASS E4c exact witness of satisfiability: r=2.5066, p=r^2/2 in (333/106,355/113), z7=lo7 :: 3.14152178
+PASS E4d tree's hoelder_bound_constants -> (108000, 1/945) :: (108000, 1/945)
+PASS E4d tree's hoelder_bound_proof(tau=beta) = (True, True) :: (True, True)
+PASS E4d tree's hoelder_bound_proof(tau=beta/10)[0] = False :: (False, True)
+
+0 FAIL

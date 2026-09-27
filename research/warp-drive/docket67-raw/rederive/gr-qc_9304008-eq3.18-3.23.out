@@ -1,0 +1,52 @@
+gr-qc_9304008-eq3.18-3.23.py -- independent re-derivation
+
+C1  <:T00:>
+  [ok] KF (3.18) equals the exact squeezed-coherent <:T00:> 
+  [ok] KF (3.22) equals the exact squeezed-vacuum <:T00:> (alpha=0, delta=0) 
+C2  <:T00^2:>
+  [ok] KF (3.19) is NOT the exact squeezed-coherent <:T00^2:> 
+  [ok] KF (3.23) is NOT the exact squeezed-vacuum <:T00^2:> 
+      exact squeezed vacuum <:T^2:> = 6*K**2*(4*cos(2*theta)*sinh(r)*cosh(r) + cos(4*theta)*sinh(r)**2 + cos(4*theta) + 3*sinh(r)**2 + 1)*sinh(r)**2
+      KF (3.23)                    = 2*K**2*(-8*cos(2*theta)*sinh(r)*cosh(r) + 2*cos(4*theta)*cosh(r)**2 + 3*sinh(r)**2 + 3*cosh(r)**2)*sinh(r)**2
+      exact - KF(3.23)            = K**2*(8*cos(theta)**4*cosh(2*r) + 8*cos(theta)**4 + 40*cos(theta)**2*sinh(2*r) - 8*cos(theta)**2*cosh(2*r) - 8*cos(theta)**2 - 20*sinh(2*r) + 4*cosh(2*r) - 2)*sinh(r)**2
+      tree r=3/10, theta=0.2         rho=+0.771862  exact<:T^2:>=1.787313  3rho^2=1.787313  KF(3.23)=0.506957  Delta_exact=0.666667  Delta_KF=0.175189
+      tree r=3/10, theta=19pi/40     rho=-0.443350  exact<:T^2:>=0.589678  3rho^2=0.589678  KF(3.23)=1.511571  Delta_exact=0.666667  Delta_KF=0.869964
+      tree control r=0.7, theta=1.1  rho=+0.030215  exact<:T^2:>=0.002739  3rho^2=0.002739  KF(3.23)=11.471068  Delta_exact=0.666667  Delta_KF=0.999920
+C3  Route F (Fock numeric) controls Route W
+  [ok] F=W at (r,theta,gamma,delta,s)=(0.4, 0.3, 0.9, 1.7, 0.6)  (tail 3.2e-35) rho=0.9966347012  <:T^2:>=-0.1497768986  KF(3.19)=-0.5661006248
+  [ok] F=W at (r,theta,gamma,delta,s)=(0.7, 1.1, 0.0, 0.0, 0.0)  (tail 3.5e-19) rho=0.0302149042  <:T^2:>=0.0027388213  KF(3.19)=16.8139952017
+  [ok] F=W at (r,theta,gamma,delta,s)=(0.25, 2.0, -0.4, 0.5, 1.1)  (tail 5.3e-43) rho=4.8536546211  <:T^2:>=23.9025472855  KF(3.19)=13.7336660139
+C4  squeezed vacuum identity
+  [ok] <:T^2:> = 3 rho^2 identically, any delta 
+C5  quadrature closed form
+  [ok] rho = K(mu^2 + v) 
+  [ok] <:T^2:> = K^2(mu^4 + 6 mu^2 v + 3 v^2) 
+C6  U(1) phase covariance (theta+phi, gamma-phi, delta-2phi)
+  [ok] exact <:T^2:> is covariant (rel. 1e-20) |diff| = 0.000e+00, |value| = 1.481926
+  [ok] exact rho is covariant |diff| = 0.000e+00
+  [ok] KF (3.18) is covariant 
+  [ok] KF (3.19) is NOT covariant (structural, independent of algebra) |shift diff| = 21.256733
+C7  alternative conventions, fairness
+      squeeze sign flipped         reproduces (3.19): False   reproduces (3.23): False
+  [ok]   convention 'squeeze sign flipped' does not rescue the print 
+      gamma sign flipped           reproduces (3.19): False   reproduces (3.23): False
+  [ok]   convention 'gamma sign flipped' does not rescue the print 
+      theta sign flipped           reproduces (3.19): False   reproduces (3.23): False
+  [ok]   convention 'theta sign flipped' does not rescue the print 
+      <:T::T:> - <0|:T::T:|0>      reproduces (3.19): False   reproduces (3.23): False
+  [ok]   convention '<:T::T:> - <0|:T::T:|0>' does not rescue the print 
+  [ok] (3.18) itself pins the conventions: squeeze-flip breaks it 
+C8  cross-key context: KF Fig.1/2 parameters gamma=delta=0, theta=pi/2
+  [ok] rho < 0 at r=1/2, s^2=(1-e^-1)/8 rho/K = -0.316060279414
+  [ok] exact Delta = 0 there (<:T^2:> = rho^2) Delta_exact = 1.43645e-41
+  [ok]   Fock control agrees: Delta = 0 rho=-0.316060279414
+      KF's printed (3.19) gives Delta = 0.991983 at the same point
+      grid r in (0,2], s in [0,2]: 8615 rho<0 points, 81 with exact Delta < 0.1, min 5.63e-04
+  [ok] exact Delta takes values < 0.1 in the rho<0 region at KF's Fig.1 parameters 
+C9  internal consistency of the print: does KF (3.19) at alpha=0, delta=0 give KF (3.23)?
+      KF (3.19) at s_alpha=0, delta=0 = -6*K**2*(4*cos(2*theta) - cos(4*theta)*cosh(r)**2 - 3)*sinh(r)**2
+  [ok] KF (3.19) and KF (3.23) DISAGREE with each other (v1 print internally inconsistent) 
+  [ok] KF (3.19) at alpha=0 is not 3 rho^2 either 
+  [ok] both printed <:T^2:> vanish at r=0 ('As required', KF p.8) 
+
+ALL CHECKS PASS

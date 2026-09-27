@@ -1,0 +1,89 @@
+{
+ "key": "whitehead-convex-normal-neighbourhoods",
+ "name": "Whitehead: every point of a (non-degenerate) Lorentzian manifold has a convex normal neighbourhood",
+ "source": {
+  "located": "J.H.C. Whitehead, 'Convex regions in the geometry of paths', Quart. J. Math. Oxford 3 (1932) 33-42 -- pre-arXiv, no arXiv copy. Consequence as the tree needs it restated in Fewster & Smith gr-qc/0702056 p.7 ('As every point x in M has such a neighbourhood U_x' = a globally hyperbolic convex normal neighbourhood) and assumed in FFKP 2309.10848 Sec. IV (small sampling domain, 'contained in a globally hyperbolic convex normal neighbourhood of M').",
+  "read_status": "NAMED-NOT-READ",
+  "via": "Whitehead 1932 itself: NOT READ. Attempted restatements: alphaXiv answer_pdf_queries x3, get_paper_content x1 and discover_papers x1 all returned 'alphaXiv assistant quota exceeded'; arxiv.org, export.arxiv.org, alphaxiv.org, semanticscholar via curl and WebFetch: egress 403/EGRESS_BLOCKED. READ (from texts cached in this workflow's scratchpad from earlier alphaXiv pulls): Fewster-Smith gr-qc/0702056 src/0702056.pages.txt:900-909 (p.7) and :1590-1593 (p.17, small sampling domain definition); FFKP 2309.10848 src/2309.10848.txt:2820-2821. Neither names Whitehead or states a regularity class, so neither is a restatement of Whitehead's theorem as such; Whitehead is marked NAMED-NOT-READ, exactly as the tree marks it (qeihps.py:105 'NAMED, not computed')."
+ },
+ "published_statement": "NOT READ at source (see source.via). Standard statement, NAMED-NOT-READ: on a manifold with an affine connection (Whitehead worked in the geometry of paths; the Levi-Civita connection of a sufficiently regular non-degenerate metric of any signature qualifies) every point has a neighbourhood U that is a normal neighbourhood of each of its points and in which any two points are joined by a unique geodesic lying in U. The form READ in the tree's own sources (Fewster-Smith 0702056 p.7, in a globally hyperbolic M): 'every point x in M has such a neighbourhood U_x', 'such' = globally hyperbolic convex normal neighbourhood.",
+ "published_hypotheses": [
+  "an affine connection on a manifold -- here the Levi-Civita connection of the metric (signature irrelevant to the theorem) [standard statement, NAMED-NOT-READ]",
+  "regularity OF THE CONNECTION ON AN OPEN NEIGHBOURHOOD of the point, sufficient for unique geodesics and a local-diffeomorphic exponential map (classically smooth / C^2 metric; later literature extends to C^{1,1} metrics, and below C^{1,1} it can fail) [NAMED-NOT-READ; the failure below C^{1,1} is REBUILT and machine-checked here, rederive section B]",
+  "the conclusion is local and carries NO size: Whitehead states existence of some neighbourhood, not a radius [standard statement; the tree's own reading agrees, qeihps.py:115 calls the size a 'CAVEAT, not a hypothesis of the theorem']",
+  "the 'globally hyperbolic' qualifier on the convex normal neighbourhood (FFKP/FS need it) is NOT part of Whitehead's theorem; it is a further standard result READ as asserted in Fewster-Smith 0702056 p.7, with no citation there"
+ ],
+ "hypothesis_drift": [
+  "WEAKENED (regularity dropped) -- qeihps.py:103-105 and :436-439 test only f(0) > 0, r(0) > 0 (non-degeneracy AT THE POINT; the verdict 'MET LOCALLY' is computed from (f0 > 0 and r0 > 0) alone, qeihps.py:439). The theorem needs a C^{1,1}-or-better connection on an open neighbourhood. Computed insufficient: rederive section B builds f(l) = 1/(1+|l|^(3/2)) in -f dt^2 + dl^2 -- non-degenerate at l = 0 (f(0) = 1), C^1 but not C^{1,1} -- with TWO geodesics l = 0 and l = s^4/256 from the same point and velocity, so exp_p is undefined. The tree itself records TAYLOR_RADIUS_OF_CONVERGENCE_PROVED = False (qeihps.py:338): HPS's metric off the throat is known only as a jet plus HPS's numerical solution, so neighbourhood regularity is an unstated hypothesis (plausibly true for HPS's smooth ODE solution; NOT established in the tree).",
+  "ADDED-BY-FOLDING (qualifier not delivered by Whitehead) -- qeihps.py:101-105 meets FFKP's 'M globally hyperbolic, f supported in a small sampling domain: an open set inside a GLOBALLY HYPERBOLIC convex normal neighbourhood, ONE HYPERBOLIC CHART' by citing Whitehead only. Whitehead gives convexity/normality; global hyperbolicity of a small convex normal neighbourhood is a separate result (asserted, uncited, in FS 0702056 p.7 -- READ), and the hyperbolic-chart clause (FS p.17, FFKP 2309.10848 Sec. IV.B -- READ) is not addressed at all at these lines. The 'LOCALLY' in the verdict is consistent with FS p.7 (Hadamard states restrict to open globally hyperbolic subsets), so 'M globally hyperbolic' can be met by restriction, but that route is not what Whitehead says.",
+  "ADDED (harmless) -- qeihps.py:103 and the canonical hypothesis say 'Lorentzian'; Whitehead's theorem is signature-free (affine connection) [standard statement, NAMED-NOT-READ]. Not a narrowing.",
+  "SIZE CLAIM ATTACHED TO THE NEIGHBOURHOOD -- qeihps.py:114-117 ('the convex normal neighbourhood about the throat is set by a curvature radius of 0.0243 l_P, so any sampling domain it admits is sub-Planckian'). Whitehead states no size; the tree correctly labels this a CAVEAT. Computed here (rederive D): the throat sphere is totally geodesic with sectional curvature 1/r0^2, so angular geodesics reach conjugate points at pi r0 = 0.0763 l_P -- an upper bound on the ANGULAR extent; but the tidal tensor R^a_{tbt} vanishes EXACTLY on the throat worldline l = 0 for all t (needs only f'(0)=f''(0)=r'(0)=0, HPS data (9)), so nothing computed bounds the TIME extent of a worldline sampling domain by r0. 'Any sampling domain ... sub-Planckian' is therefore established here only for the angular directions: a DISCREPANCY of scope, recorded, not repaired, not a refutation (a long-in-t convex neighbourhood is not constructed here either)."
+ ],
+ "data_at_publication": [
+  {
+   "quantity": "f(0) = e^L at HPS's plotted solution L = ln f(0) = -2/3",
+   "value_then": "HPS 1997 (gr-qc/9701064) plotted solution ln f(0) = -2/3, as seated qeihps.py:329",
+   "value_now": "e^(-2/3) = 0.513417 (computed); unchanged -- a model input, not a measurement",
+   "source_now": "rederive section A",
+   "moves_conclusion": "no: f(0) > 0 for every real L"
+  },
+  {
+   "quantity": "throat radius r0 = sqrt(-16 K^2 L), K^2 = 1/(5760 pi)",
+   "value_then": "0.0242789 l_P at L = -2/3 (qeihps.py:130, :367)",
+   "value_now": "1/sqrt(540 pi) = 0.0242789 l_P (sympy exact, agrees); over HPS's range -1 <= L < 0, r0 in (0, 0.0297354] l_P",
+   "source_now": "rederive section A",
+   "moves_conclusion": "no for non-degeneracy anywhere in -1 <= L < 0 (fails only at the excluded endpoint L = 0, r0 = 0); the SIZE caveat scales with r0 and stays sub-Planckian over the whole range"
+  },
+  {
+   "quantity": "throat 4th derivatives f''''(0)/f(0), r''''(0)/r(0) (enter the jet metric used in rederive C)",
+   "value_then": "259200 pi^2 (-L-1)/(L(3L+4)), 129600 pi^2 (2-L^2)/(L^2(3L+4)) (qeihps.py:1112-1115)",
+   "value_now": "at L = -2/3: (2/9)/r0^4 and (7/9)/r0^4 (computed)",
+   "source_now": "rederive section C",
+   "moves_conclusion": "no: Whitehead's lemma holds on a coordinate ball of radius 0.718 r0 about the throat for the jet metric; no measured datum enters the theorem"
+  }
+ ],
+ "rederivation": {
+  "method": "sympy",
+  "script_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/whitehead-convex-normal-neighbourhoods.py",
+  "outcome": "ALL 17 CHECKS PASS. (A) r0 = 1/sqrt(540 pi) = 0.0242789 l_P, f(0) = 0.513417, det g(throat) = -f0 r0^4 = -1.784e-7 != 0, non-degenerate on all of -1 <= L < 0 -- the tree's pointwise premise AGREES. (B) Pointwise non-degeneracy is NOT sufficient: C^{1,1/2} Lorentzian 1+1 metric f = 1/(1+|l|^{3/2}), f(0)=1, has geodesics l = 0 and l = s^4/256 with identical initial data (sympy exact) -> no normal neighbourhood; the regularity hypothesis the tree drops is load-bearing. (C) On the HPS 4th-order throat jet (smooth metric): all 64 Christoffel symbols vanish at the throat point (theta = pi/2); Whitehead's convexity lemma d^2|x|^2/ds^2 = 2|x'|^2 - 2 x_k G^k_ij x'^i x'^j > 0 holds on the coordinate ball |x| < 0.7177 r0 = 0.01743 l_P (eps * sup ||G||_F < 1), spot-checked by 60 RK4 geodesics (min ratio 1.75 > 0) -- a lower bound, and a check of the lemma, not of the full theorem. (D) Throat sphere totally geodesic, sectional curvature exactly 1/r0^2 (conjugate distance pi r0 = 0.0763 l_P); tidal tensor R^a_{tbt} = 0 exactly on l = 0. (E) read-only import of qeihps: as seated FFKP domain = MET LOCALLY -> status OPEN; relabelling the row with a named conditional keeps OPEN; relabelling it a bare NOT-ESTABLISHED flips qei_status to REFUSED (qei_status maps every non-MET form row to REFUSED) -- throat verdict NOT A TEST either way.",
+  "agrees_with_source": "partly"
+ },
+ "later_literature": [
+  {
+   "ref": "E. Minguzzi, 'Convex neighborhoods for Lipschitz connections and sprays', Monatsh. Math. (2015), arXiv:1308.6675 (id from memory)",
+   "effect": "extends",
+   "what": "Whitehead's theorem for Lipschitz connections (C^{1,1} metrics) -- the regularity floor the tree's pointwise hypothesis omits",
+   "read_status": "NAMED-NOT-READ (alphaXiv quota exceeded; arxiv.org egress-blocked)"
+  },
+  {
+   "ref": "M. Kunzinger, R. Steinbauer, M. Stojkovic, 'The exponential map of a C^{1,1}-metric', Diff. Geom. Appl. (2014), arXiv:1306.4776 (id from memory)",
+   "effect": "extends",
+   "what": "exp is a bi-Lipschitz local homeomorphism for C^{1,1} metrics; totally normal / convex neighbourhoods exist at that regularity",
+   "read_status": "NAMED-NOT-READ"
+  },
+  {
+   "ref": "P. Hartman & A. Wintner, Amer. J. Math. 73 (1951) (classic, no arXiv)",
+   "effect": "narrows",
+   "what": "metrics of class C^{1,alpha}, alpha < 1, with non-unique geodesics -- the mechanism rebuilt and machine-checked in rederive section B",
+   "read_status": "NAMED-NOT-READ (mechanism REBUILT here, not read)"
+  },
+  {
+   "ref": "E. Minguzzi, 'Lorentzian causality theory', Living Rev. Relativ. 22 (2019) 3",
+   "effect": "extends",
+   "what": "every point of a spacetime has arbitrarily small globally hyperbolic (causally convex) convex normal neighbourhoods -- the qualifier FFKP/FS need beyond Whitehead",
+   "read_status": "NAMED-NOT-READ; the same consequence is READ as asserted in Fewster-Smith gr-qc/0702056 p.7 (cached text)"
+  },
+  {
+   "ref": "C.J. Fewster & C.J. Smith, gr-qc/0702056 p.7, p.17, p.23",
+   "effect": "confirms",
+   "what": "'As every point x in M has such a neighbourhood U_x' (globally hyperbolic convex normal neighbourhood); small sampling domain definition; a worldline is a sampling domain 'provided that the track of gamma can be contained in a globally hyperbolic convex normal neighbourhood'",
+   "read_status": "READ (scratchpad src/0702056.pages.txt:900-909, 1590-1593, 2400-2410)"
+  }
+ ],
+ "lacked_data": "M's hypothesis tested for Whitehead 1932: the theorem is pure differential geometry and takes NO physical datum -- no measured constant, no observation enters it -- so no later data can move it; nothing the authors 'lacked' bears on it. What moved since 1932 is REGULARITY KNOWLEDGE, not data: the theorem was later shown to hold down to C^{1,1} metrics and to fail below (Hartman-Wintner mechanism; rebuilt and machine-checked here, section B). That later knowledge narrows the TREE'S USE, not the theorem: qeihps.py checks non-degeneracy at one point, and the regularity of HPS's metric on a neighbourhood of the throat is not established in the tree (TAYLOR_RADIUS_OF_CONVERGENCE_PROVED = False, qeihps.py:338). The data the tree does use (f(0) = e^(-2/3), r0 = 0.0242789 l_P) are model inputs, re-derived exactly here, and no admissible value in HPS's range -1 <= L < 0 changes non-degeneracy. Evidence against M's hypothesis for this result: complete (a theorem with no data input). Evidence for a limitation: the regularity hypothesis, which is a hypothesis of the use, named here.",
+ "grade": "NARROWED",
+ "grade_evidence": "The theorem itself is not contradicted by anything computed here (the convexity lemma is verified on the HPS throat jet, rederive C), but the tree's use drops the regularity hypothesis: it rests 'MET LOCALLY' (qeihps.py:103-105, 439) on f(0) > 0, r(0) > 0 at the point, and rederive B shows a Lorentzian metric non-degenerate at the point (C^{1,1/2}) with two geodesics sharing initial data, so pointwise non-degeneracy does not yield a normal neighbourhood. The tree's own flag TAYLOR_RADIUS_OF_CONVERGENCE_PROVED = False (qeihps.py:338) leaves neighbourhood regularity of HPS's metric unproved. Second, Whitehead does not deliver the 'globally hyperbolic' qualifier or the hyperbolic chart FFKP require (FFKP 2309.10848 Sec. IV, FS 0702056 p.17, READ); FS p.7 asserts the globally hyperbolic version without citation. Third (discrepancy, not a refutation): the caveat 'any sampling domain it admits is sub-Planckian' (qeihps.py:115-117) is bounded by computation only in angular directions (conjugate distance pi r0 = 0.0763 l_P); the throat worldline's tidal tensor is exactly zero. NOT WRONG: nothing in the theorem is refuted, and the downstream FFKP status OPEN does not change if the row is relabelled as a named conditional (rederive E). Whitehead 1932 itself was NOT READ (alphaXiv quota exhausted, arXiv egress-blocked); the grade rests on the tree's lines, the READ FS/FFKP texts and the machine checks, not on the unread source.",
+ "what_would_change_the_grade": "To STANDS: a proof (or cited theorem READ at source) that HPS's metric is C^{1,1} or better on an open neighbourhood of the throat (e.g. a proved Taylor radius, TAYLOR_RADIUS_OF_CONVERGENCE_PROVED -> True, or an ODE regularity argument for HPS's system), plus a READ citation for the globally hyperbolic convex normal neighbourhood and the hyperbolic chart (e.g. Minguzzi 2019 Living Review, read at source), with the owner line citing them rather than Whitehead alone. To OPEN: if the audit is held to require reading Whitehead 1932 or a restatement that names it -- unavailable in this session (quota/egress) -- the source-reading half is open while the drift findings remain. Nothing foreseeable moves it to WRONG: the theorem has no data input and the lemma checks agree.",
+ "reverify_command": "python3 /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/whitehead-convex-normal-neighbourhoods.py ; sed -n 99,117p /home/user/Claude-Method-Works/research/warp-drive/qeihps.py ; sed -n 336,338p /home/user/Claude-Method-Works/research/warp-drive/qeihps.py ; sed -n 2818,2822p /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/src/2309.10848.txt ; sed -n 900,910p /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/src/0702056.pages.txt",
+ "report_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/audits/whitehead-convex-normal-neighbourhoods.json"
+}

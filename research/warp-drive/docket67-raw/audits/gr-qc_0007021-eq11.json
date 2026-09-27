@@ -1,0 +1,89 @@
+{
+ "key": "gr-qc/0007021-eq11",
+ "name": "Gao & Wald 2000, Jacobi matrix equation (eq. 11): A'' = -T A, conjugate point at det A = 0",
+ "source": {
+  "located": "Gao & Wald, 'Theorems on gravitational time delay and related issues', CQG 17, 4999 (2000), arXiv gr-qc/0007021v2, p.7 eqs.(11)-(13). Eq.(11) as quoted verbatim from the full text: d^2A^mu_nu/dlambda^2 = -R_{alpha beta sigma}^mu k^alpha k^sigma A^beta_nu, A|p = 0, dA/dlambda|p = delta (Wald's index convention); eq.(12) G = sqrt(det A); eq.(13) G''/G = -(1/2)[sigma_ab sigma^ab + R_ab k^a k^b]. Independent restatement: Osorio Morales & Santillan, arXiv:2004.12523v4 (2022) sec.2.1 eq.(2.1) with the same initial data, 'q = gamma(lambda_0) is said to be conjugated to p if and only if det(A(lambda_0)) = 0', and 'det(A(lambda_0)) = 0 implies that there exist some initial conditions such that eta(q) = 0, thus q is a conjugate point to p in the usual sense' (p.5).",
+  "read_status": "READ-VIA-RESTATEMENT",
+  "via": "THIS STAGE's alphaXiv calls (answer_pdf_queries gr-qc/0007021, get_paper_content fullText, discover_papers) were all refused 'alphaXiv assistant quota exceeded'; arxiv.org, export.arxiv.org, alphaxiv.org, semanticscholar are refused by the egress proxy (CONNECT 403). Eq.(11)-(13) are therefore taken from (a) the verbatim quotation recorded by the sibling audit audits/gr-qc_0007021.json, which READ gr-qc/0007021v2 in full at source in this docket (alphaXiv get_paper_content fullText=true), and (b) the full text of arXiv:2004.12523v4 cached at scratchpad/d67/src/osm_flat.txt (and src/casmag/all/2004.12523v4.txt), read here, which restates eq.(11) and the det A = 0 criterion exactly. The Jacobi-equation content itself is re-derived symbolically here (E1), so nothing below rests on an unread statement."
+ },
+ "published_statement": "Gao & Wald (2000) eq.(11): for a null geodesic from p with affine parameter lambda and tangent k, the Jacobi matrix obeys d^2A^mu_nu/dlambda^2 = -R_{alpha beta sigma}^mu k^alpha k^sigma A^beta_nu with A|p = 0, dA/dlambda|p = delta -- i.e. the geodesic-deviation equation eta'' = -R(k, eta)k (Wald: a^c = -R_{abd}^c xi^b T^a T^d), equivalently on a transverse screen eta_i'' = -K_ij eta_j with K_ij = R_{k e_i k e_j} (MTW sign). A point q is conjugate to p where det A = 0 (restated in these words by 2004.12523 eq.(2.1)); eq.(13) G''/G = -(1/2)[sigma^2 + R_kk] with G = sqrt(det A) follows from the Raychaudhuri equation (quoted from ref.[10], FMW hep-th/9908070). Eq.(11) is a kinematic identity of Lorentzian geometry: it assumes no energy condition; Gao-Wald's Lemma 1/Theorem 1 add NEC + null generic condition only to GUARANTEE that a zero of det A occurs.",
+ "published_hypotheses": [
+  "H1 null geodesic gamma, affinely parametrised, tangent k (2004.12523 adds the normalisation k.t = -1 against a global timelike t)",
+  "H2 congruence from a point: A|p = 0, dA/dlambda|p = delta (twist-free by construction, so eq.(13) carries no vorticity term)",
+  "H3 smooth (C^2) Lorentzian metric; no energy condition, no symmetry, no field equation is needed for eq.(11) itself",
+  "H4 four dimensions for the coefficient 1/2 in eq.(13) and for G = sqrt(det A) (sibling audit rederive A1-A3); det A of the literal 4x4 matrix equals lambda^2 det A_perp (sibling B2), so det A = 0 at lambda > 0 is det A_perp = 0",
+  "H5 sign convention of the curvature term: Wald's R_{abc}^d with the deviation equation's minus sign; any implementation must pair its Riemann convention with the matching sign",
+  "H6 (for the achronality consequence, not in eq.(11)) a null geodesic is not achronal past a point conjugate to p (Hawking-Ellis Prop. 4.5.12, NAMED-NOT-READ; used by Gao-Wald's J+(p) - I+(p) arguments)"
+ ],
+ "hypothesis_drift": [
+  "SIGN (tree-implementation DISCREPANCY, shown): eq.(11) is eta'' = -K eta with K_ij = R_{k e_i k e_j}. composite.py:233 defines T_ij = -R_{m a n b} k^m e_i^a k^n e_j^b with a standard (MTW) Riemann (composite.py:172-187, up = d_c Gamma^a_bd - d_d Gamma^a_bc + Gamma Gamma - Gamma Gamma), i.e. T = -K (rederive E2: T = [[+0.2213,0],[0,-0.2212]] vs K = [[-0.2213,0],[0,+0.2212]] at closest approach, M = +2e-3), and composite.py:256 evolves acc = -T A, i.e. A'' = +K A -- the opposite sign to eq.(11). Convention-free confirmation (E3, E3b): the owner's own geodesic integrator gives, for M > 0, parallel neighbours converging in z and diverging in y; the eq.(11) sign reproduces that (4.229, -2.171 vs 4.237, -2.169), composite's sign returns the axes SWAPPED (-2.176, 4.224). For a diagonal traceless T (vacuum ray, reflection-symmetric plane) the flip only swaps the two decoupled screen equations, so det A and every conjugate point are unchanged (E4: identical at all nine window masses). The tree's use therefore silently adds the hypothesis R_kk = 0 (and T_yz = 0) for its numbers to equal eq.(11)'s. The same loop is copied at concentric.py:207; on a NON-vacuum ray (concentric.py's withdrawn a = 0.5 corridor, |trace|/|T| = 0.40) the flip matters: conjugate point 191.76 (code) vs 232.56 (eq.11 sign) at m = 1e-2, and at m = 5e-3 the code seats where eq.(11) does not (E9) -- with composite's sign negative R_kk FOCUSES, the reverse of composite.py:27 'RICCI FOCUSING NEEDS POSITIVE ENERGY' (which is correct physics; it is the code that would contradict it off vacuum).",
+  "ADDED (valid): the 4x4 eq.(11) is replaced by a 2x2 system on a transverse screen (composite.py:37-40, 243-246). Legitimate in 4D for the congruence from a point: det A = lambda^2 det A_perp (sibling audit B2) and K is blind to e -> e + alpha k.",
+  "WEAKENED (numerical, owner-recorded): the screen is parallel-propagated by first-order Euler, which 'leaks about a percent' (composite.py:328-330; measured traceless_ratio 8.4e-3 at the max-|T| point); the screen vectors start as coordinate unit vectors, not g-normalised (g(e,e) = 1 - 2 Phi ~ 1 - 1e-4 at x0 = -40). Independent integration with an algebraically exact screen and RK4 (E5) agrees: 55.21 vs 55.17 (+M), 56.56 vs 56.50 (-M), within one coarse step (0.083).",
+  "ADDED (detector, composite.py:262): conjugate point = first step with det A <= 0 after step 5. This detects odd-multiplicity zeros only; a stigmatic (point) focus, where det A touches zero without changing sign, is missed (E7: T = I, true conjugate point pi, min det 3.9e-8 > 0, not detected). Sufficient, not necessary. Irrelevant for composite's traceless T, whose zeros are simple (E8: rank 1 at the zero). It also reports i*h for a state at (i+1)*h -- a bias of at most one step.",
+  "NOT A DRIFT, SCOPE NOTE: eq.(11) holds for any smooth metric, including the tree's linearised Phi = -M/r with M < 0 (composite.py:128-138) -- no energy condition is dropped, because eq.(11) has none; composite finds its conjugate points by integration, not through Gao-Wald's Lemma 1 (which needs NEC + null generic). The metric is not exact vacuum: the exact-screen trace (= R_kk) reaches 5.4 % of |K| away from closest approach, where the Weyl part (~b^2/r^5) is weak and the O(M^2) Ricci residue (~1/r^4) is not (E5) -- 'pure Weyl' (composite.py:44-45) holds to that level, and it does not move the conjugate point.",
+  "CONSEQUENCE CLAIM (composite.py:106-108) 'det A = 0 is a LINE focus ... a conjugate point and breaks achronality': the first half is eq.(11)'s definition (rank-1 A, E8; 2004.12523 p.5); 'breaks achronality' is H6 (Hawking-Ellis 4.5.12), not eq.(11) -- correctly used, since the ray runs 18.5 affine units past the conjugate point and stays at r >= ~0.3, away from the metric's r = 0 singularity.",
+  "FIGURE (discrepancy, not drift): composite.py:53 prints the M = -2e-3 conjugate point as 56.52 while the table composite.py:73 and composite.survey give 56.50; 56.52 is not on the n = 900 grid (h = 0.0833) and is the n = 3600 value (E6: 56.500, 56.542, 56.521 for n = 900, 1800, 3600)."
+ ],
+ "data_at_publication": [
+  {
+   "quantity": "empirical inputs to eq.(11)",
+   "value_then": "none -- a geometric identity (geodesic deviation) of 2000, already classical (Jacobi; Sachs 1961; Hawking-Ellis 1973)",
+   "value_now": "none; restated unchanged in 2004.12523v4 (2022) eq.(2.1)",
+   "source_now": "src/osm_flat.txt p.5; rederive E1",
+   "moves_conclusion": "no -- no datum exists to move"
+  },
+  {
+   "quantity": "composite.py design point M = +/-2e-3, b = 0.3, x0 = -40, lambda = 75, n = 900 (composite.py:121-125, 245-246)",
+   "value_then": "conjugate points 55.17 (+M), 56.50 (-M); delays +5.123e-2, -3.762e-2",
+   "value_now": "reproduced exactly by the owner's code (E4b); independent eq.(11), correct sign, exact screen, RK4 n = 3600: 55.2085 (+M), 56.5591 (-M)",
+   "source_now": "rederive E4b, E5",
+   "moves_conclusion": "no -- design parameters, not measurements; the seat and the sign of the delay survive"
+  },
+  {
+   "quantity": "the window table |M| = 2e-4 .. 4e-2 (composite.py:70-77)",
+   "value_then": "none/none/none/56.50/45.58/42.83/41.50/40.83 with delays as printed",
+   "value_now": "identical with composite's sign and with eq.(11)'s sign at all nine masses",
+   "source_now": "rederive E4b",
+   "moves_conclusion": "no"
+  },
+  {
+   "quantity": "step size / screen transport",
+   "value_then": "h = 75/900; Euler screen leak < 2 % (selftest)",
+   "value_now": "conj(-2e-3) = 56.500 / 56.542 / 56.521 at n = 900 / 1800 / 3600; exact-screen RK4 56.559",
+   "source_now": "rederive E5, E6",
+   "moves_conclusion": "no -- spread 0.06 < 0.1 % of lambda; 'SEATS AND EARLY' at every resolution"
+  }
+ ],
+ "rederivation": {
+  "method": "sympy",
+  "script_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/gr-qc_0007021-eq11.py",
+  "outcome": "12/12 PASS, exit 0 (output rederive/gr-qc_0007021-eq11.out; ~3 min). Owner code run only from byte-identical sandbox copies (md5 19b20fbb... asserted), no bytecode written to research/. E1 sympy exact Riemann of composite's metric: K_zz = +3M/b^3, K_yy = -3M/b^3, trace 0 at O(M). E2 composite.tidal = -K to 7e-5 -> composite integrates A'' = +K A, opposite to eq.(11). E3/E3b convention-free: the owner's geodesics converge in z for M > 0; eq.(11) sign reproduces them, composite's sign swaps the axes. E4 flip is det-invariant for diagonal traceless T; conjugate points identical at all 9 window masses; window table reproduced. E5 independent eq.(11) with correct sign and exact screen: 55.2085 / 56.5591 vs 55.17 / 56.50. E6 refinement spread 0.021; '56.52' is the n = 3600 value. E7 det-sign detector misses a stigmatic zero. E8 rank-1 A at the conjugate point (line focus). E9 concentric: flip negligible in the vacuum corridor (182.16 vs 182.28), decisive off vacuum (191.76 vs 232.56; seat vs no seat at m = 5e-3).",
+  "agrees_with_source": "partly"
+ },
+ "later_literature": [
+  {
+   "ref": "Osorio Morales & Santillan, 'About apparent superluminal drives in generic gravity theories', arXiv:2004.12523v4 (2022)",
+   "effect": "confirms",
+   "what": "Restates Gao-Wald eq.(11) with A|p = 0, dA/dlambda|p = delta, the det A = 0 definition, and that det A = 0 yields a Jacobi field vanishing at both ends ('a conjugate point in the usual sense', p.5); extends the continuity lemma to generic gravity via the Raychaudhuri equation with sigma^2 retained. Their eq.(2.1) writes the curvature term as -R^mu_{alpha beta gamma} k^alpha k^beta A^gamma, a different index order from Gao-Wald's -R_{alpha beta sigma}^mu k^alpha k^sigma A^beta -- a reminder that the sign of the tidal term is convention-laden across restatements, which is exactly where composite's implementation drifted.",
+   "read_status": "READ (full text cached at scratchpad/d67/src/osm_flat.txt, pp.1-6 and the Jacobi/Maslov passage)"
+  },
+  {
+   "ref": "Paternain & Woolgar, arXiv:2606.28689v3 (2026), Remark 5.3(2)",
+   "effect": "extends",
+   "what": "Spacetimes approaching negative-mass Schwarzschild outside a tube violate energy conditions and fall outside the time-delay theorem family -- the regime of composite's M < 0; bears on the delay half, not on eq.(11), which holds there.",
+   "read_status": "re-quoted from sibling audit audits/gr-qc_0007021.json (READ there via alphaXiv); not re-read in this stage"
+  },
+  {
+   "ref": "discover_papers (Jacobi field / conjugate points / lensing / astigmatic / negative mass)",
+   "effect": "contested",
+   "what": "NOT RUN: refused 'alphaXiv assistant quota exceeded'. No later work was located here that narrows or contradicts eq.(11); absence of a search is not absence of literature.",
+   "read_status": "NOT-RUN (quota)"
+  }
+ ],
+ "lacked_data": "M's hypothesis tested for eq.(11): it has no empirical input. It is the geodesic-deviation (Jacobi) equation, a kinematic identity of any smooth Lorentzian metric, classical long before 2000 and restated unchanged in 2022 (2004.12523 eq.2.1); re-derived here symbolically (E1). There is no datum the authors could have lacked, and nothing measured since bears on it. Evidence the other way -- that something is wrong -- was sought and found only in the TREE's implementation: composite.py integrates the equation with the curvature term's sign reversed (E2, E3b). That is not missing data and not an error in Gao-Wald; for the vacuum rays composite actually uses it changes no number (E4), and it would change results only on rays through matter (E9).",
+ "grade": "NARROWED",
+ "grade_evidence": "The external result STANDS as published: eq.(11) and the det A = 0 criterion are the standard Jacobi equation and conjugate-point definition, re-derived (E1), restated identically by 2004.12523, with no datum to move. The TREE's use is NARROWED, shown and not presumed: composite.py's implementation of eq.(11) (composite.py:233 T = -R_{k e_i k e_j}; :256 A'' = -T A) carries the curvature term with the opposite sign (E2), confirmed convention-free against the owner's own geodesic flow (E3b: axes swapped). It agrees with eq.(11) only on the class where the optical tidal matrix is traceless and diagonal (R_kk = 0, reflection-symmetric ray) -- a hypothesis the tree does not state. Every verdict resting on it lies inside that class and SURVIVES: the window table and 'SEATS AND EARLY' at M = -2e-3 are reproduced exactly with the sign corrected (E4b) and by an independent eq.(11) integration (E5: 56.56 vs 56.50; 55.21 vs 55.17); SR3's composite.survey(+2e-3) seats = True, delay > 0 is unchanged. Outside that class the same loop (copied at concentric.py:207) gives wrong conjugate points (E9, a withdrawn non-vacuum configuration only). Further named narrowings: the det-sign detector is sufficient, not necessary (E7); 'pure Weyl' holds to ~5 % where the field is weak (E5). Not WRONG: nothing in the source is contradicted, and no verdict that rests on it moves. Not DATA-DEPENDENT: no datum. Source read via restatement this stage (quota/proxy), full-text READ at source by the sibling audit in this docket.",
+ "what_would_change_the_grade": "-> STANDS if composite.py's tidal sign (or acc sign) is brought into line with eq.(11), or if the tree states R_kk = 0 / T_yz = 0 as a named hypothesis of composite.survey and every caller stays inside it (all current standing callers do). -> a tree-side finding against a verdict (not against Gao-Wald) if any STANDING result is found to use composite's Jacobi loop on a non-vacuum ray (concentric.py's standing design point was checked: vacuum to 7e-4, flip moves one step). An at-source reading of gr-qc/0007021 showing a different sign in eq.(11) would not change this, because the convention-free test E3b compares the code with actual geodesics, not with the paper's typography.",
+ "reverify_command": "cd /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive && PYTHONDONTWRITEBYTECODE=1 python3 gr-qc_0007021-eq11.py   # 12/12 PASS; needs sandbox/eq11/{composite,typefour,concentric}.py (md5-checked against the repo) and composite_fix.py / concentric_fix.py (one-character sign change at the acc line: sed 's/acc = \\[\\[-sum(T/acc = [[+sum(T/')",
+ "report_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/audits/gr-qc_0007021-eq11.json"
+}

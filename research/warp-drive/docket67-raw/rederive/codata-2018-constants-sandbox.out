@@ -1,0 +1,124 @@
+==================== g1s
+  NUMERIC        tolman       1 % contraction at R = 1 m needs m = -1.367063e25 kg         -1.36703e+25 -1.36706e+25 MEAS FAIL
+  NUMERIC        tolman       REQUIRED RADIAL TENSION                                       -9.7771e+40 -9.77732e+40 MEAS FAIL
+  NUMERIC        tolman       designpoint.py's level, IMPORTED not copied                  -8.02558e+39 -8.02576e+39 MEAS FAIL
+  NUMERIC        nonstatic    build throughput at dW = 1 (solar masses)                      2.72068314e+13   2.72074429e+13 FAIL
+  NUMERIC        ledger       [XX] c^2/(G Lambda) reproduces the tree's 1.348948e26 to 7 figures 1.348917 != 1.348948
+  NUMERIC        ledger       [XX] and the Proxima demand is 5.4194e42 kg to 5 figures        5.4193 != 5.4194
+  PIN-IN-BOOLEAN ledger       [XX] and FAILS on one digit of the exchange rate                0 != 1   <-- ledger.py:3934-3936 negative control mutates the literal '1.348948e+26', absent once G moves: control artefact of a 7-s.f. pin
+  PIN-IN-BOOLEAN ledger       [XX] --check from another cwd finds LEDGER.md beside ledger.py, passes (1, True) != (0, True)   <-- ledger.py:3949 LEDGER.md on disk was generated at the base constants: document-sync pin
+  NUMERIC        excite       [XX] xi_required(v) (higgs.py)                                        9.782687024925665e+31
+  NUMERIC        excite       [XX] curvature break-even H2 = S (M_red/v)^2                          5.869612214955399e+30
+  NUMERIC        excite       FAIL xi_required(v) (higgs.py): got 9.782687024925665e+31 want 9.7829068836e+31
+  NUMERIC        excite       FAIL curvature break-even H2 = S (M_red/v)^2: got 5.869612214955399e+30 want 5.86974413016e+30
+  NUMERIC        higgs        [XX] Planck mass in GeV                                         1.2208764091357706e+19
+  NUMERIC        higgs        [XX] reduced Planck mass                                        2.4352960937446845e+18
+  NUMERIC        higgs        [XX] xi required at the VEV                                     9.782687024925665e+31
+  NUMERIC        higgs        [XX] v/M_reduced                                                1.0110460114961102e-16
+  NUMERIC        higgs        FAIL Planck mass in GeV: got 1.2208764091357706e+19 want 1.22089e+19
+  NUMERIC        higgs        FAIL reduced Planck mass: got 2.4352960937446845e+18 want 2.435323e+18
+  NUMERIC        higgs        FAIL xi required at the VEV: got 9.782687024925665e+31 want 9.7829068836e+31
+  NUMERIC        higgs        FAIL v/M_reduced: got 1.0110460114961102e-16 want 1.0110346504e-16
+  NUMERIC        noise        [XX] RECORD: demand at b = 1 m, achievable.required_density(1)                1.80575462451e+46
+  NUMERIC        seatindex    coefficient pi c^4 / 4G  (Pa m^2)                                 9.50511e+43    9.50536e+43  FAIL
+  NUMERIC        throatmass   [XX] l_P computed = achievable.L_PLANCK                           1.616273186e-35 (rel 1.1e-05)
+==================== gDL
+  NUMERIC        tolman       1 % contraction at R = 1 m needs m = -1.367063e25 kg         -1.36713e+25 -1.36706e+25 MEAS FAIL
+  NUMERIC        tolman       REQUIRED RADIAL TENSION                                      -9.77778e+40 -9.77732e+40 MEAS FAIL
+  NUMERIC        tolman       designpoint.py's level, IMPORTED not copied                  -8.02613e+39 -8.02576e+39 MEAS FAIL
+  NUMERIC        tolman       Planck stress (Pa)                                           4.63338e+113  4.6329e+113 MEAS FAIL
+  NUMERIC        nonstatic    build throughput at dW = 1 (solar masses)                      2.72087066e+13   2.72074429e+13 FAIL
+  NUMERIC        ledger       [XX] c^2/(G Lambda) reproduces the tree's 1.348948e26 to 7 figures 1.34901 != 1.348948
+  NUMERIC        ledger       [XX] and the Proxima demand is 5.4194e42 kg to 5 figures        5.4196 != 5.4194
+  PIN-IN-BOOLEAN ledger       [XX] and FAILS on one digit of the exchange rate                0 != 1   <-- ledger.py:3934-3936 negative control mutates the literal '1.348948e+26', absent once G moves: control artefact of a 7-s.f. pin
+  PIN-IN-BOOLEAN ledger       [XX] --check from another cwd finds LEDGER.md beside ledger.py, passes (1, True) != (0, True)   <-- ledger.py:3949 LEDGER.md on disk was generated at the base constants: document-sync pin
+  NUMERIC        excite       [XX] xi_required(v) (higgs.py)                                        9.78336128965058e+31
+  NUMERIC        excite       [XX] curvature break-even H2 = S (M_red/v)^2                          5.870016773790348e+30
+  NUMERIC        excite       FAIL xi_required(v) (higgs.py): got 9.78336128965058e+31 want 9.7829068836e+31
+  NUMERIC        excite       FAIL curvature break-even H2 = S (M_red/v)^2: got 5.870016773790348e+30 want 5.86974413016e+30
+  NUMERIC        higgs        [XX] Planck mass in GeV                                         1.2209184824286216e+19
+  NUMERIC        higgs        [XX] reduced Planck mass                                        2.4353800178216545e+18
+  NUMERIC        higgs        [XX] xi required at the VEV                                     9.78336128965058e+31
+  NUMERIC        higgs        [XX] v/M_reduced                                                1.0110111704845768e-16
+  NUMERIC        higgs        FAIL Planck mass in GeV: got 1.2209184824286216e+19 want 1.22089e+19
+  NUMERIC        higgs        FAIL reduced Planck mass: got 2.4353800178216545e+18 want 2.435323e+18
+  NUMERIC        higgs        FAIL xi required at the VEV: got 9.78336128965058e+31 want 9.7829068836e+31
+  NUMERIC        higgs        FAIL v/M_reduced: got 1.0110111704845768e-16 want 1.0110346504e-16
+  NUMERIC        noise        [XX] RECORD: demand at b = 1 m, achievable.required_density(1)                1.80587908486e+46
+  NUMERIC        seatindex    coefficient pi c^4 / 4G  (Pa m^2)                                 9.50577e+43    9.50536e+43  FAIL
+  NUMERIC        throatmass   [XX] l_P computed = achievable.L_PLANCK                           1.616217489e-35 (rel 2.3e-05)
+==================== gHi
+  NUMERIC        tolman       1 % contraction at R = 1 m needs m = -1.367063e25 kg          -1.3668e+25 -1.36706e+25 MEAS FAIL
+  NUMERIC        tolman       ... = -2.2890 Earth masses                                        -2.2886       -2.289 MEAS FAIL
+  NUMERIC        tolman       REQUIRED RADIAL TENSION                                      -9.77543e+40 -9.77732e+40 MEAS FAIL
+  NUMERIC        tolman       designpoint.py's level, IMPORTED not copied                  -8.02421e+39 -8.02576e+39 MEAS FAIL
+  NUMERIC        tolman       Planck stress (Pa)                                           4.63116e+113  4.6329e+113 MEAS FAIL
+  NUMERIC        nonstatic    build throughput at dW = 1 (solar masses)                      2.72021853e+13   2.72074429e+13 FAIL
+  NUMERIC        nonstatic    H83d's 2.7254e12 M_sun is met at dW =                              0.10019048         0.100171 FAIL
+  NUMERIC        ledger       [XX] c^2/(G Lambda) reproduces the tree's 1.348948e26 to 7 figures 1.348687 != 1.348948
+  NUMERIC        ledger       [XX] and the Proxima demand is 5.4194e42 kg to 5 figures        5.4183 != 5.4194
+  PIN-IN-BOOLEAN ledger       [XX] and FAILS on one digit of the exchange rate                0 != 1   <-- ledger.py:3934-3936 negative control mutates the literal '1.348948e+26', absent once G moves: control artefact of a 7-s.f. pin
+  PIN-IN-BOOLEAN ledger       [XX] --check from another cwd finds LEDGER.md beside ledger.py, passes (1, True) != (0, True)   <-- ledger.py:3949 LEDGER.md on disk was generated at the base constants: document-sync pin
+  NUMERIC        excite       [XX] xi_required(v) (higgs.py)                                        9.781016421547022e+31
+  NUMERIC        excite       [XX] curvature break-even H2 = S (M_red/v)^2                          5.868609852928213e+30
+  NUMERIC        excite       FAIL xi_required(v) (higgs.py): got 9.781016421547022e+31 want 9.7829068836e+31
+  NUMERIC        excite       FAIL curvature break-even H2 = S (M_red/v)^2: got 5.868609852928213e+30 want 5.86974413016e+30
+  NUMERIC        higgs        [XX] Planck mass in GeV                                         1.220772159284344e+19
+  NUMERIC        higgs        [XX] reduced Planck mass                                        2.4350881453773865e+18
+  NUMERIC        higgs        [XX] xi required at the VEV                                     9.781016421547022e+31
+  NUMERIC        higgs        [XX] v/M_reduced                                                1.0111323514373369e-16
+  NUMERIC        higgs        FAIL Planck mass in GeV: got 1.220772159284344e+19 want 1.22089e+19
+  NUMERIC        higgs        FAIL reduced Planck mass: got 2.4350881453773865e+18 want 2.435323e+18
+  NUMERIC        higgs        FAIL xi required at the VEV: got 9.781016421547022e+31 want 9.7829068836e+31
+  NUMERIC        higgs        FAIL v/M_reduced: got 1.0111323514373369e-16 want 1.0110346504e-16
+  NUMERIC        noise        [XX] RECORD: demand at b = 1 m, achievable.required_density(1)                1.80544625322e+46
+  NUMERIC        branelink    [XX] corrected strain h at omega_GW = 2 Omega                       4.33670405645e-48 (rel 1.9e-04)
+  NUMERIC        branelink    [XX] corrected bulk channel, bits/s/W                               1.53502675599e-27 (rel 2.1e-04)
+  NUMERIC        branelink    [XX] WITHDRAWN strain (omega = Omega)                               8.67340811289e-48 (rel 2.0e-04)
+  NUMERIC        branelink    [XX] WITHDRAWN bulk channel                                         6.14010702396e-27 (rel 2.0e-04)
+  NUMERIC        phase1       exchange rate (kg per metre contracted)                        1.348687e+26       1.348940e+26  FAIL
+  NUMERIC        seatindex    coefficient pi c^4 / 4G  (Pa m^2)                                 9.50349e+43    9.50536e+43  FAIL
+  NUMERIC        throatmass   [XX] l_P computed = achievable.L_PLANCK                           1.61641121e-35 (rel 9.7e-05)
+==================== gLo
+  PIN-IN-BOOLEAN tolman       l_P DERIVED from hbar, G, c agrees with CODATA below 1e-4    False       True        MEAS FAIL   <-- tolman.py:2771-2772 compares derived l_P with the TYPED CODATA l_P; perturbing G alone makes the typed pair inconsistent (perturbation artefact)
+  NUMERIC        tolman       1 % contraction at R = 1 m needs m = -1.367063e25 kg         -1.36755e+25 -1.36706e+25 MEAS FAIL
+  NUMERIC        tolman       ... = -2.2890 Earth masses                                       -2.28986       -2.289 MEAS FAIL
+  NUMERIC        tolman       REQUIRED RADIAL TENSION                                      -9.78082e+40 -9.77732e+40 MEAS FAIL
+  NUMERIC        tolman       designpoint.py's level, IMPORTED not copied                  -8.02863e+39 -8.02576e+39 MEAS FAIL
+  NUMERIC        tolman       the equivalent purely radial magnetic field (T)               4.95801e+17   4.9571e+17 MEAS FAIL
+  NUMERIC        tolman       Planck stress (Pa)                                           4.63627e+113  4.6329e+113 MEAS FAIL
+  NUMERIC        nonstatic    build throughput at dW = 1 (solar masses)                      2.72171891e+13   2.72074429e+13 FAIL
+  NUMERIC        nonstatic    H83d's 2.7254e12 M_sun is met at dW =                             0.100135249         0.100171 FAIL
+  NUMERIC        ledger       [XX] c^2/(G Lambda) reproduces the tree's 1.348948e26 to 7 figures 1.349431 != 1.348948
+  NUMERIC        ledger       [XX] and the Proxima demand is 5.4194e42 kg to 5 figures        5.4213 != 5.4194
+  PIN-IN-BOOLEAN ledger       [XX] and FAILS on one digit of the exchange rate                0 != 1   <-- ledger.py:3934-3936 negative control mutates the literal '1.348948e+26', absent once G moves: control artefact of a 7-s.f. pin
+  PIN-IN-BOOLEAN ledger       [XX] --check from another cwd finds LEDGER.md beside ledger.py, passes (1, True) != (0, True)   <-- ledger.py:3949 LEDGER.md on disk was generated at the base constants: document-sync pin
+  NUMERIC        excite       [XX] xi_required(v) (higgs.py)                                        9.786411299540177e+31
+  NUMERIC        excite       [XX] curvature break-even H2 = S (M_red/v)^2                          5.871846779724106e+30
+  NUMERIC        excite       FAIL xi_required(v) (higgs.py): got 9.786411299540177e+31 want 9.7829068836e+31
+  NUMERIC        excite       FAIL curvature break-even H2 = S (M_red/v)^2: got 5.871846779724106e+30 want 5.86974413016e+30
+  NUMERIC        higgs        [XX] Planck mass in GeV                                         1.2211087811997497e+19
+  NUMERIC        higgs        [XX] reduced Planck mass                                        2.4357596089502116e+18
+  NUMERIC        higgs        [XX] xi required at the VEV                                     9.786411299540177e+31
+  NUMERIC        higgs        [XX] v/M_reduced                                                1.0108536135278978e-16
+  NUMERIC        higgs        FAIL Planck mass in GeV: got 1.2211087811997497e+19 want 1.22089e+19
+  NUMERIC        higgs        FAIL reduced Planck mass: got 2.4357596089502116e+18 want 2.435323e+18
+  NUMERIC        higgs        FAIL xi required at the VEV: got 9.786411299540177e+31 want 9.7829068836e+31
+  NUMERIC        higgs        FAIL v/M_reduced: got 1.0108536135278978e-16 want 1.0110346504e-16
+  NUMERIC        noise        [XX] RECORD: demand at b = 1 m, achievable.required_density(1)                1.80644207634e+46
+  NUMERIC        branelink    [XX] corrected strain h at omega_GW = 2 Omega                       4.33431339571e-48 (rel 3.7e-04)
+  NUMERIC        branelink    [XX] corrected bulk channel, bits/s/W                               1.53418055386e-27 (rel 3.4e-04)
+  NUMERIC        branelink    [XX] WITHDRAWN strain (omega = Omega)                               8.66862679141e-48 (rel 3.5e-04)
+  NUMERIC        branelink    [XX] WITHDRAWN bulk channel                                         6.13672221545e-27 (rel 3.5e-04)
+  PIN-IN-BOOLEAN spec         the invariant is kept executable so the retraction is checkable              False               True  FAIL   <-- spec.py:286-287 abs(seating_invariant()/1.54562e19 - 1) < 1e-4: a 5-s.f. NUMERIC PIN
+  NUMERIC        phase1       exchange rate (kg per metre contracted)                        1.349431e+26       1.348940e+26  FAIL
+  NUMERIC        seatindex    coefficient pi c^4 / 4G  (Pa m^2)                                 9.50873e+43    9.50536e+43  FAIL
+  NUMERIC        throatmass   [XX] l_P computed = achievable.L_PLANCK                           1.615965616e-35 (rel 1.8e-04)
+==================== em22
+  NUMERIC        noise        [XX] RECORD: C/tau^4 at tau = b/c, achievable.persistence_allow(1)            1.00215907401e-25
+
+g1s   numeric-pin flips (incl. traced pin-in-boolean)  23   untraced boolean/verdict flips 0
+gDL   numeric-pin flips (incl. traced pin-in-boolean)  24   untraced boolean/verdict flips 0
+gHi   numeric-pin flips (incl. traced pin-in-boolean)  31   untraced boolean/verdict flips 0
+gLo   numeric-pin flips (incl. traced pin-in-boolean)  34   untraced boolean/verdict flips 0
+em22  numeric-pin flips (incl. traced pin-in-boolean)   1   untraced boolean/verdict flips 0

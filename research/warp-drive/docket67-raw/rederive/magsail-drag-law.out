@@ -1,0 +1,54 @@
+== 1. The tree's own numbers, reproduced from its formula
+  [ok] selftest 2001.64 AU (1e6 kg, 0.0476 c, 1e12 m^2) 2001.6382 AU
+     A=1e+10 m^2:  200163.8 AU     8.425 ly
+     A=1e+12 m^2:    2001.6 AU     0.084 ly
+     A=1e+14 m^2:      20.0 AU     0.001 ly
+  [ok] table 8.42 ly / 0.08 ly / 0.00 ly from 0.866 c 
+     area that would give the prose '810 AU' from 0.0476 c : 2.471e+12 m^2
+     area that would give the prose '2.6 ly'  from 0.866 c : 3.240e+10 m^2
+  [ok] prose pair (810 AU, 2.6 ly) is NOT one area (DISCREPANCY, recorded not graded) ratio 76.3
+  [ok] '2.6 ly' ~ A = pi*(100 km)^2 (radius reading of the 100 km row) A26/(pi e10) = 1.031
+
+== 2. Constant-A, v^2 drag, non-relativistic: exact solution (sympy)
+     v(x) = v0*exp(-A*rho*x/m)
+  [ok] v(x) = v0 exp(-rho A x / m) 
+  [ok] distance to REST is infinite (v>0 for all finite x) 
+  [ok] at the tree's L the ship keeps v/v0 = e^(-1/2) = 0.607 (KE fraction e^-1)
+  [ok] so 'floor' is TRUE under the tree's own constant-A hypothesis (vacuously: true value infinite) 
+     constant A=1e12, n=1: distance 0.0476 c -> 100 km/s = 19826 AU (= 9.90 x the tree's floor)
+
+== 3. Relativistic, constant A
+  [ok] d/dbeta of antiderivative (a) = gamma^3/beta 
+  [ok] d/dbeta of antiderivative (b) = gamma/beta 
+     0.866 c -> 0.0476 c, in units m/(rho A): (a) 4.187  (b) 3.188  tree L: 1.333
+     0.866 c -> 0.0100 c, in units m/(rho A): (a) 5.749  (b) 4.749  tree L: 1.333
+  [ok] both relativistic forms still diverge at beta->0 (log) 
+  [ok] gamma^2 at 0.866 c = 4.0 (the initial ram drag the tree omits at high beta) 
+
+== 4. Pressure balance (Gros eq (31), his restatement of Zubrin-Andrews [13]); DERIVED here, not a Z-A quote
+  [ok] standoff z ~ v^(-1/3) -1/3
+  [ok] drag F ~ rho v^2 * pi z^2 ~ v^(4/3): velocity-dependent area, NOT constant A 4/3
+  [ok] v^(4/3) law: stopping distance FINITE and = 3 x energy/initial-drag estimate ratio 3
+
+== 5. Gros's momentum braking, eq (1) with full reflection and eq (8) A(v)=A_c log^3(I/(beta I_c))
+  [ok] Gros eq (10) solves eq (1)+(8) (dx/dv matches, v < cI/I_c) 
+  [ok] x_max / L_tree = a/2 when the tree's A is read as A(v0) 
+  [ok] x_max / L_tree = 6.17/a^2 when the tree's A is read as the bare area pi R^2 
+     => the 'floor' label HOLDS for a<2.48 (bare-area reading) and FAILS for a<2 (A(v0) reading);
+        at Gros's optimum a=1: true stopping distance = 0.5 x floor (A(v0)) or 6.17 x floor (bare)
+  [ok] eq (16): I_opt = e*I_c*beta0 = 4.2e6 beta0 A 
+  [ok] eq (19): 1/(4*0.081) = 3.1 
+  [ok] eq (13): v/v0=1/10 at 0.91 x_max; 1/300 at 0.98 x_max 
+  [ok] eq (14): tau(1/10) = 1.84, tau(1/300) = 5.2 1.840 5.246
+  [ok] eq (20): 4.2/(1+2*5.2)=0.37 ly, 39.5/(1+2*1.84)=8.44 ly 
+
+== 6. Gros's law applied to the tree's scenario (1e6 kg, 0.0476 c), bare area 1e12 m^2, a = 1
+     tree n=1        x_max =     12335 AU   (tree floor at that n:      2002 AU)
+     Gros LIC f=0.1  x_max =    123348 AU   (tree floor at that n:     20016 AU)
+     Local Bubble    x_max =   2466958 AU   (tree floor at that n:    400328 AU)
+     at 0.866 c: A(v)=0 unless I > beta*I_c = 1.34e+06 A; Gros integrates the NON-relativistic Lorentz force,
+     so no READ model covers the tree's 0.87 c row -- outside every source's domain
+  [ok] 0.866 c needs I > 1.34e6 A just to reflect (Gros eq (8) cutoff) 
+  [ok] Gros: Z-A's I=159e3 A at c/10 is at/below cutoff (beta*I_c = 1.55e5 A) 
+
+  REDERIVE OK

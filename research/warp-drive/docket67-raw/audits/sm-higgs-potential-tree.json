@@ -1,0 +1,114 @@
+{
+ "key": "sm-higgs-potential-tree",
+ "name": "Standard Model tree-level Higgs potential V = (lambda/4)(phi^2 - v^2)^2, m_h^2 = V''(v) = 2 lambda v^2, rho_EW = |V_min| = lambda v^4/4 (merged: sm-higgs-potential-mexican-hat)",
+ "source": {
+  "located": "The classic (Higgs 1964; Weinberg 1967) is NAMED-NOT-READ. Read through two arXiv restatements: (1) Buttazzo, Degrassi, Giardino, Giudice, Sala, Salvio, Strumia, 'Investigating the near-criticality of the Higgs boson', arXiv:1307.3536v4 (2014): eq. (6) V0 = -m0^2|H0|^2/2 + lambda0|H0|^4, eqs. (10)-(11) M_h^2 = 2 lambda_OS v_OS^2, lambda_OS = G_mu M_h^2/sqrt2, Table 1 (tree threshold lambda = M_h^2/2V^2, V = (sqrt2 G_mu)^(-1/2)), Table 2 inputs, Table 3 (LO/NLO/NNLO MS-bar values at mu = M_t), eq. (55), sec. 4.2 eq. (63), p.3 metastability; (2) J. Martin, 'Everything You Always Wanted To Know About The Cosmological Constant Problem', arXiv:1205.3365v1 (2012): eqs. (13)-(15), (19)-(21), (26), (46)-(48), (55)-(58), sec. IX eq. (515)-(516). Later: Hiller, Hoehne, Litim, Steudtner arXiv:2401.08811v4 (2026) (PDG-2024 inputs, Table I; depth of minimum gauge-independent); Moffat arXiv:2503.11548v1 (2025) p.2-4 (quotes the CMS kappa_lambda interval).",
+  "read_status": "READ-VIA-RESTATEMENT",
+  "via": "alphaXiv answer_pdf_queries on 1307.3536 (pp.1,3,4,6-8,10,11,13-18,28,39 returned), 1205.3365 (pp.1,3,5-7,9-11,48), 2401.08811 (pp.1-5,16,23-24), 2503.11548 (pp.1-6). Higgs 1964 / Weinberg 1967 not read (pre-arXiv); the potential's form and the tree relation are READ as restated in (1) and (2). PDG 2026 (the tree's m_h = 125.13 capture) not read here; PDG 2024 m_h = 125.20(11) READ via 2401.08811 Table I. CMS PLB 861 (2025) 139210 NAMED-NOT-READ; its -1.2 < kappa_lambda < 7.5 is READ as quoted by 2503.11548 p.2."
+ },
+ "published_statement": "Buttazzo et al. 1307.3536 eq.(6) 'we write the classical Higgs potential as V0 = -(m0^2/2)|H0|^2 + lambda0|H0|^4'; eq.(10)-(11) 'm^2_OS = 2 lambda_OS v^2_OS, M_h^2 = 2 lambda_OS v^2_OS, or lambda_OS = G_mu M_h^2/sqrt2, m^2_OS = M_h^2'; Table 1: tree-level threshold 'lambda  M_h^2/2V^2' with V = (sqrt2 G_mu)^(-1/2); Table 3: lambda(mu=M_t) LO 0.12917, NLO 0.12774, NNLO 0.12604, m LO 125.15 -> NNLO 131.55 GeV; p.3: 'the Higgs vacuum does not reside in the configuration of minimal energy, but in a metastable state'; p.17 lambda crosses zero 'at a scale of about 10^10 GeV'. Martin 1205.3365 eq.(13) 'V(Phi) = V0 + (lambda/4)(Phi^2 - v^2)^2' with V0 'the classical off-set'; eq.(21) 'V(<Sigma> = v) = -m^4/(4 lambda) ... negative. Clearly, this is because we have chosen V0 = 0'; eq.(48) 'rho_vac = V(<Sigma>=v) = -(1/4) m_H^2 v^2' (his v = 246/sqrt2); eq.(58) 'rho^EW_vac ~ -1.2 x 10^8 GeV^4 ~ -10^55 rho_cri'; p.11 'in absence of gravity, only differences of energy can be detected'. 2503.11548 p.4: 'Only a direct measurement of the Higgs field self-coupling interaction can determine the shape of the Higgs field potential.'",
+ "published_hypotheses": [
+  "classical (tree-level) potential; loop corrections enter only through MS-bar threshold corrections and the effective potential (1307.3536 eqs. (25)-(26), App. C)",
+  "renormalizable quartic form -m^2|H|^2/2 + lambda|H|^4 of the SM (1307.3536 eq. (6)); the self-couplings are then fixed by M_h and v",
+  "lambda identified on-shell through M_h and G_mu at tree level (eq. (10)-(11)); MS-bar lambda(mu) differs at loop level (Table 3)",
+  "V0 = 0: the zero of V is a choice; only differences are observable without gravity (1205.3365 eqs. (13),(21), p.11)",
+  "v from muon decay, V = (sqrt2 G_mu)^(-1/2) (1307.3536 Table 2; 1205.3365 eq. (55))",
+  "flat spacetime, fixed couplings (no running) for the tree relation; at large field lambda runs negative (~10^10-10^11 GeV)"
+ ],
+ "hypothesis_drift": [
+  "DROPPED -- the SM self-coupling structure is a model hypothesis, not a measurement: the data fix only v (G_F) and V''(v) = m_h^2; the trilinear is bounded only to -1.2 < kappa_lambda < 7.5 (CMS 95%, as quoted by 2503.11548 p.2) and the quartic is unmeasured. No file in research/warp-drive names this (grep for trilinear/kappa_lambda/self-coupling: 0 hits). Sites: higgs.py:62-70 ('With v from the Fermi constant and m_h from the PDG this is about -1.19e8 GeV^4'), higgs.py:77-79 ('the SIGN of rho is right too'), excite.py:142-162 (D20 stability edge and source=field point), excite.py:1028-1038 (V''(0)/V''(v) = -1/2), massform.py:2227 (STABLE_RANGE) -> specthm.py:1432-1438 (SR5 hypothesis list). Computed consequence (rederive Part E): within the allowed kappa_lambda range the depth V(0)-V(v) = (m_h^2 v^2/8)(3-kappa)/2 changes sign, the edge moves from 0.4226 to 0.2743 at kappa=2, and V''(0)/V''(v) = -1/2 + 3(kappa-1)/8.",
+  "DROPPED -- 'tree-level' is not named in higgs.py (grep 'tree-level|one-loop|running' in higgs.py: 0 hits), although canonical lists it as a hypothesis of higgs.py:62-79; the V_min figure is presented as 'The Standard Model Higgs potential at its minimum' (higgs.py:65). Computed size (Part C, one-loop Landau-gauge CW with 1307.3536 Table 3 NLO couplings at mu = M_t): depth 1.265e8 vs tree 1.187e8 GeV^4 (+6.6%); does not move the >1e2 / <1e4 selftest band (higgs.py:613-617).",
+  "DROPPED (at the owner, NAMED elsewhere) -- excite.py section 3's HYPOTHESES (excite.py:145-149) do not name the tree-level potential for stability_edge (excite.py:813-818); massform.py:755-759 names H-TREE-V but only for the field-energy theorem (C4), and SR5 (specthm.py:1432-1438) carries STABLE_RANGE under 'excite's section-3 stability model' without it. Computed: the one-loop correction's V'' is log-singular exactly at the tree spinodal (Part D: coefficient 72 lambda^2 h^2/(64 pi^2) times ln M_h^2(h) -> -inf), so the edge location is a tree-level object that fixed-order perturbation theory does not define.",
+  "NONE for D15 (excite.py:73,102-103): (H-b) V smooth, V'(v)=0, V''(v)=m^2>0 is weaker than the SM form and uses only the measured curvature -- no drift.",
+  "NONE for the V(0)=0 convention: named at higgs.py:83-88 (caveat a) exactly as Martin 1205.3365 eq.(21) and p.11 state it; the 'some fifty-four orders' figure recomputes to 10^54.67 (Part B6).",
+  "NONE for the gauge remark (excite.py:121-125): -1_2 is in SU(2) (det 1, unitary; Part E8), so H -> -H is a gauge transformation, as the tree says (the tree's own selftest exhibits U = -1 in U(1)_Y, excite.py:1486 -- a different gauge element with the same effect)."
+ ],
+ "data_at_publication": [
+  {
+   "quantity": "m_h",
+   "value_then": "unknown in 1964/1967 (lambda a free parameter); Buttazzo 2013: 125.15 +/- 0.24 GeV (1307.3536 Table 2); Martin 2012: '~125 GeV ... not yet established' (1205.3365 p.10)",
+   "value_now": "tree: 125.13 GeV (its PDG-2026 capture, not read here); PDG 2024: 125.20(11) GeV (READ via 2401.08811 Table I)",
+   "source_now": "research/warp-drive/captures/PDG-2026.tsv row pdgid 25; arXiv:2401.08811 Table I",
+   "moves_conclusion": "no -- lambda and |V_min| scale as m_h^2: over 124.80-125.46 GeV the overshoot ratio runs 1187-1200 (Part B); every verdict band unmoved"
+  },
+  {
+   "quantity": "v = (sqrt2 G_F)^(-1/2)",
+   "value_then": "246.21971 +/- 0.00006 GeV (1307.3536 Table 2); G_mu = 1.1663781(6)e-5 in Buttazzo's convention (1 sigma lower than MuLan's quoted value, p.8)",
+   "value_now": "tree: G_F = 1.1663788e-5 (NAMED-NOT-READ, higgs.py:209) -> v = 246.21964 GeV",
+   "source_now": "higgs.py:209 (pin); 1307.3536 p.8 (convention note)",
+   "moves_conclusion": "no -- relative spread ~3e-7"
+  },
+  {
+   "quantity": "lambda (tree, on-shell) vs MS-bar lambda(M_t)",
+   "value_then": "LO 0.12917; NLO 0.12774; NNLO 0.12604 (1307.3536 Table 3, eq. (55))",
+   "value_now": "tree fixture 0.129136053130 (higgs.py:602), reproduced to 1e-9 (Part B1)",
+   "source_now": "1307.3536 Table 3; 2401.08811 p.3 (alpha_lambda,eff enhanced 17% over tree alpha_lambda at mu_ref = 200 GeV)",
+   "moves_conclusion": "no for the tree's use -- the tree uses the on-shell tree relation, which is what Buttazzo's Table 1 calls the tree-level threshold; the MS-bar value is scheme-dependent and not a physical depth by itself (Part C: MS-bar tree parameters alone give depth 1.50e8, the full one-loop V_eff 1.27e8)"
+  },
+  {
+   "quantity": "V(0) - V(v) (depth) beyond tree level",
+   "value_then": "tree: m_h^2 v^2/8 (1205.3365 eq.(48) in his normalisation; eq.(58) -1.2e8 GeV^4)",
+   "value_now": "one-loop CW estimate: 1.265e8 GeV^4 (NLO couplings), 1.256e8 (NNLO couplings) = +6.6% / +5.8% over tree 1.187e8 (Part C; Landau gauge, real part, top+W+Z+Higgs+Goldstones, mu = M_t only -- ESTIMATE, scale dependence not computed)",
+   "source_now": "computed here from 1307.3536 Table 3",
+   "moves_conclusion": "no -- overshoot ratio 1193 -> ~1272, inside (1e2, 1e4)"
+  },
+  {
+   "quantity": "Higgs trilinear kappa_lambda (shape of V away from v)",
+   "value_then": "not measured (SM prediction kappa = 1)",
+   "value_now": "-1.2 < kappa_lambda < 7.5 at 95% CL (CMS PLB 861 (2025) 139210, as quoted by 2503.11548 p.2); quartic unmeasured (2503.11548 p.2)",
+   "source_now": "arXiv:2503.11548 p.2 (CMS NAMED-NOT-READ)",
+   "moves_conclusion": "YES for the magnitude/sign reading and the stability edge, NOT for D15 or the leading 2/eps law: in the same-v, same-m_h family V = a x^2 + b x^3 (x = phi^2 - v^2) depth/SM = (3-kappa)/2, i.e. +2.1 at kappa=-1.2, 0 at kappa=3, -2.25 at kappa=7.5; edge 0.5068/0.4226/0.2743 at kappa=-1.2/1/2; source/field*eps -> 2 for every b (Part E). The family is one sextic extension (for kappa<1, b<0 is unbounded below and needs higher terms); it shows the data do not fix these quantities, not that the SM value is wrong."
+  },
+  {
+   "quantity": "rho_Lambda observed (for 'some fifty-four orders')",
+   "value_then": "rho_cri ~ 1e-47 GeV^4 (1205.3365 eq.(58))",
+   "value_now": "Planck-2018 H0 = 67.36, Omega_L = 0.6847 (values typed in the script, NAMED-NOT-READ here) -> 2.515e-47 GeV^4; |V_min|/rho_Lambda = 10^54.67",
+   "source_now": "computed (Part B6)",
+   "moves_conclusion": "no"
+  }
+ ],
+ "rederivation": {
+  "method": "sympy",
+  "script_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/sm-higgs-potential-tree.py",
+  "outcome": "ALL 35 CHECKS PASS (exit 0). Part A (sympy, exact): V'(v(1+f))/(lam v^3) = f(f+1)(f+2); V''(v) = 2 lam v^2; with V(0)=0, V_min = -lam v^4/4 = -m^2 v^2/8; V''(0)/V''(v) = -1/2; q = 1 + 3f/2 + f^2/2; D20 source = 4eps(2-eps)(1-eps)^2, field = eps^2(2-eps)^2, series (0,8,-16,12), edge 1-1/sqrt3, source=field at 1-1/sqrt5 (inside the unstable range), source/field -> 2/eps; normalisation equivalence with Buttazzo eq.(6)/(11) and Martin eq.(48). Part B: lambda(125.13) = 0.129136053130 to 1e-9; Buttazzo LO 0.12917 reproduced; |V_min| = 1.1865e8 GeV^4 = 2.474e45 J/m^3; ratio to TAU_0 = 1193.3; excess over rho_Lambda 10^54.67. Part C (ESTIMATE): one-loop depth +6.6% (NLO couplings), h_min 248.2 GeV. Part D: one-loop V'' log-singular at the tree spinodal. Part E: same-v, same-m_h sextic family -- depth (3-kappa)/2, V''(0)/V''(v) = -1/2 + 3(kappa-1)/8, edge moves with kappa, 2/eps law invariant; -1_2 in SU(2).",
+  "agrees_with_source": "yes"
+ },
+ "later_literature": [
+  {
+   "ref": "Buttazzo et al., arXiv:1307.3536 (2013/2014)",
+   "effect": "narrows",
+   "what": "the tree relation lambda = M_h^2/(2v^2) is the LO threshold; MS-bar lambda(M_t) = 0.12604 at NNLO (Table 3); the EW vacuum is metastable, lambda < 0 above ~10^10 GeV -- far outside the field range 0 <= phi <= v the tree uses; the tree-level quartic form is the classical potential only",
+   "read_status": "READ (pp.1,3,4,6-8,10,11,13-18,28,39)"
+  },
+  {
+   "ref": "Martin, arXiv:1205.3365 (2012)",
+   "effect": "confirms",
+   "what": "V_min = -m_H^2 v^2/4 in his normalisation (= -m_h^2 v^2/8 with v = 246 GeV), ~ -1.2e8 GeV^4 ~ -10^55 rho_cri; V0 = 0 is a choice; also records that the renormalised one-loop zero-point terms are of the same order (eq. 516, -2e8 GeV^4 at his mu) -- the absolute number is convention- and scheme-bound, as higgs.py caveat (a) says",
+   "read_status": "READ (pp.1,3,5-7,9-11,48)"
+  },
+  {
+   "ref": "Hiller, Hoehne, Litim, Steudtner, arXiv:2401.08811v4 (2024/2026)",
+   "effect": "confirms",
+   "what": "PDG-2024 inputs (M_h = 125.20(11)); stability still turns on M_t and alpha_s, metastability preferred (Lambda_0,eff ~ 5.3e11 GeV); 'While the effective potential ... is gauge-dependent, the depth of its minimum is not'; loop corrections subleading to RG running for the large-field minimum. Nothing moves the 0 <= phi <= v region the tree uses",
+   "read_status": "READ (pp.1-5,16,23-24)"
+  },
+  {
+   "ref": "Moffat, arXiv:2503.11548 (2025), quoting CMS PLB 861 (2025) 139210",
+   "effect": "narrows",
+   "what": "the trilinear self-coupling is constrained only to -1.2 < kappa_lambda < 7.5; the quartic 'cannot be measure[d] at present accelerator energies'; 'Only a direct measurement of the Higgs field self-coupling interaction can determine the shape of the Higgs field potential' -- the SM shape between 0 and v is a model hypothesis, not data. (Moffat's own finite-QFT alternative is not relied on here.)",
+   "read_status": "READ (pp.1-6); CMS paper NAMED-NOT-READ"
+  },
+  {
+   "ref": "Degrassi et al., arXiv:1205.6497; Bednyakov et al. 1507.08833; Andreassen-Frost-Schwartz 1707.08124",
+   "effect": "extends",
+   "what": "NNLO stability analysis, gauge independence of stability bound, vacuum lifetime -- listed by discover_papers / cited in 2401.08811; not needed for the tree's field range",
+   "read_status": "NAMED-NOT-READ"
+  }
+ ],
+ "lacked_data": "M's hypothesis tested. WHAT THE AUTHORS LACKED: Higgs (1964) and Weinberg (1967) wrote the quartic with lambda free -- they lacked m_h (measured 2012) and so lambda. The tree does not use their data; it uses post-2012 inputs (m_h 125.13 from its PDG-2026 capture, G_F), and moving m_h across 124.80-125.46 GeV moves every figure by <0.6% and no verdict (Part B). One-loop corrections (data the tree-level form cannot carry) move the depth by ~+6% (Part C) -- no verdict moves. EVIDENCE AGAINST THE HYPOTHESIS: no datum has contradicted the SM potential; kappa_lambda = 1 lies inside the measured interval; metastability (1307.3536, 2401.08811) concerns field values ~1e10-1e11 GeV, not 0..v. EVIDENCE FOR A NARROWER VERSION OF IT: the data STILL lack the Higgs self-couplings -- only v and the curvature m_h^2 are measured; kappa_lambda is known only to (-1.2, 7.5) and the quartic not at all. Having that datum would change conclusions the tree draws from the SM shape: the depth (and its sign under V(0)=0), V''(0)/V''(v), and the stability edge all move with kappa (Part E, exact). It would NOT change D15 (needs only V''(v) = m^2 > 0) nor D20's leading law source/field -> 2/eps (depends only on V''(v); Part E5). So: the SM tree formulas are exact SM statements; the missing datum is the self-coupling, and it is missing today, not only in 1964.",
+ "grade": "NARROWED",
+ "grade_evidence": "Every polynomial identity and SM number the tree uses re-derives exactly (sympy Part A; lambda fixture to 1e-9; |V_min| 1.1865e8 GeV^4 = 2.474e45 J/m^3; ratio 1193; Buttazzo's LO 0.12917 and Martin's -1.2e8 reproduced), and no moved datum (m_h 125.13 vs PDG-2024 125.20, G_F convention, one-loop +6.6%) moves any verdict. It is not STANDS because the tree drops a hypothesis the sources make explicit: the quartic SM shape between 0 and v is a model assumption -- data fix only v and m_h^2, kappa_lambda is bounded only to (-1.2, 7.5) and the quartic is unmeasured (2503.11548 p.2, p.4). No file in research/warp-drive names it. On the same-v, same-m_h family the depth is (m_h^2 v^2/8)(3-kappa)/2 (sign flips for kappa > 3, inside the allowed interval), V''(0)/V''(v) = -1/2 + 3(kappa-1)/8 and the stability edge moves (0.4226 -> 0.2743 at kappa = 2). So higgs.py's physical readings 'about -1.19e8 GeV^4 ... with v from the Fermi constant and m_h from the PDG' and 'the SIGN of rho is right too' (higgs.py:62-79), and the edge carried into massform.STABLE_RANGE / SR5, hold on the class of potentials with SM self-couplings, not on what the data fix. Also not named: 'tree-level' in higgs.py and in excite section 3 (the one-loop V'' is log-singular at the tree edge, Part D). NOT narrowed: D15 (uses only (H-b)), the leading 2/eps law (shape-independent, Part E5), the V(0)=0 caveat (named), the gauge remark (-1_2 in SU(2)). Not WRONG: no counterexample to any stated SM identity exists; the SM value kappa = 1 is consistent with data.",
+ "what_would_change_the_grade": "To STANDS: the tree names the SM-self-coupling hypothesis (and 'tree-level') at higgs.py:62-79 and on the stability edge (excite section 3 / massform.STABLE_RANGE / SR5), scoping its magnitude, sign and edge claims to it -- or a measurement fixes kappa_lambda (and the quartic) near 1 (a sign-determining bound kappa < 3 at high confidence would restore the sign reading, and |kappa - 1| << 1 the magnitude). To DATA-DEPENDENT: a measured kappa_lambda significantly away from 1. To WRONG: only a computed contradiction of a stated identity -- none exists (35/35 checks). A full two-loop, scale-varied depth computation could refine the +6% estimate but cannot move the (1e2, 1e4) band.",
+ "reverify_command": "python3 /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/sm-higgs-potential-tree.py; cd /home/user/Claude-Method-Works/research/warp-drive && grep -rn -i 'trilinear\\|kappa_lambda\\|self-coupling' --include=*.py --include=*.md . | wc -l; grep -n -i 'tree-level\\|one-loop' higgs.py | wc -l",
+ "report_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/audits/sm-higgs-potential-tree.json"
+}

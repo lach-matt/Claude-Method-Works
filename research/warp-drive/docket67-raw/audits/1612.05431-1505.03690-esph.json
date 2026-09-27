@@ -1,0 +1,105 @@
+{
+ "key": "1612.05431-1505.03690-esph",
+ "name": "Sphaleron energy at the measured Higgs mass: 9.11 TeV (Tye-Wong), 9.08 TeV (Funakubo-Fuyuto-Senaha), 9.0 TeV (with U(1))",
+ "source": {
+  "located": "S.-H. H. Tye & S. S. C. Wong, arXiv:1505.03690 (PRD 92 (2015) 045005), eq.(1.2) p.3 per the tree's capture; K. Funakubo, K. Fuyuto & E. Senaha, 'Does a band structure affect sphaleron processes?', arXiv:1612.05431 (Dec 2016), eq.(10) p.2 per the tree's capture. Locators are the tree's (massform.py:1109-1115), not re-verified this session.",
+  "read_status": "NAMED-NOT-READ",
+  "via": "NOT READ IN THIS AUDIT. alphaXiv answer_pdf_queries, get_paper_content and discover_papers all returned 'alphaXiv assistant quota exceeded'; arxiv.org, www.alphaxiv.org, link.springer.com, pith.science are refused by the egress proxy (403 / EGRESS_BLOCKED); web3.arxiv.org does not resolve. The only text available is the tree's own earlier verbatim capture at massform.py:1109-1115 (status word READ there), which this audit quotes but cannot independently confirm. It is not a later arXiv paper's restatement, so READ-VIA-RESTATEMENT is not claimed."
+ },
+ "published_statement": "AS CAPTURED BY THE TREE (massform.py:1111-1115), not re-read here: Tye-Wong eq.(1.2): 'Using the known Higgs vacuum expectation value v = 246 GeV, W Boson mass m_W = 80 GeV and the Higgs Boson mass m_H = 125 GeV, we obtain V(Q) ~ 4.75 TeV (1.31 sin^2(m_W Q) + 0.60 sin^4(m_W Q)), E_sph = max[V(Q)] = V(pi/(2 m_W)) = 9.11 TeV'.  Funakubo-Fuyuto-Senaha eq.(10): 'E_sph = g_2 v V(pi/2) ~ 9.08 TeV.'  The third value, '9.0 TeV (with U(1))', is held in the tree as E_SPH_TEV['Tye-Wong, with U(1)'] = 9.0 (massform.py:1475-1476) with no quoted locator in the TW-FFS-esph capture; its location in either source is unverified.",
+ "published_hypotheses": [
+  "H-CLASSICAL: E_sph is the energy of a static classical saddle of the Yang-Mills-Higgs energy functional (tree-level potential and couplings; no loop correction to the energy) -- implied by the formula E = (4 pi v/g) B / g_2 v V(pi/2); not read at source this session.",
+  "H-T0: zero temperature, vacuum vev v = 246 GeV (inputs as captured: v = 246, m_W = 80, m_H = 125 GeV for TW).",
+  "H-SU2 (theta_W = 0 / g' = 0): TW's 9.11 is labelled 'pure SU(2)' in the tree; FFS's formula as captured carries only g_2. Computed here: the pure-SU(2) saddle reproduces 9.111 TeV at TW's printed inputs and 9.079 TeV at 2014-era PDG inputs, while including U(1) at O(g'^2) gives 9.018 and 8.99 TeV -- so 9.08 is the theta_W = 0 value (INFERRED BY COMPUTATION, not read).",
+  "H-ANSATZ: TW's V(Q) is the energy along a one-parameter path (Manton-type noncontractible loop) whose maximum at Q = pi/(2 m_W) is the sphaleron; the sin^2/sin^4 coefficients are printed to two decimals.",
+  "H-FERMIONS-ABSENT: no fermion (top-quark) back-reaction on the bosonic saddle (standard; not read)."
+ ],
+ "hypothesis_drift": [
+  "WEAKENED (unnamed at the use site): E_SPH_USED = 'Funakubo-Fuyuto-Senaha' (massform.py:1477) and 'At 9.08 TeV the barrier is 3226 times ...' (massform.py:540) carry the hypothesis theta_W = 0 (U(1) hypercharge dropped) without naming it. The dict key for 9.11 says 'pure SU(2)' (massform.py:1475) but the used key does not; the only marker is the contrast with '9.0 TeV (with U(1))' at massform.py:539-540. Computed here: at the tree's own inputs (m_W = 80.362, v = 246.2196, m_H = 125.20) the pure-SU(2) value is 9.083 TeV and the O(g'^2) U(1) correction is -0.98 % (on-shell s^2_W) to -1.03 % (MSbar 0.23122), giving 8.99 TeV. With U(1) the ratio 3226 becomes ~3195-3197 and 3246 Mc^2 becomes ~3214 Mc^2.",
+  "DROPPED (unnamed): H-CLASSICAL / H-T0 -- the 9.08 is a tree-level, zero-temperature classical energy. massform.py:538-543 files it under 'OVER THE BARRIER' separately from the thermal regimes, and line 182 says the height is 'set by the vev', so no finite-T misuse was found; but the tree-level (no radiative correction to E_sph) status is not written as a named hypothesis. Its size is NOT computed here.",
+  "INTERPRETIVE DISCREPANCY in the tree's own divergence note (massform.py:904, 5199-5202): the tree records '4.75 x 1.91 = 9.07, not 9.11' (true arithmetic) and diagnoses 'the prefactor is rounded: 9.11/1.91 = 4.770'. Computed here: at TW's printed inputs the prefactor 4 pi v/g = 4 pi (246)^2/160 = 4.7529 TeV (which the printed 4.75 rounds correctly) and the saddle's B = 1.9170, so the 0.4 % sits in the printed coefficient pair (1.31 + 0.60 = 1.91 vs 1.917), not in the prefactor. A misprint-level rounding discrepancy in the source's two-decimal coefficients; recorded, not a refutation, and nothing downstream uses 4.770.",
+  "NO DRIFT: the tree states 'E_sph is a barrier HEIGHT, not a rest-mass cost' and 'whether that energy is recovered is not computed' (massform.py:541-543, 2143-2145) -- the hypothesis 'whether barrier energy is recovered' is named, as the canonical entry records."
+ ],
+ "data_at_publication": [
+  {
+   "quantity": "m_H",
+   "value_then": "125 GeV (TW 2015, as captured); FFS 2016 inputs not read (PDG-2014-era 125.09 used as proxy)",
+   "value_now": "125.20 +/- 0.11 GeV",
+   "source_now": "PDG 2024 (RPP, Phys. Rev. D 110, 030001) -- value recalled, not READ this session (PDG pages egress-blocked). massform.MASS_MEV holds no Higgs entry; the 'tree' case in the script pairs the tree's m_W and v with this m_H.",
+   "moves_conclusion": "No. Computed: B(m_H/m_W) moves 1.9161 -> 1.9163; E_sph 9.079 -> 9.082 TeV (+0.03 %)."
+  },
+  {
+   "quantity": "m_W",
+   "value_then": "80 GeV (TW, rounded); 80.4 GeV in the tree's FFS arithmetic check (massform.py:5205)",
+   "value_now": "80.3692 +/- 0.0133 GeV (PDG 2024 average); the tree uses 80.362 (massform.M_W_GEV); CDF 2022 80.4335 +/- 0.0094 is in tension (contested)",
+   "source_now": "PDG 2024 (recalled, not READ this session); CDF Science 376 (2022) 170 (recalled, not READ)",
+   "moves_conclusion": "No. Computed E_sph(SU2): 9.082 (PDG 2024), 9.083 (tree's 80.362), 9.074 TeV (CDF) -- spread 0.1 %. E ~ v^2/m_W x B."
+  },
+  {
+   "quantity": "v (Higgs vev)",
+   "value_then": "246 GeV (TW)",
+   "value_now": "246.21964 GeV (tree, higgs.vev(), from G_F; NAMED-NOT-READ in the tree)",
+   "source_now": "tree higgs.vev(); G_F from PDG",
+   "moves_conclusion": "No. At TW's rounded inputs E = 9.111 TeV; at v = 246.22, m_W = 80.385, m_H = 125.09: 9.079 TeV. The 9.11 vs 9.08 difference between the two sources is ENTIRELY the input rounding (computed), not a physics difference."
+  },
+  {
+   "quantity": "sin^2 theta_W (for the U(1) value)",
+   "value_then": "not read (9.0 TeV's inputs unknown)",
+   "value_now": "on-shell 1 - m_W^2/m_Z^2 = 0.2232; MSbar(m_Z) 0.23122",
+   "source_now": "PDG 2024 (recalled, not READ)",
+   "moves_conclusion": "No at the printed precision: O(g'^2) shift -0.98 % vs -1.03 %, E = 8.993 vs 8.989 TeV; both round to the tree's 9.0."
+  },
+  {
+   "quantity": "m_p (for 3226 x 3 baryons)",
+   "value_then": "938.272089 MeV (tree MASS_MEV['p'])",
+   "value_now": "938.27208943 MeV (CODATA 2022)",
+   "source_now": "CODATA 2022 (recalled)",
+   "moves_conclusion": "No. 9.08e6/(3 x 938.272089) = 3225.8 -> printed 3226 (checked)."
+  },
+  {
+   "quantity": "payload transitions (for 3246 Mc^2)",
+   "value_then": "1.40362e28 (tree, massform.transitions_needed())",
+   "value_now": "same (tree-internal count, not external data)",
+   "source_now": "massform.barrier_heights_over_mc2() = 3245.68 (run here)",
+   "moves_conclusion": "Scales linearly with E_sph: 3246.6 at the independent 9.082 TeV; 3214.6 with U(1) (8.993 TeV)."
+  }
+ ],
+ "rederivation": {
+  "method": "numeric",
+  "script_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/1612.05431-1505.03690-esph.py",
+  "outcome": "Independent of both sources: the Klinkhamer-Manton spherically symmetric SU(2) Yang-Mills-Higgs saddle (exact for theta_W = 0) solved as a BVP (scipy solve_bvp, tol 1e-8, status 0; B converged to 5 digits under L 60->120, eps 1e-3->1e-4, n 4000->8000). At TW's printed inputs (v=246, m_W=80, m_H=125): B = 1.9170, E_sph = 9.111 TeV -- reproduces TW's 9.11. At 2014-era PDG inputs (246.22, 80.385, 125.09): 9.079 TeV -- reproduces FFS's 9.08. At PDG 2024 / the tree's inputs: 9.082 / 9.083 TeV. U(1) at O(g'^2) by linear response of the hypercharge field to the sphaleron current K_i = (v^2/2) h^2 (1-f)(-y,x,0)/r^2 (symbolic, 1612.05431-1505.03690-esph.km_current.py): -1.02 % at TW inputs -> 9.018 TeV, -0.98 % now -> 8.99 TeV; reproduces '9.0 TeV (with U(1))' to its printed precision. Tree arithmetic: 9.08 TeV/(3 m_p) = 3225.8 (3226 checked); 3246 Mc^2 reproduced by the tree's own function (3245.68). SIDE OBSERVATION for key klinkhamer-manton-1984, not this key: the same solver gives B(m_H->inf) = 2.706 and B(m_H/m_W=0.02) = 1.531 (increasing with m_H, so B(0) <= 1.531) against the restated range 1.56-2.72 (hep-ph/9603208 eq.(2.11) via the tree) -- a 0.6 % / >=1.9 % discrepancy, recorded, not a refutation (the restated endpoints are 1984-era numerics; nothing in this key uses them). B(m_H/m_W = 20) failed to converge (mesh limit) and is excluded, not reported.",
+  "agrees_with_source": "yes"
+ },
+ "later_literature": [
+  {
+   "ref": "arXiv:2505.05607 and 2505.05608, 'The Electroweak Sphaleron Revisited' I and II (2025); PRD 10.1103/nsrp-hwkg",
+   "effect": "confirms",
+   "what": "WebSearch snippet only: high-precision numerics give E_sph ~ 9.1 TeV with m_H = 125.1, m_W = 80.4 GeV, U(1)_Y decoupled, stating the energy varies only slightly with theta_W. Consistent with 9.079-9.111 computed here. NOT READ -- the effect label rests on a search-engine summary and must not be quoted until read.",
+   "read_status": "NAMED-NOT-READ (alphaXiv quota exhausted; arxiv.org egress-blocked; seen only as a WebSearch result summary)"
+  },
+  {
+   "ref": "J. Kunz, B. Kleihaus, Y. Brihaye, 'Sphalerons at finite mixing angle', PRD 46 (1992) 3587",
+   "effect": "extends",
+   "what": "The finite-theta_W sphaleron (axially symmetric); the source for the size of the U(1) correction. Cited in the 2025 papers per the search summary. Not read; the ~1 % O(g'^2) shift here is this audit's own computation, not this paper's figure.",
+   "read_status": "NAMED-NOT-READ"
+  },
+  {
+   "ref": "S.-H. H. Tye & S. S. C. Wong, arXiv:1710.07223",
+   "effect": "contested",
+   "what": "Bears on the collider-rate dispute (tree key sphaleron-instanton-and-collider-dispute), not on the E_sph value; per the tree's capture it agrees 'with this estimate for a single sphaleron'. Not re-read here.",
+   "read_status": "NAMED-NOT-READ (this session); READ per the tree's own captures, massform.py:589-603"
+  },
+  {
+   "ref": "J. Ellis & K. Sakurai, 'On the phenomenology of sphaleron-induced processes at the LHC and beyond', JHEP 12 (2019) 017",
+   "effect": "confirms",
+   "what": "Uses E_sph ~ 9 TeV in collider phenomenology and cites 1612.05431 (per search listing). Not read; effect is the listing's context only.",
+   "read_status": "NAMED-NOT-READ"
+  }
+ ],
+ "lacked_data": "The datum historically missing was the Higgs mass: Klinkhamer-Manton (1984) could only give B between 1.56 and 2.72 because m_H was unknown. Tye-Wong (2015) and Funakubo-Fuyuto-Senaha (2016) both postdate the 2012 discovery and used m_H ~ 125 GeV. Since then m_H moved 125.09 -> 125.20 GeV, m_W was re-averaged (80.385 -> 80.369) with a contested CDF 80.434, and v is fixed by G_F. Computed here with each: E_sph(SU2) stays within 9.074-9.083 TeV (0.1 %), so no datum the authors lacked changes the conclusion; evidence against M's hypothesis for THIS result. Where the conclusion is not data-limited but hypothesis-limited: (i) the used 9.08 is the theta_W = 0 value, and including U(1) (a datum the authors had) lowers it ~1 % to 8.99 TeV; (ii) E_sph is a tree-level classical energy -- radiative corrections to it are not computed here and are a named open hypothesis (H-CLASSICAL), not a data gap; (iii) any BSM modification of the Higgs potential would move B, and no such datum exists (no evidence either way).",
+ "grade": "NARROWED",
+ "grade_evidence": "The numbers stand: an independent numerical solution of the SU(2) Yang-Mills-Higgs saddle reproduces 9.111 TeV at Tye-Wong's printed inputs, 9.079 TeV at 2014-era inputs (FFS's 9.08), and 8.99-9.02 TeV with U(1) at O(g'^2) (the tree's 9.0); current PDG data move E_sph by <= 0.1 %; the tree's derived 3226 (3225.8) and 3246 Mc^2 (3245.7) are arithmetic-correct. The narrowing: the value the tree USES (E_SPH_USED = FFS 9.08, massform.py:1477, 540) holds for theta_W = 0 -- the pure-SU(2) saddle -- and that hypothesis is not named on the used value (only the 9.11 key says 'pure SU(2)'); in the Standard Model with g' != 0 the O(g'^2) value is 8.99 TeV, so '3226 times' is ~3195-3197 and '3246 Mc^2' is ~3214 Mc^2. This does not move S11 ('E_sph ~ 9 TeV') or SR5 at their stated order of magnitude. The tree-level/zero-temperature status (H-CLASSICAL, H-T0) is likewise unnamed; its radiative-correction size is not computed here. CAVEAT, not flattened: neither source could be read at source this session (quota + egress), so the verbatim wording and locators rest on the tree's own capture (massform.py:1109-1115); the grade rests on the computation, which is source-independent.",
+ "what_would_change_the_grade": "To STANDS: the tree names theta_W = 0 (U(1) dropped) on E_SPH_USED / the 3226 and 3246 sentences, or switches to the with-U(1) value. To OPEN on the attribution part: a read of 1505.03690 / 1612.05431 at source showing different printed values, inputs or gauge content than the tree's capture (e.g. FFS's 9.08 including U(1) at different inputs -- which the computation here makes implausible, since with U(1) at FFS-era inputs the value is 8.99). To DATA-DEPENDENT: a computed radiative correction to the classical sphaleron energy of more than ~1 %, or a confirmed m_W/m_H shift of order 1 % (none exists). WRONG would need a shown saddle below the claimed values by more than rounding; the independent solve rules that out at these inputs.",
+ "reverify_command": "python3 /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/1612.05431-1505.03690-esph.py   # expect: TW inputs -> E_sph(SU2)=9.111 TeV; PDG-2014-era -> 9.079; tree inputs -> 9.083 with U(1) -> 8.994/8.990; 9.08 TeV/(3 m_p)=3225.8 (~50 s). Convergence: python3 /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/1612.05431-1505.03690-esph.conv.py ; current structure: python3 /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/1612.05431-1505.03690-esph.km_current.py ; tree figures: cd /home/user/Claude-Method-Works/research/warp-drive && python3 -c \"import massform as m; print(m.esph_over_three_baryons(9.08), m.barrier_heights_over_mc2())\"",
+ "report_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/audits/1612.05431-1505.03690-esph.json"
+}

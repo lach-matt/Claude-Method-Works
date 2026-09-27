@@ -1,0 +1,35 @@
+R1  per-generator integrated QNEC -> the tree's [S'] formula
+  INT_A^B S'' dlambda == S'(B) - S'(A)   (FTC, sympy)                      ok
+  Q_-(A,B) >= 0 is INT_A^B T >= (1/2pi)[S'(B)-S'(A)]  (same expression)    ok
+
+R2  z3: the boundary hypothesis is load-bearing
+  QNEC + S'(start)=S'(end)=0 + sum T < 0 : UNSAT                           ok
+  QNEC + [S'] >= 0 + sum T < 0 : UNSAT  ([S'] >= 0 already suffices)       ok
+  QNEC + [S'] = -1 + sum T < 0 : SAT  (ANEC can fail)                      ok
+      witness: sum T = -0.0796, [S'] = -1  (sum T >= [S']/2pi = -0.1592)
+  QNEC + only S'(start)=0 + sum T < 0 : SAT (both ends needed)             ok
+
+R3  null-plane modular identity: what QNEC adds to ANEC
+  dK'(b) = -2pi INT_b^inf T                                                ok
+  dK''(b) = 2pi T(b)                                                       ok
+  (a) S_rel'' = 2pi (T - dS''/2pi): QNEC <=> convexity of S_rel            ok
+  (b) 2pi ANE = [S_rel'] + [dS']                                           ok
+  (c) with [dS']=0, S_rel'(+inf)=0: ANE = -S_rel'(-inf)/2pi >= 0 by monotonicity ok
+  explicit T(x): negative somewhere (T(0) = -1/2) yet ANE = 0.58346 > 0    ok
+  QNEC-saturating dS has [dS'] = 2pi ANE (!= 0): boundary term need not vanish ok
+      i.e. integrated QNEC then reads ANE >= ANE: consistent but vacuous; the
+      conclusion INT T >= 0 comes from [S'] = 0, a hypothesis on the state.
+
+R4  ILLUSTRATIVE: boundary term that would absorb the tree's classical ANE
+      tree value, non-affine (anec.py y=0)     |[S'/A]| / (S_BH/A per R) = 2.028
+      affine value (sibling audit)             |[S'/A]| / (S_BH/A per R) = 1.317
+  ratio is O(1) and R-independent: a Planck-density entropy gradient       ok
+      => only a gravitational-scale entanglement gradient could offset a classical
+         violation; the fixed-background QNEC proofs do not reach that regime.
+
+R5  the tree's flag (read-only import)
+  qnec_implies_anec() takes no parameters                                  ok
+  qnec_implies_anec() returns True                                         ok
+  body contains no computation (only 'return True')                        ok
+
+OVERALL: PASS

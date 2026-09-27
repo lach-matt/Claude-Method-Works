@@ -1,0 +1,84 @@
+{
+ "key": "special-relativity-kinematics",
+ "name": "Special-relativistic Lorentz factor and proper time (time dilation)",
+ "source": {
+  "located": "Einstein 1905 (Ann. Phys. 17, 891), pre-arXiv. Intended restatements at arXiv: Botermann et al. 1409.7951 (Li+ storage-ring time-dilation test) and Mattingly gr-qc/0502097 (RMS framework, clock hypothesis). NONE could be read in this run: alphaXiv answer_pdf_queries x3, get_paper_content x1 and discover_papers x1 all returned 'alphaXiv assistant quota exceeded'; arxiv.org and export.arxiv.org are refused by the egress proxy (curl CONNECT 403; WebFetch EGRESS_BLOCKED). No cached copy of any SR source exists under scratchpad/d67/src.",
+  "read_status": "NAMED-NOT-READ",
+  "via": "Not read. The only at-source text touching the hypotheses reached in this workflow is the SIBLING D67 stage's verbatim quotation of Liberati-Sonego-Visser gr-qc/0107091 p.4 and p.10 (audits/relativistic-causality-signals-at-most-c.json): the Lorentz group follows from homogeneity/isotropy, the relativity principle and pre-causality with an INVARIANT speed C whose identification with c is empirical. That was read by the sibling stage, not re-read here. The statement below is therefore RE-DERIVED (sympy, exact) from the Minkowski line element, not quoted."
+ },
+ "published_statement": "NOT QUOTED -- source unreadable in this run (see source.located). What was COMPUTED instead (rederive A,B): on Minkowski spacetime ds^2 = c^2 dt^2 - dx^2, a clock on the inertial worldline x = beta c t accumulates proper time tau = t sqrt(1-beta^2) = t/gamma, gamma = 1/sqrt(1-beta^2); crossing coordinate distance D at constant beta takes t = D/(beta c) and tau = D/(beta gamma c). The boost preserves the interval and a clock at rest in the moving frame reads t' = t/gamma.",
+ "published_hypotheses": [
+  "NOT QUOTED from source. Hypotheses under which the computed statement holds (each needed by the derivation, rederive A-B): H1 flat (Minkowski) spacetime; H2 the reference frame (Earth frame) is inertial; H3 the clock's worldline is inertial at constant beta over the interval (for non-inertial segments the CLOCK HYPOTHESIS, tau = integral sqrt(1-v^2/c^2) dt, is an additional hypothesis); H4 the invariant speed C of the Lorentz group equals the measured light speed c (LSV gr-qc/0107091 p.4, p.10 as quoted by the sibling audit -- 'tiny deviations ... are logically possible')."
+ ],
+ "hypothesis_drift": [
+  "DROPPED at the report sites: constant-beta cruise (H3). arrival.py:133-135 prints '4.24 ly in %7.1f yr Earth / %6.1f yr shipboard' for 'shell' and 'slingshot' with no constant-beta qualifier, in a file whose subject is the braking manoeuvre; trip_time_ly's docstring names 'at constant beta' (arrival.py:54-56) but proper_time_ly's does not (arrival.py:58-60: 'Shipboard years -- the crew's clock.'). Computed (rederive F): d(beta gamma)/d beta = gamma^3 > 0, so for ANY profile with peak beta_p the printed figures are strict FLOORS; with 1 g accel + 1 g brake to 0.866c over 4.24 ly shipboard is 3.881 yr vs printed 2.448 yr (+59%), Earth 6.015 vs 4.896 yr (+23%); at 0.0476c the gap is +0.05%. The magsail distances in the same report are labelled FLOORS (arrival.py:142-143); these times are not.",
+  "UNNAMED: the clock hypothesis. Needed the moment the trip includes the braking the file prices (photon braking, magsail); not named anywhere in arrival.py. Not tested here (source unreadable).",
+  "UNNAMED IN THE OWNER (named only in canonical.json): flat spacetime (H1). arrival.py never states it. Computed (rederive G): the dropped weak-field term at 1 AU from the Sun is GM/(r c^2) = 9.9e-9, 8.7e-6 of (gamma-1) at 0.0476c -- negligible for cruise; it fails near the compact deflectors that are the arrival network's nodes (arrival.py:113-117), where the file does not apply gamma.",
+  "UNNAMED: Earth frame inertial and at rest with respect to the destination (H2). trip_time_ly/proper_time_ly use one fixed distance (arrival.py:54-60). Conditional computation: a relative velocity v_rel shifts the distance by v_rel*T; at v_rel = 1e-4 c over the 89-yr shell trip this is 0.0089 ly (0.21%). The actual Sun-Proxima velocity was not read here.",
+  "UNNAMED: H4, c in gamma is the invariant speed identified with light speed empirically. Not a drift in use (the tree uses SI c exactly), recorded for completeness."
+ ],
+ "data_at_publication": [
+  {
+   "quantity": "c (speed of light)",
+   "value_then": "299792458 m/s in arrival.py:21",
+   "value_now": "299792458 m/s exact by SI definition (checked equal in rederive E)",
+   "source_now": "SI definition (1983; 2019 SI); equality checked in code, SI text not re-read here",
+   "moves_conclusion": "no"
+  },
+  {
+   "quantity": "light-year LY",
+   "value_then": "9.4607304726e15 m (arrival.py:23)",
+   "value_now": "Julian year x c = 9460730472580800 m, COMPUTED in rederive E; agrees to <1e-10",
+   "source_now": "computed",
+   "moves_conclusion": "no"
+  },
+  {
+   "quantity": "distance to the destination (4.24 ly, Proxima)",
+   "value_then": "4.24 ly (arrival.py:81-83, 133-135)",
+   "value_now": "NOT READ in this run (Gaia parallax not retrieved; alphaXiv quota exhausted)",
+   "source_now": "none read",
+   "moves_conclusion": "no, by computation not by datum: d ln tau/d ln D = 1 exactly and tau/t = 1/gamma is independent of D (rederive H), so any revision of order 0.1-1% moves every printed time by the same fraction and no ratio or comparison in arrival.py:125-139"
+  },
+  {
+   "quantity": "cruise beta values 0.866 and 0.0476",
+   "value_then": "design inputs",
+   "value_now": "design inputs (not data)",
+   "source_now": "arrival.py",
+   "moves_conclusion": "n/a; gamma(0.866) = 1.999824, exactly 2 only at beta = sqrt(3)/2 = 0.8660254 (rederive E); the selftest's tol 1e-3 covers the 8.8e-5 gap"
+  },
+  {
+   "quantity": "proton mass M_P (magsail density, rests_on_it)",
+   "value_then": "1.67262192e-27 kg (arrival.py:24)",
+   "value_now": "NOT READ in this run",
+   "source_now": "none read",
+   "moves_conclusion": "no, by computation: enters magsail_distance linearly through RHO_ISM; a revision at the 1e-8 level (the precision of the digits carried) moves a floor by 1e-8"
+  },
+  {
+   "quantity": "experimental accuracy of time dilation (Ives-Stilwell / Li+ storage ring 1409.7951; muon storage-ring lifetimes)",
+   "value_then": "not used by the tree",
+   "value_now": "NOT READ in this run",
+   "source_now": "none read",
+   "moves_conclusion": "not assessed here; the tree's tolerance is 1e-3"
+  }
+ ],
+ "rederivation": {
+  "method": "sympy",
+  "script_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/special-relativity-kinematics.py",
+  "outcome": "OVERALL PASS (output in rederive/special-relativity-kinematics.out). A: tau = D/(beta gamma c) from ds^2 exactly. B: boost preserves the interval; moving clock t' = t/gamma; gamma composition g1 g2 (1+b1 b2). C: sqrt((1+b)/(1-b)) = gamma(1+b) on 0<=b<1 (sympy squares + z3 nlsat unsat for a counterexample) -- the arrival.py:71-73 self-check is a true identity. D: (gamma-1)mc^2 = mv^2/2 + 3mv^4/(8c^2) + O(v^6). E: arrival.py numbers reproduced (gamma(0.866)=1.999824; 4.89607 yr; 2.44825 yr; LY and c consistent). F: constant-beta times are strict floors; +59% shipboard at 1 g for 0.866c. G: flat-spacetime term 9.9e-9 at 1 AU. H: times linear in D. I (RECORD, rests_on_it prose vs code, not SR): arrival.py:150-151 says '810 AU' where the code prints 2002 AU for the same inputs; arrival.py:152 says '2.6 ly' where the code prints 0.084 ly; arrival.py:137 says '76x the fuel ratio' where fuel-per-tonne ratio is 56.0, M0/M1 ratio 3.56, ln ratio 27.6 -- 76 not reproduced. These are discrepancies recorded, not repaired, and none is in gamma.",
+  "agrees_with_source": "partly"
+ },
+ "later_literature": [
+  {
+   "ref": "Liberati, Sonego, Visser, gr-qc/0107091 (Ann. Phys. 298, 2002) p.4, p.10",
+   "effect": "narrows",
+   "what": "As quoted by the sibling D67 audit: the relativity postulates give the Lorentz group with an invariant speed C; C = c is empirical and tiny deviations are logically possible. Names H4 as a hypothesis of gamma rather than a theorem.",
+   "read_status": "READ by the sibling stage (audits/relativistic-causality-signals-at-most-c.json); not re-read in this run"
+  }
+ ],
+ "lacked_data": "M's hypothesis tested for this result. What the 1905 kinematics used: the relativity principle, light-speed invariance and inertial frames -- no numerical datum enters gamma or tau = t/gamma except c itself, now exact by definition. So there is no datum whose later refinement could move the formula; the only data in the tree's use are the destination distance and the proton mass, and both enter linearly with the conclusion insensitive by computation (rederive H). Evidence the other way -- what later data could bear on it: high-precision time-dilation tests and Lorentz-violation searches (NAMED-NOT-READ in this run; nothing about their results is asserted here). The one place a limitation bites is not missing data but a hypothesis the tree's report drops: the constant-beta cruise. Restoring it is computed here (+59% shipboard at 1 g, 0.866c) and cuts against the drive's figure, not for it. Net: on this result M's hypothesis finds no lacked datum; it finds a dropped hypothesis in the use.",
+ "grade": "NARROWED",
+ "grade_evidence": "The formula as the tree codes it (arrival.py:29-30, 58-60) is exact under flat spacetime + inertial constant-beta cruise: re-derived symbolically from the Minkowski interval (rederive A,B), identity used as self-check proven (C, sympy+z3), every pinned number reproduced (E). It is narrowed because the tree's report applies the constant-beta shipboard/Earth times to whole trips (arrival.py:133-135) without naming that hypothesis, in a file about the braking manoeuvre: those figures are strict floors (d(beta gamma)/d beta = gamma^3 > 0, rederive F), 59% low at a 1 g profile for the slingshot's 0.866c and 0.05% low for the shell. Not WRONG: no counterexample to the kinematics exists here; the prose-vs-code mismatches at arrival.py:137,150-152 are discrepancies in rests_on_it prose, not in gamma. Caveat carried on the grade: the source and every restatement were unreadable in this run (quota/egress), so the grade rests on computation, not on a quotation.",
+ "what_would_change_the_grade": "To STANDS: the report label the times at arrival.py:133-135 as constant-beta cruise floors (as the magsail distances already are), or include the acceleration phases. To OPEN-for-hypotheses: none -- the mathematics is checked; but a reading of Einstein 1905 via a restating arXiv paper (e.g. 1409.7951, gr-qc/0502097) once alphaXiv quota resets should replace the NOT QUOTED statement and confirm H1-H4. To WRONG: an experiment reading showing time dilation departs from 1/sqrt(1-beta^2) at the 1e-3 level at beta <= 0.87 -- none is known to this audit and none was read.",
+ "reverify_command": "python3 /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/special-relativity-kinematics.py && python3 /home/user/Claude-Method-Works/research/warp-drive/arrival.py --selftest && sed -n 29,30p\\;54,60p\\;133,152p /home/user/Claude-Method-Works/research/warp-drive/arrival.py",
+ "report_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/audits/special-relativity-kinematics.json"
+}

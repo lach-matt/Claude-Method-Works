@@ -1,0 +1,40 @@
+PASS A1 z3: sigma>=|p| => DEC for every observer |v|<1 (negation unsat)
+PASS A2 z3: sigma>=0, sigma<|p| => explicit violating observer exists (negation unsat)
+PASS A3 z3: sigma<0 => rest observer violates (unsat)
+PASS A4 z3: for p>0, [sigma>=0 & sigma>=|p|] <=> sigma-p>=0 (negation unsat)
+PASS A5 z3: for p<0, sigma-p>=0 does NOT imply DEC (sat=sat, e.g. [sigma = 0, p = -1/2])
+PASS A6 z3: the 4D normal eigenvalue 0 adds nothing (sigma>=|p| => sigma>=|0|) (unsat)
+PASS B1 sympy: stationary point of gamma(sigma - v p) at v = p/sigma: [p/sigma]
+PASS B2 sympy: its minimum is sqrt(sigma^2-p^2) (got sqrt(-p**2 + sigma**2))
+PASS B3 sympy: per-gamma margin (sigma - v p) -> sigma - p as v->1 (got -p + sigma)
+PASS B4: sqrt(s^2-p^2)=sqrt((s-p)(s+p)) so sign(sigma-p) = DEC sign for sigma,p>0 (magnitude is convention)
+PASS C1 sympy: sigma_0 = (1-s)/(4 pi R) (got (1 - s)/(4*pi*R))
+PASS C2 sympy: p_0 = (1-s)^2/(16 pi R s) (got (s - 1)**2/(16*pi*R*s))
+PASS C3: p_0 > 0 for every s in (0,1), i.e. every x in (0,1): the 'p>0' hypothesis holds at the static point
+PASS C4 sympy: 8 pi R (sigma_0 - p_0) == Le Eq (17) -(5s-1)(s-1)/(2s)
+PASS C5: margin zeros at s in [1/5, 1] -> interior zero s=1/5, x = 1 - 1/25 = 24/25
+PASS C6: margin > 0 on s in (1/5,1) (x<24/25), < 0 on (0,1/5)
+PASS D1 sympy: closed-form sigma(R) solves sigma' = -2(sigma+p)/R
+PASS D2 sympy: sigma(R0) = sigma0
+PASS D3 sympy: sigma + p = (sigma0+p0) r^(-2(1+beta2))  > 0 at every finite R, -> 0
+PASS D4 sympy: sigma - p = (1-beta2)(sigma0+p0)/(1+beta2) r^(-2A) + 2 sigma_inf
+PASS D5 sympy: d(sigma-p)/dR = (1-beta2) sigma'  (tree wall.py:205-206)
+PASS D6 sympy: lim_{R->inf}(sigma-p) = 2(beta2 sigma0 - p0)/(1+beta2) (tree wall.py:377-381)
+PASS D7 sympy: lim p = -sigma_inf (got (-beta2*sigma0 + p0)/(beta2 + 1)): when the basin is 'unbounded' (sigma_inf>0), p ends NEGATIVE
+PASS D8 sympy: p(R) = (p0+sigma_inf) r^(-2A) - sigma_inf
+
+  x      beta2   sigma_inf/sigma0  R_*/R0 (p=0)   2sig_inf/sig0 (tree)  true inf margin
+  0.3000  0.50        0.300795      1.051400            0.601590       1.309e-10
+PASS D9 x=0.300 b2=0.50: p crosses zero at finite R_*=1.0514 R0 and min(sigma-|p|)>0 on the grid
+  0.3000  0.20        0.125994      1.146166            0.251988       1.252e-08
+PASS D9 x=0.300 b2=0.20: p crosses zero at finite R_*=1.1462 R0 and min(sigma-|p|)>0 on the grid
+  0.5000  0.50        0.264298      1.116502            0.528595       1.377e-10
+PASS D9 x=0.500 b2=0.50: p crosses zero at finite R_*=1.1165 R0 and min(sigma-|p|)>0 on the grid
+  0.6667  0.90        0.377362      1.109659            0.754723       3.375e-13
+PASS D9 x=0.667 b2=0.90: p crosses zero at finite R_*=1.1097 R0 and min(sigma-|p|)>0 on the grid
+  0.3000  1.00        0.475596      1.024724            0.951193       6.542e-14
+PASS D9 x=0.300 b2=1.00: p crosses zero at finite R_*=1.0247 R0 and min(sigma-|p|)>0 on the grid
+PASS D10 sympy: inf over R of min(sigma-p, sigma+p) = 0 (approached, not attained) since sigma+p -> 0
+PASS D11: at beta2 = p0/sigma0 exactly (sigma_inf = 0), sigma-p = (1-b2)(s0+p0)/A r^-2A > 0 at every finite R -- basin unbounded, but tree's strict '> 0.0' (wall.py:384) calls it finite
+PASS E1 sympy: V(R0)=0 identically (got 0)
+PASS E2 sympy: V'(R0)=0 identically in beta2 (got 0)

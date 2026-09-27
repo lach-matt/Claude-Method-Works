@@ -1,0 +1,80 @@
+{
+ "key": "gr-qc/0203067",
+ "name": "Agnese & La Camera, eq. (17): a static spherically symmetric traceless wormhole with m_MS = m/beta > 0 and radial tension at the throat",
+ "source": {
+  "located": "arXiv:gr-qc/0203067v1 (20 Mar 2002), A. G. Agnese and M. La Camera, 'Traceless stress-energy and traversable wormholes', pp. 1-7; eqs. (3), (11)-(19)",
+  "read_status": "READ",
+  "via": "alphaXiv answer_pdf_queries on https://arxiv.org/pdf/gr-qc/0203067 returned all 7 pages verbatim (get_paper_content reported 'Paper not found' for the abs id; the PDF route worked). Concurrent/prior family read at source too: Dadhich, Kar, Mukherjee & Visser, gr-qc/0109069 (Sept 2001), all 8 pages, which ALC cite as their ref. [15]."
+ },
+ "published_statement": "Eq. (17), stated for the case 0 < beta < 1: 'the pressures at the throat are given by p_|| = -2 p_perp = -m/(4 pi beta r_0^3) = -beta^2/(32 pi m^2)', with throat radius r_0 = 2m/beta, from the metric ds^2 = A dr^2 + r^2 dOmega^2 - B dt^2, A = 1/(1 - 2m/(beta r)) (eq. 11), B = [1 + beta(sqrt(1 - 2m/(beta r)) - 1)]^2 / [same at r_obs]^2 (eq. 12), and the bulk pressures eq. (13) p_|| = -2 p_perp = (beta - 1) m / (4 pi beta [1 + beta(sqrt(1 - 2m/(beta r)) - 1)] r^3). Abstract: 'When the nonzero parameter beta lies in the open interval (0,1) one obtains traversable Lorentzian wormholes ... naked singularities when either beta < 0 or beta > 1 and the Schwarzschild black hole for beta = 1.' The paper does not print m_MS; m_MS = m/beta is the tree's (correct) reading of eq. (11).",
+ "published_hypotheses": [
+  "static, spherically symmetric line element (4) in curvature coordinates, units c = G = 1",
+  "Einstein's equations of GR (7a-c), the geometry EXACTLY sourced by T (not a test field)",
+  "diagonal T: T^r_r = p_||, T^th_th = T^ph_ph = p_perp, T^t_t = -rho (eq. 6)",
+  "traceless T: rho = 0 AND p_|| + 2 p_perp = 0 (eq. 3) -- rho = 0 is imposed, not derived from T = 0",
+  "m > 0 implicit (m is 'the gravitational mass' fixed by the Newtonian limit, eq. 10); observer at infinity so B -> 1 - 2m/r",
+  "eq. (17) is stated for 0 < beta < 1 only; its cancellation (beta - 1)/(1 - beta) = -1 is invalid at beta = 1, where eq. (13) is identically 0",
+  "the region r >= r_0 = 2m/beta (no centre); the two-sided wormhole is built by eq. (19) with |sin psi|, i.e. a mirror gluing of two r >= r_0 patches"
+ ],
+ "hypothesis_drift": [
+  "DROPPED, domain of beta -- tolman.py:1447-1454 alc_throat(m_par, beta) accepts any beta and returns p_|| = -m/(4 pi beta r_0^3) != 0; the source states eq. (17) only for 0 < beta < 1. At beta = 1 the published solution is Schwarzschild with p = 0 identically (computed: eq. (13) at beta = 1 is 0, eq. (17) gives -1/(32 pi m^2)), and for beta > 1 r_0 is not a throat (naked singularity at r* = 2 m beta/(2beta - 1) > r_0). The tree's only call, the fixture beta = 0.5 at tolman.py:2992, is inside the domain, so no printed number is affected.",
+  "ADDED/REFRAMED, 'removes exactly one hypothesis' -- tolman.py:254 says the three witnesses break the biconditional 'each by removing exactly one hypothesis' and tolman.py:531 says ALC 'removes nothing but tracelessness's sufficiency'. The source solution keeps tracelessness but lacks BOTH the regular centre (it lives on r >= r_0 = 2m/beta) AND the test-field background (it is an exactly sourced GR solution, the class tolman.py:34-37 THEOREM X treats separately). It is a two-hypothesis witness, and its 'no regular centre' removal duplicates the Reissner-Nordstrom witness (tolman.py:530). The conclusion 'tracelessness alone does not buy the biconditional' (tolman.py:535-536) is TRUE, but ALC does not isolate it more sharply than RN does.",
+  "WEAKENED, 'wormhole' at the fixture -- tolman.py:531-536 and :1448 call it 'a PUBLISHED ... wormhole'. Computed here (rederive checks, from DKMV gr-qc/0109069's own gluing rule): the smooth continuation through the throat (s -> -s) has a naked singularity on the far sheet for 1/2 < beta < 1 and a non-asymptotically-flat far end at beta = 1/2 exactly -- the tree's fixture value; ALC's own two-sided eq. (19) uses |sin psi|, whose kink puts an UNSTATED thin shell at the throat with surface energy 0 and surface tangential pressure beta^2/(16 pi m (1 - beta)) (= 1/(32 pi) at m = 1, beta = 1/2). The tree uses only the one-sided r >= r_0 bulk limit, which the shell (sigma = 0) does not touch.",
+  "SILENT, which 'm' -- the tree's biconditional in flat test-field reading is on m(R) = INT 4 pi r^2 u dr (tolman.py:280-310); for ALC u = rho = 0 so that integral is 0, and the positive m_MS = m/beta is a pure integration constant (the analogue of RN's C). The tree's statement uses m_MS (tolman.py:1450), which is correct for the full-GR Misner-Sharp seam (V8); it is not the matter integral. Not a misstatement, but a reader must not substitute one for the other.",
+  "NONE on the arithmetic -- r_0 = 2m/beta, p_|| = -m/(4 pi beta r_0^3), 4 pi r_0^3 p_|| = -m_MS, m_MS = m/beta constant (rho = 0), all as printed/derivable in the source."
+ ],
+ "data_at_publication": [
+  {
+   "quantity": "numerical inputs of eq. (17)",
+   "value_then": "none: a closed-form exact GR solution with free parameters m, beta; no measured datum enters",
+   "value_now": "none",
+   "source_now": "n/a (analytic result)",
+   "moves_conclusion": "no -- nothing to move"
+  },
+  {
+   "quantity": "tree fixture m, beta (tolman.py:2992)",
+   "value_then": "m = 1.0, beta = 0.5 (dimensionless fixture, not a measurement)",
+   "value_now": "same; r_0 = 4, p_|| = -1/(128 pi) = -0.0024868, 4 pi r_0^3 p_|| = -2 = -m_MS",
+   "source_now": "rederive/gr-qc_0203067.py; tolman.py --selftest row 8",
+   "moves_conclusion": "no; but beta = 1/2 is the one value in (0,1) where the smooth far sheet is not asymptotically flat (DKMV special case lambda = kappa) -- irrelevant to the one-sided throat values the tree uses"
+  }
+ ],
+ "rederivation": {
+  "method": "sympy",
+  "script_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/gr-qc_0203067.py",
+  "outcome": "58 PASS, 0 FAIL, exit 0. From the metric (11)-(12) alone: Christoffels, Ricci, Einstein tensor computed; R = 0, rho = 0 identically, p_|| + 2 p_perp = 0, computed p_|| == printed eq. (13) (symbolic and 5 random numeric points), m_MS = (r/2)(1 - g^rr) = m/beta constant, throat limit of (13) = first form of (17), two printed forms of (17) agree, 4 pi r_0^3 p_|| = -m/beta, p_|| < 0 on all r >= r_0 for beta in {0.1, 0.5, 0.9}, lapse zero at r* = 2 m beta/(2beta - 1) > r_0 for beta > 1 and beta < 0, printed Kretschmann eq. (14) matches the computed R_abcd R^abcd at 4 random points. Domain: at beta = 1 eq. (13) is identically 0 while eq. (17) gives -1/(32 pi m^2), so (17) needs beta != 1. ALC == DKMV gr-qc/0109069 eqs. (8),(10) with kappa = 1 - beta, lambda = beta, M = m/beta. Smooth far-sheet continuation singular iff beta > 1/2. ALC eq. (19) |sin psi| gluing: lapse-gradient jump beta^2/(2m), shell sigma = 0, P = beta^2/(16 pi m (1 - beta)). Generic Morris-Thorne-throat check: the ALC p_|| is reproduced by the generic b = 2M formula, whose throat value 4 pi r_0^3 p_r = -M is independent of the lapse whenever (r - r_0) B'/B -> 0 -- so the throat identity is the generic V18 identity, realised here by a traceless source. The tree's own --verify V19 residual = 0 and --selftest row 8 pass (run read-only).",
+  "agrees_with_source": "yes"
+ },
+ "later_literature": [
+  {
+   "ref": "Dadhich, Kar, Mukherjee & Visser, arXiv:gr-qc/0109069 (2001), 'R=0 spacetimes and self-dual Lorentzian wormholes'",
+   "effect": "narrows",
+   "what": "Six months EARLIER and cited by ALC as [15]: the general two-parameter rho = rho_t = 0 family g_tt = -(kappa + lambda sqrt(1-2m/r))^2; ALC is its kappa + lambda = 1 slice (computed). DKMV state the smooth two-sided gluing (+ root one side, - root the other, 'no thin shell') and find a naked singularity when (lambda - kappa)/(lambda + kappa) > 0, i.e. beta > 1/2 under the map. This confirms eq. (13)/(17) exactly and narrows ALC's 'traversable wormhole for all 0 < beta < 1' to 0 < beta < 1/2 for a smooth shell-free continuation; ALC's |sin psi| gluing reaches all of (0,1) at the price of a throat shell the paper does not mention.",
+   "read_status": "READ at source (alphaXiv, all 8 pages)"
+  },
+  {
+   "ref": "Kar & Sahdev, Phys. Rev. D 52, 2030 (1995), 'Restricted class of traversable wormholes with traceless matter'",
+   "effect": "extends",
+   "what": "The R = 0 wormhole programme ALC and DKMV build on (phi chosen, b solved).",
+   "read_status": "NAMED-NOT-READ (cited in both papers; no arXiv copy located)"
+  },
+  {
+   "ref": "arXiv:0905.4116 (2009), expanding (n+1)-dimensional wormholes with traceless T in Brans-Dicke cosmology",
+   "effect": "extends",
+   "what": "Traceless-T wormholes outside GR / static case; does not bear on eq. (17).",
+   "read_status": "discover_papers abstract only, NOT read"
+  },
+  {
+   "ref": "arXiv:2410.04533 (2024), evolving wormholes in dRGT massive gravity with traceless fluids",
+   "effect": "extends",
+   "what": "Traceless-fluid wormholes in modified gravity; no bearing on the GR static result.",
+   "read_status": "discover_papers abstract only, NOT read"
+  }
+ ],
+ "lacked_data": "No empirical datum enters eq. (17): it is an exact solution of Einstein's equations under an imposed ansatz (rho = 0, p_|| + 2p_perp = 0), and the re-derivation reproduces every printed formula from the metric alone (58/58). So M's hypothesis -- that earlier physicists lacked some data -- has nothing to act on for the throat values: there is no measured input that a newer value could move. What the authors did NOT use, and could have (it was in print six months earlier, their own ref. [15]), is DKMV's global analysis: with it, the paper's global claim 'traversable wormhole for 0 < beta < 1' narrows to a smooth continuation for 0 < beta < 1/2, or to a mirror gluing with an unstated throat shell (sigma = 0, P = beta^2/(16 pi m (1-beta))). That is a completeness point about the paper's global construction, computed here, not a refutation of eq. (17), and it does not change the one-sided throat identity the tree uses. Evidence against M's hypothesis for this result: the tree's witness conclusion (traceless, static, spherically symmetric, rho = 0, p_|| < 0 at the throat with m_MS = m/beta > 0) is re-derived exactly.",
+ "grade": "NARROWED",
+ "grade_evidence": "Eq. (17) itself STANDS: computed Einstein tensor of eqs. (11)-(12) reproduces eqs. (3), (13), (14), (17) exactly; r_0 = 2m/beta, 4 pi r_0^3 p_|| = -m_MS, m_MS = m/beta > 0, p_|| < 0 on all r >= r_0 for 0 < beta < 1; the tree's V19 = 0 and selftest row 8 agree. Nothing is WRONG. The grade is NARROWED because (1) the tree's alc_throat (tolman.py:1447-1454) drops the source's 0 < beta < 1 domain -- at beta = 1 the formula returns -1/(32 pi m^2) where the published solution has p = 0 (computed); (2) the tree's framing at tolman.py:254 and :531 ('each by removing exactly one hypothesis', 'removes nothing but tracelessness's sufficiency') is not true of this witness, which removes both the regular centre and the test-field background; (3) the source's global 'traversable wormhole for 0 < beta < 1' holds smoothly and shell-free only for 0 < beta < 1/2 (DKMV criterion, computed), and the tree's fixture beta = 1/2 sits on the boundary case, while ALC's own |sin psi| gluing carries an unstated thin shell. None of the three moves the tree's printed number or its conclusion 'tracelessness alone does not buy the biconditional', which holds on the one-sided r >= r_0 patch.",
+ "what_would_change_the_grade": "To STANDS: the tree's alc_throat guards 0 < beta < 1 (or the claim is stated for that range), tolman.py:254/:531 name ALC as removing the regular centre and the test-field background rather than one hypothesis, and 'wormhole' is qualified to the one-sided patch (or to 0 < beta < 1/2 / the mirror gluing with its shell). To WRONG: a computed error in eq. (13) or (17) -- none found in 58 checks. To OPEN: none; the source is read and the result is closed-form.",
+ "reverify_command": "python3 /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/gr-qc_0203067.py && cd /home/user/Claude-Method-Works/research/warp-drive && python3 tolman.py --verify | grep V19 && python3 tolman.py --selftest | grep -A2 'Agnese-La Camera'",
+ "report_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/audits/gr-qc_0203067.json"
+}

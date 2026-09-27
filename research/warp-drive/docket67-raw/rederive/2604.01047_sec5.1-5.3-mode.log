@@ -1,0 +1,66 @@
+PASS K1 -b0/b1 = -2 kappa alpha m^4
+PASS K1 = -16 pi G alpha m^4 at kappa = 8 pi G
+PASS K1 xi-independent
+PASS K2 J(0) = 1/(96 pi^2 m^2)
+PASS K3 first-order branch root (J kept) = -2 kappa alpha m^4/(1 + kappa m^2/(288 pi^2))
+PASS K3 xi-independent with J kept
+PASS K3 F_S'(0) (1-6xi)^2 kappa = 12 + kappa m^2/(24 pi^2)
+PASS K3 J-kept root -> -b0/b1 as kappa m^2 -> 0 (ratio of the two -> 1)
+PASS K4 z3: F_S(0) > 0 for alpha > 0
+PASS K4 z3: F_S(-b0/b1) <= 0 for b2 >= 0 (any a, any J > 0)
+PASS K4 CONTROL z3: with b2 < 0 the bound at -b0/b1 CAN fail (sat)
+PASS K4 z3: -2 kappa alpha m^4 > -4 m^2 iff kappa m^2 < 2/alpha
+   2/alpha at alpha = 1/(64 pi^2): 128 pi^2 = 1263.31  -> m < 35.54 M_P (reduced)
+PASS K2 numeric: quadrature J(0) = 1/(96 pi^2)
+PASS K2 numeric: closed form == quadrature at gamma = -1e-60, -0.5, -7, +1, +3.9 (m = 1)
+PASS K5 CONTROL: substituted J(-3) equals the (4.5) M-integral
+   matched eps = (m/M_P)^2 = 1.04827e-59 ; m = 0.00788484 eV
+   xi=0.0    b2=+0e+00 : gamma_0 = -3.31911458675e-62 m^2 ; root/(-b0/b1)-1 = -3.688e-63 ; root/Jkept-1 = 1.348e-124
+PASS K5 exact zero bracketed in (2 g, g/2) at xi=0.0, b2=+0e+00
+   xi=0.0    b2=+1e+50 : gamma_0 = -3.31911458675e-62 m^2 ; root/(-b0/b1)-1 = -3.688e-63 ; root/Jkept-1 = -2.899e-72
+PASS K5 exact zero bracketed in (2 g, g/2) at xi=0.0, b2=+1e+50
+   xi=0.0    b2=-1e+50 : gamma_0 = -3.31911458675e-62 m^2 ; root/(-b0/b1)-1 = -3.688e-63 ; root/Jkept-1 = 2.899e-72
+PASS K5 exact zero bracketed in (2 g, g/2) at xi=0.0, b2=-1e+50
+   xi=0.0    b2=+1e+100 : gamma_0 = -3.31911458675e-62 m^2 ; root/(-b0/b1)-1 = -2.899e-22 ; root/Jkept-1 = -2.899e-22
+PASS K5 exact zero bracketed in (2 g, g/2) at xi=0.0, b2=+1e+100
+   xi=0.0    b2=-1e+100 : gamma_0 = -3.31911458675e-62 m^2 ; root/(-b0/b1)-1 = 2.899e-22 ; root/Jkept-1 = 2.899e-22
+PASS K5 exact zero bracketed in (2 g, g/2) at xi=0.0, b2=-1e+100
+   xi=0.333  b2=+0e+00 : gamma_0 = -3.31911458675e-62 m^2 ; root/(-b0/b1)-1 = -3.688e-63 ; root/Jkept-1 = -1.101e-124
+PASS K5 exact zero bracketed in (2 g, g/2) at xi=0.333, b2=+0e+00
+   xi=0.333  b2=+1e+50 : gamma_0 = -3.31911458675e-62 m^2 ; root/(-b0/b1)-1 = -3.688e-63 ; root/Jkept-1 = -2.899e-72
+PASS K5 exact zero bracketed in (2 g, g/2) at xi=0.333, b2=+1e+50
+   xi=0.333  b2=-1e+50 : gamma_0 = -3.31911458675e-62 m^2 ; root/(-b0/b1)-1 = -3.688e-63 ; root/Jkept-1 = 2.899e-72
+PASS K5 exact zero bracketed in (2 g, g/2) at xi=0.333, b2=-1e+50
+   xi=0.333  b2=+1e+100 : gamma_0 = -3.31911458675e-62 m^2 ; root/(-b0/b1)-1 = -2.899e-22 ; root/Jkept-1 = -2.899e-22
+PASS K5 exact zero bracketed in (2 g, g/2) at xi=0.333, b2=+1e+100
+   xi=0.333  b2=-1e+100 : gamma_0 = -3.31911458675e-62 m^2 ; root/(-b0/b1)-1 = 2.899e-22 ; root/Jkept-1 = 2.899e-22
+PASS K5 exact zero bracketed in (2 g, g/2) at xi=0.333, b2=-1e+100
+   xi=-1.0   b2=+0e+00 : gamma_0 = -3.31911458675e-62 m^2 ; root/(-b0/b1)-1 = -3.688e-63 ; root/Jkept-1 = 8.693e-124
+PASS K5 exact zero bracketed in (2 g, g/2) at xi=-1.0, b2=+0e+00
+   xi=-1.0   b2=+1e+50 : gamma_0 = -3.31911458675e-62 m^2 ; root/(-b0/b1)-1 = -3.688e-63 ; root/Jkept-1 = -1.421e-70
+PASS K5 exact zero bracketed in (2 g, g/2) at xi=-1.0, b2=+1e+50
+   xi=-1.0   b2=-1e+50 : gamma_0 = -3.31911458675e-62 m^2 ; root/(-b0/b1)-1 = -3.688e-63 ; root/Jkept-1 = 1.421e-70
+PASS K5 exact zero bracketed in (2 g, g/2) at xi=-1.0, b2=-1e+50
+   xi=-1.0   b2=+1e+100 : gamma_0 = -3.31911458675e-62 m^2 ; root/(-b0/b1)-1 = -1.421e-20 ; root/Jkept-1 = -1.421e-20
+PASS K5 exact zero bracketed in (2 g, g/2) at xi=-1.0, b2=+1e+100
+   xi=-1.0   b2=-1e+100 : gamma_0 = -3.31911458675e-62 m^2 ; root/(-b0/b1)-1 = 1.421e-20 ; root/Jkept-1 = 1.421e-20
+PASS K5 exact zero bracketed in (2 g, g/2) at xi=-1.0, b2=-1e+100
+PASS K5 at the matched m, |root/(-b0/b1) - 1| < 1e-15 for every (xi, b2) tried
+   K6 validity of GMMPS's -b0/b1 (b2 = 0, xi = 0, m = 1 units):
+     kappa m^2 = 1e-6   : root = -3.166287e-9 ; root/(-b0/b1) = 1.0 ; root/Jkept = 1.0 ; inside (-4,0): True
+     kappa m^2 = 1e-3   : root = -3.1662859e-6 ; root/(-b0/b1) = 0.99999965 ; root/Jkept = 1.0 ; inside (-4,0): True
+     kappa m^2 = 1      : root = -0.0031651773 ; root/(-b0/b1) = 0.99964954 ; root/Jkept = 1.0000012 ; inside (-4,0): True
+     kappa m^2 = 10     : root = -0.031555667 ; root/(-b0/b1) = 0.99661425 ; root/Jkept = 1.0001204 ; inside (-4,0): True
+     kappa m^2 = 100    : root = -0.30908618 ; root/(-b0/b1) = 0.97617866 ; root/Jkept = 1.0105216 ; inside (-4,0): True
+     kappa m^2 = 1000   : root = -2.9717647 ; root/(-b0/b1) = 0.93856456 ; root/Jkept = 1.2687606 ; inside (-4,0): True
+PASS K6 at kappa m^2 = 1e-6 both approximations agree with the exact root to < 1e-6
+PASS K6 up to kappa m^2 = 10 (m ~ 3 M_P) both first-order forms are within 0.5 % of the exact root
+PASS K6 REACH: at kappa m^2 = 1000 (m ~ 32 M_P) both first-order forms miss by > 5 % (O(alpha^2) and b2-free J nonlinearity)
+   K7 gamma_0/m^2 = -3.31911e-62 ; H = sqrt(-gamma_0) = 1.43649e-33 eV = 67.3424 km/s/Mpc
+PASS K7 'slightly smaller than 0': -1e-60 < gamma_0/m^2 < 0 at the matched m
+PASS K7 H^2 = Lambda/(3 Omega) (the matching closes: H = 67.342 km/s/Mpc)
+PASS K8 F_S(-w^2) + Q(w^2) == 0 identically (restated (4.30)) -> w = sqrt(-gamma_0)
+PASS K9 CONTROL alpha = 0: F_S(0) = 0 exactly
+PASS K9 CONTROL alpha < 0: branch zero bracketed on gamma > 0 (oscillatory, not growing)
+PASS K9 CONTROL alpha < 0: the growing-side bracket does NOT fire
+ALL PASS

@@ -1,0 +1,40 @@
+C1  FLRW is conformally flat (k = 0, +1, -1)
+  [OK] k=+0: all 256 Weyl components vanish identically
+  [OK] k=+1: all 256 Weyl components vanish identically
+  [OK] k=-1: all 256 Weyl components vanish identically
+
+C2  Schwarzschild: Ricci-flat, all curvature is Weyl
+  [OK] R_ab == 0
+  [OK] C_abcd C^abcd = 48 M^2 / r^6  (got 48*M**2/r**6)
+  [OK] C^2 == Kretschmann (vacuum)
+       -> a Weyl-scalar measure is unbounded at r->0 of a black hole AND of a
+          white hole (time-reverse, same C^2): the scalar alone carries no arrow.
+          Penrose's hypothesis supplies the arrow by FIAT (Weyl->0 at INITIAL
+          singularities only); it is a boundary condition, not a derivation.
+
+C3  Linear EdS dust: the Weyl/Ricci ratio tracks the density contrast
+   growing : delta ~ a^1,  |E|/rho ~ a^1,  |E|/rho / |delta| = sqrt(6)/6
+  [OK] growing: |E|/rho proportional to |delta| (same power of a)
+             |E|/H^2 ~ a^1
+  [OK] growing: |E|/H^2 rises iff delta rises
+   decaying: delta ~ a^-3/2,  |E|/rho ~ a^-3/2,  |E|/rho / |delta| = sqrt(6)/6
+  [OK] decaying: |E|/rho proportional to |delta| (same power of a)
+             |E|/H^2 ~ a^-3/2
+  [OK] decaying: |E|/H^2 rises iff delta rises
+       -> in the one computable regime, 'clumping raises the Weyl measure' holds
+          for these measures in both modes; it is Poisson's equation, and it
+          says nothing about whether C-based measures ARE an entropy.
+
+C4  Negative heat capacity of a virialised self-gravitating system
+  [OK] C = dE/dT = -3*N*k_B/2 < 0
+
+C5  Penrose's entropy numbers, 1979-style inputs vs Planck 2018
+   N_b = 1e80 (Penrose's order):  S_BH/k = 7.42e+122  (log10 122.9)
+   Planck 2018: N_b = 8.96e+79,  S_BH/k = 5.96e+122 (log10 122.8)
+   present CMB photon entropy: s/k = 1479 cm^-3; S/k = 5.28e+89;  with nu: 1.03e+90
+   gap log10(S_BH / S_rad): 1979 input 32.9 dex, Planck 2018 32.8 dex
+  [OK] gap exceeds 30 dex under both inputs (conclusion unmoved)
+   Penrose's '1 in 10^(10^123)' is exp(-S_max) with S_max ~ 10^123: the
+   exponent moves by -0.09 dex with Planck 2018 inputs.
+
+OVERALL: ALL CHECKS PASS

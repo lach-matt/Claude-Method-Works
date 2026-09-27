@@ -1,0 +1,95 @@
+{
+ "key": "counter-rotating-shell-kinetic-model",
+ "name": "Counter-rotating (Einstein-Vlasov) shell: sigma = n mu gamma, p = n mu gamma v^2/2, angular-momentum conservation u = gamma v ~ 1/R",
+ "source": {
+  "located": "The tree names NO source and says so: 'marked RECONSTRUCTED because no member or paper states it in this form' (wall.py:77-78; docstrings wall.py:399-410). The ingredients are classical: the Einstein cluster (A. Einstein, Ann. Math. 40, 922 (1939); every particle on a circular orbit, p_r = 0) and thin shells of counter-rotating collisionless particles (a standard GR construction; pre-arXiv literature not identified by title here) -- NAMED-NOT-READ. The Lanczos/Israel junction it rests on is audited separately (israel-lanczos-poisson-visser-thin-shell, STANDS). What WAS read at source text: (i) N. Dadhich, arXiv:2504.00064v2 (14 May 2025) p.7, restating the Einstein-Vlasov numerics of Ames, Andreasson & Logg (arXiv:1603.05404, 1803.11224; NAMED-NOT-READ): 'as the limiting compactness M/R -> 4/9 is approached, the shell becomes infinitely thin with rho, p_r, p_t all diverging, however, in the limit, p_r/rho -> 0 and 2p_t/rho -> 1 ... particle velocity attains the value, v^2 = 8/9. All these are, however, numerical results.' (ii) Pitre, Schneider & Poisson, arXiv:2604.05980v1, cached text line 459: the shell there 'is taken to be a perfect fluid' (NOT kinetic), and sec. X restating LeMaitre-Poisson 2019 [NAMED-NOT-READ]: 'these equilibrium configurations are radially stable whenever Gamma >= 3/2, where Gamma := (d ln p/d ln sigma)_s'. (iii) The sibling audit einstein-vlasov-limit-2-3 (rederive B1-B6), which showed the Lanczos shell is exactly the thin limit of an Einstein cluster.",
+  "read_status": "NAMED-NOT-READ",
+  "via": "No paper stating the kinetic shell model could be read in this stage: alphaXiv discover_papers and answer_pdf_queries both returned 'alphaXiv assistant quota exceeded'; arxiv.org, export.arxiv.org, www.alphaxiv.org and inspirehep.net are refused by the egress proxy (curl: CONNECT tunnel failed, response 403; proxy status lists connect_rejected for each). The verbatim alphaXiv page-text cache harvested earlier in this workflow (scratchpad/d67/src/casmag/all/, 738 files) was searched: the only files mentioning counter-rotating/Einstein-shell/Vlasov thin shells are 2504.00064v2.txt (Dadhich, quoted above) and 2606.22531v3.txt (Le, line 1643: 'A collisionless Einstein-Vlasov realization [60] of the p_r = 0 wall exists only outside the photon sphere (2m/r < 2/3, circular timelike orbits)'); 2604.05980v1.txt (md5 9916ebc75c7859da12c37c59acc4458f) is a perfect-fluid paper. Because the result is a COMPUTATION with a closed form, it was re-derived here in full from first principles instead (sympy + an independent equation-of-motion test), which is what the grade rests on. The tree's provenance claim 'no ... paper states it in this form' could not be tested (no literature search possible) and is left OPEN."
+ },
+ "published_statement": "No published statement read. The model as the tree states it (wall.py:79-86): 'sigma = n mu gamma and p = n mu gamma v^2/2, so p/sigma = v^2/2 -- and the junction ALREADY fixes p_0/sigma_0 = (1-s)/(4s), so v^2 = (1-s)/(2s) is set by x alone. Under a radial perturbation each particle conserves its angular momentum, so u = gamma v ~ 1/R, and carrying that through gives beta^2_vlasov(x) = u^2 (3u^2 + 4) / ( 2 (1 + u^2)(3u^2 + 2) ). It has a ceiling of 1/2 as u -> infinity, and the model itself expires at v = 1, which is x = 8/9.' Conclusion drawn (wall.py:97-100): 'SO THE STRUCTURAL FIX IS REAL BUT CONDITIONAL: counter-rotating matter clears the threshold only for x < 0.46898, and the margin is widest at LOW compactness, tending to exactly 4/3 as x -> 0.' The closest READ external statement (Dadhich 2504.00064v2 p.7, restating Ames-Andreasson-Logg numerics): the Einstein-Vlasov compactness limit 2M/R -> 8/9 is approached by infinitely thin shells with p_r/rho -> 0 and 2p_t/rho -> 1 -- which is exactly the tree's model at its expiry (single-speed 2D gas: 2p/sigma = v^2 -> 1 at x = 8/9).",
+ "published_hypotheses": [
+  "(tree, wall.py:79-83) thin (distributional) shell, Minkowski interior / Schwarzschild exterior, static equilibrium fixed by the Lanczos junction p_0/sigma_0 = (1-s)/(4s), s = sqrt(1-x), x = 2M/R",
+  "(tree, wall.py:79-81) collisionless particles moving tangentially, directions isotropic on the 2-sphere, with ONE common speed v (sigma = n mu gamma with a single gamma) -- the monoenergetic-|L| hypothesis",
+  "(tree, wall.py:81-82) under a RADIAL (spherically symmetric) perturbation each particle conserves its angular momentum, u = gamma v = L/R",
+  "(tree, wall.py:83, 434-436) model valid only while v < 1, i.e. x < 8/9",
+  "(tree, wall.py:97-100, 414-427) stability judged by the radial criterion beta^2_vlasov > beta^2_crit(x) (the criterion itself is a separate audit; here it was also tested independently of beta^2_crit, K5)",
+  "(read, Dadhich p.7, restating AAL) static spherically symmetric Einstein-Vlasov; the thin-shell limit is a NUMERICAL result ('All these are, however, numerical results')",
+  "(read, PSP sec. X, restating LeMaitre-Poisson 2019) barotropic shell, Newtonian radial stability iff Gamma >= 3/2 -- a FLUID statement; the kinetic shell satisfies it because its EOS is barotropic along the L-conserving sequence (K4)"
+ ],
+ "hypothesis_drift": [
+  "SINGLE-SPEED HYPOTHESIS UNSTATED AND THE CONCLUSION WIDENED TO THE CLASS: wall.py:98-99 says 'counter-rotating matter clears the threshold only for x < 0.46898', but the number holds only for a shell whose particles all share one speed (wall.py:79 'sigma = n mu gamma'; the canonical entry lists only 'isotropic tangential directions'). COMPUTED (rederive K7a): the thin limit of an Einstein cluster -- which reproduces the SAME Lanczos statics p_0/sigma_0 = (1-s)/(4s) (checked at x = 0.1, 0.3, 0.5 to 2e-6) and whose particles each sit on their own circular geodesic -- carries a spread of speeds v^2 in [0, x/(2(1-x))] and, with each particle conserving its own L, gives crossover x = 0.447387, not 0.468977, and margin 1.133151 (not 1.144558) at x = 0.3. Two-speed mixtures at the same statics give 0.445357 (spread 0.5) and 0.430510 (spread 0.9) (K7b). Mixtures with most rest mass nearly at rest push it below 0.1 (K7c, rest fraction 0.99 -> 0.098531), though such a shell is not a realizable set of individually orbiting particles. DROPPED from the stated class: the monoenergetic-|L| hypothesis.",
+  "The '4/3 exactly as x -> 0' limit (wall.py:88, 98-99, 430-431, 606-611) is 2/(3/2): the Newtonian Gamma = 2 of a 2D ideal gas against the LeMaitre-Poisson threshold Gamma = 3/2 (PSP sec. X, READ-VIA-RESTATEMENT). It needs NON-relativistic particle speeds; single speed guarantees that (v^2 ~ x/4, K2). With a fixed speed distribution every component eventually becomes non-relativistic and the margin still tends to 4/3 (K7a, K7c at x = 1e-6), so the LIMIT survives; the approach to it does not (rest fraction 0.999: margin 1.259 at x = 1e-3, 0.939 at x = 1/6). Not a drift in the limit, a drift in how fast 'the margin is widest at low compactness' is reached.",
+  "RADIAL ONLY: the model's beta^2 is defined by a spherically symmetric perturbation (wall.py:81). The tree's own text (wall.py:119-128) imports the l >= 2 instability of Pitre-Schneider-Poisson and calls their configuration 'LE'S STATIC ANCHOR EXACTLY'; PSP's shell 'is taken to be a perfect fluid' (2604.05980v1, cached text line 459). Whether the l >= 2 instability carries over to a COLLISIONLESS counter-rotating shell is not established by anything read here -- an ADDED unstated transfer from fluid to kinetic matter at wall.py:124-125, outside this key but adjacent to it.",
+  "LABEL, cross-referenced to audit einstein-vlasov-limit-2-3: wall.py:29 and 245 call x = 2/3 the 'Einstein-Vlasov limit' while this model (the file's own 'counter-rotating (Einstein-Vlasov) shell', wall.py:77) expires at 8/9 (wall.py:83). K2 confirms 8/9 for the single-speed model; the sibling audit showed 2/3 is where the thin-limit cluster's OUTERMOST particle reaches v = 1. A labelling discrepancy, not an arithmetic error.",
+  "PROVENANCE: 'no member or paper states it in this form' (wall.py:77-78) could not be tested here (no literature search available). The EV thin-shell limit it expires at is in the literature (Dadhich p.7, restating AAL), so the model's endpoint is published even if its beta^2 formula in this form is not known to be."
+ ],
+ "data_at_publication": [
+  {
+   "quantity": "physical inputs of the model",
+   "value_then": "none: the model is closed-form in x alone (sigma, p, v^2, u, beta^2 are all functions of s = sqrt(1-x))",
+   "value_now": "none",
+   "source_now": "wall.py:399-436; rederive K1-K6",
+   "moves_conclusion": "no -- there is no measured datum in the result"
+  },
+  {
+   "quantity": "crossover compactness x_c (beta^2_vlasov = beta^2_crit)",
+   "value_then": "0.46897656 (bisection, wall.py:418-427, 603)",
+   "value_now": "(17 - sqrt 33)/24 = 0.468976556394249 exactly (root of 6s^2 - 3s - 1 = 0, s = (3 + sqrt 33)/12); independent equation-of-motion test gives 0.4689765564",
+   "source_now": "rederive K5, K6",
+   "moves_conclusion": "no (agrees to 1e-9); moves to 0.447387 if the single-speed hypothesis is replaced by the thin-cluster speed spread (K7a)"
+  },
+  {
+   "quantity": "margin beta^2_vlasov/beta^2_crit at x = 0.3 (Le's operating point)",
+   "value_then": "1.144557648",
+   "value_now": "1.144557648 single-speed; 1.133151 thin-cluster spread",
+   "source_now": "rederive K6, K7a",
+   "moves_conclusion": "no -- stable in both models"
+  },
+  {
+   "quantity": "table wall.py:89-93 (supplied vs required beta^2)",
+   "value_then": "x=0.3 0.090800/0.079332; 0.4 0.130697/0.122892; 2/3 0.281089/0.366025; 4/5 0.399187/0.736068",
+   "value_now": "reproduced to 6e-7 at every row",
+   "source_now": "rederive K6",
+   "moves_conclusion": "no"
+  },
+  {
+   "quantity": "Einstein-Vlasov thin-shell limit (external numerics)",
+   "value_then": "tree: model expires at v = 1, x = 8/9",
+   "value_now": "Dadhich 2504.00064v2 p.7 restating Ames-Andreasson-Logg: 2M/R -> 8/9 with p_r/rho -> 0, 2p_t/rho -> 1 (and a stated 'v^2 = 8/9', which is a discrepancy INSIDE that restatement: for a single-speed 2D gas 2p_t/rho = v^2, so 2p_t/rho -> 1 means v -> 1; recorded, not adjudicated -- Dadhich's v may be defined otherwise)",
+   "source_now": "scratchpad/d67/src/casmag/all/2504.00064v2.txt lines 270-283",
+   "moves_conclusion": "no -- corroborates the tree's expiry at 8/9"
+  }
+ ],
+ "rederivation": {
+  "method": "sympy",
+  "script_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/counter-rotating-shell-kinetic-model.py",
+  "outcome": "ALL PASS (34 checks, exit 0; output in rederive/counter-rotating-shell-kinetic-model.out, md5 f80851f3d228d7d151f3bc44ad7b9ed4; script md5 ae0beade9bbd0ea7138e091bbe389f45). K1: isotropic 2D average <cos^2> = 1/2, so p/sigma = v^2/2. K2: Lanczos junction p_0/sigma_0 = (1-s)/(4s) symbolically; v = 1 exactly at x = 8/9; v^2 ~ x/4 at small x. K3: beta^2 = dp/dsigma along u = L/R equals u^2(3u^2+4)/(2(1+u^2)(3u^2+2)) symbolically; ceiling 1/2; ~u^2 at small u. K4: d(sigma A)/dR + p dA/dR = 0 IDENTICALLY -- the L-conserving kinetic shell satisfies the Israel conservation law, so treating it as a barotropic surface fluid is consistent. K5: INDEPENDENT of beta^2_crit, from the exact shell equation of motion M = mu sqrt(1+Rdot^2) - mu^2/(2R), mu = N m sqrt(1+L^2/R^2): equilibria reproduce the junction statics; V'' = 0 at x = 0.4689765564; stable at 0.3, unstable at 2/3 and 4/5. K6: closed form x_c = (17 - sqrt33)/24; all four table rows; margin 1.144557648 at 0.3; 4/3 limit. K7: the single-speed hypothesis carries the crossover number: thin-limit Einstein-cluster speed spread (same statics) -> 0.447387; two-speed mixtures 0.445357, 0.430510; rest-dominated mixtures < 0.1 (not individually orbiting); the 4/3 limit survives every fixed distribution. The tree's own wall.py --selftest also passes (SELFTEST OK; captured in rederive/_wall_selftest.out).",
+  "agrees_with_source": "yes"
+ },
+ "later_literature": [
+  {
+   "ref": "N. Dadhich, arXiv:2504.00064v2 (2025), p.7, restating E. Ames, H. Andreasson, A. Logg, CQG 33, 155008 (2016), arXiv:1603.05404 and PRD 99, 024012 (2019), arXiv:1803.11224",
+   "effect": "confirms",
+   "what": "Einstein-Vlasov configurations approach the compactness limit 2M/R -> 8/9 as infinitely thin shells with p_r/rho -> 0 and 2p_t/rho -> 1 -- the tree's thin kinetic shell reaches v = 1 (2p/sigma = 1) at exactly x = 8/9. Numerical, per the restating author. Also states 'v^2 = 8/9', a discrepancy inside the restatement (recorded, not adjudicated).",
+   "read_status": "READ (Dadhich, cached alphaXiv page text); Ames-Andreasson-Logg NAMED-NOT-READ"
+  },
+  {
+   "ref": "T. Pitre, B. Schneider, E. Poisson, arXiv:2604.05980v1 (2026), sec. X, restating P. LeMaitre & E. Poisson, Am. J. Phys. 87, 961 (2019)",
+   "effect": "confirms",
+   "what": "Radial stability of the Minkowski/Schwarzschild thin shell iff Gamma >= 3/2 in the Newtonian limit; the kinetic shell's Gamma = 2 there gives the tree's 4/3 margin. Their shell is a perfect FLUID; their l >= 2 instability is not shown for kinetic matter.",
+   "read_status": "READ (cached alphaXiv page text, md5 9916ebc75c7859da12c37c59acc4458f); LeMaitre-Poisson NAMED-NOT-READ"
+  },
+  {
+   "ref": "discover_papers call for later work on counter-rotating / Einstein-Vlasov thin shells",
+   "effect": "contested",
+   "what": "NOT RUN TO COMPLETION: the call returned 'alphaXiv assistant quota exceeded'. No later literature on the kinetic shell's radial or non-radial stability was read; this row records the gap, not a finding.",
+   "read_status": "NOT READ (quota exceeded; arxiv.org / inspirehep.net 403 at egress)"
+  }
+ ],
+ "lacked_data": "M's hypothesis tested for this result. The model uses NO measured datum: every quantity is a closed-form function of the compactness x, and each was re-derived exactly (K1-K6), including an independent equation-of-motion test that never uses beta^2_crit and reproduces the crossover to 1e-9. So nothing the authors 'lacked' in the sense of measurements can move it -- evidence against M's hypothesis for this entry. What the model does lack is a MICROSTATE input: the speed distribution of the particles. The tree fixes one speed for all; the physically natural alternative with the same statics, the thin limit of an Einstein cluster (every particle on its own circular geodesic), gives crossover 0.447387 instead of 0.468977 (-4.6%) and margin 1.133 instead of 1.145 at x = 0.3. Having that input moves the NUMBER but not any conclusion the tree draws from it: Le's point x = 0.3 stays stable, x = 2/3 and 4/5 stay unstable, the x -> 0 limit stays 4/3, and designpoint.py:160-161's check compactness(1.0) = 1/6 < crossover survives (1/6 < 0.447). Only unrealizable rest-dominated mixtures break those, and they are recorded as such, not as refutations.",
+ "grade": "NARROWED",
+ "grade_evidence": "Every closed-form statement re-derives exactly (sympy, 34/34 PASS): p/sigma = v^2/2; v^2 = (1-s)/(2s); expiry at x = 8/9; beta^2 formula and its 1/2 ceiling; the model satisfies the Israel conservation law identically; the crossover is (17 - sqrt33)/24 = 0.468976556 (also found by an equation-of-motion test independent of beta^2_crit); all four table rows and the 1.144557648 margin; the 4/3 limit. No datum enters, so none moves. It is NARROWED rather than STANDS for one computed reason: wall.py:98-99 states the conclusion for 'counter-rotating matter' as a class ('clears the threshold only for x < 0.46898'), while the number holds only under the unstated single-speed (monoenergetic |L|) hypothesis. The thin-limit Einstein cluster -- same Lanczos statics, every particle individually orbiting -- gives 0.447387 (K7a). The qualitative conclusions (stable at 0.3, unstable at 2/3 and 4/5, 4/3 as x -> 0, designpoint's 1/6 not binding) hold in that model too. The provenance claim ('no paper states it in this form') is OPEN, untestable here.",
+ "what_would_change_the_grade": "To STANDS: restate wall.py:98-99 as 'a single-speed counter-rotating shell clears the threshold only for x < (17 - sqrt33)/24', or show the monoenergetic shell is the unique thin-shell kinetic equilibrium consistent with Einstein-Vlasov (e.g. that a static thin EV shell must be monoenergetic), which would remove the K7 alternative. To WRONG: a published kinetic-shell stability analysis (e.g. of Einstein-Vlasov thin shells) showing the L-conserving radial response is NOT the barotropic one used here -- K4 is evidence against that. The provenance sub-claim moves from OPEN once a literature search (blocked here) either finds the beta^2 formula in print or does not.",
+ "reverify_command": "python3 /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/counter-rotating-shell-kinetic-model.py && (cd /home/user/Claude-Method-Works/research/warp-drive && python3 wall.py --selftest | sed -n '/THE STING/,/THE RADIAL/p')",
+ "report_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/audits/counter-rotating-shell-kinetic-model.json"
+}

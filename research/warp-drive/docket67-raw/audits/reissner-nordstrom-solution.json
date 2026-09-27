@@ -1,0 +1,108 @@
+{
+ "key": "reissner-nordstrom-solution",
+ "name": "Reissner-Nordstrom enclosed (Misner-Sharp) mass m(r) = M - Q^2/2r with rho = Q^2/8 pi r^4 > 0: counterexample to certify.py's COROLLARY without a regular centre",
+ "source": {
+  "located": "Reissner, Ann. Phys. 50 (1916) 106; Nordstrom, Proc. KNAW 20 (1918) 1238 -- pre-arXiv, NAMED-NOT-READ. Restated exactly in arXiv:2608.16534 (Jaraba, Campos, Baldiotti 2026), Sec. IV.A.3 eqs (31),(32),(38),(39), pp.5-7: f_RN = 2M/r - Q^2/r^2 (Kerr-Schild profile; metric function 1 - 2M/r + Q^2/r^2), M_MS = (r/2)(1 - g^{mu nu} d_mu r d_nu r) = M - Q^2/(2r), geometric units, signature (-,+,+,+). Misner-Sharp definition, regular-centre condition and the positivity theorem the COROLLARY instantiates: Hayward, gr-qc/9408002 (PRD 53, 1938, 1996), eq (4), p.4, Props 5-6, pp.8-9.",
+  "read_status": "READ-VIA-RESTATEMENT",
+  "via": "alphaXiv answer_pdf_queries on 2608.16534 (pp.5-7) and gr-qc/9408002 (pp.1-21). The stress tensor (rho, p_r, p_t) was not found stated in either restatement; it is DERIVED here from the Maxwell field (sympy, G^a_b = 8 pi T^a_b checked component-wise). CONTINUE-PASS re-check: both sources re-read at alphaXiv in this run -- 2608.16534v1 (17 Aug 2026) pp.5-7 eqs (31)-(33),(38),(39) and the p.7 exterior-field-energy sentence verbatim as quoted; gr-qc/9408002v2 p.4 eq (4) and regular-centre definition, p.9 Prop 6 and 'the energy can be negative if the above assumptions do not hold' verbatim as quoted. Owner lines drivensource.py:112-131, certify.py:132-145, tolman.py:466-475, overturn.py:43-53 re-read and match the canonical statements."
+ },
+ "published_statement": "arXiv:2608.16534 p.6-7: 'For an RN spacetime, the KS scalar is given by f_RN(r) = 2M/r - Q^2/r^2 ... the quasi-local energy evaluates to Delta E_RN(r) = M - Q^2/(2r)' and this equals the Misner-Sharp mass M_MS = (r/2)(1 - g^{mu nu} d_mu r d_nu r) (eqs 31-33); 'The subtracted term, -Q^2/(2r), corresponds precisely to the classical electrostatic energy of the electric field stored in the exterior region'. Hayward gr-qc/9408002 p.4: 'A central point p will be called regular if g^{-1}(dr,dr) - 1 = O(r^2) ... Then E = O(r^3) at a regular centre'; Prop 6 p.9: 'If the dominant energy condition holds on an untrapped spatial hypersurface with regular centre, then E >= 0'; p.9: 'Note that the energy can be negative if the above assumptions do not hold.'",
+ "published_hypotheses": [
+  "Einstein-Maxwell, source-free Maxwell field on r > 0 (electrovac); no point-source stress tensor is part of the solution",
+  "static, spherically symmetric (static where f > 0: r > r_+ and r < r_- for Q <= M; everywhere for Q > M)",
+  "geometric units G = c = 1, Gaussian electromagnetic units (Q^2 in f; Heaviside-Lorentz gives Q^2/4pi)",
+  "Misner-Sharp mass m = (r/2)(1 - g^{ab} d_a r d_b r) (Hayward eq 4)",
+  "Hayward's positivity (Prop 6) needs: DEC, untrapped hypersurface, REGULAR centre (E = O(r^3))",
+  "r = 0 is a singular centre (not in the manifold)"
+ ],
+ "hypothesis_drift": [
+  "WEAKENED/OVER-BROAD (discrepancy, not error): drivensource.py:118 'Reissner-Nordstrom is static and spherically symmetric' -- for 0 < Q < M the band r_- < r < r_+ has f < 0 and is not static. Harmless for the use: wherever m < 0, f = 1 - 2m/r > 1 (z3, negation unsat), so the counterexample region is static for every Q; and for Q <= M it lies strictly inside r_- (z3; tolman.py:471-474 already records this).",
+  "NARROWER THAN NEEDED (not a drift against the source): tolman.py hypotheses 'horizons r_pm = M +- sqrt(M^2 - Q^2) for Q <= M' (tolman.py:352-364, 434-475) -- the counterexample also holds for Q > M (naked singularity; the physical electron has Q/M = 2.04e21), and for M = 0 (tolman.py itself notes the M = 0 limit).",
+  "ADDED INTERPRETATION: drivensource.py:128-131 'the finite M absorbs a -infinity of bare mass at the point charge. The negativity is the SINGULARITY's' and overturn.py:44-46 'a point charge supplies none' -- the RN solution is source-free on r > 0; a 'point charge' with bare mass is a reading of the limit m(0+) = -infinity, not a stress tensor in the solution. Consistent with 2608.16534 p.7's reading of -Q^2/2r as exterior field energy (so M = m(eps) + int_eps^inf 4 pi r^2 rho, re-derived exactly), but it is an interpretation; the counterexample needs only r > 0 and does not rest on it.",
+  "IMPLICIT DOMAIN: 'rho > 0 everywhere' (certify.py:139, overturn.py:46, specthm.py:889, throatmass.py:45) holds on r > 0, which is the whole manifold; r = 0 is not a point of the spacetime. No change.",
+  "UNSTATED CONVENTION: certify.py:136-141, overturn.py:43-53, specthm.py:888-891, throatmass.py:43-48 write m = M - Q^2/2r and rho = Q^2/8 pi r^4 without naming the unit system; Gaussian G = c = 1 is named only at drivensource.py:316 and tolman.py:438. In Heaviside-Lorentz the forms are M - Q^2/(8 pi r) and Q^2/(32 pi^2 r^4); sign structure and conclusion unchanged (sympy).",
+  "CONFIRMED, NOT DRIFTED: certify.py:132-135 / specthm H_reg attribute the corollary's failure to the missing regular centre. Hayward's Prop 6 needs DEC + untrapped + regular centre; RN satisfies DEC pointwise (rho = |p_r| = |p_t|, saturated) and is untrapped where m < 0 (f > 1), so the regular centre is the ONLY failing hypothesis -- computed here.",
+  "OUT OF KEY: specthm.py:874-899 hypotheses 'charged body with non-negative bare mass, r_c <= a' belong to drivensource.py section 4, not to the RN solution; not audited here."
+ ],
+ "data_at_publication": [
+  {
+   "quantity": "illustrative pair M = 1, Q = 0.8 (Q^2 = 16/25): zero of m, horizons",
+   "value_then": "m = 0 at R = 8/25 = 0.32; horizons 0.4, 1.6 (tolman.py:454-455)",
+   "value_now": "8/25; 1 +- 3/5 = 0.4, 1.6 (exact Fraction); m(0.1) = -11/5, m(1) = 17/25",
+   "source_now": "computed, rederive script section 7",
+   "moves_conclusion": "no -- illustrative, exact agreement"
+  },
+  {
+   "quantity": "independent pair M = 7/3, Q^2 = 9/16",
+   "value_then": "used as second instance (drivensource/throatmass selftests)",
+   "value_now": "zero at 27/224; M^2 - Q^2 = 703/144 > 0",
+   "source_now": "computed, rederive script section 7",
+   "moves_conclusion": "no"
+  },
+  {
+   "quantity": "r_c = Q^2/2M for the electron (the only physical datum the use touches)",
+   "value_then": "symbolic r_c = Q^2/2M (geometric units), overturn.py:47-49",
+   "value_now": "r_e/2 = 1.4089701602e-15 m, r_e = 2.8179403205(13)e-15 m",
+   "source_now": "CODATA 2022, arXiv:2409.03787 Table XXXIII (READ); r_e recomputed from e, eps0, m_e, c to 1e-9 rel",
+   "moves_conclusion": "no -- the counterexample is mathematical; the datum moved by -4.5 sigma(2018) with alpha (CODATA Table XXXVIII) at 5e-10 relative"
+  },
+  {
+   "quantity": "electron Q/M in geometric units",
+   "value_then": "not stated at these sites",
+   "value_now": "2.04e21 (CODATA 2022 e, eps0, G, m_e)",
+   "source_now": "computed from arXiv:2409.03787 Table XXXII/XXXIII",
+   "moves_conclusion": "no -- Q > M puts the electron in the naked-singularity branch, where the m < 0 region still exists; tolman's 'Q <= M' is narrower than needed"
+  },
+  {
+   "quantity": "reduced Compton wavelength / r_c for the electron",
+   "value_then": "not stated",
+   "value_now": "274.07 = 2/alpha",
+   "source_now": "computed, CODATA 2022",
+   "moves_conclusion": "no for the theorem's scope (a statement about the classical Einstein-Maxwell class); it does say any physical realisation of the region lies where classical Maxwell is not the valid description"
+  }
+ ],
+ "rederivation": {
+  "method": "sympy",
+  "script_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/reissner-nordstrom-solution.py",
+  "outcome": "29 PASS, 0 FAIL (exit 0; md5 ce080a03b685ed3bbba876ef08de5f8f). From the metric alone (Christoffels -> Ricci -> G^a_b) and the Coulomb Maxwell field: G^a_b = 8 pi T^a_b component-wise; source-free Maxwell on r > 0; rho = -T^t_t = Q^2/(8 pi r^4), p_r = -rho, p_t = +rho, traceless; Misner-Sharp m = (r/2)(1 - g^rr) = M - Q^2/(2r); dm/dr = 4 pi r^2 rho; unique zero at Q^2/(2M); m(0+) = -oo; int_eps^R 4 pi r^2 rho = Q^2/2eps - Q^2/2R -> +oo; m - 4 pi R^3 p_r = M exactly (tolman V13); r^3 p_r -> -oo; centre not regular in Hayward's sense; DEC holds pointwise (saturated). z3 (with vacuity guard sat): E1 m < 0 <=> 2MR < Q^2; m < 0 => f > 1 (static region for every Q); Q <= M => r_- > Q^2/2M; series y^2/8 + y^3/16 (tolman). dsolve: traceless + u + p_r = 0 + conservation => u = C/r^4 (tolman 389-393). Board's numerical pairs exact. Heaviside-Lorentz variant: same sign structure. Electron datum from CODATA 2022. Re-run in the continue pass: 29 PASS, 0 FAIL, exit 0, 1.4 s, script md5 unchanged (ce080a03b685ed3bbba876ef08de5f8f).",
+  "agrees_with_source": "yes"
+ },
+ "later_literature": [
+  {
+   "ref": "arXiv:2608.16534 (Jaraba, Campos, Baldiotti 2026)",
+   "effect": "confirms",
+   "what": "Misner-Sharp mass of RN = M - Q^2/(2r) (eq 39), recovered as an Iyer-Wald quasi-local Hamiltonian; -Q^2/2r read as exterior electrostatic field energy; Kerr-Newman mass function M(r) = M - Q^2/(2r) (Sec IV.B.2).",
+   "read_status": "READ (pp.1-2, 5-8)"
+  },
+  {
+   "ref": "gr-qc/9408002 (Hayward, PRD 53, 1938, 1996)",
+   "effect": "confirms",
+   "what": "The external theorem the COROLLARY instantiates: E >= 0 needs DEC + untrapped + regular centre (Prop 6); E = O(r^3) at a regular centre; 'the energy can be negative if the above assumptions do not hold'. RN violates only the regular-centre hypothesis (computed here), so the tree's NARROWING to H_reg is exactly Hayward's hypothesis set.",
+   "read_status": "READ (pp.1-21)"
+  },
+  {
+   "ref": "arXiv:2602.22559 (2026) quantum-corrected RN thermodynamics from the Misner-Sharp-Hernandez mass",
+   "effect": "extends",
+   "what": "uses the RN MSH mass as the thermodynamic energy; does not bear on the sign near r = 0.",
+   "read_status": "abstract only (discover_papers)"
+  },
+  {
+   "ref": "arXiv:2203.11497 (2022) repulsive gravity in naked singularities",
+   "effect": "extends",
+   "what": "repulsive-gravity region of RN/Kerr naked singularities -- the region the tree reaches as m < 0; no contradiction indicated.",
+   "read_status": "abstract only (discover_papers)"
+  },
+  {
+   "ref": "arXiv:2605.15576 (2026) regular black hole with Minkowski core",
+   "effect": "extends",
+   "what": "a regular-centre alternative (m(0) = 0) to the RN core; on the tree's reading such cores with rho >= 0 cannot have m < 0 -- consistent with H_reg being load-bearing, not tested here.",
+   "read_status": "abstract only (discover_papers)"
+  }
+ ],
+ "lacked_data": "The result is an exact closed-form solution (Reissner 1916, Nordstrom 1918) plus a one-line definition (Misner-Sharp 1964, as restated by Hayward); its conclusion depends on NO measured datum -- evidence: the rederivation uses only symbols, and the board's numerical pairs are illustrative and exact. What the 1916-18 authors lacked was quantum electrodynamics: for any real charged particle the m < 0 region r < Q^2/2M sits at r_c = r_e/2 = 1.41 fm, 274 times smaller than the electron's reduced Compton wavelength (CODATA 2022), where classical Maxwell (and the classical point source) is not the valid description, and the electron's Q/M = 2.04e21 puts it in the horizonless branch. Having that data does NOT change the conclusion as the tree uses it: the counterexample is a statement about the hypotheses of a theorem inside the classical Einstein-Maxwell class (it shows the regular-centre hypothesis is load-bearing), and the tree already says 'RN IS A WITNESS ABOUT HYPOTHESES, NOT A DEVICE' (tolman.py:474). It would matter only if the tree claimed RN as a physical realisation, which it does not. M's hypothesis is therefore NOT supported for this result: no missing datum moves it.",
+ "grade": "STANDS",
+ "grade_evidence": "Statement READ via exact restatement (2608.16534 eqs 38-39; Hayward eq 4, Prop 6). Every property the six owners use re-derived independently from the metric and Maxwell field (sympy, 29/29 PASS) and the region machine-checked (z3, negation unsat, vacuity guard sat). The regular centre is shown to be the ONLY hypothesis of Hayward's positivity theorem RN violates (DEC saturated, untrapped where m < 0), which is exactly the narrowing certify.py records. Drifts found are one over-broad word ('static', drivensource.py:118 -- harmless because m < 0 forces f > 1), one interpretive addition (point-charge bare mass, not needed by the counterexample), one narrower-than-needed hypothesis (tolman Q <= M), and unstated Gaussian units at four owners; none moves the conclusion. No datum enters the conclusion.",
+ "what_would_change_the_grade": "NARROWED if an owner uses the RN counterexample outside r > 0 or in the non-static band r_- < r < r_+ with a static-observer rho (none found at the cited lines), or if certify's rho is not -T^t_t; DATA-DEPENDENT only if the tree began to claim RN as a physical device (then QED at r ~ r_e/2 << lambda_C becomes load-bearing); WRONG would need a failed component of G = 8 pi T or of m = M - Q^2/2r, which the script refutes.",
+ "reverify_command": "python3 /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/reissner-nordstrom-solution.py  # expect '0 FAIL(s)', exit 0 (~1-2 min, sympy + z3)",
+ "report_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/audits/reissner-nordstrom-solution.json"
+}

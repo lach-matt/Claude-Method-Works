@@ -1,0 +1,177 @@
+The junction reproduces Le Eq (17) -- derived here, not transcribed
+    8 pi R (sigma-p) at x = 0.1000                             0.1012454782     0.1012454782  ok
+    8 pi R (sigma-p) at x = 0.3000                              0.310735629      0.310735629  ok
+    8 pi R (sigma-p) at x = 0.5000                             0.5251262658     0.5251262658  ok
+    8 pi R (sigma-p) at x = 0.8000                             0.7639320225     0.7639320225  ok
+    8 pi R (sigma-p) at x = 0.9600                          1.046360549e-15  8.881784197e-16  ok
+  surface dec vanishes exactly at 24/25                     1.046360549e-15                0  ok
+  ...and is positive below it                                          True             True  ok
+  ...and negative above it                                             True             True  ok
+
+THE DECOUPLING: the statics do not contain beta^2 at all
+    V(R_0) = 0 at beta^2 = 0.00                                           0                0  ok
+    V'(R_0) = 0 at beta^2 = 0.00                                          0                0  ok
+    V(R_0) = 0 at beta^2 = 0.05                                           0                0  ok
+    V'(R_0) = 0 at beta^2 = 0.05                                          0                0  ok
+    V(R_0) = 0 at beta^2 = 0.50                                           0                0  ok
+    V'(R_0) = 0 at beta^2 = 0.50                           -1.110223025e-10                0  ok
+    V(R_0) = 0 at beta^2 = 1.00                                           0                0  ok
+    V'(R_0) = 0 at beta^2 = 1.00                            1.110223025e-10                0  ok
+  dec margin is identical for every beta^2 (it is junction-fixed)                1                1  ok
+
+V'' analytic against a finite difference of the closed-form V(R)
+    x = 0.2, beta^2 = 0.0                                     -0.3423705763    -0.3423762079  ok
+    x = 0.2, beta^2 = 0.2                                       1.130937566      1.130936421  ok
+    x = 0.2, beta^2 = 0.5                                        3.34090311      3.340905365  ok
+    x = 0.2, beta^2 = 1.0                                       7.024187898      7.024186938  ok
+    x = 0.3, beta^2 = 0.0                                     -0.5569100736    -0.5569099792  ok
+    x = 0.3, beta^2 = 0.2                                      0.8470824042     0.8470820527  ok
+    x = 0.3, beta^2 = 0.5                                       2.953068901        2.9530701  ok
+    x = 0.3, beta^2 = 1.0                                       6.463050095       6.46305018  ok
+    x = 0.5, beta^2 = 0.0                                      -1.146447381     -1.146446609  ok
+    x = 0.5, beta^2 = 0.2                                      0.1020872276      0.102081528  ok
+    x = 0.5, beta^2 = 0.5                                       1.974878039      1.974873734  ok
+    x = 0.5, beta^2 = 1.0                                       5.096199018      5.096194078  ok
+    x = 0.7, beta^2 = 0.0                                      -2.257949383      -2.25795376  ok
+    x = 0.7, beta^2 = 0.2                                      -1.200688438     -1.200686691  ok
+    x = 0.7, beta^2 = 0.5                                      0.3852140829     0.3852139129  ok
+    x = 0.7, beta^2 = 1.0                                       3.028386431      3.028381585  ok
+
+beta^2_crit is exactly the zero of V''
+    V''(beta^2_crit) at x = 0.1000                         -9.714451465e-17                0  ok
+      ...just above is stable                                          True             True  ok
+      ...just below is not                                            False            False  ok
+    V''(beta^2_crit) at x = 0.3000                         -1.110223025e-16                0  ok
+      ...just above is stable                                          True             True  ok
+      ...just below is not                                            False            False  ok
+    V''(beta^2_crit) at x = 0.5000                                       -0                0  ok
+      ...just above is stable                                          True             True  ok
+      ...just below is not                                            False            False  ok
+    V''(beta^2_crit) at x = 0.6667                          6.661338148e-16                0  ok
+      ...just above is stable                                          True             True  ok
+      ...just below is not                                            False            False  ok
+    V''(beta^2_crit) at x = 0.8000                         -4.440892099e-16                0  ok
+      ...just above is stable                                          True             True  ok
+      ...just below is not                                            False            False  ok
+
+Two exact closed forms fall out
+  beta^2_crit(2/3) = (sqrt3 - 1)/2                             0.3660254038     0.3660254038  ok
+  beta^2_crit(4/5) = sqrt5 - 3/2                               0.7360679775     0.7360679775  ok
+
+The causal ceiling, and the window that matters
+  x* where beta^2_crit = 1                                                1                1  ok
+    and it is                                                  0.8437418926     0.8437418926  ok
+  the operative window x < 4/5 is entirely below x*                    True             True  ok
+    so is the Vlasov window x < 2/3                                    True             True  ok
+  but the thin-shell dec window 24/25 is NOT                          False            False  ok
+      x = 0.1000  needs beta^2 > 0.020746, c_s > 0.1440 c
+      subluminal at x = 0.1000                                         True             True  ok
+      x = 0.3000  needs beta^2 > 0.079332, c_s > 0.2817 c
+      subluminal at x = 0.3000                                         True             True  ok
+      x = 0.6667  needs beta^2 > 0.366025, c_s > 0.6050 c
+      subluminal at x = 0.6667                                         True             True  ok
+      x = 0.8000  needs beta^2 > 0.736068, c_s > 0.8579 c
+      subluminal at x = 0.8000                                         True             True  ok
+
+The oscillation period, measured by integrating R_ddot = -V'/2
+    x = 0.3, beta^2 = 0.5  (units R/c)                              5.17072      5.170802951  ok
+    x = 0.5, beta^2 = 0.5  (units R/c)                              6.32316      6.323029374  ok
+    x = 0.3, beta^2 = 0.2  (units R/c)                               9.6546         9.654552  ok
+
+THE INVERSION
+      1 g, 10 m cavity, delta_eta = 0.2:
+        marginal wall  -- needs <= 1, gets 1.8330e+14   FAILS
+        stiff wall     -- needs >> 1, gets 2.2273e+14   PASSES
+  the marginal wall fails by more than 1e13                            True             True  ok
+  the stiff wall is adiabatic by more than 1e13                        True             True  ok
+  it is the same ratio, times W                                 1.215127586      1.215127586  ok
+  Le's relativistic burn is only marginally adiabatic (< 5)             True             True  ok
+      Le App. K burn (delta_eta/lambda = 2.0) is adiabatic by 2.430
+
+BONUS: strict stability IMPLIES an unbounded dec basin
+    gap == x/(4s^2(1+3s)) at x = 0.0100                     0.0006336954601  0.0006336954601  ok
+      ...and it is positive                                            True             True  ok
+    gap == x/(4s^2(1+3s)) at x = 0.1000                      0.007222417426   0.007222417426  ok
+      ...and it is positive                                            True             True  ok
+    gap == x/(4s^2(1+3s)) at x = 0.3000                       0.03052520377    0.03052520377  ok
+      ...and it is positive                                            True             True  ok
+    gap == x/(4s^2(1+3s)) at x = 0.5000                       0.08009431025    0.08009431025  ok
+      ...and it is positive                                            True             True  ok
+    gap == x/(4s^2(1+3s)) at x = 0.6667                        0.1830127019     0.1830127019  ok
+      ...and it is positive                                            True             True  ok
+    gap == x/(4s^2(1+3s)) at x = 0.8000                        0.4270509831     0.4270509831  ok
+      ...and it is positive                                            True             True  ok
+    gap == x/(4s^2(1+3s)) at x = 0.9000                         1.154625794      1.154625794  ok
+      ...and it is positive                                            True             True  ok
+    gap == x/(4s^2(1+3s)) at x = 0.9990                         228.1096212      228.1096212  ok
+      ...and it is positive                                            True             True  ok
+    basin unbounded at x=0.3000, beta^2=0.50                           True             True  ok
+    basin unbounded at x=0.3000, beta^2=0.20                           True             True  ok
+    basin unbounded at x=0.5000, beta^2=0.50                           True             True  ok
+    basin unbounded at x=0.6667, beta^2=0.90                           True             True  ok
+  a wall stable but with beta^2 just under p_0/sigma_0 cannot exist             True             True  ok
+    ...and an UNstable soft wall does have a finite basin             False            False  ok
+
+THE STING: beta^2 is DETERMINED by the matter, not chosen
+      x = 0.0500  supplied 0.012863  required 0.009848  STABLE
+      x = 0.1000  supplied 0.026505  required 0.020746  STABLE
+      x = 0.3000  supplied 0.090800  required 0.079332  STABLE
+      x = 0.4000  supplied 0.130697  required 0.122892  STABLE
+      x = 0.5000  supplied 0.177956  required 0.183648  unstable
+      x = 0.6667  supplied 0.281089  required 0.366025  unstable
+      x = 0.8000  supplied 0.399187  required 0.736068  unstable
+  Le's own operating point x = 0.3 is stable                           True             True  ok
+    ...by 14%                                                   1.144557648      1.144557648  ok
+  but x = 2/3 is NOT                                                  False            False  ok
+  and x = 4/5 is not either                                           False            False  ok
+  crossover                                                    0.4689765564       0.46897656  ok
+    the crossover is where supplied == required             5.551115123e-17                0  ok
+  the margin is WIDEST at low compactness -> 4/3                1.333333333      1.333333333  ok
+    and shrinks monotonically to 1 at the crossover                    True             True  ok
+  a habitable ship (x = 1.5e-22) sits at the 4/3 limit          1.333333333      1.333333333  ok
+    the naive 1-sqrt(1-x) would have underflowed there                    0                0  ok
+    x/(1+s) does not                                                   True             True  ok
+  the model itself expires at x = 8/9                          0.8888888889     0.8888888889  ok
+
+THE RADIAL CRITERION, AGAINST THE PUBLISHED ONE
+    Gamma_crit == Gamma_1 at x = 1e-06                            1.5000005        1.5000005  ok
+    Gamma_crit == Gamma_1 at x = 0.05                           1.526147071      1.526147071  ok
+    Gamma_crit == Gamma_1 at x = 0.2                            1.621516994      1.621516994  ok
+    Gamma_crit == Gamma_1 at x = 0.3                            1.704757162      1.704757162  ok
+    Gamma_crit == Gamma_1 at x = 0.5                            1.957106781      1.957106781  ok
+    Gamma_crit == Gamma_1 at x = 0.8                            3.118033989      3.118033989  ok
+  both go to 3/2 in the Newtonian limit                         1.499999877              1.5  ok
+
+THE NON-RADIAL MODE: beta^2 does not appear in it
+      1e6 kg at R = 10 m grows at 1.5501e-04 /s  (e-fold 6451 s = 1.79 h)
+      a 1 g burn to delta_eta = 0.2 lasts 9.477e+02 e-foldings
+  a 10 m ship is torn apart hundreds of times over                     True             True  ok
+  the ceiling is on MEAN DENSITY                            0.0002657927437  0.0002657927437  ok
+  1,000 tonnes needs R > 964 m                                  964.8417554            964.4  ok
+    at which N = 1 exactly                                                1                1  ok
+  and R > 4.5 km for N < 0.1                                    4.478398718      4.478398718  ok
+      compactness there: x = 3.316e-25 -- every window clears by decades
+    ...and the counter-rotating wall is stable there                   True             True  ok
+    ...and the burn is still adiabatic there                           True             True  ok
+
+THE SHAPE HAS MASS: self-gravity traded against the l>=2 ceiling
+      x                 R (m)     M (Msun)      binding
+      1e-24        7.7766e+02   2.6331e-25    2.500e-25
+      1e-06        7.7766e+11   2.6331e+02    2.500e-07
+      0.0396       1.5475e+14   2.0750e+09    1.000e-02
+      0.3          4.2594e+14   4.3267e+10    8.167e-02
+  x for a 1% binding fraction                                        0.0396           0.0396  ok
+    needs a radius (AU)                                         1034.449179           1034.4  ok
+    and a mass (Msun)                                            2074991876       2075000000  ok
+  Le's x = 0.3 needs (Msun)                                 4.326687251e+10        4.327e+10  ok
+  the 1,000-t 4.48 km design's compactness                  3.316730804e-25       3.3167e-25  ok
+    its binding fraction is nil                                        True             True  ok
+    its wall is thinner than kitchen foil (7 g/m^2)                    True             True  ok
+      at (g/m^2)                                                3.968459546            3.968  ok
+    under negligible tension (N/m)                          1.478712011e-11       1.4787e-11  ok
+    and the mass closes                                             1000000          1000000  ok
+      A spherical shell's interior is exactly flat by BIRKHOFF at any
+      compactness, so the diffuse limit's "warp feature" is shared with every
+      balloon.  The escape corridor exits the category.
+
+  SELFTEST OK

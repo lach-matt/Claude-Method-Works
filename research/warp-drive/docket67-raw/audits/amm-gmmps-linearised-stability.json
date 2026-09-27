@@ -1,0 +1,106 @@
+{
+ "key": "amm-gmmps-linearised-stability",
+ "name": "AMM semiclassical stability criterion; GMMPS Minkowski mode (D26)",
+ "source": {
+  "located": "(1) Anderson, Molina-Paris & Mottola, 'Linear Response, Validity of Semi-Classical Gravity, and the Stability of Flat Space', arXiv gr-qc/0209075 v1 (21 Sep 2002), LA-UR-02-5809; PRD 67, 024026 (2003) per the owner. Where things are: criterion Sec. III p.10; (3.3)-(3.4) and the 'leading order solution' sentence pp.8-9; flat-space tensor and scalar results and the untreated k = 0 modes p.12; abstract p.1. (2) Galanda, Meda, Murro, Pinamonti & Schmid, 'The Semiclassical Einstein-Klein-Gordon System: Asymptotic Analysis of Minkowski Spacetime', arXiv:2604.01047 v1 [math-ph] (1 Apr 2026). Where things are: Thm 1.2 (p.10-11); 1.5 (p.11); 1.6 on AMM (p.14); Thm 3.6 (p.33); Prop 4.10 / (4.17) (p.48); Thm 4.16 (p.58); secs 5.1-5.3 (pp.59-63).",
+  "read_status": "READ",
+  "via": "Banked alphaXiv text layers, re-read in this stage, with md5s pinned in the re-derivation script. AMM: d67/amm_0209075.txt (md5 486395c6...), cross-checked against the second dump d67/src/casmag/all/gr-qc_0209075v1.txt. GMMPS: two independent dumps that agree on every quoted string, d67/src/casmag/all/2604.01047v1.txt (md5 d8bf938e...) and d64/L4/galanda.txt (md5 4bac4a94...). Live alphaXiv was refused in this stage: answer_pdf_queries x2, get_paper_content and discover_papers all returned 'quota exceeded'. arxiv.org and export.arxiv.org are refused by the egress proxy (CONNECT 403). The READ therefore rests on verbatim text layers dumped from alphaXiv earlier in DOCKETs 64 and 67, not on a fetch made in this stage. Not read: AMM App. B detail and the bibliography; GMMPS pp.4-6, 8, 13, 15-21 and other pages missing from the dumps."
+ },
+ "published_statement": "AMM (p.10, verbatim): 'A necessary condition for the validity of the large N semi-classical equations of motion (2.9) is that the linear response equations (3.4) should have no solutions with finite non-singular initial data for which any linearized gauge invariant scalar quantity grows without bound.' (3.4) is the first variation of (2.9) about a semi-classical geometry that solves (2.9). The retarded correlator 'is evaluated in the background geometry of the leading order solution of the semi-classical equations (2.9)' (p.9). Applied to Minkowski with a massive scalar of any xi, flat space 'is stable to all perturbations on distance scales much larger than the Planck length' (abstract). The possibility of non-propagating k = 0 scalar global modes: 'We do not treat this possibility in this paper' (p.12). GMMPS (abstract): 'We establish the linear instability of the semiclassical Einstein-Klein-Gordon system linearised about the Minkowski vacuum spacetime ... for physically admissible choices of the renormalisation constants.' The mechanism: Thm 3.6 fixes alpha~^S_1 = 1/(64 pi^2) and alpha~^TT_1 = 0. Sec. 5.1: 'there is a zero gamma_0 of F^S that it is real valued and that is slightly smaller than 0. Its magnitude is governed by the value of b_0 and thus by the form of alpha~^S_1 ... For sufficiently large -b_2, this is the only negative zero that can be found in D.' Thm 4.16 (p.58): 'If Z subset (-4m^2, 0) and if S in C_c^inf(M), the solution ... are bounded in time ... If Z subset (-4m^2, inf), with some gamma in Z, gamma > 0, the solution is exponentially growing', where Z is the zero set of Q(w^2). Sec. 5.2.1: 'if alpha~^S_3 is sufficiently large and negative and if alpha~^TT_4 is sufficiently large and positive, the parameter H is universal. It actually depends on alpha~^S_1 ... This different behaviour [from AMM] is originated by the choice of the renormalisation parameters done in Theorem 3.6.' Sec. 5.3: gamma~ ~ -b_0/b_1 = -16 pi G alpha~^S_1 m^4, H = sqrt(-gamma~), m ~ 7.8e-3 eV.",
+ "published_hypotheses": [
+  "AMM A1: a background g_ab that SOLVES the large-N semiclassical equations (2.9) in a state |in>. (3.4) is its first variation, and Pi^(ret) is evaluated on that solution (pp.8-9).",
+  "AMM A2: large-N free quantum fields as the matter. In the flat example, a scalar of arbitrary mass m > 0 and coupling xi in the Minkowski vacuum.",
+  "AMM A3: only gauge-invariant scalars built from h_ab alone count, and gauge transformations (3.11) under which the action (2.7) is not invariant are excluded (p.10).",
+  "AMM A4: renormalised Lambda, 1/G_N, alpha, beta defined by subtractions at k^2 = 0 (4.4).",
+  "AMM A5, for the flat result: fourth-order coefficients O(1), so that new modes appear only at G_N|k^2| ~ 1 (p.12). Scale sqrt(N) l_P per the p.7 rescaling (sibling gr-qc_0209075_flat-scalar-and-conclusion). k = 0 global scalar modes not treated (p.12).",
+  "GMMPS G1: ONE real Klein-Gordon field, m > 0, xi with 2/(6 xi - 1) < 4 (5.1, for Prop 4.5).",
+  "GMMPS G2: background (R^4, eta) with the Poincare vacuum. Past-compact metric and state perturbations posed as a forcing problem (1.8). de Donder gauge.",
+  "GMMPS G3: alpha~^S_1 = 1/(64 pi^2) and alpha~^TT_1 = 0 from Prop 3.1 plus general local covariance (Thm 3.6). alpha~^S_2 = alpha~^TT_2 = 0 assumed (5.1, 5.2).",
+  "GMMPS G4: Thm 4.16 needs a REAL zero set: bounded if Z is in (-4m^2, 0), growth if Z is in (-4m^2, inf) with some zero > 0 (Q's variable w^2), for S in C_c^inf. Complex zeros are not covered.",
+  "GMMPS G5: universality of H (5.2.1) needs 'physically reasonable m', alpha~^S_3 sufficiently large and negative, and alpha~^TT_4 sufficiently large and positive. 5.1 instead phrases the S-sector condition as 'sufficiently large -b_2'.",
+  "GMMPS G6: 5.3 neglects J and takes b_1 >> the other constants (kappa^-1 = M_P^2)."
+ ],
+ "hypothesis_drift": [
+  "RESTATEMENT ERROR, Thm 4.16 (linstab.py:142-145; also 177-179, 351, 450, 1054). The tree has 'Thm 4.16: a zero of the dispersion function on the growing side gives exponential growth (for Z strictly inside (-4m^2, 0))'. At source, 'Z subset (-4m^2, 0)' is the BOUNDED/DECAY clause, in Q's variable w^2. The growth clause is 'Z subset (-4m^2, inf) with some gamma in Z, gamma > 0'. Under F_S(-w^2) = -Q(w^2) (re-derived, S4), a growing F_S zero is ANY negative real zero, with no lower bound. The tree's conclusion from this restatement survives: a zero at gamma = 0 lies in neither clause (open interval; strict gamma > 0). The reason it gives is misstated. This also settles the sibling thm4.16 audit's open discrepancy (i): real Planckian roots are INSIDE Thm 4.16's growth clause when the whole zero set is real (S4, computed at b2 = -1).",
+  "DROPPED: Thm 4.16 needs a real zero set (G4). The tree cites Thm 4.16 for growth (linstab.py:142-145) without the reality condition. GMMPS's own Fig. 1 shows complex-conjugate zero pairs in part of the b_2 range.",
+  "DROPPED: the b_2 regime of GMMPS 5.1's 'only negative zero'. linstab.py:144-146 carries the 5.1 zero and 5.2.1's universality without the sign of b_2. Computed (S3), with (5.2)'s b_0 < 0 and b_1 < 0: at b_2 = -1e100 F_S has TWO negative real zeros. The second sits near -b_1/b_2 = -1.2e-99 M_P^2, >> |gamma_0| = 3.5e-121, and so sets the growth. At b_2 = +1e100 gamma_0 is the unique negative zero. Beyond b_2 ~ b_1^2/|b_0| = 3.4e121 the negative zero becomes -sqrt(|b_0|/b_2) and H stops being universal. The tree's own text is consistent with this: 'other growing roots are set by the free fourth-order constants' (linstab.py:368-369, 344-349), and its selftest brackets the S root at b_2 = -1e100 but not at +1e100. So this drift is against GMMPS's 5.1 wording, not against the tree's claim.",
+  "WIDENED LABEL (specthm.py:1098; linstab.py:229, 357-361). 'LINEARISED STABILITY (AMM)' titles a CLASSICAL Israel-shell radial theorem (P1-P4). AMM's criterion is defined on (3.4), the linearisation of (2.9) with quantum fields as matter (A1-A2), so a classical barotropic shell is outside AMM's class. The same statement then separates 'Semiclassical: NOT EVALUABLE', which keeps the refusal correct. The sibling gr-qc_0209075_criterion reports the same drift.",
+  "DROPPED at ledger.py:783-788: 'AMM: infrared-stable'. This paraphrase of AMM's abstract drops A5: O(1) fourth-order coefficients, sqrt(N) l_P rather than l_P, and the untreated k = 0 global scalar modes (p.12). The ledger itself marks the sentence 'as DOCKET 62's ruling reports them, not read here'. linstab.py:102-128 carries A5 in full.",
+  "DROPPED at ledger.py:786-787: 'GMMPS: linearly unstable, attributed to the renormalisation constants'. It does not say that the reported mode needs alpha~^S_1 != 0 in particular (re-derived, S1). Nor does it say that GMMPS 1.5 contradicts 5.2.1 ('regardless of renormalisation constants', verbatim at 1.5 p.11). D26_CLAIM (linstab.py:365-368) carries the alpha~^S_1 condition. linstab.py:189-202 records the 1.5/5.2.1 contradiction.",
+  "LOOSENED at linstab.py:365-367. D26_CLAIM says the mode 'exists ... iff alpha~^S_1 != 0'; LITERATURE_SPLIT_IS_ONE_CONSTANT (linstab.py:345-347) adds 'grows iff alpha~^S_1 > 0'. Both re-derive (S1). The shorter D26 wording is exact about the zero and looser about GROWTH. The sibling 2604.01047_sec5.1-5.3-mode records the same point.",
+  "No drift on the AMM precondition: 'defined only about a solution of (2.9) (AMM pp.8-9)' matches p.8 ('first variation') and p.9 ('leading order solution') verbatim (S0). The sibling gr-qc_0209075_needs-solution graded it STANDS."
+ ],
+ "data_at_publication": [
+  {
+   "quantity": "alpha~^S_1 (GMMPS Thm 3.6); sets the existence of the reported mode",
+   "value_then": "1/(64 pi^2) (Thm 3.6). 5.1 prints (64 pi)^-1",
+   "value_now": "No measurement exists: this is a renormalisation constant fixed by a scheme argument. The sibling audit 2604.01047_thm3.6 computes that general local covariance gives alpha~^S_1 = 0 (grade WRONG for Thm 3.6's S half). AMM's k^2 = 0 scheme gives 0 at order k^0 (sibling gr-qc_0209075_renorm-4.4).",
+   "source_now": "audits/2604.01047_thm3.6.json; audits/gr-qc_0209075_renorm-4.4.json (sibling audits in this docket, not re-derived here)",
+   "moves_conclusion": "It moves GMMPS's instability claim: at alpha~^S_1 = 0 the branch zero is gamma = 0 (S1, S3). It does NOT move the tree's use, which is conditional ('exists iff alpha~^S_1 != 0 ... the split is not adjudicated'). The movement is theoretical, not a datum."
+  },
+  {
+   "quantity": "Lambda and Omega_Lambda (GMMPS 5.3 inputs; fit m, not the mode)",
+   "value_then": "Omega_Lambda ~ 0.685; Lambda ~ 7.15e-121 M_P^2 (Planck 2018, their ref [1])",
+   "value_now": "Lambda = 3 Omega H0^2, so m^4 = H0^2 M_P^2/(2 alpha~^S_1) and m ~ H0^(1/2). Planck 2018 H0 = 67.36 against SH0ES 73.04 (contested): m moves 7.885e-3 eV -> +4.1%.",
+   "source_now": "sibling 2604.01047_sec5.3-mass (Planck 2018 VI and SH0ES R22 READ there); computed here, S7",
+   "moves_conclusion": "No. sign(gamma_0) = -sign(alpha~^S_1) holds whatever the datum. D26 uses neither m nor Lambda."
+  },
+  {
+   "quantity": "inf beta^2_crit (data_used; the tree's own classical theorem, not an external datum)",
+   "value_then": "-1/4 (linstab.BETA2_CRIT_INFIMUM)",
+   "value_now": "-1/4, re-derived: beta2_crit(1) = 0, limit -1/4 as u -> inf, strictly decreasing on u > 1 (derivative numerator -2(3u^3+3u^2+5u+1) < 0), so the infimum is not attained",
+   "source_now": "S6 of the re-derivation script",
+   "moves_conclusion": "No."
+  }
+ ],
+ "rederivation": {
+  "method": "sympy",
+  "script_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/amm-gmmps-linearised-stability.py",
+  "outcome": "58/58 PASS (sympy 1.14, mpmath 1.3, dps 420). Output is at rederive/amm-gmmps-linearised-stability.out. S0: md5 of all four banked text layers, plus 7 AMM and 17 GMMPS strings found verbatim (GMMPS strings in both independent dumps). S1: J(0) = 1/(96 pi^2 m^2), two ways. F_S(0) = -b_0 = 0 iff alpha~^S_1 = 0. F_S'(0) c kappa = 2 + kappa m^2/(144 pi^2) > 0, so the zero is simple and the IFT applies. First-order zero = -2 kappa alpha m^4/(1 + kappa m^2/(288 pi^2)), xi-free; it is negative (growing) iff alpha > 0. S2: -b_0/b_1 = -16 pi G alpha m^4, matching 5.3. S3: at the physical hierarchy (kappa = 1, m = 7.885e-3 eV / M_P, xi = 0), the full-F_S branch zero, J kept, equals the first-order value (-3.4796e-121) to 1e-15 for b_2 in {0, +-1, +-1e100}. At b_2 = -1e100 there are TWO negative zeros (second at -1.2e-99). At +1e100 there is exactly one negative zero plus one in (0, 4m^2). At b_2 = 1e3 x b_1^2/|b_0| the negative zero is -1.08e-122, so H is not universal. At alpha = 0, gamma = 0 is a zero. S4: F_S(-w^2) = -Q(w^2), so Thm 4.16's growth clause is 'a negative F_S zero', which includes Planckian ones: at b_2 = -1 a real zero with J kept is found in (-1e3, -1e-3). S5: a source S = K_{-L} f makes the growing pole's residue vanish. This is an aside against Thm 1.2's literal 'for any nontrivial choice of the sources ... grows'. S6: beta^2_crit range (-1/4, 0). S7: 5.3 mass 7.885e-3 eV with 1/(64 pi^2) against 5.92e-3 eV with (64 pi)^-1 (misprint confirmed); H0 moves m by 4.1%.",
+  "agrees_with_source": "partly"
+ },
+ "later_literature": [
+  {
+   "ref": "discover_papers, the one later-literature search for this stage",
+   "effect": "contested",
+   "what": "Refused: 'alphaXiv assistant quota exceeded'. No new search was possible here. The entries below are what sibling audits in DOCKET 67 READ or named.",
+   "read_status": "NOT RUN (quota)"
+  },
+  {
+   "ref": "Sibling audit 2604.01047_thm3.6 (this docket)",
+   "effect": "contradicts",
+   "what": "Computes, from GMMPS's own printed formulas, that general local covariance gives alpha~^S_1 = 0, not 1/(64 pi^2). On this audit's S1 that removes GMMPS's reported branch mode (the zero becomes gamma = 0). This is a contradiction of Thm 3.6's S half, and the sibling graded it WRONG. It is not a contradiction of the tree, whose statement is conditional.",
+   "read_status": "READ (sibling's report). Its argument was not re-derived in this stage."
+  },
+  {
+   "ref": "Hu, Roura & Verdaguer, gr-qc/0402029 (2004), 'Induced quantum metric fluctuations and the validity of semiclassical gravity'",
+   "effect": "extends",
+   "what": "Adds a fluctuation criterion to AMM's linear-response criterion, with AMM's kept as a necessary condition.",
+   "read_status": "READ by sibling gr-qc_0209075_criterion (alphaXiv pp.1-3, 5, 7-9); not re-read here"
+  },
+  {
+   "ref": "Ishibashi, Maeda, Okamura, arXiv:2512.00503 v2 (2025), instability thresholds for de Sitter and Minkowski in holographic semiclassical gravity",
+   "effect": "extends",
+   "what": "Minkowski is stable or unstable depending on the renormalisation and higher-curvature parameters. This supports the tree's reading that the split is a parameter/scheme question, not a settled fact.",
+   "read_status": "READ by sibling gr-qc_0209075_renorm-4.4 (alphaXiv); not re-read here"
+  },
+  {
+   "ref": "Habermann & Vanzella, arXiv:2605.24103 (2026), 'Probing the limits of the semiclassical Einstein equation'",
+   "effect": "extends",
+   "what": "A later validity-limit analysis of the semiclassical equation, in the direction of AMM's criterion.",
+   "read_status": "READ by sibling gr-qc_0209075_criterion; not re-read here"
+  },
+  {
+   "ref": "GMMPS 1.6 (p.14) on AMM",
+   "effect": "narrows",
+   "what": "GMMPS paraphrase AMM's criterion as 'a background spacetime can only be considered physically admissible if the allowed Cauchy data do not excite these unbounded modes'. That is a stronger reading than AMM's 'necessary condition', and the tree does not adopt it.",
+   "read_status": "READ (banked text layer p.14)"
+  }
+ ],
+ "lacked_data": "M's hypothesis, tested for this result. AMM (2002) wrote before the rigorous past-compact Cauchy framework and before the Hollands-Wald local-covariance renormalisation had been applied to this problem. The Hollands-Wald papers (2001-02) were contemporaneous. AMM also wrote before WMAP/Planck fixed Lambda. GMMPS (2026) had Planck 2018 and that framework. Having the later framework and data does change a conclusion on paper: GMMPS reach instability where AMM reached stability. By GMMPS's own attribution (5.2.1, verbatim) and by this audit's computation (S1), though, the difference is ONE renormalisation constant, alpha~^S_1. That is a theory choice and not a datum. No measurement fixes it. The only datum-linked output, m ~ 7.8 meV, is FITTED to Lambda (m ~ H0^(1/2)); nothing independent tests it, and no ~8 meV scalar is known. Moving H0 across the Hubble tension shifts m by 4.1% and cannot change sign(gamma_0). Evidence in the other direction is theoretical too: the sibling thm3.6 audit computes that GMMPS's own covariance hypothesis gives alpha~^S_1 = 0, which would restore AMM's no-branch-mode result. Verdict: M's hypothesis is NOT supported here as a lack of DATA. The split is about renormalisation conditions, which data available then or now does not decide, and the stronger 2026 claim is itself contested on internal grounds.",
+ "grade": "NARROWED",
+ "grade_evidence": "Both sources were READ from banked alphaXiv text layers, md5-pinned; every quoted string is verbatim, and GMMPS's strings appear in two independent dumps. The live alphaXiv re-fetch was refused (quota) and arxiv.org is egress-blocked. Everything closed-form re-derives (58/58): J(0); F_S(0) = -b_0; a simple zero, so the IFT applies; the xi-free first-order branch zero -2 kappa alpha m^4/(1 + kappa m^2/(288 pi^2)), matched by the full F_S with J kept at the physical hierarchy to 1e-15; growth iff alpha~^S_1 > 0; 5.3's -16 pi G alpha m^4 and m = 7.885e-3 eV; and the tree's inf beta^2_crit = -1/4. The tree's conditional statements (D26: 'NOT EVALUABLE ... defined only about a solution of (2.9)'; 'exists iff alpha~^S_1 != 0'; 'split not adjudicated') hold as READ and computed. No datum moves them. Why NARROWED and not STANDS: the tree's use carries hypothesis drifts, each shown with its site. (1) linstab.py:142-145 misstates Thm 4.16: it attaches (-4m^2, 0), the source's BOUNDED clause, to growth, and drops the requirement that the zero set be real. The conclusion drawn from it ('the gamma = 0 root lies outside Thm 4.16') survives. (2) specthm.py:1098 and linstab.py:357 put the AMM label on a classical shell theorem, which is outside AMM's semiclassical class. (3) ledger.py:785-787 reports 'AMM: infrared-stable' without AMM's O(1)-coefficient, sqrt(N) and k = 0 provisos, and 'GMMPS: linearly unstable' without the alpha~^S_1 != 0 condition. The ledger flags the sentence 'not read here'. Why not WRONG: nothing computed contradicts a claim the tree makes. Discrepancies found in GMMPS are RECORDED, not repaired, and are not refutations: 5.1's 'for sufficiently large -b_2, this is the only negative zero' fails on the printed b_i (two negative zeros at b_2 = -1e100; unique for b_2 > 0, and matching Fig. 1's b_2 > 0 regime), apparently a sign slip; 5.1's (64 pi)^-1 misprint; the 1.5/5.2.1 contradiction; e^{-Ht} against e^{tH}; and Thm 1.2's literal 'any nontrivial source' (S5). Why not DATA-DEPENDENT: the quantity that decides the split is a renormalisation constant, not a measured datum.",
+ "what_would_change_the_grade": "Toward STANDS: the tree restating Thm 4.16 with the correct clause (growth for any negative real F_S zero, all zeros real) and with the reality condition; specthm R8 and D26 separating the classical radial theorem from AMM's label; and the ledger's OPENED_FROM_WAITING sentence carrying AMM's provisos and GMMPS's alpha~^S_1 condition. That is a board decision, and this audit edits nothing. Toward OPEN: if a live read of GMMPS v1 or a later version differs from the banked text layers on Thm 4.16, 5.1 or 5.2.1. Toward WRONG for the tree: only if the tree came to assert GMMPS's instability unconditionally. It does not; if the sibling thm3.6 result stands, an unconditional use would fall. The GMMPS 5.1 b_2-sign discrepancy would be settled by reading their definition of b_2 in terms of alpha~^S_3, which the dumps do not carry legibly.",
+ "reverify_command": "python3 /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/amm-gmmps-linearised-stability.py   # expect '58/58 checks pass', exit 0 (about 1-3 min at dps 420); then: cd /home/user/Claude-Method-Works && git status --short research/   # expect no change; live re-read when quota allows: mcp__alphaXiv__answer_pdf_queries(paper='2604.01047', queries=['Exact statement of Theorem 4.16','Section 5.1: sign of b_2 for which gamma_0 is the only negative zero','b_2 in terms of alpha~^S_3']) and (paper='gr-qc/0209075', queries=['Sec. III stability criterion p.10','p.12 k=0 global modes'])",
+ "report_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/audits/amm-gmmps-linearised-stability.json"
+}

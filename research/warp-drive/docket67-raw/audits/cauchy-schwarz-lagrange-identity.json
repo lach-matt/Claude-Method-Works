@@ -1,0 +1,68 @@
+{
+ "key": "cauchy-schwarz-lagrange-identity",
+ "name": "Cauchy-Schwarz inequality via the Lagrange identity",
+ "source": {
+  "located": "Cauchy, Cours d'Analyse de l'Ecole Royale Polytechnique (1821), Note II, Th. XVI eq. (30) p.373 (the inequality) and eq. (31) p.374 (the identity, general n, proved by expansion); Lagrange 1773, 'Nouvelle solution du probleme du mouvement de rotation...', Nouv. Mem. Acad. Roy. Berlin 85-128 (the n = 3 case). Neither has an arXiv copy.",
+  "read_status": "READ-VIA-RESTATEMENT",
+  "via": "Kichenassamy, arXiv:2504.19543 (Ganita Bharati 42 (2020) 1-19), p.3: Cauchy's identity restated as eq. (2) '(a1 b1 + ... + an bn)^2 + sum_{i<j}(ai bj - aj bi)^2 = (a1^2 + ... + an^2)(b1^2 + ... + bn^2)', with the page/equation numbers of Cauchy 1821 and the note that Lagrange 1773 gave the n = 3 case, restated p.4 eq. (4) as (u|v)^2 + ||u x v||^2 = ||u||^2||v||^2; the integral form (f,g)^2 = (f,f)(g,g) - 1/2 double-integral (f(x)g(y)-f(y)g(x))^2 is also quoted (p.7, after Hardy-Littlewood-Polya p.133). Labropoulou-Labropoulos-Vafeas-Manias, arXiv:2312.03478, Theorem 1 (p.3), Proposition 3 eq. (9) (p.6) and Appendix Proof 1 (p.12): the double-sum proof for real x_i, y_i. Both READ via alphaXiv answer_pdf_queries. Cauchy 1821 and Lagrange 1773 themselves: NAMED-NOT-READ."
+ },
+ "published_statement": "Cauchy 1821 (as restated in arXiv:2504.19543 eq. (2)): for real numbers a_1..a_n, b_1..b_n, (a1 b1 + ... + an bn)^2 + sum_{i<j} (ai bj - aj bi)^2 = (a1^2 + ... + an^2)(b1^2 + ... + bn^2), whence (sum a_i b_i)^2 <= (sum a_i^2)(sum b_i^2) [Cauchy's own statement 'written for square roots' and with strict '<'/'>' signs, per the restatement's fn 14 and p.7]. Modern form, arXiv:2312.03478 Th. 1: 'Let x, y in R^n. Then |x . y| <= ||x|| ||y||. The equality holds iff x and y are collinear.' Proposition 3 eq. (9): '(sum x_i^2)(sum y_i^2) >= (sum x_i y_i)^2, equality iff proportional term by term.' Appendix Proof 1: 'sum_{i,j}(x_i y_j - x_j y_i)^2 = 2(sum x_i^2)(sum y_i^2) - 2(sum x_i y_i)^2 ... the left-hand side is a sum of squares of real numbers'.",
+ "published_hypotheses": [
+  "The entries are REAL numbers (both restatements; the sum-of-squares step needs real squares)",
+  "Finitely many entries, any n >= 1 (Cauchy proves general n by expansion; Lagrange 1773 is n = 3 only)",
+  "The inner product is the standard positive-definite Euclidean dot product on R^n (2312.03478 Prop. 2)",
+  "Passing from the squared form (9) to |x.y| <= ||x|| ||y|| takes a square root of non-negative quantities (||x||, ||y|| >= 0) -- implicit in both sources"
+ ],
+ "hypothesis_drift": [
+  "NONE DROPPED on reality: latticectc.py:292-293 declares x0:3, y0:3 with real=True; the tree's use is real Euclidean spatial vectors of R^{1,d}, which is the source's hypothesis exactly. Rederive L3 shows the hypothesis is load-bearing (over C without conjugation, x = (1, i), y = (1, 0) gives bilinear |x|^2|y|^2 = 0 < (x.y)^2 = 1), so its presence is not decorative.",
+  "SCOPE OF THE OWNER'S CHECK vs SCOPE OF THE CLAIM (not a drift in the theorem): latticectc.py:284 states closure of the future cone 'in any dimension' while :286 and :292-297 check the Lagrange residual only at spatial d = 3. The theorem as published holds for every n; rederive L1 (exact residual 0 for n = 1..12) and L2 (symbolic n, double-sum form) close the gap. Every vector latticectc.py's chain_to actually handles is a 4-vector (R^{1,3}, :277 range(4)), so the owner's d = 3 check already covers the tree's computational use; only the prose 'any dimension' at :284 rested on the classical theorem beyond the owner's own check.",
+  "UNCHECKED BRIDGE IN THE OWNER (closed here, not an error): the owner composes two machine checks -- the Lagrange residual (squared form, :297) and a z3 scalar lemma whose HYPOTHESIS is 'dot <= a b' with a, b >= 0 (:298-300). The step from |x|^2|y|^2 - (x.y)^2 >= 0 to x.y <= |x||y| (square root, needs a = |x| >= 0, b = |y| >= 0) and the identification a^2 = |x|^2, b^2 = |y|^2 are stated in the docstring (:286-288) but not machine-checked. Rederive L4 proves the bridge in z3 (a, b >= 0, d^2 <= a^2 b^2 => d <= ab: unsat of negation) and shows it FAILS without a, b >= 0 (sat), so the non-negativity the owner's lemma assumes is exactly what is needed.",
+  "ATTRIBUTION DISCREPANCY (a naming matter, not a content drift): the tree calls the general-d identity 'the Lagrange identity' (latticectc.py:30, :286, :358). Per the restatement (2504.19543 p.3-4), Lagrange 1773 gave n = 3 (the cross-product form); the general-n identity used by the owner is Cauchy 1821 eq. (31). The name 'Lagrange's identity' for general n is conventional (Poincare called the discrete inequality 'inegalite de Lagrange', 2504.19543 fn 9). Recorded, not repaired.",
+  "ADDED by the tree, correctly: future orientation t1 >= a, t2 >= b (latticectc.py:298) -- this belongs to the cone-closure lemma, not to Cauchy-Schwarz; rederive L6 controls show it is load-bearing (future + past can be spacelike: sat at d = 1, 2, 3)."
+ ],
+ "data_at_publication": [],
+ "rederivation": {
+  "method": "sympy",
+  "script_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/cauchy-schwarz-lagrange-identity.py",
+  "outcome": "ALL PASS (exit 0), run 2026-09-26. L1: exact sympy residual |x|^2|y|^2 - (x.y)^2 - sum_{i<j}(x_i y_j - x_j y_i)^2 = 0 for n = 1..12 (owner: n = 3 only). L2: for SYMBOLIC n, sum_{i,j}(x_i y_j - x_j y_i)^2 - [2|x|^2|y|^2 - 2(x.y)^2] = 0 by separating each monomial's double sum over [1,n]^2, with the summand symmetric in (i,j) and zero on i = j, which gives the i<j form. L3: the 'real' hypothesis is load-bearing (complex bilinear counterexample; Hermitian version holds). L4 (z3): square-root bridge proved, and fails without a, b >= 0. L5 (z3): the owner's scalar lemma re-run verbatim: unsat, as the owner records; control with 'dot <= ab' dropped: sat, so Cauchy-Schwarz is load-bearing in the owner's proof. L6 (z3 qfnra-nlsat on raw coordinates, no scalar abstraction): future + future is future-causal PROVED at d = 1, 2 (unsat); controls future + past give sat at d = 1, 2, 3. At d = 3 the end-to-end query is solver-limited: default z3 returns unknown at 120 s; nlsat returned unsat in 5 standalone runs (29.4 s to 40.8 s) and unknown in 2 standalone 90 s runs and in every in-script 120 s attempt under container load 4-8 -- reported as INFO, never as a failure, and never as a refutation (no run returned sat). The composition L1 + L2 + L4 + L5 proves closure at every d independently of L6. L7: 20,000 random pairs, d = 1..20: max relative Lagrange residual 1.43e-15, zero cone-closure failures.",
+  "agrees_with_source": "yes"
+ },
+ "later_literature": [
+  {
+   "ref": "arXiv:2312.03478 (Labropoulou, Labropoulos, Vafeas, Manias 2023)",
+   "effect": "confirms",
+   "what": "Restates CBS for real R^n (Th. 1, Prop. 3) and the double-sum Lagrange proof (Appendix Proof 1) exactly as the tree uses it; extends to weighted and strengthened CBS (gamma < 1 on complementary subspaces), none of which the tree uses.",
+   "read_status": "READ (alphaXiv answer_pdf_queries, pp.1-16)"
+  },
+  {
+   "ref": "arXiv:2504.19543 (Kichenassamy, Ganita Bharati 2020)",
+   "effect": "confirms",
+   "what": "History: Cauchy 1821 derived the inequality from the general-n identity (his eq. 31); Lagrange 1773 had n = 3; the integral analogue and Gram-determinant generalisation. Records that Cauchy, Bunyakovsky, Schwarz and Poincare wrote strict inequalities while being aware of the equality case -- a notational matter, not a content error.",
+   "read_status": "READ (alphaXiv answer_pdf_queries, pp.1-5, 7-8, 10, 12)"
+  },
+  {
+   "ref": "arXiv:2303.03310 (an intertwined Cauchy-Schwarz-type inequality from a Lagrange-type identity, 2023)",
+   "effect": "extends",
+   "what": "A new Lagrange-type identity yielding a Cauchy-Schwarz-type inequality; does not bear on the classical statement.",
+   "read_status": "abstract only (discover_papers listing)"
+  },
+  {
+   "ref": "arXiv:2507.10327 (Hadamard powers and tensor products, 2025)",
+   "effect": "extends",
+   "what": "Generalises a Cauchy-Schwarz-type inequality to Hadamard powers/tensor products; no bearing on the real Euclidean case used.",
+   "read_status": "abstract only (discover_papers listing)"
+  },
+  {
+   "ref": "discover_papers on 'reverse Cauchy-Schwarz inequality / Minkowski space / causal cone' (2026-09-26)",
+   "effect": "confirms",
+   "what": "Returned Lorentzian-length-space and Brunn-Minkowski work (e.g. arXiv:2504.06186, 2601.21596, 2509.26196) that presuppose, and nowhere contest, convexity of the future causal cone of Minkowski space; no paper found narrowing or contradicting the real Euclidean Cauchy-Schwarz inequality or the Lagrange identity.",
+   "read_status": "titles/abstracts only; nothing there needed reading for this grade"
+  }
+ ],
+ "lacked_data": "M's hypothesis (earlier authors lacked data) does not engage this result: the Lagrange identity is a polynomial identity over any commutative ring and the inequality follows for real entries from the non-negativity of real squares -- no empirical input, no measured constant, no extrapolation. Cauchy 1821 had everything the conclusion needs; the proof is by expansion and is re-done here exactly (L1, L2) and by machine (L4, L5). What later work ADDED is scope (Bunyakovsky 1859 integrals, Schwarz 1885 abstract form, Hermitian forms, operator versions), not corrections. Evidence against any 'lacked data' effect: the identity's residual is exactly 0 for n = 1..12 and for symbolic n; there is no datum whose movement could change a polynomial identity. The one hypothesis that could fail, reality of the entries, holds in the tree (real=True).",
+ "grade": "STANDS",
+ "grade_evidence": "Statement and hypotheses match the tree's use (real Euclidean spatial vectors; the tree adds only future orientation, which belongs to the separate cone lemma). Re-derived exactly: Lagrange residual 0 for n = 1..12 and for symbolic n (so the owner's 'any dimension' at latticectc.py:284 is correct, though the owner checked only d = 3); the owner's z3 scalar lemma reproduced (unsat); the square-root bridge the owner left unchecked is now machine-checked (L4). No data enter. The two recorded discrepancies -- the owner's check being narrower than its prose claim, and 'Lagrange identity' naming Cauchy's general-n form -- are scope-of-check and attribution notes, not narrowings of the theorem. The d = 3 end-to-end z3 query without the Cauchy-Schwarz decomposition is solver-limited (unknown under load, unsat standalone), which is a statement about z3, not about the theorem.",
+ "what_would_change_the_grade": "A use of the result in the tree on complex vectors with a bilinear (non-Hermitian) product, or on an indefinite spatial metric, would make it NARROWED (L3 shows the failure). A nonzero residual in the rederive script at any n, or a z3 'sat' on the owner's lemma or on L4 with a, b >= 0, would be a computed contradiction; none occurred. No datum can move it.",
+ "reverify_command": "python3 /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/cauchy-schwarz-lagrange-identity.py   # expect 'ALL PASS', exit 0, ~2-7 min (L6 d = 3 is INFO; standalone: python3 /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/l6child.py 3 ff 600000 -> unsat). Owner's own: cd /home/user/Claude-Method-Works/research/warp-drive && python3 latticectc.py --selftest",
+ "report_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/audits/cauchy-schwarz-lagrange-identity.json"
+}

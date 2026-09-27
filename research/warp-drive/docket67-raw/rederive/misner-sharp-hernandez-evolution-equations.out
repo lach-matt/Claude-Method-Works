@@ -1,0 +1,83 @@
+building Einstein tensor (independent routine) ...
+
+C1  the five equations as the tree states them (nonstatic.py:66-70), fresh G_ab
+PASS  C1a MS-r   D_r m = 4 pi R^2 (rho W + j U)
+PASS  C1b MS-t   D_t m = -4 pi R^2 (p_r U + j W)
+PASS  C1c EV-U   D_t U = W D_r Phi - m/R^2 - 4 pi R p_r
+PASS  C1d EV-W   D_t W = 4 pi R j + U D_r Phi
+PASS  C1e EV-U'  D_r U = 4 pi R j + W D_t Lambda
+
+C2  EV-W and EV-U' are ONE equation (difference vanishes with NO field equation used)
+PASS  C2a (D_tW - U D_rPhi) - (D_rU - W D_tLambda) == 0 identically
+PASS  C2b both equal e^{-Phi-Lam}(R_tr - Phi_r R_t - Lam_t R_r)
+PASS  C2c EV-W residual = -(R e^{-Phi-Lam}/2)(G_tr - 8 pi T_tr) with T_tr the SOURCE (momentum constraint)
+
+C3  EV-W == Herrera-Santos-Wang eq.(14) (0810.1083 p.6): 8piT01 = -8pi q A B = -2(R'dot/R - Bdot R'/(B R) - Rdot A'/(R A))
+PASS  C3a HSW(14) RHS equals G_tr computed here
+PASS  C3b HSW's comoving q = -T01/(AB) equals the tree's j
+
+C4  MS-t, MS-r, EV-U against HSW (30),(31),(28),(37) with eps = eta = 0; D_R := D_r / W, a := D_r Phi
+PASS  C4a HSW(28) E = R'/B = sqrt(1+U^2-2m/R)  (squared)
+PASS  C4b HSW(30) D_T m = -4 pi (P_r U + q E) R^2
+PASS  C4c HSW(31) D_R m = 4 pi (mu + q U/E) R^2
+PASS  C4d HSW(37) D_T U = -m/R^2 - 4 pi P_r R + E a
+
+C5  MMR (gr-qc/0412063) MS-1964 perfect-fluid form, comoving, j = 0
+PASS  C5a nabla_a T^a_r = p' + (rho+p) Phi'  (so MMR(12) D_r a = -a D_r p/(e+p) with a = e^Phi)
+PASS  C5b MMR(9) == EV-U once D_r Phi = -D_r p/(e+p)
+PASS  C5c MMR(13) D_r M = 4 pi Gamma e R^2 == MS-r at j = 0 (same symbols)
+PASS  C5d MMR(14) Gamma^2 = 1 + U^2 - 2M/R == tree's m definition
+      C5e (by C1d at j = 0, C5a): comoving perfect fluid EV-W reads D_t Gamma = U D_r Phi = -U D_r p/(e+p)
+
+C6  Hernandez-Misner observer-time forms (MMR eqs 20, 25, 26) follow from MS-r + MS-t at j = 0
+PASS  C6a HM(25) D_k M = 4 pi R^2 (e Gamma - p U) at j = 0
+PASS  C6b HM(26) Gamma = D_k R - U  (D_k R = W + U)
+      note: with j != 0, D_k M = 4 pi R^2 (e W - p U) + 4 pi R^2 j (U - W): extra term 4*pi*R_**2*j*(U - W)
+
+C7  EV-W is implied by m's definition + EV-U + MS-t wherever W != 0 (rho and p_r cancel)
+PASS  C7a 2W(4 pi R j + U D_r Phi) - [2U D_tU - 2 D_t m/R + 2mU/R^2] == 0
+      but rho CONSTRAINS W on every slice: W^2 = 1 + U^2 - 2m/R with D_r m = 4 pi R^2 (rho W + j U).
+      So 'the contraction variable does not know the energy density exists' (nonstatic.py:82-83)
+      describes EV-W's time derivative only; W's slice profile is fixed by rho through MS-r.
+
+C8  witnesses in geodesic slicing (Phi = 0): D_t W = 0 where j = 0
+PASS  C8a Lemaitre-Schwarzschild: G_ab = 0 (vacuum)
+PASS  C8b Lemaitre: W = 1, D_t W = 0
+PASS  C8c LTB: W = sqrt(1+2E(r)) exactly, so D_t W = 0 (geodesic slicing, j = 0)
+PASS  C8d Milne: G_ab = 0 (flat)
+PASS  C8e Milne: W = cosh(chi), D_t W = 0
+
+C9  'geodesic slicing (Phi = 0, always available)' (nonstatic.py:87) holds LOCALLY: the normal congruence can focus
+PASS  C9a contracting Milne: R(t->0-) = 0 for all chi (focal point at proper time a from t = -a)
+PASS  C9b ... while W = cosh chi is still constant there (so the gauge, not the geometry, ends)
+
+C10 cosmological constant (unknown to MS 1964; measured 1998): G_ab + Lambda g_ab = 8 pi T^matter_ab
+PASS  C10a EV-W UNCHANGED by Lambda (g_tr = 0): D_tW = 4 pi R j_m + U D_rPhi
+PASS  C10b MS-r gains + Lambda R^2 W / 2
+PASS  C10c MS-t gains + Lambda R^2 U / 2
+PASS  C10d EV-U gains + Lambda R / 2 (m the full MS mass)
+PASS  C10e ... equivalently + Lambda R / 3 with the matter mass m_m = m - Lambda R^3/6
+
+C11 E = R dW (nonstatic.py:178-184): where R is held fixed (U = 0) the U D_r Phi term is zero in ANY slicing
+PASS  C11a E = R (W_f - W_i)
+PASS  C11b MS mass change at fixed R: dm = -R (W_f^2 - W_i^2)/2 (= -W-weighted E)
+      W 1 -> 2: E = R, Delta m = -3/2 R  (recorded: a different quantity, same order)
+
+C12 what 'R held fixed' (nonstatic.py:180-182) adds: at U = 0, W is a SCALAR of (m, R)
+PASS  C12a W^2 - U^2 = g^ab d_aR d_bR = 1 - 2m/R (frame-invariant)
+PASS  C12b so at U = 0: W = sqrt(1 - 2m/R); W > 1 iff m < 0 (W = 2 needs m = -3R/2)
+PASS  C12c geodesic slicing AND U = 0 held (D_tU = 0) force m = -4 pi R^3 p_r (EV-U)
+      Reading (recorded, not adjudicated): foliation.py:338-351 prices E = R dGamma as a GAUGE bill using
+      the V13 flat re-slicing, on which m = 0 and Gamma = 7071 means U ~ 7071 != 0. Under nonstatic.py's own
+      stated condition (R held fixed, U = 0) Gamma = sqrt(1 - 2m/R) is invariant and dGamma != 0 needs dm != 0.
+
+N   data the tree feeds through (none is an input of the MS equations themselves)
+  bill (tree constants)      = 2.720744289e+13 M_sun per unit dW
+  bill (via IAU GM_sun only) = 2.720730782e+13 M_sun  (rel. diff -4.96e-06)
+PASS  N1 reproduces 2.720744289e13 to 1e-9
+  Proxima from parallax 768.0665 mas = 4.24646 ly (tree 4.2465); 1-sigma 0.0499 mas -> 6.5e-05 rel.
+PASS  N2 flat foliation Gamma at eps = 1e-8 = 7071.067813726
+  Lambda R^3/6 over the Proxima span = 8.05e-07 M_sun (vs bill 2.72e+13): does not move any figure
+PASS  N3 Lambda contribution < 1e-15 of the bill
+
+0 FAIL(S)

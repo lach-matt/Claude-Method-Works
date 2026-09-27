@@ -1,0 +1,91 @@
+{
+ "key": "em-stress-energy-energy-conditions",
+ "name": "Electromagnetic stress-energy satisfies NEC/WEC/DEC (ordinary matter); energy-condition definitions",
+ "source": {
+  "located": "Classic: S. W. Hawking & G. F. R. Ellis, The Large Scale Structure of Space-Time (CUP 1973), sec. 4.3 (energy conditions; Hawking-Ellis types; EM field) -- no arXiv copy. Restated in C. J. Fewster, 'Lectures on quantum energy inequalities', arXiv:1208.5399v1 (2012).",
+  "read_status": "READ-VIA-RESTATEMENT",
+  "via": "Hawking & Ellis 1973 is NAMED-NOT-READ. arXiv:1208.5399v1 READ from the alphaXiv page text cached at scratchpad/d67/src/0702056.recovered.txt (md5 8598b962ba8092a5b7a1fc0d2c7444cc; the file carries paper id 1208.5399v1 despite its name). Live alphaXiv calls this stage (answer_pdf_queries on 1405.0403 and hep-th/0406216, get_paper_content, discover_papers) all returned 'assistant quota exceeded'; arxiv.org, export.arxiv.org, alphaxiv.org, semanticscholar and inspirehep are refused by the egress proxy (CONNECT 403). READ passages: PDF p.4 definitions -- 'The Weak Energy Condition (WEC) T_ab u^a u^b >= 0 for all timelike u^a ... The Null Energy Condition (NEC) T_ab u^a u^b >= 0 for all null u^a ... The Dominant Energy Condition (DEC) T_ab u^a v^b >= 0 for all future-pointing timelike u^a and v^b. Interpretation: All observers see a causal flux of energy-momentum ... (SEC) T_ab u^a u^b - 1/2 g_ab T^ab >= 0'; PDF p.6 (Examples, after the scalar field's sum-of-squares WEC proof) -- 'Likewise, DEC also holds for this reason, and the same is true for the electromagnetic field.'; PDF p.1 abstract -- 'Quantum field theory violates all the classical energy conditions of general relativity'; PDF p.9 (Casimir) -- EM T_mu_nu = C(z)/L^4 diag(-1,1,1,-3), C_0 = pi^2/720 between plates, 'we have deduced that WEC is violated ... a choice of either accepting violations of the WEC or abandoning the standard electromagnetic stress-tensor based a conformally invariant Lagrangian', and 'there is no possibility of insisting on pointwise energy conditions in QFT'."
+ },
+ "published_statement": "Energy conditions (Fewster 1208.5399 p.4, restating Hawking-Ellis): WEC T_ab u^a u^b >= 0 for all timelike u; NEC the same for all null u; DEC T_ab u^a v^b >= 0 for all future-pointing timelike u, v (causal energy-momentum flux); SEC T_ab u^a u^b - (1/2) T g_ab u^a u^b >= 0. The classical electromagnetic field obeys WEC and DEC (p.6: 'DEC also holds ... and the same is true for the electromagnetic field'); NEC follows. The same source records that the QUANTIZED electromagnetic field violates WEC between Casimir plates (p.9) and that QFT violates all the classical pointwise energy conditions (abstract).",
+ "published_hypotheses": [
+  "H1 classical field: T_ab is the classical Maxwell tensor F_ac F_b^c - (1/4) g_ab F^2 (Fewster p.6 is in the classical-field examples; p.1/p.9 state the quantized field violates WEC)",
+  "H2 linear (Maxwell) Lagrangian -F; the Casimir argument (p.9) turns on the conformally invariant (traceless) EM stress tensor",
+  "H3 the conditions are pointwise statements about the EM stress-energy ALONE -- the sources/confining matter of the field are a separate T_ab",
+  "H4 (definitional) WEC/NEC/DEC as stated for arbitrary T_ab; the eigenvalue forms rho>=0, rho+p_i>=0, rho>=|p_i| hold for Hawking-Ellis type I only (standard; not quoted in the read restatement, re-derived here by z3 for WEC/NEC and numerically for DEC)"
+ ],
+ "hypothesis_drift": [
+  "SUBSTITUTED MATTER MODEL -- spec.py:190 DOES[1] 'using ordinary positive mass, NEC/WEC/DEC satisfied everywhere' and specthm.py:1302-1318 SR1 ('NEC, WEC and DEC satisfied everywhere', owners spec.DOES/LENSES, hypothesis 'positive lens mass M') claim the energy conditions for a positive-MASS lens (the Sun, spec.py LENSES), but the only check bearing on it, spec.py:305 chk('charge.py: EM stress-energy is ordinary', charge.em_is_ordinary()), tests the ELECTROMAGNETIC stress-energy. The external result says nothing about stellar matter; the lens interior's |p| <= rho c^2 is not checked by any owner cited here (dimensional scale G M^2/R^4 / (mean rho c^2) = 8.9e-6 for the tree's M, R -- indicative only, not a solar model). The corridor itself is vacuum (T_ab = 0), which satisfies every condition trivially.",
+  "DROPPED H1 (classical field) -- charge.py:40 and charge.py:155-162 ('NEC, WEC and DEC all hold'), charge.py:4-8 ('electromagnetic stress-energy satisfies EVERY energy condition'), spec.py:99-101 ('with NEC, WEC and DEC satisfied everywhere') state the result without 'classical'; the read source itself records that the quantized EM field violates WEC (Casimir, p.9). The tree's corridor is a 'vacuum corridor' (spec.py:100): conducting boundaries would carry exactly the Casimir case. Magnitude is not computed here for any tree geometry.",
+  "DROPPED H2 (linear Maxwell) -- spec.py FIELDS (spec.py:139-146, magnetar 1e11 T at :144) / engineering_gap(B_target=1.0e11) (spec.py:182-184) and charge.py FIELDS (charge.py:165-168) use B up to 1e11 T (spec.py:145 lists 1e12 T), which is 22.655 B_crit (1e12 T: 226.55 B_crit), where the linear-Maxwell tensor is not the physics. charge.py:109 compares ELECTRIC fields with Schwinger (E_SCHWINGER = 1.32e18 V/m, = B_crit c = 1.3233e18) but no owner compares the magnetic fields with B_crit or draws an energy-condition consequence. Computed here (Part C, conditional on an unread one-loop form): the Euler-Heisenberg one-loop field still satisfies NEC, WEC and DEC at every tabulated field up to 1e8 B_crit, so this drop does not move the conclusion within one loop.",
+  "DROPPED H3 (EM stress-energy alone) -- spec.py:99-101 'a sustained field of ordinary matter, in a vacuum corridor, with NEC, WEC and DEC satisfied everywhere' extends the EM result to 'everywhere', which for a sustained bounded field includes the matter that confines it. At the tree's 1e11 T the magnetic pressure is 3.9789e27 Pa (tree prints 3.979e27, reproduced), mass-equivalent 4.427e10 kg/m^3; DEC for a confining material requires its tension <= its energy density, a condition the EM result does not supply. (That first specification is itself WITHDRAWN at spec.py:32-55 for independent reasons; the docstring sentence at 99-101 survives in the file.)",
+  "NARROWED CHECK, NOT A PHYSICS ERROR -- charge.py:155-162 em_is_ordinary() hard-codes rho = 1.0, p_r = -rho, p_t = +rho and so returns True unconditionally: spec.py:305's chk cannot fail. Re-derived here that this is WLOG for every NON-NULL field (eigenvalues of T^a_b are {-L,-L,+L,+L}; conditions homogeneous in rho), but it omits the NULL (Hawking-Ellis type II) field; the null field is shown here to satisfy the conditions too, so the omission moves nothing. charge.py's WEC/NEC/DEC algebraic forms agree with the read definitions (z3 unsat on the negated equivalence for WEC and NEC; DEC numerically)."
+ ],
+ "data_at_publication": [
+  {
+   "quantity": "B_crit = m_e^2 c^2/(e hbar) (T) -- the scale above which the classical (linear) Maxwell hypothesis fails",
+   "value_then": "not used by the result (a classical theorem has no numerical input); CODATA 2018 m_e 9.1093837015e-31 gives 4.4140052187e9 T",
+   "value_now": "4.4140052307e9 T (CODATA 2022 m_e 9.1093837139e-31; rel. move 2.7e-9)",
+   "source_now": "arXiv:2409.03787 Tables XXXIII/XXXVIII as read by the codata-2018-constants audit (audits/codata-2018-constants.json); scipy 1.17.1 CODATA 2022 table; computed in the rederive script Part D",
+   "moves_conclusion": "no -- the tree's 1e11 T is 22.655 B_crit either way; the move is 2.7e-9"
+  },
+  {
+   "quantity": "fine-structure constant alpha (enters only the QED correction, Part C)",
+   "value_then": "7.2973525693e-3 (CODATA 2018)",
+   "value_now": "7.2973525643e-3 (CODATA 2022, D_r -4.5)",
+   "source_now": "arXiv:2409.03787 via audits/codata-2018-constants.json",
+   "moves_conclusion": "no -- L_F at 1e11 T is -0.99877; a 7e-10 relative change in alpha cannot reach L_F = 0"
+  },
+  {
+   "quantity": "magnetic energy density / pressure at the tree's 1e11 T (Pa)",
+   "value_then": "3.979e27 (spec.py, charge.py, mu_0 CODATA 2018 1.25663706212e-6)",
+   "value_now": "3.9789e27 (mu_0 CODATA 2022 1.25663706127e-6)",
+   "source_now": "computed, rederive Part D",
+   "moves_conclusion": "no for the EM conditions (homogeneous in rho); it sizes the confinement hypothesis H3 the tree drops"
+  },
+  {
+   "quantity": "Schwinger field E_S = m_e^2 c^3/(e hbar) (V/m)",
+   "value_then": "1.32e18 (charge.py:109, E_SCHWINGER)",
+   "value_now": "1.3233e18 (= B_crit c, CODATA 2022)",
+   "source_now": "computed from the B_crit row",
+   "moves_conclusion": "no -- agrees to the 3 figures the tree types"
+  }
+ ],
+ "rederivation": {
+  "method": "sympy",
+  "script_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/em-stress-energy-energy-conditions.py",
+  "outcome": "ALL CHECKS PASS (exit 0; output in rederive/em-stress-energy-energy-conditions.out). A (sympy, exact, every F_ab): T_00=(E^2+B^2)/2, |T_0i|=|ExB|, trace 0, and the identity T_00^2 - |T_0i|^2 = ((E^2-B^2)^2+4(E.B)^2)/4 >= 0 -- since it holds for all E,B it holds in every observer's frame, so energy density >= 0 and the flux is causal: WEC and DEC for every classical Maxwell field, NEC by limit; 12,000 random (F,u,v) give T_ab u^a v^b >= 0. Characteristic polynomial of T^a_b = (lam^2 - L^2)^2: canonical frame (rho, -rho, +rho, +rho) = em_is_ordinary's eigenstructure; null field is nilpotent type II and passes NEC on 2,000 random null k. A6 (z3): 'T_ab u^a u^b >= 0 for all timelike/null u' <=> charge.py's algebraic WEC/NEC forms for type I (unsat on the negation; vacuity guard passes); DEC type-I form agrees with the flux definition on 300 random cases. B (sympy, general L(F)): T_ab k^a k^b = -L_F w.w with w.w = (E_x-B_y)^2+(E_y+B_x)^2 >= 0, so NEC <=> L_F <= 0; pure B: rho=-L, p_par=L, p_perp=L-B^2 L_F. C (numeric, mpmath; proper-time one-loop EH form NOT read at source, used only after it reproduced the weak-field coefficient to 0.99994 and the strong-field leading log e^2B^2/(24 pi^2) ln(eB/m^2) to 0.99942): at B/B_crit = 1, 22.65 (1e11 T), 226.5, 1e4, 1e8: L_F = -0.99993, -0.99877, -0.99716, -0.99425, -0.98712 (<0: NEC); rho/(B^2/2) = 0.99996..0.98751 (>0: WEC); DEC margin > 0. Leading-log NEC boundary at ln(B/B_crit) ~ 3 pi/alpha - 1/2 = 1291 (the Landau-pole scale). One bug in my own first draft (index placement in w.k) failed and was fixed before the recorded run.",
+  "agrees_with_source": "yes"
+ },
+ "later_literature": [
+  {
+   "ref": "C. J. Fewster, arXiv:1208.5399 (2012), Lectures on quantum energy inequalities",
+   "effect": "narrows",
+   "what": "Restates the classical definitions and that the classical EM field satisfies DEC; records that the quantized EM field violates WEC pointwise between Casimir plates (C_0 = pi^2/720) and that QFT violates all pointwise conditions, leaving only averaged (QEI) remnants -- the classical-field hypothesis H1 is load-bearing.",
+   "read_status": "READ (cached alphaXiv page text, pp.1, 4, 6, 9)"
+  },
+  {
+   "ref": "discover_papers call for later literature",
+   "effect": "contested",
+   "what": "Not run to completion: alphaXiv returned 'assistant quota exceeded' for discover_papers, answer_pdf_queries and get_paper_content this stage; direct arXiv hosts are proxy-refused. No later paper beyond the cached Fewster text was read; nothing is claimed from unread work.",
+   "read_status": "NOT-READ (tool quota)"
+  },
+  {
+   "ref": "E. Curiel, 'A primer on energy conditions', arXiv:1405.0403",
+   "effect": "confirms",
+   "what": "Named as the intended restatement of Hawking-Ellis types and the EM field's conditions; attempted, quota-blocked. No content is taken from it.",
+   "read_status": "NAMED-NOT-READ"
+  },
+  {
+   "ref": "G. V. Dunne, 'Heisenberg-Euler effective Lagrangians: basics and extensions', hep-th/0406216",
+   "effect": "extends",
+   "what": "Intended source for the one-loop EH weak- and strong-field forms used in Part C; attempted, quota-blocked. Part C's conclusion is therefore conditional on an unread form, which was checked only for internal consistency between its two limits.",
+   "read_status": "NAMED-NOT-READ"
+  }
+ ],
+ "lacked_data": "M's hypothesis tested for this result. The published result is a THEOREM about the classical Maxwell tensor; its conclusion uses no measured number, so no datum can move it -- re-derived here exactly for every F_ab (Part A). What the 1973 statement is silent on is its DOMAIN: (i) fields above B_crit = 4.414e9 T (magnetars at ~1e11 T were established after 1973 -- that observational history is not read here), where the linear Lagrangian is replaced by the QED effective one; (ii) quantum states, where pointwise conditions fail (Casimir, READ in Fewster p.9; the Casimir effect and QFT's pointwise violations were theoretically known before 1973, so this is not data the authors lacked). Evidence either way: for (i), within one-loop Euler-Heisenberg (form not read at source; internally consistent) NEC, WEC and DEC still hold at the tree's 1e11 T with L_F = -0.99877, and the leading-log sign change is at ln(B/B_crit) ~ 1291 -- so having the strong-field data does NOT change the conclusion for any field the tree names. For (ii), the conclusion does narrow, but by theory known at the time, and only for non-classical states/boundaries; the tree's use drops that hypothesis. Net: no evidence that the authors' data were inaccurate or incomplete in a way that moves this result.",
+ "grade": "NARROWED",
+ "grade_evidence": "The external result itself is re-derived exactly and agrees: for EVERY classical Maxwell field, T_00 >= 0 and T_00^2 - |S|^2 = ((E^2-B^2)^2+4(E.B)^2)/4 >= 0 in every frame, so WEC, DEC and NEC hold (sympy identity + 12,000 numeric (F,u,v)); charge.py's energy-condition definitions agree with the read definitions (z3). Nothing in it is WRONG, and no datum moves it. The grade is NARROWED because the tree uses it on a larger class than it covers: (1) spec.py:190 DOES[1] and specthm SR1 claim NEC/WEC/DEC 'everywhere' for a positive-MASS lens, and the only check cited, spec.py:305 -> charge.em_is_ordinary() (charge.py:155-162, a constant that returns True unconditionally), is about EM stress-energy, not lens matter; (2) the tree drops 'classical field' (the read source itself records WEC violation by the quantized EM field, p.9) and (3) 'EM stress-energy alone' (spec.py:99-101's 'everywhere' for a sustained field includes confining matter at 3.98e27 Pa). The drop of 'linear Maxwell' at 22.7 B_crit was computed not to move the conclusion within one-loop QED (conditional on an unread EH form). The narrowing is of the tree's USE; the tree's lensing conclusion is not shown false -- it is shown unsupported by this particular check.",
+ "what_would_change_the_grade": "To STANDS: an owner that (a) states 'classical field' and 'EM stress-energy alone' as hypotheses where it cites the result, and (b) checks the lens-matter conditions for SR1/DOES[1] separately (e.g. a stellar-model |p| <= rho c^2 check read at source), with em_is_ordinary computing T from a field rather than returning a constant. To WRONG: only a computed classical Maxwell field with T_ab u^a v^b < 0 -- ruled out by the Part A identity. Part C's QED sub-claim would move to OPEN/contested if the one-loop EH form, once READ at source (hep-th/0406216), differs from the form used; if two-loop or nonperturbative terms flipped L_F below the Landau-pole scale (not expected, not checked), the linear-Maxwell drop would become load-bearing.",
+ "reverify_command": "python3 /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/em-stress-energy-energy-conditions.py  # exit 0, 'RESULT: ALL CHECKS PASS'; then: sed -n 155,162p /home/user/Claude-Method-Works/research/warp-drive/charge.py; sed -n 99,101p /home/user/Claude-Method-Works/research/warp-drive/spec.py; sed -n 190p /home/user/Claude-Method-Works/research/warp-drive/spec.py; sed -n 305p /home/user/Claude-Method-Works/research/warp-drive/spec.py; sed -n 1302,1318p /home/user/Claude-Method-Works/research/warp-drive/specthm.py; grep -n 'same is true for the electromagnetic' /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/src/0702056.recovered.txt",
+ "report_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/audits/em-stress-energy-energy-conditions.json"
+}

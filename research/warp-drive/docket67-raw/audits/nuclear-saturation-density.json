@@ -1,0 +1,77 @@
+{
+ "key": "nuclear-saturation-density",
+ "name": "Nuclear saturation density n_0 = 0.16 fm^-3 times m_N",
+ "source": {
+  "located": "The tree cites no source (address.py:430 status word DERIVED-FROM-ORDER). The datum is the empirical saturation density of symmetric infinite nuclear matter. Candidate sources identified by WebSearch result listing only: Horowitz, Piekarewicz, Reed, 'Insights into nuclear saturation density from parity violating electron scattering', arXiv:2007.07117 = PRC 102, 044321 (2020); PREX-2, arXiv:2102.10767 (PRL 126, 172502, 2021). NOT READ in this stage: alphaXiv answer_pdf_queries(2007.07117), answer_pdf_queries(2101.01709), get_paper_content(2007.07117, fullText) and discover_papers all returned 'alphaXiv assistant quota exceeded'; arxiv.org, export.arxiv.org, ar5iv.labs.arxiv.org, osti.gov, ui.adsabs.harvard.edu, link.aps.org, inspirehep.net, semanticscholar.org and pmc.ncbi.nlm.nih.gov are all egress-blocked (proxy 403 / EGRESS_BLOCKED, logged in the proxy status). The measured values that WERE read here are the CODATA 2022 rms charge radii of the proton (0.84075 fm), deuteron (2.12778 fm) and alpha (1.6785 fm) and m_p, m_n, from the physical_constants table of the installed scipy 1.17.1 -- a machine-readable CODATA table, not the CODATA paper.",
+  "read_status": "NAMED-NOT-READ",
+  "via": "WebSearch result snippets only (not evidence for the grade): they attribute 'rho_0 = 0.150 +- 0.010 fm^-3' (PREX weak radius + 10% surface-thickness assumption, extrapolated to infinite matter) to arXiv:2007.07117 and 'interior baryon density of 208Pb rho_b0 = 0.1480 +- 0.0036(exp) +- 0.0013(theo) fm^-3' to PREX-2 (arXiv:2102.10767). The grade is built so that it rests on no unread value: n0 is a scanned parameter, the break-even n0 is computed, and the hypothesis test uses CODATA radii read from the scipy table."
+ },
+ "published_statement": "NOT READ at source. The conventional datum the tree uses: nuclear saturation density n0 ~ 0.16 nucleons fm^-3 (the density at which the energy per nucleon of symmetric, Coulomb-free, infinite nuclear matter is minimal, E/A ~ -16 MeV). Snippet-only (not quoted as read): 0.150 +- 0.010 fm^-3 from PREX-based extrapolation (2007.07117); 0.1480 +- 0.0036 +- 0.0013 fm^-3 for the interior baryon density of 208Pb (2102.10767). THE TREE'S USE: address.py:430 'RHO_NUCLEAR = 2.676e17 # kg/m^3, n_0 = 0.16/fm^3 * m_N DERIVED-FROM-ORDER'; address.py:191-196 'Nuclear matter displaces the vev by eps = -3.26e-13 (H1) or -7.28e-14 (H2) -- 398 or 114 TIMES eps_det under the SAME hypothesis -- everywhere there is a nucleus, which is everywhere. The largest Higgs displacement in the solar system is inside an ordinary atomic nucleus, it is two orders over threshold, and no measurement outside that nucleus has ever registered it.'; address.py:943-946 EPS_NUCLEAR / EPS_NUCLEAR_OVER_DET computed from RHO_NUCLEAR.",
+ "published_hypotheses": [
+  "(conventional definition, NOT READ) symmetric nuclear matter, N = Z",
+  "(conventional definition, NOT READ) infinite, uniform matter: no surface, no Coulomb interaction",
+  "(conventional definition, NOT READ) n0 is an extrapolation from finite nuclei (interior density of heavy nuclei / mass-formula and density-functional fits), not a direct measurement on any single system",
+  "(snippet, NOT READ) the PREX-based value assumes a 10% theoretical uncertainty in the unmeasured surface thickness and carries an extrapolation-to-infinite-matter error"
+ ],
+ "hypothesis_drift": [
+  "SCOPE WIDENED (address.py:191-196 vs :297-303): n0 is the interior density of infinite symmetric matter (a heavy-nucleus interior); the tree applies the resulting '398 or 114 TIMES eps_det' to 'everywhere there is a nucleus'. Its own hypothesis at :297-303 says the right object is 'the mean density over its own support'. Computed with CODATA 2022 charge radii (uniform-sphere equivalent R = sqrt(5/3) r_ch, conservative): deuteron n = 0.0230 fm^-3 = 0.14 n0 -> 57.3 (H1) / 16.5 (H2) times eps_det; alpha n = 0.094 fm^-3 = 0.59 n0 -> 234 / 67; 208Pb (r_ch 5.5012 fm NAMED-NOT-READ) n = 0.139 fm^-3 -> 345 / 99; proton n = 0.187 fm^-3 -> 465 / 133. So 'two orders over threshold' holds for heavy-nucleus interiors and fails for the deuteron (and for alpha under H2); 'over threshold' holds for every nucleus tested.",
+  "MASS PER NUCLEON (address.py:430 'm_N'): the constant is n0 * m_p to 4 digits (2.6762e17); <m_N> gives 2.6780e17, <m_N> - 16 MeV binding 2.6324e17 -- an unnamed choice moving rho by <= 1.7%, not a drift that moves any conclusion.",
+  "NAMED ALREADY, NOT DROPPED: coarse-graining (address.py:297-303) and S = 0.06 (address.py:943, S_SCAN[1]) are carried; the electron share m_e/m_N ~ 5e-4 is named as neglected (address.py:820).",
+  "INTERNAL DISCREPANCY (recorded, not repaired): the tree's other nuclear-density constant is 2.3e17 kg/m^3 (warpdrive.py:148 'nuclear saturation', emwarp.py:225, drivespec.py:39, mouth.py:103 'RECALLED') = n0 0.1375 fm^-3; address.py's 2.676e17 is 1.1635x it. At 2.3e17 the ratios are 342 (H1) / 98.2 (H2)."
+ ],
+ "data_at_publication": [
+  {
+   "quantity": "n0 (saturation density, fm^-3)",
+   "value_then": "0.16 (tree, address.py:430, DERIVED-FROM-ORDER, no source)",
+   "value_now": "NOT READ at source. Snippet-only: 0.150 +- 0.010 (2007.07117); 208Pb interior 0.1480 +- 0.0038 (2102.10767). Scanned 0.137-0.171.",
+   "source_now": "WebSearch snippets of arXiv:2007.07117 and arXiv:2102.10767 (not read); scan in rederive script",
+   "moves_conclusion": "NO for the verdict. EPS_NUCLEAR_OVER_DET is exactly proportional to n0 (sympy): 340.9-425.5 (H1), 97.8-122.1 (H2) over 0.137-0.171. Break-even (nuclear matter AT threshold) needs n0 = 4.0e-4 (H1) / 1.4e-3 (H2) fm^-3, >100x below any quoted value. The literal 'two orders' (ratio >= 100) under H2 needs n0 >= 0.1401 fm^-3, so at the snippet value 0.148 it holds (105.7) and at the tree's own 2.3e17 it does not (98.2); log10 >= 1.99 throughout."
+  },
+  {
+   "quantity": "m_N (kg)",
+   "value_then": "m_p implied (2.676e17 / 0.16e45 = 1.6725e-27)",
+   "value_now": "m_p = 1.67262192595e-27, m_n = 1.67492750056e-27 (CODATA 2022, scipy 1.17.1 table)",
+   "source_now": "scipy.constants.physical_constants (CODATA 2022)",
+   "moves_conclusion": "NO: <= 1.7% including binding."
+  },
+  {
+   "quantity": "rms charge radii of light nuclei (for the coarse-grained-mean hypothesis)",
+   "value_then": "not used by the tree",
+   "value_now": "proton 0.84075 fm, deuteron 2.12778 fm, alpha 1.6785 fm (CODATA 2022, scipy table); 208Pb 5.5012 fm (NAMED-NOT-READ)",
+   "source_now": "scipy.constants.physical_constants",
+   "moves_conclusion": "It moves the NUMBER, not the verdict: mean densities 0.14-1.17 n0 give 16.5-465 x eps_det; every nucleus stays over threshold, but '398 or 114 TIMES ... everywhere there is a nucleus' and 'two orders' are heavy-nucleus figures."
+  }
+ ],
+ "rederivation": {
+  "method": "sympy",
+  "script_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/nuclear-saturation-density.py",
+  "outcome": "ALL CHECKS PASS, exit 0 (output rederive/nuclear-saturation-density.out). (1) RHO_NUCLEAR 2.676e17 = 0.16 fm^-3 x m_p to 7e-5; mass choice moves it <= 1.7%. (2) sympy: d ln(ratio)/d ln n0 = 1 exactly; eps_from_matter numerically linear. (3) address.py reproduces EPS_NUCLEAR_OVER_DET = 398.12 (H1) / 114.22 (H2); n0 scan 0.137-0.171 gives 340.9-425.5 / 97.8-122.1; over threshold everywhere; H2 dips below a literal 100 for n0 < 0.1401 (recorded finding). (4) break-even n0 = 4.02e-4 (H1), 1.40e-3 (H2) fm^-3. (5) real nuclei, CODATA 2022 radii: proton 0.187 fm^-3 (465/133), deuteron 0.0230 (57.3/16.5), alpha 0.094 (234/67), 208Pb 0.139 (345/99). (6) n0^(-1/3) = 1.842 fm matches address.py:299 '1.8 fm'; the tree's other constant 2.3e17 = 0.1375 fm^-3, 16% below address.py's. address.py imported read-only (no bytecode written; git status of research/ clean).",
+  "agrees_with_source": "partly"
+ },
+ "later_literature": [
+  {
+   "ref": "arXiv:2007.07117 (Horowitz, Piekarewicz, Reed, PRC 102, 044321, 2020)",
+   "effect": "narrows",
+   "what": "Snippet: rho_0 = 0.150 +- 0.010 fm^-3 from PREX weak radius, assuming 10% surface-thickness uncertainty. Would put n0 ~6% below the tree's 0.16; ratios 373/107 -- verdict unmoved.",
+   "read_status": "NAMED-NOT-READ (WebSearch snippet; alphaXiv quota exceeded, arXiv/ar5iv/OSTI/ADS/APS egress-blocked)"
+  },
+  {
+   "ref": "arXiv:2102.10767 (PREX-2, PRL 126, 172502, 2021)",
+   "effect": "narrows",
+   "what": "Snippet: interior baryon density of 208Pb = 0.1480 +- 0.0036(exp) +- 0.0013(theo) fm^-3 -- the most direct measured analogue of the tree's 'mean density over a nucleus' for a heavy nucleus; ratios 368/106.",
+   "read_status": "NAMED-NOT-READ (WebSearch snippet)"
+  },
+  {
+   "ref": "discover_papers (one call)",
+   "effect": "contested",
+   "what": "Not run to completion: returned 'alphaXiv assistant quota exceeded'. No later literature was read in this stage.",
+   "read_status": "NOT RUN (quota)"
+  }
+ ],
+ "lacked_data": "M's hypothesis tested for this result. What the datum rests on: saturation density is an extrapolation from finite nuclei; since the tree gives no source, 'what the authors had' is not attributable, and the history of the datum (electron-scattering charge densities of the 1950s-70s, NAMED-NOT-READ) was not read here. What came later: parity-violating electron scattering (PREX/PREX-2, 2020-21) measured a WEAK-charge (neutron) density for the first time; the snippet values (0.148-0.150 fm^-3) sit ~6-8% below 0.16 -- data earlier analyses lacked, bearing on the datum. Does having it change the conclusion? Evidence AGAINST: the conclusion is linear in n0 and needs only n0 > 1.4e-3 fm^-3 (H2) to stay over threshold -- >100x margin; a 6-8% move changes 398/114 to ~368/106. Evidence FOR a discrepancy -- in the tree, not in outside physics: (i) the '398 or 114 TIMES ... everywhere there is a nucleus' figure is a heavy-nucleus figure; light nuclei, whose sizes are CODATA-measured, have mean densities 0.14-0.59 n0 (deuteron 16.5x under H2); (ii) the tree carries two inconsistent nuclear constants (2.676e17 here, 2.3e17 in four files); (iii) under H2 the literal 'two orders' fails at n0 < 0.140 and at the tree's own 2.3e17. None of these is a lack of data by earlier physicists.",
+ "grade": "NARROWED",
+ "grade_evidence": "Computed (rederive script, exit 0): the verdict the datum carries -- ordinary nuclear matter displaces the vev beyond eps_det in both hypotheses -- survives every plausible n0 (break-even 4.0e-4 / 1.4e-3 fm^-3, >100x below any quoted value) and every nucleus tested with CODATA 2022 radii (minimum: deuteron, 57x H1, 16.5x H2). So no moved or contested datum moves the conclusion: not DATA-DEPENDENT, and there is no counterexample: not WRONG. Not STANDS, because the tree uses the datum on a wider class than it holds for: n0 is the interior density of infinite symmetric matter, while address.py:191-196 applies '398 or 114 TIMES eps_det ... everywhere there is a nucleus' and 'two orders over threshold' to every nucleus, against its own coarse-grained-mean hypothesis at :297-303 -- the deuteron's mean density is 0.14 n0 and alpha's 0.59 n0 (computed), so the specific figures hold for heavy-nucleus interiors only; and under H2 'two orders' is literal only for n0 >= 0.1401 fm^-3. Recorded discrepancies (not refutations, nothing repaired): address.py's 2.676e17 vs the tree's 2.3e17 (warpdrive.py:148, emwarp.py:225, drivespec.py:39, mouth.py:103), 16%. Caveat carried: n0 itself was NOT READ at source (alphaXiv quota exhausted; arXiv, ar5iv, OSTI, ADS, APS, INSPIRE, PMC egress-blocked); the grade is built on a parameter scan and CODATA radii so it rests on no unread value.",
+ "what_would_change_the_grade": "To STANDS: address.py:191-196 restricting '398 or 114 TIMES' and 'two orders' to nuclear matter / heavy-nucleus interiors (or quoting the light-nucleus range 16-465x), plus a READ source for n0 at 0.16 +- band. To DATA-DEPENDENT or WRONG: only an n0 below ~1.4e-3 fm^-3 (100x below every quoted value) or a nucleus with mean density < 0.0014 fm^-3 (H2) -- none exists among measured nuclei (deuteron is 0.023). To OPEN->READ status: alphaXiv quota reset to read arXiv:2007.07117 and 2102.10767 and confirm the snippet values.",
+ "reverify_command": "python3 /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/nuclear-saturation-density.py",
+ "report_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/audits/nuclear-saturation-density.json"
+}

@@ -1,0 +1,95 @@
+A. NIST CODATA tables (scipy _codata.py)
+  [ok] scipy _codata.py md5 = f65f9f0ee37f0d491374f1c629019d55
+  [ok] tables 2006 2010 2014 2018 2022 present
+  [ok] address.py literal m_e_MeV = 0.51099895
+  [ok] address.py literal m_p_MeV = 938.27208816
+  [ok] address.py literal r_p_m = 8.414e-16
+  [ok] address.py literal a0_m = 5.29177210903e-11
+  [ok] address.py literal inv_alpha = 137.035999084
+  [ok] tree m_e_MeV == CODATA 2018 exactly
+      2018 0.51099895 (1.5e-10)   2022 0.51099895069 (1.6e-10)   rel +1.350e-09   = +4.60 u2018
+  [ok] tree m_p_MeV == CODATA 2018 exactly
+      2018 938.27208816 (2.9e-07)   2022 938.27208943 (2.9e-07)   rel +1.354e-09   = +4.38 u2018
+  [ok] tree r_p_m == CODATA 2018 exactly
+      2018 8.414e-16 (1.9e-18)   2022 8.4075e-16 (6.4e-19)   rel -7.725e-04   = -0.34 u2018
+  [ok] tree a0_m == CODATA 2018 exactly
+      2018 5.29177210903e-11 (8e-21)   2022 5.29177210544e-11 (8.2e-21)   rel -6.784e-10   = -4.49 u2018
+  [ok] tree inv_alpha == CODATA 2018 exactly
+      2018 137.035999084 (2.1e-08)   2022 137.035999177 (2.1e-08)   rel +6.787e-10   = +4.43 u2018
+   r_p across CODATA vintages (fm):
+      2006  0.87680(0.00690)
+      2010  0.87750(0.00510)
+      2014  0.87510(0.00610)
+      2018  0.84140(0.00190)
+      2022  0.84075(0.00064)
+   2014 -> 2018 move: -3.851%, 5.27 combined sigma
+  [ok] 2014->2018 r_p move exceeds 5 combined sigma (the proton-radius puzzle)
+  [ok] 2409.03787v1 page-text md5
+  [ok] paper prints r_p 8.4075(64) x 10^-16 m
+  [ok] paper prints 1/alpha 137.035 999 177(21)
+  [ok] paper prints m_e c^2 0.510 998 950 69(16) MeV
+  [ok] paper prints m_p c^2 938.272 089 43(29) MeV
+  [ok] paper: scattering r_p 'should not be included in the 2022 adjustment'
+  [ok] paper Table XXXVIII row '13 r p -0.4 2.91'
+B. PDG RPP mass tables (particle 1.0.1 wheel)
+  [ok] mass_width_2024.txt md5
+  [ok] mass_width_2025.txt md5
+  [ok] mass_width_2026.txt md5
+  [ok] PDG 2024 m_e = tree = CODATA 2018
+  [ok] PDG 2024 m_p = tree = CODATA 2018
+  [ok] PDG 2025 m_e = tree = CODATA 2018
+  [ok] PDG 2025 m_p = tree = CODATA 2018
+  [ok] PDG 2026 m_e = CODATA 2022
+  [ok] PDG 2026 m_p = CODATA 2022
+C. internal consistency of each table
+  [ok] 2018 a_0 = hbar/(alpha m_e c) to 1e-10 (got +2.82e-12)
+  [ok] 2018 m_e c^2/e = MeV value to 1e-10 (got -7.51e-12)
+  [ok] 2018 alpha * inv_alpha = 1 to 1e-10
+  [ok] 2022 a_0 = hbar/(alpha m_e c) to 1e-10 (got +5.18e-12)
+  [ok] 2022 m_e c^2/e = MeV value to 1e-10 (got +3.43e-12)
+  [ok] 2022 alpha * inv_alpha = 1 to 1e-10
+D. sympy: finite-size K from CODATA 2022 eq. (50)
+  [ok] eq.(50) with m_r = m_e reproduces the tree's 28x^2/(14x^2-9) exactly
+  [ok] eq.(50) with its (m_r/m_e)^3 factor gives 28 rho^2 x^2/(14 rho^2 x^2 - 9)
+E. rests_on_it under every vintage
+   m_h (tree, READ) = 125.13000 GeV, lambda_h = 1.576976e-18 m
+      K_finite       2018 -7.865354e-10   2022 -7.853206e-10   rel -1.544e-03
+      K_alpha_H1     2018 1.849653e-03   2022 1.849653e-03   rel -6.787e-10
+      (m_e/m_h)^2    2018 1.667697e-11   2022 1.667697e-11   rel +2.701e-09
+      probe_ceiling  2018 1.667697e-11   2022 1.667697e-11   rel +2.701e-09
+      eps_probe      2018 1.798888e-05   2022 1.798888e-05   rel -2.701e-09
+      a0/lambda_h    2018 3.355646e+07   2022 3.355646e+07   rel -6.784e-10
+      lambda_h/r_p   2018 1.874228e-03   2022 1.875677e-03   rel +7.731e-04
+      S_SCAN[0]      2018 9.581442e-03   2022 9.581442e-03   rel -1.354e-09
+  [ok] tree pin W10 K_finite -7.8654e-10 @1e-4 holds on CODATA 2018
+  [ok] tree pin K_alpha(H1) 1.849653e-3 @1e-6 holds on CODATA 2018
+   pins re-tested on CODATA 2022 (a pin failing is a numeric pin, not a verdict):
+      K_finite -7.8654e-10 @1e-4               rel -1.550e-03  FAILS
+      K_alpha(H1) 1.849653e-3 @1e-6            rel -2.507e-07  holds
+      lambda_h/r_p 1.8732e-3 @1e-3             rel +1.323e-03  FAILS
+      a0/lambda_h 3.3575e7 @1e-3               rel -5.523e-04  holds
+      probe ceiling 1.665833e-11*MH^-2 @1e-5   rel -2.355e-07  holds
+  [ok] CODATA 2022 fails exactly two numeric pins, both through r_p: W10 K_finite and lambda_h/r_p
+   (lambda_h/r_p pin already sits at +5.490e-04 on CODATA 2018 through m_h 125.20 -> 125.13;
+    r_p 2022 adds +7.731e-04 and crosses the 1e-3 tolerance)
+   K_finite under contested / historical r_p (a_0 = 2018):
+      CODATA 2006                                          r_p 0.87680 fm  K -8.54111e-10  rel +8.592%  lam/r_p 1.79856e-03
+      CODATA 2010                                          r_p 0.87750 fm  K -8.55475e-10  rel +8.765%  lam/r_p 1.79712e-03
+      CODATA 2014                                          r_p 0.87510 fm  K -8.50802e-10  rel +8.171%  lam/r_p 1.80205e-03
+      CODATA 2018                                          r_p 0.84140 fm  K -7.86535e-10  rel +0.000%  lam/r_p 1.87423e-03
+      CODATA 2022                                          r_p 0.84075 fm  K -7.85321e-10  rel -0.154%  lam/r_p 1.87568e-03
+      e-p scattering, Mainz A1 0.879 fm (NAMED-NOT-READ)   r_p 0.87900 fm  K -8.58403e-10  rel +9.137%  lam/r_p 1.79406e-03
+      e-p scattering, PRad 0.831 fm (NAMED-NOT-READ)       r_p 0.83100 fm  K -7.67212e-10  rel -2.457%  lam/r_p 1.89768e-03
+  [ok] K_finite is negative and nonzero for EVERY r_p in the span (W10 verdict invariant)
+   |K| span over all radii: factor 1.1189
+  [ok] |K| moves by < 12% over every radius considered (got 11.89%)
+  [ok] atom does not fit in lambda_h for every vintage (a0/lambda_h > 1e7)
+  [ok] nor a proton (r_p/lambda_h > 1e2) for every radius
+   eq.(50)'s (m_r/m_e)^3 factor: m_r/m_e = 0.999455679, K -7.856794e-10, rel -1.0883e-03 vs tree form
+  [ok] the omitted (m_r/m_e) factor moves K by -0.109% (shrinks |K|; exceeds the 1e-4 pin)
+F. sympy: the one-loop K_alpha takes alpha(0) exactly
+  [ok] d ln alpha(0)/d ln m == -alpha(0) d(alpha^-1(0))/d ln m (identity)
+   so with a one-loop threshold d(alpha^-1)/d ln m = -b/(2 pi) (alpha-independent),
+   the input alpha in 43 alpha/(54 pi) is alpha(0): the CODATA (Thomson-limit) value.
+
+FAILURES: none

@@ -1,0 +1,45 @@
+PASS tree CI binder :: got 'P' want 'P'
+PASS tree CI factor 10.70 :: got 10.7 want 10.7
+PASS tree photosphere binder :: got 'P' want 'P'
+PASS tree photosphere factor 1910.9 :: got 1910.9 want 1910.9
+PASS payload has 59 elements :: got 59 want 59
+PASS recomputed photosphere binder P :: got 'P' want 'P'
+PASS recomputed 1910.87 :: got 1910.87 want 1910.87
+PASS runner-up Li :: got 'Li' want 'Li'
+   Li/P ratio = 0.91757
+PASS recomputed CI binder P :: got 'P' want 'P'
+PASS recomputed CI 10.701 :: got 10.701 want 10.701
+PASS CI runner-up N :: got 'N' want 'N'
+   N/P ratio at CI = 0.7547
+PASS Li-over-P criterion eps_Li - eps_P < -4.3974 :: got -4.3974 want -4.3974
+PASS N-over-P CI crossover at tree P = 2400 ppm :: got 2400 want 2400
+PASS AAG21 Li phot 0.96 :: got 0.96 want 0.96
+PASS AAG21 P phot 5.41 :: got 5.41 want 5.41
+   AAG21 hybrid lacks: []
+   AAG21 photosphere (full substitution): binder Li at 2138.5, runner-up P at 1894.4 (ratio 0.8858)
+PASS AAG21 hands the photosphere to Li :: got 'Li' want 'Li'
+   A09 with only Li -> 0.96: binder Li 2157.1, P 1910.9
+PASS PON14 N 2950 ppm :: got 2950 want 2950
+PASS PON14 P 985 ppm :: got 985 want 985
+   CI tree table (attrib. L03)                                   binder P 10.701  runner-up N 8.076
+   CI tree + L03 N,P (2940, 920; CARRIED)                        binder P 12.097  runner-up N 8.736
+   CI tree + PON14 N,P (READ pyrolite)                           binder P 11.299  runner-up N 8.706
+   CI tree + MS95 N,P (3180,1080 READ pyrolite, units flagged)   binder P 10.305  runner-up N 8.076
+   CI tree + LBP25 N,P (1965, 989; CARRIED)                      binder N 13.070  runner-up P 11.253
+   CI PON14 full table (READ pyrolite)                           binder P 11.299  runner-up N 8.706
+PASS LBP25 N flips CI binder to N :: got 'N' want 'N'
+PASS PON14 keeps P :: got 'P' want 'P'
+   PON14 crossover 2273 ppm; PON14 N 2-sigma band 2065-3835 ppm
+PASS PON14 2-sigma band spans the crossover :: got True want True
+   ICRP110 bulk vs A09 photosphere: Li 1752, P 1395
+   ICRP110 bulk vs tree CI: C 9.02, P 7.81
+PASS ICRP110 bulk hands photosphere to Li :: got 'Li' want 'Li'
+PASS ICRP110 bulk hands CI to C :: got 'C' want 'C'
+   payload Li flips photosphere above 7.629 mg (x1.0898)
+   payload P flips photosphere below 715.7 g (x0.9176); flips CI below 588.7 g (x0.7547)
+   photosphere factor envelope 1752 - 2157; CI factor envelope 9.02 - 13.07
+PASS photosphere magnitude within 1.25x of 1910.9 :: got True want True
+PASS CI magnitude stays order 10 kg/kg :: got True want True
+PASS z3: assemblable set down-set and join-closed (UNSAT of negation) :: got 'unsat' want 'unsat'
+
+RESULT: 0 failure(s)

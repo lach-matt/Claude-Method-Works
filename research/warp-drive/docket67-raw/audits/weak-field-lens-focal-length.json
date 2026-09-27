@@ -1,0 +1,118 @@
+{
+ "key": "weak-field-lens-focal-length",
+ "name": "Weak-field gravitational lensing focal length f = b^2 c^2/(4GM) (Einstein light deflection 4GM/(b c^2), source at infinity)",
+ "source": {
+  "located": "Einstein's weak-field light deflection alpha = 4GM/(c^2 b) (A. Einstein, Ann. Phys. 49 (1916) 769; pre-arXiv classic) and the solar-gravitational-lens focus b^2/(2 r_g) ~ 547.8 AU (S.G. Turyshev and V.T. Toth, several papers, e.g. arXiv:1703.05783, 1811.06515, 2207.03005; the identity and the 547.8 AU figure are corroborated only by a WebSearch engine summary). The spec.py citation '~550 AU' (spec.py:66) names no paper.",
+  "read_status": "NAMED-NOT-READ",
+  "via": "NOT reached at source this stage. alphaXiv answer_pdf_queries (two papers), get_paper_content(fullText) and discover_papers all returned 'alphaXiv assistant quota exceeded'. WebFetch to arxiv.org, link.springer.com, ui.adsabs.harvard.edu, en.wikipedia.org and sglf.vttoth.com all returned EGRESS_BLOCKED; the proxy status lists arxiv.org and export.arxiv.org as connect_rejected. What WAS read: (a) the PPN gamma constraint from VLBI solar light deflection as restated verbatim in Barcelo & Visser, gr-qc/0003025 (cached text at d67/src/gr-qc_0003025.txt line ~2428, eq. 5.52: 'VLBI techniques allow us to use the deflection of light by the Sun to place very strong constraints on the PPN parameter gamma, with [38] gamma = 1 - (0.6 +/- 3.1) x 10^-4'); (b) IAU 2015 Resolution B3 nominal GM_sun = 1.3271244e20 m^3 s^-2 and R_sun = 6.957e8 m, IAU 2012 au = 1.49597870700e11 m, as carried verbatim in astropy 7.1.0's constants/iau2015.py (d67/pkgs/astropy/constants/iau2015.py lines 24-28, 83-87, 105-109), and CODATA G = 6.6743e-11 (+/- 1.5e-15) from scipy.constants. Two WebSearch summaries (not verbatim reads) give 'The focal line of the solar gravitational lens begins at ~547.8 astronomical units' (Toth & Turyshev) and, for 1811.06515, that the coronal plasma 'effectively pushes the focal area of the SGL to large heliocentric distances' at radio frequencies while 'for optical and shorter wavelengths ... practically unaffected'. Nothing from a search summary is marked READ. The formula itself was instead RE-DERIVED here from first principles (R1-R4), so the grade does not rest on an unread source."
+ },
+ "published_statement": "NOT READ at source this stage. The textbook form, which is what the tree uses and what was re-derived here (R1-R2): a light ray passing a mass M at impact parameter b in the weak field is deflected toward the mass by alpha = 4GM/(c^2 b) (twice the Newtonian corpuscular value); rays from a source at infinity at impact parameter b therefore cross the optical axis at z = b/alpha = b^2 c^2/(4GM). For the Sun at b = R_sun the published focus is ~547.8 AU (WebSearch summary of Toth & Turyshev; NOT READ), and since f grows with b the lens has a focal LINE, not a point (same summary: 'a gravitational lens has spherical aberration ... no single focal point but a focal line').",
+ "published_hypotheses": [
+  "H1 weak field: |Phi|/c^2 = GM/(c^2 r) << 1 along the path (linearised metric); the result is first order in GM/(c^2 b). (Stated in every restatement; re-derived here as the Born integral R1.)",
+  "H2 small deflection and straight-line (Born) path: the deflection is integrated along the unperturbed ray.",
+  "H3 spherically symmetric lens with the ray outside the matter (b >= R), so the exterior field is that of a point mass (Birkhoff).",
+  "H4 geometric optics: light follows null geodesics, i.e. wavelength << the lens scale 4GM/c^2 (the published SGL work treats this with wave optics; NOT READ here, the on-axis wave gain is derived here in R9).",
+  "H5 source at infinity (plane wave incident); f is the focal point of that beam. A source at finite distance D_s focuses at f D_s/(D_s - f) (thin lens).",
+  "H6 thin lens: f >> b, so the deflection is accumulated over a region small compared with the path.",
+  "H7 GR value of the PPN parameter gamma = 1; in the PPN framework alpha = (1+gamma)/2 * 4GM/(c^2 b).",
+  "H8 (for the Sun, published SGL work; search summary, NOT READ) the plasma of the solar corona is negligible at optical wavelengths but not at radio."
+ ],
+ "hypothesis_drift": [
+  "DROPPED -- geometric optics (H4), at spec.py:57-72 (the 'focal' column including '10 km asteroid ... 1580 ly', spec.py:72), spec.py:188-194 (DOES[0], DOES[4]) and specthm.py:1315-1332 (SR1 statement prints the asteroid row). The tree's claims are phrased for NULL GEODESICS (specthm.py:1313 'a NULL congruence') and as geometry they are exact; but the tree reads the focus as physical focusing ('a lens', 'the Sun already does exactly this'). For the 10 km asteroid 4GM/c^2 = 6.68e-12 m, so at 500 nm the wave parameter w = 8 pi G M/(c^2 lambda) = 8.4e-5 and the on-axis gain is pi w/(1 - e^{-pi w}) = 1.00013 (R9): no light focus at any wavelength longer than ~1e-11 m. Earth (4GM/c^2 = 1.8 cm) is geometric in the optical but not at cm radio (w = 11 at 1 cm). The Sun (w = 7.4e10 at 500 nm, gain 2.3e11) is deep in the geometric regime, so every load-bearing use (S-1 witness, SR1, R5-S) is unaffected.",
+  "WEAKENED -- vacuum along the ray, at specthm.py:1311-1312 ('impact parameter b >= the lens radius, so the congruence passes through vacuum') and 1317 ('through vacuum'), with the Sun at b = R_sun (spec.py:65, 235; specthm.py:1322). b = R_sun is the photospheric radius and the grazing ray traverses the solar atmosphere; the tree names no frequency condition. For null geodesics the coronal matter is ordinary (T_kk > 0, NEC/WEC/DEC hold) and gravitationally negligible, so the geodesic claim survives; for light, per 1811.06515 (search summary, NOT READ) the corona pushes the radio focal area outward and leaves optical unaffected. The magnitude was NOT computed here (it needs a coronal density model that was not read).",
+  "RELABELLED -- source at infinity vs 'source outside the focal length', at specthm.py:1310 (hypothesis) against specthm.py:1318 ('the source-at-infinity focus'). The formula is the D_s -> infinity focus; for finite D_s > f the conjugate point lies at f D_s/(D_s - f) > f (R2, sympy). The tree correctly draws the consequence that f(R_lens) is the MINIMUM range (specthm.py:1322-1323). Also semantic: with the source at infinity f is the focal point of the incident plane wavefront (a focal point of a null hypersurface), a 'conjugate point' only in the limit of a two-point conjugate pair. No conclusion moves.",
+  "EXTENDED (not an error) -- positive lens mass dropped in concentric.py: concentric.py:68, 305, 345 print f = b^2/4m for a NEGATIVE Plummer core of mass -m (concentric.py:42-47), against the positive-mass hypothesis at spec.py:190 and specthm.py:1308. The source result is attractive/azimuthal focusing. Re-derived here (R3): 1/f_az = alpha/b = 4M/b^2 and 1/f_rad = d(alpha)/db = -4M/b^2, so for M < 0 the RADIAL direction focuses at b^2/(4|M|) -- the same det A = 0 distance, consistent with composite.py's 'focal_length = b^2/(4|M|)' (composite.py:290-293). Also: concentric's measured conjugate points are for a POINT source 150 before the lens (A(0) = 0 at x0 = -150), so its 'f' column is the source-at-infinity figure, not the predicted conjugate; the thin-lens prediction 150 + f*150/(150-f) reproduces seats/none for all seven rows and the conjugate distances to within +1.2 to +3.5 (R7).",
+  "DISCREPANCY (composite.py VALIDATION 1, not an error in 4M/b) -- composite.py:42 'light deflection reproduces 4M/b to 0.03 % at b = 0.2' and composite.py:313-317. The validation run is FINITE (x0 = -4, lambda = 8, end x = 3.988) in the LINEARISED metric (composite.py:133-139, metric -(1+2Phi), (1-2Phi)). Finite-path Born gives bend/(4M/b) = 0.998749 at b = 0.2 and 0.999687 at b = 0.1; the linearised metric's second-order term (exact coefficient 4 pi, i.e. PPN beta = delta = 0, not Schwarzschild's 15 pi/4; R4) adds +pi M/b = +1.571e-3 and +3.142e-3. composite measures 1.000281 and 1.002826; the combined prediction is 1.000319 and 1.002828 (residuals -3.8e-5, -2.0e-6). So the pipeline is CONFIRMED to ~4e-5, but the quoted '0.03 %' is a near-cancellation of a -0.125 % truncation and a +0.157 % second-order term, each about five times the stated agreement; at b = 0.2 first-order finite-path alone would FAIL the selftest's 1e-3 tolerance. Recorded, not repaired.",
+  "DISCREPANCY (misprint-level) -- spec.py:65 docstring 'f = 8.1923e13 m' against spec.focal_length(1.989e30, 6.957e8) = 8.19191e13 m (relative 4.8e-5); the AU figure 547.6 on the same line and the selftest pin are consistent with the code.",
+  "DISCREPANCY (citation precision) -- spec.py:66, 281, 341 cite the published solar focus as '~550 AU' with no reference, and specthm.py:3568-3571 pins that 550 is NOT within spec's 1e-3 of f_sun (0.44 % apart, specthm.py:1324-1329). The published figure (Toth & Turyshev, WebSearch summary only, NOT READ) is ~547.8 AU; spec's own f_sun = 547.595 AU is 0.037 % from it, and the same formula with IAU 2015 nominal GM_sun gives 547.758 AU (0.008 %). If 547.8 is confirmed at source, the tree's recorded 'not within 1e-3' is an artefact of the rounded citation, not a disagreement with the literature."
+ ],
+ "data_at_publication": [
+  {
+   "quantity": "PPN gamma (light deflection scales as (1+gamma)/2; f as 2/(1+gamma))",
+   "value_then": "Einstein 1916: gamma = 1 assumed (GR). 2000-era VLBI: gamma = 1 - (0.6 +/- 3.1)e-4",
+   "value_now": "VLBI as restated in gr-qc/0003025 eq. 5.52 (READ); Cassini 2003 gamma - 1 = (2.1 +/- 2.3)e-5 from Shapiro delay (NAMED-NOT-READ); later VLBI (Lambert & Le Poncin-Lafitte) NAMED-NOT-READ",
+   "source_now": "gr-qc/0003025 (cached d67/src/gr-qc_0003025.txt) for the VLBI figure; Cassini value NAMED-NOT-READ",
+   "moves_conclusion": "No. The 1-sigma envelope |gamma-1| <= 3.7e-4 moves f by <= 1.85e-4 (Cassini envelope: <= 2.2e-5), both below spec's 1e-3 pin (R6)."
+  },
+  {
+   "quantity": "Solar mass parameter GM_sun",
+   "value_then": "spec.py:65, 136: G*M = 6.67430e-11 x 1.989e30 = 1.32752e20 m^3/s^2",
+   "value_now": "IAU 2015 B3 nominal GM_sun = 1.3271244e20 m^3/s^2 (spec's product is 2.97e-4 high because M_sun = 1.989e30 is rounded and G carries 2.2e-5 uncertainty)",
+   "source_now": "astropy 7.1.0 constants/iau2015.py (verbatim copy of IAU 2015 Resolution B3), READ",
+   "moves_conclusion": "No. f_sun moves 547.595 -> 547.758 AU (+2.97e-4), inside spec's 1e-3 pin; it brings the figure into agreement with the published ~547.8 AU."
+  },
+  {
+   "quantity": "Solar radius R_sun (impact parameter b)",
+   "value_then": "6.957e8 m (spec.py:65, 235)",
+   "value_now": "6.957e8 m, IAU 2015 B3 nominal",
+   "source_now": "astropy constants/iau2015.py lines 105-109, READ",
+   "moves_conclusion": "No (identical)."
+  },
+  {
+   "quantity": "Newtonian G and c",
+   "value_then": "G = 6.67430e-11, c = 299792458 (spec.py:136-137)",
+   "value_now": "G = 6.6743e-11 +/- 1.5e-15 (CODATA, scipy.constants); c exact",
+   "source_now": "scipy.constants.physical_constants, READ",
+   "moves_conclusion": "No."
+  },
+  {
+   "quantity": "astronomical unit",
+   "value_then": "1.495979e11 m (spec.py:237)",
+   "value_now": "1.49597870700e11 m (IAU 2012 B2)",
+   "source_now": "astropy constants/iau2015.py lines 24-28, READ",
+   "moves_conclusion": "No (2e-7 relative)."
+  },
+  {
+   "quantity": "Published solar focus (fixture spec compares to)",
+   "value_then": "spec.py:66 '~550 AU' (uncited)",
+   "value_now": "~547.8 AU (Toth & Turyshev)",
+   "source_now": "WebSearch engine summary only; NOT READ at source",
+   "moves_conclusion": "Not the physics; it moves the tree's own recorded comparison: 550 is 0.44 % from f_sun (outside 1e-3, specthm.py:3568), 547.8 would be 0.037 % (inside)."
+  },
+  {
+   "quantity": "Second-order (Schwarzschild) deflection at b = R_sun",
+   "value_then": "neglected (first-order formula)",
+   "value_now": "relative correction (15 pi/16) GM/(c^2 R_sun) = 6.25e-6 (computed; coefficient 15 pi/4 confirmed by exact quadrature, R4)",
+   "source_now": "computed here",
+   "moves_conclusion": "No."
+  }
+ ],
+ "rederivation": {
+  "method": "sympy",
+  "script_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/weak-field-lens-focal-length.py",
+  "outcome": "ALL CHECKS PASS (exit 0; output in rederive/weak-field-lens-focal-length.out). R1 sympy: Born integral of the linearised metric gives alpha = 4M/b exactly. R2 sympy: z_f = b/tan(4M/b) -> b^2/(4M), units -> b^2 c^2/(4GM); thin lens D_i = f D_s/(D_s-f) >= f, -> f as D_s -> infinity. R3 sympy: azimuthal 4M/b^2 and radial -4M/b^2 convergences sum to zero; M<0 focuses radially at b^2/(4|M|). R4 mpmath exact quadrature: Schwarzschild (alpha-4M/b)/(M/b)^2 = 11.785 at M/b = 1e-4 (15 pi/4 = 11.781); linearised isotropic metric 12.572 (4 pi = 12.566). R5: composite.survey re-run read-only (no bytecode, git status clean): 1.000281 / 1.002826 against finite-path + 2nd-order 1.000319 / 1.002828. R6: spec table reproduced (Sun 8.19191e13 m = 547.595 AU; Jupiter 6061.3 AU; Earth 15295 AU; asteroid 1581.5 ly); IAU GM_sun gives 547.758 AU. R7: concentric seats/none reproduced 7/7 by thin lens, offsets +1.2..+3.5. R8-R9: wave parameter and on-axis gain pi w/(1-e^{-pi w}) derived from the Gamma-function integral; asteroid at 500 nm gain 1.00013, Sun 2.3e11.",
+  "agrees_with_source": "yes"
+ },
+ "later_literature": [
+  {
+   "ref": "Turyshev & Toth, 'Optical properties of the solar gravitational lens in the presence of the solar corona', arXiv:1811.06515",
+   "effect": "narrows",
+   "what": "Coronal plasma (negative refractive index) pushes the SGL focal area to larger heliocentric distance and degrades gain at radio; optical practically unaffected. Narrows the 'vacuum at b = R_sun' reading to high frequencies; the null-geodesic statement is untouched.",
+   "read_status": "NAMED-NOT-READ (WebSearch engine summary only; alphaXiv quota exceeded, arxiv.org egress-blocked)"
+  },
+  {
+   "ref": "Turyshev & Toth, 'Diffraction of light by the gravitational field of the Sun and the solar corona', arXiv:1810.06627 (PRD 99, 024044)",
+   "effect": "extends",
+   "what": "Closed-form wave-optical solution with gravity and plasma together; supersedes geometric optics near the focal line.",
+   "read_status": "NAMED-NOT-READ (search summary)"
+  },
+  {
+   "ref": "Toth & Turyshev / Helvajian et al., focal-region mission papers, arXiv:1802.08421, 2207.03005; 'Resolved imaging of exoplanets with the SGL', arXiv:2204.04866",
+   "effect": "confirms",
+   "what": "Use the focal line beginning at ~547.8 AU (b = R_sun) -- the figure the tree's formula reproduces with IAU GM_sun to 0.008 %.",
+   "read_status": "NAMED-NOT-READ (search summary gives the 547.8 AU figure)"
+  },
+  {
+   "ref": "Barcelo & Visser, gr-qc/0003025, eq. 5.52 (restating VLBI solar-deflection bounds)",
+   "effect": "confirms",
+   "what": "gamma = 1 - (0.6 +/- 3.1)e-4 from VLBI deflection by the Sun: the GR coefficient 4 (i.e. (1+gamma)/2 = 1) confirmed to 1.6e-4.",
+   "read_status": "READ-VIA-RESTATEMENT (cached arXiv text)"
+  }
+ ],
+ "lacked_data": "M's hypothesis tested. Einstein (1916) and Eddington (1919) lacked a precision value of gamma, and the 1919 eclipse data were ~20 % measurements; VLBI (restated in gr-qc/0003025, READ) later fixed the coefficient to (1+gamma)/2 = 1 within 1.6e-4, and Cassini (NAMED-NOT-READ) to ~1e-5 -- the later data CONFIRM the factor 4 rather than move it; f moves by <= 1.9e-4. They also lacked the modern GM_sun (IAU 2015, READ): using it moves the tree's solar focus by +3e-4 toward the published 547.8 AU. What earlier treatments lacked in the other sense -- wave optics and the solar corona -- is now in the literature (1810.06627, 1811.06515, NOT READ) and restricts WHERE the geodesic focus is a light focus (optical yes, radio pushed outward; a 10 km asteroid never, computed here), not the formula. Evidence against the hypothesis for this result: no datum that has moved moves f by more than 3e-4. Evidence for a weaker form: the geometric-optics and plasma-free conditions were implicit in the classic and are unnamed in the tree.",
+ "grade": "NARROWED",
+ "grade_evidence": "The formula STANDS as mathematics: alpha = 4GM/(c^2 b) and f = b^2 c^2/(4GM) re-derived here from the linearised metric (sympy Born integral), with the second-order Schwarzschild correction 15 pi/4 (M/b)^2 confirmed by exact quadrature and shown to be 6e-6 at the solar limb; every moved datum (gamma, GM_sun, G, au) moves f by <= 3e-4, inside spec's own 1e-3 pin. It is NARROWED against the tree's use on one computed ground and one named one: (i) the tree reads the null-geodesic focus as physical focusing (spec.py:57-72, 194; specthm SR1 prints the asteroid row) without naming geometric optics; for the 10 km asteroid the on-axis wave gain at 500 nm is 1.00013 (R9) -- no light focus -- while the Sun (gain 2.3e11) and every load-bearing use (S-1 witness, SR1 for null geodesics, R5-S) are unaffected; (ii) 'through vacuum' at b = R_sun (specthm.py:1311-1317) is only approximately met by the Sun, with a frequency-dependent plasma effect named in 1811.06515 (NOT READ, not computed). Three discrepancies recorded, none an error: composite.py:42's '0.03 %' is a cancellation of finite-path truncation (-0.125 %) and the linearised metric's second-order term (+0.157 %), the pipeline itself agreeing with the correct prediction to 3.8e-5; spec.py:65 prints 8.1923e13 m for a computed 8.19191e13 m; spec.py:66's uncited '~550 AU' is 0.44 % from f_sun where the published ~547.8 AU (search summary, NOT READ) would be 0.037 %. The source itself was NOT READ (alphaXiv quota exceeded, arxiv egress-blocked): the grade rests on the re-derivation, not on a read.",
+ "what_would_change_the_grade": "To STANDS: the tree names geometric optics (lambda << 4GM/c^2) and a frequency condition for the solar limb as hypotheses of SR1/spec's table, or restricts the 'focus' readings to null geodesics and drops the asteroid row as a physical focus. To OPEN/other: a READ of Einstein's statement or of a Turyshev-Toth paper that stated a different coefficient or focal figure (none expected; the re-derivation fixes both). Reading 1811.06515 at source would quantify the coronal shift and could move (ii) from named to computed. Nothing available here could make it WRONG: no counterexample exists in the weak-field, geometric-optics class.",
+ "reverify_command": "cd /tmp && python3 -B /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/weak-field-lens-focal-length.py --run-composite; echo exit=$?",
+ "report_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/audits/weak-field-lens-focal-length.json"
+}

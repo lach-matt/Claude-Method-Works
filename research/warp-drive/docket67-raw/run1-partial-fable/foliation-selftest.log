@@ -1,0 +1,141 @@
+1. THE ELEMENTARY FACT -- NO CURVATURE, NO MATTER, NO NEGATIVE MASS
+     spacelike chord to (t=0         , D=1):  proper length 1.000000000000
+     spacelike chord to (t=0.5       , D=1):  proper length 0.866025403784
+     spacelike chord to (t=0.9       , D=1):  proper length 0.435889894354
+     spacelike chord to (t=0.99      , D=1):  proper length 0.141067359797
+     spacelike chord to (t=0.9999    , D=1):  proper length 0.014141782066
+     spacelike chord to (t=0.999999  , D=1):  proper length 0.001414213209
+    at t = 0 the chord is the rest-frame distance                                 1              1 ok
+    the sequence is strictly decreasing                              True           True           ok
+    and reaches 1.4142e-3 at t = 1 - 1e-6                             0.00141421321  0.00141421321 ok
+       inf = 0 IN FLAT SPACE.  'The proper distance' is not a number.
+
+2-4. EVERY RESIDUAL, AND THERE ARE FIFTEEN
+    V1  1 - 2m/R = g^ab d_aR d_bR = Gamma^2 - U^2                    0              0              ok
+    V2  u.u = -1, n.n = +1, u.n = 0                                  0              0              ok
+    V3  U = u^a d_aR and Gamma = n^a d_aR                            0              0              ok
+    V4  boost preserves Gamma^2 - U^2                                0              0              ok
+    V5  FROBENIUS u'_[a d_b u'_c] = 0, w(t,r) ARBITRARY (nonzero components) 0              0              ok
+    V6  u' is unit timelike for every w                              0              0              ok
+    V7  generalised PG chart is VACUUM (Ricci, all 16)               0              0              ok
+    V8  its Misner-Sharp mass is M > 0, a scalar                     0              0              ok
+    V9  and its slice returns Gamma = sqrt(1+2E) > 1 EVERYWHERE      0              0              ok
+    V10 with unit normal, U = sqrt(2M/R+2E) and Gamma^2-U^2 = 1-2M/R 0              0              ok
+    V11 Gamma = k cosh(psi), U = k sinh(psi) reproduces the invariant 0              0              ok
+    V12 T'(R) = tanh(psi)/f  =>  Gamma = dR/dl = sqrt(f) cosh(psi)   0              0              ok
+    V13 induced metric of the flat leaf t = T(r) is (1-T'^2)dr^2     0              0              ok
+    V14 its unit normal is timelike and gives U = T'/sqrt(1-T'^2)    0              0              ok
+    V15 and Gamma^2 - U^2 = 1 = 1 - 2m/R with m = 0, Gamma = cosh(psi) 0              0              ok
+
+5. THE RANGE, IN FLOATS
+    floor at m = +1, R = 10:  sqrt(1-2m/R)                              0.894427191    0.894427191 ok
+    floor at m = -1, R = 10                                              1.09544512     1.09544511 ok
+    m = +1: NOT contracting in every foliation                       False          False          ok
+    m = -1: contracting in EVERY foliation                           True           True           ok
+    m =  0: not in every one either (equality on one slice)          False          False          ok
+    contraction is reachable at every point regardless of m          True           True           ok
+    and the rapidity it takes at m = +1, R = 10 is small                0.481211825    0.481211825 ok
+    floor is None exactly where the point is trapped                 True           True           ok
+    state(m=1,R=10,psi=2): Gamma^2 - U^2 = 1 - 2m/R                             0.8            0.8 ok
+    boosting back by -psi lands on U = 0                             -1.77635684e-15              0 ok
+    ... and on Gamma = the floor                                        0.894427191    0.894427191 ok
+    O12's explicit boost is a boost:  c^2 - s^2 = 1                               1              1 ok
+    and it carries state 1 to state 2 (U)                                2.36632514     2.36632514 ok
+    and it carries state 1 to state 2 (Gamma)                            2.52972225     2.52972225 ok
+
+6. certify.py AND driven.py AGREE WITH THE INVARIANT CRITERION
+    certify.contracts == contracts_everywhere == driven at U = 0     True           True           ok
+       so D2 IS certify.py's theorem, and it never mentions staticity.
+
+7. D3 -- THE SLICE LENGTH, MOUTHS ANCHORED AT U = 0 (M=1, 10 -> 100)
+     A=  0.0   max Gamma = 0.989949       L = 92.451648051   L/gap = 1.027240534
+     A=  1.0   max Gamma = 1.52665        L = 60.575213439   L/gap = 0.673057927
+     A=  2.0   max Gamma = 3.72193        L = 25.655223759   L/gap = 0.285058042
+     A=  5.0   max Gamma = 73.4117        L = 1.955943236    L/gap = 0.021732703
+     A= 20.0   max Gamma = 2.39954e+08    L = 0.168149305    L/gap = 0.001868326
+     A= 80.0   max Gamma = 2.74007e+34    L = 0.041799046    L/gap = 0.000464434
+    static slice is LONGER than the areal gap                            1.02724053     1.02724053 ok
+    A = 1 already reports contraction                                   0.673057927    0.673057927 ok
+    A = 80 reports 0.046 % of the areal gap                          0.000464433846    0.000464434 ok
+    L/gap is strictly decreasing in A                                True           True           ok
+    and the mouths are anchored: psi(R1) = psi(R2) = 0 exactly       (0.0, 0.0)     (0.0, 0.0)     ok
+       THE ANCHOR LEMMA DOES NOT CLOSE D3.
+
+8. D1 AGAINST D4 -- MILNE, WHICH IS EXACTLY MINKOWSKI
+     Gamma=   2.0  slice= 1.316957897  areal=    1.732051  slice/areal=0.760345996  flight/slice=      4.9084
+    the ray is null (dt = dr) at Gamma = 2                                        0              0 ok
+    advance over flat at Gamma = 2                                                0              0 ok
+     Gamma=  10.0  slice= 2.993222846  areal=    9.949874  slice/areal=0.300830215  flight/slice=     66.3161
+    the ray is null (dt = dr) at Gamma = 10                          2.84217094e-14              0 ok
+    advance over flat at Gamma = 10                                               0              0 ok
+     Gamma= 100.0  slice= 5.298292366  areal=   99.995000  slice/areal=0.052985573  flight/slice=   3774.5180
+    the ray is null (dt = dr) at Gamma = 100                                      0              0 ok
+    advance over flat at Gamma = 100                                              0              0 ok
+    slice/areal at Gamma = 2                                            0.760345996    0.760345996 ok
+    slice/areal at Gamma = 100                                          0.052985573    0.052985573 ok
+    flight/slice at Gamma = 2                                             4.9083586      4.9083586 ok
+    flight/slice at Gamma = 100                                          3774.51802     3774.51802 ok
+    CONTRACTING HARDER MAKES THE SIGNAL RELATIVELY SLOWER            True           True           ok
+    expose.py's C in flat Milne at Gamma = 2                                    0.5            0.5 ok
+    ... and at Gamma = 100                                                     0.01           0.01 ok
+    so C < 1 -- CONTRACTION -- IN FLAT EMPTY SPACE, off the static slice True           True           ok
+    which is the fault expose.py caught threads.py in, one level up  True           True           ok
+
+9. D4 WITH MASS -- SCHWARZSCHILD, AND THE SIGN IS A DELAY
+    Killing travel time                                                  95.0110519     95.0110519 ok
+    proper time at the far mouth                                         94.0561427     94.0561427 ok
+    Shapiro excess over the areal gap                                    5.01105187     5.01105187 ok
+    the excess is POSITIVE -- a delay, not an advance                True           True           ok
+
+10. WHAT E = R dGamma PRICES
+    Proxima span (m), from this file                                  4.0174992e+16  4.0174992e+16 ok
+    and from nonstatic.py, to the bit                                 4.0174992e+16  4.0174992e+16 ok
+    E = R dGamma at dGamma = 1 (solar masses)                        2.72074429e+13 2.72074429e+13 ok
+    identical to nonstatic.build_energy                              2.72074429e+13 2.72074429e+13 ok
+    flat-space foliation reaches Gamma = 7071 at eps = 1e-8              7071.06781     7071.06781 ok
+    on which T_ab = 0 identically, so j = 0 and no flux is spent     True           True           ok
+       2.7207e+13 SOLAR MASSES PER UNIT dGamma, FOR RE-SLICING EMPTY SPACE.
+
+11. THE MACHINE OBLIGATIONS
+  guard: the identity is satisfiable at all                                sat    ok
+  guard: with m < 0 it is satisfiable                                      sat    ok
+  guard: with m > 0 AND Gamma > 1 it is satisfiable (the loophole)         sat    ok
+  guard: a non-trivial boost exists                                        sat    ok
+  O1  a boost preserves Gamma^2 - U^2                                      unsat  ok
+  O2  FLOOR  Gamma^2 >= 1-2m/R, with equality exactly at U = 0             unsat  ok
+  O3  m < 0  =>  Gamma > 1 in EVERY foliation                              unsat  ok
+  O4  m >= 0  =>  the U = 0 foliation has Gamma <= 1                       unsat  ok
+  O5  the anchoring boost exists and lands on Gamma = k                    unsat  ok
+  O6  every target Gamma >= k is reached by a boost                        unsat  ok
+  O7  m > 0  =>  the anchored slice does NOT contract and a boost does     unsat  ok
+  O8  Gamma = k cosh(psi), U = k sinh(psi) reproduces the invariant        unsat  ok
+  O9a nonstatic's ANCHOR LEMMA is the psi = 0 member                       unsat  ok
+  O9b nonstatic's DISPLACEMENT BOUND is the statement k <= 1               unsat  ok
+  O10 THE BICONDITIONAL: universal contraction only where m < 0            unsat  ok
+  O11 TRAPPED (1-2m/R < 0): every real T is on the orbit -- T^2 - k > 0    unsat  ok
+  O11b UNTRAPPED: T is on the orbit only above the floor                   unsat  ok
+  O12 TRANSITIVITY: same k, same branch  =>  one boost joins them          unsat  ok
+  DRIFT: a positive-mass CONTRACTING slicing must EXIST                    sat    ok
+  DRIFT: a negative-mass NON-contracting slicing must NOT exist            unsat  ok
+
+12. THE DEFINITIONS TABLE
+     D1 local areal ratio  dl < dR   (driven.py)      invariant=NO   FAILS -- and the failure is gauge; available wherever m > 0
+     D2 dl < dR in EVERY foliation = |grad R|^2 > 1   invariant=YES  SURVIVES, exactly, WITH STATICITY DELETED:  D2 <=> m < 0
+     D3 integrated slice length < areal gap           invariant=NO   FAILS worse -- infimum 0, mouths anchored, section 6
+     D4 arrival earlier than the reference geometry   invariant=YES  REPLACED BY A STRONGER ONE -- Olum, Gao-Wald, VBL
+     D5 null flare-out  theta_+  and its derivative   invariant=YES  REPLACED BY A STRONGER ONE -- Hochberg & Visser 1998
+    two of the five are not invariant -- D1 and D3, the two that fail 2              2              ok
+    the same two are the ones on which the theorem fails             5              5              ok
+    and it survives or is replaced by a stronger one on the other three 3              3              ok
+
+13. THE STATUS LINES
+    the identity is not disputed                                     False          False          ok
+    the claim does not survive as stated                             False          False          ok
+    contraction is not a scalar                                      False          False          ok
+    the anchor lemma does not close D3                               False          False          ok
+    the bill is not lifted                                           False          False          ok
+    no novelty is claimed                                            False          False          ok
+    driven.py still says the criterion is not a scalar               False          False          ok
+    certify.py's scope line is unchanged (nothing repaired)          static and sph static and sph ok
+
+SELFTEST OK

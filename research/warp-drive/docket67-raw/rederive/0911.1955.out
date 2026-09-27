@@ -1,0 +1,19 @@
+PASS R1: T0(1+z)/T0 - (1+z) = 0 ; d/dT0 = 0  -> the 1090.92 carries NO dependence on T_CMB
+PASS R1b: if instead T_rec is held (atomic physics) then 1+z = T_rec/T0 and dln(1+z)/dlnT0 = -1 (inverse, not linear)
+PASS R1c: permute.ratio_from_temperature(T0=2 K) = 1090.920000000000, (T0=3 K) = 1090.920000000000 -- identical
+PASS R2: T_CMB=2.7255, Z_REC=1089.92, T_rec=2973.3025 K (printed 2973.3), 1+z=1090.92
+PASS R3: round(2.72548,4)=2.7255 == tree 2.7255 ; offset 0.00002 K = 0.035 sigma
+PASS R4a: k_B T ln2 = 2.608284e-23 J (nopath 2.608284e-23), printed 2.608e-23
+PASS R4b: Mc^2 = 6.291286e+18 J (M = 70.0000 kg); bits = 2.412040e+41 (printed 2.4120e41)
+      tree 2.7255                                             bits = 2.41204e+41  (+0.0000 % vs tree; 5-sig-fig print 2.4120e+41)
+      Fixsen combined 2.72548 (abstract, via restatement)     bits = 2.41206e+41  (+0.0007 % vs tree; 5-sig-fig print 2.4121e+41)
+      Fixsen +1 sigma 2.72605                                 bits = 2.41155e+41  (-0.0202 % vs tree; 5-sig-fig print 2.4116e+41)
+      Fixsen -1 sigma 2.72491                                 bits = 2.41256e+41  (+0.0217 % vs tree; 5-sig-fig print 2.4126e+41)
+      FIRAS recal. via WMAP 2.7260 (abstract, via restatement) bits = 2.41160e+41  (-0.0183 % vs tree; 5-sig-fig print 2.4116e+41)
+      non-FIRAS compilation 2.729 (search restatement only)   bits = 2.40895e+41  (-0.1283 % vs tree; 5-sig-fig print 2.4089e+41)
+PASS R4c: PRECISION NOTE (discrepancy of digits, not of physics): at Fixsen's unrounded 2.72548 the count is 2.412058e+41, printing 2.4121e41 not the tree's 2.4120e41; the 1-sigma band 2.4116e+41..2.4126e+41 (+/-0.021 %) spans the 4th-5th digit, so the tree's fifth significant figure is below the input's precision
+PASS R5: 2 pi R k_B T/(hbar c) is linear in T: massform.py:910-911 'moves linearly with T' is CORRECT for massform's section-3 ratio; value at tree T = 7.478465e+03
+PASS R6: Z_REC=1089.92 is labelled 'Planck 2018' (permute.py:179); it is not an input of Fixsen 2009 and Fixsen's number cannot move it through permute's arithmetic (R1).
+PASS R7: holding T_rec = 2973.3 K (atomic physics) and letting T_0 range over [2.4, 3.0] K (about -12 %/+10 % around 2.7255; no tension value was READ here) gives 1+z in [991.1, 1238.9]; the verdict needs only 1+z != 1
+
+RESULT: ALL PASS

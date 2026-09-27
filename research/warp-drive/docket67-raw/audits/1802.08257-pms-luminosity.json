@@ -1,0 +1,82 @@
+{
+ "key": "1802.08257-pms-luminosity",
+ "name": "MacGregor et al. 2018 sec. 1: late M dwarfs have long pre-main-sequence phases with significant luminosity change",
+ "source": {
+  "located": "M. A. MacGregor, A. J. Weinberger, D. J. Wilner, A. F. Kowalski, S. R. Cranmer, 'Detection of a Millimeter Flare from Proxima Centauri', arXiv:1802.08257v1 [astro-ph.EP], 22 Feb 2018 (submitted ApJL 2017 Dec 22, accepted 2018 Feb 5); sec. 1 Introduction, p.1, second sentence of paragraph 1.",
+  "read_status": "READ",
+  "via": "alphaXiv answer_pdf_queries on 1802.08257 (all 7 pages returned verbatim). Proxima-specific magnitude READ in Ribas et al. 2016 arXiv:1608.06813v2 (Table 1, sec. 2, 4.1, 4.4) and Barnes et al. arXiv:1608.06919v2 (sec. 2, 3.1, 4.3); Hayashi 1981 snow-line law NAMED-NOT-READ, restated in Johnston et al. arXiv:2508.20291 sec. 1."
+ },
+ "published_statement": "1802.08257 p.1 sec. 1: 'Late M-type stars, in particular, have long pre-main sequence phases during which the stellar luminosity can change significantly, as well as high stellar activity throughout their entire lifetimes (e.g., Hawley et al. 1997; Shkolnik et al. 2014; France et al. 2016).' Same paper: 'Proxima Centauri (spectral type M5.5V) has long been known as a flare star'. The sentence is introductory background; the paper computes nothing about pre-main-sequence (PMS) luminosity; its results are the 1.3 mm flare and the dust-belt reinterpretation (sec. 3-4).",
+ "published_hypotheses": [
+  "Class-level: 'Late M-type stars' generally, not Proxima specifically; no mass, age or evolutionary-track model named",
+  "Qualitative: 'long' PMS and luminosity that 'can change significantly' -- no magnitude, timescale or direction stated",
+  "Supported only by an 'e.g.' citation string (Hawley 1997; Shkolnik 2014; France 2016) that is shared with the activity clause; none of the three is an evolutionary-track paper by title, so the PMS clause carries no dedicated citation in this paper"
+ ],
+ "hypothesis_drift": [
+  "ATTRIBUTION (neither dropped nor weakened): formation.py:275-277 quotes the sentence verbatim and correctly ('read at source' holds -- verified), but the canonical entry's kind 'measurement' over-represents it: in 1802.08257 it is a background restatement, not a measurement or computation by MacGregor et al. The load-bearing Proxima-specific evidence is in Ribas et al. 2016 and Barnes et al. 2016/2018 (Baraffe 2015 and Yonsei-Yale tracks), READ here.",
+  "CLASS-TO-INSTANCE: the tree's hypothesis 'late M dwarf (Proxima Cen) evolutionary history' (canonical, formation.py:275-279) applies a class statement to one star of type M5.5V, which sits at the early edge of 'late M'. Not an unsupported step: Barnes et al. call Proxima 'a late-type M dwarf host', and both Ribas 2016 (sec. 1: 'Proxima's luminosity changed considerably during its early evolution') and Barnes 2018 (sec. 2: PMS 'lasted ~1 Gyr', HZ reached b after 169 +- 13 Myr) compute it for Proxima itself.",
+  "No hypothesis the tree needs is absent from the source: the refusal needs only L(formation epoch) != L(today) by a significant factor, which is exactly what the sentence asserts (and later work quantifies). The tree adds no magnitude, so nothing is strengthened beyond the source.",
+  "DISCREPANCY (source-internal, not load-bearing): the in-text citation 'Shkolnik et al. 2014' matches reference-list entry 'Shkolnik, E. L. & Barman, T. S. 2014, AJ, 148, 64' (two authors). A citation-form misprint, recorded, not a refutation."
+ ],
+ "data_at_publication": [
+  {
+   "quantity": "Proxima present bolometric luminosity L_now (the value a present-L radius would use)",
+   "value_then": "0.00155 Lsun (Anglada-Escude et al. 2016, adopted in Ribas 2016 Table 1; MacGregor 2018 quotes no L)",
+   "value_now": "0.00155 Lsun; R = 0.141 Rsun, Teff = 3050 K reproduce it by Stefan-Boltzmann to 1.000 (rederive step 1)",
+   "source_now": "Ribas et al. 2016 arXiv:1608.06813 Table 1 (READ); later-L revisions not read here",
+   "moves_conclusion": "no -- the claim is a ratio L(PMS)/L_now >> 1; any plausible revision of L_now at the tens-of-percent level (Barnes 2018 notes a ~20% model-vs-measured offset) leaves the ratio >> 1"
+  },
+  {
+   "quantity": "L at the epoch Proxima b's orbit entered the HZ (orbit fixed)",
+   "value_then": "not stated in 1802.08257",
+   "value_now": "L(~90 Myr)/L_now = 1.5/0.659 = 2.28 (inner edge 1.5 S_earth); L(~200 Myr)/L_now = 0.9/0.659 = 1.37 (0.9 S_earth); computed from READ entry times",
+   "source_now": "Ribas et al. 2016 sec. 4.4 (entry at ~90 / ~200 Myr, Baraffe 2015 tracks); Barnes et al. 1608.06919 sec. 4.3 (169 +- 13 Myr, Yonsei-Yale tracks)",
+   "moves_conclusion": "no -- confirms the direction and gives a floor: already >= 2.28x today's luminosity at 90 Myr, long after disc dispersal (3-10 Myr, Ribas sec. 5.1)"
+  },
+  {
+   "quantity": "PMS duration for Proxima",
+   "value_then": "'long' (qualitative)",
+   "value_now": "~1 Gyr",
+   "source_now": "Barnes et al. 1608.06919 sec. 2 and 3.2 (Baraffe 2015 cited; hydrodynamic escape shut off at 1 Gyr 'the approximate time at which the star reaches the main sequence')",
+   "moves_conclusion": "no -- quantifies 'long'"
+  }
+ ],
+ "rederivation": {
+  "method": "numeric",
+  "script_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/1802.08257-pms-luminosity.py",
+  "outcome": "All asserts pass. (1) Ribas Table 1 R, Teff reproduce L = 0.00155 Lsun (ratio 1.0000). (2) S_now = L/a^2 = 0.659 S_earth vs READ 0.65. (3) From READ HZ-entry times with fixed orbit: L(90 Myr) = 2.28 L_now, L(200 Myr) = 1.37 L_now. (4) sympy: at constant Teff (Barnes: 'contracts at roughly constant temperature') L ratio = (R/R0)^2 and an irradiation snow line a_ice ∝ L^(1/2) scales as R/R0. (5) Hayashi a_ice at present L = 0.106 au; the READ-number floor gives a_ice >= 0.160 au (x1.51) even at 90 Myr; at disc epochs, bracketing R over 0.3-1.2 Rsun (figure-read range only, not a READ number) gives x2.1 to x8.5. The source's qualitative claim, applied to Proxima, is borne out; a present-luminosity radius would be wrong by at least 1.5x in the irradiation-only picture. Not checked: the evolutionary tracks themselves (Baraffe 2015, Yonsei-Yale) -- their outputs are READ, not recomputed.",
+  "agrees_with_source": "yes"
+ },
+ "later_literature": [
+  {
+   "ref": "Ribas et al. 2016, arXiv:1608.06813 (A&A 596 A111)",
+   "effect": "confirms",
+   "what": "Proxima-specific: 'Proxima's luminosity changed considerably during its early evolution, after Proxima b had already formed'; HZ swept inward; b entered the HZ at ~90 or ~200 Myr (Baraffe 2015 tracks, M = 0.123 Msun interpolated between 0.1 and 0.2 Msun tracks; no interpolated mass matches R, L, Teff simultaneously).",
+   "read_status": "READ (Table 1, sec. 1, 2, 4.1, 4.4, 5.1, 6)"
+  },
+  {
+   "ref": "Barnes et al., arXiv:1608.06919v2 (2016/2018)",
+   "effect": "confirms",
+   "what": "Independent track family (Yonsei-Yale, [Fe/H]=+0.3, 0.12 Msun): PMS ~1 Gyr, HZ reaches b after 169 +- 13 Myr; model L at 4.78 Gyr ~20% above measured, rescaled down (which lowers L at all ages -- conservative for the claim). Also: 'studies may even overestimate volatile abundances as they ignored the high luminosities that late M dwarfs have during planet formation'.",
+   "read_status": "READ (sec. 2, 3.1, 3.2, 4.3, Fig. 1 caption)"
+  },
+  {
+   "ref": "Ribas et al. 2016 sec. 2 citing Mulders et al. 2015 (ApJ 807, 9) and Lissauer 2007",
+   "effect": "extends",
+   "what": "'Viscous heating is the main heat source for the inner parts of protoplanetary disks. The location of the snow line is therefore determined not by the star but by the disk' -- so neither today's nor the PMS stellar luminosity alone fixes the formation snow line. This strengthens formation.py:273-274's requirement of the formation-epoch disc T(a), P(a). Mulders 2015 NAMED-NOT-READ (restated in Ribas).",
+   "read_status": "READ-VIA-RESTATEMENT"
+  },
+  {
+   "ref": "Johnston, Panic, Liu, Jankowski 2025, arXiv:2508.20291",
+   "effect": "extends",
+   "what": "Low-mass PMS stars decrease in luminosity toward the main sequence, cooling the disc and moving snow lines inward; restates Hayashi a_ice = 2.7 (L/Lsun)^(1/2) au; notes accretion luminosity can equal or exceed photospheric L early. Models 1-2.4 Msun only, not M dwarfs -- used for the scaling law and mechanism, not for Proxima numbers.",
+   "read_status": "READ (sec. 1, 2.4, 2.5, 4, 5)"
+  }
+ ],
+ "lacked_data": "In 2018 MacGregor et al. offered the sentence as background with no data of their own on it; the data it rests on (evolutionary tracks, Proxima's L, R, Teff) already existed (Baraffe 2015; Ribas 2016; Barnes 2016). What was uncertain then and still is: low-mass tracks fail to reproduce R, L, Teff of Proxima simultaneously (Ribas 4.1; Barnes 3.1, ~20% L offset, attributed to metallicity and unmodelled magnetic effects), the initial PMS radius, and accretion luminosity in the disc phase. Evidence on whether better data would move the conclusion: every one of these errors changes the magnitude, not the sign -- two independent track families (Baraffe 2015; Yonsei-Yale) both give a ~1 Gyr PMS and an HZ sweep past b at 90-200 Myr; rescaling L down to match today (Barnes) still leaves the decline; magnetic inflation would slow contraction and lengthen the PMS; accretion luminosity adds heating. Having the missing data does not change the conclusion the tree uses (L then != L now, significantly). M's hypothesis is not borne out for this result; the result is qualitative and its direction is robust to the named gaps.",
+ "grade": "STANDS",
+ "grade_evidence": "Statement READ verbatim at 1802.08257 p.1 sec. 1 and quoted exactly at formation.py:275-277. The tree's use (Proxima = late M; its PMS luminosity differed significantly from today, so a present-luminosity snow-line radius is out of epoch) is inside the source's class and is confirmed Proxima-specifically by two independent READ track computations (Ribas 2016: L(90 Myr) >= 2.28 L_now computed here from READ entry times; Barnes 2018: PMS ~1 Gyr). Rederivation passes (script above). No moved datum moves the conclusion. Recorded, not grade-moving: (a) the canonical 'measurement' kind over-represents the source -- in MacGregor it is uncomputed background with an 'e.g.' citation, so the evidential weight belongs to Ribas/Barnes; (b) 'Shkolnik et al.' vs 'Shkolnik & Barman' citation discrepancy; (c) later literature (Ribas citing Mulders 2015) says the inner-disc snow line is set by viscous heating, not the star -- this strengthens, not weakens, the refusal.",
+ "what_would_change_the_grade": "NARROWED if Proxima were shown not to be a late-M star in the PMS sense (e.g. a track family giving a short PMS with L at disc epochs within tens of percent of today) -- no such track is known here. DATA-DEPENDENT if a revised age/mass/metallicity for Proxima put the HZ-entry epoch before disc dispersal (< ~10 Myr), which would erase the READ floor of step 3. OPEN only if the source sentence could not be read; it was.",
+ "reverify_command": "python3 /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/1802.08257-pms-luminosity.py && grep -n 'pre-main sequence phases' /home/user/Claude-Method-Works/research/warp-drive/formation.py ; alphaXiv answer_pdf_queries(paper='1802.08257', queries=['sec 1 sentence on late M-type stars pre-main sequence luminosity']) and (paper='1608.06813', queries=['Table 1', 'when did Proxima b enter the HZ'])",
+ "report_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/audits/1802.08257-pms-luminosity.json"
+}

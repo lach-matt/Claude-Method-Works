@@ -1,0 +1,6 @@
+ledger rows with spec in owner column: []
+D5: ('Superluminal travel requires negative energies, with NO staticity, NO symmetry and NO sphericity, pointwise on the path travelled', 'THEOREM')
+unaskable: ('D5', 'D6', 'D12', 'D13')
+seating_invariant 1.545622441008002e+19 T_COEFF 9.505324974727696e+43
+soc 6.579736267392906 6.579736267392906
+f_sun AU 547.594928566667

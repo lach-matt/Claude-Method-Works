@@ -1,0 +1,106 @@
+{
+ "key": "sm-tree-vev-from-gf",
+ "name": "Tree-level SM relation v = (sqrt(2) G_F)^(-1/2) = 246.22 GeV (higgs.vev(); consumed by massform.py as y_f = sqrt2 m_f/v and g = 2 m_W/v)",
+ "source": {
+  "located": "The relation is the tree-level matching of the SM charged current onto Fermi theory (Weinberg 1967 / Glashow / Salam; no arXiv copy). Read in its exact modern statement: PDG 2024 Review sec.10 'Electroweak Model and Constraints on New Physics' (Erler & Freitas, rev. April 2024; PRD 110, 030001), pp.1-4, 7-9, 21 -- eq.(10.5b) 'M_W = g v/2' '(at tree level, i.e., to lowest order in perturbation theory)', p.2 'G_F/sqrt2 = 1/2v^2 = g^2/8M_W^2', 'v = 246.22 GeV', eq.(10.8) G_F = 1.1663788(6)e-5, eq.(10.22b) the on-shell Delta r = 0.03685; Buttazzo et al. arXiv:1307.3536 (JHEP 12 (2013) 089) eqs.(8)-(11),(17)-(18),(27), Tables 1-3; Martin & Robertson arXiv:1907.02500v5 (2019, rev. 2025) eqs.(1.2)-(1.3),(1.11),(4.1). Morrissey & Ramsey-Musolf arXiv:1206.2942 p.4 eq.(1) and p.21 (the massform.py citation for 'masses proportional to phi').",
+  "read_status": "READ-VIA-RESTATEMENT",
+  "via": "alphaXiv answer_pdf_queries on the PDG 2024 EW-review PDF by URL (pp.1-4,7-10,21,28-29), 1307.3536 (pp.1-14,34-36), 1907.02500 (pp.1-3,5-14,18), 1206.2942 (pp.1,4-9,13-14,20-21). Weinberg 1967 (PRL 19, 1264) and Sirlin 1980 (Delta r) are NAMED-NOT-READ; they are used only as restated by PDG 2024 and Buttazzo. The G_F measurement itself is audited separately (fermi-constant-g_f-and-tree-level-vev; pdg-g_fermi)."
+ },
+ "published_statement": "PDG 2024 sec.10 p.2: 'For mu^2 negative, phi develops a vacuum expectation value, v/sqrt2 = |mu|/lambda, where v = 246.22 GeV'; 'one obtains the EW boson masses (at tree level, i.e., to lowest order in perturbation theory) ... M_W = g v/2 = e v/(2 sin theta_W) (10.5b)'; 'For momenta small compared to M_W, this term gives rise to the effective four-fermion interaction with the Fermi constant given by G_F/sqrt2 = 1/2v^2 = g^2/8M_W^2'; the Yukawa coupling of H to psi_i is g m_i/2M_W (= m_i/v). Beyond tree level (p.8, eq.10.22b): M_W = A_0/(s_W (1-Delta r)^(1/2)), A_0 = (pi alpha/sqrt2 G_F)^(1/2) = 37.28038(1) GeV, Delta r = 0.03685. Buttazzo 1307.3536 eqs.(8)-(9): 'G_mu/sqrt2 = (1+Delta r_0)/(2 v_0^2)', 'v_OS^2 = 1/(sqrt2 G_mu), delta v_OS^2 = -Delta r_0/(sqrt2 G_mu)', Table 1 tree-level (0-loop) thresholds 'g_2 = 2M_W/V', 'y_t = sqrt2 M_t/V', 'lambda = M_h^2/2V^2' with 'V == (sqrt2 G_mu)^(-1/2)', Table 2 'V = 246.21971 +- 0.00006 GeV'. Martin-Robertson 1907.02500 sec.IV: 'The Fermi weak decay constant is closely related to the vacuum expectation value, with G_F = 1/(sqrt2 v^2) at tree-level. Including radiative corrections ... G_F = (1+Delta r)/(sqrt2 v_tree^2) = (1+Delta r~)/(sqrt2 v^2) (4.1)', and the tadpole-free MS-bar v(Q0 = 173.1 GeV) = 246.60109 GeV (eq.1.11).",
+ "published_hypotheses": [
+  "TREE LEVEL / lowest order in perturbation theory: PDG 2024 eq.(10.5) is stated 'at tree level, i.e., to lowest order in perturbation theory'; Martin-Robertson (4.1) 'G_F = 1/(sqrt2 v^2) at tree-level'",
+  "momentum transfer small compared with M_W (the four-fermion limit): PDG p.2 'For momenta small compared to M_W'; the leading correction 3m_mu^2/(5M_W^2) is a convention -- PDG footnote 3 and MuLan put it in Delta r, Buttazzo eq.(27) does not (G_mu = 1.1663781 vs 1.1663787)",
+  "minimal SM with one Higgs doublet and V-A charged current (PDG eqs.10.1-10.2; Buttazzo p.8 'the Fermi constant is defined in terms of the muon lifetime as computed in the 4-fermion V-A Fermi theory supplemented by QED')",
+  "SCHEME: beyond tree level v = (sqrt2 G_F)^(-1/2) holds exactly only as the on-shell (G_mu-scheme) DEFINITION of v, the radiative corrections Delta r being moved into counterterms (Buttazzo eq.8-9); in the tadpole-free MS-bar scheme v is a running, Landau-gauge quantity, v(173.1 GeV) = 246.60109 GeV (Martin-Robertson eq.1.11); PDG notes other input choices 'lead to equivalent fit results within theoretical uncertainties'",
+  "the derived tree couplings (g = 2M_W/V, y_t = sqrt2 M_t/V) are LO thresholds, differing from MS-bar values at mu = M_t: g_2 0.65294 (LO) vs 0.64779 (NNLO), y_t 0.99561 (LO) vs 0.93690 (Buttazzo Table 3, eq.57)",
+  "input: G_F from the muon lifetime, G_F = 1.1663788(6)e-5 GeV^-2 (PDG 2024 eq.10.8)"
+ ],
+ "hypothesis_drift": [
+  "DROPPED at the owner (higgs.py:262-264): the vev() docstring states 'v = (sqrt(2) G_F)^(-1/2), in GeV.' and higgs.py:69 'With v from the Fermi constant' without the qualifier 'tree level' / 'on-shell (G_mu-scheme) definition' that PDG 2024 eq.(10.5) and Martin-Robertson (4.1) attach. grep -n -i -E 'tree|loop|on-shell|MS-?bar|Delta r' higgs.py finds no statement of it at the vev (only line 114, on the radiatively generated mass term). The canonical entry lists 'tree-level electroweak relation (no radiative corrections)' as the hypothesis; the owner text does not carry it. Numerically the drop is 0.15% in v (MS-bar 246.60109 vs 246.21965, COMPUTED) and O(1-6%) in couplings built from it.",
+  "DROPPED at a consumer (massform.py:528, :2105-2106): alpha_W = g^2/4pi with 'g = 2 m_W/v' is Buttazzo's 0-loop threshold g_2 = 2M_W/V (Table 1), i.e. the tree-level G_mu-scheme coupling; neither the docstring ('g = 2 m_W / v, alpha_W = g^2 / 4 pi.  m_W READ; v NAMED-NOT-READ') nor massform.py:528 names it as tree-level or scheme-bound. massform's section-6 hypothesis H-TREE (massform.py:751-754, H_TREE_STATUS :1703-1705) covers m_f = y_f v/sqrt2 only, not the gauge coupling. The exponent log10 exp(-4pi/alpha_W) that massform prints (-160.95, massform.py:531) spans -160.95 .. -167.14 across five READ scheme choices (6.19 decades, COMPUTED): tree G_mu 1/29.491, alpha-hat(M_Z)/s-hat^2_Z 1/29.589, MS-bar g_2(M_t) 1/29.946 (Buttazzo) and 1/29.958 (Martin-Robertson), alpha(0)/s_W^2 on-shell 1/30.625. massform already records the sources' own spread (RS 1/29, Tye-Wong 1/30 and 1/29.7) as divergences, not as a scheme hypothesis.",
+  "NOT A DRIFT (named correctly): massform.py:208-214 and :751-754 state m_f = y_f v/sqrt2 'at tree level in unitary gauge, as the READ source states it' and that 'each Yukawa carries that scheme' (MS-bar u,d,s at 2 GeV; m_c(m_c), m_b(m_b); t direct). This matches Morrissey & Ramsey-Musolf 1206.2942 p.4 ('(in unitary gauge) the masses of the W+- and Z0 weak vector bosons and the fermions are proportional to phi') and the PDG Yukawa g m_i/2M_W. The MS-bar Yukawas at M_t are 5-6% below the tree values (y_t 0.93480 vs 0.99424, y_e 2.7930e-6 vs 2.9350e-6, Martin-Robertson reference point; COMPUTED ratios 0.9402, 0.9516); massform's qualitative use (m_f > 0 implies phi != 0; Yukawa terms carry no B or L) is scheme-independent.",
+  "STATUS DRIFT, conservative direction (not a defect): massform.py:218, :1597, :528, :890 and higgs.py:209 label G_F 'NAMED-NOT-READ'. The value is READ here at source: PDG 2024 sec.10 eq.(10.8) 'G_F = 1.1663788(6) x 10^-5 GeV^-2', identical to higgs.py:209 to every digit. Nothing is edited; the label understates what is known.",
+  "SOURCE-SIDE NOTATION NOTE (not the tree's): Morrissey & Ramsey-Musolf, which massform cites, normalise phi/sqrt2 = <H0> on p.4 (phi = 246 GeV) but write 'v(0) = 174 GeV' on p.9 eq.(20) -- the v/sqrt2 convention. massform uses the 246 GeV normalisation consistently with the p.4 and p.21 (m_t = y_t v/sqrt2) statements; recorded only so a reader does not mistake the p.9 figure for a disagreement."
+ ],
+ "data_at_publication": [
+  {
+   "quantity": "G_F (the only input to v)",
+   "value_then": "1.1663787(6)e-5 (MuLan 2013) as used by Buttazzo 2013 and Martin-Robertson 2019; 1.1663781(6)e-5 with the W-propagator term removed (Buttazzo eq.27)",
+   "value_now": "1.1663788(6)e-5 GeV^-2 (PDG 2024 sec.10 eq.10.8, READ); 1.16637859(59)e-5 (Eberhart et al. 2026, arXiv:2607.02657, as READ in the sibling audit)",
+   "source_now": "PDG 2024 Review sec.10 eq.(10.8)",
+   "moves_conclusion": "No. v = 246.219640 (tree pin), 246.219651 (MuLan), 246.219656 (2026), 246.219714 (Buttazzo's G_mu): every muon-decay G_F moves v by <= 3.0e-7 (COMPUTED). The non-muon G_F^EW / G_F^CKM (2102.02825) move v by -3.4e-4 / +3.8e-4."
+  },
+  {
+   "quantity": "v itself, by scheme",
+   "value_then": "246.21971(6) GeV on-shell (Buttazzo Table 2)",
+   "value_now": "246.22 GeV (PDG 2024 p.2, tree); 246.60109 GeV tadpole-free MS-bar at Q = 173.1 GeV, Landau gauge (Martin-Robertson eq.1.11)",
+   "source_now": "PDG 2024 sec.10 p.2; arXiv:1907.02500 eq.(1.11)",
+   "moves_conclusion": "Not a datum move but a scheme choice: v_MSbar/v_G - 1 = +1.55e-3, Delta r~ = 3.10e-3 (COMPUTED). No order-of-magnitude figure of the tree moves; any 1e-5 fixture digit on v is an on-shell-scheme digit."
+  },
+  {
+   "quantity": "m_W (enters g = 2m_W/v, alpha_W, E_sph, the instanton exponent)",
+   "value_then": "80.384(14) GeV (Buttazzo Table 2)",
+   "value_now": "capture 80.362 (captures/PDG-2026.tsv, as read by massform); PDG 2024 sec.10: 80.3692(133) without CDF, 80.3946(115) all, CDF II 80.432(16), mutually ~4 sigma; pole mass ~27.1 MeV below the Breit-Wigner value (Martin-Robertson eq.1.9)",
+   "source_now": "PDG 2024 sec.10 eqs.(10.61)-(10.62); arXiv:1907.02500 eq.(1.9)",
+   "moves_conclusion": "No. The contested CDF value moves the exponent from -160.949 to -160.669 (+0.28 decade); BW->pole moves it by -0.11 (COMPUTED). The CDF/other tension is real (contested) but its effect here is < 0.3 decade of 161."
+  },
+  {
+   "quantity": "m_t (enters y_t = sqrt2 m_t/v)",
+   "value_then": "173.34(76)(30) GeV (Buttazzo); 173.1 (Martin-Robertson)",
+   "value_now": "capture 172.6; PDG 2024 listings 172.57(29); PDG 2024 EW combination 172.61(25) + Delta m_MC 0(52)",
+   "source_now": "PDG 2024 sec.10 eq.(10.21)",
+   "moves_conclusion": "No. y_t(tree) = 0.99119..0.99142 (COMPUTED) -- the printed 0.9914 is stable to its last digit within 0.02%; the scheme gap to MS-bar (-6%) is larger than any datum move."
+  },
+  {
+   "quantity": "alpha_W = g^2/4pi (the one consumer that amplifies the tree-level choice)",
+   "value_then": "alpha_W ~ 1/29 (Rubakov-Shaposhnikov eq.2.8), ~1/30 and ~1/29.7 (Tye-Wong), as recorded in massform.py:1081-1099",
+   "value_now": "tree G_mu 1/29.491 (massform); MS-bar g_2(M_t) 1/29.946 (Buttazzo NNLO) and 1/29.958 (Martin-Robertson); alpha-hat(M_Z)/s-hat^2_Z = 1/29.589; alpha(0)/s_W^2 = 1/30.625 (PDG 2024 inputs)",
+   "source_now": "arXiv:1307.3536 Table 3; arXiv:1907.02500 eq.(1.11); PDG 2024 sec.10 eq.(10.11), p.4, Table 10.2",
+   "moves_conclusion": "Moves massform's printed exponent -160.95 by up to -6.19 decades and the 'attempts x prefactor must reach 10^189.10' figure to up to 10^195.28 (COMPUTED). Does not move the conclusion ('unobservably small', and 'NO RATE IS PRINTED' because no prefactor was read); the exponent's last two digits are a scheme choice, not a measurement."
+  }
+ ],
+ "rederivation": {
+  "method": "sympy",
+  "script_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/sm-tree-vev-from-gf.py",
+  "outcome": "0 FAIL, exit 0 (output in rederive/sm-tree-vev-from-gf.out). (A) sympy: PDG's tree relations G_F/sqrt2 = g^2/(8M_W^2) with M_W = gv/2 give G_F = 1/(sqrt2 v^2) identically, g cancels, the unique positive root is v = (sqrt2 G_F)^(-1/2); Buttazzo eq.(18) g_2 = 2(sqrt2 G)^(1/2) M_W == 2M_W/v and y_t = 2(G/sqrt2 M_t^2)^(1/2) == sqrt2 M_t/v identically -- i.e. massform's alpha_w() and yukawa() ARE the 0-loop thresholds. (B) v(1.1663788e-5) = 246.219640, fixture 246.2196 at 1.6e-7, PDG '246.22' reproduced; Buttazzo's printed V = 246.21971 is reproduced from Buttazzo's own propagator-stripped G_mu 1.1663781 (246.219714), not from the MuLan value his Table 2 cites (246.219651) -- recorded, 6e-8 apart, moves nothing. (C) PDG A_0 = 37.280377 reproduced; with PDG's s_W^2 = 0.22348 and Delta r = 0.03685, M_W = 80.3552 (PDG fit inputs self-consistent to 14 MeV); with Delta r = 0 (pure tree) M_W = 78.861, 1.9% low: the dropped radiative correction is O(%) on the alpha-based route and is absorbed by definition on the G_F route. Martin-Robertson MS-bar v gives Delta r~ = 3.10e-3. (D) massform's printed y_t 0.9914, y_e 2.935e-6, 1/alpha_W 29.49, exponent -160.95 and 10^189.10 all reproduced from the tree's own capture values. (E) Buttazzo LO y_t 0.99561 reproduced exactly; LO g_2 0.652945 vs printed 0.65294 (rounding). Scheme spread of the instanton exponent: 6.19 decades. (F) every READ m_W moves the exponent < 0.3 decade.",
+  "agrees_with_source": "yes"
+ },
+ "later_literature": [
+  {
+   "ref": "Martin & Robertson, 'Standard Model parameters in the tadpole-free pure MS-bar scheme', arXiv:1907.02500 (v5, 2025)",
+   "effect": "narrows",
+   "what": "'G_F = 1/(sqrt2 v^2) at tree-level. Including radiative corrections ... G_F = (1+Delta r~)/(sqrt2 v^2)' with the full 2-loop Delta r~; the MS-bar Landau-gauge vev at 173.1 GeV is 246.60109 GeV, 0.155% above (sqrt2 G_F)^(-1/2); MS-bar Yukawas and g_2 at that scale (y_t 0.93480, y_e 2.793e-6, g_2 0.64766). Confirms the relation as the tree-level/on-shell statement and sizes what it omits.",
+   "read_status": "READ (pp.1-3, 5-14, 18 via alphaXiv; numbers reproduced in the rederive script)"
+  },
+  {
+   "ref": "Buttazzo, Degrassi, Giardino, Giudice, Sala, Salvio, Strumia, arXiv:1307.3536 (JHEP 12 (2013) 089)",
+   "effect": "narrows",
+   "what": "V == (sqrt2 G_mu)^(-1/2) is the on-shell definition (eq.8-9); tree thresholds g_2 = 2M_W/V, y_t = sqrt2 M_t/V (Table 1) against NNLO MS-bar values at M_t (Table 3, eq.57): y_t -5.9%, g_2 -0.8%.",
+   "read_status": "READ (pp.1-14, 34-36 via alphaXiv)"
+  },
+  {
+   "ref": "Particle Data Group 2024, sec.10 Electroweak Model (Erler & Freitas), PRD 110, 030001",
+   "effect": "confirms",
+   "what": "v = 246.22 GeV, G_F/sqrt2 = 1/2v^2 = g^2/8M_W^2 'at tree level'; G_F = 1.1663788(6)e-5; on-shell Delta r = 0.03685; M_W world averages with the CDF II tension.",
+   "read_status": "READ (pp.1-4, 7-10, 21, 28-29 via alphaXiv URL fetch)"
+  },
+  {
+   "ref": "S. P. Martin, 'Three-loop corrections to the Fermi decay constant in the MS-bar scheme', arXiv:2507.15946 (2025)",
+   "effect": "extends",
+   "what": "Leading 3-loop contributions to G_F in the tadpole-free MS-bar scheme (abstract only): extends the G_F <-> v relation beyond the 2-loop Delta r~ used above.",
+   "read_status": "NAMED-NOT-READ (discover_papers abstract only)"
+  },
+  {
+   "ref": "'Vacuum expectation value renormalization in the Standard Model and beyond', arXiv:2010.15076 (Vilnius / KIT); arXiv:2203.07236, GIVS (Freiburg / Tuebingen) -- author names not read",
+   "effect": "narrows",
+   "what": "The vev counterterm fixed by a tadpole condition carries gauge dependence into parameter definitions; gauge-invariant vev schemes proposed (abstracts only). Supports that v beyond tree level is a scheme-bound, not an observable, quantity.",
+   "read_status": "NAMED-NOT-READ (discover_papers abstracts only)"
+  }
+ ],
+ "lacked_data": "M's hypothesis tested for this result. The relation v = (sqrt2 G_F)^(-1/2) is a tree-level identity of the SM Lagrangian (sympy A1-A3); it rests on no datum except G_F. What earlier users lacked: (i) the post-2013 G_F refinements (CODATA 2018/2022 muon mass, exact hbar, O(alpha^3) QED and hadronic terms; Eberhart 2026) -- having them moves v by <= 9e-8 (COMPUTED); (ii) complete loop relations between G_F and a Lagrangian vev -- now available (full 2-loop Delta r~, Martin-Robertson 2019; leading 3-loop, Martin 2025) and they show the MS-bar vev is 0.155% larger, which is a statement about which vev is meant, not a correction of the tree identity; (iii) a resolved M_W -- still lacking: CDF II vs the rest is ~4 sigma (PDG 2024), but it moves the only amplifying consumer (the instanton exponent) by 0.28 decade. Evidence AGAINST M's hypothesis for this result: none of the data that arrived later changes any conclusion the tree draws from v. What does change the tree's digits is not missing data but a missing hypothesis name: the choice of tree-level G_mu-scheme couplings (g = 2M_W/v) sets the instanton exponent to -160.95 where the other READ schemes give down to -167.14; that information was available (PDG, Buttazzo 2013) when the tree was written.",
+ "grade": "NARROWED",
+ "grade_evidence": "The statement STANDS as a tree-level identity: sympy re-derives v = (sqrt2 G_F)^(-1/2) from PDG 2024's own tree relations with g cancelling, the tree's value 246.219640 GeV reproduces PDG's '246.22' and Buttazzo's 246.21971 (from his own G_mu), and no READ muon-decay G_F moves v by more than 3e-7. It is narrowed by hypotheses the owners drop, sized from READ numbers: (1) higgs.py:262-264 gives the relation without 'tree level' or 'on-shell definition', which PDG eq.(10.5) and Martin-Robertson eq.(4.1) attach; the MS-bar vev differs by 0.155%. (2) massform.py:528 and :2105-2106 build alpha_W from g = 2m_W/v -- the 0-loop G_mu-scheme threshold (Buttazzo Table 1) -- without naming the scheme; across five READ schemes the printed exponent -160.95 spans 6.19 decades (to -167.14) and the '10^189.10' requirement becomes up to 10^195.28. massform names H-TREE correctly for the Yukawas (massform.py:751-754) and its qualitative Yukawa conclusions do not depend on the scheme. Not WRONG: nothing is refuted, the tree-level formulae are exact at tree level, and no order-of-magnitude conclusion moves (the instanton route stays 'no rate printed', unobservably small). Not DATA-DEPENDENT: the one contested datum (M_W, CDF II) moves the most sensitive consumer by 0.28 decade.",
+ "what_would_change_the_grade": "To STANDS: higgs.py names v as the tree-level (on-shell, G_mu-scheme) vev at vev(), and massform names alpha_W = (2m_W/v)^2/4pi as the tree-level G_mu-scheme coupling (or carries the 6.19-decade scheme spread on the exponent), and the G_F status reads READ (PDG 2024 eq.10.8). To DATA-DEPENDENT: an independent G_F at muon-decay precision that contradicts G_mu at 1e-3 AND a tree conclusion that turns on v at that level (none found), or an M_W resolution that moved a conclusion (the full CDF shift moves the exponent 0.28 decade). To WRONG: only a computed contradiction of the tree identity at tree level, which sympy A1-A5 exclude.",
+ "reverify_command": "python3 /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/sm-tree-vev-from-gf.py",
+ "report_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/audits/sm-tree-vev-from-gf.json"
+}

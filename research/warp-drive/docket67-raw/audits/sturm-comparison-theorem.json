@@ -1,0 +1,96 @@
+{
+ "key": "sturm-comparison-theorem",
+ "name": "Sturm comparison / oscillation theorem for the Jacobi equation (sufficient focusing: q >= m > 0 on a contiguous length l >= pi/sqrt(m) forces a zero; threshold T_kk >= pi c^4/(4 G l^2) = seatindex.T_COEFF/l^2)",
+ "source": {
+  "located": "C. Sturm, 'Memoire sur les equations differentielles lineaires du second ordre', J. Math. Pures Appl. 1 (1836) 106-186 (classic, no arXiv copy). Intended restatement: B. Simon, 'Sturm oscillation and comparison theorems', arXiv:math/0311049 (in Sturm-Liouville Theory: Past and Present, Birkhauser 2005).",
+  "read_status": "NAMED-NOT-READ",
+  "via": "NOT READ in this run: every alphaXiv call (answer_pdf_queries x2, get_paper_content, discover_papers) returned 'alphaXiv assistant quota exceeded'; arxiv.org, www.alphaxiv.org and en.wikipedia.org are refused by the egress proxy (EGRESS_BLOCKED / CONNECT 403); no restatement exists in the d67 src/ cache (grep for sturm|riccati|comparison over 62 cached sources: none relevant). The published wording is therefore NOT quoted. The statement below is the standard modern form, and the tree's version of it was instead RE-DERIVED here in full (Wronskian proof, symbolic) -- a computation, not a reading."
+ },
+ "published_statement": "NOT QUOTED (source unreadable here). Standard modern form, re-derived symbolically in rederive/sturm-comparison-theorem.py [1]: if u'' + q u = 0 and v'' + m v = 0 on [a,b] with q >= m (a.e.), and v has consecutive zeros at a and b (b - a = pi/sqrt(m) for constant m > 0), then every non-trivial u has a zero in the CLOSED interval [a,b]; a zero only at an endpoint requires q = m a.e. on [a,b] and u a multiple of v. Proof: W = u'v - uv' has W' = (m - q) u v <= 0 if u > 0 on (a,b), while W(a) = -sqrt(m) u(a) <= 0 and W(b) = +sqrt(m) u(b) >= 0.",
+ "published_hypotheses": [
+  "(S1) scalar, linear, second-order equation u'' + q u = 0 (self-adjoint form; general (p u')' + q u = 0 with p > 0 in the Sturm-Picone form)",
+  "(S2) q real, at least piecewise continuous / L^1_loc (Sturm 1836 assumed continuity; the L^1_loc extension via Caratheodory solutions and the Pruefer-angle proof is later -- stated here from the re-derivation, not read)",
+  "(S3) comparison q >= m pointwise (a.e.) on the whole interval [a, a + pi/sqrt(m)] -- a contiguous interval",
+  "(S4) conclusion: a zero in the CLOSED interval; strictly inside unless q = m a.e. and u is proportional to the comparison solution",
+  "(S5) SUFFICIENT only: nothing in the theorem says a zero requires q >= m (necessity is Lyapunov's separate inequality)"
+ ],
+ "hypothesis_drift": [
+  "WORDING 'inside' vs CLOSED interval -- seatindex.py:23 'every solution has a zero inside that stretch', :32 'the zero occurs INSIDE the focusing stretch', spec.py:103-104. The theorem gives the closed interval; the endpoint case is realised (re-derivation [4]: q = m = 4, u(a) = 0 -> zero at 1.570797 vs pi/2 = 1.570796). For the tree's actual seating setup (source strictly before the stretch, outside q <= 0) the entry Pruefer angle lies in (0, pi/2) and the zero is strictly inside, so no tree verdict moves. Discrepancy of wording, not an error.",
+  "SUFFICIENT READ AS NECESSARY -- specthm.py:1341-1343 (SR2) 'For a uniform BALL of radius l, seating needs u >= pi c^4/(4 G l^2)' and spec.py:39-40 'Seating needs u >= pi c^4/(4 G l^2)'. Sturm gives no 'needs'. Re-derivation [5]: m l^2 = 0.5 pi^2, u(0)=0, approach 0.02, benign outside -> seats at 0.9906 (after the stretch ends at 0.6613). The tree itself knows this (seatindex.py:34-38 sub-Sturm slabs seat from favourable approaches; SR2's own 'Cumulative weak-field lensing meets it'), so the defensible reading is 'Sturm-UNIVERSAL seating needs', which is how spec.py:39 heads it ('ANY STURM-SEATING REGION') and specthm.py:1626 names S-2 ('Sturm-universal seating'). SR2's statement text drops the qualifier.",
+  "STRETCH LENGTH = RADIUS -- specthm.py:1341-1343, spec.py:39-45 ('u_seat/u_collapse = 2 pi^2/3 = 6.579 CONSTANT AT EVERY SCALE'). A ball of radius l contains contiguous chords up to 2l; with the diametric chord the Sturm-sufficient threshold is 4x lower and the ratio is pi^2/6 = 1.645 (re-derivation [3]). The constant 6.579 is specific to the choice stretch = radius; the CONCLUSION (a Sturm-certified ball exceeds the collapse density) survives, since 1.645 > 1.",
+  "T_kk IDENTIFIED WITH u -- specthm.py:1341 ('u >= pi c^4/(4 G l^2)'), spec.py:152-156 (seating_invariant uses u = B^2/2mu_0), spec.py:274-304 (magnetar u against tkk_required). Sturm's q = 4 pi G T_kk/c^4 needs T_kk = T_ab k^a k^b, which equals u only for pressureless matter along the ray. For a pure magnetic field T_kk = 0 along B and 2u across it (re-derivation [7]); B*l would be 1.0929e19 T m (across) or no finite value (along), not 1.5456e19. spec.py WITHDRAWN 1 already withdraws the invariant as a specification, and the magnetar shortfall is 25 orders, so no verdict moves; recorded as a discrepancy in the withdrawn text.",
+  "D = 4 IMPLICIT -- seatindex.py:127-131 (T_COEFF = pi c^4/(4G)). The 1/2 in q = (1/2) R_kk is 1/(D-2); in D dimensions the threshold is pi c^4 (D-2)/(8 G l^2) (re-derivation [2]). Correct for the tree's 4D spacetime; named here so it is not silent.",
+  "SHEAR / WEYL: 'Sturm SUFFICIENCY survives unharmed' (seatindex.py:48-49) -- CONFIRMED, not a drift: sigma^2 enters with the focusing sign (U'' = -(R_kk + sigma^2) U/(D-2), [2]), and a 2x2 Jacobi system with Ricci part q >= m plus arbitrary traceless Weyl part reached det J = 0 within pi/sqrt(m) in 200/200 random trials ([6]). Vorticity, which would defocus, vanishes for a congruence from a point (hypothesis H_omega0, automatic for conjugate points to a source).",
+  "WEAK-FIELD LENGTH -- specthm.py:1341-1347 / spec.py:39-45: the stretch length l is taken as the flat-space radius while the conclusion places the region at 6.58x (or 1.645x) its collapse density, where affine length along the chord and coordinate radius are not interchangeable. m l^2 is affine-rescaling invariant ([2]), but its identification with the flat radius is a weak-field hypothesis (named here H_weak) that the conclusion itself leaves. The reductio ('the Sturm route describes a black hole') is therefore a statement about the flat-space estimate's self-inconsistency, which is how spec.py uses it."
+ ],
+ "data_at_publication": [
+  {
+   "quantity": "Sturm's theorem itself",
+   "value_then": "no numerical input (1836 pure analysis)",
+   "value_now": "no numerical input",
+   "source_now": "re-derived symbolically here (rederive [1])",
+   "moves_conclusion": "no -- a theorem about ODEs carries no datum"
+  },
+  {
+   "quantity": "G (enters T_COEFF only)",
+   "value_then": "tree: 6.67430e-11 m^3 kg^-1 s^-2 (seatindex.py:129, CODATA 2018)",
+   "value_now": "6.67430(15)e-11 per CODATA 2022 -- RECALLED, NOT READ here (arXiv/NIST unreachable)",
+   "source_now": "CODATA 2022 (not read)",
+   "moves_conclusion": "no: T_COEFF moves proportionally (u_r 2.2e-5); the SR2 ratio 2 pi^2/3 is dimensionless and G-independent (rederive [3])"
+  },
+  {
+   "quantity": "c",
+   "value_then": "299792458 m/s (seatindex.py:128)",
+   "value_now": "299792458 m/s exact (SI definition)",
+   "source_now": "SI definition",
+   "moves_conclusion": "no"
+  },
+  {
+   "quantity": "T_COEFF = pi c^4/(4G)",
+   "value_then": "9.50536e43 Pa m^2 (seatindex.py:369 selftest)",
+   "value_now": "9.505325e43 computed",
+   "source_now": "rederive [3]",
+   "moves_conclusion": "no (agrees to 4e-6)"
+  },
+  {
+   "quantity": "MU0",
+   "value_then": "1.25663706212e-6 (CODATA 2018)",
+   "value_now": "~1.25663706127e-6 per CODATA 2022 -- RECALLED, NOT READ",
+   "source_now": "CODATA 2022 (not read)",
+   "moves_conclusion": "no: 7e-10 relative on a withdrawn invariant"
+  },
+  {
+   "quantity": "B*l invariant",
+   "value_then": "1.5456e19 T m (spec.py:36, 287) with T_kk := B^2/2mu_0",
+   "value_now": "1.5456e19 reproduced; 1.0929e19 if T_kk = B^2/mu_0 (ray across B); none along B",
+   "source_now": "rederive [7]",
+   "moves_conclusion": "no verdict: already WITHDRAWN; magnetar shortfall of 25 orders unaffected by sqrt 2"
+  }
+ ],
+ "rederivation": {
+  "method": "sympy",
+  "script_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/sturm-comparison-theorem.py",
+  "outcome": "ALL CHECKS AGREE (exit 0, ~2 min). [1] Wronskian proof symbolic: W' = (m - q) u v, W(a) = -sqrt(m) u(a), W(b) = +sqrt(m) u(b) -> zero in CLOSED [a, a+pi/sqrt m]. [2] Raychaudhuri -> U'' = -(R_kk + sigma^2) U/(D-2); D=4: q = 4 pi G T_kk/c^4; m l^2 = pi^2 <=> T_kk = pi c^4/(4 G l^2) exactly; m l^2 invariant under affine rescaling. [3] T_COEFF = 9.505325e43 (tree 9.50536e43); u_seat/u_collapse = 2 pi^2/3 = 6.5797 with stretch = radius, pi^2/6 = 1.6449 with the diameter. [4] RK4, seed 67: 0/400 failures for u(0)=0, non-constant q >= m, L in [1, 1.3] pi/sqrt m, outside q in {0,-5,-20,-100}; 0/400 for random initial phase; equality case zero at the endpoint (1.570797 vs 1.570796). [5] sub-Sturm slab (m l^2 = 0.5 pi^2) seats -> Sturm not necessary. [6] 2x2 Jacobi with Ricci >= m plus random Weyl: 0/200 failures. [7] magnetic T_kk = 0 along B, 2u across.",
+  "agrees_with_source": "partly"
+ },
+ "later_literature": [
+  {
+   "ref": "B. Simon, arXiv:math/0311049 (2005), 'Sturm oscillation and comparison theorems'",
+   "effect": "confirms",
+   "what": "Named as the intended modern restatement of Sturm 1836; its content is NOT verified here.",
+   "read_status": "NAMED-NOT-READ (alphaXiv quota; arxiv.org egress-blocked); discover_papers NOT RUN this pass (alphaXiv quota exceeded), so no later-literature search was performed"
+  },
+  {
+   "ref": "C.J. Fewster & E.-A. Kontou, arXiv:1907.13604 (2020), singularity theorems with weakened energy hypotheses via index-form/Riccati comparison",
+   "effect": "extends",
+   "what": "Named as work replacing pointwise q >= m by averaged/quantum-inequality hypotheses for conjugate points; content NOT verified here.",
+   "read_status": "NAMED-NOT-READ; discover_papers NOT RUN this pass (alphaXiv quota exceeded), so no later-literature search was performed"
+  }
+ ],
+ "lacked_data": "Sturm (1836) used no data: the result is a theorem about linear ODEs, and M's hypothesis ('previous physicists may have lacked certain data') has nothing to act on in the theorem itself -- re-derived here with no input but q >= m. What 1836 lacked was mathematical, not empirical: the Lebesgue integral (q only L^1_loc, as in the tree's piecewise-constant slabs) and matrix systems (the physical Jacobi equation is 2x2 with Weyl). Both extensions are checked here: the Wronskian proof needs only absolute continuity, the RK4 tests use discontinuous slabs (0/400 failures), and the 2x2 Weyl case holds (0/200). Evidence the other way: none found. Where data DOES enter is the tree's side -- T_kk for real matter -- and there the tree fed u for T_kk (drift 4); correcting it moves the withdrawn B*l invariant by 1/sqrt 2 (across) or to infinity (along B) and moves no verdict.",
+ "grade": "NARROWED",
+ "grade_evidence": "The THEOREM as seatindex.py:22-24 states it (sufficient, contiguous q >= m over l >= pi/sqrt m) is re-derived here symbolically and numerically and stands, including 'sufficiency survives shear' (seatindex.py:48-49) and the Weyl case; T_COEFF = pi c^4/(4G) follows exactly in D = 4. The grade is NARROWED, not STANDS, because two uses carry more than the theorem gives: (i) specthm.py:1342 (SR2) and spec.py:39-40 write 'seating NEEDS u >= pi c^4/(4 G l^2)' -- the theorem is sufficient only, shown by a seating sub-Sturm slab ([5]); the correct scope is 'Sturm-universal seating', which spec.py:39 and specthm.py:1626 use; (ii) the threshold is fed energy density u where the theorem needs T_kk (spec.py:152-156, 274-304; specthm.py:1341), exact only for pressureless matter along the ray. Minor: 'inside' should read 'in the closed stretch' (seatindex.py:23, 32); the SR2 constant 2 pi^2/3 is specific to stretch = radius (diameter gives pi^2/6 = 1.645, conclusion unchanged); D = 4 and weak-field identification of l are implicit. No verdict of the tree is overturned: every drift is a scope/wording discrepancy, recorded, not repaired. Source NOT read (tooling refused): the grade rests on computation, not on the 1836 text.",
+ "what_would_change_the_grade": "To STANDS: SR2/spec text scoped to 'Sturm-universal seating needs', threshold stated for T_kk (with T_kk = u named as a dust/pressure-free hypothesis), 'closed stretch' wording -- all tree-side. To WRONG: a solution of u'' + q u = 0 with q >= m on [a, a+pi/sqrt m] and no zero in the closed interval -- excluded by the Wronskian proof in [1]. Source status would upgrade from NAMED-NOT-READ on reading arXiv:math/0311049 (or Sturm 1836) once alphaXiv quota or arxiv.org egress is available; that reading could reveal a hypothesis wording difference but cannot move the mathematics re-derived here.",
+ "reverify_command": "python3 /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/sturm-comparison-theorem.py   # exit 0 = all 7 sections agree; ~2 min",
+ "report_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/audits/sturm-comparison-theorem.json"
+}

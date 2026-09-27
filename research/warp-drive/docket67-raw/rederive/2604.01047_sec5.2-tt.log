@@ -1,0 +1,53 @@
+PASS J(0) integral = 1/(96 pi^2)
+PASS J closed (4.17) = integral at g = -1
+PASS J closed (4.17) = integral at g = -100
+PASS J closed (4.17) = integral at g = -1e+06
+PASS J closed (4.17) = integral at g = -1e+40
+PASS J closed (4.17) = integral at g = -1e+120
+PASS T1 F_TT(0) = 0 identically (b_0 = 0): gamma = 0 always a root
+PASS T1 F_TT = gamma * G with G = (4-g)^2 J - b_1 - b_2 g
+PASS T2 G(0) = 1/(6 pi^2) - 60/kappa
+PASS T2 G(0) < 0 iff kappa m^2 < 360 pi^2 (the only sign change)
+PASS T3 sympy: d/dg[(4-g)^2/(M-g)] = (4-g)(4+g-2M)/(M-g)^2
+PASS T3 vacuity guard: {M >= 4, g < 0} satisfiable
+PASS T3 z3: M >= 4, g < 0 => d/dg integrand < 0 (negation unsat)
+PASS T3 z3 (stronger): the sign holds for every g < 4 = 4m^2, not only g < 0 (negation unsat)
+PASS T3 control: without the threshold M >= 4 (rho's support) the sign can fail (sat)
+PASS T3 numeric: (4-g)^2 J(g) strictly increasing as g -> -inf
+PASS T4 asymptotic: (4-g)^2 J(g) / (|g| ln|g| /(16 pi^2)) -> 1 (ratio at |g| = 1e40 within 5%)
+   eps = kappa m^2 = 1.048e-59 ; b_1 = 60/eps = 5.723e+60 m^2
+PASS T2 at GMMPS's eps, G(0) < 0
+   b_2 = 0      : gamma_0 = -6.54778e+60 m^2   gamma_0/(-b_1/b_2) = n/a (J-dropped has no root)   in (-4,0): False
+PASS T4 b_2 = 0: exactly one sign change of G on a log grid of g < 0
+   b_2 = 1      : gamma_0 = -3.06184e+60 m^2   gamma_0/(-b_1/b_2) = 0.53496003   in (-4,0): False
+PASS T4 b_2 = 1: exactly one sign change of G on a log grid of g < 0
+   b_2 = 10     : gamma_0 = -5.27114e+59 m^2   gamma_0/(-b_1/b_2) = 0.92096658   in (-4,0): False
+PASS T4 b_2 = 10: exactly one sign change of G on a log grid of g < 0
+   b_2 = 1000   : gamma_0 = -5.71875e+57 m^2   gamma_0/(-b_1/b_2) = 0.99917118   in (-4,0): False
+PASS T4 b_2 = 1000: exactly one sign change of G on a log grid of g < 0
+   b_2 = 1e+10  : gamma_0 = -5.72349e+50 m^2   gamma_0/(-b_1/b_2) = 1.0   in (-4,0): False
+PASS T4 b_2 = 1e+10: exactly one sign change of G on a log grid of g < 0
+   b_2 = 1e+30  : gamma_0 = -5.72349e+30 m^2   gamma_0/(-b_1/b_2) = 1.0   in (-4,0): False
+PASS T4 b_2 = 1e+30: exactly one sign change of G on a log grid of g < 0
+   b_2 = 1e+60  : gamma_0 = -5.72349 m^2   gamma_0/(-b_1/b_2) = 1.0   in (-4,0): False
+PASS T4 b_2 = 1e+60: exactly one sign change of G on a log grid of g < 0
+   b_2 = 1e+100 : gamma_0 = -5.72349e-40 m^2   gamma_0/(-b_1/b_2) = 1.0   in (-4,0): True
+PASS T4 b_2 = 1e+100: exactly one sign change of G on a log grid of g < 0
+PASS T5 |gamma_0| strictly decreasing in b_2 (J kept)
+PASS T5 gamma_0 -> 0-: |gamma_0| at b_2 = 1e100 < 1e-38 m^2
+PASS T5 large b_2: gamma_0 / (-b_1/b_2) -> 1 (within 1e-30 at b_2 = 1e100)
+PASS T5 sympy: d gamma_0/d b_2 = gamma_0/G'(gamma_0) > 0
+   b_2 = -0.05 : J-kept sign change(s) of G at |g| ~ 10^[60] m^2 (M_P^2 = 10^58.98 m^2); J-dropped: -b_1/b_2 = 1.14e+62 > 0 (no negative zero)
+PASS T6 b_2 = -0.05: J-kept G has a negative zero (odd # sign changes), beyond M_P^2
+   b_2 = -0.2 : J-kept sign change(s) of G at |g| ~ 10^[60] m^2 (M_P^2 = 10^58.98 m^2); J-dropped: -b_1/b_2 = 2.86e+61 > 0 (no negative zero)
+PASS T6 b_2 = -0.2: J-kept G has a negative zero (odd # sign changes), beyond M_P^2
+PASS T7 b_2 = 1: |gamma_0| Planckian (between 1 and 100 x M_P^2, reduced M_P, m = 1 units)
+PASS T7 b_2 = 1: J NOT negligible -- J-dropped -b_1/b_2 overstates |gamma_0| by > x1.5
+   b_2 = 1: gamma_0/(-b_1) = 0.53496 ; |gamma_0| eps = 32.098 (units of M_P^2)
+   gamma_0 in (-4 m^2, 0) iff b_2 > (b_1 - 64 J(-4))/4 = 1.43087e+60 ( = 15.0 / eps )
+PASS T7 edge b_2 = (b_1 - 64 J(-4))/4 ~ 15/eps
+PASS T7 b_2 = O(1) (0..1e3) roots OUTSIDE (-4 m^2, 0); b_2 = 1e100 root INSIDE
+PASS T7 at the edge the zero sits at -4 (G(-4) = 0 up to rounding)
+PASS T8 tree's TT bracket: exact zero inside (2 g*, g*/2)
+   b_2 = 1e100: g* = -5.7234909e-40, exact gamma_0 = -5.7234909e-40
+ALL PASS

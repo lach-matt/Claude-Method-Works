@@ -1,0 +1,31 @@
+C1 exact rho reproduces KF (3.18)                                              True
+C2 exact <:T00^2:> != KF (3.19) (generic point)                                True
+C3a rho on slice == 2K(2s^2-(1-e^-2r)/2)                                       True
+C3b <:T^2:> on slice == 4K^2(m^4+6m^2g+3g^2)                                   True
+C3c on curve rho == -K(1-e^-2r)/2                                              True
+C3d on curve <:T00^2:> - rho^2 == 0 identically in r                           True
+C3e on curve <:T00^2:> > 0 (Delta well defined)                                True
+C3f witness r=1, s                                                             0.32876
+C3g witness rho/K                                                              -0.432332
+C4 Fock: norm, tail weight                                                     (1.0, 1.9741607998494571e-25)
+C4 Fock: rho/K                                                                 -0.4323323584
+C4 Fock: <:T^2:>/K^2                                                           0.1869112681
+C4 Fock: Delta                                                                 4.45487999153746e-16
+C5 KF(3.19) at witness /K^2                                                    77.384775
+C5 Delta from KF (3.18)+(3.19) at witness                                      0.997585
+C5 exact Delta at witness                                                      0
+C6a z3: rho<0 AND Delta<1/10 SAT                                               sat
+C6b z3: rho<0 AND Delta=0 SAT                                                  sat
+C6b model                                                                      ('1', '-2')
+C6c z3: m=0 => Delta=2/3 (UNSAT of negation)                                   unsat
+C6d Delta<1/10 on rho<0 exactly for t in                                       (1.9780192938436516, 2.028991510855053)
+C6e Delta<1/3 on rho<0 exactly for t in                                        (1.9428090415820634, 2.1547005383792515)
+C6f <:T00^2:> < 0 on rho<0 for t in (1, 1+sqrt(2/3))                           1.816496580927726
+C7 box r in (0,2], s in (0,1]: fraction of rho<0 cells with Delta<0.1          0.008985532408355267
+C7 ... with Delta<1/3                                                          0.03623858996260669
+C7 ... with Delta>1 (incl. <:T^2:><0)                                          0.2738310700252401
+C8a vac+2: rho<0 => 1/3<Delta<1 (UNSAT of negation)                            unsat
+C8a vacuity guard SAT                                                          sat
+C8b squeezed vacuum Delta                                                      2/3 (C6c)
+C8c Casimir Delta = 6/7 from Delta'=(1/8)[...] with xi=(-1,-1,3)               6/7
+ALL CHECKS AS REPORTED: True

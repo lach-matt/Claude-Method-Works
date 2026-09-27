@@ -1,0 +1,40 @@
+PASS C1a u = e^{-Phi} d_t is unit timelike
+PASS C1b static: g_0i = 0, so the rest space of u is the t = const slice
+PASS C1c proper length on the slice = e^{-Phi} dl
+PASS C1d null ray: coordinate time dt = e^{-2Phi} dl  -- [-dl*exp(-2*Phi(x, y, z)), dl*exp(-2*Phi(x, y, z))]
+PASS C2a savings ratio integrand = 1 + e^{-Phi} exactly
+PASS C2b series 2 - Phi + Phi^2/2: ratio = 2 only to first order  -- phi**2/2 - phi + 2
+PASS C2c ratio = 2 iff Phi = 0 (1 + e^{-Phi} = 2 <=> Phi = 0)
+PASS C2d tree's phase1.exponent_ratio() = 1.9940 (< 2, Phi > 0)  -- 1.994007
+PASS C2e tree's unified ratio at m = -8e-2 = 2.0229 (> 2, Phi < 0)  -- 2.022848
+     effective Phi: 6.0114e-03 (m=2e-2), -2.2590e-02 (m=-8e-2); first-order departure of the ratio from 2 is -Phi, as C2b says
+PASS C3a g00 matches PPN with beta = 1  -- -2*U**2 + 2*U - 1
+PASS C3b g_ij matches PPN with gamma = 1 at O(U)  -- 2*U**2 + 2*U + 1
+PASS C3c Schwarzschild isotropic g00 = ansatz g00 through O(U^2)  -- -2*U**2 + 2*U - 1
+PASS C3d Schwarzschild isotropic g_ij U^2 coefficient 3/2 vs ansatz 2 (differ at O(U^2), beyond PPN order)
+PASS C3e isotropic Schwarzschild is Ricci-flat (so C3d compares against an exact vacuum solution)
+PASS C4a G_0i = 0 identically for static Phi
+PASS C4b G_tt = e^{4Phi}(2 lap Phi - |grad Phi|^2)
+PASS C4c G_xx = |grad Phi|^2 - 2 Phi_x^2 (no second derivatives: purely quadratic)  -- -Derivative(Phi(x, y, z), x)**2 + Derivative(Phi(x, y, z), y)**2 + Derivative(Phi(x, y, z), z)**2
+PASS C4d G_xy = -2 Phi_x Phi_y
+     so a harmonic Phi (vacuum Newtonian potential) leaves G_tt = -e^{4Phi}|grad Phi|^2 != 0 and G_ij != 0: the single-Phi ansatz is GR-vacuum only to first order; its stresses are O(Phi^2) -- second order, which is the Newtonian-limit ordering.
+     gamma = 0.999998 -> light/proper saving ratio (1+gamma)/gamma = 2.0000020
+     gamma = 1.000021 -> light/proper saving ratio (1+gamma)/gamma = 1.9999790
+     gamma = 1.000044 -> light/proper saving ratio (1+gamma)/gamma = 1.9999560
+PASS C5 Cassini 1-sigma band moves the ratio by < 5e-5, 100x inside the tree's rtol 5e-3
+PASS C6a full-crossing closed form = quadrature  -- exact 9.982541674, quad 9.982541674
+PASS C6b tree's 2[ln(2Rs/B) - 1] = 9.982529 agrees with exact to 1.3e-06 (relative)  -- exact 9.9825417
+PASS C6c limit b/Rs -> 0 of the exact form is 2[ln(2Rs/B) - 1]
+     1 solar mass buys 14744.23 m (tree M_sun) vs 14740.45 m (IAU GM_sun/c^2); relative 2.57e-04
+PASS C7 SI conversion: M_sun datum moves 14.7 km by < 1e-3 (tree selftest rtol 1e-3)
+PASS C8a min over Lambda of e^{(Lambda+2)/2}/Lambda = e^2/2 = 3.6945 (at Lambda = 2)
+     at the tree's Rs/b = 200 (Lambda = 9.9825) the factor is 40.06
+     Delta d/L = 0.01: Phi_max >= 0.037 for ANY shell; = 0.40 at the tree's geometry
+     Delta d/L = 0.50: Phi_max >= 1.847 for ANY shell; = 20.03 at the tree's geometry
+PASS C8b the 50 % figure needs Phi_max >= 1.85 for any geometry (not weak field)
+     Delta d/L = 0.01: m = 0.4007 b, Phi_max = 0.399; linear law m*Lambda = 4.000 b; exact ansatz int(1-e^{-Phi}) = 3.777 b (ratio 0.944)
+PASS C8d at 1 % the nonlinear shortfall is < 20 % (marginal weak field)  -- 0.944
+     Delta d/L = 0.50: m = 20.0350 b, Phi_max = 19.931; linear law m*Lambda = 200.000 b; exact ansatz int(1-e^{-Phi}) = 80.616 b (ratio 0.403)
+PASS C8c at 50 % the exact ansatz contraction falls far short of the linear law  -- 0.403
+
+ALL PASS

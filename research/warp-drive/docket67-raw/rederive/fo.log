@@ -1,0 +1,36 @@
+  [ok] A1 h_kappa normalised (||h||_H = 1) 1
+  [ok] A2 <H> = 2 kappa/3  (26) 2*kappa/3
+  [ok] A3 rho(t,0) reproduces eq.(28) exactly difference = 0
+  [ok] A4 rho(0,0) = -xi (2 kappa)^4/(3 pi^2)  (29) -16*kappa**4*xi/(3*pi**2)
+  [ok] A5 scaling relation (27) on the axis 0
+  [ok] A6 xi>0 => rho(0,0) < 0 for every kappa, and |rho| grows as kappa^4 (no state-independent bound) rho(0,0)/kappa^4 at xi=1/6: -8/(9*pi**2)
+  [ok] B1 <H^j> = (kappa/2)^j (j+1)!  j=0..4 [1, kappa, 3*kappa**2/2, 3*kappa**3, 15*kappa**4/2]
+  [ok] B2 xi-term of rho(t) equals eq.(71)'s xi-term exactly -24*kappa**4*xi*(kappa*t - 1)*(kappa*t + 1)/(pi**2*(kappa**2*t**2 + 1)**4)
+  [ok] B3 xi-independent term derived = 4 kappa^4/(pi^2 (1+t^2 kappa^2)^3) 4*kappa**4/(pi**2*(kappa**2*t**2 + 1)**3)
+  [ok] B4 kappa->inf smeared/<H^3> scales like kappa^0 (q >= 3 conclusion reproduced) limit/(f(0)^2) = (4*xi + 1)/(2*pi) ; printed (72) = (6*xi + 4)/(3*pi)
+  [ok] B5 numeric smeared limit matches derived f(0)^2 form (kappa=1e3, xi=0.1) {"kappa": 1000.0, "smeared/<H^3>": 0.22281681422554878, "derived f(0)^2(1+4xi)/(2pi)": 0.22281692032865347, "printed 2(2+3xi)/(3pi)*||f||^2": 0.61171149661553}
+  [ok] C1 Q_{4,k}(1)=0, Q_{4,k}->1, Q_{4,k}<=1 for k=0,1,2 
+  [ok] C2 (57) coefficient (3n-4)/(2n(n-2)) = 1/n + (1/2)/(n-2) (3*n - 4)/(2*n*(n - 2))
+  [ok] C3 m=0,n=4: (55) prefactor x bracket = (1/(4pi^3))(1/4 - xi/3); xi=0 -> 1/(16 pi^3) (Fewster-Eveson) (3 - 4*xi)/(48*pi**3)
+  [ok] C4 (55), m=0, n=4, unit-L2 Gaussian exp(-t^2/2tau^2): Q_A = (3-4xi)/(64 pi^2 tau^4), as the tree's CLAIMS.md H46b (3 - 4*xi)/(64*pi**2*tau**4)
+  [ok] D1 (53) == (55) numerically (n=4, m=1) [{"xi": 0.0, "Q53": 0.03523946598297759, "Q55": 0.03523946598297759, "rel": 0.0}, {"xi": 0.1, "Q53": 0.02929510781233796, "Q55": 0.02929510781233796, "rel": 0.0}, {"xi": 0.25, "Q53": 0.02037857055637851, "Q55": 0.02037857055637851, "rel": 0.0}]
+  [ok] E1 m=0,n=4: beta^4 * state-dependent part -> 0, beta^4 * <rho>(f^2) -> B_{4,2}(0) = pi^2/30 > 0 B40=1/12 B42=pi**2/30
+  [ok] E2 [:w_beta:]_c = beta^(2-n) B_{n,0}(beta m) (m=0,n=4): F-O eq.(61) as printed omits beta^(2-n); Fewster-Kontou 1809.05047 fn.4 records the same omission ('final results are correct') coincidence=1/(12*beta**2), B40=1/12
+  [ok] F1 baseline copy passes its selftest (live bounds.py unchanged) ok=43
+  [ok] F2 re-coding the row to the source's xi>0 content moves pins (measured, NOT applied) B2S1: 5 XX; B1S1: 8 XX
+       B2S1  [XX] eight distinct cells                                       9
+       B2S1  [XX] one cell collision, and it is the two QEIs                 []
+       B2S1  [XX] 'only QNEC has a state-dependent RHS' is FALSE             ['Fewster-Osterbrink QEI', 'QNEC', 'Casini (relative entropy)']
+       B2S1  [XX] re-coding K would take the index from eight cells to seven (9, 8)
+       B2S1  [XX] seating <H> >= 0 would take the family to ten members, nine cells (10, 10)
+       B1S1  [XX] eight distinct cells                                       9
+       B1S1  [XX] one cell collision, and it is the two QEIs                 []
+       B1S1  [XX] 'only QNEC has a state-dependent RHS' is FALSE             ['Fewster-Osterbrink QEI', 'QNEC', 'Casini (relative entropy)']
+       B1S1  [XX] 'statistics closes the bounds index' is FALSE -- E is 1, not 0 2
+       B1S1  [XX] and putting Bekenstein back at G = 1 restores exactly two  [(2, 1, 0, 0, 0, 2), (2, 1, 0, 0, 1, 2), (2, 1, 1, 0, 1, 2)]
+       B1S1  [XX] re-coding K would take the index from eight cells to seven (9, 8)
+       B1S1  [XX] and E under statistics from one to two                     (2, 3)
+       B1S1  [XX] seating <H> >= 0 would take the family to ten members, nine cells (10, 10)
+
+fewster-osterbrink-qei rederive: ALL CHECKS PASS
+rc=0

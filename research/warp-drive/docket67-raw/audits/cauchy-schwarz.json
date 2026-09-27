@@ -1,0 +1,62 @@
+{
+ "key": "cauchy-schwarz",
+ "name": "Cauchy-Schwarz inequality SUM G_AB^2 >= (tr G)^2/4 on a 4x4 symmetric matrix",
+ "source": {
+  "located": "Classic: Cauchy, Cours d'analyse de l'Ecole Polytechnique (1821), Note II (discrete form); Bunyakovsky (1859, integral form); Schwarz (1885, quadratic-form proof). No arXiv copy of any original exists.",
+  "read_status": "READ-VIA-RESTATEMENT",
+  "via": "The originals are NAMED-NOT-READ. Read instead, as alphaXiv page text of arXiv PDFs cached under scratchpad/d67/src/casmag/all/ (harvested from earlier alphaXiv tool results by src/casmag/allpages.py): (i) Labropoulou, Labropoulos, Vafeas, arXiv:2312.03478v2, Sec. 2.2 'Theorem 1. Let x, y in R^n. Then |x . y| <= ||x|| . ||y||. The equality in CBS inequality holds if and only if the vectors x and y are collinear.' (2312.03478v2.txt lines 295-305, md5 dc2a9a33e63238cbff44859bdccb8a25); (ii) Kichenassamy, arXiv:2504.19543v1 (Ganita Bharati 42 (2020) 1-19), p.2 eq.(1): Bunyakovsky's 'well-known inequality' (a1^2+...+an^2)(b1^2+...+bn^2) > (a1 b1+...+an bn)^2, a reference to 'Note II of Cauchy's 1821 lectures' (2504.19543v1.txt lines 95-130, md5 6d3233c32b77bed54ca672061737dfc8). A live alphaXiv read in this stage was attempted (answer_pdf_queries on gr-qc/9304008, get_paper_content fullText, discover_papers) and all three returned 'alphaXiv assistant quota exceeded'. The tree's application source, Kuo & Ford gr-qc/9304008 v1, was READ earlier in DOCKET 67 (scratchpad/d67/src/gr-qc_9304008.note: (3.43)-(3.45) Delta' >= 1/2, Delta >= 1/3 in the Casimir-vacuum section, with the Wick condition quoted). Because the result is pure finite-dimensional real algebra, the restatement is backed by a complete exact proof here (SOS certificate, sympy) and an independent z3 proof, so nothing rests on the unread originals."
+ },
+ "published_statement": "For real vectors a, b in R^n: (a1^2+...+an^2)(b1^2+...+bn^2) >= (a1 b1+...+an bn)^2, i.e. |a.b| <= ||a|| ||b||, with equality iff a and b are collinear (2312.03478 Thm 1; Cauchy 1821 Note II as restated in 2504.19543 eq.(1), there printed with strict '>' for non-collinear vectors). The tree's form follows by taking a = diag(G), b = (1,1,1,1): (tr G)^2 <= 4 SUM_A G_AA^2, then SUM_A G_AA^2 <= SUM_AB G_AB^2 (off-diagonal squares are >= 0 for real entries).",
+ "published_hypotheses": [
+  "a, b real vectors in R^n (finite n); here n = 4 and b = (1,1,1,1)",
+  "the standard (Euclidean) inner product; the squares are of real numbers",
+  "equality iff a, b collinear, i.e. diag(G) proportional to (1,1,1,1); the extra off-diagonal step has equality iff G_AB = 0 for A != B"
+ ],
+ "hypothesis_drift": [
+  "ADDED (harmless, narrows the tree's class inside the theorem's): 'G symmetric' -- fluctuation.py:293 encodes g[A,B] = g[min,max]; the inequality holds for every real 4x4 matrix, symmetric or not (z3 proof on a non-symmetric 4x4 and the SOS identity for general real n x n, rederive/cauchy-schwarz.py). No consequence: the tree's G_AB = <:d_A phi d_B phi:> is symmetric anyway.",
+  "KEPT, and load-bearing: 'G real'. The canonical entry lists it (fluctuation.py:75, G_AB the expectation of a Hermitian symmetric operator). With complex entries and the unconjugated SUM G_AB^2 the inequality FAILS (z3 SAT at a complex symmetric G with real trace). Not a drift; recorded so the hypothesis stays named.",
+  "ATTRIBUTION COMPRESSION, not a drift: fluctuation.py:75 'Cauchy-Schwarz gives SUM G_AB^2 >= (tr G)^2/4' folds two steps -- C-S proper gives SUM_A G_AA^2 >= (tr G)^2/4; dropping the off-diagonal squares is a separate (trivial, reality-dependent) step. The z3 proof at fluctuation.py:297 proves the full combined statement, so nothing is lost.",
+  "DIMENSION is a hypothesis of the constant: the 1/4 is 1/n with n = 4 components d_A phi (3+1 dimensions). Stated correctly in the tree: '4x4' at fluctuation.py:75-79 and the 2/n floor for n x n at noise.py:104-106 (with smearing breaking T1, noise.py:97).",
+  "APPLICATION hypotheses carried in the file header but dropped from local labels: rho = (1/2) tr G holds for the MASSLESS MINIMALLY COUPLED scalar in flat spacetime with normal ordering against the Minkowski vacuum (fluctuation.py:15-17). fluctuation.py:70-71 'For ANY zero-mean quasifree (Gaussian) state' and the chk label fluctuation.py:472 'Delta' >= 1/2 for every zero-mean Gaussian state' omit that field qualifier locally. For a massive field T00 = (1/2)(SUM_A (d_A phi)^2 + m^2 phi^2) is a trace over n = 5 components and the same C-S argument yields only Delta' >= 2/5 (z3: the 1/2 floor is not delivered at matrix level, SAT; 2/5 proved). Whether physical massive states reach below 1/2 is NOT shown here; this is a scope note on T1's label, not on the inequality.",
+  "rho != 0 is required for Delta' (division by rho^2); the tree says so for the squeezed case ('at every point where rho != 0', fluctuation.py:91) and the z3 Delta'-step check here uses tr G != 0."
+ ],
+ "data_at_publication": [],
+ "rederivation": {
+  "method": "sympy",
+  "script_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/cauchy-schwarz.py",
+  "outcome": "ALL PASS (23 checks, exit 0). (1) Exact sum-of-squares certificate, sympy expand = 0, for GENERAL real n x n (n = 2..5): n SUM_AB G_AB^2 - (tr G)^2 = SUM_{A<B}(G_AA - G_BB)^2 + n SUM_{A!=B} G_AB^2; at n = 4 this is a complete proof of the tree's inequality and its equality case (all terms vanish iff G = (tr G/4) I = (rho/2) I). (2) Lagrange identity for the C-S step itself. (3) Delta = Delta'/(1+Delta') increasing, so Delta' >= 1/2 <=> Delta >= 1/3. (4) Controls reproduce the tree's printed values from rho and p_i alone: thermal Delta' = 2/3, Casimir (xi = -1,-1,3) Delta' = 6 (and 6/7), sign-flipped Casimir also 6 (sign-blind), single null plane-wave mode Delta' = 2, Delta = 2/3; equality requires all p_i = 0. (5) z3, independent of fluctuation.py: symmetric 4x4 PROVED, equality => G = (trG/4)I PROVED, non-symmetric 4x4 PROVED, constant sharp (3 SUM G^2 >= tr^2 refuted), equality attainable (vacuity guard SAT), complex entries break it (SAT), Delta' >= 1/2 from rho = trG/2 != 0 PROVED, 5x5 gives only 2/5. The tree's own fluctuation.py --selftest was also run read-only: T1, T1_equality, T1_guard_fails all [ok].",
+  "agrees_with_source": "yes"
+ },
+ "later_literature": [
+  {
+   "ref": "Kichenassamy, arXiv:2504.19543 (Ganita Bharati 42 (2020) 1-19)",
+   "effect": "confirms",
+   "what": "Historical reading: Cauchy 1821 Note II discrete inequality, Bunyakovsky 1859 integral form, Schwarz 1885; 'no single result, even now, subsumes all known generalizations'. Nothing narrows the finite-dimensional real statement.",
+   "read_status": "READ (cached alphaXiv page text, pages 1-4)"
+  },
+  {
+   "ref": "Labropoulou, Labropoulos, Vafeas, arXiv:2312.03478",
+   "effect": "extends",
+   "what": "Generalisations (weighted, integral, strengthened CBS on subspaces of a finite-dimensional Hilbert space); Theorem 1 restates the R^n form with the collinearity equality case.",
+   "read_status": "READ (cached alphaXiv page text, Sec. 2.2 and theorem statements)"
+  },
+  {
+   "ref": "research/warp-drive/noise.py:97-125 (tree-internal, not external literature)",
+   "effect": "narrows",
+   "what": "The tree itself records that T1 does not survive smearing: Delta'_f = 2||K||_HS^2/(tr K)^2 has no 1/2 floor once K is not 4x4 (thermal counterexample, Hoelder bound + z3). This narrows the APPLICATION of the inequality (pointwise only), not the inequality.",
+   "read_status": "READ (source file)"
+  },
+  {
+   "ref": "discover_papers (later work narrowing/contradicting the finite-dimensional C-S inequality)",
+   "effect": "confirms",
+   "what": "The single discover_papers call returned 'alphaXiv assistant quota exceeded'; no later-literature search result exists from this stage. None is expected to bear: a proved finite-dimensional real identity cannot be narrowed by later work, and the SOS certificate here is complete.",
+   "read_status": "NOT-RUN (alphaXiv quota exceeded)"
+  }
+ ],
+ "lacked_data": "M's hypothesis does not bite on this result, and the evidence is direct: the statement uses no measured datum at all. It is a polynomial identity over the reals -- 4 SUM G_AB^2 - (tr G)^2 is an explicit sum of squares (sympy, exact) -- so no datum Cauchy (1821), Bunyakovsky (1859) or Schwarz (1885) lacked can move it. What CAN move with 'data' is the tree's APPLICATION, through its named physical hypotheses: rho = (1/2) tr G (massless minimally coupled scalar), n = 4 (3+1 D), Wick factorisation (zero-mean quasifree state, KF's condition phi+|psi> = <psi|phi- = 0), flat spacetime with Minkowski normal ordering, pointwise (unsmeared) evaluation. None of those is a datum of the inequality; each is carried by other entries (Wick/KF, noise.py smearing). For a massive field the C-S route alone gives 2/5 instead of 1/2 -- a change of field content, not of data.",
+ "grade": "STANDS",
+ "grade_evidence": "Statement as used (fluctuation.py:75-79: SUM G_AB^2 >= (tr G)^2/4 for real symmetric 4x4 G, equality only at G = (rho/2) I) is a special case of the Cauchy-Bunyakovsky-Schwarz inequality as restated in arXiv:2312.03478 Thm 1 and arXiv:2504.19543 eq.(1), plus the trivial off-diagonal step. Re-derived exactly: the SOS identity 4 SUM G^2 - (trG)^2 = SUM_{A<B}(G_AA-G_BB)^2 + 4 SUM_{A!=B} G_AB^2 (sympy) proves inequality and equality case; z3 independently proves both, confirms the constant 1/4 is sharp and the equality case nonvacuous. The only hypothesis drift is an ADDED symmetry assumption that the theorem does not need (harmless). No data enter. The application-scope notes (massless minimal scalar, n = 4, rho != 0, pointwise only) are named hypotheses of T1's physics, stated in the tree's header and in noise.py, and are not defects of the inequality; they are recorded in hypothesis_drift so T1's local label 'every zero-mean Gaussian state' (fluctuation.py:472) is read with fluctuation.py:15-17's qualifier.",
+ "what_would_change_the_grade": "Nothing about the inequality: it is a closed polynomial identity. The grade of T1 as physics (a separate matter) would change if its application hypotheses were widened -- e.g. quoting Delta' >= 1/2 for a massive or nonminimally coupled field (C-S alone then gives only 2/5 for mass), for smeared observables (noise.py already shows it fails), or at rho = 0. If the originals (Cauchy 1821 Note II) were read at source, read_status would move from READ-VIA-RESTATEMENT to READ; the grade would not move.",
+ "reverify_command": "python3 /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/cauchy-schwarz.py && (cd /home/user/Claude-Method-Works/research/warp-drive && python3 fluctuation.py --selftest | grep -E 'T1|VACUITY')",
+ "report_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/audits/cauchy-schwarz.json"
+}

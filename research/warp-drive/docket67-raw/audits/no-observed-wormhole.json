@@ -1,0 +1,104 @@
+{
+ "key": "no-observed-wormhole",
+ "name": "Observational: no wormhole throat has ever been observed",
+ "source": {
+  "located": "No single source: the claim is uncited at create.py:119/:249 (checked: create.py:115-122 carries no citation). The literature state it summarises is located as: Takahashi & Asada 2013, ApJL 768 L16, arXiv:1303.1301 (SQLS null, Ellis-wormhole abundance bound); Yoo, Harada & Tsukamoto 2013, arXiv:1302.7170 (GRB femtolensing bound); the echo series the tree itself lists in negmass.py:16-21 (1612.00266, 1712.09966, 1803.08565, 2010.07663, 2309.01894, 2512.24730); LVK 'Tests of GR with GWTC-3' (arXiv:2112.06861 / PRD 112 084080, echo search null); Chakraborty & Chakraborty arXiv:2509.13715 (the review detect.py reads: 'wormholes can mimic black hole shadows').",
+  "read_status": "NAMED-NOT-READ",
+  "via": "NOT READ AT SOURCE. Every alphaXiv call this stage (answer_pdf_queries x3 on 1303.1301 / 2509.13715, get_paper_content on 2509.13715, discover_papers x1) returned 'alphaXiv assistant quota exceeded'; arxiv.org, export.arxiv.org, iopscience, osti, ligo.org, dcc.ligo.org, inspirehep, semanticscholar, ADS and astrobites are all refused by the egress proxy (CONNECT 403). What was obtained: WebSearch result snippets (search-engine summaries, not the papers) for 1303.1301, 1302.7170, GWTC-3 TGR, and an Astrobites 2026-04-11 piece; and the tree's own records (detect.py, negmass.py, index3.py:912), READ locally. Figures from snippets are used only conditionally and labelled so."
+ },
+ "published_statement": "No published statement is quoted by the tree. As returned by web-search snippets (NOT READ): Takahashi & Asada 2013: 'There are no multiple images lensed by the above two exotic objects for ~50,000 distant quasars in the SQLS data'; bound 'n < 10^-4 h^3 Mpc^-3 for a range of the throat radius a = 10-10^4 pc'; negative-mass compact objects n < 10^-8 (10^-4) h^3 Mpc^-3 at |M| > 10^15 (10^12) Msun. Yoo et al. 2013: n < 2x10^-9 AU^-3 for throat a ~ 1 cm (femtolensing). LVK GWTC-3: 'no evidence for ... post-merger echoes'. The tree's own record (negmass.py:16-26, READ locally): Abedi-Dykaar-Afshordi 1612.00266 'tentative evidence, ~2.9 sigma', Westerweck et al. 1712.09966 'LOW SIGNIFICANCE of evidence', reply 1803.08565 disputing; 'NO CONFIRMED DETECTION. The original claim is CONTESTED and the dispute is live'.",
+ "published_hypotheses": [
+  "H-ID: 'observed' means IDENTIFIED as a wormhole by a discriminating channel; the shadow channel does not discriminate (detect.py:29-31, restating arXiv:2509.13715: 'Wormholes can mimic black hole shadows'), so imaged compact objects (M87*, Sgr A*) and LVK remnants are observations of objects not identified either way",
+  "H-MODEL: each null bound is for a specific metric family (Ellis / negative-mass point lens) and a lens model; a different b(r), Phi(r) moves it (detect.py:139-141 says the same of its own numbers)",
+  "H-WINDOW: each bound covers a throat-size window only -- SQLS a = 10..1e4 pc; femtolensing a ~ 1 cm; galactic microlensing SENSITIVITY quoted for a = 100..1e7 km (whether a BOUND exists there was not read)",
+  "H-STAT: the SQLS bound assumes a uniform comoving number density and the survey's selection function (snippet; assumptions not read at source)",
+  "H-CONTESTED: the GW echo channel carries one tentative positive claim (~2.9 sigma, 1612.00266) disputed by reanalyses and not supported by LVK O3 searches; 'no confirmed detection' is the consensus status, not 'no claim'",
+  "H-DATE: the statement is a status as of a date (2026-09 here) and moves with every new catalogue"
+ ],
+ "hypothesis_drift": [
+  "DROPPED H-ID at create.py:119 ('NOBODY HAS EVER OBSERVED ONE') and create.py:249 (ROUTE_COST): the flat 'observed' silently means 'identified'; the tree's own detect.py:29-31 / :164 records that the shadow channel cannot discriminate, so the correct wording is 'no object has been IDENTIFIED as a wormhole' -- a wormhole could already be among observed compact objects (Astrobites 2026-04-11 snippet: supermassive objects 'might be wormholes in disguise'). This is a narrowing of the premise's wording, not a refutation.",
+  "DROPPED H-CONTESTED at create.py:119/:249 and in the rests_on sites (LEDGER.md:47/133 D24; specthm.py:1666-1669 W-enlarge note 'nobody has ever observed a throat'): the tree's own negmass.py:16-26 and index3.py:912 record a CONTESTED tentative echo claim; create.py states the absence flat. Note (against over-representation in either direction): echoes are an exotic-compact-object signature generically, and Abedi et al. did not claim a wormhole; the consensus 'no confirmed detection' agrees with create.py.",
+  "DROPPED H-WINDOW / H-MODEL in the rests_on use 'premise unpriced' (LEDGER.md:47 D24; specthm.py:1669 W-enlarge; index3.py:1048 'NOBODY IN THIS PROJECT HAS EVER ESTIMATED ONE [number density]'): published null results DO price the premise partially -- upper bounds on abundance in specific model classes and size windows (1303.1301, 1302.7170). None of those windows covers the tree's own search target (detect.py:90/103, a 1193 km throat, 11.4 orders below the SQLS window; computed), so for the tree's target 'unpriced' is accurate for these two bounds; for Ellis throats of 10 pc-10 kpc it is not.",
+  "ADDED nothing; WEAKENED nothing: the tree never asserts wormholes do not exist, only that none has been observed -- it does not overreach from 'not observed' to 'absent'."
+ ],
+ "data_at_publication": [
+  {
+   "quantity": "Ellis-wormhole number density bound, throat a = 10..1e4 pc (SQLS, ~50,000 quasars)",
+   "value_then": "not used by the tree (create.py cites no number)",
+   "value_now": "n < 1e-4 h^3 Mpc^-3 (Takahashi & Asada 2013; snippet, NOT READ); Wigner-Seitz radius >= 13.4 Mpc/h, i.e. up to ~419 such objects within 100 Mpc/h remain allowed (computed)",
+   "source_now": "arXiv:1303.1301 via WebSearch snippet",
+   "moves_conclusion": "No for 'no confirmed identification'; yes for 'premise unpriced' in that window -- it is priced by an upper bound there. Does not reach the tree's 1193 km target."
+  },
+  {
+   "quantity": "Ellis-wormhole number density bound, throat a ~ 1 cm (GRB femtolensing)",
+   "value_then": "not used",
+   "value_now": "n < 2e-9 AU^-3 (Yoo, Harada & Tsukamoto 2013; snippet, NOT READ); Wigner-Seitz radius >= 492 AU (computed)",
+   "source_now": "arXiv:1302.7170 via WebSearch snippet",
+   "moves_conclusion": "No; outside the tree's target window."
+  },
+  {
+   "quantity": "GW echo significance (first claim)",
+   "value_then": "~2.9 sigma tentative (negmass.py:16, tree's record of 1612.00266)",
+   "value_now": "LVK GWTC-3 TGR: 'no evidence for ... post-merger echoes' (snippet); reanalysis 1712.09966 'low significance'; dispute recorded as live in negmass.py",
+   "source_now": "arXiv:2112.06861 (GWTC-3 TGR) via WebSearch snippet; negmass.py:16-21 READ locally",
+   "moves_conclusion": "No: the move is toward null, which agrees with 'no confirmed detection'; it does not make the flat 'nobody has ever observed one' more than a consensus status."
+  },
+  {
+   "quantity": "Shadow discriminating power (EHT M87*, Sgr A*)",
+   "value_then": "detect.py: shadow alone NOT a discriminator",
+   "value_now": "unchanged in the snippets returned (2025-2026 shadow papers are theoretical; 'might be wormholes in disguise')",
+   "source_now": "detect.py:29-31 READ locally; arXiv:2509.13715 NAMED-NOT-READ this stage",
+   "moves_conclusion": "Yes for the wording: an imaged object is observed-but-unidentified, so 'never observed' must read 'never identified'."
+  }
+ ],
+ "rederivation": {
+  "method": "numeric",
+  "script_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/no-observed-wormhole.py",
+  "outcome": "SELFTEST OK, 14 checks. (A) By AST over the tree (no import, no write): create.py:119 and ROUTE_COST carry the flat claim with no citation at :115-122; detect.OBSERVED = False and the shadow channel is recorded as non-discriminating; negmass.CONFIRMED_DETECTION = False, CONTESTED = True, 6 echo analyses listed, one tentative positive claim on record -- so the tree agrees with itself on 'no confirmed detection' and disagrees with create.py's flat wording on 'contested' and 'identified'. (B) Conditional on snippet values (NOT READ): SQLS bound gives Wigner-Seitz radius 13.37 Mpc/h and allows ~419 Ellis throats (10 pc-10 kpc) within 100 Mpc/h; the tree's 1193 km target (3.866e-11 pc) is 11.4 orders below the SQLS window and far from the 1 cm femtolensing point, but inside the quoted galactic-microlensing sensitivity window (100-1e7 km), for which no published bound was read. A negative observational claim itself has no derivation to re-run.",
+  "agrees_with_source": "partly"
+ },
+ "later_literature": [
+  {
+   "ref": "Takahashi & Asada 2013, arXiv:1303.1301 (ApJL 768 L16)",
+   "effect": "narrows",
+   "what": "First cosmological null bound on Ellis wormholes and negative-mass lenses: n < 1e-4 h^3 Mpc^-3 for a = 10..1e4 pc. Confirms 'none seen' in that window and prices the premise there by an upper bound, not by zero.",
+   "read_status": "NAMED-NOT-READ (WebSearch snippet of abstract only; alphaXiv quota exceeded, arxiv.org blocked)"
+  },
+  {
+   "ref": "Yoo, Harada & Tsukamoto 2013, arXiv:1302.7170",
+   "effect": "narrows",
+   "what": "GRB femtolensing: n < 2e-9 AU^-3 at throat ~1 cm.",
+   "read_status": "NAMED-NOT-READ (snippet)"
+  },
+  {
+   "ref": "Abedi, Dykaar & Afshordi 2016, arXiv:1612.00266; Westerweck et al. 2017, arXiv:1712.09966; Abedi et al. 2018, arXiv:1803.08565",
+   "effect": "contested",
+   "what": "Tentative ~2.9 sigma echo claim, reanalysed to low significance, reply disputing; not a wormhole claim as such (generic horizon-scale structure).",
+   "read_status": "READ-VIA-RESTATEMENT (the tree's negmass.py:16-18; not read at source this stage)"
+  },
+  {
+   "ref": "LVK, Tests of GR with GWTC-3, arXiv:2112.06861 (PRD 112, 084080); Uchikata et al. arXiv:2309.01894; model-agnostic search arXiv:2512.24730",
+   "effect": "confirms",
+   "what": "No evidence for post-merger echoes in O3 events: agrees with 'no confirmed detection' in the GW channel.",
+   "read_status": "NAMED-NOT-READ (WebSearch snippet for GWTC-3 TGR; others via negmass.py:19-21)"
+  },
+  {
+   "ref": "Chakraborty & Chakraborty 2025, arXiv:2509.13715 (GRF essay, 'Wormholes: Myth or Reality? Prospects for Future Observations')",
+   "effect": "narrows",
+   "what": "Shadows can be mimicked; detection 'may be possible' through QNMs, echoes, lensing -- i.e. prospective, no detection claimed (snippet). Supports reading 'observed' as 'identified'.",
+   "read_status": "READ-VIA-RESTATEMENT (detect.py quotes it; not re-read this stage)"
+  },
+  {
+   "ref": "Astrobites, 2026-04-11, 'Wormholes might be more real than we thought'",
+   "effect": "extends",
+   "what": "Conditional theoretical argument (dilaton coupling) that traversable wormholes are natural; 'some of the compact objects we currently classify as black holes ... might be wormholes in disguise' -- no observational claim.",
+   "read_status": "NAMED-NOT-READ (snippet; astrobites.org blocked; underlying paper not identified)"
+  }
+ ],
+ "lacked_data": "M's hypothesis tested for this result: the claim is itself a statement ABOUT data, so the question is whether data now exist that the tree lacked. Evidence either way: (1) Against a moved conclusion: every channel the tree lists that has been run has returned null or contested -- SQLS lensing (null, bound), GRB femtolensing (null, bound), LVK O3 echoes (no evidence), with one tentative echo claim not confirmed; web-search snippets for 2025-2026 find only theoretical shadow/QNM work and no identification claim. So no datum located here moves 'no confirmed identification'. (2) For M's hypothesis in a narrower sense: the data that WOULD decide it are exactly what nobody has -- a discriminating channel (QNM spectrum, echoes, grey-body factors, negative-mass de-magnification) applied at the right size and model. The existing nulls cover model classes and windows that miss the tree's own 1193 km target (computed: 11.4 orders below SQLS), so for the tree's target the absence is an absence of search coverage as much as of objects. Having more data could change it; the data held do not. (3) The shadow data (EHT) are data the authors of a flat 'never observed' did have and did not discriminate with -- that is why the wording must read 'identified'. Not read at source this stage, so the literature half of this is corroboration from snippets plus the tree's own records, not a reading.",
+ "grade": "NARROWED",
+ "grade_evidence": "The core (no confirmed identification of a wormhole, as of 2026-09) agrees with every record located: the tree's own detect.py (OBSERVED = False) and negmass.py (CONFIRMED_DETECTION = False), LVK GWTC-3 (no echo evidence, snippet), SQLS and femtolensing nulls (snippets). But the tree's use drops hypotheses its own files state, shown by AST in the rederive script: (i) 'observed' must be 'identified' -- detect.py records that shadows mimic, so imaged compact objects are observed and unidentified; (ii) the echo channel is CONTESTED (one ~2.9 sigma tentative claim, disputed), not a clean null -- negmass.py; (iii) 'premise unpriced' (D24, W-enlarge, index3.py:1048) overlooks published abundance upper bounds for Ellis throats (10 pc-10 kpc; ~1 cm), though computed here none reaches the tree's 1193 km target, where 'unpriced' remains accurate for those bounds. Not WRONG: nothing refutes 'no confirmed detection'. Not OPEN on the narrowing: the drift is shown from the tree's own READ records. CAVEAT, not flattened: the external sources were NAMED-NOT-READ this stage (alphaXiv quota exceeded, egress blocked); if the 'holds' half is required at source, that half is OPEN pending the reads below.",
+ "what_would_change_the_grade": "To STANDS: create.py:119/:249 and the rests_on sites reworded to 'no object has been identified as a wormhole; the one tentative echo claim is contested; published nulls bound specific models and size windows, none at 1193 km' -- and the sources read at source (1303.1301, 1302.7170, 2112.06861, 2309.01894, 2512.24730, 2509.13715). To WRONG (for the flat wording): a confirmed identification -- a discriminating-channel detection (undamped/long ringdown, confirmed echoes, negative-mass de-magnification) accepted in the literature. To OPEN: if at-source reading is required and stays unavailable. To DATA-DEPENDENT: if the echo dispute were revived by a significant new analysis.",
+ "reverify_command": "cd /tmp && PYTHONDONTWRITEBYTECODE=1 python3 /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/no-observed-wormhole.py  # then read at source: alphaXiv answer_pdf_queries(paper='1303.1301'), (paper='2112.06861'), (paper='2509.13715')",
+ "report_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/audits/no-observed-wormhole.json"
+}

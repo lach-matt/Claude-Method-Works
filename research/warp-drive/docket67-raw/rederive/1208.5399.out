@@ -1,0 +1,64 @@
+A. Eq.(4): clamped-beam eigenvalue and C
+     det(boundary matrix) = -k**2*(2*cos(k)*cosh(k) - 2) ; det / [2k^2(1 - cos k cosh k)] = 1
+  [PASS] A1 boundary determinant vanishes iff cos(k)cosh(k) = 1 
+     mu_1 = 4.73004074486270402602404810083
+     C    = 3.16985793831046816654176154859
+  [PASS] A2 mu_1 matches tree FEWSTER_MU1 = 4.730040744862704 
+  [PASS] A3 C matches tree FEWSTER_C = 3.169857938310467 
+  [PASS] A4 C rounds to Fewster's printed 'C ~ 3.17' 
+  [PASS] A5 C/16 rounds to Fewster's printed '0.20/l^4' (C/16 = 0.19812)
+  [PASS] A6 no root of cos(k)cosh(k)=1 on (0, mu_1): mu_1 is the FIRST 
+     Galerkin N=1: min Rayleigh quotient = 504.0  (mu_1^4 = 500.563901740433)
+  [PASS] A7.1 Rayleigh upper bound >= mu_1^4 (variational) 
+     Galerkin N=2: min Rayleigh quotient = 504.0  (mu_1^4 = 500.563901740433)
+  [PASS] A7.2 Rayleigh upper bound >= mu_1^4 (variational) 
+  [PASS] A8.2 monotone decrease toward mu_1^4 
+     Galerkin N=4: min Rayleigh quotient = 500.584680682662  (mu_1^4 = 500.563901740433)
+  [PASS] A7.4 Rayleigh upper bound >= mu_1^4 (variational) 
+  [PASS] A8.4 monotone decrease toward mu_1^4 
+     Galerkin N=6: min Rayleigh quotient = 500.563908499037  (mu_1^4 = 500.563901740433)
+  [PASS] A7.6 Rayleigh upper bound >= mu_1^4 (variational) 
+  [PASS] A8.6 monotone decrease toward mu_1^4 
+     Galerkin N=8: min Rayleigh quotient = 500.563901743937  (mu_1^4 = 500.563901740433)
+  [PASS] A7.8 Rayleigh upper bound >= mu_1^4 (variational) 
+  [PASS] A8.8 monotone decrease toward mu_1^4 
+  [PASS] A9 Galerkin N=8 within 1e-8 relative of mu_1^4 (rel 7.0e-12)
+  [PASS] A10 N=1 trial x^2(1-x)^2 gives exactly 504 
+B. Fewster-Teo c_2
+  [PASS] B1 c_2 = 16 pi^2 (c_2 = 16*pi**2)
+C. Casimir density, massless minimally coupled scalar, Dirichlet plates
+  [PASS] C1 sum 1/(u-n)^2 = pi^2/sin^2(pi u) at u=0.1 
+  [PASS] C1 sum 1/(u-n)^2 = pi^2/sin^2(pi u) at u=0.37 
+  [PASS] C1 sum 1/(u-n)^2 = pi^2/sin^2(pi u) at u=0.5 
+  [PASS] C2 image-sum <phi^2> = 1/(48L^2) - 1/(16 L^2 cos^2(pi z/L)) 
+  [PASS] C2b zeta(2) term: 2 zeta(2)/(16 pi^2) = 1/48 
+  [PASS] C3 improvement sign: trace vanishes iff xi = 1/6 
+  [PASS] C4 T00^min - T00^conf = -pi^2/(48 L^4)(3 - 2cos^2)/cos^4 (Fewster's second term, sign and all) 
+  [PASS] C5 Dirichlet zeta mode sum: E/A = -pi^2/(1440 L^3) 
+  [PASS] C6 periodic image family: rho = -pi^2/(90 a^4) 
+  [PASS] C7 at a = 2L: -pi^2/(1440 L^4) 
+  [PASS] C8 the correct constant is 1440, NOT the 1140 printed (DISCREPANCY, recorded) 
+D. Fraction of Fewster's a priori bound
+     plate limit 16/mu_1^4 = 0.0319639509449
+     const 1140: z/L=0 -> 0.067597, z/L=0.2 -> 0.033538, z/L=0.4 -> 0.031976, z/L=0.49 -> 0.031964, z/L=0.4999 -> 0.031964
+  [PASS] D1.1140 fraction decreases monotonically from midpoint to plate 
+  [PASS] D2.1140 range [plate limit, midpoint] within Fewster's '3-7%' (3.1964% .. 6.7597%)
+  [PASS] D3.1140 plate limit is 16/mu_1^4 (const-independent) 
+     bounds.py pin near(mid, 0.0682, rel 1e-2) under 1140: |rel| = 0.0088 -> passes
+     const 1440: z/L=0 -> 0.067028, z/L=0.2 -> 0.033465, z/L=0.4 -> 0.031975, z/L=0.49 -> 0.031964, z/L=0.4999 -> 0.031964
+  [PASS] D1.1440 fraction decreases monotonically from midpoint to plate 
+  [PASS] D2.1440 range [plate limit, midpoint] within Fewster's '3-7%' (3.1964% .. 6.7028%)
+  [PASS] D3.1440 plate limit is 16/mu_1^4 (const-independent) 
+     bounds.py pin near(mid, 0.0682, rel 1e-2) under 1440: |rel| = 0.0172 -> WOULD FAIL
+  [PASS] D4 tree's midpoint 0.067597 reproduced with 1140 (0.0675974)
+  [PASS] D5 tree's z/L=0.4 value 0.031976 reproduced with 1140 
+     misprint moves midpoint 6.7597% -> 6.7028% (delta 0.0569 points); '3-7%' unmoved
+  [PASS] D6 pin 0.0682 passes on 1140 and would fail on 1440 (a selftest keyed to the misprint) 
+E. Tree's imported downstream arithmetic (achievable.py), CODATA 2022
+     allowed  = 1.002159073e-25 Pa ; demanded = 1.805795208e+46 Pa ; log10 S = 71.255732
+  [PASS] E1 allowed matches tree 1.002159073400914e-25 
+  [PASS] E2 demanded matches tree 1.8057952e46 
+  [PASS] E3 log10 S = 71.256 (3 d.p.) 
+  [PASS] E4 CODATA G uncertainty moves log10 S by < 1e-4 (9.55e-06)
+
+RESULT: 0 FAIL(s)

@@ -1,0 +1,90 @@
+import json
+D = "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67"
+r = {
+ "key": "2604.01047#sec5.2-tt",
+ "name": "GMMPS 5.2 TT sector: one zero always negative, magnitude arbitrarily small for large positive b_2 (p. 62)",
+ "source": {
+  "located": "arXiv:2604.01047v1 [math-ph], 1 Apr 2026, Galanda, Meda, Murro, Pinamonti, Schmid, 'The Semiclassical Einstein-Klein-Gordon System: Asymptotic Analysis of Minkowski Spacetime', sec. 5.2 p. 62 (page as cited by the owner, linstab.py:150; not confirmed here).",
+  "read_status": "NAMED-NOT-READ",
+  "via": "NOT READ THIS SESSION. alphaXiv answer_pdf_queries (x2), get_paper_content (fullText) and discover_papers all returned 'alphaXiv assistant quota exceeded'; arxiv.org and www.alphaxiv.org refused by the egress proxy (curl CONNECT 403; WebFetch EGRESS_BLOCKED); api.semanticscholar.org, inspirehep.net, scholar.archive.org, core.ac.uk unreachable. No cached text of sec. 5.2 exists in the docket scratch (grep for 'always negative' / 'larger and larger positive' over d67/ and /tmp/claude-0: only linstab.py copies). The only text of 5.2 available is the owner's quotation (linstab.py:147-150), which is the claim under audit and cannot be its own source. The TT dispersion function used below is the owner's transcription of (5.4) (linstab.py:750, 763-764); J is (4.17), READ at source by the sibling audit 2604.01047_spectral-j."
+ },
+ "published_statement": "NOT READ HERE. As quoted by the owner (linstab.py:147-150), unverified: '5.2 (TT, alpha~^TT_1 = 0, b_0 = 0): \"One of the zeros, say gamma_0, is, however, always negative ... the magnitude of gamma_0 can be made as small as we want by choosing larger and larger positive b_2\" (p. 62).' The ellipsis hides whatever GMMPS say between the two clauses (in particular whether the zero is found with J dropped, as in 5.3).",
+ "published_hypotheses": [
+  "(as the owner states them, not read at source) one real Klein-Gordon field, mass m > 0, coupling xi; Poincare vacuum on Minkowski; linearised semiclassical Einstein equations, TT sector (linstab.py:131-137)",
+  "alpha~^TT_1 = 0 by Thm 3.6 (general local covariance + perturbative agreement) (linstab.py:139-140, 309); Thm 3.6's TT half re-derived by the sibling rederive/2604.01047_thm3.6.py C6",
+  "alpha~^TT_2 = 0 ASSUMED (linstab.py:141, 311)",
+  "hence b_0 = 0 in TT; a = 4 m^2, b_1 = 60/kappa (owner's transcription of (5.4), linstab.py:750) -- the values 4 m^2 and 60 are NOT verified at source here",
+  "b_2 set by the free constant alpha~^TT_4 (linstab.py:141-142, 175) -- the functional form b_2(alpha~^TT_4) is NOT read here",
+  "'positive b_2' (the quoted clause); whether 'always negative' is conditional on b_2 > 0 is hidden by the owner's ellipsis"
+ ],
+ "hypothesis_drift": [
+  "NONE DROPPED by the owner relative to its own quotation: alpha~^TT_1 = 0 and b_0 = 0 are carried (linstab.py:147), alpha~^TT_2 = 0 is carried (linstab.py:141, 311). The canonical entry's hypothesis list omits alpha~^TT_2 = 0 -- an extraction gap in the entry, not in the owner file.",
+  "UNDETERMINED (source not read): whether GMMPS's 'always negative' refers to the J-dropped equation b_1 g + b_2 g^2 = 0 (root -b_1/b_2, negative IFF b_2 > 0) or to the full F_TT. COMPUTED here (T3-T6): with J kept a negative zero exists for EVERY real b_2 provided kappa m^2 < 360 pi^2 (G(0) = 1/(6 pi^2) - 60/kappa < 0), unique for b_2 >= 0; for b_2 < 0 it sits beyond M_P^2 (|g| ~ 1e60 m^2 at b_2 = -0.05, -0.2 vs M_P^2 = 9.5e58 m^2). The hypothesis kappa m^2 < 360 pi^2 (m < 59.6 reduced M_P) is unnamed in the owner and in the quote; harmless for m << M_P.",
+  "UNNAMED APPROXIMATION in the owner (not a drop): linstab.py:171-173, 348 place the TT root 'near g* = -b_1/b_2'. Computed (T5, T7): with J kept gamma_0/(-b_1/b_2) = 0.535 at b_2 = 1, 0.921 at 10, 0.99917 at 1e3, 1 - O(1e-60) at 1e100. So '-b_1/b_2' is a large-b_2 location; at O(1) b_2 it overstates |gamma_0| by x1.87. The owner's bracket (b_2 = 1e100, linstab.py:981-985) is in the regime where it is exact: tree g* = -5.72e-40 m^2, exact zero -5.7234909e-40 m^2.",
+  "ATTRIBUTION TO VERIFY (not drift of a hypothesis): the WITHDRAWN entry (linstab.py:453-455) cites '(GMMPS 5.2, p. 62)' for 'Planckian for O(1) values only'. The owner's quotation of p. 62 says only that |gamma_0| shrinks with larger positive b_2; the O(1) -> Planckian scale is the owner's inference. Computed here: it is TRUE (b_2 = 1: |gamma_0| = 32.1 M_P^2 with J kept, 60 M_P^2 with J dropped; b_2 = 0: 68.6 M_P^2), so this is an attribution question, not an error.",
+  "SCOPE (recorded, shared with the sibling audit 2604.01047_thm4.16-prop4.10 R5/R6): the owner calls the TT sign change a 'growing root' (linstab.py:985) via Thm 4.16 as it restates it ('Z strictly inside (-4m^2, 0)', linstab.py:143-145). Computed (T7): the TT zero lies inside (-4 m^2, 0) IFF b_2 > (b_1 - 64 J(-4))/4 = 15.0/eps = 1.43e60; all O(1)-to-1e3 b_2 zeros (the 'Planckian' ones) are OUTSIDE that range, the bracketed b_2 = 1e100 zero is inside. TT also has b_0 = 0 and a = 4m^2, outside Prop. 4.10 ('b_0, b_1, b_2 != 0') and Prop. 4.12 (a_i < 4m^2) as the tree states them. Whether GMMPS 5.2 itself asserts growth for the TT zero, and on what theorem, is exactly what the unread page would say."
+ ],
+ "data_at_publication": [
+  {
+   "quantity": "eps = kappa m^2 = (m/M_P)^2 (the only numerical input to the tree's TT bracket; sets b_1 = 60/eps in m = 1 units)",
+   "value_then": "1.048e-59 from GMMPS 5.3's matched m = 7.885e-3 eV (unrounded; printed 7.8e-3) and reduced M_P = 2.435323e27 eV",
+   "value_now": "same inputs; m moves +4.1% (8.21e-3 eV) if SH0ES H0 replaces Planck-LCDM (sibling audit 2604.01047_sec5.3-mass), i.e. eps +8.4%",
+   "source_now": "audits/2604.01047_sec5.3-mass.json (Planck 2018 1807.06209, SH0ES 2112.04510, READ there)",
+   "moves_conclusion": "no -- the statement (one negative zero; |gamma_0| -> 0 monotonically as b_2 -> +inf) is exact for every eps < 360 pi^2; eps only rescales g* = -60/(eps b_2) and the Thm-4.16 edge b_2 = 15/eps by 8%"
+  },
+  {
+   "quantity": "b_2 (through the free alpha~^TT_4)",
+   "value_then": "free; GMMPS take it arbitrary ('larger and larger positive b_2')",
+   "value_now": "free in the theory; possible experimental bounds on the quadratic-curvature coefficients from short-range gravity tests exist in the literature (see later_literature, NAMED-NOT-READ) but the normalisation linking b_2 to such a coefficient is not read here",
+   "source_now": "none read this session",
+   "moves_conclusion": "OPEN -- if an experimental ceiling b_2 <= B applied with O(1) normalisation, it would floor |gamma_0| >= ~b_1/B and cap how small 'as small as we want' can be physically; it would not touch the mathematical statement. Not computed as a finding because neither the bound nor the normalisation was read."
+  },
+  {
+   "quantity": "reduced Planck mass / G",
+   "value_then": "implicit",
+   "value_now": "CODATA 2018 G = 6.67430(15)e-11; M_P = 2.435323e27 eV",
+   "source_now": "as in the sibling audit 2604.01047_sec5.3-mass",
+   "moves_conclusion": "no -- relative uncertainty 2.2e-5"
+  }
+ ],
+ "rederivation": {
+  "method": "sympy",
+  "script_path": D + "/rederive/2604.01047_sec5.2-tt.py",
+  "outcome": "ALL PASS (exit 0), 39 assertions, sympy + z3 + mpmath, nothing imported from the tree; log at rederive/2604.01047_sec5.2-tt.log. On the owner's transcription F_TT(g) = g (4-g)^2 J(g) - g (b_1 + b_2 g), b_1 = 60/kappa, m = 1: T1 g = 0 is a root for every constant (b_0 = 0). T2 G = F_TT/g has G(0) = 1/(6 pi^2) - 60/kappa, negative iff kappa m^2 < 360 pi^2. T3 z3 (guarded): for M >= 4 the integrand (4-g)^2/(M-g) is strictly decreasing in g for every g < 4m^2 (negation unsat); control: without the threshold M >= 4 the sign fails (sat); so (4-g)^2 J is strictly decreasing on g < 4m^2 (rho >= 0). T4 hence for b_2 >= 0 EXACTLY ONE negative zero gamma_0 (one sign change on a 250-point log grid at each of b_2 = 0, 1, 10, 1e3, 1e10, 1e30, 1e60, 1e100); (4-g)^2 J ~ |g| ln|g|/(16 pi^2) (5% at 1e40). T5 d gamma_0/d b_2 = gamma_0/G'(gamma_0) > 0: |gamma_0| strictly decreasing, -> 0- (5.72e-40 m^2 at b_2 = 1e100), gamma_0/(-b_1/b_2) -> 1 -- GMMPS's two clauses as quoted are CONFIRMED with J kept. T6 b_2 < 0: J-dropped has no negative zero, J-kept still has one beyond M_P^2. T7 b_2 = 1: |gamma_0| = 32.1 M_P^2 (Planckian, J not negligible: -b_1/b_2 overstates by x1.87); gamma_0 in (-4m^2, 0) iff b_2 > 15.0/eps = 1.43e60. T8 the owner's TT bracket at b_2 = +1e100: exact zero -5.7234909e-40 m^2 inside (2g*, g*/2), g* = -5.7234909e-40. J closed form (4.17) = integral to < 1e-30 at g = -1 ... -1e120. Also run: linstab.py --selftest (72 checks, 0 failed; row 'TT b_2 = +1e+100 ... g* = -5.72e-40 True'). NOT checked (not readable): the values a = 4m^2 and b_1 = 60/kappa in (5.4), the form of b_2(alpha~^TT_4), and GMMPS's wording.",
+  "agrees_with_source": "partly"
+ },
+ "later_literature": [
+  {
+   "ref": "discover_papers for this audit: FAILED (alphaXiv quota exceeded)",
+   "effect": "contested",
+   "what": "No later-literature search could be run; nothing narrowing, contradicting or extending GMMPS 5.2 was found or excluded. (effect field forced by schema; the true status is NOT RUN.)",
+   "read_status": "NOT RUN"
+  },
+  {
+   "ref": "Anderson, Molina-Paris, Mottola, gr-qc/0209075 (2002/03), sec. IV (4.5a)-(4.9), p. 12 -- as READ in linstab.py's AMM block and the docket scratch amm_0209075.txt",
+   "effect": "extends",
+   "what": "Tensor sector: no unstable mode for k^2 > 0 and no new mode for k^2 < 0 unless G_N|k^2| ~ 1, taking fourth-order coefficients O(1) (IMPLICIT, linstab.py:117-119). Consistent with the computation here: at O(1) b_2 the TT zero is Planckian (32 M_P^2 at b_2 = 1); GMMPS's small-|gamma_0| TT zeros need b_2 >> 1 (inside (-4m^2,0) only for b_2 > 1.43e60), the regime AMM's O(1) assumption excludes.",
+   "read_status": "READ-VIA-RESTATEMENT (owner's AMM quotation; not re-read in this stage)"
+  },
+  {
+   "ref": "Short-range gravity bounds on the R^2 / C^2 coefficients (e.g. Calmet, Hsu, Reeb 2008, bound of order 1e61 on the dimensionless coefficients from Eot-Wash-type tests) -- arXiv id not confirmed here",
+   "effect": "narrows",
+   "what": "If b_2 maps onto such a coefficient with O(1) normalisation, an experimental ceiling ~1e61 would floor |gamma_0| at ~b_1/1e61 ~ 0.6 m^2 and would sit below the tree's bracket value b_2 = 1e100. Neither the bound nor the b_2 normalisation was read: a lead for M's hypothesis, NOT a finding.",
+   "read_status": "NAMED-NOT-READ"
+  },
+  {
+   "ref": "arXiv:2512.00503 (2025), instability thresholds in holographic semiclassical gravity -- surfaced by a sibling audit's discover_papers",
+   "effect": "extends",
+   "what": "Same stability question, strongly coupled field; predates GMMPS; no statement on the TT zero known here.",
+   "read_status": "NAMED-NOT-READ"
+  }
+ ],
+ "lacked_data": "M's hypothesis tested for this result. The result is structural -- the sign and b_2-dependence of a zero of a one-loop dispersion function -- and no measured datum enters the statement: m is free, kappa = 8 pi G is known to 2.2e-5, and J is exact (sibling audit spectral-j). Computed: the two quoted clauses hold for every kappa m^2 < 360 pi^2 with J kept, so no datum GMMPS lacked (Planck vs SH0ES H0, which moves eps by 8%) changes them. What NOBODY has is the value of the free constant alpha~^TT_4 (through b_2): the result's own content is that the TT zero's scale is set by that unmeasured constant -- Planckian at O(1) (32 M_P^2 at b_2 = 1, computed), arbitrarily small only for b_2 >> 1 (inside the range the tree states for Thm 4.16 only above 1.43e60). This is where M's hypothesis has purchase: short-range gravity experiments constrain quadratic-curvature coefficients (NAMED-NOT-READ); if such a bound applies to b_2 with O(1) normalisation it would make 'as small as we want' physically false (a floor near 0.6 m^2) while leaving the mathematics intact -- a narrowing of the physical reading, not a refutation, and not established here because neither the bound nor the b_2 normalisation was read. Evidence against M's hypothesis for THIS result: every checkable piece re-derives, exactly, on the tree's transcription.",
+ "grade": "OPEN",
+ "grade_evidence": "The source (GMMPS 5.2, p. 62) could not be read this session: alphaXiv quota exceeded on every call and arxiv.org / alphaxiv.org egress-blocked, so the quoted wording, the (5.4) values a = 4m^2 and b_1 = 60/kappa, and b_2's dependence on alpha~^TT_4 are not verified at source, and the owner's ellipsis cannot be filled. What IS computed agrees with the tree's use (39/39 PASS; linstab.py --selftest 72/0): on the owner's transcription of (5.4), g = 0 is always a TT root; for b_2 >= 0 there is exactly one negative zero (z3-proved monotonicity of (4-g)^2 J from rho >= 0 on M >= 4m^2); |gamma_0| decreases strictly to 0 as b_2 -> +inf (implicit derivative + numerics to b_2 = 1e100); the owner's bracket zero is exact to 8 digits. Recorded, not repaired, none an error: (i) '-b_1/b_2' is a large-b_2 location, off by x1.87 at b_2 = 1 (J not negligible); (ii) 'Planckian for O(1)' is the owner's inference attributed to p. 62 -- computed TRUE (32 M_P^2 at b_2 = 1); (iii) the O(1) TT zeros lie outside (-4m^2, 0) (edge b_2 = 15/eps) and TT has b_0 = 0, a = 4m^2, outside Thm 4.16 / Prop. 4.10 / Prop. 4.12 as the tree restates them, so 'growing' for those zeros rests on the unread page; (iv) the unnamed hypothesis kappa m^2 < 360 pi^2 (harmless). Not flattened to STANDS because the statement was not read; not NARROWED or WRONG because nothing computed contradicts the tree's use.",
+ "what_would_change_the_grade": "Reading GMMPS sec. 5.2 and (5.4) at source (answer_pdf_queries on 2604.01047 once the alphaXiv quota resets, with queries: exact 5.2 text around 'always negative'; a, b_0, b_1, b_2 in TT; b_2 as a function of alpha~^TT_3/alpha~^TT_4; whether the TT zero is claimed to grow and by which theorem). STANDS if the quote, a = 4m^2, b_1 = 60/kappa and 'positive b_2' match (the re-derivation then covers the tree's use, with the O(1)-Planckian attribution recorded as the owner's inference). NARROWED if 'always negative' is stated only for the J-dropped equation and the tree relies on it beyond b_2 > 0, if b_1 or a differ so the bracket zero moves materially, or if GMMPS restrict 5.2's conclusion to a range of b_2 the tree does not carry; or physically if a read experimental bound caps b_2 with O(1) normalisation. WRONG only if the source's (5.4) differs such that F_TT has no negative zero for large positive b_2 -- shown by computation.",
+ "reverify_command": "python3 " + D + "/rederive/2604.01047_sec5.2-tt.py && cd /home/user/Claude-Method-Works/research/warp-drive && python3 linstab.py --selftest 2>&1 | grep -n 'TT b_2\\|LITERATURE_SPLIT\\|SELFTEST'",
+ "report_path": D + "/audits/2604.01047_sec5.2-tt.json"
+}
+json.dump(r, open(r["report_path"], "w"), indent=1)
+print("written", r["report_path"])

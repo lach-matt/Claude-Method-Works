@@ -1,0 +1,33 @@
+A. SOURCE CONVENTIONS (Herrera metric (1), signature +,-,-,-)
+  eq(12) R^3_232 - (1 - e^{-lambda})                                       0 ok
+  eq(6)  8 pi mu = G^0_0 as printed                                        0 ok
+  eq(7)  -8 pi P_r = G^1_1 as printed                                      0 ok
+  eq(8)  -8 pi P_perp = G^2_2 as printed                                   0 ok
+  eq(10) nu' from computed G^1_1  minus  2(m+4 pi P_r r^3)/(r(r-2m))       0 ok
+  eq(10) is free of mu, P_perp, m'  (free symbols of nu' solution)         0 ok
+  eq(13) m' = 4 pi r^2 mu from computed G^0_0                              0 ok
+  eq(9)  -T^mu_{1;mu} minus [P_r' + nu'/2 (mu+P_r) - 2(P_perp-P_r)/r]      0 ok
+  eq(11) = eq(9) with eq(10)                                               0 ok
+  eq(33)->(32) via eq(10)                                                  0 ok
+B. TREE CONVENTIONS (tolman.py: -,+,+,+; e^{2Phi}=e^nu; T^r_r = +p_r)
+  tree Phi' (V9)  minus (m+4 pi r^3 p_r)/(r(r-2m))                         0 ok
+  tree Phi' = nu'/2 of Herrera eq (10)                                     0 ok
+C. HYPOTHESIS PROBES
+  with Lambda (m geometric): Phi' = (m + 4pi r^3 p_r - Lambda r^3/2)/(r(r-2m)) 0 ok
+    ... so eq (10) FAILS unless Lambda = 0 (shift is nonzero)              True ok
+    ... with matter mass m_M: (m_M + 4pi r^3 p_r - Lambda r^3/3)/(r(r-2m_M-Lambda r^3/3)) 0 ok
+  multiplied form nu' r(r-2m) = 2(m+4 pi P_r r^3) (no division)            0 ok
+D. NUMERIC WITNESS: Schwarzschild constant-density interior
+  max relative |nu'_numeric - eq(10)| over 6 radii = 3.10e-10
+  boundary: P(R) = 0.0e+00, e^{nu(R)} - (1-2M/R) = 1.7e-16  (eqs 20, 22)
+E. THE TREE'S USE: Phi' = 0 with the identity m = 4 pi r^3 p_r (I7/I8, V27)
+  sympy: {Phi'=0 under eq(10), identity} -> {m:0, p:0}                     0 ok
+  with Lambda: {Phi'=0, identity} -> [{m: L*r**3/4, p: L/(16*pi)}]
+    ... m = Lambda r^3/4 (nonzero for Lambda != 0): I7/I8 need Lambda = 0  0 ok
+  z3 I7 with r-2m>0 (tree's EINSTEINg), m != 0                             unsat ok
+  z3 I8 with r-2m>0, p != 0                                                unsat ok
+  z3 I7 WITHOUT r-2m>0 (hypothesis not load-bearing), m != 0               unsat ok
+  z3 vacuity guard: hypotheses alone (m = p = 0 allowed)                   sat ok
+  z3 guard: Phi'=0 with m != 0 alone is sat (wormhole branch)              sat ok
+
+0 check(s) not as expected

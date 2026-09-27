@@ -1,0 +1,122 @@
+{
+ "key": "fermi-constant-g_f-and-tree-level-vev",
+ "name": "Fermi constant G_F = 1.1663788e-5 GeV^-2 and tree-level v = (sqrt(2) G_F)^(-1/2)",
+ "source": {
+  "located": "MEASUREMENT: MuLan, Tishchenko et al., Phys. Rev. D 87, 052003 (2013), arXiv:1211.0960 (final G_F); MuLan, Webber et al., PRL 106, 041803 (2011), arXiv:1010.0991 (the 1.1663788(7) value); PDG 2024 Table 1.1 'Physical Constants' (pdg.lbl.gov/2024/reviews/rpp2024-rev-phys-constants.pdf) lists G_F/(hbar c)^3 = 1.166 378 8(6)e-5 GeV^-2, the tree's exact pin. TREE RELATION: Buttazzo et al., JHEP 12 (2013) 089, arXiv:1307.3536, eqs. (8)-(11), Table 1-3 (V = (sqrt2 G_mu)^(-1/2) as the on-shell definition, with (1+Delta r)); MuLan 1211.0960 eqs. (2)-(3).",
+  "read_status": "READ",
+  "via": "alphaXiv answer_pdf_queries on 1211.0960 (pp.1-2, 28-30), 1010.0991 (pp.1,4), 1307.3536 (pp.4,6-8,13), the PDG 2024 physical-constants PDF by URL (p.1), CODATA 2022 arXiv:2409.03787 (pp.5,41,51). vRS 1999 (hep-ph/9808283) and Pak-Czarnecki 2008 are used only as restated in MuLan and Eberhart et al.; NAMED-NOT-READ themselves."
+ },
+ "published_statement": "MuLan 1211.0960 eq.(24): 'G_F(MuLan) = 1.166 378 7(6) x 10^-5 GeV^-2 (0.5 ppm)', from eq.(23) G_F = sqrt(192 pi^3/(tau_mu m_mu^5)) (1+Dq0+Dq1+Dq2)^(-1/2) with tau_mu = 2 196 980.3(2.2) ps; the 2011 PRL (1010.0991 eq.5) printed 1.1663788(7). PDG 2024 Table 1.1: G_F/(hbar c)^3 = 1.166 378 8(6)e-5 GeV^-2. The relation to v: MuLan eq.(2) G_F/sqrt2 = g^2/(8 M_W^2)(1 + sum r_i); Buttazzo eq.(8)-(9): G_mu/sqrt2 = (1+Delta r_0)/(2 v_0^2), v_OS^2 = 1/(sqrt2 G_mu), delta v_OS^2 = -Delta r_0/(sqrt2 G_mu), i.e. v = (sqrt2 G_F)^(-1/2) = 246.21971 GeV is the on-shell (G_mu-scheme) vev BY DEFINITION, the radiative corrections being moved into counterterms; the tree-level couplings built from it (lambda_OS = G_mu M_h^2/sqrt2 = 0.12917) differ from the MS-bar ones at mu = M_t (lambda = 0.12604 NNLO, m = 131.55 GeV).",
+ "published_hypotheses": [
+  "V-A current-current Fermi interaction as the effective theory defining G_F: 'The above extraction of G_F from tau_mu is based on the assumption of the V - A chiral structure of the charged-current interaction. If the assumption of the V - A character is relinquished, the relation between tau_mu and G_F is modified' (1211.0960 p.29)",
+  "G_F universality: 'we assume that G_F is universal for weak interactions. Strictly speaking, tau_mu+ determines a muon-decay-specific coupling, denoted G_mu' (1010.0991 p.1)",
+  "QED corrections in Fermi theory to two loops (vRS) plus two-loop electron-mass terms (Pak-Czarnecki): Dq0 = -187.1, Dq1 = -4233.7, Dq2 = +36.3, and -0.4 ppm; theory uncertainty 0.14 ppm from unknown 3-loop QED (1211.0960 p.29)",
+  "free-muon lifetime equals the lifetime in the stopping targets (muonium vs mu+ difference ~0.6 ppb, Czarnecki-LePage-Marciano) (1211.0960 p.30)",
+  "inputs: CODATA 2010 hbar = 6.582 119 28(15)e-25 GeV s, m_mu = 105.658 371 5(35) MeV, m_e/m_mu = 4.836 331 66(12)e-3, alpha(m_mu) = 1/135.902 660 087 (1211.0960 pp.28-29)",
+  "convention: the tree-level W-propagator term 3 m_mu^2/(5 M_W^2) is absorbed into G_F (Buttazzo eq.27 removes it and gets G_mu = 1.1663781(6)e-5, '1 sigma lower')",
+  "tree relation: v = (sqrt2 G_F)^(-1/2) holds exactly only as the on-shell definition of v; physically G_F/sqrt2 = (1+Delta r)/(2 v^2) (Buttazzo eq.8-9, MuLan eq.2-3); lambda = m_h^2/(2v^2) and V_min = -m_h^2 v^2/8 are tree-level (Buttazzo Table 1 'LO')"
+ ],
+ "hypothesis_drift": [
+  "STATUS DRIFT, conservative direction (not a defect): higgs.py:209 labels G_FERMI = 1.1663788e-5 'PDG NAMED-NOT-READ', propagated by excite.py:291-292 and excite.py:390. The value is now READ at source: PDG 2024 Table 1.1 prints G_F/(hbar c)^3 = 1.166 378 8(6)e-5 GeV^-2, identical to the pin to every digit. Nothing is edited here; the label understates what is known.",
+  "DROPPED qualifier -- tree level / on-shell scheme: higgs.py:262-264 (vev docstring 'v = (sqrt(2) G_F)^(-1/2), in GeV') and excite.py:390 ('COMPUTED from G_F') state the relation without naming it as the tree-level (on-shell, G_mu-scheme) definition; the source relation carries (1+Delta r) (MuLan eq.2-3, Buttazzo eq.8-9). grep for 'tree', 'loop', 'radiative', 'MS-bar' in higgs.py finds no statement of this hypothesis. The canonical entry lists 'tree-level relation' as a hypothesis; the owner text does not.",
+  "DROPPED hypothesis -- tree-level potential: higgs.py:267-275 lam() = m_h^2/(2 v^2) and v_min_gev4() = -lam v^4/4 are LO quantities; Buttazzo Table 3 at mu = M_t gives lambda NNLO/LO = 0.9757 and m^2/M_h^2 = 1.105 (COMPUTED in the rederive script). excite.py:407 RHO_EW = |V_min| and every figure in units of rho_EW (D20) inherit the tree-level truncation without its being named at the owner.",
+  "DROPPED hypotheses of the measurement -- V-A structure and G_F = G_mu universality: not named at higgs.py:209. Harmless at the tree's precision: the two independent determinations G_F^EW = 1.16716(39) and G_F^CKM = 1.16550(29) (arXiv:2102.02825) move v by -3.3e-4 and +3.8e-4 (COMPUTED).",
+  "DROPPED convention -- W-propagator term: the PDG/MuLan G_F includes 3 m_mu^2/(5 M_W^2) = 1.04e-6; without it G_mu = 1.1663781e-5 (Buttazzo eq.27, reproduced here from MuLan's printed value). Moves v by 3.0e-7 (COMPUTED); not named at higgs.py:209.",
+  "PRECISION DRIFT (fixture, not physics): excite.py:1396-1397 pins xi_required(v) = 9.7829068836e31 at relative tolerance 1e-9, tighter than G_F's own 5.1e-7 relative uncertainty; the 2026 value 1.16637859e-5 would move it by 1.8e-7 (COMPUTED). A regression fixture, correctly passing; its digits are not physical precision."
+ ],
+ "data_at_publication": [
+  {
+   "quantity": "G_F (the tree's pinned value, higgs.py:209)",
+   "value_then": "1.1663788(7)e-5 GeV^-2 (MuLan PRL 2011, 1010.0991); 1.1663787(6)e-5 (MuLan PRD 2013 final, 1211.0960)",
+   "value_now": "1.166 378 8(6)e-5 (PDG 2024 Table 1.1); 1.166 3787(6)e-5 (CODATA 2022, 2409.03787, 'from PDG 2022'); 1.166 378 59(59)e-5 (Eberhart et al. 2026, 2607.02657)",
+   "source_now": "PDG 2024 Table 1.1; arXiv:2409.03787 p.41 eq.218; arXiv:2607.02657 eq.21",
+   "moves_conclusion": "No. Spread of all READ muon-decay values is 0.18 ppm (0.36 sigma); v moves <= 9.0e-8, rho_EW <= 1.8e-7 (COMPUTED). DISCREPANCY RECORDED: PDG 2024 prints ...788(6), CODATA 2022 prints ...787(6) and says it took it from PDG 2022; 1 in the 7th digit, 0.17 sigma, not adjudicated."
+  },
+  {
+   "quantity": "tau_mu+ (muon lifetime)",
+   "value_then": "2 196 980.3(2.2) ps (MuLan)",
+   "value_now": "2.196 9811(22) us (world average used by Eberhart et al. 2026, citing MuLan and PDG 2024)",
+   "source_now": "arXiv:2607.02657 eq.(20)",
+   "moves_conclusion": "No. +0.36 ppm in tau moves G_F by -0.18 ppm."
+  },
+  {
+   "quantity": "m_mu",
+   "value_then": "105.658 371 5(35) MeV (CODATA 2010)",
+   "value_now": "105.658 3755(23) MeV (CODATA 2022 / PDG 2024)",
+   "source_now": "arXiv:2409.03787 Table XXXIII; arXiv:2607.02657 eq.(4)",
+   "moves_conclusion": "No. +3.8e-8 relative moves G_F by -0.095 ppm (G ~ m^-5/2)."
+  },
+  {
+   "quantity": "Delta q (radiative + phase-space correction)",
+   "value_then": "-187.1 - 4233.7 + 36.3 - 0.4 = -4384.9 ppm (to O(alpha^2), 0.14 ppm theory unc.)",
+   "value_now": "-4384.678(34) ppm, including O(alpha^3) QED (-235 ppb) and dispersive hadronic (-234.6 ppb)",
+   "source_now": "arXiv:2607.02657 eq.(17)",
+   "moves_conclusion": "No. Theory uncertainty on G_F falls from 0.15 ppm to 0.017 ppm; central value moves by ~0.1 ppm."
+  },
+  {
+   "quantity": "hbar (unit conversion)",
+   "value_then": "6.582 119 28(15)e-25 GeV s (CODATA 2010)",
+   "value_now": "6.582 119 569...e-25 GeV s, exact (SI 2019)",
+   "source_now": "PDG 2024 Table 1.1; arXiv:2409.03787 Table XXXIII",
+   "moves_conclusion": "No. +4.4e-8 relative, +0.02 ppm in G_F."
+  },
+  {
+   "quantity": "independent (non-muon) G_F determinations",
+   "value_then": "G_F(Z->ll) = 1.1650(14), G_F(3) = 1.1672(8) (Marciano 1999, as restated in 2102.02825)",
+   "value_now": "G_F^EW = 1.16716(39)e-5 (+2 sigma), G_F^CKM = 1.16550(29)e-5 (-3 sigma), mutual tension 3.4 sigma",
+   "source_now": "arXiv:2102.02825 eqs.(5),(9)",
+   "moves_conclusion": "Contested at the 1e-3 level as a probe of BSM contamination of G_mu; for the tree, v moves by at most 3.8e-4 and rho_EW by 7.5e-4 (COMPUTED) -- no conclusion moves."
+  },
+  {
+   "quantity": "Higgs quartic lambda used to form V_min (tree level vs loop)",
+   "value_then": "tree lambda = G_mu M_h^2/sqrt2 = 0.12917 at M_h = 125.15",
+   "value_now": "MS-bar lambda(M_t) = 0.12604 +/- 0.00030 (NNLO); m(M_t) = 131.55 GeV",
+   "source_now": "arXiv:1307.3536 Table 3, eq.(55)-(56)",
+   "moves_conclusion": "Moves the figure at the 2-25 % level, depending on which scheme's 'V_min' is meant (tree-form depth with MS-bar(M_t) parameters / on-shell tree depth = 1.251, ILLUSTRATIVE, since V_min is not an observable and CW loop terms are omitted). Not an order of magnitude; the tree's order-of-magnitude uses of rho_EW ~ 2.5e45 J/m^3 do not move, but its 1e-6 fixture digits are tree-level digits."
+  }
+ ],
+ "rederivation": {
+  "method": "sympy",
+  "script_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/fermi-constant-g_f-and-tree-level-vev.py",
+  "outcome": "0 FAIL, exit 0. (A) sympy: tree relations G_F/sqrt2 = g^2/(8M_W^2), M_W = gv/2 give v = (sqrt2 G_F)^(-1/2) identically; V_min = -lambda v^4/4 = -m_h^2 v^2/8. (B) MuLan eq.23 re-run from its printed inputs gives 1.166379014e-5, 0.27 ppm (0.52 sigma) above the printed 1.1663787(6): DISCREPANCY RECORDED, not repaired -- dropping the separately listed -0.4 ppm Pak-Czarnecki term gives 1.16637878e-5 (which rounds to the PRL/PDG ...788), so rounding/bookkeeping of the printed Delta q terms is a candidate origin, not adjudicated. (C) Eberhart et al. 2026 eq.21 reproduced to 2.5e-9: 1.1663785871e-5. (D) Buttazzo's 1.1663781e-5 = MuLan printed value / sqrt(1 + 3m_mu^2/(5M_W^2)) to 5e-14. (E) tree fixtures v = 246.219640 (vs 246.2196, 1e-5), rho_EW(125.20) = 2.4769374e45 (1e-6), xi_required = 9.7829068836e31 (1e-9) all reproduced independently; every READ muon-decay G_F moves v by <= 3.0e-7; the most discrepant independent G_F moves rho_EW by 7.5e-4. (F) tree lambda 0.129177 reproduces Buttazzo LO 0.12917; NNLO/LO = 0.9757, m^2/M_h^2 = 1.105.",
+  "agrees_with_source": "yes"
+ },
+ "later_literature": [
+  {
+   "ref": "Eberhart, Fael, Keshavarzi, Nomura, Schonwald, Steinhauser, Teubner, Wright, 'Muon lifetime and Fermi constant: an update', arXiv:2607.02657 (2026)",
+   "effect": "confirms",
+   "what": "O(alpha^3) QED and dispersive hadronic corrections: Dq = -4 384 678(34) ppb, G_F = 1.166 378 59(59)e-5 GeV^-2, 'in good agreement with the value reported in the 2026 edition of the PDG'; theory uncertainty cut tenfold; tau_mu (0.5 ppm) and m_mu (0.054 ppm) now dominate. Also extends: the correction the 2013 authors lacked is now computed and moves nothing.",
+   "read_status": "READ (pp.1-5 via alphaXiv; eq.21 reproduced numerically)"
+  },
+  {
+   "ref": "Crivellin, Hoferichter, Manzari, 'The Fermi constant from muon decay versus electroweak fits and CKM unitarity', arXiv:2102.02825 (PRL 127 (2021) 071801)",
+   "effect": "contested",
+   "what": "G_mu = 1.1663787(6) is 'not necessarily free of BSM contributions'; G_F^EW = 1.16716(39) lies 2 sigma above, G_F^CKM = 1.16550(29) 3 sigma below, mutual 3.4 sigma; only Q_ll^2112 and Q_phi_l^(3) could shift G_mu. The identification G_F(muon) = the SM coupling is thus contested at the 1e-3 level, which moves the tree's v by <= 3.8e-4.",
+   "read_status": "READ (pp.1-5 via alphaXiv)"
+  },
+  {
+   "ref": "Buttazzo, Degrassi, Giardino, Giudice, Sala, Salvio, Strumia, 'Investigating the near-criticality of the Higgs boson', arXiv:1307.3536 (JHEP 12 (2013) 089)",
+   "effect": "narrows",
+   "what": "v = (sqrt2 G_mu)^(-1/2) = 246.21971 is the on-shell definition with Delta r in the counterterm; LO lambda 0.12917 vs NNLO MS-bar lambda(M_t) 0.12604 and m(M_t) 131.55 GeV: the tree-level potential built from v and m_h is a scheme-dependent LO object. Also names the W-propagator convention (G_mu = 1.1663781 without it).",
+   "read_status": "READ (pp.1-16, 34-35 via alphaXiv)"
+  },
+  {
+   "ref": "Mohr, Newell, Taylor, Tiesinga, 'CODATA Recommended Values ... 2022', arXiv:2409.03787",
+   "effect": "confirms",
+   "what": "G_F/(hbar c)^3 = 1.166 3787(6)e-5 GeV^-2 [5.1e-7], taken from PDG 2022; differs from the PDG 2024 table's ...788(6) by 1 in the last digit (0.17 sigma) -- recorded discrepancy.",
+   "read_status": "READ (pp.5, 41, 51)"
+  },
+  {
+   "ref": "Particle Data Group, Navas et al., PRD 110, 030001 (2024), Table 1.1 Physical Constants",
+   "effect": "confirms",
+   "what": "G_F/(hbar c)^3 = 1.166 378 8(6)e-5 GeV^-2 (510 ppb) -- the tree's pin exactly.",
+   "read_status": "READ (PDF p.1 via alphaXiv URL fetch)"
+  }
+ ],
+ "lacked_data": "M's hypothesis tested. What the 2010-2013 MuLan authors lacked: (i) the O(alpha^3) QED correction and a modern dispersive hadronic term (they carried 0.14 ppm theory uncertainty from 'unknown 3-loop'); (ii) the CODATA 2018/2022 muon mass (105.6583755 vs 105.6583715 MeV) and exact hbar; (iii) later lifetime data entering the average (2196981.1 vs 2196980.3 ps). All three have since arrived: Eberhart et al. 2026 computed (i) and used (ii)-(iii), obtaining 1.16637859(59)e-5 -- 0.18 ppm (0.36 sigma) below the tree's pin, a move of 9.0e-8 in v and 1.8e-7 in rho_EW (COMPUTED). Evidence AGAINST the hypothesis for this result: having the data did not change the conclusion. Where data is still lacking: an independent G_F at muon-decay precision -- the EW-fit and CKM routes are ~1000x less precise and disagree with G_mu by +2 and -3 sigma (2102.02825), so whether G_mu carries a BSM admixture of order 1e-3 is OPEN; even the full 1e-3 would move v by <= 3.8e-4 and cannot move any order-of-magnitude figure. For the TREE RELATION the missing element is not data but a hypothesis: the tree uses LO lambda and V_min; the loop-level parameters were available (Buttazzo 2013, before the tree was written) and move lambda by -2.4 % and m^2 by +10.5 %.",
+ "grade": "NARROWED",
+ "grade_evidence": "The MEASUREMENT half STANDS without qualification: the tree's pin 1.1663788e-5 is READ identically in PDG 2024 Table 1.1; every later READ value (MuLan 2013 1.1663787(6), CODATA 2022 1.1663787(6), Eberhart 2026 1.16637859(59)) lies within 0.18 ppm; the MuLan and 2026 extractions were re-run here (2026 reproduced to 2.5e-9; MuLan within 0.27 ppm of its print, a recorded discrepancy inside its 0.5 ppm error); no datum move exceeds 3e-7 in v. The TREE-RELATION half is narrowed by a hypothesis the owner drops: v = (sqrt2 G_F)^(-1/2) is exact only as the on-shell tree-level definition (Buttazzo eq.8-9; MuLan eq.2-3), and higgs.py:262-275 builds lambda and V_min at LO without naming 'tree level' anywhere in the owner (grep); the canonical entry names it, the owner does not. The size of the dropped hypothesis is COMPUTED from READ numbers: MS-bar NNLO lambda(M_t)/LO = 0.9757, m^2/M_h^2 = 1.105. Not WRONG: nothing is refuted, no counterexample exists, the tree-level formulae are correct at tree level (sympy A1-A3), and no order-of-magnitude figure (rho_EW ~ 2.5e45 J/m^3, xi_required ~ 1e32) moves. The grade is not raised to STANDS because the 1e-6 fixture digits on rho_EW and lambda are LO digits presented without the LO qualifier.",
+ "what_would_change_the_grade": "To STANDS: the owner names the tree-level (on-shell, LO) hypothesis at higgs.py:262-275 / excite.py:390 and the G_F status is updated to READ (PDG 2024 Table 1.1) -- then statement and hypotheses match the source. To DATA-DEPENDENT: an independent G_F at muon-decay precision that disagrees with G_mu (confirming a BSM admixture), and a tree conclusion that depends on v at the 1e-3 level (none found). To WRONG: only a computed contradiction of the tree relation at tree level, which sympy A1 excludes. Resolving the 0.27 ppm MuLan re-run discrepancy or the PDG-2024 (...788) vs CODATA-2022 (...787) last digit would not change the grade.",
+ "reverify_command": "python3 /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/fermi-constant-g_f-and-tree-level-vev.py",
+ "report_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/audits/fermi-constant-g_f-and-tree-level-vev.json"
+}

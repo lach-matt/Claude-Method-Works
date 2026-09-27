@@ -1,0 +1,76 @@
+A. zeta-regularised mode sum (units hbar = c = 1)
+PASS transverse integral continued to s=-1/2 equals -m^3/(6 pi)   -m**3/(6*pi)
+PASS E/A = -pi^2/(720 a^3)   -pi**2/(720*a**3)
+B. Abel-Plana closed form and force
+PASS series value agrees with direct quadrature of int x^3/(e^x-1)
+PASS int x^3/(e^x-1) = pi^4/15
+PASS review eq (2.36) -> -pi^2/(720 a^3)
+PASS force/area = -dE/da = -pi^2/(240 a^4) (review eq 2.37)
+PASS series value agrees with direct quadrature of int y^2 ln(1-e^-y)
+PASS int y^2 ln(1-e^-y) = -pi^4/45   -pi**4/45
+PASS Lifshitz energy ideal limit (1/(32 pi^2 a^3))(2 Iln) = -pi^2/(720 a^3)
+PASS Lifshitz force ideal limit (1/(32 pi^2 a^4))(2 pi^4/15) = pi^2/(240 a^4)
+C. local energy density for ideal plates
+PASS uniform T00 = (E/A)/a = -pi^2/(720 a^4) (Brown-Maclay, via Sopova-Ford eq 52)
+PASS Sopova-Ford (56)+(57): (E^2+B^2)/2 = -pi^2/(720 a^4), z-independent
+PASS but <E^2> alone diverges at the plate (z -> 0)
+PASS Brown-Maclay tensor traceless: rho=-r0, p_x=p_y=r0, p_z=-3r0 -> -rho+2p+pz ... 
+PASS p_z = -3 r0 = -pi^2/(240 a^4) equals the attractive pressure
+D. the tree's numbers from its own constants
+PASS casimir(1e-8) = 4.33375e4 J/m^3   4.333753e+04
+PASS casimir(1e-9) = 4.33375e8 J/m^3   4.333753e+08
+PASS crossover = l_P pi sqrt(Lambda/720) = 0.369917 l_P   0.369917
+PASS crossover in metres 5.978797e-36   5.9787970e-36
+PASS quantum_bound/casimir_density = 720/pi^2 = 72.951   72.9513
+PASS corridor factor sqrt(720/pi^2) = 8.541
+E. data
+   scipy.constants: scipy.constants hbar = 1.0545718176461565e-34  c = 299792458.0  G = 6.6743e-11  G unc = 1.5e-15
+PASS tree HBAR vs SI-exact h/2pi: rel diff < 1e-9   -6.13e-10
+PASS tree C = exact c
+PASS tree G = scipy CODATA G
+PASS pi h c/480 = pi^2 hbar c/240 = 1.300e-27 N m^2   1.3001e-27
+PASS Bressi 2002 K_C = (1.22 +- 0.18)e-27 agrees within 1 sigma   pull = -0.45 sigma
+F. Lifshitz plasma model (review eqs 5.53, 4.26), real/ideal at the tree's gaps
+PASS numeric plasma-model eta_F(Au, 1 um) matches review eq (5.60)   numeric 0.8950  vs  5.60 0.8950
+PASS review p.154 '10-20% at ~1 um': 1-eta_F(Au,1um) in [0.05,0.25]   0.105
+   gap        eta_F(Au)  eta_E(Au)  eta_F(Al)  eta_E(Al)   [real/ideal; plasma model, T=0]
+   3.0e-06    9.6274e-01 9.7187e-01 9.7237e-01 9.7918e-01
+   1.0e-06    8.9497e-01 9.1975e-01 9.2086e-01 9.3982e-01
+   1.0e-07    4.4566e-01 5.2854e-01 5.2384e-01 6.0408e-01
+   1.0e-08    8.0087e-02 1.1104e-01 1.0472e-01 1.4281e-01
+/usr/local/lib/python3.11/dist-packages/scipy/integrate/_quadpack_py.py:1286: IntegrationWarning: The integral is probably divergent, or slowly convergent.
+  quad_r = quad(f, low, high, args=args, full_output=self.full_output,
+   1.0e-09    8.7513e-03 1.3033e-02 1.1879e-02 1.7627e-02
+   1.0e-10    8.7743e-04 1.3159e-03 1.1933e-03 1.7893e-03
+PASS at 10 nm the ideal formula overstates the Au interaction energy (eta_E < 0.5)   eta_E = 0.111
+PASS at 0.1 nm (tree's 'atomic floor') eta_E(Au) < 0.05   eta_E = 0.0013
+PASS small-gap scaling: eta_E(1nm)/eta_E(0.1nm) ~ 10 (non-retarded a^-3 regime)   9.90
+PASS every real/ideal ratio < 1: real plates give LESS |E|, never more
+   hbar omega_p: Au 9.12 eV, Al 12.40 eV (from lambda_p)
+G. Sopova-Ford eq (50) midpoint energy density, collisionless plasma, hbar=c=1, omega_p = 1
+   omega_p a =     50   a^4 U(mid) = +0.01139
+   omega_p a =     99   a^4 U(mid) = -0.00031
+   omega_p a =    200   a^4 U(mid) = -0.00688
+   omega_p a =   2000   a^4 U(mid) = -0.01301
+PASS a^4 U(mid) -> -pi^2/720 = -0.01371 as omega_p a grows (Sopova-Ford eq 52)   -0.01364 at 2e4
+PASS sign change of U(mid) near omega_p a = 99 (Sopova-Ford eq 51)   root 96.6
+   Al: a_c = root/(omega_p/c) = 1.288 um  (paper: 1.3 um)
+PASS Al a_c ~ 1.3 um
+   Al gap 1e-08 m: omega_p a = 0.7500, a^4 U(mid) = +5.7467e-02  (ideal -0.01371)
+   Al gap 1e-09 m: omega_p a = 0.0750, a^4 U(mid) = +8.2175e-03  (ideal -0.01371)
+   Al gap 1e-10 m: omega_p a = 0.0075, a^4 U(mid) = +8.5494e-04  (ideal -0.01371)
+PASS at the tree's 10 nm gap (Al) the plasma-model midpoint energy density is POSITIVE
+H. thermal correction, review eq (5.25), T = 300 K
+   gap 1e-08 m: T_eff = 1.145e+05 K, (1/3)(T/T_eff)^4 = 1.571e-11
+   gap 1e-06 m: T_eff = 1.145e+03 K, (1/3)(T/T_eff)^4 = 1.571e-03
+   gap 3e-06 m: T_eff = 3.816e+02 K, (1/3)(T/T_eff)^4 = 1.273e-01
+PASS thermal correction at 10 nm < 1e-9 (irrelevant to the tree's rows)
+I. what the real-material ratios do to the tree's rows (direction only; plasma model, Au)
+   achievable 10 nm row: eta_E = 0.111 -> corridor b grows by 1/sqrt(eta_E) = 3.00
+   achievable 0.1 nm row: eta_E = 0.001316 -> corridor b grows by 1/sqrt(eta_E) = 27.57
+   candidates shortfall at R = d = 1 nm: 2.798e52 / eta_E = 2.147e+54
+PASS real-plate correction can only ENLARGE the tree's shortfalls and corridors
+   non-retarded-law crossover R = 4.704e-64 m = 2.910e-29 l_P (continuum model invalid there too)
+PASS real-law crossover lies even deeper below l_P than the ideal 0.369917 l_P
+
+ALL PASS (0 failures)

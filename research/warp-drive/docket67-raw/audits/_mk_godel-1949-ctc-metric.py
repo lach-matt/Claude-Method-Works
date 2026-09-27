@@ -1,0 +1,85 @@
+import json
+D = "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/"
+W = "/home/user/Claude-Method-Works/research/warp-drive/"
+rep = {
+ "key": "godel-1949-ctc-metric",
+ "name": "Goedel 1949: an exact Lorentzian (Einstein) solution containing closed timelike curves",
+ "source": {
+  "located": "K. Goedel, 'An example of a new type of cosmological solutions of Einstein's field equations of gravitation', Rev. Mod. Phys. 21, 447 (1949) -- no arXiv copy. Restated exactly in: Kajari, Walser, Schleich, Delgado arXiv:gr-qc/0404032 Sec.3.1 eq.(15) (cylindrical form 'given by Goedel in 1949') and the field-equation relations after eq.(18); Buser, Kajari, Schleich arXiv:1303.4651 eq.(1), Sec.2.1, Sec.5 p.27; Verma, Aluri, Mota, Obukhov arXiv:2506.00860 eq.(1) and text (original chart; misprinted, see drift); Luminet arXiv:2101.08592 pp.1-6 (history, statement).",
+  "read_status": "READ-VIA-RESTATEMENT",
+  "via": "Goedel 1949 NAMED-NOT-READ. Statement, hypotheses and both charts READ in gr-qc/0404032 (pp.6-10), 1303.4651 (pp.3-7, 27-29), 2506.00860 (pp.1-3), 2101.08592 (pp.1-6); every formula used here re-derived in sympy (E1-E3), including the dy^2 coefficient the 2506.00860 restatement misprints, which the field equations force (E1a'')."
+ },
+ "published_statement": "As restated: 'in 1949 Kurt Goedel derived an exact solution of Einstein's field equations, in which a homogeneous mass distribution rotates around every point in space. This solution shows rather unusual properties such as closed time like world-lines' (gr-qc/0404032 p.2). Line element (gr-qc/0404032 eq.15): ds^2/(4a^2) = dt^2 - dr^2 - (sinh^2 r - sinh^4 r) dphi^2 - dz^2 + 2 sqrt2 sinh^2 r dphi dt, solving R_mn - g_mn R/2 = kappa T_mn + Lambda g_mn with a perfect fluid, kappa(rho + p/c^2) = 1/(a^2 c^2), kappa p = Lambda + 1/(2a^2) (dust: Lambda = -1/(2a^2)). 'Goedel's solution ... is a homogeneous solution with trivial topology R^4 yet contains CTCs through every point' (hep-th/0209114 p.3). Goedel's universe is 'infinite, non-expanding, and filled with an idealized, homogenous perfect fluid ... matter rotates relative to the compass of inertia with the angular velocity 2(pi G rho)^(1/2)' (2101.08592 p.1).",
+ "published_hypotheses": [
+  "Einstein's field equations with cosmological constant, R_mn - g R/2 = kappa T + Lambda g (gr-qc/0404032 after eq.18)",
+  "source: pressure-free perfect fluid (dust), rho > 0, comoving u = d_t; Lambda = -1/(2a^2) < 0 ('pressureless dust balanced by a negative cosmological constant', hep-th/0209114 p.13)",
+  "stationary, spatially homogeneous (five Killing vectors, gr-qc/0404032 eq.25), not static, not isotropic; non-expanding, shear-free, rigidly rotating with Omega_G = c/(sqrt2 a) (gr-qc/0404032 eqs.19-21)",
+  "manifold R^4, trivial topology (hep-th/0209114 p.3) -- the CTCs are not produced by identification",
+  "4 spacetime dimensions",
+  "the CTCs are not geodesics: 'a proper acceleration has to be applied ... a CTC does not represent a geodesic in Goedel's universe' (1303.4651 p.27)",
+  "Goedel himself did not offer it as a model of our universe: no redshift (1303.4651 p.3)"
+ ],
+ "hypothesis_drift": [
+  "ADDED DIMENSION, supplied by a trivial construction, not by Goedel (latticectc.py:82-83: \"there exists a 5D Lorentzian metric containing a CTC -- Goedel 1949\"). Goedel's solution is 4D. The 5D statement follows at once: Goedel x R with a flat fifth direction is Lorentzian and carries the same CTC (E5a); an exact 5D Goedel analogue in minimal supergravity also exists (Gauntlett-Gutowski-Hull-Pakis-Reall hep-th/0209114 eq.3.29, READ; E5c, E5e). The attribution is loose, the statement true.",
+  "WEAKENED (the tree uses less than the source gives): at :82-83 only bare existence of a Lorentzian metric with a CTC is taken. That statement needs neither Goedel nor field equations -- flat space with a periodic time is one (2101.08592 p.4 'trivial CTCs'; E7; the causal-lattice case of D21) -- so 'never in doubt' is accurate for the statement as used. Goedel's actual content is stronger: an exact Einstein solution, R^4 topology, positive-density dust, CTCs through every point (E1, E2, E3).",
+  "LABEL UNDERSTATES THE SOURCE (latticectc.py:141-144, CODIM1_CTC_REFUSAL '... NEC-violating on the CTC slice -- Goedel-class, not a braneworld'; mirrored in LEDGER.md:44 and :117). Goedel's source satisfies the NEC and the WEC (E4a: S(k,k) = (u.k)^2/a^2 >= 0; E4b), and the metric solves the field equations with a specified matter source (E1f). The refused metric has no field equation and violates the NEC (latticectc.py:76-86), so it is strictly weaker than Goedel's class, not a member of it. A discrepancy of description; it strengthens rather than weakens the refusal's point that the metric 'adds nothing' -- a NEC-satisfying 5D CTC metric already exists with its stress tensor read off its own Einstein tensor (E5b: Goedel x R) and one with a Maxwell source (E5c, E5c'').",
+  "DROPPED, immaterial to the use: homogeneity / CTCs through every point, R^4 topology, non-geodesic character of the CTCs, and the dust + negative-Lambda source. None is needed for bare existence.",
+  "SECONDARY-SOURCE MISPRINT (not the tree's, not Goedel's): 2506.00860 eq.(1) prints ds^2 = a^2(dt^2 - 2e^x dt dy + e^{2x} dy^2 - dx^2 - dz^2); with coefficient 1 on e^{2x} dy^2 the metric is degenerate, det g = 0 (E1a'). Requiring dust + Lambda with u ~ d_t forces the coefficient 1/2 uniquely (E1a''), which is the form every other statement in that paper (omega^2 = 1/(2a^2) = 4 pi G eps = -Lambda) matches (E1i). Recorded as a discrepancy; the tree does not use that paper."
+ ],
+ "data_at_publication": [
+  {"quantity": "numerical inputs to the conclusion 'an exact solution with CTCs exists'",
+   "value_then": "none -- a > 0 is a free length scale; rho and Lambda are fixed by a (8 pi G rho = 1/a^2, Lambda = -1/(2a^2))",
+   "value_now": "none; the relations re-derived exactly (E1d, E1e), and omega^2 = 1/(2a^2) = 4 pi G rho = -Lambda (E1i), matching 2101.08592's restated 'angular velocity 2(pi G rho)^(1/2)' since 2 sqrt(pi G rho) = sqrt(4 pi G rho)",
+   "source_now": "rederive/godel-1949-ctc-metric.py E1",
+   "moves_conclusion": "no -- no datum enters"},
+  {"quantity": "global rotation of the observed universe (bears on whether Goedel's model describes nature, not on whether it solves the equations)",
+   "value_then": "Goedel noted his model has no redshift for distant objects, so is not our universe (1303.4651 p.3); Hubble 1929 was known",
+   "value_now": "upper limits from Hawking 1969, Collins-Hawking 1973, Barrow-Juszkiewicz-Sonoda 1985, Kogut-Hinshaw-Banday 1997 (COBE), Saadeh et al. 2016 (CMB) -- cited in 2506.00860 refs [23]-[27],[61], NAMED-NOT-READ, values not quoted here; 2506.00860 (READ, Table 1) reports a mild Pantheon+ SNIa preference Omega_0 = 0.29(+0.21/-0.15) at z <= 0.2 for an EXPANDING Goedel-type model with k > 0, which that paper states has NO closed timelike curves (Sec.2.1)",
+   "source_now": "arXiv:2506.00860 pp.2-3, 7-8, 11",
+   "moves_conclusion": "no -- the tree never claims Goedel describes our universe; it cites only existence, which is a closed-form fact about a metric. The 2025 fit concerns a causal Goedel-type model, not Goedel's, and is contested by the CMB limits it cites."}
+ ],
+ "rederivation": {
+  "method": "sympy",
+  "script_path": D + "rederive/godel-1949-ctc-metric.py",
+  "outcome": "ALL AS RECORDED, 38/38 PASS (exit 0; output in rederive/godel-1949-ctc-metric.out; sympy 1.14.0, python 3.11). E1 Goedel's original chart: the printed 2506.00860 form is degenerate; the field equations force g_yy = a^2 e^{2x}/2; then G = kappa rho u u + Lambda g in all 16 components with 8 pi G rho = 1/a^2 > 0, Lambda = -1/(2a^2), R_mn = u_m u_n/a^2, R = 1/a^2; dust geodesic, no expansion or shear, vorticity^2 = 1/(2a^2). E2 d_t, d_y, d_z, d_x - y d_y are Killing and span T_p everywhere (transitive isometry group => a CTC through one point gives one through every point); a fifth generator written from recollection is Killing only with the y-orientation of this chart (INFO line, not load-bearing). E3 Kajari eq.(15) solves the same equations with the same rho, Lambda; g_phiphi = 4a^2 sinh^2 r (sinh^2 r - 1) > 0 iff r > ln(1+sqrt2) (r_G = 2a in Kajari's radius); axis regular with phi-period 2 pi, so the circle at r = 6/5 is a genuine closed timelike curve (proper time 21.45 a); it is not a geodesic. E4 NEC and WEC hold for Goedel's total source. E5 Goedel x R is a 5D Lorentzian metric with the same CTC and G5(k,k) >= 0 on the null cone; the GGHPR 5D Goedel analogue has G_ab = 2 T^Maxwell_ab exactly, T(k,k) >= 0 on 400 sampled null vectors (min 0.09), d/dphi1 timelike iff r1 > 2. E6 Barrow-Tsagas's (36)+(18) => (37) m^2 = 2 omega^2 + 6(Pnn - P11)/(kappa^2 lambda) exactly; with P11 = Pnn it is Goedel's m^2 = 2 omega^2; their eq.(30) has CTCs iff m^2 < 4 omega^2 and reduces to Kajari eq.(15). E7 bare existence is trivial (flat quotient). Not machine-checked: the explicit coordinate isometry between Goedel's original and cylindrical charts (only invariant agreement, E3b).",
+  "agrees_with_source": "yes"
+ },
+ "later_literature": [
+  {"ref": "Kajari, Walser, Schleich, Delgado, 'Sagnac effect of Goedel's universe', arXiv:gr-qc/0404032, GRG 36 (2004) 2289",
+   "effect": "confirms",
+   "what": "Restates Goedel's cylindrical metric (eq.15), verifies the field equations with dust + Lambda, rotation scalar Omega_G = c/(sqrt2 a), five Killing vectors, causal structure with critical radius r_G = 2a beyond which CTCs exist. Re-derived here (E1, E3).",
+   "read_status": "READ (pp.1-4, 6-14, 17, 19, 21, 23, 26)"},
+  {"ref": "Buser, Kajari, Schleich, 'Visualization of the Goedel universe', arXiv:1303.4651, NJP 15 (2013) 013063",
+   "effect": "narrows",
+   "what": "p.27: the circular CTC needs r > r_G and 'a proper acceleration has to be applied ... a CTC does not represent a geodesic'; homogeneity used to move a CTC through the origin. Narrows the physical reading (no free-fall time loop), not the existence claim. E3g confirms non-geodesic.",
+   "read_status": "READ (pp.1-9, 14, 27-29, 32-33)"},
+  {"ref": "Gauntlett, Gutowski, Hull, Pakis, Reall, 'All supersymmetric solutions of minimal supergravity in five dimensions', arXiv:hep-th/0209114, CQG 20 (2003) 4587",
+   "effect": "extends",
+   "what": "Sec.3.4: a maximally supersymmetric 5D analogue of the Goedel universe, topology R^5, homogeneous, d/dphi_i timelike for r_i > 2, source a Maxwell field with the stress of pressureless dust; 'closed time-like curves are a commonplace amongst supersymmetric solutions'. This, not Goedel 1949, is a published exact 5D CTC solution. Re-derived (E5c, E5e).",
+   "read_status": "READ (pp.1, 3-5, 12-14, 17-19, 21, 38, 40, 49-50, 52, 54-55)"},
+  {"ref": "Barrow & Tsagas, 'Goedel brane', arXiv:gr-qc/0309030, CQG 21 (2004) 1773",
+   "effect": "extends",
+   "what": "A Goedel-type brane in an RS-type 5D bulk, treated through the effective (Shiromizu-Maeda-Sasaki) brane equations: 'the presence of the bulk cannot prevent the appearance of closed timelike curves' (m^2 = 2 omega^2 unchanged, eq.37; re-derived E6). Two named limits: 'Constructing the metrics of both the Goedel brane and of the host 5-dimensional bulk is a question that goes beyond the scope of this paper' (p.2), and the CTCs are brane-intrinsic cosmological loops, not bulk shortcuts. BEARS ON THE TREE ELSEWHERE, recorded not repaired: LEDGER.md:203 says of O3 'Every published no is a one-extra-dimension or flat-bulk result; the single yes needs two extra dimensions'. Barrow-Tsagas is a published one-extra-dimension braneworld 'yes' at the level of the effective brane equations, bulk unconstructed and energy conditions of the effective brane source not established. Under O3's wording at LEDGER.md:117 ('braneworld shortcut') it is out of scope; under O3_ANSWERED_BY (latticectc.py, 'a CTC in a braneworld whose bulk satisfies its field equations with Israel junction conditions') it is a partial candidate lacking an explicit bulk. For the O3 audit, not this one.",
+   "read_status": "READ (pp.1-10)"},
+  {"ref": "Luminet, 'Closed timelike curves, singularities and causality: a survey from Goedel to chronological protection', arXiv:2101.08592 (2021)",
+   "effect": "narrows",
+   "what": "Priority: Lanczos 1924 and van Stockum 1937/38 rotating solutions contained CTCs 'not recognized as such by their authors'; Goedel is the first to recognize them. Goedel's model is non-expanding and rotation is 'almost universally rejected' observationally (p.3). Trivial CTCs by wrapping time (p.4). Goedel is the m^2 = 2 Omega^2 member of the Reboucas-Tiomno Goedel-type family (p.4). Barrow-Dabrowski 1998: Goedel 'seems to lose its closed timelike curves when modeled in string theory' (p.9) -- a different theory's solution, not a refutation of the GR result.",
+   "read_status": "READ (pp.1-9, 12-15)"},
+  {"ref": "Verma, Aluri, Mota, Obukhov, 'Cosmographic constraints on a Goedel-type rotating universe', arXiv:2506.00860 (2025)",
+   "effect": "contested",
+   "what": "Mild SNIa preference for rotation in an expanding, causal (k > 0, CTC-free) Goedel-type model; eq.(1) misprints Goedel's metric (degenerate as printed, E1a'). Not about Goedel's CTC solution.",
+   "read_status": "READ (pp.1-3, 7-9, 11-14, 17, 19)"},
+  {"ref": "Reboucas & Tiomno 1983 (PRD 28, 1251); Barrow & Dabrowski 1998 (PRD 58, 103502); van Stockum 1937; Lanczos 1924; Hawking 1969 and Collins-Hawking 1973 (rotation limits); da Silva et al. gr-qc/0703100 (linear stability of Goedel CTCs, seen only as a discovery listing)",
+   "effect": "extends",
+   "what": "Restated in the papers above; not needed for the tree's use.",
+   "read_status": "NAMED-NOT-READ"}
+ ],
+ "lacked_data": "What Goedel lacked in 1949: the CMB (1965) and every vorticity limit built on it; the causal-structure machinery (Hawking-Ellis 1973, the chronology protection conjecture 1992); higher-dimensional and brane frameworks; string-theoretic corrections. He did have Hubble's expansion and said his model lacks it (1303.4651 p.3). Does having the later data change the conclusion? No, on the evidence here, in both directions: (for stability) the solution is closed-form and data-free -- re-derived exactly from the field equations (E1, E3) -- and the CTC survives the brane generalisation at the level of the effective equations (Barrow-Tsagas, E6: m^2 = 2 omega^2 unchanged); (against physical relevance) observation disfavours global rotation (limits cited, NOT read) and some Goedel-type solutions with extra sources avoid CTCs (Barrow-Tsagas p.8-9; Barrow-Dabrowski via Luminet) -- but those are different solutions and speak to whether nature realises Goedel's universe, which the tree never claims. The tree uses only 'a Lorentzian metric with a CTC exists', which no datum can move and which holds even without Goedel (E7).",
+ "grade": "STANDS",
+ "grade_evidence": "As used at latticectc.py:82-83 -- existence of a (5D) Lorentzian metric containing a CTC -- the claim is re-derived exactly: Goedel's metric solves Einstein's equations with rho = 1/(8 pi G a^2) > 0 and Lambda = -1/(2a^2) (E1f), contains the closed timelike circle r > ln(1+sqrt2) on a regular axis (E3c-f), through every point by transitivity (E2b); the 5D version holds by the product Goedel x R (E5a) and by the exact GGHPR solution (E5c, E5e). No datum enters. Recorded, not repaired, none moving the grade: (1) 5D is not Goedel's statement, only a trivial corollary of it; (2) 'Goedel-class' at :144 understates Goedel -- his source satisfies NEC and WEC (E4a, E4b) and his metric solves field equations, so the refused NEC-violating, field-equation-free metric is below Goedel's class, which strengthens the refusal; (3) a secondary-source misprint (2506.00860 eq.1, degenerate as printed, E1a'); (4) Barrow-Tsagas 2004 is a published codimension-one Goedel brane with CTCs (bulk unconstructed), a discrepancy with LEDGER.md:203's literature summary, referred to the O3 audit.",
+ "what_would_change_the_grade": "NARROWED if an owner were found leaning on Goedel 1949 for more than bare existence in 5D -- for a braneworld, a junction-condition-satisfying bulk, or a NEC-violating class -- since Goedel supplies none of those. WRONG only if Goedel's metric failed the field equations or contained no CTC, which E1f and E3f exclude exactly. Reading Goedel 1949 itself (not on arXiv) would change READ-VIA-RESTATEMENT to READ; a difference from the restatements at the metric would reopen the source status, not the mathematics (E1a'' shows the field equations fix the only free coefficient).",
+ "reverify_command": "python3 " + D + "rederive/godel-1949-ctc-metric.py && sed -n 75,90p " + W + "latticectc.py && sed -n 141,144p " + W + "latticectc.py && grep -n \"single 'yes'\" " + W + "LEDGER.md",
+ "report_path": D + "audits/godel-1949-ctc-metric.json"
+}
+json.dump(rep, open(D + "audits/godel-1949-ctc-metric.json", "w"), indent=1)
+print("ok")

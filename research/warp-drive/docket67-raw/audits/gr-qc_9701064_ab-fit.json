@@ -1,0 +1,100 @@
+{
+ "key": "gr-qc/9701064#ab-fit",
+ "name": "HPS far-zone fit sqrt F = a ln l - b with a = 5.3, b = 25.5 (Hochberg, Popov, Sushkov, PRL 78, 2050 (1997), gr-qc/9701064)",
+ "source": {
+  "located": "gr-qc/9701064 v1 = Phys. Rev. Lett. 78, 2050 (1997), D. Hochberg, A. Popov, S.V. Sushkov, 'Self-consistent Wormhole Solutions of Semiclassical Gravity' (bibliographic data from WebSearch listings: arxiv.org/abs/gr-qc/9701064v1, journals.aps.org PRL 78 2050, kpfu.ru/staff_files/F_1102347627/PRL02050a.pdf). The tree records an earlier full read: hpscentre.py:114-117 'READ IN FULL: eqs. (2), (5)-(9), the asymptotic omega_1, omega_2, a = 5.3, b = 25.5, footnote [20]. The arXiv PDF TEXT LAYER was read; the journal PRL text was NOT.'",
+  "read_status": "NAMED-NOT-READ",
+  "via": "NOT READ THIS RUN. alphaXiv get_paper_content and answer_pdf_queries both returned 'alphaXiv assistant quota exceeded' (tried twice, and discover_papers once); arxiv.org, export.arxiv.org, ar5iv, alphaxiv.org, researchgate.net, kpfu.ru, inspirehep.net, semanticscholar, web.archive.org all refused (curl CONNECT 403 / WebFetch EGRESS_BLOCKED). The only text of HPS seen this run is the WebSearch abstract snippet ('a wormhole connecting two asymptotically spatially flat regions ... Planck-scale oscillations or ripples'). The values 5.3, 25.5, the symbol F, the unit of l and 'window not stated' are therefore taken AS THE TREE READ THEM (hpscentre.py:114-117, 176, 245, 252) and are NOT independently confirmed here. One later paper was READ from the scratchpad cache (hv9802046.txt, Hochberg-Visser gr-qc/9802046v2 p.3)."
+ },
+ "published_statement": "NOT READ AT SOURCE THIS RUN. As the tree records it (hpscentre.py:245): 'F(l) ~ (a ln l - b)^2, HPS p.8' with a = 5.3, b = 25.5 -- the far-zone behaviour of HPS's numerical throat solution from their eq. (9) data, ln f(0) = -2/3 (hpscentre.py:246). The tree's characterisation (hpscentre.py:169-176): 'a two-parameter log fit ... HPS do not state the window they fitted over.' No verbatim sentence of HPS p.8 could be quoted here.",
+ "published_hypotheses": [
+  "(as recorded by the tree, not re-read) HPS's semiclassical system: Einstein equations sourced by the AHS analytic (DeWitt-Schwinger-type) approximation to <T_ab> for a massless conformally coupled scalar (xi = 1/6), static spherical ansatz ds^2 = -f dt^2 + dl^2 + r(l)^2 dOmega^2 (hpscentre.py:112-128; qeihps.py:55-58 per sibling audit 1208.5399-sec5.1)",
+  "(as recorded) boundary data eq. (9): throat at l = 0, r'(0) = f'(0) = 0, ln f(0) = -2/3 for the run fitted, -1 <= ln f(0) < 0 allowed (hpscentre.py:246-247)",
+  "(as recorded) lengths in units of K, K^2 = 1/(5760 pi) l_P^2 (hpscentre.py:890-893); b is only meaningful with this unit (see rederivation A1)",
+  "(as recorded) the fit is over some far-zone range of l that HPS do not state (hpscentre.py:176, 252)",
+  "(implied by the law itself, computed) the law can hold only for l >> l0 = exp(b/a) = 122.9 (HPS unit), and it makes F unbounded (F(1e5) = 1262 by the law), i.e. g_tt does not tend to a constant: consistent with Hochberg-Visser gr-qc/9802046 p.3 'no asymptotically flat spatial regions' and with the tree's quote of HPS 'the metric as a whole is not asymptotically flat' (hpscentre.py:99-100)"
+ ],
+ "hypothesis_drift": [
+  "UNIT OF l (implicit, not flagged in the tree): hpscentre.py:252 takes the windows '(lo, hi, sampling) in K' and matches b = 25.5 in K units (hpscentre.py:923-927). b is NOT unit-invariant: l -> lam l sends b -> b - a ln lam (sympy, A1). Had HPS's l been in l_P, the K-unit target would be b = 51.48, not 25.5. Evidence either way: the tree's printed-M1 integration reproduces (5.3, 25.5) within 5 % IN K UNITS in 125 of 231 windows, which supports (does not prove) the K reading; b = 51.48 is also reached by the conserved run at large windows (max b 57.5), so the reproduction alone does not exclude it. Not re-read at source: named hypothesis, not a finding.",
+  "SYMBOL F vs f: hpscentre.py:245's comment writes 'F(l) ~ (a ln l - b)^2' while far_zone_fit (hpscentre.py:911-920) fits sqrt of the state variable y[0] = f (the g_tt redshift function; y0[0] = exp(ln f(0)), hpscentre.py:978). The identification F = f is the tree's reading; unverified this run.",
+  "WINDOW ADDED BY THE TREE (a hypothesis HPS's figure lacks, per the tree): hpscentre.py:169-176, 252 'HPS do not state the window'. The tree's use is therefore NARROWER than a bare 'far-zone law': it treats (5.3, 25.5) as window-dependent and uses it only as a fixture (hpscentre.py:241-245 'used ONLY as fixtures to compare against'). This drift is in the conservative direction and is supported by the computation (B1, B3). Whether HPS in fact state a range is unverifiable here.",
+  "TOLERANCE ADDED BY THE TREE: MATCH_TOL = 5 % on both a and b (hpscentre.py:263) is the tree's own criterion ('the old control's own 5 %'), not HPS's; HPS give no uncertainty on a, b (as recorded).",
+  "NON-CONVERGENCE CLAIM (tree, hpscentre.py:171-172 'a has not converged to a constant in either system: it keeps rising with the window'): AGREES with the computation up to 1e5 K (local slope rises monotonically in both readings, B2), with the nuance that the increments shrink (printed: 0.609 -> 0.038 per unit ln l; conserved: 1.662 -> 0.308), so 'keeps rising' within the range is not a showing that no limit exists; the extrapolated limit depends on the model assumed (printed 5.64 under a power-law tail, 6.75 under a 1/ln l tail), so the limit is not determined by these data. Not a drift in the tree's wording, which claims only non-convergence in range.",
+  "ASYMPTOTIC FLATNESS PHRASING: the WebSearch abstract snippet says 'two asymptotically spatially flat regions'; Hochberg-Visser gr-qc/9802046 p.3 (Hochberg being an HPS author) says 'no asymptotically flat spatial regions'; the tree quotes HPS 'the metric as a whole is not asymptotically flat' (hpscentre.py:99-100). The far-zone law makes g_tt unbounded, so the full metric is not asymptotically flat on either reading; the 'spatially flat' vs 'no flat spatial regions' wording difference is recorded as a discrepancy between an abstract snippet and a later co-author paper, not adjudicated."
+ ],
+ "data_at_publication": [
+  {
+   "quantity": "a (slope of sqrt F in ln l)",
+   "value_then": "5.3 (as the tree reads HPS p.8)",
+   "value_now": "window fits on the tree's re-integration (K units): printed-M1 reading 4.669-5.577, conserved reading 4.959-8.929 over the tree's 10 windows 500..1e5 K; local slope a_loc printed 4.27 (500 K) -> 5.59 (8e4 K), conserved 3.83 -> 9.05",
+   "source_now": "rederive/gr-qc_9701064_ab-fit.py B1, B2 (numerical, tree's system re-run from a copy)",
+   "moves_conclusion": "not a measured datum -- a model output. It shows the printed figure is a window-dependent fit value, reproducible by the printed-M1 reading in 125/231 windows and by the conserved reading in 5/231 (none by both)"
+  },
+  {
+   "quantity": "b (offset)",
+   "value_then": "25.5 (as read)",
+   "value_now": "printed 20.26-27.66, conserved 23.27-56.84 over the tree's windows; unit-dependent: 51.48 in K units if HPS's l were in l_P",
+   "source_now": "rederive B1, A1 (sympy)",
+   "moves_conclusion": "no physical datum moves it; its value depends on the (unverified-here) unit of l and on the window"
+  },
+  {
+   "quantity": "K (length unit)",
+   "value_then": "K^2 = 8 pi/(46080 pi^2) l_P^2 = 1/(5760 pi) l_P^2 (as recorded)",
+   "value_now": "unchanged: a pure number times l_P, K = 0.0074340 l_P (l_P's SI value does not enter the fit)",
+   "source_now": "hpscentre.K_in_planck(), rederive A1",
+   "moves_conclusion": "no"
+  },
+  {
+   "quantity": "boundary datum ln f(0)",
+   "value_then": "-2/3 (HPS eq. (9), as recorded)",
+   "value_now": "a chosen boundary value, not a measurement",
+   "source_now": "hpscentre.py:246",
+   "moves_conclusion": "no (it defines which solution is fitted)"
+  },
+  {
+   "quantity": "source-term coefficients (M1: 16 vs 116 in the tt ln f part)",
+   "value_then": "HPS printed 16 (as read by the tree)",
+   "value_now": "116 is the unique conserved reading (tree's verify-hps/v1, hpscentre.py:157-163; not re-derived in this audit)",
+   "source_now": "hpscentre.py:157-165",
+   "moves_conclusion": "yes for the NUMBERS: in windows starting >= 2000 K the conserved system gives a = 6.7-8.9, b = 36-57, far from (5.3, 25.5); which system HPS integrated is NOT DETERMINED (reproduced here: attribution() = NOT DETERMINED over every window)"
+  }
+ ],
+ "rederivation": {
+  "method": "numeric",
+  "script_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/gr-qc_9701064_ab-fit.py",
+  "outcome": "Exit 0, 424 s; output in rederive/gr-qc_9701064_ab-fit.out. PART A (sympy, asserted, ALL PASS): A1 a invariant and b -> b - a ln lam under l -> lam l; b = 51.479 in K units if HPS's l were in l_P (ln(l_P/K) = 4.9017; b/a = 4.8113, ratio 0.9816 -- recorded, not interpreted). A2 zero of the law l0 = exp(b/a) = 122.89 < 500 K (every tree window lies beyond it); law values F(500) = 55.3, F(1e4) = 543.6, F(1e5) = 1261.6. A3 exact continuous least squares: a two-parameter log fit returns the true slope for every window iff the ln ln correction C = 0, otherwise it depends on the window. PART B (the tree's own system, hpscentre.py md5 07145787fd14c946a1b14167b6b0d109 and throatmass.py 3e99c0b93c3a541ebccd33dcf9ca6748 imported from a scratch COPY; both readings integrated to 1e5 K, status 0): B1 reproduces the tree's sweep exactly (e.g. [2000,1e4] lin: printed (5.300, 25.049), conserved (7.202, 40.437)); withdrawn single-window attribution = PRINTED; attribution over every window = NOT DETERMINED, equal to the tree's flag. B2 local slope rises monotonically to 8e4 K in both readings with shrinking increments. B4 extrapolated limit is model-dependent (printed 5.643 power-law tail vs 6.750 1/ln-l tail; conserved 9.78 vs 15.5) -- no limit is determined. B3 fine scan (231 windows, hi/lo >= 2): printed matches (5.3, 25.5) within 5 % in 125, conserved in 5 (all with lo <= 778, hi <= 2924 K), both in 0.",
+  "agrees_with_source": "partly"
+ },
+ "later_literature": [
+  {
+   "ref": "Hochberg & Visser, 'Dynamic wormholes, anti-trapped surfaces, and energy conditions', gr-qc/9802046 v2 (1998), p.3",
+   "effect": "confirms",
+   "what": "'the Hochberg-Popov-Sushkov self-consistent semi-classical wormhole (which is a wormhole of the inter-Universe type joining up two spacetimes with no asymptotically flat spatial regions) [7]' -- consistent with the far-zone law's unbounded F (non-flat far zone); it says nothing about a, b.",
+   "read_status": "READ (scratchpad cache hv9802046.txt, lines 60-68; not re-fetched this run)"
+  },
+  {
+   "ref": "Popov, hep-th/0302039 v2 (2003)",
+   "effect": "narrows",
+   "what": "per the tree (hpscentre.py:95-100, 118-121): the AHS approximation that sources HPS's system is established for asymptotically flat spacetimes (p.1, eq. (70), Sec. VI), and Popov's second printing of the source term disagrees with HPS's (M1-M3, hpscentre.py:140-165). The far zone in which (a, b) were fitted is not asymptotically flat, so the fit lies outside the established domain of the source term (a hypothesis failure, not a showing of invalidity -- the tree's own wording).",
+   "read_status": "NAMED-NOT-READ this run (READ by the tree in an earlier docket per hpscentre.py:118-121; alphaXiv quota exhausted)"
+  },
+  {
+   "ref": "Taylor, Hiscock, Anderson gr-qc/9608036; Anderson, Hiscock, Loranz gr-qc/9504019",
+   "effect": "narrows",
+   "what": "per the tree (hpscentre.py:122-128): massless analytic approximations 'contain an arbitrary parameter whose value cannot be fixed except by experiment'; AHS's approximation predicts a horizon divergence exact numerics lack. Bears on the source term, not on the fit arithmetic.",
+   "read_status": "NAMED-NOT-READ this run (READ by the tree per hpscentre.py:122-128)"
+  },
+  {
+   "ref": "'Semiclassical Wormholes with a Smooth Throat', Theor. Math. Phys. (Springer, DOI 10.1023/B:TAMP.0000015072.58252.19)",
+   "effect": "contested",
+   "what": "surfaced by WebSearch as later semiclassical-wormhole work; content not reached, so its bearing on HPS's far zone is unknown (effect recorded as 'contested' only because the enum has no 'unknown'; no claim is made).",
+   "read_status": "NAMED-NOT-READ (egress blocked; discover_papers quota exhausted)"
+  }
+ ],
+ "lacked_data": "This result is a numerical fit to HPS's own integration; no measured physical constant enters (K is a pure number times l_P; ln f(0) is a boundary choice). So M's hypothesis cannot act through a moved datum. What HPS lacked in 1997 was (i) an independent second printing of the source term: Popov 2003 disagrees at three places, and the tree's conservation test singles out 116 at M1 where HPS print 16 (hpscentre.py:157-163); (ii) Popov's result that the AHS approximation is established under asymptotic flatness, which HPS's far zone lacks. Evidence either way on whether having it changes the conclusion: the conserved system's fits in windows starting at >= 2000 K are a = 6.7-8.9, b = 36-57, far from (5.3, 25.5) -- so the NUMBERS change if HPS integrated the printed system and the conserved one is right; but the printed-M1 system reproduces (5.3, 25.5) in 125/231 windows and the conserved one in 5/231 (small windows near 500-2900 K), and the tree's rule refuses an attribution because no window has exactly one matching system in every window (reproduced: NOT DETERMINED). The qualitative conclusion -- a logarithmically growing, non-flat far zone -- is shared by both readings. Unknown here: HPS's window and unit of l (source not read this run). Nothing presumed: the counts are reported, not converted into an attribution.",
+ "grade": "OPEN",
+ "grade_evidence": "The source could not be read this run (alphaXiv quota exceeded; every arXiv route and mirror EGRESS_BLOCKED), so the published statement, the unit of l, F = f and whether a fitting range is stated cannot be checked against HPS -- by the docket's rule that is OPEN, not STANDS. What WAS checked, and does not by itself move the grade: (1) the tree's use is fixture-only and already carries the window caveat (hpscentre.py:169-176, 241-245); (2) the re-run of the tree's integrations to 1e5 K reproduces its sweep and its NOT DETERMINED attribution exactly; (3) (5.3, 25.5) IS reproducible as a window fit in K units by the printed-M1 reading (125/231 windows, e.g. [2000,1e4] K -> (5.300, 25.049)) and marginally by the conserved reading (5/231), so the printed numbers are not refuted -- nothing here is WRONG; (4) the fitted coefficients depend on the window and the local slope has not reached a constant by 8e4 K in either reading, with an extrapolated limit that depends on the tail model assumed; so IF HPS present (5.3, 25.5) as an asymptotic constant rather than a fit over a range, the result would be NARROWED to a window fit -- conditional on a reading not possible here; (5) b depends on the unit of l (sympy): 25.5 in K units vs 51.48 if l were in l_P.",
+ "what_would_change_the_grade": "Reading HPS p.8 at source (alphaXiv quota reset, or any reachable copy of gr-qc/9701064 / PRL 78 2050): (a) if HPS print a = 5.3, b = 25.5 in K units as a fit over a stated range that one reading reproduces there -> STANDS (as a window fit); (b) if HPS present them as the asymptotic far-zone law with no range -> NARROWED (the computation shows window dependence and no converged slope to 1e5 K in either reading of the system); (c) if HPS's l is in l_P or F is not the tree's f -> the fixture is mis-read (a discrepancy in the tree's reading, not a refutation of HPS), and the sweep would need re-running against the corrected target; (d) a determination of which system HPS integrated would make the numbers DATA-DEPENDENT on the source-term reading. An integration beyond 1e5 K showing a_loc levelling or growing without bound would settle convergence.",
+ "reverify_command": "cd /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive && HPS_X=100000 PYTHONDONTWRITEBYTECODE=1 python3 gr-qc_9701064_ab-fit.py   # ~7 min; HPS_X=10000 for a 40 s run (sweep without the FULL windows). Source check when reachable: answer_pdf_queries(paper='gr-qc/9701064', queries=['far-zone F(l) ~ (a ln l - b)^2, a, b', 'range of l fitted', 'unit of l', 'definition of F'])",
+ "report_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/audits/gr-qc_9701064_ab-fit.json"
+}

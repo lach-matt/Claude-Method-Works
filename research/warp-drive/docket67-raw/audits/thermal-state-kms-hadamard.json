@@ -1,0 +1,88 @@
+{
+ "key": "thermal-state-kms-hadamard",
+ "name": "Thermal (KMS) state of the free scalar is quasifree (zero-mean Gaussian) and Hadamard",
+ "source": {
+  "located": "PRIMARY (Hadamard/microlocal part): H. Sahlmann & R. Verch, 'Passivity and microlocal spectrum condition', arXiv:math-ph/0002021v2 (9 Feb 2000), Commun. Math. Phys. 214, 705-731 (2000) -- Theorem 5.1 and closing remarks p.23. PRIMARY (existence, quasifreeness, uniqueness-with-zero-mean of KMS states): K. Sanders, 'Thermal equilibrium states of a linear scalar quantum field in stationary spacetimes', arXiv:1209.6068v2 (12 Apr 2013), Int. J. Mod. Phys. A 28, 1330010 -- Theorem 4.3, Theorem 6.2. RESTATEMENTS: I. Khavkine & V. Moretti arXiv:1412.5945v3 (Def. 13 quasifree, Def. 15 Hadamard, Thm 9 'Radzikowski theorem', Remark 18(3), Remark 23); N. Pinamonti, K. Sanders, R. Verch arXiv:1806.02124v2 (KMS along spacelike flows). CLASSICS NAMED-NOT-READ: Kay & Wald, Phys. Rep. 207, 49 (1991) and Radzikowski, CMP 179, 529 (1996) -- both only via the restatements in 1412.5945 and 1806.02124; Araki-Woods (1963), Haag-Hugenholtz-Winnink (1967) not read.",
+  "read_status": "READ",
+  "via": "alphaXiv answer_pdf_queries on math-ph/0002021 (pp.1-4, 6, 8-9, 19-24, 27-29 returned: abstract, Introduction, Prop. 2.1, Sec. 4.3, Thm 5.1 with full proof, Appendix A definitions), on 1209.6068 (pp.1-3, 13, 19, 23, 25, 30, 35, 37-38: Thm 4.3, Thm 5.1, Thm 6.1, Thm 6.2 with proof), on 1412.5945 (pp.1, 15, 23, 36, 38-39, 43, 47-49, 51) and on 1806.02124 (full text pp.1-12). The tree cites no source for this result (noise.py:111-112 asserts it bare); these are the sources that carry it."
+ },
+ "published_statement": "(A) Sahlmann-Verch 2000, Theorem 5.1 (p.20): 'Let omega in P and let omega_2 be the two-point distribution of omega. Suppose that WF(omega_2^(P)) = empty = WF(omega_2(P)) ..., and suppose also that the symmetric part omega_2^(+) or the anti-symmetric part omega_2^(-) of the two-point distribution is smooth at causal separation (Definition 4.2). Then it holds that WF(omega_2) subset R', R = {(q,xi;q',xi') in N^- x N^+ : (q,xi) ~ (q',-xi')} (5.1); P = finite convex combinations of ground states or KMS states at strictly positive inverse temperature w.r.t. the flow of a timelike future-pointing Killing field on a globally hyperbolic stationary spacetime. p.23: 'for the canonically quantized scalar Klein-Gordon field, WF(omega_2) subset R implies WF(omega_2) = R and thus the two-point function of every strictly passive state is of Hadamard form, see [35] (Radzikowski)'. On quasifreeness SV say only (p.19): 'ground- and KMS-states turn out to be quasifree in examples'. (B) Sanders 2013, Theorem 6.2 (p.37), for 'a globally hyperbolic, stationary spacetime and ... a linear scalar field with a stationary potential V such that V > 0': '(i) There exists a unique extremal C^1 beta-KMS state omega^(beta) with vanishing one-point function ... (ii) omega^(beta) is quasi-free, regular (D^infinity), locally quasi-equivalent to omega_0 ... (iv) Any D^2 beta-KMS state is Hadamard and any regular beta-KMS state satisfies the microlocal spectrum condition ... (v) Any extremal beta-KMS state omega on W is of the form omega = eta*_rho omega_0 for some gauge transformation of the second kind'. (C) Khavkine-Moretti Def. 15 (p.38): omega_2 Hadamard iff omega_2 - H_0+ is smooth near every point; Thm 9(b): two Hadamard two-point functions differ by a C^infinity function on M x M.",
+ "published_hypotheses": [
+  "SV Thm 5.1: (M,g) globally hyperbolic and stationary, with a one-parameter group of isometries whose generator is everywhere TIMELIKE and future-pointing",
+  "SV Thm 5.1: omega strictly passive -- a finite convex sum of ground states or KMS states at inverse temperature beta_i > 0 (beta = 0 excluded) w.r.t. that Killing flow",
+  "SV Thm 5.1: omega_2 is a distribution and a bisolution of the wave operator up to C^infinity (WF(omega_2^(P)) = WF(omega_2(P)) = empty)",
+  "SV Thm 5.1: the symmetric or the antisymmetric part of omega_2 is smooth at causal (spacelike) separation",
+  "SV p.23 / Radzikowski: the step WF(omega_2) subset R => Hadamard form is for the canonically quantized (CCR) scalar Klein-Gordon field; Khavkine-Moretti Thm 9 states it for m^2, xi in R, d = 4, and records (Remark 23) a gap in Radzikowski's original proof of (1 => 3), filled by Sahlmann-Verch 2001 and by Khavkine-Moretti",
+  "SV: quasifreeness is NOT derived -- 'quasifree in examples' only",
+  "Sanders Thm 6.2: stationary potential V > 0 everywhere (for Minkowski: m > 0 -- the massless field is OUTSIDE this theorem); uniqueness is among extremal C^1 KMS states WITH VANISHING ONE-POINT FUNCTION; other extremal KMS states are gauge transforms of the second kind",
+  "PSV 1806.02124: a KMS state w.r.t. a flow that is SPACELIKE at x is not admissible (not Hadamard) at x -- the Killing field must be timelike where the state is used"
+ ],
+ "hypothesis_drift": [
+  "DROPPED (implicit, harmless for the use) m = 0: noise.py:111-114 lists 'free scalar, Minkowski, inverse temperature beta' (canonical hypotheses) and noise.py:154 H1 says m >= 0, but the closed-form kernel g(u) with coth(pi u/beta) at noise.py:112-114 is the MASSLESS kernel, and every thermal number built on it (g(0), ||g^2||_1, tau*, R) is m = 0. The PROPERTY (quasifree, KMS, Hadamard) holds for m > 0 too (Sanders Thm 6.2 with V = m^2 > 0; SV Thm 5.1) and for m = 0 (SV Thm 5.1 needs no V > 0; K4 here, directly); only the kernel is m = 0. A counterexample needs one state, so T1_SURVIVES_SMEARING = False is carried by the m = 0 state; it is NOT shown by the tree for any m > 0 state.",
+  "DROPPED (implicit, harmless) 3+1 dimensions: the massless thermal state exists as a distribution only because INT d^3k n(k)/omega converges; in 1+1 the analogous INT dk n(k)/k diverges (K5a, control fires). noise.py works in 3+1 throughout (1/(16 pi^2) at noise.py:172; 1/(2 pi^2) at noise.py:113), so the hypothesis is satisfied, but it is load-bearing and unstated at noise.py:111.",
+  "DROPPED (implicit, harmless) KMS w.r.t. the inertial time translation of the bath rest frame (a timelike Killing flow): SV Thm 5.1 requires the timelike flow; PSV 1806.02124 shows KMS along a spacelike flow cannot be Hadamard. The tree's worldline is inertial and the bath is at rest (noise.py:111-120), so satisfied.",
+  "NOT A DRIFT (stated): 'zero-mean' -- KMS does not force zero mean (Sanders Thm 6.2(i),(v) for V > 0; for m = 0 a constant classical shift preserves KMS at the two-point level, K6), and noise.py:111 states 'zero-mean' explicitly, so the tree picks the right member of the family.",
+  "NOT A DRIFT (by construction): 'quasifree' -- SV do not derive quasifreeness ('in examples'); Sanders Thm 6.2(ii) derives it for V > 0 only. For m = 0 the tree's state is quasifree because it is DEFINED as the Gaussian state with the Planck two-point function; K1 checks that this state is KMS and K4 that it is Hadamard.",
+  "NAMING (not a hypothesis): noise.py:114 calls g(0) = pi^2/(30 beta^4) 'rho (Stefan-Boltzmann)'. It is the energy density of ONE real scalar (computed, K3a); photon blackbody radiation (electromagnetic field, two polarisations, not a scalar) has twice this. Correct for the scalar model the tree is in; it would be a discrepancy only if the scalar figure were quoted as the photon gas's."
+ ],
+ "data_at_publication": [
+  {
+   "quantity": "empirical inputs to the theorem",
+   "value_then": "none -- the statement is a theorem of mathematical physics; the only numbers are pi, zeta(6), zeta(7), Gamma(n)",
+   "value_now": "none",
+   "source_now": "n/a (exact constants; zeta(6) = pi^6/945 derived in sympy, K3e)",
+   "moves_conclusion": "no -- no datum can move"
+  },
+  {
+   "quantity": "thermal energy density at beta (g(0))",
+   "value_then": "pi^2/(30 beta^4) (noise.py:114), one real scalar",
+   "value_now": "pi^2/(30 beta^4) for one real scalar -- recomputed from (1/2pi^2) INT k^3/(e^{beta k}-1) dk (K3a); photon gas = 2x by polarisation count (computed, not read at a source)",
+   "source_now": "computed here (rederive K3a)",
+   "moves_conclusion": "no for the scalar model; the 'Stefan-Boltzmann' label is scalar, not photon"
+  }
+ ],
+ "rederivation": {
+  "method": "sympy",
+  "script_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/thermal-state-kms-hadamard.py",
+  "outcome": "ALL PASS (exit 0), 19 checks incl. 3 controls that fire. K1 KMS: per-mode detailed balance (1+n)e^{-beta w} = n and the strip identity W+(t - i beta) = W+(-t) exact in sympy; control: Boltzmann factor fails it. K2 Gaussian: one-oscillator Gibbs state (700-level Fock truncation) gives <x> = <x^3> = 0, <x^2> = n + 1/2, <x^4>/(3<x^2>^2) = 1 to 1e-12 at beta w = 0.3, 1, 3. K3 kernel: sympy g(0) = pi^2/30 and u^4 g -> -3/(2 pi^2) exactly; mode integral (1/2pi^2) INT k^3 n cos(ku) dk equals the coth closed form to 3.5e-28 at u = 0.1..5; ||g^2||_1 (full line) by quadrature 0.0522114036827681 vs 180(zeta6-zeta7)/pi^3 = 0.0522114036827682; INT k^6/(e^k-1)^2 = 720(zeta6-zeta7) by exact series; control: tanh kernel disagrees. K4 Hadamard (elementary form): W_beta - W_0 = (1/(8 pi beta r))[coth(pi(r-t)/beta) + coth(pi(r+t)/beta)] - 1/(4 pi^2 (r^2-t^2)) is regular at coincidence along 5 rays with value 1/12 = <:phi^2:>_beta, has zero 1/eps coefficient on the light cone, agrees with its integral representation (1/2pi^2) INT k n sin(kr)/(kr) cos(kt) dk to 3e-19 (including 1e-7 off the cone), and every derivative is dominated by INT k^(1+j) n = Gamma(j+2)zeta(j+2) < oo (j = 0..8 checked; finite for all j) -- so W_beta - W_0 is C^infinity on M x M and W_beta is Hadamard because W_0 is (Khavkine-Moretti Remark 18(3), Thm 9(b)). This bypasses Radzikowski's microlocal equivalence (and its recorded proof gap) for this state. K5a control: in 1+1 the massless thermal difference diverges (97, 9995, 999992 at cutoffs 1e-2, 1e-4, 1e-6). K6: a constant shift c^2 satisfies the KMS strip identity trivially and leaves the connected function unchanged (zero mean is a choice; two-point-level demonstration only).",
+  "agrees_with_source": "yes"
+ },
+ "later_literature": [
+  {
+   "ref": "Sanders, arXiv:1209.6068 (2013), Thm 6.2",
+   "effect": "narrows",
+   "what": "Existence, quasifreeness and uniqueness (among extremal C^1 KMS states with vanishing one-point function) of the KMS state, and 'any D^2 beta-KMS state is Hadamard' -- but only for V > 0 (massive in Minkowski). The massless state the tree uses is outside this theorem; it is covered by SV Thm 5.1 and by the direct computation K4.",
+   "read_status": "READ (Thm 4.3, 5.1, 6.1, 6.2 and proofs, pp.25, 30, 35, 37-38)"
+  },
+  {
+   "ref": "Pinamonti, Sanders, Verch, arXiv:1806.02124 (2018/2019)",
+   "effect": "narrows",
+   "what": "KMS states w.r.t. a flow spacelike at x are not admissible (hence not Hadamard) at x; restates that KMS states for an everywhere-timelike Killing field satisfy the microlocal spectrum condition [SV]. Confirms the inertial-bath case; excludes only spacelike-flow 'thermal' states, which the tree does not use.",
+   "read_status": "READ (full text pp.1-12)"
+  },
+  {
+   "ref": "Khavkine & Moretti, arXiv:1412.5945 (2015)",
+   "effect": "confirms",
+   "what": "Def. 13 (quasifree = Wick rule, odd n-point functions vanish), Def. 15 and Thm 9 (Hadamard <=> microlocal spectrum condition, m^2 and xi arbitrary, d = 4; two Hadamard states differ smoothly); Remark 23 records a gap in Radzikowski's proof of (1 => 3), filled by Sahlmann-Verch 2001 and by the authors.",
+   "read_status": "READ (pp.15, 23, 38-39, 47-49, 51)"
+  },
+  {
+   "ref": "Fewster & Verch, arXiv:math-ph/0203010 (2002/2003), 'Stability of quantum systems at three scales: passivity, QWEI and the microlocal spectrum condition'",
+   "effect": "extends",
+   "what": "Relates passivity (hence KMS) to quantum weak energy inequalities and the microlocal spectrum condition; relevant to noise.py's use of QEIs for Hadamard states.",
+   "read_status": "NAMED-NOT-READ (title/abstract from the discover_papers listing only)"
+  },
+  {
+   "ref": "arXiv:2402.14794 (2024), 'Disjointness of inertial KMS states and the role of Lorentz symmetry in thermalization'",
+   "effect": "extends",
+   "what": "Distinct KMS states for different inertial frames are disjoint; does not bear on the Hadamard/quasifree property of one inertial KMS state.",
+   "read_status": "NAMED-NOT-READ (discover listing only)"
+  }
+ ],
+ "lacked_data": "The result is a theorem with NO empirical input (data_at_publication: none), so M's hypothesis -- that earlier physicists lacked data -- has no datum to act on here; evidence either way: (for) nothing in the statement depends on a measurement, so no later measurement can move it; (against a naive STANDS) what the authors lacked was not data but completed proofs and scope: SV 2000 did not derive quasifreeness ('in examples'), Sanders 2013 derived it only for V > 0 (the massless field the tree uses is outside), and Radzikowski's 1996 equivalence Hadamard <=> microlocal spectrum condition carried a proof gap later filled (Khavkine-Moretti Remark 23). None of these changes the conclusion for the tree's state: the massless 3+1 Planck state is quasifree by construction, KMS by K1, and Hadamard by the elementary smoothness of W_beta - W_0 (K4), which uses neither Sanders' V > 0 nor the microlocal equivalence.",
+ "grade": "STANDS",
+ "grade_evidence": "The tree's use (noise.py:111-114: thermal radiation of the free scalar in Minkowski at inverse temperature beta is a zero-mean Gaussian, KMS, Hadamard state, with the stated massless phidot kernel) is TRUE of the state the tree constructs: (1) KMS -- detailed balance and the strip identity re-derived exactly (K1); (2) Gaussian -- by construction, with Wick's fourth-order rule checked on the Gibbs oscillator (K2); (3) Hadamard -- READ at source for KMS states of timelike Killing flows (Sahlmann-Verch Thm 5.1 + Radzikowski via Khavkine-Moretti Thm 9; Sanders Thm 6.2(iv) for m > 0) and re-derived directly for m = 0 in 3+1 (K4: W_beta - W_0 is C^infinity); (4) the kernel, g(0), the u^-4 tail and ||g^2||_1 re-derived (K3). No datum enters. The implicit hypotheses the tree leaves unstated (m = 0 for the kernel, 3+1 dimensions, timelike/inertial KMS flow, zero mean as a choice) are all satisfied by the tree's setting; none shrinks the class the tree actually uses, so the grade is not NARROWED. Recorded discrepancies, not errors: the 'Stefan-Boltzmann' label at noise.py:114 is the one-scalar value (half the photon gas's); T1's failure is shown only for the m = 0 state, not for m > 0.",
+ "what_would_change_the_grade": "NARROWED if the tree used this result for m > 0 numbers (the closed form is m = 0 only), in 1+1 dimensions (the massless thermal state does not exist there, K5a), for a bath moving relative to a non-inertial or spacelike flow (PSV 1806.02124), or for photon blackbody radiation (a different field; the scalar's g(0) is half the photon value). WRONG only by a failed re-derivation: any of K1, K3, K4 failing on re-run. OPEN would apply only to a claim that ALL massless KMS states are zero-mean/quasifree, which no source read here proves and K6 argues against.",
+ "reverify_command": "python3 /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/thermal-state-kms-hadamard.py   # expects 19 PASS lines and 'ALL PASS', exit 0",
+ "report_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/audits/thermal-state-kms-hadamard.json"
+}

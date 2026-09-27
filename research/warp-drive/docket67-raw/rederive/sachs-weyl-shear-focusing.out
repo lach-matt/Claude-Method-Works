@@ -1,0 +1,27 @@
+PASS   S1a theta' = -theta^2/2 - tr sigma^2 - tr T                              residual=0
+PASS   S1b sigma' = -theta sigma - (traceless T)                                residual=[0, 0, 0, 0]
+PASS   S1c tr sigma^2 >= 0 (shear term always focuses theta)                    tr sigma^2 = (a-d)^2/2 + 2c^2
+PASS   S2a Jacobi formula (det A)' = det A * tr(A'A^-1)                         residual=0
+PASS   S2b Gao-Wald eq.13: G''/G = -(1/2)[sigma_ab sigma^ab + R_kk]             residual=0
+PASS   S2c q = R_kk/2 = 4 pi T_kk is the sigma-dropped form of S2b              u''/u = -(1/2)R_kk - (1/2)tr sigma^2
+PASS   S3a Schwarzschild R_kk = 0 exactly (vacuum)                              R_kk=0
+PASS   S3b screen trace T11+T22 = 0 exactly (traceless => pure Weyl)            T11=3*L**2*M/r**5 T22=-3*L**2*M/r**5
+PASS   S3c off-diagonal T12 = 0 (frame is an eigenframe, parallel by reflection symmetry) T12=0
+PASS   S3d T11 = 3 M L^2 / r^5 exactly, linear in M: sign of M only swaps eigendirections w=3*L**2*M/r**5
+PASS   S4  z3: traceless nonzero T always has a positive (focusing) eigenvalue  z3=unsat (unsat = no counterexample)
+PASS   S4g vacuity guard: without tracelessness a non-focusing T exists         z3=sat
+PASS   S5a z3: Weyl w != 0 with Ricci q <= -|w| leaves NO focusing eigenvalue   z3=sat model=[w = -1, q = -1]
+PASS   S6  Born Jacobi M=+2.0e-03: conjugate point exists, within 3% of tree 55.16 lambda_c=55.866 thin-lens=55.652
+PASS   S6  Born Jacobi M=-2.0e-03: conjugate point exists, within 3% of tree 56.52 lambda_c=55.866 thin-lens=55.652
+PASS   S6  Born Jacobi M=-4.0e-03: conjugate point exists, within 3% of tree 47.17 lambda_c=46.693 thin-lens=46.545
+PASS   S6r Ricci-only u''=0 (vacuum): u = lambda, no zero                       analytic
+PASS   S6s Born order: +M and -M give identical conjugate point (sign-blind at O(M)) 55.8660 vs 55.8660
+PASS   S5b numeric: q = -|w| along ray (NEC-violating) -> no conjugate point within L=75 lambda_c=None
+PASS   S5c numeric: q = -|w|/2 -> conjugate point survives, delayed to thin-lens 91.4 (+-3%) lambda_c=92.009 thin-lens=91.43
+PASS   S7a linearised metric: R_kk vanishes at O(M) (vacuum to first order)     O(M)=0
+       O(M^2) coefficient of R_kk: 2*(5*x**2 - 2*y**2 - 2*z**2)/(x**2 + y**2 + z**2)**3
+PASS   S7b O(M^2) Ricci of the linearised metric: integrated R_kk/2 small vs Weyl power 4|M|/b^2 int R_kk/2 = -5.818e-05, 4|M|/b^2 = 8.889e-02, ratio = -6.55e-04, sign - (sign-blind: M^2)
+PASS   S7c true null k: screen |trace|/|T| at closest approach = O(M^2) Ricci, ~ 4M^2/b^4 / (3|M|/b^3) ratio=8.769e-03 predicted=8.889e-03
+PASS   S7d DISCREPANCY (in-tree): composite's static check with non-null k=(1,1,0,0) reads ~1e-4, not R_kk non-null=5.90e-05  null=8.77e-03
+
+24/24 checks PASS

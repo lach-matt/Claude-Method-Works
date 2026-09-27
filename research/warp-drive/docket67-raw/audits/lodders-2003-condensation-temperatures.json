@@ -1,0 +1,146 @@
+{
+ "key": "lodders-2003-condensation-temperatures",
+ "name": "Lodders (2003) 50% condensation temperatures at 1e-4 bar",
+ "source": {
+  "located": "K. Lodders, 'Solar System Abundances and Condensation Temperatures of the Elements', ApJ 591, 1220-1247 (2003), Table 8. Not on arXiv; the primary was not read here. Read through three arXiv restatements: (a) Lodders, Palme & Gail 2009, arXiv:0901.1149, sec. 3.4.1.4 p.5 and Table 1 p.6 ('Table 1 lists the calculated 50% condensation temperatures at a nebular total pressure of 10^-4 bars taken from [03L]'); (b) Lodders & Fegley 2023, arXiv:2301.03674, pp.40-44 (CONDOR method; restates the 2003 Cl 948 K, Br ~546 K, I 535 K, Ca 1517 K and updates them); (c) Wang, Lineweaver & Ireland 2019, arXiv:1810.12741, p.12 and p.15 (restates the definition, 1e-4 bar, C 40 K, O 180 K, Mg 1330 K, Si 1310 K). The update used for DATA is Lodders, Fegley, Mezger & Ebel 2024, arXiv:2411.01362, Table 1 pp.5-6 (log P = -2, -4, -6, -8).",
+  "read_status": "READ-VIA-RESTATEMENT",
+  "via": "alphaXiv answer_pdf_queries on 0901.1149, 2301.03674, 1810.12741, 2411.01362 (two calls), 2509.03724; the title query for Lodders 2003 resolved to 2301.03674, confirming no arXiv copy of the 2003 paper. The 2003 primary is NAMED-NOT-READ."
+ },
+ "published_statement": "As restated in 0901.1149 p.5 (from [03L]): 'A convenient measure of volatility is the condensation temperature. These temperatures are calculated by assuming thermodynamic equilibrium between solids and a cooling gas of solar composition. Major elements condense as minerals while minor and trace elements condense in solid solution with the major phases. The temperature where 50% of an element is in the condensed phase is called the 50% condensation temperature. Condensation temperatures depend on total pressure. Table 1 lists the calculated 50% condensation temperatures at a nebular total pressure of 10^-4 bars taken from [03L].' Table 1 values used by the tree, each with its host phase: P (schreibersite, 1229 K, value confirmed indirectly by LF23's update to 1264 K), N 123 K (NH3.H2O), O 180 K ('rock + ice'), H 182 K (no host phase listed), C 40 K (CH4.7H2O + CH4 ice), Li 1142 K (forsterite+enstatite), Ta 1573 K, Au 1060 K (Fe-alloy), Hg 252 K, Br 546 K and I 535 K (Cl-apatite), In 536 K, Tl 532 K. 1810.12741 p.12: '50% condensation temperatures are estimated from where 50% of the element passes from gaseous to solid phase, either directly as elements, compounds, or as substitutions into condensing phases at a total pressure of 10^-4 bar.'",
+ "published_hypotheses": [
+  "H1 thermodynamic EQUILIBRIUM between solids and a cooling gas (0901.1149 p.5; 2301.03674 p.40 'mass balance and mass action'); for C and N 'complete chemical equilibrium' (2411.01362 p.5), i.e. no kinetic inhibition of CH4/NH3 formation (Lewis & Prinn 1980)",
+  "H2 a gas of SOLAR composition (Lodders 2003 abundances); the values are properties of that gas, not of an arbitrary reservoir",
+  "H3 a fixed nebular TOTAL PRESSURE of 1e-4 bar; 'Condensation temperatures depend on total pressure' (0901.1149 p.5); 2411.01362 p.28: 'a total pressure of 10^-4 bar is model specific'",
+  "H4 the stated HOST PHASE for each element, ideal solid solution for most traces (non-ideal only for As, Au, Cu, Ga, Ge, Sb in Fe alloy, 2411.01362 p.40); Br and I by an assumed substitution into apatite in the absence of thermodynamic data (2301.03674 p.42)",
+  "H5 the thermodynamic data then available (JANAF 4th ed., Robie & Hemingway 1995; sodalite from Wellman 1969; 2301.03674 pp.40,44)",
+  "H6 for H, O (and noble gases) the tabulated value is not a 50% condensation of the element into rock: only a tiny fraction of H condenses in water ice/hydrous minerals, and O in anhydrous rock is insufficient for 50% (2411.01362 p.4); the 2003 H value 182 K carries no host phase in 0901.1149 Table 1",
+  "H7 the use as a volatility RANK is qualitative: 'Plots of normalized elemental abundances versus 50% condensation temperatures (volatility trends) are qualitative indicators' (2411.01362 abstract point 5)"
+ ],
+ "hypothesis_drift": [
+  "KEPT: H3 pressure -- stockgate.py:330 carries 'at 1e-4 bar' in the table header.",
+  "KEPT, qualitatively: H7 -- stockgate.py:738-751 regime_of() uses T_c only as a threshold on the binder element, a rank use the authors themselves call qualitative (2411.01362 abstract (5)).",
+  "ADDED (owner threshold, not in source): VOLATILE_CUT = 500 K at stockgate.py:735. The authors' own boundaries at 1e-4 bar are refractory > 1300-1360 K, moderately volatile 1300-660 K, highly volatile < 660 K (2411.01362 p.2); 500 K is Wang et al. 2019's category boundary (1810.12741 Fig.4 caption), not Lodders'. Measured: the four regime labels hold for any cut in (139 K, 1029 K], and moving the cut to 660 K changes Finding G's refractory mass by -0.001 %.",
+  "DROPPED H2/H3 at stockgate.py:182-184: 'Retaining volatiles is a statement about formation temperature, hence orbital radius' / 'THE SNOW LINE IS THEREFORE THE SELECTOR'. The source's T_c are fixed-pressure equilibrium temperatures of a solar gas; no T(a), P(a) disc map is part of the result, and 2411.01362 p.28 says T and P varied with radial distance, height and time, and p.4/p.30 that the depletion mechanism (partial condensation vs. partial sublimation) is 'moot'. The step to an orbital radius is the owner's. The tree already concedes this downstream: formation.py:271-279 'REFUSED to compute a radius: it would use a nebular T_c outside its pressure hypothesis'.",
+  "WEAKENED H2 at stockgate.py:169-173 / :738-751: the binder of Earth's continental crust is labelled VOLATILITY-LIMITED from the nebular T_c of N (123 K, NH3.H2O in a solar gas); the crust's N deficit arises from planetary outgassing, not nebular condensation. This is the qualitative proxy use H7 permits; the label is a name, and the owner says so ('labels each destination from T_c alone', :180).",
+  "DROPPED H6 at stockgate.py:330-333: the header calls every entry a '50% condensation temperature', including H 182 K, He 3 K (source: '<3', an upper bound) and O 180 K; 2411.01362 p.4 says H never reaches 50 % condensation in water ice and lists H at 7.4 K (fictive H2 ice). No tree conclusion uses H, He or O through TCOND (all < 500 K under either value).",
+  "DROPPED H5 (currency): the table is labelled 'Lodders (2003) ... CITED' and is an accurate 2003 transcription, but the same group has superseded several values (2301.03674; 2411.01362). The tree cites the 2003 edition correctly; it does not say the values have been revised.",
+  "ADDED (owner, not Lodders): OXIDE_O stoichiometry (stockgate.py:755-756) and 'all leftover O -> water ice' (:765-766) in Finding G; neither is part of the source.",
+  "OWNER-SIDE DISCREPANCY (not about the external result): stockgate.py:200 states '99.06 %' gas; the tree's own condensed_budget() gives 1 - rock - ice = 0.990512, i.e. 99.05 %. A rounding discrepancy in prose, recorded, not repaired."
+ ],
+ "data_at_publication": [
+  {
+   "quantity": "T_c(P), the binder of photosphere / Jupiter / CI chondrite",
+   "value_then": "1229 K (Lodders 2003, as carried at stockgate.py:333)",
+   "value_now": "1273 K at 1e-4 bar (2411.01362 Table 1; 1264-1265 K in 2301.03674 pp.40,43); 1421 / 1142 / 1029 K at 1e-2 / 1e-6 / 1e-8 bar",
+   "source_now": "arXiv:2411.01362 Table 1 p.5",
+   "moves_conclusion": "No. ABUNDANCE-LIMITED at every value; the smallest (1029 K at 1e-8 bar) is 529 K above the 500 K cut (rederive script, section 2)."
+  },
+  {
+   "quantity": "T_c(N), the binder of Earth's continental crust",
+   "value_then": "123 K (NH3.H2O)",
+   "value_now": "124 K at 1e-4 bar; 139 / 111 / 101 K at 1e-2 / 1e-6 / 1e-8 bar",
+   "source_now": "arXiv:2411.01362 Table 1 p.5",
+   "moves_conclusion": "No. VOLATILITY-LIMITED at every value; kinetic inhibition of NH3 (the equilibrium hypothesis dropped) would lower N's condensation further, which pushes in the same direction."
+  },
+  {
+   "quantity": "T_c(Li) (photosphere co-binder 'P/Li', stockgate.py:169)",
+   "value_then": "1142 K",
+   "value_now": "1152 K (1e-4); 1319 / 1003 / 891 K",
+   "source_now": "arXiv:2411.01362 Table 1",
+   "moves_conclusion": "No."
+  },
+  {
+   "quantity": "T_c(Cl)",
+   "value_then": "948 K (sodalite, Wellman 1969 data)",
+   "value_now": "418 K (2411.01362) / 427 K (2301.03674: halite; sodalite 'less stable than calculated previously')",
+   "source_now": "arXiv:2411.01362 Table 1; arXiv:2301.03674 p.40, p.44",
+   "moves_conclusion": "Crosses the tree's 500 K cut, leaving the Finding-G refractory sum. Together with Br, I, In, Tl: refractory 3.2498e-3 -> 3.2415e-3 (-0.253 %), rock 4.9690e-3 -> 4.9608e-3, rock+ice 9.4877e-3 -> 9.4795e-3 (-0.087 %). Printed digits move in the 4th significant figure; no Finding-G conclusion (99 % gas, 0.5 % rock) moves."
+  },
+  {
+   "quantity": "T_c(Br), T_c(I)",
+   "value_then": "546 K, 535 K (by assumed substitution into apatite; no thermodynamic data)",
+   "value_now": "423 K, 316 K (2411.01362); 392 K, 312 K (2301.03674)",
+   "source_now": "arXiv:2411.01362 Table 1 pp.5-6; arXiv:2301.03674 pp.40-42",
+   "moves_conclusion": "Cross the 500 K cut; included in the -0.253 % above."
+  },
+  {
+   "quantity": "T_c(In), T_c(Tl)",
+   "value_then": "536 K, 532 K",
+   "value_now": "430 K, 404 K",
+   "source_now": "arXiv:2411.01362 Table 1 p.6",
+   "moves_conclusion": "Cross the 500 K cut; included in the -0.253 % above."
+  },
+  {
+   "quantity": "T_c(H)",
+   "value_then": "182 K (no host phase)",
+   "value_now": "7.4 K (fictive H2 ice; H 'only a tiny fraction' condensed at higher T)",
+   "source_now": "arXiv:2411.01362 Table 1 and p.4",
+   "moves_conclusion": "No; H is below the cut under both and enters no conclusion through TCOND. A change of definition, not a measurement."
+  },
+  {
+   "quantity": "T_c(Rb), T_c(Cs)",
+   "value_then": "800 K, 799 K",
+   "value_now": "1019 K (1033 K ideal), 857 K",
+   "source_now": "arXiv:2411.01362 Table 1 and p.37",
+   "moves_conclusion": "No (both stay above 500 K)."
+  },
+  {
+   "quantity": "nebular total pressure",
+   "value_then": "1e-4 bar (fixed)",
+   "value_now": "declared 'model specific'; values tabulated 1e-2 to 1e-8 bar",
+   "source_now": "arXiv:2411.01362 p.28, Table 1",
+   "moves_conclusion": "No for the regime labels (measured at all four pressures); it is the reason the snow-line/orbital-radius step at stockgate.py:182-184 is not supported by this source."
+  },
+  {
+   "quantity": "disc composition (C/O, Mg/Si, metallicity)",
+   "value_then": "solar (C/O ~0.46)",
+   "value_now": "T_c of rock-formers shift 70-200 K with composition and metallicity; P not modelled",
+   "source_now": "arXiv:2509.03724 secs. 2.2, 3.2, 6.1",
+   "moves_conclusion": "Not for the tree's solar-system destinations. For non-solar destinations it is an open hypothesis, but shifts of this size are below the 377 K (N) and 529 K (P, 1e-8 bar) margins."
+  }
+ ],
+ "rederivation": {
+  "method": "numeric",
+  "script_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/lodders-2003-condensation-temperatures.py",
+  "outcome": "(1) TRANSCRIPTION: 53 of the tree's TCOND values agree exactly with a Lodders-2003 restatement read here (0901.1149 Table 1, 2301.03674, 1810.12741). Discrepancies are between restatements, not proven against the tree: WLI19 text gives Mg 1330 K vs the tree's 1336 K (WLI19's own Fig.4 ordering places Mg above Fe 1334 K, consistent with 1336); the 0901.1149 extraction gives Zr 1764, Mg=Si=1354 (the forsterite value) and a one-row offset for Ca/Yb/Ce/Sr/Be/V. These are unresolved without the primary and move no conclusion. The tree writes He as 3 K where the source gives '<3', and carries a sentinel key 'Ni_': 0. Re, Os, Ir are absent from the tree and from its abundance column, so nothing is miscounted. (2) FINDING F: the binder is selected from abundances only (processing_factor never reads TCOND). Every regime label (photosphere, Jupiter, CI chondrite ABUNDANCE-LIMITED on P; crust VOLATILITY-LIMITED on N) is unchanged under the 2003 table, the 2024 table, and at log P = -2, -4, -6, -8; the cut can sit anywhere in (139 K, 1029 K] without changing a label. (3) FINDING G: under the 2024 table Cl, Br, I, In, Tl cross below 500 K: refractory -0.253 %, rock+ice -0.087 %; with the cut at 660 K (Lodders' boundary) Br, Cd, I, In, Tl leave the refractory sum: -0.001 %. (4) 1 - rock - ice = 0.990512 against the '99.06 %' printed at stockgate.py:200 (99.05 %): an owner rounding discrepancy.",
+  "agrees_with_source": "yes"
+ },
+ "later_literature": [
+  {
+   "ref": "Lodders, Fegley, Mezger & Ebel 2024, arXiv:2411.01362 (Space Sci. Rev., ISSI)",
+   "effect": "narrows",
+   "what": "Updated T50 for every element at 1e-2..1e-8 bar with new data for H, C, N, the noble gases, alkalis, halogens, In and Tl. P 1229->1273, Cl 948->418, Br 546->423, I 535->316, In 536->430, Tl 532->404, Rb 800->1019, H 182->7.4 (redefined). Calls 1e-4 bar 'model specific' and volatility-trend plots 'qualitative indicators'. Numerically confirms the tree's binder labels at every pressure.",
+   "read_status": "READ (Table 1 pp.5-6, pp.2,4,5,26,28,36-41)"
+  },
+  {
+   "ref": "Lodders & Fegley 2023, arXiv:2301.03674 (Chemie der Erde)",
+   "effect": "narrows",
+   "what": "Halogen update to Lodders 2003: the 2003 Cl (948 K, sodalite) rested on Wellman 1969 sodalite data, and the newer data make sodalite less stable; the 2003 Br and I (546, 535 K) rested on an assumed apatite substitution with no thermodynamic data. Recommended: F 713, Cl 427, Br 392, I 312 K; P 1264 K. Also gives kinetic-inhibition alternatives (Cl 612, Br 498, I 450 K).",
+   "read_status": "READ (pp.1-2, 40-47)"
+  },
+  {
+   "ref": "Wang, Lineweaver & Ireland 2019, arXiv:1810.12741 (Icarus)",
+   "effect": "confirms",
+   "what": "Uses Lodders 2003 T_c at 1e-4 bar as the volatility axis of the Earth/Sun devolatilisation trend (T_D(E) = 1391 +/- 15 K); T_C = 500 K is their highly/moderately volatile boundary. They note the pressure and model dependence is not propagated, and that C and O have effective T_c far above their 50 % values (305 K, 875 K) because of refractory fractions.",
+   "read_status": "READ (pp.1, 9-12, 15, 27)"
+  },
+  {
+   "ref": "Spaargaren, Herbort, Wang, Mojzsis & Sossi 2025, arXiv:2509.03724 (A&A)",
+   "effect": "narrows",
+   "what": "The 50 % T_c depend on disc composition: rock-formers drop 150-200 K across O-depleted transitions at high C/O, and shift 70-165 K per dex of metallicity and 40-80 K per dex of pressure. The traditional 50 % T_c 'fails to capture' C, O, S. This narrows H2 for non-solar destinations; the tree's destinations are solar-system reservoirs.",
+   "read_status": "READ (pp.1-7, 12)"
+  },
+  {
+   "ref": "Lodders, Palme & Gail 2009, arXiv:0901.1149 (Landolt-Boernstein)",
+   "effect": "confirms",
+   "what": "Restates the Lodders 2003 T_c table verbatim ('taken from [03L]') with host phases, and the definition and the 1e-4 bar condition. This is the restatement read in place of the primary.",
+   "read_status": "READ (pp.5-7, Table 1 p.6)"
+  }
+ ],
+ "lacked_data": "M's hypothesis, tested. What Lodders (2003) lacked, per the same group's own later papers: (i) reliable sodalite thermodynamics (Wellman 1969 was used; newer Komada 1995 / Schliesser 2017 data make sodalite less stable), so Cl was 948 K and is now 418-427 K; (ii) any thermodynamic data for Br- and I-apatite (the 2003 values rested on an assumed substitution), so Br 546 -> 392-423 K and I 535 -> 312-316 K; (iii) updated P-gas, schreibersite and OH data, so P 1229 -> 1264-1273 K; (iv) Rb/Cs feldspar estimates, so Rb 800 -> 1019 K; (v) a consistent H2 vapour-pressure treatment, so H 182 -> 7.4 K (a redefinition). Evidence FOR M's hypothesis: the 2003 table was incomplete in exactly these places, and the authors revised individual values by up to -530 K (Cl) when the data came in. Five elements the tree counts as refractory (Cl, Br, I, In, Tl) cross its 500 K cut. Evidence AGAINST it mattering here: no tree conclusion rests on those values. Both binders (P and N) moved by +44 K and +1 K. Every regime label survives every revision and every tabulated pressure from 1e-2 to 1e-8 bar, and the Finding-G budget moves only in the 4th significant figure (-0.25 % refractory, -0.09 % rock+ice). The one place where missing data does bear on the tree is not a datum of Lodders at all: the formation-epoch disc T(a), P(a) needed to turn a T_c into an orbital radius (stockgate.py:182-184). Lodders never supplied it, and formation.py:271-279 already records it NOT-FOUND and refuses the computation.",
+ "grade": "NARROWED",
+ "grade_evidence": "What STANDS, computed: the tree's table is a faithful transcription of Lodders 2003 (53 values match a restatement read here; the between-restatement disagreements on Mg/Si/Zr are unresolved and immaterial). Its two load-bearing uses survive every later datum: the four regime labels are unchanged under the 2024 table and at log P = -2..-8, with a cut window of (139 K, 1029 K], and Finding G moves by -0.25 % (refractory) and -0.09 % (rock+ice). What is NARROWED, READ: at stockgate.py:182-184 the tree goes from the nebular T_c ranking to 'formation temperature, hence orbital radius' and 'THE SNOW LINE IS THEREFORE THE SELECTOR'. That drops the source's fixed-pressure, solar-gas, equilibrium hypotheses (H2, H3, H1). The source has no disc T(a), P(a), and its authors call 1e-4 bar 'model specific' and the depletion mechanism moot. The tree itself concedes this at formation.py:271-279. Secondary narrowings: the header labels H 182 K, He 3 K ('<3') and O 180 K as 50 % condensation temperatures, which the source's own later account denies for H; and the values are the superseded 2003 edition, correctly cited but not flagged as revised. None of these is WRONG: nothing here refutes Lodders 2003, and the updates are revisions by the same authors on new data, not errors shown. The owner's '99.06 %' (computed 99.05 %) is a rounding discrepancy, recorded, not repaired.",
+ "what_would_change_the_grade": "To STANDS: stockgate.py:182-184 restated as conditional on a formation-epoch disc model (as formation.py already does), or a read source giving T(a), P(a) at the destination. To DATA-DEPENDENT: a revision moving T_c(P) below the chosen cut (it would need > 529 K at 1e-8 bar), or T_c(N) above it. Neither appears in any source read. Reading the ApJ primary would settle the Mg (1336 vs 1330) and Zr (1741 vs 1764) restatement disagreements; neither can move a conclusion, since both are > 1300 K.",
+ "reverify_command": "python3 /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/lodders-2003-condensation-temperatures.py",
+ "report_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/audits/lodders-2003-condensation-temperatures.json"
+}

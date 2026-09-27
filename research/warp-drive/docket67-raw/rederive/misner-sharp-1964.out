@@ -1,0 +1,25 @@
+PASS C1  g^ab dR dR - (Gamma^2 - U^2), diagonal general metric
+PASS C1b with shift: g^ab dR dR - ((n.dR)^2 - (u.dR)^2)
+PASS C2  Hayward (27): 1-2E/r - (e^-lambda r'^2 - rdot^2)
+PASS C2b tree form at Phi=0, lambda=2Lambda == Hayward form
+PASS C3a Hayward (4): E - (r/2 + e^f r d+r d-r)
+PASS C3b Hayward (4): E - (r/2 + e^f r^3 th+ th-/4)
+PASS C4  boost: Gamma'^2 - U'^2 - (Gamma^2 - U^2)
+PASS C5a Schwarzschild chart: E - M
+PASS C5b Lemaitre (Hayward gauge, lambda = ln(2M/r)): E - M
+PASS C5c Painleve-Gullstrand (shift): E - M
+PASS C5d PG frame: Gamma=1, U=-sqrt(2M/r): Gamma^2-U^2-(1-2M/r)
+PASS C6a Minkowski hyperboloidal: m = 0
+PASS C6b Gamma = cosh(chi)
+PASS C6c Gamma^2 - U^2 = 1
+PASS C7a Hayward (28a): E' - 4 pi r^2 (T00 r' - T01 rdot)
+PASS C7b Hayward (28b): Edot - 4 pi r^2 e^-lambda (T01 r' - T11 rdot)
+PASS C9  Escriva (2.24) M=(R/2)(1+U^2-Gamma^2) solves Gamma^2 = 1+U^2-2M/R
+PASS C8a z3: Gamma>1 <=> U^2 > 2m/R (unsat = proved)
+PASS C8b z3: U=0 => (Gamma>1 <=> m<0) (unsat = proved)
+PASS C8c z3: Gamma>1 with m>0 SATISFIABLE when U!=0 (sat expected)
+PASS C11a guard: Gamma^2 + U^2 (sign-flipped) is NOT the invariant
+PASS C11b guard: driven.py:58's e^{-chi}, read with chi = the coordinate, is NOT eq.(27)
+PASS C11c guard: Lemaitre E != 2M
+PASS C10 c^2/(G LAMBDA) CODATA2018 = 1.348948e+26, CODATA2022 = 1.348948e+26, tree quotes 1.348948e26
+ALL PASS

@@ -1,0 +1,106 @@
+{
+ "key": "sigma-term-scan",
+ "name": "Light-quark scalar fraction of the proton S = sum_q sigma_q/m_p = 0.06 (sigma_piN ~ 56 MeV row of address.S_SCAN), scanned with the valence 0.0096 and 0.09 'with strange sigma term'",
+ "source": {
+  "located": "The tree cites no source for 0.06 / 0.09 / '~56 MeV'. Located and READ: (i) Hoferichter, Ruiz de Elvira, Kubis, Meissner, arXiv:1506.04142 (PRL 115, 092301, 2015) -- the phenomenological sigma_piN = 59.1(3.5) MeV, and its eq.(24) 2/9 + 7/9(f_u+f_d+f_s) = 0.305(9); (ii) FLAG Review 2024, arXiv:2411.04268v3, Sec.10.4.4 eqs.(447)-(450), Tab.3 p.11 -- lattice sigma_piN and sigma_s averages; (iii) Barca, Bali, Collins, arXiv:2412.13138 p.1 -- 'More recent phenomenological determinations, when corrected for isospin breaking effects [3], scatter around 56 MeV' -- the only READ statement that matches the tree's '~56 MeV' label; (iv) Barca et al. arXiv:2609.05989 p.2 -- the isospin-convention correction Delta sigma_piN = 3.1(5) MeV (Hoferichter et al. PLB 843 (2023) 138001, arXiv:2305.07045, NAMED-NOT-READ, restated there).",
+  "read_status": "READ",
+  "via": "alphaXiv answer_pdf_queries on 1506.04142 (pp.1-5), 2411.04268 (pp.11, 260-275), 2412.13138 (pp.1-2, 6), 2609.05989 (pp.1-6)"
+ },
+ "published_statement": "Hoferichter et al. 2015 (1506.04142 p.1, eq.(21)): 'sigma_piN = (59.1 +- 1.9 +- 3.0) MeV = (59.1 +- 3.5) MeV', with sigma_piN = sigma(0), sigma(t) = <N(p')| m-hat(uu+dd) |N(p)>, m-hat = (m_u+m_d)/2 (eq.(6)); and eq.(24) 'sum_{q=u..t} f_q^N = 2/9 + 7/9 (f_u^N + f_d^N + f_s^N) = 0.305 +- 0.009'. FLAG 2024 (2411.04268 eqs.(447)-(450)): 'Nf=2+1+1: sigma_piN = 60.9(6.5) MeV'; 'Nf=2+1: sigma_piN = 42.2(2.4) MeV'; 'Nf=2+1+1: sigma_s = 41.0(8.8) MeV'; 'Nf=2+1: sigma_s = 44.9(6.4) MeV'; p.273: 'there is now a 2.7 sigma difference between the Nf=2+1 and Nf=2+1+1 FLAG averages'; p.274: 'some tension, at the level of around three standard deviations' between the Nf=2+1 average and Hoferichter 23. Barca-Bali-Collins 2412.13138 p.1: phenomenological values 'corrected for isospin breaking effects ... scatter around 56 MeV'.",
+ "published_hypotheses": [
+  "Hoferichter 2015: Cheng-Dashen low-energy theorem D+(0,2M_pi^2) = sigma(2M_pi^2) + Delta_R with |Delta_R| <~ 2 MeV (resonance-exchange estimate, eq.(8)).",
+  "Hoferichter 2015: Delta_D - Delta_sigma = -1.8(2) MeV (eq.(12)); isospin-violating corrections from the charged/neutral pion mass difference and virtual photons, f_2 = -0.97(38) GeV^-1, |f_1| <= 1.4 GeV^-1 (eq.(17)); isospin limit defined with the CHARGED pion and the proton mass.",
+  "Hoferichter 2015: pionic-atom scattering lengths a^{1/2} = 169.8(2.0), a^{3/2} = -86.3(1.8) x 10^-3 M_pi^-1 (eq.(18)); g^2/4pi = 13.7(2); Roy-Steiner equations valid below s_m = (1.38 GeV)^2 with l_m = 1, driving terms from existing PWAs.",
+  "Hoferichter 2015 eq.(24): heavy-quark contribution 2/9(1 - sum_light f_q), light set = u, d, s; f_s taken from lattice (Junnarkar-Walker-Loud 2013), not from the sigma term.",
+  "FLAG 2024: sigma_q = m_q <N|qq|N> = m_q dM_N/dm_q (Feynman-Hellmann, eqs.(431)-(433),(446)); isospin limit defined with the NEUTRAL pion (~135 MeV); averages subject to FLAG quality criteria; excited-state (N pi, N pi pi) control 'remains an issue' (p.273) and 'the averages may change' (p.274).",
+  "FLAG 2024: sigma_s Nf=2+1+1 obtained by multiplying MILC 12C's <N|ss|N> by the FLAG m_s average; Nf=2+1 average error inflated ~10% for chi^2/dof = 1.23."
+ ],
+ "hypothesis_drift": [
+  "DROPPED (strange in S_mid): the tree's own definition is S = sum_q sigma_q/m_p with m_p = Lambda_3 f(m_q/Lambda) and Lambda_3 the three-flavour scale (address.py:98-104, :449-450, :504-505); the light set below Lambda_3 is u, d, s, so S must be (sigma_piN + sigma_s)/m_p -- exactly the combination in Hoferichter 2015 eq.(24) (2/9 + 7/9(f_u+f_d+f_s)). The adopted S_mid = 0.06 is labelled 'sigma_piN ~ 56 MeV' (address.py:452; excite.py:402-403) and is u+d only. It enters eps_det_stationary (address.py:830), EPS_NUCLEAR, COURIER_SOURCE_KG_M3 (address.py:943-951), excite.S_MID (excite.py:403) and the D20 chain. The 0.09 row 'with strange sigma term' (address.py:453) is the only row consistent with the tree's own formula.",
+  "WEAKENED (span claim): address.py:336-338 says the scan spans 'the lattice sigma-term range'. Computed: the 0.09 top row covers the FLAG Nf=2+1 u+d+s sum (0.0928 +- 0.0073) but not the FLAG Nf=2+1+1 sum (0.1086 +- 0.0117) nor phenomenological sigma_piN + lattice sigma_s (0.1108 +- 0.0078). The 0.09 row implies sigma_s = 28.1 MeV beside 56 MeV, below both FLAG sigma_s averages (41.0, 44.9); it matches only Mainz 23's 28.6(9.3).",
+  "WEAKENED (convention not named): '~56 MeV' matches the phenomenological value in the neutral-pion isospin convention (59.1 - 3.1(5) = 56.0; 2412.13138 p.1, 2609.05989 p.2), not the published 59.1 (charged-pion convention). The tree names neither the source nor the convention (address.py:452). The 3.1 MeV shift moves S by 0.0033 -- immaterial to any conclusion, recorded as a discrepancy of labelling, not an error.",
+  "ADDED (not in the source, but named by the tree): 'no conclusion here turns on it' (address.py:338). Tested here: it holds for every sign/order conclusion; it does NOT hold for the derived prose at address.py:86 ('at the scanned sigma-term values it is 3 to 4.5'), which becomes 2.78-2.82 at the current u+d+s values.",
+  "RETAINED correctly: status word ORDER / SCAN, not a measurement (address.py:449-450, :336-338; excite.py:402) -- the tree never claims S measured, and its H1 form 2/9 + 7S/9 is identical to Hoferichter 2015 eq.(24)'s structure."
+ ],
+ "data_at_publication": [
+  {
+   "quantity": "sigma_piN (phenomenological, Roy-Steiner + pionic atoms)",
+   "value_then": "tree: '~56 MeV' -> S = 0.06 (56.30 MeV at m_p = 938.272)",
+   "value_now": "59.1(3.5) MeV charged-pion convention; ~56 MeV after the 3.1(5) MeV isospin-convention shift",
+   "source_now": "arXiv:1506.04142 eq.(21); arXiv:2412.13138 p.1; arXiv:2609.05989 p.2",
+   "moves_conclusion": "No: S_ud = 0.0597-0.0630; K_mu(H1) moves < 0.3%."
+  },
+  {
+   "quantity": "sigma_piN (lattice, FLAG 2024)",
+   "value_then": "tree: 'lattice sigma-term range', no value",
+   "value_now": "Nf=2+1: 42.2(2.4) MeV (S_ud = 0.0450); Nf=2+1+1: 60.9(6.5) MeV (S_ud = 0.0649); ~3 sigma tension with phenomenology per FLAG",
+   "source_now": "arXiv:2411.04268 eqs.(447),(448), pp.273-274",
+   "moves_conclusion": "Numerics only: H2 outputs proportional to S move by -25% / +8%; no sign or order conclusion moves."
+  },
+  {
+   "quantity": "sigma_s (strange sigma term)",
+   "value_then": "tree: implied 0.09*m_p - 0.06*m_p = 28.1 MeV",
+   "value_now": "FLAG 2024 Nf=2+1: 44.9(6.4) MeV; Nf=2+1+1: 41.0(8.8) MeV; Hoferichter eq.(24) inverted: f_s = 0.0435 (40.8 MeV)",
+   "source_now": "arXiv:2411.04268 eqs.(449),(450); arXiv:1506.04142 eqs.(23),(24)",
+   "moves_conclusion": "Numerics only: S_uds = 0.093-0.111 vs tree top 0.09; see rows below."
+  },
+  {
+   "quantity": "S = (sigma_piN + sigma_s)/m_p, the quantity the tree's formula uses",
+   "value_then": "tree S_mid = 0.06 (u+d only); top row 0.09",
+   "value_now": "0.0928(73) [FLAG 2+1]; 0.1086(117) [FLAG 2+1+1]; 0.1108(78) [pheno sigma_piN + FLAG 2+1 sigma_s]; 0.1064(90) from Hoferichter eq.(24)",
+   "source_now": "computed in rederive/sigma-term-scan.py from the READ values",
+   "moves_conclusion": "Computed by address.py's own functions at S = 0.1108 vs 0.06: K_mu H1 -0.7311 -> -0.6916 (x0.946), H2 -0.940 -> -0.889; eps_det x1.057 both; EPS_NUCLEAR H1 x1.147, H2 x1.847; EPS_NUCLEAR_OVER_DET H1 398 -> 432, H2 114 -> 200; COURIER_SOURCE_KG_M3 H1 x0.872, H2 x0.541; NAIVE_CORRECTION_FACTOR 4.48 -> 2.78. No sign flips, nuclear eps stays > 19x threshold over the whole band S in [0.0096, 0.12], |K_mu(H2)/K_mu(H1)| < 1.3 throughout. The prose 'at the scanned sigma-term values it is 3 to 4.5' (address.py:86) fails at S >= ~0.1."
+  },
+  {
+   "quantity": "m_p and 2m_u + m_d",
+   "value_then": "938.27208816 MeV; 8.990 MeV (address.py:425-426, NAMED-NOT-READ)",
+   "value_now": "not re-read here (outside this entry's scope); valence row 0.0096 is not a Feynman-Hellmann fraction, as the tree itself says (address.py:84-86)",
+   "source_now": "--",
+   "moves_conclusion": "No."
+  }
+ ],
+ "rederivation": {
+  "method": "sympy",
+  "script_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/sigma-term-scan.py",
+  "outcome": "ALL CHECKS PASS (exit 0). (1) sympy: one-loop matching exponents 2/27 per heavy quark (t, b, c), sum 2/9 exactly, Lambda_6 power 7/9; Euler-homogeneity residual of m_p = Lambda f(m_u/Lambda, m_d/Lambda, m_s/Lambda) is 0, giving H1 = 2/9 + 7S/9 with S over u, d, s -- identical in form to Hoferichter 2015 eq.(24); inverting its 0.305 gives S_uds = 0.1064. (2) 56/938.272 = 0.0597 -> 0.06 (label consistent); 0.09 row = 84.4 MeV, implied sigma_s = 28.1 MeV. (3) current S_ud 0.045-0.065, S_uds 0.093-0.111; the 0.09 top row does not cover the largest current S_uds central. (4) every S-dependent output recomputed through address.py's own functions (imported read-only, bytecode off): all sign/order conclusions hold on S in [0.0096, 0.12]; the naive_correction_factor leaves the prose band [3, 4.5] at S_uds >= ~0.1. Full table in rederive/sigma-term-scan.out.json.",
+  "agrees_with_source": "partly"
+ },
+ "later_literature": [
+  {
+   "ref": "FLAG Review 2024, arXiv:2411.04268 (Phys. Rev. D 113, 014508, 2026)",
+   "effect": "contested",
+   "what": "Lattice sigma_piN: 42.2(2.4) MeV Nf=2+1 vs 60.9(6.5) MeV Nf=2+1+1, 2.7 sigma apart; Nf=2+1 ~3 sigma below phenomenology; sigma_s 44.9(6.4) / 41.0(8.8) MeV. Excited-state control named as the open issue.",
+   "read_status": "READ (pp.11, 260-275)"
+  },
+  {
+   "ref": "Barca, Bali, Collins, arXiv:2412.13138 (PRD 111, L031505, 2025)",
+   "effect": "narrows",
+   "what": "Identifies N-sigma (scalar-isoscalar) states as the dominant excited-state contamination in scalar three-point functions; proof of concept at M_pi = 429 MeV only (sigma_piN = 235(24) MeV there, not physical). States phenomenology 'scatter around 56 MeV' after isospin correction.",
+   "read_status": "READ (pp.1-2, 6)"
+  },
+  {
+   "ref": "Barca, Bali, Collins, Rodekamp, arXiv:2609.05989 (LATTICE2026 proceedings, preliminary)",
+   "effect": "narrows",
+   "what": "Extends the variational N/N-sigma basis to M_pi = 222 MeV: excited-state contamination visibly suppressed; no physical-point sigma_piN yet. Restates Delta sigma_piN = 3.1(5) MeV isospin-convention shift (reduces but does not resolve the tension) and Liang et al. arXiv:2508.11435's O(p^5) BChPT extraction 55.9(2.5) MeV from Nf=2+1 lattice data (vs 48.1(1.9) at one loop).",
+   "read_status": "READ (pp.1-6)"
+  },
+  {
+   "ref": "Gupta et al. (PNDME), arXiv:2105.12095",
+   "effect": "contested",
+   "what": "59.6(7.4) MeV with N-pi / N-pi-pi narrow priors; ~42 MeV with wide priors (as restated in FLAG 2024 p.269 and 2609.05989 p.2).",
+   "read_status": "READ-VIA-RESTATEMENT (FLAG 2024 p.268-269; 2609.05989 p.2)"
+  },
+  {
+   "ref": "Agadjanov et al. (Mainz 23), arXiv:2303.08741",
+   "effect": "contested",
+   "what": "sigma_piN = 43.7(3.6), sigma_s = 28.6(9.3) MeV (FLAG Tab.72) -- the only listed sigma_s near the tree's implied 28 MeV.",
+   "read_status": "READ-VIA-RESTATEMENT (FLAG 2024 Tab.72 p.268)"
+  }
+ ],
+ "lacked_data": "M's hypothesis tested for this entry. The tree cites no source and no date, so 'what the authors had' is read as what the '~56 MeV' label and the '0.09 with strange' row presuppose. Evidence FOR a data gap: the 0.09 row implies sigma_s = 28 MeV, whereas the FLAG 2024 averages (41.0(8.8), 44.9(6.4) MeV) and Hoferichter eq.(24)'s lattice f_s (40.8 MeV) are higher; with them the tree's own formula wants S = 0.093-0.111, not 0.06, and the scan's top row sits at or below the lower end. Evidence AGAINST it mattering: every conclusion the tree draws from S (K_mu negative and O(1) under both H; nuclear matter displaces the vev downward and >19x above threshold; H1/H2 agreement within 1.3) was recomputed with address.py's own functions over S in [0.0096, 0.12] and holds; only magnitudes move (up to x1.85 in H2 EPS_NUCLEAR, x0.54 in H2 courier source density) and one derived prose range (address.py:86, '3 to 4.5' -> 2.78-2.82). On the external result itself: the phenomenologists did not lack data in the sense M means -- the 1991 value ~45 MeV rose to 59.1 MeV in 2015 precisely BECAUSE new pionic-atom scattering lengths arrived (1506.04142 p.4: 'this effect can be immediately traced back to our modern knowledge of the piN scattering lengths as extracted from pionic atoms'). That is a documented instance of M's thesis (an earlier result moved when data arrived), but it moved an input, not a theorem, and the move is inside the tree's scan. The live lattice-vs-phenomenology tension (~3 sigma) is attributed in the 2024-2026 literature to excited-state contamination on the lattice side, i.e. to a methodological gap being closed, not to missing experimental data; it remains unresolved at the physical point.",
+ "grade": "NARROWED",
+ "grade_evidence": "(a) The number 0.06 as sigma_piN/m_p STANDS: 56/938.272 = 0.0597, and '~56 MeV' is the READ phenomenological value in the neutral-pion convention (2412.13138 p.1; 59.1 - 3.1 = 56.0). (b) The H1 structure 2/9 + 7S/9 is re-derived exactly in sympy and is identical to Hoferichter 2015 eq.(24). (c) But the tree USES 0.06 as S in that formula, whose derivation (and eq.(24)) requires S over u, d, s: the strange sigma term is a dropped hypothesis at the adopted value (address.py:452, :830, :943-951; excite.py:402-403). (d) The claimed span of 'the lattice sigma-term range' (address.py:336-338) is narrower than current data: top row 0.09 vs current S_uds centrals up to 0.111. (e) The tree's 'no conclusion here turns on it' was tested and holds for every sign/order conclusion, so this is NARROWED, not WRONG and not DATA-DEPENDENT: no conclusion flips with the moved/contested datum; one derived prose range (address.py:86) and the magnitudes of S-proportional outputs do move. The sigma_piN lattice/phenomenology tension is contested (~3 sigma) but lies inside the band tested.",
+ "what_would_change_the_grade": "To STANDS: S_mid redefined as (sigma_piN + sigma_s)/m_p (~0.10-0.11) with the scan's top raised to cover 0.12, or the S_mid row explicitly scoped as u+d only with strange named as an omitted hypothesis. To DATA-DEPENDENT: a conclusion found that flips inside S in [0.0096, 0.12] (none found here), or a physical-point lattice result far outside that band. To WRONG: only if S were shown to lie where K_mu changes sign (S >= 1), which no datum supports. Reading Hoferichter et al. PLB 843 (2023) (arXiv:2305.07045) at source would convert the 3.1(5) MeV convention shift from restated to READ; it cannot move the grade.",
+ "reverify_command": "PYTHONDONTWRITEBYTECODE=1 python3 /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/sigma-term-scan.py",
+ "report_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/audits/sigma-term-scan.json"
+}

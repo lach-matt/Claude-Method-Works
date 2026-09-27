@@ -1,0 +1,78 @@
+{
+ "key": "cauchy-schwarz-inequality",
+ "name": "Cauchy-Schwarz (Cauchy-Bunyakovsky) inequality in the form INT_0^tau_p f_tau^2 dtau >= (INT f_tau dtau)^2 / tau_p = 1/tau_p (formation.py transverse bound)",
+ "source": {
+  "located": "The integral inequality is Bunyakovsky 1859, 'Sur quelques inegalites concernant les integrales ordinaires et les integrales aux differences finies', Mem. Acad. Imp. Sci. St.-Petersbourg (VIIe ser.) t. I no. 9; the tree's form is exactly his special case (E) (psi = 1). Discrete form Cauchy 1821 (Cours d'Analyse, Note II, Th. XVI eq. 30); abstract/quadratic-form proof Schwarz 1885 (Acta Soc. Sci. Fenn. 15, 315-362). No arXiv copy of any of the three. Restated exactly in: S. Kichenassamy, 'Apodictic discourse and the Cauchy-Bunyakovsky-Schwarz inequality', arXiv:2504.19543 (Ganita Bharati 42 (2020) 1-19), pp. 1, 7, 8; and Labropoulou, Labropoulos, Vafeas, Manias, arXiv:2312.03478v2, pp. 1, 4, 6, 9 (integral form, equality case, Schwarz's quadratic-form argument).",
+  "read_status": "READ-VIA-RESTATEMENT",
+  "via": "alphaXiv answer_pdf_queries on 2504.19543 (pp. 1-3, 5-9, 11-12 returned verbatim) and 2312.03478 (pp. 1-10, 12-16). The classics Bunyakovsky 1859, Cauchy 1821, Schwarz 1885 are NAMED-NOT-READ (read only as restated)."
+ },
+ "published_statement": "Bunyakovsky 1859 as restated in arXiv:2504.19543 p.1/p.7: (C) INT_{x0}^{X} phi(x)^2 dx * INT_{x0}^{X} psi(x)^2 dx > (INT_{x0}^{X} phi(x) psi(x) dx)^2, 'for continuous functions of one variable'; '(E): Special case of (C) where psi = 1: (INT_{x0}^{X} phi(x) dx)^2 < (X - x0) INT_{x0}^{X} phi(x)^2 dx.' 'Although he states it with a strict inequality, Bunyakovsky also describes the case of equality': 'equality holds for psi(x) = lambda phi(x), where lambda is a constant; he notes a few lines below, that there is also equality for X = x0' (p.7; Bunyakovsky writes < / > where we write <= / >=). Schwarz 1885 (p.8): derived from positive-definiteness of the binary quadratic form INT (alpha phi + beta chi)^2, 'assuming ... that the quotient of the two functions is not identically constant, and that the integrals of phi^2, phi chi and chi^2 are all absolutely convergent'; strict unless proportional. Modern statement (2312.03478 p.6, p.9): INT_a^b f g <= (INT_a^b f^2)^{1/2} (INT_a^b g^2)^{1/2}, equality iff f, g proportional. Identity behind the equality case (2504.19543 p.7, after Hardy-Littlewood-Polya p.133 and Courant-Hilbert p.49): (f,g)^2 = (f,f)(g,g) - 1/2 INT INT (f(x)g(y) - f(y)g(x))^2 dx dy.",
+ "published_hypotheses": [
+  "Bunyakovsky 1859: phi, psi continuous functions of one real variable on a finite interval [x0, X] (as restated, 2504.19543 p.1)",
+  "equality case: psi = lambda phi (for (E): phi constant), or X = x0 (2504.19543 p.7)",
+  "Schwarz 1885: integrals of phi^2, phi chi, chi^2 absolutely convergent; strict inequality when phi/chi is not identically constant (2504.19543 p.8)",
+  "modern Hilbert-space form: f, g in L^2 of the interval (square-integrable); the interval length (X - x0) must be finite for form (E) (2312.03478 p.6)",
+  "no physical datum: a theorem of real analysis"
+ ],
+ "hypothesis_drift": [
+  "ADDED (harmless, not needed by Cauchy-Schwarz): formation.py:183 and formation.py:382 (TRANSVERSE_BOUND = F1_THEOREM + (H_FAMILY, H_REST)) attach H_REST and H_FAMILY to the step. The inequality INT f_tau^2 >= 1/tau_p needs only H_ENDS (formation.py:375), a finite tau_p, and f_tau in L^2. H_REST is needed by the integration by parts at formation.py:185-188 (INT f_tautau dtau = [f_tau] = 0), and H_FAMILY by the p_T formula (formation.py:113-114), not by the inequality. Re-derived: C1 (identity needs no rest), C3 (linear, non-rest profile attains equality).",
+  "IMPLICIT, satisfied: a FINITE passage duration tau_p. Form (E) needs a finite interval; the family's f = 0 before and f = 1 after (formation.py:84-85) makes it finite. For an asymptotic (infinite-duration) f the bound degenerates to 0. Not dropped, not named.",
+  "WEAKENED at the ADJACENT step (not the inequality): H_REST reads 'f is C^1' (formation.py:378, 183). The integration by parts at formation.py:185-188 and the pointwise p_T at formation.py:113-114 contain f_tautau, which needs f_tau absolutely continuous (e.g. piecewise C^2); C^1 alone does not guarantee INT f_tautau dtau = f_tau(end) - f_tau(start). Section 1 of the same file (formation.py:84) says 'for any smooth f(t)', which is stronger than H_REST. Every profile the tree runs (formation.py:804-808) has f_tau Lipschitz (smoothstep's f_tautau jumps from 0 to 6/T^2 at the ends, still integrable), so no computed row is affected. Re-derived: C6 (INT f_tautau dtau = 0 to 25 digits on all three profiles at two lapses). A discrepancy in the stated regularity, not a refutation.",
+  "IMPLICIT, discharged elsewhere: 'STRICTLY NEGATIVE' (formation.py:192) needs omega = ln W_1 != 0 in addition to Cauchy-Schwarz (INT f_tau^2 > 0 holds for any non-constant f). omega != 0 is not in TRANSVERSE_BOUND (H_W is only W > 0, formation.py:374), but formation.py's z3 rows (W_1 > 1 for 0 < r < R_s, 0 < W_1 < 1 for r > R_s; formation.py:150, selftest section 2) give it at every sphere except r = 0 and the shell r = R_s where W_1 jumps. At W_1 = 1 the cost is exactly 0 (re-derived: C8).",
+  "STRICTNESS vs SHARPNESS, consistent with the tree: under H_REST with f_tau continuous, equality (f_tau constant) is excluded, so the inequality is strict, but 1/tau_p is still the infimum over rest profiles (trapezoid-velocity profiles with ramp e give INT f'^2 = (T - 4e/3)/(T - e)^2 -> 1/T; re-derived C4). The tree states '>=' and '<=' (formation.py:188, 190), which is exact; it does not claim a larger constant.",
+  "USE-SITE OVER-REACH DOWNSTREAM (outside the inequality, recorded not repaired): formation.py:196-197 'With the transverse NEC imposed, the family is excluded at EVERY tau_p, since the cost above is strictly negative.' Cauchy-Schwarz makes only the TIME PART of the integrated rho + p_T strictly negative; the time part scales as 1/tau_p while the static part's integral scales with tau_p, so exclusion at every tau_p also needs the sign of the static (adiabatic) part along the sequence, which the inequality does not supply. The tree's own consumer is correctly hedged: specthm.py:1141-1144 R10(c) says 'whether the full transverse integral is negative is not shown by the owner.' The static part's sign was NOT computed in this audit; this is a discrepancy between formation.py's prose and specthm's statement, not a finding that the family is admissible."
+ ],
+ "data_at_publication": [
+  {
+   "quantity": "none: the result is a theorem of real analysis with no physical input; the only numbers at the use site are the tree's own test inputs (coordinate duration T = 3, sphere r0 = 1, three profiles; formation.py:1059-1075)",
+   "value_then": "n/a (Bunyakovsky 1859; Cauchy 1821; Schwarz 1885)",
+   "value_now": "n/a",
+   "source_now": "n/a",
+   "moves_conclusion": "no: no datum enters the inequality; the test inputs only instantiate it (tau_p * INT f_tau^2 = 1.2045-1.2100 smoothstep, 1.2383-1.2441 sine, 4.1992-4.5426 overshoot at phi = +0.2 / -0.3; exactly 6/5, pi^2/8, 6/5 + 8 pi^2/25 in s)"
+  }
+ ],
+ "rederivation": {
+  "method": "sympy",
+  "script_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/cauchy-schwarz-inequality.py",
+  "outcome": "ALL CHECKS PASS (0 failures), sympy + mpmath (30 dps) + z3 5.1.0. C1: INT_0^T f'^2 - (INT f')^2/T = INT (f' - mean f')^2 for a generic degree-6 polynomial, residual 0 exactly (so >= holds with equality iff f' constant). C2: the tree's three profiles are at rest and run 0 -> 1; INT_0^1 f_s^2 ds = 6/5 (smoothstep), pi^2/8 (sine), 6/5 + 8 pi^2/25 = 4.358 (overshoot), each strictly > 1. C3: the linear profile attains 1/T exactly and violates H_REST. C4: trapezoid-velocity rest profiles give (T - 4e/3)/(T - e)^2 > 1/T with limit 1/T: the bound is the infimum, not attained. C5: e^{-2 f phi}(f'' - (phi + omega) f'^2) == f_tautau - omega f_tau^2 with dtau = e^{f phi} dt, residual 0 (the conversion at formation.py:113-114). C6: in Eulerian proper time at phi = -0.3 and +0.2, T = 3, every profile has INT f_tau dtau = 1 and INT f_tautau dtau = 0 to 1e-25, and tau_p INT f_tau^2 dtau > 1. C7 (z3, R^4 analogue): 4 sum x^2 < (sum x)^2 UNSAT; with x1 = x4 = 0 and sum = 1, 4 sum x^2 <= 1 UNSAT (strict); VACUITY GUARD: equality SAT without the rest constraint; ENCODING GUARD: drifted constant 1/3 refutable (SAT). C8: cost -(ln W_1)^2/(8 pi) INT f_tau^2 is 0 at W_1 = 1, < 0 at 1.1 and 0.9. Independently, formation.py --selftest was run read-only (rc 0, tree unchanged per git status): its rows 'and it is <= -(omega^2/8pi)/tau_p (Cauchy-Schwarz)' pass for smoothstep, sine, overshoot (log: rederive/formation_selftest_cs.log).",
+  "agrees_with_source": "yes"
+ },
+ "later_literature": [
+  {
+   "ref": "arXiv:2504.19543 (Kichenassamy, Ganita Bharati 2020)",
+   "effect": "confirms",
+   "what": "History and exact restatement of Bunyakovsky's (C) and its psi = 1 case (E), which is the tree's form verbatim; equality for psi = lambda phi or X = x0; Schwarz 1885's quadratic-form proof and hypotheses (absolute convergence, non-proportional for strictness). Also records that Bunyakovsky's own paper carries a MISPRINT (9 sqrt3 for 9 ln 3, p.8) in an application -- a discrepancy in an example, not in the inequality.",
+   "read_status": "READ (alphaXiv, pages returned verbatim)"
+  },
+  {
+   "ref": "arXiv:2312.03478v2 (Labropoulou et al. 2023)",
+   "effect": "confirms",
+   "what": "Integral CBS inequality with the equality case and Schwarz's discriminant argument; weighted (Birsan) CBS-type form with equality iff alpha f + beta g = const.",
+   "read_status": "READ (alphaXiv, pages returned verbatim)"
+  },
+  {
+   "ref": "arXiv:2403.13964 (Enhanced Cauchy-Schwarz inequality, 2024)",
+   "effect": "extends",
+   "what": "A refinement over complete inner-product spaces (a sharper lower gap); refinements can only strengthen >=, never reverse it. Abstract only.",
+   "read_status": "NAMED-NOT-READ (discover_papers abstract only)"
+  },
+  {
+   "ref": "arXiv:2405.19698 (Enhancement of the Cauchy-Schwarz inequality, 2024)",
+   "effect": "extends",
+   "what": "Another refinement of CBS in Hilbert space. Abstract only.",
+   "read_status": "NAMED-NOT-READ (discover_papers abstract only)"
+  },
+  {
+   "ref": "arXiv:2603.23239 (Olech-Opial / Wirtinger variational link, 2026)",
+   "effect": "extends",
+   "what": "Wirtinger-type sharp constants for INT u'^2 under boundary conditions; the tree needs only the elementary constant 1/tau_p, which C4 shows is sharp (not attained) under rest ends. Not read.",
+   "read_status": "NAMED-NOT-READ (discover_papers abstract only)"
+  }
+ ],
+ "lacked_data": "M's hypothesis ('previous physicists may have all lacked certain data') does not bite on this result, and the evidence is on the side of it standing: the inequality has no data input at all. It is a theorem of real analysis about square-integrable functions on a finite interval, proved from a sum-of-squares identity (Cauchy 1821's Lagrange identity; its integral analogue (f,g)^2 = (f,f)(g,g) - 1/2 INT INT (f(x)g(y) - f(y)g(x))^2), and re-derived here symbolically (C1) and machine-checked in its discrete form (C7, z3). What Bunyakovsky lacked in 1859 was not data but modern integration theory (he assumed continuity; Schwarz 1885 absolute convergence); the modern L^2 form only enlarges the class, and every function the tree uses is smooth or piecewise C^2 on a finite interval, inside all three authors' hypothesis classes. The one misprint on record (Bunyakovsky's '9 sqrt3' for '9 ln 3' in an application, 2504.19543 p.8 note 35) is a discrepancy in an example, not in the inequality. The places this audit found anything to record are at the tree's use sites, not in the external result: the regularity stated for the integration by parts (C^1 vs f_tau absolutely continuous) and formation.py:196-197's exclusion inference, which needs the static part's sign as well.",
+ "grade": "STANDS",
+ "grade_evidence": "Statement READ via exact restatement (2504.19543 p.7: Bunyakovsky's (E), (INT phi)^2 < (X - x0) INT phi^2, is the tree's INT f_tau^2 >= (INT f_tau)^2/tau_p with phi = f_tau, X - x0 = tau_p). Hypotheses as used are inside the source's (continuous / L^2 functions, finite interval); the tree ADDS H_REST and H_FAMILY, which the inequality does not need, and drops nothing the inequality needs. Re-derivation agrees (sympy identity C1, profiles C2, equality C3, sharpness C4, frame conversion C5, numeric in tau C6, z3 with vacuity and encoding guards C7; tree's own selftest rows pass). No datum enters, so none can move. The drifts recorded (C^1 vs absolutely continuous f_tau at the integration-by-parts step; omega != 0 needed for 'strictly'; formation.py:196-197's exclusion also needing the static part's sign, which specthm.py R10(c) already hedges) concern adjacent steps at the use site, not the external result; none is a refutation, and none changes a computed row.",
+ "what_would_change_the_grade": "Nothing about the inequality itself: a counterexample would need a real square-integrable f_tau on a finite interval with INT f_tau^2 < (INT f_tau)^2/tau_p, which C1's identity excludes. The grade would become NARROWED only if the tree applied the step to a class outside the source's hypotheses: an infinite-duration passage (tau_p = infinity, bound degenerates to 0), an f_tau not in L^2, or a use in which H_REST's strictness is claimed without f_tau continuous. A separate audit of formation.py:196-197 (computing the static part of rho + p_T along the sequence at each sphere) would settle whether that prose exclusion holds; it would not change this grade.",
+ "reverify_command": "python3 /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/cauchy-schwarz-inequality.py && (cd /home/user/Claude-Method-Works/research/warp-drive && python3 formation.py --selftest | grep -n 'Cauchy-Schwarz')",
+ "report_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/audits/cauchy-schwarz-inequality.json"
+}

@@ -1,0 +1,98 @@
+{
+ "key": "mass-energy-equivalence",
+ "name": "E = M c^2 (rest energy of the payload / terminal flash)",
+ "source": {
+  "located": "A. Einstein, 'Ist die Traegheit eines Koerpers von seinem Energieinhalt abhaengig?', Ann. Phys. 18, 639 (1905) -- no arXiv copy. The absolute form (four-vector energy, closed static systems): M. von Laue 1911 and F. Klein 1918 -- no arXiv copies. Empirical test: S. Rainville et al., 'A direct test of E=mc2', Nature 438, 1096 (2005).",
+  "read_status": "NAMED-NOT-READ",
+  "via": "Nothing read at source this stage. alphaXiv returned 'assistant quota exceeded' on answer_pdf_queries, get_paper_content and discover_papers; arxiv.org, export.arxiv.org and www.fourmilab.ch (English translation of the 1905 paper) are refused by the egress proxy (curl CONNECT 403; WebFetch EGRESS_BLOCKED). No saved page text of any restatement exists in d67/src. One WebSearch returned a result summary of Rainville et al. 2005 ((-1.4 +- 4.4)e-7) -- a search summary, not a reading, so that too is NAMED-NOT-READ. The published statement below is therefore given as the standard statement, and is NOT a verbatim quotation; the grade rests on the re-derivation (computed), not on a reading."
+ },
+ "published_statement": "NOT QUOTED VERBATIM (source not readable here). Standard content of Einstein 1905: if a body gives off energy L as radiation, its mass diminishes by L/c^2; the mass of a body is a measure of its energy content. Derived by a two-pulse thought experiment and printed to second order in v/c (K0 - K1 = (1/2)(L/c^2) v^2). The absolute statement E0 = M c^2 for the total rest energy of a closed system is the later (Laue 1911 / Klein 1918) form. Both forms were re-derived here in sympy (script Parts A, B), which is what this audit relies on.",
+ "published_hypotheses": [
+  "special relativity: Lorentz transformation of the energy of plane light waves (relativistic Doppler)",
+  "energy conservation in both inertial frames",
+  "the body's kinetic energy is identified with (Newtonian, O(v^2)) kinetic energy -- the single approximation in the 1905 argument (script A3/A5); with K = (gamma-1) m c^2 the result is exact at every v (A4)",
+  "1905 form fixes only DIFFERENCES: Delta m = Delta E / c^2; an additive constant in E is not fixed by the 1905 argument",
+  "absolute form (later): (E/c, p) is a four-vector (fixes the constant to 0, script B1/C1); for an extended body, a closed system in equilibrium (Laue: stresses integrate to zero) so that its energy-momentum is a four-vector",
+  "the equivalence is NOT a conversion mechanism: that all of M c^2 can be released requires a separate process (annihilation, black-hole evaporation) not asserted by the result"
+ ],
+ "hypothesis_drift": [
+  "ADDED, and NAMED by the owner (no hidden drift): full conversion of the payload's rest energy to a terminal flash is not part of E = M c^2; the tree takes it from the folder's chain -- warpfolder.py:55-57 ('the terminal flash is E = M c^2 BY CONSTRUCTION'), canonical hypothesis 'the document's own premise needs the full rest energy of the payload (taken from the folder's chain, not derived)'. The tree's own 'shortfall' (warpfolder.py:22-23, 314-316) is rest_energy / stored and its meaning as 'what the premise needs' is the folder's premise, not a consequence of E = M c^2: E = M c^2 alone does not say a device store must supply M c^2 (the payload's own mass could supply a black hole's mass). The owner attributes it to the document ('its own premise'), so this is a scope note, not a drift.",
+  "WIDENED from the 1905 source, legitimately: the tree uses the ABSOLUTE rest energy M c^2 of the whole payload (warpfolder.py:301-302 'return mass_kg * c ** 2'), whereas Einstein 1905 gives Delta m = L/c^2 to O(v^2). The absolute form needs the four-vector condition (Laue/Klein), re-derived here: C = 0 is forced (sympy B1, z3 C1 UNSAT with a SAT vacuity guard C2). Owner does not name the later source; no consequence.",
+  "DROPPED silently, harmless: 'closed system in equilibrium' (Laue) and 'M is the invariant / ADM mass including binding' are not stated at warpfolder.py:301-302. For a 100 kg body the Newtonian self-binding correction is 1.5e-25 of M c^2 (script E4), so no printed figure moves."
+ ],
+ "data_at_publication": [
+  {
+   "quantity": "c",
+   "value_then": "1905: measured (~3e8 m/s, Michelson-era); tree: 2.99792458e8 (ladder.py:53)",
+   "value_now": "299 792 458 m/s EXACT by SI definition since 1983",
+   "source_now": "CODATA 2022 arXiv:2409.03787 Table XXXII (as READ in this docket's si-astro-constants-c-g-msun-ly audit; not re-read this stage)",
+   "moves_conclusion": "no -- exact; script D0 confirms the tree uses the exact value"
+  },
+  {
+   "quantity": "empirical test of E = M c^2 (1 - dm c^2/E)",
+   "value_then": "1905: none; Einstein proposed radium salts",
+   "value_now": "(-1.4 +- 4.4)e-7 (Rainville et al. 2005, Si and S binding energies via Penning-trap masses and gamma wavelengths) -- NAMED-NOT-READ, from a search summary",
+   "source_now": "Nature 438, 1096 (2005); not on arXiv reachable here",
+   "moves_conclusion": "no -- at 3 sigma either way the tree's shortfall moves by < 1e-6 in log10 (15.78173 -> 15.78173, script E1) and the 1e5-row factor stays 9.99 (E2)"
+  },
+  {
+   "quantity": "payload masses 100, 5000, 1e5 kg",
+   "value_then": "folder's own table (READ by the owner, warpfolder.py:211)",
+   "value_now": "unchanged (inputs, not data)",
+   "source_now": "warpfolder.py:211",
+   "moves_conclusion": "no"
+  },
+  {
+   "quantity": "folder's printed E_flash at 1e5 kg",
+   "value_then": "8.98e22 J (printed, warpfolder.py:235)",
+   "value_now": "M c^2 = 8.98755e21 J; printed/computed = 9.9916",
+   "source_now": "script D4",
+   "moves_conclusion": "no datum can reconcile it: it would need c x sqrt(10) = 9.48e8 m/s (E3), and c is exact. Recorded by the owner as an internal inconsistency of the document (a slipped decade), not as a disagreement about physics -- which is the correct classification (a misprint is a discrepancy)"
+  },
+  {
+   "quantity": "megaton TNT",
+   "value_then": "4.184e15 J (warpfolder.py:191, 'by definition')",
+   "value_now": "4.184e15 J (conventional definition; not re-read at source)",
+   "source_now": "convention",
+   "moves_conclusion": "no -- 100 kg = 2148 Mt = 2.15 Gt; the tree's '2.1 GIGATONS' is correct at 2 s.f."
+  }
+ ],
+ "rederivation": {
+  "method": "sympy",
+  "script_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/mass-energy-equivalence.py",
+  "outcome": "ALL PASS (22 checks; output in rederive/mass-energy-equivalence.out). A: Einstein's two-pulse argument re-derived EXACTLY: total emitted energy in the moving frame is gamma L; K0-K1 = L(gamma-1); to O(v^2) this is (1/2)(L/c^2)v^2 (Einstein's printed form); with K = (gamma-1) m c^2 it gives dm = L/c^2 at every v; with Newtonian K only as v->0 -- so the 1905 approximation sits solely in the kinetic-energy identification. B: the four-vector law forces the additive constant C = 0, so the absolute rest energy is M c^2; E^2 - p^2c^2 = M^2c^4. C: z3 UNSAT for any C != 0 with gamma in (1,100); vacuity guard SAT. D: the tree's figures reproduced through its own functions (warpfolder imported read-only, bytecode off): 8.98755e18 J at 100 kg (printed 8.98e18, +8.4e-4), 4.4938e20 at 5000 kg (printed 4.49e20, +8.4e-4), 8.98755e21 at 1e5 kg vs printed 8.98e22 (x9.9916), 2148 Mt, store 1250 + 235.62 = 1485.62 J, shortfall 6.0497e15 = 15.7817 orders. E: no current datum moves any of these.",
+  "agrees_with_source": "yes"
+ },
+ "later_literature": [
+  {
+   "ref": "S. Rainville et al., 'A direct test of E=mc2', Nature 438, 1096 (2005)",
+   "effect": "confirms",
+   "what": "1 - dm c^2/E = (-1.4 +- 4.4)e-7 from nuclear binding energies of Si and S isotopes (atomic-mass differences vs gamma-ray wavelengths); ~55x better than the previous direct test",
+   "read_status": "NAMED-NOT-READ (WebSearch result summary only; nature.com/nist.gov not fetched)"
+  },
+  {
+   "ref": "arXiv:0705.3191, 'Why E = mc^2 Emerges in the Process of Neutron Capture'",
+   "effect": "extends",
+   "what": "title only, surfaced by WebSearch; content unknown here",
+   "read_status": "NAMED-NOT-READ (arxiv.org egress-blocked, alphaXiv quota exceeded)"
+  },
+  {
+   "ref": "H. Ives 1952 (circularity critique of the 1905 derivation) and H. Ohanian 2008-9 ('Did Einstein prove E=mc^2?')",
+   "effect": "contested",
+   "what": "criticisms of Einstein's 1905 PROOF (validity of the derivation / approximation), not of the relation; script A shows the only approximation is the kinetic-energy identification and that the exact relativistic version closes it",
+   "read_status": "NAMED-NOT-READ (discover_papers unavailable: quota exceeded)"
+  },
+  {
+   "ref": "M. von Laue 1911; F. Klein 1918",
+   "effect": "extends",
+   "what": "absolute form for closed extended systems (energy-momentum a four-vector when stresses integrate to zero)",
+   "read_status": "NAMED-NOT-READ"
+  }
+ ],
+ "lacked_data": "Einstein in 1905 had no test at all -- he proposed radium salts. Data he lacked and that came later: nuclear-reaction mass defects (1930s), full conversion in pair annihilation, and the direct test at (-1.4 +- 4.4)e-7 (Rainville 2005, NAMED-NOT-READ). Evidence either way: every later datum agrees with the relation; none disagrees at its stated precision. Computed consequence for the tree: moving the relation by its full 3-sigma band shifts the shortfall by < 1e-6 in log10 and leaves the 1e5-row slipped decade at x9.99 (script E1, E2). The deficiency that did exist was in the 1905 DERIVATION (an O(v^2) approximation and, as Ives argued, a disputed step), and that is closed by the exact relativistic re-derivation (A4) and the four-vector argument (B1, C1). M's hypothesis is therefore tested and NOT borne out for this result: the missing data would not, and does not, change the conclusion. The one thing that is not a consequence of E = M c^2 -- that the whole of M c^2 is released as a 'flash', and that a device must supply it -- is the folder's premise, and the owner names it as such.",
+ "grade": "STANDS",
+ "grade_evidence": "The statement as the tree uses it (absolute rest energy M c^2 of a closed body at rest, SR) is re-derived exactly here: sympy (A1-A5, B1-B2) and z3 (C1 UNSAT, C2 SAT vacuity guard). Every figure the tree prints from it is reproduced through the tree's own functions (D0-D7); the only disagreement is the folder document's 1e5-kg cell (8.98e22 vs 8.98755e21, x9.9916), which the owner correctly records as the document's internal inconsistency, and which no datum can reconcile (E3). c is SI-exact; the empirical test band moves nothing (E1, E2). The hypotheses the tree adds (full conversion; the store must supply M c^2) are named by the owner as the folder's premise (warpfolder.py:55-57, canonical hypotheses); the hypothesis it drops (closed system / binding) is harmless at 1.5e-25 (E4). CAVEAT CARRIED WITH THE GRADE: the 1905 source, Laue/Klein and Rainville 2005 were NOT READ this stage (alphaXiv quota exhausted, arXiv egress-blocked); STANDS rests on computation within SR, not on a reading, and the published_statement is not a verbatim quotation.",
+ "what_would_change_the_grade": "A reading of the 1905 paper that shows a hypothesis absent from the list above (none expected -- the re-derivation reproduces its printed O(v^2) result); a direct test disagreeing with E = M c^2 at >~1e-6 (none known here); or reading the folder documents to find that they do NOT premise full conversion / a store-supplied M c^2 -- that would move the SHORTFALL framing (an owner claim about the folder, outside this external result), not this grade.",
+ "reverify_command": "python3 /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/mass-energy-equivalence.py  # exit 0, 'RESULT: ALL PASS'; and: cd /home/user/Claude-Method-Works/research/warp-drive && python3 warpfolder.py --selftest",
+ "report_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/audits/mass-energy-equivalence.json"
+}

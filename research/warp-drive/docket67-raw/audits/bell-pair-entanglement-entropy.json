@@ -1,0 +1,74 @@
+{
+ "key": "bell-pair-entanglement-entropy",
+ "name": "Von Neumann entropy of a maximally entangled qubit pair = 1 bit",
+ "source": {
+  "located": "C.H. Bennett, H.J. Bernstein, S. Popescu, B. Schumacher, 'Concentrating Partial Entanglement by Local Operations', arXiv:quant-ph/9511030v1 (21 Nov 1995; Phys. Rev. A 53, 2046 (1996)). Definition at p.4 eq. (4) and the sentence after it; ebit defined p.2; LOCC non-increase p.6; pure-state-only caveat p.16 (sec. V). Cross-read: R. Horodecki, P. Horodecki, M. Horodecki, K. Horodecki, 'Quantum entanglement', arXiv:quant-ph/0702225v2 (Rev. Mod. Phys. 81, 865 (2009)), p.49 sec. XIII.B.1 'Unit of bipartite entanglement', p.58 eq. (153) normalization, p.65-66 uniqueness for pure states. Teleportation classic (Bennett, Brassard, Crepeau, Jozsa, Peres, Wootters, PRL 70, 1895 (1993)) is NAMED-NOT-READ: only its restatement in quant-ph/9511030 p.2 was read.",
+  "read_status": "READ",
+  "via": "alphaXiv answer_pdf_queries on quant-ph/9511030 (all 21 pages returned verbatim) and on quant-ph/0702225 (pp.1, 20, 49, 58, 60, 65, 66, 67 returned verbatim)."
+ },
+ "published_statement": "quant-ph/9511030 p.4: 'The entanglement of a partly-entangled pure state can be naturally parameterized by its entropy of entanglement, defined as the von Neumann entropy of either rho_A or rho_B, or equivalently as the Shannon entropy of the squares of the Schmidt coefficients. E = -Tr rho_A log2 rho_A = -Tr rho_B log2 rho_B = -sum_i c_i^2 log2 c_i^2. (4) ... The quantity E ... ranges from zero for a product state (eg theta = 0) to 1 ebit for a maximally entangled pair of two-state particles (eg theta = pi/4). (More generally, a maximally entangled state of two subsystems has d equally weighted terms in its Schmidt decomposition, giving log2 d ebits of entanglement ...)'. p.2: 'we define an ebit as the amount of entanglement between a maximally entangled pair of two-state systems ... In [4], for example, it is shown that the consumption of one shared ebit, together with the transmission of a two-bit classical message, can be substituted for the transmission of one qubit.' p.6: 'neither the measurement of k nor any other local processing by one or both parties can increase the expected entropy of entanglement between Alice's and Bob's subsystems.' p.16: 'We have argued that entropy of entanglement is a good entanglement measure for pure states ... No similarly simple entanglement measure is known for mixed states.'",
+ "published_hypotheses": [
+  "H1 PURE bipartite state Psi(A,B) (eq. (2)); for mixed states S(rho_A), S(rho_B) are NOT the entanglement (p.16, the classically-correlated counterexample).",
+  "H2 bipartition fixed: A = Alice's subsystem, B = Bob's; E is the entropy of either reduced density matrix (equal for pure states by the Schmidt decomposition, eq. (3)).",
+  "H3 base-2 logarithm; unit = ebit (eq. (4), p.2).",
+  "H4 'maximally entangled' = all Schmidt coefficients equal (d equally weighted terms); for d = 2 this gives exactly 1 ebit (p.4).",
+  "H5 operational meaning (E = asymptotic concentration yield / dilution cost) holds in the many-copy asymptotic limit under LOCC (p.4, p.16); the value E itself is a closed-form single-copy function and needs no limit.",
+  "H6 LOCC: local unitaries, von Neumann/POVM measurements and classical messages only; under these the EXPECTED E does not increase (p.6) -- a monotone, with asymptotic conservation only for reversible concentration/dilution of pure states (abstract, p.16)."
+ ],
+ "hypothesis_drift": [
+  "KEPT (no drift) -- transit.py:78-85 entropy2 computes -sum l log2 l over the eigenvalues of a 2x2 reduced state (H2, H3), applied at transit.py:315 to ptrace_first(rho_from(BELL)) with BELL = (|00>+|11>)/sqrt2 at transit.py:90, a pure state (H1) with equal Schmidt coefficients (H4). The canonical entry names the purity hypothesis.",
+  "NOT STATED AT THE SITE (purity, H1) -- transit.py:138 'CHANNEL_BITS_BEFORE = 1.0 # entanglement entropy of a Bell pair' carries no purity qualifier in the file; the hypothesis is named only in the canonical entry. For the ideal pure BELL the tree uses, nothing moves; for any mixed channel (e.g. Werner, rederive C7) S(rho_B) = 1 bit for EVERY mixing weight p, including separable p <= 1/3, so the equation 'S(rho_B) = channel entanglement' would fail. This matters only if R11 (specthm.py:1168; LEDGER.md:177, 'IF it is carried by teleportation') is later applied to a physical, imperfect channel.",
+  "ADDED FRAMING (H6 weakened into a stronger word) -- transit.py:24, 213, 221, 283 call 'channel entanglement 1 bit before, 0 after' a 'CONSERVATION LAW'. The published law is NON-INCREASE of expected entanglement under LOCC (quant-ph/9511030 p.6; quant-ph/0702225 p.58 eq. (155)), with conservation only asymptotically for reversible pure-state concentration/dilution. Across the A|B cut in transit.py's protocol the entanglement goes 1 -> 0, which is not conserved; rederive C6 shows that when the teleported qubit is itself half of an ebit with a reference R, the ebit is TRANSFERRED to R|B (never multiplied), which is what makes 'one pair, one transit' forced. The numbers the tree prints are right; the name is a discrepancy of wording, not a refutation.",
+  "DECLARED, NOT COMPUTED -- transit.py:139 'CHANNEL_BITS_AFTER = 0.0 # spent by one use' is a constant; the selftest at transit.py:339 checks the constant against 0.0, and the report string at transit.py:217 hard-codes '(purity 1.000000000, pure)'. No line of transit.py computes the post-protocol A|B entanglement. Rederive C4 computes it symbolically for arbitrary alpha, beta and all four outcomes: the A-side reduced state is pure, so E_after = 0 exactly -- the declared value agrees.",
+  "DECLARED, NOT COMPUTED -- transit.py:230 and transit.py:341-342 ('A ends maximally mixed -- a MOVE, not a copy') apply entropy2 to a hard-coded diag(0.5, 0.5), not to A's qubit as the protocol leaves it. Rederive C5 computes A's input qubit after the Bell measurement: I/2 for all four outcomes and independent of psi, S = 1 bit -- the declared value agrees. (A's two qubits jointly end in a pure Bell state; 'holds no trace of what it carried' is correct because that Bell state does not depend on psi.)",
+  "Single-copy vs asymptotic (H5) -- the tree uses E = 1 as a single-copy count ('one pair buys one transit', transit.py:340). For an exactly maximally entangled pair this is legitimate without the asymptotic limit: exact single-shot teleportation of one qubit with one Bell pair and two classical bits is what the restated [4] (quant-ph/9511030 p.2) asserts, and the tree's own fidelity-1 check (transit.py:320-327) exhibits it. No drift that moves anything."
+ ],
+ "data_at_publication": [
+  {
+   "quantity": "reduced state of B for the Bell pair, rho_B",
+   "value_then": "for theta = pi/4 in eq. (1): rho_B = diag(1/2, 1/2) (Schmidt coefficients c1 = c2 = 1/sqrt2; quant-ph/9511030 eqs. (1)-(4))",
+   "value_now": "diag(1/2, 1/2) exactly (sympy, rederive C1); transit.py:314 obtains 0.5 to 1e-12",
+   "source_now": "closed-form linear algebra; no measured input",
+   "moves_conclusion": "no -- the value is mathematical, not empirical; nothing can move it"
+  },
+  {
+   "quantity": "log base / unit",
+   "value_then": "log2, ebit (eq. (4))",
+   "value_now": "log2 in transit.py:84 (math.log2)",
+   "source_now": "transit.py:78-85",
+   "moves_conclusion": "no -- matches; a natural-log convention would give ln 2 = 0.693 nats, which the tree does not use"
+  }
+ ],
+ "rederivation": {
+  "method": "sympy",
+  "script_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/bell-pair-entanglement-entropy.py",
+  "outcome": "REDERIVE PASS, 14/14 checks. C1: rho_B = I/2 and S(rho_B) = S(rho_A) = 1 bit exactly. C2: E(theta) = H2(cos^2 theta), E(pi/4) = 1, unique stationary point x = 1/2, H2 strictly concave (so 1 bit is the qubit maximum, attained only at equal Schmidt weights). C3: transit.entropy2 (imported read-only) equals the Schmidt-coefficient Shannon entropy on 200 random pure two-qubit states, worst deviation 4.6e-16; entropy2(ptrace_first(BELL)) = 1. C4: after the Bell measurement, for symbolic alpha, beta and each outcome (p = 1/4 each), the A-side reduced state is pure -> E_after(A|B) = 0 exactly (tree declares it). C5: A's input qubit = I/2 for every outcome, psi-independent (tree hard-codes it). C6: teleporting half of a Bell pair with reference R leaves (R,B) pure with S(R) = 1 and A-side pure -- the ebit is transferred, never multiplied, i.e. the LOCC monotone is what forces one pair per transit. C7: Werner mixture p|Phi+><Phi+| + (1-p)I/4 has S(rho_B) = 1 for all p, while its partial-transpose minimum eigenvalue is (1-3p)/4 (separable for p <= 1/3) -- the purity hypothesis is load-bearing. transit.py --selftest also run: SELFTEST PASS.",
+  "agrees_with_source": "yes"
+ },
+ "later_literature": [
+  {
+   "ref": "R. Horodecki, P. Horodecki, M. Horodecki, K. Horodecki, arXiv:quant-ph/0702225 (Rev. Mod. Phys. 81, 865 (2009))",
+   "effect": "confirms",
+   "what": "p.49: any bipartite pure state converts to singlets at rate S_A = S_B; 'EPR state becomes universal unit of entanglement'. p.58 eq. (153): normalization E((Phi+_2)^{xn}) = n. p.65-66: von Neumann entropy of the subsystem is the unique pure-state measure under LOCC monotonicity, asymptotic continuity and normalization (uniqueness credited to Popescu-Rohrlich 1997, Donald et al. 2002, Horodecki et al. 2000, Vidal 2000); p.67: for pure states E_D = E_F = E_C = E_R = S(rho_A). Also p.58/65: in the exact single-copy regime other monotones (Renyi entropies, Vidal's E_k) are also valid -- but every normalized one equals 1 on a two-qubit maximally entangled state, so the tree's value is regime-independent.",
+   "read_status": "READ (pp. 1, 20, 49, 58, 60, 65, 66, 67 verbatim via alphaXiv)"
+  },
+  {
+   "ref": "L. Lami, M. Berta, B. Regula, 'Asymptotic quantification of entanglement with a single copy', arXiv:2408.07067v3 (2026)",
+   "effect": "extends",
+   "what": "Concerns mixed-state entanglement testing/distillation error exponents (reverse relative entropy of entanglement); does not bear on the pure-state value used here. Found by discover_papers; nothing in the later literature located contradicts E(Bell) = 1 ebit.",
+   "read_status": "abstract and p.1 only (alphaXiv answer_pdf_queries)"
+  },
+  {
+   "ref": "C.H. Bennett et al., Phys. Rev. Lett. 70, 1895 (1993) (teleportation)",
+   "effect": "confirms",
+   "what": "One ebit plus two classical bits substitutes for one qubit -- the resource count transit.py:138-140 uses.",
+   "read_status": "NAMED-NOT-READ; restated in quant-ph/9511030 p.2 (read)"
+  }
+ ],
+ "lacked_data": "M's hypothesis tested: nothing the 1995 authors lacked bears on this result. E(Bell) = 1 ebit is a definition (eq. (4)) evaluated on an exactly specified state; it depends on no measured quantity, and the rederivation reproduces it exactly in sympy. Later work (quant-ph/0702225 pp.65-67) ADDED the uniqueness theorem and the equality of all operational measures on pure states, which strengthens rather than moves it. The one place where data could bite is outside the result as published: a physical Bell pair is never exactly pure, and for a mixed channel S(rho_B) stays at 1 bit while the entanglement falls (rederive C7), so a future use of transit.py's constant for a real channel (R11, reconstruction route) would need the channel's measured state and a mixed-state measure (E_D, E_F). No experimental fidelity is quoted here because none was read; the tree does not use one.",
+ "grade": "STANDS",
+ "grade_evidence": "Published statement (quant-ph/9511030 p.4 eq. (4): E = -Tr rho_B log2 rho_B, '1 ebit for a maximally entangled pair of two-state particles') matches the tree's use at transit.py:138 and :315 in every hypothesis the result needs (pure, fixed bipartition, log2, equal Schmidt weights). Sympy re-derivation: S(rho_B) = 1 exactly, 14/14 checks pass, and transit.entropy2 agrees with the exact entropy to 4.6e-16. No datum enters. Discrepancies recorded, not repaired and not refutations: (a) the purity hypothesis is not written at transit.py:138; (b) 'CONSERVATION LAW' (transit.py:24, 213, 221, 283) overstates the published LOCC non-increase; (c) CHANNEL_BITS_AFTER = 0.0 (transit.py:139, 339) and 'A ends maximally mixed' (transit.py:341-342) are declared rather than computed in the tree -- computed here, both values agree.",
+ "what_would_change_the_grade": "Grade would become NARROWED if a consumer of transit.py (R11 in specthm.py:1168, ledger M-S1A-P5) applied CHANNEL_BITS_BEFORE = 1.0 to a mixed/noisy channel, where S(rho_B) is not the entanglement (C7). WRONG would require a pure two-qubit state with equal Schmidt weights whose reduced entropy is not 1 bit, which C1-C2 exclude symbolically. No moved datum can change it.",
+ "reverify_command": "python3 /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/bell-pair-entanglement-entropy.py && python3 /home/user/Claude-Method-Works/research/warp-drive/transit.py --selftest | tail -1",
+ "report_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/audits/bell-pair-entanglement-entropy.json"
+}

@@ -1,0 +1,57 @@
+--- C1  definitions and MS equations (G = 8 pi T, no Lambda_c)
+PASS C1a m = (R/2)(1 - W^2 + U^2)
+PASS C1b identity W^2 = 1 - 2m/R + U^2
+PASS C1c MS-r  D_r m = 4 pi R^2 (rho W + j U)
+PASS C1d MS-t  D_t m = -4 pi R^2 (p_r U + j W)
+PASS C1e j = -T_ab u^a n^b (outward flux convention)
+--- C2  agreement with the READ restatements
+PASS C2a Hayward (27) 1 - 2E/r = e^{-lambda} r'^2 - rdot^2  (Phi = 0)
+PASS C2b Hayward (28a) E' = 4 pi r^2 (T00 r' - T01 rdot)
+PASS C2c Hayward (28b) Edot = 4 pi r^2 e^{-lambda} (T01 r' - T11 rdot)
+PASS C2d Herrera-Santos (25) D_t m = -4 pi (P_r U + j E) R^2
+PASS C2e Herrera-Santos (30) (1/R') d_r m = 4 pi (mu + j U/E) R^2
+--- C3  Misner-Sharp 1964 comoving perfect fluid (j = 0), Hayward eq.(32)
+PASS C3a MS-r at j=0: d_r m = 4 pi R^2 rho R'
+PASS C3b MS-t at j=0: d_t m = -4 pi R^2 p Rdot
+--- C4  spherically symmetric Maxwell field WITH magnetic charge
+PASS C4a Maxwell d_a(sqrt(-g) F^{a0}) = 0
+PASS C4a Maxwell d_a(sqrt(-g) F^{a1}) = 0
+PASS C4a Maxwell d_a(sqrt(-g) F^{a2}) = 0
+PASS C4a Maxwell d_a(sqrt(-g) F^{a3}) = 0
+PASS C4b Bianchi dF = 0 (all components)
+PASS C4c rho = (Q^2 + P^2)/(8 pi R^4)
+PASS C4d j = 0
+PASS C4e p_r = -rho
+     => drivensource.py:286 'the ONLY spherically symmetric field' and :302 'admits only F_{tr}'
+        omit F_{theta phi} = P sin(theta); the conclusion survives with Q^2 -> Q^2 + P^2
+--- C5  Birkhoff in MS variables: m_MS - [M - (Q^2+P^2)/2R] has zero gradient ON SHELL
+PASS C5a D_r(m_MS - m_RN) = 0 on shell
+PASS C5b D_t(m_MS - m_RN) = 0 on shell
+--- C6  with Lambda_c: G + Lc g = 8 pi T  =>  effective rho+Lc/8pi, p_r-Lc/8pi
+PASS C6a D_r m = 4 pi R^2 (rho W + j U) + (Lc/2) R^2 W   [Lambda_c != 0]
+PASS C6b D_t m = -4 pi R^2 (p_r U + j W) + (Lc/2) R^2 U   [Lambda_c != 0]
+PASS C6c electrovac + Lc: frozen solution is m = M - Q^2/2R + Lc R^3/6 (D_r)
+PASS C6d electrovac + Lc: (D_t)
+     => 'm(R) = M - Q^2/(2R)' (drivensource.py:98) needs Lambda_c = 0 (unnamed); with Lambda_c the
+        M is still constant (Birkhoff conclusion survives), m(R) carries + Lc R^3/6
+--- C7  dR = 0 electrovac: Bertotti-Robinson AdS2 x S2, R = |Q| const
+PASS C7a Bertotti-Robinson solves G = 8 pi T_EM with Q = R = q
+PASS C7b m_MS = R/2 = q/2 (gradR = 0), = M - Q^2/2R with M = q
+     => m frozen holds; but the spacetime is NOT Reissner-Nordstrom: 'Birkhoff for
+        Einstein-Maxwell' (drivensource.py:101) as local-RN needs dR != 0 (unnamed)
+--- C8  Lemaitre slicing of Schwarzschild (drivensource.py:175-190 docstring, pg_witness() :373-387)
+PASS C8a m = r_s/2
+PASS C8b W = 1
+PASS C8c U = -sqrt(2m/R)
+--- C9  z3: drivensource.py:435-439 obligation E3
+PASS C9a E3 with W > 0: negation unsat
+PASS C9b drift guard: drop W > 0 and E3 fails (sat): sat  [W = -1, R = 1, U = 0, m = 0, /0 = [else -> 0]]
+--- C10  size of the Lambda_c term against the Q^2/2R term (Planck 2018 VI, arXiv 1807.06209, eq.15 / Table 2)
+     Lambda = 3 Omega_L H0^2/c^2 = 1.0891e-52 m^-2 ; from 4.24e-66 eV^2: 1.0889e-52 m^-2
+PASS C10a the two Planck routes agree to 1%: ratio 1.0002
+     Q = 1 C, R = 1 m : (Lambda R^3/6)/(Q^2/2R) = 4.889e-19
+     Q = 1e-06 C, R = 0.01 m : (Lambda R^3/6)/(Q^2/2R) = 4.889e-15
+     Q = 1 C, R = 1000 m : (Lambda R^3/6)/(Q^2/2R) = 4.889e-07
+     => the Lambda_c term is negligible at laboratory scales; M-constant (the load-bearing claim) is exact either way
+
+ALL PASS

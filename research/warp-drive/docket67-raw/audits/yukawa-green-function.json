@@ -1,0 +1,97 @@
+{
+ "key": "yukawa-green-function",
+ "name": "Screened (Yukawa) Green's function G = e^{-mr}/(4 pi r), INT G d^3r = 1/m^2",
+ "source": {
+  "located": "Classic: H. Yukawa, 'On the Interaction of Elementary Particles I', Proc. Phys.-Math. Soc. Japan 17, 48 (1935; cited as 1934 in 2502.10247 ref [27]) -- pre-arXiv, NAMED-NOT-READ. The mathematical statement is READ in two independent restatements: (a) arXiv:2412.19539v3 (Ishii & Tanaka, 'On the approximation of spatial convolutions by PDE systems', math.AP, v3 19 Sep 2026) p.2 (definition d Delta k - k + delta = 0 on R^n), p.6-7 eq (3.1) (k(x;d) = d^{-n/2} G(|x|/sqrt d), G = (2pi)^{-n/2}|x|^{1-n/2} K_{n/2-1}(|x|)), p.7 (hat G = 1/(1+|xi|^2), G > 0, INT G = 1), p.7-8 Lemma 3.1 (k_m in C(R^n minus 0) and L^1, F[k_m] = 1/(1+d_m|xi|^2), k_m > 0, ||k_m||_1 = 1); (b) arXiv:2101.10693v2 (Brax & Burrage, 'Screening the Higgs portal', hep-ph, 2021) p.5-6 eq (10) static Higgs equation with source rho/v, footnote 2 p.6, p.13-15 eqs (54)-(59) linear static spherical solution with decaying exterior e^{-sqrt(y+) r}/r and interior -C/y+ algebraic term, boundary conditions 'perturbations ... decay to zero as r -> infinity and ... regular at r = 0'. Flat-space Yukawa form also read in arXiv:2502.10247v1 (Zamperlini & Barros 2025) eq (7)/(10), with its curvature corrections eqs (3), (11), (12).",
+  "read_status": "READ-VIA-RESTATEMENT",
+  "via": "alphaXiv answer_pdf_queries on 2412.19539 (pp.1-8, 11-16, 18-21, 23, 29), 2101.10693 (pp.1, 3, 5-10, 13-20, 24, 26-27, 29-30, 33-34), 2502.10247 (pp.1-19, 22). Yukawa 1935 is read only through these restatements. Owner lines re-read in the working tree: research/warp-drive/excite.py md5 a866f2f7745baca63aad910aeeb20a69 (last commit 524ccae) lines 30-40, 126-139, 280-295, 745-769, 1063-1064, 1074-1090, 1206-1212, 1499-1510, 1777-1786; specthm.py md5 20bbb2355f4e05e8f8bb158df5fc3f50 lines 987-1005 (R5-C); address.py md5 5aa088108a0cc397b8a486044f536971 lines 687-694; captures/PDG-2026.tsv pdgid 25 row."
+ },
+ "published_statement": "Ishii-Tanaka 2412.19539 p.2: 'for d > 0, the Green function k(x; d) defined as the solution of d Delta k(x) - k(x) + delta(x) = 0 (x in R^n)'; p.6-7 eq (3.1): 'k(x; d) := (1/d)^{n/2} G(|x|/sqrt d), G(|x|) := (2pi)^{-n/2} (1/|x|)^{n/2-1} M_{n/2-1}(|x|)' (M_nu the modified Bessel function of the second kind); p.7: 'we have hat G(xi) = 1/(1+|xi|^2) ... It is easy to see that G(|x|) is positive for |x| > 0 ... INT_{R^n} G(|x|) dx = ... = 1'; Lemma 3.1: '(i) k_m in C(R^n \\ {0}) cap L^1(R^n) and F_n[k_m](xi) = 1/(1 + d_m |xi|^2); (ii) k_m(x) > 0 (x != 0) and ||k_m||_{L^1(R^n)} = 1'. With d = 1/m^2, k = m^2 G_m where (-Delta + m^2) G_m = delta, so INT G_m = 1/m^2; at n = 3, G = e^{-r}/(4 pi r). Brax-Burrage 2101.10693 p.14-15: exterior 'decreasing exponential functions outside the source delta Phi_o = (B+/(sqrt(y+) r)) e^{-sqrt(y+)(r-R0)}', interior 'delta Phi_i = (A+/(sqrt(y+) r)) sinh(sqrt(y+) r) - C/y+' with C = rho/v (the algebraic -J/m^2 term), 'we have imposed the boundary conditions that the perturbations to the fields should decay to zero as r -> infinity and that the fields should be regular at r = 0'. Zamperlini-Barros 2502.10247 eq (7): 'INT d^3q/(2pi)^3 e^{iq.r} 1/(mu^2 + |q|^2) = (1/4pi) e^{-mu r}/r'.",
+ "published_hypotheses": [
+  "whole space R^n with the flat (Euclidean) Laplacian (Ishii-Tanaka p.2; Brax-Burrage eq (54) 'Delta the Laplacian operator in spherical coordinates'; Zamperlini-Barros: flat-space propagator, curvature gives corrections, eq (3))",
+  "positive parameter d > 0, i.e. m^2 > 0 (Ishii-Tanaka p.2, Lemma 3.1); in Brax-Burrage all vacuum mass eigenvalues positive and far from a vanishing eigenmass (p.3, p.14 'far away, in parameter space, from points where m_phi^2 = m_h^2 sin^2 theta')",
+  "the Green function selected by decay / integrability at infinity: k in L^1(R^n) (Ishii-Tanaka Lemma 3.1(i)); 'perturbations ... decay to zero as r -> infinity' and regular at r = 0 (Brax-Burrage p.15, p.18)",
+  "distributional delta source; convolution defined for f in L^q with Young's inequality (Ishii-Tanaka Cor. 2.2)",
+  "linear regime: fields small perturbations of the vacuum values, density not too high (Brax-Burrage p.14, eq (40))",
+  "static (Brax-Burrage Sec III A: 'a static sphere of constant density rho and radius R')",
+  "positivity of the kernel k > 0 for x != 0 (Ishii-Tanaka Lemma 3.1(ii)) -- a conclusion of the source, used as a premise by any sup-norm bound"
+ ],
+ "hypothesis_drift": [
+  "DROPPED -- flat background. The source result lives on flat R^n; D16's hypotheses (excite.py:130-132, exported record excite.py:1083) are 'linear regime, static, source scale L >> lambda_h' only, and no line of excite.py names a flat (Euclidean) background (grep for flat/Minkowski/curv finds only the xi R phi^2 break-even at 1056/1286/1673 and a redshift remark at 176). D16 is carried into specthm.py R5-C (lines 987-1005, 'A DESTINATION PARAMETER, on the corridor'), i.e. into a warp-geometry context. Size of what is dropped, READ (not computed for any tree geometry): the Bunch-Parker local expansion restated in 2502.10247 eq (3), G(k) = 1/(k^2+m^2) + (1/3)R'/(k^2+m^2)^2 - ..., gives at k = 0 a relative correction R/(3m^2) = R lambda_h^2/3 to INT G; for curvature radius l that is ~ (lambda_h/l)^2 with lambda_h = 1.577e-18 m -- 2.5e-6 even at l = 1 fm. The drop is real; its size is negligible unless the curvature radius approaches attometres. Not computed here for the corridor.",
+  "NOT RESTATED AT D16 (named for D15 in the same file) -- m^2 = V''(v) > 0 and delta phi -> 0 at infinity. excite.py:1079-1081 lists 'V''(v) = m^2 > 0' and 'f -> 0 at infinity' for D15 (TAIL_RATE_HYPOTHESES), not for D16 (excite.py:130-132, 1083). Both are load-bearing for this result: Y3c/Y3d show INT G diverges at m = 0 and has no limit for m^2 < 0, and the decaying Green function is the one selected by the decay condition (Brax-Burrage p.15). In the tree m = m_h is real and positive, so nothing is wrong; the hypothesis is implicit, not stated at the site.",
+  "WEAKENED FORM (precision, not an error) -- the multiplicative pointwise statement 'delta phi = -J/m^2 [1 + O((lambda_h/L)^2)]' (excite.py:134, repeated 38-40). What is exactly true is the absolute identity G*J = J/m^2 + G*(lap J)/m^2 (Y6), hence ||delta phi + J/m^2||_inf <= ||lap J||_inf/m^4 = (lambda_h/L)^2 ||J||_inf/m^2 with L defined by ||lap J||_inf = ||J||_inf/L^2. The relative form fails pointwise at zeros of a source that changes sign or has an offset: J = a + cos(z/L) gives, at J = 0, exact - algebraic = -a/(m^2(1 + m^2 L^2)) != 0 while the algebraic answer is 0 (Y7). It holds pointwise only if L is read as a LOCAL scale (|lap J| <~ |J|/L^2 at each point). The tree's own fixture J = cos(x/L) is exact and uniform (response proportional to J), so the fixture does not exhibit this.",
+  "UNNAMED STEP -- positivity. 'No arrangement of sources does better than the local density' (excite.py:136-137, 39-40) is cited to INT G = 1/m^2 alone; the bound |G*J| <= ||J||_inf/m^2 needs INT |G| = INT G, i.e. G >= 0, which the source supplies (Ishii-Tanaka Lemma 3.1(ii)) and which holds for every m^2 > 0. True as used; the premise is unnamed.",
+  "OPEN, NOT DROPPED -- no near-massless scalar mixing with the Higgs. Brax-Burrage's linear response (eqs (33)-(34), (67)) requires no vanishing eigenmass; with a light mixed scalar the Higgs acquires a long-range tail h ~ v - M sin^2(theta)/(4 pi v r) e^{-sqrt(y-) r} (eq 67), which would narrow D16's 'ultralocal'. excite.py:286 lists 'a BSM light scalar' among questions 'None is answered here and none is quoted as answered' -- named as open, so no drift.",
+  "NOT A DRIFT AT D16 -- Brax-Burrage footnote 2 (p.6): the Higgs couples to alpha*rho (valence-quark fraction of nucleon mass), not rho. D16 is stated for a generic J; the identification J <-> matter belongs to D20 (excite.py:143-148), which is audited separately.",
+  "DISCREPANCY (notation, recorded not repaired) -- excite.py:763-768 docstring says the error is 'written s^2/(1 + s^2)' while the code variable is s = lam_over_L^2 and returns s/(1+s). The value is right (Y5d: sigma/(1+sigma) with sigma = (lambda/L)^2 equals (lambda/L)^2/(1+(lambda/L)^2)); the docstring's s is lambda/L, the code's s is (lambda/L)^2. canonical.json's data_used paraphrase 's^2/(1+s^2), s = (lambda_h/L)^2' combines the two and, read literally, would be (lambda/L)^4/(1+(lambda/L)^4) (Y5e) -- a discrepancy of the extraction, not of excite.py's arithmetic.",
+  "COVERAGE NOTE -- the owner's --verify V7c (excite.py:1784-1786) checks only the series 1 - 1/(1+s^2) = s^2 + O(s^4); the exact convolution ratio 1/(1 + (lambda/L)^2) is asserted by definition in cosine_response_ratio (excite.py:757-760), and the selftest (excite.py:1505-1508) checks error = 1 - ratio, a consistency. The derivation G*cos(z/L) = cos(z/L)/(m^2 + 1/L^2) is supplied here (Y4, Y4b, Y5) and agrees."
+ ],
+ "data_at_publication": [
+  {
+   "quantity": "m (the screening mass) in G and INT G = 1/m^2",
+   "value_then": "symbolic; the theorem holds for every m > 0 (Yukawa 1935: meson mass unknown then; Ishii-Tanaka: any d > 0)",
+   "value_now": "symbolic",
+   "source_now": "Ishii-Tanaka 2412.19539 Lemma 3.1 (READ); re-derived Y1-Y4, Y8",
+   "moves_conclusion": "no -- the identities are m-free; only m^2 > 0 is required (Y3c, Y3d controls)"
+  },
+  {
+   "quantity": "m_h, setting lambda_h = hbar c/m_h (the tree's length scale for D16)",
+   "value_then": "tree: 125.13 GeV READ (captures/PDG-2026.tsv pdgid 25, mass_MeV 125130; excite.py:373, higgs.py:653) with the withdrawn pin 125.20 GeV kept as a record (excite.py:385, higgs.py:210)",
+   "value_now": "125.13 GeV (PDG 2026 capture, READ in-tree); PDG 2024 value 125.20 +- 0.11 GeV NAMED-NOT-READ here (no arXiv copy of the Listings read in this stage)",
+   "source_now": "research/warp-drive/captures/PDG-2026.tsv (header: Takahashi et al., IJMPA 41, 2630011 (2026)); PDG 2024 NAMED-NOT-READ",
+   "moves_conclusion": "no -- computed: lambda_h = 1.576976e-18 m at 125.13, 1.576094e-18 m at 125.20, 1.577480e-18 / 1.574711e-18 m at 125.09 / 125.31; a 0.056 % shift in the length, none in INT G = 1/m^2, positivity, or the (lambda_h/L)^2 form (Y10)"
+  },
+  {
+   "quantity": "owner Simpson fixture INT G d^3r * m^2 at m = 1, 2, 3",
+   "value_then": "= 1 to 1e-9 (excite.py:1501-1503); owner selftest prints 0.9999999999997659, 0.9999999999997659, 0.9999999999998233",
+   "value_now": "reproduced independently: max |dev| = 2.34e-13 (Y9)",
+   "source_now": "rederive/yukawa-green-function.py Y9; python3 excite.py --selftest section 6",
+   "moves_conclusion": "no"
+  },
+  {
+   "quantity": "cos(x/L) response error",
+   "value_then": "(lambda/L)^2/(1+(lambda/L)^2) (excite.py:763-769; 1/101 at lambda/L = 1/10, 1/1000001 at 1/1000)",
+   "value_now": "re-derived exactly from the 3-D convolution: s^2/(1+s^2), s = lambda/L (Y4b, Y5, Y5b); leading term s^2 (Y5c)",
+   "source_now": "rederive/yukawa-green-function.py",
+   "moves_conclusion": "no"
+  }
+ ],
+ "rederivation": {
+  "method": "sympy",
+  "script_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/yukawa-green-function.py",
+  "outcome": "22 rows, 0 FAIL (exit 0), sympy 1.14.0 / Python 3.11. Exact: (-lap + m^2)G = 0 for r > 0 (Y1); unit flux -4 pi r^2 G' -> 1 at r -> 0 (Y2); INT G d^3r = INT r e^{-mr} dr = 1/m^2 (Y3, Y3b); FT[G] = 1/(m^2+xi^2) (Y4); G*cos(z/L) = cos(z/L)/(m^2 + 1/L^2) (Y4b); ratio 1/(1+s^2), error s^2/(1+s^2), leading s^2 (Y5-Y5c); owner's sigma/(1+sigma) equals it (Y5d); exact remainder G*J = J/m^2 + G*(lap J)/m^2 (Y6) and the sup bound holds numerically for a Gaussian (|diff| 0.1010 <= 0.12, Y6b); Ishii-Tanaka kernel at n = 3 is e^{-r}/(4 pi r) (Y8a) and ||k||_1 = 1 for n = 1..6 (Y8). Controls: m = 0 diverges (Y3c); m^2 < 0 has no limit (Y3d); multiplicative relative form fails at zeros of J = a + cos(z/L) while the absolute bound survives (Y7, Y7b). Owner cross-check in the working tree: 'python3 excite.py --verify' V7, V7b, V7c residuals 0; 'python3 excite.py --selftest' section 6 all [ok], SELFTEST PASS.",
+  "agrees_with_source": "yes"
+ },
+ "later_literature": [
+  {
+   "ref": "arXiv:2412.19539v3, Ishii & Tanaka, 'On the approximation of spatial convolutions by PDE systems' (2024, v3 2026)",
+   "effect": "confirms",
+   "what": "Lemma 3.1: the Green function of d Delta k - k + delta = 0 on R^n is positive, in L^1, with ||k||_1 = 1 and Fourier transform 1/(1+d|xi|^2), in EVERY dimension n; so INT G = 1/m^2 is dimension-free while the e^{-mr}/(4 pi r) form is the n = 3 case (re-derived Y8, Y8a).",
+   "read_status": "READ (pp.1-8, 11-16, 18-21, 23, 29)"
+  },
+  {
+   "ref": "arXiv:2101.10693v2, Brax & Burrage, 'Screening the Higgs portal' (2021)",
+   "effect": "narrows",
+   "what": "Confirms the tree's linear static picture for the Higgs itself (interior algebraic shift -rho/(v y+) plus Yukawa exterior, eqs (56)-(59), decay and regularity BCs); narrows it when a light scalar mixes with the Higgs: linear response breaks at a vanishing eigenmass (eqs (33)-(34), (69)) and the Higgs carries a long-range light-mode tail (eq 67). Footnote 2: Higgs couples to alpha*rho. The tree names a BSM light scalar as open (excite.py:286).",
+   "read_status": "READ (pp.1, 3, 5-10, 13-20, 24, 26-27, 29-30, 33-34)"
+  },
+  {
+   "ref": "arXiv:2502.10247v1, Zamperlini & Barros, 'Spacetime curvature corrections for the Yukawa potential ...' (2025)",
+   "effect": "narrows",
+   "what": "Restates the flat Yukawa form (eq 7) and gives curvature corrections from the Bunch-Parker local-momentum propagator, G(k) = 1/(k^2+m^2) + (1/3)R'/(k^2+m^2)^2 - (2/3)R'_{mu nu}k^mu k^nu/(k^2+m^2)^3 + ... (eq 3); the Ricci-tensor term breaks radial symmetry (eq 14). Valid in Riemann normal coordinates, first order in curvature. It bounds what D16's unnamed flat-background hypothesis drops: relative O(R/m^2) = O(R lambda_h^2).",
+   "read_status": "READ (pp.1-19, 22)"
+  },
+  {
+   "ref": "arXiv:1810.01890, 'Particle level screening of scalar forces in 1+1 dimensions' (Nottingham, 2018)",
+   "effect": "extends",
+   "what": "Nonlinear (symmetron) response to point sources -- beyond D16's linear regime; relevant to D15's nonlinear tails, not to D16.",
+   "read_status": "NAMED-NOT-READ (discover_papers abstract only)"
+  }
+ ],
+ "lacked_data": "M's hypothesis tested for this result. The result is a mathematical identity about the operator -lap + m^2 on flat R^3; its conclusion (G = e^{-mr}/(4 pi r) > 0, INT G = 1/m^2, the cos ratio 1/(1+(lambda/L)^2)) takes no measured input. What Yukawa lacked in 1935 was the value of m (the meson mass, and here the Higgs mass, first measured in 2012); the identities hold for every m > 0, so having m_h only fixes the length lambda_h = 1.577e-18 m, and the move 125.20 -> 125.13 GeV changes that length by 0.056 % and nothing else (computed, Y10). Evidence against a hidden data dependence: re-derived exactly in sympy (Y1-Y5, Y8) and matched to two independent modern restatements (Ishii-Tanaka 2024/2026 in all n; Brax-Burrage 2021 for the Higgs). Two things outside the source's hypotheses could change the tree's USE, and both are open rather than measured: (1) curvature -- the flat-space kernel carries O(R lambda_h^2) corrections (2502.10247 eq 3), negligible unless the curvature radius approaches attometres; no tree geometry was evaluated here; (2) a light scalar mixing with the Higgs (2101.10693) would give the Higgs displacement a long-range tail and break linear response near a vanishing eigenmass -- no such scalar is established, and excite.py:286 already lists it as unanswered. Neither is data 'previous physicists lacked' that has since arrived; on the evidence here, M's hypothesis does not bite on this result.",
+ "grade": "NARROWED",
+ "grade_evidence": "The mathematics STANDS exactly: every closed form the tree states re-derives in sympy (Y1-Y5, 0 FAIL) and matches the READ restatements (Ishii-Tanaka Lemma 3.1 and eq 3.1; Brax-Burrage eqs (56)-(59)); the owner's own --verify V7/V7b/V7c residuals are 0 and its selftest section 6 passes; no moved datum moves the conclusion (m_h shifts lambda_h by 0.056 %). The grade is NARROWED, not STANDS, only because the rubric's 'hypothesis the tree drops' is met: (i) the source's flat-R^n background is named nowhere in excite.py while D16 is carried into specthm.py R5-C 'on the corridor' (drop is real; its READ size O(R lambda_h^2) is negligible for any curvature radius >> 1.6e-18 m, not computed for the corridor); (ii) the multiplicative pointwise form '[1 + O((lambda_h/L)^2)]' holds on a smaller class than written -- it fails at zeros of an offset or sign-changing J (Y7, shown), while the absolute sup-norm form ||delta phi + J/m^2|| <= ||lap J||/m^4 holds for all smooth bounded J (Y6, exact). m^2 > 0 and decay at infinity are unstated at D16 but stated for D15 in the same file and satisfied by m_h, so they are recorded as implicit, not as narrowing. Nothing here is WRONG: no counterexample to anything the tree concludes from D16 (ultralocality, 'no arrangement beats the local density', which needs G >= 0 and holds).",
+ "what_would_change_the_grade": "To STANDS: the tree names 'flat background (or curvature radius >> lambda_h)' among D16's hypotheses and states the O((lambda_h/L)^2) in absolute/sup-norm form or defines L as a local scale -- the mathematics would then be used exactly as proved. To NARROWED-material or WRONG-for-use: a tree geometry in which D16 is applied with curvature radius within a few orders of lambda_h ~ 1.6e-18 m, or an established light scalar mixing with the Higgs (Brax-Burrage eq 67), would make the dropped hypothesis bite; neither is present. Nothing checkable here could make the identities themselves WRONG: they are machine-checked.",
+ "reverify_command": "python3 /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/yukawa-green-function.py && cd /home/user/Claude-Method-Works/research/warp-drive && python3 excite.py --verify | grep -E 'V7' && python3 excite.py --selftest | grep -A7 'D16 DISP' && awk -F'\\t' '$1==25' captures/PDG-2026.tsv",
+ "report_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/audits/yukawa-green-function.json"
+}

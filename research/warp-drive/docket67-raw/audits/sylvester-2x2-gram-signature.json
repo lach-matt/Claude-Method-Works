@@ -1,0 +1,85 @@
+{
+ "key": "sylvester-2x2-gram-signature",
+ "name": "Signature of the induced form on a 2-plane from its Gram determinant (Sylvester's criterion / law of inertia / binary quadratic forms), as used in latticectc.py (c) for D21",
+ "source": {
+  "located": "Classic (Sylvester 1852, law of inertia and the leading-minor criterion; discriminant of binary quadratic forms, Lagrange/Gauss) -- originals have no arXiv copy and are NAMED-NOT-READ. Read via two arXiv restatements: (1) Zhang & Ding, arXiv:2501.00894v1 [math.RA] (2025), p.2 Theorem 1: '(i) A symmetric matrix is PD if and only if all of its leading principal minors are positive. (ii) A symmetric matrix is PSD if and only if all of its principal minors are nonnegative', real matrices, attributed to Sylvester, with (ii) credited to Prussing (1986) and the warning that the leading-minor test has been misapplied to PSD (Kwan 2021). (2) R. Lopez, arXiv:0810.3351v2 [math.DG], 'Differential geometry of curves and surfaces in Lorentz-Minkowski space': p.2-3 definitions (a subspace is spacelike if the induced metric is positive definite, timelike if it has index 1, lightlike if degenerate); Prop. 1.3 p.3 (a plane P in E^3_1 is timelike iff it contains a timelike vector iff it contains two independent lightlike vectors); Prop. 1.4 (lightlike iff contains a lightlike but no timelike vector); p.39: 'Denote W = EG - F^2. The surface is spacelike if W > 0 and it is timelike if W < 0'; proof of Thm 1.1 p.5 uses exactly the discriminant of <u+lambda v,u+lambda v> = 0.",
+  "read_status": "READ-VIA-RESTATEMENT",
+  "via": "alphaXiv answer_pdf_queries on 2501.00894 (pages 1-18 returned) and on 0810.3351 (pages 1-5, 9, 11, 15, 22-23, 29, 31, 39, 51, 53 returned). Sylvester 1852 / Gauss-Lagrange originals NAMED-NOT-READ."
+ },
+ "published_statement": "Zhang-Ding 2501.00894 p.2 Thm 1(i): a real symmetric matrix is positive definite iff all its leading principal minors are positive (for 2x2 [[A,H],[H,C]]: A > 0 and AC - H^2 > 0). Lopez 0810.3351 p.3 Prop 1.3 and p.39: in E^3_1 a vector plane is timelike (induced metric of index 1) iff it contains a timelike vector, and with first fundamental form (E F; F G), W = EG - F^2 > 0 is spacelike, W < 0 timelike (W = 0 degenerate/lightlike, p.3 type (3)).",
+ "published_hypotheses": [
+  "Sylvester (via 2501.00894): real symmetric matrix; STRICT inequalities (the leading-minor test decides PD only -- for PSD all principal minors are required, Prussing 1986)",
+  "Lopez: ambient space E^3_1 = (R^3, dx^2+dy^2-dz^2), index 1, i.e. d = 2 spatial dimensions; a VECTOR PLANE (dimension exactly 2) spanned by two independent vectors",
+  "Lopez: causal character of a subspace defined by the induced metric (positive definite / index 1 / degenerate)"
+ ],
+ "hypothesis_drift": [
+  "WIDENED (dimension), latticectc.py:40-47 and latticectc.py:126-127: the read restatement (Lopez) is stated in E^3_1; the tree uses R^{1,d} (witness e1,e2 in R^{1,3}; census(dim=3) = R^{1,2} at latticectc.py:232). Justified by the law of inertia (exactly one negative direction), not by the read source: re-derived here -- z3 unsat for a 2-plane with A<0 and AC-H^2>0 in R^{1,1..3} (C1), scalar z3 for every d (C2s, C4s), signed Cauchy-Binet identity for the Gram determinant symbolic in d = 1..4 (B1); for general d by hand: a negative-definite 2-plane would meet the positive-definite t = 0 hyperplane (2 + d > d + 1). Drift is harmless.",
+  "SCOPE (rank), latticectc.py:40 '(c) n >= 2: with Gram entries A = |g1|^2 > 0, C = |g2|^2 > 0, H = <g1,g2> ...': the 2x2 Gram test is a statement about rank EXACTLY 2; the heading says n >= 2. At n = 3 the pairwise 2x2 test does not decide the span: shown here with rational generators in R^{1,3} whose three 2-spans are all spacelike (every pairwise A>0, AC>H^2) yet -3 g1 + 2 g2 + 2 g3 has norm -242/9 < 0; the full 3x3 Gram's leading minors are 106/9, 1675/12, -46591/36, so Sylvester on the full n x n Gram detects it. No tree computation applies the 2x2 test at n >= 3 (every check is rank 2 -- latticectc.py:232-243, 381-393), and the canonical entry already lists 'rank 2 only'; LEDGER.md:44 (D21) phrases rank >= 2 in terms of 'the span', which is correct with the full Gram. The drift is in the sentence at latticectc.py:40, not in a computation.",
+  "ADDED, not needed: 'exact rational Gram entries' (canonical hypothesis; latticectc.py:44-47 'contains a rational m/n'). The rational point exists for REAL entries too (the root interval is open and nonempty, A3/A4); exactness is a property of the verification, not a hypothesis of the theorem.",
+  "UNSTATED CONSEQUENCE of the added rational hypothesis (extends, not refutes): with A, H rational and H^2 = AC (degenerate span), Q(-H, A) = A(AC - H^2) = 0, so the lattice ALWAYS holds a null vector (example g1=(0,1,0), g2=(1,1,1): g2-g1=(1,0,1) is null) -- by (a) a closed causal (null, non-timelike) curve. The tree's boundary example (latticectc.py:54-58) correctly needs an irrational s for 'no causal lattice vector'. Consequence for wording: LEDGER.md:44 'at rank >= 2 it holds exactly when the span is spacelike' is exact off a measure-zero set; on degenerate spans the answer depends on the rationality of -H/A, which latticectc.py:54-58 itself exhibits. Recorded as a discrepancy of phrasing, not repaired.",
+  "A > 0 hypothesis (latticectc.py:40, 196-197): redundant for the spacelike branch -- in R^{1,d} AC - H^2 > 0 forces A > 0 (C1) -- and in the timelike branch it only excludes the trivial case where g1 is itself causal. No drift in substance.",
+  "PSD pitfall (2501.00894 p.2): not incurred. span_kind (latticectc.py:189-198) uses the strict PD test (A>0, det>0) and sends det = 0 to a separate 'degenerate' class instead of reading non-strict leading minors as PSD."
+ ],
+ "data_at_publication": [
+  {
+   "quantity": "No physical datum: the result is an algebraic identity over the reals (A Q = (A m + H n)^2 + (AC - H^2) n^2).",
+   "value_then": "n/a (Sylvester 1852)",
+   "value_now": "n/a",
+   "source_now": "re-derivation A1 in rederive/sylvester-2x2-gram-signature.py",
+   "moves_conclusion": "no -- nothing empirical enters"
+  },
+  {
+   "quantity": "tree census: 400 timelike-span rank-2 exact-rational lattices, seed 7 (selftest; 2000 under --full)",
+   "value_then": "constructive timelike vector in all 400 (latticectc.py:383-385)",
+   "value_now": "re-run read-only through the tree's own census/timelike_vector: all 400 exact-negative (F1); independent census seed 1867 with an independent exact vertex search: 400/400 (D1)",
+   "source_now": "rederive F1, D1",
+   "moves_conclusion": "no"
+  },
+  {
+   "quantity": "tree census: 400 spacelike-span lattices, seed 23; brute-force control |m|,|n|<=12 on 100",
+   "value_then": "A>0, AC>H^2 in all; control 0 (latticectc.py:386-391)",
+   "value_now": "F2 re-run: all 400 positive definite; independent seed 1867: 400 spans, no causal vector in |m|,|n|<=15 (D2); z3 scalar proof that no real (p,q)!=0 has Q<=0 (C2s), so the box control is corroboration, not the proof",
+   "source_now": "rederive F2, D2, C2s",
+   "moves_conclusion": "no"
+  },
+  {
+   "quantity": "separating witness e1=(9/10,1,0,0), e2=(9/10,0,1,0)",
+   "value_then": "norms 19/100, 19/100, sum -31/25 (latticectc.py:49-52, LEDGER.md:44)",
+   "value_now": "Gram (19/100, 19/100, -81/100), |e1+e2|^2 = -31/25 exact (E1)",
+   "source_now": "rederive E1",
+   "moves_conclusion": "no"
+  }
+ ],
+ "rederivation": {
+  "method": "z3",
+  "script_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/sylvester-2x2-gram-signature.py",
+  "outcome": "ALL AGREE, exit 0 (~70 s). sympy: completing-the-square identity A Q = (Am+Hn)^2 + (AC-H^2)n^2; roots (-H +- sqrt(H^2-AC))/A; vertex value q(-H/A) = -(H^2-AC)/A; Q(m,n) = n^2 q(m/n); signed Cauchy-Binet AC-H^2 = sum(spatial wedges)^2 - sum(time-space wedges)^2 for d = 1..4. z3 (nonlinear real arithmetic): no 2-plane with A<0, AC-H^2>0 in R^{1,1}, R^{1,2}, R^{1,3} (unsat); A>0, H^2>AC => Q(-H,A)<0 in R^{1,1..3} (unsat); scalar, dimension-free: A>0, AC>H^2 => Q>0 on every real (p,q)!=0 (unsat) and H^2>AC => Q takes a negative value (unsat); vector-level PD check at d=1,2 unsat (d=3 timed out at 60 s -- superseded by the scalar form, which is stronger). Exact censuses (tree's, read-only, and an independent one) agree. Scope checks: rational degenerate span holds a null lattice vector (sympy Q(-H,A) = A(AC-H^2)); rank-3 rational example where all 2-spans are spacelike but a lattice vector is timelike (-242/9), caught by the full 3x3 Gram (det minor -46591/36).",
+  "agrees_with_source": "yes"
+ },
+ "later_literature": [
+  {
+   "ref": "Zhang & Ding, arXiv:2501.00894 (2025), 'A stronger Sylvester's criterion for positive semidefinite matrices'",
+   "effect": "extends",
+   "what": "Restates Thm 1 (PD iff leading minors > 0; PSD iff all principal minors >= 0, Prussing 1986) and reduces the PSD test to m(m+1)/2 minors; records that the PD leading-minor test has been misapplied to PSD. Confirms the strict 2x2 criterion the tree uses; the PSD pitfall does not touch the tree, which classes det = 0 separately.",
+   "read_status": "READ (pages 1-18 via alphaXiv)"
+  },
+  {
+   "ref": "Lopez, arXiv:0810.3351v2 (2014 revision), Lorentz-Minkowski differential geometry review",
+   "effect": "confirms",
+   "what": "Plane timelike iff contains a timelike vector (Prop 1.3); W = EG - F^2 sign gives spacelike/timelike (p.39); stated in E^3_1 only.",
+   "read_status": "READ (relevant pages via alphaXiv)"
+  },
+  {
+   "ref": "arXiv:2510.26902 (2025), 'An extendible spacetime without closed timelike curves whose every extension contains closed timelike curves' (time-rolled Minkowski with a fractal removed)",
+   "effect": "extends",
+   "what": "Surfaced by the one discover_papers call on flat quotients and CTCs; concerns a timelike-translation quotient and extensions, not the 2-plane signature criterion; does not bear on the algebra audited here.",
+   "read_status": "abstract only (discover_papers listing); not read"
+  }
+ ],
+ "lacked_data": "M's hypothesis does not have purchase on this result, and the evidence is on both sides of that: the conclusion is an algebraic identity over the real numbers (A1) together with the law of inertia (C1), both machine-checked here for all real inputs, so no measurement, constant or later datum enters and none can move it. Sylvester (1852) lacked nothing the statement depends on. What later work added (Prussing 1986; Zhang-Ding 2025) concerns the SEMIdefinite case, which the tree does not use -- it routes det = 0 to a separate 'degenerate' class. The only genuine gaps found are of scope in the tree's own sentence (the 2x2 test is rank-2, not n >= 2) and an unstated consequence of its rational hypothesis (degenerate rational spans always hold a null lattice vector) -- neither is missing data.",
+ "grade": "NARROWED",
+ "grade_evidence": "At rank 2 the result STANDS in every dimension R^{1,d}: re-derived symbolically (completing the square, roots, vertex value, signed Cauchy-Binet) and machine-checked in z3 over all reals (PD branch dimension-free; no negative-definite 2-plane in R^{1,1..3}; timelike branch Q(-H,A) < 0), and both of the tree's exact censuses re-run read-only agree, as does an independent census. It is graded NARROWED, not STANDS, only because the statement at latticectc.py:40 heads the 2x2 test 'n >= 2': the criterion holds exactly at rank 2, and a rational rank-3 lattice in R^{1,3} is exhibited whose three 2-spans are all spacelike while -3g1+2g2+2g3 is timelike (norm -242/9); the full 3x3 Gram (Sylvester on n x n) catches it. No tree computation uses the 2x2 test at n >= 3, D21 (LEDGER.md:44) is phrased via 'the span', and so D21 does not move. Not WRONG: no counterexample to the claim at the rank it is computed. Separately recorded, not repaired: the rational hypothesis implies degenerate spans always carry a null lattice vector, so LEDGER.md:44 'exactly when the span is spacelike' is exact only off the measure-zero degenerate set, which latticectc.py:54-58 itself describes.",
+ "what_would_change_the_grade": "To STANDS: latticectc.py:40 reading 'n = 2' (or '(c) for rank n, the full n x n Gram of the generators' with Sylvester's law of inertia) -- i.e. the statement's scope matching its rank-2 checks. To WRONG: a rank-2 pair in some R^{1,d} with A>0, AC>H^2 and a nonzero lattice vector of norm <= 0, or with H^2>AC and no timelike lattice vector -- excluded here by z3 (C2s, C3) and the identity A1. Nothing empirical can move it.",
+ "reverify_command": "python3 /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/sylvester-2x2-gram-signature.py   # exit 0 = ALL AGREE (~70 s; needs sympy, z3-solver); tree side: cd /home/user/Claude-Method-Works/research/warp-drive && python3 latticectc.py --selftest",
+ "report_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/audits/sylvester-2x2-gram-signature.json"
+}

@@ -1,0 +1,108 @@
+{
+ "key": "kuo-ford-1993-measure",
+ "name": "Kuo & Ford relative fluctuation measure Delta' = (<:T00^2:> - rho^2)/rho^2 (normal-ordered w.r.t. the Minkowski vacuum), and KF's 1993 statement that a curved-space renormalisation of quartic operator products 'has not yet been developed'",
+ "source": {
+  "located": "arXiv gr-qc/9304008 v1 (6 Apr 1993; TUTP-93-1, dated Feb 1993), C.-I. Kuo & L. H. Ford, 'Semiclassical gravity theory and quantum fluctuations': Eqs. (2.10)-(2.16), (3.1)-(3.2), (3.36)-(3.45), Sec. V para. 2. The journal version Phys. Rev. D 47, 4510 (1993) is NAMED-NOT-READ (per the split_note and fluctuation.py:122-126, nothing here is quoted against it).",
+  "read_status": "READ",
+  "via": "alphaXiv get_paper_content(fullText=true), complete text layer, all 19 pages including figure captions; load-bearing quotes saved at d67/src/gr-qc_9304008.note. Page images not viewed (text layer only)."
+ },
+ "published_statement": "(3.2) 'Delta(x) = | (<:T00^2(x):> - <:T00(x):>^2) / <:T00^2(x):> | . The local energy density fluctuations are small when Delta << 1, which we take to be a measure of the validity of the semiclassical theory. Note that we have used normal ordering with respect to the Minkowski vacuum state to define the various operators.' (3.43) [Casimir section III.C, rho = <:T00:>_C] 'Delta' = (<:T00^2(x):> - rho^2)/rho^2 = (1/8)[(rho+xi1+xi2+xi3)^2 + (rho+xi1-xi2-xi3)^2 + (rho-xi1+xi2-xi3)^2 + (rho-xi1-xi2+xi3)^2], xi_i = p_i/rho' [as printed; the rho inside the brackets must read 1 for the stated normalisation]. (3.44) 'Delta' = Delta/(1-Delta), Delta = Delta'/(1+Delta'), and is an equivalent measure'. (3.45) 'Delta' >= 1/2, Delta >= 1/3 ... this bound is independent of the details of the geometry of the boundaries'; periodic case 'Delta' = 6 and Delta = 6/7'. Sec. V: 'The analysis in this paper was restricted to a flat spacetime background. In this case, the expectation values of quartic operators which appear in ... Delta, or in the Langevin equation, Eq.(4.27), may be defined in terms of normal ordered products. The generalization of this analysis to curved spacetime backgrounds will require a renormalization procedure for quartic operator products in such spacetimes, which has not yet been developed. ... If we were to average fields over finite space or time intervals, then we could define a quantity similar to Delta without invoking normal ordering ... this procedure suffers from the defect that it introduces an arbitrary length or time scale into the problem.'",
+ "published_hypotheses": [
+  "K1 flat (Minkowski) background; 'restricted to a flat spacetime background' (Sec. V)",
+  "K2 free massless, minimally coupled scalar field, Lagrangian (2.1)",
+  "K3 normal ordering with respect to the Minkowski vacuum state for both <:T00:> and <:T00^2:> (text after (3.2))",
+  "K4 coincidence limit x -> y of the 00 component of (3.1) -- a POINTWISE measure, no averaging (Sec. V explicitly rejects averaging for introducing an arbitrary scale)",
+  "K5 for the four-squares form (3.43)/(3.45): Wick's theorem via the stated condition 'phi+|psi> = <psi|phi- = 0' (Minkowski and Casimir vacua, i.e. pure quasifree vacuum-like states), and a diagonal two-point matrix (only the four G_AA^2 appear in (3.40))",
+  "K6 rho = <:T00:> != 0 (Delta' divides by rho^2); (3.44) tacitly needs <:T00^2:> >= rho^2 > 0 (true in the Casimir/Gaussian setting where it is stated; not stated by KF)",
+  "K7 the curved-space remark is TIME-INDEXED: 'has not yet been developed' (as of Feb/Apr 1993)"
+ ],
+ "hypothesis_drift": [
+  "ADDED -- smearing. noise.py:100-104 smears KF's normal-ordered measure over a worldline sampler f (Delta'_f = (<:A^2:> - <A>^2)/<A>^2, A = rho(f)). KF define Delta, Delta' only pointwise (K4) and, where they discuss averaging (Sec. V), they average WITHOUT normal ordering and reject it for its arbitrary scale. The smeared normal-ordered quantity is the tree's hybrid, not KF's; the tree's words 'Kuo-Ford's own measure (normal-ordered square, their normalisation)' are accurate about the ordering and the rho^2 normalisation, which are KF's. The tree does not hide the difference: it measures the full connected variance R separately and records that 'KF's normal ordering deletes the shot noise, which is the dominant term' (noise.py:133-147). Named extension, not an error.",
+  "BROADENED -- state class. noise.py:102-103 and fluctuation.py:72-80 apply the Wick form to EVERY zero-mean quasifree state, including the MIXED thermal state; KF's stated Wick condition (K5) covers pure vacuum-like states (they name the Minkowski and Casimir vacua). The broadening is mathematically valid -- Wick factorisation holds for mixed quasifree states -- checked here: thermal single mode <a+^2 a^2> = 2 nbar^2 (B2), and the thermal numbers the tree derives from it are reproduced (A4, D0-D4). fluctuation.py:79-80 also removes KF's diagonal-G assumption; valid since off-diagonal squares only add (C1 proves the floor for the diagonal part).",
+  "DROPPED (explicitly) -- 'massless'. noise.py:22 'the POINTWISE Kuo-Ford measure is >= 1/3 for every zero-mean Gaussian state' and noise.py:103-104 'Pointwise K is 4x4 ... 2/4 = 1/2 -- that IS T1' omit KF's K2 in words (the owner of T1, fluctuation.py:16-17, states it; '4x4' encodes it). It is load-bearing for the floor: with m > 0 T00 gains m^2 phi^2/2, K is 5x5 and the floor falls to Delta' >= 2/5, Delta >= 2/7; z3 shows 1/2 is then NOT a floor (C2) and 2/5 is (C3). noise.py's H1 'm >= 0' (noise.py:154) belongs to theorem C1, not to T1. No effect on the tree's conclusion: the smearing counterexample is the massless thermal state, and a lower pointwise floor only makes T1_SURVIVES_SMEARING = False easier.",
+  "UNSTATED BY KF, RESPECTED BY THE TREE -- K6. The inverse pair (3.44) holds only when the (3.2) numerator is non-negative. Off the Gaussian class it fails: vacuum+two-particle state at eps = sqrt2, theta = pi/2 gives <:T00^2:> = 8K^2 < rho^2 = 16K^2 (exact Fock computation from KF (2.10)-(2.14), B1): the normal-ordered 'variance' is negative, Delta'= -1/2, (3.2) gives Delta = 1 while Delta'/(1+Delta') = -1. KF state (3.44) in the Casimir (Gaussian) section, where it holds; the tree uses Delta_f = Delta'_f/(1+Delta'_f) (noise.py:122-123) only on Gaussian states, where the numerator is a sum of squares. Recorded as a scope limit of (3.44), not a refutation of KF.",
+  "TIME-INDEX AND SCOPE -- the quartic-renormalisation remark. KF: 'has not yet been developed' (K7). fluctuation.py:114-116 quotes it verbatim with 'Their words, 1993' (faithful). noise.py:198-200 quotes the ledger's paraphrase 'Kuo & Ford said did not exist' (past tense; faithful to 1993) and corrects it only 'AS TO NEW RENORMALISATION' via Hu & Verdaguer's separated-point noise kernel (noise.py:200-206). What the tree does not record: a curved-space renormalisation of COINCIDENT quartic (Wick) products was developed after 1993 -- Brunetti-Fredenhagen-Koehler 1996 (normal ordering w.r.t. a quasifree Hadamard reference state; NAMED-NOT-READ, restated in Hollands & Wald gr-qc/0103074 pp.1,4); Hollands & Wald 2001 (READ): local covariant Wick polynomials exist, built with the Hadamard parametrix, unique up to finitely many local curvature/mass parameters (Thm 5.1, Sec. 5.2; derivative Wick products 'can also be defined in a similar manner'); Perez & Sudarsky 2512.17789 (READ): <T_ab(x)T_cd(x)>_ren for Hadamard states via the OPE, 'independent of the normal ordering chosen', ambiguities 'similar to those occurring in the renormalization of T_ab'. So KUO_FORD_NORMAL_ORDERING_NEEDS_REFERENCE_STATE_IN_CURVED_SPACE = True (noise.py:211-212, 276) is TRUE of KF's literal definition (Hollands & Wald p.4-5: state-normal-ordered Wick products 'depend on a choice of a reference state omega, which is itself a highly nonlocal quantity'), but the contrast noise.py:212 draws ('Var = <A^2> - <A>^2 does not') is not the only reference-free route: Hadamard-parametrix ordering gives a pointwise renormalised fluctuation with no reference state, at the price of local curvature ambiguities. The flag's value does not change; its scope is narrower than the passage reads.",
+  "CANONICAL HYPOTHESES CHECKED -- 'normal ordering w.r.t. Minkowski vacuum' matches KF (3.2) verbatim. 'zero-mean Gaussian state' is the tree's hypothesis for the four-squares/Hilbert-Schmidt form, not a hypothesis of KF's DEFINITION of Delta' (which is stated for any state, (3.43) first equality); KF's own bound (3.45) needs K5, which the tree broadens validly (item 2)."
+ ],
+ "data_at_publication": [
+  {
+   "quantity": "zeta(4) in the periodic Casimir density (3.32)-(3.33)",
+   "value_then": "pi^4/90 (exact)",
+   "value_now": "pi^4/90 (exact)",
+   "source_now": "mathematical identity",
+   "moves_conclusion": "no -- exact; no empirical datum enters KF's measure or bound"
+  },
+  {
+   "quantity": "periodic-Casimir anisotropy xi = (p1,p2,p3)/rho -> Delta', Delta",
+   "value_then": "xi = (-1,-1,3); Delta' = 6, Delta = 6/7",
+   "value_now": "reproduced exactly (A4)",
+   "source_now": "rederive A4 (sympy)",
+   "moves_conclusion": "no"
+  },
+  {
+   "quantity": "floor of (3.43)",
+   "value_then": "1/2 at xi = 0 (Delta >= 1/3)",
+   "value_now": "RHS == 1/2 + |xi|^2/2 identically (A3); massless only -- 2/5 with mass (C3)",
+   "source_now": "rederive A3, C1-C3 (sympy, z3)",
+   "moves_conclusion": "no for KF (massless is their hypothesis); scope note for noise.py:22"
+  },
+  {
+   "quantity": "pointwise thermal Delta' (the tree's datum, imported from fluctuation.image_stress)",
+   "value_then": "2/3 (tree, derived)",
+   "value_now": "2/3 from (3.43) with xi = 1/3 (A4); smeared value 0.66662 at tau = 0.002 beta tends to it (D3)",
+   "source_now": "rederive A4, D3",
+   "moves_conclusion": "no"
+  },
+  {
+   "quantity": "tree's smeared-KF figures: Delta'_f(tau = beta), crossing tau*/beta, Hoelder coefficient",
+   "value_then": "0.1186; 0.140196; 108000(z6-z7)/(sqrt(2pi) pi^7)",
+   "value_now": "0.118629091; 0.140196130; 0.128300159 (= (2/3)||f||_2^2 ||g^2||_1/rho^2, >= 0.1186, < 1/2)",
+   "source_now": "rederive D1-D5 (mpmath, independent of the tree; ||g^2||_1 = 180(z6-z7)/pi^3 by Parseval and by quadrature)",
+   "moves_conclusion": "no -- T1_SURVIVES_SMEARING = False reproduced"
+  }
+ ],
+ "rederivation": {
+  "method": "sympy",
+  "script_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/kuo-ford-1993-measure.py",
+  "outcome": "27/27 PASS (sympy + z3 + mpmath, ~11 s, imports nothing from research/). A: KF (3.43) with 1/8 == (1/2) SUM G_AA^2/rho^2; RHS(3.43) == 1/2 + |xi|^2/2 identically, so (3.45) Delta' >= 1/2, Delta >= 1/3 is exact; Casimir 6, 6/7 and thermal 2/3, 2/5 exact; (3.41)-(3.42) as printed carry 1/2 where the exact coefficient is 1/4 (A1; a typographical discrepancy already recorded by fluctuation.py:44-45 -- (3.43) is right). B: exact Fock computation from KF (2.10)-(2.14): vac+2 <:T00:> = 2K eps(2eps - sqrt2 cos2th)/(1+eps^2) (KF (2.16) final line prints half) and <:T00^2:> = 12K^2 eps^2/(1+eps^2) (KF (3.7) prints (1+eps^2)^2) -- both discrepancies confirmed independently of fluctuation.py, against v1 only; NEW: at eps = sqrt2, theta = pi/2 the normal-ordered numerator is -8K^2 < 0, so (3.44) fails off the Gaussian class; thermal single mode obeys Wick (mixed Gaussian), Delta' = 2. C: z3 floor 1/2 for 4 components, NOT for 5; 2/5 for 5. D: G_ii = G_00/3 per image term (wave eq + isotropy -> the 2/3 factor); g(0) = pi^2/30; closed form = Fourier form to 1e-33; ||g^2||_1 = 180(z6-z7)/pi^3 to 1e-18; Delta'_f(beta) = 0.118629, tau* = 0.1401961 beta, Hoelder 0.128300 -- all match the tree. Also recorded, not repaired: (3.43) as printed in the v1 text layer has 'rho' as the first term inside each bracket although xi_i = p_i/rho; the identity A2 holds with 1 there (a normalisation misprint in v1, text layer only -- page image not viewed).",
+  "agrees_with_source": "yes"
+ },
+ "later_literature": [
+  {
+   "ref": "S. Hollands & R. M. Wald, 'Local Wick polynomials and time ordered products of quantum fields in curved spacetime', gr-qc/0103074 (CMP 223 (2001) 289)",
+   "effect": "extends",
+   "what": "Proves existence of local, covariant Wick polynomials in any globally hyperbolic spacetime via Hadamard-parametrix ordering, unique up to finitely many local curvature/mass parameters (Thm 5.1, Sec. 5.2); states that normal ordering w.r.t. a state omega is well defined but 'depends on a choice of a reference state omega, which is itself a highly nonlocal quantity' and is not local covariant (pp. 4-5, 20). Supersedes KF's 1993 'not yet developed' for Wick (incl. quartic) products, and confirms the tree's reference-state point for KF's literal normal ordering.",
+   "read_status": "READ (alphaXiv page text pp. 1-2, 4-5, 7, 20, 31-32, 35-38, 40-42)"
+  },
+  {
+   "ref": "R. Brunetti, K. Fredenhagen & M. Koehler, CMP 180 (1996) 633 (Wick polynomials for Hadamard states in curved spacetime)",
+   "effect": "extends",
+   "what": "First construction of Wick polynomials in curved spacetime by normal ordering w.r.t. a quasifree Hadamard state -- i.e. KF's construction with a curved-space reference state.",
+   "read_status": "NAMED-NOT-READ (restated in Hollands & Wald gr-qc/0103074 pp. 1, 4)"
+  },
+  {
+   "ref": "A. Perez & D. Sudarsky, 'Renormalization of the Quantum Stress Tensor Fluctuations and the Limits of Semiclassical Gravity', arXiv:2512.17789 v2 (Jan 2026)",
+   "effect": "extends",
+   "what": "Defines <T_ab(x)T_cd(x)>_ren for Hadamard states on curved backgrounds via the OPE (Hollands-Wald), 'independent of the normal ordering chosen', ambiguities like those of <T_ab>; cites Kuo-Ford [7] as the flat-space start and says its results 'agree in general lines' there. Explicit only in 2D (4D argued via OPE, 'cumbersome yet available'); finds squeezed vacua give Delta T^2 = 2<T>^2 (Delta' = 2), matching the single-mode value reproduced here (B2). Preprint; not checked for peer review.",
+   "read_status": "READ (alphaXiv page text pp. 1-7, 10, 13)"
+  },
+  {
+   "ref": "N. G. Phillips & B. L. Hu, gr-qc/9611012 (PRD 55 (1997) 6123)",
+   "effect": "extends",
+   "what": "Explicit curved-space vacuum energy-density fluctuations via generalized zeta functions.",
+   "read_status": "NAMED-NOT-READ (restated in Perez & Sudarsky 2512.17789 p. 1)"
+  },
+  {
+   "ref": "L. H. Ford & C.-H. Wu, gr-qc/0102063 (2001)",
+   "effect": "extends",
+   "what": "Stress-tensor fluctuations and passive quantum gravity (surfaced by discover_papers).",
+   "read_status": "NAMED-NOT-READ"
+  }
+ ],
+ "lacked_data": "What the 1993 authors lacked was not a measured datum but a mathematical construction: renormalised coincident quartic (Wick) products in curved spacetime (Brunetti-Fredenhagen-Koehler 1996; Hollands-Wald 2001), and later the OPE route to <T_ab T_cd>_ren (Perez-Sudarsky 2025/26). Having it CHANGES KF's curved-space remark: 'has not yet been developed' is superseded, and the Hadamard-parametrix ordering removes the need for a reference state at the cost of finitely many local curvature ambiguities. Having it does NOT change the flat-space result the tree uses: in Minkowski space with the Minkowski vacuum the renormalised fluctuation reduces to KF's normal-ordered quantity (Perez-Sudarsky's Eq. (7) with <0|phi phi|0>_ren = 0), the definition, (3.43) and the bound (3.45) re-derive exactly (A2-A4), and no empirical input enters. Evidence against M's hypothesis for THIS result: nothing in the flat-space measure depends on data; the v1 discrepancies (2.16), (3.7), (3.8), (3.41)-(3.42) are algebra/typography in the preprint, confirmed here only against v1 and NOT to be quoted against PRD 47, 4510. Evidence for it: the curved-space limitation KF named has since been lifted by later mathematics.",
+ "grade": "NARROWED",
+ "grade_evidence": "The DEFINITION half STANDS: statement as used (noise.py:100-101: normal-ordered square, rho^2 normalisation, Minkowski-vacuum ordering) matches KF (3.2)/(3.43); re-derivation agrees (27/27); no datum. The grade is NARROWED on three scope points, none of which flips a flag in rests_on: (i) the pointwise floor 1/2 (T1) that noise.py:22 and :103-104 state 'for every zero-mean Gaussian state' holds for the MASSLESS field only (KF's K2); with mass the floor is 2/5 (z3, C2-C3); (ii) KF's inverse relation (3.44) needs a non-negative normal-ordered numerator, which fails off the Gaussian class (B1: vac+2 at eps = sqrt2, theta = pi/2, numerator -8K^2) -- the tree uses it only on Gaussian states; (iii) the quartic-renormalisation half is a time-indexed 1993 statement since superseded: Hollands & Wald 2001 (READ) construct local covariant Wick polynomials, and Perez & Sudarsky 2512.17789 (READ) a normal-ordering-independent <T_ab T_cd>_ren; so KUO_FORD_NORMAL_ORDERING_NEEDS_REFERENCE_STATE_IN_CURVED_SPACE = True holds for KF's literal normal ordering only, and noise.py:211-212's contrast with the smeared variance is not the only reference-free route. T1_SURVIVES_SMEARING = False and D22's printed figures (0.1186, 0.140196, Hoelder 0.1283) are independently reproduced. Nothing here is WRONG: the v1 discrepancies are misprints/algebra slips recorded against v1 only.",
+ "what_would_change_the_grade": "To STANDS: noise.py:22/103 name 'massless' (as fluctuation.py:16-17 does) and the curved-space passage record that KF's 'not yet developed' was lifted (BFK 1996, Hollands-Wald 2001), with the reference-state flag scoped to state normal ordering. To OPEN/DATA-DEPENDENT on the journal side: reading PRD 47, 4510 -- if the journal corrects (2.16)/(3.7)/(3.41), the v1 discrepancies become preprint-only; nothing in this key's grade depends on them. To WRONG: only a Gaussian massless state with Delta' < 1/2 pointwise, or a failure of RHS(3.43) = 1/2 + |xi|^2/2 -- both excluded by A3 and C1.",
+ "reverify_command": "python3 /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/kuo-ford-1993-measure.py   # expect 27/27 PASS, exit 0",
+ "report_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/audits/kuo-ford-1993-measure.json"
+}

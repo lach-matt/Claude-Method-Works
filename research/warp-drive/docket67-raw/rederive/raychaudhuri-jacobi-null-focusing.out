@@ -1,0 +1,14 @@
+S1   PASS  u'' = (-R_kk + omega2 - sigma2)/(n - 2) ; n=4 -> -(R_kk+sigma^2-omega^2)/2 u
+S2   PASS  R_kk = 8 pi T_kk in n = 4,5,6 (Lambda and trace drop); q = 8 pi T_kk/(n-2) -> 4 pi T_kk at n = 4 only
+S3a  PASS  W = 0: first zero of det A 2.577619936 vs scalar u 2.577619936 (reduction exact when Weyl vanishes)
+S3b  PASS  200 random (q, Weyl) profiles: Ricci-only focuses in 141; full Jacobi zero later in 0 (must be 0); full seats where Ricci-only does not in 49; min advance 0.0126
+S3c  PASS  vacuum q=0, W=diag(0.36,-0.36): full conjugate point 5.235987749 = pi/sqrt(w) = 5.235987756; scalar reduction: None (Lyapunov number 0 yet it seats)
+S4   PASS  Gao-Wald eq.(13) G''/G = -(sigma^2 + R_kk)/2, G'' by central differences (G >= 0.2) on a sheared trajectory: rel residual 1.15e-04 / 2.87e-05 / 7.24e-06 at N = 1e4/2e4/4e4 (ratios 4.00, 3.96: pure O(h^2) truncation -> 0); twist |B01-B10| max 3.2e-12 (point data => omega = 0)
+S5   PASS  q l^2 invariant under k -> alpha k (T_kk -> alpha^2 T_kk, l -> l/alpha); T_kk itself is not: the SI threshold presupposes k^0 = 1 in the frame where l is measured
+     T_COEFF (CODATA 2018, G=6.67430e-11) = 9.505325e+43 Pa m^2
+     T_COEFF (CODATA 2022, G=6.67430e-11) = 9.505325e+43 Pa m^2
+S6   PASS  pi c^4/(4G) = 9.50532e+43; docstring/verdict print 9.5054e43 (rounds to 9.5053e43: last-digit discrepancy, rel 7.9e-06); G's CODATA 2022 rel. uncertainty 2.2e-05 moves it by the same
+S7   PASS  seatindex.seats() constant q vs pi/sqrt(q): worst rel err 1.89e-04 (grid-limited)
+S8   PASS  saturation rho c^2 = 2.409e+34 Pa (tree uses ~1e35 Pa = 4.2x saturation); T_req(100 km) = 9.505e+33 Pa; crossing l* = 62.8 km (saturation) / 30.8 km (tree's 1e35): 'below nuclear density beyond about 100 km' holds for both
+
+ALL PASS

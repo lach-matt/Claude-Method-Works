@@ -1,0 +1,57 @@
+PASS sqrt(-g)^2 = -det g
+A. GENERAL F_tr = f(t,r): the curved Maxwell equations force sqrt(-g)F^{tr} = const*sin(theta)
+   sqrt(-g) F^{tr}/sin(theta) = -R(t, r)**2*f(t, r)*exp(-Lambda(t, r) - Phi(t, r))
+PASS    Maxwell b=t component is -d_r(G) sin(theta)
+PASS    Maxwell b=r component is  d_t(G) sin(theta)
+PASS    dF = 0 automatically for f(t,r) dt^dr
+   => G constant; tree's choice F_tr = Q e^{Phi+Lam}/R^2 corresponds to G = -Q
+
+B. THE TREE'S FIELD, reproduced independently
+PASS    all four curved Maxwell residuals vanish
+   sqrt(-g) F^{tr} = -Q*sin(theta)   (tree comment line 302 says '= Q': DISCREPANCY of sign and sin(theta) factor)
+PASS    sqrt(-g) F^{tr} = -Q sin(theta)
+PASS    sqrt(-g) F^{rt} / sin(theta) = +Q  (the reading under which the comment holds)
+PASS    rho = Q^2/(8 pi R^4)
+PASS    j = 0
+PASS    p_r = -rho
+PASS    p_T = +rho
+PASS    Carroll sign: F_tr = -q/r^2 flat gives same T (T quadratic in Q)
+
+C. THE DROPPED MAGNETIC COMPONENT (Carroll 7.108: F_thph = g(t,r) sin th is admitted)
+   dF components: [0, 0, sin(theta)*Derivative(Pm(t, r), t), sin(theta)*Derivative(Pm(t, r), r)]
+PASS    dF = 0 forces d_t Pm = 0 and d_r Pm = 0 (Bianchi)
+PASS    dyonic field with constant P satisfies d(sqrt(-g)F^{ab}) = 0
+PASS    and dF = 0
+PASS    rho = (Q^2+P^2)/(8 pi R^4)
+PASS    j = 0
+PASS    rho + p_r = 0 (radial NEC saturation survives)
+PASS    p_T = rho
+PASS    traceless
+PASS    MS-r with m = M-(Q^2+P^2)/2R, M const, arbitrary Phi,Lam,R
+PASS    MS-t likewise
+   => the tree's 'ONLY F_tr' drops P; every conclusion holds with Q^2 -> Q^2 + P^2
+
+D. NORMALISATION: Gaussian T^{00} in flat space, sign of 1/(4 pi)
+PASS    with +1/(4pi) [Carroll 7.107, 8.25; tree line 316]: T^00 = (E^2+B^2)/8pi
+PASS    with -1/(4pi) [Carroll 1.111 as printed]: T^00 = -(E^2+B^2)/8pi  => 1.111 is a sign MISPRINT in the source, not in the tree
+
+E. SI bridge used downstream (X_of_Q): exterior energy of rho_SI = eps0 E^2/2
+PASS    int_a^oo 4 pi r^2 rho_SI dr = Q^2/(8 pi eps0 a)
+
+F. EXTENSION: nonlinear electrodynamics L(f), f = F_ab F^ab (Bronnikov 2604.23741 eq 5)
+PASS    T^t_t = T^r_r for ANY L(f), dyonic, dynamical metric
+PASS    T^t_r = 0 (no flux) for ANY L(f)
+   invariant f = 2*(P**2 - Q**2)/R(t, r)**4
+PASS    T^th_th + T^t_t = L - f L_f  (p_T = rho iff L linear in f, i.e. Maxwell)
+PASS    trace T^mu_mu = 2(L - f L_f)  (traceless iff Maxwell-type L = c f)
+
+G. NAMED HYPOTHESIS m_gamma = 0: Proca term mu^2 (A_a A_b - g_ab A^2/2)/(4pi), electrostatic A = A_t dt
+   Proca increment to rho + p_r = mu**2*A_t(t, r)**2*exp(-2*Phi(t, r))/(4*pi)
+PASS    rho + p_r increment = mu^2 A_t^2 e^{-2Phi}/(4pi) >= 0 (moves AWAY from NEC violation)
+   reduced Compton wavelength at 1e-18 eV: 1.973e+11 m (Goldhaber-Nieto quote ~2e11 m)
+   r = 1.0e+00 m : (rho+p_r)/rho ~ 2(r/lambda)^2 = 5.136e-23
+   r = 1.0e+03 m : (rho+p_r)/rho ~ 2(r/lambda)^2 = 5.136e-17
+   r = 6.4e+06 m : (rho+p_r)/rho ~ 2(r/lambda)^2 = 2.104e-09
+   r = 1.5e+11 m : (rho+p_r)/rho ~ 2(r/lambda)^2 = 1.156e+00
+
+RESULT: ALL PASS

@@ -1,0 +1,39 @@
+L1  Lagrange identity, exact, n = 1..12
+  [ok] n =  1 residual 0
+  [ok] n =  2 residual 0
+  [ok] n =  3 residual 0
+  [ok] n =  4 residual 0
+  [ok] n =  5 residual 0
+  [ok] n =  6 residual 0
+  [ok] n =  7 residual 0
+  [ok] n =  8 residual 0
+  [ok] n =  9 residual 0
+  [ok] n = 10 residual 0
+  [ok] n = 11 residual 0
+  [ok] n = 12 residual 0
+L2  Lagrange identity for symbolic n (double-sum form)
+  [ok] sum_{i,j}(x_i y_j - x_j y_i)^2 - [2|x|^2|y|^2 - 2(x.y)^2] = 0, symbolic n 0
+  [ok] summand symmetric in (i,j) 0
+  [ok] summand vanishes on i = j 0
+L3  complex without conjugation: the 'real' hypothesis is load-bearing
+  [ok] x=(1,i), y=(1,0): bilinear |x|^2|y|^2 = 0 but (x.y)^2 = 1 > 0 -> inequality fails 
+  [ok] with conjugation (Hermitian) |<x,y>|^2 = 1 <= |x|^2|y|^2 = 2 holds 
+L4  square-root bridge: d^2 <= a^2 b^2 and a,b >= 0 => d <= ab
+  [ok] z3 with a,b >= 0 unsat
+  [ok] control: without a,b >= 0 the bridge fails (sat) sat
+L5  owner's scalar lemma, verbatim, and a control
+  [ok] owner lemma unsat unsat
+  [ok] control without d <= ab: sat (C-S is load-bearing) sat
+L6  end-to-end cone closure on raw coordinates, z3 qfnra-nlsat (l6child.py, fresh process)
+  [ok] d = 1: future + future is future-causal (negation unsat) unsat
+  [ok] d = 1: control: future + past can be spacelike (sat) sat
+  [ok] d = 2: future + future is future-causal (negation unsat) unsat
+  [ok] d = 2: control: future + past can be spacelike (sat) sat
+  [ok] d = 3: no counterexample (negation not sat) unknown
+  [INFO] d = 3 end-to-end nlsat verdict this run: unknown (unsat = proved; unknown = solver timeout, not a refutation)
+  [ok] d = 3: control: future + past can be spacelike (sat) sat
+L7  numeric, d = 1..20
+  [ok] max relative residual < 1e-12 1.43e-15
+  [ok] cone closure failures = 0 0
+
+ALL PASS

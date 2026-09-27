@@ -1,0 +1,51 @@
+PASS  C1 diagonal (type I): G^a_b off-diagonal = 0
+PASS  C1 8pi rho = e^{2Phi}(2 lap Phi - Phi'^2)
+PASS  C1 8pi p_r = -e^{2Phi} Phi'^2
+PASS  C1 8pi p_t = +e^{2Phi} Phi'^2
+PASS  C1 rho+p_t = rho+Sum p = 2 e^{2Phi} lap Phi
+PASS  C2 lap Phi_in = -3 m a^2/(r^2+a^2)^{5/2}  (< 0 for m > 0)
+PASS  C2 8pi rho e^{-2Phi} = 2 lap - Phi'^2 : both terms < 0 for m>0, every r<R_s
+PASS  C2 (rho+p_r) e^{-2Phi} = 2(lap - Phi'^2) < 0
+PASS  C2 (rho+p_t) e^{-2Phi} = 2 lap < 0
+PASS  C2 sympy proves 2 lap_in < 0 on the positive orthant
+PASS  C2 sympy proves 2 lap_in - Phi'^2 < 0
+      r = 1/1000000  8pi rho = -1.1081e+05  8pi(rho+p_r) = -1.1081e+05  8pi(rho+p_t) = -1.1081e+05
+PASS  C2 r=1/1000000: rho<0, rho+p_r<0, rho+p_t<0 (NEC, WEC, SEC, DEC all fail)
+      r = 1/100      8pi rho = -5.3273e+04  8pi(rho+p_r) = -5.5187e+04  8pi(rho+p_t) = -5.1359e+04
+PASS  C2 r=1/100: rho<0, rho+p_r<0, rho+p_t<0 (NEC, WEC, SEC, DEC all fail)
+      r = 1          8pi rho = -4.6564e-04  8pi(rho+p_r) = -8.8138e-04  8pi(rho+p_t) = -4.9899e-05
+PASS  C2 r=1: rho<0, rho+p_r<0, rho+p_t<0 (NEC, WEC, SEC, DEC all fail)
+      r = 10         8pi rho = -4.0634e-08  8pi(rho+p_r) = -8.0785e-08  8pi(rho+p_t) = -4.8182e-10
+PASS  C2 r=10: rho<0, rho+p_r<0, rho+p_t<0 (NEC, WEC, SEC, DEC all fail)
+      r = 100        8pi rho = -4.0056e-12  8pi(rho+p_r) = -8.0064e-12  8pi(rho+p_t) = -4.8010e-15
+PASS  C2 r=100: rho<0, rho+p_r<0, rho+p_t<0 (NEC, WEC, SEC, DEC all fail)
+      r = 1999/10    8pi rho = -2.5065e-13  8pi(rho+p_r) = -5.0115e-13  8pi(rho+p_t) = -1.5038e-16
+PASS  C2 r=1999/10: rho<0, rho+p_r<0, rho+p_t<0 (NEC, WEC, SEC, DEC all fail)
+      8pi rho(0) = -1.108137e+05  (e^{2Phi(0)} * 2 * (-3m/a^3) = -1.108137e+05)
+PASS  C2 shell: [Phi'] at R_s = +m/R_s^2 > 0, so lap Phi has +delta: shell rho+p_t > 0 (positive-mass shell)
+PASS  C3 1/r coefficient of Phi outside R_s = 0 -> M_ADM = 0  -- series -a**2*m/(2*r**3)
+PASS  C3 tail Phi ~ -m a^2/(2 r^3) != 0 outside R_s: g != g_0 there (D2 compact support NOT met literally -- discrepancy)
+      tail at r = 2 R_s with tree values: Phi = -6.250e-14
+PASS  C4 R_h[e^{-2Phi} delta] = e^{2Phi}(4 lap Phi - 2|grad Phi|^2) = 2 * 8pi rho  (Hamiltonian constraint, k=0)
+      R_h(0) at the tree's device = -2.216274e+05 < 0
+PASS  C4 R_h(0) < 0 at the device: the time-symmetric PMT hypothesis R_h >= 0 fails
+PASS  C5 Ricci of -N^2dt^2+delta: R_tt = N lap N, R_ij = -d_i d_j N / N
+PASS  C5 flat slice => rho = 0 identically (G_tt = 0)
+PASS  C5 z3: pairwise sums >= 0 => lap N >= 0 (UNSAT of negation)
+PASS  C5 z3: pairwise sums >= 0 and trace 0 => Hess N = 0 (UNSAT)
+PASS  C5 vacuity guard: pairwise >= 0 with Hess != 0 is SAT when trace unconstrained
+      argument: N = 1 near dK (compact support) => int_K lap N = flux = 0; with lap N >= 0 => lap N = 0;
+      then Hess N = 0 (z3 above) => N affine => N = 1: a static flat-slice member obeying the NEC is flat.
+PASS  C5 illustration: N = 1 - c/sqrt(r^2+a^2): lambda_r + lambda_t = c(2a^2 - r^2)/(r^2+a^2)^{5/2}
+PASS  C6 z3: static & compact & E=0 & non-flat & WEC  is UNSAT
+PASS  C6 vacuity guard: same with WEC failing is SAT
+PASS  C6 vacuity guard: flat member with every EC is SAT (the gauge witness, C7)
+PASS  C6 guard: drop PMT rigidity and the conclusion no longer follows (SAT)
+PASS  C6 z3: 'no EC violated (DEC holds) & E=0 & non-flat' is UNSAT -- the sentence's clauses cannot jointly hold for a non-flat static member
+PASS  C7 pullback of flat metric by x -> x + s f(x,y) e_x: Gaussian curvature = 0 for generic f (Brioschi)
+      d_s(A,B) for s = 0, .5, 1, 1.5: 10.000000, 9.816060, 9.632121, 9.448181
+PASS  C7 D3 met: d_s(A,B) strictly decreasing; D2: support |x-A|<2; diffeo since s*max|bump'|/2 < 1
+PASS  C8 z3: causal u with u^t = 0 must vanish (static, g_tt<0) => t strictly monotone on causal curves => no CTC
+PASS  C8 g^{tt} = -e^{-2Phi} < 0 for every finite Phi (t is a time function)
+
+OVERALL OK

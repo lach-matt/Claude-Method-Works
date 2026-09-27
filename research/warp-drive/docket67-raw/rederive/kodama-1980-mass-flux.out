@@ -1,0 +1,44 @@
+=== C1-C5: Kodama's vector and current, general spherical metric (no field equation used)
+C1a  PASS   k(R) = 0: Kodama vector tangent to constant-R surfaces (Hayward B5a)
+C1b  PASS   g(k,k) = 2m/R - 1 (Hayward B3)
+C2   PASS   Div k = 0 (Hayward B7a; Abreu-Visser eq.30)
+C3   PASS   Div J = 0 identically, J = -G.k/8pi, NO field equation (AV eq.31, 'purely geometrical')
+C4   PASS   4 pi R^2 J = curl m  (Hayward B6; = AV eq.39 up to sign convention of J)
+C5   PASS   Gauss: charge density on t=const slice = dm/dr, so Q_J between spheres = Delta m (Hayward B8b)
+=== C6: the flux across a sphere's world-tube: where H_U0 enters
+C6a  PASS   g(J,n) = j W + p_r U  (outward Kodama flux through the r = const tube; k = W u - U n)
+C6b  PASS   MS-t: D_t m = -4 pi R^2 (p_r U + j W)  (= -4 pi R^2 g(J,n))
+C6c  PASS   at U = 0: k = W u exactly (Eulerian observer = Kodama observer)
+C6d  PASS   at U = 0: D_t m = -4 pi R^2 j W  (the tree's integrand, formation.py:132)
+C6e  PASS   CONTROL: with U != 0 (R = r(1+t), flat lapse) D_t m + 4 pi R^2 j W != 0 -> H_U0 load-bearing
+=== C7: the tree's family  (Phi = f phi, Lam = (1-f) ln h' - f phi, R = h = r e^{-phi})
+C7a  PASS   family: U = 0
+C7b  PASS   family: W = W_1^f
+C7c  PASS   family: m = (R/2)(1 - W_1^{2f})
+C7d  PASS   family: j = fdot omega W_1^f e^{-f phi}/(4 pi R)
+C7e  PASS   integrand per df carries no fdot/fddot: any route, any speed, any lapse
+C7f  PASS   K(R) = INT 4 pi R^2 j W dtau = R (W_1^2 - 1)/2
+C7g  PASS   m at f = 0 is 0 (flat start, H_ENDS)
+C7h  PASS   K(R) = m_0 - m_1 = -m_1  (Kodama flux out = loss of Misner-Sharp charge)
+C7i  PASS   E(R) = INT 4 pi R^2 j dtau = R (W_1 - 1)
+C7j  PASS   VACUITY GUARD: dropping the W factor (Eulerian flux) does NOT give -m_1
+C7k  PASS   AV eq.(81): E = R(W-1) is minus the Brown-York energy r(1 - sqrt(1-2m/r)) (W > 0)
+C7l  PASS   AV eq.(82): m = U_BY - U_BY^2/(2R)
+=== C8: numeric, on the seated object (m = a = 1/50, R_s = 200), 40 digits, independent code
+     r=0.005  in   K=-m_1 = 0.00011124769
+     r=0.02   in   K=-m_1 = 0.0041032683
+     r=1      in   K=-m_1 = 0.01979008
+     r=100    in   K=-m_1 = 0.019999999
+     r=250    out  K=-m_1 = -1.92e-10
+     r=1000   out  K=-m_1 = -1.2e-11
+C8a  PASS   K = -m_1 agrees with formation.py's printed table to its 6 printed digits
+     shell jump m_1(R_s+) - m_1(R_s-) = 0.0200009999999800005
+C8b  PASS   shell jump = 2.00010e-02 as printed by formation.py (and > 0)
+C8c  PASS   m_1(R_s+) is tiny positive (< 1e-6): the exterior carries almost nothing
+C8d  PASS   interior K -> m = 1/50 for a << r < R_s (r = 100: |K - 1/50| < 1e-5)
+C8e  PASS   W_1 jumps by exactly -m/R_s at the shell (phi' jumps by m/R_s^2): thin-shell source
+     m_1/R^3 at r = 1e-3, 1e-4: -18376.904, -18468.023
+C8f  PASS   regular centre: m_1/R^3 tends to a finite limit (ratios agree to 1%)
+
+29/29 checks pass
+ALL PASS

@@ -1,0 +1,24 @@
+k=-1  eps = -3*c**4/(8*pi*G*a**2)   p = [c**4/(8*pi*G*a**2), c**4/(8*pi*G*a**2), c**4/(8*pi*G*a**2)]
+k=0  eps = 0   p = [0, 0, 0]
+k=+1  eps = 3*c**4/(8*pi*G*a**2)   p = [-c**4/(8*pi*G*a**2), -c**4/(8*pi*G*a**2), -c**4/(8*pi*G*a**2)]
+PASS (1) k=-1 energy density = -3 c^4/(8 pi G a^2)
+PASS (1) |eps| equals the tree's 3 c^4/(8 pi G a_c^2)
+PASS (2) isotropic pressure p = +c^4/(8 pi G a^2) = -eps/3, T diagonal
+PASS (3) r-chart gives the same eps and p
+PASS (4) control k=+1: eps = +3c^4/(8piG a^2), p = -c^4/(8piG a^2) (sign flips)
+PASS (4) control k=0: eps = p = 0
+PASS (5) Friedmann H=0,k=-1 gives rho c^2 = eps and p equal
+PASS (6) m(R) = -c^2 R^3/(2 G a^2)
+PASS (6) m(R) = (4pi/3)(eps/c^2) R^3, m(0) = 0, m < 0 for R > 0
+    T_ab k^a k^b = -c**4/(4*pi*G*a**2)
+PASS (7) k null and T_ab k^a k^b = eps + p = -2 c^4/(8 pi G a^2) < 0 for every null direction (k^t = 1/c)
+PASS (8) C = b/a_c = sqrt(2 (m/b)/(a/b)^3): G, c and b cancel
+PASS (8) C = sqrt(1250) = 35.35533905932738 at m/b = 5e-3, a/b = 0.02
+PASS (8) tree's fewsterteo.witness_gap() = 35.35533905932737 agrees to 1e-12
+PASS (8) G = 6.67430e-11 -> C = 35.355339059327 (G-independent)
+PASS (8) G = 6.68097e-11 -> C = 35.355339059327 (G-independent)
+PASS (8) G = 6.67554e-11 -> C = 35.355339059327 (G-independent)
+    a_c at b = 1 m: 0.0282842712 m ; |eps| = 1.805795e+46 Pa
+PASS (9) -Lap f_k = (1+k^2)/a^2 f_k (radial), inf over k>0 -> 1/a^2 = gap^2
+
+ALL PASS

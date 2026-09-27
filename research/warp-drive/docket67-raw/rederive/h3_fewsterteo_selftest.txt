@@ -1,0 +1,66 @@
+1. THE SYMBOLIC DERIVATIONS THE RULING KEPT (sympy)
+  [ok] (a) Leibniz residual                                         True
+  [ok] (a) on-shell grad U*.grad U = lap|U|^2/2 + K|U|^2            True
+  [ok] (a) route 1: prefactor of (2.12)                             True
+  [ok] (a) route 2: prefactor solved against printed (3.2)          True
+  [ok] (a) route 2 CONTROL: mode norm 1/((2pi)^n w_k) solves to 1/2 True
+  [ok] (b) F&T flat massless / Ford-Roman, exact                    True
+  [ok] (c) g'''' - k^4 g                                            True
+  [ok] (c) (f f''' - f'f'')' - (f f'''' - f''^2)                    True
+  [ok] (c) (5.6) at C=0 = pi mu^4/(16 pi^3) - mu^4/(16 pi^2)        True
+  [ok] Q_3: d/dy antiderivative - y^2 sqrt(y^2-1)                   True
+  [ok] Q_3: antiderivative at y = 1                                 True
+  [ok] Q_3(x) -> 1 as x -> oo, i.e. C -> 0 returns the flat bound   True
+  [ok] (e) r = 0 regular singular                                   True
+  [ok] (e) r = 2M regular singular                                  True
+  [ok] (e) r = oo irregular (Q -> omega^2 != 0): confluent Heun     True
+
+2. THE 9/64 NUMERICALLY, AND THE REFUSAL
+  [ok] F&T (6.9) matches quadrature at alpha = 1.0 (rel < 1e-20)    True
+  [ok] F&T (6.9) matches quadrature at alpha = 1.5 (rel < 1e-20)    True
+  [ok] F&T (6.9) matches quadrature at alpha = 2.5 (rel < 1e-20)    True
+  [ok] the void adjustment log10(64/9), COMPUTED (ruling prints 0.8519374645) 0.851937464545 (rel 5.2e-11)
+  [ok] and it is not a module attribute any ledger row could ask    False
+  [ok] and it is NOT applied to C_F                                 False
+
+3. THE PARSEVAL ROUTE, NUMERICALLY -- AND WHY IT IS NOT A CHECK
+  [ok] clamped mode: g = g' = 0 at both ends (30 dps, < 1e-20)      True
+  [ok] sampler normalised: INT_0^1 g^2                              1 (rel 1.3e-15)
+  [ok] (5.6) at C=0: pi mu_1^4/(16 pi^3) against achievable.FEWSTER_C 3.16985793831 (rel 1.4e-16)
+  [ok] Parseval: INT_0^oo |FT g''|^2 du (quadrature + 1/u^2 tail) = pi mu^4 1572.56787053 (rel 3.7e-09)
+  [ok] CONTROL: without the tail the Parseval check fails at 1e-8   True
+  [ok] the 41-digit agreement is NOT independent (one closed form, twice) False
+
+4. THE GAP SWEEP -- AND ITS CONTROLS FIRE BOTH WAYS
+  [ok] witness gap C = b/a_c = 1/0.0282842712                       35.3553390593 (rel 2.0e-16)
+  [ok] witness ratio (MEASURED)                                     0.0453939173262 (rel 3.8e-07)
+  [ok] witness orders tighter                                       1.34300233764 (rel 2.5e-07)
+  [ok] CONTROL: the instrument CAN report a tightening (ratio < 0.05) True
+  [ok] ratio at C = 20                                              0.0807200959139 (rel 5.1e-08)
+  [ok] ratio at C = 10                                              0.165631431906 (rel 2.6e-06)
+  [ok] ratio at C = 5                                               0.469089684552 (rel 6.7e-07)
+  [ok] ratio at C = 1                                               0.974321458287 (rel 4.7e-07)
+  [ok] ratio at C = 0.1                                             0.999753886522 (rel 6.0e-13)
+  [ok] ratio at C = 0.01                                            0.999997542191 (rel 3.1e-13)
+  [ok] CONTROL: C = 0, by the same quadrature + tail, returns the flat bound 0.999999996291 (rel 3.7e-09)
+  [ok] ratio monotone in C over the sweep                           True
+  [ok] convergence: panel halving moves the witness ratio by < 1e-9 rel 0.0453939173273 (rel 2.3e-11)
+  [--] convergence to u_max = 1e5: run with --full
+  [ok] cavity at R_s = 200 b: C = 0.005                             0.005
+  [ok] ... leaves the ratio at 0.999999 (6 d.p.)                    0.999999
+  [ok] the corridor's gap is zero, so its ratio is 1 (same quadrature) 0.999999996291 (rel 3.7e-09)
+
+5. 71.256 STANDS; THE PROPOSED FIGURES ARE REFUSED
+  [ok] flat shortfall imported from achievable.py                   71.2557318332 (rel 3.8e-06)
+  [ok] REFUSED 72.599 (flat + witness orders), computed not seated  72.5987341709 (rel 3.7e-06)
+  [ok] REFUSED 72.247 (less |g_tt|^2 = 2.25 at the core surface)    72.2465516528 (rel 6.2e-06)
+  [ok] the flat figure stands                                       True
+  [ok] the witness properties are inert                             True
+
+6. WHAT THE ROW IS NOW
+  [ok] O2 is not closed                                             False
+  [ok] Sec. 7 is not transplanted to M < 0                          False
+  [ok] the corridor's mode functions are NOT-FOUND                  True
+  [ok] the right instrument is Fewster & Smith's absolute QEI       True
+
+  SELFTEST OK

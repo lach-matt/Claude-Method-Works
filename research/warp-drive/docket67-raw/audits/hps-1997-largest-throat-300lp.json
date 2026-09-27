@@ -1,0 +1,97 @@
+{
+ "key": "hps-1997-largest-throat-300lp",
+ "name": "HPS quoted largest self-consistent throat, 300 l_P",
+ "source": {
+  "located": "D. Hochberg, A. Popov, S. V. Sushkov, 'Self-consistent Wormhole Solutions of Semiclassical Gravity', arXiv:gr-qc/9701064v1 (30 Jan 1997; dated 23 Oct 1996), Phys. Rev. Lett. 78, 2050 (1997).",
+  "read_status": "READ",
+  "via": "Full alphaXiv page text of gr-qc/9701064v1, pages 1-12 (abstract, eqs (1)-(9), text, refs, notes [19]-[22], figure captions), read in full in this stage from the copy an earlier stage of this docket fetched through alphaXiv answer_pdf_queries: /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/src/hps/hps_0.xml (md5 a5f55d322aed581c9b1dead99d63cb84). This stage's own alphaXiv calls returned 'quota exceeded'; arxiv.org is refused by the egress proxy. It is the v1 preprint; differences from the PRL print are NOT checked here. The decisive sentence is p.8: 'we have found local solutions which correspond to large throat (r(0) ~ 200 - 300 l_P) wormholes with horizons located far from the throat and wormholes connecting two bounded spatial regions. A full account of these calculations will appear in a separate publication.'"
+ },
+ "published_statement": "Abstract: 'In general, the diameter of the wormhole throat, in units of the Planck length, can be arbitrarily large, depending on the values of the scalar coupling xi and the boundary values for the shape and redshift functions.' p.7: from quartic (8), 'taking f(0) = f''(0) = 1, r''(0) = 0 and xi = 1/6 yields r(0) ~ 67 l_P ... Larger (and smaller) throat radii are also possible depending on the values chosen for the other boundary data and the scalar coupling constant xi.' The one solution shown (eq (9), ln f(0) = -2/3) has 'r(0) ~ 0.02 l_P'; 'R(l) -> l ... asymptotically flat [spatially], modulo the Planck-scale wiggles. The redshift function however, does not approach a constant value as l -> infinity, so the metric as a whole is not asymptotically flat.' p.8: 'We have found additional self-consistent solutions of (1) by taking different values for the scalar coupling and the boundary data. In this way, we have found local solutions which correspond to large throat (r(0) ~ 200 - 300 l_P) wormholes with horizons located far from the throat and wormholes connecting two bounded spatial regions. A full account of these calculations will appear in a separate publication.'",
+ "published_hypotheses": [
+  "semiclassical Einstein equation G_mu_nu = 8 pi <T_mu_nu> (eq (1)), units hbar = c = G = 1, MTW signs (note [19])",
+  "static spherically symmetric metric in proper-distance gauge ds^2 = -f(l) dt^2 + dl^2 + r(l)^2 dOmega^2 (eq (2))",
+  "source: the Anderson-Hiscock-Samuel ANALYTIC APPROXIMATION to <T_mu_nu> of a quantized scalar field (eq (4), ref [18]), not the exact renormalized tensor; scalar mass and temperature set to zero, renormalization scale absorbed into f (note [20])",
+  "field equations (5)-(7) printed for conformal coupling xi = 1/6 only; the 200-300 l_P solutions use 'different values for the scalar coupling and the boundary data', neither printed",
+  "throat conditions r(0) > 0, r'(0) = 0, r''(0) >= 0; f(0) > 0 (no horizon AT the throat); f'(0) = 0 (note [22]); f''(0) >= 0 'may' be asked; optional reflection symmetry r'''(0) = f'''(0) = 0",
+  "ll-equation (6) at l = 0 is a constraint: quartic (8) links r(0) to f(0), f''(0), r''(0)",
+  "numerical Runge-Kutta integration (the printed one with data (9)); the 200-300 l_P ones are 'local solutions' -- no global integration or asymptotics reported",
+  "the 200-300 l_P spacetimes have 'horizons located far from the throat' -- not horizon-free, hence not traversable wormholes joining asymptotically flat ends",
+  "value quoted as approximate RANGE 'r(0) ~ 200 - 300 l_P' (radius); abstract speaks of 'diameter'"
+ ],
+ "hypothesis_drift": [
+  "DROPPED 'local': HPS call the 200-300 l_P solutions 'local solutions' with the full account deferred to a separate publication (p.8); throatmass.py:36-37 'The largest self-consistent throat anyone has built is HPS's quoted 300 l_P', throatmass.py:283 print 'largest self-consistent throat', ledger.py:1681 (O5_DOCKET62, superseded wording) 'The largest ever built is %.4g m' -- none says local.",
+  "DROPPED (in the prose and the ledger) 'with horizons located far from the throat': kept only in the row label throatmass.py:184 '(horizons far out)'; absent from throatmass.py:36-38, :283 and ledger.py:1681. The scale ledger measures 'one metre of corridor' and 'the Proxima span' against the throat of a spacetime HPS report as having horizons, i.e. not a traversable horizon-free wormhole.",
+  "WEAKENED -> treated as a maximum: 'largest ... anyone has built' (throatmass.py:36) and max() over LITERATURE_THROATS (throatmass.py:193-194) make 300 a ceiling. HPS state the opposite sense: throat size 'can be arbitrarily large' (abstract) and 'Larger (and smaller) throat radii are also possible' (p.7); computed here, the throat constraint (8) caps nothing (r0 = 1 m is an exact root with f(0) = 1, r''(0) = 0). The tree's own word 'quoted' (throatmass.py:37, :184) is accurate; the 'anyone has built' half rests on the canonical hypothesis 'the O5 literature survey is complete', which is the tree's, not HPS's.",
+  "FLATTENED RANGE / PRECISION ADDED: HPS print 'r(0) ~ 200 - 300 l_P'; the tree carries 300.0 (throatmass.py:184), 4.849e-33 m to four figures and 32.31 / 48.92 orders to two decimals (throatmass.py:37-38). The printed range spans 32.31-32.49 orders to one metre; radius-vs-diameter is a further 0.30. Over-precision, not an error: the upper end is what 'largest' requires.",
+  "DROPPED the source approximation: 'self-consistent' is HPS's word, but self-consistent WITHIN the AHS analytic approximation to <T> for a massless zero-temperature scalar (eq (4), note [20]); throatmass.py:36-38 does not name it (ledger.py:1692-1693 does say 'Read Anderson-Hiscock-Samuel PRD 51 4337 first').",
+  "DROPPED xi: the 67 l_P and 0.02 l_P figures are at xi = 1/6; the 200-300 l_P ones are at unprinted xi and boundary data. throatmass.py:130-133 files (0.02428, 300.0) under the note 'HPS eq. (9) sets r''(0) = 0' -- eq (9) is the data of the displayed ln f(0) = -2/3 solution only; for the 300 l_P solutions r''(0) is not printed. m = r_0/2 at the throat is unaffected (it needs only r'(0) = 0); the m''(0) = 0 series statement is not established for the 300 l_P family."
+ ],
+ "data_at_publication": [
+  {
+   "quantity": "throat radius of HPS's largest quoted local solution",
+   "value_then": "r(0) ~ 200 - 300 l_P (HPS p.8, approximate range, xi and boundary data unprinted)",
+   "value_now": "unchanged: no later HPS 'full account' was located or read here",
+   "source_now": "HPS gr-qc/9701064v1 p.8 (READ); discover_papers unavailable (quota), so a later full account is NOT-FOUND, not NO",
+   "moves_conclusion": "no; READ value 300 is the upper end correctly transcribed. Taking 200 moves the orders figure 32.31 -> 32.49"
+  },
+  {
+   "quantity": "Planck length l_P = sqrt(hbar G / c^3)",
+   "value_then": "HPS work in Planck units (l_P is the unit, no SI value used); CODATA 1986 1.61605e-35 m",
+   "value_now": "1.616255(18)e-35 m, CODATA 2022 = CODATA 2018 (scipy _codata.py txt2022 line 1893, cached at src/codata); tree uses 1.616255e-35 (achievable.py:303) and G = 6.67430e-11 (achievable.py:302, = CODATA 2022)",
+   "source_now": "CODATA 2022 via scipy constants table cached in /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/src/codata/x/scipy/constants/_codata.py",
+   "moves_conclusion": "no: 300 l_P = 4.8488e-33 m (2022) vs 4.8481e-33 m (1986); orders 32.314 both"
+  },
+  {
+   "quantity": "Proxima Centauri distance",
+   "value_then": "not an HPS input; tree PROXIMA_LY = 4.2465 ly (foliation.py:583)",
+   "value_now": "4.2465 ly from Gaia DR3 parallax 768.0665 mas (value used from memory, NOT READ at source in this stage)",
+   "source_now": "Gaia DR3 (NAMED-NOT-READ here)",
+   "moves_conclusion": "no: 48.918 orders; a 0.1% distance change moves it by 4e-4"
+  },
+  {
+   "quantity": "K^2 = 1/(5760 pi) (AHS coefficient in HPS units)",
+   "value_then": "1/(5760 pi) (HPS p.4)",
+   "value_now": "same (a derived number, not a datum)",
+   "source_now": "HPS p.4, re-used in rederive script",
+   "moves_conclusion": "no"
+  }
+ ],
+ "rederivation": {
+  "method": "sympy",
+  "script_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/hps-1997-largest-throat-300lp.py",
+  "outcome": "ALL PASS. (A) HPS eq (8) re-derived EXACTLY from HPS eq (6) as transcribed from the page text, at l = 0 with f'(0) = r'(0) = 0 (sympy) -- extends O5's check, which transcribed (8) directly. (B) Dimensional scan of all 31 transcribed terms of eq (6): exactly one is off length^-4, the log-part term printed '-4 f'^2 r'^2/(f^2 r)' (scales lam^-3; homogeneity wants r^2) -- a DISCREPANCY in the page text (print or extraction), not a refutation, and inert at the throat since it carries r'^2. (C) HPS's printed ~0.02 l_P = sqrt(15)/(90 sqrt(pi)) = 0.02428 and ~67 l_P = 12 sqrt(10 pi) = 67.2599 reproduced; eq (9)'s r(0) = sqrt(-16 K^2 ln f(0)) solves (8). (D) The constraint (8) alone does not cap r0: with ln f(0) = -1/2, r''(0) = 0 the largest root is K^-1/(2 q sqrt(1+ln f)) and diverges as q = f''(0)/f(0) -> 0+ (95.1, 951, 9512, ..., 9.5e7 l_P); r0 = 300 l_P needs only f(0) = 1, f''(0) = 0.2242 l_P^-2 (order-unity data); r0 = 1 m is an exact root at f''(0)/f(0) = 1.087e-33 l_P^-2 = 4.16e36 m^-2. This is a statement about the l = 0 constraint only; it does NOT show a global solution exists for any such data. (E) 300 l_P = 4.8488e-33 m, 32.314 orders below 1 m, 48.918 below 4.2465 ly -- the tree's 4.849e-33, 32.31, 48.92 reproduced.",
+  "agrees_with_source": "yes"
+ },
+ "later_literature": [
+  {
+   "ref": "J. Maldacena, A. Milekhin, F. Popov, 'Traversable wormholes in four dimensions', arXiv:1807.04726, CQG (2023) 10.1088/1361-6382/acde30",
+   "effect": "contested",
+   "what": "Per web-search result text only: a 4D wormhole solution of Einstein-Maxwell plus charged massless fermions whose negative Casimir-like energy supports it; a long traversable wormhole connecting two asymptotically flat regions. If it is a self-consistent semiclassical throat larger than 300 l_P, the tree's 'largest anyone has built' (survey-completeness hypothesis) fails for that class; not confirmed here -- the throat size was NOT read (the search result text says only it is measured relative to l_P). Different matter (fermions + magnetic flux), not HPS's scalar.",
+   "read_status": "NAMED-NOT-READ (WebSearch result snippets; arxiv.org, osti.gov and alphaXiv all refused or over quota in this stage)"
+  },
+  {
+   "ref": "J. Maldacena, A. Milekhin, 'Humanly traversable wormholes', arXiv:2008.06618, PRD 103, 066007 (2021)",
+   "effect": "contested",
+   "what": "Per web-search result text only: in the Randall-Sundrum II model, wormholes 'large enough to allow for human travelers', size set by demanding a human survive the tidal forces. If read and confirmed as a self-consistent solution, it would place a throat many orders above 300 l_P, but in a beyond-Standard-Model 5D setting outside the class HPS and the O5 survey address. NOT read.",
+   "read_status": "NAMED-NOT-READ (WebSearch result snippets only)"
+  },
+  {
+   "ref": "N. R. Khusnutdinov, S. V. Sushkov, hep-th/0202068, PRD 65, 084028 (2002); R. Garattini, gr-qc/0501105, CQG 22, 1105 (2005)",
+   "effect": "confirms",
+   "what": "Already in the tree's LITERATURE_THROATS (throatmass.py:181-183) with r_0 = 0.0141, 0.447, 1.159 l_P: Planck-scale throats, all below 300 l_P. Not re-read in this stage; the tree's O5 pass read them.",
+   "read_status": "NAMED-NOT-READ in this stage (tree status CITED)"
+  },
+  {
+   "ref": "discover_papers (the one allowed later-literature call)",
+   "effect": "contested",
+   "what": "Returned 'alphaXiv assistant quota exceeded'; no discovery run. A later HPS 'full account' of the 200-300 l_P solutions is NOT-FOUND here, not shown absent.",
+   "read_status": "NOT RUN (quota)"
+  }
+ ],
+ "lacked_data": "What HPS lacked in 1997, from their own text: the exact renormalized <T_mu_nu> (they used the AHS analytic approximation, massless, T = 0); a global integration of the 200-300 l_P cases (they are 'local solutions', 'full account ... separate publication'); and no printed xi or boundary data for them. None of this is a MEASURED datum that has since moved: the conclusion the tree draws (300 l_P is the largest quoted self-consistent throat, 32.31 orders below 1 m) depends on only two numbers, the READ 300 and l_P, and l_P is unchanged CODATA 2018 -> 2022 (4.8488e-33 m either way; even CODATA 1986 gives 32.314). So M's hypothesis, tested here, does NOT move this figure through data. What CAN move the tree's sentence is not data but scope and survey: (i) HPS themselves say larger throats are possible, and the constraint (8) is computed here to cap nothing; (ii) later constructions in other field content (Maldacena-Milekhin-Popov 2018; Maldacena-Milekhin 2020) are reported by search results as traversable wormholes of large size -- if read and confirmed as self-consistent, they falsify 'anyone has built' for their class. Evidence either way: FOR the tree -- the figure is correctly read and the arithmetic reproduces; AGAINST the tree's wording -- 'local' and 'with horizons' are dropped, and 'largest' is a survey claim the source does not make and later literature (not read here) may contradict.",
+ "grade": "NARROWED",
+ "grade_evidence": "The number stands: HPS p.8 prints 'large throat (r(0) ~ 200 - 300 l_P)'; 300 is the upper end, READ correctly, and 300 l_P = 4.8488e-33 m, 32.314 orders below 1 m, 48.918 below the Proxima span reproduce (script E, CODATA 2022 l_P unchanged). The statement as used is narrower at source in three named ways: (1) HPS call these 'local solutions' with the full account deferred -- dropped at throatmass.py:36-37, :283, ledger.py:1681; (2) the 300 l_P spacetimes have 'horizons located far from the throat', so they are not horizon-free traversable wormholes -- kept only in the label throatmass.py:184, dropped where the corridor comparison is made (:36-38); (3) '300 is the largest anyone has built' is the tree's survey hypothesis, not HPS's: HPS say the throat 'can be arbitrarily large' and 'Larger ... radii are also possible', and script D computes that their throat constraint (8) admits r0 = 1 m exactly. Not WRONG: no counterexample was READ here (MMP 2018 and MM 2020 are NAMED-NOT-READ). Not DATA-DEPENDENT: no datum the figure depends on has moved. Page-text discrepancy recorded, not repaired: one term of HPS eq (6) as extracted is dimensionally inhomogeneous (script B); it vanishes at the throat and does not touch (8).",
+ "what_would_change_the_grade": "To WRONG (for the 'largest anyone has built' clause): reading at source a self-consistent semiclassical static wormhole with throat radius > 300 l_P -- e.g. confirming the throat size and self-consistency in Maldacena-Milekhin-Popov arXiv:1807.04726 or Maldacena-Milekhin arXiv:2008.06618 -- within the class the tree means. To STANDS: the tree's sentence restated as 'the largest throat QUOTED in HPS's letter, for LOCAL solutions WITH horizons far from the throat, under the AHS approximation', plus a completed later-literature survey (discover_papers) finding no larger self-consistent throat. To OPEN: if the PRL print differs from v1 at p.8 (not checked here).",
+ "reverify_command": "python3 /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/hps-1997-largest-throat-300lp.py && grep -n '200 .* 300\\|local solutions\\|horizons located\\|arbitrarily large\\|Larger (and smaller)' /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/src/hps/hps_0.xml; grep -n 'largest self-consistent throat\\|horizons far out\\|The largest ever built' /home/user/Claude-Method-Works/research/warp-drive/throatmass.py /home/user/Claude-Method-Works/research/warp-drive/ledger.py",
+ "report_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/audits/hps-1997-largest-throat-300lp.json"
+}

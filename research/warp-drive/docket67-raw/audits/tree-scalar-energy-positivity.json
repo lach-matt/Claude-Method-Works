@@ -1,0 +1,93 @@
+{
+ "key": "tree-scalar-energy-positivity",
+ "name": "Energy density of a real scalar about the tree-level (Mexican-hat) minimum is a sum of squares (T_00 = 1/2 phi_t^2 + 1/2 |grad phi|^2 + V; V - V(v) = rho_EW eps^2 (2-eps)^2)",
+ "source": {
+  "located": "No single originating paper. It is a textbook classical-field theorem. Read at source for this audit: Fewster, arXiv:1208.5399 (2012), 'Lectures on quantum energy inequalities', sec. 5.1, pp.44-45; Barcelo & Visser, arXiv:gr-qc/0003025 (2000), eq. (2.5) and the text after it; Buttazzo et al., arXiv:1307.3536 (2013), sec. 2, the classical Higgs potential. For H-REAL (the gauge-Higgs extension) no source was read: it is machine-checked here from the action instead.",
+  "read_status": "READ",
+  "via": "Full-text or page text cached under scratchpad/d67/src/ by earlier stages of this docket: 1208.5399-sec5.txt (alphaXiv answer_pdf_queries, 2026-09-26), gr-qc_0003025.txt, 1307.3536.pages.txt, 2401.08811.pages.txt. The alphaXiv quota ran out at this stage (answer_pdf_queries, get_paper_content and discover_papers all returned 'quota exceeded'), and direct arxiv.org fetches get a 403 from the proxy. Every quotation below is from those cached texts."
+ },
+ "published_statement": "Fewster 1208.5399 p.44 sec.5.1: 'the classical minimally coupled scalar field obeys the WEC by virtue of a decomposition of the energy density as a sum of squares. This is not true for the nonminimally coupled field, and indeed the energy density can be made arbitrarily negative at any given point.' Barcelo-Visser gr-qc/0003025 eq.(2.5): WEC = [(1-2xi)(phi')^2 + 1/2 (grad phi)^2 + V(phi) - xi((phi^2)'' + 2 grad(phi grad phi))]/(kappa - xi phi^2) >= 0; then 'In the minimally coupled case (xi = 0) it is generically satisfied. Only a large negative potential, for example, a negative cosmological constant, could provide a violation of WEC.' Buttazzo 1307.3536 sec.2: 'we write the classical Higgs potential as V_0 = -m_0^2/2 |H_0|^2 + lambda_0 |H_0|^4' (and sec.3.1 gives V = -1/2 m^2|H|^2 + lambda|H|^4). With |H|^2 = phi^2/2, lambda_B = 4 lambda_0 and m^2 = lambda v^2, that is the tree's V(phi) = -(mu^2/2)phi^2 + (lambda/4)phi^4.",
+ "published_hypotheses": [
+  "A classical (c-number) field: Fewster's 'classical', which he contrasts with the quantum field.",
+  "Minimal coupling, xi = 0 (Fewster; Barcelo-Visser 'minimally coupled case (xi = 0)').",
+  "A potential that is not large and negative (Barcelo-Visser). Measured from the vacuum this means V - V(v) >= 0, which the Mexican hat with lambda > 0 satisfies.",
+  "A normal (non-phantom) sign for the kinetic term: L = -(1/2)(grad phi)^2 - V.",
+  "A tree-level (classical) Higgs potential with lambda > 0 (Buttazzo sec.2). Beyond tree level the running lambda_eff turns negative at large field (Buttazzo sec.4.2), and the tree carries that separately."
+ ],
+ "hypothesis_drift": [
+  "DROPPED, UNNAMED: minimal coupling (xi = 0). The theorem at massform.py:393-411 and its code at massform.py:1917-1964 (t00_decomposes asks higgs.T_scalar, 'L = -(s/2)(grad phi)^2 - V', higgs.py:328-341) is for xi = 0, but section 6 (massform.py:752-770) names only H-TREE-V and H-REAL. The board's own higgs.py:110-135 says the Higgs is 'THE ONE FIELD THAT MUST HAVE' xi, generated radiatively in curved space even if it is set to zero. Computed here (C5a): in FLAT space the Hilbert T_00 gains -xi Lap(phi^2). A static witness at xi = 1/6 (C5b) has T_00 - V(v) = -0.020975 < 0 at a point, where the xi = 0 value there is +0.009025. So the POINTWISE sentence 'the field's energy above the vacuum is >= 0, and zero only where phi_t = 0, grad phi = 0 and |phi| = v' needs xi = 0. The added term is a spatial divergence, and its integral over a period is exactly the xi = 0 integral (C5d). So the INTEGRATED statement that D29 uses ('any change of phi about v costs energy') survives any xi in flat space, given fall-off or periodicity. In curved space the xi R phi^2 term enters directly, and the WEC can fail (Barcelo-Visser eq. 2.5).",
+  "WEAKENED, IMPLICIT: the classical-field hypothesis. The tree writes 'THEOREM, on the tree-level potential (H-TREE-V)' (massform.py:408-409), and 'tree-level' carries 'classical' only by implication. It is never named for T_00. Fewster pp.44-45 (READ): quantum fields sustain negative local energy density, e.g. 'long-lasting negative energy densities can be sustained by quantum fields as shown by the example of the Casimir effect'. The pointwise positivity therefore does not survive quantisation. The global statement (energy above a true ground state is >= 0) is a spectrum-condition fact and needs the vacuum to be the ground state, which is exactly the metastable case the tree already carries at massform.py:414-420.",
+  "IMPLICIT, NOT NAMED: flat spacetime, the Minkowski metric (ETA) in higgs.T_scalar. It is harmless when xi = 0, and it is where the xi drift above bites when xi != 0.",
+  "IMPLICIT, SATISFIED: lambda > 0, i.e. m_H^2 > 0. excite and higgs take lambda = m_H^2/(2v^2) (higgs.py:267-270). The vacuity guard C4b shows lambda < 0 breaks the bound.",
+  "PRECISION, NOT A FAULT (H-REAL, massform.py:410-412 and 761-763): for the doublet, 'ANY change of phi about v COSTS energy' should read 'costs non-negative energy'. Motion along the vacuum orbit Phi^+Phi = v^2/2 (a global SU(2) rotation) and pure-gauge changes cost zero. The tree's own sentence concerns the radial mode eps, where it is exact, zero only at eps = 0 or 2 (C2c).",
+  "H-REAL is carried by the tree as 'claimed, NOT computed and NOT read' (massform.py:410-412, 761-763; D29 at massform.py:2889-2905). It is COMPUTED here (C3a, C3b), not repaired in the tree. For SU(2)xU(1) with a Higgs doublet, the gauge-invariant Hilbert T_00 = (1/2) sum_a (|E^a|^2 + |B^a|^2) + sum_mu |D_mu Phi|^2 + V, and V - V_min = lambda(Phi^+Phi - v^2/2)^2 >= 0 for lambda > 0 (z3: unsat). The check holds on the same classical, xi = 0, flat, non-ghost hypotheses. It says nothing about the gauge-fixed canonical tensor with Faddeev-Popov ghosts, which is not an observable energy density."
+ ],
+ "data_at_publication": [
+  {
+   "quantity": "m_H (enters rho_EW = m_H^2 v^2/8 and the sign of lambda)",
+   "value_then": "125.15 GeV (1307.3536 Table 3 input); the tree's own capture row gives 125.13 GeV (higgs.M_HIGGS, READ)",
+   "value_now": "125.20(11) GeV, PDG 2024 as printed in 2401.08811",
+   "source_now": "arXiv:2401.08811 (Hiller et al.), PDG 2024 row, READ from cached page text",
+   "moves_conclusion": "No. rho_EW goes from 1.18653e8 GeV^4 (tree, 125.13) to 1.18786e8 GeV^4 (125.20), +0.11%. Positivity holds for every m_H^2 > 0 (C6)."
+  },
+  {
+   "quantity": "G_F (enters v = (sqrt2 G_F)^-1/2 = 246.2196 GeV)",
+   "value_then": "1.1663788e-5 GeV^-2 (higgs.G_FERMI, NAMED-NOT-READ in the tree)",
+   "value_now": "not re-read at this stage (alphaXiv quota exhausted)",
+   "source_now": "OPEN at this stage",
+   "moves_conclusion": "No. v enters rho_EW as a positive scale only. The sign of V - V(v) does not depend on it."
+  },
+  {
+   "quantity": "top pole mass (moves the beyond-tree metastability that H-TREE-V's escape clause carries, not the theorem itself)",
+   "value_then": "173.34 +/- 0.76 +/- 0.3 GeV (1307.3536)",
+   "value_now": "M_t^MC = 172.57(29) GeV; M_t^sigma = 172.4(7) GeV (PDG 2024 in 2401.08811)",
+   "source_now": "arXiv:2401.08811, READ from cached page text: stability needs 'a 1.9 sigma downward shift' (sigma-mass) and 'a 5.1 sigma shift' (MC mass)",
+   "moves_conclusion": "Not for this theorem, which is tree-level. For the beyond-tree case the tree already carries, metastability remains preferred at the current central values. The tree's statement 'the case split covers both stable and metastable' (D29) is unaffected."
+  },
+  {
+   "quantity": "Higgs non-minimal coupling xi",
+   "value_then": "not an input. The theorem sets it to zero silently",
+   "value_now": "not measured. No source read here pins it, and the tree's higgs.py:112-116 records it as generated radiatively ('RECORDED AS ELEMENTARY; no source was read for it here')",
+   "source_now": "none read",
+   "moves_conclusion": "Yes for the POINTWISE statement: any xi != 0 admits a point where T_00 - V(v) < 0 (C5b). No for the flat-space INTEGRATED energy (C5d)."
+  }
+ ],
+ "rederivation": {
+  "method": "sympy",
+  "script_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/tree-scalar-energy-positivity.py",
+  "outcome": "ALL PASS, exit 0, about 2 s. C1: the Hilbert T_00 from metric variation of the minimally coupled scalar is (1/2)phi_t^2 + (1/2)|grad phi|^2 + V, exactly the tree's decomposition. C2: V(v(1-eps)) - V(v) = rho_EW eps^2 (2-eps)^2 with rho_EW = lambda v^4/4 = |V(v)|, which is excite.FIELD_POLY, zero only at eps in {0, 2}. C3a: SU(2)xU(1)+doublet T_00 = (E^2+B^2)/2 + sum|D_mu Phi|^2 + V, a symbolic identity over 24 field-strength and 16 covariant-derivative components. C3b (z3): no real doublet has V < V_min when lambda > 0. Vacuity guards: a ghost-sign gauge term gives T_00 - V = -1/2 at a witness (C4a), and lambda < 0 is sat for V < V_min (C4b). C5a: xi R phi^2 adds -xi Lap(phi^2) to the flat-space T_00, derived from sqrt(-g)R by lapse variation. C5b: at xi = 1/6, phi = 1 + cos(x)/10, x = pi, T_00 - V(v) = -839/40000 < 0. C5d: the period integral is 2403 pi/160000 for both xi = 1/6 and xi = 0.",
+  "agrees_with_source": "yes"
+ },
+ "later_literature": [
+  {
+   "ref": "Fewster, arXiv:1208.5399 (2012), sec. 5.1-5.2",
+   "effect": "narrows",
+   "what": "Confirms the classical minimal-coupling sum-of-squares decomposition. Restricts it to classical and xi = 0 fields: a nonminimal field's energy density 'can be made arbitrarily negative at any given point', and quantum fields (Casimir) sustain negative energy density. Quantum energy inequalities bound the averaged negativity.",
+   "read_status": "READ (cached alphaXiv page text, pp.44-45)"
+  },
+  {
+   "ref": "Barcelo & Visser, arXiv:gr-qc/0003025 (2000), eq. (2.5)",
+   "effect": "narrows",
+   "what": "The WEC for the minimally coupled scalar is 'generically satisfied', violated only by a large negative potential. For xi != 0 there are 'various terms that can be negative'.",
+   "read_status": "READ (cached full text)"
+  },
+  {
+   "ref": "Hiller, Hoehne, Litim, Steudtner, arXiv:2401.08811 (2024)",
+   "effect": "extends",
+   "what": "PDG 2024 inputs (m_H = 125.20(11), M_t = 172.57(29) / 172.4(7) GeV). The beyond-tree potential remains metastable at central values, and stability needs a 1.9 sigma to 5.1 sigma shift of the top mass. This touches H-TREE-V's escape clause, not the tree-level theorem.",
+   "read_status": "READ (cached page text)"
+  },
+  {
+   "ref": "discover_papers search for later work",
+   "effect": "contested",
+   "what": "Not run: alphaXiv returned 'quota exceeded' on the one permitted discover_papers call at this stage. No claim is made about literature beyond the three read above.",
+   "read_status": "NAMED-NOT-READ (search failed)"
+  }
+ ],
+ "lacked_data": "The theorem is algebraic, and its only numerical input is the sign of lambda (m_H^2 > 0). The positive sign has been measured since 2012, and a tree potential bounded below needs it regardless. The move from 125.13 or 125.15 to 125.20 GeV changes rho_EW by 0.11% and cannot change a sign (C6). So no datum the authors of the textbook result lacked moves the tree-level conclusion. The evidence against M's hypothesis here is the exact identity C2 plus C6. What was missing is not data but a named hypothesis: the Higgs xi is unmeasured, and the pointwise statement depends on xi = 0 (C5b). The flat-space integrated statement does not (C5d). The data that has moved (m_t, alpha_s) moves only the beyond-tree metastability, which the tree already carries outside this theorem: 2401.08811 still finds metastability preferred at central values.",
+ "grade": "NARROWED",
+ "grade_evidence": "The statement as the tree computes it is re-derived exactly from the action (C1, C2), and H-REAL, which the tree carries as uncomputed, is machine-checked true on the same hypotheses (C3a, C3b). No moved datum moves it (C6). But the pointwise theorem holds only for xi = 0, a hypothesis massform.py:393-411 and 752-770 never name. The board's own higgs.py:110-116 holds that the Higgs must carry xi. With xi = 1/6 a flat-space witness has T_00 - V(v) = -0.020975 < 0 (C5b). It also holds only for a classical field: quantum fields sustain negative local energy density (Fewster 1208.5399 pp.44-45, READ). This is NARROWED, not WRONG, and it does not overturn D29's use: the xi term is a spatial divergence whose period integral is identical to the xi = 0 value (C5d), so 'any change of phi about v costs [integrated] energy' stands in flat space for every xi, and the tree carries the quantum-global case through H-TREE-V's metastable clause. The narrowing is the pointwise 'energy density above the vacuum is >= 0, zero only where...' sentence, and D29's 'energy density ... is a sum of squares' wording at massform.py:2890-2893.",
+ "what_would_change_the_grade": "To STANDS: the tree names H-MINIMAL (xi = 0, flat space) and H-CLASSICAL beside H-TREE-V and H-REAL, or restates D29 as an integrated-energy claim, which C5d shows is xi-independent in flat space. To WRONG for D29's use: a flat-space configuration with finite integrated energy below the vacuum under the tree-level potential. None is possible for lambda > 0, by C1 to C3 and C5d. In curved space, an explicit xi R phi^2 configuration with negative total energy relevant to the seat would move D29, and that is not computed here. OPEN items: G_F and a later-literature search were not re-read at this stage because the alphaXiv quota ran out.",
+ "reverify_command": "python3 /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/tree-scalar-energy-positivity.py   # expect ALL PASS, exit 0; witness C5b = -839/40000",
+ "report_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/audits/tree-scalar-energy-positivity.json"
+}

@@ -1,0 +1,79 @@
+{
+ "key": "lyapunov-inequality",
+ "name": "Lyapunov inequality (necessary condition for two zeros of u'' = -q u)",
+ "source": {
+  "located": "A. M. Lyapunov (Liapounoff), 'Probleme general de la stabilite du mouvement', Kharkov 1892 (Russian); French translation Ann. Fac. Sci. Toulouse (2) 9 (1907) 203-474. Classic, no arXiv copy. Bibliographic details given from general knowledge and NOT verified at source in this run.",
+  "read_status": "NAMED-NOT-READ",
+  "via": "NOT READ in this run. Every alphaXiv call returned 'alphaXiv assistant quota exceeded' (discover_papers x2, answer_pdf_queries x1, get_paper_content x1); export.arxiv.org and www.alphaxiv.org are refused by the egress proxy (CONNECT 403); the d67 src/ cache (70 files) holds no restatement (its 3 'Lyapunov' hits are Lyapunov EXPONENTS in chaos papers, irrelevant). The published wording is therefore NOT quoted. What is quoted below as 'published_statement' is the standard modern form, labelled as such; in place of a reading, the statement and the tree's use of it were RE-DERIVED here (proof algebra in sympy, sharpness of the constant, randomized numerics on the tree's own discontinuous potentials) -- a computation, not a reading."
+ },
+ "published_statement": "NOT QUOTED (source not read). Standard modern form, as re-derived here: if u'' + q(t) u = 0 on [a,b] has a non-trivial solution with u(a) = u(b) = 0, then (b - a) * INT_a^b q+(t) dt > 4, q+ = max(q,0); the constant 4 is best possible and is not attained. Lyapunov's own 1892 statement is commonly reported for continuous q (often q >= 0); the sign-indefinite q+ form and the refinement INT_a^b (t-a)(b-t) q+(t) dt > b - a are commonly attributed to later authors (Wintner / Hartman, c. 1951) -- attribution NOT verified here.",
+ "published_hypotheses": [
+  "scalar, linear, second-order ODE u'' + q u = 0 (one unknown function) -- standard form; not read at source",
+  "q real-valued; continuous in the classical statement (commonly reported), L^1 in the modern statement (Caratheodory solutions, u in C^1 with u' absolutely continuous) -- re-derived here for L^1, sign-indefinite q",
+  "u non-trivial with two zeros a < b (not necessarily consecutive -- reduces to consecutive zeros inside [a,b], since shrinking the interval only lowers (b-a) INT q+)",
+  "conclusion strict (>), constant 4 sharp but unattained -- re-derived here (section [2]: centred-slab family gives 5.92, 4.61, 4.17, 4.054, 4.0053, 4.00005 -> 4 from above)"
+ ],
+ "hypothesis_drift": [
+  "ADDED/WEAKENED (continuity -> piecewise constant): seatindex.py:139-141 slab() is DISCONTINUOUS (q = m on [c,c+l], outside elsewhere, outside in {0,-5,-20}); Lyapunov's classical statement is commonly given for continuous q. NOT a defect: the L^1, sign-indefinite form is re-derived here (proof steps symbolic in [1]; 600 random discontinuous mixed-sign profiles in [3], 493 seat, 0 violations, minimum b*INT_0^b q+ = 4.338).",
+  "WEAKENED, VALIDLY (interval length): seatindex.py:169-176 uses L = TOTAL = 12 (the whole scan interval) and INT q+ over [0,L] in place of (b-a) and INT_a^b q+ with b the actual zero. Since any zero b <= L, L*INT_0^L q+ >= b*INT_0^b q+ > 4, so the tree's test is necessary but weaker than the theorem allows -- it never over-excludes. Checked in [4] (m=16, l=0.5, c=1.5: b*INT = 13.46 <= L m l = 96).",
+  "CORRECT (strictness): seatindex.py:178-180 excludes iff L m l / 4 <= 1, i.e. equality is excluded, which is right for a strict inequality. On the tree's own axes the bound is nearly sharp: a thin central slab with Lyapunov number 1.02 DOES seat (first zero 11.83) -- section [4].",
+  "DROPPED AND RESTORED BY THE TREE ITSELF (Weyl): the theorem is about a SCALAR equation, and the physical Jacobi equation is a 2x2 matrix equation (Ricci trace + Weyl traceless part). seatindex.py:41-60 strikes the universal reading and narrows it to 'BELOW LYAPUNOV NOTHING SEATS BY RICCI FOCUSING ALONE'; :169-184 docstrings and lyapunov_excludes_weyl() = False carry the qualifier. Re-derived here: in composite.py's own vacuum seats the scalar Lyapunov number is 0.0123 (M=+2e-3, seat 55.17) and 0.0107 (M=-2e-3, seat 56.50) -- the Ricci-only form would exclude seats that happen.",
+  "RESIDUAL UNQUALIFIED SITES the strike did not reach (the tree's use exceeds the theorem there, read as physics): seatindex.py:19-21 header 'Below that, NOTHING seats, whatever the shape' (framed by :14-16 'a question about q alone', i.e. inside the scalar model, but without the BY-RICCI qualifier); seatindex.py:70 'EXTERIOR  L INT q+ <= 4  never seats, whatever the shape'; seatindex.py:315 selftest heading 'LYAPUNOV IS UNIVERSAL THE OTHER WAY -- below it nothing seats'; seatindex.py:400-401 VERDICT 'Below Lyapunov, L INT q+ <= 4, nothing seats whatever the shape'; research/warp-drive/paper/CLAIMS.md:273 'below it **nothing** seats, whatever the shape' and :311 status 'PROVEN (Sturm, Lyapunov -- classical)'. Each is TRUE inside the scalar model the scan integrates (seats() at :144-155 is scalar), and each is the struck reading if taken as a statement about spacetime focusing. Recorded, not repaired (this workflow edits nothing under research/warp-drive).",
+  "EXTENSION the tree does not use (not a drift against the source, a narrowing of the tree's 'does not cover Weyl'): the vector/matrix form -- for symmetric tidal T(t), a conjugate point on [0,t*] implies t* * INT_0^t* lambda_max(T)+ >= 4 (same Cauchy-Schwarz proof, vector-valued Jacobi field). lyapunov_excludes_weyl() = False (seatindex.py:182-184) is right for the scalar q = 4 pi T_kk form, but a Lyapunov-type necessary bound that DOES cover Weyl exists: in composite.py's seats the matrix number is 5.067 (M=+2e-3) and 4.874 (M=-2e-3), both > 4, consistent; 285/300 random 2x2 profiles seat (149 traceless), 0 violations, min 7.607."
+ ],
+ "data_at_publication": [
+  {
+   "quantity": "the constant 4",
+   "value_then": "4 (exact, from 1/(c-a)+1/(b-c) >= 4/(b-a))",
+   "value_now": "4 (exact; sharp, unattained)",
+   "source_now": "re-derived here, rederive/lyapunov-inequality.py [1],[2]",
+   "moves_conclusion": "no -- a mathematical constant, not a measurement"
+  },
+  {
+   "quantity": "tree model inputs TOTAL = 12.0, MS = 0.5..64, LS = 0.25..4, CPOS = (0.5,1.5,3,5) (seatindex.py:216-219)",
+   "value_then": "model units, chosen",
+   "value_now": "unchanged",
+   "source_now": "seatindex.py:216-219",
+   "moves_conclusion": "no -- not measurements; the 12 exterior cells (Lyapunov numbers 0.375, 0.75, 0.75) are recomputed and none seats by the tree's integrator, by an independent 12000-step RK4, or with outside q = -5/-20"
+  },
+  {
+   "quantity": "G, c (enter T_COEFF for the STURM threshold, not Lyapunov)",
+   "value_then": "CODATA-type SI values in seatindex.py:125-131",
+   "value_now": "G = 6.67430e-11 (CODATA 2018/2022), c exact",
+   "source_now": "not re-read in this audit (belongs to the Sturm entry, audited separately)",
+   "moves_conclusion": "no -- the Lyapunov test is dimensionless (L * INT q+ with q in model units) and uses no physical constant"
+  }
+ ],
+ "rederivation": {
+  "method": "sympy",
+  "script_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/lyapunov-inequality.py",
+  "outcome": "ALL CHECKS AGREE (exit 0, ~15 s; output in rederive/lyapunov-inequality.out). [1] sympy: 1/(c-a)+1/(b-c)-4/(b-a) = (a+b-2c)^2/((c-a)(b-c)(b-a)) >= 0; sup eta(c)^2/INT|eta'|^2 = (c-a)(b-c)/(b-a) <= (b-a)/4 (vector eta). [2] sharpness: centred slab on [0,1], (b-a)INT q = 5.921, 4.610, 4.166, 4.054, 4.0053, 4.00005 for eps = 0.25..1e-5 -- strictly > 4, -> 4. [3] 600 random discontinuous sign-indefinite q (seed 67), 493 seat, 0 violations, min b*INT_0^b q+ = 4.338. [4] tree: 12 exterior cells ((0.5,0.25),(0.5,0.5),(1,0.25) x 4 positions), none seats (tree integrator, independent RK4, hostile outside); L-form conservative; Lyapunov number 1.02 thin slab seats (bound nearly sharp on the tree's axes). [5] 2x2 Jacobi: 285/300 seat, 149 traceless (scalar q = 0), matrix bound t*INT lambda_max+ >= 4 in all (min 7.607). [6] composite.py vacuum seats: scalar number 0.0123 / 0.0107, matrix number 5.067 / 4.874.",
+  "agrees_with_source": "partly"
+ },
+ "later_literature": [
+  {
+   "ref": "P. Hartman & A. Wintner, 'On an oscillation criterion of Liapounoff', Amer. J. Math. 73 (1951) 885-890 (details from memory, unverified)",
+   "effect": "extends",
+   "what": "Named as the source of the weighted refinement INT (t-a)(b-t) q+ > b-a, which implies the (b-a) INT q+ > 4 form; content NOT verified here.",
+   "read_status": "NAMED-NOT-READ; discover_papers NOT RUN (alphaXiv quota exceeded on both attempts)"
+  },
+  {
+   "ref": "W. T. Reid, 'A generalized Liapunov inequality', J. Differential Equations 13 (1973) 182-196; S. Clark & D. B. Hinton, 'A Liapunov inequality for linear Hamiltonian systems', Math. Inequal. Appl. 1 (1998) 201-209 (details from memory, unverified)",
+   "effect": "extends",
+   "what": "Named as the matrix/Hamiltonian-system extensions -- the class that covers the 2x2 Jacobi equation with Weyl. The matrix form used in section [5]/[6] was derived here from first principles, not taken from these papers; their exact hypotheses and constants are NOT verified.",
+   "read_status": "NAMED-NOT-READ"
+  },
+  {
+   "ref": "A. Tiryaki, 'Recent developments of Lyapunov-type inequalities', Adv. Dyn. Syst. Appl. 5 (2010) 231-248; J. P. Pinasco, 'Lyapunov-type Inequalities', SpringerBriefs in Mathematics (2013) (details from memory, unverified)",
+   "effect": "confirms",
+   "what": "Named as surveys that restate the classical inequality and its sharpness; the intended READ-VIA-RESTATEMENT route, blocked this run.",
+   "read_status": "NAMED-NOT-READ"
+  }
+ ],
+ "lacked_data": "M's hypothesis tested for this result: Lyapunov's inequality is a theorem about a linear ODE; it used no measured datum, so there is no datum it could have lacked in the empirical sense, and none has moved (the constant 4 is exact and re-derived; sharpness re-derived). What was missing in the APPLICATION was not data but a term: the reduction u'' = -q u with q = 4 pi T_kk drops shear/Weyl (a modelling choice in transit.py, not an error of Lyapunov). With the Weyl tidal data included, the conclusion changes in two directions and both are shown here: (a) the SCALAR bound no longer excludes seating -- composite.py's vacuum seats at 55.17 and 56.50 have scalar Lyapunov number 0.012 and 0.011 (the tree already found and struck this); (b) a MATRIX Lyapunov bound with q -> lambda_max(T)+ remains a valid necessary condition and is satisfied at those seats (5.07, 4.87 > 4), so 'Lyapunov does not cover Weyl' is true of the scalar form only. Evidence against over-reading in M's favour: nothing here makes the classical result inaccurate or wrong; within its hypotheses it is exact, strict and sharp, and it holds on the tree's discontinuous, sign-indefinite potentials.",
+ "grade": "NARROWED",
+ "grade_evidence": "The theorem itself, re-derived here, STANDS as mathematics: strict, constant 4 sharp and unattained, valid for L^1 sign-indefinite q including the tree's discontinuous slabs, and the tree's code applies it correctly and conservatively (L in place of b-a; '<=' exclusion for a strict inequality; 12 exterior cells, none seats by two integrators). The grade is NARROWED because the result holds on a smaller class than parts of the tree state it for: it is a theorem about the SCALAR (Ricci-only) equation, and Weyl focusing seats with q = 0 (composite.py; scalar number 0.011-0.012 at actual seats). The tree records this narrowing itself (seatindex.py:41-60, :169-184) but the unqualified reading survives at seatindex.py:19-21, :70, :315, :400-401 and paper/CLAIMS.md:273, :311 ('PROVEN ... Lyapunov'). The source was NOT read (NAMED-NOT-READ: alphaXiv quota, arxiv egress 403), so the published wording and Lyapunov's exact 1892 hypotheses are not quoted; the grade rests on re-derivation, not on reading. Not WRONG: no counterexample to the stated theorem exists or was found (0 violations in 600 scalar + 300 matrix profiles). Not DATA-DEPENDENT: no datum enters.",
+ "what_would_change_the_grade": "To STANDS: the residual unqualified sites (seatindex.py:19-21, :70, :315, :400-401; CLAIMS.md:273, :311) carry 'BY RICCI FOCUSING' / 'scalar model' as :41-60 does, or the tree adopts the matrix form (lambda_max(T)+ in place of q+), which covers Weyl -- plus a reading of Lyapunov 1892 (or an exact restatement in a survey such as Tiryaki 2010 / Pinasco 2013) confirming the hypotheses quoted here. To WRONG: a non-trivial solution of u'' + q u = 0 with two zeros and (b-a) INT q+ <= 4 (none exists by the proof in [1]; none found in 600 trials). A source reading that restricts Lyapunov's own statement to continuous q >= 0 would move the attribution of the sign-indefinite L^1 form (to Wintner/Hartman or later) but not the grade, since that form is re-derived here.",
+ "reverify_command": "PYTHONDONTWRITEBYTECODE=1 python3 /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/lyapunov-inequality.py   # exit 0 = all checks agree; ~15 s; imports seatindex.py and composite.py read-only",
+ "report_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/audits/lyapunov-inequality.json"
+}

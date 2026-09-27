@@ -1,0 +1,105 @@
+{
+ "key": "hawking-unruh-analogue",
+ "name": "Hawking / Unruh flux, analogue-measured (achievable.py:34 census of known negative energy density)",
+ "source": {
+  "located": "The tree cites NO source at achievable.py:34. The Hawking half is attributed elsewhere in the tree (door.py:49-53) to Munoz de Nova, Golubkov, Kolobov & Steinhauer, Nature 569, 688 (2019), arXiv:1809.00913, and Kolobov et al., Nat. Phys. 17, 362 (2021). No Unruh analogue measurement is cited anywhere in research/warp-drive (grep 'Steinhauer|Unruh' over *.py, *.md). Primary papers could not be opened this stage: every alphaXiv call (answer_pdf_queries on 1809.00913 and 1807.07504, get_paper_content, discover_papers) returned 'alphaXiv assistant quota exceeded', and arxiv.org, export.arxiv.org, inspirehep.net, api.semanticscholar.org, alphaxiv.org are refused by the egress proxy (CONNECT 403). What WAS read: (a) de Oliveira, Mosna, Pitelli & Richartz, arXiv:2106.03960v2 (2021) p.1 and reference list pp.7-8 -- a third-party restatement of the analogue Hawking observations; (b) Martin-Moruno & Visser arXiv:2102.13551 p.3-5 and (c) Abdolrahimi, Page & Tzounis arXiv:1607.05280v4 p.16-17 on the NEC/Type-IV character of the gravitational Unruh-state stress tensor. (a)-(c) are verbatim alphaXiv page text returned earlier in THIS session and harvested from the session transcript into src/hawk/ (ctx_1809.txt, 2102.13551_answer_pdf_queries.txt, 1607.05280_answer_pdf_queries.txt).",
+  "read_status": "READ-VIA-RESTATEMENT",
+  "via": "2106.03960v2 p.1 (restates the analogue Hawking observations, refs [8]-[13] = Rousseaux 2008 0711.4767, Weinfurtner 2011 1008.1911, Euve 2016 1511.08145, Steinhauer 2016 1510.00621, Munoz de Nova 2019 1809.00913, Kolobov 2021). The primaries 1809.00913, 1510.00621 and the Unruh simulation (Hu et al. 2019, arXiv:1807.07504) are NAMED-NOT-READ."
+ },
+ "published_statement": "Restated (2106.03960v2 p.1, verbatim): 'some black hole phenomena can also be investigated in the context of analogue gravity [6, 7]. For instance, recent experiments with water, with quantum fluids of light, and with Bose-Einstein condensates have allowed the observation of Hawking radiation [8-13] and of rotational superradiance [14] in earth-based laboratories.' Same paper p.1: 'the occurrence of Hawking radiation and of superradiance are independent of Omega [19, 20]. In fact, the temperature of the Hawking radiation is a conformal invariant, but the greybody factors are not.' Analogue metric (p.7, eq. B1): ds^2 = (rho^2/c^2)[-(c^2 - v^2)dt^2 - 2v dt dx + dx^2 + dy^2]. On the 'same family' (negative-energy) link for the GRAVITATIONAL process: 2102.13551 p.5: 'to make the existence of Hawking radiation compatible with the black hole area increase theorem, one must violate the null energy condition (NEC) through quantum effects'; 'explicit test-field numerical calculations of the renormalized stress-energy tensor in Schwarzschild and related backgrounds straightforwardly lead to numerical violations of all of the classical point-wise energy conditions'. 1607.05280 p.17: 'a conformally coupled massless scalar field in the Unruh state has a stress-energy tensor that is Hawking-Ellis Type IV everywhere outside the horizon of a slowly evaporating Schwarzschild black hole'; for massless spin 1 'we are not certain that the stress-energy tensor for the electromagnetic field in the Unruh state is Type IV ... anywhere outside'. The tree's own summary of what the analogue measured (door.py:49-53): thermal spectrum, T set by surface gravity, Hawking-partner entanglement, inner-horizon stimulation.",
+ "published_hypotheses": [
+  "H1 analogue, not gravitational: the observed quanta are phonons (BEC) / surface waves (water) / fluid-of-light excitations propagating on an effective acoustic metric (2106.03960 eq. B1); nothing gravitates",
+  "H2 the effective metric governs only the linear perturbations; the medium's own energy density is that of an ordinary fluid (not stated as a hypothesis in the restatement; it is the construction of eq. B1)",
+  "H3 temperature fixed by surface gravity of the sonic horizon, T = hbar kappa/(2 pi k_B), conformally invariant; greybody factors are not (2106.03960 p.1)",
+  "H4 for the GRAVITATIONAL Hawking process, the NEC-violating <T_ab> is a TEST-FIELD computation on a fixed background (2102.13551 p.3: 'test field approximation; ie, picking a fixed background and ignoring back-reaction'); Type IV everywhere outside is shown for the conformal scalar only, uncertain for spin 1 (1607.05280 p.17)",
+  "H5 the NEC-violation inference uses the area-increase theorem, whose own hypotheses (NEC, plus the global-structure assumptions of that theorem) are what fail (2102.13551 p.5)",
+  "H6 (NAMED-NOT-READ) the primaries' own conditions -- stationarity, dispersion of the Bogoliubov spectrum, number of repetitions, the measured temperature -- could not be read this stage"
+ ],
+ "hypothesis_drift": [
+  "DROPPED CITATION -- achievable.py:34 carries no source for 'analogue-measured' (canonical status word: 'owner's word; no source cited'); door.py:49-53 cites Steinhauer 2019/2021 for the Hawking half; nothing in research/warp-drive cites any Unruh analogue measurement.",
+  "WRONG QUANTITY UNDER THE STATUS WORD -- achievable.py:28-29 heads the list 'THE CENSUS OF KNOWN NEGATIVE ENERGY DENSITY / Everything real'. What the analogue experiments measured (restated 2106.03960 p.1; the tree's own summary door.py:49-53) is the OUTGOING flux: thermality, T proportional to kappa, partner entanglement -- positive-energy quanta of the perturbation field. The negative-energy side (the NEC-violating renormalised <T_ab> near a horizon) is a computed test-field result for gravitational holes (2102.13551 p.5; 1607.05280 p.17), and the tree itself files its analogue counterpart as not measured: door.py:129-131 'the medium can or cannot carry the analogue NEC violation ... UNPERFORMED. The geometry demands it; the material was never asked.' achievable.py:34 and door.py:129-131 therefore disagree inside the tree; 'analogue-measured' is true of the flux and not of the negative energy density the census is a census of.",
+  "AMBIGUOUS 'UNRUH' -- two readings, both recorded. (i) 'Hawking flux in the Unruh STATE' (the tree's own usage: vacuumcorridor.py:27-28 'Abdolrahimi-Page-Tzounis give the Unruh flux in closed form', vacuumcorridor.py:61 'The Unruh <T_kk> is NEGATIVE throughout'): then the slash names one gravitational quantity whose negative <T_kk> is computed (H4), and the Unruh-effect objection below does not apply. (ii) 'the Unruh effect' (uniform acceleration in the Minkowski vacuum): then the entry adds a negative-energy claim the effect does not make -- the Minkowski vacuum's renormalised <T_ab> is Poincare-invariant hence lambda*eta_ab with lambda = 0, so every observer, accelerated ones included, measures T_ab u^a u^b = 0 (machine-checked, rederive C3), and no analogue measurement of it is cited or read here.",
+  "WEAKENED -- the test-field hypothesis (H4) and the conformal-scalar-only scope of 'Type IV everywhere outside' are not carried to achievable.py:34; 'same family' is asserted with no state, field or back-reaction qualifier.",
+  "KEPT -- 'analogue systems, not gravitational' (canonical hypothesis of the entry) matches H1."
+ ],
+ "data_at_publication": [
+  {
+   "quantity": "gravitational Hawking temperature of a solar-mass hole, T_H = hbar c^3/(8 pi G M k_B)",
+   "value_then": "not a measured quantity at any date (formula, Hawking 1974, NAMED-NOT-READ)",
+   "value_now": "6.1703e-8 K computed here from exact SI hbar, c, k_B and IAU GM_sun = 1.32712440018e20 m^3 s^-2 (G cancels when M is fixed by GM: rederive C4)",
+   "source_now": "computed, rederive/hawking-unruh-analogue.py C4; CMB 2.7255 K for comparison is Fixsen 2009, NAMED-NOT-READ",
+   "moves_conclusion": "no -- it explains why the entry must be 'analogue': the gravitational flux is ~1e-8 of the CMB temperature and unmeasured; no datum moved"
+  },
+  {
+   "quantity": "Unruh temperature at a = g_n, T_U = hbar a/(2 pi c k_B)",
+   "value_then": "not measured",
+   "value_now": "3.9766e-20 K; acceleration for T_U = 1 K is 2.4661e20 m/s^2",
+   "source_now": "computed, rederive C4",
+   "moves_conclusion": "no -- the gravitational/inertial Unruh effect is unmeasured at any practicable acceleration; the entry's 'analogue' qualifier is necessary"
+  },
+  {
+   "quantity": "analogue Hawking temperature and horizon surface gravity in the BEC experiments (Munoz de Nova 2019)",
+   "value_then": "NOT READ (quota; proxy)",
+   "value_now": "NOT READ",
+   "source_now": "OPEN -- 1809.00913 not openable this stage",
+   "moves_conclusion": "cannot be assessed here; the restatement (2106.03960 p.1) asserts the observation but gives no number"
+  },
+  {
+   "quantity": "negative energy density measured in any analogue system",
+   "value_then": "none cited by the tree; door.py:129-131 records it as UNPERFORMED",
+   "value_now": "none found in anything read here (discover_papers unavailable -- not a search result of absence)",
+   "source_now": "door.py:129-131; 2106.03960 p.1 restates only the radiation",
+   "moves_conclusion": "yes for the census entry's status word: 'analogue-measured' attaches to the flux, not to a negative energy density"
+  }
+ ],
+ "rederivation": {
+  "method": "sympy",
+  "script_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/hawking-unruh-analogue.py",
+  "outcome": "ALL PASS (exit 0), 9 checks. C1: for the acoustic metric W(x)^2[-(c^2-v^2)dt^2 - 2v dt dx + dx^2] (2106.03960 eq. B1, 1+1 part), the surface gravity of d/dt at the sonic horizon c=v is kappa^2 = (c'-v')^2, independent of W and W' -- i.e. the analogue Hawking temperature is set by the flow profile and is conformally invariant, agreeing with 2106.03960 p.1; guard: off-horizon the expression is not (c'-v')^2. C2: A = 16 pi G^2 M^2/c^4 gives dA/dt = 32 pi G^2 M dM/dt/c^4 < 0 under evaporation, so the area theorem's NEC hypothesis must fail -- re-derives the 2102.13551 p.5 sentence that ties Hawking radiation to NEC violation (the 'same family' link, gravitational case). C3: solving the infinitesimal boost+rotation invariance equations for a symmetric T_ab returns exactly lambda*eta_ab (one free parameter); a uniformly accelerated observer u = (cosh a tau, sinh a tau, 0, 0) then measures -lambda, the inertial value; with the flat vacuum renormalised to zero this is 0 -- the eternal Unruh effect carries no negative energy density in any frame. C4: T_H(M_sun) = 6.1703e-8 K, T_U(g) = 3.9766e-20 K, a(1 K) = 2.4661e20 m/s^2; T_H depends on GM only.",
+  "agrees_with_source": "partly"
+ },
+ "later_literature": [
+  {
+   "ref": "de Oliveira, Mosna, Pitelli, Richartz, arXiv:2106.03960 (2021)",
+   "effect": "confirms",
+   "what": "p.1: analogue experiments 'have allowed the observation of Hawking radiation [8-13]' in water, fluids of light and BECs; Hawking temperature conformally invariant. Confirms the HAWKING half of 'analogue-measured' for the radiation, as a restatement",
+   "read_status": "READ (alphaXiv page text, harvested from this session's transcript: src/hawk/ctx_1809.txt)"
+  },
+  {
+   "ref": "Martin-Moruno & Visser, arXiv:2102.13551 (2021)",
+   "effect": "extends",
+   "what": "p.5: Hawking radiation plus the area theorem requires quantum NEC violation; test-field <T_ab> in Schwarzschild violates all pointwise energy conditions; p.3-4: with back-reaction (Maeda) static spacetimes force Type I -- the negative-energy link is a test-field, computed result",
+   "read_status": "READ (harvested alphaXiv page text, src/hawk/2102.13551_answer_pdf_queries.txt)"
+  },
+  {
+   "ref": "Abdolrahimi, Page, Tzounis, arXiv:1607.05280 (PRD 100, 124038)",
+   "effect": "narrows",
+   "what": "p.17: Unruh-state conformal scalar is Type IV everywhere outside a slowly evaporating Schwarzschild hole; for massless spin 1 Type IV is uncertain anywhere -- the 'family' membership is field-dependent and computed, not measured",
+   "read_status": "READ (harvested alphaXiv page text, src/hawk/1607.05280_answer_pdf_queries.txt)"
+  },
+  {
+   "ref": "Munoz de Nova, Golubkov, Kolobov, Steinhauer, arXiv:1809.00913 (Nature 569, 688, 2019); Steinhauer arXiv:1510.00621 (Nat. Phys. 12, 959, 2016); Kolobov et al., Nat. Phys. 17, 362 (2021)",
+   "effect": "confirms",
+   "what": "the primaries behind the restatement; content NOT read here (quota exhausted, proxy refuses arxiv.org) -- listed so a later pass reads them; not weighed in the grade beyond the restatement",
+   "read_status": "NAMED-NOT-READ"
+  },
+  {
+   "ref": "Hu, Feng, Zhang, Chin et al., 'Quantum simulation of Unruh radiation', arXiv:1807.07504 (Nat. Phys. 15, 785, 2019)",
+   "effect": "contested",
+   "what": "the likeliest source for an 'Unruh analogue-measured' claim; NOT read here; effect marked 'contested' only in the sense that whether it measures an Unruh effect or simulates one cannot be settled without reading it",
+   "read_status": "NAMED-NOT-READ"
+  },
+  {
+   "ref": "Leonhardt, arXiv:1609.03803 ('Questioning the recent observation of quantum Hawking radiation')",
+   "effect": "contested",
+   "what": "a published challenge to Steinhauer 2016 by title; content NOT read here and NOT weighed",
+   "read_status": "NAMED-NOT-READ"
+  }
+ ],
+ "lacked_data": "For this entry the relevant missing datum is not one the original theorists lacked and later acquired -- it is one nobody yet has. (1) No gravitational Hawking or Unruh flux has been measured: T_H(M_sun) = 6.17e-8 K and T_U(g) = 3.98e-20 K (computed, C4), so the 'analogue' qualifier is necessary, and the entry's own hypothesis already says so. (2) The analogue experiments acquired new data after Hawking 1974/Unruh 1976 -- thermality, T set by kappa, partner entanglement (restated 2106.03960 p.1; door.py:49-53) -- and that data CONFIRMS the kinematic prediction (C1 re-derives the conformal invariance of the analogue T). (3) The datum that would support the census use -- a measured negative (analogue) energy density or NEC violation in the medium -- is absent from everything read here and is recorded by the tree itself as UNPERFORMED (door.py:129-131). Evidence either way: having it would restore the census status word; its absence narrows the entry but cannot loosen the refusal, because removing a candidate source from a census of available negative energy only shrinks what the core could draw on. M's hypothesis (earlier physicists lacked data) is therefore not supported against the Hawking/Unruh theory -- the new analogue data agrees with it -- and the gap found is in the tree's labelling, not in the external result.",
+ "grade": "NARROWED",
+ "grade_evidence": "The external result, as far as it could be read (via restatement, 2106.03960 p.1), is that analogue systems have produced observations of Hawking RADIATION; C1 re-derives the one closed-form piece (kappa^2 = (c'-v')^2 at the sonic horizon, conformally invariant) and agrees. achievable.py:34 uses it on a larger class: as a MEASURED member of 'THE CENSUS OF KNOWN NEGATIVE ENERGY DENSITY' (achievable.py:28-29). (a) The negative-energy side of the Hawking process is a computed test-field result for gravitational holes (2102.13551 p.5; 1607.05280 p.17; C2 re-derives the area-theorem link), field-dependent (Type IV certain for the conformal scalar, uncertain for spin 1), and not measured in any analogue -- the tree's own door.py:129-131 says 'UNPERFORMED'. (b) Under the reading 'Unruh effect', the Minkowski vacuum carries no negative energy density for any observer (C3, machine-checked), and no Unruh analogue measurement is cited or could be read (1807.07504 NAMED-NOT-READ) -- that half is OPEN, not WRONG; under the tree's other usage, 'Unruh state' (vacuumcorridor.py:27-28,61), the objection does not apply and the slash names one computed quantity. Not WRONG: no statement of the source is contradicted, and 'same family' is supported for the gravitational process. Not DATA-DEPENDENT: no moved datum enters (C4: T_H depends on GM only). Direction: the narrowing removes, it does not add, so it cannot weaken the SURVEY refusal (achievable.py:25-26) -- recorded, not in M's favour. Primary sources were unreadable this stage (alphaXiv quota; proxy 403), which is why read_status is READ-VIA-RESTATEMENT and the Unruh half stays OPEN.",
+ "what_would_change_the_grade": "Toward STANDS: an analogue experiment that measures a negative (analogue) energy density / NEC violation of the medium -- the measurement door.py:129-131 calls UNPERFORMED -- read at source; or the owner rewording achievable.py:34 to 'Hawking flux (radiation observed in analogues; its NEC-violating partner flux computed, test-field)' with the Unruh-state reading made explicit. Toward OPEN for the Hawking half: reading 1809.00913 / 1510.00621 at source and finding they do not claim what the restatement says, or that Leonhardt 1609.03803's challenge was upheld. Toward WRONG (for the Unruh half only): the owner confirming 'Unruh' means the Unruh effect in the Minkowski vacuum AND no analogue paper claiming a negative energy density for it -- C3 would then be a shown counterexample to listing it as a negative-energy source. Nothing here can move the refusal the census supports.",
+ "reverify_command": "python3 /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/hawking-unruh-analogue.py && python3 -c \"t=open('/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/src/hawk/ctx_1809.txt').read().replace(chr(10),' '); i=t.find('have allowed the observation'); print(t[i-200:i+120])\" && grep -n 'UNPERFORMED' /home/user/Claude-Method-Works/research/warp-drive/door.py && sed -n 28,34p /home/user/Claude-Method-Works/research/warp-drive/achievable.py",
+ "report_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/audits/hawking-unruh-analogue.json"
+}

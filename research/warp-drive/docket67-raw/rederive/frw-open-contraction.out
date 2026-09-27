@@ -1,0 +1,71 @@
+C1. FRW in comoving (cosmic-time) slicing, general a(t): Gamma = f_k'(chi)
+  k = -1: Gamma = cosh(chi)                                                      ok
+  k =  0: Gamma = 1 exactly                                                      ok
+  k = +1: Gamma = cos(chi)                                                       ok
+  k = -1: Gamma^2 - 1 = -k f_k(chi)^2  (LTB 2E = -k r^2, Enqvist k(r) = k r^2)   ok
+  k = +0: Gamma^2 - 1 = -k f_k(chi)^2  (LTB 2E = -k r^2, Enqvist k(r) = k r^2)   ok
+  k = +1: Gamma^2 - 1 = -k f_k(chi)^2  (LTB 2E = -k r^2, Enqvist k(r) = k r^2)   ok
+  isotropy: p_r = p_T for every k (perfect fluid, any a(t))                      ok
+  j = 0 for every k (comoving slicing, no radial flux)                           ok
+
+C2. Misner-Sharp mass m = (4 pi/3) rho R^3 and rho = 3(adot^2 + k)/(8 pi a^2)
+  k = -1: rho = 3(adot^2 + k)/(8 pi a^2)                                         ok
+  k = -1: m = (4 pi/3) rho R^3  (Escriva eq.3.3 background, Hayward eq.33)       ok
+  k = +0: rho = 3(adot^2 + k)/(8 pi a^2)                                         ok
+  k = +0: m = (4 pi/3) rho R^3  (Escriva eq.3.3 background, Hayward eq.33)       ok
+  k = +1: rho = 3(adot^2 + k)/(8 pi a^2)                                         ok
+  k = +1: m = (4 pi/3) rho R^3  (Escriva eq.3.3 background, Hayward eq.33)       ok
+     so m > 0  <=>  rho > 0  <=>  adot^2 > -k;  for k = -1 that is adot^2 > 1.
+     rho > 0 is NOT implied by 'open FRW with general a(t)': it needs a matter law.
+
+C3. The NEC contraction is rho + p, and equals rho ONLY for p = 0 (dust)
+  k = -1: rho + p = (adot^2 + k - a addot)/(4 pi a^2)                            ok
+  k = +0: rho + p = (adot^2 + k - a addot)/(4 pi a^2)                            ok
+  k = +1: rho + p = (adot^2 + k - a addot)/(4 pi a^2)                            ok
+  open DUST: NEC contraction - rho = 0   (nonstatic.py:455-468 reproduced)       ok
+  open DUST: rho = 3C/(8 pi a^3) > 0                                             ok
+     for p = w rho the NEC contraction is (1 + w) rho: equals rho iff w = 0;
+     radiation w = 1/3 gives (4/3) rho -- still > 0, but NOT 'equal to rho'.
+  p = w rho: (1+w) rho - rho = 0 only at w = 0                                   ok
+
+C4. Lambda != 0: 'the NEC contraction equals rho' fails for the tree's rho
+  dust + Lambda: NEC contraction = rho_M (Lambda cancels)                        ok
+  dust + Lambda: NEC - rho_tree = -Lambda/(8 pi) != 0 for Lambda != 0            ok
+
+C5. z3: in the areal-comoving chart (Enqvist 2.2/2.9) Gamma^2 = 1 - k r^2
+  k < 0, r > 0  =>  Gamma^2 > 1      (negation unsat)                            ok
+  k = 0         =>  Gamma^2 = 1      (negation unsat)                            ok
+  k > 0, r > 0  =>  Gamma^2 < 1      (negation unsat)                            ok
+  Gamma^2 > 1   =>  k < 0            (negation unsat: criterion is exactly k<0)  ok
+  vacuity guard: k < 0 with Gamma^2 > 1 is satisfiable                           ok
+  vacuity guard: k > 0 with Gamma^2 < 1 is satisfiable                           ok
+
+C6. SLICING HYPOTHESIS: the k<0 criterion is a property of comoving slicing only
+  Gamma'^2 - U'^2 = Gamma^2 - U^2 (boost invariance, so m is slicing-independent) ok
+     open dust a=1, C=1, chi=0.3: comoving Gamma = 1.045338514, U = 0.430656729, 2m/R = 0.092732609
+     boost eta = atanh(U/Gamma) = 0.437991536  ->  U' = 5.55e-17, Gamma' = 0.952505848
+  open dust, same event, U'=0 slicing: Gamma' = sqrt(1-2m/R) < 1 (NO contraction) ok
+     flat dust a=1, adot=2/3, chi=0.3: comoving Gamma = 1, U = 0.200000000; eta = -0.5 -> Gamma' = 1.231845026
+  flat FRW, tilted slicing (eta=-0.5): Gamma' > 1 (flat FRW DOES contract there) ok
+  z3: untrapped, m > 0  =>  the U'=0 slicing has Gamma'^2 = 1-2m/R < 1 (negation unsat) ok
+  vacuity guard: untrapped, m>0 AND comoving Gamma>1 is satisfiable (open FRW exists) ok
+
+C7. 'holds contraction forever' is per COMOVING SHELL; at fixed areal radius it decays
+     s =   1.0  a = 2.715403e-01  Gamma(R=1) = 3.816050035461
+     s =   2.0  a = 1.381098e+00  Gamma(R=1) = 1.234611391848
+     s =   4.0  a = 1.315412e+01  Gamma(R=1) = 1.002885496262
+     s =   8.0  a = 7.447396e+02  Gamma(R=1) = 1.000000901490
+     s =  16.0  a = 2.221527e+06  Gamma(R=1) = 1.000000000000
+  at fixed R, comoving-slicing Gamma decreases toward 1 as a grows               ok
+  per comoving shell Gamma = cosh(chi) is t-independent                          ok
+
+C8. DATA (context only -- no datum is an input of the witness)
+     Omega_K = +0.0007 (central), R = Hubble radius: Gamma^2 - 1 = +7.000e-04
+     Omega_K = +0.0007 (central), R = Proxima span: Gamma^2 - 1 = +5.998e-23
+     Omega_K = +0.0026 (+1 sigma), R = Hubble radius: Gamma^2 - 1 = +2.600e-03
+     Omega_K = +0.0026 (+1 sigma), R = Proxima span: Gamma^2 - 1 = +2.228e-22
+     Omega_K = -0.0012 (-1 sigma), R = Hubble radius: Gamma^2 - 1 = -1.200e-03
+     Omega_K = -0.0012 (-1 sigma), R = Proxima span: Gamma^2 - 1 = -1.028e-22
+  the sign of Omega_K is not settled at 1 sigma (interval straddles 0)           ok
+
+RESULT: ALL PASS

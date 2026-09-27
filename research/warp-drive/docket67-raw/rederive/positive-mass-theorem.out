@@ -1,0 +1,49 @@
+C1  ADM energy of conformally flat slices
+   nu^j (g_ij,i - g_ii,j) at (r,0,0) = -2*Derivative(psi(r), r)
+  [ok] flux integrand = -2 psi'(r) 
+  [ok] (a) concentric slice, r > R_s: E_ADM = 0 E = 0
+  [ok] (b) first (wrong) potential: E_ADM = -m E = -m
+  [ok] (c) linearised Schwarzschild Phi=-M/r: E = M 
+  [ok] (d) isotropic Schwarzschild, either sign of M: E = M E = M_s
+   g - delta for r > R_s ~ a**2*m/r**3 + O(r**(-4), (r, oo))
+  [ok] concentric g - delta = O(r^-3): within EHLS q in (1/2,1) 
+
+C2  negative-mass constant-density ball is admissible data with E < 0
+  [ok] R[dr^2/(1-2m/r) + r^2 dOmega^2] = 4 m'/r^2 R = 4*Derivative(mf(r), r)/r**2
+  [ok] inside the ball R = -16 pi rho0 < 0 (mu = R/2 < 0: DEC fails) 
+  [ok] 1 - 2m/r = 1 + (8pi/3) rho0 r^2 > 0 everywhere: no horizon, regular centre (m = O(r^3)) 
+   E_ADM = m(R) = -4*pi*R**3*rho0/3  (< 0)
+  [ok] ADM energy negative 
+  [ok] g_rr in (0,1] on r in (0,5]: the slice CONTRACTS (certify.py's m<0 signature) M = -4.188790e-03
+
+C3  scalar curvature of the concentric slice g = (1-2Phi) delta
+  [ok] R = 4 Lap Phi/psi^2 + 6 |Phi'|^2/psi^3 
+   R(r->0) = -2.999400e+04 ; closed form 4*Lap(Phi)(0)/psi(0)^2 = -12 m/a^3/(1-2m/a+2m/R_s)^2 = -2.999400e+04
+  [ok] R < 0 at the core: the static (K=0) hypothesis R_g >= 0 fails 
+  [ok] R(0) equals the closed form (psi(0) = 0.5: Phi_max = m/a = 0.25 is NOT small) ratio 1.000000000
+   R(r=1, the corridor) = +1.2992e-04  (> 0 there: the 6|Phi'|^2 term and the Plummer tail)
+   int_{r<10a} R dV = -2.317854e-01
+  [ok] core integral of R negative 
+
+C4  z3: what the theorem, as an implication, licenses
+  [ok] (i) PMT & not H & E<0 is SATISFIABLE: 'bare negative mass forbidden by PMT' needs H 
+  [ok] (ii) PMT & E<0  |=  not H : every negative-mass configuration already violates DEC 
+  [ok] (iii) PMT & E=0 & not Flat |= not H : the rigidity use (concentric.py:51-53, pair.py) is valid 
+  [ok] (iv) PMT & E>=0 does NOT entail H: 'M_ADM >= 0, so the theorem is satisfied' certifies nothing 
+  [ok] (v) PMT & not H: both E<0 and E=0,non-flat are consistent -> the theorem does not discriminate bare-negative from concentric once H fails in both 
+
+C5  overturn.py two-zone profile
+  [ok] m(R) = (4/3)pi(9.5) = 39.7935069 39.7935069
+  [ok] m(r0) = -4.1887902 
+   max_r 2m(r)/r = 39.7935  (read as areal static data in G=c=1 units this is trapped; rho must be scaled by < 0.0251; overturn.py:209-211 disclaims any field-equation solution)
+  [ok] two-zone numbers as printed exceed 2m/r = 1 (a units/scale note, not a PMT issue) 
+
+C6  concentric.py numbers
+  [ok] Phi(1) at m=5e-3 = 4.9750e-3 4.974000e-03
+  [ok] |Phi(1000)| < 1e-10 -1.000e-15
+  [ok] |bad(1000)| > 1e-6 (ADM -m) -2.0000e-05
+   docstring (concentric.py:50) 'Phi(1000) = -6.2e-13, Phi(1) = +4.4e-3' vs this file's a=0.02,R_s=200: Phi(1000) = -1.000e-15, Phi(1) = 4.9740e-03
+   the docstring pair is reproduced by a = 0.5, R_s = 200, m = 5e-3: Phi(1000) = -6.250e-13, Phi(1) = 4.4471e-03
+  [ok] DISCREPANCY (recorded, not repaired): docstring values match a=0.5 not the seated a=0.02; M_ADM=0 is a-independent (C1a) 
+
+OVERALL OK

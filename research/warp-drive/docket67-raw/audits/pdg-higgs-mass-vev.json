@@ -1,0 +1,133 @@
+{
+ "key": "pdg-higgs-mass-vev",
+ "name": "Higgs mass m_h = 125.13 GeV (READ via pdgcapture in higgs.py), vev from G_F, quartic lambda, |V_min| -- as imported by address.py",
+ "source": {
+  "located": "(1) RPP 2026 Higgs listing, F. Takahashi et al. (PDG), Int. J. Mod. Phys. A 41, 2630011 (2026), pdg.lbl.gov/2026/listings/rpp2026-list-higgs-boson.pdf, p.1 H MASS and ideogram, H DECAY WIDTH preamble. (2) RPP 2024 Higgs listing (Navas et al., PRD 110, 030001), p.1 H MASS, which is the withdrawn pin. (3) RPP 2024 Table 1.1 Physical Constants, Fermi coupling constant. (4) RPP 2024 sec.10, Electroweak Model (Erler & Freitas), p.2, eqs.(10.1)-(10.5). (5) Eberhart et al., arXiv:2607.02657 eq.(21), the 2026 G_F.",
+  "read_status": "READ",
+  "via": "This stage's live alphaXiv calls (answer_pdf_queries x2, discover_papers x1) all returned 'assistant quota exceeded'. The texts were therefore read from alphaXiv page captures made earlier the same day and held on disk: /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/src/casmag/all/https___pdg.lbl.gov_2026_listings_rpp2026-list-higgs-boson.pdf.txt (md5 998c6de9f95b4c6a69803e64e94f8ee3), ..._2024_listings_... (14bdf7536b77c0cbe12b529ed38a4437), ..._2024_reviews_rpp2024-rev-phys-constants.pdf.txt (ca6b368328d0a55b79d527ee0a437b77), ..._2024_reviews_rpp2024-rev-standard-model.pdf.txt (ab103d89ed834771db46a7e2c63855e8), 2607.02657v1.txt. The rederive script checks every quoted string byte for byte against these captures (part A). The RPP is not on arXiv, so these are PDG PDFs read at pdg.lbl.gov through alphaXiv's URL reader. The Higgs 1964 and Weinberg 1967 classics are not needed for a measurement audit and are not read."
+ },
+ "published_statement": "RPP 2026 H MASS: '125.13 ± 0.11 OUR AVERAGE. Error includes scale factor of 1.5. See the ideogram below.' Four inputs are averaged: 125.04 ± 0.12 (HAYRAPETYAN 25L, CMS 13 TeV ZZ*->4l), 125.10 ± 0.11 (AAD 23BP, ATLAS 13 TeV γγ + ZZ*->4l), 125.78 ± 0.26 (SIRUNYAN 20L, CMS 13 TeV γγ) and 125.09 ± 0.21 ± 0.11 (AAD 15B, LHC 7-8 TeV). Ideogram: 'WEIGHTED AVERAGE 125.13±0.11 (Error scaled by 1.5) ... χ2 6.9 (Confidence Level = 0.075)', with SIRUNYAN 20L contributing 6.2. RPP 2024 H MASS: '125.20 ± 0.11 OUR AVERAGE. Error includes scale factor of 1.4.' RPP 2024 Table 1.1: 'Fermi coupling constant G_F/(ħc)^3 1.166 378 8(6)×10^-5 GeV^-2', and 'The last set of constants (beginning with the Fermi coupling constant) comes from the Particle Data Group.' RPP 2024 sec.10 p.2: 'v/√2 = |μ|/λ, where v = 246.22 GeV'; 'one obtains the EW boson masses (at tree level, i.e., to lowest order in perturbation theory) M_H = λ v (10.5a), M_W = g v/2 (10.5b)'. In PDG's normalisation the quartic is written with a squared coupling, λ_PDG^2/2 (footnote 1: 'There is no generally accepted convention to write the quartic term'). Eberhart et al. 2026 eq.(21): G_F = 1.166 378 59(59)×10^-5 GeV^-2.",
+ "published_hypotheses": [
+  "m_H is an experimental average of invariant-mass peak fits to four LHC measurements. The uncertainty is inflated by S = 1.5 because the inputs are mutually inconsistent (chi2 6.9 for 3 dof, CL 0.075).",
+  "G_F is the muon-decay Fermi constant (PDG-derived, 510 ppb).",
+  "The relation of v, λ and M_H is stated 'at tree level, i.e., to lowest order in perturbation theory' (PDG eq.10.5), under PDG's own normalisation of the quartic, with no universal convention.",
+  "The width, a neighbouring datum, exists only under 'the assumption of equal on- and off-shell effective couplings' (PDG 2026 H DECAY WIDTH). address.py does not use the width."
+ ],
+ "hypothesis_drift": [
+  "DROPPED 'tree level'. PDG (10.5) states the M_H, λ, v relations 'at tree level'. address.py:137-141 writes the source law eps = -rho_H c^2/(v^2 m_h^2) = -rho_H c^2/(8|V_min|) as 'EXACT', and address.py:163 writes lambda_h = hbar/(m_h c) with m_h the PDG resonance mass. That identifies the measured mass with the tree curvature V''(v) = 2λv^2. The identity v^2 m_h^2 = 8|V_min| is exact algebra (sympy B3, residual 0). As physics, the static uniform response is set by the zero-momentum two-point function and the long-range falloff by the propagator pole, and the two coincide only at tree level. address.py names tree level for the mass relations in section 1 (address.py:25-28), but not in the source law or the range. Its size is NOT computed here. The margin before any verdict moves is computed: v^2 m_h^2 would have to grow by x114 (H2) or x398 (H1), i.e. m_h > 1337 GeV or 2497 GeV.",
+  "DROPPED 'tree level / on-shell definition' for v. address.py:414 imports V_GEV = higgs.vev() = (sqrt2 G_F)^(-1/2) (higgs.py:262-264), with no scheme named. The canonical entry names it ('v from G_F at tree level'), but the owner file does not. The PDG value 246.22 is reproduced exactly (246.219640). The MS-bar value 246.60109 GeV (arXiv:1907.02500 eq.1.11) is 0.155% higher, which moves every v^2-carrying figure by 3.1e-3 and no verdict.",
+  "NOT A DRIFT, CHECKED. Normalisation: higgs.py's λ = m_h^2/(2v^2) = 0.129136 is PDG's λ_PDG^2/2 (sympy B4: M_H = λ_PDG v holds with λ_PDG^2 = 2λ). The V(0) = 0 convention (higgs.py:273-275) drops out of every address.py use. VMIN_SI enters only as 8|V_min| = v^2 m_h^2 (address.py:668, 674, 683) and as the depth-relative cost eps^2(2+eps)^2 (address.py:655), which is offset-free (sympy B5).",
+  "UNUSED IMPORT. LAMBDA_QUARTIC = higgs.lam() (address.py:416) is referenced nowhere else in address.py (count = 1). Every λ scheme question (on-shell tree 0.12914 against MS-bar NNLO 0.12604 at M_t, 1307.3536 Table 3) therefore cannot reach an address.py figure except through v^2 m_h^2.",
+  "DROPPED the uncertainty. The capture carries 125.13 with no ±0.11 and no S = 1.5 (captures/PDG-2026.tsv has no uncertainty column; the sibling audit pdg-2026-m_h found the same). The ±0.11 band moves lambda_h by ±8.8e-4 and every m_h^2 figure by ±1.76e-3. No 3-s.f. verdict figure crosses a boundary that carries a conclusion.",
+  "STATUS UNDER-CLAIMED, not over-claimed. higgs.py:209 labels G_FERMI = 1.1663788e-5 NAMED-NOT-READ. It is READ here identically in PDG 2024 Table 1.1 ('1.166 378 8(6)'). higgs.py:210 labels the withdrawn pin 125.20 NAMED-NOT-READ. It is READ here as the RPP 2024 average ('125.20 ± 0.11 OUR AVERAGE', S = 1.4).",
+  "LOCATION DRIFT in the canonical entry. The selftest cited as address.py:1290-1297 is now at address.py:1391-1396 (the MH = M_HIGGS/M_HIGGS_PIN_WITHDRAWN scaling and the lambda_h fixture). The ruling line reads 'M's ruling switched m_h to the READ 125.13 (DOCKET 63 F2)'.",
+  "DISCREPANCY, recorded and not repaired: six docstring figures still print the 125.20 roundings, although the docstring says 'computed here from higgs.M_HIGGS'. address.py:163 '1.5761e-18 m' (computed 1.5770e-18); :192 '-3.26e-13' (H1, computed -3.27e-13) and '-7.28e-14' (H2, computed -7.29e-14); :234 '1.6658e-11' (computed 1.6677e-11; the comment at :1486 still shows 125200); :263 and :351 '8.20e11 kg/m^3' (computed 8.19e11); :264 '1.63e8' times osmium (computed 1.62e8). Each is a misprint-level lag of the m_h switch at the 3rd-4th significant figure, not a refutation. The printed run output and the selftest (which scales every fixture by MH^k) carry the READ value, and no verdict ratio (398, 114, 1.80e-5, 3.36e7, 2.4e15) changes its printed digits."
+ ],
+ "data_at_publication": [
+  {
+   "quantity": "m_h (PDG average)",
+   "value_then": "125.20 ± 0.11 GeV, S = 1.4 (RPP 2024, READ: the withdrawn pin, higgs.py:210)",
+   "value_now": "125.13 ± 0.11 GeV, S = 1.5 (RPP 2026, READ). Re-derived here from its four inputs: mean 125.1309, chi2 6.915 (0.57/0.08/6.23/0.03), S 1.518, scaled error 0.1117, CL 0.075",
+   "source_now": "pdg.lbl.gov rpp2026-list-higgs-boson.pdf p.1 (on-disk alphaXiv capture)",
+   "moves_conclusion": "No. -5.59e-4 relative. lambda_h +5.59e-4; nuclear eps, (m_e/m_h)^2 +1.12e-3; courier and probe source densities -1.12e-3. It moves six docstring roundings (listed under drift) and no verdict."
+  },
+  {
+   "quantity": "m_h without the chi2 outlier SIRUNYAN 20L (the S = 1.5 tension)",
+   "value_then": "n/a",
+   "value_now": "125.074 ± 0.077 GeV (computed from the three remaining RPP 2026 inputs)",
+   "source_now": "rederive part C",
+   "moves_conclusion": "No. m_h^2 moves -8.9e-4."
+  },
+  {
+   "quantity": "G_F (sole input to v)",
+   "value_then": "1.1663788e-5 GeV^-2 pinned (higgs.py:209, labelled NAMED-NOT-READ)",
+   "value_now": "1.166 378 8(6)e-5 (PDG 2024 Table 1.1, READ, identical); 1.166 378 59(59)e-5 (Eberhart et al. 2026, READ)",
+   "source_now": "PDG 2024 Table 1.1; arXiv:2607.02657 eq.(21)",
+   "moves_conclusion": "No. v 246.219640 -> 246.219662. Nuclear eps moves -1.8e-7."
+  },
+  {
+   "quantity": "v scheme (on-shell tree against MS-bar)",
+   "value_then": "246.219640 GeV (tree / G_mu)",
+   "value_now": "246.60109 GeV, tadpole-free MS-bar at Q0 = 173.1 GeV (arXiv:1907.02500v5 eq.1.10-1.11, on-disk capture)",
+   "source_now": "arXiv:1907.02500",
+   "moves_conclusion": "No verdict. v^2-carrying figures move by 3.1e-3, a scheme choice rather than a datum."
+  },
+  {
+   "quantity": "m_e in the probe ceiling (m_e/m_h)^2",
+   "value_then": "0.51099895000 MeV (CODATA 2018, address.py:424)",
+   "value_now": "0.51099895069 MeV (PDG 2026 = CODATA 2022)",
+   "source_now": "PDG 2026 data file (sibling pdg-2026-capture)",
+   "moves_conclusion": "No. The ceiling moves by < 3e-9."
+  },
+  {
+   "quantity": "Gamma_H (a complex pole shifts the static range)",
+   "value_then": "not used by address.py",
+   "value_now": "3.0 +1.5 -0.7 MeV (RPP 2026, model-dependent)",
+   "source_now": "RPP 2026 p.8",
+   "moves_conclusion": "No. Re sqrt(M^2 - iMΓ)/M - 1 = 7.2e-11."
+  },
+  {
+   "quantity": "Higgs trilinear κ_λ (shape of V beyond the quadratic term)",
+   "value_then": "SM value assumed (κ_λ = 1)",
+   "value_now": "-1.2 < κ_λ < 7.5 (CMS, as quoted by arXiv:2503.11548 p.2, on-disk capture; the CMS paper itself NAMED-NOT-READ)",
+   "source_now": "arXiv:2503.11548",
+   "moves_conclusion": "Not for this key. The linear source law and lambda_h use only m_h^2. The eps^2(2+eps)^2 cost at eps ~ 1 is shape-dependent, and it belongs to the keys sm-higgs-potential-tree and potential-exact-linear-cost."
+  }
+ ],
+ "rederivation": {
+  "method": "sympy",
+  "script_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/pdg-higgs-mass-vev.py",
+  "outcome": "ALL CHECKS PASS, exit 0 (output: rederive/pdg-higgs-mass-vev.out; the owner's own run is saved as rederive/pdg-higgs-mass-vev.address.out; git status of research/ is clean before and after). (A) Every quoted source string is found in the on-disk captures (PDG 2026 125.13 ± 0.11 with S 1.5, chi2 6.9 and CL 0.075; PDG 2024 125.20; G_F 1.166 378 8(6); v = 246.22; 'at tree level'; Eberhart 1.166 378 59(59); the width assumption). (B, sympy) V''(v) = 2λv^2; depth λv^4/4; 8|V_min| = v^2 m_h^2; PDG M_H = λ_PDG v with λ_PDG^2 = 2λ; offset-free cost eps^2(2+eps)^2; static uniform eps = -rho_H/(v^2 m_h^2); the Yukawa exterior eps0 (r0/r) e^{-(r-r0)/ell} solves the massive Laplace equation. (C) The RPP 2026 average reproduced: 125.1309, S 1.518, scaled error 0.1117, chi2 6.92, CL 0.075. Without SIRUNYAN 20L it is 125.074. (D) Recomputed from READ inputs and exact SI constants: v 246.219640, λ 0.129136053130, |V_min| 1.186529e8 GeV^4 = 2.474168e45 J/m^3, lambda_h 1.576976e-18 m, (m_e/m_h)^2 1.667697e-11. The owner agrees to 2e-9; the residual is ladder.HBAR's CODATA rounding. (E) Of twelve m_h-carrying docstring figures, six match the READ m_h and six are the withdrawn-pin roundings. The owner's printed run values (nuclear eps -3.2672e-13, probe eps 1.7989e-5, courier 8.1904e11) are reproduced. (F) Margins: v^2 m_h^2 would need x398 (H1) or x114 (H2) to undo 'nuclear matter is over threshold'. The domination limit sqrt(rho)/((1/m) ln rho) -> oo holds for every m_h > 0 (sympy limit). The width's effect on the range is 7e-11.",
+  "agrees_with_source": "yes"
+ },
+ "later_literature": [
+  {
+   "ref": "CMS, arXiv:2409.13663 (PRD 111 (2025) 092014), HAYRAPETYAN 25L",
+   "effect": "confirms",
+   "what": "'the most precise single measurement of the Higgs boson mass to date, 125.04 ± 0.12 GeV' (125.04 ± 0.11 stat ± 0.05 syst). This is the new input that moved the PDG average from 125.20 to 125.13.",
+   "read_status": "READ (abstract and p.~12, on-disk alphaXiv capture 2409.13663v1.txt; live discover_papers quota-exceeded this stage)"
+  },
+  {
+   "ref": "ATLAS, arXiv:2308.04775 (PRL 131 (2023) 251802), AAD 23BP",
+   "effect": "confirms",
+   "what": "Run 1+2 125.11 ± 0.11 GeV; Run 2 125.10 ± 0.11 GeV, the value PDG averages.",
+   "read_status": "READ (abstract and combination table, on-disk capture 2308.04775v2.txt)"
+  },
+  {
+   "ref": "Eberhart et al., 'Muon lifetime and Fermi constant: an update', arXiv:2607.02657 (2026)",
+   "effect": "confirms",
+   "what": "G_F = 1.166 378 59(59)e-5 GeV^-2, 0.18 ppm below the pin. v moves 9e-8.",
+   "read_status": "READ (eq.21, on-disk capture)"
+  },
+  {
+   "ref": "Martin & Robertson, arXiv:1907.02500v5 (2019, rev. 2025)",
+   "effect": "narrows",
+   "what": "'G_F = 1/(sqrt2 v^2) at tree-level. Including radiative corrections ...'. The MS-bar v(Q0 = 173.1 GeV) = 246.60109 GeV and λ(Q0) = 0.12603842. Higgs 'pole mass' Q-dependence 'of order several tens of' MeV at fixed order. The tree identification of v and λ with (G_F, M_h) is the LO/on-shell statement.",
+   "read_status": "READ (eqs.1.10-1.11, sec. IV, on-disk capture)"
+  },
+  {
+   "ref": "Buttazzo et al., arXiv:1307.3536v4 (JHEP 12 (2013) 089)",
+   "effect": "narrows",
+   "what": "Table 2 treats M_h as the 'Pole mass of the higgs'. The couplings λ, y_t, g_2 are extracted at NNLO from pole masses, and λ(M_t) moves from 0.12917 (LO) to 0.12604 (NNLO). The tree curvature and the measured pole mass coincide only at LO.",
+   "read_status": "READ (pp.2-8 via on-disk capture 1307.3536v4.txt)"
+  },
+  {
+   "ref": "Moffat, arXiv:2503.11548 (2025), quoting CMS PLB 861 (2025) 139210",
+   "effect": "narrows",
+   "what": "-1.2 < κ_λ < +7.5. 'λ_3 can be a free parameter not necessarily tied to the Higgs particle mass.' The SM shape of V beyond m_h^2 is unmeasured. That does not reach this key's linear-response uses. It does reach the eps ~ 1 cost, which is audited under sm-higgs-potential-tree.",
+   "read_status": "READ (pp.2-3, on-disk capture); the CMS paper NAMED-NOT-READ"
+  },
+  {
+   "ref": "discover_papers (one call, this stage)",
+   "effect": "extends",
+   "what": "Returned 'alphaXiv assistant quota exceeded'. No new literature was discovered this stage. The entries above are the on-disk captures already read today.",
+   "read_status": "NAMED-NOT-READ (tool refused)"
+  }
+ ],
+ "lacked_data": "M's hypothesis, tested for this result. The tree's first m_h (125.20, RPP 2024) lacked the CMS Run 2 4l measurement 125.04 ± 0.12 (2409.13663). With it, RPP 2026 moves to 125.13, and the tree already switched to that value (DOCKET 63 F2). Having the newer datum moves lambda_h by 5.6e-4 and m_h^2 figures by 1.1e-3, and moves no conclusion. The data themselves remain in tension (S = 1.5, CL 0.075, driven by SIRUNYAN 20L). Dropping that input moves m_h^2 by a further 8.9e-4, which is also inert. G_F: the 2026 update (Eberhart et al.) supplies the O(alpha^3) QED and hadronic terms the 2013 extraction lacked, and moves v by 9e-8. What is still lacking is not a measurement of m_h but two things the tree's use needs. (i) The Higgs self-coupling: κ_λ is known only to (-1.2, 7.5), which is irrelevant to the linear eps law and lambda_h but not to the eps ~ 1 cost. (ii) A loop-level relation between the measured pole mass and the zero-momentum curvature that sets the uniform static response. That is theory, not data, and it is not computed here. Evidence against its mattering: no verdict moves unless v^2 m_h^2 changes by a factor 114 (computed), and the domination theorem holds for every m_h > 0 (sympy limit). Evidence for: none found. Net: the missing data do not change this result's conclusions.",
+ "grade": "NARROWED",
+ "grade_evidence": "The MEASUREMENT STANDS. m_h = 125.13 ± 0.11 GeV is READ in RPP 2026 and re-derived from its four inputs (125.1309, S 1.518, chi2 6.92, CL 0.075). G_F = 1.1663788e-5 is READ identically in PDG 2024 Table 1.1. v = 246.219640 reproduces PDG's '246.22'. λ = 0.129136 is PDG's λ_PDG^2/2 under the stated normalisation. |V_min| = 2.474168e45 J/m^3 and lambda_h = 1.576976e-18 m are reproduced from exact SI constants to 2e-9. No moved datum moves a conclusion, each computed: 125.20 -> 125.13 at 1.1e-3, the ±0.11 band at 1.8e-3, the outlier-drop at 8.9e-4, G_F 2026 at 1.8e-7, m_e CODATA 2022 at 3e-9, the width at 7e-11, the MS-bar v at 3.1e-3. The USE is narrowed by one hypothesis the owner drops. PDG attaches 'at tree level' to M_H = λ v and M_W = g v/2 (eq.10.5). address.py calls its source law eps = -rho_H c^2/(v^2 m_h^2) 'EXACT' (address.py:137-141) and uses the measured pole mass as the tree curvature for the range (address.py:163, 687-689), and it imports v = (sqrt2 G_F)^(-1/2) with no scheme (address.py:414, higgs.py:262-264). The algebraic identity 8|V_min| = v^2 m_h^2 is exact (sympy). The physical law is a tree-level/on-shell statement. The size of the loop-level difference is not computed here, and the margin is: x114 in v^2 m_h^2 before any verdict moves. Not WRONG: no counterexample exists and every formula is exact at tree level. Not DATA-DEPENDENT: no moved or contested datum moves a conclusion. Recorded, not repaired: six docstring roundings still carry the withdrawn 125.20 (address.py:163, 192 x2, 234, 263/351, 264); the capture drops the ±0.11 and the S = 1.5; LAMBDA_QUARTIC is imported unused; two status words are under-claimed (G_F and the 125.20 pin are READABLE and READ here, but labelled NAMED-NOT-READ).",
+ "what_would_change_the_grade": "-> STANDS if address.py named the tree-level/on-shell hypothesis at the source law and the range (as it does for the mass relations in section 1), or if a READ loop-level computation showed the zero-momentum curvature equals the pole mass squared to within the tree's printed precision. -> DATA-DEPENDENT only if v^2 m_h^2 moved by a factor of order 10^2 (m_h > 1.3 TeV), which no datum or scheme in reach does. -> WRONG only by a shown counterexample to a stated tree identity, and sympy finds none. The docstring roundings are discrepancies and cannot by themselves change the grade.",
+ "reverify_command": "PYTHONDONTWRITEBYTECODE=1 python3 /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/pdg-higgs-mass-vev.py && cd /home/user/Claude-Method-Works/research/warp-drive && PYTHONDONTWRITEBYTECODE=1 python3 address.py --selftest | tail -1 && grep -n '1\\.5761e-18\\|3\\.26e-13\\|7\\.28e-14\\|1\\.6658e-11\\|8\\.20e11\\|1\\.63e8\\|LAMBDA_QUARTIC' address.py",
+ "report_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/audits/pdg-higgs-mass-vev.json"
+}

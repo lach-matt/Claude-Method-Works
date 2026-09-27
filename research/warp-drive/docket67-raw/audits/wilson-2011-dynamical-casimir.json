@@ -1,0 +1,85 @@
+{
+ "key": "wilson-2011-dynamical-casimir",
+ "name": "Wilson, Johansson, Pourkabirian, Johansson, Duty, Nori, Delsing (2011), 'Observation of the Dynamical Casimir Effect in a Superconducting Circuit', arXiv:1105.4714 / Nature 479, 376 (2011) -- used by the tree as 'DCE is real and observed' (warpfolder.py) and 'DYNAMICAL CASIMIR MEASURED (Wilson 2011, superconducting circuit)' in the census of known negative energy density (achievable.py)",
+ "source": {
+  "located": "arXiv:1105.4714v1, submitted 24 May 2011 (per WebSearch listing of arxiv.org/abs/1105.4714v1); Nature 479, 376-379 (2011) per ADS bibcode 2011Natur.479..376W in the same search listing. Authors per that listing: C.M. Wilson, G. Johansson, A. Pourkabirian, J.R. Johansson, T. Duty, F. Nori, P. Delsing.",
+  "read_status": "NAMED-NOT-READ",
+  "via": "NOT READ AT SOURCE. alphaXiv answer_pdf_queries (x3, by id and by title), get_paper_content(fullText) and discover_papers all returned 'alphaXiv assistant quota exceeded'. Direct fetch refused by the egress proxy (403 CONNECT) for arxiv.org, export.arxiv.org, alphaxiv.org, nature.com, inspirehep.net, api.semanticscholar.org, openalex, core.ac.uk, europepmc, web.archive.org, research.chalmers.se. The ONLY text obtained is a WebSearch tool result, which returned the title, author list, date and the OPENING of the abstract (the paragraph ending '40 years ago, Moore suggested that a mirror undergoing relativistic motion could convert virtual photons into directly observable real photons.'). The abstract sentences stating what was observed were NOT returned. Search-engine summaries also carried unattributed setup figures (SQUID-terminated coplanar waveguide, ~11 GHz modulation, 'a few percent' / '10%' of the speed of light, two-mode squeezing) -- these are NOT attributed to the paper here and are not used as read."
+ },
+ "published_statement": "Title (read via WebSearch listing): 'Observation of the Dynamical Casimir Effect in a Superconducting Circuit'. Abstract opening (WebSearch-returned, verbatim): 'One of the most surprising predictions of modern quantum theory is that the vacuum of space is not empty. ... 40 years ago, Moore suggested that a mirror undergoing relativistic motion could convert virtual photons into directly observable real photons.' The operative claim sentences (what was measured, at what significance, with which signatures) were NOT read and are not quoted.",
+ "published_hypotheses": [
+  "NOT READ AT SOURCE -- the hypotheses below are what must be checked on reading, not what the paper was seen to state:",
+  "(H1, from the title and returned abstract opening) the observed quantity is conversion of vacuum fluctuations into REAL PHOTONS by a moving boundary (Moore 1970 scenario) -- i.e. a photon-generation observable, not an energy-density observable",
+  "(H2, from the title) the boundary is realised in a superconducting circuit -- an effective (electrical) boundary, whose 'velocity' is referred to the circuit's propagation speed, not a material mirror in vacuum (unread: exact definition of v_eff)",
+  "(H3, unread) the input state is the vacuum at the operating temperature, with thermal photon occupation small enough that parametric amplification of thermal noise is excluded as the origin of the signal",
+  "(H4, unread) the interpretation of correlations / squeezing as the quantum signature of the process"
+ ],
+ "hypothesis_drift": [
+  "ADDED (placement) -- achievable.py:28-33: DCE is entered under the heading 'THE CENSUS OF KNOWN NEGATIVE ENERGY DENSITY -- Everything real, and what bounds it' with status 'MEASURED (Wilson 2011, superconducting circuit)'. What the source's title and returned abstract opening name is photon generation from vacuum (H1); nothing READ here says Wilson 2011 measured, or claimed, a negative energy density. The census row therefore adds a hypothesis ('the DCE output is a measured negative-energy-density source') that the source, as far as it was read, does not carry. Recorded as a discrepancy of placement, PLAUSIBLE, to be settled on reading the full paper; NOT a refutation of the row, since the owner's word 'MEASURED' literally attaches to 'DYNAMICAL CASIMIR', which the title does state as observed.",
+  "ADDED (context, not an owner of this key) -- frequency.py:22-24 and paper/CLAIMS.md:5495-5496 say DCE output is 'squeezed vacuum, which carries regions of NEGATIVE energy density', citing arXiv:2504.11361, not Wilson; README.md:2835 and paper/CLAIMS.md:669 repeat 'measured -- Wilson 2011'. The combination reads as 'Wilson measured a negative-energy source'; no source read here carries that conjunction.",
+  "DROPPED -- achievable.py:33 and README.md:2835 omit that the boundary is an EFFECTIVE circuit boundary (H2) and that the observable is emitted photon flux and correlations (H1). Harmless for 'DCE observed'; load-bearing for any use as a negative-energy source.",
+  "HEDGE CORRECTLY KEPT -- warpfolder.py:153-156 states 'DCE is real and observed; that it gives a usable STATIC negative density in this geometry is the unestablished step' and files the shear-gap claim NOT-ADJUDICATED (warpfolder.py:252-256). The re-derivation below supports the hedge from the side of theory: in the closed-form 1+1D moving-mirror model the instantaneous flux goes negative but the total emitted energy is non-negative for any motion that starts and ends inertial.",
+  "NOT A DRIFT, NOTED -- warpfolder.py's statements_as_used hypothesis 'observation of DCE (e.g. Wilson et al. 2011) -- not cited by owner': warpfolder.py itself does not name Wilson; the attribution is the canonical entry's, merged from dynamic-casimir-effect-observed."
+ ],
+ "data_at_publication": [
+  {
+   "quantity": "drive (pump) frequency of the observation",
+   "value_then": "NOT READ at source; unattributed web-search summary says ~11 GHz",
+   "value_now": "no later re-measurement of this device relevant here; tree carries DCE_DRIVEN_AT_HZ = 1e9 (frequency.py:154, 'the gigahertz')",
+   "source_now": "frequency.py:154 (tree); WebSearch summary (unattributed, not read)",
+   "moves_conclusion": "NO for this key. For frequency.py's context figure only: f_crit/f_drive = 5.871e33 at 1 GHz vs 5.337e32 at 11 GHz -- 1.04 decades, computed in the rederive script; the qualitative gap (32-34 decades) is unmoved. The printed 5.87e33 is an order-of-magnitude figure against 'the gigahertz', not a quotation of Wilson's pump."
+  },
+  {
+   "quantity": "effective boundary velocity v_eff/c",
+   "value_then": "NOT READ; web summaries disagree ('a few percent' vs '10%'), unattributed",
+   "value_now": "not re-measured here",
+   "source_now": "none read",
+   "moves_conclusion": "NO -- the tree uses no velocity from Wilson."
+  },
+  {
+   "quantity": "any energy-density datum",
+   "value_then": "none seen in what was read (title + abstract opening)",
+   "value_now": "none",
+   "source_now": "n/a",
+   "moves_conclusion": "Would move the census placement (achievable.py:28-33) if the full paper also carries none -- see hypothesis_drift."
+  }
+ ],
+ "rederivation": {
+  "method": "sympy",
+  "script_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/wilson-2011-dynamical-casimir.py",
+  "outcome": "ALL PASS. The measurement itself is not re-derivable by a script and was not read. What was machine-checked is the closed form bearing on the step warpfolder.py files NOT-ADJUDICATED: (A) sympy proves the exact identity F = (1/48pi)(p''/p')^2 - (1/24pi) d/du(p''/p') for the 1+1D Fulling-Davies moving-mirror flux F = (1/24pi)[(3/2)(p''/p')^2 - p'''/p'] (hbar=c=1; the flux FORMULA is recalled, not read this pass; the identity is proved). Hence for any motion beginning and ending inertial, total emitted energy = (1/48pi) Int (p''/p')^2 du >= 0. (B) numeric, oscillating burst p = u + 0.05 sin(3u) exp(-u^2/16), p' >= 0.859: min F = -2.041e-2 (negative on 50.0% of the grid), total = +3.549451e-3, equal to the closed form to 10 digits; negative part Int min(F,0) = -4.157e-2, 11.7 times the net. So in the canonical model the DCE's negative flux is real and transient and is always over-compensated in total -- it is not a static negative density. (C) tree's frequency gap moves 1.04 decades between 1 GHz and 11 GHz; verdict unmoved.",
+  "agrees_with_source": "not-run"
+ },
+ "later_literature": [
+  {
+   "ref": "Lahteenmaki, Paraoanu, Hassel, Hakonen, 'Dynamical Casimir effect in a Josephson metamaterial', PNAS 110, 4234 (2013), doi:10.1073/pnas.1212705110",
+   "effect": "confirms",
+   "what": "An independent superconducting-circuit DCE observation (Josephson metamaterial) -- title and venue seen in a WebSearch listing only",
+   "read_status": "NAMED-NOT-READ (title/venue from WebSearch listing)"
+  },
+  {
+   "ref": "Johansson, Johansson, Wilson, Nori, 'The dynamical Casimir effect in a superconducting coplanar waveguide', arXiv:0906.3127 / PRL 103, 147003 (2009)",
+   "effect": "extends",
+   "what": "The theory proposal the experiment implements (SQUID-terminated CPW as a tunable boundary). Title/venue from WebSearch listing.",
+   "read_status": "NAMED-NOT-READ"
+  },
+  {
+   "ref": "arXiv:2504.11361, 'Dynamical Casimir effect in superconducting cavities: from photon generation to universal quantum gates'",
+   "effect": "extends",
+   "what": "Later circuit-QED DCE work; the tree's own frequency.py:136 records it as verified in an earlier session",
+   "read_status": "NAMED-NOT-READ this pass (tree claims an earlier read)"
+  },
+  {
+   "ref": "discover_papers call for narrowing/contradicting work",
+   "effect": "contested",
+   "what": "NOT RUN -- alphaXiv quota exceeded. No narrowing or contradicting later literature was found OR excluded; absence of a hit is not evidence of absence.",
+   "read_status": "NOT-RUN"
+  }
+ ],
+ "lacked_data": "M's hypothesis tested for THIS result: the relevant question is not whether Wilson et al. lacked data (their claim is an observation; whether it survives is a matter of reading their controls -- H3 thermal-noise exclusion, H4 correlation signature -- which could not be read here). Evidence either way: FOR the observation standing -- an independent group reports a DCE observation in a different superconducting architecture (Lahteenmaki et al. PNAS 2013, title only). AGAINST -- nothing found, but the discover_papers search could not be run, so nothing is excluded. What does move is the TREE's use, not the paper: the data the tree lacks is any measured energy density from a DCE device. The canonical theory (re-derived here, 1+1D moving mirror) says the negative part of the flux is transient and its total is positive, which supports warpfolder.py's hedge and weighs against reading the achievable.py census row as a measured negative-energy-density source. Having the full paper would change the grade (to STANDS for 'DCE observed', and settle whether the census placement is a NARROWING), not the tree's refusal: achievable.py's NO does not rest on this row.",
+ "grade": "OPEN",
+ "grade_evidence": "The source could not be read at source this pass: every alphaXiv tool returned 'quota exceeded' (5 calls) and the egress proxy refused arxiv.org and ten mirror/metadata hosts. Only the title, author list, date and the opening of the abstract were obtained, via a WebSearch listing -- enough to confirm that the paper exists, is by those authors, is dated 24 May 2011, and is titled as an OBSERVATION of the dynamical Casimir effect; not enough to quote its claim, hypotheses, controls or numbers. By M's rule a claim that cannot be checked here is OPEN, never flattened to STANDS. Recorded alongside the grade, and not flattened into it: (i) a placement discrepancy, PLAUSIBLE -- achievable.py:28-33 lists DCE as MEASURED in a census of known NEGATIVE ENERGY DENSITY, while the read portions of the source name a photon-generation observable; (ii) a machine-checked closed form (sympy identity + numeric burst, ALL PASS) showing that in the 1+1D moving-mirror model the negative flux is transient and the total emitted energy is >= 0, which supports warpfolder.py:153-156's NOT-ADJUDICATED hedge. Neither is a finding against Wilson et al.",
+ "what_would_change_the_grade": "Reading arXiv:1105.4714 at source (alphaXiv quota reset, or any allowed mirror): if the paper states observation of DCE photon generation with thermal-noise exclusion and correlation signature, 'DCE is real and observed' (warpfolder.py:155) grades STANDS; if it reports no energy-density measurement or claim, the achievable.py:28-33 census row grades NARROWED (DCE is a measured effect, not a measured negative-energy-density source). A later paper reinterpreting the signal as non-vacuum (e.g. amplified thermal or pump leakage) would move it toward DATA-DEPENDENT or WRONG, and none was found or excluded.",
+ "reverify_command": "python3 /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/wilson-2011-dynamical-casimir.py   # and re-read at source: answer_pdf_queries(paper='1105.4714', queries=[abstract claim, pump frequency, v_eff, temperature/thermal occupation, signatures, alternative explanations, energy density])",
+ "report_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/audits/wilson-2011-dynamical-casimir.json"
+}

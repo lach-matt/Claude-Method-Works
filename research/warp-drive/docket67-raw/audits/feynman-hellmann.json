@@ -1,0 +1,112 @@
+{
+ "key": "feynman-hellmann",
+ "name": "Feynman-Hellmann theorem (sigma term = quark-mass part of nucleon mass)",
+ "source": {
+  "located": "Primary: H. Hellmann, Einfuehrung in die Quantenchemie (1937); R.P. Feynman, 'Forces in molecules', Phys. Rev. 56, 340 (1939) -- no arXiv copy of either. QCD form as the tree uses it: FLAG Review 2024, Y. Aoki et al., arXiv:2411.04268v3, Sec. 10.4.4, Eqs. (431)-(433),(446): sigma_q = m_q <N|qbar q|N> = m_q dM_N/dm_q; p.261: 'The sigma_piN,s,c give the shift in M_N due to nonzero light-, strange- and charm-quark masses.'",
+  "read_status": "READ-VIA-RESTATEMENT",
+  "via": "NOT opened in this stage: alphaXiv answer_pdf_queries (x3, on 2411.04268 and by title), get_paper_content(2411.04268, fullText) and discover_papers all returned 'alphaXiv assistant quota exceeded' (2026-09-26); export.arxiv.org, en.wikipedia.org, semanticscholar.org refused by the egress proxy (CONNECT 403, curl probe in this stage). The QCD restatement is taken from two transcriptions of FLAG 2024 pp.260-275: (i) sibling DOCKET 67 audit audits/sigma-term-scan.json, which READ 2411.04268 at source via alphaXiv in this docket and records 'sigma_q = m_q <N|qq|N> = m_q dM_N/dm_q (Feynman-Hellmann, eqs.(431)-(433),(446))'; (ii) the tree's own held quote massform.py:1349-1350 / :1498-1499 (FLAG-def). Hellmann 1937 and Feynman 1939 are NAMED-NOT-READ. The theorem's content, being finite-dimensional spectral calculus, is MACHINE-CHECKED here (rederive/feynman-hellmann.py T1-T3) rather than taken on the restatement."
+ },
+ "published_statement": "Feynman-Hellmann (textbook form, re-derived here, T1-T2): for a Hermitian H(lambda) with a normalized eigenstate |psi(lambda)> of a non-degenerate (isolated) eigenvalue E(lambda), dE/dlambda = <psi| dH/dlambda |psi>. QCD form (FLAG 2024 Eqs.(431)-(433),(446), as transcribed by sibling audit sigma-term-scan and massform.py): sigma_q = m_q <N|qbar q|N> = m_q dM_N/dm_q, sigma_piN = m_ud <N|uu+dd|N>; 'The sigma_piN,s,c give the shift in M_N due to nonzero light-, strange- and charm-quark masses' (p.261); isospin limit defined with the neutral pion.",
+ "published_hypotheses": [
+  "FH-1 H(lambda) Hermitian (self-adjoint) and differentiable in the parameter; for QCD, lambda = m_q enters linearly through m_q qbar q, so dH/dm_q = integral qbar q.",
+  "FH-2 the state is a normalized eigenstate of an ISOLATED, non-degenerate eigenvalue (the nucleon pole lies below the N-pi threshold); at a level crossing the ordered eigenvalue is not differentiable (T3).",
+  "FH-3 it is a DERIVATIVE at the point: a first-order (linear) response, not the finite change M_N(m_q) - M_N(m_q = 0).",
+  "FH-4 (QFT) everything else held fixed in the derivative: the other quark masses and the QCD scale / bare coupling (lattice: fixed lattice spacing of the N_f theory simulated); vacuum matrix element subtracted; m_q qbar q renormalization-group invariant, so sigma_q is scheme-independent.",
+  "FH-5 (FLAG) QCD only, isospin limit (neutral pion), N_f = 2+1 or 2+1+1 sea; the numerical sigma values carry FLAG's quality criteria and the named excited-state caveat."
+ ],
+ "hypothesis_drift": [
+  "WEAKENED (local wording, not global): massform.py:1790-1793 sigma_fraction's docstring calls (sigma_piN + sigma_s [+ sigma_c])/m_N 'the Feynman-Hellmann quark-mass part' without 'first-order'; FH gives a derivative (FH-3), not a part of the mass. The qualifier is restored globally by H-LINEAR (massform.py:764-766) and at :128-136, :322-327, :358, so no verdict is affected; a discrepancy of wording, recorded.",
+  "UNSPECIFIED (FH-4): H-LINEAR (massform.py:764-766, 136, 325-326) says 'with the QCD scale held fixed' without naming WHICH scale. With Lambda_3 fixed the first-order response of M_N to phi is f_l (the tree's 9.28 % / 10.85 % rows); with the UV (6-flavour) scale fixed -- what a displacement of phi does if the high-scale coupling is untouched -- the heavy-quark thresholds move at FIRST order too, Lambda_3 = Lambda_6^(7/9)(m_c m_b m_t)^(2/27) (T5a), and dlnM_N/dlnv = 2/9 + (7/9) f_l = 0.2944 / 0.3066 (T5b). The tree names the threshold motion only for the FINITE counterfactual (massform.py:770-773, 373-376) and labels the heavy-quark terms 'CONTESTED as mass' (massform.py:343-347, 1858-1866); under H-LINEAR's own definition (first-order response to quark masses proportional to phi) at fixed UV scale they are part of the first-order response, not an extra. The tree does print them (six-quark coupling rows) and includes them in HIGGS_SHARE_LARGEST_ALL = 0.3090, so the half-verdict is untouched.",
+  "INCOMPLETE ROW SET (not a drift of FH, recorded): combining the tree's own READ ETM 19 sigma_c = 107 MeV (massform.py:1461) with SVZ for b and t through Lambda_4 = Lambda_6^(21/25)(m_b m_t)^(2/25) gives a first-order dlnM_N/dlnv of 0.3469 (T7b), above the tree's 'largest central reading of all rows' 0.3090 (massform.py:1914-1916; the ETM 19 row at :1859-1862 adds sigma_c but no b, t response). Still below 1/2; with FLAG 2+1+1 and ETM 19 each moved up 3 sigma linearly, 0.4470 + electrons 0.0003 (T7b-c). A discrepancy of completeness, not a refutation.",
+  "DROPPED BUT SATISFIED: FH-2 (isolated non-degenerate level) is not stated by the tree; the nucleon is the lowest state in its channel, below N-pi threshold, so it holds.",
+  "DROPPED, NEGLIGIBLE: FH-5 isospin limit / QCD-only: the tree divides by m_N = (m_p + m_n)/2 = 938.919 MeV (massform.py:1029), which includes electromagnetic and m_u != m_d effects of order 1 MeV (~0.1 %); f_l moves in the fourth significant figure at most."
+ ],
+ "data_at_publication": [
+  {
+   "quantity": "Feynman-Hellmann theorem itself",
+   "value_then": "none -- a theorem of spectral perturbation theory (1937/1939); no datum enters",
+   "value_now": "none",
+   "source_now": "rederive/feynman-hellmann.py T1-T3 (machine-checked)",
+   "moves_conclusion": "no -- nothing to move"
+  },
+  {
+   "quantity": "sigma_piN (lattice FLAG 2024)",
+   "value_then": "60.9(6.5) MeV N_f=2+1+1; 42.2(2.4) MeV N_f=2+1 (massform.py:1456-1457)",
+   "value_now": "same (FLAG 2024 is the latest edition seen; no later FLAG checked -- alphaXiv refused); phenomenology 59.1(3.5) (Hoferichter 2015), ~56 after isospin correction (Barca-Bali-Collins 2412.13138 p.1), O(p^5) BChPT from N_f=2+1 lattice 55.9(2.5) (Liang et al. 2508.11435 as restated in 2609.05989) -- all as READ by sibling audit sigma-term-scan",
+   "source_now": "audits/sigma-term-scan.json (READ at source in this docket)",
+   "moves_conclusion": "no -- f_l spans 0.0770 (Mainz 23 43.7+28.6) to 0.1108 (59.1+44.9) (T7e); fixed-Lambda_6 response 0.282-0.308; a first-order share of 1/2 needs sigma_ud+sigma_s >= 469 MeV (Lambda_3 fixed) or >= 335 MeV (Lambda_6 fixed, SVZ) (T7d). CONTESTED (2.7 sigma lattice split) but the contest does not reach the verdict."
+  },
+  {
+   "quantity": "sigma_s",
+   "value_then": "41.0(8.8) MeV 2+1+1; 44.9(6.4) MeV 2+1 (massform.py:1458-1459)",
+   "value_now": "same; Mainz 23 28.6(9.3); Hoferichter-Ruiz de Elvira 2506.23902 ~43 MeV (via siblings)",
+   "source_now": "audits/sigma-term-scan.json; audits/qcd-trace-anomaly-nucleon-mass.json",
+   "moves_conclusion": "no (T7e)"
+  },
+  {
+   "quantity": "sigma_c",
+   "value_then": "ETM 19 107(22) MeV; RQCD 16 70(4) MeV (massform.py:1461, :1339-1343)",
+   "value_now": "same as held; sibling audit 2411.04268-sigma_c is OPEN (not re-read); LO SVZ at the tree's f_l gives ~62 MeV",
+   "source_now": "audits/svz-1978.json, audits/2411.04268-sigma_c.json",
+   "moves_conclusion": "moves the largest first-order figure from 0.309 to 0.347 (Lambda_4 route, T7b) but not across 1/2, even at +3 sigma (0.447)"
+  },
+  {
+   "quantity": "m_N = (m_p + m_n)/2",
+   "value_then": "938.9188 MeV from the capture (massform.py:1029)",
+   "value_now": "unchanged at this precision (PDG, NAMED-NOT-READ here)",
+   "source_now": "massform.MASS_MEV (read by import)",
+   "moves_conclusion": "no"
+  },
+  {
+   "quantity": "heavy-quark matching beyond LO",
+   "value_then": "LO SVZ 2/27 per quark (the tree's coupling_sum)",
+   "value_now": "Hill-Solon 1409.8290: +9 % (c), +5 % (b), +2 % (t) at higher order in alpha_s (via sibling svz-1978)",
+   "source_now": "audits/svz-1978.json",
+   "moves_conclusion": "no -- raises 2/9 by ~5 %, fixed-Lambda_6 response ~0.31"
+  }
+ ],
+ "rederivation": {
+  "method": "sympy",
+  "script_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/feynman-hellmann.py",
+  "outcome": "ALL PASS (13 checks). T1 FH exact for the general real-symmetric 2x2 (simplify -> 0). T2 FH numeric, random 6x6 Hermitian, 30-digit mpmath: dE/dlam = <V> = -0.550977691575218391. T3 non-degeneracy is load-bearing: at a crossing the ordered ground eigenvalue has left/right derivatives +1/-1. T4 Euler identity sum m dM/dm + Lam dM/dLam = M for M = Lam F(m/Lam): at fixed Lam the first-order quark-mass response is sum sigma/M and the remainder 1 - f is the scale response ('at first order the rest is QCD' holds exactly in this sense). T5 LO decoupling Lam3 = Lam6^(7/9)(m_c m_b m_t)^(2/27); fixed-Lam6 response 2/9 + (7/9) f_l and per heavy quark (2/27)(1 - f_l), agreeing exactly (Fraction) with massform.coupling_sum and svz_heavy_sum: 0.2944 (FLAG 2+1), 0.3066 (2+1+1). T6 first order != finite: for M = M0 + A m + B m^(3/2), sigma - DeltaM = B m^(3/2)/2 (illustration only: the O(p^3) m_pi^3 term, coefficient NAMED-NOT-READ, is -15.06 MeV, i.e. ~7.5 MeV between sigma_piN and the finite light-quark shift at that order) -- supports the tree's OPEN on the finite share. T7 the tree's f_l = 0.09277 / 0.10853 reproduced; ETM 19 charm via Lam4 route 0.3469 central, 0.4470 at +3 sigma; every first-order reading < 1/2.",
+  "agrees_with_source": "yes"
+ },
+ "later_literature": [
+  {
+   "ref": "FLAG Review 2024, arXiv:2411.04268 (PRD 113, 014508, 2026), Sec. 10.4.4",
+   "effect": "confirms",
+   "what": "Uses FH as the definition sigma_q = m_q dM_N/dm_q and reads sigma_piN,s,c as 'the shift in M_N due to nonzero' quark masses; the lattice sigma_piN averages are 2.7 sigma apart (contested datum, not a contest of the theorem).",
+   "read_status": "READ at source by sibling audit sigma-term-scan in this docket; not re-opened here (alphaXiv quota)"
+  },
+  {
+   "ref": "Hill & Solon, arXiv:1409.8290 (PRD 91, 043505, 2015)",
+   "effect": "narrows",
+   "what": "Heavy-quark scalar matrix elements beyond LO: SVZ's 2/27 is the O(alpha_s^0) term, corrections +9/+5/+2 % for c/b/t; narrows 'exact' to 'LO' for the fixed-Lambda_6 first-order response the tree prints as coupling_sum.",
+   "read_status": "READ at source by sibling audit dlnlambdaqcd-dlnv-2-9 (as recorded in audits/svz-1978.json); not re-opened here"
+  },
+  {
+   "ref": "Hoferichter & Ruiz de Elvira, arXiv:2506.23902 (2025)",
+   "effect": "extends",
+   "what": "With n_f = 6 counting, heavy-quark sigma terms 68+65+63 = 196 MeV (~21 % of m_N) and light+strange 69+43 MeV: the first-order quark-mass response at fixed UV scale is ~0.33 of m_N -- the reading T5/T7 compute, below 1/2.",
+   "read_status": "READ by sibling audit qcd-trace-anomaly-nucleon-mass in this docket; not re-opened here"
+  },
+  {
+   "ref": "Ji hep-ph/9410274 vs Metz-Pasquini-Rodini 2006.11171 / Lorce et al. 2109.11785 (via Yang 2608.01002)",
+   "effect": "contested",
+   "what": "Whether matrix elements such as <m qbar q> are 'parts' of the rest energy is decomposition-dependent and disputed; FH itself only fixes them as first-order responses. Bears on the tree's word 'part' (massform.py:1791), not on H-LINEAR.",
+   "read_status": "Ji and Yang 2608.01002 READ by sibling audit qcd-trace-anomaly-nucleon-mass; MPR/Lorce NAMED-NOT-READ"
+  },
+  {
+   "ref": "discover_papers for this key",
+   "effect": "contested",
+   "what": "The one discover_papers call made in this stage was refused ('alphaXiv assistant quota exceeded'); no new later literature was surfaced by this stage. The rows above are from sibling reads in this docket.",
+   "read_status": "NOT RUN (quota)"
+  }
+ ],
+ "lacked_data": "The theorem uses no data: it is exact spectral calculus for an isolated eigenvalue (machine-checked, T1-T3), so no datum Hellmann or Feynman lacked can change it -- evidence: T1 symbolic identity, T2 30-digit numeric agreement. What the tree adds on top is data: the sigma-term values. Those have moved and are contested (lattice N_f=2+1 42.2 vs N_f=2+1+1 60.9 vs phenomenology ~56-59 MeV; sigma_s 28.6-44.9; sigma_c 70-107). Having the newer data does NOT change the conclusion the tree draws from FH: every reading of the first-order Higgs share lies in 0.077-0.347 of the nucleon (fixed Lambda_3 lowest, fixed Lambda_6 with lattice charm highest), 0.447 in the adverse +3 sigma illustration, and 1/2 needs sigma sums of 335-469 MeV (T7d), far outside any measurement. Evidence the other way, recorded: the tree's own 'largest central reading' (0.3090) is not the largest first-order figure its READ inputs allow (0.3469, T7b), and its H-LINEAR does not name which QCD scale is fixed. Neither moves the half-verdict. The FINITE share (field switched off) is where missing information genuinely matters (T6 shows first order != finite even for u, d; thresholds move); the tree carries it as OPEN and this audit leaves it OPEN.",
+ "grade": "STANDS",
+ "grade_evidence": "Statement: FH as the tree uses it -- sum sigma_q / m_N is the FIRST-ORDER response of the nucleon mass to the quark masses at the physical point with the QCD scale fixed -- is exactly the theorem (T1, T2) plus the Euler identity for M = Lam F(m/Lam) (T4), and matches FLAG's definition sigma_q = m_q dM_N/dm_q (READ via sibling transcription). Hypotheses: first-order-only is named (H-LINEAR) and the finite share is kept OPEN, which T6 supports; the unstated isolated-level hypothesis (FH-2) holds for the nucleon; isospin/EM drift is ~0.1 %. Re-derivation agrees: the tree's f_l = 0.09277 / 0.10853 and its coupling_sum / svz_heavy_sum are reproduced exactly (T5d, T7a). Data: the sigma terms are contested and have moved, but no datum moves the conclusion (T7c-e). Recorded discrepancies, not refutations: (a) 'QCD scale' is unnamed -- with the UV scale fixed the first-order response is 2/9 + (7/9) f_l, which the tree prints but labels CONTESTED; (b) the lattice-charm first-order figure 0.3469 exceeds the tree's largest row 0.3090; (c) sigma_fraction's docstring drops 'first-order'. Source status is READ-VIA-RESTATEMENT (classics NAMED-NOT-READ; FLAG restatement read at source only by a sibling this docket); the grade rests on the machine check, not on the reading.",
+ "what_would_change_the_grade": "To NARROWED: a ruling that H-LINEAR's 'QCD scale held fixed' means the low-energy Lambda_3 while phi is displaced at fixed UV coupling -- then the tree's headline 9.28-10.85 % would be the first-order response only on that counterfactual, and the heavy-quark first-order terms (not contested as first-order responses under FH) would belong in the READ rows; the half-verdict would still stand (0.3469, T7b). To DATA-DEPENDENT: a measured sigma_ud + sigma_s above ~335 MeV (or with charm above ~380 MeV), i.e. roughly 3x any current value. To OPEN: nothing -- the theorem is machine-checked here. A re-read of FLAG 2024 Sec. 10.4.4 at source that differs from the sibling transcription would change only the source status, not the grade.",
+ "reverify_command": "python3 /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/feynman-hellmann.py   # expects 'ALL PASS', exit 0; imports /home/user/Claude-Method-Works/research/warp-drive/massform.py read-only",
+ "report_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/audits/feynman-hellmann.json"
+}

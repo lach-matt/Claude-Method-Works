@@ -1,0 +1,110 @@
+{
+ "key": "gklm-eq38",
+ "name": "GKLM eq. (38): Delta c/c = gamma - 1 (graviton speed shift on a moving brane), with bulk-dof hedge",
+ "source": {
+  "located": "Greene, Kabat, Levin, Menon, 'Superluminal Propagation on a Moving Braneworld', arXiv:2206.13590v2 [hep-th] 29 Jul 2022 (Phys. Rev. D 106, 085001); eq. (38) on printed p.12 (pdf page 13), section 4 'Observational tests'; bound (6) on p.2; eqs. (16)-(17) p.5-6; eqs. (36)-(37) p.11-12.",
+  "read_status": "READ",
+  "via": "alphaXiv page text of 2206.13590v2, all 20 pages, returned by mcp__alphaXiv__answer_pdf_queries on 2026-09-21 in this session and recovered verbatim from the session transcript (saved src/2206.13590.cached.txt, md5 2d15fd1497e73b10f4c703a95d6b85ca). A fresh alphaXiv call today returned 'quota exceeded' and arxiv.org/osti.gov are blocked by the egress proxy, so no new fetch was possible; the text read is the source's own page text, not a restatement."
+ },
+ "published_statement": "GKLM p.12: 'Assuming that light travels on the brane with speed c while a bulk field propagates with speed c+Delta c, the velocity bound (6) directly translates to Delta c/c = gamma - 1 (38)'. Bound (6), p.2: 'bulk causality: |x'| <= gamma t' ... The bulk bound is generically saturated at late times (large t')'. Data quoted with it: GW170817/GRB 170817A [17] '-3 x 10^-15 <= Delta c/c <= +7 x 10^-16 (39)'. The hedge, verbatim: 'If we entertain the possibility that these are bulk degrees of freedom, the bounds on brane velocity become very strict.' ('these' = the SN1987A antineutrinos and the gravitational waves of the preceding sentences.) GKLM print no numerical beta bound.",
+ "published_hypotheses": [
+  "H1 flat bulk: d-dimensional Minkowski with ONE spatial dimension compactified on a circle, z ~ z + 2 pi R (eq. 1, M4 x S1); no bulk curvature, no warping",
+  "H2 the brane is a test hyperplane at z' = 0 moving at constant beta purely along the compact direction (z = beta t in the preferred frame; eq. 2-4); untilted (spans all non-compact directions); induced metric exactly Minkowski",
+  "H3 the observer is at rest in the brane frame (t', x') -- i.e. no velocity along the brane relative to the preferred frame (GKLP's B = 0; GKLP 2208.09014 eq. 20: 'For B = 0, this reduces to the result v = gamma found in [1]')",
+  "H4 light is brane-confined and travels at c on the brane ('Assuming that light travels on the brane with speed c')",
+  "H5 the messenger is a bulk field propagating causally in the bulk (free, linear; Green's-function analysis)",
+  "H6 late times / high momentum: bound (6) is 'generically saturated at late times'; KK modes approach v_g -> gamma only as |k'| -> infinity (eq. 37)",
+  "H7 whether neutrinos or gravitons ARE bulk degrees of freedom is entertained, not asserted ('If we entertain the possibility')",
+  "H8 brane-localized matter 'would presumably respect' worldvolume Lorentz symmetry (p.3) -- a presumption, not a theorem"
+ ],
+ "hypothesis_drift": [
+  "DROPPED H3 (B = 0). branelink.py:60-62 and :172 (BETA_BOUND_CONDITIONAL_ON = 'the graviton being a bulk degree of freedom'), :170 (GW170817_BOUNDS = \"beta (the brane's speed through S^1), not B\"), :303 (BETA_MAX '# conditional on a bulk graviton'): the beta bound is stated with the bulk-graviton condition only. GKLM's eq. (38) is the B = 0 case; with B != 0, GKLP eq. (22) makes the GW excess d*F(B, direction), so GW170817 bounds a B- and direction-dependent combination, not beta alone. COMPUTED (rederive C7): at the CMB-dipole B (branelink's own Gamma-1 = 7.6161e-7) beta lies in [3.7370e-8, 3.7463e-8] (+-0.12%, immaterial); at the tree's own escape B = 0.999387630 the backward-held beta is 2.1380e-6, 57.1x BETA_MAX. The tree's own escape function b_for_saving (branelink.py:275-281, 'backward excess held at d') already carries this B-dependence, so this is a scope omission in the stated bound, not a numerical error at B = 0.",
+  "DROPPED H2's 'untilted'. branelink.py:60-62 ('brane moving through S^1 at beta'). Polychronakos arXiv:2210.11497 eq. (5.3): c_phi = 1 + (alpha cos phi + beta)^2/2; for a tilt-like brane (|beta| < alpha) there is a direction with c_phi = 1 (rederive C8b), so a single GW event need not bound beta ('unless we happen to live in a tiltlike braneworld and the relative position of the binary star happened to be quite close to the direction phi_o').",
+  "NOT NAMED at the owner sites: H4 (light brane-confined, travelling at c). branelink.py:60-62 and :83-86 name the graviton's status only; GKLM state H4 explicitly as the premise of eq. (38).",
+  "NOT NAMED: H1 (flat bulk, single S^1, test brane, no backreaction) and H5 (free linear bulk field). branelink.py:60-62 applies eq. (38) to 'the graviton' without the flat-M4xS1 / test-brane scope GKLM derive it on.",
+  "WEAKENED-THEN-HARMLESS: H6. The tree writes '=' (branelink.py:61-62) as GKLM do; GKLM derive it from a bound saturated at late times. RE-DERIVED (C2, C3): for the massless zero mode omega' = gamma|k'| EXACTLY at every k, and the image-envelope front deficit at 26 Mpc is <= 7.7e-54 even at R = 1 mm, so for GW170817 the '=' is exact to far below the datum. Recorded as a named hypothesis; it does not move the conclusion.",
+  "INHERITED UNNAMED: the 7e-16's own hypotheses (1710.05834 Sec. 4.1: simultaneous emission of GW peak and first photons, i.e. no photons before merger; D = 26 Mpc, the lower end of the 90% GW distance interval). branelink.py:60-62 via manyc.py:68-69 (GW170817_BOUND_HI = +7e-16) carries the number, not these conditions.",
+  "STRENGTHENED beyond source: branelink.py:85-86 'if gravity is brane-confined, Delta c/c = 0 identically'. GKLM p.3 say brane-localized matter 'would presumably respect' the would-be Lorentz symmetry; Kabat & Nomura arXiv:2309.05759 (abstract, READ via cached alphaXiv text) show bulk loops with non-zero winding generate UV-finite Lorentz-violating terms in the brane effective action -- and branelink.py:96-97 itself computes such a loop-induced SME coefficient (|c| <= 6.37e-64). So 'identically' holds at tree level only; the magnitude is immaterial to the dichotomy (a DISCREPANCY of wording, not a refutation).",
+  "FAITHFUL: the hedge sentence is quoted verbatim (branelink.py:84-85 vs GKLM p.12); the equation number (38) and its content Delta c/c = gamma - 1 are exact; using only the upper edge of the two-sided (39) is correct because gamma - 1 >= 0."
+ ],
+ "data_at_publication": [
+  {
+   "quantity": "GW170817 fractional speed bound, upper edge (the only edge that binds gamma - 1 >= 0)",
+   "value_then": "+7e-16 (1710.05834 Sec. 4.1, quoted by GKLM as eq. 39); arithmetic 1.74 s * c / 26 Mpc = 6.5020e-16, printed rounded up to 7e-16 (rederive C5a); with the 0.05 s error, 1.79 s gives 6.6888e-16",
+   "value_now": "7e-16 unchanged in every source read here; no superseding GW-GRB speed measurement was read (discover_papers was unavailable: alphaXiv quota). The tree states N = 1 event (branelink.py:92-93) -- not independently checked.",
+   "source_now": "arXiv:1710.05834v2 Sec. 4.1 (READ, cached alphaXiv page text, md5 3b822da9c67707592cfd034cbeef36b1)",
+   "moves_conclusion": "no -- beta(7e-16) = 3.74165738677e-08 and 93.80654 ns reproduce exactly (C4b-d)"
+  },
+  {
+   "quantity": "distance to GW170817 used to form the bound",
+   "value_then": "26 Mpc (conservative lower end of the 90% GW-only luminosity-distance interval, 2017)",
+   "value_now": "~40.7 Mpc (Cantiello et al. 2018 SBF distance to NGC 4993 -- NAMED-NOT-READ here); manyc.py itself uses 40 Mpc",
+   "source_now": "Cantiello et al. 2018 (arXiv:1801.06080) NAMED-NOT-READ; manyc.GW170817_DISTANCE_MPC = 40.0",
+   "moves_conclusion": "no -- it TIGHTENS: at 40.7 Mpc d = 4.1536e-16, beta = 2.8822e-8, saving 55.66 ns (C6); the tree's 3.74e-8 and 93.8 ns remain valid, conservative upper bounds"
+  },
+  {
+   "quantity": "emission-time window assumed (GW peak vs first photons)",
+   "value_then": "0 to 10 s, photons not before the GW peak (1710.05834's 'conservative' choice)",
+   "value_now": "same paper names exotic models widening the window to (-100 s, 1000 s), '2 orders of magnitude broadening'; model-dependent, not settled by a second event in the sources read",
+   "source_now": "arXiv:1710.05834v2 Sec. 4.1 (READ)",
+   "moves_conclusion": "moves the figure, not the direction: photons up to 100 s before the peak give d = 3.8018e-14 (54x), beta = 2.7575e-7 (7.4x), saving 5.09 us over 4.2465 yr (C6b). The O7 conclusion (a negligible saving, conditional) survives; the 93.8 ns figure is conditional on the conservative emission model"
+  },
+  {
+   "quantity": "B, the observer's velocity along the brane relative to the preferred frame (enters via GKLP eq. 22, dropped H3)",
+   "value_then": "0 implicitly (GKLM's frame)",
+   "value_now": "unmeasured (branelink.py B_MEASURED = False)",
+   "source_now": "GKLP arXiv:2208.09014v3 eqs. (20), (22), (25) (READ, cached alphaXiv page text); rederive C7",
+   "moves_conclusion": "at small B no (+-0.12% at the CMB-dipole B); at the tree's escape B the beta bound loosens to 2.14e-6 -- so BETA_MAX is B = 0-conditional"
+  }
+ ],
+ "rederivation": {
+  "method": "sympy",
+  "script_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/gklm-eq38.py",
+  "outcome": "26/26 PASS, exit 0. C1 eq.(16) == eq.(17) identically; C2 max over w of eq.(17) is (gamma t')^2 at w* = gamma beta t'/(2 pi R), integer-w deficit exactly (2 pi R delta)^2 <= (pi R)^2, fractional front deficit at 26 Mpc 1.1e-56 (R = 38.6 um) / 7.7e-54 (R = 1 mm); C3 eq.(36) derived from a preferred-frame KK plane wave on z = beta t, eq.(37) follows, massless zero mode v_g = gamma at every k (eq. 38 exact, not merely asymptotic, for the graviton zero mode), n = 1 mode v_g < gamma; C4 beta = sqrt(d(2+d))/(1+d) exact, 50-digit beta(7e-16) = 3.7416573867739394e-8 = O7_FIXTURES, 1/beta = 26726124.1912, saving 93.80654 ns, float control 3.650024e-8; C5 1710.05834's 7e-16 (=6.50e-16 rounded up) and -3e-15 (=-3.09e-15) reproduced; C6 data alternatives; C7 GKLP eq.(20) = eq.(22) at cos = +1 and eq.(25) = eq.(22) at cos = -1, B = 0 isotropic gamma, exact d(eps,B) forward eps(1-B)/(1+B+B eps) and backward eps(1+B)/(1-B-B eps), escape-B beta 57.1x BETA_MAX; C8 Polychronakos eq.(5.3) reduces to gamma - 1 at O(beta^2) and admits c_phi = 1 for tilt-like branes.",
+  "agrees_with_source": "yes"
+ },
+ "later_literature": [
+  {
+   "ref": "Greene, Kabat, Levin, Porrati, arXiv:2208.09014 (GKLP), 'Back to the Future: Causality on a Moving Braneworld'",
+   "effect": "extends",
+   "what": "adds an observer boost B along the brane: eq. (20) v = gamma(1+Gamma^2B^2beta^2)/(1-Gamma^2 B gamma beta^2), reducing to GKLM's gamma at B = 0; eq. (22) direction-dependent speed. Makes GKLM eq. (38) the B = 0 special case and so shows that a single-direction GW bound constrains beta only jointly with B (rederive C7).",
+   "read_status": "READ (cached alphaXiv page text of 2208.09014v3, 17 pages, md5 3e5d27fccd971addd755a5d75e8bce73)"
+  },
+  {
+   "ref": "Polychronakos, arXiv:2210.11497, 'Superluminal anisotropic propagation and wavefront splitting on tilted and boosted braneworlds'",
+   "effect": "narrows",
+   "what": "tilted (winding) branes: c_phi ~ 1 + (alpha cos phi + beta)^2/2; strict GW170817 bounds on tilt and boost 'unless we happen to live in a tiltlike braneworld and the relative position of the binary star happened to be quite close to the direction phi_o'. Narrows the tree's use to untilted branes.",
+   "read_status": "READ (cached alphaXiv page text of 2210.11497v3, md5 5597463ac734e193ee224784d64bede7; Sec. 5 read in full)"
+  },
+  {
+   "ref": "Kabat & Nomura, arXiv:2309.05759, 'Induced Lorentz Violation on a Moving Braneworld'",
+   "effect": "narrows",
+   "what": "bulk loops with non-zero winding generate UV-finite Lorentz-violating terms in the brane effective action (SME) -- so brane-confined fields' Delta c/c is zero at tree level only; narrows branelink.py:85-86's 'identically'. Magnitude immaterial (tree's own 6.37e-64).",
+   "read_status": "READ (abstract and contents, cached alphaXiv page text of 2309.05759v2, md5 fd16b061341718ee1cd6eda53cde16be)"
+  },
+  {
+   "ref": "Debolt & Kagan, arXiv:2602.13448, 'Braneworlds in Constant and Accelerated Motion and Their Causal Characteristics' (2026)",
+   "effect": "extends",
+   "what": "generalises GKLM/GKLP to constant proper acceleration and tilted, partially wrapped branes; anisotropic superluminal bulk signalling that preserves causality. No new observational bound on beta read.",
+   "read_status": "READ (abstract and Sec. I-II only, cached alphaXiv page text, md5 f874a9626590d690f2b3f372363ecf82)"
+  },
+  {
+   "ref": "Abbott et al. (LVC, Fermi GBM, INTEGRAL), arXiv:1710.05834",
+   "effect": "confirms",
+   "what": "the datum GKLM quote: -3e-15 <= Delta v/v_EM <= +7e-16 from 1.74 +- 0.05 s over D = 26 Mpc with a 0-10 s emission window; exotic models widen by ~2 orders. Reproduced arithmetically (C5).",
+   "read_status": "READ (cached alphaXiv page text, Sec. 4.1, md5 3b822da9c67707592cfd034cbeef36b1)"
+  },
+  {
+   "ref": "discover_papers search for later work",
+   "effect": "contested",
+   "what": "NOT RUN TO COMPLETION: the single permitted discover_papers call returned 'alphaXiv assistant quota exceeded'; a WebSearch (US web index, titles only) surfaced 2208.09014, 2210.11497, 2309.05759, 2307.10392 and a JHEP08(2026)192 record of the Debolt-Kagan paper. 2307.10392 (Karch-Randall causality paradox) was not read. Later literature beyond the cached reads is therefore incomplete, not absent.",
+   "read_status": "NAMED-NOT-READ (search failed; titles only)"
+  }
+ ],
+ "lacked_data": "What GKLM had (Jul 2022): the GW170817/GRB 170817A bound as published in 2017 (26 Mpc, 0-10 s window), the SN1987A neutrino bounds, and no measurement of any observer velocity B along the brane. What came later: (a) the tighter host distance (~40.7 Mpc, Cantiello 2018 -- predates GKLM, NAMED-NOT-READ; GKLM simply quoted LVC's conservative figure) -- it TIGHTENS the bound to d = 4.15e-16, beta = 2.88e-8, so it cannot weaken the tree's conclusion; (b) GKLP's B-dependence and Polychronakos's tilt dependence (theory, not data) -- they show the single-event bound on beta is conditional on B = 0 and zero tilt, which the tree does not name; (c) no second GW-GRB event was read here, so the emission-time model behind 7e-16 remains the one 2017 assumption, and an exotic window changes the figure 54x in d (7.4x in beta). M's hypothesis, tested: the physics of eq. (38) did not lack data -- it is a kinematic identity, re-derived here exactly for the massless zero mode; the datum's movement goes in the conservative direction and does not change the conclusion. What the literature lacked, and still lacks, is B (and any tilt) -- a datum the tree already names as unmeasured for O7, and which also conditions BETA_MAX. Evidence either way is recorded; nothing in the data refutes eq. (38).",
+ "grade": "NARROWED",
+ "grade_evidence": "Eq. (38) as published is exact and re-derived (sympy, 26/26 PASS): the image-envelope front saturates |x'| = gamma t' with a computed deficit <= 7.7e-54 at GW170817 distances, and for the massless zero mode omega' = gamma|k'| holds exactly at every frequency; the tree's 50-digit beta = 3.74165738677e-08, 1/beta = 26726124.1912 and 93.80654 ns reproduce, and the 7e-16 datum is reproduced from 1710.05834 (6.50e-16 rounded up). The hedge is quoted verbatim. It is NARROWED, not STANDS, because the tree applies it on a larger class than GKLM derive it: branelink.py:170/172/303 state beta <= 3.74e-8 conditional only on a bulk graviton, dropping GKLM's frame hypothesis B = 0 (with GKLP eq. 22 the bound is B- and direction-dependent: 57.1x looser at the tree's own escape B = 0.999387630, +-0.12% at the CMB-dipole B) and the untilted-brane hypothesis (Polychronakos eq. 5.3 lets a tilt-like brane evade a single-event bound). The inherited 7e-16 carries 1710.05834's emission-window assumption unnamed (exotic window: 54x in d). The later distance datum tightens, not loosens. Separately, 'Delta c/c = 0 identically' for brane-confined gravity (branelink.py:85-86) holds at tree level only (Kabat-Nomura; the tree's own 6.37e-64) -- a wording discrepancy, not a refutation. Nothing is WRONG: no counterexample to eq. (38) under its hypotheses exists or was found.",
+ "what_would_change_the_grade": "To STANDS: the tree names B = 0 (or the B- and direction-dependent form it already uses in b_for_saving) and zero tilt as conditions of BETA_MAX/BETA_BOUND_CONDITIONAL_ON, and names the 7e-16's emission-window and 26 Mpc assumptions. To DATA-DEPENDENT: a second GW-EM event, or an accepted emission model, that moves the GW-photon speed bound upward (e.g. photons before merger). To WRONG: only a demonstration that the massless bulk zero mode on a uniformly moving untilted test brane in flat M4 x S1 does not propagate at gamma on the brane -- the re-derivation (C3c) shows it does. To OPEN: none -- the source was read and the identity is checkable.",
+ "reverify_command": "python3 /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/gklm-eq38.py  # expect 26 PASS, 'FAILS: none', exit 0; source text: grep -n '(38)\\|entertain' /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/src/2206.13590.cached.txt",
+ "report_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/audits/gklm-eq38.json"
+}

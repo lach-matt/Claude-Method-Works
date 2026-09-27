@@ -1,0 +1,85 @@
+{
+ "key": "gr-qc/9304008-eq3.7-3.8",
+ "name": "KF (3.7) <:T00^2:> and (3.8) Delta for the vacuum + two-particle state",
+ "source": {
+  "located": "C.-I. Kuo & L. H. Ford, 'Semiclassical gravity theory and quantum fluctuations', arXiv gr-qc/9304008 v1 (Apr 1993; TUTP-93-1). p.4: (2.10)-(2.16); p.5: (3.1)-(3.2); p.6: (3.3)-(3.8) and the sentence after (3.8). Journal version Phys. Rev. D 47, 4510 (1993) NAMED-NOT-READ.",
+  "read_status": "READ",
+  "via": "arXiv v1 PDF TEXT LAYER as returned by alphaXiv in earlier stages of this docket, harvested verbatim to d67/src/casmag/all/gr-qc_9304008v1.txt (md5 f1a6628604751cf61b2a4bd411b00153 re-checked this stage, 39,849 bytes; (3.7) at lines 846-955, (3.8) at 956-968). A fresh fetch in THIS stage failed: answer_pdf_queries, get_paper_content(fullText) and discover_papers all returned 'alphaXiv assistant quota exceeded'. Page image not viewed; journal version not read. Text-layer caveat: an exponent '2' after '(1+eps^2)' is read from the text layer only; in (2.16) the same layer renders '1+eps^2' without it, so the layer does distinguish the two forms, but the image is unverified."
+ },
+ "published_statement": "v1 p.6, verbatim from the text layer: 'A. The Vacuum + Two Particle State. Now we go back to the simple case of a state which is a superposition of the vacuum and a two particle eigenstate, Eq. (2.15). In this case we find <:T_ab(x) T_mn(x):> = 2 eps^2/(1+eps^2)^2 (T_ab[f*_k,f*_k] T_mn[f_k,f_k] + T_ab[f*_k,f_k] T_mn[f*_k,f_k] + T_ab[f*_k,f_k] T_mn[f_k,f*_k] + T_ab[f_k,f*_k] T_mn[f*_k,f_k] + T_ab[f_k,f*_k] T_mn[f_k,f*_k] + T_ab[f_k,f_k] T_mn[f*_k,f*_k]) = K_ab K_mn 12 eps^2/(1+eps^2)^2. (3.7) From this result, Eq. (2.16), and the fact that K_00 = omega/(2L^3), we find that Delta(x) = (10 eps + sqrt2 cos(2 theta))/(12 eps). (3.8)' -- with (2.15) |Psi> = (1+eps^2)^(-1/2)(|0> + eps|2>), eps real; (2.16) <:T_ab:> = eps/(1+eps^2){sqrt2(T[f,f]+T[f*,f*]) + 2eps(T[f,f*]+T[f*,f])} = K_ab eps/(1+eps^2)(2eps - sqrt2 cos 2theta); (3.2) Delta(x) = |(<:T00^2(x):> - <:T00(x):>^2)/<:T00^2(x):>|, 'normal ordering with respect to the Minkowski vacuum state'.",
+ "published_hypotheses": [
+  "free massless scalar field (T_mu nu[g,h] = d_mu g d_nu h - (1/2) eta_mu nu d g.d h, (2.11); K_ab = k_a k_b/(2 omega L^3) 'for the massless case', p.4)",
+  "flat (Minkowski) spacetime; box quantisation, volume L^3, a single mode k excited (p.5: 'for which a single mode is excited')",
+  "state (2.15): |Psi> = (1+eps^2)^(-1/2)(|0> + eps|2>), eps REAL 'for simplicity'",
+  "normal ordering with respect to the Minkowski vacuum for both <:T:> and <:T T:> (p.4, p.5)",
+  "coincidence limit x -> y and the purely temporal component (p.5, before (3.2))",
+  "Delta defined WITH an absolute value around the whole ratio, (3.2)",
+  "theta = k_rho x^rho (spacetime-dependent phase); K_00 = omega/(2L^3) used to reach (3.8)"
+ ],
+ "hypothesis_drift": [
+  "DROPPED (tree, minor): KF (3.2) takes the absolute value of the whole ratio; fluctuation.py:14 puts |.| on the numerator only (equivalent here, since the exact <:T00^2:> = 12K^2eps^2/(1+eps^2) > 0), and fluctuation.py:38-40 / :230 ('Delta = 1 - (2eps - sqrt2 cos2th)^2/(3(1+eps^2))') and :237 ('delta = 1 - rho**2/T2') drop it entirely. Computed here: the unsigned form is NEGATIVE where (2eps - sqrt2 cos2th)^2 > 3(1+eps^2) -- e.g. eps = 1, theta = pi/2 gives -0.9428 where KF's Delta is +0.9428 (z3 sat). z3 proves every such point has rho > 0 (unsat with rho < 0), so the tree's rho<0 theorem T2 (1/3 < Delta < 1) and its witness (eps = 1/10, theta = 0, rho < 0) are unaffected; the closed form printed as 'THE EXACT DELTA' at fluctuation.py:38-40 holds only where its value is >= 0.",
+  "NARROWED (tree, harmless): KF take eps real; fluctuation.py:175 declares eps positive=True. Computed here: eps -> -eps is identical to theta -> theta + pi/2 in Delta, so no case is lost.",
+  "CARRIED: massless minimally coupled scalar, flat space, Minkowski normal ordering, coincidence limit, 00 component (fluctuation.py:14-18); single mode vacuum+2 (canonical hypotheses). Box volume L^3 enters only through K_00, which cancels in Delta -- the tree's 'pointwise' is faithful.",
+  "SCOPE (tree, correct and stated): the discrepancies are against arXiv v1's text layer only; journal version NAMED-NOT-READ and page image not viewed (fluctuation.py:121-126, JOURNAL_VERSION_READ = False :135, PAGE_IMAGE_VIEWED = False :136). This stage has the same scope and inherits the same restriction."
+ ],
+ "data_at_publication": [
+  {
+   "quantity": "physical constants / measured inputs",
+   "value_then": "none -- (3.7) and (3.8) are closed-form Fock-space expectation values in eps and theta; K_00 = omega/(2L^3) cancels in Delta",
+   "value_now": "none",
+   "source_now": "re-derivation (K00 cancels: exact Delta is K-independent)",
+   "moves_conclusion": "no -- no datum exists to move"
+  },
+  {
+   "quantity": "witness eps = 1/10, theta = 0 (tree's choice, not KF's)",
+   "value_then": "n/a (KF give no numerical example for vac+2)",
+   "value_now": "exact Delta = 0.5134; KF (3.8) = 2.0118; rho/K < 0 there",
+   "source_now": "rederive/gr-qc_9304008-eq3.7-3.8.out",
+   "moves_conclusion": "no -- reproduces fluctuation.py:62, :394-396 exactly"
+  }
+ ],
+ "rederivation": {
+  "method": "sympy",
+  "script_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/gr-qc_9304008-eq3.7-3.8.py",
+  "outcome": "Independent of the tree's formula for :T00: -- built from the box mode f = e^{i(kx - wt)}/sqrt(2wL^3) with KF's bilinear (2.11): (2.12)-(2.14) reproduced with K_00 = w/(2L^3). Normal ordering of T00*T00 by the commutative-symbol map, expectations by explicit Fock matrices, truncation-independent (N = 9 and 12). Results: (2.16) middle line EXACT, final line = 1/2 x exact; exact <:T00^2:> = 12 K^2 eps^2/(1+eps^2); KF (3.7) printed/exact = 1/(1+eps^2) (one normalisation power too many; KF's first and second lines of (3.7) agree with each other -- the six bilinear products sum to 6 K_00^2 -- so the excess sits in the prefactor 2eps^2/(1+eps^2)^2, whose correct value is 2eps^2/(1+eps^2)); exact 1 - rho^2/<T^2> = 1 - (2eps - sqrt2 cos2th)^2/(3(1+eps^2)). KF (3.8) = 1 - (2eps - sqrt2 cos2th)/(12 eps) is LINEAR in cos2th while Delta from (3.2) with any (2.16) is QUADRATIC (degrees 1 vs 2); none of the four combinations {printed, exact (2.16)} x {printed, exact (3.7)} reproduces (3.8). z3 (sat): KF (3.8) takes negative values (eps = 1/10, cos2th = -1 gives -0.3452), which contradicts the absolute value in KF's own definition (3.2) -- a contradiction internal to the paper, independent of this stage's <:T^2:>. z3 (unsat, as expected): rho < 0 => 1/3 < Delta < 1 (the tree's T2 confirmed); KF(3.8) > 1 iff rho < 0 (the sentence after (3.8) is a valid corollary of the printed (3.8), so the (3.8) discrepancy propagates to it). Witness 0.5134 / 2.0118 reproduced. Every tree statement in statements_as_used agrees, except the dropped absolute value recorded under hypothesis_drift.",
+  "agrees_with_source": "no"
+ },
+ "later_literature": [
+  {
+   "ref": "discover_papers call for this key",
+   "effect": "contested",
+   "what": "NOT RUN TO COMPLETION: the single discover_papers call of this stage returned 'alphaXiv assistant quota exceeded'. The entries below are read from texts cached by earlier stages; none of them restates KF (3.7) or (3.8) in closed form, so no later paper was found that either repeats or corrects these two equations.",
+   "read_status": "NOT-READ (quota)"
+  },
+  {
+   "ref": "B. L. Hu, A. Roura & E. Verdaguer, arXiv:gr-qc/0402029 (PRD 70, 044002, 2004)",
+   "effect": "narrows",
+   "what": "'An earlier criterion put forth by Kuo and Ford used the variance of the fluctuations of the stress tensor operator compared to the mean value ... such a criterion should be refined by considering the back reaction of those fluctuations on the metric.' Narrows Delta's status as a validity criterion; says nothing about the vac+2 closed forms.",
+   "read_status": "READ-VIA-RESTATEMENT (sibling audits gr-qc_9304008 and gr-qc_9304008-claim-after-3.8, from cached d67/src/casmag/all/gr-qc_0402029v1.txt); not re-read for this key"
+  },
+  {
+   "ref": "L. H. Ford & T. A. Roman, arXiv:gr-qc/9410043 (1994)",
+   "effect": "confirms",
+   "what": "'recent work of Kuo and Ford indicates that in flat spacetime, negative energy densities are subject to large fluctuations' -- the result propagated as the qualitative O(1) statement, which the exact vac+2 Delta (1/3 < Delta < 1 on rho < 0) supports; the printed (3.7)/(3.8) forms were not carried forward.",
+   "read_status": "READ-VIA-RESTATEMENT (sibling audits, cached d67/src/casmag/all/gr-qc_9410043v1.txt lines 2363-2368)"
+  },
+  {
+   "ref": "A. Perez & D. Sudarsky, arXiv:2512.17789 v2 (2026)",
+   "effect": "extends",
+   "what": "Renormalises <T_ab(x) T_cd(x)> for Hadamard states on curved backgrounds; results 'agree in general lines' with Kuo & Ford; squeezed vacua fail the semiclassicality criterion. Extends the qualitative conclusion; does not restate the vac+2 formulae.",
+   "read_status": "READ-VIA-RESTATEMENT (sibling audits, cached d67/src/casmag/all/2512.17789v2.txt)"
+  },
+  {
+   "ref": "M. J. Pfenning, PhD thesis, arXiv:gr-qc/9805037 (1998), Sec. 2.1.1 'Vacuum Plus Two Particle State'",
+   "effect": "contested",
+   "what": "Same Tufts group, a section on exactly this state exists (table of contents, cached line 57) and cites Kuo & Ford [46] -- but the cached text lacks that page, so whether it repeats or corrects (3.7)/(3.8) is unknown.",
+   "read_status": "NAMED-NOT-READ (section page absent from cache d67/src/casmag/all/gr-qc_9805037v1.txt; fresh fetch blocked by quota)"
+  }
+ ],
+ "lacked_data": "M's hypothesis, tested for this result: it does not bite, and the evidence is the re-derivation. (3.7) and (3.8) are closed-form expectation values in a two-level superposition of Fock states with NO empirical input (K_00 cancels in Delta). Everything required -- the commutator [a,a+] = 1, the box mode, the state (2.15), the definition (3.2) -- was in the authors' hands in 1993, and their own ingredients suffice to expose both discrepancies: (3.7)'s prefactor carries the state normalisation squared where (2.16) correctly carries it once, and (3.8) is linear where (3.2) must give a quadratic and goes negative where (3.2) forbids it. No missing datum explains either and no new datum could move either. Evidence the other way, against over-reading: the error does not overturn the physics KF drew -- the exact Delta is 1/3 < Delta < 1 wherever rho < 0 (z3), i.e. fluctuations of order unity, which is the qualitative conclusion KF and their later citers (Ford-Roman 1994; Perez-Sudarsky 2026) carried forward. The discrepancies are against arXiv v1's text layer only: if the journal version PRD 47, 4510 printed corrected forms, what is WRONG is the preprint, not the published record -- that remains unread.",
+ "grade": "WRONG",
+ "grade_evidence": "Scoped to arXiv gr-qc/9304008 v1 as printed (text layer). SHOWN here, not declared: (i) (3.7): exact <:T00^2:> for (2.15) is 12K^2eps^2/(1+eps^2), computed from KF's own mode function and bilinears by explicit Fock matrices at two truncations; printed/exact = 1/(1+eps^2) != 1 for every eps != 0. Taken alone this is a normalisation discrepancy that a misprint could explain, and is not by itself the ground of the grade. (ii) (3.8): a computed contradiction internal to the paper -- the printed Delta = (10eps + sqrt2 cos2th)/(12eps) is negative at eps = 1/10, cos2th = -1 (value -0.3452; z3 sat over eps > 0, |cos2th| <= 1), while (3.2) defines Delta as an absolute value; and it is degree 1 in cos2th where (3.2) with any form of (2.16) gives degree 2, so no printed/exact combination of (2.16) and (3.7) reproduces it. That is not a typographical slip of one symbol. The tree's use (KF_37_IS_EXACT = False, KF_38_IS_EXACT = False, fluctuation.py:141-142; exact forms at :36-40) is CONFIRMED on both flags, with one recorded tree-side drift: its 'exact Delta' drops KF's absolute value and is negative on part of the rho > 0 region (never on rho < 0). KF's qualitative conclusion (O(1) fluctuations where rho < 0) survives, as the tree already says (KF_QUALITATIVE_CONCLUSION_SURVIVES = True, :152). The M-D65-3 'why cell' count of False flags therefore rests on computed discrepancies, but those are discrepancies with v1 and 'MUST NOT be quoted as errors in the journal version until it is read' (fluctuation.py:125-126) -- this grade inherits that restriction verbatim.",
+ "what_would_change_the_grade": "(a) Reading PRD 47, 4510 (1993): if it prints (3.7) with (1+eps^2) and a (3.8) equal to |1 - (2eps - sqrt2 cos2th)^2/(3(1+eps^2))|, the journal result is STANDS and the WRONG attaches to the preprint only; if it prints v1's forms, WRONG extends to the published record. (b) Viewing the v1 page image: if the '(1+eps^2)^2' exponent or the (3.8) numerator is a text-layer artefact, (i) and/or (ii) become text-extraction discrepancies and the grade drops to OPEN for the affected equation. (c) A different reading of KF's state or definition (e.g. eps not the relative amplitude, or Delta not (3.2)) that makes (3.8) non-negative and quadratic would move it -- none is suggested by the text read. No datum can move it.",
+ "reverify_command": "md5sum /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/src/casmag/all/gr-qc_9304008v1.txt  # expect f1a6628604751cf61b2a4bd411b00153; sed -n 844,975p /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/src/casmag/all/gr-qc_9304008v1.txt; python3 /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/gr-qc_9304008-eq3.7-3.8.py  # expect: (3.7) exact False, printed/exact 1/(epsilon**2 + 1); any combination reproduces (3.8) False; z3 KF(3.8)<0 sat; T2 counterexample unsat; witness 0.5134 / 2.0118; and (tree control, read-only) cd /home/user/Claude-Method-Works/research/warp-drive && python3 fluctuation.py --selftest",
+ "report_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/audits/gr-qc_9304008-eq3.7-3.8.json"
+}

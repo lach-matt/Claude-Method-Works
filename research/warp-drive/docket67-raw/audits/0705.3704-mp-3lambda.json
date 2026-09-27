@@ -1,0 +1,89 @@
+{
+ "key": "0705.3704-mp-3lambda",
+ "name": "Flambaum: M_p ~ 3 Lambda_QCD (the H2 hypothesis)",
+ "source": {
+  "located": "V.V. Flambaum, 'Variation of fundamental constants: theory and observations', arXiv:0705.3704v2 [physics.atom-ph] (2007), p.4, sec. V, last paragraph before 'VI. Microwave clocks' (locator as recorded by the in-docket sibling audit 0705.3704).",
+  "read_status": "READ-VIA-RESTATEMENT",
+  "via": "NOT RE-OPENED IN THIS STAGE: alphaXiv answer_pdf_queries / get_paper_content / discover_papers returned 'assistant quota exceeded' on four attempts; arxiv.org, export.arxiv.org, ar5iv, researchgate and semanticscholar are refused by the egress proxy (403). The verbatim sentence rests on (i) the sibling audit audits/0705.3704.json, which READ all 8 pages of v2 via alphaXiv in this docket and quotes it; (ii) address.py:445-446, which quotes the same words and records FLAMBAUM_READ_FROM_SOURCE = True; (iii) a WebSearch result summary (search-engine paraphrase, not verbatim) giving the same content. The three agree word for word where verbatim. The paper is not a pre-arXiv classic; the READ-VIA-RESTATEMENT status reflects this stage's access failure only."
+ },
+ "published_statement": "p.4: 'The proton mass is proportional to Lambda_QCD (M_p ~ 3 Lambda_QCD), therefore, the measurements of the variation of the electron-to-proton mass ratio mu = m_e/M_p is equivalent to the measurements of the variation of X_e = m_e/Lambda_QCD.' (verbatim as READ by sibling audit 0705.3704; the tree quotes the first clause at address.py:445-446.)",
+ "published_hypotheses": [
+  "P1 chiral-limit proportionality: quark-mass contributions to M_p are not written; the 'therefore' (mu equivalent to X_e) is exact only if M_p/Lambda_QCD is independent of m_q/Lambda_QCD (machine-checked: residual is -S d ln X_q, check C1).",
+  "P2 '~3' is an approximate number with no scheme, flavour number or loop order stated for Lambda_QCD (none given in the READ text, per sibling audit).",
+  "P3 units convention: 'One can only measure the variation of dimensionless quantities' (p.4, per sibling audit) -- masses are expressed in units of Lambda_QCD (X_e, X_q, X_s); Flambaum-Wiringa 0807.4943 p.1 (READ by sibling) makes it explicit: 'convenient to assume that Lambda_QCD is constant ... measure all masses and energies in units of Lambda_QCD'.",
+  "P4 the paper does NOT state that Lambda_QCD is physically independent of the Higgs vev; its sec. V GUT discussion lets Lambda_QCD vary with alpha (d Lambda/Lambda ~ 34 d alpha/alpha, 'model dependent', per sibling audit)."
+ ],
+ "hypothesis_drift": [
+  "ADDED (attribution) address.py:445-446 labels the sentence 'this project's H2'; address.py:104 defines H2 as 'Lambda_QCD ITSELF FIXED: d ln m_p/d ln v = S'. Machine-checked (checks B1, B2): in the chiral limit m_p/Lambda_3 is v-independent under H1 (Lambda_3 = Lambda_6^(7/9)(m_c m_b m_t)^(2/27), d ln Lambda_3/d ln v = 2/9) exactly as under H2, while K_mu = -7/9 (H1) vs -1 (H2). The READ sentence therefore holds under both hypotheses and does not discriminate them; 'Lambda independent of v' is a premise the tree adds, not the sentence's content. Flambaum's 'Lambda_QCD constant' is a units convention (P3), which cannot by itself fix how Lambda responds to v.",
+  "ADDED (restoration, not weakening) address.py:98-104, 505-509: m_p = Lambda F(m_q/Lambda) with Feynman-Hellmann S; the source's statement is the S -> 0 limit (P1). Machine-checked: Euler homogeneity (A1), H2 gives S exactly (A2), H1 gives 2/9 + 7S/9 (A5). The tree is strictly more general than the sentence here.",
+  "DROPPED (numerical factor) the '3' is never used by the tree: the only match for '3 Lambda' in address.py is the quoted comment at line 446 (check E1). Nothing rests on the factor; recorded so that the '~3' is not read as a tree input.",
+  "PRESERVED address.py:331-334, 461 (H1_VS_H2_IS_REFUSED = True): the tree names H2 as a hypothesis and reports every number under both H1 and H2, so the attribution drift does not make any conclusion rest on Flambaum having asserted H2. The tree's broader claim 'BOTH ARE IN THE LITERATURE' (address.py:106-107) is not established by this citation; a WebSearch surfaced Calmet arXiv:1707.06922 (EPJC 2017) as a possible H2-type statement ('the QCD scale remains constant' as v evolves), NAMED-NOT-READ here."
+ ],
+ "data_at_publication": [
+  {
+   "quantity": "M_p / Lambda_QCD (the '3')",
+   "value_then": "'~3' (no scheme, n_f or loop order stated)",
+   "value_now": "computed here from alpha_s(M_Z) = 0.1180 (scan 0.1171-0.1189) with 4-loop running and continuous matching at m_b = 4.18, m_c = 1.27 GeV: n_f = 3: 2.62-2.83 (2-4-loop Lambda definitions; 2.52-2.95 over the alpha_s scan); n_f = 4: 2.92-3.24; n_f = 5: 4.15-4.50; 1-loop Lambda definitions give 4.3-11.3. Full span over n_f = 3..5, 1..4 loops: 2.52-11.27; 2..4 loops: 2.52-4.74.",
+   "source_now": "rederive/0705.3704-mp-3lambda.py section D (computed). alpha_s(M_Z) = 0.1180(9) is the PDG 2024 average, NAMED-NOT-READ in this stage (alphaXiv quota, arXiv egress-blocked); m_b, m_c PDG, NAMED-NOT-READ. Limitation stated: continuous matching and the asymptotic Lambda formula evaluated at mu = m_c place 4-loop Lambda_3 at 359 MeV, above the textbook ~330-340 MeV; the 3-loop entry (331 MeV) is closer. This moves M_p/Lambda_3 between ~2.6 and ~2.8, not the conclusion.",
+   "moves_conclusion": "No. '~3' is apt for Lambda^(3) (and Lambda^(4)) MSbar at >= 2 loops and is a convention, not a measurement; the tree never consumes the factor (E1)."
+  },
+  {
+   "quantity": "S = sum_q sigma_q/m_N (size of the correction the sentence drops)",
+   "value_then": "not used (chiral limit)",
+   "value_now": "(sigma_piN + sigma_s)/m_N = 0.0928 (FLAG 2024 N_f=2+1: 42.2 + 44.9 MeV) and 0.1085 (N_f=2+1+1: 60.9 + 41.0 MeV); sigma_piN alone 0.0449 / 0.0649",
+   "source_now": "FLAG 2024 arXiv:2411.04268v3 eqs. (447)-(450), as held READ in research/warp-drive/massform.py:1317-1339, 1456-1459 and READ by sibling audit sigma-term-scan; not re-opened in this stage",
+   "moves_conclusion": "Not this result's conclusion: it bounds Flambaum's 'mu equivalent to X_e' to an error of 4.5-10.9% of d ln X_q (check C2). For the tree it moves the H2 numbers (K_mu(H2) = S - 1 from -0.94 to -0.89..-0.91), which is audited under sigma-term-scan, not here."
+  },
+  {
+   "quantity": "M_p",
+   "value_then": "not stated numerically",
+   "value_now": "938.27208816 MeV held at address.py:425 (CODATA 2018, NAMED-NOT-READ in the tree)",
+   "source_now": "address.py:425",
+   "moves_conclusion": "No (enters only the ratio in row 1, at the 1e-9 level)."
+  }
+ ],
+ "rederivation": {
+  "method": "sympy",
+  "script_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/0705.3704-mp-3lambda.py",
+  "outcome": "ALL 15 CHECKS PASS (output rederive/0705.3704-mp-3lambda.out). A: m_p = L F(m_q/L) satisfies Euler homogeneity; H2 gives d ln m_p/d ln v = S; one-loop chain exponents 2/27 (c, b, t) and 7/9 (Lambda_6), so H1 gives 2/9 + 7S/9. B: at S = 0 the READ proportionality m_p ~ Lambda_3 holds under H1 AND H2 (m_p/Lambda_3 v-independent in both), while K_mu = -7/9 vs -1 -- the sentence does not select H2. C: Flambaum's identity d ln mu = d ln X_e has exact residual -S d ln X_q; S = 0.045-0.109 over FLAG 2024 inputs. D: M_p/Lambda_MSbar = 2.62 (n_f=3), 3.12 (n_f=4), 4.48 (n_f=5) at 4 loops, alpha_s = 0.1180; 2.52-4.74 over n_f = 3..5, 2-4 loops, alpha_s 0.1171-0.1189; 1-loop definitions up to 11.3. E: the factor 3 appears in address.py only in the quoted comment (line 446).",
+  "agrees_with_source": "partly"
+ },
+ "later_literature": [
+  {
+   "ref": "X. Calmet, 'Cosmological Evolution of the Higgs Boson's Vacuum Expectation Value', arXiv:1707.06922, EPJC 77 (2017)",
+   "effect": "contested",
+   "what": "Surfaced by WebSearch; the search summary says that in the SM a time-varying Higgs vev changes fermion masses 'while the QCD scale remains constant' and the proton mass tracks the QCD scale -- i.e. an H2-type premise stated in the literature, which would support the tree's 'both are in the literature' by a different citation than Flambaum. Whether it addresses the heavy-quark-threshold dependence (H1's 2/9) is unknown here.",
+   "read_status": "NAMED-NOT-READ (search-engine summary only; arXiv and Springer egress-blocked, alphaXiv quota exhausted)"
+  },
+  {
+   "ref": "A. Coc, N.J. Nunes, K.A. Olive, J.-P. Uzan, E. Vangioni, astro-ph/0610733, PRD 76, 023511 (2007), eqs. (13)-(14)",
+   "effect": "narrows",
+   "what": "The published H1 chain: Lambda_QCD at low energy depends on v through the heavy-quark thresholds, 2/27 per quark; eq. (14) notes the effect 'has been neglected in most studies discussing the effect of varying v'. Shows that M_p ~ Lambda_QCD does not by itself imply Lambda independent of v.",
+   "read_status": "READ in this docket by sibling audit dlnlambdaqcd-dlnv-2-9; not re-opened in this stage"
+  },
+  {
+   "ref": "V.V. Flambaum, R.B. Wiringa, arXiv:0807.4943 (2008), p.1",
+   "effect": "confirms",
+   "what": "Same author, explicit convention: 'convenient to assume that Lambda_QCD is constant ... measure all masses and energies in units of Lambda_QCD' -- confirms that the 'fixed Lambda' in Flambaum's framework is a unit choice, not a physical claim about v.",
+   "read_status": "READ in this docket by sibling audit 0705.3704; not re-opened in this stage"
+  },
+  {
+   "ref": "R.J. Hill, M.P. Solon, arXiv:1409.8290 (2014); X. Ji, hep-ph/9410274 (1995)",
+   "effect": "extends",
+   "what": "Quantify the non-chiral part of M_p (light-quark lambda = 0.089(26); heavy-quark f_Q through O(alpha_s^3); trace-anomaly decomposition) -- the S the sentence drops and the tree restores.",
+   "read_status": "READ in this docket by sibling audits dlnlambdaqcd-dlnv-2-9 and qcd-trace-anomaly-nucleon-mass; not re-opened in this stage"
+  },
+  {
+   "ref": "discover_papers for this stage",
+   "effect": "contested",
+   "what": "NOT RUN: alphaXiv returned 'assistant quota exceeded'. One WebSearch was run instead (discovery only; results above). A discover_papers search is owed.",
+   "read_status": "NOT RUN"
+  }
+ ],
+ "lacked_data": "M's hypothesis tested for this result. What Flambaum had in 2007: the chiral-limit picture M_p ~ Lambda_QCD, an approximate '~3', older sigma-term estimates (sigma_piN ~45-60 MeV, sigma_s poorly known), alpha_s(M_Z) ~ 0.118 (essentially today's value). What came later: lattice sigma terms (FLAG 2024: S_uds = 0.093-0.109), N3LO heavy-quark matrix elements (Hill-Solon 2014), lattice proton-mass decomposition (chiQCD 2018), and a 0.1180(9) alpha_s average. Does any of it change the conclusion? EVIDENCE AGAINST M's hypothesis for this sentence: the proportionality is a consequence of dimensional transmutation and holds exactly in the chiral limit whatever the data (A1, B1); the '~3' is reproduced from today's alpha_s (2.6-2.8 for n_f = 3, 3.1-3.2 for n_f = 4, computed) and alpha_s has not moved materially since 2007; the later sigma-term data bound the dropped correction at 4.5-10.9% of d ln X_q, which the sentence's '~' already admits. EVIDENCE FOR a limitation (not a data gap): the sentence is chiral-limit and scheme-unspecified, and it is silent on how Lambda_QCD responds to v -- that is a question about physics above the electroweak scale, not missing data, and the tree correctly refuses to resolve it (address.py:331-334). No datum the authors lacked changes this conclusion.",
+ "grade": "NARROWED",
+ "grade_evidence": "The published statement STANDS as what it is: M_p proportional to Lambda_QCD is exact in the chiral limit by dimensional homogeneity (sympy A1), the correction is the Feynman-Hellmann S (C1: residual -S d ln X_q, 4.5-10.9% on FLAG 2024 inputs), and '~3' is reproduced as M_p/Lambda_MSbar = 2.62-2.83 (n_f=3), 2.92-3.24 (n_f=4) at 2-4 loops from alpha_s(M_Z) = 0.1180 (computed; convention-dependent, 2.5-11.3 over n_f and loop order). NARROWED, not STANDS, because the tree uses it for more than it says: address.py:445-446 labels the sentence 'this project's H2' and address.py:104 defines H2 as 'Lambda_QCD ITSELF FIXED' as v varies. Machine-checked (B1-B2): the proportionality holds identically under H1 (d ln Lambda_3/d ln v = 2/9) and H2, which differ in K_mu (-7/9 vs -1); so the source supports the m_p = Lambda F structure common to both, not H2. Flambaum's own 'Lambda constant' is a units convention (0807.4943 p.1, READ by sibling). Consequences are bounded: the tree names H2 as a hypothesis, refuses H1 vs H2 (address.py:331-334, 461) and reports both, and never consumes the factor 3 (E1), so no tree number moves. Not WRONG: no counterexample, the sentence is true as written. Not DATA-DEPENDENT: no moved datum moves the proportionality or the '~3'. SOURCE LIMIT, stated: the paper was not re-opened in this stage (alphaXiv quota exhausted; arXiv egress-blocked); the verbatim statement rests on the sibling audit's in-docket READ of all 8 pages, matched word for word by the tree's own quotation.",
+ "what_would_change_the_grade": "(1) A direct re-read of 0705.3704v2 p.3-4 finding that Flambaum DOES assert Lambda_QCD independent of the Higgs vev (not merely as a unit convention) would move this to STANDS for the attribution. (2) If the tree began consuming the factor 3 numerically, its scheme/n_f would have to be named (2.6 for n_f=3 vs 4.5 for n_f=5 at 4 loops). (3) Reading Calmet 1707.06922 (or another source) that states H2 as physics would supply the literature support the tree's 'BOTH ARE IN THE LITERATURE' (address.py:106-107) claims, without changing this entry's grade, which concerns what 0705.3704 says. (4) Nothing currently conceivable in data moves the proportionality itself.",
+ "reverify_command": "python3 /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/0705.3704-mp-3lambda.py && grep -n 'this project.s H2\\|Lambda_QCD ITSELF FIXED\\|H1_VS_H2_IS_REFUSED = True' /home/user/Claude-Method-Works/research/warp-drive/address.py",
+ "report_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/audits/0705.3704-mp-3lambda.json"
+}

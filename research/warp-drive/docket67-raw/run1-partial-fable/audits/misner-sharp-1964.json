@@ -1,0 +1,102 @@
+{
+ "key": "misner-sharp-1964",
+ "name": "Misner-Sharp(-Hernandez) mass function, the invariant 1 - 2m/R = g^{ab} d_aR d_bR = Gamma^2 - U^2, its evolution equations MS-r/MS-t, and the static areal-radius form dl = dr/sqrt(1 - 2m/r)",
+ "source": {
+  "located": "Misner C W & Sharp D H 1964, Phys. Rev. 136, B571 -- no arXiv copy exists. Read through two independent exact restatements: Hayward, 'Gravitational energy in spherical symmetry', gr-qc/9408002v2 (PRD 53, 1938): eq. (4) p. 4 (invariant definition E = (r/2)(1 - g^{-1}(dr,dr))), eq. (27) p. 12 ('1 - 2E/r = e^{-chi}(r')^2 - rdot^2, which is the form actually given by Misner & Sharp [4], with different notation'), eqs (28a,b) p. 12 (variation formulas), eqs (31)-(32b) pp. 12-13 (the comoving perfect-fluid forms MS considered), Prop. 1 p. 4 (trapping), regular centre E = O(r^3) p. 4; and Escriva, arXiv:2504.05813v3 (JCAP 2025), section 2 pp. 3-5: eqs (2.1)-(2.5), (2.9), (2.12), (2.24), which cites Misner & Sharp as [57] 'for the details of the derivation'. Hernandez & Misner 1966 (ApJ 143, 452) NAMED-NOT-READ (Escriva ref. [79]). Hochberg & Visser gr-qc/9802046v2 read at pp. 23-29 (sections 6.1-6.2, eqs 69-90; section 7 is the Discussion).",
+  "read_status": "READ-VIA-RESTATEMENT",
+  "via": "alphaXiv answer_pdf_queries on gr-qc/9408002 (pages 1,2,4,6,8,9,11,12,13,15,16,17,19,21,22 returned), 2504.05813 (pages 1,2,4,5,6,8,10,11,13,14,23,24,31,32), gr-qc/9802046 (pages 1-4,13-18,23-29,31); later literature: 0709.1199 (pp. 1-3,5,8-11) and 2503.18963 (pp. 1-13)"
+ },
+ "published_statement": "Hayward eq. (4), G = 1: 'E = (1/2) r (1 - g^{-1}(dr,dr)) = (1/2) r + e^{f} r d_+r d_-r = (1/2) r + (1/4) e^{f} r^3 theta_+ theta_-' -- 'The form actually given by Misner & Sharp is derived in Section IV. Note that E is an invariant. Indeed, the only invariants of the metric and its first derivatives are functions of r and E'. Section IV, line-element (26) 'ds^2 = r^2 dOmega^2 + e^{chi} dxi^2 - dtau^2' with (23b) g(d/dtau, d/dtau) = -1 and (23a) orthogonality, eq. (27): '1 - 2E/r = e^{-chi}(r')^2 - rdot^2, which is the form actually given by Misner & Sharp [4], with different notation.' Variation formulas (28a,b): E' = 4 pi r^2 (T_00 r' - T_01 rdot), Edot = 4 pi r^2 e^{-chi} (T_01 r' - T_11 rdot). Misner & Sharp's own setting (31a,b): a perfect fluid T = (mu + p) dtau dtau + p g with tau the fluid proper time, giving (32a,b) E' = 4 pi r^2 mu r', Edot = -4 pi r^2 p rdot, and (33) E = INT_0^xi 4 pi r^2 mu r' dxi from a regular centre. Prop. 1: 'A metric sphere is trapped iff E > r/2, marginal iff E = r/2, untrapped iff E < r/2. Proof. By definition.' Regular centre: 'g^{-1}(dr,dr) - 1 = O(r^2) ... Then E = O(r^3) at a regular centre.' Escriva (2.2)-(2.5): metric -A^2 dt^2 + B^2 dr^2 + R^2 dOmega^2 in the comoving gauge; U = D_t R = (1/A) dR/dt, Gamma = D_r R = (1/B) dR/dr 'where D_t and D_r are the proper time and distance derivatives'; M(R) = INT_0^R 4 pi R~^2 rho dR~ (2.4); 'Gamma = sqrt(1 + U^2 - 2M/R) (2.5), where Gamma is called the generalised Lorentz factor'; D_t M = -4 pi R^2 U p (2.9); D_r M = 4 pi Gamma rho R^2 (2.12); M = (R/2)(1 + U^2 - Gamma^2) (2.24); and p. 5: 'For type-II fluctuations, solving Gamma with the constraint Eq.(2.5) would not be convenient, since Gamma takes negative values in the throat structure'.",
+ "published_hypotheses": [
+  "Spherical symmetry throughout (Hayward p. 2: 'Since the whole article is concerned with spherical symmetry, this case will be assumed implicitly in the Propositions'; Escriva (2.2)); all arguments local",
+  "r is the areal radius (area 4 pi r^2); E/m is defined on spheres, not hypersurfaces (Hayward p. 17: 'the general definition (4) or (27) is a function of spheres only')",
+  "The definition (4) is purely geometric: no field equation, no energy condition, no staticity (Hayward Section II is 'purely geometrical'; the Einstein equations enter only in Section III/IV for (28), (32))",
+  "The chart form (27) needs the coordinates (23a,b): tau proper time along the slice normal, xi orthogonal -- i.e. lapse 1, zero shift (the tree's Phi = 0 gauge)",
+  "Misner & Sharp's own 1964 form: adiabatic perfect fluid (31a), comoving coordinates tau = fluid proper time (Hayward p. 12; Escriva p. 3: 'the Einstein field equations written in the comoving slicing and comoving threading'), G = c = 1",
+  "The integral form E = INT 4 pi r^2 mu r' dxi (Hayward (33); Escriva (2.4)) needs a REGULAR CENTRE E(0) = 0 (Hayward: 'if Sigma has a regular centre xi = 0, (32a) integrates to (33)')",
+  "Positivity E >= 0 (Hayward Prop. 6) needs the DOMINANT energy condition AND an untrapped hypersurface AND a regular centre; 'E may be negative, as in the negative-energy Schwarzschild solution'",
+  "Escriva (2.5) as written takes the positive square root; Escriva himself notes Gamma < 0 occurs (type-II) and evolves Gamma by (2.21) instead"
+ ],
+ "hypothesis_drift": [
+  "certify.py:113-116 ADDS an unwritten hypothesis: 'Every static spherically symmetric spacetime can be written with an areal radius ... dr^2/(1 - 2m(r)/r)' requires the areal radius to be a good coordinate (dR/dl != 0, no extremal sphere) and 1 - 2m/r > 0. Hayward's definition (4) needs neither. At a throat r' = 0 the areal chart is singular while the gauge-free definition gives m = r_0/2 > 0 and no contraction (rederivation C4, C7, z3 G4) -- so the theorem's VERDICT is unaffected; the drift is in the word 'every'. The tree's own throatmass.py:19-23 and nonstatic.py:28-30 already use the gauge-free form. Also: 'untrapped' is not an extra hypothesis on the static slice -- z3 G3 shows U = 0 => 1 - 2m/R = W^2 >= 0.",
+  "Attribution drift, not mathematical: the gradient-scalar definition 1 - 2m/R = g^{ab} d_aR d_bR (driven.py:147-149, nonstatic.py:28-30, foliation.py:189/:705, tolman.py:704, throatmass.py:21) is Hayward's eq. (4) presentation; Hayward says 'The form actually given by Misner & Sharp is derived in Section IV' (= eq. 27 in one chart) and that r, E 'has been rediscovered many times by different authors'. Residuals A1/A5 = 0: identical content, credit belongs jointly to Misner-Sharp (chart form) and Hayward (invariant form).",
+  "Hypotheses DROPPED by the tree, legitimately but with the credit misplaced: Misner & Sharp 1964 assumed an adiabatic perfect fluid in comoving coordinates (Hayward (31); Escriva section 2). nonstatic.py:66-67 MS-r/MS-t carry a general T_ab with flux j; those are Hayward's (28a,b), which reduce to Misner-Sharp's (32a,b)/Escriva (2.9),(2.12) only at j = 0 (rederivation B1-B6, residual 0). The wider form is Hayward 1994/96, attributed by the tree to 'Misner-Sharp' (formation.py:110, :129-133; drivensource.py:94, :339-342).",
+  "driven.py:75 quotes Escriva (2.5) 'Gamma = sqrt(1 + U^2 - 2M/R)': the square root is a branch choice (Gamma >= 0); Escriva p. 5 says Gamma takes negative values in type-II throats and evolves it by (2.21) instead. The tree's V4 (driven.py:575-576) uses the squared form and foliation.py:165 handles the trapped branch, so nothing rests on the branch (z3 G8: Gamma < 0 satisfies the same constraint).",
+  "driven.py:76-80 'contraction <=> Gamma > 1 ... UNBOUND (hyperbolic) shell, E = (Gamma^2 - 1)/2 > 0 ... Textbook': Escriva states no such thing; the LTB energy-function reading E = (Gamma^2 - 1)/2 presumes the dust/comoving (p = 0, j = 0) setting. The tree's gloss, not the source's statement; nothing on the board rests on the word 'unbound'.",
+  "foliation.py:381-384 and :875-876 cite 'Hochberg & Visser gr-qc/9802046 s7' for 'spatial flare-out is not null flare-out'. The spherically symmetric worked examples with the mass function m(v,r) and theta_+ = 0 <=> 2m = r are section 6.1-6.2 (eqs 69-90, pp. 23-29); section 7 is the one-page Discussion, which states the null-geodesic flare-out definition in prose only. A section-number discrepancy; the claim attributed is in the paper. Recorded, not repaired.",
+  "certify.py:122-123 'SHORTER than its flat value': 'contraction' is nowhere in Hayward or Escriva; the tree defines it as dl < dR (certify.py:366; Escriva's Gamma = D_r R > 1). A term of the tree's, correctly stated at line 366, not a hypothesis of the source.",
+  "ledger.py:337-340 converts the geometric m to kg via c^2/G (EXCHANGE_RATE): the sources are in G = c = 1; the conversion imports the CODATA values of G and c, which move nothing in the identity."
+ ],
+ "data_at_publication": [
+  {
+   "quantity": "numerical inputs to the definition/identity",
+   "value_then": "none -- a geometric identity in the metric functions, G = c = 1 (Hayward p. 4 'in units G = 1'; Escriva 'geometrized units with G = c = 1')",
+   "value_now": "none",
+   "source_now": "rederivation A0-A6, F1: every residual is symbolic and exactly 0 with no numerical input",
+   "moves_conclusion": "no -- there is no datum to move"
+  },
+  {
+   "quantity": "G, c (used only by ledger.py:340 EXCHANGE_RATE = c^2/(G Lambda) to state the geometric m in kg)",
+   "value_then": "1 (geometric units) in every source read",
+   "value_now": "CODATA 2018: G = 6.67430(15)e-11 m^3 kg^-1 s^-2, c = 299792458 m/s exact",
+   "source_now": "ledger.py:335-340 (the tree's own constants; not audited here beyond noting they enter only the unit conversion)",
+   "moves_conclusion": "no -- a unit conversion downstream of the identity; the sign of m, which every verdict turns on, is unit-free"
+  }
+ ],
+ "rederivation": {
+  "method": "sympy",
+  "script_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/misner-sharp-1964.py",
+  "outcome": "37 checks, 0 failures, exit 0, 8.5 s (sympy 1.14.0, z3 5.1.0, python 3.11.15). A0: the definition solves uniquely for m. A1-A6: m = (R/2)(1 - g^{ab}d_aR d_bR) equals Escriva (2.24), the tree's identity e^{-2Lambda}R'^2 = 1 - 2m/R + e^{-2Phi}Rdot^2, Escriva (2.5) squared, and Hayward (27) in his chart (Phi = 0, e^{chi} = e^{2Lambda}) -- driven.py:64-66's mapping confirmed. B1-B6: Einstein tensor built from Christoffel symbols in this file; MS-r and MS-t (nonstatic.py:66-67) hold with residual 0 and are exactly Hayward (28a,b); at j = 0 they reduce to Hayward (32a,b) = Escriva (2.9),(2.12). C1-C7: certify's inversion and samples; the static tt equation gives dm/dr = 4 pi r^2 rho; in the g_ll = 1 gauge m = (r/2)(1 - r'^2), G^t_t = (2rr'' + r'^2 - 1)/r^2, dm/dl = 4 pi r^2 r' rho, throat m = r_0/2. D1-D5: Reissner-Nordstrom m = M - Q^2/(2r), rho = Q^2/(8 pi r^4) > 0, dm/dr = 4 pi r^2 rho with integration constant M, m < 0 exactly on r < Q^2/(2M), and the RN centre fails Hayward's regularity E = O(r^3) (E -> -oo) -- so D4's counterexample sits outside Hayward's Prop. 6 hypotheses, as the tree says. E1-E2: Hayward (4)'s null forms, with his metric (1) RECONSTRUCTED as ds^2 = r^2 dOmega^2 - 2e^{-f}dxi+ dxi- (that page was not returned; marked). F1: boost invariance of Gamma^2 - U^2. z3 G1-G9 (each obligation negated, unsat; guards sat): certify's static theorem (U = 0, W > 0 => W > 1 <=> m < 0); the static slice is never trapped; throat m = R/2; Hayward Prop. 1; driven's non-static theorem W > 1 <=> 2m/R < U^2; drift guard W > 1 with m >= 0 satisfiable off the static slice; Escriva's sqrt is a branch; m < 0 => Gamma^2 > 1 in every foliation.",
+  "agrees_with_source": "yes"
+ },
+ "later_literature": [
+  {
+   "ref": "Hayward, gr-qc/9408002 (PRD 53, 1938, 1996)",
+   "effect": "extends",
+   "what": "The invariant form (4), Prop. 1 (trapping by E/r), monotonicity (Prop. 5, DEC, untrapped), positivity (Prop. 6, DEC + untrapped + regular centre), Kodama charge (App. B), ADM/Bondi limits; states E 'may be negative, as in the negative-energy Schwarzschild solution' and 'Even the Schwarzschild energy may be negative'. Everything the tree uses is here unchanged.",
+   "read_status": "READ (pp. 1-2, 4, 6, 8-9, 11-13, 15-17, 19, 21-22 via answer_pdf_queries)"
+  },
+  {
+   "ref": "Maeda & Nozawa, 0709.1199 (PRD 77, 064031, 2008)",
+   "effect": "narrows",
+   "what": "Generalised Misner-Sharp mass m = ... r^{n-3}[k - (Dr)^2] ... (2.7) 'reduces to the Misner-Sharp quasi-local mass' in 4D GR; variation formulas (2.18)-(2.19) 'exactly the same as those in general relativity'. p. 9: 'In the positivity proof of the Misner-Sharp mass (n = 4, k = 1, Lambda = 0) in [10] (= Hayward gr-qc/9408002), it is claimed that Proposition 5 follows immediately from Proposition 4 together with the fact that a regular center is surrounded by untrapped surfaces ... However, because the sign of m around the regular center depends on the value of C as seen in Lemma 1, the positivity of m around the regular center seems to be nontrivial, which requires Lemma 2 for completion of the proof.' This narrows Hayward's PROOF of positivity (a downstream proposition under DEC), not the definition or the identity; the tree does not rest on Prop. 6 (specthm facts_outside D4 records RESTS=False on the positive-energy theorem). Also p. 1: the Brown-York mass 'does not reproduce the Misner-Sharp mass in the spherically symmetric case. Thus, the uniqueness of the mass function in condition (iv) is still an open problem'.",
+   "read_status": "READ (pp. 1-3, 5, 8-11)"
+  },
+  {
+   "ref": "Escriva, 2504.05813 (JCAP 2025)",
+   "effect": "extends",
+   "what": "Misner-Sharp formalism carried into the type-II regime where R is non-monotonic and Gamma < 0; (2.5)'s square root is explicitly not used to solve Gamma there; 'when Gamma < 0, the integrand in Eq. (2.4) ... includes a locally negative mass component within that radius' (p. 12). Confirms the identity (2.24) and the tree's squared-form use; shows the sqrt branch of (2.5) is a hypothesis.",
+   "read_status": "READ (pp. 1-2, 4-6, 8, 10-11, 13-14, 23-24, 31-32)"
+  },
+  {
+   "ref": "Hochberg & Visser, gr-qc/9802046 (PRD 58, 044021, 1998)",
+   "effect": "confirms",
+   "what": "Section 6.2, metric (84) with mass function m(v,r): theta_+ = 0 <=> 2m(r,v) = r (marginal sphere at 2m = r, Hayward Prop. 1 in another chart); flare-out at the throat <=> T_vv <= 0 (NEC violated or marginal). Cited by the tree as 's7'; the content is in section 6.",
+   "read_status": "READ (pp. 1-4, 13-18, 23-29, 31)"
+  },
+  {
+   "ref": "Alves & Costa, 2503.18963 (GRF essay 2025), citing Alves, Landulfo & Costa 2408.00154 (PRD 111, 044027)",
+   "effect": "extends",
+   "what": "Spherically symmetric barotropic negative-mass stars are generically dynamically unstable in GR with no energy condition assumed ('For a solar-sized configuration, the instability timescale is about three minutes'). Bears on the ENGINEERING of an m < 0 region, not on the definition; the Misner-Sharp mass is not named on the pages returned.",
+   "read_status": "READ (pp. 1-13); 2408.00154 itself NAMED-NOT-READ"
+  },
+  {
+   "ref": "Faraoni, 1610.02951 (2016) -- conformal mapping of the Misner-Sharp mass",
+   "effect": "narrows",
+   "what": "The Misner-Sharp mass 'does not transform like usual masses do under conformal mappings of spacetime' (abstract). Irrelevant to the tree, which never conformally rescales; recorded as a known limit of the object.",
+   "read_status": "NAMED-NOT-READ (abstract only, from discover_papers)"
+  },
+  {
+   "ref": "Generalisations in modified gravity: 1406.0577 (f(R)), 1502.00069 (massive gravity), 2506.04469 (f(R,G)), 2512.17526 (scalar-tensor)",
+   "effect": "extends",
+   "what": "The definition is theory-dependent outside GR; in GR (the board's setting, H_EFE) it is the one audited here.",
+   "read_status": "NAMED-NOT-READ (discover_papers listing only)"
+  }
+ ],
+ "lacked_data": "M's hypothesis tested. What Misner & Sharp had in 1964: the Einstein equations, a perfect fluid, comoving coordinates, and the Schwarzschild exterior. What came after: Hernandez-Misner observer-time coordinates (1966); Cahill-McVittie's and Hayward's invariant form (1970/1994); Kodama's conserved current (1980) and its identification with E (Hayward App. B); the trapping-horizon framework and Prop. 1; the ADM/Bondi limit identifications; the positive-energy theorems (Schoen-Yau 1979, Witten 1981) and their spherical form Prop. 6; the Maeda-Nozawa 2008 correction to Hayward's positivity proof; the type-II (Gamma < 0) collapse regime (Escriva 2025); quantum-inequality results on negative energy; the 2025 instability of negative-mass stars. Evidence that none of it moves this result: the object is a DEFINITION plus an algebraic IDENTITY in the metric functions and contains no measured datum (rederivation A0-A6, F1, G2-G9 hold with no physical input); every later source read restates the same definition and identity verbatim and builds on it (Hayward (4)/(27); Escriva (2.24); Maeda-Nozawa (2.7) at alpha = 0, Lambda = 0, n = 4, k = 1 with 'variation formulae exactly the same as those in general relativity'). Evidence that later data DID narrow something nearby: (i) Maeda-Nozawa show Hayward's positivity proof needed a lemma he did not supply -- a gap in a DEC-dependent downstream proposition the tree does not rest on; (ii) Escriva shows the positive square root in (2.5) is a physical restriction, not a theorem -- the tree's squared-form use is unaffected. So for THIS result the answer to M's question is: the 1964 authors lacked much, and none of it bears on a definition; what it bears on is the positivity and sign claims built on top of the definition, which the board already refuses to assume (it takes m < 0 as its demand, not as forbidden).",
+ "grade": "STANDS",
+ "grade_evidence": "Statement and hypotheses as used agree with the two READ restatements (Hayward eq. (4)/(27)/(28); Escriva (2.3)-(2.5), (2.9), (2.12), (2.24)), and the re-derivation from the Christoffel symbols reproduces every form the tree states with residual exactly 0 (37/37, exit 0). No numerical datum enters. The recorded drifts are (a) certify.py:113's 'every static spherically symmetric spacetime can be written [in areal form]' -- an unwritten regularity of the areal chart, harmless to the verdict because the gauge-free definition the rest of the tree uses gives m = r_0/2 > 0 and no contraction at the excluded points (C7, G4), and 'untrapped' is a consequence of U = 0 (G3); (b) attribution: the invariant form is Hayward's presentation and the flux-bearing MS-r/MS-t are Hayward (28a,b), reducing to Misner-Sharp's fluid forms at j = 0 (B5-B6); (c) Escriva (2.5)'s sqrt is a branch the tree does not use; (d) the 'Hochberg & Visser s7' citation names the Discussion where the content is section 6. None is a refutation, none is a narrowing of the class the board's verdicts range over; all are recorded, nothing repaired. Misner & Sharp 1964 itself remains NAMED-NOT-READ; the grade rests on two independent restatements that agree with each other and with the machine check.",
+ "what_would_change_the_grade": "NARROWED if a verdict-bearing owner were shown to evaluate certify's contraction criterion at an extremal sphere (r' = 0) or in a trapped region of a 'static' chart, where the areal form at certify.py:116 does not exist -- no such site was found (throatmass.py and hpscentre.py use the gauge-free form there); or if 'static' at certify.py:127 were read as merely stationary with a nonzero shift, where U != 0 and G6 rather than G2 governs (foliation.py:857-859 already records that the hypothesis actually used is 'the foliation is the Killing-adapted one (U = 0)'). WRONG only by a computed counterexample to residuals A1-A6/B1-B2 or to obligations G2/G6, which would contradict sympy and z3 as run. OPEN for the attribution only, if reading Phys. Rev. 136 B571 itself showed a different definition from the one Hayward attributes to it -- that would move credit, not mathematics.",
+ "reverify_command": "cd /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive && python3 misner-sharp-1964.py   # 37 checks, exit 0, ~9 s; sympy 1.14, z3 5.1.0, python3.11. Then re-read at source: alphaXiv answer_pdf_queries on gr-qc/9408002 (pp. 4, 11-13: eqs 4, 23-28, 31-33, Prop. 1), 2504.05813 (pp. 3-5: eqs 2.1-2.5, 2.9, 2.12, 2.24), gr-qc/9802046 (pp. 23-29: eqs 69-90), 0709.1199 (pp. 8-9: the note on Hayward's positivity proof)",
+ "report_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/audits/misner-sharp-1964.json"
+}

@@ -1,0 +1,38 @@
+A. TEXT FIDELITY against /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/amm_0209075.txt
+  [ok]   owner quote present verbatim in source: abstract/III quote (linstab.py:26-29)  ->  True
+  [ok]   owner quote present verbatim in source: III p.10 quote (linstab.py:103-104)  ->  True
+  [ok]   owner quote present verbatim in source: p.8 quote (linstab.py:273)  ->  True
+  [ok]   owner quote present verbatim in source: p.9 quote (linstab.py:274-276)  ->  True
+  [ok]   source clause present: 'A necessary condition for the validity of the large N semi-classical equations of motion (2.9)'  ->  True
+  [ok]   source clause present: 'Such a quantity must be constructed only from the linearized metric perturbation h'  ->  True
+  [ok]   source clause present: 'Singular gauge transformations in the initial data for g'  ->  True
+  [ok]   source clause present: 'around a given semi-classical geometry g ... that solves eq.(2.9)' (p.8)  ->  True
+  [ok]   source clause present: 'Clearly this is a necessary, though perhaps not a sufficient condition' (p.13)  ->  True
+  [ok]   source clause present: 'at least not for that particular state' (p.13)  ->  True
+   what the OWNER carries (case-insensitive search of linstab.py):
+     'constructed only from' (h_ab-only clause)       False
+     'Singular gauge' clause                          False
+     'sufficient' (any statement on sufficiency)      False
+     'large-N' / 'large N'                            True
+     'NECESSARY'                                      True
+  [ok]   owner drops the h_ab-only clause  ->  False
+  [ok]   owner drops the singular-gauge exclusion  ->  False
+  [ok]   owner says nothing about sufficiency (canonical's 'not sufficient' is not the owner's)  ->  False
+  [ok]   owner carries 'large-N' (SETTING, H2)  ->  True
+
+B. GAUGE: pure-gauge growth is invisible to the linearised Riemann tensor (sympy)
+  [ok]   linearised Riemann of h = dX + dX, arbitrary X(t,x,y,z): nonzero components  ->  0
+  [ok]   with X_0 = t^2, h_00 = 4t: grows without bound  ->  (True, oo)
+
+C. H1: off-solution linearisation carries a residual source (sympy)
+  [ok]   residual r = F(x0) - x0'' for x0 = -(t/2) sin t  ->  True
+  [ok]   zero-data response to r  ->  True
+  [ok]   every homogeneous solution bounded (C1 cos t + C2 sin t)  ->  True
+  [ok]   but the off-solution response t sin(t)/2 is unbounded (at t = 2 pi n + pi/2)  ->  oo
+
+D. LOGIC: a necessary condition (z3)
+  [ok]   Growth -> not Valid entailed (AMM & Growth & Valid unsat)  ->  True
+  [ok]   NoGrowth -> Valid NOT entailed (countermodel sat)  ->  True
+  [ok]   NoGrowth undetermined: Valid and not-Valid both consistent  ->  (sat, sat)
+
+0 failed

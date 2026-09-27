@@ -1,0 +1,1 @@
+extract stage: owner specthm.py, results assembled from the reads and asks recorded in specthm_asks.txt / specthm_asks2.txt; the StructuredOutput call is the record of this stage.

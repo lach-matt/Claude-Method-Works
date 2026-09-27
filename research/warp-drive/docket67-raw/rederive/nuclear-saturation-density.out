@@ -1,0 +1,45 @@
+== (1) arithmetic of RHO_NUCLEAR
+  n0*m_p                 2.67620e+17 kg/m^3   tree/this = 0.99993
+  n0*<m_N>               2.67804e+17 kg/m^3   tree/this = 0.99924
+  n0*(<m_N>-16 MeV)      2.63240e+17 kg/m^3   tree/this = 1.01656
+PASS tree 2.676e17 = 0.16 fm^-3 * m_p to 4 digits
+PASS mass choice (m_p, <m_N>, binding) moves rho by < 2%
+== (2) sympy: ratio proportional to n0
+PASS d ln(ratio)/d ln(n0) == 1 exactly
+PASS address.py eps_from_matter linear numerically
+== (3) n0 scan (values of the band NOT READ at source)
+  tree: {'H1': 398.119, 'H2': 114.218}
+  n0=0.137  rho=2.2915e+17  H1  340.91  H2   97.81
+  n0=0.145  rho=2.4253e+17  H1  360.82  H2  103.52
+  n0=0.148  rho=2.4755e+17  H1  368.29  H2  105.66
+  n0=0.150  rho=2.5089e+17  H1  373.26  H2  107.09
+  n0=0.155  rho=2.5926e+17  H1  385.71  H2  110.66
+  n0=0.157  rho=2.6260e+17  H1  390.68  H2  112.08
+  n0=0.160  rho=2.6762e+17  H1  398.15  H2  114.23
+  n0=0.164  rho=2.7431e+17  H1  408.10  H2  117.08
+  n0=0.171  rho=2.8602e+17  H1  425.52  H2  122.08
+PASS every n0 in band keeps H1 ratio > 100 ('two orders')
+PASS H2 ratio < 100 somewhere in band (literal 'two orders' fails for H2 at low n0) -- FINDING
+PASS H2 log10(ratio) >= 1.99 over whole band
+PASS every n0 in band keeps both ratios > 1 (over threshold)
+== (4) break-even n0 (ratio = 1)
+  H1 4.019e-04 fm^-3   H2 1.401e-03 fm^-3
+PASS break-even is >100x below any quoted n0
+  ratio=100 needs n0 >= H1 0.0402  H2 0.1401 fm^-3
+== (5) coarse-grained mean over REAL nuclei (CODATA rms charge radii, scipy table)
+  proton                                 r_ch=0.8407 fm R=1.085 fm n=0.1867 fm^-3 (1.17 n0)  H1  464.58  H2  133.29
+  deuteron                               r_ch=2.1278 fm R=2.747 fm n=0.0230 fm^-3 (0.14 n0)  H1   57.32  H2   16.45
+  alpha                                  r_ch=1.6785 fm R=2.167 fm n=0.0938 fm^-3 (0.59 n0)  H1  233.54  H2   67.00
+  208Pb [r_ch=5.5012 fm NAMED-NOT-READ]  r_ch=5.5012 fm R=7.102 fm n=0.1386 fm^-3 (0.87 n0)  H1  344.95  H2   98.96
+PASS deuteron mean density is far BELOW n0 (<0.2 n0)
+PASS deuteron is still over threshold in both hypotheses
+PASS deuteron is NOT two orders over in either hypothesis
+PASS every listed nucleus is over threshold in both hypotheses
+== (6) internal consistency
+  n0^(-1/3) = 1.8420 fm (address.py:299 says 1.8 fm)
+PASS spacing consistent with '1.8 fm'
+  other tree constant 2.3e17 -> n0 = 0.1375 fm^-3; address/other = 1.1635
+  EPS_NUCLEAR_OVER_DET at 2.3e17: H1 342.18  H2 98.17
+PASS two tree constants disagree by >10% (discrepancy recorded, not repaired)
+
+RESULT: ALL CHECKS PASS (0 fails)

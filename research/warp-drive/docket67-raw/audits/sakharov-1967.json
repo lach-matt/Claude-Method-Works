@@ -1,0 +1,100 @@
+{
+ "key": "sakharov-1967",
+ "name": "Sakharov conditions for baryogenesis (merged: sakharov-1967-baryon-conservation -- thermal pair production gives net B = 0; net B requires the Sakharov conditions)",
+ "source": {
+  "located": "A. D. Sakharov, JETP Lett. 5 (1967) 24 -- pre-arXiv, no arXiv copy. Restated in Rubakov & Shaposhnikov, hep-ph/9603208 (Usp. Fiz. Nauk 166 (1996) 493), Sec. 1, p.2 (Sakharov = their ref [1]). Companion READs banked in the same record: Morrissey & Ramsey-Musolf 1206.2942 Sec. 1 pp.2-3; D'Onofrio-Rummukainen-Tranberg 1404.3565 p.1; D'Onofrio-Rummukainen 1508.07161.",
+  "read_status": "READ-VIA-RESTATEMENT",
+  "via": "Sakharov 1967 itself NAMED-NOT-READ. The restatement is the verbatim R&S page text returned by alphaXiv answer_pdf_queries during DOCKET 65 and banked at scratchpad/d65/read_sphaleron.json (17,277 bytes, md5 dfb580b8b10488f8a79499ccf6bcf617), figure 6a; the same quote is carried in massform.py:1250-1256. In THIS stage every live alphaXiv call (answer_pdf_queries x2, get_paper_content, discover_papers) returned 'quota exceeded', and arxiv.org, export.arxiv.org, pdg.lbl.gov, inspirehep.net, api.semanticscholar.org are refused by the egress proxy (403; WebFetch EGRESS_BLOCKED), so the page was NOT re-fetched here. The wording below is therefore the D65-banked READ, not a fresh read."
+ },
+ "published_statement": "Rubakov & Shaposhnikov hep-ph/9603208 Sec. 1 p.2 (restating Sakharov 1967): 'Today, this short extract is usually dubbed as three necessary Sakharov's conditions for baryon asymmetry generation from the initial charge symmetric state in the hot Universe, namely: (i) Baryon number non-conservation. (ii) C and CP violation. (iii) Deviations from thermal equilibrium.'",
+ "published_hypotheses": [
+  "the conditions are NECESSARY (R&S: 'three necessary ... conditions'); nothing in the restatement makes them sufficient or fixes a yield",
+  "initial state is charge symmetric (B = 0 to start)",
+  "setting: 'the hot Universe' (cosmological); the necessity argument itself is not cosmology-specific",
+  "UNSTATED in the restated sentence but required by the standard derivation of (iii) (<B>_eq = Tr(e^{-beta H} B)/Z = 0): H is CPT-invariant with B CPT-odd and no B chemical potential / CPT-odd background -- the literature that evades (iii) this way (Cohen-Kaplan spontaneous baryogenesis 1987; Davoudiasl et al. gravitational baryogenesis hep-ph/0403019) is NAMED-NOT-READ here; the load-bearing role of the hypothesis is COMPUTED in rederive check C"
+ ],
+ "hypothesis_drift": [
+  "ADDED (warpfolder.py:83-84): 'requires the Sakharov conditions and delivers eta ~ 6.1e-10 per photon' -- the source states necessary conditions only; the conditions deliver no value. 6.1e-10 is the OBSERVED asymmetry (the tree's own constant warpfolder.py:229 labels it 'Planck 2018 NAMED-NOT-READ'), not an output of the conditions. Discrepancy in the tree's wording; it does not enter any computation or flag.",
+  "ADDED / CONTRADICTED BY A READ SOURCE (warpfolder.py:402-403, printed in report()): 'SM baryogenesis gives eta = 6.1e-10'. The D65-banked READ of Morrissey & Ramsey-Musolf 1206.2942 Sec. 1 says 'EWBG is unable to explain the observed baryon asymmetry within the SM alone' (crossover; CKM CP 'does not appear to be sufficient'), and 1404.3565 p.1 'the origin of the baryon asymmetry must rely on physics beyond the Standard Model'. The printed attribution is a discrepancy in the tree's prose, recorded not repaired; it points the SAME way as the tree's conclusion (the SM yields less, not more).",
+  "DROPPED (warpfolder.py:81-85; canonical hypotheses): CPT invariance / zero B chemical potential is not named. Rederive check C: in a finite Theta-invariant toy with B and C violated, <B>_eq = -8.0e-17 (zero); adding a CPT-odd -mu*B term gives <B>_eq = 0.086 (mu=0.05), 0.508 (mu=0.3). The necessity of (iii) holds on the CPT-invariant class. For the lab flash in the SM the hypothesis is satisfied (no CPT-odd background coupling to J_B is in the flash), so the drop does not move the conclusion.",
+  "INTERNAL TENSION (warpfolder.py:75-79 vs 81-83; canonical hypothesis 'flash is in (near) thermal equilibrium'): item (b) calls the flash a RAPID QUENCH (Kibble-Zurek) -- a departure from equilibrium -- while (c) calls it a THERMAL flash. If the quench is out of equilibrium, condition (iii) is MET and cannot be what closes (c); the closure then rests on (i) (B conserved below T_EW; above it sphalerons conserve B-L, and check D gives B_eq = 28/79 (B-L) = 0 from a B-L = 0 start) and on (ii)/yield size (SM CP insufficient per 1206.2942 READ in D65). Check C also shows out-of-equilibrium unitary evolution from a C-symmetric B = 0 state reaching |<B(t)>| = 1.24 in the toy: (iii) is necessary, not by itself blocking. The conclusion survives on (i)+(ii)+yield, which the tree names only partly (canonical hypothesis 2 records sphalerons as 'not addressed').",
+  "WEAKENED ('(near) thermal equilibrium', canonical hypotheses of warpfolder.py:81-85): the equilibrium theorem gives <B> = 0 exactly only AT equilibrium; 'near' equilibrium permits a small nonzero asymmetry when (i),(ii) hold. Does not move the conclusion (see the yield scale, data item 4).",
+  "LABEL (warpfolder.py:81, 338-339, 553; canonical hypothesis 3): 'baryons' = mass/m_p. Rederive check B: for atomic matter the true baryon count in 100 kg is 6.019e28 (water) to 6.029e28 (56Fe) -- 100 kg/m_p = 5.979e28 UNDER-counts by 0.67-0.85 %. The selftest (warpfolder.py:553) checks the formula against itself, so it passes; the physical count is ~0.7 % higher. Does not move any conclusion (net B ~ 6e28 either way).",
+  "massform.py:1250-1256: held in SOURCES with status READ via R&S and Sakharov CITED; no drift -- the quote matches the D65-banked page text verbatim; no computation uses it."
+ ],
+ "data_at_publication": [
+  {
+   "quantity": "m_p (warpfolder.py:190, M_PROTON)",
+   "value_then": "1.67262192369e-27 kg (tree; = CODATA 2018, marked NAMED-NOT-READ)",
+   "value_now": "1.67262192595e-27 kg (CODATA 2022); relative move 1.35e-9",
+   "source_now": "CODATA 2022 table as transcribed in the banked scipy-1.17.1 wheel, scipy/constants/_codata.py (_current_codata = 'CODATA 2022'); READ from that file here",
+   "moves_conclusion": "no: 100 kg/m_p = 5.978637e28 under both"
+  },
+  {
+   "quantity": "baryons in 100 kg of ordinary matter",
+   "value_then": "5.979e28 (= 100 kg/m_p; warpfolder.py:81, 553)",
+   "value_now": "6.019e28 (H2O) / 6.022e28 (12C) / 6.021e28 (14N) / 6.029e28 (56Fe), from atomic masses per nucleon",
+   "source_now": "isotope masses from banked periodictable-2.1.0 (1H 1.00782503, 12C 12, 14N, 16O 15.99491462, 56Fe 55.9349355 u) with CODATA 2022 u; computed in rederive check B",
+   "moves_conclusion": "no: a 0.7-0.85 % undercount; net B of order 6e28 needs sourcing either way"
+  },
+  {
+   "quantity": "eta, baryon-to-photon ratio (warpfolder.py:229)",
+   "value_then": "6.1e-10 (tree, labelled Planck 2018 NAMED-NOT-READ)",
+   "value_now": "6.12e-10 (m_b = m_p) / 6.16e-10 (m_b = u) computed from Omega_b h^2 = 0.02237 and T_CMB = 2.7255 K -- those two inputs RECALLED (Planck 2018 TT,TE,EE+lowE+lensing; FIRAS), NOT READ in this stage (alphaXiv quota, arxiv/pdg egress 403)",
+   "source_now": "computed in rederive check E; inputs NAMED-NOT-READ",
+   "moves_conclusion": "no: eta enters no computation or flag in warpfolder; the Sakharov conclusion (net B needs (i)-(iii)) does not depend on it"
+  },
+  {
+   "quantity": "yield scale implied by the tree's sentence (named hypothesis: eta read as net baryons per photon at T = 160 GeV, mean photon energy 2.701 kT)",
+   "value_then": "not computed in the tree",
+   "value_now": "9.8e37 photons = 6.8e30 J = 7.5e13 kg c^2 of flash per 100 kg of net baryons",
+   "source_now": "computed, rederive check E; T_EW = 160 GeV is the tree's ORDER constant (warpfolder.py:230), consistent with 159.6 +/- 1.5 GeV (1508.07161, D65-banked READ)",
+   "moves_conclusion": "no -- illustration only; even granting an observed-scale yield (which the SM does not reach per 1206.2942) the flash would need >1e11 times the payload's mass-energy"
+  },
+  {
+   "quantity": "SM B-L conservation with sphalerons active: equilibrium B/(B-L)",
+   "value_then": "not stated in the tree (canonical hypothesis 2: sphalerons 'not addressed')",
+   "value_now": "4(2N_f+m)/(22N_f+13m) = 28/79 for N_f = 3, m = 1",
+   "source_now": "computed symbolically (sympy) from Yukawa, sphaleron and hypercharge-neutrality chemical-potential constraints, rederive check D; the published relation (Harvey-Turner 1990; Khlebnikov-Shaposhnikov 1988) NAMED-NOT-READ",
+   "moves_conclusion": "no -- it supports the tree: a flash starting from B-L = 0 ends at B = 0 in equilibrium even above T_EW"
+  }
+ ],
+ "rederivation": {
+  "method": "sympy",
+  "script_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/sakharov-1967.py",
+  "outcome": "ALL PASS (exit 0; md5 093296033ae89bb3e1a5dc31bbaf3af1 before the report was written). A: tree m_p = CODATA 2018; 2022 moves it 1.35e-9; 100 kg/m_p = 5.978637e28. B: atomic matter holds 6.019e28-6.029e28 baryons per 100 kg (+0.67 % to +0.85 % over 100 kg/m_p). C (numeric, finite toy): Theta-invariant H with B and C violated gives <B>_eq = -8.0e-17; CPT-odd -mu*B gives 0.086 / 0.508; unitary evolution from a C-symmetric B = 0 state reaches |<B(t)>| = 1.24 -- the necessity of (iii) is reproduced and its CPT hypothesis shown load-bearing. D (sympy): B = 4(2N_f+m)/(22N_f+13m) (B-L) = 28/79 (B-L), so B-L = 0 => B_eq = 0 with sphalerons on. E: 6.1e-10 agrees with eta from Omega_b h^2 = 0.02237 (recalled) to 2 s.f.; yield reading implies 7.5e13 kg c^2 per 100 kg.",
+  "agrees_with_source": "yes"
+ },
+ "later_literature": [
+  {
+   "ref": "Morrissey & Ramsey-Musolf, arXiv:1206.2942 (New J. Phys. 14 (2012) 125003), Sec. 1 pp.2-3",
+   "effect": "extends",
+   "what": "'EWBG is unable to explain the observed baryon asymmetry within the SM alone' -- SM transition first order only for m_h <~ 70 GeV; CKM CP 'does not appear to be sufficient'. All three conditions are formally present in the SM but quantitatively insufficient. Contradicts the tree's printed string warpfolder.py:402 ('SM baryogenesis gives eta = 6.1e-10'), not Sakharov.",
+   "read_status": "READ in DOCKET 65 via alphaXiv, banked verbatim at scratchpad/d65/read_sphaleron.json figure 6b; not re-fetched this stage (quota/egress)"
+  },
+  {
+   "ref": "D'Onofrio, Rummukainen & Tranberg, arXiv:1404.3565, p.1; D'Onofrio & Rummukainen, arXiv:1508.07161",
+   "effect": "extends",
+   "what": "with m_H = 125 GeV the EW transition is a smooth crossover at T_c = 159.6 +/- 1.5 GeV; 'standard electroweak baryogenesis scenarios are ineffective ... the origin of the baryon asymmetry must rely on physics beyond the Standard Model'. Supplies the post-2012 datum (Higgs mass) the SM condition-(iii) question turns on.",
+   "read_status": "READ in DOCKET 65, banked (figures 4a, 6b note); not re-fetched this stage"
+  },
+  {
+   "ref": "Cohen & Kaplan, Phys. Lett. B 199 (1987) 251 (spontaneous baryogenesis); Davoudiasl, Kitano, Kribs, Murayama & Steinhardt, hep-ph/0403019 (gravitational baryogenesis)",
+   "effect": "narrows",
+   "what": "asymmetry generated IN thermal equilibrium through an effective CPT-violating coupling of a time-dependent background to the baryon current -- condition (iii) is necessary only under CPT invariance. The mechanism is reproduced in the finite toy (rederive check C), not read.",
+   "read_status": "NAMED-NOT-READ (alphaXiv discover_papers and answer_pdf_queries returned 'quota exceeded'; arxiv.org egress 403)"
+  },
+  {
+   "ref": "Harvey & Turner, Phys. Rev. D 42 (1990) 3344; Khlebnikov & Shaposhnikov, Nucl. Phys. B 308 (1988) 885",
+   "effect": "confirms",
+   "what": "equilibrium B = 28/79 (B-L) in the SM with sphalerons active -- recomputed here symbolically (check D); supports the tree's closure from a B-L = 0 start.",
+   "read_status": "NAMED-NOT-READ; the relation is COMPUTED in rederive check D"
+  }
+ ],
+ "lacked_data": "M's hypothesis tested: Sakharov (1967) lacked the measured Higgs mass (2012), the lattice result that the SM EW transition is a crossover (1404.3565, 1508.07161), the precision CKM CP measurements, and the CMB value of eta (Planck). None of these bears on the NECESSITY statement, which is a symmetry argument (B conservation, C/CP, and the CPT equilibrium identity Tr(e^{-beta H} B) = 0) and is reproduced here in a finite model and in the SM chemical-equilibrium algebra (28/79). What the later data DID move is the SUFFICIENCY question -- whether the SM itself meets the conditions strongly enough -- and it moved it AGAINST baryogenesis in the SM (crossover; CKM insufficient), i.e. in the same direction as the tree's conclusion. The one known narrowing (CPT-odd backgrounds evade (iii)) is a theoretical, not a data, development and does not apply to a lab flash in the SM. Evidence either way: no datum that came later loosens the conclusion that a flash from B-L = 0 matter-free energy does not deliver net baryon number of order 6e28; the data that came later tighten it. Absent here: a fresh read of Planck 2018 / PDG eta (quota, egress) -- it does not enter the conclusion. The one allowed discover_papers call for later literature returned 'quota exceeded'; no later-literature search ran in this stage, and the entries listed are D65-banked READs or NAMED-NOT-READ classics.",
+ "grade": "NARROWED",
+ "grade_evidence": "The published result (READ via R&S restatement, D65-banked) is a set of NECESSARY conditions from a charge-symmetric start; its necessity is reproduced (rederive C: <B>_eq = -8e-17 for a Theta-invariant H even with B and C violated; D: B_eq = 28/79 (B-L) = 0 from B-L = 0 with sphalerons on). The grade is NARROWED, not STANDS, because the tree's use drops a hypothesis the result needs -- CPT invariance / zero B chemical potential (shown load-bearing: CPT-odd -mu*B gives <B>_eq = 0.086-0.508) -- and leans on '(near) thermal equilibrium' while its own item (b) calls the flash a rapid quench, where (iii) is satisfied and the closure must come from (i)+(ii) and yield size. The narrowing does NOT move the tree's flags: BLUEPRINT_SOURCES_BARYON_NUMBER = False and FLASH_IS_A_RECONSTRUCTION_MECHANISM = False survive on the CPT-invariant SM class, B-L conservation, and the READ SM insufficiency (1206.2942), by margins (7.5e13 kg c^2 per 100 kg even at an observed-scale yield) no moved datum approaches. Discrepancies recorded, not repaired, not refutations: warpfolder.py:83-84 'delivers eta' and :402 'SM baryogenesis gives eta = 6.1e-10' attribute an observed value to the conditions / the SM (contradicted by the READ 1206.2942); 100 kg/m_p under-counts the baryons in atomic matter by 0.67-0.85 %.",
+ "what_would_change_the_grade": "To STANDS: the tree names CPT invariance (no CPT-odd background coupling to J_B) and the B-L = 0 initial condition as hypotheses of (c), and resolves the thermal-vs-quench tension by resting (c) on (i)+(ii)+yield rather than on equilibrium. To WRONG: a CPT-invariant, B-L-conserving SM process shown to produce net B of order the payload from a charge-symmetric flash -- none is known, and check D forbids it in equilibrium. To OPEN: if the D65-banked R&S text were found not to match the page (a fresh alphaXiv read of hep-ph/9603208 Sec. 1 p.2 should be run when quota allows, together with Planck 2018 1807.06209 Table 2 Omega_b h^2 and the later-literature search that could not run here).",
+ "reverify_command": "python3 /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/sakharov-1967.py; echo rc=$?  # expect ALL PASS, rc=0.  Source text: python3 -c \"import json;print([f for f in json.load(open('/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d65/read_sphaleron.json'))['figures'] if f['id'] in ('6a','6b')])\"; tree sites: sed -n '81,85p;190p;229p;400,404p;553,559p' /home/user/Claude-Method-Works/research/warp-drive/warpfolder.py",
+ "report_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/audits/sakharov-1967.json"
+}

@@ -1,0 +1,101 @@
+{
+ "key": "0705.3193",
+ "name": "Graham & Olum (2007), 'Achronal averaged null energy condition', PRD 76, 064001 -- self-consistent achronal ANEC conjecture and its sufficiency against wormholes/CTCs (and the tree's struck 'ANEC violation protects achronality')",
+ "source": {
+  "located": "arXiv:0705.3193 [gr-qc], Graham & Olum, PRD 76 (2007) 064001 (journal reference confirmed by the bibliographies of 1608.05687 ref [20] and 2309.10848 ref [10], both READ as cached text). The paper's own pages were NOT reached.",
+  "read_status": "READ-VIA-RESTATEMENT",
+  "via": "The source itself is NAMED-NOT-READ in this audit: alphaXiv answer_pdf_queries and get_paper_content returned 'alphaXiv assistant quota exceeded' (twice); arxiv.org (curl and WebFetch), ui.adsabs.harvard.edu, www.osti.gov, d-nb.info are refused by the egress proxy (EGRESS_BLOCKED / CONNECT 403). A transcript harvest for earlier alphaXiv page text of this paper was refused by the permission classifier and was not pursued. What was READ: (i) Gao-Jafferis-Wall 1608.05687v3 (cached text scratchpad/d67/src/1608.05687.txt lines 60-66 and footnote line 83, p.2), which restates G&O's reach; (ii) Fliss-Freivogel-Kontou-Pardo Santos 2309.10848 (src/2309.10848.flat, discussion section, 'Short wormholes ... [10]'), which restates G&O's scope; (iii) Freivogel-Krommydas 1807.03808 (src/1807.03808.txt lines 324-333), which restates the flat-space and curved-background proof history; (iv) Borde gr-qc/9406053 (src/gr-qc_9406053.txt lines 2404-2409), which restates Hawking-Ellis pp.115-116 (conjugate point / focusing => loss of achronality). The G&O abstract was seen ONLY as a WebSearch summary (inspirehep/arXiv listing) -- a search-engine paraphrase, not a read; it is quoted below marked as such and nothing load-bearing rests on it alone."
+ },
+ "published_statement": "NOT READ AT SOURCE. Restatements READ: GJW 1608.05687 p.2 (lines 60-64): 'There are reasonable arguments that the ANEC is always obeyed along infinite achronal geodesics [20, 31, 32, 29, 53]. This is sufficient to rule out traversable wormholes joining two otherwise disconnected regions of spacetime [20].' Footnote (line 83): 'A set of points is achronal if no two of the points can be connected by a timelike curve; otherwise it is chronal.' 2309.10848 (discussion): 'Short wormholes, those allowing for causality violations, can only be constructed and sustained when the achronal ANEC is violated [10]. ... Long wormholes such as the one in Ref. [13] do not require the violation of the achronal ANEC as there are no achronal null geodesics passing through their throat. While there is no relevant theorem, it is obvious that the violation of effective ANEC is needed to sustain long wormholes.' ([10] = Graham & Olum, arXiv:0705.3193.) SEARCH-SNIPPET ONLY (not a read): the abstract as summarised by WebSearch -- ANEC 'is violated by quantum fields in curved spacetime. However there is a weaker condition, which is free of known violations, requiring only that there is no self-consistent spacetime in semiclassical gravity in which ANEC is violated on a complete, achronal null geodesic'; the paper 'indicate[s] why such a condition might be expected to hold and show[s] that it is sufficient to rule out wormholes and closed timelike curves.'",
+ "published_hypotheses": [
+  "H1 complete (infinite) null geodesic -- restated READ in GJW ('infinite achronal geodesics'); 'complete' in the abstract snippet",
+  "H2 achronal: no two points of the geodesic connected by a timelike curve -- READ (GJW footnote 1)",
+  "H3 self-consistency: the spacetime solves semiclassical gravity with the violating state as its source -- abstract snippet only; NOT in the GJW restatement",
+  "H4 status: a CONJECTURE ('reasonable arguments', GJW; 'might be expected to hold', snippet), not a theorem; what G&O prove is the implication conjecture => no wormholes/CTCs",
+  "H5 reach of the implication: traversable wormholes joining otherwise disconnected regions (GJW) / short, causality-violating wormholes (2309.10848); LONG wormholes are outside it because no achronal null geodesic crosses their throat (2309.10848)",
+  "H6 the conjecture quantifies over EVERY complete achronal null geodesic of the spacetime, not a sampled family (structure of the statement, READ in the GJW wording 'always obeyed along infinite achronal geodesics')"
+ ],
+ "hypothesis_drift": [
+  "DROPPED H3 at anecscope.py:30-34 and :169-171, necindex.py:238 (AANEC row): the fixed-background 'achronal ANEC' -- 'the same integral, restricted to complete ACHRONAL null geodesics' -- is called 'the hypothesis of Graham & Olum' and given status 'OPEN, AND THE ONE WITH TEETH'. By the abstract snippet G&O's condition is the SELF-CONSISTENT one, and Urban & Olum 2010 (arXiv:0910.5925, PRD 81 024039; SEARCH SNIPPET ONLY, not read) report achronal ANEC violated for a conformally coupled scalar on a fixed conformally flat background 'since all geodesics in conformally flat spacetimes are achronal'. If that reading holds, the fixed-background row is not OPEN. The tree does name the self-consistent version separately (anecscope.py:35-37 'The SELF-CONSISTENT version ... has been open for nineteen years'; necindex.py:242 'semiclassical-AANEC ... Graham-Olum'), so this is a mislabelled row, not a lost hypothesis. Evidence for the Urban-Olum half is snippet-level and is marked so.",
+  "WIDENED H5 at anecscope.py:32-34 ('what the topological-censorship and no-wormhole results actually use') and necindex.py:242 ('topological censorship uses it'): the READ restatements confine G&O's consequence to wormholes joining otherwise disconnected regions (GJW p.2) or short/causality-violating wormholes (2309.10848), and say long wormholes are outside it. 'actually use' as a claim about the ORIGINAL topological-censorship proofs (Friedman-Schleich-Witt 1993; Galloway) is NAMED-NOT-READ here and cannot be graded; the READ statement is only that achronal ANEC is SUFFICIENT for the wormhole result.",
+  "CONVERSE ADDED (not an owner line of this key, but it is the path by which achronal.py/obstruct.py applied G&O): achronal.py:41-43 'A null geodesic is achronal EXACTLY up to its first CONJUGATE POINT' and obstruct.py:185-186 ('ZERO with a conjugate point' => 'THEY ARE ACHRONAL'). The theorem (Hawking-Ellis pp.115-116, READ-VIA-RESTATEMENT in gr-qc/9406053 lines 2404-2409) runs one way only: past a conjugate point => chronal. The converse is false: rederive C2 exhibits a null geodesic on the flat cylinder R^{1,1}/(x~x+1) with Jacobi field J = lambda (no conjugate point) that is chronal (z3 witness a = 0, b = 2/3). The tree itself knows a non-conjugate route to chronality (anecscope.py:255-260, GJW's external path). Direction of the error: it put rays INSIDE G&O's scope, i.e. against M, not for M; and it is already superseded by the strike at spec.py:87-90. Recorded, not repaired.",
+  "MISATTRIBUTION at achronal.py:126-127 ('Graham & Olum proved it in flat spacetime in 2007'): 1807.03808 lines 325-327 (READ) restates 'In 1991, Wald and Yurtsever [10] proved that ANEC holds in two and four-dimensional Minkowski spacetimes, for any Hadamard state along achronal null geodesics' ([10] = PRD 44 (1991) 403); G&O 2007 is a conjecture paper (H4). A discrepancy of attribution, not a refutation of anything the tree concludes.",
+  "WEAKENED 'no proof' at achronal.py:127-129 ('with no proof and no counterexample'), obstruct.py:178/190, index3.py:415/754/767 ('unproven for nineteen years'): partial and conditional proofs exist and are not mentioned -- Wall 2010, 'Proving the Achronal Averaged Null Energy Condition from the Generalized Second Law', PRD 81 024038 (title READ in GJW ref [53]; GJW p.2 lines 67-69: 'For small semiclassical perturbations to a stationary causal horizon, both the GSL and the ANEC follow from lightfront quantization methods that are valid for free or superrenormalizable field theories [54]'); Kontou & Olum 'proved the achronal ANEC on curved backgrounds obeying NEC' (1807.03808 lines 328-330, READ). None is the self-consistent 4D general case, so 'open in general' stands; 'no proof' flattens restricted/conditional proofs to nothing.",
+  "QUANTIFIER (H6) at anecscope.py:39-40 and :263-270: the scope finding ('put this architecture outside the scope of achronal ANEC') is established on a sampled ray family; G&O's condition binds any complete achronal null geodesic of the spacetime. The owner names this itself in NOT_RUN ('ray families other than planar +x-directed', anecscope.py:269) and states REFUTES_ACHRONAL_ANEC = False (:263). Also by 2309.10848's restatement, a SHORT (shortcut) wormhole needs an achronal ANEC violation; the tree's scope finding is therefore conditional on the corridor providing no shortcut -- which the tree itself asserts (spec.py:106 'There is no lead').",
+  "NO DRIFT at composite.py:93-95: 'past its conjugate point the geodesic is NOT achronal, so Graham & Olum's hypothesis fails' uses the true direction (rederive C1 agrees exactly on the Einstein static universe). Note however that the same ray has T_kk = 0 on its whole path (composite.py:90-92), so ANEC is not violated along it and G&O would not constrain it whether or not it were achronal; the load-bearing question is the rays through the source, which is H6.",
+  "INTERNAL, not G&O: spec.py:346-347 report() still prints 'ANEC violation protects achronality' after the header strike at spec.py:87-90 (already recorded by specthm per the canonical entry)."
+ ],
+ "data_at_publication": [
+  {
+   "quantity": "'nineteen years' open (anecscope.py:36, :171; achronal.py:127; obstruct.py:178,190; index3.py:415,754,767)",
+   "value_then": "G&O arXiv May 2007, PRD 76 064001 (2007)",
+   "value_now": "2026 - 2007 = 19 (today 2026-09-26)",
+   "source_now": "rederive C4a; journal year from 1608.05687 ref [20]",
+   "moves_conclusion": "no -- arithmetic correct; it is the proof-status wording, not the count, that is weakened (see drift)"
+  },
+  {
+   "quantity": "closest approach b = 0.3 (composite.py:91, the canonical data_used)",
+   "value_then": "n/a -- a model parameter of the tree, not an input of G&O",
+   "value_now": "n/a",
+   "source_now": "composite.py:91",
+   "moves_conclusion": "no -- G&O's conclusion has no numerical input; b only sets where the tree's ray lies"
+  },
+  {
+   "quantity": "solar focal distance printed beside the result, f = b^2 c^2/(4 G M) (spec.py:340)",
+   "value_then": "547.6 AU (spec.py), 'published ~550'",
+   "value_now": "547.76 AU with IAU 2015 nominal R_sun = 6.957e8 m, (GM)_sun = 1.32712440041e20 m^3 s^-2",
+   "source_now": "rederive C4b (IAU 2015 Resolution B3 nominal values, from memory of the resolution, not READ here)",
+   "moves_conclusion": "no -- 0.03% constant-choice difference, unrelated to G&O"
+  }
+ ],
+ "rederivation": {
+  "method": "sympy",
+  "script_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/0705.3193.py",
+  "outcome": "ALL PASS (10 checks; sympy 1.14 + z3 4.x). The conjecture itself is not finite and is NOT checked. C1 (Einstein static universe R x S^2): Jacobi field J = sin(lambda), first conjugate point at pi; for s > pi, dt - d = 2s - 2pi > 0 so the geodesic is chronal past the conjugate point and null-related (not chronal) before it -- agrees with the direction composite.py:93-95 uses. C2 (flat cylinder, L = 1): J = lambda, no conjugate point, yet z3 finds a timelike-related pair (a = 0, b = 2/3); z3 proves the uncompactified null line achronal (negation unsat) -- refutes the converse stated at achronal.py:41-43 and used at obstruct.py:185-186. C3: a trace-free (pure Weyl, R_kk = 0) tidal matrix of either sign gives a conjugate point at pi/sqrt(c) on one transverse axis -- the vacuum mechanism composite.py relies on. C4: 2026-2007 = 19; f = 547.76 AU.",
+  "agrees_with_source": "partly"
+ },
+ "later_literature": [
+  {
+   "ref": "Gao, Jafferis & Wall, arXiv:1608.05687 (JHEP 2017)",
+   "effect": "confirms",
+   "what": "Traversable wormhole in AdS evades the G&O argument precisely by making the null geodesics through it non-achronal via a direct boundary coupling ('changing the commutation relations along null geodesics through the wormhole and making them no longer achronal ... Hence the above impossibility results do not apply', p.2 lines 70-76). Consistent with G&O's scope; no achronal violation.",
+   "read_status": "READ (cached text src/1608.05687.txt, read at alphaXiv by an earlier D67 stage)"
+  },
+  {
+   "ref": "Fliss, Freivogel, Kontou & Pardo Santos, arXiv:2309.10848",
+   "effect": "narrows",
+   "what": "Restates G&O's reach as SHORT (causality-violating) wormholes; long wormholes have no achronal null geodesic through the throat and are outside it; finds the self-consistent effective ANEC for non-minimal coupling violated only at large (EFT-invalid) field values.",
+   "read_status": "READ (cached text src/2309.10848.flat)"
+  },
+  {
+   "ref": "Freivogel & Krommydas, arXiv:1807.03808",
+   "effect": "extends",
+   "what": "Restates Wald-Yurtsever 1991 (flat-space achronal ANEC proof), Kontou-Olum (achronal ANEC on curved backgrounds obeying NEC), Hartman et al. and Faulkner et al. (information-theoretic ANEC proofs); proposes a smeared NEC over achronal null geodesics.",
+   "read_status": "READ (cached text src/1807.03808.txt lines 324-333, 1525-1534)"
+  },
+  {
+   "ref": "Wall, arXiv:0910.5751, PRD 81 (2010) 024038",
+   "effect": "extends",
+   "what": "Derives achronal ANEC from the generalized second law (conditional proof); GSL itself proven for small perturbations of stationary horizons in free/superrenormalizable theories (restated GJW p.2).",
+   "read_status": "NAMED-NOT-READ (title READ in GJW bibliography ref [53]; content only via GJW's restatement)"
+  },
+  {
+   "ref": "Urban & Olum, arXiv:0910.5925, PRD 81 (2010) 024039",
+   "effect": "narrows",
+   "what": "Reported: achronal ANEC violated by a conformally coupled scalar on a FIXED conformally flat 3+1 background, state-dependent and arbitrarily large -- supports G&O's insistence on self-consistency (H3) and bears against the tree's fixed-background AANEC row being OPEN.",
+   "read_status": "NAMED-NOT-READ (WebSearch summary only; alphaXiv quota exhausted, arxiv.org refused)"
+  },
+  {
+   "ref": "Ishibashi, Maeda & Mefford, PRD 100 (2019) 066008 and arXiv:2005.06476 (JHEP07(2020)023)",
+   "effect": "extends",
+   "what": "Achronal ANEC in holographic settings (weak cosmic censorship, extremal horizons, (A)dS) -- titles only.",
+   "read_status": "NAMED-NOT-READ (search result titles only)"
+  }
+ ],
+ "lacked_data": "G&O (2007) had no experimental datum to lack: the conjecture is about semiclassical QFT, and its 'data' are calculations of <T_kk>. What came later: (a) Urban-Olum 2010's fixed-background achronal violation (snippet only) -- it would have CONFIRMED G&O's choice to require self-consistency, not overturned it; (b) proofs of flat-space ANEC for interacting QFT (Faulkner et al., Hartman et al. 2016; restated in 1807.03808:332-333) and Kontou-Olum's proof on NEC-obeying curved backgrounds (1807.03808:328-330) -- these strengthen the base without reaching the self-consistent case; (c) Wall 2010's GSL derivation -- conditional support; (d) GJW 2016 -- the first controlled traversable wormhole, and it escapes by non-achronality exactly as G&O's hypothesis allows (1608.05687 p.2). Evidence either way: no READ source reports a counterexample to the SELF-CONSISTENT achronal ANEC, and none proves it in general 4D. So M's hypothesis is not borne out for THIS result: later data narrowed which version can hold (fixed-background falls, per snippet) and extended the conditional support; nothing found moves G&O's conclusion. The errors located are in the tree's USE (a mislabelled row, a converse, a misattribution, a flattened 'no proof'), not in G&O -- and the one computed error (the converse) cuts against M, not for M.",
+ "grade": "NARROWED",
+ "grade_evidence": "The conjecture's truth is not decided here and is not graded (it is OPEN in the literature, and the paper was not reachable at source). What is graded is the tree's use, and it holds on a smaller class than the tree states: (1) the reach 'no-wormhole results' is confined by READ restatements to wormholes joining disconnected regions (GJW p.2) / short causality-violating wormholes (2309.10848), long wormholes outside; (2) the row labelled 'Graham & Olum's hypothesis' and 'OPEN' drops self-consistency (anecscope.py:30-34,169-171; necindex.py:238) -- the tree names the self-consistent version separately, and the evidence that the fixed-background version is actually violated (Urban-Olum) is snippet-level; (3) the achronality test used the converse of the conjugate-point theorem (achronal.py:41-43, obstruct.py:185-186), SHOWN false in rederive C2, erring against M and already struck; (4) 'Graham & Olum proved it in flat spacetime' (achronal.py:126) is a misattribution per 1807.03808:325-327 (Wald-Yurtsever 1991); (5) 'no proof' omits restricted/conditional proofs (Kontou-Olum; Wall-GSL). composite.py's own direction (past a conjugate point => chronal) agrees with the rederivation (C1) and is unaffected; anecscope's scope finding stands as a conditional scope finding, as its owner already says (REFUTES_ACHRONAL_ANEC = False, NOT_RUN). No datum moved.",
+ "what_would_change_the_grade": "A read of 0705.3193 at source (alphaXiv quota reset, or arxiv.org allowed) that shows (a) the conjecture stated WITHOUT self-consistency, or (b) the wormhole implication proved for every wormhole rather than disconnected-region/short ones, would lift items 1-2 and move the grade toward STANDS for the anecscope/necindex use (items 3-5 are tree-side and stay recorded). A read of Urban-Olum 0910.5925 confirming a fixed-background achronal violation would harden item 2 from snippet to READ (grade stays NARROWED). A published counterexample to the SELF-CONSISTENT achronal ANEC would bear on the conjecture itself and could make the tree's 'the one with teeth' claim DATA-DEPENDENT; a general proof would not change the grade of the use.",
+ "reverify_command": "python3 /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/0705.3193.py && grep -n 'achronal geodesics\\|disconnected regions' /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/src/1608.05687.txt && grep -o 'Short wormholes, those allowing.\\{300\\}' /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/src/2309.10848.flat && sed -n 324,333p /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/src/1807.03808.txt && grep -n 'Graham\\|EXACTLY up to\\|ZERO \"' /home/user/Claude-Method-Works/research/warp-drive/achronal.py /home/user/Claude-Method-Works/research/warp-drive/anecscope.py /home/user/Claude-Method-Works/research/warp-drive/necindex.py",
+ "report_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/audits/0705.3193.json"
+}

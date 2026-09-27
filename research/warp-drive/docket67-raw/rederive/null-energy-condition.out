@@ -1,0 +1,46 @@
+(A) Maxwell stress-energy, flat space, Gaussian units, signature (-,+,+,+)
+  T_00 = (E^2 + B^2)/8pi                                                         ok 
+  T_ab k^a k^b = |P_perp E (sign) n x B|^2/4pi on |n|=1 (200 random, one sign exact) ok sign=+ maxdev(+)=4.4e-16 maxdev(-)=1.7e+00
+  symbolic: residual is a multiple of (|n|^2 - 1), i.e. zero on the unit sphere  ok (polynomial remainder in n3)
+  inf over null directions of T_kk / T_00 -> 0 for random (E,B) (grid+refine, <1e-8) ok max ratio 5.55e-10
+  T_kk >= 0 at every sampled direction (sum of squares)                          ok 
+
+(B) Radial electric field in spherical symmetry
+  orthonormal T = (E^2/8pi) diag(1,-1,1,1): frame algebra, metric-independent    ok 
+  radial NEC rho + p_r = 0 (saturated, both radial directions)                   ok 
+  transverse NEC rho + p_T = 2 rho > 0 (NOT saturated)                           ok 
+  general null direction: T_kk = 2 rho sin^2(alpha) >= 0, zero only radially     ok T_kk=E_r**2*sin(alpha)**2/(4*pi)
+  RN: rho = Q^2/(8 pi r^4)                                                       ok 
+  RN: p_r = -rho, p_T = +rho                                                     ok 
+
+(C) Open FRW, k = -1: ds^2 = -dt^2 + a(t)^2 (dchi^2 + sinh^2 chi dOmega^2)
+  k = u + e_chi is null                                                          ok 
+  T_kk = (adot^2 - 1 - a addot)/(4 pi a^2)  (nonstatic.py:99-100)                ok 
+  rho = 3(adot^2 - 1)/(8 pi a^2)  (nonstatic.py:98-99)                           ok 
+  T_kk = rho + p identically (any perfect fluid)                                 ok 
+  open dust: p = 0 exactly                                                       ok 
+  open dust: rho = 3 A/(4 pi a^3) > 0, so T_kk = rho > 0 (STRICT)                ok 
+  open radiation (conformal time): T_kk = (4/3) rho, not rho -> driven.py:246-247 drops 'dust' ok T_kk/rho=4/3
+  dust witness satisfies the FULL NEC (isotropic: every null k gives rho + p = rho) ok (perfect-fluid Table 1 row, Kontou-Sanders p.11)
+
+(D) nonstatic.py radial identity and the reach of its two contractions
+  T_kk(u + n) = rho + p_r - 2j with j = -T(u,n)  (nonstatic.py:59, :351)         ok 
+  general direction: T_kk = rho + p_T - 2 j c + (p_r - p_T) c^2, c = cos(angle to n) ok 
+  z3: radial(out,in)+transverse >= 0 yet NEC fails at an oblique k (j != 0)      ok [c = -1/2, rho = 0, j = -3/8, p_T = 0, p_r = 1]
+  z3: with j = 0, radial + transverse DO certify the full NEC (unsat)            ok 
+
+(E) 'classical T_ab satisfies the NEC' needs minimal coupling: KS 2003.01815 eq (7), (32)
+  T_kk = (d_t phi)^2 - xi d_t^2 phi^2 (k = dt + dx, flat)                        ok 
+  t = 0: T_kk = m^2 (1 - 2 xi)  (KS p.14)                                        ok m**2*(1 - 2*xi)
+  t = pi/2m: T_kk = 2 xi m^2  (KS p.14)                                          ok 2*m**2*xi
+  xi = 1 (non-minimal, classical, on-shell test field): T_kk = -m^2 < 0 at t = 0 ok 
+  xi = 0 (minimal): T_kk = (d_t phi)^2 >= 0 for all t                            ok 
+
+(F) seatindex.py data: T_kk threshold pi c^4/(4 G l^2) and 'nuclear ~1e35 Pa'
+  pi c^4/(4G) = 9.5054e43 Pa m^2 (seatindex.py:92)                               ok 9.50532e+43
+  nuclear saturation energy density ~2.4e34 Pa (not 1e35)                        ok 2.366e+34 Pa
+  l = 100 km: T_kk = 9.51e33 Pa < saturation energy density (claim holds)        ok 9.505e+33 < 2.366e+34
+  crossover l: 63 km (saturation) vs 31 km (tree's 1e35); 'beyond about 100 km' holds both ok 
+  T_kk > 0 on ONE null congruence is necessary, not sufficient, for the NEC (logic) ok (seatindex :93 'energy-condition-satisfying' = compatible-with, cf. (D))
+
+ALL CHECKS PASS

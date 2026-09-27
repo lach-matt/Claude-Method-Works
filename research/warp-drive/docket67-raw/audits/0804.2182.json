@@ -1,0 +1,96 @@
+{
+ "key": "0804.2182",
+ "name": "Casini relative-entropy bound dS_A <= d<H_A> (Blanco & Casini PRL 111 221601)",
+ "source": {
+  "located": "H. Casini, 'Relative entropy and the Bekenstein bound', arXiv:0804.2182v3 [hep-th], 25 Aug 2008 (Class. Quant. Grav. 25 (2008) 205021, ref. as printed in 1309.1121 [16] and 2312.07646 [12]); sec. 2 eqs (2)-(5) p.2-3, sec. 3 eqs (6)-(16) p.3-6, sec. 4 eqs (17)-(25) p.6-7, sec. 5 p.7-8, appendix eqs (30)-(44) p.9-10. Restated as eq. (3)-(4) of D.D. Blanco & H. Casini, 'Localization of negative energy and the Bekenstein bound', arXiv:1309.1121v2 (27 Nov 2013), p.1-2; journal reference Phys. Rev. Lett. 111 (2013) 221601 confirmed at Longo arXiv:2409.14408v1 ref. [5] (the arXiv PDF prints none).",
+  "read_status": "READ",
+  "via": "alphaXiv answer_pdf_queries on 0804.2182 (all 12 pages returned verbatim) and on 1309.1121 (all 5 pages returned verbatim)."
+ },
+ "published_statement": "0804.2182 p.6: 'Our version of the Bekenstein bound then reads S_V <= K_V, which is S(rho_V) - S(rho^0_V) <= tr(K rho_V) - tr(K rho^0_V) (17). According to (6) we have K = -log rho^0_V - log(tr e^-K) ... we can write (17) simply as tr(rho_V log rho_V) - tr(rho_V log rho^0_V) >= 0 (18). This is just the statement of the positivity of the relative entropy S(rho_V|rho^0_V) ... It is always positive S(rho1|rho2) >= 0 (20), and is zero only when rho1 = rho2. This gives a proof of the present formulation of the bound. As an example, for an object far enough from the boundaries in a half space the relation (17) approaches (1) with lambda = 2 pi.' 1309.1121 p.2: 'a natural quantum interpretation of (1) reads [16] Delta S_A <= Delta<H_A> (3), where Delta<H_A> = tr(rho^1_A H_A) - tr(rho^0_A H_A) ... In the form (3), the bound is valid for any region A (not necessarily the half space) and for any \"object\" state rho^1, due to the positivity of relative entropy S(rho^1_A|rho^0_A) = Delta<H_A> - Delta S_A >= 0 (4)'; 'Eq. (3) allows ... for negative values on both sides of the inequality ... negative energy in A must be accompanied by a decrease of the entanglement entropy'.",
+ "published_hypotheses": [
+  "H1 V (= A) a spatial region lying on a Cauchy surface, with local algebra A(V) of its causal development (0804.2182 p.2)",
+  "H2 reference state = the global vacuum |0>; rho^0_V = tr_{-V}|0><0|, and K (= H_A) := -log rho^0_V up to a constant, the modular Hamiltonian of the VACUUM (p.3-4, eq. 6; PRL p.1)",
+  "H3 a cutoff (lattice) regularization so that H = H_V (x) H_{-V} and density matrices exist (p.2); the continuum statement rests on Araki's relative entropy (footnote 2, p.6), while 'mathematical definitions [of S_V, K_V separately] have not been worked out in the literature' (footnote 2)",
+  "H4 the object state has 'physically acceptable ultraviolet behavior, for example if it has finite energy', so the divergent terms of (4) cancel in S_V and in K_V (p.3, p.5-6)",
+  "H5 FIXED background geometry: 'the relative entropy for two states in a given region can only be defined in a fixed geometry, and becomes ill defined once the backreaction is included' (p.8)",
+  "H6 Bekenstein form S <= 2 pi E R recovered only for V = half space (Bisognano-Wichmann, any QFT, eq. 7) with the object far from the boundary, or a sphere in a CFT (eq. 9, where K ~ pi E R near the centre); for massive/interacting theories or general V, K is non-local (p.4)",
+  "H7 flat space; the black-hole version replaces the vacuum by Hartle-Hawking with K = 8 pi G M E (eqs 15, 28), where G does enter"
+ ],
+ "hypothesis_drift": [
+  "NOTATION, a discrepancy not a refutation (bounds.py:162, bounds.py:307): the tree writes 'dS_A <= d<H_A>'; both sources write finite differences Delta S_A <= Delta<H_A> between the object state and the vacuum (0804.2182 eq. 17; 1309.1121 eq. 3). A differential reading is the FIRST LAW (equality at first order, rederive B), not the inequality. The tree's own row text and every use treat it as the finite-difference bound, so no conclusion moves.",
+  "DROPPED, HARMLESS FOR THIS USE: H2 vacuum reference state (bounds.py:162-166 says only 'modular energy'). The tree uses the bound only as a family member; the member's cell does not depend on which reference state.",
+  "DROPPED, HARMLESS FOR THIS USE, NAMED HERE: H5 fixed background / no backreaction (0804.2182 p.8). The tree codes G = 0 (bounds.py:306-308, :177 'Casini has no G'), which is correct under the slot rule 'a G or an area appears' for the flat-space statement; H7 records that the source's own black-hole form carries G through K = 8 pi G M E. The tree never applies the bound to a gravitating configuration, so nothing moves; any future use on a warp geometry would need H5 named.",
+  "DROPPED, HARMLESS: H3/H4 (finiteness of Delta S and Delta K separately). Supplied later, rigorously, for Rindler / globally-KMS reference states, cyclic-separating object states with finite relative entropy (Kudler-Flam et al., arXiv:2312.07646, Theorem III.1).",
+  "CODING DISCREPANCY, K integer (bounds.py:306-308 codes K = 1 'not known to be saturated'; K slot defined bounds.py:28): the source states equality 'only when rho1 = rho2' (0804.2182 p.6), which is attained -- by the vacuum (0 <= 0), and by any different global state U'|0> with U' in the complement's algebra (rederive B: gap 2.6e-16 with |<psi0|psi1>| = 0.36) -- and the source's own appendix (43)-(44) gives ASYMPTOTIC saturation for M species at fixed w (rederive D: relative entropy 0.139, 0.0136, 0.00136 at M = 10, 100, 1000); the first law saturates it at first order (rederive B, gap ~ eps^2). The tree counts vacuum saturation as saturation elsewhere (saturated() returns 'zero (the NEC's RHS)' 'saturated by the vacuum' and ANEC). Under the tree's own criterion K = 0 would be the reading; the tree's criterion is itself ambiguous (QNEC, also vacuum-saturated, is coded K = 1), so this is recorded as a DISCREPANCY for the tree to rule on, not an error. Computed consequence of K -> 0: E(statistics) 1 -> 3, 'four bounds are known saturated' pin (bounds.py:455) 4 -> 5; UNCHANGED: master cell (0,0,0,2,0), 'nothing closes it', all four withdrawals (bounds.py:174-182, 463-474), 'demanded-cell fill missed'.",
+  "ONE-SIDED READING (bounds.py:162-166, :200-207, :503-504): the tree reads the inequality as 'an entropy bounded by a modular energy' (W = 2). The PRL the tree cites reads the same inequality the other way: Delta<H_A> >= Delta S_A is a lower bound on a region-smeared (weight (R^2 - r^2)/2R over a ball in a CFT, eq. 14; x^1 over a half space, eq. 2) ENERGY with a state-dependent RHS, and 'negative energy in A must be accompanied by a decrease of the entanglement entropy' (1309.1121 p.2). This does NOT contradict the tree's refusal at bounds.py:261-264 ('no bound ... has spacelike signature, bounds an ENERGY, and applies to a BOUNDED region; FHR prove there cannot be one'), because the RHS Delta S_A is state-dependent and unbounded below (rederive C gives both sides negative), and FHR's no-go concerns state-independent (QEI) bounds. The implicit hypothesis 'state-independent RHS' should be NAMED in that sentence; without it the sentence is false of Casini's own member read from the energy side.",
+  "TREE-INTERNAL, STALE FIGURE (not an external-result fault): bounds.py:166-167 'Adding IT alone, without the Z slot: the family STOPS CLOSING, E = 2 under statistics, and the master cell moves to (0, 0, 0, 2, 1)'. Recomputed from the current table: five coordinates, nine members, E = 1 and master (0,0,0,2,1); E = 2 is the pre-DOCKET-4 value (Bekenstein at G = 1 gives E = 2). The selftest pins only 'misses the demanded cell' (bounds.py:514-515), which holds. The canonical entry's data_used 'E = 2' inherits this stale figure."
+ ],
+ "data_at_publication": [
+  {
+   "quantity": "Bisognano-Wichmann coefficient in K = 2 pi int z H (Rindler, eq. 7) -- sets lambda = 2 pi in the Bekenstein form",
+   "value_then": "2 pi (exact; Bisognano-Wichmann 1976, Unruh 1976)",
+   "value_now": "2 pi (exact); restated 1309.1121 eq. 2 and 2312.07646 eq. 8",
+   "source_now": "arXiv:2312.07646 eq. (8); arXiv:1309.1121 eq. (2)",
+   "moves_conclusion": "no -- exact, and the inequality Delta S <= Delta K does not use it at all (it holds for any region and any reference-state modular Hamiltonian)"
+  },
+  {
+   "quantity": "lambda in S <= lambda E R (Bekenstein's constant)",
+   "value_then": "'no general consensus on the correct value' (2 pi original, 'somewhat larger in [6]') (0804.2182 p.3)",
+   "value_now": "not needed: the formulation defines the product lambda E R as Delta K; Longo 2409.14408 proves an upper bound S(phi||omega) <= 2 pi R E(phi;B) with the width 2R",
+   "source_now": "arXiv:2409.14408 Theorem 3.2, Corollary 3.3",
+   "moves_conclusion": "no"
+  },
+  {
+   "quantity": "number of field species M (the species problem)",
+   "value_then": "any M; bound holds by joint convexity (23)-(24) and appendix (41)-(44)",
+   "value_now": "any M; re-derived numerically here for M = 1..1000",
+   "source_now": "rederive/0804.2182.py section D",
+   "moves_conclusion": "no -- the conclusion is M-independent by construction (Delta K = w/(1-e^-w) is species-independent, sympy)"
+  },
+  {
+   "quantity": "measured physical data of any kind",
+   "value_then": "none used -- the result is a consequence of positivity of relative entropy (Araki 1976 / Klein's inequality)",
+   "value_now": "none needed",
+   "source_now": "n/a",
+   "moves_conclusion": "no -- there is no datum for a later measurement to move"
+  }
+ ],
+ "rederivation": {
+  "method": "numeric",
+  "script_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/0804.2182.py",
+  "outcome": "PASS (all checks; ~2 min). A: identity S(rho|rho0) = Delta<K> - Delta S to 3.8e-15 and Delta S <= Delta<K> in 400 random cutoff states (dims 4x8), min gap 0.104; critical transverse-field Ising chain (8 sites, A = 2 sites, vacuum reduced state full rank) Delta S <= Delta<K> in 59 low-lying superpositions, min gap 0.093. B: a unitary in the complement gives a different global state (overlap 0.36) with gap 2.6e-16 -- equality iff rho_A = rho0_A attained non-trivially; first-order perturbation gap scales as eps^2 (ratios 3.885, 3.927, 3.959 -> 4), the first law. C: projecting A onto the lowest-K eigenvector gives Delta<K> = -0.430 and Delta S = -1.168 -- both sides negative, as 1309.1121 p.2 states. D: sympy gives Delta K = w e^w/(e^w - 1) = w/(1-e^-w), species-independent; direct series of (33)-(34) reproduce (44) to 1e-14 and the closed form (41), as read, to 2.8e-13 over w in {1,3,6}, M in {1,2,5,20}; (42) Delta S -> log M (1.098675 vs 1.098612 at w = 12, M = 3); (43) relative entropy -> 0 as M grows (0.139, 0.0136, 0.00136). E: sympy re-derives Blanco-Casini (11), (12), (13) from (7) exactly. F: tree coding (2,2,1,0,1,2) read back; the four withdrawals recomputed and hold; K 1 -> 0 moves E(statistics) 1 -> 3 and nothing else checked (master cell (0,0,0,2,0) either way). Separately computed: the five-coordinate 'Casini alone' figure is E = 1 now, not the E = 2 printed at bounds.py:166-167.",
+  "agrees_with_source": "yes"
+ },
+ "later_literature": [
+  {
+   "ref": "D.D. Blanco & H. Casini, arXiv:1309.1121, Phys. Rev. Lett. 111 (2013) 221601",
+   "effect": "extends",
+   "what": "Restates the bound as eq. (3) for 'any region A' and 'any object state', notes both sides may be negative; proves a second, different bound (20)/(22) pi L E >= S_f(A,B) from MONOTONICITY with both sides positive; and for CFTs derives a SPATIAL constraint on the energy distribution, (7) int |x - x0|^2 <T00> >= 0, hence (12)-(13). (7) is a whole-space second moment, CFT-only: it is not a bound over a bounded region and so does not touch bounds.py:261-264, but it is an UNSEATED candidate member of the family with Z = 2 and an energy-density integrand, in the very paper the tree cites; recorded, not adjudicated. Its ref. [10] (Borde-Ford-Roman, 'Constraints on spatial distributions of negative energy', gr-qc/0109061) is a second such candidate, NAMED-NOT-READ.",
+   "read_status": "READ (alphaXiv, all 5 pages)"
+  },
+  {
+   "ref": "J. Kudler-Flam, S. Leutheusser, A.A. Rahman, G. Satishchandran, A.J. Speranza, arXiv:2312.07646 (2023)",
+   "effect": "confirms",
+   "what": "Rigorous proof of 'Casini's version of the Bekenstein bound', eq. (8) and Theorem III.1, with Delta S defined independently via a modular crossed-product regulator, for globally KMS reference states (Minkowski vacuum on the Rindler wedge, Bunch-Davies static patch, Hartle-Hawking exterior), cyclic-separating object states, existence of a stress tensor, and FINITE relative entropy; extends to bifurcate Killing horizons with 2 pi/kappa (eq. 10). Supplies what 0804.2182 footnote 2 said was not worked out.",
+   "read_status": "READ (alphaXiv pp.1-4, 6-7, 9, 13-14)"
+  },
+  {
+   "ref": "R. Longo, arXiv:2409.14408 (2024)",
+   "effect": "extends",
+   "what": "Model-independent rigorous COMPLEMENTARY bound: for a vector state localized in a region B of width 2R, S(phi||omega)_{A(B)} <= 2 pi R <P>, hence <= 2 pi R E(phi;B) (Theorem 3.2, Cor. 3.3), assuming translation covariance, positive energy, wedge duality. Casini's argument is described there as 'reducing the bound (1) to the positivity of the relative entropy' (p.2). Also cites Longo & Xu, 'Comment on the Bekenstein bound', J. Geom. Phys. 130 (2018) 113 (arXiv:1802.07184) for the rigorous identity -- NAMED-NOT-READ.",
+   "read_status": "READ (alphaXiv, all 16 pages)"
+  },
+  {
+   "ref": "P. Hayden & J. Wang, arXiv:2309.07436v3",
+   "effect": "narrows",
+   "what": "Interpretive narrowing already READ in the tree (massform.py:1398-1412): Casini's formulation is 'a widely accepted proven version' but 'not the only viable formulation', and reading it as a limit on stored information 'remains folklore'. Does not touch the inequality or the tree's coding.",
+   "read_status": "READ-VIA-TREE (quoted with page numbers at massform.py:1398-1412; not re-read in this stage)"
+  }
+ ],
+ "lacked_data": "What the 2008 author lacked was mathematical, not empirical: a continuum definition of Delta S_V and Delta K_V separately (footnote 2, p.6: 'these mathematical definitions have not been worked out in the literature'); the inequality itself was already a theorem via Araki's relative entropy. It was supplied in 2023 (arXiv:2312.07646, Theorem III.1) under named hypotheses (globally KMS reference, cyclic-separating states, finite relative entropy) and the bound came out exactly as Casini stated it -- evidence FOR the result. No physical measurement enters the conclusion (data_at_publication: none), so no later datum can move it; the only numerical constant, 2 pi, is exact and is not used by the inequality. The one limitation that later work does not remove is H5, the fixed background: the source itself says the relative entropy 'becomes ill defined once the backreaction is included' (p.8). That is a named hypothesis, not missing data, and the tree does not use the bound across it. M's hypothesis is therefore tested and not supported for this result: having the later data (rigorous definitions) confirms rather than changes the conclusion.",
+ "grade": "STANDS",
+ "grade_evidence": "Read at source (0804.2182 eqs 17-20, p.6; 1309.1121 eqs 3-4, p.2): Delta S_A <= Delta<H_A> for any region and any object state, by positivity of relative entropy, equality iff the reduced states coincide. Every hypothesis the tree attaches (region on a Cauchy surface -> Z = 2; modular Hamiltonian H_A; no G in the flat statement -> G = 0; state-dependent RHS -> S = 1, B = 2; entropy on the left -> W = 2) is confirmed at source. Re-derivation agrees (identity to 1e-15, inequality in 459 states incl. a critical Ising lattice, appendix (41)-(44) to 1e-13, Blanco-Casini (11)-(13) by sympy). Rigorous later proof (2312.07646) confirms. No datum. The four withdrawals that rest on it (bounds.py:174-182, 463-474) are recomputed and hold. Recorded without changing the grade: (i) notation d for Delta (bounds.py:162, 307); (ii) K = 1 conflicts with the source's equality condition and its own asymptotic saturation (43)-(44) -- a coding DISCREPANCY for the tree to rule on, which if recoded moves E(statistics) 1 -> 3 and the saturated-count pin 4 -> 5 but no conclusion; (iii) the refusal sentence bounds.py:261-264 needs the hypothesis 'state-independent RHS' NAMED, since the cited PRL reads the same inequality as a region-smeared energy bound; (iv) bounds.py:166-167 'E = 2' is stale (E = 1 under current codes; tree-internal).",
+ "what_would_change_the_grade": "NARROWED if the tree applies the bound on a gravitating / back-reacting geometry (e.g. a warp metric) without naming H5 (fixed background, 0804.2182 p.8), or relies on a non-vacuum modular Hamiltonian without naming the reference state. A tree ruling that 'known saturated' includes vacuum/local-unitary saturation would make the K = 1 integer a wrong integer (then the row is a coding fault, still not a fault of the external result). WRONG would need a state with S(rho_A|rho0_A) < 0, impossible by Klein's inequality / Araki positivity; OPEN only if the Araki continuum statement were disputed, which no later work read here does.",
+ "reverify_command": "python3 /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/0804.2182.py   # ~2 min; prints RESULT: PASS. Tree side: cd /home/user/Claude-Method-Works/research/warp-drive && python3 bounds.py --selftest && sed -n 160,183p bounds.py && sed -n 258,266p bounds.py && sed -n 300,309p bounds.py",
+ "report_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/audits/0804.2182.json"
+}

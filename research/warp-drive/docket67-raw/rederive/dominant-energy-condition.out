@@ -1,0 +1,39 @@
+A. DEC on a type-I tensor, both directions (z3)
+PASS A1 rho >= |p_i|  =>  DEC at every future timelike t  (negation unsat)
+PASS A2 0 <= rho < |p1|  =>  witness t=(1,s,0,0) timelike with spacelike flux  (negation unsat)
+PASS A3 rho < 0  =>  t=(1,0,0,0) gives T(t,t) = rho < 0  (negation unsat)
+PASS A4 energy >= 0 & flux causal  =>  flux future-directed or zero  (negation unsat)
+PASS A5 DEC (type-I form) => rho >= 0  (negation unsat)
+PASS A6 DEC does NOT imply rho > 0 strictly (sat: sat, e.g. vacuum)
+
+B. static cylindrical metric (sympy)
+PASS B1 T^a_b diagonal (off-diagonal all 0): type I at every point
+PASS B2 u independent of Phi
+PASS B3 axial.py identity 8 pi u W = -(W Psi')' - W Psi'^2 - W'' (Lambda=0), residual 0
+     u(Lambda=0) = (-W(r)*Derivative(Psi(r), r)**2 - W(r)*Derivative(Psi(r), (r, 2)) - Derivative(Psi(r), r)*Derivative(W(r), r) - Derivative(W(r), (r, 2)))/(8*pi*W(r))
+
+C. under W(0)=0, W'(0)=1, W'->1, W Psi'->0: u >= 0 forces vacuum (numeric)
+     Psi'==0, W != r    pars=(0.0, 1.0, 0.8, 1.4)  min u=-1.9099e-01  max u= 3.0873e-02  INT8piuW=-0.0000000000  -INT W Psi'^2=-0.0000000000
+PASS C  Psi'==0, W != r (0.0, 1.0, 0.8, 1.4): identity holds (|diff| < 1e-8) and u < 0 somewhere (DEC fails)
+     Psi'==0, W != r    pars=(0.0, 1.0, -0.3, 0.9)  min u=-1.9945e-02  max u= 7.1620e-02  INT8piuW= 0.0000000000  -INT W Psi'^2=-0.0000000000
+PASS C  Psi'==0, W != r (0.0, 1.0, -0.3, 0.9): identity holds (|diff| < 1e-8) and u < 0 somewhere (DEC fails)
+     Psi'!=0, W = r     pars=(0.4, 1.0, 0.0, 1.0)  min u=-6.3662e-02  max u= 7.7851e-03  INT8piuW=-0.0800000000  -INT W Psi'^2=-0.0800000000
+PASS C  Psi'!=0, W = r (0.4, 1.0, 0.0, 1.0): identity holds (|diff| < 1e-8) and u < 0 somewhere (DEC fails)
+     Psi'!=0, W != r    pars=(1.3, 0.7, 0.8, 1.4)  min u=-6.1323e-01  max u= 5.7966e-02  INT8piuW=-1.0776404390  -INT W Psi'^2=-1.0776404390
+PASS C  Psi'!=0, W != r (1.3, 0.7, 0.8, 1.4): identity holds (|diff| < 1e-8) and u < 0 somewhere (DEC fails)
+     Psi'!=0, W != r    pars=(0.9, 1.7, -0.15, 2.5)  min u=-1.3754e-02  max u= 1.7337e-03  INT8piuW=-0.3109284490  -INT W Psi'^2=-0.3109284490
+PASS C  Psi'!=0, W != r (0.9, 1.7, -0.15, 2.5): identity holds (|diff| < 1e-8) and u < 0 somewhere (DEC fails)
+PASS C  axial.py fixture (0.4,1,0,1) -> -0.0800000000 reproduced
+PASS C  axial.py fixture (1.3,0.7,0.8,1.4) -> -1.0776404390 reproduced
+PASS C  Minkowski gives u = p_r = p_z = p_phi = 0: DEC holds, 'u > 0' test fails [0, 0, 0, 0]
+
+D. concentric.py core and the rigidity hypothesis (sympy)
+     rho_core(r) = -3*a**2*m/(4*pi*(R**2 + a**2)**(5/2))
+PASS D1 Plummer core of mass -m: rho = -3 m a^2 / (4 pi (r^2+a^2)^(5/2)) < 0 everywhere
+PASS D2 core integrates to mass -m (got -m)
+PASS D3 linearised: G_00 = 2 eps lap(f) + O(eps^2)
+PASS D4 linearised: G_xx, G_xy vanish at O(eps): pressures are O(eps^2), so the core is type I with |p| << |rho| and DEC fails through rho < 0 alone
+PASS D5 static slice: R_h - 16 pi mu = 0 (Hamiltonian constraint with K = 0)
+PASS D6 mu = M'/(4 pi r^2): mu >= 0 <=> R_h >= 0, the only local input time-symmetric rigidity uses; DEC => mu >= 0 by A5, so DEC is the stronger hypothesis and 'DEC fails' the weaker conclusion
+
+ALL CHECKS PASS

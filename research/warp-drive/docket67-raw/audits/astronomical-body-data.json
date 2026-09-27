@@ -1,0 +1,123 @@
+{
+ "key": "astronomical-body-data",
+ "name": "Masses and radii of Sun, Jupiter, Earth; AU; light-year",
+ "source": {
+  "located": "IAU 2015 Resolution B3 (Prsa et al., arXiv:1510.07674v1), Recommends 1-6 and Explanations 1-8, endnotes 2 and 4: nominal R_sun, R_eE, R_pE, R_eJ, R_pJ, (GM)_sun, (GM)_E, (GM)_J; the au of IAU 2012 Resolution B2 as B3 endnote 4 restates it. CODATA G 6.67430(15)e-11 (CODATA 2022 = 2018) via scipy.constants (the sister audit si-astro-constants-c-g-msun-ly READ CODATA 2022 arXiv:2409.03787 at source). Light-year computed as c x Julian year.",
+  "read_status": "READ",
+  "via": "B3 read as arXiv v1 page text cached at d67/src/casmag/all/1510.07674v1.txt (md5 6bdffaf89a7a45b40be462d8b910098f, asserted by the rederive script; every value used is string-matched in it). alphaXiv returned 'quota exceeded' on answer_pdf_queries, get_paper_content and discover_papers in this stage, so no fresh alphaXiv read was possible. IAU 2012 B2 itself NAMED-NOT-READ (READ-VIA-RESTATEMENT in B3 endnote 4). Haberreiter et al. 2008 (solar photospheric radius) NAMED-NOT-READ (restated in B3 endnote 2). Luzum et al. 2011 (IAU 2009 GM_E, GM_J system) NAMED-NOT-READ (restated in B3 Explanation 8). Julian-year definition NAMED-NOT-READ. The tree's Earth MEAN radius 6.371e6 has no read source; it is COMPUTED here from B3's R_eE, R_pE."
+ },
+ "published_statement": "B3 Recommends 3: '1 R^N_sun = 6.957 x 10^8 m ... 1 (GM)^N_sun = 1.327 124 4 x 10^20 m^3 s^-2'; 'PLANETARY CONVERSION CONSTANTS 1 R^N_eE = 6.3781 x 10^6 m, 1 R^N_pE = 6.3568 x 10^6 m, 1 R^N_eJ = 7.1492 x 10^7 m, 1 R^N_pJ = 6.6854 x 10^7 m, 1 (GM)^N_E = 3.986 004 x 10^14 m^3 s^-2, 1 (GM)^N_J = 1.266 865 3 x 10^17 m^3 s^-2'. Recommends 1: 'These nominal values should be understood as conversion factors only -- chosen to be close to the current commonly accepted estimates ... not as the true solar properties.' Recommends 5: 'if SI masses are explicitly needed, they should be expressed in terms of (GM)_object/G, where the estimate of the Newtonian constant G should be specified in the publication'. Explanation 2 / endnote 2: R^N_sun 'corresponds to the solar photospheric radius suggested by Haberreiter et al. (2008) ... defined to be where tau_Ross = 2/3, to be 695 658 (+-140) km'. Explanation 6: R^N_eE, R^N_pE are Earth's 'zero tide' equatorial and polar radii (IERS 2003/2010, IAU 2009); 'If equatorial vs. polar radius is not explicitly specified, it should be understood that nominal terrestrial radius refers specifically to R^N_eE'. Explanation 7: R^N_eJ, R^N_pJ are 'the one-bar equatorial and polar radii of Jupiter'; unspecified jovian radius means R^N_eJ. Endnote 4: 'Resolution B2 of the XXVIII General Assembly of the IAU in 2012 defined the astronomical unit to be a conventional unit of length equal to 149 597 870 700 m exactly.'",
+ "published_hypotheses": [
+  "Nominal values are exact conversion constants, not true properties; true values carry uncertainties (Recommends 1-2).",
+  "SI masses are (GM)/G with G stated; G is 'one of the least precisely determined constants' while GM_sun is five orders better (Recognizing 3, Recommends 5).",
+  "R_sun is a PHOTOSPHERIC radius (tau_Ross = 2/3), i.e. there is atmosphere above it (endnote 2).",
+  "Earth and Jupiter are OBLATE: each has an equatorial and a polar radius; Jupiter's are at the 1-bar pressure level, Earth's are zero-tide (Explanations 6-7). A single unspecified radius means the equatorial one.",
+  "(GM)_J excludes the Galilean satellites; (GM)_E and (GM)_J rounded to TCB/TDB agreement (Explanation 8).",
+  "au: conventional unit, exact by definition (IAU 2012 B2, via endnote 4).",
+  "ly (not in B3): c x Julian year, exact given c exact and the Julian year 365.25 x 86400 s (definition NAMED-NOT-READ)."
+ ],
+ "hypothesis_drift": [
+  "DROPPED -- oblateness / which radius. B3 gives Earth and Jupiter two radii and says an unspecified radius is the equatorial one. spec.py:235-236 (and the table at spec.py:69-72) gives ONE radius per body with no label; computed here, Jupiter's 7.15e7 is R_eJ rounded to 3 s.f. (equatorial) while Earth's 6.371e6 is the MEAN radius ((2a+b)/3 = 6.371000e6, volumetric 6.370992e6), not B3's default R_eE; the Sun's is the photospheric nominal. Three conventions, none stated in spec.py (canonical.json's hypothesis 'b = equatorial/mean radius' is the harness's reading, not the owner's text). It matters to specthm.py:1321-1322 ('f(R_lens) is the lens's MINIMUM range, so a declared range must be >= f(R_lens)') as SR1 prints it for Jupiter (6061.3 AU) and Earth (15295 AU), specthm.py:1330: a ray grazing in the POLAR plane (b = R_p, still outside the reference surface) focuses at 5298.8 AU for Jupiter (12.6% shorter; monopole, J2 quadrupole NOT computed) and 15226 AU for Earth (0.67% shorter). The Sun is unaffected at the pin's resolution (B3 gives one radius; rotational estimate eps ~ q/2 ~ 1e-5 from a NAMED-NOT-READ rotation period, against a 5e-4 tolerance).",
+  "WEAKENED -- 'radius' read as the edge of vacuum. specthm.py:1310-1311 hypothesis 'impact parameter b >= the lens radius, so the congruence passes through vacuum'. B3's radii are a photospheric optical-depth surface (Sun, endnote 2), a 1-bar pressure surface (Jupiter, Explanation 7) and the zero-tide figure (Earth, Explanation 6); each has atmosphere above it, so 'b >= R' does not by itself give vacuum. The size of the non-vacuum (refractive/plasma) correction is not computed here; the prior audit weak-field-lens-focal-length records, from a search summary only (NOT READ), that the solar corona matters at radio and not at optical frequencies. Recorded as a named hypothesis, not as a refutation.",
+  "DROPPED -- 'nominal is not true'. spec.py uses the numbers as body properties with no uncertainty; B3 Recommends 1 says nominal values are conversion factors, not true properties. Immaterial here: the Haberreiter photospheric radius differs from the nominal by 42 km (0.30 sigma), 6e-5 relative.",
+  "ADDED -- the 10 km asteroid (spec.py:236) is the owner's own figure, not a body in any source; with b = 1.0e4 m the '10 km' is a RADIUS (a 20 km body), which the name does not say; implied bulk density 537 kg/m^3 (4297 kg/m^3 had '10 km' been the diameter). A naming ambiguity, recorded; no source to drift from.",
+  "NONE for the au and the light-year: both are correct roundings of exact definitions (7 and 5 s.f.)."
+ ],
+ "data_at_publication": [
+  {
+   "quantity": "M_sun (kg)",
+   "value_then": "1.989e30 (spec.py:69, 235)",
+   "value_now": "(GM)^N_sun/G = 1.988410e30 +- 4.5e25 (G 1 sigma); 4-s.f. rounding 1.988e30. The tree's 1.989e30 is the 4-s.f. rounding of (GM)^N/G with the CODATA-1973 G 6.6720e-11 (1.98910e30) -- an older-G figure, +2.97e-4 relative, 13 sigma_G",
+   "source_now": "arXiv:1510.07674 Recommends 3 and 5 (READ, cached) + CODATA G (scipy.constants)",
+   "moves_conclusion": "No. f_sun 547.595 -> 547.758 AU (+2.97e-4), inside spec's 1e-3 selftest pin (spec.py:279-280); S-1's NONEMPTY verdict does not depend on the value. A discrepancy (stale rounding), not an error in any conclusion."
+  },
+  {
+   "quantity": "R_sun (m)",
+   "value_then": "6.957e8",
+   "value_now": "6.957e8 nominal exactly (photospheric 695 658 +- 140 km, Haberreiter 2008 via B3 endnote 2)",
+   "source_now": "arXiv:1510.07674 Recommends 3, endnote 2",
+   "moves_conclusion": "No (identical)."
+  },
+  {
+   "quantity": "M_Jupiter (kg)",
+   "value_then": "1.898e27",
+   "value_now": "(GM)^N_J/G = 1.898125e27 +- 4.3e22; correct 4-s.f. rounding",
+   "source_now": "arXiv:1510.07674 Recommends 3, Explanation 8 (+ G)",
+   "moves_conclusion": "No (-6.6e-5)."
+  },
+  {
+   "quantity": "R_Jupiter (m)",
+   "value_then": "7.15e7 (unlabelled)",
+   "value_now": "R_eJ 7.1492e7 (1-bar equatorial), R_pJ 6.6854e7 (1-bar polar); volumetric mean 6.9911e7 (computed); oblateness 0.0649 (computed from B3)",
+   "source_now": "arXiv:1510.07674 Recommends 3, Explanation 7",
+   "moves_conclusion": "Not S-1. It moves SR1's printed Jupiter 'minimum range': 6061.3 AU (tree) / 6059.6 (R_eJ) / 5794.6 (volumetric) / 5298.8 AU (R_pJ, polar-grazing, monopole only)."
+  },
+  {
+   "quantity": "M_Earth (kg)",
+   "value_then": "5.972e24",
+   "value_now": "(GM)^N_E/G = 5.972168e24 +- 1.3e20; correct 4-s.f. rounding",
+   "source_now": "arXiv:1510.07674 Recommends 3 (+ G)",
+   "moves_conclusion": "No (-2.8e-5)."
+  },
+  {
+   "quantity": "R_Earth (m)",
+   "value_then": "6.371e6 (unlabelled)",
+   "value_now": "R_eE 6.3781e6, R_pE 6.3568e6 (zero tide); mean (2a+b)/3 = 6.371000e6 and volumetric 6.370992e6 computed from them; B3's default unspecified radius is R_eE",
+   "source_now": "arXiv:1510.07674 Recommends 3, Explanation 6",
+   "moves_conclusion": "Not S-1. SR1's Earth figure: 15295 AU (tree) / 15329 (R_eE) / 15226 AU (R_pE)."
+  },
+  {
+   "quantity": "au (m)",
+   "value_then": "1.495979e11 (spec.py:237)",
+   "value_now": "149 597 870 700 m exactly (IAU 2012 B2)",
+   "source_now": "arXiv:1510.07674 endnote 4 (READ-VIA-RESTATEMENT of B2)",
+   "moves_conclusion": "No (+1.96e-7; the tree's figure is the correct 7-s.f. rounding)."
+  },
+  {
+   "quantity": "light-year (m)",
+   "value_then": "9.4607e15 (spec.py:148)",
+   "value_now": "c x 365.25 x 86400 s = 9 460 730 472 580 800 m exactly (computed; Julian year NAMED-NOT-READ)",
+   "source_now": "computed from exact c",
+   "moves_conclusion": "No (-3.22e-6; correct 5-s.f. rounding). f_ast in ly (specthm.py:514, printed to 0.1 ly at 1581.5) moves by 0.005 ly."
+  },
+  {
+   "quantity": "published solar focus used as comparator",
+   "value_then": "spec.py:66 '~550 AU' (uncited; read by specthm.published_sun_au, specthm.py:531)",
+   "value_now": "Hippke 2018, arXiv:1711.07962 sec 5.6.1: 'z0 = R_sun^2/2 r_g ~ 546 au', r_g ~ 2,950 m (READ, cached d67/src/casmag/all/1711.07962v2.txt); his own printed inputs give 548.4 AU, not 546 (a discrepancy inside the comparator). Turyshev & Toth ~547.8 AU NOT READ (prior audit's search summary).",
+   "source_now": "arXiv:1711.07962 (cached text)",
+   "moves_conclusion": "No physics moves: published comparators span 546-550 AU; the tree's 547.595 is -0.44% / +0.29% / -0.04% from 550 / 546 / 547.8. Only specthm's own recorded fact that 550 lies outside 1e-3 (specthm.py:3568-3570) depends on which comparator is quoted."
+  }
+ ],
+ "rederivation": {
+  "method": "sympy",
+  "script_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/astronomical-body-data.py",
+  "outcome": "39 checks, 0 failures, exit 0 (output rederive/astronomical-body-data.out); spec.py imported read-only, git status of research/ clean after the run. Exact rational arithmetic on B3's printed values (each string-matched in the cached arXiv text, md5 asserted) against spec.py's literals: R_sun identical; M_J, M_E, au, ly are correct roundings of (GM)^N/G, the IAU 2012 au and c x Julian year; M_sun 1.989e30 is +2.968e-4 above (GM)^N/G = 1.988410e30 (13.2 sigma_G), and is the rounding for the 1973 G 6.6720e-11; R_J = R_eJ to 3 s.f., R_E = the mean radius computed from B3's two radii (not R_eE). f = b^2 c^2/(4 GM) reproduces spec.focal_length to 1e-12; f_sun 547.5949 AU (tree) vs 547.7576 AU (IAU inputs), both within spec's 1e-3 pin of 547.6. Polar-grazing foci: Jupiter 5298.8 AU (0.8745 of equatorial), Earth 15226.3 AU. Solar oblateness estimate q/2 ~ 1.0e-5 (rotation periods 25.38/25.05 d are NAMED-NOT-READ inputs) vs a 5e-4 tolerance. R_s/R_sun = 4.245e-6. Asteroid: density 537 kg/m^3 at r = 1e4 m.",
+  "agrees_with_source": "partly"
+ },
+ "later_literature": [
+  {
+   "ref": "Hippke 2018, 'Benchmarking information carriers', arXiv:1711.07962 (Acta Astronautica)",
+   "effect": "confirms",
+   "what": "Restates the solar focus z0 = R_sun^2/(2 r_g) ~ 546 au for photons with r_g ~ 2,950 m, and a 23.5 +- 0.1 au minimum focus for neutrinos/GWs that pass THROUGH the Sun -- consistent with SR1's restriction to null rays at b >= R through vacuum; his 546 is not reproduced by his own printed r_g (548.4 AU), a discrepancy in the comparator, not in the tree.",
+   "read_status": "READ (cached arXiv page text, sec 5.6-5.6.1)"
+  },
+  {
+   "ref": "CODATA 2022, Mohr et al., arXiv:2409.03787",
+   "effect": "confirms",
+   "what": "G = 6.67430(15)e-11, identical to 2018; converts B3's GM into kg. Read at source by the sister audit si-astro-constants-c-g-msun-ly; used here via scipy.constants.",
+   "read_status": "READ-VIA-SISTER-AUDIT (value confirmed in scipy.constants)"
+  },
+  {
+   "ref": "Turyshev & Toth, solar-gravitational-lens series (e.g. arXiv:1811.06515, 1810.06627; extended-lens/oblateness papers)",
+   "effect": "extends",
+   "what": "Reported (search summary only, via the prior audit weak-field-lens-focal-length) to put the SGL focus at ~547.8 AU and to treat the solar corona and the lens's multipoles, which would bear on the 'vacuum' and 'spherical lens' hypotheses. NOT READ: alphaXiv quota exceeded in this stage; the effect label is provisional and no content is claimed from them. discover_papers was also refused (quota), so no later-literature search ran; no superseding IAU nominal-constants resolution was located, and that absence is NOT a finding.",
+   "read_status": "NAMED-NOT-READ"
+  }
+ ],
+ "lacked_data": "M's hypothesis, tested for this result. What the sources had: B3 (2015) fixed R_sun from Haberreiter 2008's photospheric radius (+-140 km), GM values from the IAU 2009 system, and the 2012 au; no datum used by the tree has moved since in any way that changes a conclusion (G unchanged 2018 -> 2022; au and ly exact). Evidence FOR a data-age effect exists in the TREE, not in the source: spec.py's M_sun = 1.989e30 is the value (GM)_sun/G gives with the CODATA-1973 G (6.6720e-11); with today's G it is 1.98841e30 (the 4-s.f. figure is 1.988e30). That is the tree carrying an older G, and it moves f_sun by 2.97e-4 -- inside the 1e-3 pin, S-1 unaffected. Evidence AGAINST the source lacking data: every B3 value is a correct base for the tree's other four masses/radii and both length units, and B3 itself already carried the datum the tree drops (the polar radii). Having it changes SR1's printed Jupiter minimum range by 12.6%, and not the Sun's. So: no physicist's lacking data changes the conclusion here; the one narrowing comes from information the source had and the tree's single-radius table did not carry.",
+ "grade": "NARROWED",
+ "grade_evidence": "The five data STAND as values: R_sun identical to B3; M_J, M_E, au and ly are correct roundings of current values (|rel| <= 6.6e-5); M_sun 1.989e30 is a stale (1973-G) rounding +2.97e-4 high -- a discrepancy, inside spec's 1e-3 pin (f_sun 547.595 vs 547.758 AU), moving no conclusion; the S-1 witness (the Sun, R_s/R_sun = 4.2e-6, oblateness ~1e-5) is untouched. The narrowing is a DROPPED hypothesis, shown by computation: B3 states Earth and Jupiter are oblate with equatorial and polar radii and that an unspecified radius is equatorial; spec.py:235-236 carries one unlabelled radius per body in three conventions (photospheric Sun, equatorial Jupiter, MEAN Earth), and specthm.py:1321-1322/1330 prints f(R_lens) for Jupiter (6061.3 AU) and Earth (15295 AU) as the lens's MINIMUM range, whereas a polar-plane grazing ray focuses at 5298.8 AU (Jupiter, monopole) and 15226 AU (Earth). SR1's minimum-range clause therefore holds for spherical lenses (the Sun to ~1e-5), a smaller class than the table it prints. Secondary, named not computed: 'b >= R, so vacuum' (specthm.py:1310-1311) is not implied by B3's photospheric / 1-bar / zero-tide radii. Not WRONG: nothing contradicts S-1 or SR1 for the Sun; the Jupiter/Earth figures are illustrations whose stated minimum is equatorial-plane only.",
+ "what_would_change_the_grade": "-> STANDS: SR1's text restricted to the Sun (or to spherical lenses), or the Jupiter/Earth rows labelled 'equatorial-plane focus', with R_p rows or the J2 quadrupole folded in; a computation showing J2's gravitational term restores 6061 AU as the minimum (it would have to offset a 12.6% geometric effect; by first-order Clairaut with q > 0, J2 < 2/3 x 0.0649 = 0.043 -- RECONSTRUCTED, not a bound read at source). -> DATA-DEPENDENT: only if a revised G or GM moved f_sun by > 1e-3 (G would have to move by ~3e-3, 150 sigma). -> WRONG: never on this evidence; it would need the Sun's focal range to fail the pin or the Sun to fall inside its Schwarzschild radius. -> weaker grade for the vacuum hypothesis once Turyshev & Toth's corona/extended-lens results are READ (alphaXiv quota exhausted in this stage).",
+ "reverify_command": "cd /tmp && PYTHONDONTWRITEBYTECODE=1 python3 -B /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/astronomical-body-data.py; echo exit=$?",
+ "report_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/audits/astronomical-body-data.json"
+}

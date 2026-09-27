@@ -1,0 +1,115 @@
+=== 1. the pressure hypothesis, as the tree carries it
+PASS  formation.LODDERS_PRESSURE_BAR == 1e-4 (L03 sec.3: 'total pressure of 10^-4 bar')
+PASS  stockgate.SOURCES['L03'] names 1e-4 bar
+
+=== 2. stockgate.TCOND against L03 Table 8 (50% T_C, solar-system comp.)
+  61 of 63 TCOND entries equal L03 Table 8's 50% T_C (Ne 9.1 -> 9 rounded)
+  DISCREPANCY  H   tree 182 : no 50% value in Table 8; TC column = 182
+  DISCREPANCY  He  tree 3 : no 50% value in Table 8; TC column = 3
+PASS  every TCOND entry except H, He equals L03 Table 8
+
+=== 3. stockgate.CHONDRITE against L03 Table 3 (CI weighted mean)
+  O   tree     4.64e+05 ppm   L03    4.582e+05 ppm   tree/L03 1.0127
+  Fe  tree     1.85e+05 ppm   L03    1.828e+05 ppm   tree/L03 1.0120
+  Si  tree     1.07e+05 ppm   L03    1.065e+05 ppm   tree/L03 1.0047
+  Mg  tree     9.65e+04 ppm   L03    9.587e+04 ppm   tree/L03 1.0066
+  S   tree     5.41e+04 ppm   L03     5.41e+04 ppm   tree/L03 1.0000
+  C   tree      3.5e+04 ppm   L03    3.518e+04 ppm   tree/L03 0.9949
+  H   tree     2.02e+04 ppm   L03    2.102e+04 ppm   tree/L03 0.9612   <-- DISCREPANCY
+  Ni  tree     1.07e+04 ppm   L03    1.064e+04 ppm   tree/L03 1.0056
+  Ca  tree         9110 ppm   L03         9070 ppm   tree/L03 1.0044
+  Al  tree         8600 ppm   L03         8500 ppm   tree/L03 1.0118
+  Na  tree         5000 ppm   L03         5010 ppm   tree/L03 0.9980
+  N   tree         3180 ppm   L03         2940 ppm   tree/L03 1.0816   <-- DISCREPANCY
+  Cr  tree         2650 ppm   L03         2590 ppm   tree/L03 1.0232   <-- DISCREPANCY
+  Mn  tree         1930 ppm   L03         1910 ppm   tree/L03 1.0105
+  P   tree         1040 ppm   L03          920 ppm   tree/L03 1.1304   <-- DISCREPANCY
+  Cl  tree          698 ppm   L03          704 ppm   tree/L03 0.9915
+  K   tree          555 ppm   L03          530 ppm   tree/L03 1.0472   <-- DISCREPANCY
+  Co  tree          513 ppm   L03          502 ppm   tree/L03 1.0219   <-- DISCREPANCY
+  Ti  tree          447 ppm   L03          440 ppm   tree/L03 1.0159
+  Zn  tree          312 ppm   L03          310 ppm   tree/L03 1.0065
+  Cu  tree          126 ppm   L03          127 ppm   tree/L03 0.9921
+  F   tree         60.4 ppm   L03         60.6 ppm   tree/L03 0.9967
+  V   tree         54.7 ppm   L03         55.7 ppm   tree/L03 0.9820
+  Ge  tree         32.6 ppm   L03         33.2 ppm   tree/L03 0.9819
+  Se  tree         21.2 ppm   L03         19.7 ppm   tree/L03 1.0761   <-- DISCREPANCY
+  Ga  tree          9.5 ppm   L03         9.51 ppm   tree/L03 0.9989
+  Sr  tree          7.9 ppm   L03         7.74 ppm   tree/L03 1.0207   <-- DISCREPANCY
+  Sc  tree          5.8 ppm   L03         5.83 ppm   tree/L03 0.9949
+  Zr  tree          3.9 ppm   L03         3.96 ppm   tree/L03 0.9848
+  Br  tree          3.5 ppm   L03         3.43 ppm   tree/L03 1.0204   <-- DISCREPANCY
+  Rb  tree          2.3 ppm   L03         2.13 ppm   tree/L03 1.0798   <-- DISCREPANCY
+  As  tree         18.5 ppm   L03         1.73 ppm   tree/L03 10.6936   <-- DISCREPANCY
+  Y   tree          1.5 ppm   L03         1.53 ppm   tree/L03 0.9804
+  Li  tree          1.5 ppm   L03         1.46 ppm   tree/L03 1.0274   <-- DISCREPANCY
+  Mo  tree          0.9 ppm   L03         1.02 ppm   tree/L03 0.8824   <-- DISCREPANCY
+  B   tree          0.8 ppm   L03        0.713 ppm   tree/L03 1.1220   <-- DISCREPANCY
+  Nb  tree         0.25 ppm   L03        0.265 ppm   tree/L03 0.9434   <-- DISCREPANCY
+  Ag  tree          0.2 ppm   L03        0.201 ppm   tree/L03 0.9950
+  Be  tree         0.02 ppm   L03       0.0252 ppm   tree/L03 0.7937   <-- DISCREPANCY
+  7 of 39 compared entries within 0.5% of L03 Table 3
+  sum of stockgate.CHONDRITE mass fractions = 1.00690 (not renormalised by DESTS)
+
+=== 4. the binder the tree prices on the CI chondrite, re-derived
+  tree:  binder P, factor 10.70115, feedstock(70 kg) = 749.08 kg
+PASS  tree binder is P at 10.7012 (stockgate prints 1.07012e+01)
+PASS  70 kg x factor = 749.08 kg (formation [W1] figure)
+  P only -> L03 920 ppm                        binder P  factor  12.0970  feedstock  846.79 kg  (x1.1304)  next: N 8.076, C 6.523
+  P only -> L03 920+100 (1 sigma high)         binder P  factor  10.9110  feedstock  763.77 kg  (x1.0196)  next: N 8.076, C 6.523
+  P only -> L03 920-100 (1 sigma low)          binder P  factor  13.5722  feedstock  950.05 kg  (x1.2683)  next: N 8.076, C 6.523
+  all read L03 Table 3 rows substituted        binder P  factor  12.0970  feedstock  846.79 kg  (x1.1304)  next: N 8.736, C 6.489
+  P only -> LBP 2025 989 ppm                   binder P  factor  11.2530  feedstock  787.71 kg  (x1.0516)  next: N 8.076, C 6.523
+  all read LBP 2025 Table 4 rows substituted   binder N  factor  13.0701  feedstock  914.91 kg  (x1.2214)  next: P 11.253, C 6.037
+PASS  binder stays P under every L03-internal variant (920, 920+-100, all L03 rows)
+  MEASURED (a moved datum, not a check): with LBP 2025 Table 4 the binder is N; P alone at 989 keeps P
+  N overtakes P when CI N < 2400 ppm  (tree P 1040)
+  N overtakes P when CI N < 2123 ppm  (L03 P 920)
+  N overtakes P when CI N < 2282 ppm  (LBP25 P 989)
+  CI N read: L03 2940+-20 ppm (2 meteorites); LBP25 1965+-970 ppm (quality D, 49% SD)
+  under LBP25 N the CI chondrite's regime label is VOLATILITY-LIMITED (N T_c 123 K < cut 500 K)
+  tree P = 1040 ppm: +1.20 sigma from L03 (920+-100); +0.57 sigma from LBP25 (989+-89)
+  feedstock range over the variants: 763.8 .. 950.1 kg (tree 749.08)
+  log10(Proxima b min mass / need): tree 21.93, worst variant 21.83
+  largest move of the comparison: 0.103 dex
+PASS  Proxima b min mass exceeds the need by > 20 dex under every variant
+
+=== 5. the refusal D25 rests on: T_c moves with total pressure (LFME 2024 Table 1)
+  P  T50 at 1e-2/1e-4/1e-6/1e-8 bar: (1421, 1273, 1142, 1029)   span 392 K
+  Fe T50 at 1e-2/1e-4/1e-6/1e-8 bar: (1531, 1334, 1182, 1063)   span 468 K
+  Mg T50 at 1e-2/1e-4/1e-6/1e-8 bar: (1476, 1330, 1214, 1115)   span 361 K
+  Si T50 at 1e-2/1e-4/1e-6/1e-8 bar: (1451, 1313, 1201, 1111)   span 340 K
+  N  T50 at 1e-2/1e-4/1e-6/1e-8 bar: (139, 124, 111, 101)   span 38 K
+  O  T50 at 1e-2/1e-4/1e-6/1e-8 bar: (210, 182, 160, 143)   span 67 K
+  C  T50 at 1e-2/1e-4/1e-6/1e-8 bar: (48, 40, 34, 30)   span 18 K
+  S  T50 at 1e-2/1e-4/1e-6/1e-8 bar: (661, 661, 661, 660)   span 1 K
+  Se T50 at 1e-2/1e-4/1e-6/1e-8 bar: (693, 693, 693, 693)   span 0 K
+  32 of 34 elements read move by >1 K over 1e-2..1e-8 bar; constant: ['S', 'Se']
+PASS  S and Se are pressure-independent (L03 sec.3.3.7 troilite; LFME24 'except for S and Se')
+
+=== 6. L03 (2003) vs LFME 2024 at the SAME 1e-4 bar: the datum that moved
+  Cl L03/tree    948 K -> LFME24    418 K  (|d| 530 K)
+  H  L03/tree    182 K -> LFME24    7.4 K  (|d| 175 K)
+  Br L03/tree    546 K -> LFME24    423 K  (|d| 123 K)
+  P  L03/tree   1229 K -> LFME24   1273 K  (|d| 44 K)
+  B  L03/tree    908 K -> LFME24    945 K  (|d| 37 K)
+  K  L03/tree   1006 K -> LFME24    975 K  (|d| 31 K)
+  Sc L03/tree   1659 K -> LFME24   1629 K  (|d| 30 K)
+  Zn L03/tree    726 K -> LFME24    697 K  (|d| 29 K)
+  crossing stockgate.VOLATILE_CUT = 500 K: [('Cl', 948, 418), ('Br', 546, 423)]
+  stellar photosphere      P  1229 K ABUNDANCE-LIMITED   ->  1273 K ABUNDANCE-LIMITED
+  Jupiter (3x solar)       P  1229 K ABUNDANCE-LIMITED   ->  1273 K ABUNDANCE-LIMITED
+  CI chondrite             P  1229 K ABUNDANCE-LIMITED   ->  1273 K ABUNDANCE-LIMITED
+  Earth cont. crust        N   123 K VOLATILITY-LIMITED  ->   124 K VOLATILITY-LIMITED
+PASS  no destination changes regime under LFME24 T50
+  condensed_budget refractory L03 3.24977e-03  LFME24 3.24155e-03  (x0.9975)
+  condensed_budget rock       L03 4.96900e-03  LFME24 4.96078e-03  (x0.9983)
+  condensed_budget rock+ice   L03 9.48774e-03  LFME24 9.47952e-03  (x0.9991)
+
+=== 7. sympy: T50 is linear in log P in LFME24's own fit form 1e4/T = A + B logP
+  LFME24 appendix O fit at log P=-4: 181.7 K (Table 1: 182)
+PASS  LFME24 O fit reproduces its own Table 1 at 1e-4 bar within 1 K
+  P: two-point fit (1e-2, 1e-8) predicts T50(1e-4) = 1261 K (Table 1: 1273)
+  so a factor-100 error in the assumed disc pressure moves P's T50 by ~140 K
+
+RESULT: ALL CHECKS PASS

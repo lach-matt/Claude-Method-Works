@@ -1,0 +1,94 @@
+{
+ "key": "pinamonti-siemssen-flrw-existence",
+ "name": "Pinamonti / Pinamonti-Siemssen / Meda-Pinamonti-Siemssen / Gottschalk-Siemssen: flat FLRW semiclassical existence by Banach fixed point",
+ "source": {
+  "located": "Identified (by web search result listings, titles and ids): Pinamonti, 'On the initial conditions and solutions of the semiclassical Einstein equations in a cosmological scenario', CMP 305 (2011) 563-604, arXiv:1001.0864; Pinamonti & Siemssen, 'Global existence of solutions of the semiclassical Einstein equation for cosmological spacetimes', CMP 334 (2015) 171 [doi 10.1007/s00220-014-2099-5, online 2014], arXiv:1309.6303; Meda, Pinamonti & Siemssen, 'Existence and uniqueness of solutions of the semiclassical Einstein equation in cosmological models', AHP 22 (2021) 3965-4015, arXiv:2007.14665 (submitted 2020-07-29); Gottschalk & Siemssen, 'The cosmological semiclassical Einstein equation as an infinite-dimensional dynamical system', AHP (2021), arXiv:1809.03812 (2018). Also Siemssen's thesis arXiv:1503.01826.",
+  "read_status": "NAMED-NOT-READ",
+  "via": "NOT READ AT SOURCE. alphaXiv answer_pdf_queries, get_paper_content and discover_papers all returned 'alphaXiv assistant quota exceeded' (tried 7 times, including a retry at the end); arxiv.org, export.arxiv.org, ar5iv, alphaxiv.org, semanticscholar, inspirehep, link.springer.com and d-nb.info are refused by the egress proxy (curl CONNECT 403; WebFetch EGRESS_BLOCKED). Only WebSearch worked, and it returns search-engine SUMMARIES of the abstracts, which are not page text. Everything below attributed to the papers is at that abstract-summary level and is marked so. The tree's own status word for this row ('RECOVERED from bibliographies, not read at source') is therefore NOT upgraded by this audit."
+ },
+ "published_statement": "NOT READ AT SOURCE. Abstract-level only (web-search summaries, not quotations): [1309.6303] 'solutions of the semiclassical Einstein equation in flat cosmological spacetimes driven by a massive conformally coupled scalar field'; initial conditions at finite time give a state with finite stress-tensor expectation values, controlled by a global estimate; 'existence and uniqueness of local solutions encompassing both the spacetime metric and the matter field simultaneously'; local solutions 'can always be extended up to a point where the scale factor becomes singular or the Hubble function reaches a critical value H_c = 180 pi/G', both a divergence of the scalar curvature. [1001.0864] local (and, per one summary, global) existence in flat cosmological spacetimes coupled to a massive conformally coupled scalar, solving simultaneously for the state and the Hubble function in an integral-functional equation. [2007.14665] existence and uniqueness in flat cosmological spacetimes for a massive scalar with ARBITRARY coupling to R; initial conditions for the scale factor at finite time with a compatible regular state; the highest derivative enters non-locally, standard recursive approximation fails to converge; reformulated as a fixed point of an operator on a Banach space, giving SHORT-TIME existence and uniqueness by the Banach fixed point theorem. [1809.03812] a framework showing existence in cosmological spacetimes WITHOUT restricting to conformal coupling and admitting the full renormalisation freedom, recast as an infinite-dimensional dynamical system with unbounded evolution operators.",
+ "published_hypotheses": [
+  "flat (k = 0) FLRW spacetime (all four, abstract level)",
+  "a single free quantum scalar field, MASSIVE (m > 0) (1001.0864, 1309.6303, 2007.14665 abstract level)",
+  "CONFORMAL coupling xi = 1/6 (1001.0864, 1309.6303); arbitrary xi only in 2007.14665 and 1809.03812",
+  "a restricted renormalisation choice in the conformal papers (inferred, NOT read: 1809.03812's abstract says it 'admit[s] the full renormalization freedom' 'different from previous work'; C5 below shows a non-zero Box R coefficient raises the order, so the reduced equation with H_c requires it zero)",
+  "initial data for the scale factor given at a finite time, with a regular (Hadamard-type) state compatible with them",
+  "LOCAL / short-time existence and uniqueness; for 1309.6303 extension only up to a singularity of a or H reaching H_c (reading 180 pi/G as H^2, see C4)",
+  "Banach fixed point / contraction: confirmed at abstract-summary level for 2007.14665 only; 1001.0864 is summarised as an 'integral-functional equation', 1809.03812 as a dynamical-system framework -- the method for those two is NOT confirmed here"
+ ],
+ "hypothesis_drift": [
+  "DROPPED (throatmass.py:147-151): 'massive scalar field' -- the row states only 'flat FLRW existence by Banach fixed point'. Abstract level; does not move the row's conclusion (not a throat, not m < 0).",
+  "DROPPED (throatmass.py:147-151): 'conformal coupling xi = 1/6' for Pinamonti 2011 and Pinamonti-Siemssen 2015 -- the row lumps four papers with different coupling hypotheses into one family. Abstract level; does not move the conclusion.",
+  "DROPPED (throatmass.py:147-151): 'local in time' -- 'existence' unqualified; the sources (abstract level) give short-time existence, with 1309.6303 extending only to a curvature blow-up or H^2 = 180 pi/G. The tree does not claim global existence, so this is an omission, not an over-claim.",
+  "WEAKENED/UNVERIFIED (throatmass.py:147-151): 'by Banach fixed point' attributed to all four; confirmed at abstract-summary level for 2007.14665 only. Recorded as unverified, not as wrong.",
+  "WEAKENED (throatmass.py:151 'cosmological, not static'): the flat-FLRW class contains a static member, a = const (Minkowski, H = 0, m = 0) -- C2, computed. 'not static' is true of the non-trivial members only. Does not move 'not m < 0'.",
+  "STRENGTHENED, in the tree's favour and computed (throatmass.py:147-151, field 'm < 0 reported' = False): on flat FLRW the Misner-Sharp mass is m = H^2 R^3/(2G) >= 0 for EVERY a(t) (C1b), so the zero is a geometric theorem of the class, not an empirical tally of what the papers reported. Consequence for the O5 count (ledger.py:1729, specthm.py:1095 '0 of 6 families report m < 0'): this row is a STRUCTURAL zero -- it could never have been 1 -- and contributes no evidence about the static spherically symmetric sector O5 asks about. The tree already marks it 'cosmological, not static'; recorded, not repaired.",
+  "YEAR LABELS (throatmass.py:148 '2011, 2015, 2020, 2021'): mixed convention -- 2011 and 2015 are journal years, 2020 is the arXiv year of a 2021 journal paper (MPS), 2021 the journal year of a 2018 arXiv paper (G-S). A labelling discrepancy, not an error of substance."
+ ],
+ "data_at_publication": [
+  {
+   "quantity": "conformal-scalar trace-anomaly coefficient 1/(2880 pi^2) (sets H_c)",
+   "value_then": "1/(2880 pi^2) (standard since the 1970s; not read in these papers here)",
+   "value_now": "1/(2880 pi^2) -- a derived QFT coefficient, not a measurement; unchanged",
+   "source_now": "re-derived consistency only: rederive C4a fixes it from the de Sitter density H^4/(960 pi^2) (a literature fixture, not read this run)",
+   "moves_conclusion": "no -- no measured datum enters; H_c^2 = 180 pi/G follows (C4b)"
+  },
+  {
+   "quantity": "Newton's G (sets the scale of H_c)",
+   "value_then": "G (symbolic; hbar = c = 1)",
+   "value_now": "G = 6.67430(15)e-11 m^3 kg^-1 s^-2 (CODATA 2018/2022, not read this run)",
+   "source_now": "not read this run",
+   "moves_conclusion": "no -- the theorems are for arbitrary G > 0; only the numerical scale of H_c moves"
+  }
+ ],
+ "rederivation": {
+  "method": "sympy",
+  "script_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/pinamonti-siemssen-flrw-existence.py",
+  "outcome": "ALL PASS (exit 0), 13 checks. C1a Misner-Sharp mass on FLRW = R^3 (H^2 + k/a^2)/(2G); C1b flat: m = H^2 R^3/(2G) >= 0 for every a(t) -- 'm < 0' is impossible on the class; C1c contrast: open k = -1 FLRW with a = t/2 gives m = -3/16 < 0, so the non-negativity is specific to FLAT; C2 a = const is a static member with m = 0; C3 R = 6(Hdot + 2H^2), Ric^2 - R^2/3 = -12 H^2 (Hdot + H^2), (3)H_ab = 3 h^4 g_ab on de Sitter; C4 with <T> = (1/2880 pi^2)(Ric^2 - R^2/3) and the Box R coefficient zero, the trace equation's Hdot coefficient G H^2/(30 pi) - 6 vanishes at H^2 = 180 pi/G, and the Starobinsky de Sitter point is H^2 = 360 pi/G -- agreeing with the abstract-summary 'H_c = 180 pi/G' once read as a value of H^2 (dimensionally required, hbar = c = 1); C5 Box R contains -6 d^3H/dt^3, so a non-zero Box R coefficient makes the system higher order and C4's reduced equation needs that renormalisation choice. NOT checkable here: the fixed-point existence theorems themselves (infinite-dimensional, state-dependent; their proofs were not readable).",
+  "agrees_with_source": "partly"
+ },
+ "later_literature": [
+  {
+   "ref": "Gottschalk, Rothe & Siemssen, 'Cosmological de Sitter solutions of the semiclassical Einstein equation', arXiv:2206.07774, AHP (2023)",
+   "effect": "extends",
+   "what": "de Sitter solutions of the cosmological SCE (title/listing only)",
+   "read_status": "NAMED-NOT-READ (web-search listing only; alphaXiv quota exceeded)"
+  },
+  {
+   "ref": "Juarez-Aubry, 'Semiclassical gravity in static spacetimes as a constrained initial value problem', arXiv:2011.05947, AHP (2021)",
+   "effect": "extends",
+   "what": "moves the SCE initial-value question to static spacetimes -- the sector O5 needs and the FLRW family does not cover (title/listing only)",
+   "read_status": "NAMED-NOT-READ"
+  },
+  {
+   "ref": "Sanders, 'Static symmetric solutions of the semi-classical Einstein-Klein-Gordon system', arXiv:2007.14311",
+   "effect": "extends",
+   "what": "static solutions; already a separate family row in throatmass.py and audited separately (audits/2007.14311.json)",
+   "read_status": "NAMED-NOT-READ in this audit"
+  },
+  {
+   "ref": "Galanda, Meda, Murro, Pinamonti & Schmid, 'The semiclassical Einstein-Klein-Gordon system: asymptotic analysis of Minkowski spacetime', arXiv:2604.01047",
+   "effect": "contested",
+   "what": "linear instability of Minkowski attributed to renormalisation constants (per ledger.py:786's report) -- bears on the static a = const member of the flat class (C2), not on existence",
+   "read_status": "NAMED-NOT-READ"
+  },
+  {
+   "ref": "'The Semiclassical Einstein Equations in Cosmological Spacetimes', Int. J. Theor. Phys. (2026), doi 10.1007/s10773-026-06339-9",
+   "effect": "extends",
+   "what": "unknown content; title only",
+   "read_status": "NAMED-NOT-READ (title only)"
+  },
+  {
+   "ref": "discover_papers",
+   "effect": "contested",
+   "what": "the mandated discover_papers call failed (alphaXiv quota exceeded); the entries above come from WebSearch listings, so the later-literature sweep is incomplete",
+   "read_status": "NOT RUN"
+  }
+ ],
+ "lacked_data": "These are mathematical existence theorems for a model (flat FLRW + one free massive scalar); no measured datum enters their conclusions (the only constants are the derived anomaly coefficient 1/2880 pi^2 and a symbolic G, C4). So M's hypothesis in its empirical form does not bite here: no later measurement can move them. What the early papers lacked was GENERALITY, not data -- conformal coupling and a restricted renormalisation choice (2011, 2015) were lifted by Gottschalk-Siemssen (full renormalisation freedom, arbitrary xi) and Meda-Pinamonti-Siemssen (arbitrary xi), all at abstract level; global existence remains conditional (1309.6303: up to a or H^2 = 180 pi/G blow-up). For the tree's use none of this matters: the load-bearing field ('m < 0' False) is forced by flat-FLRW geometry itself (C1b) and would survive any data or any generalisation within k = 0; it would NOT survive a move to k = -1 (C1c), which no paper in the row claims.",
+ "grade": "OPEN",
+ "grade_evidence": "The four sources could not be read at source in this run (alphaXiv quota exceeded on every call; arxiv and every mirror egress-blocked), so the published statements and hypotheses are known only from web-search abstract summaries -- below READ, so neither STANDS nor NARROWED may be declared on them. What WAS computed (rederive, ALL PASS): the row's load-bearing entries hold independently of the papers -- flat FLRW has Misner-Sharp m = H^2 R^3/(2G) >= 0 for every a(t) (so 'm < 0 reported: False' is a structural zero of the class), non-trivial members are not static and not throats, and the one number the abstract carries (H_c = 180 pi/G) is reproduced as a critical H^2 from the conformal anomaly with Box R coefficient zero. Hypothesis drift at abstract level (massive, conformal coupling for 2011/2015, local in time, Banach FP confirmed for MPS only, static Minkowski member) is recorded; none of it moves the tree's conclusion. No refutation shown; nothing WRONG.",
+ "what_would_change_the_grade": "Reading the four papers at source (alphaXiv when the quota resets: answer_pdf_queries on 1001.0864, 1309.6303, 2007.14665, 1809.03812 for the exact theorem statements, the coupling/renormalisation hypotheses and the proof method). If the reads confirm flat FLRW + existence (local) with the drifts above, the grade becomes NARROWED on the dropped hypotheses (massive; conformal coupling for 2011/2015; local in time; Banach FP not for all four) while the tree's conclusion -- not a throat, not m < 0 -- STANDS by C1b regardless. A paper in the row proving existence on k = -1 would reopen the m-sign column (C1c).",
+ "reverify_command": "python3 /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/pinamonti-siemssen-flrw-existence.py  # expect ALL PASS, exit 0; then (quota permitting) alphaXiv answer_pdf_queries paper=1309.6303 and 2007.14665 for the theorem statements",
+ "report_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/audits/pinamonti-siemssen-flrw-existence.json"
+}

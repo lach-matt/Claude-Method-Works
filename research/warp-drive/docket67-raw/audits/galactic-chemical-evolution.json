@@ -1,0 +1,108 @@
+{
+ "key": "galactic-chemical-evolution",
+ "name": "Galactic chemical evolution: C, N, P placed in every enriched system by nucleosynthesis and accretion",
+ "source": {
+  "located": "UNCITED in the tree (canonical hypothesis 'Uncited'; stock.py:128-131 and 311-312 name no paper). Candidate sources identified by WebSearch title/abstract snippets only: Kobayashi, Karakas & Lugaro 2020, ApJ 900, 179, arXiv:2008.04660 (GCE of every stable element C..U); Maas et al. 2022, AJ 164, 61, arXiv:2206.03528 (P in 163 disk and halo stars); Hinkel et al. 2020, ApJL, arXiv:2009.00009 (stellar P in Hypatia).",
+  "read_status": "NAMED-NOT-READ",
+  "via": "NOTHING WAS READ AT SOURCE. Every alphaXiv call (answer_pdf_queries on 2008.04660 and on the Lodders 2003 title, get_paper_content on 2008.04660 fullText, discover_papers) returned 'alphaXiv assistant quota exceeded'. WebFetch and curl to arxiv.org, iopscience.iop.org, www.osti.gov, par.nsf.gov and www.aanda.org were refused by the egress proxy (403 / EGRESS_BLOCKED). The only external text seen is WebSearch result summaries, which are recorded as snippets and are not treated as reads. The CI chondrite data are CARRIED from the sibling DOCKET-67 audits audits/lodders-2003-apj-591-1220.json (which records reading L03 p.1225 and LBP25 at source) and audits/lodders-2003-ci-chondrite.json (which records reading pyrolite 0.3.7 data files for PON14 and MS95)."
+ },
+ "published_statement": "NOT QUOTED: no GCE source was read and the tree cites none. What the tree states (READ, the tree itself): stock.py:128-133 'Nothing requires the destination stock to have come from the origin.  Galactic chemical evolution puts carbon, nitrogen and phosphorus into every enriched star system by nucleosynthesis and accretion, and `stock_need_not_travel()` gives the counterexample with a number: a CI chondrite at the destination supplies a human payload at a processing factor of 10.70, and no part of it was shipped from anywhere.'; stock.py:311-312 'Galactic chemical evolution placed that stock; nothing shipped it.'; stock.py:415 prints 'placed by galactic chemical evolution'. Snippet-level only (WebSearch summaries, NOT READ): Maas et al. 2022 measured P in 163 FGK stars over -1.09 < [Fe/H] < 0.47, report that chemical evolution models generally underpredict P over that range, that [P/Fe] differs by ~0.1 dex between kinematic thin- and thick-disk stars, and that P is most likely made mainly by massive stars in core-collapse supernovae; Hinkel et al. 2020 report P measured in only ~100 FGKM stars (~1% of Hypatia), with typical [P/Fe] error 0.11 dex.",
+ "published_hypotheses": [
+  "NOT READ. The hypotheses a GCE source would carry cannot be quoted here. From snippets only (NAMED-NOT-READ): GCE models are one-zone or multi-zone and rest on nucleosynthesis yields, event rates, an IMF, a star-formation law and inflow (Kobayashi et al. 2020 abstract summary: 'from first principles, using theoretical nucleosynthesis yields and event rates of all chemical enrichment sources').",
+  "Snippet: GCE describes abundance TRENDS with metallicity and population, e.g. [P/Fe] rising toward lower [Fe/H] (Galactic Phosphorus Survey I, arXiv:2609.20930, summary), with population differences (~0.1 dex thin/thick). It is a statement about stellar photospheres and the ISM, not about the composition of planetesimals in a given system."
+ ],
+ "hypothesis_drift": [
+  "ADDED (stock.py:130-133, 311-312): the tree passes from 'GCE puts C, N, P into every enriched star system' to 'a CI chondrite at the destination'. GCE gives stellar and ISM abundances. A primitive, undifferentiated, CI-like body existing AND accessible at another star is a planet-formation and accessibility hypothesis, not a GCE output. It is the canonical hypothesis 'A CI-chondrite-like primitive body exists and is accessible there'. Its exoplanetary evidence (polluted white dwarfs showing chondritic-like accreted material, e.g. arXiv:2309.06467, snippet) was not read.",
+  "STRENGTHENED to a universal (stock.py:129-130 'every enriched star system'): GCE, on snippet evidence, gives population trends with scatter and measured P in only ~1% of catalogued nearby FGKM stars (Hinkel 2020, snippet). 'Every' is an extrapolation from trends to each system. It is not load-bearing: C2 in the rederivation shows by z3 that the finding needs only ONE stocked, unshipped destination.",
+  "ADDED (stock.py:128-129, 'come from the origin'): the tree reads CLAIMS.md's 'and that had to travel' as 'had to travel FROM THE ORIGIN'. On GCE's own mechanism the atoms DID travel, as stellar ejecta mixed through the ISM, just not from the traveller's origin. So 'nothing shipped it' (stock.py:311-312) is true under the tree's reading and would be false under a literal reading 'the atoms have travelled at some time'. That reading imposes no transport cost on the traveller. It is an interpretive hypothesis and should be named.",
+  "DROPPED (stock.py:128-131): the mechanism attribution. The tree credits GCE with PLACING the P. Snippet evidence (Maas 2022) says GCE models UNDERPREDICT P over -1.09 < [Fe/H] < 0.47. P's presence in disk stars is observational, but the model accounting for it is incomplete. The tree's sentence carries no status word (canonical status_word 'none').",
+  "DROPPED: the metallicity qualifier. The P content of a destination's primitive body is taken as solar-CI (stock.CHONDRITE) for any destination. Under the named scaling hypothesis that P follows the host's [P/H], the factor is 10.70*10^(-D) (C3). The tree states no range.",
+  "POINTER DISCREPANCY, not a drift of substance: stock.py:15 and the canonical entry cite 'paper/CLAIMS.md line 4629'. In the current tree the sentence is at paper/CLAIMS.md:4648 (READ). Recorded, not repaired."
+ ],
+ "data_at_publication": [
+  {
+   "quantity": "CI chondrite P (sets 10.70)",
+   "value_then": "1040 ppm in stock.CHONDRITE, attributed to Lodders 2003 (L03 itself 920 +- 100 ppm, carried from sibling audit)",
+   "value_now": "PON14 985 +- 158 (pyrolite, read by sibling); LBP25 989 +- 89 (read by sibling at arXiv:2502.10575); MS95 1080",
+   "source_now": "audits/lodders-2003-apj-591-1220.json; audits/lodders-2003-ci-chondrite.json (carried, not read here)",
+   "moves_conclusion": "No. The factor moves from 10.70 to 10.31-12.10 (721-847 kg per 70 kg), computed in C5. The finding 'the stock need not travel' does not depend on the value."
+  },
+  {
+   "quantity": "CI chondrite N (decides the binder)",
+   "value_then": "3180 ppm in stock.CHONDRITE",
+   "value_now": "LBP25 1965 +- 970 ppm (carried)",
+   "source_now": "arXiv:2502.10575 via sibling audit (carried)",
+   "moves_conclusion": "It moves the binder label (P to N at 13.07, sibling computation) and not the finding this audit concerns."
+  },
+  {
+   "quantity": "Destination primitive-body P relative to solar CI, D dex (stellar [P/H] spread under the named scaling hypothesis)",
+   "value_then": "0 (the tree uses solar CI for every destination, no range stated)",
+   "value_now": "Not read. Snippets: [P/Fe] rises toward low [Fe/H]; ~0.1 dex thin/thick difference; sample -1.09 < [Fe/H] < 0.47; per-star [P/Fe] error ~0.11 dex",
+   "source_now": "arXiv:2206.03528, 2009.00009, 2609.20930 (all NAMED-NOT-READ, snippets)",
+   "moves_conclusion": "It moves the figure and not the finding (computed C3/C4). Factor = 10.70*10^(-D): 107.0 at D=-1 (7.49 t per 70 kg), 33.8 at D=-0.5. The binder flips to N above D* = log10(10.701/8.076) = +0.122 dex. At D=-1 the bill still sits 23.8 orders below the tree's Fuchs-shell mass, so 'site criterion, not a barrier' holds."
+  },
+  {
+   "quantity": "GCE model yield of P against observed stellar P",
+   "value_then": "tree assumes GCE 'puts' P (no number)",
+   "value_now": "Snippet: models generally underpredict P for -1.09 < [Fe/H] < 0.47 (Maas et al. 2022)",
+   "source_now": "arXiv:2206.03528 (NAMED-NOT-READ)",
+   "moves_conclusion": "Not the finding: presence is observational and the finding needs only existence at one site. It weakens the attribution 'GCE placed' as a model claim. Not verified here."
+  }
+ ],
+ "rederivation": {
+  "method": "z3",
+  "script_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/galactic-chemical-evolution.py",
+  "outcome": "ALL 25 CHECKS PASS, exit 0; output in rederive/galactic-chemical-evolution.out. stock.py was imported read-only; GCE itself is NOT verified, because no source was readable. (C1) The tree's number reproduces: binder P, factor HUMAN[P]/CHONDRITE[P] = 10.701, equal to stock_need_not_travel(); runner-up N 8.0764, margin 1.325. (C2, z3, n = 2, 3, 6 sites) The CLAIM 'every stocked destination's stock was shipped from the origin' is UNSAT with the weak premise 'one destination is stocked and unshipped', and UNSAT with the tree's 'every enriched destination is stocked by GCE'. 'Every' implies 'one' (valid). 'One' does not imply 'every' (sat). Vacuity guard: the CLAIM alone is SAT. So the tree's universal is strictly stronger than the finding needs. One instance suffices, e.g. a trip within the solar system to a CI-type asteroid. (C3, sympy) With D dex offset in destination P, the factor is 10.70*10^(-D) while P binds, and P stops binding at D* = log10(f_P/f_N) = 0.1222 dex. (C4) At D=-1 the bill is 7490.7 kg per 70 kg, 23.8 orders below the Fuchs shell. (C5) Sibling-carried CI P values 920-1080 ppm give factors 12.097-10.305.",
+  "agrees_with_source": "not-run"
+ },
+ "later_literature": [
+  {
+   "ref": "Maas, Hawkins, Hinkel et al. 2022, AJ 164, 61, arXiv:2206.03528, 'The Galactic Distribution of Phosphorus: A Survey of 163 Disk and Halo Stars'",
+   "effect": "narrows",
+   "what": "Snippet: P in 163 FGK stars, -1.09 < [Fe/H] < 0.47. GCE models generally underpredict P. [P/Fe] differs ~0.1 dex thin vs thick disk. P mainly from CCSNe. Presence is supported observationally over that range; the model placement is incomplete.",
+   "read_status": "NAMED-NOT-READ (WebSearch summary; arxiv/osti/iopscience egress-blocked; alphaXiv quota exceeded)"
+  },
+  {
+   "ref": "Hinkel et al. 2020, ApJL, arXiv:2009.00009, 'The Influence of Stellar Phosphorus on Our Understanding of Exoplanets and Astrobiology'",
+   "effect": "narrows",
+   "what": "Snippet: stellar P measured in only ~100 FGKM stars, ~1% of the Hypatia catalogue. Rocky planets around stars with substantially less P than the Sun may lack surface P because of core partitioning. That bears on 'every enriched system' and on accessibility, the tree's added hypothesis.",
+   "read_status": "NAMED-NOT-READ (WebSearch summary)"
+  },
+  {
+   "ref": "Kobayashi, Karakas & Lugaro 2020, ApJ 900, 179, arXiv:2008.04660",
+   "effect": "contested",
+   "what": "The standard GCE model for C..U, and the natural source of the tree's uncited sentence. Snippet summaries were not specific on P, and one search summary's P sentence could not be attributed to the paper. Effect recorded as contested only because its P accounting could not be checked.",
+   "read_status": "NAMED-NOT-READ"
+  },
+  {
+   "ref": "The Galactic Phosphorus Survey I, arXiv:2609.20930 (Sept 2026), ~750 FGK stars",
+   "effect": "extends",
+   "what": "Snippet: confirms [P/Fe] rising toward lower metallicity; thick-disk enhancement. The largest uniform P sample.",
+   "read_status": "NAMED-NOT-READ"
+  },
+  {
+   "ref": "Masseron et al. 2020, arXiv:2008.01633, 'Phosphorus-rich stars with unusual abundances are challenging theoretical predictions'",
+   "effect": "narrows",
+   "what": "Title-level: P-rich outliers, which means per-system P is not fixed by a mean GCE trend. Under C3 a P-rich destination (D > +0.122) moves the binder to N.",
+   "read_status": "NAMED-NOT-READ (title only)"
+  },
+  {
+   "ref": "Planetesimals at DZ stars I: chondritic compositions and a massive accretion event, arXiv:2309.06467 (MNRAS 526, 3815)",
+   "effect": "extends",
+   "what": "Snippet: material accreted by polluted white dwarfs is mostly consistent with rocky, chondritic compositions. That is the only exoplanetary evidence located for the tree's added CI-like-body hypothesis. P is not reported in the snippet.",
+   "read_status": "NAMED-NOT-READ"
+  },
+  {
+   "ref": "Lodders, Bergemann & Palme 2025, arXiv:2502.10575",
+   "effect": "narrows",
+   "what": "Revised CI P 989 +- 89, N 1965 +- 970 ppm. It moves the factor and the binder, not the finding.",
+   "read_status": "CARRIED from audits/lodders-2003-apj-591-1220.json (read there), NAMED-NOT-READ here"
+  }
+ ],
+ "lacked_data": "The tree cites no GCE source, so 'the authors' here are the GCE modellers whose conclusion the tree extrapolates. The data they lacked is stellar phosphorus. P I lines are weak and sit in the near-IR or UV, so by 2020 P had been measured in only ~100 FGKM stars (Hinkel 2020, snippet). Surveys of 163 stars (2022) and ~750 stars (2026) followed. On snippet evidence, which is NOT READ, the newer data cut both ways. FOR M's hypothesis: GCE models underpredict P over -1.09 < [Fe/H] < 0.47, so the nucleosynthesis accounting the tree credits is incomplete, and P-rich outliers exist. AGAINST it mattering here: P is observed in the measured disk stars over that whole range, and the tree's finding does not rest on the GCE model at all. The z3 check C2 shows the finding needs only one destination holding unshipped stock, and the tree's own cited datum (solar-system CI chondrites, sibling-audited) supplies that for any trip within the solar system. The computed sweep C3/C4 shows that even a destination 1 dex poorer in P raises the bill to 7.5 t per 70 kg, still 23.8 orders below the Fuchs shell. So the moved data would change the figure and the 'every' universal, not the conclusion. None of the snippet claims is verified here.",
+ "grade": "OPEN",
+ "grade_evidence": "The external result, GCE placing C, N and P in EVERY enriched system with a CI-like, accessible primitive body there, is uncited in the tree and could not be read at source. alphaXiv quota was exceeded on every call, and arXiv, IOP, OSTI, NSF-PAR and A&A were egress-blocked. Under the docket's rule a claim that cannot be checked here is OPEN, not STANDS and not WRONG. What WAS computed narrows what hangs on it. (1) The tree's 10.70 reproduces exactly (C1). (2) z3 shows the finding it supports, 'and that had to travel' NOT ESTABLISHED (stock.py:124-138), needs only ONE stocked, unshipped destination. The universal 'every' is strictly stronger than needed (C2, with vacuity guard). So the finding does not inherit the openness of the universal. (3) The figure is DATA-DEPENDENT on destination P (factor 10.70*10^(-D), binder flip at D = +0.122 dex) and on CI P/N (sibling audits), and no tested value moves the verdict (C3-C5). Named drifts: the CI-like-body hypothesis is added beyond GCE; 'every' is an extrapolation from population trends; 'from the origin' is an interpretive reading of CLAIMS.md under which 'nothing shipped it' holds, while on GCE's own mechanism the atoms did travel via the ISM. Pointer discrepancy: CLAIMS.md:4629 is now 4648. Snippet-level evidence that GCE models underpredict P and that per-star P scatters is recorded as NAMED-NOT-READ and is not used for the grade. No over-representation either way: nothing here shows GCE or the tree's sentence to be wrong.",
+ "what_would_change_the_grade": "Reading arXiv:2206.03528 and 2009.00009 (and 2008.04660 for P) at source when alphaXiv quota resets. If they confirm that P is detected in every measured enriched FGK star, with scatter of a few tenths of a dex and models underpredicting it, the grade becomes NARROWED. The tree's 'every enriched star system' and 'GCE placed' would then hold only as 'observed present in the measured disk population, with per-system scatter and incomplete model accounting', and the CI-like-body hypothesis would remain added. A source showing enriched systems lacking accessible P-bearing primitive bodies would narrow further, but could not refute the finding while one stocked destination exists (C2). Reading Ryugu/Bennu bulk P, and P detections in white-dwarf pollution, would test the added CI-like-body hypothesis.",
+ "reverify_command": "PYTHONDONTWRITEBYTECODE=1 python3 /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/galactic-chemical-evolution.py",
+ "report_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/audits/galactic-chemical-evolution.json"
+}

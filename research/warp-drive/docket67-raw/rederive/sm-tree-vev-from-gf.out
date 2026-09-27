@@ -1,0 +1,64 @@
+== A. sympy: the tree-level relation (PDG 2024 EW review eq.10.5b and p.2)
+PASS A1 G_F/sqrt2 = g^2/(8M_W^2), M_W = gv/2  =>  G_F = 1/(sqrt2 v^2)   sqrt(2)/(2*v**2)
+PASS A2 positive root v = (sqrt2 G_F)^(-1/2)   [2**(3/4)/(2*sqrt(G_F))]
+PASS A3 g cancels (v depends on G_F only at tree level)
+PASS A4 Buttazzo eq.18 g2 = 2(sqrt2 G)^(1/2) M_W  ==  2 M_W / v(G)
+PASS A5 Buttazzo eq.18 y_t = 2(G/sqrt2 M_t^2)^(1/2) == sqrt2 M_t / v(G)
+
+== B. numeric: v from every READ G_F
+   v(tree pin) = 246.219640 GeV
+PASS B1 higgs.py selftest fixture 246.2196 at 1e-5   rel 1.63e-07
+PASS B2 PDG 2024 EW review p.2 'v = 246.22 GeV' (5 s.f.)
+PASS B3 Buttazzo Table 2 V = 246.21971(6) reproduced from Buttazzo's OWN eq.27 G_mu = 1.1663781e-5   246.219714
+   RECORDED: Table 2 cites MuLan [91], but MuLan's 1.1663787 gives 246.219651; the printed V matches the propagator-stripped G_mu (6e-8 relative apart; moves nothing)
+   MuLan 2013 1.1663787(6)                  v = 246.21965  dv/v = +4.29e-08
+   Eberhart 2026 1.16637859(59)             v = 246.21966  dv/v = +9.00e-08
+   Buttazzo w/o W-propagator 1.1663781(6)   v = 246.21971  dv/v = +3.00e-07
+   G_F^EW 1.16716(39) (2102.02825)          v = 246.13723  dv/v = -3.35e-04
+   G_F^CKM 1.16550(29) (2102.02825)         v = 246.31245  dv/v = +3.77e-04
+PASS B4 every muon-decay G_F moves v by < 5e-7
+
+== C. what 'tree level' drops: PDG 2024 on-shell Delta r (eq.10.22b)
+PASS C1 A0 = (pi alpha/(sqrt2 G_F))^(1/2) = 37.28038 GeV (PDG)   37.280377
+   M_W from A0, s_W^2, Delta r = 0.03685: 80.3552 GeV ; with Delta r = 0 (tree): 78.8608 GeV
+PASS C2 PDG numbers self-consistent: M_W(Delta r) within 20 MeV of fit/measured 80.3692   80.3552
+PASS C3 tree-level (Delta r=0) misses M_W by ~1.9%: the dropped correction is O(%)   0.0188
+   Martin-Robertson MS-bar v(Q0=173.1) = 246.60109 ; v_G = 246.21965 ; Delta r~ = 0.00310 ; dv/v = +0.0015
+PASS C4 v = (sqrt2 G_F)^(-1/2) differs from the MS-bar vev by 0.15%: scheme, not error
+
+== D. massform.py consumers, re-computed (capture values read from the tree)
+PASS D0 tree's higgs.vev() equals this script's v(G_F)
+PASS D1 y_t = 0.9914 (massform.py:217)   0.991364
+PASS D2 y_e = 2.935e-6 (massform.py:217)   2.93503e-06
+PASS D3 1/alpha_W = 29.49 (massform.py:528)   29.4913
+PASS D4 log10 exp(-4pi/alpha_W) = -160.95 (massform.py:530-531)   -160.9489
+
+== E. the size of the dropped hypothesis on the consumers (scheme spread, READ inputs)
+PASS E1 Buttazzo LO y_t 0.99561 = sqrt2*173.34/246.21971
+PASS E2 Buttazzo LO g2 0.65294 vs 2*80.384/246.21971 (agree to 3e-5)   0.652945
+   NOTE: recomputed LO g2 = 0.652945 vs printed 0.65294 (8.1e-06 relative), a half-unit in the 5th decimal: consistent with rounding, not a discrepancy
+   Buttazzo: y_t(M_t) MS-bar / tree = 0.9410 ; g2(M_t) MS-bar / tree = 0.9921
+   Martin-Robertson: y_t(173.1) 0.93480 vs tree 0.99424 (ratio 0.9402); y_e 2.7930e-06 vs tree 2.9350e-06 (ratio 0.9516)
+PASS E3 MS-bar Yukawas at M_t are 5-6% below tree for both t and e (scheme/scale, not error)
+   tree G_mu-scheme 2M_W/v (massform)               1/alpha_W =  29.491  log10 exp(-4pi/aW) =  -160.95
+   Buttazzo MS-bar g2(M_t)=0.64779                  1/alpha_W =  29.946  log10 exp(-4pi/aW) =  -163.43
+   Martin MS-bar g2(173.1)=0.64766                  1/alpha_W =  29.958  log10 exp(-4pi/aW) =  -163.50
+   alpha-hat(M_Z)/s-hat^2_Z = 1/(127.930*0.23129)   1/alpha_W =  29.589  log10 exp(-4pi/aW) =  -161.48
+   alpha(0)/s_W^2 on-shell = 1/(137.036*0.22348)    1/alpha_W =  30.625  log10 exp(-4pi/aW) =  -167.14
+   spread of the exponent across schemes: 6.19 decades
+PASS E4 scheme spread of the exponent is several decades but < 10   6.19
+PASS E5 tree's 'attempts x prefactor must reach 10^189.10' reproduced in its own scheme
+   => needed = 10^189.10 .. 10^195.28 across the five schemes
+
+== F. moved data
+   m_W capture (PDG-2026) 80.362              1/alpha_W 29.4913  exponent -160.949  (shift +0.000)
+   m_W PDG2024 no-CDF avg 80.3692             1/alpha_W 29.4860  exponent -160.920  (shift +0.029)
+   m_W PDG2024 all avg 80.3946                1/alpha_W 29.4674  exponent -160.818  (shift +0.131)
+   m_W CDF II 80.432                          1/alpha_W 29.4400  exponent -160.669  (shift +0.280)
+   m_W pole (BW - 27.1 MeV, Martin eq.1.9)    1/alpha_W 29.5112  exponent -161.057  (shift -0.109)
+PASS F1 every READ m_W moves the exponent by < 0.5 decade
+   m_t capture 172.6                  y_t(tree) 0.99136
+   m_t PDG2024 listings 172.57        y_t(tree) 0.99119
+   m_t PDG2024 EW combination 172.61  y_t(tree) 0.99142
+
+0 FAIL

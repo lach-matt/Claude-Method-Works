@@ -1,0 +1,61 @@
+{
+ "key": "bose-integral-coth-identity",
+ "name": "INT_0^oo sin(ku)/(e^k - 1) dk = (pi/2) coth(pi u) - 1/(2u)",
+ "source": {
+  "located": "Classical definite integral (Legendre's form INT_0^oo sin(ax)/(e^{2 pi x}-1) dx = (1/4)coth(a/2) - 1/(2a); tabulated as Gradshteyn-Ryzhik 3.911.2). Neither Legendre nor G&R is on arXiv: both NAMED-NOT-READ. The tree cites no source for it (noise.py:112-114, 573-574 state it unattributed). The theorem it follows from was READ at source: the Abel-Plana summation formula in Henrici's form, as restated with full hypotheses in B.C. Berndt, A. Dixit, R. Gupta, A. Zaharescu, 'Ramanujan and Koshliakov meet Abel and Plana', arXiv:2112.09819v1 (2021), Theorem 2.1 p.3 (from P. Henrici, Applied and Computational Complex Analysis, p.274), and the same formula as eq (2.16)-(2.17) of A.A. Saharian, arXiv:0708.1187v1 p.9. The tree's third-derivative use (the thermal phidot kernel) was READ independently as Ramanujan's Entry 8.2, arXiv:2112.09819v1 p.16 (w = 4). Two other arXiv papers were read and do NOT state this entry: Coffey arXiv:1803.00632 (proofs of G&R 4.11x-4.12x entries by the same geometric-series method; flags G&R 4.124.2 as needing correction -- a different entry) and Gaunt arXiv:2601.13158 (INT sin(ax)/(b^2+x^2)^n; not this integral).",
+  "read_status": "READ-VIA-RESTATEMENT",
+  "via": "alphaXiv answer_pdf_queries on 2112.09819 (pp.1-25: Thm 2.1 p.3, Entry 8.2 p.16), 0708.1187 (pp.8-9, eqs (2.13)-(2.17)), 1803.00632 and 2601.13158 (checked, entry absent). The identity itself is not printed verbatim in any paper read: it is DERIVED here from the READ Abel-Plana theorem (rederive B1-B4) with phi(x) = e^{-xz}. Legendre / G&R 3.911.2 NAMED-NOT-READ."
+ },
+ "published_statement": "Abel-Plana (2112.09819 Thm 2.1, Henrici): if phi is analytic for Re z >= 0, SUM phi(n) or INT_0^oo phi converges, lim_{y->oo}|phi(x+-iy)|e^{-2 pi y} = 0 uniformly on finite x-intervals, and INT_0^oo |phi(x+-iy)| e^{-2 pi y} dy exists for every x >= 0 and -> 0 as x -> oo, then SUM_{n>=0} phi(n) = phi(0)/2 + INT_0^oo phi(x)dx + i INT_0^oo [phi(iy) - phi(-iy)]/(e^{2 pi y} - 1) dy. With phi(x) = e^{-xz}, z > 0, this gives 1/(1-e^{-z}) = 1/2 + 1/z + 2 INT_0^oo sin(zy)/(e^{2 pi y}-1) dy, i.e. Legendre's INT_0^oo sin(zy)/(e^{2 pi y}-1) dy = coth(z/2)/4 - 1/(2z); y = k/2pi, z = 2 pi u gives the tree's form exactly. Entry 8.2 (p.16): for Re w > 1, Re z > 0, SUM n^{w-1} e^{-nz} = Gamma(w) z^{-w} + 2 INT_0^oo y^{w-1} cos(pi w/2 - zy)/(e^{2 pi y}-1) dy.",
+ "published_hypotheses": [
+  "Abel-Plana (Henrici form): phi analytic on Re z >= 0; SUM phi(n) or INT phi converges; |phi(x+-iy)| e^{-2 pi y} -> 0 uniformly in x on finite intervals; INT_0^oo |phi(x+-iy)| e^{-2 pi y} dy exists and -> 0 as x -> oo (2112.09819 p.3). All hold for phi = e^{-xz}, z > 0 (rederive B4).",
+  "Resulting identity holds for real u != 0 (odd in u, removable at u = 0 with value 0) and by analytic continuation on the strip |Im u| < 1; it fails at |Im u| = 1 where the integrand no longer decays and coth(pi u) has a pole (rederive E2-E4, C1: Taylor radius 1).",
+  "Entry 8.2: Re w > 1, Re z > 0 (w = 4 used for the kernel) (2112.09819 p.16)."
+ ],
+ "hypothesis_drift": [
+  "noise.py:573-574 (canonical hypothesis 'u > 0'): NARROWER than the source needs (valid for all real u, odd, and |Im u| < 1). A narrowing in the safe direction; no use in the tree falls outside it (the tree evaluates at real u and takes u -> 0 only by limit). No effect.",
+  "noise.py:112-114 uses the beta-scaled form (pi/2beta) coth(pi u/beta) - 1/(2u) for INT sin(ku)/(e^{beta k}-1) dk. UNSTATED hypothesis beta > 0 (needed for k -> k/beta). Satisfied (beta is an inverse temperature); scaling DERIVED in rederive D1 and checked numerically at beta = 2.3 (E5). No effect.",
+  "noise.py:112-114, 575-577: the tree takes -d^3/du^3 of the identity to get g(u) = (1/2pi^2) INT k^3 cos(ku) n(k) dk. UNSTATED hypothesis: differentiation under the integral sign three times (dominated convergence). Satisfied: |d^3/du^3 sin(ku)| <= k^3 and INT k^3/(e^k-1) dk = pi^4/15 < oo (rederive F4); closed form = mode integral at 5 u to 3.6e-27 (F3); and independently equal to Ramanujan's Entry 8.2 at w = 4, READ at source (F5). DROPPED-IN-STATEMENT, SATISFIED-IN-USE -- not a narrowing.",
+  "noise.py:112-114, 573-574: provenance not stated (no citation to Legendre, G&R 3.911.2 or Abel-Plana). A documentation gap, not a mathematical drift; the tree's own CONTROL (noise.py:1030-1032) checks only the differentiated kernel at one point u = 0.7, not the identity itself. Coverage note, not an error: rederive E1 checks the identity at 8 points in [0.01, 10] to 4.8e-28.",
+  "Out of scope for this key and NOT audited here: the physical normalisation g = <:phidot phidot:>_beta = (1/2pi^2) INT k^3 cos(ku) n(k) dk for a massless real scalar (the 1/(2pi^2) prefactor and the identification g(0) = rho). This audit only confirms the arithmetic g(0) = pi^2/30 and g ~ -3/(2 pi^2 u^4) (F1, F2); the state-level claim belongs to thermal-state-kms-hadamard."
+ ],
+ "data_at_publication": [],
+ "rederivation": {
+  "method": "sympy",
+  "script_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/bose-integral-coth-identity.py",
+  "outcome": "23/23 PASS, exit 0. Three independent routes: (A) geometric series 1/(e^k-1) = SUM e^{-nk}, Laplace term u/(n^2+u^2) symbolic, sum/integral swap licensed by a Tonelli bound pi^2 u/6 (symbolic), Mittag-Leffler sum = RHS by mpmath.nsum at 40 dps, worst 1.0e-40; (B) Abel-Plana with phi = e^{-xz}, fully symbolic, hypotheses checked, change of variables exact; (C) Taylor coefficients of RHS = (-1)^j zeta(2j+2) = termwise moments, symbolic, j = 0..4. Numeric quadrature = closed form at 8 u in [0.01, 10], worst 4.8e-28; odd in u; holds at complex u = 0.3+0.5i (9.9e-32); fails at u = i as the source's strip predicts. Beta-scaled form symbolic and numeric. Tree's use: g(0) = pi^2/30, g ~ -3/(2 pi^2 u^4), closed-form g = mode integral (3.6e-27), equal to Entry 8.2 (w = 4) symbolically; the tree's own CONTROL at u = 0.7 reproduced (rel 1.7e-20, g(0.7) = -0.0976280987511049). Side finding, recorded not repaired: sympy 1.14 sp.limit((pi/2)coth(pi u) - 1/(2u), u, 0) returns -oo, which is WRONG (series pi^2 u/6); the tree does not take that limit (it takes sp.limit(g, u, 0), which is correct).",
+  "agrees_with_source": "yes"
+ },
+ "later_literature": [
+  {
+   "ref": "Berndt, Dixit, Gupta, Zaharescu, arXiv:2112.09819 (2021)",
+   "effect": "confirms",
+   "what": "Restates Abel-Plana with rigorous hypotheses (Henrici) and Ramanujan's Entry 8.2; both yield the identity and its third-derivative kernel exactly (rederive B, F5). Generalises Abel-Plana to Koshliakov's lambda_n sums; nothing narrows the classical case.",
+   "read_status": "READ (pp.1-25 via answer_pdf_queries)"
+  },
+  {
+   "ref": "Saharian, arXiv:0708.1187 (2007)",
+   "effect": "confirms",
+   "what": "Abel-Plana eq (2.16) with growth condition (2.17) lim e^{-2pi|y|}|f(x+iy)| = 0, the form used in QFT mode sums; same conclusion.",
+   "read_status": "READ (pp.1-14, 37-41, 108 via answer_pdf_queries)"
+  },
+  {
+   "ref": "Coffey, arXiv:1803.00632 (2018)",
+   "effect": "extends",
+   "what": "Proves several Gradshteyn-Ryzhik hyperbolic-trigonometric entries by the same geometric-series method as route A; finds G&R 4.124.2 needs correction -- a different entry; 3.911.2 is not discussed.",
+   "read_status": "READ (full, via answer_pdf_queries)"
+  },
+  {
+   "ref": "Gaunt, arXiv:2601.13158 (2026)",
+   "effect": "extends",
+   "what": "New closed forms for INT sin(ax)/(b^2+x^2)^n; does not treat this integral; shows G&R-adjacent sine integrals remain an active area, with no erratum to 3.911.2.",
+   "read_status": "READ (pp.1-7 via answer_pdf_queries)"
+  }
+ ],
+ "lacked_data": "Not applicable in substance: this is a pure identity between an integral and elementary functions, with no empirical input. Legendre (early 19th c.) and the Abel-Plana authors (Plana 1820, Abel 1823) lacked nothing the conclusion depends on; no measured datum enters. Evidence either way: three independent derivations here (series, Abel-Plana, Taylor moments) and quadrature at 30 digits agree; no later paper found contradicts or errata-lists it. M's hypothesis ('previous physicists may have lacked certain data') cannot bite on a theorem of this kind, and the audit finds no discrepancy to record. What the physics USE adds (normalisation of the thermal two-point kernel, Gaussianity of the state) is a separate key.",
+ "grade": "STANDS",
+ "grade_evidence": "Statement and hypotheses as used match the READ source (Abel-Plana, Henrici form, arXiv:2112.09819 Thm 2.1; Entry 8.2 for the differentiated kernel); the tree's hypothesis u > 0 is narrower than required; the unstated hypotheses (beta > 0, differentiation under the integral) hold and are computed; re-derivation by three independent routes plus 30-digit quadrature agrees (23/23 PASS); no datum enters, so none can move. The identity itself is DERIVED from a READ theorem rather than read verbatim (Legendre / G&R 3.911.2 NAMED-NOT-READ) -- this does not lower the grade because the derivation is complete and machine-checked here.",
+ "what_would_change_the_grade": "Only a computed failure of the identity at some real u != 0 (none exists: quadrature, series and symbolic Abel-Plana agree), or a use in the tree outside |Im u| < 1 or at beta <= 0 (none found; noise.py evaluates real u and beta > 0). A read of G&R 3.911.2 showing a different printed form would be a discrepancy in the table, not a change to this grade, since the tree's form is independently derived.",
+ "reverify_command": "python3 /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/bose-integral-coth-identity.py   # expect 23 PASS, '0 failure(s)', exit 0; tree control: cd /home/user/Claude-Method-Works/research/warp-drive && python3 noise.py --selftest",
+ "report_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/audits/bose-integral-coth-identity.json"
+}

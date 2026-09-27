@@ -1,0 +1,90 @@
+{
+ "key": "svz-1978",
+ "name": "Ellis-Olive-Savage / SVZ heavy-quark relation f_TQ = (2/27)(1 - f_l)",
+ "source": {
+  "located": "Primary: M.A. Shifman, A.I. Vainshtein, V.I. Zakharov, 'Remarks on Higgs-boson interactions with nucleons', PLB 78, 443 (1978) -- no arXiv copy. Restating paper the tree cites: J. Ellis, K.A. Olive, C. Savage, arXiv:0801.3656v2 (PRD 77, 065026), eqs. (10), (12). Exact beyond-LO restatement: R.J. Hill, M.P. Solon, arXiv:1409.8290, eq. (39) (O(alpha_s^0) term = SVZ), eq. (101) ('the leading-order alpha_s result is well-known from Ref. [81]'), eqs. (61), (119), (120).",
+  "read_status": "READ-VIA-RESTATEMENT",
+  "via": "IN THIS STAGE NO PDF COULD BE OPENED: every alphaXiv call (answer_pdf_queries, get_paper_content, discover_papers) returned 'assistant quota exceeded', and arxiv.org / export.arxiv.org / alphaxiv.org / osti.gov / link.springer.com are refused by the egress proxy (403). What is used instead, each at its true status: (a) SVZ's LO theorem and Hill-Solon's beyond-LO series were READ at source in THIS docket by the sibling audit dlnlambdaqcd-dlnv-2-9 (alphaXiv, 1409.8290 pp.1,15,17-18,22-23,37,39,42-44,46-48), whose transcription is checked there against Hill-Solon eqs.(120),(61) and is re-checked here (eq.(61) f_c = 0.073(3) reproduced); (b) Ji hep-ph/9410274's restatement of SVZ, <m_Q QbarQ> = -(alpha_s/12pi)<F^2>, READ in this docket by sibling audit qcd-trace-anomaly-nucleon-mass; (c) EOS eq.(10)/(12) only as quoted in the tree's own SOURCES locator massform.py:1351-1354 (READ by the tree in D65; NOT re-read here). SVZ 1978 itself: NAMED-NOT-READ. EOS 0801.3656: NOT re-read in this stage."
+ },
+ "published_statement": "As restated (Hill-Solon 1409.8290 eq.(39), READ by sibling audit): <O'_Q>/m_N = (1/(3 beta_0^(nf))){2 - 2 lambda} + (alpha_s^(nf+1)(mu_Q)/pi)(1/(3 beta_0^(nf)))^2 {57/2 - 321 lambda/2 + 8 n_f} + O(alpha_s^2), whose O(alpha_s^0) term at n_f = 3 is SVZ's f_TQ = (2/27)(1 - lambda), lambda = sum_{u,d,s} f_Tq; eq.(101): 'the leading-order alpha_s result is well-known from Ref. [81]' (SVZ). EOS as quoted by the tree (massform.py:1353-1354): 'f_N/m_N = sum_{q=u,d,s} f_Tq alpha_3q/m_q + (2/27) f_TG sum_{q=c,b,t} alpha_3q/m_q ... f_TG = 1 - sum_{q=u,d,s} f_Tq (12)'. Ji's restatement: heavy quarks 'contribute to the mass term, the kinetic and potential energy term, and the trace anomaly term ... their contributions cancel each other in the limit of m_f -> infinity'.",
+ "published_hypotheses": [
+  "Leading order in alpha_s: the heavy-quark theorem m_Q QbarQ -> -(2/3)(alpha_s/8pi) G^2 (= -(alpha_s/12pi) G^2) and the one-loop beta coefficient b_0 = 11 - 2n_f/3 (Hill-Solon eq.(39) O(alpha_s^0); eq.(101)).",
+  "Heavy-quark limit: m_Q >> Lambda_QCD, power corrections O(1/m_Q) dropped (Hill-Solon: O(1/m_c) not estimated).",
+  "Three light flavours u, d, s define f_TG = 1 - sum_{u,d,s} f_Tq (EOS eq.(12) as quoted); c, b, t decoupled sequentially.",
+  "Forward nucleon matrix element of the QCD trace (m_N = <N|theta^mu_mu|N>), QCD only; a COUPLING (the Higgs-nucleon scalar coupling), not a partition of the mass -- the source context is Higgs-nucleon interaction / dark-matter scattering."
+ ],
+ "hypothesis_drift": [
+  "DROPPED (leading order in alpha_s): the tree calls the relation exact -- 'The algebra is checked exactly over Fraction' (massform.py:351) and svz_heavy_sum's docstring '3 x (2/27)(1 - f_l), the three heavy quarks by SVZ.  EXACT.' (massform.py:1812), coupling_sum 'EXACT over Fraction' (massform.py:1807). The Fraction arithmetic is exact; the relation is LO. No 'leading order' qualifier appears anywhere in the heavy-quark text (grep of massform.py for 'leading order' / 'alpha_s' hits only the WKB sphaleron lines).",
+  "DROPPED (heavy-quark limit for charm): 'for each of c, b, t' (massform.py:347-348) applies the m_Q -> infinity theorem to charm without naming the 1/m_c hypothesis; the tree prints ETM 19's sigma_c = 107(22) MeV beside it (massform.py:352-353) without noting that this is a test of the relation at charm (f_Tc 0.114(23) vs LO 0.066, 2.05 sigma).",
+  "RETAINED correctly: the source-context hypothesis that this is a COUPLING, not a mass share -- 'AS THE SOURCE STATES IT this is the Higgs's COUPLING to the nucleon' and 'Counting heavy-quark terms as mass the Higgs MAKES is CONTESTED ... never added to the READ rows' (massform.py:351-356, 131-133). Not a drift.",
+  "RETAINED correctly: three light flavours define f_l = (sigma_piN + sigma_s)/m_N (massform.py:320-324, 1790-1793), matching EOS eq.(12)'s f_TG = 1 - sum_{u,d,s} f_Tq.",
+  "STATUS WORDS accurate: 'Ellis-Olive-Savage eq. (10), READ; SVZ 1978 CITED' (massform.py:348-349, 1351-1352) -- the tree does not claim to have read SVZ."
+ ],
+ "data_at_publication": [
+  {
+   "quantity": "f_l = (sigma_piN + sigma_s)/m_N, FLAG 2024 N_f = 2+1+1 (60.9 + 41.0 MeV)",
+   "value_then": "EOS 2008's own sigma-term inputs: not read in this stage (source unreachable); the tree does not use them",
+   "value_now": "0.10853 (tree, FLAG 2024 eqs.(447),(449) READ by the tree and by sibling audit sigma-term-scan)",
+   "source_now": "FLAG 2024 arXiv:2411.04268v3 eqs.(447)-(450)",
+   "moves_conclusion": "The relation is linear in f_l with slope 7/9; the 2.7 sigma FLAG tension moves the coupling sum 0.2944 <-> 0.3066 (both printed by the tree). No conclusion moves: every value < 1/2."
+  },
+  {
+   "quantity": "alpha_s at the heavy thresholds (enters only beyond LO)",
+   "value_then": "SVZ LO: no alpha_s value enters (2/27 is a pure number)",
+   "value_now": "alpha^(4)(m_c) = 0.387, alpha^(5)(m_b) = 0.225, alpha^(6)(m_t) = 0.109 by 4-loop running from alpha_s(M_Z) = 0.1180, m_c = 1.273, m_b = 4.183, m_t(MSbar) = 162.5 GeV",
+   "source_now": "PDG 2024 values NAMED-NOT-READ in this stage (as in the sibling audit); run in rederive/svz-1978.py",
+   "moves_conclusion": "Moves the number, not the conclusion: coupling sum +3.3% (2+1+1: 0.3066 -> 0.3169) and +3.8% (2+1: 0.2944 -> 0.3055); largest all-rows reading 0.3090 -> 0.3193. Still < 1/2."
+  },
+  {
+   "quantity": "charm scalar matrix element f_Tc (non-perturbative test of the relation at charm)",
+   "value_then": "none in 1978 (no lattice); LO prediction 2/27(1 - f_l) = 0.0660 at the tree's f_l",
+   "value_now": "ETM 19 sigma_c = 107(22) MeV -> f_Tc = 0.114(23); RQCD 16 f_Tc = 0.075(4) (both as FLAG prints them, quoted at massform.py:1340-1343); Hill-Solon series 0.072 here, 0.073(3) their eq.(61); MILC 0.10(3), chiQCD 0.07(3) as restated by Hill-Solon eq.(62)",
+   "source_now": "FLAG 2024 (READ by the tree); Hill-Solon 1409.8290 (READ by sibling audit)",
+   "moves_conclusion": "ETM19 exceeds LO by 2.05 sigma (1.79 sigma vs the beyond-LO series); RQCD16 by 2.24 sigma vs LO. A discrepancy at charm, not a refutation; replacing the charm leg by ETM19 would raise the 2+1+1 coupling sum by 0.048 to ~0.355. Still < 1/2."
+  }
+ ],
+ "rederivation": {
+  "method": "sympy",
+  "script_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/svz-1978.py",
+  "outcome": "0 failures, exit 0 (output in rederive/svz-1978.out). (A) sympy, from the LO trace anomaly and SVZ decoupling: -(2/3)(a/8pi) = -(a/12pi) (Ji's form); anomaly matching b0(6) + 3(2/3) = b0(3) = 9; f_TQ = (2/3)X/m_N = (2/27)(1 - f_l); sequential c->b->t decoupling gives 2/27(1 - f_l) for each; sum = 2/9 + (7/9)f_l exactly -- the tree's algebra STANDS at LO. (B) From the tree's READ inputs: f_l = 0.10853 / 0.09277, coupling sums 0.30663 / 0.29437 (printed 0.3066 / 0.2944), largest all-rows reading 0.30902 = electrons 0.00030 + 0.30663 x 70.4755/70 (printed 0.3090); Hoferichter 0.305 inverts to f_l = 0.1064. (C) Beyond LO (Hill-Solon through O(alpha_s^3), sibling transcription, eq.(61) reproduced): f_c +9.1%, f_b +4.8%, f_t +1.6%; coupling sum +3.33% (0.3169) and +3.77% (0.3055); the (1 - f_l) factorisation fails (heavy/(1 - f_l) = 0.2384, 0.2344, 0.2337 at f_l = 0, 0.093, 0.109 vs 2/9). (D) Charm: ETM19 f_Tc 0.114(23) vs LO 0.066 -> 2.05 sigma; ratio 1.73. (E) A deliberately generous stack (f_l +3 sigma, ETM19 charm +3 sigma, b,t beyond LO) reaches 0.470 -- below 1/2 but not far; it mixes rows the tree never sums and is not the tree's claim, which applies 'nothing near one half' to the READ rows (0.2362, massform.py:376-377) and 'below half' to each central row (massform.py:134).",
+  "agrees_with_source": "yes"
+ },
+ "later_literature": [
+  {
+   "ref": "R.J. Hill, M.P. Solon, arXiv:1409.8290 (PRD 91, 043505, 2015), eqs. (39), (61), (101), (119), (120)",
+   "effect": "narrows",
+   "what": "Heavy-quark scalar matrix elements through O(alpha_s^3): SVZ is the O(alpha_s^0) term; corrections +9% (c), +5% (b), +2% (t) here; charm expansion 'poorly convergent'; O(1/m_c) not estimated. Narrows 'exact' to 'LO'.",
+   "read_status": "READ at source in this docket by sibling audit dlnlambdaqcd-dlnv-2-9; NOT re-opened in this stage (alphaXiv quota); transcription re-verified numerically here"
+  },
+  {
+   "ref": "C. Alexandrou et al. (ETM 19), sigma_c = 107(22) MeV, N_f = 2+1+1, as printed in FLAG 2024 arXiv:2411.04268v3 (with RQCD 16 f_Tc = 0.075(4))",
+   "effect": "contested",
+   "what": "Direct lattice charm content 2.05 sigma above SVZ-LO at the tree's f_l; RQCD 16 closer. FLAG calls RQCD 16 'consistent with' ETM 19. Charm leg of the relation tested only at ~20-30% precision.",
+   "read_status": "READ-VIA-RESTATEMENT (FLAG text as quoted in massform.py:1340-1343, READ by the tree in D65); ETM 19 paper NAMED-NOT-READ"
+  },
+  {
+   "ref": "M. Hoferichter, J. Ruiz de Elvira, arXiv:2506.23902 (2025)",
+   "effect": "confirms",
+   "what": "With n_f = 6 counting, heavy-quark (c, b, t) sigma terms 68 + 65 + 63 = 196 MeV ~ 21% of m_N (eq.(35) m_N ~ (69+43+68+65+63+630) MeV, as the sibling audit transcribes it); LO SVZ gives 3 x 0.066 = 19.8% at the tree's f_l -- consistent at the few-% level expected from Hill-Solon.",
+   "read_status": "READ in this docket by sibling audit qcd-trace-anomaly-nucleon-mass (pages 1-2, 4-5, 7-9); not re-opened here"
+  },
+  {
+   "ref": "Hill-Solon eq.(62): MILC PRD 88, 054503 f_c = 0.10(3); chiQCD PRD 88, 014503 f_c = 0.07(3)",
+   "effect": "contested",
+   "what": "Earlier lattice charm matrix elements, consistent with both LO and beyond-LO within ~30% errors.",
+   "read_status": "READ-VIA-RESTATEMENT (values as printed in 1409.8290 p.22 per sibling audit)"
+  },
+  {
+   "ref": "arXiv:2605.10635 (2026), 'Heavy-Quark Condensate and Vacuum Energy Anomalous Dimension at Five Loops'",
+   "effect": "extends",
+   "what": "Perturbative heavy-quark condensate at five loops -- pushes the beyond-LO series further.",
+   "read_status": "NAMED-NOT-READ (surfaced by the sibling audit's discover_papers; this stage's discover_papers call was refused on quota)"
+  }
+ ],
+ "lacked_data": "What SVZ (1978) lacked: (i) higher-order QCD coefficients (decoupling to O(alpha_s^3): Chetyrkin-Kniehl-Steinhauser 1997; the f_Q series: Hill-Solon 2014); (ii) any non-perturbative charm matrix element (lattice f_Tc from 2012 on; ETM 19 107(22) MeV); (iii) precise light sigma terms (FLAG 2024; still in 2.7 sigma tension). EOS (2008) lacked (ii) and the Hill-Solon series. Does having them change the conclusion? EVIDENCE: the LO relation is a correct LO theorem -- re-derived here from the anomaly and matching, no counterexample exists; beyond-LO moves each f_TQ upward by 2-9% and the coupling sum by +3.3/+3.8%, and breaks the exact (1 - f_l) factorisation; the lattice charm value sits 2.05 sigma above LO. So the new data NARROW the relation's exactness (LO, heavy-limit) but do not refute it, and no conclusion the tree rests on it moves: the coupling rows are CONTESTED and never added to the READ rows (massform.py:354-356), and every coupling-row central value stays below one half (0.3066 -> 0.3169; all-rows 0.3090 -> 0.3193). M's hypothesis is CONFIRMED in its weak form for this result (the authors lacked data that moves the numbers) and NOT confirmed in its strong form (nothing here makes the relation wrong).",
+ "grade": "NARROWED",
+ "grade_evidence": "(1) Algebra: sympy re-derives f_TQ = (2/27)(1 - f_l) per heavy quark and the coupling sum 2/9 + (7/9)f_l from the LO anomaly and SVZ decoupling (anomaly matching 7 + 2 = 9 checked); the tree's 0.3066, 0.2944 and 0.3090 reproduce to 4 d.p. from its READ inputs. (2) But the relation holds on the leading-order, heavy-quark-limit class, and the tree drops both qualifiers: 'EXACT' (massform.py:1807, 1812), 'checked exactly over Fraction' (massform.py:351), 'for each of c, b, t' with no 1/m_c hypothesis (massform.py:347-348). Beyond LO (Hill-Solon O(alpha_s^3), READ by the sibling audit, eq.(61) reproduced here) the coupling sum is 0.3169 / 0.3055 (+3.3% / +3.8%), and ETM 19's charm is 2.05 sigma above LO -- a discrepancy, not a refutation. (3) Not WRONG: no counterexample; 2/27 is the correct LO coefficient. Not DATA-DEPENDENT: the LO value uses no datum; the moving datum (sigma-term tension, alpha_s) shifts numbers by <= 0.012, never across one half, and the tree already prints both FLAG readings. Not STANDS: 'exact' is used where the source result is LO. Not OPEN on the algebra -- but NOTE the source-reading limit: neither EOS 0801.3656 nor Hill-Solon could be opened in THIS stage (alphaXiv quota exhausted, arXiv egress-blocked); the published statement rests on the sibling audit's READ of Hill-Solon and on the tree's own EOS quote. If that is held insufficient, the reading half of this grade is OPEN pending a re-read; the re-derivation half is independent of it. Consistent with sibling audit dlnlambdaqcd-dlnv-2-9 (NARROWED on the same LO qualifier).",
+ "what_would_change_the_grade": "To STANDS: the tree names the LO-in-alpha_s and heavy-quark-limit hypotheses at massform.py:347-351 and drops 'EXACT' at :1807/:1812 (or cites the beyond-LO series), since then statement and hypotheses match the source as used. To OPEN (reading half): a re-read of EOS 0801.3656 p.5 eq.(10) finding it differs from the tree's quote at massform.py:1353-1354 would require re-grading. To WRONG: only a computed contradiction of the LO coefficient -- none exists (anomaly matching fixes 2/27 given b0 = 11 - 2n_f/3). To DATA-DEPENDENT: a coupling-row central value reaching one half under a moved datum, which would need f_Tc ~ 0.26 (sigma_c ~ 245 MeV) -- ~6 sigma above ETM 19's 107(22) MeV.",
+ "reverify_command": "python3 /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/svz-1978.py   # exit 0; also: grep -n 'EXACT\\|exactly over Fraction\\|for each of c' /home/user/Claude-Method-Works/research/warp-drive/massform.py",
+ "report_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/audits/svz-1978.json"
+}

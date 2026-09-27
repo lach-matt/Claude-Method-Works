@@ -1,0 +1,90 @@
+{
+ "key": "no-existence-theorem-ssaf",
+ "name": "Absence of a general existence theorem for static spherically symmetric asymptotically flat semiclassical solutions",
+ "source": {
+  "located": "No single source: this is the tree's own literature-state claim (throatmass.py:98-99, :174-176), kind 'extrapolation'. The sources that bear on it and were READ: (i) K. Sanders, arXiv:2007.14311v2 (Sep 2021; Ann. Henri Poincare 23 (2022) 1321), intro p.2 and sec. 7, from the harvested arXiv v2 text d67/src/2007.14311v2.clean.txt lines 85-130, 1690-1730; (ii) Hochberg-Popov-Sushkov gr-qc/9701064v1 (PRL 78, 2050, 1997), full text pp.1-12 at d67/src/hps/_flat0.txt; (iii) Galanda-Meda-Murro-Pinamonti-Schmid arXiv:2604.01047v1 (2026), intro, sec. 1.5-1.6 and bibliography, at d67/src/casmag/all/2604.01047v1.txt lines 86-175, 1360-1520, 9610-9620. NAMED-NOT-READ (abstract only, via WebSearch summaries, not page text): Juarez-Aubry arXiv:2011.05947 (AHP 23 (2022) 1451-1487); Juarez-Aubry arXiv:2412.08402 (PLB 875 (2026) 140349); Juarez-Aubry arXiv:2509.02051 (review, J. Phys. Conf. Ser. 3177 (2026) 012141).",
+  "read_status": "READ-VIA-RESTATEMENT",
+  "via": "alphaXiv answer_pdf_queries, get_paper_content and discover_papers ALL returned 'alphaXiv assistant quota exceeded' this stage (4 calls); arxiv.org, eprints.whiterose.ac.uk, repo.scoap3.org and pith.science are refused by the egress proxy (curl CONNECT 403 / WebFetch EGRESS_BLOCKED). The READ sources were read from page-text extractions already harvested earlier in DOCKET 67 (paths above). The claim itself is a universal negative ('which nobody has'), so no single source can confirm it; the READ sources are restatements of the state of the literature at their dates (1997, 2021, 2026)."
+ },
+ "published_statement": "As the tree states it (no external source states it in these words): throatmass.py:98-99 'Closed only by a general existence theorem for the static spherically symmetric asymptotically flat class, which nobody has.  NOT DONE HERE.'; throatmass.py:174-176 O5_ANSWERED_BY '... Closed only by an existence theorem for the static spherically symmetric asymptotically flat class'. Closest READ external statements: Sanders 2007.14311v2 p.2: 'It appears, however, that the static solutions of the semi-classical Einstein-Klein-Gordon system have not been studied before (except the Minkowski vacuum). One reason may be that the system under consideration does not have any interesting classical static solutions.' and sec. 7: 'a more detailed investigation will be necessary to settle this question for general states in an Einstein static universe, or even in general static spacetimes.' HPS gr-qc/9701064 p.2: 'no one up to now has succeeded in writing down a bona-fide wormhole solution of either the classical or semiclassical Einstein field equations'; p.3: 'The results of the present calculation may be taken as numerical evidence for the existence of Lorentzian wormholes'; p.8: 'The redshift function however, does not approach a constant value as l -> infinity, so the metric as a whole is not asymptotically flat.' 2604.01047 (2026) sec. 1.5: 'In the case of cosmological spacetimes, the full nonlinear analysis has been carried out in [78]' -- its survey names no existence theorem for the static spherically symmetric asymptotically flat class.",
+ "published_hypotheses": [
+  "H1 (tree) the class: static, spherically symmetric, asymptotically flat metrics solving G_ab = 8 pi <T_ab> with a quantum field source -- the tree does not say whether <T_ab> is an exact renormalised expectation value in a Hadamard state (Sanders / Juarez-Aubry sense) or the Anderson-Hiscock-Samuel analytic approximation (HPS sense, the one throatmass.py's families and hpscentre.py use)",
+  "H2 (tree) 'general existence theorem' -- scope not stated: existence of at least one member, of a non-trivial (non-flat) member, or of a member for given data / mass",
+  "H3 (tree) 'which nobody has' -- a universal negative over the literature, asserted with status word 'none (NOT DONE HERE)', no search record attached",
+  "H4 (tree) 'closed ONLY by' -- that O5 (does an AF self-consistent static solution with m < 0 exist?) can be settled by nothing but such a theorem",
+  "Sanders (READ): rigorous class = full semiclassical Einstein-Klein-Gordon system, free scalar, state and metric solved together; static solutions 'not studied before (except the Minkowski vacuum)' as of 2020/2021",
+  "HPS (READ): AHS approximate <T_ab>, xi = 1/6, m = 0, temperature 0, throat data eq. (9); numerical, 'local solutions'; not asymptotically flat (f unbounded)"
+ ],
+ "hypothesis_drift": [
+  "DROPPED QUALIFIER 'non-trivial', throatmass.py:98-99 and :174-176: the static spherically symmetric AF class is NOT empty -- flat space with the Minkowski vacuum is a member (Sanders p.2 excepts it by name) and f = const, r = l solves HPS eqs (5)-(7) identically (computed, rederive C1). So 'an existence theorem for the class' is already trivially true; what is absent is existence of a NON-FLAT member (or of a member for prescribed data). The tree's wording omits this.",
+  "OVERSTATED 'only', throatmass.py:98 ('Closed only by') and :175-176: on a finite model (z3, rederive C3) an exhibited AF self-consistent solution with m < 0 decides O5 = yes with no theorem, a no-go decides O5 = no, and a general existence theorem E is consistent with BOTH answers, so E alone closes nothing. A logical discrepancy in the tree's framing, not an error of the literature. Already superseded in the tree: hpscentre.py:303-308 O5_ANSWERED_BY lists 'an asymptotically flat self-consistent solution with m < 0' and FO/FFKP evaluations as answers, with 'the nonlinear regular-centre existence theorem' as one route among several; ledger.py SUPERSEDED_WORDING keeps the DOCKET 62 wording.",
+  "UNSPECIFIED SOURCE TERM, throatmass.py:94-99: the paragraph is about HPS's printed system (AHS approximation), but 'semiclassical solution' in the existence-theorem literature (Sanders, Juarez-Aubry, Pinamonti-Siemssen) means the exact renormalised <T_ab> of a Hadamard (or symmetric) state. The two are different classes; hpscentre.DOMAIN_WORD (hpscentre.py:299-302) records that the AHS approximation is established only for asymptotically flat spacetimes. The tree's claim is plausibly true in both readings, but it is two claims.",
+  "UNIVERSAL NEGATIVE WITHOUT A SEARCH RECORD, throatmass.py:99 'which nobody has': stated as fact; the tree's own discipline for the neighbouring zero (throatmass.py:40-58, 'NOT-FOUND, not NO', with a control that the search can return solutions) is not applied to this sentence. The honest word is NOT-FOUND."
+ ],
+ "data_at_publication": [
+  {
+   "quantity": "state of the literature: existence theorem for NON-FLAT static spherically symmetric AF semiclassical solutions (exact <T_ab>)",
+   "value_then": "none known (DOCKET 62 wording, 2026; Sanders 2021: static solutions not studied except Minkowski; HPS 1997: numerical evidence only)",
+   "value_now": "none found in any READ source through 2604.01047v1 (Apr 2026); two later Juarez-Aubry papers (2011.05947 static/ultrastatic constrained IVP; 2412.08402 well-posedness without symmetry for a special class of Hadamard states, 'quantum stealths') NAMED-NOT-READ, content at abstract-summary level only; the mandated discover_papers sweep did not run (quota)",
+   "source_now": "d67/src/2007.14311v2.clean.txt; d67/src/casmag/all/2604.01047v1.txt; WebSearch listings for 2011.05947, 2412.08402, 2509.02051 (summaries, not page text)",
+   "moves_conclusion": "undetermined -- if 2412.08402's stealth class includes a static spherically symmetric AF non-flat background with a static state (not established here), the tree's 'nobody has' would be NARROWED to 'no GENERAL theorem'; nothing READ shows that it does"
+  },
+  {
+   "quantity": "HPS asymptotic fit F(l) ~ (a ln l - b)^2, a = 5.3, b = 25.5 (redshift at large l)",
+   "value_then": "a = 5.3, b = 25.5 (HPS 1997 p.8)",
+   "value_now": "same printed values; not re-fitted here (hpscentre.py reports the far-zone fit window-dependent, not converged)",
+   "source_now": "gr-qc/9701064v1 p.8, READ at d67/src/hps/_flat0.txt",
+   "moves_conclusion": "no -- F -> infinity for every a != 0 (rederive C2: F(1e3) = 123.457, F(1e6) = 2277.409), so HPS's solution is not asymptotically flat whatever the fitted values; it supplies no AF member either way"
+  }
+ ],
+ "rederivation": {
+  "method": "sympy",
+  "script_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/no-existence-theorem-ssaf.py",
+  "outcome": "ALL PASS (exit 0), 12 checks, sympy + z3. C1: flat space f = 1 (and f = c > 0), r = l solves HPS eqs (5)-(7) (transcribed from the READ page text) with all three residuals exactly 0; Misner-Sharp mass 0; control f = 1, r = l + 1/l does NOT solve eq. (5) (residual 0.13079 at l = 2) -- the class is non-empty, so only NON-TRIVIAL existence is at issue. C2: HPS's printed asymptotics give F -> infinity (not AF), m = 0 at leading order on R = l. C3 (z3, 4-element model with vacuity guard): exhibited AF m < 0 solution => O5 decided yes; no-go => O5 decided no; existence theorem E is satisfiable with O5 and with not-O5 -- the 'only' fails as logic. NOT CHECKABLE HERE: the literature-state claim itself (a universal negative over published work cannot be machine-checked; the discovery sweep that could have supplied a counterexample did not run).",
+  "agrees_with_source": "partly"
+ },
+ "later_literature": [
+  {
+   "ref": "Sanders, arXiv:2007.14311v2 (2021), Ann. Henri Poincare 23 (2022) 1321",
+   "effect": "confirms",
+   "what": "p.2: static solutions of the semiclassical Einstein-Klein-Gordon system 'have not been studied before (except the Minkowski vacuum)'; its own existence result is for Einstein's static universe R x S^3 only (compact, ultrastatic -- not AF); sec. 7 leaves 'general static spacetimes' open",
+   "read_status": "READ (harvested arXiv v2 text, intro and sec. 7)"
+  },
+  {
+   "ref": "Hochberg, Popov & Sushkov, gr-qc/9701064 (1997)",
+   "effect": "confirms",
+   "what": "self-consistent static spherically symmetric solutions exist only as NUMERICAL evidence with the AHS approximate <T_ab>; the published one is explicitly not asymptotically flat (p.8); others are 'local solutions' with horizons or bounded regions",
+   "read_status": "READ (full text)"
+  },
+  {
+   "ref": "Galanda, Meda, Murro, Pinamonti & Schmid, arXiv:2604.01047v1 (2026)",
+   "effect": "confirms",
+   "what": "survey of rigorous semiclassical results names nonlinear existence only for cosmological spacetimes ([78] Meda-Pinamonti-Siemssen) and cites Sanders [94] and Juarez-Aubry [61],[62]; names no static spherically symmetric AF existence theorem; proves Minkowski (the trivial member) linearly unstable",
+   "read_status": "READ (harvested v1 text: intro, sec. 1.5-1.6, bibliography)"
+  },
+  {
+   "ref": "Juarez-Aubry, 'Semiclassical gravity in static spacetimes as a constrained initial value problem', arXiv:2011.05947, AHP 23 (2022) 1451",
+   "effect": "extends",
+   "what": "abstract (search summary): in ultrastatic and static spacetimes the metric equations become constraints; characterises states (time-translation invariant) for which constraints propagate; static case reduced to ultrastatic by conformal techniques -- an existence theorem for the AF spherically symmetric class is not claimed in the abstract",
+   "read_status": "NAMED-NOT-READ (WebSearch abstract summary only)"
+  },
+  {
+   "ref": "Juarez-Aubry, 'A new class of semiclassical gravity solutions, gravitational quantum stealths and regular Cauchy horizons', arXiv:2412.08402, PLB 875 (2026) 140349",
+   "effect": "contested",
+   "what": "search summary: a special class of Hadamard two-point functions makes the system quasi-linear hyperbolic -- 'the first well-posedness result for semiclassical gravity without spacetime symmetries'; vanishing proportionality constant gives quantum 'stealth' configurations. Whether this yields a NON-FLAT static spherically symmetric AF solution (e.g. a classical vacuum background carrying a stealth state) is exactly what would narrow the tree's claim, and is not established here",
+   "read_status": "NAMED-NOT-READ (WebSearch summary only)"
+  },
+  {
+   "ref": "discover_papers (mandated sweep)",
+   "effect": "contested",
+   "what": "returned 'alphaXiv assistant quota exceeded'; replaced by two WebSearch queries, so the later-literature sweep is incomplete",
+   "read_status": "NOT RUN"
+  }
+ ],
+ "lacked_data": "M's hypothesis does not bite in its empirical form: whether an existence theorem exists is a mathematical and bibliographic question; no measured quantity enters it, and no later measurement can create or remove a theorem. What the 1997-2021 literature lacked was TECHNIQUE, not data: HPS had only the AHS approximate <T_ab> and numerics (and HPS's own solution is not AF); Sanders (2021) had rigorous tools only for compact ultrastatic slices, naming the non-compact case 'more challenging, because the symmetry group becomes non-compact'. Evidence that the gap is closing, not closed: Juarez-Aubry 2022 (static constrained IVP) and 2024/2026 (well-posedness without symmetry for a special state class) -- both NAMED-NOT-READ. Evidence for the tree's side: every READ source through April 2026 names no such theorem. Having the later papers might change the conclusion (by exhibiting a non-flat AF static member for a special state class) or might not; that cannot be decided here.",
+ "grade": "OPEN",
+ "grade_evidence": "The claim is a universal negative over the literature and cannot be established or refuted here. For it: Sanders 2021 (READ) says static semiclassical solutions had not been studied except the Minkowski vacuum; HPS 1997 (READ) gives numerical evidence only and says its own solution is not asymptotically flat (rederive C2); the 2026 survey 2604.01047 (READ) names no such theorem. Against, or undetermined: the mandated discover_papers sweep did not run (alphaXiv quota), and two later Juarez-Aubry papers on static spacetimes and on well-posedness without symmetry (2011.05947, 2412.08402) are NAMED-NOT-READ. Separately, and independent of the literature question, two framing discrepancies are COMPUTED: (a) the class is non-empty (flat space solves HPS eqs (5)-(7) identically, C1), so the missing theorem is one for NON-TRIVIAL existence -- a qualifier the tree omits; (b) 'closed ONLY by an existence theorem' fails as logic (z3, C3): an exhibited AF m < 0 solution or a no-go would each close O5, and an existence theorem alone closes neither -- already superseded in hpscentre.py:303-308. These are discrepancies in the tree's wording, not refutations of the literature claim, so they do not make the grade WRONG; they mean that even if confirmed the grade would be NARROWED, not STANDS.",
+ "what_would_change_the_grade": "To NARROWED (the expected ceiling): reading 2412.08402 and 2011.05947 at source and finding no non-flat static spherically symmetric AF solution or theorem there, plus a completed discover_papers sweep with no contrary hit -- the literature claim would then stand as NOT-FOUND, narrowed by the two computed wording discrepancies ('non-trivial' qualifier; 'only'). To WRONG for the literature half: a READ paper proving existence of non-flat static spherically symmetric AF solutions of the semiclassical Einstein equations with exact renormalised <T_ab> (e.g. a stealth state on a non-flat vacuum background, if 2412.08402's class contains one). STANDS is not reachable while the tree's wording keeps 'only' and omits 'non-trivial'.",
+ "reverify_command": "python3 /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/no-existence-theorem-ssaf.py; grep -n 'have not been studied before' /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/src/2007.14311v2.clean.txt; grep -o 'so the metric as a whole is not asymptotically flat' /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/src/hps/_flat0.txt; grep -n -i 'asymptotically flat\\|cosmological spacetimes, the full nonlinear' /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/src/casmag/all/2604.01047v1.txt; sed -n 94,99p /home/user/Claude-Method-Works/research/warp-drive/throatmass.py; sed -n 303,308p /home/user/Claude-Method-Works/research/warp-drive/hpscentre.py",
+ "report_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/audits/no-existence-theorem-ssaf.json"
+}

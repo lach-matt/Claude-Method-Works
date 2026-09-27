@@ -1,0 +1,91 @@
+{
+ "key": "earth-proxima-comoving",
+ "name": "Earth and Proxima comoving to about one part in 1e4",
+ "source": {
+  "located": "No single external source is cited by the tree (ledger.py:2029-2036 states the figure bare; oneway.py:64 carries the one input it has, RV 22.2 km/s, as RECALLED). The measurement rests on Proxima's astrometry: Gaia DR3 parallax 768.0665+-0.0499 mas, proper motion (-3781.741, 769.465) mas/yr, and the HARPS absolute radial velocity -22.204+-0.032 km/s of Kervella, Thevenin & Lovis 2017 (A&A 598, L7; arXiv:1611.03495), plus Earth's orbital speed.",
+  "read_status": "READ-VIA-RESTATEMENT",
+  "via": "alphaXiv answer_pdf_queries/get_paper_content/discover_papers all returned 'assistant quota exceeded'; arxiv.org, export.arxiv.org, aanda.org, semanticscholar and centauri-dreams are refused by the egress proxy (403 / EGRESS_BLOCKED). The numbers were read through WebSearch result restatements (en.wikipedia.org/wiki/Proxima_Centauri and the A&A/arXiv listing of 1611.03495), which also restate the earlier uncorrected HARPS value -21.700+-0.027 km/s. Kervella et al. 2017 is therefore NAMED-NOT-READ at source; its values are READ-VIA-RESTATEMENT only."
+ },
+ "published_statement": "Tree (ledger.py:2033-2035, W8): 'Earth and Proxima are comoving to about one part in 1e4, so a receiver at rest in Proxima's atoms automatically shares Earth's B whatever B is.' External measurement restated: Proxima's heliocentric radial velocity -22.204+-0.032 km/s (Kervella et al. 2017, HARPS, corrected for gravitational redshift and convective blueshift); Gaia DR3 parallax 768.0665 mas and proper motion 3.8592 arcsec/yr, hence v_t = 23.82 km/s and |v| = 32.56 km/s relative to the Sun (computed here).",
+ "published_hypotheses": [
+  "H1 (measurement): Proxima's heliocentric space velocity is fixed by parallax, proper motion and an absolute RV (convective-blueshift and gravitational-redshift corrected)",
+  "H2 (tree, unstated): 'Earth' means Earth's instantaneous velocity, which includes the 29.78 km/s orbital motion comparable in size to Proxima's heliocentric 32.56 km/s",
+  "H3 (tree, unstated): 'receiver at rest in Proxima's atoms' = at rest in the star Proxima's frame, not on Proxima b",
+  "H4 (tree, unstated): 'shares B' is a statement about a quantity that transforms multiplicatively (Doppler factor / Lorentz factor / rapidity), not equality of the velocity B itself"
+ ],
+ "hypothesis_drift": [
+  "DROPPED tolerance (ledger.py:2034-2035): 'automatically shares Earth's B whatever B is' is exact only multiplicatively: for any common boost B the Doppler factor of a fixed null direction seen from Earth and from Proxima differs by a factor in [e^-eta, e^+eta], eta = artanh(beta_rel) <= 2.08e-4 (proved in sympy, checked over B in {1.23e-3, 0.5, 0.999387630, 0.99999993}). In B itself the collinear difference is B'-B = b(1-B^2)/(1+Bb): 1.2e-7 relative at the tree's priced B = 0.999387630 (branelink.py:84), but 8.1 % relative at the CMB-dipole speed the tree names as 'the RECEIVER's B' (branelink.py:74). 'whatever B is' holds for the Doppler-type saving, not for B as a velocity when B ~ beta_rel.",
+  "WEAKENED/UNSTATED range (ledger.py:2033-2034): 'about one part in 1e4' is a seasonal range, not a constant: Earth-Proxima relative speed 10.8-62.3 km/s, beta_rel 3.6e-5 .. 2.08e-4 (Earth orbital eccentricity and rotation included). Proxima's heliocentric beta is 1.086e-4. Order of magnitude 1e-4 holds; a factor ~2 above and ~3 below.",
+  "UNSTATED receiver site (ledger.py:2034 vs ledger.py:189, which names Proxima b as the condensed body): a receiver on Proxima b adds orbital speed 47.2 km/s (a = 0.0485 AU, P = 11.186 d, RECALLED); worst-case bound beta_rel <= 3.65e-4, still 'a few parts in 1e4'.",
+  "NO SOURCE NAMED (ledger.py:2029-2036): the figure is stated bare; the tree's only input, oneway.py:64 PROXIMA_RADIAL_MS = 22.2e3, is marked RECALLED and carries only the radial component (the transverse 23.8 km/s is larger)."
+ ],
+ "data_at_publication": [
+  {
+   "quantity": "Proxima radial velocity",
+   "value_then": "tree: 22.2 km/s RECALLED (oneway.py:64); pre-2016 uncorrected HARPS -21.700+-0.027 km/s",
+   "value_now": "-22.204+-0.032 km/s",
+   "source_now": "Kervella, Thevenin & Lovis 2017, arXiv:1611.03495 (READ-VIA-RESTATEMENT)",
+   "moves_conclusion": "No: |v_sun| 32.22 km/s at -21.700 vs 32.56 km/s at -22.204; even +-3.2 km/s (100 sigma) gives 30.5-34.8 km/s, beta 1.0e-4 .. 1.2e-4"
+  },
+  {
+   "quantity": "Proxima parallax",
+   "value_then": "not used by the tree",
+   "value_now": "768.0665+-0.0499 mas (Gaia DR3)",
+   "source_now": "Gaia DR3 via Wikipedia restatement (READ-VIA-RESTATEMENT)",
+   "moves_conclusion": "No: 6.5e-5 fractional uncertainty"
+  },
+  {
+   "quantity": "Proxima proper motion",
+   "value_then": "not used by the tree (transverse component omitted)",
+   "value_now": "pm_ra* -3781.741, pm_dec 769.465 mas/yr (Gaia DR3) -> v_t = 23.82 km/s",
+   "source_now": "Gaia DR3 via restatement (READ-VIA-RESTATEMENT)",
+   "moves_conclusion": "No for the order of magnitude; it is the larger component and the tree's recalled RV alone would understate |v| by 32 %"
+  },
+  {
+   "quantity": "Earth orbital velocity",
+   "value_then": "not stated by the tree",
+   "value_now": "29.78 km/s mean, e = 0.0167 (RECALLED, textbook)",
+   "source_now": "standard ephemeris value, RECALLED",
+   "moves_conclusion": "It sets the seasonal range 3.6e-5 .. 2.08e-4; does not move the order 1e-4"
+  },
+  {
+   "quantity": "common boost B (preferred brane frame)",
+   "value_then": "unmeasured (branelink.py:76-84)",
+   "value_now": "unmeasured",
+   "source_now": "none",
+   "moves_conclusion": "No for the Doppler-type saving: the multiplicative bound e^{+-eta} is independent of B (proved); yes for 'shares B' read as velocity equality when B ~ 1e-3 (8 % relative at the CMB dipole)"
+  }
+ ],
+ "rederivation": {
+  "method": "sympy",
+  "script_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/earth-proxima-comoving.py",
+  "outcome": "Proxima heliocentric |v| = 32.563 km/s (v_t 23.819, v_r -22.204), beta 1.086e-4; velocity at ecliptic latitude 20.27 deg. Earth-Proxima relative speed swept over Earth's orbit (circular and eccentric extremes, rotation +-0.465 km/s): 10.82 .. 62.33 km/s, beta_rel 3.61e-5 .. 2.08e-4. Receiver on Proxima b: <= 3.65e-4. Sympy: Doppler-factor ratio between frames of relative speed b is gamma_b(1 - b mu), whose extremes squared equal e^{-+2 artanh b} exactly (difference simplifies to 0), with no dependence on the common boost; brute-force over random directions at B in {1.23e-3, 0.5, 0.999387630, 0.99999993} gives max |ln ratio|/eta = 0.999823 <= 1. Collinear composition B'-B = b(1-B^2)/(1+Bb): relative 8.1e-2 at B = 1.2336e-3, 1.2e-7 at B = 0.999387630, 1.4e-11 at B = 0.99999993. The priced escape save = T d ((1+B)/(1-B))^2 (branelink.b_for_saving) differs between endpoints by <= e^{4 eta}-1 = 8.3e-4 at any B.",
+  "agrees_with_source": "partly"
+ },
+ "later_literature": [
+  {
+   "ref": "Kervella, Thevenin & Lovis 2017, A&A 598, L7, arXiv:1611.03495",
+   "effect": "confirms",
+   "what": "HARPS absolute RV -22.204+-0.032 km/s (revised from -21.700 raw); Proxima bound to alpha Cen AB, P ~ 550 kyr, e = 0.50, apastron 13.0 kau; its orbital motion about AB (sub-km/s) does not enter the Earth-Proxima figure",
+   "read_status": "READ-VIA-RESTATEMENT (WebSearch restatement; arXiv/A&A blocked, alphaXiv quota exceeded)"
+  },
+  {
+   "ref": "Gaia DR3 (Gaia Collaboration, Vallenari et al. 2023) astrometry of Proxima",
+   "effect": "confirms",
+   "what": "parallax 768.0665+-0.0499 mas, pm (-3781.741, 769.465) mas/yr; HST ARES I (A&A 2026) reports consistency with Gaia to ~1 sigma at 50 uas/yr, 0.2 mas",
+   "read_status": "READ-VIA-RESTATEMENT (search-result restatement only)"
+  },
+  {
+   "ref": "Akeson et al. 2021, AJ, 'Precision Millimeter Astrometry of the alpha Centauri AB System'",
+   "effect": "extends",
+   "what": "refines the AB orbit/mass that the bound-orbit result uses; does not bear on Proxima's heliocentric velocity at the precision relevant here",
+   "read_status": "NAMED-NOT-READ (title only in search results)"
+  }
+ ],
+ "lacked_data": "The tree's own input is only the recalled radial component (22.2 km/s, oneway.py:64) and no source; what it lacked was the transverse component (23.8 km/s, the larger one, from Gaia proper motion and parallax) and Earth's 29.8 km/s orbital velocity, which is comparable to Proxima's heliocentric 32.6 km/s. Supplying both (computed here) moves the figure from 'one part in 1e4' to a seasonal range 3.6e-5 .. 2.1e-4 (3.7e-4 bound on Proxima b), which is still 'about 1e-4' in order of magnitude. Evidence against M's hypothesis for this row: the corrected RV revision (-21.700 -> -22.204 km/s) and Gaia-era astrometry move |v_sun| by 0.34 km/s, 1 %; no datum that has moved changes the conclusion. The one quantity that is genuinely missing, the preferred-frame boost B, provably does not enter the Doppler-type comparison (multiplicative bound independent of B). No external author's result is shown wrong; nothing here is a refutation.",
+ "grade": "NARROWED",
+ "grade_evidence": "The measurement stands: Earth-Proxima beta_rel = 3.6e-5 .. 2.08e-4 (computed from Gaia DR3 astrometry and the Kervella 2017 RV, both READ-VIA-RESTATEMENT), 'about 1e-4' in order. The consequence 'automatically shares Earth's B whatever B is' holds only with a named tolerance the tree drops: the endpoints' Doppler/Lorentz factors agree to within e^{+-eta}, eta <= 2.1e-4, for every B (sympy-proved), so W8's conclusion -- no joint unsatisfiability, the closure does not stand -- is unaffected (saving spread <= 8.3e-4). But B as a velocity is not shared when B is comparable to beta_rel: 8.1 % relative at the CMB-dipole speed the tree names as the receiver's B (branelink.py:74). Holding on the smaller class (multiplicative quantities, or B >> 1e-4) is NARROWED, not WRONG. Source values are not read at source (alphaXiv quota, arXiv blocked), which is why the grade is not STANDS on the data side either.",
+ "what_would_change_the_grade": "To STANDS: W8 rewritten to 'comoving to beta_rel 3.6e-5 .. 2.1e-4 (seasonal), so the Doppler factor of any common boost B agrees between the endpoints to a factor e^{+-2.1e-4}', and Kervella 2017 / Gaia DR3 read at source confirming -22.204 km/s and the astrometry. To WRONG: only an RV or proper-motion revision of order 30 km/s (hundreds of sigma), or a use of W8 where B as a velocity (not a multiplicative factor) must match at B ~ 1e-3 -- neither is present. To OPEN: if the restated astrometric values were shown not to be Gaia DR3's.",
+ "reverify_command": "python3 /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/earth-proxima-comoving.py  # expect: VERDICT beta_rel in [3.61e-05, 2.08e-04] (star), <= 3.65e-04 (Proxima b); B(i) symbolic 0, 0; max |ln ratio|/eta 0.999823",
+ "report_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/audits/earth-proxima-comoving.json"
+}

@@ -1,0 +1,51 @@
+PASS K1 isotropic 2D average <v_a v_b> = (v^2/2) delta_ab  (<cos^2> = 1/2)
+PASS K1 p/sigma = v^2/2
+PASS K2 junction p0/sigma0 = (1-s)/(4s)
+PASS K2 v = 1 at x = 8/9 exactly
+PASS K2 small-x: v^2 ~ x/4 = M/(2R) (half the Newtonian test-orbit value, self-gravity averaged)
+PASS K3 p/sigma = v^2/2 with v^2 = u^2/(1+u^2)
+PASS K3 beta^2 = u^2(3u^2+4)/(2(1+u^2)(3u^2+2))  [wall.py:86]
+PASS K3 ceiling 1/2 as u -> oo
+PASS K3 beta^2 ~ u^2 as u -> 0 (Newtonian Gamma = 2 of a 2D gas)
+PASS K3 beta^2 < 1/2 < 1 for all u (subluminal)
+PASS K4 d(sigma A)/dR + p dA/dR = 0 identically (Israel conservation holds)
+PASS K5 EOM equilibrium at x=0.1 reproduces junction statics: u0^2 = v^2/(1-v^2)
+PASS K5 EOM equilibrium at x=0.3 reproduces junction statics: u0^2 = v^2/(1-v^2)
+PASS K5 EOM equilibrium at x=0.6 reproduces junction statics: u0^2 = v^2/(1-v^2)
+      EOM (no beta^2_crit used): V''=0 at x = 0.4689765564
+PASS K5 independent EOM crossover == wall.py 0.46897656 (1e-6)
+PASS K5 stable (V''>0) below: x=0.3
+PASS K5 unstable (V''<0) above: x=2/3, 4/5
+PASS K6 wall.py:89-93 x=0.3000 supplied 0.090800 required 0.079332
+PASS K6 wall.py:89-93 x=0.4000 supplied 0.130697 required 0.122892
+PASS K6 wall.py:89-93 x=0.6667 supplied 0.281089 required 0.366025
+PASS K6 wall.py:89-93 x=0.8000 supplied 0.399187 required 0.736068
+PASS K6 margin at x=0.3 = 1.144557648
+PASS K6 margin -> 4/3 as x -> 0
+      numerator of beta2_vlasov - beta2_crit in s: -(s - 1)*(6*s**2 - 3*s - 1)
+      real roots in s in (1/3,1) -> x = [0.46897655639424884]
+PASS K6 the crossover is an algebraic root; one crossing in (0, 8/9) at 0.468976...
+PASS K6 crossover in closed form: 6s^2-3s-1 = 0, s = (3+sqrt33)/12, x = (17 - sqrt33)/24
+      x_c = (17 - sqrt33)/24 = 0.468976556394249
+PASS K7a thin-cluster spread has the SAME statics p0/sigma0 = (1-s)/(4s) at x=0.1
+PASS K7a thin-cluster spread has the SAME statics p0/sigma0 = (1-s)/(4s) at x=0.3
+PASS K7a thin-cluster spread has the SAME statics p0/sigma0 = (1-s)/(4s) at x=0.5
+PASS K7a thin-cluster spread margin -> 4/3 as x -> 0 (its speeds are non-relativistic there too)
+      thin-Einstein-cluster spread (expires at x = 2/3): crossover x = 0.447387; margin at 0.3 = 1.133151
+      single-speed (wall.py):                           crossover x = 0.468977; margin at 0.3 = 1.144558
+PASS K7a crossover MOVES with the speed distribution (|dx| > 1e-3)
+      two-speed mixture, spread 0.0: crossover x = 0.468977
+PASS K7b zero spread reproduces wall.py crossover
+      two-speed mixture, spread 0.5: crossover x = 0.445357
+      two-speed mixture, spread 0.9: crossover x = 0.430510
+      rest fraction 0.000: margin at x=1e-3 1.33281 ; x=1/6 1.23685 ; x=0.3 1.14456
+      rest fraction 0.500: margin at x=1e-3 1.33272 ; x=1/6 1.22263 ; x=0.3 1.11872
+      rest fraction 0.900: margin at x=1e-3 1.33206 ; x=1/6 1.13141 ; x=0.3 0.98807
+      rest fraction 0.990: margin at x=1e-3 1.32465 ; x=1/6 0.95057 ; x=0.3 0.88240
+      rest fraction 0.999: margin at x=1e-3 1.25929 ; x=1/6 0.93896 ; x=0.3 0.87992
+      rest fraction 0.999 at x = 1e-6: margin 1.33325
+PASS K7c even the extreme mixture tends to 4/3 as x -> 0 (every component becomes non-relativistic)
+      rest fraction 0.99: crossover x = 0.098531 (vs 0.468977 single-speed)
+PASS K7c but the CROSSOVER is not bounded below by 0.469 outside the single-speed class (f=0.99 -> < 0.1)
+
+ALL PASS

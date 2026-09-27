@@ -1,0 +1,54 @@
+{
+ "(2.12) T00[f,f] = -K00 e^{2i theta}": true,
+ "(2.13) T00[f*,f] = T00[f,f*] = K00": true,
+ "(2.14) T00[f*,f*] = -K00 e^{-2i theta}": true,
+ "truncation independent (N=9 vs 12), <:T:> and <:T^2:>": true,
+ "(2.16) middle line exact": true,
+ "(2.16) final line exact": false,
+ "(2.16) final / exact": "1/2",
+ "exact <:T00^2:> (vac+2)": "12*K**2*epsilon**2/(epsilon**2 + 1)",
+ "exact <:T00^2:> == 12 K^2 eps^2/(1+eps^2)": true,
+ "KF (3.7) first line == second line (internal)": true,
+ "KF (3.7) exact": false,
+ "KF (3.7) printed / exact": "1/(epsilon**2 + 1)",
+ "six bilinear products of (3.7) first line sum to 6 K00^2": true,
+ "exact 1 - rho^2/<T^2> == 1 - (2eps - sqrt2 cos2th)^2/(3(1+eps^2))": true,
+ "KF (3.8) == 1 - (2eps - sqrt2 cos2th)/(12 eps)  [linear in X]": true,
+ "any (2.16)x(3.7) combination, printed or exact, reproduces (3.8)": false,
+ "combos": {
+  "2.16printed+3.7printed": {
+   "1-rho^2/T2": "1 - (2*epsilon - sqrt(2)*cos(2*theta))**2/12",
+   "equals_KF38": false
+  },
+  "2.16printed+3.7exact": {
+   "1-rho^2/T2": "(epsilon**2 - (2*epsilon - sqrt(2)*cos(2*theta))**2/12 + 1)/(epsilon**2 + 1)",
+   "equals_KF38": false
+  },
+  "2.16exact+3.7printed": {
+   "1-rho^2/T2": "1 - (2*epsilon - sqrt(2)*cos(2*theta))**2/3",
+   "equals_KF38": false
+  },
+  "2.16exact+3.7exact": {
+   "1-rho^2/T2": "(epsilon**2 - (2*epsilon - sqrt(2)*cos(2*theta))**2/3 + 1)/(epsilon**2 + 1)",
+   "equals_KF38": false
+  }
+ },
+ "degree in cos2th: KF (3.8) / exact Delta": [
+  1,
+  2
+ ],
+ "witness eps=1/10, th=0: exact Delta": 0.5134,
+ "witness eps=1/10, th=0: KF (3.8)": 2.0118,
+ "witness eps=1/10, th=0: rho/K < 0": true,
+ "KF (3.8) at eps=1/10, th=pi/2 (cos2th=-1)": -0.3452,
+ "unsigned 1 - rho^2/T2 at eps=1, th=pi/2 (rho>0)": -0.9428,
+ "  KF (3.2) |.| there": 0.9428,
+ "eps -> -eps equals th -> th + pi/2 in Delta": true,
+ "z3: exists eps>0, |c|<=1 with KF (3.8) < 0 (contradicts |.| of (3.2))": "sat",
+ "z3_kf38_negative_model": "[c = -1/2, e = 1/16, q = 1.4142135623?]",
+ "z3: unsigned exact form < 0 somewhere with rho > 0": "sat",
+ "z3: unsigned exact form <= 0 anywhere with rho < 0 (expect unsat)": "unsat",
+ "z3: rho<0 => 1/3 < Delta < 1 counterexample (expect unsat)": "unsat",
+ "z3: rho<0 and KF(3.8) <= 1 (expect unsat: (3.8)>1 iff rho<0)": "unsat",
+ "z3: rho>0 and KF(3.8) > 1 (expect unsat)": "unsat"
+}

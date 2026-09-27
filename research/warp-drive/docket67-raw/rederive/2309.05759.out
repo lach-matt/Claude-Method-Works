@@ -1,0 +1,29 @@
+PASS C1 footnote 8 => eq. 72  Mbar4 = (gamma 2 pi R)^{1/2} Mbar5^{3/2}  -- [sqrt(2)*sqrt(pi)*Mbar5**(3/2)*sqrt(R)*sqrt(gamma)]
+PASS C2 r = gamma R in eq. 72 => eq. 73  Mbar4 = (2 pi r)^{1/2} Mbar5^{3/2}
+NOTE C2' eq. 73 for tilt-like branes (r = cos theta R) is KN's stated assumption, not derived in KN nor here
+PASS C3 eq. 68: (2/Mbar5^{3/2}) h_AB dimensionless  -- dim=0
+PASS C3 eq. 70: T h / Mbar5^{3/2} has dim 4 on the brane (4D Lagrangian density)  -- dim=4
+PASS C4 eq. 68 + dS = -(1/2) T dg  => eq. 70 coefficient -1/Mbar5^{3/2}
+PASS C5a zero-mode coupling = 1/Mbar4 (r drops out)  -- 1/Mbar4
+PASS C5b 1/Mbar4 = kappa/2 with kappa = sqrt(32 pi G), Mbar4 = (8 pi G)^{-1/2}
+PASS C6 eq. 70's T^{mu nu} on plane waves => eq. 71 vertex -i/(4 Mbar5^{3/2}) [(k1+k2)^mu g^nu + (k1+k2)^nu g^mu]  -- I*(-k1m*gn/4 - k1n*gm/4 - k2m*gn/4 - k2n*gm/4)/Mbar5**(3/2)
+PASS C7a Mbar4 (CODATA 2022 G) = 2.435323e+18 GeV rounds to eq. 73's printed 2.4e18  -- rel. diff vs 2.4e18 = +1.472e-02
+INFO C7b u_r(G) = 2.25e-05  -> u_r(Mbar4) = 1.12e-05 (Mbar4 ~ G^{-1/2})
+PASS C7c tree's Mbar4 (higgs.reduced_planck_gev) agrees with this CODATA-2022 value  -- tree 2.435323459e+18, here 2.435323459e+18
+INFO C7d r = 3.86e-05 m -> Mbar5 = 1.689835e+08 GeV, 5D coupling 1/Mbar5^{3/2} = 4.5523e-13 GeV^-3/2, LV coupling 1/(pi r Mbar4)^2 = 4.4646e-61
+INFO C7d r = 0.001 m -> Mbar5 = 5.710927e+07 GeV, 5D coupling 1/Mbar5^{3/2} = 2.3171e-12 GeV^-3/2, LV coupling 1/(pi r Mbar4)^2 = 6.6521e-64
+INFO C7d r = 1e-15 m -> Mbar5 = 5.710927e+11 GeV, 5D coupling 1/Mbar5^{3/2} = 2.3171e-18 GeV^-3/2, LV coupling 1/(pi r Mbar4)^2 = 6.6521e-40
+PASS C8a 5D coupling 1/Mbar5^{3/2} = (2 pi r)^{1/2}/Mbar4 -- depends on r  -- sqrt(2)*sqrt(pi)*sqrt(r)/Mbar4
+PASS C8b zero-mode (4D GW) coupling 1/Mbar4 independent of r
+PASS C8c eq. 76's dimensionless coupling 1/(pi r Mbar4)^2 depends on r (d/dr = -2/(pi^2 Mbar4^2 r^3))
+READING C8: no coupling CONSTANT is free once G is measured -- eq. 73 fixes Mbar5 from (Mbar4, r) -- but r is an unmeasured geometric parameter (Eot-Wash bounds it above only, on gamma*L per GLP eq. 39), and every non-zero-mode amplitude carries it.  'Not a free parameter' holds for the coupling constant, conditional on r.
+PASS C9a boosted identification = (-gamma beta 2 pi R, gamma 2 pi R)  (KN eq. 10, r = gamma R)
+PASS C9b its invariant length is 2 pi R (the motion is not a change of the circle)
+INFO C9c at the tree's gamma - 1 <= 7.0e-16, r/R - 1 <= 7.0e-16: the r-vs-R label moves no figure
+PASS C10a control: 4-D GR with vertex -1/Mbar4 gives V = -G m1 m2/r, G = 1/(8 pi Mbar4^2)  -- -m1*m2/(8*pi*Mbar4**2*rr)
+PASS C10b eq. 69 at n = 0 (flat S^1, massless radion) gives static G_N = (4/3) G4, G4 := 1/(8 pi Mbar4^2) of eqs. 72-73  -- ratio 4/3
+PASS C10c with a massless radion light bending is unchanged (traceless T) while G_N is 4/3 x: gamma_PPN = 1/2  -- gamma_PPN = [1/2]
+READING C10: a flat S^1 with an UNSTABILISED radion is excluded observationally (gamma_PPN = 1/2 against Cassini's |gamma - 1| ~ 1e-5, Bertotti-Iess-Tortora 2003, NAMED-NOT-READ here; even a 10% light-deflection test excludes it).  So identifying the MEASURED G with 1/(8 pi Mbar4^2) of eq. 73 -- which the tree does (branelink MBAR4_GEV from higgs.reduced_planck_gev) -- needs a stabilised (massive) radion, a hypothesis neither KN nor the tree states.  It does NOT touch the coupling as used: eq. 73 is the action-level relation (C11) and the TT gravitational-wave coupling is 1/Mbar4 either way. Whether GLP's 'Newtonian potential' relation (72) carries this 4/3 is NOT decidable here (GLP 1103.2174 unread): recorded as a question, not a discrepancy.
+PASS C11 Einstein-Hilbert reduction over a circle of length 2 pi r gives Mbar4^2/2 = pi r Mbar5^3, i.e. eq. 73's Mbar4 = (2 pi r)^{1/2} Mbar5^{3/2}
+
+RESULT: ALL PASS

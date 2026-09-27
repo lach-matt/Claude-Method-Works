@@ -1,0 +1,57 @@
+{
+ "key": "integral-monotonicity",
+ "name": "Monotonicity of an integral: u < 0 throughout implies INT 4 pi r^2 u dr < 0",
+ "source": {
+  "located": "No arXiv source: this is a textbook theorem of Lebesgue integration (for f >= 0 measurable, INT_E f = 0 implies f = 0 a.e. on E; hence f < 0 a.e. on a set of positive measure with f in L^1 gives INT f < 0). The textbook statement (e.g. Rudin, Real and Complex Analysis, Thm 1.39(a)) is NAMED-NOT-READ. Its physics form, the monotonicity/positivity of the Misner-Sharp mass from a regular centre, was READ at source in Hayward, 'Gravitational energy in spherical symmetry', gr-qc/9408002 (1994, rev. 1995).",
+  "read_status": "READ-VIA-RESTATEMENT",
+  "via": "alphaXiv answer_pdf_queries on gr-qc/9408002: Prop 5 (monotonicity, p.8), Prop 6 (positivity, p.9, 'By Proposition 5, since E = 0 at a regular centre'), eq (21) the explicit integral, eq (32a) E' = 4 pi r^2 rho r' (p.12), Prop 9 E = (4/3) pi r^3 T00 + O(r^4) at a regular centre (p.12), regular centre defined p.4 ('E = O(r^3) at a regular centre'). The tree's G2 is the sign mirror of Prop 6 (u < 0 in place of DEC)."
+ },
+ "published_statement": "Hayward gr-qc/9408002 Prop 5: 'If the dominant energy condition holds on an untrapped sphere, E is non-decreasing (respectively non-increasing) in any outgoing (respectively ingoing) spatial or null direction.' Prop 6: 'If the dominant energy condition holds on an untrapped spatial hypersurface with regular centre, then E >= 0 on the hypersurface. Proof. By Proposition 5, since E = 0 at a regular centre.' Eq (32a), perfect fluid: E' = 4 pi r^2 rho r'. Analysis form (NAMED-NOT-READ): u measurable, r^2 u in L^1(0,R), u < 0 a.e. on (0,R], R > 0  =>  INT_0^R 4 pi r^2 u dr < 0.",
+ "published_hypotheses": [
+  "spherical symmetry (Hayward: assumed throughout)",
+  "regular centre: g^-1(dr,dr) - 1 = O(r^2), hence E = O(r^3) -> 0 at r = 0 (Hayward p.4)",
+  "sign condition on the source throughout the region (Hayward: DEC, T_{+-} >= 0, T_{--} >= 0; analysis form: u < 0 a.e.)",
+  "untrapped hypersurface / outgoing direction, i.e. areal radius increasing along the path, r' > 0 in eq (32a)",
+  "analysis form: u measurable and r^2 u integrable on (0,R]; strictness needs u < 0 on a set of positive measure",
+  "implicit in 'E(R) = INT of E'': E absolutely continuous along the hypersurface (Hayward integrates eq (21) without stating it; smoothness assumed)"
+ ],
+ "hypothesis_drift": [
+  "WEAKENED IN THE CANONICAL ENTRY, CARRIED BY THE TREE: the entry lists only 'integrable u on the ball'. The step m(R) = INT_0^R 4 pi r^2 u dr additionally needs m(0+) = 0 (regular centre) and m absolutely continuous; tolman.py:931-936 (refusal 3) names exactly this ('r^3 p_r must be absolutely continuous on (0, R] with a limit at 0'), so the tree does not drop it -- refusal 5 (tolman.py:940-942) relies on refusal 3 without cross-referencing it. Shown load-bearing here: m(r) = -r + 2 Cantor(r) has m' = -1 < 0 a.e., m(0) = 0, m(1) = +1 > 0 (rederive layer C).",
+  "'THROUGHOUT' IS LOAD-BEARING AND THE TREE KEEPS IT: tolman.py:590 'u < 0 THROUGHOUT implies m < 0'. With u <= 0 only, m = 0 is attainable (rederive DRIFT Z1); with one positive cell m > 0 is attainable (DRIFT Z2); tolman.py:580-588 witnesses W3/W4 already show u(R) < 0 at one radius is neither necessary nor sufficient. No drift.",
+  "DROPPED BUT SATISFIED BY THE CHART: Hayward's orientation hypothesis (untrapped, r' > 0 in eq 32a). The tree works in the static areal-radius chart ds^2 = -e^{2Phi}dt^2 + e^{2Lambda}dr^2 + r^2 dOmega^2 (tolman.py:309-313), where r is the coordinate and r' = 1, with dm/dr = 4 pi r^2 u computed by V8. So the hypothesis is absorbed by the chart, not dropped; it would bite only for a throat (r non-monotone), which the tree treats separately (tolman.py:325-337, Phi' = 0 wormhole branch).",
+  "INTERNAL DISCREPANCY IN THE TREE, NOT IN THE SOURCE (recorded, not repaired): tolman.py:590-591 and 940-942 say G2 'is machine-checked only on the power-law family where the integral is algebraic', but tolman.py:2235-2241 says G2/G3 'contain NO variable u and no power law' and that the integral's sign 'is ASSERTED in the hypothesis as s*A < 0 and is nowhere established here'. The z3 rows (tolman.py:2256-2260) confirm the latter: A is a free real with s*A < 0 GIVEN. So the docstrings over-state what is machine-checked in the tree's favour. The power-law case IS true and is now checked outside the tree (rederive layer S, sympy: INT_0^R 4 pi r^2(-a r^k) dr = -4 pi a R^{k+3}/(k+3) < 0 for every k > -3)."
+ ],
+ "data_at_publication": [],
+ "rederivation": {
+  "method": "sympy",
+  "script_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/integral-monotonicity.py",
+  "outcome": "ALL ROWS OK, exit 0. S (sympy): power-law family u = -a r^k closed form -4 pi a R^{k+3}/(k+3) verified and negative at k = -5/2,-2,-1,0,1,7/3,5; general antiderivative -4 pi a r^{k+3}/(k+3), centre term -> 0 iff k > -3; k = -3, -4 diverge (regular centre fails). N (numeric, 20 digits): five non-algebraic negative u (exp, atan-type, oscillatory -(2+sin(1/r)), unbounded-integrable -log(1+1/r), -exp(-r^2)(1.5+cos 40r)) all give INT < 0. Z (z3): finite simple-function version SUM w_i u_i, w_i > 0, u_i < 0, SUM >= 0 is unsat for n = 1..10 with the hypothesis set sat (non-vacuous); DRIFT Z1 (u <= 0) SUM = 0 sat; DRIFT Z2 (one u_i > 0) SUM > 0 sat. C (numeric): Cantor counterexample m = -r + 2C(r): m(0)=0, m(1)=+1, slope -1 on removed intervals of total measure 1 -- the a.e. version fails without absolute continuity. P: the everywhere-differentiable route via the mean value theorem needs no integrability (stated, not machine-checked). The general Lebesgue theorem itself is not machine-checked here (no Lean/Coq: elan/opam blocked; z3 has no integral) -- it is a textbook theorem; the finite z3 version and the sympy/numeric instances are what was checked.",
+  "agrees_with_source": "yes"
+ },
+ "later_literature": [
+  {
+   "ref": "Hayward, gr-qc/9408002 (1994/1995), Gravitational energy in spherical symmetry",
+   "effect": "confirms",
+   "what": "Monotonicity (Prop 5) and positivity from a regular centre (Prop 6) of the Misner-Sharp energy, the sign mirror of G2; adds the orientation (untrapped, r' > 0) hypothesis the areal chart absorbs; warns (p.17) 'such positivity and monotonicity theorems involve certain assumptions without which the conclusions are invalid'.",
+   "read_status": "READ (pp.1-4, 6-10, 12, 16-17, 19 via answer_pdf_queries)"
+  },
+  {
+   "ref": "arXiv:2512.22361, Traversable ghost wormholes (2025)",
+   "effect": "extends",
+   "what": "Ghost stars: arbitrarily small total mass from regions of negative energy density -- a MIXED-sign u, outside G2's 'throughout' hypothesis; consistent with W3/W4 (tolman.py:580-588), no bearing on the throughout-negative theorem.",
+   "read_status": "abstract only (discover_papers listing); NOT read at source"
+  },
+  {
+   "ref": "arXiv:2605.16629, Classical dressing of timelike naked singularities (2026)",
+   "effect": "extends",
+   "what": "Negative-mass Schwarzschild interior dressed by static anisotropic matter -- a negative exterior mass without a regular centre, i.e. outside G2's regular-centre hypothesis.",
+   "read_status": "abstract only (discover_papers listing); NOT read at source"
+  }
+ ],
+ "lacked_data": "M's hypothesis does not reach this result: it is a theorem of real analysis with no empirical input, so no datum available later (or now) can move it. Evidence either way: the re-derivation agrees on every checked instance and the finite z3 version discharges for n = 1..10; the only ways the conclusion fails (u <= 0 only; one positive cell; m not absolutely continuous; non-integrable centre k <= -3) are each exhibited here and each violates a hypothesis the tree already names (tolman.py:590 'throughout', tolman.py:931-936 regular centre and absolute continuity). What the tree lacked was internal, not external: the power-law case it claims as machine-checked (tolman.py:590-591, 940-942) is not encoded in any row (tolman.py:2235-2241, 2256-2260) -- a discrepancy in the docstrings, not an error in the cited theorem.",
+ "grade": "STANDS",
+ "grade_evidence": "Statement as used (tolman.py:590, 940-942, 2256-2258: u < 0 throughout (0,R] => m < 0) is the textbook strict-monotonicity of the Lebesgue integral plus FTC under a regular centre; its GR form is Hayward gr-qc/9408002 Props 5-6 (sign-mirrored), READ. Hypotheses: integrability (canonical entry), regular centre and absolute continuity (tree refusal 3, tolman.py:931-936), 'throughout' (tolman.py:590), areal-radius orientation (absorbed by the static chart, tolman.py:309-313). Re-derivation (sympy power-law family, 5 non-algebraic numeric cases, z3 finite version n=1..10 with non-vacuity and two drift rows, Cantor counterexample showing AC is needed) agrees; no datum enters. Recorded separately, not graded against the source: the tree's docstrings over-claim a power-law machine-check its z3 rows do not contain.",
+ "what_would_change_the_grade": "NARROWED if the tree's use were shown to rely on a.e. negativity with m not absolutely continuous, or on a u with r^2 u not integrable at the centre (k <= -3), or on a chart where the areal radius is non-monotone (throat) -- none found at the owner lines. WRONG only on a counterexample satisfying every hypothesis (u < 0 on (0,R], r^2 u in L^1, m(0+) = 0, m absolutely continuous) with m(R) >= 0, which the theorem excludes. A machine-check of the general Lebesgue statement (e.g. in Lean mathlib, not reachable here) would upgrade the checked layer from instances to the theorem but cannot change the grade.",
+ "reverify_command": "python3 /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/integral-monotonicity.py && cd /home/user/Claude-Method-Works/research/warp-drive && python3 tolman.py --prove | grep -E 'G2|G3' && sed -n 931,942p tolman.py && sed -n 2235,2241p tolman.py",
+ "report_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/audits/integral-monotonicity.json"
+}

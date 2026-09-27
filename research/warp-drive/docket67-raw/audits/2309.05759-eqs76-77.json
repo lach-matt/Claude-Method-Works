@@ -1,0 +1,96 @@
+{
+ "key": "2309.05759-eqs76-77",
+ "name": "Kabat & Nomura eqs. 76-77: loop-induced SME coefficient, I_grav = -zeta(3)/4 at mu r -> 0",
+ "source": {
+  "located": "arXiv:2309.05759, D. Kabat & M. Nomura, 'Induced Lorentz Violation on a Moving Braneworld', Phys. Rev. D 108, 105014 (2023), e-print 11 Sep 2023 (bibliographic facts from WebSearch result snippets of the INSPIRE and APS pages)",
+  "read_status": "NAMED-NOT-READ",
+  "via": "NOT READ AT SOURCE THIS STAGE: alphaXiv answer_pdf_queries / get_paper_content / discover_papers all returned 'assistant quota exceeded' (4 attempts); arxiv.org, export.arxiv.org, inspirehep.net, journals.aps.org, link.springer.com, api.semanticscholar.org refused by the egress proxy (403 / EGRESS_BLOCKED). The only text of eqs. 76-77 available is the RESTATEMENT made by the DOCKET 62 O6/O7 pass, which reported reading the paper in full (session task outputs tasks/wnvrkn658.output and tasks/ww5njxx5t.output): c^{mu nu} = -(1/16 pi^2)(1/(pi r Mbar4)^2)(b^mu b^nu - eta^{mu nu} b^2/4) I_gravity (76); I_gravity -> -zeta(3)/4 as mu r -> 0 (77); boost-like b^mu = (-beta,0,0,0), b^2 = beta^2, r = gamma R (84); I_gravity finite as b^2 -> 1 (Fig. 7); conclusions quote ~1e-21 electron bound. That is the tree's own earlier pass, not a later arXiv paper, so it does not qualify as READ-VIA-RESTATEMENT."
+ },
+ "published_statement": "NOT READ AT SOURCE. As restated by the DOCKET 62 pass (not verified here): bulk graviton loops with non-zero winding induce a UV-finite dimension-4 CPT-even term L = i c^{mu nu} psibar gamma_mu D_nu psi with c^{mu nu} = -(1/16 pi^2)(1/(pi r Mbar4)^2)(b^mu b^nu - eta^{mu nu} b^2/4) I_gravity [eq. 76], and I_gravity -> -zeta(3)/4 as mu r -> 0 [eq. 77].",
+ "published_hypotheses": [
+  "(restated, not read) one-loop bulk graviton exchange on a flat 4D brane in M^{3,1} x S^1, brane moving on / spiralling around S^1",
+  "(restated) only non-zero winding loops contribute the finite Lorentz-violating piece",
+  "(restated) r is the effective radius: r = gamma R boost-like, R null, cos(theta) R tilt-like (eq. 84)",
+  "(restated) mu r -> 0 for the zeta(3)/4 value; the prior pass also wrote 'at b^2, m ~ 0', i.e. the limit value may be stated only at small b^2 and small fermion mass -- NOT resolvable without the source",
+  "(restated) Mbar4 = (2 pi r)^{1/2} Mbar5^{3/2} = 2.4e18 GeV (eqs. 72-73)",
+  "(restated) signature in which b^mu = (-beta,0,0,0) has b^2 = +beta^2, i.e. (+,-,-,-) -- confirmed by the re-derivation as the only consistent one"
+ ],
+ "hypothesis_drift": [
+  "WEAKENED (possible, unverifiable here): branelink.py:288-292 evaluates I_grav = -zeta(3)/4 at beta = 1 (b^2 = 1); the restatement gives that value as the mu r -> 0 limit 'at b^2, m ~ 0' and records only that I_gravity stays FINITE as b^2 -> 1 (Fig. 7), value not quoted. If eq. 77's limit is a small-b^2 statement, the tree uses it outside its hypothesis. Effect is an O(1) factor; to move the conclusion it would have to be 1.57e42.",
+  "UNCHECKED HYPOTHESIS: branelink.py:289 asserts 'mu r -> 0' at r = 38.6 um but never evaluates mu r. mu's identity is not read. IF mu is the electron mass (or its momentum scale), mu r = 1.0e8 at r = 38.6 um (mu r = 1 at r = 3.86e-13 m): the limit hypothesis would be violated by 8 orders. Direction of the effect on |I_grav| not readable here.",
+  "DIRECTION DISCREPANCY IN THE TREE'S USE (computed, not in the source): branelink.py:96-98 says 'at the maximal r = 38.6 um and beta = 1 gives |c| <= 6.37e-64'. |c| is proportional to beta^2/r^2 (sympy: d/dr = -2 beta^2/r^3 < 0), and Eot-Wash gives r <= 38.6 um, an UPPER bound on r. At fixed beta the maximal r gives the MINIMAL |c|, so over the Eot-Wash-allowed region 6.37e-64 is an infimum, not a supremum; '<=' holds only over beta at the fixed r = 38.6 um (and only if |I(b^2=1)| <= zeta(3)/4). The 1e-21 bound bites for r <= 3.08e-26 m at beta = 1 (1.15e-33 m at beta = 3.74e-8), which Eot-Wash does not exclude. '42 orders short' is the gap AT the Eot-Wash edge, not across the allowed parameter space.",
+  "DROPPED BRANCH CONDITION (conservative): eq. 76 is a BULK-graviton loop. On the bulk-graviton branch branelink.py:92 / BETA_BOUND_CONDITIONAL_ON (branelink.py:172) gives beta <= 3.74e-8, making |c| 8.92e-79 (57.0 orders short); on the brane-confined branch there is no bulk graviton loop at all. beta = 1 at branelink.py:97 is therefore not attained on either branch; it overstates |c|, which only deepens the null, so it cannot reverse 'does not bite'.",
+  "INPUT SUBSTITUTION (consistent): branelink.py:142 R_EOTWASH = 38.6 um is Lee et al. 2020's alpha = 1 (gravitational-strength) Yukawa edge; the moving-brane S^1 potential as restated from GLP eq. 39, (1+e^{-x})/(1-e^{-x}) = 1 + 2e^{-x} + ..., is alpha = 2. The alpha = 2 edge was not read; at 30 um or 20 um |c| is 1.06e-63 / 2.37e-63 (41.98 / 41.62 orders short).",
+  "INPUT SUBSTITUTION (consistent): branelink.py:143-148 computes Mbar4 = 2.435323e18 GeV from hbar, c, G where K&N (restated) print 2.4e18; eqs. 72-73 define it as the 4D reduced Planck mass, so the substitution is faithful; effect 3%.",
+  "r identified with the Eot-Wash range: branelink.py:96, 142 put r = 38.6 um directly into eq. 76; consistent with the restated eq. 84 (r = gamma R) and GLP eq. 39 (range gamma L/2 pi) as the prior pass read them."
+ ],
+ "data_at_publication": [
+  {
+   "quantity": "Newton's G (enters |c| as Mbar4^-2, i.e. |c| proportional to G)",
+   "value_then": "6.67430(15)e-11 m^3 kg^-1 s^-2 (CODATA 2018)",
+   "value_now": "6.67430(15)e-11 (CODATA 2022, unchanged)",
+   "source_now": "CODATA 2022 (NAMED-NOT-READ this stage; value unchanged between 2018 and 2022 recommendations)",
+   "moves_conclusion": "no -- 1 sigma moves log10|c| by < 1e-4 (computed)"
+  },
+  {
+   "quantity": "Eot-Wash upper bound on the Yukawa range r = gamma R",
+   "value_then": "38.6 um, 95% CL, alpha = 1 (Lee et al. 2020, arXiv:2002.11761; K&N 2023 postdate it)",
+   "value_now": "38.6 um (no newer inverse-square bound read this stage); alpha = 2 edge for the S^1 potential not read",
+   "source_now": "Lee et al. PRL 124, 101101 (2020) -- NAMED-NOT-READ here (the prior pass: 'obtained by web search; the PDF was not opened')",
+   "moves_conclusion": "no -- a 20-30 um alpha = 2 edge moves the gap by < 0.6 orders (computed); but note the direction discrepancy: the SME bound bites only at r <= 3.08e-26 m"
+  },
+  {
+   "quantity": "laboratory bound on electron c_{mu nu}",
+   "value_then": "~1e-21 (quoted in K&N conclusions per the restatement; Dreissen et al. arXiv:2206.00570, Nat. Commun. 2022)",
+   "value_now": "~1e-21 (no newer bound read)",
+   "source_now": "Dreissen et al. 2206.00570 -- NAMED-NOT-READ here",
+   "moves_conclusion": "no -- an improvement by 42 orders would be needed at r = 38.6 um"
+  },
+  {
+   "quantity": "zeta(3)",
+   "value_then": "1.2020569031595942...",
+   "value_now": "same (mpmath)",
+   "source_now": "mathematical constant; tree's series agrees to 1.4e-12 absolute (float accumulation)",
+   "moves_conclusion": "no"
+  },
+  {
+   "quantity": "electron mass (only for the mu r check, if mu is the fermion mass)",
+   "value_then": "0.51099895 MeV",
+   "value_now": "0.51099895000(15) MeV (PDG)",
+   "source_now": "PDG (NAMED-NOT-READ this stage)",
+   "moves_conclusion": "no numerical move; it exposes the unchecked mu r -> 0 hypothesis (mu r ~ 1e8 IF mu = m_e)"
+  }
+ ],
+ "rederivation": {
+  "method": "sympy",
+  "script_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/2309.05759-eqs76-77.py",
+  "outcome": "14/14 PASS (output in rederive/2309.05759-eqs76-77.out). (a) With the restated eq. 76 and b^mu = (-beta,0,0,0), sympy gives b^2 = +beta^2 only in (+,-,-,-), and T^{00} = 3 beta^2/4 -- the tree's 0.75 beta^2 -- with T^{ii} = beta^2/4, traceless. (b) Tree's zeta3 series = zeta(3) to 1.4e-12. (c) Independent CODATA evaluation: |c_00|(38.6 um, beta = 1) = 6.372236e-64, Mbar4 = 2.435323e18 GeV, identical to branelink.sme_coefficient() to 1e-10; log10(1e-21/|c|) = 42.196 -> 42; the prior pass's |c_00|(1e-5 m, Mbar4 = 2.4e18) = 9.78e-63 reproduces (9.7759e-63); Mbar5 at 38.6 um = 1.68983e8 GeV (prior pass 1.68968e8). (d) d|c|/dr = -2 beta^2/r^3: the tree's '<=' at the maximal r is the wrong direction over r (see drift); bite radius 3.0813e-26 m at beta = 1. (e) Factor needed to reach 1e-21 at the edge: 1.569e42. NOT re-derived: I_gravity's integral and its zeta(3)/4 limit -- the integral's definition is not read, so eq. 77 itself is unchecked.",
+  "agrees_with_source": "partly"
+ },
+ "later_literature": [
+  {
+   "ref": "arXiv:2602.13448 -- Debolt & Kagan, 'Braneworlds in Constant and Accelerated Motion and Their Causal Characteristics', JHEP 08 (2026) 192",
+   "effect": "extends",
+   "what": "generalises the GKLP moving-brane kinematics to tilted and accelerating branes; per the DOCKET 62 pass's reading it addresses causality/propagation, not the loop-induced c^{mu nu}",
+   "read_status": "NAMED-NOT-READ this stage (springer blocked, alphaXiv quota); content per the prior pass's reading only"
+  },
+  {
+   "ref": "arXiv:2309.16226 -- 'Anomalous function of a Lorentz-violating QED effective action and the relation between compact bulk scalar propagator and path integral duality'",
+   "effect": "contested",
+   "what": "appeared in WebSearch beside 2309.05759 as related compact-bulk-propagator work; whether it confirms or disputes eqs. 76-77 is unknown -- listed as 'contested' only because its bearing is undetermined, NOT because a contradiction was seen",
+   "read_status": "NAMED-NOT-READ (arxiv blocked)"
+  },
+  {
+   "ref": "discover_papers",
+   "effect": "extends",
+   "what": "the required discover_papers call failed ('alphaXiv assistant quota exceeded'); two WebSearch queries found no paper that re-computes, narrows or contradicts eqs. 76-77",
+   "read_status": "search attempted; nothing read"
+  }
+ ],
+ "lacked_data": "M's hypothesis tested for this result: the paper (Sep 2023) postdates both data its SME comparison uses -- the Eot-Wash 38.6 um edge (2020) and the ~1e-21 trapped-ion electron bound (Dreissen 2022) -- and its formula's only other input is G (CODATA value unchanged 2018 -> 2022). No datum that has moved since was found, and none could move the conclusion: at the Eot-Wash edge the prediction is 1.57e42 below the bound, and the most any unread O(1) factor (I_grav at b^2 = 1, an alpha = 2 edge at 20-30 um, 3% in Mbar4) moves it is < 1 order (computed). Evidence AGAINST 'lacked data' is therefore strong for the numerical null at r = 38.6 um. What IS missing is not data but a reading: the source itself could not be opened here, so eq. 77's limit, its b^2 domain and the identity of mu are unverified, and the tree's own inequality direction over r is a computed discrepancy in its use, not a defect of the external result.",
+ "grade": "OPEN",
+ "grade_evidence": "The external result (eqs. 76-77) could not be READ at source this stage (alphaXiv quota exhausted on 4 calls; arxiv/inspire/APS/Springer/Semantic Scholar refused by the egress proxy), and I_gravity's zeta(3)/4 limit is a loop integral whose definition is not available, so it is neither STANDS nor WRONG. What was checked: the tree's arithmetic of the RESTATED eq. 76 reproduces exactly (6.372236e-64, 42.196 orders; tensor factor 3 beta^2/4 proved in sympy; independent of higgs.py). Recorded discrepancies in the tree's USE, none a refutation of the source: (i) 'at the maximal r ... |c| <= 6.37e-64' has the wrong direction over r (|c| ~ 1/r^2; Eot-Wash bounds r above, so 6.37e-64 is the infimum at beta = 1; the SME bound bites at r <= 3.08e-26 m); (ii) the mu r -> 0 hypothesis is asserted, never evaluated (mu r ~ 1e8 IF mu = m_e); (iii) the zeta(3)/4 value may be a small-b^2 limit applied at b^2 = 1; (iv) beta = 1 is attained on neither graviton branch (conservative). The 42-orders null at the Eot-Wash edge is robust to every checkable move (< 1 order).",
+ "what_would_change_the_grade": "READING arXiv:2309.05759 eqs. 74-77, 84 and Fig. 7 at source: if eq. 77's -zeta(3)/4 is stated for all b^2 (or I(1) is within O(1) of it), mu is shown not to be the external fermion mass/momentum (or the mu r >> 1 regime is shown to only shrink |I|), and eq. 76 matches the restatement, the result grades STANDS for the formula, with the tree's use NARROWED by the r-direction discrepancy (the null holds at r = 38.6 um, not over r <= 38.6 um). If the source's limit holds only at b^2 -> 0 or mu r -> 0 with mu = m_e, the tree's use at beta = 1, r = 38.6 um is NARROWED (outside the stated hypotheses) though the numerical null would survive unless |I| grew by ~1e42. A re-computation of the winding-loop integral showing a different coefficient would be needed for WRONG.",
+ "reverify_command": "python3 /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/2309.05759-eqs76-77.py   # 14 checks, exit 0; then (source) alphaXiv answer_pdf_queries(paper='2309.05759', queries=['eq. 76','eq. 77 and the domain in b^2 of the zeta(3)/4 limit','definition of mu','eq. 84','Fig. 7 value at b^2=1'])",
+ "report_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/audits/2309.05759-eqs76-77.json"
+}

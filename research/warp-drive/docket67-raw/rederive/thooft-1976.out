@@ -1,0 +1,34 @@
+PASS (A0) eta^a_{mn} eta^a_{mn} = 12
+PASS (A0) eta is self-dual
+PASS (A1) F^a_{mn} = -4 eta^a_{mn} rho^2/(x^2+rho^2)^2
+PASS (A2) F is self-dual (F = *F)
+PASS (A3) F^a F^a = 192 rho^4/(x^2+rho^2)^4   192*rho**4/(rho**2 + x1**2 + x2**2 + x3**2 + x4**2)**4
+PASS (A4) S = (1/4g^2) int F^aF^a = 8 pi^2/g^2, rho-independent   8*pi**2
+PASS (A5) topological charge Q = (1/32 pi^2) int F.*F = 1   1
+PASS (B1) 2S = 16 pi^2/g^2 = 4 pi/alpha_W
+PASS (B2) S = 2 pi/alpha_W (Tye-Wong's 'S = 2 pi/alpha_W')
+PASS (C1) k transitions of Q=1 cost the same minimal action as one Q=k
+PASS (C2) suppression per unit Delta B at Q=k: e^{-2 S_min(k)/ (N_f k)} independent of k
+PASS (D1) N_f=2: 8 legs, Delta B = Delta L = N_f, Delta(B-L) = 0, Delta Y = 0   (8, Fraction(2, 1), Fraction(2, 1), Fraction(0, 1))
+PASS (D1) N_f=3: 12 legs, Delta B = Delta L = N_f, Delta(B-L) = 0, Delta Y = 0   (12, Fraction(3, 1), Fraction(3, 1), Fraction(0, 1))
+PASS (D2) SU(2) singlets (u_R, d_R, e_R) have index 2*0*Q = 0: no legs
+PASS (E0) m_W read from repo PDG-2026 capture   80.362
+     on-shell: v = 246.21964 GeV, g = 0.652767, 1/alpha_W = 29.4913, log10 e^{-4pi/aW} = -160.9489
+PASS (E1) on-shell 1/alpha_W ~ 29.49, exponent 10^-160.95
+     MSbar at m_Z: alpha^-1(mZ)=127.930, sin2=0.23122                         1/aW=29.580  log10=-161.43
+     on-shell sin2 = 1 - mW^2/mZ^2 = 0.22339 with alpha(0)^-1 = 137.036       1/aW=30.607  log10=-167.04
+     Tye-Wong p.7 pairing 1/29.7                                              1/aW=29.700  log10=-162.09
+     Tye-Wong p.2 pairing 1/30                                                1/aW=30.000  log10=-163.73
+     RS96 eq.(2.8) 1/29                                                       1/aW=29.000  log10=-158.27
+PASS (E2) scheme/scale choice moves the exponent by several decades (> 3), not by tens   8.77 decades
+PASS (E3) RS96 printed 10^-170 at 1/29 vs arithmetic 10^-158.27: 11.73 decades (a discrepancy, recorded)
+     10^-170 would need 1/alpha_W = 31.150
+     1976-era sin2 in {0.20,0.30,0.35,0.40}: log10 = ['-149.6', '-224.4', '-261.8', '-299.1']
+PASS (E4) every 1976-era value leaves the factor below 10^-100 (conclusion 'unobservable' unmoved)
+PASS (E5) factor 10^-20 would need 1/alpha_W = 3.66 (alpha_W ~ 0.27), far from any measured value
+PASS (E6) tree log10_suppression() reproduces   -160.94888022807885
+PASS (E7) tree THOOFT_DELTA_B_L = (N_F, N_F) = (3,3) reproduces (D1)
+PASS (E8) tree's 10^189.10 = log10(transitions) - log10(factor) reproduces   189.10
+     10^189.10 under the other alpha_W choices: {'MSbar at m_Z: alpha^-1': '189.58', 'on-shell sin2 = 1 - mW': '195.18', 'Tye-Wong p.7 pairing 1': '190.24', 'Tye-Wong p.2 pairing 1': '191.87', 'RS96 eq.(2.8) 1/29': '186.41'}
+
+23 PASS, 0 FAIL

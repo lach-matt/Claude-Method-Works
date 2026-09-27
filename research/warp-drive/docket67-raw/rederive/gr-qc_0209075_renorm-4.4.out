@@ -1,0 +1,22 @@
+PASS C1 (4.4) subtraction identity
+PASS C2 F^(T)(k^2)/k^2 -> finite int rho/s^4 = 7.5387785e-6  ratios ['0.99999444', '0.99999994']
+PASS C2 F^(S xi=0)(k^2)/k^2 -> finite int rho/s^4 = 0.00025631847  ratios ['0.99998856', '0.99999989']
+PASS C2 F^(S xi=0.3)(k^2)/k^2 -> finite int rho/s^4 = 6.6341251e-5  ratios ['0.99999263', '0.99999993']
+PASS C3 (T) E(0)=0, dE/dk2(0)=1/(8*pi*G)
+PASS C3 (S) E(0)=0, dE/dk2(0)=-1/(4*pi*G)
+PASS C4 (B44) closed form == numerical F^(T)  max rel dev 1.78e-14
+PASS C4b bracket -> 2/(7 z^2) as z->oo (k^2->0)
+PASS C5 (4.9) slope 1/(960 pi^2)  0.9999996408
+PASS C5 (4.11) slope (1-6xi)^2/(96 pi^2), xi=0.0  1.000000059
+PASS C5 (4.11) slope (1-6xi)^2/(96 pi^2), xi=0.3  0.9999997429
+PASS C5 (4.10) 2*alpha(mu) - 2*alpha = (1/960pi^2) ln(mu^2/m^2)  =>  coefficient 1/1920pi^2
+PASS C6 (m^2+(1-6xi)s/2)^2 == ((1-6xi)/2)^2 (s-a)^2, a=2m^2/(6xi-1) [GMMPS 5.1 a]
+PASS C6 (s/4-m^2)^2 == (s-4m^2)^2/16 [GMMPS 5.2 a=4m^2]
+PASS C7 (s-gamma) pole cancels between the two forms
+   D(gamma) integrand * s^3, by power of gamma: {2: -A*(-A + 2*s), 1: A**2*s}
+PASS C7 no gamma^0 term, max degree 2
+   coefficient of gamma^2 (xi=0, m=1, per unit c): 0.7333333333
+PASS C7 gamma^2 coefficient finite
+   coefficient of gamma^1 (xi=0, m=1, per unit c): 0.6666666667
+PASS C7 gamma^1 coefficient finite
+ALL PASS

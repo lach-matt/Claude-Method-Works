@@ -1,0 +1,68 @@
+J1  area focusing from a traceless tidal integral is quadratic and sign-blind
+  [PASS] det(lam I - K) = lam^2 - k1^2 - k2^2 for traceless K -k1**2 - k2**2 + lam**2
+  [PASS] invariant under K -> -K (sign-blind) 
+  [PASS] with a trace: linear term -lam*tr appears (Ricci: first order, sign-bearing) -k1**2 - k2**2 + lam**2 - lam*tr + tr**2/4
+
+J2  exact Riemann of the tree's linearised metric (sympy)
+       Riemann built in 0.3 s
+  [PASS] O(m) trace of MTW tidal matrix at (0,b,0) = 2 lap(Phi): Ricci linear in density O(m) = -6*a**2*m/(a**2 + b**2)**(5/2)
+  [PASS] O(m^2) trace at a = 0 = -4 m^2/b^4 (linearised metric not vacuum at 2nd order) O(m^2)|a=0 = -4*m**2/b**4
+
+J3  the shell's interior constant c changes the tidal field only at O(m c)
+  [PASS] |T(c=-m/R_s) - T(0)|/|T| <= 10|c| (c = -2.5e-05) rel = 8.483e-05
+  [PASS] P = constant alone: Riemann identically 0 (shell interior is flat) 
+
+J4  the tree's |trace|/|max| reproduced and decomposed (m = 5e-3, b = 1, R_s = 200)
+   a=0.50 tree=3.9902e-01 (quoted 0.399)  recipe-exact=3.9902e-01  null-screen-exact=4.0372e-01  density-only(O(m))=3.9175e-01
+          tree tidal FD h: 4e-3 -> 3.9897e-01, 1e-3 -> 3.9902e-01, 2.5e-4 -> 3.9902e-01
+   a=0.10 tree=1.9695e-02 (quoted 0.0197)  recipe-exact=1.9704e-02  null-screen-exact=2.6164e-02  density-only(O(m))=1.9348e-02
+          tree tidal FD h: 4e-3 -> 1.9562e-02, 1e-3 -> 1.9695e-02, 2.5e-4 -> 1.9704e-02
+   a=0.02 tree=7.5468e-04 (quoted 0.000755)  recipe-exact=7.6397e-04  null-screen-exact=7.3165e-03  density-only(O(m))=7.8126e-04
+          tree tidal FD h: 4e-3 -> 6.1533e-04, 1e-3 -> 7.5468e-04, 2.5e-4 -> 7.6334e-04
+  [PASS] tree reproduces its quoted ratio at a=0.50 3.9902e-01
+  [PASS] tree reproduces its quoted ratio at a=0.10 1.9695e-02
+  [PASS] tree reproduces its quoted ratio at a=0.02 7.5468e-04
+  [PASS] a=0.02: exact-null ratio is several times the tree's 7.55e-4 (tree k=(1,1,0,0) non-null) null 7.317e-03 vs tree 7.547e-04
+  [PASS] a=0.02: exact-null ratio ~ density part + 4m/(3b) (O(m^2) of linearised metric) 7.317e-03 vs 7.813e-04 + 6.667e-03
+  [PASS] a=0.02: tree's 7.55e-4 ~ the O(m) density part alone (non-null-k term cancels the O(m^2)) tree 7.547e-04 vs density 7.813e-04
+  [PASS] a=0.5 and 0.1: ratio is density-dominated on either recipe (monotone conclusion stands) 
+  [PASS] k = (1,1,0,0) is NOT null at (0,1,0): g(k,k) = -4 Phi g(k,k) = -1.9896e-02
+
+J5  sign of composite.tidal against the MTW optical tidal matrix
+  [PASS] composite.tidal = -(MTW tidal) at (0,1,0), a = 0.02 tree T_yy = -1.50301e-02, MTW = +1.50300e-02
+
+J6  independent Jacobi integration (analytic Riemann, MTW sign) vs tree conjugate points
+   m=3e-03  conj(MTW, analytic) = none   tree = none   thin-lens 150+v = 337.5   g(k,k)_end = 5.4e-10
+   m=5e-03  conj(MTW, analytic) = 228.68   tree = 228.5   thin-lens 150+v = 225.0   g(k,k)_end = 1.4e-09
+   m=1e-02  conj(MTW, analytic) = 182.27   tree = 182.2   thin-lens 150+v = 180.0   g(k,k)_end = 5.3e-09
+   m=2e-02  conj(MTW, analytic) = 165.44   tree = 165.4   thin-lens 150+v = 163.6   g(k,k)_end = 1.8e-08
+   m=4e-02  conj(MTW, analytic) = 158.06   tree = 158.0   thin-lens 150+v = 156.5   g(k,k)_end = 5.5e-08
+   m=8e-02  conj(MTW, analytic) = 154.46   tree = 154.4   thin-lens 150+v = 153.2   g(k,k)_end = 1.4e-07
+       (15 s)
+  [PASS] m=3e-3: no conjugate point within L = 300 (tree: 'none') 
+  [PASS] m=5e-03: independent conjugate point within 0.5 of tree's 228.5 228.68
+  [PASS] m=1e-02: independent conjugate point within 0.5 of tree's 182.2 182.27
+  [PASS] m=2e-02: independent conjugate point within 0.5 of tree's 165.4 165.44
+  [PASS] m=4e-02: independent conjugate point within 0.5 of tree's 158.0 158.06
+  [PASS] m=8e-02: independent conjugate point within 0.5 of tree's 154.4 154.46
+   the tree's sign (A'' = +R A, composite.tidal = -MTW) re-run in the independent integrator:
+   m=5e-03  MTW-sign 228.684   tree-sign 228.482   shift -0.202   tree 228.5
+   m=1e-02  MTW-sign 182.273   tree-sign 182.178   shift -0.095   tree 182.2
+   m=2e-02  MTW-sign 165.439   tree-sign 165.379   shift -0.059   tree 165.4
+   m=4e-02  MTW-sign 158.059   tree-sign 158.025   shift -0.034   tree 158.0
+   m=8e-02  MTW-sign 154.462   tree-sign 154.466   shift +0.004   tree 154.4
+  [PASS] tree-sign integration reproduces the tree's own 228.45 to < 0.1 at m=5e-3 228.482
+  [PASS] the sign convention shifts the m=5e-3 conjugate point by 0.1-0.3 (> tree's quoted +-0.04) -0.202
+  [PASS] the sign convention never moves a conjugate point by more than 0.5 % (seats/no-seat unchanged) 
+  [PASS] converged: n=3000 moves the m=5e-3 conjugate point by < 0.05 228.684 vs 228.684
+   bundle truth: rays from the source point, direction perturbed by 1e-6 in the (x,y) plane
+   m=5e-03  bundle 228.732   Jacobi MTW-sign 228.684   Jacobi tree-sign 228.482   tree 228.5
+  [PASS] m=5e-03: radial neighbour ray crosses within 0.1 of the MTW-sign Jacobi point bundle 228.732 vs 228.684
+  [PASS] m=5e-03: MTW sign is closer to bundle truth than the tree's sign |d| 0.048 vs 0.250
+   m=2e-02  bundle 165.524   Jacobi MTW-sign 165.439   Jacobi tree-sign 165.379   tree 165.4
+  [PASS] m=2e-02: radial neighbour ray crosses within 0.1 of the MTW-sign Jacobi point bundle 165.524 vs 165.439
+  [PASS] m=2e-02: MTW sign is closer to bundle truth than the tree's sign |d| 0.086 vs 0.145
+  [PASS] ... the RADIAL direction focuses for the negative-mass (repulsive) core 
+  [PASS] tree's survey(5e-3) conjugate = 228.45 +- 0.3 228.480 (8 s)
+
+32/32 PASS

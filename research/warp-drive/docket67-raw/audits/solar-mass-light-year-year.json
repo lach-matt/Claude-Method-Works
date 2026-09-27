@@ -1,0 +1,105 @@
+{
+ "key": "solar-mass-light-year-year",
+ "name": "Astronomical units: solar mass 1.98892e30 kg, light year 9.4607e15 m, year 3.15576e7 s (Julian)",
+ "source": {
+  "located": "c, G: CODATA 2022, Mohr-Newell-Taylor-Tiesinga, arXiv:2409.03787, Table XXXII (c exact; G = 6.674 30(15)e-11, u_r 2.2e-5), Sec. I.B.11 (2022 G identical to 2018; 3.9 expansion factor), Table XXX (the 16 G inputs, 6.67191 to 6.67559 e-11). M_sun: IAU 2015 Resolution B3, arXiv:1510.07674, Noting 3 and Recommends 1, 3, 4, 5; Prsa et al. 2016, arXiv:1605.09788 App. A (kg solar masses for CODATA 2006 and 2014 G). Julian year (365.25 d x 86400 s) and light year = c x Julian year: definitions, NAMED-NOT-READ. CODATA 1986 G = 6.67259e-11: NAMED-NOT-READ (used only to identify, by numerical match, where 1.98892e30 comes from).",
+  "read_status": "READ",
+  "via": "alphaXiv answer_pdf_queries, get_paper_content and discover_papers all returned 'assistant quota exceeded' in this stage. The arXiv texts were therefore READ from full-text copies already harvested in this workflow at scratchpad d67/src/casmag/all/{1510.07674v1,2409.03787v1,1605.09788v1,2209.07416v2,2201.09804v1,2609.09485v1}.txt (each begins with its arXiv header); the quoted sentences below were grepped from those copies in this stage. arxiv.org itself is refused by the egress proxy (403)."
+ },
+ "published_statement": "IAU 2015 B3 (arXiv:1510.07674) Recommends 3: '1(GM)^N_sun = 1.327 124 4 x 10^20 m^3 s^-2', nominal values 'by definition exact ... conversion factors only ... not as the true solar properties' (Rec. 1); Rec. 5: 'if SI masses are explicitly needed, they should be expressed in terms of (GM)_object/G, where the estimate of the Newtonian constant G should be specified in the publication (for example, the 2014 CODATA value is G = 6.67408 (+-0.00031) x 10^-11 m^3 kg^-1 s^-2)'; Noting 3: 'G is currently one of the least precisely determined constants, whereas the error in the product GM_sun is five orders of magnitude smaller'. Prsa et al. 2016 App. A (arXiv:1605.09788): G_2006 'yields a nominal solar mass of M^N_sun = 1.988416 x 10^30 kg'; G_2014 'yields a solar mass of M_sun = (1.988475 +- 0.000092) x 10^30 kg'. CODATA 2022 (arXiv:2409.03787) Table XXXII: 'speed of light in vacuum c 299 792 458 m s^-1 exact'; 'Newtonian constant of gravitation G 6.674 30(15) x 10^-11 m^3 kg^-1 s^-2 2.2 x 10^-5'; Sec. I.B.11: 'the 2022 and 2018 recommended values of G are therefore identical'. No source read here prints 1.98892e30 kg; no IAU resolution defines a solar mass in kilograms.",
+ "published_hypotheses": [
+  "B3-H1: only the mass PARAMETER (GM)^N_sun is nominal and exact; a solar mass in kg is not a nominal constant (Rec. 1, 3)",
+  "B3-H2: an SI mass is (GM)_object/G with the G used stated beside it, so that G x M_sun = (GM)^N_sun (Rec. 5; App. A 'taking care that their chosen values satisfy GM_sun = (GM)^N_sun')",
+  "B3-H3: G is the limiting uncertainty; GM_sun is known ~1e5 times better (Noting 3)",
+  "CODATA-H1: G's recommended uncertainty carries a 3.9 expansion factor because the 16 inputs are mutually inconsistent (Sec. I.B.11, XV.A)",
+  "DEF-H1 (NAMED-NOT-READ): Julian year = 365.25 x 86400 s exactly; light year = c x Julian year exactly"
+ ],
+ "hypothesis_drift": [
+  "DROPPED B3-H2 at phase1.py:212-213: the owner pairs G_SI = 6.67430e-11 (CODATA 2018/2022) with SOLAR_MASS = 1.98892e30, so G x M_sun = 1.3274649e20 m^3 s^-2 against (GM)^N_sun = 1.3271244e20 (+2.5655e-4). 1.98892e30 is GMN/G for G = 6.672588e-11, which matches CODATA 1986's 6.67259e-11 to rounding (1.9889194e30 -> 1.98892e30): provenance by numerical match only, CODATA 1986 not read.",
+  "DROPPED DEF-H1 precision at phase1.py:213: LIGHT_YEAR = 9.4607e15 is a 5-figure truncation of c x Julian year = 9 460 730 472 580 800 m (-3.221e-6), so the tree's ly/c is not its own Julian year (establishment of 4 ly = 1.9999936 yr, not 2 exactly, phase1.py:474).",
+  "NONE for the year: 3.15576e7 s (phase1.py:474) is 365.25 x 86400 exactly.",
+  "CANONICAL-ENTRY NOTE (not an owner drift): the canonical hypothesis compares with 'IAU 2015 nominal GM_sun/G gives about 1.98847e30 kg'; 1.98847e30 is GMN/G for CODATA 2014 G (B3 App. A 1.988475e30), not for the tree's own G, which gives 1.988410e30. The offset of the tree's value is +2.3e-4 against the former and +2.57e-4 against the latter.",
+  "OWNER-PIN DISCREPANCIES (misprint-class, recorded not repaired): phase1.py:506 pins 'one solar mass buys' at 1.4742e4 m while its own contraction_law(SOLAR_MASS) returns 1.47442e4 (pin -1.5e-4); phase1.py:473 and 481 pin 6.3113e7 s / 6.3113e4 s while establishment_time(4 ly) returns 6.31150e7 (pin -3.2e-5); both pass only because the near() rtol is 1e-3 (phase1.py:434-438). The canonical data_used row 'contraction per solar mass 1.4742e4 m' carries the pin, not the computed value."
+ ],
+ "data_at_publication": [
+  {
+   "quantity": "G",
+   "value_then": "tree 6.67430e-11 (phase1.py:212)",
+   "value_now": "6.674 30(15)e-11, u_r 2.2e-5, identical 2018/2022; inputs span 6.67191-6.67559e-11 (5.5e-4)",
+   "source_now": "arXiv:2409.03787 Table XXXII, Sec. I.B.11, Table XXX",
+   "moves_conclusion": "no -- current. Exchange rate c^2/(G Lambda) = 1.348948e26 kg/m moves 2.2e-5 at 1 sigma (5th figure); printed 1.349e26 unchanged."
+  },
+  {
+   "quantity": "(GM)_sun",
+   "value_then": "tree implicit G x SOLAR_MASS = 1.3274649e20 m^3 s^-2",
+   "value_now": "(GM)^N = 1.3271244e20 exact (IAU 2015 B3); true GM_sun known ~1e5 better than G (Noting 3); secular drift (-10.2 +- 1.4)e-14 /yr (Pitjeva 2022, arXiv:2201.09804)",
+   "source_now": "arXiv:1510.07674 Rec. 3, Noting 3; arXiv:2201.09804",
+   "moves_conclusion": "no for any printed figure: solar-mass-unit figures move +2.5655e-4 (1% of 4 ly: 2.56662e10 -> 2.56728e10; 50%: 1.28331e12 -> 1.28364e12; printed 2.57e10 / 1.28e12 unchanged); 14.7 km per M_sun: 1.47442e4 -> 1.47405e4 m, printed 14.7 km unchanged"
+  },
+  {
+   "quantity": "M_sun (kg)",
+   "value_then": "1.98892e30 (phase1.py:213)",
+   "value_now": "no IAU kg value; GMN/G_2022 = 1.988409871e30 +- 4.47e25 (G-limited)",
+   "source_now": "arXiv:1510.07674 Rec. 5 + arXiv:2409.03787 G (computed)",
+   "moves_conclusion": "no printed conclusion moves; the value is +2.5655e-4 high = 11.42 sigma of CODATA G, but inside the 5.5e-4 span of the 16 G inputs and 0.94 sigma of Rinaldi et al.'s conservative G = 6.6740(15)e-11"
+  },
+  {
+   "quantity": "light year",
+   "value_then": "9.4607e15 m (phase1.py:213)",
+   "value_now": "c x 365.25 x 86400 = 9 460 730 472 580 800 m exactly (computed; definition NAMED-NOT-READ)",
+   "source_now": "computed from CODATA c",
+   "moves_conclusion": "no -- -3.22e-6; mass figures move +3.2e-6, establishment time 6.31150e7 -> 6.31152e7 s"
+  },
+  {
+   "quantity": "year",
+   "value_then": "3.15576e7 s (phase1.py:474)",
+   "value_now": "365.25 x 86400 = 31 557 600 s exactly (computed; definition NAMED-NOT-READ)",
+   "source_now": "computed",
+   "moves_conclusion": "no -- exact"
+  }
+ ],
+ "rederivation": {
+  "method": "sympy",
+  "script_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/solar-mass-light-year-year.py",
+  "outcome": "0 failures, exit 0 (exact rationals; imports phase1.py read-only). (1) tree c and G equal CODATA 2022. (2) 365.25 x 86400 = 3.15576e7 exactly. (3) c x Julian yr = 9460730472580800 m; tree ly -3.221e-6. (4) B3 App. A reproduced (1.9884158e30 for G_2006, 1.9884754e30 for G_2014); GMN/G_2022 = 1.988409871e30 +- 4.469e25; tree M_sun +2.5655e-4 = 11.42 sigma; tree G*M = 1.32746488e20; implied G 6.6725881e-11 (inside the 16-input span; equals GMN/G_1986 -> 1.9889194e30 rounded); GMN/G span over inputs 5.515e-4. (5) Lambda = 9.982529174; 1 M_sun buys 1.474423e4 m (tree) / 1.474045e4 m (GMN), both '14.7 km'; owner pin 1.4742e4 is -1.515e-4 off its own function; 4 ly x 1%: 2.56662e10 (tree) / 2.56728e10 (GMN + exact ly), x 50%: 1.28331e12 / 1.28364e12, printed 2.57e10 / 1.28e12 unchanged; exchange rate 1.348948e26 kg/m contains neither M_sun nor ly. (6) establishment(4 ly) 6.3114997e7 s (tree) vs 2 Julian yr = 6.31152e7 exactly; owner pin 6.3113e7 is -3.17e-5 off; Theorem 4 penalty = 3/2 exactly for any L and c (constant-free), and phase1.single_transition_penalty() = 1.5, single_transition_beats_light() = False.",
+  "agrees_with_source": "partly"
+ },
+ "later_literature": [
+  {
+   "ref": "Mohr, Newell, Taylor, Tiesinga 2024, CODATA 2022, arXiv:2409.03787",
+   "effect": "confirms",
+   "what": "G = 6.674 30(15)e-11 unchanged from 2018 (no new competitive input; Brack et al. 2022 at u_r 1.7e-2 not competitive); c exact. Confirms the tree's G and hence that its 1.98892e30 is the inconsistent member of the pair.",
+   "read_status": "READ (local full-text copy, alphaXiv quota exhausted)"
+  },
+  {
+   "ref": "Rinaldi, Middleton, Del Pozzo, Gair 2022, 'Bayesian analysis of systematic errors in the determination of the constant of gravitation', arXiv:2209.07416",
+   "effect": "contested",
+   "what": "With unaccounted systematics modelled, 'the uncertainty ... is significantly larger than what quoted in CODATA 2018'; recommends G = 6.6740 +- 0.0015 e-11. Under that uncertainty the G implied by 1.98892e30 (6.672588e-11) is 0.94 sigma away, so the tree's value is not excluded -- evidence AGAINST calling it wrong; but the tree states G = 6.67430e-11, not a range, so the internal inconsistency stands.",
+   "read_status": "READ (abstract, Sec. 4 results, Sec. 5 conclusions; local full-text copy)"
+  },
+  {
+   "ref": "Pitjeva, Pitjev, Pavlov, Turygin 2022, arXiv:2201.09804",
+   "effect": "confirms",
+   "what": "d(GM_sun)/dt / GM_sun = (-10.2 +- 1.4)e-14 per year (3 sigma): GM_sun is stable at 1e-12 over the tree's lifetime, eight orders below the 2.6e-4 offset.",
+   "read_status": "READ (the quoted sentence; local full-text copy)"
+  },
+  {
+   "ref": "Jentschura 2026, 'Space-Based Lock-In Determination of Newton's Gravitational Constant', arXiv:2609.09485",
+   "effect": "extends",
+   "what": "Restates the LISA Pathfinder space values G1 = (6.71 +- 0.42)e-11 and G2 = (6.15 +- 0.35)e-11 (6.3%, 5.6%); proof-of-principle, does not move CODATA G.",
+   "read_status": "READ (the quoted passage; local full-text copy); the original LISA Pathfinder paper NAMED-NOT-READ"
+  },
+  {
+   "ref": "discover_papers search for later work",
+   "effect": "contested",
+   "what": "NOT RUN: the one permitted discover_papers call returned 'alphaXiv assistant quota exceeded'. The later-literature list is therefore limited to what was already harvested in this workflow; a later-literature floor, not a census.",
+   "read_status": "NOT-RUN"
+  }
+ ],
+ "lacked_data": "M's hypothesis tested. The 1.98892e30 figure is, by numerical match, GM_sun/G with CODATA 1986's G = 6.67259e-11 -- a value computed when G was known to 1.3e-4 (the (85) in 6.672 59(85) is NAMED-NOT-READ). What came later: CODATA 2006/2014/2018/2022 moved G up by +2.57e-4 to 6.67430e-11, and IAU 2015 B3 made GM_sun (not M_sun) the exact conversion constant precisely because G is the weak datum (Noting 3). So the authors of 1.98892e30 DID lack later G data, and having it DOES change the number (1.98892 -> 1.98841 e30, 11.4 sigma of today's CODATA G). Evidence the other way: (a) G is still contested -- CODATA needs a 3.9 expansion factor and Rinaldi et al. 2022 argue for u(G) ~ 2.2e-4, under which the old value is 0.94 sigma away; the 16 inputs span 5.5e-4 and contain the implied G; (b) every conclusion phase1 draws is G-free in solar-mass units or printed at 3 figures: 14.7 km, 2.57e10, 1.28e12, 1.349e26 and Theorem 4's 3/2 are all unchanged by the updated data (computed). The light year and the year are definitions, not data, and nobody lacked anything there; the tree's ly is only truncated. Conclusion: the datum moved, the conclusions did not.",
+ "grade": "NARROWED",
+ "grade_evidence": "Computed (sympy, exact rationals, exit 0). The year STANDS (exact). The light year STANDS as a 5-figure truncation (-3.2e-6). The solar mass as written does NOT reproduce from current sources at the precision written: B3 Rec. 5 requires G x M_sun = (GM)^N_sun, and with the tree's own G (phase1.py:212, CODATA 2018 = 2022, READ) the tree's 1.98892e30 violates it by +2.5655e-4 = 11.42 sigma of G; the consistent value is 1.98841e30. That is a hypothesis of the source dropped at phase1.py:212-213, so the result holds on a smaller class than the tree writes: to <= 3.6 significant figures, which covers every figure phase1 PRINTS and every verdict it draws (14.7 km, 2.57e10 and 1.28e12 solar masses, 1.349e26 kg/m, Theorem 4's exact 3/2), but not the 5-6 figures the constants carry nor the selftest pins. Not WRONG: nothing refutes any conclusion, the offset is inside the G-input span and within 1 sigma of a published conservative G (arXiv:2209.07416), and B3 itself concedes G is the limiting datum. Not DATA-DEPENDENT for the conclusions: no printed conclusion moves. Recorded discrepancies, not repaired and not refutations: pins 1.4742e4 (phase1.py:506, function returns 1.47442e4) and 6.3113e7 / 6.3113e4 (phase1.py:473, 481; function returns 6.31150e7) differ from the owner's own computed values in the 4th-5th figure and pass only under rtol 1e-3; 1.98892e30 recurs in ~20 other modules (kerr, navigate, shipspec, launcher, drivespec, gate, wormhole, ...), out of scope here and not graded. Caveat on the read: alphaXiv quota was exhausted, so sources were READ from full-text copies harvested earlier in this workflow; the Julian-year/light-year definitions and CODATA 1986 are NAMED-NOT-READ.",
+ "what_would_change_the_grade": "To STANDS: phase1.py pairing SOLAR_MASS with its G so G x M_sun = (GM)^N_sun (1.98841e30 for CODATA 2018/2022), or a restatement of the constants at the <= 3-4 figure precision the conclusions use -- the owner's call, not this audit's. To DATA-DEPENDENT: a G measurement or CODATA adjustment moving G by >~1e-3 (enough to change a printed third figure of a kg-denominated figure such as 1.349e26), which nothing in the 16 inputs or the 2022 literature read here indicates. To WRONG: only a computed change of a phase1 verdict, and the re-derivation shows none is possible from these constants (Theorem 4 is constant-free; the price figures are linear in GM_sun). OPEN-ward: if the local copies of 1510.07674 / 2409.03787 were found not to match the arXiv versions.",
+ "reverify_command": "python3 /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/solar-mass-light-year-year.py  # exit 0; imports /home/user/Claude-Method-Works/research/warp-drive/phase1.py read-only; source quotes: grep -o in /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/src/casmag/all/{1510.07674v1,1605.09788v1,2409.03787v1,2209.07416v2}.txt",
+ "report_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/audits/solar-mass-light-year-year.json"
+}

@@ -1,0 +1,94 @@
+{
+ "1a conservation identically zero, static vacuum both sides, M_in != M_out": {
+  "ok": true,
+  "detail": "0"
+ },
+ "1b numeric spot-check of 1a over 200 random points (incl. M_in<0)": {
+  "ok": true,
+  "detail": "max |residual| = 3.33e-15"
+ },
+ "1c PV eq (11) reproduced (wormhole, sigma < 0)": {
+  "ok": true,
+  "detail": ""
+ },
+ "1d PV eq (12) reproduced": {
+  "ok": true,
+  "detail": ""
+ },
+ "1e PV eq (13) holds for the wormhole": {
+  "ok": true,
+  "detail": ""
+ },
+ "2a conservation <=> sigma' = -(2/R)(sigma+p)": {
+  "ok": true,
+  "detail": "2*(-p - sigma)/R"
+ },
+ "2b m_s' = -8 pi R p": {
+  "ok": true,
+  "detail": "-8*pi*R*p"
+ },
+ "2c PV eq (21) [sigma R]' = -(sigma+2p)": {
+  "ok": true,
+  "detail": ""
+ },
+ "3a Israel statics at M_in=0 equal wall.statics() (sigma0, p0)": {
+  "ok": true,
+  "detail": "max rel err 1.6e-13"
+ },
+ "4a dsolve(linear EOS) == wall.py closed form sigma(R)": {
+  "ok": true,
+  "detail": "max abs diff 7.1e-15; symbolic diff (-R**2*sigma0*(R/R0)**(-2*beta2 - 2)*(beta2 + 1)*exp(2*beta2*log(R)) + R**2*(R/R0)**(-2*beta2 - 2)*(beta2*sigma0 - p0)*exp(2*beta2*log(R)) + exp((2*beta2**2*log(R0) + 4*beta2*log(R0) + beta2*log(p0 + sigma0) + 2*log(R0) + log(p0 + sigma0))/(beta2 + 1)))*exp(-2*beta2*log(R))/(R**2*(beta2 + 1))"
+ },
+ "4b closed form satisfies the ODE symbolically": {
+  "ok": true,
+  "detail": ""
+ },
+ "4c wall.sigma_of_R numerically equals the sympy closed form": {
+  "ok": true,
+  "detail": "max rel 1.4e-14"
+ },
+ "4d beta^2 = -1 (A = 0) is logarithmic, excluded by the closed form (division by A)": {
+  "ok": true,
+  "detail": "-2*p0*log(R) + 2*p0*log(R0) - 2*sigma0*log(R) + 2*sigma0*log(R0) + sigma0"
+ },
+ "4e wall.sigma_of_R at beta^2 = -1 raises (never called there by wall.py; b2 >= 0 in all its uses)": {
+  "ok": true,
+  "detail": "ZeroDivisionError"
+ },
+ "5a INDICATION ONLY: with a radiating (Vaidya) exterior, d(sigma A)/dtau acquires a term prop. to dM/du absent from the vacuum derivation; p (via K_tautau) is NOT recomputed for Vaidya here, so this does not by itself compute the flux law -- the READ statement is Ishak-Lake eqs (6),(12)": {
+  "ok": true,
+  "detail": "R*dMdu*(Rdot - sqrt((-2*M_u + R*(Rdot**2 + 1))/R))/(sqrt((-2*M_u + R*(Rdot**2 + 1))/R)*(2*M_u - R))"
+ },
+ "5b at Rdot = 0 the flux term is dM/du * Udot / sqrt(f) * (-1): vanishes iff dM/du = 0": {
+  "ok": true,
+  "detail": "-R*dMdu/(2*M_u - R)"
+ },
+ "6a dec asymptote sigma-p -> 2(b2 sigma0 - p0)/(1+b2) (A > 0)": {
+  "ok": true,
+  "detail": "2*(beta2*sigma0 - p0)/(beta2 + 1)"
+ },
+ "6b sigma+p along the curve = (sigma0+p0)(R/R0)^(-2A) (never changes sign)": {
+  "ok": true,
+  "detail": "(R/R0)**(-2*beta2 - 2)*(p0 + sigma0)"
+ },
+ "6c gap identity beta2_crit - p0/sigma0 = x/(4 s^2 (1+3s)) symbolic": {
+  "ok": true,
+  "detail": "0"
+ },
+ "6d z3: gap numerator > 0 for every s in (0,1) (unsat of negation)": {
+  "ok": true,
+  "detail": "unsat"
+ },
+ "7a RK4 sigma(R) vs closed form, three wall.py points": {
+  "ok": true,
+  "detail": "max rel 1.2e-13"
+ },
+ "7b period: analytic 2pi/sqrt(V''/2) vs closed-form-V orbit vs RK4-sigma-V orbit": {
+  "ok": true,
+  "detail": "(0.3,0.5) T=5.170803 cf=5.170908 rk=5.170908 rel 2.0e-05/2.0e-05; (0.5,0.5) T=6.323029 cf=6.322908 rk=6.322908 rel 1.9e-05/1.9e-05; (0.3,0.2) T=9.654552 cf=9.654489 rk=9.654489 rel 6.5e-06/6.6e-06"
+ },
+ "8a scope: nonlinear EOS, same beta^2(sigma0)=0.5 (stable, linear basin unbounded) -> dec margin crosses 0 at finite R": {
+  "ok": true,
+  "detail": "x=0.3, c=400: sigma-p < 0 first at R/R0 = 1.2085 (sigma+p stays > 0, min 0.0122, so the curve is regular there); linear-EOS asymptote 0.00782 > 0"
+ }
+}

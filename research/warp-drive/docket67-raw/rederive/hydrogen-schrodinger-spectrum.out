@@ -1,0 +1,35 @@
+PASS n=1 l=0: H R = E_n R with E_n=-m(Z alpha)^2/(2n^2); norm=1; <r>=(3n^2-l(l+1))/(2 m Z alpha)  [residual/R=0 norm=1 <r>-target=0]
+PASS n=2 l=0: H R = E_n R with E_n=-m(Z alpha)^2/(2n^2); norm=1; <r>=(3n^2-l(l+1))/(2 m Z alpha)  [residual/R=0 norm=1 <r>-target=0]
+PASS n=2 l=1: H R = E_n R with E_n=-m(Z alpha)^2/(2n^2); norm=1; <r>=(3n^2-l(l+1))/(2 m Z alpha)  [residual/R=0 norm=1 <r>-target=0]
+PASS n=3 l=0: H R = E_n R with E_n=-m(Z alpha)^2/(2n^2); norm=1; <r>=(3n^2-l(l+1))/(2 m Z alpha)  [residual/R=0 norm=1 <r>-target=0]
+PASS n=3 l=1: H R = E_n R with E_n=-m(Z alpha)^2/(2n^2); norm=1; <r>=(3n^2-l(l+1))/(2 m Z alpha)  [residual/R=0 norm=1 <r>-target=0]
+PASS n=3 l=2: H R = E_n R with E_n=-m(Z alpha)^2/(2n^2); norm=1; <r>=(3n^2-l(l+1))/(2 m Z alpha)  [residual/R=0 norm=1 <r>-target=0]
+PASS n=4 l=0: H R = E_n R with E_n=-m(Z alpha)^2/(2n^2); norm=1; <r>=(3n^2-l(l+1))/(2 m Z alpha)  [residual/R=0 norm=1 <r>-target=0]
+PASS n=4 l=1: H R = E_n R with E_n=-m(Z alpha)^2/(2n^2); norm=1; <r>=(3n^2-l(l+1))/(2 m Z alpha)  [residual/R=0 norm=1 <r>-target=0]
+PASS n=4 l=2: H R = E_n R with E_n=-m(Z alpha)^2/(2n^2); norm=1; <r>=(3n^2-l(l+1))/(2 m Z alpha)  [residual/R=0 norm=1 <r>-target=0]
+PASS n=4 l=3: H R = E_n R with E_n=-m(Z alpha)^2/(2n^2); norm=1; <r>=(3n^2-l(l+1))/(2 m Z alpha)  [residual/R=0 norm=1 <r>-target=0]
+PASS n=5 l=0: H R = E_n R with E_n=-m(Z alpha)^2/(2n^2); norm=1; <r>=(3n^2-l(l+1))/(2 m Z alpha)  [residual/R=0 norm=1 <r>-target=0]
+PASS n=5 l=1: H R = E_n R with E_n=-m(Z alpha)^2/(2n^2); norm=1; <r>=(3n^2-l(l+1))/(2 m Z alpha)  [residual/R=0 norm=1 <r>-target=0]
+PASS n=5 l=2: H R = E_n R with E_n=-m(Z alpha)^2/(2n^2); norm=1; <r>=(3n^2-l(l+1))/(2 m Z alpha)  [residual/R=0 norm=1 <r>-target=0]
+PASS n=5 l=3: H R = E_n R with E_n=-m(Z alpha)^2/(2n^2); norm=1; <r>=(3n^2-l(l+1))/(2 m Z alpha)  [residual/R=0 norm=1 <r>-target=0]
+PASS n=5 l=4: H R = E_n R with E_n=-m(Z alpha)^2/(2n^2); norm=1; <r>=(3n^2-l(l+1))/(2 m Z alpha)  [residual/R=0 norm=1 <r>-target=0]
+PASS n=6 l=0: H R = E_n R with E_n=-m(Z alpha)^2/(2n^2); norm=1; <r>=(3n^2-l(l+1))/(2 m Z alpha)  [residual/R=0 norm=1 <r>-target=0]
+PASS n=6 l=1: H R = E_n R with E_n=-m(Z alpha)^2/(2n^2); norm=1; <r>=(3n^2-l(l+1))/(2 m Z alpha)  [residual/R=0 norm=1 <r>-target=0]
+PASS n=6 l=2: H R = E_n R with E_n=-m(Z alpha)^2/(2n^2); norm=1; <r>=(3n^2-l(l+1))/(2 m Z alpha)  [residual/R=0 norm=1 <r>-target=0]
+PASS n=6 l=3: H R = E_n R with E_n=-m(Z alpha)^2/(2n^2); norm=1; <r>=(3n^2-l(l+1))/(2 m Z alpha)  [residual/R=0 norm=1 <r>-target=0]
+PASS n=6 l=4: H R = E_n R with E_n=-m(Z alpha)^2/(2n^2); norm=1; <r>=(3n^2-l(l+1))/(2 m Z alpha)  [residual/R=0 norm=1 <r>-target=0]
+PASS n=6 l=5: H R = E_n R with E_n=-m(Z alpha)^2/(2n^2); norm=1; <r>=(3n^2-l(l+1))/(2 m Z alpha)  [residual/R=0 norm=1 <r>-target=0]
+PASS E_n independent of l (SO(4)); a WRONG level E=-m(Z a)^2/(2(n+1)^2) FAILS the eigen-equation (control)
+PASS Kramers-Pasternack recursion at k=1 gives <r> = a0/(2Z)(3n^2 - l(l+1)) for SYMBOLIC n,l  [-(l**2 + l - 3*n**2)/(2*Z*alpha*m)]
+PASS Dirac-Coulomb f(n,kappa) = 1 - (Z a)^2/(2n^2) - (Z a)^4/(2n^4)(n/(j+1/2)-3/4) + O(x^6), n<=4, all kappa (CODATA eq 29 vs Suslov-Trey eq 4.17): Bohr term is the O(alpha^2) term
+PASS clamped model, m->m(1+1/10): E_n*(1+eps), <r>/(1+eps), E_n/E_1 and <r>E_1 unchanged EXACTLY
+PASS clamped model, m->m(1+-3/7): E_n*(1+eps), <r>/(1+eps), E_n/E_1 and <r>E_1 unchanged EXACTLY
+PASS clamped model, m->m(1+1/1000000000000000000): E_n*(1+eps), <r>/(1+eps), E_n/E_1 and <r>E_1 unchanged EXACTLY
+PASS alpha datum moved CODATA2018->2022 by 6.79e-10 relative; D18 is an identity in alpha (holds for every alpha)
+PASS E_1 = m_e alpha^2/2 with tree alpha vs CODATA-2022 alpha (m_e c^2 fixed): 13.605693141457 vs 13.605693122990 eV (shift 1.36e-09 rel)
+PASS real 1H ionization E_I/hc=1.096787e7 m^-1 (CODATA Table IV, truncated): clamped Bohr R_inf off by 5.344e-04 (= me/mp to 2e-6); reduced-mass Bohr off by -1.02e-05 = -(alpha^2/4 - L1S/cR) = -1.08e-05 within 1 unit of the last quoted digit (9.1e-7 rel)
+PASS finite m_p: E_n scales by (1+eps)(1 - eps*me/(me+mp) + ...) -- departure coefficient 5.4432e-04 = 1/(1+mp/me)
+PASS two-body (reduced-mass) model: E_n/E_1 = 1/n^2 and <r>E_1 = -alpha(3n^2-l(l+1))/4 carry no mass at all
+PASS finite nuclear size (CODATA eq 50) / Bohr(1S) = (4/3) alpha^2 (r_p/lambda_C)^2 = 3.364e-10; breaks dilation at 2*eps*that
+
+SUMMARY: 33 checks, ALL PASS

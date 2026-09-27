@@ -1,0 +1,43 @@
+A. sympy -- exact radial null travel time in Schwarzschild
+     sympy antiderivative: 2*M*log(-2*M + R) + R
+     residual (exact - foliation form): 0
+  PASS  closed form agrees with the integral symbolically
+  PASS  symbolic form evaluated at (1,10,100): 95.01105187398147 vs 95.01105187398147 (rel 0.00e+00)
+B. numeric -- foliation.py:993-995 pins
+  PASS  Killing travel time: 95.01105187398147 vs 95.011051874 (rel 1.95e-13)
+  PASS  proper time at the far mouth: 94.05614269486279 vs 94.056142695 (rel 1.46e-12)
+  PASS  Shapiro excess over the areal gap: 5.011051873981472 vs 5.011051874 (rel 3.70e-12)
+  PASS  '5.6 % DELAY' = excess / areal gap: 5.567835415534969 vs 5.567835 (rel 7.46e-08)
+  PASS  excess > 0 -- a delay
+C. z3 -- the sign of the excess for every admissible (M, R1, R2)
+  PASS  M>0, 2M<R1<R2: no counterexample to ratio>1 (excess>0, DELAY)
+  PASS  M<0, 0<R1<R2: no counterexample to ratio>1, so 2M ln(ratio) < 0 (ADVANCE)
+  PASS  vacuity guard: domain M>0 is satisfiable
+  PASS  vacuity guard: domain M<0 is satisfiable
+D. sympy -- first-order isotropic straight-line form (Will 2014 eq.62 one-way, gamma=1; Possel 2020 eq.27)
+     antiderivative: 2*M*asinh(x/b) + x
+     residual: 2*M*(log(x0 + sqrt(b**2 + x0**2)) - log(x1 + sqrt(b**2 + x1**2)) - asinh(x0/b) + asinh(x1/b))
+  PASS  weak-field integral vs composite.analytic_shapiro at its defaults: 75.04415399965767 vs 75.04415399965768 (rel 1.89e-16)
+  PASS  residual simplifies to 0 (or is numerically 0 at the defaults)
+E. composite.py VALIDATION 3 from its own pinned t-|dx| values (composite.py:50-52, 337-346)
+     antisym 4.44300e-02   analytic 4.41540e-02   ratio 1.0063   sym residue +6.8100e-03
+  PASS  antisym/analytic within 1e-2 of 1 (the quoted 0.6 % is 0.63 %)
+  PASS  symmetric residue > 0 (path lengthening, ~M^2)
+  PASS  weak-field hypothesis holds at composite's numbers: M/b = 6.7e-03 << 1
+F. named-hypothesis measurements (recorded, not repaired)
+     first-order 2M ln(R2/R1) at foliation's numbers = 4.605170 M vs exact excess 5.011052 M (8.1 % low)
+  PASS  foliation uses the EXACT form where R1 = 10M is not weak-field (first order would be 8 %% low)
+  PASS  proper-distance antiderivative checks (d/dR = 1/sqrt(1-2M/R))
+     proper radial distance 10M..100M = 92.451648 M (areal gap 90)
+     Killing time 95.011 vs proper distance 92.452: excess 2.559 M = 2.8 % (vs 5.6 % on the areal gap)
+  PASS  delay sign survives the change of baseline (Killing time > proper distance)
+  PASS  far static clock also exceeds the proper distance (94.056 > 92.452)
+     near static clock (R1 = 10M) reads 84.980 M for the same interval, LESS than the proper distance 92.452 M
+  PASS  so 'DELAY' is a Killing-time / far-clock statement, not one every static clock on the corridor makes
+     Schwarzschild-chart extra term -M(x1/r1 - x0/r0) at composite's defaults = -3.9999e-03 (isotropic-chart value 4.4154e-02)
+  PASS  chart-dependence of a first-order 't - |dx|' is O(2M) = 9.1 % of the isotropic value here; composite is consistently isotropic
+G. data -- GM_sun/c^3 from the IAU 2015 nominal (GM)_sun (arXiv:1510.07674, READ)
+     GM_sun/c^3 = 4.925490948e-06 s;  4 GM/c^3 = 19.702 us (the scale of Will 2014 eq.63's '240 us')
+  PASS  the tree uses M = 1 in geometric units: no solar datum enters foliation/composite/concentric
+
+OVERALL: ALL CHECKS PASS

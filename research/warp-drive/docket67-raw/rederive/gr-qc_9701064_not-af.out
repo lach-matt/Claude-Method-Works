@@ -1,0 +1,50 @@
+PASS C0 copy md5 == live hpscentre.py  07145787fd14c946a1b14167b6b0d109
+PASS C0 copy md5 == live throatmass.py  3e99c0b93c3a541ebccd33dcf9ca6748
+PASS C0 copy md5 == live qeihps.py  a79d87049bb3ef63337ad3c162c7c07c
+PART A -- closed form (sympy)
+PASS A1a HPS law F=(5.3 ln l - 25.5)^2 -> oo  oo
+PASS A1b lam^2 F -> oo for every lam > 0
+PASS A1c (a ln l - b)^2 -> oo for every a != 0
+PASS A1d a = 0 is the only f -> const member (b^2)
+     zero of the law l0 = exp(b/a) = 122.894; 3 ln F + 4 > 0 needs |u| > e^{-2/3} = 0.5134
+     omega_2^2 = 1/(16K^2(4 + 3 ln F)) is singular / imaginary on l in (111.55, 135.39): the law is a large-l form only
+PASS A2a G^t_t = 0 on (r = l, f = F)
+PASS A2b G^th_th = 0 on (r = l, f = F)
+PASS A2c G^l_l = 2a/(l^2 (a ln l - b))  2*a/(l**2*(a*log(l) - b))
+PASS A2d conservation identity closes on the smooth part
+PASS A3a Komar M_K = r^2 f'/(2 sqrt f) = a l on the smooth part (u > 0)
+PASS A3b t -> lam t scales M_K by lam: diverges for every normalisation
+PASS A3c control: Schwarzschild M_K = M (finite)  M
+A4 -- AHS source (conserved reading) on the smooth part alone, tree transcription from COPY
+     l = 1e+03 K:  G^l_l = 9.5400e-07   8pi T^l_l (K=1) = 7.7268e-11   |T/G| = 8.099e-05
+     l = 1e+04 K:  G^l_l = 4.5465e-09   8pi T^l_l (K=1) = 7.7404e-15   |T/G| = 1.703e-06
+     l = 1e+05 K:  G^l_l = 2.9844e-11   8pi T^l_l (K=1) = 6.5553e-19   |T/G| = 2.197e-08
+PASS A4 smooth-part AHS source << G^l_l and falling: the law is not self-consistent without the ripples
+PART B -- the tree's integrations from the COPY, eq. (9) data, to x = 100000 K
+     conserved  status 0 end 100000.0 K (75 s)
+PASS B0 conserved reached x = 100000 K
+       x =    300 K  <sqrt f> =   6.0163  <M_K>/x =  9.0890  max|2m/r| = 6.628e+00  <r/x> = 1.66039
+       x =   1000 K  <sqrt f> =  10.8605  <M_K>/x =  8.3614  max|2m/r| = 3.783e+00  <r/x> = 1.34517
+       x =   3000 K  <sqrt f> =  17.2428  <M_K>/x =  8.7551  max|2m/r| = 2.432e+00  <r/x> = 1.17670
+       x =  10000 K  <sqrt f> =  26.0683  <M_K>/x = 10.6240  max|2m/r| = 1.680e+00  <r/x> = 1.07947
+       x =  30000 K  <sqrt f> =  35.2583  <M_K>/x = 10.5294  max|2m/r| = 1.400e+00  <r/x> = 1.03684
+       x =  99000 K  <sqrt f> =  45.9105  <M_K>/x = 12.0847  max|2m/r| = 1.169e+00  <r/x> = 1.01593
+PASS B1 conserved: <sqrt f> strictly increasing over [300, 1000, 3000, 10000, 30000, 99000] K
+PASS B2 conserved: <sqrt f> grows by > 2x across the range  6.016 -> 45.910
+PASS B3 conserved: <M_K>/x positive and flat within 3x (finite Komar mass would fall 330x)  ['9.089', '8.361', '8.755', '10.624', '10.529', '12.085']
+       max|2m/r| per point: ['6.63e+00', '3.78e+00', '2.43e+00', '1.68e+00', '1.40e+00', '1.17e+00'] (the SPATIAL ripples: recorded, not graded here)
+     printed-M1 status 0 end 100000.0 K (65 s)
+PASS B0 printed-M1 reached x = 100000 K
+       x =    300 K  <sqrt f> =   6.8441  <M_K>/x =  6.9626  max|2m/r| = 4.351e+00  <r/x> = 1.36134
+       x =   1000 K  <sqrt f> =  11.9441  <M_K>/x =  6.0606  max|2m/r| = 2.775e+00  <r/x> = 1.12905
+       x =   3000 K  <sqrt f> =  17.3849  <M_K>/x =  6.0069  max|2m/r| = 2.209e+00  <r/x> = 1.05150
+       x =  10000 K  <sqrt f> =  23.8005  <M_K>/x =  5.9245  max|2m/r| = 1.768e+00  <r/x> = 1.01915
+       x =  30000 K  <sqrt f> =  29.8446  <M_K>/x =  5.8737  max|2m/r| = 1.517e+00  <r/x> = 1.00805
+       x =  99000 K  <sqrt f> =  36.5030  <M_K>/x =  5.0428  max|2m/r| = 1.345e+00  <r/x> = 1.00338
+PASS B1 printed-M1: <sqrt f> strictly increasing over [300, 1000, 3000, 10000, 30000, 99000] K
+PASS B2 printed-M1: <sqrt f> grows by > 2x across the range  6.844 -> 36.503
+PASS B3 printed-M1: <M_K>/x positive and flat within 3x (finite Komar mass would fall 330x)  ['6.963', '6.061', '6.007', '5.924', '5.874', '5.043']
+       max|2m/r| per point: ['4.35e+00', '2.78e+00', '2.21e+00', '1.77e+00', '1.52e+00', '1.34e+00'] (the SPATIAL ripples: recorded, not graded here)
+elapsed 141 s
+SUMMARY: ALL PASS
+EXIT 0

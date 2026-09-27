@@ -1,0 +1,86 @@
+{
+ "key": "einstein-quadrupole-formula-rod",
+ "name": "Quadrupole formula: L_GW = (G/5c^5)<dddQ_ij dddQ_ij>; rod gives (2/45) G M^2 l^4 Omega^6/c^5 at omega_GW = 2 Omega",
+ "source": {
+  "located": "Einstein 1918 (Sitzungsber. Preuss. Akad.) is the classic -- NAMED-NOT-READ. The formula and the circular-rotator results were READ in a restatement: D. Gerosa, lecture notes 'Gravitational waves from compact binaries' (GGI Florence 2026, following Maggiore Vol. 1 ch. 3), cached at scratchpad d67/src/gwflux/: L02_gwemission.pdf p6 (eq. 3.75 P = G/5c^5 <Q'''_ij Q'''_ij> = G/5c^5 <M'''_ij M'''_ij - (1/3) M'''_kk^2>, 'average over several GW periods', 'derivatives evaluated at the retarded time'), pp1-3 (hypotheses: non-relativistic limit v<<c, linearised gravity, far zone, d/lambda ~ v/c expansion, dM/dt=0 etc. from d_mu T^{mu nu}=0 with T=0 on the boundary of a volume enclosing the source); L03_binaries1.pdf p2-p3 (fixed circular orbit: omega_GW = 2 omega_s; h+ = (1/r)4 mu w^2 R^2 (1+cos^2 th)/2 cos(2wt); dP/dOmega = r^2/16pi <hd+^2 + hdx^2> = (2 mu^2 R^4 w^6/pi)[((1+cos^2)/2)^2 + cos^2]; P = (32/5) mu^2 R^4 w^6). Pages rendered to PNG and read visually (handwritten).",
+  "read_status": "READ-VIA-RESTATEMENT",
+  "via": "alphaXiv answer_pdf_queries / get_paper_content / discover_papers all returned 'quota exceeded' this session, and arxiv.org CONNECT is refused by the egress proxy (403); the restatement read is a lecture-note PDF already cached in the scratchpad (not an arXiv paper). Einstein 1918 and Maggiore's textbook themselves NAMED-NOT-READ."
+ },
+ "published_statement": "(Restatement, L02 p6, eq. 3.75, G=c=1 restored) P = (G/5c^5) < dddQ_ij dddQ_ij >, Q_ij the traceless mass quadrupole, equivalently (G/5c^5)< dddM_ij dddM_ij - (1/3)(dddM_kk)^2 >, M^ij = int d^3x T^00 x^i x^j; <> an average over several GW periods, derivatives at retarded time. For a fixed circular rotator (L03 p2-3) omega_GW = 2 omega_s and P = (32/5) G mu^2 R^4 omega_s^6/c^5; the rod coefficient 2/45 is not printed in the source read -- it follows from mu R^2 -> M l^2/12 and is RE-DERIVED here.",
+ "published_hypotheses": [
+  "linearised gravity about flat spacetime (box hbar_{mu nu} = -16 pi T_{mu nu}), weak field",
+  "non-relativistic (slow-motion) source, v << c, equivalently source size d << lambda_GW (L02 p2: omega x' n ~ v)",
+  "leading order of the multipole / post-Newtonian expansion only (corrections O(v/c): mass octupole, current quadrupole)",
+  "far zone r >> lambda, TT projection",
+  "stress-energy conserved, d_mu T^{mu nu} = 0, with T = 0 on the boundary of a volume enclosing the source (isolated source)",
+  "power is a time average over several GW periods"
+ ],
+ "hypothesis_drift": [
+  "NONE DROPPED from the formula: branelink.py:28-36/199-201 use the total, period-averaged luminosity of a slow, weak-field, isolated source in flat background; the tree's list (weak-field slow-motion, thin uniform rod, flat background) covers the source's hypotheses, with 'isolated source, d_mu T^{mu nu}=0 in flat space' implicit in 'flat background'. The rod's internal stresses enter T^ij and are what the flat-space conservation argument requires (L02 p3), so a non-gravitationally bound rod is inside the source's class.",
+  "ADDED, unnamed as a limitation (branelink.py:204-206, strain(); feeds STRAIN_H at branelink.py:216,299): isotropic emission, L/(4 pi D^2), and a circular-polarisation amplitude convention (<hd+^2+hdx^2> = w^2 h^2). The source's pattern (L03 p2) is anisotropic: face-on flux = 5/2 of the isotropic mean, edge-on = 5/16 (computed). So the tree's h is an orientation-averaged figure; the on-axis amplitude is sqrt(5/2) = 1.581 x larger (6.856e-48 vs 4.336e-48). Throughput per watt (bulk_bits_per_watt) is flux-based and moves by x5/16 .. x5/2 = -0.505 .. +0.398 dex with receiver orientation. The step is written in the docstring (branelink.py:205) but not carried as a named hypothesis.",
+  "ADDED, implicit (branelink.py:17-51): the 4D GR quadrupole formula is applied to O6's 'bulk channel'. The source is 4D GR; the tree itself makes this conditional in its dichotomy (branelink.py:43-51, 'graviton IS a bulk degree of freedom') and concedes 'no moving-brane emission rate is in print' -- named at the row level, not on this entry's hypothesis list.",
+  "WEAKENED, not named: 'thin' rod. For a solid cylinder of radius a the radiating moment is M(l^2/12 - a^2/4), multiplying L by (1 - 3a^2/l^2)^2 (sympy); the tree's M, l give no radius, so the thin limit is an unstated idealisation (correction < 1% only for a < 0.058 l).",
+  "UNNAMED physical hypothesis at the design point (branelink.py:135): a rod of l = 100 m at Omega = 100 rad/s must carry a centre stress sigma/rho = Omega^2 l^2/8 = 1.25e7 J/kg (computed). Whether any material sustains it is not checked here against material data (OPEN, not a finding). It does not enter the formula; if violated, a lower Omega RAISES bits/s/W as 1/Omega^2, and closing the 26.6-dex gap would need Omega lower by ~10^13 -- the direction is not moved."
+ ],
+ "data_at_publication": [
+  {
+   "quantity": "G (L_GW and h both scale linearly in G)",
+   "value_then": "Einstein-era value not read (NAMED-NOT-READ); the tree uses 6.67430e-11 m^3 kg^-1 s^-2 (foliation.py:580)",
+   "value_now": "6.67430(15)e-11 (CODATA 2018 = CODATA 2022); CODATA 2014 was 6.67408e-11",
+   "source_now": "CODATA 2022 table as shipped in scipy constants/_codata.py line 1884 (READ, cached d67/src/codata/x/); 2018 line 1430; 2014 line 1081",
+   "moves_conclusion": "no -- relative move 3.3e-5 (2014->2022), against a 26.6-dex EM-vs-GW gap"
+  },
+  {
+   "quantity": "c",
+   "value_then": "exact by definition today",
+   "value_now": "299792458 m/s (exact, SI)",
+   "source_now": "SI definition (as in foliation.C_LIGHT)",
+   "moves_conclusion": "no"
+  },
+  {
+   "quantity": "design inputs M, l, Omega",
+   "value_then": "1e6 kg, 100 m, 100 rad/s (branelink.py:135, chosen, not measured)",
+   "value_now": "unchanged -- design choices, not data",
+   "source_now": "branelink.py:135",
+   "moves_conclusion": "no datum to move; L = 1.224954e-22 W reproduced to 1e-12"
+  }
+ ],
+ "rederivation": {
+  "method": "sympy",
+  "script_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/einstein-quadrupole-formula-rod.py",
+  "outcome": "ALL PASS (20 checks), independent of branelink.verify_symbolic: rod built from a line density (M l^2/12 derived, not typed); P/(G M^2 l^4 Omega^6/c^5) = 2/45 in BOTH forms of eq. 3.75 (traceless Q and trace-subtracted M); binary (32/5) with mu R^2 = M l^2/12 gives 2/45; Q_xx has zero Fourier weight at Omega and non-zero at 2 Omega (omega_GW = 2 Omega); the READ L03 pattern integrates to the READ (32/5) total; pattern mean 4/5, face-on/isotropic = 5/2, edge-on = 5/16; on-axis h / tree h = sqrt(10)/2; the tree's circular-polarisation flux identity holds; the 2x/4x correction is exactly h ~ 1/w, bits ~ 1/w^2; finite-radius factor (1 - 3a^2/l^2)^2; design-point L = 1.224954e-22 W and h = 4.335866e-48 reproduce branelink to 1e-12 / 1e-4; v_tip/c = 1.67e-5, lambda_GW/l = 9.4e4, GM/(lc^2) = 7.4e-24 (slow-motion, long-wavelength, weak-field hypotheses met by > 4 orders). branelink.py --selftest also run: SELFTEST OK, brane_beats_bulk_orders = 26.62.",
+  "agrees_with_source": "yes"
+ },
+ "later_literature": [
+  {
+   "ref": "C. M. Will, 'The Confrontation between General Relativity and Experiment', arXiv:1403.7377 (Living Rev. Rel. 2014)",
+   "effect": "confirms",
+   "what": "Abstract: 'Gravitational wave damping has been detected in an amount that agrees with general relativity to better than half a percent using the Hulse-Taylor binary pulsar'; p.59: the post-Minkowskian/DIRE/ADM methods 'have resolved most of the issues that led to criticism of the foundations of gravitational radiation theory during the 1970s', while noting they assume weak gravity everywhere and extrapolate to compact bodies via the SEP without a general proof -- a caveat for self-gravitating compact sources, not for a laboratory rod.",
+   "read_status": "READ (cached text d67/src/casmag/all/1403.7377v1.txt, abstract and p.59)"
+  },
+  {
+   "ref": "LVK, 'GWTC-5.0: Tests of General Relativity', arXiv:2607.19293 (2026)",
+   "effect": "confirms",
+   "what": "p.15: the double pulsar PSR J0737-3039A/B (Kramer et al. 2021) 'puts the most stringent constraint on deviations from GR at Newtonian order' -- i.e. on the leading (quadrupole) flux; 90% bounds on dipole/quadrupole flux ratio 0.23 (TIGER) and 0.41 (FTI) at 20 Hz from GW events.",
+   "read_status": "READ (cached text d67/src/casmag/all/2607.19293v1.txt, p.15)"
+  },
+  {
+   "ref": "Kramer et al. 2021, double-pulsar timing (PRX 11, 041050)",
+   "effect": "confirms",
+   "what": "cited by GWTC-5.0 as the tightest Newtonian-order (quadrupole) test; its own number not read here",
+   "read_status": "NAMED-NOT-READ"
+  },
+  {
+   "ref": "discover_papers search for laboratory rotating-rod generation / quadrupole-formula validity",
+   "effect": "contested",
+   "what": "NOT RUN TO COMPLETION: alphaXiv returned 'quota exceeded'. No later work narrowing or contradicting the formula for slow, weak-field, isolated sources was found or read; absence of a search is not evidence of absence. Effect field set to 'contested' only because the schema requires a value -- read as UNSEARCHED.",
+   "read_status": "NOT READ (tool quota exhausted)"
+  }
+ ],
+ "lacked_data": "M's hypothesis tested. Einstein (1918) had no gravitational-wave data at all: no binary pulsar (1974), no double pulsar (2003), no interferometric detection (2015). Evidence AGAINST the missing data changing this conclusion: (a) the formula is a theorem of linearised GR re-derived here in closed form, with no empirical input except G; (b) every later measurement read agrees with the leading-order (quadrupole) flux -- Hulse-Taylor damping within 0.5% (Will 2014), and the double pulsar gives the tightest Newtonian-order bound (GWTC-5.0 p.15); (c) the one datum, G, moved 3.3e-5 relative since CODATA 2014 and is unchanged 2018->2022. Evidence the other way / what remains untested: all confirmations are for gravitationally bound astrophysical sources; no laboratory (stress-supported) source has ever been detected, so the rod case rests on the theorem, not on a measurement of a rod -- but it is the case the linearised derivation covers most directly (L02 p3 conservation argument), and at the design point v/c ~ 1.7e-5 so post-Newtonian corrections are ~1e-5. Historical note NOT used in the grade: the literature reports errors in Einstein's own 1916/1918 coefficients later corrected; not read here (NAMED-NOT-READ), and the tree uses the modern G/5c^5, which is what was re-derived.",
+ "grade": "STANDS",
+ "grade_evidence": "Statement and hypotheses READ via restatement (Gerosa lecture notes following Maggiore eq. 3.75; circular rotator L03 pp2-3); the tree's use (total, period-averaged luminosity; omega_GW = 2 Omega; coefficient 2/45) lies inside the source's class -- slow motion (v/c = 1.7e-5), long wavelength (lambda/l = 9.4e4), weak field, isolated stress-supported source in flat background. Independent sympy re-derivation agrees (2/45 in both forms, via the binary map, and omega_GW = 2 Omega by Fourier content); design-point numbers reproduce branelink. The only moved datum (G) moves the result by 3.3e-5. Recorded, NOT counted against the result: the downstream strain() uses an isotropic-average, circular-polarisation convention not named as a hypothesis (on-axis h larger by sqrt(5/2); bits/s/W span -0.505..+0.398 dex with orientation), a thin-rod idealisation (1-3a^2/l^2)^2, and an unchecked rod-integrity requirement (1.25e7 J/kg); none moves O6's 26.6-dex direction. Caveat on completeness: the original (Einstein 1918) and the textbook are NAMED-NOT-READ, and the later-literature search could not be run (alphaXiv quota).",
+ "what_would_change_the_grade": "NARROWED if the ledger treats STRAIN_H as an on-axis or orientation-independent amplitude (it is an isotropic-average; the orientation factor is sqrt(5/16)..sqrt(5/2) in h) or needs a thick rod (a not << l); OPEN-ing of the rod-integrity hypothesis if a material-strength check shows no material sustains Omega^2 l^2/8 = 1.25e7 J/kg (changes the design point, not the formula, and moves bits/W the favourable way only by 1/Omega^2); a READ of Einstein 1918 would settle attribution only; WRONG would need a computed contradiction of the linearised-GR derivation for slow isolated sources, of which none was found or produced.",
+ "reverify_command": "python3 /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/einstein-quadrupole-formula-rod.py && (cd /home/user/Claude-Method-Works/research/warp-drive && python3 branelink.py --selftest | tail -1)",
+ "report_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/audits/einstein-quadrupole-formula-rod.json"
+}

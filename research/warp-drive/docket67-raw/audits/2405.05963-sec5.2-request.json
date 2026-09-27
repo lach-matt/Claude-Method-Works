@@ -1,0 +1,108 @@
+{
+ "key": "2405.05963-sec5.2-request",
+ "name": "Kontou 2024, Sec. 5.2: the request to test the HPS wormhole with the non-minimal QEIs [17,30], and the throat-size remark",
+ "source": {
+  "located": "arXiv:2405.05963, E.-A. Kontou, 'Wormhole restrictions from quantum energy inequalities', Universe 10 (2024) 291 (doi:10.3390/universe10070291), Sec. 5.2, p. 19 of 28 per the tree -- LOCATED, NOT OPENED this stage. alphaXiv answer_pdf_queries, get_paper_content(fullText) and discover_papers each returned 'alphaXiv assistant quota exceeded'; curl/WebFetch to arxiv.org, export.arxiv.org, www.mdpi.com, kclpure.kcl.ac.uk, indico.icranet.org, inspirehep.net, api.semanticscholar.org and researchgate were refused by the egress proxy (403 / EGRESS_BLOCKED, organization policy; not routed around). No cached copy in scratchpad/d67/src/kontou (empty). Two WebSearch queries returned the arXiv PDF/HTML and the Universe version for (a) the exact phrase 'examine that wormhole solution using one of the QEIs for the nonminimally coupled fields' and (b) 'nonminimal coupling to the curvature' + 'Planck length', with search-engine summaries reproducing 'semiclassically self-consistent wormhole solution ... nonminimal coupling to the curvature' and 'throat ... of Planck length or up to the order 10^2 l_pl'. HPS gr-qc/9701064 (Kontou's [90] per the tree) WAS read this stage from the cached alphaXiv extraction scratchpad/d67/src/hps/_flat0.txt (abstract; eq. (8); eq. (9); p.7 'r(0) ~ 67 l_P'; Fig. 2a 'r(0) ~ 0.02 l_P'; 'local solutions which correspond to large throat (r(0) ~ 200 - 300 l_P)').",
+  "read_status": "NAMED-NOT-READ",
+  "via": "Kontou's wording is known here through (1) the tree's quotation, qeihps.py:23-30 and :311-314, recorded READ in full text by DOCKET 64, and (2) search-engine snippets of the arXiv copy, which are corroboration, not a reading at source. The bibliography mapping [17] = FFKP 2309.10848, [30] = FO 0708.2450, [90] = HPS gr-qc/9701064 is NOT confirmed this stage (one search returned no bibliography text). The object of the remark, HPS, was READ (cached alphaXiv text)."
+ },
+ "published_statement": "NOT RE-READ AT SOURCE THIS STAGE. As the tree quotes it (qeihps.py:23-30): 'I should mention that the previous analysis was performed for a minimally coupled scalar field. An interesting, semiclassically self-consistent wormhole solution is using nonminimal coupling to the curvature [90]. The throat of the wormhole derived is of Planck length or up to the order 10^2 l_pl, so it is doubtful that it can be considered in the regime of the semiclassical approximation. However, it would be of interest to examine that wormhole solution using one of the QEIs for the nonminimally coupled fields derived in [17,30] to determine its exact validity.' The phrases 'examine that wormhole solution using one of the QEIs for the nonminimally coupled fields', 'semiclassically self-consistent wormhole solution', 'nonminimal coupling to the curvature' and 'of Planck length or up to the order 10^2 l_pl' are corroborated by WebSearch hits on arxiv.org/pdf/2405.05963 and arxiv.org/html/2405.05963v1. It is an EXTRAPOLATION/suggestion, not a theorem: it asserts no result about HPS beyond the regime doubt.",
+ "published_hypotheses": [
+  "(Kontou, as quoted) the preceding Sec. 5.2 analysis was for a MINIMALLY coupled scalar; the request concerns HPS's NON-MINIMALLY coupled field",
+  "(Kontou, as quoted) the throat is 'of Planck length or up to the order 10^2 l_pl' -- the premise of the regime doubt",
+  "(Kontou, as quoted) the regime doubt is a hedge ('it is doubtful'), not a proved exclusion",
+  "(Kontou, as quoted) 'one of the QEIs ... derived in [17,30]' -- either suffices for the requested test; the ref numbers' identity rests on Kontou's bibliography, not read here",
+  "(HPS gr-qc/9701064, READ) conformally coupled scalar xi = 1/6, m = kappa = 0; source term the AHS analytic approximation; boundary data (9) with r(0) = sqrt(-16 K^2 ln f(0)), -1 <= ln f(0) < 0; plotted solution ln f(0) = -2/3 with r(0) ~ 0.02 l_P; quartic example f(0)=f''(0)=1, r''(0)=0 -> r(0) ~ 67 l_P; 'local solutions' r(0) ~ 200-300 l_P with account deferred to 'a separate publication'; abstract: throat diameter 'can be arbitrarily large'"
+ ],
+ "hypothesis_drift": [
+  "STATUS-WORD DRIFT, qeihps.py:493-497 and selftest :993-997 (and the canonical hypothesis 'KONTOU_NAMES_FEWSTER_SMITH computed False from the parsed refs'): only the citation list (17,30) is parsed from the quote; the map 17 -> FFKP 2309.10848, 30 -> FO 0708.2450 is the tree's own RECORD (qeihps.py:316-317), not parsed from Kontou's bibliography, and the selftest at :995 compares the quote's refs to that same map. 'Not Fewster-Smith' is therefore a record of DOCKET 64's reading, not a computation; rederive C1 reproduces it and flags it circular. Not a narrowing of the result; the content is consistent with FO and FFKP being the NMC QEIs (both READ in sibling audits 0708.2450-thm4.2, 2309.10848-thmiv.1).",
+  "SOURCE-SIDE DISCREPANCY (not tree drift), quoted at qeihps.py:26-28: Kontou's lower end 'of Planck length' understates HPS's plotted throat, r0 = 1/sqrt(540 pi) = 0.02428 l_P, 1.6 decades below l_P (rederive C3b, C4a), and every throat in HPS's data class (9) is <= 1/sqrt(360 pi) = 0.02974 l_P (C3c). The direction STRENGTHENS the regime doubt. The tree does not inherit the understatement: it computes 0.0243 l_P itself (qeihps.py:114-117, 126-130).",
+  "SOURCE-SIDE SCOPE (not tree drift): HPS's abstract says the throat diameter 'can be arbitrarily large'; Kontou's 'up to the order 10^2 l_pl' tracks HPS's EXHIBITED values (0.02, 67, 200-300 l_P; C4b: 67 and 300 round to 10^2) rather than HPS's unproved claim. The tree carries Kontou's range only inside the quotation.",
+  "ADDED BY THE TREE (legitimate, not a weakening), qeihps.py:83-86, 104-108: the Hadamard-state, reference-state (omega_0 / W_0) and <:Phi^2:> hypotheses that block the requested test are not in Kontou's sentence; they are the hypotheses of FO Thm 4.2 and FFKP Thm IV.1 themselves (audited separately).",
+  "ADDED BY THE TREE, qeihps.py:57-60: Kontou's 'semiclassically self-consistent' is qualified by the tree to self-consistent with the AHS ANALYTIC APPROXIMATION to <T>, not an exact expectation value in a specified Hadamard state -- more careful than the source, not less.",
+  "BROADER, qeihps.py:514-518: Kontou asks for 'one of' the QEIs; the tree runs both (FO and FFKP). No hypothesis is weakened.",
+  "EXTENDS THE CAVEAT, qeihps.py:114-117: the tree echoes the regime doubt for the plotted (9)-class solution only. Computed here (C5c): HPS's 67 l_P example has |R_(tltl)| = f''/(2f) = 1/2 l_P^-2 at the throat (curvature radius 1.414 l_P) although 1/r0^2 = 2.2e-4, so Kontou's doubt applies to that example too, through the redshift function rather than the throat size."
+ ],
+ "data_at_publication": [
+  {
+   "quantity": "HPS plotted throat r(0) at ln f(0) = -2/3 (Planck units)",
+   "value_then": "HPS 1997: 'r(0) ~ 0.02 l_P'; Kontou 2024: 'of Planck length'",
+   "value_now": "1/sqrt(540 pi) = 0.024279 l_P (sympy, from eq. (9) with K^2 = 1/(5760 pi))",
+   "source_now": "gr-qc/9701064 eq. (9), READ (cached); rederive C3b",
+   "moves_conclusion": "No. Pure number in Planck units; no datum enters. It sharpens Kontou's 'Planck length' to 10^-1.6 l_P and strengthens the regime doubt."
+  },
+  {
+   "quantity": "Maximum throat in HPS data class (9), ln f(0) in [-1,0)",
+   "value_then": "not stated by HPS or Kontou",
+   "value_now": "1/sqrt(360 pi) = 0.029735 l_P",
+   "source_now": "rederive C3c",
+   "moves_conclusion": "No; every (9)-class throat is sub-Planckian."
+  },
+  {
+   "quantity": "HPS quartic (8) example f(0)=f''(0)=1, r''(0)=0",
+   "value_then": "HPS: 'r(0) ~ 67 l_P'",
+   "value_now": "sqrt(1440 pi) = 12 sqrt(10 pi) = 67.2599 l_P; throat |R_tltl| = 1/2 l_P^-2",
+   "source_now": "rederive C2, C5c",
+   "moves_conclusion": "No; agrees with HPS; the throat curvature is nevertheless Planckian, so the regime doubt extends to it."
+  },
+  {
+   "quantity": "HPS 'local solutions' r(0) ~ 200-300 l_P",
+   "value_then": "HPS 1997, data not printed; 'a full account ... will appear in a separate publication'",
+   "value_now": "not checkable here -- no boundary data or coupling printed; the separate publication was not found (one WebSearch)",
+   "source_now": "gr-qc/9701064 p. 8, READ (cached)",
+   "moves_conclusion": "Unknown; it bounds only the upper end of Kontou's range, which the tree does not use numerically."
+  },
+  {
+   "quantity": "K^2 (AHS coefficient for the conformal massless scalar)",
+   "value_then": "1/(5760 pi)",
+   "value_now": "1/(5760 pi) -- a one-loop coefficient, not a measured datum; sibling audit gr-qc_9701064_k2 covers it",
+   "source_now": "gr-qc/9701064 via qeihps.HPS_K2_TIMES_PI",
+   "moves_conclusion": "No."
+  },
+  {
+   "quantity": "Planck length l_P (CODATA)",
+   "value_then": "units only",
+   "value_now": "every quantity here is in Planck units; l_P's SI value never enters",
+   "source_now": "n/a",
+   "moves_conclusion": "No."
+  }
+ ],
+ "rederivation": {
+  "method": "sympy",
+  "script_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/2405.05963-sec5.2-request.py",
+  "outcome": "ALL PASS (13 checks; output in rederive/2405.05963-sec5.2-request.out). C1 citation list parsed = (17,30), FS not in the tree's map (circular -- checks the tree's record, flagged). C2 HPS quartic (8) at f=f''=1, r''=0 gives r0 = sqrt(1440 pi) = 67.2599 l_P (HPS '~67'). C3a quartic (8) with f''=r''=0 reproduces eq. (9); C3b ln f0 = -2/3 -> 1/sqrt(540 pi) = 0.024279 l_P (HPS '~0.02'); C3c class max 1/sqrt(360 pi) = 0.029735 l_P. C4 log10 r0: -1.615 (plotted), +1.828 (67), +2.301/+2.477 (200/300): the plotted throat lies 1.6 decades below Kontou's lower end, 67 and 300 round to order 10^2. C5 orthonormal Riemann of metric (2) at l=0 with f'=r'=0 derived from the metric: R_tltl = f''/(2f), R_l th l th = -r''/r, R_th ph th ph = 1/r0^2, R_t th t th = 0; plotted throat l_P^2|Riem| = 540 pi = 1696; the 67 l_P case has |R_tltl| = 1/2 l_P^-2 (radius 1.414 l_P). C6 Kretschmann radius r0/sqrt2 = 0.01717 l_P (agrees with qeihps.KRETSCHMANN_RADIUS_LP and sibling 2405.05963-sec3.3). NOT checkable: Kontou's exact wording and bibliography numbering (source unreadable this stage); HPS's 200-300 l_P solutions (data not printed).",
+  "agrees_with_source": "partly"
+ },
+ "later_literature": [
+  {
+   "ref": "discover_papers (alphaXiv) for later tests of HPS against NMC QEIs",
+   "effect": "contested",
+   "what": "Call returned 'alphaXiv assistant quota exceeded'; no result. Effect field is a placeholder: NOTHING was found either way.",
+   "read_status": "NOT-RUN (quota)"
+  },
+  {
+   "ref": "WebSearch: 'Hochberg Popov Sushkov self-consistent wormhole quantum energy inequality nonminimally coupled test 2024 2025'",
+   "effect": "confirms",
+   "what": "Returned only Kontou 2024 and HPS 1997 themselves (arXiv, PRL, INSPIRE, KCL); no paper carrying out the requested FO/FFKP test on HPS surfaced. This confirms only that the request appears unanswered in what a web search indexes -- absence of evidence, not a literature review.",
+   "read_status": "SEARCH-SNIPPETS-ONLY"
+  },
+  {
+   "ref": "arXiv:2603.11724, 'Quantum backreaction and stability of topological wormholes'",
+   "effect": "extends",
+   "what": "Surfaced in a WebSearch result list for the HPS/Popov/Sushkov query; its relation to HPS or to NMC QEIs is UNKNOWN -- title only.",
+   "read_status": "NAMED-NOT-READ"
+  },
+  {
+   "ref": "sibling audits 0708.2450-thm4.2 (FO) and 2309.10848-thmiv.1 (FFKP), this pass",
+   "effect": "narrows",
+   "what": "The two QEIs the request names are READ in those audits: FO Thm 4.2 STANDS on its hypotheses (xi in [0,1/4]); FFKP Thm IV.1's printed Ricci coefficient carries over only where R_mn l^m l^n = 0 on supp f, which HPS's throat neighbourhood violates -- so one of the two instruments Kontou names is narrower than 'applies in form' on HPS. Bears on the tree's O5 text, not on the existence or wording of the request.",
+   "read_status": "READ (in sibling audits, this pass)"
+  }
+ ],
+ "lacked_data": "What Kontou (2024) had: HPS's 1997 PRL (a letter; plotted solution r0 ~ 0.02 l_P, quartic example 67 l_P, unprinted 200-300 l_P local solutions promised for a separate publication) and the NMC QEIs FO 2008 / FFKP 2023. What she lacked -- and what anyone still lacks -- is not a measured datum but a construction: a Hadamard state on the HPS background whose <T> is the AHS approximation, a reference two-point function W_0 / omega_0 there, and <:phi^2:> in that state. That lack is exactly what blocks the requested test in the tree (qeihps.py:83-86, 104-108), and supplying it would decide the test, not overturn the request. Her throat-size premise does not rest on any datum that has moved: all quantities are in Planck units (C3-C5). The one place her summary is imprecise ('of Planck length') errs AGAINST semiclassical validity being even more doubtful than she says (0.024 l_P; every (9)-class throat <= 0.030 l_P), and the 67 l_P example's throat curvature is Planckian through f''/(2f) = 1/2 (C5c). Evidence therefore runs against M's hypothesis for THIS result: more data sharpens Kontou's doubt rather than refuting it. What is genuinely missing and could move something: HPS's 200-300 l_P solutions (data unpublished; not found) -- if their throat curvature were sub-Planckian everywhere, the doubt would not extend to them; not checkable here.",
+ "grade": "OPEN",
+ "grade_evidence": "The result as the tree uses it is (a) that Kontou 2024 Sec. 5.2 makes this request and names the non-minimal QEIs [17,30] = FFKP and FO, not Fewster-Smith, and (b) the throat-size remark, echoed as a caveat. (a) could NOT be read at source this stage: alphaXiv quota exhausted on all three tools, and every other host for the paper refused by the egress proxy. It is CORROBORATED, not read: two WebSearch hits on the arXiv copy reproduce the request's key phrase and the throat phrase verbatim, and the tree records a full-text reading (DOCKET 64). The ref-number mapping [17]/[30]/[90] is unconfirmed, and the tree's 'computed' FS exclusion is a record lookup (C1, circular). (b) is CHECKED against HPS, READ from cached text: every throat figure behind Kontou's range re-derives (C2 67.26 l_P, C3 0.02428 l_P, C4 decades) and her regime doubt is borne out and extended (C5b l_P^2|Riem| = 1696 at the plotted throat; C5c Planckian R_tltl even at 67 l_P). The one discrepancy ('of Planck length' against 0.024 l_P) is an imprecision in the source's summary that strengthens the doubt -- a discrepancy, not a refutation, and the tree doesn't inherit it. Nothing contradicts the tree's use and no datum moves. Because the statement itself could not be read here it is OPEN, not flattened to STANDS. If a reading of p. 19 and the bibliography confirms the quote, the evidence points to STANDS.",
+ "what_would_change_the_grade": "Reading arXiv:2405.05963 p. 19 (Sec. 5.2) and bibliography entries [17], [30], [90] at source (alphaXiv once the quota resets). Exact match to qeihps.py:23-30 with [17] = 2309.10848, [30] = 0708.2450, [90] = gr-qc/9701064 -> STANDS (with the 'Planck length' discrepancy recorded, and the status-word note that KONTOU_NAMES_FEWSTER_SMITH is a record, not a computation). A different ref mapping (e.g. [17] or [30] not an NMC QEI) -> NARROWED on qeihps.py:316-317 and on O5/specthm R7's attribution. No such request in the text -> WRONG for DOCKET62_ATTRIBUTION_STANDS (not expected: two independent search hits reproduce the phrase). Publication of HPS's 200-300 l_P solutions with sub-Planckian throat curvature would narrow the regime doubt's reach, not the request.",
+ "reverify_command": "python3 /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/2405.05963-sec5.2-request.py && grep -o 'r(0) ≈ 67l P\\|r(0) ≈ 0.02 l P\\|200 − 300 l P\\|arbitrarily large' /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/src/hps/_flat0.txt && sed -n '21,36p;309,317p;493,497p;514,519p;993,997p' /home/user/Claude-Method-Works/research/warp-drive/qeihps.py",
+ "report_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/audits/2405.05963-sec5.2-request.json"
+}

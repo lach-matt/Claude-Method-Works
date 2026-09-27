@@ -1,0 +1,41 @@
+PASS  C0 source md5: got '17c67ada52d92fc44065246ef92fee8c' want '17c67ada52d92fc44065246ef92fee8c'
+PASS  C1a BORDE_SINGULARITY verbatim in source: got True want True
+PASS  C1b 'very wide range of situations' verbatim (abstract): got True want True
+PASS  C1c bullet header is the CLOSED-universe misconception: got True want True
+PASS  C1d condition: 'If the standard incomplete-geodesic definition is used': got True want True
+PASS  C1e caveat: 'other definitions of a singularity may make the statement true': got True want True
+PASS  C1f 'causality violation' = at least one closed timelike curve (Sec. IV): got True want True
+PASS  C1g abstract: Theorem 3 'does not permit topology change even at the price of singularities': got True want True
+PASS  C1h 'at the very end' = IX.C degenerate metrics ('these kinds of singularities'): got True want True
+      Theorem 1 as extracted: Theorem 1: Let M be a (time-oriented) causally compact spacetime that interpolates between an initial surface S 1 and a final surface S 2 . Suppose that M has no closed timelike curves. Then, M is diffeomorphic to S 1 × [0, 1] (and, in particular, S 1 is diffeomorphic to S 2 ). 
+PASS  C2a Theorem 1 contains no completeness/geodesic hypothesis: got False want False
+PASS  C2b Theorem 1 hypotheses present: got ['time-oriented', 'causally compact', 'interpolates', 'no closed timelike curves'] want ['time-oriented', 'causally compact', 'interpolates', 'no closed timelike curves']
+PASS  C2c interpolating spacetime needs a smooth Lorentz metric, S1,S2 spacelike: got True want True
+PASS  C2d open case via timelike tube T inside an externally simple spacetime: got True want True
+PASS  C2e causal compactness definition present: got True want True
+PASS  C3a signature Lorentzian (det < 0): got -1 want -1
+PASS  C3b metric invariant under (x,y)->lam(x,y): quotient by lam=2 is a compact torus: got Matrix([
+[0, 0],
+[0, 0]]) want Matrix([
+[0, 0],
+[0, 0]])
+PASS  C3c x=1/(1-t), y=0 solves the geodesic equation (affine): got [0, 0] want [0, 0]
+PASS  C3d it is null: got 0 want 0
+PASS  C3e fundamental domains crossed before t=1 diverge (incomplete): got oo want oo
+PASS  C3f c(s)=2^s(1,-1): g(c',c') = -(ln 2)^2 < 0 (timelike): got 0 want 0
+PASS  C3g c(1) = 2 c(0) and c'(1) = 2 c'(0): a smooth CLOSED timelike curve on the torus: got True want True
+PASS  C4a tc & cc & smooth & to & INCOMPLETE & ~ctc is UNSAT: got 'unsat' want 'unsat'
+PASS  C4a' same with incomplete = False is UNSAT (incompleteness is idle): got 'unsat' want 'unsat'
+PASS  C4b drop cc: tc & smooth & to & ~ctc is SAT (Borde IX.A route open): got 'sat' want 'sat'
+PASS  C4c S1 empty & non-time-orientable: ~ctc SAT (Sec. VII): got 'sat' want 'sat'
+PASS  C4d tree fact created&cc->ctc NOT entailed without smooth (countermodel): got 'sat' want 'sat'
+PASS  C4e tree fact entailed once smooth & to are added: got 'unsat' want 'unsat'
+      C5 enumerated 8476 flows (N <= 5)
+PASS  C5 every trapped flow line closes (no counterexample): got 0 want 0
+PASS  C6a create.py:187 comment keeps 'not under the standard defn': got True want True
+PASS  C6b create.py:289 check label carries no definition condition: got False want False
+PASS  C6c create.py:290 prints BORDE_SINGULARITY[:66], which includes the cc condition: got True want True
+PASS  C6d create.py:341-342 summary drops the cc condition: got False want False
+PASS  C6e index3.py:884 says 'does NOT buy topology change' (Theorem 3's conclusion) under the kinematic quote: got True want True
+
+33/33 checks agree

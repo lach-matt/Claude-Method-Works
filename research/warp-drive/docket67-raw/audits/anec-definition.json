@@ -1,0 +1,112 @@
+{
+ "key": "anec-definition",
+ "name": "Averaged null energy condition (and averaged energy conditions generally bound a worldline integral)",
+ "source": {
+  "located": "Modern authoritative statement: Kontou & Sanders, 'Energy conditions in general relativity and quantum field theory', arXiv:2003.01815v2 (CQG 37 193001, 2020), Sec. 4.1 p.28 eq. (83), p.29 eqs. (84)-(85) and Table 4. Cross-read: Graham & Olum arXiv:0705.3193v2 (PRD 76 064001, 2007) eq. (1) and Condition 1, p.2; Fliss, Freivogel & Kontou arXiv:2111.05772v1 (2021) pp.3-5, 13; Burwig & Easson arXiv:2605.18965v1 (2026) Sec. II eq. (8)-(9) p.5 and App. A eqs. (A9)-(A19) pp.40-42. The originating classics (Tipler PRD 17 2521, 1978; Borde CQG 4 343, 1987; Klinkhammer PRD 43 2542, 1991) have no arXiv copy: NAMED-NOT-READ, known here only through the K&S restatement (refs [19], [117], [130]).",
+  "read_status": "READ-VIA-RESTATEMENT",
+  "via": "alphaXiv answer_pdf_queries, page text returned for 2003.01815 pp.1,5,28-30,34-36,52,57-58; 0705.3193 pp.1-8 (whole paper); 2111.05772 pp.1-6,11,13,15,19-20,26-27,31-32; 2605.18965 pp.1-3,5-7,11-12,14,17,21-27,29,32,37,40-42,46-48. The definition is READ at source in K&S; the 1978/1987/1991 originals are not read."
+ },
+ "published_statement": "Kontou-Sanders 2003.01815 p.28: 'An averaged energy condition is a condition that requires a contraction of the stress tensor of a theory, averaged over a suitable spacetime region, to be non-negative ... Although one could consider many spacetime regions to average over, our discussion will only consider averages along causal geodesics, which is also the most common choice in the literature.' 'We let gamma denote a smooth causal geodesic with affine parameter tau and tangent vector gamma-dot^a.' AWEC (81): INT_{-inf}^{inf} dtau T_ab gamma'^a gamma'^b >= 0 for all inextendible timelike geodesics, when absolutely convergent. 'For the averaged null energy condition (ANEC) we consider null geodesics gamma with affine parameter lambda. The ANEC then requires that INT_{-inf}^{inf} dlambda T_ab(gamma(lambda)) gamma'^a(lambda) gamma'^b(lambda) >= 0 (83) for all inextendible null geodesics when the integral is absolutely convergent. An even weaker condition is the achronal averaged null energy condition (AANEC), which requires the same inequality only for all achronal inextendible null geodesics.' p.29: extensions to non-absolutely-convergent integrals are 'not unique' (Verch lim inf (84); Wald-Yurtsever test-function lim inf (85)). Table 4: AWEC, ASEC over timelike, ANEC over null, AANEC over achronal null inextendible geodesics, 'tau is an affine parameter along the geodesic'. p.28: T_ab is 'the stress tensor of the theory, or, in the case of a quantum theory, the expectation value of the renormalized stress tensor'. Graham-Olum 0705.3193 p.2 eq. (1): 'INT_gamma T_ab k^a k^b > 0 where the integral is taken over a complete null geodesic gamma with tangent vector k^a'. K&S p.35: Klinkhammer 'showed that negative results can be obtained by integrating along curves which are not geodesics'.",
+ "published_hypotheses": [
+  "H1 CURVE: an inextendible (complete) NULL GEODESIC (K&S eq. 83, Table 4; Graham-Olum eq. 1). Not an arbitrary null curve: K&S p.35 records that Klinkhammer obtained negative results along non-geodesic curves, which is why the geodesic clause is in the definition.",
+  "H2 PARAMETER: the integral is taken with respect to an AFFINE parameter lambda, and the contracted vector is the affine tangent gamma'^a = dgamma/dlambda (K&S p.28). The constant affine rescaling changes the value by a positive factor and leaves the sign invariant (Burwig-Easson App. A (A9): 'It changes the numerical value of the averaged integral by an overall positive factor, but leaves the ANEC inequality and its sign invariant'). Burwig-Easson p.5: 'The factor 1/a(t) is not a convention, but rather the affine weighting.'",
+  "H3 INTEGRAND: T_ab gamma'^a gamma'^b, the null-null contraction -- not the energy density rho. For a perfect fluid T_kk = (rho+p)(u.k)^2 (Burwig-Easson (A14)-(A16)).",
+  "H4 CONVERGENCE: stated for absolutely convergent integrals; extensions to other cases are non-unique (K&S p.29, (84), (85)).",
+  "H5 STRESS TENSOR: either a classical T_ab or a renormalised quantum expectation value (K&S p.28). The definition makes no QFT assumption; the THEOREMS proving it do (separate audit anec-klinkhammer-wald-yurtsever).",
+  "H6 ACHRONALITY: not part of ANEC; it defines the weaker AANEC (K&S p.28; Graham-Olum p.2). Self-consistency (semiclassical Einstein equation) is a further, separate strengthening of the hypothesis set (Graham-Olum Condition 1).",
+  "H7 SCOPE OF 'AVERAGED': K&S define an averaged energy condition over 'a suitable spacetime region' and restrict to causal geodesics as the most common CHOICE, not as part of the concept (p.28). DSNEC (Fliss-Freivogel-Kontou 2111.05772 p.3) averages 'over a distance delta+ in the x+ direction and delta- in the x- direction ... smeared over only a subspace of the entire spacetime' -- a 2D region, not a line."
+ ],
+ "hypothesis_drift": [
+  "WIDENED -- overturn.py:167 'Every averaged energy condition bounds a WORLDLINE integral: int_line rho dl.' K&S p.28 define averaged energy conditions over 'a suitable spacetime region' and restrict to causal geodesics as a convention; DSNEC (2111.05772 p.3, p.13 eq. 54) is an averaged null-energy bound over two null directions that recovers ANEC only in the limit delta+ -> 0, delta- -> inf. 'Every' holds for the four main conditions of K&S Table 4 (AWEC, ASEC, ANEC, AANEC), not for the family. Also terminological: ANEC's curve is a null geodesic, not an observer's worldline.",
+  "SUBSTITUTED INTEGRAND (hypothesis ADDED, unstated) -- overturn.py:167 and :191 integrate rho, not T_ab k^a k^b. Computed in Part A: for a static perfect fluid in flat space with k = (1,1,0,0), T_kk = rho + P; straight null lines are affine geodesics of flat space with dlambda = dx. So the chord integral IS the flat-space ANEC integral exactly when INT P dl = 0 along the chord (pressureless/dust matter), and not otherwise. The owner flags the chords as an 'ANEC-analogue' (overturn.py:191) and states two scope limits at overturn.py:209-213 (not a field-equation solution; straight chords, not geodesics of the sourced metric) but does not name the zero-pressure hypothesis.",
+  "QUALIFIER DROPPED -- overturn.py:217-218 'ANEC does not forbid this -- it is satisfied and it is not even the right shape of constraint', and overturn.py:660 'Neither the positive mass theorem nor ANEC is doing the work': the 'analogue' qualifier of overturn.py:191 and the dust hypothesis above are not carried into the conclusion, which rests_on_it cites ('Two of the three famous obstructions are not obstructions here', overturn.py:226). The arithmetic itself is re-derived exactly (chord(0) = 2[a(R-r0) - b r0] = 1; chord increasing in p on [0,r0); min over [r0,R) = 2a sqrt(R^2-p^2) > 0; m(r0) = -4 pi/3; linear scaling).",
+  "CONTEXT (not ANEC, same passage) -- overturn.py:219-221 contrasts ANEC with 'the Ford-Roman quantum inequality ... which bound |rho| itself over a sampling region rather than an average along a line'. The Ford-Roman / Pfenning-Ford inequalities are themselves sampled along a timelike WORLDLINE (FFK 2111.05772 p.4: 'Most of these results are for averages over timelike curves'); the operative difference is finite sampling width versus a complete line, not region versus line.",
+  "AFFINE PARAMETER DROPPED -- anec.py:39 states ANEC as 'INTEGRAL <T_kk> dl >= 0' and anec.py:41-48, 124-126 compute INT T_kk dx with k^t = 1 (k = (1, v+1, 0, 0), anec.py:98-103). Computed in Part C3: on the y = 0 line the covariant conserved k_t = -(1+v) varies along the ray, so k is not affinely parametrised; the affine tangent is K = k/(1+v) with K^x = 1, hence dlambda = dx and the published ANEC integral is INT T_kk/(1+v)^2 dx = -0.052410 (n = 240 and 480 agree), against anec.py's -0.080665. The tree's own affine RK4 integrator (achronal.py survey_ray(0.0)) returns -0.052410 identically. Sign preserved; magnitude 35% smaller.",
+  "GEODESIC CLAUSE DROPPED for y != 0 -- anec.py:91 Y_RAYS = (0.0, 0.2, 0.3, 0.5, 0.8). Computed in Part C2: the covariant acceleration of the fixed-y line has |A^y| = 0 at y = 0 (a null pregeodesic, by the y -> -y symmetry) but max |A^y| = 0.60 at y = 0.3 and 0.19 at y = 0.8. The four off-axis lines are not geodesics, so their integrals are not ANEC integrals of any kind. The tree already records this (achronal.py:85-88, :427-436 'anec.py's magnitudes stand as a NEC statement'); achronal.py's true geodesic at y0 = 0.3 gives -0.060263 against anec.py's -0.094637.",
+  "MAGNITUDES QUOTED AS ANEC VALUES -- index3.py:381-382 'INT T_kk dx is negative on every ray, -0.081 to -0.344: ANEC is violated'. Part B: an ANEC integral's magnitude is fixed only up to the affine normalisation (lambda -> c lambda divides it by c), and along a non-affine parameter even the sign is not guaranteed (toy: +1/2 becomes -1/2 under a positive weight). The five quoted magnitudes are coordinate-line integrals, not ANEC integrals; the sign is what survives where checked (y = 0 affine; y0 = 0.3 on the true geodesic).",
+  "TRUNCATION (no drift of consequence) -- anec.py:124 window x in [-2.5, 2.5], n = 90, for an 'inextendible' geodesic: Part C1 widens to [-6, 6], n = 240 and reproduces all five values to 6 decimals (the shape function falls as exp(-2 sigma (r-R)), sigma = 8).",
+  "CLASSICAL T (no drift) -- anec.py takes T_mu_nu from the Einstein tensor (typefour.py). K&S p.28 admit a classical stress tensor in the definition. Whether a QFT theorem then applies to it is a different result (QNEC / Klinkhammer-Wald-Yurtsever audits).",
+  "ACHRONALITY (no drift in the definition) -- anec.py tests plain ANEC; achronality defines AANEC (K&S p.28) and is taken up by achronal.py and anecscope.py, not by the definition."
+ ],
+ "data_at_publication": [
+  {
+   "quantity": "ANEC integral on the y = 0 ray, v_s = 0.5, sigma = 8, R = 1 (tree's configuration)",
+   "value_then": "-0.0807 (anec.py:44; INT T_kk dx, k^t = 1, non-affine)",
+   "value_now": "-0.052410 (INT T_kk/(1+v)^2 dx, affine; achronal.py geodesic integrator agrees to 6 decimals)",
+   "source_now": "rederive/anec-definition.py Parts C3-C4 (computed here with the tree's typefour.py pipeline, from copies)",
+   "moves_conclusion": "No for the sign (violated either way); yes for the magnitude, which is not an ANEC value as recorded."
+  },
+  {
+   "quantity": "ANEC integral on the y0 = 0.3 ray",
+   "value_then": "-0.0946 (anec.py:46; fixed-y coordinate line, not a geodesic)",
+   "value_now": "-0.060263 (achronal.py true null geodesic launched along +x at y0 = 0.3, affine)",
+   "source_now": "rederive/anec-definition.py Part C4 (tree's own achronal.survey_ray, copy)",
+   "moves_conclusion": "No for the sign; the magnitude is a coordinate-line quantity."
+  },
+  {
+   "quantity": "ANEC window truncation",
+   "value_then": "x in [-2.5, 2.5], n = 90",
+   "value_now": "x in [-6, 6], n = 240: identical to 6 decimals on all five rays",
+   "source_now": "rederive/anec-definition.py Part C1",
+   "moves_conclusion": "No."
+  },
+  {
+   "quantity": "Chord integral chord(0) and minimum chord (overturn.py two-zone profile, a = 1.5, b = 1, r0 = 1, R = 2)",
+   "value_then": "+1.000000 = 2[a(R-r0) - b r0]; every chord >= 0 (overturn.py:185-186)",
+   "value_now": "+1 exactly (sympy); d chord/dp >= 0 on [0, r0); min over [r0, R) -> 2a sqrt(R^2-R^2) -> 0+ at p -> R, 0.599 at p = 1.99; m(r0) = -4.18879, m(R) = +39.79351",
+   "source_now": "rederive/anec-definition.py Part A",
+   "moves_conclusion": "No -- the arithmetic stands; what is narrowed is that it equals ANEC only for zero-pressure matter."
+  },
+  {
+   "quantity": "Physical/measured constants",
+   "value_then": "none -- the definition takes no measured datum",
+   "value_now": "none",
+   "source_now": "K&S 2003.01815 eq. (83)",
+   "moves_conclusion": "Not applicable."
+  }
+ ],
+ "rederivation": {
+  "method": "sympy",
+  "script_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/anec-definition.py",
+  "outcome": "Part A (sympy): overturn.py's chord closed forms reproduced exactly (chord(0) = 1; chord monotone increasing in p on [0,r0); m(r0) = -4 pi/3 b r0^3; both linear in the scale); static perfect fluid in flat space gives T_kk = rho + P, so the chord equals the ANEC integral only when INT P dl = 0. Part B (sympy): affine rescaling divides the ANEC integral by c (sign invariant, magnitude not); a positive non-affine weight flips a toy integral from +1/2 to -1/2. Part C (numeric, tree pipeline from copies in rederive/_anecdef_src/, md5 typefour 006acbb0..., anec c65ee38f..., achronal 285857f0...): anec.py's five values reproduced (-0.080665, -0.086534, -0.094637, -0.129034, -0.344100) and unchanged on [-6,6]; y = 0 line is a null pregeodesic (|A^y| = 0, parallel residual ~1e-6 = finite-difference noise), off-axis lines are not (|A^y| = 0.60 at y = 0.3); k_t = -(1+v) along y = 0; affine ANEC on y = 0 = -0.052410, matching achronal.py's affine geodesic integral -0.052410; achronal y0 = 0.3 geodesic = -0.060263. Under the same positive weight 1/(1+v)^2 all five coordinate-line integrals stay negative (-0.0524 .. -0.1495). Runtime ~9 s. No file under research/warp-drive was imported or written (sys.dont_write_bytecode; git status clean).",
+  "agrees_with_source": "partly"
+ },
+ "later_literature": [
+  {
+   "ref": "Kontou & Sanders, arXiv:2003.01815 (2020), Sec. 4.1 eqs. (81)-(85), Table 4, p.35",
+   "effect": "confirms",
+   "what": "Fixes the definition: inextendible null geodesic, affine parameter, absolute convergence; AANEC as the achronal restriction; 'averaged over a suitable spacetime region' with geodesics as the common choice; Klinkhammer's negative results along non-geodesic curves.",
+   "read_status": "READ (alphaXiv page text)"
+  },
+  {
+   "ref": "Graham & Olum, arXiv:0705.3193 (2007)",
+   "effect": "narrows",
+   "what": "Replaces ANEC by self-consistent achronal ANEC (Condition 1): only complete achronal null geodesics, and only in self-consistent semiclassical solutions -- the class of curves and the status of T both narrowed. Definition eq. (1) as K&S.",
+   "read_status": "READ (whole paper)"
+  },
+  {
+   "ref": "Fliss, Freivogel & Kontou, arXiv:2111.05772 (2021) 'The double smeared null energy condition'",
+   "effect": "contradicts",
+   "what": "Contradicts only the tree's GENERALISATION at overturn.py:167: DSNEC is a null-energy averaging over two null directions (a 2D region) with a finite lower bound; single-line smearing (SNEC) has a UV-divergent bound; ANEC is recovered as the delta- -> infinity limit (eq. 54). The ANEC definition itself is confirmed (eq. 3).",
+   "read_status": "READ (pp.1-6, 11, 13, 15, 19-20, 26-27, 31-32)"
+  },
+  {
+   "ref": "Burwig & Easson, arXiv:2605.18965 (2026) 'Affine ANEC selects the closed FRW branch'",
+   "effect": "confirms",
+   "what": "Confirms that the affine weighting is load-bearing: in FRW the affine ANEC is INT (rho+p)/a dt, 'not merely ... the coordinate-time integral of rho + p'; constant affine rescaling leaves only the sign invariant; T_kk = (rho+p)(u.k)^2 for a perfect fluid -- the two points on which the tree's uses drift.",
+   "read_status": "READ (pp.1-3, 5-7, 21-27, 40-42)"
+  },
+  {
+   "ref": "Wall arXiv:0910.5751; Kontou & Olum arXiv:1507.06299; Ishibashi-Maeda-Mefford arXiv:1903.11806; arXiv:2602.18023 (observer-robust energy conditions for warp drives)",
+   "effect": "extends",
+   "what": "Returned by discover_papers; bear on AANEC proofs/violations and warp-drive pointwise conditions, not on the definition. Listed, not used for any claim here.",
+   "read_status": "NAMED-NOT-READ"
+  }
+ ],
+ "lacked_data": "M's hypothesis tested for this entry: the ANEC is a DEFINITION (Tipler 1978 / Borde 1987 / Klinkhammer 1991 as restated by K&S 2020); its statement contains no measured quantity, so no datum the originators lacked can move it. Evidence: K&S eq. (83) and Table 4 carry no empirical input; every later change is conceptual, not data-driven -- achronality (Wald-Yurtsever 1991, Graham-Olum 2007), self-consistency (Penrose-Sorkin-Woolgar 1993, Graham-Olum 2007), non-unique lim-inf extensions (K&S p.29), and spacetime-region smearing (DSNEC 2021). None of these alters the definition; the last shows that 'averaged energy condition' is wider than 'worldline integral'. What 'lacked' here is on the tree's side, not the authors': anec.py lacked the affine normalisation and (off-axis) the geodesic, and overturn.py lacked the pressure term. Supplying them (computed here) leaves every sign the tree asserts unchanged and changes the magnitudes (-0.0807 -> -0.0524 at y = 0; -0.0946 -> -0.0603 at y0 = 0.3 on the true geodesic). So for this result M's hypothesis is not supported: no external datum moved, and nothing in the published definition is inaccurate or incomplete as published.",
+ "grade": "NARROWED",
+ "grade_evidence": "The published definition (K&S 2003.01815 eq. 83) STANDS as read and needs no data. The tree uses it on a wider class than it covers, in three computed ways: (1) overturn.py:167 'every averaged energy condition bounds a worldline integral' holds for K&S Table 4's four conditions, not for the family (K&S p.28 'suitable spacetime region'; DSNEC 2111.05772 averages over two null directions); (2) overturn.py's straight-chord INT rho dl equals the flat-space ANEC integral only for zero-pressure matter (T_kk = rho + P, Part A), a hypothesis not named at overturn.py:209-213 and dropped with the 'analogue' qualifier at overturn.py:217-218 and :660; (3) anec.py's INT T_kk dx is not the ANEC integral: non-affine on y = 0 (affine value -0.052410 vs -0.080665, Part C3, confirmed by achronal.py's integrator) and non-geodesic for y != 0 (|A^y| = 0.60 at y = 0.3, Part C2), so the magnitudes at index3.py:381 are not ANEC values. Not WRONG: no sign the tree asserts is refuted -- the y = 0 affine ANEC and the y0 = 0.3 true-geodesic ANEC are both negative, and the overturn chord arithmetic is exact. Not DATA-DEPENDENT: no measured datum enters.",
+ "what_would_change_the_grade": "To STANDS: overturn.py naming the zero-pressure (dust) hypothesis at the chord claim and restricting 'every averaged energy condition' to the causal-geodesic conditions; anec.py/index3.py re-quoting the ANEC value as the affine geodesic integral (-0.0524 at y = 0, or achronal.py's geodesic values) and stating the sign, not the coordinate-line magnitudes, as the ANEC finding. To WRONG: an affine, geodesic ANEC integral of the tree's configuration that comes out non-negative on a ray where the tree asserts violation, or an EOS for the two-zone profile under which the true null-geodesic ANEC integral is negative while the tree says 'satisfied' -- neither was found here. Reading Tipler 1978 / Borde 1987 / Klinkhammer 1991 directly could only refine the attribution, not the definition.",
+ "reverify_command": "python3 /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/anec-definition.py",
+ "report_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/audits/anec-definition.json"
+}

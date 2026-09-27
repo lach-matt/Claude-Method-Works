@@ -1,0 +1,39 @@
+A. the SM Higgs vacuum manifold
+PASS  A1 H^dag H = x1^2+x2^2+x3^2+x4^2 (so H^dag H = v^2/2 is S^3 of radius v/sqrt2 in R^4)
+PASS  A2 U^dag U = 1 on the manifold
+PASS  A3 det U = 1 on the manifold
+PASS  A4 U H0 = H (transitive: SU(2) alone reaches every vacuum)
+PASS  A5 dim count: dim(SU2xU1)=4, dim(U1_em)=1, 4-1 = 3 = dim S^3
+
+B. homotopy of S^3 (numeric witnesses)
+PASS  B1 pi_0(S^3) = 0: any two vacua joined by an arc on S^3 (no domain walls)
+PASS  B2 pi_1(S^3) = 0: 20 random Fourier loops each contracted on S^3 (no strings)
+PASS  B3 pi_2(S^3) = 0: 10 random smooth 2-spheres each contracted on S^3 (no monopoles)
+      pi_3(S^3) = Z (textures): NOT computed here; stated, not checked
+
+C. Zurek's freeze-out algebra (standard form, derived here, source NOT READ)
+PASS  C1 freeze-out time t^ = (tau0 tau_Q^(z nu))^(1/(1+z nu))   [(tau_0*tau_Q**(nu*z))**(1/(nu*z + 1))]
+PASS  C2 xi^ = xi0 (tau_Q/tau0)^(nu/(1+z nu))
+      exponent nu/(1+z nu), mean field: 1/4 = 0.2500; string density ~ xi^-2 ~ tau_Q^-0.5000
+      exponent nu/(1+z nu), 3D XY (nu~0.6717, z=2): 6717/23434 = 0.2866; string density ~ xi^-2 ~ tau_Q^-0.5733
+      crossover model: tau = tau0/(eps^2+d^2)^(z nu/2), xi = xi0/(eps^2+d^2)^(nu/2), d=0.05
+      tau_Q=   1e+00   xi^(crossover)=   0.9997   xi^(critical, KZ)=      1.0000
+      tau_Q=   1e+02   xi^(crossover)=   3.0652   xi^(critical, KZ)=      3.1623
+      tau_Q=   1e+04   xi^(crossover)=   4.4704   xi^(critical, KZ)=     10.0000
+      tau_Q=   1e+06   xi^(crossover)=   4.4721   xi^(critical, KZ)=     31.6228
+      tau_Q=   1e+08   xi^(crossover)=   4.4721   xi^(critical, KZ)=    100.0000
+      tau_Q=   1e+10   xi^(crossover)=   4.4721   xi^(critical, KZ)=    316.2278
+PASS  C3 crossover: xi^ saturates at xi_max = xi0 d^-nu (4.4721) -- no KZ power law as tau_Q -> inf
+PASS  C4 critical: xi^ keeps growing as tau_Q^(1/4) (mean field)
+PASS  C5 rapid quench (tau_Q small): crossover and critical agree -- the fast end is insensitive to d   0.9997 vs 1.0000
+
+D. data
+PASS  D1 tree T_EW 160 GeV ('ORDER') vs D'Onofrio-Rummukainen 159.5 +/- 1.5 (as tree quotes): 0.33 sigma
+      160 GeV = 1.8567e+15 K
+      PDG-2026 capture: m_H=125.130 m_Z=91.1879 m_W=80.362 GeV
+      beta = m_H^2/m_Z^2 = 1.8830 ; on-shell sin^2 theta_W = 0.2233
+PASS  D2 m_H > m_Z (beta > 1): the regime in which semilocal/Z-strings are reported unstable (criterion NAMED-NOT-READ)
+PASS  D3 m_H = 125.13 GeV is 1.74 x the ~72 GeV first-order endpoint: crossover side (endpoint NAMED-NOT-READ)
+      Higgs correlation length at T=0: hbar c/m_H = 1.5770e-18 m
+
+ALL A-D CHECKS PASS

@@ -1,0 +1,106 @@
+{
+ "key": "energy-conditions-definitions",
+ "name": "Pointwise energy conditions NEC/WEC/SEC/DEC and 'the DEC requires the WEC' (merged: weak-energy-condition-pointwise)",
+ "source": {
+  "located": "Hawking & Ellis, The Large Scale Structure of Space-Time (CUP 1973) sec. 4.3 -- no arXiv copy; NAMED-NOT-READ. Read via exact restatements: Curiel, 'A Primer on Energy Conditions', arXiv:1405.0403 (2014) sec. 2.1 pp.6-8; Martin-Moruno & Visser, 'Classical and semi-classical energy conditions', arXiv:1702.05915 (2017) sec. 2, eqs 2.3-2.6, type-I table p.6, sec. 4 (DEC = WEC + FEC); Kontou & Sanders, 'Energy conditions in GR and QFT', arXiv:2003.01815 (2020) sec. 2.1, Table 1, Fig. 2, Props 2.1-2.2.",
+  "read_status": "READ-VIA-RESTATEMENT",
+  "via": "alphaXiv answer_pdf_queries on 1405.0403, 1702.05915, 2003.01815 (page text quoted below); Hawking-Ellis 1973 itself not read"
+ },
+ "published_statement": "WEC: T_ab xi^a xi^b >= 0 for every timelike xi (Curiel p.6; MM&V eq 2.5; K&S eq 18). NEC: T_ab k^a k^b >= 0 for every null k (MM&V eq 2.6). SEC: (T_ab - T g_ab/2) xi^a xi^b >= 0 for every timelike xi (4D; K&S eq 20 gives T/(n-2) in n dims). DEC: T_ab xi^a xi^b >= 0 AND -T^a_b xi^b causal [future-directed] for every timelike xi, equivalently T_ab t^a xi^b >= 0 for co-oriented timelike t, xi. Implications: 'Clearly, the SDEC implies the DEC, which implies the WEC' (Curiel p.8); 'if the WEC is not satisfied, then the DEC has to be violated. However, the WEC and the SEC are, in principle, completely independent' (MM&V p.3); 'the DEC is just the combination of the WEC and the FEC' (MM&V p.13); 'even though the name suggests it, the SEC does not imply the WEC' (K&S p.9). Type-I effective forms: NEC rho+p_i>=0; WEC + rho>=0; SEC + rho+Sum p_i>=0; DEC |p_i|<=rho, rho>=0 (MM&V p.6).",
+ "published_hypotheses": [
+  "definitions, not theorems: they quantify over ALL timelike (resp. null) vectors at a point; 'hold' needs every observer, 'fail' needs one",
+  "4-dimensional Lorentzian (M,g), signature (-,+,+,+); the SEC's 1/2 is 1/(n-2) at n=4",
+  "DEC in the Hawking-Ellis form includes the WEC clause; the flux-only condition (FEC, MM&V eq 4.3) is a different condition that does NOT imply the WEC",
+  "the effective (rho, p_i) forms require Hawking-Ellis type I; the covariant forms need no type assumption",
+  "physical form equals geometric form only when the Einstein equation holds (Curiel p.5); T_ab = G_ab in certify.py's units is exactly that identification"
+ ],
+ "hypothesis_drift": [
+  "WEAKENED NAME, certify.py:353-355 dec_holds(wec_min) = wec_min >= 0 is the NECESSARY half of the DEC only; published DEC also needs the flux -T^a_b V^b causal (z3 counterexample: rho=0, p_i=1/2 satisfies WEC, fails DEC). The tree uses it only in the published direction (WEC fails => DEC fails; certify.py:85, :453), and every sampled WEC minimum is negative, so no printed verdict is affected; but the DEC column at certify.py:450 would print 'ok' for a WEC-satisfying, DEC-violating tensor. Discrepancy, not a refutation.",
+  "ADDED SAMPLING, certify.py:336-351: published WEC/SEC quantify over all timelike vectors; the tree takes 200 Fibonacci directions x speeds j/11, j=1..10 (the static observer s=0 is not in the sample; the cap s=10/11 excludes s->1). A negative sample is a valid witness of violation (one observer suffices), so 'VIOLATED' stands; the sampled minima are NOT infima: where rho+p<0 the WEC infimum over observers is -infinity (K&S Prop 2.1; Le 2602.18023 sec 2.2; measured here: gamma^2(rho+s^2 p) at r=1 is -4.66e-3 at s=10/11, -4.39e-2 at s=0.99, -4.41e2 at s=0.999999). The tree's own hypothesis list names this ('a sampled minimum, not an infimum').",
+  "ADDED, certify.py:321-323: orthonormal static tetrad e = diag(1/sqrt(-g00), 1/sqrt(gii)) is valid only for a diagonal metric; the conformastatic metric is diagonal and its Einstein tensor is exactly diagonal (type I) in that frame (sympy, this audit), so the drift has no effect here.",
+  "SEC at certify.py:336-351 uses w + T/2 with T = eta^mn T_mn: machine-checked equal to (T_ab - T g_ab/2)V^aV^b for unit timelike V (sympy); valid at n=4 only, which is the tree's dimension. No drift.",
+  "overturn.py:207-213: 'rho < 0 ... means the POINTWISE weak energy condition fails' holds by definition when rho is the energy density T_ab u^a u^b measured by some timelike u; the file's density is a functional, not a solution of the field equations (stated at overturn.py:209-211), so the implicit hypothesis is 'rho is an observer-measured T_ab u^a u^b'. Under that reading no drift; 'flat-space kinematics' is not needed by the implication."
+ ],
+ "data_at_publication": [
+  {
+   "quantity": "orthonormal T_00 = rho at r = 1 (m = +0.02, a = 0.02, R_s = 200)",
+   "value_then": "-4.6564e-04 (certify.py:81 table); -4.8455e-04 (certify.py:96-97 prose, selftest target :456)",
+   "value_now": "-4.656373e-04 exact (sympy closed form rho = e^{2Phi}(2 lap Phi - Phi'^2)); -4.845395e-04 is the COORDINATE component e^{2Phi} rho",
+   "source_now": "rederive/energy-conditions-definitions.py (C); certify.stress_energy at h=1e-3/1e-4 gives -4.65637e-4 / -4.65643e-4 orthonormal, -4.84540e-4 / -4.84546e-4 coordinate",
+   "moves_conclusion": "no -- sign unchanged. DISCREPANCY recorded: the prose -4.8455e-4 and its 'ratio of 1.21' (certify.py:97) are coordinate/|grad Phi|^2 = 1.2128; the orthonormal ratio is 1.1655. The selftest at :456 passes only because near() (:409-411) uses tol*max(1,|want|) = 1e-3 ABSOLUTE for |want| < 1, which a 4% miss clears."
+  },
+  {
+   "quantity": "NEC/WEC/SEC sampled minima at r = 0.005, 0.02, 0.05, 0.2, 1, 10 (certify.py:77-82)",
+   "value_then": "e.g. r=1: -8.7348e-4, -4.6251e-3, -4.1844e-3",
+   "value_now": "r=1: -8.7347e-4, -4.6250e-3, -4.1843e-3 recomputed from exact rho, p_r, p_t with the same sampling; all 18 table minima reproduced within 0.5%; all negative",
+   "source_now": "rederive/energy-conditions-definitions.py (C)",
+   "moves_conclusion": "no"
+  },
+  {
+   "quantity": "T_00 at r = 10",
+   "value_then": "-4.0744e-08",
+   "value_now": "-4.06336e-08 exact (finite-difference table 0.27% off)",
+   "source_now": "rederive script",
+   "moves_conclusion": "no -- within the finite-difference floor; sign unchanged"
+  },
+  {
+   "quantity": "-|grad Phi|^2 at r = 1",
+   "value_then": "-3.9952e-04",
+   "value_now": "-3.995204e-04",
+   "source_now": "rederive script",
+   "moves_conclusion": "no"
+  },
+  {
+   "quantity": "m<0 case, r = 0.05: T_00",
+   "value_then": "+14.7 coordinate, +30.9245 orthonormal",
+   "value_now": "+14.7165 coordinate, +30.92453 orthonormal",
+   "source_now": "rederive script",
+   "moves_conclusion": "no -- agrees"
+  },
+  {
+   "quantity": "the definitions themselves",
+   "value_then": "Hawking-Ellis 1973",
+   "value_now": "unchanged in Curiel 2014, MM&V 2017, K&S 2020, Le 2026 (2602.18023 eqs 2-5)",
+   "source_now": "sources read above",
+   "moves_conclusion": "no -- definitions carry no empirical datum"
+  }
+ ],
+ "rederivation": {
+  "method": "sympy",
+  "script_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/energy-conditions-definitions.py",
+  "outcome": "ALL CHECKS PASS (exit 0). (A) z3 over type-I effective forms: DEC=>WEC valid; WEC=>NEC valid; SEC=>NEC valid; not-WEC=>not-DEC valid; counterexamples found to SEC=>WEC (rho=-1/4, p_i=1/4), WEC=>DEC (rho=0, p_i=1/2) and FEC=>WEC (rho=-1, p=0). (A') covariant Hawking-Ellis DEC over 4000 random type-I tensors x 60 boosted observers: 234 DEC-true, 0 fail WEC. (B) sympy: (T_ab - T g_ab/2)V^aV^b == w + T/2 for unit timelike V (certify.py:351 form). (C) exact Einstein tensor of the conformastatic metric: diagonal (type I); rho = e^{2Phi}(2 lap Phi - Phi'^2), p_r = -e^{2Phi}Phi'^2, p_t = +e^{2Phi}Phi'^2; rho+p_r = 2e^{2Phi}(lap Phi - Phi'^2), rho+p_t = rho+Sum p = 2e^{2Phi} lap Phi; lap(m/sqrt(r^2+a^2)) = -3ma^2/(r^2+a^2)^{5/2} < 0, so for m>0 NEC, WEC, SEC (hence DEC) fail at EVERY 0<r<R_s, not only at the sampled radii -- stronger than certify.py's sampled claim. All 6 table rows reproduced (minima within 0.5%). DISCREPANCY: T_00(r=1) = -4.8455e-4 and ratio 1.21 are coordinate-component figures; orthonormal is -4.6564e-4, ratio 1.1655. Re-run in continuation: exit 0, output at rederive/energy-conditions-definitions.out.",
+  "agrees_with_source": "yes"
+ },
+ "later_literature": [
+  {
+   "ref": "Kontou & Sanders, arXiv:2003.01815 (2020)",
+   "effect": "confirms",
+   "what": "Table 1 / Fig. 2: DEC => WEC => NEC, SEC => NEC, SEC does not imply WEC; Prop 2.1: a scale-invariant EC bounded below has infimum 0 (so a WEC violation makes the sampled minimum unbounded below); all pointwise ECs are violated by QFT and by nonminimal classical scalars -- a statement about the ECs as physical laws, not about the definitions the tree uses.",
+   "read_status": "READ (sec 2.1-2.3, pp.8-15)"
+  },
+  {
+   "ref": "Martin-Moruno & Visser, arXiv:1702.05915 (2017)",
+   "effect": "confirms",
+   "what": "DEC = WEC + FEC; FEC alone independent of sign of rho; type I-IV tables; ECs 'provisional' as fundamental physics.",
+   "read_status": "READ (sec 2, 4)"
+  },
+  {
+   "ref": "Curiel, arXiv:1405.0403 (2014)",
+   "effect": "confirms",
+   "what": "Definitions in geometric/physical/effective forms; 'SDEC implies the DEC, which implies the WEC'; DEC/SDEC effective forms coincide only for type I.",
+   "read_status": "READ (sec 2.1)"
+  },
+  {
+   "ref": "Le, 'Observer-robust energy condition verification for warp drive spacetimes', arXiv:2602.18023 (2026)",
+   "effect": "narrows",
+   "what": "S-lemma LMI decides NEC/WEC/SEC/DEC exactly (Thm 1, DEC = WEC for T and for -T^2); 'A negative value witnesses WEC violation; a nonnegative capped value does not prove WEC'; finite Fibonacci sampling detected only 93.4% of DEC violations at 10^3 directions (Rodal). Narrows sampled SATISFACTION claims, not sampled VIOLATION claims -- certify.py makes only the latter.",
+   "read_status": "READ (pp.1-2, 9, 17-19, 28, 35)"
+  }
+ ],
+ "lacked_data": "M's hypothesis tested. These are DEFINITIONS and one logical implication; they contain no measured input, so no datum available later can move them. Evidence: the same definitions and the same DEC=>WEC implication are restated unchanged in 2014, 2017, 2020 and 2026 (sources above), and DEC=>WEC is re-derived here by z3 (type I) and by a covariant sampled check (no type assumption). What later work DID add is about the ECs' status as physical constraints -- violation by quantum fields (K&S sec 2.3, 'all pointwise energy conditions are necessarily violated by essentially any QFT'), abandonment of the trace EC after Zel'dovich (MM&V p.3-5) -- and about how to test them numerically (Le 2026). Neither bears on the tree's use: certify.py and overturn.py use the ECs as diagnostics of a given T_ab and certify only violations, which need one witness. Evidence the other way: none found; no later paper revises the definitions or the implication.",
+ "grade": "STANDS",
+ "grade_evidence": "Published definitions (via Curiel 2014, MM&V 2017, K&S 2020 restating Hawking-Ellis 1973) match certify.py's NEC (k=(1,u)), WEC, SEC (w + T/2, sympy-verified at n=4) and the direction of 'the DEC requires the WEC' actually used (WEC fails => DEC fails; z3-valid, covariant check 0/234 exceptions). The violation claims certify.py:84-85 rests on are reproduced from an independent exact sympy Einstein tensor at all six radii and, in closed form, extended to every 0<r<R_s. Recorded discrepancies, none a refutation and none moving the conclusion: dec_holds() is named as the DEC but is only its necessary WEC half (certify.py:353-355); sampled minima are not infima (named by the tree); certify.py:96-97 quotes the coordinate T_00 (-4.8455e-4, ratio 1.21) where the orthonormal value is -4.6564e-4 (ratio 1.1655), and the selftest at :456 cannot see it because near() is absolute-tolerance below |want| = 1 (:411). SEAT_LEAD_SPLIT_SURVIVES = False is unaffected: it rests on the sign of the violations, which is exact. Continuation check (re-run 2026-09-26): rederive script exit 0, 'ALL CHECKS PASS', output banked at rederive/energy-conditions-definitions.out; tree sites re-read (certify.py:84-85, 96-97, 336-355, 409-411, 438-469; overturn.py:207-213) and match the quotes above. Scope note: the WEC-only DEC proxy is confined to certify.py:353; the other dec_holds in the board (stability.py:145-147 's >= 0 and s >= |p|', membrane.py:225-227 'sigma >= |w sigma|') use the full type-I DEC form rho >= |p_i| and are not affected by the drift -- they are outside this entry's owners and were not audited further here.",
+ "what_would_change_the_grade": "NARROWED if the tree used dec_holds(...) == True anywhere as a certificate that the DEC HOLDS (it would then need the flux clause), or used a sampled non-negative minimum as proof an EC holds; WRONG only if a Hawking-Ellis-form DEC-satisfying tensor with a WEC violation were exhibited (z3 shows none exists for type I; covariant check found none); OPEN would apply only to the claim that the Hawking-Ellis 1973 text reads identically, since it was read via restatement (three independent restatements agree).",
+ "reverify_command": "python3 /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/energy-conditions-definitions.py   # expects 'ALL CHECKS PASS', exit 0 (needs sympy, mpmath, z3-solver); cross-check tree: cd /home/user/Claude-Method-Works/research/warp-drive && python3 certify.py --selftest",
+ "report_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/audits/energy-conditions-definitions.json"
+}

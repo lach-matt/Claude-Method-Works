@@ -1,0 +1,24 @@
+inner integral             : 2*asinh(X0/c) - 2*X0/R
+exact-in minus closed form : epsilon**2*(a**2 + b**2)/2   (O(1/R_s^2): closed form is exact to leading order)
+Lambda closed (code)  9.982529174  closed (prose, b only) 9.982929094
+Lambda first-order exact 9.982541674  (inside 9.982541679, exterior tail -5.000e-09)
+closed vs exact rel diff -1.252e-06
+m=0.005  simpson 9.974997  exact 9.974997  series(Phi^3) 9.974997  simpson-exact rel 1.48e-08
+m=0.01   simpson 9.967469  exact 9.967468  series(Phi^3) 9.967469  simpson-exact rel 1.50e-08
+m=0.02   simpson 9.952460  exact 9.952460  series(Phi^3) 9.952460  simpson-exact rel 1.55e-08
+m=0.04   simpson 9.922636  exact 9.922636  series(Phi^3) 9.922640  simpson-exact rel 1.64e-08
+m=0.08   simpson 9.863747  exact 9.863747  series(Phi^3) 9.863779  simpson-exact rel 1.82e-08
+closed vs measured at m=5e-3: 0.0755 %;  Phi^2 term predicts 0.0757 %
+saturation Simpson {400.0: 0.19904919958575296, 2000.0: 0.19904919962575704, 20000.0: 0.19904920263880158} spread 1.53e-08
+saturation exact   {400.0: 0.19904919958321177, 2000.0: 0.1990491995592119, 20000.0: 0.1990491995582219} spread 1.26e-10
+endpoints INSIDE the shell (per unit m): {50.0: 8.680156506629562, 100.0: 9.566214503090452, 150.0: 9.87710636045101}
+odd-n Simpson (phase1) 9.974997103  vs even-n 9.974771524  vs exact 9.974996956
+Lambda for a source at distance 1 from a ray through the shell centre, by position xs: {'0.0': 9.982529174195138, '50.0': 9.982529171695138, '100.0': 9.982529164195137, '150.0': 9.982529151695138}
+exchange rate 1.34895e+26 kg/m; one M_sun buys 14744.2342 m (phase1 M_sun) / 14740.4525 m (IAU GM_sun); M_sun rel diff 2.57e-04
+per unit m beyond the measured window: {'0.08': 9.8637, '0.2': 9.693, '0.5': 9.3013, '1.0': 8.7431, '2.0': 7.8858}
+   relative drop from Lambda: {'0.08': '1.19%', '0.2': '2.90%', '0.5': '6.82%', '1.0': '12.42%', '2.0': '21.00%'}
+4 ly by 1%: needs m >= 0.401 (measured window ends at 0.08); by 50%: m >= 20.04
+largest fractional contraction the seated geometry certifies with m <= 0.08: 0.200 %
+at m = 0.401, X = R_s: per unit m 9.4257 vs Lambda 9.9825 -> law under-prices by 5.91 % (and Phi ~ 0.40 is not weak field)
+weak-field-consistent 1% geometry: R_s/b <= 22.43, Lambda = 5.607, mass 4.5696e+10 M_sun (vs 2.5667e10 at Lambda 9.98)
+ALL OWNER NUMBERS REPRODUCED: True
