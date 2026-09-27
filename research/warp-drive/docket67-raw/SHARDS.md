@@ -31,3 +31,7 @@ Resume after Oct 2 06:00 UTC with the same 12 run ids (cache replays the 412 aud
 
 Round 3 (2026-09-27, M: "Test subagents first"): a probe agent returned; shards 0-3 resumed from cache with
 their run ids (tasks wius0utlb, wfc97uyel, wqbpqhqih, weejxoxl0); shards 4-11 held until these show no limit.
+Round 3 cont.: shards 0-3 progressing without a limit (journals ~460 -> ~580 lines by 17:26 UTC); shards 4-7 resumed
+(tasks wc9s4zx0g, wgjejs5y6, wh2tccicb, wzt78b8s2). Shards 8-11 held.
+Re-audits on M-retrieved sources: 22 results in reaudit/ (one auditor each); three verifiers launched on them
+(refute, re-derive, data/source identity) -> reaudit/_verify_{refute,rederive,data}.json.
