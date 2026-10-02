@@ -2,22 +2,22 @@ key	first_audit_grade	reaudit_grade	verifiers	final_grade	basis
 ahs-1995-prd51-4337	OPEN	STANDS	3/3 upheld	STANDS	reaudit
 cosmic-string-deficit-angle-8pigmu	NARROWED	NARROWED	3/3 upheld	NARROWED	reaudit
 earnshaw-1842-theorem	STANDS	STANDS	3/3 upheld	STANDS	reaudit
-elementary-flatness-regular-axis	NARROWED	NARROWED	PENDING (0 of 3 verifiers returned)	UNVERIFIED	reaudit
+elementary-flatness-regular-axis	NARROWED	NARROWED	3/3 upheld	NARROWED	reaudit
 fewster-teo-sec7-candelas-schwarzschild	OPEN	STANDS	3/3 upheld	STANDS	reaudit
 hep-th/0302039	OPEN	STANDS	DISPUTED (2 refute); proposals NARROWED/STANDS/NARROWED	OPEN (disputed; to adjudication)	reaudit
 hep-th/0302039#domain	OPEN	NARROWED	3/3 upheld	NARROWED	reaudit
-hep-th/0302039#seciv	OPEN	NARROWED	PENDING (0 of 3 verifiers returned)	UNVERIFIED	reaudit
+hep-th/0302039#seciv	OPEN	NARROWED	3/3 upheld	NARROWED	reaudit
 icrp-23-reference-man	DATA-DEPENDENT	DATA-DEPENDENT	3/3 upheld	DATA-DEPENDENT	reaudit2 (ICRP Ch.2)
 icrp-reference-adult-and-ci-chondrite	DATA-DEPENDENT	DATA-DEPENDENT	3/3 upheld	DATA-DEPENDENT	reaudit2 (ICRP Ch.2)
 kibble-1976-zurek-1985	NARROWED	NARROWED	3/3 upheld	NARROWED	reaudit
-klinkhamer-manton-1984	NARROWED	NARROWED	PENDING (0 of 3 verifiers returned)	UNVERIFIED	reaudit
+klinkhamer-manton-1984	NARROWED	NARROWED	3/3 upheld	NARROWED	reaudit
 lodders-2003-apj-591-1220	DATA-DEPENDENT	DATA-DEPENDENT	3/3 upheld	DATA-DEPENDENT	reaudit
 lodders-2003-ci-chondrite	DATA-DEPENDENT	DATA-DEPENDENT	3/3 upheld	DATA-DEPENDENT	reaudit
 lodders-2003-condensation-temperatures	NARROWED	NARROWED	3/3 upheld	NARROWED	reaudit
-material-strength-t1000-becu	NARROWED	NARROWED	PENDING (0 of 3 verifiers returned)	UNVERIFIED	reaudit
+material-strength-t1000-becu	NARROWED	NARROWED	3/3 upheld	NARROWED	reaudit
 penrose-weyl-curvature-hypothesis	OPEN	NARROWED	3/3 upheld	NARROWED	reaudit
 plummer-enclosed-mass	NARROWED	NARROWED	3/3 upheld	NARROWED	reaudit
 single-mode-capacity-ceiling-pendry-1983	OPEN	NARROWED	3/3 upheld	NARROWED	reaudit
-sm-yukawa-bl-charges	NARROWED	NARROWED	PENDING (0 of 3 verifiers returned)	UNVERIFIED	reaudit
+sm-yukawa-bl-charges	NARROWED	NARROWED	3/3 upheld	NARROWED	reaudit
 thooft-1976	NARROWED	NARROWED	3/3 upheld	NARROWED	reaudit
 whitehead-convex-normal-neighbourhoods	NARROWED	NARROWED	3/3 upheld	NARROWED	reaudit
