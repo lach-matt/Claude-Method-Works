@@ -552,6 +552,57 @@ def sr2_identity():
     return seat_is, coll_is, exact
 
 
+#: DOCKET 67, key sturm-comparison-theorem (NARROWED; reopen verified by three
+#: lenses; seated on M's ruling of 2026-10-02).  Sturm's comparison theorem
+#: certifies seating along a chord of length s when 4 pi G T_kk s^2/c^4 >= pi^2:
+#: a SUFFICIENT condition, on T_kk, the ray-projected stress -- not on u.  The
+#: owners' ratio spec.seat_over_collapse = 2 pi^2/3 is that condition at
+#: T_kk = u (pressureless along the ray) on the RADIUS chord.  H_ball names u
+#: and restricts neither pressure nor chord, so S-2's class holds balls with
+#: T_kk > u along a diameter, where the ratio is (2 pi^2/3)/((T_kk/u)(s/l)^2).
+#: Two members from the record, both within the dominant energy condition:
+#: a stiff perfect fluid (w = 1, T_kk = (1+w) u = 2u) and a uniform magnetic
+#: field probed across B (u = B^2/2 mu_0, T_kk = 2u across B, 0 along it).
+#: The class's infimum is not computed here; one member at or below 1 is what
+#: refuses fact SR2 (ball => bh) over H_ball as written.  No witness is built:
+#: S-2 is OPEN, never NONEMPTY.
+STURM_MEMBER_TKK_OVER_U = 2.0
+#: The longest chord of a ball is its diameter: s/l = 2.
+STURM_DIAMETER_OVER_RADIUS = 2.0
+
+
+def sturm_ratio(soc, tkk_over_u=1.0, s_over_l=1.0):
+    """u_seat/u_collapse on a chord s = s_over_l * l at T_kk = tkk_over_u * u,
+    from the owners' T_kk = u radius ratio `soc`: soc/((T_kk/u)(s/l)^2)."""
+    return soc / (tkk_over_u * s_over_l ** 2)
+
+
+def sturm_over_ball(soc):
+    """The Sturm ratio's sub-cases over H_ball as written (DOCKET 67), all
+    computed from `soc`: pressureless (T_kk = u) on the radius and on the
+    diameter; radiation (w = 1/3, T_kk = 4u/3) on the diameter; the recorded
+    T_kk = 2u member on the diameter; and the perfect-fluid w at which the
+    ratio reaches 1 on the diameter (soc/4 - 1) and on the radius (soc - 1,
+    beyond the w <= 1 the dominant energy condition allows)."""
+    d = STURM_DIAMETER_OVER_RADIUS
+    return {"dust_radius": sturm_ratio(soc),
+            "dust_diameter": sturm_ratio(soc, 1.0, d),
+            "radiation_diameter": sturm_ratio(soc, 4.0 / 3.0, d),
+            "member_diameter": sturm_ratio(soc, STURM_MEMBER_TKK_OVER_U, d),
+            "w_threshold_diameter": soc / d ** 2 - 1.0,
+            "w_threshold_radius": soc - 1.0}
+
+
+def sr2_certified(F, sr2):
+    """Fact SR2 (ball => bh) is certified iff the owners' identity holds, the
+    T_kk = u radius ratio exceeds 1 at every scale and is scale-free, AND the
+    ratio exceeds 1 for every recorded member of H_ball as written -- the
+    T_kk = 2u member on a diameter (DOCKET 67).  One gate, read by the fact and
+    by requirement SR2, so the two cannot drift apart."""
+    return (all(sr2) and min(F["soc"]) > 1.0 and F["soc_const"] < 1e-12
+            and sturm_over_ball(min(F["soc"]))["member_diameter"] > 1.0)
+
+
 # ================================================ 3. HYPOTHESES, BY NAME
 
 def hypotheses():
@@ -608,7 +659,9 @@ def hypotheses():
                     "PRICES_A_FINITE_CORRIDOR = %s)" % axial.PRICES_A_FINITE_CORRIDOR,
                     "DEFINING"),
         "H_ball": ("uniform energy density u over a BALL of radius l, M = u (4/3) "
-                   "pi l^3/c^2 (spec.collapse_bound)", "DEFINING"),
+                   "pi l^3/c^2 (spec.collapse_bound) -- it names u, not the "
+                   "ray-projected T_kk Sturm's theorem needs, and restricts "
+                   "neither pressure nor chord (DOCKET 67)", "DEFINING"),
         "H_collapse": ("a region is a black hole iff 2GM/c^2 >= l for that ball "
                        "(spec.collapse_bound's criterion)", "OWNER"),
         "H_cc": ("the interpolating spacetime is causally compact (Borde, READ "
@@ -789,8 +842,8 @@ def requirements(F):
                                      or fewsterteo.O2_CLOSED) else RE_ASK)
     r12_status = THEOREM if candidates.LIST_IS_EXHAUSTIVE else SURVEY
     sr2 = sr2_identity()
-    sr2_status = (THEOREM if (all(sr2) and min(F["soc"]) > 1.0
-                              and F["soc_const"] < 1e-12) else OPEN)
+    sr2_status = THEOREM if sr2_certified(F, sr2) else OPEN
+    sob = sturm_over_ball(min(F["soc"]))
     unread = (phase1.is_transition(False, True, True, True, True, passage_flux=True)
               == phase1.is_transition(False, True, True, True, True, passage_flux=False))
     below, at = sf["concentric_below"], sf["concentric_at"]
@@ -1338,21 +1391,48 @@ def requirements(F):
 
         {"id": "SR2", "applies_to": ["S"],
          "title": "SEAT -- a device, not a black hole",
-         "status": sr2_status + " (uniform ball; exact algebra, sympy)",
+         "status": sr2_status + (" (uniform ball; exact algebra, sympy, at T_kk = u "
+                                 "on the radius; over H_ball as written, which names "
+                                 "u and no pressure, a member with T_kk = 2u on a "
+                                 "diameter gives %.4f -- DOCKET 67)"
+                                 % sob["member_diameter"]),
          "rows": [], "see": [],
          "owners": [("seatindex", "T_COEFF")],
          "hypotheses": ["H_ball", "H_collapse"],
          "statement":
             "The seating region must not lie inside its own Schwarzschild "
-            "radius.  For a uniform BALL of radius l, seating needs u >= "
-            "pi c^4/(4 G l^2) (seatindex.T_COEFF) and avoiding collapse needs "
-            "u < 3 c^4/(8 pi G l^2) (spec.collapse_bound), so u_seat/u_collapse "
-            "= %s = %.10g at l = %s m (constant to %.1e).  Cumulative "
-            "weak-field lensing meets it: the Sun is not inside its "
+            "radius.  For a uniform BALL of radius l, Sturm-certified seating "
+            "along the radius needs T_kk >= pi c^4/(4 G l^2) "
+            "(seatindex.T_COEFF) -- a SUFFICIENT condition, on T_kk, the "
+            "ray-projected stress, not on u -- and avoiding collapse needs "
+            "u < 3 c^4/(8 pi G l^2) (spec.collapse_bound), so at T_kk = u "
+            "u_seat/u_collapse "
+            "= %s = %.10g at l = %s m (constant to %.1e).  DOCKET 67 "
+            "(sturm-comparison-theorem, NARROWED; seated on M's ruling of "
+            "2026-10-02): on a chord s the ratio is (2 pi^2/3)/((T_kk/u)(s/l)^2), "
+            "and H_ball names u, not T_kk, and restricts neither pressure nor "
+            "chord.  Computed: pressureless (T_kk = u) %.4f on the radius and "
+            "%.4f on the diameter; radiation on the diameter %.4f; a member "
+            "with T_kk = 2u on the diameter (a stiff fluid, w = 1, or a "
+            "magnetised ball probed across B, both within the DEC) %.4f.  So "
+            "over H_ball as written the reductio fails for a perfect fluid on a "
+            "diameter with w >= pi^2/6 - 1 = %.6f, and fact SR2 (ball => bh) is "
+            "%s.  "
+            "On the radius the reductio holds for every perfect fluid within "
+            "the DEC (it would need w > %.2f).  What would keep S-2 EMPTY is a "
+            "hypothesis H_ball lacks: T_kk = u along the seating ray, or "
+            "(T_kk/u)(s/l)^2 < 2 pi^2/3 -- not adopted here, since it would "
+            "narrow the class.  Cumulative "
+            "weak-field lensing meets the requirement: the Sun is not inside its "
             "Schwarzschild radius.  A non-ball region (a tube) is not covered: "
             "see escape H_ball."
             % (sr2[2], F["soc"][0], ", ".join("%g" % l for l in F["soc_scales"]),
-               F["soc_const"])},
+               F["soc_const"], sob["dust_radius"], sob["dust_diameter"],
+               sob["radiation_diameter"], sob["member_diameter"],
+               sob["w_threshold_diameter"],
+               ("refused: S-2 is OPEN -- no witness is built, so not NONEMPTY"
+                if sr2_status != THEOREM else "certified"),
+               sob["w_threshold_radius"])},
 
         {"id": "SR3", "applies_to": ["S"],
          "title": "M's SCOPE CLAUSE -- no lead required, traversal under the same physics",
@@ -1556,10 +1636,13 @@ FEATURE_TEXT = {
 }
 
 
-def classes():
+def classes(F):
     """The partition.  `lits` define the class (and generate its printed
     definition); `hyps` is what the class STATES -- the selftest checks it
-    against what the z3 proof used."""
+    against what the z3 proof used.  S-2 states H_collapse only while fact SR2
+    is certified (sr2_certified, read from the figures F): since DOCKET 67 its
+    OPEN verdict uses no fact, so H_ball alone defines it."""
+    sr2_in = sr2_certified(F, sr2_identity())
     return [
         {"id": "K0", "object": "C", "space": "C", "lits": {"sph": True, "negm": False},
          "name": "not contracted at every point of K",
@@ -1639,7 +1722,14 @@ def classes():
                  "endpoint gate), not THEOREM"},
         {"id": "S-2", "object": "S", "space": "S", "lits": {"wl": False, "ball": True},
          "name": "Sturm-universal seating over a uniform ball",
-         "hyps": ["H_ball", "H_collapse"], "note": "spec.py's own withdrawal"},
+         "hyps": ["H_ball", "H_collapse"] if sr2_in else ["H_ball"],
+         "note": "spec.py's own withdrawal.  " + (
+             "Fact SR2 certified over the class as computed" if sr2_in else
+             "OPEN over H_ball as written (DOCKET 67, "
+             "sturm-comparison-theorem; M's ruling 2026-10-02): H_ball names u "
+             "and no pressure, and for T_kk > u along a diameter the Sturm "
+             "ratio falls to 1 or below (requirement SR2), so fact SR2 is "
+             "refused; no witness is built")},
         {"id": "S-3", "object": "S", "space": "S", "lits": {"wl": False, "ball": False},
          "name": "any other seat",
          "hyps": [],
@@ -1845,9 +1935,12 @@ def facts(z3, V, F):
          "hyps": ["H_axial"],
          "f": z3.Implies(z3.And(V["axial"], V["contracts"]), V["u_neg"])},
         {"name": "SR2", "space": "S",
-         "gate": all(sr2) and min(F["soc"]) > 1.0 and F["soc_const"] < 1e-12,
-         "held": "spec.seat_over_collapse = %.10g at four scales, sympy %s"
-                 % (F["soc"][0], sr2[2]),
+         "gate": sr2_certified(F, sr2),
+         "held": "spec.seat_over_collapse = %.10g at four scales, sympy %s; "
+                 "over H_ball as written the T_kk = 2u member on a diameter "
+                 "gives %.4f (DOCKET 67)"
+                 % (F["soc"][0], sr2[2],
+                    sturm_over_ball(min(F["soc"]))["member_diameter"]),
          "hyps": ["H_ball", "H_collapse"],
          "f": z3.Implies(V["ball"], V["bh"])},
         {"name": "GEROCH-BORDE", "space": "W",
@@ -2226,7 +2319,10 @@ def escape_texts(model=None):
          "r_s/w = %.4g by a spherical Schwarzschild criterion (computed here from "
          "seatindex.tkk_required -- an ILLUSTRATION only: that criterion is not a "
          "collapse criterion for a tube).  It shows that the ball hypothesis "
-         "carries S-2's verdict; tubes and non-uniform sustained fields are S-3."
+         "defines S-2; tubes and non-uniform sustained fields are S-3.  Inside "
+         "the ball, S-2 is OPEN (DOCKET 67): H_ball names u, not T_kk, and "
+         "restricts no pressure, so a ball with T_kk > u along a diameter "
+         "escapes the Sturm reductio (requirement SR2)."
          % (F["tube_w_over_l"], F["tube_rs_over_w"])),
         ("H_collapse", ["none (spec.py)"],
          "a collapse criterion other than 2GM/c^2 >= l for the ball: none "
@@ -2915,7 +3011,7 @@ WHAT_IT_DOES_NOT_SAY = what_it_does_not_say()
 def build():
     F = figures()
     sf = slow_figures()
-    model = {"F": F, "hyps": hypotheses(), "classes": classes(),
+    model = {"F": F, "hyps": hypotheses(), "classes": classes(F),
              "requirements": requirements(F),
              "witness_S1": bool(sf["spec_selftest_ok"] and F["f_sun_m"] > 0.0)}
     model["objects"] = objects(F)
@@ -3591,6 +3687,29 @@ def selftest():
         sympy.simplify(sr2_identity()[2] - 2 * sympy.pi ** 2 / 3), 0)
     chk("fig", "  equal to spec.seat_over_collapse at four scales",
         max(abs(x / float(2 * sympy.pi ** 2 / 3) - 1.0) for x in F["soc"]) < 1e-12, True)
+    # DOCKET 67 (sturm-comparison-theorem, M's ruling 2026-10-02): the Sturm
+    # ratio over H_ball as written, every sub-case computed from the owners'
+    # ratio, against its closed form.
+    _sob = sturm_over_ball(min(F["soc"]))
+    _pi2 = float(sympy.pi ** 2)
+    chk("fig", "SR2 over H_ball as written: dust radius 2pi^2/3, dust diameter pi^2/6, "
+        "radiation diameter pi^2/8, T_kk = 2u diameter pi^2/12, w* = pi^2/6 - 1",
+        [abs(_sob[k] / x - 1.0) < 1e-12 for k, x in
+         (("dust_radius", 2 * _pi2 / 3), ("dust_diameter", _pi2 / 6),
+          ("radiation_diameter", _pi2 / 8), ("member_diameter", _pi2 / 12),
+          ("w_threshold_diameter", _pi2 / 6 - 1.0))], [True] * 5)
+    chk("fig", "  the T_kk = 2u member on a diameter is <= 1 (SR2 refused); dust on "
+        "either chord and radiation on the diameter stay > 1; the radius needs "
+        "w > 1 (beyond the DEC)",
+        (_sob["member_diameter"] <= 1.0, _sob["dust_radius"] > 1.0,
+         _sob["dust_diameter"] > 1.0, _sob["radiation_diameter"] > 1.0,
+         _sob["w_threshold_radius"] > 1.0, round(_sob["w_threshold_diameter"], 6)),
+        (True, True, True, True, True, 0.644934))
+    _w = _sob["w_threshold_diameter"]
+    chk("ctl", "  the w threshold brackets the gate: a member at w* + 1e-9 refuses SR2, "
+        "at w* - 1e-9 certifies it",
+        [sturm_ratio(min(F["soc"]), 1.0 + w, STURM_DIAMETER_OVER_RADIUS) > 1.0
+         for w in (_w + 1e-9, _w - 1e-9)], [False, True])
     chk("fig", "D22 folded in: the demand is not restated about a distribution",
         noise.DEMAND_RESTATED_ABOUT_DISTRIBUTION_CHANGES_REQUIREMENT, False)
 
@@ -3602,7 +3721,9 @@ def selftest():
     print("\n4. THE VERDICTS AS DERIVED AT THIS HEAD (pins; the report never reads them)")
     v = model["verdicts"]
     want = {"K0": EMPTY, "K1": EMPTY, "K6a": OPEN_V, "K6b": EMPTY, "K2": OPEN_V,
-            "K3": OPEN_V, "K4": OPEN_V, "K5": OPEN_V, "S-1": NONEMPTY, "S-2": EMPTY,
+            # S-2 OPEN, not EMPTY: DOCKET 67 (sturm-comparison-theorem, M's
+            # ruling 2026-10-02) -- over H_ball as written fact SR2 is refused.
+            "K3": OPEN_V, "K4": OPEN_V, "K5": OPEN_V, "S-1": NONEMPTY, "S-2": OPEN_V,
             "S-3": OPEN_V, "W-create-cc": OPEN_V, "W-create-ncc": OPEN_V,
             "W-enlarge": OPEN_V, "Rec": OPEN_V}
     chk("pin", "every class verdict, every ruling in force",
@@ -3616,7 +3737,9 @@ def selftest():
     chk("pin", "without aimability K1's proof uses D4 + D7 (not D2), assumes H_flat",
         (vr["K1"]["facts"], vr["K1"]["assumed"]), (["D4", "D7"], ["H_flat"]))
     chk("pin", "K0's proof uses D2 alone", v["K0"]["facts"], ["D2"])
-    chk("pin", "S-2's proof uses SR2 alone", v["S-2"]["facts"], ["SR2"])
+    chk("pin", "S-2 is OPEN with no fact: SR2 refused over H_ball as written "
+        "(DOCKET 67)", (v["S-2"]["facts"], "SR2" in model["facts_refused"]),
+        ([], True))
     chk("z3", "entailment: under H_flat C lies in the OPEN classes; without, + EMPTY IF",
         (model["entailment"]["with_H_flat"], model["entailment"]["without_H_flat"]),
         (True, True))
@@ -3732,10 +3855,24 @@ def selftest():
         "creation classes back to OPEN (the rulings are ASKED)",
         (v2["K1"]["verdict"], v2["W-create-cc"]["verdict"], v2["W-create-ncc"]["verdict"]),
         (EMPTY_IF, OPEN_V, OPEN_V))
-    with patched(spec, "seat_over_collapse", lambda l: 0.5):
+    # DOCKET 67: the class restricted to T_kk = u along the ray (the member
+    # ratio taken at T_kk/u = 1) is what SR2 used to certify -- S-2 returns to
+    # EMPTY on SR2 alone, SR2's requirement to THEOREM; so the refusal of SR2
+    # is the T_kk > u member and nothing else.  The owner-ratio control runs
+    # inside that restriction, where it still has something to move.
+    with patched(sys.modules[__name__], "STURM_MEMBER_TKK_OVER_U", 1.0):
         m2, v2, h2 = rerun()
-    chk("ctl", "spec.seat_over_collapse -> 0.5: S-2 falls to OPEN, S-1 stays",
-        (v2["S-2"]["verdict"], v2["S-1"]["verdict"]), (OPEN_V, NONEMPTY))
+        chk("ctl", "the member taken at T_kk = u (pressureless): S-2 back to EMPTY "
+            "on SR2 alone, requirement SR2 THEOREM, S-1 stays",
+            (v2["S-2"]["verdict"], v2["S-2"]["facts"],
+             [r["status"].split(" ")[0] for r in m2["requirements"]
+              if r["id"] == "SR2"], v2["S-1"]["verdict"]),
+            (EMPTY, ["SR2"], [THEOREM], NONEMPTY))
+        with patched(spec, "seat_over_collapse", lambda l: 0.5):
+            m2, v2, h2 = rerun()
+        chk("ctl", "  and there spec.seat_over_collapse -> 0.5: S-2 falls to OPEN, "
+            "S-1 stays", (v2["S-2"]["verdict"], v2["S-1"]["verdict"]),
+            (OPEN_V, NONEMPTY))
     with patched(fewsterteo, "O2_CLOSED", True):
         h2 = headline(model, model["verdicts"], model["entailment"])
     chk("ctl", "fewsterteo.O2_CLOSED -> True: the headline becomes RE-ASK",
@@ -3823,8 +3960,12 @@ def selftest():
         scope_check(mm, v)[0], ["R2"])
     mm = copy.deepcopy(model)
     [K for K in mm["classes"] if K["id"] == "S-2"][0]["lits"] = {"ball": True}
+    # S-2 is OPEN since DOCKET 67; the control plants it EMPTY so the scope
+    # check still has an EMPTY seat class to test.
+    _v_e = copy.deepcopy(v)
+    _v_e["S-2"]["verdict"] = EMPTY
     chk("ctl", "an EMPTY seat class that admits spec's witness is caught",
-        scope_check(mm, v)[1], ["S-2"])
+        (scope_check(mm, _v_e)[1], scope_check(model, _v_e)[1]), (["S-2"], []))
     mm = copy.deepcopy(model)
     [r for r in mm["requirements"] if r["id"] == "R1"][0]["rows"].remove("D10")
     chk("ctl", "a ledger row left unplaced (D10) is caught", placement(mm)[0], ["D10"])
