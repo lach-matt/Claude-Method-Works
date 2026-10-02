@@ -28,6 +28,29 @@ M's answers to the follow-up questions (2026-10-02):
   smoothly and the same every time;
 - the docket opens **after D67**.
 
+## Standing instruction from M: test in combination, verbatim (2026-10-02)
+
+> Remember that some of the hypothesies lined up for docket 68 may turn out, after initial testing, to work better
+> in combination.
+
+**How the docket runs because of it.**
+1. **Each hypothesis is tested alone first** -- H-IT, H-SETTLE, H-FRAME, H-12, H-INFO, H-ZERO, H-NULL, with the two
+   readings R-INDEX and R-QUANTUM -- and graded on what it does alone: not only pass/fail, but which obstruction it
+   removes and which it leaves (the two classical bits; making the corridor; holding it open; the matter at the
+   destination; time loops).
+2. **A failure alone does not retire a hypothesis.** It is retired only if it also fails in every combination
+   tested; a partial result is kept with the obstruction it leaves named.
+3. **Combinations are screened, then tested.** Seven hypotheses give 127 non-empty combinations. Each is first
+   screened for consistency against what the board holds (a z3 pass, with the vacuity guards PROOF-ASSISTANT.md
+   requires), so contradictory combinations are named, not silently skipped. Then combinations are tested where
+   one member removes an obstruction another leaves -- complementary obstructions, not every subset.
+4. **Pairings the record already shows:** H-ZERO with H-IT (emergent gravity makes the zero of energy free --
+   Padmanabhan & Padmanabhan pp. 6-7); H-FRAME with curvature (an expanding universe admits only equal-cosmic-time
+   identifications -- frw_frame.py); H-NULL with H-INFO (the QNEC prices a throat's null deficit in bits --
+   nullinfo.py); H-SETTLE with H-12 (a parameter whose value drifts with the state is a channel -- nlcontrol.py);
+   H-IT with Laughlin & Pines (a protected low-energy law hides the layer beneath it until protection is escaped).
+5. **No coverage is capped silently**: every combination not tested is listed with the reason.
+
 ## M on the null condition, verbatim (2026-10-02)
 
 > Null (NEC) is a containment. This is where information lives, and is quantifiable
