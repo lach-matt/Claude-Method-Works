@@ -28,6 +28,36 @@ M's answers to the follow-up questions (2026-10-02):
   smoothly and the same every time;
 - the docket opens **after D67**.
 
+## Sources M placed in the Warp folder for this docket (2026-10-02)
+
+M placed two papers as Adobe Acrobat share links (Drive text stubs 1Wb1XRsa2cWPebP04v66Yyr1cXyDUbx7-,
+182FXTvfP3b2S_BuxE0N8mhHSHq8U1P9e). acrobat.adobe.com is refused by the egress proxy (reported, not routed around).
+
+**1. Padmanabhan & Padmanabhan, "Cosmic Information, the Cosmological Constant and the Amplitude of primordial
+perturbations", arXiv:1703.06144v1 (17 Mar 2017) -- READ at source (alphaXiv), pp. 1-9; per M-D67-2 the arXiv
+version is the object.** CosmIn is N(a2, a1) = (2/3 pi) ln(h1/h2), the number of modes (counted by
+d^3x d^3k/(2 pi)^3) that cross the Hubble radius (eq. 1). Its finiteness forces late-time acceleration. The single
+postulate N(a_Lambda, a_QG) = 4 pi, with matter + radiation + Lambda and a pre-geometric -> classical transition at
+E_QG = E_Pl/nu, gives rho_Lambda (eq. 4-5); the primordial amplitude A = 0.19 c1/nu (eq. 6) with c1 an undetermined
+O(1) factor. Re-derived in `cosmin.py` from the paper's printed inputs:
+- nu = 6144 (6.05e3 .. 6.35e3 over the printed 1-sigma inputs); paper (6.2 +/- 0.3)e3. Coefficient 0.1890 (paper
+  0.19); A/c1 = 3.08e-5 (paper 3.05e-5); c1 = 1.52 for A_obs = 4.69e-5 (paper 1.54). REPRODUCED.
+- READING NOTE: the text layer flattens fractions; read literally, eq. (4) gives nu ~ 1e-15. The reading that makes
+  eq. (4) the exact inverse of eq. (3) -- E_QG in a denominator, (rho_eq L_P^4)^(-1/2) -- is DERIVED (check A,
+  round-trip to 12 digits) and reproduces every number. A fault in the reading, not shown to be in the paper.
+- FINDING (a narrowing of the paper's emphasis, not a refutation): eq. (7)'s "4 pi [1 + O(1e-3)] ... to the accuracy
+  of one part in a thousand" holds at c1 = 1.54, and c1 is itself fitted. At c1 = 1 the ratio is 1.0071. And I_c
+  depends on nu only through (2/3 pi) ln nu: any nu within a factor 1.81 of 6144 gives I_c within 1% of 4 pi. What
+  the paper establishes is that nu from Lambda (6.1e3) and nu from A at c1 = 1 (4.0e3) agree to the O(1) factor c1.
+- Bearing on this docket: a published, quantitative case where an information count fixes a physical constant --
+  H-INFO and Q-1 in a concrete form, and Lambda is the 12-vector's Lambda-vector. The paper itself leaves open how
+  its mode count relates to other measures of information (p. 8); a mode count is not a Shannon entropy, and Q-1
+  must say how they relate before either is used for the other. Hypotheses to carry: the 4 pi postulate (motivated
+  by dimensional reduction to D = 2 near the Planck scale, refs [5, 6], NAMED-NOT-READ), the sudden-transition
+  idealisation, no inflaton, c1 undetermined.
+
+**2. "The Theory of Everything"** -- which work is meant is ASKED of M (the title is shared by several).
+
 ## M's thesis, verbatim (2026-10-02)
 
 > My idea is that warp travel costs little because we are only relying on the communication of information
