@@ -384,6 +384,31 @@ field picks the slice, so certify.py reads the criterion off a scalar.
                 negative energy density in every frame or negative mass.
                 CORRECTED (DOCKET 67): the row first cited both with no
                 premise.  The status word is kept as written.
+                CORRECTED AGAIN (DOCKET 67, on M's ruling -- a correct,
+                stated ground or OPEN): REFUTED STANDS, BUT ON THIS TREE'S
+                OWN COMPUTED GROUND, NOT ON THEIRS.  (a) THE ANCHOR LEMMA:
+                at a momentarily stationary areal radius (U = 0) contraction
+                <=> m < 0 -- computed in this selftest (contracts(m, R, 0)
+                swept, and against certify.py's own samples in section 3),
+                machine-checked as nonstatic.py's T1 (z3 unsat).  (b) THE
+                DISPLACEMENT BOUND: with m >= 0, contraction Gamma forces
+                |U| >= sqrt(Gamma^2 - 1), so the far end gives away at least
+                sqrt(1 - 1/Gamma^2) of the span and no quasi-stationary
+                corridor exists (nonstatic.py T2/T3; section 5).  Together:
+                a corridor that holds its endpoints contracts only where the
+                enclosed Misner-Sharp mass is NEGATIVE.  NAMED HYPOTHESES:
+                (H1) spherical symmetry (THEOREM_SCOPE); (H2) a corridor's
+                endpoints are fixed areal radii (held to a band eps for
+                longer than 2 eps Gamma/sqrt(Gamma^2 - 1) of a crossing);
+                (H3) "negative energy" is read as negative quasi-local
+                (Misner-Sharp) energy m < 0 -- NOT rho < 0 in every frame:
+                sustaining forces no negative rho
+                (nonstatic.SUSTAINING_FORCES_NEGATIVE_RHO = False), and
+                m < 0 implying rho < 0 somewhere needs a regular centre,
+                m(0) = 0 (drivensource.CERTIFY_COROLLARY).  Drop H2 and the
+                claim is TRUE: m = 0 contracts at U = 0.5 (selftest control).
+                Hochberg & Visser and Olum stay cited as prior art on
+                premises not shown here; they are not the ground.
     NEW TO THIS TREE, AND ONLY THAT:  overturn.py's link L1 ("in any STATIC
                 spherically symmetric spacetime ...") IS TWO HYPOTHESES, and
                 that file only ever argued one of them -- it reads L1 as the
@@ -594,6 +619,41 @@ REFUSED = ("no proof that dynamic corridors are impossible (Olum proves a "
 #: file's)", crediting Olum with an impossibility proof he disclaims.
 
 
+#: The REFUTED row's ground.  CORRECTED (DOCKET 67, on M's ruling): the row
+#: first rested on REFUTED_ROW_GROUND_AS_FIRST_WRITTEN, whose premises (a
+#: Condition-1 path; a null-flared throat) no owner shows the corridor meets.
+#: The status is kept because a correct ground exists in the tree and is
+#: computed: nonstatic.py's anchor lemma and displacement bound.
+REFUTED_ROW_GROUND_AS_FIRST_WRITTEN = (
+    "Hochberg & Visser 1998; Olum 1998 -- on premises not shown here (a "
+    "Condition-1 path; a null-flared throat); both conclude NEC violation")
+REFUTED_ROW_GROUND = ("anchor lemma (U = 0: contraction <=> m < 0; nonstatic "
+                      "T1) and displacement bound (m >= 0: no quasi-stationary "
+                      "corridor; nonstatic T2/T3)")
+REFUTED_ROW_HYPOTHESES = (
+    "spherical symmetry",
+    "endpoints at fixed areal radii",
+    "negative energy = Misner-Sharp m < 0, not rho < 0 in every frame",
+)
+REFUTED_ROW_NOTE = (
+    "on the %s -- under %s; HV 1998 / Olum 1998 are prior art on premises "
+    "not shown here (a Condition-1 path; a null-flared throat)"
+    % (REFUTED_ROW_GROUND, "; ".join(REFUTED_ROW_HYPOTHESES)))
+
+
+def refuted_row_ground_holds():
+    """The REFUTED row's ground, computed rather than cited: at U = 0 this
+    file's criterion contracts exactly when m < 0 (the anchor lemma's corner),
+    and nonstatic.py carries both kills.  Returns (anchor, carried)."""
+    anchor = all(contracts(m, R, 0.0) == (m < 0.0)
+                 for m in (-2.0, -1e-9, 0.0, 1e-9, 2.0)
+                 for R in (1.0, 10.0, 1.0e3))
+    carried = (nonstatic.NEGATIVE_MASS_STILL_NECESSARY_AT_FIXED_AREAL_RADIUS
+               is True
+               and nonstatic.QUASI_STATIONARY_CORRIDOR_EXISTS is False)
+    return anchor, carried
+
+
 def standard_table():
     """What is standard, what is folklore, what is refuted, what is new."""
     return [
@@ -609,8 +669,7 @@ def standard_table():
         ("m < 0 sufficient, not necessary, off staticity", "FOLKLORE",
          "open FRW demonstrates it; not novel"),
         ("therefore the corridor needs no negative energy", "REFUTED",
-         "Hochberg & Visser 1998; Olum 1998 -- on premises not shown here (a "
-         "Condition-1 path; a null-flared throat); both conclude NEC violation"),
+         REFUTED_ROW_NOTE),
         ("Gamma > 1 is a new criterion", "NO",
          "it is expose.py's C < 1; C x Gamma = 1 identically"),
         ("overturn.py's L1 has a non-quasi-local door", "NEW TO THIS TREE",
@@ -905,6 +964,22 @@ def selftest():
     chk("  certify.py's THEOREM", drivensource.CERTIFY_THEOREM, "UNCHANGED")
     chk("  nothing is repaired", NOTHING_IS_REPAIRED, True)
     chk("  and no peer is edited", drivensource.NOTHING_IS_REPAIRED, True)
+
+    print("\n8. THE REFUTED ROW'S GROUND (DOCKET 67, on M's ruling)")
+    anchor, carried = refuted_row_ground_holds()
+    chk("  anchor lemma: at U = 0, contracts <=> m < 0 (15 samples)", anchor, True)
+    chk("  nonstatic carries both kills (T1; T2/T3)", carried, True)
+    chk("  control: drop H2 and m = 0 contracts at U = 0.5",
+        contracts(0.0, 10.0, 0.5), True)
+    chk("  control: and m = 0 does not at U = 0", contracts(0.0, 10.0, 0.0), False)
+    row = [r for r in standard_table()
+           if r[0] == "therefore the corridor needs no negative energy"][0]
+    chk("  the row's status", row[1], "REFUTED")
+    chk("  the row names its ground and all three hypotheses",
+        "anchor lemma" in row[2] and all(h in row[2]
+                                         for h in REFUTED_ROW_HYPOTHESES), True)
+    chk("  and its ground is no longer HV/Olum as first written",
+        row[2] != REFUTED_ROW_GROUND_AS_FIRST_WRITTEN, True)
 
     print("\n  SELFTEST %s" % ("OK" if ok else "FAILED"))
     return ok

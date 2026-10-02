@@ -15,7 +15,11 @@ and a test, and the statuses are not flattened:
     UNTESTED         nobody has asked, this project included.  THE DANGEROUS ROW.
 
 THE HEADLINE: of fifty-three obstructions, SIX dissolved, FOUR relocated,
-THIRTY-THREE closed negative, NINE conditional, ONE is OPEN, NONE is untested.
+THIRTY-TWO closed negative, NINE conditional, TWO are OPEN, NONE is untested.
+(CORRECTED (DOCKET 67, on M's ruling): first "THIRTY-THREE closed negative ...
+ONE is OPEN".  ACHRONALITY moved CLOSED-NEGATIVE -> OPEN: its only stated
+ground was the false converse of the conjugate-point theorem, and no correct
+ground for the closure exists in this tree -- see the row.)
 The newest is LIGHT-AS-THE-SUPPLY, closed NEGATIVE at both ends at once.  A
 build is ready when the untested rows are either tested or accepted with eyes
 open, and this file exists to make that a decision rather than an oversight.
@@ -201,23 +205,52 @@ LEDGER = [
  # CORRECTED (DOCKET 67): first written "THEY ARE ACHRONAL. ... ZERO with a
  #   conjugate point" -- the converse of the conjugate-point theorem, which is
  #   false; it ran against M and the ANEC row above already inverts the
- #   closure.  Also "unproven for nineteen years" (0705.3193).  The row's
- #   status is kept as first written.
+ #   closure.  Also "unproven for nineteen years" (0705.3193).
+ # CORRECTED (DOCKET 67, on M's ruling "state the correct reason it is still
+ #   closed-negative.  If there is none, it is open"): status first written
+ #   CLOSED-NEGATIVE, kept so through the prose pass.  NOW OPEN.  Closing it
+ #   negative needs the 25 ANEC-violating rays to be ACHRONAL, and nothing in
+ #   this tree shows that: (1) the only ground ever given was "no conjugate
+ #   point => achronal", the converse of Hawking-Ellis Prop. 4.5.12 / Wald
+ #   Thm 9.3.8, which runs one way only (conjugate-point-not-achronal R5,
+ #   0705.3193 C2: a flat-cylinder null geodesic has J = lambda and is
+ #   chronal; recomputed here, cylinder_converse_fails()); (2) even "no
+ #   conjugate point" is the SHEAR-DROPPED scalar result, which anecscope.py
+ #   showed overstates achronality, and the shear-restored re-run of these 25
+ #   rays is anecscope.NOT_RUN[0]; (3) achronality of a complete null
+ #   geodesic is a global causal statement (no timelike curve between ANY two
+ #   of its points) and no instrument here computes it for the bubble.  Nor
+ #   is the escape shown to exist for the bubble: anecscope.py's containment
+ #   is measured on the static corridor (one planar ray family, one source
+ #   strength), not on these rays.  So neither answer is computed -> OPEN.
+ #   What WOULD close it: a computed proof that each ANEC-violating complete
+ #   ray is achronal (e.g. a time function along which it is the fastest
+ #   causal curve between every pair of its points) -> CLOSED-NEGATIVE; a
+ #   full-matrix conjugate point exhibited on each of them (the forward
+ #   direction, valid) -> the escape exists for the bubble.
  ("ACHRONALITY", "the ANEC-violating rays might be non-achronal, putting the "
-  "bubble outside Graham-Olum", "CLOSED-NEGATIVE",
-  "NO CONJUGATE POINT ON ANY OF THEM: 25 ANEC-violating rays over "
+  "bubble outside Graham-Olum", "OPEN",
+  "OPEN (DOCKET 67, on M's ruling; first CLOSED-NEGATIVE, whose only ground "
+  "was the false converse below). Measured in the shear-dropped scalar "
+  "reduction: NO CONJUGATE POINT ON ANY OF THEM: 25 ANEC-violating rays over "
   "v_s = 0.3/0.5/0.8 c, ZERO with a conjugate point. That does NOT make them "
   "achronal -- past a conjugate point a null geodesic is chronal, but the "
   "converse is false (a flat-cylinder null geodesic with no conjugate point "
-  "is chronal) -- and with shear restored the closure is inverted (ANEC row "
+  "is chronal) -- and dropping shear overstates achronality (ANEC row "
   "above). And the anti-correlation is Raychaudhuri itself -- "
   "u'' = -4 pi T_kk u, so the negative T_kk that violates ANEC is what "
   "defocuses the congruence and prevents the conjugate point that would break "
-  "achronality. PROVED where T_kk <= 0 throughout, measured where the signs "
-  "mix. The prohibition now rests entirely on the self-consistent achronal "
+  "achronality in that reduction. PROVED (no conjugate point, scalar "
+  "reduction) where T_kk <= 0 throughout, measured where the signs mix -- "
+  "and 'no conjugate point' is all it proves. WHETHER THESE RAYS ARE "
+  "ACHRONAL IS NOT COMPUTED: achronality is global and no instrument here "
+  "tests it, the shear-restored re-run is NOT-RUN (anecscope.NOT_RUN), and "
+  "anecscope's escape is measured on the corridor, not the bubble. Neither "
+  "'inside Graham-Olum' nor 'outside it' is shown for the bubble. If the "
+  "rays are achronal, the prohibition rests on the self-consistent achronal "
   "ANEC in 4D CURVED spacetime at curvature well below the Planck scale -- "
   "unproven in general for nineteen years, restricted proofs aside "
-  "(Kontou-Olum; Wall from the GSL), and load-bearing", "achronal.py"),
+  "(Kontou-Olum; Wall from the GSL)", "achronal.py"),
  ("TURN-ADVANTAGE", "the focusing turn that seats a transition might also "
   "shorten it", "CLOSED-NEGATIVE",
   "IT DOES NOT, and the two exclusions are one fact seen twice. The Jacobi "
@@ -546,11 +579,22 @@ LEDGER = [
   "twenty, the ENGINEERING gap is 65 orders, and the first is the meaningful "
   "one. But 20x the holographic bound is a limit on what CAN be. No charge "
   "loophole: QNEC is state-independent", "entangle.py"),
+ # CORRECTED (DOCKET 67): first written "THERE IS EXACTLY ONE, AND IT IS NOT
+ #   A MATTER-SIDE ESCAPE. achronal.py proved you cannot break achronality
+ #   through the stress tensor -- ANEC violation PROTECTS it, 25 rays and 0
+ #   escapes."  That rested on the same false converse as ACHRONALITY (no
+ #   conjugate point read as achronal; 0705.3193 C2) and on the shear-dropped
+ #   reduction anecscope.py inverted; and "exactly one" ignored this file's
+ #   own ANEC row, where the corridor's rays are measured non-achronal.  The
+ #   status CONDITIONAL is unchanged: its ground is GJW's external path and
+ #   the bank-loan condition (gjw.py), which do not use the struck claim.
  ("GRAHAM-OLUM-ESCAPE", "there is no way past the achronal ANEC",
   "CONDITIONAL",
-  "THERE IS EXACTLY ONE, AND IT IS NOT A MATTER-SIDE ESCAPE. achronal.py "
-  "proved you cannot break achronality through the stress tensor -- ANEC "
-  "violation PROTECTS it, 25 rays and 0 escapes. Gao-Jafferis-Wall break it by "
+  "THERE IS ONE BY AN EXTERNAL PATH, AND ONE MEASURED ON THE CORRIDOR. "
+  "achronal.py's 25 rays and 0 escapes are a shear-dropped no-conjugate-"
+  "point count and prove no achronality (ACHRONALITY row, now OPEN); "
+  "anecscope.py measures the corridor's ANEC-violating rays NON-achronal by "
+  "an internal conjugate point (one ray family; ANEC row). Gao-Jafferis-Wall break it by "
   "ADDING AN EXTERNAL CAUSAL PATH: coupling the two boundaries changes the "
   "chronology relation itself, and their traversable wormhole is the first in "
   "a UV-complete theory. THE CONDITION IS THAT THE SAME MOVE FORBIDS SPEED -- "
@@ -782,13 +826,52 @@ def check_typeiv_sources_conditional():
             and not selfconsistent.SCOPE["exact self-consistent"]
             and not selfconsistent.SCOPE["configuration matched"])
 
-def check_achronality_closed():
-    import achronal
+def cylinder_converse_fails(L=1.0, n=400):
+    """The converse of the conjugate-point theorem, refuted by computation.
+
+    Flat R x S^1 x R^2, x ~ x + L, null geodesic gamma(lam) = (lam, lam, 0, 0).
+    The tidal matrix is zero, so the Jacobi field J'' = 0, J(0) = 0, J'(0) = 1
+    is J = lam: NO conjugate point anywhere.  Yet gamma(s) is also the point
+    (s, s - L), whose interval from gamma(0) is -s^2 + (s - L)^2 = L^2 - 2 s L,
+    timelike for every s > L/2: the geodesic is CHRONAL.  (Same witness as
+    DOCKET 67's conjugate-point-not-achronal R5 and 0705.3193 C2.)
+    Returns (no_conjugate_point, first chronal s found, or None)."""
+    h = 4.0 * L / n
+    J, Jp, zero = 0.0, 1.0, False
+    for _ in range(n):                     # J'' = -K J with K = 0, integrated
+        J, Jp = J + h * Jp, Jp
+        zero = zero or J <= 0.0
+    chronal_at = None
+    for i in range(1, n + 1):
+        s_ = 4.0 * L * i / n
+        if -s_ * s_ + (s_ - L) ** 2 < 0.0:
+            chronal_at = s_
+            break
+    return (not zero, chronal_at)
+
+
+#: CORRECTED (DOCKET 67, on M's ruling): this check was
+#: check_achronality_closed(), labelled "the escape was looked for and is not
+#: there", returning True on (ANEC violators exist) and (achronal.escapes() ==
+#: []) and (the axial lemma fires).  Those compute "no conjugate point in the
+#: shear-dropped reduction" and nothing more; reading them as "achronal" is
+#: the false converse.  It now asserts what was computed AND why that is not
+#: a closure, and it FAILS if the shear-restored re-run is ever run (so the
+#: row must then be re-statused from the new measurement).
+ACHRONALITY_STATUS_AS_FIRST_WRITTEN = "CLOSED-NEGATIVE"
+
+
+def check_achronality_open():
+    import achronal, anecscope
     rows = achronal.survey()
     viol = [r for r in rows if r["anec_violated"]]
-    # closed negative means: the escape was looked for and is not there
+    no_conj, chronal_at = cylinder_converse_fails()
     return (len(viol) > 0 and achronal.escapes(rows) == []
-            and rows[0]["proved"])          # and the axial case is proved, not fitted
+            and rows[0]["proved"]          # no conjugate point: proved on the axis
+            # ... but no conjugate point does not give achronality:
+            and no_conj and chronal_at is not None
+            # ... and the shear-restored re-run of these rays is NOT-RUN
+            and any("25" in t and "shear" in t for t in anecscope.NOT_RUN))
 
 def check_turn_advantage_closed():
     # turnseat.py, NOT transit.py. The travel>turn>seat instrument was written
@@ -910,8 +993,13 @@ def selftest():
     chk("every row id is unique", len({r[0] for r in LEDGER}), len(LEDGER))
     chk("actually DISSOLVED", len(h["DISSOLVED"]), 6)
     chk("RELOCATED -- still true, renamed", len(h["RELOCATED"]), 4)
-    chk("CLOSED-NEGATIVE", len(h["CLOSED-NEGATIVE"]), 33)
+    chk("CLOSED-NEGATIVE", len(h["CLOSED-NEGATIVE"]), 32)
     chk("CONDITIONAL", len(h["CONDITIONAL"]), 9)
+    chk("OPEN -- TYPE-IV, and ACHRONALITY (DOCKET 67, on M's ruling)",
+        sorted(r[0] for r in h["OPEN"]), ["ACHRONALITY", "TYPE-IV"])
+    chk("ACHRONALITY moved from its first-written status",
+        [r[2] for r in LEDGER if r[0] == "ACHRONALITY"][0]
+        != ACHRONALITY_STATUS_AS_FIRST_WRITTEN, True)
     chk("UNTESTED -- where the next build fails", len(h["UNTESTED"]), 0)
     chk("UNTESTED is still empty; the new row is OPEN, which is not the same",
         sorted(set(r[2] for r in LEDGER)),
@@ -931,8 +1019,11 @@ def selftest():
         check_mapping_dissolved(), True)
     chk("TYPEIV-SOURCES: yes at first order, open at exact",
         check_typeiv_sources_conditional(), True)
-    chk("ACHRONALITY: the escape was looked for and is not there",
-        check_achronality_closed(), True)
+    chk("ACHRONALITY: no conjugate point (scalar), achronality not shown",
+        check_achronality_open(), True)
+    nc, ca = cylinder_converse_fails()
+    chk("  control: flat cylinder, no conjugate point", nc, True)
+    chk("  control: and chronal from s = L/2 (first grid s)", ca, 0.51)
     chk("TURN-ADVANTAGE: turn => late, early => no turn",
         check_turn_advantage_closed(), True)
     chk("SEAT-MEETS-TRANSPORT: a negative mass seats AND arrives early",

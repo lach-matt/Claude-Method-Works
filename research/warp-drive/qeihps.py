@@ -3,9 +3,14 @@ r"""
 qeihps.py -- DOCKET 64 LINE 3: A QUANTUM ENERGY INEQUALITY ON THE HOCHBERG-
 POPOV-SUSHKOV SELF-CONSISTENT WORMHOLE.  THE DOCKET 62 INSTRUMENT (FEWSTER-SMITH)
 IS REFUSED ON HYPOTHESIS FOR HPS's FIELD; THE TWO QEIs KONTOU NAMES (FO Thm 4.2,
-FFKP Thm IV.1) APPLY IN FORM BUT CANNOT BE EVALUATED ON HPS; WHAT CAN BE
-COMPUTED EXACTLY IS COMPUTED.  ON THE THROAT GEODESIC HPS's OWN <rho> IS
-POSITIVE -- AND THAT IS NOT A TEST OF ANY APPLICABLE QEI.
+FFKP Thm IV.1) ARE REFUSED ON HPS's STATE AS PUBLISHED -- BOTH HOLD ONLY FOR
+HADAMARD STATES AND HPS's IS NOT ESTABLISHED HADAMARD -- AND WERE IT HADAMARD
+THEY WOULD STILL BE UNEVALUABLE (OPEN); WHAT CAN BE COMPUTED EXACTLY IS
+COMPUTED.  ON THE THROAT GEODESIC HPS's OWN <rho> IS POSITIVE -- AND THAT IS
+NOT A TEST OF ANY QEI.
+(CORRECTED, DOCKET 67 follow-up, M ruled: this said the two QEIs "APPLY IN
+FORM BUT CANNOT BE EVALUATED ON HPS" and the throat value was "NOT A TEST OF
+ANY APPLICABLE QEI"; "in form" left out both theorems' own Hadamard clause.)
 
     python3 qeihps.py             the reading
     python3 qeihps.py --selftest  sympy + mpmath + z3; every figure re-derived
@@ -77,8 +82,9 @@ exact expectation value in a specified Hadamard state.  Units hbar=c=G=1, MTW.
   ... which necessitates a more complicated analysis".  REFUSED: evaluating FS on
   HPS would be failure mode (4).
 
-  FEWSTER & OSTERBRINK 0708.2450 Thm 4.2 (READ) -- applies IN FORM to THAT
-  field:  (rho_quant o gamma)(f^2) >= -Q_xi(f),
+  FEWSTER & OSTERBRINK 0708.2450 Thm 4.2 (READ) -- written for THAT field,
+  and REFUSED on HPS's state (its Hadamard clause; see below):
+          (rho_quant o gamma)(f^2) >= -Q_xi(f),
       Q_xi(f) = Qt_A^xi(f) 1 + xi (:Phi^2: o gamma)(Q_B[f]) + xi (:Phi^2: o gamma)(Q_C^xi[f]),
       Q_B[f] = 2 (f')^2,  Q_C^xi[f] = f^2 (R_mn g^m g^n - (1/2)(1 - 4 xi) R).
       (Q_C as FO print it, in their Birrell-Davies [-,-,-] signs, FO fn. 2, not
@@ -88,11 +94,26 @@ exact expectation value in a specified Hadamard state.  Units hbar=c=G=1, MTW.
       this list and FORM_TAGS[FO] omitted it, though it is carried for FS and
       FFKP) ..... restorable LOCALLY on a globally hyperbolic neighbourhood of
       gamma(supp f) -- NAMED, not computed; not a FORM_TAGS entry
+      CORRECTED (DOCKET 67 follow-up): now a FORM_TAGS entry ("globhyp"),
+      applied LOCALLY -- FO on a globally hyperbolic neighbourhood N of
+      gamma(supp f) as a spacetime in its own right.  COMPUTED: the metric is
+      ANALYTIC on |l| < eps about the throat (normal_form(): det of the
+      fourth-derivative matrix -(3L+4) x non-zero at data (9), only zero
+      L = -4/3; ll a constraint propagated by div E = 0 identically; Cauchy's
+      analytic-ODE theorem NAMED; eps not computed).  NAMED, not computed: a
+      static metric is strongly causal, so small globally hyperbolic
+      neighbourhoods exist; a reference Hadamard state on N (Fulling-
+      Narcowich-Wald, NAMED-NOT-READ) ............................ MET LOCALLY
       xi in [0, 1/4] .......... 1/6                         MET  (computed from HPS_XI)
       timelike geodesic ....... the throat worldline l = 0: acceleration
                                 f'/(2f), derived from metric (2) by sympy and
                                 evaluated at HPS data (9): 0  MET  (computed)
       Hadamard state psi ...... HPS <T> is the AHS approximation   NOT-ESTABLISHED
+                                ("On the set of Hadamard states, we then find",
+                                FO p.10: a hypothesis OF THE THEOREM -- a FORM
+                                tag since the DOCKET 67 follow-up, so FO is
+                                REFUSED on it; it was filed as an evaluation
+                                input and FO read OPEN)
       rho_quant NORMAL-ORDERED against a reference Hadamard state omega_0
       (DIFFERENCE type) ......................... needs omega_0 on HPS  NOT-FOUND
       :Phi^2: in the state ..................... HPS print no <phi^2>  NOT-FOUND
@@ -106,7 +127,8 @@ exact expectation value in a specified Hadamard state.  Units hbar=c=G=1, MTW.
 
   FLISS-FREIVOGEL-KONTOU-PARDO SANTOS 2309.10848 THEOREM IV.1, eq. (72) (READ,
   Sec. IV.A-B) -- Kontou's [17], a CURVED-SPACETIME worldvolume NULL QEI, and
-  it too applies IN FORM:
+  it too is REFUSED on HPS's state (its Hadamard clause; CORRECTED, DOCKET 67
+  follow-up, M ruled -- this said "it too applies IN FORM"):
       <:rho_n:(f^2)>_psi >= -2 INT_D d^n alpha/(2 pi)^n ((Q x Q) W_0)_kappa(fbar_alpha, f_alpha)
                             - xi <:phi^2:(Q[f])>_psi,
       Q = l^mu nabla_mu,  Q[f] = nabla_mu nabla_nu (l^mu l^nu f^2) + (1/2) R_mn l^m l^n f^2.
@@ -117,6 +139,8 @@ exact expectation value in a specified Hadamard state.  Units hbar=c=G=1, MTW.
       matter on HPS, whose throat has R_ll != 0 on any open supp f.)
       free field on a fixed background ... HPS's xi = 1/6 scalar on metric (2)
                                                                     MET  (in form)
+                                (a FORM_TAGS row, "free", since the DOCKET 67
+                                follow-up; record HPS_FIELD_FREE)
       Wick powers by the Leibniz-rule prescription ... a property of the
       construction, not of HPS                     (both named, DOCKET 67)
       any xi ("holds for any value of the coupling constant") ...   MET  (computed)
@@ -132,14 +156,27 @@ exact expectation value in a specified Hadamard state.  Units hbar=c=G=1, MTW.
       proved, section 3).  Whitehead supplies convexity and normality only; the
       globally hyperbolic qualifier (asserted in FS p.7 without citation) and
       the one-hyperbolic-chart clause are separate results, not Whitehead's.
+      CORRECTED (DOCKET 67 follow-up): the regularity is now COMPUTED, not
+      presumed -- the metric is analytic (so C^{1,1}) on |l| < eps about the
+      throat (normal_form(); see FO's "globhyp" above); eps is not computed.
+      The row reads it, and returns NOT-ESTABLISHED on a control where it is
+      withheld.  The globally hyperbolic qualifier and the chart (66) stay NAMED.
       l^mu null near supp f ... radial l = f^(-1/2) d_t + d_l, g(l,l) = 0
       (sympy)                                                       MET  (computed)
       Hadamard state psi ...... HPS <T> is the AHS approximation   NOT-ESTABLISHED
+                                ("for all Hadamard states psi", p.18: a
+                                hypothesis OF THE THEOREM, P3 -- a FORM tag
+                                since the DOCKET 67 follow-up, M ruled)
       W_0, the two-point function of a reference Hadamard state on HPS
       (DIFFERENCE type: the left side is <T^ren>_psi - <T^ren>_psi0, eq. (59))
                                                                     NOT-FOUND
       <:phi^2:> in the state ... HPS print no <phi^2>               NOT-FOUND
-  So FFKP Thm IV.1 is BLOCKED THE SAME WAY AS FO Thm 4.2.  Its self-reference
+  So FFKP Thm IV.1 is BLOCKED THE SAME WAY AS FO Thm 4.2 -- since the DOCKET
+  67 follow-up, REFUSED as FO is, on the Hadamard clause alone (computed: every
+  other form row MET); were HPS's state shown Hadamard, both would be OPEN on
+  the two NOT-FOUND inputs (CONDITIONAL_IF_HADAMARD, computed).  REFUSED is
+  about HPS's state as published; it is not a finding that HPS violates
+  either inequality, and not a no-go.  Its self-reference
   instance (psi_0 = psi) is NOT examined here.  CAVEAT, not a hypothesis of
   the theorem: the convex normal neighbourhood about the throat is set by a
   curvature radius of 0.0243 l_P, so any sampling domain it admits is
@@ -163,6 +200,16 @@ exact expectation value in a specified Hadamard state.  Units hbar=c=G=1, MTW.
   out FFKP's state class (79), the free-scalar and null-plane-smearing
   hypotheses and the massless/factorisation steps; they decide nothing here,
   because the row is REFUSED on flatness (see FORM_TAGS).
+  CORRECTED (DOCKET 67 follow-up): they are now FORM_TAGS rows -- free scalar
+  (MET), Hadamard ((75) restates (72): NOT-ESTABLISHED), null-plane smearing
+  (76) (NOT-ESTABLISHED off flat) and the state class (79) (NOT-ESTABLISHED:
+  HPS print no <phi^2>).  On HPS the status stays REFUSED, now on four rows;
+  on a flat control the DSNEC is REFUSED on the state, not EVALUABLE, until
+  Hadamard and <phi^2> are supplied.  The massless and factorised-f steps
+  select a sub-form ((80) holds without them) and stay NAMED; HPS's m = 0
+  meets the massless one.  QEI_KIND[DSN] is now "absolute" (Minkowski-vacuum
+  reference, whose <T^ren> vanishes); being a NULL inequality it still cannot
+  be satisfied by HPS's rho > 0 (QEI_CONTRACTION; throat_verdict()).
 
   THE CURVATURE RADIUS, DEFINED (ruling B3).  At HPS's throat data the ONLY
   non-zero orthonormal Riemann components are R_(theta phi theta phi) and its
@@ -258,6 +305,17 @@ side of any QEI that applies to this field (section 4(a)).
     word is computed by throat_verdict() from the QEI catalogue (VERDICT_
     THROAT_GEODESIC); it returns SATISFIED only if an applicable absolute QEI
     exists, and the selftest shows it does so on a control catalogue.
+    CORRECTED (DOCKET 67 follow-up, M ruled): FO and FFKP do NOT meet their
+    hypotheses "in form" -- both hold only for Hadamard states, and that
+    clause is now a form tag -- so on HPS NO QEI applies (throat_verdict
+    returns NOT A TEST with an empty applicable list).  The difference
+    argument above is kept as the CONDITIONAL: were HPS's state Hadamard,
+    FO and FFKP would apply and rho > 0 would still decide neither.  And a
+    second ground, new: FFKP Thm IV.1 and the DSNEC are NULL inequalities,
+    whose left side on HPS is rho + p_l (0 on the throat worldline, negative
+    at O(l^2) off it), not rho; throat_verdict() now returns SATISFIED only
+    for an applicable ABSOLUTE TIMELIKE QEI (QEI_CONTRACTION), and a control
+    shows the clause bites.
 
     WITHDRAWN (DOCKET 64 verifier, SHOULD-FIX; kept, not deleted):
       | "That is SATISFIED, exactly -- and it is not a QEI test of anything,
@@ -268,8 +326,17 @@ side of any QEI that applies to this field (section 4(a)).
       -- withdrawn: it applies a minimal-coupling, Minkowski bound to a
          xi = 1/6 field at a sub-Planckian curvature radius -- failure mode (4)
          inside this instrument.  (VERDICT_THROAT_GEODESIC_WITHDRAWN.)
-(b) FOR THE INEQUALITIES THAT APPLY TO HPS's FIELD -- FO Thm 4.2 AND FFKP
-    Thm IV.1 (eq. 72), the two Kontou names: NOT EVALUABLE -- OPEN.  Both are
+(b) FOR THE INEQUALITIES WRITTEN FOR HPS's FIELD -- FO Thm 4.2 AND FFKP
+    Thm IV.1 (eq. 72), the two Kontou names: REFUSED ON HPS's STATE AS
+    PUBLISHED (both theorems hold "for all" / "on the set of" Hadamard states;
+    HPS's state is the AHS approximation, NOT-ESTABLISHED Hadamard), and were
+    it Hadamard, NOT EVALUABLE -- OPEN.  CORRECTED (DOCKET 67 follow-up, M
+    ruled: "Adding the missing Hadamard hypothesis in qeihps.py would move
+    FFKP from OPEN to REFUSED. - do it."; FO held to the same standard, since
+    FO-P6 is the same clause): this read "FOR THE INEQUALITIES THAT APPLY TO
+    HPS's FIELD ... NOT EVALUABLE -- OPEN".  REFUSED is not a finding that HPS
+    violates either inequality, and not a no-go: Kontou's question stays
+    unanswered, and the two blockers below stand behind the first.  Both are
     difference inequalities; the left side needs a reference Hadamard state's
     <T^ren> (FO) or two-point function W_0 (FFKP) on HPS, and the right side
     needs <:Phi^2:> in HPS's state.  Neither is in print: HPS read in full
@@ -287,6 +354,9 @@ side of any QEI that applies to this field (section 4(a)).
     data plus figures; no closed form over any interval is printed.  The Taylor
     coefficients are exact; a smeared integral needs the series' radius of
     convergence, which is NOT PROVED.  REFUSED as an exact evaluation.
+    (DOCKET 67 follow-up: that an analytic solution EXISTS on some |l| < eps
+    is now computed -- normal_form() -- so the radius is positive; its size,
+    which a smeared integral needs, is still NOT PROVED.)
 
 ===============================================================================
 5. CONTROLS, AND EACH CAN FAIL
@@ -342,6 +412,31 @@ side of any QEI that applies to this field (section 4(a)).
     ruling: qeihps co-owns O5's text).
   Where the ruling (no SHOULD-FIX) and the verifier (three) differ, the
   verifier's weaker statement is applied: the ruling never saw the verdict.
+
+===============================================================================
+7. DOCKET 67 FOLLOW-UP: VERDICTS MOVED ON M's RULING
+===============================================================================
+
+  M: "Adding the missing Hadamard hypothesis in qeihps.py would move FFKP from
+  OPEN to REFUSED. - do it."; the other verdicts held to the same standard (a
+  verdict rests on a correct, stated ground, computed or READ).  Records:
+  docket67-raw adjudications/shards, keys 2309.10848-thmiv.1,
+  0708.2450-thm4.2, kontou-fo-ffkp-nmc-qei, 2309.10848-dsnec.
+    FORM_TAGS  FFKP + hadamard, + free; FO + hadamard, + globhyp; DSN + free,
+               + hadamard, + nullplane, + phimax (each READ at source).
+    STATUSES   FO   OPEN -> REFUSED (Hadamard clause)
+               FFKP OPEN -> REFUSED (Hadamard clause)
+               DSN  REFUSED -> REFUSED (flat; Hadamard; null plane; (79))
+               FS   REFUSED, unchanged
+               throat verdict NOT A TEST, unchanged; applicable FO, FFKP -> none
+               conditional on Hadamard (computed): FO, FFKP OPEN, as before
+    REGULARITY the "MET LOCALLY" rows now read a computed ground
+               (normal_form(): analytic on |l| < eps), not f(0), r(0) > 0
+               at one point; a control withholds it and the rows say
+               NOT-ESTABLISHED.
+    KIND       QEI_KIND[DSN] difference -> absolute; QEI_CONTRACTION added;
+               throat_verdict SATISFIED needs ABSOLUTE AND TIMELIKE.
+  Every superseded wording is kept beside its replacement, marked.
 """
 
 import math
@@ -393,6 +488,13 @@ HPS_PRINTS_CLOSED_FORM_SOLUTION = False   # boundary data (9) + figures only
 HPS_STATE_HADAMARD_ESTABLISHED = False    # AHS approximation; AHS NOT-REACHED
 REFERENCE_STATE_ON_HPS_FOUND = False      # two alphaXiv searches: none
 TAYLOR_RADIUS_OF_CONVERGENCE_PROVED = False
+#: RECORD (DOCKET 67 follow-up, M ruled): HPS's field is a FREE scalar on a
+#: given metric -- "We consider the case of a conformally coupled scalar field",
+#: m = 0, no self-interaction term in HPS's eqs. (5)-(7), which are the AHS
+#: free-field approximation; READ as such by DOCKET 67 audit 2309.10848-thmiv.1
+#: ("P2 is met in form").  FFKP Thm IV.1's P2 and the DSNEC's free-scalar
+#: hypothesis read this record.
+HPS_FIELD_FREE = True
 
 # ---------------------------------------------------------------------------
 # COMPUTED AT IMPORT (stdlib only; the ledger imports this module).  Each
@@ -402,6 +504,8 @@ TAYLOR_RADIUS_OF_CONVERGENCE_PROVED = False
 #   rho   = 1/(8 pi r_0^2)      (-G^t_t/(8 pi) at data (9); throat())
 #   R_(theta phi theta phi) = 1/r_0^2, Kretschmann = 4/r_0^4 (einstein_and_anomaly())
 #   a     = f'/(2 f)            (static-observer acceleration; static_acceleration())
+#   det   = -(3 ln f + 4)/(129600 pi^2 f r)  (the (f'''', r'''') coefficient
+#           matrix of the tt and theta-theta equations; normal_form())
 # ---------------------------------------------------------------------------
 
 _L0 = Fraction(*HPS_PLOTTED_LNF0)
@@ -436,6 +540,24 @@ THROAT_F0 = math.exp(float(_L0))
 #: radial null field l = f^(-1/2) d_t + d_l:  g(l, l) = -f (f^(-1/2))^2 + 1
 THROAT_RADIAL_NULL_NORM = -THROAT_F0 * (THROAT_F0 ** -0.5) ** 2 + 1
 
+#: METRIC REGULARITY NEAR THE THROAT (DOCKET 67 follow-up; it was the UNNAMED,
+#: NOT PROVED hypothesis behind FFKP's "MET LOCALLY", and FO's restored
+#: "globally hyperbolic, smooth metric" needs it too).  COMPUTED in --selftest
+#: by normal_form(): the tt and theta-theta equations are LINEAR in
+#: (f'''', r'''') with coefficient determinant -(3 ln f + 4)/(129600 pi^2 f r);
+#: the ll equation carries no fourth derivative; and div(G - 8 pi T) = 0
+#: IDENTICALLY (off shell).  At data (9) the determinant's factor is 3L + 4.
+#: Where it is non-zero (and f, r > 0) the reduced system is a regular
+#: ANALYTIC ODE in normal form, so a unique analytic solution exists on some
+#: |l| < eps (Cauchy's existence theorem for analytic ODEs, NAMED); along it
+#: the identity gives E_l' = -(f'/(2f) + 2 r'/r) E_l with E_l(0) = 0 (data (9)
+#: solve the ll equation), so E_l = 0 and the full system holds.  The metric is
+#: then analytic -- C^{1,1} and smooth -- on (-eps, eps) x R x S^2.  eps is NOT
+#: computed (that is the Taylor radius, section 4(c)).
+NORMAL_FORM_DET_FACTOR_AT_PLOTTED = 3 * _L0 + 4          # 2 at L = -2/3
+METRIC_ANALYTIC_NEAR_THROAT = (NORMAL_FORM_DET_FACTOR_AT_PLOTTED != 0
+                               and THROAT_F0 > 0 and CURVATURE_RADIUS_LP > 0)
+
 #: xi ranges, closed.  None = every real xi.
 FS_XI_RANGE = (Fraction(0), Fraction(0))          # minimal coupling only
 FO_XI_RANGE = (Fraction(0), Fraction(1, 4))       # FO Thm 4.2
@@ -452,15 +574,33 @@ FS, FO, FFKP, DSN = ("Fewster-Smith gr-qc/0702056",
                      "FFKP 2309.10848 DSNEC/SNEC (75)-(93)")
 #: each inequality's left side: HPS's <T> itself (absolute) or a difference
 #: against a reference state (difference)
-QEI_KIND = {FS: "absolute", FO: "difference", FFKP: "difference", DSN: "difference"}
-#: DOCKET 67, recorded not repaired: on its own Minkowski domain DSN's difference
-#: against the Minkowski vacuum is in effect absolute.  The label is data that
-#: throat_verdict() reads, and DSN is REFUSED and excluded there, so it is left.
+#: CORRECTED (DOCKET 67 follow-up, M: "address/repair/correct"): DSN was
+#: labelled "difference".  On its own Minkowski domain its reference state is
+#: the Minkowski vacuum (FFKP, the sentence before eq. (75)), whose renormalised
+#: stress tensor vanishes, so its left side IS <T^ren>_psi: in effect ABSOLUTE.
+#: It is labelled so.  (It moves nothing on HPS, where DSN is REFUSED; it is the
+#: label throat_verdict() reads on a flat control.)  It carried this note:
+#: "DOCKET 67, recorded not repaired: on its own Minkowski domain DSN's
+#: difference against the Minkowski vacuum is in effect absolute.  The label is
+#: data that throat_verdict() reads, and DSN is REFUSED and excluded there, so
+#: it is left."
+QEI_KIND = {FS: "absolute", FO: "difference", FFKP: "difference", DSN: "absolute"}
+#: which contraction of T each inequality bounds, and on what (READ: FS and FO
+#: Thm 4.2 bound rho = T(u,u) on a timelike worldline; FFKP Thm IV.1 bounds
+#: <:rho_n:> = T(l,l) smeared over a worldvolume; the DSNEC bounds T_{--}
+#: smeared on a null plane, (76)).  NEW (DOCKET 67 follow-up): throat_verdict()
+#: used HPS's positive throat rho for every inequality, but a NULL inequality's
+#: left side on HPS is rho + p_l -- exactly 0 on the throat worldline and
+#: negative at O(l^2) off it (section 3) -- so rho > 0 decides no null QEI.
+QEI_CONTRACTION = {FS: "timelike", FO: "timelike", FFKP: "null", DSN: "null"}
 #: the hypotheses that decide whether an inequality applies to THIS FIELD AND
 #: WORLDLINE ("in form"); the rest are inputs needed to EVALUATE it.  For FS,
 #: an absolute QEI, the Hadamard state is a hypothesis of the theorem.
-#: DOCKET 67, recorded and NOT changed here, because these sets decide the
-#: computed statuses (a change would move FO/FFKP/DSN verdict words):
+#: CORRECTED (DOCKET 67 follow-up, M ruled: "Adding the missing Hadamard
+#: hypothesis in qeihps.py would move FFKP from OPEN to REFUSED. - do it.").
+#: The sets were FS {xi, hadamard}, FO {xi, geodesic}, FFKP {xi, domain, null},
+#: DSN {flat}, with this note, "recorded and NOT changed here, because these
+#: sets decide the computed statuses":
 #:   FO   omits FO's "globally hyperbolic, smooth metric" (carried for FS and
 #:        FFKP); restorable locally, NAMED not computed (docstring section 1).
 #:   FO, FFKP  file "Hadamard state psi" as an evaluation input, though "for all
@@ -469,10 +609,40 @@ QEI_KIND = {FS: "absolute", FO: "difference", FFKP: "difference", DSN: "differen
 #:   DSN  carries only "flat": FFKP's state class (79), free scalar, null-plane
 #:        smearing and the massless/factorisation steps are not tagged, so a
 #:        flat control returns EVALUABLE with no inputs; on HPS it is REFUSED.
+#: Now every hypothesis OF THE THEOREM is a form tag (READ, each at source):
+#:   FO   + "globhyp" (FO Thm 4.2: "defined on a globally hyperbolic spacetime
+#:        with smooth metric", 0708.2450 p.10; audits 0708.2450-thm4.2,
+#:        kontou-fo-ffkp-nmc-qei FO-P3) and + "hadamard" ("On the set of
+#:        Hadamard states, we then find", FO-P6) -- held to the same standard
+#:        as FFKP's, which M ruled on: the two theorems state the same clause.
+#:   FFKP + "hadamard" (Thm IV.1: "for all Hadamard states psi", 2309.10848v1
+#:        p.18; audit 2309.10848-thmiv.1 P3) and + "free" (P2, a free scalar on
+#:        a fixed background).
+#:   DSN  + "free", + "hadamard" ((75) is (72) restated, so it inherits "for all
+#:        Hadamard states"), + "nullplane" (smearing f(x+,x-)^2 delta^(n-2)(y),
+#:        (76)) and + "phimax" (the state class <:phi^2:>_psi <= phi_max^2,
+#:        (79): "We can make progress if we focus on the class of states
+#:        obeying" it; without it no DSNEC "in its standard form" is written).
+#:        Audit 2309.10848-dsnec.  The massless (82)-(83), (93)-(97) and
+#:        factorised-f steps are NOT tagged: they select a sub-form, not the
+#:        family -- (80) holds without them -- and HPS's m = 0 (fn [20]) meets
+#:        the massless one anyway; NAMED here, decide nothing.
+#: STATUSES THAT MOVE (computed by qei_status; the selftest pins them):
+#:   FO   OPEN (Hadamard, omega_0, <:Phi^2:> missing) -> REFUSED (Hadamard
+#:        state psi NOT-ESTABLISHED)
+#:   FFKP OPEN (the same three) -> REFUSED (Hadamard state psi NOT-ESTABLISHED)
+#:   DSN  REFUSED (flat) -> REFUSED (flat; Hadamard; null plane; (79))
+#:   throat_verdict: NOT A TEST with FO, FFKP applicable -> NOT A TEST with
+#:        none applicable.
+#: REFUSED here is a statement about HPS's state AS PUBLISHED: the theorems'
+#: own Hadamard clause is not established for it (the AHS approximation).  It
+#: is NOT a finding that HPS violates either inequality, and NOT a no-go: were
+#: HPS's state shown Hadamard, both would be OPEN, blocked on omega_0 / W_0 and
+#: <:Phi^2:> (computed on that control: CONDITIONAL_IF_HADAMARD below).
 FORM_TAGS = {FS: {"xi", "hadamard"},
-             FO: {"xi", "geodesic"},
-             FFKP: {"xi", "domain", "null"},
-             DSN: {"flat"}}
+             FO: {"xi", "geodesic", "globhyp", "hadamard"},
+             FFKP: {"xi", "free", "domain", "null", "hadamard"},
+             DSN: {"flat", "free", "hadamard", "nullplane", "phimax"}}
 
 
 def hypothesis_table(xi=HPS_XI, accel=THROAT_ACCELERATION, f0=THROAT_F0,
@@ -481,13 +651,22 @@ def hypothesis_table(xi=HPS_XI, accel=THROAT_ACCELERATION, f0=THROAT_F0,
                      radii=(CURVATURE_RADIUS_LP, KRETSCHMANN_RADIUS_LP),
                      hadamard=HPS_STATE_HADAMARD_ESTABLISHED,
                      ref_state=REFERENCE_STATE_ON_HPS_FOUND,
-                     phi2=HPS_PRINTS_PHI2):
+                     phi2=HPS_PRINTS_PHI2,
+                     regular=METRIC_ANALYTIC_NEAR_THROAT,
+                     free=HPS_FIELD_FREE):
     """Rows (instrument, tag, hypothesis, HPS, verdict); every verdict is
     COMPUTED from the arguments.  Verdict words: MET, MET LOCALLY, FAILS,
     NOT-FOUND, NOT-ESTABLISHED."""
     had = "MET" if hadamard else "NOT-ESTABLISHED"
     ref = "MET" if ref_state else "NOT-FOUND"
     ph2 = "MET" if phi2 else "NOT-FOUND"
+    fre = "MET" if free else "FAILS"
+    flat = kretschmann == 0
+    # DOCKET 67 follow-up: a LOCAL hypothesis is met only where the metric is
+    # regular on a neighbourhood (computed: METRIC_ANALYTIC_NEAR_THROAT), not
+    # from f0 > 0 and r0 > 0 at one point, which is all it read before.
+    local = ("FAILS" if not (f0 > 0 and r0 > 0) else
+             "MET LOCALLY" if regular else "NOT-ESTABLISHED")
     rows = []
     for ins, rng in ((FS, FS_XI_RANGE), (FO, FO_XI_RANGE), (FFKP, FFKP_XI_RANGE)):
         hyp = ("any xi" if rng is None else
@@ -500,21 +679,39 @@ def hypothesis_table(xi=HPS_XI, accel=THROAT_ACCELERATION, f0=THROAT_F0,
         (FO, "geodesic", "timelike geodesic",
          "throat worldline, f'/(2f) = %g" % accel,
          "MET" if accel == 0 else "FAILS"),
-        (FO, "hadamard", "Hadamard state psi", "AHS approximation", had),
+        # DOCKET 67 follow-up: FO-P3, restored.  Applied LOCALLY: FO on a
+        # globally hyperbolic neighbourhood N of gamma(supp f) taken as a
+        # spacetime in its own right.  Computed: the metric is analytic on a
+        # neighbourhood of the throat (normal_form()).  NAMED, not computed:
+        # a static metric is stably, hence strongly, causal, and a strongly
+        # causal spacetime has arbitrarily small globally hyperbolic
+        # neighbourhoods; a reference Hadamard state on N exists (Fulling-
+        # Narcowich-Wald, NAMED-NOT-READ).
+        (FO, "globhyp", "globally hyperbolic spacetime with smooth metric "
+         "(restricted to a neighbourhood of gamma(supp f))",
+         "metric analytic on |l| < eps (normal form, det factor 3L + 4 = %s); "
+         "causality results NAMED" % NORMAL_FORM_DET_FACTOR_AT_PLOTTED, local),
+        (FO, "hadamard", "Hadamard state psi (FO: 'on the set of Hadamard "
+         "states')", "AHS approximation", had),
         (FO, "ref", "reference Hadamard state omega_0 on HPS", "searched", ref),
         (FO, "phi2", "<:Phi^2:> in the state", "HPS print none", ph2),
-        # DOCKET 67: "MET LOCALLY" below is computed from f0 > 0 and r0 > 0 at
-        # one point; it presumes the connection is C^{1,1} on a neighbourhood
-        # (not proved here), and Whitehead supplies convexity and normality,
-        # not global hyperbolicity or the one hyperbolic chart.
+        (FFKP, "free", "free scalar on a fixed background (P2)",
+         "conformally coupled scalar, m = 0, on metric (2)", fre),
+        # DOCKET 67: "MET LOCALLY" below was computed from f0 > 0 and r0 > 0 at
+        # one point; it presumed the connection C^{1,1} on a neighbourhood
+        # (then not proved).  CORRECTED (follow-up): the regularity is now
+        # computed (normal_form(): analytic on |l| < eps) and the row reads it.
+        # Whitehead supplies convexity and normality; global hyperbolicity of a
+        # small neighbourhood and the one hyperbolic chart (66) stay NAMED.
         (FFKP, "domain", "small sampling domain, globally hyperbolic convex "
          "normal neighbourhood",
-         "f(0) = %.4g > 0, r(0) = %.4g > 0; Whitehead NAMED" % (f0, r0),
-         "MET LOCALLY" if (f0 > 0 and r0 > 0) else "FAILS"),
+         "f(0) = %.4g > 0, r(0) = %.4g > 0, metric analytic near the throat; "
+         "Whitehead NAMED" % (f0, r0), local),
         (FFKP, "null", "l^mu null near supp f",
          "radial l; |g(l,l)| = %.1e (float), 0 exactly by sympy" % abs(null_norm),
          "MET" if abs(null_norm) < 1e-12 else "FAILS"),
-        (FFKP, "hadamard", "Hadamard state psi", "AHS approximation", had),
+        (FFKP, "hadamard", "Hadamard state psi (Thm IV.1: 'for all Hadamard "
+         "states')", "AHS approximation", had),
         (FFKP, "ref", "W_0 of a reference Hadamard state on HPS", "searched", ref),
         (FFKP, "phi2", "<:phi^2:> in the state", "HPS print none", ph2),
         # DOCKET 67: "kretschmann == 0" is NECESSARY, not sufficient, for flat
@@ -527,7 +724,21 @@ def hypothesis_table(xi=HPS_XI, accel=THROAT_ACCELERATION, f0=THROAT_F0,
         (DSN, "flat", "Minkowski, or sampling << curvature radius (>= l_P)",
          "Kretschmann %.3g; radii %s l_P"
          % (kretschmann, ", ".join("%.4g" % x for x in radii)),
-         "MET" if (kretschmann == 0 or min(radii) > 1) else "FAILS"),
+         "MET" if (flat or min(radii) > 1) else "FAILS"),
+        # DOCKET 67 follow-up: the four DSNEC hypotheses the row dropped.
+        (DSN, "free", "free scalar (FFKP Sec. IV.C)",
+         "conformally coupled scalar, m = 0", fre),
+        (DSN, "hadamard", "Hadamard state psi ((75) is (72) restated)",
+         "AHS approximation", had),
+        # Minkowski null coordinates (x+, x-, y); on a curved throat no null
+        # plane of that kind is established.  Its predicate is the flat row's
+        # necessary condition (Kretschmann 0), so it inherits that caveat.
+        (DSN, "nullplane", "null-plane smearing f(x+,x-)^2 delta^(n-2)(y) (76)",
+         "Kretschmann %.3g" % kretschmann, "MET" if flat else "NOT-ESTABLISHED"),
+        # (79) bounds <:phi^2:>_psi; any state whose <:phi^2:> is known and
+        # bounded on supp f lies in the class for some phi_max.  HPS print none.
+        (DSN, "phimax", "state class <:phi^2:>_psi <= phi_max^2 (79)",
+         "HPS print no <phi^2>", "MET" if phi2 else "NOT-ESTABLISHED"),
     ]
     return tuple(rows)
 
@@ -549,11 +760,15 @@ def qei_status(rows, ins):
 
 def throat_verdict(rows, rho_positive):
     """What HPS's positive throat <rho> decides.  SATISFIED only if some
-    applicable (not REFUSED) inequality is ABSOLUTE -- its left side is then
-    HPS's <T> itself, and a lower bound <= 0 cannot be violated by rho > 0.
-    If every applicable one is a DIFFERENCE inequality: NOT A TEST."""
+    applicable (not REFUSED) inequality is ABSOLUTE and TIMELIKE -- its left
+    side is then HPS's <T(u,u)> itself, and a lower bound <= 0 cannot be
+    violated by rho > 0.  Otherwise: NOT A TEST.  CORRECTED (DOCKET 67
+    follow-up): the TIMELIKE clause is new -- a null inequality's left side on
+    HPS is rho + p_l, not rho (QEI_CONTRACTION)."""
     applicable = [i for i in QEI_KIND if qei_status(rows, i)[0] != "REFUSED"]
-    if rho_positive and any(QEI_KIND[i] == "absolute" for i in applicable):
+    if rho_positive and any(QEI_KIND[i] == "absolute"
+                            and QEI_CONTRACTION[i] == "timelike"
+                            for i in applicable):
         return "SATISFIED", applicable
     return "NOT A TEST", applicable
 
@@ -569,6 +784,24 @@ _FO_STATUS, _FO_WHY = qei_status(HYPOTHESES, FO)
 _FFKP_STATUS, _FFKP_WHY = qei_status(HYPOTHESES, FFKP)
 _DSN_STATUS, _DSN_WHY = qei_status(HYPOTHESES, DSN)
 _THROAT_WORD, _APPLICABLE = throat_verdict(HYPOTHESES, RHO_THROAT_AT_PLOTTED > 0)
+#: DOCKET 67 follow-up: the CONDITIONAL the REFUSED statuses leave standing --
+#: the same table with HPS's state taken Hadamard (and nothing else changed).
+#: A control, computed, never HPS's status.
+_IF_HADAMARD = hypothesis_table(hadamard=True)
+CONDITIONAL_IF_HADAMARD = {i: qei_status(_IF_HADAMARD, i) for i in (FO, FFKP)}
+
+
+def refused_on(rows, ins):
+    """The unmet FORM tags of one inequality (computed from the table)."""
+    return [r[1] for r in rows if r[0] == ins and r[1] in FORM_TAGS[ins]
+            and not r[4].startswith("MET")]
+
+
+#: every form hypothesis of FO and FFKP other than the Hadamard clause, met?
+OTHER_FORM_HYPOTHESES_MET = all(
+    r[4].startswith("MET") for r in HYPOTHESES
+    if r[0] in (FO, FFKP) and r[1] in FORM_TAGS[r[0]] and r[1] != "hadamard")
+_OTHER_MET_WORD = "met" if OTHER_FORM_HYPOTHESES_MET else "NOT all met (see HYPOTHESES)"
 
 #: the references the request cites, parsed from the quoted text
 KONTOU_CITED_REFS = tuple(int(x) for x in
@@ -580,26 +813,57 @@ KONTOU_NAMES_FEWSTER_SMITH = any("0702056" in KONTOU_NAMES.get(k, "") or
 FS_APPLIES_TO_HPS = _FS_STATUS != "REFUSED"
 FEWSTER_SMITH_ON_HPS = ("%s -- not met on HPS's field: %s" % (_FS_STATUS, "; ".join(_FS_WHY))
                         if _FS_STATUS == "REFUSED" else _FS_STATUS)
-FO_ON_HPS = ("%s -- applies in form (xi, geodesic) but NOT EVALUABLE on HPS: %s; "
-             "its only writable instance (omega_0 = HPS's own state) is vacuous"
-             % (_FO_STATUS, "; ".join(_FO_WHY)))
-FFKP_IV1_ON_HPS = ("%s -- applies in form (any xi; small sampling domain, given "
-                   "C^{1,1} regularity near the throat, not proved here; null l) "
-                   "but NOT EVALUABLE on HPS, blocked as FO is: %s"
-                   % (_FFKP_STATUS, "; ".join(_FFKP_WHY)))
+#: CORRECTED (DOCKET 67 follow-up, M ruled on FFKP; FO held to the same
+#: standard).  These read "OPEN -- applies in form (xi, geodesic) but NOT
+#: EVALUABLE on HPS: ..." and "OPEN -- applies in form (any xi; small sampling
+#: domain, given C^{1,1} regularity near the throat, not proved here; null l)
+#: but NOT EVALUABLE on HPS, blocked as FO is: ...".  The words are computed.
+FO_ON_HPS = ("%s -- not applicable to HPS's state as published: %s, a "
+             "hypothesis of FO Thm 4.2 itself.  Not a finding of violation: if "
+             "HPS's state were Hadamard, %s (computed), its only writable "
+             "instance (omega_0 = HPS's own state) being vacuous"
+             % (_FO_STATUS, "; ".join(_FO_WHY),
+                "%s on %s" % (CONDITIONAL_IF_HADAMARD[FO][0],
+                              "; ".join(CONDITIONAL_IF_HADAMARD[FO][1]))))
+FFKP_IV1_ON_HPS = ("%s -- not applicable to HPS's state as published: %s, a "
+                   "hypothesis of Thm IV.1 itself, as for FO.  Not a finding of "
+                   "violation: if HPS's state were Hadamard, %s (computed; the "
+                   "other form hypotheses -- any xi, free field, small sampling "
+                   "domain on the metric's analytic neighbourhood, null l -- "
+                   "%s)"
+                   % (_FFKP_STATUS, "; ".join(_FFKP_WHY),
+                      "%s on %s" % (CONDITIONAL_IF_HADAMARD[FFKP][0],
+                                    "; ".join(CONDITIONAL_IF_HADAMARD[FFKP][1])),
+                      "are met" if OTHER_FORM_HYPOTHESES_MET else
+                      "NOT all met, see HYPOTHESES"))
+#: CORRECTED (DOCKET 67 follow-up): the four restored DSNEC hypotheses are
+#: named in the word's reason; the status (REFUSED) does not move.
 DSNEC_ON_HPS = ("%s -- Minkowski-only; HPS's throat is not flat and its curvature "
-                "radius %.4f l_P (Kretschmann definition %.4f l_P) is sub-Planckian"
-                % (_DSN_STATUS, CURVATURE_RADIUS_LP, KRETSCHMANN_RADIUS_LP))
+                "radius %.4f l_P (Kretschmann definition %.4f l_P) is sub-Planckian; "
+                "also unmet on HPS: %s"
+                % (_DSN_STATUS, CURVATURE_RADIUS_LP, KRETSCHMANN_RADIUS_LP,
+                   "; ".join(w for w in _DSN_WHY if not w.startswith("Minkowski"))))
 ABSOLUTE_QEI_FOR_NMC = ("NOT-FOUND -- FO conclusion: 'can also be adapted' "
                         "(expected, not done); alphaXiv search returned none")
 #: Kontou's requested test, over BOTH inequalities she names (for O5's text)
+#: CORRECTED (DOCKET 67 follow-up).  It read: "FO Thm 4.2 OPEN and FFKP Thm
+#: IV.1 (eq. 72) OPEN -- both apply in form to HPS's xi = 1/6 field on the
+#: throat worldline (FO: a timelike geodesic; FFKP: a small sampling domain,
+#: metric regularity there not proved, and null l) and neither is evaluable
+#: (reference state / W_0 and <:Phi^2:> on HPS NOT-FOUND; HPS's state not
+#: established Hadamard)".  "Apply in form" omitted both theorems' own
+#: Hadamard clause; the statuses are now computed with it.
 KONTOU_REQUESTED_TEST_ON_HPS = (
-    "FO Thm 4.2 %s and FFKP Thm IV.1 (eq. 72) %s -- both apply in form to "
-    "HPS's xi = %s field on the throat worldline (FO: a timelike geodesic; "
-    "FFKP: a small sampling domain, metric regularity there not proved, and "
-    "null l) and neither is evaluable (reference state / W_0 and "
-    "<:Phi^2:> on HPS NOT-FOUND; HPS's state not established Hadamard)"
-    % (_FO_STATUS, _FFKP_STATUS, HPS_XI))
+    "FO Thm 4.2 %s and FFKP Thm IV.1 (eq. 72) %s on HPS's xi = %s field -- "
+    "both theorems hold only for Hadamard states, and HPS's state (the AHS "
+    "approximation) is not established Hadamard; every other form hypothesis "
+    "is %s (FO: xi in [0, 1/4], a timelike geodesic, a globally hyperbolic "
+    "neighbourhood; FFKP: any xi, free field, a small sampling domain, null l). "
+    "Not a finding that HPS violates either: were its state Hadamard both "
+    "would be %s/%s, blocked on a reference state / W_0 and <:Phi^2:> on HPS "
+    "(NOT-FOUND)"
+    % (_FO_STATUS, _FFKP_STATUS, HPS_XI, _OTHER_MET_WORD,
+       CONDITIONAL_IF_HADAMARD[FO][0], CONDITIONAL_IF_HADAMARD[FFKP][0]))
 DOCKET62_ATTRIBUTION_STANDS = KONTOU_REQUEST_FOUND   # the request exists, Kontou 2024
 DOCKET62_INSTRUMENT_STANDS = FS_APPLIES_TO_HPS       # FS on HPS's field
 DOCKET62_REFUTATION_SCOPE = (
@@ -611,24 +875,41 @@ OFF_THROAT_SMEARED_EVALUATION = (
     "in print" % off_throat_status(HPS_PRINTS_CLOSED_FORM_SOLUTION,
                                    TAYLOR_RADIUS_OF_CONVERGENCE_PROVED))
 
+#: CORRECTED (DOCKET 67 follow-up).  It read "... but the applicable QEIs
+#: (FO; FFKP) are difference inequalities whose left side is <rho_ren>_Psi -
+#: <rho_ren>_Psi0, not HPS's <T>; no applicable QEI is evaluated by it ...".
+#: With the Hadamard clause tagged, NO QEI applies to HPS's state; the
+#: difference argument survives as the conditional (if Hadamard: FO, FFKP).
 VERDICT_THROAT_GEODESIC = (
     "%s -- HPS's own <rho> there is %s/(-L) > 0 (%s at L = %s; THEOREM), but "
-    "the applicable QEIs (%s) are difference inequalities whose left side is "
-    "<rho_ren>_Psi - <rho_ren>_Psi0, not HPS's <T>; no applicable QEI is "
-    "evaluated by it ('SATISFIED' withdrawn, DOCKET 64 verifier)"
+    "no QEI applies to HPS's state as published (applicable: %s; refused on "
+    "unmet form hypotheses -- %s).  Were the state Hadamard, the applicable "
+    "ones (%s) would be difference inequalities (left side <rho_ren>_Psi - "
+    "<rho_ren>_Psi0, not HPS's <T>), FFKP's a null one (left side rho + p_l: 0 "
+    "on the throat worldline, negative at O(l^2) off it), so rho > 0 would "
+    "still decide none ('SATISFIED' withdrawn, DOCKET 64 verifier)"
     % (_THROAT_WORD, RHO_THROAT_COEFF, float(RHO_THROAT_AT_PLOTTED), _L0,
-       "; ".join(_APPLICABLE)))
+       "; ".join(_APPLICABLE) or "none",
+       "; ".join("%s: %s" % (n, ", ".join(refused_on(HYPOTHESES, i)))
+                 for n, i in (("FS", FS), ("FO", FO), ("FFKP", FFKP), ("DSNEC", DSN))
+                 if refused_on(HYPOTHESES, i)),
+       "; ".join(throat_verdict(_IF_HADAMARD, RHO_THROAT_AT_PLOTTED > 0)[1])))
 #: WITHDRAWN (DOCKET 64 verifier, SHOULD-FIX).  Kept and marked; never current.
 VERDICT_THROAT_GEODESIC_WITHDRAWN = (
     "WITHDRAWN: 'SATISFIED -- <rho> = -45/L > 0 (67.5 at L = -2/3)', and 'the "
     "minimal-coupling flat bound -C_F/tau^4 is satisfied with the whole of "
     "67.5 ||g||^2 to spare' (a minimal-coupling Minkowski bound applied to a "
     "xi = 1/6 field: failure mode 4)")
+#: CORRECTED (DOCKET 67 follow-up).  It read "OPEN -- FO Thm 4.2 and FFKP
+#: Thm IV.1 apply in form; neither is evaluable on HPS (blockers named in
+#: HYPOTHESES)".  The word is computed from the two statuses.
 VERDICT_APPLICABLE_QEI = (
-    "%s -- FO Thm 4.2 and FFKP Thm IV.1 apply in form; neither is evaluable "
-    "on HPS (blockers named in HYPOTHESES)"
-    % ("OPEN" if (_FO_STATUS, _FFKP_STATUS) == ("OPEN", "OPEN")
-       else "%s/%s" % (_FO_STATUS, _FFKP_STATUS)))
+    "%s -- FO Thm 4.2 and FFKP Thm IV.1 do not apply to HPS's state as "
+    "published (their Hadamard clause NOT-ESTABLISHED); were it Hadamard, "
+    "both %s and neither evaluable (blockers named in HYPOTHESES)"
+    % (_FO_STATUS if _FO_STATUS == _FFKP_STATUS
+       else "%s/%s" % (_FO_STATUS, _FFKP_STATUS),
+       "/".join(sorted({CONDITIONAL_IF_HADAMARD[i][0] for i in (FO, FFKP)}))))
 
 #: the unique single-coefficient repair found by repair_scan(); --selftest
 #: re-runs the scan and compares.  (component, monomial, printed, repaired)
@@ -894,6 +1175,33 @@ def throat(sp):
                 nec2=nec2, rho2=rho2)
 
 
+def normal_form(sp):
+    """DOCKET 67 follow-up: the regularity ground behind every LOCAL hypothesis
+    (FO "globally hyperbolic, smooth metric" restricted to a neighbourhood;
+    FFKP's small sampling domain).  Returns
+      det   the determinant of the (f'''', r'''') coefficient matrix of the tt
+            and theta-theta equations E = G - K^2 (A + ln f B), generic point;
+      El4   d E_l / d(f'''', r'''') (the ll equation is a constraint: (0, 0));
+      div   nabla_mu E^mu_l, off shell (the identity that propagates it);
+      det0  det at data (9), as a function of L (f = e^L, r = sqrt(-16K^2L)).
+    With det0 != 0 the reduced system is a regular analytic ODE in normal form
+    at the data point (Cauchy's existence theorem, NAMED, gives a unique
+    analytic solution on some |l| < eps), and E_l' = -(f'/(2f) + 2r'/r) E_l,
+    E_l(0) = 0, then gives E_l = 0 there."""
+    S = hps_system(sp)
+    l, f, r, K2 = S['l'], S['f'], S['r'], S['K2']
+    f4, r4 = f.diff(l, 4), r.diff(l, 4)
+    lf = sp.log(f)
+    E = [G - K2*(A + lf*B) for G, A, B in zip(S['G'], S['A'], S['B'])]
+    M = sp.Matrix([[sp.diff(E[i], v) for v in (f4, r4)] for i in (0, 2)])
+    det = sp.factor(sp.simplify(M.det()))
+    El4 = (sp.simplify(sp.diff(E[1], f4)), sp.simplify(sp.diff(E[1], r4)))
+    div = sp.simplify(_cons(sp, S, E))
+    L = sp.Symbol('L', real=True)
+    det0 = sp.factor(sp.simplify(det.subs({f: sp.exp(L), r: sp.sqrt(-16*K2*L)})))
+    return dict(det=det, El4=El4, div=div, det0=det0, L=L, f=f, r=r)
+
+
 def throat_signs_z3():
     """z3 over the reals: on HPS's range -1 <= L < 0 is there ANY L with
     r4/r <= 0, f4/f < 0, or rho <= 0?  Each must be UNSAT.  CONTROLS: just
@@ -1073,6 +1381,15 @@ def selftest():
     def verdict(rows, ins, tag):
         return [r[4] for r in rows if r[0] == ins and r[1] == tag]
 
+    def _swapped(table, key, value, fn):
+        """fn() with table[key] = value, restored afterwards (a control)."""
+        old = table[key]
+        table[key] = value
+        try:
+            return fn()
+        finally:
+            table[key] = old
+
     print("qeihps.py --selftest\n")
     print("0. THE REQUEST AND ITS NAMES (READ)")
     pin("Kontou's request found at source (record of the reading)",
@@ -1088,6 +1405,8 @@ def selftest():
         (REFERENCE_STATE_ON_HPS_FOUND, HPS_PRINTS_PHI2,
          HPS_STATE_HADAMARD_ESTABLISHED, HPS_PRINTS_CLOSED_FORM_SOLUTION,
          TAYLOR_RADIUS_OF_CONVERGENCE_PROVED), (False,)*5)
+    pin("HPS's field is a free scalar (record; audit 2309.10848-thmiv.1 P2)",
+        HPS_FIELD_FREE, True)
 
     print("\n1. HYPOTHESES -- every verdict COMPUTED; each predicate has a control")
     chk("CONTROL xi predicate: xi = 0 meets FS's range", xi_in(Fraction(0), FS_XI_RANGE), True)
@@ -1111,11 +1430,47 @@ def selftest():
     chk("Fewster-Osterbrink: 0 <= xi <= 1/4 (from HPS_XI)", verdict(rows, FO, "xi"), ["MET"])
     chk("Fewster-Osterbrink: timelike geodesic (from f'/(2f) at data (9))",
         verdict(rows, FO, "geodesic"), ["MET"])
-    chk("FFKP Thm IV.1: any xi / sampling domain / null l",
-        [verdict(rows, FFKP, t)[0] for t in ("xi", "domain", "null")],
-        ["MET", "MET LOCALLY", "MET"])
+    chk("FFKP Thm IV.1: any xi / free / sampling domain / null l",
+        [verdict(rows, FFKP, t)[0] for t in ("xi", "free", "domain", "null")],
+        ["MET", "MET", "MET LOCALLY", "MET"])
     chk("DSNEC: Minkowski or radius >= l_P (from the curvature)",
         verdict(rows, DSN, "flat"), ["FAILS"])
+
+    print("\n1b. METRIC REGULARITY NEAR THE THROAT (DOCKET 67 follow-up; sympy)")
+    nf = normal_form(sp)
+    fq, rq = nf['f'], nf['r']
+    chk("det of the (f4, r4) matrix of the tt, th eqs = -(3 ln f + 4)/(129600 pi^2 f r)",
+        sp.simplify(nf['det'] + (3*sp.log(fq) + 4)/(129600*sp.pi**2*fq*rq)), 0)
+    chk("  the ll equation carries no fourth derivative (a constraint)",
+        nf['El4'], (0, 0))
+    chk("  div(G - K^2(A + ln f B)) = 0 identically, off shell (propagates it)",
+        nf['div'], 0)
+    Lq = nf['L']
+    chk("  at data (9): det = -sqrt(10)(3L+4) e^-L/(21600 pi^(3/2) sqrt(-L))",
+        sp.simplify(nf['det0'] + sp.sqrt(10)*(3*Lq + 4)*sp.exp(-Lq)
+                    / (21600*sp.pi**sp.Rational(3, 2)*sp.sqrt(-Lq))), 0)
+    chk("  its only real zero is L = -4/3, outside HPS's -1 <= L < 0",
+        sp.solve(sp.Eq(nf['det0'], 0), Lq), [sp.Rational(-4, 3)])
+    chk("  3L + 4 at L = -2/3 == stdlib NORMAL_FORM_DET_FACTOR_AT_PLOTTED (= 2)",
+        (3*sp.Rational(*HPS_PLOTTED_LNF0) + 4,
+         NORMAL_FORM_DET_FACTOR_AT_PLOTTED), (2, 2))
+    chk("  so METRIC_ANALYTIC_NEAR_THROAT (computed), and over HPS's family "
+        "min(3L+4) on [-1, 0) = 1 > 0",
+        (METRIC_ANALYTIC_NEAR_THROAT, 3*(-1) + 4), (True, 1))
+    chk("CONTROL normal form: at L = -4/3 (outside HPS's family) the det vanishes",
+        sp.simplify(nf['det0'].subs(Lq, sp.Rational(-4, 3))), 0)
+    ctl_irr = hypothesis_table(regular=False)
+    chk("CONTROL regularity unproved -> FO globhyp and FFKP domain NOT-ESTABLISHED",
+        (verdict(ctl_irr, FO, "globhyp"), verdict(ctl_irr, FFKP, "domain")),
+        (["NOT-ESTABLISHED"], ["NOT-ESTABLISHED"]))
+    chk("CONTROL degenerate point (f0 = 0) -> both FAILS",
+        (verdict(hypothesis_table(f0=0), FO, "globhyp"),
+         verdict(hypothesis_table(f0=0), FFKP, "domain")), (["FAILS"], ["FAILS"]))
+    chk("Fewster-Osterbrink: globally hyperbolic, smooth metric (restored; local)",
+        verdict(rows, FO, "globhyp"), ["MET LOCALLY"])
+    chk("CONTROL free field: a non-free field FAILS FFKP's P2 and the DSNEC's",
+        (verdict(hypothesis_table(free=False), FFKP, "free"),
+         verdict(hypothesis_table(free=False), DSN, "free")), (["FAILS"], ["FAILS"]))
     ctl_geo = hypothesis_table(accel=static_acceleration_at(1, float(_L0)))
     chk("CONTROL geodesic: with f'(0) = 1 the throat worldline FAILS",
         verdict(ctl_geo, FO, "geodesic"), ["FAILS"])
@@ -1125,6 +1480,26 @@ def selftest():
     chk("CONTROL flat: Kretschmann 0 meets the DSNEC row (necessary, not "
         "sufficient, for Minkowski)",
         verdict(hypothesis_table(kretschmann=0), DSN, "flat"), ["MET"])
+    # DOCKET 67 follow-up: the flat control used to return ('EVALUABLE', [])
+    # with <phi^2> NOT-FOUND (audit 2309.10848-dsnec).  With (79), Hadamard and
+    # the null plane tagged it is refused on the state, and evaluable only
+    # when the state's hypotheses are met too.
+    chk("CONTROL flat, state unknown: DSNEC REFUSED on Hadamard and (79), not "
+        "EVALUABLE",
+        qei_status(hypothesis_table(kretschmann=0), DSN),
+        ("REFUSED", ["Hadamard state psi ((75) is (72) restated)",
+                     "state class <:phi^2:>_psi <= phi_max^2 (79)"]))
+    ctl_flat = hypothesis_table(kretschmann=0, hadamard=True, phi2=True)
+    chk("CONTROL flat, Hadamard, <phi^2> known: DSNEC EVALUABLE",
+        qei_status(ctl_flat, DSN), ("EVALUABLE", []))
+    chk("CONTROL throat_verdict: DSNEC absolute but NULL -> still NOT A TEST "
+        "(xi = 1/6: FS refused; no absolute timelike QEI applies)",
+        throat_verdict(ctl_flat, True), ("NOT A TEST", [FO, FFKP, DSN]))
+    chk("  the null clause bites: same catalogue, DSNEC read timelike -> SATISFIED",
+        (QEI_KIND[DSN], QEI_CONTRACTION[DSN],
+         _swapped(QEI_CONTRACTION, DSN, "timelike",
+                  lambda: throat_verdict(ctl_flat, True)[0])),
+        ("absolute", "null", "SATISFIED"))
     ctl_all = hypothesis_table(xi=Fraction(0), hadamard=True, ref_state=True, phi2=True)
     chk("CONTROL qei_status: all inputs present -> FO EVALUABLE, FS applies",
         (qei_status(ctl_all, FO)[0], qei_status(ctl_all, FS)[0]),
@@ -1134,15 +1509,34 @@ def selftest():
     chk("FS on HPS (computed): REFUSED", qei_status(HYPOTHESES, FS)[0], "REFUSED")
     chk("  so the DOCKET 62 instrument does not stand for HPS's field",
         DOCKET62_INSTRUMENT_STANDS, False)
-    chk("FO Thm 4.2 on HPS (computed): OPEN, 3 inputs missing",
-        (qei_status(HYPOTHESES, FO)[0], len(qei_status(HYPOTHESES, FO)[1])), ("OPEN", 3))
-    chk("FFKP Thm IV.1 on HPS (computed): OPEN, blocked as FO is",
-        (qei_status(HYPOTHESES, FFKP)[0],
-         [r[1] for r in rows if r[0] == FFKP and not r[4].startswith("MET")]),
-        ("OPEN", [r[1] for r in rows if r[0] == FO and not r[4].startswith("MET")]))
-    chk("DSNEC on HPS (computed): REFUSED", qei_status(HYPOTHESES, DSN)[0], "REFUSED")
-    chk("throat verdict (computed): NOT A TEST; applicable = FO, FFKP",
-        throat_verdict(HYPOTHESES, RHO_THROAT_AT_PLOTTED > 0), ("NOT A TEST", [FO, FFKP]))
+    # CORRECTED (DOCKET 67 follow-up, M ruled): these pinned FO "OPEN, 3
+    # inputs missing", FFKP "OPEN, blocked as FO is", DSNEC "REFUSED" on flat
+    # alone and the throat verdict with FO, FFKP applicable.
+    chk("FO Thm 4.2 on HPS (computed): REFUSED on its Hadamard clause alone",
+        (qei_status(HYPOTHESES, FO)[0], refused_on(HYPOTHESES, FO)),
+        ("REFUSED", ["hadamard"]))
+    chk("FFKP Thm IV.1 on HPS (computed): REFUSED on its Hadamard clause alone",
+        (qei_status(HYPOTHESES, FFKP)[0], refused_on(HYPOTHESES, FFKP)),
+        ("REFUSED", ["hadamard"]))
+    chk("  and FFKP's unmet rows are FO's (blocked the same way)",
+        [r[1] for r in rows if r[0] == FFKP and not r[4].startswith("MET")],
+        [r[1] for r in rows if r[0] == FO and not r[4].startswith("MET")])
+    chk("CONDITIONAL (HPS's state taken Hadamard): FO, FFKP OPEN on 2 inputs each",
+        [(CONDITIONAL_IF_HADAMARD[i][0], len(CONDITIONAL_IF_HADAMARD[i][1]))
+         for i in (FO, FFKP)], [("OPEN", 2), ("OPEN", 2)])
+    chk("  and that conditional is the table's (recomputed here)",
+        [qei_status(hypothesis_table(hadamard=True), i) for i in (FO, FFKP)],
+        [CONDITIONAL_IF_HADAMARD[FO], CONDITIONAL_IF_HADAMARD[FFKP]])
+    chk("CONTROL the Hadamard tag decides: drop it from FFKP's form set -> OPEN",
+        _swapped(FORM_TAGS, FFKP, FORM_TAGS[FFKP] - {"hadamard"},
+                 lambda: qei_status(HYPOTHESES, FFKP)[0]), "OPEN")
+    chk("DSNEC on HPS (computed): REFUSED on flat, Hadamard, null plane, (79)",
+        (qei_status(HYPOTHESES, DSN)[0], refused_on(HYPOTHESES, DSN)),
+        ("REFUSED", ["flat", "hadamard", "nullplane", "phimax"]))
+    chk("throat verdict (computed): NOT A TEST; no QEI applicable",
+        throat_verdict(HYPOTHESES, RHO_THROAT_AT_PLOTTED > 0), ("NOT A TEST", []))
+    chk("  conditional on Hadamard: NOT A TEST; applicable = FO, FFKP",
+        throat_verdict(hypothesis_table(hadamard=True), True), ("NOT A TEST", [FO, FFKP]))
     chk("off-throat evaluation (computed): REFUSED; control -> EVALUABLE",
         (off_throat_status(HPS_PRINTS_CLOSED_FORM_SOLUTION,
                            TAYLOR_RADIUS_OF_CONVERGENCE_PROVED),
@@ -1306,8 +1700,17 @@ def selftest():
     chk("Fewster-Smith status word, from the table", FEWSTER_SMITH_ON_HPS.split(" --")[0],
         "REFUSED")
     chk("DSNEC status word, from the table", DSNEC_ON_HPS.split(" --")[0], "REFUSED")
-    chk("FO and FFKP status words, from the table: OPEN, not closed",
-        (FO_ON_HPS.split(" --")[0], FFKP_IV1_ON_HPS.split(" --")[0]), ("OPEN", "OPEN"))
+    # CORRECTED (DOCKET 67 follow-up): pinned ("OPEN", "OPEN") before.
+    chk("FO and FFKP status words, from the table: REFUSED (Hadamard clause)",
+        (FO_ON_HPS.split(" --")[0], FFKP_IV1_ON_HPS.split(" --")[0]),
+        ("REFUSED", "REFUSED"))
+    chk("  and each names the conditional OPEN, not a violation",
+        all("if HPS's state were Hadamard, OPEN" in w and "Not a finding of "
+            "violation" in w for w in (FO_ON_HPS, FFKP_IV1_ON_HPS)), True)
+    chk("Kontou's requested test and the applicable-QEI verdict carry the words",
+        (KONTOU_REQUESTED_TEST_ON_HPS.split(" and FFKP")[0],
+         VERDICT_APPLICABLE_QEI.split(" --")[0]),
+        ("FO Thm 4.2 REFUSED", "REFUSED"))
     chk("the throat verdict carries the computed word, not 'SATISFIED'",
         VERDICT_THROAT_GEODESIC.split(" --")[0], "NOT A TEST")
     pin("the withdrawn verdict is kept and marked WITHDRAWN",

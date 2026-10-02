@@ -17,11 +17,13 @@ was not, is to ask whether it is LOAD-BEARING FOR THIS OBJECT.
   formation is the PLANCK ENERGY DENSITY.  Compare it to the energy density
   the corridor itself runs at, using the corridor's OWN throat scale.
 
-  THE PILEUP EXCEEDS THE CORRIDOR BY ABOUT 102 ORDERS OF MAGNITUDE.
+  THE PILEUP EXCEEDS THE CORRIDOR BY 4.5e102 -- 102.7 ORDERS OF MAGNITUDE.
 
   So the dispute is MOOT HERE.  It does not matter whether the divergence is
-  cut off, because the cut-off value alone is 102 orders past anything this
-  geometry holds.  THE ROW MOVES FROM NOT-RUN TO MOOT-FOR-THIS-OBJECT, which
+  cut off, because the cut-off value alone is 102.7 orders past anything this
+  geometry holds.  (CORRECTED, DOCKET 67 follow-up: first written 'ABOUT 102
+  ORDERS' here while the report printed 'about 103' for the same quotient,
+  4.4975e102 at Proxima, log10 = 102.65; both now print one decimal.)  THE ROW MOVES FROM NOT-RUN TO MOOT-FOR-THIS-OBJECT, which
   is a weaker claim than resolving it and a stronger one than declining.
 
 PART 2 -- OBJECTS_PER_EVENT, AND I WAS WRONG ABOUT IT.
@@ -68,12 +70,21 @@ L_PLANCK = math.sqrt(HBAR * G / c ** 3)
 M_PLANCK = math.sqrt(HBAR * c / G)
 RHO_PLANCK = M_PLANCK * c * c / L_PLANCK ** 3      # = c^7/(hbar G^2)
 
-# Proxima Centauri, ly: 1/(768.0665 mas), the Gaia DR3 parallax nonstatic.py
-# cites (NAMED-NOT-READ).  DOCKET 67 READ Lurie 2014's 768.13 mas as restated
-# in Kervella 2016, which gives 4.2461 ly.  The tree prices one corridor at two
-# distances: phase1.py uses a round 4.0 ly, this file and nonstatic, oneway,
-# foliation, driven and mouth use 4.2465 (recorded by DOCKET 67).
-PROXIMA_LY = 4.2465
+# Proxima Centauri, ly: 1/parallax with the Gaia DR3 parallax
+# 768.066539187357 mas (J2016.0), IMPORTED from phase1.py, where it is seated
+# with its source and named hypotheses (epoch, zero-point uncorrected,
+# inversion).  CORRECTED (DOCKET 67 follow-up, M: "ok, update" / "repair all
+# figures"): first typed PROXIMA_LY = 4.2465 with the parallax marked
+# NAMED-NOT-READ; DOCKET 67 READ it via restatement (Reyle et al. 2021,
+# arXiv:2104.14972 Table 1; Libralato et al. 2025, arXiv:2512.08533 Table 2,
+# 768.067 +- 0.050 mas), and it is now computed, 4.2464599 ly (4.2465 at the
+# 4 decimals printed; formal sigma +-0.00028 ly).  The note here also said
+# "the tree prices one corridor at two distances: phase1.py uses a round
+# 4.0 ly"; phase1.py now prices at this same distance (selftest checks it).
+# Lurie 2014's 768.13 mas, READ as restated in Kervella 2016, gives 4.2461 ly.
+import phase1   # noqa: E402  the Proxima distance, seated there
+PROXIMA_LY = phase1.L_PROXIMA / LY
+PROXIMA_PARALLAX_STATUS = "READ-VIA-RESTATEMENT"
 LITERATURE_IS_READ = False
 
 
@@ -206,7 +217,7 @@ def report():
     print()
     rp = pileup_density(L_PLANCK) / corridor_density(PROXIMA_LY * LY)
     print("         FOR PROXIMA THE PILEUP EXCEEDS THE CORRIDOR BY %.4e --" % rp)
-    print("         about %.0f ORDERS OF MAGNITUDE, ON THE ASSUMPTION MOST" % math.log10(rp))
+    print("         %.1f ORDERS OF MAGNITUDE, ON THE ASSUMPTION MOST" % math.log10(rp))
     print("         FAVOURABLE TO THE TIME MACHINE.")
     print()
     print("        SO THE DISPUTE IS MOOT FOR THIS OBJECT.  It does not matter")
@@ -320,6 +331,10 @@ def selftest():
         pileup_density(L_PLANCK) > corridor_density(d), True)
     chk("by more than a hundred orders",
         math.log10(pileup_density(L_PLANCK) / corridor_density(d)) > 100.0, True)
+    # DOCKET 67 follow-up: the docstring's figure is pinned to the quotient
+    # (python3.12 closeout.py prints 4.4975e102), so prose and report agree.
+    chk("  and it is the docstring's 102.7 orders",
+        round(math.log10(pileup_density(L_PLANCK) / corridor_density(d)), 1), 102.7)
     chk("the dispute is resolved here", HAWKING_DISPUTE_RESOLVED_HERE, False)
     chk("the row's new status", HAWKING_ROW, "MOOT-FOR-THIS-OBJECT")
     chk("chronology.py itself is unchanged",
@@ -358,6 +373,18 @@ def selftest():
     chk("N moves the crossover", N_MOVES_THE_CROSSOVER, False)
     chk("and I said it did", I_SAID_IT_DID, True)
 
+    # DOCKET 67 follow-up: ONE corridor at ONE distance.  Controls that can
+    # fail: the imported distance must be 1/parallax in this file's own light
+    # year, round to the seated foliation.PROXIMA_LY, and be phase1's target.
+    chk("Proxima = 1/(Gaia DR3 parallax), computed in ladder's light year",
+        abs(PROXIMA_LY * LY / (149597870700.0 * 648000.0 / math.pi
+                               / (768.066539187357 / 1000.0)) - 1.0) < 1e-12, True)
+    chk("  to 4 dp it is the seated foliation.PROXIMA_LY",
+        round(PROXIMA_LY, 4) == __import__("foliation").PROXIMA_LY, True)
+    chk("  and phase1 prices the corridor at the same distance",
+        phase1.single_transition_beats_light.__defaults__[0] == PROXIMA_LY * LY
+        and phase1.L_PROXIMA == PROXIMA_LY * LY, True)
+    chk("  the parallax's status", PROXIMA_PARALLAX_STATUS, "READ-VIA-RESTATEMENT")
     chk("literature positions were read", LITERATURE_IS_READ, False)
     chk("nothing is repaired", NOTHING_IS_REPAIRED, True)
 
