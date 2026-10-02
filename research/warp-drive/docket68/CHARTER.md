@@ -42,6 +42,32 @@ today, says the same of bridges); and the matter must already be at the destinat
 supply, S13, the held-seat release route, OPEN and priced). **This docket tests the one step that blocks the
 thesis: whether any channel removes the need for those two classical bits.**
 
+## M's three replies on the corridor, verbatim (2026-10-02)
+
+> Making the corridor. Joining two separate positions into one changes the topology of spacetime. - only to an
+> observer
+> Holding it open. Morris–Thorne (1988), graded STANDS: a crossable throat needs the null energy condition broken
+> at the throat. - this is simply a translation of information only. No physics. The null energy doesn't exist
+> here as it is being supplied by probability in the citation/seating
+> Which moment the two ends share. - what if our error is accepting that spacetime is flat?
+
+Read against the board:
+- In general relativity topology is a property of the manifold: every observer agrees whether two regions are
+  connected; what differs between observers is simultaneity and distance. Under H-IT, a corridor in the
+  information layer is not a geometric topology change, and Geroch's theorem (a statement about Lorentzian
+  manifolds) says nothing about it. Its cost is then whatever the information layer charges -- this docket's
+  question.
+- Likewise Morris-Thorne constrains a geometric throat; with no throat it does not apply. What "supplied by
+  probability in the citation/seating" means is ASKED of M, not presumed.
+- FLATNESS WAS A HYPOTHESIS of corridors.py (latticectc's H1), and M is right to strike it. Computed in
+  `frw_frame.py` (sympy, Killing equation; control: in Minkowski the boost and time translation ARE Killing): in
+  the spatially flat expanding universe ds^2 = -dt^2 + a(t)^2 dx^2 with a non-constant, spatial translations and
+  rotations are symmetries; a time translation and a boost are NOT. So the only identifications that respect the
+  geometry join positions at the SAME COSMIC TIME -- the expanding universe itself selects the frame H-FRAME asks
+  for, and the different-frame corridors that build time loops in corridors.py are not identifications this
+  geometry admits (their two ends would not match). The measured candidate frame is the CMB rest frame
+  (`cmb-dipole-370kms`, D67: NARROWED).
+
 ## M on speed and the corridor, verbatim (2026-10-02)
 
 > Speed is a non-issue. Consider that the corridor connects two positions as one, thus speed never enters the
