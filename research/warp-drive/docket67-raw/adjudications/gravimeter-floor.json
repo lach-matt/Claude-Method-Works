@@ -1,0 +1,82 @@
+{
+ "key": "gravimeter-floor",
+ "final_grade": "NARROWED",
+ "source_read_status": "READ",
+ "read_at_source_this_pass": true,
+ "decision": "The overturn is confirmed: OPEN becomes NARROWED. The audit graded OPEN for one reason only, that the source could not be read. In this pass I read arXiv:1512.05660v1 (Freier et al.) at source, and it gives every figure the verifiers quoted, word for word:\n- Abstract, p1: accuracy 39 nm/s^2, long-term stability 0.5 nm/s^2, short-term noise 96 nm/s^2/rtHz.\n- p1: the best FCCGs have a total uncertainty of 20 nm/s^2. SCGs are relative instruments that need FCCG calibration.\n- p3: below 10 nm/s^2, synthetic models are not enough. Residual atmospheric, tidal and hydrological signals 'can reach up to a few 10 nm/s^2'.\n- p3: the 0.5 nm/s^2 is the Allan deviation of GAIN minus a co-located SCG, reached at 1e5 s (about one day).\n- p2: the instrument is split vertically, so it reads one vertical axis.\n\n**What the tree does with the figure.** address.py:431 marks the value ORDER, cites no source and names no figure type. gravimetric_radius (724-726) uses it as an instantaneous detection threshold for a static source. address.py:213-215 calls that source 'readable'.\n\n**Why that is NARROWED.** At source, 1e-9 holds only as a relative long-term stability figure. The other figures are much coarser:\n- absolute accuracy: 3.9e-8 (best FCCG 2e-8);\n- noise at 1 s: 9.6e-8;\n- background left after model-only separation: a few times 1e-8.\n\nSo the figure holds only for a measurement that is modulated or differenced and integrated over about 1e4 to 1e5 s. The tree names neither hypothesis: what kind of figure 1e-9 is, and how the source is separated from the background. A hypothesis the tree drops is the definition of NARROWED.\n\n**Computed.** I copied the scripts and re-ran them in adjudicate/run.\n- Re-derivation: exit 0, 21 PASS, 0 FAIL.\n- Vacuity guard: 12 PASS, 0 FAIL. With the floor patched to 1e-8, the tree's own selftest FAILs its >1e23 pin for H1.\n- Ratio r/d (gravity reach over Higgs standoff) at the figures read:\n\n| Floor read | H1 | H2 |\n|---|---|---|\n| 5e-10 (stability) | 3.53e23 | 6.56e23 |\n| 3.9e-8 (accuracy) | 4.00e22 | 7.43e22 |\n| 9.6e-8 (1 s noise) | 2.55e22 | 4.73e22 |\n\n**What follows from the numbers.**\n- The >1e23 selftest pin (1467-1468) and the exact reach figures hold only under the stability reading. Under the accuracy reading the pin fails for BOTH H1 and H2.\n- The verdict 'MORE THAN TWENTY ORDERS' (217-218) holds at every figure read. The smallest r/d is 1.6e22. It holds for any floor below 6.26e-3 (H1) or 2.15e-2 (H2).\n\n**Why not the other grades.**\n- Not STANDS: the tree's static 'readable' use falls outside the class the source supports.\n- Not WRONG: nothing refutes the verdict, and the pin never fails at the ORDER value itself.\n- Not DATA-DEPENDENT: no published datum moved. What was missing was the figure's type and scope.\n- Not OPEN: the source is now read.\n\n**A shared error, checked.** Two verifiers (refute and data) wrote that 1e-9 is 'achieved, and bettered (5e-10)'. That overstates it. 0.5 nm/s^2 is the stability of a GAIN-minus-SCG difference. An outside source seen equally by both co-located instruments cancels in that difference. So it is an instrument-noise figure, not a shown detection of an outside signal at 1e-9. This makes the narrowing stronger and does not change the grade. It does not reach WRONG, because the paper never shows that detecting a modulated source at 1e-9 fails. On white noise alone, getting from 96 nm/s^2/rtHz to 1e-9 takes about 9.2e3 s (computed).",
+ "scope": "**What the grade covers.** GRAVIMETER_FLOOR = 1e-9 m/s^2 at every place the tree uses it:\n- address.py:431, 213-215, 724-726, 801-804 and 1461-1468;\n- the '23 orders' wording at 209 and 1215.\n\nIt is judged against one source read in full: arXiv:1512.05660v1, a mobile atom gravimeter compared against FCCG and SCG instruments.\n\n**The narrowing.** The floor holds only under three named hypotheses:\n1. 1e-9 is a long-term relative stability figure at about 1e5 s, not an accuracy or single-shot noise figure.\n2. The source signal is modulated or differenced, because separating it with models alone stops at a few times 1e-8.\n3. The single vertical axis points at the source.\n\n**What the grade does not cover.**\n- The SCG's own noise floor. The paper states it only qualitatively, so it stays NAMED-NOT-READ.\n- HUST-QG / Metrologia 59 055001. Its figures (24 uGal/rtHz, 3 uGal Type B) come only through the data verifier's reading of arXiv:2412.14438 and were not re-read here.\n- Hu et al., PRA 88 (2013): NAMED-NOT-READ.\n- Any experiment that has actually detected a modulated source mass at 1e-9.\n\nThe 'more than twenty orders' verdict holds at every figure read.",
+ "corrections_to_record": [
+  "The audit's OPEN is superseded. arXiv:1512.05660 is now READ. The value_now in the data row should read: stability 0.5 nm/s^2 at 1e5 s, relative to SCG; accuracy 39 nm/s^2; noise 96 nm/s^2/rtHz; residuals after synthetic models a few 10 nm/s^2.",
+  "The refute and data verifiers share an overstatement. 'Achieved and bettered (5e-10)' should read: 'GAIN-minus-SCG instrumental stability reaches 0.5 nm/s^2 at about 1e5 s'. A source common to both instruments cancels in that difference, so it does not show that an outside static source can be read at 1e-9.",
+  "The >1e23 selftest pin (address.py:1467-1468) fails for BOTH H1 and H2 at the read accuracy of 3.9e-8 (r/d 4.00e22 and 7.43e22). The audit's hypothetical 1e-8 floor suggested it failed for H1 only. At the stability reading of 5e-10 the pin holds (3.53e23 and 6.56e23).",
+  "'MORE THAN TWENTY ORDERS' spans address.py:217-218, not :217 alone. It holds at every figure read: the smallest r/d is 2.55e22 at the GAIN 1 s noise (read), or 1.61e22 at the HUST-QG 1 s noise (via restatement).",
+  "The rederive script labels the pin 'address.py selftest :1474'. It is at :1467-1468.",
+  "The rederive check C2 calls its recomputation 'independent', but it takes M from the tree's own source_density and eps_det_stationary. Only the sqrt step is independent, so C2 is a reproduction check.",
+  "The rederive check C3 gives the 20-orders limit as '~1e-3 g'. The exact values are 6.262e-3 m/s^2 = 6.4e-4 g (H1) and 2.152e-2 m/s^2 = 2.2e-3 g (H2).",
+  "Taking 'a few 10 nm/s^2' as 3e-8 is a verifier's interpretation, not a number read at source.",
+  "Carried from the audit: the H1 reach of 1.37e7 m is larger than Earth's diameter (1.274e7 m). It is the radius where the source's field reaches the floor, not a distance anyone could set up on Earth. This is a discrepancy of framing, not of number."
+ ],
+ "tree_sites": [
+  {
+   "site": "research/warp-drive/address.py:431",
+   "finding": "GRAVIMETER_FLOOR = 1.0e-9 carries the status ORDER, no source and no figure type. Read at source, 1e-9 matches a long-term relative stability figure (0.5 nm/s^2 at 1e5 s, relative to SCG), not accuracy (39 nm/s^2) or noise (96 nm/s^2/rtHz). The figure type is a dropped hypothesis. Line current.",
+   "kind": "dropped-hypothesis"
+  },
+  {
+   "site": "research/warp-drive/address.py:213-215",
+   "finding": "'Readable ... out to 1.4e7 m (H1) or 2.6e7 m (H2)' assumes the static source can be separated from the background at 1e-9. Source p3: model-only residuals reach a few 10 nm/s^2. Under the absolute-accuracy reading the reach is 2.2e6 m (H1) and 4.1e6 m (H2). Line current.",
+   "kind": "dropped-hypothesis"
+  },
+  {
+   "site": "research/warp-drive/address.py:217-218",
+   "finding": "'MORE THAN TWENTY ORDERS' holds at every figure read (smallest r/d 1.6e22) and for any floor below 6.26e-3 (H1) or 2.15e-2 (H2). The audit cites :217 only; the phrase spans 217-218.",
+   "kind": "consistent"
+  },
+  {
+   "site": "research/warp-drive/address.py:1467-1468",
+   "finding": "The selftest pin r/d > 1e23 holds only under the stability reading. At the read accuracy of 3.9e-8 it fails for both H1 and H2. Confirmed by running the tree's own selftest with the floor patched to 1e-8, where the H1 check FAILs. Line current.",
+   "kind": "overstatement"
+  },
+  {
+   "site": "research/warp-drive/address.py:1461-1466",
+   "finding": "The reach pins reproduce to better than 1e-5 (1.370830e7 m and 2.559306e7 m at the current MH). They carry the same scope limit as 213-215. Line current.",
+   "kind": "consistent"
+  },
+  {
+   "site": "research/warp-drive/address.py:209",
+   "finding": "The heading '23 ORDERS' holds at the stability floor (r/d 2.5e23). At the read accuracy it is 22.6 orders (H1) and 22.9 (H2). Line current.",
+   "kind": "overstatement"
+  },
+  {
+   "site": "research/warp-drive/address.py:1215",
+   "finding": "'An ordinary gravimeter twenty-three orders further out' needs the stability reading, which takes about a day of integration referenced to an SCG. An ordinary absolute reading gives about 22.6 orders (H1). Line current.",
+   "kind": "overstatement"
+  },
+  {
+   "site": "research/warp-drive/address.py:724-726",
+   "finding": "gravimetric_radius uses the field magnitude as an instantaneous threshold for a static source. Reading one vertical axis, which the source confirms (p2), does not shorten the reach for surface geometry: the vertical pull at the antipode is 1.16e-9 (H1) and 4.03e-9 (H2), both above the floor. Line current.",
+   "kind": "dropped-hypothesis"
+  },
+  {
+   "site": "research/warp-drive/address.py:801-804",
+   "finding": "newton_range wraps gravimetric_radius and inherits the floor's scope. Line current.",
+   "kind": "consistent"
+  },
+  {
+   "site": "research/warp-drive/address.py:1469-1471",
+   "finding": "The positive control checks the Newton formula against g = 9.8, not any instrument's resolution, so it is not evidence on the floor either way. Line current.",
+   "kind": "consistent"
+  }
+ ],
+ "commands_run": [
+  "python3 -c json dump of adjudicate/in/gravimeter-floor.json",
+  "git log -1 -- address.py (524ccae 2026-09-24); git status address.py (clean); grep -n GRAVIMETER_FLOOR|1e23|TWENTY|twenty-three|23 ORDERS|1.371597e7 address.py; awk print of address.py lines 211-219, 429-432, 722-727, 799-812, 1213-1216, 1458-1472",
+  "mcp__alphaXiv__answer_pdf_queries(paper='1512.05660', 4 queries) -> full text pp1-6 READ",
+  "cp rederive/gravimeter-floor.py verify/rederive/gravimeter-floor-vacuity.py verify/data/gravimeter-floor-datacheck.py adjudicate/run/",
+  "PYTHONDONTWRITEBYTECODE=1 python3 gravimeter-floor.py -> exit 0, 21 PASS 0 FAIL",
+  "PYTHONDONTWRITEBYTECODE=1 python3 gravimeter-floor-vacuity.py -> exit 0, 12 PASS 0 FAIL",
+  "PYTHONDONTWRITEBYTECODE=1 python3 gravimeter-floor-datacheck.py -> r/d at each read figure"
+ ],
+ "reverify_command": "cd /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/adjudicate/run && for f in gravimeter-floor.py gravimeter-floor-vacuity.py gravimeter-floor-datacheck.py; do PYTHONDONTWRITEBYTECODE=1 python3 $f; done ; then mcp__alphaXiv__answer_pdf_queries(paper='1512.05660', queries=['accuracy, stability, noise','stability time-scale and reference','synthetic model residuals'])",
+ "report_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/adjudicate/out/gravimeter-floor.json"
+}

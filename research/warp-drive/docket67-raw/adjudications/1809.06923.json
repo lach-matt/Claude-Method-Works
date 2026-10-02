@@ -1,0 +1,72 @@
+{
+ "key": "1809.06923",
+ "final_grade": "NARROWED",
+ "source_read_status": "READ",
+ "read_at_source_this_pass": true,
+ "decision": "The unanimous overturn (OPEN -> NARROWED) is CONFIRMED. The verifiers did not share an error on anything the grade turns on.\n\nWHY OPEN FALLS. The audit's only ground for OPEN was that the source was unread. This adjudication read arXiv:1809.06923v2 (18 Jan 2019) through alphaXiv answer_pdf_queries:\n- Printed p.24, Sec. 4.1: 'This causes it to expand at near the speed of light, resulting in the space around a nucleation point being converted to the true vacuum, releasing energy into the bubble wall. Apart from the destruction that this would unleash, and the different masses of fundamental particles in the bubble interior, the result is also gravitational collapse of the bubble [165]'. This is verbatim massform.py:1306-1310.\n- Printed p.54, Sec. 6: 'If the electroweak vacuum really is metastable, then bubbles of the true, negative-energy vacuum can be nucleated ... Once a bubble has formed, it expands at the speed of light, destroying everything in its way.' This is verbatim massform.py:1311-1312, and it is conditional on metastability and nucleation, which matches the tree's 'decay case only'.\n- Printed p.38, Sec. 5.1, corroborates: 'once nucleated, a bubble of true vacuum expands at the speed of light and destroys everything in its way'.\nThe source's content as quoted therefore STANDS, and DOCKET 65's READ status for massform.SOURCES['MRS-bubble'] is confirmed.\n\nWHY NARROWED AND NOT STANDS. The grade covers the tree's USE, and that use adds a premise it does not name, which is the definition of NARROWED.\n(a) massform.py:1981-1987 sets VACUUM_DECAY_FORMS_ATOMIC_MASS_AT_THE_SEAT = not (masses differ AND destroys what it meets). The two READ clauses do not entail that conclusion. Re-run: A & B & F is sat, and adding H-BRIDGE (A & B -> not F) makes it unsat. Verifier 2's V5 is right that this is a purely propositional point, not physics, but the point stands: the step needs H-BRIDGE ('a region whose particle masses differ and which destroys what it meets forms no atomic mass of ours'), and the tree never names it. The tree does call the step an INFERENCE (massform.py:436-437; LEDGER.md:52; massform.py:2898-2900). Against that, the comment at massform.py:1984-1985 says 'Refuted by the READ text', and LEDGER.md:52 grades D29 THEOREM while one conjunct of its conclusion rests on this inference.\n(b) The READ support that would ground H-BRIDGE is in the source and is left out of the boolean: p.54 'true, negative-energy vacuum'; printed p.36 (Sec. 4.7, after Eq. 4.60) 'The inside of the light cone corresponds to an anti-de Sitter spacetime collapsing into a singularity'; printed p.37 'the formation of a singularity in the negative-potential region is inevitable [180]'. The tree holds the p.24 'gravitational collapse' clause but the boolean does not use it. This understates the tree's own case and is not a fault against the source.\n(c) Ledger D29 (massform.py:2889-2900 and LEDGER.md:52) drops the restriction kept at massform.py:440-441, that local nucleation at a seat is NOT computed. The source makes that restriction material: printed p.28, Eq. (4.27), says that for seed black holes of M_seed <~ 1e5 M_P (about 1 g) 'the vacuum decay rate becomes unsuppressed'.\n\nNOT WRONG. No counterexample to the tree's conclusion is shown or READ. The source's one scenario that limits 'destroying everything' (printed pp.37-38: a bubble trapped behind an event horizon becomes a primordial black hole, which needs fine tuning) still forms no ordinary atomic mass at a seat, so it does not trigger D29's falsifier.\n\nNOT DATA-DEPENDENT. The bubble dynamics carry no measured datum: the source derives v -> c from the O(4) -> O(3,1) continuation, Eq. (4.60), and the sympy re-derivation holds for every eps > 0, sigma > 0. The top mass moves only H-META. The tree's C4 is independent of the top mass because dec = False under H-BRIDGE, not because of a tautology in the physical C4 (verifier 2's V6, confirmed).\n\nRe-runs, copied into adjudicate/run/: the audit's rederive script exits 0 with 'ALL CHECKS AGREE', and every value matches the audit. Verifier 2's vacuity script reproduces its .out identically.",
+ "scope": "The grade covers the tree's use of 1809.06923 in massform.py and in ledger row D29, which is NARROWED. The massform.py sites are the MRS-bubble transcription, DECAY_CHANGES_PARTICLE_MASSES, DECAY_DESTROYS_WHAT_IT_MEETS, VACUUM_DECAY_FORMS_ATOMIC_MASS_AT_THE_SEAT, and the decay branch of C4.\n\nThe source's quoted statements themselves STAND verbatim (pp.24 and 54, READ). They hold under the hypotheses the source states or uses:\n- H-META (metastability);\n- nucleation having occurred;\n- flat or de Sitter space with no plasma friction;\n- thin wall and supercritical, for the sympy check.\n\nNOT covered:\n- whether the vacuum is metastable (the top mass), which is audited under 1307.3536;\n- whether any local process at a seat could nucleate a bubble; the source's black-hole catalysis is noted, not evaluated;\n- the interior crunch's own derivation (refs [165] and [180]), READ only as the review's restatement and not re-derived;\n- D29's sum-of-squares THEOREM about v (H-REAL, H-TREE-V), which belongs to other keys.",
+ "corrections_to_record": [
+  "Audit read_status NAMED-NOT-READ / grade OPEN is superseded. 1809.06923v2 was READ this pass, and massform.py:1306-1312 matches printed p.24 (Sec 4.1) and printed p.54 (Sec 6) verbatim.",
+  "Audit cited Coleman-De Luccia 1980, NAMED-NOT-READ, as the only support for H-NEG and the collapse. The source states it directly: p.54 'true, negative-energy vacuum'; printed p.36 'anti-de Sitter spacetime collapsing into a singularity'; printed p.37 'formation of a singularity in the negative-potential region is inevitable [180]'. The p.24 clause cites [165] = Coleman-De Luccia.",
+  "Audit H-NUC is misstated. A thin-wall bubble at rest grows iff R > 2 sigma/eps. Coleman's R0 = 3 sigma/eps is only sufficient, so 'sub-critical [below R0] fluctuations collapse' is false on (2,3) sigma/eps (verifier 2 V3, re-run).",
+  "Audit's 'C4 independent of the top mass, z3-valid' is valid only for c4_combined. For the physical C4 = rel OR (meta AND dec), the independence holds only given dec = False, i.e. it rests on H-BRIDGE (verifier 2 V6, re-run).",
+  "Audit's 'z3 finds a counter-model' overstates the point: A & B & F is sat for any free atoms. It is a propositional observation that H-BRIDGE is needed, not a physical counter-model (verifier 2 V5).",
+  "Audit rederive (1): lim v = 1 is built in by inserting the hyperbola, not derived. The contentful checks are gamma = R/R0 and the 100% energy fraction, under H-THIN. The source derives v -> c via Eq. (4.60).",
+  "Audit data row 2 value_then can now be filled from the source (READ): M_h = 125.18 +/- 0.16 GeV and M_t = 173.1 +/- 0.9 GeV (Eq. 1.1). The thermal instability boundary lies 'within two standard deviations' (p.54). Fig. 6 uses M_t = 173.34, M_h = 125.15, alpha_s = 0.1184.",
+  "Audit data row 2 value_now: 172.57 +/- 0.29 GeV was recalled, not read, and it is the direct-measurement average, not the pole mass. Verifier 3 READ the pole mass 172.4 +/- 0.7 GeV via 2510.01312; that figure was not re-read here. moves_conclusion is unaffected.",
+  "Verifier 2 page reference: the 'singularity ... inevitable [180]' sentence is on printed p.37, not p.38.",
+  "Source misprint, printed p.3: 'any destroying everything in its way' for 'and destroying'. A discrepancy, not a refutation.",
+  "Source scope limits that no tree entry carries: printed pp.37-38, a bubble trapped behind an event horizon need not fill the Universe (PBH scenario, needs fine tuning); printed p.28 Eq. (4.27), black-hole catalysis with M_seed <~ 1e5 M_P (about 1 g) makes decay unsuppressed."
+ ],
+ "tree_sites": [
+  {
+   "site": "research/warp-drive/massform.py:1303-1312",
+   "finding": "SOURCES['MRS-bubble'] matches printed p.24 and p.54 verbatim. The READ status is confirmed and the lines are current.",
+   "kind": "consistent"
+  },
+  {
+   "site": "research/warp-drive/massform.py:428-432",
+   "finding": "The quotes and page numbers p.24 and p.54 are correct.",
+   "kind": "consistent"
+  },
+  {
+   "site": "research/warp-drive/massform.py:1984-1985",
+   "finding": "'Refuted by the READ text' overclaims. The two clauses do not entail the conclusion without the unnamed H-BRIDGE, and the tree itself says INFERENCE at :436-437.",
+   "kind": "overstatement"
+  },
+  {
+   "site": "research/warp-drive/massform.py:1981-1987",
+   "finding": "The boolean rests on the unnamed H-BRIDGE. It leaves out the held 'gravitational collapse' clause and the source's READ AdS-crunch support (printed pp.36-37, p.54).",
+   "kind": "dropped-hypothesis"
+  },
+  {
+   "site": "research/warp-drive/massform.py:436-441",
+   "finding": "Correctly labels the step an INFERENCE and keeps 'local nucleation NOT computed'. H-BRIDGE is still unnamed.",
+   "kind": "consistent"
+  },
+  {
+   "site": "research/warp-drive/massform.py:2889-2900",
+   "finding": "The D29 row drops the local-nucleation restriction, which the source makes material (p.28 black-hole catalysis). The row is graded THEOREM although its decay conjunct is an INFERENCE.",
+   "kind": "dropped-hypothesis"
+  },
+  {
+   "site": "research/warp-drive/LEDGER.md:52",
+   "finding": "D29 is graded THEOREM while its conclusion needs the decay INFERENCE on unnamed H-BRIDGE, and the local-nucleation restriction is absent. 'The top mass does not move it' holds only given dec = False.",
+   "kind": "overstatement"
+  },
+  {
+   "site": "research/warp-drive/massform.py:1988-2001",
+   "finding": "c4_combined == rel OR dec (z3-valid, re-run). Its independence from the top mass holds through dec = False.",
+   "kind": "consistent"
+  }
+ ],
+ "commands_run": [
+  "python3 -c (page through adjudicate/in/1809.06923.json)",
+  "sed -n 418,445p / 1298,1316p / 1975,2005p / 2886,2903p research/warp-drive/massform.py; grep D29/MRS-bubble; git log/status massform.py LEDGER.md (read only, clean, dbb3c9c 2026-09-27)",
+  "cat verify/refute/1809.06923.md; cat verify/rederive/vacuity_1809.06923.out",
+  "mcp__alphaXiv__answer_pdf_queries(paper='1809.06923', 6 queries) -> v2 pages incl. printed 3, 24, 28, 36-38, 54",
+  "cp rederive/1809.06923.py and vacuity script to adjudicate/run/; python3 both (exit 0; ALL CHECKS AGREE; vacuity output identical)"
+ ],
+ "reverify_command": "D=/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/adjudicate/run; python3 $D/1809.06923.py && python3 $D/vacuity_1809.06923.py; sed -n 1981,1987p /home/user/Claude-Method-Works/research/warp-drive/massform.py; then alphaXiv answer_pdf_queries(paper='1809.06923', queries=['Sec 4.1 different masses paragraph','Sec 6 destroying everything','Sec 4.7 AdS singularity','Eq 4.27 black hole catalysis'])",
+ "report_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/adjudicate/out/1809.06923.json"
+}

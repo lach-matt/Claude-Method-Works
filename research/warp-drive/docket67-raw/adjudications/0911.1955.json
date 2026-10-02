@@ -1,0 +1,111 @@
+{
+ "key": "0911.1955",
+ "final_grade": "STANDS",
+ "source_read_status": "READ",
+ "read_at_source_this_pass": true,
+ "decision": "I confirm the overturn. I read arXiv:0911.1955v2 pp.1-6 at source myself through alphaXiv answer_pdf_queries. The audit graded OPEN only because the source was unreadable, and that premise no longer holds.\n\nREAD at source:\n- Abstract (p.1) and Sec. 5 (p.6): the combined value is 2.72548 +/- 0.00057 K, and FIRAS recalibrated with WMAP gives 2.7260 +/- 0.0013 K.\n- Table 2 (p.5): 16 rows, made of 15 literature sources chosen by a 50 mK cutoff plus 'This Work'. The mean row reads 'Mean 2.72548 .57'.\n- p.5 also prints: chi2 17.9 for 15 DOF, expected 'about 26%' of the time; the non-FIRAS average '2.729+/-0.0038 which is 1.0 sigma from the final answer'; FIRAS carries 97% of the weight; the CN measurements combine to 2.742 +/- 0.017.\n\nMy own recomputation, from my own transcription of Table 2 (run/table2_0911.1955.py):\n- inverse-variance mean 2.725486 +/- 0.5732 mK\n- chi2 18.07 against the printed 17.9\n- P(chi2 > 17.9 | 15) = 0.268\n- FIRAS weight 0.978\n- non-FIRAS 2.7294 +/- 3.84 mK, 1.01 sigma from the mean\n- CN 2.7420 +/- 17.3 mK\n- largest pull 2.30, consistent with p.6, 'agree within 2.5 times their uncertainties'\n\nThe three verifiers report the same numbers, and every part of their case checks against the page text, so they did not share an error about the source.\n\nThe tree's value is 2.7255, which is round(2.72548, 4), 0.035 sigma away. Planck 2018 VI (1807.06209v4, p.14, footnote 14, READ this pass) prints 'We take T0 = 2.7255K (Fixsen 2009), with the +/-0.0006K error having negligible impact': the same rounding with the same attribution.\n\nI re-ran the audit's rederive script from run/: ALL PASS, exit 0. T_0 cancels identically in permute's 1090.92 (R1, R1c), and massform's 2.4120e41 is reproduced (R4b).\n\nLater data, READ this pass from Ivanov, Ali-Haimoud and Lesgourgues, 2005.10656v2, Table I (p.15):\n- Planck alone: 3.144 +0.17/-0.065 K\n- Planck+SH0ES: 2.564 +0.049/-0.051 K\n- Planck+BAO: 2.706 +0.019/-0.020 K\nThe same paper calls FIRAS 'confirmed by several independent experiments' (p.1) and says BAO 'seems to arbiter in favor of Planck + FIRAS' (p.17). The one contrary value is an inference that assumes LambdaCDM, not a measurement, so the datum is contested, not moved. With T_rec held fixed, the extreme later values give 1+z from 945.7 to 1159.6, so the verdict (ratio not equal to 1) survives. The Landauer note moves by -13.3% to +6.3% across them, but massform.py:450 says no verdict rests on that note.\n\nSo DATA-DEPENDENT does not apply. NARROWED does not apply to this source either: none of Fixsen's hypotheses is contradicted by any use the tree makes of 2.7255. Those hypotheses are the blackbody spectrum with a first-order Doppler shift, uncorrelated WMAP channel and year errors, the 15% sky cut, the 50 mK selection, and combining the 16 inputs as independent by inverse variance. The hypotheses the tree drops ('T scales as 1/a', 'independent of any model of a(t)') belong to the tree's own claims about 1090.92, not to Fixsen's result. They are recorded as tree-side findings. Grade: STANDS.",
+ "scope": "STANDS covers Fixsen's T_0 = 2.72548 +/- 0.00057 K, READ at source, in the places the tree uses it:\n- T_CMB = 2.7255 K at permute.py:178, and the retyped copies at nopath.py:169 and wavecorridor.py:281\n- the Landauer per-bit energy and bit count in massform's N-INFO note (massform.py:450-457)\n- the section-3 ratio at massform.py:2026-2030\n\nIt does NOT cover:\n(a) The tree's claim that 1090.92 is 'measured from the CMB temperature alone ... independently of any model of a(t)'. This is a tree-side overstatement. In the code T_0 cancels, so the number is Planck's z* = 1089.92, a parameter derived in base LambdaCDM with T0 fixed at Fixsen's value (footnote 14, READ). FLRW redshift of an unheated photon gas is an unnamed hypothesis there.\n(b) Planck's z* value itself. Verifier 3 READ the Table 2 entry (1089.92 +/- 0.25), but it was not returned to me this pass.\n(c) PDG 2024 and the later T(z) papers (2011.09616, 2404.05037, 2106.00119, 2505.24543), which remain NAMED-NOT-READ.\n(d) Whether any absolute spectrometer after 2020 has superseded FIRAS. The two sources READ, which run to 2021, name none; PIXIE appears only as a future experiment.",
+ "corrections_to_record": [
+  "read_status changes from NAMED-NOT-READ to READ. arXiv:0911.1955v2 pp.1-6 was read at source through alphaXiv this pass, by all three verifiers and independently by the adjudicator.",
+  "The grade changes from the audit's OPEN to STANDS. The audit's own stated condition for STANDS (confirm 2.72548 +/- 0.00057 K and its hypotheses) is met at source.",
+  "The audit misstated one hypothesis. The recalibration does not rest on 'WMAP's dipole-based calibration as a valid absolute reference'. It rests on the WMAP spacecraft's velocity relative to the Sun, known to better than 1 cm/s (p.1). The dipole is only added back into the velocity maps, and the absolute term in the fit is a nuisance parameter (p.1). The paper says the result is 'unaffected by absolute systematic errors of either FIRAS or WMAP' but 'does depend on the gain calibration of the FIRAS external calibrator thermometers' (pp.4-5).",
+  "Hypotheses now READ at source, to be carried as NAMED: (1) a blackbody spectrum Doppler-shifted by special relativity, second-order terms dropped (eqs. 1-2, p.3); (2) the brightest 15% of the sky excluded (p.3); (3) the FIRAS uncertainty inflated for chi2 = 98.7 on 69 DOF, to 1.3 mK (p.3); (4) the WMAP uncertainty is insignificant 'unless there is a serious unexplained error in the WMAP data that correlates both channels and years' (p.4); (5) an arbitrary 50 mK cutoff selecting the 15 literature sources (p.5); (6) the 16 inputs combined as independent by inverse-variance weighting, three of them being FIRAS calibrations of one instrument, which the paper argues are only weakly coupled (p.5).",
+  "The non-FIRAS compilation is printed '2.729+/-0.0038' (p.5), not '+/-0.004'. It is now READ, not a second-hand attribution.",
+  "Discrepancy, not a refutation: the recomputed chi2 is 18.07 against the printed 17.9 (three independent recomputations give 18.07-18.1), and the recomputed mean is 2.725486 against the printed 2.72548. Rounded table entries are a plausible cause, but this is not shown.",
+  "The tree's 2.7255 also equals exactly the Fixsen et al. 1996 FIRAS colour temperature listed in Table 2 (2.7255 +/- 0.85 mK). The attribution to Fixsen 2009 at permute.py:178 matches Planck 2018 footnote 14, which prints the same 2.7255 with the same citation. It makes no difference at the tree's precision.",
+  "The audit's sentence 'the number rests on Planck's z_*, not on Fixsen' overstates the independence. Planck 2018 footnote 14 (READ) fixes T0 = 2.7255 K (Fixsen 2009). Ivanov et al. p.2 (READ) state that at fixed baryon-to-photon and dark-matter-to-photon ratios the recombination temperature is fixed, so physically 1+z* = T_rec/T_0 does depend on T_0. The code's ratio is still a tautology, because z is hard-coded, so tree drift (i) stands.",
+  "value_now can now be filled from READ sources. Planck 2018 VI uses 2.7255 K (Fixsen 2009). Ivanov et al. 2020 take 2.72548 +/- 0.00057 K as the current value. Later T0 inferences: Planck alone 3.144 +0.17/-0.065 K, Planck+SH0ES 2.564 +0.049/-0.051 K, Planck+BAO 2.706 +0.019/-0.020 K (Table I, p.15), and Planck 2015+BAO 2.718 +/- 0.021 K (eq. 3, p.3). PDG 2024 is still NOT READ.",
+  "R7's band of [2.4, 3.0] K does not cover the READ Planck-alone value of 3.144 K. Across the READ values, 1+z at fixed T_rec spans 945.7 to 1159.6, so the verdict (ratio not equal to 1) is unchanged.",
+  "The audit's 'Landauer count moves 0.13% at most across the values named' holds only for the values the audit named. Across the READ later inferences the count moves -13.3% (Planck alone) to +6.3% (Planck+SH0ES). No verdict rests on N-INFO (massform.py:450), so moves_conclusion stays 'No'.",
+  "Verifier 3's '3.3 sigma' (Planck+SH0ES against FIRAS) is printed by Ivanov et al. on p.16 and p.17. The same paragraph on p.16 also prints '3.2 sigma T0 tension', and a direct quadrature from Table I gives 3.23. That is a discrepancy inside the later source, recorded only.",
+  "lacked_data: M's hypothesis for this key is no longer 'untested'. The READ evidence goes against it. Fixsen's 16 inputs are mutually consistent (p = 0.27). Planck+BAO, data Fixsen did not have, agrees with FIRAS. The only contrary value, Planck+SH0ES, assumes LambdaCDM, and its own authors say BAO favours Planck+FIRAS.",
+  "Stale tree line numbers (tree at HEAD 92ed639; permute.py last changed in a82343b). The ratio_from_temperature docstring is now permute.py:237 (audit: 239), and the functions are at 232-238 (audit: 234-240). The tautological near('ratio from the CMB temperature alone', ...) check is permute.py:428-429 (audit: 430); line 430 is the also-identical near('and that is 1 + z'). massform's N-INFO line 'no verdict rests on it' is massform.py:450 (audit: 451). The docket-divergence note is massform.py:907-911 (audit: 906-911).",
+  "The audit missed several sites. paper/CLAIMS.md:1069 and index3.py:963 repeat the 'read straight off T_rec/T_0' overstatement, and CLAIMS.md:1069 also says 'independent of any model of a(t)'. nopath.py:169 and wavecorridor.py:281 hold retyped copies of 2.7255 rather than importing permute.T_CMB; the value is consistent but carries no citation."
+ ],
+ "tree_sites": [
+  {
+   "site": "research/warp-drive/permute.py:66-68",
+   "finding": "Says 'Measured, from the CMB temperature alone: T_rec/T_0 = 2973.3 K / 2.7255 K = 1090.92 = 1+z'. The code computes T_rec as T0*(1+Z_REC), so T_0 cancels (R1 and R1c re-run, PASS). The figure is Planck's z*, which was itself computed with T0 fixed at Fixsen's value (footnote 14). Line numbers are current.",
+   "kind": "overstatement"
+  },
+  {
+   "site": "research/warp-drive/permute.py:178",
+   "finding": "T_CMB = 2.7255, commented 'Fixsen 2009'. This is round(2.72548, 4), 0.035 sigma from the value READ at source, with the same rounding and attribution as Planck 2018 footnote 14. The uncertainty is dropped, which does not matter here.",
+   "kind": "consistent"
+  },
+  {
+   "site": "research/warp-drive/permute.py:179",
+   "finding": "Z_REC = 1089.92, commented 'Planck 2018'. It is a base-LambdaCDM derived parameter conditional on T0 = 2.7255. Footnote 14 was READ by the adjudicator; the Table 2 value was READ by verifier 3 only. Outside this key.",
+   "kind": "consistent"
+  },
+  {
+   "site": "research/warp-drive/permute.py:237",
+   "finding": "Docstring 'Measured independently of any model of a(t): T scales as 1/a'. T scaling as 1/a (FLRW redshift, no heating or photon injection) is an unnamed hypothesis, and the input z* is a LambdaCDM fit. The audit cited 238-239.",
+   "kind": "dropped-hypothesis"
+  },
+  {
+   "site": "research/warp-drive/permute.py:428-429",
+   "finding": "near('ratio from the CMB temperature alone') compares T0(1+z)/T0 with 1+z, a tautology that passes for any T_0. The audit cited line 430, which is the also-identical near('and that is 1 + z').",
+   "kind": "stale"
+  },
+  {
+   "site": "research/warp-drive/obstruct.py:278",
+   "finding": "'grew by 1090.92 since recombination, read off T_rec/T_0' inherits the permute overstatement. Line is current.",
+   "kind": "overstatement"
+  },
+  {
+   "site": "research/warp-drive/paper/CLAIMS.md:1069",
+   "finding": "'read straight off T_rec/T0 = 2973.3 K / 2.7255 K, independent of any model of a(t)' is the same overstatement. The audit did not list it.",
+   "kind": "overstatement"
+  },
+  {
+   "site": "research/warp-drive/index3.py:963",
+   "finding": "'read straight off T_rec/T_0 = 2973.3/2.7255' is the same overstatement in the master index. The audit did not list it.",
+   "kind": "overstatement"
+  },
+  {
+   "site": "research/warp-drive/massform.py:450",
+   "finding": "The N-INFO line 'no verdict rests on it'. This is why the -13.3% to +6.3% Landauer swing across later T0 inferences moves no conclusion. The audit cited 451.",
+   "kind": "stale"
+  },
+  {
+   "site": "research/warp-drive/massform.py:456-457",
+   "finding": "2.608e-23 J per bit and 2.4120e41 bits both re-derive at 2.7255. At the READ unrounded 2.72548 the count prints 2.4121e41, and the 1-sigma band is 2.4116e41 to 2.4126e41, so the fifth significant figure is below T_0's precision.",
+   "kind": "misprint"
+  },
+  {
+   "site": "research/warp-drive/massform.py:907-911",
+   "finding": "Records T_CMB as CITED and says the section-3 ratio 'moves linearly with T'. Linearity is confirmed (R5). The audit cited 906-911.",
+   "kind": "consistent"
+  },
+  {
+   "site": "research/warp-drive/massform.py:2026-2030",
+   "finding": "bek_over_landauer_closed = 2 pi R k_B T/(hbar c), which is linear in T (R5). Line numbers are current.",
+   "kind": "consistent"
+  },
+  {
+   "site": "research/warp-drive/nopath.py:169",
+   "finding": "T_CMB = 2.7255 is retyped rather than imported from permute.T_CMB, and carries no citation. The value is consistent with the READ source.",
+   "kind": "consistent"
+  },
+  {
+   "site": "research/warp-drive/wavecorridor.py:281",
+   "finding": "cmb = 2.7255 is hard-coded with no citation. The value is consistent with the READ source.",
+   "kind": "consistent"
+  }
+ ],
+ "commands_run": [
+  "Read the full packet adjudicate/in/0911.1955.json (the audit and three verifier reports) with python3 json",
+  "ToolSearch select:mcp__alphaXiv__answer_pdf_queries,mcp__alphaXiv__get_paper_content",
+  "mcp__alphaXiv__answer_pdf_queries(paper='0911.1955', 5 queries): arXiv:0911.1955v2 pp.1-6 READ in full",
+  "mcp__alphaXiv__answer_pdf_queries(paper='2005.10656', 4 queries): pp.1-3, 11, 13-17 and 22 READ, including Table I on p.15",
+  "mcp__alphaXiv__answer_pdf_queries(paper='1807.06209', 2 queries): p.14 footnote 14 READ",
+  "python3 adjudicate/run/table2_0911.1955.py: mean 2.725486 +/- 0.5732 mK, chi2 18.07/15, P = 0.268, FIRAS weight 0.978, non-FIRAS 2.7294 +/- 3.84 mK, CN 2.7420 +/- 17.3 mK",
+  "copied rederive/0911.1955.py to adjudicate/run/rederive_0911.1955.py and ran it: ALL PASS, exit 0",
+  "copied verify/data/later_T0_0911.1955.py to adjudicate/run/ and ran it: 1+z 945.7 to 1159.6, Landauer -13.31% to +6.30%",
+  "git log; grep -n and sed -n on permute.py, massform.py, obstruct.py, nopath.py, paper/CLAIMS.md, wavecorridor.py and index3.py at HEAD 92ed639",
+  "NOTE: run/rederive.out was written under a name without the key and may have overwritten another adjudicator's file of the same name. This key's outputs are copied to run/*_0911.1955.out"
+ ],
+ "reverify_command": "D=/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/adjudicate/run; python3 $D/table2_0911.1955.py; python3 $D/rederive_0911.1955.py; python3 $D/later_T0_0911.1955.py; cd /home/user/Claude-Method-Works/research/warp-drive && sed -n 66,68p permute.py && sed -n 178,179p permute.py && sed -n 232,238p permute.py && sed -n 428,430p permute.py && sed -n 278p obstruct.py && sed -n 450,457p massform.py && sed -n 907,911p massform.py && sed -n 1069p paper/CLAIMS.md; alphaXiv answer_pdf_queries(paper='0911.1955', queries=['final T0 and uncertainty','Table 2 rows and mean','non-FIRAS average, FIRAS weight, chi2','assumptions'])",
+ "report_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/adjudicate/out/0911.1955.json"
+}

@@ -1,0 +1,87 @@
+{
+ "key": "2604.01047#thm4.16-prop4.10",
+ "final_grade": "NARROWED",
+ "source_read_status": "READ",
+ "read_at_source_this_pass": true,
+ "decision": "The unanimous overturn from OPEN to NARROWED is CONFIRMED. The verifiers did not share an error on the grade. Verifier 2 overstated one finding, discrepancy (ii), and the corrections below fix it.\n\nWhy OPEN falls. The audit graded OPEN for one reason only: the source was unread. This pass READ it in GMMPS v1's text layer, scratchpad/d64/L4/galanda.txt. Its md5 4bac4a9400afceac615c5aa3b9f83c6e matches the pin.\n\nProp. 4.10 (offset 145266, p.48), verbatim: 'Consider a1, a2 \u2208 R and b0, b1, b2 \u2208 R \\ {0}'. It also requires that (4.19) 'admits three and only three independent solutions ... in D'. Its conclusion is about the local form (real \u03b2_i, P zero-free on [4m^2, \u221e), (4.16)), not about growth. The tree's (T2) therefore matches the source, but the three-solution condition is dropped.\n\nThm 4.16 (offset 172122, p.58), verbatim: 'Consider Z, the set of zeros of Q(w^2) given in (4.30). If Z \u2282 (\u22124m^2,0) and if S \u2208 C\u221ec(M), the solution (4.31) of (4.9) are bounded in time. Furthermore, they decay at least as t^\u22123/2 ... If Z \u2282 (\u22124m^2,\u221e), with some \u03b3 \u2208 Z, \u03b3 > 0, the solution is exponentially growing.'\n\nZ is defined below (4.31) as the zero set of Q in C\\(\u2212\u221e,\u22124m^2), in Q's own w^2 variable. I re-derived F_S(\u2212w^2) + Q(w^2) = 0 identically with sympy; the tree pins the same identity at linstab.py:954. So a growing F_S zero \u03b3 < 0 is a Q zero x = \u2212\u03b3 > 0. That falls under the GROWTH clause. The interval (\u22124m^2, 0) is the hypothesis of the BOUNDED/DECAY clause.\n\nThe tree at linstab.py:142-144 attaches that decay interval to the growth conclusion.\n- Read in x, no growing zero satisfies it (z3 unsat, with vacuity controls sat).\n- Read in \u03b3, it imposes a cap |\u03b3| < 4m^2 that the source does not impose.\n- In both readings it drops the growth clause's requirement that the whole of Z be real and lie in (\u22124m^2, \u221e), with some element > 0. GMMPS's own sec. 5.1 has complex-conjugate zeros for smaller b_2, and there the growth clause does not apply.\nThat is a dropped hypothesis plus a misattributed interval, which is NARROWED by the rubric.\n\nWhy not another grade.\n- Not WRONG: no source statement is contradicted.\n- Not STANDS: the tree's hypotheses are not the source's.\n- Not DATA-DEPENDENT: no measured datum enters Q (4.30), which carries only m, a_i, b_j and J.\n\nThe tree's load-bearing inference survives at source.\n- At \u03b1~^S_1 = 0 the root \u03b3 = 0 sits at x = 0. That is in neither clause: it is not in the open interval (\u22124m^2, 0) (z3 unsat), and it is not > 0 (z3 unsat).\n- With b_0 = 0 it is also outside Prop. 4.10.\n- So ALPHA_ZERO_ROOT_GROWTH = 'OPEN' (linstab.py:352) and 'outside Thm 4.16 and Prop. 4.10' are correct. The reason at :179 is incomplete but not false.\n- GMMPS's reported S root, x = 3.32e-62 m^2 > 0, is in the growth range, provided all of Z is real.\n\nRe-runs, all in adjudicate/run/:\n- the audit's rederive script: ALL PASS;\n- verifier 2's verify script, including the vacuity negations and the real-J Planckian root: ALL PASS;\n- verifier 1's thm416_variable_map.py: PASS;\n- my adj_check.py, a sympy identity plus z3 clause membership with vacuity controls: ALL PASS.\n\nDivergences between the verifiers, settled by reading:\n(1) TT with b_0 = 0. Sec. 5.2 says 'since b0 = 0, there is no need to find h0', and p.62 then says 'according to Proposition 4.10, if we find three independent zeros...'. The source applies Prop. 4.10 where its hypothesis b_0 \u2260 0 fails. That is a source-internal discrepancy, as verifier 1 has it. Verifier 2's 'consistent' overstates.\n(2) Audit discrepancy (i) dissolves. R6 tested the tree's interval, not the source's.\n(3) R7 is mis-framed: in (4.31) a simple zero at x = 0 gives (1/Q\u2032(0)) G^0_ret, a massless propagator, not t/C.\n\nThe proof's decay paragraph prints (\u22124m^2, \u221e). Read literally that would include x = 0, but it is a misprint, and the statement governs. Whether (4.31) settles \u03b3 = 0 is new work under a named hypothesis (simple zero, (4.31) valid). It is not a finding of the source.",
+ "scope": "Covers the tree's restatement and use of GMMPS (arXiv:2604.01047 v1) Thm 4.16 and Prop. 4.10 at linstab.py:142-145, 169-180, 344-353, 450 and 1054-1055, READ at source in the v1 text layer (md5 4bac4a94...). It also covers whether the \u03b1~^S_1 = 0, \u03b3 = 0 root lies outside both results (it does, under the true hypotheses), and the audit's discrepancies (i) and (ii).\n\nDoes not cover:\n- whether a v2 of the paper exists;\n- a re-proof of Thm 4.16, whose decay route via Lemma A.1 of its ref. [79] is NAMED-NOT-READ;\n- whether anything grows from \u03b3 = 0 at \u03b1~^S_1 = 0, which stays OPEN;\n- which value of \u03b1~^S_1 is physical;\n- TT existence via Thm 4.14;\n- later literature, which was not searched in this pass.",
+ "corrections_to_record": [
+  "Audit: the OPEN grade rested only on 'source not read'. The source is READ (galanda.txt, md5 4bac4a9400afceac615c5aa3b9f83c6e; Thm 4.16 at offset 172122, p.58; Prop. 4.10 at offset 145266, p.48), and the grade is NARROWED.",
+  "Tree, linstab.py:142-144: the interval (-4m^2, 0) is Thm 4.16's BOUNDED/t^-3/2 DECAY hypothesis. Growth requires Z \u2282 (-4m^2, \u221e) with all of Z real (no complex-conjugate zeros) and some element > 0. There is no upper bound, and growth goes as ~e^{sqrt(L) t} for the largest zero L.",
+  "Z is the zero set of Q in its own w^2 variable. F_S(\u03b3) = -Q(-\u03b3), so a growing F_S zero \u03b3 < 0 is a Q zero x = -\u03b3 > 0. The audit's guess that Z is taken in \u03b3 is answered the other way by the text.",
+  "Prop. 4.10: b_0, b_1, b_2 \u2208 R\\{0} matches verbatim. The tree omits the hypothesis that (4.19) has three and only three independent solutions in D. The proposition's conclusion is the local form, not growth.",
+  "Audit discrepancy (i) DISSOLVES: the 'Planckian for O(1)' b_2 roots are in the growth range at source, subject to all of Z being real. R6 tested the tree's interval, not the source's.",
+  "Audit R6 puts the Planckian root at -|b1/b2| \u2248 -1.1e60 m^2, neglecting J. With real J it is \u2248 -1.6e61 m^2 (verifier 2). The verdict is unchanged.",
+  "Audit discrepancy (ii) is a SOURCE-INTERNAL DISCREPANCY, settled by reading. Sec. 5.2 skips h_0 because b_0 = 0, yet p.62 invokes Prop. 4.10 for TT, where b_0 \u2260 0 fails. TT a = 4m^2 is also the endpoint Prop. 4.12 excludes. Verifier 2's 'consistent' overstates this.",
+  "Audit R7 is mis-framed: w^2 = s^2 + p^2, and a simple zero at x = 0 contributes (1/Q'(0)) G^0_ret(S), a massless retarded propagator, not t/C. It is heuristic and not load-bearing.",
+  "Audit script: R4's docstring claims a zero exists on \u03b3 < 0, but the code checks only F_S(0) > 0. 'a_TT = 4m^2' is tautological in the script.",
+  "Tree, linstab.py:179: the reason \u03b3 = 0 lies outside Thm 4.16 names only the decay interval. The growth clause's strict \u03b3 > 0 also excludes it. The conclusion holds.",
+  "Source misprints (discrepancies, not refutations): (a) the proof writes Z \u2282 (-4m^2, \u221e) for the decay estimate; read literally this would cover x = 0, but the statement governs. (b) The proof writes Q'(-\u03b3) and S^(\u00b1\u221a\u03b3, 0), inconsistent with Z defined in w^2. (c) Sec. 5.1 writes '(5.3) equals Q(-w) for \u03be = -w^2'; correct is F_S(-w^2) = -Q(w^2). (d) p.62 has 'cat' for 'cut'.",
+  "Line numbers in the tree have shifted: the restatement now begins at linstab.py:142 (interval at 144), not 143. ALPHA_ZERO_ROOT_GROWTH is at 352. The other sites (177-179, 344-349, 954, 1054-1055) are current. linstab.py is unchanged since its 2026-09-25 commit, with no working-tree diff."
+ ],
+ "tree_sites": [
+  {
+   "site": "research/warp-drive/linstab.py:142-144",
+   "finding": "Thm 4.16 is restated as growth 'for Z strictly inside (-4m^2, 0)'. The restatement takes the decay clause's interval and drops the growth clause's all-Z-real condition, Z \u2282 (-4m^2, \u221e). The audit cited this as 143-145.",
+   "kind": "overstatement"
+  },
+  {
+   "site": "research/warp-drive/linstab.py:131-132",
+   "finding": "The provenance 'text layer via alphaXiv, body read in full' is consistent with the held text layer.",
+   "kind": "consistent"
+  },
+  {
+   "site": "research/warp-drive/linstab.py:177-180",
+   "finding": "The OPEN, 'outside Thm 4.16 and Prop. 4.10', holds at source: x = 0 is in neither clause, and b_0 = 0 fails Prop. 4.10. The reason given omits the growth clause's strict \u03b3 > 0 and Prop. 4.10's three-solution hypothesis.",
+   "kind": "dropped-hypothesis"
+  },
+  {
+   "site": "research/warp-drive/linstab.py:169-176",
+   "finding": "The 'other growing roots', including the Planckian ones for O(1) b_2, are in Thm 4.16's growth range at source only if all of Z is real. Sec. 5.1 has complex zeros for smaller b_2. The audit's 'outside the theorem' is withdrawn.",
+   "kind": "dropped-hypothesis"
+  },
+  {
+   "site": "research/warp-drive/linstab.py:344-349",
+   "finding": "LITERATURE_SPLIT_IS_ONE_CONSTANT uses the same 'other growing roots' wording, and the reality-of-Z hypothesis is unnamed.",
+   "kind": "dropped-hypothesis"
+  },
+  {
+   "site": "research/warp-drive/linstab.py:350-352",
+   "finding": "ALPHA_ZERO_ROOT_GROWTH = 'OPEN' is correct at source.",
+   "kind": "consistent"
+  },
+  {
+   "site": "research/warp-drive/linstab.py:450",
+   "finding": "The WITHDRAWN replacement text 'outside GMMPS Thm 4.16, Prop. 4.10 ...: OPEN' is consistent.",
+   "kind": "consistent"
+  },
+  {
+   "site": "research/warp-drive/linstab.py:954",
+   "finding": "The check F_S(-w^2) = -Q(w^2) was re-derived independently. It is the identity that fixes Z's variable.",
+   "kind": "consistent"
+  },
+  {
+   "site": "research/warp-drive/linstab.py:1054-1055",
+   "finding": "The record pin of ALPHA_ZERO_ROOT_GROWTH is consistent.",
+   "kind": "consistent"
+  },
+  {
+   "site": "research/warp-drive/linstab.py:147-150",
+   "finding": "The sec. 5.2 TT quote is accurate. The source itself skips h_0 because b_0 = 0, yet invokes Prop. 4.10 at p.62. That discrepancy is in the source.",
+   "kind": "discrepancy"
+  }
+ ],
+ "commands_run": [
+  "python3 -c (page in/2604.01047_thm4.16-prop4.10.json)",
+  "md5sum scratchpad/d64/L4/galanda.txt -> 4bac4a9400afceac615c5aa3b9f83c6e",
+  "python3 (galanda.txt offsets 145000-147200, 168000-175500, 176400-181000)",
+  "sed -n / grep -n / git log / git diff on research/warp-drive/linstab.py (read only)",
+  "cp rederive + verifier scripts -> adjudicate/run/",
+  "python3 run/2604.01047_thm4.16-prop4.10.py -> ALL PASS",
+  "python3 run/2604.01047_thm4.16-prop4.10.verify.py -> ALL PASS",
+  "python3 run/thm416_variable_map.py -> PASS",
+  "python3 run/adj_check.py -> sympy identity + z3 clause membership with vacuity controls, ALL PASS"
+ ],
+ "reverify_command": "S=/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67; python3 $S/adjudicate/run/adj_check.py && python3 $S/adjudicate/run/thm416_variable_map.py && python3 $S/adjudicate/run/2604.01047_thm4.16-prop4.10.verify.py; python3 -c \"t=open('$S/../d64/L4/galanda.txt').read(); print(t[145266:145360]); print(t[172122:172560])\"",
+ "report_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/adjudicate/out/2604.01047_thm4.16-prop4.10.json"
+}

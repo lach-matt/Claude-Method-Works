@@ -1,0 +1,73 @@
+{
+ "key": "2309.05759-eqs76-77",
+ "final_grade": "NARROWED",
+ "source_read_status": "READ",
+ "read_at_source_this_pass": true,
+ "decision": "The unanimous overturn from OPEN to NARROWED is confirmed. The verifiers share no error that changes the grade.\n\nThe audit's OPEN grade rested only on the source being unreadable. This pass read arXiv:2309.05759v2 (15 Nov 2023) independently through alphaXiv answer_pdf_queries, pp.1-30. What the source says:\n- Eq. 76 (p.20) matches the restatement exactly: c^{mu nu} = -(1/16pi^2)(1/(pi r Mbar4)^2)(b^mu b^nu - eta^{mu nu} b^2/4) I_gravity.\n- I_gravity is printed in full: (1/6 sqrt pi) sum_{w>=1} \u222b\u222b ds dt (9s^2-2st-11t^2+5sb^2)/(w^3 t^{1/2}(s+t)^6) exp[-s(pi m r w)^2 - t(pi mu r w)^2 - (s+t(1-b^2))/(t(s+t))].\n- Eq. 77 is stated under 'b^2 \u2248 0, m \u2248 0': I_gravity \u2248 -zeta(3)/4 as mu r -> 0.\n- Eq. 69 defines mu as 'an infrared regulator' on the graviton propagator. Eq. 70 makes m the brane fermion's mass.\n- Eq. 12 gives b^2 = beta^2 in (0,1), an open interval. Footnote 3 says 1 - b^2 > 0 'is important for convergence'.\n- Eq. 73 gives Mbar4 = 2.4e18 GeV. P.25 gives the electron c bound at the level of ~1e-21 [14, Dreissen].\n- The Fig. 7 caption reads: 'decreases rapidly but has a finite limit as b^2 -> 1'.\n\nComputed independently (run/kn_adj.py). The substitution s = t x reduces the t-integral to Gamma functions in closed form.\n- I(b^2=0, m=mu=0) = -0.3005142257898985713..., which equals -zeta(3)/4 to 5e-32. Eq. 77 reproduces from the printed eq. 76, so the external result STANDS within its stated hypotheses.\n- Near b^2 -> 1, I*(1-b^2)^{3/2} -> -0.6010284516, and that limit is exactly -zeta(3)/2 analytically. So I grows like gamma^3, and at b^2 = 1 the printed integral diverges, because the x^{-5/2} terms do not cancel.\n- pi m_e r / hbar c = 3.14e8 at r = 38.6 um.\n- The large-m asymptote, I -> -11 Gamma(7/2) zeta(5)/(6 sqrt pi (pi m r)^2), follows analytically from the s -> 0 region. It agrees with both verifiers' numerics: at the electron mass I is about 1.2e-16 of zeta(3)/4.\n\nGrade reasoning. The tree evaluates eq. 77 at beta = 1, i.e. b^2 = 1, which is outside the paper's domain and outside eq. 77's b^2 \u2248 0. It also evaluates it at m = m_e, which violates m \u2248 0 by about 8 orders in pi m r. These are dropped hypotheses of a correct result: NARROWED, not WRONG. The source itself is not refuted. The printed integrand (divergent as b^2 -> 1) disagrees with the Fig. 7 caption (finite limit). By M's rule that is a DISCREPANCY inside the source, a possible misprint, and grounds for no refutation in either direction.\n\nConclusion as the tree uses it. On the bulk branch beta <= 3.74e-8, so b^2 \u2248 0 holds, I is at most 0.30 in magnitude at m = 0, and it is about 16 orders smaller at m = m_e. The 42-order null at r = 38.6 um survives and deepens. Two parts do not survive. The '|c| <= 6.37e-64' is not a bound as beta -> 1: it is unbounded on the printed integrand and finite but of unread value by the caption. And '<=' at 'the maximal r' runs the wrong way over r: d|c|/dr = -2beta^2/r^3 < 0, so 6.37e-64 is the minimum of |c| over r <= 38.6 um, not the maximum.\n\nOver-representation check, both ways. Every dropped hypothesis inflates |c| on the bulk branch, so none of them is in M's favour, and the null is not overturned. Nothing here moves a datum: no data change can close 1.57e42.",
+ "scope": "The grade covers how branelink.py uses K&N eqs. 76-77: the formula and the I_grav = -zeta(3)/4 value applied at beta = 1, m = m_e and r = 38.6 um. Within the published hypotheses (b^2 \u2248 0, m \u2248 0, mu r -> 0) the external result STANDS, and eq. 77 was reproduced exactly from the printed eq. 76.\n\nNot covered:\n- The loop derivation from eq. 74 to eq. 76, i.e. the Dirac algebra and the numerator polynomial. This was not recomputed by me or by any verifier.\n- Fig. 7's plotted values. The figure was not visible; only its caption was read.\n- Whether the printed '+5sb^2' term or the caption is in error.\n- The alpha = 2 Eot-Wash edge. The data verifier read the 30 um toroidal-radius statement, which shifts the gap by +0.22 orders.\n- CODATA 2022 values for G and m_e. NIST was blocked; neither can move the conclusion.",
+ "corrections_to_record": [
+  "The audit's OPEN grade is superseded. The source has been READ (2309.05759v2, pp.1-30), and eqs. 76-77 STAND within b^2 \u2248 0, m \u2248 0, mu r -> 0.",
+  "The audit's hypothesis drift on mu is resolved the other way. mu is the graviton IR regulator (eq. 69), not m_e, so mu r -> 0 is legitimate. The violated hypothesis is m \u2248 0 (m is the brane fermion mass, eq. 70): pi m_e r = 3.14e8 at 38.6 um, which makes I about 1.2e-16 x zeta(3)/4.",
+  "The audit's data row 'electron mass used only for the mu r check' misidentifies its role. The mass enters through m, not mu.",
+  "The audit's lacked_data claims '(computed)' that I_grav at b^2 = 1 moves the gap by less than 1 order. That was never computed and is false on the printed integrand, where I ~ -0.601 (1-b^2)^{-3/2} = -(zeta(3)/2) gamma^3 and the integral diverges at b^2 = 1. The value at b^2 = 1 is outside the paper's domain (eq. 12: b^2 in (0,1); footnote 3).",
+  "There is a discrepancy inside the source, recorded and not adjudicated: the printed I_gravity integrand diverges as b^2 -> 1, but the Fig. 7 caption says it 'has a finite limit as b^2 -> 1'. It is a possible misprint, not a refutation.",
+  "Correction to verifier 2 (rederive lens). Cancelling the leading x^{-5/2} singularity at b^2 = 1 needs a coefficient of 11 Gamma(5/2)/Gamma(7/2) = 4.4 on the s b^2 term, not 11. This does not affect the grade.",
+  "Correction to the audit: the rederivation script has 13 checks, not 14 (verifier 2). Its numeric checks run only at beta = 1, so a beta^1 mutation passes, and a failed branelink import still ends ALL PASS.",
+  "Correction to the audit's lacked_data: K&N cite no Eot-Wash datum and compute no numerical |c|. The 38.6 um comparison belongs to the tree; K&N's only data are Mbar4 = 2.4e18 GeV and the ~1e-21 bound [14].",
+  "Lee et al. 2020 p.5 states a toroidal radius below 30 um. The audit called that edge 'not read'; it shifts the gap by +0.22 orders (data verifier).",
+  "The audit's computed tree discrepancy stands: '<=' at 'the maximal r = 38.6 um' runs the wrong way over r (d|c|/dr = -2beta^2/r^3 < 0), so 6.37e-64 is the smallest |c| over the allowed r.",
+  "The 42-order null at r = 38.6 um survives on the bulk branch (beta <= 3.74e-8, so b^2 \u2248 0 holds) and deepens by about 16 orders once m_e is included. It is not a bound at beta -> 1."
+ ],
+ "tree_sites": [
+  {
+   "site": "branelink.py:96-98",
+   "finding": "'(Kabat & Nomura eqs. 76-77) at the maximal r = 38.6 um and beta = 1 gives |c| <= 6.37e-64'. beta = 1 lies outside eq. 12's domain b^2 in (0,1) and outside eq. 77's b^2 \u2248 0. '<=' runs the wrong way over r (the value is the minimum over r <= 38.6 um). The m = m_e hypothesis is dropped. Line numbers are current at commit 6a4f469, not stale.",
+   "kind": "dropped-hypothesis"
+  },
+  {
+   "site": "branelink.py:288-292",
+   "finding": "sme_coefficient() applies I_grav = -zeta(3)/4 (eq. 77's b^2 \u2248 0, m \u2248 0, mu r -> 0 limit) at beta = 1 and R = 38.6 um with m = m_e, where pi m_e r = 3.14e8. The docstring names mu r -> 0, which is legitimate (mu is an IR regulator), but omits m \u2248 0 and b^2 \u2248 0. The arithmetic reproduces 6.372236e-64.",
+   "kind": "dropped-hypothesis"
+  },
+  {
+   "site": "branelink.py:376",
+   "finding": "Prints 'SME null: |c| <= ... orders short'. Same '<=' overstatement as at 96-98. The figure is the formula evaluated outside its hypotheses, not a bound.",
+   "kind": "overstatement"
+  },
+  {
+   "site": "branelink.py:468",
+   "finding": "The selftest pins sme_coefficient() = 6.37e-64 at beta = 1, which certifies the arithmetic only. That value is outside the paper's domain.",
+   "kind": "consistent"
+  },
+  {
+   "site": "branelink.py:142",
+   "finding": "R_EOTWASH = 38.6e-6 is Lee et al.'s alpha = 1 edge. Lee et al. p.5 also gives a toroidal radius below 30 um, which shifts the gap by +0.22 orders. Consistent as an input.",
+   "kind": "consistent"
+  },
+  {
+   "site": "branelink.py:143-148",
+   "finding": "MBAR4_GEV is computed as the 4D reduced Planck mass, against K&N eq. 73's 2.4e18 GeV. Consistent, 1.5% apart.",
+   "kind": "consistent"
+  },
+  {
+   "site": "branelink.py:92",
+   "finding": "beta <= 3.74e-08 on the bulk branch. On that branch b^2 \u2248 0 holds, so eq. 77 applies there (m \u2248 0 still does not); the null survives and deepens.",
+   "kind": "consistent"
+  },
+  {
+   "site": "LEDGER.md:101",
+   "finding": "'The loop-induced SME route is a null 42 orders short.' The null survives at r = 38.6 um on the bulk branch (deeper by about 16 orders with m_e). It should carry the named hypotheses b^2 \u2248 0 and m \u2248 0, and the fixed-r scope.",
+   "kind": "dropped-hypothesis"
+  }
+ ],
+ "commands_run": [
+  "python3 -c (page the packet in/2309.05759-eqs76-77.json)",
+  "mcp__alphaXiv__answer_pdf_queries(paper='2309.05759', queries=[eq.76 and full I_gravity, eq.77 conditions, mu/m definitions eqs.69-70, Fig.7 caption, eq.12 and footnote 3, eqs.72-73, p.25 bound]) -> READ v2 pp.1-30",
+  "python3 adjudicate/run/kn_adj.py (mpmath, closed-form t-integral): I(b2=0) = -zeta(3)/4 to 5e-32; I*(1-b2)^1.5 -> -0.6010284516 = -zeta(3)/2; cancelling coefficient 4.4; pi m_e r/hbar c = 3.14e8",
+  "sed -n 88,100p; 140,150p; 168,175p; 282,295p; 372,378p research/warp-drive/branelink.py (read-only)",
+  "git log -1 -- research/warp-drive/branelink.py -> 6a4f469",
+  "grep -rn 'Kabat|eqs. 76|42 orders' research/warp-drive (excluding docket67-raw)"
+ ],
+ "reverify_command": "python3 /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/adjudicate/run/kn_adj.py ; alphaXiv answer_pdf_queries(paper='2309.05759', queries=['eq. 76 and I_gravity','eq. 77 conditions','eq. 69 mu','eq. 12 and footnote 3','Fig. 7 caption'])",
+ "report_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/adjudicate/out/2309.05759-eqs76-77.json"
+}

@@ -1,0 +1,87 @@
+{
+ "key": "le-2026-eq17-dec-margin",
+ "final_grade": "STANDS",
+ "source_read_status": "READ",
+ "read_at_source_this_pass": true,
+ "decision": "Overturn CONFIRMED: OPEN -> STANDS.\n\nThe audit graded OPEN for one reason only: the source was unread. I re-read arXiv:2606.22531v2 myself through alphaXiv this pass. One caveat on the version: the PDF the tool serves as v2 carries the page-1 stamp 'arXiv:2606.22531v1 [gr-qc] 21 Jun 2026', so I cannot tell whether I read v1 or v2.\n\nWhat Le prints, Sec. VII A, p.7:\n- Eq (15): sigma_0 = (1/4piR)(1 - sqrt(1-x)).\n- Eq (16): p_0 = (1/8piR)((1 - x/2)/sqrt(1-x) - 1).\n- Eq (17): 8piR(sigma_0 - p_0) s = -5/2 s^2 + 3s - 1/2 = -1/2(5s-1)(s-1), 'positive iff 1/5 < s < 1'.\n- Eq (18): surface dec <=> x = 2m/R < 24/25.\n- Lemma 1: strict wec/dec on (0, 24/25).\n\nElsewhere in the paper:\n- App. B, p.18, restates the margin as (B1) = (1/2)(1-s)(5s-1). Its K^theta_theta = sqrt(f)/R and K^tau_tau = f'/(2 sqrt f) match the audit's C1.\n- Sec. XIV, p.17, prints the clause wall.py quotes word for word; wall.py adds one comma, after 'stiffer'.\n- App. H, p.23, scopes that clause to the equilibrium margin: 'sigma_0 - p_0 is junction-fixed (a function of x alone) and independent of eta'.\n\nRe-runs, all copied into adjudicate/run/ and all exit 0:\n- The audit's rederivation (C1-C8, including the z3 window proof).\n- Verifier 2's adversarial mutation and negation guards.\n- Verifier 1's check of the printed form.\n- My own adj_check.py (sympy). It shows that Le's (15)-(16) give his (17) exactly and that (B1) is the same expression. The tree's form equals Le's (17) divided by s, which equals 8piR(sigma_0 - p_0). v4's (2.13) equals sigma_0 - p_0. The tree's form is NOT literally Le's (17), which carries an extra factor s on its left-hand side. The roots are s = 1/5 and s = 1, and s = 1/5 means x = 24/25.\n- wall.py --selftest.\n\nThe verifiers shared no error. All three read the same document, and I confirmed what it prints independently. Their one shared caveat, the v1/v2 stamp, does not move the content: v4 (13 Sep 2026) prints the same margin as Eq (2.13), with the same window.\n\nNo empirical datum enters the result. Le himself places the 24/25 window as the flat-interior case of earlier rigorous thin-shell bounds: Andreasson [50] and Horvat-Ilijic [51], whose general sharp DEC bound is 48/49 [52]. Those works are named in Le and were not read here.\n\nWhy STANDS and not NARROWED: the tree drops no hypothesis that Le states. Le states the result for the static flat-interior/Schwarzschild anchor. The static-equilibrium and lambda = 0 limits are Le's own as well as the tree's: App. H gives the first, and App. E/Sec. XIV say 'the outgoing mass-loss flux ... tightens the surface dec margin'.",
+ "scope": "The grade covers:\n- The static thin-shell margin for a Minkowski interior matched to a Schwarzschild exterior: 8piR(sigma_0 - p_0) = -(5s-1)(s-1)/(2s), with s = sqrt(1-x) and 0 < x < 1.\n- The window: strict surface dec iff 0 < x < 24/25, with zero margin at x = 24/25.\n- The equilibrium margin's independence of the equation-of-state slope.\n- The attribution to Le v2 Eq (17), up to the factor-s rearrangement and the v1/v2 stamp caveat.\n\nIt does NOT cover:\n- (a) An oscillating or off-equilibrium wall, whose margin depends on beta^2 at first order (audit C7).\n- (b) The radiating lambda = aR > 0 wall, whose window shrinks under Le's envelope (29), which is empirical (warpshell.py:91).\n- (c) The tangential-pressure thick wall (the 4/5 window).\n- (d) Any stability claim the tree builds on the 'stiffer wall' clause, including v4's growing modes and ill-posedness. Those belong to the stability-clause audit.\n\nAndreasson and Horvat-Ilijic are named, not read.",
+ "corrections_to_record": [
+  "The audit's read_status NAMED-NOT-READ and agrees_with_source 'not-run' are superseded. The source is now READ and agrees: Le v2 p.7 (Eqs 15-18, Lemma 1), p.18 (B1), p.17 (Sec XIV), p.23 (App H).",
+  "Version caveat: the PDF alphaXiv serves as 2606.22531v2 is stamped 'arXiv:2606.22531v1 [gr-qc] 21 Jun 2026' on p.1, while the tree cites v2 (30 June 2026). Which version was read cannot be told apart. The content does not change: v4 (13 Sep 2026, retitled 'Radiative steering of warp shells') prints the same margin as Eq (2.13), (1-s)(5s-1)/(16 pi R s), with strict DEC for 0<x<24/25.",
+  "Equation numbering: 'Eq (17)' is the v1/v2 number. In v4 the same equation is Eq (2.13).",
+  "Discrepancy of form, not of value: Le prints Eq (17) as 8piR(sigma_0-p_0) s = -1/2(5s-1)(s-1), with a factor s on the left-hand side. The tree's '-(5s-1)(s-1)/(2s)' (wall.py:46, 265, 269-271) is that equation divided by s>0. So wall.py:269's 'Le's printed closed form' is a rearrangement, not a transcription.",
+  "The quotation at wall.py:11-14 is word for word Le Sec XIV p.17, except that wall.py adds a comma after 'stiffer'.",
+  "Window edge wording: Le's 'surface dec <=> x<24/25' is the STRICT condition. Non-strict dec holds on 0<x<=24/25.",
+  "Two named scope hypotheses are carried, and neither is grounds to narrow. Static equilibrium: Le App H calls the margin 'a function of x alone', and off equilibrium the margin depends on beta^2 (audit C7). lambda=0: Le App E/Sec XIV say the mass-loss flux tightens the margin, and Le calls envelope (29) 'physically motivated', i.e. empirical.",
+  "The vacuous self-check at wall.py:527-528 stands as recorded. It builds a one-element set {round(dec_margin_scaled(0.3),12)}, never varies beta^2, and so passes for any input. The claim it guards still holds by construction.",
+  "Earlier literature: Le v2 p.8 places the window as the flat-interior case of Andreasson [50] and Horvat-Ilijic [51], whose general sharp DEC bound is 48/49 [52]. v4 calls it 'the familiar flat-interior compactness bound' [25,26]. None of these was read here, so they carry no weight in the grade. The audit's later_literature value 'contested' was an enum placeholder and should read 'confirms (as cited by the source; not read)'."
+ ],
+ "tree_sites": [
+  {
+   "site": "research/warp-drive/wall.py:46-47",
+   "finding": "The margin and window match Le v2 Eqs (17)-(18) in value. Le's printed (17) carries a factor s on the left-hand side, and the tree's form is (17)/s. The line numbers are current.",
+   "kind": "discrepancy"
+  },
+  {
+   "site": "research/warp-drive/wall.py:265",
+   "finding": "Reads 'Must equal Le Eq (17): -(5s-1)(s-1)/(2s)'. That is Le's (17) divided by s, equivalent but not the literal printed form. The value checks pass.",
+   "kind": "discrepancy"
+  },
+  {
+   "site": "research/warp-drive/wall.py:269-271",
+   "finding": "The docstring calls dec_margin_le 'Le's printed closed form', but the code rearranges the printed form (divides it by s). It is numerically identical and is correctly never used as a source.",
+   "kind": "overstatement"
+  },
+  {
+   "site": "research/warp-drive/wall.py:11-14",
+   "finding": "The quoted clause is word for word Le v2 Sec XIV p.17, apart from an added comma after 'stiffer'. Le's App H scopes it to the equilibrium margin.",
+   "kind": "consistent"
+  },
+  {
+   "site": "research/warp-drive/wall.py:243",
+   "finding": "X_THIN_SHELL = 24/25 matches Le (18) exactly.",
+   "kind": "consistent"
+  },
+  {
+   "site": "research/warp-drive/wall.py:251-258",
+   "finding": "statics() gives sigma_0=(1-s)/(4piR) and p_0=(1-s)^2/(16piRs), identical to Le (15)-(16) by sympy. The audit cited 254-260; the current lines are 251-258.",
+   "kind": "stale"
+  },
+  {
+   "site": "research/warp-drive/wall.py:527-528",
+   "finding": "The check is vacuous: it builds a one-element set, tests len==1 and never varies beta^2. The claim it guards holds by construction.",
+   "kind": "discrepancy"
+  },
+  {
+   "site": "research/warp-drive/wall.py:554",
+   "finding": "'thin-shell dec window 24/25 is NOT' (below x*) is consistent with Le: his 24/25 thin-shell window is distinct from the operative 4/5 window of the tangential wall.",
+   "kind": "consistent"
+  },
+  {
+   "site": "research/warp-drive/warpshell.py:6-7",
+   "finding": "Cites arXiv:2606.22531 v2, 30 June 2026. The PDF served as v2 is stamped v1, 21 Jun 2026, which is a version caveat. The content is unchanged through v4, where the equation is renumbered (2.13).",
+   "kind": "consistent"
+  },
+  {
+   "site": "research/warp-drive/warpshell.py:86",
+   "finding": "'x < 24/25 static thin shell, surface dec strict' is the precise reading of Le (18) and Lemma 1.",
+   "kind": "consistent"
+  },
+  {
+   "site": "research/warp-drive/warpshell.py:91",
+   "finding": "'lambda <~ (24/25 - x)/2 empirical dec envelope' matches Le Eq (29), which Le himself calls 'a physically motivated upper envelope'. The tree correctly labels it empirical.",
+   "kind": "consistent"
+  }
+ ],
+ "commands_run": [
+  "python3 -c json dump of adjudicate/in/le-2026-eq17-dec-margin.json",
+  "mcp__alphaXiv__answer_pdf_queries(paper='https://arxiv.org/pdf/2606.22531v2', queries on Eqs 15-18, Lemma 1, Sec XIV clause, App H, App B B1) -> pp.1,7,8,9,17,18,23",
+  "grep -n / sed -n on research/warp-drive/wall.py (8-16, 240-272, 524-530) and warpshell.py (1-16) to get current line numbers; git status --short research/warp-drive (clean)",
+  "grep -n '2.13|24/25' verify/data/le-2606.22531v4.txt",
+  "cp rederive/le-2026-eq17-dec-margin.py, verify/rederive/le17-adversarial.py and verify/refute/le17_printed.py -> adjudicate/run/; python3 -B each (all exit 0)",
+  "python3 adjudicate/run/adj_check.py (sympy: Le15-16 => Le17, B1, tree==Le17/s, tree!=Le17 literally, v4 2.13, roots 1/5 and 1)",
+  "python3 -B research/warp-drive/wall.py --selftest (exit 0)"
+ ],
+ "reverify_command": "cd /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/adjudicate/run && python3 -B le-2026-eq17-dec-margin.py && python3 -B le17-adversarial.py && python3 adj_check.py && python3 -B /home/user/Claude-Method-Works/research/warp-drive/wall.py --selftest >/dev/null && echo OK",
+ "report_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/adjudicate/out/le-2026-eq17-dec-margin.json"
+}

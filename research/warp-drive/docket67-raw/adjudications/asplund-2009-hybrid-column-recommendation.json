@@ -1,0 +1,63 @@
+{
+ "key": "asplund-2009-hybrid-column-recommendation",
+ "final_grade": "NARROWED",
+ "source_read_status": "READ",
+ "read_at_source_this_pass": true,
+ "decision": "I confirm the overturn from OPEN to NARROWED.\n\nThe risk to check: all three verifiers worked from the same alphaXiv full text (md5 16ca4c35... in all three of their folders), so one extraction error would have reached all three.\n\nWhat I checked independently this pass:\n- I re-read A09 at source with answer_pdf_queries(0909.0948). It returned pp.1-3, 8, 10, 15, 20, 24, 25, 30, 42 and 53-57 verbatim.\n- I grepped the full text, all 2,686 lines, for recommendation and fill wording, and read every hit in context.\n- The Table 3 'best estimates' (sec 3.10) are isotopic fractions only.\n- Sec 3.12 and Table 4 compute Z without stating any fill rule. The dash elements carry about 1.8e-7 of the mass, so Z cannot tell either way.\n\nWhat A09 says:\n- Every 'recommend' refers to the photospheric values: p.3, p.8, p.10, p.15, p.24 sec 3.12 and p.30.\n- Sec 4.1 calls meteorites 'an excellent comparator'.\n- The closest it comes are two sympathetic sentences: p.24 'main advantage of meteorites as a cosmic abundance standard', and p.25, where discrepancies are 'blamed on uncertain photospheric analyses'. Neither is a fill rule.\n- No sentence in A09 recommends 'photospheric where determined, meteoritic otherwise'. The audit set this outcome in advance as its NARROWED condition.\n\nWhere the rule is actually stated, READ this pass: AAG21 (2105.01661) p.21 says 'we base their present-day photospheric abundances on the CI chondritic abundances. Those are first corrected for the trend ... with condensation temperature'. The Fig. 1 caption (p.3) and the Table B.1 caption (p.30) say the same.\n\nThe substance holds:\n- I copied the rederivation script and re-ran it. It exits 0 and its output is byte-identical to the audit's .out. H1-H7 pass, P binds at 1910.87, and the Br margin is 1.0187 dex.\n- Under AAG21's own Tc-corrected fill, I computed Br = log10(10^2.24+10^2.23) - 0.064 = 2.472, which gives a margin of 0.951 dex. That confirms the data verifier's figure, and P still binds.\n\nWhy each other grade fails:\n- Not STANDS. The attribution the result is named for is not in A09. The tree also drops three hypotheses: the Si peg, CI being unfractionated for the volatile fills, and AAG21's Tc correction.\n- Not WRONG. There is no counterexample and every check passes. Crediting a real, published practice to the wrong paper is a discrepancy, not a refutation.\n- Not DATA-DEPENDENT. None of the moved data changes the binder: AAG21 CI, AG26 CI-Tc, L25's photospheric Cd and the Tc-corrected fill all leave P binding. The Li move is graded in audits/0909.0948.json.\n- Not OPEN. The source has now been READ in full.\n\nI found no shared error behind the verifiers' grade. My independent page-level read of the pages the decision turns on (p.8, pp.24-25, p.30, Table 1 p.42) agrees with the extraction they all used.",
+ "scope": "The grade covers two things:\n- (a) A09 (arXiv:0909.0948v1 = ARA&A 47, 481) does not recommend the hybrid column.\n- (b) stockgate.solar_hybrid() is a consistent and robust cosmic column for the payload binding computation, on the named hypotheses: the Si peg, CI unfractionated for the volatile fills, and an uncorrected-CI fill in place of AAG21's Tc-corrected one.\n\nIt does not cover:\n- the Li datum and which element binds (graded DATA-DEPENDENT in audits/0909.0948.json);\n- whether the 'stellar photosphere' destination generalises beyond the present-day solar photosphere (the sibling audit's finding).\n\nNamed hypotheses:\n- The arXiv v1 text matches the typeset ARA&A version on the decisive passages.\n- The full text was searched by grep, with every hit read in context, plus a verbatim read of the decisive pages. It was not read line by line.\n- Which column Table 1's single Cd value (1.71) sits in cannot be told from the extracted text. This is immaterial, since the value is 1.71 either way.",
+ "corrections_to_record": [
+  "Attribution: stockgate.py:72-73 'the HYBRID Asplund recommends' and :500 'A09's own advice' are not carried by A09. Its full text recommends the photospheric column only, with the CI values 'also provided' for comparison (p.8, p.24). The fill rule is stated in Asplund, Amarsi & Grevesse 2021 (2105.01661) p.21 and the Fig. 1 caption, both READ this pass.",
+  "AAG21's rule corrects the CI values for condensation temperature before using them; stockgate.solar_hybrid() leaves that correction out, so it is a dropped hypothesis. Computed: under AAG21's Tc-corrected fill, Br is 2.472 against A09 CI 2.54, so its margin to binding is 0.951 dex, not 1.02. The audit's H4 clause 'not within 1 dex' fails under that fill; the conclusion (P binds at 1910.87) does not.",
+  "AAG21 p.18 advises against using meteoritic abundances to estimate the Solar System composition. Do not present AAG21 as endorsing uncorrected CI fills.",
+  "stockgate.py:499-510 should name two hypotheses: the Si peg (A09 p.24, log eps = 1.51 + log N) and CI being unfractionated for the fill elements (A09 p.24, with volatiles 'depleted to various degrees' per pp.2-3).",
+  "The audit's lacked_data sentence 'Nothing later fills the gaps photospherically' is false for Cd: L25 Table 2 gives photospheric Cd 1.77 +- 0.20. This comes from the data verifier and was not re-read this pass. It is immaterial: the value is above CI, so the margin widens.",
+  "The audit overstates the residual risk, in the cautious direction. Volatile depletion makes CI values lower than solar, which pushes a fill element away from binding. AAG21 and AG26 measure the CI-Sun offset for volatiles at about 0.04-0.06 dex, against a margin of about 0.95-1.02 dex.",
+  "stockgate.py:64-65 'the Sun's spectrum does not show them' is stronger than A09. pp.18-19 say the As and Sb lines exist but are unreliable or perturbed, and that Cd has only heavily blended lines. What Table 1 shows is that no photospheric abundance was adopted.",
+  "A09 internal discrepancy, recorded not repaired: pp.18-19 name Cd among the elements analysed and adopted, yet Table 1 prints a single Cd value, 1.71 +- 0.03, equal to CI, and AAG21 marks Cd 'meteorites'. Immaterial.",
+  "The audit's 59-element 'non-volatile' comparison set contains In and Tl at about 530 K, as volatile as Br and I, which strengthens H4. Bi (746 K) arguably belongs on the volatile list."
+ ],
+ "tree_sites": [
+  {
+   "site": "research/warp-drive/stockgate.py:72-73",
+   "finding": "'the HYBRID Asplund recommends': A09 recommends only the photospheric column. The hybrid rule is AAG21 2021 p.21, with a Tc correction the tree omits. The line numbers are current (stockgate.py last changed in 519cd55, 2026-09-20), so the site is not stale.",
+   "kind": "discrepancy"
+  },
+  {
+   "site": "research/warp-drive/stockgate.py:500",
+   "finding": "'A09's own advice': the A09 full text contains no such advice. It should cite AAG21 and name its Tc correction. Current, not stale.",
+   "kind": "discrepancy"
+  },
+  {
+   "site": "research/warp-drive/stockgate.py:499-510",
+   "finding": "solar_hybrid() does not name the Si peg or the assumption that CI is unfractionated for the volatile fills, and it uses uncorrected CI values. The effect is immaterial: the Br margin is 0.951 dex under the Tc-corrected fill, and P still binds.",
+   "kind": "dropped-hypothesis"
+  },
+  {
+   "site": "research/warp-drive/stockgate.py:63-65",
+   "finding": "'the Sun's spectrum does not show them': A09 pp.18-19 say lines for As, Sb and Cd exist but were judged unreliable or blended. What Table 1 shows is that no photospheric abundance was adopted.",
+   "kind": "overstatement"
+  },
+  {
+   "site": "research/warp-drive/stockgate.py:70-71",
+   "finding": "'an artefact of the measurement method rather than of the star' holds. It needs only that no photospheric value was adopted, every one of the 12 has a finite CI value, and the rerun exits 0.",
+   "kind": "consistent"
+  },
+  {
+   "site": "research/warp-drive/stockgate.py:67",
+   "finding": "The 12-element list matches the dashes in A09 Table 1 p.42 restricted to the payload. There are 14 dashes in all, including Pt and Re. READ this pass.",
+   "kind": "consistent"
+  }
+ ],
+ "commands_run": [
+  "python3 -c json dump of adjudicate/in/asplund-2009-hybrid-column-recommendation.json",
+  "md5sum verify/*/0909.0948.fulltext.txt -> all identical (the verifiers shared one input)",
+  "grep -n -i -E 'recommend|meteorit|chondrit|instead|in the absence|not available|best (estimate|value)|adopt the|solar system abund|lack' verify/data/0909.0948.fulltext.txt, then sed -n context for every hit",
+  "mcp__alphaXiv__answer_pdf_queries(0909.0948, fill rule / Table 1 / summary)",
+  "mcp__alphaXiv__answer_pdf_queries(2105.01661, fill rule / Fig. 1 caption)",
+  "cp the rederive scripts to adjudicate/run; cd /tmp && PYTHONDONTWRITEBYTECODE=1 python3 adjudicate/run/asplund-2009-hybrid-column-recommendation.py -> exit 0, diff against the audit .out IDENTICAL",
+  "python3: AAG21 Tc-corrected Br = 2.472, margin 0.951 dex (run/aag21_br.out)",
+  "git log -1 -- research/warp-drive/stockgate.py; grep -n and sed -n 58,76p and 495,515p on stockgate.py (read-only)"
+ ],
+ "reverify_command": "cd /tmp && PYTHONDONTWRITEBYTECODE=1 python3 /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/adjudicate/run/asplund-2009-hybrid-column-recommendation.py && grep -n -i -E 'recommend|meteorit|chondrit' /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/verify/data/0909.0948.fulltext.txt",
+ "report_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/adjudicate/out/asplund-2009-hybrid-column-recommendation.json"
+}

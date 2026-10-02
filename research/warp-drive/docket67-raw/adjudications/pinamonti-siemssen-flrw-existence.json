@@ -1,0 +1,72 @@
+{
+ "key": "pinamonti-siemssen-flrw-existence",
+ "final_grade": "NARROWED",
+ "source_read_status": "READ",
+ "read_at_source_this_pass": true,
+ "decision": "I confirm the overturn from OPEN to NARROWED. The audit graded OPEN for one reason only: none of the four papers could be read. I read all four at source this pass through alphaXiv answer_pdf_queries.\n\n**What the reads show**\n\n(i) The row's statement holds in all four papers: each proves flat-FLRW existence with the Banach fixed point as its engine.\n- 1001.0864: Thm 4.1 and Prop 4.6.\n- 1309.6303: Thm 3.2 and Prop A.7.\n- 2007.14665: Prop 5.8 and Thm 5.9.\n- 1809.03812: Thm 5.1, proved in App. A.5 on p38 (\"It now follows by the Banach fixed-point theorem that Phi has a unique fixed point\"). The Ovsyannikov-type method in this paper governs only the evolution of the state.\n- So verifier 3 is wrong to say Banach is \"NOT the method of 1809.03812\", and verifier 2's doubt about Gottschalk-Siemssen is resolved. This was an error the verifiers shared on a fact, not on the grade. Verifier 1 had it right.\n\n(ii) The row drops hypotheses that each theorem needs:\n- the model itself: a single free quantum scalar field;\n- mass: m > 0 in three papers, m >= 0 in Gottschalk-Siemssen;\n- coupling: xi = 1/6 in 2011 and 2015; xi != 1/6 in Meda-Pinamonti-Siemssen, whose abstract says \"arbitrary\" but whose theorems exclude 1/6; arbitrary in Gottschalk-Siemssen;\n- renormalisation: 2011 and 2015 choose the constants so the higher derivatives cancel;\n- state class:\n  - 2011: Hadamard states on a lightlike initial surface;\n  - 2015: adiabatic of order zero, stated to be not Hadamard;\n  - Meda-Pinamonti-Siemssen: \"sufficiently regular\" states;\n  - Gottschalk-Siemssen: Hadamard;\n- time extent: local only in 2011 and Meda-Pinamonti-Siemssen; a maximal solution in 2015 and Gottschalk-Siemssen (vacuum-like states).\n\n(iii) \"Not static\" holds only for the non-trivial members. a = const is in the flat-FLRW class (check C2, m = 0), and Gottschalk-Siemssen name \"the Minkowski solution\".\n\n**Why NARROWED and not another grade**\n- Not STANDS: the dropped hypotheses and the static member are real.\n- Not WRONG: no counterexample was found to anything the row asserts. The 1309.6303 abstract prints \"H_c = 180 pi/G\" while its body (eq. 1.9) defines H_c^2 = 180 pi/G. That is a misprint in the paper's own abstract, a discrepancy and not a refutation.\n- Not DATA-DEPENDENT:\n  - The renormalisation constants are not fixed by data, and 1809.03812 eqs. 5.8 to 5.10 show that H_c and the second-order reduction move with c2, 3c3 + c4 and m.\n  - But existence itself holds for every choice of those constants (Thm 5.7), and the tree uses neither H_c nor the reduction.\n  - The row's load-bearing \"not m < 0\" follows from the flat geometry alone. I re-computed the Misner-Sharp mass on k = 0 as m = r^3 a adot^2/(2G), which is >= 0 for a > 0.\n- Not OPEN: all four papers were read and checked here.\n\n**Re-runs this pass**\n- The audit's 13-check script, copied to adjudicate/run/: ALL PASS, exit 0.\n- My own sympy check: H_c^2 = 180 pi/G agrees with 1309.6303 eq. 1.9, with 1001.0864 eq. 18 (G = 1 units), and with 1809.03812 eq. 5.10 at c2 = 0, m = 0, kappa = 8 pi G.\n- The condition 3c3 + c4 = -1/(5760 pi^2) in eq. 5.9 is exactly where the Box R line of eq. 5.6 vanishes at xi = 1/6.",
+ "scope": "**What the grade covers**\n- The throatmass.py row \"flat FLRW existence by Banach fixed point: cosmological, not static, not m < 0\" for Pinamonti 2011, Pinamonti-Siemssen 2015, Meda-Pinamonti-Siemssen 2020 and Gottschalk-Siemssen 2018/2021.\n- NARROWED applies to the row's wording:\n  - the hypotheses it drops: field model, mass, coupling, renormalisation, state class, initial surface, and local versus maximal existence;\n  - \"not static\", which holds only for the non-trivial members.\n\n**What the grade does not cover**\n- It does not move the O5 count (FAMILIES_WITH_NEGATIVE_MASS) in ledger.py and specthm.py. This row's zero for m < 0 is structural on k = 0, given a > 0, and the row says nothing about the static spherically symmetric sector that O5 asks about.\n- The fixed-point proofs were read, not machine-checked.\n- Later literature was not read and is not load-bearing here: 2206.07774, 2011.05947, 2604.01047 and IJTP 2026.",
+ "corrections_to_record": [
+  "The audit's OPEN premise (NAMED-NOT-READ) is superseded: all four papers were READ at source on 2026-10-02.",
+  "The audit's 'existence only for a short time' and its drift 'DROPPED local in time' are wrong for two papers. 1309.6303 proves a unique maximal solution (Thm 4.2, Props 4.3-4.4), and 1809.03812 proves a maximal or global solution for vacuum-like states (Thm 5.7). Both are right for 1001.0864 and 2007.14665.",
+  "The audit's 'Banach unverified for three papers' is resolved: the Banach fixed point is used in all four (1001.0864 Thm 4.1/Prop 4.6; 1309.6303 Thm 3.2/Prop A.7; 2007.14665 Prop 5.8/Thm 5.9; 1809.03812 Thm 5.1, proved in App A.5 p38).",
+  "Verifier 3's claim that 1809.03812 uses an Ovsyannikov-type method and not the Banach fixed point is wrong as stated. The Ovsyannikov-type construction governs only the evolution of the state; the coupled solution exists by a contraction map and the Banach fixed-point theorem. The same correction resolves verifier 2's restated doubt about Gottschalk-Siemssen.",
+  "The audit's hypothesis 'initial data at finite time with a regular (Hadamard-type) state' fails for two papers. 1001.0864 puts its data on a lightlike surface (null past infinity). 1309.6303 uses adiabatic order-zero states, explicitly not Hadamard. 2007.14665 needs only 'sufficiently regular' states.",
+  "2007.14665's theorems are for xi != 1/6, although its abstract says 'arbitrary'. 1809.03812 allows m >= 0, so 'massive' is not a hypothesis of all four.",
+  "The abstract of 1309.6303 prints 'H_c = 180 pi/G', while its body (eq 1.9) defines H_c^2 = 180 pi/G. This is a misprint in the paper's own abstract: a discrepancy, not a refutation.",
+  "The audit's lacked_data answer is incomplete. The papers say the renormalisation constants are to be fixed by experiment, and no data fixes them. The 2011/2015 second-order reduction and H_c rest on a conventional choice of those constants (1809.03812 eqs 5.9-5.10). Existence does not move with them (Thm 5.7), so this is a named hypothesis, not a DATA-DEPENDENT grade.",
+  "Check C1b's sign result also needs a > 0, since m = r^3 a adot^2/(2G). That is true of a scale factor but should be stated in the check.",
+  "Check C1c's m < 0 on k = -1 is kinematic only: on shell, a negative m needs a negative effective rho. No paper in the row is on k = -1.",
+  "The tree's status word at throatmass.py:149 ('not read at source') is now behind the D67 reads. Recorded, not repaired.",
+  "The year labels at throatmass.py:148 mix journal and arXiv years. This is a labelling discrepancy only."
+ ],
+ "tree_sites": [
+  {
+   "site": "throatmass.py:147-148",
+   "finding": "The year labels '2011, 2015, 2020, 2021' mix conventions: 2011 and 2015 are journal years, 2020 is the arXiv year of a 2021 journal paper, and 2021 is the journal year of a 2018 arXiv paper. The line numbers are unchanged since the audit.",
+   "kind": "discrepancy"
+  },
+  {
+   "site": "throatmass.py:149",
+   "finding": "'RECOVERED from bibliographies, not read at source' is out of date: all four papers are now READ at source in D67.",
+   "kind": "stale"
+  },
+  {
+   "site": "throatmass.py:150",
+   "finding": "'flat FLRW existence by Banach fixed point' holds at source in all four papers, but drops hypotheses: the scalar-field model, m > 0 (3 of 4; Gottschalk-Siemssen allows m >= 0), each paper's coupling, the 2011/2015 renormalisation restriction, the state classes, the lightlike initial surface of 2011, and local versus maximal existence.",
+   "kind": "dropped-hypothesis"
+  },
+  {
+   "site": "throatmass.py:150-151",
+   "finding": "'not static' holds only for the non-trivial members: Minkowski (a = const, m = 0) is in the class, and Gottschalk-Siemssen name 'the Minkowski solution'.",
+   "kind": "overstatement"
+  },
+  {
+   "site": "throatmass.py:151",
+   "finding": "'not m < 0' is structural: on k = 0, m = r^3 a adot^2/(2G) >= 0 for a > 0 (re-computed this pass).",
+   "kind": "consistent"
+  },
+  {
+   "site": "ledger.py:1746",
+   "finding": "The audit cited ledger.py:1729 for the O5 count. The count is now computed from throatmass.FAMILIES_WITH_NEGATIVE_MASS at lines 1746 and 1807, and no literal '0 of 6' remains. The substance is consistent: this row contributes 0.",
+   "kind": "stale"
+  },
+  {
+   "site": "specthm.py:1097",
+   "finding": "The audit cited specthm.py:1095. The O5 count now reads throatmass.FAMILIES_WITH_NEGATIVE_MASS at line 1097. The substance is consistent.",
+   "kind": "stale"
+  }
+ ],
+ "commands_run": [
+  "python3 -c (page through the packet in/pinamonti-siemssen-flrw-existence.json)",
+  "cat verify/refute/pinamonti-siemssen-flrw-existence.txt and verify/data/pinamonti_reads.json",
+  "grep -n pinamonti|siemssen over research/warp-drive; sed -n 135,160p throatmass.py; sed ledger.py and specthm.py around the O5 lines; grep FAMILIES_WITH_NEGATIVE_MASS",
+  "mcp__alphaXiv__answer_pdf_queries 1809.03812 (READ pp1,3,4,23-25,27,28,38)",
+  "mcp__alphaXiv__answer_pdf_queries 1309.6303 (READ pp1,3-6,9-13,15)",
+  "mcp__alphaXiv__answer_pdf_queries 1001.0864 (READ pp1,2,4,5,14,16,17,21,23-27,36)",
+  "mcp__alphaXiv__answer_pdf_queries 2007.14665 (READ pp1,4-7,11,22,23,25,26,33,34)",
+  "cp rederive/pinamonti-siemssen-flrw-existence.py to adjudicate/run/ and run it: ALL PASS, exit 0",
+  "python3 adjudicate/run/check.py (sympy: H_c^2 = 180 pi/G in 1309.6303 and in 1809.03812 eq 5.10; 3c3 + c4 = -1/(5760 pi^2) cancels the Box R line; m_flat = r^3 a adot^2/(2G))"
+ ],
+ "reverify_command": "python3 /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/adjudicate/run/pinamonti-siemssen-flrw-existence.py && python3 /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/adjudicate/run/check.py  # expect ALL PASS; then answer_pdf_queries(1809.03812, 'Banach fixed-point theorem in proof of Thm 5.1') -> App A.5 p38",
+ "report_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/adjudicate/out/pinamonti-siemssen-flrw-existence.json"
+}

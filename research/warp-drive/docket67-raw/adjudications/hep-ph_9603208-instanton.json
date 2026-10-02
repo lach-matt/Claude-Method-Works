@@ -1,0 +1,125 @@
+{
+ "key": "hep-ph/9603208-instanton",
+ "final_grade": "STANDS",
+ "source_read_status": "READ",
+ "read_at_source_this_pass": true,
+ "decision": "I confirm the overturn from OPEN to STANDS. The three verifiers did not share an error. The audit graded OPEN for one reason only: its stage could not read the paper. I read hep-ph/9603208v2 myself in this pass, using alphaXiv answer_pdf_queries (PDF pp. 1, 2, 4-9, 12, 15, 60, 61).\n\n(1) Every capture is verbatim and sits at its stated page:\n- RS96-anom: eqs (2.2)-(2.4), printed p.4.\n- RS96-T0: printed p.5 (PDF p.6).\n- RS96-2.8: printed p.6 (PDF p.7). The page reads 'Gamma_inst \u221d exp(-4pi/alpha_W) ~ 10^-170, where alpha_W = g^2/4pi = alpha/sin^2 theta_W = 1/29'.\n- RS96-inst: Sec. 4.1, printed p.11 (PDF p.12).\n\n(2) The audit marked the exp(-2S) leg 'not checkable'. It is now READ. Eq. (2.7) gives S_inst = 8pi^2/g^2 with the amplitude \u221d e^{-S_inst}. Eq. (2.8) is the probability, so 4pi/alpha_W = 2 S_inst.\n\n(3) The source prints m_W = gv/2 on printed p.6. The tree's g = 2 m_W/v is therefore the source's own normalisation.\n\n(4) H4, the constrained-instanton qualifier the tree drops, is settled by the source in the direction the tree needs. Eq. (2.9) adds a non-negative term, exp(-8pi^2/g^2 - pi^2 rho^2 v^2). The source then states 'Clearly, the tunnelling rate is still suppressed by the exponential factor (2.8)'. Separately, the Bogomolny bound, machine-checked in the rederive script, gives S_E >= 8pi^2/g^2 for every Q = 1 gauge-Higgs path.\n\n(5) The tree stays inside the source's regime. The source's regime is 'zero energies and temperatures' (p.5), plus 'low fermion densities and low energies of colliding particles' (Sec. 4.1). The tree uses the exponent at T = 0 only, prints no rate, and keeps the collider rate CONTESTED as a separate matter. Its use is therefore no wider than the source's, so NARROWED does not apply.\n\n(6) Re-run on copies in adjudicate/run/:\n- The rederive script passes 19/19, exit 0.\n- The supplement passes 5/5.\n- The data-lens script passes 4/5. Its one FAIL is the audit's lacked_data clause (b).\n- Independent arithmetic: 1/29 gives 10^-158.268 against the printed 10^-170, a gap of 11.73 decades. 10^-170 corresponds to 1/alpha_W = 31.150. The tree's 1/29.4913 gives 10^-160.949, and 28.147 + 160.949 = 189.096.\n\n(7) The 10^-170 at 1/29 pairing is a discrepancy inside the source, not a refutation. The tree records it without repairing it, which is correct.\n\n(8) No moved datum moves the conclusion:\n- The full convention band runs from 10^-158.27 to 10^-173.16. The non-tree scheme inputs behind it are RECALLED, not read.\n- The m_W move from 1996 to 2026 shifts the exponent by 0.13 to 0.25 decades.\n- m_H and m_t are absent from the leading exponent (READ in eq. (2.9)).\n\n(9) Later literature was screened by title or abstract only. That does not make the grade OPEN. At leading semiclassical order the Bogomolny bound is a theorem: no Q = 1 vacuum-to-vacuum path at T = 0 can have a lower action. Later work can therefore change only the prefactor or the high-energy rate, and both lie outside this entry.\n\nWhy not NARROWED: H-SCHEME, the scheme and scale of alpha_W at leading order, is not named in the tree. It is a precision caveat of about 12 to 15 decades on the printed digits, against a suppression of about 160 decades. It does not shrink the class of validity. The source names no scheme, so the tree drops no source hypothesis, and the tree declares its substitution of 1/29.49 for 1/29.\n\nWhy not OPEN: the source is READ, the form of the exponent is computed, and the bound is a theorem.\n\nAll three verifier reports hold up. I independently reproduce the data lens's correction to the audit's clause (b): 0.249 decades from 80.3 GeV, 0.128 from 80.33 GeV.",
+ "scope": "What the grade covers:\n- Zero-temperature, zero-energy electroweak B+L violation by instanton tunnelling.\n- Its suppression at leading semiclassical order by exp(-4pi/alpha_W) = exp(-2 S_inst), with S_inst = 8pi^2/g^2 (eqs (2.7)-(2.9) and Sec. 4.1, all READ).\n- The selection rule Delta B = Delta L = 3 per unit N[A] (eqs (2.4)-(2.5)).\n- The tree's use of this as an exponent with no rate printed: massform.py M65-4, the S11 row and 'the anomaly route', and linstab.py READ_HITS.\n\nNamed hypotheses the grade carries:\n- H1: T = 0, E = 0, and low fermion density.\n- H2: semiclassical, weak coupling.\n- H3: exponent only; no prefactor read.\n- H-SCHEME: the convention for alpha_W at leading order. It is about 12 to 15 decades in the printed digits and is unnamed in the tree.\n- 't Hooft 1976 is NAMED-NOT-READ. The grade rests on the review, which is READ.\n\nWhat the grade does not cover:\n- The prefactor (mu(rho), which depends on m_H).\n- The finite-temperature sphaleron rate.\n- The high-energy collider rate, which the tree holds CONTESTED and which is a separate entry.\n- The source's 10^-170, which is a recorded discrepancy that the tree does not use.\n- Later literature beyond title and abstract screening.",
+ "corrections_to_record": [
+  "The audit's read status NAMED-NOT-READ is superseded. hep-ph/9603208v2 was READ at source by all three verifiers and again in this adjudication. The bibliographic identification (Usp. Fiz. Nauk 166 No 5, 1996; CERN-TH/96-13) is confirmed on PDF p.1.",
+  "The audit's rederivation listed 'probability = exp(-2S)' as NOT checkable. It is now READ: eq. (2.7) gives amplitude \u221d e^{-S_inst} with S_inst = 8pi^2/g^2, and eq. (2.8) is the probability.",
+  "The audit's lacked_data clause (b) is wrong in size. The m_W move from 1996 to 2026 shifts the exponent by 0.249 decades (from 80.3 GeV) or 0.128 decades (from 80.33 GeV), not 'less than 0.1 decade'. The script's '<0.1' check tests only the 1-sigma move (0.053 decades). The error is immaterial: its direction and moves_conclusion = No are unchanged.",
+  "H4, the constrained instanton in the Higgs theory, is the source's own statement, not only an inference: eq. (2.9) and 'Clearly, the tunnelling rate is still suppressed by the exponential factor (2.8)', printed p.6.",
+  "The g in S_inst = 8pi^2/g^2 is the g in m_W = gv/2 (READ, printed p.6). The tree's g = 2 m_W/v is therefore the source's own normalisation.",
+  "The tree should name H-SCHEME, the scheme and scale of alpha_W at leading order, beside 'no prefactor read' at massform.py:527-533. The non-tree scheme values (29.59, 30.59, 31.73, and the 31.15 that matches 10^-170) rest on RECALLED inputs, not READ ones.",
+  "The RS96-2.8 capture at massform.py:1081 is claimed verbatim but writes '~' where the page prints '\u221d' in 'Gamma_inst \u221d exp(-4pi/alpha_W)'. This is a transcription discrepancy and is immaterial.",
+  "Eq. (2.8) pairs 10^-170 with 1/29, where the arithmetic gives 10^-158.27, a gap of 11.73 decades. This is confirmed at source as printed. It remains a discrepancy, recorded and not repaired, and is not a refutation. That 10^-170 fits alpha(0)/sin^2 theta_W with sin^2 about 0.227 is an inference, not a reading of the authors' intent.",
+  "Later literature was screened by title or abstract only and none was read. It is immaterial to the leading T = 0 exponent because of the Bogomolny bound, and is recorded as such, not as confirmation.",
+  "The audit's line citations drift by one: the 't Hooft entry is at massform.py:1088-1090 (the audit says 1089-1091), and the discrepancy record is at 533-537 (the audit says 533-536)."
+ ],
+ "tree_sites": [
+  {
+   "site": "research/warp-drive/massform.py:176-180",
+   "finding": "The M65-4 docstring (Delta B = Delta L = 3; T = 0 instanton at 10^-160.95 per transition; NAMED-NOT-READ through v) matches source eqs (2.5) and (2.8) and the regime stated on p.5.",
+   "kind": "consistent"
+  },
+  {
+   "site": "research/warp-drive/massform.py:524-526",
+   "finding": "RS96-T0 is quoted verbatim. The quote stops before '(constrained instantons in theories with the Higgs mechanism [47])'. The omission is harmless in direction, because eq. (2.9) and the sentence 'still suppressed by the exponential factor (2.8)' settle it.",
+   "kind": "consistent"
+  },
+  {
+   "site": "research/warp-drive/massform.py:527-533",
+   "finding": "g = 2 m_W/v is the source's own normalisation. 10^-160.95 and 10^189.10 reproduce, and the 1/29.49 substitution is declared. The convention H-SCHEME (about 12 to 15 decades) is not named.",
+   "kind": "dropped-hypothesis"
+  },
+  {
+   "site": "research/warp-drive/massform.py:533-537",
+   "finding": "The record of 10^-170 at 1/29 against the arithmetic's 10^-158.27 (11.73 decades), recorded and not repaired, is confirmed at source.",
+   "kind": "consistent"
+  },
+  {
+   "site": "research/warp-drive/massform.py:900-904",
+   "finding": "The DIVERGENCES record is reproduced: 158.27 for Rubakov & Shaposhnikov, and 163.73 and 162.09 for Tye-Wong.",
+   "kind": "consistent"
+  },
+  {
+   "site": "research/warp-drive/massform.py:1064-1070",
+   "finding": "RS96-anom: eqs (2.2)-(2.4) at printed p.4 (PDF p.5). The elided quote matches the page.",
+   "kind": "consistent"
+  },
+  {
+   "site": "research/warp-drive/massform.py:1071-1077",
+   "finding": "RS96-T0 is verbatim at printed p.5 (PDF p.6).",
+   "kind": "consistent"
+  },
+  {
+   "site": "research/warp-drive/massform.py:1078-1083",
+   "finding": "RS96-2.8 is correctly located at printed p.6 (PDF p.7). The capture, claimed verbatim, writes '~' for the page's '\u221d'. This is immaterial.",
+   "kind": "misprint"
+  },
+  {
+   "site": "research/warp-drive/massform.py:1084-1087",
+   "finding": "RS96-sph lies outside this entry. Its locator says printed p.7, but the quoted sentence begins with 'This' at the foot of printed p.6. A minor imprecision, not graded.",
+   "kind": "misprint"
+  },
+  {
+   "site": "research/warp-drive/massform.py:1088-1090",
+   "finding": "'t Hooft PRL 37:8 is held as CITED (ref [20]) and is NAMED-NOT-READ. The grade rests on the review.",
+   "kind": "consistent"
+  },
+  {
+   "site": "research/warp-drive/massform.py:1091-1094",
+   "finding": "RS96-inst is verbatim at Sec. 4.1, printed p.11 (PDF p.12). The regime added there ('low fermion densities and low energies') lies inside the tree's use.",
+   "kind": "consistent"
+  },
+  {
+   "site": "research/warp-drive/massform.py:1490-1491",
+   "finding": "RS96_ALPHA_INV = 29.0 and RS96_PRINTED_LOG10 = -170.0 match the page.",
+   "kind": "consistent"
+  },
+  {
+   "site": "research/warp-drive/massform.py:2825-2830",
+   "finding": "'The anomaly route' keeps the T = 0 instanton separate from the sphaleron and from the CONTESTED collider rate, as the source does.",
+   "kind": "consistent"
+  },
+  {
+   "site": "research/warp-drive/massform.py:2951-2960",
+   "finding": "The S11 row uses exp(-4pi/alpha_W) per transition, B/3 transitions, and holds the collider rate CONTESTED. It inherits the H-SCHEME omission, which is immaterial to the refusal.",
+   "kind": "consistent"
+  },
+  {
+   "site": "research/warp-drive/massform.py:5196-5197",
+   "finding": "The selftest pinning 1/29 -> 10^-158.27 against the printed 10^-170 reproduces.",
+   "kind": "consistent"
+  },
+  {
+   "site": "research/warp-drive/massform.py:5211",
+   "finding": "The statement 'our alpha_W lies inside [1/30, 1/29]' is true, but it does not name the scheme convention.",
+   "kind": "consistent"
+  },
+  {
+   "site": "research/warp-drive/linstab.py:402-411",
+   "finding": "The Sec. 4.1 quote is correct and correctly attributed. It is used only to classify 'semiclassical' as the WKB sense, and no number is used.",
+   "kind": "consistent"
+  },
+  {
+   "site": "research/warp-drive/docket67-raw/audits/hep-ph_9603208-instanton.json",
+   "finding": "The committed raw audit still carries NAMED-NOT-READ, grade OPEN, and lacked_data (b) '<0.1 decade'. All three are superseded or corrected by this adjudication.",
+   "kind": "stale"
+  }
+ ],
+ "commands_run": [
+  "python3 json paging of adjudicate/in/hep-ph_9603208-instanton.json",
+  "mcp__alphaXiv__answer_pdf_queries(paper='hep-ph/9603208', 6 queries: eqs 2.7, 2.8, 2.9, T=0 passage, Sec 4.1, eqs 2.2-2.4) -> v2, PDF pp.1,2,4-9,12,15,60,61",
+  "grep/sed -n over research/warp-drive/massform.py (170-182, 518-540, 895-906, 1050-1104, 2822-2832, 2948-2962, 5196-5211) and linstab.py 398-414",
+  "grep -n 'H-SCHEME|scheme' massform.py (absent)",
+  "cp rederive script, data-lens script, supplement.py -> adjudicate/run/",
+  "python3 adjudicate/run/hep-ph_9603208-instanton.py -> 19/19 PASS, exit 0",
+  "python3 adjudicate/run/supplement.py -> 5/5",
+  "python3 adjudicate/run/hep-ph_9603208-instanton.data-lens.py -> 4/5 (FAIL = audit lacked_data (b))",
+  "python3 inline: m_W 80.26/80.3/80.33/80.362 -> log10 161.358/161.198/161.077/160.949; 1/29 -> 158.268; 10^-170 <-> 1/alpha_W 31.150"
+ ],
+ "reverify_command": "python3 /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/adjudicate/run/hep-ph_9603208-instanton.py  # expect RESULT: 19/19, exit 0; then alphaXiv answer_pdf_queries(paper='hep-ph/9603208', queries=['eqs (2.7)-(2.8) and alpha_W definition','T=0 instanton passage printed p.5','eq (2.9) and still suppressed by the exponential factor (2.8)','Sec 4.1 semiclassical exponent'])",
+ "report_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/adjudicate/out/hep-ph_9603208-instanton.json"
+}
