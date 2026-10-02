@@ -42,6 +42,32 @@ today, says the same of bridges); and the matter must already be at the destinat
 supply, S13, the held-seat release route, OPEN and priced). **This docket tests the one step that blocks the
 thesis: whether any channel removes the need for those two classical bits.**
 
+## M's premise and request, verbatim (2026-10-02)
+
+> Cosmic/quantum information is all that matters. It is the only multi-universal currency. Without it, matter
+> cannot exist, let alone form structural mass. We need to quantify information, unambiguously and independently
+> of all cosmic/quantum physicalities
+
+Carried as named hypothesis **H-INFO** (information is primary; matter cannot exist without it) -- M's, neither
+established nor refuted here. The request is a work item: **Q-1, the substrate-free measure.**
+
+What Q-1 starts from, READ at source 2026-10-02 (alphaXiv): Baez, Fritz & Leinster, arXiv:1106.1791v3, Theorem 2.
+Any map F sending a measure-preserving function f: p -> q between finite probability spaces to a number in
+[0, inf) that is functorial (F(f o g) = F(f) + F(g)), convex-linear and continuous satisfies
+F(f) = c (H(p) - H(q)) for a constant c >= 0, with H(p) = -sum p_i ln p_i. The hypotheses name only finite sets,
+probability measures and functions -- no physical quantity enters. Built on Faddeev 1956 (restated there as
+Theorems 5-6; the uniform case forces phi(nm) = phi(n) + phi(m), hence phi(n) = c ln n). Shannon 1948 and Faddeev
+1956 are NAMED-NOT-READ (restated in 1106.1791). What the theorem leaves open: the unit (c: bits for log base 2),
+and -- the one place physics re-enters -- WHICH alternatives count as distinguishable, and with what probabilities.
+
+On The Method's own closed index the alternatives are fixed by the coordinate list, so the count is unambiguous:
+log2 976 = 9.930737 bits per cell of Lambda, log2 6912 = 12.754888 bits per cell of the product box (6,912 =
+976 + 0 + 5,936, the corpus's own identity). Computed, not seated.
+
+To read when the docket opens: Holevo's bound (how many classical bits n qubits can carry), Landauer (the energy
+price of erasing a bit), and the Bekenstein bound (`bekenstein-bound`, D67: NARROWED) -- the exchange rates between
+information and physics, kept separate from the measure itself.
+
 ## The question, as one sentence
 
 Is there a channel, beyond linear quantum mechanics or beneath geometry, in which Bob's statistics depend on
