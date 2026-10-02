@@ -2,10 +2,16 @@
 r"""
 stockgate.py -- THE DESTINATION STOCK CONSTRAINT, AUDITED.  stock.py asked what
 binds.  This asks whether the answer survives its own assumptions.  It does --
-phosphorus binds, robustly, and the truncation worry is EMPTY -- but three of
+phosphorus binds under every payload convention, and the truncation worry is
+EMPTY -- but three of
 stock.py's supporting numbers are wrong, its cosmic column cannot price twelve
 of the payload's elements at all, and the constraint it calls "not a barrier"
 is FOUR ORDERS OF MAGNITUDE HARSHER for a manufactured payload than for a human.
+CORRECTED (DOCKET 67): this said "phosphorus binds, robustly".  The conventions
+vary the payload, never the stock datum, and A09's own sigma(Li) = 0.10 dex is
+larger than P's 0.0374 dex margin over Li: under A09's errors Li binds with
+probability 0.36 (computed), and photospheric Li 0.05 dex lower makes Li the
+binder at 1967.3.  The magnitude, 1.9e3-2.2e3, is what is robust.
 
     python3 stockgate.py             the reading
     python3 stockgate.py --selftest  fixtures (stdlib; z3 where labelled)
@@ -23,7 +29,10 @@ M's constraint is real and stock.py states it correctly.  The processing factor
 
 is a MAX, not a sum: exactly one element binds and every other arrives in
 surplus.  The assemblable set is a down-set closed under join.  Phosphorus binds
-against raw stellar material.  An asteroid beats a planet.  All of that stands,
+against raw stellar material, at the tabulated data.  A CI chondrite beats
+Earth's continental crust -- stock.py's "an asteroid beats a planet", where
+Rudnick & Gao cover one reservoir of one planet, its atmosphere excluded, so
+the comparison is with that reservoir, not with every planet.  All of that stands,
 and section 8 upgrades two of them from sampled exhaustion to theorems.
 
 ===============================================================================
@@ -33,7 +42,8 @@ THEOREM (monotone extension).  If p' extends p to a larger support with
 p'|_supp(p) = p, then M(p', s) >= M(p, s), since a max over a superset cannot
 decrease.  `z3_monotone_extension()` discharges it over the reals; UNSAT is the
 proof.  So ANY truncated payload gives only a FLOOR, and stock.py's payload
-carries 13 elements where a reference adult has measured quantities of 59.
+carries 13 elements where a reference adult has tabulated quantities of 59
+(Emsley's compilation averages over references, and lists 60).
 
 THAT IS THE WORRY.  HERE IS THE MEASUREMENT.  Extending the payload from the
 11 bulk elements to all 59 moves the processing factor by
@@ -52,7 +62,12 @@ of lead a reference adult carries all land two to ten times below it.
 AND IT IS A NEAR MISS, WHICH IS THE PART WORTH REPORTING.  The margin is not
 comfortable.  LITHIUM -- 7 mg in a reference adult, one of the 34 incidental
 elements stock.py omits -- reaches 91.758 % of phosphorus's factor against a
-stellar photosphere.  Nine per cent from flipping the answer.  The third-placed
+stellar photosphere.  Nine per cent from flipping the answer -- and the data
+are not fixed to nine per cent: the Emsley restatement's own fraction column
+gives Li 2.17 mg against its 7 mg, the flip comes at Li > 7.629 mg (+8.98 %),
+and P passes the binder to Li below 715.7 g (-8.24 %; ICRP 110 gives P
+0.813 %, not 1.113 %).  CORRECTED (DOCKET 67): Li = 7 mg was treated as
+fixed.  The third-placed
 element is 2.93x behind, so the field is two deep and no deeper.  Section 4 is
 about why lithium is there, and it is not an accident.
 `truncation_sweep()` produces the rows; the margin is `runner_up()`.
@@ -61,17 +76,23 @@ about why lithium is there, and it is not an accident.
 2.  FINDING B -- stock.py's COSMIC COLUMN CANNOT PRICE THE PAYLOAD AT ALL
 ===============================================================================
 stock.py uses Asplund 2009's PHOTOSPHERIC column.  Twelve elements a reference
-adult contains have NO photospheric determination in that table -- the Sun's
-spectrum does not show them:
+adult contains have NO photospheric abundance adopted in that table (A09
+pp.18-19: lines of As and Sb exist but are unreliable or perturbed, Cd's are
+heavily blended; CORRECTED (DOCKET 67) from "the Sun's spectrum does not show
+them"):
 
         As  Bi  Br  Cd  Cs  Hg  I  Sb  Se  Ta  Te  U
 
 Against a photospheric-only column each returns p_e/0 = INFINITY, and the
 constraint reports that a star cannot supply a human at any budget.  That is
 FALSE, and it is an artefact of the measurement method rather than of the star.
-`missing_photospheric()` lists them.  The defensible column is the HYBRID
-Asplund recommends -- photospheric where determined, meteoritic otherwise -- and
-every cosmic number in this file uses it.  stock.py avoided the infinity only by
+`missing_photospheric()` lists them.  The defensible column is the HYBRID --
+photospheric where determined, meteoritic otherwise -- and every cosmic number
+in this file uses it.  CORRECTED (DOCKET 67): this called it "the HYBRID
+Asplund recommends".  A09 recommends its photospheric column, the CI values
+"also provided"; the combining rule is stated by Asplund, Amarsi & Grevesse
+2021 (2105.01661 p.21, Fig. 1, Table B.1), who first correct the CI values for
+condensation temperature, a step this file omits (see solar_hybrid()).  stock.py avoided the infinity only by
 carrying 17 elements, all of which happen to be photospherically determined.
 
 ===============================================================================
@@ -103,17 +124,30 @@ carrying 17 elements, all of which happen to be photospherically determined.
     FACT RATHER THAN A DATUM ERROR
 ===============================================================================
 Asplund 2009 gives lithium photospheric 1.05 against meteoritic 3.26 -- a
-2.21-dex gap, a factor of 162 in abundance.  It is the largest such gap in the
-table and it is not a disagreement: the Sun's convective envelope reaches
-2.5 MK, where lithium burns, so the PHOTOSPHERE really is 162x poorer in lithium
-than the material the solar system formed from.  Both numbers are correct about
-different reservoirs.  `li_dex_gap()` computes it.
+2.21-dex gap, a factor of 162 in abundance.  It is the largest photospheric
+DEFICIT in the table (next is Pb, 0.29 dex) and it is not a disagreement: the
+Sun has burned it -- a depletion that, per A09 p.10, "requires additional mixing
+below the convection zone" -- so the PHOTOSPHERE really is 162x poorer in
+lithium than the material the solar system formed from.  Both numbers are
+correct about different reservoirs.  `li_dex_gap()` computes it.
+CORRECTED (DOCKET 67): this said "the largest such gap" and "the Sun's
+convective envelope reaches 2.5 MK, where lithium burns".  On Table 1 as
+published He, Ne, Ar, Kr, Xe and H have larger |ph - met| gaps; this file's A09
+omits Ne's and Ar's meteoritic values, which is what lets largest_dex_gap()
+return Li.  The convection zone's base is about 2.2 MK today (AG26 p.52),
+below Li burning at about 2.5 MK, hence A09's extra mixing.
 
 CONSEQUENCE FOR SITE SELECTION, AND IT IS SHARP.  Which lithium number applies
 depends on what the destination IS:
 
         a stellar photosphere as stock  ->  Li at 1.7534e3, co-binding with P
-        protosolar / meteoritic stock   ->  Li at 1.0846e1, irrelevant
+        CI-rock (A09 meteoritic) stock  ->  Li at 6.821e-2, irrelevant
+
+CORRECTED (DOCKET 67): the second row read "protosolar / meteoritic stock -> Li
+at 1.0846e1".  A09's meteoritic column is CI rock (its H mass fraction is
+0.0194), not protosolar material, and this file's own factors() returns
+0.06821 there.  A protosolar stock built per A09 sec. 3.11 binds on P at 1716.6
+with Li at 10.17 (computed).  "Irrelevant" holds on every construction.
 
 So a destination's processing factor is not a function of its ELEMENTS but of
 its THERMAL HISTORY.  A star has burned its lithium.  A chondrite has not.
@@ -173,15 +207,26 @@ temperature:
         Earth continental crust  N         123    VOLATILITY-LIMITED
 
 THE CUT IS NOT STAR-vs-BODY.  It is DEVOLATILISED vs PRIMITIVE.  A CI chondrite
-retained its volatiles, so like a star it binds on the least abundant required
-element -- a refractory one.  Earth's crust outgassed, so it binds on the most
-volatile required element, nitrogen, at 4.5862e2 -- forty-three times worse than
-the chondrite despite being a far richer rock.  `volatility_regime()` labels each
-destination from T_c alone, without being told which it is.
+kept enough of its volatiles -- its N/P, 3.06 in the table below, exceeds the
+payload's 2.308 -- so like a star it binds on the least abundant required
+element -- a refractory one.  Earth's crust is N-poor (on this file's reading,
+because it outgassed: Rudnick & Gao tabulate a concentration, not a cause), so
+it binds on the most volatile required element, nitrogen, at 4.5862e2 --
+forty-three times worse than the chondrite despite being a far richer rock.
+`volatility_regime()` labels each destination from T_c alone, without being
+told which it is.  CORRECTED (DOCKET 67): this said the chondrite "retained its
+volatiles"; against solar, CI N is depleted 35x, C 11x and H about 5900x.  The
+argument needs only CI N/P > 2.308, which L03 (3.20) and PON14 (2.99) also
+give and LBP25's CI N (1.99) does not -- on that datum N binds at the chondrite.
 
-AND THE SNOW LINE IS THEREFORE THE SELECTOR.  Retaining volatiles is a statement
-about formation temperature, hence orbital radius.  The admissible arrival sites
-are outer-system primitive bodies, and that is a geometric condition on B.
+THE SNOW LINE IS THIS FILE'S PROPOSED SELECTOR -- an inference, not Lodders'.
+The T_c are equilibrium temperatures of a solar-composition gas at one fixed
+pressure, 1e-4 bar; turning "kept its volatiles" into an orbital radius needs
+the formation-epoch disc T(a), P(a), which no source here supplies, and
+formation.py REFUSES to compute a radius on that ground.  CORRECTED (DOCKET 67)
+from "hence orbital radius" and "THE SNOW LINE IS THEREFORE THE SELECTOR".  If
+the inference holds, the admissible arrival sites are outer-system primitive
+bodies, a geometric condition on B.
 
 ===============================================================================
 7.  FINDING G -- ELEMENTS EXISTING IS NOT STOCK.  COMPUTED, NOT QUOTED.
@@ -234,8 +279,10 @@ gate:
                        holding at least M(p,s) * m_payload of accessible mass.
 
 Three conjuncts.  The third is a boulder for a person and a small asteroid for
-their equipment.  The first excludes gas.  THE SECOND IS THE BINDING ONE, and it
-is a snow-line condition, so coordinate 7 is gated on ORBITAL RADIUS AT THE
+their equipment.  The first excludes gas.  THE SECOND IS THE BINDING ONE
+("devolatilised" is this file's causal reading of a concentration; see section
+6), and read as a snow-line condition, an inference of this file's, it would
+gate coordinate 7 on ORBITAL RADIUS AT THE
 DESTINATION -- a parameter the eight-value coordinate does not currently carry.
 
 AND A REFUSAL THIS FILE INHERITS AND WILL NOT STEP AROUND.  `paper/CLAIMS.md`
@@ -281,17 +328,26 @@ import sys
 SOURCES = {
     "A09": "Asplund, Grevesse, Sauval & Scott (2009), ARA&A 47, 481, Table 1 -- "
            "photospheric and meteoritic log eps, H = 12",
-    "L03": "Lodders (2003), ApJ 591, 1220 -- CI chondrite, and 50% condensation "
-           "temperatures at 1e-4 bar",
-    "RG03": "Rudnick & Gao (2003), Treatise on Geochemistry 3, 1 -- bulk "
-            "continental crust",
-    "ICRP": "ICRP Publication 23 (Reference Man) / Emsley, Nature's Building "
-            "Blocks -- reference 70 kg adult, grams per element",
+    "L03": "Lodders (2003), ApJ 591, 1220 -- 50% condensation temperatures "
+           "at 1e-4 bar, Table 8 (a solar-system-composition gas).  Its CI "
+           "chondrite Table 3 is NOT the CHONDRITE table below (DOCKET 67)",
+    "RG03": "Rudnick & Gao (2003), Treatise on Geochemistry 3, 1 -- "
+            "continental crust of the present-day Earth: 41 of CRUST's entries "
+            "are its bulk values, 10 its upper-crust values (DOCKET 67)",
+    "ICRP": "ICRP Publication 23 (Reference Man: male, 20-30 y, 70 kg, 170 cm; "
+            "supplemented and amended by ICRP 89) / Emsley, Nature's Building "
+            "Blocks (averages over references) -- grams per element; which "
+            "element came from which source is not recorded",
     "JUP": "Wong et al. (2004) Icarus 171, 153; Fletcher et al. (2009) -- "
            "Galileo probe / Jovian heavy-element enrichment over solar",
 }
 
 # Asplund 2009 Table 1.  (photospheric, meteoritic); None where not determined.
+# CORRECTED (DOCKET 67): Ne and Ar are NOT undetermined in the meteoritic
+# column -- Table 1 prints -1.12 and -0.50 -- and their photospheric values,
+# like He's, are bracketed INDIRECT estimates (sec. 3.9).  The None entries are
+# a transcription omission, recorded, not repaired: restoring them moves
+# largest_dex_gap() and its selftest pin, though no binder.
 A09 = {
     "H": (12.00, 8.22), "He": (10.93, 1.29), "Li": (1.05, 3.26), "Be": (1.38, 1.30),
     "B": (2.70, 2.79), "C": (8.43, 7.39), "N": (7.83, 6.26), "O": (8.69, 8.40),
@@ -311,6 +367,13 @@ A09 = {
     "Th": (0.02, 0.06), "U": (None, -0.54), "Ta": (None, -0.12),
 }
 
+# CIAAW standard atomic weights, NAMED-NOT-READ (no source was recorded when
+# typed).  They hold for NORMAL, i.e. terrestrial, material; 14 of them (H, Li,
+# B, C, N, O, Mg, Si, S, Cl, Ar, Br, Tl, Pb) are interval standards carried as
+# conventional points.  Applied to solar and Jovian abundances they are outside
+# that hypothesis: A09's solar-system weights give Ar 36.275 (this 39.948 is
+# 9.19 % high, so the solar Ar mass fraction is 9.2 % high) and Ne 20.131.
+# DOCKET 67 computed 0 binder flips in 30 cells, max factor shift 1.78e-4.
 ATOMIC_MASS = {
     "H": 1.008, "He": 4.003, "Li": 6.94, "Be": 9.012, "B": 10.81, "C": 12.011,
     "N": 14.007, "O": 15.999, "F": 18.998, "Ne": 20.180, "Na": 22.990,
@@ -327,7 +390,15 @@ ATOMIC_MASS = {
     "Th": 232.038, "U": 238.029,
 }
 
-# Lodders (2003) 50% condensation temperatures, K, at 1e-4 bar.  CITED.
+# Lodders (2003) Table 8 condensation temperatures, K, at 1e-4 bar total
+# pressure, of a gas of solar-system composition in full chemical equilibrium,
+# traces in solid solution in chosen host phases.  CITED.  Nearly every entry
+# is a 50% value; H, He and O are not (DOCKET 67): H 182 K is H's appearance
+# temperature (water ice -- H never reaches 50 % condensation), He is printed
+# "<3", an upper bound, and anhydrous rock holds too little O for 50 %.  No
+# conclusion here uses H, He or O through this table.  The 2003 values are
+# transcribed; the same group has since revised several (2301.03674,
+# 2411.01362).
 TCOND = {
     "H": 182, "He": 3, "C": 40, "N": 123, "O": 180, "Ne": 9, "Na": 958,
     "Mg": 1336, "Al": 1653, "Si": 1310, "P": 1229, "S": 664, "Cl": 948,
@@ -343,6 +414,10 @@ TCOND = {
 }
 
 # ICRP 23 / Emsley reference 70 kg adult, GRAMS.  CITED, not measured here.
+# ICRP 23's Reference Man is MALE, 20-30 y, 170 cm; ICRP 23 has no Reference
+# Woman elemental data and is amended by ICRP 89.  The rows are not
+# attributed source by source (54 of 56 below H equal the Emsley restatement);
+# ICRP 23's own gram table was not read (DOCKET 67).
 HUMAN_G_BULK = {
     "O": 43000.0, "C": 16000.0, "H": 7000.0, "N": 1800.0, "Ca": 1000.0,
     "P": 780.0, "K": 140.0, "S": 140.0, "Na": 100.0, "Cl": 95.0, "Mg": 19.0,
@@ -374,6 +449,12 @@ CRAFT = {
     "Na": 0.0004, "Cl": 0.0003, "K": 0.0002, "Mn": 0.0025,
 }
 
+# Labelled "bulk" (SOURCES["RG03"]); CORRECTED (DOCKET 67): 41 entries are R&G
+# bulk, 10 are R&G UPPER crust (Ti, P, Cr, Zn, Ni, Y, Co, As, Br, Ag), Fe, Ca,
+# Mg, K and I match neither 2003 column, and O, C, H and Te are not R&G
+# quantities (R&G give no O, H or C).  Mining reaches the upper crust, whose N
+# (83 ppm) would make the N factor 309.4, not 458.6; and N binds here only
+# while C > 8.889 N, a C value R&G do not give.  Recorded, not repaired.
 CRUST = {"O": 0.461, "Si": 0.282, "Al": 0.0823, "Fe": 0.0563, "Ca": 0.0415,
          "Na": 0.0236, "Mg": 0.0233, "K": 0.0209, "Ti": 0.0038, "H": 0.0014,
          "P": 0.000655, "C": 0.00199, "Mn": 0.000774, "S": 0.000404,
@@ -392,6 +473,13 @@ CRUST = {"O": 0.461, "Si": 0.282, "Al": 0.0823, "Fe": 0.0563, "Ca": 0.0415,
          "Te": 0.000000005, "Li_": 0.0,
 }
 
+# CORRECTED (DOCKET 67): credited to L03 by SOURCES, but this is NOT L03
+# Table 3 (P 1040 vs 920 ppm, N 3180 vs 2940; As 18.5 ppm is exactly 10x MS95's
+# 1.85).  It matches MS95 within 0.5 % on 19 of 58 elements and PON14 on 13 of
+# 60: a blend.  It sums to 1.0069 and is used unrenormalised (< 0.7 % on a
+# factor).  CI N carries a wide band (PON14 2 sigma 2065-3835 ppm, MS95 a
+# factor of 2) around the 2400 ppm crossover at which N would bind.  Recorded,
+# not repaired.
 CHONDRITE = {"O": 0.464, "Fe": 0.185, "Si": 0.107, "Mg": 0.0965, "S": 0.0541,
              "C": 0.0350, "H": 0.0202, "Ca": 0.00911, "Al": 0.00860,
              "Na": 0.00500, "N": 0.00318, "Ni": 0.0107, "P": 0.00104,
@@ -417,6 +505,11 @@ CHONDRITE = {"O": 0.464, "Fe": 0.185, "Si": 0.107, "Mg": 0.0965, "S": 0.0541,
 JUPITER_ENRICH = 3.0
 
 RHO_ISM = 1.0e6 * 1.67262192e-27          # 1 proton/cm^3, as arrival.py uses
+#: m_p is CODATA 2018's truncated to nine figures (-2.21e-9; no source word).
+#: rho = n m_p omits helium and metals: Ferriere's conversion is rho = 1.42 m_P
+#: n_H, so against He-inclusive mass fractions this rho overstates the gas
+#: sweep volume by 1.42x at fixed n_H.  And 1 cm^-3 is the all-phase space
+#: average near the Sun (Ferriere p.5), not any one phase (DOCKET 67).
 RHO_DISC = 1.0e-7                          # kg/m^3, ~1e14 H2/m^3 inner nebula
 DUST_TO_GAS = 0.01                         # canonical ISM/disc dust mass ratio
 FUCHS_SHELL_KG = 4.4886e27
@@ -439,7 +532,8 @@ def mole_fractions(massfrac):
 
 
 def solar(column="photospheric"):
-    """Mass fractions from A09 log eps.  COMPUTED from the cited log eps."""
+    """Mass fractions from A09 log eps.  COMPUTED from the cited log eps,
+    with ATOMIC_MASS's terrestrial weights (solar Ar comes out 9.2 % high)."""
     i = 0 if column == "photospheric" else 1
     n = {e: 10.0 ** (v[i] - 12.0) for e, v in A09.items() if v[i] is not None}
     m = {e: n[e] * ATOMIC_MASS[e] for e in n}
@@ -497,10 +591,19 @@ def ranked(p, s, n=8):
 
 
 def solar_hybrid():
-    """Photospheric where determined, meteoritic otherwise.  A09's own advice.
+    """Photospheric where determined, meteoritic otherwise -- the rule stated
+    by Asplund, Amarsi & Grevesse 2021 (2105.01661 p.21), not by A09.
+    CORRECTED (DOCKET 67) from "A09's own advice": A09 recommends only its
+    photospheric column.
 
     COMPUTED from the cited log eps.  This is the defensible cosmic column:
     the photospheric one alone cannot price 12 of the payload's elements.
+    It rests on three NAMED hypotheses: A09's Si peg, which puts the CI
+    column on the photospheric scale (log eps = 1.51 + log N, p.24); CI being
+    unfractionated against the Sun for the 12 fills, several of them volatile
+    by TCOND (Hg, I, Br, Cd, Se, Te); and uncorrected CI values, where AAG21
+    correct for condensation temperature first.  Under AAG21's corrected Br
+    the margin to binding is 0.951 dex, and P still binds at 1910.87.
     """
     n = {}
     for e, (ph, me) in A09.items():
@@ -527,6 +630,9 @@ def jupiter_hybrid(enrich=JUPITER_ENRICH):
     return _norm({e: n[e] * ATOMIC_MASS[e] for e in n})
 
 
+# "stellar photosphere" is the present-day SOLAR photosphere (A09), hybrid-
+# filled: 12 payload elements take CI values (Finding B).  The key is kept
+# because ledger.py asks binding_under by it (DOCKET 67).
 DESTS = {
     "stellar photosphere": solar_hybrid,
     "solar meteoritic": lambda: solar("meteoritic"),
@@ -692,7 +798,9 @@ def li_dex_gap():
 
 
 def largest_dex_gap():
-    """Which element in A09 has the largest photospheric/meteoritic gap."""
+    """Which element has the largest photospheric/meteoritic gap among the
+    elements other than H and He that this file's A09 carries in both columns
+    -- Ne and Ar omitted (see A09), Kr and Xe not carried."""
     g = {e: abs(v[1] - v[0]) for e, v in A09.items()
          if v[0] is not None and v[1] is not None and e not in ("H", "He")}
     e = max(g, key=lambda k: g[k])
@@ -732,6 +840,10 @@ def craft_sensitivity(dkind="CI chondrite"):
 
 
 # ------------------------------------- FINDING F: devolatilised vs primitive
+#: Wang et al. 2019's category boundary (1810.12741 Fig. 4), not Lodders':
+#: theirs at 1e-4 bar are refractory > 1300-1360 K, moderately volatile
+#: 1300-660 K, highly volatile < 660 K (2411.01362 p.2).  The four regime
+#: labels hold for any cut in (139 K, 1029 K] (DOCKET 67, computed).
 VOLATILE_CUT = 500.0
 
 
@@ -757,7 +869,8 @@ OXIDE_O = {"Mg": 1.0, "Si": 2.0, "Al": 1.5, "Ca": 1.0, "Fe": 1.0, "Na": 0.5,
 
 
 def condensed_budget():
-    """Every row of section 7, COMPUTED from the abundance and T_c tables."""
+    """Every row of section 7, COMPUTED from the abundance and T_c tables
+    (terrestrial atomic weights: see ATOMIC_MASS)."""
     X = solar_hybrid()
     refr = [e for e in X if TCOND.get(e, -1.0) >= VOLATILE_CUT]
     rock_bare = sum(X[e] for e in refr)
@@ -798,6 +911,10 @@ def against_the_shell(payload_kg=1000.0, pkind="craft 1000 kg (DECLARED)"):
     return FUCHS_SHELL_KG / feedstock_kg(payload_kg, pkind, "CI chondrite")
 
 
+#: GATE prices ACCESSIBLE MASS only.  Not priced: the teleported state's
+#: excitation energy, which the destination must also supply in advance
+#: (Hotta 2011 p.4) (DOCKET 67).  "PRIMITIVE rather than devolatilised" is this
+#: file's causal reading of crust concentrations, not Rudnick & Gao's.
 GATE = ("B admissible <=> within the corridor's arrival aperture there is a "
         "CONDENSED body, PRIMITIVE rather than devolatilised, holding at least "
         "M(p,s) * m_payload of accessible mass.")
@@ -873,7 +990,7 @@ def report():
     le, lg = largest_dex_gap()
     print("   Li photospheric %.2f, meteoritic %.2f -> %.2f dex = %.1fx"
           % (A09["Li"][0], A09["Li"][1], d, x))
-    print("   largest phot/met gap in A09 is %s at %.2f dex -- it IS lithium"
+    print("   largest phot/met gap carried here (Ne, Ar omitted) is %s at %.2f dex"
           % (le, lg))
     ru, rf, gap = runner_up()
     print("   runner-up against a photosphere: %s at %.5e, only %.3fx behind P"
@@ -902,7 +1019,8 @@ def report():
     for d, e, f, tc, reg in volatility_regime():
         print("   %-24s %-4s %14.5e %7s  %s" % (d, e, f, tc, reg))
     print("   the cut is not star-vs-body.  It is outgassed-vs-primitive.")
-    print("   -> the selector on B is THE SNOW LINE, i.e. orbital radius.")
+    print("   -> proposed selector on B: the snow line -- an inference; a radius")
+    print("      needs the disc T(a), P(a), and formation.py refuses it.")
 
     h("9.  FINDING G -- ELEMENTS EXISTING IS NOT STOCK.  COMPUTED.")
     b = condensed_budget()
@@ -972,7 +1090,7 @@ def selftest():
     rows = truncation_sweep()
     chk("11 bulk elements", rows[0][3], 1911.19, 1e-4)
     chk("59 as-composed elements", rows[2][3], 1910.87, 1e-4)
-    chk("every convention binds on P", {r[2] for r in rows}, {"P"})
+    chk("every PAYLOAD convention binds on P (stock datum fixed)", {r[2] for r in rows}, {"P"})
     chk("48 added elements shift the factor by under 0.1%",
         abs(truncation_shift()) < 1e-3, True)
     chk("the shift is NEGATIVE -- pure renormalisation",
@@ -1017,7 +1135,7 @@ def selftest():
     chk("the Li dex gap", d, 2.21, 1e-9)
     chk("= a factor of", x, 162.18, 1e-3)
     le, lg = largest_dex_gap()
-    chk("and it is the largest in A09", le, "Li")
+    chk("and it is the largest gap carried here (Ne, Ar omitted)", le, "Li")
     ru, rf, gap = runner_up()
     chk("the true runner-up is Li, not K", ru, "Li")
     chk("within 1.10x of P", gap < 1.10, True)
@@ -1048,7 +1166,7 @@ def selftest():
     chk("a star is abundance-limited", reg["stellar photosphere"],
         "ABUNDANCE-LIMITED")
     chk("a gas giant likewise", reg["Jupiter (3x solar)"], "ABUNDANCE-LIMITED")
-    chk("AND SO IS A CHONDRITE -- it kept its volatiles",
+    chk("AND SO IS A CHONDRITE -- its N/P exceeds the payload's",
         reg["CI chondrite"], "ABUNDANCE-LIMITED")
     chk("only the crust is volatility-limited", reg["Earth cont. crust"],
         "VOLATILITY-LIMITED")

@@ -22,18 +22,38 @@ difference matters enough that this file says so four times.
     relative entropy; Hartman, Kundu & Tajdini from causality.  Says nothing
     about a curved corridor.
 
-    ANEC IN CURVED SPACETIME.  FALSE in general, and the standard counterexample
-    is the Casimir vacuum, where a geodesic between the plates violates it.
-    Nobody disputes this.  So violating ANEC is not by itself a disqualification
-    and never was.
+    ANEC IN CURVED SPACETIME.  FALSE in general for test fields on a fixed
+    background: Schwarzschild in the Boulware state, Visser's scale-anomaly
+    class, and Urban-Olum's conformally flat spacetime, on achronal geodesics
+    (Graham-Olum 0705.3193; Visser gr-qc/9409043; Urban-Olum 0910.5925).  So
+    violating ANEC is not by itself a disqualification and never was.
+      CORRECTED (DOCKET 67): first written 'the standard counterexample is the
+      Casimir vacuum, where a geodesic between the plates violates it.  Nobody
+      disputes this.'  The plate system OBEYS ANEC (Fewster-Olum-Pfenning;
+      Graham-Olum p.2): T_kk = 0 on every null geodesic parallel to ideal
+      plates, and every other geodesic reaches a plate.  The Casimir-type
+      counterexample is the plate-FREE compactified Minkowski space -- flat,
+      not curved -- whose violating geodesics wind around the circle.
 
     ACHRONAL ANEC.  The same integral, restricted to complete ACHRONAL null
     geodesics -- those no timelike curve short-circuits.  THIS IS THE ONE WITH
-    TEETH: it is the hypothesis of Graham & Olum, and it is what the
-    topological-censorship and no-wormhole results actually use.  Casimir
-    escapes it because the geodesic between the plates is not achronal.  The
-    SELF-CONSISTENT version -- on a background the matter itself sources -- has
-    been open for nineteen years.
+    TEETH.  Its SELF-CONSISTENT version -- on a background the matter itself
+    sources, at curvature well below the Planck scale -- is Graham & Olum's
+    condition, and it has been open for at least nineteen years (since 2007;
+    Flanagan-Wald stated ANEC in the achronal form in self-consistent
+    perturbation theory in 1996).  The topological-censorship consequence
+    Graham & Olum draw from it adds simple connectivity and the null generic
+    condition, and what it forbids is wormholes joining disconnected regions,
+    or short, causality-violating ones.  The compactified vacuum escapes
+    achronal ANEC because its violating geodesics wind and are chronal; the
+    plate system escapes it by obeying ANEC.
+      CORRECTED (DOCKET 67): first written 'it is the hypothesis of Graham &
+      Olum, and it is what the topological-censorship and no-wormhole results
+      actually use.  Casimir escapes it because the geodesic between the plates
+      is not achronal' -- the fixed-background version labelled as theirs,
+      their consequence widened and credited to topological censorship as
+      such, the Planck-scale restriction dropped, and null lines between
+      plates, which are achronal, called chronal.
 
     SO THE ONLY QUESTION THAT MATTERS FOR THIS ARCHITECTURE IS WHETHER ITS
     ANEC-VIOLATING RAYS ARE ACHRONAL.  achronal.py asked exactly that, and
@@ -51,14 +71,19 @@ its line 53:
 
     THE FIRST HALF IS RIGHT AND THE CONCLUSION IS BACKWARDS.  sigma^2 does only
     ever help focusing.  More focusing means a conjugate point SOONER, or where
-    there was none.  AND A CONJUGATE POINT IS EXACTLY WHAT MAKES A RAY
-    NON-ACHRONAL -- achronal.py says so itself, four lines earlier.  So dropping
-    shear understates focusing, understates conjugate points, and therefore
-    OVERSTATES achronality.
+    there was none.  AND A CONJUGATE POINT MAKES A RAY NON-ACHRONAL past it --
+    achronal.py says so itself, four lines earlier.  So dropping shear
+    understates focusing, understates conjugate points, and therefore
+    OVERSTATES achronality.  (CORRECTED, DOCKET 67: first written 'EXACTLY
+    WHAT MAKES A RAY NON-ACHRONAL'.  The converse is false -- a flat
+    cylinder's winding geodesic has no conjugate point and is not achronal --
+    and only the forward direction is used here.)
 
-DEMONSTRATED IN THE CLEANEST AVAILABLE CASE -- VACUUM, where R_kk = 0 exactly,
-lemma_applies() fires, and the scalar equation gives u = lambda with no zero
-ever:
+DEMONSTRATED IN THE CLEANEST AVAILABLE CASE -- VACUUM, where R_kk = 0 (exactly
+for Schwarzschild; composite.survey's linearised metric leaves an O(M^2)
+residue, -4M^2/b^4 at closest approach, which DEFOCUSES, at -6.5e-4 of the
+Weyl focal power -- DOCKET 67), lemma_applies() fires, and the scalar equation
+gives u = lambda with no zero ever:
 
         source            Ricci-only conjugate      FULL MATRIX conjugate
         M = -2.0e-3       NONE                      56.50
@@ -88,6 +113,15 @@ parameter is not a scan, which is the lesson nullbound.py paid for:
         2.4021   +3.10521e-09       ok         1579.8
         5.00     +7.55281e-08       ok         (none within the run)
 
+    (CORRECTED, DOCKET 67: the 1578.0 and 1579.8 rows were measured with
+    x0 = -1500, lam = 3000; has_conjugate's lam = 800 run gives 491.20 and
+    493.29.  The table mixed two run settings without saying so; existence is
+    unaffected.  The rays start at x0 = -lam/2 and cross concentric's thin
+    shell at r = 200, where the metric is only C^{0,1}; re-run from x0 = -199,
+    inside the shell, each of the seven rays still has a conjugate pair within
+    the smooth region (199.25 to 321.21), so the C^2 the conjugate-point
+    theorem needs is met where it is used.)
+
     ANEC VIOLATION CEASES AT b = 2.378288, BISECTED.  Conjugate points persist
     well past it.  So the ANEC-VIOLATING SET IS STRICTLY CONTAINED IN THE
     NON-ACHRONAL SET, with room to spare, and the containment is not marginal
@@ -95,10 +129,16 @@ parameter is not a scan, which is the lesson nullbound.py paid for:
 
         NO RAY OF THIS CORRIDOR IS BOTH ANEC-VIOLATING AND ACHRONAL.
 
-    And the containment is not a coincidence: the same negative core that makes
-    INTEGRAL T_kk dl negative is the thing that focuses, through Weyl, which is
-    sign-blind.  ONE OBJECT PRODUCES BOTH.  The seat and the escape are the same
-    mechanism, which is why they cannot come apart.
+    And the same negative core that makes INTEGRAL T_kk dl negative is the
+    thing that focuses, through Weyl, which is sign-blind.  ONE OBJECT PRODUCES
+    BOTH, and along this scan they did not come apart.
+      CORRECTED (DOCKET 67): first written '... which is why they cannot come
+      apart'.  Conjugate points from Weyl shear are derived under the NEC/WEC
+      (Olum 1998; Gao-Wald); where T_kk < 0 the mechanism alone does not
+      guarantee one -- with q <= -|w| there is no focusing eigenvalue, and at
+      this tree's own parameters that removes the conjugate point.  What
+      carries the containment is the full-matrix conjugate point measured on
+      each ray above, not the mechanism.
 
 ===============================================================================
 4. WHAT THAT DOES AND -- AT LENGTH -- WHAT IT DOES NOT
@@ -164,11 +204,18 @@ STATEMENTS = (
      "Faulkner-Leigh-Parrikar-Wang; Hartman-Kundu-Tajdini. Says nothing about "
      "a curved corridor"),
     ("ANEC in curved spacetime", "FALSE IN GENERAL",
-     "the Casimir vacuum is the standard counterexample, so violating it is "
-     "not by itself a disqualification and never was"),
+     "for test fields on fixed backgrounds (Schwarzschild-Boulware, Visser, "
+     "Urban-Olum); the plate system obeys it and the compactified vacuum "
+     "(flat) violates it -- so violating it is not by itself a "
+     "disqualification and never was.  CORRECTED (DOCKET 67): first given as "
+     "'the Casimir vacuum is the standard counterexample'"),
     ("achronal ANEC", "OPEN, AND THE ONE WITH TEETH",
-     "Graham & Olum's hypothesis; what topological censorship actually uses. "
-     "The SELF-CONSISTENT version has been open for nineteen years"),
+     "Graham & Olum's condition is its SELF-CONSISTENT version, below Planck "
+     "curvature, open for at least nineteen years; their topological-"
+     "censorship use adds simple connectivity and the null generic condition "
+     "and forbids wormholes joining disconnected regions, or short ones.  "
+     "CORRECTED (DOCKET 67): first given as 'Graham & Olum's hypothesis; what "
+     "topological censorship actually uses'"),
 )
 
 
@@ -179,7 +226,8 @@ def the_one_that_bites():
 # ------------------------------------ 2: the inverted claim, demonstrated
 
 def vacuum_demonstration(masses=(-2.0e-3, -4.0e-3)):
-    """Ricci-only against the full matrix, in vacuum where R_kk = 0 exactly.
+    """Ricci-only against the full matrix, in vacuum where R_kk = 0 (exactly for
+    Schwarzschild; O(M^2), defocusing, in composite.survey's linearised metric).
 
     Returns [(M, ricci_only_conjugate, full_matrix_conjugate)].  The first is
     always None -- u'' = 0 gives u = lambda -- and the second is not.
@@ -223,7 +271,12 @@ def anec_violated(b):
 
 
 def has_conjugate(b, m=M_SRC, lam=800.0, n=6500):
-    """Full-matrix Jacobi, shear included.  An exhibited zero is positive data."""
+    """Full-matrix Jacobi, shear included.  An exhibited zero is positive data.
+
+    The ray starts at x0 = -lam/2 and crosses concentric's thin shell at
+    r = 200, where the metric is C^{0,1}, not C^2.  DOCKET 67 re-ran the seven
+    scan rays from x0 = -199: each keeps a conjugate pair inside the smooth
+    region, so no verdict moves (regularity named, DOCKET 67)."""
     import concentric
     return concentric.survey(m, b=b, x0=-lam / 2.0, lam=lam, n=n)["seats"]
 
@@ -252,8 +305,11 @@ def containment_is_strict(b_test=3.5674):
 def one_object_produces_both():
     """The negative core violates ANEC and focuses through Weyl.  Same source.
 
-    So the seat and the escape cannot come apart -- which is why the
-    containment holds along the whole scan rather than marginally.
+    HARD-CODED, not computed.  CORRECTED (DOCKET 67): first said 'the seat and
+    the escape cannot come apart'.  Weyl focusing is derived under the NEC/WEC;
+    where T_kk < 0 it does not by itself guarantee a conjugate point.  The
+    containment rests on the conjugate point measured on each scan ray
+    (counterexample(), containment_is_strict()), not on this constant.
     """
     return True
 
@@ -297,7 +353,7 @@ def selftest():
         print("      %-28s %s" % (n, s))
     chk("the one with teeth", the_one_that_bites(), ["achronal ANEC"])
 
-    print("\n2. THE INVERTED CLAIM, demonstrated in vacuum (R_kk = 0 exactly)")
+    print("\n2. THE INVERTED CLAIM, demonstrated in vacuum (R_kk = 0 to O(M))")
     for M, ricci, full in vacuum_demonstration():
         print("      M = %-9g  Ricci-only: %-6s   full matrix: %s"
               % (M, ricci, ("%.2f" % full) if full else "none"))
@@ -315,8 +371,8 @@ def selftest():
         containment_is_strict(), True)
     chk("one object produces both the violation and the focusing",
         one_object_produces_both(), True)
-    print("      the same negative core violates ANEC and focuses through Weyl,")
-    print("      so the seat and the escape cannot come apart.")
+    print("      the same negative core violates ANEC and focuses through Weyl;")
+    print("      the containment rests on each ray's measured conjugate point.")
 
     print("\n4. SCOPE, NOT REFUTATION")
     chk("this refutes achronal ANEC", REFUTES_ACHRONAL_ANEC, False)
@@ -347,18 +403,22 @@ def report():
   It is not: shear helps focusing, focusing makes conjugate points,
   and a conjugate point is what REMOVES achronality.  The claim is
   inverted, and the demonstration needs no argument -- in vacuum
-  R_kk = 0 exactly, the scalar equation gives u = lambda with no zero
-  ever, and the full matrix finds a conjugate point at 56.50.
+  R_kk = 0 (to O(M) in the linearised metric, whose O(M^2) residue
+  defocuses), the scalar equation gives u = lambda with no zero ever,
+  and the full matrix finds a conjugate point at 56.50.
 
   WITH THAT CORRECTED, THE CORRIDOR IS OUTSIDE ACHRONAL ANEC'S SCOPE.
   Scanning impact parameter, ANEC violation ceases at b = 2.378288
   while conjugate points persist well past it, so the ANEC-violating
   set sits strictly inside the non-achronal set with room to spare.
-  No ray of this corridor is both ANEC-violating and achronal.  And
-  the containment is structural rather than lucky: the same negative
-  core that makes the integral negative is the thing that focuses,
-  because Weyl is sign-blind.  The seat and the escape are one
-  mechanism.
+  No ray of this corridor is both ANEC-violating and achronal.  The
+  same negative core that makes the integral negative is the thing
+  that focuses, through sign-blind Weyl; but where T_kk < 0 that
+  mechanism does not by itself guarantee a conjugate point, so the
+  containment rests on the conjugate point measured on each ray of
+  the scan.  (CORRECTED, DOCKET 67: first written 'the containment
+  is structural rather than lucky ... The seat and the escape are one
+  mechanism'.)
 
   WHAT THIS IS NOT.  It is not a refutation of self-consistent
   achronal ANEC, which stands exactly where it stood -- being outside

@@ -29,7 +29,14 @@ perturbations, in the sense that no gauge invariant perturbation should become
 unbounded in time."  THE QUESTION: can it be evaluated on any configuration the
 demand column prices, and what does it return?
 
-    IN THE CLASSICAL RADIAL SECTOR: YES, AND IT RETURNS STABLE -- A THEOREM.
+    IN THE CLASSICAL RADIAL SECTOR: AMM'S CRITERION DOES NOT APPLY, AND ITS
+    CLASSICAL ANALOGUE RETURNS STABLE -- A THEOREM.
+      CORRECTED (DOCKET 67): first written 'IN THE CLASSICAL RADIAL SECTOR: YES'.
+      AMM's criterion is a condition on (3.4), the linearisation of (2.9), whose
+      only matter is N free QUANTUM scalars; an Israel thin shell with a
+      classical barotropic EOS (P1-P4) is not in AMM's action.  What follows is
+      ordinary classical linear stability of the shell, V''(R_0) > 0, not an
+      evaluation of (3.4).
     On the thin-shell object stability.py prices (Schwarzschild M_in = -m
     inside, Minkowski outside), with u = sqrt(1 + 2m/R), EXACTLY (sympy):
 
@@ -103,6 +110,10 @@ AMM, gr-qc/0209075 v1 (PRD 67, 024026 (2003)), text layer via alphaXiv.
   solution "with finite non-singular initial data for which any linearized gauge
   invariant scalar quantity grows without bound"; allowed gauge transformations
   are (3.11), excluding those under which the action (2.7) is not invariant.
+  Two clauses first left out (DOCKET 67): the scalar is one "constructed only
+  from the linearized metric perturbation h_ab and its derivatives", and
+  "singular gauge transformations in the initial data for g_ab" are excluded
+  (p. 9).
   RENORMALISATION (4.4)  three subtractions at k^2 = 0 -- cosmological constant,
   1/G_N, and (alpha, beta) -- "the renormalized values of these parameters at
   k^2 = 0 are what appear then on the left hand side of (2.9)".  In the scalar
@@ -117,34 +128,67 @@ AMM, gr-qc/0209075 v1 (PRD 67, 024026 (2003)), text layer via alphaXiv.
   and k^2 < 0 interchange roles, with the conclusion unchanged."
   IMPLICIT  the conclusion "cannot be satisfied except at k^2 approaching
   G_N^-1" (p. 12) takes the fourth-order coefficients to be O(1).  That is
-  where GMMPS's large-b_2 roots enter (AMM_HYPOTHESES H6).
+  where GMMPS's large-b_2 roots enter (AMM_HYPOTHESES H6).  (CORRECTED,
+  DOCKET 67: that is AMM's TENSOR-sector sentence; the scalar-sector one is on
+  p. 13, "... unless G_N|k^2| becomes of order unity", and AMM state the
+  alpha, beta dependence explicitly in V, p. 14.)
   RESULT, SCALAR SECTOR (4.5b), (4.11)  no solution with 4 pi G |k^2| << 1.
+  The scalar result also rests on the imported [53,54] constraint argument
+  (p. 12), which removes the propagating k^2 = 0 root.
   NOT TREATED (p. 12)  "a finite number of non-propagating (global) modes in
   the scalar sector at k = 0 ... We do not treat this possibility."
   CONCLUSION  flat space "is stable to all perturbations on distance scales
   much larger than the Planck length" (abstract); growing modes appear only
-  at G_N|k^2| = O(1), i.e. Planck scale for O(1) coefficients (V, p. 14).
+  at G_N|k^2| = O(1), for O(1) coefficients (V, p. 14).  AMM rescale G_N^-1,
+  alpha and beta by N (p. 7), so that length is the species-rescaled
+  sqrt(N) l_P, not l_P: a factor 94.6 at N = 1e4, negligible for
+  Standard-Model-sized N.  (CORRECTED, DOCKET 67: first written 'i.e. Planck
+  scale for O(1) coefficients'.)
     WITHDRAWN: "tensor sector needs alpha >= 0 and rho^(T) >= 0" as a
     hypothesis of AMM's RESULT (verify-stability SHOULD-FIX, AMM p. 12).
 
 GALANDA, MEDA, MURRO, PINAMONTI, SCHMID, arXiv:2604.01047 v1 (GMMPS), text
 layer via alphaXiv, body read in full.
   SETTING  ONE real Klein-Gordon field, mass m > 0, coupling xi with
-  2/(6 xi - 1) < 4 (5.1, for Prop. 4.5); the Poincare vacuum; Hadamard;
+  2/(6 xi - 1) < 4, i.e. xi in (-oo, 1/6) U (1/4, oo) (5.1, attributed there
+  to Prop. 4.5; CORRECTED, DOCKET 67: Prop. 4.5's own hypotheses are on
+  varsigma, and the condition on a = 2m^2/(6 xi - 1) enters through Prop. 4.11
+  (<=) and Prop. 4.12 / Thm 4.14 (<)); the Poincare vacuum; Hadamard;
   PAST-COMPACT metric and state perturbations posed as a forcing problem
   (1.8); de Donder gauge (Prop. 2.4: a complete gauge fixing for past-compact
   perturbations); renormalisation by Hollands-Wald (1.2) with the background
   fixed by Prop. 3.1, alpha_1 = (1/64 pi^2)(-3/2 + 2 gamma + log(m^2/2mu^2)).
-  THE CONSTANT THAT MATTERS FOR THEIR REPORTED MODE  Thm 3.6: by general local
-  covariance and perturbative agreement, alpha~^S_1 = 1/(64 pi^2) and
-  alpha~^TT_1 = 0.  alpha~^S_2 = alpha~^TT_2 = 0 is ASSUMED (5.1, 5.2).
+  THE CONSTANT THAT MATTERS FOR THEIR REPORTED MODE  Thm 3.6 STATES, by general
+  local covariance and perturbative agreement, alpha~^S_1 = 1/(64 pi^2) and
+  alpha~^TT_1 = 0.  (CORRECTED, DOCKET 67, accepted by M: first recorded as
+  following from that covariance.  The S value does not: it is (3.21)
+  evaluated with mu held fixed to the background eta, an unstated hypothesis
+  that contradicts the covariance Thm 3.6 invokes; the paper's own covariant
+  TT procedure (p. 39) gives alpha~^S_1 = 0.  The TT value stands.  See
+  GRADED SINCE below.)  alpha~^S_2 = alpha~^TT_2 = 0 is ASSUMED (5.1, 5.2).
   alpha~^S_3 and alpha~^TT_4 (through b_2) are FREE.
-  RESULT  Thm 1.2 / 4.14: unique past-compact solutions exist; Thm 4.16: a
+  RESULT  Thm 1.2 / 4.14: unique past-compact solutions exist -- proved for the
+  S sector, a = 2m^2/(6 xi - 1) < 4m^2.  The TT sector has a = 4m^2 (5.2,
+  p. 60), the endpoint Thm 4.14's and Prop. 4.12's hypothesis a_i < 4m^2
+  excludes, though GMMPS (p. 62) still cite Thm 4.14 for it; DOCKET 67
+  computed that there the tangent construction fails for b_2 >= 0, and for
+  b_2 > 1/(8 pi^2) no auxiliary (b_0, b_1) gives the three real roots the
+  proof needs.  Thm 4.16 (p. 58), with Z the zero set of Q in its own w^2
+  variable (F_S(gamma) = -Q(-gamma), so a growing F_S zero gamma < 0 is a Q
+  zero x = -gamma > 0): Z inside (-4m^2, 0) gives BOUNDED solutions decaying
+  as t^-3/2; Z inside (-4m^2, oo), all real, with some element > 0, gives
+  EXPONENTIAL GROWTH.  (CORRECTED, DOCKET 67: first written 'Thm 1.2 / 4.14:
+  unique past-compact solutions exist' for the whole S + TT system, and 'a
   zero of the dispersion function on the growing side gives exponential
-  growth (for Z strictly inside (-4m^2, 0)); 5.1: the S sector has a real
+  growth (for Z strictly inside (-4m^2, 0))' -- the bounded clause's interval
+  attached to growth, with the reality of the whole zero set dropped; GMMPS's
+  own Fig. 1 shows complex pairs.)  5.1: the S sector has a real
   zero gamma_0 "slightly smaller than 0", hence growth e^{sqrt|gamma_0| t};
   5.3: gamma_0 ~ -b_0/b_1 = -16 pi G alpha~^S_1 m^4, H = sqrt(-gamma_0), and
-  matching Lambda gives m ~ 7.8e-3 eV.  5.2 (TT, alpha~^TT_1 = 0, b_0 = 0):
+  matching Lambda gives m ~ 7.8e-3 eV.  These 5.1 and 5.3 figures are GMMPS's,
+  and they rest on alpha~^S_1 = 1/(64 pi^2), the S value DOCKET 67 graded
+  WRONG: at the covariant value 0 the mode is absent and the matching has no
+  finite solution.  5.2 (TT, alpha~^TT_1 = 0, b_0 = 0):
   "One of the zeros, say gamma_0, is, however, always negative ... the
   magnitude of gamma_0 can be made as small as we want by choosing larger and
   larger positive b_2" (p. 62).
@@ -174,10 +218,18 @@ b_2 > 0.  The selftest BRACKETS both at b_2 = -1e100 (S) and +1e100 (TT) --
 the control that the "only if" is NOT claimed -- and shows the S bracket
 does NOT fire at b_2 = +1e100 (so it can fail).  Their scale is set by the
 FREE constants alpha~^S_3 and alpha~^TT_4 through b_2: Planckian for O(1)
-values, and arbitrarily far below it otherwise.  Whether anything grows from
+values (GMMPS's one field; for AMM's N fields the species scale sqrt(N) l_P),
+and arbitrarily far below it otherwise.  At source they fall in Thm 4.16's
+growth range provided the whole zero set is real.  Whether anything grows from
 the gamma = 0 root at alpha~^S_1 = 0 is OPEN: it lies outside GMMPS Thm 4.16
-(Z strictly inside (-4m^2, 0)) and Prop. 4.10 (b_0, b_1, b_2 != 0), and
-outside AMM's treated modes (p. 12).  So the literature split is ONE
+(x = 0 is in neither the bounded clause's open (-4m^2, 0) nor the growth
+clause's x > 0) and Prop. 4.10 (b_0, b_1, b_2 != 0, and (4.19) admitting
+three and only three independent solutions in D; its conclusion is the local
+form, not growth), and among AMM's modes it belongs to the k = 0 global
+sector AMM do not treat (p. 12) -- AMM do treat, and remove, the propagating
+k^2 = 0 root.  (CORRECTED, DOCKET 67: first written with Thm 4.16 as
+'(Z strictly inside (-4m^2, 0))', Prop. 4.10 without its three-solution
+condition, and 'outside AMM's treated modes'.)  So the literature split is ONE
 renormalisation constant FOR GMMPS's REPORTED MODE, NOT for growth in general,
 and which value is right is a question about renormalisation conditions (AMM's
 k^2 = 0 subtraction against GMMPS's Thm 3.6) that is not adjudicated here.
@@ -222,13 +274,24 @@ Printed discrepancies in GMMPS v1, RECORDED, NOT REPAIRED:
   P1 Israel/Lanczos thin shell, spherically symmetric.            stability.py
   P2 static vacuum on both sides: Schwarzschild M_in = -m inside
      (f_in = 1 + 2m/R > 0, no horizon), Minkowski outside.         stability.device
+     Vacuum of the GR field equations with Lambda = 0 (Lambda's effect is
+     7.3e-46), on the vacuum neighbourhoods of the shell; staticity need not
+     be assumed there -- Birkhoff supplies it, f_in > 0 at every R.
   P3 radial (l = 0) perturbations only; the shell's areal radius
-     R(tau) is the gauge-invariant scalar.
+     R(tau) is the gauge-invariant scalar, with M constant in each vacuum
+     region while the shell moves (Birkhoff on each side).  Under P2 R(tau)
+     is the only radial degree of freedom.
+     (P2's field equations and Lambda = 0, and P3's constant M, named under
+     DOCKET 67.)
   P4 barotropic linearised EOS p' = beta^2 sigma', mass evolved by
      m_s' = -8 pi R p (the conservation law stability.py uses).
 The theorem is about THAT object.  concentric.py's device has a Plummer core,
 whose mass is not all inside R_s: the fraction outside is
-1 - (1 + (a/R_s)^2)^(-3/2), computed from concentric.A_CORE and R_SHELL, so P2
+1 - (1 + (a/R_s)^2)^(-3/2) -- the Newtonian (flat-Poisson) Plummer fraction,
+exact for concentric.py's linearised metric and leading order in an exact one
+(for certify.py's exponential metric the Misner-Sharp fraction is
+f (1 - m/2R_s), 5.0e-5 relative below it; DOCKET 67) -- computed from
+concentric.A_CORE and R_SHELL, so P2
 holds there only up to that departure and the theorem is NOT claimed for
 concentric.py's exact potential.  l >= 1 is stability.py's NOT-RUN list,
 unchanged; the core's own stability is deferred with the identification
@@ -240,9 +303,10 @@ a maximum over those points, not over stability.py's range.
 3.  THE ROW THIS OPENS
 ===============================================================================
 
-    D26  LINEARISED STABILITY (AMM).  OPEN.  Classical radial sector: THEOREM,
-    stable for every m > 0 at every beta^2 > beta^2_crit(u) in (-1/4, 0).
-    Semiclassical: NOT EVALUABLE AT PRESENT -- AMM's criterion is defined only
+    D26  LINEARISED STABILITY.  OPEN.  Classical radial sector (an Israel
+    shell, outside AMM's class): THEOREM, stable for every m > 0 at every
+    beta^2 > beta^2_crit(u) in (-1/4, 0).
+    Semiclassical (AMM's criterion): NOT EVALUABLE AT PRESENT -- AMM's criterion is defined only
     about a solution of (2.9), and no demand configuration is recorded or
     shown to be one; that is O5, OPEN.  D26_STATUS is CHECKED against a status
     derived from the selftest's evidence.
@@ -282,8 +346,10 @@ AMM_READ = ("arXiv v1 text layer via alphaXiv: pages 1-16 read (body, "
             "Appendix A to (A23)); Appendix B (spectral-function details) and "
             "the bibliography NOT read")
 AMM_CRITERION = ("no solution of (3.4) with finite non-singular initial data for "
-                 "which any linearized gauge invariant scalar grows without "
-                 "bound (III, p. 10) -- a NECESSARY condition for validity")
+                 "which any linearized gauge invariant scalar (constructed only "
+                 "from h_ab and its derivatives) grows without bound (III, p. 10), "
+                 "singular gauge transformations in the initial data excluded "
+                 "(p. 9) -- a NECESSARY condition for validity")
 AMM_NEEDS_A_SOLUTION = ("(3.3): 'the first variation vanishes by (2.9)'; p. 9: "
                         "the retarded correlator 'is evaluated in the background "
                         "geometry of the leading order solution of the "
@@ -293,13 +359,17 @@ AMM_HYPOTHESES = (
     "H2 the in-state |in> of the (large-N, free) quantum fields in which (2.9) holds",
     "H3 the retarded polarization tensor Pi^(ret) (3.5), (3.9) in that state on g",
     "H4 renormalised Lambda, G_N, alpha, beta, fixed by a stated condition",
-    "H5 the allowed gauge transformations (3.11), growing ones decided by (2.7)",
-    "H6 (implicit, p. 12) the fourth-order coefficients are O(1): 'cannot be "
-    "satisfied except at k^2 approaching G_N^-1' -- where GMMPS's large-b_2 "
-    "roots enter",
+    "H5 the allowed gauge transformations (3.11), growing ones decided by (2.7); "
+    "singular gauge transformations in the initial data excluded (p. 9)",
+    "H6 (implicit; tensor sector p. 12, scalar sector p. 13) the fourth-order "
+    "coefficients are O(1): 'cannot be satisfied except at k^2 approaching "
+    "G_N^-1' (tensor), 'unless G_N|k^2| becomes of order unity' (scalar) -- "
+    "where GMMPS's large-b_2 roots enter; G_N is AMM's N-rescaled coupling "
+    "(p. 7), so the scale is sqrt(N) l_P",
 )
 AMM_FLAT_RESULT = ("Minkowski, scalar of any m > 0 and xi, vacuum: no unstable "
-                   "or new mode with G|k^2| << 1 in either sector, for O(1) "
+                   "or new mode with G|k^2| << 1 in either sector (G rescaled by "
+                   "N, p. 7: the species scale), for O(1) "
                    "fourth-order coefficients (H6).  alpha >= 0 and rho^(T) >= 0 "
                    "are hypotheses of the (4.6) positivity step ONLY: AMM p. 12, "
                    "'If alpha < 0 then the preceding analyses for k^2 > 0 and "
@@ -321,7 +391,9 @@ GMMPS_HYPOTHESES = (
     "past-compact metric and state perturbations of ALL of R^4, forcing problem (1.8)",
     "de Donder gauge, a complete gauge fixing on past-compact sections (Prop. 2.4)",
     "alpha~^S_1 = 1/(64 pi^2), alpha~^TT_1 = 0 by Thm 3.6 (general local covariance "
-    "+ perturbative agreement)",
+    "+ perturbative agreement) as GMMPS state it -- DOCKET 67: the S value holds "
+    "only with mu held fixed to eta, an unstated hypothesis contradicting that "
+    "covariance; the covariant value is 0",
     "alpha~^S_2 = alpha~^TT_2 = 0 assumed (5.1, 5.2)",
 )
 GMMPS_ALPHA_S1_THM36 = "1/(64 pi^2)"
@@ -365,9 +437,12 @@ LITERATURE_SPLIT_IS_ONE_CONSTANT = (
     "gamma = 0 exists iff alpha~^S_1 != 0 and grows iff alpha~^S_1 > 0 (locally, "
     "implicit function theorem).  NOT for growth in general: other growing roots "
     "sit near -b_1/b_2 at a scale set by the free alpha~^S_3 and alpha~^TT_4, "
-    "Planckian only for O(1) values")
+    "Planckian (GMMPS's one field; species-scale sqrt(N) l_P for N fields) only "
+    "for O(1) values")
 #: At alpha~^S_1 = 0, gamma = 0 is a root of F_S; whether anything grows from
-#: it lies outside GMMPS Thm 4.16 and Prop. 4.10 and AMM's treated modes.
+#: it lies outside both clauses of GMMPS Thm 4.16 (x = 0 is neither in
+#: (-4m^2, 0) nor > 0) and Prop. 4.10 (b_0 = 0), and in the k = 0 global sector
+#: AMM do not treat (DOCKET 67: first written 'AMM's treated modes').
 ALPHA_ZERO_ROOT_GROWTH = "OPEN"
 SPLIT_ADJUDICATED_HERE = False
 #: Graded elsewhere: DOCKET 67 graded GMMPS's side of the split (see above).
@@ -375,18 +450,19 @@ SPLIT_GRADED_BY_DOCKET_67 = True
 NOTHING_IS_REPAIRED = True
 
 D26_STATUS = "OPEN"
-D26_CLAIM = ("LINEARISED STABILITY (AMM).  Classical radial sector of stability.py's "
-             "shell: THEOREM under P1-P4, stable for every m > 0 at every beta^2 > "
+D26_CLAIM = ("LINEARISED STABILITY.  Classical radial sector of stability.py's "
+             "shell (an Israel shell, outside AMM's class -- DOCKET 67): THEOREM "
+             "under P1-P4, stable for every m > 0 at every beta^2 > "
              "beta^2_crit(u) = -(u-1)(3u^2+2u+1)/(4u^2(3u+1)) in (-1/4, 0), "
              "u = sqrt(1+2m/R) -- wall.py's closed form for the ordinary shell "
              "with s = sqrt(1-2M/R) < 1 replaced by u > 1.  "
-             "Semiclassical: NOT EVALUABLE AT PRESENT -- AMM's criterion is "
+             "Semiclassical (AMM): NOT EVALUABLE AT PRESENT -- AMM's criterion is "
              "defined only about a solution of the semiclassical equations (2.9) "
              "(AMM pp. 8-9), and none of the demand configurations is recorded "
              "or shown to be one; that is O5, OPEN.  GMMPS's reported Minkowski "
              "mode (the S-sector zero on the branch through gamma = 0) exists, "
              "locally by the implicit function theorem, iff "
-             "alpha~^S_1 != 0; other growing roots are set by the free "
+             "alpha~^S_1 != 0, and grows iff alpha~^S_1 > 0; other growing roots are set by the free "
              "fourth-order constants.  DOCKET 67 graded GMMPS's value "
              "alpha~^S_1 = 1/(64 pi^2) WRONG (S half, against arXiv v1); at the "
              "covariant value 0 the reported mode is absent and the growing roots "
@@ -471,7 +547,8 @@ WITHDRAWN = (
      "near -b_1/b_2 grow at alpha~^S_1 = 0 (S, b_2 < 0) and in TT (b_2 > 0) -- "
      "bracketed in the selftest"),
     ("'where gamma = 0 is an exact root and NOTHING GROWS FROM IT'",
-     "outside GMMPS Thm 4.16, Prop. 4.10 and AMM's treated modes: OPEN"),
+     "outside both clauses of GMMPS Thm 4.16, Prop. 4.10, and AMM's untreated "
+     "k = 0 sector: OPEN"),
     ("'THE LITERATURE SPLIT IS ONE RENORMALISATION CONSTANT'",
      "true for GMMPS's reported mode only"),
     ("'the Planck-scale runaways AMM also record'",
@@ -569,7 +646,11 @@ def ordinary_closed_form(sp):
 
 
 def plummer_mass_outside(sp, a=None, Rs=None):
-    """Fraction of a Plummer core's mass outside radius Rs: 1 - (1+(a/Rs)^2)^(-3/2)."""
+    """Fraction of a Plummer core's mass outside radius Rs: 1 - (1+(a/Rs)^2)^(-3/2).
+
+    The Newtonian (flat-Poisson) enclosed-mass fraction: exact for the
+    linearised metric concentric.py runs through, leading order in an exact
+    metric (DOCKET 67)."""
     a = sp.nsimplify(concentric.A_CORE if a is None else a)
     Rs = sp.nsimplify(concentric.R_SHELL if Rs is None else Rs)
     return 1 - (1 + (a / Rs) ** 2) ** sp.Rational(-3, 2)
@@ -1124,7 +1205,7 @@ def selftest():
     record("FLAT_EXTERIOR_INHERITS_GMMPS (READ: GMMPS 1.2, Thm 1.2 on R^4)",
            FLAT_EXTERIOR_INHERITS_GMMPS)
     record("SPLIT_ADJUDICATED_HERE", SPLIT_ADJUDICATED_HERE)
-    record("ALPHA_ZERO_ROOT_GROWTH (outside Thm 4.16, Prop 4.10, AMM p.12)",
+    record("ALPHA_ZERO_ROOT_GROWTH (outside Thm 4.16, Prop 4.10, AMM's k = 0)",
            ALPHA_ZERO_ROOT_GROWTH)
     record("AMM hypotheses named", len(AMM_HYPOTHESES))
     record("WITHDRAWN claims kept", len(WITHDRAWN))

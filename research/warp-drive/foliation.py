@@ -46,9 +46,12 @@ are on pypi and pypi is on the proxy allowlist (PROOF-ASSISTANT.md).
             HYPOTHESIS.
 
       (ii)  THE STATIC WITNESS (section 4).  Schwarzschild -- vacuum, Ricci
-            identically 0, m = M > 0, STATIC -- sliced by the generalised
-            Painleve-Gullstrand foliation with LTB energy E > 0 returns
-            Gamma = sqrt(1+2E) > 1 AT EVERY AREAL RADIUS, out to infinity.
+            identically 0, m = M > 0, STATIC on its exterior R > 2M -- sliced
+            by the generalised Painleve-Gullstrand foliation with LTB energy
+            E > 0 returns Gamma = sqrt(1+2E) > 1 AT EVERY AREAL RADIUS, out to
+            infinity.  The chart also covers R <= 2M, which is not static;
+            the witness needs only R > 2M (CORRECTED, DOCKET 67: first written
+            "STATIC" for the whole chart).
             driven.py believed it had to leave the static family to obtain
             contraction with m > 0.  It did not.  IT HAD ONLY TO TILT THE
             SLICE.  What certify.py's staticity was doing was not making the
@@ -102,20 +105,31 @@ The objection would be weak if only some boosts corresponded to foliations.
 They all do, and the freedom is a FREE FUNCTION OF TWO VARIABLES.
 
     LEMMA (verified, sympy).  Let u = e^{-Phi} d_t and n = e^{-Lambda} d_r be
-    the unit normal and unit radial vector of the chart.  For ANY rapidity
+    the unit normal and unit radial vector of the chart.  For ANY C^1 rapidity
     field w(t,r), the field
 
         u' = cosh(w) u + sinh(w) n
 
     is a unit timelike spherically symmetric field and satisfies the Frobenius
-    condition u'_[a d_b u'_c] = 0 IDENTICALLY -- all 64 components, w arbitrary.
+    condition u'_[a d_b u'_c] = 0 IDENTICALLY -- all 64 components, w an
+    arbitrary C^1 function.
 
-    SO EVERY SPHERICALLY SYMMETRIC UNIT TIMELIKE FIELD IS HYPERSURFACE
+    SO EVERY C^1 SPHERICALLY SYMMETRIC UNIT TIMELIKE FIELD IS HYPERSURFACE
     ORTHOGONAL.  (It must be: in the 2-dimensional (t,r) quotient a 1-form's
     twist 3-form has nowhere to live, and the sphere directions are carried by
-    symmetry.)  Each such u' is the normal of a foliation, and in the chart
-    adapted to it the metric is again -e^{2Phi'}dt'^2 + e^{2Lambda'}dr'^2 +
-    R^2 dOmega^2 -- driven.py's own ansatz.
+    symmetry.)  Each such u' is, locally, the normal of a foliation, and in the
+    chart adapted to it the metric is again -e^{2Phi'}dt'^2 + e^{2Lambda'}dr'^2
+    + R^2 dOmega^2 -- driven.py's own ansatz.
+
+    CORRECTED (DOCKET 67).  First written "For ANY rapidity field", "w
+    arbitrary", "EVERY SPHERICALLY SYMMETRIC UNIT TIMELIKE FIELD" and "Each
+    such u' is the normal of a foliation".  Frobenius needs w C^1 (Lipschitz
+    at least): a continuous, non-Lipschitz w gives a unit timelike field with
+    three integral curves of its orthogonal line field through one point, the
+    normal of no foliation.  And the foliation is local: a leaf need not reach
+    every areal radius.  The sympy computation always treated w as
+    differentiable, and nothing below needs more than one smooth w per point
+    and a local foliation.
 
     CONSEQUENCE.  driven.py's ansatz does not fix a foliation.  "Rdot" is not
     "the areal radius is changing"; it is "THE SLICE IS NOT COMOVING WITH THE
@@ -183,8 +197,14 @@ The generalised Painleve-Gullstrand chart, with constant LTB energy E > 0:
 
         ds^2 = -dtau^2 + (dR + sqrt(2M/R + 2E) dtau)^2/(1+2E) + R^2 dOmega^2
 
-Computed, not quoted (V7):  RICCI IS IDENTICALLY ZERO -- this is Schwarzschild,
-vacuum, and the spacetime is STATIC.  On it:
+Computed, not quoted (V7):  RICCI IS IDENTICALLY ZERO.  Under the Einstein
+equations with Lambda = 0, in four dimensions, that is vacuum, and by Birkhoff
+this is Schwarzschild, STATIC on R > 2M: t = tau/sqrt(1+2E) + F(R), with
+F' = -sqrt(2M/R + 2E)/(sqrt(1+2E)(1 - 2M/R)), carries the chart to the static
+one on 1 - 2M/R != 0, and d_tau is Killing and hypersurface-orthogonal there
+(exhibited in DOCKET 67; this file had inferred it).  The chart is regular at
+every R > 0 and so also covers R <= 2M, where no Killing combination is
+timelike and the region is not static.  On it:
 
         |grad R|^2 = 1 - 2M/R      =>  m = M > 0      (the MS mass, a scalar)
         slice tau = const:  dl = dR/sqrt(1+2E)
@@ -234,23 +254,52 @@ SMUGGLING IS NOT IN dR.  IT IS IN dl, WHICH NAMES A SLICE.
 
     D4  OPERATIONAL:  a signal from mouth to mouth arrives EARLIER than in the
         reference geometry.  INVARIANT (the mouths are worldlines, the arrival
-        is an event).  THE THEOREM IS REPLACED BY A STRONGER ONE that is not
-        this tree's: Olum gr-qc/9805003, Gao & Wald gr-qc/0007021,
-        Visser-Bassett-Liberati gr-qc/9908023 -- with the NEC, never an
-        advance.  Sections 7-8 measure D1 against D4 and find them ANTI-
-        CORRELATED.
+        is an event).  THE THEOREM IS REPLACED BY RESULTS THAT ARE NOT THIS
+        TREE'S, each on its own hypotheses.  Visser-Bassett-Liberati
+        gr-qc/9908023 is the one stated against a reference geometry: with the
+        NEC, no advance (and VBL record voids that advance relative to FRW
+        with no NEC violation; Gao & Wald argue the result is gauge
+        dependent).  Olum gr-qc/9805003 compares with no reference geometry: a
+        causal path that no other beats (his Condition 1), under the generic
+        condition, needs NEC violation on it -- and a lead against a reference
+        geometry is not such a path (DOCKET 67 exhibits one with T_ab = 0 on
+        the leading path).  Gao & Wald gr-qc/0007021 Theorem 1 compares with
+        none either: its time-delay statement needs the NEC, the null generic
+        condition and null geodesic completeness together, and its authors
+        write "it is difficult to make a strong argument for this
+        interpretation".  Sections 7-8 measure D1 against D4 and find them
+        ANTI-CORRELATED.
+
+        CORRECTED (DOCKET 67).  First written "THE THEOREM IS REPLACED BY A
+        STRONGER ONE that is not this tree's: Olum gr-qc/9805003, Gao & Wald
+        gr-qc/0007021, Visser-Bassett-Liberati gr-qc/9908023 -- with the NEC,
+        never an advance", which put all three in VBL's reference-geometry
+        form.
 
     D5  NULL FLARE-OUT:  theta_+ = (2/R)(U + Gamma) and its derivative along
         the ray.  INVARIANT given the sphere.  Hochberg & Visser gr-qc/9802046
-        section 7 -- spatial flare-out does not imply null flare-out once the
-        geometry is time dependent -- and gr-qc/9802048: NEC violation on an
-        open interval at any throat.  THE THEOREM IS REPLACED BY A STRONGER
-        ONE, again not this tree's.
+        section 7 -- spatial flare-out does not in general imply null
+        flare-out once the geometry is time dependent -- and their NEC
+        theorems, which hold ON a surface with theta = 0: simple flare-out
+        gives T_ab l^a l^b <= 0 there, "violated, or on the verge", and a
+        strict violation needs strong flare-out.  And gr-qc/9802048: with its
+        strict-increase condition (eq. 9), pointwise NEC violation on an open
+        region whose closure meets the throat, and, with averaged flare-out,
+        violation of the transverse-averaged NEC on an open interval.  THE
+        THEOREM IS REPLACED BY THESE, on those hypotheses, again not this
+        tree's.
+
+        CORRECTED (DOCKET 67).  First written "gr-qc/9802048: NEC violation
+        on an open interval at any throat.  THE THEOREM IS REPLACED BY A
+        STRONGER ONE", which fused the Letter's pointwise result with its
+        averaged one, dropped the strictness conditions, and left Hochberg &
+        Visser's theta = 0 unstated.
 
     SCORE:  TWO of the five make m < 0 unnecessary -- D1 and D3 -- and they
     are exactly the two that are not invariant, and on both the escape is
     available IN FLAT SPACE.  ON THE THREE INVARIANT ONES THE OBSTRUCTION
-    STANDS (D2) OR HARDENS (D4, D5).
+    STANDS (D2) OR PASSES TO THEOREMS NOT THIS TREE'S, ON THEIR OWN
+    HYPOTHESES (D4, D5).  (CORRECTED, DOCKET 67: first "HARDENS (D4, D5)".)
 
 ===============================================================================
 6.  D3 MEASURED:  THE SLICE LENGTH GOES TO ZERO WITH THE MOUTHS ANCHORED
@@ -312,9 +361,15 @@ geometric and which no re-slicing moves.  Radial null travel between them:
 
     So on the same corridor, in the same spacetime: D3 reports a corridor
     0.05 % of the flat length, D4 reports a 5.6 % DELAY, and D4 is the one
-    computed from the worldlines rather than from a choice of slice.  Gao &
-    Wald and Visser-Bassett-Liberati say the sign of that excess is forced by
-    the NEC and does not depend on staticity.
+    computed from the worldlines rather than from a choice of slice.  The sign
+    is computed here, not inferred: Visser-Bassett-Liberati tie the sign of
+    such an excess to the NEC at first order, Gao & Wald argue that result is
+    gauge dependent, and Gao & Wald's own Theorem 1 does not reach this
+    example -- radial is a principal null direction of Schwarzschild, so the
+    null generic quantity vanishes on these rays, and Schwarzschild is null-
+    incomplete.  (CORRECTED, DOCKET 67: first written "Gao & Wald and
+    Visser-Bassett-Liberati say the sign of that excess is forced by the NEC
+    and does not depend on staticity".)
 
 ===============================================================================
 9.  WHAT THIS DOES TO nonstatic.py, STATED CAREFULLY
@@ -337,7 +392,15 @@ the loophole is empty -- is the same as this file's.  Three narrowings:
 
     E = R dGamma PRICES A GAUGE TRANSFORMATION.  It is derived from
     D_t Gamma = 4 pi R j + U D_r Phi with the second term set to zero by
-    choosing geodesic slicing.  In VACUUM that same gauge forces D_t Gamma = 0
+    choosing geodesic slicing -- which, as Gaussian normal coordinates, exists
+    only up to the first focal point of the normal congruence (contracting
+    Milne focuses at finite proper time), so "within it" is local.
+    nonstatic.py:178-184 states a different hypothesis for the same formula,
+    R held fixed (U = 0), which zeroes U D_r Phi in any slicing; at U = 0,
+    Gamma = sqrt(1 - 2m/R) is a scalar and dGamma != 0 needs dm != 0.  The
+    two owners' hypotheses differ; which one BUILD_BILL_IS_GAUGE_CONDITIONAL
+    should read is recorded, not adjudicated (DOCKET 67).  In VACUUM
+    the geodesic gauge forces D_t Gamma = 0
     identically -- so within it the bill is never payable and contraction can
     never be switched on, which is nonstatic.py's own "born with it".  Outside
     it the change is free: section V13 exhibits a smooth foliation of a flat
@@ -392,9 +455,13 @@ REFUSED, EXPLICITLY:
     IT DOES NOT REFUTE THE IDENTITY, and says so in section 0.  driven.py's
     --verify residuals are reproduced, not disputed.
 
-    IT DOES NOT SHOW THAT NO DYNAMIC SPHERICAL CORRIDOR EXISTS.  That is
-    Olum's theorem and it is his.  A gauge argument cannot prove a physical
-    impossibility; it can only show that a particular criterion is not one.
+    IT DOES NOT SHOW THAT NO DYNAMIC SPHERICAL CORRIDOR EXISTS.  Nor does
+    Olum: his theorem is conditional -- a causal path no other beats, under
+    the generic condition, needs NEC violation on it -- and asked whether it
+    means superluminal travel is impossible he writes "No" (gr-qc/9805003
+    p.6).  A gauge argument cannot prove a physical impossibility; it can only
+    show that a particular criterion is not one.  (CORRECTED, DOCKET 67: first
+    written "That is Olum's theorem and it is his".)
 
     IT DOES NOT ADJUDICATE whether some OTHER invariant -- an averaged
     expansion, a Hawking mass flow, a null-geodesic arrival map -- recovers a
@@ -577,9 +644,13 @@ def shapiro(M, R1, R2):
 # ============================================= 9. what E = R dGamma prices
 
 C_LIGHT = 2.99792458e8
-G_NEWTON = 6.67430e-11
+G_NEWTON = 6.67430e-11       # CODATA 2018 (= 2022); its u_r 2.2e-5 is not typed
 M_SUN = 1.98840e30
 LY = 9.4607304725808e15
+# Gaia DR3 1/parallax: the J2016.0 barycentric distance (4.24646 ly), formal
+# sigma +/-0.00028 ly, zero-point uncorrected (the official recipe is invalid
+# at Proxima's colour).  About 4 significant figures, at that epoch: by
+# 2026.74 the radial approach puts it at 4.2457 ly (DOCKET 67).
 PROXIMA_LY = 4.2465
 
 
@@ -611,9 +682,11 @@ def definitions_table():
         ("D3 integrated slice length < areal gap", "NO",
          "FAILS worse -- infimum 0, mouths anchored, section 6"),
         ("D4 arrival earlier than the reference geometry", "YES",
-         "REPLACED BY A STRONGER ONE -- Olum, Gao-Wald, VBL"),
+         "REPLACED BY results not this tree's, on their own hypotheses -- "
+         "VBL (reference geometry); Olum, Gao-Wald (none)"),
         ("D5 null flare-out  theta_+  and its derivative", "YES",
-         "REPLACED BY A STRONGER ONE -- Hochberg & Visser 1998"),
+         "REPLACED BY Hochberg & Visser 1998 (on theta = 0; strict only "
+         "under strong flare-out) and gr-qc/9802048"),
     ]
 
 
@@ -668,7 +741,7 @@ def verify():
                      + uc[cc] * (sp.diff(uc[b], x[a]) - sp.diff(uc[a], x[b])))
                 if sp.simplify(e) != 0:
                     bad += 1
-    out.append(("V5  FROBENIUS u'_[a d_b u'_c] = 0, w(t,r) ARBITRARY "
+    out.append(("V5  FROBENIUS u'_[a d_b u'_c] = 0, w(t,r) ARBITRARY C^1 "
                 "(nonzero components)", sp.Integer(bad), 0))
     out.append(("V6  u' is unit timelike for every w",
                 sp.simplify((up.T * g * up)[0, 0] + 1), 0))
@@ -706,7 +779,8 @@ def verify():
     out.append(("V8  its Misner-Sharp mass is M > 0, a scalar",
                 sp.simplify(mm - M), 0))
     Gam_pg = sp.simplify(1 / sp.sqrt(h[1, 1]))
-    out.append(("V9  and its slice returns Gamma = sqrt(1+2E) > 1 EVERYWHERE",
+    out.append(("V9  and its slice returns Gamma = sqrt(1+2E) > 1 EVERYWHERE "
+                "(static only on R > 2M)",
                 sp.simplify(Gam_pg - sp.sqrt(1 + 2 * E)), 0))
     u_pg = sp.Matrix([1, -v, 0, 0])
     out.append(("V10 with unit normal, U = sqrt(2M/R+2E) and Gamma^2-U^2 = 1-2M/R",
@@ -874,8 +948,9 @@ INTERNAL_PRIOR_ART = ("driven.py section 6 states the gauge fact; nonstatic.py "
                       "neither is claimed here.")
 EXTERNAL_PRIOR_ART = ("Misner & Sharp 1964 via Hayward gr-qc/9408002 eq. (27), "
                       "RECOVERED not read; Hochberg & Visser gr-qc/9802046 s7")
-REFUSED = ("no proof that dynamic spherical corridors are impossible (Olum's, "
-           "not this file's); no adjudication of other invariant criteria; "
+REFUSED = ("no proof that dynamic spherical corridors are impossible (not this "
+           "file's, and not Olum's, whose theorem is conditional); no "
+           "adjudication of other invariant criteria; "
            "nothing non-spherical; no ruling; nothing repaired")
 
 
@@ -996,6 +1071,7 @@ def selftest():
     chk("  the excess is POSITIVE -- a delay, not an advance", sh["excess"] > 0.0, True)
 
     print("\n10. WHAT E = R dGamma PRICES")
+    # Exact arithmetic on the input; as physics the span carries ~4 figures.
     near("  Proxima span (m), from this file", proxima_span_m(), 4.017499195e16)
     near("  and from nonstatic.py, to the bit", proxima_span_m(), nonstatic.proxima_span_m(), 0.0)
     bill = gauge_bill_msun(proxima_span_m(), 1.0)
@@ -1022,7 +1098,7 @@ def selftest():
     chk("  the same two are the ones on which the theorem fails",
         sum(1 for _, inv, v in definitions_table()
             if (inv == "NO") == v.startswith("FAILS")), 5)
-    chk("  and it survives or is replaced by a stronger one on the other three",
+    chk("  and it survives or is replaced on the other three",
         sum(1 for _, _, v in definitions_table()
             if v.startswith("SURVIVES") or v.startswith("REPLACED")), 3)
 

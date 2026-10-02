@@ -2832,7 +2832,7 @@ theorem rather than by engineering.
 |---|---|
 | Casimir between boundaries | **measured** |
 | squeezed vacuum | **measured** — LIGO uses it |
-| dynamical Casimir | **measured** — Wilson 2011, superconducting circuit |
+| dynamical Casimir | **observed** — Wilson 2011, superconducting circuit: photon generation and two-mode squeezing from an effective circuit boundary; **no energy density measured** *(corrected, DOCKET 67: listed as "measured" in this census of negative energy density)* |
 | Hawking / Unruh flux | analogue-measured |
 | vacuum polarisation | **measured** via the Lamb shift |
 
@@ -4943,7 +4943,10 @@ Einstein's equation (with a reasonable source)."*
 
 ### 4. Borde's three escapes — all leave Lorentzian GR
 
-drop causal compactness → Tipler's singularity **or a point at infinity** (*"highly undesirable"*);
+drop causal compactness → in the closed-universe case, and under Tipler's further assumptions
+(unnamed in Borde, Tipler 1977 not read), a singularity **or a point at infinity** (*"highly
+undesirable"*) *(corrected, DOCKET 67: the closed-universe case and the additional assumptions
+had been dropped)*;
 weaken the curvature constraints → an alteration of Einstein's equation that *"would have to be fairly
 severe"*; Euclidean path integral → abandons the Lorentzian framework.
 

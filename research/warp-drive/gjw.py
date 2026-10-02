@@ -76,9 +76,14 @@ Their discussion section sketches a flat-space version and stops:
      (otherwise the Casimir energy would be extremely tiny if the black holes
      were far apart)."
 
-They name the enhancement and do not quantify it.  Quantified: for a cycle of
-length 2D the vacuum energy is rho = -pi^2 hbar c/(90 (2D)^4), and against
-seatindex.py's threshold the required gain is
+They name the enhancement and do not quantify it.  Quantified, on a MODEL with
+named hypotheses: one free massless scalar; the flat, transversely infinite,
+uniform periodic density of a cycle of length 2D -- the path through the
+wormhole taken equal to the ambient separation, the lower limit GJW's own
+bank-loan remark allows -- carried onto a cycle that threads a throat, about
+which the flat result makes no claim.  On that model the vacuum ENERGY DENSITY
+is rho = -pi^2 hbar c/(90 (2D)^4), and against seatindex.py's threshold the
+required gain is
 
         D            Casimir |rho|      needed (Pa)      AMPLIFICATION
         1 m          2.167e-28          9.505e+43        4.387e+71
@@ -93,16 +98,38 @@ seatindex.py's threshold the required gain is
 
     It reaches unity only at D = 1.510e-36 m = 0.093 PLANCK LENGTHS.
 
-        FOURTH INDEPENDENT ROUTE TO THE PLANCK SCALE.  corridor.py got there
-        twice -- Unruh at 5.33e-10 kg and Casimir at 0.132 l_P -- achievable.py
-        a third time at 4.09 l_P for the core, and this is a fourth, about
-        GJW's geometry, landing at 0.093 l_P.  Four unrelated calculations.
+    THE THRESHOLD IS A T_kk THRESHOLD AND THE DIVIDEND IS AN ENERGY DENSITY.
+    seatindex.py states T_kk >= pi c^4/(4 G l^2); along the winding direction
+    the cycle's null-null component is 4|T_00| (FOP eq. 24, re-derived by
+    DOCKET 67), so on the tree's own terms the gain is 1.097e71 D^2, and along
+    transverse null directions T_kk = 0 and no gain suffices.  Factor 4; the
+    order and the D^2 law stand.  The figure stays at 4.387e71 here because it
+    is pinned and read elsewhere; the factor is recorded.  The other model
+    choices move it within 5e70-3.5e72 at 1 m: ideal EM plates give 2.193e71
+    (5.48e70 with T_kk), and the ~2.35 D throat path MMP 1807.04726 find gives
+    3.45e72 -- so the 2D cycle is the cheap end, against the tree, not for it.
+
+        NOT AN INDEPENDENT ROUTE TO THE PLANCK SCALE.  The model has ONE
+        length, D, and no other scale, so the gain is 360 D^2/(pi l_P^2)
+        exactly and unity falls at sqrt(pi/360) l_P = 0.0934 l_P by
+        dimensional analysis alone.  Butcher 1405.1283 p.1 fn. 2 makes the
+        same argument and states its limit: "the wormhole/field system need
+        not be characterised by a single length."  corridor.py's Unruh and
+        Casimir landings and achievable.py's 4.09 l_P are recorded beside it
+        as values, not as corroboration.
+
+    CORRECTED (DOCKET 67).  This read "FOURTH INDEPENDENT ROUTE TO THE PLANCK
+    SCALE ... Four unrelated calculations", divided an energy density into a
+    T_kk threshold without saying so, and left the scalar, the flat uniform
+    density and the 2D cycle unstated.  No figure moved.
 
 -- SO WHAT "BETTER" CAN AND CANNOT MEAN --------------------------------------
 CANNOT: faster.  The bank-loan theorem is closed and structural.
-CANNOT: cheaper.  The flat-space gain rises as D^2 and hits unity sub-Planck.
-CAN:    stated exactly.  GJW leave the flat-space cost as a remark; it is
-        4.387e71 D^2, and now it is a number rather than an aspiration.
+CANNOT: cheaper.  The flat-space gain rises as D^2 and hits unity sub-Planck
+        (on the single-length model, by dimensional analysis).
+CAN:    stated on a named model.  GJW leave the flat-space cost as a remark;
+        on the model above it is 4.387e71 D^2 (1.097e71 D^2 against T_kk
+        along the winding direction), a number rather than an aspiration.
 CAN:    the mechanism.  Their non-achronality-by-external-coupling is a route
         achronal.py proved unreachable through matter, and it is worth carrying
         forward as the only known way past Graham-Olum.
@@ -117,13 +144,17 @@ L_PLANCK = 1.616255e-35
 
 
 def casimir_cycle(D):
-    """|rho| on a cycle of length 2D: pi^2 hbar c/(90 (2D)^4).  GJW's flat-space
-    mechanism, which they name and do not evaluate."""
+    """|rho| on a cycle of length 2D: pi^2 hbar c/(90 (2D)^4) -- one free massless
+    scalar, flat, transversely infinite, uniform.  An ENERGY DENSITY; the
+    winding-direction T_kk is 4x this (DOCKET 67).  GJW's flat-space mechanism,
+    which they name and do not evaluate."""
     return (math.pi ** 2) * HBAR_C / (90.0 * (2.0 * D) ** 4)
 
 
 def amplification_needed(D):
-    """The gain GJW call for, as a pure number.  Rises as D^2."""
+    """The gain GJW call for, as a pure number.  Rises as D^2.  Divides |T_00|
+    into seatindex's T_kk threshold, so it is 4x the T_kk gain along the
+    winding direction (DOCKET 67, recorded; value unchanged)."""
     import seatindex
     return seatindex.tkk_required(D) / casimir_cycle(D)
 
@@ -134,7 +165,8 @@ def gain_coefficient():
 
 
 def unity_separation():
-    """Where the required gain reaches 1.  Sub-Planckian."""
+    """Where the required gain reaches 1.  Sub-Planckian: sqrt(pi/360) l_P,
+    forced by the single-length model (DOCKET 67)."""
     return math.sqrt(1.0 / gain_coefficient())
 
 
@@ -155,8 +187,9 @@ ESCAPE_MECHANISM = (
 BETTER = {
     "faster": (False, "the bank-loan theorem is closed and structural"),
     "cheaper": (False, "the flat-space gain rises as D^2 and hits unity sub-Planck"),
-    "stated exactly": (True, "GJW leave the flat-space cost a remark; it is "
-                             "4.387e71 D^2, now a number"),
+    "stated exactly": (True, "GJW leave the flat-space cost a remark; on a "
+                             "one-scalar flat 2D-cycle model it is 4.387e71 D^2 "
+                             "(1.097e71 D^2 against T_kk), now a number"),
     "the mechanism": (True, "non-achronality by external coupling is a route "
                             "achronal.py proved unreachable through matter"),
 }
@@ -199,7 +232,7 @@ def selftest():
         amplification_needed(1.0e6) > amplification_needed(1.0), True)
     print("       (A first reading of this table called it falling. It rises.)")
 
-    print("\nFOURTH INDEPENDENT ROUTE TO THE PLANCK SCALE")
+    print("\nTHE PLANCK LANDING -- forced by the single-length model, not independent")
     u = unity_separation()
     near("gain reaches 1 at D (m)", u, 1.5098e-36, 1e-3)
     near("in Planck lengths", u / L_PLANCK, 0.0934, 1e-2)
@@ -218,7 +251,9 @@ def selftest():
          corridor.casimir_seat_crossing() / L_PLANCK, 0.1321, 1e-3)
     near("achievable.py's core crossing, in l_P",
          achievable.crossing_radius() * achievable.A_OVER_B / L_PLANCK, 4.09, 1e-2)
-    print("       Four unrelated calculations, all landing at the Planck scale.")
+    print("       Recorded beside it as values.  GJW's landing is sqrt(pi/360) l_P by")
+    print("       dimensional analysis on one length, so it corroborates nothing")
+    print("       (CORRECTED, DOCKET 67: 'Four unrelated calculations').")
 
     print("\nWHAT 'BETTER' CAN AND CANNOT MEAN")
     for k, (can, why) in BETTER.items():
@@ -256,11 +291,13 @@ def report():
     print("  route achronal.py proved unreachable through the stress tensor, and")
     print("  the only known way past that theorem.  Carry it forward.")
     print("\n  And their flat-space version, which they leave as a remark, costs")
-    print("  an amplification of 4.387e71 D^2 -- rising with separation, and")
-    print("  reaching unity only at 0.093 Planck lengths.  A fourth independent")
-    print("  route to the same scale.")
+    print("  -- for one free massless scalar on a flat, uniform 2D cycle -- an")
+    print("  amplification of 4.387e71 D^2 against the energy density (1.097e71")
+    print("  D^2 against T_kk along the winding direction), rising with")
+    print("  separation, and reaching unity only at 0.093 Planck lengths -- a")
+    print("  landing the single-length model forces, not an independent route.")
     print("\n  'Better' cannot mean faster: the bank-loan theorem is closed. It")
-    print("  can mean stated exactly, and now it is.  And under M's scoping GJW")
+    print("  can mean stated on a named model, and now it is.  And under M's scoping GJW")
     print("  is an EXISTENCE PROOF -- entanglement plus a coupling, no exotic")
     print("  matter postulated, the negative energy derived.")
     return 0

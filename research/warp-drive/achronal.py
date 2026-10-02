@@ -38,9 +38,17 @@ Three of the corpus's own rules land on that:
 This file runs the order language.  It returns a binary per ray.
 
 -- WHAT THE ORDER OPERATOR IS, CONCRETELY -------------------------------------
-A null geodesic is achronal exactly up to its first CONJUGATE POINT; past one it
-enters the chronological future of its own earlier points and Graham & Olum's
-hypothesis fails.  Conjugate points are the zeros of the Jacobi field, and for a
+Past its first CONJUGATE POINT a null geodesic enters the chronological future
+of its own earlier points, so it is not achronal and Graham & Olum's hypothesis
+fails there.  The converse is FALSE: a null geodesic with no conjugate point
+can be chronal anyway (a flat cylinder gives one; computed in DOCKET 67), so
+"no conjugate point" does not make a ray achronal.
+
+    CORRECTED (DOCKET 67).  First written "A null geodesic is achronal EXACTLY
+    up to its first CONJUGATE POINT", which asserted the converse.  It put rays
+    INSIDE Graham & Olum's scope -- against M -- and is already superseded by
+    the strike recorded at spec.py's inventory and by anecscope.py.  The
+    lemma below proves "no conjugate point" only, not achronality.  Conjugate points are the zeros of the Jacobi field, and for a
 null congruence with zero shear the Raychaudhuri equation
 
         dtheta/dlambda = -theta^2/2 - sigma^2 - R_kk,   theta = 2 u'/u
@@ -105,8 +113,8 @@ On the innermost rays it is not even a measurement.  There T_kk <= 0 EVERYWHERE
 along the geodesic (max T_kk = 0 on the axis, +9.3e-12 at y = 0.3 -- noise), and
 then it is a two-line proof:
 
-    LEMMA.  If T_kk <= 0 along a null geodesic then it has no conjugate point,
-    hence is achronal.
+    LEMMA.  If T_kk <= 0 along a null geodesic then it has no conjugate point
+    (first written "hence is achronal", the converse struck above).
     PROOF.  u'' = -4 pi T_kk u >= 0 wherever u >= 0.  With u(0) = 0 and
     u'(0) = 1, u is initially positive and convex, so u' is non-decreasing,
     so u' >= 1 and u >= lambda > 0 for all lambda > 0.  No zero.  QED
@@ -123,10 +131,22 @@ available, and it locates the obstruction precisely:
 
     The prohibition now rests ENTIRELY on the achronal ANEC in 4D CURVED
     spacetime, with no configurational dodge left -- and that condition is
-    UNPROVEN.  Graham & Olum proved it in flat spacetime in 2007; the
-    self-consistent curved-space version has stood open for nineteen years,
-    with no proof and no counterexample.  WARP-DRIVE.md section 6 recorded that
-    before this pass and it is now load-bearing rather than a footnote.
+    UNPROVEN IN GENERAL.  In flat spacetime ANEC on achronal null geodesics was
+    proved by Wald & Yurtsever 1991 (and Klinkhammer 1991); Graham & Olum 2007
+    is the paper that states the self-consistent curved-space condition, for
+    curvature well below the Planck scale, and it has stood open in general for
+    nineteen years since -- longer from Flanagan-Wald 1996's achronal form --
+    with no known counterexample.  Restricted and conditional proofs exist and
+    do not cover it: Kontou & Olum on curved backgrounds obeying the NEC, and
+    Wall 2010 from the generalised second law, for small perturbations.
+    WARP-DRIVE.md section 6 recorded that before this pass and it is now
+    load-bearing rather than a footnote.
+
+    CORRECTED (DOCKET 67).  First written "Graham & Olum proved it in flat
+    spacetime in 2007 ... open for nineteen years, with no proof and no
+    counterexample".  Graham & Olum proved no ANEC result; the flat-space
+    proof is Wald & Yurtsever's (credited so in 1807.03808); and "no proof"
+    flattened the partial proofs to nothing.
 
 That is a sharpening, not an escape, and this file does not dress it as one.
 
@@ -464,8 +484,11 @@ def report():
     print("  defocusing is exactly what prevents the conjugate point that")
     print("  would break achronality.  You cannot buy one with the other.")
     print("\n  WHAT SURVIVES: the prohibition rests entirely on the achronal")
-    print("  ANEC in 4D CURVED spacetime, which is UNPROVEN -- nineteen years,")
-    print("  no proof, no counterexample.  That is now load-bearing.")
+    print("  ANEC in 4D CURVED spacetime, which is UNPROVEN in general --")
+    print("  nineteen years since Graham & Olum stated it, no known")
+    print("  counterexample, and only restricted or conditional proofs")
+    print("  (Kontou-Olum on NEC backgrounds; Wall 2010 via the GSL, small")
+    print("  perturbations).  That is now load-bearing.")
     return 0
 
 

@@ -19,10 +19,26 @@ it has fired here once already (DOCKET 56).
 THE HEADLINE, AND IT SPLITS
 ===============================================================================
 
-    THE ENGINEERING SPECIFICATION DOES NOT SURVIVE ARITHMETIC.  The device
-    stores 1,486 J and its own premise needs 8.988e18 J -- SHORT BY 15.8
-    ORDERS.  It reaches 7.6e-07 of the Planck energy at a focal point its own
-    text says "spikes to Planck threshold".
+    THE ENGINEERING SPECIFICATION DOES NOT SURVIVE ARITHMETIC.  Its pulsed-
+    ignition store (Marx bank plus laser) holds 1,486 J and its own premise
+    needs 8.988e18 J -- SHORT BY 15.8 ORDERS.  That is the SUBSYSTEM's
+    figure: the folder also energises a 20 T stator, two 85,000 RPM rotors it
+    calls "rotational kinetic energy storage" and a muCF starter cell, and
+    prints no energy for any of them.  Bounded by the printed dimensions
+    (DOCKET 67, computed) the whole device is short by a floor of about 5.7 to
+    8.2 orders, the spread being which bound is taken; every bound computed
+    leaves it short.  The whole store's ENERGY is 7.6e-07 of the Planck
+    energy; the text's own claim is "Optical Intensity Spikes to Planck
+    Threshold", and against the Planck INTENSITY the ratio is 9.2e-99.
+
+    CORRECTED (DOCKET 67).  First written as "The device stores 1,486 J ...
+    SHORT BY 15.8 ORDERS.  It reaches 7.6e-07 of the Planck energy at a focal
+    point".  "The device" was the pulsed subsystem only; "at a focal point"
+    counted the Marx energy, which drives the laser and never reaches the
+    focus (the laser alone is 1.53e-07 of E_P); and the document says
+    intensity where this file tested energy.  No flag moves:
+    ENERGY_BUDGET_IS_CONNECTED_TO_THE_CHAIN and REACHES_PLANCK_THRESHOLD stay
+    False under every reading DOCKET 67 computed.
 
     THE ADDRESSING IDEA IS REAL, AND IT CONVERGED WITH OURS INDEPENDENTLY.
     The folder proposes addressing by "CMB Coordinate Map & Local Higgs Field
@@ -49,8 +65,20 @@ Its own hardware specification fixes both sides of the comparison:
     Marx bank    10 x 100 nF charged to 50 kV      ->  E = 10 * (1/2) C V^2
     laser        1e20 W/cm^2, 0.1 mm spot, 30 fs   ->  E = I * area * t
 
-Both are computed below from the document's own printed parameters.  Nothing
-is assumed about them and no figure is taken from its prose.
+Both are computed below from the document's own printed parameters.  No
+figure is taken from its prose, but three readings are this file's, and DOCKET
+67 recorded each:
+  - the two are SUMMED, though the document's power flow has "The 500 kV
+    output pulse drives an array of eight CPA laser heads": the laser draws on
+    the Marx store, so the sum counts it twice, +19 % in the DOCUMENT's
+    favour (Marx alone is 15.857 orders short against the sum's 15.782);
+  - 1e20 W/cm^2 is printed as a floor ("exceeding"), and the same document
+    prints a 10 PW peak: 10 PW x 30 fs is 300 J against the 235.6 J used here,
+    0.02 orders against the document; 50 kV is printed "up to", on
+    capacitors rated 60 kV (1800 J, 0.16 orders at most);
+  - Marx plus laser is the PULSED store, not the device's: the stator, the
+    rotors and the muCF cell are energised and unquantified (see the
+    headline).  The 15.8 orders is the subsystem's shortfall.
 
 SECOND, AND WORSE FOR THE PROPOSAL AS A TRANSPORT: the terminal flash is
 E = M c^2 BY CONSTRUCTION, and the document presents this as the reconstruction
@@ -65,24 +93,70 @@ The reconstruction claim is that the flash "temporarily elevates the local
 ambient temperature to the electroweak scale, exciting the local Higgs
 potential", after which the payload's binary template guides re-condensation.
 
-  (a) HEATING TO THE ELECTROWEAK SCALE RESTORES THE SYMMETRY.  The vev is the
-      LOW-temperature phase.  Raising T to the crossover drives <phi> -> 0 and
-      UN-GENERATES the fermion masses.  The document has the thermodynamic
+  (a) HEATING TO THE ELECTROWEAK SCALE TAKES THE HIGGS TO ITS SYMMETRIC-
+      LABELLED SIDE.  In the Standard Model with one Higgs doublet at the
+      measured Higgs mass, the vev is the LOW-temperature side of a smooth
+      crossover at T_c = 159.5 +/- 1.5 GeV, about 5 GeV wide (1508.07161,
+      READ in DOCKET 65, which notes "there is no real symmetry breaking phase
+      transition"; "broken" and "symmetric" are conventional labels).  Above
+      T_c the Higgs expectation value is "approximately zero" (1404.3565), and
+      the tree-level, vev-generated fermion masses, proportional to phi, are
+      approximately zero with it.  The document has the thermodynamic
       direction inverted: it is describing the condition under which mass
       ceases to be generated and calling it the condition under which mass is
-      generated.
+      generated.  The direction rests on the one-doublet SM; restoration at
+      high T is model-dependent, and thermal masses are not addressed here.
 
-  (b) AND THE COOLING IS UNCORRELATED.  Symmetry breaking in causally
-      disconnected domains picks independent phases -- the Kibble-Zurek
-      mechanism.  The generic output of a rapid quench through a symmetry-
-      breaking transition is a TOPOLOGICAL DEFECT NETWORK, not a templated
-      object.  RECORDED AS ELEMENTARY; no source read for it here.
+      CORRECTED (DOCKET 67).  First written as "RESTORES THE SYMMETRY ...
+      Raising T to the crossover drives <phi> -> 0 and UN-GENERATES the
+      fermion masses", with the SM hypothesis unnamed.  That stated a
+      crossover as a transition, "approximately zero, above T_c" as "-> 0",
+      and tree-level vev masses as "the fermion masses".  The direction, which
+      is all (a) uses, stands; HEATING_TO_EW_SCALE_RESTORES_SYMMETRY keeps
+      its value and names the symmetric-labelled side of the crossover.
 
-  (c) BARYON NUMBER CLOSES IT.  100 kg of ordinary matter is 5.98e28 baryons.
-      A thermal flash makes baryon-ANTIbaryon pairs, net B = 0.  Getting a net
-      baryon number out of a hot region requires the Sakharov conditions and
-      delivers eta ~ 6.1e-10 per photon.  A blueprint does not source baryon
-      number; no arrangement of information does.
+  (b) AND THE COOLING IS UNCORRELATED.  For a global symmetry broken at a
+      continuous transition, causally disconnected domains pick independent
+      phases, and where the vacuum manifold has nontrivial homotopy the
+      generic output of a rapid quench is a TOPOLOGICAL DEFECT NETWORK, not a
+      templated object -- the Kibble-Zurek mechanism.  The SM case meets
+      neither hypothesis: its electroweak transition is a crossover (see (a)),
+      its Higgs vacuum manifold is S^3, whose pi_0, pi_1 and pi_2 are trivial
+      (computed in DOCKET 67), and for the gauged Higgs the phase is
+      gauge-dependent.  So the SM output has no topologically stable walls,
+      strings or monopoles, and no quench or relaxation time for the flash is
+      computed here.  What survives is the conclusion, not a templated
+      object, which nothing contradicts; it is not derived on the SM's own
+      hypotheses.  Kibble 1976 and Zurek 1985 are NAMED-NOT-READ.
+
+      CORRECTED (DOCKET 67).  First written as "Symmetry breaking in causally
+      disconnected domains picks independent phases ... The generic output of
+      a rapid quench through a symmetry-breaking transition is a TOPOLOGICAL
+      DEFECT NETWORK", applied to the SM with neither hypothesis named.
+
+  (c) BARYON NUMBER CLOSES IT.  100 kg counted at the free-proton mass is
+      5.98e28 baryons; bound nuclei are lighter per baryon, so 100 kg of
+      carbon holds 6.02e28 and of iron 6.03e28 (+0.7 to +0.85 %, DOCKET 67),
+      and the printed figure fits hydrogen-dominated matter.  A thermal flash
+      makes baryon-ANTIbaryon pairs, net B = 0: at equilibrium <B> = 0 needs
+      a CPT-invariant Hamiltonian with no baryon chemical potential, which
+      the SM and a lab flash meet.  The Sakharov conditions are NECESSARY for
+      a net baryon number from a charge-symmetric start; they are not
+      sufficient and fix no yield.  eta ~ 6.1e-10 per photon is the OBSERVED
+      present-day ratio (Planck 2018's Omega_b h^2, converted), and SM
+      electroweak baryogenesis is "unable to explain" it (1206.2942, READ in
+      DOCKET 65).  Item (b) calls the flash a quench, which is out of
+      equilibrium, so condition (iii) is met there and cannot be what closes
+      (c).  The closure rests on (i), B conserved below T_EW and B - L
+      conserved by sphalerons above it, so B_eq = (28/79)(B - L) = 0 from
+      B - L = 0 (computed in DOCKET 67), and on (ii), SM CP violation being
+      insufficient for the observed yield.  A blueprint does not source
+      baryon number; no arrangement of information does.
+
+      CORRECTED (DOCKET 67).  First written as "100 kg of ordinary matter is
+      5.98e28 baryons ... requires the Sakharov conditions and delivers eta ~
+      6.1e-10 per photon".  The conditions deliver no value, the count is the
+      free-proton count, and the closure was left on equilibrium.
 
   (d) AND THE FIELD CANNOT BE PUT SOMEWHERE WITHOUT FILLING THE PLACE.
       higgs.py's caveat (b), as corrected by DOCKET 63 (ruling F3), records
@@ -104,7 +178,10 @@ potential", after which the payload's binary template guides re-condensation.
       moment and are kept as SCREENING_IS_VERIFIED_AS_FIRST_WRITTEN = False
       with its reason.  (a), (b) and (c) never rested on (d) and do not now.
 
-Note that (a), (b) and (c) are INDEPENDENT.  Each alone is sufficient.
+Note that (a), (b) and (c) are INDEPENDENT.  Each alone is sufficient --
+with (b), on the SM case, standing on its conclusion rather than on the
+Kibble-Zurek hypotheses it names (see its correction); (a) and (c) do not
+lean on (b).
 
 ===============================================================================
 3. THE ROTOR IS OVER ITS MATERIAL LIMIT, AND IS NOT RELATIVISTIC
@@ -112,10 +189,24 @@ Note that (a), (b) and (c) are INDEPENDENT.  Each alone is sufficient.
 
 A 1.8 m rotor at 85,000 RPM has a tip speed of 8,011 m/s.  The documents call
 the counter-rotating surfaces "relativistic surface velocities"; 8,011 m/s is
-2.67e-05 c.  Against the burst speed sqrt(sigma/rho) of the two materials the
-CAD page actually names, the demanded speed is over the limit by 4.2x (T1000
-carbon fibre) and 19.4x (beryllium-copper).  A rotor asked to exceed
-sqrt(sigma/rho) does not spin; it disassembles.
+2.67e-05 c.  Against the thin-rim burst speed sqrt(sigma/rho) of the two
+materials the CAD page actually names, the demanded speed is over the limit by
+4.2x (T1000 carbon fibre) and 19.4x (beryllium-copper).  A thin rim asked to
+exceed sqrt(sigma/rho) does not spin; it disassembles.
+
+CORRECTED (DOCKET 67).  First written as "A rotor asked to exceed
+sqrt(sigma/rho) ... disassembles", for every rotor.  sqrt(sigma/rho) is exact
+for a thin rim.  A uniform isotropic disc (nu = 0.3) reaches 1.557x it, so the
+factors become 2.7x and 12.5x, still over; a constant-stress (Stodola) profile
+has no fixed-multiple ceiling.  Beryllium-copper is over on every geometry
+(the Stodola escape needs a taper of exp(-189)).  For T1000 the Stodola
+escape (taper 1.2e-4) is closed only by the fibre's anisotropy, a hypothesis
+this file names here and does not compute; the printed construction wraps the
+fibre at the outer radius, a thin rim.  The T1000 figure is the bare fibre's
+strength along its axis, not a laminate's (a composite would raise the factor
+to about 5); "beryllium-copper" names no temper, and 1.4 GPa is peak-aged
+C17200 (a lower temper raises the factor).  Both favour the rotor.
+ROTOR_IS_WITHIN_MATERIAL_LIMITS stays False.
 
 ===============================================================================
 4. THE 12-VECTOR FAILS THE CRITERION, AND THAT IS A CATEGORY FINDING
@@ -187,7 +278,11 @@ c = ladder.c
 G = ladder.G
 HBAR = ladder.HBAR
 KB = 1.380649e-23                        # SI-EXACT
-M_PROTON = 1.67262192369e-27             # kg, CODATA         NAMED-NOT-READ
+M_PROTON = 1.67262192369e-27             # kg, CODATA 2018    NAMED-NOT-READ
+# The FREE-proton rest mass, CODATA 2018 (superseded by CODATA 2022,
+# 1.67262192595e-27, +1.35e-9 relative; both READ via the scipy/astropy
+# restatements in DOCKET 67).  Used as mass per baryon by baryons_in(), which
+# fits hydrogen-dominated matter: bound nuclei are lighter per baryon.
 MT_TNT_J = 4.184e15                      # J per megaton, by definition
 TSAR_BOMBA_MT = 50.0                     # Mt                 NAMED-NOT-READ
 
@@ -212,7 +307,9 @@ DOCUMENTS_READ_IN_FULL = True
 MARX_STAGES = 10                         # pulsed_ignition, sect. 1.1
 MARX_C_FARAD = 100e-9                    # "ten 100 nF energy storage capacitors"
 MARX_V_VOLT = 50e3                       # "up to +50 kV DC"
-LASER_I_W_PER_CM2 = 1e20                 # "exceeding 1e20 W/cm^2"
+LASER_I_W_PER_CM2 = 1e20                 # "exceeding 1e20 W/cm^2"  (a floor;
+                                         # the same document prints a 10 PW peak,
+                                         # 1.27e20 W/cm^2 over this spot -- DOCKET 67)
 LASER_SPOT_M = 0.1e-3                    # "0.1 mm spot"
 LASER_PULSE_S = 30e-15                   # "30 fs duration"
 ROTOR_D_M = 1.8                          # blueprints, "Flywheel Rotor 1.8 m"
@@ -221,13 +318,27 @@ PAYLOADS_KG = (100.0, 5000.0, 1.0e5)     # the document's own three rows
 
 # Materials the CAD page names.  sigma/rho are NOT from the folder -- the folder
 # gives no strength figures -- so they carry their own status.
+# T1000: the BARE FIBRE's strength along its axis (data sheet ~6.37 GPa, 1.80
+# g/cm^3), not a laminate's; a composite rotor is weaker per unit density and
+# would raise the over-limit factor.  'beryllium-copper' names no temper:
+# 1.4 GPa is peak-aged C17200, and a lower temper also raises the factor.
+# Room-temperature ultimate strengths, no fatigue, no safety factor.  Every one
+# of these choices favours the rotor (DOCKET 67).  Not READ at source.
 MATERIALS = (                            # (name, sigma_Pa, rho_kg_m3)  ORDER
     ("carbon fibre T1000", 6.4e9, 1800.0),
     ("beryllium-copper",   1.4e9, 8250.0),
 )
 
-ETA_BARYON = 6.1e-10                     # Planck 2018        NAMED-NOT-READ
+ETA_BARYON = 6.1e-10                     # observed, from Planck 2018
+# Planck 2018 (1807.06209, Table 2, READ in DOCKET 67) prints Omega_b h^2 =
+# 0.02237 +/- 0.00015, NOT eta; eta = (6.124 +/- 0.041)e-10 is the standard
+# conversion of it with T_CMB = 2.7255 K, here to 2 s.f.  It is the OBSERVED
+# ratio.  No mechanism produced it in this file, and SM electroweak
+# baryogenesis cannot (1206.2942, READ in DOCKET 65).
 T_EW_CROSSOVER_GEV = 160.0               # order              ORDER
+# The lattice crossover is T_c = 159.5 +/- 1.5 GeV (1508.07161 abstract, READ in
+# DOCKET 65 and owned by massform.py), the susceptibility maximum of a smooth
+# crossover ~5 GeV wide, in the one-doublet SM.  160 is 0.33 sigma from it.
 
 # The document's own scaling table, third row, as printed.  STATUS: READ.
 # Kept as a constant because this file DISAGREES with it, and a figure a file
@@ -240,7 +351,13 @@ PROPORTIONALITY_ARITHMETIC_IS_CORRECT = True
 ENERGY_BUDGET_IS_CONNECTED_TO_THE_CHAIN = False
 REACHES_PLANCK_THRESHOLD = False
 FLASH_IS_A_RECONSTRUCTION_MECHANISM = False
+# 'RESTORES' is the conventional label for the symmetric-labelled side of an SM
+# crossover, not a real phase transition (1508.07161 fn.1); the flag records
+# the DIRECTION, which is what (a) uses (DOCKET 67).
 HEATING_TO_EW_SCALE_RESTORES_SYMMETRY = True
+# A literal.  It rests on (b), whose Kibble-Zurek hypotheses the SM crossover
+# does not meet (see (b)'s correction); no ledger row or specthm class reads it.
+# Pinned by the selftest since DOCKET 67, which found it asserted nowhere.
 QUENCH_GIVES_A_TEMPLATED_OBJECT = False
 BLUEPRINT_SOURCES_BARYON_NUMBER = False
 ROTOR_IS_RELATIVISTIC = False
@@ -280,16 +397,30 @@ def marx_joules():
 
 
 def laser_joules():
-    """I * area * t, with the document's own intensity, spot and duration."""
+    """I * area * t, with the document's own intensity, spot and duration.
+
+    The intensity is the printed FLOOR, 1e20 W/cm^2 exactly; the document's
+    own 10 PW peak x 30 fs gives 300 J against this 235.6 J -- 0.02 orders
+    AGAINST the document (DOCKET 67).  Top-hat in space and time."""
     area_cm2 = math.pi * (LASER_SPOT_M * 100.0 / 2.0) ** 2
     return LASER_I_W_PER_CM2 * area_cm2 * LASER_PULSE_S
 
 
 def stored_joules():
+    """The PULSED store, Marx plus laser.
+
+    Not the device's whole store: the stator, rotors and muCF cell are
+    energised and unquantified.  And the laser heads are driven BY the Marx
+    pulse, so the sum counts the laser twice, +19 % in the document's favour
+    (DOCKET 67).  Kept as the sum because S9 and the selftest read it."""
     return marx_joules() + laser_joules()
 
 
 def planck_energy():
+    """E_P = sqrt(hbar c^5 / G), the CODATA convention (hbar, not h; G, not
+    8 pi G).  Under h the store fraction is 3.03e-7, under 8 pi G 3.81e-6
+    (DOCKET 67).  A dimensional unit, compared here with a TOTAL energy:
+    21.76 ug of rest mass exceeds it."""
     return math.sqrt(HBAR * c ** 5 / G)
 
 
@@ -326,12 +457,21 @@ def tip_speed_m_s():
 
 
 def burst_speed_m_s(sigma_pa, rho):
-    """The classical rotor limit sqrt(sigma/rho), independent of radius."""
+    """The THIN-RIM limit sqrt(sigma/rho), independent of radius.
+
+    Exact for a thin rim (hoop stress rho v^2).  A uniform isotropic disc
+    reaches 1.557x it (nu = 0.3); a constant-stress Stodola profile has no
+    fixed-multiple ceiling, closed for T1000 only by fibre anisotropy, which
+    is not computed here.  Independence of radius holds at fixed shape for
+    every geometry (DOCKET 67)."""
     return math.sqrt(sigma_pa / rho)
 
 
 # ------------------------------------------------------------- baryon number
 def baryons_in(mass_kg):
+    """mass / m_p: the free-proton count, which fits hydrogen-dominated matter.
+    Atomic matter holds 0.67-0.85 % more baryons per kg (water 6.019e28,
+    56Fe 6.029e28 per 100 kg; DOCKET 67).  No flag reads it."""
     return mass_kg / M_PROTON
 
 
@@ -353,18 +493,21 @@ def report():
                                     marx_joules()))
     print("      %-42s %16.1f J" % ("laser, 1e20 W/cm^2, 0.1 mm, 30 fs",
                                     laser_joules()))
-    print("      %-42s %16.1f J" % ("TOTAL STORED", stored_joules()))
+    print("      %-42s %16.1f J" % ("TOTAL PULSED STORE", stored_joules()))
+    print("      (the Marx pulse drives the laser, so the sum counts it twice;")
+    print("      the stator, rotors and muCF cell are energised and unquantified)")
     print()
     print("      %-42s %16.3e J" % ("needed, 100 kg black hole",
                                     rest_energy_j(100.0)))
     print("      %-42s %16.3e" % ("SHORTFALL, times", shortfall(100.0)))
-    print("      %-42s %16.1f" % ("  orders of magnitude",
+    print("      %-42s %16.1f" % ("  orders of magnitude, pulsed store",
                                   math.log10(shortfall(100.0))))
     print()
     print("      %-42s %16.3e J" % ("Planck energy", planck_energy()))
-    print("      %-42s %16.3e" % ("  fraction the focus reaches",
+    print("      %-42s %16.3e" % ("  pulsed-store ENERGY / E_P (hbar)",
                                   stored_joules() / planck_energy()))
-    print("      and the document says it 'spikes to Planck threshold'.")
+    print("      the document says 'Optical Intensity Spikes to Planck")
+    print("      Threshold' -- an INTENSITY; the energy test is the generous one.")
     print()
 
     print("-" * 79)
@@ -388,19 +531,23 @@ def report():
     print("3. THE RECONSTRUCTION RUNS THE WRONG WAY.  THREE INDEPENDENT REASONS")
     print("-" * 79)
     print()
-    print("  (a) heating TO the electroweak scale RESTORES the symmetry:")
-    print("      T_EW ~ %.0f GeV = %.3e K, and there <phi> -> 0." %
+    print("  (a) heating TO the electroweak scale (one-doublet SM) crosses over")
+    print("      to the symmetric-labelled side: T_EW ~ %.0f GeV = %.3e K," %
           (T_EW_CROSSOVER_GEV,
            T_EW_CROSSOVER_GEV * 1e9 * 1.602176634e-19 / KB))
+    print("      and above it <phi> is approximately zero.")
     print("      the document has the thermodynamic direction inverted.")
     print()
-    print("  (b) the quench is uncorrelated (Kibble-Zurek): the generic output")
-    print("      is a defect network, not a templated object.")
+    print("  (b) the quench is uncorrelated: not a templated object.  Kibble-")
+    print("      Zurek's defect network needs a continuous transition and a")
+    print("      vacuum manifold with nontrivial homotopy; the SM's is a")
+    print("      crossover, and its S^3 has trivial pi_0, pi_1, pi_2.")
     print()
-    print("  (c) baryon number. 100 kg is %.3e baryons; a thermal flash makes"
+    print("  (c) baryon number. 100 kg / m_p is %.3e baryons; a thermal flash"
           % baryons_in(100.0))
-    print("      pairs, net B = 0, and SM baryogenesis gives eta = %.1e."
+    print("      makes pairs, net B = 0; the observed eta = %.1e, and SM"
           % ETA_BARYON)
+    print("      baryogenesis cannot produce it (1206.2942).")
     print("      a blueprint does not source baryon number.")
     print()
     print("      EACH ALONE IS SUFFICIENT.  They are independent.")
@@ -419,6 +566,8 @@ def report():
         vb = burst_speed_m_s(sigma, rho)
         print("      %-24s burst %8.0f m/s   demanded/limit %6.1fx" %
               (name, vb, v / vb))
+    print("      thin-rim limits; a uniform isotropic disc allows 1.557x (nu = 0.3),")
+    print("      still over on both materials.")
     print()
 
     print("-" * 79)
@@ -452,10 +601,11 @@ def report():
     print("VERDICT")
     print("=" * 79)
     print()
-    print("  The specification fails on its own printed numbers, by 15.8")
-    print("  orders, and its reconstruction mechanism is inverted.  The")
-    print("  addressing idea is real, converged with DOCKET 63's role 1")
-    print("  independently, and is the only part this tree should keep.")
+    print("  The specification fails on its own printed numbers -- its pulsed")
+    print("  store by 15.8 orders, the whole device by a floor of ~5.7 to 8.2")
+    print("  on DOCKET 67's bounds -- and its reconstruction mechanism is")
+    print("  inverted.  The addressing idea is real, converged with DOCKET 63's")
+    print("  role 1 independently, and is the only part this tree should keep.")
     print()
     print("  NOTHING IS REPAIRED.  The folder is not edited.")
     print()
@@ -526,7 +676,12 @@ def selftest():
     # The Planck claim, which the document makes in its own operational
     # chronology ("Optical Intensity Spikes to Planck Threshold").
     frac = stored_joules() / planck_energy()
-    chkrel("reaches 7.60e-07 of the Planck energy", frac, 7.595e-7, 1e-3)
+    # CORRECTED (DOCKET 67): the document's word is INTENSITY; this tests the
+    # pulsed store's ENERGY against E_P (hbar convention), the most generous
+    # reading.  Against the Planck intensity the ratio is 9.2e-99.  The flag
+    # is False under every reading.
+    chkrel("pulsed-store energy is 7.60e-07 of the Planck energy", frac,
+           7.595e-7, 1e-3)
     chk("  so it does not reach the Planck threshold",
         REACHES_PLANCK_THRESHOLD, frac >= 1.0)
 
@@ -550,11 +705,16 @@ def selftest():
            1e-12)
 
     # ------------------------------------------------------------ baryon number
-    chkrel("100 kg is 5.98e28 baryons", baryons_in(100.0), 5.979e28, 1e-3)
+    # The free-proton count; atomic matter holds 0.67-0.85 % more (DOCKET 67).
+    chkrel("100 kg / m_p is 5.98e28 baryons", baryons_in(100.0), 5.979e28,
+           1e-3)
     chk("a blueprint does not source baryon number",
         BLUEPRINT_SOURCES_BARYON_NUMBER, False)
-    chk("heating to the EW scale restores the symmetry",
+    chk("heating to the EW scale reaches the symmetric-labelled side (SM)",
         HEATING_TO_EW_SCALE_RESTORES_SYMMETRY, True)
+    # DOCKET 67 found this literal asserted nowhere; pinned, not derived.
+    chk("the quench gives no templated object (a literal)",
+        QUENCH_GIVES_A_TEMPLATED_OBJECT, False)
     chk("so the flash is not a reconstruction mechanism",
         FLASH_IS_A_RECONSTRUCTION_MECHANISM, False)
 
@@ -565,7 +725,12 @@ def selftest():
         tip_speed_m_s() / c > 0.01)
     over = [round(tip_speed_m_s() / burst_speed_m_s(s, r), 1)
             for _, s, r in MATERIALS]
-    chk("over the burst limit by these factors", over, [4.2, 19.4])
+    # Thin-rim factors, rounded from ORDER inputs.  The unrounded T1000 factor
+    # is 4.2485, 0.0015 below the rounding edge; at the data-sheet 6,370 MPa
+    # it prints 4.3, and BeCu at 1.357-1.38 GPa prints 19.6-19.8 -- digit
+    # discrepancies, not refutations (DOCKET 67).  A uniform disc gives
+    # 2.7x and 12.5x, still over.
+    chk("over the thin-rim burst limit by these factors", over, [4.2, 19.4])
     chk("  so it is outside material limits on BOTH named materials",
         ROTOR_IS_WITHIN_MATERIAL_LIMITS, False)
 

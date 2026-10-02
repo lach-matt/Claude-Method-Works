@@ -270,7 +270,7 @@ at once.**
 > | | condition | force |
 > |---|---|---|
 > | **Sturm** (sufficient) | `q ≥ m` on a contiguous length `ℓ ≥ π/√m`, i.e. **`m·ℓ² ≥ π²`** | seats **universally** |
-> | **Lyapunov** (necessary) | `L·∫q⁺ > 4` | below it **nothing** seats, whatever the shape |
+> | **Lyapunov** (necessary, in the shear-free scalar model) | `L·∫q⁺ > 4` | below it **nothing** seats in that model, whatever the shape; with shear (Weyl focusing) a vacuum ray seats at Lyapunov number 0 *(Corrected on M's "Repair all", DOCKET 67: first stated without the scalar-model hypothesis, which reads as a claim about spacetime focusing.)* |
 >
 > **Sturm's condition is universal in the strict sense**: the zero occurs *inside* the focusing
 > stretch, so nothing outside it can prevent the seat. Measured at exactly `m·ℓ² = π²` over five
@@ -308,7 +308,7 @@ at once.**
 
 | | `seatindex.py` |
 |---|---|
-| status | **PROVEN** (Sturm, Lyapunov — classical) + **MEASURED** (the index, the populations, the universality scan) |
+| status | **PROVEN** (Sturm, Lyapunov — classical; Lyapunov's necessity holds in the shear-free scalar model `seats()` integrates, not for spacetime focusing with shear *(Corrected on M's "Repair all", DOCKET 67: the scope was unstated.)*) + **MEASURED** (the index, the populations, the universality scan) |
 | new? | the application and the trichotomy, yes; both bounds are classical and are cited as such |
 | falsified by | a Sturm-satisfying configuration that fails to seat (would contradict Sturm), or an exact universality frontier below `m·ℓ² = π²` |
 | **not** claimed | **that universal seating is universal transport.** A seat is a light focus and carries no payload; and `transit.py`'s exclusion 2 stands — every turning ray arrives late. The exact frontier of universality is **`NOT-RUN`**, not absent. |
@@ -665,12 +665,12 @@ fluid* — its own internal modes — is untouched.
 **H13. There is no achievable core. Every known source of negative energy density obeys
 `|ρ| ≲ ℏc/L⁴`, and the core needs 65 orders of magnitude more.**
 
-> **The census of real negative energy density** — Casimir (measured), squeezed vacuum (measured,
-> LIGO uses it), dynamical Casimir (measured, Wilson 2011), Hawking/Unruh flux (analogue-measured),
-> vacuum polarisation (measured via the Lamb shift). **All of them obey one bound**: Ford & Roman's
+> **The census of real negative energy density** — Casimir (measured), squeezed vacuum (what is measured is a negative normal-ordered quadrature variance, which is a negative `⟨:T₀₀:⟩` only under the single-mode plane-wave identification and on part of each cycle;
+> LIGO uses it, corroborated by search summaries only), dynamical Casimir (observed, Wilson 2011: photon generation and two-mode squeezing; the paper measures no energy density), Hawking/Unruh flux (analogue-measured),
+> vacuum polarisation (real in the Lamb shift, which reads a frequency interval and does not measure a negative energy density; the energy-condition-violating kind is the curved-space semiclassical one, unmeasured). ~~**All of them obey one bound**: Ford & Roman's
 > quantum inequality caps negative energy sustained over a scale `L` at `|ρ| ≲ ℏc/L⁴`. Casimir *is*
 > that bound saturated, not an exception to it. This is a theorem about quantum field theory, **not a
-> limit of apparatus**.
+> limit of apparatus**.~~ *(Corrected on M's "Repair all", DOCKET 67: the struck sentence was withdrawn in `achievable.py` under DOCKET 55, each clause failing against the paper it names, and what replaces it is a bound on duration, not on magnitude; the census entries carried "measured" past what each experiment measured.)*
 >
 > | `b` | required (Pa) | available (Pa) | avail/req |
 > |---|---|---|---|
@@ -850,10 +850,10 @@ which is what ordinary matter has. **None of that depended on `B·ℓ`.**
 
 **The specification does not stand, and it failed in two independent ways.**
 
-1. **Any Sturm-seating region is inside its own Schwarzschild radius.** `spec.py`'s
-   `seat_over_collapse(ℓ)` is the constant `2π²/3 = 6.579` **at every scale** — the energy density that
-   seats a conjugate point over `ℓ` exceeds the collapse bound `3c⁴/8πGℓ²` by that factor, always. The
-   `B·ℓ` invariant is arithmetically correct and describes **a black hole**, not a device.
+1. **A Sturm-seating ball of pressureless matter, seated along its radius, is inside its own Schwarzschild radius.** `spec.py`'s
+   `seat_over_collapse(ℓ)` is the constant `2π²/3 = 6.579` **at every scale** — for `T_kk = u` along the ray, the energy density that
+   seats a conjugate point over a radius `ℓ` exceeds the trapping bound `3c⁴/8πGℓ²` by that factor. Over every ball it is OPEN: the ratio is `(2π²/3)/((T_kk/u)(s/ℓ)²)` — `1.6449` on a diameter, `1.2337` for radiation there, `0.8225` for `T_kk = 2u` — and class S-2 is OPEN in `specthm.py`. The
+   `B·ℓ` invariant is arithmetically correct and describes **a trapped region**, not a device (with `B` across the ray, `T_kk = 2u`, its radius ratio is still `π²/3 = 3.29`). *(Corrected on M's "Repair all", DOCKET 67: first written "Any Sturm-seating region", "by that factor, always" and "a black hole", without the `T_kk = u` condition; Sturm is sufficient, and the criterion gives a trapped sphere.)*
 2. **The magnetar figure compared a peak against a length it does not sustain.** A dipole falls as
    `(R/r)³`; the table quoted the surface field against `1.546×10⁸ m` of path. Short by **25 orders**.
    `charge.py` carried the same error and is struck there too.
@@ -867,7 +867,7 @@ against the solar gravitational focus at **547.6 AU** against the published ~550
 
 | | `spec.py` |
 |---|---|
-| status | **WITHDRAWN** (the invariant) + **PROVEN** (the `2π²/3` obstruction that withdrew it) + **MEASURED** (solar focus to 0.4%) |
+| status | **WITHDRAWN** (the invariant) + **PROVEN** (the `2π²/3` obstruction that withdrew it, for `T_kk = u` on a radius; over every ball OPEN, DOCKET 67) + **MEASURED** (solar focus to 0.4%) |
 | new? | the scale-invariance of the seat-over-collapse ratio, yes |
 | **not** claimed | that the scoping argument fell with the specification — it did not; that lensing is the *warp* quantity — it is not, and `transition.py` shows a lens has the **wrong sign** for proper distance |
 
@@ -1101,15 +1101,15 @@ forced). **Third independent arrival** at the sign-blind split, after Wheeler's 
 and Weyl-against-Ricci.
 
 **The picture also has a real formulation.** *Unimodular gravity* fixes `det g` and varies only the
-volume-preserving part — a literally closed index — and is **classically equivalent** to GR. `Λ` becomes
+volume-preserving part — a literally closed index — and, with the energy-momentum tensor conserved (automatic for matter from a diffeomorphism-invariant action), is **classically equivalent** to GR. `Λ` becomes
 an integration constant rather than a Lagrangian parameter. That reframes the cosmological-constant
-problem; it does not solve it, and no observation separates the theories.
+problem; it does not solve it, and classically, with that conservation, no observation separates the theories (without it a classical-perturbative discriminator is recorded, and the theories differ at the quantum level). *(Corrected on M's "Repair all", DOCKET 67: the conservation hypothesis was unstated.)*
 
 | | `permute.py` |
 |---|---|
 | status | **PROVEN** (Bianchi as an identity, measured step-independent; isentropy; closed-universe charge) + **MEASURED** (`θ = 3H₀`; the 1090.92 ratio; `n a³` conservation) |
 | new? | the step-independence test as evidence of an identity rather than a numerical result, yes |
-| **not** claimed | that unimodular gravity predicts anything GR does not — it is classically equivalent, filed as **EQUIVALENT**, not better; that it solves the cosmological-constant problem; that the cube analogy fails everywhere — it is **exact on the count and absent on the scale**, and the scale is the axis we observe |
+| **not** claimed | that unimodular gravity predicts anything GR does not — it is classically equivalent when `T` is conserved, filed as **EQUIVALENT**, not better; that it solves the cosmological-constant problem; that the cube analogy fails everywhere — it is **exact on the count and absent on the scale**, and the scale is the axis we observe |
 
 ---
 
@@ -1142,11 +1142,11 @@ never about `M_ADM`** — it tightens nothing, and removes only the hope that bo
 |---|---|---|
 | `M_ADM < 0`, DEC holds | **forbidden** | positive mass theorem, the inequality |
 | `M_ADM = 0`, DEC holds | **Minkowski** | positive mass theorem, the **rigidity clause** |
-| `M_ADM > 0`, DEC holds | **collapse** | Sturm density exceeds it by `2π²/3` |
+| `M_ADM > 0`, DEC holds | **collapse** | Sturm density exceeds it by `2π²/3` for `T_kk = u` on a radius; over every ball OPEN *(Corrected on M's "Repair all", DOCKET 67: the `T_kk = u` condition was unstated.)* |
 | DEC fails | the device | everything this tree has built |
 
 > **Under the dominant energy condition there is no seat-and-lead** — a statement about every case,
-> not about the ones somebody thought to try. It is the strongest negative result the project holds.
+> not about the ones somebody thought to try. It is the strongest negative result the project holds. Whether it survives the collapse row's OPEN case — on a diameter the Sturm ratio falls to `≤ 1` for `w ≥ 0.644934`, inside the DEC — is itself OPEN: no verifier computed it (DOCKET 67).
 
 **One line closes five proposed routes at once.** A sign-blind quantity pairs, balances and is
 constrained by closure; a sign-committed one is not; and **energy is sign-committed** by the positive
@@ -2256,9 +2256,9 @@ it. It **closes at `ℓ_UV = √Λ ℓ_P = 3.159514 ℓ_P`**: `0.1002` at `ℓ_P
 **Why it still fails — the authors' own reasons.** `φ²_max ≲ (8πG_N|ξ|)⁻¹`, and at that field value a
 tower of irrelevant interactions turns on in the Einstein frame while the gravity path integral loses
 semi-classical control in the Jordan frame. **An EFT cut off at a few Planck lengths is not an EFT result
-— it says you need quantum gravity.** Their verdict, quoted: *"it seems that it is impossible to construct
-traversable wormholes in the Jordan frame without unphysical field values."* The effective ANEC — the
-thing that must be violated — **is obeyed** once field values are bounded, and the Jordan/Einstein frames
+— it says you need quantum gravity.** Their verdict, quoted with its head: *"This point requires further consideration, but so far it seems that it is impossible to construct
+traversable wormholes in the Jordan frame without unphysical field values"* — after "there is no relevant theorem" for long wormholes, and "considering only cases where the connected areas are asymptotically flat". The effective ANEC — which must be violated by a theorem for short, causality-violating wormholes and by an unproved argument for long ones —
+**is obeyed** along complete geodesics once field values are bounded *(Corrected on M's "Repair all", DOCKET 67: the hedge and scope were cut, "must" was unqualified, and the complete-geodesic hypothesis was dropped.)*, and the Jordan/Einstein frames
 differ by a factor close to 1, so the exotic behaviour is a **frame artefact** wherever the EFT is valid.
 
 > *Status of the number: **scaling estimate, not a derivation**. `N_n` is schematic in the source and set
@@ -2638,7 +2638,7 @@ spherical symmetry there is no such coordinate, so `m(r)` has no definition and 
 statement. *Not false — unstated.* What would break it: a **quasi-local mass** for a closed 2-surface that
 (a) reduces to Misner–Sharp on round spheres and (b) controls proper distance the same way. **Hawking mass**
 gives (a) by construction. **Geroch monotonicity / Huisken–Ilmanen** — `m_H` non-decreasing under inverse
-mean curvature flow when `R ≥ 0`, the machinery of the Riemannian Penrose inequality — is the closest
+mean curvature flow when `R ≥ 0` and the flowing surface is connected (two disjoint unit spheres in flat space have strictly decreasing `m_H`) *(Corrected on M's "Repair all", DOCKET 67: connectedness was unstated.)*, the machinery of the Riemannian Penrose inequality — is the closest
 existing thing to (b). **Bartnik mass** is the right variational object and is notoriously incomputable. The
 direction that would help is the one Geroch does *not* give. **Open in the literature, not merely here.
 Not attempted here** — attempting it is a differential-geometry programme, and claiming otherwise is the
@@ -3107,7 +3107,7 @@ costs `3/2` of `1/4`.** Recorded, not resolved.
 
 **Poincaré bears.** Perelman closed it with **Ricci flow and monotone functionals**, and monotonicity along a
 geometric flow is precisely what **H41c**'s L1 needs. The paradigm is *already inside GR*: Geroch, Jang and
-Jang–Wald found Hawking-mass monotonicity under **inverse mean curvature flow** with `R ≥ 0`, and
+Jang–Wald found Hawking-mass monotonicity under **inverse mean curvature flow** with `R ≥ 0` for a connected surface *(Corrected on M's "Repair all", DOCKET 67: connectedness was unstated.)*, and
 Huisken–Ilmanen (2001) built the **weak** IMCF theory that carries it through singularities — which is how
 the **Riemannian Penrose inequality** was proved. Still live (Hirsch, arXiv:2210.12237, extends it to initial
 data sets).
@@ -4574,7 +4574,7 @@ already holds. M reached its four defining properties by reasoning, without nami
 Bell pair: B sits at `diag(0.500000, 0.500000)`, entanglement **exactly 1.000000000 bit**. Then A does
 anything at all:
 
-> **40 random unitaries on A. Worst deviation in B's reduced state: `1.110e−16`.**
+> **40 random unitaries on A. Worst deviation in B's reduced state: `2.220e−16`.** *(Corrected on M's "Repair all", DOCKET 67: first printed `1.110e−16`, which is the worst of the report's six draws; the forty give `2.220e−16`.)*
 
 That is the **no-communication theorem, measured rather than cited** — and it is simultaneously what
 makes the two sides read to each other *and* what stops the reading from signalling.
@@ -4617,7 +4617,7 @@ Withhold the two classical bits, average over the four outcomes, corrections not
 > `ρ_B = [[+0.500000000, +0.000000000], [+0.000000000, +0.500000000]]` — **maximally mixed**, deviation
 > from `I/2` of **1.110e−16**, **zero information**, across three independent random inputs.
 
-The state does not exist at the far end until **2 classical bits** cross ordinary space at `≤ c`.
+Averaged over A's unknown outcome, the far end carries no information until **2 classical bits** cross ordinary space at `≤ c`; on each individual outcome B's qubit is already the state up to a Pauli correction it cannot yet name. *(Corrected on M's "Repair all", DOCKET 67: first written "The state does not exist at the far end until".)*
 
 | distance | light | this | **advantage** |
 |---|---|---|---|
@@ -5493,7 +5493,7 @@ re-derived as an explicit square and stress-tested across the spectrum, which no
 ### H73b — but quantum-mechanically it does, and M named the mechanism
 
 **The dynamical Casimir effect** is parametric modulation making real photons out of vacuum — squeezed
-vacuum, which carries regions of **negative energy density** — and it is **driven by a frequency**.
+vacuum, which carries regions of **negative energy density** (a property of the squeezed state, cited to arXiv:2504.11361; Wilson 2011 observed the photons and their two-mode squeezing and measured no energy density *(Corrected on M's "Repair all", DOCKET 67: the two citations read together as a measured negative-energy source.)*) — and it is **driven by a frequency**.
 Verified this session, not recalled:
 
 | | |
@@ -9064,7 +9064,7 @@ closer.**
 - **That the device cannot be used to build closed timelike curves.** It can, at `γ > 4354`, by a
   route explicit in the literature. What fails is the *usefulness*, not the causality.
 - **That the `B·ℓ` invariant specifies anything.** It is arithmetically correct and **withdrawn**: any
-  Sturm-seating region is inside its own Schwarzschild radius by `2π²/3` at every scale, and the
+  Sturm-seating ball of pressureless matter (`T_kk = u`, seated along its radius) is inside its own Schwarzschild radius by `2π²/3` at every scale — over every ball OPEN, DOCKET 67 — and the
   magnetar figure compared a dipole's peak against a length it does not sustain — short by 25 orders.
   See **H15′**.
 - **That H16's metric cheapness of time is exploitable.** It is not: the register that makes time cheap
@@ -9089,8 +9089,8 @@ closer.**
   emitter is the black hole.
 - **That the cosmological expansion is a relabelling.** `θ = ∇_μ u^μ` is invariant and non-zero, and
   the scale ratio it moves is dimensionless. See **H20**.
-- **That unimodular gravity buys a prediction.** It is classically equivalent to GR; what it changes is
-  what `Λ` *is*, not what is observed.
+- **That unimodular gravity buys a prediction.** It is classically equivalent to GR when `T` is conserved, as it is for Lagrangian matter; what it changes is
+  what `Λ` *is*, not what is observed. *(Corrected on M's "Repair all", DOCKET 67: the conservation hypothesis was unstated.)*
 - **That `M_ADM = 0` is what creates the exotic-matter requirement.** It is a free parameter; the
   requirement is local and belongs to the **lead**. See **H21**, which narrows **H19**.
 - **That anything in the last four passes moved the verdict.** `expand.py` still reads `E = 1`,

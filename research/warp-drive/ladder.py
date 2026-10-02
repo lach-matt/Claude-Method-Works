@@ -50,6 +50,12 @@ They set the ladder's rungs; no claim rests on their third digit.
 import math
 import sys
 
+# CODATA 2018 values (provenance unlabelled until DOCKET 67).  c is exact.
+# G carries u_r = 2.2e-5 (unchanged in CODATA 2022), typed here without it,
+# so figures derived from G hold to about 4-5 significant figures.  HBAR is
+# truncated: the exact h/2pi is 1.0545718176461565e-34, and this literal is
+# low by 6.13e-10 relative -- a discrepancy in typed digits, kept because
+# downstream figures are pinned to it (DOCKET 67).
 c = 2.99792458e8
 G = 6.67430e-11
 HBAR = 1.054571817e-34

@@ -3,10 +3,19 @@
 concentric.py -- the two-region device, with M_ADM = 0 and a vacuum corridor.
 
 The last structural item.  composite.py showed a negative mass can seat a
-congruence AND lead, because Weyl focusing is quadratic in the source while the
-Shapiro delay is linear.  But a BARE negative mass violates the positive mass
-theorem, and a result that needs one is not a device.  This file builds the
+congruence AND lead, because vacuum Weyl focusing is sign-blind -- the vacuum
+tidal matrix is traceless, so a congruence focuses at the first-order
+astigmatic focal length b^2/4|m| for either sign -- while the Shapiro delay
+flips sign with m.  But a BARE negative mass violates the dominant energy
+condition, so it lies outside the positive mass theorem (which does not forbid
+it), and a result that needs one is not a device.  This file builds the
 two-region version M asked about and measures it.
+    CORRECTED (DOCKET 67).  (a) This said "Weyl focusing is quadratic in the
+    source": Weyl's effect on AREA is second order, but the conjugate point is
+    set by the first-order focal length this file prints (f = b^2/4m).  (b) It
+    said a bare negative mass "violates the positive mass theorem": a static
+    constant-negative-density ball is complete, regular and asymptotically
+    flat with E_ADM < 0; it violates the DEC, and the theorem does not forbid it.
 
 -- WITHDRAWN: THE LEAD MEASURED HERE IS INTERIOR-ONLY -------------------------
 
@@ -34,9 +43,9 @@ LINEARLY.  Bounded gain, unbounded loss, crossover at X_c ~ 250.
     THE LEAD SURVIVES ONLY AS A BOUNDED, SHORT-RANGE CLAIM: 200 < X < 277.
     IT IS WITHDRAWN AS A GLOBAL ONE.
 
-Nothing else in this file moves.  The conjugate point, M_ADM = 0, the vacuum
-corridor and the shell's ordinariness are all unaffected -- they are not
-statements about arrival time.  See chronology.py, which measured this.
+Nothing else in this file moves.  The conjugate point, M_ADM = 0 (exact for
+the metric as written; see below), the vacuum corridor and the shell's
+ordinariness are all unaffected -- they are not statements about arrival time.  See chronology.py, which measured this.
 
 -- THE CONSTRUCTION -----------------------------------------------------------
 A compact NEGATIVE core inside a POSITIVE shell of the same magnitude:
@@ -46,11 +55,21 @@ A compact NEGATIVE core inside a POSITIVE shell of the same magnitude:
   first term    a Plummer-smoothed core of mass -m  (Phi > 0: it advances)
   second term   a thin shell of mass +m at R_s      (Phi < 0: it delays)
 
-    THE MONOPOLES CANCEL, SO M_ADM = 0 EXACTLY and the positive mass theorem's
-    INEQUALITY is satisfied.  Measured: Phi(1000) = -6.2e-13, against
-    Phi(1) = +4.4e-3.  (Its RIGIDITY clause is not, and cannot be -- see
-    pair.py: M_ADM = 0 with the DEC would force Minkowski, so the DEC fails
-    here of necessity.)
+    THE MONOPOLES CANCEL, SO M_ADM = 0 EXACTLY FOR THE METRIC AS WRITTEN
+    (g - delta = m a^2/r^3, no 1/r term) and the positive mass theorem's
+    INEQUALITY is satisfied -- true and vacuous, since the theorem assumes the
+    DEC, which this core violates; it could object to no configuration here,
+    a bare negative mass included.  Measured at m = 5e-3: Phi(1000) =
+    -1.0e-15, against Phi(1) = +4.974e-3.  (Its RIGIDITY clause is not, and
+    cannot be -- see pair.py: M_ADM = 0 with the DEC would force a flat slice,
+    so the DEC fails here of necessity.)
+    CORRECTED (DOCKET 67).  (a) The pair first printed here, -6.2e-13 and
+    +4.4e-3, are the values at a = 0.5, the broken harness's a (error 3).
+    (b) "Exactly" holds at the metric level.  Reading the metric as "a core of
+    -m plus a shell of +m" identifies M_ADM with the sum of linear source
+    monopoles, true only to first order in m/a; a Newtonian post-linear
+    estimate of the binding term is -0.074 m at m = 5e-3 and -0.29 m at
+    m = 2e-2.
 
 And the division of labour is Newton's, not an assumption:
 
@@ -78,16 +97,30 @@ At b = 1, a = 0.02, R_s = 200, a run of 300 from x = -150 (n = 2500):
     5e-3 to 4e-2 -- most of a decade, no narrower than composite.py's bare
     negative mass.  Converged: the conjugate point sits at 228.45 +- 0.04 over
     n = 1500 to 9000, a sixfold refinement, and the delay to five figures.
+    The linearised slice (1 - 2Phi) delta is a Riemannian metric only for
+    m < m* = 0.0100010; above it -- the upper half of this window, the best
+    lead at 2e-2 included -- it is not an initial data set and the rigidity
+    argument below is silent (a positive completion such as exp(-Phi/2),
+    RECONSTRUCTED, keeps E = 0 and R(0) < 0 across the window) (DOCKET 67).
 
     AND THE BEST RELATIVE LEAD, -6.0e-4 at m = 2e-2, is if anything slightly
     BETTER than the bare mass's ~5e-4.  Respecting the positive mass theorem
     costs almost nothing here, and the reason is a design rule rather than luck:
 
-        shell delay / core advance  ~  (L / R_s) / (2 ln(L/a))
+        shell delay / core advance  ~  (L / R_s) / (2 ln(L/b))     (b >> a)
 
-    The core's advance carries a logarithm of its compactness and the shell's
-    delay does not, so PUT THE SHELL FAR AND MAKE THE CORE SMALL.  At these
-    numbers the ratio is about 8 %, which is what "nearly free" means.
+    The core's advance carries a logarithm and the shell's delay does not, so
+    PUT THE SHELL FAR.  At these numbers the ratio is about 13 %, and the
+    measured lead is what "nearly free" means.
+    CORRECTED (DOCKET 67): the rule was first written with the core radius a
+    in the logarithm, (L/R_s)/(2 ln(L/a)) = 7.8 %, read as "the core's
+    advance carries a logarithm of its compactness ... MAKE THE CORE SMALL".
+    For this potential the first-order advance is 4m asinh((L/2)/sqrt(b^2 +
+    a^2)), ln(L/b) at b = 1 >> a, so the ratio is 13.1 %; the advance per
+    unit m is 22.8144 at a = 0.02 and 22.8152 at a = 0.002, and this file's
+    integrator agrees with the b-form (ratio 1.0002).  The core is still made
+    small, for the vacuum corridor (error 2), not for the delay.  The table
+    above is integrated, not taken from this rule, and is unaffected.
 
 -- THREE ERRORS MADE BUILDING THIS, ALL KEPT AS TESTS -------------------------
  1. THE FIRST POTENTIAL WAS NOT ZERO-ADM AT ALL.  I wrote  m/sqrt(r^2+a^2) -
@@ -125,9 +158,15 @@ At b = 1, a = 0.02, R_s = 200, a run of 300 from x = -150 (n = 2500):
 
     *** SUPERSEDED BY pair.py: IT IS NOT ASSUMED, IT IS DERIVED. ***
     The positive mass theorem has a second half this file read only the first
-    of.  RIGIDITY: M_ADM = 0 under the dominant energy condition implies the
-    spacetime IS MINKOWSKI.  This one is not -- it seats a conjugate point and
-    has structure at every radius -- so its matter CANNOT satisfy the DEC.  The
+    of.  RIGIDITY: on a complete, asymptotically flat, boundaryless time-
+    symmetric slice -- hypotheses this device meets for m < m* = 0.0100010 --
+    M_ADM = 0 under the dominant energy condition implies the slice IS FLAT
+    (Euclidean).  This one is not -- its scalar curvature at the centre is
+    R(0) = -2.9994e4 at m = 5e-3 -- so its matter CANNOT satisfy the DEC.
+    CORRECTED (DOCKET 67): this said "the spacetime IS MINKOWSKI" and gave
+    "it seats a conjugate point" as the witness; the published k = 0
+    conclusion is a Euclidean slice, and that witness rests on linearised
+    optics on rays whose lead the header withdraws.  The
     negative energy density is forced by the design's own M_ADM = 0, by a
     theorem, with no appeal to any magnitude.  What follows below stands
     unchanged; only the word ASSUMED does not.
@@ -136,9 +175,15 @@ At b = 1, a = 0.02, R_s = 200, a run of 300 from x = -150 (n = 2500):
     M_ADM > 0, while a POSITIVE core seats and arrives LATE.  So the exotic
     matter belongs to THE LEAD, locally, and rigidity is a second proof of it
     rather than its source.
- 2. LINEARISED WEAK FIELD, as composite.py.  Phi_max ~ m/a = 0.25 at the
-    design point, which is NOT small.  The window's edges are INDICATIVE and a
-    strong-field treatment could move them.  This is the weakest point here.
+ 2. LINEARISED WEAK FIELD, as composite.py.  Along the b = 1 ray |Phi| is at
+    most 4.97e-3 at m = 5e-3 and 3.98e-2 at m = 4e-2; in the CORE it is not
+    small -- m/a = 0.25 at m = 5e-3 -- and g_ii = 1 - 2Phi reaches 0 at the
+    core centre at m = 0.010001 and is negative inside r* = 0.0346 at m = 2e-2
+    and r* = 0.0774 at m = 4e-2.  No ray enters that region.  The window's
+    edges are INDICATIVE and a strong-field treatment could move them.  This
+    is the weakest point here.  CORRECTED (DOCKET 67) from "Phi_max ~ m/a =
+    0.25 at the design point", which put the core's value on the ray and
+    understated the core across the window.
  3. THE FOCUS IS ASTIGMATIC, as composite.py: a line focus, enough to break
     achronality, not a point-to-point image.
  4. NO PAYLOAD.  Null-geodesic optics throughout.
@@ -161,7 +206,14 @@ NSTEP = 2500
 
 
 def potential(m, a=A_CORE, Rs=R_SHELL):
-    """Phi(r) = m/sqrt(r^2+a^2) - m/max(r,R_s).  Monopoles cancel: M_ADM = 0."""
+    """Phi(r) = m/sqrt(r^2+a^2) - m/max(r,R_s).  Monopoles cancel: M_ADM = 0.
+
+    A prescribed potential: core and shell are superposed with no stress
+    content specified.  The shell term makes Phi only Lipschitz at r = R_s,
+    so the metric is C^{0,1} there and its curvature carries a delta on the
+    shell -- below the C^2 the conjugate-point theorems assume, a NAMED
+    hypothesis for any ray that crosses r = R_s (DOCKET 67 found conjugate
+    points on anecscope's seven rays re-run from inside the shell)."""
     def f(p, _M=None):
         r = math.sqrt(p[0] * p[0] + p[1] * p[1] + p[2] * p[2])
         return m / math.sqrt(r * r + a * a) - m / max(r, Rs)
@@ -175,13 +227,23 @@ def _install(m, a=A_CORE, Rs=R_SHELL):
 
 
 def adm_residual(m, a=A_CORE, Rs=R_SHELL, r=1000.0):
-    """Phi far away.  Zero ADM mass means this tends to zero, not to a 1/r tail."""
+    """Phi far away.  Zero ADM mass means this tends to zero, not to a 1/r tail.
+
+    That reads the ADM flux because composite.py's metric is isotropic, the
+    same Phi in g_tt and g_ij (Psi = Phi) -- a NAMED hypothesis (DOCKET 67)."""
     return potential(m, a, Rs)((r, 0.0, 0.0))
 
 
 def trace_ratio(m, b=B_RAY, a=A_CORE, Rs=R_SHELL):
     """|trace| / |largest component| of the tidal matrix at closest approach.
-    Vacuum forces the trace to zero, so this measures how empty the corridor is."""
+    At linear order in Phi vacuum forces the trace to zero, so this measures
+    how empty the corridor is: the linear density term 2 lap Phi.
+
+    Only at linear order (DOCKET 67): the metric is not an exact vacuum
+    solution where lap Phi = 0, and this probe (k null in eta, not in g;
+    coordinate screen) cancels its O(Phi^2) residue.  With an exactly null k
+    and the orthonormal screen survey() integrates, |tr|/max = 7.32e-3 at
+    a = 0.02, dominated by the metric's own O(Phi) residue."""
     cp = _install(m, a, Rs)
     T = cp.tidal((0.0, b, 0.0), [1.0, 1.0, 0.0, 0.0],
                  [0., 0., 1., 0.], [0., 0., 0., 1.], m)
@@ -204,6 +266,12 @@ def survey(m, b=B_RAY, a=A_CORE, Rs=R_SHELL, x0=X0, lam=LAM, n=NSTEP):
         p = (x[1], x[2], x[3])
         rmax = max(rmax, math.sqrt(p[0] ** 2 + p[1] ** 2 + p[2] ** 2))
         T = cp.tidal(p, k, e1, e2, m)
+        # SIGN (DOCKET 67): composite.tidal returns T = -K, so this integrates
+        # A'' = +K A, the opposite sign to Gao-Wald eq. (11) / MTW 11.10.  It
+        # agrees for a traceless diagonal tidal matrix -- the vacuum corridor
+        # used here (228.48 as written, 228.60 with the MTW sign, m = 5e-3) --
+        # and gives wrong conjugate points on a ray through matter, such as the
+        # withdrawn a = 0.5 corridor (error 2).  Recorded, not repaired.
         acc = [[-sum(T[r][s] * A[s][c] for s in range(2)) for c in range(2)]
                for r in range(2)]
         for r in range(2):
@@ -270,7 +338,8 @@ def selftest():
         abs(adm_residual(5e-3)) < 1e-10, True)
     print("       Phi(1000) = %+.4e.  No 1/r tail, so no ADM mass, so the"
           % adm_residual(5e-3))
-    print("       positive mass theorem's INEQUALITY has nothing to object to.")
+    print("       positive mass theorem's INEQUALITY has nothing to object to --")
+    print("       vacuously: the DEC it assumes fails here (DOCKET 67).")
     print("       Its RIGIDITY clause does, and productively: M_ADM = 0 under")
     print("       the DEC forces Minkowski, so the DEC must fail here.  pair.py")
     # error 1, kept as a test: the constant applied EVERYWHERE is a bare monopole
@@ -323,10 +392,12 @@ def selftest():
     chk("which is no worse than composite.py's bare mass (~5e-4)",
         best > 4.0e-4, True)
     ratio = (LAM / R_SHELL) / (2.0 * math.log(LAM / A_CORE))
-    near("shell delay / core advance ~ (L/R_s)/(2 ln(L/a))", ratio, 0.0781, 1e-3)
-    chk("under 10 %, because the core's advance carries a logarithm and the "
-        "shell's delay does not", ratio < 0.1, True)
-    print("       DESIGN RULE: put the shell far and make the core small.")
+    # The a-form as first written, kept as computed (DOCKET 67: the b-form,
+    # ln(L/b) for b >> a, gives 0.1315; see the header's design rule).
+    near("a-form (first written) (L/R_s)/(2 ln(L/a))", ratio, 0.0781, 1e-3)
+    chk("the a-form estimate is under 10 % (the b-form is 13.1 %)",
+        ratio < 0.1, True)
+    print("       DESIGN RULE: put the shell far (b-form ratio 13.1 %).")
 
     print("\n  SELFTEST %s" % ("OK" if ok else "FAILED"))
     return 0 if ok else 1
@@ -351,19 +422,23 @@ def report():
     print("VERDICT")
     print("  The two-region device seats and leads with M_ADM = 0 EXACTLY, so")
     print("  the positive mass theorem's INEQUALITY has no objection to the")
-    print("  configuration -- and its RIGIDITY clause then DERIVES the exotic")
-    print("  matter this file had only assumed.  See pair.py.")
-    print("  The corridor is genuinely vacuum -- traceless to 7.5e-4 -- which")
-    print("  needs the core compact against the impact parameter, b/a >~ 50.")
+    print("  configuration (vacuously: the core violates the DEC it assumes) --")
+    print("  and its RIGIDITY clause then DERIVES the exotic matter this file")
+    print("  had only assumed, for m < 1.0001e-2, where the slice is Riemannian.")
+    print("  See pair.py.")
+    print("  The corridor is vacuum at linear order -- density term 7.5e-4 of")
+    print("  the tidal scale; the trace the Jacobi loop sees is ~0.7 %, the")
+    print("  linearisation floor -- which needs the core compact against the")
+    print("  impact parameter, b/a >~ 50.")
     print("  The shell delays without focusing, by Newton's shell theorem, so")
     print("  all the focusing is the core's Weyl term.")
     print("\n  AND IT IS NEARLY FREE: the window runs 5e-3 to 4e-2, most of a")
     print("  decade, and the best relative lead -6.0e-4 is no worse than a bare")
-    print("  negative mass. The shell delay is only ~8 % of the core advance,")
-    print("  because the core's advance carries ln(L/a) and the shell's does")
-    print("  not. Put the shell far and make the core small.")
+    print("  negative mass. The shell delay is ~13 % of the core advance,")
+    print("  because the core's advance carries ln(L/b) and the shell's does")
+    print("  not (DOCKET 67: first written ~8 % with ln(L/a)). Put the shell far.")
     print("\n  Negative mass is still assumed, the field is linearised with")
-    print("  Phi_max ~ 0.25 which is NOT small, the focus is astigmatic, there")
+    print("  m/a = 0.25 in the core, which is NOT small, the focus is astigmatic, there")
     print("  is no payload, and NOTHING here shows the configuration is stable.")
     return 0
 

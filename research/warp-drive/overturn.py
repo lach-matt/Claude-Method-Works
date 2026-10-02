@@ -38,7 +38,10 @@ The verdict, stated so it can be attacked:
                     SPHERICITY HALF: still OPEN, exactly as section 2 says.
 
     L2  SOURCE.     m(r) = 4 pi int_0^r rho r'^2 dr' -- the geometry's mass
-                    IS the matter's energy -- because G_munu = 8 pi T_munu.
+                    IS the matter's energy -- because G_munu = 8 pi T_munu,
+                    with Lambda = 0 or counted inside T.  (NAMED, DOCKET 67:
+                    with Lambda and T read as matter, m' = 4 pi r^2 rho +
+                    Lambda r^2/2.)
 
                     L2 IS BROKEN, AND THE BREAK IS EMPTY.  It needs a REGULAR
                     CENTRE for that integral's lower limit; a point charge
@@ -47,18 +50,31 @@ The verdict, stated so it can be attacked:
                     demonstrably does NOT require negative matter energy, which
                     is precisely what "break L2" was supposed to buy -- and it
                     buys nothing, because the classical radius r_c = Q^2/2M
-                    of any body of charge Q and mass M >= 0 satisfies
-                    r_c <= a, its own radius, for every charged body that
-                    exists.  The region is inside the source.  drivensource.py
+                    of any classical body with a sharp radius and a regular
+                    centre, charge Q and BARE mass mu >= 0 (its mass without
+                    the field's energy) satisfies r_c <= a, its own radius.
+                    The region is inside the source.  drivensource.py
                     section 3 derives it and machine-checks both halves.
+                    CORRECTED (DOCKET 67): this said "mass M >= 0 ... for
+                    every charged body that exists".  Total M >= 0 is not
+                    enough (z3: X = 2, a = 1, mu = -1, M = 1 gives r_c = 2 >
+                    a), and the universal over real bodies is declared, not
+                    computed: charged leptons, with measured size bounds
+                    below r_c, fit only with mu < 0, a case the board holds
+                    OPEN (specthm K3).
 
     L3  RATE.       The distance bought per unit of that negative mass is
                     Delta d = |m| ln(r2/r1) -- the logarithm -- which is why
                     the exchange rate c^4/(G Lambda) is as brutal as it is.
 
     L4  MAGNITUDE.  The |rho| that L2+L3 demand at corridor scale R exceeds
-                    every bound any known quantum inequality permits, by a
-                    factor growing as R^2.       [candidates.py, Pfenning-Ford]
+                    the minimally coupled quantum inequality's bound (Ford-
+                    Roman, as Pfenning-Ford apply it to a free massless
+                    scalar), by a factor growing as R^2.
+                                                 [candidates.py, Pfenning-Ford]
+                    CORRECTED (DOCKET 67) from "every bound any known quantum
+                    inequality permits": P&F apply one inequality, and for
+                    xi > 0 no state-independent bound exists (section 5).
 
 Break L1 and the theorem does not reach the geometry you want.
 Break L2 and negative m(r) no longer needs negative energy.
@@ -136,10 +152,21 @@ literature is real:
                        exactly requirement (a).  Not monotone in general.
 
     GEROCH MONOTONICITY / HUISKEN-ILMANEN -- m_H IS monotone non-decreasing
-                       under inverse mean curvature flow when the scalar
-                       curvature R >= 0.  This is the machinery that proved
-                       the Riemannian Penrose inequality.  It is the closest
-                       existing thing to requirement (b).
+                       under inverse mean curvature flow of a CONNECTED
+                       surface when the scalar curvature R >= 0 --
+                       Huisken-Ilmanen's weak flow, on a complete
+                       asymptotically flat slice, from a connected component
+                       of the outermost minimal surface.  (Two disjoint unit
+                       spheres in flat space have strictly DECREASING m_H.)
+                       This is the machinery that proved the Riemannian
+                       Penrose inequality for each horizon component, i.e.
+                       with the max over components; Bray 2001 proved the
+                       full inequality by conformal flow.  It is, in this
+                       file's judgement, the closest existing thing to
+                       requirement (b).  CORRECTED (DOCKET 67): connectedness
+                       and the weak-flow setting were dropped, and "proved the
+                       Riemannian Penrose inequality" credited IMCF with all
+                       of it.
 
     BARTNIK MASS       the infimum over admissible extensions.  Correct
                        variational object, notoriously hard to compute.
@@ -164,7 +191,12 @@ not new physics, not a new energy source -- could overturn the result.
 ===============================================================================
 
 L2 puts the requirement on a BALL integral:  int_ball rho dV < 0.
-Every averaged energy condition bounds a WORLDLINE integral: int_line rho dl.
+The averaged energy conditions in use (AWEC, ASEC, ANEC, AANEC) bound a LINE
+integral along a causal geodesic: int_line rho dl (for ANEC, of T_kk).
+CORRECTED (DOCKET 67) from "Every averaged energy condition bounds a WORLDLINE
+integral": true of those four (Kontou-Sanders Table 4), not of the family --
+DSNEC averages over two null directions -- and a null geodesic is not an
+observer's worldline.
 
 Those are different functionals of the same rho, and the question of whether
 one constrains the other is answerable by arithmetic.  It does not.
@@ -210,20 +242,31 @@ SCOPE, STATED TIGHTLY, BECAUSE THIS IS EASY TO OVER-READ:
     is NOT a solution of the field equations, the chords are straight rather
     than geodesics of the metric such a rho would produce, and rho < 0 in the
     core means the POINTWISE weak energy condition fails there -- as it must,
-    since that is what is being asked for.
+    since that is what is being asked for.  And the chord integrates rho, not
+    T_kk: it equals the flat-space ANEC integral exactly when the pressure
+    integrates to zero along it (dust), and is otherwise only an analogue.
 
 WHAT IT ESTABLISHES ANYWAY, AND IT IS WORTH HAVING:
 
-    The positive mass theorem does not forbid this -- total mass is positive.
-    ANEC does not forbid this -- it is satisfied and it is not even the right
-    shape of constraint.
-    The no-go that bites is the LOCAL, SAMPLED one: the Ford-Roman quantum
-    inequality and its descendants, which bound |rho| itself over a sampling
-    region rather than an average along a line.
+    The positive mass theorem does not forbid this -- the integral of rho
+    over the whole profile is positive (a Euclidean integral of rho, not an
+    ADM mass: this file solves no field equation) -- and it could not be in
+    danger from it, since rho < 0 in the core already violates the dominant
+    energy condition the theorem assumes.  True, and it separates nothing.
+    ANEC's dust analogue does not forbid this -- it is satisfied on every
+    chord, and it is not even the right shape of constraint.
+    The no-go that bites is the SAMPLED one, of finite width: the Ford-Roman
+    quantum inequality and its descendants, which bound a time average of rho
+    along a timelike worldline (Ford-Roman's at one spatial point) over a
+    finite sampling time, rather than an integral along a complete line.
+    CORRECTED (DOCKET 67): this said they "bound |rho| itself over a sampling
+    region rather than an average along a line" -- the substitution the
+    tree's own DOCKET 55 withdrawal records (achievable.py, bounds.py).
 
     That is candidates.py's magnitude gate and it is Pfenning-Ford's result,
     and this file's contribution is to show that it is carrying the WHOLE
-    weight.  Two of the three famous obstructions are not obstructions here.
+    weight.  Two of the three famous obstructions are not obstructions here
+    (the positive mass theorem vacuously, ANEC in its dust analogue).
 
 ===============================================================================
 4. L2, THE FIELD EQUATION -- OPEN THE ENTIRE PROJECT, AND NOT MINE TO CLOSE
@@ -231,36 +274,53 @@ WHAT IT ESTABLISHES ANYWAY, AND IT IS WORTH HAVING:
 
 L1 constrains m(r), the GEOMETRY's mass.  L2 identifies it with the MATTER's
 energy, and that identification is G_munu = 8 pi T_munu and nothing else.  In
-f(R) gravity, scalar-tensor, Einstein-Gauss-Bonnet or any higher-curvature
-theory, the field equations rearrange to
+f(R) gravity, scalar-tensor, or any higher-curvature theory with minimally
+coupled matter -- Einstein-Gauss-Bonnet only in D >= 5, since in D = 4 its
+Gauss-Bonnet term contributes nothing to the field equations -- they rearrange
+to
 
         G_munu = 8 pi T^matter_munu + T^effective_munu
 
-where T^effective is built from curvature.  An effective term can be negative
-where the matter term is not.  If it can, L2 breaks and the requirement stops
-being a requirement on matter at all.
+where T^effective carries the extra terms: curvature terms in metric f(R),
+plus kappa(1/f' - 1) T^matter once the coefficient is held at 8 pi; phi, its
+derivatives and V(phi) in scalar-tensor; the matter trace in Palatini f(R).
+CORRECTED (DOCKET 67) from "built from curvature", which holds only at f' = 1,
+and from a list that named EGB without D >= 5.  An effective term can be
+negative where the matter term is not (f = R - 2 Lambda with Lambda < 0 does it
+with no ghost).  If it can where the requirement sits, L2 breaks and the
+requirement stops being a requirement on matter at all.  NAMED HYPOTHESIS: the
+no-ghost condition f' > 0 -- both published WEC-respecting f(R) wormhole
+examples have f' < 0 (DOCKET 67, computed).
 
-    THIS IS THE LARGEST SINGLE UNEXPLORED BRANCH IN THE PROJECT, AND IT HAS
-    BEEN FLAGGED AS SUCH SINCE wormhole.py, WHICH CARRIES
+    THIS IS THE LARGEST SINGLE UNEXPLORED BRANCH IN THE PROJECT, AND IT WAS
+    FLAGGED AS SUCH SINCE wormhole.py, WHICH CARRIED
 
         SCOPE_CHOSEN_HERE = None        # M's constraint, M's decision
 
-    and asserts that None in its own selftest so that nobody -- including me
-    -- can quietly decide it.  The flag has stood unchanged for the whole
-    project.  It is a scope decision about what counts as proven, and M's
-    standing constraint is "true and proven in its math".  Whether a result
-    inside modified gravity meets that bar is M's call, not mine.
+    and asserted that None in its own selftest so that nobody -- including me
+    -- could quietly decide it.  It is a scope decision about what counts as
+    proven, and M's standing constraint is "true and proven in its math".
+    Whether a result inside modified gravity meets that bar was M's call, not
+    mine.  M MADE IT ON 2026-09-11: wormhole.py now carries SCOPE_CHOSEN_HERE
+    = "modified gravity counts", with SCOPE_IS_A_RESULT = False and every
+    result under the scope CONDITIONAL on it.  No L2 result has been derived
+    under it.
 
-    STATUS: OPEN BY DECISION, AWAITING M.  This file does not change the flag.
+    STATUS: OPEN -- the scope is chosen, the break is not derived.  This file
+    does not change the flag.  CORRECTED (DOCKET 67): this read "OPEN BY
+    DECISION, AWAITING M" and "the flag has stood unchanged", stale since
+    M's choice.
 
-    THAT IS THE MODIFIED-GRAVITY BREAK AND IT IS STILL THE ONE AWAITING M.
+    THAT IS THE MODIFIED-GRAVITY BREAK AND IT IS STILL OPEN.
     DOCKET 52 found a SECOND break of L2, inside general relativity and needing
     no scope decision at all: the integral m(r) = 4 pi int_0^r rho r'^2 dr'
     presumes a REGULAR CENTRE, and Reissner-Nordstrom has none.  There m(r) < 0
     for r < Q^2/2M with rho > 0 everywhere -- negative geometric mass, positive
     matter energy, in ordinary Einstein gravity.  L2 is therefore BROKEN as
-    stated, and it is EMPTY: the radius Q^2/2M is inside every charged body
-    that exists.  Two breaks of one link, and neither is a route.  See the
+    stated, and it is EMPTY: the radius Q^2/2M is inside every classical
+    charged body of bare mass mu >= 0 (a negative bare mass, as the charged
+    leptons need on the classical reading, is held OPEN on the board, specthm
+    K3).  Two breaks of one link, and neither is a route.  See the
     LINKS table below, drivensource.py section 3, and the COROLLARY note in
     certify.py.
 
@@ -275,23 +335,35 @@ The shape of the problem, from candidates.py:
 
     requirement    |rho| ~ c^4 / (G Lambda R^2)          goes as R^-2
     Ford-Roman     |rho| <= 3 hbar c / (32 pi^2 L^4)      goes as L^-4
+                   (a time average along one worldline, at one point, with
+                   L = c t0 the sampling time; read here at L = R)
     Casimir        |rho|  = pi^2 hbar c / (720 d^4)       goes as d^-4
+                   (ideal plates)
 
 Two different exponents, so the shortfall is not a constant to be engineered
 around -- it grows as R^2 and the crossovers sit at 0.307933 l_P and
-0.369917 l_P.  Sub-Planckian, which is Pfenning-Ford's conclusion in this
-architecture's coordinates.
+0.369917 l_P.  Sub-Planckian.  CORRECTED (DOCKET 67): this called that
+"Pfenning-Ford's conclusion in this architecture's coordinates".  The two
+crossovers are this tree's own (switch.py); P&F conclude an UPPER bound on
+the wall thickness of "a few hundred Planck lengths", Delta <~ 10^2 v_b L_P,
+and do not say sub-Planckian.
 
 THE ONE CANDIDATE WHOSE EXPONENT MATCHES is candidate D, non-minimal coupling:
 
-    Fewster & Osterbrink (arXiv:0708.2450) -- for a scalar with xi > 0 there
-    is NO state-independent quantum energy inequality.  The bound that
-    forbids us does not exist in that theory.
+    Fewster & Osterbrink (arXiv:0708.2450) -- for a MASSLESS scalar with
+    xi > 0 in 3+1 Minkowski space there is NO state-independent quantum
+    energy inequality.  The bound that forbids us does not exist in that
+    theory.  (No paper read here proves the massive or curved case.)
 
-    Fliss, Freivogel, Kontou et al. (arXiv:2309.10848) -- the EFT bound is
-    |rho| ~ hbar c / (l_UV^2 delta^2), which is delta^-2.  SAME EXPONENT AS
-    THE REQUIREMENT.  The shortfall then collapses from a growing function to
-    the pure number (l_UV / l_P)^2 / Lambda, which closes at
+    Fliss, Freivogel, Kontou et al. (arXiv:2309.10848) -- in Minkowski space,
+    for one free scalar, the EFT bound on the smeared NULL component is
+    |T_--| ~ hbar c / (l_UV^2 delta^2), which is delta^-2.  Read as a bound
+    on |rho| -- a step this file takes and the source does not: a null bound
+    places no limit on rho (rho = -A, p = +A gives T_-- = 0), and for a
+    static source T_-- = rho/4, a factor 2 in the l_UV below -- it has the
+    SAME EXPONENT AS THE REQUIREMENT.  CORRECTED (DOCKET 67) from "the EFT
+    bound is |rho| ~ ...".  The shortfall then collapses from a growing
+    function to the pure number (l_UV / l_P)^2 / Lambda, which closes at
 
         l_UV = sqrt(Lambda) l_P = 3.159514 l_P.
 
@@ -315,14 +387,17 @@ THE ONE CANDIDATE WHOSE EXPONENT MATCHES is candidate D, non-minimal coupling:
                             second door this file never named; DOCKET 52
                             opened and closed it.
     L2  SOURCE     BROKEN   by a point charge, and the break is EMPTY:
-                   -EMPTY   r_c = Q^2/2M <= a for every charged body.  The
-                            modified-gravity break is a different one and is
-                            still OPEN BY DECISION, awaiting M.
+                   -EMPTY   r_c = Q^2/2M <= a for every classical charged
+                            body of bare mass mu >= 0.  The modified-gravity
+                            break is a different one and is still OPEN: M
+                            chose the scope on 2026-09-11 (wormhole.py), and
+                            no L2 result has been derived under it.
     L3  RATE       CLOSED   against us, in this pass; the log is the best case
     L4  MAGNITUDE  OPEN     a non-minimal QEI with the right exponent
 
 One link closed this pass and it closed the wrong way.  Two of the three
-famous no-gos turn out not to apply.  Three links remain, and NONE of them
+famous no-gos turn out not to apply (the positive mass theorem vacuously,
+ANEC in its dust analogue).  Three links remain, and NONE of them
 is engineering -- every one is mathematics, two of them open in the
 literature rather than merely open here.
 
@@ -336,8 +411,11 @@ literature rather than merely open here.
 
     No amount of measurement reverses this.  No power source reverses this.
     What reverses it is one of three theorems, none of which is known to be
-    false, and the cheapest of the three is a decision M has been holding
-    since wormhole.py rather than a discovery anyone has to make.
+    false.  The cheapest of the three waited on a decision rather than a
+    discovery, and M has made it (wormhole.py, 2026-09-11: modified gravity
+    counts, results under it conditional); what remains there is a derivation
+    under that scope, which no one has made.  CORRECTED (DOCKET 67) from "a
+    decision M has been holding since wormhole.py".
 
 Nothing here is repaired and nothing here is claimed.  A door is not a result.
 """
@@ -373,8 +451,9 @@ LINKS = [
      "BROKEN by a point charge: Reissner-Nordstrom has m(r) < 0 for "
      "r < Q^2/2M with rho > 0 everywhere, because the integral's lower "
      "limit needs a regular centre.  EMPTY because r_c = Q^2/2M <= a for "
-     "every charged body with mass >= 0 -- the region is inside the "
-     "source.  drivensource.py section 3, machine-checked."),
+     "every classical charged body with BARE mass mu >= 0 (total M >= 0 is "
+     "not enough) -- the region is inside the source.  drivensource.py "
+     "section 3, machine-checked."),
     ("L3", "RATE",
      "the same |m| would buy more distance",
      CLOSED,
@@ -657,7 +736,8 @@ def report():
               % (B, z.ball(z.r0, 20001), z.deepest_chord(),
                  z.worst_chord()[1]))
     print("\n    The chord integral does not bound the ball integral below.")
-    print("    Neither the positive mass theorem nor ANEC is doing the work.")
+    print("    Neither the positive mass theorem (vacuous: the core violates the")
+    print("    DEC) nor ANEC's dust analogue is doing the work.")
     print("    The load-bearing obstruction is the sampled quantum inequality.")
     print()
     print("""  ------------------------------------------------------------------------
@@ -676,14 +756,16 @@ def report():
   integral of rho and every averaged energy condition bounds a WORLDLINE
   integral, and a two-zone profile shows these do not constrain each other
   at all -- m(r0) runs to minus infinity while every chord integral runs
-  to plus infinity.  So neither the positive mass theorem nor ANEC is
-  carrying this; the whole weight is on the sampled Ford-Roman bound,
+  to plus infinity.  So neither the positive mass theorem (vacuously: the
+  core violates the DEC it assumes) nor ANEC's dust analogue is carrying
+  this; the whole weight is on the sampled Ford-Roman bound,
   which is Pfenning-Ford's result and candidates.py's magnitude gate.
   Three links stay open: a quasi-local mass beyond spherical symmetry
   (open in the literature), a QEI for non-minimal coupling with R^-2
   scaling (open, and the only one that touches the bill), and the
-  modified-gravity scope decision that wormhole.py has held as
-  SCOPE_CHOSEN_HERE = None for the whole project and that is M's to make.
+  modified-gravity branch, whose scope M chose on 2026-09-11 (wormhole.py:
+  "modified gravity counts", results under it conditional) and under which
+  no L2 result has been derived.
   Nothing is repaired and no door is a result.
   ------------------------------------------------------------------------""")
     return 0

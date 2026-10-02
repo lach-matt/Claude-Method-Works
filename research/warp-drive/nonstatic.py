@@ -51,7 +51,13 @@ and is re-verified here in one line (residual exactly 0).
 
 Nothing below is quoted.  general_einstein() builds the Christoffel symbols, the
 Ricci tensor and G_ab for the metric above in sympy, and every line is checked
-as an identity whose residual sympy returns as 0.  Write
+as an identity whose residual sympy returns as 0.  T_ab is DEFINED as
+G_ab/(8 pi): four-dimensional GR with no cosmological constant, or with one
+absorbed into rho and p_r.  (With an explicit Lambda, EV-W is unchanged while
+MS-r gains Lambda R^2 W/2, MS-t gains Lambda R^2 U/2 and EV-U gains Lambda R/2;
+at the Proxima span that is 8.05e-7 M_sun against the 2.72e13 bill.  Reading
+rho, p_r and j as MATTER needs GR: the identities hold for T := G/8pi in any
+theory.)  (CORRECTED, DOCKET 67: GR and Lambda = 0 were unstated.)  Write
 
         u^a = e^{-Phi} d_t        the Eulerian (slice-normal) observer
         n^a = e^{-Lambda} d_r     the unit outward radial vector
@@ -69,6 +75,10 @@ The Misner-Sharp mass is then m = (R/2)(1 - W^2 + U^2), and:
     EV-W   D_t W  =  4 pi R j  +  U D_r Phi
     EV-U'  D_r U  =  4 pi R j  +  W D_t Lambda
 
+EV-W and EV-U' are ONE equation, not two: their difference vanishes with no
+field equation used, and EV-W is the momentum constraint (G_tr = 8 pi T_tr).
+(CORRECTED, DOCKET 67: they were listed as two.)
+
 MS-r and MS-t are what item 1 of the docket asked for.  The static limit of EV-U
 is the TOV equation, which is the check that the signs are right: at U = 0,
 W D_r Phi = m/R^2 + 4 pi R p_r is dPhi/dr = (m + 4 pi r^3 p)/(r(r-2m)).
@@ -79,32 +89,56 @@ W D_r Phi = m/R^2 + 4 pi R p_r is dPhi/dr = (m + 4 pi r^3 p)/(r(r-2m)).
 
         D_t W  =  4 pi R j  +  U D_r Phi
 
-    NEITHER rho NOR p_r APPEARS.  The contraction variable does not know the
-    energy density exists.
+    NEITHER rho NOR p_r APPEARS.  The RATE OF CHANGE of the contraction
+    variable does not know the energy density exists -- though rho fixes W on
+    every slice, through W^2 = 1 + U^2 - 2m/R together with MS-r.
 
 That settles item 2 in the direction the docket hoped and further than it hoped.
 The cost of changing W is carried by the flux j and by the lapse gradient, and
-the cost of HOLDING W is zero: in geodesic slicing (Phi = 0, always available)
-D_t W = 4 pi R j, so W is constant in time exactly when j = 0.  No flux, no
-pressure, no density is needed to keep a corridor open once it is open.
+the cost of HOLDING W is zero: in geodesic slicing (Phi = 0, available LOCALLY --
+Gaussian normal coordinates exist only up to the first focal point of the normal
+congruence; contracting Milne focuses, R -> 0 at t -> 0-) D_t W = 4 pi R j, so W
+is constant in time exactly when j = 0.  No flux, no pressure, no density is
+needed to keep a corridor open once it is open -- for the W and j of the
+GEODESIC congruence.  Setting Phi = 0 keeps the original slices only where
+D_r Phi = 0; otherwise it is a new foliation, and W, a slice component
+(section 5), agrees with the corridor's original W only on the initial slice.
+
+    CORRECTED (DOCKET 67).  This read "The contraction variable does not know
+    the energy density exists" and "in geodesic slicing (Phi = 0, always
+    available)", with the no-flux sentence stated of the corridor's W.  The
+    witnesses below are explicit Phi = 0 metrics global to the future and do
+    not move.
 
     AND THE WITNESSES ARE EXACT, NOT NUMERICAL.  Four metrics are run through
-    the same machinery in section 4.  Two of them hold contraction for all time:
+    the same machinery in section 4.  Two of them hold contraction for all time
+    on every comoving shell (at a FIXED AREAL RADIUS, Gamma^2 = 1 + R^2/a^2 falls
+    toward 1 as open dust expands -- the anchor lemma below is how this file
+    treats a fixed areal radius):
 
         MINKOWSKI IN MILNE SLICING.  W = cosh(chi) > 1 at every chi > 0, and
         T_ab = 0 EXACTLY.  Contraction with no stress-energy whatever, in FLAT
         SPACETIME.  m = 0 exactly; the slice mass m3 = -t sinh^3(chi)/2 < 0.
 
         OPEN FRW, k = -1.  W = cosh(chi) > 1 again, with rho = 3(adot^2-1)/
-        (8 pi a^2) > 0, j = 0, and the NEC contraction T_ab k^a k^b =
-        (adot^2 - 1 - a addot)/(4 pi a^2), which for open dust is exactly rho
-        and is STRICTLY POSITIVE.  Contraction with m > 0, rho > 0 and the NEC
-        SATISFIED, not saturated and not violated.  That is item 4, answered.
+        (8 pi a^2) -- positive iff adot^2 > 1, which the metric with a general
+        a(t) does not fix and a matter law does: for open dust, adot^2 =
+        1 + C/a and rho = 3C/(8 pi a^3) > 0 -- j = 0, and the NEC contraction
+        T_ab k^a k^b = (adot^2 - 1 - a addot)/(4 pi a^2), which for open dust
+        is exactly rho and is STRICTLY POSITIVE.  Contraction with m > 0,
+        rho > 0 and the NEC SATISFIED, not saturated and not violated.  That
+        is item 4, answered.  (CORRECTED, DOCKET 67: "rho = 3(adot^2-1)/
+        (8 pi a^2) > 0" was attached to the general-a(t) witness; a = 2 + t/2
+        gives rho < 0 and a = t is Milne.)
 
         FLAT FRW, k = 0, is the marginal case: W = 1 EXACTLY and m3 = 0
-        exactly.  So in FRW the contraction condition is precisely k < 0 --
-        the contraction is NEGATIVE SPATIAL CURVATURE OF THE SLICE and nothing
-        else.
+        exactly.  So in FRW, IN COMOVING SLICING, the contraction condition is
+        precisely k < 0 -- the contraction is NEGATIVE SPATIAL CURVATURE OF
+        THE COMOVING SLICE and nothing else.  In other slicings it is not:
+        flat dust has W' = 1.231845026 > 1 in a slicing tilted by rapidity
+        -0.5, and open dust has W' = 0.9525 < 1 in the Kodama slicing
+        (DOCKET 67) -- section 5's point.  (CORRECTED, DOCKET 67: the
+        comoving qualifier was missing from this sentence.)
 
 ===============================================================================
 3.  WHY IT IS EMPTY -- TWO INDEPENDENT KILLS, NEITHER AN ENERGY CONDITION
@@ -182,6 +216,15 @@ a sphere of area 4 pi R^2 in proper time dtau is dE = j (4 pi R^2) dtau, so
 
         E  =  R Delta W          exactly, in geometric units
 
+    DISCREPANCY RECORDED (DOCKET 67), feeding no row.  "R held fixed" along the
+    geodesic observer on the boundary is U = 0, and there this file's own
+    identity gives m = R(1 - W^2)/2: at Delta W = 1 (W from 1 to 2) the
+    enclosed Misner-Sharp mass is -3R/2, -4.08e13 M_sun for the Proxima span,
+    with EV-U then needing p_r = (W^2 - 1)/(8 pi R^2).  That sits against the
+    "positive energy to be passed through a boundary" reading below and with
+    the anchor lemma above.  foliation.py states a different hypothesis for
+    the same E = R dGamma (geodesic slicing alone).  Not adjudicated here.
+
     THE BUILD ENERGY IS INDEPENDENT OF HOW LONG YOU TAKE.  In SI,
     E = R Delta W c^4/G, a mass of R Delta W c^2/G -- the mass whose
     Schwarzschild radius is 2 Delta W R.  For a corridor spanning the 4.2465 ly
@@ -251,10 +294,16 @@ import sys
 # --------------------------------------------------------------- constants
 
 C = 2.99792458e8                 # m/s, exact
-G = 6.67430e-11                  # m^3 kg^-1 s^-2, CODATA 2018
+G = 6.67430e-11                  # m^3 kg^-1 s^-2, CODATA 2018 (u_r 2.2e-5)
 M_SUN = 1.98840e30               # kg, IAU nominal
 LY = 9.4607304725808e15          # m, exact (Julian year x c)
 PROXIMA_LY = 4.2465              # ly, Gaia DR3 parallax distance
+# DOCKET 67: G is typed as a point value; CODATA 2018 gives u_r 2.2e-5.
+# PROXIMA_LY is the inverted raw Gaia DR3 parallax at epoch J2016.0, formal
+# sigma 6.49e-5 relative (+-0.00028 ly), no zero-point applied (Proxima lies
+# outside L21's recipe); the radial velocity moves it -1.89e-4 by 2026.74.
+# So the figures pinned below to 1e-9 are arithmetic reproducibility on these
+# inputs; as physics they carry about 4 significant figures.  Values unchanged.
 
 
 # --------------------------------------------------------- the derivation
@@ -294,7 +343,7 @@ def general_einstein():
     Rs = sp.expand(sum(gi[a, b] * Ric[a, b] for a in range(4) for b in range(4)))
     Ein = sp.Matrix(4, 4, lambda a, b: sp.expand(Ric[a, b] - Rs * g[a, b] / 2))
 
-    T = Ein / (8 * sp.pi)
+    T = Ein / (8 * sp.pi)        # GR, Lambda = 0 (or absorbed into T): DOCKET 67
     rho = T[0, 0] * sp.exp(-2 * Phi)
     j = -T[0, 1] * sp.exp(-Phi - Lam)
     p_r = T[1, 1] * sp.exp(-2 * Lam)
@@ -321,6 +370,11 @@ def identities(E=None):
     Dt, Dr, Phi, Lam = E["Dt"], E["Dr"], E["Phi"], E["Lam"]
     T = E["T"]
 
+    # DOCKET 67: these two directions certify the FULL NEC only at j = 0.  The
+    # general null contraction is rho + p_T - 2 j c + (p_r - p_T) c^2, and z3
+    # finds rho = 0, p_r = 1, p_T = 0, j = -3/8 passing outgoing, ingoing and
+    # transverse with T_kk < 0 at c = -1/2.  The one configuration asserted
+    # "SATISFIED, strictly" (open dust) has j = 0 and is isotropic.
     k_rad = [sp.exp(-Phi), sp.exp(-Lam), 0, 0]              # outgoing null
     k_trn = [sp.exp(-Phi), 0, 1 / R, 0]                     # transverse null
     nec_rad = sum(T[a, b] * k_rad[a] * k_rad[b] for a in range(4) for b in range(4))
@@ -597,6 +651,8 @@ VERDICT = "SURVIVES AS MATHEMATICS, DIES AS ENGINEERING"
 LOOPHOLE_IS_REAL = True
 NEGATIVE_MASS_STILL_NECESSARY_AT_FIXED_AREAL_RADIUS = True
 SUSTAINING_FORCES_NEGATIVE_RHO = False
+# DOCKET 67: for the open-dust witness, which has j = 0 and p_r = p_T, so the
+# two contractions checked certify every null direction.  Value unchanged.
 NEC_ON_A_CONTRACTING_POSITIVE_MASS_CONFIGURATION = "SATISFIED, strictly"
 QUASI_STATIONARY_CORRIDOR_EXISTS = False
 CONTRACTION_IS_A_SCALAR = False
@@ -670,7 +726,8 @@ def selftest():
         ok &= good
         print("  %-68s %-6s %s" % (name, got, "ok" if good else "FAIL"))
 
-    print("\n6. THE NUMBERS")
+    print("\n6. THE NUMBERS  (pinned to 1e-9 as arithmetic on the inputs; G and")
+    print("   the Gaia distance support about 4 significant figures -- DOCKET 67)")
     near("  displacement fraction at W = 2", displacement_fraction(2.0), 0.8660254038, 1e-9)
     near("  displacement fraction at W = 10", displacement_fraction(10.0), 0.9949874371, 1e-9)
     near("  displacement fraction at W = 100", displacement_fraction(100.0), 0.9999499987, 1e-9)
@@ -743,10 +800,11 @@ def report():
   is 0 in sympy.  The Misner-Sharp evolution equations are derived here from
   the Einstein tensor rather than quoted, and the one that matters is
   D_t W = 4 pi R j + U D_r Phi: NEITHER rho NOR p_r APPEARS, so sustaining
-  contraction does not force rho < 0 and in geodesic slicing costs no flux at
-  all.  Two exact witnesses hold it forever -- Minkowski in Milne slicing with
-  T_ab = 0 identically, and open FRW with rho > 0, m > 0 and the NEC strictly
-  satisfied at T_ab k^a k^b = rho.  So the energy-condition answer is NO, the
+  contraction does not force rho < 0 and in (locally available) geodesic
+  slicing costs no flux at all.  Two exact witnesses hold it forever on every
+  comoving shell -- Minkowski in Milne slicing with T_ab = 0 identically, and
+  open dust FRW with rho > 0, m > 0 and the NEC strictly satisfied at
+  T_ab k^a k^b = rho.  So the energy-condition answer is NO, the
   loophole closes on nothing.  IT CLOSES ANYWAY, TWICE.  First the anchor
   lemma: wherever the areal radius is momentarily stationary -- U = 0 at one
   point, no staticity assumed -- contraction still requires m < 0, so

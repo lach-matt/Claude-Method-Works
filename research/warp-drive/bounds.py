@@ -27,9 +27,27 @@ THE SLOTS
     G  gravity enters       0 no    1 yes (a G or an area appears)
     K  known to be saturated 0 yes  1 not known
     Z  SMEARING SIGNATURE   0 pointwise
-                            1 timelike or null   -- a QEI exists
-                            2 spacelike / region -- FORD-HELFER-ROMAN PROVE
-                                                    NO QEI EXISTS
+                            1 timelike or null   -- a QEI exists for timelike
+                                                    smearing; along a FINITE
+                                                    null segment none does
+                                                    (Fewster-Roman: the free
+                                                    massless minimally coupled
+                                                    scalar, 4D Minkowski) --
+                                                    the CANDIDATE INDEX FAULT
+                                                    below
+                            2 spacelike / region -- FORD-HELFER-ROMAN PROVE NO
+                                                    STATE-INDEPENDENT QEI
+                                                    EXISTS over a bounded
+                                                    region, for the free
+                                                    massless minimally coupled
+                                                    scalar in 4D Minkowski
+
+    CORRECTED (DOCKET 67).  The Z gloss read "1 timelike or null -- a QEI
+    exists" and "2 spacelike / region -- FORD-HELFER-ROMAN PROVE NO QEI
+    EXISTS".  The first said of null smearing what holds over a complete
+    geodesic (ANEC) and fails over a finite segment in 4D (Fewster-Roman
+    gr-qc/0209036); the second dropped FHR's field, their state-independence
+    and Minkowski space (gr-qc/0208045 abstract, p.9).  No integer moved.
 
 B is deliberately the SAME ladder as the energy-condition family's B slot --
 by how much negativity the bound licenses -- so the two indexes agree where they
@@ -42,12 +60,21 @@ THE MEMBERS
     bound                        W  B  S  G  K   note
     zero (the NEC's own RHS)     0  0  0  0  0   saturated by vacuum and by EM
     ANEC                         1  0  0  0  0   the averaged bound, RHS zero
+                                                 (K = 0: the vacuum, Minkowski)
     SNEC                         1  1  0  0  1   smeared null
     Ford-Roman QI                1  1  0  0  0   K = 0 is WRONG; see DOCKET 55
-    Fewster-Osterbrink QEI       1  1  0  0  1   state-independent; SNEC's cell
+    Fewster-Osterbrink QEI       1  1  0  0  1   S = 0 is the xi = 0 cell; FO's
+                                                 xi > 0 bound is state-dependent
     QNEC                         0  2  1  0  1   entropy variation on the RHS
-    Bekenstein                   2  1  0  1  0   saturated by black holes
-    Bousso covariant             2  1  0  1  1   lightsheets
+    Bekenstein                   2  1  0  1  0   saturated by Schwarzschild, D = 4
+    Bousso covariant             2  1  0  1  1   lightsheets; a conjecture
+
+    This is the table AS FIRST SEATED -- eight members, five coordinates, and
+    Bekenstein still at G = 1.  BOUNDS below is the record: nine members, the
+    Z coordinate, and Bekenstein at G = 0 since DOCKET 4.  CORRECTED (DOCKET
+    67): the notes read "state-independent; SNEC's cell" for Fewster-Osterbrink,
+    "saturated by black holes" for Bekenstein and "lightsheets" alone for
+    Bousso; the reasons are at the BOUNDS rows.  No integer moved.
 
 **WITHDRAWN IN PLACE -- DOCKET 55.**  What stood here was:
 
@@ -57,20 +84,47 @@ THE MEMBERS
      it.  A saturated bound is a wall with something already standing against
      it."
 
-CASIMIR DOES NOT SATURATE IT, AND THE MEASUREMENT IS THE AUTHOR'S OWN.  Fewster,
+CASIMIR DOES NOT SATURATE FEWSTER'S A PRIORI BOUND, AND THE CALCULATION IS THE
+AUTHOR'S OWN.  Fewster,
 "Lectures on quantum energy inequalities", arXiv:1208.5399 Sec. 1.3, read at
 source, derives the a priori bound T_00 >= -C/(2 l)^4 for a trajectory at
-distance l from a Casimir plate and reports that the known Casimir density
-"ranges between 3-7% of the bound".  Reproduced from his own expression in the
-selftest below: 6.8 % at the midpoint, 3.2 % off it.  He then asks in print
-"why is the Casimir energy density a comparatively small proportion of the
-allowed bound?"  Three per cent is not a wall with something standing against
-it.  Ford & Roman say the same from the other side in gr-qc/9510071 Sec. 2: a
-constant negative Casimir density "would not be possible if Eq. (1) holds for
-all tau_0", and the inequality is rescued only by capping tau_0 <~ 0.46 L.
+distance l from a Casimir plate and reports that the known Casimir density --
+of the massless minimally coupled scalar between Dirichlet plates, a
+calculated vacuum density, not a measured one -- "ranges between 3-7% of the
+bound".  Reproduced from his own expression in the selftest below: 6.8 % at
+the midpoint, 3.2 % off it, on his printed pi^2/1140 (6.7 % and 3.2 % on the
+scalar's pi^2/1440; the misprint is a discrepancy, and '3-7%' holds on
+either).  He then asks in print "why is the Casimir energy density a
+comparatively small proportion of the allowed bound?"  The bound is built on
+his Eq. (3), which he calls "known not to be optimal", so three per cent is of
+THAT bound -- not of the unknown sharp bound, and not of Ford-Roman's
+Lorentzian -3/(32 pi^2 tau_0^4).  Ford & Roman, gr-qc/9510071 Sec. 2, say
+nothing about saturation: for one free massless minimally coupled real scalar
+with a periodic identification, a constant negative Casimir density "would
+not be possible if Eq. (1) holds for all tau_0", and their flat-space Eq. (1)
+is met only by capping tau_0 <~ 0.46 L for a static observer (tau_0 <
+0.42 L/gamma over all v, their Eq. (9)) -- and the cap is defined by
+equality, so at the cap the density EQUALS that bound by construction.  Exact
+QIs posed in the bounded spacetime itself are measured from its own vacuum
+and need no cap (Pfenning gr-qc/9805037; Fewster-Teo gr-qc/9812032, as the
+DOCKET 67 audit cites them).
+
+    CORRECTED (DOCKET 67).  What stood here was "CASIMIR DOES NOT SATURATE IT,
+    AND THE MEASUREMENT IS THE AUTHOR'S OWN" -- unqualified 'Casimir', for a
+    Dirichlet-scalar result; 'measurement', for a calculation; and 'IT', the
+    Ford-Roman bound, for Fewster's own -- and "Three per cent is not a wall
+    with something standing against it.  Ford & Roman say the same from the
+    other side ... the inequality is rescued only by capping tau_0 <~ 0.46 L."
+    Non-saturation is not Ford-Roman's statement, the static-observer and
+    single-scalar hypotheses were dropped, and 'only' holds for the flat
+    Eq. (1) alone.  No verdict moved.
 
     THE K = 0 CODING IS THEREFORE WRONG AND IS **RECORDED, NOT REPAIRED**.
-    K = 0 means "known to be saturated" and Ford-Roman is not.  Re-coding it to
+    K = 0 means "known to be saturated", and no source read shows Ford-Roman
+    saturated: Ford & Roman claim no saturation (gr-qc/9607003), and
+    Fewster's calculation refutes saturation of his own bound only -- an OPEN
+    saturation is K = 1, 'not known'.  (CORRECTED, DOCKET 67: this read "and
+    Ford-Roman is not", which no source read establishes.)  Re-coding it to
     1 was MEASURED this pass and costs, exactly: cells 8 -> 7; the two-way QEI
     collision becomes a three-way with Ford-Roman in it; saturated 4 -> 3;
     E under statistics 1 -> 2; and it breaks master.py's check "two drop-one
@@ -103,7 +157,9 @@ Saturation in Ford-Roman's CAPPED sense was never computed for that profile
 cap is defined by equality, so equality there holds by construction and is
 evidence neither way.  The inference 'which is why no material choice crosses
 it' is NOT reinstated: with its premise OPEN it is unsupported, and nothing
-anti-warp comes back.
+anti-warp comes back.  On M's ruling "Repair all" the prose of this file was
+then CORRECTED in place (DOCKET 67 prose pass, each site marked); the K
+integer, FORD_ROMAN_K_IS_WRONG and every pin are unchanged.
 
 ===============================================================================
 WHAT THE BOUNDS INDEX IS FOR
@@ -111,30 +167,50 @@ WHAT THE BOUNDS INDEX IS FOR
 
 Two things it makes visible that the B slot alone cannot:
 
-**THE GRAVITY SPLIT.**  Two of the eight bounds have gravity in them and six do
-not.  The six are statements about quantum field theory on a fixed background;
-the two are statements about spacetime.  That division is invisible from inside
-the energy-condition family, where every bound is just a value of B.
+**THE GRAVITY SPLIT.**  One of the nine bounds has gravity in it -- Bousso, with
+A/4G in its statement -- and eight do not.  The eight are statements about
+quantum field theory on a given background, most proved only in Minkowski
+space (ANEC fails on generic curved 4D backgrounds: Visser gr-qc/9409043;
+Urban-Olum 0910.5925, re-derived by the DOCKET 67 audit); the one is a
+statement about spacetime.  That division is invisible from inside the
+energy-condition family, where every bound is just a value of B.
+
+    CORRECTED (DOCKET 67).  What stood here was "Two of the eight bounds have
+    gravity in them and six do not.  The six are statements about quantum
+    field theory on a fixed background; the two are statements about
+    spacetime."  The count was stale against this file's own coding since
+    DOCKET 4 (Bekenstein G 1 -> 0) and Casini's seating, and 'a fixed
+    background' was wider than what ANEC's proofs cover.
 
 **SATURATION IS A PROPERTY OF THE BOUND, NOT OF THE CONDITION.**  Four of the
-eight are coded known-saturated -- zero by the vacuum and by the electromagnetic
-field, ANEC by the vacuum along a complete null geodesic, Ford-Roman by Casimir,
-Bekenstein by black holes -- and the other four are not. That is what tells you
+nine are coded known-saturated -- zero by the vacuum and by the electromagnetic
+field, ANEC by the Minkowski vacuum along a complete null geodesic (in curved
+space the conformal vacuum can give a negative ANEC integral: Urban-Olum
+eq. 42, re-derived by the DOCKET 67 audit), Ford-Roman by Casimir, Bekenstein
+by the Schwarzschild black hole in D = 4 (an extrapolation: the hole lies
+outside the bound's weakly-self-gravitating class; Reissner-Nordstrom gives
+r+/2M < 1 for Q != 0, Kerr's ratio depends on which R is taken, and D > 4
+gives 2/(D-2), all computed by the DOCKET 67 audit) -- and the other five are
+not. (CORRECTED, DOCKET 67: "Four of the eight ... ANEC by the vacuum ...
+Bekenstein by black holes ... the other four are not.")  That is what tells you
 which walls have already been reached, and it is the difference between a bound
 that is a limit and one that is merely an estimate.  The count was written as
 three here on the first pass, omitting ANEC; the table was right and the
 sentence was wrong, and the selftest is what caught it.
 
     **DOCKET 55: "Ford-Roman by Casimir" IS WITHDRAWN AND THE COUNT OF FOUR IS
-    A COUNT OF THE CODING, NOT OF THE LITERATURE.**  Casimir sits at 3-7 % of
-    the Ford-Roman bound, measured in the selftest from Fewster's own
-    expression.  The honest count of known-saturated bounds is THREE.  The
-    integer is left at K = 0 only because re-coding it propagates past this
-    file; the reasons and the exact cost are in the section above.
-    DOCKET 67, RECORDED NOT REPAIRED: the 3-7 % is of Fewster's own Eq. (4)
-    bound, relabelled 'Ford-Roman' here; against the unknown sharp bound the
-    midplane reading is OPEN (the DOCKET 67 paragraph above).  The count of
-    three stands on K's definition: OPEN saturation is 'not known'.
+    A COUNT OF THE CODING, NOT OF THE LITERATURE.**  The Dirichlet scalar's
+    Casimir density sits at 3-7 % of Fewster's own a priori Eq. (4) bound,
+    computed in the selftest from his own expression; against the unknown
+    sharp bound the midplane reading is OPEN (the DOCKET 67 paragraph above),
+    and no source read shows Ford-Roman saturated.  The honest count of
+    known-saturated bounds is THREE: it stands on K's definition, under which
+    an OPEN saturation is 'not known'.  The integer is left at K = 0 only
+    because re-coding it propagates past this file; the reasons and the exact
+    cost are in the section above.
+    CORRECTED (DOCKET 67): this read "Casimir sits at 3-7 % of the Ford-Roman
+    bound, measured in the selftest" -- Fewster's bound relabelled
+    'Ford-Roman', and a calculation called a measurement.
 
 ===============================================================================
 CORRECTED: THE FILL DOES NOT SURVIVE COMPLETING THE FAMILY
@@ -164,22 +240,39 @@ about WHAT THE SMEARING RUNS OVER.
     Ref. [23], to prove that there are NO quantum inequalities along null
     geodesics in four-dimensional Minkowski spacetime.)"  Ref. [23] is Fewster &
     Roman, "Null energy conditions in quantum field theory", PRD 67 044003,
-    gr-qc/0209036, read at source this pass; its abstract: "weighted averages of
+    gr-qc/0209036, read at source this pass; its abstract: "For the quantised,
+    massless, minimally coupled real scalar field in four-dimensional Minkowski
+    space, we show (by an explicit construction) that weighted averages of
     the null-contracted stress-energy tensor along null geodesics are unbounded
     from below on the class of Hadamard states.  Thus there are no quantum
     inequalities along null geodesics in four-dimensional Minkowski spacetime.
-    This is in contrast to the case for two-dimensional flat spacetime."
+    This is in contrast to the case for two-dimensional flat spacetime, where
+    such inequalities do exist."  (CORRECTED, DOCKET 67: the quotation began
+    at "weighted averages" and ended at "flat spacetime." with no ellipsis,
+    cutting the opening clause that is the field hypothesis.)
 
-    THE CORRECT SENTENCE.  Ford-Helfer-Roman prove that no QEI exists for a
-    purely SPATIAL average over a bounded region in four dimensions.  A QEI does
-    exist for TIMELIKE smearing.  For NULL smearing the answer splits, and the
-    split is a fault in this index's Z slot: ANEC over a COMPLETE null geodesic
-    holds (Klinkhammer; Wald & Yurtsever, and Fewster-Roman verify their own
-    counterexample states obey it), while over a FINITE null segment no QEI
-    exists in 4D.  Fewster-Roman also prove that the null-CONTRACTED stress
+    THE CORRECT SENTENCE.  Ford-Helfer-Roman prove that no state-independent
+    QEI exists for a purely SPATIAL average over a bounded region, for the free
+    massless minimally coupled scalar in four-dimensional Minkowski space.  A
+    QEI does exist for TIMELIKE smearing.  For NULL smearing the answer splits,
+    and the split is a fault in this index's Z slot: ANEC over a COMPLETE null
+    geodesic holds in Minkowski space for the free scalar on the states each
+    proof covers (Klinkhammer, a dense set of Fock states; Wald & Yurtsever,
+    whose general proof is in 2D curved spacetime and whose 4D result covers a
+    restricted class of Hadamard states in Minkowski -- their note added in
+    proof, as Visser gr-qc/9409043 quotes it, says ANEC fails for generic
+    perturbations of Minkowski in 4D; and Fewster-Roman verify, by a formal
+    limit, that their own counterexample states obey it), while over a FINITE
+    null segment no QEI exists for the free massless minimally coupled scalar
+    in 4D Minkowski.  Fewster-Roman also prove that the null-CONTRACTED stress
     energy smeared along a TIMELIKE worldline is bounded, in any globally
-    hyperbolic spacetime -- so what matters is the DOMAIN of the smearing, not
-    the character of the vector contracted in.  Z = 1 currently seats the proven
+    hyperbolic spacetime, for the free minimally coupled Klein-Gordon field
+    over Hadamard states, relative to a Hadamard reference state -- so, inside
+    those hypotheses, what matters is the DOMAIN of the smearing, not the
+    character of the vector contracted in (for xi != 0 no state-independent
+    QEI exists: Fewster-Osterbrink 0708.2450).  CORRECTED (DOCKET 67): this
+    sentence named no field, background or state class at any of its four
+    claims, and cited Wald-Yurtsever as a 4D co-proof.  Z = 1 currently seats the proven
     ANEC beside SNEC, whose finite null smearing exists only because Freivogel &
     Krommydas insert a 1/G_N.  CANDIDATE INDEX FAULT, recorded not adjudicated.
 
@@ -207,7 +300,11 @@ which turns out to have been a coincidence of the eight:
     "the two gravitational bounds are exactly the
      two entropy bounds"                            FALSE -- there are three
                                                     entropy bounds now
-    "only QNEC has a state-dependent RHS"           FALSE -- Casini too
+    "only QNEC has a state-dependent RHS"           FALSE -- Casini too, and
+                                                    read at source Fewster-
+                                                    Osterbrink as well (xi > 0;
+                                                    DOCKET 67) -- the pin keeps
+                                                    the coding's two
     "statistics closes the bounds index"            FALSE -- E = 2
 
 Recorded, not repaired: the claims are withdrawn where they fail and the pins
@@ -224,7 +321,15 @@ The Z slot splits the nine two / four / three:
     Z = 2  spacelike / region      Casini, Bekenstein, Bousso
 
     AND THE SPLIT IS NOT THE GRAVITY SPLIT.  All three region bounds have W = 2,
-    an ENTROPY on the left; only two of them have gravity in them.
+    an ENTROPY on the left; only one of them, Bousso, has gravity in it.
+
+    CORRECTED (DOCKET 67).  This read "only two of them have gravity in them",
+    stale against this file's own coding since DOCKET 4.  And Bousso's Z = 2
+    is this index's coding of a bound stated on a NULL hypersurface (a
+    light-sheet; the spacelike version fails, hep-th/9905177 p.6), which Z's
+    own definition puts at 1.  The DOCKET 67 audit measured the re-coding
+    Z 2 -> 1: cells stay 8, the split becomes two / five / two, and the Z = 2
+    gravity list empties.  Recorded; the integer is unchanged.
 
 Which gives the gap its exact shape.  certify.py's requirement is a VOLUME
 INTEGRAL OF rho OVER A BALL -- spacelike signature, energy density bounded.
@@ -240,9 +345,14 @@ That is what certify.py meant by "no standard QI bounds it directly", stated as
 a property of the index rather than as a remark, and Ford-Helfer-Roman is why it
 is a theorem rather than a gap in anyone's reading.  IT DOES NOT WEAKEN THE
 OBSTRUCTION.  It says the obstruction has never been priced by an instrument of
-the right shape, and that no such instrument CAN exist over a bounded region in
-four dimensions -- which is stronger than "is known to exist", and is the one
-word DOCKET 55 sharpened.
+the right shape, and that no state-independent such instrument CAN exist over a
+bounded region for the free massless minimally coupled scalar in
+four-dimensional Minkowski space -- which is stronger than "is known to exist",
+and is the one word DOCKET 55 sharpened.  (CORRECTED, DOCKET 67: this read "no
+such instrument CAN exist over a bounded region in four dimensions", dropping
+FHR's field, their state-independence and Minkowski space.  For a
+field-specific spatial bound -- a massive scalar, Maxwell, Dirac -- FHR prove
+nothing, and such a bound would be an instrument AGAINST the warp.)
 
 ===============================================================================
 DOCKET 55 -- THE CONTRADICTION WITH achievable.py, AND WHAT THE EMPTY CELL MEANS
@@ -258,15 +368,22 @@ contradiction survives both selftests, so it is named here.
 
 THREE FUNCTIONALS, KEPT APART.  The whole docket is that these are different:
 
-    F1  POINTWISE   rho(x) at a spacetime point.        NO lower bound exists
-                                                        (Epstein-Glaser-Jaffe).
+    F1  POINTWISE   rho(x) at a spacetime point.        Not nonnegative
+                                                        (Epstein-Glaser-Jaffe,
+                                                        Minkowski, zero vacuum
+                                                        value); unbounded below
+                                                        for free fields over
+                                                        Hadamard states.
     F2  WORLDLINE   a TIME average at ONE point.        Ford-Roman, Z = 1.
     F3  BALL        INT_ball rho dV at ONE INSTANT.     certify.py's requirement.
 
 achievable.py restated F2 as F1 with a SPATIAL L, then evaluated it on F3.  Two
 substitutions, neither argued.  This index already carried the refutation in
 machine-readable form: the Ford-Roman row is coded Z = 1, and achievable.py used
-that same bound at Z = 2.
+that same bound at Z = 2.  (CORRECTED, DOCKET 67: F1 read "NO lower bound exists
+(Epstein-Glaser-Jaffe)".  EGJ as restated prove nonpositivity only, in
+Minkowski space with zero vacuum expectation value; unboundedness below is the
+free-field Hadamard result, not theirs.)
 
 **AND THE EMPTY CELL IS EMPTY FOR A REASON THIS FILE UNDERSTATED.**  The
 boundary is not spacelike-versus-timelike.  It is BOUNDED-versus-UNBOUNDED
@@ -278,7 +395,10 @@ REGION, and Ford-Helfer-Roman say both halves in one sentence, verbatim:
 
 The second half is a member this index does not hold.  Their Eqs. (2)-(3):
 H = INT d^{d-1}x :T_00: over ALL space at fixed time obeys <H> >= 0, with
-equality only in the vacuum.  THAT LEFT-HAND SIDE IS A SPACELIKE-SMEARED ENERGY
+equality only in the vacuum -- for a quantum field in "boundary-free Minkowski
+spacetime" (FHR p.2, quoted there as a known result).  With boundaries, energy
+normal-ordered against the Minkowski vacuum can be negative: Casimir.
+(CORRECTED, DOCKET 67: the boundary-free hypothesis was not stated.)  THAT LEFT-HAND SIDE IS A SPACELIKE-SMEARED ENERGY
 DENSITY AND THE BOUNDED OBJECT IS AN ENERGY -- the combination this family has
 none of.  Seating it was MEASURED this pass, coded (W 1, B 0, S 0, G 0, K 0,
 Z 2): members 9 -> 10, cells 8 -> 9, E under statistics 1 -> 3, and it flips
@@ -289,7 +409,13 @@ than a choice -- this file learned that when Casini killed its own fill -- and
 seating a member changes what the family IS.  It is the next docket, not this
 one.  The correction it forces is a NARROWING and is strictly stronger: no bound
 in this family has spacelike signature, bounds an ENERGY, and applies to a
-BOUNDED region; FHR prove there cannot be one.  A corridor of finite radius is
+BOUNDED region; FHR prove there cannot be a state-independent one for the free
+massless minimally coupled scalar in 4D Minkowski space.  (CORRECTED, DOCKET
+67: this read "FHR prove there cannot be one".  The S slot makes
+state-independence load-bearing: FHR refute S = 0 only.  The DOCKET 67 audit
+computed that in their own witness family a bound depending on the state only
+through <H> also fails; general state-dependent spatial bounds stay OPEN as
+far as FHR go.)  A corridor of finite radius is
 not protected by <H> >= 0, because the compensating positive energy is simply
 outside the ball -- FHR's own mechanism, "the compensating positive energy is
 arbitrarily far from the negative energy".
@@ -298,7 +424,10 @@ arbitrarily far from the negative energy".
 stays empty and the corridor is still refused, and the two facts are consistent
 because the refusal never averages in space.  Fewster arXiv:1208.5399 Eq. (4):
 if <T_00> stays below rho for a DURATION tau at a point, then rho >= -C/tau^4
-with C = mu_1^4/(16 pi^2) = 3.169857938310467, cos(mu_1) cosh(mu_1) = 1.  That
+with C ~ 3.17 as he prints it.  The closed form C = mu_1^4/(16 pi^2) =
+3.169857938310467, cos(mu_1) cosh(mu_1) = 1, is this tree's computation from
+his clamped-eigenvalue description; he does not print it.  (CORRECTED, DOCKET
+67: the closed form was credited to Eq. (4).)  That
 is a Z = 1 instrument applied at each point of the ball and summed, licensed by
 the corridor's own STATICITY rather than by any spatial smearing -- so
 Ford-Helfer-Roman, whose witness states are explicitly transient and explicitly
@@ -309,9 +438,20 @@ least one light-crossing, and it is refused by 71.256 orders at metre scale
     SO THE OBSTRUCTION IS PRICED ON THE **DURATION** AXIS, BY AN INSTRUMENT OF
     THE WRONG SHAPE UNDER AN EXTRA HYPOTHESIS THE CONFIGURATION SUPPLIES.  That
     is neither this file's "unpriced" nor achievable.py's "theorem".  It is
-    also not a theorem about matter in general: Fewster Sec. 5.1 states that the
-    NONMINIMALLY coupled scalar admits no state-independent QEI at all, and that
-    is DOCKET 53 Route B's own field.  DOCKET 55's verdict is NO-IN-PRACTICE.
+    also not a theorem about matter in general: Fewster Sec. 5.1 reports
+    (Fewster-Osterbrink) that for the massless scalar NONMINIMALLY coupled with
+    xi > 0, in 4D Minkowski space, the smeared energy density is unbounded
+    below over states -- in this file's words, no state-independent QEI at
+    all -- and that field, massless at xi = 1/6, is DOCKET 53 Route B's own,
+    though Route B's background is curved and the non-existence is proved
+    only in Minkowski space.  (CORRECTED, DOCKET 67: this read "Fewster Sec.
+    5.1 states that the NONMINIMALLY coupled scalar admits no
+    state-independent QEI at all" -- a paraphrase given as his wording, the
+    words 'state-independent QEI' being Sec. 5.2's, with the sign of xi,
+    masslessness and Minkowski space dropped.  The DOCKET 67 audit computed
+    that the argument also carries to xi < 0 for the massless field in 4D
+    Minkowski; no source read states it.)  DOCKET 55's verdict is
+    NO-IN-PRACTICE.
 """
 
 import math
@@ -322,19 +462,35 @@ import hlaw
 # (name, W, B, S, G, K, Z, note)
 BOUNDS = [
     ("zero (the NEC's RHS)",   0, 0, 0, 0, 0, 0, "saturated by the vacuum and by EM"),
-    ("ANEC",                   1, 0, 0, 0, 0, 1, "averaged, RHS zero"),
+    # DOCKET 67: K = 0 here is the Minkowski vacuum's exact zero; in curved
+    # space the conformal vacuum can give a negative ANEC integral.
+    ("ANEC",                   1, 0, 0, 0, 0, 1, "averaged, RHS zero; K=0 in Minkowski"),
     ("SNEC",                   1, 1, 0, 0, 1, 1, "smeared null"),
-    # DOCKET 55: the note said "CASIMIR SATURATES IT".  It does not -- Fewster
-    # arXiv:1208.5399 Sec.1.3 measures the Casimir density at 3-7 % of the QEI
-    # bound, reproduced in the selftest.  K = 0 ("known saturated") is therefore
-    # a wrong integer.  Left standing because re-coding it costs this index four
-    # pins and breaks a master.py check; see the DOCKET 55 section.
-    # DOCKET 67, recorded not repaired: the note's VERDICT (K=0 WRONG) stands
-    # on K's own coding (OPEN saturation is 'not known'); only its REASON is
-    # narrowed -- the 3-7% is of Fewster's a priori Eq. (4) bound, not
-    # Ford-Roman's, and the sharp-bound midplane reading is OPEN.
-    ("Ford-Roman QI",          1, 1, 0, 0, 0, 1, "K=0 WRONG, D55: Casimir is 3-7% of it"),
-    ("Fewster-Osterbrink QEI", 1, 1, 0, 0, 1, 1, "state-independent; shares SNEC's cell"),
+    # DOCKET 55: the note said "CASIMIR SATURATES IT".  No source read shows
+    # it -- Fewster arXiv:1208.5399 Sec.1.3 calculates the Dirichlet scalar's
+    # Casimir density at 3-7 % of his own a priori bound, reproduced in the
+    # selftest, and Ford & Roman claim no saturation.  K = 0 ("known
+    # saturated") is therefore a wrong integer.  Left standing because
+    # re-coding it costs this index four pins and breaks a master.py check;
+    # see the DOCKET 55 section.
+    # DOCKET 67: the note's VERDICT (K=0 WRONG) stands on K's own coding (OPEN
+    # saturation is 'not known'); only its REASON is narrowed -- the 3-7% is
+    # of Fewster's a priori Eq. (4) bound, not Ford-Roman's, and the
+    # sharp-bound midplane reading is OPEN.  CORRECTED (DOCKET 67): the note
+    # read "K=0 WRONG, D55: Casimir is 3-7% of it", and this comment said
+    # "measures ... of the QEI bound".
+    ("Ford-Roman QI",          1, 1, 0, 0, 0, 1, "K=0 WRONG (saturation not known); "
+                                                 "D55/D67: Dirichlet Casimir is 3-7% "
+                                                 "of Fewster's own bound"),
+    # DOCKET 67, recorded: S = 0 / B = 1 is the cell of the MINIMALLY coupled
+    # QEI (xi = 0: Fewster-Eveson 1998, Fewster 2000).  Fewster-Osterbrink's
+    # own result (xi > 0) is state-dependent -- B = 2, S = 1 on this ladder --
+    # and they prove no state-independent bound exists for xi in (0, 1/4].
+    # The integers are unchanged; the collision pin below exists only because
+    # of them.  CORRECTED (DOCKET 67): the note read "state-independent;
+    # shares SNEC's cell".
+    ("Fewster-Osterbrink QEI", 1, 1, 0, 0, 1, 1, "xi = 0 cell (FO's xi > 0 bound is "
+                                                 "state-dependent); shares SNEC's cell"),
     ("QNEC",                   0, 2, 1, 0, 1, 0, "entropy variation on the RHS"),
     ("Casini (relative entropy)",
                                2, 2, 1, 0, 1, 2, "dS_A <= d<H_A>; SEATED LATE, and "
@@ -345,13 +501,46 @@ BOUNDS = [
     # when gravity is turned off completely"; and the black-hole SATURATION
     # that motivated G = 1 is already carried by K = 0. Coding it twice made
     # G stop being a coordinate. THIS KILLS BOTH K1 CELLS OF THIS INDEX.
-    ("Bekenstein",             2, 1, 0, 0, 0, 2, "saturated by black holes; G re-coded 1->0, DOCKET 4"),
-    ("Bousso covariant",       2, 1, 0, 1, 1, 2, "lightsheets"),
+    # CORRECTED (DOCKET 67) -- the hypotheses the lines above dropped, no
+    # integer moved.  Bousso says it of the bound "in its regime of
+    # validity", weakly gravitating systems (M << R/G), and of the hbar-form
+    # S <= 2 pi R E with hbar held fixed: in the l_Pl-form G appears, and
+    # G -> 0 at fixed l_Pl sends the bound to 0.  E is the total energy of a
+    # complete system and R the radius of a sphere circumscribing it (Page
+    # 1804.10623 gives counterexamples when E leaves out the walls).  The
+    # black-hole saturation K = 0 carries is Schwarzschild in D = 4, with
+    # M/(R/G) = 1/2 -- outside that regime, and non-existent at G = 0 -- so
+    # this one row pairs two regimes; inside the regime Bousso calls a
+    # precisely saturating example "an important outstanding problem"
+    # (p.10).  He also calls the bound's formulation unsettled (entropy
+    # definition, the species problem; p.8); Casini's rigorous form is seated
+    # separately.  And S = 0 / B = 1 is this index's coding of an RHS that
+    # contains the system's energy (<K>, a state functional, in the proven
+    # form): a recorded discrepancy, not graded.
+    ("Bekenstein",             2, 1, 0, 0, 0, 2, "saturated by Schwarzschild (D=4), "
+                                                 "outside its weak-gravity regime; "
+                                                 "G re-coded 1->0, DOCKET 4"),
+    # DOCKET 67, recorded, no integer moved.  Bousso's covariant bound holds
+    # under Einstein's equation, the dominant energy condition (1999; the
+    # review: NEC plus causal energy flow), no naked singularities and an
+    # approximately classical geometry -- so NEC-violating matter lies outside
+    # the 1999 statement (only the weak-gravity BCFM version, 1404.5635, drops
+    # the NEC) -- and Bousso calls it a conjecture with "no fundamental
+    # derivation" (review p.19).  K = 1 is defensible but is not the source's
+    # word: the review says it "can be saturated, but no example is known
+    # where it is exceeded"; FMW show only 'within a factor of order unity'.
+    # Re-coding K 1 -> 0 was measured by the DOCKET 67 audit: saturated 4 -> 5, cells stay 8.  Z = 2
+    # is the coding of a null-hypersurface bound (see the Z-split section).
+    # CORRECTED (DOCKET 67): the note read "lightsheets" alone.
+    ("Bousso covariant",       2, 1, 0, 1, 1, 2, "lightsheets; a conjecture"),
 ]
 COORDS = ("W", "B", "S", "G", "K", "Z")
 
 # DOCKET 55.  Two facts about this table that the table itself cannot carry.
-# The first is a known-wrong integer left standing with its fault named; the
+# The first is a known-wrong integer left standing with its fault named --
+# wrong on K's own definition: no source read shows Ford-Roman saturated, and
+# an OPEN saturation is 'not known' (DOCKET 67; CORRECTED, the reason once
+# read 'Casimir does not saturate it'); the
 # second is the signature of the instrument that actually prices the corridor,
 # and it is Z = 1 -- so the empty (Z = 2, energy) cell stays empty.
 FORD_ROMAN_K_IS_WRONG = True
@@ -371,17 +560,23 @@ def gravitational():
 
 
 def casimir_fraction_of_bound(z_over_L, L=1.0, const_term=1140.0):
-    """DOCKET 55, and it is the measurement that withdraws "CASIMIR SATURATES IT".
+    """DOCKET 55, and it is the calculation that withdraws "CASIMIR SATURATES IT".
 
     Fewster arXiv:1208.5399 Sec. 1.3 gives the a priori QEI bound for a
     trajectory at distance l from the nearer of two Casimir plates,
-        T_00  >=  -C/(2 l)^4,      C = mu_1^4/(16 pi^2),
+        T_00  >=  -C/(2 l)^4,      C ~ 3.17 (closed form mu_1^4/(16 pi^2) ours),
     against the known Casimir density for the massless minimally coupled scalar
+    between Dirichlet plates
         T_00  =  -pi^2/(1140 L^4) - pi^2/(48 L^4) (3 - 2 cos^2(pi z/L))/cos^4(pi z/L).
-    He reports the ratio as "3-7%".  Returned here as a fraction, computed.
-    The constant term is printed 1140 above and used as printed by default;
-    DOCKET 67's figures pass const_term=1440, the scalar's pi^2/1440 (half the
-    EM pi^2/720).  '3-7%' holds on either."""
+    He reports the ratio as "3-7%".  Returned here as a fraction, computed --
+    of THIS bound, which rests on his Eq. (3), "known not to be optimal"; it
+    says nothing of the unknown sharp bound, nor of Ford-Roman's.
+    The constant term is printed 1140 above -- a misprint in his text layer, a
+    discrepancy and not a refutation; the scalar's constant is pi^2/1440, half
+    the EM pi^2/720 -- and is used as printed by default, so the pinned
+    figures do not move; DOCKET 67's figures pass const_term=1440.  '3-7%'
+    holds on either.  (CORRECTED, DOCKET 67: 'measurement', the unqualified
+    bound and the unflagged 1140.)"""
     z = z_over_L * L
     rho = (-math.pi ** 2 / (const_term * L ** 4)
            - math.pi ** 2 / (48.0 * L ** 4)
@@ -414,7 +609,9 @@ NO_MATERIAL_CHOICE_CROSSES_IT_REINSTATED = False
 
 
 def fewster_C():
-    """C = mu_1^4/(16 pi^2), cos(mu_1) cosh(mu_1) = 1 (Fewster 1208.5399 Eq. (4))."""
+    """C = mu_1^4/(16 pi^2), cos(mu_1) cosh(mu_1) = 1: this tree's closed form of
+    the C ~ 3.17 Fewster prints at 1208.5399 Eq. (4), which he does not print
+    in closed form (CORRECTED, DOCKET 67)."""
     f = lambda m: math.cos(m) * math.cosh(m) - 1.0
     lo, hi = 4.0, 5.0
     for _ in range(200):
@@ -496,9 +693,11 @@ def report():
     print("   THE GRAVITY SPLIT: %d of %d bounds have gravity in them --" 
           % (len(gravitational()), len(BOUNDS)))
     print("     %s" % ", ".join(gravitational()))
-    print("   The other six are statements about quantum field theory on a fixed")
-    print("   background. That division is invisible from inside the")
-    print("   energy-condition family, where every bound is just a value of B.")
+    print("   The other %d are statements about quantum field theory on a given"
+          % (len(BOUNDS) - len(gravitational())))
+    print("   background, most proved only in Minkowski space (ANEC fails on")
+    print("   generic curved 4D backgrounds). That division is invisible from")
+    print("   inside the energy-condition family, where every bound is a value of B.")
     print()
     print("   SATURATION IS A PROPERTY OF THE BOUND, NOT OF THE CONDITION.")
     print("   Known saturated: %s." % ", ".join(saturated()))
@@ -508,11 +707,13 @@ def report():
     print()
     print("   WITHDRAWN, DOCKET 55: 'FORD-ROMAN IS SATURATED, BY CASIMIR -- which")
     print("   is why no material choice crosses it.'  Fewster arXiv:1208.5399")
-    print("   Sec.1.3 measures the Casimir density at 3-7%% of the bound (%.1f%%"
+    print("   Sec.1.3 calculates the Dirichlet scalar's Casimir density at 3-7%% of")
+    print("   his own a priori bound, known not to be optimal (%.1f%% at the"
           % (100 * casimir_fraction_of_bound(0.0)))
-    print("   at the midpoint, reproduced here) and asks in print why it is so")
-    print("   small a proportion.  The K = 0 coding is a known-wrong integer,")
-    print("   recorded rather than repaired; see the DOCKET 55 section.")
+    print("   midpoint on his printed pi^2/1140, reproduced here), and asks in")
+    print("   print why it is so small a proportion.  No source read shows")
+    print("   Ford-Roman saturated, so K = 0 is a known-wrong integer, recorded")
+    print("   rather than repaired; see the DOCKET 55 and DOCKET 67 sections.")
     return 0
 
 
@@ -543,10 +744,16 @@ def selftest():
     chk("no coordinate is constant",
         all(len({c[i] for c in X}) > 1 for i in range(len(COORDS))), True)
 
+    # DOCKET 67: this collision exists only because Fewster-Osterbrink is coded
+    # in the xi = 0 cell (S = 0, B = 1); read at source FO's xi > 0 bound is
+    # state-dependent.  Recorded; the coding and the pin are unchanged.
     chk("one cell collision, and it is the two QEIs", collisions(),
         [("Fewster-Osterbrink QEI", "SNEC")])
-    chk("four bounds are known saturated", len(saturated()), 4)
-    chk("and Ford-Roman is one of them", "Ford-Roman QI" in saturated(), True)
+    # DOCKET 67: these two pin the CODING.  No source read shows Ford-Roman
+    # saturated (FORD_ROMAN_K_IS_WRONG); the honest count is pinned below.
+    chk("four bounds are CODED known-saturated", len(saturated()), 4)
+    chk("and Ford-Roman is one of them -- the known-wrong K = 0",
+        "Ford-Roman QI" in saturated(), True)
     # DOCKET 4 moved this: Bekenstein re-coded G 1 -> 0, so ONE bound carries
     # gravity and it is Bousso, which genuinely has A/4G in its statement.
     chk("ONE bound has gravity in it, and it is Bousso", len(gravitational()), 1)
@@ -562,6 +769,8 @@ def selftest():
     chk("TWO entropy bounds carry no Newton constant",
         sorted(r[0] for r in BOUNDS if r[1] == 2 and r[4] == 0),
         ["Bekenstein", "Casini (relative entropy)"])
+    # DOCKET 67: on the coding.  Read at source, Fewster-Osterbrink (xi > 0)
+    # would be a third member; its row is coded S = 0 (the xi = 0 cell).
     chk("'only QNEC has a state-dependent RHS' is FALSE",
         [r[0] for r in BOUNDS if r[3] == 1],
         ["QNEC", "Casini (relative entropy)"])
@@ -647,11 +856,14 @@ def selftest():
     print("     Casimir density as a fraction of Fewster's a priori QEI bound:")
     print("       at the midpoint   %.1f %%" % (100 * _mid))
     print("       at z/L = 0.4      %.1f %%" % (100 * _off))
-    near("midpoint fraction, against Fewster's printed '3-7%'", _mid, 0.0682, 1e-2)
-    chk("SO CASIMIR DOES NOT SATURATE FORD-ROMAN -- every sample under 10 %",
+    # DOCKET 67: this pin is keyed to Fewster's printed 1140 (a misprint; on
+    # the scalar's 1440 the midpoint is 0.067028, pinned in (b') below).
+    near("midpoint fraction, against Fewster's printed '3-7%' (on his 1140)",
+         _mid, 0.0682, 1e-2)
+    chk("SO THE DIRICHLET CASIMIR DENSITY DOES NOT SATURATE FEWSTER'S OWN BOUND",
         all(casimir_fraction_of_bound(z) < 0.10 for z in (0.0, 0.2, 0.4)), True)
-    chk("which makes K = 0 on that row a KNOWN-WRONG INTEGER, recorded not repaired",
-        FORD_ROMAN_K_IS_WRONG, True)
+    chk("no saturation is known, so K = 0 on the Ford-Roman row is a KNOWN-WRONG "
+        "INTEGER, recorded not repaired", FORD_ROMAN_K_IS_WRONG, True)
     chk("the honest count of known-saturated bounds is three, not four",
         len(saturated()) - 1, 3)
 
@@ -712,8 +924,10 @@ def selftest():
         len(BOUNDS), 9)
     print("       The narrowing it forces is STRONGER, not weaker: the empty")
     print("       cell is (spacelike, energy, BOUNDED region), and FHR prove")
-    print("       there cannot be one.  All-space is spacelike and bounded")
-    print("       below; any finite ball is spacelike and unbounded below.")
+    print("       there cannot be a state-independent one for the free massless")
+    print("       minimally coupled scalar in 4D Minkowski.  All-space is")
+    print("       spacelike and bounded below (boundary-free); a finite ball is")
+    print("       spacelike and, for that field, unbounded below.")
 
     # (e) and what prices the ball anyway, without entering the cell.
     chk("the (Z = 2, energy) cell is STILL empty in the seated family",

@@ -73,9 +73,20 @@ WHOLE of the DEC-respecting space:
     M_ADM < 0, DEC holds      FORBIDDEN     positive mass theorem, inequality
     M_ADM = 0, DEC holds      MINKOWSKI     positive mass theorem, RIGIDITY
     M_ADM > 0, DEC holds      COLLAPSE      Sturm density exceeds it by 2pi^2/3
+                                            (T_kk = u along the ray, radius)
     DEC fails                 THE DEVICE    everything this tree has built
 
         UNDER THE DOMINANT ENERGY CONDITION THERE IS NO SEAT-AND-LEAD.
+
+    CORRECTED (DOCKET 67, the seated S-2 follow-on).  The COLLAPSE row's
+    reason holds for T_kk = u along the ray -- pressureless matter -- with the
+    Sturm stretch equal to the ball's radius.  Over H_ball as written class
+    S-2 is OPEN in specthm: the ratio (2 pi^2/3)/((T_kk/u)(s/l)^2) is 1.6449
+    on a diameter for pressureless matter, 1.2337 for radiation and 0.8225
+    for T_kk = 2u, and on a diameter it falls to <= 1 for w >= 0.644934,
+    inside the DEC's w <= 1 (specthm.sturm_over_ball).  WHETHER THIS ROW'S
+    VERDICT, AND WITH IT THE SENTENCE ABOVE, MOVES IS OPEN: no verifier
+    computed it.  The verdict logic below is unchanged.
 
 That is now a statement about the whole branch rather than about the cases
 somebody thought to test, and it is the strongest negative result the project
@@ -88,8 +99,18 @@ where the DEC is not the right condition, which is section 4.
 
 Three independent arrivals this session at the same discriminator:
 
-        A SIGN-BLIND QUANTITY PAIRS, BALANCES AND IS CONSTRAINED BY CLOSURE.
-        A SIGN-COMMITTED ONE IS NOT.
+        A SIGN-BLIND QUANTITY CAN PAIR, BALANCE AND BE CONSTRAINED BY
+        CLOSURE.  A SIGN-COMMITTED ONE CANNOT.
+
+    CORRECTED (DOCKET 67).  First written "A SIGN-BLIND QUANTITY PAIRS,
+    BALANCES AND IS CONSTRAINED BY CLOSURE", as a universal.  The tree's own
+    baryon row contradicts it: B takes either sign and closure does not force
+    it (permute.py).  Sign-blindness is necessary, not sufficient; what
+    constrains a total on a closed slice is a Gauss constraint from a massless
+    gauge field (computed in DOCKET 67: the same lattice gives total != 0
+    UNSAT with Gauss and SAT without), and U(1)_B, being anomalous in the SM,
+    carries none.  The direction this section uses -- sign-committed, so not
+    constrained -- is untouched.
 
     pair.py       Wheeler's charge without charge: mouths are +-Q, masses ADD
     dichotomy.py  Weyl focusing is sign-blind; Ricci focusing is not
@@ -225,7 +246,10 @@ PAIR_PY_PHRASING_NARROWED = True
 DEC_BRANCH = (
     ("M_ADM < 0", True, "FORBIDDEN", "positive mass theorem, the inequality"),
     ("M_ADM = 0", True, "MINKOWSKI", "positive mass theorem, the RIGIDITY clause"),
-    ("M_ADM > 0", True, "COLLAPSE", "Sturm density exceeds it by 2 pi^2 / 3"),
+    # Reason scoped by DOCKET 67 to T_kk = u on the radius; over H_ball as
+    # written S-2 is OPEN and whether this verdict moves is OPEN (see header).
+    ("M_ADM > 0", True, "COLLAPSE", "Sturm density exceeds it by 2 pi^2 / 3 "
+                                    "for T_kk = u on a radius (else OPEN)"),
     ("any", False, "THE DEVICE", "the DEC fails; everything this tree has built"),
 )
 
@@ -464,13 +488,16 @@ def report():
   AND THAT MAKES THE DICHOTOMY EXHAUSTIVE.  M_ADM < 0 under the DEC is
   forbidden by the positive mass theorem's inequality; M_ADM = 0 under
   the DEC is Minkowski by its rigidity clause; M_ADM > 0 under the DEC
-  seats by Ricci and collapses, exceeding the bound by 2 pi^2 / 3.  That
+  seats by Ricci and, for T_kk = u along a radius, collapses, exceeding
+  the bound by 2 pi^2 / 3 -- over H_ball as written that step is OPEN
+  (DOCKET 67), and whether this branch's verdict moves is OPEN.  That
   is the whole branch.  UNDER THE DOMINANT ENERGY CONDITION THERE IS NO
   SEAT-AND-LEAD -- a statement about every case rather than about the
   ones somebody thought to try.
 
   AND ONE LINE CLOSES A WHOLE CLASS OF ROUTES.  A sign-blind quantity
-  pairs, balances and is constrained by closure; a sign-committed one is
+  can pair, balance and be constrained by closure (closure needs a Gauss
+  constraint to bind it); a sign-committed one is
   not; and energy is sign-committed by the positive mass theorem.  So
   balance, closure, topology, pairing and permutation cannot supply it
   -- not case by case, but because the class of quantity they act on

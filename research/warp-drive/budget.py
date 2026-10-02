@@ -21,9 +21,19 @@ problem to a single line.
      source obeys Ford-Roman |rho| <~ hbar c/L^4; the shortfall is 65 orders at
      metre scale AND WIDENS WITH SCALE.                    (achievable.py)
 
-  4  THE STRONG-FIELD SHORTCUT IS CLOSED TOO: any region satisfying the
-     universal (Sturm) seating condition is inside its own Schwarzschild radius
-     by 2 pi^2/3 = 6.579, at every scale.                  (spec.py)
+  4  THE STRONG-FIELD SHORTCUT IS CLOSED FOR PRESSURELESS MATTER: a region
+     satisfying the universal (Sturm) seating condition with T_kk = u along
+     the ray is inside its own Schwarzschild radius by 2 pi^2/3 = 6.579 on a
+     radius chord (pi^2/6 = 1.645 on a diameter), at every scale.  (spec.py)
+     For other matter the ratio is (2 pi^2/3)/((T_kk/u)(s/l)^2): 1.2337 for
+     radiation on a diameter, 0.8225 for T_kk = 2u, and <= 1 on a diameter
+     for any w >= pi^2/6 - 1 = 0.644934; a radius chord would need w > 5.58,
+     beyond the dominant energy condition.  So over the seated class as
+     written, class S-2 is OPEN in specthm (fact SR2 refused, requirement SR2
+     OPEN; the figures are specthm.sturm_over_ball()'s, DOCKET 67, M's ruling
+     "Seat all four").  (CORRECTED, DOCKET 67: this read "any region
+     satisfying the universal (Sturm) seating condition is inside its own
+     Schwarzschild radius by 2 pi^2/3 = 6.579, at every scale".)
 
   5  BUT THE CONFIGURATION ITSELF IS SOUND.  M_ADM = 0 exactly, the shell is
      ordinary matter satisfying DEC and radially stable with no stiffness at
@@ -32,7 +42,8 @@ problem to a single line.
                                               transition)
 
     SO THE MATHEMATICS IS COMPLETE AND THE OBSTRUCTION IS SINGULAR: everything
-    works except that nothing supplies Phi > 0.
+    works except that nothing supplies Phi > 0.  (DOCKET 67: item 4's
+    strong-field closure holds for T_kk = u; beyond it, S-2 is OPEN.)
 
 -- WHAT THE DEVICE MUST BE, DERIVED ------------------------------------------
 The contraction along a path of length L at impact parameter b, from a source of
@@ -154,8 +165,11 @@ STANDING = (
      "charge.py"),
     ("no known negative energy is enough -- 65 orders, widening with scale",
      "achievable.py"),
-    ("Sturm-universal seating is inside its own Schwarzschild radius, 2 pi^2/3",
-     "spec.py"),
+    # DOCKET 67 (M ruled "Seat all four"; specthm commit 5e63c14): holds for
+    # T_kk = u along the ray; over H_ball as written S-2 is OPEN in specthm.
+    ("Sturm-universal seating with T_kk = u (pressureless) is inside its own "
+     "Schwarzschild radius, 2 pi^2/3 on a radius; beyond T_kk = u, S-2 is OPEN",
+     "spec.py; specthm.py"),
     ("but the configuration is sound: M_ADM = 0, ordinary stable shell, Type I "
      "core, no throat, no horizon, no momentum flux",
      "concentric.py / stability.py / core.py / transition.py"),
@@ -267,7 +281,9 @@ def report():
     print("\n" + "=" * 79)
     print("VERDICT")
     print("  THE MATHEMATICS IS COMPLETE AND THE OBSTRUCTION IS SINGULAR.")
-    print("  Everything works except that nothing supplies Phi > 0.")
+    print("  Everything works except that nothing supplies Phi > 0.  (The")
+    print("  strong-field closure holds for pressureless matter, T_kk = u;")
+    print("  beyond it, specthm holds S-2 OPEN -- DOCKET 67.)")
     print("\n  WHAT THE DEVICE MUST BE: a negative source of geometric mass")
     print("  m ~ eps L / (2 asinh(L/2b)), inside a positive shell that cancels")
     print("  it, with the corridor between them in vacuum.  The scaling is")

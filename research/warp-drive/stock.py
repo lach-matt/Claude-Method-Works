@@ -1,8 +1,11 @@
 #!/usr/bin/env python3
 r"""
 stock.py -- THE DESTINATION STOCK CONSTRAINT, COSTED FOR THE FIRST TIME.
-Phosphorus binds, a carbonaceous chondrite beats a planet by fifty-three, and
-the tree's own claim that the stock "had to travel" is not established.
+Phosphorus binds (on these point values), a carbonaceous chondrite beats
+Earth's continental crust by forty, and the tree's own claim that the stock "had
+to travel" is not established.  (CORRECTED, DOCKET 67: this read "beats a
+planet by fifty-three" -- R&G cover Earth's continental crust only, and this
+file's own ranking gives 40.0.)
 
 M: "It carries state, not substance.  No mass, no energy moves; matching matter
 must already be at the far end -- correct because transition can only take place
@@ -13,7 +16,8 @@ state to be assembled at the destination."
     python3 stock.py --selftest  fixtures, stdlib only
 
 M IS RIGHT, AND THE TREE STATES THIS WITHOUT EVER COSTING IT.  `paper/CLAIMS.md`
-line 4629 says, verbatim:
+line 4648 (4629 when this file was written; CORRECTED, DOCKET 67) says,
+verbatim:
 
     "And it carries state, not substance.  Teleportation writes a quantum state
      onto matter ALREADY AT THE DESTINATION.  No mass moves.  No energy moves.
@@ -60,34 +64,53 @@ the tree's other indexes make it hard.
 2. WHAT IT COSTS -- PHOSPHORUS BINDS
 ===============================================================================
 
-For a 70 kg human against raw stellar or gas-giant material:
+For a 70 kg human against the present-day SOLAR photosphere (Asplund 2009),
+standing in for raw stellar material:
 
     binding element    P       1.9105e3 kg processed per kg of payload
     runner-up          Li      1.7531e3          -- only 1.090x behind
     then               K       6.518e2           -- 2.93x behind
     a 70 kg human                             133.7 TONNES of source material
 
+THE BINDER IS A POINT-VALUE RESULT, AND THE DATA CAN MOVE IT.  P leads Li by
+0.0374 dex, while A09's own sigma(Li) is 0.10 dex: under A09's errors Li binds
+with probability 0.360, and photospheric Li 0.05 dex lower makes Li the binder
+at 1967.3.  On the payload side the binder passes to Li if body P is below
+715.7 g (-8.24 %) or body Li above 7.629 mg (+8.98 %) (all computed by DOCKET
+67).  The magnitude stays 1.6e3-2.2e3 throughout.  And the solar photosphere
+is not a gas giant's stock: a gas giant has not burned its lithium, so with
+unburned Li the runner-up changes (Li/P 0.0057 instead of 0.92) while P still
+binds.  (CORRECTED, DOCKET 67: this read "against raw stellar or gas-giant
+material" with the binder stated bare.)
+
 **THE RUNNER-UP MATTERS, AND IT IS NOT THE ONE THIS FILE FIRST NAMED.**  The
 superseded draft reported potassium at 1.32x on a table that carried TWICE the
 reference adult's potassium.  On ICRP's datum potassium falls to 2.93x and the
 "two scarcities at the same scale" reading fails with it.  **The true co-binder
-is LITHIUM, at 1.090x** -- and section 3a says why that is astrophysics rather
-than a coincidence.
+is LITHIUM, at 1.090x on these point values** -- and section 2a says why that
+is astrophysics rather than a coincidence.
 
 ===============================================================================
 2a. AND WHY LITHIUM
 ===============================================================================
 
 Asplund gives lithium photospheric 1.05 against meteoritic 3.26: a 2.21-dex gap,
-a factor of 162, the largest disagreement in the table.  **It is not a
-disagreement.**  The Sun's convective envelope reaches 2.5 MK, where lithium
-burns, so the photosphere really is 162x poorer in lithium than the material the
-solar system condensed from.  Both numbers are right about different reservoirs.
+a factor of 162, the largest photospheric DEFICIT in the table (next is Pb, at
+0.29).  **It is not a disagreement.**  Lithium burns at about 2.5 MK; the base of
+the Sun's convection zone is about 2.20 MK today (AG26 p.52), and A09 p.10
+says the depletion "requires additional mixing below the convection zone".  So
+the photosphere really is 162x poorer in lithium than the material the solar
+system condensed from.  Both numbers are right about different reservoirs.
+(CORRECTED, DOCKET 67: this read "the largest disagreement in the table" --
+on |ph - met| He, Ne, Ar, Kr, Xe and H are larger -- and "The Sun's
+convective envelope reaches 2.5 MK, where lithium burns", which is not A09's
+mechanism.)
 
     SO A DESTINATION'S PROCESSING FACTOR IS NOT A FUNCTION OF ITS ELEMENTS.  IT
     IS A FUNCTION OF ITS THERMAL HISTORY.
 
-A star has burned its lithium; a chondrite has not.  `SOURCES["lithium"]` carries
+A sun-like star has burned its photospheric lithium; a chondrite and a gas
+giant have not.  `SOURCES["lithium"]` carries
 the caution, and `stockgate.py` section 4 works the consequence out in full.
 
 ===============================================================================
@@ -95,42 +118,85 @@ the caution, and `stockgate.py` section 4 works the consequence out in full.
 ===============================================================================
 
     source                              binding   factor      70 kg human
-    stellar / gas giant  (Asplund 09)   P         1.9105e3    133.7  tonnes
+    solar photosphere    (Asplund 09)   P         1.9105e3    133.7  tonnes
     Earth continental crust (R&G 03)    N         4.2805e2     30.0  tonnes
     CI carbonaceous chondrite (L 03)    P         1.0701e1      0.75 tonnes
 
-**A CARBONACEOUS CHONDRITE BEATS RAW COSMIC GAS BY 178.5x AND A ROCKY CRUST BY
-40.0x**, and the reason is that a planet differentiates.  Earth's crust is a
-silicate residue that outgassed its volatiles: its binding element is NITROGEN
-at 428, **40.4 times worse than the crust's own phosphorus** -- a superseded
-draft of this file said "six hundred times", which was wrong by an order of
-magnitude and is corrected here.  A chondrite never differentiated, so it still
-holds C, N, H, P and S together, and **binds on PHOSPHORUS, not nitrogen**; the
-old reading of nitrogen came from a payload table carrying N 1.25x high and P
-1.11x low.
+(The crust and chondrite tables carry those citations; how far their values are
+the cited ones is in section 6.)
 
-    THE OPTIMAL ARRIVAL NODE IS AN ASTEROID, NOT A PLANET.
+**A CARBONACEOUS CHONDRITE BEATS RAW COSMIC GAS BY 178.5x AND EARTH'S
+CONTINENTAL CRUST BY 40.0x**, and this file's reading of why is that a planet
+differentiates: Earth's crust is a silicate residue that outgassed its
+volatiles.  (R&G tabulate a concentration; the cause is this file's reading,
+and R&G's crust excludes the atmosphere, which holds most of Earth's
+surface-accessible nitrogen.)  Its binding element is NITROGEN at 428 -- while
+crust C exceeds 8.889 x crust N, C > 498 ppm at N = 56 ppm, on a C value R&G
+do not give; at C = 400 ppm the crust binds on carbon at 570.7 -- and N is
+**40.4 times worse than this table's phosphorus** (17.98 on R&G's own bulk N
+and P) -- a superseded draft of this file said "six hundred times", which was
+wrong by an order of magnitude and is corrected here.  A chondrite never
+differentiated, so it still holds C, N, H, P and S together, and **binds on
+PHOSPHORUS, not nitrogen, on these point values**; the old reading of nitrogen
+came from a payload table carrying N 1.25x high and P 1.11x low.  The binder
+here turns on CI nitrogen against a crossover of 2400 ppm, which lies inside
+PON14's 2-sigma band (2065-3835 ppm) and MS95's factor-2 band: at CI N =
+1965 ppm the chondrite binds on N at 13.07, and under ICRP 110's whole-body
+composition on carbon.  The factor stays 8.3-13.1 on every composition
+computed (DOCKET 67).
+
+    THE OPTIMAL ARRIVAL NODE IS AN ASTEROID, NOT A PLANET -- on Earth's
+    continental crust as the planet, and on the hypothesis that an asteroid's
+    accessible stock is CI-like (Ryugu and Bennu bulk not read: OPEN).
 
 That is a specific, computed engineering conclusion and it inverts the intuitive
 answer.  `rank_destinations()` produces the table.
 
-**THE DIFFUSE MEDIUM IS THE ONE THAT FAILS.**  At 1 proton/cm^3 the interstellar
-medium holds the right elements in the right ratios and in no useful
-concentration: `ism_sweep_volume()` returns 7.18e25 m^3 per 70 kg human, a
-sphere of radius 2.58e5 km -- two thirds of the Earth-Moon distance, swept, per
-person.  Elements existing is not stock.
+    CORRECTED (DOCKET 67).  This section read "a rocky crust", "the reason is
+    that a planet differentiates", "the crust's own phosphorus", "binds on
+    PHOSPHORUS, not nitrogen" and "AN ASTEROID, NOT A PLANET" with no datum
+    uncertainty, no carbon condition and no scope qualifier.  No figure
+    moved.
+
+**THE DIFFUSE MEDIUM IS THE ONE THAT FAILS.**  At 1 proton/cm^3 -- the all-phase
+space average, not the warm neutral medium (0.2-0.5 cm^-3; Ferriere) -- the
+interstellar medium holds the right elements in roughly photospheric ratios
+(A09 sec. 4.2, after diffusion and GCE corrections, and with unburned Li; P
+binds either way) and in no useful concentration: `ism_sweep_volume()` returns
+7.18e25 m^3 per 70 kg human, a sphere of radius 2.58e5 km -- two thirds of the
+Earth-Moon distance, swept, per person.  That volume divides a He-inclusive
+feedstock by rho = n m_p, without the x1.42 helium/metal mass factor (Ferriere:
+rho = 1.42 m_p n_H), so at fixed n_H it is 1.42x too large; at every density
+read for the local medium the sweep is larger still.  Elements existing is not
+stock.  (CORRECTED, DOCKET 67: the phase label, the ratio hypothesis and the
+helium factor.)
 
 ===============================================================================
 4. THE CLAUSE THAT IS NOT ESTABLISHED
 ===============================================================================
 
 `CLAIMS.md` adds "-- and that had to travel."  **THAT DOES NOT FOLLOW AND THIS
-FILE RECORDS IT AS A FINDING.**  Nothing requires the destination stock to have
-come from the origin.  Galactic chemical evolution puts carbon, nitrogen and
-phosphorus into every enriched star system by nucleosynthesis and accretion, and
+FILE RECORDS IT AS A FINDING**, reading "had to travel" as "had to travel FROM
+THE TRAVELLER'S ORIGIN" -- this file's interpretation.  Nothing requires the
+destination stock to have come from the origin.  Galactic chemical evolution
+makes carbon, nitrogen and phosphorus in dying stars and ejects them, and the
+next generation forms from that gas (Kobayashi, Karakas & Lugaro 2020): the
+atoms did travel, as stellar ejecta, just not from the traveller's origin.  The
+mechanism stands; the accounting for P is incomplete -- GCE models generally
+under-predict it (Maas+ 2022) -- and P has been measured in only about 1 % of
+catalogued nearby stars, with real star-to-star scatter (Hinkel+ 2020).
 `stock_need_not_travel()` gives the counterexample with a number: a CI chondrite
-at the destination supplies a human payload at a processing factor of 10.70, and
-no part of it was shipped from anywhere.
+at the destination supplies a human payload at a processing factor of 10.70,
+and no part of it was shipped from the origin.  That a CI-like body is present
+and accessible at ANOTHER star is a planet-formation hypothesis, not a GCE
+output, and is OPEN (the one exoplanetary source read, Swan+ 2023, finds dry
+rock and measures no P or N); and if P scales with the host's [P/H] the factor
+is 10.70 x 10^(-D).  The finding needs only one stocked destination whose stock
+was not shipped from the origin, and the solar system's own CI chondrites are
+one.  (CORRECTED, DOCKET 67: this read "puts carbon, nitrogen and phosphorus
+into every enriched star system by nucleosynthesis and accretion" and "no part
+of it was shipped from anywhere" -- a universal the sources do not state, an
+unstated CI-body hypothesis, and an unnamed reading of the clause.)
 
 The weaker true statement is: **the stock must EXIST, ASSEMBLED AND ACCESSIBLE,
 at the arrival point.**  That is a real constraint.  It is not a transport cost.
@@ -168,6 +234,20 @@ and it is the trip that builds the node.
 chondrite.  Every processing factor is COMPUTED from them.  `SOURCES` carries
 the citations and `provenance()` prints them beside the numbers.
 
+    CORRECTED (DOCKET 67): HOW FAR THE TABLES ARE THE CITED ONES.  CRUST: of
+    16 values, 5 match R&G's bulk crust within 3 % (Si, Al, Na via oxide
+    stoichiometry; Zn, Li), 8 match neither R&G column (Fe, Ca, Mg, K, P, S,
+    Cl, N), and O, C and H are values R&G do not print.  CHONDRITE: labelled
+    Lodders 2003, it is an MS95/PON14 blend -- within 0.5 % it matches L03 on
+    7 of 39 elements and MS95 on 19 of 58; its N 3180 ppm is exactly MS95's,
+    and its P 1040 ppm matches none of L03, MS95 or PON14.  ATOMIC_MASS is the
+    terrestrial standard atomic weights, uncited, with interval standards
+    carried as single values; applied to solar abundances they put solar
+    Ar's mass fraction 9.2 % high (A09's solar-system Ar is 36.275, not
+    39.948).  HUMAN is ICRP 23's Reference Man -- male, 20-30 y -- amended by
+    ICRP 89, and which rows are ICRP's and which Emsley's is not recorded.
+    None of this moves a binder except as section 3 states.
+
 **TO CALL THE PROCESSING FACTOR AN ENERGY COST.**  It is a mass of feedstock.
 Separating an element from a matrix costs energy that depends on the matrix and
 the method, and none of that is computed here.
@@ -191,10 +271,12 @@ SOURCES = {
     "cosmic": "Asplund, Grevesse, Sauval & Scott (2009), ARA&A 47, 481 -- "
               "photospheric log eps, H = 12",
     "crust": "Rudnick & Gao (2003), Treatise on Geochemistry 3, 1 -- "
-             "bulk continental crust",
-    "chondrite": "Lodders (2003), ApJ 591, 1220 -- CI carbonaceous chondrite",
+             "bulk continental crust (Earth's; 8 of 16 values match neither "
+             "R&G column, C/O/H not R&G's -- DOCKET 67)",
+    "chondrite": "Lodders (2003), ApJ 591, 1220 -- CI carbonaceous chondrite "
+                 "(as labelled; the values are an MS95/PON14 blend -- DOCKET 67)",
     "human": "ICRP Publication 23 / Emsley, Nature's Building Blocks -- "
-             "reference adult, mass fractions",
+             "Reference Man (male, 20-30 y; amended by ICRP 89), mass fractions",
 }
 
 #: Asplund 2009 photospheric abundances, log eps with H = 12.
@@ -203,16 +285,25 @@ A09 = {"H": 12.00, "He": 10.93, "Li": 1.05, "C": 8.43, "N": 7.83, "O": 8.69,
        "Na": 6.24, "Mg": 7.60, "Al": 6.45, "Si": 7.51, "P": 5.41, "S": 7.12,
        "Cl": 5.50, "K": 5.03, "Ca": 6.34, "Fe": 7.50, "Zn": 4.56}
 
+#: Terrestrial standard atomic weights, uncited, interval standards as single
+#: values (DOCKET 67).  Used for SOLAR abundances in cosmic(), where A09 Table 3's
+#: solar-system weights differ -- Ar 36.275, not 39.948 -- so solar Ar's mass
+#: fraction comes out 9.2 % high; no binder moves.  Values unchanged.
 ATOMIC_MASS = {"H": 1.008, "He": 4.003, "Li": 6.94, "C": 12.011, "N": 14.007, "O": 15.999,
                "Ne": 20.180, "Na": 22.990, "Mg": 24.305, "Al": 26.982,
                "Si": 28.085, "P": 30.974, "S": 32.06, "Cl": 35.45,
                "K": 39.098, "Ca": 40.078, "Fe": 55.845, "Zn": 65.38}
 
+#: Labelled R&G 2003 bulk crust; 8 of 16 values match neither R&G column, and
+#: O, C, H are not R&G quantities (DOCKET 67, recorded; values unchanged).
 CRUST = {"O": 0.461, "Si": 0.282, "Al": 0.0823, "Fe": 0.0563, "Ca": 0.0415,
          "Na": 0.0236, "Mg": 0.0233, "K": 0.0209, "H": 0.0014, "P": 0.00105,
          "C": 0.002, "S": 0.00035, "Cl": 0.00017, "N": 0.00006,
          "Zn": 0.00007, "Li": 1.6e-5}
 
+#: Labelled Lodders 2003 CI; an MS95/PON14 blend (DOCKET 67, recorded; values
+#: unchanged).  Point values: CI N carries PON14's 2-sigma band 2065-3835 ppm,
+#: which contains the 2400 ppm P/N binder crossover.
 CHONDRITE = {"O": 0.464, "Fe": 0.185, "Si": 0.107, "Mg": 0.0965, "S": 0.0541,
              "C": 0.0350, "H": 0.0202, "Ca": 0.00911, "Al": 0.00860,
              "Na": 0.00500, "N": 0.00318, "P": 0.00104, "K": 0.000555,
@@ -230,7 +321,11 @@ HUMAN = {"O": 0.613533, "C": 0.228291, "H": 0.099877, "N": 0.025683,
          "Na": 0.001427, "Cl": 0.001355, "Mg": 0.000271, "Fe": 0.000060,
          "Zn": 0.000033, "Li": 9.988e-08}
 
-#: 1 proton/cm^3, the warm neutral medium, as arrival.py uses.
+#: 1 proton/cm^3, as arrival.py uses: the all-phase space average (Ferriere),
+#: NOT the warm neutral medium (0.2-0.5 cm^-3) this line once called it.
+#: rho = n m_p omits the x1.42 helium/metal mass factor, and m_p is CODATA 2018
+#: truncated to 9 figures (-2.21e-9 relative).  Value unchanged (CORRECTED,
+#: DOCKET 67).
 RHO_ISM = 1.0e6 * 1.67262192e-27
 
 #: TARGET-1-RESULT.md's shell, for the scale comparison in section 6.
@@ -238,14 +333,17 @@ FUCHS_SHELL_KG = 4.4886e27
 
 
 def cosmic():
-    """Mass fractions from A09's log-eps abundances.  COMPUTED, not tabulated."""
+    """Mass fractions from A09's log-eps abundances.  COMPUTED, not tabulated --
+    on terrestrial atomic weights, which put solar Ar 9.2 % high (DOCKET 67)."""
     n = {e: 10.0 ** (v - 12.0) for e, v in A09.items()}
     m = {e: n[e] * ATOMIC_MASS[e] for e in n}
     tot = sum(m.values())
     return {e: m[e] / tot for e in m}
 
 
-DESTINATIONS = (("stellar / gas giant", "cosmic"),
+# DOCKET 67: the "cosmic" stock is the present-day SOLAR photosphere.  The row
+# was labelled "stellar / gas giant"; a gas giant has not burned its Li.
+DESTINATIONS = (("solar photosphere", "cosmic"),
                 ("Earth continental crust", "crust"),
                 ("CI carbonaceous chondrite", "chondrite"))
 
@@ -309,7 +407,10 @@ def stock_need_not_travel():
     """The counterexample to CLAIMS.md's "and that had to travel".
 
     Returns (processing factor at a CI chondrite, the citation).  Galactic
-    chemical evolution placed that stock; nothing shipped it.
+    chemical evolution placed that stock -- its atoms travelled as stellar
+    ejecta, not from the traveller's origin.  That a CI-like body is present
+    and accessible at another star is a hypothesis, OPEN; the solar system's
+    own CI chondrites are one stocked destination (DOCKET 67).
     """
     return binding_element(HUMAN, CHONDRITE)[1], SOURCES["chondrite"]
 
@@ -410,10 +511,12 @@ def report():
     print("4.  THE CLAUSE THAT IS NOT ESTABLISHED")
     print("=" * 74)
     fac, cite = stock_need_not_travel()
-    print("   CLAIMS.md:4629 adds \"-- and that had to travel\".")
+    print("   CLAIMS.md (line 4648) adds \"-- and that had to travel\", read")
+    print("   here as 'from the traveller's origin'.")
     print("   Counterexample: a CI chondrite supplies a human payload at a")
     print("   processing factor of %.2f, placed by galactic chemical evolution" % fac)
-    print("   and shipped from nowhere.   %s" % cite)
+    print("   and not shipped from the origin -- where a CI-like body is present")
+    print("   and accessible (OPEN at another star).   %s" % cite)
     print("   RECORDED, NOT REPAIRED.")
     print()
     print("=" * 74)
@@ -485,25 +588,25 @@ def selftest():
     # -- the destination ranking ----------------------------------------------
     r = rank_destinations()
     chk("the worst destination is raw stellar material", r[0][0],
-        "stellar / gas giant")
+        "solar photosphere")
     chk("the best is a carbonaceous chondrite", r[-1][0],
         "CI carbonaceous chondrite")
     chk("a crust's binding element is NITROGEN", binding_element(HUMAN, CRUST)[0],
         "N")
-    chk("but a CHONDRITE binds on PHOSPHORUS -- the repaired element",
+    chk("but a CHONDRITE binds on PHOSPHORUS (point values) -- repaired element",
         binding_element(HUMAN, CHONDRITE)[0], "P")
     chk("nitrogen is second there, at 1.33x behind",
         float("%.3g" % (binding_element(HUMAN, CHONDRITE)[1]
                         / sorted(processing_factors(HUMAN, CHONDRITE).values())[-2])),
         1.32)
-    chk("because differentiation outgassed the volatiles: crust N is scarcer "
-        "than crust P", CRUST["N"] < CRUST["P"], True)
+    chk("crust N is scarcer than crust P (outgassing is this file's reading)",
+        CRUST["N"] < CRUST["P"], True)
     chk("chondrite beats cosmic by 178.5x",
         float("%.4g" % (r[0][2] / r[-1][2])), 178.5)
     chk("and beats a crust by 40x", int(round(r[1][2] / r[-1][2])), 40)
     chk("a 70 kg human at a chondrite, in tonnes",
         float("%.3g" % r[-1][3]), 0.749)
-    chk("the crust's nitrogen is 40.4x its own phosphorus, NOT six hundred",
+    chk("crust N is 40.4x this table's P (17.98 on R&G's), NOT six hundred",
         float("%.3g" % (processing_factors(HUMAN, CRUST)["N"]
                         / processing_factors(HUMAN, CRUST)["P"])), 40.4)
 

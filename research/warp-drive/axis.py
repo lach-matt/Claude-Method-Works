@@ -49,9 +49,18 @@ corridor at exactly c -- THERE IS SIMPLY LESS CORRIDOR TO CROSS.
 WHICH MAKES THE TWO CLOSURES DIFFERENT IN KIND, AND THAT DISTINCTION IS THE
 RESULT OF THIS FILE:
 
-    transit.py's route  CLOSES ON c.  Provable, exact, advantage 0.000.
+    transit.py's route  CLOSES ON c.  Provable for linear, completely
+                        positive, non-selective local operations on tensor-
+                        product subsystems; exact; advantage 0.000.
     the corridor route  DOES NOT CLOSE ON c AT ALL.  It closes on magnitude --
                         1.212374e43 J per metre -- and on needing m < 0.
+
+    CORRECTED (DOCKET 67).  First written "Provable" with no hypothesis named.
+    The no-communication theorem is proved for linear, completely positive
+    dynamics: a nonlinear local map signals (Gisin; Simon-Buzek-Gisin), and so
+    does a selective operation.  transit.py's protocol sits inside the proved
+    class, so its closure stands; what was dropped is the class, on a board
+    that also carries closed causal curves and gravitational constructions.
 
 "Only as fast as c" is precisely right about teleportation and precisely wrong
 about the corridor.  The corridor never promised to beat c locally, and its
@@ -119,7 +128,8 @@ COORDINATE_SPEED_IS          = True    # a perception -- of the CHART
 LIGHT_CONE_IS_THE_EIGENBASIS = True
 THE_WHOLE_IS_THE_INTERVAL    = True
 CORRIDOR_CLOSES_ON_C         = False   # it closes on magnitude and on m < 0
-TELEPORT_CLOSES_ON_C         = True    # transit.py, provably
+TELEPORT_CLOSES_ON_C         = True    # transit.py, provably within linear CP
+                                       # dynamics (DOCKET 67)
 PROJECT_EVER_NEEDED_C_TO_MOVE = False  # it needed DISTANCE to move, and it does
 THIS_PASS_REPAIRS_ANYTHING   = False
 
@@ -207,7 +217,9 @@ def report():
 
         transit.py's route   CLOSES ON c.  Provable, exact, advantage 0.000 at
                              every distance, because the no-communication
-                             theorem is a theorem.
+                             theorem is a theorem -- for linear, completely
+                             positive, non-selective local operations, the
+                             class transit.py's protocol is in.
 
         the corridor route   DOES NOT CLOSE ON c AT ALL.  It closes on
                              MAGNITUDE -- {EXCHANGE:.3e} J per metre -- and on
@@ -247,7 +259,8 @@ def report():
   THIS PROJECT HAS EXPLOITED SINCE THE FIRST INSTRUMENT: Delta_d was never a
   plan to change c, light crosses the corridor at exactly c and there is simply
   LESS CORRIDOR TO CROSS.  WHICH MAKES THE TWO CLOSURES DIFFERENT IN KIND, and
-  that is the result: transit.py's route closes ON c, provably, advantage 0.000
+  that is the result: transit.py's route closes ON c, provably within linear
+  completely positive dynamics, advantage 0.000
   at every distance; THE CORRIDOR ROUTE DOES NOT CLOSE ON c AT ALL -- it closes
   on 1.212374e43 J per metre and on needing m < 0.  "Only as fast as c" is
   precisely right about teleportation and precisely wrong about the corridor.

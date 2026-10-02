@@ -68,6 +68,11 @@ L_PLANCK = math.sqrt(HBAR * G / c ** 3)
 M_PLANCK = math.sqrt(HBAR * c / G)
 RHO_PLANCK = M_PLANCK * c * c / L_PLANCK ** 3      # = c^7/(hbar G^2)
 
+# Proxima Centauri, ly: 1/(768.0665 mas), the Gaia DR3 parallax nonstatic.py
+# cites (NAMED-NOT-READ).  DOCKET 67 READ Lurie 2014's 768.13 mas as restated
+# in Kervella 2016, which gives 4.2461 ly.  The tree prices one corridor at two
+# distances: phase1.py uses a round 4.0 ly, this file and nonstatic, oneway,
+# foliation, driven and mouth use 4.2465 (recorded by DOCKET 67).
 PROXIMA_LY = 4.2465
 LITERATURE_IS_READ = False
 
