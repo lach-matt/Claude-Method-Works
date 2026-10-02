@@ -42,6 +42,20 @@ today, says the same of bridges); and the matter must already be at the destinat
 supply, S13, the held-seat release route, OPEN and priced). **This docket tests the one step that blocks the
 thesis: whether any channel removes the need for those two classical bits.**
 
+## M's clarification of the device, verbatim (2026-10-02)
+
+> The warp device doesn't copy the geometric object for reconstruction on the other side, it copies the
+> information that defines the geometric object. The matter itself is irrelevant for the process, only the
+> information defining it is necessary
+
+Read against the board: this is the reconstruction route (specthm's Rec; DOCKET 65's S13 note, "only information
+arrives"). Two cases by M's ruling M-S1A-P5 ("both. Quantum first, which should derive the classical."): a
+QUANTUM definition cannot be copied, only moved (no-cloning, D67 adjudication: STANDS; transit.py
+IT_IS_A_MOVE_NOT_A_COPY = True); a CLASSICAL definition can be copied, but is not the whole quantum definition of
+the object. "Matter is irrelevant for the process" holds for the transfer; on arrival the information must be held
+by a system with at least as many distinguishable states, or that matter formed (DOCKET 65: S10 REFUSED as a
+supply; S13 OPEN, priced). The arrival time is set by the classical channel, which is this docket's question.
+
 ## M's premise and request, verbatim (2026-10-02)
 
 > Cosmic/quantum information is all that matters. It is the only multi-universal currency. Without it, matter
