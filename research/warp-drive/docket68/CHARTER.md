@@ -28,6 +28,20 @@ M's answers to the follow-up questions (2026-10-02):
   smoothly and the same every time;
 - the docket opens **after D67**.
 
+## M's thesis, verbatim (2026-10-02)
+
+> My idea is that warp travel costs little because we are only relying on the communication of information
+> between two entangled locations in spacetime
+
+What the board already holds against it, owned by `transit.py` (computed, selftested): the protocol moves state,
+not mass or energy (CARRIES_SUBSTANCE = False), so the cost per transit is a Bell measurement and two classical
+bits per qubit -- **the "costs little" half holds**. But withhold the two bits and Bob's state is exactly I/2, so the
+transit arrives no sooner than light (BEATS_LIGHT = False; advantage 0.000 at four distances); the pairs had to
+cross the distance first (TRAVERSAL_IS_REMOVED = False, "it is MOVED EARLIER"; Maldacena-Susskind section 3.2, read
+today, says the same of bridges); and the matter must already be at the destination (DOCKET 65: S10 REFUSED as a
+supply, S13, the held-seat release route, OPEN and priced). **This docket tests the one step that blocks the
+thesis: whether any channel removes the need for those two classical bits.**
+
 ## The question, as one sentence
 
 Is there a channel, beyond linear quantum mechanics or beneath geometry, in which Bob's statistics depend on
