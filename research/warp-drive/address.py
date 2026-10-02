@@ -792,14 +792,27 @@ def K_mu(S, hypothesis):
 
 
 #: One-loop QED coefficients: above its threshold a species drives
-#: d(1/alpha)/d ln mu = -b/(2 pi).  Standard textbook values, NAMED-NOT-READ.
-#: DOCKET 67: 4/3 and the sum -7 were since READ VIA RESTATEMENT (PDG 2024
-#: eq.(10.13), MS-bar; Buttazzo 1307.3536 eqs.(96)-(97)); the split -22/3 + 1/3
-#: stays NAMED-NOT-READ.  The scheme is not named here: the MS-bar matching
-#: constants dropped are pure numbers with no mass ratio, so at one loop they
-#: do not enter d/d ln v (argued, not machine-checked).
+#: d(1/alpha)/d ln mu = -b/(2 pi).  READ-VIA-RESTATEMENT (DOCKET 67) for 4/3
+#: and for the sum -7; the split -22/3 + 1/3 is NAMED-NOT-READ.
+#: CORRECTED (DOCKET 67, on M's ruling "ok, update").  First labelled
+#: "Standard textbook values, NAMED-NOT-READ".  The textbook derivations were
+#: not read; two later sources restating them were (audit key
+#: qed-one-loop-beta-coefficients, read_status READ-VIA-RESTATEMENT): PDG 2024
+#: Review 10 eq.(10.13), MS-bar, whose -(7/4) ln(MZ^2/MW^2) carries b_W = -7;
+#: and Buttazzo et al. 1307.3536 App. B.1 eqs.(96)-(97), b_1 = 41/10, b_2 =
+#: -19/6.  Neither prints '4/3' literally: 4/3 per unit N_c Q^2 follows from
+#: the two together by an exact sum rule (the audit's check C5).  The split
+#: -22/3 + 1/3 is printed in neither, and only its sum enters this file.  The
+#: scheme is not named here: the MS-bar matching constants dropped are pure
+#: numbers with no mass ratio, so at one loop they do not enter d/d ln v
+#: (argued, not machine-checked).
 B_DIRAC_UNIT_CHARGE = Fraction(4, 3)                 # a Dirac fermion, Q = 1
 B_W_BOSON = Fraction(-22, 3) + Fraction(1, 3)        # W+- and its Goldstone: -7
+QED_COEFFICIENT_STATUS = {
+    "b = 4/3 per unit-charge Dirac fermion": "READ-VIA-RESTATEMENT",
+    "b_W = -7 (the sum)": "READ-VIA-RESTATEMENT",
+    "b_W split -22/3 + 1/3": "NAMED-NOT-READ",
+}
 
 
 def alpha_thresholds():
@@ -1684,6 +1697,13 @@ def selftest():
     # DOCKET 63 W11.  RE-PINNED: +43 alpha/(54 pi), positive, W included.
     chk("K_alpha(H1) coefficient is EXACTLY 43/54 (x alpha/pi)",
         K_alpha_coefficient("H1"), Fraction(43, 54))
+    # DOCKET 67: the QED coefficients' status follows what was READ; only the
+    # W split (which never enters a figure) stays NAMED-NOT-READ.
+    chk("QED 4/3 and the sum -7 are READ-VIA-RESTATEMENT; the split is not",
+        sorted(QED_COEFFICIENT_STATUS.values()),
+        ["NAMED-NOT-READ", "READ-VIA-RESTATEMENT", "READ-VIA-RESTATEMENT"])
+    chk("  and the coefficients those statuses label are 4/3 and -7",
+        (B_DIRAC_UNIT_CHARGE, B_W_BOSON), (Fraction(4, 3), Fraction(-7)))
     chkrel("K_alpha(H1) = +43 alpha/(54 pi)", K_alpha("H1"), 1.849653e-3, 1e-6)
     chk("  and it is POSITIVE (the first version's sign was wrong)",
         K_alpha("H1") > 0.0, True)

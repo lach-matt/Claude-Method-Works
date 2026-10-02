@@ -256,7 +256,8 @@ do not have, is part of not overclaiming the thing that does not.
 
 M_HIGGS was pinned at 125.20, NAMED-NOT-READ (CORRECTED, DOCKET 67: the label
 understated it -- 125.20 +- 0.11 GeV is the readable PDG 2024 and 2025 average;
-the pin came from an older edition, and the value was not a mistake), while
+the pin came from an older edition, and the value was not a mistake; on M's
+"ok, update" the constant's label is now READ, still WITHDRAWN), while
 the tree's own capture of
 the 2026 Review of Particle Physics, captures/PDG-2026.tsv (the H0 row, pdgid
 25), READs 125.13.  DOCKET 63 recorded the disagreement and did not switch it,
@@ -291,20 +292,39 @@ GEV_IN_J = 1.602176634e-10           # SI-EXACT (elementary charge is exact)
 HBAR_C = HBAR * c                    # J m
 
 # Measured inputs.  STATUS IS PART OF THE VALUE.
-G_FERMI = 1.1663788e-5               # GeV^-2, PDG          NAMED-NOT-READ as typed;
-                                     # DOCKET 67 READ it identically in PDG 2024
-                                     # Table 1.1 (G_F = G_mu from muon decay, V-A
-                                     # assumed, W-propagator term included).
-M_HIGGS_PIN_WITHDRAWN = 125.20       # GeV -- the old pin, NAMED-NOT-READ; WITHDRAWN
-                                     # on M's ruling (DOCKET 63 F2).  M_HIGGS
-                                     # below is the READ capture value.  DOCKET
-                                     # 67: the pin is the PDG 2024/2025 average,
-                                     # readable; the label understated it.
-XI_HIGGS_INFLATION = 1.7e4           # Bezrukov-Shaposhnikov NAMED-NOT-READ as typed;
-                                     # DOCKET 67 READ 0710.3755: eq. (13) at the
-                                     # READ m_h and tree-level lambda (17,608,
-                                     # truncated), in B-S's sign convention --
-                                     # -1.76e4 in BV's (section 4).
+# CORRECTED (DOCKET 67 follow-up, on M's ruling "ok, update"): the three
+# status words below first read NAMED-NOT-READ; DOCKET 67 READ all three
+# (audit keys pdg-g_fermi / fermi-constant-g_f-and-tree-level-vev,
+# withdrawn-pin-125.20-and-orchestrator-125.25, 0710.3755-bezrukov-
+# shaposhnikov).  No value moved.  STATUS_D67 carries them for the selftest.
+G_FERMI = 1.1663788e-5               # GeV^-2   READ (DOCKET 67): PDG 2024 Table
+                                     # 1.1, "1.166 378 8(6) x 10^-5 GeV^-2, 510
+                                     # ppb" -- identical to the typed digits.
+                                     # G_F = G_mu from muon decay (MuLan), V-A
+                                     # assumed, W-propagator term included.
+                                     # First labelled "NAMED-NOT-READ as typed".
+M_HIGGS_PIN_WITHDRAWN = 125.20       # GeV -- the old pin, READ (DOCKET 67): PDG
+                                     # 2024 Higgs listing p.1, 125.20 +- 0.11,
+                                     # the 2024/2025 average.  WITHDRAWN on M's
+                                     # ruling (DOCKET 63 F2) all the same: M_HIGGS
+                                     # below is the READ 2026 capture value.
+                                     # First labelled "NAMED-NOT-READ".
+XI_HIGGS_INFLATION = 1.7e4           # Bezrukov-Shaposhnikov 0710.3755, READ
+                                     # (DOCKET 67).  The source prints NO number:
+                                     # eq. (13) is xi ~ 49000 sqrt(lambda).  1.7e4
+                                     # is that function at the READ m_h and tree-
+                                     # level lambda, COMPUTED as XI_EQ13_AT_READ_MH
+                                     # below (17,608), quoted truncated -- the
+                                     # audit's "a later evaluation attributed to
+                                     # the paper", not an error.  B-S's sign
+                                     # convention; -1.76e4 in BV's (section 4).
+                                     # First labelled "NAMED-NOT-READ as typed".
+XI_EQ13_COEFFICIENT = 49000.0        # READ  0710.3755 eq. (13): xi ~ 49000 sqrt(lambda)
+STATUS_D67 = {
+    "G_FERMI": "READ",
+    "M_HIGGS_PIN_WITHDRAWN": "READ",            # and WITHDRAWN (DOCKET 63 F2)
+    "XI_HIGGS_INFLATION": "COMPUTED from READ eq. (13), quoted truncated",
+}
 RHO_LAMBDA_OBS = 6.0e-10             # J/m^3, order          ORDER
 
 BV_READ_FROM_SOURCE = True           # gr-qc/0003025
@@ -375,6 +395,16 @@ def lam(m_h=None):
     m_h = M_HIGGS if m_h is None else m_h
     return m_h ** 2 / (2.0 * vev() ** 2)
 
+
+
+def xi_eq13_at_read_mh():
+    """Bezrukov-Shaposhnikov eq. (13), READ: xi ~ 49000 sqrt(lambda), at the
+    READ m_h and the TREE-LEVEL lambda = m_h^2/(2 v^2) (lam()).  HYPOTHESIS,
+    NAMED: tree-level lambda, no running to the inflationary scale (B-S H6);
+    with SM running and the measured top mass later work gives xi ~ 1500 down
+    to O(10) (section 4).  DOCKET 67 follow-up: this is the computation behind
+    the typed 1.7e4."""
+    return XI_EQ13_COEFFICIENT * math.sqrt(lam())
 
 def v_min_gev4(m_h=None):
     """V at the minimum of the tree-level Mexican hat, with V(0) = 0.  NEGATIVE
@@ -598,7 +628,7 @@ def report():
                                   math.log10(xi_required(v))))
     print()
     print("  m_h switched to the READ value on M's ruling (DOCKET 63 F2)")
-    print("      %-38s %20.6f GeV" % ("M_HIGGS_PIN_WITHDRAWN (was NAMED-NOT-READ)", M_HIGGS_PIN_WITHDRAWN))
+    print("      %-38s %20.6f GeV" % ("M_HIGGS_PIN_WITHDRAWN (READ PDG 2024)", M_HIGGS_PIN_WITHDRAWN))
     print("      %-38s %20.6f GeV" % ("captures/PDG-2026.tsv H0, READ",
                                       M_HIGGS_READ_GEV))
     print("      %-38s %20.6e" % ("  the switch moved m_h by",
@@ -752,13 +782,29 @@ def selftest():
     xr = xi_required(vev())
     # DOCKET 67 (codata-2018-constants): eleven figures through G (u_r 2.2e-5)
     # are arithmetic reproducibility only; physically the figure holds to ~4-5.
-    chkrel("xi required at the VEV", xr, 9.7829068836e31, 1e-9)
+    # RE-PINNED (DOCKET 67 follow-up): first 9.7829068836e31, computed with the
+    # typed, truncated hbar; with the exact h/2pi (via ladder.HBAR) it is
+    # 9.7829068896e31 (+6.13e-10, hbar's own shift).  The old pin passed only
+    # because its tolerance, 1e-9, exceeds that shift.
+    chkrel("xi required at the VEV", xr, 9.7829068896e31, 1e-10)
     chk("which is more than 1e27 above Higgs inflation",
         xr / XI_HIGGS_INFLATION > 1e27, True)
+    # DOCKET 67 follow-up: the statuses follow what DOCKET 67 READ, and the
+    # typed 1.7e4 is the 2-s.f. truncation of eq. (13) COMPUTED at the READ m_h.
+    chk("G_F, the 125.20 pin and B-S's xi are READ / COMPUTED, not NAMED-NOT-READ",
+        sorted(STATUS_D67.values()),
+        ["COMPUTED from READ eq. (13), quoted truncated", "READ", "READ"])
+    chkrel("B-S eq. (13) at the READ m_h, tree lambda", xi_eq13_at_read_mh(),
+           17608.0, 1e-4)
+    chk("  and 1.7e4 is its 2-s.f. truncation (not its rounding, 1.8e4)",
+        (math.floor(xi_eq13_at_read_mh() / 1e3) / 10.0 * 1e4 == XI_HIGGS_INFLATION,
+         round(xi_eq13_at_read_mh(), -3) == XI_HIGGS_INFLATION), (True, False))
 
     # ------------------------------------------ and the gate IS the hierarchy
     h = hierarchy()
-    chkrel("v/M_reduced", h, 1.0110346504e-16, 1e-9)
+    # RE-PINNED (DOCKET 67 follow-up): first 1.0110346504e-16 (truncated
+    # hbar); M_red carries sqrt(hbar), so the exact h/2pi moves it -3.06e-10.
+    chkrel("v/M_reduced", h, 1.0110346501e-16, 1e-10)
     # THE IDENTITY: xi_required is exactly the hierarchy squared.  Not an
     # analogy -- the same number, because xi couples phi^2.
     chkrel("xi_required = (v/M_red)^-2 exactly", xr, 1.0 / h ** 2, 1e-12)

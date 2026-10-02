@@ -252,15 +252,26 @@ the citations and `provenance()` prints them beside the numbers.
 Separating an element from a matrix costs energy that depends on the matrix and
 the method, and none of that is computed here.
 
-**TO CLAIM THE STOCK CONSTRAINT IS A BARRIER.**  It is not.  120 tonnes, or 0.7
-tonnes at a chondrite, sits about 25 orders of magnitude below the Fuchs shell's
-4.4886e27 kg.  It is a SITE-SELECTION CRITERION, and calling it more would be
-over-representation.
+**TO CLAIM THE STOCK CONSTRAINT IS A BARRIER.**  It is not.  133.7 tonnes at
+the solar photosphere sits 3.356e22 (10^22.53) below the Fuchs shell's
+4.4886e27 kg, and 0.749 tonnes at a chondrite 5.992e24 (10^24.78) below it
+(`against_the_shell()`, computed).  It is a SITE-SELECTION CRITERION, and
+calling it more would be over-representation.
 
 **TO SETTLE WHETHER ASSEMBLY IS POSSIBLE AT ALL.**  This file costs the
-FEEDSTOCK for an assembly it does not design.  Writing a quantum state onto
-1.2e5 kg of sorted atoms is not addressed, and `transit.py`'s two-classical-bit
-ledger is untouched by anything here.
+FEEDSTOCK for an assembly it does not design.  Sorting 1.337e5 kg of
+photospheric feedstock into 70 kg of atoms, and writing a quantum state onto
+them, is not addressed, and `transit.py`'s two-classical-bit ledger is
+untouched by anything here.
+
+    CORRECTED (DOCKET 67, follow-up D): these two paragraphs read "120 tonnes,
+    or 0.7 tonnes at a chondrite, sits about 25 orders of magnitude below the
+    Fuchs shell" and "writing a quantum state onto 1.2e5 kg of sorted atoms".
+    The file computes 133.7 t and 0.749 t, at 10^22.53 and 10^24.78 below the
+    shell -- "about 25" held for the chondrite only -- and the 1.337e5 kg is
+    feedstock processed, not atoms sorted (the payload is 70 kg).  The selftest
+    row "25+ orders" checked > 1e22; it now pins both computed ratios.  No
+    verdict moved: the constraint is a site-selection criterion either way.
 """
 
 import math
@@ -415,9 +426,11 @@ def stock_need_not_travel():
     return binding_element(HUMAN, CHONDRITE)[1], SOURCES["chondrite"]
 
 
-def against_the_shell(payload_kg=70.0):
-    """How far below the Fuchs shell the whole stock bill sits.  Not a barrier."""
-    return FUCHS_SHELL_KG / feedstock_kg(payload_kg, HUMAN, cosmic())
+def against_the_shell(payload_kg=70.0, stock=None):
+    """How far below the Fuchs shell the whole stock bill sits.  Not a barrier.
+    stock defaults to the solar photosphere (the costliest destination)."""
+    return FUCHS_SHELL_KG / feedstock_kg(payload_kg, HUMAN,
+                                         cosmic() if stock is None else stock)
 
 
 # ------------------------------------------- the order-ideal property, verified
@@ -625,8 +638,17 @@ def selftest():
         float("%.4g" % stock_need_not_travel()[0]), 10.7)
 
     # -- scale: not a barrier --------------------------------------------------
-    chk("the stock bill is 25+ orders below the Fuchs shell",
+    # CORRECTED (DOCKET 67): labelled "25+ orders" while checking > 1e22.
+    chk("the stock bill is 22+ orders below the Fuchs shell",
         against_the_shell() > 1e22, True)
+    chk("  photosphere: 3.356e22 below the shell (10^22.53)",
+        float("%.4g" % against_the_shell()), 3.356e22)
+    chk("  chondrite: 5.992e24 below the shell (10^24.78)",
+        float("%.4g" % against_the_shell(stock=CHONDRITE)), 5.992e24)
+    chk("  the photospheric stock bill is 133.7 t",
+        float("%.4g" % (feedstock_kg(70.0, HUMAN, cosmic()) / 1000.0)), 133.7)
+    chk("  and it is NOT the 120 t section 6 once printed",
+        abs(feedstock_kg(70.0, HUMAN, cosmic()) / 1000.0 - 120.0) > 1.0, True)
 
     print("\n%d failure(s)" % len(bad))
     return 1 if bad else 0

@@ -322,15 +322,18 @@ macroscopic gauged configurations; H1 against H2; a BSM light scalar.  None is
 answered here and none is quoted as answered.
 
 STATUSES.  D15, D16, D18, D19 are THEOREMs on their named hypotheses.  Every
-metre, second and kg/m^3 figure is COMPUTED from READ or NAMED-NOT-READ inputs
-and carries its input's status: every figure through v inherits G_F's
-NAMED-NOT-READ.  m_h is READ: on M's ruling (DOCKET 63 F2) higgs.M_HIGGS IS the
-capture's 125.13, and the withdrawn pin 125.20 is kept only as a record, printed
-beside it and never used for a live figure.
-    CORRECTED (DOCKET 67), labels only; no status here is changed.  G_F's
-    NAMED-NOT-READ is conservative: DOCKET 67 READ 1.1663788(6)e-5 GeV^-2 in
-    PDG 2024 Table 1.1, identical to the pin.  The withdrawn pin 125.20 is
-    likewise readable, as the PDG 2024/2025 average.  v = (sqrt2 G_F)^(-1/2),
+metre, second and kg/m^3 figure is COMPUTED from READ inputs and carries its
+input's status: every figure through v inherits G_F's READ (PDG 2024 Table
+1.1).  m_h is READ: on M's ruling (DOCKET 63 F2) higgs.M_HIGGS IS the capture's
+125.13, and the withdrawn pin 125.20 (READ, PDG 2024) is kept only as a record,
+printed beside it and never used for a live figure.
+    CORRECTED (DOCKET 67), labels only.  DOCKET 67 READ G_F, 1.1663788(6)e-5
+    GeV^-2 in PDG 2024 Table 1.1, identical to the pin, and the withdrawn pin
+    125.20 as the PDG 2024/2025 average (125.20 +- 0.11, 2024 listing p.1).
+    FOLLOW-UP (on M's ruling "ok, update"): both statuses, first left as
+    NAMED-NOT-READ ("conservative"), are now READ; this paragraph first read
+    "COMPUTED from READ or NAMED-NOT-READ inputs ... every figure through v
+    inherits G_F's NAMED-NOT-READ".  No value moved.  v = (sqrt2 G_F)^(-1/2),
     lambda and V_min are TREE-LEVEL (LO) objects, so every figure through
     rho_EW is a tree-level figure (MS-bar NNLO lambda/LO = 0.9757), and
     Gamma_h holds under equal on- and off-shell couplings (PDG p.8; CMS
@@ -424,18 +427,21 @@ M_B_READ_GEV = float(_ROWS[5]["mass_MeV"]) / 1000.0           # READ
 M_T_READ_GEV = float(_ROWS[6]["mass_MeV"]) / 1000.0           # READ
 CAPTURE_LINES = _capture_lines()
 
-#: The withdrawn pin 125.20 (NAMED-NOT-READ -- a conservative label: it is the
-#: readable PDG 2024/2025 average, DOCKET 67) is kept as a record beside the
+#: The withdrawn pin 125.20 (READ, DOCKET 67: the PDG 2024/2025 average,
+#: 125.20 +- 0.11; first labelled NAMED-NOT-READ) is kept as a record beside the
 #: READ value.  higgs.M_HIGGS IS the READ 125.13 since M's ruling, and the
 #: selftest's drift guard (inverted) fires if it is ever re-pinned.
 M_HIGGS_PIN_GEV = higgs.M_HIGGS_PIN_WITHDRAWN                 # the withdrawn pin, kept as a record
 
 STATUS = {
     "m_h READ, Gamma_h, m_W, m_Z, m_c, m_b, m_t": "READ captures/PDG-2026.tsv",
-    "higgs.M_HIGGS = 125.13 (READ); the withdrawn pin 125.20": "READ; the pin NAMED-NOT-READ, a record "
-        "(a conservative label: 125.20 is the readable PDG 2024/2025 average, DOCKET 67)",
-    "v = higgs.vev() from G_F": "COMPUTED from G_F, which is NAMED-NOT-READ (conservative: READ "
-        "identically in PDG 2024 Table 1.1, DOCKET 67); tree level",
+    # CORRECTED (DOCKET 67 follow-up, "ok, update"): these two first read
+    # "READ; the pin NAMED-NOT-READ, a record (a conservative label ...)" and
+    # "COMPUTED from G_F, which is NAMED-NOT-READ (conservative: ...)".
+    "higgs.M_HIGGS = 125.13 (READ); the withdrawn pin 125.20": "READ; the pin READ too "
+        "(PDG 2024/2025 average, 125.20 +- 0.11, DOCKET 67), WITHDRAWN, a record",
+    "v = higgs.vev() from G_F": "COMPUTED from G_F, READ (PDG 2024 Table 1.1, "
+        "1.1663788(6)e-5 GeV^-2, DOCKET 67); tree level",
     "Gamma_h": "READ, under equal on- and off-shell couplings (PDG p.8; DOCKET 67)",
     "c, hbar, G": "carried from ladder through higgs",
     "eps = 1e-18": "ORDER -- a fixture, never a capability",
@@ -911,10 +917,12 @@ def exact_source_density(eps):
 
 
 #: THE LEDGER'S D20 OWNER.  address.source_density(1e-18, 1.0)[1].  MEASURED
-#: in the ledger's vocabulary; COMPUTED here from G_F (NAMED-NOT-READ) and the
-#: pinned m_h (NAMED-NOT-READ).  Through rho_EW it is a TREE-LEVEL (LO) figure
-#: with SM self-coupling; G_F is READ identically in PDG 2024 Table 1.1, so its
-#: label is conservative (DOCKET 67).
+#: in the ledger's vocabulary; COMPUTED here from G_F (READ, PDG 2024 Table
+#: 1.1) and m_h (READ; higgs.M_HIGGS, the 2026 capture).  Through rho_EW it is a
+#: TREE-LEVEL (LO) figure with SM self-coupling.  CORRECTED (DOCKET 67
+#: follow-up): first "from G_F (NAMED-NOT-READ) and the pinned m_h
+#: (NAMED-NOT-READ)"; G_F was READ by DOCKET 67, and m_h has been the READ
+#: capture since DOCKET 63 F2.
 HOLD_HIGGS_DERIVED_KG_M3_AT_EPS_1E18 = address.source_density(EPS_AT_FIXTURE,
                                                               1.0)[1]
 HOLD_STABLE_KG_M3_AT_EPS_1E18 = {h: stable_matter_density(EPS_AT_FIXTURE, h)
@@ -1126,7 +1134,7 @@ def curvature_break_even(hypothesis, S=None):
             * higgs.xi_required(higgs.vev()))
 
 
-LAMBDA_H_PIN_M = endpoint.yukawa_range_m(M_HIGGS_PIN_GEV)      # NAMED-NOT-READ in
+LAMBDA_H_PIN_M = endpoint.yukawa_range_m(M_HIGGS_PIN_GEV)      # READ (PDG 2024; was NAMED-NOT-READ), WITHDRAWN, in
 LAMBDA_H_READ_M = endpoint.yukawa_range_m(M_H_READ_GEV)        # READ in
 TAIL_RATE_M = {"pinned 125.20": LAMBDA_H_PIN_M, "READ": LAMBDA_H_READ_M}
 LAMBDA_W_READ_M = endpoint.yukawa_range_m(M_W_READ_GEV)
@@ -1237,9 +1245,9 @@ def report():
                           ("m_t", M_T_READ_GEV, 6)):
         print("      %-10s %14.6f GeV   READ  PDG-2026.tsv:%d"
               % (lab, val, CAPTURE_LINES[pid]))
-    print("      %-10s %14.6f GeV   NAMED-NOT-READ, WITHDRAWN -- a record, never a "
+    print("      %-10s %14.6f GeV   READ (PDG 2024), WITHDRAWN -- a record, never a "
           "live figure" % ("old pin", M_HIGGS_PIN_GEV))
-    print("      %-10s %14.6f GeV   COMPUTED from G_F (NAMED-NOT-READ)"
+    print("      %-10s %14.6f GeV   COMPUTED from G_F (READ, PDG 2024)"
           % ("v", higgs.vev()))
     print("      %-10s %14.6e J/m^3 COMPUTED (higgs)" % ("rho_EW", RHO_EW))
 
@@ -1430,6 +1438,16 @@ def selftest():
         any("e96a23be061430adc72d5b2ea5a93764" in h for h in pdgcapture.header()),
         True)
     chk("higgs.py reads the same m_h", higgs.M_HIGGS_READ_GEV, M_H_READ_GEV)
+    # DOCKET 67 follow-up ("ok, update"): G_F and the withdrawn pin are READ;
+    # this file's status words and higgs.py's must agree, and neither may say
+    # NAMED-NOT-READ for them again.
+    chk("STATUS: G_F and the 125.20 pin carry READ, not NAMED-NOT-READ",
+        [("NAMED-NOT-READ" in STATUS[k], "READ" in STATUS[k]) for k in
+         ("higgs.M_HIGGS = 125.13 (READ); the withdrawn pin 125.20",
+          "v = higgs.vev() from G_F")], [(False, True), (False, True)])
+    chk("  and higgs.STATUS_D67 agrees for both",
+        (higgs.STATUS_D67["G_FERMI"], higgs.STATUS_D67["M_HIGGS_PIN_WITHDRAWN"]),
+        ("READ", "READ"))
     try:
         good, msg = pdgcapture.verify()
         chk("pdgcapture.verify(): the capture agrees with a fresh derivation",
@@ -1465,10 +1483,13 @@ def selftest():
                address.source_to_field_ratio(e) * e, 2.0, 1e-5)
     chkrel("3.6746e12 kg/m^3 (address.py, H2)",
            HOLD_STABLE_KG_M3_AT_EPS_1E18["H2"], 3.6746e12 * MH ** 2, 1e-4)
-    # 1e-9 tests reproduction of higgs.py's figure, not physical precision:
-    # G_F carries 5.1e-7 and G 2.2e-5 (DOCKET 67).
+    # 1e-10 tests reproduction of higgs.py's figure, not physical precision:
+    # G_F carries 5.1e-7 and G 2.2e-5 (DOCKET 67).  RE-PINNED (DOCKET 67
+    # follow-up): first 9.7829068836e31 at 1e-9, the truncated-hbar value; the
+    # exact h/2pi moves it +6.13e-10, inside the old tolerance, so the pin is
+    # the computed 9.7829068896e31 and the tolerance 1e-10 now sees such a move.
     chkrel("xi_required(v) (higgs.py)", higgs.xi_required(higgs.vev()),
-           9.7829068836e31, 1e-9)
+           9.7829068896e31, 1e-10)
     chkrel("xi_required(2e16) ~ 1.48e4 (xigate.py)", XI_REQUIRED_AT_GUT,
            1.48e4, 5e-3)
     chk("d ln Lambda / d ln v = 2/9 at one loop (address.py)",
@@ -1746,8 +1767,10 @@ def selftest():
            1.557079, 1e-6)
     chkrel("  Z / lambda_h(READ)", LAMBDA_Z_READ_M / LAMBDA_H_READ_M,
            1.372222, 1e-6)
+    # RE-PINNED (DOCKET 67 follow-up): first S_MID * 9.7829068836e31 at 1e-9
+    # (truncated hbar); now the computed 9.7829068896e31 at 1e-10.
     chkrel("curvature break-even H2 = S (M_red/v)^2", curvature_break_even("H2"),
-           S_MID * 9.7829068836e31, 1e-9)
+           S_MID * 9.7829068896e31, 1e-10)
 
     # ------------------------------------------------ record and refusals
     print("\n12. THE RECORD, W9 AND THE REFUSALS")

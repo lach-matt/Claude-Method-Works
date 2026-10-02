@@ -22,6 +22,7 @@ import math, os, sys
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import person as PZ
 import stationkeep as SK
+import arrival as AR
 
 G, c, MSUN = 6.67430e-11, 299792458.0, 1.98892e30
 YR = 3.15576e7
@@ -78,6 +79,11 @@ PASSES_2  = SK.passes_to(2.0, SK.gain_second_order(BETA_A, K_PASS))
 BETA_GEO  = SK.beta_A_geometric_max(K_PASS)           # two deflectors only below this
 _G_MEAS   = SK.empirical_ceiling(BETA_GEO, K_PASS)    # A&R: one encounter's worth
 V_MEAS    = math.sqrt(1.0 - 1.0/_G_MEAS**2)           # 0.0393 c
+
+# ---- arrival (arrival.py) -- computed by the owner, never retyped -------------
+AR_BETA       = 0.866                             # arrival.py's "engine 0.87c"
+AR_MASS_RATIO = AR.photon_mass_ratio(AR_BETA)     # 3.7316716 (first typed 3.7314)
+AR_MAGSAIL_LY = AR.magsail_distance(1e6, AR_BETA, 1e12)/AR.LY   # 0.08425 (first typed 2.6)
 
 def passes_to(gamma_t, gain=GAIN):
     return math.log(gamma_t)/math.log(1.0+gain)
@@ -141,17 +147,31 @@ SPEC = [
  # CORRECTED (DOCKET 67), notes only -- values and statuses unchanged: "free"
  # prices propellant alone, and the 0.87c magsail figure applies arrival.py's
  # ram-drag law outside every READ magsail model.
+ # CORRECTED (DOCKET 67, follow-up D, on M's ruling "address/repair/correct"):
+ # the two ARRIVAL figures were typed literals carrying arrival.py's withdrawn
+ # figures -- mass ratio 3.7314 (arrival.py's old pin; computed 3.7316716) and
+ # magsail 2.6 ly ("arrival.py's prose figure", withdrawn there; its function
+ # gives 0.08425 ly).  Both are now computed by arrival.py itself (AR_* below),
+ # so the sheet cannot drift from the instrument again.  The magsail row was
+ # also called a "brake distance" that "must start before departure": under
+ # arrival.py's law no finite distance brings the ship to rest, so the value is
+ # a FLOOR on the distance, not a distance to rest, and "before departure" was
+ # never computed (0.084 ly, or even 2.6 ly, is short of the 4.24 ly trip).
+ # Status DERIVED is kept: the floor is computed, under hypotheses now named.
  ("ARRIVAL","with a deflector present","free","","DERIVED",
   "time-symmetric reverse pass; free of PROPELLANT only -- steering needs "
   "|db| ~ 0.01 M, and braking 0.866c takes 1.80-3.25 passes at U = 0.35-0.2c "
   "or one deflector at 0.577c"),
- ("ARRIVAL","without, mass ratio at 0.87c",3.7314,"","DERIVED","arrival.py, photon floor"),
- ("ARRIVAL","magsail at 0.87c",2.6,"ly","DERIVED",
-  "brake distance; must start before departure.  arrival.py's constant-area "
-  "F = rho v^2 A law at 1 proton/cm^3, applied at 0.866c, outside every READ "
-  "magsail model (non-relativistic, velocity-dependent area, ions only at "
-  "0.05-0.21 cm^-3); 2.6 is arrival.py's prose figure (its function gives "
-  "0.084 ly at A = 1e12 m^2; 2.6 matches A = pi (100 km)^2 within 3%)"),
+ ("ARRIVAL","without, mass ratio at 0.87c",AR_MASS_RATIO,"","DERIVED",
+  "arrival.py photon_mass_ratio(0.866), a floor under H-SELF (100% conversion, "
+  "collimated exhaust, straight burn, flat spacetime)"),
+ ("ARRIVAL","magsail floor at 0.87c",AR_MAGSAIL_LY,"ly","DERIVED",
+  "a FLOOR, not a distance to rest: arrival.py magsail_distance(1e6 kg, 0.866, "
+  "A = 1e12 m^2), the energy/initial-drag estimate of a constant-area "
+  "F = rho v^2 A law at 1 proton/cm^3 (H-CONST-A, coefficient 1, H-ALL-NUCLEI); "
+  "linear in ship mass and 1/A.  Applied at 0.866c, outside every READ magsail "
+  "model (non-relativistic, velocity-dependent area, ions only at "
+  "0.05-0.21 cm^-3).  First typed as 2.6 ly, arrival.py's withdrawn prose figure"),
  ("ARRIVAL","destination has a deflector",None,"","OPEN","routing constraint, unsurveyed"),
 
  ("ONBOARD","power for transport",0.0,"W","DERIVED","none required"),
@@ -262,6 +282,26 @@ def selftest():
     chk("unsteered pass count is 1/beta_A times the steered", PASSES_2/PASSES,
         SK.selection_ratio(BETA_A), tol=1e-3)
     chk("companion mass (Msun)", DEFLECTOR/Q_RATIO/MSUN, 1247.9968, tol=1e-5)
+
+    print("\nAgainst arrival.py -- DOCKET 67: the ARRIVAL rows were typed and drifted")
+    # Pins are the computed values (python3 -c "import arrival as A;
+    # print(A.photon_mass_ratio(0.866), A.magsail_distance(1e6,0.866,1e12)/A.LY)").
+    chk("photon mass ratio at 0.866 c", AR_MASS_RATIO, 3.7316716, tol=1e-6)
+    # 0.866 is sqrt(3)/2 rounded (gamma = 2.0001), where the ratio is exactly
+    # 2+sqrt(3) = 3.7320508; the rounding costs 1.02e-4 relative.
+    chk("  within 1.1e-4 of the exact 2+sqrt(3) at sqrt(3)/2",
+        AR_MASS_RATIO, 2.0+math.sqrt(3.0), tol=1.1e-4)
+    chk("magsail floor at 0.866 c, 1e6 kg, 1e12 m^2 (ly)", AR_MAGSAIL_LY, 0.084249112, tol=1e-6)
+    # Control: the withdrawn figures must not come back.
+    chk("the withdrawn 3.7314 is not the computed ratio",
+        abs(AR_MASS_RATIO-3.7314) > 1e-5*3.7314, True)
+    chk("the withdrawn 2.6 ly is not the computed floor",
+        abs(AR_MAGSAIL_LY-2.6) > 1e-3, True)
+    arr = {r[1]: r[2] for r in SPEC if r[0]=="ARRIVAL"}
+    chk("sheet carries arrival.py's mass ratio", arr["without, mass ratio at 0.87c"],
+        AR.photon_mass_ratio(0.866), tol=1e-12)
+    chk("sheet carries arrival.py's magsail floor", arr["magsail floor at 0.87c"],
+        AR.magsail_distance(1e6, 0.866, 1e12)/AR.LY, tol=1e-12)
 
     print("\nSheet integrity")
     stat = {}

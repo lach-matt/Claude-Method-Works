@@ -145,11 +145,29 @@ HBAR = 1.054571817e-34      # J s
 L_P  = (HBAR * G / C**3) ** 0.5          # 1.616e-35 m
 M_SUN, M_JUP, M_EARTH = 1.98892e30, 1.89813e27, 5.9722e24
 M_MILKYWAY = 1e12 * M_SUN
-# Nuclear saturation density, not read at source.  2.3e17 kg/m^3 is
-# n0 = 0.1375 nucleons/fm^3; the tree's other constant, address.RHO_NUCLEAR =
-# 2.676e17 (n0 = 0.16/fm^3 times m_N), is 16% higher.  A discrepancy recorded
-# by DOCKET 67, not a correction of either value.
-RHO_NUC = 2.3e17            # kg m^-3, nuclear saturation
+# Nuclear saturation density, not read at source: n0 = 0.16 nucleons/fm^3 (the
+# conventional datum, NAMED-NOT-READ) times m_N, taken as m_p -- imported from
+# address.RHO_NUCLEAR (status DERIVED-FROM-ORDER there), so the tree carries one
+# value.  Its hypotheses, named: symmetric (N = Z), infinite, Coulomb-free
+# nuclear matter, n0 extrapolated from finite nuclei, not measured on any one
+# system; m_N = m_p (n0 m_p = 2.6762e17 to 4 digits; <m_N>, or binding, moves
+# rho by at most 1.7 %, DOCKET 67 key nuclear-saturation-density).  No value of
+# n0 was READ by that audit (snippets 0.150 +- 0.010 and 0.148 +- 0.004 fm^-3,
+# arXiv:2007.07117 and 2102.10767, are NAMED-NOT-READ); the figures below scale
+# as 1/n0 (density ratio) and n0^(-1/2) (radius, mass).
+#   CORRECTED (DOCKET 67, key nuclear-saturation-density, on M's ruling
+#   "address/correct/repair all figures").  This read "RHO_NUC = 2.3e17", i.e.
+#   n0 = 0.1375 nucleons/fm^3, 16 % (a factor 1.1635) below address.RHO_NUCLEAR
+#   = 2.676e17, and the note called it "a discrepancy recorded by DOCKET 67,
+#   not a correction of either value".  On 2.3e17 the Fuchs shell needed
+#   6.658e5 x nuclear density, nuclear-density material sufficed at
+#   R1 = 8.16 km and the ship massed 1.84 solar masses; on 2.676e17 (computed:
+#   python3 -c "import warpdrive as w; r=w.radius_for_density(w.RHO_NUC);
+#   print(w.shell(10.,20.,4.49e27)['nuclear'], r, w.design_trade(r)['m_sun'])")
+#   they are 5.722e5, 7.565 km and 1.708 solar masses.
+import address as _address
+RHO_NUC = _address.RHO_NUCLEAR      # kg m^-3, nuclear saturation (2.676e17)
+RHO_NUC_WITHDRAWN = 2.3e17          # the value it replaced, kept as a control
 KG_PER_M = C**2 / G         # geometrized length -> kg
 J_PER_M  = C**4 / G         # geometrized length -> J
 
@@ -889,11 +907,14 @@ def closest_approach(Msun, a_tide=9.8, d=20.0, bmin_rs=4.0):
     return max(b_tide, bmin_rs * r_s), (b_tide > bmin_rs * r_s)
 
 BORROW = []
-for _nm, _m in (("neutron star", 1.4), ("stellar black hole", 10.0),
+# CORRECTED (DOCKET 67 figures pass): the loop variable here was _m, which
+# rebound the module's "import math as _m" to a float, so report() died at
+# "_m.pi" (AttributeError) before printing its later sections; renamed _msun.
+for _nm, _msun in (("neutron star", 1.4), ("stellar black hole", 10.0),
                 ("IMBH", 1e4), ("Sgr A*", 4.3e6), ("M87*", 6.5e9)):
-    _b, _t = closest_approach(_m)
-    _r = slingshot_dv(_m, _b)
-    BORROW.append((_nm, _m, _b, _b / _r['r_s'], _r['U_opt'], _r['dv'], _t))
+    _b, _t = closest_approach(_msun)
+    _r = slingshot_dv(_msun, _b)
+    BORROW.append((_nm, _msun, _b, _b / _r['r_s'], _r['U_opt'], _r['dv'], _t))
 
 def build_route_v():
     return 0.0378          # THE-DESIGN-EQUATION.md, cosine profile + gamma optimum
@@ -1017,7 +1038,9 @@ def report():
     p('    SCALING THE SHELL.  Fix the fill fraction and R2 = 2 R1, and grow it:')
     p('    %-10s %12s %12s %14s %12s' % ('R1 [m]', 'M [kg]', 'M [M_sun]',
                                          'rho [kg/m^3]', 'rho / nuc'))
-    for r1 in (10.0, 1e2, 1e3, 8.16e3, 1e5):
+    # CORRECTED (DOCKET 67): the fourth row was the literal 8.16e3, the
+    # nuclear-density radius on the withdrawn 2.3e17; it is computed now.
+    for r1 in (10.0, 1e2, 1e3, radius_for_density(RHO_NUC), 1e5):
         t = design_trade(r1)
         p('    %-10.3g %12.3e %12.3e %14.3e %12.3e'
           % (r1, t['M'], t['m_sun'], t['rho'], t['nuclear']))
@@ -1915,6 +1938,18 @@ def selftest():
         propulsion_fuel_at(0.004*0.501) / propulsion_fuel_at(1.0) > 100.0, True)
     # the borrowed well
     chk('optimal slingshot turn is 90 degrees', slingshot_dv(10.0, 1e8)['theta_deg'], 90.0)
+    # DOCKET 67 (key nuclear-saturation-density): RHO_NUC is address's value,
+    # and the three figures it sets are pinned to their computed values.
+    chk('RHO_NUC is address.RHO_NUCLEAR (one value in the tree)',
+        RHO_NUC == _address.RHO_NUCLEAR, True)
+    _sh = shell(10.0, 20.0, 4.49e27)
+    _rn = radius_for_density(RHO_NUC)
+    chk('Fuchs shell density / nuclear (2.676e17)', _sh['nuclear'], 5.72234e5, 1e-5)
+    chk('nuclear-density radius R1 [m]', _rn, 7564.614, 1e-6)
+    chk('ship mass there [M_sun]', design_trade(_rn)['m_sun'], 1.707717, 1e-6)
+    chk('control: on the withdrawn 2.3e17, R1 = 8159.5 m (not now)',
+        (abs(radius_for_density(RHO_NUC_WITHDRAWN) / 8159.545 - 1) < 1e-6,
+         abs(_rn / 8159.545 - 1) < 1e-3), (True, False))
     chk('closed form dv = sqrt(r_s/b) at b = 4 r_s gives c/2',
         slingshot_dv(4.3e6, 4*2*G*4.3e6*1.989e30/(C*C))['dv'], 0.5, tol=1e-6)
     chk('closed form matches the scan, neutron star',

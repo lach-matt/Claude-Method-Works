@@ -20,27 +20,51 @@ directories that can see recovered/).
 1. WHAT SURVIVES, AND IS SEATED
 ===============================================================================
 
-(a) THE PREFACTOR OF F&T (2.12)/(2.13) IS EXACTLY 1 IN THIS FILE'S READING OF
-    (2.12)'s BRACKET.  THEOREM on that reading, two routes, both symbolic, each
-    SOLVING for the prefactor P rather than asserting it.
-    Route 1: from their legible (2.10)+(2.11) by a Leibniz identity and the
-    field equation.  Route 2: (2.12)'s bracket  w_k^2 |U_k|^2 + (1/4) grad^2|U_k|^2
-    evaluated on Minkowski plane waves U_k = e^{ik.x}/sqrt((2 pi)^n 2 w_k)
-    (|U_k|^2 and grad^2|U_k|^2 = 0 computed, not assumed), |g_tt| = 1, and P
-    solved against their printed Minkowski form (3.2),
-    -(1/2) INT d^n k/(2 pi)^n w_k |fhat|^2.  The two routes share only the
-    reading of (2.12)'s bracket; their second inputs, (2.10)+(2.11) against
-    (3.2), are different printed equations.  Route 2 CAN return another value:
-    drop the 2 from the mode normalisation and it returns 1/2 (a selftest
-    control).  The PDF text layer drops the prefactor; nothing here trusts the
-    text layer.
-      CORRECTED (DOCKET 67).  F&T's PRINTED prefactor is 1/pi, by four
-      in-paper routes, and the two routes above share the one step -- the
-      reading of (2.12)'s bracket -- that drops the pi.  A discrepancy, not a
-      refutation, and it feeds no figure: 71.256, the 64/9 refusal, 72.599's
-      refusal and O2 OPEN are unmoved, and with P = 1/pi no class, route,
-      requirement or ledger cell moves.  PREFACTOR_212 stays the value this
-      file's routes solve for; it is not F&T's printed constant.
+(a) THE PREFACTOR OF F&T (2.12)/(2.13) IS 1/pi, AS PRINTED, AND THIS FILE'S
+    TWO ROUTES SOLVE FOR IT.  READ: gr-qc/9812032v2, whose text layer prints
+    the numerator '1' over a blank -- the dropped pi glyph, exactly as in
+    (2.14)'s '2/[blank]' = 2/pi -- and four in-paper routes fix the pi
+    (DOCKET 67, key gr-qc/9812032, computed by its rederive script): (A.3)-(A.5)
+    with the convolution theorem give (A.2) = 1/(2 pi); (2.6)'s coefficient 1
+    gives (2.10) = -(1/(2 pi)); route 1 below then gives 1/pi; and (5.6)'s
+    constant with C_3 = 1/(2 pi^2) gives (3.2)'s coefficient 1/(2 pi), so
+    route 2 below gives 1/pi.  Both routes are symbolic and each SOLVES for
+    the prefactor P rather than asserting it.
+    Route 1: from (2.10), printed -(1/(2 pi)), and (2.11) by a Leibniz
+    identity and the field equation.  Route 2: (2.12)'s bracket
+    w_k^2 |U_k|^2 + (1/4) grad^2|U_k|^2 evaluated on Minkowski plane waves
+    U_k = e^{ik.x}/sqrt((2 pi)^n 2 w_k) (|U_k|^2 and grad^2|U_k|^2 = 0
+    computed, not assumed), |g_tt| = 1, and P solved against the printed
+    Minkowski form (3.2), -(1/(2 pi)) INT d^n k/(2 pi)^n w_k |fhat|^2.  The
+    two routes share the reading of (2.12)'s bracket; their second inputs,
+    (2.10)+(2.11) against (3.2), are different printed equations.  Route 2
+    CAN return another value: drop the 2 from the mode normalisation and it
+    returns 1/(2 pi) (a selftest control).  Hypotheses, named: the whole
+    bracket is read over |g_tt|^e, where printed (2.12) puts 1/|g_tt| on the
+    w^2 term only (no effect at |g_tt| = 1, where grad^2|U_k|^2 = 0); the
+    dispersion relation w^2 = k^2 + mu^2 is not imposed in route 2 (it does
+    not enter, grad^2|U_k|^2 vanishing for every w).
+    CONSEQUENCE, computed (selftest section 1): P carried through (3.2) and
+    (3.4) to the flat massless Lorentzian bound gives exactly 9/64 of
+    Ford-Roman at P = 1/pi -- the (b) figure, whose 1/(16 pi^3) is the
+    pi-bearing chain -- and 9 pi/64 = 0.4418 at the P = 1 this file carried.
+    What moves: PREFACTOR_212 (1 -> 1/pi) and the sentence that quoted it;
+    NO figure -- 71.256, the 9/64, the 64/9 refusal, 72.599's and 72.247's
+    refusals, the gap sweep and O2 OPEN are computed without it (it was
+    compared, never used).
+      CORRECTED (DOCKET 67, on M's ruling "address/correct/repair all
+      figures").  This read "THE PREFACTOR OF F&T (2.12)/(2.13) IS EXACTLY 1
+      IN THIS FILE'S READING OF (2.12)'s BRACKET.  THEOREM on that reading",
+      with route 1 from "their legible (2.10)" and route 2 against (3.2) read
+      as "-(1/2) INT d^n k/(2 pi)^n w_k |fhat|^2", the norm control returning
+      1/2, and "The PDF text layer drops the prefactor; nothing here trusts
+      the text layer" -- but the -1/2 in (2.10) and (3.2) were text-layer
+      readings with the pi missing, so both routes solved to 1 = pi x 1/pi.
+      The prose pass then added: "F&T's PRINTED prefactor is 1/pi, by four
+      in-paper routes ... PREFACTOR_212 stays the value this file's routes
+      solve for; it is not F&T's printed constant."  PREFACTOR_212 now
+      carries the printed 1/pi; the text-layer reading's 1 is kept as
+      PREFACTOR_212_TEXT_LAYER_READING, a control.
 
 (b) THE 9/64 IS EXACT, AND IT MUST NOT BE APPLIED TO C_F.  F&T's flat massless
     bound with Ford-Roman's Lorentzian sampler is exactly 9/64 of Ford-Roman's
@@ -211,11 +235,17 @@ import concentric
 O2_STATUS = "OPEN (narrowed) -- NOT CLOSED"
 O2_CLOSED = False
 
-#: (a) THEOREM on this file's reading of (2.12)'s bracket, two routes;
-#: --selftest SOLVES for it both ways in sympy (verify_symbolic,
-#: prefactor_route2) and compares each solution with this.  NOT F&T's printed
-#: prefactor, which is 1/pi (DOCKET 67, a discrepancy that feeds no figure).
-PREFACTOR_212 = 1
+#: (a) F&T's PRINTED prefactor of (2.12), 1/pi -- READ (gr-qc/9812032v2, pi
+#: glyph restored and fixed by four in-paper routes, DOCKET 67); --selftest
+#: SOLVES for it both ways in sympy (verify_symbolic, prefactor_route2) from
+#: the pi-restored (2.10) and (3.2) and compares each solution with this.
+#: CORRECTED (DOCKET 67): this read "PREFACTOR_212 = 1", the value the two
+#: routes solve for on the text-layer readings -1/2 of (2.10) and (3.2), each
+#: missing the same pi; it fed no figure (compared, never used).  That reading
+#: is kept below as a control: on it the routes return pi x PREFACTOR_212.
+PREFACTOR_212 = 1.0 / math.pi
+PREFACTOR_212_PRINTED = "1/pi"
+PREFACTOR_212_TEXT_LAYER_READING = 1     # withdrawn; = pi x PREFACTOR_212
 
 #: (b) THEOREM (exact rationals through F&T (6.9)); --selftest reproduces it.
 NINE_64 = (9, 64)
@@ -475,15 +505,49 @@ def verify_symbolic(sp):
     W2, MU2, LAP, M2 = sp.symbols('W2 MU2 LAP M2')
     b210 = sp.expand(W2 * M2 + (LAP / 2 + (W2 - MU2) * M2) + MU2 * M2)
     b212 = W2 * M2 + LAP / 4
-    P = sp.Rational(1, 2) * sp.simplify(b210 / b212)
-    rows.append(("(a) route 1: prefactor of (2.12)", P, PREFACTOR_212))
+    # (2.10)'s printed coefficient is 1/(2 pi) (DOCKET 67, pi restored); the
+    # text layer reads it 1/2.  CORRECTED (DOCKET 67): route 1 used 1/2 only.
+    P = (1 / (2 * sp.pi)) * sp.simplify(b210 / b212)
+    P_text = sp.Rational(1, 2) * sp.simplify(b210 / b212)
+    rows.append(("(a) route 1: prefactor of (2.12) = 1/pi (printed)", P,
+                 1 / sp.pi))
+    rows.append(("(a) PREFACTOR_212 is route 1's 1/pi (float, 1e-15)",
+                 abs(float(P) - PREFACTOR_212) < 1e-15, True))
+    rows.append(("(a) CONTROL: on the text-layer 1/2, route 1 gives pi x 1/pi = 1",
+                 P_text, PREFACTOR_212_TEXT_LAYER_READING))
     # route 2 -- (2.12)'s bracket on Minkowski plane waves, P SOLVED against
     # the printed (3.2).  Same bracket expression b212 as route 1.
-    rows.append(("(a) route 2: prefactor solved against printed (3.2)",
-                 prefactor_route2(sp, b212, W2, M2, LAP), PREFACTOR_212))
-    rows.append(("(a) route 2 CONTROL: mode norm 1/((2pi)^n w_k) solves to 1/2",
+    P2 = prefactor_route2(sp, b212, W2, M2, LAP)
+    rows.append(("(a) route 2: prefactor solved against printed (3.2) = 1/pi",
+                 P2, 1 / sp.pi))
+    rows.append(("(a) PREFACTOR_212 is route 2's 1/pi (float, 1e-15)",
+                 abs(float(P2) - PREFACTOR_212) < 1e-15, True))
+    rows.append(("(a) CONTROL: against the text-layer -(1/2), route 2 gives 1",
+                 prefactor_route2(sp, b212, W2, M2, LAP, c32=sp.Rational(1, 2)),
+                 PREFACTOR_212_TEXT_LAYER_READING))
+    rows.append(("(a) route 2 CONTROL: mode norm 1/((2pi)^n w_k) solves to 1/(2pi)",
                  prefactor_route2(sp, b212, W2, M2, LAP, norm=1),
-                 sp.Rational(1, 2)))
+                 1 / (2 * sp.pi)))
+    # CONSEQUENCE of P, computed: (3.2)'s coefficient is X = P/2 (route 2
+    # inverted), (3.4)'s constant is C_3 X/(n+1) with C_3 = 1/(2 pi^2), n = 3,
+    # and with (2.18)'s Lorentzian factor and (6.9) at alpha = 5/2 the flat
+    # massless bound over Ford-Roman's 3/(32 pi^2 t0^4) is 9/64 at P = 1/pi
+    # and 9 pi/64 at the withdrawn P = 1.
+    t0c = sp.Symbol('t_0', positive=True)
+    alc = sp.Rational(5, 2)
+    I69c = (2 ** (2 * alc - 3) * t0c ** (-2 * alc) * sp.gamma(alc) ** 4
+            / sp.gamma(2 * alc))
+    frc = sp.Rational(3) / (32 * sp.pi ** 2 * t0c ** 4)
+
+    def _chain(Pv):
+        coeff = (1 / (2 * sp.pi ** 2)) * (Pv / 2) / 4
+        return sp.nsimplify(sp.simplify(coeff * (4 * t0c / sp.pi) * I69c / frc),
+                            [sp.pi])
+    rows.append(("(a)->(b) P = 1/pi carried to the flat bound: 9/64 of Ford-Roman",
+                 _chain(1 / sp.pi), sp.Rational(*NINE_64)))
+    rows.append(("(a)->(b) CONTROL: the withdrawn P = 1 gives 9 pi/64 = 0.4418",
+                 _chain(sp.Integer(PREFACTOR_212_TEXT_LAYER_READING)),
+                 sp.Rational(9, 64) * sp.pi))
 
     # (b) the 9/64, exact rationals through F&T (6.9) at alpha = 5/2
     t0 = sp.Symbol('t_0', positive=True)
@@ -544,7 +608,7 @@ def verify_symbolic(sp):
     return rows
 
 
-def prefactor_route2(sp, b212, W2, M2, LAP, norm=2):
+def prefactor_route2(sp, b212, W2, M2, LAP, norm=2, c32=None):
     """Solve F&T (2.12)'s prefactor P against their printed Minkowski (3.2).
 
     (2.12) is read as  -P INT dmu(k) S_k [w_k^2 |U_k|^2 + (1/4) grad^2|U_k|^2]
@@ -553,8 +617,13 @@ def prefactor_route2(sp, b212, W2, M2, LAP, norm=2):
     exponent e is left SYMBOLIC: at |g_tt| = 1 it cannot reach P, and the solve
     shows it.  The modes are Minkowski plane waves in n = 3 coordinates,
     U_k = e^{i k.x} / sqrt((2 pi)^n norm w_k); |U_k|^2 and its Laplacian are
-    COMPUTED from them.  The printed (3.2) is -(1/2) INT d^n k/(2 pi)^n w_k S_k.
+    COMPUTED from them.  The printed (3.2) is -(1/(2 pi)) INT d^n k/(2 pi)^n
+    w_k S_k (c32 = 1/(2 pi), the default; DOCKET 67 restored the pi the text
+    layer drops -- CORRECTED, this read "-(1/2)", the text layer's reading,
+    which c32 = 1/2 reproduces as a control).
     Returns the unique solution P (raises if there is not exactly one)."""
+    if c32 is None:
+        c32 = 1 / (2 * sp.pi)
     n = sp.Symbol('n', positive=True, integer=True)
     P, w, S, gtt, e = sp.symbols('P omega_k S g_tt e', positive=True)
     X = sp.symbols('x1:4', real=True)
@@ -565,7 +634,7 @@ def prefactor_route2(sp, b212, W2, M2, LAP, norm=2):
     lap = sp.simplify(sum(sp.diff(mod2, x, 2) for x in X))
     bracket = b212.subs({W2: w ** 2, M2: mod2, LAP: lap})
     lhs = (-P * bracket * S / gtt ** e).subs(gtt, 1)
-    rhs = -sp.Rational(1, 2) * w / (2 * sp.pi) ** n * S
+    rhs = -c32 * w / (2 * sp.pi) ** n * S
     sol = sp.solve(sp.Eq(lhs, rhs), P)
     if len(sol) != 1:
         raise ValueError("route 2: expected one solution for P, got %r" % (sol,))

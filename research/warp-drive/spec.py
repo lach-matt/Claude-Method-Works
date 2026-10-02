@@ -148,8 +148,17 @@ Not the seat.  What this project established that was not already known:
     from Graham-Olum is structurally unavailable.~~  STRUCK -- anecscope.py
     overturned this.  achronal.py's shear claim was INVERTED, and with it
     corrected no ray of the corridor is both ANEC-violating and achronal.
-  * THE LEAD IS SHORT BY 65 ORDERS against Ford-Roman and THE GAP WIDENS WITH
-    SCALE (achievable.py).
+  * THE LEAD'S NEGATIVE CORE CANNOT BE HELD: the worldline QEI's duration
+    bound refuses holding it for one light-crossing by 71.256 orders at b = 1 m,
+    widening as b^2 (achievable.persistence_shortfall; ledger D7) -- under
+    H-MMCS (massless minimally coupled free scalar), H-HADAMARD and H-FLAT, so
+    no-in-practice for that field and not a theorem about all matter.
+    (CORRECTED, DOCKET 67 follow-up D: first written "THE LEAD IS SHORT BY 65
+    ORDERS against Ford-Roman and THE GAP WIDENS WITH SCALE" -- the census
+    withdrawn by DOCKET 55 in achievable.py: Ford-Roman is a time average at one
+    point, not a cap over a scale, and that figure dropped its coefficient.
+    report() repeated it as "the lead is 65 orders short and widening", also
+    withdrawn and replaced the same way.)
   * AND NOW: STURM-UNIVERSAL SEATING OF PRESSURELESS MATTER ALONG A BALL'S
     RADIUS IMPLIES A TRAPPED REGION, at 2 pi^2/3 exactly, at every scale.  Over
     every ball (other pressures, a diameter) it is OPEN -- see WITHDRAWN 1.
@@ -164,9 +173,27 @@ leaving A and reconverging -- using a sustained classical field in a vacuum
 corridor, whose electromagnetic stress-energy satisfies NEC, WEC and DEC
 everywhere.  Past that point the geodesic is no longer achronal, so for B
 strictly past it a timelike curve from A to B exists; at the conjugate point
-itself the theorem gives none.  The seating condition is UNIVERSAL in Sturm's
-sense: the zero falls within the closed focusing stretch, so nothing outside it
-can prevent the seat.
+itself the theorem gives none.  The seating condition is SUFFICIENT, and its
+universality is Sturm's: if T_kk >= pi c^4/(4 G l^2) holds over a contiguous
+stretch of length l, the congruence's area radius sqrt(A) has a zero -- a
+point conjugate to A -- within that closed stretch, whatever the source's
+profile inside it and whatever state the congruence enters it in (Sturm
+comparison against sin(pi x/l); shear only adds focusing; Einstein's equation
+gives R_kk = 8 pi G T_kk/c^4 for any Lambda).  So nothing outside the stretch
+can prevent the seat.  That universality is over SHAPES and entry states, not
+over matter: the condition is not necessary, and the trapped-region
+consequence of WITHDRAWN 1 (2 pi^2/3) is computed only for T_kk = u along a
+ball's radius -- over every ball (other T_kk/u, a diameter) S-2 is OPEN in
+specthm.
+
+    CORRECTED (DOCKET 67, follow-up D).  This read "The seating condition is
+    UNIVERSAL in Sturm's sense: the zero falls within the closed focusing
+    stretch, so nothing outside it can prevent the seat."  After S-2 was
+    seated OPEN the unqualified "UNIVERSAL" read as covering the collapse
+    claim too; Sturm's universality is that of a sufficient condition over
+    shapes, and the collapse holds only for T_kk = u.  The sentence was kept
+    verbatim until now because specthm.py quotes it; specthm's quote and its
+    "still says" clause follow at integration.
 
     CORRECTED (DOCKET 67).  First written "reconverging at B ... so a timelike
     curve from A to B exists", which put B AT the conjugate point, where no
@@ -448,6 +475,25 @@ def selftest():
         print("       %s" % v)
     chk("one halted test, recorded with its reason", len(HALTED), 1)
 
+    print("\nDOCKET 67 FOLLOW-UP D -- stale text, guarded")
+    import inspect, achievable
+    doc = " ".join(__doc__.split())
+    chk("DOES scopes Sturm's universality to a sufficient condition over shapes",
+        "The seating condition is SUFFICIENT, and its universality is Sturm's" in doc, True)
+    chk("  and the collapse to T_kk = u along a radius (S-2 OPEN over every ball)",
+        "computed only for T_kk = u along a ball's radius" in doc, True)
+    chk("  the unqualified sentence survives only inside its CORRECTED note",
+        doc.count("UNIVERSAL in Sturm's sense") == 1
+        and "CORRECTED (DOCKET 67, follow-up D). This read \"The seating condition is "
+            "UNIVERSAL in Sturm's sense" in doc, True)
+    chk("report() no longer prints the withdrawn '65 orders'",
+        "65 orders" in inspect.getsource(report), False)
+    chk("  CONTROL: the withdrawn line is kept, marked, in the docstring",
+        "report() repeated it as \"the lead is 65 orders short and widening\", also "
+        "withdrawn" in doc, True)
+    near("the figure it prints instead: duration shortfall at 1 m (orders)",
+         math.log10(achievable.persistence_shortfall(1.0)), 71.256, 1e-4)
+
     print("\n  SELFTEST %s" % ("OK" if ok else "FAILED"))
     return 0 if ok else 1
 
@@ -480,9 +526,17 @@ def report():
     print("  Calling it a device this project designed would be false.")
     print("\n  WHAT IS ACTUALLY NEW is in the header's inventory: Weyl focusing")
     print("  is sign-blind, the seat/lead split is the energy-condition line,")
-    print("  reversal invariance holds to 1e-14, the lead is 65 orders short and")
-    print("  widening, and Sturm-universal seating of pressureless matter along a")
-    print("  ball's radius implies a trapped region.  None of it is a warp drive.")
+    # CORRECTED (DOCKET 67 follow-up D): the lines below printed the Ford-Roman
+    # figure withdrawn by DOCKET 55 (verbatim in the docstring's inventory
+    # note); they now print the duration bound's, computed by achievable.py.
+    import achievable
+    print("  reversal invariance holds to 1e-14, the lead's negative core cannot")
+    print("  be held one light-crossing -- %.3f orders short on the DURATION axis"
+          % math.log10(achievable.persistence_shortfall(1.0)))
+    print("  at b = 1 m, widening as b^2 (massless minimal scalar, Hadamard, flat;")
+    print("  not a theorem about all matter) -- and Sturm-universal seating of")
+    print("  pressureless matter along a ball's radius implies a trapped region.")
+    print("  None of it is a warp drive.")
     print("  (The header's ANEC-protects-achronality line is STRUCK: anecscope.py")
     print("  overturned it.)")
     return 0

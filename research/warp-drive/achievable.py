@@ -440,11 +440,19 @@ gr-qc/9812032 were all read at source in the Docket 55 pass.
 import math, sys
 
 # CODATA 2018, unchanged in CODATA 2022 for these four (DOCKET 67 provenance).
-# c is exact.  HBAR is h/2pi TRUNCATED to ten figures: the exact value is
-# 1.0545718176...e-34, so HBAR is low by 6.1e-10 relative.  G = 6.67430(15)e-11
-# carries u_r 2.2e-5, so no figure here is fixed by G past 4-5 significant
-# figures.  L_PLANCK = 1.616255(18)e-35 m.
-HBAR = 1.054571817e-34
+# c is exact.  G = 6.67430(15)e-11 carries u_r 2.2e-5, so no figure here is
+# fixed by G past 4-5 significant figures.  L_PLANCK = 1.616255(18)e-35 m.
+#
+# CORRECTED (DOCKET 67, on M's ruling "address/correct/repair all figures").
+# HBAR WAS TYPED  HBAR = 1.054571817e-34  -- h/2pi TRUNCATED to ten figures,
+# low by 6.13e-10 relative.  h = 6.62607015e-34 J s is EXACT under the 2019 SI
+# (CODATA 2018 and 2022), so hbar = h/2pi is computed: 1.0545718176461565e-34.
+# No pin in this file moved (the shift sits in the tenth significant figure;
+# selftest re-run green on the computed value).  The typed literal is kept as
+# a record.
+H_PLANCK = 6.62607015e-34                  # J s, SI-EXACT
+HBAR = H_PLANCK / (2.0 * math.pi)          # COMPUTED, exact h/2pi
+HBAR_TYPED_TRUNCATED = 1.054571817e-34     # the first-typed literal; a record
 HBAR_C = HBAR * 299792458.0
 C_SI = 299792458.0
 G_SI = 6.67430e-11
@@ -627,6 +635,11 @@ def selftest():
         good = abs(got / want - 1.0) <= tol
         ok &= good
         print("  %-58s %16.6g %16.6g  %s" % (label, got, want, "ok" if good else "FAIL"))
+
+    print("CONSTANTS (DOCKET 67)")
+    chk("HBAR is the exact h/2pi, h = 6.62607015e-34", HBAR == 6.62607015e-34 / (2.0 * math.pi), True)
+    chk("  not the typed truncation (low by 6.127e-10)",
+        float("%.3e" % ((HBAR - HBAR_TYPED_TRUNCATED) / HBAR)), 6.127e-10)
 
     print("THE PRICE")
     print("     %14s %18s %18s %14s" % ("b", "required (Pa)", "available (Pa)", "avail/req"))

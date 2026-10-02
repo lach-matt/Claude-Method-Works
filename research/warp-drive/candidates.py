@@ -520,13 +520,22 @@ import sys
 
 # CODATA 2018 recommended values (NIST), as typed.  C is exact.  G carries
 # u_r = 2.2e-5, CODATA's EXPANDED uncertainty over mutually inconsistent
-# inputs, so figures below hold to about 4-5 significant figures.  HBAR is
-# exact by definition (h/2pi = 1.0545718176461565e-34); the typed digits are
-# truncated, low by 6.13e-10 -- kept as typed, since every pin here rests on
-# them (CORRECTED (DOCKET 67): provenance and uncertainty were unlabelled).
+# inputs, so figures below hold to about 4-5 significant figures.
+# (CORRECTED (DOCKET 67): provenance and uncertainty were unlabelled.)
+#
+# CORRECTED (DOCKET 67, on M's ruling "address/correct/repair all figures").
+# HBAR WAS TYPED  HBAR = 1.054571817e-34  -- h/2pi truncated, low by 6.13e-10
+# relative, and first kept "since every pin here rests on" those digits.  h =
+# 6.62607015e-34 J s is EXACT under the 2019 SI (CODATA 2018 and 2022), so
+# hbar = h/2pi is computed: 1.0545718176461565e-34.  The selftest was re-run
+# on the computed value; no pin here moved (the shift is in the tenth
+# significant figure).  tolman.py takes HBAR from here.  The typed literal is
+# kept as a record.
 G = 6.67430e-11
 C = 2.99792458e8
-HBAR = 1.054571817e-34
+H_PLANCK = 6.62607015e-34                  # J s, SI-EXACT
+HBAR = H_PLANCK / (2.0 * math.pi)          # COMPUTED, exact h/2pi
+HBAR_TYPED_TRUNCATED = 1.054571817e-34     # the first-typed literal; a record
 
 KIND = "supplies rho < 0"
 DEADLINE = "switches off in ~R/c"
@@ -823,6 +832,11 @@ def selftest():
     for g in GATES:
         print("     %s" % g)
     chk("how many gates", len(GATES), 3)
+    # DOCKET 67: hbar is the exact h/2pi, not the typed truncation.
+    chk("HBAR is the exact h/2pi, h = 6.62607015e-34",
+        HBAR == 6.62607015e-34 / (2.0 * math.pi), True)
+    chk("  not the typed truncation (low by 6.127e-10)",
+        float("%.3e" % ((HBAR - HBAR_TYPED_TRUNCATED) / HBAR)), 6.127e-10)
 
     print("\n1. CANDIDATE A -- NEGATIVE EFFECTIVE MASS")
     chk("what m* is", EFFECTIVE_MASS_IS, "band curvature")

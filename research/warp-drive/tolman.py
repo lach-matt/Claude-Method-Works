@@ -1138,11 +1138,17 @@ import foliation                       # the RANGE THEOREM
 
 G      = candidates.G                  # CITED  CODATA 2018, via candidates.py
 C      = candidates.C                  # CITED  exact by definition
-HBAR   = candidates.HBAR               # CITED  CODATA 2018, via candidates.py
+HBAR   = candidates.HBAR               # DERIVED  h/2pi, h SI-EXACT, via candidates.py
                                        #   CORRECTED (DOCKET 67): CODATA lists
                                        #   hbar as EXACT (h/2pi); the typed
-                                       #   1.054571817e-34 is truncated, low by
-                                       #   6.13e-10 relative
+                                       #   1.054571817e-34 was truncated, low by
+                                       #   6.13e-10 relative.  On M's ruling
+                                       #   ("address/correct/repair all
+                                       #   figures") candidates.py now computes
+                                       #   it from h = 6.62607015e-34; this
+                                       #   file's selftest re-ran green on it,
+                                       #   no pin moved.  First labelled
+                                       #   "CITED  CODATA 2018".
 MU0    = 1.25663706212e-6              # CITED  CODATA 2018, N A^-2
 QE     = 1.602176634e-19               # CITED  exact by definition, C
 M_E    = 9.1093837015e-31              # CITED  CODATA 2018, kg
@@ -2688,7 +2694,10 @@ CORRECTED_D67 = (
      "boundary, T = 0 and omega_p eps/c << 1"),
     ("selftest: 'the gap is G's own rounding'",
      "the 1.48e-8 gap between derived and CODATA l_P is l_P's 7-s.f. "
-     "publication rounding plus -3.1e-10 from the truncated hbar"),
+     "publication rounding plus -3.1e-10 from the truncated hbar; "
+     "FOLLOW-UP (M: 'address/correct/repair all figures'): hbar is now the "
+     "exact h/2pi, the -3.1e-10 is gone, and the gap is 1.511e-8, all of it "
+     "the 7-s.f. rounding"),
 )
 
 PRIOR_ART = (
@@ -2989,9 +2998,21 @@ def selftest():
           % (L_PLANCK, L_PLANCK_CODATA, abs(L_PLANCK / L_PLANCK_CODATA - 1.0)))
     chk("  l_P DERIVED from hbar, G, c agrees with CODATA below 1e-4",
         abs(L_PLANCK / L_PLANCK_CODATA - 1.0) < 1e-4, True, kind="MEASURED")
-    chk("  ... and the gap is l_P's own 7-s.f. rounding plus -3.1e-10 from the "
-        "truncated hbar (CORRECTED, DOCKET 67: not G's), not physics",
-        abs(L_PLANCK / L_PLANCK_CODATA - 1.0) > 1e-9, True, kind="MEASURED")
+    # CORRECTED (DOCKET 67 follow-up).  This label first read "l_P's own 7-s.f.
+    # rounding plus -3.1e-10 from the truncated hbar"; hbar is now the exact
+    # h/2pi (candidates.py), so the whole gap, 1.511e-8, is that rounding.
+    # The row is STRENGTHENED, not added (the kind census stays 175): it first
+    # asserted only gap > 1e-9; it now also pins the gap's computed value,
+    # 1.511e-8, inside CODATA l_P's half-unit rounding (0.5e-41 m), and that
+    # hbar is the exact h/2pi rather than the typed 1.054571817e-34.
+    chk("  ... and the gap, 1.511e-8, is l_P's own 7-s.f. rounding "
+        "(CORRECTED, DOCKET 67: not G's, and no longer any truncated hbar), "
+        "not physics",
+        (abs(L_PLANCK / L_PLANCK_CODATA - 1.0) > 1e-9,
+         float("%.3e" % (L_PLANCK / L_PLANCK_CODATA - 1.0)),
+         abs(L_PLANCK - L_PLANCK_CODATA) <= 0.5e-41,
+         HBAR == 6.62607015e-34 / (2.0 * math.pi), HBAR != 1.054571817e-34),
+        (True, 1.511e-08, True, True, True), kind="MEASURED")
     chk("  A_EM is RECOVERED (this file's route; DOCKET 67 READ it), never CITED",
         _status("A_EM"), "RECOVERED", kind="MEASURED")
     chk("  the Casimir FORCE is the one MEASURED input",

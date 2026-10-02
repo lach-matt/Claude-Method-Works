@@ -40,7 +40,9 @@ share is 1.37 t); "76x the fuel ratio" (computes to 55.99); a magsail that
 "brakes ... inside 810 AU" and needs "2.6 ly" from 0.87 c (the function gives
 floors of 2001.64 AU and 0.084 ly at A = 1e12 m^2, and a floor is not a
 distance to rest); and N_ISM labelled "warm neutral medium".  The selftest pin
-3.7314 is now the computed 3.731672.  No verdict moved.
+3.7314 is now the computed 3.731672.  No verdict moved.  (Follow-up D: the
+0.084 ly floor is now pinned here, and shipspec.py, which had typed 3.7314 and
+2.6 ly, imports both figures from this file instead.)
 
 stdlib only.
 """
@@ -144,6 +146,13 @@ def selftest():
     print("\nMagsail floor (understates: drag weakens as it slows)")
     d = magsail_distance(1e6, 0.0476, 1e12)/AU
     chk("1e6 kg, beta=0.0476, 1e12 m^2 sail (AU)", d, 2001.64, tol=1e-4)
+    # DOCKET 67 follow-up D: the 0.87 c floor the report prints, and shipspec.py
+    # now imports, was unpinned while the prose said 2.6 ly.  Computed 0.084249112.
+    chk("1e6 kg, beta=0.866, 1e12 m^2 sail (ly)",
+        magsail_distance(1e6, 0.866, 1e12)/LY, 0.084249112, tol=1e-6)
+    # Control: the floor is linear in m/A (constant-area law), so 1e10 m^2 is 100x.
+    chk("  1e10 m^2 is 100x the 1e12 m^2 floor (H-CONST-A)",
+        magsail_distance(1e6, 0.866, 1e10)/magsail_distance(1e6, 0.866, 1e12), 100.0, tol=1e-12)
 
     print("\n  SELFTEST %s" % ("OK" if ok else "FAILED"))
     return 0 if ok else 1

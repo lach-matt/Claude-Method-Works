@@ -396,7 +396,18 @@ def selftest():
         abs(sturm_number(cheap["m"], cheap["l"]) - 1.0) < 1e-12, True)
 
     print("\nThe threshold in SI, and it is ORDINARY matter")
-    near("coefficient pi c^4 / 4G  (Pa m^2)", T_COEFF, 9.50536e43, 1e39)
+    # CORRECTED (DOCKET 67, on M's ruling "address/correct/repair all
+    # figures"): this pinned near(T_COEFF, 9.50536e43, 1e39), a figure the
+    # code does not compute -- pi c^4/(4G) at G = 6.67430e-11 is 9.505325e43
+    # (python3 -c "import math; print(math.pi*299792458.0**4/(4*6.67430e-11))"
+    # -> 9.505324974727696e+43) -- and passed only because the tolerance
+    # (1e39) exceeded the 3.5e38 miss.  Repinned to the computed value at a
+    # tolerance (1e37, relative ~1e-6) that tests the arithmetic; the physics
+    # is good to 4-5 s.f. only (G's relative uncertainty 2.2e-5, i.e. about
+    # +-2.1e39 here), which the pin does not claim.
+    near("coefficient pi c^4 / 4G  (Pa m^2)", T_COEFF, 9.505325e43, 1e37)
+    chk("  control: the old pin 9.50536e43 misses at this tolerance",
+        abs(T_COEFF - 9.50536e43) <= 1e37, False)
     # DOCKET 67: 1e35 Pa is ~4 n0, a neutron-star-core figure; the saturation
     # energy density is 2.1-2.5e34 Pa, so the printed margin at 100 km (x10.5)
     # is about x2.2-2.6 against saturation.  The reference is kept as printed.

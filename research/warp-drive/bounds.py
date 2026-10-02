@@ -91,10 +91,13 @@ source, derives the a priori bound T_00 >= -C/(2 l)^4 for a trajectory at
 distance l from a Casimir plate and reports that the known Casimir density --
 of the massless minimally coupled scalar between Dirichlet plates, a
 calculated vacuum density, not a measured one -- "ranges between 3-7% of the
-bound".  Reproduced from his own expression in the selftest below: 6.8 % at
-the midpoint, 3.2 % off it, on his printed pi^2/1140 (6.7 % and 3.2 % on the
-scalar's pi^2/1440; the misprint is a discrepancy, and '3-7%' holds on
-either).  He then asks in print "why is the Casimir energy density a
+bound".  Reproduced from his own expression in the selftest below: 6.7 % at
+the midpoint, 3.2 % off it, on the scalar's pi^2/1440 constant term, which
+this file now uses (6.8 % and 3.2 % on his printed pi^2/1140; the misprint is
+a discrepancy, and '3-7%' holds on either).  (CORRECTED, DOCKET 67, on M's
+ruling "address/correct/repair all figures": this read "6.8 % at the
+midpoint, 3.2 % off it, on his printed pi^2/1140 (6.7 % and 3.2 % on the
+scalar's pi^2/1440 ...)", the default having been the misprint.)  He then asks in print "why is the Casimir energy density a
 comparatively small proportion of the allowed bound?"  The bound is built on
 his Eq. (3), which he calls "known not to be optimal", so three per cent is of
 THAT bound -- not of the unknown sharp bound, and not of Ford-Roman's
@@ -559,7 +562,22 @@ def gravitational():
     return [r[0] for r in BOUNDS if r[4] == 1]
 
 
-def casimir_fraction_of_bound(z_over_L, L=1.0, const_term=1140.0):
+#: CORRECTED (DOCKET 67, key ford-roman-qi-and-fewster-casimir-fraction, on M's
+#: ruling "address/correct/repair all figures").  casimir_fraction_of_bound
+#: defaulted to const_term=1140.0, Fewster's printed constant, and its selftest
+#: pin 0.0682 (rel 1e-2) was keyed to it.  The constant term of the massless
+#: minimally coupled Dirichlet scalar between plates a distance L apart is
+#: pi^2/1440 (the audit re-derived it two ways: zeta mode sum, and the periodic
+#: a = 2L image family; half the EM pi^2/720), so 1440 is the default now and
+#: the printed 1140 survives only as an explicit argument, kept as a control.
+#: Computed (python3 -c "import bounds as b; print(b.casimir_fraction_of_bound
+#: (0.0, const_term=c))" for c = 1140, 1440): midpoint 0.067597448 on 1140,
+#: 0.067028446 on 1440; at z/L = 0.4, 0.031975913 and 0.031975003.
+SCALAR_DIRICHLET_CONST_TERM = 1440.0
+FEWSTER_PRINTED_CONST_TERM = 1140.0     # his text layer's misprint, READ
+
+
+def casimir_fraction_of_bound(z_over_L, L=1.0, const_term=SCALAR_DIRICHLET_CONST_TERM):
     """DOCKET 55, and it is the calculation that withdraws "CASIMIR SATURATES IT".
 
     Fewster arXiv:1208.5399 Sec. 1.3 gives the a priori QEI bound for a
@@ -573,10 +591,12 @@ def casimir_fraction_of_bound(z_over_L, L=1.0, const_term=1140.0):
     says nothing of the unknown sharp bound, nor of Ford-Roman's.
     The constant term is printed 1140 above -- a misprint in his text layer, a
     discrepancy and not a refutation; the scalar's constant is pi^2/1440, half
-    the EM pi^2/720 -- and is used as printed by default, so the pinned
-    figures do not move; DOCKET 67's figures pass const_term=1440.  '3-7%'
-    holds on either.  (CORRECTED, DOCKET 67: 'measurement', the unqualified
-    bound and the unflagged 1140.)"""
+    the EM pi^2/720 -- and the default is the scalar's 1440; pass
+    const_term=1140 to reproduce his printed figure.  '3-7%' holds on either.
+    (CORRECTED, DOCKET 67: 'measurement', the unqualified bound and the
+    unflagged 1140.  CORRECTED again, DOCKET 67 figures pass: this read "and
+    is used as printed by default, so the pinned figures do not move; DOCKET
+    67's figures pass const_term=1440".)"""
     z = z_over_L * L
     rho = (-math.pi ** 2 / (const_term * L ** 4)
            - math.pi ** 2 / (48.0 * L ** 4)
@@ -707,11 +727,12 @@ def report():
     print()
     print("   WITHDRAWN, DOCKET 55: 'FORD-ROMAN IS SATURATED, BY CASIMIR -- which")
     print("   is why no material choice crosses it.'  Fewster arXiv:1208.5399")
-    print("   Sec.1.3 calculates the Dirichlet scalar's Casimir density at 3-7%% of")
+    print("   Sec.1.3 calculates the Dirichlet scalar's Casimir density at 3-7% of")
     print("   his own a priori bound, known not to be optimal (%.1f%% at the"
           % (100 * casimir_fraction_of_bound(0.0)))
-    print("   midpoint on his printed pi^2/1140, reproduced here), and asks in")
-    print("   print why it is so small a proportion.  No source read shows")
+    print("   midpoint on the scalar's pi^2/1440; %.1f%% on his printed pi^2/1140),"
+          % (100 * casimir_fraction_of_bound(0.0, const_term=FEWSTER_PRINTED_CONST_TERM)))
+    print("   and asks in print why it is so small a proportion.  No source read shows")
     print("   Ford-Roman saturated, so K = 0 is a known-wrong integer, recorded")
     print("   rather than repaired; see the DOCKET 55 and DOCKET 67 sections.")
     return 0
@@ -856,10 +877,23 @@ def selftest():
     print("     Casimir density as a fraction of Fewster's a priori QEI bound:")
     print("       at the midpoint   %.1f %%" % (100 * _mid))
     print("       at z/L = 0.4      %.1f %%" % (100 * _off))
-    # DOCKET 67: this pin is keyed to Fewster's printed 1140 (a misprint; on
-    # the scalar's 1440 the midpoint is 0.067028, pinned in (b') below).
-    near("midpoint fraction, against Fewster's printed '3-7%' (on his 1140)",
-         _mid, 0.0682, 1e-2)
+    # CORRECTED (DOCKET 67): this pin read near(_mid, 0.0682, 1e-2), keyed to
+    # Fewster's printed 1140 (a misprint) as the default; it passed there at
+    # |rel| 0.0088 and fails on the scalar's 1440 at |rel| 0.0172.  The default
+    # is now 1440 and the pin is the computed 0.067028446; the printed 1140 is
+    # pinned separately as a control, so the two constants stay distinguishable.
+    near("midpoint fraction, against Fewster's printed '3-7%' (scalar's 1440)",
+         _mid, 0.067028446, 1e-6)
+    near("  control: on his printed 1140 the midpoint is 0.067597448",
+         casimir_fraction_of_bound(0.0, const_term=FEWSTER_PRINTED_CONST_TERM),
+         0.067597448, 1e-6)
+    chk("  control: the old 0.0682 pin (rel 1e-2) fails on the scalar's 1440",
+        abs(_mid / 0.0682 - 1.0) <= 1e-2, False)
+    chk("  '3-7%' holds on either constant, midplane to z/L = 0.4",
+        all(0.03 <= casimir_fraction_of_bound(z, const_term=c) <= 0.07
+            for z in (0.0, 0.2, 0.4)
+            for c in (SCALAR_DIRICHLET_CONST_TERM, FEWSTER_PRINTED_CONST_TERM)),
+        True)
     chk("SO THE DIRICHLET CASIMIR DENSITY DOES NOT SATURATE FEWSTER'S OWN BOUND",
         all(casimir_fraction_of_bound(z) < 0.10 for z in (0.0, 0.2, 0.4)), True)
     chk("no saturation is known, so K = 0 on the Ford-Roman row is a KNOWN-WRONG "
@@ -892,8 +926,15 @@ def selftest():
         "unknown constant alone", (sharp_reading_status(fewster_C()),
                                    sharp_reading_status(_sb["C_s"])),
         ("REFUTED", "SATURATED"))
-    chk("  the default measurement still uses the printed 1140 (recorded, not "
-        "repaired)", casimir_fraction_of_bound(0.0) != _sb["bracket"][0], True)
+    # CORRECTED (DOCKET 67 figures pass): this check read "the default
+    # measurement still uses the printed 1140 (recorded, not repaired)",
+    # asserting default != bracket[0].  The default is now the scalar's 1440,
+    # so the default IS the bracket's lower end; the 1140 figure differs.
+    chk("  the default now uses the scalar's 1440 (= the bracket's lower end), "
+        "and the printed 1140 gives a different figure",
+        (casimir_fraction_of_bound(0.0) == _sb["bracket"][0],
+         casimir_fraction_of_bound(0.0, const_term=FEWSTER_PRINTED_CONST_TERM)
+         != _sb["bracket"][0]), (True, True))
 
     # (c) what re-coding it would cost -- MEASURED, which is why it is deferred.
     _rc = [list(r) for r in BOUNDS]

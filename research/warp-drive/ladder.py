@@ -52,13 +52,22 @@ import sys
 
 # CODATA 2018 values (provenance unlabelled until DOCKET 67).  c is exact.
 # G carries u_r = 2.2e-5 (unchanged in CODATA 2022), typed here without it,
-# so figures derived from G hold to about 4-5 significant figures.  HBAR is
-# truncated: the exact h/2pi is 1.0545718176461565e-34, and this literal is
-# low by 6.13e-10 relative -- a discrepancy in typed digits, kept because
-# downstream figures are pinned to it (DOCKET 67).
+# so figures derived from G hold to about 4-5 significant figures.
+#
+# CORRECTED (DOCKET 67, on M's ruling "address/correct/repair all figures").
+# HBAR WAS TYPED  HBAR = 1.054571817e-34  -- h/2pi truncated to ten figures,
+# low by 6.13e-10 relative, and first kept because downstream figures were
+# pinned to it.  Since the 2019 SI redefinition h = 6.62607015e-34 J s is
+# EXACT (CODATA 2018 and 2022), so hbar = h/2pi is computed, never typed:
+# 1.0545718176461565e-34.  No pin in this file moved (the shift is in the
+# tenth significant figure; the pins quote at most seven; selftest re-run
+# green).  The typed literal is kept below as a record so the correction has
+# an object.
 c = 2.99792458e8
 G = 6.67430e-11
-HBAR = 1.054571817e-34
+H_PLANCK = 6.62607015e-34                    # J s, SI-EXACT (2019 redefinition)
+HBAR = H_PLANCK / (2.0 * math.pi)            # COMPUTED, exact h/2pi
+HBAR_TYPED_TRUNCATED = 1.054571817e-34       # the first-typed literal; a record
 LAMBDA = 9.982529174194637
 
 EXCHANGE_J = c ** 4 / (G * LAMBDA)          # joules per metre
@@ -296,6 +305,10 @@ def selftest():
     chk("the mass exchange rate", float("%.6e" % EXCHANGE_KG), 1.348948e+26)
     chk("and the two differ by c^2", abs(EXCHANGE_J / EXCHANGE_KG - c * c) < 1e3, True)
     chk("the Planck length", float("%.6e" % L_PLANCK), 1.616255e-35)
+    # DOCKET 67: hbar is the exact h/2pi (h SI-exact), not the typed truncation.
+    chk("HBAR is h/2pi, h = 6.62607015e-34 exact", HBAR == 6.62607015e-34 / (2.0 * math.pi), True)
+    chk("  and differs from the typed truncation by 6.13e-10 relative",
+        float("%.3e" % ((HBAR - HBAR_TYPED_TRUNCATED) / HBAR)), 6.127e-10)
     chk("the length quantum", float("%.6e" % L_QUANTUM), 5.106580e-35)
 
     # the transition equation round-trips
