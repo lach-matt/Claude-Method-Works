@@ -582,7 +582,10 @@ DEMAND = [
     ("D21",
      "THE FLAT-BULK LATTICE THEOREM: %s.  At rank 1 with a spatial circle the "
      "condition is vacuous, so GKLP's 'no' is FORCED rather than contingent; "
-     "at rank >= 2 it holds exactly when the span is spacelike, and the "
+     "at rank 2 the chronology-respecting case is exactly the spacelike span "
+     "(a degenerate span is the boundary, causal but not stably causal, and a "
+     "rational one holds a null lattice vector; rank >= 3 needs the signature "
+     "of the full Gram matrix -- CORRECTED, DOCKET 67), and the "
      "separating witness e1, e2 has norms %s, %s and a %s sum (%s).  "
      "DOCKET 57's 'two independent routes' -- %s"
      % (latticectc.LATTICE_THEOREM,

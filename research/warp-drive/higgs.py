@@ -717,6 +717,9 @@ def selftest():
     # the two closed forms for V_min must agree
     chkrel("V_min = -m_h^2 v^2/8", v_min_gev4(),
            -M_HIGGS ** 2 * vev() ** 2 / 8.0, 1e-12)
+    # DOCKET 67 (codata-2018-constants): G is the CODATA 2018 point value, u_r
+    # 2.2e-5, so the Planck masses are physically good to about 4-5 figures; the
+    # seventh figure here pins arithmetic reproducibility, not knowledge of G.
     chkrel("Planck mass in GeV", planck_mass_gev(), 1.220890e19, 1e-5)
     chkrel("reduced Planck mass", reduced_planck_gev(), 2.435323e18, 1e-5)
 
@@ -747,6 +750,8 @@ def selftest():
     # DOCKET 67: a comparison of MAGNITUDES -- in BV's sign convention Higgs
     # inflation sits at xi ~ -1.76e4 (case 1, no gate), which strengthens it.
     xr = xi_required(vev())
+    # DOCKET 67 (codata-2018-constants): eleven figures through G (u_r 2.2e-5)
+    # are arithmetic reproducibility only; physically the figure holds to ~4-5.
     chkrel("xi required at the VEV", xr, 9.7829068836e31, 1e-9)
     chk("which is more than 1e27 above Higgs inflation",
         xr / XI_HIGGS_INFLATION > 1e27, True)

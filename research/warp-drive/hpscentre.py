@@ -358,9 +358,15 @@ O5_ANSWERED_BY = ("a <T_ab> established at a centre that is not asymptotically "
                   "flat, or an asymptotically flat self-consistent solution with "
                   "m < 0; FO Thm 4.2 or FFKP Thm IV.1 (eq. 72) evaluated on HPS "
                   "(both need a reference Hadamard state / W_0 and <:Phi^2:> there; "
-                  "qeihps.KONTOU_REQUESTED_TEST_ON_HPS); the nonlinear "
-                  "regular-centre existence theorem.  Read AHS PRD 51 4337 "
-                  "(NOT-REACHED)")
+                  "qeihps.KONTOU_REQUESTED_TEST_ON_HPS); a non-trivial nonlinear "
+                  "regular-centre existence theorem (Minkowski is a member of the "
+                  "class) for a positive Hadamard <T> outside the xi = 1/2 stealth "
+                  "sector -- NOT-FOUND by DOCKET 67, not shown not to exist.  Read "
+                  "AHS PRD 51 4337 (NOT-REACHED)")
+#: CORRECTED (DOCKET 67, no-existence-theorem-ssaf): the line read 'the nonlinear
+#: regular-centre existence theorem', without the qualifiers the audit found it
+#: needs -- non-trivial (Minkowski satisfies the class), a positive Hadamard <T>
+#: outside the xi = 1/2 stealth sector, and NOT-FOUND rather than absent.
 #: Kept, never deleted: every claim DOCKET 64 withdrew from this line, with why.
 WITHDRAWN = (
     ("HPS_INTEGRATED_THE_PRINTED_SYSTEM = True: 'HPS integrated the PRINTED, "
