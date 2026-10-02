@@ -1,0 +1,108 @@
+{
+ "key": "alpha-centauri-distance-4ly",
+ "final_grade": "NARROWED",
+ "source_read_status": "READ",
+ "read_at_source_this_pass": true,
+ "decision": "OVERTURN CONFIRMED: OPEN -> NARROWED.\n\nWhy the audit said OPEN. The audit graded OPEN for one reason only: no source could be read, because the alphaXiv quota was exhausted. It also set its own condition for a change: if the reads give about 768 mas for Proxima and 747-751 mas for alpha Cen AB, the grade becomes NARROWED.\n\nWhat I read at source in this pass, independently of the verifiers:\n- Kervella et al. 2016, arXiv:1610.06079v1.\n  - p.1: AB at 'd = 1.338 +/- 0.001 pc (pi = 747.17 +/- 0.61 mas)'.\n  - p.1: Proxima at 'pi = 768.13 +/- 1.04 mas; Lurie et al. 2014'.\n  - p.1: alpha Centauri is called 'the triple star'.\n  - Table 1, p.5: P16 743 +/- 1.3 mas against K16 747.17 +/- 0.61 mas; v_r = -22.3930 km/s.\n  - Sec 5.3, p.12: alpha Cen's distance 'will not be measured accurately by the Gaia mission'.\n- Pourbaix & Boffin 2016, arXiv:1601.01636.\n  - p.2: 'revised orbital parallax (743 +/- 1.3 mas)'.\n  - p.2: fitting or omitting Delta V_B changes the parallax by 2 %.\n  - The paper rules out van Leeuwen 2007's 754.81 mas.\n- Akeson et al. 2021, arXiv:2104.10086v2.\n  - p.14: orbital parallax 750.81 +/- 0.38 mas, 0.49 % larger than K16; trigonometric parallax 747.1 +/- 5.2 mas.\n  - Table 8: parallax rate +13.0 uas/yr.\n  - p.9: Gaia standard processing is unavailable for AB.\n\nEvery condition the audit set for NARROWED is met at source.\n\nConversions, computed in this pass:\n- AB: K16 4.3652 ly (+9.13 %), PB16 4.3897 ly (+9.74 %), A21 4.3441 ly (+8.60 %).\n- Proxima, from Lurie as restated in K16: 4.2461 ly (+6.15 %).\n- The 1 % price at AB is 2.787e10 to 2.817e10 Msun, which prints as 2.8e10. At Proxima it is 2.725e10, which prints as 2.7e10. phase1 prints 2.6e10 (phase1.py:552) and 2.57e10 (phase1.py:180).\n\nI copied the three verifier scripts to adjudicate/run/ and re-ran them. All three report ALL PASS and exit 0.\n\nWhy NARROWED and not another grade:\n- The measurement stands at source.\n- The conclusions do not move under any value read. The price stays in the 1e10-Msun decade for L in [1.558, 15.58) ly, which keeps the 'galaxy of negative mass' sentence. Theorem 4's 3/2 does not depend on L (sympy).\n- But the tree drops a hypothesis, the target. Figures computed for L = 4.0 ly are attached to the named 'Alpha Centauri' at phase1.py:182 and 552. Every READ distance is 6-10 % farther, so the printed prices hold only on the smaller class L = 4.0 ly. That is NARROWED.\n- Not STANDS: the target is dropped, and the digits are 6-10 % low, in M's favour.\n- Not WRONG: there is no computed contradiction. The printed digits are a discrepancy.\n- Not DATA-DEPENDENT: the AB parallax has moved (743 -> 747.17 -> 750.81 mas, with PB16 and A21 in 5.77-sigma tension), but across that whole spread the price still prints 2.8e10 and stays in the same decade.\n\nDid the verifiers share an error? I checked every READ value they quote against the pages returned to me: 747.17, 768.13, 743, 750.81, 747.1, v_r and the Gaia-brightness statements. All match. Their arithmetic also reproduces: the decade edges, the 5.77 sigma, the 5.8 % / 8.4 % framing, and the epoch drift. Akeson's +13.0 uas/yr gives 1.73e-5 per year, which independently confirms the 1.71e-5 per year the verifiers derived from v_r.\n\nOne limit they all share, and it does not change the grade: the Gaia DR3 Proxima parallax 768.0665 mas, which nonstatic.py:257 cites, is still NAMED-NOT-READ. Proxima is held only through restatements.",
+ "scope": "What the grade covers: the distance to 'Alpha Centauri' as phase1.py uses it. That means L = 4.0 ly, the 1 % and 50 % prices, L/2c and the amortised share. Those figures are correct arithmetic for L = 4.0 ly. For the named system they are 6-10 % low, whichever body is meant: AB at 4.344-4.390 ly (three READ orbital parallaxes) or Proxima at 4.246 ly. The order of magnitude and Theorem 4 are untouched.\n\nWhat it does not cover:\n- The physics behind establishment = L/2c, which is a separate key.\n- The Gaia DR3 Proxima parallax of 768.0665 mas, which is NAMED-NOT-READ.\n- Lurie 2014 itself, which was READ only as restated in K16.\n- Which body phase1 meant. K16 calls alpha Centauri a triple, so the honest statement is a 6-10 % range, not one target.",
+ "corrections_to_record": [
+  "Audit grade OPEN is superseded. Kervella 2016, Pourbaix & Boffin 2016 and Akeson 2021 were READ at source. Gaia DR3 768.0665 mas and Lurie 2014 stay NAMED-NOT-READ; Lurie is READ only as a restatement in K16 p.1.",
+  "Attribution settled at source: 747.17 +/- 0.61 mas is Kervella et al. 2016 (K16 p.1, Table 1). Pourbaix & Boffin 2016 give 743 +/- 1.3 mas.",
+  "The AB range is wider than the audit's '9.1-9.25 %' and '747-751 mas'. The READ orbital parallaxes run from 743 mas (+9.74 %, 4.3897 ly) to 750.81 mas (+8.60 %, 4.3441 ly). At every one of them the 1 % price prints 2.8e10 Msun (2.787e10 to 2.817e10) and the 50 % price 1.39e12 to 1.41e12.",
+  "lacked_data's '7e-5 relative' precision holds only for the unread Proxima DR3 figure. For AB, the READ parallaxes spread over 7.8 mas (about 1.05 %), PB16 against A21 is in 5.77-sigma tension, and PB16 names a 2 % model dependence on Delta V_B. The AB distance has moved at the 1-2 % level. That is evidence in kind for M's hypothesis, but 4-9x smaller than phase1's own rounding, and it moves no conclusion.",
+  "The epoch is now quantified. From the READ v_r = -22.393 km/s the distance changes by 1.71e-5 per year. Akeson 2021 Table 8 prints a parallax rate of +13.0 uas/yr, which is 1.73e-5 per year. Either way it is 0.17 % per century, which is negligible.",
+  "Percentage framing: +6.2 % and +9.1 % are measured relative to 4.0 ly. Relative to the true distance, 4.0 ly is short by 5.8 % (Proxima) and 8.4 % (K16 AB).",
+  "'WRONG would need a distance about ten times larger or smaller' is too loose. The 1 % price leaves the 1e10-Msun decade outside L in [1.558, 15.58) ly, a factor of about 2.6 down or 3.9 up. No READ value comes near either edge.",
+  "'Alpha Centauri, meaning the AB system' is an interpretation. K16 p.1 calls alpha Centauri 'the triple star', and phase1 names no body.",
+  "The printed digits are a discrepancy, not WRONG. phase1.py:180-181 print 2.57e10 and 1.28e12, and phase1.py:552 prints 2.6e10, all for L = 4.0 ly. At the named system the figures would be 2.7e10 to 2.8e10 and 1.36e12 to 1.41e12, so the device reads 6-10 % cheaper, in M's favour."
+ ],
+ "tree_sites": [
+  {
+   "site": "research/warp-drive/phase1.py:180-181",
+   "finding": "The docstring prints 2.57e10 (1 %) and 1.28e12 (50 %) for '4 light years'. That is correct for L = 4.0 ly; at the READ distances the figures are 2.72e10 to 2.82e10 and 1.36e12 to 1.41e12.",
+   "kind": "discrepancy"
+  },
+  {
+   "site": "research/warp-drive/phase1.py:182",
+   "finding": "'SHAVE ONE PERCENT OFF ALPHA CENTAURI' attaches the 4.0 ly figure to a named system that the READ parallaxes place at 4.24-4.39 ly. The target is dropped, but the galaxy-mass conclusion survives.",
+   "kind": "dropped-hypothesis"
+  },
+  {
+   "site": "research/warp-drive/phase1.py:213",
+   "finding": "LIGHT_YEAR = 9.4607e15 m differs from the IAU value by -3.22e-6 relative. This moves nothing.",
+   "kind": "discrepancy"
+  },
+  {
+   "site": "research/warp-drive/phase1.py:329",
+   "finding": "The beats_light default is L = 4.0 ly. The result (False) does not depend on L.",
+   "kind": "consistent"
+  },
+  {
+   "site": "research/warp-drive/phase1.py:338",
+   "finding": "The penalty is 1.5 for every L.",
+   "kind": "consistent"
+  },
+  {
+   "site": "research/warp-drive/phase1.py:472-481",
+   "finding": "The selftest labels say '4 ly corridor', which is honest about L. At the READ distances L/2c would be 2.12-2.20 yr.",
+   "kind": "consistent"
+  },
+  {
+   "site": "research/warp-drive/phase1.py:507-510",
+   "finding": "The fixtures 2.5667e10 and 1.2833e12, labelled '4 ly', reproduce exactly and hold for L = 4.0 ly only.",
+   "kind": "consistent"
+  },
+  {
+   "site": "research/warp-drive/phase1.py:552",
+   "finding": "'one percent off Alpha Centauri is 2.6e10' would print 2.7e10 (Proxima) or 2.8e10 (AB) at the named system: 6-10 % low in M's favour, a discrepancy in the digits.",
+   "kind": "discrepancy"
+  },
+  {
+   "site": "research/warp-drive/nonstatic.py:257",
+   "finding": "PROXIMA_LY = 4.2465 'Gaia DR3' agrees with the READ restatements (4.2461 and 4.2441 ly) to within 0.06 %. Its DR3 provenance is NAMED-NOT-READ.",
+   "kind": "consistent"
+  },
+  {
+   "site": "research/warp-drive/oneway.py:63",
+   "finding": "PROXIMA_LY = 4.2465, while phase1 uses 4.0 ly: the same corridor at two distances in one tree.",
+   "kind": "discrepancy"
+  },
+  {
+   "site": "research/warp-drive/foliation.py:583",
+   "finding": "PROXIMA_LY = 4.2465, the same inconsistency with phase1.",
+   "kind": "discrepancy"
+  },
+  {
+   "site": "research/warp-drive/closeout.py:71",
+   "finding": "PROXIMA_LY = 4.2465, the same inconsistency with phase1.",
+   "kind": "discrepancy"
+  },
+  {
+   "site": "research/warp-drive/perception.py:119",
+   "finding": "Proxima 4.246 is consistent with the READ values.",
+   "kind": "consistent"
+  },
+  {
+   "site": "research/warp-drive/driven.py:772",
+   "finding": "The span 4.017499195e16 m equals 4.2465 ly, consistent with the other owners.",
+   "kind": "consistent"
+  },
+  {
+   "site": "research/warp-drive/mouth.py:80",
+   "finding": "Uses the exchange rate at Proxima, 4.2465 ly.",
+   "kind": "consistent"
+  }
+ ],
+ "commands_run": [
+  "python3 -c: page through the full packet in adjudicate/in/alpha-centauri-distance-4ly.json",
+  "git log -1 (2cc577c0); git status --short research/ (clean)",
+  "grep and sed -n over phase1.py and the seven PROXIMA_LY owners: every audit line number is current, none stale",
+  "mcp__alphaXiv__answer_pdf_queries(1610.06079)",
+  "mcp__alphaXiv__answer_pdf_queries(1601.01636)",
+  "mcp__alphaXiv__answer_pdf_queries(2104.10086)",
+  "copied the rederive, refute and datacheck scripts to adjudicate/run/ and ran them: ALL PASS, exit 0 for all three",
+  "inline python: parallax-to-ly conversions, prices, the A21 parallax rate, the decade edges, PB16-A21 sigma"
+ ],
+ "reverify_command": "python3 /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/adjudicate/run/alpha-centauri-distance-4ly.py && python3 /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/adjudicate/run/alpha-centauri-refute.py && python3 /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/adjudicate/run/alpha-centauri-distance-4ly_datacheck.py ; then answer_pdf_queries on 1610.06079 (p.1, Table 1), 1601.01636 (p.2) and 2104.10086 (p.14, Table 8)",
+ "report_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/adjudicate/out/alpha-centauri-distance-4ly.json"
+}

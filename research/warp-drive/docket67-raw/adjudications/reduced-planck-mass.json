@@ -1,0 +1,115 @@
+{
+ "key": "reduced-planck-mass",
+ "final_grade": "STANDS",
+ "source_read_status": "READ",
+ "read_at_source_this_pass": true,
+ "decision": "STANDS. The audit graded OPEN only because Kabat & Nomura (arXiv:2309.05759) could not be read. The adjudicator READ it at source this pass (alphaXiv answer_pdf_queries returned v2, 15 Nov 2023, PDF pp.1-30). The verifiers' readings are CONFIRMED at source:\n- Eq. 68 (printed p.18 / PDF p.19): g_AB = eta_AB + (2/M5^{3/2}) h_AB, 'where M5 is the 5-D reduced Planck mass'.\n- Eq. 72 (printed p.19 / PDF p.20): 'the relation between the 4-D and 5-D reduced Planck masses becomes M4 = (gamma 2 pi R)^{1/2} M5^{3/2}'.\n- Eq. 73, same page: 'For a moving brane r = gamma R so the reduced 4-D Planck mass is M4 = (2 pi r)^{1/2} M5^{3/2} = 2.4 x 10^18 GeV'. Then: 'We take this relation to hold in general, i.e. even for a brane that is tilt-like rather than boost-like.'\n- Footnote 8, same page: 'In [9] this was expressed in terms of Newton's constant, G4 = G5/gamma 2 pi R with G4 = 1/8 pi M4^2 and G5 = 1/8 pi M5^3.'\n- Eq. 76 (printed p.20 / PDF p.21): c_mn = -(1/16 pi^2)(1/(pi r M4)^2)(b_m b_n - 1/4 eta_mn b^2) I_gravity. Its bullets name the coupling as 'built from the effective radius r and the reduced 4-D Planck mass M4'. Eq. 77: I_gravity ~ -zeta(3)/4 at b^2 ~ 0, m ~ 0, mu r -> 0.\nSo K&N define M4 by exactly G4 = 1/(8 pi M4^2), which is the tree's convention. The audit's drift candidate is answered at source by footnote 8, and the audit's own what_would_change_the_grade condition for STANDS is met.\n\nThe adjudicator also READ the upstream source, Greene, Levin & Parikh arXiv:1103.2174v1, which the refute and rederive verifiers had left NAMED-NOT-READ:\n- Eq. 31: the factor 8 pi G with G the 5D constant.\n- Eq. 39: the near-zone potential.\n- Eq. 40: at r >> gamma L, G_N = G/(gamma L), with L the circumference, so L = 2 pi R. This is K&N footnote 8 exactly.\n\nRe-derivations re-run by the adjudicator:\n(a) The audit script, copied to adjudicate/run/ with only its CODATA path made absolute, exits 0 with ALL CHECKS PASS. M_Pl = 1.2208901e19 GeV against CODATA 2022's row 1.220890(14)e19. Mbar4 = 2.4353235e18 GeV, and the tree equals it at -2.2e-16. The tree's G equals CODATA 2022's. Across CODATA 2006-2022 the largest move is 3.45e-5. The SME null is 42.20 orders short (43.60 if non-reduced, 40.80 adverse). The typed 2.435e18 is 1.328e-4 low.\n(b) An independent sympy chain (run/kn_chain.py) checks three things. Footnote 8's definitions with G4 = G5/(gamma 2 pi R) give eq. 72 exactly. kappa5 = sqrt(32 pi G5) = 2/M5^{3/2}, which is eq. 68. The eq. 70 coupling is kappa5/2. K&N's printed 2.4e18 is the two-figure rounding of 2.4353e18 (-1.45e-2): a rounding, not a discrepancy.\n(c) GLP eq. 39 near-zone check (run/glp_nearzone.py). With gamma L = 2 pi r_eff and r_eff = 38.6 um, a G measured at separation d is G4*coth(d/(2 r_eff)). That gives an excess of 1.1e-11 at d = 1 mm and 3.7e-3 at d = 2 pi r_eff, and a factor 2.16 (0.34 orders) only at d = r_eff. The failure direction over-estimates |c|, so it moves the null AWAY from the bound.\nNo moved datum moves the conclusion: a factor 10 in G would be needed to move the 42 orders by one.\n\nWhy STANDS and not NARROWED for the unnamed scope hypothesis (lab G = zero-mode G4, valid at separations >> 2 pi r): K&N define M4 through 'Newton's constant', and the tree uses the Newtonian constant. The hypothesis is therefore carried by the identity of the quantity and used inside its class. Even an extreme violation moves the null by 0.34 orders, in the conservative direction. The tree only fails to NAME the condition, and that is recorded as a mandatory correction.\n- H1 (eq. 72 assumed for tilt-like branes) does not bite, because the tree uses timelike (boost-like) b.\n- Verifier dispositions: all three verifiers' STANDS is confirmed at source. The refute lens's refuted=true is upheld on the grade. The other two lenses' refuted=false is correct about the audit's computations, which were right and only lacked the read.",
+ "scope": "COVERS:\n- The definition Mbar4 = sqrt(hbar c/(8 pi G)), i.e. G = 1/(8 pi Mbar4^2) in natural units.\n- Its CODATA 2022 number, 2.4353235e18 GeV (higgs.reduced_planck_gev()).\n- The tree's identification (branelink.py:143-148) of K&N's M4 (eqs. 68, 72-73, footnote 8, eq. 76) with that reduced Planck mass.\n- The robustness of the dependent O7 SME null (42.20 orders short) to every CODATA G release 2006-2022 and to the 8 pi convention choice.\nDOES NOT COVER:\n(i) Whether the K&N or GLP braneworld physics is correct.\n(ii) The SME-null entry itself, notably sme_coefficient's default beta = 1. K&N eq. 12 READ: b^2 = beta^2 is in the open interval (0,1). Eq. 77 is stated for b^2 ~ 0. Beta = 1 is outside the stated domain; this is flagged for that entry and not graded here.\n(iii) Whether R_EOTWASH = 38.6 um maps onto K&N's r or onto GLP's gamma L.\n(iv) The separation scale of the laboratory G experiments behind CODATA. It was NOT READ here. The grade rests on the computed GLP eq. 39 bound, which holds for d >= 2 pi r_eff and is conservative below it.",
+ "corrections_to_record": [
+  "The source is now READ: arXiv:2309.05759v2 (eq. 68 printed p.18; eqs. 72-73 and footnote 8 printed p.19; eqs. 76-77 printed p.20; PDF pages are +1). The audit's NAMED-NOT-READ and its OPEN are superseded. The audit's own STANDS condition is met by footnote 8, G4 = 1/8 pi M4^2.",
+  "The audit's drift candidate at branelink.py:146-147 ('eqs. 72-73 do not on their face define Mbar4 through G') is RESOLVED in the tree's favour by K&N footnote 8 and by eq. 72's wording ('4-D and 5-D reduced Planck masses'). It is not a drift.",
+  "Greene-Levin-Parikh arXiv:1103.2174 was READ by the adjudicator (eqs. 31, 39, 40). The refute and rederive verifiers' 'NAMED-NOT-READ' for it is superseded.",
+  "The audit's scope hypothesis must be sharpened. Lab G equals the zero-mode G4 at separations >> gamma L = 2 pi r_eff (GLP eqs. 39-40), not merely '>> r'. At r_eff = 38.6 um that is >> 0.243 mm. Computed: the excess is 1.1e-11 at d = 1 mm and 3.7e-3 at d = 2 pi r_eff, and a factor 2.16 (0.34 orders) at d = r_eff. A violation moves |c| away from the bound.",
+  "The tree never names this scope hypothesis (branelink.py:143-148, higgs.py:313-318). The write-up must carry it as a NAMED hypothesis: 'MBAR4_GEV uses the laboratory Newtonian G, identified with K&N's zero-mode G4, which holds at separations >> 2 pi r (GLP eq. 40)'.",
+  "The refute verifier's 'footnote 8 now makes H3 explicit' is an overstatement. Footnote 8 says only 'Newton's constant'. The long-distance condition is explicit in GLP eqs. 39-40, not in K&N.",
+  "Page citations differ across verifiers. The refute note puts footnote 8 on 'p.19' and eq. 72 on 'p.20', but footnote 8 sits on the same page as eq. 72 (printed p.19, PDF p.20). The data verifier uses printed page numbers; the refute and rederive verifiers use PDF page numbers.",
+  "Named hypothesis H1 (K&N): eq. 72 is derived for a boost-like brane and ASSUMED for tilt-like ones ('We take this relation to hold in general'). It does not bite here, because the tree uses timelike b.",
+  "Out-of-scope pointer for the SME-null / O7 entry: branelink.sme_coefficient defaults to beta = 1. K&N eq. 12 restricts b^2 = beta^2 to the open interval (0,1), and eq. 77 holds at b^2 ~ 0. The 42-orders figure is evaluated outside the stated domain of the limit it uses. The rederive verifier's I_gravity growth figures are PLAUSIBLE and not established.",
+  "The audit's phrases 'G is the least precise fundamental constant' and 'CODATA G determinations sit at scales far above r' are unread presumptions. The grade does not rest on them; it rests on the computed GLP eq. 39 bound.",
+  "The audit's later_literature row with effect 'contested' means NOT ASSESSED and must not be quoted as a finding.",
+  "The 2.2e-16 tree-vs-CODATA agreement is not an independent check of hbar. scipy's 2022 row prints hbar as '1.054 571 817...', truncated the same way as ladder.py:55, so both carry the same -6.1e-10 offset (3e-10 in Mbar4). This is harmless.",
+  "K&N's printed 2.4e18 GeV is the two-figure rounding of 2.4353e18 (-1.45e-2). It is a rounding, not a discrepancy. It confirms branelink.py:145-147: the typed 2.435e18 'is not a Kabat & Nomura printed input'.",
+  "Stale site: the audit cites branelink.py:139 for R_EOTWASH = 38.6e-6. It is now at line 142."
+ ],
+ "tree_sites": [
+  {
+   "site": "research/warp-drive/branelink.py:19-23",
+   "finding": "The quotation of K&N eqs. 68, 70, 71 and 'eqs. 72-73, Mbar4 = (2 pi r)^{1/2} Mbar5^{3/2}' matches the source. The quoted form is eq. 73's; eq. 72 carries gamma 2 pi R, with r = gamma R.",
+   "kind": "consistent"
+  },
+  {
+   "site": "research/warp-drive/branelink.py:25-26",
+   "finding": "'(All READ at source by the O6/O7 pass.)' For K&N this is confirmed at source by the adjudicator.",
+   "kind": "consistent"
+  },
+  {
+   "site": "research/warp-drive/branelink.py:142",
+   "finding": "R_EOTWASH = 38.6e-6 now sits at line 142. The audit cites line 139.",
+   "kind": "stale"
+  },
+  {
+   "site": "research/warp-drive/branelink.py:143-147",
+   "finding": "The identification 'their eq. 72-73 fix Mbar4 as the 4D reduced Planck mass, which is this' is accurate at source (eq. 72-73 wording; footnote 8 G4 = 1/8 pi M4^2). The '1.3e-4 relative low' note is confirmed (1.328e-4).",
+   "kind": "consistent"
+  },
+  {
+   "site": "research/warp-drive/branelink.py:143-148",
+   "finding": "The comment never names the hypothesis that the laboratory Newtonian G equals K&N's zero-mode G4, which holds only at separations >> gamma L = 2 pi r (GLP eqs. 39-40, READ). The hypothesis is satisfied in the tree's use (computed excess 1.1e-11 at 1 mm), and a violation moves |c| away from the bound. This is a naming gap; the write-up must name it.",
+   "kind": "dropped-hypothesis"
+  },
+  {
+   "site": "research/warp-drive/branelink.py:148",
+   "finding": "MBAR4_GEV = higgs.reduced_planck_gev() = 2.4353235e18 GeV. It equals the CODATA 2022 recomputation to -2.2e-16.",
+   "kind": "consistent"
+  },
+  {
+   "site": "research/warp-drive/branelink.py:158",
+   "finding": "COUPLING_SOURCE 'eqs. 68, 70-73 ... (READ by the pass)'. Confirmed at source.",
+   "kind": "consistent"
+  },
+  {
+   "site": "research/warp-drive/branelink.py:288-291",
+   "finding": "sme_coefficient uses 1/(16 pi^2)(pi r Mbar4)^-2, 0.75 beta^2 and zeta(3)/4, as in K&N eqs. 76-77; for this key it is consistent. OUT OF SCOPE here, for the SME-null entry: the default beta = 1 lies outside K&N eq. 12's open domain b^2 in (0,1), and eq. 77 is stated for b^2 ~ 0.",
+   "kind": "dropped-hypothesis"
+  },
+  {
+   "site": "research/warp-drive/branelink.py:308",
+   "finding": "SME_ORDERS_SHORT = 42.1957. It is unmoved by every CODATA G 2006-2022. The convention choice moves it to 43.60 or 40.80.",
+   "kind": "consistent"
+  },
+  {
+   "site": "research/warp-drive/branelink.py:468-470",
+   "finding": "The selftest pins 6.37e-64 and 42 orders. Reproduced (6.372e-64; 42.20).",
+   "kind": "consistent"
+  },
+  {
+   "site": "research/warp-drive/higgs.py:205",
+   "finding": "GEV_IN_J = 1.602176634e-10, the exact elementary charge x 1e9.",
+   "kind": "consistent"
+  },
+  {
+   "site": "research/warp-drive/higgs.py:313-318",
+   "finding": "planck_mass_gev()/sqrt(8 pi) is exactly the convention K&N footnote 8 uses (G4 = 1/8 pi M4^2).",
+   "kind": "consistent"
+  },
+  {
+   "site": "research/warp-drive/higgs.py:609-610",
+   "finding": "The pins 1.220890e19 (equal to CODATA 2022's GeV row) and 2.435323e18 hold within 1e-5.",
+   "kind": "consistent"
+  },
+  {
+   "site": "research/warp-drive/ladder.py:54-55",
+   "finding": "G = 6.67430e-11 is CODATA 2018 = CODATA 2022. HBAR is truncated by -6.1e-10 (3e-10 in Mbar4), which does not move anything.",
+   "kind": "consistent"
+  },
+  {
+   "site": "research/warp-drive/foliation.py:580",
+   "finding": "G_NEWTON = 6.67430e-11 is consistent with ladder.py and CODATA 2022.",
+   "kind": "consistent"
+  }
+ ],
+ "commands_run": [
+  "python3 -c json dump of adjudicate/in/reduced-planck-mass.json",
+  "cat verify/refute/reduced-planck-mass.txt verify/data/reduced-planck-mass-KN-read.txt",
+  "ToolSearch select:mcp__alphaXiv__answer_pdf_queries,mcp__alphaXiv__get_paper_content",
+  "mcp__alphaXiv__answer_pdf_queries(paper='2309.05759', [eq.68; eqs.72-73; footnote G4; eqs.76-77; tilt-like assumption]) -> v2 PDF pp.1-30 READ",
+  "mcp__alphaXiv__answer_pdf_queries(paper='1103.2174', [G4=G5/(gamma 2 pi R); Newtonian potential at large distance; constants]) -> v1 pp.1-18 READ (eqs. 31, 39, 40)",
+  "git status --short research/warp-drive (clean); sed -n on branelink.py, ladder.py, higgs.py; grep line numbers",
+  "cp rederive/reduced-planck-mass.py adjudicate/run/; sed CODATA path absolute; PYTHONDONTWRITEBYTECODE=1 python3 adjudicate/run/reduced-planck-mass.py -> ALL CHECKS PASS, exit 0",
+  "PYTHONDONTWRITEBYTECODE=1 python3 adjudicate/run/kn_chain.py (footnote 8 -> eq.72; kappa5 = 2/M5^{3/2}; eq.70 = kappa5/2; K&N 2.4e18 vs tree -1.45e-2)",
+  "python3 adjudicate/run/glp_nearzone.py (GLP eq.39 coth(d/2r) at d = r .. 1 cm)",
+  "grep hbar rows in src/codata/x/scipy/constants/_codata.py"
+ ],
+ "reverify_command": "D=/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/adjudicate/run; PYTHONDONTWRITEBYTECODE=1 python3 $D/reduced-planck-mass.py && PYTHONDONTWRITEBYTECODE=1 python3 $D/kn_chain.py && python3 $D/glp_nearzone.py ; then answer_pdf_queries(paper='2309.05759', queries=['eq. 68 and definition of M5','eqs. 72-73 reduced 4-D Planck mass','footnote 8 G4 = 1/8 pi M4^2']) and answer_pdf_queries(paper='1103.2174', queries=['eq. 40 G_N = G/(gamma L) for r >> gamma L'])",
+ "report_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/adjudicate/out/reduced-planck-mass.json"
+}
