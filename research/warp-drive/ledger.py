@@ -2123,9 +2123,36 @@ WITHDRAWN_ROWS = [
 
     ("W2", "bounds.py: 'Casimir is the Ford-Roman bound saturated, not an "
      "exception to it, which is why no material choice crosses it'",
-     "Fewster reports the Casimir density at 3-7 % of the bound and asks in "
+     "Fewster reports the Casimir density at 3-7 %% of the bound and asks in "
      "print why it is so small a proportion.  Three per cent is not a wall "
-     "with something standing against it"),
+     "with something standing against it.  DOCKET 67 "
+     "(ford-roman-qi-and-fewster-casimir-fraction, NARROWED; the reopen "
+     "adjudicated REOPENS-NARROWER; recorded on M's ruling of 2026-10-02): "
+     "the 3-7 %% is of Fewster's own a priori Eq. (4) bound, not of the "
+     "Ford-Roman or the sharp bound.  W2 stays WITHDRAWN on four carried "
+     "counts: (i) saturation of Fewster's own bound, %.4f %% to %.4f %%; (ii) "
+     "saturation across the slab of any -K/(2l)^4 bound (the profile does not "
+     "depend on K and falls by %.3f from midplane to plates); (iii) 'not an "
+     "exception' against the uncapped Ford-Roman Eq. (1), which a static "
+     "negative density violates above the cap; (iv) 'known saturated' (K = 0 "
+     "stays wrong: an OPEN saturation is 'not known').  ONE READING OF THE "
+     "PREMISE IS %s, NOT REFUTED: whether the Casimir midplane density of the "
+     "massless minimally coupled Dirichlet scalar saturates the unknown SHARP "
+     "a priori bound -C_s/(2l)^4 -- bracket %.2f %% to 100 %%, where 100 %% "
+     "needs C_s = %.6f = C/%.3f and Fewster's locality step via %s "
+     "(bounds.sharp_bound_reading()).  Saturation in Ford-Roman's capped sense, "
+     "for that profile: %s (where computed, for the periodic scalar, equality "
+     "at the cap holds by construction, evidence neither way).  'Which is why "
+     "no material choice crosses it' is NOT reinstated, and nothing anti-warp "
+     "comes back" % (100 * bounds.sharp_bound_reading()["plate"],
+             100 * bounds.sharp_bound_reading()["bracket"][0],
+             bounds.sharp_bound_reading()["spread_mid_over_plate"],
+             bounds.SHARP_BOUND_MIDPLANE_SATURATION,
+             100 * bounds.sharp_bound_reading()["bracket"][0],
+             bounds.sharp_bound_reading()["C_s"],
+             bounds.sharp_bound_reading()["C_over_C_s"],
+             bounds.FEWSTER_LOCALITY_STEP.replace("Fewster's ref. [31], ", "ref. [31], "),
+             bounds.CAPPED_SENSE_SATURATION_DIRICHLET)),
 
     ("W3", "tolman.py: 'p_r is a SCALAR under H'",
      "It is DETERMINED BY a scalar and is not one.  A boost witness turns the "
@@ -3520,6 +3547,26 @@ def selftest():
         (REFUSED, 1, True, "OPEN", False))
     chk("  CONTROL: S4's text with the window's top edge drifted is caught",
         _s4_window(_s4[4].replace("%.6f" % _win[1], "1.300000")), False)
+    # DOCKET 67 (ford-roman-qi-and-fewster-casimir-fraction, M's ruling
+    # 2026-10-02): W2 stays WITHDRAWN; one reading of its premise is OPEN, with
+    # bounds' figures, and nothing anti-warp is reinstated.
+    _w2 = [r for r in WITHDRAWN_ROWS if r[0] == "W2"][0]
+    _sbr = bounds.sharp_bound_reading()
+    _w2_reading = lambda t: all(x in t for x in (
+        "W2 stays WITHDRAWN on four carried counts",
+        "ONE READING OF THE PREMISE IS OPEN, NOT REFUTED",
+        "C_s = %.6f" % _sbr["C_s"], "C/%.3f" % _sbr["C_over_C_s"],
+        "NAMED-NOT-READ", "is NOT reinstated"))
+    chk("W2 stays WITHDRAWN; its sharp-bound midplane reading is OPEN in its text "
+        "with bounds' figures; nothing reinstated",
+        (sum(1 for r in WITHDRAWN_ROWS if r[0] == "W2"),
+         "W2" in [r[0] for r in DEMAND + SUPPLY + OPEN_ROWS],
+         _w2_reading(_w2[2]), bounds.SHARP_BOUND_MIDPLANE_SATURATION,
+         bounds.NO_MATERIAL_CHOICE_CROSSES_IT_REINSTATED,
+         ask(("bounds", "FORD_ROMAN_K_IS_WRONG"))),
+        (1, False, True, "OPEN", False, True))
+    chk("  CONTROL: W2's text with C_s drifted is caught",
+        _w2_reading(_w2[2].replace("%.6f" % _sbr["C_s"], "0.212000")), False)
     _d28 = dict(_rows, D28=tuple(x.replace("costs at least ", "costs ", 1)
                                  if isinstance(x, str) else x for x in _rows["D28"]))
     chk("  CONTROL: D28 with 'at least' deleted (a floor read as an exact cost) "

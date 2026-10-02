@@ -80,6 +80,31 @@ all tau_0", and the inequality is rescued only by capping tau_0 <~ 0.46 L.
     standing with its fault named; the PROSE claim, which is what achievable.py
     copied, is withdrawn here.
 
+**DOCKET 67 NARROWS THE GROUND, AND IT IS RECORDED, NOT REPAIRED**
+(key ford-roman-qi-and-fewster-casimir-fraction, NARROWED; the reopen
+adjudicated REOPENS-NARROWER; recorded on M's ruling of 2026-10-02).  The
+3-7 % above is of Fewster's OWN a priori Eq. (4) bound, which he calls known
+not to be optimal -- not of the Ford-Roman bound, and not of the unknown SHARP
+bound.  The withdrawal stays carried on four counts (W2 in the ledger):
+saturation of Fewster's own bound (3.1964 % to 6.7028 %, on the correct
+pi^2/1440 constant term); saturation across the slab of ANY bound of the form
+-K/(2l)^4 (the ratio profile does not depend on K and falls by 2.097 from the
+midplane to the plates); 'not an exception' against the uncapped Ford-Roman
+Eq. (1) (a static negative density violates it above the cap); and 'known
+saturated' (K = 0 stays WRONG: an OPEN saturation is K = 1, 'not known').
+ONE READING OF THE PREMISE IS OPEN, NOT REFUTED: whether the midplane density of
+the massless minimally coupled Dirichlet scalar saturates the unknown sharp
+bound -C_s/(2l)^4.  The bracket is 6.7028 % to 100 %; 100 % needs
+C_s = 0.212471 = C/14.919 AND Fewster's locality step -- the sharp Minkowski
+constant holding inside the 2l window -- whose justification is his ref. [31],
+Fewster-Pfenning math-ph/0602042, NAMED-NOT-READ (sharp_bound_reading()).
+Saturation in Ford-Roman's CAPPED sense was never computed for that profile
+(OPEN); where it was computed, for the periodic scalar of gr-qc/9510071, the
+cap is defined by equality, so equality there holds by construction and is
+evidence neither way.  The inference 'which is why no material choice crosses
+it' is NOT reinstated: with its premise OPEN it is unsupported, and nothing
+anti-warp comes back.
+
 ===============================================================================
 WHAT THE BOUNDS INDEX IS FOR
 ===============================================================================
@@ -106,6 +131,10 @@ sentence was wrong, and the selftest is what caught it.
     expression.  The honest count of known-saturated bounds is THREE.  The
     integer is left at K = 0 only because re-coding it propagates past this
     file; the reasons and the exact cost are in the section above.
+    DOCKET 67, RECORDED NOT REPAIRED: the 3-7 % is of Fewster's own Eq. (4)
+    bound, relabelled 'Ford-Roman' here; against the unknown sharp bound the
+    midplane reading is OPEN (the DOCKET 67 paragraph above).  The count of
+    three stands on K's definition: OPEN saturation is 'not known'.
 
 ===============================================================================
 CORRECTED: THE FILL DOES NOT SURVIVE COMPLETING THE FAMILY
@@ -300,6 +329,10 @@ BOUNDS = [
     # bound, reproduced in the selftest.  K = 0 ("known saturated") is therefore
     # a wrong integer.  Left standing because re-coding it costs this index four
     # pins and breaks a master.py check; see the DOCKET 55 section.
+    # DOCKET 67, recorded not repaired: the note's VERDICT (K=0 WRONG) stands
+    # on K's own coding (OPEN saturation is 'not known'); only its REASON is
+    # narrowed -- the 3-7% is of Fewster's a priori Eq. (4) bound, not
+    # Ford-Roman's, and the sharp-bound midplane reading is OPEN.
     ("Ford-Roman QI",          1, 1, 0, 0, 0, 1, "K=0 WRONG, D55: Casimir is 3-7% of it"),
     ("Fewster-Osterbrink QEI", 1, 1, 0, 0, 1, 1, "state-independent; shares SNEC's cell"),
     ("QNEC",                   0, 2, 1, 0, 1, 0, "entropy variation on the RHS"),
@@ -337,7 +370,7 @@ def gravitational():
     return [r[0] for r in BOUNDS if r[4] == 1]
 
 
-def casimir_fraction_of_bound(z_over_L, L=1.0):
+def casimir_fraction_of_bound(z_over_L, L=1.0, const_term=1140.0):
     """DOCKET 55, and it is the measurement that withdraws "CASIMIR SATURATES IT".
 
     Fewster arXiv:1208.5399 Sec. 1.3 gives the a priori QEI bound for a
@@ -345,9 +378,12 @@ def casimir_fraction_of_bound(z_over_L, L=1.0):
         T_00  >=  -C/(2 l)^4,      C = mu_1^4/(16 pi^2),
     against the known Casimir density for the massless minimally coupled scalar
         T_00  =  -pi^2/(1140 L^4) - pi^2/(48 L^4) (3 - 2 cos^2(pi z/L))/cos^4(pi z/L).
-    He reports the ratio as "3-7%".  Returned here as a fraction, computed."""
+    He reports the ratio as "3-7%".  Returned here as a fraction, computed.
+    The constant term is printed 1140 above and used as printed by default;
+    DOCKET 67's figures pass const_term=1440, the scalar's pi^2/1440 (half the
+    EM pi^2/720).  '3-7%' holds on either."""
     z = z_over_L * L
-    rho = (-math.pi ** 2 / (1140.0 * L ** 4)
+    rho = (-math.pi ** 2 / (const_term * L ** 4)
            - math.pi ** 2 / (48.0 * L ** 4)
            * (3.0 - 2.0 * math.cos(math.pi * z / L) ** 2)
            / math.cos(math.pi * z / L) ** 4)
@@ -364,6 +400,63 @@ def casimir_fraction_of_bound(z_over_L, L=1.0):
     mu = 0.5 * (lo + hi)
     C = mu ** 4 / (16.0 * math.pi ** 2)
     return rho / (-C / (2.0 * ell) ** 4)
+
+
+# DOCKET 67, key ford-roman-qi-and-fewster-casimir-fraction (NARROWED; the
+# reopen adjudicated REOPENS-NARROWER; recorded on M's ruling of 2026-10-02).
+# W2 stays WITHDRAWN on four carried counts; one reading of its premise is
+# OPEN, not refuted, and the capped-sense saturation was never computed for
+# the Dirichlet minimally coupled profile.  Nothing anti-warp is reinstated.
+CAPPED_SENSE_SATURATION_DIRICHLET = "OPEN (never computed for that profile)"
+FEWSTER_LOCALITY_STEP = ("Fewster's ref. [31], Fewster-Pfenning math-ph/0602042: "
+                         "NAMED-NOT-READ")
+NO_MATERIAL_CHOICE_CROSSES_IT_REINSTATED = False
+
+
+def fewster_C():
+    """C = mu_1^4/(16 pi^2), cos(mu_1) cosh(mu_1) = 1 (Fewster 1208.5399 Eq. (4))."""
+    f = lambda m: math.cos(m) * math.cosh(m) - 1.0
+    lo, hi = 4.0, 5.0
+    for _ in range(200):
+        mid = 0.5 * (lo + hi)
+        if f(lo) * f(mid) <= 0.0:
+            hi = mid
+        else:
+            lo = mid
+    return (0.5 * (lo + hi)) ** 4 / (16.0 * math.pi ** 2)
+
+
+def sharp_bound_reading():
+    """DOCKET 67's figures for W2, all computed here on the scalar's pi^2/1440:
+    the midplane fraction of Fewster's own bound (the bracket's lower end, its
+    upper end 100 %), its plate limit 1/(pi^2 C), the constant C_s a midplane
+    saturation of a -C_s/(2l)^4 bound needs and C/C_s, the K-independent
+    spread mid/plate, and, under C_s, the fraction at z = L/4."""
+    C = fewster_C()
+    mid = casimir_fraction_of_bound(0.0, const_term=1440.0)
+    plate = 1.0 / (math.pi ** 2 * C)
+    c_s = mid * C
+    return {"bracket": (mid, 1.0), "plate": plate, "C_s": c_s, "C_over_C_s": C / c_s,
+            "spread_mid_over_plate": mid / plate,
+            "quarter_under_C_s": casimir_fraction_of_bound(0.25, const_term=1440.0) / mid}
+
+
+def sharp_reading_status(c_s_known=None):
+    """Does the midplane density saturate a -c_s/(2l)^4 bound?  With the sharp
+    constant UNKNOWN (c_s_known None) the fraction ranges over the bracket
+    [Fewster's own fraction, 100 %], which contains saturation: OPEN.  With a
+    constant given, the fraction mid*C/c_s is computed: SATURATED at 1 (to
+    1e-9), REFUTED below it."""
+    sb = sharp_bound_reading()
+    if c_s_known is None:
+        lo, hi = sb["bracket"]
+        return "OPEN" if lo < 1.0 <= hi else "REFUTED"
+    f = sb["bracket"][0] * fewster_C() / c_s_known
+    return "SATURATED" if abs(f - 1.0) < 1e-9 else ("REFUTED" if f < 1.0 else "VIOLATED")
+
+
+#: DERIVED: the sharp constant is unknown, so the reading is OPEN, not refuted.
+SHARP_BOUND_MIDPLANE_SATURATION = sharp_reading_status()
 
 
 def collisions():
@@ -561,6 +654,34 @@ def selftest():
         FORD_ROMAN_K_IS_WRONG, True)
     chk("the honest count of known-saturated bounds is three, not four",
         len(saturated()) - 1, 3)
+
+    # (b') DOCKET 67 (ford-roman-qi-and-fewster-casimir-fraction, M's ruling
+    # 2026-10-02): W2 stays WITHDRAWN on four counts; one reading is OPEN.
+    _sb = sharp_bound_reading()
+    near("DOCKET 67: midplane fraction of Fewster's own bound (pi^2/1440)",
+         _sb["bracket"][0], 0.067028446, 1e-6)
+    near("  its plate limit 1/(pi^2 C): Fewster's own bound, 3.1964 %",
+         _sb["plate"], 0.031963951, 1e-6)
+    near("  a midplane saturation needs C_s = 0.212471", _sb["C_s"], 0.21247065, 1e-6)
+    near("  = C/14.919", _sb["C_over_C_s"], 14.919, 1e-4)
+    near("  the spread mid/plate, the same for every K (no uniform saturation)",
+         _sb["spread_mid_over_plate"], 2.097, 1e-3)
+    near("  under C_s the fraction at z = L/4 is 48.589 %",
+         _sb["quarter_under_C_s"], 0.4858871, 1e-6)
+    chk("  the bracket's upper end is saturation, and that reading is OPEN, its "
+        "locality step NAMED-NOT-READ; capped-sense OPEN; nothing reinstated",
+        (_sb["bracket"][1], SHARP_BOUND_MIDPLANE_SATURATION,
+         FEWSTER_LOCALITY_STEP.endswith("NAMED-NOT-READ"),
+         CAPPED_SENSE_SATURATION_DIRICHLET.startswith("OPEN"),
+         NO_MATERIAL_CHOICE_CROSSES_IT_REINSTATED, FORD_ROMAN_K_IS_WRONG),
+        (1.0, "OPEN", True, True, False, True))
+    chk("  control: with Fewster's own C taken as sharp the reading is REFUTED "
+        "(count (i)); with C_s = 0.212471 it is SATURATED -- the OPEN is the "
+        "unknown constant alone", (sharp_reading_status(fewster_C()),
+                                   sharp_reading_status(_sb["C_s"])),
+        ("REFUTED", "SATURATED"))
+    chk("  the default measurement still uses the printed 1140 (recorded, not "
+        "repaired)", casimir_fraction_of_bound(0.0) != _sb["bracket"][0], True)
 
     # (c) what re-coding it would cost -- MEASURED, which is why it is deferred.
     _rc = [list(r) for r in BOUNDS]

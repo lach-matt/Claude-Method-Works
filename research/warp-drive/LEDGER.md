@@ -223,7 +223,7 @@ a corpus forgets it was ever wrong.
 | id | what was claimed | why it fell |
 |---|---|---|
 | W1 | achievable.py: the census is 'bounded by a THEOREM', and the core falls short by sixty-five orders | Ford-Roman is a TIME average at ONE SPATIAL POINT, not a cap on \|rho\| over a spatial scale. There is no pointwise cap to price against, and the figure was computed with the inequality's own coefficient dropped |
-| W2 | bounds.py: 'Casimir is the Ford-Roman bound saturated, not an exception to it, which is why no material choice crosses it' | Fewster reports the Casimir density at 3-7 % of the bound and asks in print why it is so small a proportion. Three per cent is not a wall with something standing against it |
+| W2 | bounds.py: 'Casimir is the Ford-Roman bound saturated, not an exception to it, which is why no material choice crosses it' | Fewster reports the Casimir density at 3-7 % of the bound and asks in print why it is so small a proportion. Three per cent is not a wall with something standing against it. DOCKET 67 (ford-roman-qi-and-fewster-casimir-fraction, NARROWED; the reopen adjudicated REOPENS-NARROWER; recorded on M's r... |
 | W3 | tolman.py: 'p_r is a SCALAR under H' | It is DETERMINED BY a scalar and is not one. A boost witness turns the tension into a pressure at the same event while 1 - 2m/R does not move |
 | W4 | tolman.py: Phi' = 0 is an exactness route, and the class is smaller | Under the computed G^r_r it forces 4 pi r^3 p_r = -m, which with the identity gives m == 0. It does not restrict the class, it EMPTIES it |
 | W5 | tolman.py: the regular-centre hypothesis here and DOCKET 52's are 'one fact seen twice' | A separating witness holds certify.py's m(0) = 0 while C = 4 pi A != 0. Two hypotheses, not one |
