@@ -1,0 +1,93 @@
+==============================================================================
+1. TABLE 110 INTERNAL CONSISTENCY (amount vs printed percent of 70,000 g)
+   Cl         95 g -> 0.13571 % computed; printed 0.12 %  <-- MISMATCH
+   sum of Table 110 amounts = 70102.3892 g against total body 70,000 g (rounding, p.273-274)
+  PASS Cl is the only amount/percent mismatch in Table 110
+==============================================================================
+2. OWNER (stockgate.py:345-366, 59 elements) AGAINST ICRP 23 TABLE 110
+   O  owner 43000     ICRP 43000     p.327  AGREES
+   C  owner 16000     ICRP 16000     p.327  AGREES
+   H  owner 7000      ICRP 7000      p.327  AGREES
+   N  owner 1800      ICRP 1800      p.327  AGREES
+   Ca owner 1000      ICRP 1000      p.327  AGREES
+   P  owner 780       ICRP 780       p.327  AGREES
+   K  owner 140       ICRP 140       p.327  AGREES
+   S  owner 140       ICRP 140       p.327  AGREES
+   Na owner 100       ICRP 100       p.327  AGREES
+   Cl owner 95        ICRP 95        p.327  AGREES
+   Mg owner 19        ICRP 19        p.327  AGREES
+   Fe owner 4.2       ICRP 4.2       p.327  AGREES
+   F  owner 2.6       ICRP 2.6       p.327  AGREES
+   Zn owner 2.3       ICRP 2.3       p.327  AGREES
+   Si owner 1         ICRP 18        p.327  x0.0556
+   Rb owner 0.68      ICRP 0.32      p.327  x2.12
+   Sr owner 0.32      ICRP 0.32      p.328  AGREES
+   Br owner 0.26      ICRP 0.2       p.328  x1.3
+   Pb owner 0.12      ICRP 0.12      p.328  AGREES
+   Cu owner 0.072     ICRP 0.072     p.328  AGREES
+   Al owner 0.06      ICRP 0.061     p.328  x0.984
+   Cd owner 0.05      ICRP 0.05      p.328  AGREES
+   Ba owner 0.022     ICRP 0.022     p.328  AGREES
+   I  owner 0.02      ICRP 0.013     p.328  x1.54
+   Sn owner 0.02      ICRP <0.017     p.328  x1.18
+   B  owner 0.018     ICRP <0.048     p.328  x0.375
+   Ni owner 0.015     ICRP 0.01      p.328  x1.5
+   Cr owner 0.014     ICRP <0.0018    p.328  x7.78
+   Mn owner 0.012     ICRP 0.012     p.328  AGREES
+   Cs owner 0.006     ICRP 0.0015    p.328  x4
+   Mo owner 0.005     ICRP <0.0093    p.328  x0.538
+   Co owner 0.003     ICRP 0.0015    p.328  x2
+   Au owner 0.0002    ICRP <0.01      p.328  x0.02
+   U  owner 0.0001    ICRP 9e-05     p.328  x1.11
+   Be owner 3.6e-05   ICRP 3.6e-05   p.328  AGREES
+   owner elements not in Table 110 (24): Ce Ti Se As Li Hg Ge Sb Ag Nb Zr La Ga Te Y Bi Tl In Sc Ta V Th Sm W
+   Table 110 elements not in owner: Ra
+   agree 21, differ 14, absent 24
+  PASS all 11 bulk elements agree exactly
+  PASS Li is NOT in Table 110
+   owner sum 70085.9087 g (normalising denominator); ICRP total body 70000 g
+==============================================================================
+3. BINDERS (owner's processing_factor, max_e p_e/s_e) UNDER EACH PAYLOAD
+   (a) owner as-composed 59                       CI          P 10.701  N 8.0763  C 6.5226
+   (a) owner as-composed 59                       photosphere P 1910.9  Li 1753.4  K 651.79
+  PASS (a) reproduces D25: CI P 10.70, photosphere P 1911
+   (b) owner 59, Table 110 substituted, renorm    CI          P 10.699  N 8.0744  C 6.5211
+   (b) owner 59, Table 110 substituted, renorm    photosphere P 1910.4  Li 1752.9  K 651.63
+   (b') same, per ICRP 70,000 g                   CI          P 10.714  N 8.0863  C 6.5306
+   (b') same, per ICRP 70,000 g                   photosphere P 1913.2  Li 1755.5  K 652.59
+   (c) ICRP Table 110 alone (35, '<' at limit)    CI          P 10.714  N 8.0863  C 6.5306
+   (c) ICRP Table 110 alone (35, '<' at limit)    photosphere P 1913.2  K 652.59  Ca 222.72
+   (c') Table 110 alone, '<' rows dropped         CI          P 10.714  N 8.0863  C 6.5306
+   (c') Table 110 alone, '<' rows dropped         photosphere P 1913.2  K 652.59  Ca 222.72
+   (d) owner 58, Li removed                       CI          P 10.701  N 8.0763  C 6.5226
+   (d) owner 58, Li removed                       photosphere P 1910.9  K 651.79  Rb 468.64
+  PASS (b) CI binder P, N second
+  PASS (b) photosphere binder P
+  PASS (b') CI binder P, N second
+  PASS (b') photosphere binder P
+  PASS (c) CI binder P, N second
+  PASS (c) photosphere binder P
+  PASS (c') CI binder P, N second
+  PASS (c') photosphere binder P
+  PASS (d) CI binder P, N second
+  PASS (d) photosphere binder P
+  PASS (c) photosphere runner-up is K, not Li (Li absent from ICRP)
+==============================================================================
+4. FLIP MARGINS ON THE ICRP-PRINTED VALUES (owner's destination tables held fixed)
+   photosphere: Li binds above 7.6288 mg at ICRP P 780 g (owner Li 7 mg; ICRP prints none)
+   photosphere: P loses to owner's 7 mg Li below 715.71 g (ICRP 780; 2-s.f. interval 775-785)
+   CI:          P loses to N below 588.68 g at ICRP N 1800 (ICRP P 780)
+   CI:          N binds above 2385.0 g at ICRP P 780 (ICRP N 1800; interval 1750-1850)
+   CI margin N/P factor = 0.7547 ; ratio needed to flip = x1.3250 in N
+  PASS ICRP rounding interval of P (775-785 g) does not reach either P threshold
+  PASS ICRP rounding interval of N (1750-1850 g) does not reach the CI N threshold
+  PASS Li threshold 7.6288 mg
+==============================================================================
+5. stockgate DOCSTRING FIGURES THAT NAME ICRP
+  PASS N 1800/70085.9 = 0.02568 (stockgate.py:97)
+  PASS P 780/70085.9 = 0.011129 (stockgate.py:97)
+  PASS ICRP K 140 g = half of stock.py's 280 g (stockgate.py:85)
+  PASS lead 120 mg (stockgate.py:47) = Table 110 Pb 0.12 g
+   P as ICRP prints it: 1.1 % of body; per 70,000 g = 1.11429 %; per owner sum = 1.11292 %
+==============================================================================
+RESULT: ALL PASS
