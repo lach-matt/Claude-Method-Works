@@ -42,6 +42,26 @@ today, says the same of bridges); and the matter must already be at the destinat
 supply, S13, the held-seat release route, OPEN and priced). **This docket tests the one step that blocks the
 thesis: whether any channel removes the need for those two classical bits.**
 
+## M on speed and the corridor, verbatim (2026-10-02)
+
+> Speed is a non-issue. Consider that the corridor connects two positions as one, thus speed never enters the
+> equation. Warp allows for two positions to occupy the same spacetime for whatever increment of
+> relative/perceived/observed spacetime
+
+Read against the board. Once two positions are identified, the distance across is zero and speed does not enter --
+correct. The questions move to the corridor itself, each already held:
+- MAKING it is topology change. Geroch 1967 (D67: NARROWED; the kinematic theorem stands): a compact, time-oriented
+  interpolating spacetime with no closed timelike curve cannot change topology. Tipler 1977 (D67: NARROWED): the
+  non-compact case gives a singularity or a point at infinity, under assumptions Borde leaves unnamed.
+- HOLDING it open: Morris-Thorne 1988 (D67: STANDS) -- a traversable throat needs the null energy condition
+  violated at the throat (flare-out).
+- WHICH MOMENT the two ends share -- M's "whatever increment of relative/perceived/observed spacetime". Computed in
+  `corridors.py` with latticectc's THEOREM (imported; model choice named: a corridor as an identification of
+  positions under latticectc's H1-H3): one corridor whose ends share a moment in some frame closes no causal
+  curve; two such corridors keyed to DIFFERENT frames (latticectc's witness E1, E2) do; any number keyed to ONE
+  frame never do (by inspection, every lattice vector then has t = 0; 2000 random pairs checked). H-FRAME is
+  therefore what separates a corridor network from a time machine.
+
 ## M's clarification of the device, verbatim (2026-10-02)
 
 > The warp device doesn't copy the geometric object for reconstruction on the other side, it copies the
