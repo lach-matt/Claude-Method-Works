@@ -1,0 +1,86 @@
+{
+ "key": "2309.05759-eq41",
+ "final_grade": "STANDS",
+ "source_read_status": "READ",
+ "read_at_source_this_pass": true,
+ "decision": "STANDS. The audit graded OPEN only because it could not read the source. That basis is gone: I read arXiv:2309.05759v2 (15 Nov 2023) at source this pass through alphaXiv answer_pdf_queries (pp.1-30 returned), independently of the three verifiers. Excerpts are in adjudicate/run/src_2309.05759-eq41_excerpt.txt.\n\nWhat the source says. Page 9, section 4: \"We imagine a real bulk scalar field chi of mass mu that has a Yukawa coupling to the electron\". Then eq. (41): S = int d^5x(1/2 dchi dchi - 1/2 mu^2 chi^2) + int d^4x(psibar(i gamma.d - m)psi - lambda psibar psi chi|_{z=0}). Then: \"Note that the coupling lambda has units (mass)^{-1/2}.\" Eq. (51) is c_{mu nu} = -(1/16pi^2)(lambda^2/pi r)(b_mu b_nu - 1/4 eta b^2) I_1, and page 12 calls lambda^2/pi r \"a dimensionless coupling\". The paper never normalises lambda or gives it a value. Gravity is the contrast: eq. (73) pins Mbar4 = (2 pi r)^{1/2} Mbar5^{3/2} = 2.4e18 GeV. So the tree's attribution at branelink.py:50 and :320 \u2014 \"the bulk scalar's coupling carries a free Yukawa lambda (Kabat & Nomura eq. 41)\" \u2014 is right on the equation number, the symbol and the freedom. This is the audit's own outcome (1).\n\nRe-derivation, re-run in adjudicate/run/:\n- The audit script 2309.05759-eq41.py: 14/14 PASS, z3 unsat, C4 = 6.374e-64.\n- The refute verifier's dimensional check and the data verifier's script both pass.\n- My own script adj_2309.05759-eq41.py passes all seven checks:\n  - A1 is not vacuous. [lambda] comes out 0, -1/2 and -1 at bulk dimension 4, 5 and 6; only dimension 5 reproduces KN's printed -1/2.\n  - A2: [g] = +1/2, matching eq. (61).\n  - A3: [lambda^2/pi r] = 0.\n  - A4: the eq. (51) tensor is traceless, with T_00 = 3/4 beta^2 for a boost-like b.\n  - A5 and A6: the 1e-21 bound does not bound lambda by itself. The saturating value lambda* is proportional to 1/beta, so it goes to infinity as beta goes to 0. z3 returns unsat for the negation \"some lambda > 0 admits no beta in (0,1]\".\n  - A7 is the vacuity guard: with lambda fixed, some beta is excluded (sat).\n- As the rederive verifier noted, C3 and A6 encode \"free\" rather than derive it. The freedom rests on the source read; the checks confirm the dimensions and what a bound can and cannot constrain.\n\nData. No datum enters eq. (41). The one datum KN carry is the ~1e-21 laboratory bound on c_{mu nu} (Dreissen et al., ref. [14], p.25), and it bounds only the product lambda^2 beta^2 I_1/(pi r). On the brane-confined branch the tree records \"GW170817 bounds nothing about beta\" (branelink.py:48, :319). Nothing else bounds beta there, so lambda stays unbounded on its own. No datum that has moved, and none that is contested, moves \"lambda is free\".\n\nWhy not NARROWED, as the data verifier proposed. Both of its grounds concern the tree's own inference and wording, not the external result, and neither moves the conclusion.\n- (a) \"No rate\". The precise reading is \"no predicted rate\". The verifier's own step, \"the free coupling is bounded, not unconstrained\", overstates: the 1e-21 bound constrains lambda^2 beta^2 I_1/r, not lambda, and the verifier's own lambda* carries 1/beta. A rate ceiling would need the emission rate's dependence on lambda, beta and mu. The tree concedes at branelink.py:53-54 that no moving-brane emission rate is in print and that the non-zero-winding amplitude has never been computed. So neither a rate nor a rate ceiling can be derived here. This is recorded as an overstatement of wording, not a narrowing of KN's result.\n- (b) The hypothesis \"a bulk scalar exists\" is not named in branelink's prose, while KN only \"imagine\" chi. The external result holds wherever such a chi exists, and the tree applies it only there. Without a bulk scalar, the brane-confined branch has no bulk carrier at all: still no rate, and worse for the route, not better. This is recorded as a dropped hypothesis that does not move the conclusion. M's rule requires every limitation to be named, so the write-up must name it. Grading NARROWED on it would over-represent a defect against the tree, just as STANDS without these notes would over-represent in the tree's favour.\n\nVerdict on the verifiers. The two STANDS verifiers are upheld, and their notes (a)-(c) are carried as corrections. From the NARROWED verifier, the source read, the data rows and the lacked_data wording fix are upheld; its grade and its \"lambda is bounded\" wording are not.",
+ "scope": "Covered: eq. (41) of Kabat & Nomura arXiv:2309.05759v2, as the tree uses it at branelink.py:48-51 and :318-320. That text reaches LEDGER.md:93 through ledger.py:1829. The use has three parts:\n- the locus, eq. 41;\n- the symbol, the Yukawa lambda coupling a 5D bulk scalar chi to the brane electron;\n- the claim that the model leaves lambda free: [lambda] = (mass)^{-1/2}, there is no normalisation, and nothing measured fixes it, unlike gravity in eq. 73.\n\nNot covered:\n1. The equation numbering of the published PRD 108, 105014. Only v2 was read.\n2. Whether a bulk scalar exists. That is the tree's own unnamed hypothesis; KN only \"imagine\" chi.\n3. Any emission rate, or rate ceiling, on the brane-confined branch. None has been computed, and whether the 1e-21 bound yields a ceiling depends on how the uncomputed amplitude depends on lambda and beta. That question is OPEN.\n4. The pass's provenance word \"READ by the pass\". It records only eqs. 68 and 70-73. Eq. 41 has now been READ by DOCKET 67, not by the pass.\n5. KN eqs. 76-77 and the 6.37e-64 graviton figure. These belong to the separate keys 2309.05759-eqs76-77 and 2309.05759. C4's agreement with branelink is circular and is not evidence for this key.\n6. How the bulk scalar couples to the tree's actual transducer source, a spinning macroscopic rod. KN's eq. 41 couples to the electron and eq. 61 to a brane scalar. Both couplings are free (dimensions -1/2 and +1/2, never fixed), and by A1 a generic Yukawa to brane matter has the same dimension, so the freedom carries over. No coupling to the rod's nucleons was READ.",
+ "corrections_to_record": [
+  "Audit: source_read_status NAMED-NOT-READ and grade OPEN are superseded. arXiv:2309.05759v2 was READ at source in DOCKET 67, by verifiers 1-3 and independently by the adjudicator. Eq. (41) is the Yukawa coupling of the bulk scalar to the brane electron, its symbol is lambda, and KN print [lambda] = (mass)^{-1/2}.",
+  "Audit published_hypotheses: these are now READ. KN 'imagine' the bulk scalar (p.9) and use bulk scalars 'for simplicity' (p.6). The scalar sector, eqs. 41-67 (sections 4-6), never refers to the graviton. That resolves the audit's third drift item at source, in the tree's favour.",
+  "Audit hypothesis_drift item 4: the SME bound constrains lambda^2 beta^2 I_1/(pi r); the beta^2 is explicit because T_00 = 3/4 beta^2. It does not constrain lambda alone. On the brane-confined branch nothing bounds beta, so lambda is unbounded on its own (lambda* is proportional to 1/beta).",
+  "Data verifier: 'the free coupling is bounded, not unconstrained' overstates. Its own lambda* = 8 sqrt3 pi^{3/2} sqrt(Br)/(3 beta sqrt(I_1)) goes to infinity as beta goes to 0. Only the product lambda^2 beta^2 I_1/r is bounded.",
+  "Audit lacked_data: 'In 2023 KN had ... the 2020 Eot-Wash null' should say only that the result was available. KN do not cite Eot-Wash; it is absent from their reference list [1]-[16].",
+  "Audit data_at_publication = []: defensible for the claim 'lambda is free'. The write-up should still list the data KN themselves carry: Mbar4 = 2.4e18 GeV (eq. 73) and the ~1e-21 laboratory bound on c_{mu nu} (ref. [14], Dreissen et al., arXiv:2206.00570, p.25). Neither fixes lambda.",
+  "Tree wording at branelink.py:50 and :319-320: 'no rate' is accurate only as 'no predicted rate'. No rate ceiling is derivable either: the emission amplitude has not been computed (branelink.py:53-54), and the 1e-21 bound does not bound lambda alone. This is a matter of precise wording, not a refutation.",
+  "Tree at branelink.py:48-50: the brane-confined branch presupposes that a bulk scalar exists ('the bulk scalar's coupling'), while KN only 'imagine' chi. This hypothesis must be NAMED. It does not move the conclusion: with no bulk scalar there is no bulk carrier at all, and still no rate.",
+  "Provenance: branelink.COUPLING_SOURCE (branelink.py:158-159) records 'READ by the pass' for eqs. 68 and 70-73 only. The O6/O7 pass recorded no read of the eq. 41 citation, yet specthm.py:4152-4160 and :4211 extend that status word to the whole paper. The citation is now confirmed correct by DOCKET 67's read, not by the pass.",
+  "Naming hazards: inside KN, lambda is also the null-case parameter b^mu = (-lambda, lambda, 0, 0) (eqs. 36-40, 84). The tree's 'Yukawa lambda' is the eq. 41 coupling, which is the right one. Separately, /tmp/o6o7/final.py uses 'Yukawa range lambda' for the Eot-Wash range parameter, a different quantity.",
+  "Rederive verifier's vacuity findings, carried: C1'' is vacuous because it compares -3/2 with itself. C3 encodes 'free' rather than deriving it. C4 is circular because it re-evaluates branelink's own transcription of eqs. 76-77, and it applies the b^2 ~ 0 asymptotic at beta = 1. That last point is a discrepancy for key 2309.05759-eqs76-77, not for this key.",
+  "Edition caveat: only v2 (15 Nov 2023) was read. Whether the published PRD 108, 105014 uses the same equation numbering is not verified.",
+  "Later literature: none was assessed. arXiv:2309.16226 and JHEP08(2026)192 remain NAMED-NOT-READ. Their effect on eq. (41) is unknown, which is not the same as 'contested'."
+ ],
+ "tree_sites": [
+  {
+   "site": "research/warp-drive/branelink.py:48-50",
+   "kind": "consistent",
+   "finding": "'the bulk scalar's coupling carries a free Yukawa lambda (Kabat & Nomura eq. 41)': the locus, the symbol and the freedom are confirmed at source (v2 eq. 41, '[lambda] = (mass)^{-1/2}', never normalised). The line is current: the tree is unchanged since the audit (git status clean)."
+  },
+  {
+   "site": "research/warp-drive/branelink.py:48-50",
+   "kind": "dropped-hypothesis",
+   "finding": "Presupposes that a bulk scalar exists, while KN only 'imagine' chi (p.9) and use scalars 'for simplicity' (p.6). The hypothesis is not named in branelink's prose. It does not move the conclusion: without a bulk scalar there is no carrier at all."
+  },
+  {
+   "site": "research/warp-drive/branelink.py:50",
+   "kind": "overstatement",
+   "finding": "'no rate' holds as 'no predicted rate', and no ceiling can be derived either: the 1e-21 bound constrains only lambda^2 beta^2 I_1/r, and the amplitude has not been computed (the tree's own concession at :53-54). This is a matter of precise wording; the conclusion 'the row reverts' is unmoved."
+  },
+  {
+   "site": "research/warp-drive/branelink.py:318-320",
+   "kind": "consistent",
+   "finding": "O6_DICHOTOMY[1], 'free Yukawa lambda (Kabat & Nomura eq. 41); no rate; the row reverts', is confirmed at source. The same 'no rate' wording note and the same unnamed bulk-scalar hypothesis apply. Current."
+  },
+  {
+   "site": "research/warp-drive/branelink.py:158-159",
+   "kind": "discrepancy",
+   "finding": "COUPLING_SOURCE records 'READ by the pass' for eqs. 68 and 70-73 only, so the eq. 41 citation at :50 and :320 had no recorded read by the pass. This is a provenance gap, now cured in substance by DOCKET 67's read. It is not a refutation."
+  },
+  {
+   "site": "research/warp-drive/specthm.py:4152-4160",
+   "kind": "discrepancy",
+   "finding": "The escapes floor regexes COUPLING_SOURCE's '(READ by the pass)' and prints 'Kabat & Nomura arXiv:2309.05759 (READ by the pass)' for the whole paper. That extends the pass's status word beyond the eqs. 68 and 70-73 it recorded, and so over eq. 41. Provenance only."
+  },
+  {
+   "site": "research/warp-drive/specthm.py:4211",
+   "kind": "discrepancy",
+   "finding": "The selftest asserts the item 'Kabat & Nomura arXiv:2309.05759 (READ by the pass)'. The same provenance note applies."
+  },
+  {
+   "site": "research/warp-drive/ledger.py:1829",
+   "kind": "consistent",
+   "finding": "Builds the O6 row from branelink.O6_DICHOTOMY, so the confirmed eq. 41 citation and the 'no rate' wording note come from branelink rather than from a separate assertion."
+  },
+  {
+   "site": "research/warp-drive/LEDGER.md:93",
+   "kind": "consistent",
+   "finding": "The generated O6 row carries 'free Yukawa lambda (Kabat & Nomura eq. 41); no rate; the row reverts'. The locus is confirmed at source; the 'no rate' wording note and the unnamed bulk-scalar hypothesis apply here as at branelink.py:318-320."
+  },
+  {
+   "site": "research/warp-drive/branelink.py:25-26",
+   "kind": "consistent",
+   "finding": "'(All READ at source by the O6/O7 pass.)' covers the paragraph's eqs. 68 and 70-73 and GLP eq. 39, not eq. 41. It makes no claim about eq. 41 and is accurate as written."
+  }
+ ],
+ "commands_run": [
+  "python3 -c json dump of adjudicate/in/2309.05759-eq41.json",
+  "grep -n 'eq. 41|COUPLING_SOURCE|Yukawa|no rate|bulk scalar' research/warp-drive/branelink.py; sed -n 1,60p, 140,170p, 300,330p branelink.py",
+  "grep -rn 'eq\\. 41' research/warp-drive (only hits: LEDGER.md:93, branelink.py:50, :320); grep -rn '2309.05759|Kabat' research/warp-drive",
+  "sed -n 4148,4162p, 4208,4213p specthm.py; sed -n 1825,1832p ledger.py; git status --short research/warp-drive (clean)",
+  "mcp__alphaXiv__answer_pdf_queries(paper='2309.05759', queries=[eq 41 verbatim + units, normalisation of lambda, eq 51, Dreissen bound, existence of bulk scalar, eqs 72-73, version]) returned v2 (15 Nov 2023), pp.1-4, 7, 9-26, 28, 30",
+  "cp rederive/2309.05759-eq41.py, verify/refute/2309.05759-eq41-check.py and verify/data/2309.05759-eq41-dataclaim.py into adjudicate/run/; ran each with python3 (all pass; C4 = 6.374e-64; lambda* formula reproduced)",
+  "python3 adjudicate/run/adj_2309.05759-eq41.py: A1-A7 all pass (dimension check non-vacuous, T_00 = 3/4 beta^2, lambda* -> infinity as beta -> 0, z3 unsat on the witness, z3 sat with lambda fixed)"
+ ],
+ "reverify_command": "python3 /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/adjudicate/run/2309.05759-eq41.py && python3 /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/adjudicate/run/adj_2309.05759-eq41.py && grep -n 'eq. 41\\|COUPLING_SOURCE' /home/user/Claude-Method-Works/research/warp-drive/branelink.py   # then alphaXiv answer_pdf_queries(paper='2309.05759', queries=['Equation (41) verbatim and the units of lambda','Is lambda normalised anywhere?'])",
+ "report_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/adjudicate/out/2309.05759-eq41.json"
+}

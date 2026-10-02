@@ -1,0 +1,91 @@
+{
+ "key": "fermion-mass-constancy",
+ "final_grade": "NARROWED",
+ "source_read_status": "READ",
+ "read_at_source_this_pass": true,
+ "decision": "OPEN is retired. The audit chose OPEN for one reason only: no source could be read (the alphaXiv quota had run out). That reason is gone. In this pass the adjudicator READ five papers first-hand through alphaXiv:\n- Uzan 1009.5514v1, pp.1, 7, 18, 35, 52, 70, 86, 88, 89, 94, 99\n- Lange et al. 2010.06620v2, pp.1-6\n- Vorotyntseva & Levshakov 2503.17665v1, pp.1-11\n- Vorotyntseva & Levshakov 2603.05990v1, pp.1-18\n- Shtein, Vorotyntseva & Levshakov 2609.03431v1, pp.1-19\n\nWHAT THE READ ESTABLISHES (NARROWED)\n(1) The hypotheses the audit computed as dropped are now READ statements.\n- Uzan p.88 gives eq.(184), Lambda_QCD proportional to (m_c m_b m_t)^(2/27).\n- Uzan p.88: \"the variation of Yukawa couplings, gauge couplings, Higgs vev and Lambda_QCD/M_P are correlated\". The mu-to-v link is made \"assuming that the variation of the Yukawa couplings is negligible\" and is \"very model-dependent\".\n- Uzan p.89: \"the Yukawa couplings are assumed constant\", and the variation must be \"homogeneous in space (so that it may not be applied as such in the case a chameleon mechanism is at work)\".\n\n(2) Only dimensionless ratios are bounded. Every bound is finite and comes from a matter-bearing place.\n- Lange Table II: mu = m_p/m_e drift is -8(36)e-18/yr and (c^2/mu)dmu/dPhi = 7(45)e-8. Both hold \"for a linear temporal variation and a coupling to changes of the gravitational potential\", and the mu figure uses an external X_q restriction.\n- Uzan p.52: QSO data constrain mu at the 1e-5 level over 11 Gyr; NH3 gives < 1.8e-6 at z = 0.685.\n- Uzan p.99: cloud-lab bound < 3e-8.\n- 2609.03431 p.12: across the disk at 1.5-13 kpc, (0.5 +- 0.5)e-7.\n\n(3) The audit's sympy map re-runs ALL PASS (22 checks, exit 0). It shows that a ratio bound says something about v only on H-YUK-FIXED and H-AS-FIXED (or address H1/H2). Those are the very hypotheses Uzan pp.88-89 state.\n\nSo massform.py:222-226 uses the support on a larger class than holds. The support holds only at finite precision, only at sampled matter-bearing places, and only with fixed Yukawas and fixed high-scale alpha_s. The sentence names none of these.\n\nWHY NOT DATA-DEPENDENT (verifier 1)\nThe adjudicator READ the anomaly verifier 1 relies on, and it is a real reported measurement.\n- 2503.17665 p.8: Sgr B2(N) minus Orion-KL, Delta(m_e/m_p)/(m_e/m_p) = (-3.7 +- 0.5)e-7, \"non-zero signal at 7.5 sigma\", still 5.3 sigma with 50 kHz systematics, \"not explained by known systematic effects\".\n- 2603.05990 p.11: combined (-3.4 +- 0.4)e-7 at 8.5 sigma.\n- 2609.03431 p.12 restates the same centre value.\n\nFour findings keep it from moving the conclusion the tree draws:\n(i) The tree's conclusion does not take this datum as an input. P-UNIFORM is a PREMISE, VEV_IS_UNIFORM = P_UNIFORM, data_used = [], and line 223 says \"not read here\" (the E1-E4 checks re-run and pass). No D27, S10 or SR5 boolean reads a measured value.\n(ii) Even if confirmed, the attribution to v is not forced. The measurement map has rank 1, so the same -3.4e-7 is reproduced with dv = 0 by d ln y_e = -3.4e-7, or by d(1/alpha_s) = -5.37e-7 (adj_check.py).\n(iii) The authors themselves read it as sourced: \"if dark matter modulates the Higgs scalar field\" (2603.05990 p.14; also 2609.03431 p.2). P-UNIFORM covers only places where nothing sources the field. Computed, the shift is a lowered |phi|, d ln v of -4.6e-7 to -4.8e-7 (H1). That is a sourced r < 1, the case C1 already allows only with a local source.\n(iv) It is one group's result. The authors call it an \"indication\" and ask for \"independent measurements\", and the same group's disk survey is null.\n\nVerifier 1 argued that the audit's own DATA-DEPENDENT trigger is met literally. That is true, but the trigger is the auditor's wording, not M's grade definition. M's definition asks whether the conclusion moves with the datum, and on (i)-(iii) it does not. The trigger is recorded as needing rewording.\n\nAGAINST M, recorded at full weight\n(a) The clause at massform.py:225-226, \"the value it has wherever massive matter is measured\", cannot stand unqualified while the Sgr B2 indication stands unrefuted.\n(b) If dark matter modulating the Higgs field were confirmed, it would be present everywhere in the Galaxy, the seat included. \"Where nothing sources it\" could then pick out no place in the Galaxy at all. That is a scope risk for P-UNIFORM. It has not been shown and it is not a refutation, but it is named.\n\nWHY NOT STANDS\n- massform names none of the narrowing hypotheses at the site, although address.py:27-28 (\"at fixed Yukawa\") and address.py:103-104 (H1/H2) carry them elsewhere in the tree.\n- Exact uniformity is stronger than any finite bound (D3).\n- The step from sampled places to the seat is unnamed.\n\nWHY NOT WRONG\nNothing READ establishes a variation of v at an unsourced place. A discrepancy is not a refutation.\n\nRESOLVING THE SPLIT\nThe verifiers proposed DATA-DEPENDENT, NARROWED and NARROWED. The evidence supports the refute lens's own floor grade (it states NARROWED with the Sgr B2 indication set aside), the rederive lens's NARROWED, and the data lens's NARROWED. It does not support DATA-DEPENDENT.",
+ "scope": "COVERS: whether measured constancy of fermion-mass ratios supports P-UNIFORM as massform.py uses it at :220-226, :815-818 and :1621-1624.\n\nThe support holds only:\n- at the READ finite bounds: lab drift -8(36)e-18/yr; disk below about 5e-8 at 1.5-13 kpc; cloud-lab < 3e-8; QSO about 1e-5 over 11 Gyr; NH3 < 1.8e-6 at z = 0.685\n- at the sampled matter-bearing places\n- on H-YUK-FIXED and H-AS-FIXED (or address H1/H2)\n- with LPI tests that assume linear drift and coupling to the annual change in the Sun's gravitational potential\n- to first order in the K_mu model\n\nMapped to v, these bounds give |d ln v| below about 1.42 B (H1) or 1.10 B (H2).\n\nEXCEPT: the contested Galactic-Centre indication of (-3.4 +- 0.4)e-7, recorded as a discrepancy, not a refutation.\n\nDOES NOT COVER:\n(1) P-UNIFORM itself. It is a PREMISE, and exact uniformity lies beyond any finite bound.\n(2) Unsourced places away from matter.\n(3) Whether the Sgr B2 indication is real. That needs independent confirmation and was not settled here.\n(4) Literature not read here: CMB/BBN m_e at z ~ 1100, white-dwarf H2, Uzan's 2025 Living Review, and methanol-maser papers. Lange is the only clock paper read, so the bounds are a floor on current knowledge, not the best limits.\n(5) Any D27, S10 or SR5 verdict. None moves: they rest on P-UNIFORM as a premise, and C1 also rests on D15/D16. C5 needs no P-UNIFORM (massform.py:233).",
+ "corrections_to_record": [
+  "AUDIT read_status NAMED-NOT-READ and grade OPEN are superseded. The sources were READ at source this pass: 1009.5514, 2010.06620, 2503.17665, 2603.05990 and 2609.03431. Drift items B1-B4, C1 and D1-D3 now attach to READ statements: Uzan p.88 eq.184 and 'variation of the Yukawa couplings is negligible'; Uzan p.89 'Yukawa couplings are assumed constant' and 'homogeneous in space'.",
+  "AUDIT lacked_data: two sentences are wrong as of the READ literature, namely 'nothing computed or read here indicates any variation' and 'the one datum flagged as contested is early-universe m_e'. A present-epoch spatial indication exists at 7.5-8.5 sigma: (-3.7 +- 0.5)e-7 (2503.17665 p.8), combined to (-3.4 +- 0.4)e-7 (2603.05990 p.11; 2609.03431 p.12). Uzan p.99 also records a (2.2 +- 0.4 +- 0.3)e-8 offset that 'could be interpreted as a variation'.",
+  "AUDIT DATA-DEPENDENT trigger: as worded, it fires literally on an unconfirmed single-group indication. It should require that the datum move the conclusion: independently confirmed, attributable to v, and at an unsourced place.",
+  "AUDIT drift 'DROPPED H-YUK-FIXED': the hypothesis is dropped at the massform site only. The tree names it at address.py:27-28 ('at fixed Yukawa') and states H1/H2 at address.py:103-104.",
+  "AUDIT circularity note: Lange's limits are themselves tests of local position invariance. They hold 'for a linear temporal variation and a coupling to changes of the gravitational potential', the mu value uses an external X_q restriction (Ref.[8]), and they test only time and the annual change in the Sun's gravitational potential at one place. The 'assume LPI' wording comes from Godun via a sibling audit and does not describe Lange.",
+  "AUDIT rederivation: B1/B2 (rank 1, nullity 6) are tautological for any nonzero row (verifier 2, mutation M3). The physical content is B3/B4. C1 is arithmetic.",
+  "VERIFIER 1: 'seven orders below anything bearing on C1' misframes C1, which refuses EVERY r < 1 at an unsourced seat and is not gated by magnitude. No verdict moves for different reasons: premise status, the authors' sourced reading, and the rank-1 attribution. Computed, the indication is a LOWERED |phi|, d ln v about -4.6e-7 (H1).",
+  "VERIFIER 1: 'attributed to rest-frequency issues' overstates Uzan p.99, which says the offset 'may result from rest frequency uncertainties or it would require ... chameleon'. That those references are the same research group was not verified.",
+  "VERIFIER 3: the 8.5 sigma combined (-3.4 +- 0.4)e-7 is from 2603.05990 p.11 (n = 14, Herschel combined with IRAM); 2609.03431 only restates it. The Orion-KL row (-1.1 +- 0.8)e-7 is the calculated-frequency value. With laboratory frequencies the figure is (-1.4 +- 0.6)e-7 at 2.3 sigma, and that should also be recorded.",
+  "VERIFIER 3: the 'single-IF Herschel calibration' remark omits that the authors chose same-IF line pairs to cancel calibration error (2503.17665 p.8). 'About 8 kpc from the seat' presumes a location the tree does not fix.",
+  "VERIFIER 2: fmc-vacuity.py M8 tests Bp/(7/9*Sp) instead of Bp/(7/9*(1-Sp)), with expr unused. This is an encoding slip in a trivially true check; D3 holds regardless.",
+  "CANONICAL entry fermion-mass-constancy: its site 'massform.py:802-806' is stale. The P-UNIFORM hypothesis entry is now at massform.py:815-818."
+ ],
+ "tree_sites": [
+  {
+   "site": "research/warp-drive/massform.py:220-224",
+   "finding": "The support sentence for P-UNIFORM rests on 'measured constancy of fermion masses, which is not read here'. It does not name H-YUK-FIXED or H-AS-FIXED (or address H1/H2), both READ at Uzan pp.88-89. No status inflation: the status is PREMISE and no owner boolean asserts it. Line numbers are current.",
+   "kind": "dropped-hypothesis"
+  },
+  {
+   "site": "research/warp-drive/massform.py:224-226",
+   "finding": "'the value it has wherever massive matter is measured' extrapolates from sampled places to the unsourced seat. It holds at the READ local and disk bounds (about 5e-8, 1.5-13 kpc; lab drift -8(36)e-18/yr). It cannot be stated unqualified while the contested Sgr B2 indication of (-3.4 +- 0.4)e-7 stands, which its authors read as dark-matter-sourced.",
+   "kind": "overstatement"
+  },
+  {
+   "site": "research/warp-drive/massform.py:220",
+   "finding": "'one value everywhere' is exact, but every measurement is a finite bound B. On H-YUK-FIXED, |d ln v| < 1.42 B (H1) or 1.10 B (H2) stays unexcluded. It is held as a PREMISE, so the hypothesis is named by status.",
+   "kind": "overstatement"
+  },
+  {
+   "site": "research/warp-drive/massform.py:815-818",
+   "finding": "The H-list entry for P-UNIFORM repeats the unread support without the narrowing hypotheses. It correctly states that C1 and 'discriminates nothing' rest on it and C5 does not. Line numbers are current.",
+   "kind": "dropped-hypothesis"
+  },
+  {
+   "site": "research/warp-drive/massform.py:1621-1627",
+   "finding": "P_UNIFORM_STATUS = 'PREMISE' and VEV_IS_UNIFORM = P_UNIFORM; no measured value enters (re-run E1-E2 pass). The comment at 1623-1624 carries the same unread-support wording.",
+   "kind": "consistent"
+  },
+  {
+   "site": "research/warp-drive/massform.py:233",
+   "finding": "C5 (STOCK on H-PRESENT) needs no P-UNIFORM, so it is independent of every datum here.",
+   "kind": "consistent"
+  },
+  {
+   "site": "research/warp-drive/massform.py:622",
+   "finding": "C1 rests on D15, D16 and P-UNIFORM (also :797 and :2442). It is conditional on the premise and on theory, not on data. A sourced lowering of |phi| is the case C1 already allows only with a local source.",
+   "kind": "consistent"
+  },
+  {
+   "site": "research/warp-drive/address.py:27-28",
+   "finding": "'at fixed Yukawa' names H-YUK-FIXED in the tree; massform's support sentence does not carry it over.",
+   "kind": "consistent"
+  },
+  {
+   "site": "research/warp-drive/address.py:103-114",
+   "finding": "H1/H2 and K_mu = -7(1-S)/9 (H1) or S-1 (H2) match the re-run (A3/A4). The exponent 2/27 agrees with the READ Uzan eq.(184). The S span 0.0466-0.0935 moves only the conversion factor from a ratio bound to v.",
+   "kind": "consistent"
+  },
+  {
+   "site": "research/warp-drive/docket67-raw/canonical.json (entry fermion-mass-constancy)",
+   "finding": "It cites massform.py:802-806, which is stale. That text is now at massform.py:815-818, and lines 802-806 now fall in the H-UNSOURCED-SEAT entry.",
+   "kind": "stale"
+  }
+ ],
+ "commands_run": [
+  "python3 json dump of adjudicate/in/fermion-mass-constancy.json",
+  "sed/grep massform.py 210-240, 795-825, 1612-1635, 2843-2852; address.py 25-31, 90-125",
+  "python3 read docket67-raw/canonical.json entries; grep GRADES.tsv",
+  "cat verify/{data,refute,rederive} files for this key",
+  "alphaXiv answer_pdf_queries 2503.17665 (pp.1-11)",
+  "alphaXiv answer_pdf_queries 2609.03431 (pp.1-19)",
+  "alphaXiv answer_pdf_queries 2603.05990 (pp.1-18)",
+  "alphaXiv answer_pdf_queries 1009.5514 (pp.1,7,18,35,52,70,86,88,89,94,99,120)",
+  "alphaXiv answer_pdf_queries 2010.06620 (pp.1-6)",
+  "PYTHONDONTWRITEBYTECODE=1 python3 adjudicate/run/rederive.py  # ALL PASS 22, exit 0",
+  "python3 adjudicate/run/fmc-vacuity.py  # ALL PASS",
+  "python3 adjudicate/run/refute.py; python3 adjudicate/run/data.py",
+  "python3 adjudicate/run/adj_check.py > adj_check.out  # ALL PASS"
+ ],
+ "reverify_command": "cd /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/adjudicate/run && PYTHONDONTWRITEBYTECODE=1 python3 rederive.py && PYTHONDONTWRITEBYTECODE=1 python3 adj_check.py   # both exit 0. Sources: alphaXiv on 1009.5514 (pp.88, 89, 99), 2010.06620 (Table II p.4), 2503.17665 (p.8), 2603.05990 (p.11), 2609.03431 (p.12). Lines: grep -n constancy research/warp-drive/massform.py  # 223, 816, 1623",
+ "report_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/adjudicate/out/fermion-mass-constancy.json"
+}

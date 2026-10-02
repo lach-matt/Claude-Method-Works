@@ -1,0 +1,109 @@
+{
+ "key": "2604.01047#thm3.6",
+ "final_grade": "WRONG",
+ "source_read_status": "READ",
+ "read_at_source_this_pass": true,
+ "decision": "The grade is WRONG for the S half of Thm 3.6, alpha~^S_1 = 1/(64 pi^2). It is derived in the paper from Prop. 3.1 plus the principle of general local covariance, with perturbative agreement as the matching. Those are the theorem's own stated hypotheses. The audit graded WRONG and the three verifiers proposed WRONG, WRONG, WRONG. I checked it independently and uphold it. All four reports (audit, refute, rederive, data) support the S grade, and each needs the corrections listed.\n\nSOURCE I READ THIS PASS\nOne alphaXiv answer_pdf_queries call on 2604.01047v1 returned pp. 1, 2, 23, 27, 32-40 verbatim. That covers:\n- Prop. 3.1 and (3.2)-(3.3);\n- Prop. 3.3 with (3.8)-(3.12);\n- Prop. 3.4, (3.16) and Remark 3.5;\n- Thm 3.6 with the S proof (3.17)-(3.22) and the TT proof (3.23)-(3.25), including the TT stress tensor;\n- the p. 40 recap.\n\nWHAT THE GRADE TURNS ON\n(1) In the late S region the metric is g = Omega^2 eta with Omega = 1+W constant, and the field has mass m. The p. 35 late state is printed with a factor 1/(1+chi W) on each leg, so omega^delta_2 = Omega^-2 x [the Minkowski vacuum of mass Omega m]. My check A1 (exact, sympy) and A1n (mpmath, relative deviation 1e-40) show this equals G_vac(m; sigma_g) with sigma_g = Omega^2 sigma. That is the mass-m vacuum of g, written with g's own Synge function.\n\n(2) The paper's own TT half (p. 39) uses exactly this procedure for the other constant late metric, eta + W r. The two-point function is 'the vacuum two-point function with Synge function sigma_TT at the place of sigma'. The Hadamard parametrix is taken 'in the perturbed spacetime', with sigma_TT and the same mu. The result is <:T_ab:> = [...+alpha_1] m^4 (eta+h) = 0.\n\nApplied to the S late state, that procedure gives:\n- A3 and A4: the smooth part w_g is the Minkowski (m, mu) w as a function of sigma_g.\n- A5: so the late-time stress tensor is the Minkowski value times g_ab, which is 0. A5 is assembled from Prop. 3.1; the substance is in A1, A3 and A4.\nSo the paper handles two structurally identical cases by two different conventions: covariantly in TT, and with mu frozen to eta in S.\n\n(3) Instead, p. 35 evaluates '(3.3) with square mass equal to m^2 + dm^2 and alpha_1 as fixed in Proposition 3.1'. A6 shows (3.21) is exactly (3.3) on eta at mass Omega m with the same mu. A7 shows this is the covariant formula with mu replaced by mu/Omega: the scale is not carried with the metric.\n\n(4) A8 and A9 reproduce the p. 37 comparison '-4/(64pi^2) m^2 dm^2 = -8 alpha~S_1 m^4 W', which gives 1/(64pi^2). The paper's algebra is right, so this is NOT a misprint. A10: with the covariant value 0 on the left of the same comparison, alpha~S_1 = 0.\n\n(5) The right-hand side is exactly as printed. p. 36 proves lim K_0 = lim S K_0 = 0 and gives (3.22) = -8 alpha~S_1 W m^4 with no other term. The audit's 'compensating term' escape does not exist in the source.\n\n(6) An independent consistency check. A11: the late perturbation 2W eta equals L_xi eta, so it is pure gauge. A12: tr hbar = -8W. So a nonzero alpha~S_1 gives a nonzero response to a pure-gauge perturbation around T^(0) = 0, while Prop. 3.4 proves Pi gauge invariant. This supports the finding but is not decisive, because h is not in de Donder gauge (p. 37).\n\n(7) Vacuity guard. A13: without covariance the check gives a W-dependent [w] and recovers (3.21), hence 1/(64pi^2). With covariance it gives 0. The check discriminates.\n\nATTEMPTS TO BREAK THE GRADE, AND WHY EACH FAILS\n(a) A convention difference. The printed value needs mu fixed to the background coordinates, which is a non-covariant renormalisation. That is not a smaller class inside the theorem's hypotheses: it contradicts the covariance the theorem names (pp. 32-33) and the convention the paper itself uses in the TT half. So NARROWED does not apply.\n(b) Reading W as a mass change. That holds only for the rescaled field phi_eta = Omega phi_g. The equation (3.16) and the response (3.22) are about T_ab[g] of the mass-m field on g.\n(c) Pi renormalised differently (p. 27). Pi tends to 0 in this limit (p. 36), so the alpha~ term alone has to match the exact value.\n(d) The late state is not the vacuum of (g, m). A1 shows the printed p. 35 state is exactly that vacuum.\n(e) The p. 23 [v_1] normalisation discrepancy. The covariant zero does not depend on that normalisation, so it cannot rescue the value.\n\nRE-RUNS\n- The audit script prints 19 PASS lines and exits 0.\n- My own script, run/thm36_adjudicator.py, written independently of the audit and the verifiers, gives 14 PASS and exits 0.\n\nTT HALF AND PROP. 3.1\n- alpha~^TT_1 = 0 STANDS (the paper's covariant computation on p. 39).\n- Prop. 3.1's alpha_1 STANDS; its p. 23 discrepancy is recorded only.\n\nDATA LENS\nIt is upheld: no datum enters, and moves_conclusion is 'no'.\n\nLATER LITERATURE\nNo published comment on or correction of Thm 3.6 was found (verifier 1's search); I did not re-search. The Hollands-Wald papers are NAMED-NOT-READ and are not needed.",
+ "scope": "WHAT THE GRADE COVERS\nThe S half of GMMPS Thm 3.6, alpha~^S_1 = 1/(64 pi^2), as derived from Prop. 3.1 plus general local covariance, with perturbative agreement as the matching (pp. 32-37). The setting is Minkowski with one real Klein-Gordon field of mass m > 0, generic xi, in the Poincare vacuum.\n\nThe finding: under those stated hypotheses, the paper's own p. 35 state, its own (3.22) and its own p. 39 covariant procedure give alpha~^S_1 = 0. The printed value is the one obtained with mu frozen to the background eta. That is an unstated hypothesis (H7), and it contradicts the covariance the theorem invokes. The algebra from (3.21) onward is correct, so this is not a misprint finding.\n\nWHAT IT DOES NOT COVER\n- The TT half, alpha~^TT_1 = 0, which STANDS.\n- Prop. 3.1's alpha_1, which STANDS.\n- Whether GMMPS's instability survives in general. Only the branch root through gamma = 0 depends on alpha~^S_1: their reported 5.1 mode and the 5.3 matching to m ~ 7.8e-3 eV. Roots near -b_1/b_2, set by the free alpha~^S_3 and alpha~^TT_4, are untouched. Whether anything grows from gamma = 0 at alpha~^S_1 = 0 is OPEN.\n- That AMM is right in general.\n- Any prescription that treats alpha~^S_1 as a free constant outside the paper's framework.\n- The assumptions alpha~^S_2 = alpha~^TT_2 = 0, which are not part of Thm 3.6.\n- pp. 59 and 62, which were not returned to me this pass (verifier 3 and the audit read them).\n\nThis is a single-reader finding against a v1 preprint. Quote it as a statement about the S-half derivation, not as 'GMMPS's instability is wrong'.",
+ "corrections_to_record": [
+  "AUDIT read status and limits: pp. 27, 32, 36 and 38-39 are now READ. Drop the limit 'if (3.22) carries a compensating background-parametrix term'. p. 36 derives (3.22) = -8 alpha~S_1 W m^4 with lim K_0 = lim S K_0 = 0 and no other term.",
+  "AUDIT what_would_change_the_grade: remove the (3.22)-compensating-term route, which is now read and absent. The remaining NARROWED route, that :T_ab: in (3.16) is deliberately non-covariant, is contradicted by the paper's own text: pp. 32-33 appeal to general local covariance, and p. 39 uses sigma_TT with the same mu.",
+  "AUDIT H7 should cite the source as an internal inconsistency. The TT half (p. 39) puts the Hadamard parametrix 'in the perturbed spacetime' with sigma_TT and the same mu, which is covariant and gives 0. The S half (p. 35) applies (3.3) on eta at mass^2 m^2+dm^2 with mu unchanged.",
+  "VERIFIER 2: the audit script prints 19 PASS lines, not 20. The 20 is the grep count of 'chk(', which includes the 'def chk(' line at line 46. The audit's 19 is correct.",
+  "The paper calls the late S state the 'Poincare vacuum of mass m^2 + dm^2' (pp. 33, 35). That is accurate only for phi_eta = Omega phi_g on eta. The printed formula, with its 1/(1+chi W) factors, is exactly the mass-m vacuum of Omega^2 eta with sigma_g = Omega^2 sigma (A1, A1n).",
+  "p. 23 discrepancy, recorded and not refuted. The printed '[w_0] = m^2/16pi^2, [w_1] = m^4/64pi^2' are evidently the v coefficients: p. 39 prints the same numbers as [v_0], [v_1]. With [v_1] = m^4/(64pi^2), the (1/4pi^2)[v_1] term of (3.3) does not give Prop. 3.1's alpha_1; it is off by (8pi^2-1)/(256pi^4). Whether this is a normalisation convention or a typo is undecidable from the pages read. It does not move alpha_1 or this grade.",
+  "p. 59 (5.1) prints alpha~S_1 = (64 pi)^-1 against Thm 3.6's 1/(64 pi^2). This is a misprint, i.e. a discrepancy, and is already recorded at linstab.py:189-193. I did not read p. 59 this pass; verifier 3 READ it.",
+  "The theorem statement names Prop. 3.1 and general local covariance. Perturbative agreement enters in the proof (pp. 35, 37) and in the p. 40 recap. The tree's pairing of the two is faithful.",
+  "Wording for any comment: 'Thm 3.6's S-half derivation evaluates (3.21) with mu held fixed relative to the background. Under the general local covariance the theorem invokes, and by the paper's own TT procedure on p. 39, the late-time stress tensor vanishes and the p. 37 comparison gives alpha~^S_1 = 0.' Do not say the instability is wrong, and do not say AMM is right in general.",
+  "Downstream dependence: 5.1's S zero 'slightly smaller than 0' and 5.3's gamma_0 ~ -16 pi G alpha~S_1 m^4, with m ~ 7.8e-3 eV, rest on alpha~S_1 = 1/(64 pi^2). At alpha~S_1 = 0, b_0 = 0 and gamma = 0 is an exact root. The sibling entries #sec5.3-mass and #sec5.1-5.3-mode should cross-reference this entry; their grades are not overturned.",
+  "Later literature: verifier 1 found no published comment on Thm 3.6; I did not re-search. The Hollands-Wald papers stay NAMED-NOT-READ and are not needed."
+ ],
+ "tree_sites": [
+  {
+   "site": "linstab.py:137",
+   "kind": "consistent",
+   "finding": "alpha_1 matches Prop. 3.1 (p. 23) verbatim and STANDS. The [w_1]/[v_1] normalisation discrepancy is in the source, not the tree."
+  },
+  {
+   "site": "linstab.py:138-140",
+   "kind": "discrepancy",
+   "finding": "A faithful quotation of Thm 3.6, labelled 'THE CONSTANT THAT MATTERS FOR THEIR REPORTED MODE'. The S value it carries is WRONG under exactly the hypotheses the line credits; covariantly the matching gives 0. The TT value stands. Line numbers are unchanged since the audit (HEAD f4b9d6f; research/warp-drive clean)."
+  },
+  {
+   "site": "linstab.py:140-141",
+   "kind": "consistent",
+   "finding": "alpha~S_2 = alpha~TT_2 = 0 ASSUMED and alpha~S_3, alpha~TT_4 FREE are correctly labelled. They are not part of Thm 3.6, and the grade does not touch them."
+  },
+  {
+   "site": "linstab.py:146-147",
+   "kind": "discrepancy",
+   "finding": "Quotes 5.3's gamma_0 ~ -16 pi G alpha~S_1 m^4 and m ~ 7.8e-3 eV. The quotation is accurate, but both figures rest on the S constant graded WRONG. At alpha~S_1 = 0, b_0 = 0 and there is no nonzero gamma_0."
+  },
+  {
+   "site": "linstab.py:151-152",
+   "kind": "consistent",
+   "finding": "GMMPS's 5.2.1 attribution to Thm 3.6 is quoted faithfully. This docket corroborates it: the covariant choice gives AMM's alpha~S_1 = 0 structure."
+  },
+  {
+   "site": "linstab.py:158-168",
+   "kind": "consistent",
+   "finding": "F_S(0) = -b_0 is proportional to alpha~S_1, and the branch root exists iff alpha~S_1 != 0. This agrees with the grade's consistency check and makes the grade decisive for GMMPS's reported mode."
+  },
+  {
+   "site": "linstab.py:180-183",
+   "kind": "stale",
+   "finding": "'which value is right ... is not adjudicated here' was honest when written. It is now superseded within GMMPS's own premises: general local covariance plus perturbative agreement, with the paper's own p. 35 state, (3.22) and p. 39 procedure, give alpha~S_1 = 0. Left to M; nothing edited."
+  },
+  {
+   "site": "linstab.py:189-193",
+   "kind": "misprint",
+   "finding": "5.1's (64 pi)^-1 is recorded as typographical, with the selftest control at :966-971. It is correctly kept as a discrepancy and is unaffected by this grade."
+  },
+  {
+   "site": "linstab.py:309-310",
+   "kind": "dropped-hypothesis",
+   "finding": "GMMPS_HYPOTHESES credits the S value to 'general local covariance + perturbative agreement'. It needs the unstated H7 instead: mu frozen relative to the background eta. H7 is hidden in the source's p. 35 proof, inherited here, and contradicts the covariance named. The TT part is consistent."
+  },
+  {
+   "site": "linstab.py:313",
+   "kind": "consistent",
+   "finding": "GMMPS_ALPHA_S1_THM36 = '1/(64 pi^2)' accurately records what the theorem prints."
+  },
+  {
+   "site": "linstab.py:344-353",
+   "kind": "stale",
+   "finding": "LITERATURE_SPLIT_IS_ONE_CONSTANT and SPLIT_ADJUDICATED_HERE = False remain true of the tree. But the open value of alpha~S_1 now has a computed answer, 0, within GMMPS's own framework. Left to M."
+  },
+  {
+   "site": "linstab.py:365-369",
+   "kind": "consistent",
+   "finding": "D26_CLAIM, that the reported mode exists iff alpha~S_1 != 0 and the split is not adjudicated, is accurate as scoped. The reported mode now rests on a WRONG constant. Recorded, not repaired."
+  },
+  {
+   "site": "linstab.py:966-971",
+   "kind": "consistent",
+   "finding": "The selftest control reproducing 7.8e-3 eV with 1/(64 pi^2) checks GMMPS's arithmetic, not physics. It stays valid as that."
+  },
+  {
+   "site": "LEDGER.md:166",
+   "kind": "consistent",
+   "finding": "Describes the literature split accurately. When M regenerates the ledger it should cross-reference this WRONG; LEDGER.md is a generated file and nothing was edited."
+  },
+  {
+   "site": "docket67-raw/audits/2604.01047_sec5.1-5.3-mode.json:13",
+   "kind": "consistent",
+   "finding": "The sibling audit carries alpha~S_1 = 1/(64 pi^2) 'by Thm 3.6' as an input. It is not overturned, but it should cross-reference this entry."
+  }
+ ],
+ "commands_run": [
+  "python3 -c (paged adjudicate/in/2604.01047_thm3.6.json in full)",
+  "mcp__alphaXiv__answer_pdf_queries(2604.01047, 10 queries) -> verbatim pp. 1, 2, 23, 27, 32-40 (no quota or 403 errors)",
+  "cp rederive/2604.01047_thm3.6.py adjudicate/run/thm36_audit_copy.py && python3 thm36_audit_copy.py -> 19 PASS, exit 0; grep -c '^PASS' = 19, grep -c 'chk(' = 20 (the 20 includes def chk)",
+  "cp verify/thm36_independent.py verify/thm36_refute_check.py adjudicate/run/ (read, not re-run)",
+  "python3 adjudicate/run/thm36_adjudicator.py -> 14 PASS, ALL PASS, exit 0. The first run had A1n FAIL at 5.65e-10 absolute, caused by double-precision float inputs; switching to mpf inputs and a relative deviation gives 1.15e-40.",
+  "git log -1 -- research/warp-drive (f4b9d6f, 2026-10-02 14:28); git status --short research/warp-drive (clean)",
+  "grep -n linstab.py :125-200, :295-372, :960-972; grep -rn 'Thm 3.6|alpha~^S_1|GMMPS|2604.01047' research/warp-drive (read only)"
+ ],
+ "reverify_command": "python3 /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/adjudicate/run/thm36_adjudicator.py   # expect 14 PASS lines, RESULT: ALL PASS, exit 0; and python3 /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/adjudicate/run/thm36_audit_copy.py   # expect 19 PASS lines, exit 0",
+ "report_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/adjudicate/out/2604.01047_thm3.6.json"
+}
