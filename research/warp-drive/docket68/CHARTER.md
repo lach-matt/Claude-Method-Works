@@ -28,6 +28,25 @@ M's answers to the follow-up questions (2026-10-02):
   smoothly and the same every time;
 - the docket opens **after D67**.
 
+## M's redefinition of zero, verbatim (2026-10-02)
+
+> What if we redefine 0. Consider 0 to me a point of ground state, and anything less that 0 is not negative, just
+> less than the ground state
+
+Carried as **H-ZERO**. Read against the board:
+- It is already the convention for local "negative energy": Kuo & Ford's <:T00:> is normal-ordered, i.e. measured
+  from the Minkowski vacuum (the field's ground state), and the Casimir density is "below the vacuum". What is
+  called negative is "less than the ground state" in exactly M's sense.
+- Computed in `zero.py` (sympy, arbitrary T_ab, every null and boosted timelike direction): moving the zero of
+  energy everywhere (T_ab -> T_ab + lambda g_ab) changes the WEC density by -lambda and the SEC combination by
+  +lambda, and changes the NEC combination T_ab k^a k^b by EXACTLY 0, because g_ab k^a k^b = 0 for null k. The
+  Morris-Thorne throat's rho + p_r = (r b' - b)/(8 pi r^3) is unchanged. So H-ZERO can relabel a WEC violation away;
+  it cannot relabel the throat's NEC violation, which depends on the shape b(r), not on where zero sits.
+- In general relativity moving the zero is not free: it is adding a cosmological constant, which gravitates.
+  Padmanabhan & Padmanabhan (1703.06144, pp. 6-7, READ) name the paradigm in which it IS free -- emergent gravity,
+  where the field equations are invariant under adding a constant to the matter Lagrangian and Lambda is an
+  integration constant. H-ZERO is a statement about that paradigm, and belongs beside H-IT.
+
 ## Sources M placed in the Warp folder for this docket (2026-10-02)
 
 M placed two papers as Adobe Acrobat share links (Drive text stubs 1Wb1XRsa2cWPebP04v66Yyr1cXyDUbx7-,
