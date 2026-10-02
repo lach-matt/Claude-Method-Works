@@ -181,6 +181,20 @@ outside AMM's treated modes (p. 12).  So the literature split is ONE
 renormalisation constant FOR GMMPS's REPORTED MODE, NOT for growth in general,
 and which value is right is a question about renormalisation conditions (AMM's
 k^2 = 0 subtraction against GMMPS's Thm 3.6) that is not adjudicated here.
+  GRADED SINCE, BY DOCKET 67 (accepted by M, 2026-10-02): GMMPS's alpha~^S_1 =
+  1/(64 pi^2) is WRONG for the S half, against arXiv v1 (ruling M-D67-2: the
+  arXiv version read is the object).  Their own covariant procedure -- the one
+  they use for the TT half, p. 39 -- gives alpha~^S_1 = 0; the printed value is
+  the one with mu held fixed to the background eta, an unstated hypothesis that
+  contradicts the general local covariance Thm 3.6 invokes.  The TT half
+  (alpha~^TT_1 = 0) and Prop. 3.1's alpha_1 STAND.  By M's ruling ("2, then 1")
+  BOTH values are now carried side by side (alpha_side_by_side(), report and
+  selftest section 2b) and the site is flagged (GMMPS_ALPHA_S1_D67).  Computed:
+  at the covariant value 0 GMMPS's reported mode is absent -- the branch root
+  sits at gamma = 0 and their 5.3 mass matching has no finite solution -- while
+  the growing roots set by the free fourth-order constants are untouched.  No
+  verdict moves: D26 is OPEN on SEMICLASSICAL_EVALUABLE_ON_DEMAND, which never
+  reads alpha (DOCKET 67 reopen pass).
   WITHDRAWN: "the infrared growing mode EXISTS IFF alpha~^S_1 != 0" as a
   statement about growth in general; "where gamma = 0 is an exact root and
   NOTHING GROWS FROM IT"; "THE LITERATURE SPLIT IS ONE RENORMALISATION
@@ -312,6 +326,11 @@ GMMPS_HYPOTHESES = (
 )
 GMMPS_ALPHA_S1_THM36 = "1/(64 pi^2)"
 GMMPS_ALPHA_S1_SEC51 = "(64 pi)^-1"            # printed; typographical (selftest 2)
+#: DOCKET 67 (accepted by M, 2026-10-02): the S-half constant is WRONG; the
+#: covariant value, by the paper's own TT-half procedure, is 0.  Both carried.
+GMMPS_ALPHA_S1_D67 = ("WRONG (S half) -- DOCKET 67, adjudicated, against arXiv v1 "
+                      "(M-D67-2); the paper's own covariant procedure gives 0")
+GMMPS_ALPHA_S1_COVARIANT = 0
 GMMPS_ATTRIBUTION = ("5.2.1: 'This different behaviour is originated by the "
                      "choice of the renormalisation parameters done in Theorem 3.6'")
 GMMPS_PRINTED_MASS_EV = 7.8e-3                   # READ, 5.3
@@ -351,6 +370,8 @@ LITERATURE_SPLIT_IS_ONE_CONSTANT = (
 #: it lies outside GMMPS Thm 4.16 and Prop. 4.10 and AMM's treated modes.
 ALPHA_ZERO_ROOT_GROWTH = "OPEN"
 SPLIT_ADJUDICATED_HERE = False
+#: Graded elsewhere: DOCKET 67 graded GMMPS's side of the split (see above).
+SPLIT_GRADED_BY_DOCKET_67 = True
 NOTHING_IS_REPAIRED = True
 
 D26_STATUS = "OPEN"
@@ -366,7 +387,10 @@ D26_CLAIM = ("LINEARISED STABILITY (AMM).  Classical radial sector of stability.
              "mode (the S-sector zero on the branch through gamma = 0) exists, "
              "locally by the implicit function theorem, iff "
              "alpha~^S_1 != 0; other growing roots are set by the free "
-             "fourth-order constants; the split is not adjudicated")
+             "fourth-order constants.  DOCKET 67 graded GMMPS's value "
+             "alpha~^S_1 = 1/(64 pi^2) WRONG (S half, against arXiv v1); at the "
+             "covariant value 0 the reported mode is absent and the growing roots "
+             "set by the free constants remain")
 D26_ANSWERED_BY = ("O5's remaining question -- a solution of the semiclassical "
                    "equations with m < 0 in a specified state -- and its retarded "
                    "correlator Pi^(ret) there; classically, the l >= 1 modes of "
@@ -633,6 +657,32 @@ def gmmps_mass_ev(alpha_s1):
     return x4 ** 0.25 * reduced_planck_ev(), x4 ** 0.5       # (m in eV, eps = (m/M_P)^2)
 
 
+def alpha_side_by_side(sp, mp):
+    """M's ruling on DOCKET 67's GMMPS grade, part 2: carry GMMPS's printed
+    alpha~^S_1 = 1/(64 pi^2) and the covariant value 0 side by side, computing
+    for each F_S(0) = -b_0, the first-order branch root, GMMPS 5.3's mass
+    matching, and the branch bracket.  The b_2-set roots are alpha-independent
+    here (b2_root_bracket works at the leading constant 0) and are reported once."""
+    g = gmmps_s_sector(sp)
+    out = {}
+    m_print, eps = gmmps_mass_ev(1 / (64 * math.pi ** 2))
+    for name, al in (("printed 1/(64 pi^2)", sp.Rational(1, 64) / sp.pi ** 2),
+                     ("covariant 0 (DOCKET 67)", sp.Integer(GMMPS_ALPHA_S1_COVARIANT))):
+        f0 = sp.simplify(g['F0'].subs(g['al'], al))
+        root = sp.simplify(g['gam_first'].subs(g['al'], al))
+        try:
+            m_ev = gmmps_mass_ev(float(al))[0]
+        except ZeroDivisionError:
+            m_ev = None                      # Lambda = 6 Omega alpha (m/M_P)^4 M_P^2 has no finite m
+        lo, hi, glin = s_root_bracket(mp, eps, 0, 10 ** 100, alpha=float(al))
+        out[name] = dict(alpha=al, F0_zero=(f0 == 0), root_zero=(root == 0), m_ev=m_ev,
+                         branch_bracket=(lo > 0 and hi < 0), glin=glin)
+    out["b2 roots (alpha-independent)"] = {
+        (sec, bb): bracket_fires(*b2_root_bracket(mp, eps, sec, bb))
+        for sec, bb in (("S", -10 ** 100), ("TT", 10 ** 100))}
+    return out
+
+
 def s_root_bracket(mp, eps, xi, B, alpha=None):
     """At GMMPS's own point (m = 1 units, kappa = eps), bound F_S at gamma_lin/2
     and 2 gamma_lin over |b_2| <= B and over J in [4 J(0)/(4+|gamma|), J(0)]
@@ -813,6 +863,14 @@ def report():
                  mp.nstr(two[1], 4), mp.nstr(gs, 5),
                  "GROWING ROOT BRACKETED" if bracket_fires(half, two, gs) else "no bracket"))
     print("  LITERATURE_SPLIT_IS_ONE_CONSTANT: %s" % LITERATURE_SPLIT_IS_ONE_CONSTANT)
+    print("\n  BOTH VALUES, SIDE BY SIDE (DOCKET 67: %s)" % GMMPS_ALPHA_S1_D67)
+    sbs = alpha_side_by_side(sp, mp)
+    for name in ("printed 1/(64 pi^2)", "covariant 0 (DOCKET 67)"):
+        r = sbs[name]
+        print("    %-24s F_S(0)=0: %-5s branch root at 0: %-5s branch bracket: %-5s 5.3 mass: %s"
+              % (name, r['F0_zero'], r['root_zero'], r['branch_bracket'],
+                 "%.4e eV" % r['m_ev'] if r['m_ev'] is not None else "none (no finite m)"))
+    print("    b_2-set growing roots (alpha-independent): %s" % sbs["b2 roots (alpha-independent)"])
     print("\nTHE SEMICLASSICAL CRITERION ON THE DEMAND COLUMN")
     owners, paper_rows = demand_owners()
     names = owners + DEVICE_FILES + POSITIVE_CONTROLS
@@ -990,6 +1048,21 @@ def selftest():
         "NOT for growth in general" in LITERATURE_SPLIT_IS_ONE_CONSTANT, split_general)
     chk("  and D26_CLAIM does not call the split 'one renormalisation constant'",
         split_general and "one renormalisation constant" in D26_CLAIM.lower(), False)
+
+    print("\n2b. DOCKET 67's GRADE, BOTH VALUES CARRIED (M: '2, then 1')")
+    sbs = alpha_side_by_side(sp, mp)
+    pr, cv = sbs["printed 1/(64 pi^2)"], sbs["covariant 0 (DOCKET 67)"]
+    chk("printed 1/(64pi^2): F_S(0) != 0, branch root != 0, bracket fires, finite 5.3 mass",
+        (pr['F0_zero'], pr['root_zero'], pr['branch_bracket'], pr['m_ev'] is not None),
+        (False, False, True, True))
+    chk("covariant 0: F_S(0) = 0, branch root at 0, no branch bracket, NO finite 5.3 mass",
+        (cv['F0_zero'], cv['root_zero'], cv['branch_bracket'], cv['m_ev']),
+        (True, True, False, None))
+    chk("  and the b_2-set growing roots are untouched by the grade (S -1e100, TT +1e100)",
+        tuple(sbs["b2 roots (alpha-independent)"].values()), (True, True))
+    chk("the site is flagged with DOCKET 67's grade, and D26 carries it",
+        ("WRONG" in GMMPS_ALPHA_S1_D67, SPLIT_GRADED_BY_DOCKET_67, "DOCKET 67" in D26_CLAIM),
+        (True, True, True))
 
     print("\n3. THE SEMICLASSICAL CRITERION ON THE DEMAND COLUMN")
     w = off_solution_witnesses(sp)
