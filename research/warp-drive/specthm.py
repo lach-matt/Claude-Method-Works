@@ -92,8 +92,11 @@ it is simply not a contracting corridor.
 achievable.py's persistence ratio at its pinned (mu, alpha) = (5e-3, 0.02) prices
 a core sized by concentric.py's SEAT + LEAD window edge (achievable.py line
 "M_OVER_B = 5.0e-3  # concentric.py's window, weakest end") -- a lead M dropped
-and a seat that is S's requirement, not C's.  Contraction is linear in m for
-every m > 0 (phase1.py's transition equation), so that figure is not the price
+and a seat that is S's requirement, not C's.  Contraction is linear in m at
+first order in Phi, with no threshold in m (phase1.py's transition equation,
+MEASURED for m = 5e-3 to 8e-2; CORRECTED (DOCKET 67): first written "for every
+m > 0" -- phase1's own nonlinear integrand runs 12.4 % below Lambda per unit m
+at m = 1, sublinear, so more mass per metre), so that figure is not the price
 of the minimal contracting corridor.  This file therefore also states the ratio
 on C's OWN demand: with Delta d = (G/c^2) M Lambda (phase1.contraction_law) and
 M = mu b c^2/G, S is linear in mu at fixed (b, alpha), and the refusal holds for
@@ -425,6 +428,12 @@ def slow_figures():
         # OWNER SIDE EFFECT, recorded not repaired -- concentric._install
         # assigns composite.phi and never restores it, so a composite survey
         # run after a concentric one integrates concentric's potential.
+        # CORRECTED (DOCKET 67): concentric is not the only one.
+        # phase1.no_momentum, called below, reaches transition.momentum_flux,
+        # which overwrites composite.phi AND composite.metric and is not
+        # restored here; a later slow_figures in the same process (after
+        # _SLOW.clear()) integrates transition's potential.  Recorded, not
+        # repaired; the figures here are first-call (fresh-process) figures.
         phi0 = composite.phi
         plus = composite.survey(2.0e-3)     # composite.py's design point
         minus = composite.survey(-2.0e-3)
@@ -634,9 +643,14 @@ def hypotheses():
                      "whole hold b/c (achievable.hold_time), the configuration "
                      "being static over the hold; staticity supplies this and, "
                      "through MODEL-STATIC, D14's premise", "DEFINING"),
-        "H_closed": ("the closed-universe case of Tipler's Theorem 5, with its "
-                     "additional assumptions, as Borde gr-qc/9406053 section VIII.A "
-                     "gives it (READ via create.py)", "OWNER"),
+        "H_closed": ("the closed-universe case of Tipler's Theorem 5 (a "
+                     "non-compact interpolating spacetime whose topology "
+                     "changes), with Tipler's 'mild additional assumptions', "
+                     "which Borde does not list and which are not read here "
+                     "(Tipler 1977 NAMED-NOT-READ), as Borde gr-qc/9406053 "
+                     "section IX.A gives it (READ via create.py; CORRECTED "
+                     "DOCKET 67: first cited as section VIII.A, which is Borde's "
+                     "'A Few Words on Differentiability')", "OWNER"),
         "H_aim": ("aimability (M-S1A-P2) is a property of the device's WHOLE "
                   "geometry, which must single out a DISTANT POINT destination, "
                   "not a sphere, from where the device sits with its user; a "
@@ -662,10 +676,25 @@ def hypotheses():
                    "pi l^3/c^2 (spec.collapse_bound) -- it names u, not the "
                    "ray-projected T_kk Sturm's theorem needs, and restricts "
                    "neither pressure nor chord (DOCKET 67)", "DEFINING"),
-        "H_collapse": ("a region is a black hole iff 2GM/c^2 >= l for that ball "
-                       "(spec.collapse_bound's criterion)", "OWNER"),
+        "H_collapse": ("the ball lies inside its own Schwarzschild radius -- a "
+                       "TRAPPED sphere, Hayward gr-qc/9408002 Prop. 1, spherical "
+                       "symmetry, l the areal radius and M the Misner-Sharp mass "
+                       "-- iff 2GM/c^2 >= l (spec.collapse_bound's criterion; "
+                       "Schwarzschild 1916).  CORRECTED (DOCKET 67): first "
+                       "written 'a region is a black hole iff', false both ways "
+                       "(a sphere inside an event horizon can have 2m/R < 1; a "
+                       "past-trapped expanding ball is in no black hole).  What "
+                       "trapping gives with no further hypothesis is 'not "
+                       "static'; a BLACK hole needs future trapping, Penrose "
+                       "1965 and censorship besides", "OWNER"),
         "H_cc": ("the interpolating spacetime is causally compact (Borde, READ "
-                 "by create.py)", "DEFINING"),
+                 "by create.py) -- and, as Borde's Theorem 1 states it and named "
+                 "at DOCKET 67, time-oriented with a smooth, everywhere "
+                 "non-degenerate Lorentz metric (without that metric the "
+                 "GEROCH-BORDE encoding is not implied: Borde's C^0 route, Sec. "
+                 "VIII, and degenerate metrics, IX.C); for a throat in open "
+                 "space, a causally compact region of an externally simple "
+                 "spacetime (Sec. III.E)", "DEFINING"),
         "H_seat": ("what S-1's membership rests on: the weak-field focal formula "
                    "(SR1, MEASURED); a NULL congruence -- a massive payload's "
                    "focus is velocity-dependent and computed by NO OWNER; impact "
@@ -700,7 +729,10 @@ def objects(F):
             "(conformastatic_forces_negative_mass() = %s) with a regular "
             "centre, but its core is Plummer, NOT uniform: the Plummer density "
             "falls over the scale a (separately, a fraction %.3e of its mass "
-            "lies outside R_s, linstab.py's formula).  It satisfies the "
+            "lies outside R_s, linstab.py's formula -- the Newtonian, leading-"
+            "order fraction; in this exact metric the Misner-Sharp fraction is "
+            "f(1 - m/2R_s), 5.0e-5 relative below it, the same to the printed "
+            "figure -- DOCKET 67).  It satisfies the "
             "literals of class %s under H_M0 (K2 otherwise); being static and "
             "spherically symmetric (certify.THEOREM_SCOPE) it fails aimability "
             "(D14, M-S1A-P2), so it is NOT an instance of C.  (ii) "
@@ -803,7 +835,9 @@ def objects(F):
             "destination and re-assembled from stock already there; by D23 the "
             "fabricator, the stock survey and the receiver all reached the "
             "destination at <= c first, so it is an AMORTISATION scheme with a "
-            "minimum setup of the light time (%.4g years at Proxima).  D25's "
+            "minimum setup of the light time (%.4g years at Proxima -- the "
+            "J2016.0 Gaia DR3 distance, whose 1-sigma interval does not fix the "
+            "4th printed figure; DOCKET 67).  D25's "
             "stock gate must hold at the destination." % F["proxima_ly"],
          "source": "ledger S5, D13, D21, D23, D25, O3, O6, O7; transit.py, "
                    "stockgate.py, branelink.py, warpfolder.py"},
@@ -980,7 +1014,9 @@ def requirements(F):
             "transmits nothing (D7).  THE FLAT BOUND: if <T_00> stays below rho "
             "for a duration T at a point, rho >= -C hbar/(c^3 T^4), C = "
             "mu_1^4/(16 pi^2) with cos(mu_1) cosh(mu_1) = 1, mu_1 = %.15g, C = "
-            "%.15g (bisection, achievable.fewster_constant).  It is a statement "
+            "%.15g (bisection, achievable.fewster_constant) -- the closed form is "
+            "this tree's computation, re-derived exactly; Fewster prints only "
+            "'C ~ 3.17' and the clamped-eigenvalue description (DOCKET 67).  It is a statement "
             "at each point about a DURATION, so Ford-Helfer-Roman (D6: 'NO "
             "purely spatially averaged quantum inequalities over bounded "
             "regions in 4D Minkowski') does not touch it.  ITS APPLICATION TO "
@@ -1000,7 +1036,9 @@ def requirements(F):
             "WHAT mu = %g IS: %s (concentric.survey at 0.6 mu: seats = %s, "
             "leads = %s; at mu: seats = %s, leads = %s, inside the shell = %s -- "
             "and the lead is interior-only, withdrawn there).  It is not a "
-            "contraction threshold: contraction is linear in m for every m > 0.  "
+            "contraction threshold: contraction is linear in m at first order "
+            "in Phi, with no threshold in m (measured m = 5e-3..8e-2; sublinear "
+            "beyond, 12.4 %% below Lambda per unit m at m = 1 -- DOCKET 67).  "
             "ON C's OWN "
             "DEMAND (composed here, section 3): S is linear in mu (S(2mu)/S(mu) "
             "= %.12g), Delta d = (G/c^2) M Lambda with Lambda = %.10g at R_s/b "
@@ -1010,7 +1048,12 @@ def requirements(F):
             "and the transition equation's (weak field, MEASURED by phase1.py), "
             "the refusal holds for EVERY contraction Delta d > %.4e m -- the "
             "owner family itself contracts by %.4g m.  The curvature-tightened %.3f is REFUSED: at spectral gap "
-            "%g the Fewster-Teo form returns the flat bound, and the 9/64 is "
+            "%g the Fewster-Teo (5.6) FORMULA returns the flat bound -- but (5.6) "
+            "is derived only for ultrastatic Minkowski and open-RW slices, which "
+            "the corridor is not, so what refuses the tightening is that the "
+            "corridor supplies no (5.6) gap, not a Fewster-Teo bound on the "
+            "corridor (not evaluated; F&T's own zero-gap Schwarzschild case is "
+            "not flat -- DOCKET 67) -- and the 9/64 is "
             "not applied (NINE_64_APPLIES_TO_C_F = %s).  D22, FOLDED IN HERE "
             "(DOCKET 64 D: the requirement is not restated about a "
             "distribution, DEMAND_RESTATED_ABOUT_DISTRIBUTION_CHANGES_REQUIREMENT "
@@ -1062,7 +1105,9 @@ def requirements(F):
             "Higgs vev does not supply one (S6: the source is the better "
             "address, ROLE1_DOMINATED_BY_OWN_SOURCE = %s), because the "
             "displacement returns at rate exactly m_h (D15, TAIL_RATE_IS_MASS "
-            "= %s) and is ultralocal (D16, DISPLACEMENT_IS_ULTRALOCAL = %s).  "
+            "= %s) and is ultralocal (D16, DISPLACEMENT_IS_ULTRALOCAL = %s -- "
+            "a FLAT-background result, named at DOCKET 67; on the corridor its "
+            "curvature correction, ~(lambda_h/l_G)^2/3, is 3.1e-33 at b = 1 m).  "
             "M RULED AIMABILITY A REQUIRED FUNCTION, not the only one "
             "(M-S1A-P2, on the board: %s), of the device's whole geometry "
             "(H_aim).  With D14 it excludes every static spherically symmetric "
@@ -1098,12 +1143,20 @@ def requirements(F):
             "here, not two.  O1's two figures (E_pos/|E_neg| >= %s) are "
             "LEDGER TEXT, asked from the row: no instrument "
             "in this tree re-derives them (the selftest greps), so they are not "
-            "quoted as MEASURED.  S4's cutoff coefficient is a %s.  An absolute "
-            "QEI for NMC is %s.  Any minimally coupled scalar satisfies the NEC "
+            "quoted as MEASURED.  (DOCKET 67: they are not Fewster-Osterbrink's "
+            "own; they reproduce on FO's one-particle family only under an "
+            "accounting the tree never states, and that state's actual negative "
+            "energy gives 22.79 and 102.02.)  S4's cutoff coefficient is a %s.  An absolute "
+            "QEI for NMC is %s.  Any canonical (two-derivative kinetic term) "
+            "minimally coupled scalar satisfies the NEC "
             "classically (D17, MINIMAL_SCALAR_SATISFIES_NEC = %s), which closes "
-            "the Higgs as a source at the endpoint (S8).  Interacting fields: "
-            "no state-independent QEI is expected (Fewster Sec. 5.1, as "
-            "achievable.py quotes it).  Classical sources: no QEI constrains "
+            "the Higgs, canonical, as a source at the endpoint (S8); a "
+            "non-canonical minimal scalar can violate it (P(X) with P_X < 0; "
+            "Galileons) -- DOCKET 67.  Interacting fields: "
+            "no state-independent QEI is expected (Fewster 1208.5399 Sec. 5.2, "
+            "which achievable.py labels Sec. 5.1) -- an expectation the source "
+            "itself qualifies: QEIs hold for 2D CFTs, and 'modified QEIs' may "
+            "hold.  Classical sources: no QEI constrains "
             "them.  O5's only m < 0 candidate, HPS's xi = 1/6 field, is "
             "non-minimally coupled and lies here (K2).  S1 and S2 are placed "
             "in R12."
@@ -1125,9 +1178,20 @@ def requirements(F):
                     ("hpscentre", "HPS_INTEGRATED_THE_PRINTED_SYSTEM"), ("hpscentre", "DOMAIN_WORD"),
                     ("qeihps", "KONTOU_REQUESTED_TEST_ON_HPS"), ("qeihps", "HPS_STATE_HADAMARD_ESTABLISHED"),
                     ("throatmass", "FAMILIES_WITH_NEGATIVE_MASS")],
-         "hypotheses": ["G_ab = 8 pi <T_ab> with the Anderson-Hiscock-Samuel <T> "
-                        "for HPS's xi = 1/6 field", "the conserved reading of HPS's system",
-                        hpscentre.DOMAIN_WORD,
+         "hypotheses": ["G_ab = 8 pi <T_ab> with Lambda = alpha = beta = 0 (no "
+                        "free local curvature-squared terms; a beta-type term moves "
+                        "the throat) and HPS's single field, N = 1 (no large-N "
+                        "limit), sourced by the ANALYTIC APPROXIMATION to the "
+                        "Anderson-Hiscock-Samuel <T> (HPS eq. 4, not AHS's full "
+                        "analytic + numeric <T>_ren) for HPS's xi = 1/6 field -- "
+                        "named at DOCKET 67", "the conserved reading of HPS's system",
+                        hpscentre.DOMAIN_WORD + " (DOCKET 67: of 'derived or "
+                        "established', the 'established' half holds; the 'derived' "
+                        "half is contested by HPS p.3 and Arrechea App. B)",
+                        "the m < 0 solutions are carried by modes non-perturbative "
+                        "in hbar (omega_1 = 6 sqrt(10 pi)/sqrt(hbar), ripple "
+                        "wavelength 0.187 l_P, computed at DOCKET 67), which the "
+                        "order-reduction literature holds non-physical, naming HPS",
                         "HPS's state established Hadamard: %s"
                         % qeihps.HPS_STATE_HADAMARD_ESTABLISHED],
          "statement":
@@ -1139,8 +1203,10 @@ def requirements(F):
             "that system only).  Nonlinear non-flatness is %s; "
             "their asymptotics are %s.  m < 0 FOUND IN HPS's SYSTEM = %s; FOUND "
             "INSIDE THE ESTABLISHED DOMAIN = %s.  Which system HPS integrated: "
-            "%s.  Kontou's requested test: %s.  %d of %d families in print "
-            "REPORT m < 0 -- true of what was reported."
+            "%s.  Kontou's requested test: %s.  %d of the %d families one "
+            "literature pass returned REPORT m < 0 -- true of what was reported, "
+            "and not a census of print (2607.07583v1 p.1 cites semiclassical "
+            "solutions outside the six; DOCKET 67)."
             % (hpscentre.FIRST_NEGATIVE_M_THROAT_LP, _claim_status(hpscentre.__doc__, "d"),
                hpscentre.THROAT_M_NEGATIVE_READING,
                hpscentre.CENTRE_M_LEADING, _claim_status(hpscentre.__doc__, "a"),
@@ -1153,7 +1219,12 @@ def requirements(F):
                throatmass.FAMILIES_WITH_NEGATIVE_MASS, throatmass.SELF_CONSISTENT_FAMILIES_RETURNED)},
 
         {"id": "R8", "applies_to": ["C"],
-         "title": "LINEARISED STABILITY (AMM)",
+         # CORRECTED (DOCKET 67): first titled "LINEARISED STABILITY (AMM)".
+         # The classical radial theorem is ordinary Israel-shell stability,
+         # outside AMM's class (N free quantum scalars solving (2.9)); AMM's
+         # criterion is the semiclassical half, NOT EVALUABLE here.
+         "title": "LINEARISED STABILITY -- classical radial (Israel shell); "
+                  "semiclassical (AMM's criterion)",
          "status": "D26 %s; classical radial sector %s; semiclassical: %s"
                    % (st("D26"), linstab.CLASSICAL_RADIAL_STATUS, linstab.SEMICLASSICAL_STATUS),
          "rows": ["D26"], "see": ["O5"],
@@ -1188,8 +1259,11 @@ def requirements(F):
                                                 if h not in formation.F1_THEOREM),
                         "(c) adds: " + "; ".join(h for h in formation.TRANSVERSE_BOUND
                                                  if h not in formation.F1_THEOREM),
-                        "(e) rests on papers READ (Geroch, Borde gr-qc/9406053, "
-                        "Tipler), not on a module"],
+                        "(e) rests on Borde gr-qc/9406053, READ at source, not on "
+                        "a module; Geroch 1967 is read through restatements (Borde; "
+                        "2505.02210 Thm III.2) and Tipler 1977 is NAMED-NOT-READ, "
+                        "used as Borde restates it (CORRECTED, DOCKET 67: first "
+                        "written 'papers READ (Geroch, Borde, Tipler)')"],
          "statement":
             "(a) F1: across any sphere, a passage from flat space to a "
             "configuration on R^3 holding every areal radius fixed carries the "
@@ -1201,12 +1275,21 @@ def requirements(F):
             "at every duration; whether the full transverse integral is "
             "negative is not shown by the owner.  (d) certify.py's seated metric "
             "is not compactly supported (SEATED_COMPACT_SUPPORT = %s), so it "
-            "fails phase1's D2.  (e) Creating a throat is topology change: for "
-            "causally compact interpolating spacetimes Geroch and Borde force "
+            "fails phase1's D2.  (e) Creating a throat -- a handle or a second "
+            "end -- is topology change: for time-oriented, causally compact "
+            "interpolating spacetimes with a smooth non-degenerate Lorentz "
+            "metric, Geroch and Borde force "
             "causality violation kinematically, with no matter assumption "
             "(GEROCH_NEEDS_MATTER_ASSUMPTION = %s, EXOTIC_MATTER_HELPS_CREATION "
-            "= %s); dynamically '%s' -- READ, and whether 'reasonable' excludes "
-            "the source a throat needs is not determined here.  M ruled a closed "
+            "= %s -- exact as 'exotic matter cannot remove the forced CTC'; Borde "
+            "IX.B names large energy-condition violation as the way past the "
+            "dynamical obstruction, the CTC kept); dynamically '%s' -- READ.  At "
+            "source 'reasonable' is a restriction from which Theorem 3's (i) "
+            "null generic and (ii) half-integral null convergence conditions "
+            "follow; a static zero-redshift throat's source violates (ii) "
+            "(computed at DOCKET 67), and throats with a redshift function are "
+            "not computed.  An 'unreasonable' source removes Theorem 3 only; "
+            "Theorem 1's CTC remains.  M ruled a closed "
             "causal curve and a Borde pathology disqualifying AT THE SEAT "
             "(M-S1A-P3 (i), as M scoped it): no owner places either at the seat "
             "(the creation classes' verdicts are the class table's), and a "
@@ -1244,10 +1327,22 @@ def requirements(F):
                         "classical' (M-S1A-P5): the specification is a quantum "
                         "state; the fidelity is not yet fixed",
                         "H_tele: for transit.py's results, the specification is "
-                        "carried by teleportation as an unknown quantum state"],
+                        "carried by teleportation as an unknown quantum state",
+                        "named at DOCKET 67: transit.py's MOVE and CONSUMED are exact "
+                        "at fidelity F = 1 only (at F = 2/3 a measure-and-prepare "
+                        "channel spends no ebit; clone-then-teleport leaves a 5/6 "
+                        "copy), and every transit.py result assumes linear, "
+                        "chronology-respecting quantum mechanics -- a Deutsch CTC "
+                        "clones above 5/6 (1207.6062), generic nonlinear dynamics "
+                        "signals (2412.20854) -- while O3 (a braneworld CTC) is open"],
          "statement":
-            "The channel must be traversed at <= c to exist, so its advantage "
-            "over light is zero by construction (D23; "
+            "The channel needs a shared pair, which needs a common causal past "
+            "(from a midpoint source it spans D in D/(2c), no carrier moving more "
+            "than D/2); with every resource sent from one end, S5's case, it is "
+            "in place no earlier than D/c, so its advantage over light is zero "
+            "(CORRECTED, DOCKET 67: first written 'must be traversed at <= c to "
+            "exist'; vacuum entanglement between causally disconnected probes is "
+            "weak and needs LOCC purification, classical messages at <= c) (D23; "
             "READING_CARRIES_NOTHING_ALONE = %s, TRAVERSAL_IS_REMOVED = %s): S5 "
             "is an amortisation scheme with a minimum setup of %.4g years at "
             "Proxima, and whether it amortises is OPEN.  D25: '%s' -- the "
@@ -1261,7 +1356,8 @@ def requirements(F):
             "ON M's RULING M-S1A-P5 the specification is QUANTUM FIRST, the "
             "classical one to be derived from it (M: 'should derive'; no "
             "derivation exists yet).  IF it is carried by teleportation as an "
-            "unknown quantum state (H_tele), transit.py's results bind it: it is "
+            "unknown quantum state (H_tele), transit.py's results bind it -- "
+            "exactly at F = 1, in part below it: it is "
             "a move, not a copy "
             "(IT_IS_A_MOVE_NOT_A_COPY = %s), the channel is consumed by use "
             "(CHANNEL_IS_CONSUMED_BY_USE = %s), it carries no substance -- the "
@@ -1269,9 +1365,12 @@ def requirements(F):
             "stock gate prices) -- and it does not beat light (BEATS_LIGHT = %s).  "
             "A KNOWN state can be re-prepared rather than teleported, and then "
             "the channel is not consumed.  S9 is "
-            "refused: short "
+            "refused: its pulsed store is short "
             "by %.1f orders ON ITS OWN NUMBERS (the specification against "
-            "itself, not a gap against this board's demand), and its mechanism "
+            "itself, not a gap against this board's demand; the stator, rotors "
+            "and muCF cell it also energises are unquantified, and bounded by "
+            "its printed dimensions the whole device is still >= 5.7 orders "
+            "short -- DOCKET 67), and its mechanism "
             "is inverted (HEATING_TO_EW_SCALE_RESTORES_SYMMETRY = %s)."
             % (transit.READING_CARRIES_NOTHING_ALONE, transit.TRAVERSAL_IS_REMOVED,
                F["proxima_ly"], stockgate.GATE, formation.APERTURE_STATUS,
@@ -1298,9 +1397,13 @@ def requirements(F):
                         % (phase1.R_SHELL / phase1.B_RAY, phase1.A_CORE / phase1.B_RAY)],
          "statement":
             "%s  The corridor "
-            "demands %.6g kg per metre of contraction (ledger.EXCHANGE_RATE) "
+            "demands %.6g kg per metre of contraction (ledger.EXCHANGE_RATE; G "
+            "does not fix the 6th figure at 1 sigma) "
             "and %s over the Proxima span.  S1 is refused on KIND, S2 because "
-            "the Casimir sign inverts for real mirrors, S4 on the EFT cutoff "
+            "the Casimir sign inverts for real mirrors (near the wall, eps <~ "
+            "lambdabar_p, for a passive local sharp-boundary medium; the "
+            "spherical plasma prefactor is RECONSTRUCTED, its sign from "
+            "conservation, tolman.py -- DOCKET 67), S4 on the EFT cutoff "
             "(placed in R6); S3 (squeezed vacuum) is %s: passes KIND and "
             "DEADLINE, fails MAGNITUDE.  The mechanism list is not exhaustive, "
             "so this is a %s.  DOCKET 62's 'the tree can PROVE the right side "
@@ -1325,7 +1428,11 @@ def requirements(F):
                         "m < 0 configuration is compactly supported is decided "
                         "by NO OWNER"],
          "statement":
-            "D4: (i) T^{0i} = 0 in every configuration g_s; (ii) zero NET "
+            "D4: (i) T^{0i} = 0 in every configuration g_s -- a component "
+            "condition, so read in static-adapted coordinates, where a static "
+            "metric gives it (the same static geometry in Galilean-moving "
+            "coordinates has T^{0x} = v T^{00} != 0; frame named at DOCKET 67); "
+            "(ii) zero NET "
             "momentum across any passage.  Every U = 0 spherically symmetric "
             "passage from flat space has T^{0r} != 0 at some instant wherever "
             "m_1 != 0 (PHASE1_D4_POINTWISE_DURING_PASSAGE = %s), radially, with "
@@ -1364,33 +1471,55 @@ def requirements(F):
          "rows": [], "see": [],
          "owners": [("spec", "DOES"), ("spec", "LENSES")],
          "hypotheses": ["weak field", "positive lens mass M",
-                        "source outside the focal length (composite.py: a real image forms)",
+                        "source outside the focal length (composite.py: a real image "
+                        "forms at that b) -- necessary, not sufficient within a finite "
+                        "run: the image lies f D_s/(D_s - f) past the lens, 180 at "
+                        "D_s = 12, f = 11.25, beyond composite's run (DOCKET 67)",
                         "impact parameter b >= the lens radius, so the congruence "
-                        "passes through vacuum",
+                        "passes through vacuum -- a named hypothesis, not computed: "
+                        "the radii are photospheric, 1-bar or zero-tide surfaces with "
+                        "atmosphere above them, and for light a grazing ray's plasma "
+                        "shift is frequency-dependent and not computed (DOCKET 67)",
                         "a NULL congruence; a massive payload's focus is "
-                        "velocity-dependent and computed by NO OWNER"],
+                        "velocity-dependent and computed by NO OWNER; read as a LIGHT "
+                        "focus only in geometric optics (DOCKET 67: the 10 km "
+                        "asteroid's on-axis wave gain at 500 nm is 1.00013, no light "
+                        "focus; the Sun's is 2.3e11)"],
          "statement":
             "spec.DOES: '%s'.  Each null geodesic passing a positive lens mass "
             "M at impact parameter b >= the lens radius has a conjugate point at "
             "f(b) = b^2 c^2/(4 G M) (the source-at-infinity focus), through "
-            "vacuum, NEC, WEC and DEC satisfied everywhere.  f grows with b "
+            "vacuum, where every energy condition holds trivially (CORRECTED, "
+            "DOCKET 67: first 'NEC, WEC and DEC satisfied everywhere' -- the "
+            "lens's own matter is checked by no owner cited; spec's check, "
+            "charge.em_is_ordinary(), is about classical EM stress-energy).  f "
+            "grows with b "
             "(spherical aberration): at a given B only the rays of ONE impact "
             "parameter reconverge on the axis -- a focal line, not a point focus "
-            "of the whole congruence -- and f(R_lens) is the lens's MINIMUM "
-            "range, so a declared range must be >= f(R_lens).  The Sun at b = "
+            "of the whole congruence -- and for a SPHERICAL lens f(R_lens) is its "
+            "MINIMUM range, so a declared range must be >= f(R_lens) (an oblate "
+            "lens grazed in its polar plane focuses shorter: Jupiter at ~5299 AU, "
+            "monopole order, against its equatorial figure below; the Sun is "
+            "unaffected to ~1e-5).  The Sun at b = "
             "R_sun gives f = %.5e m = %.2f AU; spec's selftest pins f to its "
             "own figure at 1e-3, and spec cites the published value, ~550 AU "
             "(%.2f%% apart, computed here from spec's figure and pinned by no "
-            "selftest).  %s.  Weyl focusing is sign-blind (composite.py); Ricci "
+            "selftest).  %s.  Weyl focusing is sign-blind at first order in M "
+            "(composite.py; computed 55.17 against 56.50 at the two signs, so not "
+            "exactly -- DOCKET 67); Ricci "
             "focusing needs T_kk > 0, which ordinary matter has."
             % ("; ".join(spec.DOES), F["f_sun_m"], F["f_sun_AU"],
                100.0 * abs(F["f_sun_AU"] / F["published_sun_AU"] - 1.0),
                "; ".join("%s %.5g AU" % (n, au) for n, _f, au in F["lenses"]
                          if n != "10 km asteroid")
-               + "; 10 km asteroid %.1f ly" % F["f_ast_ly"])},
+               + "; 10 km asteroid %.1f ly (a null-geodesic focus only: no light "
+               "focus in wave optics)" % F["f_ast_ly"])},
 
         {"id": "SR2", "applies_to": ["S"],
-         "title": "SEAT -- a device, not a black hole",
+         # CORRECTED (DOCKET 67): first titled "a device, not a black hole";
+         # what the statement requires (and trapping gives) is "not inside its
+         # own Schwarzschild radius" -- see H_collapse.
+         "title": "SEAT -- a device, not inside its own Schwarzschild radius",
          "status": sr2_status + (" (uniform ball; exact algebra, sympy, at T_kk = u "
                                  "on the radius; over H_ball as written, which names "
                                  "u and no pressure, a member with T_kk = 2u on a "
@@ -1449,10 +1578,16 @@ def requirements(F):
                         "D5's owner is a paper (Olum PRL 81 3567); ledger.unaskable() "
                         "lists it: %s" % ("D5" in ledger.unaskable())],
          "statement":
-            "No lead is required (M: 'DROP THE LEAD').  None is available from "
-            "ordinary matter: a lead needs negative energy (D5, %s, owner a "
-            "paper, no symmetry assumed), which is C's open question (K2, K3, "
-            "S-3) -- "
+            "No lead is required (M: 'DROP THE LEAD').  D5 (%s, owner a paper, "
+            "no symmetry assumed) puts NEC violation ON a superluminal path in "
+            "Olum's sense -- Condition 1, the fastest null geodesic, with the "
+            "generic condition -- and a lead against a reference geometry need "
+            "not be one: around a negative-mass ball the ray at b = 2 leads flat "
+            "space with rho = 0 on its path, the negativity off it (computed at "
+            "DOCKET 67; linearised, prescribed ball).  (CORRECTED, DOCKET 67: "
+            "first written 'None is available from ordinary matter: a lead needs "
+            "negative energy (D5)'.)  Negative energy, wherever a lead takes it "
+            "from, is C's open question (K2, K3, S-3) -- "
             "D5 does not say negative energy is unavailable.  The traversal "
             "half of M's scope is met by any subluminal trajectory, lens or "
             "not; the seat's own content is SR1.  A positive-mass lens delays "
@@ -1520,7 +1655,12 @@ def requirements(F):
                         "excite's section-3 stability model (a static source of "
                         "fixed number density whose rest mass is proportional to "
                         "phi): a static hold is stable only on %s "
-                        "(massform.STABLE_RANGE, from excite.stability_edge)"
+                        "(massform.STABLE_RANGE, from excite.stability_edge) -- a "
+                        "TREE-LEVEL edge on the SM self-coupling, so it rests on "
+                        "H-TREE-V too: kappa_lambda = 1, where the data allow "
+                        "(-1.2, 7.5); at kappa = 2 the edge moves 0.4226 -> 0.2743, "
+                        "and the one-loop V'' is log-singular at the tree spinodal "
+                        "(DOCKET 67)"
                         % massform.STABLE_RANGE,
                         "P-UNIFORM: %s (massform.P_UNIFORM_STATUS) -- the vev takes "
                         "one value wherever nothing sources it"
@@ -1702,7 +1842,12 @@ def classes(F):
         {"id": "K4", "object": "C", "space": "C", "lits": {"sph": False, "axial": True},
          "name": "infinite axial throats",
          "hyps": ["H_axial"],
-         "note": "u < 0 somewhere is forced (O4), but no persistence figure "
+         "note": "u < 0 somewhere is forced (O4) on H_axial's class, whose "
+                 "asymptotic flatness includes W' -> 1 (no deficit angle at "
+                 "infinity); a conical, string-asymptotic cylinder lies outside "
+                 "it, and there a contracting profile with u >= 0 everywhere "
+                 "exists (computed at DOCKET 67) -- such an object lands in K5.  "
+                 "No persistence figure "
                  "exists on this object.  The infinite idealisation of M's "
                  "cylinder; D14's scope flag leaves a one-bit parameter, and "
                  "whether that suffices for aiming is decided by no owner.  "
@@ -1745,7 +1890,8 @@ def classes(F):
                  "computed), a prior arrival first (D23) -- forms no baryons: the "
                  "elements must already be at the seat as templates, and only their "
                  "Higgs-given mass is restored (C3).  It is a %s S-3 candidate, "
-                 "stable only on %s within excite's section-3 model; the candidacy "
+                 "stable only on %s within excite's section-3 model (tree level, "
+                 "SM self-coupling: H-TREE-V); the candidacy "
                  "rests %s.  Seating at a "
                  "topological defect (DOCKET 66, M-S1A-P3 (ii), with QET folded in "
                  "by M-D65-1) is S-3's until tested"
@@ -1759,7 +1905,12 @@ def classes(F):
          "hyps": ["H_cc"], "note": "create.py calls manufacture 'closed'; the "
                                   "CTC Geroch forces lies in the interpolating "
                                   "region, and M-S1A-P3 disqualifies a CTC AT "
-                                  "THE SEAT only (V7)"},
+                                  "THE SEAT only (V7).  'created' here is a "
+                                  "handle in open space, inside a causally "
+                                  "compact region of an externally simple "
+                                  "spacetime; a new asymptotic region is not "
+                                  "compactly supported, and Theorem 1 as stated "
+                                  "does not reach it (DOCKET 67)"},
         {"id": "W-create-ncc", "object": "W", "space": "W",
          "lits": {"created": True, "cc": False},
          "name": "throat created, causal compactness dropped",
@@ -1770,8 +1921,17 @@ def classes(F):
                              "singular throat is M's own mechanism"},
         {"id": "W-enlarge", "object": "W", "space": "W", "lits": {"created": False},
          "name": "an existing throat found and enlarged",
-         "hyps": [], "note": "a metric change; premise unpriced: nobody has "
-                             "ever observed a throat"},
+         "hyps": [], "note": "a metric change, for an enlargement done as "
+                             "non-degenerate metrics on a FIXED spatial manifold "
+                             "with the throat radius kept above 0 -- a product "
+                             "interpolation, on which the theorems conclude only "
+                             "what is already true; neither condition is a "
+                             "literal here (named at DOCKET 67).  Premise "
+                             "unpriced at this board's 1193 km target: none has "
+                             "ever been identified, and the published null "
+                             "searches that bound Ellis throats of 10 pc to 10 "
+                             "kpc reach no window covering it (11.4 orders "
+                             "below the SQLS window)"},
         {"id": "Rec", "object": "Rec", "space": "Rec", "lits": {},
          "name": "the reconstruction route", "hyps": [],
          "note": "R11 open in every part"},
@@ -1885,7 +2045,10 @@ def facts_outside():
                                "this file's word for those quotations)" % (gb_names, gb_abs)),
         "BORDE-ESCAPES": (True, "RESTS on Borde gr-qc/9406053's own escapes, '%s' "
                                 "(create.py), the %d quoted in create.ESCAPES (%s named "
-                                "in the first)" % (be_all, len(create.ESCAPES), be_tipler)),
+                                "in the first) -- of Borde's four routes; IX.C, "
+                                "degenerate metrics, is not quoted, and with it the "
+                                "gate's test is undetermined (DOCKET 67)"
+                                % (be_all, len(create.ESCAPES), be_tipler)),
     }
 
 
@@ -1949,17 +2112,29 @@ def facts(z3, V, F):
          "held": "create.GEROCH_NEEDS_MATTER_ASSUMPTION = %s (READ)"
                  % create.GEROCH_NEEDS_MATTER_ASSUMPTION,
          "hyps": ["H_cc"],
+         # DOCKET 67: implied by Borde's Theorem 1 only with its time-oriented,
+         # smooth non-degenerate metric (z3 countermodel without 'smooth');
+         # H_cc's text now names both, and neither is a literal.  The gate's
+         # EXOTIC_MATTER_HELPS_CREATION = False reads "exotic matter cannot
+         # remove the forced CTC" -- not "cannot help creation" (Borde IX.B).
          "f": z3.Implies(z3.And(V["created"], V["cc"]), V["ctc"])},
         {"name": "BORDE-ESCAPES", "space": "W",
          "gate": create.any_escape_stays_in_lorentzian_gr() is False,
          "held": "create.any_escape_stays_in_lorentzian_gr() = %s (READ)"
                  % create.any_escape_stays_in_lorentzian_gr(),
          "hyps": ["H_closed"],
-         # Borde gr-qc/9406053 VIII.A: dropping causal compactness either ends
-         # in a pathology (Tipler's Theorem 5 route: closed-universe case, under
-         # additional assumptions) or leaves Lorentzian GR (weakened curvature
-         # constraints; Euclidean path integral).  A DISJUNCTION, and M-S1A-P3
-         # does not disqualify leaving GR.
+         # Borde gr-qc/9406053 Sec. IX: dropping causal compactness (IX.A,
+         # Tipler's Theorem 5: closed-universe case, under Tipler's additional
+         # assumptions) ends in a pathology -- a singularity or a point at
+         # infinity.  The weakened curvature constraints (IX.B) and the
+         # Euclidean path integral are Borde's ALTERNATIVES to dropping it, not
+         # its outcomes; the formula below, weaker than Tipler's Theorem 5, is
+         # implied under H_closed (z3 unsat) and not without it (sat), and it
+         # carries no closed-universe literal -- H_closed carries that.  IX.C,
+         # degenerate metrics, is not encoded.  A DISJUNCTION, and M-S1A-P3
+         # does not disqualify leaving GR.  (CORRECTED, DOCKET 67: first cited
+         # as "VIII.A", Borde's section on differentiability, and framed B]
+         # and the Euclidean route as outcomes of dropping causal compactness.)
          "f": z3.Implies(z3.And(V["created"], z3.Not(V["cc"])),
                          z3.Or(V["pathology"], V["nongr"]))},
     ]
@@ -1969,6 +2144,9 @@ def facts(z3, V, F):
 
 
 def _vars(z3):
+    # "bh" is named after H_collapse's first wording; what SR2 proves and the
+    # S member excludes is "inside its own Schwarzschild radius" (trapped), not
+    # an event-horizon black hole (DOCKET 67).  The name is kept: it is code.
     names = ("sph", "axial", "negm", "reg", "m0", "model", "sgt1", "contracts",
              "rhoneg", "persist", "u_neg", "H_flat", "wl", "ball", "bh",
              "created", "cc", "ctc", "pathology", "static", "aim",
@@ -1985,7 +2163,9 @@ def space_constraint(z3, V, space):
 def member(z3, V, space, drop=()):
     """What it is to be an instance of the object.  C: contracts (R1), holds
     for a light-crossing (D7) and, on M's ruling M-S1A-P2, can be aimed.  S: a
-    seat that is a device, not a black hole (SR2).  Every object, on M's ruling
+    seat that is a device, not inside its own Schwarzschild radius (SR2; first
+    written 'not a black hole' -- the z3 variable keeps the name bh, but what it
+    stands for is that trapped condition, DOCKET 67).  Every object, on M's ruling
     M-S1A-P3 as M scoped it: no closed causal curve and no Borde pathology AT
     THE SEAT ('My ruling refers to the seat/destination') -- a singular throat
     is not disqualified."""
@@ -2252,9 +2432,19 @@ def escape_texts(model=None):
     o1 = o1_figures()
     routes = [
         ("H_flat", ["O2", "D22 (curved part)"],
-         "%s.  RIGHT INSTRUMENT: %s.  The Fewster-Teo spectral-gap tightening "
-         "does not transfer (gap %g under GAP_HYPOTHESIS '%s'); Fewster-Teo on the "
-         "corridor itself is not evaluated (mode functions %s), and its redshift "
+         "%s.  RIGHT INSTRUMENT: %s -- for a Hadamard state and a sampling "
+         "domain small enough to lie in a globally hyperbolic convex normal "
+         "neighbourhood (Fewster-Smith Thm 3.1, eq. (82)), so evaluating it on "
+         "the corridor needs a Hadamard state there (named at DOCKET 67).  The "
+         "Fewster-Teo spectral-gap tightening "
+         "does not transfer (gap %g under GAP_HYPOTHESIS '%s' -- the (5.6) "
+         "formula, derived for ultrastatic Minkowski and open-RW slices only, "
+         "which the corridor is not; DOCKET 67); Fewster-Teo on the "
+         "corridor itself is not evaluated (mode functions %s -- confluent Heun "
+         "on the constant-M vacuum segment with M != 0 only: at M = 0, the "
+         "device's M_ADM, that segment is spherical Bessel, and the "
+         "regular-centre corridor metric is not globally in the class; DOCKET "
+         "67), and its redshift "
          "factors are not priced."
          % (fewsterteo.O2_ANSWERED_BY, fewsterteo.RIGHT_INSTRUMENT,
             fewsterteo.CORRIDOR_SPECTRAL_GAP, fewsterteo.GAP_HYPOTHESIS,
@@ -2264,8 +2454,11 @@ def escape_texts(model=None):
          "(candidates.NMC_STATE_INDEPENDENT_QEI = %s) and is refused ONCE, as S4 = "
          "O1 ('%s'; the ledger's text prices it at >= %s, figures no instrument "
          "re-derives); state-dependent NMC bounds exist (Fewster-Osterbrink "
-         "0708.2450, FFKP 2309.10848, as qeihps.py reads them) and an absolute "
-         "one is %s.  Interacting fields: no state-independent QEI is expected.  "
+         "0708.2450, FFKP 2309.10848, as qeihps.py reads them -- FO's for xi in "
+         "[0, 1/4], along timelike geodesics, difference type) and an absolute "
+         "one is %s.  Interacting fields: no state-independent QEI is expected "
+         "(Fewster's lectures, Sec. 5.2; the source's own qualifications: QEIs "
+         "hold for 2D CFTs, and 'modified QEIs' may hold -- DOCKET 67).  "
          "Classical sources: no QEI applies."
          % (candidates.NMC_STATE_INDEPENDENT_QEI, st("O1"),
             " and >= ".join("%s at xi = %s" % f for f in o1),
@@ -2465,6 +2658,8 @@ QUOTES = (
                "under an extra hypothesis"),
     ("achievable", "l_P times an O(1) number by construction, NOT evidence"),
     ("achievable", "concentric.py's window, weakest end"),
+    # achievable.py's own label, quoted as it stands; the interacting-field
+    # clause it labels is Fewster 1208.5399 Sec. 5.2 (DOCKET 67).
     ("achievable", "Sec. 5.1"),
     ("phase1", "Nothing is transported anywhere by the operator itself"),
     ("spec", "DROP THE LEAD.  KEEP THE SEAT."),
@@ -2947,7 +3142,10 @@ DIVERGENCES = [
      "Olum (D5) concerns superluminal travel -- the lead -- not m < 0 contraction; "
      "dropped from R2."),
     ("V2", "DOCKET 62 R4: 72.599", "REFUSED: gap 0 on an asymptotically flat corridor "
-     "(fewsterteo.py); 71.256 stands."),
+     "(fewsterteo.py); 71.256 stands.  (DOCKET 67: gap 0 returns the flat bound "
+     "in the (5.6) FORMULA, derived for ultrastatic Minkowski and open RW only; "
+     "the refusal rests on the corridor supplying no (5.6) tightening, not on a "
+     "Fewster-Teo bound evaluated on the corridor.)"),
     ("V3", "DOCKET 62 R5: 'a device that cannot be aimed is not a device'",
      "M ruled aimability REQUIRED but not the device's only function "
      "(M-S1A-P2); it is used as an exclusion, and nothing here treats it as "

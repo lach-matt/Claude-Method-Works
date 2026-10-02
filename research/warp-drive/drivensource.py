@@ -66,8 +66,11 @@ stands, its selftest passes, and nothing here touches it.
 
     BUT IT IS NOT AN ANSWER TO THIS QUESTION.  The driven condition
     2m/R < e^{-2Phi}Rdot^2 never asks for a negative T_ab k^a k^b.
-    nonstatic.py's own witnesses settle that: open FRW holds contraction with
-    rho > 0, m > 0 and the NEC contraction equal to rho, STRICTLY POSITIVE.
+    nonstatic.py's own witnesses settle that: open DUST FRW (Lambda = 0,
+    comoving slicing) holds contraction with rho > 0, m > 0 and the NEC
+    contraction equal to rho, STRICTLY POSITIVE.  The equality is dust's; for
+    p = w rho the NEC contraction is (1 + w) rho, positive whenever rho + p > 0,
+    which is all this section uses.
     A closure by NEC violation closes nothing that this route needs.
 
     SO THE HONEST STATEMENT IS: emwarp.py's theorem is unweakened AND its
@@ -98,11 +101,24 @@ once, and the solution is exact:
         m(R) = M - Q^2/(2R),        M CONSTANT
 
 and birkhoff_residuals() shows BOTH residuals vanish identically for ARBITRARY
-Phi(t,r), Lambda(t,r) and R(t,r).  That is Birkhoff's theorem for
-Einstein-Maxwell, written in the variables this docket runs on.
+Phi(t,r), Lambda(t,r) and R(t,r).  That is the Misner-Sharp half of Birkhoff's
+theorem for Einstein-Maxwell -- the half that freezes m -- written in the
+variables this docket runs on.  Three hypotheses it carries, named
+(CORRECTED, DOCKET 67 -- this paragraph first called it Birkhoff's theorem
+outright and named none of them):
+
+    Lambda_c = 0, inherited from nonstatic.py's MS-r and MS-t.  With a
+        cosmological constant the frozen form is m = M - Q^2/(2R) +
+        Lambda_c R^3/6, M still constant.
+    dR != 0, for reading the theorem as local isometry to Reissner-Nordstrom.
+        Bertotti-Robinson (R = |Q| constant) is spherically symmetric
+        electrovac and is not RN; its m = |Q|/2 is frozen too.
+    MS-r and MS-t are the G_uu, G_un, G_nn content only.  The trace-free
+        orbit-space equation, which makes the Kodama vector Killing, is not
+        run here (DOCKET 67's re-derivation ran it, and it holds).
 
     THE MASS FUNCTION IS FROZEN.  No motion of the metric functions -- however
-    violent, however driven -- changes m at a given areal radius.  There is no
+    violent, however driven -- changes m at a given areal radius (dR != 0).  There is no
     electromagnetic configuration whose m(R) evolves, because m(R) is not a
     degree of freedom of the electrovac field.
 
@@ -183,7 +199,15 @@ MARGINALLY BOUND radial geodesic -- free fall from rest at infinity -- which is
 exactly what the PG shift is.  Equivalently W^2 - 1 = U^2 - 2m/R = 2E, twice the
 Lemaitre-Tolman-Bondi energy function, so
 
-        CONTRACTION  <=>  W > 1  <=>  E > 0  <=>  THE CONFIGURATION IS UNBOUND.
+        CONTRACTION  <=>  W > 1  <=>  E > 0,
+
+and for dust in geodesic comoving flow with no flux, at Lambda = 0 -- where E
+is conserved -- E > 0 IS THE UNBOUND (hyperbolic) CASE.  Outside that class
+the last step fails: E is not conserved (Minkowski shells R = r0 + A sin T
+have E > 0 at almost every instant and stay bounded forever), and with
+Lambda != 0 E > 0 is neither necessary nor sufficient for unbound.  The
+criterion W > 1 <=> E > 0 does not need the class.  (CORRECTED, DOCKET 67:
+first written "<=> THE CONFIGURATION IS UNBOUND" with no class.)
 
 MEASURED, NOT ASSERTED.  pg_witness() runs Schwarzschild in Lemaitre slicing --
 which is PG brought to the diagonal form this docket uses -- through
@@ -196,20 +220,33 @@ nonstatic.witness() and gets, exactly:
 
     AND THE TWO THRESHOLDS ARE DIFFERENT, WHICH IS THE PART A NOTATIONAL READING
     WOULD MISS.  wavecorridor.py's acoustic horizon is |v| = c_s: the PG velocity
-    against the SIGNAL SPEED.  This docket's threshold is |U| = sqrt(2m/R): the
+    against the SIGNAL SPEED.  (|v| = c_s is Visser's ergosurface, eq 35; his
+    horizon is v_perp = c_s, eq 45.  The two coincide for the purely radial
+    flow used here and separate with swirl.)  This docket's threshold is |U| = sqrt(2m/R): the
     AREAL velocity against the PG velocity.  Same velocity function, two
     different comparisons, two different events -- a horizon in one case,
     marginal contraction in the other.
 
     A COROLLARY FOR THE ANALOGUE, AND IT GOES AGAINST THE ANALOGY.  Write the
     acoustic metric with rho/c_s constant and it is -c_s^2 dt^2 + (dr - v dt)^2
-    + r^2 dOmega^2: the constant-t slices are EXACTLY FLAT, so W = 1 exactly.
-    A sonic horizon is real -- wavecorridor.py is right that it is the only
-    horizon anyone in this project has built -- but it sits permanently ON the
-    marginal boundary and never crosses it.  THE ANALOGUE CANNOT EXHIBIT
-    CONTRACTION AT ALL.  For an inhomogeneous background
+    + r^2 dOmega^2 (Visser's acoustic metric, under his H1-H4: barotropic,
+    inviscid, irrotational fluid, linearised perturbations -- named at
+    wavecorridor.py's head): the constant-t (lab-time) slices are EXACTLY
+    FLAT, so W = 1 exactly on them.  A sonic horizon is real --
+    wavecorridor.py is right that it is the only horizon anyone in this
+    project has built -- but on lab-time slices it sits permanently ON the
+    marginal boundary and never crosses it.  ON ITS LAB-TIME SLICES THE
+    ANALOGUE CANNOT EXHIBIT CONTRACTION AT ALL.  W is a component, not a
+    scalar (nonstatic.py): Milne slicing of the same homogeneous geometry
+    gives W = cosh chi > 1.  The lab slicing is the physically distinguished
+    one (Visser p.21).  The velocity v is left unconstrained here; continuity
+    at rho/c_s constant requires rho v r^2 = const for a steady radial flow, and
+    the PG-Schwarzschild choice (rho, c_s constant, v ~ r^{-1/2}) is the
+    assignment Visser sec. 7 excludes.  W = 1 is a property of the background
+    geometry and holds under either.  For an inhomogeneous background
     W = 1 + r d/dr log sqrt(rho/c_s), which is NOT MEASURED here and is recorded
-    as a refusal, not glossed.
+    as a refusal, not glossed.  (CORRECTED, DOCKET 67: the capitalised
+    sentence was first written without "on its lab-time slices".)
 
 ===============================================================================
 6.  ITEM 5 -- WHAT CHANGES STATUS.  SEVEN ROWS, AND SIX ARE CONFIRMATIONS.
@@ -275,17 +312,22 @@ status_table() is the machine-readable form.  In words:
 import math
 import sys
 
-EPS0 = 8.8541878128e-12          # F/m, CODATA 2018
+EPS0 = 8.8541878128e-12          # F/m, CODATA 2018 (CODATA 2022: 8.8541878188e-12,
+                                 # +6.8e-10, 4.6 sigma_2018 -- superseded, moves nothing)
 C = 2.99792458e8                 # m/s, exact
-G = 6.67430e-11                  # m^3 kg^-1 s^-2, CODATA 2018
+G = 6.67430e-11                  # m^3 kg^-1 s^-2, CODATA 2018; u_r 2.2e-5, not carried
 
 
 # ------------------------------------------------- 1-2. the electrovac source
 
 def electrovac():
-    """Maxwell stress-energy of the ONLY spherically symmetric field, in the
-    FULL dynamical metric.  Nothing quoted: F is fixed by the curved-space
-    Maxwell equations and T is built from it."""
+    """Maxwell stress-energy of the spherically symmetric ELECTRIC field, in
+    the FULL dynamical metric.  Nothing quoted: F is fixed by the curved-space
+    Maxwell equations and T is built from it.  The magnetic monopole
+    F_{theta phi} = P sin(theta) is also spherically symmetric and is not built
+    here; with it rho = (Q^2 + P^2)/(8 pi R^4) and m = M - (Q^2 + P^2)/(2R) is
+    still frozen (DOCKET 67's re-derivation).  CORRECTED (DOCKET 67): first
+    written "the ONLY spherically symmetric field"."""
     import sympy as sp
 
     t, r, th = sp.symbols("t r theta", real=True)
@@ -299,8 +341,10 @@ def electrovac():
     g = sp.diag(-sp.exp(2 * Phi), sp.exp(2 * Lam), R**2, R**2 * sp.sin(th)**2)
     gi = sp.diag(-sp.exp(-2 * Phi), sp.exp(-2 * Lam), R**-2, (R * sp.sin(th))**-2)
 
-    # Spherical symmetry admits only F_{tr} (radial electric); Gauss' law
-    # sqrt(-g) F^{tr} = Q fixes it.  Verified as a Maxwell residual below.
+    # Spherical symmetry admits F_{tr} (radial electric) and the magnetic
+    # monopole F_{theta phi} = P sin(theta); only the electric part is built.
+    # Gauss' law sqrt(-g) F^{tr} = Q fixes it.  Verified as a Maxwell residual
+    # below.
     F = sp.zeros(4, 4)
     F[0, 1] = Q * sp.exp(Phi + Lam) / R**2
     F[1, 0] = -F[0, 1]
@@ -387,6 +431,9 @@ def pg_witness():
     return w
 
 
+# A declared value: the selftest compares it with 1.0, which checks the
+# constant against itself, not the geometry.  The computation behind it (the
+# lab slices' 3-Ricci scalar is 0) is DOCKET 67's re-derivation, not this file's.
 ACOUSTIC_W_HOMOGENEOUS = 1.0
 ACOUSTIC_W_GENERAL = "W = 1 + r d/dr log sqrt(rho/c_s)   -- NOT MEASURED HERE"
 
@@ -451,13 +498,18 @@ EMWARP_THEOREM = "UNCHANGED, and confirmed in curved dynamical spherical symmetr
 EMWARP_ROLE = "REDUCED -- it refutes EM negative energy, not EM sourcing"
 WAVECORRIDOR_PG = "UNCHANGED and SHARPENED -- PG is the W = 1 surface"
 CHARGE_PY = "UNCHANGED -- prior art for item 3"
+# True as worded: EM adds no degree of freedom that moves m.  It does NOT say
+# the driven condition fails in electrovac: a boosted slicing of a fixed RN
+# exterior satisfies it (z3 sat at M = 9/32, Q = 1/4, R = 1, v = 3/4), as Milne
+# slicing does at m = 0 (DOCKET 67).
 EM_CAN_SOURCE_DRIVEN_CONTRACTION = False
 EM_CLOSED_BY_ENERGY_CONDITION = False
 EM_CLOSED_BY = "Birkhoff (driven branch) and the field's own exterior energy (static branch)"
 PG_IS_COINCIDENCE_OF_NOTATION = False
 NOTHING_IS_REPAIRED = True
-SCOPE = ("pure electrovac, spherical symmetry.  Charged fluids, non-spherical "
-         "fields and nonlinear electrodynamics are not measured.")
+SCOPE = ("pure electrovac, spherical symmetry, Lambda_c = 0 (with Lambda_c, m "
+         "gains + Lambda_c R^3/6 and stays frozen).  Charged fluids, "
+         "non-spherical fields and nonlinear electrodynamics are not measured.")
 
 
 def status_table():
@@ -575,9 +627,9 @@ def selftest():
         sp.simplify((Ww**2 - 1 + 2 * mm2 / RR2 - 2 * mm2 / RR2).subs(Ww, 1)), 0)
     chk("  so the PG appearance is a coincidence of notation",
         PG_IS_COINCIDENCE_OF_NOTATION, False)
-    chk("  acoustic metric, rho/c_s constant: W is", ACOUSTIC_W_HOMOGENEOUS, 1.0)
-    print("       the analogue's slices are exactly flat, so a sonic horizon sits")
-    print("       permanently ON the marginal boundary and never crosses it.")
+    chk("  acoustic metric, rho/c_s constant: W is (declared)", ACOUSTIC_W_HOMOGENEOUS, 1.0)
+    print("       the analogue's lab-time slices are exactly flat, so there a sonic")
+    print("       horizon sits ON the marginal boundary and never crosses it.")
     print("       inhomogeneous case: %s" % ACOUSTIC_W_GENERAL)
 
     print("\n6. THE MACHINE OBLIGATIONS")
@@ -615,7 +667,8 @@ def report():
   narrows is its ROLE, because it refutes EM negative energy rather than EM
   sourcing.  The right closure is a conservation law.  Feeding the electrovac
   source into the Misner-Sharp equations gives m(R) = M - Q^2/2R with M
-  CONSTANT, both residuals vanishing for arbitrary Phi, Lambda and R: the mass
+  CONSTANT (Lambda_c = 0; with it, + Lambda_c R^3/6), both residuals vanishing
+  for arbitrary Phi, Lambda and R: the mass
   function is frozen, so the driven branch has no electromagnetic degree of
   freedom to drive it.  The static branch is more interesting and it costs
   certify.py something.  Reissner-Nordstrom has m(r) < 0 for r < Q^2/2M with
@@ -636,9 +689,10 @@ def report():
   m = M > 0, W = 1, U = -sqrt(2m/R).  The two thresholds differ, and that is
   the part a notational reading misses: wavecorridor's acoustic horizon sets
   the PG velocity against the signal speed, this docket sets the areal velocity
-  against the PG velocity.  A corollary against the analogy: the acoustic
-  metric's slices are exactly flat, so W = 1 always and a sonic horizon can
-  never exhibit contraction.  Nothing is repaired.
+  against the PG velocity.  A corollary against the analogy: at rho/c_s
+  constant the acoustic metric's lab-time slices are exactly flat, so W = 1 on
+  them and a sonic horizon exhibits no contraction in that slicing (Milne
+  slicing of the same geometry gives W = cosh chi).  Nothing is repaired.
   ------------------------------------------------------------------------""")
     return 0
 

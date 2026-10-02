@@ -40,10 +40,11 @@ primitive body holding M(p,s) x m_payload of accessible mass".
     aperture: NOT EVALUABLE: NOT-FOUND (search named, APERTURE_SEARCH).  The
     formation-epoch snow line: NOT-FOUND, and a radius from today's luminosity
     is REFUSED.  Both of those the row and stockgate section 9 already carry.
-    WHAT IS NEW is one READ survey result (section 6): MacGregor 2018 withdraws
-    Anglada 2017's 1-4 au belt, and the only condensed body named in the two
-    papers read is Proxima b, whose primitive and accessible status neither
-    paper measures.
+    WHAT IS NEW is one READ survey result (section 6): MacGregor 2018 finds "no
+    need to posit" Anglada 2017's 1-4 au belt, and the only condensed body
+    named in the two papers read is Proxima b, whose primitive and accessible
+    status neither paper measures.  (CORRECTED (DOCKET 67): this first said
+    MacGregor "withdraws" the belt -- section 6.)
 
 WITHDRAWN, KEPT AND MARKED (DOCKET 64 verification of this line):
   [W1] "D25: NARROWED ... the mass conjunct is priced with stockgate.py's own
@@ -240,7 +241,16 @@ Kauffman & Lambropoulou, arXiv:2505.02210 v4, read at source (alphaXiv):
     construction (2)/(24), whose zeta > 1 is also free.  "No further explicit
     expression is required for our purposes" (sec. V).
   So the price has NOT BEEN COMPUTED.  Whether it depends on the free
-  functions is NOT DETERMINED.  No obstruction is claimed ([W3]).  The reading
+  functions is NOT DETERMINED.  No obstruction is claimed ([W3]).
+  HYPOTHESES the construction carries, NAMED (DOCKET 67): kink number 1
+  (standing for asymptotic flatness); Sigma_i = D^3, a single 0-surgery;
+  time-orientability; no spin structure, so fermions on W must be
+  U(1)-charged.  The paper excludes QFT on the compactly generated Cauchy
+  horizon its CTC pocket creates, so a price from it would be classical
+  only, and its energy-condition violations sit in the Morse spacetime's
+  type-IV band and the CP^2 pocket, not the neck.  None of this moves OPEN;
+  each limits what a future pricing may assume.  The free data are more than
+  b, c, alpha(eta) and zeta (NUCLEATION_FREE_FUNCTIONS).  The reading
   agrees with create.py's Borde reading: the singularity is traded for CTCs,
   not escaped.
 
@@ -278,20 +288,40 @@ M(p,s) x m_payload of accessible mass.
     compute a radius: it would use a nebular T_c outside its pressure
     hypothesis and today's luminosity outside its epoch.
 
-THE SURVEY, READ at the tree's destination (foliation.PROXIMA_LY).  This is
-the new content:
+THE SURVEY, READ at the tree's destination (foliation.PROXIMA_LY, 4.2465 ly:
+the inverted Gaia DR3 = EDR3 parallax, 768.0665 +- 0.0499 mas at J2016.0,
+2104.14972 Table 1, read in DOCKET 67; no zero-point correction applied).  This
+is the new content:
   - Anglada et al. 2017 (arXiv:1711.00578) reported a 1-4 au belt, ~0.01 Earth
     masses TOTAL by extrapolating a -3.5 size law to 50 km bodies (sec. 3.2).
-    Warm dust at ~0.4 au and a ~30 au belt are both marginal (abstract, 3.3).
+    That total also rests on the ACA excess being steady dust emission, on
+    kappa = 2 cm^2/g with optically thin Rayleigh-Jeans emission, on the T_d
+    law, on D_dust ~ 1 cm and on a smooth connection of the primordial size
+    distribution to the cascade (sec. 3.2).  A ~30 au belt is "marginal"
+    (sec. 3.3); warmer dust closer in is a "hint" in the abstract, placed at
+    ~0.4 au only in sec. 3.2 ("it might be possible").
   - MacGregor et al. 2018 (arXiv:1802.08257) attribute the ACA excess to "the
     short duration stellar flare": "no need to posit the cold belt at 1-4 AU"
-    (sec. 4.2).  THE 1-4 au BELT, which would have held small primitive
-    bodies, IS WITHDRAWN.  The 0.4 au warm dust is unnecessary if the 12-m
-    excess is coronal.  The 30 au belt stays marginal, with 13+10-8 background
-    sources > 150 uJy expected in the primary beam (sec. 4.2).
+    (sec. 4.2).  THE EVIDENCE FOR THE 1-4 au BELT, which would have held small
+    primitive bodies, IS REMOVED: no quiescent excess above 3 sigma at first-12
+    rms 68 uJy/beam, with a ~2 sigma central peak present (p.3).  Computed in
+    DOCKET 67, that image disfavours Anglada's ~200 uJy belt at ~2.0 sigma
+    and the full 340 uJy at ~3.0 sigma; a belt below ~130 uJy is not
+    excluded.  The 0.4 au warm dust is unnecessary if the 12-m excess is
+    coronal.  The 30 au belt stays marginal: the paper gives 13+10-8
+    background sources > 150 uJy expected in the primary beam (sec. 4.2; it
+    states neither area nor formula, and DOCKET 67 recomputed ~1.6 in the
+    FWHM disk from the counts it cites), and adds that Proxima sits near the
+    Galactic plane in high background cirrus (pp.6-7).
+    CORRECTED (DOCKET 67): this bullet first said the belt "IS WITHDRAWN".
+    The source says "no need to posit"; "withdraws" also names an act of
+    Anglada's authors, which MacGregor et al. are not.
   - The ONLY CONDENSED BODY named in the sources read is PROXIMA b: m_p sin i =
     1.3 M_earth at 0.05 au, from Doppler data (Anglada 2017 sec. 1, citing
-    Anglada-Escude et al. 2016; also MacGregor sec. 1).  Its minimum mass
+    Anglada-Escude et al. 2016; also MacGregor sec. 1).  That second-hand
+    datum has since moved to 1.07 +- 0.06 M_earth at 0.04856 au (Faria 2022
+    Table C.1, per DOCKET 67); the 1.3 is kept as the value the sources read
+    give, and "condensed" and "far above threshold" hold at either.  Its minimum mass
     is far above stockgate's 70 kg threshold (the ratio is computed by
     proxima_b_over_threshold and printed by the reading).  Its volatile state is UNMEASURED, so the primitive conjunct is
     undetermined.  Its accessibility is also unmeasured.
@@ -407,7 +437,8 @@ D25_VERDICT = ("OPEN AND UNCHANGED: no conjunct is newly evaluated.  The mass "
                "threshold is stockgate.py's (cited, not re-priced); the aperture "
                "is NOT EVALUABLE: NOT-FOUND (search named); the formation-epoch "
                "snow line is NOT-FOUND and a present-luminosity radius REFUSED.  "
-               "NEW, READ: MacGregor 2018 withdraws the 1-4 au belt; the only "
+               "NEW, READ: MacGregor 2018 finds no need to posit the 1-4 au "
+               "belt; the only "
                "condensed body in the sources read is Proxima b, whose primitive "
                "and accessible status is unmeasured")
 D25_VERDICT_WITHDRAWN = (
@@ -422,7 +453,17 @@ NUCLEATION_SOURCE = ("Pisana, Shoshany, Antoniou, Kauffman & Lambropoulou, "
 NUCLEATION_NECK_EXPLICIT = False     # no closed-form neck metric is written
 NUCLEATION_NECK_RECIPE = True        # sec. V: homotopies H1-H4
 NUCLEATION_FREE_FUNCTIONS = ("b(eta)", "c(eta)", "alpha(eta)",
-                             "zeta > 1 of the construction eq. (24)")
+                             "zeta > 1 of the construction eq. (24)",
+                             "the annulus profiles a(tau), b(tau), "
+                             "alpha(sigma), beta(sigma)",
+                             "Lambda", "the neck radius R",
+                             "the gluing radii chi_1 = tau_1, xi_1 = sigma_1",
+                             "the interval endpoints",
+                             "the Riemannian metric on M",
+                             "the CP^2 line field", "the extent of W")
+#: CORRECTED (DOCKET 67): first listed only b, c, alpha(eta) and zeta, which
+#: under-lists what the paper leaves free.  (The paper reuses the names b and
+#: alpha; the first three entries are the homotopy functions of sec. V.D.)
 NUCLEATION_HAS_CTC = True            # abstract
 NUCLEATION_EC_EVIDENCE = (
     "eq. (19) Hawking-Ellis criterion on the Morse spacetime (13): type-IV "
@@ -440,22 +481,32 @@ NUCLEATION_STATUS = "READ, OPEN (not computed)"
 # ------------------------------------------------------------------ survey
 SURVEY_SOURCES = (
     ("Anglada et al. 2017", "arXiv:1711.00578",
-     "1-4 au belt, ~0.01 M_earth total by -3.5 extrapolation to 50 km (sec 3.2); "
-     "0.4 au and 30 au components marginal (abstract, sec 3.3); Proxima b "
+     "1-4 au belt, ~0.01 M_earth total by -3.5 extrapolation to 50 km, also "
+     "resting on steady dust emission, kappa, the T_d law, D_dust and a smooth "
+     "cascade (sec 3.2); 30 au belt marginal (sec 3.3); warm dust a 'hint' "
+     "(abstract), ~0.4 au 'might be possible' (sec 3.2); Proxima b "
      "m_p sin i = 1.3 M_earth at 0.05 au (sec 1, Anglada-Escude et al. 2016)"),
     ("MacGregor et al. 2018", "arXiv:1802.08257",
      "ACA excess is a ~1 min flare: 'no need to posit the cold belt at 1-4 AU' "
-     "(sec 4.2); 12-m excess plausibly coronal; 30 au belt: 13+10-8 background "
-     "sources > 150 uJy expected in the ACA primary beam (sec 4.2); PMS "
+     "(sec 4.2), at first-12 rms 68 uJy/beam with a ~2 sigma central peak "
+     "(p.3); 12-m excess plausibly coronal; 30 au belt: 13+10-8 background "
+     "sources > 150 uJy expected in the ACA primary beam (sec 4.2, area and "
+     "formula unstated) and Galactic-plane cirrus (pp.6-7); PMS "
      "luminosity change (sec 1)"),
 )
-PROXIMA_B_MSINI_EARTH = 1.3          # READ, Anglada 2017 sec 1
-PROXIMA_B_A_AU = 0.05                # READ, Anglada 2017 sec 1
+PROXIMA_B_MSINI_EARTH = 1.3          # READ, Anglada 2017 sec 1 (second-hand;
+                                     # since moved to 1.07 +- 0.06, Faria 2022,
+                                     # per DOCKET 67 -- kept as read)
+PROXIMA_B_A_AU = 0.05                # READ, Anglada 2017 sec 1 (now 0.04856)
 SURVEY_CONDENSED_BODY = "Proxima b (m_p sin i = 1.3 M_earth, a = 0.05 au)"
 SURVEY_CONDENSED_BODY_FOUND = True
 SURVEY_PRIMITIVE_MEASURED = False
 SURVEY_ACCESSIBLE_MEASURED = False
 SURVEY_BELT_1_4AU_WITHDRAWN_BY_SOURCE = True    # MacGregor 2018 sec 4.2
+#: DOCKET 67: the flag's NAME overstates.  The source finds "no need to posit"
+#: the belt (evidence removed, ~2 sigma against it; a belt below ~130 uJy is
+#: not excluded); it does not withdraw it.  The value is a flag and is kept
+#: as written; read it as "the source removes the belt's evidence".
 SURVEY_CONFIRMED_RESERVOIR = UNDETERMINED
 SURVEY_CONFIRMED_RESERVOIR_WITHDRAWN = (
     False, "WITHDRAWN [W2]: 'no confirmed condensed reservoir' -- Proxima b is "

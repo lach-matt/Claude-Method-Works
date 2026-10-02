@@ -68,6 +68,12 @@ the information content of a region that size is fixed:
         information instead of mass.  The bits ARE the mass, in other units,
         and the conversion factor is hbar.
 
+    CORRECTED (DOCKET 67): the two routes agree because the region IS a
+    Schwarzschild horizon (D = 4), where the bound is saturated by Bousso's
+    extrapolation beyond its weak-gravity class; they are not two
+    independent routes to one number in general.  For weakly gravitating
+    matter Bekenstein is an upper bound only (hep-th/0203101 p.9).
+
 And if the payment means MANIPULATING those bits rather than merely holding
 them, Landauer prices the manipulation on top:
 
@@ -226,13 +232,26 @@ def holographic_bits(R):
 
 
 def bekenstein_bits(R, E):
-    """2 pi R E / (hbar c ln2).  Independent route to the same number."""
+    """2 pi R E / (hbar c ln2).  Independent route to the same number.
+
+    CORRECTED (DOCKET 67): the same number ONLY AT SCHWARZSCHILD SATURATION
+    (D = 4, R the horizon radius), which is the one case routes_agree()
+    evaluates.  That saturation is Bousso's extrapolation of the bound to a
+    strongly gravitating object (hep-th/0203101 p.9), outside the bound's own
+    weakly-self-gravitating class (quant-ph/0404042 p.1); for weakly
+    gravitating matter this is an upper bound that real systems approach at
+    best to within about an order of magnitude (hep-th/0203101 p.9).
+    """
     return 2.0 * math.pi * R * E / (HBAR * C * math.log(2.0))
 
 
 def routes_agree(separation_ly=4.0, rtol=1e-6):
     """They must -- the bound is saturated at the horizon -- and the agreement
-    is the finding: THE BITS ARE THE MASS, in other units."""
+    is the finding: THE BITS ARE THE MASS, in other units.
+
+    CORRECTED (DOCKET 67): for a Schwarzschild horizon in D = 4, the case
+    computed here.  The agreement is not a general identity of the two routes
+    (see bekenstein_bits)."""
     M = coincidence_mass(separation_ly)
     R = schwarzschild_radius(M)
     return abs(bekenstein_bits(R, M * C * C) / holographic_bits(R) - 1.0) < rtol

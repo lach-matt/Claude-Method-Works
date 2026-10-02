@@ -7,6 +7,13 @@ An T. Le, "Steering a warp drive without exotic matter", arXiv:2606.22531
 (v2, 30 June 2026), exhibits an exact solution of the Einstein equations that
 is, simultaneously:
 
+  CORRECTED (DOCKET 67): v2 is not Le's current version.  v4 (13 Sep 2026)
+  drops Proposition 8, the class W and the hulled-rocket sentence, and its
+  pages read carry no marginal-wall / light-crossing passage; in its place the
+  abstract has "growing normal modes with the ambient geometry and
+  coefficients held fixed".  Every Le passage this file restates is v2/v3
+  text.
+
     * a warp drive in a precise sense -- an exactly Riemann-flat passenger
       cavity, matched across a timelike shell to a positive-energy exterior;
     * ACCELERATING, by a covariant, matter-derived proper acceleration, which
@@ -61,17 +68,28 @@ delta_eta = 0.24, and 1 - e^{-0.72} = 51.32%, reproducing his "about half".
    a real result and it is not the popular one.
 4. STABILITY IS MARGINAL.  The realized tangential-pressure wall sits exactly on
    the Poisson-Visser marginal curve V''(R) = 0: a radial displacement is a
-   neutral zero mode with e-folding time of order a light-crossing time.  Taking
-   tau_efold ~= R/c and tau_burn = c delta_eta/a gives the burn-outruns-
+   neutral zero mode which, under Le's frozen-background rear-pole redshift,
+   e-folds in tau_efold = sqrt(2/|V''|), "of order a light-crossing time".
+   Taking tau_efold ~= R/c and tau_burn = c delta_eta/a gives the burn-outruns-
    instability criterion delta_eta <= aR/c^2 = lambda <= g(x), COMPUTED BELOW --
    and Le's own worked burn (delta_eta = 0.24, lambda_max = 0.12) misses it by a
    factor 2, consistent with his statement that the safe corner is "restricted".
+   CORRECTED (DOCKET 67): the criterion and the factor 2 are this file's
+   computation; Le prints neither the ratio nor a pass/fail for his burn.  The
+   factor 2 rests on two NAMED hypotheses.  (a) tau_efold = R/c with
+   coefficient 1: the verdict flips to a pass for any tau_efold >= 2R/c, so
+   here an O(1) coefficient decides it.  (b) tau_burn at the PEAK acceleration:
+   Le's App. K sin^2 bump lasts 2 delta_eta/a_max (integrate_burn below uses
+   that duration), on which the miss is 4.
    A slightly stiffer wall is strictly stable at no cost in dec margin, but is
    "a nearby model, not the realized one".
    *** wall.py NOW PRICES THAT CLAUSE.  The wall is strictly stable iff
    beta^2 > beta^2_crit(x) = (1-s)(3s^2+2s+1)/(4s^2(1+3s)), which is 0.0793 at
-   x = 0.3 and subluminal throughout x < 0.8437 -- so through the whole operative
-   window.  The criterion below then INVERTS: a stable wall oscillates rather
+   x = 0.3 and below 1 throughout x < 0.8437 -- so through the whole operative
+   window.  CORRECTED (DOCKET 67): "subluminal" reads beta^2 as the squared
+   sound speed, exact for a shear-free, isentropically perturbed fluid wall;
+   an elastic wall's ceiling is lower, beta^2 <= 1 - mu_s/(eps+p).  The
+   criterion below then INVERTS: a stable wall oscillates rather
    than runs away, so the burn must be slow, not fast, and the same 1.8e14
    becomes an adiabatic margin instead of a shortfall.  Read that file before
    quoting the shortfall table below as a bound. ***
@@ -90,6 +108,13 @@ With x = 2m/R (geometric) and lambda = aR/c^2:
     lambda < (1-x)/2   rigorous kinematic ceiling (Prop. 5)
     lambda <~ (24/25 - x)/2   empirical dec envelope, not an inequality
     lambda < 1         Rindler horizon stays off the cavity
+
+CORRECTED (DOCKET 67): the 4/5 row's "dec across its whole width" is Le's
+window restated, and the passage deriving it was not read.  Re-derived, 4/5 is
+exactly the DEC bound p_T <= rho for p_r = 0 matter on circular orbits (an
+Einstein cluster), and it bounds the LOCAL 2m(r)/r pointwise -- so it bounds
+the outer x only where that supremum sits at the outer edge (a uniform shell;
+not in general).  Whether Le's 4/5 carries that hypothesis is OPEN.
 
 There is NO LOWER bound on x, and that is the quiet good news: a low-compactness
 warpshell is an ordinary-density object, the acceleration ceiling g(x)c^2/R is
@@ -207,11 +232,22 @@ def desitter_threshold(y):
 
 def efold_time(R_m):
     """tau_efold ~= R/c.  ORDER OF MAGNITUDE: Le gives 'of order a light-
-    crossing time' for the marginal Poisson-Visser wall, not a coefficient."""
+    crossing time' for the marginal Poisson-Visser wall, not a coefficient.
+    CORRECTED (DOCKET 67): R/c is also taken INDEPENDENT of lambda, a
+    hypothesis this file adds.  Le's tau_efold = sqrt(2/|V''|) is stated
+    under the frozen-background rear-pole redshift at his worked lambda =
+    0.12; with V'' = 0 on the static anchor it diverges as the burn-induced
+    redshift goes to zero, if V''(lambda) is continuous.  The 1.8e14 shortfall
+    at lambda = 1.09e-15 holds only under the lambda-independent reading."""
     return R_m / C
 
 def burn_time(delta_eta, a_ms2):
-    """Proper time to gain delta_eta at proper acceleration a: tau = c eta/a."""
+    """Time to gain delta_eta at CONSTANT acceleration a: tau = c eta/a.
+    CORRECTED (DOCKET 67): not proper time.  Le's a is rapidity per unit
+    canonical retarded time u (INT|a|du = delta_eta), so this is a span of u;
+    a static shell at x = 0.3 ages sqrt(1-x) = 0.837 per unit u.  Evaluated at
+    the App. K PEAK acceleration it is the bump's FWHM; the full sin^2 burn
+    lasts 2 delta_eta/a_max, the duration integrate_burn uses."""
     return C * delta_eta / a_ms2
 
 def radius_to_outrun(delta_eta, a_ms2):
@@ -350,7 +386,7 @@ def selftest():
              radius_to_outrun(0.2, 9.80665) / 9.4607304726e15))
     print("      or, at R = 10 m, an acceleration of %.4e m/s^2 = %.2e g"
           % (accel_to_outrun(0.2, 10.0), accel_to_outrun(0.2, 10.0) / 9.80665))
-    chk("  no O(1) coefficient in tau_efold rescues 14 orders",
+    chk("  no lambda-independent O(1) coefficient rescues 14 orders",
         math.log10(short) > 13.0, True)
 
     print("\n  SELFTEST %s" % ("OK" if ok else "FAILED"))
@@ -402,7 +438,10 @@ def report():
           % (radius_to_outrun(0.2, 9.80665) / 1.495978707e11,
              accel_to_outrun(0.2, 10.0) / 9.80665))
     print("  tau_efold ~ R/c is Le's order of magnitude, not a coefficient --")
-    print("  but a 14-order shortfall is not an O(1) problem.  The escape he")
+    print("  a 14-order shortfall is not an O(1) problem IF tau_efold is taken")
+    print("  independent of lambda (CORRECTED, DOCKET 67: an added hypothesis;")
+    print("  with V'' = 0 on the anchor it need not be).  Le's own burn misses")
+    print("  by 2, which a coefficient >= 2 would flip.  The escape he")
     print("  names is a stiffer wall, strictly stable at no cost in dec margin,")
     print("  and it is a nearby model rather than the realized one.")
 
@@ -413,8 +452,9 @@ def report():
     print("  mass ratio.  CM-THEOREM is not refuted -- it is paid, in radiation.")
     print("  What it buys is one thing: an exactly tidally flat cabin.")
     print("  Open against it WAS marginal linear stability of the realized wall.")
-    print("  wall.py stiffens it: beta^2 > 0.0793 at x = 0.3, subluminal through")
-    print("  the whole operative window, free in dec margin -- and the criterion")
+    print("  wall.py stiffens it: beta^2 > 0.0793 at x = 0.3, below 1 (subluminal")
+    print("  for a shear-free isentropic fluid wall) through the whole operative")
+    print("  window, free in dec margin -- and the criterion")
     print("  inverts.  What remains open is exhibiting admissible matter at that")
     print("  stiffness, and the flux-coupled stability of the radiating shell.")
     return 0

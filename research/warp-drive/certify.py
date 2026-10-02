@@ -28,6 +28,13 @@ the sampling time held below the local curvature radius, and obtained
 Planck scale" -- and then a total energy E ~ -3e20 M_galaxy v_b, "roughly ten
 orders of magnitude greater than the total mass of the entire visible universe."
 
+    CORRECTED (DOCKET 67): both figures carry parameters first dropped here.
+    10^2 v_b L_Planck is their eq.(23), the EXAMPLE alpha = 1/10 (computed
+    73.3); the bound is eq.(22), Delta <= (3/4) sqrt(3/pi) v_b/alpha^2 =
+    0.7329 v_b/alpha^2 L_Planck, with the sampling fraction 0 < alpha << 1
+    unspecified and the bound scaling as alpha^-2.  The energy is for a bubble
+    of R = 100 m with Delta saturating eq.(23), and scales as R^2/Delta.
+
     THAT IS candidates.py's CONCLUSION, TWENTY-EIGHT YEARS EARLIER.  "Quantum
     inequalities force Planck-scale structure and then the energy is
     unattainable" is Pfenning-Ford.  H37's exponent framing and closed-form
@@ -39,6 +46,11 @@ orders of magnitude greater than the total mass of the entire visible universe."
     ELECTRON COMPTON WAVELENGTH costs them E ~ -400 M_sun.  A Planck cell in
     this architecture costs 196 MJ.  The architectures are not close, and that
     gap is real even though the verdict is the same.
+    CORRECTED (DOCKET 67): -400 M_sun is their printed summary figure, and it
+    does not follow from their own formulas -- eq.(28) with eq.(23) at v_b = 1
+    gives -2.06e5 M_sun, 514x larger (Van Den Broeck 1999 eq.(9), scaled by
+    R^2, gives 2.07e5).  A discrepancy in the source, not a refutation of it;
+    on either figure the comparison with 196 MJ points the same way.
 
     AND THEIR OWN GAP IS STATED IN THEIR OWN PAPER: they apply the FLAT SPACE
     inequality to a curved metric because the exact treatment "would be
@@ -111,11 +123,16 @@ The certification above is about OUR Phi, so it inherits exactly the weakness
 provenance.py named.  So drop Phi entirely.
 
 Every static spherically symmetric spacetime can be written with an areal
-radius and the Misner-Sharp mass function:
+radius and the Misner-Sharp mass function -- wherever the areal radius is a
+good radial coordinate on the slice.  (CORRECTED, DOCKET 67: that hypothesis
+was unwritten.  It fails where dr = 0 on the slice -- a wormhole throat, a
+Nariai-type spacetime -- and where it holds in a static region the untrapped
+condition 1 - 2m/r > 0 follows.)
 
         ds^2 = -e^{2Phi(r)} dt^2 + dr^2/(1 - 2m(r)/r) + r^2 dOmega^2
 
-and the tt Einstein equation gives, exactly,
+and the tt Einstein equation (general relativity with Lambda = 0, or Lambda
+counted inside rho -- also unwritten until DOCKET 67) gives, exactly,
 
         dm/dr = 4 pi r^2 rho        so        m(r) = int_0^r 4 pi r'^2 rho dr'.
 
@@ -161,7 +178,13 @@ WHAT THAT DOES TO THE PROJECT:
     AND IT DOES NOT REQUIRE NEGATIVE TOTAL MASS, WHICH IS WHY THE ARCHITECTURE
     WAS NEVER SILLY.  m(r) < 0 locally is compatible with M_ADM >= 0, and the
     concentric shell is exactly the device that arranges it.  The positive mass
-    theorem is not violated and was never in danger.
+    theorem is not violated and was never in danger.  CORRECTED (DOCKET 67):
+    true and vacuous.  The theorem's hypotheses include the dominant energy
+    condition, which section 2 finds violated at every radius, so no ADM mass
+    of this configuration -- negative included -- could put it in danger, and
+    the sentence does not tell the concentric shell from a bare negative mass.
+    The device satisfies the theorem's CONCLUSION while violating its
+    HYPOTHESIS (pair.py).
 
     THE SEAT/LEAD SPLIT IS THE CASUALTY.  The theorem says the negativity sits
     wherever the contraction does.  There is no arrangement in which one part
@@ -179,7 +202,11 @@ WHAT THAT DOES TO THE PROJECT:
     this project's central obstruction from MODEL to THEOREM.
 
     IT IS STATIC AND SPHERICALLY SYMMETRIC ONLY.  That is a real limit: the
-    Alcubierre drive is neither, and nothing here speaks to it.  D1-D5 place
+    Alcubierre drive is neither, and nothing here speaks to it.  (Alcubierre's
+    eq. (8) is time-dependent in the lab chart and, at constant v_s, stationary
+    but not static in the comoving one.  typefour.py's frozen bubble, x_s held
+    fixed, is t-independent, so its "static" means stationary and it is a
+    different metric -- recorded at DOCKET 67, both statements true.)  D1-D5 place
     this project's own construction inside the theorem's scope, which is why it
     bites here.
 
@@ -301,7 +328,10 @@ def ricci(g, x, h):
 
 
 def stress_energy(g, x, h):
-    """T_munu in geometric units (c^4/8piG = 1)."""
+    """T_munu in geometric units (c^4/8piG = 1) -- i.e. G_munu itself, which is
+    8 pi times the G = c = 1 T of section 3's dm/dr = 4 pi r^2 rho.  The two
+    conventions never meet in arithmetic here, and every energy-condition
+    verdict is a sign test, invariant under the factor 8 pi (DOCKET 67)."""
     gm = g(x)
     gi = inv4(gm)
     Rm = ricci(g, x, h)
@@ -378,7 +408,14 @@ def conformastatic_grr(r, m=M_SEATED):
 
 
 def conformastatic_forces_negative_mass(radii=(0.005, 0.05, 1.0, 10.0, 100.0)):
-    """Phi > 0 gives g_rr < 1 everywhere, hence m(r) < 0 everywhere."""
+    """Phi > 0 gives g_rr < 1 everywhere, hence m(r) < 0 everywhere.
+    CORRECTED (DOCKET 67): this applies the AREAL formula to the ISOTROPIC
+    coordinate rho of the conformastatic metric, where it is a proxy, not the
+    Misner-Sharp mass (0.5904 against the true 1 on isotropic Schwarzschild,
+    M = 1, rho = 2).  The invariant mass is E = (R/2) rho Phi'(2 - rho Phi'),
+    R = rho e^{-Phi}, so its sign follows Phi', not Phi, and "everywhere" fails
+    beyond R_s = 200.  At the five radii sampled here the invariant E is
+    negative too (-1.11e-4 to -2.00e-2), so the returned verdict agrees."""
     return all(enclosed_mass_from_grr(conformastatic_grr(r), r) < 0.0 for r in radii)
 
 
@@ -391,7 +428,11 @@ REQUIRES_NEGATIVE_TOTAL_MASS = False
 SEAT_LEAD_SPLIT_SURVIVES = False
 
 PRIOR_ART = "Pfenning & Ford, gr-qc/9702026 (1997)"
-PRIOR_ART_RESULT = "Delta <= 10^2 v_b L_Planck, then E ~ -3e20 M_galaxy v_b"
+# AS FIRST WRITTEN: "Delta <= 10^2 v_b L_Planck, then E ~ -3e20 M_galaxy v_b"
+# CORRECTED (DOCKET 67): alpha, R = 100 m and the eq.(23) saturation restored.
+PRIOR_ART_RESULT = ("Delta <= 0.7329 v_b/alpha^2 L_Planck (10^2 v_b L_Planck at "
+                    "their example alpha = 1/10), then E ~ -3e20 M_galaxy v_b "
+                    "for R = 100 m at that Delta")
 PRIOR_ART_OWN_GAP = ("they apply the FLAT SPACE inequality to a curved metric "
                      "because the exact treatment 'would be exceptionally difficult'")
 
@@ -486,7 +527,8 @@ def selftest():
     chk("does it require negative TOTAL mass", REQUIRES_NEGATIVE_TOTAL_MASS, False)
     print("       m(r) < 0 locally is compatible with M_ADM >= 0.  The")
     print("       concentric shell is the device that arranges exactly that,")
-    print("       and the positive mass theorem was never in danger.")
+    print("       and the positive mass theorem was never in danger --")
+    print("       vacuously: its DEC hypothesis fails here (DOCKET 67).")
 
     print("\n4. STATUS, STATED BEFORE ANYONE ASKS")
     chk("is novelty claimed for the theorem", NOVELTY_CLAIMED, False)
@@ -528,7 +570,9 @@ def report():
   asked for, and it constrains a quantity no quantum inequality bounds,
   because averaging along a geodesic is not integrating over a ball.  It
   does NOT require negative total mass, so the concentric architecture was
-  never silly and the positive mass theorem was never in danger.  No
+  never silly and the positive mass theorem was never in danger --
+  vacuously, since the DEC it assumes is violated at every radius, so the
+  sentence does not tell the device from a bare negative mass.  No
   novelty is claimed -- it is two lines from a standard definition -- and
   its scope is static and spherically symmetric only.  Prior art is
   recorded first and against us: Pfenning & Ford got candidates.py's

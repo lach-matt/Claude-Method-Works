@@ -61,7 +61,18 @@ LY = ladder.LY
 M_SUN = ladder.M_SUN
 
 PROXIMA_LY = 4.2465
+# CORRECTED (DOCKET 67): the body and epoch were unnamed.  4.2465 ly is
+# PROXIMA Centauri (Gaia DR3 parallax 768.0665 mas, NAMED-NOT-READ; epoch
+# J2016.0), not alpha Cen AB (4.344-4.390 ly from the orbital parallaxes DOCKET
+# 67 read).  The tree is inconsistent here: phase1.py prices the same corridor
+# at 4.0 ly for "Alpha Centauri".  Recorded; the value is unchanged.
 PROXIMA_RADIAL_MS = 22.2e3        # RECALLED: ~ -22.2 km/s relative to the Sun
+# CORRECTED (DOCKET 67): RADIAL COMPONENT ONLY, and relative to the Sun.
+# Kervella et al. 2017 give -22.204 +/- 0.032 km/s (READ-VIA-RESTATEMENT);
+# the transverse component from Gaia DR3 proper motion is larger, 23.82 km/s,
+# |v| = 32.56 km/s heliocentric, and relative to EARTH the speed runs over
+# 10.8-62.3 km/s through the year (all computed by DOCKET 67).  Section 4
+# uses this one component as its frame velocity u; the value is unchanged.
 FIGURES_ARE_READ = False
 
 

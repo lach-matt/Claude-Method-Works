@@ -36,6 +36,9 @@ MATERIALS = [                              # name, density kg/m^3, note
     ("osmium",               22_590,     "densest stable element"),
     ("white-dwarf matter",    1.0e9,     "electron-degenerate"),
     ("neutron-star crust",    1.0e14,    "inner crust, neutron drip"),
+    # 2.3e17 is n0 = 0.1375 fm^-3 x m_p, RECALLED.  address.py's RHO_NUCLEAR is
+    # 2.676e17 (n0 = 0.16 fm^-3 x m_N): the tree carries two nuclear densities
+    # 16 % apart -- a discrepancy recorded in DOCKET 67, not resolved here.
     ("nuclear matter",        2.3e17,    "saturation density"),
     ("NS core",               1.0e18,    "a few x saturation"),
 ]

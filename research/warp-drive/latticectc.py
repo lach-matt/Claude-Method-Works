@@ -21,6 +21,9 @@ HYPOTHESES, named, and there are three:
     H3  branes are TEST hypersurfaces -- arbitrary timelike hyperplanes in
         arbitrary motion, carrying no back-reaction -- so a causal curve is
         UNCONSTRAINED in the bulk (stronger than GKLP, who keep it on branes).
+        Test branes carry neither a brane action nor a junction condition, so
+        D21 is a flat-quotient theorem, not a braneworld one in the sense of
+        section 3: a recorded scope difference (DOCKET 67).
 
     (a) A closed causal curve exists in the quotient IFF L contains a nonzero
         causal vector.  The number of legs is irrelevant: REDUCTION LEMMA, a
@@ -37,14 +40,20 @@ HYPOTHESES, named, and there are three:
         branes, any velocities, any observer boost including supercritical, any
         tilt, any winding, any chain length.
 
-    (c) n >= 2: with Gram entries A = |g1|^2 > 0, C = |g2|^2 > 0, H = <g1,g2>,
+    (c) n = 2 (rank EXACTLY 2): with spacelike generators, Gram entries
+        A = |g1|^2 > 0, C = |g2|^2 > 0, H = <g1,g2>,
         span(L) is TIMELIKE iff H^2 > AC, and then Q(m,n) = A m^2 + 2H mn + C n^2
         is negative on the open interval between the roots of A t^2 + 2H t + C,
         which contains a rational m/n: L CONTAINS a timelike vector and the
-        quotient has CTCs.  If span(L) is SPACELIKE (AC > H^2) Q is positive
-        definite and no nonzero lattice vector is causal.  CONSTRUCTIVE here:
-        timelike_vector() returns the lattice vector, verified in exact
-        rationals -- not found by searching a box.
+        quotient has CTCs.  If span(L) is SPACELIKE (AC > H^2, which alone
+        forces A > 0 in R^{1,d}) Q is positive definite and no nonzero lattice
+        vector is causal.  CONSTRUCTIVE here: timelike_vector() returns the
+        lattice vector, verified in exact rationals -- not found by searching a
+        box.  At n >= 3 the test is Sylvester on the full n x n Gram, not the
+        2 x 2 test on pairs: a rational rank-3 lattice in R^{1,3} has all three
+        2-spans spacelike and still holds a timelike vector (norm -242/9).
+        Every computation in this file is at rank 2.
+        CORRECTED (DOCKET 67): this item was headed "n >= 2".
 
     THE SEPARATING WITNESS, exact.  e1 = (0.9, 1, 0, 0) and e2 = (0.9, 0, 1, 0)
     are both spacelike, |e|^2 = +0.19 each; e1 + e2 = (1.8, 1, 1, 0) is timelike,
@@ -76,10 +85,19 @@ quotes is a brane-frame special case, not the general theorem.  NARROWED.
     THE CODIMENSION-ONE CTC AS A BRANEWORLD RESULT.  The pass built a 5D metric
     by letting both of PPDW's 6D warp functions depend on one coordinate, on the
     warrant "nothing forbids two independent warp functions of one coordinate".
-    It has no bulk field equation, no brane action, no Israel junction
-    condition [K_ab] - h_ab [K] = -8 pi G_5 S_ab, no Z2 identification, and its
-    stress tensor is read off its own Einstein tensor.  A braneworld is not a
-    metric with a distinguished slice.  What it establishes is "there exists a
+    It has no bulk field equation and no brane action -- hence no Israel
+    junction condition [K_ab] - h_ab [K] = -8 pi G_5 S_ab either, that
+    condition being the delta-function part of the bulk field equation at a
+    thin brane (SMS eq 15) -- and its stress tensor is read off its own
+    Einstein tensor, which fails even the loosest READ definition, where the
+    brane stress tensor comes from a brane action (SMS eq 13).  A braneworld is
+    not a metric with a distinguished slice.  (Definition READ at Randall-
+    Sundrum II and Shiromizu-Maeda-Sasaki (SMS).  A Z2 identification, which
+    the metric also lacks, is an assumption imposed on RS-type models, not
+    part of the definition -- RS2 drops it, and an asymmetric warp satisfies
+    the bulk equations and the junction conditions without it; nor are thin
+    branes required.  CORRECTED (DOCKET 67): this list was first written as
+    four independent required ingredients, Z2 among them, with no source.)  What it establishes is "there exists a
     5D Lorentzian metric containing a CTC" -- Goedel 1949, never in doubt --
     and it is bought with the ledger's own refused currency: the static-observer
     density is negative and the NEC fails on the u = 0.8 slice that carries the
@@ -138,10 +156,21 @@ DOCKET57_TWO_ROUTES = ("NARROWED: at codimension one the two routes are one "
 DOCKET57_ROUTES_INDEPENDENT_AT_CODIM1 = False
 
 CODIM1_CTC_IS_BRANEWORLD_RESULT = False
-CODIM1_CTC_REFUSAL = ("hand-written 5D metric: no bulk field equation, no brane "
-                      "action, no Israel junction condition, no Z2; stress "
-                      "tensor read off its own Einstein tensor; NEC-violating "
-                      "on the CTC slice -- Goedel-class, not a braneworld")
+CODIM1_CTC_REFUSAL = ("hand-written 5D metric: no bulk field equation and no "
+                      "brane action (hence no Israel junction condition, the "
+                      "delta part of that equation at a thin brane); stress "
+                      "tensor read off its own Einstein tensor, which fails "
+                      "even the loosest READ definition (RS2; SMS eq 13); "
+                      "NEC-violating on the CTC slice -- Goedel-class, not a "
+                      "braneworld")
+#: CORRECTED IN PLACE (DOCKET 67).  As first written the refusal listed four
+#: independent missing ingredients.  Z2 is an assumption imposed at source,
+#: not part of the definition, and the junction condition is the delta part of
+#: the bulk field equation, not a separate item.  The refusal itself stands.
+CODIM1_CTC_REFUSAL_AS_FIRST_WRITTEN = (
+    "hand-written 5D metric: no bulk field equation, no brane action, no "
+    "Israel junction condition, no Z2; stress tensor read off its own Einstein "
+    "tensor; NEC-violating on the CTC slice -- Goedel-class, not a braneworld")
 NEC_EVERYWHERE_ROW_OPENED = False
 CALDWELL_LANGLOIS_WITHDRAWAL_SEATED = False
 
@@ -157,6 +186,14 @@ O3_ANSWERED_BY = ("a CTC in a braneworld whose bulk satisfies its field "
 O3_ANSWERED_BY_WITHDRAWN_WORDING = ("a theorem forbidding one beyond the flat "
                                     "quotient, which the lattice theorem now "
                                     "settles")
+#: CORRECTED (DOCKET 67): O3_ANSWERED_BY does not name the bulk.  The Israel
+#: form is the junction condition for an Einstein(+Lambda) bulk only; a
+#: Gauss-Bonnet bulk takes Davis's (hep-th/0208205 eq 10).  ledger.py appends
+#: this scope where it renders the row, so the string above is left as is and
+#: the scope is carried here and printed by report().
+O3_ANSWERED_BY_BULK_SCOPE = ("for an Einstein(+Lambda) bulk, for which the "
+                             "Israel form is the junction condition; a "
+                             "Gauss-Bonnet bulk takes Davis's")
 
 NOT_SEARCHED = ("Tipler", "Hawking chronology protection",
                 "Hawking & Ellis Prop 6.4.2", "Polychronakos 2210.11497")
@@ -190,7 +227,8 @@ def gram(g1, g2):
 
 def span_kind(g1, g2):
     """'timelike' if span(g1,g2) contains a timelike vector, 'spacelike' if the
-    induced form is positive definite, 'degenerate' otherwise.  Exact."""
+    induced form is positive definite, 'degenerate' otherwise.  Exact.  Rank 2
+    only.  (The A > 0 test is redundant in R^{1,d}: det > 0 forces it.)"""
     A, C, H = gram(g1, g2)
     det = A * C - H * H
     if A > 0 and det > 0:
@@ -324,7 +362,7 @@ def report():
           % (tuple(str(c) for c in xi), nrm(xi)))
     print("\nO3: %s" % O3_STATUS)
     print("REFUSED: the codimension-one CTC as a braneworld result -- %s" % CODIM1_CTC_REFUSAL)
-    print("RESTATED: %s" % O3_ANSWERED_BY)
+    print("RESTATED: %s (%s)" % (O3_ANSWERED_BY, O3_ANSWERED_BY_BULK_SCOPE))
     return 0
 
 

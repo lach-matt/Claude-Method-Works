@@ -74,12 +74,28 @@ spherical symmetry" (gr-qc/9408002, PRD 53, 1938), section IV, eq. (27):
 THE WORKING FORM IS ALSO STANDARD.  Escriva, arXiv:2504.05813 (2025), eqs.
 (2.3) and (2.5): U = D_t R, Gamma = D_r R, and Gamma = sqrt(1 + U^2 - 2M/R),
 "where Gamma is called the generalised Lorentz factor".  Gamma is BY DEFINITION
-the derivative of areal radius with respect to proper radial distance, so
-"contraction <=> Gamma > 1" is the statement that the generalised Lorentz factor
-exceeds 1 -- which in Misner-Sharp/LTB language is the UNBOUND (hyperbolic)
-shell, E = (Gamma^2 - 1)/2 > 0.  Contraction IS unboundedness.  Textbook.
+the derivative of areal radius with respect to proper radial distance, and it
+carries a SIGN: Escriva's own p.12 has Gamma < 0 past a throat-neck, and
+2505.00366 p.4 (same group) writes +-sqrt.  So the identity is Gamma^2 = 1 +
+U^2 - 2M/R, and "contraction <=> Gamma^2 > 1" is the statement that the
+generalised Lorentz factor exceeds 1 IN MAGNITUDE -- Gamma > 1 on the near side
+of any throat (R' > 0).  In LTB language Gamma^2 > 1 is E = (Gamma^2 - 1)/2 > 0,
+the shell the LTB literature calls UNBOUND (hyperbolic) -- for dust, geodesic
+comoving flow with no flux, and Lambda = 0, where E is conserved and its sign
+gives the fate.
 
-AND THE CONSEQUENCE, READ AS AN ESCAPE, WAS REFUTED IN PRINT IN 1998.
+    CORRECTED (DOCKET 67).  This paragraph first wrote "contraction <=> Gamma
+    > 1", which is false on the far side of a throat (Gamma < 0, |Gamma| > 1:
+    contracts() returns True while "Gamma > 1" is False), and closed
+    "Contraction IS unboundedness.  Textbook." without the hypotheses the
+    boundedness reading needs.  Off them it fails both ways: with Lambda < 0
+    a shell with E > 0 turns around, and in Minkowski shells R = r0 + A sin T
+    have E = U^2/2 > 0 at almost every instant yet stay bounded forever.  The
+    criterion Gamma^2 > 1 <=> E > 0 itself is untouched.
+
+AND THE CONSEQUENCE, READ AS AN ESCAPE, WAS ANSWERED IN PRINT IN 1998 -- for the
+configurations those papers treat, which this file does not show the corridor
+to be (section 7).
 
     HOCHBERG & VISSER, gr-qc/9802046 (PRD 58, 044021), section 7: "if the
     wormhole is dynamic, FLARE-OUT IN THE SPATIAL DIRECTION DOES NOT IMPLY
@@ -88,14 +104,28 @@ AND THE CONSEQUENCE, READ AS AN ESCAPE, WAS REFUTED IN PRINT IN 1998.
     R^3 is no longer a reliable operational technique for defining 'flare-out'
     in the time-dependent case."  THIS FILE'S CRITERION IS A CONSTANT-t SPATIAL
     CRITERION.  Static, that is harmless -- there is one preferred slicing.
-    Non-static, it is exactly the case they say stops meaning anything about
-    traversal.
+    Non-static, it is exactly the case they say is "no longer a reliable
+    operational technique" and "at best misleading" about traversal.  (A non-
+    implication, not a universal failure: DOCKET 67's k = 0 control is a
+    dynamic geometry whose extremal sphere IS null-flared.  CORRECTED (DOCKET
+    67): this first said the case "stops meaning anything".)
 
     HOCHBERG & VISSER, gr-qc/9802048 (PRL 81, 746), result (4): for each throat
     there is an open interval on which the TRANSVERSE AVERAGED NEC is violated.
     "The suspension of the NEC is essentially an illusion in that if one ever
-    succeeds in passing through the wormhole ... there must be NEC violations at
-    or near this throat."
+    succeeds in passing through the wormhole and reaching the other universe
+    then one must have passed a throat as defined above and there must be NEC
+    violations at or near this throat."
+
+    CORRECTED (DOCKET 67).  The quote first elided, with "...", the clause
+    "and reaching the other universe then one must have passed a throat as
+    defined above and" -- the asserted link from traversal to a throat.  It is
+    a hypothesis, and contested: Maeda-Harada-Carr 0901.1153 and Tomikawa-
+    Izumi-Shiromizu 1503.01926 construct DEC-satisfying dynamical wormholes,
+    under other throat definitions, with no such throat.  The theorem also
+    needs the Einstein equations and, for result (4), averaged flare-out;
+    under simple flare-out alone it gives T_ab l^a l^b <= 0 on the throat,
+    possibly 0.
 
     KAR & SAHDEV, gr-qc/9506094 (PRD 53, 722), made this exact move -- drop
     staticity to satisfy the WEC -- and printed Visser's rebuttal in their own
@@ -114,11 +144,21 @@ AND THE CONSEQUENCE, READ AS AN ESCAPE, WAS REFUTED IN PRINT IN 1998.
     travelled, not averaged over it.
 
     Also standing, and also with no staticity hypothesis: Gao & Wald
-    (gr-qc/0007021) Theorem 1 and Visser-Bassett-Liberati (gr-qc/9908023) --
-    the NEC makes Shapiro always a delay, never an advance -- and Santiago,
+    (gr-qc/0007021) Theorem 1 -- in a null geodesically complete spacetime
+    with the NEC AND the null generic condition, causal curves between
+    distant points avoid a compact region K, which "suggests that 'time
+    advance' is not possible, although it is difficult to make a strong
+    argument for this interpretation" (their pp.5, 10) -- and Visser-Bassett-
+    Liberati (gr-qc/9908023), whose NEC delay result Gao & Wald show is gauge
+    dependent and reversible in any compact region -- and Santiago,
     Schuster & Visser (arXiv:2105.03079), which shows generic TIME-DEPENDENT
     Natario warp drives violate the NEC using "only the fact that warp drive
     contributions are sufficiently localized".
+
+    CORRECTED (DOCKET 67).  The Gao-Wald / VBL sentence first read "the NEC
+    makes Shapiro always a delay, never an advance", dropping null
+    completeness, the null generic condition and the authors' own hedge, and
+    grouping VBL with a paper that argues VBL is gauge dependent.
 
     SO THE DOCKET'S PREMISE -- "certify.py is the ONLY thing making negative
     mass compulsory for this project" -- IS FALSE, and that is recorded here
@@ -161,7 +201,12 @@ generalised Lorentz factor, and the contraction variable).  Then:
 
     THE THEOREM (DERIVED, residual 0):
 
-        CONTRACTION  <=>  dl < dR  <=>  Gamma > 1  <=>  2m/R  <  e^{-2Phi}Rdot^2
+        CONTRACTION  <=>  dl < |dR|  <=>  Gamma^2 > 1  <=>  2m/R  <  e^{-2Phi}Rdot^2
+
+    (on the near side of any throat, R' > 0, this is dl < dR <=> Gamma > 1.
+    CORRECTED (DOCKET 67): first printed with "dl < dR" and "Gamma > 1", which
+    fail past a throat where Gamma < 0 -- the computed test contracts() was
+    always the orientation-free square.)
 
         equivalently     |Rdot|  >  sqrt(2m/R) e^{Phi}
 
@@ -213,8 +258,15 @@ returns, exactly:
 Two further readings, both measured and neither of them an escape:
 
     Gamma^2 - 1 = 2E, twice the LTB energy function (V9, residual 0).  So
-    CONTRACTION IS PRECISELY THE UNBOUND (HYPERBOLIC) SHELL.  This is why open
-    FRW contracts and flat FRW does not: in FRW the criterion is exactly k < 0.
+    CONTRACTION IS PRECISELY E > 0 -- the shell the LTB literature calls
+    UNBOUND (hyperbolic) for dust with Lambda = 0 (section 1).  This is why, in
+    COMOVING slicing, open FRW contracts and flat FRW does not: there the
+    criterion is exactly k < 0.  In other slicings it is not -- open dust has
+    Gamma' = 0.9525 < 1 in the Kodama (U' = 0) slicing, flat dust 1.2318 > 1 in
+    a slicing tilted by rapidity -0.5 (DOCKET 67) -- which is section 6's gauge
+    fact again.  (CORRECTED (DOCKET 67): first "in FRW the criterion is exactly
+    k < 0" and "CONTRACTION IS PRECISELY THE UNBOUND (HYPERBOLIC) SHELL", with
+    neither the slicing nor the dust / Lambda = 0 hypotheses.)
 
     AND U IS NOT CAPPED AT 1, so no light-speed bound closes the door either.
     The Lemaitre witness has |U| = sqrt(r_s/R), which exceeds 1 at every R < r_s.
@@ -241,10 +293,22 @@ FIRST, THE ANSWER NOBODY EXPECTED: SUSTAINING CONTRACTION COSTS NOTHING.
 
     and NEITHER rho NOR p_r APPEARS IN IT.  Measured on the jet, not inspected.
     In geodesic slicing D_t Gamma = 4 pi R j, so holding Gamma costs no flux
-    either.  Two exact witnesses hold contraction forever: MINKOWSKI IN MILNE
-    SLICING (T_ab = 0 identically -- contraction in flat vacuum) and OPEN FRW
-    (rho > 0, m > 0, j = 0, and the NEC contraction equals rho, STRICTLY
-    SATISFIED).  So the energy-condition question closes on nothing.
+    either -- where geodesic slicing exists: Gaussian normal coordinates reach
+    only to the first focal point of the normal congruence (contracting Milne
+    focuses as t -> 0-), so it is local, not global.  Two exact witnesses hold
+    contraction forever on each comoving shell: MINKOWSKI IN MILNE SLICING
+    (T_ab = 0 identically -- contraction in flat vacuum) and OPEN DUST FRW with
+    Lambda = 0 (rho > 0, m > 0, j = 0, and the NEC contraction rho + p, which
+    for dust is exactly rho, STRICTLY SATISFIED).  So the energy-condition
+    question closes on nothing.
+
+    CORRECTED (DOCKET 67).  This first said "OPEN FRW ... the NEC contraction
+    equals rho" (it is rho + p; rho only for dust, as nonstatic.py says, and
+    with Lambda the Einstein-tensor rho differs by Lambda/8pi) and "hold
+    contraction forever" without "per comoving shell": at a FIXED areal radius
+    Gamma^2 = 1 + R^2/a^2 falls to 1 as open dust expands, which is the anchor
+    lemma's territory.  Neither witness uses Gaussian normal coordinates past
+    a focal point, and the NEC holds for any rho + p > 0 fluid.
 
     IT CLOSES ANYWAY, TWICE OVER.
 
@@ -309,7 +373,17 @@ field picks the slice, so certify.py reads the criterion off a scalar.
                 true, and open FRW is the demonstration any relativist would
                 produce on request.
     REFUTED:    "therefore the corridor may be buildable without negative
-                energy" -- Hochberg & Visser 1998, Olum 1998.
+                energy" -- Hochberg & Visser 1998, Olum 1998, ON PREMISES THIS
+                FILE DOES NOT SHOW: Olum governs a path satisfying his
+                Condition 1 with the generic condition on it, and no owner
+                shows that the corridor criterion entails one; Hochberg &
+                Visser govern a null-flared marginally anti-trapped sphere
+                (theta_+ = 0 or theta_- = 0), and none is shown in the
+                corridor.  Both conclude NEC violation (on the path; at or
+                near the throat, non-strict under simple flare-out), not
+                negative energy density in every frame or negative mass.
+                CORRECTED (DOCKET 67): the row first cited both with no
+                premise.  The status word is kept as written.
     NEW TO THIS TREE, AND ONLY THAT:  overturn.py's link L1 ("in any STATIC
                 spherically symmetric spacetime ...") IS TWO HYPOTHESES, and
                 that file only ever argued one of them -- it reads L1 as the
@@ -332,8 +406,13 @@ field picks the slice, so certify.py reads the criterion off a scalar.
     REFUSED, EXPLICITLY:
 
       IT DOES NOT PROVE that no dynamic spherically symmetric corridor exists.
-      The FRW demonstration is a demonstration.  The proof of that statement is
-      Olum's, and it is his, not this file's.
+      The FRW demonstration is a demonstration.  What Olum proves is
+      conditional -- a path satisfying his Condition 1, with the generic
+      condition on it, requires WEC violation on that path -- and he answers
+      his own question "Does this theorem mean that superluminal travel is
+      impossible?" with "No" (p.6).  CORRECTED (DOCKET 67): this first said
+      "The proof of that statement is Olum's"; it is not a statement Olum
+      proves.
 
       IT DOES NOT RE-DERIVE what its peers own.  The Misner-Sharp evolution
       equations and the nine z3 rows are nonstatic.py's; the electrovac
@@ -374,7 +453,10 @@ def gamma_squared(m, R, U):
 
 
 def gamma(m, R, U):
-    """Gamma itself.  Gamma^2 < 0 is not a slice, it is bad initial data."""
+    """|Gamma|, the + root.  Gamma = D_r R has the sign of R' and is negative
+    past a throat (Escriva 2504.05813 p.12; 2505.00366 p.4 writes +-sqrt);
+    this returns the magnitude (DOCKET 67).  Gamma^2 < 0 is not a slice, it is
+    bad initial data."""
     g2 = gamma_squared(m, R, U)
     if g2 < 0.0:
         raise ValueError("Gamma^2 = %r < 0: no real slice carries this data" % g2)
@@ -382,8 +464,9 @@ def gamma(m, R, U):
 
 
 def contracts(m, R, U):
-    """THE THEOREM.  Proper radial length shorter than the areal increment,
-    which is Gamma > 1, which is 2m/R < U^2 with U = e^{-Phi} Rdot."""
+    """THE THEOREM.  Proper radial length shorter than the areal increment in
+    magnitude, which is Gamma^2 > 1 (Gamma > 1 where R' > 0), which is
+    2m/R < U^2 with U = e^{-Phi} Rdot.  Orientation-free (DOCKET 67)."""
     return 2.0 * m / R < U * U
 
 
@@ -396,13 +479,18 @@ def threshold_speed(m, R):
 
 
 def ltb_energy(m, R, U):
-    """E = (Gamma^2 - 1)/2, the LTB energy function.  Contraction is E > 0,
-    which is the UNBOUND (hyperbolic) shell."""
+    """E = (Gamma^2 - 1)/2, the LTB energy function (1 + 2E normalisation).
+    Contraction is E > 0, which the LTB literature calls the UNBOUND
+    (hyperbolic) shell for dust with Lambda = 0 (section 1; DOCKET 67)."""
     return 0.5 * (gamma_squared(m, R, U) - 1.0)
 
 
 def contraction_is_unbound(m, R, U):
-    """Contraction and unboundedness are the same statement."""
+    """Contraction and E > 0 are the same statement.  Over the reals this is
+    a tautology -- E > 0 is 2m/R < U^2 rearranged -- so it checks the code,
+    not the LTB boundedness reading.  In floating point it can disagree: at
+    m = 0, R = 10, U = 1e-9 the 1 + U^2 - 1 cancels to 0.0 and this returns
+    False (DOCKET 67).  The selftest samples avoid that regime."""
     return contracts(m, R, U) == (ltb_energy(m, R, U) > 0.0)
 
 
@@ -490,15 +578,20 @@ NOTHING_IS_REPAIRED = True
 PRIOR_ART_IDENTITY = "Misner & Sharp 1964, Phys. Rev. 136, B571"
 PRIOR_ART_ROUTE = "RECOVERED from Hayward gr-qc/9408002 eq. (27); NOT read at source"
 PRIOR_ART_GAMMA = "Escriva arXiv:2504.05813 eqs. (2.3), (2.5)"
+#: DOCKET 67: the name overstates.  These papers answer the escape only on
+#: premises the corridor is not shown to meet (section 7, REFUTED row).
 PRIOR_ART_REFUTATION = ("Hochberg & Visser gr-qc/9802046 s7 and gr-qc/9802048; "
                         "Olum PRL 81, 3567 (gr-qc/9805003)")
 PRIOR_ART_PRECEDENT = "Kar & Sahdev gr-qc/9506094 -- the same move, already answered"
 H83D_MSUN = 2.7254e12                        # READ from paper/CLAIMS.md via nonstatic.py
 
 SCOPE = THEOREM_SCOPE
-REFUSED = ("no proof that dynamic corridors are impossible (that is Olum's, not "
-           "this file's); no adjudication of the 2.7207e13 / 2.7254e12 scale "
+REFUSED = ("no proof that dynamic corridors are impossible (Olum proves a "
+           "conditional and answers 'No' to impossibility, p.6; this file proves "
+           "neither); no adjudication of the 2.7207e13 / 2.7254e12 scale "
            "agreement; nothing non-spherical; no ruling")
+#: CORRECTED (DOCKET 67): REFUSED first read "(that is Olum's, not this
+#: file's)", crediting Olum with an impossibility proof he disclaims.
 
 
 def standard_table():
@@ -509,13 +602,15 @@ def standard_table():
         ("Gamma^2 = 1 + U^2 - 2m/R, Gamma the Lorentz factor", "STANDARD",
          "Escriva 2504.05813 eq. (2.5)"),
         ("contraction <=> 2m/R < e^-2P Rdot^2", "STANDARD",
-         "trivial rearrangement; content is Gamma > 1 <=> unbound"),
+         "trivial rearrangement; content is Gamma^2 > 1 <=> E > 0 (unbound for "
+         "dust, Lambda = 0)"),
         ("sqrt(2m/R) is the Painleve-Gullstrand velocity", "STANDARD",
          "and Gamma^2 - 1 = 2E is the LTB energy"),
         ("m < 0 sufficient, not necessary, off staticity", "FOLKLORE",
          "open FRW demonstrates it; not novel"),
         ("therefore the corridor needs no negative energy", "REFUTED",
-         "Hochberg & Visser 1998; Olum 1998"),
+         "Hochberg & Visser 1998; Olum 1998 -- on premises not shown here (a "
+         "Condition-1 path; a null-flared throat); both conclude NEC violation"),
         ("Gamma > 1 is a new criterion", "NO",
          "it is expose.py's C < 1; C x Gamma = 1 identically"),
         ("overturn.py's L1 has a non-quasi-local door", "NEW TO THIS TREE",
@@ -769,6 +864,10 @@ def selftest():
              {2.0: 2.309401077e-2, 100.0: 2.000100008e-2}[W], 1e-9)
     chk("  contracting harder buys no time",
         nonstatic.band_ratio(2.0, 0.01) > nonstatic.band_ratio(100.0, 0.01), True)
+    # DOCKET 67: ten digits of arithmetic on 4.2465 ly (Gaia DR3 parallax
+    # 768.0665 +- 0.0499 mas, J2016.0, inverted: +- 0.00028 ly).  As physics
+    # the span carries about 4 significant figures; the 1e-9 checks only that
+    # the arithmetic reproduces.
     near("  Proxima span (m)", n["span_m"], 4.017499195e16, 1e-9)
     near("  band at Gamma = 2, eps = 1% (days)", n["band_days"], 17.909799392, 1e-9)
     near("  against one crossing (years)", n["cross_yr"], 2.123250000, 1e-9)
@@ -888,14 +987,17 @@ def report():
   fixture checks against certify.py's own functions rather than restating them.
   ALL OF THAT IS STANDARD.  The identity is Misner & Sharp's 1964 equation,
   quoted verbatim by Hayward; Gamma is Escriva's generalised Lorentz factor;
-  Gamma > 1 is the unbound LTB shell; and Gamma > 1 is this tree's own expose.py
-  criterion C < 1, since C x Gamma = 1 identically.  No novelty is claimed.
-  AND THE ESCAPE FAILS THREE TIMES.  Hochberg & Visser showed in 1998 that
-  spatial flare-out stops implying null flare-out the moment staticity goes, and
-  that the averaged NEC is violated on an open interval around every throat;
-  Olum's theorem makes negative energy compulsory for superluminal travel with
-  NO staticity, NO symmetry and NO sphericity, so the bill never rested on
-  certify.py in the first place; and nonstatic.py measured the engineering,
+  Gamma^2 > 1 is E > 0, the unbound LTB shell for dust with Lambda = 0; and
+  Gamma > 1 (where R' > 0) is this tree's own expose.py criterion C < 1, since
+  C x Gamma = 1 identically.  No novelty is claimed.
+  AND THE ESCAPE FAILS THREE TIMES.  Hochberg & Visser argued in 1998 that
+  once staticity goes spatial flare-out no longer implies null flare-out, and
+  showed that the transverse averaged NEC is violated on an open interval
+  around every throat; Olum's theorem makes WEC violation on the path
+  compulsory for superluminal travel, as he defines it, with NO staticity, NO
+  symmetry and NO sphericity, so the bill never rested on certify.py in the
+  first place -- neither is shown here to reach the corridor itself; and
+  nonstatic.py measured the engineering,
   where sustaining contraction costs nothing at all but the anchor lemma and the
   displacement bound close the corridor anyway -- 86.6 % of the span given away
   at Gamma = 2, and a band that shrinks towards 2 eps of a crossing however hard

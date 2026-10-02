@@ -24,8 +24,24 @@ symmetric throat, which is the only object in play with both an axis and a
 genuine contraction factor, and which is unpriced in any geometry.
 
     THE AXIS DOES NOT ESCAPE THE SIGN.  Axial contraction forces negative
-    energy density, on a regular axis, in an asymptotically flat spacetime,
-    WITH NO ENERGY CONDITION ASSUMED ANYWHERE.
+    energy density, on a regular axis, in a spacetime asymptotically flat in
+    THIS FILE'S SENSE (W -> r with W' -> 1, so no angular deficit at
+    infinity, and W Psi' -> 0), WITH NO ENERGY CONDITION ASSUMED ANYWHERE.
+
+    CORRECTED (DOCKET 67).  As first written this said "in an asymptotically
+    flat spacetime", which reads as the general notion.  It is not: the
+    cylindrical literature groups "flat or string" asymptotics (a string
+    exterior is locally flat with W' -> k < 1), and W' -> 1 excludes the
+    string kind, which is what a static cylinder with u >= 0 and mu > 0 has
+    (DOCKET 67 computed W' -> 1 - 4 mu for it; the vocabulary is from a search
+    restatement, NOT READ).  Two consequences DOCKET 67 computed, and they are
+    what the theorem means: INSIDE this class u >= 0 everywhere already forces
+    u == 0, Psi' == 0 and W == r, with or without contraction (a profile with
+    Psi' == 0 and W = r + 0.4 r^3 e^{-r^2} has min u = -0.0955), so "u < 0
+    somewhere" is carried by the boundary conditions and not by contraction
+    alone; and on the WIDER string-asymptotic class an explicit contracting
+    profile with a regular axis has u >= 0 everywhere.  The theorem holds on
+    the class stated here and is not claimed beyond it.
 
 Take the general static cylindrically symmetric metric
 
@@ -41,8 +57,10 @@ fixing -- it just says r is proper radial distance -- and in that gauge
         8 pi u W  =  -(W Psi')'  -  W Psi'^2  -  W''
 
 Integrate from the axis to infinity.  A REGULAR AXIS gives W(0) = 0 and
-W'(0) = 1; ASYMPTOTIC FLATNESS gives W -> r, so W' -> 1, and Psi' -> 0 fast
-enough that W Psi' -> 0.  Both boundary terms vanish and
+W'(0) = 1 (with phi of period 2 pi, which the metric above leaves unstated;
+under period 2 pi k the no-cone condition is k W'(0) = 1); ASYMPTOTIC
+FLATNESS gives W -> r, so W' -> 1, and Psi' -> 0 fast enough that W Psi' -> 0.
+Both boundary terms vanish and
 
     THE THEOREM:
 
@@ -51,6 +69,19 @@ enough that W Psi' -> 0.  Both boundary terms vanish and
     with equality IF AND ONLY IF Psi' == 0 identically.  So any axial variation
     at all -- any contraction, however slight -- makes the W-weighted total
     energy density strictly negative, and therefore makes u < 0 somewhere.
+
+    CORRECTED (DOCKET 67).  "Both boundary terms vanish" needs W Psi' -> 0 at
+    the AXIS as well as at infinity, i.e. Psi' = o(1/r) at r = 0.  W(0) = 0
+    and W'(0) = 1 do not supply it (Psi = a log(r/(1+r)) keeps W'(0) = 1 with
+    W Psi' -> a).  A smooth axis in Mars & Senovilla's sense (gr-qc/0201045,
+    READ by DOCKET 67) does supply it: DOCKET 67 computed that smoothness makes
+    Psi' = O(r).  Without it the sign survives -- INT W Psi'^2 then diverges
+    logarithmically and the weighted energy goes to -inf -- and only the
+    equality form needs the axis condition.  And "fast enough" is narrower
+    than it reads: in vacuum A Psi' is constant
+    (A = W e^{Psi+Phi}, from R^z_z = -(A Psi')'/A), so W Psi' -> 0
+    forces Psi' == 0 outside the matter, admitting only the sigma = 0 (flat
+    or conical) Levi-Civita exterior (DOCKET 67, computed).
 
 THREE THINGS ABOUT IT ARE WORTH MORE THAN THE THEOREM ITSELF.
 
@@ -134,6 +165,29 @@ integral.
     "you need negative energy density" is "put a negative linear mass density
     on the axis", which is the requirement restated rather than avoided.
 
+    CORRECTED (DOCKET 67).  The paragraph above, as first written, is
+    broader than its source.  Vilenkin (PRD 23 (1981) eq. 20, READ by DOCKET
+    67) gives the linearised deficit as 4 pi G (mu - p), p the axial
+    pressure.  8 pi G mu is the VACUUM string's, p = -mu (boost invariant,
+    T^z_z = T^t_t); a regular massive rod, p = 0, which is what "ordinary
+    matter" names, has 4 pi G mu.  So the coefficient holds for the vacuum
+    string only, and an excess needs mu - p < 0: a negative mu, OR a positive
+    mu with axial pressure p > mu (DOCKET 67: mu = 0.01, p = 0.02 gives deficit
+    -0.1257).  That second case lies outside this file's class.
+    WITH_CONICAL_DEFECT below keeps W Psi' -> 0 at r = 0, which for a thin
+    string is p = -mu at first order (Vilenkin's h_33 = 4G(mu + p) ln r), and
+    inside that class DOCKET 67 computed deficit >= 8 pi G mu, so an excess
+    there does force INT u dA < 0.  The sentence "an angle excess is the
+    deficit of a negative mu" is exact on that class, and the hypothesis is
+    now named at WITH_CONICAL_DEFECT.
+
+    CORRECTED (DOCKET 67).  The conical term was examined only at the AXIS.
+    The same identity at INFINITY carries +(1 - W'(inf)) (DOCKET 67,
+    computed): a deficit at infinity -- what positive-mu matter makes -- enters
+    with the POSITIVE sign, and only the asymptotic condition W' -> 1 of
+    section 0 excludes it.  The verdict is stated on that class (section 0's
+    correction).
+
     RECORDED AND NOT DISMISSED.  It is written into the identity, the selftest
     measures it, and anyone who wants to argue for an angle excess on other
     grounds has the exact term it would have to supply.
@@ -181,10 +235,27 @@ THEOREM = "INT_0^inf 8 pi u W dr = -INT_0^inf W Psi'^2 dr <= 0"
 EQUALITY_IFF = "Psi' == 0 identically"
 WITH_CONICAL_DEFECT = ("INT_0^inf 8 pi u W dr = -INT_0^inf W Psi'^2 dr "
                        "+ (W'(0) - 1)")
+#: CORRECTED (DOCKET 67): what WITH_CONICAL_DEFECT keeps and did not say.  It
+#: drops the axis end of the boundary term, so it assumes W Psi' -> 0 at
+#: r = 0 even where W'(0) != 1; for a thin string that is p = -mu at first
+#: order (Vilenkin eq. 20).  Outside it the "negative mu" reading of section 3
+#: does not hold (an axial pressure p > mu also gives an excess).
+CONICAL_CASE_HYPOTHESIS = ("W Psi' -> 0 at r = 0 as well as at infinity "
+                           "(thin string: axial pressure p = -mu)")
 
 #: The two boundary conditions the theorem needs, and nothing else.
-HYPOTHESES = ("regular axis: W(0) = 0 and W'(0) = 1",
-              "asymptotic flatness: W -> r, so W' -> 1, and W Psi' -> 0")
+#: CORRECTED (DOCKET 67): as first written (HYPOTHESES_AS_FIRST_WRITTEN) the
+#: tuple left out the 2 pi period of phi, under which W'(0) = 1 is the no-cone
+#: condition, put W Psi' -> 0 at infinity only although section 0 needs it at
+#: the axis too, and left "no angular deficit at infinity" inside "W' -> 1"
+#: unflagged.  Still two conditions; specthm's H_axial reads this tuple.
+HYPOTHESES = ("regular axis: phi of period 2 pi, W(0) = 0 and W'(0) = 1, "
+              "and W Psi' -> 0 at r = 0",
+              "asymptotic flatness: W -> r, so W' -> 1 (no angular deficit at "
+              "infinity), and W Psi' -> 0")
+HYPOTHESES_AS_FIRST_WRITTEN = (
+    "regular axis: W(0) = 0 and W'(0) = 1",
+    "asymptotic flatness: W -> r, so W' -> 1, and W Psi' -> 0")
 
 #: Not used, and the file is worth less if this is forgotten.
 ENERGY_CONDITION_USED = None
@@ -380,6 +451,7 @@ def report():
     print("THE THEOREM  %s" % THEOREM)
     print("  equality iff %s" % EQUALITY_IFF)
     print("  with a conical defect: %s" % WITH_CONICAL_DEFECT)
+    print("    which keeps: %s" % CONICAL_CASE_HYPOTHESIS)
     print("\nHYPOTHESES, and there are only two:")
     for h in HYPOTHESES:
         print("  - %s" % h)
@@ -431,8 +503,9 @@ def selftest():
     chk("four defects measured", len(CONICAL_TERM), 4)
     chk("and the excess equals the defect at each",
         all(abs(d - ex) < 1e-9 for d, ex in CONICAL_TERM), True)
-    chk("an angle EXCESS is the deficit of a NEGATIVE linear mass density, "
-        "so it restates the requirement", AXIS_ESCAPES_THE_SIGN, False)
+    chk("on the class W Psi'(0) = 0, an angle EXCESS is the deficit of a "
+        "NEGATIVE linear mass density, so it restates the requirement",
+        AXIS_ESCAPES_THE_SIGN, False)
 
     print("\n4. WHAT THE THEOREM DOES NOT USE")
     chk("no energy condition", ENERGY_CONDITION_USED, None)

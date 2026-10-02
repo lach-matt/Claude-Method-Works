@@ -81,7 +81,10 @@ than the failure, and there is one escape that this pass does NOT close.
       kg/m = 2.72479e12 solar masses, agreeing to 0.02 %.  So the mass that
       MAKES the corridor and the stock demanded AT THE FAR END are the same
       number.  Whether that is one quantity carried under two names, or the
-      same bill genuinely due twice, is NOT decided here.
+      same bill genuinely due twice, is NOT decided here.  (4.2465 ly is the
+      tree's Proxima distance, ledger.PROXIMA_LY.  phase1.py prices the
+      "Alpha Centauri" corridor at 4.0 ly, 6.2 % less: one corridor at two
+      distances in one tree -- recorded in DOCKET 67, not resolved here.)
 
     python3.12 mouth.py            full report
     python3.12 mouth.py --selftest
@@ -100,7 +103,9 @@ LY = ladder.LY
 M_EARTH = ladder.M_EARTH
 M_SUN = ladder.M_SUN
 M_JUPITER = 1.89813e27          # RECALLED
-RHO_NUCLEAR = 2.3e17            # kg/m^3, RECALLED
+RHO_NUCLEAR = 2.3e17            # kg/m^3, RECALLED (n0 = 0.1375 fm^-3 x m_p)
+# address.py's RHO_NUCLEAR is 2.676e17 (n0 = 0.16 fm^-3 x m_N): the tree carries
+# two nuclear densities 16 % apart -- recorded in DOCKET 67, not resolved here.
 FOOT = 0.3048                   # exact by definition
 
 MOUTH_DIAMETER_FT = 10.0

@@ -51,6 +51,14 @@ exceeds its own Schwarzschild bound by 2 pi^2/3 = 6.5797.  The two constants
 differ by EXACTLY 3.  Two independent derivations, one from entropy and one
 from collapse, landing on the same number.
 
+    CORRECTED (DOCKET 67, S-2 follow-on): the collapse constant 2 pi^2/3 holds
+    only for T_kk = u along the ray (pressureless matter) on a radius chord, so
+    "differ by exactly 3" is a cross-check at T_kk = u, not at every seat.
+    Over H_ball as written the ratio is (2 pi^2/3)/((T_kk/u)(s/l)^2): on a
+    diameter 1.6449 pressureless, 1.2337 for radiation, 0.8225 for T_kk = 2u,
+    and <= 1 for w >= pi^2/6 - 1 = 0.6449.  specthm now holds class S-2 OPEN
+    (fact SR2 refused); report() asks specthm.sturm_over_ball for the figures.
+
 -- SO THERE ARE TWO GAPS, AND THEY MEAN DIFFERENT THINGS ----------------------
         AGAINST WHAT PHYSICS PERMITS IN PRINCIPLE   20x        (holographic)
         AGAINST WHAT CAN ACTUALLY BE MADE           1e65       (Ford-Roman)
@@ -98,7 +106,8 @@ is M's:
            holographic bound -- twenty times what any region can hold"
 
 The second is a better statement of the same fact.  It names the right variable,
-it is scale-free, it cross-checks against an unrelated derivation, and it says
+it is scale-free, it cross-checks against an unrelated derivation (at T_kk = u
+along the ray -- see the DOCKET 67 correction above), and it says
 precisely which limit is being exceeded and by how much.
 
 stdlib only.  seatindex.py supplies the threshold, spec.py the collapse factor
@@ -134,7 +143,8 @@ def holographic_excess(L):
 
 
 def collapse_factor():
-    """spec.py's independent constant, from gravitational collapse."""
+    """spec.py's independent constant, from gravitational collapse -- the
+    radius-chord ratio at T_kk = u along the ray (pressureless matter)."""
     return 2.0 * math.pi ** 2 / 3.0
 
 
@@ -224,6 +234,13 @@ def report():
     print("\n  excess = 2 pi^2 = %.4f, at every scale." % (2 * math.pi ** 2))
     print("  spec.py's collapse factor = %.4f.  They differ by exactly 3."
           % collapse_factor())
+    import specthm
+    sb = specthm.sturm_over_ball(collapse_factor())
+    print("  (DOCKET 67: the collapse factor is the T_kk = u radius ratio.  Over")
+    print("  H_ball as written, on a diameter: %.4f pressureless, %.4f radiation,"
+          % (sb["dust_diameter"], sb["radiation_diameter"]))
+    print("  %.4f at T_kk = 2u; <= 1 for w >= %.6f.  Class S-2 is OPEN.)"
+          % (sb["member_diameter"], sb["w_threshold_diameter"]))
     print("\n" + "=" * 79)
     print("VERDICT")
     print("  M's instinct is right: negative energy density IS an entanglement")

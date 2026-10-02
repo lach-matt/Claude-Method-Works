@@ -22,6 +22,17 @@ And metric transport faster than light is not speculative there.  It is measured
   PINNED, Planck 2018 (arXiv:1807.06209): H0 = 67.36 km/s/Mpc, age 13.797 Gyr,
   comoving particle horizon 14.26 Gpc.
 
+  CORRECTED (DOCKET 67).  The two Planck figures are Table 2's TT,TE,EE+lowE+
+  lensing 68% values, H0 = 67.36 +- 0.54 and age 13.797 +- 0.023 Gyr, and
+  Planck calls H0 "inferred (model-dependent)" under base-LCDM, "in
+  significant, 3.6 sigma, tension with local measurements" (4.4 sigma in its
+  conclusions).  The 14.26 Gpc horizon is NOT printed in the Planck pages
+  read; its origin is NAMED-NOT-READ.  Flat base-LCDM with Planck's own Table
+  2 column gives 14.147 Gpc, so 14.26 is 0.80% high (WMAP-era parameters give
+  14.28).  The recession at the horizon then reads about 3.18 c rather than
+  3.204 c -- superluminal either way, and no verdict here uses more than the
+  sign of H0.
+
 stdlib only.
 """
 import math, sys
@@ -31,9 +42,12 @@ MPC = 3.0856775814913673e22
 GLY = 9.4607304725808e24
 YR  = 3.15576e7        # Julian year, 365.25 x 86400 -- must match GLY
 
-H0_KMSMPC   = 67.36          # PINNED Planck 2018
-AGE_GYR     = 13.797         # PINNED
-HORIZON_GPC = 14.26          # PINNED, comoving particle horizon
+H0_KMSMPC   = 67.36          # PINNED Planck 2018 (+- 0.54; base-LCDM, model-
+                             # dependent; 3.6-4.4 sigma tension -- DOCKET 67)
+AGE_GYR     = 13.797         # PINNED (+- 0.023)
+HORIZON_GPC = 14.26          # PINNED, comoving particle horizon.  DOCKET 67: not
+                             # in the Planck pages read (origin NAMED-NOT-READ);
+                             # Planck's Table 2 column gives 14.147, 0.80% lower
 
 def H0():
     """s^-1."""

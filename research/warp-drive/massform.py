@@ -124,70 +124,72 @@ MASS FORMS) AND TEMPLATE (THE HELD-SEAT RELEASE ROUTE, PRICED).
      source.  That is EXCITATION's remainder, the pair route, and it is
      priced (section 4), not dismissed.
   M65-2 SHARE.  C2: the Higgs gives the payload 3.010e-4 of its mass through
-     the electrons (H-TREE: their mass is proportional to phi); in the
-     nucleons, AT FIRST ORDER (H-LINEAR), the quark-mass part is 9.28 % (FLAG
-     2+1) to 10.85 % (FLAG 2+1+1) of their mass by the READ sigma terms.  The
-     largest central reading of all the READ rows is Ji's quark-mass term in
-     his m_s -> 0 column, 17.04 % of the nucleon.  Only if the heavy-quark
-     trace-anomaly coupling is counted, which is CONTESTED as a mass share,
-     does it reach 0.2944 to 0.3066.
-     Every row puts the Higgs below half of the atomic mass -- as a
-     FIRST-ORDER (sigma-term) response at the physical point with the QCD
-     scale held fixed (H-LINEAR).  At first order the rest is QCD.  THE
-     FINITE SHARE, with the field switched off, where the heavy-quark
-     thresholds and the QCD scale move too, is OPEN: not computed, not read,
-     and whether it exceeds half is undecided here.  C2 answers DISPLACEMENT,
-     and there a SMALL displacement only; a finite one is OPEN, and C3
-     carries the refusal regardless: a small displacement of phi is exactly
-     a first-order response, so H-LINEAR applies and is the right measure
-     there, and at first order, with the QCD scale held fixed (H-LINEAR),
-     only the quark-mass part moves.  It does NOT answer SWITCH-ON, STOCK or
-     TEMPLATE, which ask what the field GIVES, the finite counterfactual C2
-     does not measure.  Nor does it
-     answer CREATION or QUANTA: if the triggered field or its quanta paid for
-     the mass, the QCD share would be paid out of that same energy, so how
-     the nucleon's mass divides says nothing there.
+     the electrons (H-TREE: their mass is proportional to phi); in the nucleons,
+     AT FIRST ORDER (H-LINEAR), the quark-mass part is 9.28 % (FLAG 2+1) to
+     10.85 % (FLAG 2+1+1) of their mass by the READ sigma terms.  The largest
+     central reading of all the READ rows is Ji's quark-mass term in his
+     m_s -> 0 column, 17.04 % of the nucleon -- a leading-order entry built on
+     his 1994 inputs, not a current determination (section 2).  Only if the
+     heavy-quark trace-anomaly coupling is counted, which is CONTESTED as a mass
+     share, does it reach 0.2944 to 0.3066.  Every row puts the Higgs below half
+     of the atomic mass -- as a FIRST-ORDER (sigma-term) response at the
+     physical point with the QCD scale held fixed (H-LINEAR).  At first order
+     the rest is QCD.  THE FINITE SHARE, with the field switched off, where the
+     heavy-quark thresholds and the QCD scale move too, is OPEN: not computed,
+     not read, and whether it exceeds half is undecided here.  C2 answers
+     DISPLACEMENT, and there a SMALL displacement only; a finite one is OPEN,
+     and C3 carries the refusal regardless: a small displacement of phi is
+     exactly a first-order response, so H-LINEAR applies and is the right
+     measure there, and at first order, with the QCD scale held fixed
+     (H-LINEAR), only the quark-mass part moves.  It does NOT answer SWITCH-ON,
+     STOCK or TEMPLATE, which ask what the field GIVES, the finite
+     counterfactual C2 does not measure.  Nor does it answer CREATION or QUANTA:
+     if the triggered field or its quanta paid for the mass, the QCD share would
+     be paid out of that same energy, so how the nucleon's mass divides says
+     nothing there.
   M65-3 THE ONLY CANDIDATE SOURCE IN M'S SENTENCE.  C4: the triggered Higgs
      field has no energy to give.  Its energy density about v is
-     (1/2)phi_t^2 + (1/2)|grad phi|^2 + rho_EW eps^2(2-eps)^2, a sum of
-     squares, zero only in the vacuum (THEOREM on H-TREE-V, asked of
-     higgs.T_scalar and excite, for the real scalar higgs.T_scalar models;
-     that the doublet's other components and the gauge fields add only
-     non-negative terms is H-REAL, claimed and not computed).  Any change of
-     phi about v COSTS energy.  The one way a Higgs field could RELEASE
-     energy is decay of a metastable electroweak vacuum to a deeper one.  At
-     the central measured masses metastability is preferred but not
-     established: "we cannot conclusively establish the fate of the EW
-     vacuum, although metastability is now preferred at 99.3% CL", and "the
-     main source of uncertainty" is the top mass (READ).  If it decays, a
-     bubble of true vacuum expands at near the speed of light, with "the
-     different masses of fundamental particles in the bubble interior"
-     (READ).  INFERENCE from that READ text, on the named hypothesis
-     H-BRIDGE (section 6): decay forms no atomic mass at
-     the seat, since it replaces the vacuum in which atomic masses have their
-     values.  Stable or metastable, then, the field supplies no mass-energy
-     at the seat.  The energy must come in the signal's CARRIER: Mc^2 =
-     6.2913e18 J, 1504 megatons, or 1.9975 Mc^2 with B and L conserved.
+     (1/2)phi_t^2 + (1/2)|grad phi|^2 + rho_EW eps^2(2-eps)^2, a sum of squares,
+     zero only in the vacuum (THEOREM on H-TREE-V, asked of higgs.T_scalar and
+     excite, for the real scalar higgs.T_scalar models, pointwise for a
+     minimally coupled classical field, H-MIN, H-CLASSICAL; that the doublet's
+     other components and the gauge fields add only non-negative terms is
+     H-REAL, claimed and not computed).  Any change of phi about v COSTS energy
+     (integrated).  The one way a Higgs field could RELEASE energy (this file's
+     claim) is decay of a metastable electroweak vacuum to a deeper one.  At the
+     central measured masses metastability is preferred but not established: "we
+     cannot conclusively establish the fate of the EW vacuum, although
+     metastability is now preferred at 99.3% CL", and "the main source of
+     uncertainty" is the top mass (READ).  If it decays, a bubble of true vacuum
+     expands at near the speed of light, with "the different masses of
+     fundamental particles in the bubble interior" (READ).  INFERENCE from that
+     READ text, on the named hypothesis H-BRIDGE (section 6): decay forms no
+     atomic mass at the seat, since it replaces the vacuum in which atomic
+     masses have their values.  Stable or metastable, then, the field supplies
+     no mass-energy at the seat.  The energy must come in the signal's CARRIER:
+     Mc^2 = 6.2913e18 J, 1504 megatons, or 1.9975 Mc^2 with B and L conserved.
      This answers the CREATION reading.
   M65-4 CONSERVATION.  C3: every Yukawa term is a fermion bilinear, so no
-     Higgs coupling carries B or L.  The payload holds 4.2109e28 baryons and
-     2.3132e28 electrons, so B - L = N_n = 1.8977e28.  With B and L conserved,
-     making it from energy needs at least 1.9975 Mc^2, and 4.2109e28 units of
-     antibaryon number must be held apart: that is the pair route, priced.  The
-     only Standard Model violation of B comes from the SU(2) anomaly, with
-     Delta B = Delta L = 3 per unit of Chern-Simons number.  At zero
-     temperature it is INSTANTON tunnelling, suppressed by 10^-160.95 per
-     transition (a figure that inherits NAMED-NOT-READ through v); the payload
-     needs 1.4036e28 transitions.  Thermally it goes over the SPHALERON
-     (whether two-particle collisions at high energy do is CONTESTED, section
-     4), a gauge-Higgs saddle whose height the vev sets, 3226 times the rest
-     energy of the 3 baryons one transition makes.  Above T_c the thermal
+     renormalisable Higgs coupling carries B or L (H-DIM4, section 6).  The
+     payload holds 4.2109e28 baryons and 2.3132e28 electrons, so
+     B - L = N_n = 1.8977e28.  With B and L conserved, making it from energy
+     needs at least 1.9975 Mc^2, and 4.2109e28 units of antibaryon number must
+     be held apart: that is the pair route, priced.  In the Standard Model B is
+     violated only through the anomaly.  The route priced here is the SU(2) one,
+     with Delta B = Delta L = 3 per unit of Chern-Simons number; hypercharge
+     Chern-Simons change also moves B + L, not in integer steps of N_f, and both
+     conserve B - L.  At zero temperature it is INSTANTON tunnelling, suppressed
+     by 10^-160.95 per transition (a figure that inherits NAMED-NOT-READ through
+     v); the payload needs 1.4036e28 transitions.  Thermally it goes over the
+     SPHALERON (whether two-particle collisions at high energy do is CONTESTED,
+     section 4), a gauge-Higgs saddle whose height the vev sets, 3226 times the
+     rest energy of the 3 baryons one transition makes.  Above T_c the thermal
      sphaleron transitions are unsuppressed and the vev is approximately zero.
-     Below T_c they keep running down to T* = 131.7 GeV, where the vev is
-     finite (READ).  At collider energies the two-particle rate is CONTESTED:
-     the prevalent semiclassical results find it exponentially suppressed,
-     resting on conjectures and assumptions they state as unproven, and Tye and
-     Wong dissent, stating that "both estimates involve assumptions based on
+     Below T_c they keep running down to T* = 131.7 GeV, where the vev is finite
+     (READ).  At collider energies the two-particle rate is CONTESTED: the
+     prevalent semiclassical results find it exponentially suppressed, resting
+     on conjectures and assumptions they state as unproven, and Tye and Wong
+     dissent, stating that "both estimates involve assumptions based on
      intuitions as well as approximations remaining to be fully justified" and
      calling their own figure "only an order of magnitude guesstimate"; it is
      recorded, not resolved, and nothing is refused on it.  C3 answers
@@ -209,22 +211,30 @@ MASS FORMS) AND TEMPLATE (THE HELD-SEAT RELEASE ROUTE, PRICED).
 THE CONSIDERATION, COMPUTED.  At tree level in unitary gauge, "the masses of the
 W+/- and Z0 weak vector bosons and the fermions are proportional to phi"
 (Morrissey & Ramsey-Musolf 1206.2942 p.4, READ).  So m_f = y_f v/sqrt(2).  If
-m_f > 0 at a place, then phi != 0 at that place.  The electron mass in the
-capture is 0.510998951 MeV (READ).  Wherever the payload's elements exist with
-their measured masses, therefore, the Higgs field has its vev.  THEOREM, on
-H-TREE.
+m_f > 0 at a place, then phi != 0 at that place -- on H-1DOUBLET (one Higgs
+doublet: then any gauge-invariant mass function vanishes at phi = 0, so the step
+survives well beyond linearity; it fails if a second doublet carries a vev) and
+H-LOCAL (reading phi(x) at a place as a local rest-mass background, which needs
+phi to vary slowly over the fermion's Compton wavelength).  The electron mass in
+the capture is 0.510998951 MeV (READ: the capture's nine-figure rendering of
+PDG's printed value).  Wherever the payload's elements exist with their measured
+masses, therefore, the Higgs field has its vev.  THEOREM, on H-TREE.
 
-The Yukawas y_f = sqrt(2) m_f / v are computed from the READ masses for all
-nine charged fermions.  The top's is 0.9914 and the electron's is 2.935e-6.
-Every y_f inherits G_F's NAMED-NOT-READ through v = higgs.vev().
+The Yukawas y_f = sqrt(2) m_f / v are computed from the READ masses for all nine
+charged fermions.  The top's is 0.9914 and the electron's is 2.935e-6.  Every
+y_f inherits G_F's NAMED-NOT-READ through v = higgs.vev() -- higgs.py's label,
+kept conservatively: DOCKET 67 READ G_F in PDG 2024, identical to the pin.
 
 THE SWITCH-ON READING.  P-UNIFORM: where nothing sources it, the vev takes one
 value everywhere.  This is a PREMISE, named.  It is higgs.py's caveat (b) as it
-survives DOCKET 63 F3 (the prohibition was withdrawn, the price kept), and it
-is supported by the measured constancy of fermion masses, which is not read
-here.  No owner boolean asserts it, so none is asked for it.  On P-UNIFORM the
-field at the seat before arrival already has the value it has wherever massive
-matter is measured, so arrival has nothing to switch on (C1).
+survives DOCKET 63 F3 (the prohibition was withdrawn, the price kept).  Its
+support is the measured constancy of fermion-mass RATIOS, not read in this file,
+and that support is narrower than the premise: it holds at finite precision, at
+the matter-bearing places sampled, and bears on v only with the Yukawas and the
+high-scale strong coupling held fixed (H-YUK-FIXED, H-AS-FIXED; section 6).  No
+owner boolean asserts it, so none is asked for it.  On P-UNIFORM the field at
+the seat before arrival already has the value it has wherever massive matter is
+measured, so arrival has nothing to switch on (C1).
 
 THE STOCK READING: PRIOR MASS (C5).  STOCK puts the elements at the seat before
 anything arrives, and asks the triggered field to give them their mass.  But an
@@ -305,13 +315,14 @@ there is no off state at the seat for arrival to end.
 2.  M65-2  SHARE -- WHAT PART OF THE PAYLOAD'S MASS THE HIGGS SUPPLIES
 ===============================================================================
 
-The payload is stock.HUMAN (ICRP Reference Man, CITED by stock.py) at
-stock.py's own default of 70 kg, asked through inspect (regenerated).  No
-fraction is retyped.  The atom count of element e is f_e M / (A_r(e) u).  The
-electrons number Z per atom, with Z READ from the AME2020 capture through
-gravity.symbol_to_Z().  The nucleons number A per atom, on H-A.  Every count,
-and so every payload share below, INHERITS NAMED-NOT-READ through u =
-gravity.U_KG and stock.ATOMIC_MASS.
+The payload is stock.HUMAN (ICRP Reference Man -- a male reference adult; later
+ICRP publications amend and revise it and are not used here -- CITED by
+stock.py) at stock.py's own default of 70 kg, asked through inspect
+(regenerated).  No fraction is retyped.  The atom count of element e is f_e M /
+(A_r(e) u).  The electrons number Z per atom, with Z READ from the AME2020
+capture through gravity.symbol_to_Z().  The nucleons number A per atom, on H-A.
+Every count, and so every payload share below, INHERITS NAMED-NOT-READ through
+u = gravity.U_KG and stock.ATOMIC_MASS.
 
 THE MEASURES OF THE NUCLEONS' HIGGS PART, KEPT APART:
 
@@ -338,21 +349,33 @@ THE MEASURES OF THE NUCLEONS' HIGGS PART, KEPT APART:
      CONTESTED, and neither is chosen: both are printed and
      the verdict uses the larger.  The chiQCD lattice gives 9(2)(1)% (READ).
   JI.  Table I of Ji's decomposition gives the quark mass term b as 160 MeV
-     (m_s -> 0) and 110 MeV (m_s -> infinity), READ: 17.04 % and 11.72 % of
-     the nucleon.  His prose rounds this to "about 1/8".  Ji rounded every
-     entry to 10 MeV; the errors he did not show (higher orders, the sigma
-     term, the current quark masses) come to 5 to 10 MeV (READ).  His
-     largest uncertainty is larger: "The largest uncertainty is from the
-     matrix element <P|m_s ss|P>, which could be larger than the difference
-     of the two estimates shown" (p.6, READ), and that difference is 50 MeV.
-  HEAVY QUARKS.  The SVZ relation gives f_TQ = (2/27)(1 - f_l) for each of c,
-     b, t (Ellis-Olive-Savage eq. (10), READ; SVZ 1978 CITED).  The coupling
-     sum is 2/9 + (7/9) f_l, which is 0.3066 and 0.2944 here against
-     Hoferichter et al.'s 0.305(9) (READ).  The algebra is checked exactly
-     over Fraction.  AS THE SOURCE STATES IT this is the Higgs's COUPLING to
-     the nucleon, and Ji: "the contributions cancel each other in the limit of
-     m_f -> infinity".  FLAG also prints a charm sigma term, up to 107(22) MeV
-     (ETM 19, READ).  Counting heavy-quark terms as mass the Higgs MAKES is
+     (m_s -> 0) and 110 MeV (m_s -> infinity), READ: 17.04 % and 11.72 % of the
+     nucleon.  These are leading-order entries with three light flavours, built
+     on Ji's 1994 inputs for the pion-nucleon sigma term and the quark masses
+     (see JI_QUARK_MASS_MEV), and are printed as his reading, not as a current
+     determination.  His prose rounds this to "about 1/8".  Ji rounded every
+     entry to 10 MeV; the errors he did not show (higher orders, the sigma term,
+     the current quark masses) come to 5 to 10 MeV (READ).  His largest
+     uncertainty is larger: "The largest uncertainty is from the matrix element
+     <P|m_s ss|P>, which could be larger than the difference of the two
+     estimates shown" (p.6, READ), and that difference is 50 MeV.
+  HEAVY QUARKS.  At LEADING ORDER in alpha_s and in the heavy-quark limit --
+     applied to charm too -- the SVZ relation gives f_TQ = (2/27)(1 - f_l) for
+     each of c, b, t (Ellis-Olive-Savage eq. (10), READ; SVZ 1978 CITED).  The
+     coupling sum is 2/9 + (7/9) f_l, which is 0.3066 and 0.2944 here against
+     Hoferichter et al.'s 0.305(9) (READ).  The algebra of the leading-order
+     relation is checked exactly over Fraction; the relation itself is not exact
+     (beyond leading order the sum rises by a few per cent).  Its isospin
+     conventions: the Hoferichter row uses the charged-pion one, the FLAG rows
+     the neutral-pion one, and one number is applied to proton and neutron alike
+     (see the share rows).  AS THE SOURCE STATES IT this is the Higgs's COUPLING
+     to the nucleon, and Ji: "the contributions cancel each other in the limit
+     of m_f -> infinity".  FLAG also prints a charm sigma term, up to 107(22)
+     MeV (ETM 19, READ) -- one N_f = 2+1+1 ensemble with no continuum
+     extrapolation, the larger of the values FLAG quotes beside RQCD 16's
+     N_f = 2 estimate, and above the leading-order relation's charm value by
+     about two of its sigma; ETM's own continuum successor is lower (see
+     SIGMA_C_ETM19).  Counting heavy-quark terms as mass the Higgs MAKES is
      CONTESTED.  They are printed with that label and never added to the READ
      rows.
 
@@ -367,14 +390,14 @@ figure here that H-A moves materially: raising every mean nucleon number by
 0.01 moves it by 0.1124 kg.  So it is printed to close the books, and nothing
 turns on it.
 
-    NO SINGLE HIGGS SHARE IS PRINTED.  C2 uses only the LARGEST CENTRAL
-    READING, computed twice: over the READ rows alone (0.1719 of the
-    payload) and over all of them (0.3090).  It is a largest central value,
-    not a bound: uncertainties are dropped.  AN ILLUSTRATION OF MARGIN, not
-    a bound either: FLAG's rows moved up by 3 sigma linearly (3 sigma is
-    this file's choice, not a stated uncertainty), Ji's by his 10 MeV of
-    omitted error plus that difference of his two estimates, which he
-    says the strange matrix element's uncertainty "could be larger than".
+    NO SINGLE HIGGS SHARE IS PRINTED.  C2 uses only the LARGEST CENTRAL READING,
+    computed twice: over the READ rows alone (Ji's leading-order row on his 1994
+    inputs sets it; 0.1719 of the payload) and over all of them (0.3090).  It is
+    a largest central value, not a bound: uncertainties are dropped.  AN
+    ILLUSTRATION OF MARGIN, not a bound either: FLAG's rows moved up by 3 sigma
+    linearly (3 sigma is this file's choice, not a stated uncertainty), Ji's by
+    his 10 MeV of omitted error plus that difference of his two estimates, which
+    he says the strange matrix element's uncertainty "could be larger than".
     The READ rows then reach 0.2362.  Nothing near one half AT FIRST ORDER.
 
 THE FINITE SHARE IS OPEN.  What the field GIVES -- the nucleon mass with phi at
@@ -404,33 +427,44 @@ points per axis (at least three are needed, and the function refuses fewer),
 which settles a polynomial of degree two in each derivative.  Measured from the
 vacuum, V(phi) - V(v) = rho_EW eps^2 (2 - eps)^2 with phi = v(1 - eps)
 (excite.FIELD_POLY, equal to excite.FIELD_CLOSED); that is the square of
-eps(2 - eps).  Every term is a square, so the field's energy above the vacuum
-is >= 0, and zero only where phi_t = 0, grad phi = 0 and |phi| = v.  ANY change
-of phi about v COSTS energy; the present vacuum has none to give up.  THEOREM,
-on the tree-level potential (H-TREE-V), for the real scalar that higgs.T_scalar
-models.  That the doublet's other components and the gauge fields add only
-non-negative terms is claimed, NOT computed and NOT read: it is the named
-hypothesis H-REAL (section 6), and C4 and D29 carry it.
+eps(2 - eps).  Every term is a square, so the field's energy density above the
+vacuum is >= 0, and zero only where phi_t = 0, grad phi = 0 and |phi| = v --
+POINTWISE only for a minimally coupled classical field in flat space (H-MIN,
+H-CLASSICAL; section 6): with xi != 0 the density gains -xi Lap(phi^2), which
+can go negative at a point while the integrated energy is unchanged, and a
+quantum field can hold negative local energy density.  ANY change of phi about v
+COSTS energy in the integrated sense (for the doublet, non-negative energy:
+motion along the vacuum orbit costs none); the present vacuum has none to give
+up.  THEOREM, on the tree-level potential (H-TREE-V), for the real scalar that
+higgs.T_scalar models.  That the doublet's other components and the gauge fields
+add only non-negative terms is claimed, NOT computed and NOT read: it is the
+named hypothesis H-REAL (section 6), and C4 and D29 carry it.
 
-THE ONE WAY A HIGGS FIELD COULD RELEASE ENERGY.  Beyond tree level, at the
-central measured masses, the potential has a deeper minimum at large field:
-"the Higgs vacuum does not reside in the configuration of minimal energy, but
-in a metastable state close to a phase transition" (Buttazzo et al. 1307.3536
-p.3, READ).  The instability sets in at "10^10-10^12 GeV" in field value
-(p.32).  STATUS, AS THE SOURCE GIVES IT: vacuum stability up to the Planck
-scale "is excluded at 2.8 sigma", the stability condition is
+THE ONE WAY A HIGGS FIELD COULD RELEASE ENERGY (this file's claim, not the
+source's).  Beyond tree level, at the central measured masses, and on H-SM-UV
+(the Standard Model valid up to very high scales, which the source assumes; new
+physics at any scale can open other tunnelling directions), the potential has a
+deeper minimum at large field: "the Higgs vacuum does not reside in the
+configuration of minimal energy, but in a metastable state close to a phase
+transition" (Buttazzo et al. 1307.3536 p.3, READ).  The instability sets in at
+"10^10-10^12 GeV" in field value (p.32), a gauge-dependent scale (the source's
+Landau-gauge figure).  STATUS, AS THE SOURCE GIVES IT: vacuum stability up to
+the Planck scale "is excluded at 2.8 sigma", the stability condition is
 M_t < (171.53 +/- 0.42) GeV, and "the main source of uncertainty in eq. (64)
 comes from M_t" (p.20); "we cannot conclusively establish the fate of the EW
-vacuum" (p.31).  Degrassi et al. 1205.6497 give the earlier 2 sigma, for
-M_h < 126 GeV (READ).
+vacuum" (p.31).  Degrassi et al. 1205.6497 give the earlier exclusion, "vacuum
+stability of the SM up to the Planck scale is excluded at 2 sigma (98% C.L. one
+sided) for M_h < 126 GeV", on their 2012 inputs (READ).
 So metastability is PREFERRED, not established, and it turns on the top mass.
 If the vacuum is metastable, "the SM vacuum is likely to survive for times that
-are enormously longer than any significant astrophysical age" (p.31).  If a
-bubble of true vacuum nucleates, it expands "at near the speed of light",
-"releasing energy into the bubble wall", with "the different masses of
-fundamental particles in the bubble interior" and a gravitational collapse of
-the bubble (Markkanen, Rajantie, Stopyra 1809.06923 p.24, READ); "it expands at
-the speed of light, destroying everything in its way" (p.54).
+are enormously longer than any significant astrophysical age" (p.31) -- an
+estimate the source makes with gravity neglected, noting that unknown Planckian
+dynamics can affect the tunnelling rate (p.30, not held here).  If a bubble of
+true vacuum nucleates, it expands "at near the speed of light", "releasing
+energy into the bubble wall", with "the different masses of fundamental
+particles in the bubble interior" and a gravitational collapse of the bubble
+(Markkanen, Rajantie, Stopyra 1809.06923 p.24, READ); "it expands at the speed
+of light, destroying everything in its way" (p.54).
 
 WHAT THAT MEANS FOR M'S MECHANISM, EXACTLY.  If the SM vacuum is stable, the
 triggered field has no energy to release at all.  If it is metastable, its one
@@ -448,12 +482,18 @@ reach C4.
 THE CARRIER.  A signal carries energy only through its carrier.  For mass to
 form, the carrier must deliver at least Mc^2 = 6.2913e18 J
 (warpfolder.rest_energy_j) if B is free.  If B and L are conserved it must
-deliver 1.9975 Mc^2 (section 4).  That is energy conservation.  THEOREM.
+deliver 1.9975 Mc^2 (section 4).  That is energy conservation, on H-TT
+(time-translation invariance: the floor is a local-frame one), H-POS (every
+other product carries non-negative energy) and H-ISO (the seat draws on no
+energy reached by another route).  THEOREM on those (section 6).
 
 SUPPORTING NOTE N-INFO (no verdict rests on it).  M's sentence makes the
-information the trigger, not the source, so this answers a link M did not
-state.  By energy conservation a bit brings only its carrier's energy.  The two
-information bounds confirm that neither supplies any:
+information the trigger, not the source, so this answers a link M did not state.
+Globally, by energy conservation, a bit brings no energy that was not supplied
+somewhere.  Locally that fails under H-ISO's failure: in Hotta's Quantum Energy
+Teleportation a classical message lets the destination extract energy, paid for
+by energy infused at the sender (READ by DOCKET 67; it is DOCKET 66's question,
+not run here).  The two information bounds confirm that neither supplies any:
   LANDAUER, at the CMB temperature.  At least k_B T ln 2 of heat per bit
      ERASED (Lloyd, Bennett; READ), computed by nopath.landauer_energy.  At
      permute.T_CMB = 2.7255 K that is 2.608e-23 J per bit, so Mc^2 equals the
@@ -487,12 +527,15 @@ warpfolder's M/m_p is 1.0062.  The excess is the nuclear binding, net of the
 neutrons' extra mass and the electrons.
 
 FROM ENERGY, WITH B AND L CONSERVED.  Every Yukawa term is a fermion bilinear.
-The selftest computes B = L = 0 for each one, so no Higgs coupling carries B or
-L (C3).  Higgs couplings DO create fermions, in fermion-antifermion pairs;
-what they cannot create is net baryon number.  So the payload must come with
-antimatter carrying B' = -B.  Its mirror costs exactly 2 Mc^2 (CPT).  The
-rigorous floor is Mc^2 + B mu_min c^2, where mu_min = 930.1746 MeV is the least
-nuclear mass per nucleon among the AME2020 capture's measured nuclides (56Fe).
+The selftest computes B = L = 0 for each one, so no renormalisable Higgs
+coupling carries B or L (C3, on H-DIM4: the dimension-5 Weinberg operator is a
+Higgs coupling carrying Delta L = 2; Higgs-bearing B carriers first appear at
+dimension 7, and B - L-conserving ones at dimension 8).  Higgs couplings DO
+create fermions, in fermion-antifermion pairs; what they cannot create is net
+baryon number.  So the payload must come with antimatter carrying B' = -B.  Its
+mirror costs exactly 2 Mc^2 (CPT).  The rigorous floor is Mc^2 + B mu_min c^2,
+where mu_min = 930.1746 MeV is the least nuclear mass per nucleon among the
+AME2020 capture's measured nuclides (56Fe).
 That gives 1.9975 Mc^2.  (H-AME: no bound state carries baryon number more
 cheaply.  Gravitational binding could, but it is of order G M/(R c^2) = 5.2e-26
 of the rest energy at R = 1 m: negligible at payload scale.)  AND THE ANTIMATTER
@@ -513,58 +556,84 @@ it.  On the pair route that balance is the antimatter.  On a B-violating,
 B-L-conserving route that makes no antibaryons, it is N_n extra leptons.
 
 WITH B VIOLATED: THE ANOMALY ROUTE.  B is violated in the Standard Model by the
-SU(2) anomaly: the fermion numbers change by the gauge field's topological
-number N[A] (Rubakov & Shaposhnikov eqs. (2.2)-(2.4), READ), so the violation
-is a property of the gauge field.  The selection rule is READ in the source's
-own order: "the factor 1/3 comes from the baryon number of a quark, while the
-factor 3 . 3 is due to colour and number of generations", so "Delta N_e =
-Delta N_mu = Delta N_tau = (1/3) Delta B ; (B - L) is conserved while (B + L) is
-violated".  That is Delta B = Delta L = N_f = 3 per transition, with N_f
-counted from the capture's charged leptons.  The Higgs's part is the barrier:
-the sphaleron is "the static saddle point solution to the Yang-Mills-Higgs
-equations" (READ), with E_sph = (2 m_W/alpha_W) B(m_H/m_W) = (4 pi v/g) B, set
-by the vev.  Two regimes, kept apart:
+anomaly; the route priced here is the SU(2) one (hypercharge Chern-Simons change
+also moves B + L, not in integer steps of N_f, and conserves B - L): the fermion
+numbers change by the gauge field's topological number N[A] (Rubakov &
+Shaposhnikov eqs.  (2.2)-(2.4), READ), so the violation is a property of the
+gauge field.  The selection rule is READ in the source's own order: "the factor
+1/3 comes from the baryon number of a quark, while the factor 3 . 3 is due to
+colour and number of generations", so "Delta N_e = Delta N_mu = Delta
+N_tau = (1/3) Delta B ; (B - L) is conserved while (B + L) is violated".  That
+is Delta B = Delta L = N_f = 3 per transition, with N_f counted from the
+capture's charged leptons, on H-3GEN (no further SU(2)-doublet generation,
+observed or not; section 6).  The Higgs's part is the barrier: the sphaleron is
+"the static saddle point solution to the Yang-Mills-Higgs equations" (READ),
+with E_sph = (2 m_W/alpha_W) B(m_H/m_W) = (4 pi v/g) B, set by the vev -- a
+classical, tree-level, zero-temperature saddle energy at theta_W = 0
+(H-CLASSICAL; the hypercharge correction is held separately, the 9.0 TeV with
+U(1) below).  Two regimes, kept apart:
 
   ZERO TEMPERATURE: INSTANTON TUNNELLING.  "At zero energies and
      temperatures, the transition between vacua with different n[omega] is a
-     tunnelling event which is described by instantons" (READ).
-     alpha_W = g^2/4 pi, with g = 2 m_W/v, m_W READ and v from higgs.vev():
-     1/29.49.  It INHERITS NAMED-NOT-READ through v.  The suppression,
+     tunnelling event which is described by instantons" (READ). alpha_W = g^2/4
+     pi, with g = 2 m_W/v, m_W READ and v from higgs.vev(): 1/29.49 -- the
+     tree-level G_mu-scheme coupling.  The source defines alpha_W = alpha/sin^2
+     theta_W, and the leading order fixes no scale or scheme (H-SCALE): across
+     standard schemes the exponent below moves by several decades, far more than
+     any move in G_F.  It INHERITS NAMED-NOT-READ through v.  The suppression,
      exactly as the source states it, exp(-4 pi/alpha_W) = exp(-16 pi^2/g^2):
-     10^-160.95 per transition.  No prefactor was read, so NO RATE IS
-     PRINTED.  To make the payload's 1.4036e28 transitions, (attempts) x
-     (prefactor) must reach 10^189.10.  RECORDED, NOT REPAIRED: Rubakov &
-     Shaposhnikov's own eq. (2.8) prints 10^-170 at alpha_W = 1/29, where the
-     arithmetic gives 10^-158.27, 11.73 decades apart; Tye-Wong's p.2
+     10^-160.95 per transition, a semiclassical, leading-order factor printed to
+     two decimals on H-SCALE.  'Per transition' and 'attempts' are this file's
+     framing: in the source the factor multiplies a rate.  No prefactor was
+     read, so NO RATE IS PRINTED.  To make the payload's 1.4036e28 transitions,
+     (attempts) x (prefactor) must reach 10^189.10.  RECORDED, NOT REPAIRED:
+     Rubakov & Shaposhnikov's own eq. (2.8) prints 10^-170 at alpha_W = 1/29,
+     where the arithmetic gives 10^-158.27, 11.73 decades apart; Tye-Wong's p.2
      pairing is 1.73 decades off (section 8).
   OVER THE BARRIER: THE SPHALERON.  E_sph = 4.740 TeV x B, with B between
-     1.56 and 2.72 (READ).  The READ values at the measured Higgs mass are
-     9.11 TeV (Tye-Wong, pure SU(2)), 9.08 TeV (Funakubo et al.) and 9.0 TeV
-     (with U(1)).  At 9.08 TeV the barrier is 3226 times the rest energy of
-     the 3 baryons one transition makes.  E_sph is a barrier HEIGHT, not a
-     rest-mass cost: over the payload's transitions the heights sum to 3246
-     Mc^2, and whether that energy is recovered is not computed.
+     1.56 and 2.72 (READ, as Rubakov & Shaposhnikov restate Klinkhamer-Manton; a
+     converged minimisation of the reduced functional gives both endpoints
+     slightly lower, a discrepancy whose cause is unknown -- see B_KM_RANGE --
+     and which does not reach the measured mass).  The READ values at the
+     measured Higgs mass are 9.11 TeV (Tye-Wong, pure SU(2)), 9.08 TeV (Funakubo
+     et al.) and 9.0 TeV (with U(1)).  At 9.08 TeV -- the pure-SU(2) saddle,
+     theta_W = 0; with U(1) the ratio is about one per cent lower -- the barrier
+     is 3226 times the rest energy of the 3 baryons one transition makes.  E_sph
+     is a barrier HEIGHT, not a rest-mass cost: over the payload's transitions
+     the heights sum to 3246 Mc^2, and whether that energy is recovered is not
+     computed.
+  THERMAL.  The figures below are lattice computations in a perturbatively
+     matched three-dimensional effective theory: dimensional reduction, the
+     treatment of U(1) and the lattice systematics enter only through the quoted
+     errors, and this file computes with central values.
   THERMAL, ABOVE T_c = 159.5 +/- 1.5 GeV (D'Onofrio-Rummukainen abstract,
-     READ), which is 1.851e15 K.  The rate is unsuppressed: the READ figure
-     is Gamma/T^4 = (8.0 +/- 1.3) x 10^-7.  The source's form (18 +/- 3)
-     alpha_W^5 absorbs factors of ln alpha_W into its constant, so at this
-     file's alpha_W, 8.07e-7, it is a cross-check only.  The Higgs field
-     there is "approximately zero" (READ), and fermion masses are
-     proportional to phi, so the Yukawa masses are approximately zero above
-     T_c: on the approximate-zero reading, and with H-THERM not asserted.
-     This is warpfolder.HEATING_TO_EW_SCALE_RESTORES_SYMMETRY, asked.
+     READ), which is 1.851e15 K.  The rate is unsuppressed: the READ figure is
+     Gamma/T^4 = (8.0 +/- 1.3) x 10^-7.  The source's form (18 +/- 3) alpha_W^5
+     absorbs factors of ln alpha_W into its constant, so at this file's alpha_W,
+     8.07e-7, it is a cross-check only.  The Higgs field there is "approximately
+     zero" (READ), and fermion masses are proportional to phi, so the Yukawa
+     masses are approximately zero above T_c: on the approximate-zero reading,
+     and with H-THERM not asserted.  That step is this file's inference, not the
+     source's: the source measures a renormalised condensate, which can become
+     negative, says nothing about fermion masses, and finds no true phase
+     transition; the proportionality is the zero-temperature tree-level
+     statement of 1206.2942.  This is
+     warpfolder.HEATING_TO_EW_SCALE_RESTORES_SYMMETRY, asked.
   THERMAL, BELOW T_c: THE BROKEN-PHASE WINDOW.  B freezes out at T* = 131.7
-     GeV (READ), BELOW T_c, so transitions keep running in T* < T < T_c
-     where the vev is finite: the broken phase "at T < T_c GeV where it is
-     finite" (READ).  The READ fit, "in the physically interesting
-     temperature range 130 GeV < T < T_c", is log(Gamma/T^4) = (0.83 +/-
-     0.01)T/GeV - (147.7 +/- 1.9).  Its T_c is its own paper's, "T_c = (159
-     +/- 1) GeV" (1404.3565 abstract, READ), and broken_phase_ln_rate() is
-     bounded by that 159 GeV, not by 1508.07161's 159.5.  The fit was
-     measured "In the interval 140 <~ T <~ 155 GeV" (p.3) and extended "down
-     to T ~ 130 GeV" on its match to perturbation theory (p.4), so the
-     report's 159 GeV lies at the stated range's edge and outside the
-     measured interval.  At T* that is -38.39, a rate of 2.13e-17 T^4; at
+     GeV (READ), BELOW T_c, so transitions keep running in T* < T < T_c where
+     the vev is finite: the broken phase "at T < T_c GeV where it is finite"
+     (READ).  T* is "The freeze-out temperature in the early Universe, where the
+     Hubble rate wins over the baryon number violation rate" (READ): it rests on
+     H-HUBBLE (section 6), and for a payload cooled faster than the Hubble rate
+     the window's lower edge lies higher, toward T_c, not at T*.  The READ fit,
+     "in the physically interesting temperature range 130 GeV < T < T_c", is
+     log(Gamma/T^4) = (0.83 +/- 0.01)T/GeV - (147.7 +/- 1.9).  Its T_c is its
+     own paper's, "T_c = (159 +/- 1) GeV" (1404.3565 abstract, READ), and
+     broken_phase_ln_rate() is bounded by that 159 GeV, not by 1508.07161's
+     159.5.  The fit was measured "In the interval 140 <~ T <~ 155 GeV" (p.3)
+     and extended "down to T ~ 130 GeV" on its match to perturbation theory
+     (p.4), so the report's 159 GeV lies at the stated range's edge and outside
+     the measured interval.  At T* that is -38.39, a rate of 2.13e-17 T^4; at
      155 GeV, -19.05.  In this window fermions carry nonzero Yukawa masses,
      whose size v(T) this file does not compute.
   In the Standard Model alone the crossover yields no net asymmetry: "EWBG
@@ -574,24 +643,25 @@ by the vev.  Two regimes, kept apart:
      This is the two-particle rate at energies near and above E_sph, not the
      instanton's T = 0 factor and not the thermal sphaleron rate.
      (i) The prevalent result.  Bezrukov, Levkov, Rebbi, Rubakov and Tinyakov
-     find that B + L violation "remains exponentially suppressed up to very
-     high energies of at least 30 sphaleron masses (250 TeV)" (hep-ph/0304180
-     and hep-ph/0305300, abstracts p.1, READ), for s-wave scattering, on the
-     conjecture that the two-particle exponent is the few-particle limit,
-     "although not proven rigorously" (hep-ph/0304180 p.2, READ).  Khoze and
-     Milne, computing from the instanton side, find the 't Hooft exponent
-     reduced by "not more than ~ 30%" and instantons "exponentially
-     suppressed by at least e^(-(4 pi/alpha_w) 0.70)" (2011.07167 printed
-     p.9 and p.16, READ), while "there is no rigorous proof of
-     exponentiation" (p.13, READ) and the result is "based in part on an
-     assumption that there are no additional exponentially growing"
-     contributions at higher orders (p.15, READ).  These are results resting
-     on conjectures and assumptions their authors state as unproven, not
-     theorems.  The dissent is no firmer, by its own account: Tye and Wong
-     write that "both estimates involve assumptions based on intuitions as
-     well as approximations remaining to be fully justified" (1710.07223
-     p.2, CONTESTED), and call their own figure "only an order of magnitude
-     guesstimate" (p.3).
+     find that B + L violation "remains exponentially suppressed up to very high
+     energies of at least 30 sphaleron masses (250 TeV)" (hep-ph/0304180 and
+     hep-ph/0305300, abstracts p.1, READ), in the bosonic sector at theta_W = 0
+     and m_H = m_W, for s-wave scattering, on the conjecture that the
+     two-particle exponent is the few-particle limit, "although not proven
+     rigorously" (hep-ph/0304180 p.2, READ).  Khoze and Milne, computing from
+     the instanton side, find the 't Hooft exponent reduced by "not more than ~
+     30%" and instantons "exponentially suppressed by at least e^(-(4
+     pi/alpha_w) 0.70)" (2011.07167 printed p.9 and p.16, READ) -- the 0.70 is
+     the minimum of their first table; their second table's minimum is slightly
+     lower -- while "there is no rigorous proof of exponentiation" (p.13, READ)
+     and the result is "based in part on an assumption that there are no
+     additional exponentially growing" contributions at higher orders (p.15,
+     READ).  These are results resting on conjectures and assumptions their
+     authors state as unproven, not theorems.  The dissent is no firmer, by its
+     own account: Tye and Wong write that "both estimates involve assumptions
+     based on intuitions as well as approximations remaining to be fully
+     justified" (1710.07223 p.2, CONTESTED), and call their own figure "only an
+     order of magnitude guesstimate" (p.3).
      (ii) The dissent.  Tye and Wong claim B + L violation "without the
      exponential tunneling suppression" above the barrier (1505.03690,
      CONTESTED); their later paper agrees "with this estimate for a single
@@ -599,18 +669,20 @@ by the vev.  Two regimes, kept apart:
      calls the other side "the prevalent picture" (1710.07223 pp.2 and 11,
      CONTESTED).  Funakubo, Fuyuto and Senaha rebut it with an overlap
      suppression of about 10^-155, found "in the leading order of the WKB
-     approximation", that remains "regardless of the band structure"
-     (1612.05431 p.4, READ).  The rebuttal is not conceded: 1710.07223 cites
-     it (its ref. [27], p.13) and replies to it on p.3 -- "As argued at times
-     in the literature (see e.g., Ref.[26] and recently in [27])", then
+     approximation", that remains "regardless of the band structure" (1612.05431
+     p.4, READ), and add a second, multi-W phase-space suppression of its own
+     (section 8 computes its size).  The rebuttal is not conceded: 1710.07223
+     cites it (its ref. [27], p.13) and replies to it on p.3 -- "As argued at
+     times in the literature (see e.g., Ref.[26] and recently in [27])", then
      "However, the above argument is somewhat misleading" -- and keeps the
      claim.
-     (iii) Experiment.  CMS, with 35.9 fb^-1 at 13 TeV, sets "An upper limit
-     of 0.021" on the fraction of quark-quark interactions above 9 TeV that
-     make the transition (1805.06013 abstract, READ).  An upper limit cannot
-     contradict an exponentially small rate, and Tye-Wong's own event count
-     is "A very crude order of magnitude estimate" (READ), so the experiment
-     does not decide it.
+     (iii) Experiment.  CMS, with 35.9 fb^-1 at 13 TeV, sets "An upper limit of
+     0.021" on the fraction of quark-quark interactions above 9 TeV that make
+     the transition (1805.06013 abstract, READ).  An upper limit cannot
+     contradict an exponentially small rate, and Tye-Wong's own event count is
+     "A very crude order of magnitude estimate" (READ), so the experiment does
+     not decide it.  A later CMS search tightens the limit about sixfold (see
+     CMS_PEF_BOUND); it decides the question no more than the first.
      NOT RESOLVED HERE, AND NO REFUSAL RESTS ON IT.
 
 ===============================================================================
@@ -714,39 +786,36 @@ WHAT SURVIVES:
   (d) THE HELD-SEAT RELEASE ROUTE, TEMPLATE's remainder where
       H-UNSOURCED-SEAT fails, and the reading closest to M's mechanism.  The
       seat is prepared in advance with a source holding |phi| below v; the
-      arriving information triggers its release (H-RELEASE); |phi| returns
-      to v, and the elements regain their Higgs-given mass.  PRICED by D20,
-      asked of excite, at eps = 1/100: a source of 2.148e27 kg/m^3 of
-      Higgs-derived mass where the templates sit (D16), holding 197.0 J of
-      source rest energy per J of field (excite.holding_ratio; 2/eps at
-      small eps).  (i) It forms no baryons: the elements were already
-      there, and no Higgs coupling carries B (C3).  (ii) The energy: as
-      |phi| relaxes to the elements' own lowering eps0 the field releases
-      F(eps) - F(eps0), with F = rho_EW eps^2(2-eps)^2 per unit volume
-      (excite.holding_terms), and by energy conservation that is what pays
-      for the elements' regained rest energy, which cannot exceed it; the
-      rest is radiated (the selftest checks the balance exactly over
-      Fraction).  With the elements' own lowering at eps0 = 1e-12, 1e-6,
-      1/1000, 1/200: regained/released = 2.020e-10, 2.020e-4, 0.1834,
-      0.6695.  That field energy was stored
-      in advance: the phi-coupled rest energy at the seat (the prepared
-      source's with the elements') was 197.0 times as much, so per joule
-      regained at least 197.0 J of it sat at the seat.  What becomes of
-      the source at release is not computed.  (iii) What can be regained:
-      the electrons' part exactly, eps x 3.010e-4 of the payload (3.010e-6
-      at eps = 1/100; H-TREE); the nucleons' part is eps times the
-      first-order share at small eps (the largest READ nucleon row gives
-      1.716e-3 at eps = 1/100; an estimate, not a bound) and, up to the
-      stability edge, a finite response that is OPEN like the finite
-      share.  Within excite's section-3 model (source rest mass
-      proportional to phi) a static hold is stable only below
-      eps = 0.4226 (excite.stability_edge), on 0.5774 v < |phi| < v; a
-      TEMPLATE seat below that keeps no held-seat remainder.  (iv) It needs
-      the seat prepared in advance: something reached the destination
-      first, at <= c, which is D23's point for reconstruction, asked of
-      the ledger (transit.TRAVERSAL_IS_REMOVED = False).  The Higgs is an
-      intermediary here too, holding what the source stored, not the source
-      (C4).
+      arriving information triggers its release (H-RELEASE); |phi| returns to v,
+      and the elements regain their Higgs-given mass.  PRICED by D20, asked of
+      excite, at eps = 1/100: a source of 2.148e27 kg/m^3 of Higgs-derived mass
+      where the templates sit (D16), holding 197.0 J of source rest energy per J
+      of field (excite.holding_ratio; 2/eps at small eps).  (i) It forms no
+      baryons: the elements were already there, and no Higgs coupling carries B
+      (C3) at renormalisable order (H-DIM4).  (ii) The energy: as |phi| relaxes
+      to the elements' own lowering eps0 the field releases F(eps) - F(eps0),
+      with F = rho_EW eps^2(2-eps)^2 per unit volume (excite.holding_terms), and
+      by energy conservation that is what pays for the elements' regained rest
+      energy, which cannot exceed it; the rest is radiated (the selftest checks
+      the balance exactly over Fraction).  With the elements' own lowering at
+      eps0 = 1e-12, 1e-6, 1/1000, 1/200: regained/released = 2.020e-10,
+      2.020e-4, 0.1834, 0.6695.  That field energy was stored in advance: the
+      phi-coupled rest energy at the seat (the prepared source's with the
+      elements') was 197.0 times as much, so per joule regained at least 197.0 J
+      of it sat at the seat.  What becomes of the source at release is not
+      computed.  (iii) What can be regained: the electrons' part exactly,
+      eps x 3.010e-4 of the payload (3.010e-6 at eps = 1/100; H-TREE); the
+      nucleons' part is eps times the first-order share at small eps (the
+      largest READ nucleon row gives 1.716e-3 at eps = 1/100; an estimate, not a
+      bound) and, up to the stability edge, a finite response that is OPEN like
+      the finite share.  Within excite's section-3 model (source rest mass
+      proportional to phi) a static hold is stable only below eps = 0.4226
+      (excite.stability_edge), on 0.5774 v < |phi| < v; a TEMPLATE seat below
+      that keeps no held-seat remainder.  (iv) It needs the seat prepared in
+      advance: something reached the destination first, at <= c, which is D23's
+      point for reconstruction, asked of the ledger
+      (transit.TRAVERSAL_IS_REMOVED = False).  The Higgs is an intermediary here
+      too, holding what the source stored, not the source (C4).
 
 ===============================================================================
 6.  NAMED HYPOTHESES AND PREMISES -- EVERY LIMITATION, NONE BURIED
@@ -756,6 +825,15 @@ WHAT SURVIVES:
           source states it.  The capture's mass column is used as it stands
           (PDG: MS-bar u, d, s at 2 GeV; m_c(m_c), m_b(m_b); t direct), so each
           Yukawa carries that scheme.
+  H-1DOUBLET One Higgs doublet.  Then any gauge-invariant mass function
+          vanishes at phi = 0, so 'm_f > 0 forces phi != 0' (C5, D27) holds well
+          beyond H-TREE's linearity.  It fails if a second doublet carries a
+          vev.  The linear uses (the electrons' exact regain) need H-TREE
+          itself.
+  H-LOCAL Reading phi(x) at a place as the background that sets a fermion's
+          rest mass there needs phi to vary slowly over that fermion's Compton
+          wavelength, a stronger condition than excite's region large against
+          the Higgs wavelength for an electron-borne source.
   H-TREE-V The field-energy theorem of section 3 is for the tree-level
           potential (excite's Mexican hat).  Beyond it, what matters for C4 is
           that v stays a local minimum, which both the stable and the READ
@@ -765,6 +843,20 @@ WHAT SURVIVES:
           higgs.T_scalar models.  That the doublet's other components and the
           gauge fields add only non-negative terms to T_00 is claimed, not
           computed from an owner and not read.  C4's THEOREM and D29 carry it.
+  H-MIN   Minimal coupling, xi = 0, in flat space: higgs.T_scalar's model.
+          The POINTWISE positivity of section 3 needs it; with xi != 0 the
+          flat-space density gains -xi Lap(phi^2), negative at some points,
+          while the integrated energy, which is what C4 and D29 use, is
+          unchanged.  In curved space the xi R phi^2 term enters directly.
+  H-CLASSICAL The field-energy theorem and the sphaleron energy are
+          classical, tree-level statements.  A quantum field can hold negative
+          local energy density, so the pointwise reading does not survive
+          quantisation; the global one needs the vacuum to be the ground state,
+          which is the metastable case section 3 carries.  No radiative
+          correction to E_sph is computed.
+  H-SM-UV The Standard Model valid up to very high scales, which the
+          stability source assumes.  The stable/metastable split rests on it; C4
+          does not, since the case split covers both.
   H-BRIDGE A region whose particle masses differ and which destroys what it
           meets forms no atomic mass of ours.  It is the step from the two
           READ clauses of 1809.06923 (the different masses inside the
@@ -838,11 +930,28 @@ WHAT SURVIVES:
   H-RELEASE On the held-seat release route the trigger removes the prepared
           source without doing work on the field or the elements.  What
           becomes of the source's own rest energy is not computed.
+  H-TT    Time-translation invariance, for energy conservation: the carrier
+          floor of section 3 is a local-frame floor (the energy counted at
+          infinity of a body at rest at the Earth's surface is lower by less
+          than a part in a billion, inside 'at least').
+  H-POS   Every product other than the payload -- radiation, antimatter,
+          any remainder -- carries non-negative energy.  The carrier floor and
+          the pair floor are floors only on it.
+  H-ISO   The seat draws on no energy reached by another route.  N-INFO's
+          'a bit brings only its carrier's energy' holds globally, not locally:
+          under Quantum Energy Teleportation the destination can extract energy
+          from a classical message, paid for at the sender.
   P-UNIFORM Where nothing sources it the vev takes one value everywhere.  A
-          PREMISE: supported by the constancy of measured fermion masses, not
-          read here, and asserted by no owner boolean.  C1 (on SWITCH-ON and
-          TEMPLATE) and the consideration's 'discriminates nothing' rest on
-          it; C5 (prior mass, STOCK on H-PRESENT) does not.
+          PREMISE, asserted by no owner boolean.  Its support, the measured
+          constancy of fermion-mass ratios (not read in this file), is narrower
+          than the premise: finite precision, matter-bearing places only, and a
+          bearing on v only on H-YUK-FIXED and H-AS-FIXED.  C1 (on SWITCH-ON and
+          TEMPLATE) and the consideration's 'discriminates nothing' rest on it;
+          C5 (prior mass, STOCK on H-PRESENT) does not.
+  H-YUK-FIXED The Yukawa couplings do not vary with place.  Without it a
+          ratio bound constrains one combination of v and the Yukawas, not v.
+  H-AS-FIXED The high-scale strong coupling does not vary with place (no
+          common rescaling of v and the QCD scale), for the same reason.
   H-A     A_e is the nearest integer to stock.ATOMIC_MASS[e], and the natural
           mixture's mean nucleon number lies within 1/2 of it.  The selftest
           recomputes every count at A_e +/- 1/2 and checks that no boolean
@@ -857,6 +966,30 @@ WHAT SURVIVES:
           linear in R and independent of M.
   H-BL    B - L is exactly conserved ("(B - L) is conserved", READ).  A
           Majorana neutrino mass would break it by 2 units.  That was not read.
+          Exactness also needs the mixed gravitational anomaly of B - L to
+          vanish: its coefficient is -N_f without right-handed neutrinos and
+          zero with them (DOCKET 67, computed; the anomaly equation itself is
+          NAMED-NOT-READ).  So H-BL also assumes right-handed neutrinos, or a
+          vanishing gravitational Pontryagin density.
+  H-DIM4  Renormalisable couplings only (mass dimension <= 4): C3's 'no
+          Higgs coupling carries B or L' is a statement about them.  The
+          dimension-5 Weinberg operator is a Higgs coupling carrying Delta
+          L = 2; Higgs-bearing B carriers first appear at dimension 7, all
+          violating B - L (so H-BL excludes them), and B - L-conserving ones at
+          dimension 8, which only H-DIM4 excludes.  C3's computation runs over
+          the complete dimension-4 set, so it sits inside H-DIM4.
+  H-3GEN  No further SU(2)-doublet generation, observed or not: N_F is
+          counted from the capture's OBSERVED charged leptons, and PDG's status
+          filter (the tau') is a filter, not this hypothesis.
+  H-SCALE The scale and scheme of alpha_W.  This file uses the tree-level
+          G_mu-scheme coupling g = 2 m_W/v; the leading-order instanton factor
+          does not fix the choice, and across standard schemes its exponent
+          moves by several decades.  Every exponent printed to two decimals here
+          is on H-SCALE.
+  H-HUBBLE The broken-phase window's lower edge T* is the early-Universe
+          freeze-out, set by the Hubble rate of a radiation-dominated Universe.
+          A payload cooled faster freezes out higher.  No verdict reads T* (the
+          anomaly route needs only finite figures).
   H-FLAV  Each lepton flavour is conserved (massless neutrinos).  It is used
           ONLY for the flavour sub-count in the report, which carries no
           verdict.
@@ -913,24 +1046,26 @@ D20's model; the field-energy theorem on H-TREE-V and H-REAL; the Yukawa
 charges; the pair floor; energy conservation.  INFERENCE FROM READ TEXT, ON THE
 NAMED HYPOTHESIS H-BRIDGE: that vacuum decay forms no atomic mass at the seat
 (D29's THEOREM grade, decay conjunct only, and S12's 'priced, not refused' rest
-on it).  MEASURED: every count, share,
-energy and exponent, each carrying its inputs' status.  Through v, every
-Yukawa, alpha_W, E_sph formula value and exponent INHERITS NAMED-NOT-READ.
-Through u = gravity.U_KG (CODATA 2018) and stock.ATOMIC_MASS, every count and
-payload share INHERITS NAMED-NOT-READ.  READ: every figure in SOURCES marked
-READ, including both FLAG sigma_piN averages.  CONTESTED: which sigma_piN is
-right; the heavy-quark terms as a mass share; the collider rate.  PREMISE:
-P-UNIFORM.  CASE DEFINITION: H-PRESENT.  NAMED HYPOTHESIS OF C1 ON TEMPLATE:
+on it).  MEASURED: every count, share, energy and exponent, each carrying its
+inputs' status (exponents also on H-SCALE).  Through v, every Yukawa, alpha_W,
+E_sph formula value and exponent INHERITS NAMED-NOT-READ.  Through
+u = gravity.U_KG (CODATA 2018) and stock.ATOMIC_MASS, every count and payload
+share INHERITS NAMED-NOT-READ.  READ: every figure in SOURCES marked READ,
+including both FLAG sigma_piN averages.  CONTESTED: which sigma_piN is right;
+the heavy-quark terms as a mass share; the collider rate.  PREMISE: P-UNIFORM.
+CASE DEFINITION: H-PRESENT.  NAMED HYPOTHESIS OF C1 ON TEMPLATE:
 H-UNSOURCED-SEAT.  OPEN: the finite Higgs share (not computed, not read).
 CAUTION HELD: the Bekenstein figure is not read as an information capacity
 (Hayden and Wang).
 
-DIVERGENCES FROM THE SOURCES, RECORDED AND NOT REPAIRED.  Rubakov &
-Shaposhnikov print 10^-170 for exp(-4 pi/alpha_W) at alpha_W = 1/29
-(arithmetic: 10^-158.27).  Tye-Wong pair 10^-162 with alpha_W ~ 1/30 on p.2
-(arithmetic: 10^-163.73, so 1.73 decades off; their p.7 pairing with 1/29.7
-gives 10^-162.09).  Tye-Wong's 4.75 TeV x 1.91 is 9.07, not their 9.11.
-chiQCD's abstract and p.5 differ on quark and glue energy.
+DIVERGENCES FROM THE SOURCES, RECORDED AND NOT REPAIRED.  Rubakov & Shaposhnikov
+print 10^-170 for exp(-4 pi/alpha_W) at alpha_W = 1/29 (arithmetic: 10^-158.27).
+Tye-Wong pair 10^-162 with alpha_W ~ 1/30 on p.2 (arithmetic: 10^-163.73, so
+1.73 decades off; their p.7 pairing with 1/29.7 gives 10^-162.09).  Tye-Wong's
+4.75 TeV x 1.91 is 9.07, not their 9.11 -- a gap in the printed coefficient
+pair 1.31 + 0.60, two-decimal roundings of the saddle's values, not in the
+prefactor, since 4 pi v/g at their inputs rounds correctly to 4.75 (DOCKET 67,
+computed).  chiQCD's abstract and p.5 differ on quark and glue energy.
 
 DIVERGENCE FROM THE DOCKET TEXT.  The docket calls the CMB temperature READ.
 The tree holds it as permute.T_CMB = 2.7255 with a comment naming Fixsen 2009,
@@ -1055,6 +1190,9 @@ def _read_masses(row=None):
 
 MASS_MEV = _read_masses()                                        # READ
 M_N_MEV = (MASS_MEV["p"] + MASS_MEV["n"]) / 2.0                  # from READ
+#   An isospin-symmetric nucleon: every sigma-term and coupling row applies
+#   one number to proton and neutron alike (a hypothesis of this file; the
+#   sources' proton/neutron split is not read).
 M_W_GEV = MASS_MEV["W"] / 1000.0                                 # READ
 
 
@@ -1068,7 +1206,10 @@ def lightest_baryon():
 
 def n_generations():
     """N_f, counted from the capture: charged leptons (family lepton, Q3 = -3).
-    The capture excludes the tau' by PDG's own status flag (pdgcapture.py)."""
+    The capture excludes the tau' by PDG's own status flag (pdgcapture.py).
+    That the count of OBSERVED charged leptons is the number of generations is
+    H-3GEN (section 6: no further SU(2)-doublet generation), not a property of
+    the table."""
     return sum(1 for r in pdgcapture.read()
                if r["family"] == "lepton" and r["Q3"] == "-3")
 
@@ -1308,6 +1449,12 @@ SOURCES = {
               "any refinement in the measurement of the top mass is of great "
               "importance for the question of EW vacuum stability. ... M_t < "
               "(171.53 +/- 0.42) GeV. (66)"),
+    # BU-life's lifetime holds under the source's p.30 conditions, not held
+    # here: gravity neglected for Lambda_B << M_Pl, 'unknown Planckian dynamics
+    # can affect the tunnelling rate', and dependence on future cosmology
+    # (DOCKET 67).  No verdict rests on the lifetime.  BU-scale's Lambda_I is
+    # gauge dependent: the source's Landau-gauge value (p.20).  Both rest on
+    # the SM holding up to very high scales (p.31; H-SM-UV).
     "BU-life": ("READ", "Buttazzo et al. arXiv:1307.3536v4, Sec. 6.3 p.31 and "
                 "Sec. 7 p.31",
                 "As shown, the SM vacuum is likely to survive for times that are "
@@ -1487,33 +1634,66 @@ SIGMA_S_2P1P1 = 41.0            # MeV  READ          FLAG-449
 SIGMA_S_2P1 = 44.9              # MeV  READ          FLAG-450
 SIGMA_ERR = {"FLAG 2+1+1": (6.5, 8.8), "FLAG 2+1": (2.4, 6.4)}   # READ
 SIGMA_C_ETM19 = 107.0           # MeV  READ          FLAG-sc (largest printed)
+#   ETM 19's 107(22) is ONE N_f = 2+1+1 ensemble (cB211.072.64, a = 0.0801 fm)
+#   with no continuum extrapolation (FLAG p.267); ETM's continuum successor,
+#   2412.01535v1 Table VIII, gives 82(29).  FLAG quotes it beside RQCD 16's
+#   N_f = 2 estimate 70(4) and forms no sigma_c average.  It sits 2.05 sigma
+#   above the leading-order SVZ charm value (DOCKET 67).  CONTESTED row only.
 SIGMA_PIN_ROY_STEINER = 59.1    # MeV  READ          HRKM-21
+#   HRKM-21 uses the charged-pion isospin convention; the FLAG rows above the
+#   neutral-pion one.  The 3.1(5) MeV shift moves the six-quark sum by -0.0026
+#   (DOCKET 67); no convention is converted here.
 COUPLING_SUM_HRKM = 0.305       # READ               HRKM-24
 CHIQCD_QUARK_CONDENSATE = 9.0   # %    READ          chiQCD
 CHIQCD_QUARTER_ANOMALY = 23.0   # %    READ          chiQCD
 JI_QUARK_MASS_MEV = {"m_s -> 0": 160.0, "m_s -> infinity": 110.0}   # READ Ji-table
+#   Leading order, n_f = 3, on Ji's 1994 inputs: sigma = 45 MeV, m-hat = 7 MeV
+#   and m_s = 150 MeV at 1 GeV^2 (hep-ph/9410274v1, READ by DOCKET 67).  Ji's
+#   reading, not a current determination; without both Ji rows the largest
+#   READ central reading is 0.1096, not 0.1719 (DOCKET 67, computed).
 JI_ROUNDING_MEV = 10.0          # READ  Ji-table: the omitted-error effect, larger end
 #: The difference of Ji's two estimates, which his largest uncertainty "could be
 #: larger than" (READ Ji-table): computed from the two READ rows, never typed.
 JI_ESTIMATE_DIFFERENCE_MEV = (JI_QUARK_MASS_MEV["m_s -> 0"]
                               - JI_QUARK_MASS_MEV["m_s -> infinity"])
 B_KM_RANGE = (1.56, 2.72)       # READ               RS96-esph
+#   As RS96 restates KM (KM itself CITED).  A converged minimisation of the
+#   reduced KM functional gives B(0) = 1.5202 and B(inf) = 2.7061 (DOCKET 67),
+#   so the lower end holds only for m_H/m_W >= 0.079 -- inside it at the
+#   measured 1.558.  A discrepancy, cause unknown.  Classical, tree level,
+#   theta_W = 0.  The held 'from zero to infinity' range assumes the lowest
+#   saddle throughout; at large m_H/m_W bisphalerons take over, which does not
+#   apply at the measured mass.
 TW_B_TERMS = (1.31, 0.60)       # READ               TW-FFS-esph
 TW_PREFACTOR_TEV = 4.75         # READ, rounded (section 4 check)
+#   4 pi v/g at TW's inputs is 4.7529, so 4.75 is correctly rounded; the
+#   9.07-vs-9.11 gap is in the coefficient pair (computed saddle B = 1.9170),
+#   not here (DOCKET 67).
 E_SPH_TEV = {"Tye-Wong, pure SU(2)": 9.11, "Funakubo-Fuyuto-Senaha": 9.08,
              "Tye-Wong, with U(1)": 9.0}                 # READ
 E_SPH_USED = "Funakubo-Fuyuto-Senaha"
+#   The pure-SU(2) saddle, theta_W = 0, classical, tree level, T = 0.  With
+#   U(1) at O(g'^2) it is 8.99 TeV: 3226 becomes about 3196 and 3246 Mc^2
+#   about 3214 Mc^2 (DOCKET 67, computed).  The value used is not changed.
 T_C_GEV = 159.5                 # READ  DR-Tc, the abstract's figure
-T_FREEZE_GEV = 131.7            # READ  DRT-rate
+T_FREEZE_GEV = 131.7            # READ  DRT-rate: early-Universe freeze-out (H-HUBBLE)
 RATE_SYMM_READ = 8.0e-7         # READ  DRT-rate eq.(8): THE figure
+#   Central values throughout: dimensional reduction, U(1), the lattice and
+#   its systematics enter only through the quoted errors.
 RATE_COEFF_SYMM = 18.0          # READ  DRT-rate: 18 alpha_W^5, a cross-check only
 BROKEN_FIT = (0.83, 147.7)      # READ  DRT-broken: ln(Gamma/T^4) = a T/GeV - b
 BROKEN_FIT_LOW_GEV = 130.0      # READ  DRT-broken: the fit's stated lower end
 BROKEN_FIT_HIGH_GEV = 159.0     # READ  DRT-Tc: its own paper's T_c bounds the fit
 CMS_PEF_BOUND = 0.021           # READ  CMS
+#   Superseded in currency: CMS 2604.10732 (JHEP 08 (2026) 098) gives 0.0034,
+#   '6.2 times more stringent' (READ by DOCKET 67).  The held 0.021 stays the
+#   figure checked against its quote; no status reads either (an upper limit
+#   decides nothing here).
 CMS_LUMI_FB = 35.9              # READ  CMS: fb^-1
 CMS_SQRT_S_TEV = 13.0           # READ  CMS
 DG_MH_CONDITION_GEV = 126.0     # READ  DG-2012: its 2 sigma holds "for M_h < 126 GeV"
+#   one sided (98% C.L.), on the 2012 inputs (M_t = 173.1 +- 0.7,
+#   alpha_s = 0.1184 +- 0.0007).
 TW_ALPHA_INV = (29.7, 30.0)     # READ  TW-size, the two pairings
 RS96_ALPHA_INV = 29.0           # READ  RS96-2.8
 RS96_PRINTED_LOG10 = -170.0     # READ  RS96-2.8
@@ -1622,7 +1802,9 @@ def _e(x, p):
 
 # ===================================================================== M65-1
 def vev_gev():
-    """v, asked of higgs.  From G_F: NAMED-NOT-READ."""
+    """v, asked of higgs.  From G_F: NAMED-NOT-READ, higgs.py's label, kept
+    conservatively (DOCKET 67 READ G_F in PDG 2024 Table 1.1, identical to the
+    pin).  v = (sqrt(2) G_F)^(-1/2) is the tree-level (G_mu-scheme) definition."""
     return higgs.vev()
 
 
@@ -1648,7 +1830,9 @@ def consideration_holds(masses=None):
 
 #: P-UNIFORM.  A NAMED PREMISE, not an owner's boolean: where nothing sources
 #: it, the vev takes one value everywhere.  higgs.py's caveat (b) as it survives
-#: DOCKET 63 F3 (asked below only for its words).  Supported by the constancy of
+#: DOCKET 63 F3 (asked below only for its words).  Supported -- at finite
+#: precision, at sampled matter-bearing places, and for v only on H-YUK-FIXED
+#: and H-AS-FIXED (Uzan pp.88-89, READ by DOCKET 67) -- by the constancy of
 #: measured fermion masses, which is not read here.
 P_UNIFORM = True
 P_UNIFORM_STATUS = "PREMISE"
@@ -1842,12 +2026,16 @@ JI_FRACTION = {k: mev / M_N_MEV for k, mev in JI_QUARK_MASS_MEV.items()}
 
 
 def coupling_sum(f_l):
-    """sum over six quarks = 2/9 + (7/9) f_l.  EXACT over Fraction."""
+    """sum over six quarks = 2/9 + (7/9) f_l.  EXACT arithmetic over Fraction
+    of a LEADING-ORDER relation (alpha_s and 1/m_Q; the heavy-quark limit
+    applied to charm too): beyond leading order the sum rises by 3-4 %."""
     return Fraction(2, 9) + Fraction(7, 9) * f_l
 
 
 def svz_heavy_sum(f_l):
-    """3 x (2/27)(1 - f_l), the three heavy quarks by SVZ.  EXACT."""
+    """3 x (2/27)(1 - f_l), the three heavy quarks by SVZ.  EXACT arithmetic of
+    the leading-order relation; the relation is not exact (charm is not in
+    the heavy-quark limit; ETM 19's sigma_c sits 2.05 sigma above its value)."""
     return 3 * Fraction(2, 27) * (1 - f_l)
 
 
@@ -1893,12 +2081,16 @@ def share_rows(c=None):
                  CHIQCD_QUARK_CONDENSATE / 100.0 * nuc / M, "lattice, proton", inh))
     for k in JI_QUARK_MASS_MEV:
         rows.append(("nucleons: Ji quark mass term, %s" % k, "READ",
-                     JI_FRACTION[k] * nuc / M, "Ji Table I", inh))
+                     JI_FRACTION[k] * nuc / M, "Ji Table I (1994 inputs, LO)", inh))
+    # A heterogeneous sum: FLAG's N_f = 2+1+1 AVERAGES for sigma_piN and
+    # sigma_s plus ONE study's sigma_c (ETM 19, single ensemble, no continuum
+    # limit).  Labelled CONTESTED and never added to the READ rows.
     rows.append(("nucleons: sigma_piN + sigma_s + sigma_c (ETM 19)",
                  "CONTESTED as mass",
                  sigma_fraction(SIGMA_PIN_2P1P1, SIGMA_S_2P1P1, SIGMA_C_ETM19) * nuc / M,
                  "adds the charm sigma term", inh))
     for k in SIGMA_MEASURES:
+        # Leading order in alpha_s and 1/m_Q (charm included): see coupling_sum.
         rows.append(("nucleons: six-quark coupling, %s" % k, "CONTESTED as mass",
                      float(coupling_sum(Fraction(F_LIGHT[k]))) * nuc / M,
                      "coupling incl. heavy-quark trace anomaly", inh))
@@ -2077,8 +2269,11 @@ def break_even_radius_m(T=None):
     return nopath.HBAR * nopath.C / (2.0 * math.pi * nopath.KB * T)
 
 
-N_INFO = ("SUPPORTING NOTE, NO VERDICT: by energy conservation a bit brings only "
-          "its carrier's energy; Landauer prices erasure; Bekenstein bounds entropy "
+N_INFO = ("SUPPORTING NOTE, NO VERDICT: by energy conservation a bit brings, "
+          "globally, no energy not supplied somewhere; locally it can, under "
+          "Quantum Energy Teleportation, with the energy infused at the "
+          "sender (Hotta 1101.3954, READ by DOCKET 67; DOCKET 66's question); "
+          "Landauer prices erasure; Bekenstein bounds entropy "
           "by energy and size, and its reading as an information capacity is held "
           "as folklore (HW-folk).  It answers a link M did not state.")
 
@@ -2105,7 +2300,10 @@ def term_charge(term):
 
 
 #: C3.  Some Higgs coupling carries net B or L?  Computed, term by term.  (The
-#: couplings DO create fermions, in pairs; they carry no net B or L.)
+#: couplings DO create fermions, in pairs; they carry no net B or L.)  The set
+#: is the complete renormalisable (dimension <= 4) one, H-DIM4.  The test is
+#: 'B or L', wider than the refusal's use, which is net B: a pure Delta L = 2
+#: term (the dimension-5 Weinberg operator) would flip it with no B carried.
 HIGGS_COUPLING_CARRIES_B_OR_L = any(term_charge(t) != (0, 0)
                                     for t in YUKAWA_TERMS.values())
 #: And the anomaly vertex does, by exactly N_F each: the READ rule reproduced.
@@ -2138,14 +2336,25 @@ def gravitational_binding_order(R=None):
 
 
 def pair_floor_j(c=None):
-    """Mc^2 + B mu_min c^2: the least energy that makes the payload from
-    energy with B and L conserved.  THEOREM on B, L conservation and H-AME."""
+    """Mc^2 + B mu_min c^2: a floor on the energy that makes the payload from
+    energy with B and L conserved.  THEOREM on B, L conservation, H-AME and
+    H-POS (every other product non-negative).  It is the least only on B and
+    L: with electric charge conserved too the antibaryons must be neutralised
+    by positrons, the per-nucleon cost is the least ATOMIC mass per nucleon
+    (56Fe, 930.4118 MeV), and the least floor is 1.99774 Mc^2 against this
+    1.99748 (DOCKET 67, computed) -- so this stays a valid floor, not the
+    least.  CORRECTED (DOCKET 67): first written 'the least energy'."""
     c = COUNTS if c is None else c
     return rest_energy_j() + c["B"] * MU_MIN[0] * MEV_J
 
 
 def alpha_w(m_w_gev=None, v_gev=None):
-    """g = 2 m_W / v, alpha_W = g^2 / 4 pi.  m_W READ; v NAMED-NOT-READ."""
+    """g = 2 m_W / v, alpha_W = g^2 / 4 pi.  m_W READ; v NAMED-NOT-READ.  The
+    tree-level G_mu-scheme coupling (H-SCALE): RS96 defines alpha_W =
+    alpha/sin^2 theta_W, and across standard schemes 1/alpha_W runs 29.49 to
+    30.63, moving log10 exp(-4 pi/alpha_W) by about 6.2 decades.  G_F itself is
+    READ in PDG 2024 identically to higgs.G_FERMI (DOCKET 67); its
+    NAMED-NOT-READ label is higgs.py's, kept, conservatively."""
     m_w = M_W_GEV if m_w_gev is None else m_w_gev
     v = vev_gev() if v_gev is None else v_gev
     g = 2.0 * m_w / v
@@ -2490,7 +2699,7 @@ COUNTS_ON_THE_MECHANISM = (
      "inherit NAMED-NOT-READ", C2_CONTESTED_ONLY,
      "at first order, a change of phi moves (most of) atomic mass"),
     ("C3", "HIGGS_COUPLING_CARRIES_B_OR_L",
-     ("massform", "YUKAWA_TERMS"), "THEOREM (perturbative SM)", False,
+     ("massform", "YUKAWA_TERMS"), "THEOREM (perturbative, renormalisable SM)", False,
      "what the triggered field makes carries the payload's net B"),
     ("C4", "HIGGS_FIELD_SUPPLIES_THE_MASS_ENERGY",
      ("massform", "c4_combined; T00_DECOMPOSES, FIELD_ENERGY_IS_A_SQUARE, READ decay text"),
@@ -2927,17 +3136,25 @@ PROPOSED_ROWS = (
      "route), it is N_n extra leptons",
      "THEOREM", ("massform", "pair_floor_j"),
      "B - L violation (a Majorana neutrino mass; H-BL); a bound state lighter "
-     "per baryon than 56Fe (H-AME); the numbers move with gravity.U_KG and "
+     "per baryon than 56Fe (H-AME); a by-product of negative energy (the floor "
+     "needs every other product non-negative); energy counted in a frame "
+     "without time-translation invariance (the floor is a local-frame one); "
+     "the numbers move with gravity.U_KG and "
      "stock.ATOMIC_MASS, both NAMED-NOT-READ"),
     ("D29", "DEMAND",
-     "The Higgs field has no energy to give about v: its energy density above "
+     "The Higgs field has no energy to give about v: for a minimally coupled "
+     "classical field in flat space its energy density above "
      "the vacuum, (1/2)phi_t^2 + (1/2)|grad phi|^2 + rho_EW eps^2(2-eps)^2, is "
      "a sum of squares (higgs.T_scalar, excite.FIELD_POLY), so any change of "
-     "phi about v costs energy.  Proved for the real scalar higgs.T_scalar "
+     "phi about v costs energy -- in the integrated sense, which is what this "
+     "row uses and which holds for any curvature coupling in flat space (with "
+     "one, the density gains a divergence that can be negative at a point).  Proved for the real scalar higgs.T_scalar "
      "models; that the doublet's other components and the gauge fields add "
      "only non-negative terms is H-REAL, claimed and not computed.  Its one "
-     "release is decay of a metastable vacuum, which is preferred at the "
-     "central measured masses but not established (top-mass dependent, READ "
+     "release (this file's claim, not the source's) is decay of a metastable "
+     "vacuum, which is preferred at the "
+     "central measured masses but not established (top-mass dependent, and "
+     "assuming the Standard Model up to very high scales, READ "
      "1307.3536).  That decay forms no atomic mass at the seat is an INFERENCE "
      "from READ text (1809.06923: a bubble expanding at near c, with different "
      "particle masses inside, destroying what it meets) on the named hypothesis "
@@ -2963,7 +3180,8 @@ PROPOSED_ROWS = (
      "can be excited, at a cost, lowering |phi|; at first order, H-LINEAR, the "
      "largest central reading is 0.172 of atomic mass on the READ rows and "
      "0.309 on all rows, and an illustration of margin reaches 0.236 on the "
-     "READ rows, none a bound; no Higgs coupling carries net B or L); "
+     "READ rows, none a bound; no renormalisable Higgs coupling carries net B "
+     "or L); "
      "EXCITATION, quanta branch, by C3 alone; CREATION by C4 (the field has no "
      "energy to give about v, and its one release, vacuum decay, forms no atomic "
      "mass at the seat -- an INFERENCE from READ text, D29) and C3; STOCK, with "
@@ -2999,13 +3217,20 @@ PROPOSED_ROWS = (
     ("S11", "SUPPLY",
      "The anomaly route: B + L violated by the SU(2) anomaly over a gauge-Higgs "
      "saddle whose height the vev sets.  Zero temperature: INSTANTON "
-     "tunnelling, exp(-4 pi/alpha_W) per transition, alpha_W from READ m_W and "
-     "v (NAMED-NOT-READ, via G_F); B/3 transitions.  Over the barrier, the SPHALERON: E_sph ~ %.0f TeV "
+     "tunnelling, exp(-4 pi/alpha_W) per transition (a semiclassical, "
+     "leading-order factor; per transition is this file's counting, since in "
+     "the source it multiplies a rate), alpha_W from READ m_W and "
+     "v (NAMED-NOT-READ, via G_F); B/3 transitions.  That alpha_W is the "
+     "tree-level G_mu-scheme coupling, its scale and scheme unfixed at "
+     "leading order.  Over the barrier, the SPHALERON: E_sph ~ %.0f TeV "
      "(READ), ~%s x the 3 baryons' rest energy.  Thermal: unsuppressed above "
-     "T_c, vev approximately zero; below T_c down to T*, the READ broken-phase "
+     "T_c, vev approximately zero; below T_c down to T* (the early-Universe "
+     "freeze-out, set by the Hubble rate), the READ broken-phase "
      "rate with the vev finite.  Two-particle collisions: CONTESTED (the "
-     "prevalent semiclassical results find exponential suppression; Tye-Wong "
-     "dissent; CMS decides nothing).  It must emit N_n "
+     "prevalent semiclassical results find exponential suppression, Bezrukov "
+     "et al. in the bosonic sector at theta_W = 0 and m_H = m_W; Tye-Wong "
+     "dissent; CMS decides nothing, at its first limit or its later sixfold "
+     "tighter one).  It must emit N_n "
      "extra leptons (D28)"
      # Both figures ASKED of their owners (E_SPH_TEV, esph_over_three_baryons);
      # row_figures() regenerates them, so a typed copy cannot drift green.
@@ -3019,7 +3244,9 @@ PROPOSED_ROWS = (
      "estimates involve assumptions based on intuitions as well as "
      "approximations remaining to be fully justified\" and call their own "
      "figure \"only an order of magnitude guesstimate\"; a READ G_F (lifts "
-     "alpha_W's NAMED-NOT-READ)"),
+     "alpha_W's NAMED-NOT-READ; DOCKET 67 READ it in PDG 2024, identical to "
+     "the pin, and it moves nothing -- the operative uncertainty is alpha_W's "
+     "scheme)"),
     ("S12", "SUPPLY",
      "The pair route, EXCITATION's remainder: atomic mass forms as matter with "
      "its antimatter, B and L conserved.  The carrier supplies at least the "
@@ -3184,11 +3411,13 @@ def row_figures():
 
 #: Numerals the docstring prints that are neither regenerated, pinned, quoted
 #: nor cited, and only those: the python version, DOCKET 63, DOCKET 67 (the
-#: audit that named H-BRIDGE), two years (Fixsen 2009, 't Hooft 1976), the
+#: audit that named H-BRIDGE), three years (Fixsen 2009, 't Hooft 1976, the
+#: vintage of Ji's inputs 1994), the
 #: study label ETM 19, and the 16 of the formula exp(-16 pi^2/g^2).  Every
 #: entry is a literal, never a result (literals_that_are_results), and every
 #: entry is needed (unneeded_literals).
-DOC_LITERALS = frozenset({"3.11", "63", "67", "2009", "1976", "19", "16"})
+DOC_LITERALS = frozenset({"3.11", "63", "67", "2009", "1976", "19", "16",
+                          "1994"})
 
 
 def _figure_numerals(s):
@@ -4898,6 +5127,8 @@ def selftest():
     chk("m_u, m_d READ 2.16, 4.7 MeV", (MASS_MEV["u"], MASS_MEV["d"]), (2.16, 4.7))
     chkrel("m_e/m_p = 5.446170e-4 (the READ finding's ratio)",
            MASS_MEV["e"] / MASS_MEV["p"], 5.446170e-4, 1e-6)
+    # The 1e-12 tolerance holds for the 2026 capture's nine-figure rows only
+    # (under CODATA 2018 m_N differed by 1.3e-6 MeV): an edition-tied fixture.
     chkrel("m_N = 938.9187555 MeV (the READ finding's figure)", M_N_MEV, 938.9187555, 1e-12)
     chk("the lightest baryon in the capture is the proton", lightest_baryon()[0], "p")
     chk("N_F counted from the capture's charged leptons", N_F, 3)
@@ -5069,6 +5300,8 @@ def selftest():
     chk("no row is a sum across measures (one electron row, the rest nucleon)",
         [r[0] for r in rows].count("electrons (all Higgs-given, H-TREE)"), 1)
     chk("electron share is 3.01e-4", round(rows[0][2], 6), 0.000301)
+    # Ji's row is a 1994 leading-order entry; without both Ji rows the largest
+    # READ reading is 0.1096 (DOCKET 67), still under one half.
     chk("the largest READ central reading is Ji's m_s -> 0 row",
         max((r for r in rows[1:] if not r[1].startswith("CONTESTED")),
             key=lambda r: r[2])[0], "nucleons: Ji quark mass term, m_s -> 0")
@@ -5291,7 +5524,10 @@ def selftest():
         (-158.27, -170.0))
     chk("Tye-Wong eq. (1.2): 4.75 x 1.91 = 9.07, not 9.11",
         round(TW_PREFACTOR_TEV * sum(TW_B_TERMS), 2), 9.07)
-    chk("  the prefactor is rounded: 9.11/1.91 = 4.770",
+    # CORRECTED (DOCKET 67): this row was labelled 'the prefactor is rounded'.
+    # The arithmetic stands; the rounding is in the coefficient pair, since
+    # 4 pi v/g at TW's inputs is 4.7529, correctly printed as 4.75.
+    chk("  9.11/1.91 = 4.770 (the rounding is in 1.31 + 0.60, not the prefactor)",
         round(E_SPH_TEV["Tye-Wong, pure SU(2)"] / sum(TW_B_TERMS), 3), 4.770)
     chk("implied B = 1.91 lies inside KM's range",
         B_KM_RANGE[0] < sum(TW_B_TERMS) < B_KM_RANGE[1], True)

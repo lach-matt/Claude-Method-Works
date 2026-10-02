@@ -14,6 +14,8 @@ import math, sys
 G, c, MSUN = 6.67430e-11, 299792458.0, 1.98892e30
 LY, AU, YR = 9.4607304726e15, 1.495978707e11, 3.15576e7
 SIGMA_T, M_P = 6.6524587e-29, 1.67262192e-27
+# M_P: CODATA 2018 m_p (1.67262192369e-27) cut to 9 figures, -2.21e-9 relative
+# (copied from arrival.py; no source word was attached -- DOCKET 67).
 
 # ---- the seated design -------------------------------------------------------
 F_FILL   = 2.0/3.0

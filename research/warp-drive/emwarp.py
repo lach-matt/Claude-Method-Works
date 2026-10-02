@@ -223,6 +223,10 @@ EARTH_M, EARTH_R, EARTH_MOI, EARTH_DAY = 5.972e24, 6.371e6, 0.3307, 86164.0
 #: Saturation density of nuclear matter, the densest matter that exists outside
 #: a black hole.  The shell's requirement is measured against it in section 5.
 NUCLEAR_DENSITY = 2.3e17
+#: DOCKET 67, recorded and not reconciled: 2.3e17 kg/m^3 corresponds to
+#: n_0 = 0.1375 fm^-3.  address.py carries RHO_NUCLEAR = 2.676e17 (n_0 = 0.16
+#: fm^-3 times m_p), 16% higher; the tree uses both.  n_0 was not read at
+#: source.
 
 
 # ------------------------------------------------------ vector helpers (stdlib)

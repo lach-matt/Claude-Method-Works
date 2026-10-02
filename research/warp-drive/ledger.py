@@ -331,6 +331,9 @@ C_LIGHT = foliation.C_LIGHT                  # m/s,  exact by definition
 G_NEWTON = foliation.G_NEWTON                # m^3 kg^-1 s^-2, CODATA 2018
 M_SUN = foliation.M_SUN                      # kg,   IAU nominal
 PROXIMA_LY = foliation.PROXIMA_LY            # ly,   Gaia DR3 parallax
+#   CORRECTED (DOCKET 67): epoch J2016.0, barycentric, raw parallax (no
+#   zero-point), formal sigma +-0.00028 ly -- so about 4 significant figures;
+#   by 2026.74 Proxima's approach puts it at 4.24566 ly (DOCKET 67, computed).
 LAMBDA = overturn.LAMBDA                     # the method equation's coefficient
 LY_M = 9.4607304725808e15                    # m per light year, exact (IAU)
 
@@ -365,7 +368,10 @@ def required_negative_mass(delta_d_m):
 DEMAND = [
     ("D1",
      "Contraction at r requires negative enclosed Misner-Sharp mass, "
-     "ansatz-free, in any STATIC spherically symmetric spacetime",
+     "ansatz-free, in any STATIC spherically symmetric spacetime -- in GR, "
+     "wherever the areal radius is a radial coordinate (not where dr = 0 on "
+     "the slice, as at a throat); reading m as the enclosed energy of matter "
+     "also needs Lambda = 0 (CORRECTED, DOCKET 67: these were unstated)",
      THEOREM, ("certify", "THEOREM_SCOPE"),
      "a failure of staticity or sphericity -- and D2 removes the first"),
 
@@ -392,14 +398,27 @@ DEMAND = [
 
     ("D5",
      "Superluminal travel requires negative energies, with NO staticity, NO "
-     "symmetry and NO sphericity, pointwise on the path travelled",
+     "symmetry and NO sphericity, pointwise on the path travelled.  "
+     "'Superluminal' is Olum's Condition 1 -- the path reaches B earlier "
+     "than every NEIGHBOURING path in the same spacetime, with no reference "
+     "geometry -- and the theorem also assumes the generic condition on the "
+     "path and Einstein's equations in a classical smooth 4-D geometry; its "
+     "proof gives NEC violation on the path, stronger than the stated WEC "
+     "(CORRECTED, DOCKET 67: Condition 1 and the generic condition were "
+     "dropped).  A 'lead' against a reference geometry is not Condition 1",
      THEOREM, None,
      "nothing read this pass; Olum PRL 81 3567, CITED"),
 
     ("D6",
      "There are NO purely spatially averaged quantum inequalities over bounded "
      "regions in 4D Minkowski.  The ball integral at an INSTANT is unbounded "
-     "below, so THE MAGNITUDE AXIS CARRIES NO NO-GO",
+     "below, so THE MAGNITUDE AXIS CARRIES NO NO-GO.  CORRECTED (DOCKET 67): "
+     "proved for the massless minimally coupled free scalar, against bounds "
+     "UNIFORM over states, as the UV cutoff Lambda -> infinity (the divergence "
+     "is logarithmic in Lambda), at leading order in an asymptotic "
+     "derivation.  One field suffices to refute a universal, matter-"
+     "independent spatial bound, which is the use made here; a field-"
+     "specific or state-dependent spatial bound is not addressed",
      THEOREM, None,
      "nothing; Ford, Helfer & Roman PRD 66 124012, CITED, read in full"),
 
@@ -420,7 +439,10 @@ DEMAND = [
 
     ("D9",
      "A SOURCED background satisfying the pointwise test's hypotheses forces "
-     "Minkowski, so the test has content only as a test-field statement",
+     "Minkowski, so the test has content only as a test-field statement.  "
+     "'Minkowski' is for Lambda = 0 (CORRECTED, DOCKET 67): with Lambda != 0 "
+     "and T read as matter, the regular static solution with T^matter = 0 is "
+     "de Sitter, and the test-field reading stands",
      THEOREM, ("tolman", "SUPERSEDES_CERTIFY"),
      "nothing; THEOREM X, two independent machine checks"),
 
@@ -450,7 +472,10 @@ DEMAND = [
     ("D13",
      "Classical information travels at <= c IN THE METRIC ITS CARRIER "
      "PROPAGATES IN, and the no-communication theorem closes the entangled "
-     "variant.  For a BRANE-CONFINED carrier that metric is the induced metric "
+     "variant -- for linear, completely positive dynamics, non-selective "
+     "local operations, commuting local subsystems and no closed causal loops "
+     "(CORRECTED, DOCKET 67: these hypotheses were unnamed; outside the first "
+     "a nonlinear local map signals).  For a BRANE-CONFINED carrier that metric is the induced metric "
      "and the reconstruction route is EMIGRATION WITHOUT SPEED.  THE ROW IS "
      "NOT A STATEMENT ABOUT A BULK CARRIER: on a brane moving through a "
      "compact extra dimension, bulk null geodesics join brane points the "
@@ -500,12 +525,18 @@ DEMAND = [
      "large against lambda_h; the error is (lambda_h/L)^2"),
 
     ("D17",
-     "Role 3 at the endpoint -- the Higgs as a source of negative energy -- is "
-     "closed for ANY minimally coupled scalar, any potential, any mass: "
-     "T_kk = (k.d phi)^2 >= 0.  The obstruction is not the Higgs mass; it "
+     "Role 3 at the endpoint -- the Higgs as a source of NEC violation -- is "
+     "closed for ANY CLASSICAL minimally coupled scalar with a CANONICAL "
+     "two-derivative kinetic term, any potential, any mass: "
+     "T_kk = (k.d phi)^2 >= 0.  (CORRECTED, DOCKET 67: as first written, "
+     "'a source of negative energy' and 'ANY minimally coupled scalar'; "
+     "rho = V_min < 0 at the vev is allowed, and the SM Higgs is classical "
+     "and canonical here.)  The obstruction is not the Higgs mass; it "
      "would be just as closed at m_h = 0",
      THEOREM, ("higgs", "MINIMAL_SCALAR_SATISFIES_NEC"),
-     "a non-minimal coupling -- which is S4 and O1, both refused"),
+     "a non-minimal coupling -- which is S4 and O1, both refused; outside the "
+     "row's class, quantum states (NEC violation at first order in hbar, "
+     "R4/R6's) and non-canonical kinetic terms (P(X), Galileons)"),
 
     ("D18",
      "m_e -> m_e(1 + eps), alpha fixed and nuclei clamped, is an EXACT "
@@ -528,7 +559,16 @@ DEMAND = [
      "rho_EW eps^2(2-eps)^2.  At the clock-comparison ORDER eps = %.0e that "
      "is %.6e kg/m^3 of Higgs-derived density, and %.2g (H1) to %.2g (H2) "
      "kg/m^3 of stable matter.  m_h is READ (125.13, captures/PDG-2026.tsv); "
-     "G_F is NAMED-NOT-READ, and the figure inherits G_F's status"
+     "G_F is NAMED-NOT-READ, and the figure inherits G_F's status.  "
+     "CORRECTED (DOCKET 67): DOCKET 67 READ G_F in PDG 2024 Table 1.1, "
+     "1.1663788(6)e-5 GeV^-2, identical to the pin.  The printed digits are "
+     "arithmetic, not physical precision: the figure is tree level (MS-bar "
+     "NNLO lambda/LO = 0.9757 moves it -2.4%%), eps's '+1' coefficient "
+     "carries O(1e-3), and the value assumes SM self-couplings (it scales "
+     "with the depth, (3 - kappa_lambda)/2, kappa_lambda bounded to "
+     "(-1.2, 7.5)) and kappa_e = 1 (it scales as 1/kappa_e, |kappa_e| < 260); "
+     "the H1 stable-matter figure carries the one-loop 2/9 (7.8e+11 with "
+     "N3LO's 0.23839), all computed by DOCKET 67"
      % (excite.EPS_AT_FIXTURE, excite.HOLD_HIGGS_DERIVED_KG_M3_AT_EPS_1E18,
         excite.HOLD_STABLE_KG_M3_AT_EPS_1E18["H1"],
         excite.HOLD_STABLE_KG_M3_AT_EPS_1E18["H2"]),
@@ -560,8 +600,10 @@ DEMAND = [
     ("D22",
      "THE SMEARED FLUCTUATION DOES NOT RESTATE THE DEMAND, IN FLAT SPACE.  "
      "fluctuation.py's pointwise T1 stands (Delta' >= 1/2, Delta >= 1/3 for "
-     "every zero-mean Gaussian state, z3), and it is sign-blind, so it cannot "
-     "be the demand.  For the free minimal scalar in Minkowski (noise.py, "
+     "every zero-mean Gaussian (Hadamard) state of the MASSLESS minimal "
+     "scalar, z3; with a mass term the floor is Delta' >= 2/5 -- CORRECTED, "
+     "DOCKET 67: the field model was unnamed in this clause), and it is "
+     "sign-blind at either floor, so it cannot be the demand.  For the free minimal scalar in Minkowski (noise.py, "
      "flat model %s), Fewster's sampled energy density is bounded below AS "
      "AN OPERATOR by -C/tau^4 (C1_FLAT_THEOREM = %s).  The demanded density "
      "is therefore the mean of no state and, under H6 (the quantum spectral "
@@ -583,9 +625,15 @@ DEMAND = [
      SURVEY, ("noise", "CORRIDOR_APPLICATION"),
      "%s's absolute QEI evaluated on the corridor: by FFR 1004.0179 note "
      "[18] it decides the distribution question there, with no variance at "
-     "all.  The smeared curved variance itself, were it wanted, needs no NEW "
-     "renormalisation (Hu & Verdaguer 3.2, READ; "
-     "CURVED_VARIANCE_NEEDS_QUARTIC_RENORMALISATION = %s), and its "
+     "all, IF the evaluated bound Q_corr is below the demanded magnitude "
+     "and holds on the whole domain of a self-adjoint realisation of the "
+     "corridor's sampled operator (a curved H3); a bound above it decides "
+     "nothing.  The TIME-smeared curved variance itself, were it wanted, "
+     "needs no NEW renormalisation (Hu & Verdaguer 3.2, READ, gives the "
+     "counterterm cancellation and separated-point finiteness; the pull-back "
+     "to the worldline is Fewster 1208.5399 sec. 3.3, NAMED; "
+     "CURVED_VARIANCE_NEEDS_QUARTIC_RENORMALISATION = %s; CORRECTED, DOCKET "
+     "67: 'decides' was unconditional and H&V carried the whole claim), and its "
      "finiteness is %s.  Or a failure of H3 (%s: %s) -- a "
      "self-adjoint extension other than Friedrichs need not keep the bound"
      % (noise.CURVED_PART_CARRIED_BY,
@@ -599,7 +647,12 @@ DEMAND = [
     ("D23",
      "THE FIRST TRIP.  transit.py: a channel spanning D required something to "
      "cross D at <= c beforehand -- THE CORRIDOR MUST BE TRAVERSED IN ORDER TO "
-     "EXIST.  Its advantage over light is ZERO BY CONSTRUCTION, not by "
+     "EXIST.  CORRECTED (DOCKET 67): that holds for initially SEPARABLE "
+     "systems with every resource starting at ONE END, which is S5's case; "
+     "the theorem itself needs only a common causal past (a midpoint source "
+     "spans D at D/(2c)), and the vacuum is already entangled across "
+     "spacelike regions (harvested, small: no near-maximal Bell pair across "
+     "a macroscopic D is shown).  Its advantage over light is ZERO BY CONSTRUCTION, not by "
      "measurement: transit.py models the channel's arrival as the classical "
      "message at c, because reading the shared state carries nothing alone "
      "(READING_CARRIES_NOTHING_ALONE = %s -- the no-communication theorem), "
@@ -637,6 +690,22 @@ DEMAND = [
         create.EXOTIC_MATTER_HELPS_CREATION,
         create.any_escape_stays_in_lorentzian_gr(),
         create.theorems_apply_to_enlargement(), create.ROUTE_COST)
+     # DOCKET 67 appends (M ruled "Repair all"); nothing above is replaced.
+     + ".  CORRECTED (DOCKET 67): the kinematic theorems also assume a "
+     "TIME-ORIENTED spacetime with a smooth Lorentz metric NON-DEGENERATE "
+     "everywhere on the interpolating region; 'exotic matter cannot help' is "
+     "exact for that forced CTC only -- Borde IX.B names large "
+     "energy-condition violation as the way past Theorem 3's DYNAMICAL "
+     "obstruction, and 2505.02210 builds a nucleation with CTCs violating "
+     "every standard energy condition; Borde lists FOUR routes, and his IX.C, "
+     "degenerate metrics, he places inside the Lorentzian framework, so 'none "
+     "stays inside Lorentzian GR without a pathology' holds only if a "
+     "degenerate point counts as a pathology or as leaving GR.  The "
+     "theorems' silence on enlargement holds for a non-degenerate metric "
+     "family on a FIXED spatial manifold with the throat radius > 0 (a "
+     "product interpolation).  'Unpriced' is accurate at the tree's 1193 km "
+     "target; published null results (from search snippets, NOT READ) bound "
+     "the abundance of Ellis throats of 10 pc to 10 kpc and of ~1 cm"
      # DOCKET 64 appends; nothing above is replaced.
      + ".  THE PASSAGE IS PRICED (formation.py, DOCKET 64; F1 THEOREM under: "
      "%s).  Across a sphere the Kodama energy the passage carries is "
@@ -660,7 +729,10 @@ DEMAND = [
         formation.NUCLEATION_PRICEABLE_FROM_SOURCE),
      OPEN, ("formation", "NUCLEATION_PRICEABLE_FROM_SOURCE"),
      "the nucleation construction COMPUTED -- the neck recipe written out "
-     "and integrated (%s, %s in create.py); or an observed throat, priced by "
+     "and integrated (%s, %s in create.py), over the whole cobordism W and "
+     "not the neck alone (its energy-condition violations sit in the Morse "
+     "spacetime's type-IV band and the CP^2 pocket), classically only (the "
+     "source excludes QFT on its Cauchy horizon) -- CORRECTED, DOCKET 67; or an observed throat, priced by "
      "F1 as m_final(R) - m_initial(R) (the find-and-enlarge route: %s); the "
      "surface layer at R_s priced, since every formation.py figure lies on "
      "one side of it; or a passage with U != 0, which is outside F1.  The "
@@ -677,13 +749,28 @@ DEMAND = [
      "kg.  A "
      "manufactured payload binds on a refractory rarity instead.  S5 cannot "
      "close in either direction while this gate is unchecked at its "
-     "destination"
+     "destination.  CORRECTED (DOCKET 67): the payload is ICRP 23's 70 kg "
+     "reference MALE (1975; ICRP says it is amended by ICRP 89), and of its "
+     "59 values 21 are ICRP 23 Table 110's -- all 11 bulk masses, which "
+     "decide the CI binder -- 14 differ and 24, lithium among them, are not "
+     "in that table (Emsley's); the CI "
+     "table is not Lodders 2003's Table 3 (P 1040 against 920 +- 100 ppm); "
+     "the 'stellar photosphere' is the present-day Sun (Asplund 2009) with "
+     "meteoritic values for some elements.  THE BINDER IDENTITIES ARE "
+     "DATA-DEPENDENT and are printed without uncertainty: at the photosphere "
+     "Li runs 9%% behind P, inside photospheric Li's sigma (P(Li binds) = "
+     "0.36 under A09; AAG21's Li makes Li bind), and CI N at its moved value "
+     "(1965 ppm, LBP25) makes N bind at 13.07.  The magnitudes hold across "
+     "these data: 8.3-13.1 (CI), 1.6e3-2.2e3 (photosphere) kg per kg"
      % ((stockgate.GATE,)
         + stockgate.binding_under("as-composed 59", "CI chondrite")
         + stockgate.binding_under("as-composed 59", "stellar photosphere"))
      # DOCKET 64 appends; the figures above are stockgate's and are NOT
      # re-printed below (formation.py's [W1]: over-representation).
-     + ".  DOCKET 64 (formation.py): %s.  The aperture search covered "
+     + ".  DOCKET 64 (formation.py): %s (DOCKET 67: MacGregor 2018 finds "
+     "no NEED to posit the 1-4 au belt, about 2 sigma against it, and a belt "
+     "below ~130 uJy is not excluded; that is not a withdrawal).  The "
+     "aperture search covered "
      "'aperture' and its synonyms; %d files hit (%s among them) and none "
      "gives the arrival aperture a value (formation.APERTURE_SEARCH).  "
      "Survey: condensed body found = %s (%s); "
@@ -718,7 +805,11 @@ DEMAND = [
     # ----- DOCKET 64: linearised stability, opened by the docket that built
     # its instrument (docstring section 4).  Text ASKED of linstab.py. ------
     ("D26",
-     "%s.  inf beta^2_crit over m > 0 = %s (classical radial sector: %s)"
+     "%s.  inf beta^2_crit over m > 0 = %s (classical radial sector: %s).  "
+     "DOCKET 67: that classical radial THEOREM is this board's own Israel-"
+     "shell algebra under P1-P4, not AMM's criterion, whose class is large-N "
+     "free quantum fields about a solution of the semiclassical equations; "
+     "the '(AMM)' label belongs to the semiclassical half"
      % (linstab.D26_CLAIM, linstab.BETA2_CRIT_INFIMUM,
         linstab.CLASSICAL_RADIAL_STATUS),
      OPEN, ("linstab", "SEMICLASSICAL_EVALUABLE_ON_DEMAND"),
@@ -747,6 +838,14 @@ DEMAND += [(rid, PROPOSED[rid][2], _proposed_status(rid), PROPOSED[rid][4],
 #: THE WORDING DOCKET 64 REPLACED ON DEMAND ROWS, kept for SUPERSEDED_WORDING.
 #: Typed here because it is HISTORY -- what the board said -- and not a result;
 #: the one computed clause (create.py's) is still asked.
+#: CORRECTED (DOCKET 67), recorded against this kept wording and not edited
+#: into it: "Every demand row is a demand on <rho>" is exact only at
+#: alpha = beta = 0; Kuo & Ford PROPOSE Delta as "a measure" -- it is not
+#: shown to be "that equation's error"; and their 1993 remark that the
+#: renormalisation of quartic operator products did not exist is dated and
+#: concerns POINTWISE normal-ordered quartics (Brunetti-Fredenhagen-Koehler
+#: 1996, NAMED-NOT-READ; Hollands & Wald 2001, READ), which Kuo & Ford exempt
+#: from averaged quantities, so it is not a remark about the smeared price.
 D22_DOCKET62 = (
     "THE SEMICLASSICAL DEBT.  Every demand row is a demand on <rho> inside "
     "G = 8 pi G <T>, and Kuo & Ford's measure of that equation's error, "
@@ -786,7 +885,10 @@ OPENED_FROM_WAITING = [
      "Galanda-Meda-Murro-Pinamonti-Schmid 2604.01047: linearly unstable, "
      "attributed to the renormalisation constants) -- as DOCKET 62's ruling "
      "reports them, not read here.  stability.py asks the "
-     "CLASSICAL radial stability of a shell, not this"),
+     "CLASSICAL radial stability of a shell, not this.  [DOCKET 67, both "
+     "read: AMM's 'completely infrared stable' assumes O(1) fourth-order "
+     "coefficients and beta >= 0 and leaves the k = 0 modes untreated; "
+     "GMMPS's mode needs alpha~^S_1 != 0, and grows only for alpha~^S_1 > 0]"),
 ]
 
 #: QUESTIONS THAT NEED M'S RULING, recorded and NOT applied.  This file edits no
@@ -1451,7 +1553,11 @@ RULED_BY_M = [
      "holds that teleportation is a move, not a copy "
      "(IT_IS_A_MOVE_NOT_A_COPY = %s), consumes its channel "
      "(CHANNEL_IS_CONSUMED_BY_USE = %s), carries no substance "
-     "(CARRIES_SUBSTANCE = %s) and does not beat light (BEATS_LIGHT = %s)"
+     "(CARRIES_SUBSTANCE = %s) and does not beat light (BEATS_LIGHT = %s) -- "
+     "each exact at fidelity F = 1, one pure ebit and an unknown state, in "
+     "linear, chronology-respecting quantum mechanics, and 'consumed' is "
+     "LOCC non-increase of entanglement, not a conservation law (DOCKET 67: "
+     "these hypotheses were unnamed here, while O3 is open)"
      % (transit.IT_IS_A_MOVE_NOT_A_COPY, transit.CHANNEL_IS_CONSUMED_BY_USE,
         transit.CARRIES_SUBSTANCE, transit.BEATS_LIGHT),
      "RULED BY M: BOTH, QUANTUM FIRST -- 'both. Quantum first, which should "
@@ -1459,7 +1565,8 @@ RULED_BY_M = [
      "the classical specification is to be derived from it, and no derivation "
      "exists yet",
      "R11 is stated on a quantum specification; transit.py's four results bind "
-     "it IF it is carried by teleportation as an unknown quantum state"),
+     "it IF it is carried by teleportation as an unknown quantum state, at "
+     "F = 1, in linear, chronology-respecting quantum mechanics"),
 
     # M's ruling at DOCKET 65's seating.  M's words are quoted verbatim; the
     # literature is CITED as the question was put, and nothing here has READ it.
@@ -1639,19 +1746,41 @@ def _proposed_supply(rid, name):
 SUPPLY = [
     ("S1", "negative effective mass (band curvature)", REFUSED, None,
      "STRUCK on KIND: m* is a dispersion curvature, not T_00.  It does not "
-     "gravitate and will not source a metric"),
+     "gravitate and will not source a metric -- m* as a quantity; the "
+     "quasiparticle's energy does gravitate, as E/c^2, whatever the sign of "
+     "m* (CORRECTED, DOCKET 67: the qualifier was dropped; KIND is "
+     "unaffected)"),
 
-    ("S2", "Casimir between ideal plates", REFUSED, None,
+    ("S2", "Casimir: ideal plates, and real curved mirrors", REFUSED, None,
      "STRUCK three ways by DOCKET 54 and once more by DOCKET 53.  The sign "
      "INVERTS for any real mirror at a_c = 0.480 x skin depth, "
      "materials-independent; 2G|m|/(ac^2) is a-INDEPENDENT so building it "
      "bigger buys nothing; and the plate outweighs its own Casimir energy for "
-     "every material that exists"),
+     "every material that exists.  CORRECTED (DOCKET 67): the row was named "
+     "'Casimir between ideal plates' while this note argues real curved "
+     "mirrors.  The inversion is a near-wall statement, eps <~ the plasma "
+     "wavelength, inside the sphere (outside, the plasma term has the "
+     "opposite sign); it rests on a RECONSTRUCTED spherical plasma prefactor "
+     "(tolman.py, sign and order only) under a sharp boundary, the plasma "
+     "model, T = 0 and omega_p eps/c << 1; its SIGN holds for every passive, "
+     "local, sharp-boundary medium, but the NUMBER 0.480 is the plasma "
+     "model's (Drude damping moves it -0.17%%), and the two asymptotes it "
+     "equates hold in disjoint ranges of eps, so a_c is not a physical "
+     "threshold.  'Every material that exists' holds for ordinary atomic "
+     "matter: the ratio is 2.72e-8 for hydrogen, 1.25e-5 for positronium, "
+     "7.43e-4 at nuclear density, all below 1"),
 
     ("S3", "squeezed vacuum", MEASURED, ("candidates", "REQUIREMENT_SCALES_AS"),
      "THE LEAST-DEAD ROUTE and the only survivor of the four.  Passes KIND and "
      "DEADLINE, fails MAGNITUDE.  Untouched by DOCKET 54, because the parity "
-     "argument bites boundary conditions and squeezing is a state"),
+     "argument bites boundary conditions and squeezing is a state.  DOCKET "
+     "67: what experiments MEASURE is a quadrature variance below shot "
+     "noise, which equals <:T00:> < 0 only in the single-mode plane-wave "
+     "idealisation; and the MAGNITUDE failure is computed under flat space "
+     "(H_flat) with the sampling time set to t0 = R/c, the spatial-length-as-"
+     "time move DOCKET 55 withdrew in achievable.py -- flat space alone "
+     "excludes a static negative density at every t0, so the failure "
+     "holds a fortiori there"),
 
     ("S4", "non-minimal coupling", REFUSED, None,
      "STRUCK on the EFT field cutoff -- and see O1, which is the same field "
@@ -1733,13 +1862,21 @@ SUPPLY = [
      "through m_p/m_e, and it needs D20's filling source: a small, computable "
      "shift, inside matter denser than any object, and never a rebinding"),
 
-    ("S8", "Higgs as a negative-energy source at the endpoint", REFUSED,
+    ("S8", "Higgs as an NEC-violating source at the endpoint", REFUSED,
      ("higgs", "MINIMAL_SCALAR_SATISFIES_NEC"),
      "Minimal coupling is D17.  The xi != 0 case is S4 and O1, both refused; "
      "it needs phi at the GUT scale, xi_req = %.4g, a field %.0e (upper "
      "edge) to %.0e (lower edge) times Degrassi's instability scale "
      "10^(%g +- %g) GeV, %.0e at the centre, where the quartic is negative "
-     "-- not an excitation of our vacuum.  DOCKET 63's printed '%s to %s' is "
+     "-- not an excitation of our vacuum.  CORRECTED (DOCKET 67): the row "
+     "was named 'a negative-energy source', but D17 is an NEC statement; "
+     "'needs phi at the GUT scale' holds under a cap xi <~ 1.5e4 (a field "
+     "below Degrassi's band needs xi >= 5.93e12) and takes the MSSM-"
+     "conditional 2e16 GeV; 'where the quartic is negative' holds at the "
+     "central top mass with SM running up to that scale, and 2e16 GeV is "
+     "122x above M_red/xi, where Degrassi call the shape uncontrolled; the "
+     "band is a ~1 sigma, Landau-gauge band, not hard edges.  The refusal "
+     "rests on D17 and S4/O1, not on the sign.  DOCKET 63's printed '%s to %s' is "
      "the upper edge to the centre (excite.py: %s), %.0f%% of the band in "
      "log10; nothing turns on it"
      % (excite.XI_REQUIRED_AT_GUT,
@@ -1759,9 +1896,17 @@ SUPPLY = [
      "hardware stores %.0f J against the %.4g J its own premise needs at "
      "%.0f kg -- short by %.1f orders ON ITS OWN NUMBERS, the energy budget "
      "never connected to the chain (ENERGY_BUDGET_IS_CONNECTED_TO_THE_CHAIN "
-     "= %s).  And its reconstruction mechanism "
+     "= %s).  CORRECTED (DOCKET 67): that store is the PULSED-ignition "
+     "subsystem (the Marx bank and laser); the folder also energises a 20 T "
+     "stator, 85,000 RPM rotors it names as kinetic storage, and a muCF "
+     "cell, none quantified, and bounded by the printed dimensions the "
+     "whole device is at least 5.7 orders short, not 15.8.  And its "
+     "reconstruction mechanism "
      "is INVERTED: heating to the electroweak scale restores the symmetry "
-     "(HEATING_TO_EW_SCALE_RESTORES_SYMMETRY = %s) and un-generates the masses it was to template.  That shortfall is "
+     "(HEATING_TO_EW_SCALE_RESTORES_SYMMETRY = %s) and un-generates the masses it was to template -- in the one-doublet "
+     "SM, where this is a crossover near 160 GeV above which <phi> is "
+     "approximately zero and the tree-level vev masses go with it "
+     "(CORRECTED, DOCKET 67: 'restores' labels a crossover).  That shortfall is "
      "the specification against itself, not a gap against this board's demand, "
      "so the row carries none.  NOT ADJUDICATED, and not to be quoted either "
      "way: %s -- the first is the only folder claim that touches this "
@@ -1798,6 +1943,15 @@ SUPPLY = [
 #: O5 AS DOCKET 62 WROTE IT (claim, answer), still computed from throatmass.py
 #: so the kept wording is the wording the board printed.  DOCKET 64 replaced
 #: it; SUPERSEDED_WORDING keeps it.
+#: CORRECTED (DOCKET 67), recorded against this kept wording and not edited
+#: into it (it is what the board said): "The largest ever built" is the
+#: tree's survey-completeness hypothesis -- HPS p.8 call the 300 l_P throats
+#: 'local' solutions with horizons far from the throat, not shown, and say
+#: throats can be arbitrarily large; "EXPELLED rather than refuted ... an
+#: expulsion names no hypothesis to attack" is wrong of AMM, whose failure
+#: names a growing gauge-invariant mode, and Flanagan-Wald place eps ~ 1
+#: outside their theorem, not outside semiclassical gravity.  The superseded
+#: row's why cell carries this into LEDGER.md.
 O5_DOCKET62 = (
      "Does a self-consistent static semiclassical solution with m(r) < 0 exist "
      "at all?  NARROWED BY DOCKET 62 (throatmass.py), status unchanged.  %d "
@@ -1852,9 +2006,19 @@ OPEN_ROWS = [
      "m < 0 FOUND IN HPS'S SYSTEM (%s reading) = %s; FOUND INSIDE THE ESTABLISHED DOMAIN "
      "= %s -- %s.  Which system HPS integrated: %s.  Kontou's requested "
      "test: %s.  Fewster-Smith on HPS: %s.  On the throat geodesic: %s.  "
-     "%d of %d self-consistent families in print REPORT m < 0 "
-     "(throatmass.py, READ) -- true of what was reported, and no longer the "
-     "tree's finding"
+     "CORRECTED (DOCKET 67): HPS's m < 0 solutions are built from modes "
+     "non-perturbative in hbar (omega_1 ~ hbar^(-1/2), ripple wavelength "
+     "0.187 l_P), which the order-reduction literature holds non-physical, "
+     "naming HPS; 'derived or established' holds on its 'established' half, "
+     "the 'derived' half being contested (HPS p.3, Arrechea App. B); and "
+     "FO's and FFKP's theorems apply in form only where their hypotheses do "
+     "-- FO needs global hyperbolicity, FFKP's printed Ricci term needs "
+     "R_ll = 0 or xi = 0.  %d of the %d families ONE literature pass "
+     "returned as self-consistent REPORT m < 0 (throatmass.py, READ) -- "
+     "true of what was reported, and no longer the tree's finding (DOCKET "
+     "67: other families are cited, 2607.07583v1 p.1, and KS, Garattini and "
+     "APT are not fixed-point self-consistent solutions; Garattini's m > 0 "
+     "is fixed by its ansatz)"
      % (hpscentre.PRINTED_DISAGREEMENTS,
         hpscentre.CONSERVED["a_tt"], hpscentre.CONSERVED["a_th"],
         _hps_ll_denominator(hpscentre.CONSERVED["ll_pow"]),
@@ -1912,13 +2076,24 @@ OPEN_ROWS = [
      "forfeiting the destination-supplied atoms that are the premise.  "
      "NARROWED BY "
      "DOCKET 62 (branelink.py), NOT CLOSED: GW170817 bounds %s -- beta <= "
-     "%.6e, CONDITIONAL on %s -- so at B = 0 the saving is %.4f ns, a fraction "
+     "%.6e, CONDITIONAL on %s, and on the GW and light leaving together "
+     "along one line of sight (GW170817's simultaneous emission; the "
+     "source's -100 s case gives "
+     "beta <= 2.757e-7) -- so at B = 0 the saving is %.4f ns, a fraction "
      "%.1e of the light time.  The provenance of that figure is %s; the "
      "dipole's Gamma - 1 = %.4e is a candidate for B and enters only through "
-     "the anisotropy.  B IS UNMEASURED, and the escape is priced: B >= %.9f "
-     "buys one second over the Proxima span.  The loop-induced SME route is a "
-     "null %.0f orders short.  The proposed R-1 row is this row renamed and "
-     "is not opened"
+     "the anisotropy (that figure is barycentric arithmetic on a two-figure "
+     "370 km/s; Earth's own runs 6.5e-7 to 8.9e-7 over a year, and reading "
+     "the dipole as a velocity assumes it is kinematic).  B IS UNMEASURED, "
+     "and the escape is priced: B >= %.9f buys one second over the Proxima "
+     "span -- a necessary floor for antipodal propagation with the boost "
+     "direction fixed, not a sufficient price (0.9994645711 on the real "
+     "sky), and at such B GKLM's beta bound, derived at B = 0, is 57.1x "
+     "looser.  The loop-induced SME route is a null %.0f orders short (at "
+     "beta = 1 and r = 38.6 um on the bulk-graviton branch; 57 orders at "
+     "that branch's beta bound).  CORRECTED (DOCKET 67): the emission, "
+     "reference-frame, floor and SME conditions were unstated.  The proposed "
+     "R-1 row is this row renamed and is not opened"
      % (branelink.GW170817_BOUNDS, branelink.BETA_MAX,
         branelink.BETA_BOUND_CONDITIONAL_ON, branelink.SAVING_AT_B0_NS,
         branelink.SAVING_FRACTION, branelink.PROVENANCE_94NS,
@@ -1930,12 +2105,18 @@ OPEN_ROWS = [
     ("O2",
      "Fewster & Teo's exact static-spacetime QEI on the corridor.  NARROWED BY "
      "DOCKET 62 (fewsterteo.py), NOT CLOSED.  Its prefactor is exactly %d, two "
-     "routes in sympy.  Its %d/%d against Ford-Roman is exact and MUST NOT be "
+     "routes in sympy -- in the tree's reading: F&T's printed prefactor is "
+     "1/pi by four in-paper routes, and the two sympy routes share the one "
+     "step that drops the pi (DOCKET 67; a discrepancy that feeds no "
+     "figure).  Its %d/%d against Ford-Roman is exact and MUST NOT be "
      "applied to C_F, which already IS that family's constant at the optimal "
      "compactly supported sampler (the Parseval route is new; the agreement "
      "of two evaluations of one closed form is not a check).  Its Sec. 7 does "
      "not transplant to M < 0, the horizon being its mode-defining surface.  "
-     "The corridor's own mode functions are %s.  The proposed curvature "
+     "The corridor's own mode functions are %s (DOCKET 67: that class is "
+     "the constant-M vacuum segment's, not the regular-centre corridor's "
+     "globally, and a convergent Frobenius series determines them; they are "
+     "uncomputed).  The proposed curvature "
      "tightening came entirely from the witness's H^3 spectral gap, and the "
      "corridor has none (%s: gap %g), so the persistence refusal stays at "
      "%.3f orders, unmoved in either direction"
@@ -1943,13 +2124,17 @@ OPEN_ROWS = [
         fewsterteo.CORRIDOR_MODE_FUNCTIONS, fewsterteo.GAP_HYPOTHESIS,
         fewsterteo.CORRIDOR_SPECTRAL_GAP, fewsterteo.FLAT_SHORTFALL_ORDERS),
      fewsterteo.O2_ANSWERED_BY + ".  The right instrument is " +
-     fewsterteo.RIGHT_INSTRUMENT + " -- not Fewster & Teo's difference QEI"
+     fewsterteo.RIGHT_INSTRUMENT + " (for Hadamard states on a small enough "
+     "sampling domain -- DOCKET 67) -- not Fewster & Teo's difference QEI"
      # DOCKET 64 appends (ruling C, O2), worded as noise.py states it: the
      # spectrum is bounded BELOW by the QEI bound, not equal to it.
      + ".  It also decides D22's distribution question on the corridor "
      "(noise.CURVED_PART_CARRIED_BY = %s): by FFR 1004.0179 note [18] every "
      "measurement distribution is supported in the spectrum of the sampled "
-     "operator, which an absolute QEI bounds below"
+     "operator, which an absolute QEI bounds below -- deciding it where the "
+     "evaluated bound is below the demanded magnitude and holds on the whole "
+     "domain of a self-adjoint realisation (a curved H3); CORRECTED, DOCKET "
+     "67: 'decides' was unconditional"
      % noise.CURVED_PART_CARRIED_BY,
      ("fewsterteo", "O2_CLOSED")),
 
@@ -1960,7 +2145,9 @@ OPEN_ROWS = [
      "The flat-bulk quotient is SETTLED by D21, where GKLP's 'no' is forced.  "
      "The proposed codimension-one 'yes' is REFUSED as an answer: %s"
      % latticectc.CODIM1_CTC_REFUSAL,
-     latticectc.O3_ANSWERED_BY,
+     latticectc.O3_ANSWERED_BY + " (for an Einstein(+Lambda) bulk, for "
+     "which the Israel form is the junction condition; a Gauss-Bonnet bulk "
+     "takes Davis's -- DOCKET 67)",
      ("latticectc", "O3_CLOSED")),
 
     # DOCKET 65 opens no O row: the finite Higgs share, first seated here as
@@ -2006,7 +2193,10 @@ SUPERSEDED_WORDING = [
      "is the CMB dipole at 370 km/s, Gamma - 1 = 7.6e-7, which is what gives "
      "94 ns",
      "WRONG PROVENANCE: the saving at B = 0 is " + branelink.PROVENANCE_94NS +
-     "; the dipole is a candidate for B, not the source of the figure"),
+     "; the dipole is a candidate for B, not the source of the figure.  "
+     "DOCKET 67: 'the only preferred-frame velocity ever measured' also "
+     "overstated -- the CMB frame is a candidate preferred brane frame, and "
+     "reading the dipole as a velocity assumes it is purely kinematic"),
     ("O2", "DOCKET 62",
      "Fewster & Teo give an EXACT static-spacetime QEI with no curvature cap, "
      "TIGHTER than Ford-Roman in the Minkowski limit, and the corridor is "
@@ -2038,16 +2228,29 @@ SUPERSEDED_WORDING = [
      "%s), outside the domain the AHS approximation is established for.  "
      "throatmass.py's NOT-FOUND describes what HPS REPORTED and stays true "
      "of that, but is no longer printed as the tree's finding; the row is "
-     "re-owned to hpscentre.O5_CLOSED"
+     "re-owned to hpscentre.O5_CLOSED.  DOCKET 67, of the kept wording: "
+     "'the largest ever built' is the tree's survey hypothesis -- HPS's 300 "
+     "l_P throats are 'local' solutions with horizons far from the throat, "
+     "not shown, and HPS say throats can be arbitrarily large; and "
+     "'EXPELLED ... names no hypothesis to attack' is wrong of AMM, whose "
+     "failure names a growing gauge-invariant mode, and eps ~ 1 lies "
+     "outside Flanagan-Wald's theorem, not shown outside semiclassical "
+     "gravity"
      % hpscentre.M_NEGATIVE_FOUND_IN_HPS_SYSTEM),
     ("D22", "DOCKET 64", D22_DOCKET62,
      "the smeared price is computed in flat space (noise.py: C1 a THEOREM in "
      "H1-H6) and reaches the corridor only as a SURVEY, so the row moves OPEN "
      "-> SURVEY; 'needs the curved-space renormalisation of quartic operator "
-     "products' is wrong as to NEW renormalisation (Hu & Verdaguer 3.2, "
-     "READ), and the finiteness it does need is NAMED, not run (Fewster "
-     "1208.5399 Sec. 3.3); fluctuation.PRICES_THE_CORRIDOR stays False and "
-     "stays true of fluctuation.py"),
+     "products' is wrong as to NEW renormalisation for the TIME-smeared "
+     "variance (Hu & Verdaguer 3.2, READ, for the counterterm cancellation "
+     "and separated-point finiteness), and the finiteness it does need is "
+     "NAMED, not run (Fewster 1208.5399 Sec. 3.3); "
+     "fluctuation.PRICES_THE_CORRIDOR stays False and stays true of "
+     "fluctuation.py.  DOCKET 67, of the kept wording: 'every demand row is a "
+     "demand on <rho>' is exact only at alpha = beta = 0; Kuo & Ford propose "
+     "Delta as 'a measure', not the equation's error; and their 1993 remark "
+     "concerns pointwise normal-ordered quartics (renormalised since: "
+     "Hollands-Wald 2001), which they exempt from averaged quantities"),
     ("D24", "DOCKET 64", D24_ANSWER_DOCKET62,
      "the third part -- the passage from flat space to a configuration that "
      "changes no topology -- is priced by formation.py (F1, F2), so 'no "
@@ -2083,9 +2286,15 @@ CLOSED_ROWS = [
      "CLOSED, AND THE AXIS DOES NOT ESCAPE THE SIGN.  axial.py, six sympy "
      "residuals all 0.  In the Lambda = 0 gauge -- a FULL gauge fixing -- "
      "8 pi u W = -(W Psi')' - W Psi'^2 - W''.  On a regular axis (W(0) = 0, "
-     "W'(0) = 1) and asymptotically flat (W -> r, W Psi' -> 0) both boundary "
+     "W'(0) = 1, phi of period 2 pi, W Psi' -> 0 at r = 0) and asymptotically "
+     "flat in axial.py's sense (W -> r, so W' -> 1 -- no angular deficit at "
+     "infinity -- and W Psi' -> 0) both boundary "
      "terms vanish and INT 8 pi u W dr = -INT W Psi'^2 dr <= 0, with equality "
-     "IFF Psi' == 0.  ANY axial contraction forces u < 0 somewhere.  NO ENERGY "
+     "IFF Psi' == 0.  ANY axial contraction forces u < 0 somewhere -- in that "
+     "class, where u >= 0 everywhere already forces u == 0 and W == r with or "
+     "without contraction, so the sign is carried by the boundary conditions; "
+     "with string asymptotics (W' -> k < 1) a contracting profile with u >= 0 "
+     "everywhere exists (CORRECTED, DOCKET 67: these were unstated).  NO ENERGY "
      "CONDITION IS USED -- geometry and two boundary conditions.  Phi is absent "
      "from u, so redshift buys nothing, which closes the S - 2u escape that "
      "looked real for one pass.  Same shape as certify.py's: a square carrying "
@@ -2093,7 +2302,10 @@ CLOSED_ROWS = [
      "other sign is a conical ANGLE EXCESS, W'(0) > 1, contributing exactly "
      "(W'(0) - 1) -- measured to nine places at four defects -- and an angle "
      "excess is the deficit of a NEGATIVE linear mass density, so it restates "
-     "the requirement rather than avoiding it"),
+     "the requirement rather than avoiding it -- for a string with W Psi' -> 0 "
+     "at the axis, axial pressure p = -mu at first order (Vilenkin's deficit "
+     "is 4 pi G (mu - p); with p > mu an excess needs no negative mu, outside "
+     "the class -- DOCKET 67)"),
     ("O1",
      "The nonminimally coupled scalar admits no state-independent QEI, so the "
      "sharpest limb of DOCKET 55 has a hole exactly where the project's "
@@ -2106,7 +2318,17 @@ CLOSED_ROWS = [
      "construction.  LAMBDA CANCELS AND L CANCELS -- the overhead is a PURE "
      "NUMBER, which is WORSE than a power law: a growing penalty could in "
      "principle be outrun by building small, and a scale-free factor of 10^3 "
-     "cannot be outrun at all"),
+     "cannot be outrun at all.  CORRECTED (DOCKET 67): neither the formula "
+     "nor the two figures is in Fewster & Osterbrink, and f and c0 were "
+     "defined nowhere.  They are this tree's accounting on FO's one-particle "
+     "family (massless field, 4D Minkowski, xi in (0, 1/4]): f a threshold as "
+     "a fraction of the peak |rho(0,0)|, c0 the radius of the largest FO ball "
+     "on which rho <= -f|rho(0,0)|, E_neg that threshold times the ball's "
+     "volume, E_pos = <H>, minimised over f.  Against the same state's "
+     "actual integrated negative energy the ratio is 22.79 and 102.02 "
+     "respectively.  'Cannot be outrun' holds of that one family: FO prove "
+     "no bound on <H>/|E_neg| over all states.  The refusal rests on S4's EFT "
+     "field cutoff, not on these figures"),
 ]
 
 
@@ -2119,13 +2341,23 @@ WITHDRAWN_ROWS = [
      "falls short by sixty-five orders",
      "Ford-Roman is a TIME average at ONE SPATIAL POINT, not a cap on |rho| "
      "over a spatial scale.  There is no pointwise cap to price against, and "
-     "the figure was computed with the inequality's own coefficient dropped"),
+     "the figure was computed with the inequality's own coefficient dropped.  "
+     "CORRECTED (DOCKET 67): 'no pointwise cap' holds for a general state; "
+     "for a STATIC density the time average is the point value, so in flat "
+     "space the inequality forces rho >= 0, and with the window capped by a "
+     "spatial scale it gives Fewster's -C/(2l)^4 -- the one-sided cap "
+     "achievable.duration_bound and bounds.py already apply (D7)"),
 
     ("W2", "bounds.py: 'Casimir is the Ford-Roman bound saturated, not an "
      "exception to it, which is why no material choice crosses it'",
      "Fewster reports the Casimir density at 3-7 %% of the bound and asks in "
      "print why it is so small a proportion.  Three per cent is not a wall "
-     "with something standing against it.  DOCKET 67 "
+     "with something standing against it.  (DOCKET 67, of the words above: "
+     "'the Casimir density' is the massless minimally coupled Dirichlet "
+     "scalar's -- the EM ideal-plate density, under an unread H_EM, is "
+     "0.432 %% of the scalar bound at the midpoint -- and the withdrawn "
+     "claim's 'the Ford-Roman bound' is Fewster's Eq. (4) relabelled.)  "
+     "DOCKET 67 "
      "(ford-roman-qi-and-fewster-casimir-fraction, NARROWED; the reopen "
      "adjudicated REOPENS-NARROWER; recorded on M's ruling of 2026-10-02): "
      "the 3-7 %% is of Fewster's own a priori Eq. (4) bound, not of the "
@@ -2186,7 +2418,14 @@ WITHDRAWN_ROWS = [
      "FRAME, not relative to Proxima.  Earth and Proxima are comoving to about "
      "one part in 1e4, so a receiver at rest in Proxima's atoms automatically "
      "shares Earth's B whatever B is.  No contradiction, and the closure does "
-     "not stand"),
+     "not stand.  CORRECTED (DOCKET 67): 'about one part in 1e4' is a "
+     "seasonal range, beta_rel = 3.6e-5 to 2.08e-4 (Gaia DR3 astrometry and "
+     "Kervella 2017's radial velocity, read via restatement, with Earth's "
+     "orbit); and 'shares B' holds multiplicatively -- the Doppler and "
+     "Lorentz factors of any common boost agree between the endpoints to "
+     "within e^(+-2.1e-4) -- not for B as a velocity when B is comparable to "
+     "beta_rel (8.1 % apart at the CMB-dipole speed).  The closure still "
+     "does not stand"),
 
     # DOCKET 63.  ASKED, NOT RETYPED: W9 is excite.W9 and W10-W13 are
     # address.WITHDRAWN, each a (claim, why) whose figures are computed there.
@@ -2280,14 +2519,33 @@ def balance():
                  % (required_negative_mass(PROXIMA_M),
                     required_negative_mass(PROXIMA_M) / M_SUN),
                  "as B1", None))
+    # CORRECTED (DOCKET 67).  B3's supply as first written: "m(r) > 0 near the
+    # wall for every real mirror" -- true only for eps <~ the plasma
+    # wavelength, on the INTERIOR side (outside, the plasma term has the
+    # opposite sign), on tolman.py's RECONSTRUCTED spherical prefactor; the
+    # sign holds for every passive, local, sharp-boundary medium.  For
+    # a >> lambdabar_p the band lambdabar_p << eps << a follows the ideal
+    # p_r < 0 (argued, not computed, for a sphere), and there B3's refusal
+    # rests on the magnitude ground, 2G|m|/(ac^2) <= 2.3e-56, not on the sign.
     rows.append(("B3", "Casimir as a source of negative enclosed mass",
                  "m(r) < 0 near the wall",
-                 "m(r) > 0 near the wall for every real mirror",
+                 "m(r) > 0 near the wall, inside, for every real mirror, at "
+                 "eps <~ the plasma wavelength (any passive, local, "
+                 "sharp-boundary medium; outside, the sign reverses)",
                  None))
+    # CORRECTED (DOCKET 67).  B4's supply as first written: "<= 2.72e-8 for
+    # hydrogen, the lightest conceivable sheet".  The literal has no owning
+    # instrument; its construction, recovered by DOCKET 67 to 3 s.f., is the
+    # continuum bound R <= pi^2 hbar / (1440 d m c) with gap = site spacing
+    # d = a0 and site mass m = m_H (H-CONTINUUM, H-GAP-GE-SPACING, spacing >=
+    # a0, site mass >= m_H, H-PASSIVE, H-PLANAR-INFINITE, H-T0).  Hydrogen is
+    # not the maximum: muonium 2.40e-7, positronium 1.25e-5, nuclear density
+    # 7.43e-4 -- all below 1, so the refusal stands.
     rows.append(("B4", "the mirror against the asset it buys",
                  "|E_Cas| >= M c^2 for the apparatus",
-                 "|E_Cas|/(M c^2) <= 2.72e-8 for hydrogen, the lightest "
-                 "conceivable sheet",
+                 "|E_Cas|/(M c^2) <= 2.72e-8 for hydrogen sheets (ordinary "
+                 "atomic matter: continuum, passive, planar, T = 0); "
+                 "positronium 1.25e-5, nuclear density 7.43e-4",
                  None))
     return rows
 
@@ -2421,14 +2679,17 @@ established and refuted so far, not a census of what is establishable.
 #: withdrawn tables are summaries and keep their shorter widths).  DOCKET 65
 #: added the supply note to that check: S10 carries its claim and its movers in
 #: one note, and the old fixed 2000 would have cut them.
-W_DEMAND_CLAIM = 2400
+W_DEMAND_CLAIM = 4000             # DOCKET 67: D24 names the dropped
+                                  # hypotheses M ruled repaired ("Repair all")
 W_DEMAND_MOVES = 1200             # DOCKET 65: D27's movers run past 1000
 W_SUPPLY_NOTE = 5000              # DOCKET 65: S10's claim and movers, one note,
                                   # and the item S10 (open) (M-D65-2)
-W_OPEN_CLAIM = 2400
-W_OPEN_ANSWER = 800
+W_OPEN_CLAIM = 4000               # DOCKET 67: as W_DEMAND_CLAIM (D24 is OPEN)
+W_OPEN_ANSWER = 1400              # DOCKET 67: O2's answer names its
+                                  # conditions (M ruled "Repair all")
 W_WAS = 1400
-W_WHY = 600
+W_WHY = 1000                      # DOCKET 67: superseded rows carry
+                                  # the corrections M ruled ("Repair all")
 W_RULING = 1000                   # DOCKET 65: M-D65-4's ruling cell names M's
                                   # rule for the paper and the DOCKET 63 marker
                                   # READ back from the paper; 600 would cut it
@@ -3132,9 +3393,11 @@ def selftest():
 
     print("\n3. THE EXCHANGE RATE, RE-DERIVED FROM ASKED CONSTANTS")
     chk("Lambda is overturn.py's", LAMBDA, overturn.LAMBDA)
-    chk("c^2/(G Lambda) reproduces the tree's 1.348948e26 to 7 figures",
+    chk("c^2/(G Lambda) reproduces the tree's 1.348948e26 to 7 figures "
+        "(arithmetic; G fixes about 5)",
         round(EXCHANGE_RATE / 1e26, 6), 1.348948)
-    chk("and the Proxima demand is 5.4194e42 kg to 5 figures",
+    chk("and the Proxima demand reproduces 5.4194e42 kg to 5 figures "
+        "(arithmetic; the J2016.0 parallax's sigma fixes about 4)",
         round(required_negative_mass(PROXIMA_M) / 1e42, 4), 5.4194)
 
     print("\n4. THE LEDGER'S OWN SHAPE")
