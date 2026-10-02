@@ -68,6 +68,19 @@ Read against the board:
   geometry admits (their two ends would not match). The measured candidate frame is the CMB rest frame
   (`cmb-dipole-370kms`, D67: NARROWED).
 
+### What "supplied by probability in the citation/seating" means -- M: "Consider both 1 and 2" (2026-10-02)
+
+Both readings put to M are carried, as two work items:
+- **R-INDEX** -- the probability of a cell in The Method's closed index, measured substrate-free by Q-1 (bits); the
+  seat is where the cell is written. The measure contains no energy term at all, so within it there is no null
+  energy condition to break. Energy re-enters only at the exchange rates (Landauer, Bekenstein, Holevo), which is
+  where this reading is tested.
+- **R-QUANTUM** -- probability in the quantum sense: states whose local energy density dips below zero. These are
+  real (Casimir; squeezed states -- Kuo & Ford, D67) and bounded in magnitude and duration by the quantum energy
+  inequalities the board holds (D67: gr-qc/9506083 STANDS; 1208.5399, gr-qc/0209036, fewster-osterbrink-qei,
+  ford-roman-qi-and-fewster-casimir-fraction, kontou-fo-ffkp-nmc-qei NARROWED). This reading is tested against
+  those bounds as graded.
+
 ## M on speed and the corridor, verbatim (2026-10-02)
 
 > Speed is a non-issue. Consider that the corridor connects two positions as one, thus speed never enters the
