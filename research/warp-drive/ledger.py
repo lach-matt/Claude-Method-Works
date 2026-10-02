@@ -1658,7 +1658,35 @@ SUPPLY = [
      "from the other side and is STRUCK THERE TOO, at the same inequality.  "
      "The draft of this row ended 'and is OPEN rather than struck', four "
      "words that counted one refusal as an opening and inflated the open "
-     "count by one"),
+     "count by one.  DOCKET 67 (2309.10848-eft-breakdown, NARROWED; the reopen "
+     "adjudicated REOPENS-NARROWER; recorded on M's ruling of 2026-10-02) finds "
+     "ONE WINDOW this refusal does not reach, and it is recorded inside this "
+     "row, not counted as an open row (the inflation just named): in the "
+     "xi < 0 sub-class -- in FFKP eq. (109)'s convention, shared by "
+     "Fewster-Osterbrink and Barcelo-Visser, where xi < 0 is the "
+     "Higgs-inflation sign; candidates.py's literal 'delta L = xi R phi^2' "
+     "reads the same sub-class as xi_tree > 0 (candidates.XI_SIGN_CONVENTION) "
+     "-- the window %g <= 8 pi G|xi| phi_max^2 < %.6f (l_UV >= %.6f l_P, "
+     "candidates.xi_negative_window()) is %s: there the only ground against "
+     "closure is FFKP's Einstein-frame tower, an order-of-magnitude argument "
+     "with its Jacobian uncomputed.  OPEN, not supplied.  xi > 0 stays STRUCK "
+     "(the exact constrained-saddle breakdown at eps = 1, the "
+     "Planckian-momentum premise, O1); xi < 0 with eps < 1 stays excluded "
+     "(every such closure point has l_UV < %.6f l_P, and the premise that a "
+     "cutoff at a few Planck lengths is not an EFT carries no sign); S8 is not "
+     "widened (it stays REFUSED on its own GUT-scale ground, which reaches the "
+     "window: there phi_max is within a factor 1.140442 of the Barcelo-Visser "
+     "gate field).  The window's edges rest on the sibling audit's Gaussian "
+     "coefficient (candidates.NMC_GAUSSIAN_K, %s) and on the closure algebra "
+     "sibling key 2309.10848 narrowed.  Recorded, not repaired: in the window "
+     "specthm R6's 'S4 = O1 (one refusal, counted once)' and S8's 'the xi != 0 "
+     "case is S4 and O1, both refused' do not hold, since O1 does not reach "
+     "xi < 0" % (candidates.xi_negative_window()[0],
+                 candidates.xi_negative_window()[1],
+                 candidates.xi_negative_window()[2],
+                 candidates.XI_NEGATIVE_WINDOW_STATUS,
+                 candidates.xi_negative_window()[2],
+                 candidates.NMC_GAUSSIAN_K_STATUS)),
 
     ("S5", "the reconstruction route: specification, not mass", OPEN,
      ("branelink", "S5_FIGURES_MEASURED"),
@@ -3475,6 +3503,23 @@ def selftest():
                                           else x for x in _rows[rid])})))]
     chk("  CONTROL: deleting any one qualifier from its row is caught (each)",
         _ctl, [])
+    # DOCKET 67 (2309.10848-eft-breakdown, M's ruling 2026-10-02): S4 stays ONE
+    # REFUSED row; its OPEN xi < 0 window is recorded in its text, with the
+    # owner's figures, and is never counted as an open row.
+    _s4 = [r for r in SUPPLY if r[0] == "S4"][0]
+    _win = candidates.xi_negative_window()
+    _s4_window = lambda t: all(x in t for x in (
+        "%.6f" % _win[1], "%.6f l_P" % _win[2], "xi < 0 sub-class",
+        "FFKP eq. (109)", "xi_tree > 0", "not counted as an open row"))
+    chk("S4 is one REFUSED row; its xi < 0 window (DOCKET 67) is in its text with "
+        "candidates' figures, OPEN, and in no open count",
+        (_s4[2], sum(1 for r in SUPPLY if r[0] == "S4"), _s4_window(_s4[4]),
+         candidates.XI_NEGATIVE_WINDOW_STATUS,
+         "S4" in ([r[0] for r in DEMAND + SUPPLY if r[2] == OPEN]
+                  + [r[0] for r in OPEN_ROWS])),
+        (REFUSED, 1, True, "OPEN", False))
+    chk("  CONTROL: S4's text with the window's top edge drifted is caught",
+        _s4_window(_s4[4].replace("%.6f" % _win[1], "1.300000")), False)
     _d28 = dict(_rows, D28=tuple(x.replace("costs at least ", "costs ", 1)
                                  if isinstance(x, str) else x for x in _rows["D28"]))
     chk("  CONTROL: D28 with 'at least' deleted (a floor read as an exact cost) "

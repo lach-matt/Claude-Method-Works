@@ -242,6 +242,29 @@ WHY IT STILL FAILS, AND THE REASONS ARE THE AUTHORS' OWN:
     and by nothing at all in the orders.  That is why the finding is the
     EXPONENT MATCH and not the number.
 
+    DOCKET 67 NARROWED THE REFUSAL BY SIGN (key 2309.10848-eft-breakdown,
+    NARROWED; the reopen adjudicated REOPENS-NARROWER; seated on M's ruling of
+    2026-10-02).  In FFKP's eq. (109) convention, which Fewster-Osterbrink and
+    Barcelo-Visser share (conformal coupling +1/6; xi < 0 is the
+    Higgs-inflation sign), the Jordan-frame breakdown is argued for xi > 0
+    only; the Einstein-frame tower and the conservative condition
+    |8 pi G xi phi^2| << 1 carry no sign, but they are an order-of-magnitude
+    argument whose Jacobian nobody computed.  So in the xi < 0 sub-class ONE
+    WINDOW is OPEN: 1 <= 8 pi G|xi| phi_max^2 < 1.300608, which is
+    l_UV >= 2.091911 l_P (xi_negative_window(), computed below).  There the
+    tower is the only ground against closure.  OPEN, not supplied.  xi > 0
+    stays refused (the exact constrained-saddle breakdown at eps = 1, the
+    Planckian-momentum premise above, O1); xi < 0 with eps < 1 stays excluded,
+    since every such closure point has l_UV < 2.091911 l_P and the premise
+    that a cutoff at a few Planck lengths is not an EFT carries no sign.
+    CONVENTION: this file's literal 'delta L = xi R phi^2' reads the same
+    sub-class as xi_tree > 0 (xi_tree = -xi_FFKP/2, per the
+    nmc-classical-nec-violation audit; not re-derived).  The window's edges
+    rest on the sibling audit's Gaussian coefficient (NMC_GAUSSIAN_K,
+    RECOVERED, not re-derived here) and on this closure algebra, which
+    sibling key 2309.10848 NARROWED (Minkowski only; a null-smeared bound does
+    not bound rho).
+
 ===============================================================================
 4c. AND THE FOUR CROSSOVERS SIT ON TOP OF EACH OTHER
 ===============================================================================
@@ -439,6 +462,57 @@ def nmc_scales_like_the_requirement():
     return True
 
 
+# ---------------------------------------------- DOCKET 67: the xi < 0 window
+#: DOCKET 67, key 2309.10848-eft-breakdown (NARROWED; the reopen adjudicated
+#: REOPENS-NARROWER; seated on M's ruling of 2026-10-02).  The sign is in this
+#: convention, never in this file's literal one -- the label must carry it.
+XI_SIGN_CONVENTION = ("FFKP eq. (109), shared by Fewster-Osterbrink and "
+                      "Barcelo-Visser: conformal coupling +1/6, M_eff^2 ~ "
+                      "1 - 8 pi G xi phi^2; xi < 0 is the Higgs-inflation sign.  "
+                      "candidates.py's literal 'delta L = xi R phi^2' reads the "
+                      "same sub-class as xi_tree > 0 (xi_tree = -xi_FFKP/2, per "
+                      "the nmc-classical-nec-violation audit; not re-derived)")
+#: The sibling audit's Gaussian N_4 = 1/pi^2 + K s, s = |xi| phi~^2_max, with
+#: K = 4 sqrt(2/pi) e^(-1/2) (DOCKET 67, sibling key 2309.10848, rederive E2).
+#: RECOVERED from the audit and NOT re-derived in this tree: the window's
+#: edges depend on it, and on the closure algebra below, which sibling key
+#: 2309.10848 NARROWED (Minkowski only; a null-smeared bound does not bound rho).
+NMC_GAUSSIAN_K = 4.0 * math.sqrt(2.0 / math.pi) * math.exp(-0.5)
+NMC_GAUSSIAN_K_STATUS = ("RECOVERED (DOCKET 67 sibling audit 2309.10848, rederive "
+                         "E2); not re-derived here")
+#: The window is OPEN: the only ground against closure in it is FFKP's
+#: Einstein-frame tower, an order-of-magnitude argument with an uncomputed
+#: Jacobian, which cannot tell a factor of 1.3 from 1.
+XI_NEGATIVE_WINDOW_STATUS = "OPEN"
+
+
+def nmc_closure_eps(s):
+    """The field parameter eps = 8 pi G|xi| phi_max^2 at the closure point with
+    s = |xi| phi~^2_max: closure is (l_UV/l_P)^2 = N_4 Lambda, so
+    eps = 8 pi s/(N_4 Lambda), sign-blind (N_4 carries |xi|)."""
+    n4 = 1.0 / math.pi ** 2 + NMC_GAUSSIAN_K * s
+    return 8.0 * math.pi * s / (n4 * lambda_value())
+
+
+def nmc_eps_sup():
+    """eps along the closure curve rises monotonically to 8 pi/(K Lambda)."""
+    return 8.0 * math.pi / (NMC_GAUSSIAN_K * lambda_value())
+
+
+def nmc_closure_l_uv(eps):
+    """l_UV / l_P at the closure point whose field parameter is eps, for
+    0 <= eps < nmc_eps_sup(): s = eps Lambda/(pi^2 (8 pi - eps K Lambda))."""
+    lam = lambda_value()
+    s = eps * lam / (math.pi ** 2 * (8.0 * math.pi - eps * NMC_GAUSSIAN_K * lam))
+    return math.sqrt((1.0 / math.pi ** 2 + NMC_GAUSSIAN_K * s) * lam)
+
+
+def xi_negative_window():
+    """(eps_lo, eps_hi, l_UV/l_P at eps_lo): the xi < 0 window
+    1 <= eps < eps_sup, l_UV >= l_UV(eps = 1), that DOCKET 67 left OPEN."""
+    return 1.0, nmc_eps_sup(), nmc_closure_l_uv(1.0)
+
+
 # ---------------------------------------------- the candidates
 
 # (name, kind, deadline, magnitude, why it fails first)
@@ -607,6 +681,26 @@ def selftest():
          nmc_crossover_cutoff() / planck_length(), 3.159514, 1e-5)
     chk("  the coefficient's status", NMC_COEFFICIENT_STATUS,
         "SCALING ESTIMATE -- N_n is schematic in the source, set to 1 here")
+    # DOCKET 67 (2309.10848-eft-breakdown, M's ruling 2026-10-02): the xi < 0
+    # window, computed, against the adjudication's recorded edges.
+    _lo, _hi, _l1 = xi_negative_window()
+    near("DOCKET 67: xi < 0 window top, eps_sup = 8 pi/(K Lambda)", _hi, 1.300608, 1e-6)
+    near("  its lower edge eps = 1 sits at l_UV/l_P", _l1, 2.091911, 1e-6)
+    near("  closed-form root agrees: eps(s) at that l_UV is 1",
+         nmc_closure_eps((_l1 ** 2 / lambda_value() - 1.0 / math.pi ** 2)
+                         / NMC_GAUSSIAN_K), 1.0, 1e-12)
+    chk("  eps rises monotonically along the closure curve and stays below eps_sup",
+        all(nmc_closure_eps(a) < nmc_closure_eps(b) < _hi
+            for a, b in ((0.1, 0.2), (1.0, 10.0), (1e2, 1e6))), True)
+    # The tree's own N = 1 closure, l_UV = sqrt(Lambda) l_P, is N_4 = 1 on the
+    # Gaussian curve: s = (1 - 1/pi^2)/K.
+    near("  at the tree's own 3.1595 l_P closure eps is in the window (1.1688)",
+         nmc_closure_eps((1.0 - 1.0 / math.pi ** 2) / NMC_GAUSSIAN_K), 1.168829, 1e-5)
+    chk("  the window's status, and the convention it is stated in",
+        (XI_NEGATIVE_WINDOW_STATUS, XI_SIGN_CONVENTION.startswith("FFKP eq. (109)")),
+        ("OPEN", True))
+    chk("  control: eps < 1 lies below l_UV = 2.091911 l_P (excluded, sign-blind)",
+        nmc_closure_l_uv(0.999) < _l1, True)
     print("     WHY IT STILL FAILS, in the authors' own words:")
     print("       \"%s\"" % NMC_AUTHORS_VERDICT)
     print("       The cutoff that would work is the one the EFT excludes: at")
