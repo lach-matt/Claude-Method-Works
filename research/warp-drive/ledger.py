@@ -2621,8 +2621,13 @@ SEATED_QUALIFIERS = {
     # row states an exact cost, which is false.
     "D28": (("both NAMED-NOT-READ", 1), ("H-BL", 1), ("H-AME", 1),
             ("negligible at payload scale", 1), ("costs at least", 1)),
+    # D29's and S12's H-BRIDGE (DOCKET 67, key 1809.06923, M's ruling
+    # 2026-10-02): the bridge from the READ decay clauses to 'no atomic mass at
+    # the seat', on which D29's THEOREM grade (decay conjunct only) and S12's
+    # 'Priced, not refused' rest.  Without it both read as carried by the READ
+    # text alone, which they are not.
     "D29": (("H-REAL", 2), ("claimed and not computed", 1), ("not established", 1),
-            ("INFERENCE", 1)),
+            ("INFERENCE", 1), ("H-BRIDGE", 3), ("for its decay conjunct only", 1)),
     "S10": (("as NET formation only", 1), ("on P-UNIFORM)", 1), ("H-LINEAR", 1),
             ("none a bound", 1), ("OPEN, and no verdict rests on it", 1),
             ("elements (H-PRESENT)", 1),
@@ -2637,7 +2642,8 @@ SEATED_QUALIFIERS = {
     "S11": (("CONTESTED", 1), ("dissent", 1), ("decides nothing", 1), ("unproven", 1),
             ("alpha_W's NAMED-NOT-READ", 1)),
     # S12's 'at least': the carrier supplies the pair floor or more.
-    "S12": (("(not computed here)", 1), ("supplies at least the pair floor", 1)),
+    "S12": (("(not computed here)", 1), ("supplies at least the pair floor", 1),
+            ("H-BRIDGE", 3), ("rests on H-BRIDGE through D29", 1)),
     "S13": (("Within excite's section-3 model", 2), ("not a bound", 1),
             ("H-RELEASE", 3), ("H-UNSOURCED-SEAT", 2), ("H-TREE", 1),
             ("(not computed here)", 1)),

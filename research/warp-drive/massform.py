@@ -162,7 +162,8 @@ MASS FORMS) AND TEMPLATE (THE HELD-SEAT RELEASE ROUTE, PRICED).
      main source of uncertainty" is the top mass (READ).  If it decays, a
      bubble of true vacuum expands at near the speed of light, with "the
      different masses of fundamental particles in the bubble interior"
-     (READ).  INFERENCE from that READ text: decay forms no atomic mass at
+     (READ).  INFERENCE from that READ text, on the named hypothesis
+     H-BRIDGE (section 6): decay forms no atomic mass at
      the seat, since it replaces the vacuum in which atomic masses have their
      values.  Stable or metastable, then, the field supplies no mass-energy
      at the seat.  The energy must come in the signal's CARRIER: Mc^2 =
@@ -436,9 +437,11 @@ triggered field has no energy to release at all.  If it is metastable, its one
 release is vacuum decay.  That it forms no atomic mass at the seat is an
 INFERENCE from the READ text, not a sentence of it: inside the bubble
 fundamental particles have different masses, the energy goes into a wall moving
-at near c, and the bubble destroys what it meets.  What matters for C4 is that
-v stays a local minimum, which both cases keep.  Whether any local process at a
-seat could nucleate such a bubble is NOT computed here.  Either way the Higgs
+at near c, and the bubble destroys what it meets.  The step from those clauses
+to 'no atomic mass at the seat' is the named hypothesis H-BRIDGE (section 6).
+What matters for C4 is that v stays a local minimum, which both cases keep.
+Whether any local process at a seat could nucleate such a bubble is NOT
+computed here.  Either way the Higgs
 field supplies no mass-energy at the seat, so the top-mass dependence does not
 reach C4.
 
@@ -625,7 +628,8 @@ checks it returns OPEN.  Nothing in the verdict is typed.
                                                  order, H-LINEAR)
   C3 HIGGS_COUPLING_CARRIES_B_OR_L = False      (M65-4; Yukawa charges)
   C4 HIGGS_FIELD_SUPPLIES_THE_MASS_ENERGY = False (M65-3; T_00, V on H-TREE-V
-                                                 and H-REAL; decay by inference)
+                                                 and H-REAL; decay by inference,
+                                                 on H-BRIDGE)
   C5 TRIGGER_GIVES_THE_ELEMENTS_THEIR_MASS = False (M65-1; PRIOR MASS: READ
                                                  masses, H-TREE, H-PRESENT; no
                                                  P-UNIFORM on H-PRESENT)
@@ -761,6 +765,28 @@ WHAT SURVIVES:
           higgs.T_scalar models.  That the doublet's other components and the
           gauge fields add only non-negative terms to T_00 is claimed, not
           computed from an owner and not read.  C4's THEOREM and D29 carry it.
+  H-BRIDGE A region whose particle masses differ and which destroys what it
+          meets forms no atomic mass of ours.  It is the step from the two
+          READ clauses of 1809.06923 (the different masses inside the
+          bubble; destroying everything in its way) to
+          VACUUM_DECAY_FORMS_ATOMIC_MASS_AT_THE_SEAT = False, and the clauses
+          do not entail it: restricted to them the boolean is undetermined
+          (DOCKET 67, key 1809.06923, by z3: the two clauses with decay
+          forming atomic mass are satisfiable; adding H-BRIDGE makes them
+          unsatisfiable).  C4's decay case rests on it, and through C4 so do
+          D29's THEOREM grade -- its decay conjunct only; its sum of squares
+          about v rests on H-TREE-V and H-REAL, not on this -- and S12's
+          'priced, not refused', because pair_route_priced() needs C4 False.
+          On its failure C4 turns True, the ledger's owner check reports D29,
+          and the board's own link flips the pair route to refused; S10 stays
+          REFUSED, CREATION on C3 alone, and no specthm class verdict moves
+          (DOCKET 67's verifiers, by full re-import; this file's selftest
+          computes the C4, pair-route and S10 branches).  Physical support, not
+          entailment: the source's AdS-crunch and gravitational-collapse text
+          (1809.06923 p.24, p.36, p.37 and p.54, READ by the DOCKET 67
+          adjudication) strengthens it physically but does not entail it
+          propositionally, and the boolean does not use it.  Named on M's
+          ruling on DOCKET 67 (seat all four).
   H-LINEAR C2 measures the Higgs share as the FIRST-ORDER response of the
           nucleon mass to the quark masses (sigma terms, Feynman-Hellmann) at
           the physical point, with the QCD scale held fixed.  That is exactly
@@ -884,8 +910,10 @@ has a control that plants a violation and must catch it.
 THEOREM: the consideration on H-TREE; prior mass (C5) on H-TREE and H-PRESENT;
 D15, D16, D18, D19 as excite states them; the sign of the holding source within
 D20's model; the field-energy theorem on H-TREE-V and H-REAL; the Yukawa
-charges; the pair floor; energy conservation.  INFERENCE FROM READ TEXT: that
-vacuum decay forms no atomic mass at the seat.  MEASURED: every count, share,
+charges; the pair floor; energy conservation.  INFERENCE FROM READ TEXT, ON THE
+NAMED HYPOTHESIS H-BRIDGE: that vacuum decay forms no atomic mass at the seat
+(D29's THEOREM grade, decay conjunct only, and S12's 'priced, not refused' rest
+on it).  MEASURED: every count, share,
 energy and exponent, each carrying its inputs' status.  Through v, every
 Yukawa, alpha_W, E_sph formula value and exponent INHERITS NAMED-NOT-READ.
 Through u = gravity.U_KG (CODATA 2018) and stock.ATOMIC_MASS, every count and
@@ -1709,6 +1737,16 @@ H_TREE_V_STATUS = ("NAMED HYPOTHESIS: the field-energy theorem is for the "
                    "tree-level potential; beyond it, what C4 needs is that v "
                    "stays a local minimum, which the stable and the READ "
                    "metastable case both keep")
+#: H-BRIDGE (section 6), asked by specthm's SR5: C4's decay case rests on it,
+#: and through C4 D29's THEOREM grade (decay conjunct only) and S12's 'priced,
+#: not refused' (DOCKET 67, key 1809.06923; named on M's ruling of 2026-10-02).
+H_BRIDGE = ("a region whose particle masses differ and which destroys what it "
+            "meets forms no atomic mass of ours")
+H_BRIDGE_STATUS = ("NAMED HYPOTHESIS: the step from the READ decay clauses of "
+                   "1809.06923 to no atomic mass at the seat; the clauses do "
+                   "not entail it, and its physical support (the AdS crunch, "
+                   "gravitational collapse; pp.24, 36-37, 54) does not entail "
+                   "it propositionally")
 #: D20'S MODEL (section 6), asked by specthm's SR5: D27's 'a source of positive
 #: rest energy can only LOWER |phi|' and S10's and S13's movers rest on it.
 D20_MODEL_STATUS = ("NAMED MODEL: a source whose mass comes from phi, rising "
@@ -1981,8 +2019,12 @@ METASTABILITY_TURNS_ON_TOP_MASS = _in("BU-mt", "the main source of uncertainty i
 DECAY_CHANGES_PARTICLE_MASSES = _in("MRS-bubble", "the different masses of "
                                     "fundamental particles in the bubble interior")
 DECAY_DESTROYS_WHAT_IT_MEETS = _in("MRS-bubble", "destroying everything in its way")
-#: The one release (decay) forms atomic mass at the seat?  Refuted by the READ
-#: text: inside the bubble the masses differ, and what it meets is destroyed.
+#: The one release (decay) forms atomic mass at the seat?  An INFERENCE from the
+#: READ text, on the named hypothesis H-BRIDGE (section 6): inside the bubble
+#: the masses differ, and what it meets is destroyed; that such a region forms
+#: no atomic mass of ours is H-BRIDGE, which the two clauses do not entail
+#: (DOCKET 67, 1809.06923).  The held clause 'gravitational collapse of the
+#: bubble' (SOURCES["MRS-bubble"]) is physical support the boolean does not use.
 VACUUM_DECAY_FORMS_ATOMIC_MASS_AT_THE_SEAT = not (DECAY_CHANGES_PARTICLE_MASSES
                                                   and DECAY_DESTROYS_WHAT_IT_MEETS)
 def field_supplies_mass_energy(metastable, releases_about_v=None, decay_forms=None):
@@ -2452,7 +2494,8 @@ COUNTS_ON_THE_MECHANISM = (
      "what the triggered field makes carries the payload's net B"),
     ("C4", "HIGGS_FIELD_SUPPLIES_THE_MASS_ENERGY",
      ("massform", "c4_combined; T00_DECOMPOSES, FIELD_ENERGY_IS_A_SQUARE, READ decay text"),
-     "THEOREM on H-TREE-V and H-REAL; inference from READ text for the decay case",
+     "THEOREM on H-TREE-V and H-REAL; inference from READ text for the decay case, "
+     "on H-BRIDGE",
      False,
      "the triggered field supplies the energy of the mass"),
     ("C5", "TRIGGER_GIVES_THE_ELEMENTS_THEIR_MASS",
@@ -2897,11 +2940,16 @@ PROPOSED_ROWS = (
      "central measured masses but not established (top-mass dependent, READ "
      "1307.3536).  That decay forms no atomic mass at the seat is an INFERENCE "
      "from READ text (1809.06923: a bubble expanding at near c, with different "
-     "particle masses inside, destroying what it meets)",
+     "particle masses inside, destroying what it meets) on the named hypothesis "
+     "H-BRIDGE, that a region whose particle masses differ and which destroys "
+     "what it meets forms no atomic mass of ours; the clauses do not entail it, "
+     "and this row's THEOREM grade rests on H-BRIDGE for its decay conjunct "
+     "only",
      "THEOREM", ("massform", "HIGGS_FIELD_SUPPLIES_THE_MASS_ENERGY"),
      "a potential whose electroweak minimum is not a local minimum; H-REAL "
      "failing (a doublet or gauge term of negative energy density); a source "
-     "reading vacuum decay as forming atomic mass.  The top mass does not move "
+     "reading vacuum decay as forming atomic mass (H-BRIDGE failing: C4 turns "
+     "True on the decay case).  The top mass does not move "
      "it: the case split covers both stable and metastable"),
     ("S10", "SUPPLY",
      "M's mechanism, \"As soon as the information hits the seat, it triggers "
@@ -2978,11 +3026,13 @@ PROPOSED_ROWS = (
      "pair floor Mc^2 + B mu_min c^2 (D28); B units of antibaryon number are "
      "held apart; the Higgs, where it appears, is an intermediary, not the "
      "source (D29).  Priced, not refused: no premise here disqualifies an "
-     "antimatter by-product",
+     "antimatter by-product.  That reading rests on H-BRIDGE through D29: the "
+     "route is priced only while C4 is False, and on H-BRIDGE failing the "
+     "board's own link flips it to refused",
      "OPEN", ("massform", "PAIR_ROUTE_PRICED"),
      "a way to hold the antibaryons apart (not computed here); H-BL or H-AME "
      "failing (moves the floor); the Higgs field shown to supply energy (D29 "
-     "reversed)"),
+     "reversed, including by H-BRIDGE failing)"),
     ("S13", "SUPPLY",
      "TEMPLATE's remainder and the reading closest to M's mechanism -- "
      + HELD_SEAT_TEXT + ".  The field releases F(eps) - F(eps0), with F = "
@@ -3133,11 +3183,12 @@ def row_figures():
 
 
 #: Numerals the docstring prints that are neither regenerated, pinned, quoted
-#: nor cited, and only those: the python version, DOCKET 63, two years (Fixsen
-#: 2009, 't Hooft 1976), the study label ETM 19, and the 16 of the formula
-#: exp(-16 pi^2/g^2).  Every entry is a literal, never a result
-#: (literals_that_are_results), and every entry is needed (unneeded_literals).
-DOC_LITERALS = frozenset({"3.11", "63", "2009", "1976", "19", "16"})
+#: nor cited, and only those: the python version, DOCKET 63, DOCKET 67 (the
+#: audit that named H-BRIDGE), two years (Fixsen 2009, 't Hooft 1976), the
+#: study label ETM 19, and the 16 of the formula exp(-16 pi^2/g^2).  Every
+#: entry is a literal, never a result (literals_that_are_results), and every
+#: entry is needed (unneeded_literals).
+DOC_LITERALS = frozenset({"3.11", "63", "67", "2009", "1976", "19", "16"})
 
 
 def _figure_numerals(s):
@@ -5106,6 +5157,48 @@ def selftest():
                                         if c[0] == "C4"][0][3],
          "INFERENCE from READ text" in [r for r in PROPOSED_ROWS if r[0] == "D29"][0][2]),
         (True, True))
+    # DOCKET 67 (key 1809.06923, M's ruling 2026-10-02): the step from the two
+    # READ decay clauses to 'no atomic mass at the seat' is H-BRIDGE, named.
+    _row65 = lambda rid: " ".join(str(x) for x in [r for r in PROPOSED_ROWS
+                                                     if r[0] == rid][0])
+    chk("H-BRIDGE is named in section 6, in C4's status, in D29 and in S12",
+        ("H-BRIDGE" in _doc_section(6) and H_BRIDGE in _norm(_doc_section(6)).lower(),
+         "H-BRIDGE" in [c for c in COUNTS_ON_THE_MECHANISM if c[0] == "C4"][0][3],
+         "H-BRIDGE" in _row65("D29"), "H-BRIDGE" in _row65("S12")),
+        (True, True, True, True))
+    chk("  control: S12 with H-BRIDGE stripped is caught",
+        "H-BRIDGE" in _row65("S12").replace("H-BRIDGE", "the bridge"), False)
+    # The two READ clauses alone leave the decay boolean undetermined: with both
+    # True, decay forming atomic mass (F) is consistent either way; H-BRIDGE,
+    # (masses differ AND destroys) -> not F, is what fixes F False.
+    _A, _B = DECAY_CHANGES_PARTICLE_MASSES, DECAY_DESTROYS_WHAT_IT_MEETS
+    chk("the READ clauses alone leave decay-forms-mass undetermined; H-BRIDGE fixes "
+        "it False, and the boolean is exactly that",
+        ((_A, _B), [f for f in (False, True)],
+         [f for f in (False, True) if not (_A and _B) or not f],
+         VACUUM_DECAY_FORMS_ATOMIC_MASS_AT_THE_SEAT),
+        ((True, True), [False, True], [False], False))
+    # Both branches, computed: on H-BRIDGE failing (decay forms atomic mass),
+    # C4 turns True, and pair_route_priced() -- which needs C4 False -- turns
+    # False; S10 stays REFUSED, CREATION on C3 alone.
+    _c4_alt = c4_combined(decay_forms=True)
+    _g65 = globals()
+    _c4_keep = _g65["HIGGS_FIELD_SUPPLIES_THE_MASS_ENERGY"]
+    try:
+        _g65["HIGGS_FIELD_SUPPLIES_THE_MASS_ENERGY"] = _c4_alt
+        _pair_alt = pair_route_priced()
+    finally:
+        _g65["HIGGS_FIELD_SUPPLIES_THE_MASS_ENERGY"] = _c4_keep
+    _rd_alt = derive_readings(dict(mechanism_values(), C4=_c4_alt))
+    chk("D29's decay conjunct and S12's 'priced, not refused' rest on H-BRIDGE: "
+        "on it C4 False, pair route priced; on its failure C4 True, not priced",
+        (HIGGS_FIELD_SUPPLIES_THE_MASS_ENERGY, PAIR_ROUTE_PRICED, _c4_alt, _pair_alt),
+        (False, True, True, False))
+    chk("  on H-BRIDGE failing S10 stays REFUSED on every reading, CREATION on C3 "
+        "alone (no refusal moves)",
+        (derive_mechanism(_rd_alt)[0], _rd_alt["CREATION"],
+         HIGGS_FIELD_SUPPLIES_THE_MASS_ENERGY == _c4_keep),
+        ("REFUSED", ("REFUSED", ["C3"]), True))
     chk("metastability is stated at the central measured masses; Degrassi's "
         "condition kept",
         ("at the central measured masses" in _norm(__doc__),

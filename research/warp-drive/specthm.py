@@ -1455,6 +1455,16 @@ def requirements(F):
                         "H-TREE-V: %s (massform.H_TREE_V_STATUS) -- C4's THEOREM "
                         "rests on it, and so D29 (the field has no energy to give "
                         "about v)" % massform.H_TREE_V_STATUS,
+                        "H-BRIDGE: %s (massform.H_BRIDGE_STATUS) -- '%s' "
+                        "(massform.H_BRIDGE): C4's decay case rests on it, and "
+                        "through C4 D29's THEOREM grade (its decay conjunct "
+                        "only) and S12's 'priced, not refused'; on its failure "
+                        "the board's own link turns S12's PAIR_ROUTE_PRICED "
+                        "False, the mechanism's verdict does not move (CREATION "
+                        "keeps its ground in C3) and no class verdict moves "
+                        "(DOCKET 67, key 1809.06923, on M's ruling of "
+                        "2026-10-02)"
+                        % (massform.H_BRIDGE_STATUS, massform.H_BRIDGE),
                         "D20'S MODEL: %s (massform.D20_MODEL_STATUS) -- D27's 'a "
                         "source of positive rest energy can only LOWER |phi|' is a "
                         "claim within it, and S10's and S13's movers name a source "
@@ -3906,6 +3916,18 @@ def selftest():
         (unnamed_hypotheses(sr5, _rested),
          all(t in _rested for t in ("H-TREE-V", "D20'S MODEL", "P-UNIFORM",
                                     "H-UNSOURCED-SEAT"))), ([], True))
+    # DOCKET 67 (key 1809.06923, M's ruling 2026-10-02): H-BRIDGE is DERIVED
+    # into the roster from D29's and S12's text and C4's status, and SR5 names
+    # it with its owner's status.
+    chk("chk", "H-BRIDGE is rested on by C4, D29 and S12 (derived) and SR5 names it "
+        "with massform.H_BRIDGE_STATUS",
+        (sorted(_rested.get("H-BRIDGE", [])),
+         any(h.startswith("H-BRIDGE: %s" % massform.H_BRIDGE_STATUS)
+             for h in sr5["hypotheses"])), (["C4", "D29", "S12"], True))
+    chk("ctl", "  SR5 without its H-BRIDGE entry is caught",
+        unnamed_hypotheses(dict(sr5, hypotheses=[h for h in sr5["hypotheses"]
+                                                 if not h.startswith("H-BRIDGE")]),
+                           _rested), ["H-BRIDGE"])
     chk("ctl", "a hypothesis added to a count's status (C4 on H-SCRATCH) turns the "
         "roster check red; and SR5 without H-TREE-V is caught",
         (unnamed_hypotheses(sr5, dict(_rested, **{"H-SCRATCH": ["C4"]})),
@@ -3921,9 +3943,11 @@ def selftest():
         "derived into the roster and caught", _scr, ["H-SCRATCH"])
     _rowtxt = lambda r: " ".join(str(x) for x in row(r) if x)
     chk("chk", "each hypothesis SR5 names by row is carried by that row (asked of "
-        "the board): H-TREE by D27, S10, S13; H-REAL by D29; H-BL, H-AME by D28, S12",
+        "the board): H-TREE by D27, S10, S13; H-REAL by D29; H-BL, H-AME by D28, S12; "
+        "H-BRIDGE by D29, S12",
         [(h, r) for h, rs in HYP_BY_ROW65 + (("H-TREE", ("D27", "S10", "S13")),
-                                             ("H-RELEASE", ("S13",)))
+                                             ("H-RELEASE", ("S13",)),
+                                             ("H-BRIDGE", ("D29", "S12")))
          for r in rs if h not in _rowtxt(r)], [])
     chk("chk", "SR5 prints S13's price ON H-RELEASE, the hypothesis it rests on, "
         "with massform.H_RELEASE_STATUS, in its statement and its hypotheses",
