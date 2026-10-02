@@ -133,9 +133,13 @@ correct about different reservoirs.  `li_dex_gap()` computes it.
 CORRECTED (DOCKET 67): this said "the largest such gap" and "the Sun's
 convective envelope reaches 2.5 MK, where lithium burns".  On Table 1 as
 published He, Ne, Ar, Kr, Xe and H have larger |ph - met| gaps; this file's A09
-omits Ne's and Ar's meteoritic values, which is what lets largest_dex_gap()
+omitted Ne's and Ar's meteoritic values, which is what let largest_dex_gap()
 return Li.  The convection zone's base is about 2.2 MK today (AG26 p.52),
 below Li burning at about 2.5 MK, hence A09's extra mixing.
+CORRECTED (DOCKET 67, on M's ruling "address/correct/repair all figures"): the
+two values are restored (-1.12, -0.50, A09 Table 1 p.42), so largest_dex_gap()
+now returns Ne at 9.05 dex, and the deficit claim above is computed by
+largest_photospheric_deficit() (Li -2.21, next Pb -0.29) instead of stated.
 
 CONSEQUENCE FOR SITE SELECTION, AND IT IS SHARP.  Which lithium number applies
 depends on what the destination IS:
@@ -345,15 +349,24 @@ SOURCES = {
 # Asplund 2009 Table 1.  (photospheric, meteoritic); None where not determined.
 # CORRECTED (DOCKET 67): Ne and Ar are NOT undetermined in the meteoritic
 # column -- Table 1 prints -1.12 and -0.50 -- and their photospheric values,
-# like He's, are bracketed INDIRECT estimates (sec. 3.9).  The None entries are
-# a transcription omission, recorded, not repaired: restoring them moves
-# largest_dex_gap() and its selftest pin, though no binder.
+# like He's, are bracketed INDIRECT estimates (sec. 3.9).  The None entries were
+# a transcription omission, first recorded, not repaired, because restoring them
+# moves largest_dex_gap() and its selftest pin, though no binder.
+# REPAIRED (DOCKET 67, on M's ruling "address/correct/repair all figures"): the
+# entries were "Ne": (7.93, None) and "Ar": (6.40, None); they now carry Table
+# 1's -1.12 and -0.50 (A09 p.42, READ; AAG21 Table 2 prints the same).
+# largest_dex_gap() moves from ('Li', 2.21) to ('Ne', 9.05).  Computed: every
+# binder and every factor this file prints is unchanged at the printed
+# precision -- Ne and Ar enter only solar('meteoritic') and jupiter('meteoritic')
+# normalisations, as mass fractions 1.77e-10 (Ne) and 1.46e-9 (Ar) of the
+# meteoritic column, shifting every other fraction there by at most 1.7e-9
+# relative (computed against the None table).
 A09 = {
     "H": (12.00, 8.22), "He": (10.93, 1.29), "Li": (1.05, 3.26), "Be": (1.38, 1.30),
     "B": (2.70, 2.79), "C": (8.43, 7.39), "N": (7.83, 6.26), "O": (8.69, 8.40),
-    "F": (4.56, 4.42), "Ne": (7.93, None), "Na": (6.24, 6.27), "Mg": (7.60, 7.53),
+    "F": (4.56, 4.42), "Ne": (7.93, -1.12), "Na": (6.24, 6.27), "Mg": (7.60, 7.53),
     "Al": (6.45, 6.43), "Si": (7.51, 7.51), "P": (5.41, 5.43), "S": (7.12, 7.15),
-    "Cl": (5.50, 5.23), "Ar": (6.40, None), "K": (5.03, 5.08), "Ca": (6.34, 6.29),
+    "Cl": (5.50, 5.23), "Ar": (6.40, -0.50), "K": (5.03, 5.08), "Ca": (6.34, 6.29),
     "Sc": (3.15, 3.05), "Ti": (4.95, 4.91), "V": (3.93, 3.96), "Cr": (5.64, 5.64),
     "Mn": (5.43, 5.48), "Fe": (7.50, 7.45), "Co": (4.99, 4.87), "Ni": (6.22, 6.20),
     "Cu": (4.19, 4.25), "Zn": (4.56, 4.63), "Ga": (3.04, 3.08), "Ge": (3.65, 3.58),
@@ -792,7 +805,10 @@ def stockpy_chondrite_flip():
 
 # ----------------------------------------------- FINDING D: the lithium runner-up
 def li_dex_gap():
-    """The solar lithium depletion: (dex, factor).  Largest gap in A09."""
+    """The solar lithium depletion: (dex, factor).  The largest photospheric
+    DEFICIT in A09 (largest_photospheric_deficit()), not the largest gap.
+    CORRECTED (DOCKET 67) from "Largest gap in A09": on Table 1 He, Ne, Ar, Kr,
+    Xe and H have larger |ph - met|."""
     ph, me = A09["Li"]
     return me - ph, 10.0 ** (me - ph)
 
@@ -800,11 +816,26 @@ def li_dex_gap():
 def largest_dex_gap():
     """Which element has the largest photospheric/meteoritic gap among the
     elements other than H and He that this file's A09 carries in both columns
-    -- Ne and Ar omitted (see A09), Kr and Xe not carried."""
+    -- Kr and Xe not carried (A09 Table 1: 5.52 and 4.19 dex, below Ne's).
+    CORRECTED (DOCKET 67): with Ne and Ar restored this returns ('Ne', 9.05),
+    the volatile noble gas CI rock did not retain; it returned ('Li', 2.21)
+    only while Ne and Ar were carried as None."""
     g = {e: abs(v[1] - v[0]) for e, v in A09.items()
          if v[0] is not None and v[1] is not None and e not in ("H", "He")}
     e = max(g, key=lambda k: g[k])
     return e, g[e]
+
+
+def largest_photospheric_deficit(n=2):
+    """The n most negative (photospheric - meteoritic) in A09, over every
+    element carried in both columns: [(element, dex), ...].  This is the
+    narrower claim A09 p.25 makes (Li the one non-volatile element depleted in
+    the photosphere) and the one Finding D needs.  Added (DOCKET 67) so the
+    prose's "next is Pb, 0.29 dex" is computed rather than stated."""
+    d = [(e, v[0] - v[1]) for e, v in A09.items()
+         if v[0] is not None and v[1] is not None]
+    d.sort(key=lambda kv: kv[1])
+    return d[:n]
 
 
 def runner_up(pkind="as-composed 59", dkind="stellar photosphere"):
@@ -990,8 +1021,11 @@ def report():
     le, lg = largest_dex_gap()
     print("   Li photospheric %.2f, meteoritic %.2f -> %.2f dex = %.1fx"
           % (A09["Li"][0], A09["Li"][1], d, x))
-    print("   largest phot/met gap carried here (Ne, Ar omitted) is %s at %.2f dex"
+    print("   largest phot/met gap carried here (H, He excluded) is %s at %.2f dex"
           % (le, lg))
+    (d1, v1), (d2, v2) = largest_photospheric_deficit()
+    print("   largest photospheric DEFICIT is %s at %.2f dex (next %s %.2f)"
+          % (d1, v1, d2, v2))
     ru, rf, gap = runner_up()
     print("   runner-up against a photosphere: %s at %.5e, only %.3fx behind P"
           % (ru, rf, gap))
@@ -1135,7 +1169,18 @@ def selftest():
     chk("the Li dex gap", d, 2.21, 1e-9)
     chk("= a factor of", x, 162.18, 1e-3)
     le, lg = largest_dex_gap()
-    chk("and it is the largest gap carried here (Ne, Ar omitted)", le, "Li")
+    # CORRECTED (DOCKET 67): pinned ("Li") while Ne and Ar were None; with
+    # Table 1's -1.12 and -0.50 restored the largest gap is Ne's.
+    chk("the largest gap carried here (H, He excluded) is Ne's", le, "Ne")
+    chk("at 7.93 - (-1.12) dex", lg, 9.05, 1e-9)
+    chk("Li is NOT the largest gap (control)", le != "Li", True)
+    chk("no element carried in one column only by omission",
+        [e for e in ("Ne", "Ar") if A09[e][1] is None], [])
+    (d1, v1), (d2, v2) = largest_photospheric_deficit()
+    chk("but Li is the largest photospheric deficit", d1, "Li")
+    chk("of -2.21 dex", v1, -2.21, 1e-9)
+    chk("next is Pb", d2, "Pb")
+    chk("at -0.29 dex", v2, -0.29, 1e-9)
     ru, rf, gap = runner_up()
     chk("the true runner-up is Li, not K", ru, "Li")
     chk("within 1.10x of P", gap < 1.10, True)

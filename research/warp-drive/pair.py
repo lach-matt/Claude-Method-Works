@@ -172,6 +172,18 @@ HAS NO SPATIAL INFINITY.  The ADM energy is not zero; it is UNDEFINED.
     a closed universe's TOTAL energy is "undefined" or "zero" is CONTESTED, a
     convention and not a definitional fact.  Either way it pairs nothing.
 
+    CORRECTED (DOCKET 67, M: "make it computed").  The constant that carried
+    this, CLOSED_UNIVERSE_TOTAL_ENERGY = "UNDEFINED", was DECLARED and checked
+    against its own literal.  Each notion is now COMPUTED: the ADM energy is
+    UNDEFINED because an asymptotically flat end (H_AF) has unbounded volume
+    while the round S^3 (H_S3) has 2 pi^2 a^3 -- at eps = 0.5, r0 = 2a the
+    end would already out-hold the whole slice at r = 2.7732 a; the closed-FRW
+    minisuperspace Hamiltonian (H_HAM, a chosen prescription) is 0 along an
+    RK4 evolution of the second-order equation, to 9.0e-15 of a^3 rho, while
+    an off-shell kick of 10 % gives 0.219.  The two disagree, so the constant
+    now reads CONTESTED -- computed, not declared.  The ADT/Killing and
+    pseudotensor zeros remain READ, not computed here.
+
     A quantity that does not exist cannot be out of balance, and cannot be used
     to pair two objects inside the universe either.  This is a definitional
     refusal, not a measurement, and it is filed as one.
@@ -341,21 +353,164 @@ SUPERSEDES = ("concentric.py caution 1: 'NEGATIVE MASS IS STILL ASSUMED'",)
 
 # ------------------------------- 5: the closed universe
 
-CLOSED_UNIVERSE_TOTAL_ENERGY = "UNDEFINED"     # not zero: there is no boundary
-#   DOCKET 67, recorded not repaired: "UNDEFINED" is true of the ADM energy,
-#   which is what this constant answers; the "total energy" of its name is
-#   contested (Killing/ADT, Hamiltonian and pseudotensor notions give zero;
-#   section 5).  The value is DECLARED, and the selftest checks it against its
-#   own literal; DOCKET 67 re-derived it chart-invariantly for the ADM energy (a
-#   compact slice has finite volume, an asymptotically flat end does not).
+#: CORRECTED (DOCKET 67, key no-adm-mass-closed-universe; M's ruling: "make it
+#: computed").  This was
+#:     CLOSED_UNIVERSE_TOTAL_ENERGY = "UNDEFINED"     # not zero: there is no boundary
+#: DECLARED, and checked by the selftest against its own literal.  "UNDEFINED"
+#: is true of the ADM energy, which is what the constant answered; the "total
+#: energy" of its name is contested.  Each notion is now COMPUTED below, and
+#: the total is what the computed notions jointly return.
+CLOSED_UNIVERSE_TOTAL_ENERGY_WITHDRAWN = (
+    "UNDEFINED", "WITHDRAWN (DOCKET 67): 'the total energy of a closed universe "
+                 "is not zero; it is UNDEFINED' -- true of the ADM energy only")
+
+#: Named hypotheses of section 5's computations.
+#:   H_AF   (ADM; EHLS 1110.2087v2 Def.3, McCormick 2401.05128v1 Def.2.1, READ in
+#:          DOCKET 67): the slice has an end on which |g_ij - delta_ij| <= eps
+#:          outside a coordinate ball r0, with eps < 1, decaying at infinity.
+#:   H_S3   (closed): the slice is a round S^3 of radius a -- compact without
+#:          boundary (1705.10234v5 p.7; 1903.11982v2 p.2).
+#:   H_HAM  (zero reading): the energy prescription is the closed-FRW
+#:          minisuperspace Hamiltonian with lapse N = 1 -- a CHOICE of
+#:          prescription (astro-ph/0212574v1 p.3 calls such choices open to
+#:          question), with dust, radiation and Lambda as the matter.
+AF_EPS = 0.5          # H_AF's |g - delta| bound: any eps < 1 gives the same verdict
+AF_R0 = 2.0           # H_AF's inner coordinate radius, in units of a
+
+
+def s3_volume(a=1.0, n=400):
+    """Volume of the round S^3 of radius a, by midpoint quadrature of
+    a^3 sin^2(chi) sin(theta) over chi, theta in [0, pi], phi in [0, 2 pi].
+    Finite: 2 pi^2 a^3 (the check is in the selftest)."""
+    h = math.pi / n
+    chi = sum(math.sin((i + 0.5) * h) ** 2 for i in range(n)) * h
+    theta = sum(math.sin((i + 0.5) * h) for i in range(n)) * h
+    return a ** 3 * chi * theta * 2.0 * math.pi
+
+
+def af_end_volume_floor(R, eps=AF_EPS, r0=AF_R0):
+    """Under H_AF the end's volume between coordinate radii r0 and R is at least
+    (1 - eps)^(3/2) (4 pi / 3)(R^3 - r0^3), since sqrt(det g) >= (1-eps)^(3/2)
+    when every eigenvalue of g_ij is >= 1 - eps.  Unbounded in R."""
+    return (1.0 - eps) ** 1.5 * (4.0 * math.pi / 3.0) * (R ** 3 - r0 ** 3)
+
+
+def af_end_contradicted_at(slice_volume, eps=AF_EPS, r0=AF_R0):
+    """The coordinate radius at which an H_AF end would already hold more volume
+    than the whole slice -- computed by doubling, then bisection.  None for a
+    slice of infinite volume (R^3), where no contradiction exists."""
+    if math.isinf(slice_volume):
+        return None
+    lo, hi = r0, 2.0 * r0
+    while af_end_volume_floor(hi, eps, r0) <= slice_volume:
+        lo, hi = hi, 2.0 * hi
+    for _ in range(200):
+        mid = 0.5 * (lo + hi)
+        if af_end_volume_floor(mid, eps, r0) > slice_volume:
+            hi = mid
+        else:
+            lo = mid
+    return hi
+
+
+def slice_has_spatial_infinity(slice_volume):
+    """CONTRAPOSED, and only in the valid direction: an H_AF end has unbounded
+    volume, so a slice of FINITE volume has no H_AF end.  (Infinite volume does
+    NOT imply an AF end; for such a slice this returns None -- not decided here.)"""
+    return False if af_end_contradicted_at(slice_volume) is not None else None
 
 
 def adm_mass_defined(has_spatial_infinity):
     """ADM mass is a surface integral at spatial infinity.  No infinity, no
     integral, no quantity -- so nothing to balance and nothing to pair with.
-    (A declared rule, returning its argument; it decides the ADM quantity only
-    -- DOCKET 67.)"""
+    (The definition, returning its argument; it decides the ADM quantity only
+    -- DOCKET 67.  Its argument is now COMPUTED for the closed slice by
+    slice_has_spatial_infinity.)"""
     return bool(has_spatial_infinity)
+
+
+def closed_universe_adm_energy(a=1.0):
+    """The ADM energy of an H_S3 slice: computed from its finite volume."""
+    return ("DEFINED" if adm_mass_defined(slice_has_spatial_infinity(s3_volume(a)))
+            else "UNDEFINED")
+
+
+# Closed FRW in units 8 pi G / 3 = 1: rho(a) = Om/a^3 + Or/a^4 + OL,
+# p(a) = Or/(3 a^4) - OL; Friedmann adot^2 + k = a^2 rho; Raychaudhuri
+# addot = -(a/2)(rho + 3p).  The N = 1 minisuperspace Hamiltonian (Lagrangian
+# L = -a adot^2 + k a - a^3 rho, times 3/(8 pi G)) is
+#     H = a^3 rho - a (adot^2 + k),
+# which is N a^3 times (rho minus the Friedmann side): a pure constraint.
+FRW_K = 1.0
+FRW_MATTER = (1.0, 0.1, 0.05)   # (Om, Or, OL): an illustrative closed model,
+                                # NOT fitted to any sky; H_HAM's verdict is
+                                # independent of them (the selftest varies them)
+
+
+def _frw_rho_p(a, matter=FRW_MATTER):
+    om, orad, ol = matter
+    return (om / a ** 3 + orad / a ** 4 + ol,
+            orad / (3.0 * a ** 4) - ol)
+
+
+def frw_hamiltonian(a, adot, matter=FRW_MATTER, k=FRW_K):
+    rho, _p = _frw_rho_p(a, matter)
+    return a ** 3 * rho - a * (adot * adot + k)
+
+
+def frw_hamiltonian_along(a0=0.5, kick=1.0, matter=FRW_MATTER, k=FRW_K,
+                          t_end=0.4, steps=4000):
+    """Integrate the SECOND-ORDER (Raychaudhuri) equation by RK4 from a0 with
+    adot0 = kick x the on-shell value, and return max |H| / max(a^3 rho)
+    along the path.  kick = 1 is on shell; kick != 1 is the off-shell control.
+    The Friedmann constraint is imposed only on the initial data."""
+    rho0, _ = _frw_rho_p(a0, matter)
+    adot = kick * math.sqrt(a0 * a0 * rho0 - k)
+    a = a0
+    h = t_end / steps
+
+    def acc(x):
+        r, pp = _frw_rho_p(x, matter)
+        return -0.5 * x * (r + 3.0 * pp)
+
+    worst, scale = 0.0, 0.0
+    for _ in range(steps + 1):
+        rho, _p = _frw_rho_p(a, matter)
+        worst = max(worst, abs(frw_hamiltonian(a, adot, matter, k)))
+        scale = max(scale, a ** 3 * rho)
+        k1a, k1v = adot, acc(a)
+        k2a, k2v = adot + 0.5 * h * k1v, acc(a + 0.5 * h * k1a)
+        k3a, k3v = adot + 0.5 * h * k2v, acc(a + 0.5 * h * k2a)
+        k4a, k4v = adot + h * k3v, acc(a + h * k3a)
+        a += h * (k1a + 2 * k2a + 2 * k3a + k4a) / 6.0
+        adot += h * (k1v + 2 * k2v + 2 * k3v + k4v) / 6.0
+    return worst / scale
+
+
+HAMILTONIAN_ZERO_TOL = 1e-9     # relative; RK4 truncation at 4000 steps is ~1e-13
+
+
+def closed_universe_hamiltonian_energy():
+    """The H_HAM total energy: 0 if the on-shell Hamiltonian vanishes along the
+    evolution to HAMILTONIAN_ZERO_TOL, else the residual (never declared)."""
+    r = frw_hamiltonian_along()
+    return 0.0 if r < HAMILTONIAN_ZERO_TOL else r
+
+
+def closed_universe_total_energy():
+    """What the computed notions jointly return.  ADM: UNDEFINED (computed);
+    H_HAM: 0 (computed); ADT/Killing charges vanish identically on a compact
+    boundaryless slice (1705.10234v5 eq.(12); 1903.11982v2 p.2 -- READ, not
+    computed here) and pseudotensors give 0 (astro-ph/0212574v1 p.3, READ).
+    Notions that disagree return CONTESTED; agreeing ones return their value."""
+    adm = closed_universe_adm_energy()
+    ham = closed_universe_hamiltonian_energy()
+    return adm if adm == ham else "CONTESTED"
+
+
+CLOSED_UNIVERSE_ADM_ENERGY = closed_universe_adm_energy()                 # UNDEFINED
+CLOSED_UNIVERSE_HAMILTONIAN_ENERGY = closed_universe_hamiltonian_energy()  # 0.0
+CLOSED_UNIVERSE_TOTAL_ENERGY = closed_universe_total_energy()             # CONTESTED
 
 
 # --------------------------------------------------- what survives
@@ -454,15 +609,46 @@ def selftest():
     print("       PROOF THAT THE BILL IS UNAVOIDABLE.")
 
     print("\n5. AND AT COSMOLOGICAL SCALE IT IS TRUE AND EMPTY")
+    # CORRECTED (DOCKET 67): the last row here compared a DECLARED constant with
+    # its own literal ("UNDEFINED"); every value below is now computed.
+    v3 = s3_volume(1.0)
+    near("the round S^3 (H_S3) has finite volume 2 pi^2 a^3 (quadrature)",
+         v3, 2.0 * math.pi ** 2, 1e-5)
+    rstar = af_end_contradicted_at(v3)
+    near("an H_AF end (eps 0.5, r0 2a) out-holds the whole S^3 at r/a",
+         rstar, 2.7732435633, 1e-8)
+    chk("  and its volume floor there does exceed the slice's",
+        af_end_volume_floor(rstar) > v3, True)
+    chk("so a finite-volume slice has spatial infinity",
+        slice_has_spatial_infinity(v3), False)
+    chk("CONTROL: R^3 (infinite volume) is not refused -- undecided, not False",
+        slice_has_spatial_infinity(float("inf")), None)
     chk("ADM mass is defined in an asymptotically flat spacetime",
         adm_mass_defined(True), True)
     chk("ADM mass is defined in a spatially closed universe",
-        adm_mass_defined(False), False)
-    chk("so the ADM energy of a closed universe is",
-        CLOSED_UNIVERSE_TOTAL_ENERGY, "UNDEFINED")
-    print("       Not zero -- UNDEFINED.  A quantity that does not exist cannot")
-    print("       be out of balance, and cannot pair two objects either.  (The ADM")
-    print("       energy; other notions give zero -- contested, DOCKET 67.)")
+        adm_mass_defined(slice_has_spatial_infinity(v3)), False)
+    chk("so the ADM energy of a closed universe is (computed)",
+        CLOSED_UNIVERSE_ADM_ENERGY, "UNDEFINED")
+    on = frw_hamiltonian_along()
+    print("       closed-FRW Hamiltonian / a^3 rho, on shell:  %.3e" % on)
+    chk("the on-shell minisuperspace Hamiltonian (H_HAM) vanishes",
+        on < HAMILTONIAN_ZERO_TOL, True)
+    chk("  and for two other matter contents",
+        all(frw_hamiltonian_along(matter=m) < HAMILTONIAN_ZERO_TOL
+            for m in ((2.0, 0.0, 0.0), (0.5, 0.5, 0.2))), True)
+    off = frw_hamiltonian_along(kick=1.1)
+    print("       off shell (adot0 x 1.1):                    %.3e" % off)
+    near("CONTROL: off shell it does not vanish", off, 0.2190330535, 1e-6)
+    chk("so the H_HAM energy of a closed universe is (computed)",
+        CLOSED_UNIVERSE_HAMILTONIAN_ENERGY, 0.0)
+    chk("the notions disagree, so the TOTAL energy is (computed)",
+        CLOSED_UNIVERSE_TOTAL_ENERGY, "CONTESTED")
+    chk("and the declared 'UNDEFINED' is kept, marked WITHDRAWN",
+        CLOSED_UNIVERSE_TOTAL_ENERGY_WITHDRAWN[0], "UNDEFINED")
+    print("       The ADM energy is UNDEFINED; the Hamiltonian energy is ZERO.")
+    print("       Neither can be out of balance, and neither pairs two objects")
+    print("       inside the universe.  (ADT/Killing and pseudotensor zeros are")
+    print("       READ, DOCKET 67.)")
 
     print("\nWHAT SURVIVES")
     chk("the form of the principle that is true", SURVIVING_FORM,
@@ -491,7 +677,9 @@ def report():
     print("  %-20s %s" % ("ER bridge traversable", ER_BRIDGE_TRAVERSABLE))
     print("  %-20s %s" % ("balanced pair", balanced_pair_energies()))
     print("  %-20s %s" % ("negative energy", NEGATIVE_ENERGY_STATUS))
-    print("  %-20s %s" % ("closed universe", CLOSED_UNIVERSE_TOTAL_ENERGY))
+    print("  %-20s %s  (ADM %s; Hamiltonian %s -- computed)"
+          % ("closed universe", CLOSED_UNIVERSE_TOTAL_ENERGY,
+             CLOSED_UNIVERSE_ADM_ENERGY, CLOSED_UNIVERSE_HAMILTONIAN_ENERGY))
     print("\n" + "=" * 79)
     print("""VERDICT
 
@@ -555,7 +743,10 @@ def report():
   And at cosmological scale the principle is true and empty: a spatially
   closed universe has no spatial infinity, ADM mass is a surface
   integral there, so the ADM energy is not zero -- it is UNDEFINED
-  (other energy notions give zero; contested, DOCKET 67).
+  (computed from the slice's finite volume).  The closed-FRW
+  Hamiltonian, a different prescription, is computed ZERO on shell, so
+  the TOTAL energy is CONTESTED, not UNDEFINED (DOCKET 67).  Either
+  way it pairs nothing.
 
   WHAT SURVIVES IS ONE LINE, AND IT IS WORTH KEEPING: A SIGN-BLIND
   QUANTITY PAIRS; A SIGN-COMMITTED ONE DOES NOT.  Which is dichotomy.py's

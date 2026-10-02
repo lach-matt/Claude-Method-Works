@@ -81,46 +81,71 @@ And the division of labour is Newton's, not an assumption:
 So the budget is explicit: the core's advance minus the shell's delay, against
 the core's focusing alone.
 
--- IT WORKS, AND THE POSITIVE MASS THEOREM TURNS OUT TO BE NEARLY FREE --------
+-- IT WORKS, AND THE POSITIVE MASS THEOREM COSTS ~13 % OF THE ADVANCE ---------
+    (CORRECTED (DOCKET 67): this heading read "TURNS OUT TO BE NEARLY FREE",
+    resting on the design-rule ratio below as first written, 7.8 %.)
 At b = 1, a = 0.02, R_s = 200, a run of 300 from x = -150 (n = 2500):
 
         m         f = b^2/4m   conjugate    t - |dx|      relative   verdict
         1.0e-3    250.0        none         -1.921e-2     -6.4e-5    leads, no seat
         3.0e-3     83.3        none         -5.404e-2     -1.8e-4    leads, no seat
-        5.0e-3     50.0        228.5        -8.424e-2     -2.8e-4    *** SEATS + LEADS ***
-        1.0e-2     25.0        182.2        -1.405e-1     -4.7e-4    *** SEATS + LEADS ***
+        5.0e-3     50.0        228.6        -8.424e-2     -2.8e-4    *** SEATS + LEADS ***
+        1.0e-2     25.0        182.3        -1.405e-1     -4.7e-4    *** SEATS + LEADS ***
         2.0e-2     12.5        165.4        -1.785e-1     -6.0e-4    *** SEATS + LEADS ***
         4.0e-2      6.2        158.0        -7.690e-3     -2.6e-5    *** SEATS + LEADS ***
         8.0e-2      3.1        154.4        +1.036e+0     +3.5e-3    seats, LATE
 
     THE DEVICE SEATS AND LEADS WITH M_ADM = 0 EXACTLY, over a window from
     5e-3 to 4e-2 -- most of a decade, no narrower than composite.py's bare
-    negative mass.  Converged: the conjugate point sits at 228.45 +- 0.04 over
+    negative mass.  Converged: the conjugate point sits at 228.65 +- 0.05 over
     n = 1500 to 9000, a sixfold refinement, and the delay to five figures.
+    CORRECTED (DOCKET 67, M: "address/correct/repair all figures"): the
+    Jacobi loop first ran with the opposite sign to Gao-Wald eq. (11)
+    (A'' = +K A; see survey()).  Corrected, the table's conjugate points at
+    5e-3 and 1e-2 move by one step, 228.5 -> 228.6 and 182.2 -> 182.3, and the
+    convergence band from 228.45 +- 0.04 to 228.65 +- 0.05 (computed: 228.60,
+    228.70, 228.65, 228.67 at n = 1500, 3000, 6000, 9000).  The rows at 2e-2,
+    4e-2 and 8e-2, every delay, every seat / lead verdict and the window's
+    edges do not move: on this vacuum corridor the flip only swaps which
+    transverse axis collapses.
     The linearised slice (1 - 2Phi) delta is a Riemannian metric only for
     m < m* = 0.0100010; above it -- the upper half of this window, the best
     lead at 2e-2 included -- it is not an initial data set and the rigidity
     argument below is silent (a positive completion such as exp(-Phi/2),
     RECONSTRUCTED, keeps E = 0 and R(0) < 0 across the window) (DOCKET 67).
 
-    AND THE BEST RELATIVE LEAD, -6.0e-4 at m = 2e-2, is if anything slightly
-    BETTER than the bare mass's ~5e-4.  Respecting the positive mass theorem
-    costs almost nothing here, and the reason is a design rule rather than luck:
+    THE BEST RELATIVE LEAD is -6.0e-4 at m = 2e-2 (composite.py's bare mass
+    gives ~5e-4 in another geometry).  Zeroing M_ADM costs the shell's delay,
+    13.1 % of the core's first-order advance here, and that share is set by a
+    design rule rather than luck:
 
         shell delay / core advance  ~  (L / R_s) / (2 ln(L/b))     (b >> a)
 
     The core's advance carries a logarithm and the shell's delay does not, so
-    PUT THE SHELL FAR.  At these numbers the ratio is about 13 %, and the
-    measured lead is what "nearly free" means.
+    PUT THE SHELL FAR.  At these numbers the ratio is 0.1315 (computed; the
+    exact first-order form 2(L/R_s) / (4 asinh((L/2)/sqrt(b^2+a^2))) gives
+    the same 0.1315).
+    CORRECTED (DOCKET 67): this paragraph read "is if anything slightly
+    BETTER than the bare mass's ~5e-4.  Respecting the positive mass theorem
+    costs almost nothing here ... the measured lead is what 'nearly free'
+    means".
     CORRECTED (DOCKET 67): the rule was first written with the core radius a
-    in the logarithm, (L/R_s)/(2 ln(L/a)) = 7.8 %, read as "the core's
-    advance carries a logarithm of its compactness ... MAKE THE CORE SMALL".
+    in the logarithm, (L/R_s)/(2 ln(L/a)) = 7.8 % (0.0780 computed; pinned
+    as 0.0781), read as "the core's advance carries a logarithm of its
+    compactness ... MAKE THE CORE SMALL".
     For this potential the first-order advance is 4m asinh((L/2)/sqrt(b^2 +
     a^2)), ln(L/b) at b = 1 >> a, so the ratio is 13.1 %; the advance per
     unit m is 22.8144 at a = 0.02 and 22.8152 at a = 0.002, and this file's
     integrator agrees with the b-form (ratio 1.0002).  The core is still made
     small, for the vacuum corridor (error 2), not for the delay.  The table
     above is integrated, not taken from this rule, and is unaffected.
+    What rested on the < 10 % does move: "costs almost nothing" and "nearly
+    free" are restated as what is computed -- the shell's delay is 13.1 % of
+    the core's first-order advance at this geometry (L = 300, R_s = 200,
+    b = 1), and it falls as R_s grows.  "Slightly BETTER than the bare mass's
+    ~5e-4" compares two geometries (composite.py: b = 0.3, L = 75; here b = 1,
+    L = 300), so it is not a like-for-like measurement of the shell's cost;
+    the like-for-like figure is the 13.1 %.
 
 -- THREE ERRORS MADE BUILDING THIS, ALL KEPT AS TESTS -------------------------
  1. THE FIRST POTENTIAL WAS NOT ZERO-ADM AT ALL.  I wrote  m/sqrt(r^2+a^2) -
@@ -193,7 +218,8 @@ At b = 1, a = 0.02, R_s = 200, a run of 300 from x = -150 (n = 2500):
 
 stdlib only.  composite.py supplies the geodesic, Riemann and Jacobi-matrix
 machinery, validated there against 4M/b, the traceless condition and the
-analytic Shapiro.
+analytic Shapiro, and (DOCKET 67) its Jacobi sign against neighbouring
+geodesics.
 """
 import math, sys
 
@@ -250,9 +276,15 @@ def trace_ratio(m, b=B_RAY, a=A_CORE, Rs=R_SHELL):
     return abs(T[0][0] + T[1][1]) / max(abs(T[0][0]), abs(T[1][1]))
 
 
-def survey(m, b=B_RAY, a=A_CORE, Rs=R_SHELL, x0=X0, lam=LAM, n=NSTEP):
-    """One corridor ray: does it seat, and does it lead?"""
+def survey(m, b=B_RAY, a=A_CORE, Rs=R_SHELL, x0=X0, lam=LAM, n=NSTEP,
+           sign=None):
+    """One corridor ray: does it seat, and does it lead?
+
+    sign = None takes composite.JACOBI_SIGN (Gao-Wald eq. 11); pass
+    composite.AS_WRITTEN_SIGN only to reproduce the first-written loop."""
     cp = _install(m, a, Rs)
+    if sign is None:
+        sign = cp.JACOBI_SIGN
     p0 = (x0, b, 0.0)
     k0 = cp.null_tangent(p0, m)
     pts, tang, h = cp.geodesic(p0, k0, m, lam, n)
@@ -266,13 +298,15 @@ def survey(m, b=B_RAY, a=A_CORE, Rs=R_SHELL, x0=X0, lam=LAM, n=NSTEP):
         p = (x[1], x[2], x[3])
         rmax = max(rmax, math.sqrt(p[0] ** 2 + p[1] ** 2 + p[2] ** 2))
         T = cp.tidal(p, k, e1, e2, m)
-        # SIGN (DOCKET 67): composite.tidal returns T = -K, so this integrates
-        # A'' = +K A, the opposite sign to Gao-Wald eq. (11) / MTW 11.10.  It
-        # agrees for a traceless diagonal tidal matrix -- the vacuum corridor
-        # used here (228.48 as written, 228.60 with the MTW sign, m = 5e-3) --
-        # and gives wrong conjugate points on a ray through matter, such as the
-        # withdrawn a = 0.5 corridor (error 2).  Recorded, not repaired.
-        acc = [[-sum(T[r][s] * A[s][c] for s in range(2)) for c in range(2)]
+        # SIGN: composite.tidal returns T = -K, so eq. (11) (Gao-Wald / MTW
+        # 11.10), A'' = -K A, is A'' = +T A.  CORRECTED (DOCKET 67, on M's
+        # ruling): this loop first integrated A'' = -T A = +K A.  That agrees
+        # for a traceless diagonal tidal matrix -- the vacuum corridor used
+        # here moves by about one step (228.48 -> 228.60 at m = 5e-3) -- and
+        # gave wrong conjugate points on a ray through matter, such as the
+        # withdrawn a = 0.5 corridor (error 2): the selftest keeps that ray as
+        # the control.
+        acc = [[sign * sum(T[r][s] * A[s][c] for s in range(2)) for c in range(2)]
                for r in range(2)]
         for r in range(2):
             for c in range(2):
@@ -293,6 +327,21 @@ def survey(m, b=B_RAY, a=A_CORE, Rs=R_SHELL, x0=X0, lam=LAM, n=NSTEP):
             "delay": dt - dx, "leads": (dt - dx) < 0.0,
             "max_r": rmax, "inside_shell": rmax < Rs,
             "relative": (dt - dx) / dt}
+
+
+def first_order_delay(m, b=B_RAY, a=A_CORE, Rs=R_SHELL, lam=LAM):
+    """t - |dx| at first order in m for the straight ray x0 = -lam/2 .. +lam/2:
+    the shell's delay 2 m L / R_s (constant Phi = -m/R_s inside it) minus the
+    core's advance 4 m asinh((L/2)/sqrt(b^2 + a^2)) (Shapiro, linear in the
+    potential; Will 2014 eq. 62 / arXiv:1710.05834 eq. 3, READ-VIA-
+    RESTATEMENT in DOCKET 67).  The closest approach d = sqrt(b^2 + a^2) is
+    what enters the logarithm, not the core radius a (DOCKET 67)."""
+    return 2.0 * m * lam / Rs - 4.0 * m * math.asinh((lam / 2.0) / math.hypot(b, a))
+
+
+def shell_to_core_ratio(b=B_RAY, a=A_CORE, Rs=R_SHELL, lam=LAM):
+    """The shell's first-order delay over the core's first-order advance."""
+    return (2.0 * lam / Rs) / (4.0 * math.asinh((lam / 2.0) / math.hypot(b, a)))
 
 
 LEAD_IS_INTERIOR_ONLY = True     # see the withdrawal at the top of this file
@@ -341,7 +390,8 @@ def selftest():
     print("       positive mass theorem's INEQUALITY has nothing to object to --")
     print("       vacuously: the DEC it assumes fails here (DOCKET 67).")
     print("       Its RIGIDITY clause does, and productively: M_ADM = 0 under")
-    print("       the DEC forces Minkowski, so the DEC must fail here.  pair.py")
+    print("       the DEC forces a flat (Euclidean) slice, so the DEC must fail")
+    print("       here.  pair.py")
     # error 1, kept as a test: the constant applied EVERYWHERE is a bare monopole
     bad = lambda r: 5e-3 / math.sqrt(r * r + A_CORE ** 2) - 5e-3 / R_SHELL
     chk("the FIRST potential I wrote had a bare negative monopole",
@@ -384,19 +434,56 @@ def selftest():
         (rows[8e-2]["seats"], rows[8e-2]["leads"]), (True, False))
     chk("and the ray stays inside the shell throughout",
         all(r["inside_shell"] for r in rows.values()), True)
-    near("the conjugate point at m = 5e-3", rows[5e-3]["conjugate"], 228.45, 0.3)
+    # CORRECTED (DOCKET 67): pinned 228.45 +- 0.3 with the opposite Jacobi
+    # sign (228.48 at n = 2500); eq. (11)'s sign gives 228.60 here and
+    # 228.65 +- 0.05 over n = 1500 .. 9000.  The tolerance is one step of
+    # h = 0.12, so the as-written 228.48 now FAILS this pin.
+    near("the conjugate point at m = 5e-3 (eq. 11 sign)", rows[5e-3]["conjugate"],
+         228.65, 0.1)
 
-    print("\nThe positive mass theorem turns out to be NEARLY FREE")
+    print("\nThe Jacobi sign, on a ray through matter (DOCKET 67)")
+    # error 2's withdrawn corridor, a = 0.5: the ray runs inside the core's
+    # NEGATIVE density, R_kk < 0, so Ricci DEFOCUSES.  eq. (11)'s sign seats
+    # nothing at m = 5e-3; the first-written sign seated at 261.36, i.e. it
+    # let negative R_kk focus.  A control that fails if the sign regresses.
+    import composite
+    wet = survey(5.0e-3, a=0.5)
+    wet_old = survey(5.0e-3, a=0.5, sign=composite.AS_WRITTEN_SIGN)
+    print("       a = 0.5, m = 5e-3: eq. (11) sign %s; as-written sign %s"
+          % (wet["conjugate"], wet_old["conjugate"]))
+    chk("eq. (11) sign: negative R_kk defocuses, no seat", wet["seats"], False)
+    chk("CONTROL: the as-written sign seats there (Ricci reversed)",
+        wet_old["seats"], True)
+
+    print("\nWhat M_ADM = 0 costs: the shell's delay against the core's advance")
     best = abs(rows[2e-2]["relative"])
     near("best relative lead, at m = 2e-2", best / 5.96e-4, 1.0, 0.05)
-    chk("which is no worse than composite.py's bare mass (~5e-4)",
+    chk("no worse than composite.py's bare mass (~5e-4; b = 0.3)",
         best > 4.0e-4, True)
-    ratio = (LAM / R_SHELL) / (2.0 * math.log(LAM / A_CORE))
-    # The a-form as first written, kept as computed (DOCKET 67: the b-form,
-    # ln(L/b) for b >> a, gives 0.1315; see the header's design rule).
-    near("a-form (first written) (L/R_s)/(2 ln(L/a))", ratio, 0.0781, 1e-3)
-    chk("the a-form estimate is under 10 % (the b-form is 13.1 %)",
-        ratio < 0.1, True)
+    # CORRECTED (DOCKET 67, key shapiro-delay): this block pinned the a-form
+    # (L/R_s)/(2 ln(L/a)) = 0.0781 and checked it "under 10 %".  Shapiro's
+    # logarithm carries the closest approach, so the b-form is the figure.
+    bform = (LAM / R_SHELL) / (2.0 * math.log(LAM / B_RAY))
+    near("b-form design rule (L/R_s)/(2 ln(L/b))", bform, 0.1315, 1e-3)
+    near("first-order shell delay / core advance, this potential",
+         shell_to_core_ratio(), 0.1315, 1e-3)
+    chk("the shell's share is NOT under 10 % (the a-form's < 10 % withdrawn)",
+        shell_to_core_ratio() < 0.1, False)
+    # The integrator decides between the forms: the antisymmetric part of the
+    # integrated delay is the first-order (linear-in-m) term.
+    dp, dm = survey(1.0e-3)["delay"], survey(-1.0e-3)["delay"]
+    anti = 0.5 * (dp - dm)
+    aform = (LAM / R_SHELL) / (2.0 * math.log(LAM / A_CORE))
+    aform_delay = 2.0e-3 * LAM / R_SHELL - 4.0e-3 * math.log(LAM / A_CORE)
+    print("       antisymmetric delay at m = 1e-3: %+.5e; b-form %+.5e; a-form %+.5e"
+          % (anti, first_order_delay(1.0e-3), aform_delay))
+    near("integrated / first-order b-form (closest approach in the log)",
+         anti / first_order_delay(1.0e-3), 1.0, 2e-3)
+    # pinned 0.0781 +- 1e-3 as first written; computed 0.077997 (DOCKET 67).
+    near("CONTROL: a-form (WITHDRAWN) (L/R_s)/(2 ln(L/a))",
+         aform, 0.07800, 1e-4)
+    chk("CONTROL: the a-form misses the integrated delay by > 10 %",
+        abs(anti / aform_delay - 1.0) > 0.1, True)
     print("       DESIGN RULE: put the shell far (b-form ratio 13.1 %).")
 
     print("\n  SELFTEST %s" % ("OK" if ok else "FAILED"))
@@ -432,11 +519,13 @@ def report():
     print("  impact parameter, b/a >~ 50.")
     print("  The shell delays without focusing, by Newton's shell theorem, so")
     print("  all the focusing is the core's Weyl term.")
-    print("\n  AND IT IS NEARLY FREE: the window runs 5e-3 to 4e-2, most of a")
-    print("  decade, and the best relative lead -6.0e-4 is no worse than a bare")
-    print("  negative mass. The shell delay is ~13 % of the core advance,")
-    print("  because the core's advance carries ln(L/b) and the shell's does")
-    print("  not (DOCKET 67: first written ~8 % with ln(L/a)). Put the shell far.")
+    print("\n  WHAT M_ADM = 0 COSTS: the window runs 5e-3 to 4e-2, most of a")
+    print("  decade, and the best relative lead is -6.0e-4 (a bare negative")
+    print("  mass gives ~5e-4 in composite.py's different geometry). The shell")
+    print("  delay is 13.1 % of the core's first-order advance, because the")
+    print("  core's advance carries ln(L/b) and the shell's does not. Put the")
+    print("  shell far. (DOCKET 67: first written \"NEARLY FREE\", ~8 % with")
+    print("  ln(L/a).)")
     print("\n  Negative mass is still assumed, the field is linearised with")
     print("  m/a = 0.25 in the core, which is NOT small, the focus is astigmatic, there")
     print("  is no payload, and NOTHING here shows the configuration is stable.")

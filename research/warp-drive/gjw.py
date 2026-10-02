@@ -82,37 +82,47 @@ uniform periodic density of a cycle of length 2D -- the path through the
 wormhole taken equal to the ambient separation, the lower limit GJW's own
 bank-loan remark allows -- carried onto a cycle that threads a throat, about
 which the flat result makes no claim.  On that model the vacuum ENERGY DENSITY
-is rho = -pi^2 hbar c/(90 (2D)^4), and against seatindex.py's threshold the
-required gain is
+is rho = -pi^2 hbar c/(90 (2D)^4).  seatindex.py's threshold is a T_kk
+threshold, T_kk >= pi c^4/(4 G l^2), so the dividend must be the cycle's T_kk:
+along the winding null direction it is 4|rho| (FOP eq. 24, diag(-1,1,1,-3)
+pi^2/(90 L^4), re-derived by DOCKET 67), and along transverse null directions
+it is 0 -- NAMED HYPOTHESIS H-WIND: the null direction is the winding one.
+The required gain is
 
-        D            Casimir |rho|      needed (Pa)      AMPLIFICATION
-        1 m          2.167e-28          9.505e+43        4.387e+71
-        1 km         2.167e-40          9.505e+37        4.387e+77
-        1000 km      2.167e-52          9.505e+31        4.387e+83
-        1 AU         4.326e-73          4.247e+21        9.817e+93
-        1 light-year 2.705e-92          1.062e+12        3.927e+103
+        D            Casimir |rho|   |T_kk| winding   needed T_kk (Pa) AMPLIFICATION
+        1 m          2.167e-28       8.668e-28        9.505e+43        1.097e+71
+        1 km         2.167e-40       8.668e-40        9.505e+37        1.097e+77
+        1000 km      2.167e-52       8.668e-52        9.505e+31        1.097e+83
+        1 AU         4.326e-73       1.730e-72        4.247e+21        2.454e+93
+        1 light-year 2.704e-92       1.082e-91        1.062e+12        9.816e+102
 
-    THE REQUIRED GAIN IS 4.387e71 * D^2, RISING AS D^2.  Bigger separation is
+    THE REQUIRED GAIN IS 1.097e71 * D^2, RISING AS D^2.  Bigger separation is
     HARDER, not easier -- measured exactly D^{2.000} over six decades.  (A first
     reading of this table called it falling; the numbers say otherwise.)
 
-    It reaches unity only at D = 1.510e-36 m = 0.093 PLANCK LENGTHS.
+    It reaches unity only at D = 3.020e-36 m = 0.187 PLANCK LENGTHS.
 
-    THE THRESHOLD IS A T_kk THRESHOLD AND THE DIVIDEND IS AN ENERGY DENSITY.
-    seatindex.py states T_kk >= pi c^4/(4 G l^2); along the winding direction
-    the cycle's null-null component is 4|T_00| (FOP eq. 24, re-derived by
-    DOCKET 67), so on the tree's own terms the gain is 1.097e71 D^2, and along
-    transverse null directions T_kk = 0 and no gain suffices.  Factor 4; the
-    order and the D^2 law stand.  The figure stays at 4.387e71 here because it
-    is pinned and read elsewhere; the factor is recorded.  The other model
-    choices move it within 5e70-3.5e72 at 1 m: ideal EM plates give 2.193e71
-    (5.48e70 with T_kk), and the ~2.35 D throat path MMP 1807.04726 find gives
-    3.45e72 -- so the 2D cycle is the cheap end, against the tree, not for it.
+    CORRECTED (DOCKET 67 follow-up, on M's ruling "address/correct/repair all
+    figures").  This table and every gain below divided the energy density
+    |rho| into seatindex's T_kk threshold: AMPLIFICATION read 4.387e71 at 1 m
+    (4.387e77, 4.387e83, 9.817e93, 3.927e103 down the column), the gain
+    "4.387e71 * D^2", unity "at D = 1.510e-36 m = 0.093 PLANCK LENGTHS", and the
+    figure was kept "because it is pinned and read elsewhere; the factor is
+    recorded".  T_kk is what the threshold means, so the gain is now the T_kk
+    one, 4x smaller; the energy-density ratio 4.387e71 D^2 is kept as
+    energy_density_gain_coefficient(), a record.  Along transverse null
+    directions T_kk = 0 and no gain suffices.  The order and the D^2 law stand.
+    The other model choices, on the same T_kk footing, move it within
+    5.5e70-8.6e71 at 1 m: ideal EM plates give 5.48e70 (2.193e71 against the
+    energy density), and the ~2.35 D throat path MMP 1807.04726 find gives
+    8.63e71 (3.45e72) -- so the 2D cycle is near the cheap end, against the
+    tree, not for it.
 
         NOT AN INDEPENDENT ROUTE TO THE PLANCK SCALE.  The model has ONE
-        length, D, and no other scale, so the gain is 360 D^2/(pi l_P^2)
-        exactly and unity falls at sqrt(pi/360) l_P = 0.0934 l_P by
-        dimensional analysis alone.  Butcher 1405.1283 p.1 fn. 2 makes the
+        length, D, and no other scale, so the gain is 90 D^2/(pi l_P^2)
+        exactly and unity falls at sqrt(pi/90) l_P = 0.187 l_P by
+        dimensional analysis alone (360 and sqrt(pi/360) = 0.0934 against the
+        energy density, as first written).  Butcher 1405.1283 p.1 fn. 2 makes the
         same argument and states its limit: "the wormhole/field system need
         not be characterised by a single length."  corridor.py's Unruh and
         Casimir landings and achievable.py's 4.09 l_P are recorded beside it
@@ -128,8 +138,9 @@ CANNOT: faster.  The bank-loan theorem is closed and structural.
 CANNOT: cheaper.  The flat-space gain rises as D^2 and hits unity sub-Planck
         (on the single-length model, by dimensional analysis).
 CAN:    stated on a named model.  GJW leave the flat-space cost as a remark;
-        on the model above it is 4.387e71 D^2 (1.097e71 D^2 against T_kk
-        along the winding direction), a number rather than an aspiration.
+        on the model above it is 1.097e71 D^2 against T_kk along the winding
+        direction (4.387e71 D^2 against the energy density, as first
+        written), a number rather than an aspiration.
 CAN:    the mechanism.  Their non-achronality-by-external-coupling is a route
         achronal.py proved unreachable through matter, and it is worth carrying
         forward as the only known way past Graham-Olum.
@@ -151,22 +162,52 @@ def casimir_cycle(D):
     return (math.pi ** 2) * HBAR_C / (90.0 * (2.0 * D) ** 4)
 
 
+#: FOP gr-qc/0609007 eq. (24), read and re-derived by DOCKET 67: on the cycle
+#: T_mu^nu = diag(-1, 1, 1, -3) pi^2/(90 L^4), so for null k = (1, 0, 0, +-1)
+#: (the winding direction) T_kk = |-1 - 3| = 4 |rho|, and for k = (1, +-1, 0, 0)
+#: T_kk = |-1 + 1| = 0.
+TKK_OVER_RHO_WINDING = abs(-1 - 3)
+TKK_OVER_RHO_TRANSVERSE = abs(-1 + 1)
+
+
+def casimir_tkk(D):
+    """|T_kk| on the cycle along the winding null direction (H-WIND): 4|rho|.
+    This is the quantity seatindex's threshold is stated in."""
+    return TKK_OVER_RHO_WINDING * casimir_cycle(D)
+
+
 def amplification_needed(D):
-    """The gain GJW call for, as a pure number.  Rises as D^2.  Divides |T_00|
-    into seatindex's T_kk threshold, so it is 4x the T_kk gain along the
-    winding direction (DOCKET 67, recorded; value unchanged)."""
+    """The gain GJW call for, as a pure number: seatindex's T_kk threshold over
+    the cycle's winding-direction T_kk.  Rises as D^2.
+    CORRECTED (DOCKET 67 follow-up): this divided |rho| (|T_00|) into the T_kk
+    threshold, 4x the T_kk gain; that ratio is kept as
+    amplification_needed_energy_density()."""
+    import seatindex
+    return seatindex.tkk_required(D) / casimir_tkk(D)
+
+
+def amplification_needed_energy_density(D):
+    """AS FIRST WRITTEN, kept as a record: the T_kk threshold over |rho|.  Not
+    the gain the threshold calls for -- it mixes an energy density into a T_kk
+    threshold (DOCKET 67, casimir-effect-magnitude)."""
     import seatindex
     return seatindex.tkk_required(D) / casimir_cycle(D)
 
 
 def gain_coefficient():
-    """amplification = k D^2.  k is this."""
+    """amplification = k D^2.  k is this: 90/(pi l_P^2) = 1.097e71 m^-2."""
     return amplification_needed(1.0)
 
 
+def energy_density_gain_coefficient():
+    """The first-written k, 360/(pi l_P^2) = 4.387e71 m^-2, a record."""
+    return amplification_needed_energy_density(1.0)
+
+
 def unity_separation():
-    """Where the required gain reaches 1.  Sub-Planckian: sqrt(pi/360) l_P,
-    forced by the single-length model (DOCKET 67)."""
+    """Where the required gain reaches 1.  Sub-Planckian: sqrt(pi/90) l_P =
+    0.187 l_P, forced by the single-length model (DOCKET 67).  It read
+    sqrt(pi/360) l_P = 0.0934 l_P while the gain was the energy-density one."""
     return math.sqrt(1.0 / gain_coefficient())
 
 
@@ -188,8 +229,9 @@ BETTER = {
     "faster": (False, "the bank-loan theorem is closed and structural"),
     "cheaper": (False, "the flat-space gain rises as D^2 and hits unity sub-Planck"),
     "stated exactly": (True, "GJW leave the flat-space cost a remark; on a "
-                             "one-scalar flat 2D-cycle model it is 4.387e71 D^2 "
-                             "(1.097e71 D^2 against T_kk), now a number"),
+                             "one-scalar flat 2D-cycle model it is 1.097e71 D^2 "
+                             "against T_kk along the winding direction (4.387e71 "
+                             "D^2 against the energy density), now a number"),
     "the mechanism": (True, "non-achronality by external coupling is a route "
                             "achronal.py proved unreachable through matter"),
 }
@@ -218,14 +260,26 @@ def selftest():
     chk("GJW's is not a matter-side escape at all", bank_loan_theorem(), True)
 
     print("\nTHE FLAT-SPACE COST THEY LEAVE OPEN")
-    print("     %14s %16s %16s %18s" % ("D", "Casimir |rho|", "needed (Pa)", "amplification"))
+    print("     %14s %14s %14s %14s %16s" % ("D", "Casimir |rho|", "|T_kk| wind",
+                                              "needed T_kk", "amplification"))
     import seatindex
     for D, tag in ((1.0, "1 m"), (1.0e3, "1 km"), (1.0e6, "1000 km"),
                    (1.496e11, "1 AU"), (9.461e15, "1 light-year")):
-        print("     %14s %16.4e %16.4e %18.4e"
-              % (tag, casimir_cycle(D), seatindex.tkk_required(D),
+        print("     %14s %14.4e %14.4e %14.4e %16.4e"
+              % (tag, casimir_cycle(D), casimir_tkk(D), seatindex.tkk_required(D),
                  amplification_needed(D)))
-    near("the coefficient", gain_coefficient(), 4.3866e71, 1e-4)
+    # CORRECTED (DOCKET 67 follow-up): pinned 4.3866e71, the energy-density
+    # ratio.  The T_kk gain is pinned now; the first-written figure is kept
+    # as a record and the factor between them is checked, not assumed.
+    chk("T_kk / rho along the winding null direction (FOP eq. 24)",
+        (TKK_OVER_RHO_WINDING, TKK_OVER_RHO_TRANSVERSE), (4, 0))
+    near("the coefficient (against T_kk, winding)", gain_coefficient(), 1.0967e71, 1e-4)
+    near("  = 90/(pi l_P^2), the single-length closed form",
+         gain_coefficient(), 90.0 / (math.pi * L_PLANCK ** 2), 1e-5)
+    near("  the first-written energy-density ratio, a record",
+         energy_density_gain_coefficient(), 4.3866e71, 1e-4)
+    chk("CONTROL the T_kk gain is NOT the energy-density ratio",
+        abs(gain_coefficient() / 4.3866e71 - 1.0) < 1e-3, False)
     near("and it scales as D^2 exactly",
          amplification_needed(1.0e6) / amplification_needed(1.0), 1.0e12, 1e-9)
     chk("so BIGGER IS HARDER, not easier",
@@ -234,8 +288,9 @@ def selftest():
 
     print("\nTHE PLANCK LANDING -- forced by the single-length model, not independent")
     u = unity_separation()
-    near("gain reaches 1 at D (m)", u, 1.5098e-36, 1e-3)
-    near("in Planck lengths", u / L_PLANCK, 0.0934, 1e-2)
+    near("gain reaches 1 at D (m)", u, 3.0197e-36, 1e-3)
+    near("in Planck lengths", u / L_PLANCK, 0.1868, 1e-3)
+    near("  = sqrt(pi/90)", u / L_PLANCK, math.sqrt(math.pi / 90.0), 1e-5)
     chk("sub-Planckian, so never in the regime the framework covers",
         u < L_PLANCK, True)
     # vacuumcorridor.py, NOT corridor.py. The vacuum-corridor comparison was
@@ -251,7 +306,7 @@ def selftest():
          corridor.casimir_seat_crossing() / L_PLANCK, 0.1321, 1e-3)
     near("achievable.py's core crossing, in l_P",
          achievable.crossing_radius() * achievable.A_OVER_B / L_PLANCK, 4.09, 1e-2)
-    print("       Recorded beside it as values.  GJW's landing is sqrt(pi/360) l_P by")
+    print("       Recorded beside it as values.  GJW's landing is sqrt(pi/90) l_P by")
     print("       dimensional analysis on one length, so it corroborates nothing")
     print("       (CORRECTED, DOCKET 67: 'Four unrelated calculations').")
 
@@ -276,14 +331,18 @@ def report():
     print("=" * 79)
     print("THE COST GJW LEAVE OPEN")
     import seatindex
-    print("  %14s %16s %16s %18s" % ("D", "Casimir |rho|", "needed (Pa)", "amplification"))
+    print("  %14s %14s %14s %14s %16s" % ("D", "Casimir |rho|", "|T_kk| wind",
+                                           "needed T_kk", "amplification"))
     for D, tag in ((1.0, "1 m"), (1.0e3, "1 km"), (1.0e6, "1000 km"),
                    (1.496e11, "1 AU"), (9.461e15, "1 light-year")):
-        print("  %14s %16.4e %16.4e %18.4e"
-              % (tag, casimir_cycle(D), seatindex.tkk_required(D),
+        print("  %14s %14.4e %14.4e %14.4e %16.4e"
+              % (tag, casimir_cycle(D), casimir_tkk(D), seatindex.tkk_required(D),
                  amplification_needed(D)))
-    print("\n  gain = %.4e * D^2, rising.  Unity at %.4e m = %.3f l_P."
-          % (gain_coefficient(), unity_separation(), unity_separation() / L_PLANCK))
+    print("\n  gain = %.4e * D^2 against T_kk (winding), rising.  Unity at %.4e m"
+          " = %.3f l_P." % (gain_coefficient(), unity_separation(),
+                            unity_separation() / L_PLANCK))
+    print("  (first written against the energy density: %.4e * D^2)"
+          % energy_density_gain_coefficient())
     print("\n" + "=" * 79)
     print("VERDICT")
     print("  Two things in GJW are ours.  Their escape from Graham-Olum is by")
@@ -292,9 +351,12 @@ def report():
     print("  the only known way past that theorem.  Carry it forward.")
     print("\n  And their flat-space version, which they leave as a remark, costs")
     print("  -- for one free massless scalar on a flat, uniform 2D cycle -- an")
-    print("  amplification of 4.387e71 D^2 against the energy density (1.097e71")
-    print("  D^2 against T_kk along the winding direction), rising with")
-    print("  separation, and reaching unity only at 0.093 Planck lengths -- a")
+    print("  amplification of %.3e D^2 against T_kk along the winding direction"
+          % gain_coefficient())
+    print("  (%.3e D^2 against the energy density, as first written), rising with"
+          % energy_density_gain_coefficient())
+    print("  separation, and reaching unity only at %.3f Planck lengths -- a"
+          % (unity_separation() / L_PLANCK))
     print("  landing the single-length model forces, not an independent route.")
     print("\n  'Better' cannot mean faster: the bank-loan theorem is closed. It")
     print("  can mean stated on a named model, and now it is.  And under M's scoping GJW")

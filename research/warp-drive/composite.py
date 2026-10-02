@@ -41,9 +41,31 @@ same conjugate point, 55.87, for both signs; the bent rays differ at O(M^2),
 Linearised static metric ds^2 = -(1+2 Phi)dt^2 + (1-2 Phi)dx^2, Phi = -M/r, with
 M of either sign -- the isotropic form, one potential in g_tt and g_ij (Psi = Phi).  Christoffels, Riemann and the optical tidal matrix all by
 finite difference from the metric -- no formula carried from memory.  The full
-Jacobi MATRIX is evolved, A'' = -T A with A(0) = 0, A'(0) = I, on a
-parallel-propagated screen; a conjugate point is det A = 0, which includes shear
-by construction rather than by an added term.
+Jacobi MATRIX is evolved, A'' = -K A with K_ij = R_{k e_i k e_j} (Gao & Wald
+eq. 11; MTW 11.10), A(0) = 0, A'(0) = I, on a parallel-propagated screen; a
+conjugate point is det A = 0, which includes shear by construction rather than
+by an added term.  tidal() returns T = -K (Perlick's optical tidal matrix), so
+the loop reads A'' = +T A.
+    CORRECTED (DOCKET 67, M: "address/correct/repair all figures").  This read
+    "A'' = -T A", and survey() integrated exactly that: A'' = +K A, the
+    opposite sign to eq. (11).  The sign is now eq. (11)'s (JACOBI_SIGN); the
+    as-written sign is kept as AS_WRITTEN_SIGN for the control.  WHAT MOVED,
+    computed with survey() under both signs: at the default n = 900 NOTHING --
+    55.17 / 56.50 at +-2e-3 and every row of the window table below are
+    identical, because the vacuum tidal matrix is traceless and diagonal on
+    this screen, so the flip only swaps which transverse axis collapses (the
+    delay is the geodesic's and never read the Jacobi loop).  At n = 3600 the
+    first table's conjugate points move by two to three steps of h = 0.021,
+    55.16 -> 55.21 and 56.52 -> 56.56 (n = 1800: 55.21, 56.54), because the
+    O(M^2) trace no longer cancels between the swapped axes; an independent RK4
+    integration of eq. (11) on an exact screen gives 55.2085 and 56.5591
+    (DOCKET 67, E5).  No seat, verdict or window edge moved.
+    What the flip DID change: for M > 0 the as-written loop collapsed the
+    radial (y) axis; with eq. (11)'s sign it is the azimuthal (z) axis, as
+    neighbouring geodesics show (the selftest's parallel-data control), and
+    the linearised metric's own O(M^2) Ricci now defocuses in the code as the
+    text below always said it does.  On a ray through matter the flip would
+    reverse the Ricci term (concentric.py's a = 0.5 corridor).
 
   VALIDATION 1  light deflection agrees with 4M/b to 0.03 % at b = 0.2 -- a
                 cancellation: the finite run (x0 = -4, lam = 8) falls 0.125 %
@@ -66,16 +88,23 @@ thin-lens value exact only to O(M/b) -- at this b a source inside it forms no
 real image, which cost this pass two wrong runs):
 
         M          conjugate point     t - |dx|        verdict
-        +2.0e-3    lambda = 55.16      +5.124e-2       seats, LATE
-        -2.0e-3    lambda = 56.52      -3.762e-2       SEATS AND EARLY
+        +2.0e-3    lambda = 55.21      +5.124e-2       seats, LATE
+        -2.0e-3    lambda = 56.56      -3.762e-2       SEATS AND EARLY
 
 (The conjugate points and the +M delay in this table are the n = 3600 run;
 survey() at its default n = 900 gives 55.17, 56.50 and +5.123e-2.)
+    CORRECTED (DOCKET 67): the conjugate points were 55.16 and 56.52, from the
+    loop with the opposite Jacobi sign (A'' = +K A); with eq. (11)'s sign the
+    n = 3600 run gives 55.21 and 56.56 (computed: survey(+-2e-3, n=3600)).
 
 Both signs seat, at almost the same place, because the vacuum tidal matrix is
 traceless: flipping M swaps the eigen-directions and leaves det A = 0 where it
 was at first order.  The 2.4 % difference is the O(M^2) bent ray.  Only the
-arrival flips.  Converged to four figures over a 4x refinement in step count.
+arrival flips.  Converged to within one coarse step over a 4x refinement in
+step count: 56.50, 56.54, 56.56 at n = 900, 1800, 3600 (h = 0.083 at
+n = 900; the detector reports on the step grid, so h is its resolution).
+CORRECTED (DOCKET 67) from "converged to four figures", which the step grid
+cannot resolve.
 
 -- AND IT IS A WINDOW, BOUNDED ON BOTH SIDES ----------------------------------
 The arrival time is not purely Shapiro.  Measured minus analytic leaves a
@@ -144,7 +173,9 @@ tidal matrix is traceless); 'reproduces 4M/b to 0.03 %' (a cancellation);
 without 'at this b', and b^2/4M as exact; the M^2 residue wholly 'path
 lengthening'; the static residue 'h-independent ... the metric's own O(Phi^2)'
 (it depends on h); and Olum cited as if he governed this ray.  The code's
-tidal sign is recorded at tidal(), unchanged.
+tidal sign was then recorded at tidal() and left unchanged; on M's ruling it
+is now corrected in survey() (see MEASURED, ON A VALIDATED PIPELINE), and no
+figure in this file moved.
 
 stdlib only.  Gao & Wald, Class. Quantum Grav. 17, 4999 (2000), gr-qc/0007021,
 eq. (13) and eq. (11) for the Jacobi matrix.  Olum, PRL 81, 3567 (1998): his
@@ -160,6 +191,13 @@ B_DEFAULT = 0.3
 X0_DEFAULT = -40.0
 LAM_DEFAULT = 75.0
 NSTEP = 900
+
+#: The Jacobi equation's sign, as survey() applies it to tidal()'s T = -K:
+#: A'' = JACOBI_SIGN * T A.  +1 is Gao-Wald eq. (11), A'' = -K A.
+#: CORRECTED (DOCKET 67): survey() first ran with -1 (A'' = +K A); that value
+#: is kept as AS_WRITTEN_SIGN so the selftest's control can show it is wrong.
+JACOBI_SIGN = +1
+AS_WRITTEN_SIGN = -1
 
 
 def phi(p, M):
@@ -267,12 +305,14 @@ def tidal(p, k, e1, e2, M):
     """The optical tidal matrix on a transverse screen.  Traceless in vacuum,
     at linear order in Phi.
 
-    SIGN, recorded (DOCKET 67), code unchanged: this returns T = -K with
-    K_ij = R_{k e_i k e_j}, and survey() evolves A'' = -T A = +K A -- the
-    opposite sign to Gao-Wald eq. (11), eta'' = -K eta.  It agrees with eq.
-    (11) only for a traceless diagonal T (vacuum at linear order, T_yz = 0),
-    where the flip swaps the eigen-directions and moves no conjugate point; on
-    a ray through matter it would reverse the Ricci term."""
+    SIGN: this returns T = -K with K_ij = R_{k e_i k e_j} (Perlick's optical
+    tidal matrix R), so Gao-Wald eq. (11), eta'' = -K eta, reads A'' = +T A,
+    and that is what survey() integrates (JACOBI_SIGN = +1).
+    CORRECTED (DOCKET 67): survey() first evolved A'' = -T A = +K A, the
+    opposite sign to eq. (11).  That agreed with eq. (11) only for a traceless
+    diagonal T (vacuum at linear order, T_yz = 0), where the flip swaps the
+    eigen-directions and moves no conjugate point; on a ray through matter it
+    reversed the Ricci term.  Recorded first; repaired on M's ruling."""
     R = riemann_lower(p, M)
     E = (e1, e2)
     return [[-sum(R[m][a][n][b] * k[m] * E[i][a] * k[n] * E[j][b]
@@ -281,8 +321,12 @@ def tidal(p, k, e1, e2, M):
              for j in range(2)] for i in range(2)]
 
 
-def survey(M, b=B_DEFAULT, x0=X0_DEFAULT, lam=LAM_DEFAULT, n=NSTEP):
-    """One ray: does it seat (det A = 0), and does it arrive early?"""
+def survey(M, b=B_DEFAULT, x0=X0_DEFAULT, lam=LAM_DEFAULT, n=NSTEP,
+           sign=JACOBI_SIGN):
+    """One ray: does it seat (det A = 0), and does it arrive early?
+
+    sign = JACOBI_SIGN integrates eq. (11); AS_WRITTEN_SIGN reproduces the
+    first-written loop, kept for the control only (DOCKET 67)."""
     p0 = (x0, b, 0.0)
     k0 = null_tangent(p0, M)
     pts, tang, h = geodesic(p0, k0, M, lam, n)
@@ -298,7 +342,8 @@ def survey(M, b=B_DEFAULT, x0=X0_DEFAULT, lam=LAM_DEFAULT, n=NSTEP):
         mag = max(abs(T[0][0]), abs(T[1][1]))
         if mag > tmag:
             tmag, tr_max = mag, abs(T[0][0] + T[1][1])
-        acc = [[-sum(T[r][s] * A[s][c] for s in range(2)) for c in range(2)]
+        # A'' = +T A = -K A (eq. 11).  CORRECTED (DOCKET 67) from -T A.
+        acc = [[sign * sum(T[r][s] * A[s][c] for s in range(2)) for c in range(2)]
                for r in range(2)]
         for r in range(2):
             for c in range(2):
@@ -321,6 +366,43 @@ def survey(M, b=B_DEFAULT, x0=X0_DEFAULT, lam=LAM_DEFAULT, n=NSTEP):
             "delay": dt - dx, "early": (dt - dx) < 0.0,
             "traceless_ratio": tr_max / tmag if tmag else 0.0,
             "bend": math.atan2(-tang[-1][2], tang[-1][1])}
+
+
+def parallel_data(M, sign, b=B_DEFAULT, x0=X0_DEFAULT, lam=LAM_DEFAULT,
+                  n=NSTEP, d=1.0e-4):
+    """The sign control, convention-free (DOCKET 67, gr-qc/0007021-eq11 E3b).
+
+    Two neighbouring geodesics start PARALLEL to the reference ray, offset by
+    d in y (radial) and in z (azimuthal); their end separations / d are what
+    any correct Jacobi equation must give with parallel data A(0) = I,
+    A'(0) = 0.  Returns ((y_sep, z_sep) from the geodesics, (A_yy, A_zz) from
+    this file's Jacobi loop with the given sign)."""
+    def path(p0):
+        return geodesic(p0, null_tangent(p0, M), M, lam, n)
+    pts, tang, h = path((x0, b, 0.0))
+    py = path((x0, b + d, 0.0))[0]
+    pz = path((x0, b, d))[0]
+    seps = ((py[-1][2] - pts[-1][2]) / d, (pz[-1][3] - pts[-1][3]) / d)
+    e1, e2 = [0., 0., 1., 0.], [0., 0., 0., 1.]
+    A = [[1.0, 0.0], [0.0, 1.0]]
+    dA = [[0.0, 0.0], [0.0, 0.0]]
+    for i in range(len(pts) - 1):
+        k = list(tang[i])
+        p = (pts[i][1], pts[i][2], pts[i][3])
+        T = tidal(p, k, e1, e2, M)
+        acc = [[sign * sum(T[r][s] * A[s][c] for s in range(2)) for c in range(2)]
+               for r in range(2)]
+        for r in range(2):
+            for c in range(2):
+                A[r][c] += h * dA[r][c] + 0.5 * h * h * acc[r][c]
+                dA[r][c] += h * acc[r][c]
+        G = christoffel(p, M)
+        for e in (e1, e2):
+            de = [-sum(G[a][al][be] * k[al] * e[be]
+                       for al in range(4) for be in range(4)) for a in range(4)]
+            for a in range(4):
+                e[a] += h * de[a]
+    return seps, (A[0][0], A[1][1])
 
 
 def both(M, **kw):
@@ -396,6 +478,25 @@ def selftest():
         sym > 0.0, True)
     print("       antisym %+.5e   analytic %+.5e   sym residue %+.5e"
           % (anti, analytic_shapiro(2.0e-3), sym))
+
+    print("\nVALIDATION 4 -- the Jacobi sign is eq. (11)'s, convention-free (DOCKET 67)")
+    # Parallel data A(0) = I, A'(0) = 0 against two neighbouring geodesics
+    # started parallel to the ray: a correct Jacobi equation reproduces their
+    # separations; the opposite sign returns the two transverse axes swapped.
+    seps, a_new = parallel_data(2.0e-3, JACOBI_SIGN)
+    _, a_old = parallel_data(2.0e-3, AS_WRITTEN_SIGN)
+    print("       geodesics (y, z) = (%.3f, %.3f); eq. (11) sign (%.3f, %.3f);"
+          % (seps + a_new))
+    print("       as-written sign (%.3f, %.3f)" % a_old)
+    chk("M > 0: the azimuthal (z) neighbour converges, the radial (y) diverges",
+        (seps[1] < 1.0, seps[0] > 1.0), (True, True))
+    chk("eq. (11) sign (A'' = +T A = -K A) reproduces both separations",
+        abs(a_new[0] - seps[0]) < 0.1 and abs(a_new[1] - seps[1]) < 0.1, True)
+    chk("CONTROL: the as-written sign (A'' = +K A) does NOT -- axes swapped",
+        abs(a_old[0] - seps[0]) < 0.1 or abs(a_old[1] - seps[1]) < 0.1, False)
+    chk("in vacuum the flip moves no conjugate point at n = 900 (-2e-3)",
+        survey(-2.0e-3, sign=AS_WRITTEN_SIGN)["conjugate"],
+        survey(-2.0e-3)["conjugate"])
 
     print("\nTHE HEADLINE -- both signs seat, only the arrival flips")
     print("     %10s %12s %14s %s" % ("M", "conjugate", "t - |dx|", "verdict"))

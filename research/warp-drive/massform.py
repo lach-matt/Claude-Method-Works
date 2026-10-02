@@ -179,12 +179,13 @@ MASS FORMS) AND TEMPLATE (THE HELD-SEAT RELEASE ROUTE, PRICED).
      with Delta B = Delta L = 3 per unit of Chern-Simons number; hypercharge
      Chern-Simons change also moves B + L, not in integer steps of N_f, and both
      conserve B - L.  At zero temperature it is INSTANTON tunnelling, suppressed
-     by 10^-160.95 per transition (a figure that inherits NAMED-NOT-READ through
-     v); the payload needs 1.4036e28 transitions.  Thermally it goes over the
-     SPHALERON (whether two-particle collisions at high energy do is CONTESTED,
-     section 4), a gauge-Higgs saddle whose height the vev sets, 3226 times the
-     rest energy of the 3 baryons one transition makes.  Above T_c the thermal
-     sphaleron transitions are unsuppressed and the vev is approximately zero.
+     by 10^-160.95 per transition (a figure COMPUTED from READ m_W and v, v from
+     the READ G_F at tree level, on H-SCALE); the payload needs 1.4036e28
+     transitions.  Thermally it goes over the SPHALERON (whether two-particle
+     collisions at high energy do is CONTESTED, section 4), a gauge-Higgs
+     saddle whose height the vev sets, 3226 times the rest energy of the 3
+     baryons one transition makes.  Above T_c the thermal sphaleron transitions
+     are unsuppressed and the vev is approximately zero.
      Below T_c they keep running down to T* = 131.7 GeV, where the vev is finite
      (READ).  At collider energies the two-particle rate is CONTESTED: the
      prevalent semiclassical results find it exponentially suppressed, resting
@@ -222,8 +223,11 @@ masses, therefore, the Higgs field has its vev.  THEOREM, on H-TREE.
 
 The Yukawas y_f = sqrt(2) m_f / v are computed from the READ masses for all nine
 charged fermions.  The top's is 0.9914 and the electron's is 2.935e-6.  Every
-y_f inherits G_F's NAMED-NOT-READ through v = higgs.vev() -- higgs.py's label,
-kept conservatively: DOCKET 67 READ G_F in PDG 2024, identical to the pin.
+y_f is COMPUTED from READ inputs: v = higgs.vev() is the tree-level (G_mu)
+value from G_F, which DOCKET 67 READ in PDG 2024, identical to the pin.
+CORRECTED (DOCKET 67 follow-up, on M's 'ok, update'): this said every y_f
+'inherits' G_F's unread status through v, higgs.py's label kept conservatively;
+higgs.py now labels G_F READ, and no value moved.
 
 THE SWITCH-ON READING.  P-UNIFORM: where nothing sources it, the vev takes one
 value everywhere.  This is a PREMISE, named.  It is higgs.py's caveat (b) as it
@@ -580,7 +584,8 @@ U(1) below).  Two regimes, kept apart:
      tree-level G_mu-scheme coupling.  The source defines alpha_W = alpha/sin^2
      theta_W, and the leading order fixes no scale or scheme (H-SCALE): across
      standard schemes the exponent below moves by several decades, far more than
-     any move in G_F.  It INHERITS NAMED-NOT-READ through v.  The suppression,
+     any move in G_F.  v is COMPUTED from the READ G_F (DOCKET 67; first written
+     as inheriting the unread label through v).  The suppression,
      exactly as the source states it, exp(-4 pi/alpha_W) = exp(-16 pi^2/g^2):
      10^-160.95 per transition, a semiclassical, leading-order factor printed to
      two decimals on H-SCALE.  'Per transition' and 'attempts' are this file's
@@ -676,13 +681,21 @@ U(1) below).  Two regimes, kept apart:
      times in the literature (see e.g., Ref.[26] and recently in [27])", then
      "However, the above argument is somewhat misleading" -- and keeps the
      claim.
-     (iii) Experiment.  CMS, with 35.9 fb^-1 at 13 TeV, sets "An upper limit of
+     (iii) Experiment.  CMS, with 35.9 fb^-1 at 13 TeV, set "An upper limit of
      0.021" on the fraction of quark-quark interactions above 9 TeV that make
-     the transition (1805.06013 abstract, READ).  An upper limit cannot
-     contradict an exponentially small rate, and Tye-Wong's own event count is
-     "A very crude order of magnitude estimate" (READ), so the experiment does
-     not decide it.  A later CMS search tightens the limit about sixfold (see
-     CMS_PEF_BOUND); it decides the question no more than the first.
+     the transition (1805.06013 abstract, READ).  CORRECTED (DOCKET 67, on M's
+     ruling that all figures be repaired): that was the limit this file
+     held as CMS_PEF_BOUND.  The current one is CMS's later search, with 138
+     fb^-1 at 13 TeV: "an upper limit of 0.0034 at 95% confidence level on the
+     fraction of quark-quark interactions" above the same 9 TeV threshold,
+     "approximately 6.2 (3.4) times more stringent than the previous best limit
+     of 0.021 (0.012)" (2604.10732v2 abstract and p.18, READ).  It holds at the
+     nominal E_sph = 9 TeV and "p(N_CS) = 0.5" (both NAMED hypotheses of the
+     figure), with the partonic cross section of the paper's eq. (2).  An upper
+     limit cannot contradict an exponentially small rate, and Tye-Wong's own
+     event count is "A very crude order of magnitude estimate" (READ), so the
+     experiment does not decide it; the later limit decides the question no
+     more than the first.
      NOT RESOLVED HERE, AND NO REFUSAL RESTS ON IT.
 
 ===============================================================================
@@ -1048,7 +1061,9 @@ NAMED HYPOTHESIS H-BRIDGE: that vacuum decay forms no atomic mass at the seat
 (D29's THEOREM grade, decay conjunct only, and S12's 'priced, not refused' rest
 on it).  MEASURED: every count, share, energy and exponent, each carrying its
 inputs' status (exponents also on H-SCALE).  Through v, every Yukawa, alpha_W,
-E_sph formula value and exponent INHERITS NAMED-NOT-READ.  Through
+E_sph formula value and exponent is COMPUTED from READ inputs (G_F READ by
+DOCKET 67, identical to the pin; first written as inheriting the unread
+label).  Through
 u = gravity.U_KG (CODATA 2018) and stock.ATOMIC_MASS, every count and payload
 share INHERITS NAMED-NOT-READ.  READ: every figure in SOURCES marked READ,
 including both FLAG sigma_piN averages.  CONTESTED: which sigma_piN is right;
@@ -1416,6 +1431,22 @@ SOURCES = {
             "collisions at a center-of-mass energy of 13 TeV in 2016. ... An upper limit of 0.021 is set at 95% confidence level on the "
             "fraction of all quark-quark interactions above the nominal threshold "
             "energy of 9 TeV resulting in the sphaleron transition."),
+    # Added (DOCKET 67): the current limit.  Held text READ by alphaXiv
+    # answer_pdf_queries on 2604.10732v2 (26 Aug 2026), pp.1, 18, 19.
+    "CMS-2026": ("READ", "CMS Collaboration 2604.10732v2 (JHEP 08 (2026) 098): "
+                 "abstract p.1, Sec. 9.2 p.18, Summary p.19",
+                 "using proton-proton collisions at sqrt(s) = 13 TeV recorded with "
+                 "the CMS detector at the CERN LHC during the 2016-2018 data "
+                 "taking, and corresponding to an integrated luminosity of 138 "
+                 "fb^-1 ... Results of a dedicated search for electroweak "
+                 "sphalerons are used to derive an upper limit of 0.0034 at 95% "
+                 "confidence level on the fraction of quark-quark interactions, "
+                 "with a center-of-mass energy above the nominal sphaleron "
+                 "transition energy threshold of 9 TeV, that result in a "
+                 "sphaleron transition.  /  The observed (expected) upper limit "
+                 "for the nominal E_sph = 9 TeV and p(N_CS) = 0.5 is 0.0034 "
+                 "(0.0035), which is approximately 6.2 (3.4) times more stringent "
+                 "than the previous best limit of 0.021 (0.012) from CMS [21]."),
     "Sakharov": ("READ", "Rubakov & Shaposhnikov hep-ph/9603208, Sec. 1, p.2 "
                  "(Sakharov JETP Lett. 5 (1967) 24 CITED)",
                  "Today, this short extract is usually dubbed as three necessary "
@@ -1619,6 +1650,9 @@ PINS = (
     ("DRT-broken", "(0.83 +/- 0.01)", 0.83), ("DRT-broken", "(147.7 +/- 1.9)", 147.7),
     ("DRT-broken", "130 GeV", 130.0),
     ("CMS", "0.021", 0.021), ("CMS", "35.9", 35.9), ("CMS", "13 TeV", 13.0),
+    ("CMS-2026", "0.0034", 0.0034), ("CMS-2026", "138", 138.0),
+    ("CMS-2026", "13 TeV", 13.0), ("CMS-2026", "6.2 (3.4)", 6.2),
+    ("CMS-2026", "0.021 (0.012)", 0.021),
     ("DG-2012", "126 GeV", 126.0),
     ("TW-size", "1/29.7", 29.7), ("TW-size", "1/30", 30.0),
     ("RS96-2.8", "1/29", 29.0), ("RS96-2.8", "10^-170", -170.0),
@@ -1684,13 +1718,21 @@ RATE_COEFF_SYMM = 18.0          # READ  DRT-rate: 18 alpha_W^5, a cross-check on
 BROKEN_FIT = (0.83, 147.7)      # READ  DRT-broken: ln(Gamma/T^4) = a T/GeV - b
 BROKEN_FIT_LOW_GEV = 130.0      # READ  DRT-broken: the fit's stated lower end
 BROKEN_FIT_HIGH_GEV = 159.0     # READ  DRT-Tc: its own paper's T_c bounds the fit
-CMS_PEF_BOUND = 0.021           # READ  CMS
-#   Superseded in currency: CMS 2604.10732 (JHEP 08 (2026) 098) gives 0.0034,
-#   '6.2 times more stringent' (READ by DOCKET 67).  The held 0.021 stays the
-#   figure checked against its quote; no status reads either (an upper limit
-#   decides nothing here).
-CMS_LUMI_FB = 35.9              # READ  CMS: fb^-1
-CMS_SQRT_S_TEV = 13.0           # READ  CMS
+CMS_PEF_BOUND = 0.0034          # READ  CMS-2026: 95% CL, E_sph = 9 TeV, p(N_CS) = 0.5
+#   CORRECTED (DOCKET 67, on M's ruling "address/correct/repair all figures"):
+#   this was 0.021 (READ CMS, 1805.06013), with the note "Superseded in
+#   currency: CMS 2604.10732 (JHEP 08 (2026) 098) gives 0.0034, '6.2 times more
+#   stringent' (READ by DOCKET 67).  The held 0.021 stays the figure checked
+#   against its quote; no status reads either (an upper limit decides nothing
+#   here)."  The bound now held is the current one; the 2018 figure is kept
+#   below as history, still checked against its own quote.  No status reads
+#   either, so no verdict moves.  Computed: 0.021 / 0.0034 = 6.18, CMS's own
+#   "approximately 6.2".
+CMS_LUMI_FB = 138.0             # READ  CMS-2026: fb^-1 (2016-2018)
+CMS_SQRT_S_TEV = 13.0           # READ  CMS-2026 (and CMS)
+CMS_PEF_BOUND_2018 = 0.021      # READ  CMS: the first limit, 1805.06013
+CMS_LUMI_FB_2018 = 35.9         # READ  CMS: fb^-1 (2016)
+CMS_PEF_TIGHTENING = 6.2        # READ  CMS-2026: "approximately 6.2" (observed)
 DG_MH_CONDITION_GEV = 126.0     # READ  DG-2012: its 2 sigma holds "for M_h < 126 GeV"
 #   one sided (98% C.L.), on the 2012 inputs (M_t = 173.1 +- 0.7,
 #   alpha_s = 0.1184 +- 0.0007).
@@ -1779,6 +1821,10 @@ QUOTED = (
                 "recently in [27])"),
     ("TW-2017", "However, the above argument is somewhat misleading"),
     ("CMS", "An upper limit of 0.021"),
+    ("CMS-2026", "an upper limit of 0.0034 at 95% confidence level on the fraction "
+                 "of quark-quark interactions"),
+    ("CMS-2026", "approximately 6.2 (3.4) times more stringent than the previous "
+                 "best limit of 0.021 (0.012)"),
     ("TW-claim", "A very crude order of magnitude estimate"),
 )
 
@@ -1802,14 +1848,18 @@ def _e(x, p):
 
 # ===================================================================== M65-1
 def vev_gev():
-    """v, asked of higgs.  From G_F: NAMED-NOT-READ, higgs.py's label, kept
-    conservatively (DOCKET 67 READ G_F in PDG 2024 Table 1.1, identical to the
-    pin).  v = (sqrt(2) G_F)^(-1/2) is the tree-level (G_mu-scheme) definition."""
+    """v, asked of higgs.  COMPUTED from G_F, READ (DOCKET 67: PDG 2024 Table
+    1.1, identical to the pin; higgs.STATUS_D67).  v = (sqrt(2) G_F)^(-1/2) is
+    the tree-level (G_mu-scheme) definition (H-TREE).  CORRECTED (DOCKET 67
+    follow-up, on M's 'ok, update'): first labelled NAMED-NOT-READ, higgs.py's
+    label kept conservatively; no value moved."""
     return higgs.vev()
 
 
 def yukawa(m_mev, v_gev=None):
-    """y_f = sqrt(2) m_f / v.  H-TREE.  Inherits v's NAMED-NOT-READ."""
+    """y_f = sqrt(2) m_f / v.  H-TREE.  COMPUTED from READ m_f and v (from the
+    READ G_F).  CORRECTED (DOCKET 67 follow-up): first said it inherits v's
+    unread label."""
     v = vev_gev() if v_gev is None else v_gev
     return math.sqrt(2.0) * (m_mev / 1000.0) / v
 
@@ -2349,12 +2399,14 @@ def pair_floor_j(c=None):
 
 
 def alpha_w(m_w_gev=None, v_gev=None):
-    """g = 2 m_W / v, alpha_W = g^2 / 4 pi.  m_W READ; v NAMED-NOT-READ.  The
+    """g = 2 m_W / v, alpha_W = g^2 / 4 pi.  m_W READ; v COMPUTED from the READ
+    G_F.  The
     tree-level G_mu-scheme coupling (H-SCALE): RS96 defines alpha_W =
     alpha/sin^2 theta_W, and across standard schemes 1/alpha_W runs 29.49 to
     30.63, moving log10 exp(-4 pi/alpha_W) by about 6.2 decades.  G_F itself is
-    READ in PDG 2024 identically to higgs.G_FERMI (DOCKET 67); its
-    NAMED-NOT-READ label is higgs.py's, kept, conservatively."""
+    READ in PDG 2024 identically to higgs.G_FERMI (DOCKET 67).  CORRECTED
+    (DOCKET 67 follow-up, on M's 'ok, update'): first labelled v unread,
+    higgs.py's label kept conservatively; higgs.py now labels G_F READ."""
     m_w = M_W_GEV if m_w_gev is None else m_w_gev
     v = vev_gev() if v_gev is None else v_gev
     g = 2.0 * m_w / v
@@ -3225,7 +3277,7 @@ PROPOSED_ROWS = (
      "tunnelling, exp(-4 pi/alpha_W) per transition (a semiclassical, "
      "leading-order factor; per transition is this file's counting, since in "
      "the source it multiplies a rate), alpha_W from READ m_W and "
-     "v (NAMED-NOT-READ, via G_F); B/3 transitions.  That alpha_W is the "
+     "v (COMPUTED from the READ G_F, tree level); B/3 transitions.  That alpha_W is the "
      "tree-level G_mu-scheme coupling, its scale and scheme unfixed at "
      "leading order.  Over the barrier, the SPHALERON: E_sph ~ %.0f TeV "
      "(READ), ~%s x the 3 baryons' rest energy.  Thermal: unsuppressed above "
@@ -3248,10 +3300,10 @@ PROPOSED_ROWS = (
      "leading order of the WKB approximation\"; Tye-Wong state that \"both "
      "estimates involve assumptions based on intuitions as well as "
      "approximations remaining to be fully justified\" and call their own "
-     "figure \"only an order of magnitude guesstimate\"; a READ G_F (lifts "
-     "alpha_W's NAMED-NOT-READ; DOCKET 67 READ it in PDG 2024, identical to "
-     "the pin, and it moves nothing -- the operative uncertainty is alpha_W's "
-     "scheme)"),
+     "figure \"only an order of magnitude guesstimate\".  A READ G_F is no "
+     "longer listed: DOCKET 67 READ it in PDG 2024, identical to the pin, "
+     "which lifted alpha_W's NAMED-NOT-READ and moved nothing -- the operative "
+     "uncertainty is alpha_W's scheme"),
     ("S12", "SUPPLY",
      "The pair route, EXCITATION's remainder: atomic mass forms as matter with "
      "its antimatter, B and L conserved.  The carrier supplies at least the "
@@ -3729,6 +3781,16 @@ def guard_units(doc=None, rep=None, rows=None, survives=None, reasons=None,
 #: sentence must also match to pass -- or None -- and the OLD wording, which
 #: the selftest plants to prove the scan turns red on it).
 STALE_WORDING = (
+    # DOCKET 67 follow-up (M: 'ok, update'): G_F is READ (PDG 2024 Table 1.1),
+    # so nothing computed through v may carry NAMED-NOT-READ again.  The u and
+    # ATOMIC_MASS labels are a different chain and are not touched.
+    ("D67 nothing through v or G_F is NAMED-NOT-READ",
+     r"NAMED-NOT-READ,? via G_F|NAMED-NOT-READ \(G_F\)|G_F's NAMED-NOT-READ"
+     r"|v's NAMED-NOT-READ|\bv NAMED-NOT-READ|NAMED-NOT-READ through\s+v\b"
+     r"|Through v, [^.]*NAMED-NOT-READ|G_F: NAMED-NOT-READ",
+     r"which lifted|no longer listed",
+     "v, asked of higgs.  From G_F: NAMED-NOT-READ, higgs.py's label, kept "
+     "conservatively."),
     ("SF1 C1 is not SWITCH-ON's alone (TEMPLATE)", r"SWITCH-ON(?: reading)? only", None,
      "C1 answers SWITCH-ON only: it needs P-UNIFORM to carry the field's value."),
     ("SF1 the finite-share readings are three (TEMPLATE)",
@@ -3973,9 +4035,15 @@ REQUIRED_WORDING = (
      "S10 claim",
      "forms no atomic mass at the seat -- an INFERENCE from READ text, D29) and C3",
      "forms no atomic mass at the seat, D29) and C3"),
-    ("D65-close S11 claim: v is NAMED-NOT-READ, via G_F", "S11 claim",
-     "alpha_W from READ m_W and v (NAMED-NOT-READ, via G_F); B/3 transitions",
-     "alpha_W from READ m_W and v; B/3 transitions"),
+    # CORRECTED (DOCKET 67 follow-up, on M's 'ok, update'): this entry was
+    # ("D65-close S11 claim: v is NAMED-NOT-READ, via G_F", ..., "alpha_W from
+    # READ m_W and v (NAMED-NOT-READ, via G_F); B/3 transitions", "alpha_W
+    # from READ m_W and v; B/3 transitions").  G_F is READ now; the claim must
+    # still say where v comes from, and the control puts the stale label back.
+    ("D67 S11 claim: v is COMPUTED from the READ G_F", "S11 claim",
+     "alpha_W from READ m_W and v (COMPUTED from the READ G_F, tree level); B/3 "
+     "transitions",
+     "alpha_W from READ m_W and v (NAMED-NOT-READ, via G_F); B/3 transitions"),
     ("SF3 intro defines TEMPLATE", "intro", _TEMPLATE_DEF,
      "the elements' templates sit at the seat WITHOUT their mass"),
     ("R6-A intro: the split is three-way", "intro", THREE_WAY,
@@ -4722,7 +4790,7 @@ def report():
     print("M65-1  PRESENCE -- SWITCH-ON, STOCK, TEMPLATE AND EXCITATION")
     print("=" * 79)
     v = vev_gev()
-    _p("v = higgs.vev()", "%.6f GeV" % v, "NAMED-NOT-READ (G_F)")
+    _p("v = higgs.vev()", "%.6f GeV" % v, "COMPUTED from READ G_F (tree level)")
     print("      %-10s %16s %18s" % ("fermion", "m (MeV, READ)", "y = sqrt2 m/v"))
     for f, y in yukawas().items():
         print("      %-10s %16.9g %18.6e" % (f, MASS_MEV[f], y))
@@ -4852,7 +4920,8 @@ def report():
     print("      H-REAL: doublet and gauge terms non-negative -- claimed, not computed")
     _p("V(phi) - V(v) = rho_EW (eps(2-eps))^2", FIELD_ENERGY_IS_A_SQUARE,
        "asked of excite")
-    _p("rho_EW (excite.RHO_EW)", "%.4e J/m^3" % excite.RHO_EW, "inherits NAMED-NOT-READ")
+    _p("rho_EW (excite.RHO_EW)", "%.4e J/m^3" % excite.RHO_EW,
+       "COMPUTED from READ G_F and m_h (tree level)")
     _p("the field releases energy about v", HIGGS_FIELD_RELEASES_ENERGY_ABOUT_V,
        "THEOREM on H-TREE-V, H-REAL")
     _p("metastability preferred (1307.3536)", METASTABILITY_PREFERRED, "READ")
@@ -4909,7 +4978,7 @@ def report():
     _p("THE PAIR ROUTE (EXCITATION's remainder) priced", PAIR_ROUTE_PRICED,
        "Higgs an intermediary")
     aw, g = alpha_w()
-    _p("g = 2 m_W / v", "%.6f" % g, "inherits NAMED-NOT-READ")
+    _p("g = 2 m_W / v", "%.6f" % g, "COMPUTED from READ m_W and G_F")
     _p("alpha_W = g^2/4pi", "%.6f = 1/%.4f" % (aw, 1 / aw))
     print("      ZERO TEMPERATURE: instanton tunnelling")
     _p("log10 exp(-4 pi/alpha_W)", "%.4f" % log10_suppression())
@@ -4954,11 +5023,14 @@ def report():
     for role, key in (("prevalent", "BLRRT"), ("prevalent", "BLRRT-PLB"),
                       ("  on", "BLRRT-conj"), ("prevalent", "KM-2020"),
                       ("dissent", "TW-claim"), ("dissent", "TW-2017"),
-                      ("rebuttal", "FFS-rebut"), ("experiment", "CMS")):
+                      ("rebuttal", "FFS-rebut"), ("experiment", "CMS"),
+                      ("experiment", "CMS-2026")):
         st, loc, _t = SOURCES[key]
         print("        %-10s %-10s %-9s arXiv %s" % (role, key, st, arxiv_id(loc)))
     print("      CMS: PEF < %g at %g TeV, %g fb^-1 -- an upper limit; it decides nothing"
           % (CMS_PEF_BOUND, CMS_SQRT_S_TEV, CMS_LUMI_FB))
+    print("        (E_sph = 9 TeV, p(N_CS) = 0.5; %.2fx the first limit, %g at %g fb^-1)"
+          % (CMS_PEF_BOUND_2018 / CMS_PEF_BOUND, CMS_PEF_BOUND_2018, CMS_LUMI_FB_2018))
     print("      the prevalent results rest on conjectures and assumptions their authors")
     print("      state as unproven, not theorems; the dissent is no firmer by its own")
     print("      account -- Tye-Wong (1710.07223 p.2): 'both estimates involve assumptions")
@@ -5589,6 +5661,21 @@ def selftest():
         [("BLRRT", "READ"), ("BLRRT-PLB", "READ"), ("BLRRT-conj", "READ"),
          ("KM-2020", "READ"), ("TW-claim", "CONTESTED"), ("TW-2017", "CONTESTED"),
          ("FFS-rebut", "READ"), ("CMS", "READ")])
+    # DOCKET 67 follow-up (M: 'ok, update'): v's status follows its owner's.
+    chk("v's input G_F is READ at its owner, so v is labelled COMPUTED, not "
+        "unread", (getattr(higgs, "STATUS_D67", {}).get("G_FERMI"),
+                   "COMPUTED from READ G_F" in _norm(_report_text()),
+                   "NAMED-NOT-READ (G_F)" in _norm(_report_text())),
+        ("READ", True, False))
+    # DOCKET 67: the bound held is CMS's current one; the first is history.
+    chk("the CMS bound held is the current one (CMS-2026, READ); 0.021 kept as "
+        "history", (CMS_PEF_BOUND, CMS_LUMI_FB, CMS_PEF_BOUND_2018, CMS_LUMI_FB_2018,
+                    SOURCES["CMS-2026"][0]), (0.0034, 138.0, 0.021, 35.9, "READ"))
+    chk("  CMS's 'approximately 6.2' is the ratio of the two limits, computed",
+        round(CMS_PEF_BOUND_2018 / CMS_PEF_BOUND, 1), CMS_PEF_TIGHTENING)
+    chk("  CONTROL the old pin planted against the new source (0.021 for 0.0034) "
+        "is caught by the misquote check",
+        bool(check_quotes(pins=PINS + (("CMS-2026", "0.0034", 0.021),))), True)
     chk("  the rebuttal is not conceded: TW-2017 cites 1612.05431 and keeps the claim",
         (_in("TW-2017", "arXiv:1612.05431"),
          _in("TW-2017", "we claim that multi-sphaleron processes can drastically "
@@ -5915,12 +6002,15 @@ def selftest():
         "a conjecture",
         (_in("FFS-rebut", "in the leading order of the WKB approximation"),
          "in the leading order of the WKB approximation" in _sec4), (True, True))
+    chk("the report prints the current bound, not the first",
+        ("PEF < 0.0034 at 13 TeV, 138 fb^-1" in _rep, "PEF < 0.021 at" in _rep),
+        (True, False))
     chk("report locators print the arXiv id of every collider source",
         [(k, arxiv_id(SOURCES[k][1]) is not None and ("arXiv %s" % arxiv_id(SOURCES[k][1]))
           in _rep) for k in ("BLRRT", "BLRRT-PLB", "BLRRT-conj", "KM-2020", "TW-claim",
-                             "TW-2017", "FFS-rebut", "CMS")],
+                             "TW-2017", "FFS-rebut", "CMS", "CMS-2026")],
         [(k, True) for k in ("BLRRT", "BLRRT-PLB", "BLRRT-conj", "KM-2020", "TW-claim",
-                             "TW-2017", "FFS-rebut", "CMS")])
+                             "TW-2017", "FFS-rebut", "CMS", "CMS-2026")])
     chk("  and no locator is truncated to 'hep-ph/03'",
         bool(re.search(r"hep-ph/03(?!\d)", _rep)), False)
     # ---- C: the verdict line qualified, scanned

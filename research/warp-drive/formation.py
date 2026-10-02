@@ -307,7 +307,12 @@ is the new content:
     rms 68 uJy/beam, with a ~2 sigma central peak present (p.3).  Computed in
     DOCKET 67, that image disfavours Anglada's ~200 uJy belt at ~2.0 sigma
     and the full 340 uJy at ~3.0 sigma; a belt below ~130 uJy is not
-    excluded.  The 0.4 au warm dust is unnecessary if the 12-m excess is
+    excluded.  (Recomputed here by belt_sigma_low: 2.03 and 3.00 sigma; the
+    floor is the ~2 sigma peak, 2 x 68 = 136 uJy.  So the belt is NOT
+    EXCLUDED by the source's own 3 sigma criterion --
+    SURVEY_BELT_1_4AU_EXCLUDED_BY_SOURCE = False, computed -- and its evidence
+    IS removed -- SURVEY_BELT_1_4AU_EVIDENCE_REMOVED_BY_SOURCE, READ.  The
+    test's hypotheses H_unres, H_peak and H_3sig are named at the constants.)  The 0.4 au warm dust is unnecessary if the 12-m excess is
     coronal.  The 30 au belt stays marginal: the paper gives 13+10-8
     background sources > 150 uJy expected in the primary beam (sec. 4.2; it
     states neither area nor formula, and DOCKET 67 recomputed ~1.6 in the
@@ -502,11 +507,30 @@ SURVEY_CONDENSED_BODY = "Proxima b (m_p sin i = 1.3 M_earth, a = 0.05 au)"
 SURVEY_CONDENSED_BODY_FOUND = True
 SURVEY_PRIMITIVE_MEASURED = False
 SURVEY_ACCESSIBLE_MEASURED = False
-SURVEY_BELT_1_4AU_WITHDRAWN_BY_SOURCE = True    # MacGregor 2018 sec 4.2
-#: DOCKET 67: the flag's NAME overstates.  The source finds "no need to posit"
-#: the belt (evidence removed, ~2 sigma against it; a belt below ~130 uJy is
-#: not excluded); it does not withdraw it.  The value is a flag and is kept
-#: as written; read it as "the source removes the belt's evidence".
+#: CORRECTED (DOCKET 67, key 1802.08257; M's ruling "address/correct/repair").
+#: This flag was SURVEY_BELT_1_4AU_WITHDRAWN_BY_SOURCE = True, and its NAME
+#: overstated: MacGregor et al. find "no need to posit the cold belt at 1-4 AU"
+#: (sec 4.2; "no need to invoke", p.1, p.7) -- the EVIDENCE is removed, the
+#: belt is not shown absent, and "withdraws" names an act of Anglada's authors,
+#: which MacGregor et al. are not.  It is split into what the source READS
+#: (evidence removed) and what its numbers COMPUTE (excluded or not), and the
+#: old name is kept, marked, as ..._WITHDRAWN.
+SURVEY_BELT_1_4AU_EVIDENCE_REMOVED_BY_SOURCE = True   # READ, MacGregor 2018 sec 4.2
+SURVEY_BELT_1_4AU_WITHDRAWN_BY_SOURCE_WITHDRAWN = (
+    True, "WITHDRAWN (DOCKET 67): 'the source withdraws the 1-4 au belt' -- it "
+          "finds no need to posit it; a fainter belt is not excluded")
+#: The numbers the exclusion test is computed from, every one READ:
+BELT_RMS_FIRST12_UJY = 68.0     # MacGregor 2018 p.3: first-12 ACA image rms, uJy/beam
+BELT_PEAK_SIGMA = 2.0           # MacGregor 2018 p.3: "~2 sigma" central peak (approximate)
+BELT_DETECT_SIGMA = 3.0         # MacGregor 2018 p.3: no quiescent excess "above 3 sigma"
+BELT_PHOTOSPHERE_UJY = 74.0     # Anglada 2017 p.5: the stellar photosphere at 1.3 mm
+BELT_ANGLADA_UJY = 200.0        # Anglada 2017 p.5: ~200 uJy of the ACA excess in the belt
+BELT_ANGLADA_TOTAL_UJY = 340.0  # Anglada 2017: the full ACA flux the belt reading needs
+#: Named hypotheses of the test: H_unres -- the 1-4 au belt (0.77-3.1 arcsec at
+#: 1.3 pc) is unresolved by the 7.3 x 5.5 arcsec ACA beam, so its flux adds to
+#: the central peak; H_peak -- the peak is the READ "~2 sigma" taken at 2.0,
+#: an approximate value; H_3sig -- "excluded" means at or beyond the source's
+#: own 3 sigma detection criterion.  Any of these changed, the figures move.
 SURVEY_CONFIRMED_RESERVOIR = UNDETERMINED
 SURVEY_CONFIRMED_RESERVOIR_WITHDRAWN = (
     False, "WITHDRAWN [W2]: 'no confirmed condensed reservoir' -- Proxima b is "
@@ -933,6 +957,33 @@ def proxima_b_over_threshold():
     return PROXIMA_B_MSINI_EARTH * ladder.M_EARTH / need
 
 
+def belt_sigma_low(total_ujy):
+    """How far (in sigma) the first-12 ACA image falls BELOW a predicted total
+    flux, under H_unres and H_peak: (total - peak)/rms (DOCKET 67, key
+    1802.08257, rederive/1802.08257.py item 3, recomputed here)."""
+    peak = BELT_PEAK_SIGMA * BELT_RMS_FIRST12_UJY
+    return (total_ujy - peak) / BELT_RMS_FIRST12_UJY
+
+
+def belt_excluded(belt_ujy):
+    """Is a 1-4 au belt of flux belt_ujy (over the photosphere) EXCLUDED by the
+    first-12 image, under H_3sig?  Computed, not declared."""
+    return belt_sigma_low(BELT_PHOTOSPHERE_UJY + belt_ujy) >= BELT_DETECT_SIGMA
+
+
+def belt_unexcluded_floor_ujy():
+    """The belt flux below which the image cannot speak against it even at
+    2 sigma: the "~2 sigma" peak itself, 2 x 68 = 136 uJy (the audit's '~130')."""
+    return BELT_PEAK_SIGMA * BELT_RMS_FIRST12_UJY
+
+
+#: COMPUTED (DOCKET 67): Anglada's ~200 uJy belt sits 2.03 sigma above the
+#: first-12 image -- DISFAVOURED, and short of the source's own 3 sigma, so NOT
+#: EXCLUDED; the full 340 uJy reaches 3.0 sigma.  A belt fainter than ~136 uJy
+#: is not excluded at all, and such a belt could still hold small bodies.
+SURVEY_BELT_1_4AU_EXCLUDED_BY_SOURCE = belt_excluded(BELT_ANGLADA_UJY)   # False
+
+
 # ================================================================== the reading
 def _fmt(x, n=6):
     return ("%%.%de" % (n - 1)) % float(x)
@@ -985,6 +1036,15 @@ def report():
     print("  primitive measured: %s; accessible measured: %s; reservoir: %s"
           % (SURVEY_PRIMITIVE_MEASURED, SURVEY_ACCESSIBLE_MEASURED,
              SURVEY_CONFIRMED_RESERVOIR))
+    print("  1-4 au belt: evidence removed by the source (READ) = %s; excluded "
+          "(computed, >= %.0f sigma) = %s"
+          % (SURVEY_BELT_1_4AU_EVIDENCE_REMOVED_BY_SOURCE, BELT_DETECT_SIGMA,
+             SURVEY_BELT_1_4AU_EXCLUDED_BY_SOURCE))
+    print("    first-12 image below star + %g uJy belt: %.2f sigma; below the full "
+          "%g uJy: %.2f sigma; unexcluded floor %.0f uJy"
+          % (BELT_ANGLADA_UJY, belt_sigma_low(BELT_PHOTOSPHERE_UJY + BELT_ANGLADA_UJY),
+             BELT_ANGLADA_TOTAL_UJY, belt_sigma_low(BELT_ANGLADA_TOTAL_UJY),
+             belt_unexcluded_floor_ujy()))
     print("\n  D24: %s" % D24_VERDICT)
     print("  D25: %s" % D25_VERDICT)
     print("  nucleation: %s; EC evidence: %s" % (NUCLEATION_STATUS,
@@ -1195,6 +1255,24 @@ def selftest():
         (True, False, False, UNDETERMINED, False))
     chk("pin", "survey: the papers' data constrain no individual bodies",
         SURVEY_CONSTRAINS_BODIES, False)
+    # DOCKET 67 (key 1802.08257): the belt flag, split and computed.  Was
+    # SURVEY_BELT_1_4AU_WITHDRAWN_BY_SOURCE = True, unchecked.
+    chk("numeric", "first-12 image below star + Anglada's 200 uJy belt (sigma)",
+        round(belt_sigma_low(BELT_PHOTOSPHERE_UJY + BELT_ANGLADA_UJY), 2), 2.03)
+    chk("numeric", "first-12 image below Anglada's full 340 uJy (sigma)",
+        round(belt_sigma_low(BELT_ANGLADA_TOTAL_UJY), 2), 3.0)
+    chk("numeric", "a belt below the ~2 sigma peak is not excluded: floor (uJy)",
+        belt_unexcluded_floor_ujy(), 136.0)
+    chk("control", "belt_excluded can return True (a 400 uJy belt, 4.97 sigma)",
+        belt_excluded(400.0), True)
+    chk("control", "and False below the floor (a 100 uJy belt)",
+        belt_excluded(100.0), False)
+    chk("pin", "the 1-4 au belt: evidence REMOVED (READ), NOT EXCLUDED (computed)",
+        (SURVEY_BELT_1_4AU_EVIDENCE_REMOVED_BY_SOURCE,
+         SURVEY_BELT_1_4AU_EXCLUDED_BY_SOURCE), (True, False))
+    chk("pin", "the old 'withdrawn by source' flag is kept and marked WITHDRAWN",
+        SURVEY_BELT_1_4AU_WITHDRAWN_BY_SOURCE_WITHDRAWN[1].startswith("WITHDRAWN"),
+        True)
     chk("pin", "stockgate's T_c are nebular, at 1e-4 bar (READ from its SOURCES)",
         "1e%d bar" % round(math.log10(LODDERS_PRESSURE_BAR)) in stockgate.SOURCES["L03"],
         True)

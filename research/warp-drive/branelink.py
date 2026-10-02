@@ -129,8 +129,8 @@ beta and B are orthogonal degrees of freedom and then closed on beta.  B is not
 measured.  The escape is priced (GKLP eq. (22) extremised -- GW170817's
 propagation taken exactly antiparallel to Earth -> Proxima -- g -> 1, as the
 pass read it): B >= 0.999387630 is the floor for one second over the Proxima
-span, and B >= 0.99999993 for half the light time on the gamma -> 1
-linearisation.  UNTESTED, not excluded.  And the bound is CONDITIONAL on the
+span, and B >= 0.999999935193 for half the light time (exact; computed by
+b_for_saving_exact).  UNTESTED, not excluded.  And the bound is CONDITIONAL on the
 graviton being a bulk degree of freedom -- GKLM hedge in the sentence the pass
 quotes ("if we entertain the possibility that these are bulk degrees of
 freedom"); if gravity is brane-confined, Delta c/c = 0 for it at tree level.
@@ -140,9 +140,13 @@ freedom"); if gravity is brane-confined, Delta c/c = 0 for it at tree level.
     off the Proxima line -- one second costs B >= 0.9994645711 (computed).
     (b) The linearisation fails at T/2, where gamma - 1 = 1.87e-8 against
     1 - B = 7.5e-8: the exact saving at 0.99999993 is 0.400 T and the exact
-    threshold 0.999999935193 (computed).  (c) This said "Delta c/c = 0
-    identically"; GKLM say only that brane-localized matter "would presumably
-    respect" the worldvolume Lorentz symmetry, and Kabat & Nomura show bulk loops
+    threshold 0.999999935193 (computed).  On M's ruling the figure above is
+    now the exact one; it read "B >= 0.99999993 for half the light time on
+    the gamma -> 1 linearisation".  The one-second floor is unchanged at nine
+    digits (exact 0.999387630477, linearised 0.999387630476).
+    (c) This said "Delta c/c = 0 identically"; GKLM say only that
+    brane-localized matter "would presumably respect" the worldvolume
+    Lorentz symmetry, and Kabat & Nomura show bulk loops
     with non-zero winding induce UV-finite Lorentz-violating brane terms -- a
     discrepancy of wording, far too small to move the dichotomy.
 
@@ -406,10 +410,62 @@ def b_for_saving(want_s):
     "Extremised" means antipodal: GW170817's propagation exactly antiparallel
     to Earth -> Proxima, so the result is a FLOOR, not a sufficient price (on
     the real sky, one second costs 0.9994645711).  saving/T = d((1+B)/(1-B))^2
-    is the gamma -> 1 linearisation; it fails near T/2 (DOCKET 67)."""
+    is the gamma -> 1 linearisation; it fails near T/2 (DOCKET 67): there it
+    gives 0.99999993, where the exact saving is 0.400 T.  KEPT as the
+    first-written form and a control; the figures are b_for_saving_exact's."""
     T = L_PROXIMA / C
     r = (want_s / T) / D_GW
     return (math.sqrt(r) - 1.0) / (math.sqrt(r) + 1.0)
+
+
+def _front_exact(B, digits=50, d=None):
+    """(D, B) at `digits` with D = 1 + d and gamma fixed by the BACKWARD excess.
+
+    The two extremes of GKLP's family for an observer boosted by B are the
+    arrival slopes tau(+1) = (1 - gamma B)/(gamma - B) (eq. 20, v = 1/tau)
+    and tau(-1) = (1 + gamma B)/(gamma + B) (eq. 25, w = -1/tau) -- as the
+    sibling DOCKET 67 audit READ them in 2208.09014v3, and re-derived from the
+    bulk quotient in sympy (rederive/gklp-eq22.py, check B).  Holding the
+    backward excess 1/tau(-1) - 1 at d exactly gives
+    gamma = (D - B)/(1 - D B), with no gamma -> 1 step."""
+    getcontext().prec = digits
+    d = Decimal(repr(D_GW)) if d is None else Decimal(repr(d))
+    return 1 + d, Decimal(repr(B)) if not isinstance(B, Decimal) else B
+
+
+def saving_fraction_exact(B, digits=50):
+    """The exact forward saving 1 - tau(+1) at common boost B, backward excess
+    held at d (antipodal, as b_for_saving).  Substituting gamma:
+    tau(+1) = (1 - 2DB + B^2)/(D - 2B + DB^2).  DOCKET 67."""
+    D, B = _front_exact(B, digits)
+    return 1 - (1 - 2 * D * B + B * B) / (D - 2 * B + D * B * B)
+
+
+def b_supercritical(digits=50):
+    """B* where gamma B = 1 (the forward front becomes instantaneous, W7's
+    threshold): B^2 - 2DB + 1 = 0, so B* = D - sqrt(D^2 - 1) = 1 - sqrt(2d)
+    to first order.  DOCKET 67."""
+    D, _ = _front_exact(0, digits)
+    return D - (D * D - 1).sqrt()
+
+
+def b_for_saving_exact(want_s, digits=50, span_m=None):
+    """b_for_saving without the gamma -> 1 linearisation (DOCKET 67, key
+    gklp-eq22; M: "address/correct/repair all figures").
+
+    Setting saving_fraction_exact(B) = f = want_s / T gives the quadratic
+    a B^2 - 2(d + f) B + a = 0 with a = f - d + f d, whose root below 1 is
+    B = ((d + f) - sqrt((d + f)^2 - a^2)) / a.  Same named hypotheses as
+    b_for_saving: antipodal propagation (a FLOOR, not a sufficient price),
+    common boost of both endpoints, backward excess held at d = D_GW
+    (GW170817's edge under simultaneous emission), bulk graviton.  Valid
+    while B < b_supercritical()."""
+    getcontext().prec = digits
+    T = Decimal(repr(L_PROXIMA if span_m is None else span_m)) / Decimal(repr(C))
+    d = Decimal(repr(D_GW))
+    f = Decimal(repr(want_s)) / T
+    a = f - d + f * d
+    return ((d + f) - ((d + f) ** 2 - a * a).sqrt()) / a
 
 
 def zeta3(n=200000):
@@ -442,7 +498,12 @@ BETA_MAX = float(_O7["beta"])                       # conditional on a bulk grav
 SAVING_AT_B0_NS = float(_O7["Delta_tau ns"])
 SAVING_FRACTION = float(_O7["fraction"])
 CMB_GAMMA_MINUS_1 = cmb_gamma_minus_1()
-B_FOR_ONE_SECOND = b_for_saving(1.0)                # a floor (antipodal), not a sufficient price
+# a floor (antipodal), not a sufficient price.  CORRECTED (DOCKET 67): both are
+# now b_for_saving_exact's; B_FOR_ONE_SECOND was b_for_saving(1.0), the gamma
+# -> 1 linearisation, 0.999387630476 against the exact 0.999387630477 (agree
+# to 9 digits); the half-light-time price was printed from it as 0.99999993.
+B_FOR_ONE_SECOND = float(b_for_saving_exact(1.0))
+B_FOR_HALF_LIGHT_TIME = float(b_for_saving_exact(0.5 * L_PROXIMA / C))
 SME_ORDERS_SHORT = math.log10(SME_LAB_BOUND / sme_coefficient())
 
 #: O6's dichotomy (the ruling's third reason O6 does not close).  The bulk
@@ -509,8 +570,11 @@ def report():
     nb, ns = o7_naive_double()
     print("    WITHDRAWN, double precision: beta = %.6e, %.4f ns" % (nb, ns))
     print("    CMB dipole Gamma - 1 = %.4e (barycentric) -- a candidate for the receiver's B, not the 94 ns" % cmb_gamma_minus_1())
-    print("    escape floor: B >= %.9f for 1 s; B >= %.8f for half the light time (linearised)"
-          % (b_for_saving(1.0), b_for_saving(0.5 * L_PROXIMA / C)))
+    print("    escape floor (exact, antipodal): B >= %.9f for 1 s; B >= %.12f for half the light time"
+          % (B_FOR_ONE_SECOND, B_FOR_HALF_LIGHT_TIME))
+    print("    WITHDRAWN (gamma -> 1 linearisation): B >= %.8f for half the light time,"
+          " where the exact saving is %.3f T" % (b_for_saving(0.5 * L_PROXIMA / C),
+          float(saving_fraction_exact(b_for_saving(0.5 * L_PROXIMA / C)))))
     print("    SME null: |c| = %.3e at r = 38.6 um, beta = 1 vs %.0e -- %.0f orders short"
           % (sme_coefficient(), SME_LAB_BOUND, math.log10(SME_LAB_BOUND / sme_coefficient())))
     print("\nO6: %s   O7: %s   S5: %s" % (O6_STATUS, O7_STATUS, S5_STATUS))
@@ -600,9 +664,29 @@ def selftest():
          float(ex["Proxima light time s"]) * D_GW, 9.3807e-08, 1e-4)
     near("the CMB dipole's Gamma - 1 (barycentric; a candidate for B)", cmb_gamma_minus_1(),
          7.6161e-07, 1e-4)
-    near("escape: B for a one-second saving", b_for_saving(1.0), 0.999387630, 1e-9)
-    near("escape: B for half the light time (linearised, g -> 1)", b_for_saving(0.5 * L_PROXIMA / C),
-         0.99999993, 1e-8)
+    # CORRECTED (DOCKET 67, key gklp-eq22): the half-light-time pin was the
+    # linearised 0.99999993 at 1e-8, which could not see that the linearised
+    # threshold buys 0.400 T.  The figures are now exact; the linearised form
+    # is kept below as the control it always should have been.
+    near("escape: B for a one-second saving (exact)", B_FOR_ONE_SECOND, 0.999387630477, 1e-12)
+    near("escape: B for half the light time (exact)", B_FOR_HALF_LIGHT_TIME,
+         0.999999935193, 1e-12)
+    near("... the exact threshold buys exactly half the light time",
+         float(saving_fraction_exact(b_for_saving_exact(0.5 * L_PROXIMA / C))), 0.5, 1e-12)
+    near("... and one second at B(1 s)",
+         float(saving_fraction_exact(b_for_saving_exact(1.0))) * L_PROXIMA / C, 1.0, 1e-12)
+    chk("... below the supercritical ceiling B* = D - sqrt(D^2 - 1)",
+        b_for_saving_exact(0.5 * L_PROXIMA / C) < b_supercritical(), True)
+    near("B* = 1 - sqrt(2d) to first order", 1.0 - float(b_supercritical()),
+         math.sqrt(2 * D_GW), 1e-6)
+    near("CONTROL: linearised B(1 s) (first written) agrees to 9 digits",
+         b_for_saving(1.0), 0.999387630, 1e-9)
+    near("CONTROL: linearised B(T/2) (first written, WITHDRAWN) 0.99999993",
+         b_for_saving(0.5 * L_PROXIMA / C), 0.99999993, 1e-8)
+    near("CONTROL: ... where the exact saving is 0.400 T, not 0.5",
+         float(saving_fraction_exact(b_for_saving(0.5 * L_PROXIMA / C))), 0.400, 1e-6)
+    chk("CONTROL: the linearised and exact T/2 thresholds differ at 8 decimals",
+        "%.8f" % b_for_saving(0.5 * L_PROXIMA / C) != "%.8f" % B_FOR_HALF_LIGHT_TIME, True)
     near("SME null |c| at r = 38.6 um, beta = 1", sme_coefficient(), 6.37e-64, 1e-3)
     chk("... 42 orders short of the 1e-21 bound",
         round(math.log10(SME_LAB_BOUND / sme_coefficient())), 42)

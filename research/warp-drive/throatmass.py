@@ -209,7 +209,9 @@ SELF_CONSISTENT_FAMILIES = (
      "zeta regularisation, r_t-dependent renormalisation of G, RG step): one "
      "integrated energy equality on the fixed ansatz b = r_t^2/r, phi = 0, "
      "with uniqueness imposed by tangency; m = r_t^2/(2r) > 0 by the ansatz, "
-     "so this row's 'not m < 0' is no evidence either way"),
+     "so this row's 'not m < 0' is no evidence either way.  The r_0 pair is as "
+     "printed; the second does not reproduce from the paper's own equations "
+     "(GARATTINI_RT_CASE2, computed, DOCKET 67)"),
     ("Abdolrahimi-Page-Tzounis", "1607.05280, PRD 100, 124038",
      "RECOVERED (seated in selfconsistent.py, not re-read)", False, False, (),
      "evaporating Schwarzschild, first order in hbar: not static, not m < 0"),
@@ -273,6 +275,73 @@ O5_ANSWERED_BY_CORRECTED = (
     "solutions with a positive Hadamard <T> outside the xi = 1/2 stealth "
     "sector is NOT-FOUND, not shown absent")
 
+# ---------------------------------------------- Garattini's case 2, computed
+#: Garattini gr-qc/0501105v1 eq. (79), READ (the CQG version is unread): with
+#: mu_0 at the Planck scale, rbar_t = .4473670842 l_P.  This is GARATTINI'S
+#: PRINTED value and is kept as his; it follows from his printed eq. (66)
+#: coefficients b = 276.6026775, c = 212.0575042 through eq. (74), but those
+#: do not follow from his own eqs. (57), (61)-(65) with (B7) (DOCKET 67, key
+#: gr-qc/0501105).
+GARATTINI_PRINTED_RT_CASE2 = 0.4473670842       # l_P, READ eq. (79)
+GARATTINI_PRINTED_B, GARATTINI_PRINTED_C = 276.6026775, 212.0575042   # READ eq. (66)
+
+
+def _tanh_sinh(f, a, b, levels=7, tmax=3.2):
+    """Double-exponential quadrature on [a, b], stdlib; endpoint logarithmic
+    singularities are integrable and handled."""
+    mid, half, h = (a + b) / 2.0, (b - a) / 2.0, 2.0 ** -levels
+    tot = 0.0
+    for k in range(-int(tmax / h), int(tmax / h) + 1):
+        u = math.pi / 2 * math.sinh(k * h)
+        x = mid + half * math.tanh(u)
+        w = half * (math.pi / 2) * math.cosh(k * h) / math.cosh(u) ** 2
+        if a < x < b and w > 0.0:
+            tot += w * f(x)
+    return tot * h
+
+
+def garattini_coefficients():
+    """(SA, B_ln, k) for Garattini's eq. (66), COMPUTED from his eqs. (57),
+    (61)-(65) and (B7), x = r_t y = r_t tan(theta):
+        SA   = sum_P int P^2/(1+y^2)^3 dy = 135 pi/4 (exact; P = 6y^2 - 1,
+               6y^2 + 3, the potentials U1, U2 of eq. (57))
+        B_ln = sum_P int P^2/(1+y^2)^3 ln((1+y^2)^2/|P|) dy
+             = 2 sum_Q int_0^{pi/2} Q^2 (-2 ln cos th - ln|Q|) dth,
+               Q = P cos^2 th
+        k    = 2 ln 2 - 1/2, (B7)'s constant
+    so that c = 2 SA, and b = B_ln + k SA (k counted once) -- NAMED
+    HYPOTHESIS H-GAR-B7: (B7)'s constant enters b once, with eq. (38)'s minimum
+    w/2.  Garattini's printed b equals B_ln + 2k SA (k counted twice) to
+    1.6e-10, which is how his .4473670842 arises (DOCKET 67, computed)."""
+    th0 = math.atan(1.0 / math.sqrt(6.0))           # the zero of Q1
+
+    def integrand(q_of):
+        def f(th):
+            q, co = q_of(th), math.cos(th)
+            if q == 0.0 or co <= 0.0:                # q^2 ln|q| -> 0
+                return 0.0
+            return q * q * (-2.0 * math.log(co) - math.log(abs(q)))
+        return f
+    q1 = integrand(lambda th: 6.0 * math.sin(th) ** 2 - math.cos(th) ** 2)
+    q2 = integrand(lambda th: 6.0 * math.sin(th) ** 2 + 3.0 * math.cos(th) ** 2)
+    b_ln = 2.0 * (_tanh_sinh(q1, 0.0, th0) + _tanh_sinh(q1, th0, math.pi / 2)
+                  + _tanh_sinh(q2, 0.0, math.pi / 2))
+    return 135.0 * math.pi / 4.0, b_ln, 2.0 * math.log(2.0) - 0.5
+
+
+def garattini_rt_case2(k_multiple=1.0):
+    """Case 2 (mu_0 = Planck scale) radius in l_P, eq. (74) at mu_0 = 1:
+    rbar_t = exp(1/2 - b/c), with b = B_ln + k_multiple * k * SA, c = 2 SA.
+    k_multiple = 1 is H-GAR-B7 (0.6968196708); 2 reproduces Garattini's
+    printed b and .4473670842.  COMPUTED, stdlib."""
+    sa, b_ln, k = garattini_coefficients()
+    return math.exp(0.5 - (b_ln + k_multiple * k * sa) / (2.0 * sa))
+
+
+#: COMPUTED AT IMPORT, stdlib, on H-GAR-B7.  Where the tree computes with
+#: Garattini's case 2 it uses this, not the printed value.
+GARATTINI_RT_CASE2 = garattini_rt_case2()
+
 #: r_0 in Planck lengths, READ by the O5 pass from the papers named.  The two
 #: HPS quartic figures are NOT here: they are computed by hps_quartic().
 #: CORRECTED (DOCKET 67), labels only -- no value moved: KS's r_0 is
@@ -281,14 +350,27 @@ O5_ANSWERED_BY_CORRECTED = (
 #: does not reproduce from the paper's eqs. (57), (61)-(65) (the audit gets
 #: 0.6968196708; the CQG version is unread); HPS's 300 is the upper end of a
 #: printed "~200 - 300", carried here to more figures than printed.
+#: CORRECTED (DOCKET 67 follow-up, on M's ruling "address/correct/repair all
+#: figures"): the Garattini case-2 row carried the printed 0.4473670842
+#: ("printed; does not reproduce from eqs. (57), (61)-(65)").  It now carries
+#: GARATTINI_RT_CASE2 = 0.6968196708, computed above on H-GAR-B7; the printed
+#: value is kept as GARATTINI_PRINTED_RT_CASE2, Garattini's.  Not the only
+#: reading: the constants of his own 2007 revisit (gr-qc/0701019, 3 ln 2 - 1/2
+#: in place of k) give 0.4927259145 (DOCKET 67, computed).  All three are
+#: O(l_P); no figure below moves (the largest throat is HPS's 300).
 LITERATURE_THROATS = (
     ("Khusnutdinov-Sushkov 2002, xi = 1/6 minimum (sub-Planckian thin shell)", 0.0141),
-    ("Garattini 2005, graviton one loop, mu_0 = Planck scale (printed; does "
-     "not reproduce from eqs. (57), (61)-(65))", 0.4473670842),
+    ("Garattini 2005, graviton one loop, mu_0 = Planck scale (computed from his "
+     "eqs. (57), (61)-(65), (B7) on H-GAR-B7; he prints .4473670842)",
+     GARATTINI_RT_CASE2),
     ("Garattini 2005, graviton one loop, G_0(mu_0) = l_P^2", 1.158822606),
     ("Hochberg-Popov-Sushkov 1997, upper end of the printed ~200-300 "
      "('local solutions', horizons far out, not shown)", 300.0),
 )
+
+
+#: READ values that do not reproduce, each mapped to the value the tree computes.
+PRINTED_NOT_REPRODUCED = {GARATTINI_PRINTED_RT_CASE2: GARATTINI_RT_CASE2}
 
 
 def planck_length():
@@ -477,10 +559,42 @@ def selftest():
                 for f in SELF_CONSISTENT_FAMILIES if f[3] for x in f[5])
     chk("  every READ throat r_0 gives computed m_throat > 0, as READ",
         agree and all(f[5] for f in SELF_CONSISTENT_FAMILIES if f[3]), True)
-    chk("  each READ throat r_0 is in the scale ledger or the HPS quartic",
-        all(any(abs(x - y) <= 1e-3 * y for y in
-                [v for _l, v in LITERATURE_THROATS] + [float(s1[0]), float(s2[0])])
-            for f in SELF_CONSISTENT_FAMILIES if f[3] for x in f[5]), True)
+    # CORRECTED (DOCKET 67 follow-up): the ledger now carries Garattini's
+    # case 2 as computed, so his printed value is admitted only through its
+    # recorded computed counterpart (PRINTED_NOT_REPRODUCED), never silently.
+    def in_ledger(x, printed=PRINTED_NOT_REPRODUCED):
+        x = printed.get(x, x)
+        return any(abs(x - y) <= 1e-3 * y for y in
+                   [v for _l, v in LITERATURE_THROATS] + [float(s1[0]), float(s2[0])])
+    chk("  each READ throat r_0 is in the scale ledger or the HPS quartic "
+        "(a printed value that does not reproduce, via its computed one)",
+        all(in_ledger(x) for f in SELF_CONSISTENT_FAMILIES if f[3] for x in f[5]), True)
+    chk("  CONTROL without the recorded discrepancy the printed .4473670842 is "
+        "not in the ledger", in_ledger(GARATTINI_PRINTED_RT_CASE2, printed={}), False)
+    chk("  and the computed case-2 radius gives m_throat > 0 too",
+        bool((r0s / 2 + c).subs(r0s, sp.Float(GARATTINI_RT_CASE2)) > 0), True)
+
+    print("\n5b. GARATTINI'S CASE 2, COMPUTED (DOCKET 67, gr-qc/0501105)")
+    sa, b_ln, kk = garattini_coefficients()
+    chk("SA = 135 pi/4 (sympy, exact)", sp.simplify(
+        sum(sp.integrate(P ** 2 / (1 + sp.Symbol('y', real=True) ** 2) ** 3,
+                         (sp.Symbol('y', real=True), -sp.oo, sp.oo))
+            for P in (6 * sp.Symbol('y', real=True) ** 2 - 1,
+                      6 * sp.Symbol('y', real=True) ** 2 + 3))
+        - sp.Rational(135, 4) * sp.pi) == 0, True)
+    near("c = 2 SA reproduces Garattini's printed c", 2 * sa, GARATTINI_PRINTED_C, 1e-9)
+    near("CONTROL B_ln + 2k SA reproduces his printed b (k counted twice)",
+         b_ln + 2 * kk * sa, GARATTINI_PRINTED_B, 1e-9)
+    near("  and so his printed case-2 .4473670842 (eq. (79))",
+         garattini_rt_case2(2.0), GARATTINI_PRINTED_RT_CASE2, 1e-9)
+    near("H-GAR-B7 (k once): b = B_ln + k SA", b_ln + kk * sa, 182.62999239, 1e-9)
+    near("  case-2 rbar_t = exp(1/2 - b/c), computed", GARATTINI_RT_CASE2, 0.6968196708, 1e-9)
+    chk("  the ledger carries the computed value, not the printed one",
+        ([v for _l, v in LITERATURE_THROATS if v == GARATTINI_RT_CASE2] != [],
+         GARATTINI_PRINTED_RT_CASE2 in [v for _l, v in LITERATURE_THROATS]), (True, False))
+    near("  his 2007 constants (3 ln 2 - 1/2) instead: a third reading",
+         math.exp(0.5 - (b_ln + (3 * math.log(2) - 0.5) * sa) / (2 * sa)),
+         0.4927259145, 1e-9)
 
     print("\n6. THE DEMOTION AND THE ROW")
     chk("'no QEI can bound rho_ren' is refuted (Fewster & Smith)", NO_QEI_CAN_BOUND_RHO_REN, False)
