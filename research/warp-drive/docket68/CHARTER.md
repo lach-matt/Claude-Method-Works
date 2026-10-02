@@ -28,6 +28,26 @@ M's answers to the follow-up questions (2026-10-02):
   smoothly and the same every time;
 - the docket opens **after D67**.
 
+## M on the null condition, verbatim (2026-10-02)
+
+> Null (NEC) is a containment. This is where information lives, and is quantifiable
+
+Carried as **H-NULL**. Two results the board audited tie null surfaces to information, both READ (D67: NARROWED):
+- Bousso's covariant entropy bound (hep-th/9905177 pp. 9-10): the entropy on a light-sheet -- a NULL hypersurface
+  of non-positive expansion bounded by a surface B -- is at most A(B)/4 in Planck units; "we must use null
+  hypersurfaces" (the spacelike version fails). Computed: 1.3807e69 bits per square metre of B. Conjectured, not
+  derived ("no fundamental derivation"), never seen exceeded; hypotheses include Einstein's equation and an energy
+  condition.
+- The QNEC (Bousso-Fisher-Leichenauer-Wall 1509.02542): <T_kk> >= (hbar/2 pi) S''_out/A -- null energy is bounded
+  below by the curvature of entanglement entropy along a null deformation. Where null energy goes negative,
+  information must curve.
+Computed in `nullinfo.py` (sympy, exact): IF the QNEC applied at a Morris-Thorne throat, the throat's null deficit
+would require S''_out/A <= -(1 - b'(r0))/(4 l_P^2 r0^2) -- the light-sheet density 1/(4 l_P^2) itself, divided by
+r0^2: -1.3807e69 bits per m^2 per m^2 at r0 = 1 m, b'(r0) = 0. The corridor's cost then has a price in bits, which
+is H-INFO's claim in a form a computation can test. NAMED LIMIT: the QNEC is proven only on stationary null surfaces
+of fixed backgrounds without dynamical gravity, with vanishing expansion and shear at the point; a throat has
+dynamical gravity, so this is the QNEC carried outside its proven scope -- a hypothesis, not a result.
+
 ## M's redefinition of zero, verbatim (2026-10-02)
 
 > What if we redefine 0. Consider 0 to me a point of ground state, and anything less that 0 is not negative, just
