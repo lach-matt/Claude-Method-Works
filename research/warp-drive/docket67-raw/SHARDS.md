@@ -35,3 +35,12 @@ Round 3 cont.: shards 0-3 progressing without a limit (journals ~460 -> ~580 lin
 (tasks wc9s4zx0g, wgjejs5y6, wh2tccicb, wzt78b8s2). Shards 8-11 held.
 Re-audits on M-retrieved sources: 22 results in reaudit/ (one auditor each); three verifiers launched on them
 (refute, re-derive, data/source identity) -> reaudit/_verify_{refute,rederive,data}.json.
+
+Round 4 (2026-10-02 06:0x UTC, after the weekly reset): rounds 3 stopped every shard on the weekly limit mid-verify
+(687 audit/verifier results cached). All 12 shards resumed from cache with the same run ids (tasks woarpigw1,
+w3z6yh7v8, w1beixmwc, wfpidq64l, ws91vzn9m, wi54rdxs2, wuyc6t7pu, wppy2rxx6, whbi2ipoz, w5h46z5tj, wteqq9w56,
+w8bu9uz3z). The three single-agent re-audit verifiers of round 3 died on the limit; replaced by workflow d67-reverify
+(three lenses per re-audit, same verdict schema and 2-of-3 dispute rule), four runs over the 22 re-audits
+(wf_d8494c56-20c, wf_d92a6735-3ed, wf_11642031-615, wf_9a2c97c4-c0a). M placed ICRP 23 pp.273-334 in Drive as a .docx
+(an OCR text layer of the scan; Table 110 prints P 780 g, K 140 g; Li is not in Table 110); the two ICRP results are
+re-audited from it and verified by workflow d67-icrp-reaudit (wf_5250fc64-6b2) into reaudit2/.
