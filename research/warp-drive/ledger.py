@@ -1319,6 +1319,43 @@ def m_d67_1_row():
             "until then it stands for the arXiv version alone")
 
 
+#: M-D67-2: which arXiv/journal pairs M confirms under M-D67-1.  The question
+#: exactly as it was put to M, M's answer and the option as it was described to
+#: M, verbatim from the session, witnessed by the lead.  The pairs the audits
+#: read are listed for M in docket67-raw/PAIRS-FOR-M.md.
+M_D67_2_QUESTION = ("Your ruling M-D67-1 needs you to confirm each arXiv/journal pair "
+                    "as the same paper. 54 pairs are unconfirmed. Which should you "
+                    "confirm?")
+M_D67_2_ANSWER = "arXiv is the object"
+M_D67_2_OPTION = ("Where the journal can't be read, every finding is stated against "
+                  "the arXiv version read, by its version number, with no claim "
+                  "about the journal.")
+M_D67_2_RULING_T = ("RULED BY M: '%s' -- the option as described to M: \"%s\"  "
+                    "APPLIED to DOCKET 67's record and its per-source comments: where M "
+                    "has not confirmed a pair under M-D67-1, a finding is stated against "
+                    "the arXiv version the audit read, by its version number, and claims "
+                    "nothing about the journal version.  Kuo & Ford is outside it: its "
+                    "journal version is %s (fluctuation.JOURNAL_VERSION_COMPARED_BY_M = %s)")
+
+
+def m_d67_2_row():
+    """M-D67-2's row; Kuo & Ford's journal status is READ out of fluctuation.py
+    as m_d67_1_row() reads it, so the exception the ruling names cannot drift."""
+    journal, jstatus = _owner_phrase(
+        fluctuation.__doc__,
+        r"The published version, (Phys\. Rev\. D 47, 4510 \(1993\)), is ([A-Z-]+)",
+        "fluctuation.py")
+    return ("M-D67-2",
+            M_D67_2_QUESTION,
+            "M-D67-1 lets an arXiv read carry a journal version's weight only once M "
+            "confirms the pair, and the journal versions of the papers DOCKET 67's "
+            "audits read are behind this session's network policy",
+            M_D67_2_RULING_T % (M_D67_2_ANSWER, M_D67_2_OPTION, jstatus,
+                                fluctuation.JOURNAL_VERSION_COMPARED_BY_M),
+            "DOCKET 67's verified grades and the per-source comments, stated "
+            "against the arXiv versions read, without waiting on pair confirmations")
+
+
 RULED_BY_M = [
     ("M-D64-1",
      "phase1.py's D4 (not this board's D4): restate '%s' for the process?"
@@ -1521,6 +1558,10 @@ RULED_BY_M = [
     # M's ruling on arXiv and journal versions (DOCKET 67), asked of
     # fluctuation.py's journal status by m_d67_1_row().
     m_d67_1_row(),
+
+    # M's ruling on which pairs M confirms (DOCKET 67): none -- the arXiv
+    # version read is the object of every finding M has not confirmed.
+    m_d67_2_row(),
 ]
 
 # ---------------------------------------------------------------------------
@@ -3025,7 +3066,7 @@ def selftest():
          formation.PHASE1_D4_POINTWISE_DURING_PASSAGE),
         (["M-D64-1", "M-S1A-P1", "M-S1A-P2", "M-S1A-P3", "M-S1A-P4",
           "M-S1A-P5", "M-D65-1", "M-D65-2", "M-D65-3", "M-D65-4", "M-D65-5",
-          "M-D67-1"], [],
+          "M-D67-1", "M-D67-2"], [],
          True, False, False, True, False))
 
     print("\n3. THE EXCHANGE RATE, RE-DERIVED FROM ASKED CONSTANTS")

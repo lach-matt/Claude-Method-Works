@@ -126,6 +126,22 @@ EM_CAN_CROSS_THE_THRESHOLD    = False
 NONMINIMAL_IS_THE_ONE_ROUTE   = True     # arXiv:2608.08208, xi =/= 0, outside GR
 LANDS_ON_WORMHOLE_PY_DECISION = True     # third assertion in a row
 ENTANGLED_BRIDGE_IS_TRAVERSABLE = False  # ER=EPR alone gives a NON-traversable bridge
+# The ER=EPR clause as first written cited no source.  READ at source through
+# alphaXiv on 2026-10-02, at M's instruction (recorded beside DOCKET 67, outside
+# its 43 owners): non-traversability is the conjecture's NAMED HYPOTHESIS, not
+# its result -- footnote 1, verbatim below.  The flag above is unchanged.
+ER_EPR_SOURCE = "arXiv:1306.0533v2"    # Maldacena & Susskind, "Cool horizons for entangled black holes"
+ER_EPR_SOURCE_STATUS = "READ"          # pp. 1-3, 6-9, 13-22, 37-41 of v2
+ER_EPR_NONTRAVERSABLE_IS_ASSUMED = True
+ER_EPR_FOOTNOTE_1 = ("This can be shown using the integrated null energy condition [4, 5], "
+                     "which is a correct condition in the classical theory. It can be "
+                     "violated by a small amount in the quantum theory, but, as far as we "
+                     "know, not by enough to make wormholes traversable. We will assume "
+                     "that wormholes remain un-traversable in the quantum theory. If this "
+                     "were not true, the ER=EPR connection would be wrong.")
+#: The particle-pair form is offered as speculation (p.2, "we speculate"; p.17,
+#: "a Planckian bridge ... which probably cannot be described by classical geometry").
+ER_EPR_PARTICLE_PAIR_FORM_IS_SPECULATION = True
 THIS_PASS_REPAIRS_ANYTHING    = False
 VALIDATION_FAULT_THIS_PASS    = True     # 14th: the Morris-Thorne test fed Schwarzschild
 
@@ -265,7 +281,10 @@ def report():
   one published route past is NON-MINIMAL coupling (arXiv:2608.08208), xi =/= 0,
   outside GR -- wormhole.py's SCOPE_CHOSEN_HERE = None, the third assertion in a
   row to land on it.  The entanglement clause the tree already holds: ER = EPR's
-  bridge is NOT traversable, and gjw.py prices the coupling that opens one.  A
+  bridge is NOT traversable, and gjw.py prices the coupling that opens one.
+  (Source READ 2026-10-02: arXiv:1306.0533v2, where non-traversability is the
+  conjecture's own named hypothesis -- its footnote 1: "If this were not true,
+  the ER=EPR connection would be wrong.")  A
   FOURTEENTH FAULT was caught here, in a TEST: a "Morris-Thorne" validation that
   was really Schwarzschild, which would have had me break working code had I
   trusted it.  NOTHING IS REPAIRED.""")
@@ -331,6 +350,15 @@ def selftest():
     chk("the one published route is non-minimal coupling", NONMINIMAL_IS_THE_ONE_ROUTE, True)
     chk("  which is wormhole.py's open DECISION, third time", LANDS_ON_WORMHOLE_PY_DECISION, True)
     chk("ER=EPR's bridge is NOT traversable", ENTANGLED_BRIDGE_IS_TRAVERSABLE, False)
+    chk("  its source is READ, not recalled", (ER_EPR_SOURCE, ER_EPR_SOURCE_STATUS),
+        ("arXiv:1306.0533v2", "READ"))
+    chk("  and non-traversability is the conjecture's hypothesis, held verbatim",
+        (ER_EPR_NONTRAVERSABLE_IS_ASSUMED,
+         "We will assume that wormholes remain un-traversable in the quantum theory." in ER_EPR_FOOTNOTE_1,
+         ER_EPR_FOOTNOTE_1.endswith("the ER=EPR connection would be wrong.")),
+        (True, True, True))
+    chk("  and the particle-pair bridge is the source's speculation, not its result",
+        ER_EPR_PARTICLE_PAIR_FORM_IS_SPECULATION, True)
     chk("nothing is repaired", THIS_PASS_REPAIRS_ANYTHING, False)
 
     print("\n" + ("SELFTEST PASS" if bad == 0 else f"SELFTEST FAIL -- {bad}"))

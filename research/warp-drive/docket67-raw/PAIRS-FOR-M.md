@@ -1,5 +1,7 @@
 # arXiv / journal pairs for M to confirm (ruling M-D67-1)
 
+**Ruled 2026-10-02 (ledger M-D67-2): findings no longer wait on these confirmations.** M's answer: "arXiv is the object" -- *"Where the journal can't be read, every finding is stated against the arXiv version read, by its version number, with no claim about the journal."* The table below is kept as the record of which versions were read; a pair M later confirms still carries the journal weight under M-D67-1.
+
 Ruling M-D67-1: *"a formal paper published to Arxiv.org carries the same weight as the same paper published in a journal and may be used for our purposes, as long as I have confirmed they are the same paper."*
 
 **Scope.** The 58 arXiv papers DOCKET 67's audits read at source for a result keyed by that paper. Not listed: the 10 keyed papers read only by name (nothing was read to confirm), and papers read only as a later author's restatement of an older original (the originals, e.g. Misner-Sharp 1964, have no arXiv version). Kuo & Ford (gr-qc/9304008) is already confirmed (COMPARED-BY-M) and is listed for completeness.

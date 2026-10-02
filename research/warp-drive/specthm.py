@@ -905,7 +905,10 @@ def requirements(F):
                    % (d7, CITED, h_flat_status, st("O2"), MEASURED, st("D22")),
          # M-D67-1 (arXiv carries a journal version's weight once M confirms
          # the pair) is applied so far to fluctuation.py's source, D22's reading.
-         "rows": ["D6", "D7", "D22", "O2", "M-D67-1"], "see": [],
+         # M-D67-2 (where M has not confirmed a pair, the arXiv version read is
+         # the object) is placed beside the ruling it completes; it moves no
+         # verdict here -- it governs how DOCKET 67's findings are stated.
+         "rows": ["D6", "D7", "D22", "O2", "M-D67-1", "M-D67-2"], "see": [],
          "owners": [("bounds", "DURATION_ROUTE_Z"), ("achievable", "FEWSTER_C"),
                     ("achievable", "VERDICT_KIND"), ("achievable", "VERDICT_IS_A_THEOREM"),
                     ("fewsterteo", "FLAT_SHORTFALL_ORDERS"), ("fewsterteo", "CORRIDOR_SPECTRAL_GAP"),
