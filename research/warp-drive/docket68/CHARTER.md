@@ -56,7 +56,36 @@ O(1) factor. Re-derived in `cosmin.py` from the paper's printed inputs:
   by dimensional reduction to D = 2 near the Planck scale, refs [5, 6], NAMED-NOT-READ), the sudden-transition
   idealisation, no inflaton, c1 undetermined.
 
-**2. "The Theory of Everything"** -- which work is meant is ASKED of M (the title is shared by several).
+M then placed the PDFs themselves (Drive 1sURRSCXFoIuKNyHjCsCocXmr0ocQxuBG, 1kNzmjH78gh6fwg12L6g00bcQTzMfvFpV),
+both READ through the Drive connector.
+
+- **1703.06144.pdf** is the same v1 (17 Mar 2017). Its layout settles the reading note above: eq. (3)'s argument
+  prints k1(rho_L^2 rho_eq)^(1/12) over E_QG, and eq. (4) prints 1 over nu^6 (rho_eq L_P^4)^(1/2) -- the reading
+  cosmin.py derived. The paper's equations are as derived; no discrepancy in the paper.
+
+**2. Laughlin & Pines, "The Theory of Everything", preprint dated 1 April 1999, "[Published as Proc. Natl. Acad.
+Sci. 97, 28 (2000).]" -- READ (M's Drive copy; the preprint, not the typeset PNAS pages).** Its claims: the
+non-relativistic many-body Schrodinger equation (eqs. 1-2) is the theory of everything for everyday matter, yet
+cannot be solved beyond about 10 particles -- memory for k particles scales as N^k, "a catastrophe of dimension";
+exact laboratory results (flux quantum hc/2e, e^2/h, the Josephson relation) follow from "higher organizing
+principles" (continuous symmetry breaking, localization), not from microscopics, and "would continue to be true
+... even if the Theory of Everything were changed"; stable phases are "quantum protectorates" whose low-energy
+excitations are particles "in exactly the same sense that the electron ... is a particle"; renormalizability,
+gauge forces and fractional quantum numbers occur as emergent properties of ordinary matter, and "The Higgs
+mechanism is nothing but superconductivity with a few technical modifications"; "The nature of the underlying
+theory is unknowable until one raises the energy scale sufficiently to escape protection."
+Bearing on this docket (readings, to be tested, not results):
+- On H-IT: Laughlin & Pines make the vacuum's properties possibly emergent -- close to "spacetime comes from
+  information" in form -- but the same argument cuts the other way: a protected low-energy law holds whatever lies
+  beneath it. If relativistic causality is protected, an information layer beneath geometry would not show in
+  low-energy signalling until the protection is escaped. That is a test condition for H-SETTLE, not a refutation.
+- On the device (M: it "copies the information that defines the geometric object"): their N^k is the cost of a
+  CLASSICAL description of a quantum many-body state. Teleportation does not store that description: it moves
+  the state with 2 classical bits per qubit (transit.py), linear in the number of qubits. The catastrophe of
+  dimension bears on copying the quantum definition as a classical record, not on moving it.
+- On the board: their quasiparticles-as-particles corroborates the seating of quasiparticles beside the bosons
+  (DOCKETS 27-31), and their Higgs-as-superconductivity is Anderson 1963 (their ref. 23, NAMED-NOT-READ), the
+  analogue DOCKETS 63 and 65 work beside.
 
 ## M's thesis, verbatim (2026-10-02)
 
