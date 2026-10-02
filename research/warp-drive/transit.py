@@ -8,24 +8,38 @@ transits, but does so without traversal."
 FOUR CLAUSES, AND ALL FOUR ARE EXACTLY RIGHT.  This is the most accurate
 description anyone has given in this project of a mechanism that actually
 exists, and every clause is checkable to machine precision.  The mechanism has
-a name -- QUANTUM STATE TELEPORTATION, and in the gravitational setting the
-Gao-Jafferis-Wall protocol gjw.py already holds -- and M has arrived at its four
-defining properties by reasoning, without naming it.
+a name -- QUANTUM STATE TELEPORTATION (Bennett, Brassard, Crepeau, Jozsa, Peres
+and Wootters 1993, read via Pirandola et al. 1505.07831) -- and M has arrived at
+its four defining properties by reasoning, without naming it.  In the
+gravitational setting Gao, Jafferis and Wall (1608.05687), whose protocol
+gjw.py holds, 'suggest' their traversable wormhole 'might be related to quantum
+teleportation' and call it 'somewhat analogous', with one difference they
+state: in their case the channel must be quantum, where the protocol modelled
+here sends two classical bits.
 
     "TWO SIDES READ TO EACH OTHER"     the entangled pair.  And the reading
                                        carries NOTHING alone: measured, B's
-                                       state is invariant to 1.1e-16 under EVERY
-                                       operation A can perform.
+                                       state is invariant to 1.1e-16 under the
+                                       local unitaries sampled; the theorem
+                                       (no-communication, for linear, completely
+                                       positive dynamics) covers every
+                                       NON-SELECTIVE operation A can perform.
 
     "TRANSITS WITHOUT TRAVERSAL"       EXACT.  Fidelity 1.000000000000000 on all
                                        four outcomes, twelve trials.  NO WORLDLINE
                                        CROSSES ANYTHING.
 
-    "COLLAPSED THE MOMENT THEY TOUCH"  EXACT, and it is a CONSERVATION LAW rather
-                                       than a design choice: channel entanglement
-                                       1.000000000 bit BEFORE, 0.000000000 AFTER.
-                                       One pair, one transit.  You could not keep
-                                       it open if you wanted to.
+    "COLLAPSED THE MOMENT THEY TOUCH"  EXACT at fidelity 1 for an unknown
+                                       input, and it is LOCC MONOTONICITY rather
+                                       than a design choice (Bennett-Bernstein-
+                                       Popescu-Schumacher quant-ph/9511030;
+                                       Horodecki review quant-ph/0702225 eq.
+                                       150): channel entanglement 1.000000000
+                                       bit BEFORE, 0.000000000 AFTER.  One ebit,
+                                       one exact transit.  At that fidelity you
+                                       could not keep it open if you wanted to;
+                                       measure-and-prepare keeps the pair, at
+                                       average fidelity 2/3.
 
     "THE OBJECT TRANSITS"              the right verb.  A MOVE, NOT A COPY: after
                                        the measurement A's qubit is maximally
@@ -34,29 +48,68 @@ defining properties by reasoning, without naming it.
 
 AND THE PROJECT'S OWN STANDING CONSTRAINT KILLS IT, WITH ZERO AMBIGUITY.
 M's rule has been "if we can't do it faster and cheap then there is no point to
-this thread".  Withhold the two classical bits and B's state is EXACTLY I/2 --
-maximally mixed, deviation 1.1e-16, ZERO INFORMATION.  The state does not exist
-at the far end until two classical bits arrive through ordinary space at <= c.
-Measured against light over four distances, Earth-Moon to a Milky Way crossing:
+this thread".  Withhold the two classical bits and B's outcome-averaged state
+is EXACTLY I/2 with the Bell pair used here -- maximally mixed, deviation
+1.1e-16, ZERO INFORMATION.  (A partially entangled resource leaves
+diag(c0^2, c1^2), still independent of the input.)  For an input unknown to the
+sender, B's averaged state carries nothing of it until two classical bits
+arrive (a known state costs asymptotically 1 bit, by remote state
+preparation); on each single outcome B already holds a Pauli-rotated copy.  The bits travel through ordinary
+space at <= c -- the named hypothesis that every available channel's causal
+cone lies inside the light cone of unbounded empty space, a property of each
+field equation rather than a theorem of special relativity.  Against light
+over four distances, Earth-Moon to a Milky Way crossing:
 
     ADVANTAGE 0.000, 0.000, 0.000, 0.000.
 
-Not "small".  Not "hard".  IDENTICAL, and provably so.
+Not "small".  Not "hard".  IDENTICAL -- by construction: the channel is
+modelled as arriving at D/c, so the advantage D/c - D/c is zero for every c.
+It is physical on the hypothesis just named, which is assumed here, not proved.
 
-AND THE TRAVERSAL IS NOT REMOVED -- IT IS MOVED EARLIER.  A Bell pair spanning
-distance D required something to cross D at <= c beforehand.
+AND THE TRAVERSAL IS NOT REMOVED -- IT IS MOVED EARLIER.  From separable labs
+a Bell pair spanning distance D required a quantum carrier from a common
+causal past: LOCC cannot entangle a separable state (Horodecki review
+quant-ph/0702225, p.51).  From a midpoint source no carrier moves more than
+D/2 (both ends reached D/(2c) after emission); the full D/c returns only if
+every resource starts at one end.  Entanglement swapping through
+pre-entangled intermediaries needs its Bell outcome sent classically, and
+vacuum entanglement harvested by causally disconnected probes is weak --
+nothing read shows it distils into a near-maximal pair across a macroscopic D.
 
     THE CORRIDOR MUST BE TRAVERSED IN ORDER TO EXIST.
 
-You pay the full light-speed trip once, in advance, to lay the channel; after
-that every transit is genuinely traversal-free and still arrives at exactly
-light speed.  M's description of the MECHANISM is correct in all four parts.
-What it is a mechanism FOR is not faster travel.
+You pay the carrier's trip once, in advance, to lay the channel; after that
+every transit is genuinely traversal-free and still arrives at exactly light
+speed.  M's description of the MECHANISM is correct in all four parts.  What
+it is a mechanism FOR is not faster travel.
 
-AND IT CARRIES STATE, NOT SUBSTANCE.  Teleportation writes a quantum state onto
-matter ALREADY AT THE DESTINATION.  It moves no mass and no energy.  For "the
-object in transition" to arrive, an identical stock of matter must already be
-there -- and that had to travel.
+AND IT CARRIES STATE, NOT SUBSTANCE (Pirandola et al. 1505.07831 p.1: the
+input's constituents stay with the sender).  Teleportation writes a quantum
+state onto a receiver ALREADY AT THE DESTINATION -- matter or a field mode, not
+necessarily the same species (p.7: an optical state into ~10^12 Cs atoms).
+Between non-interacting systems it moves no mass and no energy; Bob's local
+device supplies the state's energy (Hotta 1101.3954 p.4).  The named exception
+is quantum energy teleportation: in an interacting medium in an entangled
+ground state, LOCC lets Bob extract E_B > 0 (DOCKET 66, not yet run).  For
+"the object in transition" to arrive, a receiver able to carry its state must
+already be there, entangled with the sender -- and what had to travel is the
+carrier of that entanglement, which can be photons.
+
+CORRECTED (DOCKET 67).  Wording only; no flag or computed number moved.  As
+first written this file said: GJW 'is' quantum teleportation (their hedge and
+their quantum-channel difference dropped); B is invariant 'under EVERY
+operation A can perform' (non-selective only; only U (x) I is sampled);
+consumption is a 'CONSERVATION LAW' with 'One pair, one transit' (it is LOCC
+monotonicity, exact at fidelity 1 for an unknown input, per ebit), with no
+source named; 'EXACTLY I/2' and 'The state does not exist at the far end until
+two classical bits arrive' (Bell resource, averaged state, unknown input);
+'IDENTICAL, and provably so' and 'ZERO, and provably' (zero by construction;
+the <= c channel is a hypothesis); 'required something to cross D' (needs a
+separable start; a common causal past suffices); 'onto matter', 'no mass and
+no energy' and 'an identical stock of matter must already be there -- and that
+had to travel'.  The record flags below are DECLARED constants, and the
+selftest compares them with themselves; they are labelled so.
+
 
 stdlib only (complex is a builtin).  Run --selftest before trusting the report.
 """
@@ -136,23 +189,27 @@ def b_state_without_bits(psi):
     return avg
 
 CHANNEL_BITS_BEFORE = 1.0     # entanglement entropy of a Bell pair
-CHANNEL_BITS_AFTER  = 0.0     # spent by one use
-CLASSICAL_BITS_PER_QUBIT = 2
+CHANNEL_BITS_AFTER  = 0.0     # spent by one exact use; DECLARED (it agrees with
+                              # the exact factorisation |Bell_m> (x) s_m|q>)
+CLASSICAL_BITS_PER_QUBIT = 2  # for an input UNKNOWN to the sender (Werner
+                              # quant-ph/0003070 Thm 1); DECLARED, not derived
 
 C_SI = 2.99792458e8
 DISTANCES = [("Earth-Moon", 3.844e8), ("Earth-Mars (min)", 5.46e10),
              ("Earth-Proxima", 4.0175e16), ("Milky Way cross", 9.46e20)]
 def arrival_time(D): return D/C_SI                 # the classical channel, at c
-def advantage_over_light(D): return arrival_time(D) - D/C_SI
+def advantage_over_light(D): return arrival_time(D) - D/C_SI   # zero by construction
 
 # ------------------------------------------------------ the record
-READING_CARRIES_NOTHING_ALONE   = True
+# DECLARED constants, not computed: the selftest compares each with itself.
+READING_CARRIES_NOTHING_ALONE   = True    # no-communication: non-selective, linear CP
 TRANSIT_IS_EXACT                = True
 CHANNEL_IS_CONSUMED_BY_USE      = True
 IT_IS_A_MOVE_NOT_A_COPY         = True
-BEATS_LIGHT                     = False
-TRAVERSAL_IS_REMOVED            = False   # it is MOVED EARLIER
-CARRIES_SUBSTANCE               = False   # state only; the matter must be there
+BEATS_LIGHT                     = False   # on H_cone/H_vac: no channel beats D/c
+TRAVERSAL_IS_REMOVED            = False   # it is MOVED EARLIER (separable start)
+CARRIES_SUBSTANCE               = False   # state only; a receiver must be there
+                                          # (Pirandola et al. 1505.07831 p.1)
 MEETS_THE_STANDING_CONSTRAINT   = False   # "faster and cheap" -- advantage is 0
 THIS_PASS_REPAIRS_ANYTHING      = False
 
@@ -173,7 +230,8 @@ def report():
         d = signalling_deviation(random_unitary(rng)); worst = max(worst, d)
         P(f"    A applies random unitary {k+1}:   max |rho_B - rho_B(0)| = {d:.3e}")
     P(f"""
-    WORST DEVIATION OVER EVERY OPERATION A CAN PERFORM: {worst:.1e}
+    WORST DEVIATION OVER THE LOCAL UNITARIES SAMPLED: {worst:.1e}
+    (the theorem covers every non-selective local operation, linear CP dynamics)
 
     The two sides ARE read to each other -- that is what the entanglement is --
     and reading one changes NOTHING at the other.  M's clause is exactly right
@@ -206,20 +264,21 @@ def report():
         [[{avg[0][0].real:+.9f}, {avg[0][1].real:+.9f}],
          [{avg[1][0].real:+.9f}, {avg[1][1].real:+.9f}]]      deviation from I/2: {dev:.1e}
 
-    MAXIMALLY MIXED.  ZERO INFORMATION.  The state does not exist at B until
-    {CLASSICAL_BITS_PER_QUBIT} classical bits arrive -- through ordinary space, at <= c.""")
+    MAXIMALLY MIXED (Bell resource).  ZERO INFORMATION: averaged over A's
+    outcomes, B holds nothing of an unknown input until {CLASSICAL_BITS_PER_QUBIT} classical bits
+    arrive -- through ordinary space, at <= c.""")
 
     P("\n" + "="*79)
-    P("4.  'COLLAPSED THE MOMENT THEY TOUCH' -- A CONSERVATION LAW, NOT A CHOICE")
+    P("4.  'COLLAPSED THE MOMENT THEY TOUCH' -- LOCC MONOTONICITY, NOT A CHOICE")
     P("="*79)
     P(f"""
     channel entanglement BEFORE : {CHANNEL_BITS_BEFORE:.9f} bit   (purity {purity(ptrace_first(rho_from(BELL))):.9f})
-    channel entanglement AFTER  : {CHANNEL_BITS_AFTER:.9f} bit   (purity 1.000000000, pure)
+    channel entanglement AFTER  : {CHANNEL_BITS_AFTER:.9f} bit   (declared; the exact state factorises)
 
-    ONE PAIR, ONE TRANSIT.  The channel is destroyed BY BEING USED.  That is
-    M's clause exactly, and it is teardown.py's closability arriving as a
-    CONSERVATION LAW rather than as a design feature: you could not hold it
-    open if you wanted to.  membrane.py said "the corridor is open only as long
+    ONE EBIT, ONE EXACT TRANSIT.  The channel is destroyed BY BEING USED.  That
+    is M's clause exactly, and it is teardown.py's closability arriving as LOCC
+    MONOTONICITY rather than as a design feature: at fidelity 1, with an
+    unknown input, you could not hold it open if you wanted to.  membrane.py said "the corridor is open only as long
     as tension lasts"; here there is no tension to run out -- the act of
     transiting is the act of closing.""")
 
@@ -227,7 +286,8 @@ def report():
     P("5.  AND IT IS A MOVE, NOT A COPY")
     P("="*79)
     P(f"""
-    After the Bell measurement A's qubit is maximally mixed, S = {entropy2([[0.5+0j,0j],[0j,0.5+0j]]):.9f} bit.
+    After the Bell measurement A's qubit is maximally mixed, S = {entropy2([[0.5+0j,0j],[0j,0.5+0j]]):.9f} bit
+    (the entropy of I/2, declared rather than read off the protocol's state).
     It holds NO trace of what it carried.  No-cloning enforced by the protocol
     itself rather than imposed on it.
 
@@ -246,21 +306,27 @@ def report():
         P(f"  {name:>18} {fmt(D/C_SI):>16} {fmt(arrival_time(D)):>16} "
           f"{advantage_over_light(D):12.3f}")
     P("""
-    IDENTICAL AT EVERY DISTANCE.  Not small, not hard -- ZERO, and provably.
+    IDENTICAL AT EVERY DISTANCE.  Not small, not hard -- ZERO BY CONSTRUCTION
+    (the channel is modelled at D/c), physical on the hypothesis that no
+    available channel's cone leaves the light cone of empty space.
 
-    AND THE TRAVERSAL IS NOT REMOVED, IT IS MOVED EARLIER.  A Bell pair
-    spanning D required something to cross D at <= c beforehand.
+    AND THE TRAVERSAL IS NOT REMOVED, IT IS MOVED EARLIER.  From separable
+    labs a Bell pair spanning D required a quantum carrier from a common
+    causal past -- at least D/2 of the distance from a midpoint source, all of
+    D if every resource starts at one end.
 
         THE CORRIDOR MUST BE TRAVERSED IN ORDER TO EXIST.
 
-    You pay the full light-speed trip ONCE, in advance, to lay the channel.
-    After that every transit is genuinely traversal-free -- and still arrives
-    at exactly light speed.
+    You pay the carrier's trip ONCE, in advance, to lay the channel.  After
+    that every transit is genuinely traversal-free -- and still arrives at
+    exactly light speed.
 
     AND IT CARRIES STATE, NOT SUBSTANCE.  Teleportation writes a quantum state
-    onto matter ALREADY AT THE DESTINATION.  No mass moves.  No energy moves.
-    For an object to arrive, an identical stock of matter must already be
-    there, and that had to travel.
+    onto a receiver ALREADY AT THE DESTINATION, matter or a field mode.
+    Between non-interacting systems no mass and no energy move (quantum
+    energy teleportation is the named exception, DOCKET 66).  For an object to
+    arrive, a receiver able to carry its state must already be there,
+    entangled with the sender, and the entanglement's carrier had to travel.
 
     M'S STANDING RULE FOR THIS THREAD IS "if we can't do it faster and cheap
     then there is no point".  THE MECHANISM IS REAL, THE DESCRIPTION OF IT IS
@@ -273,27 +339,31 @@ def report():
   M describes an extension rather than a traversal: two sides read to each
   other, collapsing the moment they touch, with the object transiting but not
   traversing.  ALL FOUR CLAUSES ARE EXACTLY RIGHT, and the mechanism has a name
-  -- quantum state teleportation, gravitationally the Gao-Jafferis-Wall protocol
-  gjw.py already holds -- which M reached by reasoning without naming it.  THE
-  SIDES DO READ TO EACH OTHER and the reading carries nothing alone: B's state
-  is invariant to 1.1e-16 under every operation A can perform.  THE TRANSIT IS
+  -- quantum state teleportation, to which Gao-Jafferis-Wall (gjw.py) suggest
+  their protocol 'might be related', with a quantum channel where this one is
+  classical -- which M reached by reasoning without naming it.  THE SIDES DO
+  READ TO EACH OTHER and the reading carries nothing alone: B's state is
+  invariant to 1.1e-16 under every non-selective operation A can perform
+  (sampled here over local unitaries).  THE TRANSIT IS
   EXACT: fidelity 1.000000000000000 on all four outcomes across twelve trials,
   and no worldline crosses anything.  THE CHANNEL COLLAPSES ON CONTACT: 1.000
-  bit of entanglement before, 0.000 after -- one pair, one transit, a
-  CONSERVATION LAW rather than a design choice, which is teardown.py's
+  bit of entanglement before, 0.000 after -- one ebit, one exact transit,
+  LOCC MONOTONICITY rather than a design choice, which is teardown.py's
   closability arriving as something you could not switch off if you tried.  AND
   IT IS A MOVE: A's qubit ends maximally mixed at S = 1 bit, no-cloning enforced
   by the protocol rather than imposed on it, so "transits" is the right verb.
   THEN THE STANDING CONSTRAINT.  Withhold the two classical bits and B's state
-  is EXACTLY I/2, deviation 1.1e-16, ZERO information -- the state does not
-  exist at the far end until two bits cross ordinary space at <= c.  Measured
-  against light from Earth-Moon to a galactic crossing the advantage is 0.000,
-  0.000, 0.000, 0.000.  AND THE TRAVERSAL IS NOT REMOVED BUT MOVED EARLIER: a
-  Bell pair spanning D required something to cross D first, so THE CORRIDOR MUST
+  is EXACTLY I/2, deviation 1.1e-16, ZERO information -- B's averaged state
+  holds nothing of an unknown input until two bits cross ordinary space at
+  <= c.  Against light from Earth-Moon to a galactic crossing the advantage is
+  0.000, 0.000, 0.000, 0.000, zero by construction.  AND THE TRAVERSAL IS NOT
+  REMOVED BUT MOVED EARLIER: from separable labs a Bell pair spanning D
+  required a carrier from a common causal past, so THE CORRIDOR MUST
   BE TRAVERSED IN ORDER TO EXIST -- pay the light-speed trip once in advance and
   every later transit is genuinely traversal-free and still arrives at exactly
-  light speed.  IT ALSO CARRIES STATE AND NOT SUBSTANCE: no mass moves, no
-  energy moves, and the matter must already be at the far end.  THE MECHANISM IS
+  light speed.  IT ALSO CARRIES STATE AND NOT SUBSTANCE: between
+  non-interacting systems no mass or energy moves, and a receiver must already
+  be at the far end.  THE MECHANISM IS
   REAL, THE DESCRIPTION IS CORRECT IN ALL FOUR PARTS, AND IT IS NOT FASTER.
   NOTHING IS REPAIRED.""")
     P("  " + "-"*74)
@@ -314,8 +384,8 @@ def selftest():
     chk("Bell pair: B is maximally mixed", round(r0[0][0].real, 12), 0.5, 1e-12)
     chk("  entanglement is exactly 1 bit", round(entropy2(r0), 12), 1.0, 1e-12)
     worst = max(signalling_deviation(random_unitary(rng)) for _ in range(40))
-    chk("no operation on A moves B (40 random unitaries)", worst < 1e-14, True)
-    chk("  and that is the no-communication theorem", READING_CARRIES_NOTHING_ALONE, True)
+    chk("no local unitary on A moves B (40 random draws)", worst < 1e-14, True)
+    chk("  no-communication theorem (declared constant)", READING_CARRIES_NOTHING_ALONE, True)
 
     print("\nthe transit is exact")
     for t in range(5):
@@ -332,12 +402,12 @@ def selftest():
         avg = b_state_without_bits(psi)
         dev = max(abs(avg[i][j] - (0.5 if i == j else 0)) for i in range(2) for j in range(2))
         chk(f"trial {t+1}: rho_B = I/2 exactly", dev < 1e-14, True)
-    chk("classical bits required per qubit", CLASSICAL_BITS_PER_QUBIT, 2)
+    chk("classical bits per qubit, unknown input (declared)", CLASSICAL_BITS_PER_QUBIT, 2)
 
     print("\nthe channel is consumed by use")
     chk("entanglement before", CHANNEL_BITS_BEFORE, 1.0)
-    chk("entanglement after", CHANNEL_BITS_AFTER, 0.0)
-    chk("  so one pair buys one transit", CHANNEL_IS_CONSUMED_BY_USE, True)
+    chk("entanglement after (declared)", CHANNEL_BITS_AFTER, 0.0)
+    chk("  so one ebit buys one exact transit (declared)", CHANNEL_IS_CONSUMED_BY_USE, True)
     chk("A ends maximally mixed -- a MOVE, not a copy",
         round(entropy2([[0.5+0j, 0j], [0j, 0.5+0j]]), 12), 1.0, 1e-12)
     chk("  no-cloning enforced by the protocol", IT_IS_A_MOVE_NOT_A_COPY, True)
@@ -345,9 +415,9 @@ def selftest():
     print("\nthe ledger")
     for name, D in DISTANCES:
         chk(f"{name}: advantage over light", round(advantage_over_light(D), 12), 0.0, 1e-9)
-    chk("so it does not beat light", BEATS_LIGHT, False)
-    chk("traversal is MOVED EARLIER, not removed", TRAVERSAL_IS_REMOVED, False)
-    chk("it carries state, not substance", CARRIES_SUBSTANCE, False)
+    chk("so it does not beat light (declared; <= c channel)", BEATS_LIGHT, False)
+    chk("traversal is MOVED EARLIER, not removed (declared)", TRAVERSAL_IS_REMOVED, False)
+    chk("it carries state, not substance (declared)", CARRIES_SUBSTANCE, False)
     chk("fails the standing constraint 'faster and cheap'",
         MEETS_THE_STANDING_CONSTRAINT, False)
     chk("nothing is repaired", THIS_PASS_REPAIRS_ANYTHING, False)

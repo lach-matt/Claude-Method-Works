@@ -1,6 +1,16 @@
 #!/usr/bin/env python3
 """
-transit.py -- travel > turn > seat, as three gated parts with a failure mode.
+turnseat.py -- travel > turn > seat, as three gated parts with a failure mode.
+
+    WRITTEN AS transit.py, AND RECOVERED FROM GIT UNDER THIS NAME after an
+    unrelated file (quantum teleportation) overwrote transit.py.  A citation
+    elsewhere in the tree of "transit.py reduced seating to one equation" or
+    "transit.py's reversal theorem" means THIS file: the Jacobi reduction
+    u'' = -q u is below under "WHAT EACH PART IS" (and in achronal.py), the
+    reversal theorem under "M'S PREDICTION, PROVED THEN MEASURED".
+    (CORRECTED (DOCKET 67): this header first named the file transit.py;
+    seatindex.py's pointers to transit.py are stale, raychaudhuri-jacobi-null-
+    focusing audit.)
 
 M's structure, taken literally and made runnable:
 

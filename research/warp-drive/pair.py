@@ -161,7 +161,16 @@ the theorem's CONCLUSION while violating its HYPOTHESIS, and must.
 "Everything is closed, so everything is in balance."  In a spatially closed
 universe that is correct, and it is correct for a reason that gives nothing
 back: ADM mass is a surface integral at spatial infinity, and a closed universe
-HAS NO SPATIAL INFINITY.  The total energy is not zero; it is UNDEFINED.
+HAS NO SPATIAL INFINITY.  The ADM energy is not zero; it is UNDEFINED.
+
+    CORRECTED (DOCKET 67).  This said "The total energy is not zero; it is
+    UNDEFINED."  The ADM definition supports only "the ADM energy is
+    undefined".  Other energy notions ARE defined on a compact slice and give
+    ZERO: ADT/Killing charges vanish identically (1705.10234 eq. (12);
+    1903.11982), the closed-FRW Hamiltonian is a pure constraint and vanishes
+    on shell, and pseudotensor work reports zero (astro-ph/0212574).  Whether
+    a closed universe's TOTAL energy is "undefined" or "zero" is CONTESTED, a
+    convention and not a definitional fact.  Either way it pairs nothing.
 
     A quantity that does not exist cannot be out of balance, and cannot be used
     to pair two objects inside the universe either.  This is a definitional
@@ -333,11 +342,19 @@ SUPERSEDES = ("concentric.py caution 1: 'NEGATIVE MASS IS STILL ASSUMED'",)
 # ------------------------------- 5: the closed universe
 
 CLOSED_UNIVERSE_TOTAL_ENERGY = "UNDEFINED"     # not zero: there is no boundary
+#   DOCKET 67, recorded not repaired: "UNDEFINED" is true of the ADM energy,
+#   which is what this constant answers; the "total energy" of its name is
+#   contested (Killing/ADT, Hamiltonian and pseudotensor notions give zero;
+#   section 5).  The value is DECLARED, and the selftest checks it against its
+#   own literal; DOCKET 67 re-derived it chart-invariantly for the ADM energy (a
+#   compact slice has finite volume, an asymptotically flat end does not).
 
 
 def adm_mass_defined(has_spatial_infinity):
     """ADM mass is a surface integral at spatial infinity.  No infinity, no
-    integral, no quantity -- so nothing to balance and nothing to pair with."""
+    integral, no quantity -- so nothing to balance and nothing to pair with.
+    (A declared rule, returning its argument; it decides the ADM quantity only
+    -- DOCKET 67.)"""
     return bool(has_spatial_infinity)
 
 
@@ -441,10 +458,11 @@ def selftest():
         adm_mass_defined(True), True)
     chk("ADM mass is defined in a spatially closed universe",
         adm_mass_defined(False), False)
-    chk("so the total energy of a closed universe is",
+    chk("so the ADM energy of a closed universe is",
         CLOSED_UNIVERSE_TOTAL_ENERGY, "UNDEFINED")
     print("       Not zero -- UNDEFINED.  A quantity that does not exist cannot")
-    print("       be out of balance, and cannot pair two objects either.")
+    print("       be out of balance, and cannot pair two objects either.  (The ADM")
+    print("       energy; other notions give zero -- contested, DOCKET 67.)")
 
     print("\nWHAT SURVIVES")
     chk("the form of the principle that is true", SURVIVING_FORM,
@@ -536,7 +554,8 @@ def report():
 
   And at cosmological scale the principle is true and empty: a spatially
   closed universe has no spatial infinity, ADM mass is a surface
-  integral there, so the total energy is not zero -- it is UNDEFINED.
+  integral there, so the ADM energy is not zero -- it is UNDEFINED
+  (other energy notions give zero; contested, DOCKET 67).
 
   WHAT SURVIVES IS ONE LINE, AND IT IS WORTH KEEPING: A SIGN-BLIND
   QUANTITY PAIRS; A SIGN-COMMITTED ONE DOES NOT.  Which is dichotomy.py's

@@ -57,8 +57,9 @@ imports neither, by design: it is the layer that must run anywhere.
     requirement.  candidates.py's KIND/DEADLINE/MAGNITUDE are unchanged,
     overturn.py's L4 is unchanged, and the bill for 1 % contraction of proper
     radial distance at R = 1 m is 9.7773e+40 Pa [DERIVED] of radial TENSION --
-    2.46e+13 [DERIVED] times the best in-hypothesis tension known (a magnetar
-    field, itself DERIVED from an inferred B).  Section 9 carries every status.
+    2.46e+13 [DERIVED] times the best MACROSCOPIC, QUASI-STATIC in-hypothesis
+    tension known (a magnetar field at a round 1e11 T, itself DERIVED from an
+    inferred B; CORRECTED, DOCKET 67).  Section 9 carries every status.
 
     NOTHING IS REPAIRED AND NO PEER IS EDITED.  Section 11 is a status table
     naming what each peer's claim becomes; the human seats any change.
@@ -127,16 +128,20 @@ ONLY WHERE e^{(nu+lambda)/2} = 1.  Then 4 pi R^3 p_r(R) = 2m - m = m.  So
 identity.
 
 THE FLAT PARENT IS OLDER STILL AND IS NOT TOLMAN'S.  Strip gravity and the step
-"the volume integral of the spatial stress is a surface term" is von Laue's
-theorem, Ann. Phys. 340(8), 524 (1911), in its finite-volume form: C. Wang,
-arXiv:1206.5618, eq. (20), for a divergence-free time-independent tensor,
+"the volume integral of the spatial stress is a surface term" is the setting of
+von Laue's theorem, Ann. Phys. 340(8), 524 (1911), and the finite-volume form
+is C. Wang's own sec. 6 Gauss-law identity, arXiv:1206.5618 eq. (20) (CORRECTED,
+DOCKET 67: not von Laue's theorem proper, which Wang's sec. 2 states as the
+four-vector criterion int Theta^{ij} = 0), for a divergence-free static tensor,
 
     oint_S dS_l (Theta^{l mu} X^i) = int_V Theta^{i mu} d^3x .
 
 Trace over i on a sphere of radius R with X^i = R n^i and dS_l = n_l R^2 dOmega:
 THE LEFT-HAND SURFACE TERM IS 4 pi R^3 <T^r_r>(R), and the right-hand side is
 the volume integral int_V Theta^{ii} d^3x of the spatial stress trace.  DOCKET
-54's "EXACT, NO INTEGRATION CONSTANT" is Laue plus the divergence theorem.
+54's "EXACT, NO INTEGRATION CONSTANT" is Laue plus the divergence theorem ON THE
+WHOLE BALL, CENTRE INCLUDED, i.e. C = 0 (CORRECTED, DOCKET 67: the punctured-
+ball independence_witness of section 11 is off by -4 pi A without it).
 
     A FALSE SENTENCE IS CORRECTED HERE RATHER THAN QUIETLY REPLACED.  A first
     draft of this file wrote "Trace over i on a sphere and the RIGHT-hand side
@@ -164,14 +169,16 @@ theory".  The conservation equation p'_r + 2(p_r - p_t)/r = 0 is standard for a
 static anisotropic sphere; arXiv:2605.04163 eq. (65) states it verbatim.
 
 THE CASIMIR APPLICATION IS ALSO ALREADY THERE, AND IT IS A SCOPE CAUTION RATHER
-THAN SUPPORT.  F. Sorge, arXiv:2011.10991, attributes a Tolman mass to a Casimir
-cavity, proves int_V sqrt(-g) T^i_(C) i = 0 for the apparatus (his eq. 36) and
-says outright that the cancellation "basically relies on the virial theorem".
-CONSEQUENCE FOR THIS FILE, ENFORCED IN CODE: for a COMPLETE apparatus -- field
-plus mirrors -- the spatial stress integrates to zero, so 4 pi R^3 p_r(R) = 0
-identically on any ball enclosing the walls.  The pointwise test has content
-ONLY on a ball strictly inside the cavity.  `pointwise_test` REFUSES on a ball
-containing a mirror; the refusal is part of what the instrument is.
+THAN SUPPORT.  F. Sorge, arXiv:2011.10991, attributes a Tolman mass to a massless
+scalar field in a Casimir cavity and derives int_V sqrt(-g) T^i_(C) i = 0 (his
+eq. 36) from his premise (32), at O(gamma^0) in a weak field; the cancellation
+"basically relies on the virial theorem".  CONSEQUENCE, ENFORCED IN CODE: for a
+COMPLETE apparatus -- field, mirrors AND whatever holds them apart -- with T = 0
+on the sphere, 4 pi R^3 p_r(R) = 0 on that ball, exactly in flat space by von
+Laue (Sorge's (36) is its weak-field restatement).  The test has content ONLY
+strictly inside the cavity.  `pointwise_test` REFUSES on a ball containing a
+mirror; where the ball cuts the apparatus the ground is unmodelled wall stress,
+not a vanishing integral (CORRECTED, DOCKET 67).
 
 TWO NON-FINDS, AND A NON-FIND IS NOT A CLEARANCE:
 
@@ -251,8 +258,9 @@ WHAT IT HONESTLY BUYS -- AND THE ECONOMY IS SMALLER THAN THE DRAFT CLAIMED:
     - A MATTER-SIDE TERM in a chain that was previously geometry-only
       (expose.py's C, foliation.py's Gamma).  Section 8.
     - AN EXACT DEMONSTRATION THAT ITS HYPOTHESES ARE LOAD-BEARING: three
-      published or derived witnesses break the biconditional, each by removing
-      exactly one hypothesis.  Section 5.
+      published or derived witnesses break the biconditional, RN by removing
+      the regular centre alone, Agnese-La Camera by removing it AND the
+      test-field background (CORRECTED, DOCKET 67).  Section 5.
 
 WHAT IT DOES NOT BUY: it does not make the requirement easier, it moves none of
 candidates.py's three gates, and it does not touch overturn.py's L4.
@@ -306,8 +314,9 @@ three biconditionals that survive, one hypothesis at a time:
 The second is p_r against a RUNNING THRESHOLD that is itself an integral, so the
 whole economy of this instrument is bought by TRACELESSNESS ALONE, not by the
 identity.  For the renormalised EM stress tensor in a source-free cavity the
-flat-space trace is exactly zero (Milton's "properly traceless", CITED in
-DOCKET 54 sec. 5, NOT re-verified here), so the pointwise form is available
+flat-space trace is exactly zero, because the Maxwell tensor is algebraically
+traceless; Milton's "properly traceless" covers only his leading eps^-3 term
+(CORRECTED, DOCKET 67: see CORRECTED_D67), so the pointwise form is available
 there.  IT IS NOT AVAILABLE for a source with a trace anomaly or a mass scale.
 
 FULL GENERAL RELATIVITY, AND THE SEAM IS EXACT.  V8 computes the Einstein tensor
@@ -368,7 +377,9 @@ and the other route was impossible.
 ===============================================================================
 
     HYPOTHESES.  Traceless, conserved, spherically symmetric, static, regular
-    centre, AND THE GEOMETRY SOURCED BY THIS T THROUGH THE EINSTEIN EQUATIONS.
+    centre, AND THE GEOMETRY SOURCED BY THIS T THROUGH THE EINSTEIN EQUATIONS
+    WITH Lambda = 0 OR Lambda COUNTED INSIDE T (CORRECTED, DOCKET 67: with
+    Lambda != 0 and T matter alone, the m = 0 solution is de Sitter).
     CONCLUSION.  Minkowski.  u == p_r == p_t == m == 0 at every radius.
 
 FOUR STEPS, EVERY ONE OF THEM AN EQUATION THIS FILE ALREADY HELD.  Impose the
@@ -481,7 +492,7 @@ region and closed it; this is that region reached from the stress side.
 POSITIVE CONTROL, AND IT IS NOT AN INVENTION -- BUT IT IS A TEST-FIELD CONTROL
 AND THE DRAFT DID NOT SAY SO.  Uniform negative-energy radiation,
 T^mu_nu = u_0 diag(-1, -1/3, -1/3, -1/3) with u_0 > 0, is the exact ISOTROPIC
-AVERAGE of the measured parallel-plate Casimir tensor over uniformly distributed
+AVERAGE of the ideal-plate Casimir tensor, whose FORCE alone is measured, over
 plate normals (<n_i n_j> = delta_ij/3).  It is traceless, regular-centred, and
 conserved IN FLAT SPACE -- and
 
@@ -500,8 +511,9 @@ with
 
 residual exactly 0 (V15), from two independent computations, one an integral of
 the energy density and one a pointwise read of p_r.  BOTH SIDES OF THE
-BICONDITIONAL FIRE.  At d = 10 nm plate cells and R = 1 mm the instrument
-returns YES, and u_0 cross-checks candidates.py's banked value.
+BICONDITIONAL FIRE.  At d = 10 nm (an ideal-plate construction, below every
+measured range and gold's skin depth: CORRECTED_D67) and R = 1 mm the
+instrument returns YES, and u_0 cross-checks candidates.py's banked value.
 
 NEGATIVE CONTROL (a), THE EXACT MIRROR, catches a global sign inversion:
 ordinary positive-energy radiation, e = +u_0, p_r = p_t = +u_0/3.  All residuals
@@ -525,15 +537,15 @@ R = 9L/10:
 AN IMPLEMENTATION THAT TESTS rho(R) < 0 INSTEAD OF p_r(R) < 0 READS YES HERE AND
 IS WRONG.  The trap window is sqrt(3/5) L < R < L, i.e. 0.774597 L < R < L.
 
-THE THREE HYPOTHESIS WITNESSES, each removing exactly one hypothesis:
+THE THREE HYPOTHESIS WITNESSES (not one hypothesis each: CORRECTED_D67):
 
     REISSNER-NORDSTROM      removes the REGULAR CENTRE.  Section 4.
-    AGNESE & LA CAMERA      removes nothing but tracelessness's sufficiency:
-    gr-qc/0203067 eq. (17)  a PUBLISHED static spherically symmetric TRACELESS
-                            wormhole with POSITIVE constant m_MS = m/beta
-                            everywhere and radial TENSION at the throat, where
-                            4 pi r_0^3 p_|| = -m_MS.  Tracelessness alone does
-                            not buy the biconditional.                  (V19)
+    AGNESE & LA CAMERA      removes the regular centre AND the test field:
+    gr-qc/0203067 eq. (17)  the r >= r_0 patch of a PUBLISHED static spherical
+                            TRACELESS wormhole, 0 < beta < 1, with constant
+                            m_MS = m/beta > 0 and radial TENSION at the throat,
+                            where 4 pi r_0^3 p_|| = -m_MS.  Tracelessness alone
+                            does not buy the biconditional.             (V19)
     MORRIS-THORNE THROAT    the generic near neighbour: p_r(r_0) = -1/(8 pi r_0^2)
                             < 0 with m = b(r_0)/2 = r_0/2 > 0, and
                             4 pi r_0^3 p_r = -m.  THE FLARE-OUT CONDITION IS
@@ -546,7 +558,7 @@ the instrument should refuse is also a failure mode:
     Reissner-Nordstrom at R > Q^2/2M : p_r < 0, m > 0 -> REFUSE (centre)
     Coulomb / monopole field         : divergent enclosed integral -> REFUSE
     parallel plates, RAW CELL        : REFUSE (not spherically symmetric)
-    any ball enclosing a mirror      : REFUSE (Sorge eq. 36, section 1)
+    any ball enclosing a mirror      : REFUSE (section 1; if it cuts, wall stress)
 
 AND THE PLATE CELL'S OVERSELL, NAMED.  The raw cell has rho = -u_0 < 0 AND
 p_normal = -3 u_0 < 0 simultaneously, which is the ruling's consistency check
@@ -564,8 +576,9 @@ does not reopen.
 
 SPHERICITY SPLITS IN TWO, AND ONLY ONE HALF IS LOAD-BEARING.  This is the
 ruling's one substantive error and it was found only because the prior-art
-search forced the Laue route.  Wang's eq. (20) needs the REGION to be a ball;
-THE SOURCE MAY BE ANYTHING.  Obligations F1/F2 discharge the identity and the
+search forced the Laue route.  Wang's eq. (20) holds on any bounded Lipschitz V;
+only its reduction to 4 pi R^3 <T^r_r> needs a ball; THE SOURCE MAY BE ANYTHING.
+Obligations F1/F2 discharge the identity and the
 biconditional with no sphericity of the source assumed, and F5 realises a
 non-spherical constant-anisotropic source for which the Laue residual is exactly
 0.  BUT the test quantity is then the ANGULAR AVERAGE <T^r_r(R)>, and F6 plus
@@ -606,13 +619,14 @@ Define the relative curved correction
 
 PROFILE AND ITS STATUS, STATED BEFORE THE NUMBER.  RECOVERED, measured out of
 DOCKET 54's own banked figure: m(r) = -(hbar a)/(15 pi c eps^2) for an ideal
-conductor, interior, near-wall, eps = a - r.  DERIVED from it by the field
-equation and by the identity: u = -hbar c/(30 pi^2 a eps^3) and
-p_r = -hbar c/(60 pi^2 a^2 eps^2), and r Phi' = 2 G m/(a c^2) =
--(2/15 pi)(l_P/eps)^2.  The p_r so obtained is exactly DOCKET 54's independently
-derived interior value -A hbar c/(a^2 eps^2) with Milton's A_EM = 1/(60 pi^2):
-TWO ROUTES, ONE COEFFICIENT, and A_EM remains SINGLE-SOURCE as the ruling
-records.
+conductor, interior, near-wall, eps = a - r (Milton's eq. (58) is EXTERIOR; the
+inside use is correct, on a local stress Milton calls "to a large extent
+meaningless": CORRECTED_D67).  DERIVED from it by the field equation and the
+identity: u = -hbar c/(30 pi^2 a eps^3) and p_r = -hbar c/(60 pi^2 a^2 eps^2),
+and r Phi' = 2 G m/(a c^2) = -(2/15 pi)(l_P/eps)^2.  The p_r so obtained is
+exactly DOCKET 54's independently derived interior value -A hbar c/(a^2 eps^2)
+with Milton's A_EM = 1/(60 pi^2): TWO ROUTES, ONE COEFFICIENT.  A_EM was
+SINGLE-SOURCE as the ruling records; DOCKET 67 READ it at source (CORRECTED_D67).
 
 CLOSED FORM (V16, sympy integrate then limit, residual 0):
 
@@ -800,12 +814,13 @@ THREE CAUTIONS, AND THEY ARE LOAD-BEARING:
     (1) TRACELESSNESS EXCLUDES THE STRONGEST TENSION ON THE LADDER.  The QCD
         flux tube and the nucleon's confining region are the largest tensions
         nature is known to sustain and are only ~1e6 [DERIVED] short -- by far
-        the closest rung.  But QCD matter is NOT traceless; the trace anomaly is
-        essentially the whole of the nucleon mass, so it sits OUTSIDE this
-        identity's hypothesis and cannot be quoted as a route.  Inside the
-        hypothesis the best known tension is electromagnetic and the shortfall
-        is 2.46e+13 [DERIVED -- a ratio of two DERIVED rungs, the magnetar rung
-        itself resting on an INFERRED field, as tension_ladder() records].
+        the closest rung.  But QCD matter is NOT traceless: <N|T^mu_mu|N> = m_N
+        != 0, ~0.9 of it anomaly in the n_f = 3 trace sum rule (CORRECTED_D67),
+        so it sits OUTSIDE this identity's hypothesis and cannot be quoted as a
+        route.  Inside the hypothesis the best known MACROSCOPIC, QUASI-STATIC
+        tension is electromagnetic and the shortfall is 2.46e+13 [DERIVED -- a
+        ratio of two DERIVED rungs, the magnetar rung itself resting on a round
+        1e11 T INFERRED under the spin-down hypotheses CORRECTED_D67 names].
     (2) A RADIAL MAGNETIC TENSION WITH A REGULAR CENTRE DOES NOT EXIST.  A
         purely radial B with div B = 0 is a monopole, B ~ 1/r^2 -- exactly the
         Q-part of RN: tension everywhere, m(R) < 0 everywhere with M = 0,
@@ -932,11 +947,13 @@ WHAT Z3 DOES NOT ESTABLISH, AND NONE OF IT MAY BE QUOTED AS IF IT DID:
  3. THE INTEGRATION STEP.  Going from d/dr(r^3 p_r) = r^2 u to
     m = 4 pi R^3 p_r is the fundamental theorem of calculus and is CITED, not
     machine-checked.  It carries a hypothesis z3 never sees: r^3 p_r must be
-    absolutely continuous on (0, R] with a limit at 0.  "Regular centre" means
-    exactly that, and it is STRONGER than "p_r is finite at the centre".
+    absolutely continuous on [0, R] with limit ZERO at 0 (FULL's Cc == 0; under
+    AC_loc on (0, R] m is an improper integral).  "Regular centre" means exactly
+    that, and it neither implies nor is implied by "p_r finite at the centre".
  4. THE LAUE STEP.  Family F encodes the CONCLUSION of Wang eq. (20) as a
-    constraint, not its proof.  Stokes's theorem is CITED.  What F checks is
-    what follows FROM the identity, not the identity itself.
+    constraint, not its proof; the divergence theorem is CITED, for T divergence-
+    free on the ball, centre included (C = 0; no LAUE guard: CORRECTED_D67).
+    What F checks is what follows FROM the identity, not the identity itself.
  5. G2 BEYOND THE POWER-LAW FAMILY.  "u < 0 throughout implies m < 0" is
     machine-checked only where the integral is algebraic.  In general it is the
     monotonicity of an integral, CITED.
@@ -1057,7 +1074,7 @@ isotropic average, not merely same-sign).  A HUMAN SEATS ANY CHANGE.
     IT REFUSES TO QUOTE A MASS FOR THE PLASMA TERM.  The curvature extension of
     the planar Sopova-Ford coefficient to a sphere is RECONSTRUCTED, sign and
     order only.  Every SIGN in section 6 is independent of A_EM; every MAGNITUDE
-    scales linearly with it, and A_EM is SINGLE-SOURCE.
+    scales linearly with it, and A_EM was SINGLE-SOURCE until DOCKET 67 READ it.
 
     IT REFUSES TO TREAT A NON-FIND AS A CLEARANCE.  Section 1's two searches
     returned nothing; that is not evidence of absence.
@@ -1122,10 +1139,18 @@ import foliation                       # the RANGE THEOREM
 G      = candidates.G                  # CITED  CODATA 2018, via candidates.py
 C      = candidates.C                  # CITED  exact by definition
 HBAR   = candidates.HBAR               # CITED  CODATA 2018, via candidates.py
+                                       #   CORRECTED (DOCKET 67): CODATA lists
+                                       #   hbar as EXACT (h/2pi); the typed
+                                       #   1.054571817e-34 is truncated, low by
+                                       #   6.13e-10 relative
 MU0    = 1.25663706212e-6              # CITED  CODATA 2018, N A^-2
 QE     = 1.602176634e-19               # CITED  exact by definition, C
 M_E    = 9.1093837015e-31              # CITED  CODATA 2018, kg
 A_BOHR = 5.29177210903e-11             # CITED  CODATA 2018, m
+#   CORRECTED (DOCKET 67): MU0, M_E and A_BOHR are the 2018 values, superseded
+#   by CODATA 2022 at 4.4-4.6 times their 2018 uncertainty (6.8e-10 to 1.36e-9
+#   relative); E_HART moved -2.5e-13.  The values are kept as the 2018 set the
+#   labels name.
 E_HART = 4.3597447222071e-18           # CITED  CODATA 2018, J
 M_EARTH = designpoint.M_EARTH          # CITED  via designpoint.py, kg
 
@@ -1134,10 +1159,19 @@ L_PLANCK_CODATA = 1.616255e-35                 # CITED  CODATA 2018, m
 
 A_EM = 1.0 / (60.0 * math.pi ** 2)     # RECOVERED  Milton 1005.0031 eq. (58)
                                        #   quoting Deutsch-Candelas; SINGLE-
-                                       #   SOURCE, not re-read at source here
+                                       #   SOURCE, not re-read at source here.
+                                       #   CORRECTED (DOCKET 67): DOCKET 67
+                                       #   READ eq. (58) at source (pp.14-15,
+                                       #   A = 1/60 pi^2 verbatim) and Miao-Chu
+                                       #   Table 1 corroborates it, so it is no
+                                       #   longer single-source; the status
+                                       #   stays RECOVERED because a status
+                                       #   names WHO read it (section 1)
 K_SF_COEFF = math.sqrt(2.0) / (128.0 * math.pi)   # RECOVERED  Sopova-Ford
                                        #   quant-ph/0504143 eq. (15), the
-                                       #   coefficient of omega_p in K
+                                       #   coefficient of omega_p in K, the
+                                       #   TRANSVERSE-pressure coefficient
+                                       #   p_t = K/eps^3 (named, DOCKET 67)
 
 HBAR_OMEGA_P_GOLD_EV = 9.0             # CITED  the ruling's gold plasma energy
 HBAR_OMEGA_P_AL_EV = 15.3              # CITED  the ruling's aluminium value
@@ -1317,8 +1351,12 @@ def rn_negative_region_inside_cauchy(y):
 def plate_u0(d):
     """u_0 = pi^2 hbar c/(720 d^4), the magnitude of the ideal parallel-plate
     Casimir energy density.  DERIVED from E/A = -pi^2 hbar c/(720 d^3), whose
-    FORCE is the one MEASURED quantity in the chain (Lamoreaux 1997;
-    Mohideen-Roy 1998; Bressi 2002)."""
+    FORCE is the one MEASURED quantity in the chain (Lamoreaux 1997, with its
+    erratum PRL 81, 5475 (1998); Mohideen-Roy 1998; Bressi 2002).  CORRECTED
+    (DOCKET 67): Lamoreaux and Mohideen-Roy are SPHERE-PLATE and reach E/A only
+    through the proximity-force approximation; only Bressi is plate-plate, at
+    d >= 0.5 um; every cited measurement is at d >= 0.1 um, between real metals,
+    confirming Lifshitz theory with finite-conductivity corrections."""
     return math.pi ** 2 * HBAR * C / (720.0 * d ** 4)
 
 
@@ -1326,7 +1364,13 @@ def plate_cell(d):
     """The raw parallel-plate cell, DERIVED from E/A alone.
     (rho, p_normal, p_transverse) = (-u_0, -3u_0, +u_0).  p_normal/u_0 = -3 is
     DERIVED from F = -d(E/A)/dd, not quoted; p_transverse is FORCED by
-    tracelessness.  REFUSED for magnitude: the cell is not spherical."""
+    tracelessness.  REFUSED for magnitude: the cell is not spherical.
+    CORRECTED (DOCKET 67): rho = -u_0 UNIFORM across the gap is the
+    PERFECT-CONDUCTOR result.  At the d = 10 nm this file evaluates, below
+    gold's skin depth 21.93 nm, plasma-model plates (Sopova-Ford eq. (50))
+    give a POSITIVE gap-centre energy density, a^4 U = +0.0405 against the
+    ideal -0.0137 (DOCKET 67, computed).  The cell is an ideal-plate
+    construction there, not a reading of the measured regime."""
     u0 = plate_u0(d)
     return (-u0, -3.0 * u0, +u0)
 
@@ -1448,7 +1492,18 @@ def alc_throat(m_par, beta):
     """AGNESE & LA CAMERA gr-qc/0203067 eq. (17), a PUBLISHED traceless
     wormhole: throat r_0 = 2m/beta, p_|| = -m/(4 pi beta r_0^3), and
     m_MS = m/beta > 0 everywhere since rho = 0.  Returns
-    (r_0, p_par, 4 pi r_0^3 p_par, m_MS).  CITED shape, DERIVED arithmetic."""
+    (r_0, p_par, 4 pi r_0^3 p_par, m_MS).  CITED shape, DERIVED arithmetic.
+    CORRECTED (DOCKET 67), three hypotheses this function does not check:
+    (i) the source states eq. (17) only for 0 < beta < 1 -- at beta = 1 the
+    published solution is Schwarzschild with p = 0 while this formula returns
+    -1/(32 pi m^2), and for beta > 1 r_0 is not a throat; the one call, the
+    fixture beta = 1/2, is inside the domain.  (ii) m_MS is an INTEGRATION
+    CONSTANT, not the matter integral INT 4 pi r^2 u dr of the test-field
+    reading, which is 0 here because rho = 0.  (iii) 'wormhole' holds for the
+    one-sided r >= r_0 patch used here; at beta = 1/2 the far end is not
+    asymptotically flat, and ALC's |sin psi| gluing carries an unstated thin
+    shell at the throat (surface energy 0, tangential pressure
+    beta^2/(16 pi m (1 - beta))), which the r >= r_0 bulk limit does not touch."""
     r0 = 2.0 * m_par / beta
     ppar = -m_par / (4.0 * math.pi * beta * r0 ** 3)
     return (r0, ppar, 4.0 * math.pi * r0 ** 3 * ppar, m_par / beta)
@@ -1517,13 +1572,32 @@ def skin_depth(hbar_omega_p_eV):
 def crossover_coefficient():
     """|p_r^real|/|p_r^ideal| = K a/A with eps CANCELLING EXACTLY (V17), and
     with A = A_EM and K = K_SF omega_p this is (60 sqrt2 pi/128)(a/lambdabar_p).
-    DERIVED from the two RECOVERED coefficients."""
+    DERIVED from the two RECOVERED coefficients.  K is the TRANSVERSE-pressure
+    coefficient (p_t = K/eps^3); read from U the crossover would be 0.24008.
+
+    CORRECTED (DOCKET 67): the eps cancellation is algebra on two asymptotes
+    that hold in DISJOINT ranges -- the ideal term needs eps >> lambdabar_p, the
+    plasma term omega_p eps/c << 1, with a sharp step boundary and T = 0 -- so
+    they do not coexist at one eps.  On the exact planar plasma integrals the
+    ideal term is REPLACED near the wall, not out-competed (exact/plasma
+    0.99918 at omega_p z = 1e-3, where an additive ideal term would give
+    1351.5), and at the asymptote-equality point the exact value is 0.4841 of
+    either (DOCKET 67, computed).  The coefficient is exact arithmetic; the
+    ratio is NOT a physical threshold."""
     return K_SF_COEFF / A_EM
 
 
 def crossover_radius(hbar_omega_p_eV):
-    """a_c = lambdabar_p/coefficient = 0.480 x skin depth, FOR EVERY CONDUCTOR.
-    DERIVED; no material input survives."""
+    """a_c = lambdabar_p/coefficient = 0.480 x skin depth, FOR EVERY
+    COLLISIONLESS-PLASMA-MODEL CONDUCTOR.  DERIVED; no material input survives
+    WITHIN the plasma model.  CORRECTED (DOCKET 67): the draft said "FOR EVERY
+    CONDUCTOR".  For a general eps(i zeta), K = I/(32 pi^2) with
+    I = INT (eps - 1)/(eps + 1) dzeta material-dependent: Drude damping moves K
+    by -0.17 % to -0.28 %, and interband structure is not computed.  The SIGN
+    holds for every passive, local, sharp-boundary medium; the NUMBER 0.480 is
+    the plasma model's.  And a_c is the equality point of two asymptotes with
+    disjoint domains (crossover_coefficient), so it is not a physical
+    threshold."""
     return skin_depth(hbar_omega_p_eV) / crossover_coefficient()
 
 
@@ -1589,6 +1663,12 @@ def tension_ladder():
          qcd_flux_tube(), "DERIVED"),
         ("nucleon core pressure ~1e35 Pa (Burkert et al. 2018)",
          1.0e35, "MEASURED-INFERRED"),
+        # CORRECTED (DOCKET 67): 1e11 T is a ROUND value; the catalogue
+        # maximum is 1.956e11 T, against which the shortfall would be 6.42e12,
+        # not 2.46e13 -- the round value overstates the refusal 3.8x.  B is the
+        # vacuum-dipole spin-down inference: orthogonal rotator, I = 1e45 g cm^2,
+        # R = 10 km, EQUATORIAL dipole field, no other torque, a stated Pdot,
+        # dipole only.  The pinned figure is unchanged.
         ("magnetar surface field 1e11 T, B^2/(2 mu_0)",
          magnetic_tension(1.0e11), "DERIVED from an inferred B"),
         ("Schwinger critical field B_c = %.4e T" % schwinger_field(),
@@ -1774,6 +1854,9 @@ def verify():
                                      * 15 * sp.pi * ee ** 2 / lP ** 2, ee, 0) - 1), 0))
     AA, KK = sp.symbols("A K", positive=True)
     ratio = (KK / (aa * ee ** 2)) / (AA / (aa ** 2 * ee ** 2))
+    # CORRECTED (DOCKET 67): V17 checks the ALGEBRA of the ratio of the two
+    # asymptotes; they hold in disjoint eps ranges (crossover_coefficient), so
+    # eps-independence of the ratio is not a coexistence of the two terms.
     out.append(("V17 the near-wall ratio is eps-INDEPENDENT: d(ratio)/d(eps)",
                 sp.simplify(sp.diff(ratio, ee)), 0))
 
@@ -1790,6 +1873,9 @@ def verify():
                 sp.simplify(4 * sp.pi * r ** 3 * prMT + mfun)
                 + sp.simplify(prMT.subs(mfun, r / 2).subs(r, r0)
                               + 1 / (8 * sp.pi * r0 ** 2)), 0))
+    # CORRECTED (DOCKET 67): m_MS = m/beta here is an INTEGRATION CONSTANT of
+    # the exactly-sourced solution, not the test-field matter integral
+    # INT 4 pi r^2 u dr, which is 0 for ALC (rho = 0); the residual is unchanged.
     r0a = 2 * mpar / bpar
     ppar = -mpar / (4 * sp.pi * bpar * r0a ** 3)
     out.append(("V19 AGNESE-LA CAMERA eq.(17): its TWO printed forms agree, and "
@@ -2193,7 +2279,13 @@ def obligations():
         z3.And(LOCALJg(jj, dpr), LOCALJg(jj2, dpr3), jj != jj2, dpr != dpr3))
 
     # ------------------------------------------ F  the Laue route, sphericity
-    LAUE = z3.And(F > 0, R > 0, 3 * Vb == F * R ** 3,
+    # CORRECTED (DOCKET 67): LAUE encodes the CONCLUSION with no centre term,
+    # i.e. it assumes T divergence-free on the WHOLE ball, centre included
+    # (C = 0, a regular centre).  The family carries no guard or drift row for
+    # that hypothesis -- the mutation table names only axisymmetry -- and the
+    # independence_witness (C = 4 pi A) is excluded by LAUE, admitted by LAUE
+    # plus C (DOCKET 67, z3).  The regular centre is enforced by pointwise_test.
+    LAUE =z3.And(F > 0, R > 0, 3 * Vb == F * R ** 3,
                   Ixx + Iyy + Izz == F * R ** 3 * Trr,
                   I_Th == -I_u + (Ixx + Iyy + Izz))
     sat("GUARD F0  the Laue aggregate encoding is satisfiable", LAUE)
@@ -2396,6 +2488,14 @@ def obligations():
     # has p_r = 0 at the cut, is the HYPOTHESIS here, not a result: it comes from
     # the matching condition [P_r]_Sigma = 0, which is CITED (Herrera
     # arXiv:1801.08358 eq. (22), read at source) and is not proved in this layer.
+    # CORRECTED (DOCKET 67): [P_r]_Sigma = 0 says p_r is CONTINUOUS across
+    # Sigma; it gives p_r = 0 at the cut only with a VACUUM exterior (an RN
+    # exterior has T^r_r = -Q^2/(8 pi r^4)) and NO SURFACE LAYER at the cut (a
+    # shell lets p_r(R^-) != 0).  Herrera derives it for a SOURCED fluid; this
+    # family is test-field, where the conclusion transfers instead through
+    # distributional conservation of T on the fixed background (DOCKET 67,
+    # computed).  If the cut lies outside all matter, p_r = 0 there because
+    # T = 0 and eq. (22) is not needed.  The z3 premise is unchanged.
     ob("L1  GIVEN p_r = 0 at the cut (CITED: the matching condition [P_r]_Sigma "
        "= 0; NOT proved here), a traceless conserved static regular source has "
        "m = 0 EXACTLY -- which is von Laue for the total mass",
@@ -2495,11 +2595,109 @@ REFUSED = ("the word 'replaces'; 'EXACT' without its background hypothesis; "
            "any novelty claim; any mass for the plasma term; any reading of a "
            "non-find as a clearance")
 
+# CORRECTED (DOCKET 67) -- the prose sites DOCKET 67's audit narrowed, with what
+# the text said before and what the record READ or computed.  M ruled "Repair
+# all".  NO VERDICT, FLAG, STATUS OR COMPUTED NUMBER MOVED: every row is
+# wording, and the docstring carries each correction in place with a pointer
+# here because its line count is capped (DOCSTRING_LINE_CEILING).
+CORRECTED_D67 = (
+    ("section 0 / 9: 'the best in-hypothesis tension known'",
+     "best MACROSCOPIC, QUASI-STATIC: heavy-ion collision fields are model-"
+     "calculated at ~1e3-1e4 x a magnetar's, and the Pb-208 surface Coulomb "
+     "field (traceless) is 6.1e3 x the rung.  The rung is a ROUND 1e11 T; the "
+     "catalogue maximum 1.956e11 T gives a shortfall of 6.42e12, not 2.46e13"),
+    ("section 1: Wang eq. (20) as von Laue's theorem 'in its finite-volume form'",
+     "eq. (20) is Wang's own sec. 6 Gauss-law identity; von Laue's theorem "
+     "proper (Wang sec. 2) is the four-vector criterion int Theta^{ij} = 0"),
+    ("section 1: 'EXACT, NO INTEGRATION CONSTANT' is Laue plus the divergence "
+     "theorem",
+     "only with T divergence-free on the WHOLE ball, centre included (C = 0); "
+     "the independence_witness is divergence-free on the punctured ball and "
+     "the identity is off by -4 pi A"),
+    ("section 1: Sorge 'attributes a Tolman mass to a Casimir cavity, proves "
+     "... (36)'; 'COMPLETE apparatus -- field plus mirrors'; '= 0 identically "
+     "on any ball enclosing the walls'",
+     "Sorge's abstract concerns a massless scalar field in the cavity; (36) is "
+     "derived from his premise (32) at O(gamma^0) in a weak field; complete "
+     "means field, mirrors AND whatever holds them apart (the field alone has "
+     "int sum T^ii = E_total != 0); the exact flat zero is von Laue's, and needs "
+     "T = 0 on the sphere.  On a ball CUTTING the apparatus int T^i_i is "
+     "generally nonzero, so the refusal's ground there is unmodelled wall "
+     "stress.  The refusal itself is unchanged"),
+    ("section 2: three witnesses 'each by removing exactly one hypothesis'; "
+     "section 5: ALC 'removes nothing but tracelessness's sufficiency'",
+     "Agnese-La Camera lacks the regular centre (it lives on r >= r_0) AND the "
+     "test-field background (it is exactly sourced); 'tracelessness alone does "
+     "not buy the biconditional' stays true.  Its 'wormhole' is the one-sided "
+     "patch: at the fixture beta = 1/2 the far end is not asymptotically flat "
+     "and ALC's |sin psi| gluing carries an unstated thin shell"),
+    ("section 3: Milton's 'properly traceless' cited for the exact flat trace of "
+     "the renormalised cavity tensor",
+     "read at source (1005.0031 p.15) it covers eq. (58) only: the leading "
+     "eps^-3 term, outside a perfect-conductor sphere, for a conformal field.  "
+     "The exact claim holds by another route: the Maxwell tensor is "
+     "algebraically traceless, also for the symmetric point-split bilinear "
+     "(DOCKET 67, computed)"),
+    ("section 3a: THEOREM X 'CONCLUSION.  Minkowski.'",
+     "needs Lambda = 0 or Lambda counted inside T: with Lambda != 0 and T the "
+     "matter alone, the regular static m = 0 solution is de Sitter"),
+    ("section 5: 'the measured parallel-plate Casimir tensor'; d = 10 nm",
+     "only the FORCE is measured, between real metals at d >= 0.1 um "
+     "(plate-plate >= 0.5 um), two of three experiments sphere-plate via PFA; "
+     "10 nm is below gold's skin depth 21.93 nm, where the plasma-model "
+     "gap-centre energy density is POSITIVE.  The positive control's YES rests "
+     "on the ideal-plate construction, which test_field_background grants"),
+    ("section 5: 'Wang's eq. (20) needs the REGION to be a ball'",
+     "eq. (20) holds on any bounded Lipschitz V (Wang allows multiply "
+     "connected V); only the reduction to 4 pi R^3 <T^r_r> needs a ball"),
+    ("section 6: the near-wall profile from Milton eq. (58); A_EM SINGLE-SOURCE",
+     "eq. (58) is stated OUTSIDE (r = a + eps); the use inside with eps = a - r "
+     "is correct (conservation cancels at eps^-3 on both sides; Miao-Chu eq. "
+     "(1.3a)).  Milton calls the local near-wall stress 'to a large extent "
+     "meaningless'; Miao-Chu argue it is physical in a true BCFT -- contested.  "
+     "A_EM was READ at source by DOCKET 67 and is corroborated by Miao-Chu "
+     "Table 1"),
+    ("section 9: 'the trace anomaly is essentially the whole of the nucleon "
+     "mass'",
+     "true of the Lorentz-invariant TRACE sum rule with n_f = 3 counting "
+     "(0.88-0.91 at physical quark masses; exactly 1 only in the chiral limit); "
+     "in the rest-energy decomposition the anomaly is ~0.22, and with n_f = 6 "
+     "counting the F^2 share is 0.67.  It is an integrated matrix element; the "
+     "LOCAL flux-tube trace is measured nonzero in SU(3) Yang-Mills "
+     "(1803.05656).  The inference 'QCD matter is not traceless' needs only "
+     "<N|T^mu_mu|N> = m_N != 0"),
+    ("section 9: magnetar 'DERIVED from an inferred B'",
+     "the inference is vacuum dipole spin-down: orthogonal rotator, "
+     "I = 1e45 g cm^2, R = 10 km, EQUATORIAL dipole field, no other torque, a "
+     "stated Pdot, the dipole only; each moves B (force-free x0.58-0.82, polar "
+     "x2, R = 12 km x0.58)"),
+    ("section 10 item 3: 'absolutely continuous on (0, R] with a limit at 0' "
+     "... 'STRONGER than p_r finite at the centre'",
+     "the limit must be ZERO (the independence_witness meets the old wording "
+     "and fails by -4 pi A); AC on [0, R] versus AC_loc on (0, R] decides "
+     "whether m is a Lebesgue or an improper integral; and the two conditions "
+     "are incomparable (W3 has r^3 p_r -> 0 with p_r -> +infinity)"),
+    ("section 10 item 4: 'Stokes's theorem is CITED', no hypothesis",
+     "the divergence theorem is cited for T divergence-free on the whole ball, "
+     "centre included; family F's LAUE encodes that with no guard"),
+    ("crossover: ideal and plasma asymptotes 'with eps CANCELLING EXACTLY'; "
+     "a_c 'FOR EVERY CONDUCTOR'",
+     "the asymptotes hold in disjoint eps ranges, so a_c is not a physical "
+     "threshold; the material independence is the collisionless plasma "
+     "model's; K is the transverse-pressure coefficient, under a sharp step "
+     "boundary, T = 0 and omega_p eps/c << 1"),
+    ("selftest: 'the gap is G's own rounding'",
+     "the 1.48e-8 gap between derived and CODATA l_P is l_P's 7-s.f. "
+     "publication rounding plus -3.1e-10 from the truncated hbar"),
+)
+
 PRIOR_ART = (
     ("Tolman, Phys. Rev. 35, 875 (1930) -- the active gravitational mass",
      "RECOVERED", "through Herrera 1801.08358 ref [19]; NOT read"),
     ("von Laue, Ann. Phys. 340(8), 524 (1911) -- the flat parent",
-     "RECOVERED", "through Wang arXiv:1206.5618; NOT read"),
+     "RECOVERED", "through Wang arXiv:1206.5618; NOT read.  Wang's eq. (20) is "
+                  "his own sec. 6 Gauss-law identity, not von Laue's theorem "
+                  "proper (CORRECTED, DOCKET 67)"),
     ("Whittaker, Proc. Roy. Soc. A 149, 384 (1935) -- 'Tolman-Whittaker'",
      "RECOVERED", "located only in Sorge 2011.10991's bibliography; NOT read"),
     ("Herrera & Santos, Gen. Rel. Gravit. 27, 1071 (1995) eq. (25)",
@@ -2528,16 +2726,30 @@ PRIOR_ART = (
     ("Sorge, arXiv:2011.10991 eq. (36) -- the Tolman mass OF A CASIMIR CAVITY",
      "CITED", "read at source by the prior-art pass; A SCOPE CAUTION, not support"),
     ("Agnese & La Camera, arXiv:gr-qc/0203067 eq. (17) -- traceless wormhole",
-     "CITED", "read at source by the prior-art pass; reproduced, V19 = 0"),
+     "CITED", "read at source by the prior-art pass; reproduced, V19 = 0.  "
+              "CORRECTED (DOCKET 67): stated for 0 < beta < 1; its m_MS is an "
+              "integration constant, not the matter integral (0, rho = 0); the "
+              "witness removes the regular centre AND the test-field background"),
     ("Polyakov & Schweitzer, arXiv:1805.06596 -- the same algebra in p(r), s(r)",
      "RECOVERED", "named, NOT read"),
     ("Milton, arXiv:1005.0031 eq. (58), A_EM = 1/(60 pi^2) -- 'properly traceless'",
      "RECOVERED", "via DOCKET 54's verbatim quotation; SINGLE-SOURCE; not "
-                  "re-read at source"),
+                  "re-read at source.  CORRECTED (DOCKET 67): DOCKET 67 READ "
+                  "eq. (58) at source, verbatim on pp.14-15, and Miao-Chu "
+                  "Table 1 corroborates A_EM independently, so it is no longer "
+                  "single-source; 'properly traceless' covers eq. (58) only, the "
+                  "leading eps^-3 term outside a perfect-conductor sphere for a "
+                  "conformal field.  The status stays RECOVERED: it names this "
+                  "file's route"),
     ("Sopova & Ford, quant-ph/0504143 eq. (15) -- the planar K coefficient",
-     "RECOVERED", "via DOCKET 54's verbatim quotation; not re-read at source"),
+     "RECOVERED", "via DOCKET 54's verbatim quotation; not re-read at source.  "
+                  "K is the TRANSVERSE-pressure coefficient, under a sharp step "
+                  "boundary, T = 0 and omega_p eps/c << 1 (named, DOCKET 67)"),
     ("Casimir FORCE between plates -- the ONE measured quantity in the chain",
-     "MEASURED", "Lamoreaux 1997; Mohideen-Roy 1998; Bressi 2002"),
+     "MEASURED", "Lamoreaux 1997 (erratum PRL 81, 5475 (1998)); Mohideen-Roy "
+                 "1998; Bressi 2002.  The first two are sphere-plate, reaching "
+                 "E/A through the proximity-force approximation; all are at "
+                 "d >= 0.1 um (DOCKET 67)"),
     ("'negative enclosed mass iff radial tension' anywhere in Casimir literature",
      "NOT-FOUND", "a non-find is NOT a clearance"),
     ("'flare-out iff negative enclosed Misner-Sharp mass' in wormhole literature",
@@ -2605,8 +2817,11 @@ PEER_STATUS = (
      "no contact.  RECORDED while reading: its first docstring line says "
      "'corridor.py', and a different corridor.py exists in the tree."),
     ("switch.py (the EM switch)", "UNCHANGED",
-     "owed only the von Laue caution: for a COMPLETE apparatus int T^i_i = 0, "
-     "so a pointwise test on a ball enclosing the mirrors returns exactly zero."),
+     "owed only the von Laue caution: for a COMPLETE apparatus int T^i_i = 0 "
+     "on a ball whose boundary lies outside the support of the complete T, so "
+     "a pointwise test on such a ball returns exactly zero in flat space (von "
+     "Laue; Sorge eq. (36) is its O(gamma^0) weak-field restatement, CORRECTED, "
+     "DOCKET 67)."),
     ("emtension.py (w = -p_r/rho = 1 for a static radial EM field)", "UNCHANGED",
      "its rigidity arrives here as the EXACTNESS CONDITION of a different "
      "theorem: u + p_r = 0 makes the curved correction vanish."),
@@ -2620,8 +2835,12 @@ PEER_STATUS = (
      "print since 1995.  And its plate check is UPGRADED: the agreement is "
      "EXACT on the isotropic average, not merely same-sign."),
     ("this file's own reach", "NARROWED",
-     "von Laue forces int_V T^i_i = 0 over a complete static bounded system, so "
-     "4 pi R^3 p_r(R) = 0 for ANY ball enclosing the whole device.  The test "
+     "von Laue forces int_V T^i_i = 0 over a complete static system whose T "
+     "vanishes on the bounding sphere (T^{ij} n_j = 0 there), so "
+     "4 pi R^3 p_r(R) = 0 for any ball outside the support of the complete T.  "
+     "CORRECTED (DOCKET 67): 'ANY ball enclosing the whole device' is too wide "
+     "-- a bounded device's static fields can extend past it (a charged shell "
+     "gives -Q^2/(8 pi eps0 R) on every finite ball).  The test "
      "has content ONLY strictly inside a cavity, and REFUSES otherwise."),
 )
 
@@ -2770,9 +2989,10 @@ def selftest():
           % (L_PLANCK, L_PLANCK_CODATA, abs(L_PLANCK / L_PLANCK_CODATA - 1.0)))
     chk("  l_P DERIVED from hbar, G, c agrees with CODATA below 1e-4",
         abs(L_PLANCK / L_PLANCK_CODATA - 1.0) < 1e-4, True, kind="MEASURED")
-    chk("  ... and the gap is G's own rounding, not a disagreement of physics",
+    chk("  ... and the gap is l_P's own 7-s.f. rounding plus -3.1e-10 from the "
+        "truncated hbar (CORRECTED, DOCKET 67: not G's), not physics",
         abs(L_PLANCK / L_PLANCK_CODATA - 1.0) > 1e-9, True, kind="MEASURED")
-    chk("  A_EM is RECOVERED and SINGLE-SOURCE, never CITED",
+    chk("  A_EM is RECOVERED (this file's route; DOCKET 67 READ it), never CITED",
         _status("A_EM"), "RECOVERED", kind="MEASURED")
     chk("  the Casimir FORCE is the one MEASURED input",
         _status("Casimir force"), "MEASURED", kind="MEASURED")
@@ -2853,6 +3073,9 @@ def selftest():
     chk("  the regular centre is load-bearing", REGULAR_CENTRE_IS_LOAD_BEARING, True)
 
     print("\n5. THE CONTROLS")
+    # CORRECTED (DOCKET 67): d = 10 nm is below every cited measured range
+    # (>= 0.1 um; plate-plate >= 0.5 um) and below gold's skin depth 21.93 nm,
+    # so u_0 here is an IDEAL-PLATE construction, not a measured-regime value.
     d, R = 1e-8, 1e-3
     u0 = plate_u0(d)
     near("  u_0 at d = 10 nm reproduces candidates.py's banked value",
@@ -2971,7 +3194,8 @@ def selftest():
         pointwise_test(pz, R, **h_no_sph)[0], "REFUSE", kind="MEASURED")
     h_walls = all_hypotheses()
     h_walls["ball_excludes_walls"] = False
-    chk("  a ball enclosing a mirror: REFUSE (von Laue, Sorge eq. 36)",
+    chk("  a ball enclosing a mirror: REFUSE (von Laue, Sorge eq. 36; a ball "
+        "cutting the apparatus: unmodelled wall stress)",
         pointwise_test(pr_i, R, **h_walls)[0], "REFUSE", kind="MEASURED")
     h_flux = all_hypotheses()
     h_flux["stationary_flux"] = False
@@ -3038,14 +3262,15 @@ def selftest():
     near("  the crossover coefficient is 60 sqrt(2) pi/128", crossover_coefficient(),
          60.0 * math.sqrt(2.0) * math.pi / 128.0, kind="CONSTRUCTION")
     near("  ... = 2.0826013773", crossover_coefficient(), 2.0826013773, 1e-9)
-    near("  a_c / skin depth = 0.4801687020, FOR EVERY CONDUCTOR",
+    near("  a_c / skin depth = 0.4801687020, FOR EVERY PLASMA-MODEL CONDUCTOR",
          crossover_radius(HBAR_OMEGA_P_GOLD_EV) / skin_depth(HBAR_OMEGA_P_GOLD_EV),
          0.4801687020, 1e-9)
     near("  gold skin depth c/omega_p (nm)", skin_depth(9.0) * 1e9, 21.9252, 1e-4)
     near("  gold crossover a_c (nm)", crossover_radius(9.0) * 1e9, 10.5278, 1e-4)
     near("  aluminium skin depth (nm)", skin_depth(15.3) * 1e9, 12.8972, 1e-4)
     near("  aluminium crossover a_c (nm)", crossover_radius(15.3) * 1e9, 6.19283, 1e-4)
-    chk("  and the material-independence is exact: the ratio is the same",
+    chk("  and within the plasma model the ratio is the same at two omega_p "
+        "(a CONSTRUCTION, not a test of material independence)",
         abs(crossover_radius(9.0) / skin_depth(9.0)
             - crossover_radius(15.3) / skin_depth(15.3)) < 1e-15, True,
         kind="CONSTRUCTION")
@@ -3077,7 +3302,8 @@ def selftest():
     near("  Schwinger field (T)", schwinger_field(), 4.4140e9, 1e-4)
     near("  atomic ceiling (Pa)", atomic_ceiling(), 2.9421e13, 1e-4)
     near("  Planck stress (Pa)", planck_stress(), 4.6329e113, 1e-4)
-    near("  shortfall against the best IN-HYPOTHESIS tension (magnetar)",
+    near("  shortfall against the best macroscopic quasi-static IN-HYPOTHESIS "
+         "tension (magnetar, round 1e11 T)",
          req / lad[3][1], 2.4573e13, 1e-3)
     chk("  the closest rung is the QCD flux tube AND IT IS NOT TRACELESS",
         "NOT traceless" in lad[1][0], True, kind="MEASURED")
@@ -3262,7 +3488,7 @@ def report():
           % (delta_unity_eps() / L_PLANCK))
     print("  The backreaction bound and DOCKET 54's magnitude wall are the same")
     print("  sub-Planckian wall, reached from two directions.")
-    print("  crossover a_c = %.7f x skin depth, FOR EVERY CONDUCTOR "
+    print("  crossover a_c = %.7f x skin depth, FOR EVERY PLASMA-MODEL CONDUCTOR "
           "[DERIVED from two RECOVERED coefficients]"
           % (crossover_radius(9.0) / skin_depth(9.0)))
     print("    gold      skin depth %8.4f nm   a_c %8.4f nm"

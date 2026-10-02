@@ -43,8 +43,11 @@ TWO CORRECTIONS TO THE DOCKET 62 RULING, both READ:
        HYPOTHESIS FOR HPS's FIELD (xi = 1/6) ONLY (section 1).  It is
        UNAFFECTED for the minimally coupled corridor (ledger row O2):
        fewsterteo.RIGHT_INSTRUMENT and throatmass.NARROWING_3_STATUS stand, and
-       nothing here speaks to them.  Kontou's own Sec. 3.2 says why no absolute or
-       state-independent inequality reaches this field: "This is not true, for
+       nothing here speaks to them.  Kontou's own Sec. 3.2 says why the
+       Fewster-Smith class of derivations cannot reach this field (CORRECTED,
+       DOCKET 67: this line said "no absolute or state-independent inequality";
+       the sentence is about the FS sum-of-squares derivations, and FO Sec. 6
+       expects an absolute NMC version to be adaptable): "This is not true, for
        example, for the T_split operator of nonminimally coupled fields, so these
        inequalities cannot be used in this case.  State-dependent bounds have
        been derived for the nonminimally coupled field [17,29,30]."
@@ -65,7 +68,10 @@ exact expectation value in a specified Hadamard state.  Units hbar=c=G=1, MTW.
   globally hyperbolic spacetimes"; field equation (nabla^2 + mu^2)phi = 0.
       minimal coupling ........ HPS xi = 1/6            FAILS -> REFUSED
       Hadamard state .......... HPS <T> is the AHS approximation   NOT MET
-      globally hyperbolic ..... local: a causal diamond suffices   MET locally
+      globally hyperbolic ..... local: a small sampling domain     MET locally
+                                inside a convex normal neighbourhood (CORRECTED,
+                                DOCKET 67: "a causal diamond suffices" -- a
+                                causal diamond is not in general one)
   FS themselves (Sec. 2.2): for the non-minimally coupled field "one must smear
   the stress-energy tensor even to obtain an inequality on the classical field
   ... which necessitates a more complicated analysis".  REFUSED: evaluating FS on
@@ -75,6 +81,13 @@ exact expectation value in a specified Hadamard state.  Units hbar=c=G=1, MTW.
   field:  (rho_quant o gamma)(f^2) >= -Q_xi(f),
       Q_xi(f) = Qt_A^xi(f) 1 + xi (:Phi^2: o gamma)(Q_B[f]) + xi (:Phi^2: o gamma)(Q_C^xi[f]),
       Q_B[f] = 2 (f')^2,  Q_C^xi[f] = f^2 (R_mn g^m g^n - (1/2)(1 - 4 xi) R).
+      (Q_C as FO print it, in their Birrell-Davies [-,-,-] signs, FO fn. 2, not
+      this file's MTW: in MTW it reads -f^2 (R_uu + (1/2)(1 - 4 xi) R).  Q_C is
+      never evaluated here; named by DOCKET 67.)
+      globally hyperbolic, smooth metric (FO's hypothesis; CORRECTED, DOCKET 67:
+      this list and FORM_TAGS[FO] omitted it, though it is carried for FS and
+      FFKP) ..... restorable LOCALLY on a globally hyperbolic neighbourhood of
+      gamma(supp f) -- NAMED, not computed; not a FORM_TAGS entry
       xi in [0, 1/4] .......... 1/6                         MET  (computed from HPS_XI)
       timelike geodesic ....... the throat worldline l = 0: acceleration
                                 f'/(2f), derived from metric (2) by sympy and
@@ -97,12 +110,28 @@ exact expectation value in a specified Hadamard state.  Units hbar=c=G=1, MTW.
       <:rho_n:(f^2)>_psi >= -2 INT_D d^n alpha/(2 pi)^n ((Q x Q) W_0)_kappa(fbar_alpha, f_alpha)
                             - xi <:phi^2:(Q[f])>_psi,
       Q = l^mu nabla_mu,  Q[f] = nabla_mu nabla_nu (l^mu l^nu f^2) + (1/2) R_mn l^m l^n f^2.
+      (Q[f] as printed in v1, (69b).  DOCKET 67: v1's own conserved eq. (9)
+      gives -R_mn l^m l^n f^2, and (13) and (61) as printed disagree with both
+      -- a DISCREPANCY IN v1, recorded, not a refutation, and not to be quoted
+      against the unread SciPost version.  Nothing here evaluates Q[f]; it would
+      matter on HPS, whose throat has R_ll != 0 on any open supp f.)
+      free field on a fixed background ... HPS's xi = 1/6 scalar on metric (2)
+                                                                    MET  (in form)
+      Wick powers by the Leibniz-rule prescription ... a property of the
+      construction, not of HPS                     (both named, DOCKET 67)
       any xi ("holds for any value of the coupling constant") ...   MET  (computed)
       M globally hyperbolic, f supported in a SMALL SAMPLING DOMAIN: an open
       set inside a globally hyperbolic convex normal neighbourhood, one
       hyperbolic chart ... metric (2) is non-degenerate Lorentzian at the throat
       (f(0) > 0, r(0) > 0, computed); a convex normal neighbourhood then exists
       about any point (Whitehead; NAMED, not computed)              MET LOCALLY
+      CORRECTED (DOCKET 67): "MET LOCALLY" is computed from f(0) > 0 and r(0) > 0
+      alone, and rests on an UNNAMED hypothesis -- the metric's connection C^{1,1}
+      or better on an open neighbourhood of the throat, which non-degeneracy at a
+      point does not give and which is NOT PROVED here (the Taylor radius is not
+      proved, section 3).  Whitehead supplies convexity and normality only; the
+      globally hyperbolic qualifier (asserted in FS p.7 without citation) and
+      the one-hyperbolic-chart clause are separate results, not Whitehead's.
       l^mu null near supp f ... radial l = f^(-1/2) d_t + d_l, g(l,l) = 0
       (sympy)                                                       MET  (computed)
       Hadamard state psi ...... HPS <T> is the AHS approximation   NOT-ESTABLISHED
@@ -114,14 +143,26 @@ exact expectation value in a specified Hadamard state.  Units hbar=c=G=1, MTW.
   instance (psi_0 = psi) is NOT examined here.  CAVEAT, not a hypothesis of
   the theorem: the convex normal neighbourhood about the throat is set by a
   curvature radius of 0.0243 l_P, so any sampling domain it admits is
-  sub-Planckian -- Kontou's own doubt about the semiclassical regime of [90].
+  sub-Planckian IN THE ANGULAR DIRECTIONS (conjugate distance pi r_0 = 0.0763
+  l_P) -- Kontou's own doubt about the semiclassical regime of [90].
+  CORRECTED (DOCKET 67): "any sampling domain" was unqualified; the tidal
+  tensor vanishes exactly on the throat worldline, so nothing computed bounds a
+  domain's extent in t by r_0 (nor is a domain long in t constructed).
 
   FFKP's DSNEC/SNEC forms (75)-(93) are MINKOWSKI (reference state: the
-  Minkowski vacuum, eq. (75)).  Kontou 2024 Sec. 3.3: "the DSNEC ... currently
-  makes sense only on Minkowski spacetime or at length scales sufficiently
-  smaller than the curvature scale."  HPS's throat is not flat (Kretschmann
-  4/r_0^4 != 0, computed), and "sufficiently smaller" is SUB-PLANCKIAN under
-  either curvature-radius definition below.  REFUSED on HPS.
+  Minkowski vacuum, chosen in the sentence before eq. (75)).  Kontou 2024
+  Sec. 3.3: "the DSNEC ... currently makes sense only on Minkowski spacetime or
+  at length scales sufficiently smaller than the curvature scale."  (The elided
+  words are "of Equation (49)": her clause is about the MINIMALLY coupled
+  DSNEC, and this file transfers it to FFKP's non-minimally coupled forms.)
+  HPS's throat is not flat (Kretschmann 4/r_0^4 != 0, computed), and
+  "sufficiently smaller" is SUB-PLANCKIAN under either curvature-radius
+  definition below.  REFUSED on HPS -- ON THIS FILE'S OWN PREMISE that a
+  sampling length below l_P is outside the semiclassical regime: the l_P floor
+  is neither Kontou's nor FFKP's (named, DOCKET 67).  The DSN row also leaves
+  out FFKP's state class (79), the free-scalar and null-plane-smearing
+  hypotheses and the massless/factorisation steps; they decide nothing here,
+  because the row is REFUSED on flatness (see FORM_TAGS).
 
   THE CURVATURE RADIUS, DEFINED (ruling B3).  At HPS's throat data the ONLY
   non-zero orthonormal Riemann components are R_(theta phi theta phi) and its
@@ -151,12 +192,26 @@ Eqs. (5)-(7) were transcribed from the arXiv text layer and TESTED, not trusted:
     unique, c = 1 (the other sign has no solution): <T^mu_mu> =
     (1/2880 pi^2)(R_abcd R^abcd - R_ab R^ab + Box R), a pure local curvature
     scalar, the form of the conformal-scalar trace anomaly (form NAMED-NOT-READ
-    against a primary source).  An independent check on every non-log
-    coefficient.
+    against a primary source) IN THE AHS SCHEME: the Box R coefficient is
+    scheme-dependent, a beta-type (1)H term shifting it (CORRECTED, DOCKET 67).
+    An independent check on every non-log coefficient.
 
 ===============================================================================
 3. WHAT IS COMPUTED EXACTLY ON HPS  (THEOREM, sympy; signs by z3)
 ===============================================================================
+
+HYPOTHESES OF THE EQUATION SOLVED HERE (named, DOCKET 67): the semiclassical
+Einstein equation with Lambda = alpha = beta = 0 in the AHS scheme, one field
+(N = 1, no large-N limit), solved as the unreduced fourth-order system without
+Flanagan-Wald's physical-solution prescription (r_0 ~ hbar^(1/2), so the throat
+has no expansion in hbar about a classical solution), at a 0.0243 l_P throat
+where semiclassical validity is not established.  A beta-type term moves r_0,
+the fourth derivatives, <rho>(0) and the sign of <rho + p_l>(0) (DOCKET 67,
+computed); every result below is the b = 0 member and is HPS's system's.
+L carries the renormalisation scale: HPS's log term is ln(mu^2 f), so the range
+-1 <= L < 0 below is a statement about ln(mu^2 f(0)) (DOCKET 67: the log
+bracket is exactly -96 x the Bach tensor, so a shift in ln mu is a shift in
+alpha).
 
 HPS boundary data (9): -1 <= L = ln f(0) < 0, f' = f'' = f''' = 0, r' = r'' =
 r''' = 0, r(0) = sqrt(-16 K^2 L), K^2 = 1/(5760 pi).  The ll equation at l = 0
@@ -224,7 +279,9 @@ side of any QEI that applies to this field (section 4(a)).
     NOT-FOUND.  Nor is HPS's state established as Hadamard (AHS approximation;
     AHS NOT-REACHED).  The ONE FO instance that can be written down --
     omega_0 = HPS's own state -- reads 0 >= -Qt_A(f), with Qt_A >= 0 (FO): TRUE
-    FOR EVERY METRIC AND THEREFORE VACUOUS.  It is computed below only so the
+    FOR EVERY METRIC AND THEREFORE VACUOUS.  And it is available only IF HPS's
+    state is Hadamard, which FO require of omega_0 and which is NOT-ESTABLISHED
+    above (named, DOCKET 67).  It is computed below only so the
     refusal names what it refuses.
 (c) OFF THE THROAT, where rho + p_l < 0: HPS's solution exists only as boundary
     data plus figures; no closed form over any interval is printed.  The Taylor
@@ -396,9 +453,22 @@ FS, FO, FFKP, DSN = ("Fewster-Smith gr-qc/0702056",
 #: each inequality's left side: HPS's <T> itself (absolute) or a difference
 #: against a reference state (difference)
 QEI_KIND = {FS: "absolute", FO: "difference", FFKP: "difference", DSN: "difference"}
+#: DOCKET 67, recorded not repaired: on its own Minkowski domain DSN's difference
+#: against the Minkowski vacuum is in effect absolute.  The label is data that
+#: throat_verdict() reads, and DSN is REFUSED and excluded there, so it is left.
 #: the hypotheses that decide whether an inequality applies to THIS FIELD AND
 #: WORLDLINE ("in form"); the rest are inputs needed to EVALUATE it.  For FS,
 #: an absolute QEI, the Hadamard state is a hypothesis of the theorem.
+#: DOCKET 67, recorded and NOT changed here, because these sets decide the
+#: computed statuses (a change would move FO/FFKP/DSN verdict words):
+#:   FO   omits FO's "globally hyperbolic, smooth metric" (carried for FS and
+#:        FFKP); restorable locally, NAMED not computed (docstring section 1).
+#:   FO, FFKP  file "Hadamard state psi" as an evaluation input, though "for all
+#:        Hadamard states" is a hypothesis of both theorems; it is still listed
+#:        and blocks evaluation (NOT-ESTABLISHED), so OPEN is unaffected.
+#:   DSN  carries only "flat": FFKP's state class (79), free scalar, null-plane
+#:        smearing and the massless/factorisation steps are not tagged, so a
+#:        flat control returns EVALUABLE with no inputs; on HPS it is REFUSED.
 FORM_TAGS = {FS: {"xi", "hadamard"},
              FO: {"xi", "geodesic"},
              FFKP: {"xi", "domain", "null"},
@@ -433,6 +503,10 @@ def hypothesis_table(xi=HPS_XI, accel=THROAT_ACCELERATION, f0=THROAT_F0,
         (FO, "hadamard", "Hadamard state psi", "AHS approximation", had),
         (FO, "ref", "reference Hadamard state omega_0 on HPS", "searched", ref),
         (FO, "phi2", "<:Phi^2:> in the state", "HPS print none", ph2),
+        # DOCKET 67: "MET LOCALLY" below is computed from f0 > 0 and r0 > 0 at
+        # one point; it presumes the connection is C^{1,1} on a neighbourhood
+        # (not proved here), and Whitehead supplies convexity and normality,
+        # not global hyperbolicity or the one hyperbolic chart.
         (FFKP, "domain", "small sampling domain, globally hyperbolic convex "
          "normal neighbourhood",
          "f(0) = %.4g > 0, r(0) = %.4g > 0; Whitehead NAMED" % (f0, r0),
@@ -443,6 +517,13 @@ def hypothesis_table(xi=HPS_XI, accel=THROAT_ACCELERATION, f0=THROAT_F0,
         (FFKP, "hadamard", "Hadamard state psi", "AHS approximation", had),
         (FFKP, "ref", "W_0 of a reference Hadamard state on HPS", "searched", ref),
         (FFKP, "phi2", "<:phi^2:> in the state", "HPS print none", ph2),
+        # DOCKET 67: "kretschmann == 0" is NECESSARY, not sufficient, for flat
+        # (a vacuum plane wave has Kretschmann 0 with R_uxux = -1), and
+        # "min(radii) > 1" is necessary, not sufficient, for a sampling length l
+        # with l_P <= l <= r_c/k to exist (r_c = 7/4 l_P passes, none exists at
+        # k = 10).  The clause "sampling << curvature radius" is Kontou 2024
+        # Sec. 3.3 on the minimally coupled DSNEC; the l_P floor is this file's
+        # premise.  On HPS the row FAILS under either reading.
         (DSN, "flat", "Minkowski, or sampling << curvature radius (>= l_P)",
          "Kretschmann %.3g; radii %s l_P"
          % (kretschmann, ", ".join("%.4g" % x for x in radii)),
@@ -502,7 +583,8 @@ FEWSTER_SMITH_ON_HPS = ("%s -- not met on HPS's field: %s" % (_FS_STATUS, "; ".j
 FO_ON_HPS = ("%s -- applies in form (xi, geodesic) but NOT EVALUABLE on HPS: %s; "
              "its only writable instance (omega_0 = HPS's own state) is vacuous"
              % (_FO_STATUS, "; ".join(_FO_WHY)))
-FFKP_IV1_ON_HPS = ("%s -- applies in form (any xi; small sampling domain; null l) "
+FFKP_IV1_ON_HPS = ("%s -- applies in form (any xi; small sampling domain, given "
+                   "C^{1,1} regularity near the throat, not proved here; null l) "
                    "but NOT EVALUABLE on HPS, blocked as FO is: %s"
                    % (_FFKP_STATUS, "; ".join(_FFKP_WHY)))
 DSNEC_ON_HPS = ("%s -- Minkowski-only; HPS's throat is not flat and its curvature "
@@ -513,7 +595,9 @@ ABSOLUTE_QEI_FOR_NMC = ("NOT-FOUND -- FO conclusion: 'can also be adapted' "
 #: Kontou's requested test, over BOTH inequalities she names (for O5's text)
 KONTOU_REQUESTED_TEST_ON_HPS = (
     "FO Thm 4.2 %s and FFKP Thm IV.1 (eq. 72) %s -- both apply in form to "
-    "HPS's xi = %s field and neither is evaluable (reference state / W_0 and "
+    "HPS's xi = %s field on the throat worldline (FO: a timelike geodesic; "
+    "FFKP: a small sampling domain, metric regularity there not proved, and "
+    "null l) and neither is evaluable (reference state / W_0 and "
     "<:Phi^2:> on HPS NOT-FOUND; HPS's state not established Hadamard)"
     % (_FO_STATUS, _FFKP_STATUS, HPS_XI))
 DOCKET62_ATTRIBUTION_STANDS = KONTOU_REQUEST_FOUND   # the request exists, Kontou 2024
@@ -774,7 +858,9 @@ def radial_null_norm(sp):
 # ---------------------------------------------------------------------------
 
 def throat(sp):
-    """Exact throat quantities as functions of L = ln f(0), HPS data (9)."""
+    """Exact throat quantities as functions of L = ln f(0), HPS data (9).  The
+    Lambda = alpha = beta = 0, N = 1, unreduced member of the semiclassical
+    equation (section 3's named hypotheses, DOCKET 67)."""
     S = hps_system(sp)
     l, f, r, K2 = S['l'], S['f'], S['r'], S['K2']
     L, a, b = sp.symbols('L a b', real=True)
@@ -1036,7 +1122,8 @@ def selftest():
     ctl_min = hypothesis_table(xi=Fraction(0))
     chk("CONTROL minimal field: FS xi row MET at xi = 0",
         verdict(ctl_min, FS, "xi"), ["MET"])
-    chk("CONTROL flat: Kretschmann 0 meets the DSNEC row",
+    chk("CONTROL flat: Kretschmann 0 meets the DSNEC row (necessary, not "
+        "sufficient, for Minkowski)",
         verdict(hypothesis_table(kretschmann=0), DSN, "flat"), ["MET"])
     ctl_all = hypothesis_table(xi=Fraction(0), hadamard=True, ref_state=True, phi2=True)
     chk("CONTROL qei_status: all inputs present -> FO EVALUABLE, FS applies",

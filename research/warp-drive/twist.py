@@ -77,7 +77,10 @@ of f alone that is worst at f -> 1.  The two extrema are disjoint, exactly as
 the NEC violation and the margin were.  Measured below.
 
 -- SOURCES, PINNED ------------------------------------------------------------
-Alcubierre M 1994 Class. Quantum Grav. 11 L73, shape function Eq. (7).
+Alcubierre M 1994 Class. Quantum Grav. 11 L73 = gr-qc/0009013, shape function
+    eq. (6) of the arXiv version (eq. (7) there is its sigma -> infinity limit).
+    CORRECTED (DOCKET 67): cited as "Eq. (7)" here and below, a misnumbering;
+    the code is eq. (6) exactly.
 Barzegar H, Buchert T, Vigneron Q 2026 arXiv:2602.16495, Eqs (3.45)-(3.48),
     Theorem III.15.  (Also Errors 1-37; they report minor errors in Santiago-
     Schuster-Visser too, at their Errors 9 and 29.)
@@ -90,7 +93,7 @@ stdlib only.  Every number below is computed, none transcribed.
 """
 import math, sys
 
-# -- Alcubierre's own shape function, Eq (7), and his parameters ---------------
+# -- Alcubierre's own shape function, eq. (6), and his parameters -------------
 VS_DEFAULT  = 0.9      # v_s/c for the geometry tests; subluminal on purpose
 SIGMA       = 8.0      # wall steepness
 RADIUS      = 1.0      # bubble radius
@@ -98,7 +101,8 @@ H           = 1.0e-6   # central-difference step
 C           = 1.0      # geometric units throughout this file
 
 def shape(rs, sigma=SIGMA, R=RADIUS):
-    """Alcubierre Eq (7) / BBV Eq (3.45).  f(0)=1 inside, f->0 outside."""
+    """Alcubierre eq. (6) of gr-qc/0009013 / BBV Eq (3.45).  f(0)=1 inside,
+    f->0 outside."""
     return ((math.tanh(sigma * (rs + R)) - math.tanh(sigma * (rs - R)))
             / (2.0 * math.tanh(sigma * R)))
 
@@ -171,7 +175,12 @@ def xi_lower(x, y, z=0.0, vs=VS_DEFAULT):
     return [-C * C + vs * vs * f * f, -vs * f, 0.0, 0.0]
 
 def _d(mu, nu, x, y, vs, h=H):
-    """d_mu xi_nu.  x_s is fixed, so the configuration is static: d_t = 0.
+    """d_mu xi_nu.  x_s is fixed, so the configuration is t-independent in the
+    lab chart -- 'static' here means STATIONARY: d_t = 0.  This is a FROZEN
+    bubble, x_s held fixed while v_s = vs != 0 (VS_DEFAULT), not Alcubierre's
+    eq. (8), whose eq. (3) requires v_s = dx_s/dt: a stationary shift field
+    anchored to the exterior frame.  CORRECTED (DOCKET 67): this read "so the
+    configuration is static" with the frozen-bubble hypothesis unnamed.
     z = 0 is a symmetry plane, so d_z = 0 there."""
     if mu == 0 or mu == 3:
         return 0.0

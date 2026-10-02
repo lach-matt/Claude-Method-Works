@@ -11,16 +11,22 @@ So: an index whose cells are parameter tuples, whose admission test is DOES IT
 SEAT, and whose structure is then read with the corpus's own instruments.
 
 -- THE OBJECT ----------------------------------------------------------------
-transit.py reduced seating to one equation, u'' = -q u with q = 4 pi T_kk,
-u(0) = 0, the turn being the next zero.  The question "what conditions seat"
+achronal.py reduced seating to one equation, u'' = -q u with q = 4 pi T_kk,
+u(0) = 0, the turn being the next zero.  (CORRECTED, DOCKET 67: this file
+pointed at transit.py, which was rewritten at commit 4fb7bc3 and no longer
+holds the equation; the reduction is now in achronal.py and turnseat.py, the
+reversal theorem in turnseat.py.)  The question "what conditions seat"
 is therefore a question about q alone, and it has TWO SHARP CLASSICAL BOUNDS
 that bracket it from either side:
 
   LYAPUNOV (necessary).   If u(a) = u(b) = 0 with u non-trivial then
-                          (b - a) INT q+ > 4.  Below that, NOTHING seats,
-                          whatever the shape.
+                          (b - a) INT q+ > 4.  Below that, nothing seats BY
+                          RICCI FOCUSING ALONE, whatever the shape of q (the
+                          universal reading is struck below).
   STURM (sufficient).     If q >= m > 0 on a CONTIGUOUS length l >= pi/sqrt(m),
-                          every solution has a zero inside that stretch.
+                          every solution has a zero in that CLOSED stretch
+                          (strictly inside for the seating set-up here, the
+                          source before the stretch and q <= 0 outside it).
                           Equivalently  m l^2 >= pi^2.
 
 Between them is a band where seating depends on the shape of q and on where the
@@ -29,7 +35,7 @@ it is the object.
 
 -- THE ANSWER TO "UNIVERSAL" --------------------------------------------------
 The word does the work.  Sturm's condition is UNIVERSAL in the strict sense:
-the zero occurs INSIDE the focusing stretch, so nothing outside it can prevent
+the zero occurs WITHIN the focusing stretch, so nothing outside it can prevent
 the seat.  Measured -- at exactly m l^2 = pi^2, over five approach distances crossed with
 surrounding potentials of 0, -5 and -20, the turn lands inside the slab in all
 fifteen.  Drop below the frontier and universality breaks: at Sturm 0.49 one
@@ -52,8 +58,11 @@ ever.~~
     In vacuum q = 4 pi T_kk = 0 identically, so INT q+ dl = 0, Lyapunov's
     number is 0 and lyapunov_excluded() returns True -- "excludes seating for
     ANY shape".  composite.py, in that same vacuum, MEASURES A CONJUGATE POINT
-    AT 56.50.  Weyl is traceless and focuses one eigendirection whatever q
-    does.
+    AT 56.50.  Weyl is traceless and its contribution does not depend on q;
+    in that vacuum it focuses one eigendirection.  (CORRECTED, DOCKET 67: "it
+    focuses one eigendirection whatever q does" -- the tidal eigenvalues are
+    q + w and q - w, so for q <= -|w| neither focuses and there is no
+    conjugate point.)
 
     The honest statement is narrower: BELOW LYAPUNOV NOTHING SEATS BY RICCI
     FOCUSING ALONE.  See dichotomy.py and anecscope.py; this is the third
@@ -67,7 +76,8 @@ ever.~~
       INTERIOR CAPTURE     m l^2 >= pi^2       seats, universally
       WORKING OVERLAP      Lyapunov met but not Sturm -- seats or not
                            depending on shape and approach.  NOT universal.
-      EXTERIOR             L INT q+ <= 4       never seats, whatever the shape
+      EXTERIOR             L INT q+ <= 4       never seats BY RICCI FOCUSING
+                                               ALONE, whatever the shape
 
     This was flagged NOT-RUN when the resemblance was first noticed.  It is run
     here, and the trichotomy is exact rather than suggestive.
@@ -86,14 +96,23 @@ holding it is the focusing budget INT q ~ m l.  Substituting,
 That is a design equation, and it is the same shape as this project's others --
 area over thickness, and now strength over length.
 
-In physical units, q = (4 pi G / c^4) T_kk, so the universal condition reads
+In physical units, q = (4 pi G / c^4) T_kk -- Einstein's equation in four
+dimensions (in D dimensions the coefficient is (D-2)/2 times this), a twist-free
+congruence from a point, and k normalised k^0 = 1 in the frame where l is a
+length (named, DOCKET 67) -- so the universal condition reads
 
-        T_kk  >=  pi c^4 / (4 G l^2)   =   9.5054e43 / l^2   Pa
+        T_kk  >=  pi c^4 / (4 G l^2)   =   9.5053e43 / l^2   Pa
 
-and THAT NUMBER IS NOT EXOTIC.  It is positive, ordinary, energy-condition-
-satisfying matter -- the sector exclusion 1 of transit.py already forced -- and
-at l ~ 100 km it is BELOW nuclear density.  Matter that seats a conjugate point
-exists in nature; it is called a neutron star.
+and THAT NUMBER IS NOT EXOTIC.  It is positive, ordinary matter in the
+NEC-compatible sector -- what is computed is T_kk > 0 along the focusing
+congruence -- the sector exclusion 1 of transit.py already forced, and at
+l ~ 100 km it is BELOW nuclear density (below the saturation energy density,
+2.1-2.5e34 Pa, beyond about 63 km).  Matter that seats a conjugate point exists
+in nature; it is called a neutron star -- for a seating region LONG along the
+ray (CORRECTED, DOCKET 67: a uniform BALL of diameter l at the threshold has
+2GM/(Rc^2) = pi^2/6 in the weak-field estimate, past Buchdahl's 8/9).
+(CORRECTED, DOCKET 67: "9.5054e43" -- the coefficient computes to 9.505325e43
+with G = 6.67430e-11, whose own relative uncertainty is 2.2e-5.)
 
 -- WHICH COORDINATES THE INDEX ACTUALLY NEEDS ---------------------------------
 The information language's test (does a coordinate add join-irreducibles?) run
@@ -102,7 +121,7 @@ on the four candidates:
   m   strength      KEEPS cells.  An axis.
   l   extent        KEEPS cells.  An axis.  And it enters as l^2, not l.
   L   total length  KEEPS cells -- it is the Lyapunov denominator.
-  c   position      FOLDS.  transit.py's reversal theorem makes c and
+  c   position      FOLDS.  The reversal theorem (turnseat.py) makes c and
                     L - l - c the same cell, so the index is SYMMETRIC ABOUT
                     ITS MIDPOINT and the coordinate is halved, not removed.
 
@@ -119,16 +138,20 @@ arrives LATE.  So this file answers "what conditions seat, universally" exactly,
 and "what conditions transport" not at all.  The index is the right index; it is
 not yet the index of transport.
 
-stdlib only.  transit.py supplies the turn; typefour.py the stress tensor when
+stdlib only.  achronal.py and turnseat.py supply the turn (transit.py as first
+cited; CORRECTED, DOCKET 67); typefour.py the stress tensor when
 the index is checked against the real bubble rather than a model potential.
 """
 import math, sys
 
 PI2 = math.pi * math.pi
-C_SI = 299792458.0
-G_SI = 6.67430e-11
-#  q = (4 pi G / c^4) T  =>  T >= pi c^4 / (4 G l^2)
-T_COEFF = math.pi * C_SI ** 4 / (4.0 * G_SI)      # Pa m^2
+C_SI = 299792458.0                                # exact by definition, m/s
+G_SI = 6.67430e-11                                # CODATA 2018 (unchanged in
+#   2022), m^3 kg^-1 s^-2, standard uncertainty 0.00015e-11 (relative 2.2e-5)
+#   over mutually inconsistent inputs -- provenance and uncertainty named,
+#   DOCKET 67.  T_COEFF below is therefore good to about 4-5 significant figures.
+#  q = (4 pi G / c^4) T  =>  T >= pi c^4 / (4 G l^2)     (n = 4, GR)
+T_COEFF = math.pi * C_SI ** 4 / (4.0 * G_SI)      # Pa m^2  (= 9.505325e43)
 
 # the three populations -- register 1206's own names
 CAPTURE, OVERLAP, EXTERIOR = "INTERIOR-CAPTURE", "WORKING-OVERLAP", "EXTERIOR"
@@ -207,7 +230,13 @@ def cheapest_universal(L):
 
 
 def tkk_required(l):
-    """The universal-seating threshold in SI: T_kk >= pi c^4 / (4 G l^2), in Pa."""
+    """The universal-seating threshold in SI: T_kk >= pi c^4 / (4 G l^2), in Pa.
+
+    A NULL-NULL threshold, not an energy-density one (DOCKET 67): a source's
+    T_kk along the ray must be compared with it.  For a periodic Casimir cycle
+    the winding-direction T_kk is 4|T_00| and the transverse one is 0, so
+    dividing |T_00| into this number misstates the gain by a factor 4 (gjw.py,
+    outside this file, recorded there by DOCKET 67)."""
     return T_COEFF / (l * l)
 
 
@@ -312,7 +341,8 @@ def selftest():
     print("       Sufficiency is a THEOREM; the exact frontier of universality")
     print("       is not located by this scan and is NOT-RUN, not absent.")
 
-    print("\nLYAPUNOV IS UNIVERSAL THE OTHER WAY -- below it nothing seats")
+    print("\nLYAPUNOV, RICCI FOCUSING ONLY -- below it nothing seats IN THIS SCALAR")
+    print("MODEL (q alone; Weyl seats with q = 0, struck at the head of the file)")
     excl = [(m, l) for m in MS for l in LS if lyapunov_excluded(m, l, TOTAL)]
     chk("cells the necessary bound excludes", len(excl) > 0, True)
     bad = [(m, l, c) for (m, l) in excl for c in CPOS
@@ -351,7 +381,7 @@ def selftest():
     chk("c folds about the midpoint -- reversal gives the same seat/no-seat",
         all((seats(slab(m, a, l), TOTAL) is not None)
             == (seats(slab(m, b, l), TOTAL) is not None) for a, b in folded), True)
-    print("       the fold is transit.py's reversal theorem spent as a coordinate")
+    print("       the fold is turnseat.py's reversal theorem spent as a coordinate")
     print("       saving: self-adjointness halves the index rather than shrinking it.")
 
     print("\nWHAT MAXIMIZES UNIVERSAL SEATING -- the frontier and its cost")
@@ -367,13 +397,17 @@ def selftest():
 
     print("\nThe threshold in SI, and it is ORDINARY matter")
     near("coefficient pi c^4 / 4G  (Pa m^2)", T_COEFF, 9.50536e43, 1e39)
-    print("     %10s %18s %s" % ("l", "T_kk needed (Pa)", "vs nuclear ~1e35 Pa"))
+    # DOCKET 67: 1e35 Pa is ~4 n0, a neutron-star-core figure; the saturation
+    # energy density is 2.1-2.5e34 Pa, so the printed margin at 100 km (x10.5)
+    # is about x2.2-2.6 against saturation.  The reference is kept as printed.
+    print("     %10s %18s %s" % ("l", "T_kk needed (Pa)",
+                                 "vs 1e35 Pa (~4 n0; saturation 2.1-2.5e34)"))
     for l, tag in ((1.0, "1 m"), (1.0e3, "1 km"), (1.0e5, "100 km"), (1.0e6, "1000 km")):
         t = tkk_required(l)
         print("     %10s %18.4e %10.3g x nuclear" % (tag, t, t / 1.0e35))
     chk("at 100 km the requirement is BELOW nuclear density",
         tkk_required(1.0e5) < 1.0e35, True)
-    chk("and it is positive -- the energy-condition-satisfying sector",
+    chk("and it is positive -- T_kk > 0, the NEC-compatible sector",
         tkk_required(1.0e5) > 0.0, True)
 
     print("\n  SELFTEST %s" % ("OK" if ok else "FAILED"))
@@ -398,12 +432,14 @@ def report():
     print("  Universal seating is Sturm's condition, m l^2 >= pi^2, and it is")
     print("  universal in the strict sense: the turn happens INSIDE the focusing")
     print("  stretch, so nothing outside it can prevent the seat.  Below")
-    print("  Lyapunov, L INT q+ <= 4, nothing seats whatever the shape.  Between")
+    print("  Lyapunov, L INT q+ <= 4, nothing seats BY RICCI FOCUSING ALONE")
+    print("  whatever the shape (Weyl seats with q = 0).  Between")
     print("  them the answer depends on shape and approach and is NOT universal.")
     print("\n  What maximizes it: the frontier costs INT q = pi^2 / l, so LONG AND")
     print("  WEAK beats short and strong without limit.  In SI the threshold is")
-    print("  T_kk >= 9.5054e43 / l^2 Pa -- positive, ordinary, energy-condition-")
-    print("  satisfying matter, and below nuclear density beyond about 100 km.")
+    print("  T_kk >= 9.5053e43 / l^2 Pa -- positive, ordinary matter in the")
+    print("  NEC-compatible sector (T_kk > 0 along the congruence), and below")
+    print("  nuclear saturation density beyond about 63 km.")
     print("\n  UNIVERSAL SEATING IS NOT UNIVERSAL TRANSPORT.  A seat is a light")
     print("  focus and carries no payload, and every turning ray arrives late.")
     return 0

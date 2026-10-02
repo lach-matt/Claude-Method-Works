@@ -31,11 +31,20 @@ throat through its flare as well.
     YES -- WITHIN HPS'S MODEL SYSTEM, TAKEN IN ITS ONE CONSERVED READING, m < 0
     IS REALISED, AT A REGULAR CENTRE AND ON HPS'S OWN eq. (9) THROAT DATA.  NO
     INSTANCE HAS BEEN SHOWN TO LIE IN THE DOMAIN IN WHICH THE AHS APPROXIMATION
-    HAS BEEN DERIVED OR ESTABLISHED.  O5 STAYS OPEN.
+    HAS BEEN ESTABLISHED (CORRECTED, DOCKET 67: "DERIVED OR ESTABLISHED" -- see
+    DOMAIN).  O5 STAYS OPEN.
 
   "Self-consistent" means a solution of HPS's model system (G = 8 pi <T>, <T>
   the AHS analytic approximation for the massless conformal scalar), not of
   exact semiclassical gravity: no exact <T_ab> is known on these metrics.
+
+  A LIMITATION NAMED AT DOCKET 67.  The m < 0 solutions below are carried by
+  modes NON-PERTURBATIVE IN hbar: omega_1 = 1/(4K) = 6 sqrt(10 pi)/sqrt(hbar),
+  which diverges as hbar -> 0, with ripple wavelength 0.187 l_P (computed at
+  DOCKET 67), and theorem (b) builds its m < 0 solutions from exactly these
+  modes.  The order-reduction literature (Simon, Parker-Simon, Flanagan-Wald,
+  as restated by Arrechea et al. 2212.09375 p.2) holds such branches
+  non-physical and cites HPS as its example.  O5 stays OPEN under it.
 
   (a) REGULAR CENTRE, FORMAL SERIES -- THEOREM (sympy, all orders).  With the
       smooth-centre data r = l + c3 l^3 + ..., f = f0(1 + b2 l^2 + ...), the
@@ -92,11 +101,25 @@ throat through its flare as well.
   reading computes its bound over HPS_LNF0_RANGE.
 
   DOMAIN.  Every instance fails a hypothesis under which the AHS approximation
-  has been DERIVED OR ESTABLISHED: asymptotic flatness (Popov hep-th/0302039
-  p.1, eq. (70), Sec. VI).  This is NOT a showing that the approximation is
-  invalid there -- Popov (p.2, Sec. IV) shows the high-frequency part, which is
-  the AHS expression, does not depend on the state; asymptotic flatness enters
-  through the low-frequency part.  For the throat the failure is HPS's own
+  <T> ~ (T)^(4) has been ESTABLISHED as an approximation to <T> in the source
+  read: asymptotic flatness (Popov hep-th/0302039 p.1, eq. (70), Sec. VI).
+  This is NOT a showing that the approximation is invalid there -- Popov
+  (Sec. IV) shows the high-frequency part does not depend on the state and
+  identifies the AHS expression with it; asymptotic flatness enters through
+  the low-frequency part.
+    CORRECTED (DOCKET 67).  This paragraph said "DERIVED OR ESTABLISHED", and
+    DOMAIN_WORD "derived or established only for asymptotically flat".  On this
+    file's own Sec. IV reading the EXPRESSION is not derived under asymptotic
+    flatness, so only "established" fits (the "derived" half is contested by
+    HPS p.3, Arrechea App. B and Popov's Sec. IV; the "established" half is
+    supported by AHL and Arrechea p.3).  "Only" rests on Popov alone -- AHS is
+    NOT-REACHED and no later-literature search ran -- and the STATE hypothesis
+    (an approximation to <T> in a specified state) stands beside asymptotic
+    flatness.  "Does not depend on the state" is unqualified as written:
+    whether Popov's "arbitrary quantum state" is bounded (zero-temperature
+    vacua), and whether the AHS expression is the whole high-frequency part or
+    only its T = 0 member or a fourth-order truncation, is undetermined; the
+    "p.2, Sec. IV" pairing was not verified.  For the throat the failure is HPS's own
   statement ("the metric as a whole is not asymptotically flat") plus the
   measurement; for linear centre solutions it is theorem (b); for the
   nonlinear centre runs it is measured only where (c) says.  Popov's truncated
@@ -116,9 +139,14 @@ throat through its flare as well.
            asymptotic omega_1, omega_2, a = 5.3, b = 25.5, footnote [20].  The
            arXiv PDF TEXT LAYER was read; the journal PRL text was NOT.
   POPOV    hep-th/0302039 v2 -- READ: eqs. (21), (55), (70), (83), Sec. IV,
-           Sec. VI, Appendix B (B1)-(B3).  Popov states his (T)^(4) IS the AHS
-           analytic approximation (after eq. (67)); it is the independent
-           second printing of HPS's source term used below.
+           Sec. VI, Appendix B (B1)-(B3).  Popov states his (T)^(4) is
+           "equivalent to" the AHS analytic approximations, with m_DS = mu and
+           w0 = lambda (p.10, after eqs. (67)-(68)); it is a separately typeset
+           second printing of HPS's source term BY AN AUTHOR SHARED WITH HPS
+           (A. A. Popov), so an error both printings share would pass the
+           comparison of section 2.  (CORRECTED, DOCKET 67: "IS the AHS
+           analytic approximation (after eq. (67))" and "the independent second
+           printing".)
   TSH      gr-qc/9608036 (Taylor-Hiscock-Anderson) -- READ: p.3, the massless
            analytic approximations "contain an arbitrary parameter whose value
            cannot be fixed except by experiment".
@@ -137,9 +165,13 @@ throat through its flare as well.
 ===============================================================================
 
   HPS (5)-(7) and Popov (B1)-(B3) at xi = 1/6, m = 0 are transcribed
-  INDEPENDENTLY below.  Mapping: 8 pi / (46080 pi^2) = K^2, and Popov's
+  INDEPENDENTLY below -- this file's two transcriptions; the two PRINTINGS share
+  an author (section 1).  Mapping: 8 pi / (46080 pi^2) = K^2, and Popov's
   ln|4u0^2/(m_DS^2 r^2)| = ln(4 w0^2/(m_DS^2 f)), so HPS's ln f coefficient is
-  MINUS Popov's.  All three non-log parts agree EXACTLY.  The log parts differ
+  MINUS Popov's.  All three non-log parts agree EXACTLY -- a same-author
+  agreement, not independent corroboration: conservation and the trace leave 7
+  non-scale conserved traceless directions in the shared non-log part
+  undetected (DOCKET 67, computed).  The log parts differ
   at THREE places (the selftest counts them from printed_differences()):
 
     M1  HPS (5), ln f bracket: the text layer reads 16 f'^2 f''/f^3; Popov's
@@ -148,14 +180,21 @@ throat through its flare as well.
         HOMOGENEOUS (every other term scales as length^-4); Popov's (B2) gives
         /(f^2 r^2).
     M3  Popov (B3): -21 r^8 f'^4 is printed INSIDE the (xi - 1/6)^2 bracket;
-        HPS's (7) carries +21 f'^4/f^4 ln f.
+        HPS's (7) carries +21 f'^4/f^4 ln f.  The placement is not visible in
+        this file's xi = 1/6 transcription; DOCKET 67 READ (B3): that bracket
+        conserves only at a net f'^4 coefficient of 7020, not the printed 6999,
+        so the -21 is misplaced into it in the v2 text layer -- a printing
+        discrepancy, not to be quoted as a journal erratum.
 
   M1 and M2 are in HPS; M3 is in Popov.
     WITHDRAWN: the count "two misprints and two errors" (the report's typed
     heading).  The count is three disagreements, and it is computed.
 
-  CONSERVATION DECIDES ALL THREE.  Of the four readings of M1 x M3, exactly one
-  -- (116, 21) -- is conserved identically (d_l T^l_l + (f'/2f)(T^l_l - T^t_t)
+  CONSERVATION DECIDES ALL THREE -- GIVEN A HYPOTHESIS NAMED AT DOCKET 67: that
+  the AHS <T> is IDENTICALLY conserved (as a tensor obtained by varying a
+  diffeomorphism-invariant effective action is).  Bianchi with G = 8 pi <T>
+  gives nabla<T> = 0 only ON solutions, and AHS is NOT-REACHED.  Of the four
+  readings of M1 x M3, exactly one -- (116, 21) -- is conserved identically (d_l T^l_l + (f'/2f)(T^l_l - T^t_t)
   + (2r'/r)(T^l_l - T^th_th) = 0 for arbitrary f, r); the other three leave
   residuals.  (verify-hps/v1 solved for the two coefficients as UNKNOWNS and
   found (116, 21) unique, with no conserving pair at the printed r^1 slot;
@@ -167,10 +206,13 @@ throat through its flare as well.
 
   WHICH SYSTEM DID HPS INTEGRATE?  NOT DETERMINED
   (HPS_INTEGRATED_THE_PRINTED_SYSTEM = "NOT DETERMINED").  HPS's far-zone law
-  sqrt F = a ln l - b is a two-parameter log fit, and on these integrations
+  sqrt F = a ln l - b is HPS's "limit of large l", from "combined numeric and
+  analytic calculations" ("fit" is this file's word), and on these integrations
   the fitted (a, b) depend on the fitting window and on the sampling, and a
-  has not converged to a constant in either system: it keeps rising with the
-  window.  The reading prints the (a, b) spread over FAR_ZONE_WINDOWS for both
+  has not converged to a constant in either system within the computed range:
+  its trend keeps rising with the window to 1e5 K.  (CORRECTED, DOCKET 67: the
+  increments shrink, so rising within the range does not show that no limit
+  exists; the extrapolated limit depends on the tail model assumed.)  The reading prints the (a, b) spread over FAR_ZONE_WINDOWS for both
   systems (--full carries it to 1e5 K); attribution() claims a system only if
   it alone matches HPS's (5.3, 25.5) in EVERY window, and on the computed sweep
   it claims neither.  HPS do not state the window they fitted over.
@@ -243,6 +285,9 @@ import throatmass                    # noqa: E402  (hps_quartic, planck_length)
 # ---------------------------------------------------------------------------
 HPS_ARXIV = "gr-qc/9701064"
 HPS_A_PRINTED, HPS_B_PRINTED = 5.3, 25.5      # F(l) ~ (a ln l - b)^2, HPS p.8
+#   DOCKET 67: HPS's F is the monotone part of f = F + phi, while far_zone_fit
+#   fits sqrt f -- a definitional discrepancy of |delta a| <= 0.002 and
+#   |delta b| <= 0.02 (computed), immaterial to every comparison here.
 HPS_LNF0_RUN = (-2, 3)                        # ln f(0) = -2/3, HPS eq. (9)
 HPS_LNF0_RANGE = (-1.0, 0.0)                  # -1 <= ln f(0) < 0, HPS eq. (9)
 AHL_ALPHA_BETA_TIMES_2880PI2 = 1              # AHL gr-qc/9504019 eq. (6)
@@ -250,7 +295,12 @@ AHS_REACHED = False                           # NOT-REACHED -- see section 1
 
 # ---------------------------------------------------------------------------
 # The far-zone window sweep (section 2).  (lo, hi, sampling) in K; HPS do not
-# state their window.  MATCH_TOL is the old control's own 5 %; a system
+# state their window.  THE UNIT OF l IN HPS's LAW IS A HYPOTHESIS (named,
+# DOCKET 67): HPS state no unit for (a, b) and every length they do state is in
+# l_P.  Under l -> lam l, a is invariant and b -> b - a ln lam, so in l_P units
+# the K-unit target would be b = 51.48.  Numerically the K reading is favoured:
+# the printed-M1 run matches (5.3, 25.5) within 5 % in 125 of 231 windows in K
+# units and in 0 of 231 jointly under the l_P reading.  MATCH_TOL is the old control's own 5 %; a system
 # "matches" HPS in a window when BOTH a and b are within it.
 # ---------------------------------------------------------------------------
 FAR_ZONE_WINDOWS = ((500, 2000, "lin"), (500, 2000, "log"), (1000, 10000, "lin"),
@@ -296,9 +346,13 @@ NONLINEAR_CENTRE_NONFLATNESS = ("MEASURED for c3 K^2 = 1e-4 out to x = 300 K, an
                                 "for the large-amplitude runs ending at "
                                 "3 ln f + 4 = 0; not measured elsewhere")
 NONLINEAR_CENTRE_ASYMPTOTICS = "OPEN"
-DOMAIN_WORD = ("established: the AHS approximation has been derived or established "
-               "only for asymptotically flat spacetimes (Popov p.1, eq. (70), "
-               "Sec. VI); nothing here shows it invalid")
+#: CORRECTED (DOCKET 67): this said "the AHS approximation has been derived or
+#: established only for asymptotically flat spacetimes"; see section 0 DOMAIN.
+DOMAIN_WORD = ("established: the AHS approximation <T> ~ (T)^(4), as an "
+               "approximation to <T> in a specified state, has been established "
+               "only for asymptotically flat spacetimes in the one source read "
+               "(Popov p.1, eq. (70), Sec. VI; AHS NOT-REACHED); nothing here "
+               "shows it invalid")
 CHANGES_A_REQUIREMENT = False
 O5_ANSWERED_BY = ("a <T_ab> established at a centre that is not asymptotically "
                   "flat, or an asymptotically flat self-consistent solution with "
@@ -921,7 +975,9 @@ def far_zone_fit(res, lo, hi, sampling, n=200001):
 
 
 def matches_hps(ab, tol=MATCH_TOL):
-    """Both fitted coefficients within tol (relative) of HPS's printed a, b."""
+    """Both fitted coefficients within tol (relative) of HPS's printed a, b,
+    with l in K -- a named hypothesis, since b depends on the unit of l (see
+    the window sweep's note; DOCKET 67)."""
     a, b = ab
     return (abs(a - HPS_A_PRINTED) / HPS_A_PRINTED <= tol
             and abs(b - HPS_B_PRINTED) / HPS_B_PRINTED <= tol)
@@ -1236,14 +1292,15 @@ def selftest():
     bad = (S['G'][0], S['G'][1], S['G'][2] + f1**2/(4*f**2))
     chk("  CONTROL: a G^th_th missing -f'^2/4f^2 FAILS it", divergence(sp, S, bad) != 0, True)
 
-    print("\n2. TWO INDEPENDENT PRINTINGS OF THE SOURCE (HPS 5-7, Popov B1-B3)")
+    print("\n2. TWO PRINTINGS OF THE SOURCE, ONE SHARED AUTHOR (HPS 5-7, Popov B1-B3)")
     d = printed_differences(sp, S)
     chk("non-log parts identical, all three components", [x[0] for x in d], [0, 0, 0])
     chk("M1: tt log differs by exactly -100 f'^2 f''/f^3 (text layer 16 vs 116)",
         sp.simplify(d[0][1] + 100*f1**2*f2/f**3), 0)
     chk("M2: ll log differs by exactly the f^2 r / f^2 r^2 slot",
         sp.simplify(d[1][1] - (4*f1**2*r1**2/(f**2*r**2) - 4*f1**2*r1**2/(f**2*r))), 0)
-    chk("M3: thth log differs by exactly +21 f'^4/f^4 (Popov drops it)",
+    chk("M3: thth log differs by exactly +21 f'^4/f^4 (Popov prints it in the "
+        "(xi-1/6)^2 bracket)",
         sp.simplify(d[2][1] - 21*f1**4/f**4), 0)
     chk("THREE disagreements, counted from the differences (fixture %d)" % PRINTED_DISAGREEMENTS,
         count_disagreements(d), PRINTED_DISAGREEMENTS)

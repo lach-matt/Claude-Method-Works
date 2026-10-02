@@ -7,15 +7,23 @@ operator.  That's a good approximation -- this is a problem.  This is the
 coefficient debt.  We need precision math.  And it is worth reading Kuo & Ford."
 
 M is right about what the debt is.  Every DEMAND row in ledger.py is a demand on
-<rho>, inside G = 8 pi G <T>, and the error term of that equation is stated
-nowhere in this tree.  Kuo & Ford (gr-qc/9304008) are the paper that turns
+<rho>, inside G = 8 pi G <T> -- the member of the semiclassical family with
+Lambda = alpha = beta = 0 (Hu & Verdaguer 0802.0658 eq. (3.7) carries two
+curvature-squared couplings alpha, beta, zero in the classical equation, and
+with them a demand is not on <rho> alone) -- and the error term of that
+equation is stated nowhere in this tree.  (CORRECTED, DOCKET 67: "a demand on
+<rho>" stood without the alpha = beta = 0 it holds at.)  Kuo & Ford (gr-qc/9304008) are the paper that turns
 "good approximation" into a computed quantity:
 
     Delta(x) = | <:T00^2:> - <:T00:>^2 | / <:T00^2:>          KF (3.2)
 
 normal-ordered against the Minkowski vacuum, flat spacetime, coincidence limit,
-massless minimally coupled scalar.  Delta << 1 is their criterion for the
-semiclassical equation to hold.
+massless minimally coupled scalar: the purely temporal component, at x = y, of
+their multi-component two-point measure Delta_abmn(x,y), (3.1).  KF "propose"
+it as "a measure" of the extent to which the semiclassical approximation is
+violated; Delta << 1 is their criterion for the semiclassical equation to hold.
+(CORRECTED, DOCKET 67: the reduction from (3.1) and KF's "propose" were not
+stated.)
 
     python3 fluctuation.py             the reading
     python3 fluctuation.py --selftest  every figure re-derived, and the proofs
@@ -37,7 +45,13 @@ digits, controls (G) on the infinite squeezed-vacuum state.
                             EXACT IS 12 K^2 eps^2/(1+eps^2).  One power too many.
     KF (3.8)                Delta = (10 eps + sqrt2 cos2th)/(12 eps)
                             NOT THE EXACT DELTA, which is
-                            Delta = 1 - (2eps - sqrt2 cos2th)^2 / (3(1+eps^2)).
+                            Delta = |1 - (2eps - sqrt2 cos2th)^2 / (3(1+eps^2))|.
+                            (CORRECTED, DOCKET 67: written first without
+                            (3.2)'s absolute value.  The unsigned form, which
+                            the code computes, is KF's Delta wherever rho < 0
+                            and on every zero-mean Gaussian state; on part of
+                            rho > 0 it goes negative, -0.9428 where KF's Delta
+                            is +0.9428.  No verdict here reads that region.)
     KF (3.18), (3.22)       <:T00:> squeezed coherent / vacuum   EXACT
     KF (3.19), (3.23)       <:T00^2:> squeezed                   NOT EXACT.
                             For the squeezed vacuum the exact result is
@@ -55,11 +69,15 @@ digits, controls (G) on the infinite squeezed-vacuum state.
 KF state after (3.8): "the condition for the expectation value of energy
 density to be negative is cos(2 theta) > sqrt2 eps.  In this case we have
 Delta(x) > 1."  With the exact Delta that is FALSE, and z3 finds the
-counterexample.  What is true, and PROVED here (T2):
+counterexample -- and the failure is not at one point: NO state of the family
+has rho < 0 and Delta > 1.  What is true, and PROVED here (T2):
 
         rho < 0   ==>   1/3  <  Delta  <  1          (vacuum + two particle)
 
-At eps = 1/10, theta = 0 the exact Delta is 0.5134; KF's (3.8) gives 2.0118.
+At eps = 1/10, theta = 0 -- one instance of a failure that holds at every
+rho < 0 point -- the exact Delta is 0.5134; KF's (3.8) gives 2.0118.
+(CORRECTED, DOCKET 67: the counterexample was reported as if the claim failed
+at a point, which understated the failure in KF's favour.)
 Their qualitative conclusion -- fluctuations of order unity wherever rho < 0 --
 does NOT survive either.  In their own case (ii), the squeezed coherent state,
 take theta = pi/2, gamma = delta = 0 -- the plane of their Figs. 1-2 -- and a
@@ -88,8 +106,11 @@ What does survive is T1 below: every ZERO-MEAN Gaussian state has Delta >= 1/3.
 3. A THEOREM STRONGER THAN THEIRS, AND WHAT IT COSTS THEM
 ===============================================================================
 
-For ANY zero-mean quasifree (Gaussian) state -- squeezed vacua, the Casimir
-vacuum, thermal states -- Wick's theorem gives
+For any zero-mean quasifree (Gaussian) state of the massless minimal scalar in
+flat space that is of Hadamard type at the point (W - W_0 is C^2 there, the
+framework of Hollands & Wald gr-qc/0103074; where it is not, the formula says
+nothing) -- squeezed vacua, the Casimir vacuum, thermal states -- Wick's
+theorem gives
 
         <:T00^2:> = rho^2 + (1/2) SUM_AB G_AB^2 ,   G_AB = <:d_A phi d_B phi:>
 
@@ -119,8 +140,11 @@ Delta = 2/3 EXACTLY, at every point where rho != 0, on BOTH sides of zero.
 4. WHAT THIS MEANS FOR THE COEFFICIENT DEBT -- AND WHAT THIS FILE REFUSES
 ===============================================================================
 
-The debt is real and is now stated exactly: semiclassical gravity's error term
-is Delta, and at a point Delta >= 1/3 for every ZERO-MEAN state that carries
+The debt is real and is now stated exactly, in Kuo & Ford's measure -- they
+propose Delta as "a measure" of semiclassical gravity's error, and later work
+narrows or contests it as the validity criterion (Hu-Roura-Verdaguer 2004;
+Anderson et al. 2002) -- and at a point Delta >= 1/3 for every ZERO-MEAN state
+that carries
 negative energy by squeezing or by boundaries (T1) -- not for every state: a
 displaced squeezed state carries negative energy with Delta = 0 (section 2).
 
@@ -135,7 +159,15 @@ at source or proved here:
       must be computed;
   (c) KF: the curved-space version "will require a renormalization procedure
       for quartic operator products in such spacetimes, which has not yet been
-      developed."  Their words, 1993.
+      developed."  Their words, 1993, about the POINTWISE normal-ordered
+      products: KF say averaged quantities avoid normal ordering, so (c) bears
+      on the pointwise Delta, already refused on ground (a), and not on the
+      smeared price -- it is redundant to the refusal, not load-bearing.  The
+      pointwise renormalisation has since been developed (Brunetti-Fredenhagen-
+      Koehler 1996, cited and not read; Hollands & Wald 2001, READ by DOCKET
+      67).
+      (CORRECTED, DOCKET 67: (c) stood as a reason against the smeared price,
+      with no note that the 1993 gap has closed.)
 
 So this file REFUSES to price the corridor's fluctuation demand.  It supplies
 the exact flat-space measure, the theorem, and the scale question the price
@@ -265,6 +297,8 @@ def vacuum_plus_two(sp, m):
     vec = [1 / sp.sqrt(N), 0, eps / sp.sqrt(N)] + [0] * 6
     rho = m['fock'](vec, m['T1'])
     T2 = m['fock'](vec, m['T2'])
+    # The UNSIGNED form of KF (3.2): KF's Delta is its absolute value, equal to
+    # it wherever rho < 0 (DOCKET 67).  Kept unsigned; no verdict moves.
     delta_exact = 1 - (2 * eps - sp.sqrt(2) * cos2)**2 / (3 * N)
     return dict(
         rho=rho, T2=T2,

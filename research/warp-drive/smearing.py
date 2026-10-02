@@ -103,8 +103,13 @@ THE THREE NOT-RUNS
    fixed-background case is covered.  What is not covered is the
    SELF-CONSISTENT problem: matter that curves the spacetime it is bounded in.
    That is exactly obstruct.py's ANEC row, which stands OPEN, and the corpus's
-   note that self-consistent achronal ANEC in 4D has been unproven for
-   nineteen years.  NOT CLOSED HERE, and not newly opened either.
+   note that self-consistent achronal ANEC in 4D -- Graham & Olum's Condition
+   1, which they restrict to curvature well below the Planck scale -- has been
+   unproven for at least nineteen years (counted from G&O's naming of it in
+   2007; Flanagan-Wald stated ANEC in the achronal form in self-consistent
+   perturbation theory in 1996).  CORRECTED (DOCKET 67): the sub-Planckian
+   curvature hypothesis was dropped and "nineteen years" read as exact.  NOT
+   CLOSED HERE, and not newly opened either.
 
 ===============================================================================
 WHAT THIS CHANGES

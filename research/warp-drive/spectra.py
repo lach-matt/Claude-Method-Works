@@ -152,7 +152,13 @@ CHARGE_IS_SUPERSELECTED = True     # no coherent superposition across sectors
 
 
 def charge_states_in_a_closed_index():
-    """Gauss on a boundaryless manifold forces total Q = 0.  One value."""
+    """Gauss on a boundaryless manifold forces total Q = 0.  One value.
+
+    CORRECTED (DOCKET 67): this reads permute.total_charge_forced_zero, which
+    returns bool(closed) -- a DECLARED constant, not a computation -- so the
+    selftest row below checks that constant.  The theorem it stands for
+    assumes a massless photon on an untwisted bundle (a C-twisted bundle
+    carries net charge), and this count of 1 inherits both hypotheses."""
     import permute
     return 1 if permute.total_charge_forced_zero(True) else None
 
@@ -302,7 +308,7 @@ def selftest():
     print("1. CHARGE IS SUPERSELECTED; IN A CLOSED INDEX IT CARRIES ZERO BITS")
     chk("no coherent superposition across charge sectors",
         CHARGE_IS_SUPERSELECTED, True)
-    chk("charge values available in a closed index",
+    chk("charge values in a closed index (declared, via permute)",
         charge_states_in_a_closed_index(), 1)
     near("so the bits the charge carries", charge_bits_in_a_closed_index(), 0.0)
     chk("is the spectrum superselected too", spectrum_is_superselected(), False)

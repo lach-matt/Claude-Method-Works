@@ -20,8 +20,14 @@ TUNE.  Swept over 24000 samples across TWENTY-TWO DECADES, from static to
 
 QUANTUM-MECHANICALLY IT DOES CHANGE, AND M IS RIGHT ABOUT THE MECHANISM.  The
 DYNAMICAL CASIMIR EFFECT is exactly parametric modulation producing real photons
-from vacuum -- squeezed vacuum, which carries regions of NEGATIVE energy
-density.  Verified against the literature in this session rather than recalled:
+from vacuum -- squeezed vacuum, which in theory carries regions of NEGATIVE
+energy density (the sense in which arXiv:2504.11361 is cited here).  What has
+been MEASURED is the photon generation and two-mode squeezing (Wilson et al.
+2011, arXiv:1105.4714, read by DOCKET 67); no energy density was measured, so
+the DCE is not a measured negative-energy source.  (CORRECTED, DOCKET 67: read
+beside the tree's census, the sentence passed for "Wilson measured a negative-
+energy source".)  Verified against the literature in this session rather than
+recalled:
 arXiv:2504.11361 (DCE in superconducting cavities), arXiv:2112.08881 (Casimir
 negative energy densities against total-mass positivity), gr-qc/9901074
 (Ford-Roman QUANTUM INTEREST).

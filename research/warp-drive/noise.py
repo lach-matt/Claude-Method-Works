@@ -19,8 +19,9 @@ recorded in WITHDRAWN and CORRECTED below; nothing withdrawn is deleted.
 0.  THE QUESTION, AND THE ANSWER -- STATUS SPLIT
 ===============================================================================
 
-fluctuation.py proved the POINTWISE Kuo-Ford measure is >= 1/3 for every
-zero-mean Gaussian state and is sign-blind.  D22 asked for the SMEARED price at
+fluctuation.py proved the POINTWISE Kuo-Ford measure is >= 1/3 for the massless
+scalar in every zero-mean Gaussian state (with m > 0 the floor drops to 2/7,
+DOCKET 67, z3) and is sign-blind.  D22 asked for the SMEARED price at
 the corridor's own scales and whether the demand column must be restated about a
 distribution.
 
@@ -41,7 +42,11 @@ distribution.
     60.108 at 0.1 l_G, b = 1 m) are flat bounds applied inside a curved region.
     The curved decision is O2's (CURVED_PART_CARRIED_BY): by FFR 1004.0179
     note [18], an absolute QEI evaluated on the corridor decides the
-    distribution question there with no variance at all.
+    distribution question there with no variance at all, IF the evaluated
+    bound is below the demanded magnitude and holds on the whole domain of a
+    self-adjoint realisation of the corridor's sampled operator (a curved H3);
+    a bound above the demand decides nothing.  (CORRECTED, DOCKET 67: "decides"
+    stood unconditional.)
 
     UNDER THE GAUSSIAN EINSTEIN-LANGEVIN SURROGATE (Hu & Verdaguer 0802.0658
     Eq. (3.13); a different reading of "distribution", NOT H6) the probability
@@ -79,7 +84,9 @@ By scaling, Var_0 = K_f / tau^8 EXACTLY, K_f a pure number of the sampler's
 SHAPE.  Lorentzian K = 3/(512 pi^4), Gaussian K = 1/(70 pi^4) (exact, sympy).
 For FEWSTER'S OWN SAMPLER -- f = g^2, g the L^2-normalised fundamental of
 d^4/dt^4 with clamped ends on [0, tau], the sampler whose Rayleigh quotient is
-mu_1^4 and so gives C = mu_1^4/(16 pi^2) (Fewster 1208.5399 Eq. (4)) --
+mu_1^4 and so gives C = mu_1^4/(16 pi^2) (Fewster 1208.5399 Eq. (4) prints
+"C ~ 3.17" and the clamped-eigenvalue description; the closed form is the
+tree's, achievable.fewster_constant -- CORRECTED, DOCKET 67) --
 
     K_F = 19.8...  (MEASURED, 25 digits, two routes: a position-space
                     principal value with the exponential integral Ein, and a
@@ -99,9 +106,11 @@ corridor's hold time tau = b/c, b = 1 m: SD_0 = 1.4e-25 Pa, against the demand
 
 Smear Kuo-Ford's own measure (normal-ordered square, their normalisation):
     Delta'_f = ( <:A^2:> - <A>^2 ) / <A>^2 ,   A = rho(f).
-For a zero-mean Gaussian state with normal-ordered two-point kernel G_AB,
-Delta'_f = 2 ||K||_HS^2 / (tr K)^2 with K = f^(1/2) G f^(1/2).  Pointwise K is
-4x4 and Cauchy-Schwarz gives 2/4 = 1/2 -- that IS T1 (fluctuation.py).
+For a zero-mean Gaussian state of the MASSLESS field with normal-ordered
+two-point kernel G_AB, Delta'_f = 2 ||K||_HS^2 / (tr K)^2 with
+K = f^(1/2) G f^(1/2).  Pointwise K is 4x4 (the four derivative components;
+with m > 0 a fifth, m phi, enters and the floor is 2/5, DOCKET 67) and
+Cauchy-Schwarz gives 2/4 = 1/2 -- that IS T1 (fluctuation.py).
 ILLUSTRATION ONLY, NOT PART OF THE PROOF: for a finite symmetric n x n matrix
 the floor is 2/n, and z3 shows it at n = 4 (1/2 holds) and n = 8 (1/2 fails,
 1/4 holds).  The smeared K acts on L^2(R) (x) C^4 and is not finite-rank; that
@@ -182,9 +191,13 @@ l_G = (8 pi G D/c^4)^(-1/2) = 1.633e-2 m at b = 1 m, and (b / l_G)^2 is
 EXACTLY 6 (M/b)/(a/b)^3 = B_OVER_LG_SQUARED = 3750 at every b -- derived
 symbolically from achievable.required_density, a function of achievable.py's
 two window parameters alone.  So achievable.py's sampling length b is 61 times
-the curvature length the demand itself sets -- outside Ford-Roman's own
-condition, "sampling time ... much smaller than the smallest local radius of
-curvature" (gr-qc/9607003 Sec. 4, READ in achievable.py).  The flat refusal
+the curvature length the demand itself sets -- outside the condition Ford &
+Roman ARGUED for curved spacetime, "if the sampling time is restricted to be
+much smaller than the smallest local radius of curvature and/or the distance to
+any boundaries in the spacetime" (gr-qc/9607003 Sec. 4, p.11, READ in
+achievable.py).  (CORRECTED, DOCKET 67: the quotation stopped at "radius of
+curvature" and was labelled "Ford-Roman's own condition"; their word for it is
+"argued".)  The flat refusal
 survives shortening: H5 holds on every sub-interval, and at sampling length
 eps*l_G the flat shortfall is log10(D/Q) + 4 log10(eps l_G/b): 64.108 orders
 (eps = 1) and 60.108 orders (eps = 0.1) at b = 1 m.  corridor()'s output is
@@ -197,9 +210,15 @@ opens a row for it.
 
 THE CURVED-SPACE VARIANCE -- WHAT IS AND IS NOT SHOWN.  The ledger's D22 text
 said the smeared price "needs the curved-space renormalisation of quartic
-operator products Kuo & Ford said did not exist".  That is wrong ONLY AS TO NEW
-RENORMALISATION: Hu & Verdaguer (0802.0658 Sec. 3.2, after Eq. (3.12), READ):
-for a linear field the noise kernel "is free of ultraviolet divergences because
+operator products Kuo & Ford said did not exist".  Kuo & Ford's remark (1993)
+was that this renormalisation was not yet developed, and it concerned
+POINTWISE normal-ordered quartic products -- they say averaged quantities avoid
+normal ordering; pointwise quartic Wick products were renormalised in curved
+spacetime after 1993 (Brunetti-Fredenhagen-Koehler 1996, NAMED-NOT-READ;
+Hollands & Wald 2001, READ by DOCKET 67).  For the smeared price the D22 text is
+wrong ONLY AS TO NEW RENORMALISATION: Hu & Verdaguer (0802.0658 Sec. 3.2, after
+Eq. (3.12), READ), for physically acceptable (Hadamard) states: for a linear
+field the noise kernel "is free of ultraviolet divergences because
 the regularized T_ab differs from the renormalized T^R_ab by the identity
 operator times some tensor counterterms ... so that in the subtraction (3.12)
 the counterterms cancel".  A c-number shift moves the mean and no central
@@ -208,8 +227,17 @@ do occur in the coincidence limit.  FINITENESS of the WORLDLINE-SMEARED curved
 variance for Hadamard states needs one more step: the pull-back of the
 restricted Wightman derivatives to a timelike curve has wavefront set in
 R x R+ x R x R-, so their product is defined (Fewster 1208.5399 Sec. 3.3).
-That argument is NAMED, NOT RUN here.  Kuo & Ford's <:A^2:> in curved space
-needs a REFERENCE STATE for its normal ordering; Var = <A^2> - <A>^2 does not.
+That argument is NAMED, NOT RUN here.  The claim is about the TIME-smeared
+variance only: pointwise the variance needs a new renormalisation (H&V p.29,
+"divergences do occur"), and smearing over space alone diverges in 4D.  Kuo &
+Ford's <:A^2:>, with their literal state normal ordering, needs a REFERENCE
+STATE in curved space; Var = <A^2> - <A>^2 does not.  Hadamard-parametrix
+ordering (Hollands & Wald) is a second, reference-free route to the pointwise
+quantity, at the price of local curvature ambiguities.
+    CORRECTED (DOCKET 67).  This passage dropped the 1993 date and the
+    pointwise scope of Kuo & Ford's remark, left the Hadamard hypothesis out of
+    the H&V quote, and read the reference-state contrast as if KF's state
+    normal ordering were the only route.
 The corridor's own curved variance is still NOT computed: it needs the
 corridor's two-point function, which does not exist in the tree.
 
@@ -219,9 +247,11 @@ WHAT THIS FILE REFUSES
     bottom of the spectrum is not fixed by the mean, and no general bound is
     claimed.  It is not needed for the row: the demanded mean is not admissible
     (in the flat model).
-  * Nonminimal coupling (Fewster 1208.5399 Sec. 5.1: no state-independent QEI;
-    state-dependent bounds, Fewster-Osterbrink) and interacting fields (Sec.
-    5.2): H1 is essential and nothing is claimed there.
+  * Nonminimal coupling (Fewster 1208.5399 Sec. 5.1, after Fewster-Osterbrink
+    0708.2450: for the massless field with xi > 0 in Minkowski space, no
+    state-independent QEI; state-dependent bounds) and interacting fields
+    (Sec. 5.2): H1 is essential and nothing is claimed there.  (CORRECTED,
+    DOCKET 67: the coupling stood unsigned, without massless or Minkowski.)
   * The curved evaluation (O2).  No curvature-tightened figure is printed.
   * The Einstein-Langevin surrogate for states other than the vacuum: the
     probability there is set by the state's noise kernel, not computed.
@@ -271,8 +301,15 @@ CORRIDOR_APPLICATION = "SURVEY"        # H2 fails on the corridor
 CURVED_PART_CARRIED_BY = "O2"          # absolute QEI on the corridor, via FFR note [18]
 DEMAND_RESTATED_ABOUT_DISTRIBUTION_CHANGES_REQUIREMENT = False
 T1_SURVIVES_SMEARING = False
-CURVED_VARIANCE_NEEDS_QUARTIC_RENORMALISATION = False     # no NEW renormalisation (H&V 3.2, READ)
+# The flag is about the TIME-smeared (worldline) curved variance, not the
+# pointwise one, which does need a new renormalisation.  H&V 3.2 (READ) gives
+# the counterterm cancellation and separated-point finiteness; the smeared
+# finiteness needs the wavefront pull-back, NAMED, NOT RUN (the next flag).
+# CORRECTED (DOCKET 67): the comment credited the whole claim to H&V.
+CURVED_VARIANCE_NEEDS_QUARTIC_RENORMALISATION = False     # time-smeared: no NEW renormalisation
 CURVED_VARIANCE_FINITENESS = "NAMED, NOT RUN (Fewster 1208.5399 Sec. 3.3, wavefront pull-back)"
+# True of Kuo & Ford's LITERAL state normal ordering; Hadamard-parametrix
+# ordering (Hollands & Wald 2001) needs none (DOCKET 67).
 KUO_FORD_NORMAL_ORDERING_NEEDS_REFERENCE_STATE_IN_CURVED_SPACE = True
 VARIANCE_NEEDS_REFERENCE_STATE = False
 CURVED_VARIANCE_COMPUTED = False

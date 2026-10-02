@@ -138,9 +138,20 @@ SPEC = [
   "CRITICAL -- must be ~0 for 1090 passes. Zhang's nu; never computed for a VEHICLE"),
  ("NAVIGATION","timing precision required",None,"s","OPEN","chaotic stratum, unquantified"),
 
- ("ARRIVAL","with a deflector present","free","","DERIVED","time-symmetric reverse pass"),
+ # CORRECTED (DOCKET 67), notes only -- values and statuses unchanged: "free"
+ # prices propellant alone, and the 0.87c magsail figure applies arrival.py's
+ # ram-drag law outside every READ magsail model.
+ ("ARRIVAL","with a deflector present","free","","DERIVED",
+  "time-symmetric reverse pass; free of PROPELLANT only -- steering needs "
+  "|db| ~ 0.01 M, and braking 0.866c takes 1.80-3.25 passes at U = 0.35-0.2c "
+  "or one deflector at 0.577c"),
  ("ARRIVAL","without, mass ratio at 0.87c",3.7314,"","DERIVED","arrival.py, photon floor"),
- ("ARRIVAL","magsail at 0.87c",2.6,"ly","DERIVED","brake distance; must start before departure"),
+ ("ARRIVAL","magsail at 0.87c",2.6,"ly","DERIVED",
+  "brake distance; must start before departure.  arrival.py's constant-area "
+  "F = rho v^2 A law at 1 proton/cm^3, applied at 0.866c, outside every READ "
+  "magsail model (non-relativistic, velocity-dependent area, ions only at "
+  "0.05-0.21 cm^-3); 2.6 is arrival.py's prose figure (its function gives "
+  "0.084 ly at A = 1e12 m^2; 2.6 matches A = pi (100 km)^2 within 3%)"),
  ("ARRIVAL","destination has a deflector",None,"","OPEN","routing constraint, unsurveyed"),
 
  ("ONBOARD","power for transport",0.0,"W","DERIVED","none required"),

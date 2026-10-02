@@ -20,7 +20,8 @@ record, do not over-seat.
     g^{ll} = 1, so the Misner-Sharp mass is m(l) = (r/2)(1 - r'(l)^2).  Verified
     here: G^t_t = (2 r r'' + r'^2 - 1)/r^2 (HPS eq. (5)'s left side) and
     dm/dl = 4 pi r^2 r' rho, both residuals exactly 0.  So m < 0 iff |r'| > 1, and
-    a THROAT (r' = 0, r = r_0 > 0) has m = r_0/2 > 0 exactly.
+    a smooth THROAT (r' = 0, r = r_0 > 0, r''(0) finite) has m = r_0/2 > 0
+    exactly.
       GRADED DOWN BY THE RULING: that line is a one-substitution consequence of a
       standard definition.  THE NEW CONTENT is the series: m'(0) = 0 and
       m''(0) = a(1 - 2 r_0 a)/2, a = r''(0), from a Taylor expansion (sympy, not
@@ -33,9 +34,16 @@ record, do not over-seat.
     sqrt(15)/(90 sqrt(pi)) = 0.02428 l_P (printed "~0.02").  With f(0) = f''(0) = 1
     it collapses to -4 r_0^4 + K^-2 r_0^2 = 0, r_0 = 1/(2K) = 12 sqrt(10 pi) =
     67.2599 l_P (printed "~67").  Eq. (8) is as transcribed by the O5 pass, which
-    read HPS at source.  The largest self-consistent throat anyone has built is
-    HPS's quoted 300 l_P = 4.849e-33 m, 32.31 orders below one metre of corridor
-    and 48.92 below the Proxima span.
+    read HPS at source.  The largest throat in the families surveyed here is
+    the upper end of HPS's printed "~200 - 300 l_P", carried as 300 l_P =
+    4.849e-33 m: 32.31 orders below one metre of corridor and 48.92 below the
+    Proxima span (the printed range spans 32.31-32.49 orders, and radius
+    against diameter moves it another 0.30).  HPS p.8 call these "local
+    solutions" with horizons located far from the throat, and do not show
+    them; they are self-consistent within the AHS analytic approximation for
+    a massless, zero-temperature scalar; and HPS say a throat "can be
+    arbitrarily large".  "Largest" is this file's survey-completeness
+    hypothesis, not a ceiling HPS state.
 
 (3) NOT-FOUND, WITH ONE COMPUTED CONTROL AND ONE READ CONTROL.  No
     self-consistent semiclassical solution with m(r) < 0 or negative ADM mass,
@@ -46,8 +54,17 @@ record, do not over-seat.
     regular-centre hypothesis earning its place (index3.py's prior finding,
     cited as control, NOT re-claimed).  This is the only control here that is
     computed.
-    Control 2, READ: the same search returned self-consistent families, so the
-    zero is a measurement and not a dead search.  The families are seated
+    Control 2, READ: the same search returned solution families, so the search
+    is not dead.  As a control OF THE ZERO it is weak: in five of the six
+    families m >= 0 is fixed by the symmetry class or by the background the
+    authors assumed, before any semiclassical dynamics enters (flat FLRW,
+    m = R^3 H^2/2; the Einstein static universe, (a/2) sin^3 chi; Garattini's
+    Ellis ansatz, r_t^2/(2r); KS, m = 0; APT, Schwarzschild at leading order),
+    and only HPS could have returned m < 0 dynamically.  Three of the six (KS,
+    Garattini, APT) are not fixed-point solutions of G = 8 pi <T>: KS and
+    Garattini impose one integrated equality on an assumed metric, and APT is
+    linear backreaction.  So the zero carries information about ONE family
+    (DOCKET 67, o5-pass-literature-tally).  The families are seated
     below as SELF_CONSISTENT_FAMILIES -- citation, how the pass reached each,
     and whether it reports m < 0 -- transcribed from the DOCKET 62 O5 pass's
     output in the docket's workflow journal.  Both counts (families returned,
@@ -61,15 +78,31 @@ record, do not over-seat.
 
 (4) HYPOTHESIS DISCIPLINE, KEPT.  Flanagan-Wald is NOT applied: h ~ 0.5 at the
     core surface makes eps ~ O(1) and their one-parameter perturbative family
-    hypothesis fails.  Sanders' Theorem 5.1 is NOT applied: his class is
+    hypothesis fails -- and class membership fails too, at any eps: FW's family
+    is flat space and vacuum at eps = 0, sourced only by <T>, while the
+    corridor's h is sourced by a classical mass.  Sanders' Theorem 5.1 is NOT applied: his class is
     ultrastatic with compact maximally symmetric slices.  Failure mode (4)
     declined in the open, twice.
 
-(5) AN EXPULSION IS WORSE THAN A NO-GO.  If Flanagan-Wald, Anderson-Molina-
+(5) AN EXPULSION WOULD BE WORSE THAN A NO-GO -- AND THE SOURCES READ DO NOT
+    EXPEL AT eps ~ 1.  If eps ~ 1 lay outside semiclassical gravity's domain,
+    the corridor would not be refuted but placed beyond the theory's
+    jurisdiction, and a bare expulsion names no hypothesis to attack.  The
+    sources do not draw that boundary.  Flanagan-Wald make small eps a
+    hypothesis of their ANALYSIS; the domain criterion they state is
+    Planckian curvature, or stress fluctuations comparable to the mean.
+    Anderson-Molina-Paris-Mottola draw the edge at length scales approaching
+    l_P and at a growing gauge-invariant linear-response mode about a
+    self-consistent solution -- a test that can fail, and whose failure names
+    something (the geometry's quantum fluctuations must be included); they
+    treat an h = 1 horizon geometry as inside their framework.  At r = 1 m
+    the corridor's curvature is 2e-139 in Planck units, so what they state
+    does not expel it, and AMM's test needs a self-consistent solution not in
+    hand (linstab.py).  Which Kontou work is meant is not identified.
+    CORRECTED (DOCKET 67): first written "If Flanagan-Wald, Anderson-Molina-
     Paris-Mottola and Kontou are right that eps ~ 1 lies outside semiclassical
-    gravity's domain, the corridor is not refuted -- it is placed beyond the
-    theory's jurisdiction.  A no-go names a hypothesis to attack; an expulsion
-    names nothing.
+    gravity's domain ... an expulsion names nothing" -- an attribution none of
+    them makes on the pages read.
 
 ===============================================================================
 2. WHAT IS DEMOTED
@@ -78,14 +111,24 @@ record, do not over-seat.
 The pass stated, as a THEOREM, that "no QEI in this family CAN bound rho_ren"
 and that this "separates O5 from O2 permanently".  REFUTED AT SOURCE by the
 ruling: Fewster & Smith, gr-qc/0702056 eq. (5), bound INT f^2 <v^a v^b T^ren_ab>
-directly, from local geometry alone, with no reference state, for the minimally
-coupled Klein-Gordon field on any four-dimensional globally hyperbolic spacetime
--- a class containing the corridor.  What survives is the weaker sentence: the
-FEWSTER-TEO bound (normal-ordered against the static vacuum, on which
-<0|:T:|0> = 0 identically) does not bound it.  The renormalisation gap is real but
-narrow: F&S's flat massless limit (their eq. (88)) has the same form and constant,
-and the residual freedom is C_ab, a state-independent conserved local curvature
-term that vanishes in Minkowski.  Not a free-floating unknown.
+directly, with no reference state, for HADAMARD states (Thm 3.1) of the
+minimally coupled Klein-Gordon field on four-dimensional globally hyperbolic
+spacetimes, along a worldline inside a small sampling domain (a globally
+hyperbolic convex normal neighbourhood with a hyperbolic chart, or a partition
+of unity that then enters the bound).  The bound is built from local geometry
+and also depends on the coordinates, any partition of unity and, in some
+cases, the tetrad (F&S pp.18, 25).  The corridor's spacetime is in the class;
+the operative requirement is local, and is not checked here.  What survives is
+the weaker sentence: the FEWSTER-TEO bound (normal-ordered against the static
+vacuum, on which <0|:T:|0> = 0 identically) does not bound it.  The
+renormalisation gap is real; how narrow it is is not shown: F&S's flat
+massless limit (their eq. (88)) has the same form and constant, but F&S leave
+its relation to the curved bound to future work (pp.24, 27).  The residual
+terms are C_ab, a state-independent conserved local curvature term that
+vanishes in Minkowski, and the conservation term Q of their eq. (21).  Not a
+free-floating unknown.  (CORRECTED (DOCKET 67): first written "from local
+geometry alone", "any four-dimensional globally hyperbolic spacetime", "the gap
+is real but narrow" and "the residual freedom is C_ab".)
 
 ===============================================================================
 3. WHAT WOULD ANSWER IT
@@ -95,8 +138,18 @@ Re-integrate HPS's printed fourth-order system with REGULAR-CENTRE data r(0) = 0
 r'(0) = 1, f'(0) = 0 in place of throat data -- after re-deriving their eq. (8)
 constraint, which assumes r'(0) = 0 and does not hold at a centre -- and ask
 whether r'(l) ever exceeds 1.  Read Anderson-Hiscock-Samuel PRD 51 4337 first.
-Closed only by a general existence theorem for the static spherically symmetric
-asymptotically flat class, which nobody has.  NOT DONE HERE.
+An exhibited asymptotically flat m < 0 solution would answer yes and a no-go
+would answer no; an existence theorem alone decides neither.  A general
+existence theorem for NON-TRIVIAL (non-flat; Minkowski is a member) static
+spherically symmetric asymptotically flat solutions, for the exact
+renormalised <T> of a POSITIVE Hadamard state outside the xi = 1/2 stealth
+sector, holding globally, is NOT-FOUND -- READ sources to April 2026 and three
+discovery sweeps, a floor and not NO.  2412.08402 gives local existence at
+xi = 1/2 modulo state positivity, which covers Schwarzschild; 2011.05947 Prop. 9
+is a no-go at m = 0, xi = 1/6 on static Ricci-flat non-Minkowski spacetimes.
+Neither settles HPS's AHS-approximate system.  NOT DONE HERE.  (CORRECTED
+(DOCKET 67): first written "Closed only by a general existence theorem for the
+static spherically symmetric asymptotically flat class, which nobody has.")
 """
 
 import math
@@ -126,17 +179,37 @@ NO_GO_FOR_NEGATIVE_MASS_FOUND = "NOT-FOUND"
 #:    READ r_0 values in l_P for a throat, basis of the sign as the pass gave it)
 #: "m < 0 reported" is the pass's tally ("solutions found with m(r) < 0
 #: anywhere : 0") applied per family; it is READ, never computed here.
+#: CORRECTED (DOCKET 67): the list's name is kept, but not all six are
+#: fixed-point self-consistent solutions of G = 8 pi <T>.  HPS solves the local
+#: semiclassical equations; KS and Garattini impose one integrated equality on
+#: an assumed metric; APT is linear backreaction, not iterated.  Nor are the six
+#: the whole literature (2607.07583v1 p.1 cites others).  Each row's text says
+#: which it is; no boolean or r_0 below moved.
 SELF_CONSISTENT_FAMILIES = (
     ("Hochberg-Popov-Sushkov", "gr-qc/9701064, PRL 78, 2050 (1997)",
      "CITED, read in full at source", True, False, (0.02428, 300.0),
-     "throat: m = r_0/2 > 0 at the throat; HPS eq. (9) sets r''(0) = 0; the "
-     "flare-region profile is not reported (NOT-FOUND)"),
+     "throat: m = r_0/2 > 0 at the throat; HPS eq. (9) gives r''(0) = 0 for the "
+     "displayed ln f(0) = -2/3 solution (0.02428 l_P) only -- for the ~200-300 "
+     "l_P 'local solutions' r''(0) and xi are not printed, so the series result "
+     "is not established there; AHS analytic approximation, massless, T = 0; "
+     "the flare-region profile is not reported (NOT-FOUND)"),
     ("Khusnutdinov-Sushkov", "hep-th/0202068, PRD 65, 084028 (2002)",
-     "CITED", True, False, (0.0141,),
-     "throat (short-throat flat-space wormhole): m = r_0/2 > 0 at the throat"),
+     "CITED; the self-consistency condition itself NOT READ", True, False, (0.0141,),
+     "thin-shell flat-space wormhole, r = |rho| + a: r' jumps -1 -> +1 at the "
+     "shell, so m = 0 on both flat sides (ADM 0) and is undefined at the shell; "
+     "m = r_0/2 is only the limit through smooth regularisations, and the "
+     "series premise (finite r''(0)) fails here.  KS print a negative total "
+     "energy E = -2c^4 a/G (a proper-volume integral, not m).  One integrated "
+     "equality on an assumed metric; sub-Planckian, needing a ~11.35 m_P "
+     "scalar; stable configurations only for xi > 0.123"),
     ("Garattini", "gr-qc/0501105, CQG 22, 1105 (2005)",
-     "CITED", True, False, (1.158822606, 0.4473670842),
-     "throat (graviton one loop): m = r_0/2 > 0 at the throat"),
+     "CITED (the title is a question; the conclusions call it 'far to be "
+     "complete')", True, False, (1.158822606, 0.4473670842),
+     "throat (graviton one loop: TT-only Gaussian variational method, WKB, "
+     "zeta regularisation, r_t-dependent renormalisation of G, RG step): one "
+     "integrated energy equality on the fixed ansatz b = r_t^2/r, phi = 0, "
+     "with uniqueness imposed by tangency; m = r_t^2/(2r) > 0 by the ansatz, "
+     "so this row's 'not m < 0' is no evidence either way"),
     ("Abdolrahimi-Page-Tzounis", "1607.05280, PRD 100, 124038",
      "RECOVERED (seated in selfconsistent.py, not re-read)", False, False, (),
      "evaporating Schwarzschild, first order in hbar: not static, not m < 0"),
@@ -145,10 +218,18 @@ SELF_CONSISTENT_FAMILIES = (
      "Einstein static universe R x S^3: covered by the pass's tally only "
      "(m(r) < 0 anywhere: 0); no per-family sign printed"),
     ("Pinamonti / Pinamonti-Siemssen / Meda-Pinamonti-Siemssen / "
-     "Gottschalk-Siemssen", "2011, 2015, 2020, 2021",
-     "RECOVERED from bibliographies, not read at source", False, False, (),
-     "flat FLRW existence by Banach fixed point: cosmological, not static, "
-     "not m < 0"),
+     "Gottschalk-Siemssen", "1001.0864 (2011); 1309.6303 (2015); 2007.14665 "
+     "(arXiv 2020); 1809.03812 (arXiv 2018, journal 2021)",
+     "RECOVERED from bibliographies; READ at source by DOCKET 67 (2026-10-02)",
+     False, False, (),
+     "flat FLRW existence by the Banach fixed point in all four, under "
+     "different hypotheses: one free scalar, m > 0 (m >= 0 in G-S); xi = 1/6 "
+     "(2011, 2015), xi != 1/6 (M-P-S), arbitrary (G-S); Hadamard data on a "
+     "lightlike surface / adiabatic order zero, not Hadamard / 'sufficiently "
+     "regular' / Hadamard; local existence (2011, M-P-S), maximal (2015, "
+     "G-S).  Cosmological; not static for the non-trivial members (a = const "
+     "is Minkowski, m = 0); not m < 0 -- on flat FLRW m = r^3 a adot^2/(2G) "
+     ">= 0 for every state, so this zero is structural"),
 )
 
 # DERIVED from the list above -- the counts ledger.py prints.
@@ -158,8 +239,12 @@ THROAT_FAMILIES = sum(1 for f in SELF_CONSISTENT_FAMILIES if f[3])
 NEGATIVE_MASS_SELF_CONSISTENT_FOUND = (
     "NOT-FOUND" if FAMILIES_WITH_NEGATIVE_MASS == 0 else "FOUND")   # not NO
 
-FLANAGAN_WALD_APPLIED = False     # eps ~ O(1): their perturbative hypothesis fails
+FLANAGAN_WALD_APPLIED = False     # eps ~ O(1): their perturbative hypothesis fails;
+                                  # and a classically sourced h is outside their family
 SANDERS_51_APPLIED = False        # ultrastatic, compact, maximally symmetric only
+# A conditional: an expulsion WOULD be worse than a no-go IF eps ~ 1 lay outside
+# the theory's domain.  The sources read draw the edge at the Planck scale and at
+# AMM's linear-response test, not at eps ~ 1 (DOCKET 67; docstring section 1 (5)).
 EXPULSION_WORSE_THAN_NO_GO = True
 
 #: Section 2.  The pass's narrowing #3, demoted from THEOREM.
@@ -169,19 +254,40 @@ NARROWING_3_STATUS = ("DEMOTED -- the FEWSTER-TEO bound does not bound rho_ren; 
                       "class containing the corridor")
 SEPARATES_O5_FROM_O2_PERMANENTLY = False
 
+# AS FIRST WRITTEN, kept: ledger.py's O5_DOCKET62 (SUPERSEDED_WORDING) prints it
+# as the board printed it.  CORRECTED (DOCKET 67) in O5_ANSWERED_BY_CORRECTED:
+# "Closed only by an existence theorem" overstates "only" (an exhibited
+# solution or a no-go decides O5; an existence theorem alone does not) and
+# names neither non-triviality nor the positive-Hadamard, non-stealth source.
 O5_ANSWERED_BY = ("HPS's fourth-order system re-integrated with regular-centre "
                   "data r(0)=0, r'(0)=1, f'(0)=0 after re-deriving their eq. (8) "
                   "(which assumes r'(0)=0): does r'(l) ever exceed 1?  Closed "
                   "only by an existence theorem for the static spherically "
                   "symmetric asymptotically flat class")
+O5_ANSWERED_BY_CORRECTED = (
+    "HPS's fourth-order system re-integrated with regular-centre data r(0)=0, "
+    "r'(0)=1, f'(0)=0 after re-deriving their eq. (8) (which assumes "
+    "r'(0)=0): does r'(l) ever exceed 1?  Decided by an exhibited "
+    "asymptotically flat m < 0 solution or by a no-go; a general existence "
+    "theorem for non-trivial static spherically symmetric asymptotically flat "
+    "solutions with a positive Hadamard <T> outside the xi = 1/2 stealth "
+    "sector is NOT-FOUND, not shown absent")
 
 #: r_0 in Planck lengths, READ by the O5 pass from the papers named.  The two
 #: HPS quartic figures are NOT here: they are computed by hps_quartic().
+#: CORRECTED (DOCKET 67), labels only -- no value moved: KS's r_0 is
+#: sub-Planckian (a ~11.35 m_P scalar; stable only for xi > 0.123); Garattini's
+#: two are tangency radii imposed for uniqueness, and the printed 0.4473670842
+#: does not reproduce from the paper's eqs. (57), (61)-(65) (the audit gets
+#: 0.6968196708; the CQG version is unread); HPS's 300 is the upper end of a
+#: printed "~200 - 300", carried here to more figures than printed.
 LITERATURE_THROATS = (
-    ("Khusnutdinov-Sushkov 2002, xi = 1/6 minimum", 0.0141),
-    ("Garattini 2005, graviton one loop, mu_0 = Planck scale", 0.4473670842),
+    ("Khusnutdinov-Sushkov 2002, xi = 1/6 minimum (sub-Planckian thin shell)", 0.0141),
+    ("Garattini 2005, graviton one loop, mu_0 = Planck scale (printed; does "
+     "not reproduce from eqs. (57), (61)-(65))", 0.4473670842),
     ("Garattini 2005, graviton one loop, G_0(mu_0) = l_P^2", 1.158822606),
-    ("Hochberg-Popov-Sushkov 1997, largest quoted (horizons far out)", 300.0),
+    ("Hochberg-Popov-Sushkov 1997, upper end of the printed ~200-300 "
+     "('local solutions', horizons far out, not shown)", 300.0),
 )
 
 
@@ -191,6 +297,9 @@ def planck_length():
 
 
 def largest_throat_m():
+    """The largest throat in the families surveyed -- not a ceiling: HPS say a
+    throat 'can be arbitrarily large'; survey completeness is this file's
+    hypothesis."""
     return max(x for _l, x in LITERATURE_THROATS) * planck_length()
 
 
@@ -280,12 +389,14 @@ def report():
     print(__doc__.split("=====", 1)[0].strip())
     lp = planck_length()
     print("\nl_P = %.6e m" % lp)
-    print("largest self-consistent throat: %.4e m -- %.2f orders below 1 m, %.2f "
-          "below the Proxima span" % (largest_throat_m(), orders_short(1.0),
-                                      orders_short(foliation.proxima_span_m())))
+    print("largest throat in the surveyed families (HPS's 'local' solutions, "
+          "upper end of ~200-300 l_P, horizons far out): %.4e m -- %.2f orders "
+          "below 1 m, %.2f below the Proxima span"
+          % (largest_throat_m(), orders_short(1.0),
+             orders_short(foliation.proxima_span_m())))
     print("\nO5: %s" % O5_STATUS)
     print("NARROWING 3: %s" % NARROWING_3_STATUS)
-    print("ANSWERED BY: %s" % O5_ANSWERED_BY)
+    print("ANSWERED BY: %s" % O5_ANSWERED_BY_CORRECTED)
     return 0
 
 
@@ -357,6 +468,10 @@ def selftest():
     # Where computation reaches the READ list: section 1's residual c is
     # m_throat - r_0/2 computed from the metric, so m_throat = r_0/2 + c; its
     # sign at every READ throat radius must match the READ "m < 0 reported".
+    # For KS's thin shell the computed r_0/2 is only the smooth-regularisation
+    # limit (on KS's own metric m = 0 off the shell): this row checks the
+    # READ sign against the smooth-throat formula, and for KS that formula's
+    # premise fails (DOCKET 67).  The check itself is unchanged.
     r0s = sp.Symbol('r_0', positive=True)
     agree = all(bool(((r0s / 2 + c).subs(r0s, sp.Float(x)) < 0) == f[4])
                 for f in SELF_CONSISTENT_FAMILIES if f[3] for x in f[5])

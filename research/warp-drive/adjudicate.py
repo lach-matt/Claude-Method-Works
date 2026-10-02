@@ -170,7 +170,13 @@ COMPUTED = [
     ("throat tension, Morris-Thorne", (0, 0, 0, 0, 0, 0), "pressure.py"),
     ("Ford-Roman, hbar/(c^3 T^4)", (0, 1, 1, 1, 1, 0), "persist.py"),
     ("Fewster-Osterbrink Thm 4.3, QA", (0, 1, 1, 1, 1, 0), "qei.py"),
-    ("QNEC, entropy variation", (0, 0, 0, 1, 2, 0), "anec.py"),
+    # QNEC is PROVED only for quantum states on fixed flat or stationary-
+    # horizon backgrounds (Bousso-Fisher-Koeller-Leichenauer-Wall 1509.02542;
+    # Balakrishnan-Faulkner-Khandker-Wang; Ceyhan-Faulkner); anec.py applies it
+    # to a curved background with a classical T.  CORRECTED (DOCKET 67): the
+    # row first carried no scope.  Its cell is the condition's and is unchanged.
+    ("QNEC, entropy variation", (0, 0, 0, 1, 2, 0),
+     "anec.py (theorem on flat / stationary-horizon backgrounds)"),
     ("SNEC, smeared null", (0, 0, 1, 1, 1, 0), "nullbound.py"),
     ("Barcelo-Visser effective NEC", (1, 0, 0, 0, 0, 0), "higgs.py"),
     ("eq. (86), CLASSICAL smeared", (0, 0, 1, 0, 1, 0), "adjudicate.py (here)"),

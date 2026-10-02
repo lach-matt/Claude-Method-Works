@@ -23,16 +23,53 @@ a withdrawal touches carries its own marker.
     worldline QEI's DURATION bound prices exactly that.  Measured here in this
     file's own geometry: 71.256 orders short at b = 1 m, widening as b^2, with
     the sampling time now FORCED by the transit rather than chosen.  The census
-    of real negative-energy sources below stands item by item.
+    below names real effects; what each MEASURED is stated item by item, and
+    for none of them is it a negative energy density.
 
--- THE CENSUS OF KNOWN NEGATIVE ENERGY DENSITY --------------------------------
-Everything real, and what bounds it:
+-- THE CENSUS OF REAL EFFECTS CITED FOR NEGATIVE ENERGY DENSITY ---------------
+Everything real, what was measured, and what bounds it:
 
-  CASIMIR between boundaries      MEASURED.  rho = -pi^2 hbar c/(720 d^4).
-  SQUEEZED VACUUM                 MEASURED (LIGO uses it).  Ford-Roman bounded.
-  DYNAMICAL CASIMIR               MEASURED (Wilson 2011, superconducting circuit).
-  HAWKING / UNRUH flux            analogue-measured; same family.
-  VACUUM POLARISATION             MEASURED via the Lamb shift.
+  CASIMIR between IDEAL plates    the FORCE is MEASURED (parallel plates at
+                                  0.5-3 um, Bressi 2002).  rho = -pi^2 hbar c/
+                                  (720 d^4) is the ideal perfect-conductor
+                                  density, computed, valid for d >> lambda_p.
+  SQUEEZED VACUUM                 sub-vacuum quadrature noise <:X^2:> < 0
+                                  MEASURED (LIGO uses it).  Negative <:T_00:>
+                                  is INFERRED, under the single-mode
+                                  identification and for t0 < 3.1e-16 s; at
+                                  LIGO's resolution the average is positive.
+                                  Ford-Roman bounded (free field, Minkowski).
+  DYNAMICAL CASIMIR               photon generation and two-mode squeezing
+                                  MEASURED (Wilson 2011, superconducting
+                                  circuit, arXiv:1105.4714).  No energy
+                                  density was measured.
+  HAWKING flux (analogue)         the outgoing flux is analogue-observed
+                                  (restated in 2106.03960 p.1).  Its negative
+                                  energy density is a computed test-field
+                                  result for gravitational holes, UNPERFORMED
+                                  in any analogue (door.py).  "Unruh" stood
+                                  here too: the Unruh EFFECT carries zero
+                                  energy density, and no Unruh analogue
+                                  measurement is cited.
+  VACUUM POLARISATION             the Lamb shift is MEASURED, as a frequency
+                                  interval.  Its VP part is one term of the
+                                  QED sum, not isolated, and it strengthens
+                                  the Coulomb field.  The energy-condition-
+                                  violating VP is the curved-space
+                                  semiclassical one, and it is unmeasured.
+
+    CORRECTED -- DOCKET 67.  What stood above, verbatim, was a header "THE
+    CENSUS OF KNOWN NEGATIVE ENERGY DENSITY", the sentence "The census of real
+    negative-energy sources below stands item by item", and the rows
+    "CASIMIR between boundaries  MEASURED.  rho = -pi^2 hbar c/(720 d^4)",
+    "SQUEEZED VACUUM  MEASURED (LIGO uses it)", "DYNAMICAL CASIMIR  MEASURED
+    (Wilson 2011, superconducting circuit)", "HAWKING / UNRUH flux
+    analogue-measured; same family" and "VACUUM POLARISATION  MEASURED via
+    the Lamb shift".  Each row put a measured effect under a negative-energy-
+    density header; what each experiment measured is now the row.  The
+    correction removes census members and so cannot weaken the SURVEY
+    refusal; it opens nothing either, since no row was ever a supply of the
+    required sign and magnitude.
 
     WITHDRAWN IN PLACE -- DOCKET 55.  What stood here, verbatim, was:
 
@@ -46,17 +83,28 @@ Everything real, and what bounds it:
     DURATION, not on magnitude -- and the duration bound is real, exact, and
     still refuses the core.
 
-TWO THINGS THAT LOOK LIKE EXCEPTIONS AND ARE NOT, named because they are the
+THREE THINGS THAT LOOK LIKE EXCEPTIONS AND ARE NOT, named because they are the
 most likely next hope:
 
-  DARK ENERGY has negative PRESSURE and POSITIVE energy density.  rho_Lambda > 0.
-  It is the wrong sign of the wrong quantity.
+  DARK ENERGY as a cosmological constant (w = -1) has negative PRESSURE and
+  POSITIVE energy density for every observer.  rho_Lambda > 0 (Planck 2018).
+  A component with w < -1, which DESI DR2's w0wa fits reach at z > 0.35-0.50,
+  is negative only for a boosted observer; its comoving density is positive in
+  every fit read.  It is the wrong sign of the wrong quantity.
 
   "EFFECTIVE NEGATIVE MASS" in BECs and metamaterials is a curvature of a
   DISPERSION RELATION -- how a quasiparticle responds to a force in a medium.
-  It is not T_00, it does not gravitate, and it will not source a metric.  The
-  same caution applies to negative-index metamaterials, which are about the
-  refractive index.
+  m* is not T_00, m* does not gravitate (the quasiparticle's energy does, as
+  E/c^2), and a negative m* will not source a metric.  The same caution
+  applies to negative-index metamaterials, which are about the refractive
+  index: under the dispersive (Brillouin) energy density in a low-loss band,
+  that is not the energy density.
+
+    CORRECTED -- DOCKET 67.  This read "TWO THINGS" over three entries;
+    "DARK ENERGY has negative PRESSURE and POSITIVE energy density", with
+    w = -1 implied and never stated; "It is not T_00, it does not gravitate",
+    which is true of m* and false of the quasiparticle; and the metamaterial
+    line without the dispersive form its energy density needs.
 
 -- THE PRICE, AND IT IS NOT CLOSE ---------------------------------------------
 concentric.py's device at corridor radius b needs a core of size a = 0.02 b
@@ -88,8 +136,14 @@ file's original curves, going bigger makes it worse by two powers.
 
     WITHDRAWN IN PLACE -- DOCKET 55, the REASON only.  The 1/b^4 is a function
     of b solely because this file CHOSE the sampling length to be 0.02 b.  Ford,
-    Helfer and Roman prove the sampling scale need not track the region at all,
-    so on the original ground the trend had no warrant.
+    Helfer and Roman prove that no purely spatially averaged quantum inequality
+    exists over a bounded region, for the massless minimally coupled free
+    scalar in four-dimensional Minkowski spacetime, so no spatial theorem ties
+    a sampling length to the region's size, and on the original ground the
+    trend had no warrant.
+        CORRECTED -- DOCKET 67.  This read "Ford, Helfer and Roman prove the
+        sampling scale need not track the region at all": an inference from
+        their theorem, not a sentence of the paper.
 
     THE TREND IS RESCUED BY A DIFFERENT ROUTE AND THE EXPONENT IS UNCHANGED.
     Price the core against the DURATION bound with the hold time set by the
@@ -116,29 +170,56 @@ The two original curves cross only at
     l_P times an O(1) number BY CONSTRUCTION.  This file's crossing is
     l_P/(alpha sqrt(k)) with alpha sqrt(k) = 0.244301, reproducing its own
     measured 4.0933 to four digits.  It is a dimensional identity, not evidence,
-    and it is fragile as well as circular: at Ford & Roman's own practice of
-    sampling at a hundredth of the geometric scale the crossing core moves to
-    3989 l_P, four decades away.  The number is kept because gjw.py pins it; its
-    STATUS is now DIMENSIONAL IDENTITY, never a route to the Planck scale.
+    and it is fragile as well as circular.  Ford & Roman (gr-qc/9510071) sample
+    at tau_0 = f r_m, a fraction f << 1 of the smallest curvature radius r_m,
+    and take f ~= 0.01 in their curved-throat examples (eqs 51, 69, Sec. 5.1)
+    but f ~= 0.1 for Casimir plates (Sec. 4.5), as Pfenning-Ford take
+    alpha = 1/10.  Applied to the core radius a in place of r_m, and with
+    Ford-Roman's 3/(32 pi^2) included, the crossing core goes as f^-2 from
+    0.399 l_P: 3989 l_P at f = 0.01 (four decades from 0.399, about three from
+    the 4.09 above) and 39.9 l_P at f = 0.1.  At every sourced f it moves at
+    least a decade.  The number is kept because gjw.py pins it; its STATUS is
+    now DIMENSIONAL IDENTITY, never a route to the Planck scale.
+        CORRECTED -- DOCKET 67.  This read "at Ford & Roman's own practice of
+        sampling at a hundredth of the geometric scale the crossing core moves
+        to 3989 l_P, four decades away": the practice is not uniform, F&R's
+        scale is r_m and not a (in this core r_c/a is 0.82 to 2.0, which
+        puts the f = 0.01 figure at 997..5984 l_P), the 3/(32 pi^2) was
+        silent, and "four decades" is counted from 0.399, not from 4.09.
 
 And even taking the BOUND as though it were an apparatus:
 
-        Casimir gap 10 nm (state of the art)  ->  needs b = 7.6e19 m  (8000 ly)
-        Casimir gap 0.1 nm (atomic floor)     ->  needs b = 7.6e15 m  (0.8 ly)
+        Casimir gap 10 nm (unsourced)         ->  needs b = 7.6e19 m  (8000 ly)
+        Casimir gap 0.1 nm (below contact)    ->  needs b = 7.6e15 m  (0.8 ly)
 
     CORRECTED -- DOCKET 55, and the correction STRENGTHENS the row.  Those two
     lines used quantum_bound(gap), not this file's own casimir_density(gap).
-    The measured Casimir effect is 72.951x smaller than the bound, so the real
-    apparatus needs a corridor sqrt(72.951) = 8.541x larger:
+    The ideal-plate Casimir density is 72.951x smaller than the bound, so even
+    ideal plates need a corridor sqrt(72.951) = 8.541x larger:
 
-        Casimir gap 10 nm, MEASURED effect  ->  b = 6.5e20 m  (68,000 ly)
-        Casimir gap 0.1 nm, MEASURED effect ->  b = 6.5e16 m  (6.8 ly)
+        Casimir gap 10 nm, IDEAL plates     ->  b = 6.5e20 m  (68,000 ly)
+        Casimir gap 0.1 nm, IDEAL plates    ->  b = 6.5e16 m  (6.8 ly)
 
     This is the soundest argument in the file and it was the one understated.
     It is also a CENSUS claim about apparatus, not a theorem, and must be
     reported as one.  A core 0.02 of that is still thousands of astronomical
     units of continuous atomic-separation vacuum apparatus, for the WEAKEST
     configuration in the window.  This is not an engineering programme.
+
+    CORRECTED -- DOCKET 67, and again the correction runs in the refusing
+    direction.  The rows read "10 nm (state of the art)", "0.1 nm (atomic
+    floor)" and "MEASURED effect".  (i) What Casimir experiments measure is the
+    force -- between parallel plates only at 0.5-3 um, sphere-plate down to
+    ~120 nm -- never the energy density.  casimir_density is the IDEAL
+    perfect-conductor density, which needs d >> lambda_p (gold 137.8 nm), as
+    scale.py itself states; at 10 nm real gold gives 0.1099 of it (T = 0
+    Lifshitz, plasma model at 9.0 eV, computed in the DOCKET 67 audit), so the
+    10 nm corridor is 1.95e21 m, not 6.5e20.  (ii) "State of the art" carried
+    no source and no date; that census datum is OPEN.  (iii) 0.1 nm is below
+    gold's nearest-neighbour distance, 0.288 nm, so below atomic contact, where
+    no continuum Casimir energy exists: that row is a generous bound, not an
+    apparatus.  The figures above are kept as ideal-plate upper bounds on |rho|;
+    every correction lowers |rho| and lengthens the corridor.
 
 -- WHAT THIS DOES AND DOES NOT SETTLE -----------------------------------------
 IT DOES NOT RETRACT THE DEVICE.  concentric.py's configuration is a valid
@@ -150,12 +231,20 @@ WHAT IT SETTLES IS THAT THE CORE IS NOT BUILDABLE WITH KNOWN PHYSICS.  The
 second half of that sentence -- "and the shortfall is a theorem rather than a
 budget" -- is WITHDRAWN IN PLACE, DOCKET 55.  No theorem of the right shape caps
 the ball integral, and Ford, Helfer and Roman prove that none can exist over a
-bounded region in four dimensions.  What does exist is a DURATION theorem, and
-it is narrower than a theorem about nature: it holds for the massless minimally
-coupled scalar and all Hadamard states, in flat space, and Fewster states in
-print that the NONMINIMALLY coupled scalar admits no state-independent QEI at
-all.  The verdict therefore rests on a convergence of proven limits, which is a
+bounded region in four-dimensional Minkowski spacetime, by a counterexample in
+the massless minimally coupled free scalar.  What does exist is a DURATION
+theorem, and it is narrower than a theorem about nature: it holds for the
+massless minimally coupled scalar and all Hadamard states, in flat space, and
+Fewster (1208.5399 Sec. 5.1, after Fewster-Osterbrink 0708.2450) reports that
+the massless scalar NONMINIMALLY coupled with xi > 0 in Minkowski space sustains
+arbitrarily negative energy density over arbitrarily large spacetime volumes,
+so it admits no state-independent QEI at all (that phrase is his Sec. 5.2's).
+The verdict therefore rests on a convergence of proven limits, which is a
 SURVEY and not a theorem, and it must be reported as one.
+    CORRECTED -- DOCKET 67.  This read "Fewster states in print that the
+    NONMINIMALLY coupled scalar admits no state-independent QEI at all": a
+    paraphrase given as Sec. 5.1's wording, with the sign xi > 0, masslessness
+    and Minkowski space dropped.
 
     WITHDRAWN IN PLACE -- DOCKET 55.  What stood here was:
 
@@ -197,21 +286,43 @@ other.  bounds.py was right.  The three sentences that carried the fault:
     of an inertial observer, AT AN ARBITRARY SPATIAL POINT WHICH WE CHOOSE TO BE
     x = 0.  The time coordinate t is the proper time of this observer."  It is a
     TIME average at ONE POINT.  It caps nothing "over a scale L" in space, and
-    it is not pointwise -- the first line of their introduction is "the energy
-    density may be UNBOUNDEDLY NEGATIVE at a spacetime point" (Epstein, Glaser
-    and Jaffe, Nuovo Cim. 36, 1016 (1965)).  A pointwise lower bound is the very
-    thing quantum inequalities exist because there is not.
+    it is not pointwise -- their introduction (p.2) says "the energy density
+    may be UNBOUNDEDLY NEGATIVE at a spacetime point", and credits the fact to
+    their ref. [2], Epstein, Glaser and Jaffe, Nuovo Cim. 36, 1016 (1965).  As
+    restated (Kontou-Sanders 2003.01815; Fewster math-ph/0501073), EGJ prove
+    that negative values occur; unboundedness is a further, scaling, result,
+    shown for free fields over Hadamard states (Fewster 1208.5399 p.8).  A
+    pointwise lower bound is the very thing quantum inequalities exist because
+    there is not.
+        CORRECTED -- DOCKET 67.  This read 'the first line of their
+        introduction is "..." (Epstein, Glaser and Jaffe ...)', placing the
+        citation in the quotation; the line carries none, and EGJ is credited
+        there with the fact, of which it proves the nonpositivity half.
 
-(2) "Casimir is that bound saturated, not an exception to it."  REFUTED BY
-    MEASUREMENT.  Fewster, "Lectures on quantum energy inequalities",
-    arXiv:1208.5399 Sec. 1.3, read at source, derives the a priori bound
-    T_00 >= -C/(2 l)^4 for a trajectory at distance l from a Casimir plate and
-    states that the known Casimir density "ranges between 3-7% of the bound".
-    Reproduced here from his own expression: 6.8% at the midpoint, 3.4% and 3.2%
-    off it.  He then asks, in print, "why is the Casimir energy density a
-    comparatively small proportion of the allowed bound?"  Saturation is not
-    3 %.  bounds.py carries the same overstatement in its Ford-Roman row and it
-    is recorded there.
+(2) "Casimir is that bound saturated, not an exception to it."  NEVER SHOWN,
+    AND REFUTED BY CALCULATION FOR FEWSTER'S BOUND.  Fewster, "Lectures on
+    quantum energy inequalities", arXiv:1208.5399 Sec. 1.3, read at source,
+    derives the a priori bound T_00 >= -C/(2 l)^4 for a trajectory at distance
+    l from a Casimir plate and states that the known Casimir density -- that of
+    the massless minimally coupled scalar between ideal Dirichlet plates --
+    "ranges between 3-7% of the bound".  Reproduced from his own expression by
+    bounds.py's casimir_fraction_of_bound (no code here computes it): 6.8% at
+    the midpoint, 3.4% and 3.2% at z/L = 0.2 and 0.4, on his printed 1140,
+    which is a misprint for 1440 (6.7%, 3.3%, 3.2% on 1440).  He then asks, in
+    print, "why is the Casimir energy density a comparatively small proportion
+    of the allowed bound?"  Saturation of Fewster's bound is not 3 %.  Two
+    limits on that: Fewster states the bound rests on Eq. (3), which "is known
+    not to be optimal", so saturation of the SHARP bound would need a sharp
+    constant C/14.9 at the midpoint, which is OPEN; and his bound is not Ford &
+    Roman's -- in their own capped treatment (gr-qc/9510071 Sec. 2) the
+    constant Casimir density meets their Eq. (1) with equality at the cap
+    tau_0 <= 0.46 L, by construction.  bounds.py carries the same
+    overstatement in its Ford-Roman row and it is recorded there.
+        CORRECTED -- DOCKET 67.  The status read "REFUTED BY MEASUREMENT":
+        Fewster's 3-7% is a CALCULATION (an ideal Dirichlet scalar density over
+        a derived bound), and no measured quantity enters it.  The withdrawal
+        stands because saturation was never shown; it is not a refutation of
+        "saturated" in Ford-Roman's own sense.
 
 (3) "This is a theorem about quantum field theory, not a limit of apparatus."
     FALSE, AND IT WAS THE LOAD-BEARING SENTENCE.  The flat-space theorem is
@@ -224,10 +335,21 @@ other.  bounds.py was right.  The three sentences that carried the fault:
     summary, verbatim: "there are no purely spatially averaged quantum
     inequalities over bounded regions in four-dimensional Minkowski spacetime,
     even though the integral over all space is bounded."  And Ford & Roman's own
-    word for the curved-spacetime step is "argued" -- gr-qc/9607003 Sec. 4:
-    "we recently argued that such bounds should also hold in a curved spacetime
-    and/or one with boundaries, IF the sampling time is restricted to be much
-    smaller than the smallest local radius of curvature."
+    word for the curved-spacetime step is "argued" -- gr-qc/9607003 Sec. 4,
+    p.11: "Recently we argued that such bounds should also hold in a curved
+    spacetime and/or one with boundaries, if the sampling time is restricted to
+    be much smaller than the smallest local radius of curvature and/or the
+    distance to any boundaries in the spacetime [23]."  They cite two
+    supporting cases (Eq. (1) proved for Casimir plates at sampling times much
+    smaller than the separation, p.2; a QI in the static Robertson-Walker
+    universes that reduces to theirs, [24]), and Kontou & Olum, 1410.0665,
+    later proved the scalar case to first order in curvature -- still a
+    worldline TIME average, so nothing here reaches a ball integral.
+        CORRECTED -- DOCKET 67.  The quotation closed after "radius of
+        curvature." without "and/or the distance to any boundaries in the
+        spacetime [23]", used p.2's word order, capitalised "IF" inside the
+        quotation marks, and omitted the two supporting cases and the later
+        proof, understating the curved step.
 
 THE REPLACEMENT, AND IT IS WHY THE VERDICT SURVIVES.  Fewster 1208.5399 Eq. (4),
 read at source: if <T_00> < rho throughout an interval of duration tau, then
@@ -250,22 +372,34 @@ printed "C ~ 3.17".  NO COEFFICIENT.
 
     FOUR LIVE CAVEATS, none cosmetic.  (a) massless MINIMALLY coupled scalar,
     Hadamard states; Fewster Sec. 5.1 states that for the NONMINIMALLY coupled
-    field "states of arbitrarily negative energy density can be sustained over
-    arbitrarily large spacetime volumes", and for interacting fields "one cannot
-    expect state-independent QEIs to hold".  (b) Fewster states the bound "is
-    known not to be optimal".  (c) boundary-free flat space.  Fewster & Teo,
-    gr-qc/9812032, give an EXACT QEI for static spacetimes with no curvature
-    cap.  Their flat massless bound is 9/64 of Ford-Roman's FOR FORD-ROMAN'S
+    field (massless, xi > 0, Minkowski space, after Fewster-Osterbrink
+    0708.2450) "states of arbitrarily negative energy density can be sustained
+    over arbitrarily large spacetime volumes", and his Sec. 5.2 says that for
+    interacting fields "one cannot expect state-independent QEIs to hold" --
+    an expectation, which the same section qualifies: QEIs hold in a large
+    class of two-dimensional conformal field theories, and "modified QEIs" may
+    hold.  (b) Fewster states the bound "is known not to be optimal".
+    (c) boundary-free flat space.  Fewster & Teo, gr-qc/9812032, give a QEI
+    with no curvature cap for a free minimally coupled scalar on a globally
+    static spacetime, in the Fock space on the static vacuum (not shown
+    optimal: in 2D it is 1.5 times weaker than Flanagan's optimal bound).
+    Their flat massless bound is 9/64 of Ford-Roman's FOR FORD-ROMAN'S
     LORENTZIAN SAMPLER -- and C above ALREADY IS that family's constant at the
-    OPTIMAL COMPACTLY SUPPORTED sampler: F&T (5.6) at zero spectral gap returns
-    mu_1^4/(16 pi^2) exactly (fewsterteo.py, by Parseval).  So NO 64/9
+    clamped optimum, the infimum over compactly supported samplers, which lies
+    outside F&T's smooth class: F&T (5.6) at C = 0, i.e. Minkowski, returns
+    mu_1^4/(16 pi^2) there (fewsterteo.py, by Parseval).  So NO 64/9
     adjustment applies to C; taking log10(64/9) = 0.852 orders off the refusal
     would count one tightening twice.  Their own conclusions name the curved
     evaluation for a static wormhole as still to be done; their Schwarzschild section shows the bound
-    going arbitrarily negative near a horizon, and its mode basis is defined
-    by that horizon, which the corridor lacks; and on an asymptotically flat
-    corridor the spectral gap that could tighten (5.6) is zero, so the flat
-    figure below stands (fewsterteo.py, DOCKET 62).
+    going arbitrarily negative near a horizon ("at least in the present
+    approximation", F&T's words), and its mode basis is defined
+    by that horizon, which the corridor lacks; and (5.6) is derived only for
+    Minkowski and the static open Robertson-Walker universe, so it is not a
+    formula of the corridor and supplies no curvature tightening there.  The
+    flat figure below stands under flat space, an assumed hypothesis
+    (fewsterteo.py, DOCKET 62): F&T's own zero-gap Schwarzschild case differs
+    from flat, and their Einstein static universe at gap C = 5 is looser than
+    flat.
         CORRECTED IN PLACE -- DOCKET 62.  This caveat read "-- 9/64 of
         Ford-Roman's in the Minkowski limit, so TIGHTER --", which invites a
         void 0.851937-order adjustment to C.  Kept here so the correction
@@ -278,6 +412,15 @@ printed "C ~ 3.17".  NO COEFFICIENT.
         beside it is ADDED (ruling 62 O2(c): F&T Sec. 7 is not continued to
         the corridor because the horizon is its mode-defining surface); it
         does not replace the clause.
+        CORRECTED IN PLACE -- DOCKET 67.  (a) put the interacting-field clause
+        under "Sec. 5.1" (it is Sec. 5.2) and left the nonminimal coupling
+        unsigned and without massless or Minkowski; (c) read "an EXACT QEI for
+        static spacetimes", "OPTIMAL COMPACTLY SUPPORTED sampler", "F&T (5.6)
+        at zero spectral gap returns mu_1^4/(16 pi^2) exactly", and "on an
+        asymptotically flat corridor the spectral gap that could tighten (5.6)
+        is zero, so the flat figure below stands" -- (5.6) is undefined on the
+        corridor.  The horizon clause gains F&T's own qualifier; it is not
+        withdrawn.
     (d) it prices persistence and says nothing at an
     instant, which is exactly consistent with Ford-Helfer-Roman.
 
@@ -296,6 +439,11 @@ gr-qc/9812032 were all read at source in the Docket 55 pass.
 """
 import math, sys
 
+# CODATA 2018, unchanged in CODATA 2022 for these four (DOCKET 67 provenance).
+# c is exact.  HBAR is h/2pi TRUNCATED to ten figures: the exact value is
+# 1.0545718176...e-34, so HBAR is low by 6.1e-10 relative.  G = 6.67430(15)e-11
+# carries u_r 2.2e-5, so no figure here is fixed by G past 4-5 significant
+# figures.  L_PLANCK = 1.616255(18)e-35 m.
 HBAR = 1.054571817e-34
 HBAR_C = HBAR * 299792458.0
 C_SI = 299792458.0
@@ -317,8 +465,12 @@ def quantum_bound(L):
     """WITHDRAWN AS A BOUND -- DOCKET 55.  Kept because four other files pin the
     numbers it feeds, and because the arithmetic is correct.  It is NOT
     Ford-Roman: theirs is a TIME average at one spatial point carrying a
-    coefficient 3/(32 pi^2), and no pointwise cap on |rho| exists at all
-    (Epstein-Glaser-Jaffe 1965, quoted in gr-qc/9607003's first line).  Read
+    coefficient 3/(32 pi^2), and for free fields in Minkowski space no
+    pointwise lower bound on rho exists over Hadamard states (a scaling
+    argument, Fewster 1208.5399 p.8; Epstein-Glaser-Jaffe 1965, which
+    gr-qc/9607003 cites on p.2, proves that negative values occur).
+    CORRECTED (DOCKET 67): this read "no pointwise cap on |rho| exists at all
+    (Epstein-Glaser-Jaffe 1965, quoted in gr-qc/9607003's first line)".  Read
     this as "hbar c over the fourth power of a length", a dimensional estimate
     with no theorem behind it.  Use ford_roman_allow or duration_bound instead."""
     return HBAR_C / L ** 4
@@ -368,7 +520,11 @@ def duration_bound(T):
     it may be applied at every point of the core and summed.  Pa; T in seconds.
 
     SCOPE: massless minimally coupled scalar, Hadamard states, flat space.  The
-    nonminimally coupled scalar admits NO state-independent QEI (Fewster 5.1)."""
+    massless scalar nonminimally coupled with xi > 0, in Minkowski space,
+    admits NO state-independent QEI (Fewster 1208.5399 Sec. 5.1, after
+    Fewster-Osterbrink 0708.2450).  CORRECTED (DOCKET 67): this read "The
+    nonminimally coupled scalar admits NO state-independent QEI (Fewster
+    5.1)", with the sign, masslessness and Minkowski space dropped."""
     return FEWSTER_C * HBAR / (C_SI ** 3 * T ** 4)
 
 
@@ -396,7 +552,9 @@ def persistence_crossing(hold=1.0, m_over_b=M_OVER_B, a_over_b=A_OVER_B):
 
 
 def casimir_b_needed(gap):
-    """The apparatus row done with the MEASURED effect rather than the bound."""
+    """The apparatus row done with the ideal-plate Casimir density rather than
+    the bound.  CORRECTED (DOCKET 67): this read "with the MEASURED effect";
+    the force is what is measured, and casimir_density is the ideal form."""
     return b_needed_for(casimir_density(gap))
 
 
@@ -415,7 +573,11 @@ def crossing_radius(m_over_b=M_OVER_B, a_over_b=A_OVER_B):
 
 
 def casimir_density(gap):
-    """The measured effect, at plate separation `gap`."""
+    """The IDEAL perfect-conductor Casimir energy density at plate separation
+    `gap`, valid for gap >> the plasma wavelength (gold 137.8 nm); at 10 nm
+    real gold gives 0.1099 of it.  CORRECTED (DOCKET 67): this read "The
+    measured effect" -- Casimir experiments measure the force, never this
+    density, and the ideal-plate qualifier was dropped."""
     return (math.pi ** 2) * HBAR_C / (720.0 * gap ** 4)
 
 
@@ -433,12 +595,16 @@ VERDICT_KIND = "SURVEY"
 
 # Things that look like exceptions and are not.
 NOT_EXCEPTIONS = {
-    "dark energy": "negative PRESSURE, positive energy density. Wrong sign of "
+    "dark energy": "negative PRESSURE, positive energy density, for w >= -1 "
+                   "(Lambda); a phantom w < -1 is negative only for a boosted "
+                   "observer, never comoving in any fit read. Wrong sign of "
                    "the wrong quantity.",
     "effective negative mass (BEC, metamaterial)":
-        "a curvature of a DISPERSION RELATION, not T_00. Does not gravitate.",
+        "a curvature of a DISPERSION RELATION, not T_00. m* does not "
+        "gravitate; the quasiparticle's energy does, as E/c^2.",
     "negative-index metamaterial":
-        "the refractive index, not the energy density.",
+        "the refractive index, not the energy density (under the dispersive, "
+        "Brillouin, energy density in a low-loss band).",
 }
 
 
@@ -529,24 +695,25 @@ def selftest():
     print("       corridor.py's two earlier crossings are the same identity with")
     print("       different O(1) coefficients.  Not three routes -- one route.")
 
-    print("\nTAKING THE APPARATUS AS AN APPARATUS -- corrected, DOCKET 55")
-    for gap, tag in ((1.0e-8, "10 nm, state of the art"),
-                     (1.0e-10, "0.1 nm, atomic floor")):
-        print("     %24s  MEASURED |rho| = %.3e Pa  ->  b = %.3e m = %.2e ly"
+    print("\nTAKING THE APPARATUS AS AN APPARATUS -- corrected, DOCKETS 55 and 67")
+    for gap, tag in ((1.0e-8, "10 nm, unsourced"),
+                     (1.0e-10, "0.1 nm, below contact")):
+        print("     %24s  IDEAL-PLATE |rho| = %.3e Pa  ->  b = %.3e m = %.2e ly"
               % (tag, casimir_density(gap), casimir_b_needed(gap),
                  casimir_b_needed(gap) / 9.461e15))
     # the original rows used quantum_bound, not casimir_density.  Correcting it
     # STRENGTHENS the row, so the withdrawal costs this argument nothing.
-    near("the bound is this much larger than the measured Casimir effect",
+    near("the bound is this much larger than the ideal-plate Casimir density",
          quantum_bound(1.0e-10) / casimir_density(1.0e-10), 72.951, 1e-4)
     near("so the honest corridor is sqrt of that times larger",
          casimir_b_needed(1.0e-10) / b_needed_for(quantum_bound(1.0e-10)),
          8.541, 1e-3)
-    chk("the atomic floor needs a corridor of several light-years",
+    chk("the 0.1 nm row needs a corridor of several light-years",
         casimir_b_needed(1.0e-10) > 6.0e16, True)
-    print("       This is a CENSUS claim about apparatus, not a theorem.")
+    print("       This is a CENSUS claim about apparatus, not a theorem, on")
+    print("       ideal plates: real gold at 10 nm gives 0.1099 of the ideal density.")
 
-    print("\nTWO THINGS THAT LOOK LIKE EXCEPTIONS AND ARE NOT")
+    print("\nTHREE THINGS THAT LOOK LIKE EXCEPTIONS AND ARE NOT")
     for k, v in NOT_EXCEPTIONS.items():
         print("     %-42s %s" % (k, v))
     chk("three of them, named so they are not reached for later",
@@ -565,7 +732,8 @@ def selftest():
     print("       is not buildable with known physics.")
     # WITHDRAWN, DOCKET 55: "and the shortfall is a THEOREM rather than a budget".
     # No theorem of the right shape caps the ball integral, and Ford-Helfer-Roman
-    # prove none can exist over a bounded region in four dimensions.
+    # prove none can exist over a bounded region in four-dimensional Minkowski
+    # spacetime (counterexample: the massless minimally coupled free scalar).
     chk("'the shortfall is a THEOREM rather than a budget' is WITHDRAWN",
         VERDICT_IS_A_THEOREM, False)
     chk("the verdict rests on a convergence of proven limits -- a SURVEY",

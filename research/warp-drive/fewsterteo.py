@@ -20,8 +20,9 @@ directories that can see recovered/).
 1. WHAT SURVIVES, AND IS SEATED
 ===============================================================================
 
-(a) THE PREFACTOR OF F&T (2.12)/(2.13) IS EXACTLY 1.  THEOREM, two routes, both
-    symbolic, each SOLVING for the prefactor P rather than asserting it.
+(a) THE PREFACTOR OF F&T (2.12)/(2.13) IS EXACTLY 1 IN THIS FILE'S READING OF
+    (2.12)'s BRACKET.  THEOREM on that reading, two routes, both symbolic, each
+    SOLVING for the prefactor P rather than asserting it.
     Route 1: from their legible (2.10)+(2.11) by a Leibniz identity and the
     field equation.  Route 2: (2.12)'s bracket  w_k^2 |U_k|^2 + (1/4) grad^2|U_k|^2
     evaluated on Minkowski plane waves U_k = e^{ik.x}/sqrt((2 pi)^n 2 w_k)
@@ -33,14 +34,25 @@ directories that can see recovered/).
     drop the 2 from the mode normalisation and it returns 1/2 (a selftest
     control).  The PDF text layer drops the prefactor; nothing here trusts the
     text layer.
+      CORRECTED (DOCKET 67).  F&T's PRINTED prefactor is 1/pi, by four
+      in-paper routes, and the two routes above share the one step -- the
+      reading of (2.12)'s bracket -- that drops the pi.  A discrepancy, not a
+      refutation, and it feeds no figure: 71.256, the 64/9 refusal, 72.599's
+      refusal and O2 OPEN are unmoved, and with P = 1/pi no class, route,
+      requirement or ledger cell moves.  PREFACTOR_212 stays the value this
+      file's routes solve for; it is not F&T's printed constant.
 
 (b) THE 9/64 IS EXACT, AND IT MUST NOT BE APPLIED TO C_F.  F&T's flat massless
     bound with Ford-Roman's Lorentzian sampler is exactly 9/64 of Ford-Roman's
     (their (6.9) at alpha = 5/2, exact rationals).  The tempting move is to
     tighten DOCKET 55's persistence refusal by log10(64/9) = 0.851937 orders.
     REFUSED: C_F = mu_1^4/(16 pi^2) IS ALREADY the Fewster-Teo family's constant
-    at the OPTIMAL COMPACTLY SUPPORTED sampler.  Applying 64/9 to it would count
-    the same tightening twice.  The ruling calls this the best thing in the
+    at the clamped optimum: the infimum over compactly supported samplers,
+    attained by the clamped-beam sampler, which is only C^1 and so lies outside
+    F&T's smooth class -- C_F is the family's infimum over smooth samplers, not
+    its value at one of them.  Applying 64/9 to it would count the same
+    tightening twice.  (CORRECTED, DOCKET 67: this read "at the OPTIMAL
+    COMPACTLY SUPPORTED sampler".)  The ruling calls this the best thing in the
     docket, and it is recorded here as a refusal with its number computed.
 
 (c) THE C_F IDENTIFICATION, BY THE PARSEVAL ROUTE.  F&T (5.6) at spectral gap
@@ -59,12 +71,23 @@ directories that can see recovered/).
     not a caveat on Sec. 7, it is Sec. 7's mode-defining surface.  Continuing
     (7.10) to M < 0 would be failure mode (4).  NOT DONE, and pinned False.
 
-(e) THE CORRIDOR'S OWN MODE FUNCTIONS ARE NOT-FOUND.  The massless radial
-    equation on -F dt^2 + dr^2/F + r^2 dOmega^2 has regular singular points at
-    r = 0 and r = 2M and an IRREGULAR one at infinity (Q -> omega^2 != 0): the
-    confluent Heun class, with no closed form in named special functions.  For
-    M < 0 the second regular point sits at r = 2M < 0, off the domain, and the
-    class is unchanged.  A property of the equation, derived here by sympy.
+(e) THE CORRIDOR'S OWN MODE FUNCTIONS ARE NOT-FOUND.  The massless, minimally
+    coupled radial equation on -F dt^2 + dr^2/F + r^2 dOmega^2, F = 1 - 2M/r
+    with CONSTANT M != 0 and omega != 0, has regular singular points at r = 0
+    and r = 2M and an IRREGULAR one at infinity (Q -> omega^2 != 0): the
+    confluent Heun class, which for generic parameters does not reduce to
+    elementary or hypergeometric-class functions (recalled, not computed here;
+    HeunC is itself a named function).  For M < 0 the second regular point
+    sits at r = 2M < 0, off the domain, and the class is unchanged.  A property
+    of that equation, derived here by sympy.  It covers a constant-M vacuum
+    segment only: at M = 0 -- the device's M_ADM -- the equation is spherical
+    Bessel, closed form, and at omega = 0 its solutions are P_l and Q_l of
+    (r/M - 1); the regular-centre corridor (m(0) = 0, certify.py) is not
+    globally in the class, and its global modes need matching across regions.
+      CORRECTED (DOCKET 67).  This read "The massless radial equation", with
+    M != 0 unstated and omega != 0 only in a parenthesis, "with no closed form
+    in named special functions" (not computed), and "A property of the
+    equation" for what is a property of the constant-M segment's equation.
 
 ===============================================================================
 2. WHY IT DOES NOT CLOSE -- THE SPECTRAL-GAP SWEEP
@@ -72,14 +95,21 @@ directories that can see recovered/).
 
 The docket evaluated F&T (5.6) on the static open Robertson-Walker universe
 (ultrastatic, slices H^3 of radius a_c), matched so |rho| equals the corridor's
-demand.  It got a ratio 0.0454 to the flat bound -- 1.343 orders tighter -- and
-proposed 72.599.  The ruling swept the one parameter that produces the number:
-the lower limit C of (5.6), which on H^3 is the spectral gap 1/a_c.
+demand, for the massless MINIMALLY coupled scalar with its energy density
+normal-ordered against the static vacuum.  It got a ratio 0.0454 to the flat
+bound -- 1.343 orders tighter -- and proposed 72.599.  The ruling swept the one
+parameter that produces the number: the lower limit C of (5.6), which on H^3
+is the minimum frequency omega_min = 1/a_c.  (The bottom of the Laplacian's
+spectrum on H^3 is 1/a_c^2, the infimum of a continuous spectrum, not an
+eigenvalue.  The value 1/a_c is minimal coupling's: C^2 = (1 - 6 xi)/a_c^2,
+so conformal coupling gives C = 0 on the same witness and can only remove the
+refused tightening.  CORRECTED, DOCKET 67: this read "the spectral gap 1/a_c"
+and named neither the coupling nor the normal ordering.)
 
     ratio(C) = 1 - [ INT_0^C u^4|ghat|^2 du
                      + INT_C^oo u^4|ghat|^2 (1 - Q_3(u/C)) du ] / (pi mu_1^4)
 
-with Q_3(x) = 4 x^-4 INT_1^x y^2 sqrt(y^2-1) dy in closed form (F&T (3.5), n = 3,
+for the massless (mu = 0), minimally coupled field, with Q_3(x) = 4 x^-4 INT_1^x y^2 sqrt(y^2-1) dy in closed form (F&T (3.5), n = 3,
 as READ by the DOCKET 62 O2 pass; the closed form is verified here by symbolic
 differentiation).  MEASURED here, stdlib, composite 20-point Gauss-Legendre over
 unit panels to u = 2e4.  Convergence, as --selftest tests it: halving the panels
@@ -92,34 +122,67 @@ plus its 1/u^2 tail, over the Parseval total, and returns 1 to < 1e-8:
     C = 5                 0.469090        C = 0.01   0.999997542191
                                           C = 0      1   (Q_3 -> 1; to < 1e-8)
 
-THE CORRIDOR IS ASYMPTOTICALLY FLAT.  HYPOTHESIS, named: an asymptotically flat
-complete spatial slice has Laplace spectrum running continuously down to zero, so
-w_min = 0, C = 0, ratio = 1, and (5.6) returns the flat bound exactly.  Even the
-most generous gap the corridor's own geometry could supply -- a cavity at
-concentric.py's compensating shell R_s = 200 b, C = 0.005 in units of c/b --
-leaves the ratio at 0.999999.  The three properties the witness was chosen for
-(rho < 0, m(R) < 0 with m(0) = 0, NEC violated) are INERT: ratio() takes C and
-nothing else.  71.256 STANDS, UNMOVED IN EITHER DIRECTION.  72.599 and 72.247 are
+THE CORRIDOR IS ASYMPTOTICALLY FLAT.  HYPOTHESIS, named: on an asymptotically
+flat complete spatial slice the massless, minimally coupled field's frequency
+spectrum reaches down to zero (inf spec = 0, which is all that is used), so
+w_min = 0.  The corridor is static, not ultrastatic: the operator is
+K = -(N/sqrt h) d_i(N sqrt h h^ij d_j), not the slice's Laplace-Beltrami, and
+its quotients are measured at 3.08/w^2 -> 0, matching flat to 1e-9 (DOCKET
+67).  The (5.6) FORMULA at C = 0 is the flat bound exactly; but (5.6) is
+derived only for Minkowski and the static open RW universe, so it is not a
+formula of the corridor, and F&T's general static bound (2.12) there depends
+on local mode sums, not on one number C.  What the refusal needs is narrower:
+within the (5.6) family the witness's tightening depends on C alone (ratio()
+takes C and nothing else, so the three properties the witness was chosen for
+-- rho < 0, m(R) < 0 with m(0) = 0, NEC violated -- are INERT), and the
+corridor supplies no such C.  A cavity at concentric.py's compensating shell,
+R_s = 200 b, C = 0.005 in units of c/b, leaves the H^3 form at 0.999999 -- an
+illustration, not the cavity's own bound, and not the most generous cavity gap
+(a Dirichlet cavity of radius R_s gives pi/200 = 0.0157).  71.256 STANDS, under
+flat space, an ASSUMED hypothesis: nothing here moves it, but F&T's own
+Einstein static universe at gap C = 5 is LOOSER than flat (1.04162), so
+curvature is not shown unable to move it in M's favour.  72.599 and 72.247 are
 REFUSED -- computed below only so the refusal names what it refuses.
+    CORRECTED (DOCKET 67).  This paragraph read "has Laplace spectrum running
+    continuously down to zero, so w_min = 0, C = 0, ratio = 1, and (5.6)
+    returns the flat bound exactly", "Even the most generous gap the
+    corridor's own geometry could supply", and "71.256 STANDS, UNMOVED IN
+    EITHER DIRECTION".  "Continuously" needs an unstated decay hypothesis;
+    massless and minimal coupling were dropped; the rest is above.
 
 A SECOND, INDEPENDENT REASON NOT TO CLOSE.  ledger.py's own answering condition
 for O2 is "evaluate it once the corridor's scalar mode functions are determined".
-(e) shows they cannot be; the docket evaluated on a third spacetime.
+(e) shows they are not in closed form, and they are not computed here (a
+Frobenius series about r = 2M converges, matching direct integration to
+1.76e-16, so they are determinable); the docket evaluated on a third spacetime.
+(CORRECTED, DOCKET 67: this read "(e) shows they cannot be".)
 
 ===============================================================================
 3. THE RIGHT INSTRUMENT IS FEWSTER & SMITH, NOT FEWSTER & TEO
 ===============================================================================
 
 Fewster & Smith, "Absolute quantum energy inequalities", gr-qc/0702056v3, READ at
-source by the DOCKET 62 ruling.  Their eq. (5) bounds INT f^2 <v^a v^b T^ren_ab>
-from below by B_A, which depends ONLY ON LOCAL GEOMETRY and no reference state,
-for the minimally coupled Klein-Gordon field of mass >= 0 on ANY four-dimensional
-globally hyperbolic spacetime.  The corridor is in that class.  Their flat
-massless check, eq. (88), -(1/16 pi^3) INT |fhat|^2 eta^4, has the same form and
-constant as F&T (5.6) at C = 0.  RESTATED O2: evaluate the ABSOLUTE QEI on the
-corridor.  Still blocked on the same mode functions, and it additionally carries
-C_ab, the state-independent conserved local curvature term that vanishes in
-Minkowski.  Fewster 1208.5399 on this point: NOT-SEARCHED.
+source by the DOCKET 62 ruling.  Their Theorem 3.1 (p.18), in its worldline form
+eq. (82) (schematically their eq. (5)), bounds INT f^2 <v^a v^b T^ren_ab> from
+below by B_A, using no reference state, for the minimally coupled Klein-Gordon
+field of mass >= 0 on a four-dimensional globally hyperbolic spacetime, for ANY
+HADAMARD STATE, with the track inside a SMALL SAMPLING DOMAIN (a globally
+hyperbolic convex normal neighbourhood with a hyperbolic chart, or a partition
+of unity that enters the bound).  B_A is built from local geometry, but "depends
+nontrivially on the coordinates (and on any partition of unity)" (p.18), and in
+some cases on the tetrad (p.25).  The corridor is a globally hyperbolic
+spacetime; the operative requirement is local, a small sampling domain with a
+Hadamard state on it.  Their flat massless check, eq. (88),
+-(1/16 pi^3) INT |fhat|^2 eta^4, has the same form and constant as F&T (5.6) at
+C = 0.  RESTATED O2: evaluate the ABSOLUTE QEI on the corridor.  Still blocked
+on the same mode functions, and it additionally carries C_ab, the
+state-independent conserved local curvature term that vanishes in Minkowski,
+and the conservation term INT f^2 Q.  Fewster 1208.5399 on this point:
+NOT-SEARCHED.
+    CORRECTED (DOCKET 67).  This cited "eq. (5)", the introduction's schematic
+    form, dropped the Hadamard state and the small sampling domain, and said B_A
+    "depends ONLY ON LOCAL GEOMETRY", leaving out the chart, tetrad and
+    partition dependence p.18 and p.25 state.
 
 ===============================================================================
 4. WHAT THIS FILE REFUSES
@@ -148,8 +211,10 @@ import concentric
 O2_STATUS = "OPEN (narrowed) -- NOT CLOSED"
 O2_CLOSED = False
 
-#: (a) THEOREM, two routes; --selftest SOLVES for it both ways in sympy
-#: (verify_symbolic, prefactor_route2) and compares each solution with this.
+#: (a) THEOREM on this file's reading of (2.12)'s bracket, two routes;
+#: --selftest SOLVES for it both ways in sympy (verify_symbolic,
+#: prefactor_route2) and compares each solution with this.  NOT F&T's printed
+#: prefactor, which is 1/pi (DOCKET 67, a discrepancy that feeds no figure).
 PREFACTOR_212 = 1
 
 #: (b) THEOREM (exact rationals through F&T (6.9)); --selftest reproduces it.
@@ -162,29 +227,46 @@ NINE_64_APPLIES_TO_C_F = False          # the anti-double-counting refusal
 #: (consolidation verifier, DOCKETS 62/63): it was first exported here as
 #: VOID_ADJUSTMENT_ORDERS; that attribute is withdrawn.
 
-#: (c) the Parseval route is new; the 41-digit agreement is not a check.
+#: (c) the Parseval route is new; the 41-digit agreement is not a check.  The
+#: flag's "optimal sampler" is the clamped optimum, an infimum outside F&T's
+#: smooth class (DOCKET 67).
 C_F_IS_FT_CONSTANT_AT_OPTIMAL_SAMPLER = True
 C_F_AGREEMENT_IS_INDEPENDENT = False
 
 #: (d) and (e)
 SEC7_TRANSPLANTABLE_TO_NEGATIVE_M = False
-CORRIDOR_MODE_FUNCTIONS = "NOT-FOUND -- confluent Heun (a property of the equation)"
+#: CORRECTED (DOCKET 67): as first written, "(a property of the equation)"; it
+#: is a property of the constant-M vacuum segment's equation (section 1(e)).
+CORRIDOR_MODE_FUNCTIONS = ("NOT-FOUND -- confluent Heun (a property of the "
+                           "constant-M segment's equation)")
 
-#: Section 2.  The corridor is asymptotically flat, so its spectral gap is zero.
+#: Section 2.  The corridor is asymptotically flat, so its frequency spectrum
+#: reaches zero.  The gap alone does not fix a bound: within the (5.6) family
+#: the tightening depends on C alone, and (5.6) is not a formula of the
+#: corridor.  CORRECTED (DOCKET 67): GAP_HYPOTHESIS as first written read "an
+#: asymptotically flat complete spatial slice has Laplace spectrum running
+#: continuously to zero" -- the operator is the static K, the field must be
+#: massless and minimally coupled, and only inf spec = 0 is used.
 CORRIDOR_SPECTRAL_GAP = 0.0
-GAP_HYPOTHESIS = ("an asymptotically flat complete spatial slice has Laplace "
-                  "spectrum running continuously to zero")
+GAP_HYPOTHESIS = ("an asymptotically flat complete spatial slice gives the "
+                  "massless minimally coupled field a frequency spectrum "
+                  "reaching zero")
 WITNESS_PROPERTIES_INERT = True         # ratio() is a function of C alone
 FLAT_FIGURE_STANDS = True               # 71.256, achievable.py's, unmoved
 
 #: Section 3.
-RIGHT_INSTRUMENT = ("Fewster & Smith, absolute QEI, gr-qc/0702056 eq. (5) -- "
-                    "minimally coupled KG, mass >= 0, any 4D globally "
-                    "hyperbolic spacetime; READ at source by the DOCKET 62 ruling")
+#: CORRECTED (DOCKET 67): RIGHT_INSTRUMENT cited "eq. (5)", the schematic
+#: form; the theorem is Thm 3.1, its worldline form eq. (82).  O2_ANSWERED_BY
+#: named C_ab alone; the bound also carries INT f^2 Q.
+RIGHT_INSTRUMENT = ("Fewster & Smith, absolute QEI, gr-qc/0702056 Thm 3.1, "
+                    "worldline form eq. (82) -- minimally coupled KG, mass >= 0, "
+                    "4D globally hyperbolic spacetime; READ at source by the "
+                    "DOCKET 62 ruling")
 O2_ANSWERED_BY = ("evaluate Fewster & Smith's ABSOLUTE QEI on the corridor -- "
                   "blocked on the corridor's scalar mode functions (NOT-FOUND, "
                   "confluent Heun), and carrying C_ab, the conserved local "
-                  "curvature term that vanishes in Minkowski")
+                  "curvature term that vanishes in Minkowski, and the "
+                  "conservation term INT f^2 Q")
 FEWSTER_1208_5399_ON_THIS = "NOT-SEARCHED"
 
 #: C (units of c/b) -> ratio.  MEASURED by ratio() below; the ruling's own
@@ -203,7 +285,9 @@ def witness_gap():
     """C = b/a_c for the H^3 witness matched to achievable.py's demand at b = 1.
 
     3 c^4/(8 pi G a_c^2) = required_density(b).  The sampler length is also b,
-    so C is scale-free (b cancels) -- in units of c/b."""
+    so C is scale-free (b cancels) -- in units of c/b.  C = 1/a_c is the
+    massless MINIMALLY coupled field's minimum frequency: C^2 = (1 - 6 xi)/a_c^2,
+    so conformal coupling gives C = 0 on the same witness (DOCKET 67)."""
     b = 1.0
     a_c = math.sqrt(3.0 * achievable.C_SI ** 4
                     / (8.0 * math.pi * achievable.G_SI
@@ -212,8 +296,12 @@ def witness_gap():
 
 
 def cavity_gap():
-    """The most generous gap the corridor's own geometry could supply: a cavity
-    at concentric.py's compensating shell, C = b/R_s in units of c/b."""
+    """An illustrative gap from the corridor's own geometry: a cavity at
+    concentric.py's compensating shell, C = b/R_s in units of c/b.  Not the
+    most generous (a Dirichlet cavity of radius R_s gives pi b/R_s = 0.0157),
+    and ratio() at it evaluates the H^3 form of (5.6), an illustration, not the
+    cavity's own bound.  CORRECTED (DOCKET 67): this read "The most generous
+    gap the corridor's own geometry could supply"."""
     return 1.0 / concentric.R_SHELL
 
 
@@ -291,7 +379,10 @@ def u4ghat2(u):
 
 
 def Q3(x):
-    """F&T (3.5) at n = 3: 4 x^-4 INT_1^x y^2 sqrt(y^2-1) dy, closed form."""
+    """F&T (3.5) at n = 3: 4 x^-4 INT_1^x y^2 sqrt(y^2-1) dy, closed form.
+    (3.5) defines Q_3 on [1, oo); 0 below 1 is this file's convention, which
+    reproduces (5.6)'s lower limit u = C.  Used for the massless (mu = 0),
+    minimally coupled field (DOCKET 67)."""
     if x <= 1.0:
         return 0.0
     return ((x * (2 * x * x - 1) * math.sqrt(x * x - 1) - math.acosh(x))
@@ -606,7 +697,7 @@ def selftest(full=False):
     rc = ratio(cavity_gap())
     chk("cavity at R_s = 200 b: C = 0.005", cavity_gap(), 0.005)
     chk("... leaves the ratio at 0.999999 (6 d.p.)", round(rc, 6), 0.999999)
-    near("the corridor's gap is zero, so its ratio is 1 (same quadrature)",
+    near("the (5.6) formula at gap zero (Minkowski) gives ratio 1 (same quadrature)",
          ratio(CORRIDOR_SPECTRAL_GAP), 1.0, 1e-8)
 
     print("\n5. 71.256 STANDS; THE PROPOSED FIGURES ARE REFUSED")

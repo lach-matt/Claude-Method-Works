@@ -36,6 +36,22 @@ Higgs VEV is small.  Seat the scalar higher and the coupling needed collapses:
 HIGGS INFLATION ALREADY USES, I.E. BELOW IT.**  Not an exotic value, not a tuned
 one, a number already in the cosmology literature for a different purpose.
 
+    CORRECTED (DOCKET 67), TWO HYPOTHESES THE COMPARISON CARRIES.
+    (i) IT COMPARES MAGNITUDES ONLY.  Barcelo-Visser's conformal coupling is
+    +1/6 and their gate is kappa - xi phi^2; Bezrukov-Shaposhnikov's is -1/6
+    with M^2 + xi h^2 (0710.3755 footnote 1), so for the same canonical field
+    xi_BV = -xi_BS (sympy, DOCKET 67).  Higgs inflation's coupling is
+    xi_BV = -1.7e4 in BV's convention -- BV's case 1, "If xi < 0 ... ANEC is
+    satisfied", with no gate at any field value.  "A coupling already in use"
+    is a coupling of the same MAGNITUDE and the opposite sign.
+    (ii) 1.7e4 IS TREE-LEVEL.  B-S print no number: 1.7e4 is their eq. (13)
+    at m_H ~ 125 GeV and tree-level lambda (17,608, truncated), and (13) makes
+    xi proportional to sqrt(lambda) at the inflationary scale.  With SM running
+    and the measured top mass later evaluations are xi ~ 1500 (Rubio
+    1807.02376), ~800 down to ~500 (Masina-Quiros 2412.03284), and O(10) at the
+    critical point -- so the ratio 0.872 holds only at tree-level lambda.
+    No pinned number moves: the ratio is computed against the imported 1.7e4.
+
     CORRECTED (DOCKET 63, ruling F9).  The first draft pinned its own
     XI_HIGGS_INFLATION = 1e4 while higgs.py pins 1.7e4 for the same named
     constant (Bezrukov-Shaposhnikov, NAMED-NOT-READ) -- two values for one
@@ -139,6 +155,8 @@ SCALES = [
 ]
 # DOCKET 63 F9.  ONE NAMED CONSTANT, ONE VALUE: imported from its owner.
 XI_HIGGS_INFLATION = H.XI_HIGGS_INFLATION          # 1.7e4, NAMED-NOT-READ there
+#   DOCKET 67: a tree-level-lambda evaluation, and in Bezrukov-Shaposhnikov's
+#   sign convention (xi_BV = -xi_BS) -- see the CORRECTED note in section 1.
 #: The first draft's own pin for the same constant.  WITHDRAWN, kept.
 XI_HIGGS_INFLATION_AS_FIRST_PINNED = 1e4
 XI_HIGGS_INFLATION_WITHDRAWAL_REASON = (
@@ -146,6 +164,13 @@ XI_HIGGS_INFLATION_WITHDRAWAL_REASON = (
     "(Bezrukov-Shaposhnikov); this file's 1e4 is withdrawn and the constant "
     "imported.  The GUT-scale xi_required(2e16) = 1.48e4 is then 0.87x Higgs "
     "inflation's, not 'one and a half times'.")
+#: STATUS (named, DOCKET 67): an INPUT, typed here with no source.  2e16 GeV is
+#: the MSSM unification scale (hep-ph/0601023 eq. 2, read at source by DOCKET
+#: 67: "presented here as empirical", conditional on superpartners near 1 TeV);
+#: the SM alone has no unification point and non-SUSY GUT extensions sit near
+#: 1e14 GeV.  xi_required ~ phi^-2, so 1e16 -> 5.93e4, 3e16 -> 6.59e3,
+#: 1e14 -> 5.93e8.  Setting the field amplitude phi EQUAL to the unification
+#: mass scale is a further identification, not computed here.
 GUT_SCALE_GEV = 2e16
 
 
@@ -195,6 +220,9 @@ def report():
     print("   ALREADY USES (xi = %.1e, imported from higgs.py; the first draft's"
           % XI_HIGGS_INFLATION)
     print("   own 1e4 pin, which gave '1.5x', is WITHDRAWN -- DOCKET 63 F9).")
+    print("   IN MAGNITUDE ONLY, AND AT TREE-LEVEL lambda: in Barcelo-Visser's")
+    print("   sign convention Higgs inflation's coupling is -1.7e4, which has no")
+    print("   gate at all (DOCKET 67).")
     print("   The 1e27 shortfall belongs to the Higgs, not the route:")
     print("   the gate is the hierarchy problem only because the Higgs sits sixteen")
     print("   orders below the Planck scale, and another field need not.")
@@ -269,7 +297,7 @@ def selftest():
     # RE-PINNED.  Against the imported 1.7e4 the GUT requirement is 0.872x,
     # BELOW Higgs inflation's.  The first draft asserted 1 < ratio < 2 against
     # its own 1e4 (ratio 1.48); that fixture moved and is withdrawn.
-    chk("the GUT requirement is 0.872x Higgs inflation's (re-pinned)",
+    chk("the GUT requirement is 0.872x Higgs inflation's (re-pinned; |xi|, tree lambda)",
         xi_required(GUT_SCALE_GEV) / XI_HIGGS_INFLATION, 0.8722, 1e-4)
     chk("which is within a factor of two of it, from below",
         0.5 < xi_required(GUT_SCALE_GEV) / XI_HIGGS_INFLATION < 1.0, True)

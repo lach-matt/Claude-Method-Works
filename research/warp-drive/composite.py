@@ -23,43 +23,67 @@ and the two terms have completely different sign structure in the source:
 
         RICCI focusing   R_kk = 8 pi T_kk        LINEAR in the source
         WEYL focusing    sigma^2                 QUADRATIC in the source
+                                                 (its effect on AREA)
 
-RICCI FOCUSING NEEDS POSITIVE ENERGY.  WEYL FOCUSING IS SIGN-BLIND.  A negative
-mass shears the congruence exactly as hard as a positive mass of the same
-magnitude -- and the Shapiro delay, being linear, flips sign with it.
+RICCI FOCUSING NEEDS POSITIVE ENERGY.  WEYL FOCUSING IS SIGN-BLIND -- because
+the vacuum tidal matrix is traceless, so flipping M swaps its converging and
+diverging directions; the conjugate point itself is set by the FIRST-order
+astigmatic focal length b^2/4|M|.  (That reading is this file's, not Gao &
+Wald's.)  To first order in M a negative mass shears the congruence exactly as
+hard as a positive mass of the same magnitude -- Born integration gives the
+same conjugate point, 55.87, for both signs; the bent rays differ at O(M^2),
+55.17 against 56.50 -- and the Shapiro delay, being linear, flips sign with it.
 
     SO A NEGATIVE MASS CAN FOCUS A CONGRUENCE TO A CONJUGATE POINT WHILE THE
     LIGHT THAT FOCUSES ARRIVES EARLY.  Seating and advance, in one object.
 
 -- MEASURED, ON A VALIDATED PIPELINE ------------------------------------------
 Linearised static metric ds^2 = -(1+2 Phi)dt^2 + (1-2 Phi)dx^2, Phi = -M/r, with
-M of either sign.  Christoffels, Riemann and the optical tidal matrix all by
+M of either sign -- the isotropic form, one potential in g_tt and g_ij (Psi = Phi).  Christoffels, Riemann and the optical tidal matrix all by
 finite difference from the metric -- no formula carried from memory.  The full
 Jacobi MATRIX is evolved, A'' = -T A with A(0) = 0, A'(0) = I, on a
 parallel-propagated screen; a conjugate point is det A = 0, which includes shear
 by construction rather than by an added term.
 
-  VALIDATION 1  light deflection reproduces 4M/b to 0.03 % at b = 0.2.
-  VALIDATION 2  the tidal matrix is TRACELESS to four digits, as vacuum demands
-                (R_kk = 0), so what focuses here is pure Weyl.
+  VALIDATION 1  light deflection agrees with 4M/b to 0.03 % at b = 0.2 -- a
+                cancellation: the finite run (x0 = -4, lam = 8) falls 0.125 %
+                short of 4M/b at first order, and the linearised metric's
+                second-order term adds +pi M/b = 0.157 %.  Against that combined
+                prediction the pipeline agrees to about 4e-5.
+  VALIDATION 2  the tidal matrix is TRACELESS to four digits at closest
+                approach, as vacuum demands at linear order (R_kk = 0) -- in a
+                static check whose k = (1,1,0,0) is not null in this metric.
+                With the true null tangent the trace is the linearised metric's
+                own O(M^2) Ricci, about 0.9 % of |T| at |M| = 2e-3 (up to 5.4 %
+                where the Weyl part is weak), and it defocuses.  So what
+                focuses here is Weyl to that level; the exact vacuum completion
+                is exactly traceless and gives the same conjugate points.
   VALIDATION 3  the antisymmetric part of the arrival time reproduces the
                 analytic Shapiro 2M ln[(x1+r1)/(x0+r0)] to 0.6 %.
 
-At b = 0.3, source at 40 (OUTSIDE the focal length b^2/4M -- inside it no real
-image forms, which cost this pass two wrong runs):
+At b = 0.3, source at 40 (OUTSIDE the focal length b^2/4|M| = 11.25, a
+thin-lens value exact only to O(M/b) -- at this b a source inside it forms no
+real image, which cost this pass two wrong runs):
 
         M          conjugate point     t - |dx|        verdict
         +2.0e-3    lambda = 55.16      +5.124e-2       seats, LATE
         -2.0e-3    lambda = 56.52      -3.762e-2       SEATS AND EARLY
 
-Both signs seat, at almost the same place, because the focusing is quadratic.
-Only the arrival flips.  Converged to four figures over a 4x refinement in step
-count.
+(The conjugate points and the +M delay in this table are the n = 3600 run;
+survey() at its default n = 900 gives 55.17, 56.50 and +5.123e-2.)
+
+Both signs seat, at almost the same place, because the vacuum tidal matrix is
+traceless: flipping M swaps the eigen-directions and leaves det A = 0 where it
+was at first order.  The 2.4 % difference is the O(M^2) bent ray.  Only the
+arrival flips.  Converged to four figures over a 4x refinement in step count.
 
 -- AND IT IS A WINDOW, BOUNDED ON BOTH SIDES ----------------------------------
 The arrival time is not purely Shapiro.  Measured minus analytic leaves a
-symmetric residue that is the PATH LENGTHENING of a bent ray -- quadratic in M,
-so sign-blind, so a delay penalty that negative mass cannot escape:
+symmetric residue, quadratic in M, so sign-blind, so a delay penalty that
+negative mass cannot escape.  About 99 % of it is the PATH LENGTHENING of a
+bent ray; about 1.2 % is the linearised metric's own O(Phi^2) term in the null
+coordinate speed.  It describes this linearised model, not GR's second-order
+Schwarzschild delay:
 
         t - |dx|  =  (Shapiro, ~ M, flips)  +  (path lengthening, ~ M^2, never)
 
@@ -112,9 +136,22 @@ achronal.py searched for and did not find -- it was not in the Alcubierre family
     device M asked about is NOT-RUN; this file establishes that its enabling
     mechanism is real, not that the device closes.
 
+CORRECTED (DOCKET 67).  Wording only; no verdict, flag or computed number
+moved.  As first written: 'exactly as hard as a positive mass' (true at O(M));
+'because the focusing is quadratic' (seating is sign-blind because the vacuum
+tidal matrix is traceless); 'reproduces 4M/b to 0.03 %' (a cancellation);
+'pure Weyl' (to about 1-5 %); 56.52 (the n = 3600 value); 'forms no real image'
+without 'at this b', and b^2/4M as exact; the M^2 residue wholly 'path
+lengthening'; the static residue 'h-independent ... the metric's own O(Phi^2)'
+(it depends on h); and Olum cited as if he governed this ray.  The code's
+tidal sign is recorded at tidal(), unchanged.
+
 stdlib only.  Gao & Wald, Class. Quantum Grav. 17, 4999 (2000), gr-qc/0007021,
-eq. (13) and eq. (11) for the Jacobi matrix; Olum, PRL 81, 3567 (1998) for the
-requirement of negative energy, which this configuration supplies.
+eq. (13) and eq. (11) for the Jacobi matrix.  Olum, PRL 81, 3567 (1998): his
+superluminal path (Condition 1) needs negative energy ON the path.  This early
+ray passes outside the M < 0 source with T_ab = 0 along it, and it focuses, so
+it is not a Condition-1 path and Olum's theorem does not govern it; the
+negative energy here is prescribed off the path (item 1).
 """
 import math, sys
 
@@ -227,7 +264,15 @@ def geodesic(p0, k0, M, lam, n):
 
 
 def tidal(p, k, e1, e2, M):
-    """The optical tidal matrix on a transverse screen.  Traceless in vacuum."""
+    """The optical tidal matrix on a transverse screen.  Traceless in vacuum,
+    at linear order in Phi.
+
+    SIGN, recorded (DOCKET 67), code unchanged: this returns T = -K with
+    K_ij = R_{k e_i k e_j}, and survey() evolves A'' = -T A = +K A -- the
+    opposite sign to Gao-Wald eq. (11), eta'' = -K eta.  It agrees with eq.
+    (11) only for a traceless diagonal T (vacuum at linear order, T_yz = 0),
+    where the flip swaps the eigen-directions and moves no conjugate point; on
+    a ray through matter it would reverse the Ricci term."""
     R = riemann_lower(p, M)
     E = (e1, e2)
     return [[-sum(R[m][a][n][b] * k[m] * E[i][a] * k[n] * E[j][b]
@@ -259,6 +304,8 @@ def survey(M, b=B_DEFAULT, x0=X0_DEFAULT, lam=LAM_DEFAULT, n=NSTEP):
             for c in range(2):
                 A[r][c] += h * dA[r][c] + 0.5 * h * h * acc[r][c]
                 dA[r][c] += h * acc[r][c]
+        # first det A <= 0 after step 5: sufficient, not necessary -- it finds
+        # an odd-multiplicity zero only, and would miss a stigmatic focus.
         if i > 5 and conj is None and (A[0][0] * A[1][1] - A[0][1] * A[1][0]) <= 0.0:
             conj = i * h
         G = christoffel(p, M)
@@ -288,8 +335,11 @@ def analytic_shapiro(M, b=B_DEFAULT, x0=X0_DEFAULT, x1=None, lam=LAM_DEFAULT):
 
 
 def focal_length(M, b=B_DEFAULT):
-    """b^2/(4|M|).  A source INSIDE this forms no real image -- the error that
-    cost this pass two runs."""
+    """b^2/(4|M|), a thin-lens value exact to O(M/b).  At this impact
+    parameter b a source INSIDE this forms no real image -- the error that
+    cost this pass two runs.  (A smaller b shortens f.  The 4M/b deflection
+    route covers M > 0; for M < 0 the radial direction focuses at the same
+    distance.)"""
     return b * b / (4.0 * abs(M))
 
 
@@ -316,22 +366,24 @@ def selftest():
         r = survey(Mv, b=b, x0=-4.0, lam=8.0, n=700)
         near("b=%.1f: bend / (4M/b)" % b, r["bend"] / (4.0 * Mv / b), 1.0, tol)
 
-    print("\nVALIDATION 2 -- the tidal matrix is TRACELESS: vacuum, so pure Weyl")
+    print("\nVALIDATION 2 -- the tidal matrix is TRACELESS at linear order: Weyl")
     # Two separate claims, because they have different error sources.
     # (a) the PHYSICS, at a fixed point with no screen transport involved.
     Tc = tidal((0.0, B_DEFAULT, 0.0), [1.0, 1.0, 0.0, 0.0],
                [0., 0., 1., 0.], [0., 0., 0., 1.], -2.0e-3)
     ratio = abs(Tc[0][0] + Tc[1][1]) / max(abs(Tc[0][0]), abs(Tc[1][1]))
-    near("static, at closest approach: |trace| / |max component|", ratio, 0.0, 5e-4)
-    print("       h-independent at 1.6e-4 over an order of magnitude in step size,")
-    print("       so this residue is the metric's own O(Phi^2), not the difference.")
-    # (b) along the ray the screen is parallel-propagated by first-order Euler,
-    #     which leaks about a percent.  Recorded, not hidden, and it cannot
-    #     manufacture a conjugate point -- both signs give the same lambda.
+    near("static, closest approach, k=(1,1,0,0): |trace| / |max|", ratio, 0.0, 5e-4)
+    print("       1.6e-4 at this h; it depends on h (9.9e-4 .. 6.0e-5 over")
+    print("       h = 3e-3 .. 1e-4), converging to 5.9e-5 for this non-null probe.")
+    # (b) along the ray, with the true null tangent, the trace ratio is about a
+    #     percent -- mostly the linearised metric's own O(M^2) Ricci (8.7e-3
+    #     computed in DOCKET 67), with first-order Euler screen transport adding
+    #     little.  As first written this was called the Euler 'leak'.  It
+    #     cannot manufacture a conjugate point -- both signs give the same lambda.
     r = survey(2.0e-3)
-    chk("along the ray, with Euler screen transport, the leak stays under 2 %",
+    chk("along the ray the trace ratio stays under 2 % (O(M^2) Ricci)",
         r["traceless_ratio"] < 2.0e-2, True)
-    print("       leak = %.3e.  Ricci focusing is OFF here; what focuses is shear."
+    print("       ratio = %.3e.  Ricci focusing is O(M^2) here; what focuses is shear."
           % r["traceless_ratio"])
 
     print("\nVALIDATION 3 -- the antisymmetric delay is the analytic Shapiro")
@@ -340,7 +392,7 @@ def selftest():
     near("antisymmetric part vs 2M ln[(x1+r1)/(x0+r0)]",
          anti / analytic_shapiro(2.0e-3), 1.0, 1e-2)
     sym = 0.5 * (rp["delay"] + rm["delay"])
-    chk("and a POSITIVE symmetric residue remains (path lengthening, ~M^2)",
+    chk("and a POSITIVE symmetric residue remains (~M^2, mostly path)",
         sym > 0.0, True)
     print("       antisym %+.5e   analytic %+.5e   sym residue %+.5e"
           % (anti, analytic_shapiro(2.0e-3), sym))
@@ -356,7 +408,7 @@ def selftest():
     chk("the positive mass seats", rp["seats"], True)
     chk("the negative mass seats TOO -- Weyl focusing is sign-blind",
         rm["seats"], True)
-    near("and at nearly the same place (quadratic in M)",
+    near("and at nearly the same place (equal at O(M))",
          rm["conjugate"] / rp["conjugate"], 1.0, 0.05)
     chk("the positive mass arrives late", rp["early"], False)
     chk("THE NEGATIVE MASS SEATS AND ARRIVES EARLY", both(-2.0e-3), True)
@@ -404,9 +456,9 @@ def report():
                  else "seats, LATE" if r["seats"] else "early, no seat"))
     print("\n" + "=" * 79)
     print("VERDICT")
-    print("  The intersection is NOT empty.  Weyl focusing is quadratic in the")
-    print("  source and therefore sign-blind; the Shapiro delay is linear and")
-    print("  therefore flips.  A negative mass focuses a congruence to a")
+    print("  The intersection is NOT empty.  Vacuum Weyl focusing is traceless")
+    print("  and therefore sign-blind at first order in M; the Shapiro delay is")
+    print("  linear and therefore flips.  A negative mass focuses a congruence to a")
     print("  conjugate point while the light that focuses arrives early.")
     print("  Seating and advance, in one object, in a window about a decade wide.")
     print("\n  Every earlier pass missed it by writing u'' = -(R_kk/2)u and")

@@ -145,6 +145,10 @@ HBAR = 1.054571817e-34      # J s
 L_P  = (HBAR * G / C**3) ** 0.5          # 1.616e-35 m
 M_SUN, M_JUP, M_EARTH = 1.98892e30, 1.89813e27, 5.9722e24
 M_MILKYWAY = 1e12 * M_SUN
+# Nuclear saturation density, not read at source.  2.3e17 kg/m^3 is
+# n0 = 0.1375 nucleons/fm^3; the tree's other constant, address.RHO_NUCLEAR =
+# 2.676e17 (n0 = 0.16/fm^3 times m_N), is 16% higher.  A discrepancy recorded
+# by DOCKET 67, not a correction of either value.
 RHO_NUC = 2.3e17            # kg m^-3, nuclear saturation
 KG_PER_M = C**2 / G         # geometrized length -> kg
 J_PER_M  = C**4 / G         # geometrized length -> J
@@ -837,7 +841,12 @@ def mucf_q_at(e_gev, phi=3.0, work=False):
 
 def propulsion_fuel_at(efficiency, M=4.49e27, beta=0.0378):
     """Reaction mass needed if the exhaust energy comes from a source converting
-    `efficiency` of rest mass.  The photon-rocket floor is efficiency = 1."""
+    `efficiency` of rest mass.  The photon-rocket floor is efficiency = 1.
+
+    A LINEAR model, floor/efficiency -- not the relativistic rocket equation.
+    At efficiency 0.004 x 0.501 it gives 499 times the floor; the rocket
+    equation with an ideal nozzle gives 21.2 (computed in the DOCKET 67 audit).
+    Fusion-powered exhaust is worse than the photon floor either way."""
     floor = M*(((1+beta)/(1-beta))**0.5 - 1)
     return floor/efficiency
 
@@ -1626,8 +1635,10 @@ def report():
                     ('...times 50.1 % convertible', 0.004*0.501)):
         p('        %-40s %14.1f' % (nm, propulsion_fuel_at(eff)/M_EARTH))
     p()
-    p('        muCF is %.0f x WORSE than the floor, because the floor already assumes'
+    p('        muCF is %.0f x WORSE than the floor in this linear model (the'
       % (1/(0.004*0.501)))
+    p('        relativistic rocket equation with an ideal nozzle gives 21.2 x;')
+    p('        DOCKET 67), because the floor already assumes')
     p('        100 %% mass-to-radiation and fusion gives 0.2 %%.  p = E/c is not improved')
     p('        by a better way to make E.  An energy source does not supply momentum.')
     p()
@@ -1898,7 +1909,9 @@ def selftest():
         mucf_q_at(0.30) > 10.0, True)
     chk('at 5 GeV it is below 1 -- which is what 3.5 measured',
         mucf_q_at(5.0) < 1.0, True)
-    chk('fusion-powered exhaust is worse than the photon floor',
+    # The > 100 is the LINEAR model's 499; under the relativistic rocket equation
+    # with an ideal nozzle the factor is 21.2 (DOCKET 67) -- still worse.
+    chk('fusion-powered exhaust is worse than the photon floor (linear model)',
         propulsion_fuel_at(0.004*0.501) / propulsion_fuel_at(1.0) > 100.0, True)
     # the borrowed well
     chk('optimal slingshot turn is 90 degrees', slingshot_dv(10.0, 1e8)['theta_deg'], 90.0)

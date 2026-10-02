@@ -6,13 +6,24 @@ dynamical form, and named QNEC.  nullbound.py then loosened it via a different
 member of the family and was scored a half hit.  This file asks the named member,
 and the answer runs the other way.
 
-    QNEC INTEGRATES TO ANEC.  ANEC IS VIOLATED BY THE ALCUBIERRE BUBBLE ON EVERY
-    RAY MEASURED.  AND SNEC -- WHICH nullbound.py SAID PERMITTED THE WALL -- IS
-    VIOLATED TOO, AT EVERY SAMPLING WIDTH OF ORDER THE BUBBLE RADIUS OR MORE.
+    QNEC INTEGRATES TO ANEC -- on a fixed flat or stationary-horizon background,
+    for a quantum state, when the boundary term [S'] vanishes.  INT T_kk dx IS
+    NEGATIVE ON EVERY FORWARD (+x) LINE MEASURED, at one parameter point
+    (sigma = 8, R = 1, v_s = 0.5).  Only the y = 0 line is a null geodesic, and
+    its affine ANEC integral is negative too (-0.0524), so ANEC is violated on
+    one genuine geodesic; the opposite-directed axis ray is positive.  AND SNEC
+    -- WHICH nullbound.py SAID PERMITTED THE WALL -- IS VIOLATED TOO, AT
+    SAMPLING WIDTHS OF ORDER THE BUBBLE RADIUS OR MORE: outside the domain
+    Freivogel-Krommydas 2018 stated (smearing length small against the
+    curvature radius, ~0.47 here); inside it, w <= 0.5, SNEC holds.  FKK
+    2012.11569 argued from two examples, without proof, that it extends there.
 
 -- THE ERROR IN nullbound.py, STATED FIRST ------------------------------------
-SNEC is INTEGRAL <T_kk> g^2 dl >= -(4B/G) INTEGRAL (g')^2 dl, and it must hold
-for EVERY sampling function g.  nullbound.py evaluated it at ONE width -- the
+SNEC is INTEGRAL <T_kk> g^2 dl >= -(4B/G) INTEGRAL (g')^2 dl, proposed for
+every smooth, normalised sampling function g of width small against the
+curvature radius, along an achronal null geodesic with affine parameter
+(Freivogel & Krommydas 2018; the value B = 1/(32 pi) is Leichenauer & Levine
+1808.09970's -- FK leave B undetermined).  nullbound.py evaluated it at ONE width -- the
 wall thickness D -- observed that both sides go as 1/D^2, and concluded that the
 thickness cancels and the configuration is permitted with a margin of v_s^2/9.
 
@@ -28,18 +39,32 @@ on a bubble of radius 1 and wall ~0.125:
         5.00     -1.136e-02             -5.085e-04        VIOLATED
         20.0     -8.107e-03             -2.843e-06        VIOLATED
 
+(The Gaussians are truncated to the sample window and renormalised, with g' = 0
+at the ends, so the printed bounds differ from the closed form -2B/w^2 by
+-11.5 % at w = 0.1, -36 % at w = 5 and -94 % at w = 20; untruncated, every
+verdict is reproduced and the crossover is 0.9274.  The line is fixed y = 0.3,
+not a geodesic, and its achronality is not checked.)
+
 The crossover is at w of order the BUBBLE RADIUS, not the wall thickness.  One
 width is not a scan, and choosing the loosest one is the error.
 
--- AND QNEC IS WORSE, BECAUSE IT IS A THEOREM ---------------------------------
-QNEC is <T_kk> >= (hbar/2 pi) S''_out, pointwise but state-dependent.  Integrate
-it along a complete generator: INTEGRAL S'' dl = [S'], and for a localised bubble
-that is asymptotically vacuum the boundary variation vanishes, so
+-- AND QNEC IS WORSE, ON ITS HYPOTHESES, BECAUSE IT IS PROVED ---------------
+QNEC is <T_kk> >= (hbar/2 pi) S''_out, pointwise but state-dependent, with
+S''_out the diagonal coefficient of the second functional derivative per unit
+area, on a stationary null surface with affine parameter.  Integrated along a
+complete generator the boundary term is [S'] (BFKW eq. 1.3 with the cuts sent
+to infinity).  BFKLW make its vanishing a CONDITION; this file takes it from
+'a localised bubble that is asymptotically vacuum', which is an inference, not
+shown -- on the warp background S_out is not defined.  Where [S'] = 0:
 
         QNEC  ==>  INTEGRAL <T_kk> dl >= 0,   which is ANEC.
 
 Measured here, with T_mu_nu computed from the Einstein tensor by typefour.py's
-validated pipeline and contracted with the null k^mu = (1, v+1, 0, 0):
+validated pipeline and contracted with the null k^mu = (1, v+1, 0, 0) along
+fixed-y lines.  That k is not affine: the affine tangent is k/(1+v), and on
+y = 0 the affine integral is -0.0524 against the -0.0807 below.  The off-axis
+lines are not geodesics, so their integrals are not ANEC integrals; where
+checked the sign survives (the true geodesic from y0 = 0.3 gives -0.0603):
 
         y = 0.0    INTEGRAL T_kk dx = -0.0807
         y = 0.2                       -0.0865
@@ -47,28 +72,48 @@ validated pipeline and contracted with the null k^mu = (1, v+1, 0, 0):
         y = 0.5                       -0.1290
         y = 0.8                       -0.3441
 
-    NEGATIVE ON EVERY RAY.  ANEC IS VIOLATED, SO QNEC FORBIDS THE CONFIGURATION.
+    NEGATIVE ON EVERY LINE MEASURED, AND ON THE ONE GEODESIC AMONG THEM.
 
-And unlike SNEC -- a conjecture with holographic support -- QNEC is a THEOREM in
-quantum field theory (Bousso, Fisher, Leichenauer & Wall; Balakrishnan, Faulkner,
-Khandker & Wang; Ceyhan & Faulkner).  So the instrument that closes this is
-stronger than the one nullbound.py used to open it.
+On a flat or stationary-horizon background, for a quantum state with
+[S'] = 0, QNEC would forbid this.  Here the background is curved and
+non-stationary and T is classical: on classical input the QNEC reduces to the
+NEC, which already fails pointwise.  And anecscope.py records ANEC in curved
+spacetime as FALSE in general; the version that survives there is achronal
+ANEC, and these lines are not shown achronal.
+
+And unlike SNEC -- a conjecture with holographic support -- QNEC is PROVED in
+quantum field theory, on stated classes: free and superrenormalizable bosonic
+fields on stationary null surfaces of fixed backgrounds (Bousso, Fisher,
+Koeller, Leichenauer & Wall 1509.02542; the conjecture paper 1506.02669 is
+Bousso, Fisher, Leichenauer & Wall), flat-space QFTs with an interacting UV
+fixed point (Balakrishnan, Faulkner, Khandker & Wang), and Minkowski Rindler
+cuts with finite averaged null energy (Ceyhan & Faulkner).  No proof covers
+every QFT on every background.  Within that class the instrument that closes
+this is stronger than the one nullbound.py used to open it.
 
 -- WHAT SURVIVES OF nullbound.py, AND IT IS NOT NOTHING -----------------------
-  * Fewster & Roman stands: there are no quantum inequalities along null
-    geodesics in 4D.  That is the corpus's Register 5537 and it is untouched.
+  * Fewster & Roman (gr-qc/0209036) stands: for the quantised massless
+    minimally coupled scalar in four-dimensional Minkowski space there is no
+    quantum inequality over a finite null segment.  Cited here, as first
+    written, as 'the corpus's Register 5537'; DOCKET 67 could not locate that
+    entry (The Register seats 1-1792).
   * Pfenning & Ford's bound really is a TIMELIKE instrument, and their bound ON
     THE WALL THICKNESS really is an artefact of it.
   * The 1/D^2 cancellation is real arithmetic.
 
     SO THE WALL THICKNESS GENUINELY DOES DROP OUT -- BUT NOT INTO PERMISSION.
     ANEC is violated at EVERY thickness, so D was never the obstruction and
-    removing the D bound buys nothing.  The 10^62 kg figure was indeed the wrong
-    way to state the problem.  The right way is worse.
+    removing the D bound buys nothing.  Pfenning & Ford's -6.2e62 v_b kg (for
+    R = 100 m with the wall at their thickness bound; it scales as R^2/Delta)
+    was indeed the wrong way to state the problem.  The right way is worse.
 
 -- WHICH IS THE SAME SHAPE AS typefour.py -------------------------------------
-Both surviving obstructions are D-independent and both are about KIND rather than
-amount: the matter has no rest frame (Type IV), and the averaged null energy is
+Both surviving obstructions persist across the wall widths tested and both are
+about KIND rather than amount: over almost all of the wall the matter has no
+rest frame (Type IV is pointwise; about 1.16 % of the wall is not Type IV on
+the moving-bubble metric, and the Type IV fraction runs 0.991 to 0.956 over
+sigma = 4 to 32 -- persistent across a factor 8 in D, not invariant; this
+file's own check is one point at one sigma), and the averaged null energy is
 negative however thinly you spread it.  Two independent objections, neither
 touched by any argument about how much energy is needed.
 
@@ -83,13 +128,28 @@ row is scored FAILED rather than PARTIAL.
 That is the first real test the shape has had, and it did not pass it.  Recorded
 that way, because a pattern that only ever gets credit is not an instrument.
 
+CORRECTED (DOCKET 67).  Wording only; no verdict, flag or computed number
+moved.  As first written: 'ANEC IS VIOLATED BY THE ALCUBIERRE BUBBLE ON EVERY
+RAY MEASURED' (one parameter point, non-affine k, one geodesic among five
+lines); SNEC 'VIOLATED ... AT EVERY SAMPLING WIDTH OF ORDER THE BUBBLE RADIUS'
+and 'must hold for EVERY sampling function g' (outside FK 2018's
+tau << L_curv); B = 1/(32 pi) labelled Freivogel-Krommydas's (it is
+Leichenauer-Levine's); [S'] = 0 asserted from 'asymptotically vacuum'; 'ANEC
+IS VIOLATED, SO QNEC FORBIDS THE CONFIGURATION' (curved background, classical
+T); QNEC 'a THEOREM' credited to Bousso, Fisher, Leichenauer & Wall (the proof
+paper adds Koeller); Fewster-Roman without field or Minkowski, as 'Register
+5537'; 'the 10^62 kg figure' without R and v_b; 'D-independent' and 'the
+matter has no rest frame' from one point.  qnec_implies_anec() returns a
+declared True.
+
 stdlib only.  typefour.py supplies the stress tensor and its two validations.
 """
 import math, sys
 
 VS = 0.5
 Y_RAYS = (0.0, 0.2, 0.3, 0.5, 0.8)
-B_FK = 1.0 / (32.0 * math.pi)
+B_FK = 1.0 / (32.0 * math.pi)   # Leichenauer-Levine 1808.09970 eq.(1); the
+                                # name is as first written (FK leave B open)
 
 def _stress_lower(p, vs=VS):
     import typefour as tf
@@ -99,7 +159,8 @@ def _stress_lower(p, vs=VS):
             for m in range(4)]
 
 def null_vector(p, vs=VS, sign=1.0):
-    """k^mu = (1, v + sign, 0, 0).  Null in this metric -- checked in selftest."""
+    """k^mu = (1, v + sign, 0, 0).  Null in this metric -- checked in selftest.
+    Not affine: along y = 0 the affine tangent is k/(1 + v)."""
     import typefour as tf
     x, y, z = p
     v = vs * tf.shape(math.sqrt(x * x + y * y + z * z))
@@ -122,11 +183,17 @@ def sample_ray(y, vs=VS, a=-6.0, b=6.0, n=240):
     return xs, [T_kk((x, y, 0.0), vs) for x in xs], h
 
 def anec_integral(y, vs=VS, a=-2.5, b=2.5, n=90):
+    """INT T_kk dx along the fixed-y line, k^t = 1.  Not the affine ANEC
+    integral (on y = 0 the affine value is -0.052410 against this -0.080665),
+    and off-axis lines are not geodesics; the sign survives where checked."""
     _xs, tk, h = sample_ray(y, vs, a, b, n)
     return sum(tk) * h
 
 def snec_terms(xs, tk, h, w, B=B_FK):
-    """(LHS, RHS) of INT T_kk g^2 >= -4B INT (g')^2, Gaussian of width w."""
+    """(LHS, RHS) of INT T_kk g^2 >= -4B INT (g')^2, Gaussian of width w,
+    truncated to the window and renormalised, with g' = 0 at the ends: the
+    bound differs from the closed form by up to -94 % at w = 20, and no
+    verdict changes."""
     g2 = [math.exp(-(x / w) ** 2) / (w * math.sqrt(math.pi)) for x in xs]
     nrm = sum(g2) * h
     g2 = [v / nrm for v in g2]
@@ -155,7 +222,10 @@ def qnec_implies_anec():
     """QNEC: <T_kk> >= (hbar/2pi) S''.  Integrating along a complete generator,
     INT S'' dl = [S'], which vanishes for a localised, asymptotically vacuum
     bubble.  Hence INT <T_kk> dl >= 0.  A statement about the theorem, recorded
-    as a flag rather than computed."""
+    as a flag rather than computed.  DECLARED: BFKLW make [S'] = 0 a condition,
+    and the theorem presumes a fixed flat or stationary-horizon background and
+    a quantum state; this returns True unconditionally, so the checks that read
+    it cannot fail."""
     return True
 
 def selftest():
@@ -172,14 +242,14 @@ def selftest():
     for p in ((0.9, 0.3, 0.0), (1.0, 0.2, 0.0), (0.0, 0.0, 0.0)):
         chk("  g(k,k) at %s" % str(p[:2]), null_check(p), 0.0, 1e-14)
 
-    print("\nANEC: INT T_kk dx along rays through the wall")
+    print("\nINT T_kk dx along fixed-y lines (non-affine k; y = 0 a geodesic)")
     for y in Y_RAYS:
         I = anec_integral(y)
         print("      y = %.1f   INT T_kk dx = %+.6f" % (y, I))
         chk("  negative at y = %.1f" % y, I < 0.0, True)
-    chk("ANEC is violated on every ray tested",
+    chk("INT T_kk dx < 0 on every line tested",
         all(anec_integral(y) < 0.0 for y in Y_RAYS), True)
-    chk("  and QNEC integrates to ANEC", qnec_implies_anec(), True)
+    chk("  and QNEC integrates to ANEC (declared; [S'] = 0)", qnec_implies_anec(), True)
 
     print("\nSNEC, scanned over sampling width -- which nullbound.py did not do")
     xs, tk, h = sample_ray(0.3)
@@ -200,14 +270,14 @@ def selftest():
     import nullbound
     chk("the 1/D^2 cancellation is still real arithmetic",
         abs(nullbound.ratio(0.1, 1e-3) / nullbound.ratio(0.1, 1e-30) - 1.0) < 1e-12, True)
-    print("""      Fewster & Roman stands, Pfenning-Ford really is a timelike
+    print("""      Fewster & Roman stands (massless scalar, 4D Minkowski), Pfenning-Ford is a timelike
       instrument, and D really does drop out -- but into PROHIBITION, not
       permission.  ANEC is violated at every thickness, so removing the D
       bound buys nothing.""")
 
     print("\nThe same shape as typefour.py")
     import typefour
-    chk("Type IV is D-independent and about kind", typefour.is_type_iv((0.9, 0.3, 0.0)), True)
+    chk("Type IV at one wall point, one sigma (about kind)", typefour.is_type_iv((0.9, 0.3, 0.0)), True)
     chk("  and so is this", anec_integral(0.3) < 0.0, True)
     print("      two independent objections, neither about how much energy.")
 
@@ -233,9 +303,10 @@ def report():
     print("\nVERDICT")
     print("  This session's headline is withdrawn.  The wall-thickness bound was")
     print("  indeed the wrong instrument, and removing it buys nothing: ANEC is")
-    print("  violated at every thickness, and QNEC -- a theorem, not a conjecture")
-    print("  -- integrates to ANEC.  What remains is two D-independent objections")
-    print("  about the KIND of matter, not the amount.")
+    print("  violated at every thickness, and QNEC -- proved on fixed flat or")
+    print("  stationary-horizon backgrounds, not a conjecture -- integrates to ANEC")
+    print("  where [S'] = 0.  What remains is two objections that persist across the")
+    print("  widths tested, about the KIND of matter, not the amount.")
     return 0
 
 if __name__ == "__main__":

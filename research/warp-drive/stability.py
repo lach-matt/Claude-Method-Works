@@ -21,6 +21,16 @@ concentric.py's device has M_ADM = 0, so the Israel junction is between
 That is the mirror of the textbook shell (flat inside, mass outside), and every
 result below is the textbook one with its sign reversed.
 
+    THE HYPOTHESES THAT SETUP USES, NAMED AT DOCKET 67.  Reading each side as
+    Schwarzschild is Birkhoff, which needs GR's field equations with Lambda = 0
+    and a VACUUM spherical region on each side of the shell.  concentric.py's
+    core is a Plummer profile, not compactly supported: the core mass lying
+    outside R_s is 1.5000e-08 m -- negligible, but the vacuum exterior is an
+    idealisation, not a property of that device.  The interior is
+    Schwarzschild(-m), NOT flat: Birkhoff covers only the vacuum annulus, and
+    the point-mass idealisation has m(0) != 0.  The junction uses f_in at r = R
+    only, so it holds for any core of mass -m.
+
 -- THE SHELL IS ORDINARY MATTER -----------------------------------------------
         sigma = -(1/4 pi R)[ sqrt(f_out) - sqrt(f_in) ] = (1/4 pi R)[sqrt(1+2m/R) - 1]
 
@@ -45,7 +55,8 @@ VALIDATION FIRST, because the sign is the whole claim.  The ORDINARY shell --
 flat inside, mass M outside, no pressure response:
 
         M/R      V''(beta^2 = 0)
-        0.01     -3.036e-2        UNSTABLE, as a dust shell must be
+        0.01     -3.036e-2        UNSTABLE, as a shell with no pressure
+                                  response must be
         0.10     -3.424e-1
         0.20     -8.169e-1
 
@@ -62,7 +73,10 @@ and OUR device, negative inside, flat outside, same machinery, same beta^2 = 0:
 
         beta^2_crit is NEGATIVE at every compactness measured (-0.0037 at
         m/R = 0.01 down to -0.132 at m/R = 1), so ANY non-negative beta^2 --
-        dust included -- clears it.
+        beta^2 = 0 included -- clears it.
+        (CORRECTED, DOCKET 67: this table and the line above said "dust".
+        beta^2 = 0 with p held at p_0 != 0 (_ms_at) is a shell at CONSTANT
+        PRESSURE, not dust (p = 0).  No number moves.)
 
     THAT IS THE THIRD APPEARANCE OF ONE SIGN STRUCTURE.  The negative source
     focuses through Weyl without needing positive energy (composite.py), leads
@@ -78,10 +92,14 @@ and worth stating as neither.
 
 -- WHAT IS NOT RUN, AND THE FIRST ONE IS THE DANGEROUS ONE --------------------
  1. NON-RADIAL MODES, l >= 2.  THIS IS WHAT KILLED THE WARPSHELL.  Pitre-
-    Schneider-Poisson find an unstable even-parity mode for all l >= 2, all
-    compactness, all Gamma, on self-gravitating thin shells -- and obstruct.py
-    still carries that as CONDITIONAL.  Their configuration has M_in >= 0 and
-    M_out > 0; ours has M_in < 0 and M_out = 0, and the radial mode already
+    Schneider-Poisson find an unstable even-parity mode for all SAMPLED values
+    -- in GR, M/R in [0, 0.3], Gamma in [1.8, 2.4], l = 2-4; for every l >= 2
+    and every Gamma only in the Newtonian limit (CORRECTED, DOCKET 67: "all
+    l >= 2, all compactness, all Gamma") -- on self-gravitating thin shells of
+    barotropic perfect fluid, and obstruct.py still carries that as
+    CONDITIONAL.  Their configuration has M_in = 0 (they compute only that
+    case; independence of the interior is their stated belief -- CORRECTED,
+    DOCKET 67: "M_in >= 0") and M_out > 0; ours has M_in < 0 and M_out = 0, and the radial mode already
     flipped sign under exactly that exchange.  SO THERE IS A REASON TO EXPECT
     THE NON-RADIAL ONE MIGHT FLIP TOO, AND THAT IS PRECISELY WHY IT MUST BE
     COMPUTED RATHER THAN ASSUMED.  It is the top remaining risk to the device.
@@ -243,7 +261,7 @@ def selftest():
     for M in (0.01, 0.1, 0.2):
         v = V_second(*ordinary(M), beta2=0.0)
         print("     %8.2f %+18.6e" % (M, v))
-    chk("a dust shell with mass outside is unstable, as it must be",
+    chk("a shell with mass outside and beta^2 = 0 is unstable, as it must be",
         all(V_second(*ordinary(M), beta2=0.0) < 0 for M in (0.01, 0.1, 0.2)), True)
 
     print("\nAND OUR DEVICE COMES OUT STABLE, ON THE SAME MACHINERY")

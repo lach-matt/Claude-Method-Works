@@ -27,13 +27,23 @@ READING 3 IS THE LIVE ONE AND GW170817 IS ITS EXPERIMENT.  A binary neutron star
 merger 40 Mpc away sent gravitational waves and gamma rays across 130 MILLION
 YEARS and they arrived 1.74 SECONDS APART:
 
-    |c_gw - c_gamma| / c  ~  4.226e-16      AGREEING TO ONE PART IN 2.4e15
+    1.74 s / (40 Mpc / c)  ~  4.226e-16      ONE PART IN 2.4e15
 
-and the published two-sided bound is -3e-15 <= (v_gw - c)/c <= +7e-16.  Whole
-classes of scalar-tensor theory died on that measurement.  AND EVEN AT THE EDGE
-OF THE BOUND IT BUYS NOTHING: a field running 3e-15 fast saves 4.02e-07 s to
-Proxima, 2.46e-03 s to the galactic centre, and 0.24 SECONDS ON A CROSSING OF
-ANDROMEDA -- two and a half million years of travel to save under a minute.
+-- this file's own ratio of the lag to the light time, not a figure the source
+states.  The published two-sided bound (arXiv:1710.05834) is
+-3e-15 <= (v_GW - v_EM)/v_EM <= +7e-16, read here with v_EM = c.  Its upper
+edge assumes the GW peak and the first photons were emitted together (no
+photons before the merger) and takes D = 26 Mpc, the low end of the 90% GW
+distance interval; it is one event on one line of sight.  The source's own
+exotic emission window (-100 s) would loosen the fast edge to +3.80e-14
+(DOCKET 67 audit).  Whole classes of scalar-tensor theory died on that
+measurement.  AND EVEN AT THE FAST EDGE OF THE BOUND IT BUYS NOTHING: a field
+running +7e-16 fast saves 9.38e-08 s to Proxima, 5.74e-04 s to the galactic
+centre, and 0.055 SECONDS ON A CROSSING OF ANDROMEDA -- two and a half million
+years of travel to save under a minute.  (CORRECTED (DOCKET 67): first written
+"a field running 3e-15 fast saves 4.02e-07 s ... 2.46e-03 s ... 0.24
+SECONDS", which used the SLOW-side magnitude as a fast speed and overstated
+the saving 4.29x; the report prints both columns.)
 
 READING 5 IS THE INTERESTING ONE BECAUSE THE TREE ALREADY PROVED IT, WITHOUT
 KNOWING THAT IS WHAT IT WAS DOING.  A varying DIMENSIONFUL constant is not a
@@ -65,6 +75,9 @@ E_PLANCK_GEV = 1.22e19
 # ------------------------------------------------------ reading 3: two fields
 GW170817_DISTANCE_MPC = 40.0
 GW170817_LAG_S        = 1.74          # gamma rays after the wave
+# Published, two-sided, on (v_GW - v_EM)/v_EM (arXiv:1710.05834 Sec. 4.1).
+# The upper edge assumes simultaneous emission of the GW peak and the first
+# photons and D = 26 Mpc; one event, one line of sight (DOCKET 67).
 GW170817_BOUND_LO     = -3e-15        # published, two-sided
 GW170817_BOUND_HI     = +7e-16
 
@@ -113,7 +126,8 @@ READINGS = [
   "is 2D/c regardless"),
  ("different c per field",    "MEASURED AND BOUNDED",
   "bimetric and scalar-tensor -- IN SCOPE as of the scope decision -- and GW170817 "
-  "agrees to one part in 2.4e15"),
+  "bounds (v_GW - v_EM)/v_EM to -3e-15 .. +7e-16 (its lag over its light time is "
+  "one part in 2.4e15)"),
  ("energy-dependent c",       "BOUNDED HARDER, AND WRONG-SIGNED",
   "LIV from GRB time-of-flight pushes E_QG to the Planck scale, and the generic "
   "correction DELAYS the fast photon rather than advancing it"),
@@ -156,20 +170,26 @@ def report():
 
         light travel time                {T:.4e} s  =  {T/YR/1e6:.1f} Myr
         gamma rays lagged the wave by    {GW170817_LAG_S} s
-        |c_gw - c_gamma| / c           ~ {gw_fractional_bound():.3e}
+        lag / light time (this file's) ~ {gw_fractional_bound():.3e}
 
-        AGREEING TO ONE PART IN {1/gw_fractional_bound():.1e}
-        published two-sided bound: {GW170817_BOUND_LO:.0e} <= (v_gw - c)/c <= {GW170817_BOUND_HI:.0e}
+        ONE PART IN {1/gw_fractional_bound():.1e}
+        published two-sided bound: {GW170817_BOUND_LO:.0e} <= (v_GW - v_EM)/v_EM <= {GW170817_BOUND_HI:.0e}
+        (upper edge: simultaneous emission, D = 26 Mpc; one line of sight)
 
     Whole classes of scalar-tensor theory died on that one measurement.
-    AND EVEN AT THE EDGE OF THE BOUND IT BUYS NOTHING:
+    AND EVEN AT THE EDGE OF THE BOUND IT BUYS NOTHING.  The fast edge is
+    {GW170817_BOUND_HI:.0e}; the 3e-15 column is the SLOW-side magnitude used as a
+    fast speed, as first written (CORRECTED (DOCKET 67)) -- it overstates the
+    saving, which only strengthens the conclusion:
 """)
-    P(f"    {'target':>18} {'light time':>16} {'time saved at 3e-15':>22}")
+    P(f"    {'target':>18} {'light time':>16} {'saved at 3e-15':>16} {'at fast edge':>14}")
     for name, D_ly in (("Proxima", 4.246), ("Galactic centre", 26000.0),
                        ("Andromeda", 2.5e6)):
-        P(f"    {name:>18} {D_ly*LY/C/YR:12.4f} yr {time_saved(D_ly, 3e-15):19.4e} s")
+        P(f"    {name:>18} {D_ly*LY/C/YR:12.4f} yr {time_saved(D_ly, 3e-15):13.4e} s"
+          f" {time_saved(D_ly, GW170817_BOUND_HI):11.4e} s")
     P(f"""
-    A CROSSING OF ANDROMEDA ARRIVES {time_saved(2.5e6, 3e-15):.2f} SECONDS EARLY.  Two and a half
+    A CROSSING OF ANDROMEDA ARRIVES {time_saved(2.5e6, GW170817_BOUND_HI):.3f} SECONDS EARLY AT THE FAST
+    EDGE ({time_saved(2.5e6, 3e-15):.2f} s on the slow-side magnitude).  Two and a half
     million years of travel to save under a minute -- and that is the ENTIRE
     budget the tightest surviving reading has.""")
 
@@ -229,11 +249,13 @@ def report():
   trip invariant regardless.  DIFFERENT c PER FIELD is the reading the SCOPE
   DECISION JUST PUT IN PLAY, since bimetric and scalar-tensor ARE modified
   gravity -- and GW170817 is its experiment: gravitational waves and gamma rays
-  crossing 130 MILLION YEARS from 40 Mpc arrived 1.74 SECONDS APART, agreeing to
-  ONE PART IN 2.4e15, with a published bound of -3e-15 to +7e-16 that killed
-  whole classes of scalar-tensor theory.  AND AT THE EDGE OF THAT BOUND A FIELD
-  RUNNING 3e-15 FAST SAVES 0.24 SECONDS ON A CROSSING OF ANDROMEDA -- 2.5
-  million years of travel for under a minute.  ENERGY-DEPENDENT c is bounded
+  crossing 130 MILLION YEARS from 40 Mpc arrived 1.74 SECONDS APART -- one part
+  in 2.4e15 of the light time -- with a published bound on (v_GW - v_EM)/v_EM
+  of -3e-15 to +7e-16 (the upper edge on simultaneous emission) that killed
+  whole classes of scalar-tensor theory.  AND AT THE FAST EDGE OF THAT BOUND A
+  FIELD RUNNING 7e-16 FAST SAVES 0.055 SECONDS ON A CROSSING OF ANDROMEDA (0.24
+  on the slow-side magnitude first used here) -- 2.5 million years of travel
+  for under a minute.  ENERGY-DEPENDENT c is bounded
   harder, to the Planck scale by GRB time-of-flight, and points the WRONG WAY:
   the generic correction DELAYS the fast photon, and superluminal ones are
   drained in flight by vacuum Cherenkov radiation.  AND A COSMOLOGICALLY VARYING
@@ -278,10 +300,14 @@ def selftest():
     chk("  which is below 1e-15", gw_fractional_bound() < 1e-15, True)
     chk("published bound is two-sided", GW170817_BOUND_LO < 0 < GW170817_BOUND_HI, True)
     print("  and at the edge of the bound it buys nothing")
+    # 3e-15 is the SLOW-side magnitude (DOCKET 67); the caps hold for it, so
+    # they hold a fortiori at the fast edge +7e-16, checked beside it.
     for name, D_ly, cap in (("Proxima", 4.246, 1e-6),
                             ("Galactic centre", 26000.0, 1e-2),
                             ("Andromeda", 2.5e6, 1.0)):
         chk(f"  {name}: saved < {cap:g} s", time_saved(D_ly, 3e-15) < cap, True)
+        chk(f"    and at the fast edge {GW170817_BOUND_HI:.0e}",
+            time_saved(D_ly, GW170817_BOUND_HI) < time_saved(D_ly, 3e-15), True)
 
     print("\nenergy-dependent c")
     chk("18 TeV over 1 Gpc: delay is minutes not years",

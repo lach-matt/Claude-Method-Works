@@ -35,9 +35,10 @@ FOR AS LONG AS THE DISPLACEMENT IS WANTED.
      and nonlinearly.  THEOREM D15, section 1.
   2. That length is attometres: hbar/(m_h c), computed below at the pinned
      125.20 and at the READ 125.13.
-  3. So the displacement is ULTRALOCAL: delta phi = -J/m_h^2 [1 + O((lambda_h/
-     L)^2)], and INT G d^3r = 1/m^2 means no arrangement of sources beats the
-     local density.  THEOREM D16, section 2.
+  3. So the displacement is ULTRALOCAL: delta phi = -J/m_h^2 up to an error
+     bounded by ||grad^2 J||/m_h^4, i.e. O((lambda_h/L)^2) against the scale of
+     J, and INT G d^3r = 1/m^2 with G >= 0 means no arrangement of sources
+     beats the local density.  THEOREM D16, section 2 (flat background).
   4. THE EXACT COST (section 3).  A source whose mass is proportional to phi
      must carry rest energy 4 rho_EW eps(2-eps)(1-eps)^2; the field it holds
      carries rho_EW eps^2(2-eps)^2.  Total 8 rho_EW eps - 16 rho_EW eps^2 + ...
@@ -58,8 +59,9 @@ WHAT IT BUYS IS NOTHING ANY OF THE THREE ROLES CAN USE.
   minimally coupled scalar, which never mentions the mass.
 
   If "excite" means making Higgs QUANTA: at least m_h per quantum, gone in
-  hbar/Gamma_h ~ 2e-22 s, and a number state has <delta phi> = 0 -- quanta
-  displace nothing.
+  hbar/Gamma_h ~ 2e-22 s (PDG's Gamma_h, which holds under equal on- and
+  off-shell couplings, PDG p.8), and a number state has <delta phi> = 0 --
+  quanta displace nothing.
 
 ===============================================================================
 1.  THEOREM D15.  TAIL_RATE_IS_MASS
@@ -129,12 +131,20 @@ statements about the Higgs.
 ===============================================================================
 
     HYPOTHESES.  Linear regime (|delta phi| << v); static; a source J varying
-    on a scale L >> lambda_h.
+    on a scale L >> lambda_h; a FLAT background R^3 (the curvature correction
+    is O(R lambda_h^2), negligible where the curvature radius is far above
+    1.6e-18 m); m^2 > 0; delta phi decaying at infinity.
 
-(-grad^2 + m^2) delta phi = -J has delta phi = -J/m^2 [1 + O((lambda_h/L)^2)],
-and the Green's function integrates to INT G d^3r = INT r e^{-m r} dr = 1/m^2.
-So no arrangement of sources does better than the local density: a displaced
-vev exists only where its source is, give or take lambda_h.  For J = cos(x/L)
+(-grad^2 + m^2) delta phi = -J has ||delta phi + J/m^2|| <= ||grad^2 J||/m^4
+exactly, an error of relative size O((lambda_h/L)^2) against the scale of J --
+an absolute bound, not a pointwise ratio, which fails at the zeros of an offset
+J.  The Green's function is non-negative and integrates to INT G d^3r =
+INT r e^{-m r} dr = 1/m^2.  So no arrangement of sources does better than the
+local density: a displaced vev exists only where its source is, give or take
+lambda_h.
+    CORRECTED (DOCKET 67).  This read "delta phi = -J/m^2 [1 + O((lambda_h/
+    L)^2)]", a pointwise ratio, and named neither the flat background,
+    m^2 > 0, decay at infinity, nor G >= 0, which the last step needs.  For J = cos(x/L)
 the exact response is the algebraic one times 1/(1 + (lambda_h/L)^2), whose
 error is address.ultralocality_error(L) to leading order.
 
@@ -143,9 +153,14 @@ error is address.ultralocality_error(L) to leading order.
 ===============================================================================
 
     HYPOTHESES.  A static source of fixed number density whose rest mass is
-    proportional to phi (m -> m phi/v) -- which is what the Higgs gives the
-    fermions and W, Z; region large compared with lambda_h (D16), so gradient
-    energy is negligible; energies measured from our vacuum.
+    proportional to phi (m -> m phi/v) -- which is what the tree-level,
+    single-doublet Standard Model gives the fermions (kappa_f = 1, ASSUMED for
+    e, u, d: the data bound |kappa_e| only below ~262, computed in DOCKET 67
+    from ATLAS 1909.10235) and W, Z; phi slowly varying over the source's
+    Compton wavelength, so that phi(x) acts as a local rest mass; region large
+    compared with lambda_h (D16), so gradient energy is negligible; V the
+    TREE-LEVEL Mexican hat with SM self-coupling, so the stability edge below
+    is a tree-level object; energies measured from our vacuum.
 
 Equilibrium V'(phi) + n m_0/v = 0 at phi = v(1 - eps) gives, in units of
 rho_EW = |V_min| = lambda v^4/4,
@@ -162,7 +177,12 @@ unstable range.  So the source dominates the field everywhere the configuration
 exists.
 
 Built of stable neutral matter, rho = rho_H / f with f = d ln m_p/d ln v:
-2/9 + 7S/9 under H1, S under H2 (address.dln_mp_dln_v), at S = 0.06.
+2/9 + 7S/9 under H1, S under H2 (address.dln_mp_dln_v), at S = 0.06.  The 2/9
+is the ONE-LOOP (leading-order) d ln Lambda_QCD/d ln v; Hill-Solon's N3LO form
+gives 0.23839 (DOCKET 67).  S = 0.06 is sigma_piN/m_p, u and d only; the H1
+formula needs S summed over u, d, s, whose current central values reach 0.111.
+Both move magnitudes (H1's stable-matter figure by -5% and -13%), no
+conclusion.
 
 ===============================================================================
 4.  ROLE 1, ADDRESSING: DEAD
@@ -171,7 +191,11 @@ Built of stable neutral matter, rho = rho_H / f with f = d ln m_p/d ln v:
   - Ultralocality plus the screening theorem: the displacement says what the
     local mass density already says.
   - The same source is read farther by GRAVITY: address.py section 9, r/d grows
-    without bound (sqrt(rho) against ln(rho)).  Asked of address.domination_ratio.
+    as rho grows (sqrt(rho) against ln(rho)) up to collapse, 1.6e26 kg/m^3 at
+    R = 1 m, so not without bound at fixed R.  The ln(rho) standoff assumes the
+    displacement stays on the perturbative branch; Shi 2107.04206's contested
+    non-perturbative configurations set in inside the scan.  Asked of
+    address.domination_ratio.
   - THE COURIER CLOCK.  A clock carried inside the region picks up the source's
     own interior redshift 2 pi G rho R^2/c^2 against a twin at infinity (uniform
     sphere: Phi(0) = -(3/2) G M/R).  It exceeds the eps signal once
@@ -209,14 +233,23 @@ stability edge was not reproduced here and is therefore NOT STATED.
 6.  ROLE 3, ENERGY: DEAD
 ===============================================================================
 
-T_kk = (k.grad phi)^2 >= 0 for any minimally coupled scalar, any potential, any
-mass (higgs.MINIMAL_SCALAR_SATISFIES_NEC, sampled here over exact rationals
+T_kk = (k.grad phi)^2 >= 0 for any CLASSICAL minimally coupled scalar with a
+canonical two-derivative kinetic term, any potential, any mass
+(higgs.MINIMAL_SCALAR_SATISFIES_NEC, sampled here over exact rationals
 including V = 0, i.e. m_h = 0).  A vev saturates it at exactly zero.  The
 phantom (ghost=True) is the control that goes negative.  The xi escape is S4
-and O1, refused elsewhere: it needs phi at the GUT scale, where
-xigate.xi_required = 1.48e4, and that field is 10^(4..6) times Degrassi's
-instability scale 10^(11 +- 1) GeV -- a region where lambda < 0, so not an
-excitation of our vacuum.
+and O1, refused elsewhere.  At xigate's GUT_SCALE_GEV = 2e16 (an
+MSSM-conditional scale) it needs xigate.xi_required = 1.48e4, so "it needs phi
+at the GUT scale" holds only for xi capped near 1.5e4; a field below Degrassi's
+band would need xi >= 5.93e12 (DOCKET 67, computed), so the refusal does not
+turn on the GUT choice.  That field is 10^(4..6) times Degrassi's instability
+scale 10^(11 +- 1) GeV -- a region where, at the central top mass, and if the
+SM shape held above M_red/xi = 1.6e14 GeV, where Degrassi call the potential
+uncontrollable, lambda < 0; either way not an excitation of our vacuum.
+    CORRECTED (DOCKET 67).  This read "for any minimally coupled scalar",
+    dropping "classical" (and "canonical"); "it needs phi at the GUT scale",
+    with no xi cap; and "a region where lambda < 0" with neither the central-
+    M_t condition nor the SM-shape condition.
 
     DIVERGENCE FROM THE RULING, RECORDED.  DOCKET 63 rulings B and D (S8)
     print "2e4 to 2e5 times".  Computed across Degrassi's full band the ratio
@@ -226,6 +259,8 @@ excitation of our vacuum.
     not an edge.  XI_FIELD_OVER_INSTABILITY_UPPER_EDGE, _CENTRE and
     _LOWER_EDGE expose the three values; RULING_S8_COVERS_FRACTION_OF_BAND
     is computed.  Nothing turns on it -- every value is far above the scale.
+    The band 10^(11 +- 1) is Degrassi's ~1 sigma, gauge-dependent range: its
+    "edges" are band points, not bounds (DOCKET 67).
 
 ===============================================================================
 7.  WHAT THE THREE SHARE, AND W9
@@ -292,6 +327,14 @@ and carries its input's status: every figure through v inherits G_F's
 NAMED-NOT-READ.  m_h is READ: on M's ruling (DOCKET 63 F2) higgs.M_HIGGS IS the
 capture's 125.13, and the withdrawn pin 125.20 is kept only as a record, printed
 beside it and never used for a live figure.
+    CORRECTED (DOCKET 67), labels only; no status here is changed.  G_F's
+    NAMED-NOT-READ is conservative: DOCKET 67 READ 1.1663788(6)e-5 GeV^-2 in
+    PDG 2024 Table 1.1, identical to the pin.  The withdrawn pin 125.20 is
+    likewise readable, as the PDG 2024/2025 average.  v = (sqrt2 G_F)^(-1/2),
+    lambda and V_min are TREE-LEVEL (LO) objects, so every figure through
+    rho_EW is a tree-level figure (MS-bar NNLO lambda/LO = 0.9757), and
+    Gamma_h holds under equal on- and off-shell couplings (PDG p.8; CMS
+    2409.13663), which every figure through it inherits.
 
 NOTHING IS REPAIRED.
 """
@@ -371,6 +414,8 @@ def _capture_lines():
 
 _ROWS = _capture_rows()
 M_H_READ_GEV = float(_ROWS[25]["mass_MeV"]) / 1000.0          # READ
+# READ, and model-dependent: PDG's Gamma_h holds under equal on- and off-shell
+# couplings (PDG p.8; CMS 2409.13663).  DOCKET 67.
 GAMMA_H_READ_GEV = float(_ROWS[25]["width_MeV"]) / 1000.0     # READ
 M_W_READ_GEV = float(_ROWS[24]["mass_MeV"]) / 1000.0          # READ
 M_Z_READ_GEV = float(_ROWS[23]["mass_MeV"]) / 1000.0          # READ
@@ -379,15 +424,19 @@ M_B_READ_GEV = float(_ROWS[5]["mass_MeV"]) / 1000.0           # READ
 M_T_READ_GEV = float(_ROWS[6]["mass_MeV"]) / 1000.0           # READ
 CAPTURE_LINES = _capture_lines()
 
-#: The withdrawn pin 125.20 (NAMED-NOT-READ) is kept as a record beside the
+#: The withdrawn pin 125.20 (NAMED-NOT-READ -- a conservative label: it is the
+#: readable PDG 2024/2025 average, DOCKET 67) is kept as a record beside the
 #: READ value.  higgs.M_HIGGS IS the READ 125.13 since M's ruling, and the
 #: selftest's drift guard (inverted) fires if it is ever re-pinned.
 M_HIGGS_PIN_GEV = higgs.M_HIGGS_PIN_WITHDRAWN                 # the withdrawn pin, kept as a record
 
 STATUS = {
     "m_h READ, Gamma_h, m_W, m_Z, m_c, m_b, m_t": "READ captures/PDG-2026.tsv",
-    "higgs.M_HIGGS = 125.13 (READ); the withdrawn pin 125.20": "READ; the pin NAMED-NOT-READ, a record",
-    "v = higgs.vev() from G_F": "COMPUTED from G_F, which is NAMED-NOT-READ",
+    "higgs.M_HIGGS = 125.13 (READ); the withdrawn pin 125.20": "READ; the pin NAMED-NOT-READ, a record "
+        "(a conservative label: 125.20 is the readable PDG 2024/2025 average, DOCKET 67)",
+    "v = higgs.vev() from G_F": "COMPUTED from G_F, which is NAMED-NOT-READ (conservative: READ "
+        "identically in PDG 2024 Table 1.1, DOCKET 67); tree level",
+    "Gamma_h": "READ, under equal on- and off-shell couplings (PDG p.8; DOCKET 67)",
     "c, hbar, G": "carried from ladder through higgs",
     "eps = 1e-18": "ORDER -- a fixture, never a capability",
     "every metre / second / kg m^-3 figure": "COMPUTED; inherits its inputs",
@@ -396,14 +445,20 @@ STATUS = {
 # ---------------------------------------------------------------- the fixture
 #: address.py section 7's clock comparison.  ORDER, not a measurement and not a
 #: capability (refusal 8).  eps follows from it through address's courier
-#: coefficient, which is exactly 1.
+#: coefficient, which is exactly 1 in address's model (exact only for infinite
+#: nuclear mass).  The courier is a clock CARRIED in; every sub-1e-18 figure
+#: DOCKET 67 READ is a stationary, in-lab clock.
 CLOCK_ACCURACY_FIXTURE = 1e-18                                  # ORDER
 EPS_AT_FIXTURE = address.eps_detectable_transported(CLOCK_ACCURACY_FIXTURE)
 #: S = 0.06, address.S_SCAN's sigma_piN row -- a scanned input (ORDER) there.
+#: It is sigma_piN/m_p, u and d only; the H1 form 2/9 + 7S/9 needs S summed over
+#: u, d, s (DOCKET 67).  Magnitudes move with it; no conclusion does.
 S_MID = address.S_SCAN[1][1]
 HYPOTHESES = ("H1", "H2")
 
-#: rho_EW = |V_min|, J/m^3, asked of higgs.py.
+#: rho_EW = |V_min|, J/m^3, asked of higgs.py.  A TREE-LEVEL (LO) figure, from
+#: higgs.lam() and v_min_gev4(), with SM self-coupling: MS-bar NNLO lambda/LO =
+#: 0.9757 moves it -2.4% (DOCKET 67), so its printed sixth digit is arithmetic.
 RHO_EW = abs(higgs.gev4_to_si(higgs.v_min_gev4()))
 
 
@@ -755,16 +810,19 @@ def green_integral(m, rmax_in_ranges=60.0, n=200001):
 
 
 def cosine_response_ratio(lam_over_L):
-    """Exact response / algebraic response for J = cos(x/L): 1/(1 + s^2)."""
+    """Exact response / algebraic response for J = cos(x/L): 1/(1 + s), with
+    s = (lambda_h/L)^2."""
     s = lam_over_L * lam_over_L
     return 1 / (1 + s)
 
 
 def cosine_response_error(lam_over_L):
     """Fractional error of delta phi = -J/m^2 for J = cos(x/L), EXACT, written
-    s^2/(1 + s^2) rather than 1 - 1/(1 + s^2): the second form cancels
-    catastrophically in double precision once s^2 < 1e-16 (higgs.py's
-    channel, a third time).  The selftest checks the two agree over Fraction."""
+    s/(1 + s), s = (lambda_h/L)^2, rather than 1 - 1/(1 + s): the second form
+    cancels catastrophically in double precision once s < 1e-16 (higgs.py's
+    channel, a third time).  The selftest checks the two agree over Fraction.
+    CORRECTED (DOCKET 67): this docstring wrote s^2/(1 + s^2) with s the
+    ratio lambda_h/L, while the code's s is already its square."""
     s = lam_over_L * lam_over_L
     return s / (1 + s)
 
@@ -812,7 +870,9 @@ def _quadratic_roots(p):
 
 def stability_edge():
     """eps where V''(v(1-eps)) = 0 in (0, 1): 1 - 1/sqrt(3).  From the
-    polynomial, not typed."""
+    polynomial, not typed.  A TREE-LEVEL object: V is the classical Mexican
+    hat with SM self-coupling, and the one-loop V'' is log-singular at this
+    edge (DOCKET 67)."""
     V = mexican_hat(1, 1)
     d2 = pcompose(pderiv(pderiv(V)), P(1, -1))
     return [float(r) for r in _quadratic_roots(d2) if 0 < r < 1][0]
@@ -852,7 +912,9 @@ def exact_source_density(eps):
 
 #: THE LEDGER'S D20 OWNER.  address.source_density(1e-18, 1.0)[1].  MEASURED
 #: in the ledger's vocabulary; COMPUTED here from G_F (NAMED-NOT-READ) and the
-#: pinned m_h (NAMED-NOT-READ).
+#: pinned m_h (NAMED-NOT-READ).  Through rho_EW it is a TREE-LEVEL (LO) figure
+#: with SM self-coupling; G_F is READ identically in PDG 2024 Table 1.1, so its
+#: label is conservative (DOCKET 67).
 HOLD_HIGGS_DERIVED_KG_M3_AT_EPS_1E18 = address.source_density(EPS_AT_FIXTURE,
                                                               1.0)[1]
 HOLD_STABLE_KG_M3_AT_EPS_1E18 = {h: stable_matter_density(EPS_AT_FIXTURE, h)
@@ -982,7 +1044,11 @@ HOLD_HIGGS_DERIVED_AT_CHEMICAL = address.source_density(float(EPS_CHEMICAL),
 # ================================================ 6. role 3
 def xi_field_over_instability():
     """xigate's GUT-scale field over Degrassi's 10^(11 +- 1) GeV: (at the upper
-    edge, at the centre, at the lower edge).  COMPUTED."""
+    edge, at the centre, at the lower edge).  COMPUTED.  The band is ~1 sigma
+    and gauge-dependent; its edges are band points, not bounds (DOCKET 67)."""
+    # The field is SET equal to the GUT scale M_G here -- a choice (xigate's
+    # MSSM-conditional 2e16 GeV), not a requirement: at xi = xi_required(M_G)
+    # the field M_red/sqrt(xi) equals M_G by construction (DOCKET 67).
     phi = xigate.GUT_SCALE_GEV
     L, dL = endpoint.DEGRASSI_LOG10_LI, endpoint.DEGRASSI_LOG10_LI_ERR
     return (phi / 10 ** (L + dL), phi / 10 ** L, phi / 10 ** (L - dL))
@@ -1080,13 +1146,17 @@ TAIL_RATE_HYPOTHESES = (
     "outside the support of the source",
     "f -> 0 at infinity -- the only property of the solution used",
     "nonlinear proof radial in any d; non-spherical tails by linear multipoles")
-#: D16.  THEOREM on: linear regime, static, source scale L >> lambda_h.
+#: D16.  THEOREM on: linear regime, static, source scale L >> lambda_h, flat
+#: background, m^2 > 0, decay at infinity; "no arrangement beats the local
+#: density" also uses G >= 0 (DOCKET 67).
 DISPLACEMENT_IS_ULTRALOCAL = True
 #: D18.
 ELECTRON_MASS_IS_A_RULER = "THEOREM given alpha fixed (H2) and clamped point nuclei"
 #: D19.
 FLAT_DIRECTIONS_ARE_INERT = True
-#: S6, S7.
+#: S6, S7.  Role 1's domination uses address.py section 9's ln(rho) standoff,
+#: which assumes the perturbative branch; Shi 2107.04206's contested
+#: non-perturbative configurations set in inside the scan (DOCKET 67).
 ROLE1_DOMINATED_BY_OWN_SOURCE = True
 ROLE2_REBINDS = False
 #: The real-Z2 statements of the first screening verdict (ruling F1).
@@ -1381,6 +1451,8 @@ def selftest():
     chkrel("|V_min| = rho_EW (endpoint.py selftest)", RHO_EW, 2.476937e45 * MH ** 2, 1e-6)
     chkrel("lambda_h at the withdrawn pin 125.20 (record)",
            LAMBDA_H_PIN_M, 1.576094e-18, 1e-6)
+    # The 1e-6 tolerances here test ARITHMETIC: m_h = 125.13 +- 0.11 supports
+    # lambda_h and the spinodal e-fold only to +-8.8e-4 (DOCKET 67).
     chkrel("lambda_h at the READ m_h (ruling A.2)", LAMBDA_H_READ_M,
            1.576976e-18, 1e-6)
     for e in (Fraction(1, 10), Fraction(1, 1000), Fraction(3, 7)):
@@ -1393,12 +1465,14 @@ def selftest():
                address.source_to_field_ratio(e) * e, 2.0, 1e-5)
     chkrel("3.6746e12 kg/m^3 (address.py, H2)",
            HOLD_STABLE_KG_M3_AT_EPS_1E18["H2"], 3.6746e12 * MH ** 2, 1e-4)
+    # 1e-9 tests reproduction of higgs.py's figure, not physical precision:
+    # G_F carries 5.1e-7 and G 2.2e-5 (DOCKET 67).
     chkrel("xi_required(v) (higgs.py)", higgs.xi_required(higgs.vev()),
            9.7829068836e31, 1e-9)
     chkrel("xi_required(2e16) ~ 1.48e4 (xigate.py)", XI_REQUIRED_AT_GUT,
            1.48e4, 5e-3)
-    chk("d ln Lambda / d ln v = 2/9 (address.py)", address.dln_lambda_dln_v(),
-        Fraction(2, 9))
+    chk("d ln Lambda / d ln v = 2/9 at one loop (address.py)",
+        address.dln_lambda_dln_v(), Fraction(2, 9))
 
     # ------------------------------------------------ 3. D15, the algebra
     print("\n3. D15 TAIL_RATE_IS_MASS -- the reduced equation, exact")
@@ -1537,7 +1611,7 @@ def selftest():
         holding_ratio(Fraction(1, 2)) > 1, True)
     chkrel("Higgs-derived density at eps = 1e-18 (ruling A.5)",
            HOLD_HIGGS_DERIVED_KG_M3_AT_EPS_1E18, 2.204772e11 * MH ** 2, 1e-6)
-    chkrel("  stable matter H1 (f = 2/9 + 7S/9)",
+    chkrel("  stable matter H1 (f = 2/9 + 7S/9, one loop)",
            HOLD_STABLE_KG_M3_AT_EPS_1E18["H1"], 8.19956e11 * MH ** 2, 1e-5)
     chkrel("  stable matter H2 (f = S)", HOLD_STABLE_KG_M3_AT_EPS_1E18["H2"],
            3.67462e12 * MH ** 2, 1e-5)
@@ -1606,10 +1680,10 @@ def selftest():
     chk("CONTROL m_p/m_e DOES move: K_mu(S) != 0 in both hypotheses",
         all(k1 != 0 and k2 != 0 for _l, _S, k1, k2 in K_mu_rows()), True)
     for S in (Fraction(0), Fraction(6, 100), Fraction(9, 100), Fraction(1)):
-        chk("K_mu(S) = 7(S-1)/9 (H1), S-1 (H2) exactly at S = %s" % S,
+        chk("K_mu(S) = 7(S-1)/9 (H1, one loop), S-1 (H2) exactly at S = %s" % S,
             (address.K_mu(S, "H1"), address.K_mu(S, "H2")),
             (Fraction(7, 9) * (S - 1), S - 1))
-    chkrel("K_mu H1 at S = 0.06 (ruling B)", float(address.K_mu(S_MID, "H1")),
+    chkrel("K_mu H1 at S = 0.06, one loop (ruling B)", float(address.K_mu(S_MID, "H1")),
            -0.731111, 1e-6)
     chkrel("K_mu H2 at S = 0.06", float(address.K_mu(S_MID, "H2")), -0.94, 1e-12)
     chkrel("eps = 1e-2 needs 2.204772e27 kg/m^3 Higgs-derived (address)",
@@ -1657,6 +1731,8 @@ def selftest():
            7.434922e-27, 1e-6)
     chk("CONTROL 3.34 ns is not it: 1/c exceeds it by more than 1e17",
         (1.0 / C) / SPINODAL_EFOLD_S["pinned 125.20"] > 1e17, True)
+    # Gamma_h-derived: these one-s.f. figures inherit Gamma_h's equal on/off-
+    # shell coupling hypothesis, and their digit moves within its 68% band.
     chkrel("driven ceiling sqrt(2/(m_h Gamma_h)) (ruling C.12, RUN)",
            DRIVEN_CEILING_M, 4.55e-16, 2e-3)
     chk("  printed to ONE significant figure (refusal 6)",
