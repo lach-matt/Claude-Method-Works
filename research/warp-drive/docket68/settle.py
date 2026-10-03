@@ -42,7 +42,36 @@ NAMED HYPOTHESES (every limitation is one):
   H-COHERE   Bob holds coherence for the drift time T.
   H-DILUTION KR p.13 (READ): nonlinear effects can be diluted by cosmic history (eps -> eps/N).
   H-SIG-COR  a signal keyed to a frame is modelled as latticectc's identification (corridors.py's model choice).
+  H-C2       (= frame.py's H-DCTC-CONVENTION C2) the drift acts on Bob's per-BRANCH pure state.  M's definition
+             ("the state's own value steers its evolution") does not say which state.  Under C1 (the drift acts on
+             Bob's REDUCED state) there is NO signal: frame.settle_under_C1 gives 2.2e-16.  2412.20854v1 p.4, p.7
+             (READ): Gisin's theorem covers local maps on PURE states only; maps defined on mixed states can be
+             nonlinear and non-signalling (their refs [40, 41]).  Every signal below is conditional on H-C2.
+  H-BORN-AT-BOB  Bob's final readout is a Born-rule measurement of his drifted qubit, so Holevo's bound (a theorem
+             of linear QM, READ in A3: quant-ph/9611023v1 pp.2-3) applies to that last step only.
+  H-NLCONTROL-FORM  the drift is nlcontrol's single Hamiltonian eps <X> Z.  CMAX = log2(1.25), 6.21 pairs per
+             teleported qubit and 'N >= 7' are properties of THIS Hamiltonian, not of the W2 class.
+  H-12-CARRIER / H-12-W  (wave 2) Bob's carrier is one of the twelve with no state-dependent bound of any kind
+             (alpha_s, G, v), and that carrier drifts in Weinberg (per-branch, non-causal) form rather than KR form.
+             No READ source gives a model of either; both are named so the case can be computed.
   The bound is an UPPER LIMIT measured consistent with ZERO: "not excluded" is never "found".
+
+WAVE 2 (repair after three adversarial verifications, 2026-10-03).  Wave 1 first said: '>= 6.21 pairs per teleported
+qubit for this protocol; Holevo caps any qubit protocol at 1 bit per pair (NAMED-NOT-READ)', 'Bob holds each pair for
+T = L/2c', and D6 'CONTROL (must signal): pure deterministic drift' fed a hand-typed vector to the detector.  Now:
+  * capacity_two_axis / W2_CLASS_CEILING: a second W2 Hamiltonian, eps(<X>Z + <Z>X), reaches 1 bit per pair as
+    D -> 1; under H-BORN-AT-BOB no per-branch drift on a qubit exceeds 1 bit per pair (Holevo at the readout), and
+    at finite T none reaches it (a flow is injective, so each choice's mixture has rank 2).  So the W2 class needs
+    > 2 pairs per teleported qubit (>= 3 per qubit at finite T); 6.21 is nlcontrol's.  Without H-BORN-AT-BOB the
+    class capacity is OPEN (the D-CTC analogue breaks Holevo: BHW 0811.1209v2 p.4, READ; frame.bb84_c2_table).
+  * drift_time_needed: T = atanh(D_N)/(2 eps) does not depend on distance.  eps_any_advantage: the eps above which
+    the read precedes light is exactly half the T = L/2c figure (frac = 0.5 was a DECLARED choice, kept only so
+    wave-1 numbers can be compared).
+  * first_transit_times: one-end distribution and the midpoint source (LEDGER D23 as corrected in DOCKET 67).
+  * h12_carrier_case: H-SETTLE x H-12 adds nothing under H-TRANSFER; with an unbounded carrier (H-12-CARRIER,
+    H-12-W) N_EPS is not excluded at 1 AU either -- computed, and 'not excluded' is still not evidence.
+  * D6 now runs the drift through sde_ensemble with lambda = 0 and must reproduce tanh(2 eps T).
+  * Checks that cannot fail by construction are printed STRUCTURAL and are not counted as evidence.
 
 Run:  python3 settle.py            (report)
       python3 settle.py --selftest (fixtures computed or READ; controls that must fail do)
@@ -209,24 +238,185 @@ def rate_optimum(eps, Tmax_factor=50.0):
 CMAX = capacity(1.0)[0]                               # the D -> 1 ceiling of this two-input family
 
 
-def eps_to_remove(L_m, N_pairs, frac=0.5):
-    """Smallest eps such that N pairs, each held for T = frac * L/c, carry >= 2 bits (one teleported qubit) --
-    arriving before light would.  None if N * CMAX < 2 (impossible at any eps)."""
+def eps_to_remove(L_m, N_pairs, frac=0.5, cap=None, cmax=None):
+    """Smallest eps such that N pairs, each held for T = frac * L/c, carry >= 2 bits (one teleported qubit).
+    None if N * cmax < 2 (impossible at any eps).  frac = 0.5 (T = L/2c) is a DECLARED choice, kept as the default
+    only so wave-1 figures can be compared: any frac < 1 already reads before light, and the eps above which SOME
+    advantage exists is eps_any_advantage (frac -> 1), exactly half of this figure.  cap: per-pair capacity as a
+    function of D (default nlcontrol's Z-channel, H-NLCONTROL-FORM)."""
+    cap = cap or (lambda D: capacity(D)[0])
+    cmax = CMAX if cmax is None else cmax
     T = frac * L_m / C_LIGHT
-    if N_pairs * CMAX < 2.0:
+    if N_pairs * cmax < 2.0:
         return None
     lo, hi = 1e-30, 1e6
     for _ in range(300):
         mid = math.sqrt(lo * hi)
-        if N_pairs * capacity(math.tanh(2 * mid * T))[0] >= 2.0:
+        if N_pairs * cap(math.tanh(2 * mid * T)) >= 2.0:
             hi = mid
         else:
             lo = mid
     return hi
 
 
+def eps_any_advantage(L_m, N_pairs, **kw):
+    """The infimum eps at which N pairs carry 2 bits with drift time T < L/c: above it the read precedes light.
+    At the infimum itself T = L/c (no advantage), so the condition is eps > this value."""
+    return eps_to_remove(L_m, N_pairs, frac=1.0, **kw)
+
+
+def D_needed(N_pairs, cap=None, cmax=None):
+    """The trace distance D at which N pairs carry exactly 2 bits.  None if impossible."""
+    cap = cap or (lambda D: capacity(D)[0])
+    cmax = CMAX if cmax is None else cmax
+    if N_pairs * cmax < 2.0:
+        return None
+    lo, hi = 0.0, 1.0
+    for _ in range(200):
+        mid = (lo + hi) / 2
+        if N_pairs * cap(mid) >= 2.0:
+            hi = mid
+        else:
+            lo = mid
+    return hi
+
+
+def drift_time_needed(N_pairs, eps, **kw):
+    """T = atanh(D_N) / (2 eps): the drift time after which N pairs carry one teleported qubit's 2 bits.  It does
+    NOT depend on distance (A1 wave 1 said so in words, then tabulated at T = L/2c)."""
+    D = D_needed(N_pairs, **kw)
+    if D is None:
+        return None
+    D = min(D, 1.0 - 1e-16)
+    return math.atanh(D) / (2.0 * eps)
+
+
+def arrival_early_fraction(L_m, N_pairs, eps, **kw):
+    """1 - T/(L/c): how much earlier than light (as a fraction of the light time) the read happens, once pairs are
+    in place.  Negative = later than light."""
+    T = drift_time_needed(N_pairs, eps, **kw)
+    return None if T is None else 1.0 - T / (L_m / C_LIGHT)
+
+
+def first_transit_times(L_m, T_drift, source="midpoint"):
+    """Times measured from the moment the pair source fires.  The pairs move at c (setup at <= c, not message
+    latency).  'one-end': source at Alice, Bob holds his half from L/c; 'midpoint' (LEDGER D23 as corrected in
+    DOCKET 67: 'a midpoint source spans D at D/(2c)'): both hold their halves from L/(2c).  Alice measures as soon
+    as she holds her half; Bob reads after the drift time T (counted from when he holds his half and Alice has
+    measured: H-C2 needs the branch to exist).  Returns read time, light-from-Alice-at-firing arrival, and
+    light-from-Alice-at-her-measurement arrival."""
+    c = C_LIGHT
+    if source == "one-end":
+        t_alice, t_bob = 0.0, L_m / c
+    else:
+        t_alice = t_bob = L_m / (2 * c)
+    t_read = max(t_alice, t_bob) + T_drift
+    return {"source": source, "t_alice_measures": t_alice, "t_bob_holds": t_bob, "t_read": t_read,
+            "light_from_alice_at_firing": L_m / c, "light_from_alice_at_her_measurement": t_alice + L_m / c,
+            "beats_light_launched_at_firing": t_read < L_m / c,
+            "beats_light_launched_at_measurement": t_read < t_alice + L_m / c}
+
+
 def eps_readings(f_Hz):
     return {"A (eps = 2 pi f)": 2 * math.pi * f_Hz, "B (eps = pi f)": math.pi * f_Hz}
+
+
+# ------------------------------------------------------------------------- B'. the W2 class, not one Hamiltonian
+# Wave 1 carried nlcontrol's ceiling (log2 1.25 bits per pair, >= 6.21 pairs per teleported qubit) as if it were
+# H-SETTLE's.  It is H-NLCONTROL-FORM's.  A second member of the same class (deterministic, per-branch, the state's
+# own value steering its evolution) is H2 = eps (<X> Z + <Z> X): the Z term pulls Alice's x-branch states +-x to +y
+# (nlcontrol's law), the X term pulls her z-branch states +-z to -y.  Bob measures sigma_y: a binary symmetric
+# channel with crossover (1 - D)/2, D = tanh(2 eps T).  Its capacity 1 - h2((1-D)/2) -> 1 bit per pair.
+
+def evolve_two_axis(psi, eps, T, n=None):
+    """Frozen-H integrator for H2 = eps(<X> Z + <Z> X), nlcontrol.U per step (same scheme as nlcontrol.evolve)."""
+    n = n or max(3000, int(2000 * T))
+    p = np.array(psi, dtype=complex)
+    dt = T / n
+    for _ in range(n):
+        ex = float(np.real(p.conj() @ X @ p))
+        ez = float(np.real(p.conj() @ Z @ p))
+        p = NL.U(eps * (ex * Z + ez * X), dt) @ p
+        p /= np.linalg.norm(p)
+    return p
+
+
+def two_axis_signal(eps, T, n=None):
+    """Bob's mean <sigma_y> for Alice's x choice minus her z choice, by the integrator.  Exact: 2 tanh(2 eps T)."""
+    my = {b: float(np.mean([np.real(e.conj() @ Y @ e) for e in (evolve_two_axis(s, eps, T, n) for s in NL.ENS[b])]))
+          for b in "xz"}
+    return my["x"] - my["z"]
+
+
+def capacity_bsc(D):
+    """Two-axis drift: uniform prior is optimal by symmetry; the two states commute, so Holevo chi = this."""
+    return 1.0 - h2((1.0 - D) / 2.0)
+
+
+def _vn_bits(rho):
+    w = np.linalg.eigvalsh((rho + rho.conj().T) / 2)
+    return float(-sum(x * math.log2(x) for x in w if x > 1e-14))
+
+
+def readout_holevo_check(trials=300, seed=17):
+    """H-BORN-AT-BOB: whatever drift produced Bob's per-choice states, his readout is a Born measurement of one
+    qubit, and Holevo's chi of any qubit ensemble is <= log2 2 = 1 bit.  Computed on random ensembles of up to 8
+    'choices' with random mixed states (the theorem is READ in A3; this checks the arithmetic).  Returns max chi."""
+    rng = np.random.default_rng(seed)
+    worst = 0.0
+    for _ in range(trials):
+        k = int(rng.integers(2, 9))
+        pr = rng.random(k); pr /= pr.sum()
+        sts = []
+        for _ in range(k):
+            A = rng.normal(size=(2, 2)) + 1j * rng.normal(size=(2, 2))
+            r = A @ A.conj().T
+            sts.append(r / np.trace(r).real)
+        avg = sum(p * r for p, r in zip(pr, sts))
+        worst = max(worst, _vn_bits(avg) - sum(p * _vn_bits(r) for p, r in zip(pr, sts)))
+    return worst
+
+
+def finite_T_rank(eps=0.3, T=3.0):
+    """Why the 1-bit ceiling is not reached at finite T: a drift is a flow, hence injective, so Alice's two
+    outcomes in one basis stay distinct pure states and their mixture has rank 2 -- its smallest eigenvalue is > 0,
+    so the two choices' states overlap and the trace distance is < 1.  Returns (min eigenvalue of Bob's x-choice
+    state, trace distance between his x- and z-choice states) for H2, by the integrator."""
+    rs = {b: sum(np.outer(v, v.conj()) for v in (evolve_two_axis(s, eps, T) for s in NL.ENS[b])) / 2 for b in "xz"}
+    mn = float(np.linalg.eigvalsh(rs["x"]).min())
+    td = 0.5 * float(np.abs(np.linalg.eigvalsh(rs["x"] - rs["z"])).sum())
+    return mn, td
+
+
+W2_CLASS_CEILING_BITS_PER_PAIR = math.log2(2)  # log2 2: Holevo at a one-qubit Born readout (H-BORN-AT-BOB) -- the bound
+                                          # is checked by readout_holevo_check and approached by capacity_bsc(D -> 1)
+
+
+# ------------------------------------------------------------------------- C'. H-SETTLE x H-12: an unbounded carrier
+H12_UNBOUNDED = ("alpha_s", "G", "v")     # the rows of H12 below whose state-dependent eps has NO READ bound of any
+                                          # kind (KR fn.5 for alpha_s; KR p.14 for G; none located for v); G_F is tied
+                                          # to v at tree level (named).  Z0's only bound is in the causal KR family.
+
+
+def h12_carrier_case(L_list=None, N_list=(7, 1000, 1e6)):
+    """Compare H-SETTLE-W under H-TRANSFER (eps capped by the NAMED-NOT-READ Majumder figure, reading A) with
+    H-SETTLE-W x H-12 under H-12-CARRIER + H-12-W (the carrier is one of H12_UNBOUNDED, drifting in Weinberg form):
+    no READ bound caps eps, so a cell is excluded only if no eps works at all (N x CMAX < 2).  Returns rows and the
+    number of (L, N) cells that flip from EXCLUDED to NOT EXCLUDED.  'Not excluded' is not evidence either way."""
+    L_list = L_list or (("1 AU", AU_M), ("1 ly", LY_M), ("4.24 ly (illustrative)", 4.24 * LY_M))
+    f = BOUNDS_WEINBERG["Majumder+ 1990, 201Hg, PRL 65 2931"]["f_Hz"]
+    emax = eps_readings(f)["A (eps = 2 pi f)"]
+    rows, flips = [], 0
+    for Ln, L in L_list:
+        for N in N_list:
+            e_any = eps_any_advantage(L, N)
+            transfer_ok = e_any is not None and e_any < emax
+            carrier_ok = e_any is not None
+            flips += (not transfer_ok) and carrier_ok
+            rows.append({"L": Ln, "N": N, "eps_any_advantage": e_any, "eps_max_transfer_A": emax,
+                         "H-TRANSFER": "NOT EXCLUDED" if transfer_ok else "EXCLUDED",
+                         "H-12-CARRIER": "NOT EXCLUDED (no READ bound)" if carrier_ok else "IMPOSSIBLE at any eps"})
+    return rows, flips
 
 
 # ======================================================================================= D. collapse control
@@ -318,11 +508,11 @@ def collapse_control(seed=11):
             "exact_ensemble_difference": float(np.abs(rz - rx).max()), "mc_detector": det}
 
 
-def drift_plus_collapse(seed=5):
-    eps, lam, T = 0.3, 0.2, 3.0
+def drift_plus_collapse(seed=5, lam=0.2, N=5000):
+    eps, T = 0.3, 3.0
     out = {}
     for b in ("z", "x"):
-        Ps = [sde_ensemble(np.array(s), np.zeros((2, 2)), Z, lam, T, eps=eps, n=600, N=5000, seed=seed + i) for i, s in enumerate(NL.ENS[b])]
+        Ps = [sde_ensemble(np.array(s), np.zeros((2, 2)), Z, lam, T, eps=eps, n=600, N=N, seed=seed + i) for i, s in enumerate(NL.ENS[b])]
         P = np.vstack(Ps)
         m, s, _ = bloch_stats(P)
         out[b] = (m, s)
@@ -428,6 +618,37 @@ def build():
     R["frame"] = {"pairs_one_frame": CO.n, "closed_one_frame": CO.bad,
                   "two_frames_closed": bool(CO.L.box_has_causal(CO.E1, CO.E2)),
                   "one_corridor_closed": bool(CO.L.rank1_has_causal(CO.E1))}
+    # F' (wave 2): exact flat FRW forces corridor keying (frame.py's z3 time-function lemma, imported), so
+    # H-SETTLE-W alone gets O-LOOP REMOVED-IF {H-FRW-EXACT, H-NOT-DE-SITTER, N_SIGKEY}
+    with contextlib.redirect_stdout(io.StringIO()):
+        import frame as FRM
+    R["frw_lemma"] = FRM.frw_time_function_lemma()
+    R["c1_signal"] = FRM.settle_under_C1()
+    # B' (wave 2): the W2 class
+    R["two_axis"] = {"signal_eps0.1_T3": two_axis_signal(0.1, 3.0), "exact": 2 * math.tanh(0.6),
+                     "cap_D": {D: capacity_bsc(D) for D in (0.1, 0.5, 0.9, 0.99, 0.999999)},
+                     "readout_holevo_max": readout_holevo_check(), "finite_T_rank": finite_T_rank()}
+    R["pairs_per_qubit"] = {"nlcontrol (H-NLCONTROL-FORM), average with block coding": 2.0 / CMAX,
+                            "nlcontrol, per qubit (integer)": math.ceil(2.0 / CMAX),
+                            "W2 class under H-BORN-AT-BOB, average (infimum, not attained)": 2.0 / W2_CLASS_CEILING_BITS_PER_PAIR,
+                            # strict: the 1-bit ceiling is not attained at finite T (finite_T_rank), so N x C = 2 needs N > 2
+                            "W2 class under H-BORN-AT-BOB, per qubit at finite T (integer)":
+                                math.floor(2.0 / W2_CLASS_CEILING_BITS_PER_PAIR) + 1}
+    # C' (wave 2): timing.  Drift time is distance-independent; eps for any advantage is half the T = L/2c figure.
+    tim = {}
+    for lab, eps in eps_readings(f).items():
+        for N in (7, 1000):
+            T = drift_time_needed(N, eps)
+            tim[(lab, N)] = {"T_s": T, "T_h": T / 3600, "early_fraction_1ly": arrival_early_fraction(LY_M, N, eps),
+                             "first_transit_midpoint_1ly": first_transit_times(LY_M, T, "midpoint"),
+                             "first_transit_one_end_1ly": first_transit_times(LY_M, T, "one-end")}
+    R["timing"] = tim
+    R["eps_any_vs_half"] = {(Ln, N): (eps_any_advantage(L, N), eps_to_remove(L, N))
+                            for Ln, L in (("1 AU", AU_M), ("1 ly", LY_M), ("4.24 ly (illustrative)", 4.24 * LY_M))
+                            for N in (7, 1e3, 1e6)}
+    R["two_axis_eps_any_1ly_N3"] = eps_any_advantage(LY_M, 3, cap=capacity_bsc, cmax=1.0)
+    # C'' (wave 2): H-SETTLE x H-12 with an unbounded carrier
+    R["h12_case"] = h12_carrier_case()
     return R
 
 
@@ -504,6 +725,35 @@ def report(R):
     p(f"   one corridor closes a causal curve: {F['one_corridor_closed']}; two frames: {F['two_frames_closed']}; "
       f"{F['pairs_one_frame']} one-frame pairs, closed: {F['closed_one_frame']}")
     p("   Gisin's protocol needs a fixed slicing (2412.20854 assumption 3b): keyed to ONE frame it closes no loop in this model.")
+    zl = R["frw_lemma"]
+    p(f"   exact flat FRW (frame.frw_time_function_lemma, imported): claim {zl['claim']} (unsat = proved), vacuity {zl['vacuity']},"
+      f" control a>=0 {zl['control_a_ge_0']} -> corridor keying is FORCED by H-FRW-EXACT + H-NOT-DE-SITTER;")
+    p("   H-SETTLE-W alone: O-LOOP REMOVED-IF {H-FRW-EXACT, H-NOT-DE-SITTER, N_SIGKEY (signals keyed to the cosmic slice, H-SIG-COR)}")
+    p("\nWAVE 2 -- CONVENTION, CAPACITY, TIMING, H-12")
+    p(f"   H-C2 named: under C1 (drift on Bob's reduced state) the signal is {R['c1_signal']:.1e} (frame.settle_under_C1) -- no channel.")
+    ta = R["two_axis"]
+    p(f"   second W2 Hamiltonian eps(<X>Z + <Z>X): signal at eps=0.1, T=3 = {ta['signal_eps0.1_T3']:+.6f} (exact 2 tanh 0.6 = {ta['exact']:.6f})")
+    p("     capacity (BSC, uniform prior) at D: " + ", ".join(f"{D}: {c:.6f}" for D, c in ta["cap_D"].items()))
+    p(f"     Holevo at a one-qubit Born readout, 300 random ensembles: max chi = {ta['readout_holevo_max']:.6f} <= 1 bit (H-BORN-AT-BOB)")
+    mn, td = ta["finite_T_rank"]
+    p(f"     finite T (eps=0.3, T=3): Bob's x-choice state min eigenvalue {mn:.3e} > 0, trace distance {td:.6f} < 1 -> ceiling not attained")
+    for k, v in R["pairs_per_qubit"].items():
+        p(f"     pairs per teleported qubit, {k}: {v if isinstance(v, int) else round(v, 4)}")
+    p(f"     two-axis drift at 1 ly with N = 3: eps for any advantage {R['two_axis_eps_any_1ly_N3']:.4e} /s (H-MAP not established for this H)")
+    p("   timing (drift time does not depend on distance; reading A/B at the NAMED-NOT-READ Majumder limit):")
+    for (lab, N), t in R["timing"].items():
+        mp, oe = t["first_transit_midpoint_1ly"], t["first_transit_one_end_1ly"]
+        p(f"     {lab}, N = {N}: T = {t['T_h']:.2f} h; later transits at 1 ly read {t['early_fraction_1ly']:.5f} of L/c early;"
+          f" first transit, midpoint source: read at {mp['t_read']/YEAR_S:.6f} yr (light from Alice at firing {mp['light_from_alice_at_firing']/YEAR_S:.4f} yr:"
+          f" beats it {mp['beats_light_launched_at_firing']}); one-end: {oe['t_read']/YEAR_S:.6f} yr (beats {oe['beats_light_launched_at_firing']})")
+    p("   eps for ANY advantage (T -> L/c) vs wave 1's T = L/2c figure:")
+    for (Ln, N), (ea, eh) in R["eps_any_vs_half"].items():
+        p(f"     {Ln:<24} N = {N:<8g}: {ea:.4e} vs {eh:.4e}  (ratio {eh/ea:.4f})")
+    rows, flips = R["h12_case"]
+    p("   H-SETTLE x H-12 (reading A): H-TRANSFER vs H-12-CARRIER + H-12-W (alpha_s, G or v: no state-dependent bound READ):")
+    for r in rows:
+        p(f"     {r['L']:<24} N = {r['N']:<8g}: eps > {r['eps_any_advantage']:.3e}  {r['H-TRANSFER']:<13} | {r['H-12-CARRIER']}")
+    p(f"     cells that flip EXCLUDED -> NOT EXCLUDED: {flips}  (not evidence: an absent bound is not a measurement)")
 
 
 # ======================================================================================= selftest
@@ -511,6 +761,7 @@ def selftest():
     R = build()
     checks = []
     ok = lambda name, cond, detail="": checks.append((name, bool(cond), detail))
+    structural = lambda name, cond, detail="": checks.append(("STRUCTURAL (cannot fail; not evidence) " + name, bool(cond), detail))
     for e, (pr, ex) in R["nlcontrol_vs_law"].items():
         rerun = bob_numeric("x", e, 3.0, Y, n=3000) - bob_numeric("z", e, 3.0, Y, n=3000)
         ok(f"A1a nlcontrol's integrator (n=3000) reproduces its printed {pr}", round(rerun, 5) == pr, f"{rerun:.7f}")
@@ -549,7 +800,7 @@ def selftest():
     ok("B5 N < 2/log2(1.25) = 6.21 pairs per qubit is impossible", eps_to_remove(LY_M, 6) is None and eps_to_remove(LY_M, 7) is not None)
     ok("C1 Walsworth abstract: h * 8.9 uHz = 3.68e-20 eV ~ printed 3.7e-20", abs(R["walsworth_check_eV"] / 3.7e-20 - 1) < 0.02)
     ok("C2 2411.09611 'nearly a factor of 50': computed 40.87 (wording discrepancy recorded)", abs(R["kr_ratio_quoted_nearly_50"] - 40.87) < 0.01)
-    ok("C3 KR Lamb-shift figure: KR v2 (1e-4) and Brož's restatement (1e-2) DIFFER -- discrepancy kept",
+    structural("C3 KR Lamb-shift figure: KR v2 (1e-4) and Brož's restatement (1e-2) DIFFER -- discrepancy kept (compares two typed READ values)",
        BOUNDS_KR["KR 2022 Lamb-shift estimate (as printed in KR v2)"][0] != BOUNDS_KR["KR Lamb-shift estimate (as restated by Brož)"][0])
     for lab, cnd in R["conditional"].items():
         ems = [v[0] for (Ln, N), v in cnd["removal"].items() if v[0] is not None and Ln == "1 AU"]
@@ -563,13 +814,53 @@ def selftest():
        C["per_state"]["0"]["mean_abs_x_per_trajectory"] > 0.5 and abs(C["per_state"]["0"]["lindblad"][0]) < 0.5)
     DC = R["drift_collapse"]
     ok("D5 CONTROL (must signal): drift + collapse noise, same detector, > 10 sigma", DC["detector"][2] > 10, f"{DC['detector'][2]:.1f}")
-    ok("D6 CONTROL (must signal): pure deterministic drift, same detector",
-       signal_detector(([0, 0, 0], [0, 0, 0]), ([0, math.tanh(0.6), 0], [0, 0, 0]))[2] == math.inf)
+    # D6, wave 2.  Wave 1 first said: 'D6 CONTROL (must signal): pure deterministic drift, same detector' and fed the
+    # detector a hand-typed (0, tanh 0.6, 0) -- a test of detector arithmetic, not of a drift (C-verify-0 #15).  Now
+    # the drift is RUN through the same SDE code path with the collapse switched off (lambda = 0) and must reproduce
+    # the exact law; a broken drift term would fail it.
+    d6 = drift_plus_collapse(lam=0.0, N=200)
+    ok("D6 CONTROL (must signal): pure drift run through sde_ensemble (lambda = 0) reproduces tanh(2 eps T) via the same detector",
+       abs(d6["detector"][0] - d6["noise_free_tanh"]) < 5e-3 and d6["detector"][0] > 0.1,
+       f"{d6['detector'][0]:.5f} vs {d6['noise_free_tanh']:.5f}")
     ok("E1 Z0 = 2 alpha h / e^2 equals CODATA Z0", abs(R["Z0"][0] / R["Z0"][1] - 1) < 1e-9, f"{R['Z0']}")
-    ok("E2 twelve rows in H-12, four without an independent carrier", len(H12) == 12 and sum(r[4].startswith("NO") for r in H12) == 4)
+    structural("E2 twelve rows in H-12, four without an independent carrier (counts the table's own typed classification)",
+               len(H12) == 12 and sum(r[4].startswith("NO") for r in H12) == 4)
     F = R["frame"]
     ok("F1 corridors: one corridor no loop; two frames close; one frame never", (not F["one_corridor_closed"]) and F["two_frames_closed"]
        and F["closed_one_frame"] == 0 and F["pairs_one_frame"] > 0)
+    # ---- wave 2
+    ok("G1 H-C2 named: under C1 the drift gives no signal (frame.settle_under_C1 < 1e-12)", R["c1_signal"] < 1e-12, f"{R['c1_signal']:.1e}")
+    ta = R["two_axis"]
+    ok("G2 second W2 Hamiltonian eps(<X>Z+<Z>X): integrator matches exact 2 tanh(2 eps T)", abs(ta["signal_eps0.1_T3"] - ta["exact"]) < 2e-3,
+       f"{ta['signal_eps0.1_T3']:.6f} vs {ta['exact']:.6f}")
+    ok("G3 its capacity exceeds nlcontrol's ceiling and approaches 1 bit per pair", ta["cap_D"][0.9] > CMAX and ta["cap_D"][0.999999] > 0.999,
+       f"{ta['cap_D'][0.999999]:.6f}")
+    ok("G4 Holevo at a one-qubit readout: max chi over 300 random ensembles <= 1 bit", ta["readout_holevo_max"] <= 1.0 + 1e-12,
+       f"{ta['readout_holevo_max']:.6f}")
+    mn, td = ta["finite_T_rank"]
+    ok("G5 finite T: Bob's per-choice state has rank 2 and trace distance < 1 (ceiling not attained)", mn > 1e-6 and td < 1.0,
+       f"min eig {mn:.2e}, td {td:.6f}")
+    ok("G6 CONTROL (must fail): a 2-pair budget at finite T does not reach 2 bits under the 1-bit ceiling",
+       2 * capacity_bsc(math.tanh(2 * 0.3 * 3.0)) < 2.0 and 3 * capacity_bsc(math.tanh(2 * 0.3 * 3.0)) >= 2.0)
+    ratios = [eh / ea for ea, eh in R["eps_any_vs_half"].values()]
+    ok("G7 eps for any advantage is exactly half the T = L/2c figure at every row", all(abs(r - 2.0) < 1e-6 for r in ratios),
+       f"{min(ratios):.6f}..{max(ratios):.6f}")
+    Ts = [eps_to_remove(L, 7, frac=1.0) * L for L in (AU_M, LY_M, 4.24 * LY_M)]
+    ok("G8 drift time is distance-independent (eps_any x L constant over 1 AU, 1 ly, 4.24 ly)", max(Ts) / min(Ts) - 1 < 1e-6)
+    tA = R["timing"][("A (eps = 2 pi f)", 7)]
+    ok("G9 reading A, N = 7: T = 13.38 h; 1 ly read 0.99847 L/c early (C-verify-1 #3 reproduced)",
+       abs(tA["T_h"] - 13.38) < 0.01 and abs(tA["early_fraction_1ly"] - 0.99847) < 1e-5, f"{tA['T_h']:.3f} h, {tA['early_fraction_1ly']:.6f}")
+    ok("G10 first transit: midpoint source beats light launched from Alice at firing; one-end distribution does not",
+       tA["first_transit_midpoint_1ly"]["beats_light_launched_at_firing"] and not tA["first_transit_one_end_1ly"]["beats_light_launched_at_firing"])
+    ok("G11 CONTROL (must fail): midpoint source with T > L/2c does not beat light launched at firing",
+       not first_transit_times(LY_M, 0.6 * LY_M / C_LIGHT, "midpoint")["beats_light_launched_at_firing"])
+    rows, flips = R["h12_case"]
+    au7 = [r for r in rows if r["L"] == "1 AU" and r["N"] == 7][0]
+    ok("G12 H-SETTLE x H-12: 1 AU N = 7 EXCLUDED under H-TRANSFER, NOT EXCLUDED with an unbounded carrier; >= 1 cell flips",
+       au7["H-TRANSFER"] == "EXCLUDED" and au7["H-12-CARRIER"].startswith("NOT EXCLUDED") and flips >= 1, f"flips {flips}")
+    zl = R["frw_lemma"]
+    ok("G13 O-LOOP keying forced in exact flat FRW (frame lemma unsat, vacuity sat, control sat)",
+       zl["claim"] == "unsat" and zl["vacuity"] == "sat" and zl["control_a_ge_0"] == "sat")
     w = max(len(n) for n, _, _ in checks)
     for n, good, det in checks:
         print(f"  [{'PASS' if good else 'FAIL'}] {n:<{w}} {det}")
