@@ -769,7 +769,11 @@ GRADES = {
                                        "1.000000 bit per pair (BB84, 2 pairs per teleported qubit) and 2.000000 bits "
                                        "per pair (four axes, four_basis_c2_table: 1 pair per teleported qubit), both "
                                        "ZERO-ERROR (every fixed point unique, P = 1), with O-LOOP REINTRODUCED; under C1 "
-                                       "0 bits.  Wave 2 first said 'LEAVES; a channel needs H-SETTLE under C2'",
+                                       "0 bits.  Wave 4 (V2-0 #7): the 1 pair per teleported qubit and its 'exact' are the "
+                                       "FOUR-AXIS construction's; BHW p.4 (READ): 2^n states carry n bits per qubit, "
+                                       "unbounded if CTC qubits are a free resource -- so the route's class figure is <= 1 "
+                                       "pair per teleported qubit and its minimum is OPEN (not computed here).  Wave 2 "
+                                       "first said 'LEAVES; a channel needs H-SETTLE under C2'",
         "2b O-MAKE (wave 3, RV-0 #7)": "NOT-BOUND-IF {clause 2b's CTC; Geroch's compact case only}: Geroch's 'no CTC' "
                                        "hypothesis fails, so it does not bind, and its conclusion is not shown false; "
                                        "Tipler's non-compact case still binds (a CTC does not escape it); bought with "
@@ -780,7 +784,10 @@ GRADES = {
         "O-BITS": "REMOVED-IF {N_EPS (A1: eps > eps_any(L, N)), H-C2 (incl. its no-branch-before-t_A rule), "
                   "H-FRAME3b (= clause 1's substance: clause 1 is load-bearing here), H-COHERE, H-NLCONTROL-FORM, "
                   "H-BORN-AT-BOB, H-BLOCK}; window (exclusion) premises, separate: {H-MAP, H-TRANSFER, H-SPIN, "
-                  "H-DILUTION, the NAMED-NOT-READ bound values}.  Pair counts from N x C >= 2 are FLOORS.  Wave 1 "
+                  "H-DILUTION, the NAMED-NOT-READ bound values}.  Pair counts from N x C >= 2 are FLOORS.  | Wave 4 "
+                  "(V2-1 #2), second support: REMOVED-IF {H-C2 (no-branch rule), H-FRAME3b, H-COHERE, H-BORN-AT-BOB, "
+                  "H-EXTEND, H-FIELD-W2} -- A1's zero-error ancilla member (settle.w2_ancilla_flow / _k), no H-BLOCK, no "
+                  "H-NLCONTROL-FORM; its window is UNEVALUATED (H-MAP not established for its field).  Wave 1 "
                   "first listed O-BITS under 'removes' unconditionally, grounded on the D-CTC's 0.0817 bits; wave 2 "
                   "listed H-MAP/H-TRANSFER/H-SPIN among the removal premises",
         "O-LOOP": "signals: REMOVED-IF {N_SIGKEY} (antitelephone: reply keyed to the cosmic frame arrives at t = 0, "
@@ -794,8 +801,9 @@ GRADES = {
     "D-CTC (Deutsch) under C2 -- needs a CTC at Bob, so it cannot coexist with clause 1 (a clause-2b world)": {
         "O-BITS": "REMOVED-IF {a CTC at Bob, H-DCTC, H-DCTC-CONVENTION C2, H-DCTC-SELECT}: BHW circuit 0.0817 bits "
                   "per use; BHW BB84 1.000 bit per pair (2 pairs per teleported qubit); four axes 2.000 bits per pair "
-                  "(1 pair per teleported qubit), zero-error; under C1 0 bits; BHW p.4 (READ): unbounded if CTC qubits "
-                  "are a free resource",
+                  "(1 pair per teleported qubit), zero-error -- 'exact' for that four-axis construction only; "
+                  "under C1 0 bits; BHW p.4 (READ): unbounded if CTC qubits are a free resource, so the class figure is "
+                  "<= 1 pair per teleported qubit with its minimum OPEN (wave 4, V2-0 #7)",
         "O-LOOP": "REINTRODUCED -- the channel IS a closed timelike curve; M-S1A-P3 disqualifies it at the seat only",
     },
 }

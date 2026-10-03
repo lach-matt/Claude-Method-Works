@@ -1,21 +1,24 @@
 # DOCKET 68 · B-combine: the seven hypotheses in combination
 
-**Status: a docket work item, wave 3 (repaired 2026-10-03 after the two re-verifications in
-`wave1/REPAIR1-RESULT.json`, key `result.reverify`). Nothing here is seated.** The instrument is `combine.py`, beside
-this file. `PYTHONDONTWRITEBYTECODE=1 python3 combine.py --selftest` runs **85 checks and passes all 85** in about
-190 s (z3, numpy, sympy; the screen runs in four worker processes). Seventeen of the checks are controls. **Five items
-cannot fail and are reported as STRUCTURAL, not counted:** the engine's premise-consistency of supports, three ground
-values (the D-CTC under C1, a state-independent unitary in `w2_ancilla_flow`, the Bob-first row of `drift_ordering`),
-and the INDEPENDENT classes, which carry no test by definition. Further STRUCTURAL labels sit beside the figures they
-qualify (the ratio 2.000000 in T-E; the 1 AU, N = 1e6 board equality).
+**Status: a docket work item, wave 4 (repaired 2026-10-03 by R3-combine after the second pair of re-verifications,
+`wave1/REPAIR2-Q1S-RESULT.json`, key `result.verify`). Nothing here is seated.** The instrument is `combine.py`, beside
+this file. `PYTHONDONTWRITEBYTECODE=1 python3 combine.py --selftest` runs **90 counted checks and passes all 90** in
+about 230 s (z3, numpy, sympy; the screen runs in four worker processes). Eighteen of the checks are controls. **Six
+items cannot fail and are printed STRUCTURAL, not counted:** the engine's premise-consistency of supports; three ground
+values (the D-CTC under C1, a state-independent unitary in `w2_ancilla_flow`, the Bob-first row of `drift_ordering`);
+the INDEPENDENT classes, which carry no test by definition; and, new in wave 4, the **COVERAGE partition identity**
+"untested + joint = all variants" (5,951 + 192 = 6,143: `untested()` counts every row except the consistent JOINT
+rows, and the joint count counts exactly those, so it cannot fail — V2-0 problem 6). Further STRUCTURAL labels sit
+beside the figures they qualify (the ratio 2.000000 in T-E; the 1 AU board equalities for N = 1e3 and N = 1e6; the
+Q-1s note below).
 
-*Wave 2 first said:* "65 checks and passes all 65 ... One guard cannot fail by construction". Two of those 65 could not
-fail and were counted (the coverage check, the T-E ratio): RV-0 #9, #10. *Wave 1 first said* "80 checks".
+*Wave 3 first said:* "85 checks and passes all 85 ... Five items cannot fail" — the COVERAGE identity was counted among
+the 85 (V2-0 #6, the pattern RV-0 #9 had caught). *Wave 2 first said* "65 checks"; *wave 1* "80 checks".
 
 `combine.py` imports what it uses and copies nothing: `settle.py`, `frame.py`, `measure.py`, `geometry.py` (the four
-work items, wave 3 as repaired by R2-alone); `nlcontrol.py`, `corridors.py`, `nosig.py` through them; `../transit.py`,
+work items, wave 4 as repaired by R3-alone); `nlcontrol.py`, `corridors.py`, `nosig.py` through them; `../transit.py`,
 `../emtension.py`, and `../LEDGER.md` (read, never written). It writes nothing outside `docket68/` except output paths
-the caller names. It compares itself with the A-reports' wave-3 JSON grades.
+the caller names. It compares itself with the A-reports' wave-4 JSON grades.
 
 M's standing instruction, verbatim from the charter: *"Remember that some of the hypothesies lined up for docket 68
 may turn out, after initial testing, to work better in combination."* M's hypotheses are carried as hypotheses. Each
@@ -24,21 +27,36 @@ grade says what a combination does, not whether it is true.
 ## The answer, first (section 3 has the detail)
 
 **Member-attributed removals — what the hypotheses themselves remove — number at most ONE in any consistent variant,
-counted inside one consistent premise set (an "account"), and it is always O-BITS:**
+counted inside one consistent premise set (an "account"), and it is always O-BITS** (1,728 variants at 1 ly, N = 7;
+576 of the 768 consistent W2 variants at 1 AU, N = 7):
 
-- **by H-SETTLE W2 × H-FRAME** (clause 1, or clause 2b's cosmic clock): O-BITS **REMOVED-IF {W2, F1; N_EPS}** — a
-  JOINT result (a synergy: neither member removes it alone; 192 variants at 1 ly). N_EPS carries the removal set
-  R_W2 = {ε > ε_any(L, N), H-C2 with its no-branch rule, H-FRAME3b ⇐ F1, H-COHERE, H-NLCONTROL-FORM, H-BORN-AT-BOB,
-  H-BLOCK}. It holds at **1 ly, N = 7** and at **1 AU, N = 10⁶** (window computed open); at **1 AU, N = 7 and
-  N = 10³** only with H-12 supplying an unbounded carrier (N_H12W, no READ source). Pair counts from N·C ≥ 2 are
-  **floors** (zero-error capacity 0 at D < 1); reliable transfer is block-coded (H-BLOCK);
-- **or by H-FRAME clause 2b alone**, through a CTC at Bob: O-BITS **REMOVED-IF {F2b; N_DCTC}** (the D-CTC, computed
-  2.000000 bits per pair over four axes, zero-error, so 1 pair per teleported qubit), at **every distance**, with
-  **O-LOOP reintroduced** (the channel is a CTC; M-S1A-P3: disqualifying at the seat only). A CTC is not shown to exist.
+- **by H-SETTLE W2 × H-FRAME** (clause 1, or clause 2b's cosmic clock), a JOINT result (neither member removes it
+  alone), with **two supports** (wave 4, V2-1 problem 2; A1 wave 4):
+  1. **REMOVED-IF {W2, F1; N_EPS}** — R_W2 = {ε > ε_any(L, N), H-C2 with its no-branch rule, H-FRAME3b ⇐ F1, H-COHERE,
+     H-NLCONTROL-FORM, H-BORN-AT-BOB, H-BLOCK}: nlcontrol's form, every pair count a **floor**, reliable transfer
+     block-coded. Its window W_W2 = {H-MAP, H-TRANSFER, H-SPIN, H-DILUTION, the NAMED-NOT-READ values} is computed open
+     at **1 ly, N = 7** and **1 AU, N = 10⁶**. At **1 AU, N = 7 and N = 10³** the window computed from the unread value
+     is empty, so the exclusion is LEFT-IF W_W2 and, by M's rule, **OPEN via N_WREAD pending a READ of the
+     Weinberg-family values (E-WIN), not LEFT**; with H-12 (N_H12W, no READ source) support 1 is REMOVED-IF there —
+     H-12 replaces H-TRANSFER in an exclusion that rests on an unread value;
+  2. **REMOVED-IF {W2, F1; N_W2ANC}** — R_W2′ = {H-C2, H-FRAME3b ⇐ F1, H-COHERE, H-BORN-AT-BOB, H-EXTEND, H-FIELD-W2}:
+     the computed **zero-error** ancilla member, with neither H-BLOCK nor H-NLCONTROL-FORM. χ = log₂d − 1 bits per pair
+     (2, 3, 4 at d = 8, 16, 32: T-K), so **2/(log₂d − 1) pairs per teleported qubit — 1, 2/3, 1/2 — and the class has
+     no positive floor** in the computed range (V2-1 problem 1). Its window is **unevaluated**: no READ bound maps onto
+     its field (H-MAP not established), so the screen never excludes it and it holds in both cells — **distance-free
+     only because nothing bounds the field**; "not excluded" is not evidence. Shown the other way: it needs
+     ‖H‖ ≥ 1.465 c/L, i.e. 4.5e-8 s⁻¹ at 1 ly but **2.9e-3 s⁻¹ at 1 AU**, which IF the unread precession bound were read
+     onto this field (H-MAP-W2, adopted nowhere) would sit 120× above ε_max = 2.39e-5 s⁻¹;
+- **or by H-FRAME clause 2b alone**, through a CTC at Bob: O-BITS **REMOVED-IF {F2b; N_DCTC}** (the D-CTC: 2.000000
+  bits per pair over four axes, zero-error, so 1 pair per teleported qubit **for that construction only**; the route is
+  ≤ 1 pair per qubit and its minimum is OPEN, since BHW 0811.1209v2 p.4 makes the rate unbounded if CTC qubits are
+  free — V2-0 problem 7, which understates for M as well), at **every distance**, with **O-LOOP reintroduced** (the
+  channel is a CTC; M-S1A-P3: disqualifying at the seat only). A CTC is not shown to exist.
 
-**NOT-BOUND-IF (not removals):** under H-IT as an information layer (ITB + N_QTOPO), O-MAKE-TOPO, O-HOLD's geometric
-form **and the corridor form of O-LOOP** — their theorems do not bind a non-geometric corridor; what that corridor costs
-is OPEN (N_ILFREE). In five-way terms at most 2 (O-HOLD, O-LOOP), because O-MAKE also needs its distribution form.
+**NOT-BOUND-IF (not removals):** under H-IT as an information layer (ITB + N_QTOPO, or ITB + R-INDEX + N_MEASPHYS),
+O-MAKE-TOPO, O-HOLD's geometric form **and the corridor form of O-LOOP** — their theorems do not bind a non-geometric
+corridor; what that corridor costs is OPEN (N_ILFREE). In five-way terms at most 2 (O-HOLD, O-LOOP). The A-reports now
+grade this symmetrically too (A3's R-INDEX grade was repaired by R3-alone, so the drift guard agrees on it: 167 of 168).
 
 **Removed with no member (the geometry's, the board's or a premise's):** corridor O-LOOP by exact FRW {N_CORR, N_FRW}
 — only in accounts without N_QTOPO, since the two corridor accounts clash (B-QCORR) — and signal O-LOOP by N_SIGKEY.
@@ -46,14 +64,94 @@ is OPEN (N_ILFREE). In five-way terms at most 2 (O-HOLD, O-LOOP), because O-MAKE
 **Survivors of every consistent variant:** O-MATTER (LEFT; H-INFO's sufficiency reading clashes with B-RECV — clash
 (d), M's to rule) and O-MAKE in its distribution form (OPEN via N_VAC only).
 
-*Wave 2 first said:* "The most is **three of five** (O-BITS REMOVED-IF, O-HOLD NOT-BOUND-IF, O-LOOP REMOVED-IF),
-attained by 64 consistent variants ... Every one of them contains {H-SETTLE W2, H-IT ITB}". That count added a
-REMOVED-IF, a NOT-BOUND-IF and the geometry's removal, mixed two clashing corridor accounts (N_QTOPO and N_CORR), and
-credited O-BITS to W2 alone through a premise (N_FRAME3b) that presupposes F1 (RV-0 #2, #8; RV-1 #2). The wave-2 figure
-recomputed per account is still 3 (32 variants, smallest {W2, F1, ITB}), and it is reported below as history, not as
-the answer.
+**Q-1s (signed / complex entropy) moves no grade here, and the reason is computed, not declared.** Every bit count the
+screen uses — nlcontrol's capacity, the Holevo χ of the ancilla member and the D-CTC, log₂ 976 — is taken over
+non-negative probabilities, where Re H = H by definition (STRUCTURAL: R3-alone's measure.py labels the same identity),
+and no board holding or commitment names the measure's functional form; H-INFO's necessity reading is inert (difference
+census: 0 of 2,048 variants change). Where Q-1s does bear — H-INFO clause (a) for signed weights, now SUPPORTED-IF
+{H-SEPARABLE, BFL codomain dropped, product additivity} and impossible with the codomain kept (R3-alone, signed.py
+§4b) — the screen encodes no obstruction that turns on it.
 
-## 0. Wave-3 repair: every item in both re-verifications, and what was done
+*Wave 3 first said:* "by H-SETTLE W2 × H-FRAME ... O-BITS REMOVED-IF {W2, F1; N_EPS} ... at 1 AU, N = 7 and N = 10³ only
+with H-12 supplying an unbounded carrier" and "computed 2.000000 bits per pair over four axes, zero-error, so 1 pair per
+teleported qubit" — one support (reading as if block coding were necessary), the 1 AU exclusion as settled though it
+rests on an unread value, and the four-axis figures as the classes' (V2-1 problems 1-3; V2-0 problem 7).
+*Wave 2 first said:* "The most is **three of five** ... Every one of them contains {H-SETTLE W2, H-IT ITB}" — that count
+mixed a REMOVED-IF, a NOT-BOUND-IF and the geometry's removal across two clashing corridor accounts; recomputed per
+account it is still 3 (32 variants, smallest {W2, F1, ITB}), reported below as history, not as the answer.
+
+## 0. Wave-4 repair: every item in both re-verifications of REPAIR2, and what was done
+
+Two re-verifications (V2-0, AGAINST M; V2-1, FOR M) left items in repaired wave 1 and in Q-1s. R3-alone repaired the
+A-reports, the four instruments, Q1s-signed.md and the charter note; this stage repaired `combine.py` and this file and
+re-ran the screen. Every item is listed, including those sited elsewhere, with what this stage checked. Wave 3's forms are
+kept below, marked *wave 3 first said*; wave 3's section 0 follows unchanged as history.
+
+### V2-0 (AGAINST M) — unresolved items
+
+| item | resolution |
+|---|---|
+| U0: A1-settle.md:373, "H-SETTLE-KR × H-12, with G as the carrier ... O-HOLD OPEN via G" duplicates KR alone and does not say H-12 adds nothing | **Applied in A1 by R3-alone** (row now "adds nothing to H-SETTLE-KR alone"). **Checked here:** the load-bearing guard reads A1's wave-4 row, which says "adds nothing", so rule L1 requires the z3 load-bearing set to be a proper subset of {KR, H12}: it is empty (KR's O-HOLD is OPEN via N_EPSG, no removal or non-binding), and the row agrees. 13 rows checked, all agree. The wave-3 open item ("A1's KR × H-12 row ... H12 not load-bearing") is closed. |
+| U1: RV-1 #2's symmetric corridor rule not carried to A3's R-INDEX O-LOOP; one of the two live `combine.EXPLAINED` entries | **Applied in A3 by R3-alone** (O-LOOP-C NOT-BOUND-IF {H-IT, H-MEASURE-PHYSICAL} for a physical corridor; SILENT within the measure). **Applied here:** the entry ('A3-measure', 'ITB+RI', 'O-LOOP') is **deleted** from `EXPLAINED` (its wave-3 text kept in `EXPLAINED_HISTORY`, never consulted), and the drift guard now agrees on that row: **167 of 168** comparisons agree (*wave 3:* 166 of 168). R3-alone's read-only run had shown the stale entry failing the "no stale whitelist" check (84/85); that check now passes. |
+| U2: N_QTOPO, N_MEASPHYS, N_H12W, N_ILFREE have no READ source; the Weinberg-family values stay NAMED-NOT-READ; H-EXTEND derived; W2 capacity without H-BORN-AT-BOB OPEN | **Answered: OPEN by design, each verdict naming its premise** (section 8). One more READ for the Weinberg-family values this pass: arXiv:2411.09611v1 pp.1-8 (alphaXiv) carries none of the 1989-90 numbers; its \|ε\| ≲ 1.15e-12 (90% CL) bounds the Kaplan-Rajendran causal electromagnetic nonlinearity, dimensionless, so no H-MAP carries it onto ε_max. **What changed is how the unread values enter:** they are now the OPEN pathway **N_WREAD**, so the 1 AU, N ≤ 10³ cells are OPEN, not LEFT (FOR problem 2 below). H-EXTEND sits in N_W2ANC as derived, not computed. |
+| U3 (outside its lens, for the FOR side): 2511.15935v1 p.4 — KR fails Tomonaga-Schwinger integrability (foliation dependence); A1 READ pp.1-3, 5 only | **READ by R3-alone (p.4) and named H-KR-TS in A1.** **Here:** C-KR's ground now records it; no signal is shown from the foliation dependence, so the commitment (KR: no signal at Bob, KR §2.3, DERIVED-FROM-READ) stands and no verdict moves. Whether the dependence is operational is OPEN (section 12). |
+| U4: every other RV-0 / RV-1 item found applied | No action; recorded. |
+
+### V2-0 (AGAINST M) — problems
+
+| # (site) | resolution |
+|---|---|
+| 0: Q1s s.6 / s.4 (d)-(e) / OPEN 1: uniqueness of Re H reported OPEN; Kontsevich (math/0008089v1 p.43) claims it under signed recursivity | **Applied by R3-alone** (Kontsevich READ pp.1-2, 10-11, 42-44; OPEN 1 restated CLAIMED-IN-LITERATURE / DERIVED (separable) / OPEN (non-separable); positioning list extended). **Bearing here:** none on a grade — the Q-1s paragraph in "The answer, first" gives the computed reason. |
+| 1: A1:373 KR × H-12 credits O-HOLD OPEN via G to the pair | As U0. |
+| 2: Q1s s.4 "Extending Shannon to signed measures forces dropping non-negativity" unqualified | **Applied by R3-alone** ("Inside H-DICTIONARY, and inside H-SEPARABLE, ..."; general case OPEN). Not sited here. |
+| 3: Q1s s.4 (c) "M is the product-additive member" (uniqueness) | **Applied by R3-alone** (qualified; g₃ counterexample recomputed). Not sited here. |
+| 4: measure.py / signed.py checks that cannot fail counted as evidence | **Applied by R3-alone** (measure 73 counted, 13 STRUCTURAL; signed 77 counted, 9 STRUCTURAL). combine imports none of those checks; it uses no Q-1s figure as evidence (above). |
+| 5: combine.py:2334 "COVERAGE untested + joint = all variants" counted in 85/85 | **Applied.** Printed STRUCTURAL and not counted (the identity is shown in the header). The JOINT content-bearing check (TEST_BEARS) can fail and stays counted. Counted checks: 84 of wave 3's 85 survive as counted; six new counted checks are listed below. |
+| 6: A2:32 "the D-CTC route is zero-error, so its counts are exact"; B's T-E rows "1, zero-error" for the W2 ancilla member and the four-axis D-CTC | **Applied** (A2 by R3-alone). **Here:** T-E's pairs table, the count table, `N_DCTC`'s text, `first_transit`'s labels and T-J now read "four-axis construction: 1, zero-error; the route ≤ 1 pair per teleported qubit, minimum OPEN (BHW 0811.1209v2 p.4)"; the W2 row reads "four-axis instance 1; the class 2/(log₂d − 1), no positive floor". Recorded both ways: the class figures are lower (better for M) than "1". |
+| 7: Q1s s.6 (iv) per-entry branch accounting listed as not found | **Applied by R3-alone** (marked elementary; basis of D1). Not sited here. |
+
+### V2-1 (FOR M) — unresolved items
+
+| item | resolution |
+|---|---|
+| U0: RV-1 #2 not carried to A3's R-INDEX grade (`combine.py:1332`, EXPLAINED) | As V2-0 U1: repaired in A3, entry deleted here, agreement computed. |
+| U1: RV-0 #4 not followed through (A1:374 KR × H-12) | As V2-0 U0. |
+| U2: RV-1 #3's window premises named (E-WIN) but not screened; B-combine.md:32 states the 1 AU result categorically | **Applied.** The NAMED-NOT-READ values now enter the screen as the OPEN pathway **N_WREAD** in B-EPSWIN (N_EPS ⇒ window open ∨ (H12 ∧ N_H12W) ∨ N_WREAD). OPEN pathways are held false whenever premise sets, supports and accounts are computed (they are never assumed in a removal), so N_EPS stays **inadmissible** at 1 AU without H-12 (the premise clash {N_EPS}, 384 variants, unchanged) while the support-1 route reads **OPEN via N_WREAD** (computed: `support1-only` screen of {W2, F1}). CONTROL: wave 3's encoding (no N_WREAD) gives LEFT. The rest of E-WIN — refusing H-TRANSFER without H-12 — is still not screened, and is named. |
+| U3: RV-0 unresolved #4 stands in part | As V2-0 U2. |
+
+### V2-1 (FOR M) — problems
+
+| # (site) | resolution |
+|---|---|
+| 0: "1 pair per teleported qubit" presented as the W2 class's figure without H-QUBIT-DRIFT (A1 s.1b, A2:258, B:426, B:36-37) | **Applied and computed here.** `settle.w2_ancilla_flow_k` (R3-alone's generalisation, imported) is re-run in combine's grounds and in the new test **T-K**: k = 4, 8, 16 axes with d = 8, 16, 32 give χ = 2.000000, 3.000000, 4.000000 = log₂d − 1, Bob's error 0, curves disjoint (0.391, 0.337, 0.180 rad against grid steps 0.0072-0.0078) → **1, 2/3, 1/2 pairs per teleported qubit**. CONTROLS fail as built to: a state-independent unitary gives χ = 0 (k = 16); antipodal axes give χ < log₂k with colliding curves (k = 8). The class has no positive floor in the computed range; H-EXTEND is still derived, and none of this is evidence such a drift exists. T-E's tables relabelled (section 4). |
+| 1: W2 × F1's removal given a single support R_W2, reading as if H-BLOCK and H-NLCONTROL-FORM were necessary | **Applied in the encoding**, not only in prose: the named premise **N_W2ANC** (R_W2′) enters B-CAP (CAP ⇔ SIG ∧ (N_EPS ∨ N_W2ANC)). z3 now gives {W2, F1}: O-BITS **REMOVED-IF {W2, F1; N_EPS} \| {W2, F1; N_W2ANC}** (checked). The grade word does not change; the support set gains an alternative with fewer premises. The named census reports N_W2ANC **STRUCTURAL: never inadmissible, assuming it cannot fail**, exactly as N_H12W — no bound reaches its field. |
+| 2: at 1 AU with N ≤ 10³, O-BITS without H-12 carried as LEFT | **Applied**, as U2: support 1 there is **OPEN via N_WREAD**, pending a READ of the Weinberg-family values; the N = 10³ cell has the same computed window as N = 7 (empty under both H-MAP readings), so it screens identically (board equality STRUCTURAL; the window is the content). Support 2 has no window at all and gives **REMOVED-IF {W2, F1; N_W2ANC}** in both cells; so the full 1 AU verdict on {W2, F1} is REMOVED-IF through support 2 alone (96 variants rest only on it), and the support-1 OPEN is reported per support (drift ground row, T-G). "The H-12 synergy at 1 AU" now reads: H-12 replaces H-TRANSFER in support 1's exclusion, which rests on an unread value; it changes no verdict once support 2 is counted (difference census: H-12 changes only the premise clash {N_EPS}, 384 variants) and stays in an alternative support (288 variants). |
+| 3: A3's R-INDEX grade gives O-MAKE and O-HOLD NOT-BOUND-IF for a physical corridor but not O-LOOP | As V2-0 U1. z3's encoding already gave O-LOOP-C NOT-BOUND-IF {ITB; N_QTOPO} \| {ITB, RI; N_MEASPHYS} beside the geometry's REMOVED-IF in the other account (premise clash {N_CORR, N_MEASPHYS}); the A-report now agrees. |
+| 4: Q1s s.4 / A3 (vii): uniqueness confined to H-DICTIONARY where a short proof reaches every continuous separable functional | **Applied by R3-alone** (signed.py §4b: X = c Re H + b N; z3 obligations with vacuity and encoding guards). Bearing here: as the Q-1s paragraph — one H-INFO clause status moves, no obstruction grade, and the screen encodes none that turns on it. |
+
+### The task's own items (R3-combine)
+
+| item | where |
+|---|---|
+| the COVERAGE partition identity STRUCTURAL | header; selftest prints it, does not count it |
+| the 1 AU, N ≤ 10³ cell OPEN pending a READ of the Weinberg-family values (E-WIN), not LEFT | N_WREAD (B-EPSWIN); drift ground row; T-G; checks "RESULT 1 AU ... OPEN via N_WREAD", "CONTROL wave 3's settled window ... LEFT", "CONTENT ... only through N_WREAD"; N = 10³ window computed |
+| W2 × F1's two supports | N_W2ANC in B-CAP; check "RESULT {W2, F1} ... TWO supports"; T-K; the answer above |
+| align with every repaired A-report; no EXPLAINED entry left if its cause is repaired | A3 entry deleted (167/168); the A2 entry kept because its cause is vocabulary, not a fault (re-read in A2's wave-4 JSON: unchanged), so no repair exists to make; the KR × H-12 row agrees under rule L1 |
+| Q-1s where it bears; it moves no grade, with the reason | "The answer, first"; selftest STRUCTURAL note; section 10 |
+| re-run the screen and selftest; restate the answer, member-attributed removals first | `--selftest` 90/90 (6 STRUCTURAL); `--json`, `--table` re-run (section 6 regenerated); "The answer, first" |
+
+**Counted checks, 85 → 90:** the COVERAGE identity leaves the count (84); wave 3's "{W2, F1}: one support" check is
+rewritten as "two supports"; six are new — RESULT support 1 at 1 AU OPEN via N_WREAD; CONTROL settled window gives LEFT;
+CONTENT N_EPS admissible at 1 AU only through N_WREAD; GROUND w2_ancilla_flow_k χ = log₂d − 1; GROUND its two CONTROLS
+(linear, antipodal); TEST T-K. Controls 17 → 18. The vacuity guard gains the N_WREAD content line; the
+"W2 at 1 AU without H12 under N_EPS" contradiction is now checked with OPEN pathways held false.
+
+### Wave 3's section 0, kept as history
+
+The wave-3 repair table follows unchanged; its figures are wave 3's (85 checks, 166/168, one support, the 1 AU cells
+LEFT). Where wave 4 changed one, the tables above say so.
+
+#### 0 (wave 3). Wave-3 repair: every item in both re-verifications, and what was done
 
 **The principle, applied symmetrically, stated once.** *A theorem that does not bind a non-geometric corridor makes
 the obstruction NOT-BOUND-IF (its premise named), never REMOVED.* Wave 3 applies it to the third theorem family it
@@ -63,7 +161,7 @@ NOT-BOUND-IF) and a signal/CTC form (O-LOOP-S, unchanged). The two corridor acco
 {N_QTOPO, N_CORR} (constraint B-QCORR), and **every headline figure is counted inside one account**. O-LOOP's FRW
 removal is credited to the geometry and to no hypothesis, uniformly (in combine and in the repaired A1-A4).
 
-### RV-0 (AGAINST M) — unresolved items
+#### RV-0 (AGAINST M) — unresolved items
 
 | item | resolution |
 |---|---|
@@ -73,7 +171,7 @@ removal is credited to the geometry and to no hypothesis, uniformly (in combine 
 | U3: AGAINST #13, N_FRAME3b never adds F1 back, so {W2} alone is credited O-BITS | **Applied.** N_FRAME3b is **withdrawn** (it presupposes F1: A1 wave 3, corroborated READ 2511.15935v1 p.2). {W2} alone: O-BITS **LEFT**. The removal is W2 × F1's (or W2 × F2b's). H-SLICE-INTRINSIC (a slicing the drift picks without a preferred frame) is named, not credited; a third mutated encoding, `wave2-SLICE-INTRINSIC`, re-credits it and **is caught** (163/168, unexplained on A1 {W2}, {W2, H12} and A3 {W2, INFO}). |
 | U4: four-basis D-CTC figure cited, not computed; N_H12W, N_MEASPHYS, N_QTOPO, N_ILFREE no READ source; Weinberg bounds NAMED-NOT-READ | **Computed:** `frame.four_basis_c2_table` is re-run in combine's grounds and in T-J: 2.000000 bits per pair under C2, map reproduced with P = 1, BHW condition-2 minimum 0.1738; `bb84_c2_table` 1.000000. **Unchanged and stated:** N_H12W, N_MEASPHYS, N_QTOPO and N_ILFREE still have no READ source, and every verdict resting on them names it. The Weinberg-family values stay NAMED-NOT-READ (R2-alone's two further READs, 2509.04320v1 and 2511.15935v1, carry no numbers): **OPEN**. |
 
-### RV-0 (AGAINST M) — problems
+#### RV-0 (AGAINST M) — problems
 
 | # (site) | resolution |
 |---|---|
@@ -92,14 +190,14 @@ removal is credited to the geometry and to no hypothesis, uniformly (in combine 
 | 12: A2 item 1 "Clause 1 removes O-LOOP" | Sited in A2, applied there by R2-alone. combine's F1 reading already says keying is N_KEYING; F1's route {F1; N_CORR, N_KEYING} is reported as an **alternative** support beside the geometry's. |
 | 13: A3 "measured 6.4920"; prediction 1 unconditional | Sited in A3, applied there by R2-alone. combine uses no "measured" for an integrated value (checked by grep). |
 
-### RV-1 (FOR M) — unresolved items
+#### RV-1 (FOR M) — unresolved items
 
 | item | resolution |
 |---|---|
 | U0: four-basis figure answered by restricting to H-BORN-AT-BOB on the qubit alone | **Applied.** The figure is computed (U4 above). T-E names the qubit-only subclass (H-BORN-AT-BOB + **H-QUBIT-DRIFT**) and adds the computed W2 member without H-QUBIT-DRIFT (`settle.w2_ancilla_flow`: 2.000000 bits per pair, zero-error, P(b′\|b) = identity, curves separated by 0.395 rad against a 0.0037 rad grid; smooth extension H-EXTEND derived, not computed): **1 pair per teleported qubit**. Not evidence such a drift exists. |
 | U1: T-D still assigned as a covering test | **Applied.** T-D is a record and covers nothing (RV-0 #9). |
 
-### RV-1 (FOR M) — problems
+#### RV-1 (FOR M) — problems
 
 | # (site) | resolution |
 |---|---|
@@ -114,7 +212,7 @@ removal is credited to the geometry and to no hypothesis, uniformly (in combine 
 | 8: 1 AU statements without N | **Applied.** Every 1 AU statement carries N. A third cell, **1 AU, N = 10⁶**, has its window computed (open under both H-MAP readings: ε_any = 3.34e-6 s⁻¹ against 2.39e-5 and 1.19e-5), so it screens as 1 ly does (the board takes the cell only through that boolean: STRUCTURAL): there W2 × F1 removes O-BITS **without** H-12. The H-12 synergy is specific to 1 AU with N ≤ 10³. |
 | 9: A1 rows treat O-LOOP unevenly; "OPEN via G" mis-sited | **Applied** in A1 (R2-alone); combine uniform, as RV-0 U0 and #4. |
 
-### The task's own items
+#### The task's own items
 
 | item | where |
 |---|---|
@@ -130,7 +228,7 @@ removal is credited to the geometry and to no hypothesis, uniformly (in combine 
 | 1 AU statements carry N | cells 1 AU N = 7 (re-screened) and N = 10⁶ (window) |
 | B-RECV's conditions beside clash (d), which stays a CLASH | section 2 |
 
-### Wave 2's section 0, kept as history
+#### Wave 2's section 0, kept as history
 
 The wave-2 repair table follows unchanged. Its figures are wave 2's (4,607 variants, 127/134 agreement, "three of
 five"); where wave 3 changed one, the table above says so.
@@ -180,8 +278,11 @@ five"); where wave 3 changed one, the table above says so.
   *Wave 2:* 4,607 (no ITJ). *Wave 1:* 3,071.
 - **Distance cells.** **1 ly, N = 7** (window non-empty under both H-MAP readings), all variants. **1 AU, N = 7**
   (window empty under both), the **1,536 W2 variants** re-screened; complete, because N_EPS occurs only in B-CAP and
-  B-EPSWIN and the board admits no CAP without W2 (z3), and the D-CTC route does not depend on distance. **1 AU,
-  N = 10⁶**: window computed open, so it screens as 1 ly. N is always a floor.
+  B-EPSWIN and the board admits no CAP without W2 (z3), and neither the D-CTC route nor support 2 (N_W2ANC) depends on
+  distance. **1 AU, N = 10³** (wave 4: window computed, empty under both readings) screens as 1 AU, N = 7, and **1 AU,
+  N = 10⁶** (window computed open) as 1 ly — board equalities, STRUCTURAL; the windows are the content. Every window is
+  computed from the NAMED-NOT-READ value, so an empty one makes support 1 OPEN via N_WREAD, not LEFT. N is always a
+  floor.
 - **Seven obstruction forms.** O-MAKE as O-MAKE-TOPO and O-MAKE-DIST; O-LOOP as O-LOOP-C (corridor loops) and O-LOOP-S
   (signal and CTC loops). In five-way terms a split obstruction counts only if both forms do.
 
@@ -210,11 +311,12 @@ is not new physics, and its results are only as good as the encoding.
 **Guards (the screen refuses to report if any fails).**
 
 - **Vacuity.** The board alone is SAT; each single reading is SAT except INFOS (a clash); the named premises are
-  jointly SAT at 1 ly and jointly **UNSAT** at 1 AU, N = 7 (content); named and OPEN together SAT; the board admits a
-  loop and no loop. **CONTROL:** with B-RECV deleted, O-MATTER becomes removable.
+  jointly SAT at 1 ly and jointly **UNSAT** at 1 AU, N = 7 with OPEN pathways held false (content); named and OPEN
+  together SAT; the board admits a loop and no loop; **wave 4:** at 1 AU, N_EPS with {W2, F1} is SAT with N_WREAD and
+  UNSAT without it (the OPEN pathway carries the cell). **CONTROL:** with B-RECV deleted, O-MATTER becomes removable.
 - **Contradictions that must be caught** (twelve, every one caught): ITE & W2; INFOS; a planted signal in linear QM;
   F1 & F2b under {N_KEYING, N_2BVIA}; F2b under {N_FRW, N_2BVIA}; ITB & RQ under {N_QTOPO}; W2 at 1 AU, N = 7 without
-  H12 under {N_EPS}; and, new in wave 3: **W2 alone signals nothing**; **ITB under {N_QTOPO, N_CORR}**; **F2b under
+  H12 under {N_EPS} (wave 4: with OPEN pathways held false); and, new in wave 3: **W2 alone signals nothing**; **ITB under {N_QTOPO, N_CORR}**; **F2b under
   {N_FRW, N_DCTC}**; **ITE & F2b under {N_DCTC}**; **a planted D-CTC channel without clause 2b**.
 - **Results that used to be clashes:** F1 & F2b, and ITB & RI & RQ, are consistent as commitments.
 - **STRUCTURAL, not counted.** Supports are drawn only from premise sets consistent with the variant (engine
@@ -232,37 +334,50 @@ is not new physics, and its results are only as good as the encoding.
   | N_CORR | 512 (N_QTOPO / N_MEASPHYS) | 1,919 | 128 |
   | N_MEASPHYS | 512 | 256 | 128 |
   | N_SIGKEY, N_MS17, N_H12W | 0 — **STRUCTURAL: assuming them cannot fail** | 192 / 768 / 0 | N_H12W in a support in 288, never inadmissible |
+  | **N_W2ANC** (wave 4) | 0 — **STRUCTURAL: assuming it cannot fail** (no READ bound reaches its field) | 576 | in a support in 576, never inadmissible |
+
+  At 1 AU, N = 7, N_EPS is in a support in 288 variants (all with H12 + N_H12W); without H12 it is inadmissible (384)
+  and support 1 reads OPEN via N_WREAD.
 
   *Wave 2 first said* N_FRAME3b, N_SIGKEY, N_CORR, N_MS17 and N_H12W were never constrained; N_FRAME3b is withdrawn
   and N_CORR is now constrained by B-QCORR.
-- **Encoding drift: z3 against the A-reports' own wave-3 grades.** 32 (variant, cell, grade) rows, parsed by stated
+- **Encoding drift: z3 against the A-reports' own wave-4 grades.** 32 (variant, cell, grade) rows, parsed by stated
   rules (`parse_report_class`: P1 every parenthetical dropped; P2 aliases; P4 corridor clause; **P7** the clause for
   the variant's H-IT reading; **P8** the first clause outside braces; **P9** LEFT-IF reads OPEN; P3 precedence;
   `z3_class`: Z1 a removal or non-binding counts for a hypothesis only if a support contains it; Z2 OPEN via N_VAC is
   not carried; Z3 an NB returns its removal's OPEN; Z4 the five-way O-MAKE is the weaker form; **Z5** the five-way
-  O-LOOP counts only if both forms are removed or not-bound). **166 of 168 comparisons agree.** The two that do not:
+  O-LOOP counts only if both forms are removed or not-bound). **167 of 168 comparisons agree** (wave 4, against the
+  A-reports' wave-4 JSON; *wave 3 first said* 166 of 168). The one that does not:
 
   | report, variant, obstruction | why z3 differs |
   |---|---|
   | A2, {F2b}, O-MAKE | **Vocabulary.** A2: "NOT-BOUND-IF {2b's CTC; Geroch-compact case only}; Tipler's non-compact case still binds". The screen's NOT-BOUND needs every theorem of the obstruction unbound, so with Tipler binding O-MAKE-TOPO stays bound (and five-way O-MAKE also needs O-MAKE-DIST, OPEN via N_VAC only). A2's own D-CTC row grades the same world's O-MAKE LEAVES. Both say O-MAKE is not lifted. |
-  | A3, {ITB, RI}, O-LOOP | **A3 omission, open for A3's stage.** A3's R-INDEX grade carries the corridor NOT-BOUND-IF {H-IT, H-MEASURE-PHYSICAL} on O-MAKE and O-HOLD but writes O-LOOP "SILENT; corridors: geometry column". By the symmetric rule (applied in A4's ITB grade) the loop theorems do not bind a non-geometric corridor either: z3 gives O-LOOP-C NOT-BOUND-IF {ITB; N_QTOPO} \| {ITB, RI; N_MEASPHYS}, beside the geometry's REMOVED-IF {N_CORR, N_FRW} in the other account. Not repaired here (not this stage's file). |
 
-  **CONTROLS:** three mutated encodings, each caught as an unexplained disagreement: `KR-unconditional` (A1 {KR} and
-  {KR, H12} O-HOLD; 164/168), `wave1-THROAT` (A3 {ITB, RI}, A4 {ITB}, {ITB, ZERO}, {ITB, NULL} O-HOLD; 162/168),
-  `wave2-SLICE-INTRINSIC` (A1 {W2}, {W2, H12}, A3 {W2, INFO} O-BITS; 163/168). **Ground row:**
-  `settle.h12_carrier_case` at 1 AU, N = 7 says EXCLUDED under H-TRANSFER and NOT EXCLUDED under H-12-CARRIER; z3 gives
-  {W2, F1} LEFT and {W2, F1, H12} REMOVED-IF. They agree.
-- **Load-bearing guard** (new, RV-0 #6): 12 combination rows checked; every row crediting a removal or non-binding has
-  every graded literal load-bearing, or says a member adds nothing (A1 W2 × H12 under H-TRANSFER; A3 H-SETTLE ×
-  H-INFO; A4's six H-ZERO / H-NULL × H-IT rows, whose ZERO / NULL add nothing). All agree.
+  The A2 entry stays because its cause is a difference of vocabulary, not a fault on either side: there is nothing to
+  repair, and a parse rule that read A2's partial non-binding as "not lifted" would only rename the difference.
+  *Wave 3 first said* a second row: "A3, {ITB, RI}, O-LOOP | **A3 omission, open for A3's stage** ..." — repaired by
+  R3-alone (A3 wave 4); the entry is deleted from `EXPLAINED` and kept in `EXPLAINED_HISTORY`, and the guard agrees.
+
+  **CONTROLS:** three mutated encodings, each caught as an unexplained disagreement: `KR-unconditional` (165/168),
+  `wave1-THROAT` (163/168), `wave2-SLICE-INTRINSIC` (164/168). **Ground rows (wave 4, per support):**
+  `settle.h12_carrier_case` at 1 AU, N = 7 says EXCLUDED under H-TRANSFER — the computation *given* W_W2, as A1 wave 4
+  states — and NOT EXCLUDED under H-12-CARRIER; z3's support-1 route (`support1-only`) gives {W2, F1} **OPEN via
+  N_WREAD** and {W2, F1, H12} REMOVED-IF; A1's wave-4 field for those cells reads "LEFT-IF W_W2 -> OPEN". They agree.
+  With both supports z3 gives {W2, F1} REMOVED-IF {W2, F1; N_W2ANC} at 1 AU. CONTROL: wave 3's settled window gives
+  LEFT. *Wave 3 first said* "z3 gives {W2, F1} LEFT ... They agree."
+- **Load-bearing guard** (RV-0 #6): 13 combination rows checked (*wave 3:* 12); every row crediting a removal or
+  non-binding has every graded literal load-bearing, or says a member adds nothing (A1 W2 × H12 under H-TRANSFER;
+  **A1 KR × H12, wave 4**; A3 H-SETTLE × H-INFO; A4's six H-ZERO / H-NULL × H-IT rows, whose ZERO / NULL add nothing).
+  All agree.
 - **Grounds re-run, each against an independent computation or with content:** tanh(2εT); C1 2.2e-16; the drift
   ordering against tanh(2ε(T − t_A)) at t_A < T; the antitelephone against −uL; cosmic keying, 0 failures at ranks 2
   and 3; the FRW lemma (unsat; vacuity sat; control a ≥ 0 sat); nlcontrol N < 7 impossible, CMAX = log₂1.25; H-12
   carrier flips, 2; LOCC 8.9e-16; QEI fraction 2.08e-68 (under {H_flat, H-PATH, H-MIN-SCALAR}); zero shift `unsat`;
   EGJ β_crit = −r0²/2 = 1.91e69 l_P² at 1 m, r⁴T_kk → −2r0², β = 0 reproduces R_kk; INFOS support; and, new:
   **D-CTC** four axes 2.000000 bits per pair (C2), BB84 1.000000; **zero-error** 1 codeword at D < 1, control 2/4/8;
-  **W2 member without H-QUBIT-DRIFT** χ = 2.000000, P(b′\|b) = identity; **windows** 1 ly N = 7 open, 1 AU N = 7 empty,
-  1 AU N = 10⁶ open; the board flags and LEDGER S5/S10/S13.
+  **W2 member without H-QUBIT-DRIFT** χ = 2.000000, P(b′\|b) = identity; **wave 4:** `w2_ancilla_flow_k` χ = 2, 3, 4
+  at d = 8, 16, 32 with zero error (controls: linear 0, antipodal collides); **windows** 1 ly N = 7 open, 1 AU N = 7 and
+  N = 10³ empty, 1 AU N = 10⁶ open; the board flags and LEDGER S5/S10/S13.
 
 ### Contradictory combinations: every core, counted by inclusion-exclusion
 
@@ -312,8 +427,10 @@ Union by inclusion-exclusion 2,432. At 1 AU, N = 7 (W2 variants) **{N_EPS} with 
 
 ## 3. The answer, in detail
 
-Computed by `headline()` over every consistent variant and every account at 1 ly, N = 7 (`headline_au` at 1 AU,
-N = 7 agrees in shape):
+Computed by `headline()` over every consistent variant and every account at 1 ly, N = 7 (wave-4 re-run; unchanged from
+wave 3 at 1 ly, since support 2 holds exactly where support 1 does there). `headline_au` at 1 AU, N = 7: member-attributed
+removals max 1 (always O-BITS), 576 variants, smallest {W2, F1} — through support 2 or, with H12, support 1 — and the
+D-CTC; *wave 3 first said* 480 there, the 96 {W2, F1}-type variants without H12 then counted LEFT.
 
 | figure (per account, never across two) | maximum | variants attaining it | smallest |
 |---|---|---|---|
@@ -327,7 +444,7 @@ N = 7 agrees in shape):
 
 | form | account A (N_CORR dropped; N_QTOPO assumed) | account B (N_QTOPO dropped; N_CORR assumed) | supports (all accounts) |
 |---|---|---|---|
-| O-BITS | **Rm** | **Rm** | {W2, F1; N_EPS} |
+| O-BITS | **Rm** | **Rm** | {W2, F1; N_EPS} \| {W2, F1; N_W2ANC} (wave 4: two supports) |
 | O-MAKE-TOPO | **NBm** | — (LEFT) | NOT-BOUND-IF {ITB; N_QTOPO}; removal OPEN via N_ILFREE |
 | O-MAKE-DIST | — | — | OPEN via N_VAC only |
 | O-HOLD | **NBm** | — (LEFT) | NOT-BOUND-IF {ITB; N_QTOPO}; removal OPEN via N_ILFREE |
@@ -345,9 +462,10 @@ all 3,839 consistent variants and all 768 consistent W2 variants at 1 AU, N = 7)
 
 **Synergy (JOINT) and interference.**
 
-- **Synergy: W2 × F1 on O-BITS** — 160 variants at 1 ly ({W2, F1}), 16 + 16 with ITB (and RI); at 1 AU, N = 7 it needs
-  H12: 80 variants ({W2, F1, H12}), 8 + 8 with ITB (and RI). *Wave 2 first said* "Synergy: one, and it is H-12's ...
-  At 1 ly there is no synergy". That rested on N_FRAME3b.
+- **Synergy: W2 × F1 on O-BITS** — 160 variants at 1 ly ({W2, F1}), 16 + 16 with ITB (and RI); at 1 AU, N = 7, 80
+  ({W2, F1}, through support 2) + 8 + 8, and 80 ({W2, F1, H12}, through either support) + 8 + 8. *Wave 3 first said*
+  "at 1 AU, N = 7 it needs H12: 80 variants" — support 2 was not encoded and support 1's exclusion was taken as settled.
+  *Wave 2 first said* "Synergy: one, and it is H-12's ... At 1 ly there is no synergy". That rested on N_FRAME3b.
 - **Interference** (a member's result undone in combination), 1 ly: clause 2b undoes the corridor O-LOOP removal (512
   variants: a message into the cosmic past spoils the time function); R-QUANTUM undoes ITB's non-binding (256 + 128);
   **ITE undoes clause 2b's D-CTC O-BITS** (192, and 192 with F2b's own loop interference): MS linearity excludes the
@@ -361,12 +479,13 @@ A consistent variant is **complementary** when more than one member contributes 
 single member's result covers it. Wave 3 splits these (RV-0 #9, RV-1 #7): **JOINT** if some member-attributed result
 belongs to no single member (a synergy); **INDEPENDENT** otherwise (every contribution is a single member's own).
 
-- **JOINT: 192 variants at 1 ly in 3 classes, 96 at 1 AU, N = 7 in 3 classes** — all W2 × F1 (× H12 at 1 AU) on O-BITS.
-  Each has a content-bearing test (T-A, T-B, T-E; T-G at 1 AU). This check can fail and is counted.
+- **JOINT: 192 variants at 1 ly in 3 classes, 192 at 1 AU, N = 7 in 6 classes** — all W2 × F1 (× H12 at 1 AU) on
+  O-BITS. Each has a content-bearing test (T-A, T-B, T-E, T-K; T-G for the H12 classes). This check can fail and is
+  counted. *Wave 3 first said* 96 at 1 AU in 3 classes.
 - **INDEPENDENT: 448 variants at 1 ly, 64 at 1 AU** — F1 × ITE (O-MAKE-TOPO non-binding beside F1's loop route), F2b ×
   ITB (the D-CTC's O-BITS beside ITB's non-bindings) and their supersets. **Not instrument-tested as pairs**: each part
   is graded in its member's report; no instrument computes the pair. Reported STRUCTURAL.
-- Tests are assigned by a table fixed before the screen runs (`TEST_BEARS`); there is no fallback. **T-D, T-F, T-H and
+- Tests are assigned by a table fixed before the screen runs (`TEST_BEARS`, wave 4 adding T-K); there is no fallback. **T-D, T-F, T-H and
   T-I are records**, cover nothing, and say so.
 
 **T-A: W2 × F1.** `frame.drift_ordering`: 0.5371 / 0.4219 / 0.2913 / 0.1489 as Alice measures at 0, ¼, ½, ¾ of Bob's
@@ -403,12 +522,14 @@ matching the CODATA cross-check exactly. Floors, not prices; the one READ-backed
   |---|---|---|---|---|
   | 1 ly | 7 | 3.64e-8 | yes | 7.29e-8 |
   | 4.24 ly | 7 | 8.59e-9 | yes | 1.72e-8 |
-  | 1 AU | 7 | 2.30e-3 | **no** | 4.61e-3 |
-  | 1 AU | 1,000 | 1.06e-4 | **no** | 2.11e-4 |
+  | 1 AU | 7 | 2.30e-3 | **no** → support 1 OPEN via N_WREAD (wave 4) | 4.61e-3 |
+  | 1 AU | 1,000 | 1.06e-4 | **no** → support 1 OPEN via N_WREAD (wave 4) | 2.11e-4 |
   | 1 AU | 10⁶ | 3.34e-6 | **yes** | 6.67e-6 |
 
   None of the 18 entries flips between the two ε. The ratio 2.000000 is an identity of T = atanh(D_N)/(2ε)
-  (**STRUCTURAL**, not counted; *wave 2 counted it*).
+  (**STRUCTURAL**, not counted; *wave 2 counted it*). Every "consistent?" is computed against the NAMED-NOT-READ value:
+  a "no" is LEFT-IF W_W2, hence OPEN pending a READ (wave 4; *wave 3 first said* the 1 AU rows settled the cells). This
+  window is support 1's only; support 2 has none (T-K).
 - **Timing.** The drift time does not depend on distance and is a **floor** (D_N is the least D with N·C(D) ≥ 2).
   At the unread limit, reading A, N = 7: T = **13.38 h**; once pairs and holder are in place the read is 0.99847 L/c
   early at 1 ly. Not a measured time; an upper limit consistent with zero is not evidence of a drift.
@@ -423,25 +544,33 @@ matching the CODATA cross-check exactly. Floors, not prices; the one READ-backed
   | nlcontrol (H-NLCONTROL-FORM), coded alone | ≥ 7 (floor; never zero-error) |
   | nlcontrol, block-coded (H-BLOCK) | ≥ 6.21 on average (floor) |
   | qubit-only subclass (H-BORN-AT-BOB + H-QUBIT-DRIFT) | > 2 on average; ≥ 3 at finite T |
-  | W2 member without H-QUBIT-DRIFT (`w2_ancilla_flow`, H-EXTEND) | 1, zero-error |
-  | clause 2b's D-CTC, four axes (N_DCTC) | 1, zero-error |
+  | W2 member without H-QUBIT-DRIFT, four-axis instance (`w2_ancilla_flow`, H-EXTEND) | 1, zero-error |
+  | W2 class without H-QUBIT-DRIFT (`w2_ancilla_flow_k`, k = 8, 16; T-K) | 2/3, 1/2, zero-error: 2/(log₂d − 1), **no positive floor** in the computed range |
+  | clause 2b's D-CTC, four-axis construction (N_DCTC) | 1, zero-error — **that construction only**; the route ≤ 1, minimum OPEN (BHW 0811.1209v2 p.4: unbounded if CTC qubits are free) |
 
-  | count (A3's H-FAITHFUL) | teleportation ebits | nlcontrol, N = 7 (floor) | block-coded (floor) | qubit-only subclass (strictly above) | W2 member / D-CTC (zero-error) | holder FLOOR at R = 1 m |
+  | count (A3's H-FAITHFUL) | teleportation ebits | nlcontrol, N = 7 (floor) | block-coded (floor) | qubit-only subclass (strictly above) | four-axis W2 member / D-CTC (zero-error; the classes go lower) | holder FLOOR at R = 1 m |
   |---|---|---|---|---|---|---|
   | species sequence | 9.51e27 | 6.66e28 | 5.91e28 | 1.90e28 | 9.51e27 | 33.2 J |
   | grid 1 Å | 4.14e28 | 2.90e29 | 2.57e29 | 8.28e28 | 4.14e28 | 144 J |
   | grid 0.1 Å | 1.09e29 | 7.61e29 | 6.76e29 | 2.18e29 | 1.09e29 | 379 J |
   | thermal entropy | 2.84e28 | 1.99e29 | 1.76e29 | 5.68e28 | 2.84e28 | 99.1 J |
 
-  *Wave 2 first said:* "nlcontrol pairs, N = 7 (upper figure, one Hamiltonian)" and "W2 class floor, H-BORN-AT-BOB".
+  The four-axis column is one construction's figure: the W2 class at k = 16 needs half of it (species sequence
+  4.75e27), and the D-CTC route's minimum is OPEN. *Wave 3 first said* "W2 member without H-QUBIT-DRIFT ... | 1,
+  zero-error" and "clause 2b's D-CTC, four axes | 1, zero-error", read as the classes' figures (V2-1 problem 1, V2-0
+  problem 7). *Wave 2 first said:* "nlcontrol pairs, N = 7 (upper figure, one Hamiltonian)" and "W2 class floor,
+  H-BORN-AT-BOB".
 - **PASS.**
 
 **T-F (record): RQ × KR.** Two OPENs on O-HOLD. The QEI fraction 2.08e-68 holds under {H_flat, H-PATH,
 H-MIN-SCALAR}; ξ > 0, curved-space QEIs (NAMED-NOT-READ) and ε_G are OPEN. *Wave 2 first said* "in-scope fraction".
 
-**T-G: W2 × F1 × H12 at 1 AU, N = 7.** `settle.h12_carrier_case` flips 2 of 9 cells (1 AU at N = 7 and N = 10³); z3
-gives {W2, F1} LEFT and {W2, F1, H12} REMOVED-IF at 1 AU, N = 7, and {W2, F1} REMOVED-IF at 1 ly. **PASS.** No READ
-source gives a model of a Weinberg-form drift in G or v (N_H12W). At 1 AU, N = 10⁶ H-12 adds nothing.
+**T-G: W2 × F1 × H12 at 1 AU, N = 7 — per support (wave 4).** `settle.h12_carrier_case` flips 2 of 9 cells (1 AU at
+N = 7 and N = 10³; "EXCLUDED" there is the computation given W_W2). z3: support 1 alone gives {W2, F1} **OPEN via
+N_WREAD** at 1 AU, N = 7; with both supports {W2, F1} is REMOVED-IF {W2, F1; N_W2ANC} and {W2, F1, H12} is REMOVED-IF
+{W2, F1; N_W2ANC} \| {W2, F1, H12; N_EPS, N_H12W}; at 1 ly {W2, F1} is REMOVED-IF {W2, F1; N_EPS} \| {W2, F1; N_W2ANC}.
+**PASS.** No READ source gives a model of a Weinberg-form drift in G or v (N_H12W). At 1 AU, N = 10⁶ H-12 adds nothing.
+*Wave 3 first said* "z3 gives {W2, F1} LEFT ... at 1 AU, N = 7".
 
 **T-H (record): ITJ.** `geometry.egj_fR_throat`: T_kk(r0) = 2(−2β − r0²)/r0⁴, ≥ 0 iff β ≤ −r0²/2 (1.91e69 l_P² at
 1 m, against EGJ's β ~ l_P²); r⁴T_kk → −2r0² for every β: for the computed shape and f the deficit is moved, not
@@ -449,10 +578,28 @@ removed. The pathway (N_EQUIL) is H-IT's in the Jacobson reading. *Wave 2 first 
 
 **T-I (record): INFOS vs B-RECV.** φ(1) = 0 bits, Bekenstein 0 bits at E = 0, CARRIES_SUBSTANCE False.
 
-**T-J (new): clause 2b's D-CTC.** `frame.four_basis_c2_table` (BHW 0811.1209v2 pp.3-4 construction, READ by A2):
+**T-J: clause 2b's D-CTC.** `frame.four_basis_c2_table` (BHW 0811.1209v2 pp.3-4 construction, READ by A2):
 2.000000 bits per pair under C2, map reproduced with P = 1, condition-2 minimum 0.1738; `bb84_c2_table` 1.000000. C1
 gives 0 (STRUCTURAL: the same input for every choice). z3 {F2b}: O-BITS REMOVED-IF {F2b; N_DCTC}. O-LOOP reintroduced.
-**PASS.**
+Pairs per teleported qubit: four axes 1, BB84 2 — those constructions'; the route ≤ 1 with its minimum OPEN (BHW p.4).
+A k-axis D-CTC table is not computed (R3-alone: the Cesàro fixed point at CTC dimension 16 is too slow). **PASS.**
+
+**T-K (wave 4): W2 × F1, support 2.** `settle.w2_ancilla_flow_k` (imported; same construction as `w2_ancilla_flow`,
+k axes on one hemisphere, an m-qubit ancilla, the field read from each branch's own state):
+
+| k axes | d | χ (bits per pair) | Bob's error | pairs per teleported qubit | min curve separation (rad) | grid step (rad) | max‖H‖T |
+|---|---|---|---|---|---|---|---|
+| 4 | 8 | 2.000000 | 0 | 1 | 0.391 | 0.0072 | 1.431 |
+| 8 | 16 | 3.000000 | 0 | 0.667 | 0.337 | 0.0074 | 1.484 |
+| 16 | 32 | 4.000000 | 0 | 0.5 | 0.180 | 0.0078 | 1.556 |
+
+CONTROLS: one state-independent unitary gives χ = 0 (k = 16); antipodal axes give χ below log₂k with colliding curves
+(k = 8). z3 {W2, F1} lists {W2, F1; N_W2ANC} as a support. **Field figure, both ways:** support 2 needs
+‖H‖ ≥ max‖H‖T · c/L = 4.53e-8 s⁻¹ at 1 ly and 2.87e-3 s⁻¹ at 1 AU (four-axis max‖H‖T = 1.465 from `w2_ancilla_flow`).
+No READ bound maps onto that field, so the screen leaves the window unevaluated; IF H-MAP-W2 held (the unread Majumder
+precession figure read as a bound on ‖H‖: adopted nowhere), the 1 AU cell would be excluded under both readings
+(ε_max 2.39e-5 / 1.19e-5 s⁻¹) and the 1 ly cell would not. The separation shrinks with k, so H-EXTEND asks for ever
+finer field variation; nothing here is evidence such a drift exists. **PASS.**
 
 ## 5. Each hypothesis across every combination (rule 2)
 
@@ -461,7 +608,7 @@ combination tested."* Retirement is established only for an **exercised** litera
 
 | literal | exercised? (changed / with it) | what it contributes | rule 2 |
 |---|---|---|---|
-| W2 (H-SETTLE, C2) | yes: 576 / 1,536 | O-BITS REMOVED-IF {W2, F1; N_EPS} (or F2b for F1), JOINT; clash (c) with ITE | **kept** (load-bearing in W2 × F1). Alone: LEAVES-ALL |
+| W2 (H-SETTLE, C2) | yes: 576 / 1,536 | O-BITS REMOVED-IF {W2, F1; N_EPS} \| {W2, F1; N_W2ANC} (or F2b for F1), JOINT; clash (c) with ITE | **kept** (load-bearing in W2 × F1, both supports). Alone: LEAVES-ALL |
 | W1 (H-SETTLE, C1) | **no** (0) | its one commitment, no signal, is the board's | **UNTESTED-BY-SCREEN**; its grade (LEAVES-ALL, 2.2e-16) stands |
 | KR (H-SETTLE) | yes: 768 | O-HOLD OPEN via N_EPSG; removes nothing | kept: OPEN pathway |
 | F1 (clause 1) | yes: 1,344 / 3,072 | supplies W2's slicing (O-BITS, JOINT); O-LOOP-C REMOVED-IF {F1; N_CORR, N_KEYING}, an alternative to the geometry's | **kept** |
@@ -469,7 +616,7 @@ combination tested."* Retirement is established only for an **exercised** litera
 | ITB (H-IT) | yes: 1,024 / 1,536 | O-MAKE-TOPO, O-HOLD, O-LOOP-C **NOT-BOUND-IF** {N_QTOPO}; removal OPEN via N_ILFREE | kept: NOT-BOUND-IF, no removal |
 | ITE (H-IT) | yes: 1,152 | O-MAKE-TOPO NOT-BOUND-IF {N_MS17}; clash (c) with W2; excludes the D-CTC | kept: NOT-BOUND-IF |
 | ITJ (H-IT, new) | yes: 1,024 | O-HOLD OPEN via N_EQUIL; removes nothing (moved, not removed, for the computed shape) | kept: OPEN pathway |
-| H12 | yes, **at 1 AU, N = 7 only** (384 changed; in a support 288) | the window: O-BITS REMOVED-IF {W2, F1, H12; N_EPS, N_H12W} | **kept** (on the window only). Not retired |
+| H12 | yes, **at 1 AU, N = 7 only** (384 changed — wave 4: only the premise clash {N_EPS} changes; in a support 288) | support 1's window: O-BITS REMOVED-IF {W2, F1, H12; N_EPS, N_H12W}, an **alternative** to support 2's {W2, F1; N_W2ANC}; without H12, support 1 is OPEN via N_WREAD | **kept** (on support 1's window only; it changes no verdict once support 2 is counted). Not retired. *Wave 3 first said* it flipped O-BITS LEFT → REMOVED-IF |
 | INFO (necessity) | **no** (0) | none | **UNTESTED-BY-SCREEN**; retirement neither established nor refuted |
 | INFOS (sufficiency) | yes: all 2,048 inconsistent | clash (d) | **CLASH, board versus M, M's to rule** |
 | ZERO (H-ZERO) | **no** (0 / 3,072) | none on any obstruction (its result, the zero is free, touches none) | **UNTESTED-BY-SCREEN**. *Wave 2 first said* "kept: OPEN pathway" via N_EQUIL |
@@ -478,7 +625,8 @@ combination tested."* Retirement is established only for an **exercised** litera
 | RQ (R-QUANTUM) | yes: 1,536 | O-HOLD OPEN via N_XI, N_QEIC; undoes ITB's non-binding | kept: OPEN pathway |
 
 **Load-bearing** (in some support): W2, F1, F2b, ITB, ITE and RI at 1 ly; plus H12 at 1 AU, N = 7. **Named premises
-ever used:** N_CORR, N_DCTC, N_EPS, N_FRW, N_KEYING, N_MEASPHYS, N_MS17, N_QTOPO, N_SIGKEY; plus N_H12W at 1 AU.
+ever used:** N_CORR, N_DCTC, N_EPS, N_FRW, N_KEYING, N_MEASPHYS, N_MS17, N_QTOPO, N_SIGKEY, **N_W2ANC** (wave 4); plus
+N_H12W at 1 AU. OPEN pathways: N_WREAD (wave 4) appears at 1 AU only, in support 1's route.
 
 ## 6. Every combination (127, plus readings only)
 
@@ -488,7 +636,9 @@ not-bound, then by removed-or-not-bound. Codes per form: **Rm** removed by a mem
 (geometry / board / premise); **NBm** not-bound, member-attributed; OPEN; **S** silent; **L** left (S and L are read
 off the union of accounts; in the D-CTC account the CTC is itself a loop). **"Adds nothing"** names members of the
 best variant that are in no support of a member-attributed result — the row then adds nothing for them. The last
-column is the 1 AU, N = 7 re-screen of the combination's W2 variants.
+column is the 1 AU, N = 7 re-screen of the combination's W2 variants (wave 4: both supports counted, so W2 × F1
+variants without H12 now count there through support 2; only this column changed from wave 3, which said e.g. "8/12"
+for SET+FR and "16/36" for IT+SET+FR, now 12/12 and 24/36).
 
 | # | combination | variants | consistent | clash (literals in core) | premise clashes | best variant (one account) | BITS/TOPO/DIST/HOLD/MATTER/LOOP-C/LOOP-S | member-attributed removals | NOT-BOUND-IF | removed with no member (geometry / board / premise) | load-bearing members; adds nothing | joint / independent variants | 1 AU, N = 7: W2 variants with O-BITS member-removed |
 |---|---|---|---|---|---|---|---|---|---|---|---|---|---|
@@ -505,7 +655,7 @@ column is the 1 AU, N = 7 re-screen of the combination's W2 variants.
 | 11 | IT+INF | 24 | 12 | INFOS | {N_CORR,N_MEASPHYS}; {N_CORR,N_QTOPO}; {N_MEASPHYS}; {N_QTOPO} | ITB,INFO (dropped N_CORR) | L/NBm/OPEN/NBm/L/NBm/Rg | none | HOLD,LOOP | - | ITB; adds nothing: INFO | 0 / 0 | - |
 | 12 | IT+ZER | 12 | 12 | - | {N_CORR,N_MEASPHYS}; {N_CORR,N_QTOPO}; {N_MEASPHYS}; {N_QTOPO} | ITB,ZERO (dropped N_CORR) | L/NBm/OPEN/NBm/L/NBm/Rg | none | HOLD,LOOP | - | ITB; adds nothing: ZERO | 0 / 0 | - |
 | 13 | IT+NUL | 12 | 12 | - | {N_CORR,N_MEASPHYS}; {N_CORR,N_QTOPO}; {N_MEASPHYS}; {N_QTOPO} | ITB,NULL (dropped N_CORR) | L/NBm/OPEN/NBm/L/NBm/Rg | none | HOLD,LOOP | - | ITB; adds nothing: NULL | 0 / 0 | - |
-| 14 | SET+FR | 36 | 36 | - | {N_2BVIA,N_FRW}; {N_2BVIA,N_KEYING}; {N_DCTC,N_FRW} | W2,F1 | Rm/L/OPEN/L/L/Rg/Rg | BITS | - | LOOP | W2,F1 | 4 / 0 | 8/12 |
+| 14 | SET+FR | 36 | 36 | - | {N_2BVIA,N_FRW}; {N_2BVIA,N_KEYING}; {N_DCTC,N_FRW} | W2,F1 | Rm/L/OPEN/L/L/Rg/Rg | BITS | - | LOOP | W2,F1 | 4 / 0 | 12/12 |
 | 15 | SET+12 | 12 | 12 | - | - | W2,H12 | L/L/OPEN/L/L/Rg/Rg | none | - | LOOP | none; adds nothing: W2,H12 | 0 / 0 | 0/4 |
 | 16 | SET+INF | 24 | 12 | INFOS | - | W2,INFO | L/L/OPEN/L/L/Rg/Rg | none | - | LOOP | none; adds nothing: W2,INFO | 0 / 0 | 0/8 |
 | 17 | SET+ZER | 12 | 12 | - | - | W2,ZERO | L/L/OPEN/L/L/Rg/Rg | none | - | LOOP | none; adds nothing: W2,ZERO | 0 / 0 | 0/4 |
@@ -520,7 +670,7 @@ column is the 1 AU, N = 7 re-screen of the combination's W2 variants.
 | 26 | INF+ZER | 8 | 4 | INFOS | - | INFO,ZERO | L/L/OPEN/L/L/Rg/Rg | none | - | LOOP | none; adds nothing: INFO,ZERO | 0 / 0 | - |
 | 27 | INF+NUL | 8 | 4 | INFOS | - | INFO,NULL | L/L/OPEN/L/L/Rg/Rg | none | - | LOOP | none; adds nothing: INFO,NULL | 0 / 0 | - |
 | 28 | ZER+NUL | 4 | 4 | - | - | ZERO,NULL | L/L/OPEN/L/L/Rg/Rg | none | - | LOOP | none; adds nothing: ZERO,NULL | 0 / 0 | - |
-| 29 | IT+SET+FR | 108 | 96 | W2+F1+F2b+ITE; W2+F1+ITE; W2+F2b+ITE | {N_2BVIA,N_FRW}; {N_2BVIA,N_KEYING}; {N_CORR,N_MEASPHYS}; {N_CORR,N_QTOPO}; {N_DCTC,N_FRW}; {N_DCTC}; {N_MEASPHYS}; {N_QTOPO} | W2,F1,ITB (dropped N_CORR) | Rm/NBm/OPEN/NBm/L/NBm/Rg | BITS | HOLD,LOOP | - | W2,F1,ITB | 8 / 20 | 16/36 |
+| 29 | IT+SET+FR | 108 | 96 | W2+F1+F2b+ITE; W2+F1+ITE; W2+F2b+ITE | {N_2BVIA,N_FRW}; {N_2BVIA,N_KEYING}; {N_CORR,N_MEASPHYS}; {N_CORR,N_QTOPO}; {N_DCTC,N_FRW}; {N_DCTC}; {N_MEASPHYS}; {N_QTOPO} | W2,F1,ITB (dropped N_CORR) | Rm/NBm/OPEN/NBm/L/NBm/Rg | BITS | HOLD,LOOP | - | W2,F1,ITB | 8 / 20 | 24/36 |
 | 30 | IT+SET+12 | 36 | 32 | W2+ITE | {N_CORR,N_MEASPHYS}; {N_CORR,N_QTOPO}; {N_MEASPHYS}; {N_QTOPO} | W2,ITB,H12 (dropped N_CORR) | L/NBm/OPEN/NBm/L/NBm/Rg | none | HOLD,LOOP | - | ITB; adds nothing: W2,H12 | 0 / 0 | 0/12 |
 | 31 | IT+SET+INF | 72 | 32 | INFOS; W2+ITE; W2+ITE+INFOS | {N_CORR,N_MEASPHYS}; {N_CORR,N_QTOPO}; {N_MEASPHYS}; {N_QTOPO} | W2,ITB,INFO (dropped N_CORR) | L/NBm/OPEN/NBm/L/NBm/Rg | none | HOLD,LOOP | - | ITB; adds nothing: W2,INFO | 0 / 0 | 0/24 |
 | 32 | IT+SET+ZER | 36 | 32 | W2+ITE | {N_CORR,N_MEASPHYS}; {N_CORR,N_QTOPO}; {N_MEASPHYS}; {N_QTOPO} | W2,ITB,ZERO (dropped N_CORR) | L/NBm/OPEN/NBm/L/NBm/Rg | none | HOLD,LOOP | - | ITB; adds nothing: W2,ZERO | 0 / 0 | 0/12 |
@@ -536,9 +686,9 @@ column is the 1 AU, N = 7 re-screen of the combination's W2 variants.
 | 42 | IT+INF+NUL | 24 | 12 | INFOS | {N_CORR,N_MEASPHYS}; {N_CORR,N_QTOPO}; {N_MEASPHYS}; {N_QTOPO} | ITB,INFO,NULL (dropped N_CORR) | L/NBm/OPEN/NBm/L/NBm/Rg | none | HOLD,LOOP | - | ITB; adds nothing: INFO,NULL | 0 / 0 | - |
 | 43 | IT+ZER+NUL | 12 | 12 | - | {N_CORR,N_MEASPHYS}; {N_CORR,N_QTOPO}; {N_MEASPHYS}; {N_QTOPO} | ITB,ZERO,NULL (dropped N_CORR) | L/NBm/OPEN/NBm/L/NBm/Rg | none | HOLD,LOOP | - | ITB; adds nothing: ZERO,NULL | 0 / 0 | - |
 | 44 | SET+FR+12 | 36 | 36 | - | {N_2BVIA,N_FRW}; {N_2BVIA,N_KEYING}; {N_DCTC,N_FRW} | W2,F1,H12 | Rm/L/OPEN/L/L/Rg/Rg | BITS | - | LOOP | W2,F1; adds nothing: H12 | 4 / 0 | 12/12 |
-| 45 | SET+FR+INF | 72 | 36 | INFOS | {N_2BVIA,N_FRW}; {N_2BVIA,N_KEYING}; {N_DCTC,N_FRW} | W2,F1,INFO | Rm/L/OPEN/L/L/Rg/Rg | BITS | - | LOOP | W2,F1; adds nothing: INFO | 4 / 0 | 8/24 |
-| 46 | SET+FR+ZER | 36 | 36 | - | {N_2BVIA,N_FRW}; {N_2BVIA,N_KEYING}; {N_DCTC,N_FRW} | W2,F1,ZERO | Rm/L/OPEN/L/L/Rg/Rg | BITS | - | LOOP | W2,F1; adds nothing: ZERO | 4 / 0 | 8/12 |
-| 47 | SET+FR+NUL | 36 | 36 | - | {N_2BVIA,N_FRW}; {N_2BVIA,N_KEYING}; {N_DCTC,N_FRW} | W2,F1,NULL | Rm/L/OPEN/L/L/Rg/Rg | BITS | - | LOOP | W2,F1; adds nothing: NULL | 4 / 0 | 8/12 |
+| 45 | SET+FR+INF | 72 | 36 | INFOS | {N_2BVIA,N_FRW}; {N_2BVIA,N_KEYING}; {N_DCTC,N_FRW} | W2,F1,INFO | Rm/L/OPEN/L/L/Rg/Rg | BITS | - | LOOP | W2,F1; adds nothing: INFO | 4 / 0 | 12/24 |
+| 46 | SET+FR+ZER | 36 | 36 | - | {N_2BVIA,N_FRW}; {N_2BVIA,N_KEYING}; {N_DCTC,N_FRW} | W2,F1,ZERO | Rm/L/OPEN/L/L/Rg/Rg | BITS | - | LOOP | W2,F1; adds nothing: ZERO | 4 / 0 | 12/12 |
+| 47 | SET+FR+NUL | 36 | 36 | - | {N_2BVIA,N_FRW}; {N_2BVIA,N_KEYING}; {N_DCTC,N_FRW} | W2,F1,NULL | Rm/L/OPEN/L/L/Rg/Rg | BITS | - | LOOP | W2,F1; adds nothing: NULL | 4 / 0 | 12/12 |
 | 48 | SET+12+INF | 24 | 12 | INFOS | - | W2,H12,INFO | L/L/OPEN/L/L/Rg/Rg | none | - | LOOP | none; adds nothing: W2,H12,INFO | 0 / 0 | 0/8 |
 | 49 | SET+12+ZER | 12 | 12 | - | - | W2,H12,ZERO | L/L/OPEN/L/L/Rg/Rg | none | - | LOOP | none; adds nothing: W2,H12,ZERO | 0 / 0 | 0/4 |
 | 50 | SET+12+NUL | 12 | 12 | - | - | W2,H12,NULL | L/L/OPEN/L/L/Rg/Rg | none | - | LOOP | none; adds nothing: W2,H12,NULL | 0 / 0 | 0/4 |
@@ -556,9 +706,9 @@ column is the 1 AU, N = 7 re-screen of the combination's W2 variants.
 | 62 | 12+ZER+NUL | 4 | 4 | - | - | H12,ZERO,NULL | L/L/OPEN/L/L/Rg/Rg | none | - | LOOP | none; adds nothing: H12,ZERO,NULL | 0 / 0 | - |
 | 63 | INF+ZER+NUL | 8 | 4 | INFOS | - | INFO,ZERO,NULL | L/L/OPEN/L/L/Rg/Rg | none | - | LOOP | none; adds nothing: INFO,ZERO,NULL | 0 / 0 | - |
 | 64 | IT+SET+FR+12 | 108 | 96 | W2+F1+F2b+ITE; W2+F1+ITE; W2+F2b+ITE | {N_2BVIA,N_FRW}; {N_2BVIA,N_KEYING}; {N_CORR,N_MEASPHYS}; {N_CORR,N_QTOPO}; {N_DCTC,N_FRW}; {N_DCTC}; {N_MEASPHYS}; {N_QTOPO} | W2,F1,ITB,H12 (dropped N_CORR) | Rm/NBm/OPEN/NBm/L/NBm/Rg | BITS | HOLD,LOOP | - | W2,F1,ITB; adds nothing: H12 | 8 / 20 | 24/36 |
-| 65 | IT+SET+FR+INF | 216 | 96 | INFOS; W2+F1+F2b+ITE; W2+F1+F2b+ITE+INFOS; W2+F1+ITE; W2+F1+ITE+INFOS; W2+F2b+ITE; W2+F2b+ITE+INFOS | {N_2BVIA,N_FRW}; {N_2BVIA,N_KEYING}; {N_CORR,N_MEASPHYS}; {N_CORR,N_QTOPO}; {N_DCTC,N_FRW}; {N_DCTC}; {N_MEASPHYS}; {N_QTOPO} | W2,F1,ITB,INFO (dropped N_CORR) | Rm/NBm/OPEN/NBm/L/NBm/Rg | BITS | HOLD,LOOP | - | W2,F1,ITB; adds nothing: INFO | 8 / 20 | 16/72 |
-| 66 | IT+SET+FR+ZER | 108 | 96 | W2+F1+F2b+ITE; W2+F1+ITE; W2+F2b+ITE | {N_2BVIA,N_FRW}; {N_2BVIA,N_KEYING}; {N_CORR,N_MEASPHYS}; {N_CORR,N_QTOPO}; {N_DCTC,N_FRW}; {N_DCTC}; {N_MEASPHYS}; {N_QTOPO} | W2,F1,ITB,ZERO (dropped N_CORR) | Rm/NBm/OPEN/NBm/L/NBm/Rg | BITS | HOLD,LOOP | - | W2,F1,ITB; adds nothing: ZERO | 8 / 20 | 16/36 |
-| 67 | IT+SET+FR+NUL | 108 | 96 | W2+F1+F2b+ITE; W2+F1+ITE; W2+F2b+ITE | {N_2BVIA,N_FRW}; {N_2BVIA,N_KEYING}; {N_CORR,N_MEASPHYS}; {N_CORR,N_QTOPO}; {N_DCTC,N_FRW}; {N_DCTC}; {N_MEASPHYS}; {N_QTOPO} | W2,F1,ITB,NULL (dropped N_CORR) | Rm/NBm/OPEN/NBm/L/NBm/Rg | BITS | HOLD,LOOP | - | W2,F1,ITB; adds nothing: NULL | 8 / 20 | 16/36 |
+| 65 | IT+SET+FR+INF | 216 | 96 | INFOS; W2+F1+F2b+ITE; W2+F1+F2b+ITE+INFOS; W2+F1+ITE; W2+F1+ITE+INFOS; W2+F2b+ITE; W2+F2b+ITE+INFOS | {N_2BVIA,N_FRW}; {N_2BVIA,N_KEYING}; {N_CORR,N_MEASPHYS}; {N_CORR,N_QTOPO}; {N_DCTC,N_FRW}; {N_DCTC}; {N_MEASPHYS}; {N_QTOPO} | W2,F1,ITB,INFO (dropped N_CORR) | Rm/NBm/OPEN/NBm/L/NBm/Rg | BITS | HOLD,LOOP | - | W2,F1,ITB; adds nothing: INFO | 8 / 20 | 24/72 |
+| 66 | IT+SET+FR+ZER | 108 | 96 | W2+F1+F2b+ITE; W2+F1+ITE; W2+F2b+ITE | {N_2BVIA,N_FRW}; {N_2BVIA,N_KEYING}; {N_CORR,N_MEASPHYS}; {N_CORR,N_QTOPO}; {N_DCTC,N_FRW}; {N_DCTC}; {N_MEASPHYS}; {N_QTOPO} | W2,F1,ITB,ZERO (dropped N_CORR) | Rm/NBm/OPEN/NBm/L/NBm/Rg | BITS | HOLD,LOOP | - | W2,F1,ITB; adds nothing: ZERO | 8 / 20 | 24/36 |
+| 67 | IT+SET+FR+NUL | 108 | 96 | W2+F1+F2b+ITE; W2+F1+ITE; W2+F2b+ITE | {N_2BVIA,N_FRW}; {N_2BVIA,N_KEYING}; {N_CORR,N_MEASPHYS}; {N_CORR,N_QTOPO}; {N_DCTC,N_FRW}; {N_DCTC}; {N_MEASPHYS}; {N_QTOPO} | W2,F1,ITB,NULL (dropped N_CORR) | Rm/NBm/OPEN/NBm/L/NBm/Rg | BITS | HOLD,LOOP | - | W2,F1,ITB; adds nothing: NULL | 8 / 20 | 24/36 |
 | 68 | IT+SET+12+INF | 72 | 32 | INFOS; W2+ITE; W2+ITE+INFOS | {N_CORR,N_MEASPHYS}; {N_CORR,N_QTOPO}; {N_MEASPHYS}; {N_QTOPO} | W2,ITB,H12,INFO (dropped N_CORR) | L/NBm/OPEN/NBm/L/NBm/Rg | none | HOLD,LOOP | - | ITB; adds nothing: W2,H12,INFO | 0 / 0 | 0/24 |
 | 69 | IT+SET+12+ZER | 36 | 32 | W2+ITE | {N_CORR,N_MEASPHYS}; {N_CORR,N_QTOPO}; {N_MEASPHYS}; {N_QTOPO} | W2,ITB,H12,ZERO (dropped N_CORR) | L/NBm/OPEN/NBm/L/NBm/Rg | none | HOLD,LOOP | - | ITB; adds nothing: W2,H12,ZERO | 0 / 0 | 0/12 |
 | 70 | IT+SET+12+NUL | 36 | 32 | W2+ITE | {N_CORR,N_MEASPHYS}; {N_CORR,N_QTOPO}; {N_MEASPHYS}; {N_QTOPO} | W2,ITB,H12,NULL (dropped N_CORR) | L/NBm/OPEN/NBm/L/NBm/Rg | none | HOLD,LOOP | - | ITB; adds nothing: W2,H12,NULL | 0 / 0 | 0/12 |
@@ -578,9 +728,9 @@ column is the 1 AU, N = 7 re-screen of the combination's W2 variants.
 | 84 | SET+FR+12+INF | 72 | 36 | INFOS | {N_2BVIA,N_FRW}; {N_2BVIA,N_KEYING}; {N_DCTC,N_FRW} | W2,F1,H12,INFO | Rm/L/OPEN/L/L/Rg/Rg | BITS | - | LOOP | W2,F1; adds nothing: H12,INFO | 4 / 0 | 12/24 |
 | 85 | SET+FR+12+ZER | 36 | 36 | - | {N_2BVIA,N_FRW}; {N_2BVIA,N_KEYING}; {N_DCTC,N_FRW} | W2,F1,H12,ZERO | Rm/L/OPEN/L/L/Rg/Rg | BITS | - | LOOP | W2,F1; adds nothing: H12,ZERO | 4 / 0 | 12/12 |
 | 86 | SET+FR+12+NUL | 36 | 36 | - | {N_2BVIA,N_FRW}; {N_2BVIA,N_KEYING}; {N_DCTC,N_FRW} | W2,F1,H12,NULL | Rm/L/OPEN/L/L/Rg/Rg | BITS | - | LOOP | W2,F1; adds nothing: H12,NULL | 4 / 0 | 12/12 |
-| 87 | SET+FR+INF+ZER | 72 | 36 | INFOS | {N_2BVIA,N_FRW}; {N_2BVIA,N_KEYING}; {N_DCTC,N_FRW} | W2,F1,INFO,ZERO | Rm/L/OPEN/L/L/Rg/Rg | BITS | - | LOOP | W2,F1; adds nothing: INFO,ZERO | 4 / 0 | 8/24 |
-| 88 | SET+FR+INF+NUL | 72 | 36 | INFOS | {N_2BVIA,N_FRW}; {N_2BVIA,N_KEYING}; {N_DCTC,N_FRW} | W2,F1,INFO,NULL | Rm/L/OPEN/L/L/Rg/Rg | BITS | - | LOOP | W2,F1; adds nothing: INFO,NULL | 4 / 0 | 8/24 |
-| 89 | SET+FR+ZER+NUL | 36 | 36 | - | {N_2BVIA,N_FRW}; {N_2BVIA,N_KEYING}; {N_DCTC,N_FRW} | W2,F1,ZERO,NULL | Rm/L/OPEN/L/L/Rg/Rg | BITS | - | LOOP | W2,F1; adds nothing: ZERO,NULL | 4 / 0 | 8/12 |
+| 87 | SET+FR+INF+ZER | 72 | 36 | INFOS | {N_2BVIA,N_FRW}; {N_2BVIA,N_KEYING}; {N_DCTC,N_FRW} | W2,F1,INFO,ZERO | Rm/L/OPEN/L/L/Rg/Rg | BITS | - | LOOP | W2,F1; adds nothing: INFO,ZERO | 4 / 0 | 12/24 |
+| 88 | SET+FR+INF+NUL | 72 | 36 | INFOS | {N_2BVIA,N_FRW}; {N_2BVIA,N_KEYING}; {N_DCTC,N_FRW} | W2,F1,INFO,NULL | Rm/L/OPEN/L/L/Rg/Rg | BITS | - | LOOP | W2,F1; adds nothing: INFO,NULL | 4 / 0 | 12/24 |
+| 89 | SET+FR+ZER+NUL | 36 | 36 | - | {N_2BVIA,N_FRW}; {N_2BVIA,N_KEYING}; {N_DCTC,N_FRW} | W2,F1,ZERO,NULL | Rm/L/OPEN/L/L/Rg/Rg | BITS | - | LOOP | W2,F1; adds nothing: ZERO,NULL | 4 / 0 | 12/12 |
 | 90 | SET+12+INF+ZER | 24 | 12 | INFOS | - | W2,H12,INFO,ZERO | L/L/OPEN/L/L/Rg/Rg | none | - | LOOP | none; adds nothing: W2,H12,INFO,ZERO | 0 / 0 | 0/8 |
 | 91 | SET+12+INF+NUL | 24 | 12 | INFOS | - | W2,H12,INFO,NULL | L/L/OPEN/L/L/Rg/Rg | none | - | LOOP | none; adds nothing: W2,H12,INFO,NULL | 0 / 0 | 0/8 |
 | 92 | SET+12+ZER+NUL | 12 | 12 | - | - | W2,H12,ZERO,NULL | L/L/OPEN/L/L/Rg/Rg | none | - | LOOP | none; adds nothing: W2,H12,ZERO,NULL | 0 / 0 | 0/4 |
@@ -593,9 +743,9 @@ column is the 1 AU, N = 7 re-screen of the combination's W2 variants.
 | 99 | IT+SET+FR+12+INF | 216 | 96 | INFOS; W2+F1+F2b+ITE; W2+F1+F2b+ITE+INFOS; W2+F1+ITE; W2+F1+ITE+INFOS; W2+F2b+ITE; W2+F2b+ITE+INFOS | {N_2BVIA,N_FRW}; {N_2BVIA,N_KEYING}; {N_CORR,N_MEASPHYS}; {N_CORR,N_QTOPO}; {N_DCTC,N_FRW}; {N_DCTC}; {N_MEASPHYS}; {N_QTOPO} | W2,F1,ITB,H12,INFO (dropped N_CORR) | Rm/NBm/OPEN/NBm/L/NBm/Rg | BITS | HOLD,LOOP | - | W2,F1,ITB; adds nothing: H12,INFO | 8 / 20 | 24/72 |
 | 100 | IT+SET+FR+12+ZER | 108 | 96 | W2+F1+F2b+ITE; W2+F1+ITE; W2+F2b+ITE | {N_2BVIA,N_FRW}; {N_2BVIA,N_KEYING}; {N_CORR,N_MEASPHYS}; {N_CORR,N_QTOPO}; {N_DCTC,N_FRW}; {N_DCTC}; {N_MEASPHYS}; {N_QTOPO} | W2,F1,ITB,H12,ZERO (dropped N_CORR) | Rm/NBm/OPEN/NBm/L/NBm/Rg | BITS | HOLD,LOOP | - | W2,F1,ITB; adds nothing: H12,ZERO | 8 / 20 | 24/36 |
 | 101 | IT+SET+FR+12+NUL | 108 | 96 | W2+F1+F2b+ITE; W2+F1+ITE; W2+F2b+ITE | {N_2BVIA,N_FRW}; {N_2BVIA,N_KEYING}; {N_CORR,N_MEASPHYS}; {N_CORR,N_QTOPO}; {N_DCTC,N_FRW}; {N_DCTC}; {N_MEASPHYS}; {N_QTOPO} | W2,F1,ITB,H12,NULL (dropped N_CORR) | Rm/NBm/OPEN/NBm/L/NBm/Rg | BITS | HOLD,LOOP | - | W2,F1,ITB; adds nothing: H12,NULL | 8 / 20 | 24/36 |
-| 102 | IT+SET+FR+INF+ZER | 216 | 96 | INFOS; W2+F1+F2b+ITE; W2+F1+F2b+ITE+INFOS; W2+F1+ITE; W2+F1+ITE+INFOS; W2+F2b+ITE; W2+F2b+ITE+INFOS | {N_2BVIA,N_FRW}; {N_2BVIA,N_KEYING}; {N_CORR,N_MEASPHYS}; {N_CORR,N_QTOPO}; {N_DCTC,N_FRW}; {N_DCTC}; {N_MEASPHYS}; {N_QTOPO} | W2,F1,ITB,INFO,ZERO (dropped N_CORR) | Rm/NBm/OPEN/NBm/L/NBm/Rg | BITS | HOLD,LOOP | - | W2,F1,ITB; adds nothing: INFO,ZERO | 8 / 20 | 16/72 |
-| 103 | IT+SET+FR+INF+NUL | 216 | 96 | INFOS; W2+F1+F2b+ITE; W2+F1+F2b+ITE+INFOS; W2+F1+ITE; W2+F1+ITE+INFOS; W2+F2b+ITE; W2+F2b+ITE+INFOS | {N_2BVIA,N_FRW}; {N_2BVIA,N_KEYING}; {N_CORR,N_MEASPHYS}; {N_CORR,N_QTOPO}; {N_DCTC,N_FRW}; {N_DCTC}; {N_MEASPHYS}; {N_QTOPO} | W2,F1,ITB,INFO,NULL (dropped N_CORR) | Rm/NBm/OPEN/NBm/L/NBm/Rg | BITS | HOLD,LOOP | - | W2,F1,ITB; adds nothing: INFO,NULL | 8 / 20 | 16/72 |
-| 104 | IT+SET+FR+ZER+NUL | 108 | 96 | W2+F1+F2b+ITE; W2+F1+ITE; W2+F2b+ITE | {N_2BVIA,N_FRW}; {N_2BVIA,N_KEYING}; {N_CORR,N_MEASPHYS}; {N_CORR,N_QTOPO}; {N_DCTC,N_FRW}; {N_DCTC}; {N_MEASPHYS}; {N_QTOPO} | W2,F1,ITB,ZERO,NULL (dropped N_CORR) | Rm/NBm/OPEN/NBm/L/NBm/Rg | BITS | HOLD,LOOP | - | W2,F1,ITB; adds nothing: ZERO,NULL | 8 / 20 | 16/36 |
+| 102 | IT+SET+FR+INF+ZER | 216 | 96 | INFOS; W2+F1+F2b+ITE; W2+F1+F2b+ITE+INFOS; W2+F1+ITE; W2+F1+ITE+INFOS; W2+F2b+ITE; W2+F2b+ITE+INFOS | {N_2BVIA,N_FRW}; {N_2BVIA,N_KEYING}; {N_CORR,N_MEASPHYS}; {N_CORR,N_QTOPO}; {N_DCTC,N_FRW}; {N_DCTC}; {N_MEASPHYS}; {N_QTOPO} | W2,F1,ITB,INFO,ZERO (dropped N_CORR) | Rm/NBm/OPEN/NBm/L/NBm/Rg | BITS | HOLD,LOOP | - | W2,F1,ITB; adds nothing: INFO,ZERO | 8 / 20 | 24/72 |
+| 103 | IT+SET+FR+INF+NUL | 216 | 96 | INFOS; W2+F1+F2b+ITE; W2+F1+F2b+ITE+INFOS; W2+F1+ITE; W2+F1+ITE+INFOS; W2+F2b+ITE; W2+F2b+ITE+INFOS | {N_2BVIA,N_FRW}; {N_2BVIA,N_KEYING}; {N_CORR,N_MEASPHYS}; {N_CORR,N_QTOPO}; {N_DCTC,N_FRW}; {N_DCTC}; {N_MEASPHYS}; {N_QTOPO} | W2,F1,ITB,INFO,NULL (dropped N_CORR) | Rm/NBm/OPEN/NBm/L/NBm/Rg | BITS | HOLD,LOOP | - | W2,F1,ITB; adds nothing: INFO,NULL | 8 / 20 | 24/72 |
+| 104 | IT+SET+FR+ZER+NUL | 108 | 96 | W2+F1+F2b+ITE; W2+F1+ITE; W2+F2b+ITE | {N_2BVIA,N_FRW}; {N_2BVIA,N_KEYING}; {N_CORR,N_MEASPHYS}; {N_CORR,N_QTOPO}; {N_DCTC,N_FRW}; {N_DCTC}; {N_MEASPHYS}; {N_QTOPO} | W2,F1,ITB,ZERO,NULL (dropped N_CORR) | Rm/NBm/OPEN/NBm/L/NBm/Rg | BITS | HOLD,LOOP | - | W2,F1,ITB; adds nothing: ZERO,NULL | 8 / 20 | 24/36 |
 | 105 | IT+SET+12+INF+ZER | 72 | 32 | INFOS; W2+ITE; W2+ITE+INFOS | {N_CORR,N_MEASPHYS}; {N_CORR,N_QTOPO}; {N_MEASPHYS}; {N_QTOPO} | W2,ITB,H12,INFO,ZERO (dropped N_CORR) | L/NBm/OPEN/NBm/L/NBm/Rg | none | HOLD,LOOP | - | ITB; adds nothing: W2,H12,INFO,ZERO | 0 / 0 | 0/24 |
 | 106 | IT+SET+12+INF+NUL | 72 | 32 | INFOS; W2+ITE; W2+ITE+INFOS | {N_CORR,N_MEASPHYS}; {N_CORR,N_QTOPO}; {N_MEASPHYS}; {N_QTOPO} | W2,ITB,H12,INFO,NULL (dropped N_CORR) | L/NBm/OPEN/NBm/L/NBm/Rg | none | HOLD,LOOP | - | ITB; adds nothing: W2,H12,INFO,NULL | 0 / 0 | 0/24 |
 | 107 | IT+SET+12+ZER+NUL | 36 | 32 | W2+ITE | {N_CORR,N_MEASPHYS}; {N_CORR,N_QTOPO}; {N_MEASPHYS}; {N_QTOPO} | W2,ITB,H12,ZERO,NULL (dropped N_CORR) | L/NBm/OPEN/NBm/L/NBm/Rg | none | HOLD,LOOP | - | ITB; adds nothing: W2,H12,ZERO,NULL | 0 / 0 | 0/12 |
@@ -608,13 +758,13 @@ column is the 1 AU, N = 7 re-screen of the combination's W2 variants.
 | 114 | SET+FR+12+INF+ZER | 72 | 36 | INFOS | {N_2BVIA,N_FRW}; {N_2BVIA,N_KEYING}; {N_DCTC,N_FRW} | W2,F1,H12,INFO,ZERO | Rm/L/OPEN/L/L/Rg/Rg | BITS | - | LOOP | W2,F1; adds nothing: H12,INFO,ZERO | 4 / 0 | 12/24 |
 | 115 | SET+FR+12+INF+NUL | 72 | 36 | INFOS | {N_2BVIA,N_FRW}; {N_2BVIA,N_KEYING}; {N_DCTC,N_FRW} | W2,F1,H12,INFO,NULL | Rm/L/OPEN/L/L/Rg/Rg | BITS | - | LOOP | W2,F1; adds nothing: H12,INFO,NULL | 4 / 0 | 12/24 |
 | 116 | SET+FR+12+ZER+NUL | 36 | 36 | - | {N_2BVIA,N_FRW}; {N_2BVIA,N_KEYING}; {N_DCTC,N_FRW} | W2,F1,H12,ZERO,NULL | Rm/L/OPEN/L/L/Rg/Rg | BITS | - | LOOP | W2,F1; adds nothing: H12,ZERO,NULL | 4 / 0 | 12/12 |
-| 117 | SET+FR+INF+ZER+NUL | 72 | 36 | INFOS | {N_2BVIA,N_FRW}; {N_2BVIA,N_KEYING}; {N_DCTC,N_FRW} | W2,F1,INFO,ZERO,NULL | Rm/L/OPEN/L/L/Rg/Rg | BITS | - | LOOP | W2,F1; adds nothing: INFO,ZERO,NULL | 4 / 0 | 8/24 |
+| 117 | SET+FR+INF+ZER+NUL | 72 | 36 | INFOS | {N_2BVIA,N_FRW}; {N_2BVIA,N_KEYING}; {N_DCTC,N_FRW} | W2,F1,INFO,ZERO,NULL | Rm/L/OPEN/L/L/Rg/Rg | BITS | - | LOOP | W2,F1; adds nothing: INFO,ZERO,NULL | 4 / 0 | 12/24 |
 | 118 | SET+12+INF+ZER+NUL | 24 | 12 | INFOS | - | W2,H12,INFO,ZERO,NULL | L/L/OPEN/L/L/Rg/Rg | none | - | LOOP | none; adds nothing: W2,H12,INFO,ZERO,NULL | 0 / 0 | 0/8 |
 | 119 | FR+12+INF+ZER+NUL | 24 | 12 | INFOS | {N_2BVIA,N_FRW}; {N_2BVIA,N_KEYING}; {N_DCTC,N_FRW} | F2b,H12,INFO,ZERO,NULL (dropped N_FRW) | Rm/L/OPEN/L/L/S/S | BITS | - | - | F2b; adds nothing: H12,INFO,ZERO,NULL | 0 / 0 | - |
 | 120 | IT+SET+FR+12+INF+ZER | 216 | 96 | INFOS; W2+F1+F2b+ITE; W2+F1+F2b+ITE+INFOS; W2+F1+ITE; W2+F1+ITE+INFOS; W2+F2b+ITE; W2+F2b+ITE+INFOS | {N_2BVIA,N_FRW}; {N_2BVIA,N_KEYING}; {N_CORR,N_MEASPHYS}; {N_CORR,N_QTOPO}; {N_DCTC,N_FRW}; {N_DCTC}; {N_MEASPHYS}; {N_QTOPO} | W2,F1,ITB,H12,INFO,ZERO (dropped N_CORR) | Rm/NBm/OPEN/NBm/L/NBm/Rg | BITS | HOLD,LOOP | - | W2,F1,ITB; adds nothing: H12,INFO,ZERO | 8 / 20 | 24/72 |
 | 121 | IT+SET+FR+12+INF+NUL | 216 | 96 | INFOS; W2+F1+F2b+ITE; W2+F1+F2b+ITE+INFOS; W2+F1+ITE; W2+F1+ITE+INFOS; W2+F2b+ITE; W2+F2b+ITE+INFOS | {N_2BVIA,N_FRW}; {N_2BVIA,N_KEYING}; {N_CORR,N_MEASPHYS}; {N_CORR,N_QTOPO}; {N_DCTC,N_FRW}; {N_DCTC}; {N_MEASPHYS}; {N_QTOPO} | W2,F1,ITB,H12,INFO,NULL (dropped N_CORR) | Rm/NBm/OPEN/NBm/L/NBm/Rg | BITS | HOLD,LOOP | - | W2,F1,ITB; adds nothing: H12,INFO,NULL | 8 / 20 | 24/72 |
 | 122 | IT+SET+FR+12+ZER+NUL | 108 | 96 | W2+F1+F2b+ITE; W2+F1+ITE; W2+F2b+ITE | {N_2BVIA,N_FRW}; {N_2BVIA,N_KEYING}; {N_CORR,N_MEASPHYS}; {N_CORR,N_QTOPO}; {N_DCTC,N_FRW}; {N_DCTC}; {N_MEASPHYS}; {N_QTOPO} | W2,F1,ITB,H12,ZERO,NULL (dropped N_CORR) | Rm/NBm/OPEN/NBm/L/NBm/Rg | BITS | HOLD,LOOP | - | W2,F1,ITB; adds nothing: H12,ZERO,NULL | 8 / 20 | 24/36 |
-| 123 | IT+SET+FR+INF+ZER+NUL | 216 | 96 | INFOS; W2+F1+F2b+ITE; W2+F1+F2b+ITE+INFOS; W2+F1+ITE; W2+F1+ITE+INFOS; W2+F2b+ITE; W2+F2b+ITE+INFOS | {N_2BVIA,N_FRW}; {N_2BVIA,N_KEYING}; {N_CORR,N_MEASPHYS}; {N_CORR,N_QTOPO}; {N_DCTC,N_FRW}; {N_DCTC}; {N_MEASPHYS}; {N_QTOPO} | W2,F1,ITB,INFO,ZERO,NULL (dropped N_CORR) | Rm/NBm/OPEN/NBm/L/NBm/Rg | BITS | HOLD,LOOP | - | W2,F1,ITB; adds nothing: INFO,ZERO,NULL | 8 / 20 | 16/72 |
+| 123 | IT+SET+FR+INF+ZER+NUL | 216 | 96 | INFOS; W2+F1+F2b+ITE; W2+F1+F2b+ITE+INFOS; W2+F1+ITE; W2+F1+ITE+INFOS; W2+F2b+ITE; W2+F2b+ITE+INFOS | {N_2BVIA,N_FRW}; {N_2BVIA,N_KEYING}; {N_CORR,N_MEASPHYS}; {N_CORR,N_QTOPO}; {N_DCTC,N_FRW}; {N_DCTC}; {N_MEASPHYS}; {N_QTOPO} | W2,F1,ITB,INFO,ZERO,NULL (dropped N_CORR) | Rm/NBm/OPEN/NBm/L/NBm/Rg | BITS | HOLD,LOOP | - | W2,F1,ITB; adds nothing: INFO,ZERO,NULL | 8 / 20 | 24/72 |
 | 124 | IT+SET+12+INF+ZER+NUL | 72 | 32 | INFOS; W2+ITE; W2+ITE+INFOS | {N_CORR,N_MEASPHYS}; {N_CORR,N_QTOPO}; {N_MEASPHYS}; {N_QTOPO} | W2,ITB,H12,INFO,ZERO,NULL (dropped N_CORR) | L/NBm/OPEN/NBm/L/NBm/Rg | none | HOLD,LOOP | - | ITB; adds nothing: W2,H12,INFO,ZERO,NULL | 0 / 0 | 0/24 |
 | 125 | IT+FR+12+INF+ZER+NUL | 72 | 36 | INFOS | {N_2BVIA,N_FRW}; {N_2BVIA,N_KEYING}; {N_CORR,N_MEASPHYS}; {N_CORR,N_QTOPO}; {N_DCTC,N_FRW}; {N_DCTC}; {N_MEASPHYS}; {N_QTOPO} | F2b,ITB,H12,INFO,ZERO,NULL (dropped N_CORR, N_FRW) | Rm/NBm/OPEN/NBm/L/NBm/S | BITS | HOLD | - | F2b,ITB; adds nothing: H12,INFO,ZERO,NULL | 0 / 8 | - |
 | 126 | SET+FR+12+INF+ZER+NUL | 72 | 36 | INFOS | {N_2BVIA,N_FRW}; {N_2BVIA,N_KEYING}; {N_DCTC,N_FRW} | W2,F1,H12,INFO,ZERO,NULL | Rm/L/OPEN/L/L/Rg/Rg | BITS | - | LOOP | W2,F1; adds nothing: H12,INFO,ZERO,NULL | 4 / 0 | 12/24 |
@@ -623,8 +773,8 @@ column is the 1 AU, N = 7 re-screen of the combination's W2 variants.
 
 ## 7. Not tested by instrument, with the reason (no silent caps)
 
-Every variant is screened. At 1 ly, N = 7, the **192 JOINT variants** are covered by T-A, T-B, T-E; the other 5,951 are
-not tested by instrument:
+Every variant is screened. At 1 ly, N = 7, the **192 JOINT variants** are covered by T-A, T-B, T-E, T-K; the other
+5,951 are not tested by instrument (5,951 + 192 = 6,143 is a partition identity, STRUCTURAL — wave 4):
 
 | reason (1 ly, N = 7) | variants |
 |---|---|
@@ -633,16 +783,26 @@ not tested by instrument:
 | NO MEMBER CONTRIBUTION: anything removed is the geometry's, the board's or a premise's | 639 |
 | INDEPENDENT: two or more single-member results, none joint; each graded in its member's report | 448 |
 
-At 1 AU, N = 7 (1,536 W2 variants): 96 JOINT (T-G with T-A, T-B, T-E); 768 inconsistent, 448 single contributor, 160
-no member contribution, 64 independent. The variant-by-variant list comes from `python3 combine.py --json PATH`.
+At 1 AU, N = 7 (1,536 W2 variants): 192 JOINT (T-A, T-B, T-E, T-K; T-G for the H12 classes); 768 inconsistent, 352
+single contributor, 160 no member contribution, 64 independent (*wave 3 first said* 96 JOINT and 448 single
+contributor: the 96 {W2, F1}-type variants without H12 are now JOINT through support 2). The variant-by-variant list comes from `python3 combine.py --json PATH`.
 
 ## 8. Named hypotheses
 
 **Conditional named premises** (assumed only inside a support; every support listed):
 
-- **N_EPS** — removal premise ε > ε_any(L, N) for nlcontrol's Hamiltonian, carrying R_W2's H-COHERE,
-  H-NLCONTROL-FORM, H-BORN-AT-BOB and H-BLOCK; tied to the cell by B-EPSWIN under the window set W_W2 (E-WIN).
-- **N_DCTC** (new) — a CTC at Bob, H-DCTC, H-DCTC-CONVENTION C2, H-DCTC-SELECT. A CTC is not shown to exist.
+- **N_EPS** — support 1 of W2 × F1: removal premise ε > ε_any(L, N) for nlcontrol's Hamiltonian, carrying R_W2's
+  H-COHERE, H-NLCONTROL-FORM, H-BORN-AT-BOB and H-BLOCK; tied to the cell by B-EPSWIN under the window set W_W2 (E-WIN).
+  Wave 4: where the window computed from the unread value is empty, N_EPS stays possible through the OPEN pathway
+  N_WREAD.
+- **N_W2ANC** (wave 4) — support 2 of W2 × F1, R_W2′: H-COHERE, H-BORN-AT-BOB, H-EXTEND (derived, not computed) and
+  H-FIELD-W2 (max‖H‖T ≈ 1.43-1.56 within the drift time). Zero-error; no H-BLOCK, no H-NLCONTROL-FORM. Window
+  **unevaluated**: no READ bound maps onto its field (H-MAP not established), so the screen never makes it
+  inadmissible — **assuming it cannot fail (STRUCTURAL in the named census)**, as for N_H12W. Not evidence a drift
+  exists.
+- **N_DCTC** — a CTC at Bob, H-DCTC, H-DCTC-CONVENTION C2, H-DCTC-SELECT. A CTC is not shown to exist. Its four-axis
+  figure, 1 pair per teleported qubit, is that construction's; the route is ≤ 1 with its minimum OPEN (BHW 0811.1209v2
+  p.4: unbounded if CTC qubits are free).
 - **N_SIGKEY** (H-SIG-COR); **N_CORR** (H-CORRIDOR-MODEL, a Lorentzian quotient); **N_KEYING** (H-KEYING, the
   docket's); **N_FRW** (H-FRW-EXACT + H-NOT-DE-SITTER; also excludes CTCs); **N_2BVIA** (H-2B-VIA-CORRIDOR).
 - **N_QTOPO** — ITB's corridor is not a classical Lorentzian object. **No READ source.**
@@ -650,16 +810,22 @@ no member contribution, 64 independent. The variant-by-variant list comes from `
 - **N_MEASPHYS** (H-MEASURE-PHYSICAL) — no source. **N_H12W** (H-12-CARRIER + H-12-W) — no READ model.
 - *Withdrawn:* **N_FRAME3b** (presupposes F1); H-SLICE-INTRINSIC named, not credited.
 
-**OPEN pathways** (never assumed in a removal): **N_XI** (ξ > 0); **N_QEIC** (new: outside {H_flat, H-PATH,
+**OPEN pathways** (never assumed in a removal; wave 4: held **false** whenever premise sets, supports and accounts are
+computed, and set one at a time only by the OPEN test): **N_WREAD** (wave 4: a READ of the Weinberg-family values could
+open support 1's window where the unread value closes it); **N_XI** (ξ > 0); **N_QEIC** (new: outside {H_flat, H-PATH,
 H-MIN-SCALAR}; curved-space QEIs NAMED-NOT-READ); **N_EPSG** (KR pp.13-14); **N_VAC** (Reznik READ; the window
 0.91 L/c < T < L/c DERIVED-FROM-READ); **N_EQUIL** (EGJ out of equilibrium, ITJ's); **N_ILFREE** (no source).
 
 **Encoding choices, named:** W2 is C2; without a preferred slicing C2 defines no channel. The window premises are held
-fixed (**E-WIN**). O-MAKE and O-LOOP are each split in two. A CTC releases only Geroch's compact case (O-MAKE-TOPO stays
+fixed (**E-WIN**), except that their NAMED-NOT-READ values enter as the OPEN pathway N_WREAD (wave 4); refusing
+H-TRANSFER without H-12 is still not screened. Support 2's window is unevaluated and not screened at all (**E-WIN2**,
+wave 4): `support2_field_rows` reports what it would need (‖H‖ ≥ max‖H‖T · c/L) beside the unread bound only as if
+H-MAP-W2 held, which is adopted nowhere. O-MAKE and O-LOOP are each split in two. A CTC releases only Geroch's compact case (O-MAKE-TOPO stays
 bound). Under ITE, MS fn.1 commits the bridge non-traversable; under ITJ the throat is geometric. R-INDEX releases
 nothing without H-IT. A corridor network is present in every variant. Absences are part of the variant (closed world).
 **Carried through unchanged:** A1's §2 list (incl. H-BLOCK, H-QUBIT-DRIFT, H-EXTEND); A2's H-CMB-IS-COSMIC and
-H-KILLING-SEARCH; A3's H-ALT, H-FAITHFUL and H-R; A4's H-QUDIT, H-ER=EPR, H-PATH, H_flat and H-MIN-SCALAR.
+H-KILLING-SEARCH; A3's H-ALT, H-FAITHFUL and H-R; A4's H-QUDIT, H-ER=EPR, H-PATH, H_flat and H-MIN-SCALAR. Wave 4: A1's H-FIELD-W2
+(in N_W2ANC) and H-KR-TS (beside C-KR: KR's foliation dependence, 2511.15935v1 p.4, not shown to be a signal).
 
 ## 9. Sources
 
@@ -669,20 +835,23 @@ H-KILLING-SEARCH; A3's H-ALT, H-FAITHFUL and H-R; A4's H-QUDIT, H-ER=EPR, H-PATH
 | Reznik, arXiv:quant-ph/0212044v2 | READ (wave 1) | p.1; p.10; p.12 Fig. 2; N_VAC |
 | Eling-Guedens-Jacobson, gr-qc/0602001v1; Jacobson gr-qc/9504004v2 | READ by A4 | N_EQUIL, ITJ |
 | Brun-Harrington-Wilde, arXiv:0811.1209v2 | READ by A2 (pp.1-4 re-READ in wave 3) | N_DCTC, via `frame.four_basis_c2_table` and `bb84_c2_table` |
-| Hsu, arXiv:2511.15935v1 | READ by A1 (wave 3) | N_FRAME3b withdrawn: H-FRAME3b presupposes F1 |
+| Hsu, arXiv:2511.15935v1 | READ by A1 (wave 3; p.4 in wave 4) | N_FRAME3b withdrawn: H-FRAME3b presupposes F1; H-KR-TS beside C-KR |
+| Melnychuk et al., arXiv:2411.09611v1 | **READ this pass** (alphaXiv, pp.1-8) | searched for a restatement of the 1989-90 Weinberg-family values: none. Its bound, \|ε\| ≲ 1.15e-12 (90% CL, p.1, p.7), is on the Kaplan-Rajendran causal electromagnetic nonlinearity (dimensionless; "(A^μ + ε⟨Ψ\|A^μ\|Ψ⟩)J^μ", p.1), not on a Weinberg-form precession rate in s⁻¹, so no H-MAP carries it onto ε_max: N_WREAD stays OPEN |
 | `LEDGER.md` lines 50, 67, 70, 181 | READ this pass, never written | B-RECV's conditions beside clash (d) |
 | the four A-reports and their instruments (wave 3) | imported and re-run | every ground; each READ citation is the owning A-report's |
 | `transit.py`, `emtension.py` | read, never written | B-RECV, B-LOCC, C-ITE |
 
-No arXiv source was re-read in this stage (no alphaXiv call was needed: every figure cited is computed by an imported
-instrument or READ by its owning A-report). No host refused a request.
+Wave 4: one source READ (2411.09611v1, above); every other figure is computed by an imported instrument or READ by its
+owning A-report. No host refused a request (no 403). *Wave 3 first said* "No arXiv source was re-read in this stage".
 
 ## 10. Findings (recorded, not repaired)
 
 1. **At most one obstruction is removed by the hypotheses themselves, in any consistent variant and account, and it is
-   O-BITS** — by W2 × F1 (JOINT, conditional on R_W2, at 1 ly, N = 7 and at 1 AU, N = 10⁶; at 1 AU, N ≤ 10³ only with
-   H12 + N_H12W) or by clause 2b's D-CTC (conditional on N_DCTC, at any distance, O-LOOP reintroduced). *Wave 2 first
-   said* "the most is three"; *wave 1* "four of the six-way split, with O-HOLD REMOVED".
+   O-BITS** — by W2 × F1 (JOINT) with two supports: R_W2 (N_EPS; at 1 ly, N = 7 and 1 AU, N = 10⁶; at 1 AU, N ≤ 10³
+   OPEN via N_WREAD without H12, REMOVED-IF with H12 + N_H12W) and R_W2′ (N_W2ANC; zero-error, window unevaluated, so
+   in both cells); or by clause 2b's D-CTC (conditional on N_DCTC, at any distance, O-LOOP reintroduced). *Wave 3 first
+   said* one support, and "at 1 AU, N ≤ 10³ only with H12 + N_H12W". *Wave 2 first said* "the most is three"; *wave 1*
+   "four of the six-way split, with O-HOLD REMOVED".
 2. **H-SETTLE alone removes nothing**: the drift needs H-FRAME's slicing. *Wave 2 first said* {W2} alone O-BITS
    REMOVED-IF {W2; N_EPS, N_FRAME3b}.
 3. **O-HOLD, O-MAKE-TOPO and the corridor form of O-LOOP are at most NOT-BOUND-IF**, under ITB + N_QTOPO (no READ
@@ -701,8 +870,16 @@ instrument or READ by its owning A-report). No host refused a request.
     H-BLOCK): 0.50153 yr after the source fires, against light's 1 yr. One-end distribution cannot.
 11. **Interference exists**: clause 2b undoes the corridor loop removal; R-QUANTUM undoes ITB's non-binding; ITE undoes
     the D-CTC.
-12. **Two disagreements with the A-reports remain, both explained**: A2's partial non-binding of O-MAKE (vocabulary)
-    and A3's missing corridor NOT-BOUND-IF on O-LOOP (an A3 omission, open for A3's stage).
+12. **One disagreement with the A-reports remains, explained**: A2's partial non-binding of O-MAKE (vocabulary, not a
+    fault). *Wave 3 first said* two, the second A3's missing corridor NOT-BOUND-IF on O-LOOP — repaired by R3-alone.
+13. **The pairs-per-qubit figures "1, zero-error" are constructions', not classes'** (wave 4): the W2 class without
+    H-QUBIT-DRIFT reaches 2/(log₂d − 1) — 1, 2/3, 1/2 at d = 8, 16, 32 — with no positive floor in the computed range;
+    the D-CTC route is ≤ 1 with its minimum OPEN (BHW p.4).
+14. **Support 1's 1 AU, N ≤ 10³ exclusion rests on an unread value** (wave 4): OPEN via N_WREAD, not LEFT. Support 2 is
+    distance-free in the screen only because no READ bound reaches its field; under H-MAP-W2 (adopted nowhere) it would
+    need 120× the unread ε_max at 1 AU.
+15. **Q-1s moves no grade here** (wave 4): every bit count the screen uses is over non-negative probabilities, where
+    Re H = H by definition, and no board holding names the measure's form; H-INFO necessity is inert.
 
 ## 11. Testable predictions
 
@@ -718,9 +895,15 @@ instrument or READ by its owning A-report). No host refused a request.
 
 ## 12. Open
 
-- A3's R-INDEX grade lacks the corridor NOT-BOUND-IF on O-LOOP (explained disagreement above; A3's stage).
-- A1's H-SETTLE-KR × H-12 row: in the screen its O-HOLD OPEN is KR's alone (N_EPSG), H12 not load-bearing there.
-- The W2 class capacity without H-BORN-AT-BOB: OPEN (A1). H-EXTEND: derived, not computed.
-- The window premises (E-WIN) are not screened: refusing H-TRANSFER without H-12 would widen the window (A1 §4b).
-- N_QTOPO, N_MEASPHYS, N_H12W, N_ILFREE: no READ source. The Weinberg-family values: NAMED-NOT-READ.
+- **The Weinberg-family values** (Majumder+ 1990 and kin): NAMED-NOT-READ; pre-arXiv; 2509.04320v1, 2511.15935v1 and
+  (this pass) 2411.09611v1 carry none. A READ would settle N_WREAD: support 1 at 1 AU, N ≤ 10³ stays OPEN until then.
+- Support 2's window: unevaluated (no H-MAP for its field; H-FIELD-W2 unbounded by any READ source); H-EXTEND derived,
+  not computed. The W2 class capacity without H-BORN-AT-BOB: OPEN (A1).
+- The rest of E-WIN is not screened: refusing H-TRANSFER without H-12 would widen support 1's window (A1 §4b).
+- The D-CTC route's minimum pairs per qubit: OPEN (k-axis table not computed, cost).
+- Whether KR's foliation dependence (H-KR-TS, 2511.15935v1 p.4) is operational: OPEN.
+- N_QTOPO, N_MEASPHYS, N_H12W, N_ILFREE: no READ source.
 - Clash (d): M's to rule.
+- *Closed in wave 4* (kept as history): "A3's R-INDEX grade lacks the corridor NOT-BOUND-IF on O-LOOP" and "A1's
+  H-SETTLE-KR × H-12 row ... H12 not load-bearing there" — both repaired by R3-alone and checked here (drift 167/168;
+  load-bearing guard 13/13).

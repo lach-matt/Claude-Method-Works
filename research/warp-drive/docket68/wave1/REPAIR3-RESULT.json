@@ -1,0 +1,259 @@
+{
+  "summary": "DOCKET 68: resolve the second verification residuals (wave 1 and Q-1s), re-run the screen, reproduce",
+  "agentCount": 3,
+  "logs": [],
+  "result": {
+    "a": {
+      "id": "R3-alone",
+      "files": [
+        "/home/user/Claude-Method-Works/research/warp-drive/docket68/settle.py",
+        "/home/user/Claude-Method-Works/research/warp-drive/docket68/frame.py",
+        "/home/user/Claude-Method-Works/research/warp-drive/docket68/measure.py",
+        "/home/user/Claude-Method-Works/research/warp-drive/docket68/signed.py",
+        "/home/user/Claude-Method-Works/research/warp-drive/docket68/A1-settle.md",
+        "/home/user/Claude-Method-Works/research/warp-drive/docket68/A2-frame.md",
+        "/home/user/Claude-Method-Works/research/warp-drive/docket68/A3-measure.md",
+        "/home/user/Claude-Method-Works/research/warp-drive/docket68/Q1s-signed.md",
+        "/home/user/Claude-Method-Works/research/warp-drive/docket68/CHARTER.md (append-only dated D1 correction note below M's verbatim text)",
+        "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d68/A1-settle.json, A2-frame.json, A3-measure.json, Q1s-build.json (wave-4 fields; wave-3 forms kept as *_first_said)",
+        "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d68/R3-alone.json (this report)",
+        "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d68/r3-alone-backup/ (pre-edit copies)",
+        "unchanged: geometry.py, A4-geometry.md, A4-geometry.json (no item sited there)"
+      ],
+      "done": [
+        "V2-0 P2 / V2-1 U2: the KR x H-12 row now reads 'adds nothing to H-SETTLE-KR alone' (A1 s.5, the wave-4 table, A1-settle.json). In a read-only combine run its load-bearing guard passes.",
+        "V2-0 U2 / V2-1 U1, P4 (symmetric rule): A3 R-INDEX now has O-LOOP-C NOT-BOUND-IF {H-IT, H-MEASURE-PHYSICAL} for a physical corridor and SILENT within the measure. It sits beside the geometry's REMOVED-IF in the other account, with premise clash {N_MEASPHYS, N_CORR}; signal loops are unchanged. Applied in A3-measure.md (iv)/(vii)/headline, measure.GRADES, Q1S_GRADE_REVIEW and A3-measure.json. In the read-only combine run the disagreement has gone.",
+        "V2-1 P2: W2 x F1 O-BITS now has two supports. R_W2 is nlcontrol's form with floors and H-BLOCK. R_W2' = {H-C2 rule, H-FRAME3b<=F1, H-COHERE, H-BORN-AT-BOB, H-EXTEND, H-FIELD-W2}: zero-error, window UNEVALUATED. Applied in the A1/A2 headlines and tables, A3:379, frame.py grade text and the json files. The grade word is unchanged.",
+        "V2-1 P1: added settle.w2_ancilla_flow_k (same construction, k axes, m-qubit ancilla). For k=4,8,16,32, chi=2,3,4,5 = log2 d - 1 with zero error, i.e. 1, 2/3, 1/2, 0.4 pairs per teleported qubit. Curve separations 0.391/0.337/0.180/0.117 rad against a grid step of ~0.0075. Controls: antipodal axes give chi 2, linear unitary gives 0. New checks G21-G25.",
+        "V2-1 P3: at 1 AU, N=7 and N=1e3 without H-12 are now LEFT-IF W_W2, hence OPEN, because W_W2 holds the unread Majumder value. The H-12 synergy is re-read accordingly. The h12_carrier_case labels are kept as 'given W_W2' for combine's ground rows.",
+        "V2-0 P7: the D-CTC 'exact' figure is the four-axis construction's only. The route gives <= 1 pair per teleported qubit with its minimum OPEN (BHW p.4), and the clause-2b cell is qualified. Applied in A2, frame.py strings and A2-frame.json. Recorded both ways. A k-axis D-CTC was not computed because it is too slow; this is stated.",
+        "V2-1 P5 separable extension done in signed.py s.(4b), with every step shown in Q1s-signed.md s.4b. Result: X = c Re H + b N. Steps g(0)=0 and Cauchy were proved by z3 over an uninterpreted g. Guards: vacuity (g=min(x,0) satisfies all premises for all lam, x, y), encoding guard, and a control where dropping one instance gives a countermodel. The Cauchy-under-continuity steps are DERIVED. The solution identity was checked in sympy. The numeric null space is span{Re H, N}, with control dimension 13. Consequences: with the codomain kept, c=0 and b>=0 (z3); with product additivity, Re H alone.",
+        "Kontsevich READ via alphaXiv (math/0008089v1 pp.1-2, 10-11, 42-44). Proved there: (A),(B),(C) on Z/p. Claimed on R, with a cohomological sketch: H_inf = Re H(x,1-x) is the unique continuous solution. p.44: chain rule, stated for probabilities. Not in the source: a signed n-entry theorem, any use of BFL's axioms, anything on the codomain, Im H, N or M, or a full proof. Computed: N satisfies BFL convex linearity but fails (B) and the signed chain rule. Leinster 1903.06961v3 READ (pp.1-4, 8, 26-27). Q-1s positioned against both and 2310.19296 in s.4c. OPEN 1 restated as CLAIMED-IN-LITERATURE / DERIVED (separable) / OPEN (non-separable). The paper positioning list is extended.",
+        "V2-0 P3 and P4: the impossibility is now qualified to H-DICTIONARY/H-SEPARABLE, with general case OPEN ((1.6,-0.3,-0.3) has no convex decomposition, computed). M's uniqueness is qualified, and the g3 counterexample was recomputed (0.0741 against ln 2).",
+        "V2-0 P8: per-entry branch accounting is marked elementary and dropped from the not-found list.",
+        "V2-0 P5 STRUCTURAL relabels. measure.py: 6 checks plus one guard; the summary now prints counted totals. signed.py: 5 relabels (the 2 V2-0 named plus 3 more by the same test) plus 1 new STRUCTURAL check. 'Re H = H on p>=0 is definitional' is stated.",
+        "CHARTER.md: a dated D1 correction note is appended below M's verbatim text; the diff is append-only.",
+        "V2-0 U4: 2511.15935v1 p.4 READ. KR fails Tomonaga-Schwinger integrability (it is foliation-dependent), but no signal is shown. Named H-KR-TS; no grade moves.",
+        "V2-0 U3 / V2-1 U4: answered as OPEN by design; every verdict names its premise.",
+        "V2-0 P6 (combine.py:2334) READ and confirmed to be a partition identity. Routed to combine's stage, not edited."
+      ],
+      "results": [
+        "The W2 class has no positive floor on pairs per teleported qubit in the computed range: 1, 2/3, 1/2, 0.4 pairs at d = 8, 16, 32, 64, zero error. This holds under H-BORN-AT-BOB + H-C2 + H-EXTEND, without H-QUBIT-DRIFT. The curve separation shrinks as k grows. None of this is evidence that such a drift exists.",
+        "Over every continuous separable functional on FinSigned, BFL's axioms force c Re H + b N. Adding product additivity leaves Re H as the unique member; keeping the codomain leaves only b N. H-INFO clause (a) on signed weights is therefore SUPPORTED-IF {H-SEPARABLE, codomain dropped, product additivity} and OPEN for non-separable functionals. One clause status moves; no obstruction grade moves.",
+        "Kontsevich's p.43 claim (1995, a sketch) is prior art for selecting Re H by signed recursivity. It is cited, not hidden.",
+        "Convex atoms are the measures convex linearity cannot reach. Fractions: n=2: 1.0, n=3: 0.54, n=4: 0.37, n=5: 0.25.",
+        "D-CTC: <= 1 pair per teleported qubit, minimum OPEN. 1 AU, N<=1e3, W2xF1 without H-12: OPEN.",
+        "Read-only combine.py --selftest: 84/85. The single FAIL is the now-stale EXPLAINED entry ('A3-measure','ITB+RI','O-LOOP'). That is the expected result of the A3 repair."
+      ],
+      "open": [
+        "FOR COMBINE'S STAGE: delete combine.EXPLAINED[('A3-measure','ITB+RI','O-LOOP')], which is stale. Relabel combine.py:2334 as STRUCTURAL. In B-combine.md fix: headline lines 30-37 (single support, '1 pair per qubit'); lines 32-33 and 264 (1 AU should be OPEN pending a READ); line 426 T-E rows; the STRUCTURAL count.",
+        "Uniqueness under BFL's axioms over non-separable functionals.",
+        "Kontsevich's sketch has two steps asserted, not proved, and gives no signed n-entry statement.",
+        "H-KR-TS: whether the foliation dependence is operational.",
+        "Support 2's window is unevaluated. H-EXTEND is derived, not computed. H-FIELD-W2 has no source.",
+        "Weinberg-family values are NAMED-NOT-READ. N_QTOPO, N_MEASPHYS, N_H12W and N_ILFREE have no READ source.",
+        "The k-axis D-CTC was not computed.",
+        "Cathelineau, Lee, Aczel-Dhombres, Baudot-Bennequin and Vigneaux are NAMED-NOT-READ."
+      ],
+      "selftests": [
+        "settle.py: 62/62; 6 STRUCTURAL; 56/56 counted; 10 controls; exit 0",
+        "frame.py: ALL PASS, 61 checks, 16 controls, 1 STRUCTURAL; exit 0",
+        "measure.py: 73/73 counted, 19 controls, 13 STRUCTURAL, 86 total; exit 0",
+        "signed.py: 77/77 counted, 18 controls, 9 STRUCTURAL, 0 SKIPPED (z3 5.1.0); exit 0. The z3-absent path gives 71/71 with 6 SKIPPED.",
+        "geometry.py (not edited): 48 checks, 11 controls, ALL PASS",
+        "settle.py and signed.py report modes: exit 0",
+        "combine.py (read-only): 84/85; the only FAIL is the stale A3 EXPLAINED entry"
+      ],
+      "problems": [
+        "combine.py's selftest will fail one check until combine's stage removes the stale EXPLAINED entry. This stage does not edit combine.py.",
+        "An orchestrator snapshot commit (1df309d) captured signed.py and settle.py partway through this work. This agent made no commit, push, stash, reset or checkout.",
+        "z3 is pip-installed, not vendored. Without it the 6 z3 obligations are printed SKIPPED and not counted.",
+        "No 403 or egress block was met."
+      ]
+    },
+    "b": {
+      "id": "R3-combine",
+      "files": [
+        "/home/user/Claude-Method-Works/research/warp-drive/docket68/combine.py",
+        "/home/user/Claude-Method-Works/research/warp-drive/docket68/B-combine.md",
+        "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d68/B-combine.json",
+        "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d68/B-combine.variants.json",
+        "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d68/B-table.md",
+        "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d68/B-report.txt",
+        "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d68/r3-combine-selftest.txt",
+        "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d68/R3-combine.json",
+        "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d68/mk_b4.py",
+        "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d68/r3-combine-backup/"
+      ],
+      "done": [
+        "V2-0 P5 / task: the COVERAGE check 'untested + joint = all variants' (5,951 + 192 = 6,143) is now printed STRUCTURAL and not counted. It is a partition identity of untested(). There are now 6 STRUCTURAL items.",
+        "V2-1 P2 / task: W2 x F1's two supports are encoded in the screen, not only written. The new named premise N_W2ANC (R_W2') enters B-CAP as CAP <=> SIG and (N_EPS or N_W2ANC). z3 now gives {W2,F1} O-BITS REMOVED-IF {W2,F1;N_EPS} | {W2,F1;N_W2ANC}. The named census marks N_W2ANC STRUCTURAL: it is never inadmissible, the same as N_H12W.",
+        "V2-1 P3/U2 / task: at 1 AU, N<=1e3, support 1 is OPEN via a new OPEN pathway N_WREAD (the unread Weinberg-family values) in B-EPSWIN. It is no longer LEFT. OPEN pathways are now held false when premise sets, supports, presuppositions and accounts are computed, so they are never assumed in a removal. Control: the wave-3 settled-window encoding gives LEFT. The N=1e3 window is computed (empty), so that cell screens the same as N=7 (a STRUCTURAL equality).",
+        "V2-1 P0 / V2-0 P6: '1 pair per teleported qubit' is now labelled as the four-axis constructions' figure. settle.w2_ancilla_flow_k is imported and re-run in the grounds and in a new test, T-K. For k = 4, 8, 16, chi = 2, 3, 4 = log2 d - 1 with zero error, i.e. 1, 2/3, 1/2 pairs per qubit. Its controls (linear gives 0, antipodal axes collide) fail as built to. The D-CTC route is now stated as <= 1 pair per qubit with its minimum OPEN (BHW p.4), in the N_DCTC text, the T-E tables, the first_transit labels and T-J.",
+        "V2-0 U1 / V2-1 U0, P3 / task: deleted EXPLAINED[('A3-measure','ITB+RI','O-LOOP')] because R3-alone repaired its cause; its text is kept in EXPLAINED_HISTORY. The drift guard now agrees on 167 of 168 rows and the stale-whitelist check passes. The A2 vocabulary entry is kept, with its reason: the cause is not a fault, and A2's wave-4 JSON was re-read.",
+        "V2-0 U0/P1 / V2-1 U1: A1's KR x H12 row now says 'adds nothing'. The load-bearing guard checks it under rule L1 and it agrees; 13 of 13 rows agree.",
+        "V2-0 U3: H-KR-TS is now named in C-KR's ground. The commitment stands because no signal is shown.",
+        "V2-0 U2 / V2-1 U3: these stay OPEN by design, and each verdict names the premise it rests on. arXiv:2411.09611v1 pp.1-8 was READ via alphaXiv for a restatement of the Weinberg-family values. It has none: its |eps| <~ 1.15e-12 bounds the Kaplan-Rajendran causal electromagnetic nonlinearity, is dimensionless, and does not map onto eps_max.",
+        "V2-0 P0, P2, P3, P4, P7 and V2-1 P4 (the Q-1s items) were applied by R3-alone and are sited outside this stage. Their bearing here is stated; none moves a grade.",
+        "Q-1s is mentioned where it bears, and it moves no grade. The computed reason: every bit count the screen uses is over non-negative probabilities, where Re H = H by definition; no board holding names the measure's form; INFO is inert. This is printed STRUCTURAL in the selftest.",
+        "The drift ground rows are now per support: settle's EXCLUDED (given W_W2) corresponds to z3's support-1 OPEN via N_WREAD. A1's wave-4 field 'LEFT-IF W_W2 -> OPEN' is read and compared.",
+        "Support 2's field figure is reported both ways (support2_field_rows): it needs ||H|| >= 4.53e-8 /s at 1 ly and 2.87e-3 /s at 1 AU. IF H-MAP-W2 held (it is adopted nowhere), the 1 AU figure would be 120x the unread eps_max.",
+        "The screen, report, JSON, table and selftest were all re-run on the final code. B-combine.md was updated: header; answer restated with member-attributed removals first; a new wave-4 section 0 covering every item of both reports; wave-3 section 0 kept as history; sections 1-12 updated; section 6 table regenerated (only the 1 AU column changed); 'wave 3 first said' kept throughout."
+      ],
+      "results": [
+        "Member-attributed removals: at most ONE per consistent variant and account, and it is always O-BITS. That holds in 1,728 variants at 1 ly and in 576 of the 768 consistent W2 variants at 1 AU, N = 7 (wave 3 first said 480).",
+        "By W2 x F1 (JOINT), with two supports. Support (1), N_EPS / R_W2: holds at 1 ly N=7 and 1 AU N=1e6. At 1 AU N=7 and N=1e3 it is OPEN via N_WREAD without H12, and REMOVED-IF with H12 + N_H12W. Support (2), N_W2ANC / R_W2': zero-error, window unevaluated, so it holds in both cells. It is distance-free only because no READ bound reaches its field; 96 variants at 1 AU rest on it alone.",
+        "Or by clause 2b's D-CTC: REMOVED-IF {F2b; N_DCTC} at any distance, with O-LOOP reintroduced. Its 1 pair per qubit is the four-axis construction's figure; the route is <= 1, minimum OPEN.",
+        "The W2 class without H-QUBIT-DRIFT needs 2/(log2 d - 1) pairs per teleported qubit, so it has no positive floor in the computed range.",
+        "NOT-BOUND-IF, which are not removals: O-MAKE-TOPO, O-HOLD and the corridor form of O-LOOP, under ITB + N_QTOPO (or ITB + RI + N_MEASPHYS). Five-way maximum 2. Their removal is OPEN via N_ILFREE.",
+        "Removals with no member: corridor O-LOOP by exact FRW {N_CORR, N_FRW}, in accounts without N_QTOPO; signal O-LOOP by N_SIGKEY.",
+        "Survivors: O-MATTER (clash d, M's to rule) and O-MAKE-DIST (OPEN via N_VAC).",
+        "H12 at 1 AU changes no verdict once support 2 is counted. It changes only the premise clash {N_EPS} (384 variants) and stays in an alternative support (288 variants). Kept.",
+        "Drift guard 167/168, one explained (A2 vocabulary). Mutated-encoding controls caught at 165, 163 and 164 of 168. Load-bearing guard 13/13.",
+        "Screen: 6,143 variants, 3,839 consistent, 2,304 inconsistent (unchanged). JOINT: 192 at 1 ly in 3 classes; 192 at 1 AU in 6 classes (wave 3 first said 96)."
+      ],
+      "open": [
+        "Weinberg-family values: NAMED-NOT-READ (pre-arXiv; 2411.09611v1 checked this pass). Support 1 at 1 AU, N<=1e3 stays OPEN until a READ.",
+        "Support 2's window is unevaluated: there is no H-MAP for its field, and H-FIELD-W2 is unbounded by any READ source. H-EXTEND is derived, not computed.",
+        "The rest of E-WIN (refusing H-TRANSFER without H-12) is not screened.",
+        "The D-CTC route's minimum pairs per qubit is OPEN (a k-axis D-CTC table was not computed).",
+        "H-KR-TS: whether KR's foliation dependence is operational is OPEN.",
+        "N_QTOPO, N_MEASPHYS, N_H12W and N_ILFREE have no READ source. The W2 capacity without H-BORN-AT-BOB is OPEN.",
+        "Clash (d): M's to rule.",
+        "For A1's stage: A1 does not state support 2's 1 AU status ('no window computed'). combine computes REMOVED-IF {W2,F1;N_W2ANC} there because that window is unevaluated. This is recorded, not a disagreement."
+      ],
+      "selftests": [
+        "PYTHONDONTWRITEBYTECODE=1 python3 combine.py --selftest -> 90/90 checks pass, 18 controls, 6 STRUCTURAL items reported and not counted; 222 s; exit 0 on the final code.",
+        "python3 combine.py --json B-combine.variants.json --table B-table.md > B-report.txt -> exit 0 on the re-run.",
+        "Wave 3 first said: 85/85, 17 controls, 5 STRUCTURAL."
+      ],
+      "problems": [
+        "No 403 and no egress block (alphaXiv discover call, plus a READ of 2411.09611v1).",
+        "The first report run exited 1 inside report() formatting: T-K's dict was under a 'rows' key the printer treats as a list. JSON and table had already been written. Renamed the key to 'table' and re-ran everything.",
+        "The wave-1-engine control first dropped from 3/3 to 2/3, because N_WREAD made the all-premises sets satisfiable. Fixed by holding OPEN pathways false in that control as well (wave 1 had none); back to 3/3.",
+        "Nothing was committed, pushed, stashed, reset or checked out. The A-reports and the other instruments were not edited; they are not this stage's files."
+      ]
+    },
+    "v": {
+      "unresolved": [
+        "No item from either second-verification report is unresolved. All 8 V2-0 problems, all 5 V2-0 unresolved, all 5 V2-1 problems and all 4 V2-1 unresolved were found applied at their sites, or answered OPEN by design with the premise named. Site evidence is in /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d68/V3.json, under item_resolution.",
+        "H-CORES-AS-SCREENED: the clash cores behind the 3,839 consistent / 2,304 inconsistent split were not re-derived from the board holdings. The cores are C-ITE+C-W2 linearity, C-ITE+B-GISIN+C-F1/F2b and C-INFOS+B-RECV. What V3 re-derived is the count given those cores, plus a row-by-row agreement with the variants JSON (0 mismatches).",
+        "V3 re-READ no source. Kontsevich math/0008089v1, Leinster 1903.06961v3, BHW 0811.1209v2 p.4 and 2511.15935v1 p.4 rest on the READs by R3-alone, V2-0 and V2-1. No 403 was met.",
+        "These stand OPEN, as both R3 reports carry them: the Weinberg-family values are NAMED-NOT-READ; support 2's window is unevaluated; H-EXTEND is derived, not computed; the k-axis D-CTC was not computed; N_QTOPO, N_MEASPHYS, N_H12W and N_ILFREE have no READ source; uniqueness over non-separable functionals is open; so is H-KR-TS; clash (d) is M's to rule."
+      ],
+      "problems": [
+        {
+          "site": "B-combine.md:48 (headline), :598 (T-K) and :880 (item 14); R3-combine.json results ('4.53e-8 /s at 1 ly, 2.87e-3 /s at 1 AU ... 120x')",
+          "wrong": "The support-2 field figure is printed as '1.465 c/L, i.e. 4.5e-8 /s at 1 ly, 2.9e-3 /s at 1 AU, 120x eps_max', and as '4.53e-8 / 2.87e-3 (four-axis max||H||T = 1.465 from w2_ancilla_flow)'. Those numbers come from w2_ancilla_flow_k(4,2), where hT = 1.4306 (B-report T-K: 4.533e-8 and 2.867e-3), not from hT = 1.465.",
+          "correct": "COMPUTED: 1.465*c/L gives 4.643e-8 /s at 1 ly and 2.937e-3 /s at 1 AU. Combine's own ground 'N_W2ANC field figure' prints exactly these values. That is 123x eps_max under reading A and 246x under reading B, not '120x'. Across the computed members max||H||T runs from 1.43 to 1.56, so the 1 AU ratio is 120-130x under A and 240-260x under B. Say which construction's hT is used and give both readings. No verdict moves: the window is unevaluated and H-MAP-W2 is adopted nowhere.",
+          "moves_grade": false
+        },
+        {
+          "site": "B-combine.md headline (:34 'V2-1 problem 2', :46 'V2-1 problem 1', :52 'V2-0 problem 7') against B-combine.md section-0 tables, which are 0-indexed ('2:' = 1 AU, '6:' = D-CTC); R3-alone.json (1-indexed) against R3-combine.json (0-indexed)",
+          "wrong": "The same V2 items are numbered two ways, within one file and across the two R3 reports. In B's headline, 'V2-1 problem 2' is the two-supports item; in B's own section-0 table, '2:' is the 1 AU item. R3-alone's 'V2-0 P6' is combine.py:2334, while R3-combine's 'V2-0 P6' is the D-CTC item.",
+          "correct": "READ: V2-0.json and V2-1.json store problems as 0-based arrays. Every item is resolved under either convention (checked at its site), but a reader who cross-references by number lands on the wrong item. Use one convention, or cite each item by its site text.",
+          "moves_grade": false
+        },
+        {
+          "site": "combine.py B-EPSWIN at the cells 1 ly N=7 and 1 AU N=1e6; B-combine.md:36-38 ('computed open'); combine GROUND 'windows: 1 ly N = 7 open'",
+          "wrong": "The rule is applied in one direction only. An empty window computed from the unread value is made OPEN (N_WREAD). An open window computed from the same unread value is treated as settled admissibility: z3 lists support 1 as REMOVED-IF {W2, F1; N_EPS} with no flag that N_EPS was checked only against the NAMED-NOT-READ Majumder figure. A1-settle.md:205-206 records the Bollinger 1989 and Chupp-Hoare 1990 values as OPEN, so those two bounds were never checked at all.",
+          "correct": "Apply M's rule both ways, per support. Support 1 at 1 ly N=7 (and at 1 AU N=1e6) should read REMOVED-IF {W2, F1; N_EPS}, admissible given W_W2: one bound unread, two OPEN. COMPUTED context, not evidence: to close the 1 ly window a bound would have to be about 330x (reading B) to 655x (reading A) tighter than the Majumder figure; at 1 AU N=1e6, only 3.6x (B) to 7x (A) tighter. The {W2, F1} verdict does not move, because support 2 (N_W2ANC) does not use the window. B's prose already names W_W2, so this is a gap in encoding and labelling, not a hidden premise. It is AGAINST M.",
+          "moves_grade": false
+        }
+      ],
+      "reproduced": [
+        "Selftests, all with PYTHONDONTWRITEBYTECODE=1. settle.py: 62/62 pass, 56/56 counted, 6 STRUCTURAL, 10 controls, exit 0. frame.py: ALL PASS, 61 checks, 16 controls, 1 STRUCTURAL, exit 0. measure.py: 73/73 counted, 19 controls, 13 STRUCTURAL, 86 in all, exit 0. signed.py: 77/77 counted, 18 controls, 9 STRUCTURAL, 0 SKIPPED, exit 0. geometry.py: 48 checks, 11 controls, ALL PASS, exit 0. combine.py: 90/90 pass, 18 controls, 6 STRUCTURAL not counted, 372 s, exit 0.",
+        "Re H(1.5,-0.5) = -0.954771252442 nats = -1.377443751 bits, and Im H = pi/2. Computed in mpmath at 30 digits; agrees with the charter's -0.95 and with measure.py's -0.9547713.",
+        "W2 x F1 eps window at 1 ly, N=7. The lower end is eps_any = 3.6443e-8 /s (D = 0.980100, T = L/c = 3.15576e7 s, CMAX = log2 1.25 = 0.32193). The window is (3.644e-8, 2.388e-5) /s under reading A and (3.644e-8, 1.194e-5) /s under reading B, so it is open under both; its upper end is the NAMED-NOT-READ Majumder value. Also reproduced: 1 AU N=7 gives 2.305e-3 (empty window); 1 AU N=1e3 gives 1.057e-4 (empty); 1 AU N=1e6 gives 3.337e-6 (open); N=6 is infeasible. Method: scipy bounded optimisation and brentq, not settle's routines.",
+        "k-axis pairs-per-qubit table, from an independent construction: Fibonacci upper-hemisphere axes, a Haar-random target basis, Fubini-Study geodesics, a nearest-curve autonomous field and RK4. k = 4, 8, 16, 32 (d = 8, 16, 32, 64) give chi = 2, 3, 4, 5 bits per pair, i.e. 1, 2/3, 1/2, 0.4 pairs per teleported qubit. End fidelity is 1-1e-11; the classical mutual information equals chi; minimum separations are 0.428, 0.298, 0.179, 0.117 rad against a grid step of about 0.0077. Separation depends on the construction, so it differs from settle's 0.391, 0.337, 0.180, 0.117. Controls fail as built to: antipodal axes at k=8 give chi 2.0 with separation 0; a state-independent unitary at k=16 gives chi 0.",
+        "Back-projection IoU for (|0>+|1>)/sqrt2 with a spatial-domain Ram-Lak convolution, not signed.py's FFT filter. K=180: IoU 1.000, max error 0.000, minimum -0.1133 (exact -0.1133855 at x = -0.487). K=2: IoU 0.037, max error 0.230, reconstructed minimum -0.140, which sits in the wrong region. The result holds on a 201-point grid with threshold 0.01 (1.0 against 0.038) and at threshold 0.05 (1.0 against 0.052). K=12 already gives IoU 1.0, so 180 angles are not needed for this state; signed.py does not claim they are.",
+        "Screen counts, from my own enumeration of (4*4*4*3*2*2*2-1)*4+3 = 6,143 variants: 3,839 consistent and 2,304 inconsistent. Clash (c) W2+ITE covers 384, clash (d) INFOS covers 2,048, and they intersect in 128; 320 variants carry more than one core. All 6,143 consistent flags in the scratchpad B-combine.variants.json agree with this, 0 mismatches. At 1 AU there are 1,536 rows, 768 of them consistent.",
+        "Every V2-0 and V2-1 item was found applied at its site. The KR x H-12 row reads 'adds nothing' (A1:407). A3's O-LOOP-C carries NOT-BOUND-IF (A3:306, :394; measure.GRADES), and combine.EXPLAINED's A3 entry has moved to EXPLAINED_HISTORY. Kontsevich and Leinster appear in Q1s s.4c and the positioning list. The impossibility and uniqueness claims are qualified (Q1s:148, :185). STRUCTURAL relabels are applied in measure, signed and combine (COVERAGE). 'Exact' for the D-CTC is limited to the four-axis construction (A2, B). Per-entry branch accounting is marked elementary. The k-axis row is in A1 s.1b. The two supports are in A1, A2, A3, frame.py and B, and encoded as N_W2ANC. The 1 AU cell is OPEN via N_WREAD. The separable extension is in signed.py s.4b. The CHARTER.md diff is append-only: 9 lines added, 0 removed."
+      ]
+    }
+  },
+  "workflowProgress": [
+    {
+      "type": "workflow_phase",
+      "index": 1,
+      "title": "Repair"
+    },
+    {
+      "type": "workflow_phase",
+      "index": 2,
+      "title": "Rescreen"
+    },
+    {
+      "type": "workflow_phase",
+      "index": 3,
+      "title": "Reproduce"
+    },
+    {
+      "type": "workflow_agent",
+      "index": 1,
+      "label": "R3-alone",
+      "phaseIndex": 1,
+      "phaseTitle": "Repair",
+      "agentId": "a91c7b1b5dfff8293",
+      "model": "claude-opus-5-5",
+      "state": "done",
+      "startedAt": 1791057706129,
+      "queuedAt": 1791057706088,
+      "attempt": 1,
+      "lastToolName": "StructuredOutput",
+      "lastToolSummary": "R3-alone",
+      "promptPreview": "DOCKET 68, M's warp-drive research tree. Read /home/user/Claude-Method-Works/research/warp-drive/docket68/CHARTER.md and /home/user/Claude-Method-Works/research/warp-drive/docket68/wave1/REPAIR2-Q1S-RESULT.json (key\nresult.verify: two verification reports, AGAINST M and FOR M, each with 'unresolved' and 'problems'). Resolve EVERY\nitem in both -- applied, or answered with a computed / READ reason. …",
+      "promptFramed": true,
+      "lastProgressAt": 1791059939675,
+      "tokens": 441457,
+      "toolCalls": 91,
+      "durationMs": 2233545,
+      "resultPreview": "{\"id\":\"R3-alone\",\"files\":[\"/home/user/Claude-Method-Works/research/warp-drive/docket68/settle.py\",\"/home/user/Claude-Method-Works/research/warp-drive/docket68/frame.py\",\"/home/user/Claude-Method-Works/research/warp-drive/docket68/measure.py\",\"/home/user/Claude-Method-Works/research/warp-drive/docket68/signed.py\",\"/home/user/Claude-Method-Works/research/warp-drive/docket68/A1-settle.md\",\"/home/user…"
+    },
+    {
+      "type": "workflow_agent",
+      "index": 2,
+      "label": "R3-combine",
+      "phaseIndex": 2,
+      "phaseTitle": "Rescreen",
+      "agentId": "aa6450afddff90949",
+      "model": "claude-opus-5-5",
+      "state": "done",
+      "startedAt": 1791059944754,
+      "queuedAt": 1791059944744,
+      "attempt": 1,
+      "lastToolName": "StructuredOutput",
+      "lastToolSummary": "R3-combine",
+      "promptPreview": "DOCKET 68, M's warp-drive research tree. Read /home/user/Claude-Method-Works/research/warp-drive/docket68/CHARTER.md and /home/user/Claude-Method-Works/research/warp-drive/docket68/wave1/REPAIR2-Q1S-RESULT.json (key\nresult.verify: two verification reports, AGAINST M and FOR M, each with 'unresolved' and 'problems'). Resolve EVERY\nitem in both -- applied, or answered with a computed / READ reason. …",
+      "promptFramed": true,
+      "lastProgressAt": 1791061766065,
+      "tokens": 426454,
+      "toolCalls": 89,
+      "durationMs": 1821310,
+      "resultPreview": "{\"id\":\"R3-combine\",\"files\":[\"/home/user/Claude-Method-Works/research/warp-drive/docket68/combine.py\",\"/home/user/Claude-Method-Works/research/warp-drive/docket68/B-combine.md\",\"/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d68/B-combine.json\",\"/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d68/B-combine.va…"
+    },
+    {
+      "type": "workflow_agent",
+      "index": 3,
+      "label": "V3",
+      "phaseIndex": 3,
+      "phaseTitle": "Reproduce",
+      "agentId": "a27b8bab4beefce9b",
+      "model": "claude-opus-5-5",
+      "state": "done",
+      "startedAt": 1791061769415,
+      "queuedAt": 1791061769381,
+      "attempt": 1,
+      "lastToolName": "StructuredOutput",
+      "promptPreview": "DOCKET 68, M's warp-drive research tree. Read /home/user/Claude-Method-Works/research/warp-drive/docket68/CHARTER.md and /home/user/Claude-Method-Works/research/warp-drive/docket68/wave1/REPAIR2-Q1S-RESULT.json (key\nresult.verify: two verification reports, AGAINST M and FOR M, each with 'unresolved' and 'problems'). Resolve EVERY\nitem in both -- applied, or answered with a computed / READ reason. …",
+      "promptFramed": true,
+      "lastProgressAt": 1791062657580,
+      "tokens": 225953,
+      "toolCalls": 49,
+      "durationMs": 888164,
+      "resultPreview": "{\"unresolved\":[\"No item from either second-verification report is unresolved. All 8 V2-0 problems, all 5 V2-0 unresolved, all 5 V2-1 problems and all 4 V2-1 unresolved were found applied at their sites, or answered OPEN by design with the premise named. Site evidence is in /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d68/V3.json, under item_resolutio…"
+    }
+  ],
+  "totalTokens": 1093864,
+  "totalToolCalls": 229
+}

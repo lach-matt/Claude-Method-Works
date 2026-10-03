@@ -100,6 +100,16 @@ WAVE 3 (repair after the two re-verifications RV-0 AGAINST M, RV-1 FOR M; 2026-1
     hypothesis; wave 2 first credited it to H-SETTLE-W alone.
   * G6a, G7, G8 and G12b are printed STRUCTURAL (identities); G6b and G12a keep the content-bearing halves.
 
+WAVE 4 (R3-alone, repair after the second pair of re-verifications V2-0 AGAINST M, V2-1 FOR M; 2026-10-03):
+  * w2_ancilla_flow_k (G21-G25): the same construction with k axes and an m-qubit ancilla reaches chi = log2 k =
+    log2 d - 1 bits per pair with zero error -- k = 4, 8, 16, 32 give 1, 2/3, 1/2, 0.4 pairs per teleported qubit.
+    So the class has NO positive floor on pairs per qubit in the computed range; "1 pair per teleported qubit" is
+    the four-axis instance's figure, not the class's.  The curves' separation shrinks with k (0.39, 0.34, 0.18,
+    0.12 rad), so H-EXTEND asks for a field varying on ever finer scales while max ||H|| T stays ~1.4-1.6.
+    Controls: antipodal axes collide (chi 2, not 3, at k = 8); a state-independent unitary gives 0.  Not evidence
+    that any such drift exists.
+  * The summary line now prints the count with STRUCTURAL checks excluded.
+
 Run:  python3 settle.py            (report)
       python3 settle.py --selftest (fixtures computed or READ; controls that must fail do)
       python3 settle.py --json PATH
@@ -880,6 +890,10 @@ def build():
     R["zero_error"] = zero_error_table()
     R["w2_ancilla"] = w2_ancilla_flow()
     R["w2_ancilla_linear_control"] = w2_ancilla_flow(linear_control=True)
+    # wave 4 (R3-alone; V2-1 problem 1): the class has no positive floor on pairs per teleported qubit
+    R["w2_k"] = [w2_ancilla_flow_k(4, 2), w2_ancilla_flow_k(8, 3), w2_ancilla_flow_k(16, 4), w2_ancilla_flow_k(32, 5)]
+    R["w2_k_control_antipodal"] = w2_ancilla_flow_k(8, 3, antipodal=True)
+    R["w2_k_control_linear"] = w2_ancilla_flow_k(16, 4, linear_control=True)
     rng = np.random.default_rng(23)
     herm = []
     for _ in range(50):
@@ -1031,6 +1045,15 @@ def report(R):
       f" (grid step {w['grid_step_rad']:.4f}); max ||H|| T = {w['max_H_times_T']:.4f}")
     p("     Bob's P(b'|b): " + "; ".join("[" + ", ".join(f"{x:.6f}" for x in row) + "]" for row in w["P(b'|b)"]))
     p(f"     CONTROL, one fixed unitary for every branch (state-independent): chi = {R['w2_ancilla_linear_control']['chi_bits_per_pair']:.2e}")
+    p("     wave 4 (w2_ancilla_flow_k): k axes, m-qubit ancilla, d = 2^(1+m): k, d, chi, pairs per teleported qubit, P(error), "
+      "min separation / grid step, max ||H|| T")
+    for r in R["w2_k"]:
+        p(f"       k={r['k']:>2} d={r['d']:>2}: chi {r['chi_bits_per_pair']:.6f} (log2 d - 1 = {r['holevo_ceiling_log2_d'] - 1:.0f}), "
+          f"{r['pairs_per_teleported_qubit']:.4f} pairs/qubit, P(err) {r['p_error']:.1e}, sep {r['min_curve_separation_rad']:.3f} / "
+          f"{r['grid_step_rad']:.4f} rad, max||H||T {r['max_H_times_T']:.3f}")
+    p(f"       CONTROL antipodal k=8: chi {R['w2_k_control_antipodal']['chi_bits_per_pair']:.4f}, sep "
+      f"{R['w2_k_control_antipodal']['min_curve_separation_rad']:.1e}; CONTROL linear k=16: chi "
+      f"{R['w2_k_control_linear']['chi_bits_per_pair']:.1e}")
     p("     => 2 bits per pair with ZERO error at finite T: 1 pair per teleported qubit for this member (smooth global field:")
     p("        H-EXTEND, derived, not computed).  The qubit-only floor (> 2, >= 3) is H-QUBIT-DRIFT's, not the class's.")
     p("        This shows what the CLASS admits; it is not evidence that such a drift exists.")
@@ -1174,13 +1197,32 @@ def selftest():
        f"chi {w['chi_bits_per_pair']:.8f}")
     ok("G20 CONTROL (must fail to signal): one state-independent unitary for every branch gives chi = 0",
        abs(R["w2_ancilla_linear_control"]["chi_bits_per_pair"]) < 1e-9, f"{R['w2_ancilla_linear_control']['chi_bits_per_pair']:.1e}")
+    wk = {r["k"]: r for r in R["w2_k"]}
+    zero_err = lambda r: r["p_error"] < 1e-9 and r["min_end_fidelity"] > 1 - 1e-6 and r["min_curve_separation_rad"] > 10 * r["grid_step_rad"]
+    ok("G21 (wave 4) k = 4 axes, 2-qubit ancilla, via w2_ancilla_flow_k: reproduces G19's 2 bits per pair, zero error",
+       abs(wk[4]["chi_bits_per_pair"] - 2.0) < 1e-6 and zero_err(wk[4]), f"chi {wk[4]['chi_bits_per_pair']:.8f}")
+    ok("G22 (wave 4) k = 8 axes, 3-qubit ancilla (d = 16): chi = 3 bits per pair, zero error -> 2/3 pair per teleported qubit",
+       abs(wk[8]["chi_bits_per_pair"] - 3.0) < 1e-6 and zero_err(wk[8]),
+       f"chi {wk[8]['chi_bits_per_pair']:.8f}, sep {wk[8]['min_curve_separation_rad']:.3f} vs step {wk[8]['grid_step_rad']:.4f}")
+    ok("G23 (wave 4) k = 16 (d = 32): chi = 4, zero error -> 1/2 pair; k = 32 (d = 64): chi = 5 -> 0.4 pair (no positive floor in the computed range)",
+       abs(wk[16]["chi_bits_per_pair"] - 4.0) < 1e-6 and zero_err(wk[16]) and abs(wk[32]["chi_bits_per_pair"] - 5.0) < 1e-6
+       and zero_err(wk[32]), f"pairs/qubit {[round(wk[k]['pairs_per_teleported_qubit'], 4) for k in (4, 8, 16, 32)]}; "
+                              f"separations {[round(wk[k]['min_curve_separation_rad'], 3) for k in (4, 8, 16, 32)]} rad")
+    ap = R["w2_k_control_antipodal"]
+    ok("G24 CONTROL (must fail): k = 8 with antipodal axes -- branch states coincide, curves collide, chi falls below log2 k",
+       ap["chi_bits_per_pair"] < 3.0 - 0.5 and ap["min_curve_separation_rad"] < 1e-9 and ap["p_error"] > 0.1,
+       f"chi {ap['chi_bits_per_pair']:.4f}, sep {ap['min_curve_separation_rad']:.1e}, P(error) {ap['p_error']:.3f}")
+    ok("G25 CONTROL (must fail to signal): k = 16, one state-independent unitary gives chi = 0",
+       abs(R["w2_k_control_linear"]["chi_bits_per_pair"]) < 1e-9, f"{R['w2_k_control_linear']['chi_bits_per_pair']:.1e}")
     w = max(len(n) for n, _, _ in checks)
     for n, good, det in checks:
         print(f"  [{'PASS' if good else 'FAIL'}] {n:<{w}} {det}")
     bad = [n for n, g, _ in checks if not g]
     nstr = sum(n.startswith("STRUCTURAL") for n, _, _ in checks)
     nctl = sum("CONTROL" in n and not n.startswith("STRUCTURAL") for n, _, _ in checks)
-    print(f"\n{len(checks) - len(bad)}/{len(checks)} checks pass ({nstr} printed STRUCTURAL, not evidence; {nctl} controls)")
+    ncount = len(checks) - nstr
+    print(f"\n{len(checks) - len(bad)}/{len(checks)} checks pass ({nstr} printed STRUCTURAL, not evidence; {nctl} controls); "
+          f"counted (STRUCTURAL excluded): {ncount - sum(1 for n in bad if not n.startswith('STRUCTURAL'))}/{ncount}")
     return 0 if not bad else 1
 
 

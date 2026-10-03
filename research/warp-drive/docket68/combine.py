@@ -17,6 +17,19 @@ B-combine.md section 0).  Wave 2's form of each changed line is kept there as hi
   The two accounts of one corridor -- N_QTOPO (not a Lorentzian object) and N_CORR (a Lorentzian quotient) -- are a
   PREMISE CLASH, and every headline count is taken inside ONE consistent premise set (an "account"), never across two.
 
+WAVE 4 (R3-combine, 2026-10-03: the second pair of re-verifications, wave1/REPAIR2-Q1S-RESULT.json key result.verify;
+every item resolved in B-combine.md section 0).  Wave 3's form of each changed line is kept there as history.
+  - W2 x F1's O-BITS removal has TWO supports (A1 wave 4): N_EPS (R_W2: nlcontrol's form, floors, H-BLOCK, tied to the
+    distance cell by B-EPSWIN) and N_W2ANC (R_W2': the computed zero-error ancilla member, settle.w2_ancilla_flow /
+    w2_ancilla_flow_k; no H-BLOCK, no H-NLCONTROL-FORM; its window is UNEVALUATED -- no READ bound maps onto its field).
+  - The 1 AU, N <= 1e3 exclusion of support 1 rests on W_W2, which holds NAMED-NOT-READ values.  An unread value makes
+    the cell OPEN, never LEFT: the OPEN pathway N_WREAD ("a READ of the Weinberg-family values could open the window")
+    enters B-EPSWIN, and OPEN pathways are held FALSE whenever premise sets, supports and accounts are computed (they
+    are never assumed in a removal; wave 3 left them free there, which was harmless only because no OPEN pathway could
+    make a named premise admissible -- N_WREAD can).
+  - The COVERAGE partition identity (untested + joint = all variants) cannot fail: STRUCTURAL, not counted.
+  - combine.EXPLAINED keeps only entries whose cause is still live (A3's O-LOOP omission was repaired by R3-alone).
+
 WHAT THIS FILE DOES
   (1) builds the 127 non-empty combinations of the seven hypotheses.  Hypotheses with more than one reading are carried
       in EVERY reading: H-SETTLE W2 / W1 / KR; H-FRAME F1 / F2b / F1+F2b; H-IT ITB / ITE / ITJ (wave 3: the
@@ -192,9 +205,20 @@ NAMED = {
               "READ bound of any kind and no READ model of such a drift (A1) -- replaces H-TRANSFER in the window",
     "N_DCTC": "the D-CTC premises of A2's clause-2b channel: a CTC at Bob, H-DCTC (Deutsch's consistency condition), "
               "H-DCTC-CONVENTION C2 (branch by branch), H-DCTC-SELECT (the fixed point is unique and selected) -- "
-              "frame.four_basis_c2_table: 2.000000 bits per pair over four axes, zero-error, so 1 pair per teleported "
-              "qubit; frame.bb84_c2_table 1.000000 bit per pair (2 pairs); BHW 0811.1209v2 pp.2-4 READ by A2.  A CTC is "
-              "not shown to exist; Hawking's conjecture OPEN",
+              "frame.four_basis_c2_table: 2.000000 bits per pair over four axes, zero-error -- 1 pair per teleported "
+              "qubit FOR THE FOUR-AXIS CONSTRUCTION ONLY (wave 4, V2-0 #7: BHW 0811.1209v2 p.4, READ by A2, the rate is "
+              "unbounded if CTC qubits are free, so the route's figure is <= 1 pair per teleported qubit and its "
+              "minimum is OPEN); frame.bb84_c2_table 1.000000 bit per pair (2 pairs).  A CTC is not shown to exist; "
+              "Hawking's conjecture OPEN",
+    "N_W2ANC": "wave 4 (V2-1 #2; A1 wave 4 support 2, R_W2'): the computed zero-error W2 member without H-QUBIT-DRIFT "
+               "-- H-COHERE, H-BORN-AT-BOB, H-EXTEND (a smooth global field: derived, not computed) and H-FIELD-W2 "
+               "(the field strength max||H||T ~ 1.43-1.56 is available within the drift time, replacing N_EPS); H-C2 "
+               "is W2 itself and H-FRAME3b <= F1 is FRAME.  settle.w2_ancilla_flow / w2_ancilla_flow_k: "
+               "chi = log2 d - 1 bits per pair with zero error (d = 8, 16, 32: 2, 3, 4), so 2/(log2 d - 1) pairs per "
+               "teleported qubit -- no positive floor in the computed range.  No H-BLOCK, no H-NLCONTROL-FORM.  Its "
+               "window is UNEVALUATED: H-MAP is not established for its field, so no READ bound constrains it and the "
+               "screen never makes it inadmissible (assuming it cannot fail: STRUCTURAL in the named census).  Not "
+               "evidence that such a drift exists",
 }
 # Premises withdrawn from the encoding, kept as history (never assumed)
 WITHDRAWN = {
@@ -229,6 +253,11 @@ OPEN_NAMED = {
                "first said 'H-IT with H-ZERO or H-NULL'",
     "N_ILFREE": "whatever carries a non-geometric corridor charges nothing to make or hold it -- the charter: 'its "
                 "cost is then whatever the information layer charges -- this docket's question'.  No source",
+    "N_WREAD": "wave 4 (V2-1 #3, E-WIN): support 1's window rests on W_W2, which holds the NAMED-NOT-READ Weinberg-family "
+               "values (Majumder+ 1990 PRL 65 2931 and kin: pre-arXiv; 2509.04320v1, 2511.15935v1 and 2411.09611v1 "
+               "READ for a restatement, none carries the 1989-90 numbers).  Where the window computed from the unread "
+               "value is EMPTY (1 AU, N <= 1e3), a READ could move eps_max: the exclusion is LEFT-IF W_W2, and by M's "
+               "rule an unread value makes the cell OPEN, never LEFT",
 }
 
 LIT_NAMES = ["W2", "W1", "KR", "F1", "F2b", "ITB", "ITE", "ITJ", "H12", "INFO", "INFOS", "ZERO", "NULL", "RI", "RQ"]
@@ -252,8 +281,9 @@ INERT = {
 }
 
 # Distance cells: (label, L in metres, N pairs per qubit -- a FLOOR).  The transferred-bound window is COMPUTED per cell.
-CELLS = {"1 ly, N = 7": ("LY_M", 1.0, 7), "1 AU, N = 7": ("AU_M", 1.0, 7), "1 AU, N = 1e6": ("AU_M", 1.0, 1e6)}
-CELL_MAIN, CELL_AU, CELL_AU6 = "1 ly, N = 7", "1 AU, N = 7", "1 AU, N = 1e6"
+CELLS = {"1 ly, N = 7": ("LY_M", 1.0, 7), "1 AU, N = 7": ("AU_M", 1.0, 7), "1 AU, N = 1e3": ("AU_M", 1.0, 1000),
+         "1 AU, N = 1e6": ("AU_M", 1.0, 1e6)}
+CELL_MAIN, CELL_AU, CELL_AU3, CELL_AU6 = "1 ly, N = 7", "1 AU, N = 7", "1 AU, N = 1e3", "1 AU, N = 1e6"
 
 
 def atoms():
@@ -328,6 +358,10 @@ def _board(A, win_open, mutate=()):
         held = Or(held, A["KR"])
     frame_src = Or(A["F1"], A["F2b"])
     slice_mut = z3.BoolVal(True)
+    # wave 4: support 2 of W2 x F1 (N_W2ANC); CONTROL 'support1-only' drops it, to read support 1's own status per cell
+    cap_prem = A["N_EPS"] if "support1-only" in mutate else Or(A["N_EPS"], A["N_W2ANC"])
+    # wave 4: an unread window value keeps N_EPS possible through N_WREAD; CONTROL 'wave3-WINDOW-SETTLED' removes it
+    wread = z3.BoolVal(False) if "wave3-WINDOW-SETTLED" in mutate else A["N_WREAD"]
     if "wave2-SLICE-INTRINSIC" in mutate:  # CONTROL: wave 2's free N_FRAME3b, i.e. the drift selects its own slicing
         frame_src = Or(frame_src, A["W2"])
         slice_mut = I(A["W2"], A["FRAME"])
@@ -400,13 +434,18 @@ def _board(A, win_open, mutate=()):
                   "reliable transfer is block-coded (H-BLOCK) -- for nlcontrol's Hamiltonian (H-NLCONTROL-FORM: "
                   "CMAX = log2 1.25, N < 7 impossible at any eps).  The W2 class: the qubit-only subclass "
                   "(H-BORN-AT-BOB + H-QUBIT-DRIFT) needs > 2 pairs on average; without H-QUBIT-DRIFT a computed member "
-                  "(settle.w2_ancilla_flow, H-EXTEND) needs 1 pair, zero-error (A1 wave 3)",
-         Eq(A["CAP"], An(A["SIG"], A["N_EPS"]))),
+                  "(settle.w2_ancilla_flow, H-EXTEND) needs 1 pair, zero-error (A1 wave 3) -- wave 4: that is the "
+                  "four-axis instance; w2_ancilla_flow_k gives 2/(log2 d - 1) pairs, no positive floor.  Two supports "
+                  "(wave 4): N_EPS (R_W2, block-coded floors, window B-EPSWIN) or N_W2ANC (R_W2', zero-error, window "
+                  "unevaluated)",
+         Eq(A["CAP"], An(A["SIG"], cap_prem))),
         ("B-EPSWIN", f"combine.eps_window (z3 reals) at this cell, under the WINDOW premises W_W2 (held fixed; not "
                      f"removal premises): the transferred-bound window is "
                      f"{'NON-EMPTY' if win_open else 'EMPTY'} under both H-MAP readings; an unbounded H-12 carrier "
-                     f"(N_H12W, replacing H-TRANSFER) frees N_EPS from it (settle.h12_carrier_case: 2 of 9 cells flip)",
-         I(A["N_EPS"], Or(z3.BoolVal(bool(win_open)), An(A["H12"], A["N_H12W"])))),
+                     f"(N_H12W, replacing H-TRANSFER) frees N_EPS from it (settle.h12_carrier_case: 2 of 9 cells flip).  "
+                     f"Wave 4: W_W2 holds NAMED-NOT-READ values, so where the computed window is empty N_EPS stays "
+                     f"possible through the OPEN pathway N_WREAD (a READ could open it): the cell is OPEN, not LEFT",
+         I(A["N_EPS"], Or(z3.BoolVal(bool(win_open)), An(A["H12"], A["N_H12W"]), wread))),
         ("B-TOPO", "Geroch 1967 (board D67 NARROWED, kinematic theorem stands) / Tipler 1977 (NARROWED) bind a "
                    "corridor made by a classical Lorentzian topology change (GTOPO).  It fails to be one only under a "
                    "named premise: NONGEO (B-NONGEO), or ITE + N_MS17 (MS p.17, READ; non-traversable bridge only).  "
@@ -489,7 +528,10 @@ def _commitments(A):
         ("C-W2", "A1: deterministic drift per branch (H-C2); A2 C2", A["W2"], N(A["LIN"])),
         ("C-W1", "frame.settle_under_C1: the drift on rho_B shows 2.2e-16 dependence on Alice", A["W1"], N(A["SIG"])),
         ("C-KR", "KR 2106.10576v2 sec.2.3 pp.7-8 factorisation: superluminal signal at Bob 0 for every eps "
-                 "(DERIVED-FROM-READ, A1)", A["KR"], N(A["SIG"])),
+                 "(DERIVED-FROM-READ, A1).  Wave 4: 2511.15935v1 p.4 (READ by A1) -- KR fails Tomonaga-Schwinger "
+                 "integrability for generic states (foliation-dependent); no signal is shown from it, so the "
+                 "commitment stands and the open question is named H-KR-TS (whether the dependence is operational)",
+         A["KR"], N(A["SIG"])),
         ("C-F1", "A2 clause 1: a preferred frame exists (keying is N_KEYING, not this)", A["F1"], A["FRAME"]),
         ("C-F2b", "A2 clause 2b: a message reaches the past of the cosmic clock", A["F2b"], An(A["PAST"], A["FRAME"])),
         ("C-ITE", "MS 1306.0533v2 (READ): fn.1 p.2 'We will assume that wormholes remain un-traversable'; "
@@ -521,6 +563,9 @@ class Screen:
         for name, ground, lit, expr in _commitments(self.A):
             self._track(name, ground, z3.Implies(lit, expr))
         self.base = [self.byname[n] for n in self.ind]
+        # wave 4: OPEN pathways are never assumed in a removal -- held FALSE whenever premise sets, supports and accounts
+        # are computed (only _open_status sets them, one at a time)
+        self.noopen = [z3.Not(self.A[k]) for k in OPEN_NAMED]
         self.constraints = {n: e for n, _, e in board}
         for n in LIT_NAMES + list(NAMED) + list(OPEN_NAMED):
             self.byname[n] = self.A[n]
@@ -620,13 +665,13 @@ class Screen:
         res["consistent"] = True
         named = [A[n] for n in NAMED]
         # premise clashes: every minimal set of named premises inconsistent with the variant
-        if not self.sat(L + named):
-            pm = self.all_mus(self.base + L, named)
+        if not self.sat(L + self.noopen + named):
+            pm = self.all_mus(self.base + self.noopen + L, named)
         else:
             pm = []
         pclash = []
         for P in pm:
-            lc = self.all_mus(self.base + [A[n] for n in P], L)
+            lc = self.all_mus(self.base + self.noopen + [A[n] for n in P], L)
             pclash.append({"named": sorted(P), "literal_cores": [self._split(c)["members"] +
                                                                   ["not " + x for x in self._split(c)["absent"]]
                                                                   for c in lc]})
@@ -655,11 +700,12 @@ class Screen:
             row = {}
             for o in OBST:
                 cls = "-"
-                if self.check(self.base + L + Mx + [z3.Not(A[RM[o]])]) == z3.unsat:
-                    free = self.check(self.base + neg + Mx + [z3.Not(A[RM[o]])]) == z3.unsat
+                b0 = self.base + self.noopen
+                if self.check(b0 + L + Mx + [z3.Not(A[RM[o]])]) == z3.unsat:
+                    free = self.check(b0 + neg + Mx + [z3.Not(A[RM[o]])]) == z3.unsat
                     cls = "Rg" if free else "Rm"
-                elif o in NB and self.check(self.base + L + Mx + [z3.Not(A[NB[o]])]) == z3.unsat:
-                    free = self.check(self.base + neg + Mx + [z3.Not(A[NB[o]])]) == z3.unsat
+                elif o in NB and self.check(b0 + L + Mx + [z3.Not(A[NB[o]])]) == z3.unsat:
+                    free = self.check(b0 + neg + Mx + [z3.Not(A[NB[o]])]) == z3.unsat
                     cls = "NBg" if free else "NBm"
                 row[o] = cls
             out.append({"premises": M, "per": row})
@@ -670,7 +716,7 @@ class Screen:
         (closed world) and are held fixed; a support is a minimal set of its PRESENT members plus the named premises of
         one consistent premise set.  Returns (kind, supports) with kind None / 'plain' / 'if'."""
         A = self.A
-        hard = self.base + neg + [goal_neg]
+        hard = self.base + self.noopen + neg + [goal_neg]
         if self.check(hard + pos) == z3.unsat:
             return "plain", self.all_mus(hard, pos)
         sups = []
@@ -690,7 +736,8 @@ class Screen:
         extra = []
         for m in pos + [self.A[n] for n in NAMED]:
             n = str(m)
-            if n not in sup and self.check(self.base + neg + [self.byname[x] for x in sup] + [z3.Not(m)]) == z3.unsat:
+            if n not in sup and self.check(self.base + self.noopen + neg + [self.byname[x] for x in sup] +
+                                           [z3.Not(m)]) == z3.unsat:
                 extra.append(n)
         return frozenset(sup) | frozenset(extra)
 
@@ -718,7 +765,7 @@ class Screen:
         A = self.A
         rm = A[RM[o]]
         if wave1_engine:                           # CONTROL ONLY: wave 1 assumed every named premise at once
-            full = L + [A[n] for n in NAMED]
+            full = L + [A[n] for n in NAMED] + self.noopen   # wave 1 had no OPEN pathway in B-EPSWIN
             if self.check(self.base + full + [z3.Not(rm)]) == z3.unsat:
                 prem_sat = self.sat(full)
                 return {"verdict": "REMOVED-IF", "premises_sat": prem_sat}
@@ -1097,9 +1144,14 @@ def guard_vacuity(scr, scr_au):
     out["board_alone_sat"] = scr.sat(none)
     out["each_single_reading_sat"] = {n: scr.sat(scr.lits({n})) for n in LIT_NAMES if n != "INFOS"}
     out["INFOS_alone_unsat (a clash with B-RECV, A3)"] = not scr.sat(scr.lits({"INFOS"}))
-    out["named_jointly_sat_with_board (1 ly)"] = scr.sat(none + [A[n] for n in NAMED])
-    out["named_jointly_UNSAT_with_board (1 AU: N_EPS excluded)"] = not scr_au.sat(scr_au.lits(set()) +
+    out["named_jointly_sat_with_board (1 ly)"] = scr.sat(none + scr.noopen + [A[n] for n in NAMED])
+    out["named_jointly_UNSAT_with_board (1 AU: N_EPS excluded)"] = not scr_au.sat(scr_au.lits(set()) + scr_au.noopen +
                                                                                   [scr_au.A[n] for n in NAMED])
+    # wave 4 (V2-1 #3): the exclusion at 1 AU, N <= 1e3 rests on an unread value -- N_EPS stays possible there only
+    # through the OPEN pathway N_WREAD, and the support-1 route is then OPEN, not LEFT (control: wave 3's settled window)
+    out["CONTENT at 1 AU N_EPS admissible only through N_WREAD (OPEN pathway)"] = (
+        scr_au.sat(scr_au.lits({"W2", "F1"}) + [scr_au.A["N_EPS"], scr_au.A["N_WREAD"]]) and
+        not scr_au.sat(scr_au.lits({"W2", "F1"}) + [scr_au.A["N_EPS"], z3.Not(scr_au.A["N_WREAD"])]))
     out["all_named_and_open_sat_with_board"] = scr.sat(none + [A[n] for n in list(NAMED) + list(OPEN_NAMED)])
     caught = {
         "ITE & W2 (MS assumptions vs per-branch drift)": not scr.sat(scr.lits({"ITE", "W2"})),
@@ -1111,8 +1163,8 @@ def guard_vacuity(scr, scr_au):
             not scr.sat(scr.lits({"F2b"}) + [A["N_FRW"], A["N_2BVIA"]]),
         "ITB & RQ under N_QTOPO (premise clash, A4: one corridor, two accounts)": not scr.sat(
             scr.lits({"ITB", "RQ"}) + [A["N_QTOPO"]]),
-        "W2 at 1 AU without H12 under N_EPS (premise clash: window empty)": not scr_au.sat(
-            scr_au.lits({"W2"}) + [scr_au.A["N_EPS"]]),
+        "W2 at 1 AU without H12 under N_EPS (premise clash: window empty, OPEN pathways held false)": not scr_au.sat(
+            scr_au.lits({"W2"}) + scr_au.noopen + [scr_au.A["N_EPS"]]),
         "W2 alone signals nothing (no preferred slicing; H-FRAME3b <= F1, A1 wave 3)": not scr.sat(
             scr.lits({"W2"}) + [A["SIG"]]),
         "ITB under N_QTOPO & N_CORR (premise clash B-QCORR: one corridor, two accounts; RV-1 #2)": not scr.sat(
@@ -1145,6 +1197,7 @@ def guard_vacuity(scr, scr_au):
     ok = (out["board_alone_sat"] and all(out["each_single_reading_sat"].values())
           and out["INFOS_alone_unsat (a clash with B-RECV, A3)"] and out["named_jointly_sat_with_board (1 ly)"]
           and out["named_jointly_UNSAT_with_board (1 AU: N_EPS excluded)"] and out["all_named_and_open_sat_with_board"]
+          and out["CONTENT at 1 AU N_EPS admissible only through N_WREAD (OPEN pathway)"]
           and all(caught.values()) and out["board_admits_loop"] and out["board_admits_no_loop"]
           and out["board_alone_forces_recv"] and out["CONTROL without_B_RECV_matter_removable"]
           and out["N_EPS occurs only in"] == ["B-CAP", "B-EPSWIN"] and out["no CAP without W2 (z3)"]
@@ -1320,20 +1373,24 @@ EXPECT = [
 
 # Every disagreement z3 has with an A-report, with its reason.  The guard passes only if each disagreement found is
 # listed here; a mutated encoding must produce one that is NOT.  The count is reported, not hidden.  Wave 3: the five
-# wave-2 causes whose A-side was an overstatement are gone because A1/A2/A4 were repaired (R2-alone), not whitelisted;
-# what remains is listed with a computed or READ reason and, where it is an A-report omission, as an OPEN item for
-# that report's stage (this stage does not edit A-reports).
+# wave-2 causes whose A-side was an overstatement are gone because A1/A2/A4 were repaired (R2-alone), not whitelisted.
+# Wave 4: the A3 entry ('A3-measure', 'ITB+RI', 'O-LOOP') is DELETED -- its cause (A3's R-INDEX grade lacked the corridor
+# NOT-BOUND-IF on O-LOOP) was repaired by R3-alone, and the drift guard now agrees on it.  Its wave-3 text is kept in
+# EXPLAINED_HISTORY (never consulted by the guard).  What remains has a cause that is not a fault in either side.
 EXPLAINED = {
-    ("A2-frame", "F2b", "O-MAKE"): "VOCABULARY, not encoding drift.  A2 grades clause 2b 'NOT-BOUND-IF {2b's CTC; "
-        "Geroch-compact case only}; Tipler's non-compact case still binds'.  The screen's NOT-BOUND requires every "
-        "theorem of the obstruction to fail to bind (B-TOPO), so with Tipler binding O-MAKE-TOPO stays bound, and the "
-        "five-way O-MAKE also needs O-MAKE-DIST, OPEN via N_VAC only.  A2's own D-CTC row grades the same world's "
-        "O-MAKE LEAVES.  Both sides say O-MAKE is not lifted",
-    ("A3-measure", "ITB+RI", "O-LOOP"): "A3 OMISSION (open for A3's stage).  A3's R-INDEX grade carries the corridor "
-        "NOT-BOUND-IF {H-IT, H-MEASURE-PHYSICAL} on O-MAKE and O-HOLD but writes O-LOOP 'SILENT; corridors: geometry "
-        "column'.  By the symmetric rule (RV-1 #2, applied in A4's ITB grade) the corridor loop theorems do not bind a "
-        "non-geometric corridor either: z3 gives O-LOOP-C NOT-BOUND-IF {ITB; N_QTOPO} | {ITB, RI; N_MEASPHYS}, "
-        "beside the geometry's REMOVED-IF {N_CORR, N_FRW} in the other account (premise clash B-QCORR)",
+    ("A2-frame", "F2b", "O-MAKE"): "VOCABULARY, not encoding drift; the cause is not a fault, so nothing repairs it "
+        "(wave 4: re-read in A2's wave-4 JSON, unchanged).  A2 grades clause 2b 'NOT-BOUND-IF {2b's CTC; Geroch-compact "
+        "case only}; Tipler's non-compact case still binds'.  The screen's NOT-BOUND requires every theorem of the "
+        "obstruction to fail to bind (B-TOPO), so with Tipler binding O-MAKE-TOPO stays bound, and the five-way O-MAKE "
+        "also needs O-MAKE-DIST, OPEN via N_VAC only.  A2's own D-CTC row grades the same world's O-MAKE LEAVES.  Both "
+        "sides say O-MAKE is not lifted; a parse rule that read A2's partial non-binding as N would only rename the "
+        "difference, so it is kept visible here instead",
+}
+EXPLAINED_HISTORY = {
+    ("A3-measure", "ITB+RI", "O-LOOP"): "wave 3: A3 OMISSION (open for A3's stage).  A3's R-INDEX grade carries the "
+        "corridor NOT-BOUND-IF {H-IT, H-MEASURE-PHYSICAL} on O-MAKE and O-HOLD but writes O-LOOP 'SILENT; corridors: "
+        "geometry column' ... -- REPAIRED by R3-alone (A3 wave 4: O-LOOP-C NOT-BOUND-IF {H-IT, H-MEASURE-PHYSICAL}); "
+        "entry deleted",
 }
 
 
@@ -1405,16 +1462,36 @@ def guard_drift(scrs, G=None):
                         "row_claims_R_or_NB": claims, "agree": ok_row})
         if ok_row is False:
             lb_bad.append((rid, tag))
-    # ground rows tied to an instrument rather than to report text: settle.h12_carrier_case at 1 AU, N = 7
+    # ground rows tied to an instrument rather than to report text: settle.h12_carrier_case at 1 AU, N = 7.  Wave 4:
+    # settle's 'EXCLUDED' is the computation GIVEN W_W2 (A1 wave 4 keeps the label for this comparison); W_W2 holds
+    # unread values, so z3's support-1 route (support 2 dropped: mutate 'support1-only') must read OPEN via N_WREAD, not
+    # LEFT, without H12, and REMOVED-IF with it.  The full encoding (both supports) gives REMOVED-IF {W2, F1; N_W2ANC}
+    # there: support 2's window is unevaluated (A1: 'for support 2 no window is computed').
     ST = _quiet("settle")
     hc, flips = ST.h12_carrier_case()
     cellrow = next(x for x in hc if x["L"] == "1 AU" and x["N"] == 7)
-    w = scrs[CELL_AU].variant({"W2", "F1"})["per"]["O-BITS"]["verdict"]
-    w12 = scrs[CELL_AU].variant({"W2", "F1", "H12"})["per"]["O-BITS"]["verdict"]
-    ground = {"settle.h12_carrier_case 1 AU N=7 (H-TRANSFER)": cellrow["H-TRANSFER"], "z3 {W2,F1} O-BITS at 1 AU": w,
-              "settle (H-12-CARRIER)": cellrow["H-12-CARRIER"], "z3 {W2,F1,H12} O-BITS at 1 AU": w12, "flips": flips}
-    ground_ok = (cellrow["H-TRANSFER"] == "EXCLUDED" and w == "LEFT" and cellrow["H-12-CARRIER"].startswith("NOT")
-                 and w12 == "REMOVED-IF" and flips == 2)
+    s1 = Screen(cell=CELL_AU, mutate=tuple(getattr(scrs[CELL_AU], "mutate", ())) + ("support1-only",))
+    r1 = s1.variant({"W2", "F1"})["per"]["O-BITS"]
+    r1h = s1.variant({"W2", "F1", "H12"})["per"]["O-BITS"]
+    full = scrs[CELL_AU].variant({"W2", "F1"})["per"]["O-BITS"]
+    a1 = None
+    for gg in (G.get("A1-settle") or []):
+        if "wave4_cells_without_H12_at_1AU" in gg:
+            a1 = gg["wave4_cells_without_H12_at_1AU"]
+    ground = {"settle.h12_carrier_case 1 AU N=7 (H-TRANSFER, given W_W2)": cellrow["H-TRANSFER"],
+              "z3 support 1 only, {W2,F1} O-BITS at 1 AU": (r1["verdict"], r1.get("via")),
+              "settle (H-12-CARRIER)": cellrow["H-12-CARRIER"],
+              "z3 support 1 only, {W2,F1,H12} O-BITS at 1 AU": r1h["verdict"],
+              "z3 both supports, {W2,F1} O-BITS at 1 AU": (full["verdict"], [(x["members"], x["named"])
+                                                                               for x in full.get("supports", [])]),
+              "A1 wave 4 (cells without H12 at 1 AU)": a1, "flips": flips}
+    # CONTROL (wave 4): wave 3's encoding, the window settled by the unread value (no N_WREAD), gives LEFT -- so the
+    # OPEN above is carried by N_WREAD, not by the engine
+    s3 = Screen(cell=CELL_AU, mutate=("support1-only", "wave3-WINDOW-SETTLED"))
+    ground["CONTROL wave-3 settled window, support 1 only, {W2,F1} at 1 AU"] = s3.variant({"W2", "F1"})["per"]["O-BITS"]["verdict"]
+    ground_ok = (cellrow["H-TRANSFER"] == "EXCLUDED" and r1["verdict"] == "OPEN" and r1.get("via") == ["N_WREAD"]
+                 and cellrow["H-12-CARRIER"].startswith("NOT") and r1h["verdict"] == "REMOVED-IF" and flips == 2
+                 and (a1 is None or "OPEN" in a1))
     ok = not unexplained and ground_ok and not lb_bad
     return ok, {"rows": rows, "compared": n_cmp, "agree": n_agree, "unexplained": unexplained,
                 "load_bearing_rows": lb_rows, "load_bearing_disagreements": lb_bad,
@@ -1483,8 +1560,30 @@ def ground_checks():
     out["B-CAP w2_ancilla_flow"] = ST.w2_ancilla_flow()
     out["B-CAP w2_ancilla_flow linear control"] = ST.w2_ancilla_flow(linear_control=True)["chi_bits_per_pair"]
     out["windows by cell"] = {c: cell_window_open(c) for c in CELLS}
+    # wave 4 (V2-1 #1): the W2 class without H-QUBIT-DRIFT has no positive floor -- k axes, m-qubit ancilla
+    out["B-CAP w2_ancilla_flow_k"] = {(k, m): ST.w2_ancilla_flow_k(k, m) for k, m in ((4, 2), (8, 3), (16, 4))}
+    out["B-CAP w2_ancilla_flow_k CONTROL linear k=16"] = ST.w2_ancilla_flow_k(16, 4, linear_control=True)["chi_bits_per_pair"]
+    out["B-CAP w2_ancilla_flow_k CONTROL antipodal k=8"] = ST.w2_ancilla_flow_k(8, 3, antipodal=True)
+    out["N_W2ANC field figure"] = support2_field_rows(out["B-CAP w2_ancilla_flow"]["max_H_times_T"])
     out["flags"] = board_flags()
     return out
+
+
+def support2_field_rows(hT):
+    """Support 2 (N_W2ANC) needs max||H|| x T ~ hT within T < L/c, i.e. a drift rate ||H|| >= hT c / L.  No READ bound
+    maps onto that field (H-MAP not established): the screen leaves N_W2ANC unconstrained (window UNEVALUATED).  For
+    BOTH-WAYS reporting only, the rate is set beside the NAMED-NOT-READ Majumder figure under the two H-MAP readings, as
+    if H-MAP-W2 (that unread precession bound read as a bound on ||H||) held -- a hypothesis NOT adopted anywhere."""
+    ST = _quiet("settle")
+    f = ST.BOUNDS_WEINBERG["Majumder+ 1990, 201Hg, PRL 65 2931"]["f_Hz"]
+    em = ST.eps_readings(f)
+    rows = []
+    for lab, L in (("1 ly", ST.LY_M), ("1 AU", ST.AU_M)):
+        need = hT * ST.C_LIGHT / L
+        rows.append({"cell": lab, "L/c (s)": L / ST.C_LIGHT, "needed ||H|| (1/s)": need,
+                     "IF H-MAP-W2 (not adopted): within eps_max": {k: need < v for k, v in em.items()},
+                     "eps_max (NAMED-NOT-READ)": em})
+    return rows
 
 
 def grounds_ok(g):
@@ -1530,8 +1629,19 @@ def grounds_ok(g):
             all(abs(g["B-CAP w2_ancilla_flow"]["P(b'|b)"][i][j] - (1.0 if i == j else 0.0)) < 1e-6
                 for i in range(4) for j in range(4)) and
             g["B-CAP w2_ancilla_flow"]["min_curve_separation_rad"] > 10 * g["B-CAP w2_ancilla_flow"]["grid_step_rad"],
-        "windows: 1 ly N = 7 open, 1 AU N = 7 empty, 1 AU N = 1e6 open (both H-MAP readings agree in every cell)":
-            g["windows by cell"] == {CELL_MAIN: True, CELL_AU: False, CELL_AU6: True},
+        "windows: 1 ly N = 7 open, 1 AU N = 7 and N = 1e3 empty, 1 AU N = 1e6 open (both H-MAP readings agree in every "
+        "cell; computed from the NAMED-NOT-READ value, so an empty window is LEFT-IF W_W2 -> OPEN via N_WREAD)":
+            g["windows by cell"] == {CELL_MAIN: True, CELL_AU: False, CELL_AU3: False, CELL_AU6: True},
+        "W2 class without H-QUBIT-DRIFT: chi = log2 d - 1 (2, 3, 4 at d = 8, 16, 32), zero error, curves disjoint -> "
+        "1, 2/3, 1/2 pairs per teleported qubit (no positive floor in the computed range)":
+            all(abs(r["chi_bits_per_pair"] - (math.log2(r["d"]) - 1)) < 1e-6 and r["p_error"] < 1e-9 and
+                r["min_curve_separation_rad"] > 10 * r["grid_step_rad"]
+                for r in g["B-CAP w2_ancilla_flow_k"].values()),
+        "CONTROL w2_ancilla_flow_k: a state-independent unitary gives chi = 0 (k = 16); antipodal axes give chi < "
+        "log2 k with colliding curves (k = 8)":
+            g["B-CAP w2_ancilla_flow_k CONTROL linear k=16"] < 1e-9 and
+            g["B-CAP w2_ancilla_flow_k CONTROL antipodal k=8"]["chi_bits_per_pair"] < 3 - 1e-3 and
+            g["B-CAP w2_ancilla_flow_k CONTROL antipodal k=8"]["min_curve_separation_rad"] < 1e-6,
         "board flags as encoded": (f["transit.BEATS_LIGHT"] is False and f["transit.TRAVERSAL_IS_REMOVED"] is False
                                    and f["transit.CARRIES_SUBSTANCE"] is False
                                    and f["emtension.ENTANGLED_BRIDGE_IS_TRAVERSABLE"] is False
@@ -1662,8 +1772,12 @@ def first_transit(L_ly=1.0, N_per_qubit=7, reading="A (eps = 2 pi f)"):
                                "nlcontrol, block-coded average (floor, H-BLOCK)": 2.0 / ST.CMAX,
                                "qubit-only subclass (H-BORN-AT-BOB + H-QUBIT-DRIFT): average strictly above": 2.0 / sub,
                                "qubit-only subclass: per qubit at finite T at least": int(math.floor(2.0 / sub)) + 1,
-                               "W2 member without H-QUBIT-DRIFT (w2_ancilla_flow, H-EXTEND): zero-error": 1,
-                               "clause 2b D-CTC four axes (N_DCTC): zero-error": 1},
+                               "W2 member without H-QUBIT-DRIFT, four-axis instance (w2_ancilla_flow, H-EXTEND): "
+                               "zero-error": 1,
+                               "W2 class without H-QUBIT-DRIFT (w2_ancilla_flow_k, k = 8, 16): zero-error, no "
+                               "positive floor (wave 4)": [2.0 / 3.0, 0.5],
+                               "clause 2b D-CTC four axes (N_DCTC): zero-error, this construction only; the route "
+                               "<= 1, minimum OPEN (BHW p.4)": 1},
            "counts": []}
     for r in rows:
         q = r["bits"]
@@ -1672,7 +1786,8 @@ def first_transit(L_ly=1.0, N_per_qubit=7, reading="A (eps = 2 pi f)"):
                               "nlcontrol_pairs_N7 (floor, coded alone)": q * N_per_qubit,
                               "nlcontrol_pairs_block_coded (floor)": q * 2.0 / ST.CMAX,
                               "qubit_only_subclass_pairs (strictly above)": q * 2.0 / sub,
-                              "W2_member_or_DCTC_pairs (zero-error, 1 per qubit)": q,
+                              "W2_member_or_DCTC_pairs (four-axis instances, zero-error, 1 per qubit; the classes "
+                              "go lower: W2 k = 16 gives q/2, the D-CTC route's minimum is OPEN)": q,
                               "holder_FLOOR_J_R1m": r["bekenstein_floor_J_R1m"], "holder_floor_crosscheck_J": indep})
     out["body_rest_energy_J (massform, the READ-backed holder)"] = geo["O-MATTER: massform.rest_energy_j() (Mc^2, 70 kg)"]
     out["throat_J"] = geo["O-HOLD: wormhole.throat_mass(1 m) c^2"]
@@ -1691,6 +1806,7 @@ TEST_BEARS = {
     "T-E W2xF1 end to end": ({"W2", "F1"}, {"O-BITS"}),
     "T-G W2xF1xH12 at 1 AU (h12_carrier_case)": ({"W2", "F1", "H12"}, {"O-BITS"}),
     "T-J F2b D-CTC (four_basis_c2_table)": ({"F2b"}, {"O-BITS", "O-LOOP-S"}),
+    "T-K W2xF1 support 2 (w2_ancilla_flow_k)": ({"W2", "F1"}, {"O-BITS"}),
 }
 RECORDS = ("T-D holder FLOOR record", "T-F RQxKR (O-HOLD OPEN)", "T-H ITJ (egj_fR_throat)",
            "T-I INFOS vs B-RECV (info_s_clash)")
@@ -1772,12 +1888,21 @@ def complementary_tests(S, S_au):
     T["T-F RQxKR (O-HOLD OPEN)"]["pass"] = T["T-F RQxKR (O-HOLD OPEN)"]["fraction_under_H_flat_H-PATH_H-MIN-SCALAR"] < 1e-60
     # T-G  W2 x F1 x H12 at 1 AU, N <= 1e3: the window H-12 supplies (settle.h12_carrier_case)
     hc, fl = ST.h12_carrier_case()
+    # wave 4: per SUPPORT.  Support 1 (N_EPS) at 1 AU, N <= 1e3 without H12 is OPEN via N_WREAD (the window value is
+    # unread), REMOVED-IF with H12; support 2 (N_W2ANC) does not use the window (unevaluated) and holds at both cells.
+    sups = lambda r: sorted((tuple(x["members"]), tuple(x["named"])) for x in r["per"]["O-BITS"].get("supports", []))
+    s1 = Screen(cell=CELL_AU, mutate=("support1-only",))
+    r1 = s1.variant({"W2", "F1"})["per"]["O-BITS"]
     g = {"rows": hc, "flips": fl,
-         "z3 {W2,F1} at 1 AU, N = 7": S_au["by"][frozenset({"W2", "F1"})]["per"]["O-BITS"]["verdict"],
-         "z3 {W2,F1,H12} at 1 AU, N = 7": S_au["by"][frozenset({"W2", "F1", "H12"})]["per"]["O-BITS"]["verdict"],
-         "z3 {W2,F1} at 1 ly, N = 7": S["by"][frozenset({"W2", "F1"})]["per"]["O-BITS"]["verdict"]}
-    g["pass"] = (fl == 2 and g["z3 {W2,F1} at 1 AU, N = 7"] == "LEFT" and g["z3 {W2,F1,H12} at 1 AU, N = 7"] == "REMOVED-IF"
-                 and g["z3 {W2,F1} at 1 ly, N = 7"] == "REMOVED-IF")
+         "z3 {W2,F1} at 1 AU, N = 7 (both supports)": sups(S_au["by"][frozenset({"W2", "F1"})]),
+         "z3 {W2,F1,H12} at 1 AU, N = 7 (both supports)": sups(S_au["by"][frozenset({"W2", "F1", "H12"})]),
+         "z3 {W2,F1} at 1 AU, N = 7, support 1 only": (r1["verdict"], r1.get("via")),
+         "z3 {W2,F1} at 1 ly, N = 7": sups(S["by"][frozenset({"W2", "F1"})]),
+         "wave 3 first said": "{W2,F1} at 1 AU, N = 7: LEFT (support 1 only, window taken as settled)"}
+    g["pass"] = (fl == 2 and r1["verdict"] == "OPEN" and r1.get("via") == ["N_WREAD"]
+                 and g["z3 {W2,F1} at 1 AU, N = 7 (both supports)"] == [(("W2", "F1"), ("N_W2ANC",))]
+                 and (("W2", "F1", "H12"), ("N_EPS", "N_H12W")) in g["z3 {W2,F1,H12} at 1 AU, N = 7 (both supports)"]
+                 and g["z3 {W2,F1} at 1 ly, N = 7"] == [(("W2", "F1"), ("N_EPS",)), (("W2", "F1"), ("N_W2ANC",))])
     T["T-G W2xF1xH12 at 1 AU (h12_carrier_case)"] = g
     # T-H  ITJ: the EGJ pathway (N_EQUIL), OPEN, never a removal -- a record of H-IT's own pathway, not a pairing
     egj = GE.egj_fR_throat()
@@ -1798,7 +1923,9 @@ def complementary_tests(S, S_au):
         "four axes MI bits per pair C2 / C1": (fb["MI_bits_per_pair"]["C2"], fb["MI_bits_per_pair"]["C1"]),
         "BB84 MI bits per pair C2 / C1": (bb["MI_bits_per_pair"]["C2"], bb["MI_bits_per_pair"]["C1"]),
         "map reproduced (min P(j|psi_j))": min(fb["map_reproduced"].values()), "BHW condition 2 min": fb["cond2_min"],
-        "pairs per teleported qubit": {"four axes, zero-error": 1, "BB84, zero-error": 2},
+        "pairs per teleported qubit": {"four axes, zero-error (this construction only)": 1, "BB84, zero-error": 2,
+                                       "the route (BHW 0811.1209v2 p.4, READ by A2: unbounded if CTC qubits are free)":
+                                       "<= 1; minimum OPEN (wave 3 first said 'exact')"},
         "z3 {F2b} O-BITS": S["by"][frozenset({"F2b"})]["per"]["O-BITS"],
         "STRUCTURAL": "C1 = 0: the same input for every choice (cannot fail)",
         "O-LOOP": "reintroduced: the channel is a CTC (B-DCTC: CTC => LOOPS); M-S1A-P3 disqualifying at the seat only"}
@@ -1806,6 +1933,23 @@ def complementary_tests(S, S_au):
         abs(fb["MI_bits_per_pair"]["C2"] - 2.0) < 1e-9 and abs(bb["MI_bits_per_pair"]["C2"] - 1.0) < 1e-9 and
         min(fb["map_reproduced"].values()) > 1 - 1e-9 and
         T["T-J F2b D-CTC (four_basis_c2_table)"]["z3 {F2b} O-BITS"]["verdict"] == "REMOVED-IF")
+    # T-K  W2 x F1, support 2 (wave 4, V2-1 #1-#2): the zero-error ancilla member, k axes; no positive floor
+    kt = {f"k={k}, d={r['d']}": {"chi": r["chi_bits_per_pair"], "pairs_per_teleported_qubit": r["pairs_per_teleported_qubit"],
+                                 "p_error": r["p_error"], "min_sep_rad": r["min_curve_separation_rad"],
+                                 "grid_step_rad": r["grid_step_rad"], "max_H_times_T": r["max_H_times_T"]}
+          for (k, m), r in ((km, ST.w2_ancilla_flow_k(*km)) for km in ((4, 2), (8, 3), (16, 4)))}
+    lin = ST.w2_ancilla_flow_k(16, 4, linear_control=True)["chi_bits_per_pair"]
+    T["T-K W2xF1 support 2 (w2_ancilla_flow_k)"] = {
+        "table": kt, "CONTROL linear k=16 chi": lin,
+        "z3 {W2,F1} supports at 1 ly": [(x["members"], x["named"]) for x in
+                                         S["by"][frozenset({"W2", "F1"})]["per"]["O-BITS"]["supports"]],
+        "field figure (needed ||H||; H-MAP-W2 NOT adopted)": support2_field_rows(kt["k=4, d=8"]["max_H_times_T"]),
+        "what it is": "support 2 of W2 x F1 (N_W2ANC): chi = log2 d - 1 with zero error, 2/(log2 d - 1) pairs per "
+                      "teleported qubit; H-EXTEND derived, not computed; the separation shrinks with k; not evidence "
+                      "a drift exists"}
+    T["T-K W2xF1 support 2 (w2_ancilla_flow_k)"]["pass"] = (
+        all(abs(v["chi"] - (math.log2(int(k.split("d=")[1])) - 1)) < 1e-6 and v["p_error"] < 1e-9 for k, v in kt.items())
+        and lin < 1e-9 and (["W2", "F1"], ["N_W2ANC"]) in T["T-K W2xF1 support 2 (w2_ancilla_flow_k)"]["z3 {W2,F1} supports at 1 ly"])
     # class table: JOINT and INDEPENDENT variants grouped by (cell, attributed set, contributors)
     cover = {}
     for SS in (S, S_au):
@@ -2039,6 +2183,11 @@ def run_all(with_tests=True):
     out["cell_1AU_N1e6"] = {"window_open": w6, "same_board_as": CELL_MAIN if w6 else CELL_AU,
                             "STRUCTURAL": "_board takes the cell only through win_open, so equal windows give equal "
                                           "boards (cannot fail); the content is the computed window"}
+    w3 = cell_window_open(CELL_AU3)
+    out["cell_1AU_N1e3"] = {"window_open": w3, "same_board_as": CELL_MAIN if w3 else CELL_AU,
+                            "STRUCTURAL": "as for N = 1e6: equal windows give equal boards; the content is the computed "
+                                          "window (empty under both H-MAP readings, from the NAMED-NOT-READ value: "
+                                          "support 1 OPEN via N_WREAD there, wave 4)"}
     ex = exercised(S)
     ex_au = exercised_cells(S_au, S)
     for h in LIT_NAMES:
@@ -2084,10 +2233,10 @@ def report(R):
         return
     rows = R["rows"]
     cons = [r for r in rows if r["consistent"]]
-    print(f"DOCKET 68 / B-combine (wave 3).  {len(rows)} variants over {len(R['table'])} combinations (127 + "
+    print(f"DOCKET 68 / B-combine (wave 4).  {len(rows)} variants over {len(R['table'])} combinations (127 + "
           f"readings-only) at {CELL_MAIN}; consistent {len(cons)}, inconsistent {len(rows) - len(cons)}; "
           f"z3 {R['screen']['seconds']:.1f} s.  At {CELL_AU}: {len(R['rows_au'])} W2 variants re-screened.  "
-          f"{CELL_AU6}: {_fmt(R['cell_1AU_N1e6'])}")
+          f"{CELL_AU6}: {_fmt(R['cell_1AU_N1e6'])}  {CELL_AU3}: {_fmt(R['cell_1AU_N1e3'])}")
     print("\nHEADLINE (per account; member-attributed removals first):", _fmt(R["headline"]))
     print("HEADLINE at 1 AU, N = 7 (W2 variants):", _fmt(R["headline_au"]))
     d = R["drift"]
@@ -2095,6 +2244,7 @@ def report(R):
           f"(variant, obstruction) comparisons; disagreements, each explained: {len(d['explained_used'])}")
     for k in d["explained_used"]:
         print("   ", k, "--", EXPLAINED[k][:150])
+    print("DRIFT GROUND ROWS (per support at 1 AU):", _fmt(d["ground_rows"]))
     print("CONTROLS (mutated encodings caught):", _fmt({k: (v["caught"], v["agree"]) for k, v in R["drift_controls"].items()}))
     print("VACUITY:", _fmt(R["vacuity"]["known_contradictions_caught"]))
     print("STRUCTURAL (cannot fail, not evidence):", _fmt(R["vacuity"]["STRUCTURAL"]))
@@ -2281,10 +2431,20 @@ def selftest():
     ck("RESULT {W2} alone: O-BITS LEFT (H-FRAME3b presupposes F1; wave 2 gave REMOVED-IF {W2; N_EPS, N_FRAME3b})",
        w2a["per"]["O-BITS"]["verdict"] == "LEFT")
     w2f = by[frozenset({"W2", "F1"})]
-    ck("RESULT {W2, F1}: O-BITS REMOVED-IF, one support {W2, F1; N_EPS}, a synergy (JOINT)",
+    ck("RESULT {W2, F1}: O-BITS REMOVED-IF with TWO supports {W2, F1; N_EPS} | {W2, F1; N_W2ANC}, a synergy (JOINT) "
+       "(wave 3 first said one support)",
        w2f["per"]["O-BITS"]["verdict"] == "REMOVED-IF" and
-       [(s["members"], s["named"]) for s in w2f["per"]["O-BITS"]["supports"]] == [(["W2", "F1"], ["N_EPS"])] and
+       sorted((s["members"], s["named"]) for s in w2f["per"]["O-BITS"]["supports"]) ==
+       [(["W2", "F1"], ["N_EPS"]), (["W2", "F1"], ["N_W2ANC"])] and
        w2f.get("joint") and "O-BITS" in w2f["synergy"])
+    gr = D["ground_rows"]
+    ck("RESULT 1 AU, N = 7 (and N = 1e3, same window): support 1 without H12 is OPEN via N_WREAD, not LEFT -- the "
+       "exclusion rests on an unread value", gr["z3 support 1 only, {W2,F1} O-BITS at 1 AU"] == ("OPEN", ["N_WREAD"]),
+       gr["z3 support 1 only, {W2,F1} O-BITS at 1 AU"])
+    ck("CONTROL wave 3's settled window (no N_WREAD) gives LEFT for support 1 at 1 AU (so the OPEN is carried by the "
+       "named pathway, not by the engine)", gr["CONTROL wave-3 settled window, support 1 only, {W2,F1} at 1 AU"] == "LEFT")
+    ck("CONTENT at 1 AU N_EPS is admissible only through the OPEN pathway N_WREAD",
+       V["CONTENT at 1 AU N_EPS admissible only through N_WREAD (OPEN pathway)"])
     f2b = by[frozenset({"F2b"})]
     ck("RESULT {F2b}: O-BITS REMOVED-IF {F2b; N_DCTC} (the D-CTC), with the {N_DCTC, N_FRW} premise clash",
        f2b["per"]["O-BITS"]["verdict"] == "REMOVED-IF" and
@@ -2330,17 +2490,24 @@ def selftest():
     joint = {k: v for k, v in R["cover"].items() if v["kind"] == "JOINT"}
     ck("COVERAGE every JOINT class has a content-bearing test (members among its contributors, bearing on its synergy)",
        joint and all(v["tests"] for v in joint.values()), [k for k, v in joint.items() if not v["tests"]])
+    # wave 4 (V2-0 #6): 'untested + joint = all variants' is a partition identity -- untested() counts every row except
+    # the consistent JOINT rows and n_joint counts exactly those -- so it cannot fail: printed STRUCTURAL, not counted
     n_joint = sum(1 for r in cons if r.get("joint"))
-    ck("COVERAGE untested + joint = all variants", sum(R["untested"][CELL_MAIN].values()) + n_joint == len(rows),
-       (sum(R["untested"][CELL_MAIN].values()), n_joint))
+    part = (sum(R["untested"][CELL_MAIN].values()), n_joint, len(rows))
+    print(f"STRUCTURAL (not counted): COVERAGE untested {part[0]} + joint {part[1]} = {part[0] + part[1]} of "
+          f"{part[2]} variants -- a partition identity of untested(); wave 3 counted it")
+    print("STRUCTURAL (not counted): Q-1s (signed.py) moves no screen verdict -- every bit count the screen uses is a "
+          "capacity, a Holevo chi or log2 976 over NON-NEGATIVE probabilities, where Re H = H by definition, and no "
+          "board holding or commitment names the measure's functional form (INFO is inert)")
     npass = sum(1 for _, c, _ in checks if c)
     for n, c, d in checks:
         print(("PASS " if c else "FAIL ") + n + (f"  [{d}]" if d not in ("", None) and not c else ""))
-    nstruct = len(V["STRUCTURAL"]) + len(R["grounds_structural"]) + 1
+    nstruct = len(V["STRUCTURAL"]) + len(R["grounds_structural"]) + 2
     print(f"\n{npass}/{len(checks)} checks pass, "
           f"{sum(1 for n, _, _ in checks if n.startswith('CONTROL'))} of them controls; "
           f"{nstruct} STRUCTURAL items reported, not counted (engine premise-consistency; "
-          f"{len(R['grounds_structural'])} ground values; INDEPENDENT classes carry no test by definition); "
+          f"{len(R['grounds_structural'])} ground values; INDEPENDENT classes carry no test by definition; the COVERAGE "
+          f"partition identity); "
           f"{time.time() - t0:.0f} s")
     return 0 if npass == len(checks) else 1
 

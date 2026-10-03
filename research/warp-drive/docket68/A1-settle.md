@@ -1,18 +1,40 @@
 # DOCKET 68 / A1-settle: H-SETTLE alone, H-12's carriers, and the collapse control
 
-**Status: a work-item write-up, not seated.** Instrument: `settle.py` (`python3 settle.py --selftest`: 57/57 checks
-pass, about 100 s; six of the 57 are printed STRUCTURAL -- they cannot fail by construction and are not cited as
-evidence -- and eight are controls built to fail; *wave 2 first said* 47/47 with two STRUCTURAL). It imports
+**Status: a work-item write-up, not seated.** Instrument: `settle.py` (`python3 settle.py --selftest`: 62/62 checks
+pass, about 2 min; six of the 62 are printed STRUCTURAL -- they cannot fail by construction and are not counted -- so
+**56/56 counted**, ten of them controls built to fail; *wave 3 first said* 57/57 with six STRUCTURAL and eight controls;
+*wave 2 first said* 47/47 with two STRUCTURAL). It imports
 `nlcontrol.py`, `corridors.py` and (wave 2) `frame.py`, and copies none of them. Every number here is computed in
 `settle.py`, READ at the locator given, DERIVED-FROM-READ, or labelled NAMED-NOT-READ or OPEN. Short quotations only,
 each with its page.
 
 **Headline, member-attributed first (wave 3).** Alone, H-SETTLE-W removes nothing: the channel it supplies needs a
 preferred slicing, which is H-FRAME clause 1's substance. The one member-attributed removal in this work item is
-**O-BITS by H-SETTLE-W × H-FRAME**, REMOVED-IF {N_EPS, H-C2, H-FRAME3b ⇐ F1, H-COHERE, H-NLCONTROL-FORM,
-H-BORN-AT-BOB, H-BLOCK}. Whether ε lies in the window is a separate question, settled by window premises (H-MAP,
-H-TRANSFER, H-SPIN, H-DILUTION and the NAMED-NOT-READ bound values). No NOT-BOUND-IF arises here. In a separate geometry
+**O-BITS by H-SETTLE-W × H-FRAME**, with **two supports** (wave 4): (1) REMOVED-IF {N_EPS, H-C2, H-FRAME3b ⇐ F1,
+H-COHERE, H-NLCONTROL-FORM, H-BORN-AT-BOB, H-BLOCK} -- nlcontrol's form, block-coded, every pair count a floor; or
+(2) REMOVED-IF {H-C2, H-FRAME3b ⇐ F1, H-COHERE, H-BORN-AT-BOB, H-EXTEND, H-FIELD-W2} -- the computed zero-error ancilla
+member, with neither H-BLOCK nor H-NLCONTROL-FORM. For support (1), whether ε lies in the window is a separate
+question, settled by window premises (H-MAP, H-TRANSFER, H-SPIN, H-DILUTION and the NAMED-NOT-READ bound values). For
+support (2) no window is computed: H-MAP is not established for its field, so the window is **unevaluated** -- neither
+open nor excluded, and "not excluded" is not evidence. No NOT-BOUND-IF arises here. *Wave 3 first said* the removal
+had the single support (1), which read as if block coding were necessary (V2-1 problem 2). In a separate geometry
 column, corridor O-LOOP is REMOVED-IF {H-FRW-EXACT, H-NOT-DE-SITTER, H-CORRIDOR-MODEL}, credited to no hypothesis.
+
+## Wave 4 repair (R3-alone, 2026-10-03): the second pair of re-verifications
+
+Two re-verifications (V2-0, AGAINST M; V2-1, FOR M; `wave1/REPAIR2-Q1S-RESULT.json`, key `result.verify`) left items
+sited here. Each is applied, or answered with a computed or READ reason. Wave 3's forms are kept, marked *wave 3 first
+said*.
+
+| re-verification item | resolution |
+|---|---|
+| V2-0 problem 2 / V2-1 unresolved 2: the row "H-SETTLE-KR × H-12, with G as the carrier" credits O-HOLD OPEN via G to the pair; H-SETTLE-KR alone already carries it | **Applied.** The row now reads **adds nothing to H-SETTLE-KR alone**. The pathway (KR p.13; ε_G unconstrained, KR p.14) is KR's; naming G as a carrier adds no premise the pathway uses. The header's rule (every combination row says load-bearing or adds-nothing) now holds. |
+| V2-1 problem 1: "1 pair per teleported qubit" presented as the W2 class's figure without H-QUBIT-DRIFT | **Applied, and computed.** `w2_ancilla_flow_k` (G21-G25) is the same construction with k axes (none antipodal) and an m-qubit ancilla, d = 2^(1+m). k = 4, 8, 16, 32 give χ = 2, 3, 4, 5 = log₂d − 1 bits per pair with zero error, i.e. **1, 2/3, 1/2 and 0.4 pairs per teleported qubit**. Curves stay disjoint (0.391, 0.337, 0.180, 0.117 rad against grid steps ≈ 0.0075); end fidelity 1 − O(1e-15). Controls fail as built to: antipodal axes give χ = 2, not 3, at k = 8 (curves collide, separation 0); a state-independent unitary gives 0. These reproduce the FOR verifier's scratch figures. **The class has no positive floor on pairs per qubit in the computed range**; the Holevo ceiling under H-BORN-AT-BOB is log₂d per pair (READ in A3). Two cautions keep this from over-reading: the separation shrinks with k, so H-EXTEND asks for a field that varies on ever finer scales (max‖H‖T stays 1.43-1.56); and none of it is evidence that such a drift exists. |
+| V2-1 problem 2: W2 × F1's O-BITS removal given one support, R_W2, containing H-NLCONTROL-FORM and H-BLOCK | **Applied.** Two supports (headline, §5): R_W2, and **R_W2′ = {H-C2 (no-branch rule), H-FRAME3b ⇐ F1, H-COHERE, H-BORN-AT-BOB, H-EXTEND, H-FIELD-W2}**, where H-FIELD-W2 (the field strength max‖H‖T ≈ 1.43-1.56 is available within the drift time) replaces N_EPS. Support 2 is zero-error. No published bound maps onto it, because H-MAP is not established for this field, so its window is **unevaluated**. The grade word (PARTIAL; O-BITS REMOVED-IF) does not change. |
+| V2-1 problem 3 / unresolved 3: at 1 AU with N ≤ 1e3, O-BITS without H-12 carried as LEFT, as if the window exclusion were settled | **Applied.** Those cells are **LEFT-IF W_W2**, and W_W2 contains an unread value (the NAMED-NOT-READ Majumder figure; §2: "Everything below therefore rests on the Majumder figure"). By M's rule an unread value makes the cell **OPEN**, pending a READ of the Weinberg-family values. The exclusion also holds only for nlcontrol's ε mapping; for support 2 no window is computed. The "H-12 synergy at 1 AU" now reads: H-12-CARRIER + H-12-W replaces H-TRANSFER in an exclusion that rests on an unread value. `settle.h12_carrier_case` still prints EXCLUDED for those cells: that label is the computation *given* W_W2, and it is kept so `combine.py`'s ground rows stay comparable. |
+| V2-0 unresolved 4 (outside its lens, for the FOR side): 2511.15935v1 p.4 says the KR model fails Tomonaga-Schwinger integrability; A1 READ pp.1-3, 5 only | **READ this pass, p.4, and recorded.** "The TS integrability condition fails for generic states even though the KR model enforces retarded (causal) dependence": the overlap J⁻(x) ∩ J⁻(y) of two spacelike points is generically non-empty. That is foliation dependence. The paper shows no signal from it, and it is a single-author 2025 preprint deriving a necessary condition. Named **H-KR-TS**; whether the foliation dependence is operational (a signal, or a preferred slicing) is OPEN. KR alone still LEAVES O-BITS on its own §2.3 factorisation (DERIVED-FROM-READ); no grade moves. |
+| V2-0 unresolved 3 / V2-1 unresolved 4: N_QTOPO, N_MEASPHYS, N_H12W, N_ILFREE have no READ source; the Weinberg-family values stay NAMED-NOT-READ; H-EXTEND is derived; the W2 capacity without H-BORN-AT-BOB is OPEN | **Answered: OPEN by design, unchanged.** Each verdict that rests on one of them names it (here: N_H12W in §4b, the Majumder value in §2 and §5, H-EXTEND in §1b and support 2). No READ source was found this pass either. |
+| V2-0 problem 7 (D-CTC "exact") and the clause-2b cell | Sited in A2 and B. A1 §1b's D-CTC sentence already carries BHW 0811.1209v2 p.4, "unbounded if CTC qubits are treated as a free resource". |
 
 ## Wave 3 repair (2026-10-03): the two re-verifications
 
@@ -28,7 +50,7 @@ first said*.
 | RV-1 #2: {N_QTOPO, N_CORR} never named | **Applied.** In a combination with H-IT read as ITB under N_QTOPO, neither the FRW lemma nor latticectc's theorem binds an ITB corridor. Corridor O-LOOP is then **NOT-BOUND-IF {N_QTOPO}**, and loops made by signals are unchanged. {N_QTOPO, N_CORR} is a premise clash: one corridor, two accounts. |
 | RV-0 #4, RV-1 #9: W2 × H-12 credits "O-HOLD (OPEN via G in KR form)" against its own H-12-W premise | **Applied.** In that row O-HOLD is LEFT. "OPEN via G" is re-sited to a new row, H-SETTLE-KR × H-12 with G as the carrier. |
 | RV-0 #10: G6, G7, G8 and G12 cannot fail | **Applied.** G6a, G7, G8 and G12b are printed STRUCTURAL. G6b (3 pairs reach 2 bits) and G12a (the H-TRANSFER comparison) keep the content. The factor 2 and the distance-independence are stated as analytic consequences of T = atanh(D_N)/(2ε), not as checks. |
-| RV-1 #0 / RV-1 unresolved #0: the W2 "class floor" rests on an unnamed premise, that the drift acts on Bob's qubit alone | **Applied, and computed.** The premise is named **H-QUBIT-DRIFT**. Under H-BORN-AT-BOB + H-QUBIT-DRIFT the floors stand: > 2 on average, ≥ 3 per qubit at finite T. Without H-QUBIT-DRIFT, `w2_ancilla_flow` (G18-G20) gives a W2 member that carries **2.000000 bits per pair with zero error at finite T**. The setup is the qubit plus a two-qubit ancilla in \|00⟩, four axes, and a field that depends only on the current state, built from H = i(vψ† − ψv†) (G16, control G17). That makes **1 pair per teleported qubit**. Smoothness of the global field is H-EXTEND, derived and not computed. This is not evidence that such a drift exists. |
+| RV-1 #0 / RV-1 unresolved #0: the W2 "class floor" rests on an unnamed premise, that the drift acts on Bob's qubit alone | **Applied, and computed.** The premise is named **H-QUBIT-DRIFT**. Under H-BORN-AT-BOB + H-QUBIT-DRIFT the floors stand: > 2 on average, ≥ 3 per qubit at finite T. Without H-QUBIT-DRIFT, `w2_ancilla_flow` (G18-G20) gives a W2 member that carries **2.000000 bits per pair with zero error at finite T**. The setup is the qubit plus a two-qubit ancilla in \|00⟩, four axes, and a field that depends only on the current state, built from H = i(vψ† − ψv†) (G16, control G17). That makes **1 pair per teleported qubit**. Smoothness of the global field is H-EXTEND, derived and not computed. This is not evidence that such a drift exists. *Wave 4: "1 pair" is the four-axis instance's figure, not the class's; with more axes and a larger ancilla the class has no positive floor (§1b, V2-1 problem 1).* |
 | RV-1 #3: H-MAP, H-TRANSFER and H-SPIN listed as removal premises; four premise sets across reports | **Applied.** Removal premises and window premises are now separate columns, and one removal set is used everywhere. |
 | RV-1 #8: 1 AU statements without their N | **Applied.** Each 1 AU statement now carries its N. At 1 AU with N = 1e6, ε_any = 3.34e-6 /s is not excluded even under H-TRANSFER. The H-12 flips are specific to N = 7 and N = 1000. |
 | RV-0 unresolved #4: the Weinberg-family bounds remain NAMED-NOT-READ | **Answered.** Two further arXiv papers were READ this pass for a restatement carrying the 1989-90 numbers: 2509.04320v1 pp.1-2, 12, 16 and 2511.15935v1 pp.1-3, 5. Neither carries them. The PRLs predate arXiv, so the values stay NAMED-NOT-READ and every number derived from them stays conditional. |
@@ -110,7 +132,8 @@ so any protocol needs at least 2 pairs (Holevo is NAMED-NOT-READ here)". Three t
 |---|---|
 | nlcontrol (H-NLCONTROL-FORM) | ≥ 6.21 on average (block-coded, H-BLOCK); ≥ 7 per qubit (floor; never zero-error) |
 | qubit-only subclass (H-BORN-AT-BOB + H-QUBIT-DRIFT) | > 2 on average (2 is the infimum and is never attained); ≥ 3 per qubit at finite T (floor) |
-| W2 under H-BORN-AT-BOB, without H-QUBIT-DRIFT (qubit + two-qubit ancilla, four axes; `w2_ancilla_flow`, H-EXTEND) | **1, zero-error at finite T** (χ = 2.000000 bits per pair; P(b′\|b) = identity) |
+| W2 under H-BORN-AT-BOB, without H-QUBIT-DRIFT, four axes (qubit + two-qubit ancilla; `w2_ancilla_flow`, H-EXTEND) | 1, zero-error at finite T (χ = 2.000000 bits per pair; P(b′\|b) = identity) -- **this instance only** |
+| W2 under H-BORN-AT-BOB, without H-QUBIT-DRIFT, k axes and an m-qubit ancilla, d = 2^(1+m) (`w2_ancilla_flow_k`, H-EXTEND; wave 4) | **2/(log₂d − 1), zero-error**: 1, 2/3, 1/2, 0.4 at d = 8, 16, 32, 64 (χ = 2, 3, 4, 5). **No positive floor** in the computed range |
 | W2 without H-BORN-AT-BOB | **OPEN** |
 
 - **The member without H-QUBIT-DRIFT (wave 3, computed).** Bob's received qubit sits beside a two-qubit ancilla in
@@ -126,6 +149,10 @@ so any protocol needs at least 2 pairs (Holevo is NAMED-NOT-READ here)". Three t
   - A smooth global field is **H-EXTEND**, derived from the curves' separation and not computed. H-MAP is not
     established for this field.
   - **This shows what the class admits. It is not evidence that such a drift exists.**
+- *Wave 3 first said* the row above as "W2 under H-BORN-AT-BOB, without H-QUBIT-DRIFT ... **1, zero-error at finite
+  T**", reading as the class's figure (V2-1 problem 1). The k-axis member is the same construction: 2k branch states
+  carried to 2k orthonormal vectors in C^d, so Bob's Born readout identifies the axis (log₂k bits) and Alice's random
+  outcome costs the remaining bit of the log₂d ceiling.
 - Without H-BORN-AT-BOB, the D-CTC analogue under C2 carries 1.000 bit per pair through BHW's BB84 construction
   (`frame.bb84_c2_table`) and **2.000000 bits per pair over four axes** (`frame.four_basis_c2_table`, wave 3). Both
   are computed and zero-error. BHW 0811.1209v2 p.4 (READ): unbounded "if CTC qubits are treated as a free resource".
@@ -332,6 +359,10 @@ H-TRANSFER. Both are right, under different hypotheses:
   (ε > 2.3e-3 /s) and N = 1000 (ε > 1.06e-4 /s)** flip from EXCLUDED to NOT EXCLUDED: **2 of 9 cells** (check G12a for
   the H-TRANSFER side; the flip itself, G12b, is STRUCTURAL). **At 1 AU, N = 1e6** (ε > 3.34e-6 /s) the cell is
   already NOT EXCLUDED under H-TRANSFER, so there H-12 adds nothing.
+- **Wave 4 qualifier (V2-1 problem 3).** "EXCLUDED under H-TRANSFER" is LEFT-IF W_W2, and W_W2 holds the unread
+  Majumder value, so the two 1 AU cells (N = 7, N = 1000) **without** H-12 are **OPEN** pending a READ, not settled
+  LEFT. Read the next bullet as: H-12-CARRIER + H-12-W replaces H-TRANSFER in an exclusion that rests on an unread
+  value. The exclusion is also nlcontrol's ε mapping only; for the ancilla member (support 2) no window is computed.
 - **So W2 × F1 × H-12 removes O-BITS in strictly more cells than W2 × F1 under H-TRANSFER.** The removal premises are
   W2 × F1's. H-12-CARRIER + H-12-W replaces H-TRANSFER among the *window* premises. H-12 is load-bearing on the
   window, not on the removal. An absent bound is not a measurement, so this is not evidence that such a drift exists.
@@ -359,19 +390,26 @@ premise clash. Removal premises and window premises are kept apart. The canonica
 - **R_W2** (removal) = {N_EPS, H-C2 (with its no-branch rule), H-FRAME3b ⇐ F1, H-COHERE, H-NLCONTROL-FORM,
   H-BORN-AT-BOB, H-BLOCK}.
 - **W_W2** (window) = {H-MAP, H-TRANSFER, H-SPIN, H-DILUTION, the NAMED-NOT-READ bound values}.
+- **R_W2′** (removal, support 2; wave 4) = {H-C2 (with its no-branch rule), H-FRAME3b ⇐ F1, H-COHERE, H-BORN-AT-BOB,
+  H-EXTEND, H-FIELD-W2}. Zero-error; no H-BLOCK, no H-NLCONTROL-FORM; H-FIELD-W2 (max‖H‖T ≈ 1.43-1.56 within the
+  drift time) replaces N_EPS. Its window is **unevaluated** (H-MAP not established for its field).
 
 | hypothesis | verdict | member-attributed removes | NOT-BOUND-IF / OPEN | geometry (credited to no hypothesis) | leaves |
 |---|---|---|---|---|---|
 | H-SETTLE-W, M's definition read per branch, alone | **LEAVES-ALL** (not retired: load-bearing in W2 × F1) | none. It supplies a channel under H-C2 that is undefined without a preferred slicing (`frame.drift_ordering`, given H-C2's rule), and that slicing is F1's substance | — | corridor O-LOOP | O-BITS, O-MAKE, O-HOLD, O-MATTER |
 | H-SETTLE-W read on the reduced state (C1), alone | LEAVES-ALL | none (2.2e-16) | — | corridor O-LOOP | O-BITS, O-MAKE, O-HOLD, O-MATTER |
-| H-SETTLE-KR (causal field-expectation form), alone | OPEN | none | **O-HOLD OPEN** via ε_G (KR p.13, speculation in the source) | corridor O-LOOP | O-BITS, O-MAKE, O-MATTER |
+| H-SETTLE-KR (causal field-expectation form), alone | OPEN | none (H-KR-TS, wave 4: KR fails Tomonaga-Schwinger integrability, 2511.15935v1 p.4 READ; no signal shown, so O-BITS stays left) | **O-HOLD OPEN** via ε_G (KR p.13, speculation in the source) | corridor O-LOOP | O-BITS, O-MAKE, O-MATTER |
 | Collapse-type stochastic drift | LEAVES-ALL | none (control: no signal) | — | corridor O-LOOP | O-BITS, O-MAKE, O-HOLD, O-MATTER |
 | H-12 alone, linear QM | LEAVES-ALL | none (fields12.py: 1.44e-15) | — | corridor O-LOOP | O-BITS, O-MAKE, O-HOLD, O-MATTER |
-| **H-SETTLE-W × H-FRAME (clause 1)**: both load-bearing (W2 supplies the channel; F1 the slicing and the signal keying) | **PARTIAL** | **O-BITS REMOVED-IF R_W2**, window W_W2; ε_any(1 ly, N = 7) = 3.64e-8 /s, a floor; **signal O-LOOP REMOVED-IF {N_SIGKEY}** under H-SIG-COR | — | corridor O-LOOP | O-MAKE, O-HOLD, O-MATTER |
+| **H-SETTLE-W × H-FRAME (clause 1)**: both load-bearing (W2 supplies the channel; F1 the slicing and the signal keying) | **PARTIAL** | **O-BITS REMOVED-IF R_W2** (window W_W2; ε_any(1 ly, N = 7) = 3.64e-8 /s, a floor) **or REMOVED-IF R_W2′** (zero-error; window unevaluated); **signal O-LOOP REMOVED-IF {N_SIGKEY}** under H-SIG-COR | — | corridor O-LOOP | O-MAKE, O-HOLD, O-MATTER |
 | H-SETTLE-W × H-12 under H-TRANSFER | adds nothing (to W2 alone or to W2 × F1) | as without H-12 | — | corridor O-LOOP | as without H-12 |
-| H-SETTLE-W × H-FRAME × H-12 under H-12-CARRIER + H-12-W | PARTIAL; H-12 load-bearing **on the window only** | O-BITS REMOVED-IF R_W2, with H-12-CARRIER + H-12-W replacing H-TRANSFER in the window: 2 more of 9 cells (**1 AU, N = 7 and N = 1000**; at 1 AU, N = 1e6 H-12 adds nothing) | — | corridor O-LOOP | O-MAKE, **O-HOLD LEFT** (H-12-W is Weinberg form), O-MATTER |
-| H-SETTLE-KR × H-12, with G as the carrier | OPEN | none (KR is causal: O-BITS untouched) | **O-HOLD OPEN via G** (ε_G unconstrained; KR p.14) | corridor O-LOOP | O-BITS, O-MAKE, O-MATTER |
+| H-SETTLE-W × H-FRAME × H-12 under H-12-CARRIER + H-12-W | PARTIAL; H-12 load-bearing **on the window only** | O-BITS REMOVED-IF R_W2, with H-12-CARRIER + H-12-W replacing H-TRANSFER in the window: 2 more of 9 cells (**1 AU, N = 7 and N = 1000**; at 1 AU, N = 1e6 H-12 adds nothing). Wave 4: without H-12 those two cells are LEFT-IF W_W2, hence **OPEN** (W_W2 holds the unread Majumder value) | — | corridor O-LOOP | O-MAKE, **O-HOLD LEFT** (H-12-W is Weinberg form), O-MATTER |
+| H-SETTLE-KR × H-12, with G as the carrier | **adds nothing to H-SETTLE-KR alone** (wave 4) | none (KR is causal: O-BITS untouched) | O-HOLD OPEN via ε_G -- **H-SETTLE-KR's alone**; naming G adds no premise the pathway uses | corridor O-LOOP | O-BITS, O-MAKE, O-MATTER |
 | any row above × H-IT read as ITB, under N_QTOPO | as the row | as the row | corridor O-LOOP **NOT-BOUND-IF {N_QTOPO}**; premise clash {N_QTOPO, N_CORR} | does not bind an ITB corridor | signal loops unchanged |
+
+*Wave 3 first said* (kept as history): "H-SETTLE-KR × H-12, with G as the carrier | OPEN | ... | **O-HOLD OPEN via G**",
+crediting KR alone's pathway to the pair (V2-0 problem 2); W2 × F1's O-BITS with the single support R_W2 (V2-1
+problem 2); and the 1 AU, N ≤ 1e3 cells without H-12 as settled LEFT (V2-1 problem 3).
 
 *Wave 2 first said* (kept as history; the table above supersedes it):
 - H-SETTLE-W alone: PARTIAL, "O-BITS REMOVED-IF {N_EPS (ε > ε_any(L, N)), H-C2, H-FRAME3b (a preferred slicing,
@@ -442,12 +480,12 @@ READ means read at source through alphaXiv.
 | 2010.06620v2 | READ, pp.1–4 | |
 | 1009.5514v1 | READ, pp.1, 71–79 | |
 | 2001.11966v1 | READ, pp.1–6 | |
-| 2511.15935v1 (Hsu) | READ, pp.1–3, 5 (wave 3) | a Weinberg-type term is foliation-independent only under microcausality, which "cannot be consistently maintained" under state-dependent evolution (p.2): corroborates H-FRAME3b ⇐ F1; carries no 1989-90 bound values |
+| 2511.15935v1 (Hsu) | READ, pp.1–3, 5 (wave 3); p.4 (wave 4) | a Weinberg-type term is foliation-independent only under microcausality, which "cannot be consistently maintained" under state-dependent evolution (p.2): corroborates H-FRAME3b ⇐ F1; carries no 1989-90 bound values. p.4: the KR model "does not satisfy the TS conditions"; the integrability condition "fails for generic states even though the KR model enforces retarded (causal) dependence" (H-KR-TS; no signal shown) |
 | 2509.04320v1 (Chodos & Cooper) | READ, pp.1–2, 12, 16 (wave 3) | searched for the 1989-90 bound values; none present |
 | Weinberg 1989 | READ-VIA-RESTATEMENT | qualitative structure only |
 | Gisin 1989, 1990; Polchinski 1991; Simon–Bužek–Gisin 2001 | READ-VIA-RESTATEMENT | |
 | Bollinger 1989; Chupp & Hoare 1990; Walsworth 1990; Majumder 1990 | NAMED-NOT-READ | PRLs that predate arXiv; no READ arXiv restatement carries the numbers (searched again in wave 3) |
 | Shannon 1956 (zero-error capacity) | NAMED-NOT-READ | the zero-error step is DERIVED in `zero_error_words` (two words are confusable iff every coordinate pair is equal or confusable) |
 
-No host refused (no 403). The D67 audit `fermion-mass-constancy` named 2010.06620 and 1009.5514 "for a future read"; the
+No host refused (no 403), in wave 4 either. The D67 audit `fermion-mass-constancy` named 2010.06620 and 1009.5514 "for a future read"; the
 pages cited here are now READ. That note is for the board; nothing outside docket68/ was edited.

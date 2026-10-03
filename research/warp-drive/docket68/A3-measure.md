@@ -1,9 +1,12 @@
 # DOCKET 68 · A3-measure: Q-1 (the substrate-free measure), H-INFO and R-INDEX
 
 **Status: a docket work item. Nothing here is seated.** The instrument is `measure.py`, which sits beside this file.
-`python3 measure.py --selftest` runs 85 checks, and all 85 pass in about 27 s. Nineteen of them are **controls**: cases
-built to fail, and every one of them fails. Six more are printed **STRUCTURAL**: they cannot fail by construction
-(a literal, or a comparison of typed values), so they are not counted as controls and are not cited as evidence.
+`python3 measure.py --selftest` runs 86 checks. Thirteen are printed **STRUCTURAL**: they cannot fail by construction
+(a literal, a comparison of typed values, or two runs of one expression), so they are **not counted** and are not cited
+as evidence. **The 73 counted checks all pass** (about 30 s); nineteen of them are **controls**: cases built to fail,
+and every one of them fails. *Wave 4 first-said record:* the summary printed "85/85 pass" with six STRUCTURAL inside
+the 85; wave 4 relabels six checks of § (vii) STRUCTURAL (V2-0 problem 5), adds one STRUCTURAL guard for the
+symmetric rule, and prints the counted total.
 *Wave 1 first said* "58 checks ... Sixteen of the checks are controls", and four of those sixteen were structural.
 *Wave 3 first said* "65 checks ... Fifteen ... controls ... Five ... STRUCTURAL"; the Q-1s integration (§ (vii)) added
 20 checks, 4 controls and 1 structural.
@@ -22,10 +25,23 @@ It writes nothing outside `docket68/`.
   LEAVES-ALL.
 - **H-SETTLE × H-INFO adds nothing to H-SETTLE-W.** The drift's O-BITS removal is H-SETTLE-W × H-FRAME's (A1, A2).
 - H-INFO-S is a **CLASH** with B-RECV, and it stays M's to rule.
-- R-INDEX's NOT-BOUND-IF {H-IT, H-MEASURE-PHYSICAL} is in a column of its own, and so is the geometry's corridor O-LOOP
-  removal, which is credited to no hypothesis.
+- R-INDEX's NOT-BOUND-IF {H-IT, H-MEASURE-PHYSICAL} is in a column of its own -- on O-MAKE, O-HOLD **and (wave 4)
+  corridor O-LOOP** -- and so is the geometry's corridor O-LOOP removal, which is credited to no hypothesis.
 - **Q-1s is now in use (§ (vii)).** Q-1 takes signed cell weights under H-SIGNED-CELLS, and returns Shannon exactly
   when no weight is negative. **No grade moves**; each was re-examined, and the reason it does not move is recorded.
+
+## Wave 4 repair (R3-alone, 2026-10-03): the second pair of re-verifications
+
+V2-0 (AGAINST M) and V2-1 (FOR M), `wave1/REPAIR2-Q1S-RESULT.json` key `result.verify`. Earlier forms are kept,
+marked *wave 3 first said* or *Q1s-integrate first said*.
+
+| re-verification item | resolution |
+|---|---|
+| V2-0 unresolved 2 / V2-1 unresolved 1 and problem 4: the symmetric corridor rule (RV-1 #2) is applied in A1, A2, A4 but not to A3's R-INDEX, which writes O-LOOP "SILENT; corridors: geometry column" while granting O-MAKE and O-HOLD NOT-BOUND-IF {H-IT, H-MEASURE-PHYSICAL} | **Applied.** For a physical corridor under R-INDEX: **O-LOOP-C NOT-BOUND-IF {H-IT, H-MEASURE-PHYSICAL}**. The loop theorems (the exact-FRW keying lemma, latticectc) are statements about Lorentzian quotients, so the reason that unbinds the NEC and Geroch unbinds them too: one reason, one verdict. It is not a removal, and the conclusion is not shown false. It sits beside the geometry's REMOVED-IF {H-FRW-EXACT, H-NOT-DE-SITTER, H-CORRIDOR-MODEL} in the other account, with the premise clash **{N_MEASPHYS, N_CORR}** as combine already encodes it (z3: O-LOOP-C NOT-BOUND-IF {ITB, RI; N_MEASPHYS}). Signal loops are unchanged. Within the measure O-LOOP stays SILENT. Carried in § (iv), § (vii)'s table, `measure.GRADES`, `Q1S_GRADE_REVIEW` and `A3-measure.json`. **For combine's stage:** `combine.EXPLAINED[("A3-measure", "ITB+RI", "O-LOOP")]` now names a disagreement that no longer exists, so combine's "no stale whitelist entry" check will report it until that stage removes the entry; this stage does not edit `combine.py`. |
+| V2-0 problem 1: Kontsevich's appendix (math/0008089v1 pp.43-44) already claims the unique continuous solution on all of R; prior art list too narrow | **READ at source this pass, and applied** (Q1s-signed.md § 4c). Uniqueness of Re H under signed-weight recursivity (Kontsevich's (A), (B), symmetry, continuity on R) is **CLAIMED-IN-LITERATURE**, as a cohomological sketch; under BFL's convex-linear axioms it is derived here for separable functionals and OPEN otherwise. § (vii) and `Q1S_GRADE_REVIEW` say so. |
+| V2-1 problem 5: the lawful-family result is confined to a 12-functional dictionary; the separable extension was sketched but not done | **Done in `signed.py` § (4b)**, every step shown, the algebraic steps machine-checked by z3 with vacuity and encoding guards, the solution identity by sympy. Over every continuous separable functional the lawful family is span{Re H, N}. **H-INFO clause (a) on signed weights moves from OPEN to SUPPORTED-IF {H-SEPARABLE, BFL's codomain dropped, product additivity}**, and is impossible inside H-SEPARABLE if the codomain is kept; OPEN over non-separable functionals. No obstruction grade moves; one clause status does. |
+| V2-0 problem 5: § (vii)'s recovery checks counted as passes and cited as evidence ("recovered exactly"), though none can fail | **Applied.** Five checks (SHANNON routing, Re H == H, M == 0, signed loss == F_shannon, uniform Λ == log₂976) and the n = 1 check are printed STRUCTURAL and not counted. **That Re H = H on non-negative p is definitional** (the same float expression). The checks that carry content are boundary continuity, the clip-and-renormalise control, the H-NORM refusal and the closed-form agreement. 73 counted, 13 STRUCTURAL. |
+| V2-0 unresolved 3 / V2-1 unresolved 4: N_MEASPHYS has no READ source | **Answered: OPEN by design, unchanged.** It is named in every R-INDEX non-binding, never cited as evidence. |
 
 ## Q-1s integration (2026-10-03): what changed, and why
 
@@ -34,8 +50,8 @@ pass puts it to use in Q-1. What was added to `measure.py`, all of it in section
 
 | added | what it does | what checks it |
 |---|---|---|
-| `q1(p)` | Q-1 on a cell weighting. If no weight is negative, the case is **SHANNON** and the value is H(p), with the signed quantities alongside. If some weight is negative, the case is **SIGNED**: (Re H, Im H = πN, N, M) from `signed.py`, under H-SIGNED-CELLS, and no Shannon value is offered. A total other than 1 is refused (H-NORM). | Shannon is recovered **exactly** on 301 vectors with no negative weight: Re H equals H bit for bit, Im H = 0, N = 0, \|M\| ≤ 1.1e-14 nats. Two controls: a weighting with one negative entry is routed SIGNED and differs from the clip-and-renormalise value; a total of 2 is refused. |
-| `signed_loss` | Re H(p) − Re H(f₊p), the signed analogue of the BFL loss | equal to `F_shannon` bit for bit on 300 random FinProb morphisms. Control: it leaves Theorem 2's codomain [0, ∞) on signed morphisms. |
+| `q1(p)` | Q-1 on a cell weighting. If no weight is negative, the case is **SHANNON** and the value is H(p), with the signed quantities alongside. If some weight is negative, the case is **SIGNED**: (Re H, Im H = πN, N, M) from `signed.py`, under H-SIGNED-CELLS, and no Shannon value is offered. A total other than 1 is refused (H-NORM). | On 301 vectors with no negative weight Re H equals H bit for bit, Im H = 0, N = 0, \|M\| ≤ 1.1e-14 nats -- **definitional, printed STRUCTURAL in wave 4** (*Q1s-integrate first said* "recovered **exactly**" as a result). Two controls carry the content: a weighting with one negative entry is routed SIGNED and differs from the clip-and-renormalise value; a total of 2 is refused. |
+| `signed_loss` | Re H(p) − Re H(f₊p), the signed analogue of the BFL loss | equal to `F_shannon` bit for bit on 300 random FinProb morphisms (STRUCTURAL in wave 4: the same expression). Control: it leaves Theorem 2's codomain [0, ∞) on signed morphisms. |
 | `boundary_continuity` | a weight crossing zero from below | the signed case joins the Shannon case: the Re H gap falls 4.9e-2 → 2.3e-9 over e = 1e-2 … 1e-10, and Im H and M → 0 |
 | `holder_ceiling` | whether Re H keeps Shannon's ceiling ln n | computed on `signed.py`'s extremal vectors, each evaluated by `q1` |
 | `rindex_signed` | R-INDEX on Λ with signed cell weights (H-MOBIUS-WEIGHT, `signed.lambda_mobius`) | reproduces Q1s-build's recorded figures; control: a full box gives a one-point weight, case SHANNON |
@@ -231,13 +247,16 @@ N, M = ln Σ|p|) on the principal branch (H-PRINCIPAL). *Which* signed weighting
 it is `signed.py`'s H-MOBIUS-WEIGHT. **Λ itself carries no negative probability.** A signed weighting is a
 decomposition of Λ, not a measurement of it.
 
-**Control: the ordinary case is recovered exactly.** When no weight is negative, `q1` reports case SHANNON. On 301
-vectors (random, some with exact zeros, and the uniform measure on Λ) the signed path gives Re H equal to this
-file's H **bit for bit**, Im H = 0 and N = 0. M is zero up to the rounding of Σp (at most 1.1e-14 nats). The signed
-loss equals `F_shannon` bit for bit on 300 random FinProb morphisms. A weight crossing zero from below joins the
-Shannon case continuously. These checks can fail: a weighting with one negative entry, (0.5, 0.6, −0.1), is routed
-SIGNED with Im H > 0 and M > 0, and its Re H (0.422810 nats) differs from the clip-and-renormalise Shannon value
-(0.918428 nats), which is what a dispatcher that ignored the sign would have returned.
+**The ordinary case: definitional, not a result (wave 4).** When no weight is negative, `q1` reports case SHANNON,
+and on p ≥ 0 Re H **is** H: `signed.re_h` runs the same float expression as this file's H, Im H is π times an empty
+sum and N is 0. So "Re H equals H bit for bit on 301 vectors", "M = 0 up to the rounding of Σp" and "the signed loss
+equals `F_shannon` bit for bit on 300 morphisms" cannot fail, and are printed STRUCTURAL and not counted. *Q1s-integrate
+first said* "Control: the ordinary case is recovered exactly ... These checks can fail" (V2-0 problem 5). **What can
+fail, and carries the content:** a weight crossing zero from below joins the Shannon case continuously (the Re H gap
+falls 4.9e-2 → 2.3e-9); a weighting with one negative entry, (0.5, 0.6, −0.1), is routed SIGNED with Im H > 0 and M > 0,
+and its Re H (0.422810 nats) differs from the clip-and-renormalise Shannon value (0.918428 nats), which is what a
+dispatcher that ignored the sign would have returned; a total of 2 is refused (H-NORM); and the extremal vectors
+evaluated by `q1` agree with `signed.reh_bounds`' closed form.
 
 **On Λ (COMPUTED).**
 
@@ -254,9 +273,18 @@ The figures match Q1s-build's (N = 158, Re H = 0, M = 8.308 bits; Re H = −3.03
 **What does not carry from § (i). It is computed, not asserted.**
 - **Theorem 2's codomain fails.** Crushing (1.5, −0.5) to a point has signed loss **−0.954771 nats**. Merging
   (1.6, −0.3, −0.3) to (1.6, −0.6) has loss −0.6 ln 2 = −0.415888 nats, with N unchanged. A measure-preserving map can
-  *raise* Re H, so Q-1's uniqueness (Theorem 2) is **not inherited** by signed weights (H-FINSIGNED). Within a
-  12-functional dictionary the lawful family is span{Re H, N} (Q1s-signed.md § 4, H-DICTIONARY). Over all continuous
-  functionals, uniqueness is **OPEN**.
+  *raise* Re H, so Q-1's uniqueness (Theorem 2) is **not inherited** by signed weights (H-FINSIGNED). What replaces it
+  (Q1s-signed.md § 4, 4b, 4c; wave 4):
+  - **over every continuous separable functional** X = Σ g(p_i) (H-SEPARABLE), BFL's functoriality, convex linearity
+    and continuity force **X = c Re H + b N** (derived step by step; the algebraic steps machine-checked by z3, the
+    solution identity by sympy). Product additivity then leaves **Re H alone**; keeping BFL's codomain leaves only
+    b N (b ≥ 0), which vanishes on probabilities;
+  - **under signed-weight recursivity** (Kontsevich's (A), (B), symmetry, continuity on all of R) the uniqueness of
+    Re H on two entries is **CLAIMED-IN-LITERATURE**: math/0008089v1 p.43, READ, a cohomological sketch;
+  - **over non-separable functionals under BFL's axioms, uniqueness is OPEN**: convex linearity does not reach a
+    signed atom such as (1.5, −0.5), and about half of random three-entry signed measures are such atoms.
+  *Wave 3 first said* "Within a 12-functional dictionary the lawful family is span{Re H, N} ... Over all continuous
+  functionals, uniqueness is **OPEN**."
 - **Re H has no ceiling ln n.** These values come from `signed.py`'s extremal vectors, each evaluated by `q1` and
   agreeing with the closed form to 1e-9:
   - **n = 1:** the only weighting with total 1 is (1), so Re H = 0 = φ(1), signed or not.
@@ -272,10 +300,10 @@ The figures match Q1s-build's (N = 158, Re H = 0, M = 8.308 bits; Re H = −3.03
 
 | grade | verdict | why it does not move |
 |---|---|---|
-| Q-1 | LEAVES-ALL | The signed measure counts, as Q-1 does. It sends no bit, holds no throat, forms no matter, closes no loop. Only its scope changes: Theorem 2's uniqueness covers the SHANNON case only. |
-| H-INFO | LEAVES-ALL | Clause (a) was already scoped to probability measures (BFL's hypotheses, READ pp.3-4). For signed weights a substrate-free candidate exists, but it is not BFL-unique. So clause (a) is **SUPPORTED for probability weights and OPEN for signed ones**. Clause (b) is untouched: Re H gives no lower bound per unit matter either. |
+| Q-1 | LEAVES-ALL | The signed measure counts, as Q-1 does. It sends no bit, holds no throat, forms no matter, closes no loop. Only its scope changes: Theorem 2's uniqueness covers the SHANNON case only; for signed weights uniqueness holds over separable functionals (Re H with product additivity), is CLAIMED-IN-LITERATURE under signed recursivity (Kontsevich), and is OPEN otherwise. |
+| H-INFO | LEAVES-ALL | Clause (a) was already scoped to probability measures (BFL's hypotheses, READ pp.3-4). For signed weights (wave 4): **SUPPORTED-IF {H-SEPARABLE, BFL's codomain dropped, product additivity}** -- Re H is then the unique measure, and those hypotheses name only finite sets, signed measures and functions; **impossible** inside H-SEPARABLE (and inside H-DICTIONARY) if the codomain is kept; OPEN over non-separable functionals. *Wave 3 first said* "SUPPORTED for probability weights and OPEN for signed ones". One clause status moves; the verdict does not. Clause (b) is untouched: Re H gives no lower bound per unit matter either. |
 | H-INFO-S | CLASH | φ(1) = 0 survives signed weights (n = 1 above). The 2^I leg is Shannon's (n = 3 above), and Re H's meaning is OPEN. The clash stays M's to rule. |
-| R-INDEX | LEAVES-ALL | Its values are (Re H, Im H, N, M). None is an energy density: a negative weight is not a negative T_ab k^a k^b. So O-HOLD stays SILENT within the measure, and NOT-BOUND-IF {H-IT, H-MEASURE-PHYSICAL} for a corridor. To read a negative weight as the throat's null deficit (one reading of M's "supplied by probability in the citation/seating") is **H-NEGWEIGHT-NEC**: named, with no instrument and no source, and not credited. O-BITS: a signed weighting sends nothing. O-MATTER: unchanged. O-LOOP: SILENT. |
+| R-INDEX | LEAVES-ALL | Its values are (Re H, Im H, N, M). None is an energy density: a negative weight is not a negative T_ab k^a k^b. So O-HOLD stays SILENT within the measure, and NOT-BOUND-IF {H-IT, H-MEASURE-PHYSICAL} for a corridor. To read a negative weight as the throat's null deficit (one reading of M's "supplied by probability in the citation/seating") is **H-NEGWEIGHT-NEC**: named, with no instrument and no source, and not credited. O-BITS: a signed weighting sends nothing. O-MATTER: unchanged. O-LOOP: SILENT within the measure; for a physical corridor O-LOOP-C NOT-BOUND-IF {H-IT, H-MEASURE-PHYSICAL}, as O-MAKE and O-HOLD (wave 4; *wave 3 first said* "O-LOOP: SILENT"). |
 | H-SETTLE × H-INFO | LEAVES-ALL | Its χ is a Holevo quantity of density matrices, whose spectra are non-negative. No signed weight enters it. |
 
 ## (iv) Grades
@@ -363,10 +391,17 @@ manifold, so neither Morris-Thorne's NEC nor Geroch's theorem can even be stated
   without a sent system.
 - **R-INDEX leaves O-MATTER.** A holder with at least 2^I distinguishable states must be at the destination, and
   Bekenstein's E counts its rest energy (pp.2, 8).
-- **R-INDEX leaves O-LOOP.** The measure has no time coordinate, so it is silent on loops and decides nothing about
-  them. In the geometry column, credited to no hypothesis: for a physical corridor in exact FRW it is REMOVED-IF
-  {H-FRW-EXACT, H-NOT-DE-SITTER, H-CORRIDOR-MODEL}. Combined with H-IT read as ITB under N_QTOPO it is NOT-BOUND-IF
-  {N_QTOPO}, and {N_QTOPO, N_CORR} is a premise clash.
+- **O-LOOP is SILENT within the measure; for a physical corridor, O-LOOP-C is NOT-BOUND-IF {H-IT,
+  H-MEASURE-PHYSICAL}** (wave 4, the symmetric rule). The measure has no time coordinate, so it is silent on loops. The
+  corridor loop theorems -- the exact-FRW keying lemma and latticectc's theorem -- are statements about Lorentzian
+  quotients, so the same reason that unbinds the NEC and Geroch for an R-INDEX corridor unbinds them: one reason, one
+  verdict. Not a removal; the conclusion is not shown false. Signal loops are unchanged. In the other account,
+  credited to no hypothesis: for a physical corridor in exact FRW it is REMOVED-IF {H-FRW-EXACT, H-NOT-DE-SITTER,
+  H-CORRIDOR-MODEL}; the two accounts rest on clashing premises, **{N_MEASPHYS, N_CORR}** (combine's z3: O-LOOP-C
+  NOT-BOUND-IF {ITB, RI; N_MEASPHYS}). Combined with H-IT read as ITB under N_QTOPO it is NOT-BOUND-IF {N_QTOPO}, and
+  {N_QTOPO, N_CORR} is a premise clash.
+  - *Wave 3 first said* "**R-INDEX leaves O-LOOP.** The measure has no time coordinate, so it is silent on loops and
+    decides nothing about them", granting O-MAKE and O-HOLD the non-binding but not O-LOOP (V2-0 / V2-1).
 
 ## Combinations, per the standing instruction
 
@@ -376,7 +411,9 @@ imported, Bob's two ensembles carry the Holevo information in the table below. T
 counted in Q-1's unit. H-INFO changes nothing in it, so H-INFO is not load-bearing and this is not a complementary
 pair.
 - The drift's O-BITS removal needs a preferred slicing (H-FRAME3b ⇐ F1). It is therefore H-SETTLE-W × H-FRAME's
-  (A1 §5, A2): REMOVED-IF {N_EPS, H-C2, H-FRAME3b ⇐ F1, H-COHERE, H-NLCONTROL-FORM, H-BORN-AT-BOB, H-BLOCK}.
+  (A1 §5, A2), with two supports (wave 4): REMOVED-IF {N_EPS, H-C2, H-FRAME3b ⇐ F1, H-COHERE, H-NLCONTROL-FORM,
+  H-BORN-AT-BOB, H-BLOCK}, or REMOVED-IF {H-C2, H-FRAME3b ⇐ F1, H-COHERE, H-BORN-AT-BOB, H-EXTEND, H-FIELD-W2} (A1's
+  zero-error ancilla member; window unevaluated). *Wave 3 first said* the first support only (V2-1 problem 2).
 - The window premises {H-MAP, H-TRANSFER, H-SPIN} are separate.
 - *Wave 2 first said* "complementary obstructions, and computed. Verdict PARTIAL: O-BITS REMOVED-IF {N_EPS, H-C2,
   H-BORN-AT-BOB, H-FRAME3b}" (RV-0 #6).
@@ -441,11 +478,14 @@ obstructions.
 - **H-THERMO's datum is not read at source.** The entropy of water, 69.95 J/(mol·K), was not read, so that row is
   conditional on it.
 - **H-RHO is a round assumption.**
-- **The O-LOOP grade is "silent".** It is not a decision; `frame.py` (A2) owns it. In wave 2, O-HOLD and O-MAKE take
-  the same word within the measure.
+- **The O-LOOP grade is "silent" within the measure.** It is not a decision; `frame.py` (A2) owns it. In wave 2,
+  O-HOLD and O-MAKE take the same word within the measure; in wave 4, corridor O-LOOP takes the same NOT-BOUND-IF as
+  they do for a physical corridor.
 - **H-INFO-S's clash is not z3-screened here.** It is graded from computed facts (φ(1) = 0, Bekenstein at E = 0,
   `transit.CARRIES_SUBSTANCE`); the screen is combine's.
-- **Q-1s: what stays OPEN.** Uniqueness of a signed measure over all continuous functionals. The operational meaning
+- **Q-1s: what stays OPEN.** Uniqueness of a signed measure over all continuous NON-separable functionals under BFL's
+  axioms (*wave 3 first said* "over all continuous functionals"; the separable case is now derived, and the
+  recursive case is claimed by Kontsevich). The operational meaning
   of Re H when some weight is negative. Which signed weighting of Λ, if any, The Method means (H-MOBIUS-WEIGHT is one
   choice among many). H-NEGWEIGHT-NEC has no source. None of `signed.py`'s literature was re-read in this pass; it is
   cited as Q1s-build READ it (Q1s-signed.md § 6).

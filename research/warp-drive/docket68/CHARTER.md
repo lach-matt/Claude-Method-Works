@@ -333,3 +333,12 @@ computation, before anything is claimed (the lead's derivation in conversation, 
   NAMED-NOT-READ until read at source, as are 'mana' and the Wigner-negativity literature.
 Implementation: in Q-1 (measure.py), R-INDEX and any index carrying signed weights. If it proves useful: instructions
 for a separate session to write a professional paper on the complex and negative entropy findings.
+
+**Correction note (2026-10-03, wave-4 repair R3-alone; discrepancy D1 of Q1s-signed.md).** Added below M's verbatim
+text and the Q-1s bullets above; nothing above this note was changed. The bullet "the other branches add 2 pi i k per
+negative entry" states the shift of the **logarithm**, not of H. Putting entry i on branch k_i (Log_k z = ln|z| +
+i(arg z + 2 pi k)) shifts **H** by **-2 pi i k_i p_i**: for a negative entry that is +2 pi i k_i |p_i| (for
+p = (1.5, -0.5), k = 1 on the negative entry moves Im H by +pi, not 2 pi); positive entries have branches too
+(-2 pi k_i p_i each); and a uniform k on every entry shifts H by exactly -2 pi i k, because sum p = 1. Re H is
+branch-free. This is elementary and is computed in `signed.py` (selftest, section (1)); see Q1s-signed.md section 1 and
+"Discrepancies and history", D1.

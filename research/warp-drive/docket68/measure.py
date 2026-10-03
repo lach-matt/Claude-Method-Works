@@ -42,7 +42,8 @@ WHAT IT DOES
   (iv)  Grades H-INFO, R-INDEX and Q-1 per obstruction (O-BITS, O-MAKE, O-HOLD, O-MATTER, O-LOOP).
   (vii) Q-1s in use (CHARTER work item Q-1s; M, 2026-10-03: "Let's create the instrument and implement its use").
         signed.py (Q1s-signed.md) is IMPORTED, never copied.  q1(p) is Q-1 on a cell weighting: no negative weight ->
-        Shannon, BFL's case, with the signed quantities recovered exactly (Re H == H bit for bit, Im H = 0, N = 0);
+        Shannon, BFL's case, with the signed quantities equal to it (Re H == H bit for bit, Im H = 0, N = 0 -- which is
+        DEFINITIONAL: the same expression on p >= 0; wave 4 prints those checks STRUCTURAL);
         some negative weight -> the signed measure (Re H, Im H, N, M) on the principal branch, under H-SIGNED-CELLS.
         R-INDEX is evaluated with signed cell weights on Lambda under H-MOBIUS-WEIGHT (signed.lambda_mobius).  What
         does NOT carry from (i) is computed, not asserted: the signed loss Re H(p) - Re H(q) leaves BFL's codomain
@@ -111,6 +112,12 @@ geometry, to no hypothesis.
 Q-1s INTEGRATION (2026-10-03, after Q1s-build).  No grade moves: the signed measure counts, as Q-1 does, and none of
 its values is an energy, a metric or a channel.  Each grade was re-examined (Q1S_GRADE_REVIEW) and the reason it does
 not move is recorded there.
+
+WAVE 4 (R3-alone, 2026-10-03; re-verifications V2-0 AGAINST M, V2-1 FOR M).  Six checks in (vii) that cannot fail
+(SHANNON routing, Re H == H, M == 0, signed loss == F_shannon, uniform Lambda == log2 976, n = 1) are printed
+STRUCTURAL and not counted; the summary line prints the counted total.  R-INDEX's O-LOOP carries the symmetric rule:
+for a physical corridor O-LOOP-C NOT-BOUND-IF {H-IT, H-MEASURE-PHYSICAL}, as O-MAKE and O-HOLD.  Q1S_GRADE_REVIEW's
+Q-1 and H-INFO texts carry signed.py's (4b): over separable functionals c Re H + b N; Kontsevich's claim READ.
 
 stdlib + numpy (eigenvalues) + sympy (one symbolic identity).
 """
@@ -781,12 +788,19 @@ def rindex_signed():
 Q1S_GRADE_REVIEW = {
     "Q-1": "NOT MOVED (LEAVES-ALL).  The signed measure counts as Q-1 does; q1 sends no bit, holds no throat, forms no "
            "matter, closes no loop.  What changes is scope: Theorem 2's uniqueness covers the SHANNON case only; on "
-           "signed weights the loss leaves [0, inf) (signed_codomain, computed) and uniqueness is OPEN (Q1s-signed.md "
-           "section 4: lawful family span{Re H, N} inside a 12-functional dictionary, H-DICTIONARY).",
+           "signed weights the loss leaves [0, inf) (signed_codomain, computed).  Uniqueness (Q1s-signed.md s.4, 4b): "
+           "over every continuous SEPARABLE functional (H-SEPARABLE) BFL's three structural axioms force c Re H + b N "
+           "(derived; algebraic steps z3-checked), and product additivity leaves Re H alone; with the codomain kept "
+           "only b N survives; under signed-weight recursivity Re H's uniqueness is CLAIMED-IN-LITERATURE (Kontsevich, "
+           "math/0008089v1 p.43, a sketch); over non-separable functionals under BFL's axioms it is OPEN.  Wave 3 first "
+           "said 'uniqueness is OPEN (span{Re H, N} inside a 12-functional dictionary)'.",
     "H-INFO": "NOT MOVED (LEAVES-ALL).  Clause (a) was already scoped to probability measures (BFL's hypotheses, READ "
-              "p.3-4); for signed weights a substrate-free candidate exists (Re H, with N and M; signed.py names only "
-              "finite sets and signed measures) but it is not BFL-unique, so clause (a) is SUPPORTED for probability "
-              "weights and OPEN for signed ones.  Clause (b) is untouched: Re H has no lower bound per unit matter "
+              "p.3-4).  For signed weights (wave 4, Q1s-signed.md s.4b): SUPPORTED-IF {H-SEPARABLE, BFL's codomain "
+              "dropped, product additivity} -- then Re H is the unique measure, and its hypotheses still name only "
+              "finite sets, signed measures and functions; IMPOSSIBLE inside H-SEPARABLE (and inside H-DICTIONARY) if "
+              "the codomain is kept, since only b N survives and it vanishes on probabilities; OPEN over non-separable "
+              "functionals.  Wave 3 first said 'SUPPORTED for probability weights and OPEN for signed ones'.  One clause "
+              "status moves; the verdict does not.  Clause (b) is untouched: Re H has no lower bound per unit matter "
               "either.",
     "H-INFO-S (sufficiency reading)": "NOT MOVED (CLASH).  phi(1) = 0 survives signed weights: one cell forces the "
               "weighting (1), Re H = 0, N = 0 (holder_ceiling n = 1).  The leg 'I bits need >= 2^I states' is "
@@ -799,7 +813,9 @@ Q1S_GRADE_REVIEW = {
                "density: a negative weight is not a negative T_ab k^a k^b, so O-HOLD stays SILENT within the measure "
                "and NOT-BOUND-IF {H-IT, H-MEASURE-PHYSICAL} for a corridor.  Reading a negative weight as the throat's "
                "null deficit is H-NEGWEIGHT-NEC: named, no instrument, no source, not credited.  O-BITS: a signed "
-               "weighting sends nothing.  O-MATTER: unchanged (holder_ceiling).  O-LOOP: SILENT.",
+               "weighting sends nothing.  O-MATTER: unchanged (holder_ceiling).  O-LOOP: SILENT within the measure; for "
+               "a physical corridor O-LOOP-C NOT-BOUND-IF {H-IT, H-MEASURE-PHYSICAL}, as O-MAKE and O-HOLD (wave 4: the "
+               "symmetric rule, RV-1 #2, now carried here; wave 3 first wrote 'O-LOOP: SILENT' only).",
     "H-SETTLE x H-INFO": "NOT MOVED (LEAVES-ALL).  The chi there is a Holevo quantity of density matrices (non-negative "
                          "spectra); no signed weight enters it.",
 }
@@ -872,9 +888,13 @@ GRADES = {
                           "H-MEASURE-PHYSICAL}; nothing here prices holding a corridor open",
                 "O-MATTER": "LEAVES (a holder with at least 2^I distinguishable states must be at the "
                             "destination; Bekenstein E counts its rest energy, READ p.2, p.8; its floor 33-379 J)",
-                "O-LOOP": "SILENT (the index has no time coordinate in the measure: not decided); for a physical "
-                          "corridor in exact FRW the geometry removes it, REMOVED-IF {H-FRW-EXACT, H-NOT-DE-SITTER, "
-                          "H-CORRIDOR-MODEL}, credited to no hypothesis"},
+                "O-LOOP": "SILENT within the measure (the index has no time coordinate: not decided); for a physical "
+                          "corridor the loop theorems (exact-FRW keying lemma, latticectc) NOT-BOUND-IF {H-IT, "
+                          "H-MEASURE-PHYSICAL} -- they are statements about Lorentzian quotients, so the reason that "
+                          "unbinds the NEC and Geroch unbinds them too (wave 4, symmetric rule RV-1 #2; V2-0/V2-1); not a "
+                          "removal, conclusion not shown false; it sits beside the geometry's REMOVED-IF {H-FRW-EXACT, "
+                          "H-NOT-DE-SITTER, H-CORRIDOR-MODEL} in the other account, premise clash {N_MEASPHYS, N_CORR}; "
+                          "signal loops unchanged.  Wave 3 first said 'SILENT; ... the geometry removes it'"},
     },
     "H-SETTLE x H-INFO": {
         "verdict": "LEAVES-ALL",
@@ -1146,16 +1166,21 @@ def selftest():
 
     print("\n(vii) Q-1s in use: signed cell weights (signed.py imported)")
     sr = shannon_recovery(rng)
+    # Wave 4 (V2-0 problem 5): the five checks below cannot fail.  q1 routes min(p) >= 0 to SHANNON by its own test;
+    # for p >= 0 signed.re_h runs the same float expression as H (abs(x) = x), im_h is pi * (-sum of an empty list),
+    # neg is 0, M = ln(sum p) at the rounding of sum p, and signed_loss is re_h(p) - re_h(push) = F_shannon by the same
+    # identity.  That Re H = H on non-negative p is DEFINITIONAL.  They are printed STRUCTURAL and not counted.
     chk("no weight negative -> case SHANNON on every vector (random, with exact zeros, uniform on Lambda)",
-        sr["cases"] == ["SHANNON"], f"{sr['vectors']} vectors, cases {sr['cases']}")
+        sr["cases"] == ["SHANNON"], f"{sr['vectors']} vectors, cases {sr['cases']}", structural=True)
     chk("Shannon recovered EXACTLY: Re H == H bit for bit, Im H == 0, N == 0 on every one (signed.re_h vs this file's H)",
-        sr["value_mismatches"] == 0, f"mismatches {sr['value_mismatches']}")
+        sr["value_mismatches"] == 0, f"mismatches {sr['value_mismatches']} (definitional: the same expression)",
+        structural=True)
     chk("M = ln sum|p| is 0 up to the rounding of sum p when no weight is negative", sr["worst_abs_M_nats"] < 1e-13,
-        f"max |M| {sr['worst_abs_M_nats']:.1e} nats")
+        f"max |M| {sr['worst_abs_M_nats']:.1e} nats", structural=True)
     chk("signed loss == F_shannon bit for bit on 300 random FinProb morphisms (Theorem 2's loss recovered)",
-        sr["loss_mismatches"] == 0, f"mismatches {sr['loss_mismatches']}")
+        sr["loss_mismatches"] == 0, f"mismatches {sr['loss_mismatches']}", structural=True)
     chk("uniform Lambda through q1 = method_bits' log2 976", abs(sr["uniform_lambda_bits"] - m["bits_per_cell"]) < 1e-12,
-        f"{sr['uniform_lambda_bits']:.9f}")
+        f"{sr['uniform_lambda_bits']:.9f}", structural=True)
     base, rows = boundary_continuity()
     chk("a weight crossing 0 from below joins the Shannon case: Re H -> H, Im H -> 0, M -> 0 (gaps fall with e)",
         all(r["case"] == "SIGNED" for r in rows) and rows[-1]["re_gap"] < 1e-8 and rows[-1]["im"] < 1e-9
@@ -1177,7 +1202,7 @@ def selftest():
     r3 = {r["N"]: r for r in hc["rows"] if r["n"] == 3}
     r2 = [r for r in hc["rows"] if r["n"] == 2]
     chk("n = 1: the only total-1 weighting is (1) -> Re H = 0 = phi(1), case SHANNON", hc["n1"]["case"] == "SHANNON"
-        and hc["n1"]["re_h_nats"] == 0 and hc["n1"]["N"] == 0)
+        and hc["n1"]["re_h_nats"] == 0 and hc["n1"]["N"] == 0, "-1 ln 1 = 0 exactly (wave 4 relabel)", structural=True)
     chk("n = 2: Re H < 0 at every tested N (max of the range, evaluated on the extremal vector)",
         all(r["max_re_h_nats"] < 0 for r in r2), f"{[round(r['max_re_h_nats'], 4) for r in r2]}")
     chk("n = 3: Re H of the extremal (P/2, P/2, -N) exceeds ln 3 at N = 10 and grows with N (no ceiling ln n)",
@@ -1205,6 +1230,10 @@ def selftest():
         set(Q1S_GRADE_REVIEW) == set(GRADES) and all(Q1S_GRADE_REVIEW[k].startswith(f"NOT MOVED ({GRADES[k]['verdict']})")
                                                         for k in GRADES), "", structural=True)
 
+    rg = GRADES["R-INDEX"]["per"]
+    chk("symmetric rule (RV-1 #2, wave 4): R-INDEX's O-MAKE, O-HOLD and O-LOOP all carry NOT-BOUND-IF {H-IT, "
+        "H-MEASURE-PHYSICAL} for a physical corridor", all("NOT-BOUND-IF {H-IT" in rg[o] and "H-MEASURE-PHYSICAL}" in rg[o]
+                                                          for o in ("O-MAKE", "O-HOLD", "O-LOOP")), "", structural=True)
     print("\n(iv) grades")
     chk("grades well-formed and internally consistent (LEAVES-ALL has no removal; SILENT/NOT-BOUND-IF are not removals)",
         grades_consistent())
@@ -1213,7 +1242,10 @@ def selftest():
     bad = [n for n, ok, _, _ in results if not ok]
     nctl = sum(1 for _, _, c, _ in results if c)
     nst = sum(1 for _, _, _, st in results if st)
-    print(f"\n{len(results) - len(bad)}/{len(results)} pass ({nctl} controls; {nst} structural checks, not counted as controls)")
+    ncount = len(results) - nst
+    nbad_counted = sum(1 for n, ok, _, st in results if not ok and not st)
+    print(f"\n{ncount - nbad_counted}/{ncount} counted checks pass ({nctl} of them controls); {nst} STRUCTURAL printed, "
+          f"not counted (cannot fail by construction); {len(bad)} failed in all of {len(results)}")
     return not bad
 
 
