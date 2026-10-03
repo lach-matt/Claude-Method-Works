@@ -308,3 +308,28 @@ protection, for H-FRAME. Board holdings that bear on it: `latticectc.py` O3_CLOS
 `cmb-dipole-370kms` (D67: NARROWED) as the measured candidate frame; `no-communication-theorem` (D67: NARROWED);
 `emtension.py` ENTANGLED_BRIDGE_IS_TRAVERSABLE = False (cites no source; read today — whether to record that is
 asked of M and unanswered).
+
+## M on negative probabilities and Q-1, verbatim (2026-10-03)
+
+> strains Q-1, and this is a real obstacle. Shannon's entropy has a term p·log p, and the log of a negative number
+> isn't defined. - we can define this. We plot it. With all its inverses, and reflections on the same multi-axis
+> graph and the positive values will triangulate the negative values
+
+> Yes. When docket 68 workflow is finished. Let's create the instrument and implement its use. Incidently, if this
+> does prove useful, we should set up instructions for a new separate session to write a professional paper about
+> the complex and negative entropy findings
+
+Work item **Q-1s (signed / complex entropy)**, queued after the wave-1 repair. What it must establish, by
+computation, before anything is claimed (the lead's derivation in conversation, by hand, not yet run):
+- H = -sum p ln p on the principal branch, for quasi-probabilities (sum p = 1, some p < 0): Re H = -sum p ln|p|,
+  Im H = pi N with N the total negative weight; the other branches add 2 pi i k per negative entry.
+- Additivity on independent products: Re H additive (each factor sums to 1); Im H NOT additive (pi(N_p P_q + P_p N_q));
+  M = log sum|p| additive (sum|p| multiplicative), zero exactly when no entry is negative; N = (sum|p| - 1)/2.
+- Re H can be negative (p = (1.5, -0.5): -0.95 nats) -- to be read, not explained away.
+- Whether (Re H, M) is the UNIQUE lawful pair under signed-measure versions of Baez-Fritz-Leinster's axioms: OPEN;
+  the BFL theorem is proved for probability measures only.
+- M's triangulation as a computation: reconstruct a signed distribution from non-negative projections along many
+  axes (inverse Radon), with a control; the established laboratory form (optical homodyne tomography) is
+  NAMED-NOT-READ until read at source, as are 'mana' and the Wigner-negativity literature.
+Implementation: in Q-1 (measure.py), R-INDEX and any index carrying signed weights. If it proves useful: instructions
+for a separate session to write a professional paper on the complex and negative entropy findings.
