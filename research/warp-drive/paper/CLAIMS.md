@@ -2197,7 +2197,7 @@ pass did not stop at H37a.
 
 ### H37d — and the third gate is **structural**
 
-Ford–Roman (massless scalar, 4D) bounds `|ρ| ≤ 3ħc/(32π²L⁴)`; the Casimir law has the same shape. Now
+Ford–Roman (massless scalar, 4D) ~~bounds `|ρ| ≤ 3ħc/(32π²L⁴)`~~ bounds from below the Lorentzian *time* average of `⟨T₀₀⟩`, width `t₀`, along one inertial worldline at one spatial point — `≥ −3ħc/(32π²L⁴)` with `L = ct₀`, read here at `t₀ = R/c`, the tree's choice and not the source's *(Corrected on M's "Repair all", DOCKET 67: the struck words read the inequality as a bound on `|ρ|` at a length, the reading DOCKET 55 withdrew in `achievable.py`; `candidates.py` §4 states the time average and names `t₀ = R/c` as its own modelling choice. The figures below are that file's, unchanged.)*; the Casimir law has the same shape. Now
 notice the exponents:
 
 | | scaling |

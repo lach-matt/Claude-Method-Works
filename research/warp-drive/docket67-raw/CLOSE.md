@@ -21,8 +21,9 @@ or a CORRECTED note, and the old value is still checked as a RECORD.
 | apply.py DEC_BRANCH | COLLAPSE (universal) | **split**: COLLAPSE for (T_kk/u)(s/l)² < 2π²/3; OPEN at or above it (T_kk = 2u on a diameter, 0.8225, inside the DEC) | follows S-2 seated OPEN; `dichotomy_is_exhaustive()` = False. index3 DEC-BRANCH-SPLIT (+1,+1,+1) → (+1,0,+1); paper H21 "no case has a demonstrated seat-and-lead", the fourth door OPEN |
 | formation.py belt flag | one flag "withdrawn by source" | two: evidence removed by source = True (READ); excluded by source = False (2.03σ, computed) | MacGregor 2018 finds "no need to posit" the belt; that is not a withdrawal |
 | index3.py PLANCK-THIRD-TIME (now PLANCK-CROSSING-IS-AN-IDENTITY) | (+1,+1,+1) | (+1,0,0) | DOCKET 55 withdrew its ground in place: the 4.09 l_P crossing is the identity L = l_P/√K |
+| index3.py THREE-CROSSINGS-AGREE, PLANCK-FOURTH-TIME (now GJW-LANDING-IS-AN-IDENTITY), THEOREM-REPRODUCES (now GJW-MATCH-IS-ONE-EXPRESSION) | (+1,+1,+1) | (+1,0,0) | each rested on an "independent" agreement at the Planck scale; supply.py, gjw.py and scale.py now record each as one length / one identity / one expression. X keeps +1 for the computed value |
 | index3.py GATE-FAILS-D2 → GATE-FAILS-FIXED-MANIFOLD; ONLY-ENTRY → ONLY-ENTRY-KEEPING-D2; THEOREM-IS-FREE → SHELL-DELAY-IS-13-PERCENT | renamed, cells kept | — | each id asserted a withdrawn claim |
-| index3 pins | TRIPLE 290, AFFIRM 171 | 287, 169 | read off the file after the cell moves; controls reproduce 290/171 and the integration's 288/170 exactly |
+| index3 pins | TRIPLE 290, AFFIRM 171 | 284, 166 | read off the file after the cell moves; controls reproduce 290/171, the integration's 288/170 and the residue pass's 287/169 exactly |
 
 ## 2. Figures that moved (selected; every one computed, first value kept)
 
@@ -53,11 +54,23 @@ QED coefficients READ-VIA-RESTATEMENT (address); horizon computed from READ Plan
 ## 4. Left for M — each needs a ruling, nothing was changed
 
 1. **GATE 1 re-size.** It stands at 4902 m = 0.859× nuclear; re-sizing to drivespec's 4544 m moves every GATE 1 figure.
-2. **Three index3 cells** (THREE-CROSSINGS-AGREE, PLANCK-FOURTH-TIME, THEOREM-REPRODUCES) keep (+1,+1,+1) with
-   corrected text; by the reading applied to PLANCK-CROSSING-IS-AN-IDENTITY their Y/Z would read 0.
-3. **The OPEN-cell reading.** Cells moved to 0 on Y/Z for OPEN (the house NU-OPEN reading); some older OPEN rows read −1.
-4. Not re-adjudicated against DOCKET 55: index3's BOUNDS-FALL-FASTER-THAN-NEED (candidates.py) and
-   QI-CARRIES-THE-WHOLE-WEIGHT (overturn.py); research/README.md's journal keeps first-written passages as history.
+2. **The OPEN-cell reading.** Cells moved to 0 on Y/Z for OPEN (the house NU-OPEN reading); some older OPEN rows
+   read −1.
+3. **A new finding: the Ford-Roman crossover rests on a sampling choice.** candidates.py reads Ford-Roman's
+   Lorentzian time average at t0 = R/c (its own modelling choice, which it names) and finds the bound meets the
+   requirement at R = l_P √(3Λ/32π²) = **0.307933 l_P**, "only below the Planck length". The inequality written for
+   a density held for a duration T, achievable.duration_bound, allows 333.709× more (Fewster's C = 3.16986 against
+   3/(32π²)). On it the crossover is l_P √(CΛ) = **5.625229 l_P**, above the Planck length, and the shortfall
+   is 68.083 orders at 1 m (50.083 at 1 nm) against the printed 70.606 (52.606). The refusal on Y stands on both
+   readings. What moves is the headline "the framework fails before the bound does" / "the magnitude gate and the
+   Planck scale are the same gate", which holds only on the t0 = R/c reading. It reaches candidates.py,
+   magnitude.py's area law (k_FR), index3's three-crossovers and diagonal rows, and the paper's H37d and the
+   tables that quote 0.307933. Computed; nothing changed.
+4. research/README.md's journal keeps first-written passages as history.
+
+Done under the existing rulings after the residue pass: index3's two Ford-Roman rows (BOUNDS-FALL-FASTER-THAN-NEED,
+QI-CARRIES-THE-WHOLE-WEIGHT) brought to their owners' corrected wording, cells kept; paper H37d's
+"bounds |ρ| ≤ 3ħc/(32π²L⁴)" corrected; scale.py's "by Ford-Roman" and "a statement about the total" corrected.
 
 ## 5. Checks
 

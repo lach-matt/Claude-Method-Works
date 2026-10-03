@@ -14,10 +14,20 @@ IT IS INEVITABLE, AND PROVING THAT IS WORTH MORE THAN THE CONVERGENCE WAS.
 THE SCALE THEOREM
 ===============================================================================
 
-What the quantum vacuum SUPPLIES at scale L, by Ford-Roman and by every
-Casimir-type calculation:
+What the quantum vacuum SUPPLIES at scale L, by every Casimir-type calculation
+and by a quantum inequality read at duration T = L/c:
 
         u_supplied  ~  hbar c / L^4
+
+    CORRECTED (DOCKET 67 follow-ups): this read "by Ford-Roman and by every
+    Casimir-type calculation", as if Ford-Roman capped |rho| at scale L -- the
+    reading DOCKET 55 withdrew.  Ford-Roman bounds a Lorentzian TIME average
+    of <T_00> along one worldline from below; achievable.duration_bound bounds
+    a density held for a duration T at a point.  Either gives hbar c/L^4 only
+    once its time width is set to L/c (a modelling choice), and the
+    prefactors differ by 333.7 (Fewster's C = 3.1699 against Ford-Roman's
+    3/(32 pi^2)) -- both inside kappa, which this theorem leaves free.  Scope:
+    massless minimally coupled scalar, Hadamard states, flat space.
 
 What general relativity DEMANDS at scale L, from the Sturm seating condition
 q l^2 >= pi^2 with q = 4 pi T_kk, or equivalently from the transition equation:
@@ -154,8 +164,10 @@ dimensionless number.  The honest enumeration of what is available:
       fields.  The Standard Model gives N ~ 100.  TWO ORDERS, and it is the
       largest honest factor on the list.
     * Cavity mode count / resonant enhancement.  Bounded by the same
-      quantum inequalities that bound the single-mode result, because
-      Ford-Roman is a statement about the total.
+      quantum inequalities that bound the single-mode result, because a
+      quantum inequality holds for every Hadamard state of the field,
+      multimode states included.  (CORRECTED, DOCKET 67 follow-ups: this
+      read "because Ford-Roman is a statement about the total".)
     * A SECOND LENGTH.  (Added, DOCKET 67 follow-ups: first omitted.)  Where
       the problem has two lengths their ratio is a dimensionless number and
       kappa depends on it -- achievable.py's kappa goes as 1/((a/b)(m/b)).

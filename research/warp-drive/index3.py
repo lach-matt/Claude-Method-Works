@@ -662,8 +662,25 @@ FINDINGS = [
   "and the same move forbids faster: traversability requires non-achronality, non-achronality requires an existing outside causal path, so you could have gone that way. GJW's own words -- a loan you can only get if you are rich enough not to need it"),
  ("GJW-FLAT-COST",    +1,  0, +1, "gjw.py",
   "their flat-space version is left as a remark; quantified on gjw.py's one-scalar flat 2D-cycle model it needs amplification 1.097e71 * D^2 against T_kk along the winding null direction (H-WIND; along a transverse null direction the cycle's T_kk is 0 and no gain suffices), RISING as D^2 exactly over six decades, so bigger separation is HARDER. (DOCKET 67 follow-up: first written 4.387e71 * D^2, the energy-density gain, 4x the T_kk one)"),
- ("PLANCK-FOURTH-TIME",+1,+1,+1, "gjw.py",
-  "and that gain reaches unity at 0.187 PLANCK LENGTHS, sqrt(pi/90) l_P on H-WIND (DOCKET 67 follow-up: first written 0.0934, sqrt(pi/360), on the energy-density gain) -- a landing FORCED by gjw.py's single-length model, 90 D^2/(pi l_P^2) by dimensional analysis alone, and NOT an independent route to the Planck scale (gjw.py); corridor.py's two landings and achievable.py's 4.09 l_P are values beside it, not corroboration. (DOCKET 67 follow-ups: first 'a fourth independent route to the Planck scale after corridor.py's two and achievable.py's one' -- gjw.py withdrew it, and DOCKET 55 had withdrawn achievable.py's, PLANCK-CROSSING-IS-AN-IDENTITY)"),
+# CORRECTED (DOCKET 67 follow-ups, identity pass; M: 'a verdict stays only on a correct stated
+#   ground -- if there is none, it is open', and 'stale statements, including what DOCKET 55
+#   withdrew -- address/repair/correct').  PLANCK-FOURTH-TIME kept (+1,+1,+1) under corrected
+#   text (docket67-raw/CLOSE.md sec. 4 item 2).  Its Y and Z rested on 'a fourth independent route
+#   to the Planck scale', which gjw.py withdrew in place: the model has ONE length, so unity at
+#   sqrt(pi/90) l_P is forced by dimensional analysis -- the same identity L = l_P/sqrt(K) that
+#   moved PLANCK-CROSSING-IS-AN-IDENTITY.  No other Y/Z ground is stated by gjw.py (its own
+#   selftest calls the landing 'sub-Planckian, so never in the regime the framework covers', and
+#   scale.py refuses any such crossing as a design target), so it is renamed and moves to
+#   (+1,0,0); PLANCK_FOURTH_CELL_AS_FIRST_WRITTEN keeps the cell.  The row as it stood:
+#   and that gain reaches unity at 0.187 PLANCK LENGTHS, sqrt(pi/90) l_P on H-WIND (DOCKET 67
+#   follow-up: first written 0.0934, sqrt(pi/360), on the energy-density gain) -- a landing FORCED
+#   by gjw.py's single-length model, 90 D^2/(pi l_P^2) by dimensional analysis alone, and NOT an
+#   independent route to the Planck scale (gjw.py); corridor.py's two landings and achievable.py's
+#   4.09 l_P are values beside it, not corroboration. (DOCKET 67 follow-ups: first 'a fourth
+#   independent route to the Planck scale after corridor.py's two and achievable.py's one' -- gjw.py
+#   withdrew it, and DOCKET 55 had withdrawn achievable.py's, PLANCK-CROSSING-IS-AN-IDENTITY)
+ ("GJW-LANDING-IS-AN-IDENTITY",+1,0, 0, "gjw.py",
+  "the required gain reaches unity at 0.187 PLANCK LENGTHS, sqrt(pi/90) l_P on H-WIND, and that landing is a DIMENSIONAL IDENTITY, not a route to the Planck scale: gjw.py's model has ONE length, D, so the gain is 90 D^2/(pi l_P^2) exactly and unity falls at sqrt(pi/90) l_P by dimensional analysis alone (gjw.py: 'NOT AN INDEPENDENT ROUTE TO THE PLANCK SCALE'; Butcher 1405.1283 p.1 fn. 2: the system 'need not be characterised by a single length'). corridor.py's two landings and achievable.py's 4.09 l_P are values beside it, not corroboration, and the landing is sub-Planckian, outside the regime the framework covers. X keeps +1 for the computed value; Y and Z read 0 -- the ground for both, an independent landing at the Planck scale, is withdrawn as PLANCK-CROSSING-IS-AN-IDENTITY's was, and scale.py refuses any such crossing as a design target (crossing_is_a_design_target() is False). (DOCKET 67 follow-ups, identity pass: first written as PLANCK-FOURTH-TIME at (+1,+1,+1), 'a fourth independent route to the Planck scale after corridor.py's two and achievable.py's one' -- gjw.py withdrew it, and DOCKET 55 had withdrawn achievable.py's; and first 0.0934, sqrt(pi/360), on the energy-density gain)"),
  ("GJW-IS-EXISTENCE-PROOF",+1,+1,+1, "gjw.py",
   "under M's scoping, where the lead is dropped, GJW is an EXISTENCE PROOF: a traversable connection from entanglement plus a coupling, no exotic matter postulated, the negative energy DERIVED. UV-complete and published"),
  # M's structure: binary -> hierarchy -> binary.  I had not been writing it.
@@ -773,13 +790,51 @@ FINDINGS = [
   "and no conversion efficiency rescues it: against the world's annual energy production eta would have to exceed 1 by 36 orders -- more negative energy out than energy in. At a perfect eta = 1 the requirement is still 4.871e57 J, the mass-energy of 2.72e10 suns -- 1 % of the road to Proxima, phase1's own price (eta > 8.1e36). EFFICIENCY IS NOT THE PROBLEM; c^4/G IS. (DOCKET 67 follow-up: first 4.588e57 J and 2.57e10 suns, on a round 4.0 ly; supply.py now imports phase1.L_PROXIMA)"),
  ("GAP-IS-THE-LEVER",   +1, -1, +1, "supply.py",
   "what is left is the GAP: the requirement for a fractional contraction falls as 1/b^2 while the Casimir density rises as 1/b^4, so the ratio closes -- 3.57e-69 at a metre, unity at b = 5.98e-35 m = 3.70 PLANCK LENGTHS"),
- ("THREE-CROSSINGS-AGREE",+1,+1,+1, "supply.py",
-  "AND THREE INDEPENDENT QUANTITIES CROSS IN THE SAME PLACE: this contraction at 3.70 l_P, corridor.py's Casimir seat at 0.132 l_P, gjw.py's unity coupling separation at 0.187 l_P (on the winding-direction T_kk, H-WIND; DOCKET 67 follow-up: first 0.0934, the energy-density figure). A contraction, a seat and a coupling, all within two orders of the Planck length -- and NOT independently: each is a crossover of hbar c/L^4 against c^4/(G L^2), so each lands at l_P times an O(1) number by dimensional identity (scale.py's theorem; supply.py: 'INDEPENDENT overstates the agreement'). (DOCKET 67 follow-ups: first 'computed by three routes sharing no formula')"),
+# CORRECTED (DOCKET 67 follow-ups, identity pass; M's rulings as above).  THREE-CROSSINGS-AGREE
+#   kept (+1,+1,+1) under corrected text (CLOSE.md sec. 4 item 2).  Its Y and Z rested on the
+#   convergence being INDEPENDENT; supply.py withdrew that in place ('INDEPENDENT overstates the
+#   agreement ... three values of kappa, not three corroborations'), and scale.py proves the
+#   landing is forced: L = l_P/sqrt(kappa) for any kappa.  The agreement itself is computed and
+#   true (supply.three_routes_agree(): all within two orders), so the id stays; but agreement by
+#   identity carries no Y or Z, and scale.py refuses the crossing as a design target.  So it
+#   moves to (+1,0,0); THREE_CROSSINGS_CELL_AS_FIRST_WRITTEN keeps the cell.  The row as it stood:
+#   AND THREE INDEPENDENT QUANTITIES CROSS IN THE SAME PLACE: this contraction at 3.70 l_P,
+#   corridor.py's Casimir seat at 0.132 l_P, gjw.py's unity coupling separation at 0.187 l_P (on the
+#   winding-direction T_kk, H-WIND; DOCKET 67 follow-up: first 0.0934, the energy-density figure). A
+#   contraction, a seat and a coupling, all within two orders of the Planck length -- and NOT
+#   independently: each is a crossover of hbar c/L^4 against c^4/(G L^2), so each lands at l_P times
+#   an O(1) number by dimensional identity (scale.py's theorem; supply.py: 'INDEPENDENT overstates
+#   the agreement'). (DOCKET 67 follow-ups: first 'computed by three routes sharing no formula')
+ ("THREE-CROSSINGS-AGREE",+1,0, 0, "supply.py",
+  "THREE DIFFERENT QUANTITIES CROSS WITHIN TWO ORDERS OF THE PLANCK LENGTH: this contraction at 3.70 l_P, corridor.py's Casimir seat at 0.132 l_P, gjw.py's unity coupling separation at 0.187 l_P (on the winding-direction T_kk, H-WIND) -- a contraction, a seat and a coupling, and NOT independently: each is a crossover of hbar c/L^4 against c^4/(G L^2), so each lands at l_P/sqrt(kappa), l_P times an O(1) number by dimensional identity (scale.py's theorem; supply.py: three values of kappa, not three corroborations). X keeps +1 for the three computed crossings; Y and Z read 0 -- the ground for both was the convergence as independent evidence, and it is one identity counted three times; scale.py refuses any such crossing as a design target, since five approximations fail there. (DOCKET 67 follow-ups, identity pass: first at (+1,+1,+1) as 'AND THREE INDEPENDENT QUANTITIES CROSS IN THE SAME PLACE', and earlier 'computed by three routes sharing no formula'; gjw.py's separation first 0.0934 l_P, the energy-density figure)"),
  # scale.py -- following the Planck-crossing instinct, and deflating it.
  ("SCALE-THEOREM",     +1, +1, +1, "scale.py",
   "PROVED under SINGLE-LENGTH (the problem has one length L): the ratio of what the quantum vacuum supplies to what GR demands is kappa (l_P/L)^2 and can be nothing else, because hbar c/L^4 over c^4/GL^2 IS hbar G/c^3 L^2 and those are the only constants available; with a second length their ratio enters kappa itself (achievable.py's kappa goes as 1/((a/b)(m/b)), scale.py computes it). (DOCKET 67 follow-ups: SINGLE-LENGTH first unstated, so 'can be nothing else' read as unconditional.) The crossing is at l_P by DIMENSIONAL NECESSITY -- l_P is defined as where the two meet"),
- ("THEOREM-REPRODUCES",+1, +1, +1, "scale.py",
-  "and the closed form matches: kappa = pi/90 gives gjw.py's gain_coefficient 1.0967e71 and its unity separation 3.0197e-36 m, equal to 2e-16 relative, against the winding-direction T_kk (H-WIND; DOCKET 67 follow-up: first kappa = pi/360 predicting 4.3866e71 and 1.5098e-36 m, the energy-density figures, which scale.KAPPA_GJW_AS_FIRST_WRITTEN still reproduces). The match is a CONSISTENCY CHECK, not a second route: gjw.amplification_needed is seatindex's threshold over the same winding-direction Casimir T_kk, both 90 D^2/(pi l_P^2) exactly (scale.GJW_MATCH_IS_INDEPENDENT is False) -- a real check, the one that exposed the pi/360 factor, supporting the arithmetic and not the theorem. achievable.py's kappa is IDENTICAL TO SIX DIGITS across six decades of length, which is what SINGLE-LENGTH predicts at fixed a/b and m/b: no hidden scale, not independent evidence. (DOCKET 67 follow-ups: first 'it is not hand-waving ... TO FIVE DIGITS ... and gjw.py computes both from the Casimir formula sharing no algebra', and the six-digit invariance read as 'the theorem's signature')"),
+# CORRECTED (DOCKET 67 follow-ups, identity pass; M's rulings as above).  THEOREM-REPRODUCES kept
+#   (+1,+1,+1) under corrected text (CLOSE.md sec. 4 item 2).  Its Y and Z rested on the scale
+#   theorem being REPRODUCED by a second computation ('IT REPRODUCES A NUMBER THE TREE COMPUTED
+#   ANOTHER WAY', 'sharing no algebra').  scale.py withdrew that in place: the match is one
+#   expression twice (GJW_MATCH_IS_INDEPENDENT = False), 'a consistency check of shared inputs
+#   ... it supports the arithmetic, not the theorem'.  A check of shared inputs is a real check
+#   on the NUMBER (X) and states nothing on Y or Z; the theorem's own cell is SCALE-THEOREM's,
+#   on its own ground (dimensional analysis under SINGLE-LENGTH), and does not move here.  The
+#   id asserted the withdrawn claim, so it is renamed (scale.py's selftest: 'one expression,
+#   twice') and moves to (+1,0,0); THEOREM_REPRODUCES_CELL_AS_FIRST_WRITTEN keeps the cell.
+#   The row as it stood:
+#   and the closed form matches: kappa = pi/90 gives gjw.py's gain_coefficient 1.0967e71 and its
+#   unity separation 3.0197e-36 m, equal to 2e-16 relative, against the winding-direction T_kk
+#   (H-WIND; DOCKET 67 follow-up: first kappa = pi/360 predicting 4.3866e71 and 1.5098e-36 m, the
+#   energy-density figures, which scale.KAPPA_GJW_AS_FIRST_WRITTEN still reproduces). The match is a
+#   CONSISTENCY CHECK, not a second route: gjw.amplification_needed is seatindex's threshold over
+#   the same winding-direction Casimir T_kk, both 90 D^2/(pi l_P^2) exactly
+#   (scale.GJW_MATCH_IS_INDEPENDENT is False) -- a real check, the one that exposed the pi/360
+#   factor, supporting the arithmetic and not the theorem. achievable.py's kappa is IDENTICAL TO SIX
+#   DIGITS across six decades of length, which is what SINGLE-LENGTH predicts at fixed a/b and m/b:
+#   no hidden scale, not independent evidence. (DOCKET 67 follow-ups: first 'it is not hand-waving
+#   ... TO FIVE DIGITS ... and gjw.py computes both from the Casimir formula sharing no algebra',
+#   and the six-digit invariance read as 'the theorem's signature')
+ ("GJW-MATCH-IS-ONE-EXPRESSION",+1,0, 0, "scale.py",
+  "the closed form matches gjw.py: kappa = pi/90 gives gjw.py's gain_coefficient 1.0967e71 and its unity separation 3.0197e-36 m, equal to 2e-16 relative, against the winding-direction T_kk (H-WIND) -- and the match is an IDENTITY OF SHARED INPUTS, a CONSISTENCY CHECK, not a second route: gjw.amplification_needed is seatindex's threshold over the same winding-direction Casimir T_kk, both 90 D^2/(pi l_P^2) exactly (scale.GJW_MATCH_IS_INDEPENDENT is False) -- a real check, the one that exposed the pi/360 factor, supporting the arithmetic and not the theorem. achievable.py's kappa is IDENTICAL TO SIX DIGITS across six decades of length, which is what SINGLE-LENGTH predicts at fixed a/b and m/b: no hidden scale, not independent evidence. X keeps +1 for the computed match; Y and Z read 0 -- the ground for both was the theorem reproduced by an independent computation, and the match is the same expression twice; the theorem's own cell is SCALE-THEOREM's, on dimensional analysis under SINGLE-LENGTH. (DOCKET 67 follow-ups, identity pass: first written as THEOREM-REPRODUCES at (+1,+1,+1). DOCKET 67 follow-up: first kappa = pi/360 predicting 4.3866e71 and 1.5098e-36 m, the energy-density figures, which scale.KAPPA_GJW_AS_FIRST_WRITTEN still reproduces. DOCKET 67 follow-ups: first 'it is not hand-waving ... TO FIVE DIGITS ... and gjw.py computes both from the Casimir formula sharing no algebra', and the six-digit invariance read as 'the theorem's signature')"),
  ("OUTLIER-RECONCILES", 0,  0, +1, "scale.py",
   "the census reads 0.1868, 0.1320, 3.6992 and 204.67 l_P -- but achievable.py's length is the CORRIDOR RADIUS while the others measure the gap carrying the energy, and its core sits at a/b = 0.02, giving 4.0933 l_P, which that file already prints itself. On the energy-carrying scale all four lie between 0.132 and 4.09 l_P, a factor of 31. (DOCKET 67 follow-up: first 'reads 0.0934, 0.1320, 3.7013 ... between 0.093 and 4.09 l_P, a factor of 44' -- the 0.0934 on gjw.py's energy-density kappa pi/360, and the 3.7013 scale.py's CENSUS typing supply.py's kappa as 1.369937e1, where supply.py computes 1.368384e1, 3.6992 l_P; the census is scale.py's as it now prints, checked there against supply.py)"),
  ("ONE-OBSTACLE",      +1, -1, +1, "scale.py",
@@ -1295,8 +1350,31 @@ FINDINGS = [
   "and the first candidate fails at the FIRST gate, which is the one most likely to be mistaken for a pass. Negative-mass exciton polaritons are real, measured and switchable -- dissipative light-matter coupling in an atomically thin semiconductor inverts the lower polariton branch and the propagation direction is opposite to the momentum (arXiv:2204.04041, Nature Communications), with negative-mass effects also seen in spin-orbit-coupled BECs (arXiv:1801.04779). AND IT IS THE WRONG QUANTITY, WHICH NO ENGINEERING FIXES: effective mass m* = hbar^2/(d^2 E/dk^2) is a property of the DISPERSION RELATION, the curvature of a band, and it is NOT T_00. A quasiparticle with m* < 0 still carries POSITIVE energy; what is inverted is how its group velocity responds to momentum. IT VIOLATES NO ENERGY CONDITION AT ALL, and lattice.py's theorem does not even engage with it, because the gravitational source is the full stress-energy of the cavity, the excitons and the field, and that is positive. A NEGATIVE-MASS POLARITON WOULD NOT BEND SPACETIME THE WRONG WAY. 'Negative mass' is one phrase for two different things and only one of them is exotic"),
  ("SQUEEZED-PASSES-TWO-GATES", +1, -1, +1, "candidates.py",
   "and of the three only squeezed vacuum passes both QUALITATIVE gates, which is why the pass did not stop at the first candidate. CASIMIR passes KIND -- rho = -pi^2 hbar c/(720 d^4) is a real negative energy density, 4.334e4 J/m^3 at 10 nm and 4.334e8 at 1 nm, measured in the laboratory -- and FAILS THE DEADLINE, because switching it off means MOVING THE PLATES, which is mechanical and therefore slower than c, and the negative region is anchored to plates whose own mass-energy is hugely positive and does not go anywhere. SQUEEZED VACUUM passes KIND, being the standard state in which the energy density at a spacetime point is genuinely negative, AND passes the DEADLINE, since killing the pump clears it at c with nothing to remove. SO TWO INDEPENDENT ROUTES SELECT THE SAME CANDIDATE: lightbuild.py's OPEN row already said lattice.py's theorem covers only the CLASSICAL Maxwell stress tensor and squeezed vacuum is precisely the exception, and teardown.py's deadline independently demands a lead that clears at c. That convergence is the finding; the verdict is in the third gate"),
+# CORRECTED (DOCKET 67 follow-ups, re-adjudicated against DOCKET 55; CLOSE.md sec. 4 item 4).
+#   The row read Ford-Roman as bounding |rho| 'over sampling length L', the wording candidates.py
+#   already corrected in place under DOCKET 67 (its sec. 4 and its CORRECTED list): the source
+#   bounds a Lorentzian TIME average along one inertial worldline, from below, in flat space, and
+#   t0 = R/c is the tree's choice -- the spatial-length-as-time move DOCKET 55 withdrew in
+#   achievable.py, which candidates.py names as such.  The OWNER states a correct sampled QI and
+#   is left as it is; index3 had not carried its correction, and now does.  The cell stands:
+#   the magnitude refusal is computed on the inequality as stated, under its scope.  The row as
+#   it stood:
+#   AND THE THIRD GATE IS STRUCTURAL RATHER THAN NUMERICAL, WHICH IS THE RESULT. Quantum field
+#   theory does not give negative energy away: the FORD-ROMAN inequality (massless scalar, 4D)
+#   bounds |rho| <= 3 hbar c/(32 pi^2 L^4) over sampling length L = c tau, and the Casimir law pi^2
+#   hbar c/(720 d^4) has the same shape. NOW NOTICE THE EXPONENTS: what is ALLOWED goes as L^-4,
+#   what is NEEDED goes as R^-2. SO THE SHORTFALL GOES AS R^2 AND SHRINKING ALWAYS HELPS -- M's
+#   'small and contained' is quantitatively the right direction and the ONLY direction that helps at
+#   all. It is still 52.6 ORDERS SHORT AT A NANOMETRE and 70.6 at a metre (Casimir 2.798e52 and
+#   2.798e70), the same order of shortfall lightbuild.py found for the kugelblitz block, arrived at
+#   from a completely different direction. AND THE CROSSOVER HAS A CLOSED FORM, WHICH IS THE POINT:
+#   setting c^4/(G Lambda R^2) = 3 hbar c/(32 pi^2 R^4) gives R = l_P sqrt(3 Lambda/(32 pi^2)) =
+#   0.307933 l_P, and for Casimir R = l_P pi sqrt(Lambda/720) = 0.369917 l_P. THE BOUND MEETS THE
+#   REQUIREMENT ONLY BELOW THE PLANCK LENGTH -- a third of one, and a third again. THE FRAMEWORK
+#   FAILS BEFORE THE BOUND DOES: this is not 'very hard' but OUTSIDE THE DOMAIN OF THE THEORY
+#   STATING IT, and Lambda -- M's own constant -- sits in both closed forms
  ("BOUNDS-FALL-FASTER-THAN-NEED", +1, -1, +1, "candidates.py",
-  "AND THE THIRD GATE IS STRUCTURAL RATHER THAN NUMERICAL, WHICH IS THE RESULT. Quantum field theory does not give negative energy away: the FORD-ROMAN inequality (massless scalar, 4D) bounds |rho| <= 3 hbar c/(32 pi^2 L^4) over sampling length L = c tau, and the Casimir law pi^2 hbar c/(720 d^4) has the same shape. NOW NOTICE THE EXPONENTS: what is ALLOWED goes as L^-4, what is NEEDED goes as R^-2. SO THE SHORTFALL GOES AS R^2 AND SHRINKING ALWAYS HELPS -- M's 'small and contained' is quantitatively the right direction and the ONLY direction that helps at all. It is still 52.6 ORDERS SHORT AT A NANOMETRE and 70.6 at a metre (Casimir 2.798e52 and 2.798e70), the same order of shortfall lightbuild.py found for the kugelblitz block, arrived at from a completely different direction. AND THE CROSSOVER HAS A CLOSED FORM, WHICH IS THE POINT: setting c^4/(G Lambda R^2) = 3 hbar c/(32 pi^2 R^4) gives R = l_P sqrt(3 Lambda/(32 pi^2)) = 0.307933 l_P, and for Casimir R = l_P pi sqrt(Lambda/720) = 0.369917 l_P. THE BOUND MEETS THE REQUIREMENT ONLY BELOW THE PLANCK LENGTH -- a third of one, and a third again. THE FRAMEWORK FAILS BEFORE THE BOUND DOES: this is not 'very hard' but OUTSIDE THE DOMAIN OF THE THEORY STATING IT, and Lambda -- M's own constant -- sits in both closed forms"),
+  "AND THE THIRD GATE IS STRUCTURAL RATHER THAN NUMERICAL, WHICH IS THE RESULT. Quantum field theory does not give negative energy away: the FORD-ROMAN inequality (gr-qc/9607003 Eq. (1): a free massless minimally coupled scalar, 4D Minkowski, no boundaries) bounds from BELOW the Lorentzian TIME average of <T_00>, width t0, along one inertial worldline at one spatial point -- with L = c t0, the sampled average is >= -3 hbar c/(32 pi^2 L^4) -- and the ideal-plate Casimir law pi^2 hbar c/(720 d^4) has the same shape. candidates.py reads it at t0 = R/c, a spatial size used as a temporal width: its own modelling choice, not the source's, and the move DOCKET 55 withdrew in achievable.py, which candidates.py names as such; for a STATIC density Eq. (1) at every t0 excludes it outright. NOW NOTICE THE EXPONENTS: what is ALLOWED goes as L^-4, what is NEEDED goes as R^-2. SO THE SHORTFALL GOES AS R^2 AND SHRINKING ALWAYS HELPS -- M's 'small and contained' is quantitatively the right direction and the ONLY direction that helps at all. It is still 52.6 ORDERS SHORT AT A NANOMETRE and 70.6 at a metre (Casimir 2.798e52 and 2.798e70, the ideal-plate formula below its validity range d >> lambda_p, so an upper bound on |rho| and a floor on that shortfall), the same order of shortfall lightbuild.py found for the kugelblitz block, arrived at from a completely different direction. AND THE CROSSOVER HAS A CLOSED FORM, WHICH IS THE POINT: setting c^4/(G Lambda R^2) = 3 hbar c/(32 pi^2 R^4) gives R = l_P sqrt(3 Lambda/(32 pi^2)) = 0.307933 l_P, and for Casimir R = l_P pi sqrt(Lambda/720) = 0.369917 l_P. ON FORD-ROMAN READ AT t0 = R/c THE BOUND MEETS THE REQUIREMENT ONLY BELOW THE PLANCK LENGTH -- a third of one, and a third again. THE FRAMEWORK FAILS BEFORE THE BOUND DOES -- status AN ESTIMATE: the sources place the loss of semiclassical control 'of the order of' l_P, and the crossovers stay sub-Planckian in every Planck convention candidates.py tried -- and Lambda, M's own constant, sits in both closed forms. (DOCKET 67 follow-ups: first 'the FORD-ROMAN inequality (massless scalar, 4D) bounds |rho| <= 3 hbar c/(32 pi^2 L^4) over sampling length L = c tau' -- candidates.py corrected that wording in place under DOCKET 67 and index3 had not carried it; and 'THE BOUND MEETS THE REQUIREMENT ONLY BELOW THE PLANCK LENGTH' with no sampling choice and no status word, and the Casimir column without its validity range)"),
  ("DEADLINE-IS-FREE", +1, +1, +1, "candidates.py",
   "and one constraint that looked as though it would compound turned out not to, which is worth recording because it is the only consolation in the pass. The quantum inequality says a deeper negative energy must be BRIEFER: |rho| <= 3 hbar c/(32 pi^2 (c tau)^4) grows without limit as tau falls. The teardown deadline says the lead must be brief. SO THE DEADLINE IS EXACTLY THE REGIME THE INEQUALITY IS MOST GENEROUS IN -- the two constraints POINT THE SAME WAY rather than fighting. teardown.py's new requirement therefore costs NOTHING against the quantum inequality: switchability is FREE, and it is the direction the inequality already wanted. That rescues nothing, because the failure is on magnitude and magnitude fails by fifty-two orders in the best case. But a requirement that turns out to be free is worth knowing, and if anything ever does supply the magnitude, THE SWITCHABILITY WILL NOT BE WHAT STOPS IT. NOT CLAIMED: that the list is exhaustive -- three candidates were named and three were run, and a fourth may exist that this file does not speak to"),
  # candidates.py 4b/4c -- the fourth candidate, and it fails DIFFERENTLY.
@@ -1357,8 +1435,44 @@ FINDINGS = [
   "M asked what mathematics would reverse the verdict, and the FIRST LINK ATTACKED CLOSED AGAINST US. The verdict is a chain -- the theorem\'s SCOPE, the identification of geometric mass with matter energy, the RATE at which negative mass buys distance, and the MAGNITUDE demanded -- and breaking any one link reverses it. THE RATE WAS THE LINK MOST LIKELY TO GIVE, because Delta d = |m| ln(r2/r1) was derived in the weak field where 1/sqrt(1-2m/r) ~ 1 + m/r, and the obvious hope was that a strong field returns MORE per unit mass. Measured ansatz-free by integrating the proper-length deficit int (1 - 1/sqrt(1-2m/r)) dr directly -- not by differencing two lengths, which loses every digit in the weak field and reports a spurious gain -- over r1=1, r2=200: the weak field returns the logarithm to 1.000000 at |m| = 1e-8 and 1e-6, 0.999972 at 1e-4, 0.997206 at 1e-2, SO THE LOGARITHM IS EXACT IN THE LIMIT AND ANSATZ-FREE. And the strong field returns 0.833100 of it at |m| = 1, 0.504993 at 10, 0.174544 at 100, 0.029831 at 1e3, 0.003505 at 1e4, MONOTONICALLY FALLING, because the integrand is bounded above by 1 and so Delta d SATURATES at the coordinate gap -- 93.3% of it already at |m| = 1e4. THE WEAK-FIELD LOGARITHM IS NOT A LIMITATION OF THE DERIVATION, IT IS THE BEST CASE, and every extra unit of |m| buys strictly less than the one before it. The exchange rate c^4/(G Lambda) is therefore a FLOOR on the cost and not an artefact of a weak-field expansion"),
  ("BALL-AND-CHORD-INDEPENDENT", 0, +1, 0, "overturn.py",
   "AND AGAINST THAT, A DOOR, AND IT CHANGES WHICH NO-GO IS DOING THE WORK. The theorem puts the requirement on a BALL integral, int_ball rho dV < 0, while EVERY averaged energy condition bounds a WORLDLINE integral, int_line rho dl -- two different functionals of the same rho, and whether one constrains the other is answerable by arithmetic. IT DOES NOT. A two-zone profile, rho = -b inside r0 and +a in the shell r0..R, with r0=1, R=2, b=1, a=1.5, has m(r0) = -(4/3) pi b r0^3 = -4.188790 NEGATIVE so the theorem gives contraction at r0, m(R) = +39.793507 POSITIVE so it is ADM-safe, and an ANEC-analogue holding on EVERY chord: the deepest one, straight through the negative core at p = 0, integrates to 2[a(R-r0) - b r0] = +1.000000, and the minimum over all impact parameters is zero attained only by a GRAZING chord that misses the body. AND THE MARGIN DOES NOT SHRINK UNDER SCALING: hold a = 1.5 b and raise b, and m(r0) runs to MINUS infinity while every chord integral runs to PLUS infinity, both exactly linear in b. THE CHORD INTEGRAL DOES NOT BOUND THE BALL INTEGRAL BELOW AT ALL. Scope stated tightly because this is easy to over-read: it is flat-space kinematics, a statement about two integrals as functionals of a density, NOT a solution of the field equations, the chords are straight rather than geodesics, and rho < 0 in the core means the POINTWISE weak energy condition fails there -- as it must, since that is what is being asked for"),
+# CORRECTED (DOCKET 67 follow-ups, re-adjudicated against DOCKET 55; CLOSE.md sec. 4 item 4).
+#   The row said the sampled bounds 'bound |rho| itself over a sampling region'; overturn.py had
+#   already corrected that in place under DOCKET 67 as 'the substitution the tree's own DOCKET 55
+#   withdrawal records' and now states a time average along a timelike worldline over a finite
+#   sampling time -- a correct sampled QI, so the OWNER is left as it is.  The row also carried
+#   five other phrases overturn.py corrected under DOCKET 67 (the positive mass theorem as
+#   'total mass', ANEC for its dust analogue, Fliss's NULL bound read as a rho bound without
+#   saying so, Fewster-Osterbrink unscoped, and the L2 scope flag as undecided, which M decided
+#   on 2026-09-11).  Each is carried from the owner.  The cell stands: overturn.py's verdict --
+#   the sampled bound is the sole load-bearing obstruction -- holds on the corrected reading.
+#   The row as it stood:
+#   and the consequence is a NARROWING of the obstruction, which is worth more than it sounds. THE
+#   POSITIVE MASS THEOREM DOES NOT FORBID THIS -- the two-zone profile has positive total mass. ANEC
+#   DOES NOT FORBID THIS -- it is satisfied on every chord and it is not even the right SHAPE of
+#   constraint, since averaging along a line and integrating over a ball are independent
+#   functionals. So of the three obstructions usually cited against negative energy, two are not
+#   obstructions here, and THE WHOLE WEIGHT IS CARRIED BY THE LOCAL SAMPLED BOUND: Ford-Roman and
+#   its descendants, which bound |rho| itself over a sampling region. That is candidates.py's
+#   magnitude gate and it is Pfenning-Ford's 1997 result, and this pass's contribution is to show it
+#   is load-bearing ALONE. THREE LINKS STAY OPEN AND NONE OF THEM IS ENGINEERING. L1 SCOPE: a
+#   quasi-local mass for a closed 2-surface reducing to Misner-Sharp on round spheres and
+#   controlling proper distance the same way -- Hawking mass gives requirement (a), Geroch
+#   monotonicity under inverse mean curvature flow with R >= 0 is the closest existing thing to (b),
+#   Bartnik mass is the right variational object and is not computable; open in the LITERATURE, not
+#   merely here, and NOT ATTEMPTED HERE. L2 SOURCE: in f(R), scalar-tensor or higher-curvature
+#   gravity the field equations rearrange to G = 8 pi T_matter + T_effective and an effective term
+#   can be negative where the matter term is not, which is wormhole.py's SCOPE_CHOSEN_HERE = None, a
+#   flag that has stood unchanged for the whole project because it is M's scope decision and not
+#   mine. L4 MAGNITUDE: the requirement goes as R^-2 while Ford-Roman and Casimir go as L^-4, so the
+#   shortfall GROWS and the crossovers sit sub-Planckian -- but Fliss et al. (arXiv:2309.10848) give
+#   an EFT bound going as delta^-2, THE SAME EXPONENT, and Fewster-Osterbrink (arXiv:0708.2450) show
+#   no state-independent QEI exists for a scalar with xi > 0, so candidate D's shortfall collapses
+#   to the pure number (l_UV/l_P)^2 / Lambda and closes at sqrt(Lambda) l_P = 3.159514 l_P. A factor
+#   of three in the UV cutoff, not twenty orders. NO MEASUREMENT AND NO POWER SOURCE REVERSES THIS
+#   -- three theorems do, and the cheapest of the three is a decision M has been holding rather than
+#   a discovery anyone has to make
  ("QI-CARRIES-THE-WHOLE-WEIGHT", -1, -1, 0, "overturn.py",
-  "and the consequence is a NARROWING of the obstruction, which is worth more than it sounds. THE POSITIVE MASS THEOREM DOES NOT FORBID THIS -- the two-zone profile has positive total mass. ANEC DOES NOT FORBID THIS -- it is satisfied on every chord and it is not even the right SHAPE of constraint, since averaging along a line and integrating over a ball are independent functionals. So of the three obstructions usually cited against negative energy, two are not obstructions here, and THE WHOLE WEIGHT IS CARRIED BY THE LOCAL SAMPLED BOUND: Ford-Roman and its descendants, which bound |rho| itself over a sampling region. That is candidates.py\'s magnitude gate and it is Pfenning-Ford\'s 1997 result, and this pass\'s contribution is to show it is load-bearing ALONE. THREE LINKS STAY OPEN AND NONE OF THEM IS ENGINEERING. L1 SCOPE: a quasi-local mass for a closed 2-surface reducing to Misner-Sharp on round spheres and controlling proper distance the same way -- Hawking mass gives requirement (a), Geroch monotonicity under inverse mean curvature flow with R >= 0 is the closest existing thing to (b), Bartnik mass is the right variational object and is not computable; open in the LITERATURE, not merely here, and NOT ATTEMPTED HERE. L2 SOURCE: in f(R), scalar-tensor or higher-curvature gravity the field equations rearrange to G = 8 pi T_matter + T_effective and an effective term can be negative where the matter term is not, which is wormhole.py\'s SCOPE_CHOSEN_HERE = None, a flag that has stood unchanged for the whole project because it is M\'s scope decision and not mine. L4 MAGNITUDE: the requirement goes as R^-2 while Ford-Roman and Casimir go as L^-4, so the shortfall GROWS and the crossovers sit sub-Planckian -- but Fliss et al. (arXiv:2309.10848) give an EFT bound going as delta^-2, THE SAME EXPONENT, and Fewster-Osterbrink (arXiv:0708.2450) show no state-independent QEI exists for a scalar with xi > 0, so candidate D\'s shortfall collapses to the pure number (l_UV/l_P)^2 / Lambda and closes at sqrt(Lambda) l_P = 3.159514 l_P. A factor of three in the UV cutoff, not twenty orders. NO MEASUREMENT AND NO POWER SOURCE REVERSES THIS -- three theorems do, and the cheapest of the three is a decision M has been holding rather than a discovery anyone has to make"),
+  "and the consequence is a NARROWING of the obstruction, which is worth more than it sounds. THE POSITIVE MASS THEOREM DOES NOT FORBID THIS -- the integral of rho over the two-zone profile is positive (a Euclidean integral of rho, not an ADM mass: overturn.py solves no field equation), and it could not be in danger, since rho < 0 in the core already violates the dominant energy condition the theorem assumes; true, and it separates nothing. ANEC'S DUST ANALOGUE DOES NOT FORBID THIS -- it is satisfied on every chord, and it is not even the right SHAPE of constraint, since averaging along a line and integrating over a ball are independent functionals. So of the three obstructions usually cited against negative energy, two are not obstructions here, and THE WHOLE WEIGHT IS CARRIED BY THE SAMPLED BOUND OF FINITE WIDTH: Ford-Roman and its descendants, which bound a TIME average of rho along a timelike worldline (Ford-Roman's at one spatial point) over a finite sampling time, rather than an integral along a complete line. That is candidates.py's magnitude gate and it is Pfenning-Ford's result, and this pass's contribution is to show it is load-bearing ALONE. THREE LINKS STAY OPEN AND NONE OF THEM IS ENGINEERING. L1 SCOPE: a quasi-local mass for a closed 2-surface reducing to Misner-Sharp on round spheres and controlling proper distance the same way -- Hawking mass gives requirement (a), Geroch monotonicity under inverse mean curvature flow of a CONNECTED surface with R >= 0 (Huisken-Ilmanen's weak flow) is, in overturn.py's judgement, the closest existing thing to (b), Bartnik mass is the right variational object and is not computable; open in the LITERATURE, not merely here, and NOT ATTEMPTED HERE. L2 SOURCE: in f(R), scalar-tensor or higher-curvature gravity the field equations rearrange to G = 8 pi T_matter + T_effective and an effective term can be negative where the matter term is not; wormhole.py carried SCOPE_CHOSEN_HERE = None until M chose the scope on 2026-09-11 ('modified gravity counts', every result under it CONDITIONAL), and no L2 result has been derived under it (DOCKET 52's Reissner-Nordstrom break of L2 is EMPTY). L4 MAGNITUDE: the requirement goes as R^-2 while Ford-Roman (read at L = c t0 = R) and Casimir go as L^-4, so the shortfall GROWS and the crossovers sit sub-Planckian -- but Fliss et al. (arXiv:2309.10848) give an EFT bound on the smeared NULL component going as delta^-2, THE SAME EXPONENT when read as a bound on |rho|, a step overturn.py takes and the source does not, and Fewster-Osterbrink (arXiv:0708.2450) show no state-independent QEI exists for a MASSLESS scalar with xi > 0 in 3+1 Minkowski space, so candidate D's shortfall collapses to the pure number (l_UV/l_P)^2 / Lambda and closes at sqrt(Lambda) l_P = 3.159514 l_P. A factor of three in the UV cutoff, not twenty orders. NO MEASUREMENT AND NO POWER SOURCE REVERSES THIS -- three theorems do, none known to be false, and the cheapest of the three waited on a decision rather than a discovery, which M made on 2026-09-11 (wormhole.py); what remains there is a derivation under that scope, which no one has made. (DOCKET 67 follow-ups: first 'THE WHOLE WEIGHT IS CARRIED BY THE LOCAL SAMPLED BOUND: Ford-Roman and its descendants, which bound |rho| itself over a sampling region' -- overturn.py corrected it in place under DOCKET 67 and index3 had not carried it; likewise first 'the two-zone profile has positive total mass', 'ANEC DOES NOT FORBID THIS', 'SCOPE_CHOSEN_HERE = None, a flag that has stood unchanged for the whole project because it is M's scope decision and not mine', 'the cheapest of the three is a decision M has been holding rather than a discovery anyone has to make', with the Fliss bound read as a rho bound and Fewster-Osterbrink's massless 4D Minkowski scope unstated)"),
  ("TWO-UNDEFINED-BOTH-IN-L4", +1, 0, 0, "coefficients.py",
   "M: \'the clues lay in the undefined/underived coefficients... knowing what a coefficient is allows us to know the inputs, what is interchangeable\'. provenance.py sorted the project\'s CLAIMS by how they were come by and NEVER SORTED THE NUMBERS, and a number is where an unearned assumption hides best because a number does not look like an assertion. TWENTY-FIVE COEFFICIENTS CARRY THIS FRAMEWORK: 1 LAW (8 pi, fixed by the Newtonian limit), 1 GEOMETRIC (4 pi, the solid angle in dm/dr = 4 pi r^2 rho), 7 THEOREM (8, 4, 120 degrees, the 1/2 CTC window, Ford-Roman, Casimir, sqrt(Lambda)), 3 IDENTITY (2/Lambda, Lambda/2, E_Planck/Lambda), 2 MEASURED (the two sub-Planckian crossovers), 3 EMPIRICAL (G, c, hbar), 4 MODEL-PARAM (a, R_s, b, m -- the ansatz\'s free inputs), 1 MODEL (LAMBDA ITSELF, and the exchange rate inherits it), 1 ASSERTED (the 2 in A = 2(p.p\')^2 - p^2 p\'^2, still flagged) and EXACTLY TWO UNDEFINED. THE TWO ARE xi AND l_UV AND BOTH SIT IN L4, the only link of overturn.py\'s reversal chain that touches the bill. xi is the non-minimal coupling the framework needs positive -- Fewster-Osterbrink give no state-independent QEI there, which is candidate D\'s entire hope -- and nothing here fixes a value; l_UV is the EFT cutoff in Fliss et al., the one bound whose exponent matches, and the shortfall is the pure number (l_UV/l_P)^2/Lambda closing at sqrt(Lambda) l_P. M\'S FIRST CLAIM LANDS, and not mystically: an undefined coefficient IS a free parameter, and a free parameter is exactly where a no-go can fail to bind"),
  ("DISTANCE-IS-NOT-AN-ENDPOINT-DIFFERENCE", -1, -1, 0, "coefficients.py",
@@ -2078,13 +2192,25 @@ NULL_PAPERS = [
 # PLANCK-CROSSING-IS-AN-IDENTITY and leaves (+1,+1,+1) for (+1,0,0).  The selftest re-derives
 # BOTH earlier pins -- the first-written one and the integration pass's 288/170 -- from the
 # cells and ids as they then stood, so each move is exactly the changes named and nothing else.
-TRIPLE_COUNT, TRIPLE_DIGEST = 287, '58bdfd7a73c0'
-AFFIRM_COUNT, AFFIRM_DIGEST = 169, 'd20423b2a8c1'
+# RE-PINNED AGAIN (DOCKET 67 follow-ups, identity pass; CLOSE.md sec. 4 item 2) 287 -> 284 and
+# 58bdfd7a73c0 -> 4ed8f1a34c5d, and 169 -> 166 and d20423b2a8c1 -> e4c831b58976, read off this
+# file's own count and roster_digest after three further cell moves, each (+1,+1,+1) -> (+1,0,0)
+# on the reading applied to PLANCK-CROSSING-IS-AN-IDENTITY: THREE-CROSSINGS-AGREE (supply.py:
+# 'three values of kappa, not three corroborations'), PLANCK-FOURTH-TIME renamed
+# GJW-LANDING-IS-AN-IDENTITY (gjw.py: 'NOT AN INDEPENDENT ROUTE TO THE PLANCK SCALE'), and
+# THEOREM-REPRODUCES renamed GJW-MATCH-IS-ONE-EXPRESSION (scale.GJW_MATCH_IS_INDEPENDENT = False).
+# The selftest re-derives all three earlier pins -- first-written 290/171, integration 288/170 and
+# the residue pass's 287/169 -- from the cells and ids as they then stood.
+TRIPLE_COUNT, TRIPLE_DIGEST = 284, '4ed8f1a34c5d'
+AFFIRM_COUNT, AFFIRM_DIGEST = 166, 'e4c831b58976'
 TRIPLE_AS_FIRST_WRITTEN = (290, '2664ab2e9ac1')
 AFFIRM_AS_FIRST_WRITTEN = (171, 'b2318da70e64')
 #: the integration pass's pins (426418a), before the residue pass's move; kept and re-derived
 TRIPLE_AS_OF_INTEGRATION = (288, '486c81b16da0')
 AFFIRM_AS_OF_INTEGRATION = (170, 'e7fcbec3c3b0')
+#: the residue pass's pins (c9ae0c7), before the identity pass's moves; kept and re-derived
+TRIPLE_AS_OF_RESIDUE_PASS = (287, '58bdfd7a73c0')
+AFFIRM_AS_OF_RESIDUE_PASS = (169, 'd20423b2a8c1')
 
 #: CORRECTED (DOCKET 67 follow-up): cells and ids as first written, kept as history
 #: and checked.  A cell moved only where its owner's verdict moved.
@@ -2095,6 +2221,12 @@ DEC_BRANCH_CELL_AS_FIRST_WRITTEN = (+1, +1, +1)
 #: including what DOCKET 55 withdrew -- address/repair/correct"): PLANCK-THIRD-TIME's
 #: ground was withdrawn in achievable.py by DOCKET 55 and index3 never recorded it.
 PLANCK_THIRD_CELL_AS_FIRST_WRITTEN = (+1, +1, +1)
+#: CORRECTED (DOCKET 67 follow-ups, identity pass; M: "a verdict stays only on a correct stated
+#: ground -- if there is none, it is open"): three rows kept (+1,+1,+1) under corrected text whose
+#: Y/Z ground was an independent convergence on the Planck scale that is one dimensional identity.
+THREE_CROSSINGS_CELL_AS_FIRST_WRITTEN = (+1, +1, +1)
+PLANCK_FOURTH_CELL_AS_FIRST_WRITTEN = (+1, +1, +1)
+THEOREM_REPRODUCES_CELL_AS_FIRST_WRITTEN = (+1, +1, +1)
 #: {id now: id as first written}
 ROW_IDS_AS_FIRST_WRITTEN = {
     "DEFOCUS-NO-CONJUGATE-POINT": "DEFOCUS-PROTECTS",
@@ -2104,6 +2236,8 @@ ROW_IDS_AS_FIRST_WRITTEN = {
     "DEC-BRANCH-SPLIT": "DEC-BRANCH-EXHAUSTED",
     "GATE-FAILS-FIXED-MANIFOLD": "GATE-FAILS-D2",
     "PLANCK-CROSSING-IS-AN-IDENTITY": "PLANCK-THIRD-TIME",
+    "GJW-LANDING-IS-AN-IDENTITY": "PLANCK-FOURTH-TIME",
+    "GJW-MATCH-IS-ONE-EXPRESSION": "THEOREM-REPRODUCES",
 }
 #: first-written cells by CURRENT id, for the re-derivation control
 CELLS_AS_FIRST_WRITTEN = {
@@ -2111,11 +2245,20 @@ CELLS_AS_FIRST_WRITTEN = {
     "DEFOCUS-NO-CONJUGATE-POINT": DEFOCUS_CELL_AS_FIRST_WRITTEN,
     "DEC-BRANCH-SPLIT": DEC_BRANCH_CELL_AS_FIRST_WRITTEN,
     "PLANCK-CROSSING-IS-AN-IDENTITY": PLANCK_THIRD_CELL_AS_FIRST_WRITTEN,
+    "THREE-CROSSINGS-AGREE": THREE_CROSSINGS_CELL_AS_FIRST_WRITTEN,
+    "GJW-LANDING-IS-AN-IDENTITY": PLANCK_FOURTH_CELL_AS_FIRST_WRITTEN,
+    "GJW-MATCH-IS-ONE-EXPRESSION": THEOREM_REPRODUCES_CELL_AS_FIRST_WRITTEN,
 }
 #: the residue pass's moves alone -- the subset of the two maps above made after the
-#: integration pass (426418a) -- for the control that re-derives that pass's pins
+#: integration pass (426418a) and before the identity pass -- for the controls below
 RESIDUE_PASS_ROW_IDS = {"PLANCK-CROSSING-IS-AN-IDENTITY": "PLANCK-THIRD-TIME"}
 RESIDUE_PASS_CELLS = {"PLANCK-CROSSING-IS-AN-IDENTITY": PLANCK_THIRD_CELL_AS_FIRST_WRITTEN}
+#: the identity pass's moves alone -- the subset made after the residue pass (c9ae0c7)
+IDENTITY_PASS_ROW_IDS = {"GJW-LANDING-IS-AN-IDENTITY": "PLANCK-FOURTH-TIME",
+                         "GJW-MATCH-IS-ONE-EXPRESSION": "THEOREM-REPRODUCES"}
+IDENTITY_PASS_CELLS = {"THREE-CROSSINGS-AGREE": THREE_CROSSINGS_CELL_AS_FIRST_WRITTEN,
+                       "GJW-LANDING-IS-AN-IDENTITY": PLANCK_FOURTH_CELL_AS_FIRST_WRITTEN,
+                       "GJW-MATCH-IS-ONE-EXPRESSION": THEOREM_REPRODUCES_CELL_AS_FIRST_WRITTEN}
 
 def _put_back(cells, ids):
     out = []
@@ -2130,9 +2273,15 @@ def findings_as_first_written():
     return _put_back(CELLS_AS_FIRST_WRITTEN, ROW_IDS_AS_FIRST_WRITTEN)
 
 def findings_as_of_integration():
-    """FINDINGS with only the residue pass's moves put back: the index as the
-    integration pass (426418a) left it, cell for cell and id for id."""
-    return _put_back(RESIDUE_PASS_CELLS, RESIDUE_PASS_ROW_IDS)
+    """FINDINGS with the residue and identity passes' moves put back: the index
+    as the integration pass (426418a) left it, cell for cell and id for id."""
+    return _put_back(dict(RESIDUE_PASS_CELLS, **IDENTITY_PASS_CELLS),
+                     dict(RESIDUE_PASS_ROW_IDS, **IDENTITY_PASS_ROW_IDS))
+
+def findings_as_of_residue_pass():
+    """FINDINGS with only the identity pass's moves put back: the index as the
+    residue pass (c9ae0c7) left it, cell for cell and id for id."""
+    return _put_back(IDENTITY_PASS_CELLS, IDENTITY_PASS_ROW_IDS)
 
 AXES = ("X: identify warp energy", "Y: drive possible", "Z: specs derivable")
 
@@ -2290,12 +2439,45 @@ def selftest():
         (all(ROW_IDS_AS_FIRST_WRITTEN.get(k) == v for k, v in RESIDUE_PASS_ROW_IDS.items()),
          all(CELLS_AS_FIRST_WRITTEN.get(k) == v for k, v in RESIDUE_PASS_CELLS.items())),
         (True, True))
+    # DOCKET 67 follow-ups, identity pass: the residue pass's own pins, re-derived by putting
+    # back only the identity pass's three moves -- so that pass is exactly those and nothing else.
+    _t2 = [f[0] for f in findings_as_of_residue_pass() if on_all_three(f)]
+    _a2 = [f[0] for f in findings_as_of_residue_pass() if coords(f) == (1, 1, 1)]
+    chk("CONTROL: the residue pass's cells and ids give its triple pin (287)",
+        (len(_t2), roster_digest(_t2)), TRIPLE_AS_OF_RESIDUE_PASS)
+    chk("CONTROL: and its affirmative pin (169)",
+        (len(_a2), roster_digest(_a2)), AFFIRM_AS_OF_RESIDUE_PASS)
+    chk("the identity pass's maps are a subset of the first-written maps",
+        (all(ROW_IDS_AS_FIRST_WRITTEN.get(k) == v for k, v in IDENTITY_PASS_ROW_IDS.items()),
+         all(CELLS_AS_FIRST_WRITTEN.get(k) == v for k, v in IDENTITY_PASS_CELLS.items())),
+        (True, True))
+    chk("  and share no row with the residue pass's",
+        (sorted(set(IDENTITY_PASS_ROW_IDS) & set(RESIDUE_PASS_ROW_IDS)),
+         sorted(set(IDENTITY_PASS_CELLS) & set(RESIDUE_PASS_CELLS))), ([], []))
+    chk("  and together with it make up every move after the integration pass",
+        (len(ROW_IDS_AS_FIRST_WRITTEN) - len(RESIDUE_PASS_ROW_IDS) - len(IDENTITY_PASS_ROW_IDS),
+         len(CELLS_AS_FIRST_WRITTEN) - len(RESIDUE_PASS_CELLS) - len(IDENTITY_PASS_CELLS)),
+        (6, 3))
 
     print("\nDOCKET 67 follow-ups, residue pass -- DOCKET 55's withdrawals recorded, figures re-quoted")
     chk("PLANCK-CROSSING-IS-AN-IDENTITY: Y and Z undecided (achievable.py: identity, not a route)",
         coords(by_id["PLANCK-CROSSING-IS-AN-IDENTITY"]), (1, 0, 0))
     chk("  and not the first-written cell", coords(by_id["PLANCK-CROSSING-IS-AN-IDENTITY"])
         != PLANCK_THIRD_CELL_AS_FIRST_WRITTEN, True)
+    # identity pass (CLOSE.md sec. 4 item 2): the same reading, applied to the three rows whose
+    # Y/Z ground was an 'independent' Planck-scale convergence that is one identity.
+    _live_text = lambda t: t.split("(DOCKET 55")[0].split("(DOCKET 67")[0]   # as _live below
+    for _k, _c0, _why in (("THREE-CROSSINGS-AGREE", THREE_CROSSINGS_CELL_AS_FIRST_WRITTEN,
+                           "supply.py: three values of kappa"),
+                          ("GJW-LANDING-IS-AN-IDENTITY", PLANCK_FOURTH_CELL_AS_FIRST_WRITTEN,
+                           "gjw.py: single-length identity"),
+                          ("GJW-MATCH-IS-ONE-EXPRESSION", THEOREM_REPRODUCES_CELL_AS_FIRST_WRITTEN,
+                           "scale.py: one expression, twice")):
+        chk("%s: Y and Z undecided (%s)" % (_k, _why), coords(by_id[_k]), (1, 0, 0))
+        chk("  and not the first-written cell", coords(by_id[_k]) != _c0, True)
+        chk("  and its live text names the identity and the 0 on Y and Z",
+            ("identity" in _live_text(by_id[_k][5]).lower(), "Y and Z read 0" in _live_text(by_id[_k][5])),
+            (True, True))
     # a row's LIVE text is what precedes its history note; the note quotes what was withdrawn
     _live = lambda t: t.split("(DOCKET 55")[0].split("(DOCKET 67")[0]
     _withdrawn55 = ("needs 65 ORDERS more", "available/required = 1.09e-65",
@@ -2309,6 +2491,35 @@ def selftest():
                  "independent route to the Planck scale; a fourth independent route")
     chk("  CONTROL: the texts as first written are caught",
         sorted(w for w in _withdrawn55 if w in _live(_as_first)), sorted(_withdrawn55))
+    # identity pass and the DOCKET 55 re-adjudication (CLOSE.md sec. 4 items 2 and 4): phrases the
+    # owners (supply.py, scale.py, candidates.py, overturn.py) corrected in place, which index3's
+    # rows still carried.  Case-sensitive: 'NOT AN INDEPENDENT ROUTE' is the correction, not this.
+    _withdrawn_owned = ("THREE INDEPENDENT QUANTITIES", "IT REPRODUCES A NUMBER",
+                        "bound |rho| itself over a sampling region",
+                        "over sampling length L = c tau", "LOCAL SAMPLED BOUND",
+                        "has positive total mass", "a decision M has been holding",
+                        "has stood unchanged for the whole project")
+    chk("no row asserts a phrase its owner corrected, outside its history note",
+        sorted(f[0] for f in FINDINGS for w in _withdrawn_owned if w in _live(f[5])), [])
+    _as_first_owned = ("AND THREE INDEPENDENT QUANTITIES CROSS IN THE SAME PLACE; IT REPRODUCES A "
+                       "NUMBER THE TREE COMPUTED ANOTHER WAY; bounds |rho| <= 3 hbar c/(32 pi^2 "
+                       "L^4) over sampling length L = c tau; THE WHOLE WEIGHT IS CARRIED BY THE "
+                       "LOCAL SAMPLED BOUND: Ford-Roman and its descendants, which bound |rho| "
+                       "itself over a sampling region; the two-zone profile has positive total "
+                       "mass; a flag that has stood unchanged for the whole project; a decision "
+                       "M has been holding")
+    chk("  CONTROL: the texts as they stood are caught, every phrase",
+        sorted(w for w in _withdrawn_owned if w in _live(_as_first_owned)), sorted(_withdrawn_owned))
+    chk("the two Ford-Roman rows state a worldline TIME average, as their owners do",
+        sorted(k for k in ("BOUNDS-FALL-FASTER-THAN-NEED", "QI-CARRIES-THE-WHOLE-WEIGHT")
+               if "TIME average" in _live(by_id[k][5]) and "worldline" in _live(by_id[k][5])),
+        ["BOUNDS-FALL-FASTER-THAN-NEED", "QI-CARRIES-THE-WHOLE-WEIGHT"])
+    chk("  and keep their cells (the owners' verdicts did not move)",
+        (coords(by_id["BOUNDS-FALL-FASTER-THAN-NEED"]), coords(by_id["QI-CARRIES-THE-WHOLE-WEIGHT"])),
+        ((1, -1, 1), (-1, -1, 0)))
+    chk("  and the t0 = R/c reading is named as the tree's choice, not the source's",
+        "t0 = R/c" in _live(by_id["BOUNDS-FALL-FASTER-THAN-NEED"][5])
+        and "not the source's" in _live(by_id["BOUNDS-FALL-FASTER-THAN-NEED"][5]), True)
     chk("the achievable.py rows rest on the duration bound, under named hypotheses",
         sorted(k for k in ("NO-ACHIEVABLE-CORE", "GAP-WIDENS", "DEVICE-NOT-RETRACTED")
                if "71.256" in _live(by_id[k][5]) and "H-MMCS" in _live(by_id[k][5])),
@@ -2324,7 +2535,7 @@ def selftest():
     _owned = {"SCALE", "CIRCULATION", "MAGNITUDE-REACHED", "NO-PATH-IS-THE-MAXIMUM",
               "BITS-ARE-THE-MASS", "LANDAUER-IS-THE-WEAKER-HALF", "A-SPECTRUM-IS-A-LOGARITHM",
               "LIMIT-DISSOLVES", "COST-STOPS-SCALING", "ONE-LEVER-IN-THE-TABLE",
-              "THEOREM-REPRODUCES"}
+              "GJW-MATCH-IS-ONE-EXPRESSION"}   # first THEOREM-REPRODUCES (identity pass rename)
     _strip = lambda t: t.split("(first ")[0].split("(DOCKET 67")[0].split("(at Proxima")[0]
     chk("no row quotes, as current, a figure stage OWN moved",
         sorted(f[0] for f in FINDINGS for w in _stale if w in _strip(f[5])), [])
