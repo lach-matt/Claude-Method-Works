@@ -342,7 +342,13 @@ The shape of the problem, from candidates.py:
 
 Two different exponents, so the shortfall is not a constant to be engineered
 around -- it grows as R^2 and the crossovers sit at 0.307933 l_P and
-0.369917 l_P.  Sub-Planckian.  CORRECTED (DOCKET 67): this called that
+0.369917 l_P, sub-Planckian, with Ford-Roman read at t0 = R/c.  On the
+inequality for a density held for T = R/c (achievable.duration_bound,
+Fewster's C) the Ford-Roman crossover is 5.625229 l_P, above l_P, and the
+shortfall still grows as R^2 (68.083 orders at a metre against 70.606).
+CORRECTED (DOCKET 67, on M's ruling "Carry both"): first written "the
+crossovers sit at 0.307933 l_P and 0.369917 l_P.  Sub-Planckian.", the
+t0 = R/c reading alone.  CORRECTED (DOCKET 67): this called that
 "Pfenning-Ford's conclusion in this architecture's coordinates".  The two
 crossovers are this tree's own (switch.py); P&F conclude an UPPER bound on
 the wall thickness of "a few hundred Planck lengths", Delta <~ 10^2 v_b L_P,
@@ -704,6 +710,19 @@ def selftest():
     # -- L4 ------------------------------------------------------------------
     chk("candidate D closes at sqrt(Lambda) l_P",
         uv_cutoff_that_closes_L4(), 3.159514, 1e-5)
+
+    # -- DOCKET 67, M's ruling "Carry both": the docstring's FR figures on both
+    # readings, against candidates.py's computed values --------------------
+    import candidates as _cand
+    _doc = " ".join(__doc__.split())
+    chk("t0 = R/c crossover quoted as computed",
+        ("%.6f l_P" % _cand.crossover_ford_roman_closed()) in _doc, True)
+    chk("duration-bound crossover quoted as computed",
+        ("%.6f l_P" % _cand.crossover_duration_closed()) in _doc, True)
+    chk("  and the two shortfalls at a metre",
+        ("%.3f orders at a metre against %.3f"
+         % (math.log10(_cand.shortfall_duration(1.0)),
+            math.log10(_cand.shortfall(1.0)))) in _doc, True)
 
     print("\nSELFTEST", "PASS" if ok else "FAIL")
     return ok

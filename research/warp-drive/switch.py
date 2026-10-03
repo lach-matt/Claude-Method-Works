@@ -137,7 +137,12 @@ This is the good half and it deserves its own statement.
     against the three gates; magnitude.py gave it an area-law constant,
     k_Cas = pi^2 Lambda/720 = 0.136838353, with its crossover at 0.369917 l_P.
     SAME WALL.  Casimir is not a new door -- it is the door the tree measured,
-    and it is sub-Planckian like the others.
+    and it is sub-Planckian, as is the Ford-Roman crossover read at t0 = R/c
+    (0.307933 l_P); on the duration bound (achievable.duration_bound, a
+    density held for T = R/c) the Ford-Roman crossover is 5.625229 l_P,
+    above l_P.  CORRECTED (DOCKET 67, on M's ruling "Carry both"): first
+    written "and it is sub-Planckian like the others", true on the t0 = R/c
+    reading only.  Casimir's own 0.369917 l_P is unchanged.
 
 ===============================================================================
 5. "REDUCING BY AN AXIS" GOES THE WRONG WAY TWICE
@@ -352,6 +357,13 @@ def selftest():
     chk("but it is the tree's own already-priced door",
         K_CASIMIR, 0.136838353, 1e-8)
     chk("  crossing sub-Planckian", CASIMIR_CROSSOVER_LP, 0.369917, 1e-5)
+    # DOCKET 67, M's ruling "Carry both": "the others" is reading-dependent.
+    import candidates as _cand
+    chk("  FR sub-Planckian on t0 = R/c, not on the duration bound",
+        (_cand.crossover_is_sub_planckian(), _cand.crossover_duration_is_sub_planckian()),
+        (True, False))
+    chk("  the docstring quotes the duration crossover as computed",
+        ("%.6f l_P" % _cand.crossover_duration_closed()) in " ".join(__doc__.split()), True)
 
     # -- 5: axis removal goes the wrong way twice ----------------------------
     chk("S/V falls as D falls",

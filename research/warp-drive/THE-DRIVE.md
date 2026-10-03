@@ -101,6 +101,12 @@ order-of-magnitude figure, so the margin is good only to that order. GATE 1 — 
 `gatespec.py`, `launcher.py`, `residue.py` — keeps the first-written R1 = 4,902 m; on
 `address.RHO_NUCLEAR` that shell is 0.859 × nuclear. That is the named hypothesis
 GATE1-SIZED-ON-RECALLED-DENSITY in `gate1.py`, and re-sizing it is left to M.)
+(Corrected on M's "Re-size to 4544 m", DOCKET 67: GATE 1 is now re-sized. `gate1.py` takes R1 from
+`drivespec.radius_for_density` on `address.RHO_NUCLEAR`, so GATE 1 is this point design: R1 = 4,544 m,
+1.03 M☉, reservoir 1.09e46 J. `torus.py`, `gatespec.py`, `launcher.py`, `residue.py` and `kerr.py`
+import it. GATE1-SIZED-ON-RECALLED-DENSITY is discharged and kept in `gate1.py` as history. The torus
+holds its first aspect a/R0 = 1600/4902 (named TORUS-ASPECT-HELD in `torus.py`), so its DEC margin stays
+5.89×. The 4,902 m figures are still checked as RECORD.)
 
 ---
 

@@ -35,11 +35,23 @@ RHO_NUCLEAR = _address.RHO_NUCLEAR
 RHO_NUCLEAR_WITHDRAWN = 2.3e17
 
 # --- torus geometry, carried from torus.py's DEC-compliant design point ------
-R0, A_TUBE = 4902.0, 1600.0            # major, minor radius (m)
+# CORRECTED (DOCKET 67, on M's ruling "Re-size to 4544 m"): first typed here as
+# R0, A_TUBE = 4902.0, 1600.0 (bore 3302 m), M_GATE = 2.200330e30 and E_STORE =
+# 1.17e46.  GATE 1 is re-sized to drivespec's nuclear-density radius on
+# address.RHO_NUCLEAR; the geometry is imported from torus.py (a/R0 held,
+# torus.py's named hypothesis TORUS-ASPECT-HELD) and the mass and reservoir
+# from gate1.py, never typed.  Each first value is kept and checked as RECORD.
+import gate1 as _gate1
+import torus as _torus
+import launcher as _launcher
+R0, A_TUBE = _torus.R1_GATE, _torus.A_GATE   # major, minor radius (m): 4544.18, 1483.21
 R_BORE     = R0 - A_TUBE               # bore radius (m)
-M_GATE     = 2.200330e30               # kg
+M_GATE     = _gate1.M_GATE             # kg
 V_WARP     = 0.0476                    # c
-E_STORE    = 1.17e46                   # J
+E_STORE    = _gate1.E_STORE            # J
+R0_AS_FIRST_WRITTEN, A_TUBE_AS_FIRST_WRITTEN = 4902.0, 1600.0   # RECORD only
+M_GATE_AS_FIRST_WRITTEN  = 2.200330e30                          # RECORD only
+E_STORE_AS_FIRST_WRITTEN = 1.17e46                              # RECORD only
 
 def torus_volume(R0=R0, a=A_TUBE):
     return 2.0*math.pi**2*R0*a**2
@@ -75,14 +87,18 @@ SPEC = [
  ("MASS","  vs nuclear saturation",torus_density()/RHO_NUCLEAR,"x","DERIVED",
   "address.RHO_NUCLEAR = 2.676e17 kg/m^3, itself DERIVED-FROM-ORDER (n0 = 0.16 "
   "fm^-3, not READ) -- DERIVED here only on that named input; first 38.62 x on "
-  "a recalled 2.3e17 (CORRECTED, DOCKET 67 follow-ups)"),
+  "a recalled 2.3e17 (CORRECTED, DOCKET 67 follow-ups), then 33.19 x at R0 = "
+  "4902 m until GATE 1 was re-sized (CORRECTED, DOCKET 67, on M's ruling "
+  "\"Re-size to 4544 m\")"),
  ("MASS","material","degenerate nuclear matter","","PINNED","gate1.py: no vessel reaches 1e34 Pa"),
  ("MASS","source","a neutron star","","DERIVED","self-gravity is the only confinement"),
 
  ("STRUCTURE","hoop tension margin (DEC)",dec_margin(),"x","DERIVED","torus.py closed form"),
  ("STRUCTURE","lambda_max",lambda_max(),"kg/m","DERIVED","c^2 / G ln(8R0/a)"),
  ("STRUCTURE","circulation dynamic stress",None,"Pa","OPEN",
-  "2.25e33 Pa was the SPHERICAL wall figure; toroidal flow geometry undefined"),
+  "%.3g Pa is the SPHERICAL wall figure at the re-sized R1 (first 2.25e33 at "
+  "R1 = 4902 m); toroidal flow geometry undefined"
+  % _gate1._drivespec.circulation_stress(_gate1.RHO, _gate1.V_CIRC)),
  ("STRUCTURE","equilibrium","hoop tension, no rotation","","DERIVED","torus.py"),
  ("STRUCTURE","dynamical stability",None,"","OPEN",
   "self-gravitating tori have a known runaway instability; not assessed"),
@@ -94,20 +110,20 @@ SPEC = [
   "CRITICAL -- see the flagged item below"),
  ("FIELD","circulation speed",0.330,"c","INVALID",
   "gearing k = 6.94 was derived from the spherical k_hat; no toroidal value"),
- ("FIELD","energy conditions","Type I, DEC margin 5.89x","","DERIVED",
+ ("FIELD","energy conditions","Type I, DEC margin %.2fx" % dec_margin(),"","DERIVED",
   "torus.py hoop bound only -- not the full stress-energy"),
 
  ("POWER","reservoir",E_STORE,"J","ASSUMED","carried from the spherical design"),
- ("POWER","per launch, 1000 t",1.019915e20,"J","DERIVED","launcher.py"),
+ ("POWER","per launch, 1000 t",_launcher.payload_energy(1.0e6, V_WARP),"J","DERIVED","launcher.py"),
  ("POWER","source","accretion","","DERIVED","gate1.py: only 1e46 J process on a NS"),
- ("POWER","accretion time",26.65,"Myr","DERIVED","Eddington-limited"),
+ ("POWER","accretion time",_gate1.accretion_time(E_STORE)/_gate1.YR/1e6,"Myr","DERIVED","Eddington-limited"),
  ("POWER","flow topology coupling",None,"","OPEN",
   "accretion is toroidal rotation; the metric needs a different flow"),
 
  ("OPERATIONS","delivered speed",V_WARP,"c","DERIVED","one gate, from rest"),
  ("OPERATIONS","proper acceleration on payload",0.0,"g","DERIVED","geodesic throughout"),
- ("OPERATIONS","shell recoil, 1000 t",6.493779e-18,"m/s","DERIVED","launcher.py"),
- ("OPERATIONS","launches before depletion",1.147154e26,"","DERIVED","launcher.py"),
+ ("OPERATIONS","shell recoil, 1000 t",_launcher.recoil_speed(1.0e6, V_WARP),"m/s","DERIVED","launcher.py"),
+ ("OPERATIONS","launches before depletion",_launcher.launches_available(1.0e6, V_WARP),"","DERIVED","launcher.py"),
  ("OPERATIONS","switching mechanism",None,"","OPEN",
   "how the shift is raised while a payload is inside; relaxation permits it"),
  ("OPERATIONS","cycle time",None,"s","OPEN","depends on switching"),
@@ -119,7 +135,7 @@ SPEC = [
  ("INTERFACE","ingress","through the bore","","DERIVED","open topology; no wall transit"),
  ("INTERFACE","egress","through the bore","","DERIVED","the reason the torus is required"),
  ("INTERFACE","payload envelope",None,"m","OPEN",
-  "bore radius is 3302 m but the usable flat volume is undefined"),
+  "bore radius is %.0f m (first 3302 m) but the usable flat volume is undefined" % R_BORE),
  ("INTERFACE","tidal load on payload",None,"g","OPEN","not computed for the torus"),
 ]
 
@@ -151,7 +167,7 @@ FLAG = """
   Krasnikov tubes does not apply as stated.  The concern is narrower and is
   about the AXIAL TERMINATION of the shift in vacuum.
 
-  torus.py's 5.89x DEC margin does not touch this.  It bounds the HOOP STRESS of
+  torus.py's %.2fx DEC margin does not touch this.  It bounds the HOOP STRESS of
   the ring against collapse.  It says nothing about the stress-energy needed to
   sustain and terminate a boosted region inside the bore, which is a different
   component of the same tensor.
@@ -159,7 +175,7 @@ FLAG = """
   The ingress bound FORCED the open topology.  Whether the open topology can
   carry a shift at all is now the live question, and it is sharper than the one
   it replaced.
-"""
+""" % dec_margin()
 
 def selftest():
     ok = True
@@ -170,7 +186,16 @@ def selftest():
         print("  %-52s %14.6g %14.6g  %s" % (label, got, want, "ok" if good else "FAIL"))
 
     print("Geometry")
-    chk("bore radius (m)", R_BORE, 3302.0)
+    # CORRECTED (DOCKET 67, on M's ruling "Re-size to 4544 m"): first pinned at
+    # 3302.0 m bore, 5.892177 margin, 33.193932 x and 38.620418 x on the typed
+    # 4902 m / 1600 m / 2.200330e30 geometry.  Repinned to computed values on
+    # the re-sized geometry; the first pins are RECORD checks on that geometry.
+    chk("bore radius (m)", R_BORE, 3060.968792)
+    chk("  RECORD: first-written bore radius (m)",
+        R0_AS_FIRST_WRITTEN - A_TUBE_AS_FIRST_WRITTEN, 3302.0)
+    chk("geometry is torus.py's, mass and reservoir gate1.py's",
+        float((R0, A_TUBE, M_GATE, E_STORE) ==
+              (_torus.R1_GATE, _torus.A_GATE, _gate1.M_GATE, _gate1.E_STORE)), 1.0)
     chk("tube volume (m^3)", torus_volume(), 2.0*math.pi**2*R0*A_TUBE**2)
     chk("density (kg/m^3)", torus_density(), M_GATE/torus_volume())
     print("\nIdentities")
@@ -178,12 +203,39 @@ def selftest():
     chk("density inverse to volume (identity)",
         torus_density(M_GATE,R0,2*A_TUBE)*torus_volume(R0,2*A_TUBE), M_GATE)
     chk("DEC margin agrees with torus.py", dec_margin(), 5.892177, tol=1e-5)
+    chk("  and equals torus.margin at the gate (identity)", dec_margin(),
+        _torus.margin(R0, A_TUBE, M_GATE), tol=1e-12)
+    chk("  RECORD: first-written geometry",
+        dec_margin(M_GATE_AS_FIRST_WRITTEN, R0_AS_FIRST_WRITTEN, A_TUBE_AS_FIRST_WRITTEN),
+        5.892177, tol=1e-5)
     print("\nNuclear density (CORRECTED, DOCKET 67 follow-ups)")
     chk("nuclear density is address.RHO_NUCLEAR",
         float(RHO_NUCLEAR == _address.RHO_NUCLEAR), 1.0)
-    chk("tube density / nuclear saturation", torus_density()/RHO_NUCLEAR, 33.193932, tol=1e-6)
-    chk("  RECORD: on the withdrawn 2.3e17", torus_density()/RHO_NUCLEAR_WITHDRAWN,
-        38.620418, tol=1e-6)
+    chk("tube density / nuclear saturation", torus_density()/RHO_NUCLEAR, 38.627353, tol=1e-7)
+    chk("  RECORD: first-written geometry (R0 = 4902, a = 1600)",
+        torus_density(M_GATE_AS_FIRST_WRITTEN, R0_AS_FIRST_WRITTEN,
+                      A_TUBE_AS_FIRST_WRITTEN)/RHO_NUCLEAR, 33.193932, tol=1e-6)
+    chk("  RECORD: first-written geometry on the withdrawn 2.3e17",
+        torus_density(M_GATE_AS_FIRST_WRITTEN, R0_AS_FIRST_WRITTEN,
+                      A_TUBE_AS_FIRST_WRITTEN)/RHO_NUCLEAR_WITHDRAWN, 38.620418, tol=1e-6)
+
+    print("\nCarried figures (CORRECTED, DOCKET 67, re-sized on M's ruling)")
+    # first typed: 1.019915e20 J, 26.65 Myr, 6.493779e-18 m/s, 1.147154e26
+    rows = {r[1]: r[2] for r in SPEC}
+    chk("per launch, 1000 t (J), scale-free", rows["per launch, 1000 t"], 1.019915e20, tol=1e-6)
+    chk("accretion time (Myr), gate1.py", rows["accretion time"], 26.733647, tol=1e-6)
+    chk("  RECORD: first-written 26.65 Myr (4902 m, 1.17e46 J)",
+        _gate1.accretion_time(E_STORE_AS_FIRST_WRITTEN, _gate1.M_GATE_AS_FIRST_WRITTEN)
+        /_gate1.YR/1e6, 26.65, tol=1e-3)
+    chk("shell recoil, 1000 t (m/s), launcher.py", rows["shell recoil, 1000 t"], 7.004073e-18, tol=1e-6)
+    chk("  RECORD: first-written 6.493779e-18 (2.200e30 kg)",
+        _launcher.recoil_speed(1.0e6, V_WARP, _launcher.M_SHELL_AS_FIRST_WRITTEN), 6.493779e-18, tol=1e-6)
+    chk("launches before depletion, launcher.py", rows["launches before depletion"], 1.066644e26, tol=1e-6)
+    chk("  RECORD: first-written 1.147154e26 (1.17e46 J)",
+        _launcher.launches_available(1.0e6, V_WARP, E_STORE_AS_FIRST_WRITTEN), 1.147154e26, tol=1e-6)
+    chk("reservoir is gate1's (J)", rows["reservoir"], 1.0878866e46, tol=1e-7)
+    chk("total mass (kg)", rows["total mass"], 2.0397154e30, tol=1e-7)
+    chk("  RECORD: first-written total mass (kg)", M_GATE_AS_FIRST_WRITTEN, 2.200330e30, tol=1e-12)
 
     print("\nSheet integrity -- the diagnostic")
     stat = {}

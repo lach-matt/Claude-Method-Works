@@ -2207,16 +2207,16 @@ notice the exponents:
 
 **So the shortfall goes as `R²` and shrinking always helps** — "small and contained" is quantitatively the
 right direction, and the only one that helps at all. It is still **52.6 orders short at a nanometre** and
-**70.6 at a metre** (Casimir `2.798e52` / `2.798e70`) — the same order as the kugelblitz block in **H31b**,
+**70.6 at a metre** with Ford–Roman read at `t₀ = R/c`, **50.1** and **68.1** on the duration bound below (Casimir `2.798e52` / `2.798e70`) *(Corrected on M's "Carry both", DOCKET 67: the shortfalls were first given on the `t₀ = R/c` reading alone; `candidates.py`'s `shortfall_duration()` computes the second.)* — the same order as the kugelblitz block in **H31b**,
 reached from a completely different direction.
 
-**And the crossover has a closed form, which is the result:**
+**And the crossover has a closed form — one on each reading of the time, both carried — which is the result:**
 
-**`R = ℓ_P √(3Λ/32π²) = 0.307933 ℓ_P`**  (Ford–Roman)  ·  **`R = ℓ_P π√(Λ/720) = 0.369917 ℓ_P`**  (Casimir)
+**`R = ℓ_P √(3Λ/32π²) = 0.307933 ℓ_P`**  (Ford–Roman read at `t₀ = R/c`)  ·  **`R = ℓ_P √(CΛ) = 5.625229 ℓ_P`**  (Ford–Roman on `achievable.duration_bound`, a density held for `T = R/c`, Fewster's `C = 3.16986` = `achievable.FEWSTER_C`)  ·  **`R = ℓ_P π√(Λ/720) = 0.369917 ℓ_P`**  (Casimir)
 
-> **The bound meets the requirement only *below the Planck length*. The framework fails before the bound
+> **On the `t₀ = R/c` reading the bound meets the requirement only *below the Planck length*, and the framework fails before the bound
 > does** — this is not "very hard", it is outside the domain of the theory stating it. And **Λ sits in both
-> closed forms.**
+> closed forms.** **On the duration bound it does not:** that inequality allows **333.709×** more than the Ford–Roman average at the same time, its crossing is `5.625229 ℓ_P` — *above* the Planck length in every convention tried (`5.6252` / `2.2441` / `1.1221` `ℓ_P`, non-reduced / `h`-based / reduced) — and its shortfall is **50.083** orders at a nanometre and **68.083** at a metre against **52.606** and **70.606**. There, which fails first, the framework or the bound, is **not established**: the domain boundary is itself an estimate, "of the order of" `ℓ_P`. **The refusal on magnitude stands on both readings.** *(Corrected on M's "Carry both", DOCKET 67: this read "The bound meets the requirement only below the Planck length. The framework fails before the bound does", on one crossover, `0.307933 ℓ_P`, with no reading named; it holds on the `t₀ = R/c` reading only. Every figure here is computed by `candidates.py` from `achievable.FEWSTER_C`.)*
 
 ### H37e — one constraint that did not fight
 
@@ -2269,7 +2269,7 @@ differ by a factor close to 1, so the exotic behaviour is a **frame artefact** w
 
 | mechanism | crossover |
 |---|---|
-| Ford–Roman | **0.307933 `ℓ_P`** |
+| Ford–Roman | **0.307933 `ℓ_P`** read at `t₀ = R/c`; **5.625229 `ℓ_P`** on the duration bound |
 | Casimir | **0.369917 `ℓ_P`** |
 | non-minimal coupling | **3.159514 `ℓ_P`** |
 
@@ -2277,7 +2277,7 @@ differ by a factor close to 1, so the exotic behaviour is a **frame artefact** w
 > curvature coupling inside an EFT — **all running out within one order of the Planck length**, with `Λ` in
 > all three closed forms. **The obstruction is not a limitation of any one mechanism: every known
 > negative-energy source runs out exactly where the theory stating the requirement runs out. The magnitude
-> gate and the Planck scale are the same gate.**
+> gate and the Planck scale are the same gate** — on the `t₀ = R/c` reading. On the duration bound the Ford–Roman crossing, `5.625229 ℓ_P`, is still within one order of `ℓ_P` in every convention tried but *above* it, so there the bound does not run out before the framework's estimated boundary, and that headline is not established. *(Corrected on M's "Carry both", DOCKET 67: the headline was first stated without a reading, on the `t₀ = R/c` crossover alone.)*
 
 That is a finding about the *framework*, and it is why a fifth candidate **inside the same framework**
 should not be expected to behave differently.
@@ -2285,7 +2285,7 @@ should not be expected to behave differently.
 | | `candidates.py` |
 |---|---|
 | status | **DERIVED** (the `L⁻⁴` vs `R⁻²` structure; both closed-form crossovers) + **MEASURED** (shortfalls across four scales; Casimir densities) + **CITED** (arXiv:2204.04041; arXiv:1801.04779) |
-| new? | the magnitude gate itself; that all three bounds meet the requirement only sub-Planckially, with Λ in the closed forms; that the deadline is free |
+| new? | the magnitude gate itself; that all three bounds meet the requirement only sub-Planckially, with Λ in the closed forms (Ford–Roman on the `t₀ = R/c` reading; on the duration bound its crossing is `5.625229 ℓ_P`, above `ℓ_P` *(Corrected on M's "Carry both", DOCKET 67: first stated for all three without a reading.)*); that the deadline is free |
 | **not** claimed | that the list is exhaustive — three were named and three were run; a fourth may exist and this file does not speak to it |
 
 ---
@@ -2654,7 +2654,7 @@ decision about what counts as proven against M's standing constraint *"true and 
 
 **L4 — MAGNITUDE.** Requirement `|ρ| ~ c⁴/(GΛR²)` goes as `R⁻²`; Ford–Roman `3ħc/(32π²L⁴)` and Casimir
 `π²ħc/(720d⁴)` go as `L⁻⁴`. Different exponents, so the shortfall **grows as `R²`** and the crossovers sit
-at `0.307933 ℓ_P` and `0.369917 ℓ_P`. The one candidate whose exponent matches is **candidate D**,
+at `0.307933 ℓ_P` and `0.369917 ℓ_P`, with Ford–Roman read at `t₀ = R/c` (`5.625229 ℓ_P` on the duration bound *(Corrected on M's "Carry both", DOCKET 67: first given on the `t₀ = R/c` reading alone.)*). The one candidate whose exponent matches is **candidate D**,
 non-minimal coupling: **Fewster & Osterbrink (arXiv:0708.2450)** — for `ξ > 0` there is *no*
 state-independent QEI, so the bound that forbids us does not exist in that theory; **Fliss, Freivogel,
 Kontou et al. (arXiv:2309.10848)** — EFT bound `|ρ| ~ ħc/(ℓ_UV²δ²)`, **`δ⁻²`, the same exponent**. The
@@ -2704,7 +2704,7 @@ number is where an unearned assumption hides best, because a number does not loo
 | GEOMETRIC | 1 | `4π`, the solid angle in `dm/dr = 4πr²ρ` |
 | THEOREM | 7 | `8`, `4`, `120°`, the `1/2` CTC window, Ford–Roman, Casimir, `√Λ` |
 | IDENTITY | 3 | `2/Λ`, `Λ/2`, `E_P/Λ` |
-| MEASURED | 2 | the two sub-Planckian crossovers |
+| MEASURED | 2 | the two crossovers — sub-Planckian with Ford–Roman read at `t₀ = R/c`; the Ford–Roman one is `5.625229 ℓ_P` on the duration bound *(Corrected on M's "Carry both", DOCKET 67: first "the two sub-Planckian crossovers", the `t₀ = R/c` reading alone.)* |
 | EMPIRICAL | 3 | `G`, `c`, `ħ` |
 | MODEL-PARAM | 4 | `a`, `R_s`, `b`, `m` — the ansatz's free inputs |
 | **MODEL** | **1** | **`Λ` itself**, and the exchange rate inherits it |
@@ -2853,29 +2853,29 @@ Set required = permitted in regime A:
 > **`R · Δd ≤ k ℓ_P²`**  — corridor length times distance bought, bounded by a **Planck area**.
 >
 > `k_FR = 3Λ/(32π²) = 0.094823` · `k_Cas = π²Λ/720 = 0.136838` — **two unrelated bounds, same Planck area to
-> within 44 %.**
+> within 44 %** — Ford–Roman read at `t₀ = R/c` against Casimir at `d = R`. On the duration bound the Ford–Roman constant is `k_dur = CΛ = 31.643199`, 333.709× `k_FR` and 231.245× `k_Cas`, so the agreement holds on the `t₀ = R/c` reading only. *(Corrected on M's "Carry both", DOCKET 67: k was first carried on one Ford–Roman reading; `magnitude.py` now computes `K_DUR` from `achievable.FEWSTER_C`.)*
 
 **The validation, and it is the reason to believe this.** Put `Δd = R` — the diagonal, contracting a
 corridor by its own length — and the law becomes `R² ≤ kℓ_P²`:
 
 | | `√k` | **H37**'s seated crossover |
 |---|---|---|
-| Ford–Roman | **0.307933 ℓ_P** | **0.307933 ℓ_P** |
+| Ford–Roman | **0.307933 ℓ_P** (`t₀ = R/c`) · **5.625229 ℓ_P** (duration bound) | **0.307933 ℓ_P** · **5.625229 ℓ_P** |
 | Casimir | **0.369917 ℓ_P** | **0.369917 ℓ_P** |
 
 Six decimals, both. **They were two points; this is the curve they sit on.** A strict generalisation of a
 result already in the tree, not a new claim on new assumptions — and the one place a chain of scalings is
 pinned to a number computed another way.
 
-| `Δd` | `R ≤` |
-|---|---|
-| `ℓ_P` | `0.094823 ℓ_P` |
-| 1 fm | 2.4770e−56 m |
-| 1 m | **2.4770e−71 m** |
-| 1 ly | 2.6182e−87 m |
+| `Δd` | `R ≤` (`t₀ = R/c`) | `R ≤` (duration bound) |
+|---|---|---|
+| `ℓ_P` | `0.094823 ℓ_P` | `31.643199 ℓ_P` |
+| 1 fm | 2.4770e−56 m | 8.2661e−54 m |
+| 1 m | **2.4770e−71 m** | **8.2661e−69 m** |
+| 1 ly | 2.6182e−87 m | 8.7373e−85 m |
 
 > **Scaling is controlled, and the control law is exact — which is what M asked for. The whole controlled
-> region sits under a Planck area.**
+> region sits under a Planck area** on the `t₀ = R/c` reading, and under 31.643199 of them on the duration bound — every `Δd` of a femtometre or more still leaves `R` sub-Planckian on both. *(Corrected on M's "Carry both", DOCKET 67: first stated on the `t₀ = R/c` reading alone.)*
 
 *No novelty claimed.* A Planck-area bound on a product is the shape of **H40a**'s Pfenning–Ford; the
 resemblance to a Bekenstein-type area bound is **noted and not asserted** — nothing here derives it from
@@ -3883,7 +3883,7 @@ J/m³ at `d` = 1 µm, 100 nm, 10 nm.
 >
 > **And the tree already holds it, already priced.** **H37** ran Casimir against the three gates; **H43c**
 > gave it `k_Cas = π²Λ/720 = 0.136838353`, crossover **0.369917 ℓ_P**. **Same wall.** Casimir is not a new
-> door — it's the door the tree measured, and it's sub-Planckian like the others.
+> door — it's the door the tree measured, and it's sub-Planckian, as is Ford–Roman read at `t₀ = R/c` (`5.625229 ℓ_P`, above `ℓ_P`, on the duration bound). *(Corrected on M's "Carry both", DOCKET 67: first "sub-Planckian like the others", true on the `t₀ = R/c` reading only.)*
 
 ### H54c — and "reducing by an axis" goes the wrong way twice
 
@@ -5156,7 +5156,7 @@ informative than the verdict."* Four candidates, three gates, **and the failures
 |---|---|---|
 | negative effective mass | **KIND** | `m*` is band curvature, not `T₀₀` |
 | Casimir | **DEADLINE**, MAGNITUDE | switching means *moving plates* — mechanical, slower than c |
-| squeezed vacuum | **MAGNITUDE** | by 52.6 orders at 1 nm |
+| squeezed vacuum | **MAGNITUDE** | by 52.6 orders at 1 nm read at `t₀ = R/c`, 50.1 on the duration bound *(Corrected on M's "Carry both", DOCKET 67: first the `t₀ = R/c` figure alone.)* |
 | non-minimal coupling | **MAGNITUDE** | **by a pure number, not by orders** |
 
 **Triangulated, the missing candidate is specified:**
@@ -5292,7 +5292,7 @@ The tree holds the evidence in its own record:
 
 | the magnitude gate | |
 |---|---|
-| **as pieces** | *"squeezed vacuum, 52.6 orders short"* |
+| **as pieces** | *"squeezed vacuum, 52.6 orders short (t0 = R/c; 50.1 on the duration bound)"* *(Corrected on M's "Carry both", DOCKET 67: `oneobject.py`'s constant first read "squeezed vacuum, 52.6 orders short"; it is kept there as a record.)* |
 | **collapsed** | *"`ℓ_UV ≤ 3.159514 ℓ_P`"* |
 
 **Both are true and they are the same statement.** What changed is that one of them **can be worked** and

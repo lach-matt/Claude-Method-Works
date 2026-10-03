@@ -15,11 +15,16 @@ permitted and forbidden is not a point but a HYPERBOLA:
 
     -- corridor length times distance bought, bounded by a Planck AREA.
 
-And that law is not new physics: it REPRODUCES candidates.py's two seated
+And that law is not new physics: it REPRODUCES candidates.py's seated
 crossovers exactly, as the points where the hyperbola meets the diagonal
-Delta d = R.  sqrt(k_FR) = 0.307933 l_P and sqrt(k_Cas) = 0.369917 l_P, to six
-decimals, against the two numbers already in the tree.  What is new is that
-they were two points and this is the curve they sit on.
+Delta d = R.  sqrt(k_FR) = 0.307933 l_P (Ford-Roman read at t0 = R/c) and
+sqrt(k_Cas) = 0.369917 l_P, to six decimals, against the two numbers already
+in the tree; and on the duration bound (achievable.duration_bound, a density
+held for T = R/c) sqrt(k_dur) = sqrt(C Lambda) = 5.625229 l_P, candidates.py's
+second Ford-Roman crossover.  What is new is that they were points and this
+is the curve they sit on.  k is carried on both Ford-Roman readings (DOCKET
+67, M's ruling "Carry both"): k_FR = 3 Lambda/(32 pi^2) = 0.094823 and
+k_dur = C Lambda = 31.643199, C = achievable.FEWSTER_C.
 
 The two denominations are exact, they have different prices, and -- this is
 the part worth having -- LAMBDA IS THE EXCHANGE RATE BETWEEN THEM.
@@ -112,28 +117,44 @@ and with the Casimir density pi^2 hbar c/(720 R^4):
         R * Delta d  <=  (pi^2 Lambda / 720) l_P^2     =  0.136838 l_P^2
                                                        =  3.574601e-71 m^2
 
-    TWO COMPLETELY DIFFERENT BOUNDS GIVE THE SAME PLANCK AREA TO WITHIN 44%.
+and with the duration bound read at T = R/c, C hbar c/R^4 (achievable.py's
+duration_bound, Fewster's C = 3.16986 computed there):
+
+        R * Delta d  <=  C Lambda l_P^2                =  31.643199 l_P^2
+                                                       =  8.266091e-69 m^2
+
+    TWO COMPLETELY DIFFERENT BOUNDS GIVE THE SAME PLANCK AREA TO WITHIN 44%
+    -- Ford-Roman read at t0 = R/c against ideal-plate Casimir at d = R.  On
+    the duration bound the Ford-Roman constant is 333.709 times k_FR and
+    231.245 times k_Cas, so that agreement holds on the t0 = R/c reading only.
 
 THE VALIDATION, AND IT IS THE REASON TO BELIEVE THIS.  Put Delta d = R -- the
 diagonal, where you contract a corridor by its own length -- and the law
 becomes R^2 <= k l_P^2:
 
-        sqrt(k_FR)  = 0.307933 l_P        candidates.py's seated FR crossover
+        sqrt(k_FR)  = 0.307933 l_P        candidates.py's seated FR crossover (t0 = R/c)
         sqrt(k_Cas) = 0.369917 l_P        candidates.py's seated Casimir
+        sqrt(k_dur) = 5.625229 l_P        candidates.py's FR crossover on the duration bound
 
-Six decimals, both.  The two numbers already in the tree are this curve's
+Six decimals, all three.  The numbers already in the tree are this curve's
 intersection with the diagonal, so the law is a STRICT GENERALISATION of a
 result that was already there, not a new claim resting on new assumptions.
 
 WHAT THE LAW SAYS, IN WORDS.  You may have a long corridor or a large
 contraction and not both, and the trade is hyperbolic with a fixed product.
 Scaling is therefore CONTROLLED and the control law is exact -- which is what
-M asked for -- but the whole controlled region sits under a Planck area:
+M asked for -- but the whole controlled region sits under a Planck area on
+the t0 = R/c reading, and under 31.6 of them on the duration bound:
 
-        Delta d = l_P      ->  R <= 0.094823 l_P
-        Delta d = 1 fm     ->  R <= 2.4770e-56 m
-        Delta d = 1 m      ->  R <= 2.4770e-71 m
-        Delta d = 1 ly     ->  R <= 2.6182e-87 m
+                           t0 = R/c (k_FR)       duration bound (k_dur)
+        Delta d = l_P      ->  R <= 0.094823 l_P      R <= 31.643199 l_P
+        Delta d = 1 fm     ->  R <= 2.4770e-56 m      R <= 8.2661e-54 m
+        Delta d = 1 m      ->  R <= 2.4770e-71 m      R <= 8.2661e-69 m
+        Delta d = 1 ly     ->  R <= 2.6182e-87 m      R <= 8.7373e-85 m
+
+    On both readings every Delta d of a femtometre or more leaves R
+    sub-Planckian; the duration bound moves each R_max up by 333.709 and
+    changes no verdict in this table.
 
     NO NOVELTY IS CLAIMED.  A Planck-area bound on a product is the shape of
     Pfenning-Ford's Delta <= 10^2 v_b L_Planck and of every holographic
@@ -199,8 +220,9 @@ the one exponent that matches the requirement's own.  Redo section 3 with it:
     optimises both, and the rate between them is Lambda.
 
     Size is controllable and controlled exactly, by a hyperbola whose constant
-    is a Planck area times a pure number of order 0.1 -- under every bound
-    whose density falls as R^-4.  Under the ONE bound that falls as R^-2 the
+    is a Planck area times a pure number -- of order 0.1 with Ford-Roman read
+    at t0 = R/c and with Casimir, 31.6 on the duration bound -- under every
+    bound whose density falls as R^-4.  Under the ONE bound that falls as R^-2 the
     hyperbola inverts into a ray, the Planck area cancels, and at the closing
     value of an undefined coefficient the constraint on size disappears
     entirely.
@@ -209,6 +231,14 @@ the one exponent that matches the requirement's own.  Redo section 3 with it:
     THAT IS FREE IS THE ONE THAT DECIDES WHETHER SIZE MATTERS AT ALL.  That
     is the same L4 the reversal chain ended on and the same l_UV the
     coefficient census flagged, reached from a third direction.
+
+CORRECTED (DOCKET 67, on M's ruling "Carry both").  This file first carried
+k on one Ford-Roman reading only, the t0 = R/c one candidates.py chose, and
+wrote "REPRODUCES candidates.py's two seated crossovers", "a Planck area times
+a pure number of order 0.1" and "the whole controlled region sits under a
+Planck area" unconditionally.  Each holds on that reading and is still
+checked; the duration-bound constant k_dur = C Lambda is now carried beside
+it, computed from achievable.FEWSTER_C.
 
 SCOPE.  Regime A and B are dimensional scalings of the seated architecture,
 not solutions -- rho ~ M/R^3 is an order-of-magnitude step and every exponent
@@ -271,6 +301,14 @@ def shortfall_exponent(regime):
 
 K_FR = 3.0 * LAMBDA / (32.0 * math.pi ** 2)      # from |rho| <= 3 hbar c/(32 pi^2 L^4)
 K_CASIMIR = math.pi ** 2 * LAMBDA / 720.0        # from pi^2 hbar c/(720 d^4)
+
+# DOCKET 67, M's ruling "Carry both": K_FR is the Ford-Roman average read at
+# t0 = R/c (candidates.H_FR_SAMPLING_T0_EQUALS_R_OVER_C).  On the duration
+# bound, rho >= -C hbar/(c^3 T^4) at T = R/c (candidates.
+# H_DURATION_HOLD_ONE_CROSSING), the constant is C Lambda, C taken from its
+# owner and never retyped.
+import achievable as _achievable                 # noqa: E402
+K_DUR = _achievable.FEWSTER_C * LAMBDA           # from C hbar c/R^4, T = R/c
 
 
 def max_corridor(delta_d, k=K_FR):
@@ -350,6 +388,33 @@ def selftest():
     chk("diagonal, Cas  == candidates.py's 0.369917 l_P",
         diagonal_crossover(K_CASIMIR), 0.369917, 1e-6)
 
+    # -- DOCKET 67, M's ruling "Carry both": k on the duration bound ----------
+    chk("k_dur = C Lambda, C is achievable.FEWSTER_C",
+        K_DUR, _achievable.FEWSTER_C * LAMBDA, 0.0)
+    chk("k_dur", K_DUR, 31.643199, 1e-6)
+    chk("k_dur / k_FR = C/(3/(32 pi^2))", K_DUR / K_FR, 333.709, 1e-5)
+    chk("k_dur / k_Cas: the 44% agreement is t0 = R/c only",
+        K_DUR / K_CASIMIR, 231.245, 1e-5)
+    chk("  RECORD: on t0 = R/c the two constants are within 44%",
+        K_CASIMIR / K_FR < 1.45, True)
+    chk("  and on the duration bound they are not", K_DUR / K_CASIMIR > 1.45, True)
+    chk("area law constant on the duration bound, m^2 / 8.266091e-69",
+        K_DUR * L_P * L_P / 8.266091e-69, 1.0, 1e-6)
+    chk("diagonal, dur  == 5.625229 l_P", diagonal_crossover(K_DUR), 5.625229, 1e-6)
+    import candidates as _cand
+    chk("  == candidates.crossover_duration_closed(), computed there",
+        diagonal_crossover(K_DUR), _cand.crossover_duration_closed(), 1e-12)
+    chk("  and the t0 = R/c diagonal == candidates.crossover_ford_roman_closed()",
+        diagonal_crossover(K_FR), _cand.crossover_ford_roman_closed(), 1e-12)
+    chk("  LAMBDA here is candidates' (phase1) Lambda",
+        LAMBDA, _cand.lambda_value(), 1e-15)
+    chk("R_max at Delta d = l_P, duration bound", max_corridor(L_P, K_DUR) / L_P,
+        31.643199, 1e-6)
+    chk("R_max at Delta d = 1 fm, duration, still sub-Planckian (both readings)",
+        (max_corridor(1e-15, K_DUR) < L_P, max_corridor(1e-15) < L_P), (True, True))
+    chk("R_max at Delta d = 1 m, duration / 8.266091e-69",
+        max_corridor(1.0, K_DUR) / 8.266091e-69, 1.0, 1e-6)
+
     # -- and the hyperbola is a hyperbola ------------------------------------
     chk("R_max at Delta d = l_P", max_corridor(L_P) / L_P, 0.094823, 1e-5)
     chk("R_max at Delta d = 1 m", max_corridor(1.0), 2.477034e-71, 1e-5)
@@ -399,14 +464,16 @@ def report():
     print()
     print("  ------------------------------------------------------------------------")
     print("  THE AREA LAW   R * Delta d <= k l_P^2\n")
-    for lbl, k in (("Ford-Roman", K_FR), ("Casimir", K_CASIMIR)):
+    for lbl, k in (("FR, t0=R/c", K_FR), ("Casimir", K_CASIMIR),
+                   ("FR, duration", K_DUR)):
         print("    %-12s k = %.6f   = %.6e m^2   diagonal sqrt(k) = %.6f l_P"
               % (lbl, k, k * L_P * L_P, diagonal_crossover(k)))
-    print("      -- the two diagonals ARE candidates.py's seated crossovers,")
-    print("         0.307933 and 0.369917 l_P, to six decimals.\n")
+    print("      -- the diagonals ARE candidates.py's crossovers, 0.307933 and")
+    print("         0.369917 l_P (t0 = R/c) and 5.625229 l_P (duration bound).\n")
     for dd, lbl in ((L_P, "l_P"), (1e-15, "1 fm"), (1.0, "1 m"),
                     (9.4607e15, "1 ly")):
-        print("    Delta d = %-6s -> R <= %.4e m" % (lbl, max_corridor(dd)))
+        print("    Delta d = %-6s -> R <= %.4e m  (t0 = R/c)   %.4e m  (duration)"
+              % (lbl, max_corridor(dd), max_corridor(dd, K_DUR)))
     print()
     print("  ------------------------------------------------------------------------")
     print("  CANDIDATE D -- the R^-2 bound inverts it:  R >= Delta d * "
@@ -426,12 +493,14 @@ def report():
   and size can scale under control.  It is an exponent, and the control
   law is R * Delta d <= k l_P^2 -- corridor length times distance bought,
   bounded by a Planck AREA.  The constants are k = 3 Lambda/(32 pi^2) =
-  0.094823 from Ford-Roman and pi^2 Lambda/720 = 0.136838 from Casimir,
-  two unrelated bounds landing within 44% of each other; and the law is
-  validated rather than asserted, because its diagonal Delta d = R gives
-  sqrt(k) = 0.307933 and 0.369917 l_P -- candidates.py's two seated
-  crossovers, to six decimals.  They were two points; this is the curve
-  they sit on.  The two denominations are exact and they scale oppositely:
+  0.094823 from Ford-Roman read at t0 = R/c and pi^2 Lambda/720 = 0.136838
+  from Casimir, two unrelated bounds landing within 44% of each other on
+  that reading; on the duration bound the Ford-Roman constant is
+  C Lambda = 31.643199, 333.709 times larger.  The law is validated rather
+  than asserted, because its diagonal Delta d = R gives sqrt(k) = 0.307933
+  and 0.369917 l_P, and 5.625229 l_P on the duration bound --
+  candidates.py's crossovers, to six decimals.  They were points; this is
+  the curve they sit on.  The two denominations are exact and they scale oppositely:
   distance costs c^4/(G Lambda) per metre and does NOT depend on the
   corridor, time costs c^4/G per unit dPhi per metre of R and is linear in
   it -- so no single size optimises both, and the ratio of the two prices

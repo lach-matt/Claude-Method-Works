@@ -183,28 +183,55 @@ pi^2 hbar c / (720 d^4).
     and 0.1 nm (DOCKET 67 audit).  So it is an upper bound on |rho| and the
     Casimir shortfall a floor.
 
-    52.6 ORDERS SHORT AT A NANOMETRE AND 70.6 AT A METRE -- the same order of
+    52.6 ORDERS SHORT AT A NANOMETRE AND 70.6 AT A METRE on the t0 = R/c
+    reading (50.1 and 68.1 on the duration bound, below) -- the same order of
     shortfall lightbuild.py found for the kugelblitz block, arrived at from a
     completely different direction.
 
-AND THE CROSSOVER HAS A CLOSED FORM, WHICH IS THE RESULT.  Setting
-c^4/(G Lambda R^2) = 3 hbar c/(32 pi^2 R^4):
+AND THE CROSSOVER HAS A CLOSED FORM -- ONE ON EACH READING OF THE TIME, AND
+BOTH ARE CARRIED.  Setting c^4/(G Lambda R^2) = 3 hbar c/(32 pi^2 R^4), the
+Ford-Roman average read at t0 = R/c (H_FR_SAMPLING_T0_EQUALS_R_OVER_C):
 
         R  =  l_P sqrt( 3 Lambda / (32 pi^2) )  =  0.307933 l_P
 
-and for Casimir, R = l_P pi sqrt(Lambda / 720) = 0.369917 l_P.
+and for Casimir, R = l_P pi sqrt(Lambda / 720) = 0.369917 l_P.  Set instead
+against the inequality written for a density HELD for a duration T --
+achievable.duration_bound, rho >= -C hbar/(c^3 T^4), Fewster's
+C = mu_1^4/(16 pi^2) = 3.16986, computed in achievable.py -- at T = R/c, one
+light-crossing (H_DURATION_HOLD_ONE_CROSSING):
 
-    THE BOUND MEETS THE REQUIREMENT ONLY BELOW THE PLANCK LENGTH -- a third of
-    one, and a third of one again.  THE FRAMEWORK FAILS BEFORE THE BOUND DOES.
-    This is not "very hard".  It is outside the domain of the theory being used
-    to state it, and Lambda -- M's own constant -- is sitting in both crossover
-    formulas.  STATUS OF THAT DOMAIN BOUNDARY: AN ESTIMATE.  The sources place
+        R  =  l_P sqrt( C Lambda )  =  5.625229 l_P
+
+That inequality allows C/(3/(32 pi^2)) = 333.709 times more than the
+Ford-Roman average at the same time, so on it the shortfall is 50.083 orders
+at a nanometre and 68.083 at a metre, against 52.606 and 70.606 on t0 = R/c.
+
+    ON THE t0 = R/c READING THE BOUND MEETS THE REQUIREMENT ONLY BELOW THE
+    PLANCK LENGTH -- a third of one, and a third of one again -- AND THE
+    FRAMEWORK FAILS BEFORE THE BOUND DOES.  There it is not "very hard": it is
+    outside the domain of the theory being used to state it, and Lambda --
+    M's own constant -- is sitting in both crossover formulas.  ON THE
+    DURATION BOUND IT DOES NOT: the crossing is 5.625229 l_P, ABOVE the
+    Planck length, so which fails first -- the framework or the bound -- is
+    NOT ESTABLISHED there (which_fails_first(), on
+    H_DOMAIN_BOUNDARY_IS_ORDER_L_P).  THE REFUSAL ON MAGNITUDE STANDS ON BOTH
+    READINGS: every R above the crossing fails, 5.625229 l_P at the most
+    generous, and at a nanometre the shortfall is 50 orders or more.
+    STATUS OF THAT DOMAIN BOUNDARY: AN ESTIMATE.  The sources place
     the loss of semiclassical control 'of the order of' l_P, numerical factors
     ignored (Garay gr-qc/9403008), and say the breakdown scale 'need not be
     M_p', with curved-space power counting not yet given (Burgess
-    gr-qc/0311082).  The crossovers stay sub-Planckian in every Planck
-    convention tried (non-reduced, h-based, reduced: FR 0.3079 / 0.1228 /
-    0.0614 l_P, Casimir 0.3699 / 0.1476 / 0.0738 l_P).
+    gr-qc/0311082).  On the t0 = R/c reading the crossovers stay sub-Planckian
+    in every Planck convention tried (non-reduced, h-based, reduced: FR 0.3079
+    / 0.1228 / 0.0614 l_P, Casimir 0.3699 / 0.1476 / 0.0738 l_P); on the
+    duration bound the Ford-Roman crossing stays ABOVE l_P in every one
+    (5.6252 / 2.2441 / 1.1221 l_P).
+
+    CORRECTED (DOCKET 67, on M's ruling "Carry both"): first written with the
+    t0 = R/c reading alone -- "THE BOUND MEETS THE REQUIREMENT ONLY BELOW THE
+    PLANCK LENGTH ... THE FRAMEWORK FAILS BEFORE THE BOUND DOES" and "The
+    crossovers stay sub-Planckian in every Planck convention tried", stated
+    unconditionally.  Both hold on that reading and are still checked.
 
 ===============================================================================
 4b. CANDIDATE D -- NON-MINIMAL COUPLING.  IT FAILS DIFFERENTLY, AND THAT MATTERS
@@ -282,7 +309,8 @@ multiply the bound by N.
     A PURE NUMBER.  Not fifty-two orders, and not a function of how big you
     build it.  Compare the first three, whose bounds went as L^-4 against a need
     of R^-2 and were therefore 52.6 orders short at a nanometre and 70.6 at a
-    metre.  THIS IS A DIFFERENT KIND OF FAILURE.
+    metre on the t0 = R/c reading (50.1 and 68.1 on the duration bound).
+    THIS IS A DIFFERENT KIND OF FAILURE.
 
     AND IT CLOSES AT  l_UV = sqrt(Lambda) l_P = 3.159514 l_P.
 
@@ -396,7 +424,7 @@ OF THIS FILE'S:
 4c. AND THE FOUR CROSSOVERS SIT ON TOP OF EACH OTHER
 ===============================================================================
 
-        Ford-Roman            0.307933 l_P
+        Ford-Roman            0.307933 l_P     (t0 = R/c; 5.625229 on the duration bound)
         Casimir               0.369917 l_P
         non-minimal coupling  3.159514 l_P
 
@@ -409,12 +437,30 @@ OF THIS FILE'S:
     MECHANISM.  Every negative-energy source run here runs out within an
     order-one factor of where the theory that states the requirement runs out
     -- 'of the order of' l_P, the sources' own words (Garay; Burgess: the
-    scale 'need not be M_p').  The magnitude gate and the Planck scale are
-    the same gate, to that precision.  The [0.1, 10] band is read in the
+    scale 'need not be M_p').  ON THE t0 = R/c READING the magnitude gate
+    and the Planck scale are the same gate, to that precision (on the
+    duration bound see the CORRECTED note below).  The [0.1, 10] band is read in the
     non-reduced convention (planck_length below): under the reduced Planck
     length the Ford-Roman and Casimir crossovers fall to 0.0614 and 0.0738,
     outside it.  The convention-free content is the spread
     NMC/FR = sqrt(32 pi^2/3) = 10.2604, independent of Lambda.
+
+    CORRECTED (DOCKET 67, on M's ruling "Carry both"): the list, the
+    "THREE MECHANISMS ... ALL THREE RUN OUT WITHIN ONE ORDER" and "the
+    magnitude gate and the Planck scale are the same gate" were first written
+    on the t0 = R/c reading alone, and hold on it.  The Ford-Roman row has a
+    second reading:
+
+        Ford-Roman, duration bound (T = R/c)   5.625229 l_P
+
+    It is still inside the [0.1, 10] band -- in every convention tried
+    (5.6252 / 2.2441 / 1.1221 l_P), so the band test passes on both readings
+    -- but it is ABOVE the Planck length, so on it the bound does not run out
+    before the framework's estimated boundary: which comes first is NOT
+    ESTABLISHED (which_fails_first below).  The SAME-GATE HEADLINE IS NARROWED
+    TO THE t0 = R/c READING.  The spread against the NMC closure on the
+    duration reading is NMC/duration = 1/sqrt(C) = 0.5617, also independent
+    of Lambda.
 
 ===============================================================================
 5. ONE THING THAT DID NOT FIGHT, AND IT IS WORTH RECORDING
@@ -451,13 +497,19 @@ WHAT THIS PASS ESTABLISHES
     C   squeezed vacuum           PASSES kind AND deadline -- the only candidate
                                   that does, and selected independently by two
                                   routes.  FAILS magnitude by 4.037e52 at a
-                                  nanometre, 4.037e70 at a metre.
+                                  nanometre, 4.037e70 at a metre, read at
+                                  t0 = R/c; by 1.210e50 and 1.210e68 on the
+                                  duration bound.  It fails on both.
 
     STRUCTURAL   both quantum bounds go as L^-4 and the requirement as R^-2, so
                  the shortfall goes as R^2 and SMALLER IS ALWAYS BETTER -- but
-                 the crossover is 0.3079 l_P (Ford-Roman) and 0.3699 l_P
-                 (Casimir), BELOW THE PLANCK LENGTH, with Lambda in both closed
-                 forms.
+                 on the t0 = R/c reading the crossover is 0.3079 l_P
+                 (Ford-Roman) and 0.3699 l_P (Casimir), BELOW THE PLANCK
+                 LENGTH, with Lambda in both closed forms.  On the duration
+                 bound the Ford-Roman crossover is 5.6252 l_P, above it, and
+                 which fails first there is NOT ESTABLISHED.  (CORRECTED
+                 (DOCKET 67, on M's ruling "Carry both"): first written with
+                 the t0 = R/c crossover alone, unqualified.)
 
     FREE         the teardown deadline costs nothing against the quantum
                  inequality; the two point the same way.
@@ -625,8 +677,106 @@ def crossover_casimir_closed():
 
 
 def crossover_is_sub_planckian():
+    """On the t0 = R/c reading (H_FR_SAMPLING_T0_EQUALS_R_OVER_C) and the
+    ideal-plate Casimir law at d = R.  It is NOT true on the duration bound:
+    see crossover_duration_is_sub_planckian()."""
     return (crossover_ford_roman() < planck_length()
             and crossover_casimir() < planck_length())
+
+
+# ---------------------------------------------- the second reading: the duration bound
+#
+# CORRECTED (DOCKET 67, on M's ruling "Carry both").  This file first carried
+# ONE Ford-Roman crossover, 0.307933 l_P, read at t0 = R/c, and from it the
+# headlines "THE BOUND MEETS THE REQUIREMENT ONLY BELOW THE PLANCK LENGTH" and
+# "THE FRAMEWORK FAILS BEFORE THE BOUND DOES".  The inequality written for a
+# density HELD for a duration T -- achievable.duration_bound, rho >= -C hbar /
+# (c^3 T^4), Fewster's C = mu_1^4/(16 pi^2) computed in achievable.py -- read
+# at T = R/c (one light-crossing, achievable.hold_time with hold = 1) allows
+# C/(3/(32 pi^2)) = 333.709 times more, and crosses at l_P sqrt(C Lambda) =
+# 5.625229 l_P, ABOVE the Planck length.  Both are carried; every figure below
+# is computed from achievable's owners, none is typed.  The 0.307933 pins
+# above are unchanged and still checked.
+
+H_FR_SAMPLING_T0_EQUALS_R_OVER_C = (
+    "the Ford-Roman Lorentzian time average (gr-qc/9607003 Eq. (1)) is read with "
+    "its sampling time set to the corridor's light-crossing, t0 = R/c -- this "
+    "file's modelling choice, not the source's")
+H_DURATION_HOLD_ONE_CROSSING = (
+    "the duration bound (achievable.duration_bound) is read with the density held "
+    "for T = R/c, one light-crossing (achievable.hold_time, hold = 1, the transit "
+    "minimum); Fewster's scope -- massless minimally coupled scalar, Hadamard "
+    "states, flat space -- carries over unchanged")
+H_DOMAIN_BOUNDARY_IS_ORDER_L_P = (
+    "the semiclassical framework loses control 'of the order of' l_P (Garay "
+    "gr-qc/9403008; Burgess gr-qc/0311082: 'need not be M_p') -- an ESTIMATE, "
+    "read in the non-reduced convention")
+
+
+def _achievable():
+    import achievable
+    return achievable
+
+
+def fewster_c():
+    """achievable.FEWSTER_C, never retyped."""
+    return _achievable().FEWSTER_C
+
+
+def duration_allowed(R_m):
+    """achievable.duration_bound at T = R/c (H_DURATION_HOLD_ONE_CROSSING), in
+    J/m^3 -- the same units as ford_roman()."""
+    return _achievable().duration_bound(R_m / C)
+
+
+def shortfall_duration(R_m):
+    """rho_needed / the duration bound at T = R/c.  The second reading of the
+    Ford-Roman shortfall; shortfall() above is the t0 = R/c one."""
+    return rho_needed(R_m) / duration_allowed(R_m)
+
+
+def duration_over_ford_roman():
+    """How much more the duration bound allows than the Ford-Roman average at
+    the same time: C / (3/(32 pi^2)).  R-independent (both go as R^-4)."""
+    return fewster_c() / (3.0 / (32.0 * math.pi ** 2))
+
+
+def crossover_duration():
+    """c^4/(G Lambda R^2) = C hbar c/R^4, in metres."""
+    return math.sqrt(fewster_c() * G * lambda_value() * HBAR / C ** 3)
+
+
+def crossover_duration_closed():
+    """R / l_P = sqrt(C Lambda)."""
+    return math.sqrt(fewster_c() * lambda_value())
+
+
+def crossover_duration_is_sub_planckian():
+    return crossover_duration() < planck_length()
+
+
+PLANCK_CONVENTIONS = (("non-reduced", 1.0),
+                      ("h-based", math.sqrt(2.0 * math.pi)),
+                      ("reduced", math.sqrt(8.0 * math.pi)))
+
+
+def crossovers_by_convention(closed):
+    """A crossover in units of l_P under the three conventions candidates.py
+    tries: l_P(h) = sqrt(2 pi) l_P, reduced = sqrt(8 pi) l_P."""
+    return tuple(closed / f for _n, f in PLANCK_CONVENTIONS)
+
+
+def which_fails_first(closed):
+    """On H_DOMAIN_BOUNDARY_IS_ORDER_L_P.  A crossing below l_P: the framework
+    is out of its domain before the bound meets the requirement.  A crossing
+    above l_P but inside the [0.1, 10] l_P band: the estimate cannot order the
+    two -- NOT ESTABLISHED.  Above 10 l_P: the bound would meet the requirement
+    inside the framework's domain."""
+    if closed < 1.0:
+        return "FRAMEWORK"
+    if closed <= 10.0:
+        return "NOT ESTABLISHED"
+    return "BOUND"
 
 
 # ---------------------------------------------- candidate D: non-minimal coupling
@@ -744,6 +894,12 @@ def xi_negative_window():
 
 # ---------------------------------------------- the candidates
 
+# CORRECTED (DOCKET 67, on M's ruling "Carry both"): the squeezed-vacuum
+# row first read as below, the t0 = R/c shortfall alone.  The verdict literal
+# (False on magnitude) is unchanged: it fails on both readings.
+SQUEEZED_WHY_AS_FIRST_WRITTEN = (
+    "passes both qualitative gates and fails Ford-Roman by 52.6 orders at 1 nm")
+
 # (name, kind, deadline, magnitude, why it fails first)
 CANDIDATES = (
     ("negative effective mass", False, True, None,
@@ -752,7 +908,8 @@ CANDIDATES = (
      "switching by MOVING PLATES is mechanical, slower than c (t > l/c, so it "
      "misses ~R/c in the d = R geometry), and anchored to positive-mass plates"),
     ("squeezed vacuum", True, True, False,
-     "passes both qualitative gates and fails Ford-Roman by 52.6 orders at 1 nm"),
+     "passes both qualitative gates and fails Ford-Roman by 52.6 orders at 1 nm "
+     "read at t0 = R/c, 50.1 on the duration bound"),
     ("non-minimal coupling", True, True, False,
      "no state-independent QEI exists; fails on the EFT field cutoff, and the "
      "shortfall is a PURE NUMBER (l_UV/l_P)^2/Lambda rather than orders"),
@@ -891,12 +1048,84 @@ def selftest():
     near("  closed form sqrt(3 Lambda/(32 pi^2))", crossover_ford_roman_closed(),
          0.307933, 1e-5)
     near("Casimir crossover (m)", crossover_casimir(), 5.978797e-36, 1e-5)
+    # DOCKET 67 close: near() is absolute below 1, so the two metre pins above
+    # pass for any value under 1e-5 m; these ratios make them bite.
+    near("  FR crossover (m) / 4.976981e-36", crossover_ford_roman() / 4.976981e-36, 1.0, 1e-5)
+    near("  Casimir crossover (m) / 5.978797e-36", crossover_casimir() / 5.978797e-36, 1.0, 1e-5)
     near("  in Planck lengths", crossover_casimir() / planck_length(), 0.369917, 1e-5)
     near("  closed form pi sqrt(Lambda/720)", crossover_casimir_closed(), 0.369917, 1e-5)
-    chk("IS THE CROSSOVER SUB-PLANCKIAN", crossover_is_sub_planckian(), True)
-    print("       THE FRAMEWORK FAILS BEFORE THE BOUND DOES.  Not 'very hard' --")
-    print("       outside the domain of the theory stating it.  And Lambda is")
-    print("       sitting in both closed forms.")
+    chk("IS THE CROSSOVER SUB-PLANCKIAN (t0 = R/c reading)", crossover_is_sub_planckian(), True)
+    chk("  t0 = R/c: which fails first", which_fails_first(crossover_ford_roman_closed()),
+        "FRAMEWORK")
+    print("       ON THE t0 = R/c READING THE FRAMEWORK FAILS BEFORE THE BOUND DOES.")
+    print("       Not 'very hard' -- outside the domain of the theory stating it.")
+    print("       And Lambda is sitting in both closed forms.")
+    # DOCKET 67, M's ruling "Carry both": the second reading, on
+    # achievable.duration_bound at T = R/c.  Every figure is computed from
+    # achievable.FEWSTER_C; the pins are the values CLOSE.md section 4 states.
+    print("     THE SECOND READING -- achievable.duration_bound, T = R/c:")
+    chk("  C is achievable.FEWSTER_C, not retyped",
+        fewster_c() is _achievable().FEWSTER_C, True)
+    near("  C = mu_1^4/(16 pi^2)", fewster_c(), 3.16986, 1e-5)
+    near("  duration bound / Ford-Roman at the same time", duration_over_ford_roman(),
+         333.709, 1e-5)
+    chk("  and it is R-independent (both go as R^-4)",
+        abs(duration_allowed(1e-9) / ford_roman(1e-9)
+            - duration_allowed(1.0) / ford_roman(1.0)) <= 1e-9 * duration_over_ford_roman(),
+        True)
+    near("  duration_allowed is achievable.ford_roman_allow x C/(3/32pi^2)",
+         duration_allowed(1.0) / _achievable().ford_roman_allow(1.0 / C),
+         duration_over_ford_roman(), 1e-12)
+    near("shortfall at 1 nm, duration bound", shortfall_duration(1e-9), 1.2098e50, 1e-4)
+    near("  in orders", math.log10(shortfall_duration(1e-9)), 50.083, 1e-3)
+    near("shortfall at 1 m, duration bound", shortfall_duration(1.0), 1.2098e68, 1e-4)
+    near("  in orders", math.log10(shortfall_duration(1.0)), 68.083, 1e-3)
+    near("  orders between the readings = log10(333.709)",
+         math.log10(shortfall(1.0)) - math.log10(shortfall_duration(1.0)),
+         math.log10(duration_over_ford_roman()), 1e-12)
+    # relative: near()'s tolerance is absolute below 1, so a metre pin is a ratio
+    near("Duration crossover (m) / 9.091804e-35", crossover_duration() / 9.091804e-35,
+         1.0, 1e-5)
+    near("  in Planck lengths", crossover_duration() / planck_length(), 5.625229, 1e-6)
+    near("  closed form sqrt(C Lambda)", crossover_duration_closed(), 5.625229, 1e-6)
+    near("  ratio to the t0 = R/c crossover = sqrt(333.709)",
+         crossover_duration_closed() / crossover_ford_roman_closed(),
+         math.sqrt(duration_over_ford_roman()), 1e-12)
+    chk("IS THE DURATION CROSSOVER SUB-PLANCKIAN", crossover_duration_is_sub_planckian(), False)
+    chk("  above l_P in every convention tried",
+        all(v > 1.0 for v in crossovers_by_convention(crossover_duration_closed())), True)
+    near("  non-reduced / h-based / reduced: reduced", crossovers_by_convention(
+        crossover_duration_closed())[2], 1.122071, 1e-5)
+    near("  h-based", crossovers_by_convention(crossover_duration_closed())[1], 2.244142, 1e-5)
+    chk("  t0 = R/c FR crossover below l_P in every convention (RECORD)",
+        all(v < 1.0 for v in crossovers_by_convention(crossover_ford_roman_closed())), True)
+    chk("  duration bound: which fails first", which_fails_first(crossover_duration_closed()),
+        "NOT ESTABLISHED")
+    chk("  the refusal on MAGNITUDE stands on both readings, at 1 nm and above",
+        all(shortfall(R) > 1.0 and shortfall_duration(R) > 1.0
+            for R in (1e-9, 1e-6, 1e-3, 1.0)), True)
+    chk("  control: just above each crossing the shortfall exceeds 1",
+        (shortfall(1.0001 * crossover_ford_roman()) > 1.0,
+         shortfall_duration(1.0001 * crossover_duration()) > 1.0), (True, True))
+    chk("  control: just below each crossing it does not",
+        (shortfall(0.9999 * crossover_ford_roman()) < 1.0,
+         shortfall_duration(0.9999 * crossover_duration()) < 1.0), (True, True))
+    chk("  the three named hypotheses are stated",
+        all(len(h) > 40 for h in (H_FR_SAMPLING_T0_EQUALS_R_OVER_C,
+                                  H_DURATION_HOLD_ONE_CROSSING,
+                                  H_DOMAIN_BOUNDARY_IS_ORDER_L_P)), True)
+    _why = dict((n, w) for n, _k, _d, _m, w in CANDIDATES)["squeezed vacuum"]
+    chk("  squeezed-vacuum row quotes both computed shortfalls at 1 nm",
+        ("%.1f orders" % math.log10(shortfall(1e-9)) in _why,
+         "%.1f on the duration bound" % math.log10(shortfall_duration(1e-9)) in _why),
+        (True, True))
+    chk("  RECORD: the row as first written",
+        SQUEEZED_WHY_AS_FIRST_WRITTEN,
+        "passes both qualitative gates and fails Ford-Roman by 52.6 orders at 1 nm")
+    chk("  RECORD: its 52.6 is still the t0 = R/c figure",
+        "%.1f" % math.log10(shortfall(1e-9)), "52.6")
+    print("       ON THE DURATION BOUND THE CROSSING IS ABOVE l_P: which fails")
+    print("       first is NOT ESTABLISHED.  The refusal on magnitude stands on both.")
 
     print("\n4b. CANDIDATE D -- NON-MINIMAL COUPLING, AND IT FAILS DIFFERENTLY")
     print("     Fewster & Osterbrink arXiv:0708.2450, and %s" % NMC_EFT_PAPER)
@@ -963,10 +1192,26 @@ def selftest():
         0.1 <= v <= 10.0 for v in (crossover_ford_roman_closed(),
                                    crossover_casimir_closed(),
                                    nmc_crossover_cutoff()/planck_length())), True)
+    # DOCKET 67, M's ruling "Carry both": the band on the duration reading.
+    print("       Ford-Roman, duration  %.6f l_P" % crossover_duration_closed())
+    chk("  duration reading: also within one order of l_P (non-reduced)",
+        0.1 <= crossover_duration_closed() <= 10.0, True)
+    chk("  and in every convention tried",
+        all(0.1 <= v <= 10.0 for v in crossovers_by_convention(crossover_duration_closed())),
+        True)
+    near("  spread NMC/duration = 1/sqrt(C), Lambda-free",
+         (nmc_crossover_cutoff() / planck_length()) / crossover_duration_closed(),
+         1.0 / math.sqrt(fewster_c()), 1e-12)
+    near("  = 0.5617", 1.0 / math.sqrt(fewster_c()), 0.561669, 1e-5)
+    near("  RECORD: spread NMC/FR on t0 = R/c = sqrt(32 pi^2/3)",
+         (nmc_crossover_cutoff() / planck_length()) / crossover_ford_roman_closed(),
+         10.2604, 1e-4)
     print("       THREE MECHANISMS WITH NOTHING IN COMMON -- a sampling")
     print("       inequality, a boundary-condition vacuum, and a curvature")
-    print("       coupling in an EFT -- ALL RUNNING OUT AT THE PLANCK LENGTH.")
-    print("       THE MAGNITUDE GATE AND THE PLANCK SCALE ARE THE SAME GATE.")
+    print("       coupling in an EFT -- ALL RUNNING OUT WITHIN AN ORDER OF l_P.")
+    print("       ON THE t0 = R/c READING THE MAGNITUDE GATE AND THE PLANCK SCALE")
+    print("       ARE THE SAME GATE; on the duration bound the FR crossing is above")
+    print("       l_P and that headline is not established.")
 
     print("\n5. THE ONE THING THAT DID NOT FIGHT")
     chk("does the inequality allow more when briefer",
@@ -1012,11 +1257,15 @@ def report():
   both go as L^-4 while the requirement goes as R^-2, so the shortfall goes
   as R^2 and shrinking always helps, which makes "small and contained"
   quantitatively the right instinct and the only one that helps.  It is
-  still 52.6 orders short at a nanometre and 70.6 at a metre, and the
-  crossover where the bound would finally meet the requirement is
-  0.307933 l_P for Ford-Roman and 0.369917 l_P for Casimir -- BELOW the
-  Planck length, with Lambda sitting in both closed forms.  The framework
-  fails before the bound does.  One consolation, recorded because it is
+  still 52.6 orders short at a nanometre and 70.6 at a metre with
+  Ford-Roman read at t0 = R/c, and the crossover where the bound would
+  finally meet the requirement is 0.307933 l_P for Ford-Roman and
+  0.369917 l_P for Casimir -- BELOW the Planck length, with Lambda sitting
+  in both closed forms; on that reading the framework fails before the
+  bound does.  On the duration bound (a density held for T = R/c) the
+  shortfall is 50.1 and 68.1 orders and the crossover 5.625229 l_P,
+  ABOVE the Planck length, where which fails first is not established.
+  The refusal on magnitude stands on both.  One consolation, recorded because it is
   real: the quantum inequality is most generous exactly where the teardown
   deadline wants to live, so switchability is free and will not be what
   stops a lead that ever does supply the magnitude.

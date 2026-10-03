@@ -47,7 +47,9 @@ sits in the shape.
 WHAT IT DOES BUY IS REAL AND IT IS THE REASON THE PROGRAMME WAS RIGHT: ONE
 OBJECT MEANS ONE QUESTION.  A chain in pieces must be attacked piece by piece,
 and the tree has the evidence in its own record -- the magnitude gate as a piece
-was SQUEEZED VACUUM FAILING BY 52.6 ORDERS, and the same gate collapsed is
+was SQUEEZED VACUUM FAILING BY 52.6 ORDERS (Ford-Roman read at t0 = R/c; 50.1
+on the duration bound, achievable.duration_bound -- CORRECTED (DOCKET 67, on
+M's ruling "Carry both"): first written with the 52.6 alone), and the same gate collapsed is
 l_UV <= 3.159514 l_P.  THE PHYSICS DID NOT CHANGE.  THE OBSTRUCTION WENT FROM AN
 IMPOSSIBLE NUMBER TO A SPECIFIC ONE, and only a specific one can be worked.
 
@@ -116,7 +118,11 @@ XI_ENTERS_THE_SHORTFALL  = False
 
 # ===================================================== and what it buys
 COLLAPSE_MOVES_THE_PRICE = False
-PIECEWISE_MAGNITUDE_GATE = "squeezed vacuum, 52.6 orders short"
+PIECEWISE_MAGNITUDE_GATE = ("squeezed vacuum, 52.6 orders short (t0 = R/c; "
+                            "50.1 on the duration bound)")
+# CORRECTED (DOCKET 67, on M's ruling "Carry both"): first written as below,
+# the t0 = R/c shortfall alone; kept and checked as a RECORD.
+PIECEWISE_MAGNITUDE_GATE_AS_FIRST_WRITTEN = "squeezed vacuum, 52.6 orders short"
 COLLAPSED_MAGNITUDE_GATE = "l_UV <= 3.159514 l_P"
 WHAT_IT_BUYS = "one object means one question"
 THIS_PASS_REPAIRS_ANYTHING = False
@@ -257,7 +263,8 @@ def report():
   which is invariance.py's split one more time -- the collapse is a change in
   the description and the obstruction lives in the shape.  BUT WHAT IT BUYS IS
   REAL AND IT IS WHY THE PROGRAMME WAS RIGHT: ONE OBJECT MEANS ONE QUESTION.
-  The magnitude gate as pieces was SQUEEZED VACUUM FAILING BY 52.6 ORDERS; the
+  The magnitude gate as pieces was SQUEEZED VACUUM FAILING BY 52.6 ORDERS (50.1
+  on the duration bound); the
   same gate collapsed is l_UV <= 3.159514 l_P.  Both are true and they are the
   same statement, and only one of them can be worked.  THE COLLAPSE DOES NOT
   MAKE IT CHEAPER; IT MAKES THE REMAINING OBSTRUCTION NAMEABLE, and that is the
@@ -315,7 +322,16 @@ def selftest():
     chk("exchange rate, J per metre", round(EXCHANGE/1e43, 6), 1.212374, 1e-5)
     chk("  collapse moves it", COLLAPSE_MOVES_THE_PRICE, False)
     chk("what it buys", WHAT_IT_BUYS, "one object means one question")
-    chk("  gate as pieces", PIECEWISE_MAGNITUDE_GATE, "squeezed vacuum, 52.6 orders short")
+    chk("  gate as pieces", PIECEWISE_MAGNITUDE_GATE,
+        "squeezed vacuum, 52.6 orders short (t0 = R/c; 50.1 on the duration bound)")
+    chk("  RECORD: gate as pieces, as first written",
+        PIECEWISE_MAGNITUDE_GATE_AS_FIRST_WRITTEN, "squeezed vacuum, 52.6 orders short")
+    # DOCKET 67, M's ruling "Carry both": both figures computed by candidates.py.
+    import candidates as _cand
+    chk("  52.6 is candidates' t0 = R/c shortfall at 1 nm",
+        "%.1f" % math.log10(_cand.shortfall(1e-9)), "52.6")
+    chk("  50.1 is candidates' duration-bound shortfall at 1 nm",
+        "%.1f" % math.log10(_cand.shortfall_duration(1e-9)), "50.1")
     chk("  gate collapsed", COLLAPSED_MAGNITUDE_GATE, "l_UV <= 3.159514 l_P")
     chk("nothing is repaired", THIS_PASS_REPAIRS_ANYTHING, False)
 

@@ -25,6 +25,13 @@ forms, and were being carried as decimals:
     crossover FR  = sqrt(3 Lambda / (32 pi^2))   in units of l_P
     crossover Cas = the Casimir crossing, exact in Lambda
 
+(CORRECTED (DOCKET 67, on M's ruling "Carry both"): "crossover FR" is the
+Ford-Roman crossover read at t0 = R/c.  On achievable.duration_bound it is
+l_P sqrt(C Lambda) = 5.625229 l_P, and Fewster's C = mu_1^4/(16 pi^2), mu_1
+the first positive root of cos mu cosh mu = 1, is a root of a transcendental
+equation and NOT a closed form -- so it is carried by candidates.py, not as a
+row here.  The row below is unchanged.)
+
 At the seated design point (a, R_s, b) = (1/50, 200, 1) these are not
 approximations of anything:
 
@@ -160,7 +167,8 @@ ROWS = [
     ("2/Lambda", 2 / LAM, "0.200350028", 9, "IDENTITY", "lightbuild.py"),
     ("Lambda/2", LAM / 2, "4.9912645871", 11, "IDENTITY", "lightbuild.py"),
     ("crossover FR", sp.sqrt(3 * LAM / (32 * sp.pi**2)), "0.307933", 6, "EXACT",
-     "graded MEASURED by the provenance census; it is a surd in Lambda"),
+     "graded MEASURED by the provenance census; it is a surd in Lambda (the "
+     "t0 = R/c reading; on the duration bound 5.625229 l_P, not a closed form)"),
     ("k_Cas", sp.pi**2 * LAM / 720, "0.136838353", 9, "EXACT",
      "graded MEASURED by the provenance census; exact in Lambda"),
     ("E_P/Lambda", E_PLANCK / LAM, "1.959505e8", 7, "IDENTITY",
@@ -459,6 +467,20 @@ def selftest():
     chk("every closed form reproduces the decimal the tree quotes",
         disagreements(), [])
     chk("sixteen rows carry a closed form", len(ROWS), 16)
+    # DOCKET 67, M's ruling "Carry both": the duration-bound crossover is not
+    # a row, because C is a transcendental root.  Its value is checked against
+    # its owners, and the row note quotes it as computed.
+    import candidates as _cand
+    import achievable as _ach
+    _mu = sp.nsolve(sp.cos(sp.Symbol("m")) * sp.cosh(sp.Symbol("m")) - 1, 4.73)
+    chk("Fewster's mu_1 by sympy agrees with achievable.FEWSTER_MU1 (12 digits)",
+        abs(float(_mu) - _ach.FEWSTER_MU1) < 1e-12, True)
+    chk("duration crossover = sqrt(C Lambda), Lambda the exact form here",
+        abs(_cand.crossover_duration_closed()
+            - float(sp.sqrt(_mu ** 4 / (16 * sp.pi ** 2) * LAM.subs(SEAT)))) < 1e-12, True)
+    chk("  and the FR row note quotes it",
+        ("%.6f l_P" % _cand.crossover_duration_closed()) in
+        [w for nm, _e, _q, _d, _s, w in ROWS if nm == "crossover FR"][0], True)
     chk("and three numbers still do not, each named", len(NOT_EXACT), 3)
     chk("one was settled and is kept rather than dropped",
         [n for n, _s, _w in SETTLED], ["2 in A"])

@@ -70,6 +70,16 @@ def rotational_energy_fraction(a):
 
 PENROSE_MAX_GAIN = (math.sqrt(2.0)-1.0)/2.0   # 20.7%, single-event classic bound
 
+# CORRECTED (DOCKET 67, on M's ruling "Re-size to 4544 m"): the gate's built
+# reservoir was typed here as 1.17e46 J (GATE 1 at R1 = 4902 m) with "26.7 Myr
+# of accretion".  GATE 1 is re-sized to drivespec's nuclear-density radius on
+# address.RHO_NUCLEAR, and the reservoir and its accretion time are imported
+# from gate1.py: 1.0879e46 J, 26.73 Myr.  1.17e46 is kept as a RECORD.
+import gate1 as _gate1
+E_GATE = _gate1.E_STORE                       # J, gate circulation reservoir
+E_GATE_AS_FIRST_WRITTEN = 1.17e46             # J; RECORD only
+T_GATE_MYR = _gate1.accretion_time(E_GATE)/_gate1.YR/1e6
+
 def selftest():
     ok = True
     def chk(label, got, want, tol=1e-9):
@@ -108,7 +118,9 @@ def selftest():
         1.0/math.sqrt(2.0) - 0.5, tol=1e-15)
     E10 = rotational_energy_fraction(1.0)*10*MSUN*c**2
     chk("10 Msun extremal spin energy (J)", E10, 5.2356e47, tol=1e-4)
-    chk("  vs the gate's built reservoir 1.17e46 J", E10/1.17e46, 44.749, tol=1e-3)
+    chk("  vs the gate's built reservoir (gate1.py, re-sized)", E10/E_GATE, 48.126514, tol=1e-6)
+    chk("  RECORD: vs the first-written reservoir 1.17e46 J", E10/E_GATE_AS_FIRST_WRITTEN, 44.749, tol=1e-3)
+    chk("gate accretion time (Myr), gate1.py", T_GATE_MYR, 26.733647, tol=1e-6)
 
     print("\n  SELFTEST %s" % ("OK" if ok else "FAILED"))
     return 0 if ok else 1
@@ -168,7 +180,8 @@ Kerr's shift decays as 1/r^3 and never reaches zero at finite radius.  Corrected
   go of the ballast.
 
   Against this project's own ledger:
-      gate circulation reservoir          1.17e46 J   BUILT, 26.7 Myr of accretion
+      gate circulation reservoir          %.3e J   BUILT, %.1f Myr of accretion
+                                          (first 1.17e46 J at R1 = 4902 m)
       10 Msun extremal Kerr spin energy   %.3e J   ALREADY THERE
       ratio                               %.1fx
 
@@ -184,7 +197,7 @@ Kerr's shift decays as 1/r^3 and never reaches zero at finite radius.  Corrected
 
   So the correction to my own error points at a specific, unexplored improvement
   to the one architecture still standing.
-""" % (100*PENROSE_MAX_GAIN, E10, E10/1.17e46))
+""" % (100*PENROSE_MAX_GAIN, E_GATE, T_GATE_MYR, E10, E10/E_GATE))
     return 0
 
 if __name__ == "__main__":

@@ -685,6 +685,10 @@ RHO_NUCLEAR = 2.676e17           # kg/m^3, n_0 = 0.16/fm^3 * m_N    DERIVED-FROM
 #   constant or a history note).  GATE 1's seated R1 = 4902 m was sized on
 #   2.3e17 and is kept, so its shell is 0.859 x this value (gate1.py, named
 #   hypothesis GATE1-SIZED-ON-RECALLED-DENSITY).
+#   CORRECTED (DOCKET 67, on M's ruling "Re-size to 4544 m"): first "is kept".
+#   GATE 1 is now re-sized: gate1.py takes R1 = 4544 m from drivespec on this
+#   RHO_NUCLEAR, so its shell is at this value, and that hypothesis is
+#   discharged (kept as history in gate1.HYPOTHESES_DISCHARGED).
 GRAVIMETER_FLOOR = 1.0e-9        # m/s^2, ~0.1 microGal             ORDER
 #   DOCKET 67 (Freier et al. 1512.05660 READ): at source 1e-9 is a RELATIVE
 #   long-term stability figure (~1e5 s Allan deviation).  Absolute accuracy is

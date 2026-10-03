@@ -256,6 +256,7 @@ def selftest():
     return 0 if ok else 1
 
 def report():
+    _e_launch = (1.0/math.sqrt(1.0 - V_WARP**2) - 1.0)*1.0e6*c**2   # 1000 t at v_warp
     print("="*78); print("GATE 1 -- BUILD SPECIFICATION"); print("="*78)
 
     print("""
@@ -263,7 +264,9 @@ def report():
 ------------
   The shell is %.3e kg at %.3g kg/m^3 -- %.3f x nuclear saturation on
   address.RHO_NUCLEAR (first "nuclear saturation", on a recalled 2.3e17 --
-  CORRECTED, DOCKET 67 follow-ups).  That is not a material in the chemical
+  CORRECTED, DOCKET 67 follow-ups -- and then 0.859 x at R1 = 4902 m, until
+  GATE 1 was re-sized to drivespec's radius on M's ruling "Re-size to 4544 m",
+  DOCKET 67).  That is not a material in the chemical
   sense: it is DEGENERATE NUCLEAR MATTER, neutrons and
   protons at beta equilibrium with electrons and muons, held by degeneracy
   pressure and the strong force.  There is no alloy, no lattice, no chemistry.
@@ -277,17 +280,18 @@ def report():
   1e34 Pa is SELF-GRAVITY, and it does: G M^2 / R^4 = %.3e Pa for this design,
   within an order of the degeneracy pressure it must balance.  That is not a
   coincidence -- it is the statement that the object IS a compact star, and the
-  reason the radius is 4.9 km and not 4.9 m.
+  reason the radius is %.1f km and not %.1f m (first 4.9 km).
 
   MATERIAL SOURCE: a neutron star.  Found, not manufactured.  Nothing else in
   the universe makes this substance, and it exists only while its own gravity
-  holds it.  Take a ~1.1 Msun neutron star as feedstock.""" % (confinement_gap(P_LASER), self_gravity_pressure()))
+  holds it.  Take a ~%.1f Msun neutron star as feedstock (first ~1.1 Msun).""" % (
+        confinement_gap(P_LASER), self_gravity_pressure(), R1/1e3, R1/1e3, M_GATE/MSUN))
 
     print("""
 2. POWER
 --------
   Standing reservoir      %.2e J   (circulation, %.2f%% of rest mass)
-  Per launch, 1000 t      1.02e20 J  (one part in 1.1e26 of the reservoir)
+  Per launch, 1000 t      %.2e J  (one part in %.1e of the reservoir)
   Spin-up, one time       %.2e J
   Hollowing, one time     ~1e46 J    [OPEN -- no method, see 3]
 
@@ -303,7 +307,7 @@ def report():
   Two consequences, both first-order and neither a detail:
 
   (a) THE GATE'S FINAL MASS IS NOT CHOSEN, IT IS ACCUMULATED.  Delivering the
-      reservoir requires accreting %.2f Msun onto a %.2f Msun star -- a ~49%%
+      reservoir requires accreting %.2f Msun onto a %.2f Msun star -- a ~%.0f%%
       increase.  You do not build a gate to a mass; you start with a lighter
       star and stop accreting when the reservoir is full.  R1 then follows from
       the mass it ended at.
@@ -315,10 +319,11 @@ def report():
       be -S(r)v with the shell itself unmoving.  The energy source is
       identified at the right scale; the coupling to the required flow is not.
       This is a distinct open problem from the switching one.""" % (
-        E_STORE, 100*E_STORE/(M_GATE*c**2), E_STORE,
+        E_STORE, 100*E_STORE/(M_GATE*c**2), _e_launch, E_STORE/_e_launch, E_STORE,
         eddington_luminosity(), accretion_efficiency(),
         accreted_mass_for(E_STORE)/MSUN, accretion_time(E_STORE)/YR/1e6,
-        accreted_mass_for(E_STORE)/MSUN, M_GATE/MSUN))
+        accreted_mass_for(E_STORE)/MSUN, M_GATE/MSUN,
+        100*accreted_mass_for(E_STORE)/M_GATE))
 
     print("""
 3. SCHEMATIC -- GATE 1, MERIDIONAL SECTION
@@ -335,7 +340,7 @@ def report():
    |          |    +---------------------+    |          |
    |          |    |                     |    |          |
  ==+==========+====|   FLAT INTERIOR     |====+==========+==>  x
-   |  BORE    |    |   R1 = 4.902 km     |    |  BORE    |     launch
+   |  BORE    |    |   R1 = %.3f km     |    |  BORE    |     launch
    |  (pole,  |    |   alpha = 0.7628    |    |          |
    |   least  |    |   beta  = 0.0476 c  |    |          |
     .  loaded)|    |   0 g throughout    |    |         .
@@ -343,14 +348,18 @@ def report():
        .      |                               |      .
           .   |     WALL: degenerate matter   |   .
               ` - - - - - - - - - - - - - - - '
-                   R2 = 13.393 km
-                   wall thickness 8.490 km
+                   R2 = %.3f km
+                   wall thickness %.3f km
                    circulation 0.330 c, poloidal, J = 0
 
-  DIMENSIONS        R1 4.902 km   R2 13.393 km   gamma = 1+sqrt(3) = 2.7321
-  INTERIOR          4.93e11 m^3 of flat spacetime; every Christoffel vanishes
-  WALL              %.3g kg/m^3, 2.25e33 Pa dynamic stress, 4.4x margin
+  DIMENSIONS        R1 %.3f km   R2 %.3f km   gamma = 1+sqrt(3) = 2.7321
+  INTERIOR          %.3g m^3 of flat spacetime; every Christoffel vanishes
+  WALL              %.3g kg/m^3, %.3g Pa dynamic stress, %.1fx margin
   SHIFT PROFILE     raised cosine, the best C^1 profile; bang-bang bound is 4
+  (CORRECTED, DOCKET 67, re-sized on M's ruling "Re-size to 4544 m": first
+  R1 4.902 km, R2 13.393 km, wall 8.490 km, interior 4.93e11 m^3, 2.25e33 Pa,
+  4.4x margin, all at R1 = 4902 m; each figure above is computed from
+  drivespec's radius on address.RHO_NUCLEAR.)
 
   THE AXIAL BORE is placed on the poles, and that placement is measured rather
   than assumed.  SPHERICITY.md found the binding load is an EQUATORIAL BELT --
@@ -360,10 +369,13 @@ def report():
   of Architecture B in the original deliverable -- reached here from a load
   measurement rather than from intuition.
 
-  [OPEN] INGRESS.  A bore through 8.5 km of self-gravitating degenerate matter
+  [OPEN] INGRESS.  A bore through %.1f km (first 8.5) of self-gravitating degenerate matter
   is a defect in hydrostatic equilibrium and will close unless it is held.  The
   pole is where that is cheapest, and "cheapest" is not "solved".  This is the
-  third open problem and it is independent of the other two.""" % RHO)
+  third open problem and it is independent of the other two.""" % (
+        R1/1e3, R2/1e3, (R2-R1)/1e3, R1/1e3, R2/1e3, 4.0/3.0*math.pi*R1**3,
+        RHO, _drivespec.circulation_stress(RHO, V_CIRC),
+        P_DEGEN/_drivespec.circulation_stress(RHO, V_CIRC), (R2-R1)/1e3))
 
     print("""
 4. DOES EACH GATE VARY?  YES -- IN TWO PARAMETERS, AND ONLY TWO
@@ -406,8 +418,9 @@ def report():
       committed to its partner at construction, and a hub serving several
       destinations is several gates.
 
-  SO: identical hardware, two settings.  Every gate is the same ~1.1 Msun,
-  4.9 km object; each is aimed at exactly one partner and tuned to that
+  SO: identical hardware, two settings.  Every gate is the same ~%.2f Msun,
+  %.2f km object (first ~1.1 Msun, 4.9 km -- re-sized on M's ruling "Re-size
+  to 4544 m", DOCKET 67); each is aimed at exactly one partner and tuned to that
   partner's radial velocity.  A route is a MATCHED PAIR, built to each other.
 
 5. OPEN, AND WHERE
@@ -416,7 +429,7 @@ def report():
   2  FLOW TOPOLOGY: accretion is toroidal, the metric needs poloidal   (2b)
   3  INGRESS: holding a bore open through the wall      (3)
   None is forbidden by any theorem. All three are mechanism, not permission.
-""" % E_STORE)
+""" % (E_STORE, M_GATE/MSUN, R1/1e3))
     return 0
 
 if __name__ == "__main__":

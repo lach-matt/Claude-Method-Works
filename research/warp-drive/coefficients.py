@@ -53,7 +53,9 @@ M asks for LAW and settles for THEOREM.  The census says how far that got:
     THEOREM        9     8, 4, 120 degrees, 1/2, Ford-Roman, Casimir, sqrt(L),
                          and DOCKET 41's two: the 2 in A, and the 1 it hid
     IDENTITY       3     2/Lambda, Lambda/2, E_Planck/Lambda
-    MEASURED       2     the two sub-Planckian crossovers
+    MEASURED       2     the two crossovers (sub-Planckian with Ford-Roman read
+                         at t0 = R/c; the FR one is 5.625229 l_P on the
+                         duration bound, above l_P -- DOCKET 67, "Carry both")
     EMPIRICAL      3     G, c, hbar
     MODEL-PARAM    4     a, R_s, b, m -- the ansatz's free inputs
     MODEL          1     LAMBDA ITSELF, and the exchange rate inherits it
@@ -225,6 +227,7 @@ GEOMETRIC = "GEOMETRIC"
 THEOREM = "THEOREM"
 IDENTITY = "IDENTITY"
 MEASURED = "MEASURED"
+CROSSOVER_FR_NOTE_AS_FIRST_WRITTEN = "solved here, sub-Planckian"
 EMPIRICAL = "EMPIRICAL"
 MODEL_PARAM = "MODEL-PARAM"
 MODEL = "MODEL"
@@ -263,7 +266,11 @@ COEFFICIENTS = [
      "the Planck cell, 195.95 MJ -- an identity wearing joules"),
 
     ("crossover FR", "0.307933 l_P", MEASURED, "candidates.py",
-     "solved here, sub-Planckian"),
+     "solved here, sub-Planckian on the t0 = R/c reading; 5.625229 l_P "
+     "(l_P sqrt(C Lambda)) on achievable.duration_bound, above l_P"),
+    # CORRECTED (DOCKET 67, on M's ruling "Carry both"): the FR row first read
+    # "solved here, sub-Planckian" (CROSSOVER_FR_NOTE_AS_FIRST_WRITTEN), true on
+    # the t0 = R/c reading only.  The row count and status are unchanged.
     ("crossover Cas", "0.369917 l_P", MEASURED, "candidates.py",
      "solved here, sub-Planckian"),
 
@@ -457,6 +464,19 @@ def selftest():
     chk("THEOREM", c.get(THEOREM, 0), 9)
     chk("IDENTITY", c.get(IDENTITY, 0), 3)
     chk("MEASURED", c.get(MEASURED, 0), 2)
+    # DOCKET 67, M's ruling "Carry both": the FR row carries both readings,
+    # each against candidates.py's computed crossover.
+    import candidates as _cand
+    _fr = dict((r[0], r) for r in COEFFICIENTS)["crossover FR"]
+    chk("FR row value is candidates' t0 = R/c crossover",
+        _fr[1], "%.6f l_P" % _cand.crossover_ford_roman_closed())
+    chk("  and its note quotes the duration-bound crossover, computed",
+        ("%.6f l_P" % _cand.crossover_duration_closed()) in _fr[4], True)
+    chk("  sub-Planckian only on t0 = R/c",
+        (_cand.crossover_is_sub_planckian(), _cand.crossover_duration_is_sub_planckian()),
+        (True, False))
+    chk("  RECORD: the note as first written is the t0 = R/c clause",
+        _fr[4].startswith(CROSSOVER_FR_NOTE_AS_FIRST_WRITTEN), True)
     chk("EMPIRICAL", c.get(EMPIRICAL, 0), 3)
     chk("MODEL-PARAM", c.get(MODEL_PARAM, 0), 4)
     chk("MODEL", c.get(MODEL, 0), 1)

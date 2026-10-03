@@ -50,12 +50,23 @@ G, c, MSUN = 6.67430e-11, 299792458.0, 1.98892e30
 # drivespec.py's nuclear-density point is R1 = 4544 m, 1.03 Msun.  The design
 # here is kept at 4902 m (named hypothesis GATE1-SIZED-ON-RECALLED-DENSITY,
 # gate1.py).
+# CORRECTED (DOCKET 67, on M's ruling "Re-size to 4544 m"): first M_SHELL =
+# 2.200e30 kg (1.11 Msun) and E_STORE = 1.17e46 J were typed here for the
+# 4902 m design.  GATE 1 is re-sized to drivespec's nuclear-density radius on
+# address.RHO_NUCLEAR (R1 = 4544 m), and both are imported from gate1.py, never
+# typed; GATE1-SIZED-ON-RECALLED-DENSITY is discharged there.  The first values
+# are kept below and every first pin is still checked as a RECORD.
 import address as _address
+import gate1 as _gate1
 RHO_NUCLEAR = _address.RHO_NUCLEAR
 RHO_NUCLEAR_WITHDRAWN = 2.3e17           # as first written; RECORD only
-M_SHELL   = 2.200e30      # kg,  1.11 Msun
-E_STORE   = 1.17e46       # J,   circulation reservoir, 5.93% of rest mass
+R1_GATE   = _gate1.R1     # m,   4544.18, drivespec's radius (gate1.py)
+M_SHELL   = _gate1.M_GATE # kg,  2.040e30 = 1.03 Msun
+E_STORE   = _gate1.E_STORE  # J, circulation reservoir, 5.93% of rest mass
 V_WARP    = 0.0476        # c,   interior frame boost
+M_SHELL_AS_FIRST_WRITTEN = 2.200e30      # kg, 1.11 Msun; RECORD only
+E_STORE_AS_FIRST_WRITTEN = 1.17e46       # J; RECORD only
+R1_AS_FIRST_WRITTEN      = 4902.0        # m; RECORD only
 
 def gamma(b):
     return 1.0/math.sqrt(1.0 - b*b)
@@ -139,8 +150,14 @@ def selftest():
         print("  %-56s %14.6g %14.6g  %s" % (label, got, want, "ok" if good else "FAIL"))
 
     print("Carried from drivespec.py -- must match the seated point design")
-    chk("shell mass (Msun)", M_SHELL/MSUN, 1.10613, tol=1e-4)
-    chk("reservoir as fraction of rest mass", E_STORE/(M_SHELL*c**2), 0.059177, tol=1e-4)
+    # CORRECTED (DOCKET 67, on M's ruling "Re-size to 4544 m"): first 1.10613
+    # Msun and 0.059177 on the typed 2.200e30 kg / 1.17e46 J (RECORD below).
+    chk("shell mass (Msun)", M_SHELL/MSUN, 1.025539, tol=1e-6)
+    chk("  is gate1's re-sized mass (identity)", M_SHELL, _gate1.M_GATE, tol=1e-15)
+    chk("reservoir as fraction of rest mass", E_STORE/(M_SHELL*c**2), 0.0593434, tol=1e-6)
+    chk("  RECORD: shell mass as first written (Msun)", M_SHELL_AS_FIRST_WRITTEN/MSUN, 1.10613, tol=1e-4)
+    chk("  RECORD: reservoir fraction as first written",
+        E_STORE_AS_FIRST_WRITTEN/(M_SHELL_AS_FIRST_WRITTEN*c**2), 0.059177, tol=1e-4)
 
     print("\nKinematics of a 1000 t payload at v_warp")
     m = 1.0e6
@@ -150,14 +167,33 @@ def selftest():
 
     print("\nRecoil -- the theorem is satisfied, not evaded")
     v_r = recoil_speed(m, V_WARP)
-    chk("shell recoil speed (m/s)", v_r, 6.493779e-18, tol=1e-6)
+    # CORRECTED (DOCKET 67, on M's ruling "Re-size to 4544 m"): first
+    # 6.493779e-18 m/s, 2.166092e-26 c and 1.147154e26 launches on the typed
+    # 2.200e30 kg / 1.17e46 J; recoil goes as 1/M, launches as E.
+    chk("shell recoil speed (m/s)", v_r, 7.004073e-18, tol=1e-6)
+    chk("  RECORD: on the first-written 2.200e30 kg (m/s)",
+        recoil_speed(m, V_WARP, M_SHELL_AS_FIRST_WRITTEN), 6.493779e-18, tol=1e-6)
     # Momentum must balance exactly: that IS the conservation law, checked.
-    chk("momentum balance |M V - gamma m v| (kg m/s)",
-        abs(M_SHELL*v_r - payload_momentum(m, V_WARP)), 0.0)
-    chk("recoil as a fraction of c", v_r/c, 2.166092e-26, tol=1e-6)
+    # CORRECTED (DOCKET 67, on M's ruling "Re-size to 4544 m"): first run on the
+    # typed M_SHELL = 2.200e30, where the float residual is exactly 0.0; that
+    # check is kept unchanged on that mass.  On the re-sized (unrounded) mass the
+    # residual is float rounding, 1.4e-16 of the momentum, so it is checked
+    # against the momentum at 4 ulp (8.9e-16), the tightest form a product of
+    # two unrounded floats admits.
+    chk("momentum balance |M V - gamma m v| (kg m/s), first-written mass",
+        abs(M_SHELL_AS_FIRST_WRITTEN*recoil_speed(m, V_WARP, M_SHELL_AS_FIRST_WRITTEN)
+            - payload_momentum(m, V_WARP)), 0.0)
+    chk("momentum balance on the re-sized mass, relative (<= 4 ulp)",
+        abs(M_SHELL*v_r - payload_momentum(m, V_WARP))/payload_momentum(m, V_WARP)
+        <= 4*2.220446049250313e-16, True)
+    chk("recoil as a fraction of c", v_r/c, 2.336307e-26, tol=1e-6)
+    chk("  RECORD: on the first-written 2.200e30 kg",
+        recoil_speed(m, V_WARP, M_SHELL_AS_FIRST_WRITTEN)/c, 2.166092e-26, tol=1e-6)
 
     print("\nReservoir")
-    chk("launches of 1000 t before depletion", launches_available(m, V_WARP), 1.147154e26, tol=1e-6)
+    chk("launches of 1000 t before depletion", launches_available(m, V_WARP), 1.066644e26, tol=1e-6)
+    chk("  RECORD: on the first-written 1.17e46 J",
+        launches_available(m, V_WARP, E_STORE_AS_FIRST_WRITTEN), 1.147154e26, tol=1e-6)
     # Identities, not restatements: these fail if the functions disagree with
     # each other, which decimal fixtures alone cannot catch.
     chk("launches x payload_energy == reservoir (identity)",
@@ -188,8 +224,14 @@ def selftest():
 
     print("\nDoes a gate need a gate at the far end?")
     chk("magsail braking from v_warp over 810 AU (g)", magsail_decel(V_WARP, 810), 0.0856829, tol=1e-6)
-    chk("gate mass at R1 = 4902 m (Msun)", gate_mass(4902)/MSUN, 1.106294, tol=1e-6)
-    chk("  reproduces the seated shell mass", gate_mass(4902), 2.200330e30, tol=1e-6)
+    # CORRECTED (DOCKET 67, on M's ruling "Re-size to 4544 m"): first at R1 =
+    # 4902 m (1.106294 Msun, 2.200330e30 kg, 0.859337 x nuclear, equal-gate
+    # recoil 0.0476612 c against the typed 2.200e30 kg).  Repinned to gate1's
+    # re-sized R1; the 4902 m pins are RECORD checks.
+    chk("gate mass at R1 = R1_GATE (Msun)", gate_mass(R1_GATE)/MSUN, 1.025539, tol=1e-6)
+    chk("  reproduces the seated shell mass", gate_mass(R1_GATE), M_SHELL, tol=1e-12)
+    chk("  RECORD: gate mass at R1 = 4902 m (Msun)", gate_mass(4902)/MSUN, 1.106294, tol=1e-6)
+    chk("  RECORD: reproduced the first seated shell mass", gate_mass(4902), 2.200330e30, tol=1e-6)
     # CORRECTED (DOCKET 67 follow-ups): repinned to the computed value on
     # address.RHO_NUCLEAR; the first pin, 24.025285 on 2.3e17, is a RECORD.
     chk("nuclear density is address.RHO_NUCLEAR",
@@ -198,17 +240,25 @@ def selftest():
         gate_density(1000)/RHO_NUCLEAR, 20.649535, tol=1e-6)
     chk("  RECORD: on the withdrawn 2.3e17",
         gate_density(1000)/RHO_NUCLEAR_WITHDRAWN, 24.025285, tol=1e-6)
-    chk("the seated shell (R1 = 4902 m), as multiples of nuclear",
+    chk("the seated shell (R1 = R1_GATE), as multiples of nuclear",
+        gate_density(R1_GATE)/RHO_NUCLEAR, 1.0, tol=1e-12)
+    chk("  RECORD: the first seated shell (R1 = 4902 m), as multiples of nuclear",
         gate_density(4902)/RHO_NUCLEAR, 0.859337, tol=1e-5)
     # a seed gate cannot be made small: rho ~ 1/R^2 forces it near the source's mass
-    r_eq = seed_recoil(gate_mass(4902), V_WARP)
-    chk("recoil launching an EQUAL gate (c)", r_eq/c, 0.0476612, tol=1e-6)
+    r_eq = seed_recoil(gate_mass(R1_GATE), V_WARP)
+    chk("recoil launching an EQUAL gate (c)", r_eq/c, 0.04765402, tol=1e-6)
+    chk("  is exactly gamma v_warp for equal masses (identity)", r_eq/c,
+        gamma(V_WARP)*V_WARP, tol=1e-12)
     chk("  i.e. the source is thrown to ~v_warp itself", r_eq/c > 0.04, True)
+    chk("  RECORD: 4902 m seed against the typed 2.200e30 kg (c)",
+        seed_recoil(gate_mass(4902), V_WARP, M_SHELL_AS_FIRST_WRITTEN)/c, 0.0476612, tol=1e-6)
     chk("gate mass is linear in R (identity)", gate_mass(2000)/gate_mass(1000), 2.0, tol=1e-12)
     chk("gate density scales as 1/R^2 (identity)",
         gate_density(2000)/gate_density(1000), 0.25, tol=1e-12)
     chk("back-to-back pair: net recoil is zero (identity)",
         seed_recoil(gate_mass(4902), V_WARP) - seed_recoil(gate_mass(4902), V_WARP), 0.0)
+    chk("back-to-back pair at R1_GATE: net recoil is zero (identity)",
+        seed_recoil(gate_mass(R1_GATE), V_WARP) - seed_recoil(gate_mass(R1_GATE), V_WARP), 0.0)
 
     print("\n  SELFTEST %s" % ("OK" if ok else "FAILED"))
     return 0 if ok else 1
@@ -223,14 +273,16 @@ CM-THEOREM forbids an isolated system moving its own centre of mass.  It does
 not forbid moving something ELSE and recoiling; that is what conservation is
 for.  So the shell stops being a vehicle and becomes INFRASTRUCTURE.
 
-  Shell            %.3e kg (%.2f Msun), R1 = 4.9 km, at %.3f x nuclear
+  Shell            %.3e kg (%.2f Msun), R1 = %.2f km, at %.3f x nuclear
                    density (address.RHO_NUCLEAR; first "nuclear density", on
-                   a recalled 2.3e17 -- CORRECTED, DOCKET 67 follow-ups)
+                   a recalled 2.3e17 -- CORRECTED, DOCKET 67 follow-ups; then
+                   R1 = 4.9 km, 1.11 Msun, 0.859 x, until GATE 1 was re-sized
+                   on M's ruling "Re-size to 4544 m", DOCKET 67)
   Reservoir        %.2e J in circulation (%.2f%% of rest mass)
   Interior         FLAT -- measured: alpha and beta constant, all Christoffels
                    vanish, so the payload is on a geodesic and is NEVER PUSHED
   Boost delivered  %.4f c
-""" % (M_SHELL, M_SHELL/MSUN, gate_density(4902)/RHO_NUCLEAR,
+""" % (M_SHELL, M_SHELL/MSUN, R1_GATE/1e3, gate_density(R1_GATE)/RHO_NUCLEAR,
        E_STORE, 100*E_STORE/(M_SHELL*c**2), V_WARP))
     print("-- Launching a 1000 tonne payload ------------------------------------------")
     print("""  Energy to the payload      %.3e J
@@ -239,12 +291,14 @@ for.  So the shell stops being a vehicle and becomes INFRASTRUCTURE.
   Launches before depletion  %.3e
 """ % (payload_energy(m,V_WARP), payload_momentum(m,V_WARP),
        recoil_speed(m,V_WARP), recoil_speed(m,V_WARP)/c, launches_available(m,V_WARP)))
-    print("""  The recoil is 6.5e-18 m/s -- the shell is 24 orders of magnitude heavier than
-  the payload, so conservation is satisfied at no practical cost to the
-  installation.  The reservoir is good for 1.1e26 launches.  It is, for any
-  purpose anyone has, REUSABLE AND INEXHAUSTIBLE.
+    print("""  The recoil is %.1e m/s (first 6.5e-18) -- the shell is %.0f orders of
+  magnitude heavier than the payload, so conservation is satisfied at no
+  practical cost to the installation.  The reservoir is good for %.1e launches
+  (first 1.1e26).  It is, for any purpose anyone has, REUSABLE AND
+  INEXHAUSTIBLE.
 
--- The property nothing else supplies --------------------------------------""")
+-- The property nothing else supplies --------------------------------------""" % (
+        recoil_speed(m,V_WARP), math.log10(M_SHELL/m), launches_available(m,V_WARP)))
     print("  %-34s %14s %16s" % ("route to 0.0476 c", "cost", "felt by payload"))
     print("  %-34s %14s %16.2f g" % ("rocket, 1 day", "ratio 1.049", rocket_accel(V_WARP,1)))
     print("  %-34s %14s %16.2f g" % ("rocket, 30 days", "ratio 1.049", rocket_accel(V_WARP,30)))
@@ -337,7 +391,7 @@ for.  So the shell stops being a vehicle and becomes INFRASTRUCTURE.
   nuclear (first 24.0 x, on a recalled 2.3e17 -- CORRECTED, DOCKET 67
   follow-ups).  The seed is therefore comparable in mass to the source, and
 
-      launching an EQUAL gate throws the source to 0.0477 c
+      launching an EQUAL gate throws the source to %.4f c
 
   which it can never undo, because it cannot accelerate itself.  One seeding
   destroys the terminal that did it.
@@ -364,7 +418,7 @@ for.  So the shell stops being a vehicle and becomes INFRASTRUCTURE.
   the outcome; only the mechanism is unverified.  FORBIDDEN BECAME UNVERIFIED,
   and that is the whole gain from asking what the object can be instead of what
   it failed to be.
-""")
+""" % (seed_recoil(gate_mass(R1_GATE), V_WARP)/c))
     return 0
 
 if __name__ == "__main__":

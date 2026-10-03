@@ -101,7 +101,12 @@ epistemically interesting and operationally empty.
     L2, extra-dimension branch   AGAINST   biconditional exact in every D, and
                                            the rate worse in every D above four
     Casimir as a route           AGAINST   already priced; same sub-Planckian
-                                           wall as everything else
+                                           wall as Ford-Roman read at t0 = R/c
+                                           (on the duration bound the FR
+                                           crossover is 5.625229 l_P, above
+                                           l_P -- CORRECTED (DOCKET 67, on M's
+                                           ruling "Carry both"): first "wall
+                                           as everything else")
     L1, rotation                 FOR       THE BICONDITIONAL FAILS OUTSIDE
                                            STATIC -- Kerr contracts with M > 0
 
@@ -267,6 +272,14 @@ def selftest():
     chk("  and a census is not a result",
         "a census is not a result" in __doc__, True)
     chk("nothing is repaired", "NOTHING IS REPAIRED" in __doc__, True)
+
+    # -- DOCKET 67, M's ruling "Carry both" ----------------------------------
+    import candidates as _cand
+    chk("FR crossover sub-Planckian on t0 = R/c only",
+        (_cand.crossover_is_sub_planckian(), _cand.crossover_duration_is_sub_planckian()),
+        (True, False))
+    chk("  the docstring quotes the duration crossover as computed",
+        ("%.6f l_P" % _cand.crossover_duration_closed()) in " ".join(__doc__.split()), True)
 
     print("\nSELFTEST", "PASS" if ok else "FAIL")
     return ok

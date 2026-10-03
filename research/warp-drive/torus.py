@@ -34,7 +34,26 @@ stdlib only.
 import math, sys
 
 G, c, MSUN = 6.67430e-11, 299792458.0, 1.98892e30
-M_GATE, R1_GATE = 2.200330e30, 4902.0          # the seated design (gate1.py)
+# CORRECTED (DOCKET 67, on M's ruling "Re-size to 4544 m"): first typed here as
+# M_GATE, R1_GATE = 2.200330e30, 4902.0 and a = 1600 m at the gate (bore radius
+# 3302 m).  GATE 1 is re-sized to drivespec's nuclear-density radius on
+# address.RHO_NUCLEAR, so R1_GATE and M_GATE are imported from gate1.py, never
+# typed.  NAMED HYPOTHESIS TORUS-ASPECT-HELD: the tube radius re-sizes with R0,
+# holding the first-written aspect a/R0 = 1600/4902 (gatespec.py's "a/R0 =
+# 0.33", ASSUMED there).  On it the DEC margin is scale-free (4 pi /(f ln(8 R0/a))
+# with M = f R0 c^2/2G) and does not move; the selftest also computes the margin
+# at a held at 1600 m, the other reading, and both are recorded.
+import gate1 as _gate1
+M_GATE, R1_GATE = _gate1.M_GATE, _gate1.R1      # the seated design (gate1.py)
+M_GATE_AS_FIRST_WRITTEN, R1_GATE_AS_FIRST_WRITTEN = 2.200330e30, 4902.0   # RECORD only
+A_TUBE_AS_FIRST_WRITTEN = 1600.0                # m, RECORD only
+ASPECT  = A_TUBE_AS_FIRST_WRITTEN/R1_GATE_AS_FIRST_WRITTEN   # a/R0, held (TORUS-ASPECT-HELD)
+A_GATE  = ASPECT*R1_GATE                        # m, tube minor radius at the gate
+HYPOTHESES = {
+    "TORUS-ASPECT-HELD":
+        "under GATE 1's re-size the tube radius scales with R0, a/R0 = 1600/4902 held; "
+        "a held at 1600 m instead gives the margin margin(R1_GATE, 1600, M_GATE), computed",
+}
 
 def log_factor(R0, a):
     return math.log(8.0*R0/a)
@@ -95,11 +114,32 @@ def selftest():
         hoop_stress(R0, a, 2e28)/hoop_stress(R0, a, 1e28), 4.0, tol=1e-12)
 
     print("\nThe gate")
-    chk("M_max at gate scale R0=4902, a=1600 (Msun)",
+    # CORRECTED (DOCKET 67, on M's ruling "Re-size to 4544 m"): first pinned at
+    # R0 = 4902, a = 1600 with M_GATE = 2.200330e30 (6.518479128 Msun,
+    # 1.1062936 Msun, margin 5.892176859).  Repinned to the computed values on
+    # gate1.py's re-sized design; the first pins are RECORD checks below.
+    chk("R0 is gate1's R1, drivespec's radius (m)", R1_GATE, 4544.175959, tol=1e-9)
+    chk("a at the gate, aspect held (m)", A_GATE, 1483.207167, tol=1e-9)
+    chk("M_max at gate scale R0=R1_GATE, a=A_GATE (Msun)",
+        mass_max(R1_GATE, A_GATE)/MSUN, 6.042659352, tol=1e-9)
+    chk("seated gate mass (Msun)", M_GATE/MSUN, 1.0255392, tol=1e-6)
+    chk("margin at gate scale", margin(R1_GATE, A_GATE, M_GATE), 5.892178022, tol=1e-9)
+    chk("  the open gate is DEC-compliant", margin(R1_GATE, A_GATE, M_GATE) > 1.0, True)
+    # TORUS-ASPECT-HELD: on it the margin is 4 pi/(f ln(8/aspect)), scale-free
+    chk("margin = 4 pi/(f ln(8 R0/a)) on M = f R0 c^2/2G (identity)",
+        margin(R1_GATE, A_GATE, M_GATE),
+        4.0*math.pi/(_gate1.F_FILL*log_factor(R1_GATE, A_GATE)), tol=1e-12)
+    chk("  the other reading: a held at 1600 m (margin)",
+        margin(R1_GATE, 1600.0, M_GATE), 6.035171317, tol=1e-9)
+    chk("  DEC-compliant on that reading too", margin(R1_GATE, 1600.0, M_GATE) > 1.0, True)
+    print("  RECORD -- the gate as first written (R0 = 4902 m, a = 1600 m)")
+    chk("  RECORD: M_max at R0=4902, a=1600 (Msun)",
         mass_max(4902.0, 1600.0)/MSUN, 6.518479128, tol=1e-9)
-    chk("seated gate mass (Msun)", M_GATE/MSUN, 1.1062936, tol=1e-6)
-    chk("margin at gate scale", margin(4902.0, 1600.0, M_GATE), 5.892176859, tol=1e-9)
-    chk("  the open gate is DEC-compliant", margin(4902.0, 1600.0, M_GATE) > 1.0, True)
+    chk("  RECORD: seated gate mass (Msun)", M_GATE_AS_FIRST_WRITTEN/MSUN, 1.1062936, tol=1e-6)
+    chk("  RECORD: margin at gate scale",
+        margin(4902.0, 1600.0, M_GATE_AS_FIRST_WRITTEN), 5.892176859, tol=1e-9)
+    chk("  RECORD: the open gate is DEC-compliant",
+        margin(4902.0, 1600.0, M_GATE_AS_FIRST_WRITTEN) > 1.0, True)
 
     print("\n  SELFTEST %s" % ("OK" if ok else "FAILED"))
     return 0 if ok else 1
@@ -126,13 +166,17 @@ runs slowly, M_max is LINEAR IN R0 -- the sphere's own M ~ R scaling, arrived at
 from a completely different argument.
 """ % (c**2/G))
     print("  %-18s %10s %14s %13s" % ("geometry","ln(8R0/a)","M_max (Msun)","lam_max kg/m"))
-    for R0, a in ((15.,5.), (20.,5.), (50.,10.), (1000.,325.), (4902.,1600.), (10000.,3260.)):
+    # CORRECTED (DOCKET 67, on M's ruling "Re-size to 4544 m"): the gate row was
+    # (4902., 1600.); it is now gate1's R1 with the aspect held.
+    for R0, a in ((15.,5.), (20.,5.), (50.,10.), (1000.,325.), (R1_GATE, A_GATE), (10000.,3260.)):
         print("  R0=%-7.0f a=%-6.0f %10.3f %14.4f %13.4e"
               % (R0, a, log_factor(R0,a), mass_max(R0,a)/MSUN, lambda_max(R0,a)))
-    m = margin(4902.0, 1600.0, M_GATE)
+    m = margin(R1_GATE, A_GATE, M_GATE)
     print("""
 -- The gate -----------------------------------------------------------------
-  R0 = 4902 m, a = 1600 m   (bore radius 3302 m, matching the seated design)
+  R0 = %.0f m, a = %.0f m   (bore radius %.0f m, matching the seated design;
+  first R0 = 4902 m, a = 1600 m, bore 3302 m -- re-sized on M's ruling
+  "Re-size to 4544 m", DOCKET 67, with a/R0 held: TORUS-ASPECT-HELD)
   DEC ceiling        %.4e kg = %.3f Msun
   seated gate mass   %.4e kg = %.3f Msun
   MARGIN             %.2fx
@@ -155,7 +199,8 @@ from a completely different argument.
           Hawking-Ellis certifier that closed TARGET-1.  That is the same test,
           on the same apparatus, and it either confirms this margin or finds the
           component this estimate does not see.
-""" % (mass_max(4902.,1600.), mass_max(4902.,1600.)/MSUN, M_GATE, M_GATE/MSUN, m, m))
+""" % (R1_GATE, A_GATE, R1_GATE - A_GATE,
+       mass_max(R1_GATE, A_GATE), mass_max(R1_GATE, A_GATE)/MSUN, M_GATE, M_GATE/MSUN, m, m))
     return 0
 
 if __name__ == "__main__":

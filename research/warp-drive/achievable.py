@@ -432,7 +432,12 @@ printed "C ~ 3.17".  NO COEFFICIENT.
 
     NOT A NEW SHORTFALL.  71.256 orders at a metre is the SAME inequality family
     as candidates.py's banked 70.606; it differs by the sampling choice and the
-    geometry.  Do not report it as an independent confirmation.
+    geometry.  Do not report it as an independent confirmation.  (DOCKET 67,
+    M's ruling "Carry both": candidates.py now also carries this file's
+    duration bound at T = R/c, 68.083 orders at a metre.  So the 0.650 orders
+    between 71.256 and 70.606 split exactly into 2.523 for the inequality --
+    log10 of C/(3/(32 pi^2)) = 333.709 -- against 3.173 for the requirement:
+    concentric.py's core window here against c^4/(G Lambda R^2) there.)
 
 stdlib only.  concentric.py supplies the device, seatindex.py the threshold,
 corridor.py the two earlier Planck-scale crossings.  Ford & Roman gr-qc/9607003,
@@ -658,7 +663,9 @@ def selftest():
         all(ratio(b) < 1e-60 for b in (1.0, 1e5, 1e12, 1e16)), True)
     # and what the fixture above was mistaken for: 65 orders is not the banked
     # figure.  candidates.py gets 70.606 at the same metre from the same
-    # inequality; the difference is an unargued sampling choice.
+    # inequality; the difference is an unargued sampling choice.  (DOCKET 67,
+    # M's ruling "Carry both": candidates.py's duration-bound reading, checked
+    # below, is 68.083.)
     near("the coefficient-free form is this much more generous than Ford-Roman",
          quantum_bound(1.0) / ford_roman_allow(1.0 / C_SI), 105.276, 1e-4)
 
@@ -682,6 +689,20 @@ def selftest():
         all(persistence_shortfall(b) > 1e30 for b in (1.0, 1e5, 1e12, 1e16)), True)
     chk("and it is NOT an independent confirmation of candidates.py's 70.606",
         abs(math.log10(persistence_shortfall(1.0)) - 70.606) < 1.0, True)
+    # DOCKET 67, M's ruling "Carry both": candidates.py's second reading is
+    # THIS file's duration_bound at T = R/c; the gap to 71.256 splits exactly.
+    import candidates as _cand
+    near("candidates' duration allowance IS persistence_allow (T = R/c)",
+         persistence_allow(1.0) / _cand.duration_allowed(1.0), 1.0, 1e-12)
+    near("  candidates' duration-bound shortfall at a metre, orders",
+         math.log10(_cand.shortfall_duration(1.0)), 68.083, 1e-4)
+    near("  71.256 - 70.606 = inequality (2.523) - requirement (3.173), exactly",
+         math.log10(persistence_shortfall(1.0)) - math.log10(_cand.shortfall(1.0)),
+         math.log10(required_density(1.0) / _cand.rho_needed(1.0))
+         - math.log10(_cand.duration_over_ford_roman()), 1e-12)
+    near("  the inequality part", math.log10(_cand.duration_over_ford_roman()), 2.523, 1e-3)
+    near("  the requirement part",
+         math.log10(required_density(1.0) / _cand.rho_needed(1.0)), 3.173, 1e-3)
 
     print("\nAND THE GAP WIDENS WITH SIZE -- the 'go bigger' escape is closed")
     chk("bigger is worse", gap_widens_with_size(), True)
