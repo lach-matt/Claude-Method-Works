@@ -52,7 +52,20 @@ def t_bore_closure(a_bore, cs=CS):
     """A bore of radius a closes on a/c_s: the wall need only move inward by a."""
     return a_bore/cs
 
-def viscosity_for_lifetime(tau, L=D_WALL, rho=2.3e17):
+import address as _address
+# CORRECTED (DOCKET 67 follow-ups, M: "address/correct/repair all figures"):
+# the wall density defaulted to a typed 2.3e17 kg/m^3 (n_0 = 0.1375 fm^-3,
+# RECALLED).  It is now the tree's one nuclear density, address.RHO_NUCLEAR =
+# 2.676e17, DERIVED-FROM-ORDER (n_0 = 0.16 fm^-3, not READ).  The 1 s ceiling
+# moves 1.658e25 -> 1.929e25 Pa s (computed), linear in rho; the first figure
+# is kept as a RECORD.  Named: the seated wall (R1 = 4902 m) is itself 2.30e17
+# by construction, 0.859 x address.RHO_NUCLEAR (gate1.py,
+# GATE1-SIZED-ON-RECALLED-DENSITY), so for that design the RECORD figure is the
+# wall's own; the conclusion (five orders above 1e20 Pa s) holds on either.
+RHO_NUCLEAR = _address.RHO_NUCLEAR
+RHO_NUCLEAR_WITHDRAWN = 2.3e17
+
+def viscosity_for_lifetime(tau, L=D_WALL, rho=RHO_NUCLEAR):
     """Shear viscosity required for the circulation to survive a time tau.
 
     Viscous decay of a flow on scale L is tau ~ L^2 rho / eta, so
@@ -97,7 +110,13 @@ def selftest():
 
     print("\nCirculation lifetime, stated as a requirement not an assumption")
     eta_1s = viscosity_for_lifetime(1.0)
-    chk("viscosity ceiling for a 1 s lifetime (Pa s)", eta_1s, 1.65805e25, tol=1e-5)
+    chk("nuclear density is address.RHO_NUCLEAR",
+        RHO_NUCLEAR == _address.RHO_NUCLEAR, True)
+    chk("viscosity ceiling for a 1 s lifetime (Pa s)", eta_1s, 1.929097e25, tol=1e-5)
+    chk("  RECORD: on the withdrawn 2.3e17 (the seated wall's own density)",
+        viscosity_for_lifetime(1.0, rho=RHO_NUCLEAR_WITHDRAWN), 1.65805e25, tol=1e-5)
+    chk("  RECORD holds: >5 orders above 1e20 Pa s there too",
+        viscosity_for_lifetime(1.0, rho=RHO_NUCLEAR_WITHDRAWN)/1.0e20 > 1e5, True)
     chk("  ceiling is 5 orders above the literature maximum 1e20 Pa s",
         eta_1s/1.0e20 > 1e5, True)
     chk("requirement scales as 1/tau (identity)",

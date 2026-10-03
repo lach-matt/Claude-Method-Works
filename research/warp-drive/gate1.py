@@ -3,7 +3,19 @@
 gate1.py -- GATE 1: materials, power, schematic, and what must vary gate to gate.
 
 Builds on the seated point design (drivespec.py) and the launcher role
-(launcher.py).  Everything here is engineering ON TOP of measurements already
+(launcher.py).
+
+CORRECTED (DOCKET 67 follow-ups, M: "address/correct/repair all figures"):
+first this file typed RHO_NUC = 2.3e17 kg/m^3 (n_0 = 0.1375 fm^-3, RECALLED),
+and on it GATE 1's R1 = 4902 m shell sat exactly at nuclear saturation and was
+drivespec.py's point design.  The tree's one nuclear density is now
+address.RHO_NUCLEAR = 2.676e17 (n_0 = 0.16 fm^-3 x m_p, DERIVED-FROM-ORDER, not
+READ).  GATE 1 keeps its seated R1 = 4902 m (torus.py, gatespec.py, launcher.py
+and residue.py all carry it), so its shell is 0.859 x nuclear saturation, and
+drivespec.py's nuclear-density point has moved to R1 = 4544 m, 1.03 Msun.
+NAMED HYPOTHESIS GATE1-SIZED-ON-RECALLED-DENSITY: the 4902 m design was sized
+to saturation on the recalled 2.3e17; re-sizing GATE 1 to 4544 m is a design
+choice for M and is not made here.  The 2.3e17 figures are kept as RECORD.  Everything here is engineering ON TOP of measurements already
 taken; where a step is unsolved it is marked OPEN at the place it occurs and
 not swept to the end.
 
@@ -29,7 +41,9 @@ V_CIRC   = 0.330                       # c, wall circulation
 E_STORE  = 1.17e46                     # J, circulation reservoir
 
 # ---- materials ---------------------------------------------------------------
-RHO_NUC   = 2.3e17                     # kg/m^3, nuclear saturation
+import address as _address
+RHO_NUC   = _address.RHO_NUCLEAR       # kg/m^3, 2.676e17, DERIVED-FROM-ORDER there
+RHO_NUC_WITHDRAWN = 2.3e17             # as first written (RECALLED); RECORD only
 P_DEGEN   = 1.0e34                     # Pa, degenerate matter at saturation
 P_ANVIL   = 1.0e12                     # Pa, best static laboratory pressure
 P_LASER   = 1.0e13                     # Pa, best dynamic (laser shock)
@@ -92,10 +106,22 @@ def selftest():
         ok &= good
         print("  %-56s %14.6g %14.6g  %s" % (label, got, want, "ok" if good else "FAIL"))
 
-    print("Carried design -- must reproduce drivespec.py")
+    # CORRECTED (DOCKET 67 follow-ups): first headed "must reproduce
+    # drivespec.py" with RHO/RHO_NUC pinned at 1.0000 on a typed 2.3e17.
+    # drivespec.py now computes on address.RHO_NUCLEAR and its nuclear-density
+    # point is R1 = 4544 m, so GATE 1's seated 4902 m is drivespec's point as
+    # first written, and its shell is 0.8593 x nuclear (computed).
+    print("Carried design -- drivespec.py's point design as first seated (R1 = 4902 m)")
     chk("gate mass (Msun)", M_GATE/MSUN, 1.1062936, tol=1e-7)
     chk("R2 (m)", R2, 13392.5131, tol=1e-8)
-    chk("shell density / nuclear saturation", RHO/RHO_NUC, 1.0000, tol=2e-3)
+    chk("nuclear density is address.RHO_NUCLEAR", float(RHO_NUC == _address.RHO_NUCLEAR), 1.0)
+    chk("shell density / nuclear saturation (address.RHO_NUCLEAR)", RHO/RHO_NUC, 0.859337, tol=1e-5)
+    chk("  RECORD: on the withdrawn 2.3e17", RHO/RHO_NUC_WITHDRAWN, 1.0000, tol=2e-3)
+    import drivespec
+    chk("drivespec's nuclear-density radius now (m)",
+        drivespec.radius_for_density(RHO_NUC, F_FILL), 4544.176, tol=1e-6)
+    chk("  RECORD: on the withdrawn 2.3e17 it was GATE 1's R1 (m)",
+        drivespec.radius_for_density(RHO_NUC_WITHDRAWN, F_FILL), R1, tol=2e-4)
 
     print("\nMaterials -- why there is no pressure vessel")
     chk("degenerate pressure / best static lab pressure", confinement_gap(), 1.0e22)
@@ -143,12 +169,14 @@ def report():
     print("""
 1. MATERIALS
 ------------
-  The shell is %.3e kg at %.3g kg/m^3 -- nuclear saturation.  That is not a
-  material in the chemical sense: it is DEGENERATE NUCLEAR MATTER, neutrons and
+  The shell is %.3e kg at %.3g kg/m^3 -- %.3f x nuclear saturation on
+  address.RHO_NUCLEAR (first "nuclear saturation", on a recalled 2.3e17 --
+  CORRECTED, DOCKET 67 follow-ups).  That is not a material in the chemical
+  sense: it is DEGENERATE NUCLEAR MATTER, neutrons and
   protons at beta equilibrium with electrons and muons, held by degeneracy
   pressure and the strong force.  There is no alloy, no lattice, no chemistry.
 
-  IT CANNOT BE HELD IN A VESSEL.  Confining it needs ~1e34 Pa against""" % (M_GATE, RHO))
+  IT CANNOT BE HELD IN A VESSEL.  Confining it needs ~1e34 Pa against""" % (M_GATE, RHO, RHO/RHO_NUC))
     print("""      best static laboratory pressure (diamond anvil)   1e12 Pa
       best dynamic pressure (laser shock)                1e13 Pa
       SHORTFALL                                          %.0e
@@ -250,9 +278,10 @@ def report():
 ---------------------------------------------------------------
   WHAT IS FIXED, AND WHY IT CANNOT VARY:
 
-    RADIUS AND MASS.  rho ~ 1/R^2 pins the radius: at 4.9 km the requirement is
-    exactly nuclear saturation, at 1 km it is 24x saturation, at 50 km it is
-    1/100th.  Gates must be built where the material actually exists, so every
+    RADIUS AND MASS.  rho ~ 1/R^2 pins the radius: at 4.54 km the requirement
+    is exactly nuclear saturation, at 1 km it is 20.6x saturation, at 50 km it
+    is 1/121st (on address.RHO_NUCLEAR; first 4.9 km, 24x and 1/100th on a
+    recalled 2.3e17 -- CORRECTED, DOCKET 67 follow-ups).  Gates must be built where the material actually exists, so every
     gate is a few kilometres and about a solar mass.  There is ONE gate design.
 
     v_warp CEILING.  v_max = Phi f / k_hat carries no R at all -- performance is

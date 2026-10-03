@@ -36,8 +36,9 @@ And then permute.py closes the other half, on M's own closed index:
 2. AND THE CARRIER NAMED IS EXACTLY WHAT THE BEKENSTEIN BOUND COUNTS
 ===============================================================================
 
-nopath.py priced information at 9.9736e101 bits and closed the route on
-Bekenstein.  What Bekenstein's S actually counts is worth stating precisely,
+nopath.py priced information at 1.1241e102 bits (first 9.9736e101, at four
+light years -- CORRECTED, DOCKET 67 follow-ups; see section 3) and closed the
+route on Bekenstein.  What Bekenstein's S actually counts is worth stating precisely,
 because it is M's quantity and not an adjacent one:
 
         S <= 2 pi R E / (hbar c)
@@ -68,16 +69,26 @@ at n_max and count.
     That is the arithmetic of the proposal and it is not a small effect being
     unfair to it -- it is what a spectrum is.
 
-To reach nopath.py's 9.9736e101 bits at n_max = 100 takes 5.4298e100 atoms,
-massing 9.0870e73 kg, against the 5.1048e42 kg that simply supplying the mass
+To reach nopath.py's 1.1241e102 bits at n_max = 100 takes 6.1196e100 atoms,
+massing 1.0241e74 kg, against the 5.4193e42 kg that simply supplying the mass
 would cost.
 
-        THIRTY-ONE AND A QUARTER ORDERS WORSE.
+        THIRTY-ONE AND A QUARTER ORDERS WORSE (31.276).
 
 Same statement per kilogram, which is the honest way to compare carriers:
 
         hydrogenic, n_max = 100     1.0976e28 bits/kg
-        saturating the bound        1.9538e59 bits/kg
+        saturating the bound        2.0742e59 bits/kg
+
+    CORRECTED (DOCKET 67 follow-ups, M: "address/correct/repair all
+    figures"): first priced at nopath.py's round "four light years" --
+    9.9736e101 bits, 5.4298e100 atoms, 9.0870e73 kg against 5.1048e42 kg,
+    31.250 orders, 1.9538e59 bits/kg saturating.  nopath.py now prices at
+    Proxima (phase1.L_PROXIMA, Gaia DR3, 4.2465 ly), and this file asks it
+    rather than carry a distance; the 4 ly figures are still checked as a
+    RECORD.  The hydrogenic bits/kg do not depend on the distance.  The
+    gap grows as log10 of the separation, so it is 31.28 orders here and
+    stays "thirty-one and a quarter".
 
 ===============================================================================
 4. AND THE OPTIMAL SPECTRUM IS A BLACK HOLE -- WHICH IS WHERE WE CAME IN
@@ -99,8 +110,8 @@ mass, and the optimum at any scale is a horizon.
     point and exceeds the collapse bound by 2 pi^2 / 3 at every scale --
     COLLAPSE, you get a black hole and not a device.
 
-        THREE CURRENCIES, ONE DESTINATION.  Mass reaches 2.5666e12 solar
-        masses.  Information reaches the Bekenstein bound.  Spectra, optimised,
+        THREE CURRENCIES, ONE DESTINATION.  Mass reaches 2.7248e12 solar
+        masses at Proxima (first 2.5666e12, at four light years).  Information reaches the Bekenstein bound.  Spectra, optimised,
         reach the same horizon.  They are not three routes; they are three
         denominations of one route, and the route ends in a black hole.
 
@@ -209,36 +220,43 @@ def spectrum_is_logarithmic(a=100, b=1000):
     return hydrogenic_bits(b) - hydrogenic_bits(a) < 12.0
 
 
-def required_bits():
-    """nopath.py's figure, from nopath.py."""
+# CORRECTED (DOCKET 67 follow-ups): these asked nopath.coincidence_mass(4.0),
+# a round four light years.  They now take nopath's default separation,
+# phase1.L_PROXIMA; separation_ly = SEPARATION_LY_AS_FIRST_WRITTEN gives the
+# first-written figures, still checked as RECORD.
+SEPARATION_LY_AS_FIRST_WRITTEN = 4.0
+
+
+def required_bits(separation_ly=None):
+    """nopath.py's figure, from nopath.py.  Default: Proxima."""
     import nopath
-    M = nopath.coincidence_mass(4.0)
+    M = nopath.coincidence_mass(separation_ly)
     return nopath.holographic_bits(nopath.schwarzschild_radius(M))
 
 
-def required_mass():
+def required_mass(separation_ly=None):
     import nopath
-    return nopath.coincidence_mass(4.0)
+    return nopath.coincidence_mass(separation_ly)
 
 
-def atoms_needed(n_max=100):
-    return required_bits() / hydrogenic_bits(n_max)
+def atoms_needed(n_max=100, separation_ly=None):
+    return required_bits(separation_ly) / hydrogenic_bits(n_max)
 
 
-def spectral_mass(n_max=100):
-    return atoms_needed(n_max) * M_HYDROGEN
+def spectral_mass(n_max=100, separation_ly=None):
+    return atoms_needed(n_max, separation_ly) * M_HYDROGEN
 
 
-def orders_worse(n_max=100):
-    return math.log10(spectral_mass(n_max) / required_mass())
+def orders_worse(n_max=100, separation_ly=None):
+    return math.log10(spectral_mass(n_max, separation_ly) / required_mass(separation_ly))
 
 
 def bits_per_kg_hydrogenic(n_max=100):
     return hydrogenic_bits(n_max) / M_HYDROGEN
 
 
-def bits_per_kg_saturating():
-    return required_bits() / required_mass()
+def bits_per_kg_saturating(separation_ly=None):
+    return required_bits(separation_ly) / required_mass(separation_ly)
 
 
 # ------------------ 4: the optimal spectrum is a horizon
@@ -269,8 +287,10 @@ def dichotomy_already_closed_it():
     return dichotomy.blockers()[dichotomy.RICCI].startswith("COLLAPSE")
 
 
-DENOMINATIONS = (("mass", "2.5666e12 solar masses"),
-                 ("information", "the Bekenstein bound, 9.9736e101 bits"),
+# CORRECTED (DOCKET 67 follow-ups): first "2.5666e12 solar masses" and
+# "9.9736e101 bits", at four light years; now at Proxima (computed, selftest).
+DENOMINATIONS = (("mass", "2.7248e12 solar masses"),
+                 ("information", "the Bekenstein bound, 1.1241e102 bits"),
                  ("spectra", "the same horizon, optimised"))
 
 
@@ -332,14 +352,30 @@ def selftest():
     near("bits there", hydrogenic_bits(100), 18.3679, 1e-4)
     chk("a spectrum is a LOGARITHM -- ten times the levels, ~ten bits",
         spectrum_is_logarithmic(), True)
-    near("bits required (nopath.py)", required_bits(), 9.9736e101)
-    near("atoms at n_max = 100", atoms_needed(), 5.4298e100)
-    near("their mass, kg", spectral_mass(), 9.0870e73)
-    near("against simply supplying, kg", required_mass(), 5.1048e42)
-    near("orders worse", orders_worse(), 31.2500, 1e-4)
+    # CORRECTED (DOCKET 67 follow-ups): repinned to the computed values at
+    # Proxima (python3 -c "import spectra as s; print(s.required_bits(),
+    # s.atoms_needed(), s.spectral_mass(), s.required_mass(), s.orders_worse(),
+    # s.bits_per_kg_saturating())"); the four-light-year pins are RECORD.
+    L4 = SEPARATION_LY_AS_FIRST_WRITTEN
+    near("bits required (nopath.py, at Proxima)", required_bits(), 1.12405e102)
+    near("atoms at n_max = 100", atoms_needed(), 6.11958e100)
+    near("their mass, kg", spectral_mass(), 1.02413e74)
+    near("against simply supplying, kg", required_mass(), 5.41934e42)
+    near("orders worse", orders_worse(), 31.2764, 1e-4)
     print("     per kilogram, which is the honest comparison:")
     near("  hydrogenic n_max = 100, bits/kg", bits_per_kg_hydrogenic(), 1.0976e28)
-    near("  saturating the bound, bits/kg", bits_per_kg_saturating(), 1.9538e59)
+    near("  saturating the bound, bits/kg", bits_per_kg_saturating(), 2.07415e59)
+    print("     RECORD: as first written, at four light years")
+    near("  RECORD: bits required at 4 ly", required_bits(L4), 9.9736e101)
+    near("  RECORD: atoms at n_max = 100", atoms_needed(100, L4), 5.4298e100)
+    near("  RECORD: their mass, kg", spectral_mass(100, L4), 9.0870e73)
+    near("  RECORD: against simply supplying, kg", required_mass(L4), 5.1048e42)
+    near("  RECORD: orders worse", orders_worse(100, L4), 31.2500, 1e-4)
+    near("  RECORD: saturating the bound, bits/kg", bits_per_kg_saturating(L4), 1.9538e59)
+    chk("  the denominations quote the computed mass (4 figures)",
+        float(DENOMINATIONS[0][1].split()[0]), float("%.4e" % (required_mass() / M_SUN)))
+    chk("  and the computed bits (4 figures)",
+        float(DENOMINATIONS[1][1].split()[-2]), float("%.4e" % required_bits()))
 
     print("\n4. AND THE OPTIMAL SPECTRUM IS A HORIZON")
     chk("a black hole saturates the bound", saturates_the_bound(), True)
@@ -404,10 +440,13 @@ def report():
   WHAT IT DOES NOT DO IS TURN THE INEQUALITY ROUND.  A spectrum is a
   LOGARITHM: one hydrogenic charge has 385 states to n = 10, 338,350 to
   n = 100, 333,833,500 to n = 1000 -- 8.6, 18.4 and 28.3 bits.  Ten
-  times the levels buys ten bits.  Reaching the 9.9736e101 bits the
-  transition needs takes 5.4298e100 atoms at 9.0870e73 kg, against
-  5.1048e42 kg for simply supplying the mass: THIRTY-ONE AND A QUARTER
-  ORDERS WORSE, or 1.0976e28 bits per kilogram against 1.9538e59.
+  times the levels buys ten bits.  Reaching the 1.1241e102 bits the
+  transition needs at Proxima takes 6.1196e100 atoms at 1.0241e74 kg,
+  against 5.4193e42 kg for simply supplying the mass: THIRTY-ONE AND A
+  QUARTER ORDERS WORSE, or 1.0976e28 bits per kilogram against
+  2.0742e59.  (CORRECTED, DOCKET 67 follow-ups: first priced at four
+  light years -- 9.9736e101 bits, 5.4298e100 atoms, 9.0870e73 kg,
+  5.1048e42 kg, 1.9538e59 bits/kg.)
 
   AND THAT GAP IS NOT A FACT ABOUT HYDROGEN.  It is the distance from
   ordinary matter to the bound, and the bound is saturated by exactly

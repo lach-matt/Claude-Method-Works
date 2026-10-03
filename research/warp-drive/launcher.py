@@ -42,7 +42,17 @@ import math, sys
 
 G, c, MSUN = 6.67430e-11, 299792458.0, 1.98892e30
 
-# The point design from drivespec.py (nuclear saturation, gamma = 1+sqrt(3)).
+# The point design from drivespec.py as first seated (R1 = 4902 m, gamma =
+# 1+sqrt(3)).  CORRECTED (DOCKET 67 follow-ups): this read "(nuclear
+# saturation, ...)".  It was saturation on a recalled 2.3e17 kg/m^3; on the
+# tree's one nuclear density, address.RHO_NUCLEAR = 2.676e17 (DERIVED-FROM-
+# ORDER: n_0 = 0.16 fm^-3, not READ), this shell is 0.859 x nuclear and
+# drivespec.py's nuclear-density point is R1 = 4544 m, 1.03 Msun.  The design
+# here is kept at 4902 m (named hypothesis GATE1-SIZED-ON-RECALLED-DENSITY,
+# gate1.py).
+import address as _address
+RHO_NUCLEAR = _address.RHO_NUCLEAR
+RHO_NUCLEAR_WITHDRAWN = 2.3e17           # as first written; RECORD only
 M_SHELL   = 2.200e30      # kg,  1.11 Msun
 E_STORE   = 1.17e46       # J,   circulation reservoir, 5.93% of rest mass
 V_WARP    = 0.0476        # c,   interior frame boost
@@ -180,8 +190,16 @@ def selftest():
     chk("magsail braking from v_warp over 810 AU (g)", magsail_decel(V_WARP, 810), 0.0856829, tol=1e-6)
     chk("gate mass at R1 = 4902 m (Msun)", gate_mass(4902)/MSUN, 1.106294, tol=1e-6)
     chk("  reproduces the seated shell mass", gate_mass(4902), 2.200330e30, tol=1e-6)
+    # CORRECTED (DOCKET 67 follow-ups): repinned to the computed value on
+    # address.RHO_NUCLEAR; the first pin, 24.025285 on 2.3e17, is a RECORD.
+    chk("nuclear density is address.RHO_NUCLEAR",
+        RHO_NUCLEAR == _address.RHO_NUCLEAR, True)
     chk("density at R1 = 1000 m, as multiples of nuclear",
-        gate_density(1000)/2.3e17, 24.025285, tol=1e-6)
+        gate_density(1000)/RHO_NUCLEAR, 20.649535, tol=1e-6)
+    chk("  RECORD: on the withdrawn 2.3e17",
+        gate_density(1000)/RHO_NUCLEAR_WITHDRAWN, 24.025285, tol=1e-6)
+    chk("the seated shell (R1 = 4902 m), as multiples of nuclear",
+        gate_density(4902)/RHO_NUCLEAR, 0.859337, tol=1e-5)
     # a seed gate cannot be made small: rho ~ 1/R^2 forces it near the source's mass
     r_eq = seed_recoil(gate_mass(4902), V_WARP)
     chk("recoil launching an EQUAL gate (c)", r_eq/c, 0.0476612, tol=1e-6)
@@ -205,12 +223,15 @@ CM-THEOREM forbids an isolated system moving its own centre of mass.  It does
 not forbid moving something ELSE and recoiling; that is what conservation is
 for.  So the shell stops being a vehicle and becomes INFRASTRUCTURE.
 
-  Shell            %.3e kg (%.2f Msun), nuclear density, R1 = 4.9 km
+  Shell            %.3e kg (%.2f Msun), R1 = 4.9 km, at %.3f x nuclear
+                   density (address.RHO_NUCLEAR; first "nuclear density", on
+                   a recalled 2.3e17 -- CORRECTED, DOCKET 67 follow-ups)
   Reservoir        %.2e J in circulation (%.2f%% of rest mass)
   Interior         FLAT -- measured: alpha and beta constant, all Christoffels
                    vanish, so the payload is on a geodesic and is NEVER PUSHED
   Boost delivered  %.4f c
-""" % (M_SHELL, M_SHELL/MSUN, E_STORE, 100*E_STORE/(M_SHELL*c**2), V_WARP))
+""" % (M_SHELL, M_SHELL/MSUN, gate_density(4902)/RHO_NUCLEAR,
+       E_STORE, 100*E_STORE/(M_SHELL*c**2), V_WARP))
     print("-- Launching a 1000 tonne payload ------------------------------------------")
     print("""  Energy to the payload      %.3e J
   Payload momentum           %.3e kg m/s
@@ -312,8 +333,9 @@ for.  So the shell stops being a vehicle and becomes INFRASTRUCTURE.
 
   The cost is brutal and it is a scaling result, not an engineering detail.
   A seed gate cannot be made small: rho ~ 1/R^2, so halving the radius
-  quadruples the density, and at R1 = 1 km the requirement is already 24.0 x
-  nuclear.  The seed is therefore comparable in mass to the source, and
+  quadruples the density, and at R1 = 1 km the requirement is already 20.6 x
+  nuclear (first 24.0 x, on a recalled 2.3e17 -- CORRECTED, DOCKET 67
+  follow-ups).  The seed is therefore comparable in mass to the source, and
 
       launching an EQUAL gate throws the source to 0.0477 c
 

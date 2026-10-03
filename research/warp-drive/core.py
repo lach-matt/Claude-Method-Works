@@ -149,14 +149,23 @@ universal seating threshold T_kk >= pi c^4/(4 G l^2):
         osmium (densest element)    2.030e+21
         white-dwarf matter          8.988e+25
         neutron-star crust          3.595e+31
-        NUCLEAR SATURATION          2.067e+34
+        NUCLEAR SATURATION          2.405e+34
         neutron-star core           7.190e+34
 
         l          needed (Pa)      nuclear saturation / needed
-        1 m        9.505e+43        2.175e-10
-        1 km       9.505e+37        2.175e-04
-        100 km     9.505e+33        2.175          <- EXCEEDS IT
-        1000 km    9.505e+31        217.5
+        1 m        9.505e+43        2.530e-10
+        1 km       9.505e+37        2.530e-04
+        100 km     9.505e+33        2.530          <- EXCEEDS IT
+        1000 km    9.505e+31        253.0
+
+    CORRECTED (DOCKET 67 follow-ups): first the nuclear-saturation row was a
+    typed 2.3e17 kg/m^3 (n_0 = 0.1375 fm^-3, RECALLED) and read 2.067e+34 Pa
+    and 2.175e-10 / 2.175e-04 / 2.175 / 217.5; it now uses address.RHO_NUCLEAR
+    = 2.676e17 (n_0 = 0.16 fm^-3 x m_p, DERIVED-FROM-ORDER, not READ), the one
+    nuclear density in the tree.  The margin crosses 1 at l = 62.9 km (first
+    67.8 km), so "beyond about 100 km" below is a round figure for both.  The
+    2.3e17 figures are still checked as a RECORD.  The verdict (magnitude
+    reached past ~100 km, sign not) does not move.
 
     MAGNITUDE IS NOT THE OBSTACLE.  Nuclear-saturation matter EXCEEDS the
     seating requirement beyond about 100 km, and neutron stars are made of it.
@@ -194,6 +203,13 @@ stdlib only.  typefour.py supplies the Hawking-Ellis classifier, composite.py
 and concentric.py the metric whose limits are reported above.
 """
 import math, sys
+
+import address as _address
+#: CORRECTED (DOCKET 67 follow-ups): first a typed 2.3e17 (RECALLED, n_0 =
+#: 0.1375 fm^-3).  One nuclear density in the tree: address.RHO_NUCLEAR,
+#: 2.676e17, DERIVED-FROM-ORDER (n_0 = 0.16 fm^-3, not READ at source).
+RHO_NUCLEAR = _address.RHO_NUCLEAR
+RHO_NUCLEAR_WITHDRAWN = 2.3e17      # as first written; kept, checked as RECORD
 
 TYPE_I, TYPE_IV = "TYPE-I", "TYPE-IV"
 
@@ -274,7 +290,7 @@ MATERIALS = (
     ("osmium (densest element)", 22590.0),
     ("white-dwarf matter", 1.0e9),
     ("neutron-star crust", 4.0e14),
-    ("nuclear saturation", 2.3e17),
+    ("nuclear saturation", RHO_NUCLEAR),
     ("neutron-star core", 8.0e17),
 )
 
@@ -388,11 +404,23 @@ def selftest():
         print("     %26s %14.4e %16.3e" % (n, energy_density(d), margin_over_threshold(d, 1.0e5)))
     chk("mercury and lead fall far short of the threshold at 100 km",
         all(margin_over_threshold(d, 1.0e5) < 1e-10 for _n, d in MATERIALS[:3]), True)
+    chk("nuclear density is address.RHO_NUCLEAR (one value in the tree)",
+        RHO_NUCLEAR == _address.RHO_NUCLEAR, True)
     chk("but NUCLEAR SATURATION EXCEEDS it there",
-        margin_over_threshold(2.3e17, 1.0e5) > 1.0, True)
-    near("by this factor", margin_over_threshold(2.3e17, 1.0e5), 2.175, 0.01)
+        margin_over_threshold(RHO_NUCLEAR, 1.0e5) > 1.0, True)
+    # CORRECTED (DOCKET 67 follow-ups): repinned to the computed value on
+    # address.RHO_NUCLEAR (python3 -c "import core; print(core.margin_over_
+    # threshold(core.RHO_NUCLEAR, 1e5))" -> 2.5302).  First 2.175 on 2.3e17,
+    # still checked below as a RECORD.
+    near("by this factor", margin_over_threshold(RHO_NUCLEAR, 1.0e5), 2.530, 0.01)
+    near("  RECORD: on the withdrawn 2.3e17",
+         margin_over_threshold(RHO_NUCLEAR_WITHDRAWN, 1.0e5), 2.175, 0.01)
     chk("and by two orders at 1000 km",
-        margin_over_threshold(2.3e17, 1.0e6) > 100.0, True)
+        margin_over_threshold(RHO_NUCLEAR, 1.0e6) > 100.0, True)
+    near("  at 1000 km (computed on address.RHO_NUCLEAR)",
+         margin_over_threshold(RHO_NUCLEAR, 1.0e6), 253.0, 0.1)
+    near("  RECORD: on the withdrawn 2.3e17",
+         margin_over_threshold(RHO_NUCLEAR_WITHDRAWN, 1.0e6), 217.5, 0.1)
     chk("yet EVERY ordinary phase has POSITIVE energy density",
         sign_is_the_obstacle(), True)
     print("       Magnitude is not the obstacle beyond ~100 km. The sign is, and")

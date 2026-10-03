@@ -32,7 +32,9 @@ astigmatic focal length b^2/4|M|.  (That reading is this file's, not Gao &
 Wald's.)  To first order in M a negative mass shears the congruence exactly as
 hard as a positive mass of the same magnitude -- Born integration gives the
 same conjugate point, 55.87, for both signs; the bent rays differ at O(M^2),
-55.17 against 56.50 -- and the Shapiro delay, being linear, flips sign with it.
+55.21 against 56.56 converged at n = 3600 (55.17 against 56.50 at survey()'s
+default n = 900, first quoted alone here -- CORRECTED, DOCKET 67 follow-ups)
+-- and the Shapiro delay, being linear, flips sign with it.
 
     SO A NEGATIVE MASS CAN FOCUS A CONGRUENCE TO A CONJUGATE POINT WHILE THE
     LIGHT THAT FOCUSES ARRIVES EARLY.  Seating and advance, in one object.
@@ -128,6 +130,13 @@ pull opposite ways and leave a window.  At b = 0.3, L = 75:
         1.0e-2     42.83             -7.968e-2       *** SEATS + EARLY ***
         2.0e-2     41.50             +4.111e-2       seats, LATE
         4.0e-2     40.83             +6.160e-1       seats, LATE
+
+    (CORRECTED, DOCKET 67 follow-ups: these rows are survey()'s default
+    n = 900, h = 0.083, first given without the converged run beside them.
+    At n = 3600 (h = 0.021), computed: 56.56 / -3.762e-2, 45.65 / -7.182e-2,
+    42.85 / -7.958e-2, 41.52 / +4.150e-2, 40.81 / +6.173e-1, for |M| = 2e-3
+    to 4e-2; every verdict and both window edges are unchanged, and each
+    conjugate point moves by at most three steps of the fine grid.)
 
     ABOUT ONE DECADE WIDE, and the advance is largest just below the upper
     edge.  This is the answer to "where do they meet": not a point, a band.
@@ -509,6 +518,12 @@ def selftest():
     chk("the positive mass seats", rp["seats"], True)
     chk("the negative mass seats TOO -- Weyl focusing is sign-blind",
         rm["seats"], True)
+    # DOCKET 67 follow-ups: the converged values the docstring states beside
+    # the n = 900 defaults, computed here rather than quoted.
+    near("default n = 900 conjugate points (+M, -M): +M", rp["conjugate"], 55.1667, 1e-3)
+    near("  -M", rm["conjugate"], 56.5000, 1e-3)
+    near("converged n = 3600: +M", survey(2.0e-3, n=3600)["conjugate"], 55.2083, 1e-3)
+    near("  -M", survey(-2.0e-3, n=3600)["conjugate"], 56.5625, 1e-3)
     near("and at nearly the same place (equal at O(M))",
          rm["conjugate"] / rp["conjugate"], 1.0, 0.05)
     chk("the positive mass arrives late", rp["early"], False)

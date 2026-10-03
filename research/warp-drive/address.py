@@ -669,12 +669,22 @@ A_BOHR_M = 5.29177210903e-11     # CODATA                           NAMED-NOT-RE
 ALPHA_EM = 1.0 / 137.035999084   # CODATA                           NAMED-NOT-READ
 RHO_NUCLEAR = 2.676e17           # kg/m^3, n_0 = 0.16/fm^3 * m_N    DERIVED-FROM-ORDER
 #   DOCKET 67, recorded and not reconciled: m_N here is m_p (n_0 m_p to 4
-#   digits).  The tree's other nuclear density is 2.3e17 (n_0 = 0.1375), 16%
+#   digits).  The tree's other nuclear density was 2.3e17 (n_0 = 0.1375), 16%
 #   lower; at 2.3e17 the section 5 ratios are 342x (H1) and 98.2x (H2).
+#   (CORRECTED, DOCKET 67 follow-ups: first "is"; that half is now
+#   reconciled -- every file imports this value, below.  The m_N = m_p half
+#   is still recorded and not reconciled.)
 #   CORRECTED (DOCKET 67 follow-up): this list read "warpdrive.py, emwarp.py,
 #   drivespec.py, mouth.py".  Those four now import this RHO_NUCLEAR (each
-#   keeps 2.3e17 only as a withdrawn record); 2.3e17 is still typed in
-#   core.py, elements.py, gate1.py, gatespec.py, launcher.py and residue.py.
+#   keeps 2.3e17 only as a withdrawn record).  CORRECTED again (DOCKET 67
+#   follow-ups, residue pass): this comment then said 2.3e17 "is still typed
+#   in core.py, elements.py, gate1.py, gatespec.py, launcher.py and
+#   residue.py".  Those six now import this RHO_NUCLEAR too, each keeping
+#   2.3e17 only as a withdrawn RECORD check.  No file in the tree computes on
+#   2.3e17 any more (grep 2.3e17 *.py: every hit is a RECORD, a *_WITHDRAWN
+#   constant or a history note).  GATE 1's seated R1 = 4902 m was sized on
+#   2.3e17 and is kept, so its shell is 0.859 x this value (gate1.py, named
+#   hypothesis GATE1-SIZED-ON-RECALLED-DENSITY).
 GRAVIMETER_FLOOR = 1.0e-9        # m/s^2, ~0.1 microGal             ORDER
 #   DOCKET 67 (Freier et al. 1512.05660 READ): at source 1e-9 is a RELATIVE
 #   long-term stability figure (~1e5 s Allan deviation).  Absolute accuracy is

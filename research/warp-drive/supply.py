@@ -422,10 +422,20 @@ def selftest():
     print("      touches it.")
 
     print("\nS6 -- SO THE LEVER IS GEOMETRY, AND THREE ROUTES AGREE WHERE")
+    # CORRECTED (DOCKET 67 follow-ups, residue pass): these were pinned at
+    # 3.5729e-69, 5.9774e-35 m and 3.6982 l_P, which passed only on the 1e-3
+    # tolerance (computed values sit 2.4e-4 to 4.8e-4 away).  Repinned to the
+    # computed values at 1e-4 (python3 -c "import supply as s; print(
+    # s.casimir_over_required(1.0), s.casimir_unity_gap(),
+    # s.unity_gap_in_planck_lengths())"); the first pins are kept as RECORD
+    # at their own tolerance.
     near("Casimir over required at b = 1 m, eps = 1 %", casimir_over_required(1.0),
-         3.5729e-69, 1e-3)
-    near("the gap at which it reaches unity (m)", casimir_unity_gap(), 5.9774e-35, 1e-3)
-    near("  in Planck lengths", unity_gap_in_planck_lengths(), 3.6982, 1e-3)
+         3.5746e-69, 1e-4)
+    near("the gap at which it reaches unity (m)", casimir_unity_gap(), 5.9788e-35, 1e-4)
+    near("  in Planck lengths", unity_gap_in_planck_lengths(), 3.6992, 1e-4)
+    near("  RECORD: first pin, at its own 1e-3", casimir_over_required(1.0), 3.5729e-69, 1e-3)
+    near("  RECORD: first pin, at its own 1e-3", casimir_unity_gap(), 5.9774e-35, 1e-3)
+    near("  RECORD: first pin, at its own 1e-3", unity_gap_in_planck_lengths(), 3.6982, 1e-3)
     print("      corridor.py's seat crossing   %.4f l_P" % CORRIDOR_CROSSING_LP)
     print("      gjw.py's unity separation     %.4f l_P" % GJW_CROSSING_LP)
     import gjw

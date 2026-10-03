@@ -7,8 +7,10 @@ background the matter itself curves.  Attacking it turned up something closer to
 home first.
 
     achronal.py's CENTRAL NEGATIVE RESULT RESTS ON AN INVERTED CLAIM, and with
-    the claim corrected the corridor is OUTSIDE achronal ANEC's scope
-    altogether.
+    the claim corrected the corridor's scanned ray family is OUTSIDE achronal
+    ANEC's scope.  (CORRECTED, DOCKET 67 follow-ups: first "the corridor is
+    OUTSIDE achronal ANEC's scope altogether"; one family was computed --
+    section 4 -- and the others are NOT-RUN.)
 
 That is not a refutation of anything.  It is a scope finding, and the
 difference matters enough that this file says so four times.
@@ -89,6 +91,10 @@ gives u = lambda with no zero ever:
         M = -2.0e-3       NONE                      56.50
         M = -4.0e-3       NONE                      47.17
 
+    (CORRECTED, DOCKET 67 follow-ups: composite.survey's default n = 900.
+    Converged at n = 3600, computed: 56.56 and 47.17.  No row changes its
+    verdict; first given at n = 900 alone.)
+
     The lemma T_kk <= 0 => u'' >= 0 => no conjugate point is valid ONLY in the
     shear-free scalar reduction.  Weyl is TRACELESS, so it focuses one
     eigendirection whatever the sign of the source, and det A = 0 happens with
@@ -127,7 +133,13 @@ parameter is not a scan, which is the lesson nullbound.py paid for:
     NON-ACHRONAL SET, with room to spare, and the containment is not marginal
     anywhere along the scan.
 
-        NO RAY OF THIS CORRIDOR IS BOTH ANEC-VIOLATING AND ACHRONAL.
+        NO RAY OF THE SCANNED FAMILY IS BOTH ANEC-VIOLATING AND ACHRONAL.
+
+    CORRECTED (DOCKET 67 follow-ups, M: verdicts rest on a correct stated
+    ground): first "NO RAY OF THIS CORRIDOR".  What was computed is one
+    family -- planar, +x-directed rays at one source strength (section 4,
+    NOT_RUN) -- so the statement is about that family; other ray families of
+    the corridor are NOT-RUN, and the corridor-wide claim is not shown.
 
     And the same negative core that makes INTEGRAL T_kk dl negative is the
     thing that focuses, through Weyl, which is sign-blind.  ONE OBJECT PRODUCES
@@ -144,7 +156,9 @@ parameter is not a scan, which is the lesson nullbound.py paid for:
 4. WHAT THAT DOES AND -- AT LENGTH -- WHAT IT DOES NOT
 ===============================================================================
 
-    IT DOES: put this architecture outside the scope of achronal ANEC, the only
+    IT DOES: put this architecture's scanned ray family (planar, +x-directed,
+    one source strength -- CORRECTED, DOCKET 67 follow-ups: first the whole
+    architecture) outside the scope of achronal ANEC, the only
     version of ANEC with teeth.  The obstruction achronal.py recorded as closed
     against us does not bind the corridor.  It is the SAME escape Casimir uses
     and the same one Gao-Jafferis-Wall use, so the company is respectable --
@@ -405,13 +419,18 @@ def report():
   inverted, and the demonstration needs no argument -- in vacuum
   R_kk = 0 (to O(M) in the linearised metric, whose O(M^2) residue
   defocuses), the scalar equation gives u = lambda with no zero ever,
-  and the full matrix finds a conjugate point at 56.50.
+  and the full matrix finds a conjugate point at 56.50 (n = 900; 56.56
+  converged at n = 3600 -- DOCKET 67 follow-ups).
 
-  WITH THAT CORRECTED, THE CORRIDOR IS OUTSIDE ACHRONAL ANEC'S SCOPE.
+  WITH THAT CORRECTED, THE CORRIDOR'S SCANNED RAY FAMILY IS OUTSIDE
+  ACHRONAL ANEC'S SCOPE (first "THE CORRIDOR IS"; other families NOT-RUN
+  -- CORRECTED, DOCKET 67 follow-ups).
   Scanning impact parameter, ANEC violation ceases at b = 2.378288
   while conjugate points persist well past it, so the ANEC-violating
   set sits strictly inside the non-achronal set with room to spare.
-  No ray of this corridor is both ANEC-violating and achronal.  The
+  No ray of the scanned family (planar, +x-directed, one source
+  strength; others NOT-RUN) is both ANEC-violating and achronal
+  (CORRECTED, DOCKET 67 follow-ups: first "No ray of this corridor").  The
   same negative core that makes the integral negative is the thing
   that focuses, through sign-blind Weyl; but where T_kk < 0 that
   mechanism does not by itself guarantee a conjugate point, so the

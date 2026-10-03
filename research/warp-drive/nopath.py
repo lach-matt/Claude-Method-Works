@@ -27,11 +27,24 @@ MANUFACTURE the coincidence.  phase1.py's transition equation is
 so the exchange rate is a constant: 1.34895e26 kg per metre contracted.  Making
 two points ONE means contracting the WHOLE separation, and linear means
 
-        4 light years  ->  5.1048e42 kg  =  2.5666e12 SOLAR MASSES.
+        Proxima, 4.2465 ly  ->  5.4193e42 kg  =  2.7248e12 SOLAR MASSES.
 
     THE COST INTUITION IS EXACTLY INVERTED.  "No path needed" is not the
     cheap end of the curve; IT IS THE MAXIMUM OF IT.  A 1% contraction costs
-    5.1048e40 kg and a one-metre contraction costs the bare exchange rate.
+    5.4193e40 kg and a one-metre contraction costs the bare exchange rate.
+
+    CORRECTED (DOCKET 67 follow-ups, M: "address/correct/repair all
+    figures"): first priced at a round "4 light years" -- 5.1048e42 kg =
+    2.5666e12 solar masses, 5.1048e40 kg for 1%.  phase1.py, closeout.py and
+    wormhole.py now price at Proxima's Gaia DR3 distance (phase1.L_PROXIMA,
+    4.2465 ly, READ-VIA-RESTATEMENT), so this file imports it rather than
+    carry a second distance.  Every figure below that follows from the mass
+    moved with it (R_s, bits, Landauer, break-even); each first value is
+    kept beside it and still checked as a RECORD at SEPARATION_LY_AS_FIRST_
+    WRITTEN = 4.0.  The exchange rate is phase1's FIRST-ORDER law (phase1's
+    own DOCKET 67 note gives the exact ansatz at 0.944 / 0.403 of it), and
+    that hypothesis is carried here unchanged.  No verdict moves: the cost is
+    linear at any separation, so coincidence is the maximum at any distance.
     Shortening is cheap in proportion; coincidence is the most expensive thing
     on the axis, and it is expensive BY THE PROJECT'S OWN EQUATION.
 
@@ -53,11 +66,14 @@ Two points already one, in a manifold, is A WORMHOLE MOUTH PAIR, and
 currency.py asked what the transition is denominated in.  It never priced
 INFORMATION specifically, because nobody had proposed it.  Here it is.
 
-The required M sits inside its own Schwarzschild radius, R_s = 7.5818e15 m, and
+The required M sits inside its own Schwarzschild radius, R_s = 8.0490e15 m, and
 the information content of a region that size is fixed:
 
-        holographic   A / 4 l_P^2, in bits      9.9736e101
-        Bekenstein    2 pi R E / (hbar c ln2)   9.9736e101
+        holographic   A / 4 l_P^2, in bits      1.1241e102
+        Bekenstein    2 pi R E / (hbar c ln2)   1.1241e102
+
+    (CORRECTED, DOCKET 67 follow-ups: at Proxima.  First, at 4 ly, R_s =
+    7.5818e15 m and 9.9736e101 bits on both routes.)
 
     THE TWO ROUTES AGREE TO SIX DIGITS, which they must -- the bound is
     saturated at the horizon -- and that agreement is the point:
@@ -77,11 +93,16 @@ the information content of a region that size is fixed:
 And if the payment means MANIPULATING those bits rather than merely holding
 them, Landauer prices the manipulation on top:
 
-        at the CMB, 2.7255 K       2.6014e79 J   against M c^2 = 4.5880e59 J
+        at the CMB, 2.7255 K       2.9319e79 J   against M c^2 = 4.8707e59 J
                                    NINETEEN AND THREE QUARTER ORDERS WORSE
-        break-even temperature     4.8068e-20 K  -- the CMB is 5.67e19 times
+                                   (19.780)
+        break-even temperature     4.5279e-20 K  -- the CMB is 6.02e19 times
                                    warmer than the coldest place that would
                                    make information merely AS expensive as mass
+
+    (CORRECTED, DOCKET 67 follow-ups: at Proxima.  First, at 4 ly, 2.6014e79 J
+    against 4.5880e59 J, 19.754 orders, break-even 4.8068e-20 K, 5.67e19.
+    Both ratios scale with M, so the 6 % longer separation moves them 6 %.)
 
     CAUTION, AND IT IS A REAL ONE: Landauer prices IRREVERSIBLE operations.  A
     reversible computation costs nothing in principle, so the Landauer number
@@ -171,6 +192,21 @@ C = 2.99792458e8
 HBAR = 1.054571817e-34
 KB = 1.380649e-23
 LY = 9.4607304725808e15
+
+#: CORRECTED (DOCKET 67 follow-ups): the separation was a round 4.0 ly.  It is
+#: now phase1.L_PROXIMA (Gaia DR3, 4.2465 ly), asked of phase1, never retyped;
+#: the first value is kept and every figure on it is still checked as RECORD.
+SEPARATION_LY_AS_FIRST_WRITTEN = 4.0
+
+
+def proxima_ly():
+    """phase1.L_PROXIMA in light years (nopath's LY equals phase1.LIGHT_YEAR)."""
+    import phase1
+    return phase1.L_PROXIMA / LY
+
+
+def _sep(separation_ly):
+    return proxima_ly() if separation_ly is None else separation_ly
 M_SUN = 1.98892e30
 T_CMB = 2.7255
 
@@ -188,20 +224,23 @@ def mass_to_contract(metres):
     return metres * exchange_rate()
 
 
-def coincidence_mass(separation_ly=4.0):
-    """Making two points ONE means contracting the WHOLE separation."""
-    return mass_to_contract(separation_ly * LY)
+def coincidence_mass(separation_ly=None):
+    """Making two points ONE means contracting the WHOLE separation.
+    Default: Proxima (phase1.L_PROXIMA); first a round 4.0 ly."""
+    return mass_to_contract(_sep(separation_ly) * LY)
 
 
-def coincidence_is_the_maximum(separation_ly=4.0, fraction=0.01):
+def coincidence_is_the_maximum(separation_ly=None, fraction=0.01):
     """Is full contraction dearer than partial?  Linear, so always."""
+    separation_ly = _sep(separation_ly)
     full = coincidence_mass(separation_ly)
     part = mass_to_contract(fraction * separation_ly * LY)
     return full > part
 
 
-def cost_is_linear(separation_ly=4.0, rtol=1e-12):
+def cost_is_linear(separation_ly=None, rtol=1e-12):
     """Doubling the contraction doubles the bill.  No economy of scale."""
+    separation_ly = _sep(separation_ly)
     a = mass_to_contract(separation_ly * LY)
     b = mass_to_contract(2.0 * separation_ly * LY)
     return abs(b / a - 2.0) < rtol
@@ -245,7 +284,7 @@ def bekenstein_bits(R, E):
     return 2.0 * math.pi * R * E / (HBAR * C * math.log(2.0))
 
 
-def routes_agree(separation_ly=4.0, rtol=1e-6):
+def routes_agree(separation_ly=None, rtol=1e-6):
     """They must -- the bound is saturated at the horizon -- and the agreement
     is the finding: THE BITS ARE THE MASS, in other units.
 
@@ -262,20 +301,20 @@ def landauer_energy(bits, T):
     return bits * KB * T * math.log(2.0)
 
 
-def landauer_over_mass(separation_ly=4.0, T=T_CMB):
+def landauer_over_mass(separation_ly=None, T=T_CMB):
     M = coincidence_mass(separation_ly)
     R = schwarzschild_radius(M)
     return landauer_energy(holographic_bits(R), T) / (M * C * C)
 
 
-def break_even_temperature(separation_ly=4.0):
+def break_even_temperature(separation_ly=None):
     """The T at which information merely EQUALS mass.  Not beats -- equals."""
     M = coincidence_mass(separation_ly)
     R = schwarzschild_radius(M)
     return M * C * C / (holographic_bits(R) * KB * math.log(2.0))
 
 
-def information_is_cheaper(separation_ly=4.0, T=T_CMB):
+def information_is_cheaper(separation_ly=None, T=T_CMB):
     return landauer_over_mass(separation_ly, T) < 1.0
 
 
@@ -357,12 +396,25 @@ def selftest():
 
     print("1. MANUFACTURING THE COINCIDENCE IS THE MAXIMUM, NOT THE MINIMUM")
     near("exchange rate, kg per metre (phase1.py)", exchange_rate(), 1.34895e26)
-    Mc = coincidence_mass(4.0)
+    # CORRECTED (DOCKET 67 follow-ups): re-based on phase1.L_PROXIMA; the
+    # pins are the computed values (python3 -c "import nopath as n;
+    # print(n.coincidence_mass()/n.M_SUN)" -> 2.72477e12).  The 4.0 ly pins
+    # are kept below as RECORD checks.
+    Mc = coincidence_mass()
+    L4 = SEPARATION_LY_AS_FIRST_WRITTEN
     print("     one metre contracted      %.4e kg" % mass_to_contract(1.0))
-    print("     1%% of 4 light years       %.4e kg" % mass_to_contract(0.04 * LY))
-    print("     ALL of 4 light years      %.4e kg = %.4e solar masses"
-          % (Mc, Mc / M_SUN))
-    near("coincidence at 4 ly, solar masses", Mc / M_SUN, 2.5666e12)
+    print("     1%% of Proxima             %.4e kg" % mass_to_contract(0.01 * proxima_ly() * LY))
+    print("     ALL of Proxima (%.4f ly)  %.4e kg = %.4e solar masses"
+          % (proxima_ly(), Mc, Mc / M_SUN))
+    near("the separation is phase1.L_PROXIMA, in ly", proxima_ly(), 4.24646, 1e-5)
+    near("coincidence at Proxima, kg", Mc, 5.41934e42)
+    near("coincidence at Proxima, solar masses", Mc / M_SUN, 2.72477e12)
+    import phase1 as _p1
+    near("  and it is phase1's own price for the whole separation",
+         Mc, _p1.mass_for_contraction(_p1.L_PROXIMA), 1e-9)
+    near("RECORD: coincidence at 4 ly (as first written), kg",
+         coincidence_mass(L4), 5.1048e42)
+    near("RECORD: coincidence at 4 ly, solar masses", coincidence_mass(L4) / M_SUN, 2.5666e12)
     chk("is coincidence dearer than a 1% contraction",
         coincidence_is_the_maximum(), True)
     chk("and the cost is strictly linear -- no economy of scale",
@@ -386,9 +438,16 @@ def selftest():
     r = landauer_over_mass()
     print("     Landauer at the CMB           %.4e J against Mc^2 = %.4e J"
           % (landauer_energy(hb, T_CMB), Mc * C * C))
-    near("  orders worse", math.log10(r), 19.7536, 1e-3)
+    near("  orders worse", math.log10(r), 19.7796, 1e-3)
+    near("  RECORD: at 4 ly", math.log10(landauer_over_mass(L4)), 19.7536, 1e-3)
     chk("is information cheaper than mass", information_is_cheaper(), False)
-    near("break-even temperature, K", break_even_temperature(), 4.8068e-20)
+    chk("  RECORD: nor at 4 ly", information_is_cheaper(L4), False)
+    near("break-even temperature, K", break_even_temperature(), 4.5279e-20)
+    near("  RECORD: at 4 ly, K", break_even_temperature(L4), 4.8068e-20)
+    near("holographic bits at Proxima", hb, 1.12405e102)
+    near("  RECORD: at 4 ly", holographic_bits(schwarzschild_radius(coincidence_mass(L4))),
+         9.9736e101)
+    chk("  the two routes agree at 4 ly too (RECORD)", routes_agree(L4), True)
     print("       The CMB is %.3e times warmer than the coldest place that"
           % (T_CMB / break_even_temperature()))
     print("       would make information merely AS expensive as mass.")
@@ -432,9 +491,10 @@ def selftest():
 def report():
     print(__doc__)
     print("=" * 79)
-    Mc = coincidence_mass(4.0)
+    Mc = coincidence_mass()
     R = schwarzschild_radius(Mc)
-    print("THE PRICE OF 'NO PATH NEEDED', AT FOUR LIGHT YEARS\n")
+    print("THE PRICE OF 'NO PATH NEEDED', AT PROXIMA (%.4f ly, phase1.L_PROXIMA)" % proxima_ly())
+    print("(CORRECTED, DOCKET 67 follow-ups: first at a round four light years)\n")
     print("  %-34s %.4e kg  = %.4e solar" % ("manufacture it", Mc, Mc / M_SUN))
     print("  %-34s %.4e bits" % ("its information content", holographic_bits(R)))
     print("  %-34s %.4e J  (CMB)" % ("Landauer on those bits",
@@ -457,20 +517,22 @@ def report():
   PROJECT'S OWN EQUATION INVERTS IT.  Delta-d = (G/c^2) M Lambda is
   LINEAR in the contraction, so there is no economy of scale and no
   cheap far end.  Making two points ONE means contracting the WHOLE
-  separation: at four light years that is 5.1048e42 kg, 2.5666e12 SOLAR
-  MASSES.  "No path needed" is not the cheap corner of the curve -- IT
+  separation: at Proxima, 4.2465 ly, that is 5.4193e42 kg, 2.7248e12
+  SOLAR MASSES (first 5.1048e42 kg, 2.5666e12, at a round four light
+  years).  "No path needed" is not the cheap corner of the curve -- IT
   IS THE MAXIMUM OF IT.
 
   AND INFORMATION IS NOT A SECOND CURRENCY.  Priced here for the first
-  time: the required configuration holds 9.9736e101 bits, and the
+  time: the required configuration holds 1.1241e102 bits (first
+  9.9736e101, at four light years), and the
   holographic and Bekenstein routes agree to six digits because the
   bound is saturated at the horizon.  THAT AGREEMENT IS THE FINDING.
   Bekenstein bounds S BY E -- you cannot hold the bits without the
   energy to hold them in -- so S <= 2 pi R E / hbar c runs the WRONG
   WAY for the trade.  The bits ARE the mass, in other units, and the
   conversion factor is hbar.  Landauer adds that manipulating them at
-  the CMB costs 19.75 ORDERS MORE than the mass-energy, breaking even
-  only at 4.8068e-20 K -- but that half is flagged as the weaker one,
+  the CMB costs 19.78 ORDERS MORE than the mass-energy, breaking even
+  only at 4.5279e-20 K (first 19.75 and 4.8068e-20 K) -- but that half is flagged as the weaker one,
   since Landauer prices irreversible operations and Bekenstein does not
   care.
 

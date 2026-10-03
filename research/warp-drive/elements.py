@@ -33,6 +33,14 @@ stdlib only.
 """
 import math, sys
 
+import address as _address
+#: CORRECTED (DOCKET 67 follow-ups): the nuclear-saturation row was a typed
+#: 2.3e17 kg/m^3 (n_0 = 0.1375 fm^-3, RECALLED).  It is now address.RHO_NUCLEAR,
+#: 2.676e17, DERIVED-FROM-ORDER (n_0 = 0.16 fm^-3 x m_p, not READ at source):
+#: one nuclear density in the tree.  The first value is kept and checked.
+RHO_NUCLEAR = _address.RHO_NUCLEAR
+RHO_NUCLEAR_WITHDRAWN = 2.3e17
+
 G, c = 6.67430e-11, 299792458.0
 MSUN, AU = 1.98892e30, 1.495978707e11
 PHI  = 0.33         # MEASURED, WHAT-BINDS.md: flux ratio at NEC failure
@@ -58,7 +66,7 @@ ELEMENTS = [
 DEGENERATE = [
     ("white-dwarf matter",  1.0e9),
     ("neutron-star crust",  1.0e14),
-    ("nuclear saturation",  2.3e17),
+    ("nuclear saturation",  RHO_NUCLEAR),     # DERIVED-FROM-ORDER, address.py
 ]
 
 def k_geom():
@@ -106,17 +114,32 @@ def selftest():
     chk("f is linear in rho (identity)",
         compactness(2e4, 100.0)/compactness(1e4, 100.0), 2.0, tol=1e-12)
     chk("f = 1 exactly at the horizon radius (identity)",
-        compactness(2.3e17, radius_for_horizon(2.3e17)), 1.0, tol=1e-12)
+        compactness(RHO_NUCLEAR, radius_for_horizon(RHO_NUCLEAR)), 1.0, tol=1e-12)
     chk("v_warp saturates at the ceiling there (identity)",
-        v_warp(2.3e17, radius_for_horizon(2.3e17)), ceiling(), tol=1e-12)
+        v_warp(RHO_NUCLEAR, radius_for_horizon(RHO_NUCLEAR)), ceiling(), tol=1e-12)
     chk("v_warp cannot exceed the ceiling however large R (identity)",
-        v_warp(2.3e17, 1e12), ceiling(), tol=1e-12)
+        v_warp(RHO_NUCLEAR, 1e12), ceiling(), tol=1e-12)
     # the horizon radius must reproduce the Schwarzschild radius of its own mass
-    rho = 2.3e17; R = radius_for_horizon(rho); M = mass_at_horizon(rho)
+    rho = RHO_NUCLEAR; R = radius_for_horizon(rho); M = mass_at_horizon(rho)
     chk("r_s(M) == R at f = 1 (identity)", 2.0*G*M/c**2, R, tol=1e-9)
+    chk("RECORD: the identities held on the withdrawn 2.3e17 too",
+        compactness(RHO_NUCLEAR_WITHDRAWN,
+                    radius_for_horizon(RHO_NUCLEAR_WITHDRAWN)), 1.0, tol=1e-12)
+
+    print("\nNuclear saturation's horizon (the report's figure)")
+    chk("nuclear density is address.RHO_NUCLEAR", RHO_NUCLEAR == _address.RHO_NUCLEAR, True)
+    # CORRECTED (DOCKET 67 follow-ups): the report said "f = 1 at 26 km", on
+    # the withdrawn 2.3e17 (26.44 km, 8.95 Msun).  Computed on
+    # address.RHO_NUCLEAR it is 24.51 km, 8.30 Msun.
+    chk("nuclear saturation horizon radius (km)",
+        radius_for_horizon(RHO_NUCLEAR)/1e3, 24.508430, tol=1e-6)
+    chk("  RECORD: on the withdrawn 2.3e17 (km)",
+        radius_for_horizon(RHO_NUCLEAR_WITHDRAWN)/1e3, 26.435932, tol=1e-6)
 
     print("\nAgainst this project's own measured design point")
-    # drivespec.py: R1 = 4902 m at nuclear saturation, f = 2/3, v = 0.0476 c
+    # drivespec.py: f = 2/3, v = 0.0476 c (its nuclear-density radius is
+    # R1 = 4544 m on address.RHO_NUCLEAR; first 4902 m on 2.3e17 -- CORRECTED,
+    # DOCKET 67 follow-ups; v does not depend on R1)
     chk("v_warp at f = 2/3", (PHI/KHAT)*(2.0/3.0), 0.04756391, tol=1e-6)
     chk("  which is drivespec's seated 0.0476 c", (PHI/KHAT)*(2.0/3.0), 0.0476, tol=1e-3)
 
@@ -173,7 +196,8 @@ number -- the density of the stuff the object is made of:
   2.9e7 Msun -- a supermassive black hole made of the densest element there is.
 
   Only degenerate matter escapes chemistry, and it does so by ceasing to be
-  chemistry: nuclear saturation reaches f = 1 at 26 km.  That is why every
+  chemistry: nuclear saturation reaches f = 1 at 24.5 km (first 26 km, on a
+  recalled 2.3e17 -- CORRECTED, DOCKET 67 follow-ups).  That is why every
   buildable answer in this project turned out to be a compact star.  Not a
   choice, and not a failure of imagination -- the element sets the density, the
   density sets the compactness, and the compactness IS the shift.

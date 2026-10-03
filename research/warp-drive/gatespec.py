@@ -24,6 +24,16 @@ import math, sys
 
 G, c, MSUN = 6.67430e-11, 299792458.0, 1.98892e30
 
+import address as _address
+# CORRECTED (DOCKET 67 follow-ups, M: "address/correct/repair all figures"):
+# the "vs nuclear saturation" row divided by a typed 2.3e17 kg/m^3 (n_0 =
+# 0.1375 fm^-3, RECALLED) and read 38.62 x.  It now divides by
+# address.RHO_NUCLEAR = 2.676e17, whose status there is DERIVED-FROM-ORDER
+# (n_0 = 0.16 fm^-3 x m_p, not READ): 33.19 x.  The first value is kept as a
+# RECORD check.
+RHO_NUCLEAR = _address.RHO_NUCLEAR
+RHO_NUCLEAR_WITHDRAWN = 2.3e17
+
 # --- torus geometry, carried from torus.py's DEC-compliant design point ------
 R0, A_TUBE = 4902.0, 1600.0            # major, minor radius (m)
 R_BORE     = R0 - A_TUBE               # bore radius (m)
@@ -62,7 +72,10 @@ SPEC = [
  ("MASS","total mass",M_GATE,"kg","ASSUMED","carried from the spherical design point"),
  ("MASS","  in solar masses",M_GATE/MSUN,"Msun","DERIVED",""),
  ("MASS","tube density",torus_density(),"kg/m^3","DERIVED","M / 2 pi^2 R0 a^2"),
- ("MASS","  vs nuclear saturation",torus_density()/2.3e17,"x","DERIVED","2.3e17 kg/m^3"),
+ ("MASS","  vs nuclear saturation",torus_density()/RHO_NUCLEAR,"x","DERIVED",
+  "address.RHO_NUCLEAR = 2.676e17 kg/m^3, itself DERIVED-FROM-ORDER (n0 = 0.16 "
+  "fm^-3, not READ) -- DERIVED here only on that named input; first 38.62 x on "
+  "a recalled 2.3e17 (CORRECTED, DOCKET 67 follow-ups)"),
  ("MASS","material","degenerate nuclear matter","","PINNED","gate1.py: no vessel reaches 1e34 Pa"),
  ("MASS","source","a neutron star","","DERIVED","self-gravity is the only confinement"),
 
@@ -165,6 +178,12 @@ def selftest():
     chk("density inverse to volume (identity)",
         torus_density(M_GATE,R0,2*A_TUBE)*torus_volume(R0,2*A_TUBE), M_GATE)
     chk("DEC margin agrees with torus.py", dec_margin(), 5.892177, tol=1e-5)
+    print("\nNuclear density (CORRECTED, DOCKET 67 follow-ups)")
+    chk("nuclear density is address.RHO_NUCLEAR",
+        float(RHO_NUCLEAR == _address.RHO_NUCLEAR), 1.0)
+    chk("tube density / nuclear saturation", torus_density()/RHO_NUCLEAR, 33.193932, tol=1e-6)
+    chk("  RECORD: on the withdrawn 2.3e17", torus_density()/RHO_NUCLEAR_WITHDRAWN,
+        38.620418, tol=1e-6)
 
     print("\nSheet integrity -- the diagnostic")
     stat = {}

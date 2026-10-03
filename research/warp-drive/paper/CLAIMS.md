@@ -1180,14 +1180,14 @@ than a construction** (`create.py`'s topology theorems and `detect.py`'s search 
 ## ⚠ H22 — "no path needed" is the **maximum** of the cost curve, and information is not a second currency
 
 **H22. `Δd = (G/c²)MΛ` is linear in the contraction, so making two points *one* means contracting the
-whole separation: `5.1048×10⁴² kg = 2.5666×10¹² M☉` at four light years. There is no economy of scale.
-The cheap-far-end intuition is inverted by the project's own equation.**
+whole separation: `5.4193×10⁴² kg = 2.7248×10¹² M☉` at Proxima (4.2465 ly). There is no economy of scale.
+The cheap-far-end intuition is inverted by the project's own equation.** *(Corrected on M's "Repair all", DOCKET 67: first priced at a round four light years — `5.1048×10⁴² kg = 2.5666×10¹² M☉`, `5.1048e40 kg` for 1 % — with every figure of H22 and H23 that follows from that mass; `nopath.py` and `spectra.py` now ask `phase1.L_PROXIMA`, Gaia DR3, as `phase1.py`, `closeout.py` and `wormhole.py` do. No verdict moves: the cost is linear at any separation.)*
 
 | contraction | mass |
 |---|---|
 | one metre | `1.3489e26 kg` |
-| 1% of 4 ly | `5.1048e40 kg` |
-| **all of 4 ly (coincidence)** | **`5.1048e42 kg` = `2.5666e12 M☉`** |
+| 1% of Proxima | `5.4193e40 kg` (first `5.1048e40` at 4 ly) |
+| **all of Proxima (coincidence)** | **`5.4193e42 kg` = `2.7248e12 M☉`** (first `5.1048e42 kg` = `2.5666e12 M☉` at 4 ly) |
 
 **But the other reading of the same sentence is not on that curve at all.** Two points *already* one is a
 wormhole mouth pair — nothing is contracted, so nothing is paid for contracting. That is `create.py`'s
@@ -1195,15 +1195,15 @@ wormhole mouth pair — nothing is contracted, so nothing is paid for contractin
 **Two independent routes to door three.**
 
 **Information, priced for the first time — and it is not a second currency.** The required configuration
-holds `9.9736e101` bits, and the holographic (`A/4ℓ_P²`) and Bekenstein (`2πRE/ℏc`) routes **agree to six
+holds `1.1241e102` bits (first `9.9736e101`, at 4 ly), and the holographic (`A/4ℓ_P²`) and Bekenstein (`2πRE/ℏc`) routes **agree to six
 digits** because the bound is saturated at the horizon. *That agreement is the finding.*
 
 > Bekenstein bounds `S` **by** `E`: you cannot hold the bits without the energy to hold them in, so
 > `S ≤ 2πRE/(ℏc)` runs the **wrong way** for the trade. **The bits are the mass, in other units**, and
 > the conversion factor is `ℏ`.
 
-Landauer adds that *manipulating* them at the CMB costs `2.6014e79 J` against `Mc² = 4.5880e59 J` —
-**19.75 orders worse**, breaking even only at `4.8068e−20 K`. **Flagged as the weaker half**: Landauer
+Landauer adds that *manipulating* them at the CMB costs `2.9319e79 J` against `Mc² = 4.8707e59 J` —
+**19.78 orders worse**, breaking even only at `4.5279e−20 K` (first `2.6014e79 J`, `4.5880e59 J`, 19.75 orders and `4.8068e−20 K`, at 4 ly). **Flagged as the weaker half**: Landauer
 prices irreversible operations, and a reversible computation costs nothing in principle. The argument is
 Bekenstein, which is static and survives reversibility entirely.
 
@@ -1253,9 +1253,9 @@ optimal one is a black hole.**
 | 100 | 338,350 | 18.368 |
 | 1000 | 333,833,500 | 28.315 |
 
-> **A spectrum is a logarithm.** Ten times the levels buys ten bits. Reaching the `9.9736e101` bits of
-> **H22** takes `5.4298e100` atoms at `9.0870e73 kg`, against `5.1048e42 kg` supplied directly —
-> **31.25 orders worse**; `1.0976e28` bits/kg against `1.9538e59`.
+> **A spectrum is a logarithm.** Ten times the levels buys ten bits. Reaching the `1.1241e102` bits of
+> **H22** takes `6.1196e100` atoms at `1.0241e74 kg`, against `5.4193e42 kg` supplied directly —
+> **31.28 orders worse**; `1.0976e28` bits/kg against `2.0742e59`. *(Corrected on M's "Repair all", DOCKET 67: first, at four light years, `9.9736e101` bits, `5.4298e100` atoms, `9.0870e73 kg`, `5.1048e42 kg`, 31.25 orders and `1.9538e59` bits/kg; see H22's note.)*
 
 **And that gap is not a fact about hydrogen.** It is the distance from ordinary matter to the bound, and
 the bound is saturated by exactly one object. Black-hole bits go as `M²` — doubling the mass quadruples
@@ -1271,18 +1271,18 @@ negative.
 
 | | `spectra.py` |
 |---|---|
-| status | **PROVEN** (superselection; the closed-index charge count from `permute.py`; `M²` scaling and saturation) + **MEASURED** (the hydrogenic bit counts; the 31.25-order comparison) |
+| status | **PROVEN** (superselection; the closed-index charge count from `permute.py`; `M²` scaling and saturation) + **MEASURED** (the hydrogenic bit counts; the 31.28-order comparison, first 31.25 at 4 ly) |
 | new? | that the closed index leaves the spectrum as the *only* carrier, and that the optimised spectral currency is a horizon, yes |
 | **not** claimed | that the refinement is wrong about the carrier — it is right, twice; that hydrogen is the best possible spectrum — it is an instance, and the bound is the general statement; that anything in **H14** moves |
 
 ---
 
-## ★★★ H24 — the currency question closes by **exhaustion**: the conversion table has one free parameter, and it is measured
+## ★★★ H24 — the currency question closes by **exhaustion**: the conversion table has one free parameter, and it is short on every model computed
 
 **H24. Every denomination is tied to mass-energy by a monomial in `G`, `c`, `ℏ`, `k` — or by a bound
 that runs against the trade. The whole conversion table holds exactly two dimensionless numbers: `Λ`,
-determined and O(10), and `κ`, the one genuine lever, already measured at `π/90` against the
-`3.8281e69` needed.** *(Corrected on M's "Repair all", DOCKET 67: first `π/360`, `gjw.py`'s `T_kk` threshold divided by an energy density; against the cycle's `T_kk` along the winding null direction, its named hypothesis H-WIND, `κ = π/90`, `scale.py`.)*
+determined and O(10), and `κ`, the one place a mechanism can enter, computed at `π/90` on `gjw.py`'s single-length model against the
+`3.8281e69` needed.** *(Corrected on M's "Repair all", DOCKET 67: first `π/360`, `gjw.py`'s `T_kk` threshold divided by an energy density; against the cycle's `T_kk` along the winding null direction, its named hypothesis H-WIND, `κ = π/90`, `scale.py`. And the head read "it is measured" and this read "`κ`, the one genuine lever, already measured", and below "`κ` is measured and short". On one model `κ` is not a dial: `π/90` is a single-length dimensional identity, which `gjw.py` records as "not an independent route", and `scale.py`'s match to it is that same expression twice. `κ` moves only with the model — field species, about two orders, or a second length whose ratio enters it, named SINGLE-LENGTH in `scale.py` and not run.)*
 
 | denomination | rate | value |
 |---|---|---|
@@ -1297,7 +1297,7 @@ And two bounds that run the wrong way: **Bekenstein** bounds information *by* en
 bounds energy *below*, by information.
 
 > **A constant of nature is not a discount.** The closure is not "five denominations failed" — it is that
-> the table has no free parameter but `κ`, and `κ` is measured and short. **A sixth denomination must
+> the table has no free parameter but `κ`, and `κ` is short on every model computed (H24's note). **A sixth denomination must
 > enter through `κ` or through the base, and the base is door one.**
 
 **And the door count does not move.** `nopath.py`'s dimensional drift is a warped braneworld — door one.
