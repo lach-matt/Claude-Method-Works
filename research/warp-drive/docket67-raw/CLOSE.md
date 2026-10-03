@@ -69,6 +69,7 @@ QED coefficients READ-VIA-RESTATEMENT (address); horizon computed from READ Plan
    UNPROVEN-LOAD. Moving Y to 0 seats each at (0,0,0), the cell index3 declares not a finding, adds a 17th occupied
    cell and moves pathmetric's fixture 310 → 378. Each row now says its −1 is not a bound (OPEN-AT-NULL-HELD).
    index3 pins 283/166, with controls reproducing every earlier pin.
+   **M, 2026-10-03: "Keep held, noted"** -- the five stay at (0,−1,0) with their notes. Settled.
 
 Also: paper H37g "runs out exactly where" → "within an order-one factor" (the candidates.py correction had not
 reached the paper). ledger's DOCKET 67 marker census now reads any of M's quoted words.
