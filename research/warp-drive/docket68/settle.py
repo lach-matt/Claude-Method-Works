@@ -549,6 +549,89 @@ def w2_ancilla_flow(n_steps=800, seed=5, n_grid=401, linear_control=False):
             "min_curve_separation_rad": mind, "grid_step_rad": step, "max_H_times_T": th_max}
 
 
+def hemisphere_axes(k):
+    """k distinct unit axes on the open upper hemisphere (golden spiral, z = 1 - (i + 1/2)/k), so no axis is the
+    antipode of another (an antipodal pair gives Bob the same two branch states, swapped)."""
+    out = []
+    for i in range(k):
+        z = 1.0 - (i + 0.5) / k
+        r = math.sqrt(1.0 - z * z)
+        ph = i * math.pi * (3.0 - math.sqrt(5.0))
+        out.append((r * math.cos(ph), r * math.sin(ph), z))
+    return tuple(out)
+
+
+def w2_ancilla_flow_k(k, m, n_steps=300, n_grid=201, seed=5, linear_control=False, antipodal=False):
+    """V2-1 (FOR M) problem 1, COMPUTED (R3-alone, 2026-10-03): w2_ancilla_flow generalised from 4 axes and a
+    two-qubit ancilla to k axes (hemisphere_axes) and an m-qubit ancilla, d = 2^(1+m) >= 2k.  Same construction and
+    the same premises (H-BORN-AT-BOB, H-C2, H-COHERE, no H-QUBIT-DRIFT; a smooth global field is H-EXTEND, derived and
+    not computed): 2k branch states, each carried along its Fubini-Study geodesic to one vector of an orthonormal basis
+    under a field that depends on the current state only.  The branches are integrated together (vectorised RK4);
+    the field at each branch is read from that branch's own state.  Controls: linear_control (one state-independent
+    unitary: chi = 0); antipodal (the second half of the axes are antipodes of the first: branch states coincide,
+    the curves collide, chi falls below log2 k).  Returns chi, pairs per teleported qubit (2/chi), Bob's error
+    probability, the smallest end fidelity, curve separation, grid step, and max ||H|| x T."""
+    d = 2 ** (1 + m)
+    if d < 2 * k:
+        raise ValueError("need d = 2^(1+m) >= 2k")
+    rng = np.random.default_rng(seed)
+    anc = np.zeros(2 ** m, complex)
+    anc[0] = 1
+    ax = list(hemisphere_axes(k))
+    if antipodal:
+        ax = ax[: k // 2] + [tuple(-c for c in n) for n in ax[: k // 2]]
+    A = np.array([np.kron(_bloch_ket(tuple(-s * c for c in n)), anc) for n in ax for s in (+1, -1)])
+    Q, _ = np.linalg.qr(rng.normal(size=(d, d)) + 1j * rng.normal(size=(d, d)))
+    E = Q[:, : 2 * k].T.copy()
+    if linear_control:
+        fin = (Q @ A.T).T
+        fid = mind = step = th_max = float("nan")
+    else:
+        ths, Ws = [], []
+        for a, e in zip(A, E):
+            ov = e.conj() @ a
+            e2 = e * (ov / abs(ov) if abs(ov) > 1e-14 else 1.0)
+            w = e2 - a * (a.conj() @ e2)
+            nw = np.linalg.norm(w)
+            ths.append(math.acos(min(1.0, abs(ov))))
+            Ws.append(w / nw if nw > 1e-14 else w)
+        ths, Ws = np.array(ths), np.array(Ws)
+        ts = np.linspace(0.0, 1.0, n_grid)
+        c, s_ = np.cos(np.outer(ths, ts)), np.sin(np.outer(ths, ts))           # (2k, n_grid)
+        P = c[:, :, None] * A[:, None, :] + s_[:, :, None] * Ws[:, None, :]
+        V = ths[:, None, None] * (-s_[:, :, None] * A[:, None, :] + c[:, :, None] * Ws[:, None, :])
+        mind = 9.0
+        for j in range(2 * k):
+            for l in range(j + 1, 2 * k):
+                ov = np.abs(P[j].conj() @ P[l].T)
+                mind = min(mind, float(np.arccos(np.clip(ov.max(), 0.0, 1.0))))
+        th_max = float(ths.max())
+        step = th_max / (n_grid - 1)
+        fP, fV = P.reshape(-1, d), V.reshape(-1, d)
+
+        def rhs(Psi):
+            idx = np.argmax(np.abs(fP.conj() @ Psi.T), axis=0)        # each branch's field from its own state only
+            Pp, Vv = fP[idx], fV[idx]
+            return Vv * np.sum(Pp.conj() * Psi, 1)[:, None] - Pp * np.sum(Vv.conj() * Psi, 1)[:, None]
+        Psi = A.copy()
+        dt = 1.0 / n_steps
+        for _ in range(n_steps):
+            k1 = rhs(Psi); k2 = rhs(Psi + dt / 2 * k1); k3 = rhs(Psi + dt / 2 * k2); k4 = rhs(Psi + dt * k3)
+            Psi = Psi + dt / 6 * (k1 + 2 * k2 + 2 * k3 + k4)
+            Psi /= np.linalg.norm(Psi, axis=1, keepdims=True)
+        fin = Psi
+        fid = float(min(abs(E[j].conj() @ fin[j]) ** 2 for j in range(2 * k)))
+    rhos = [(np.outer(fin[2 * b], fin[2 * b].conj()) + np.outer(fin[2 * b + 1], fin[2 * b + 1].conj())) / 2
+            for b in range(k)]
+    chi = _vn_bits(sum(rhos) / k) - sum(_vn_bits(r) for r in rhos) / k
+    table = np.array([[sum(float(np.real(E[2 * bb + s].conj() @ rhos[b] @ E[2 * bb + s])) for s in (0, 1))
+                       for bb in range(k)] for b in range(k)])
+    return {"k": k, "m": m, "d": d, "chi_bits_per_pair": float(chi), "log2_k": math.log2(k),
+            "holevo_ceiling_log2_d": math.log2(d),
+            "pairs_per_teleported_qubit": (2.0 / chi) if chi > 1e-9 else float("inf"),
+            "p_error": float(1.0 - np.trace(table) / k), "min_end_fidelity": fid, "min_curve_separation_rad": mind,
+            "grid_step_rad": step, "max_H_times_T": th_max}
+
 # ------------------------------------------------------------------------- C'. H-SETTLE x H-12: an unbounded carrier
 H12_UNBOUNDED = ("alpha_s", "G", "v")     # the rows of H12 below whose state-dependent eps has NO READ bound of any
                                           # kind (KR fn.5 for alpha_s; KR p.14 for G; none located for v); G_F is tied

@@ -32,6 +32,15 @@ WHAT IS COMPUTED (each item is a function below; every number in Q1s-signed.md i
       (2410.15976v5, READ) Theorem 1 is checked: their Example 1 reproduced; Re H fails their Axiom 5' (|w|
       weights) and satisfies the same axiom with SIGNED weights; the exponential branch of that signed-weight
       variant violates their Axiom 0 (computed counterexamples).  Uniqueness: what is shown is stated exactly.
+  (4b) (R3-alone, 2026-10-03) over EVERY continuous SEPARABLE functional X = sum g(p_i) (H-SEPARABLE): functoriality +
+      convex linearity (lambda in [0,1]) + continuity force X = c Re H + b N, step by step -- the algebraic steps
+      machine-checked by z3 over an uninterpreted g (vacuity and encoding guards run, controls built to fail), the
+      solution identity and the product step by sympy, the two analytic lemmas (Cauchy under continuity) DERIVED and
+      READ as cited.  Consequences: codomain kept => only b N (b >= 0); product additivity => Re H alone.
+      Kontsevich's appendix to math/0008089v1 (READ pp.42-44): his (A), (B), (C) hold for Re H on two entries over
+      all of R, and he CLAIMS (p.43, cohomological sketch) that H_inf = Re H on (x, 1-x) is their unique continuous
+      solution; the signed-weight chain rule holds for Re H; N fails both (control).  A counterexample to the
+      uniqueness of M (g3, V2-0) and the census of signed measures that convex linearity cannot reach.
   (5) M's triangulation: (a) continuous -- filtered back-projection (inverse Radon, Lvovsky-Raymer
       quant-ph/0511044v2 eqs 19-20 p.7, READ) of the Wigner function of (|0>+|1>)/sqrt 2 from its exact,
       non-negative quadrature marginals, recovering the negative region; controls: 2 angles fail; the vacuum
@@ -50,8 +59,10 @@ NAMED HYPOTHESES (every limitation is one)
                 Im -> -Im) and the inverse axis -Log p (surprisal).  M's meaning is ASKED, not presumed.
   H-NORM        sum p = 1.  Re H additivity depends on it (control).
   H-FINSIGNED   BFL's category with signed measures of total 1, measure-preserving functions, lambda in [0,1].
-  H-DICTIONARY  the lawful-family results hold only inside the 12 listed functionals.  Over all continuous
-                functionals uniqueness is OPEN.
+  H-DICTIONARY  the 12-functional lawful-family results hold only inside the 12 listed functionals.
+  H-SEPARABLE   (4b) X(p) = sum_i g(p_i) with g: R -> R continuous.  Under it the lawful family is span{Re H, N}
+                (derived and machine-checked).  Over NON-separable continuous functionals uniqueness is OPEN; it is
+                not even constrained on a convex atom (a signed measure with no split into blocks of totals in (0,1)).
   H-RD          the Renyi (1961) / Daroczy (1963) step "g is affine or exponential" is NAMED-NOT-READ; it is
                 restated and used in 2410.15976v5 pp.3, 11 (READ).
   H-QUBIT-NET   the qubit Wigner function is Wootters' with one of GHW's two quantum nets (p.30-31: two
@@ -569,6 +580,271 @@ def blm_extensivity_random(rng, trials=300):
     return worst
 
 
+# ============================================================================ (4b) separable functionals; Kontsevich
+# Added by R3-alone (2026-10-03), answering the FOR verifier's V2-1 problem 5 and the AGAINST verifier's V2-0 problems
+# 1, 3, 4.  THE CLAIM (H-SEPARABLE, H-FINSIGNED, H-CONT-G):  if F on FinSigned is functorial, convex-linear with
+# lambda in [0,1] (BFL 1106.1791v3 p.4 eq.(2), READ) and continuous, and X(p) := F(!_p) is SEPARABLE,
+# X(p) = sum_i g(p_i) with g: R -> R continuous, then X = c Re H + b N for constants c, b, and conversely.
+# The steps, each with its status (Q1s-signed.md s.4b prints the same list):
+#   (0) F(id) = F(id o id) = 2 F(id) => F(id) = 0; F(f: p -> q) = X(p) - X(q) because !_p = !_q o f
+#       (BFL p.9 eq.(8)).  STRUCTURAL (holds for any functor into (R, +)); not counted.
+#   (1) convex linearity on !_p, !_q: X(lam p (+) (1-lam) q) = X(lam, 1-lam) + lam X(p) + (1-lam) X(q).  STRUCTURAL
+#       restatement of the axiom on a pair of terminal maps.
+#   (2) g(1) = X(pt) = 0, and g(0) = 0 (convex linearity at lam = 1 with |q| = 2).            Z3 (z3_g0)
+#   (3) phi_lam(x) := g(lam x) - lam g(x) is additive in x for every lam in (0,1): compare
+#       (x, y, 1-x-y) with (x+y, 1-x-y), each convex-combined with the point.                Z3 (z3_cauchy)
+#   (4) continuous + additive => phi_lam(x) = A(lam) x (Cauchy; READ as cited in 2410.15976v5 p.10 Lemma A.1, which
+#       cites Aczel-Dhombres; Kontsevich math/0008089v1 p.43 takes the same step for measurable psi_lambda).  DERIVED.
+#   (5) x > 0: h = g/x has h(lam x) = h(x) + B(lam), B(lam) = A(lam)/lam = g(lam)/lam; B(lam mu) = B(lam) + B(mu),
+#       continuous => B = a ln lam; h(1) = 0 => g(x) = a x ln x on (0, inf).                     DERIVED
+#   (6) x < 0: u(x) = h(x) - a ln|x| has u(lam x) = u(x) for all lam in (0,1) => u = beta constant on (-inf, 0)
+#       => g(x) = a x ln|x| + beta x.                                                              DERIVED
+#   (7) sum_i g(p_i) = -a Re H - beta N, i.e. X = c Re H + b N with c = -a, b = -beta.  The solution's identity
+#       g(lam x) - lam g(x) = a lam ln(lam) x on each sign is checked in sympy.                 SYMPY (sep_sympy)
+#   (8) conversely Re H and N are convex-linear (sympy on a sign pattern; numeric null space below).
+#   CONSEQUENCES (each Z3 or sympy): BFL's codomain [0, inf) kept => c = 0, b >= 0 (z3_codomain); product
+#   additivity => b = 0, Re H alone (sympy, N(pq) - N(p) - N(q) = 2 N_p N_q).  Shannon on FinProb does NOT fix b:
+#   N vanishes on every probability measure.
+# NOT CLAIMED: anything about NON-separable functionals.  Convex linearity does not reach a signed atom that has no
+# split into blocks with totals in (0,1) (convex_decompositions; every n = 2 signed measure is such an atom), so the
+# general uniqueness question stays OPEN (H-SEPARABLE is the named hypothesis that closes it here).
+
+def convex_decompositions(p, tol=1e-12):
+    """Splits of p into two non-empty blocks whose totals lam, 1 - lam both lie in (0, 1): exactly the ways p can be
+    written lam p1 (+) (1-lam) p2 with p1, p2 of total 1 and lam in (0,1), up to the order of entries.  A block of
+    total 0 cannot be normalised, and a total outside [0, 1] would need lam outside BFL's range."""
+    n = len(p)
+    out = []
+    for mask in range(1, 2 ** (n - 1)):          # entry n-1 always in block B: each unordered split once
+        A = [i for i in range(n) if mask >> i & 1]
+        B = [i for i in range(n) if not mask >> i & 1]
+        lam = sum(p[i] for i in A)
+        if tol < lam < 1 - tol:
+            out.append((tuple(A), tuple(B), lam))
+    return out
+
+
+def indecomposable_census(rng, trials=2000):
+    """How often a random signed measure has NO convex decomposition (the region separability must cover)."""
+    rows = {}
+    for n in (2, 3, 4, 5):
+        k = sum(1 for _ in range(trials) if not convex_decompositions(rand_quasi(rng, n)))
+        rows[n] = k / trials
+    return rows
+
+
+def separable_nullspace(rng, rows=400):
+    """COMPUTED corroboration (the FOR verifier's scratch check, rebuilt here): a 14-function separable basis
+    (x ln|x|, x, x^2, x^3, x ln^2|x|, |x|^1.5, |x|^2.5, separately on positive and negative entries); 400 random
+    convex-linearity rows plus X(pt) = 0.  The null space should be span{Re H, N}.  CONTROL: without the
+    convex-linearity rows the null space is large (13)."""
+    L = lambda x: math.log(abs(x))
+    basis = [("xlnx", lambda x: -x * L(x)), ("x", lambda x: x), ("x2", lambda x: x * x), ("x3", lambda x: x ** 3),
+             ("xln2", lambda x: x * L(x) ** 2), ("x15", lambda x: abs(x) ** 1.5), ("x25", lambda x: abs(x) ** 2.5)]
+    cols = [(nm + s, sgn, f) for s, sgn in (("+", 1), ("-", -1)) for nm, f in basis]
+
+    def feat(v):
+        return np.array([sum(f(x) for x in v if (x > 0 if sgn > 0 else x < 0)) for _, sgn, f in cols])
+
+    def rq():
+        return rand_quasi(rng, rng.randint(2, 4))
+    A = [feat([1.0])]
+    for _ in range(rows):
+        p, q, lam = rq(), rq(), rng.uniform(0.05, 0.95)
+        A.append(feat(direct_sum(lam, p, q)) - feat([lam, 1 - lam]) - lam * feat(p) - (1 - lam) * feat(q))
+    A = np.array(A)
+    A = A / (np.linalg.norm(A, axis=1, keepdims=True) + 1e-300)
+    _, sv, vt = np.linalg.svd(A)
+    rank = int((sv > 1e-9 * sv[0]).sum())
+    null = vt[rank:]
+    names = [c[0] for c in cols]
+    reh = np.zeros(len(cols)); reh[names.index("xlnx+")] = 1; reh[names.index("xlnx-")] = 1
+    nn = np.zeros(len(cols)); nn[names.index("x-")] = -1           # N = -sum_{x<0} x
+    S = np.array([reh, nn])
+    out_of_span = float(np.linalg.norm(null - (null @ S.T) @ np.linalg.inv(S @ S.T) @ S)) if len(null) else 0.0
+    span_out = float(np.linalg.norm(S - (S @ null.T) @ null)) if len(null) else float("inf")
+    control_dim = len(cols) - int(np.linalg.matrix_rank(np.array([feat([1.0])])))
+    return {"basis": names, "rows": rows, "null_dim": int(len(null)), "null_outside_span_ReH_N": out_of_span,
+            "span_ReH_N_outside_null": span_out, "control_null_dim_without_CL_rows": control_dim}
+
+
+def sep_sympy():
+    """SYMPY: (7) the solution identity on each sign; (8) Re H convex-linear on a sign pattern (N's convex linearity
+    is one line by hand: lam, 1-lam >= 0 keep every sign, and N(lam, 1-lam) = 0; it is also in the numeric null space);
+    and the product step N(pq) - N(p) - N(q) = 2ab for p = (1+a, -a), q = (1+b, -b)."""
+    import sympy as sp
+    a, beta = sp.symbols("a beta", real=True)
+    lp = sp.symbols("lp", positive=True)
+    xp = sp.symbols("xp", positive=True)
+    gpos = lambda t: a * t * sp.log(t)                              # t > 0
+    gneg = lambda t, at: a * t * sp.log(at) + beta * t              # t < 0, at = |t|
+    r_pos = sp.simplify(sp.expand_log(gpos(lp * xp) - lp * gpos(xp) - a * lp * sp.log(lp) * xp, force=True))
+    r_neg = sp.simplify(sp.expand_log(gneg(-lp * xp, lp * xp) - lp * gneg(-xp, xp) - a * lp * sp.log(lp) * (-xp),
+                                      force=True))
+    # (8): p = (1+s, -s), q = (1+t, -t), s, t > 0, lam in (0,1); X(lam p (+) (1-lam) q) - X(lam,1-lam) - lam X(p) - ...
+    s, t = sp.symbols("s t", positive=True)
+    L1 = sp.symbols("L1", positive=True)                            # lam = L1/(1+L1) in (0,1)
+    lm = L1 / (1 + L1)
+    ent = lambda v: -sum(c * sp.log(sp.Abs(c)) for c in v)
+    p, q = [1 + s, -s], [1 + t, -t]
+    P = [lm * c for c in p] + [(1 - lm) * c for c in q]
+    reh_res = sp.simplify(sp.expand_log(ent(P) - ent([lm, 1 - lm]) - lm * ent(p) - (1 - lm) * ent(q), force=True))
+    aa, bb = sp.symbols("a b", positive=True)
+    pq = [(1 + aa) * (1 + bb), -(1 + aa) * bb, -aa * (1 + bb), aa * bb]          # signs: +, -, -, +
+    N_prod = sp.expand(((1 + aa) * bb + aa * (1 + bb)) - aa - bb)
+    return {"solution_identity_pos": str(r_pos), "solution_identity_neg": str(r_neg),
+            "ReH_convex_linear_residual": str(reh_res),
+            "N_product_excess": str(N_prod), "pq_entries": [str(v) for v in pq]}
+
+
+def _z3():
+    try:
+        import z3
+        return z3
+    except ImportError:
+        return None
+
+
+def z3_obligations():
+    """Z3 (z3-solver; installed by pip, not vendored: PROOF-ASSISTANT.md).  Each obligation is proved by refuting its
+    negation over GROUND INSTANCES of the axiom (sound: the instances follow from the universal axiom), with an
+    uninterpreted g: R -> R.  Guards (PROOF-ASSISTANT.md): VACUITY -- the premises are satisfiable by a non-zero
+    member (g = min(x, 0), i.e. X = -N) for EVERY lam in [0,1], x, y (proved, not sampled); ENCODING -- the encoded
+    convex-linearity residual, evaluated in Python on g = -x ln|x| (Re H), is ~0, and on g = x^2 it is not; CONTROL --
+    dropping the second instance leaves the Cauchy step unprovable (z3 returns a countermodel).
+    Returns None if z3 is not importable (the selftest then prints the obligations as SKIPPED and counts them)."""
+    z3 = _z3()
+    if z3 is None:
+        return None
+    Rs = z3.RealSort()
+    out = {}
+
+    def cl(g, lam, p, q):
+        """The convex-linearity instance for separable X = sum g on the terminal maps of p and q."""
+        lhs = z3.Sum([g(lam * c) for c in p] + [g((1 - lam) * c) for c in q])
+        rhs = g(lam) + g(1 - lam) + lam * z3.Sum([g(c) for c in p]) + (1 - lam) * z3.Sum([g(c) for c in q])
+        return lhs == rhs
+
+    def prove(premises, goal):
+        s = z3.Solver()
+        s.set("timeout", 60000)
+        s.add(*premises)
+        s.add(z3.Not(goal))
+        r = s.check()
+        return str(r)      # 'unsat' = proved
+
+    # (2) g(0) = 0, from g(1) = 0 and convex linearity at lam = 1 with p = pt, q = (s, 1-s)
+    g = z3.Function("g", Rs, Rs)
+    sv = z3.Real("s")
+    prem2 = [g(1) == 0, cl(g, z3.RealVal(1), [z3.RealVal(1)], [sv, 1 - sv])]
+    out["z3_g0"] = prove(prem2, g(0) == 0)
+    # (3) Cauchy: phi(x) + phi(y) = phi(x+y), phi(t) = g(lam t) - lam g(t), for symbolic lam in (0,1), x, y
+    lam, x, y = z3.Reals("lam x y")
+    phi = lambda t: g(lam * t) - lam * g(t)
+    inst_a = cl(g, lam, [x, y, 1 - x - y], [z3.RealVal(1)])
+    inst_b = cl(g, lam, [x + y, 1 - x - y], [z3.RealVal(1)])
+    base = [g(1) == 0, g(0) == 0, lam > 0, lam < 1]
+    out["z3_cauchy"] = prove(base + [inst_a, inst_b], phi(x) + phi(y) == phi(x + y))
+    out["z3_cauchy_control_drop_instance_b"] = prove(base + [inst_a], phi(x) + phi(y) == phi(x + y))   # must be 'sat'
+    # VACUITY: g = min(t, 0) (X = -N) satisfies both instances and g(0) = g(1) = 0 for ALL lam in [0,1], x, y
+    gm = lambda t: z3.If(t < 0, t, z3.RealVal(0))
+    lam2, x2, y2, s2 = z3.Reals("lam2 x2 y2 s2")
+    vac = z3.And(cl(gm, lam2, [x2, y2, 1 - x2 - y2], [z3.RealVal(1)]), cl(gm, lam2, [x2 + y2, 1 - x2 - y2], [z3.RealVal(1)]),
+                 cl(gm, z3.RealVal(1), [z3.RealVal(1)], [s2, 1 - s2]))
+    out["vacuity_minus_N_satisfies_premises_for_all"] = prove([lam2 >= 0, lam2 <= 1], vac)               # 'unsat' = valid
+    out["vacuity_member_nonzero"] = str(z3.simplify(gm(z3.RealVal(-1))))                               # -1, not 0
+    # CODOMAIN: F = c dReH + b dN >= 0 on three morphisms (values from re_h/neg below, exact rationals of the floats)
+    c, b = z3.Reals("c b")
+    morph = codomain_morphisms()
+    rv = lambda v: z3.RealVal(repr(float(v)))
+    prem_c = [c * rv(m["dReH"]) + b * rv(m["dN"]) >= 0 for m in morph]
+    out["z3_codomain"] = prove(prem_c, z3.And(c == 0, b >= 0))
+    s = z3.Solver(); s.add(*prem_c); s.add(b > 0)
+    out["codomain_vacuity_b_positive_sat"] = str(s.check())                                             # 'sat'
+    s = z3.Solver(); s.add(*[c * rv(m["dReH"]) + b * rv(m["dN"]) >= 0 for m in morph if m["name"] != "merge_negatives"])
+    s.add(c > 0)
+    out["codomain_control_without_merge_c_positive"] = str(s.check())                                   # 'sat'
+    out["z3_version"] = z3.get_version_string()
+    return out
+
+
+def encoding_guard(rng, trials=300):
+    """ENCODING guard for z3_obligations: the Python twin of cl() on g = -x ln|x| (Re H) and on g = min(x, 0)
+    (X = -N) has residual ~0 on random real (x, y, lam); on g = x^2 it does not (control)."""
+    def g_reh(t):
+        return -t * math.log(abs(t)) if t != 0 else 0.0
+
+    def res(g, lam, p, q):
+        return (sum(g(lam * c) for c in p) + sum(g((1 - lam) * c) for c in q)
+                - (g(lam) + g(1 - lam) + lam * sum(g(c) for c in p) + (1 - lam) * sum(g(c) for c in q)))
+    w = {"reh": 0.0, "minusN": 0.0, "x2_min": 1e9}
+    for _ in range(trials):
+        x, y, lam = rng.uniform(-3, 3), rng.uniform(-3, 3), rng.uniform(0.05, 0.95)
+        p, q = [x, y, 1 - x - y], [1.0]
+        w["reh"] = max(w["reh"], abs(res(g_reh, lam, p, q)))
+        w["minusN"] = max(w["minusN"], abs(res(lambda t: min(t, 0.0), lam, p, q)))
+        w["x2_min"] = min(w["x2_min"], abs(res(lambda t: t * t, lam, p, q)))
+    return w
+
+
+def codomain_morphisms():
+    """Three morphisms used by z3_codomain, each with dReH = Re H(p) - Re H(q) and dN = N(p) - N(q) computed here."""
+    ms = [("prob_merge", [0.5, 0.5], [1.0]), ("merge_negatives", [1.6, -0.3, -0.3], [1.6, -0.6]),
+          ("crush", [1.5, -0.5], [1.0])]
+    return [{"name": nm, "p": p, "q": q, "dReH": re_h(p) - re_h(q), "dN": neg(p) - neg(q)} for nm, p, q in ms]
+
+
+def kontsevich_checks(rng, trials=400):
+    """Kontsevich, appendix 'The 1 1/2-logarithm' to Elbaz-Vincent & Gangl math/0008089v1 (READ pp.42-44):
+      (A) H(1-x) = H(x); (B) H(x+y) = H(y) + (1-y) H(x/(1-y)) + y H(-x/y), y != 0, 1; (C) x H(1/x) = -H(x), x != 0;
+    p.43 CLAIM: the only nonzero continuous solution R -> R, up to scale, is H_inf(x) = -(x log|x| + (1-x) log|1-x|).
+    H_inf(x) IS Re H on the two-entry signed measure (x, 1-x), so the claim is a uniqueness statement for Re H on
+    two entries over all of R.  Checked here: Re H satisfies (A), (B), (C) on random reals; the chain rule with
+    SIGNED outer weights, Re H(p o (g_1..g_n)) = Re H(p) + sum p_i Re H(g_i), on random signed p, g_i.
+    CONTROL: N, which is convex-linear in BFL's sense (lam in [0,1]), FAILS (B) and FAILS the signed-weight chain
+    rule -- Kontsevich's equations admit negative weights, BFL's convex linearity does not, and that is exactly
+    where N is excluded."""
+    H2 = lambda x: re_h([x, 1 - x])
+    N2 = lambda x: neg([x, 1 - x])
+    w = {"A": 0.0, "B": 0.0, "C": 0.0, "chain": 0.0, "B_N_max": 0.0, "chain_N_max": 0.0}
+    for _ in range(trials):
+        x, y = rng.uniform(-4, 4), rng.uniform(-4, 4)
+        if min(abs(y), abs(1 - y), abs(x)) < 1e-3:
+            continue
+        w["A"] = max(w["A"], abs(H2(1 - x) - H2(x)))
+        w["B"] = max(w["B"], abs(H2(x + y) - (H2(y) + (1 - y) * H2(x / (1 - y)) + y * H2(-x / y))))
+        w["C"] = max(w["C"], abs(x * H2(1 / x) + H2(x)))
+        w["B_N_max"] = max(w["B_N_max"], abs(N2(x + y) - (N2(y) + (1 - y) * N2(x / (1 - y)) + y * N2(-x / y))))
+        p = rand_quasi(rng, rng.randint(2, 4))
+        gs = [rand_quasi(rng, rng.randint(2, 3)) for _ in p]
+        comp = [pi * gij for pi, gi in zip(p, gs) for gij in gi]
+        w["chain"] = max(w["chain"], abs(re_h(comp) - re_h(p) - sum(pi * re_h(gi) for pi, gi in zip(p, gs))))
+        w["chain_N_max"] = max(w["chain_N_max"], abs(neg(comp) - neg(p) - sum(pi * neg(gi) for pi, gi in zip(p, gs))))
+    # the worked control instance: x = 0.5, y = -1
+    w["B_N_instance"] = {"x": 0.5, "y": -1.0, "lhs": N2(-0.5), "rhs": N2(-1.0) + 2.0 * N2(0.25) + (-1.0) * N2(0.5)}
+    # Kontsevich's phi(x, y) = (x+y) H((x)/(x+y)) is set to 0 when x + y = 0 (p.43): a block of total 0 is excluded
+    w["zero_total_block_note"] = "phi(x, -x) := 0 by definition on p.43; such a block has no normalised Re H"
+    return w
+
+
+def m_uniqueness_counterexample(rng, trials=300):
+    """AGAINST V2-0 problem 4, re-computed: g3(p) = ln(sum|p|^3 / |sum p^3|) is product-additive (sum|pq|^3 and
+    sum (pq)^3 are both multiplicative), is 0 on every probability vector, and differs from M on (1.5, -0.5).
+    So 'M is THE product-additive functional vanishing on probabilities' needs a qualifier (H-DICTIONARY, or
+    functions of N alone).  M itself is the exponent-1 member, ln(sum|p| / |sum p|).  g3 is undefined where
+    sum p^3 = 0, which some signed measures reach: a counterexample to uniqueness, not a proposed measure."""
+    g3 = lambda p: math.log(sum(abs(x) ** 3 for x in p) / abs(sum(x ** 3 for x in p)))
+    worst_prod, worst_prob = 0.0, 0.0
+    for _ in range(trials):
+        p, q = rand_quasi(rng, rng.randint(2, 4)), rand_quasi(rng, rng.randint(2, 4))
+        if min(abs(sum(x ** 3 for x in p)), abs(sum(x ** 3 for x in q))) < 1e-3:
+            continue
+        worst_prod = max(worst_prod, abs(g3(product(p, q)) - g3(p) - g3(q)))
+        worst_prob = max(worst_prob, abs(g3(rand_prob(rng, rng.randint(2, 6)))))
+    return {"product_residual": worst_prod, "on_probabilities_max": worst_prob, "g3_(1.5,-0.5)": g3([1.5, -0.5]),
+            "M_(1.5,-0.5)": mana([1.5, -0.5])}
+
+
 # ============================================================================ (5) triangulation
 
 def psi_n(n, x):
@@ -935,6 +1211,28 @@ LITERATURE = [
     ("1106.1791v3", "Baez, Fritz, Leinster, A characterization of entropy in terms of information loss", "READ",
      "p.3 Def.1 FinProb (measures nonnegative, p.3); p.4 Theorem 2 and the continuity definition; p.5 Cor.4 "
      "FinMeas; p.7-8 Faddeev, Thms 5-6 (I >= 0); p.9 proof."),
+    ("math/0008089v1", "Elbaz-Vincent, Gangl, On poly(ana)logs I, with the appendix 'The 1 1/2-logarithm' by M. "
+     "Kontsevich (his unpublished note of 1995)", "READ",
+     "p.42: (A) H(1-x) = H(x), (B) H(x+y) = H(y) + (1-y)H(x/(1-y)) + yH(-x/y) for y != 0,1, (C) xH(1/x) = -H(x), "
+     "proved for H_p on Z/p; p.43: 'Claim: there is only one (up to a scalar factor) nonzero continuous solution of "
+     "(A), (B), (C) in maps from R to itself', H_inf(x) = -(x log|x| + (1-x) log|1-x|), with a cohomological SKETCH: "
+     "phi(x,y) = (x+y)H(x/(x+y)), set to 0 when x+y = 0; 'no non-trivial measurable cohomology classes in H^2(R,R)' "
+     "asserted; psi_lambda(x) = psi(lambda x) - lambda psi(x) additive, linear for measurable maps; psi(x)/x = a log|x| + b; "
+     "(C) 'irrelevant' to the argument; p.44: the chain rule for a variable with PROBABILITIES p_i, reduction to the "
+     "two-valued case, 'well-defined iff (A) and (B)' stated as easily checked; p.10 Prop.2.13 (Elbaz-Vincent, Gangl): "
+     "the differentiable case 'well-known (cf. [22])'; p.10-11 Rem.2.14: Aczel-Dhombres, locally integrable on ]0,1[; "
+     "p.2: Cathelineau reached the same equation."),
+    ("1903.06961v3", "Leinster, Entropy modulo a prime", "READ",
+     "p.1-4 builds on Kontsevich's note; p.8 nonzero mod-p 'probabilities' can sum to zero; p.26 the reduction to "
+     "two-element distributions, 'a similar reduction can be performed over R'; p.27: over R the binary Shannon "
+     "function is, up to scale, the only measurable solution of the fundamental equation with F(0) = F(1), and "
+     "Shannon entropy of finite REAL PROBABILITY distributions is characterised by measurability, symmetry and the "
+     "chain rule (Lee 1964); Remark 9.6: symmetry is essential to fundamental-equation approaches (F(pi) = pi also "
+     "solves (152))."),
+    ("Cathelineau, Math. Scand. 63 (1988); Ann. Inst. Fourier 46 (1996)", "the same equation from Hilbert's third "
+     "problem / infinitesimal polylogarithms", "NAMED-NOT-READ", "cited math/0008089v1 p.2, 1903.06961v3 p.4."),
+    ("Lee, Ann. Math. Stat. 35 (1964); Aczel-Dhombres (1989)", "fundamental equation; Cauchy's equation",
+     "NAMED-NOT-READ", "READ only as cited: 1903.06961v3 p.27; math/0008089v1 p.10-11; 2410.15976v5 p.10 Lemma A.1."),
     ("Smithey, Beck, Raymer, Faridani, PRL 70, 1244 (1993)", "first optical homodyne tomography", "NAMED-NOT-READ",
      "not on arXiv; what it did is READ only through quant-ph/0511044v2 p.3 (squeezed state; Gaussian, W >= 0)."),
     ("Wootters, Ann. Phys. 176, 1 (1987)", "original discrete Wigner function", "NAMED-NOT-READ",
@@ -986,6 +1284,16 @@ def build():
     R["blm"] = blm_checks()
     R["blm_signed_mean_value_worst"] = signed_mean_value_random(rng)
     R["blm_extensivity_worst"] = blm_extensivity_random(rng)
+    rng4b = random.Random(20261004)             # a separate stream, so (4b) leaves every earlier number unchanged
+    R["sep_sympy"] = sep_sympy()
+    R["sep_z3"] = z3_obligations()
+    R["sep_encoding_guard"] = encoding_guard(rng4b)
+    R["sep_nullspace"] = separable_nullspace(rng4b)
+    R["codomain_morphisms"] = codomain_morphisms()
+    R["kontsevich"] = kontsevich_checks(rng4b)
+    R["m_counterexample"] = m_uniqueness_counterexample(rng4b)
+    R["indecomposable_census"] = indecomposable_census(rng4b)
+    R["decomp_(1.6,-0.3,-0.3)"] = convex_decompositions([1.6, -0.3, -0.3])
     R["fbp"] = [fbp_metrics("sup01", 180), fbp_metrics("sup01", 2), fbp_metrics("sup01", 12),
                 fbp_metrics("vac", 180), fbp_metrics("vac", 3), fbp_metrics("fock1", 180)]
     R["fbp_finite_sample"] = fbp_finite_sample()
@@ -1067,6 +1375,17 @@ def report(R):
     print("    Brandenburger-La Mura:", R["blm"])
     print(f"    Re H signed-weight mean-value worst {R['blm_signed_mean_value_worst']:.1e}; "
           f"extensivity worst {R['blm_extensivity_worst']:.1e}")
+    print("\n(4b) separable functionals X = sum g(p_i) (H-SEPARABLE); Kontsevich's 1 1/2-logarithm")
+    print("    sympy (solution identity, Re H convex-linear, N product excess):", R["sep_sympy"])
+    print("    z3 obligations ('unsat' = proved; controls 'sat'):", R["sep_z3"] if R["sep_z3"] is not None else
+          "SKIPPED: z3 not importable (pip install z3-solver)")
+    print("    encoding guard:", R["sep_encoding_guard"])
+    print("    numeric separable null space:", R["sep_nullspace"])
+    print("    codomain morphisms:", [(m["name"], round(m["dReH"], 6), round(m["dN"], 6)) for m in R["codomain_morphisms"]])
+    print("    Kontsevich (A),(B),(C), signed chain rule; N controls:", R["kontsevich"])
+    print("    M-uniqueness counterexample g3:", R["m_counterexample"])
+    print("    fraction of random signed measures with NO convex decomposition (n: fraction):", R["indecomposable_census"],
+          "; (1.6,-0.3,-0.3):", R["decomp_(1.6,-0.3,-0.3)"])
     print("\n(5) triangulation")
     for m in R["fbp"]:
         print(f"    FBP {m['state']:>5} K={m['K']:>3}: max|err| {m['max_abs_err']:.4f}, exact min {m['exact_min']:+.5f} "
@@ -1094,6 +1413,7 @@ def report(R):
 def selftest():
     R = build()
     res = []
+    skipped = []
 
     def chk(name, ok, detail="", control=False, structural=False):
         res.append((name, bool(ok), control and not structural, structural))
@@ -1105,12 +1425,14 @@ def selftest():
     chk("Re H(1.5,-0.5) = -0.954771 nats (charter -0.95; task -0.9548)", abs(e["re_h_nats"] + 0.9547712) < 1e-6,
         f"{e['re_h_nats']:.7f}")
     chk("Im H = pi N on the principal branch", abs(e["H"][1] - PI * 0.5) < 1e-12, f"{e['H'][1]:.6f}")
-    chk("Re H identical on every branch of the grid", max(abs(r["re"] - e["re_h_nats"]) for r in R["branch_grid"]) < 1e-12)
+    chk("Re H identical on every branch of the grid", max(abs(r["re"] - e["re_h_nats"]) for r in R["branch_grid"]) < 1e-12,
+        "H() computes the real part -x ln|x| with no k in it (R3-alone relabel)", structural=True)
     g = {r["ks"]: r["im"] for r in R["branch_grid"]}
     chk("branch k on the NEGATIVE entry shifts Im H by -2 pi k p = +pi k (k=1), NOT 2 pi (D1)",
         abs(g[(0, 1)] - g[(0, 0)] - PI) < 1e-12 and abs(g[(0, 1)] - g[(0, 0)] - 2 * PI) > 1, f"{g[(0, 1)] - g[(0, 0)]:.6f}")
     chk("uniform branch shift k gives dIm = -2 pi k exactly (sum p = 1)",
-        all(abs(u["dIm"] + 2 * PI * u["k"]) < 1e-12 for u in R["uniform_shift"]))
+        all(abs(u["dIm"] + 2 * PI * u["k"]) < 1e-12 for u in R["uniform_shift"]),
+        "one line: -sum p_i 2 pi k = -2 pi k when sum p = 1 (R3-alone relabel)", structural=True)
     chk("e^H changes under a per-entry branch (k_neg = 1 flips its sign for N = 0.5)",
         abs(complex(*[[r["exp_re"], r["exp_im"]] for r in R["branch_grid"] if r["ks"] == (0, 1)][0])
             + complex(*[[r["exp_re"], r["exp_im"]] for r in R["branch_grid"] if r["ks"] == (0, 0)][0])) < 1e-12,
@@ -1123,13 +1445,15 @@ def selftest():
     chk("the hypothesis 'Im H additive' is REJECTED: excess > 0 in every sample", a["im_excess_min"] > 1e-6,
         f"min excess {a['im_excess_min']:.2e}", control=True)
     chk("M additive", a["M"] < 1e-11, f"{a['M']:.1e}")
-    chk("N = (sum|p| - 1)/2", a["N_identity"] < 1e-12)
+    chk("N = (sum|p| - 1)/2", a["N_identity"] < 1e-12, "definitional: sum|p| = P + N, sum p = P - N = 1 (V2-0 relabel)",
+        structural=True)
     ex = R["additivity_exact"]
     chk("sympy exact: Re residual 0, Im formula 0, M residual 0", ex["re_residual"] == "0" and
         ex["im_formula_residual"] == "0" and ex["M_residual"] == "0", str(ex))
     chk("Re H additivity FAILS when sum p = 2", R["additivity_unnormalised_control"] > 1e-3,
         f"{R['additivity_unnormalised_control']:.4f}", control=True)
-    chk("M = 0 for a probability vector and > 0 with a negative entry", mana([0.2, 0.8]) == 0.0 and mana([1.1, -0.1]) > 0)
+    chk("M = 0 for a probability vector and > 0 with a negative entry", mana([0.2, 0.8]) == 0.0 and mana([1.1, -0.1]) > 0,
+        "definitional: sum|p| = 1 + 2N (R3-alone relabel)", structural=True)
     print("(3) where Re H < 0")
     lo, hi = reh_bounds(2, 0.5)
     chk("n = 2 bounds collapse to the single value at (1.5,-0.5)", abs(lo - hi) < 1e-12 and abs(lo + 0.9547712) < 1e-6)
@@ -1190,6 +1514,59 @@ def selftest():
     chk("signed-weight exponential branch violates Axiom 0 for every tested alpha",
         all(v < 0 for v in b["axiom0"].values()), str({k: round(v, 4) for k, v in b["axiom0"].items()}))
     chk("BLM eq.(45) = -M (bits) when sum p = 1", abs(b["renorm1_vs_minus_M_bits"]) < 1e-12, structural=True)
+    print("(4b) separable functionals (H-SEPARABLE); Kontsevich's 1 1/2-logarithm")
+    chk("step (0)-(1): F(f) = X(p) - X(q) and the convex-linearity identity on terminal maps", True,
+        "restatements of functoriality and of the axiom", structural=True)
+    sy = R["sep_sympy"]
+    chk("sympy: g = a x ln|x| (+ beta x for x < 0) gives g(lam x) - lam g(x) = a lam ln(lam) x on each sign",
+        sy["solution_identity_pos"] == "0" and sy["solution_identity_neg"] == "0", str(sy["solution_identity_neg"]))
+    chk("sympy: Re H convex-linear on (1+s,-s), (1+t,-t), lam in (0,1): residual exactly 0",
+        sy["ReH_convex_linear_residual"] == "0")
+    chk("sympy: N(pq) - N(p) - N(q) = 2ab (so product additivity forces b = 0 in c Re H + b N)",
+        sy["N_product_excess"] == "2*a*b", sy["N_product_excess"])
+    Z = R["sep_z3"]
+    if Z is None:
+        print("  SKIP 6 z3 obligations (z3 not importable; pip install z3-solver).  NOT checked, NOT counted.")
+        skipped.append(6)
+    else:
+        chk("Z3 step (2): g(1) = 0 and convex linearity at lam = 1 force g(0) = 0", Z["z3_g0"] == "unsat", Z["z3_g0"])
+        chk("Z3 step (3): two convex-linearity instances force phi_lam(x) + phi_lam(y) = phi_lam(x + y)",
+            Z["z3_cauchy"] == "unsat", Z["z3_cauchy"])
+        chk("Z3 control: with one instance dropped the Cauchy step is NOT provable (countermodel)",
+            Z["z3_cauchy_control_drop_instance_b"] == "sat", Z["z3_cauchy_control_drop_instance_b"], control=True)
+        chk("Z3 vacuity guard: g = min(x, 0) (X = -N, non-zero) satisfies every premise for ALL lam in [0,1], x, y",
+            Z["vacuity_minus_N_satisfies_premises_for_all"] == "unsat" and Z["vacuity_member_nonzero"] == "-1")
+        chk("Z3 consequence: BFL's codomain on three morphisms forces c = 0 and b >= 0 (only b N survives)",
+            Z["z3_codomain"] == "unsat" and Z["codomain_vacuity_b_positive_sat"] == "sat", Z["z3_codomain"])
+        chk("Z3 control: without the merge-negatives morphism, c > 0 is consistent with the codomain",
+            Z["codomain_control_without_merge_c_positive"] == "sat", "", control=True)
+    eg = R["sep_encoding_guard"]
+    chk("encoding guard: the encoded convex-linearity residual is ~0 on Re H's and on -N's g", eg["reh"] < 1e-12 and
+        eg["minusN"] < 1e-12, f"{eg['reh']:.1e}, {eg['minusN']:.1e}")
+    chk("encoding guard control: g = x^2 leaves a residual (the encoding can fail)", eg["x2_min"] > 1e-3,
+        f"min {eg['x2_min']:.3f}", control=True)
+    sn = R["sep_nullspace"]
+    chk("numeric: a 14-function separable basis has convex-linear null space = span{Re H, N}",
+        sn["null_dim"] == 2 and sn["null_outside_span_ReH_N"] < 1e-9 and sn["span_ReH_N_outside_null"] < 1e-9,
+        f"dim {sn['null_dim']}, residuals {sn['null_outside_span_ReH_N']:.1e} / {sn['span_ReH_N_outside_null']:.1e}")
+    chk("numeric control: without the convex-linearity rows the null space has dimension 13",
+        sn["control_null_dim_without_CL_rows"] == 13, "", control=True)
+    k = R["kontsevich"]
+    chk("Kontsevich (A), (B), (C) hold for Re H on two entries over random reals (math/0008089v1 p.42, READ)",
+        max(k["A"], k["B"], k["C"]) < 1e-12, f"(B) {k['B']:.1e}")
+    chk("chain rule with SIGNED outer weights holds for Re H (p.44's reduction, applied to signed weights)",
+        k["chain"] < 1e-12, f"{k['chain']:.1e}")
+    chk("control: N fails Kontsevich's (B) (x = 0.5, y = -1: 0.5 vs 1.0) and the signed-weight chain rule",
+        k["B_N_max"] > 0.1 and k["chain_N_max"] > 0.1 and abs(k["B_N_instance"]["lhs"] - k["B_N_instance"]["rhs"]) > 0.1,
+        f"(B) {k['B_N_max']:.3f}, chain {k['chain_N_max']:.3f}", control=True)
+    mc = R["m_counterexample"]
+    chk("M is NOT the unique product-additive functional vanishing on probabilities: g3 = ln(sum|p|^3/|sum p^3|)",
+        mc["product_residual"] < 1e-11 and mc["on_probabilities_max"] < 1e-12 and abs(mc["g3_(1.5,-0.5)"] - mc["M_(1.5,-0.5)"]) > 0.1,
+        f"g3(1.5,-0.5) = {mc['g3_(1.5,-0.5)']:.4f} vs M = {mc['M_(1.5,-0.5)']:.4f}")
+    ic = R["indecomposable_census"]
+    chk("every n = 2 signed measure is a convex atom (block totals 1+N and -N)", ic[2] == 1.0, "", structural=True)
+    chk("(1.6, -0.3, -0.3) has no convex decomposition; at n = 3 about half of random signed measures have none",
+        R["decomp_(1.6,-0.3,-0.3)"] == [] and 0.2 < ic[3] < 0.9, f"n=3: {ic[3]:.3f}, n=5: {ic[5]:.3f}")
     print("(5) triangulation")
     F = {(m["state"], m["K"]): m for m in R["fbp"]}
     m = F[("sup01", 180)]
@@ -1247,14 +1624,19 @@ def selftest():
         al["box_imported"] == 6912 and al["box_from_shape"] == 6912)
     chk("Mobius reconstruction of Lambda's indicator is exact; sum p = 1 (bottom cell admitted)",
         al["reconstruction_max_err"] == 0 and al["sum_p"] == 1.0 and al["bottom_in_set"])
-    chk("uniform measure on Lambda: Re H = log2 976 = A3's 9.930737 bits", abs(al["uniform_re_h_bits"] - al["A3_bits_per_cell"]) < 1e-12)
+    chk("uniform measure on Lambda: Re H = log2 976 = A3's 9.930737 bits", abs(al["uniform_re_h_bits"] - al["A3_bits_per_cell"]) < 1e-12,
+        "Re H of a uniform non-negative vector is ln n by definition; the count 976 is checked above (V2-0 relabel)",
+        structural=True)
     chk("the Mobius weighting of Lambda is signed (N > 0)", al["N_p"] > 0, f"N_p = {al['N_p']:.4f}")
     ac = R["app_lambda_box_control"]
     chk("a full box has a one-point Mobius weight, N = 0", ac["support"] == 1 and ac["N_p"] == 0, control=True)
     n_ctrl = sum(1 for r in res if r[2])
     n_struct = sum(1 for r in res if r[3])
     n_fail = sum(1 for r in res if not r[1])
-    print(f"\n{len(res)} checks, {n_fail} failed; {n_ctrl} controls; {n_struct} STRUCTURAL (not evidence)")
+    n_counted = len(res) - n_struct
+    n_cfail = sum(1 for r in res if not r[1] and not r[3])
+    print(f"\n{n_counted - n_cfail}/{n_counted} counted checks pass ({n_ctrl} of them controls); {n_struct} STRUCTURAL "
+          f"(cannot fail; printed, not counted); {sum(skipped)} SKIPPED; {n_fail} failed in all")
     return n_fail == 0, R
 
 
