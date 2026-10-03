@@ -264,7 +264,9 @@ DOCKET 63's, at the marker paper_d63_marker() READs back from paper/CLAIMS.md
 '(Corrected on M's "Repair all", DOCKET 67: ...)', which name M's ruling by
 M's words and which paper_docket_markers() READs as naming one -- the
 paper's edits are not counted here, the markers are named and the reader
-counts.  M's ruling on the ruling id in the
+counts; CORRECTED (DOCKET 67 close): the closing rulings' markers carry M's
+words for those rulings, not "Repair all", so the census READs the general
+head (PAPER_D67_MARKER_HEAD_RE) and paper_d67_words() lists the words READ.  M's ruling on the ruling id in the
 paper's clause is M-D65-5: added (M_D65_5_ANSWER); the markers this file names
 each name a ruling, and the paper's DOCKET markers are asked of the paper by
 paper_docket_markers() and printed in M-D65-5's cell, a census the reader
@@ -1079,7 +1081,8 @@ M_D65_4_RULING_T = ("RULED BY M: YES, QUALIFY IT -- M's answer: '%s'.  APPLIED: 
                     "the paper has since carried DOCKET 67's markers, '" +
                     "(Corrected on M's \"Repair all\", DOCKET 67: ...)', which name "
                     "M's ruling \"Repair all\" by M's words; M-D65-5's census READs "
-                    "them")
+                    "them.  CORRECTED (DOCKET 67 close): the M's words the paper's "
+                    "DOCKET 67 marker heads carry, READ from the paper: %s")
 M_D65_4_UNBLOCKS_T = ("nothing; M's rule for the paper stands (\"%s\", verbatim from "
                       "the session, witnessed by the lead)")
 #: M-D65-4's `why` cell, a TEMPLATE over (the caveat line, massform's asked
@@ -1125,6 +1128,19 @@ PAPER_DOCKET_MARKER_RE = re.compile(r"DOCKET (\d+)")
 PAPER_M_QUOTED_RULING_RE = re.compile(r"\bM's \"[^\"]+\", $")
 #: The head of the paper's DOCKET 67 markers, READ in the selftest.
 PAPER_D67_MARKER_HEAD = "(Corrected on M's \"Repair all\", DOCKET 67:"
+#: CORRECTED (DOCKET 67 close, on M's rulings "Carry both" and "Re-size to 4544
+#: m"): the paper's DOCKET 67 markers no longer all carry "Repair all" -- the
+#: closing rulings' corrections are marked with M's words for those rulings.
+#: PAPER_D67_MARKER_HEAD stays the head as first written, kept and still checked
+#: (RECORD); the census READs the general head -- any of M's quoted words --
+#: by PAPER_D67_MARKER_HEAD_RE (group 1 is M's words), and paper_d67_words()
+#: lists the words the paper carries, READ, never typed.
+PAPER_D67_MARKER_HEAD_AS_FIRST_WRITTEN = PAPER_D67_MARKER_HEAD
+PAPER_D67_MARKER_HEAD_RE = re.compile(r"\(Corrected on M's \"([^\"]+)\", DOCKET 67:")
+#: the general head as printed in labels: M's words left as a slot
+PAPER_D67_MARKER_HEAD_FORM = "(Corrected on M's \"<M's words>\", DOCKET 67:"
+#: M's quoted words immediately before ', DOCKET 67' -- what the CONTROL strips
+PAPER_D67_M_WORDS_RE = re.compile(r"M's \"[^\"]+\", DOCKET 67")
 #: A COUNT of the paper's edits or markers in this board's own words -- what
 #: the selftests forbid in the M-D65-4 / M-D65-5 cells, the docstring, the
 #: source region around them and specthm's SR5: the items are NAMED and the
@@ -1385,6 +1401,23 @@ def paper_markers_clause():
     return PAPER_MARKERS_CLAUSE_T % (PAPER_CAVEAT_B_LINE, span, paper_docket_markers_clause())
 
 
+def paper_d67_words(lines=None):
+    """M's quoted words in the paper's DOCKET 67 marker heads, in order of
+    first appearance, READ by PAPER_D67_MARKER_HEAD_RE (DOCKET 67 close)."""
+    lines = _paper_lines() if lines is None else lines
+    out = []
+    for line in lines:
+        for m in PAPER_D67_MARKER_HEAD_RE.finditer(line):
+            if m.group(1) not in out:
+                out.append(m.group(1))
+    return out
+
+
+def paper_d67_words_clause(lines=None):
+    """paper_d67_words() printed as the paper carries them: '"w1", "w2"'."""
+    return ", ".join('"%s"' % w for w in paper_d67_words(lines)) or "none"
+
+
 def m_d65_4_ruling():
     """M-D65-4's ruling cell: M_D65_4_RULING_T filled from M's answer, the
     caveat's line and clause, M's rule for the paper and the DOCKET 63 marker
@@ -1396,7 +1429,7 @@ def m_d65_4_ruling():
         # The board still imports; the selftest goes red on paper_d63_faults().
         span, text = "%d" % PAPER_D63_MARKER_LINE, "MARKER NOT FOUND -- %s" % e
     return M_D65_4_RULING_T % (M_D65_4_ANSWER, PAPER_CAVEAT_B_LINE, PAPER_CAVEAT_B_CLAUSE,
-                               M_PAPER_RULE_WORDS, span, text)
+                               M_PAPER_RULE_WORDS, span, text, paper_d67_words_clause())
 
 
 def m_d65_4_why():
@@ -2777,12 +2810,15 @@ W_OPEN_ANSWER = 1400              # DOCKET 67: O2's answer names its
 W_WAS = 1400
 W_WHY = 1000                      # DOCKET 67: superseded rows carry
                                   # the corrections M ruled ("Repair all")
-W_RULING = 1200                   # DOCKET 65: M-D65-4's ruling cell names M's
+W_RULING = 1600                   # DOCKET 65: M-D65-4's ruling cell names M's
                                   # rule for the paper and the DOCKET 63 marker
                                   # READ back from the paper; 600 would cut it.
                                   # DOCKET 67 follow-ups: it now carries the
                                   # DOCKET 67 markers' correction (1007 chars
-                                  # as rendered at the follow-ups)
+                                  # as rendered at the follow-ups).  DOCKET 67
+                                  # close: 1200 -> 1600 -- M-D65-5's census READs
+                                  # the closing rulings' markers too (1298 chars
+                                  # as rendered at the close), and 1200 cut it
 
 
 def _cell(text, width):
@@ -4302,7 +4338,7 @@ def selftest():
          _d4[0][3] == m_d65_4_ruling(),
          _d4[0][3] == M_D65_4_RULING_T % (M_D65_4_ANSWER, PAPER_CAVEAT_B_LINE,
                                           PAPER_CAVEAT_B_CLAUSE, M_PAPER_RULE_WORDS,
-                                          _d63span, _d63text),
+                                          _d63span, _d63text, paper_d67_words_clause()),
          _d4[0][2] == m_d65_4_why(),
          "'%s'" % M_D65_4_ANSWER in _d4[0][3],
          _d4[0][4] == M_D65_4_UNBLOCKS_T % M_PAPER_RULE_WORDS,
@@ -4460,26 +4496,52 @@ def selftest():
     # by M's words ('(Corrected on M's "Repair all", DOCKET 67: ...)'); the
     # census READs exactly the tokens that open such a marker as naming a
     # ruling, no other DOCKET 67 token, and not a docket mentioned inside one.
+    # CORRECTED (DOCKET 67 close, on M's rulings "Carry both" and "Re-size to 4544
+    # m"): the heads are READ by PAPER_D67_MARKER_HEAD_RE (any of M's quoted words);
+    # first by the "Repair all" head alone, which the closing rulings' markers do
+    # not carry.  That reading is kept below as a RECORD check, not dropped.
     _plines = _paper_lines()
-    _d67heads = [i for i, l in enumerate(_plines, 1) if PAPER_D67_MARKER_HEAD in l]
+    _d67heads = [i for i, l in enumerate(_plines, 1) if PAPER_D67_MARKER_HEAD_RE.search(l)]
+    _d67heads_first = [i for i, l in enumerate(_plines, 1)
+                       if PAPER_D67_MARKER_HEAD_AS_FIRST_WRITTEN in l]
     _d67named = sorted(l for l, r in _pdm.get(67, []) if r)
     _inside = [d for d, sites in _pdm.items() if d != 67
                for l, r in sites if l in _d67heads]
     chk("  the paper's DOCKET 67 markers ('%s ...)') are READ as naming M's "
         "ruling, exactly those tokens; a docket mentioned inside one is not; "
         "M-D65-4's cell and the docstring carry the correction"
-        % PAPER_D67_MARKER_HEAD,
+        % PAPER_D67_MARKER_HEAD_FORM,
         (_d67heads != [], _d67named == _d67heads,
          [d for d, sites in _pdm.items() if d != 67 for l, r in sites
           if l in _d67heads and r],
          "the paper has since carried DOCKET 67's markers" in _d4[0][3],
          "the paper has since carried DOCKET 67's markers" in " ".join(__doc__.split())),
         (True, True, [], True, True))
-    _unq = [l.replace("M's \"Repair all\", DOCKET 67", "DOCKET 67") for l in _plines]
+    chk("  RECORD: the head as first written ('%s ...)') still opens markers, "
+        "every one of them a head the general regex READs; M's words are READ "
+        "from the heads in order of first appearance, \"Repair all\" first, "
+        "and M-D65-4's cell prints them"
+        % PAPER_D67_MARKER_HEAD_AS_FIRST_WRITTEN,
+        (_d67heads_first != [], sorted(set(_d67heads_first) - set(_d67heads)),
+         paper_d67_words()[:1],
+         sorted(set(m.group(1) for l in _plines
+                    for m in PAPER_D67_MARKER_HEAD_RE.finditer(l))) == sorted(paper_d67_words()),
+         ("READ from the paper: %s" % paper_d67_words_clause()) in _d4[0][3]),
+        (True, [], ["Repair all"], True, True))
+    _unq = [PAPER_D67_M_WORDS_RE.sub("DOCKET 67", l) for l in _plines]
     chk("  CONTROL: M's quoted words dropped from the DOCKET 67 markers in a "
         "private copy of the paper's lines -- the census READs none of them as "
         "naming a ruling (the word-only reading this replaced)",
         sorted(l for l, r in paper_docket_markers(_unq).get(67, []) if r), [])
+    # the control as first written stripped "Repair all" alone; run on the paper
+    # as it now stands it leaves named exactly the heads carrying other words
+    _unq0 = [l.replace("M's \"Repair all\", DOCKET 67", "DOCKET 67") for l in _plines]
+    chk("  CONTROL (as first written, \"Repair all\" alone dropped): the census "
+        "then READs as naming a ruling exactly the heads whose M's words are not "
+        "\"Repair all\", and with the head as first written READs none",
+        (sorted(l for l, r in paper_docket_markers(_unq0).get(67, []) if r),
+         [i for i, l in enumerate(_unq0, 1) if PAPER_D67_MARKER_HEAD_AS_FIRST_WRITTEN in l]),
+        (sorted(set(_d67heads) - set(_d67heads_first)), []))
     _l52 = _pdm.get(52, [(0, False)])[0][0]
     _alt = [l.replace("DOCKET 52", "DOCKET 5", 1) if i + 1 == _l52 else l
             for i, l in enumerate(_paper_lines())]

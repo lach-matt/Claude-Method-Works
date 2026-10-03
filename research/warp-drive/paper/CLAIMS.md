@@ -2276,7 +2276,7 @@ differ by a factor close to 1, so the exotic behaviour is a **frame artefact** w
 > **Three mechanisms with nothing in common** — a sampling inequality, a boundary-condition vacuum, and a
 > curvature coupling inside an EFT — **all running out within one order of the Planck length**, with `Λ` in
 > all three closed forms. **The obstruction is not a limitation of any one mechanism: every known
-> negative-energy source runs out exactly where the theory stating the requirement runs out. The magnitude
+> negative-energy source runs out within an order-one factor of where the theory stating the requirement runs out *(Corrected on M's "Repair all", DOCKET 67: first "exactly where"; the sources place the loss of semiclassical control only 'of the order of' ℓ_P, as candidates.py was corrected)*. The magnitude
 > gate and the Planck scale are the same gate** — on the `t₀ = R/c` reading. On the duration bound the Ford–Roman crossing, `5.625229 ℓ_P`, is still within one order of `ℓ_P` in every convention tried but *above* it, so there the bound does not run out before the framework's estimated boundary, and that headline is not established. *(Corrected on M's "Carry both", DOCKET 67: the headline was first stated without a reading, on the `t₀ = R/c` crossover alone.)*
 
 That is a finding about the *framework*, and it is why a fifth candidate **inside the same framework**

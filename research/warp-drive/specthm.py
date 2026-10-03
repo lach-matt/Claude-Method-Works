@@ -1748,7 +1748,9 @@ def requirements(F):
             "M's ruling is DOCKET 63's (paper/CLAIMS.md:%s) -- so it stood when "
             "M ruled.  CORRECTED (DOCKET 67 follow-ups): the paper has since "
             "carried DOCKET 67's markers, '%s ...)', which name M's ruling "
-            "by M's words and which the census below READs; no verdict here "
+            "by M's words and which the census below READs (CORRECTED, DOCKET "
+            "67 close: M's words the marker heads carry, READ from the paper: "
+            "%s); no verdict here "
             "moves on it.  M ruled the ruling id into the paper's clause "
             "(M-D65-5, on the board: %s; M: '%s'); on the board, %s."
             % (massform.M_MECHANISM, massform.MECHANISM_VERDICT[0],
@@ -1773,6 +1775,7 @@ def requirements(F):
                d67_clauses()[0], d67_clauses()[1], d67_clauses()[2],
                ruled("M-D65-4"), ledger.M_D65_4_ANSWER, ledger.M_PAPER_RULE_WORDS,
                ledger.paper_d63_marker()[0], ledger.PAPER_D67_MARKER_HEAD,
+               ledger.paper_d67_words_clause(),
                ruled("M-D65-5"), ledger.M_D65_5_ANSWER, ledger.paper_markers_clause())},
     ]
 
@@ -4763,11 +4766,14 @@ def selftest():
          "paper's other marked edit on M's ruling is DOCKET 63's (paper/CLAIMS.md:"
          "%s) -- so it stood when M ruled.  CORRECTED (DOCKET 67 follow-ups): the "
          "paper has since carried DOCKET 67's markers, '%s ...)', which name M's "
-         "ruling by M's words and which the census below READs; no verdict here "
+         "ruling by M's words and which the census below READs (CORRECTED, DOCKET "
+         "67 close: M's words the marker heads carry, READ from the paper: %s); "
+         "no verdict here "
          "moves on it.  M ruled the ruling id into the "
          "paper's clause (M-D65-5, on the board: %s; M: '%s'); on the board, %s."
          % (ruled("M-D65-4"), ledger.M_D65_4_ANSWER, ledger.M_PAPER_RULE_WORDS,
             ledger.paper_d63_marker()[0], ledger.PAPER_D67_MARKER_HEAD,
+            ledger.paper_d67_words_clause(),
             ruled("M-D65-5"), ledger.M_D65_5_ANSWER,
             ledger.paper_markers_clause())
          in sr5["statement"],
