@@ -43,7 +43,11 @@ HOLOGRAPHIC BOUND -- the most entropy any region of that size can hold, A/4 l_P^
     CONSTANT AT EVERY SCALE, AND THE CLOSED FORM IS EXACTLY 2 pi^2 = 19.7392.
 
     So in entanglement language the requirement is TWENTY TIMES the maximum
-    entropy a region can hold -- not the 65 orders that achievable.py measured.
+    entropy a region can hold -- not the 71.256 orders of achievable.py's
+    duration bound at b = 1 m.  CORRECTED (DOCKET 67 follow-ups): this read
+    "not the 65 orders that achievable.py measured"; DOCKET 55 withdrew the 65
+    (a magnitude cap |rho| <~ hbar c/L^4 that the papers it names do not
+    state) and achievable.py now refuses on the duration bound.
 
 CROSS-CHECKED, and this is what makes it trustworthy: spec.py found by a
 completely unrelated route -- gravitational collapse -- that a seating region
@@ -61,7 +65,14 @@ from collapse, landing on the same number.
 
 -- SO THERE ARE TWO GAPS, AND THEY MEAN DIFFERENT THINGS ----------------------
         AGAINST WHAT PHYSICS PERMITS IN PRINCIPLE   20x        (holographic)
-        AGAINST WHAT CAN ACTUALLY BE MADE           1e65       (Ford-Roman)
+        AGAINST THE DURATION BOUND AT b = 1 m       1e71.256   (Fewster QEI)
+
+    CORRECTED (DOCKET 67 follow-ups): the second row read "AGAINST WHAT CAN
+    ACTUALLY BE MADE  1e65  (Ford-Roman)".  DOCKET 55 withdrew that figure
+    (achievable.ratio, kept below as a RECORD).  The row now carries
+    achievable.persistence_shortfall(1), a QFT bound on how long the core can
+    hold, under H-MMCS (massless minimally coupled scalar), H-HADAMARD and
+    H-FLAT -- a bound in principle within that scope, not an engineering gap.
 
     CORRECTED BY currency.py, AND THE CORRECTION MATTERS: reading 20 as good
     news is too generous.  THE HOLOGRAPHIC BOUND IS THE MOST ENTROPY A REGION
@@ -74,9 +85,12 @@ from collapse, landing on the same number.
 
     THE FIRST NUMBER IS STILL THE MEANINGFUL ONE, for a different reason: it is
     scale-free where every energy figure carries (L/l_P)^2, which is why it is
-    20 and not 1e69.  It
-    is the ENGINEERING gap that is 65 orders, and engineering gaps have been
-    closed before.
+    20 and not 1e69.  The second gap, 71.256 orders at 1 m and widening as
+    b^2, is not an engineering gap either: it is the duration bound, under the
+    hypotheses named above.  CORRECTED (DOCKET 67 follow-ups): this read "It is
+    the ENGINEERING gap that is 65 orders, and engineering gaps have been
+    closed before" -- the 65 is DOCKET 55-withdrawn, and the bound that
+    replaced it is a QFT statement, not a limit of apparatus.
 
     BUT TWENTY TIMES THE HOLOGRAPHIC BOUND IS STILL IMPOSSIBLE, and not in an
     engineering way.  That bound is the maximum information any region can
@@ -101,7 +115,8 @@ from collapse, landing on the same number.
 The obstruction is unchanged but its DESCRIPTION improves, and the improvement
 is M's:
 
-    OLD:  "needs exotic matter, and we are 65 orders short"
+    OLD:  "needs exotic matter, and we are 65 orders short"  (the 65 itself
+           DOCKET 55-withdrawn; the duration bound gives 71.256 at 1 m)
     NEW:  "needs entanglement entropy concave along the ray, at 2 pi^2 times the
            holographic bound -- twenty times what any region can hold"
 
@@ -200,17 +215,26 @@ def selftest():
 
     print("\nTWO GAPS, AND THEY MEAN DIFFERENT THINGS")
     import achievable
-    eng = 1.0 / achievable.ratio(1.0)
+    # CORRECTED (DOCKET 67 follow-ups): the second gap was 1/achievable.ratio(1),
+    # the DOCKET 55-withdrawn magnitude cap (65 orders, 63.7 above the first);
+    # it is now the duration bound, and the withdrawn figure is a RECORD.
+    dur = achievable.persistence_shortfall(1.0)
+    eng_withdrawn = 1.0 / achievable.ratio(1.0)
     print("     against what physics PERMITS   %18.4f x   (holographic)"
           % holographic_excess(1.0))
-    print("     against what can be MADE       %18.4e x   (Ford-Roman)" % eng)
+    print("     against the duration bound     %18.4e x   (Fewster QEI, b = 1 m)" % dur)
     chk("the principled gap is order twenty", holographic_excess(1.0) < 100.0, True)
-    chk("the engineering gap is 65 orders", eng > 1e60, True)
+    near("the duration-bound gap is achievable.py's 71.256 orders at 1 m",
+         math.log10(dur), 71.256, 1e-5)
     near("they differ by this many orders",
-         math.log10(eng / holographic_excess(1.0)), 63.7, 2e-2)
-    print("       THE FIRST IS THE MEANINGFUL ONE, and it is the best news this")
-    print("       project has produced about the obstruction -- the requirement")
-    print("       is twenty times beyond what QFT allows, not 1e65 times.")
+         math.log10(dur / holographic_excess(1.0)), 69.960, 1e-5)
+    near("RECORD (DOCKET 55-withdrawn): the first-written 65-order gap",
+         math.log10(eng_withdrawn), 64.961, 1e-5)
+    near("RECORD: and its first-written 63.7-order difference",
+         math.log10(eng_withdrawn / holographic_excess(1.0)), 63.7, 2e-2)
+    print("       THE FIRST IS THE SCALE-FREE ONE -- the requirement is twenty")
+    print("       times the holographic bound, against 1e71.256 on the duration")
+    print("       bound at 1 m (first printed 1e65, DOCKET 55-withdrawn).")
     print("       But twenty times the holographic bound is a limit on what CAN")
     print("       be, not on what we can build.")
 
@@ -246,10 +270,15 @@ def report():
     print("  M's instinct is right: negative energy density IS an entanglement")
     print("  phenomenon, and QNEC states the requirement exactly -- entanglement")
     print("  entropy concave along the ray.")
-    print("\n  And it changes the number by sixty-four orders.  Against what")
-    print("  physics PERMITS, the requirement is 2 pi^2 = 20x the holographic")
-    print("  bound.  Against what can be MADE, it is 1e65.  The first is the")
-    print("  meaningful gap and it is far smaller than this project thought.")
+    import achievable
+    print("\n  Against what physics PERMITS, the requirement is 2 pi^2 = 20x the")
+    print("  holographic bound, at every scale.  Against the duration bound at")
+    print("  b = 1 m it is 1e%.3f (H-MMCS, H-HADAMARD, H-FLAT), %.2f orders"
+          % (math.log10(achievable.persistence_shortfall(1.0)),
+             math.log10(achievable.persistence_shortfall(1.0)
+                        / holographic_excess(1.0))))
+    print("  further.  (CORRECTED, DOCKET 67 follow-ups: this printed 1e65,")
+    print("  'what can be MADE', DOCKET 55-withdrawn.)")
     print("\n  But twenty times the holographic bound is still impossible, and")
     print("  not in an engineering way: it is more information than a region")
     print("  can hold.  There is no charge loophole -- QNEC is state-independent")

@@ -341,6 +341,30 @@ PROXIMA_LY = foliation.PROXIMA_LY            # ly,   Gaia DR3 parallax
 LAMBDA = overturn.LAMBDA                     # the method equation's coefficient
 LY_M = 9.4607304725808e15                    # m per light year, exact (IAU)
 
+
+def casimir_sheet_ratio(spacing_m, site_mass_kg):
+    """S2's note and B4's supply: the continuum bound |E_Cas|/(M c^2) <=
+    pi^2 hbar/(1440 d m c), gap = site spacing d, site mass m -- DOCKET 67's
+    recovered construction (H-CONTINUUM, H-GAP-GE-SPACING, H-PASSIVE,
+    H-PLANAR-INFINITE, H-T0).  hbar and c asked of address.py."""
+    return math.pi ** 2 * address.HBAR / (1440.0 * spacing_m * site_mass_kg * address.C)
+
+
+#: CORRECTED (DOCKET 67 follow-ups, residue pass; M: "address/correct/repair all
+#: figures").  The nuclear-density entry was TYPED 7.43e-4: the bound at n0 =
+#: 0.1375 fm^-3 (the tree's recalled 2.3e17 kg/m^3) with site mass m_n.  The
+#: tree's one nuclear density is now address.RHO_NUCLEAR (n0 = 0.16 fm^-3 x m_p,
+#: DERIVED-FROM-ORDER), so the entry is COMPUTED from it, site mass m_p as
+#: address takes m_N: 7.83e-4.  Still below 1 -- the refusal does not move.
+M_PROTON_KG = address.M_P_MEV * 1.0e-3 * address.GEV_IN_J / address.C ** 2
+NUCLEAR_SHEET_RATIO = casimir_sheet_ratio(
+    (M_PROTON_KG / address.RHO_NUCLEAR) ** (1.0 / 3.0), M_PROTON_KG)
+NUCLEAR_SHEET_RATIO_TEXT = ("%.2e" % NUCLEAR_SHEET_RATIO).replace("e-0", "e-")
+#: as first written; still checked as a RECORD (n0 = 0.1375 fm^-3, site mass m_n)
+NUCLEAR_SHEET_RATIO_AS_FIRST_WRITTEN = 7.43e-4
+N0_RECALLED_PER_M3 = 0.1375e45
+M_NEUTRON_KG = 1.67492749804e-27             # CODATA 2018; used by the RECORD only
+
 #: kg of negative enclosed Misner-Sharp mass per metre of contraction.
 #: DERIVED here from two asked constants and nothing else; the figure the tree
 #: quotes is 1.348948e26 and the selftest checks this against it.
@@ -1812,11 +1836,13 @@ SUPPLY = [
      "(tolman.py, sign and order only) under a sharp boundary, the plasma "
      "model, T = 0 and omega_p eps/c << 1; its SIGN holds for every passive, "
      "local, sharp-boundary medium, but the NUMBER 0.480 is the plasma "
-     "model's (Drude damping moves it -0.17%%), and the two asymptotes it "
+     "model's (Drude damping moves it -0.17%), and the two asymptotes it "
      "equates hold in disjoint ranges of eps, so a_c is not a physical "
      "threshold.  'Every material that exists' holds for ordinary atomic "
      "matter: the ratio is 2.72e-8 for hydrogen, 1.25e-5 for positronium, "
-     "7.43e-4 at nuclear density, all below 1"),
+     + NUCLEAR_SHEET_RATIO_TEXT + " at nuclear density (address.RHO_NUCLEAR; "
+     "DOCKET 67 follow-ups: first 7.43e-4, at the recalled 2.3e17), all "
+     "below 1"),
 
     ("S3", "squeezed vacuum", MEASURED, ("candidates", "REQUIREMENT_SCALES_AS"),
      "THE LEAST-DEAD ROUTE and the only survivor of the four.  Passes KIND and "
@@ -2595,12 +2621,15 @@ def balance():
     # d = a0 and site mass m = m_H (H-CONTINUUM, H-GAP-GE-SPACING, spacing >=
     # a0, site mass >= m_H, H-PASSIVE, H-PLANAR-INFINITE, H-T0).  Hydrogen is
     # not the maximum: muonium 2.40e-7, positronium 1.25e-5, nuclear density
-    # 7.43e-4 -- all below 1, so the refusal stands.
+    # 7.83e-4 -- all below 1, so the refusal stands.  (CORRECTED, DOCKET 67
+    # follow-ups: the nuclear entry was typed 7.43e-4, at the recalled 2.3e17;
+    # it is now NUCLEAR_SHEET_RATIO, computed on address.RHO_NUCLEAR.)
     rows.append(("B4", "the mirror against the asset it buys",
                  "|E_Cas| >= M c^2 for the apparatus",
                  "|E_Cas|/(M c^2) <= 2.72e-8 for hydrogen sheets (ordinary "
                  "atomic matter: continuum, passive, planar, T = 0); "
-                 "positronium 1.25e-5, nuclear density 7.43e-4",
+                 "positronium 1.25e-5, nuclear density "
+                 + NUCLEAR_SHEET_RATIO_TEXT + " (first 7.43e-4)",
                  None))
     return rows
 
@@ -3271,6 +3300,23 @@ def selftest():
     chk("D20 reproduces DOCKET 63's 2.204772e11 kg/m^3, rescaled by (m_read/m_pin)^2",
         abs(ask(("excite", "HOLD_HIGGS_DERIVED_KG_M3_AT_EPS_1E18"))
             / (2.204772e11 * _mh ** 2) - 1.0) < 1e-6, True)
+    # DOCKET 67 follow-ups, residue pass: S2's and B4's nuclear-density entry is
+    # COMPUTED on address.RHO_NUCLEAR; the typed 7.43e-4 is a RECORD of the
+    # recalled n0 = 0.1375 fm^-3 (2.3e17) with site mass m_n.
+    chk("S2/B4 construction reproduces the hydrogen entry 2.72e-8 (d = a0, m = m_H)",
+        "%.2e" % casimir_sheet_ratio(address.A_BOHR_M, 1.6735575e-27), "2.72e-08")
+    chk("  nuclear entry computed on address.RHO_NUCLEAR (n0 0.16/fm^3 x m_p): 7.83e-4",
+        NUCLEAR_SHEET_RATIO_TEXT, "7.83e-4")
+    chk("  RECORD: as first written, 7.43e-4, at n0 = 0.1375/fm^3 with m_n",
+        "%.2e" % casimir_sheet_ratio(N0_RECALLED_PER_M3 ** (-1.0 / 3.0), M_NEUTRON_KG),
+        "%.2e" % NUCLEAR_SHEET_RATIO_AS_FIRST_WRITTEN)
+    chk("  and S2 and B4 print the computed entry, the typed one only as 'first'",
+        (NUCLEAR_SHEET_RATIO_TEXT + " at nuclear density" in _row_text("S2"),
+         "nuclear density " + NUCLEAR_SHEET_RATIO_TEXT in
+         " ".join(r[3] for r in balance() if r[0] == "B4"),
+         "positronium, 7.43e-4" in _row_text("S2")),
+        (True, True, False))
+    chk("  still below 1: the refusal does not move", NUCLEAR_SHEET_RATIO < 1.0, True)
     # DOCKET 67 follow-ups: D20's G_F status word is asked of higgs.py, which
     # READ it (PDG 2024 Table 1.1); the old word survives only in the quote.
     _d20 = _row_text("D20")
