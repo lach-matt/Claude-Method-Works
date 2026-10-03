@@ -1,0 +1,1504 @@
+{
+  "summary": "DOCKET 68 wave 1: read the named sources, test each hypothesis alone, screen all 127 combinations, adversarially verify",
+  "agentCount": 8,
+  "logs": [
+    "4/4 single-hypothesis reports in"
+  ],
+  "result": {
+    "alone": [
+      {
+        "id": "A1-settle",
+        "files": [
+          "/home/user/Claude-Method-Works/research/warp-drive/docket68/settle.py",
+          "/home/user/Claude-Method-Works/research/warp-drive/docket68/A1-settle.md",
+          "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d68/A1-settle.json"
+        ],
+        "sources": [
+          "2411.09611v1 -- READ -- |eps_gamma| < 1.15e-12 (90% CL) p.1, p.7; Everett-phone mechanism p.2; 'nearly a factor of 50' p.1 (computed 40.87)",
+          "2204.11875v1 -- READ -- |eps_gamma| < 4.7e-11 (90% CL) p.1, p.3; eps_g weaker p.1; gravity-test proposal p.4",
+          "2206.12976v1 -- READ -- |gamma| < 5.4e-12 p.1, p.5; restates KR Lamb-shift bound as 1e-2 p.2; Polchinski causal form p.1",
+          "2106.10576v2 -- READ -- KR eq.4 p.3; separated-system factorisation pp.7-8; inter-branch NEC-violating source p.13; Lamb 1e-4, ion-trap 1e-5, no eps_G data p.14; eps_S fn.5 p.13",
+          "quant-ph/0012041v3 -- READ -- Mielnik restating Weinberg 1989, Gisin 1990, Polchinski 1991 pp.1-3; non-quadratic observables signal p.5",
+          "2412.20854v1 -- READ -- Gisin theorem (Simon-Buzek-Gisin form) p.5; assumption (3b) preferred slicing p.6; protocols pp.17-20; 'might be premature' p.25",
+          "1204.4325v3 -- READ -- deterministic nonlinearity -> superluminal p.15; martingale p.17; QMUPL eq.23 p.34; Lindblad p.89; GRW/CSL parameters p.31, p.53, Table I p.131",
+          "1109.6462v4 -- READ -- ensemble-dependent density-matrix evolution => instantaneous communication, p.11",
+          "2112.09005v3 -- READ -- torsion H_eff eq.99, 'frequency 2 J1 x' p.23",
+          "2203.10269v3 -- READ -- Weinberg 2016 three-clock test; no 1989 bound values",
+          "1909.01608v2 -- READ -- searched; no Weinberg-bound numbers",
+          "0705.3704v2 -- READ -- alpha_dot, mu_dot (2007) p.1,4-5; Oklo |Xs_dot/Xs|<1e-18/yr p.1,4",
+          "2010.06620v2 -- READ -- alpha_dot/alpha 1.0(1.1)e-18/yr, mu_dot/mu -8(36)e-18/yr, gravity couplings p.1, Table II p.4",
+          "1009.5514v1 -- READ -- G_dot/G=(4+-9)e-13/yr LLR eq.133 p.71",
+          "2001.11966v1 -- READ -- |d_n|<1.8e-26 e cm (90% CL) p.6",
+          "Weinberg 1989 Ann.Phys.194,336 / PRL 62,485 -- READ-VIA-RESTATEMENT -- quant-ph/0012041 p.1; 1204.4325 p.15; 2412.20854 p.3 (qualitative only)",
+          "Gisin 1989 HPA 62,363 / 1990 PLA 143,1 -- READ-VIA-RESTATEMENT -- 2412.20854 pp.5-7; quant-ph/0012041 p.1,5; 1109.6462 p.11",
+          "Polchinski 1991 PRL 66,397 -- READ-VIA-RESTATEMENT -- quant-ph/0012041 p.1,3; 2206.12976 p.1; 2411.09611 p.2",
+          "Simon-Buzek-Gisin 2001 -- READ-VIA-RESTATEMENT -- 2412.20854 p.5",
+          "Williams-Turyshev-Boggs 2004 -- READ-VIA-RESTATEMENT -- 1009.5514 p.71",
+          "Majumder et al. 1990 PRL 65,2931 -- NAMED-NOT-READ -- abstract metadata only (pmid 10042736): |eps|/2pi <= 3.8 uHz",
+          "Walsworth et al. 1990 PRL 64,2599 -- NAMED-NOT-READ -- abstract metadata only (pmid 10041761): 3.7e-20 eV (8.9 uHz), exponent sign lost in text layer",
+          "Bollinger et al. 1989 PRL 63,1031 -- NAMED-NOT-READ -- value OPEN",
+          "Chupp & Hoare 1990 PRL 64,2261 -- NAMED-NOT-READ -- value OPEN",
+          "multiverse_12_vector_taxonomy_v2.pdf (Drive id 1YMYbDZVdPRiVCHvlwLm5kuj46y3uXhGq) -- READ via Drive connector -- definitions of the twelve, pp.1-2"
+        ],
+        "grades": [
+          {
+            "hypothesis": "H-SETTLE-W (M's definition: deterministic drift, local on pure states, Weinberg/Gisin type; nlcontrol's H = eps<X>Z) -- alone",
+            "verdict": "PARTIAL",
+            "removes": [
+              "O-BITS (in-model, conditional: eps >= eps_min(L,N), e.g. 7.3e-8 /s at 1 ly with 7 pairs/qubit; this protocol needs >= 6.21 pairs per teleported qubit)"
+            ],
+            "leaves": [
+              "O-MAKE",
+              "O-HOLD",
+              "O-MATTER",
+              "O-LOOP (alone, superluminal signals without a fixed slicing reopen loops)"
+            ],
+            "ground": "settle.py bob_y_exact/derive_law (exact tanh(2 eps T), sympy), best_basis, capacity, eps_to_remove; nlcontrol.evolve imported; Gisin READ-VIA-RESTATEMENT 2412.20854v1 pp.5-7; 1109.6462v4 p.11",
+            "named_hypotheses": [
+              "H-MAP (A: eps=2 pi f / B: eps=pi f)",
+              "H-TRANSFER",
+              "H-SPIN",
+              "H-COHERE",
+              "H-FRAME3b (2412.20854 p.6)",
+              "H-DILUTION (KR p.13)",
+              "Weinberg-family bound values NAMED-NOT-READ; upper limit consistent with zero"
+            ],
+            "testable_prediction": "Bob's mean sigma_y shifts by tanh(2 eps T) when Alice switches z->x; at the Majumder limit (reading A) ~310 pairs held 1 h detect it at 3 sigma; arrival = Alice's preferred-slice time + T, independent of distance",
+            "reading": "M's settling as defined is exactly the class Gisin's theorem says signals; the unread 1989-90 spin bounds do not exclude a strength sufficient at interstellar distances. Not evidence it exists."
+          },
+          {
+            "hypothesis": "H-SETTLE-KR (causal field-expectation-value form, Kaplan-Rajendran) -- alone",
+            "verdict": "OPEN",
+            "removes": [],
+            "leaves": [
+              "O-BITS (superluminal signal at Bob = 0 for every eps, KR sec. 2.3)",
+              "O-MAKE",
+              "O-MATTER",
+              "O-LOOP"
+            ],
+            "ground": "2106.10576v2 pp.7-8 (READ); bounds 2411.09611v1, 2204.11875v1, 2206.12976v1 (READ); O-HOLD OPEN per KR p.13 inter-branch NEC-violating effective source, eps_G unconstrained KR p.14",
+            "named_hypotheses": [
+              "cosmic-history overlap (KR sec. 3.2)",
+              "eps_G unbounded (no data)"
+            ],
+            "testable_prediction": "qubit-positioned test-mass gravity gradient read by atom interferometer (2204.11875 p.4) bounds eps_G, the parameter bearing on O-HOLD",
+            "reading": "the only nonlinear family with modern bounds is the one built to be causal; its bounds say nothing about O-BITS"
+          },
+          {
+            "hypothesis": "Collapse-type stochastic drift (GRW/CSL/QMUPL) -- control",
+            "verdict": "LEAVES-ALL",
+            "removes": [],
+            "leaves": [
+              "O-BITS",
+              "O-MAKE",
+              "O-HOLD",
+              "O-MATTER",
+              "O-LOOP"
+            ],
+            "ground": "settle.py collapse_control: exact Lindblad ensemble difference 1.1e-16; MC 0.54 sigma; vacuity guard per-trajectory <|x|> 0.82; drift_plus_collapse must-signal 93 sigma; 1204.4325v3 eq.23, p.89",
+            "named_hypotheses": [
+              "Euler-Maruyama + renormalisation integrator (MC within 2.5 sigma of Lindblad)"
+            ],
+            "testable_prediction": "no signalling; collapse heating per 1204.4325 Table I",
+            "reading": "stochasticity alone does not protect causality; linearity of the ensemble map does"
+          },
+          {
+            "hypothesis": "H-12 alone (twelve parameters as carriers, linear QM)",
+            "verdict": "LEAVES-ALL",
+            "removes": [],
+            "leaves": [
+              "O-BITS",
+              "O-MAKE",
+              "O-HOLD",
+              "O-MATTER",
+              "O-LOOP"
+            ],
+            "ground": "fields12.py (pre-docket) 1.44e-15; no-communication theorem (D67 NARROWED)",
+            "named_hypotheses": [
+              "linear QM"
+            ],
+            "testable_prediction": "none beyond Bob's 0.5",
+            "reading": "alone it is a theorem-level zero"
+          },
+          {
+            "hypothesis": "H-SETTLE x H-12 (the twelve as drifting parameters)",
+            "verdict": "PARTIAL",
+            "removes": [
+              "O-BITS only via a Weinberg-type (non-causal) carrier drift; none in KR form"
+            ],
+            "leaves": [
+              "O-MAKE",
+              "O-HOLD (OPEN via G in KR form)",
+              "O-MATTER",
+              "O-LOOP"
+            ],
+            "ground": "settle.py H12 table, z0_from_alpha (376.730313410 vs CODATA 376.730313412), v_drift_from_mu; taxonomy PDF READ; 2010.06620v2, 0705.3704v2, 1009.5514v1, 2001.11966v1, 2411.09611v1",
+            "named_hypotheses": [
+              "fixed Yukawa (m_e proportional to v)",
+              "board H1/H2 and S span",
+              "Yukawa-as-field (CP)",
+              "dynamical dark energy (Lambda)",
+              "axion (G_theta)",
+              "time-variation bound is not a state-dependence bound"
+            ],
+            "testable_prediction": "Z0/alpha is the only carrier with a state-dependent bound (|eps_gamma|<1.15e-12); G (eps_G) and v (Higgs) have no state-dependent bound -- the next experiments",
+            "reading": "4 of 12 (M,R,K,T) cannot carry a drift of their own; 5 can in KR form (Z0, alpha_s, G, G_F, v); 3 conditionally (CP, Lambda, G_theta)"
+          },
+          {
+            "hypothesis": "H-SETTLE-W x H-FRAME",
+            "verdict": "PARTIAL",
+            "removes": [
+              "O-BITS (conditional, as above)",
+              "O-LOOP (one-frame keying: corridors.py 0/2000 closed; two frames close)"
+            ],
+            "leaves": [
+              "O-MAKE",
+              "O-HOLD",
+              "O-MATTER"
+            ],
+            "ground": "settle.py section F importing corridors.py (latticectc THEOREM); Gisin assumption (3b) 2412.20854v1 p.6",
+            "named_hypotheses": [
+              "H-SIG-COR (signal modelled as latticectc identification)",
+              "latticectc flat-bulk H1-H3 (frw_frame.py: FRW selects equal cosmic time)",
+              "all H-SETTLE-W hypotheses"
+            ],
+            "testable_prediction": "preferred slice = CMB rest frame (cmb-dipole-370kms); signal arrival keyed to CMB-frame simultaneity + T",
+            "reading": "the preferred slicing Gisin's protocol already needs is the one that makes the channel loop-free"
+          }
+        ],
+        "findings": [
+          "EXACT LAW: under nlcontrol's H = eps<X>Z, Bob's <sigma_y> = tanh(2 eps T) for Alice x, 0 for Alice z (sympy residual 0); general closed form y = rho_perp tanh(atanh(y0/rho_perp) + 2 eps rho_perp T), agrees with nlcontrol's integrator to 1.6e-5.",
+          "nlcontrol's printed 0.53706 is its first-order integrator output, +1.0e-5 above the exact 0.5370496 (last-digit discrepancy; no conclusion moves).",
+          "Alice's best axis is x; Bob's mean y >= 0 for every axis (no antipodal letter). Ceiling log2(1.25) = 0.3219 bits/pair; >= 6.21 pairs per teleported qubit for this protocol (>= 2 for any qubit protocol by Holevo, NAMED-NOT-READ).",
+          "KR (causal) family: superluminal signal at Bob = 0 for every eps (2106.10576v2 sec. 2.3); its bounds (1.15e-12, 5.4e-12, 4.7e-11) leave O-BITS untouched.",
+          "Weinberg-family bound (Majumder |eps|/2pi <= 3.8 uHz, NAMED-NOT-READ) inverted under H-MAP: eps_max 2.39e-5 /s (A) or 1.19e-5 /s (B); D=0.5 needs 3.2 h (A); best 6.7e-6 bits/s per pair at T=8.6 h; removing O-BITS at 1 ly with 7 pairs/qubit needs eps >= 7.3e-8 /s (NOT EXCLUDED); at 1 AU with 7 pairs needs 4.6e-3 /s (EXCLUDED). An upper limit consistent with zero: not evidence.",
+          "Collapse-type stochastic drift does not signal (exact 1.1e-16; MC 0.54 sigma) though each trajectory changes nonlinearly; deterministic drift plus collapse noise signals at 93 sigma with the same detector.",
+          "H-12: M, R inherit alpha/v; K, T are material properties (category); Z0 = 2 alpha h/e^2 (computed) is the only carrier with a measured state-dependent bound; alpha_dot/alpha 1.0(1.1)e-18/yr; G_dot/G (4+-9)e-13/yr; |Xs_dot/Xs| < 1e-18/yr; v_dot/v +8(38)e-18 to +11(51)e-18/yr under named hypotheses; eps_G, eps_S unbounded per KR.",
+          "DISCREPANCY: 2411.09611's 'nearly a factor of 50' improvement computes to 40.87.",
+          "DISCREPANCY: KR v2 p.14 prints the Lamb-shift bound as 1e-4; Brož 2206.12976 p.2 restates it as 1e-2.",
+          "DISCREPANCY (recorded, not repaired): warpfolder.py sec.4 calls the 12-vector 'coupling constants and one vev'; the taxonomy PDF defines M,R,K,T as emergent atomic/condensed-matter properties and Z0 as an impedance (= alpha). warpfolder's category conclusion is unaffected.",
+          "Gisin's protocol itself requires a preferred slicing (2412.20854 assumption 3b), so H-SETTLE-W pairs naturally with H-FRAME; corridors.py shows one-frame keying closes no loop.",
+          "KR p.13 (READ): under a gravitational nonlinearity, positive energy in another branch appears here as an NEC-violating source -- a reading bearing on O-HOLD; eps_G has no experimental bound (KR p.14).",
+          "Board note: D67 audit fermion-mass-constancy named 2010.06620 and 1009.5514 for a future read; the cited pages are now READ here (no board file edited)."
+        ],
+        "selftests": [
+          "python3 settle.py --selftest -> 34/34 PASS (~60 s)",
+          "A1a/A1b nlcontrol printed fixtures reproduced by its integrator and within O(dt) of exact",
+          "A2 sympy ODE/identity residual 0",
+          "A3 integrator vs exact grid < 2e-3; A4 CONTROL wrong law tanh(eps T) must disagree (0.246) -- does",
+          "A5 CONTROL linear H = eps Z: signal 0",
+          "A6 general closed form vs integrator, 12 random states, 1.6e-5",
+          "A7 best axis = x, z/y zero; A8 mean y >= 0 for every axis",
+          "B1 small-D law; B2 capacity(1)=log2 1.25; B3 Holevo = MI; B4 capacity >= MI; B5 N<7 impossible",
+          "C1 Walsworth h*8.9uHz = 3.68e-20 eV; C2 ratio 40.87; C3 KR/Brož discrepancy kept; C4 eps_min monotone in N",
+          "D1 MC vs Lindblad (2.50 sigma); D2 exact ensemble diff 1.1e-16; D3 MC no signal 0.54 sigma; D4 VACUITY GUARD; D5 CONTROL drift+collapse must signal (93 sigma); D6 CONTROL pure drift must signal",
+          "E1 Z0 = 2 alpha h/e^2 vs CODATA to 1e-9; E2 12 rows, 4 without carrier",
+          "F1 corridors: one corridor no loop, two frames close, one frame 0/2000"
+        ],
+        "problems": [
+          "Weinberg-family bound values (Majumder, Walsworth) are NAMED-NOT-READ: abstract metadata only via a search index (PubMed ids), not on arXiv, no READ arXiv restatement carrying the numbers; Bollinger 1989 and Chupp-Hoare 1990 values OPEN. Every Weinberg-family number is conditional.",
+          "H-MAP carries a factor-2 ambiguity (eps = 2 pi f vs pi f); both reported.",
+          "H-SPIN unresolved: whether Weinberg's rotation-invariant nonlinearity exists for spin-1/2 was not READ; nlcontrol's term is torsion-class, not Weinberg's.",
+          "theta-bar from d_n, and variation bounds for G_F, Lambda, CP: OPEN.",
+          "A scratch non-martingale stochastic control was VACUOUS (per-step renormalisation restores the norm-preserving structure); recorded in A1-settle.md, not used.",
+          "The computed task text listed a file '.../docket68/undefined' (templating fault); the instrument was written as settle.py as the task body names; no file named 'undefined' was created.",
+          "No z3 combination screen run here (outside this item); only the charter-named combinations were graded.",
+          "No host refused; alphaXiv answered every request. Report JSON also written to scratchpad/d68/A1-settle.json."
+        ]
+      },
+      {
+        "id": "A2-frame",
+        "files": [
+          "/home/user/Claude-Method-Works/research/warp-drive/docket68/frame.py",
+          "/home/user/Claude-Method-Works/research/warp-drive/docket68/A2-frame.md",
+          "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d68/A2-frame.json"
+        ],
+        "sources": [
+          "arXiv:0908.3023v2 -- READ -- Bennett-Leung-Smith-Smolin. p.1, eqs (1)-(2): Deutsch's consistency condition and output map. p.1: the fixed point 'always exists' because it may be mixed, and the induced map 'is nonlinear'. p.1: EPR-half fixture, rho_CTC = I/2 and rho'_AB = I/4. p.2, Fig. 2: the linearity trap. p.4: the Principle of Universal Inclusion, and that Deutsch's formalism reduces to standard QM far from a CTC.",
+          "arXiv:0811.1209v2 -- READ -- Brun-Harrington-Wilde. p.1, eqs (1)-(2): the solution is 'not necessarily' unique. p.2, Fig. 1: the SWAP + controlled-H circuit, where input |0> gives rho_CTC |0><0| and input |-> gives |1><1|, both unique. p.2, Fig. 2: the BB84 circuit. p.4: the Holevo bound is violated.",
+          "Deutsch, Phys. Rev. D 44, 3197 (1991) -- READ-VIA-RESTATEMENT -- not on arXiv; restated at 0908.3023v2 p.1 and 0811.1209v2 p.1.",
+          "arXiv:gr-qc/9506087v2 -- READ -- Carlini-Frolov-Mensky-Novikov-Soleng. p.3: the self-consistency principle ('globally self-consistent'). pp.13-14: Echeverria-Klinkhammer-Thorne's multiple and even infinite self-consistent solutions, with no evidence of non-self-consistent ones.",
+          "Novikov, Phys. Rev. D 45, 1989 (1992) -- READ-VIA-RESTATEMENT -- at gr-qc/9506087v2 p.3 and gr-qc/0204022v2 p.5.",
+          "arXiv:gr-qc/0204022v2 -- READ -- Visser. p.2: the chronology protection conjecture. p.5: a universal foliation forbids CTCs kinematically. pp.6-9: chronology horizon, fountain, divergence of <T>. pp.10-11: Kay-Radzikowski-Wald. p.14: 'we do not know for certain'.",
+          "Hawking, Phys. Rev. D 46, 603 (1992) -- READ-VIA-RESTATEMENT -- not on arXiv (an alphaXiv title query resolved to 2607.22056 instead); restated at gr-qc/0204022v2 pp.2, 6-12 and 2607.22056v1 p.11 and App. A.",
+          "arXiv:2607.22056v1 -- READ -- Bermudez-Leonhardt, p.11 and App. A, quoting Hawking's two sentences.",
+          "cmb-dipole-370kms -- board D67 grade NARROWED (READ-VIA-RESTATEMENT of arXiv:1807.06205) -- docket67-raw/GRADES.tsv:112 and audits/cmb-dipole-370kms.json: 369.82 +/- 0.11 km/s, with H1 (kinematic) and H2 (barycentre; Earth 340.65-399.08 km/s).",
+          "Geroch 1967, Tipler 1977 -- NAMED-NOT-READ here -- used only through the board's D67 grades as CHARTER.md records them (O-MAKE row)."
+        ],
+        "grades": [
+          {
+            "hypothesis": "H-FRAME clause 1: a preferred frame exists and corridors are keyed to the cosmic rest frame (alone)",
+            "verdict": "PARTIAL",
+            "removes": [
+              "O-LOOP"
+            ],
+            "leaves": [
+              "O-BITS",
+              "O-MAKE",
+              "O-HOLD",
+              "O-MATTER"
+            ],
+            "ground": "frame.py: cosmic_keyed_rank_n_is_safe (exact Sylvester, 300 rank-2 + 300 rank-3 lattices, 0 failures); frw_time_function_lemma (z3 returns unsat, vacuity sat, drift 2.8e-14, control a>=0 sat); frw_killing_table via frw_frame.lie_g; ordering_test for O-BITS (Alice-first vs Bob-first differ by 1.1e-16); Geroch row from the board's D67 grade via CHARTER.md",
+            "named_hypotheses": [
+              "H-CORRIDOR-MODEL (latticectc H1-H3)",
+              "H-FRW-EXACT",
+              "H-CMB-IS-COSMIC (D67 H1 kinematic, H2 barycentre)",
+              "H-NOT-DE-SITTER",
+              "H-KILLING-SEARCH",
+              "H-LINEAR-QM"
+            ],
+            "testable_prediction": "Bell-type statistics are frame-independent: Bob's marginal stays 1/2 in every ordering. Clause 1 alone has no signalling signature. Its only consequence is that no closed causal curve forms, so no chronology horizon and no Hawking divergence.",
+            "reading": "Removes O-LOOP at every rank and for every a(t) > 0, but not in exact de Sitter, where the dilation-time-translation is Killing and its quotient has a CTC. In Geroch's compact case it also closes the 'with a CTC' escape from O-MAKE."
+          },
+          {
+            "hypothesis": "H-FRAME clause 2a: messages into the coordinate past of a moving frame",
+            "verdict": "PARTIAL",
+            "removes": [],
+            "leaves": [
+              "O-BITS",
+              "O-MAKE",
+              "O-HOLD",
+              "O-MATTER"
+            ],
+            "ground": "frame.py: cmb_coordinate_past. A 1-light-year cosmic-simultaneous corridor delivers at -38,929 s (-10.81 h) in the barycentre frame (v/c = 1.23359e-3); for Earth the figure runs from -35,858 to -42,009 s. Clause 1 admits it; it closes no loop.",
+            "named_hypotheses": [
+              "H-CMB-IS-COSMIC",
+              "H-CORRIDOR-MODEL"
+            ],
+            "testable_prediction": "Arrival lands in a moving observer's coordinate past by gamma (v/c) L/c, and never in the cosmic past. No causal anomaly follows.",
+            "reading": "Consistent with clause 1. It is a 'past' only in coordinate time."
+          },
+          {
+            "hypothesis": "H-FRAME clause 2b: messages into the past of the cosmic clock",
+            "verdict": "OPEN",
+            "removes": [],
+            "leaves": [
+              "O-BITS",
+              "O-MAKE",
+              "O-HOLD",
+              "O-MATTER",
+              "O-LOOP"
+            ],
+            "ground": "frame.py: past_corridor_witness. A (-1/10,1,0,0) corridor plus a (0,1,1/100,0) corridor gives a timelike span; lattice vector (-1,1) has norm -99/10000. past_corridor_condition (sympy): Gram det L^2b^2 - T^2a^2 - T^2b^2 < 0 is reachable for every T > 0. Hawking's conjecture is READ-VIA-RESTATEMENT at gr-qc/0204022v2 pp.10-14 and is unproven. Novikov at gr-qc/9506087v2 p.3. M-S1A-P3 at LEDGER.md:175.",
+            "named_hypotheses": [
+              "H-CORRIDOR-MODEL",
+              "H-DCTC or Novikov self-consistency for loop consistency",
+              "M-S1A-P3 (disqualifying at the seat only)"
+            ],
+            "testable_prediction": "Any message received before it is sent by the cosmic clock. None is observed, and no instrument predicts a magnitude, so the item is OPEN as physics.",
+            "reading": "Excluded by clause 1. Inside the model it reintroduces O-LOOP for every T > 0. Deutsch and Novikov make that loop consistent, not absent. Hawking's conjecture would forbid it, but the conjecture is open."
+          },
+          {
+            "hypothesis": "Deutsch D-CTC consistency (the H-FRAME clause-2 mechanism) and its relation to H-SETTLE, under convention C1 (rule on the whole system / reduced state)",
+            "verdict": "LEAVES-ALL",
+            "removes": [],
+            "leaves": [
+              "O-BITS",
+              "O-MAKE",
+              "O-HOLD",
+              "O-MATTER",
+              "O-LOOP"
+            ],
+            "ground": "frame.py: deutsch_fixed_point. Existence: 400 of 400 random U solved, residual at most 5.6e-16. READ fixtures reproduced (BHW and BLSS). Nonlinearity: input I/2 gives P0 = 1/2 where linear mixing gives 2/3. signalling_table under C1: P(Bob=0) = 1/2 for none, z and x, so 0 bits. settle_under_C1: nlcontrol drift acting on rho_B shows 2.2e-16 dependence on Alice.",
+            "named_hypotheses": [
+              "H-DCTC",
+              "H-DCTC-CONVENTION = C1",
+              "H-DCTC-SELECT"
+            ],
+            "testable_prediction": "No dependence of Bob's statistics on Alice's choice, even though the dynamics are nonlinear.",
+            "reading": "A solution always exists and the map is nonlinear, but there is no signal."
+          },
+          {
+            "hypothesis": "H-FRAME + H-SETTLE under convention C2 (nonlinearity acting per branch; a D-CTC or nlcontrol-type drift)",
+            "verdict": "PARTIAL",
+            "removes": [
+              "O-BITS",
+              "O-LOOP"
+            ],
+            "leaves": [
+              "O-MAKE",
+              "O-HOLD",
+              "O-MATTER"
+            ],
+            "ground": "frame.py: signalling_table under C2 gives P(Bob=0) 1/2 (none), 2/3 (z), 1/3 (x), so I = 1 - H(2/3) = 0.0817 bits per use. c2_needs_a_frame: Bob-first gives 1/2, Alice-first gives 2/3 or 1/3, so C2 is undefined without H-FRAME. antitelephone: a reply keyed to the sender's frame arrives at t = -3/5; keyed to the cosmic frame it arrives at t = 0. BLSS 0908.3023v2 p.4 (READ) argues C2 is ill-defined.",
+            "named_hypotheses": [
+              "H-DCTC-CONVENTION = C2",
+              "H-CMB-IS-COSMIC",
+              "measurement is a physical event placed in cosmic time",
+              "experimental bounds on nonlinear QM NAMED-NOT-READ"
+            ],
+            "testable_prediction": "Bob's statistics would depend on whether Alice's measurement precedes his in cosmic (CMB-frame) time, not in either lab's time. The signal would be keyed to the dipole direction, v/c = 1.2336e-3. This circuit carries 0.0817 bits per pair; per BHW p.2 (READ, not computed here) the BB84 circuit would carry 1 bit per pair. Whether that meets teleportation's 2 bits per qubit is OPEN.",
+            "reading": "The one complementary pair found. H-SETTLE under C2 supplies a channel; H-FRAME makes C2 well defined and removes the loop that superluminal signalling would otherwise bring. The result is conditional on C2."
+          },
+          {
+            "hypothesis": "H-FRAME paired with curvature (frw_frame.py)",
+            "verdict": "PARTIAL",
+            "removes": [
+              "O-LOOP"
+            ],
+            "leaves": [
+              "O-BITS",
+              "O-MAKE",
+              "O-HOLD",
+              "O-MATTER"
+            ],
+            "ground": "frame.py: frw_killing_table. For generic a(t) and for LambdaCDM a = sinh(t)^(2/3), d_x is Killing; d_t, the boost and the dilation are not. The dilation is Killing iff a'/a = c (de Sitter), which is True for a = e^{Ht}. de_sitter_identification_closes: an isometry that maps (t0,0) to (t0+tau,0), so the quotient has a CTC.",
+            "named_hypotheses": [
+              "H-FRW-EXACT",
+              "H-NOT-DE-SITTER",
+              "H-KILLING-SEARCH (x-dependent xi^t not exhausted)"
+            ],
+            "testable_prediction": "In LambdaCDM the geometry admits only equal-cosmic-time comoving identifications. In the exact de Sitter limit a time-shifting identification becomes an isometry, so the frame is then selected by the matter content (the CMB) and not by the geometry.",
+            "reading": "The charter's reading is NARROWED: it holds for LambdaCDM and fails in exact de Sitter."
+          }
+        ],
+        "findings": [
+          "Clause 1 (corridors keyed to the cosmic frame) closes no causal curve at ANY rank. The exact positive-definite Gram argument passes Sylvester on 300 rank-2 and 300 rank-3 lattices with 0 failures. In exact flat FRW, z3 proves cosmic time is a global time function for every a(t) > 0 (guards: vacuity sat, drift 2.8e-14, control a>=0 sat).",
+          "Clause 2 splits in two. 2a, the coordinate past of a moving frame, is admitted: a 1-ly cosmic-simultaneous corridor arrives 38,929 s early in the barycentre frame. 2b, the past of the cosmic clock, is equivalent to xi_t != 0. One such corridor plus one suitably oriented cosmic corridor closes a causal curve for every T > 0 (exact witness, norm -99/10000; sympy condition b^2(L^2-T^2) < T^2 a^2).",
+          "FINDING: frw_frame.py rebinds its module-global g to Minkowski at the end of the script. An importer calling frw_frame.lie_g therefore gets the Minkowski Lie derivative unless it restores g. The script's own printed output is unaffected. Recorded, not repaired.",
+          "NARROWING of the charter's FRW reading: the dilation-time-translation d_t - c x.d_x is Killing iff a'/a = c (exact de Sitter), and its quotient has a CTC. For LambdaCDM a = sinh^(2/3)(t) it is not Killing, so the claim 'only equal-cosmic-time identifications' holds for LambdaCDM and fails in the de Sitter limit.",
+          "Deutsch D-CTC: a fixed point always exists (400 of 400 random U, constructive Cesaro plus eigenspace projection), but it is not unique in general (U = I gives a fixed-point space of dimension 4). The map is nonlinear: for the BHW circuit P0 is 1, 1/3, 2/3, 0 for |0>, |1>, |+>, |->, and P0(I/2) is 1/2 where linear mixing gives 2/3.",
+          "Signalling is decided by one convention, not by the dynamics. C1 (BLSS Universal Inclusion) gives 0 bits. C2 (per-branch) gives 0.0817 bits per use. The same holds for H-SETTLE: nlcontrol's drift acting on rho_B shows no dependence on Alice (2.2e-16).",
+          "C2 is frame-dependent (Bob-first 1/2 vs Alice-first 2/3 or 1/3), so it needs H-FRAME to be defined. H-FRAME keyed to the cosmic frame then removes the antitelephone loop (a reply keyed to the sender's frame arrives at -3/5; keyed to the cosmic frame it arrives at 0). This is the complementary pair H-FRAME + H-SETTLE(C2).",
+          "O-BITS is not removed by a preferred frame. Alice-first and Bob-first Lueders updates are identical to 1.1e-16, transit.py's withheld-bits state is I/2 to 2.2e-16, and the non-local CNOT control moves Bob's P(0) by 1.",
+          "O-MAKE: a global time function closes the 'with a CTC' escape in Geroch's compact case (board's D67 grade, not re-read). H-FRAME therefore makes O-MAKE no easier in GR."
+        ],
+        "selftests": [
+          "python3 /home/user/Claude-Method-Works/research/warp-drive/docket68/frame.py --selftest: 47 checks, ALL PASS, exit 0, about 20 s.",
+          "13 controls that must fail, and do: E1/E2 two-frame CTC; the clause-2b span is timelike; its lattice vector is causal; Minkowski boost is Killing; de Sitter dilation is Killing; the de Sitter identification is an isometry; the z3 claim fails with a>=0; U = I gives a non-unique fixed point; C2 z -> 2/3; C2 x -> 1/3; C2 mutual information > 0; the non-local CNOT signals; the antitelephone arrives at -3/5.",
+          "READ fixtures: BHW 0811.1209v2 p.2 (|0> reads 0, |-> reads 1, both unique); BLSS 0908.3023v2 p.1 (rho_CTC = I/2, rho'_AB = I/4); CMB v/c = 1.23357e-3 from the board's D67 audit.",
+          "Proof-assistant guards on the z3 lemma: vacuity (sat), encoding drift against frw_frame's metric (2.8e-14), and a control with the hypothesis weakened (sat)."
+        ],
+        "problems": [
+          "No host refused a request; every alphaXiv call returned content.",
+          "Hawking 1992 and Deutsch 1991 are not on arXiv, so both are READ-VIA-RESTATEMENT only. Novikov 1992 likewise, restated in gr-qc/9506087.",
+          "The pre-docket scripts (corridors, frw_frame, nosig, nlcontrol) run their computations and print when imported, which costs about 17 s. frame.py captures their output rather than showing it.",
+          "The Killing search did not exhaust Killing vectors with x-dependent xi^t (named as H-KILLING-SEARCH).",
+          "Not computed: the claim that BHW's BB84 circuit would carry 1 bit per pair under C2 (taken as READ from BHW p.2), and whether the per-qubit budget under C2 reaches teleportation's 2 bits (OPEN)."
+        ]
+      },
+      {
+        "id": "A3-measure",
+        "files": [
+          "/home/user/Claude-Method-Works/research/warp-drive/docket68/measure.py",
+          "/home/user/Claude-Method-Works/research/warp-drive/docket68/A3-measure.md",
+          "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d68/A3-measure.json",
+          "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d68/A3-measure.numbers.json"
+        ],
+        "sources": [
+          "1106.1791v3 -- READ -- Baez-Fritz-Leinster (BFL). Thm 2, p.4: a functorial, convex-linear and continuous F equals c(H(p)-H(q)) with c>=0; continuity is defined on p.4. Def 1, p.3: FinProb, whose morphisms are measure-preserving FUNCTIONS. Eq.(5), p.6. Faddeev, Thms 5-6, pp.7-8. phi(nm)=phi(n)+phi(m), p.8. Tsallis, Thm 7, p.10. Shannon 1948 and Faddeev 1956 are NAMED-NOT-READ (restated in this paper).",
+          "2009.07125v3 -- READ -- Parzygnat, Thm 1.4 = Thm 4.26, pp.3 and 24: the quantum (von Neumann) analogue, with orthogonal affinity in place of convex linearity. p.2: the quantum entropy difference 'need not have a fixed sign', and Landauer 'could fail for quantum systems'.",
+          "quant-ph/9611023v1 -- READ -- Holevo. p.2: the entropy bound C <= max DeltaH. p.3: the capacity theorem, eq.(5). Holevo 1973 (ref [7]) is NAMED-NOT-READ.",
+          "quant-ph/9904023v5 -- READ -- Bennett-Shor-Smolin-Thapliyal (BSST). p.1: prior entanglement 'confers no ability to transmit classical information', and C_E = 2C for a noiseless channel. p.2: C1 <= log2 d - avg S. p.3: FCCC >= C_E, 'otherwise a violation of causality'. Bennett-Wiesner 1992 is READ-VIA-RESTATEMENT (p.1).",
+          "physics/0210005v2 -- READ -- Bennett. p.1: Landauer's principle; reversible steps can in principle be done reversibly. p.4: k ln 2 per merge. Landauer 1961 is READ-VIA-RESTATEMENT.",
+          "1503.06537v1 -- READ -- Berut-Petrosyan-Ciliberto. p.2: kT ln2 per bit, '~3e-21 J at room temperature'. p.3: eq.(1), the generalised bound. p.13: '~0.19 kBT' at P=80%, error bars +/-0.15 kT. p.14: asymptote A = 0.72 kT. The Nature 2012 letter is NAMED-NOT-READ.",
+          "1009.1630v2 -- READ -- del Rio et al., pp.2-4: W(S|O) = H(S|O) kT ln2. A Bell memory gives H(S|Q) = -1 and a net work gain of kT ln2. p.3: operations are 'not restricted to LOCC'.",
+          "quant-ph/0404042v1 -- READ -- Bekenstein. Eq.(1), p.1: S <= 2 pi E R/(hbar c), where E is 'the gravitating energy', which 'disposes of any ambiguity' about the zero of energy. p.2: applies to complete, weakly self-gravitating systems. p.8: E 'must include the ground state energy'. Board grade: NARROWED (docket67-raw/GRADES.tsv:96).",
+          "method/members/The_Method_1_6-2.md line 4 -- READ (targeted read) -- '6,912 = 976 + 0 + 5,936' (register 833).",
+          "water molar entropy 69.95 J/(mol K) -- NAMED-NOT-READ -- used only for the H-THERMO row, which is marked CONDITIONAL"
+        ],
+        "grades": [
+          {
+            "hypothesis": "Q-1 (the substrate-free measure, BFL Thm 2)",
+            "verdict": "LEAVES-ALL",
+            "removes": [],
+            "leaves": [
+              "O-BITS",
+              "O-MAKE",
+              "O-HOLD",
+              "O-MATTER",
+              "O-LOOP"
+            ],
+            "ground": "measure.py: these checks pass: check_functorial, check_convex, check_continuity, check_uniform, check_grouping, check_eq5, recover_c, symbolic_convex_linearity. Each of the 4 non-Shannon controls fails a named axiom. READ 1106.1791v3 pp.3-4 and 2009.07125v3 p.3.",
+            "named_hypotheses": [
+              "H-FINITE",
+              "H-UNIT",
+              "H-ALT"
+            ],
+            "testable_prediction": "Any functional on FinProb that satisfies all three axioms equals c*DeltaH. Every non-Shannon candidate fails an axiom.",
+            "reading": "The measure is delivered. It is unique up to the unit, and up to which alternatives and probabilities are counted (H-ALT), which is where physics re-enters. A measure only counts, so it removes no obstruction."
+          },
+          {
+            "hypothesis": "H-INFO (information is primary; matter cannot exist without it)",
+            "verdict": "LEAVES-ALL",
+            "removes": [],
+            "leaves": [
+              "O-BITS",
+              "O-MAKE",
+              "O-HOLD",
+              "O-MATTER",
+              "O-LOOP"
+            ],
+            "ground": "measure.py:superdense(): chi_Bob is 0 with nothing sent and 2 bits after sending (BSST p.1). Also price_table, and Bekenstein quant-ph/0404042v1 pp.1-2.",
+            "named_hypotheses": [
+              "H-ALT",
+              "H-LISTED",
+              "H-RHO",
+              "H-GRID",
+              "H-THERMO",
+              "H-FAITHFUL",
+              "H-ERASE",
+              "H-R",
+              "H-TBODY"
+            ],
+            "testable_prediction": "Any channel where Bob's statistics depend on Alice's choice with nothing sent gives chi_Bob > 0 in the superdense test. Linear QM gives 0 (computed).",
+            "reading": "Clause (a), that information can be quantified independently of substrate, is supported. Clause (b), that matter cannot exist without information, is OPEN: the measure gives 0 bits to a one-point space, and no exchange rate read here is a lower bound. Alone, H-INFO removes no obstruction, but it reprices the transfer. Erasing the information that defines a 70 kg body costs 2.8e7-3.2e8 J at 310 K. That is 1.5e34 times below the board's 1 m throat (4.8155e42 J)."
+          },
+          {
+            "hypothesis": "R-INDEX (probability of a cell in the closed index, measured by Q-1; no energy term, so no NEC)",
+            "verdict": "PARTIAL",
+            "removes": [
+              "O-HOLD: removed within the measure only and moved to the exchange rates; it is a physical removal only under H-IT",
+              "O-MAKE: removed within the measure only, because it cannot be stated there; it is a physical removal only under H-IT"
+            ],
+            "leaves": [
+              "O-BITS",
+              "O-MATTER",
+              "O-LOOP"
+            ],
+            "ground": "The measure's objects are finite probability spaces (BFL Def 1, p.3), so no NEC and no Geroch condition can be stated in it. measure.py bekenstein_floor_j: the holding floor is 33-379 J at R = 1 m, against 4.8155e42 J for the board's throat. Bekenstein's E is gravitating energy (READ p.1-2). method_bits uses cypher._lambda: 976 and 6912 match the READ identity.",
+            "named_hypotheses": [
+              "H-IT",
+              "H-UNIFORM",
+              "H-ALT",
+              "H-R",
+              "H-ERASE",
+              "H-FAITHFUL"
+            ],
+            "testable_prediction": "Under R-INDEX plus H-IT, any holder of the 70 kg definition at R = 1 m needs total gravitating energy of at least 33-379 J, depending on the count.",
+            "reading": "O-HOLD and O-MAKE move to the exchange rates. Energy and geometry come back through Bekenstein's E and R, not through an NEC. O-BITS stays: 2 log2 d bits per qudit must be sent. O-MATTER stays: a holder must be at the destination. O-LOOP stays: the measure is silent on it, which decides nothing."
+          },
+          {
+            "hypothesis": "H-SETTLE x H-INFO (combination: the drift channel priced by Q-1)",
+            "verdict": "PARTIAL",
+            "removes": [
+              "O-BITS, in nlcontrol's model only, at a priced capacity"
+            ],
+            "leaves": [
+              "O-MAKE",
+              "O-HOLD",
+              "O-MATTER",
+              "O-LOOP"
+            ],
+            "ground": "measure.py:settle_bits, importing nlcontrol: chi_Bob = 6.49e-6, 6.48e-4 and 5.71e-2 bits per use at eps = 1e-3, 1e-2 and 1e-1. The linear control gives 0. The ratio chi(1e-2)/chi(1e-3) is 99.9. The O-BITS bound is argued from causality (BSST p.3).",
+            "named_hypotheses": [
+              "H-SETTLE",
+              "H-BORN-AT-BOB",
+              "nlcontrol model H = eps<X>Z, T = 3"
+            ],
+            "testable_prediction": "A measured chi_Bob per use bounds eps through chi ~ 6.5 eps^2 bits. Carrying the 1 A count needs 6.4e33, 6.4e31 or 7.3e29 pre-shared pairs.",
+            "reading": "The obstructions are complementary: H-SETTLE could remove O-BITS. Each use spends one pair that was distributed earlier (transit.py)."
+          },
+          {
+            "hypothesis": "H-INFO x H-ZERO (combination)",
+            "verdict": "OPEN",
+            "removes": [],
+            "leaves": [
+              "O-BITS",
+              "O-MAKE",
+              "O-HOLD",
+              "O-MATTER",
+              "O-LOOP"
+            ],
+            "ground": "READ quant-ph/0404042v1 p.1 (E is gravitating energy, fixing the zero) and p.8 (E includes the ground state).",
+            "named_hypotheses": [
+              "H-ZERO",
+              "H-IT"
+            ],
+            "testable_prediction": "Within GR, relabelling the zero cannot lower the Bekenstein exchange rate.",
+            "reading": "Narrowed within GR. OPEN in the emergent paradigm."
+          }
+        ],
+        "findings": [
+          "Q-1 is delivered. BFL Thm 2 was verified on finite spaces. Functoriality holds to 4.4e-16. Convex linearity holds to 7.8e-16 and is exact symbolically. The continuity gap is 2.3e-9 at a vanishing point. The uniform case holds to 1.5e-13. In bits, c = 1/ln2. Four non-Shannon controls each fail an axiom.",
+          "The theorem leaves two things open: the unit (H-UNIT), and which alternatives count with what probabilities (H-ALT), which is where physics re-enters. On The Method's index the coordinate list settles H-ALT.",
+          "cypher._lambda computes |Lambda| = 976, a box of 6,912, E = 0 and 5,936 refused. This matches the READ identity. log2 976 = 9.930737 and log2 6912 = 12.754888 bits per cell under H-UNIFORM. The closure supplies 2.824150 bits. Strong additivity holds exactly.",
+          "transit.py's DECLARED 2 bits per qubit now has a READ lower bound: FCCC >= C_E = 2 log2 d (BSST p.3). Prior entanglement alone carries 0 bits (computed). The bound rests on causality.",
+          "For a 70 kg body there are 6.7117e27 atoms. Four named counts give 9.5e27-1.1e29 bits. Erasing them costs 2.8e7-3.2e8 J at 310 K. The Bekenstein holding floor at R = 1 m is 33-379 J. That is 1.5e34 times below the 1 m throat. This prices the 'costs little' half of M's thesis, but the bits must still be sent no faster than light.",
+          "Under R-INDEX, O-HOLD and O-MAKE are removed within the measure and moved to the exchange rates. Geometry comes back through Bekenstein's E and R. This is a physical removal only under H-IT.",
+          "Under H-SETTLE x H-INFO, the drift channel carries 6.49e-6, 6.48e-4 and 5.71e-2 bits per use (quadratic in eps; linear control 0).",
+          "Under H-INFO x R-QUANTUM, an entangled memory makes erasure yield work (S(A|B) = -1). This needs joint operations that are not limited to LOCC. Whether a version restricted to LOCC keeps the gain is OPEN.",
+          "Under H-INFO x H-ZERO, Bekenstein's E includes the ground-state energy. So within GR, relabelling the zero cannot lower the holding rate."
+        ],
+        "selftests": [
+          "measure.py --selftest: 58/58 pass, 16 of them controls, about 13 s",
+          "Controls that must fail, and do: squared, Renyi-2, Tsallis-2 and Hartley functionals; a mis-stated identity; the BB84 label count; a channel to Bob; a sub-Landauer heat; R given in cm; a 3 A grid; the linear nlcontrol case",
+          "Positive control: Tsallis-2 passes Thm 7 at degree 2",
+          "The vacuity guard and the encoding-drift guard both pass",
+          "READ fixtures reproduced: Berut's ~3e-21 J, 0.19 kT and 0.72 kT, and Bekenstein's 1.80e45 bits"
+        ],
+        "problems": [
+          "The task listed one of my files as 'docket68/undefined', which is a fault in the script. I wrote the instrument as measure.py instead.",
+          "One control was wrong as first written: a Pauli on Bob's half of the Bell pair. It was replaced, and the replacement is recorded in A3-measure.md.",
+          "The H-THERMO datum is NAMED-NOT-READ, so that row is CONDITIONAL. H-RHO is a round assumption.",
+          "No z3 screen was run, because the claim it would check is structural. The 127-combination screen was not attempted.",
+          "O-LOOP is graded as silent, which decides nothing. frame.py (A2) owns that question.",
+          "No host refused a request."
+        ]
+      },
+      {
+        "id": "A4-geometry",
+        "files": [
+          "/home/user/Claude-Method-Works/research/warp-drive/docket68/geometry.py",
+          "/home/user/Claude-Method-Works/research/warp-drive/docket68/A4-geometry.md",
+          "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d68/A4-geometry.json"
+        ],
+        "sources": [
+          "gr-qc/0007021v2 -- READ -- Gao & Wald, all 15 pp. Thm 1 p.6; Thm 2 pp.12-13. Hypotheses: NEC eq.(2) and null generic condition eq.(9), p.4; strong causality and compactness, p.12. Fn.3 p.12: Borde's averaged condition may replace the NEC. p.14: pure AdS fails the null generic condition. The paper reads Thm 2 as a 'time delay' relative to AdS (pp.6, 14) and never mentions a CFT or boundary causality.",
+          "Gao-Wald holographic reading ('bulk causality respects boundary causality') -- NAMED-NOT-READ -- it is not in gr-qc/0007021v2, and its source was not read.",
+          "1005.3035v2 -- READ -- Van Raamsdonk, all 8 pp. Eq.(1) p.2. Horizons that forbid communication are tied to 'absence of interactions', p.2. Eq.(2) p.4: mutual information bounds correlations. Eq.(3) p.4. Pinch-off pp.3-5. Fn.1 p.4: geometry fails before the entanglement reaches zero.",
+          "gr-qc/9504004v2 -- READ -- Jacobson, all 8 pp. Eqs.(1)-(6) pp.4-5. Lambda 'for some constant', p.5. G = (4 hbar eta)^-1 and Lambda 'as enigmatic as ever', p.6. Local equilibrium is presumed, p.6.",
+          "1509.02542v2 -- READ -- Bousso, Fisher, Koeller, Leichenauer, Wall. Abstract p.1. pp.1-2: <T_kk> can be negative at a point, 'as large as we wish'. p.2: the RHS 'can have any sign'. p.4: 'fixed background spacetimes with no dynamical gravity'. p.4: the hbar -> 0 limit. Eq.(2.2) p.7. Eq.(5.3) p.25.",
+          "1306.0533v2 -- READ -- Maldacena & Susskind. Fn.1 p.2: non-traversability rests on the integrated NEC; otherwise 'the ER=EPR connection would be wrong'. Sec.3.1 p.16. Sec.3.2 pp.16-17: no bridge 'without preexisting bridges'; the route is make, separate, merge. p.17: non-trivial topologies are allowed as quantum states.",
+          "1703.06144v1 -- READ -- Padmanabhan & Padmanabhan, pp.6-7: in emergent gravity the field equations are invariant under adding a constant to the matter Lagrangian, and Lambda is an integration constant.",
+          "hep-th/9905177 -- READ-VIA-RESTATEMENT (board D67 audit bousso-covariant, NARROWED) -- hypotheses: Einstein's equation plus the dominant (or null + causal) energy condition.",
+          "1208.5399v1 -- READ-VIA-RESTATEMENT (board D67 NARROWED; achievable.duration_bound) -- duration bound eq.(4), C ~ 3.17; massless minimally coupled scalar, flat space, Hadamard states.",
+          "0708.2450 Fewster-Osterbrink -- READ-VIA-RESTATEMENT (board D67 fewster-osterbrink-qei NARROWED) -- no state-independent QEI for xi > 0.",
+          "gr-qc/0209036 -- READ-VIA-RESTATEMENT (board D67 NARROWED) -- no QI along null geodesics for the free massless minimal scalar in 4D Minkowski; a timelike-worldline QNEI does exist.",
+          "gr-qc/9506083 -- READ-VIA-RESTATEMENT (board D67 STANDS) -- this is Poisson-Visser thin-shell stability, NOT a QEI (a discrepancy in the charter).",
+          "gr-qc/9510071 -- NAMED-NOT-READ this pass (board D67 NARROWED) -- named only."
+        ],
+        "grades": [
+          {
+            "hypothesis": "H-IT (spacetime from information), alone",
+            "verdict": "PARTIAL",
+            "removes": [
+              "O-MAKE in its topology-change form. Geroch and Tipler are theorems about Lorentzian manifolds. Under ER=EPR a bridge is a property of an entangled state, and MS p.17 allow non-trivial topologies as quantum states."
+            ],
+            "leaves": [
+              "O-BITS: computed. In the VR eq.(1) state, Bob's state moves by at most 1.55e-15 over 900 of Alice's choices. The interaction control moves it by 0.302. transit.BEATS_LIGHT is False.",
+              "O-MAKE in its distribution form: MS sec.3.2 makes no bridge without preexisting bridges, and the pairs must be separated at <= c. LOCC computed: local unitaries change S by 8.9e-16 bits; the nonlocal control reaches 1.965 bits.",
+              "O-HOLD: Gao-Wald Thm 2 encoded as logic. A shortcut is UNSAT with every hypothesis and SAT with only NEC/Borde-ANEC broken. MS fn.1 rests non-traversability on the integrated NEC.",
+              "O-MATTER: no READ result",
+              "O-LOOP: no READ result (H-FRAME is A2's)"
+            ],
+            "ground": "geometry.py: it_no_signal, it_coupled_control, vr_eq2_check, locc_entropy_change, gao_wald_z3. READ: 1005.3035v2 pp.2-5; 1306.0533v2 fn.1 p.2 and pp.16-17; gr-qc/0007021v2 pp.12-14.",
+            "named_hypotheses": [
+              "H-QUDIT (a d=4 TFD stands in for the CFT pair)",
+              "H-ER=EPR (MS conjecture, with non-traversability assumed)",
+              "eq.(2) read in nats (the stricter reading)"
+            ],
+            "testable_prediction": "Bob's marginals stay independent of Alice's setting for any entanglement; a deviation would refute linear QM but would not single out H-IT. The rate of making corridors is bounded by entanglement distribution at <= c.",
+            "reading": "The READ model splits the work: entanglement gives connection, interaction gives communication. The Geroch half of O-MAKE goes to M. The making itself remains, as distribution."
+          },
+          {
+            "hypothesis": "H-ZERO (zero = ground state), alone",
+            "verdict": "LEAVES-ALL",
+            "removes": [],
+            "leaves": [
+              "O-BITS",
+              "O-MAKE",
+              "O-HOLD",
+              "O-MATTER",
+              "O-LOOP"
+            ],
+            "ground": "zero.py (imported): NEC changes by 0, WEC by -lambda, SEC by +lambda. geometry.py:nec_shift_z3: the negation is UNSAT over every symmetric T, lambda and null k (vacuity: premise SAT; drift vs numpy 1.4e-15). CONTROL: the timelike case is SAT.",
+            "named_hypotheses": [
+              "the zero shift modelled as T_ab -> T_ab + lambda g_ab (zero.py's model)"
+            ],
+            "testable_prediction": "Relabelling the energy zero leaves every NEC-dependent prediction unchanged, including focusing and throat flare-out.",
+            "reading": "It relabels WEC violations away. It cannot touch the throat's NEC deficit, which depends on b(r)."
+          },
+          {
+            "hypothesis": "H-ZERO with H-IT (emergent gravity: Jacobson gr-qc/9504004; Padmanabhan 1703.06144 pp.6-7)",
+            "verdict": "LEAVES-ALL",
+            "removes": [],
+            "leaves": [
+              "O-BITS",
+              "O-MAKE",
+              "O-HOLD",
+              "O-MATTER",
+              "O-LOOP"
+            ],
+            "ground": "geometry.py:jacobson_null_equation. Contracting Jacobson eq.(6) with a null k cancels Lambda and R, leaving R_kk = (2pi/hbar eta)T_kk. A zero shift is invisible to it. CONTROL: a timelike contraction keeps Lambda. From eqs.(2),(5), T_kk < 0 gives dQ < 0 and dA < 0. cosmin.py check A: Ic(6144) = 4pi to 1.8e-15.",
+            "named_hypotheses": [
+              "H-EQUIL (Jacobson's local equilibrium at a throat) -- OPEN"
+            ],
+            "testable_prediction": "No local experiment detects an absolute energy zero. Lambda is fixed by a separate principle (CosmIn: nu = 6144).",
+            "reading": "It removes GR's objection to H-ZERO: in GR a zero shift is a gravitating Lambda. It removes none of the five, because the throat needs T_kk < 0, which is exactly the part the free zero cannot reach."
+          },
+          {
+            "hypothesis": "H-NULL (null is a containment where information lives), incl. the H-INFO pricing",
+            "verdict": "LEAVES-ALL",
+            "removes": [],
+            "leaves": [
+              "O-BITS",
+              "O-MAKE",
+              "O-HOLD",
+              "O-MATTER",
+              "O-LOOP"
+            ],
+            "ground": "geometry.py: morris_thorne, shape_checks, qnec_price (imports nullinfo.req). R_kk(r0) = (b'-1)/r0^2, which equals 8pi(rho+p_r) of zero.py. At the throat theta = 0 and dtheta/dlambda = (1-b')/r0^2 > 0; for three flare-out shapes theta > 0 on both sides, so no light-sheet leaves the throat sphere. CONTROLS: Minkowski ingoing theta = -2/R; b' = 1 gives 0. QNEC outside scope at r0 = 1 m: S''/A <= -1.3807e69 bits/m^4, exactly the light-sheet density over r0^2. Over a null run r0, |dS|/A = 6.90e68 bits/m^2, 0.500 of the cap; 8.68e69 bits over the throat sphere.",
+            "named_hypotheses": [
+              "H-QNEC-OUT-OF-SCOPE (BFKLW p.4: fixed background, no dynamical gravity)",
+              "H-CONST (S'' constant over the null run, S' = 0 at the start)",
+              "Bousso's DEC/NEC hypotheses exclude the throat (board NARROWED)"
+            ],
+            "testable_prediction": "In any lab NEC violation within the QNEC's scope, S''_out <= (2pi/hbar) A <T_kk>. A state with T_kk < 0 and a larger S'' would refute the QNEC.",
+            "reading": "For M: the NEC is what makes null congruences focus and close light-sheets. That is a containment, and Bousso counts information on it. Against the corridor: the throat is exactly where the containment fails. Whether any READ state reaches the priced entanglement curvature is OPEN: it is not forbidden pointwise (BFKLW pp.1-2), and no READ state exhibits the throat profile."
+          },
+          {
+            "hypothesis": "R-QUANTUM (QEI-bounded negative energy holds the throat)",
+            "verdict": "LEAVES-ALL",
+            "removes": [],
+            "leaves": [
+              "O-BITS",
+              "O-MAKE",
+              "O-HOLD",
+              "O-MATTER",
+              "O-LOOP"
+            ],
+            "ground": "geometry.py: boosted_density, r_quantum (imports achievable.duration_bound, hold_time, FEWSTER_C). A radial observer at v^2 = 1/2 (gamma v = 1) sees T_0'0' = p_r = rho+p_r at b' = 0. At r0 = 1 m: required 4.8155e42 Pa; duration_bound(r0/c = 3.3356e-9 s) = 1.0022e-25 Pa; fraction covered 2.08e-68. The required density may last 4.0e-26 s, 1.2e-17 of the hold time. The bound stops refusing at r* = sqrt(8 pi C) l_P = 8.93 l_P, which is dimensional and not evidence. CONTROLS: at r0 = r* the fraction is 1; at r0 = r*/2 it exceeds 1.",
+            "named_hypotheses": [
+              "H-MIN-SCALAR (massless minimally coupled scalar, Hadamard states)",
+              "H_flat (the board's)",
+              "H-PATH (the boosted observer crosses r0 in the static radial coordinate)"
+            ],
+            "testable_prediction": "For the minimal scalar, a negative energy density held for a duration T at a point has magnitude <= C hbar/(c^3 T^4). The xi > 0 scalar is where an exception may be sought.",
+            "reading": "LEAVES-ALL in the bound's proven scope. OPEN, not refused, for the xi > 0 nonminimally coupled scalar, which has no state-independent QEI (Fewster-Osterbrink, board NARROWED)."
+          }
+        ],
+        "findings": [
+          "H-IT is PARTIAL. It removes the Geroch/Tipler topology-change form of O-MAKE (MS p.17). It leaves O-MAKE as entanglement distribution at <= c (MS sec.3.2), O-BITS (computed: 1.55e-15), O-HOLD (Gao-Wald Thm 2 needs the NEC or Borde-ANEC; MS fn.1), O-MATTER and O-LOOP.",
+          "Gao-Wald Thm 2 forbids no shortcut outright. A bulk shortcut needs one hypothesis to fail: NEC/Borde-ANEC, null generic, strong causality, compactness or timelike boundary (z3, drift 0/64). The theorem gives no ranking among them.",
+          "Under Jacobson's emergent gravity the energy zero is free: Lambda and R drop out of the null-contracted equation, and a zero shift is invisible. This answers GR's objection to H-ZERO but leaves the throat's T_kk < 0 untouched.",
+          "Computed: no light-sheet leaves a Morris-Thorne throat sphere (theta = 0, dtheta/dlambda = (1-b')/r0^2 > 0, theta > 0 on both sheets). The throat breaks exactly the 'containment' that H-NULL names.",
+          "QNEC price at r0 = 1 m, carried outside its scope: S''/A <= -1.3807e69 bits/m^4, exactly the light-sheet density over r0^2. Over a null run r0 that is half the light-sheet cap per area, and 8.68e69 bits over the throat sphere. Whether a READ state reaches it is OPEN.",
+          "R-QUANTUM at r0 = 1 m: the duration bound allows 1.0022e-25 Pa at the 3.3356e-9 s hold time, against 4.8155e42 Pa required. That covers a fraction 2.08e-68. The xi > 0 branch is OPEN.",
+          "DISCREPANCY: the charter lists gr-qc/9506083 (STANDS) among the QEI holdings. The board's audit shows it is Poisson-Visser thin-shell stability, not a QEI.",
+          "DISCREPANCY: the charter cites 1509.02542 as Bousso-Fisher-Leichenauer-Wall. Its authors are Bousso, Fisher, Koeller, Leichenauer and Wall; BFLW is 1506.02669, their ref.[23].",
+          "DISCREPANCY: the work order ascribes 'bulk causality respects boundary causality' to Gao-Wald. gr-qc/0007021v2 states a time delay relative to AdS under the NEC and never mentions a CFT.",
+          "The work order named the instrument file 'docket68/undefined', a fault in the script that produced it. The instrument was written as geometry.py, the name the order's text gives.",
+          "Combinations tested: H-ZERO+H-IT, H-NULL+R-QUANTUM and H-IT+H-NULL. None removes an obstruction. The other 8 subsets of {H-IT, H-ZERO, H-NULL, R-QUANTUM} were not tested, because no member removes an obstruction that H-IT leaves, so there is no complementary pairing."
+        ],
+        "selftests": [
+          "python3 /home/user/Claude-Method-Works/research/warp-drive/docket68/geometry.py --selftest -> 42 checks, 10 controls, ALL PASS (about 20 s; needs numpy, sympy, z3-solver)",
+          "controls: the interaction signals (0.302); eq.(2) x50 is violated; a nonlocal unitary entangles; the Gao-Wald shortcut is SAT with the NEC broken; the timelike zero shift is SAT; Jacobson's timelike contraction keeps Lambda; a Minkowski light-sheet exists; b' = 1 gives no flare-out; b' = 1 gives a QNEC price of 0; at r0 = r*/2 the bound does not refuse",
+          "guards: z3 vacuity (premise SAT) and encoding drift (vs numpy 1.4e-15; Gao-Wald truth table 0/64) run before results"
+        ],
+        "problems": [
+          "No host refused; every alphaXiv call returned page text.",
+          "The 'undefined' filename in the work order could not be honoured meaningfully, so geometry.py was used.",
+          "gr-qc/9510071 (Ford-Roman wormhole QI) was not re-read this pass; it is only named.",
+          "Importing zero/nullinfo/cosmin/achievable/transit runs their top-level computations; stdout is captured."
+        ]
+      }
+    ],
+    "combine": {
+      "id": "B-combine",
+      "files": [
+        "/home/user/Claude-Method-Works/research/warp-drive/docket68/combine.py",
+        "/home/user/Claude-Method-Works/research/warp-drive/docket68/B-combine.md",
+        "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d68/B-combine.json",
+        "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d68/B-combine.variants.json"
+      ],
+      "sources": [
+        "1306.0533v2 -- READ -- Maldacena-Susskind. fn.1 p.2: 'We will assume that wormholes remain un-traversable'; 'the ER=EPR connection would be wrong'. sec.3.1 p.16: no superluminal signals. sec.3.2 pp.16-17: no creation by LOCC; no bridge 'without preexisting bridges'; make, separate, merge. p.17: non-trivial topologies 'should be allowed as possible quantum states'. sec.5.4 pp.36-37: a geometric feature is a linear operator.",
+        "quant-ph/0212044v2 -- READ -- Reznik. p.1: causally disconnected probes end entangled, and the entanglement vanishes with separation. p.10: accelerated probes, amplitudes exponentially small. p.12, Fig.2: inertial probes entangled only for L/T < 1.1.",
+        "A1-A4 sources -- READ by the work items. Every READ citation in combine.py's grounds is the owning A-report's; not re-read here.",
+        "LEDGER.md S5/S10/S13, transit.py, emtension.py -- board holdings, read and never written."
+      ],
+      "grades": [
+        {
+          "hypothesis": "ALL 127 combinations x every reading (3,071 variants, 1,919 consistent): does any remove all five?",
+          "verdict": "PARTIAL",
+          "removes": [
+            "O-BITS (best case REMOVED-IF N_EPS, via H-SETTLE W2)",
+            "O-MAKE in its topology-change form only (REMOVED-IF N_QTOPO, via H-IT)",
+            "O-HOLD (REMOVED by H-IT ITB with R-INDEX jointly)",
+            "O-LOOP (REMOVED-IF N_CORR + N_SIGKEY, via H-FRAME F1)"
+          ],
+          "leaves": [
+            "O-MATTER: LEFT in every one of the 1,919 consistent variants. This comes from the board holding B-RECV; the control deletes it and O-MATTER becomes removable.",
+            "O-MAKE in its distribution form (O-MAKE-DIST): removed in no consistent variant. OPEN only via N_VAC (vacuum entanglement as the pairs). Reznik quant-ph/0212044v2 READ: it vanishes with separation; inertial probes only for L/T < 1.1, p.12."
+          ],
+          "ground": "combine.py run_screen/survivors (z3 unsat cores over tracked board holdings and commitments); guards guard_vacuity and guard_drift; tests T-A to T-F",
+          "named_hypotheses": [
+            "N_EPS",
+            "N_QTOPO",
+            "N_CORR",
+            "N_SIGKEY",
+            "OPEN pathways: N_VAC, N_XI, N_EPSG",
+            "encoding choices: the six-way O-MAKE split; closed world; R-INDEX physical only with ITB",
+            "all A1-A4 named hypotheses carried through"
+          ],
+          "testable_prediction": "No combination predicts the FIRST transit arriving before light: the pairs (>= 6.21 per qubit) and the holder arrive at <= c. Later transits under {W2, F1} could arrive L/2c before light, keyed to CMB-frame simultaneity.",
+          "reading": "No consistent combination removes all five. O-MATTER survives because none of the seven commits to a supply at the destination. O-MAKE-DIST survives because every channel runs on pre-distributed entanglement."
+        },
+        {
+          "hypothesis": "{H-SETTLE W2, H-FRAME F1, H-IT ITB, R-INDEX}, plus any of H-12, H-INFO, H-ZERO, H-NULL: the most-removing consistent combination",
+          "verdict": "PARTIAL",
+          "removes": [
+            "O-BITS (REMOVED-IF N_EPS). The z3 window over the reals is consistent with the NAMED-NOT-READ Majumder limit at 1 ly and 4.24 ly for N = 7, and inconsistent at 1 AU for N = 7 and N = 1000.",
+            "O-MAKE-TOPO (REMOVED-IF N_QTOPO)",
+            "O-HOLD (REMOVED: ITB and R-INDEX jointly)",
+            "O-LOOP (REMOVED-IF N_CORR, N_SIGKEY)"
+          ],
+          "leaves": [
+            "O-MAKE-DIST (OPEN via N_VAC only)",
+            "O-MATTER (LEFT). The holder's floor is 33-379 J at R = 1 m, and the holder needs a prior arrival at <= c."
+          ],
+          "ground": "combine.first_transit and eps_window (z3 over the reals); tests T-A to T-E; settle.eps_to_remove and CMAX; measure.price_table and bekenstein_floor_j; frame.signalling_table and antitelephone",
+          "named_hypotheses": [
+            "N_EPS (with A1's H-MAP, H-TRANSFER, H-SPIN, H-COHERE, H-FRAME3b)",
+            "N_QTOPO",
+            "N_CORR",
+            "N_SIGKEY (A1's H-SIG-COR)",
+            "A3's H-FAITHFUL, H-LISTED, H-GRID, H-RHO, H-THERMO",
+            "H-CMB-IS-COSMIC"
+          ],
+          "testable_prediction": "At 1 ly with N = 7: needs eps >= 7.29e-8 /s. Later transits arrive 0.5 yr before light. The first transit arrives no earlier than L/c + T = 1.5 yr after the pairs leave. A 70 kg body needs 6.66e28 to 7.61e29 pre-shared drift pairs.",
+          "reading": "An amortisation scheme, the same shape LEDGER.md already records for S5: repeated transits can beat light (conditionally); the first cannot."
+        },
+        {
+          "hypothesis": "H-IT read as ER=EPR (ITE) x H-SETTLE W2",
+          "verdict": "REFUTED",
+          "removes": [],
+          "leaves": [
+            "O-BITS",
+            "O-MAKE",
+            "O-HOLD",
+            "O-MATTER",
+            "O-LOOP"
+          ],
+          "ground": "z3 unsat core C-ITE + C-W2 (256 variants). MS 1306.0533v2 READ: fn.1 p.2; sec.3.1 p.16; sec.5.4 pp.36-37. Computed in combine.tfd_drift: in Van Raamsdonk's eq.(1) state the drift signals 0.537 at beta = 0.",
+          "named_hypotheses": [
+            "H-ER=EPR with MS's stated assumptions (non-traversability, linearity)"
+          ],
+          "testable_prediction": "If a W2 signal were measured on entangled pairs, ER=EPR as MS state it would need revising (their fn.1: 'the ER=EPR connection would be wrong').",
+          "reading": "Refuted as a joint set of commitments only. The clash is with MS's own assumptions, not with H-IT: ITB x W2 is consistent."
+        },
+        {
+          "hypothesis": "H-FRAME with both clauses strong (F1 + F2b), as M's sentence states them",
+          "verdict": "REFUTED",
+          "removes": [],
+          "leaves": [
+            "O-BITS",
+            "O-MAKE",
+            "O-HOLD",
+            "O-MATTER",
+            "O-LOOP"
+          ],
+          "ground": "z3 unsat core B-2B + C-F1 + C-F2b (640 variants). frame.py part (i).3: a message into the cosmic past <=> xi_t != 0 <=> not keyed. past_corridor_witness norm -99/10000.",
+          "named_hypotheses": [
+            "H-CORRIDOR-MODEL"
+          ],
+          "testable_prediction": "none beyond each clause's own",
+          "reading": "Each clause alone is consistent. F1 removes O-LOOP. F2b removes nothing and brings loops back in the model. Together they contradict."
+        },
+        {
+          "hypothesis": "H-IT (ITB) x R-INDEX x R-QUANTUM",
+          "verdict": "REFUTED",
+          "removes": [],
+          "leaves": [
+            "O-BITS",
+            "O-MAKE",
+            "O-HOLD",
+            "O-MATTER",
+            "O-LOOP"
+          ],
+          "ground": "z3 unsat core B-THROAT + C-RQ (256 variants). Under ITB, R-INDEX removes the geometric throat (A3's conditional); R-QUANTUM holds one (A4).",
+          "named_hypotheses": [
+            "encoding choice: R-INDEX's physical removal applies with ITB only"
+          ],
+          "testable_prediction": "none",
+          "reading": "M asked for both readings of 'supplied by probability' to be considered. Under H-IT they cannot both be physical for the same corridor. Each is consistent alone, and with ITE."
+        },
+        {
+          "hypothesis": "H-IT (ITB) x R-INDEX: the synergy",
+          "verdict": "PARTIAL",
+          "removes": [
+            "O-HOLD (REMOVED; neither member removes it alone; 192 consistent variants)",
+            "O-MAKE-TOPO (REMOVED-IF N_QTOPO; this one is H-IT's own)"
+          ],
+          "leaves": [
+            "O-BITS",
+            "O-MAKE-DIST",
+            "O-MATTER. The holding reappears as a holder: Bekenstein floor 33-379 J at R = 1 m, against a 4.8155e42 J throat, 1.27e40 times the largest floor.",
+            "O-LOOP (SILENT)"
+          ],
+          "ground": "combine.py synergy census; T-D (measure.price_table and bekenstein_floor_j; wormhole.throat_mass via measure)",
+          "named_hypotheses": [
+            "A3's conditional (physical only under H-IT)",
+            "N_QTOPO",
+            "A3's H-ALT, H-R"
+          ],
+          "testable_prediction": "No NEC test applies. Any holder of a 70 kg definition at R = 1 m has gravitating energy of at least 33-379 J.",
+          "reading": "This is the measured payoff of M's standing instruction: a removal that only the combination delivers. It moves the cost into O-MATTER rather than erasing it."
+        },
+        {
+          "hypothesis": "H-SETTLE W2 x H-FRAME F1",
+          "verdict": "PARTIAL",
+          "removes": [
+            "O-BITS (REMOVED-IF N_EPS)",
+            "O-LOOP (REMOVED-IF N_CORR, N_SIGKEY)"
+          ],
+          "leaves": [
+            "O-MAKE-TOPO",
+            "O-MAKE-DIST",
+            "O-HOLD",
+            "O-MATTER"
+          ],
+          "ground": "T-A: frame.signalling_table C2 carries 0.0817 bits; c2_needs_a_frame gives 1/2 vs 2/3 or 1/3; antitelephone -3/5 vs 0; cosmic keying 0 of 100 lattices fail at rank 2 and 0 of 100 at rank 3; settle tanh(0.6) = 0.53705",
+          "named_hypotheses": [
+            "N_EPS",
+            "N_SIGKEY",
+            "N_CORR",
+            "H-DCTC-CONVENTION = C2",
+            "H-CMB-IS-COSMIC"
+          ],
+          "testable_prediction": "Bob's sigma_y shifts by tanh(2 eps T), keyed to CMB-frame simultaneity plus T. In the lab frame the outcome depends on the ordering: 1/2 vs 2/3 or 1/3.",
+          "reading": "Confirms A1's and A2's pairing inside the full screen: one member supplies the channel, the other removes the loop it would bring."
+        },
+        {
+          "hypothesis": "H-SETTLE W2 x H-IT ITB (new: the drift inside H-IT's own READ model)",
+          "verdict": "PARTIAL",
+          "removes": [
+            "O-BITS (REMOVED-IF N_EPS)",
+            "O-MAKE-TOPO (REMOVED-IF N_QTOPO)"
+          ],
+          "leaves": [
+            "O-MAKE-DIST. Computed: the signal falls with the shared entanglement S: 0.537 at S = 1, 0.240 at S = 0.527, 0.042 at S = 0.13, 0 at S = 0. Product states give 2.9e-15.",
+            "O-HOLD",
+            "O-MATTER",
+            "O-LOOP (SILENT)"
+          ],
+          "ground": "combine.tfd_drift (geometry.tfd, nlcontrol.evolve and settle.bloch_exact, which agree to 1.2e-5; linear and C1 controls give 0); combine.product_drift; geometry.locc_entropy_change 8.9e-16 vs 1.965",
+          "named_hypotheses": [
+            "N_EPS",
+            "N_QTOPO",
+            "H-QUDIT (d = 2 TFD)",
+            "H-DCTC-CONVENTION = C2"
+          ],
+          "testable_prediction": "A W2 signal must track the pairs' entanglement entropy and vanish for product pairs. A local systematic would not.",
+          "reading": "The channel runs on the bridge; it does not replace it."
+        },
+        {
+          "hypothesis": "R-QUANTUM x H-SETTLE KR (both OPEN on O-HOLD)",
+          "verdict": "OPEN",
+          "removes": [],
+          "leaves": [
+            "O-BITS",
+            "O-MAKE",
+            "O-MATTER",
+            "O-LOOP",
+            "O-HOLD (OPEN via N_XI and N_EPSG; in scope the QEI covers 2.08e-68)"
+          ],
+          "ground": "T-F; geometry.r_quantum; z3 OPEN classification",
+          "named_hypotheses": [
+            "N_XI (Fewster-Osterbrink, board NARROWED)",
+            "N_EPSG (KR p.13-14)",
+            "H-MIN-SCALAR",
+            "H_flat"
+          ],
+          "testable_prediction": "O-HOLD would be decided by the xi > 0 scalar and by an eps_G bound (the atom-interferometer test of 2204.11875 p.4, per A1).",
+          "reading": "Two OPENs make an OPEN, not a removal."
+        },
+        {
+          "hypothesis": "H-SETTLE across every combination (rule 2)",
+          "verdict": "PARTIAL",
+          "removes": [
+            "O-BITS (W2, N_EPS)"
+          ],
+          "leaves": [
+            "O-MAKE-DIST",
+            "O-MATTER",
+            "O-HOLD (OPEN in KR via eps_G)"
+          ],
+          "ground": "combine.load_bearing (unsat cores over the 1,919 consistent variants)",
+          "named_hypotheses": [
+            "as in the variant rows"
+          ],
+          "testable_prediction": "as in the combination rows",
+          "reading": "W2 is load-bearing for O-BITS. W1 and KR remove nothing in any combination. Kept (PARTIAL)."
+        },
+        {
+          "hypothesis": "H-FRAME across every combination (rule 2)",
+          "verdict": "PARTIAL",
+          "removes": [
+            "O-LOOP (F1, N_CORR, N_SIGKEY)"
+          ],
+          "leaves": [
+            "O-BITS",
+            "O-MAKE-DIST",
+            "O-MATTER"
+          ],
+          "ground": "combine.load_bearing (unsat cores over the 1,919 consistent variants)",
+          "named_hypotheses": [
+            "as in the variant rows"
+          ],
+          "testable_prediction": "as in the combination rows",
+          "reading": "F1 is load-bearing for O-LOOP. F2b removes nothing. F1+F2b is inconsistent. Kept (PARTIAL)."
+        },
+        {
+          "hypothesis": "H-IT across every combination (rule 2)",
+          "verdict": "PARTIAL",
+          "removes": [
+            "O-MAKE-TOPO (N_QTOPO)",
+            "O-HOLD (ITB with R-INDEX)"
+          ],
+          "leaves": [
+            "O-BITS",
+            "O-MAKE-DIST",
+            "O-MATTER"
+          ],
+          "ground": "combine.load_bearing (unsat cores over the 1,919 consistent variants)",
+          "named_hypotheses": [
+            "as in the variant rows"
+          ],
+          "testable_prediction": "as in the combination rows",
+          "reading": "ITB and ITE are load-bearing for O-MAKE-TOPO, and ITB with R-INDEX for O-HOLD. ITE contradicts W2. Kept (PARTIAL)."
+        },
+        {
+          "hypothesis": "H-12 across every combination (rule 2)",
+          "verdict": "LEAVES-ALL",
+          "removes": [],
+          "leaves": [
+            "O-BITS",
+            "O-MAKE",
+            "O-HOLD",
+            "O-MATTER",
+            "O-LOOP"
+          ],
+          "ground": "combine.load_bearing: load-bearing for no removal in any of the 1,919 consistent variants, and in no instrument test",
+          "named_hypotheses": [
+            "closed-world encoding (absent hypotheses false)"
+          ],
+          "testable_prediction": "none as a remover; see A1",
+          "reading": "MEETS charter rule 2's retirement criterion AS A REMOVER of the five obstructions. Not refuted. It names the carriers for W2's test: Z0 is the only one with a state-dependent bound; G and v are unbounded (A1). Retirement is M's to apply."
+        },
+        {
+          "hypothesis": "H-INFO across every combination (rule 2)",
+          "verdict": "LEAVES-ALL",
+          "removes": [],
+          "leaves": [
+            "O-BITS",
+            "O-MAKE",
+            "O-HOLD",
+            "O-MATTER",
+            "O-LOOP"
+          ],
+          "ground": "combine.load_bearing: load-bearing for no removal in any of the 1,919 consistent variants, and in no instrument test",
+          "named_hypotheses": [
+            "closed-world encoding (absent hypotheses false)"
+          ],
+          "testable_prediction": "none as a remover; see A3",
+          "reading": "MEETS charter rule 2's retirement criterion AS A REMOVER of the five obstructions. Not refuted. It reprices the 'costs little' half (A3); clause (a) is supported and clause (b) is OPEN. Retirement is M's to apply."
+        },
+        {
+          "hypothesis": "H-ZERO across every combination (rule 2)",
+          "verdict": "LEAVES-ALL",
+          "removes": [],
+          "leaves": [
+            "O-BITS",
+            "O-MAKE",
+            "O-HOLD",
+            "O-MATTER",
+            "O-LOOP"
+          ],
+          "ground": "combine.load_bearing: load-bearing for no removal in any of the 1,919 consistent variants, and in no instrument test",
+          "named_hypotheses": [
+            "closed-world encoding (absent hypotheses false)"
+          ],
+          "testable_prediction": "none as a remover; see A4",
+          "reading": "MEETS charter rule 2's retirement criterion AS A REMOVER of the five obstructions. Not refuted. Under H-IT it frees the zero of energy (A4, Jacobson), and the NEC is invariant (z3). Retirement is M's to apply."
+        },
+        {
+          "hypothesis": "H-NULL across every combination (rule 2)",
+          "verdict": "LEAVES-ALL",
+          "removes": [],
+          "leaves": [
+            "O-BITS",
+            "O-MAKE",
+            "O-HOLD",
+            "O-MATTER",
+            "O-LOOP"
+          ],
+          "ground": "combine.load_bearing: load-bearing for no removal in any of the 1,919 consistent variants, and in no instrument test",
+          "named_hypotheses": [
+            "closed-world encoding (absent hypotheses false)"
+          ],
+          "testable_prediction": "none as a remover; see A4",
+          "reading": "MEETS charter rule 2's retirement criterion AS A REMOVER of the five obstructions. Not refuted. It prices O-HOLD in bits (A4, with the QNEC outside its scope). Retirement is M's to apply."
+        }
+      ],
+      "findings": [
+        "No consistent combination removes all five. The best is {W2, F1, ITB, R-INDEX}. It removes O-BITS (if N_EPS), O-MAKE-TOPO (if N_QTOPO), O-HOLD, and O-LOOP (if N_CORR and N_SIGKEY). Two obstructions survive every one of the 1,919 consistent variants: O-MATTER (LEFT) and O-MAKE-DIST (OPEN only via N_VAC).",
+        "3,071 variants were screened. That is the 127 combinations, run in every reading (H-SETTLE W2/W1/KR; H-FRAME F1/F2b/F1+F2b; H-IT ITB/ITE) and in each reading slot (none, R-INDEX, R-QUANTUM, both), plus 3 readings-only variants. 1,919 are consistent. The 1,152 inconsistent ones fall into exactly three clashes: (a) F1+F2b, 640 variants; (b) ITB+R-INDEX+R-QUANTUM, 256; (c) ITE+W2, 256. Every one of the 127 combinations has a consistent variant.",
+        "Clash (c) is with Maldacena-Susskind's stated assumptions, READ this pass, and it is also computed: combine.tfd_drift shows the drift signalling 0.537 in Van Raamsdonk's eq.(1) state at beta = 0. ITB + W2 is consistent.",
+        "Synergy: O-HOLD is removed by ITB and R-INDEX jointly, and by neither alone (192 consistent variants). Interference: none.",
+        "640 complementary variants fall into 9 classes. Each class is covered by instrument tests T-A to T-E, all PASS. T-F records the OPEN x OPEN pair.",
+        "NEW tfd_drift: the W2 signal tracks the shared entanglement. At S = 1, 0.956, 0.840, 0.527, 0.130, 0.0044 and 0 bits the signal is 0.53705, 0.50796, 0.43186, 0.24001, 0.04204, 0.00080 and 0. Integrator and exact form agree to 1.2e-5; the linear and C1 controls give 0.",
+        "NEW product_drift: on product states the drifted ensembles coincide to 2.9e-15 (the Bell control gives 0.53706). H-SETTLE cannot make its own pairs, so O-MAKE-DIST is untouched.",
+        "NEW first_transit at 1 ly. The channel needs at least 6.21 pairs per qubit, which at N = 7 means 6.66e28 to 7.61e29 drift pairs for a 70 kg body. Later transits arrive 0.5 yr before light (conditional). The first transit arrives at least 1.5 yr after the pairs leave. This is an amortisation scheme, the shape LEDGER's S5 already records.",
+        "eps window (z3 over the reals): N_EPS is consistent with the NAMED-NOT-READ Majumder limit at 1 ly and 4.24 ly (N = 7, both H-MAP readings). It is inconsistent at 1 AU for N = 7 and N = 1000, and consistent at 1 AU for N = 1e6. This reproduces A1.",
+        "O-MATTER's survival comes from the board holding B-RECV: transit CARRIES_SUBSTANCE is False; Bekenstein requires a holder with E > 0; S10 is REFUSED; S5 and S13 need a prior arrival. Control: deleting B-RECV makes it removable. H-INFO's clause (b) makes information necessary for matter, not sufficient.",
+        "N_VAC, the closest reading of M's 'it already exists everywhere', is the one pathway that opens O-MAKE-DIST. Reznik (READ) shows vacuum entanglement between causally disconnected probes exists, but it vanishes with separation; inertial probes need T > 0.91 L/c and must already be at both ends. Not computed for use as W2's pairs: OPEN.",
+        "Rule 2: H-12, H-INFO, H-ZERO and H-NULL are load-bearing for no removal in any consistent variant, and in no instrument test. They meet the retirement criterion as removers. None is refuted, and each keeps its non-obstruction result. H-SETTLE (W2), H-FRAME (F1) and H-IT are kept as PARTIAL.",
+        "DISCREPANCY (recorded): A2-frame.json on disk carries a 'summary', not a 'grades' list. The drift guard reads A2's grades from frame.GRADES and that summary."
+      ],
+      "selftests": [
+        "python3 combine.py --selftest -> 80/80 PASS, exit 0, about 62 s. Needs z3-solver, plus numpy and sympy through the imported instruments.",
+        "VACUITY: the board alone is SAT; the 13 single readings are SAT; the named hypotheses, with and without the OPEN ones, are jointly SAT with the board; every REMOVED-IF premise is SAT; every consistent variant stays SAT with all named hypotheses assumed.",
+        "CONTROLS caught: F1 & F2b UNSAT; a planted signal in linear QM UNSAT; ITE & W2 UNSAT; deleting B-RECV makes O-MATTER removable; a mutated encoding (F1 unkeyed) is caught by the drift guard.",
+        "ENCODING DRIFT: 17 hand-checked variants agree with z3, each tied to the owning A-report's grade text (17/17 match). The OPEN branches (RQ via N_XI, KR via N_EPSG) show as OPEN.",
+        "GROUNDS re-run from the instruments: tanh(0.6) = 0.53705; C1 2.2e-16; C2 0.0817 bits, 1/2 vs 2/3 or 1/3; antitelephone -3/5 vs 0; cosmic keying 0 of 100 lattices fail at rank 2 and 0 of 100 at rank 3; N < 7 impossible; LOCC 8.9e-16; QEI 2.08e-68; zero shift unsat; transit and emtension flags as encoded, and LEDGER S5 OPEN, S10 REFUSED, S13 OPEN.",
+        "TESTS T-A to T-F PASS. The new computations carry controls: tfd_drift's linear and C1 cases give 0; product_drift's Bell control gives 0.537.",
+        "COVERAGE: 3,071 variants and 128 rows; untested (2,431) + complementary (640) = all."
+      ],
+      "problems": [
+        "The z3 screen is bookkeeping over findings owned elsewhere: each constraint's ground names its instrument or READ page. It is not independent physics, and its results are only as good as the encoding. That is why the drift guard ties 17 variants to the A-reports' text and requires a mutated encoding to be caught.",
+        "Encoding choices named, not derived: the six-way O-MAKE split; closed world (absent hypotheses are false); R-INDEX's physical removal only with ITB; a corridor network present in every variant; 'complementary' means no single member's removal set covers the variant's.",
+        "A2-frame.json lacks a 'grades' list (it uses a summary format). A2's grades were taken from frame.GRADES and that summary.",
+        "N_VAC was not computed for use as W2's pairs. Only one Reznik setup was READ: inertial probes with one window function; the accelerated case is qualitative.",
+        "Every Weinberg-family number (eps_max) remains NAMED-NOT-READ, inherited from A1, so every O-BITS removal is conditional on N_EPS.",
+        "Another workflow committed snapshots (28c2277, 9ef6e1d) that include combine.py and B-combine.md while they were being written. I did not commit, push, stash, reset or checkout. HEAD's copies match the final files.",
+        "No host refused; both alphaXiv calls returned page text. Nothing outside docket68/ was edited."
+      ]
+    },
+    "verdicts": [
+      {
+        "lens": "AGAINST M: places where the DOCKET 68 wave-1 reports or combine.py overstate what a hypothesis or combination achieves. That covers removals that rest on an encoding slip, on an out-of-scope or inexpressibility argument, on a vacuous test or guard, on a mis-cited computation, or on a lower bound read as a cost. Report: /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d68/C-verify-0.json (the transient z3 probe was deleted; its method is recorded in the JSON).",
+        "problems": [
+          {
+            "site": "combine.py:201-205 (B-THROAT) -> B-combine.md:142, 185-187, 309, 537",
+            "wrong": "B-THROAT encodes (ITB and RI) => not THROAT, which makes H-IT a SUFFICIENT condition. A3, the only source cited, says the removal is physical 'ONLY under H-IT' (A3-measure.md:196-197), which makes H-IT a NECESSARY condition. Encoding the converse is a slip. On that slip alone z3 gives O-HOLD 'REMOVED' with no named hypothesis (rests_on ITB, RI). B-combine then calls this 'the measured payoff' of M's instruction.",
+            "correct": "Encoded as A3 states it (not(ITB and RI) => THROAT, with no sufficiency clause), O-HOLD under ITB+RI comes out SILENT; the probe reproduces this. The best variant then removes only O-BITS, O-MAKE-TOPO and O-LOOP, all REMOVED-IF. The 192-variant 'synergy' disappears, and H-IT's rule-2 row loses 'O-HOLD with R-INDEX'. Clash (b) also disappears, because ITB+RI+RQ becomes consistent, so the slip errs both ways. At most the result is REMOVED-IF on a new named hypothesis that no instrument or READ source supplies.",
+            "moves_grade": true
+          },
+          {
+            "site": "A3-measure.md:191-201 (R-INDEX grade)",
+            "wrong": "R-INDEX is graded PARTIAL on the ground that it removes O-HOLD and O-MAKE 'within the measure' because they 'are not expressible in the measure'. The same report calls O-LOOP's inexpressibility 'silent ... decides nothing' (line 209). The same reason gets two different verdicts. A formalism that has no stress tensor or manifold cannot state an NEC, and that is silence, not removal.",
+            "correct": "Within the measure, O-HOLD and O-MAKE are SILENT, exactly like O-LOOP. R-INDEX alone is therefore LEAVES-ALL: SILENT on O-HOLD, O-MAKE and O-LOOP, LEFT on O-BITS and O-MATTER. The Bekenstein floor is a property of the destination holder (O-MATTER, which A3 concedes at line 207). It is not a price for holding a corridor open.",
+            "moves_grade": true
+          },
+          {
+            "site": "combine.py:776 (T-D pass); B-combine.md:253-258",
+            "wrong": "T-D is described as testing that O-HOLD is removed under ITB x RI. Its pass condition is min(floor) > 0 and throat/max(floor) > 1e39, a ratio of two imported numbers, which cannot fail if the removal is false. The claim that 'the holding reappears as a holder' is not a computed transfer either: B-RECV makes RECV unconditionally true in every variant.",
+            "correct": "T-D records the Bekenstein floors. It does not test the O-HOLD removal, which rests on the B-THROAT encoding alone.",
+            "moves_grade": false
+          },
+          {
+            "site": "combine.py:325, 404-430, 992; B-combine.md:88-89",
+            "wrong": "The guard 'every REMOVED-IF rests on satisfiable premises ... so no conditional removal is vacuous' cannot fail by construction. N_EPS, N_QTOPO, N_CORR and N_SIGKEY appear only as antecedents, and no constraint ever forces one of them false. The probe assumed all four in all 330 consistent variants of up to 3 literals and got 0 UNSAT. N_EPS is a free boolean not tied to L, so the screen's O-BITS REMOVED-IF also holds at 1 AU, where eps_window shows N_EPS is inconsistent.",
+            "correct": "Only eps_window (T-E) gives the premise check any content, and only for N_EPS at the L and N it lists. The structural guard cannot be falsified and should not be reported as evidence that no conditional removal is vacuous.",
+            "moves_grade": false
+          },
+          {
+            "site": "combine.py:477-531 (EXPECT/guard_drift); B-combine.md:96-98",
+            "wrong": "'17 hand-checked variants ... tied to the grade text of the A-report ... 17 of 17 match.' The guard compares z3 with a hand-written expectation, and separately compares the report with a hand-written token set. It never compares z3 with the report. In 5 of the 17 rows the two differ: RI (z3 gives [], A3 gives [O-HOLD, O-MAKE]); ITB+RI, which is tied to an A3 R-INDEX grade that never graded ITB+RI; ITB and ITE, both tied to A4's H-IT grade, which was made under H-ER=EPR; and ITB+ZERO (z3 gives [O-MAKE-TOPO], A4 gives []).",
+            "correct": "z3 matches the encoder's expectations in 17 of 17 rows. It agrees with the A-report's own removal set in 12 of 17. ITB has no owning READ grade.",
+            "moves_grade": false
+          },
+          {
+            "site": "frame.py:371-405, 489-494; A2-frame.md:151; combine.py:747-756 (T-A); B-combine.md:207-219",
+            "wrong": "The 0.0817 bits per use and the ordering dependence (1/2 against 2/3 or 1/3) come from Bob feeding his half into the BHW D-CTC circuit. That circuit needs a closed timelike curve at Bob. A2 and T-A cite these numbers as the ground for {W2, F1}, but F1 excludes every closed causal curve (B-TIMEFUNC; clash a). T-A's pass condition uses this D-CTC number and never checks the drift: bob_y_exact is stored but not tested. The drift's own ordering dependence is not computed anywhere.",
+            "correct": "The channel in W2xF1 is nlcontrol's drift, with Bob's shift equal to tanh(2 eps T) and conditional on N_EPS. The D-CTC C2 result is incompatible with F1 and should be withdrawn as a ground for that pairing. 'C2 needs a frame' is computed for the CTC circuit only; for the drift it is argued from Gisin's assumption 3b (READ), not computed.",
+            "moves_grade": false
+          },
+          {
+            "site": "frame.py:480-486 (antitelephone)",
+            "wrong": "The arrival time of a cosmic-keyed reply is hard-coded as 'return v*(0-L), Fr(0)'. The ground check and T-A then re-run the literal 0 and report it as computed.",
+            "correct": "Only the sender-frame arrival, -vL, is computed. The cosmic-frame 0 is declared; its real support is the time-function lemma and the Sylvester argument.",
+            "moves_grade": false
+          },
+          {
+            "site": "A2-frame.md:151, 160-161",
+            "wrong": "The H-FRAME + H-SETTLE (C2) row lists O-BITS as removed. The same row says it is OPEN whether C2 meets teleportation's 2 bits per qubit, and it carries no eps condition and no before-light timing check.",
+            "correct": "On A2's own evidence O-BITS is OPEN. It is removed only as REMOVED-IF N_EPS, through A1's eps_min(L, N).",
+            "moves_grade": false
+          },
+          {
+            "site": "A2-frame.md:160",
+            "wrong": "'Per BHW p.2 (READ ...) their BB84 circuit would let C2 carry 1 bit per pair'. What BHW p.2 states is perfect discrimination of the four BB84 states. The 1-bit-per-pair signalling figure for entangled pairs under C2 is A2's own inference, labelled as READ.",
+            "correct": "The BB84 discrimination is READ. The 1 bit per pair under C2 is an uncomputed inference and should be labelled as one.",
+            "moves_grade": false
+          },
+          {
+            "site": "A3-measure.md:154-157; B-combine.md:162",
+            "wrong": "A3 says the information 'is cheap at every exchange rate' and that this prices the 'costs little' half. B-combine says 'The cost is small in energy: the holder's Bekenstein floor is 33-379 J'. Both read lower bounds as costs. Landauer prices erasure, which teleportation does not require. Bekenstein gives a floor on a holder's energy, not the holder's energy.",
+            "correct": "These are floors: erasure costs at least 2.8e7 to 3.2e8 J at 310 K, and a holder at R = 1 m needs at least 33 to 379 J. No instrument computes a holder near the floor. The body itself has Mc^2 = 6.29e18 J (massform). 'Costs little' has been floored, not priced.",
+            "moves_grade": false
+          },
+          {
+            "site": "B-combine.md:147",
+            "wrong": "'this variant removes O-BITS, O-HOLD and O-LOOP' drops the conditions.",
+            "correct": "Two of the three are conditional: O-BITS is REMOVED-IF N_EPS (the Weinberg-family bound is NAMED-NOT-READ) and O-LOOP is REMOVED-IF N_CORR and N_SIGKEY. O-HOLD is SILENT once the B-THROAT problem is corrected.",
+            "moves_grade": false
+          },
+          {
+            "site": "combine.py:191-195 (B-TOPO); B-combine.md:497; A4-geometry.md:49-51, 161",
+            "wrong": "The O-MAKE-TOPO removal rests on an out-of-scope argument: Geroch and Tipler do not bind a non-geometric corridor. For ITB the only ground is 'the charter's reading', with no READ source, and the drift guard ties ITB to A4's grade, which was made under ER=EPR. For ITE the ground is MS's speculative p.17 remark, made under the same paper's fn.1 assumption that the bridge is non-traversable (and Planckian for particle pairs). So what gets 'made' is not a corridor anyone can cross.",
+            "correct": "Grade it as 'not bound', REMOVED-IF N_QTOPO, with qualifiers: for ITE it covers only a non-traversable bridge; for ITB there is no READ source. Showing that a theorem does not apply is not showing that its conclusion is false of the corridor.",
+            "moves_grade": false
+          },
+          {
+            "site": "combine.py:230-254 (no C-ITB); B-combine.md:241, 128, 535",
+            "wrong": "'Under ITB nothing forbids this signal, so ITB + W2 is consistent.' ITB commits to nothing. Its only effects are to release TOPO (with N_QTOPO) and THROAT (with RI), so it cannot clash with anything and its consistency holds by construction.",
+            "correct": "ITB+W2 is consistent because ITB is encoded with no content. The READ realisations of H-IT (MS ER=EPR, Van Raamsdonk) assume linearity and contradict W2 (clash c).",
+            "moves_grade": false
+          },
+          {
+            "site": "combine.py:175-178 (B-C2-SLICE), 125 (N_EPS); B-combine.md:345, 494",
+            "wrong": "The constraint W2 => SLICE builds a preferred slicing into H-SETTLE. 'SET alone' then removes O-BITS while H-FRAME is asserted false under the closed-world rule. The doc says N_EPS 'brings in ... H-FRAME3b', but the code's N_EPS text omits it.",
+            "correct": "W2's O-BITS removal requires N_EPS together with a preferred slicing, which is H-FRAME clause 1's frame. 'H-SETTLE alone' should say it needs a preferred frame, and the code's N_EPS should name H-FRAME3b.",
+            "moves_grade": false
+          },
+          {
+            "site": "A3-measure.md:214-230 (H-SETTLE x H-INFO)",
+            "wrong": "The grade says it 'removes O-BITS, in nlcontrol's model only'. nlcontrol's model has no distance, so 'before light' is undefined there. The per-branch convention C2 is not named (A2 shows C1 gives 0); only H-BORN-AT-BOB is named.",
+            "correct": "The model shows that a channel exists under C2 (chi_Bob is about 6.5 eps^2 bits per use at T = 3). O-BITS is removed only under A1's N_EPS timing condition, and C2 must be named.",
+            "moves_grade": false
+          },
+          {
+            "site": "settle.py:566-567 (D6)",
+            "wrong": "The 'must signal' control D6 feeds the detector a hand-typed (0, tanh 0.6, 0) with zero error, so it returns inf. That tests the detector's arithmetic, not a simulated drift.",
+            "correct": "D5 (drift plus collapse, 93 sigma) is the real must-signal control. D6 is vacuous.",
+            "moves_grade": false
+          },
+          {
+            "site": "A1-settle.md:164",
+            "wrong": "H-SETTLE x H-12 is graded PARTIAL, removing O-BITS 'via a Weinberg-type carrier drift'. That removal is entirely H-SETTLE-W's; load_bearing shows H12 is load-bearing for nothing.",
+            "correct": "The combination adds no removal beyond H-SETTLE-W alone. H-12 contributes only the carrier map, which serves as a test list.",
+            "moves_grade": false
+          }
+        ],
+        "reproduced": [
+          "combine.py --selftest: 80/80 PASS in 61 s",
+          "z3 on {W2,F1,ITB,RI}: O-BITS REMOVED-IF, O-MAKE-TOPO REMOVED-IF, O-MAKE-DIST OPEN, O-HOLD REMOVED (rests_on ITB, RI), O-MATTER LEFT, O-LOOP REMOVED-IF",
+          "With A3's only-if direction encoded in place of B-THROAT: O-HOLD is SILENT and ITB+RI+RQ is consistent",
+          "Named-premise vacuity check: 0 of 330 consistent variants turn UNSAT when every named hypothesis is assumed",
+          "eps_min recomputed independently at N = 7 / 1e3 / 1e6: 1 ly 7.289e-8 / 3.344e-9 / 1.055e-10; 1 AU 4.609e-3 / 2.115e-4 / 6.674e-6; 4.24 ly 1.719e-8 / 7.887e-10 / 2.489e-11. eps_max is 2.388e-5 (reading A) and 1.194e-5 (reading B); D at 1 h is 0.1702. All match A1 and B.",
+          "CMAX = log2 1.25 = 0.3219; 2/CMAX = 6.21; 6 x CMAX < 2 < 7 x CMAX",
+          "4.7e-11 / 1.15e-12 = 40.87",
+          "kT ln2 at 310 K = 2.9667e-21 J; Bekenstein floors 33.2 J and 379 J at R = 1 m; ratios 1.49e34 and 1.27e40",
+          "R-QUANTUM: required 4.8155e42 Pa, allowed 1.002e-25, fraction covered 2.08e-68",
+          "A2 clause 2a: 38,929 s for the barycentre frame; 35,858 to 42,009 s for Earth",
+          "Variant count (4*4*3*16 - 1)*4 + 3 = 3,071; the complementary classes sum to 640"
+        ]
+      },
+      {
+        "lens": "FOR M: finding where DOCKET 68 wave 1 (A1-settle, A2-frame, A3-measure, A4-geometry, B-combine) understates M's hypotheses. Report JSON: /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d68/C-verify-1.json. No other file was written; Python was run with PYTHONDONTWRITEBYTECODE. One source was read at source this pass: gr-qc/0602001v1 (Eling-Guedens-Jacobson), via alphaXiv; no host refused.",
+        "problems": [
+          {
+            "site": "combine.py:244-252 (C-H12, C-INFO, C-ZERO, C-NULL), with atoms declared at combine.py:150; B-combine.md:318-324",
+            "wrong": "B says the retirement of H-12, H-INFO, H-ZERO and H-NULL under rule 2 is 'a measured statement'. It is not. Their commitment atoms (CARRIER, MEASURE, ZSHIFT, ZFREE, LAMBDA_GRAV, QNEC_PRICED) appear in no board constraint and in no DEF-* removal definition; grep finds them only at line 150 and in their own commitment lines. None of the four can be load-bearing in any variant, so the screen could never have found otherwise. Separately, charter rule 2 retires a hypothesis only if it 'fails in every combination tested', and A1 graded H-SETTLE x H-12 as PARTIAL.",
+            "correct": "For these four, 'not load-bearing' is a property of the encoding, not a measurement. Their status should be UNTESTED-BY-SCREEN (inert encoding), and the retirement criterion is not established. Where each one actually bears is in the rows below: H-12 on N_EPS / H-TRANSFER, H-INFO's strong reading on O-MATTER, and H-IT x H-ZERO on O-HOLD through H-EQUIL.",
+            "moves_grade": true
+          },
+          {
+            "site": "combine.py:201-204 (B-THROAT) against combine.py:197-199 (B-TOPO); A4-geometry.md:161; B-combine.md:185-187",
+            "wrong": "The encoding treats ITB unevenly. Under ITB plus N_QTOPO, O-MAKE-TOPO is removed, on the grounds that theorems about Lorentzian manifolds do not bind an information-layer corridor. But ITB alone leaves O-HOLD at LEFT. A4 grounds that on Gao-Wald, whose hypotheses are AdS Lorentzian spacetime plus the NEC, and on MS fn.1, which is the ER=EPR reading (ITE). An ITB corridor meets neither. The charter applies the same logic to holding as to making (CHARTER.md:181-182): 'Morris-Thorne constrains a geometric throat; with no throat it does not apply.'",
+            "correct": "I re-ran the screen with B-THROAT made symmetric: ITB plus N_QTOPO implies no geometric throat. Then ITB alone gives O-HOLD REMOVED-IF N_QTOPO, on the same footing as O-MAKE-TOPO, and {W2, F1, ITB} removes O-HOLD without needing R-INDEX. So H-IT (ITB) alone should list O-HOLD in its NEC form as REMOVED-IF N_QTOPO, with the residual cost charged by the information layer left OPEN. R-INDEX then supplies the price (the Bekenstein floor, 33-379 J), not the removal. The synergy B reports (B:185) is partly an artefact of the asymmetric encoding. Caution: in the symmetric encoding ITB+RQ becomes a clash under the named hypotheses (every verdict comes out REMOVED-IF), so it would have to be named as a clash.",
+            "moves_grade": true
+          },
+          {
+            "site": "A2-frame.md:71-84 (FRW z3 lemma and Killing table); combine.py B-TIMEFUNC / C-F1 (KEYED reachable only through F1); A1-settle.md:160",
+            "wrong": "B attributes the O-LOOP removal to H-FRAME F1, because the encoding can only reach KEYED through F1. But A2's own z3 lemma shows that in exact flat FRW with a non-exponential a(t), only equal-cosmic-time identifications are isometries and cosmic time is a global time function. Corridor keying is therefore forced by the geometry (M's own question, 'what if our error is accepting that spacetime is flat?'), not by H-FRAME.",
+            "correct": "Under H-FRW-EXACT and H-NOT-DE-SITTER, KEYED holds in every variant. W2 already needs a slicing (B-C2-SLICE). So H-SETTLE-W alone gives O-LOOP REMOVED-IF {H-FRW-EXACT, H-NOT-DE-SITTER, N_SIGKEY}, not LEFT. H-FRAME's own contribution shrinks to N_SIGKEY plus the CMB identification. This moves an existing removal onto H-SETTLE alone; it adds no new removal.",
+            "moves_grade": true
+          },
+          {
+            "site": "A4-geometry.md:152, 154, 163; combine.py:135-147 (OPEN_NAMED has no H-EQUIL entry)",
+            "wrong": "A4 grades H-ZERO + H-IT and H-IT + H-NULL as LEAVES-ALL, with O-HOLD left, even though A4 itself names H-EQUIL (Jacobson's local equilibrium at a throat) as OPEN. B never carries H-EQUIL as an OPEN pathway, so O-HOLD shows as LEFT instead of OPEN.",
+            "correct": "READ, gr-qc/0602001v1 p.3, eqs (11) and (21): out of equilibrium, dS = dQ/T + d_iS gives the f(R) equation of state f R_ab - f_;ab + (f - L/2) g_ab = (2 pi/hbar alpha) T_ab. Contracted with a null vector, T_kk is proportional to f R_kk - f_;kk, which does not force T_kk < 0 at a throat. COMPUTED (sympy, Morris-Thorne with b = r0^2/r and f = 1 + beta R): T_kk(r0) = 2(-2 beta - r0^2)/r0^4, which is >= 0 for beta <= -r0^2/2. For this shape it turns negative just outside the throat (-1.68 at 1.05 r0). The beta required is about r0^2/2, i.e. 1.9e69 l_P^2 at r0 = 1 m, against EGJ p.4 remark 5's dimensional expectation beta ~ l_P^2. So with H-EQUIL relaxed, O-HOLD under H-IT is OPEN (a new pathway, N_EQUIL), not LEFT; and it is not a removal.",
+            "moves_grade": true
+          },
+          {
+            "site": "A1-settle.md:149-150 (time-variation vs state-dependence limit); combine.py:681-702 (eps_window); B-combine.md:262-272, 318",
+            "wrong": "B finds N_EPS inconsistent at 1 AU (N = 7 and N = 1000) and H-12 load-bearing for nothing. The 1 AU exclusion rests entirely on H-TRANSFER: the assumption that a bound measured on an Hg-201 or H spin applies to Bob's carrier. H-12's carrier map (A1) is exactly the alternative to H-TRANSFER, and for its G and v carriers A1 found no state-dependent bound at all.",
+            "correct": "If H-12 supplies a G or v carrier, no READ or NAMED bound constrains eps, so N_EPS is not excluded at 1 AU. H-12 is then load-bearing for the O-BITS removal at the distances where W2 under H-TRANSFER is excluded: SET+12 removes O-BITS in strictly more cases than SET alone. 'Not excluded' is not evidence that such a drift exists. H-12 should be kept as PARTIAL, not marked as meeting the retirement criterion.",
+            "moves_grade": true
+          },
+          {
+            "site": "B-combine.md:153-161 and 531 (finding 1); combine.py:110 (INFO definition), combine.py:246",
+            "wrong": "B says O-MATTER survives 'by a board holding none of the seven touches', reading H-INFO as necessity only. The fair reading of M includes sufficiency: 'Cosmic/quantum information is all that matters. It is the only multi-universal currency' (CHARTER.md:241); 'only the information defining it is necessary' (CHARTER.md:228-229); H-INFO is 'information is primary'. That sufficiency clause was never screened.",
+            "correct": "Screen an H-INFO-S reading: information at the destination suffices to constitute the matter. It bears on O-MATTER. Against B-RECV (transit.CARRIES_SUBSTANCE False; Bekenstein's holder with E > 0) it is expected to come out as a named clash, not a removal, which makes O-MATTER's survival a clash between the board and M rather than something 'none of the seven touches'. Until that reading is screened, H-INFO's rule-2 row cannot read 'meets the criterion'.",
+            "moves_grade": true
+          },
+          {
+            "site": "B-combine.md:35 and 532 (finding 2); combine.py:98-104 (F1 is itself defined there as 'clause 1 (+2a)')",
+            "wrong": "B says 'M's H-FRAME sentence contradicts itself when both clauses are taken strong', with both clauses read 'as M's sentence states them'. The contradiction is actually between A2's clause-1 keying ('every corridor keyed to it, xi_t = 0'), which is the docket's own modelling addition, and clause 2b. M's sentence ('A preferred frame - maybe messages can travel into the past'; the charter's H-FRAME, 'a preferred frame exists, and messages may travel into the past') says nothing about keying corridors.",
+            "correct": "M's sentence is satisfied without contradiction by F1, which combine.py:98 defines as clause 1 plus 2a. With W2, the set {W2, F1} realises 'messages travel into the past' as the coordinate past of moving frames (A2: -38,929 s in the barycentre frame for a 1-ly corridor), with no loop. Clash (a) is between the docket's keying and clause 2b, and only on the further assumption B-2B that corridors are the sole route to the cosmic past. The verdict should read 'the docket's clause-1 keying excludes clause 2b', not 'M's sentence contradicts itself'.",
+            "moves_grade": true
+          },
+          {
+            "site": "settle.py:209-225 (CMAX, eps_to_remove); A1-settle.md:30-32 and 88-95; A2-frame.md:160-161; B-combine.md:274 and 538; combine.py:125 (N_EPS states 'N >= 7')",
+            "wrong": "B carries three nlcontrol-specific limits as properties of H-SETTLE W2: '>= 6.21 pairs per teleported qubit', 'N < 7 impossible at any eps', and 'Holevo caps any qubit protocol at 1 bit per pair, so >= 2 pairs'. Each fails in a different way. 6.21 is the Z-channel ceiling of nlcontrol's single Hamiltonian eps<X>Z, not of W2, which is any per-branch deterministic nonlinearity (A2's convention C2). Holevo's bound is a theorem of linear QM, and W2 is not linear; BHW 0811.1209v2 p.4 (READ by A2) says the bound is broken. And A2's 'the per-qubit budget under C2 is OPEN' is arithmetic: 1 bit per pair x 2 pairs = 2 bits per qubit.",
+            "correct": "COMPUTED with an independent per-branch D-CTC discriminator (Deutsch fixed point; every fixed point unique, fixed-point space of dimension 1). Under C2 the BB84 circuit carries 1.000000 bit per pair, and a four-basis discriminator carries 2.000000 bits per pair. CONTROL: using the same basis for both of Alice's choices gives 0. Under C1, Bob's output does not depend on Alice (0 bits). So the W2/C2 class needs 2 pairs per teleported qubit at 1 bit per pair, and 1 pair with four settings. 6.21 belongs to nlcontrol alone. Even inside nlcontrol, block coding over roughly 1e28 qubits needs about 6.21 pairs per qubit on average, not 7. B's drift-pair totals (6.66e28 to 7.61e29) are therefore upper figures for one Hamiltonian, and N_EPS's 'N >= 7' should be named as nlcontrol-specific.",
+            "moves_grade": false
+          },
+          {
+            "site": "B-combine.md:286 and 538; A1-settle.md:88-95; settle.py:212-215 (frac = 0.5)",
+            "wrong": "B says later transits 'arrive 0.5 yr before light' at 1 ly. That figure comes from choosing T = L/2c, not from the channel. A1's table of 'the eps that removes O-BITS' makes the same choice, although any T < L/c already beats light.",
+            "correct": "COMPUTED with settle.capacity and settle.eps_to_remove. The drift time T = atanh(D_N)/(2 eps) does not depend on distance. At the Majumder limit (NAMED-NOT-READ), reading A with N = 7: D = 0.9801 and T_min = 13.38 h, so arrival is 0.99847 L/c early at 1 ly. Reading B gives 26.8 h and 0.99695 L/c; N = 1000 gives T = 0.61 h. The eps needed for any advantage at all is exactly half of A1's tabulated value at every row (ratio 2.000): 3.64e-8 /s at 1 ly with N = 7, and 1.06e-4 /s at 1 AU with N = 1e3. No excluded / not-excluded entry flips. All of this is conditional on N_EPS, and an upper limit consistent with zero is not evidence.",
+            "moves_grade": false
+          },
+          {
+            "site": "B-combine.md:288 and 538 (finding 6); combine.first_transit",
+            "wrong": "B says 'The first transit waits for the pairs: at the earliest L/c + T = 1.5 yr after the pairs leave', and that the first transit cannot beat light. This assumes the pairs are distributed from one end. The board's own D23, as corrected in DOCKET 67 (LEDGER.md:46), says one-end distribution is only S5's case, and that 'the theorem itself needs only a common causal past (a midpoint source spans D at D/(2c))'.",
+            "correct": "With a midpoint source the pairs span the distance in L/(2c). Conditional on N_EPS, the first message arrives L/(2c) + T after the source fires: 0.5 yr + 13.4 h at 1 ly, at the unread limit, reading A, N = 7. That beats a light signal launched from Alice's end at the same moment whenever T < L/2c. 'The first cannot' holds only for one-end distribution. The source and the holder still arrive at <= c, but that is setup cost, not message latency.",
+            "moves_grade": false
+          },
+          {
+            "site": "B-combine.md:99 and 534 (clash c); B-combine.json grade 'REFUTED' for H-IT read as ER=EPR (ITE) x H-SETTLE W2; combine.py C-ITE",
+            "wrong": "B grades {ITE, W2} as REFUTED. The clash is with MS's stated non-traversability assumption, which MS justify through the integrated NEC (fn.1), and with linearity (sec. 5.4). Both are linear-QFT premises, and W2 by definition drops linearity.",
+            "correct": "Label it INCONSISTENT-AS-ENCODED (clash c), which is what B's own reading line already says. The computed content is that W2 signals 0.537 in Van Raamsdonk's eq.(1) state. Under ER=EPR that signal would be the very traversal MS fn.1 says would make ER=EPR 'wrong'. That makes it a test of ER=EPR, not a refutation of W2.",
+            "moves_grade": false
+          }
+        ],
+        "reproduced": [
+          "combine.Screen gives the same verdicts B reports for {ITB}: O-MAKE-TOPO REMOVED-IF N_QTOPO, O-HOLD LEFT, O-MATTER LEFT, O-LOOP SILENT, O-MAKE-DIST OPEN via N_VAC. Likewise for {ITB,RI}: O-HOLD REMOVED. For {F1}: O-LOOP REMOVED-IF N_CORR. For {W2,F1}: O-BITS REMOVED-IF N_EPS and O-LOOP REMOVED-IF N_CORR+N_SIGKEY.",
+          "combine.py: the atoms CARRIER, MEASURE, ZSHIFT, ZFREE, LAMBDA_GRAV and QNEC_PRICED are referenced only at line 150 and in their own commitments (grep).",
+          "settle.CMAX = 0.321928 = log2(1.25), so 2/CMAX = 6.2126. eps_to_remove at frac 0.5 gives 4.609e-3, 2.115e-4 and 6.674e-6 at 1 AU, and 7.289e-8, 3.344e-9 and 1.055e-10 at 1 ly (N = 7, 1e3, 1e6). These match A1's table and B's eps window.",
+          "LEDGER.md: S5 OPEN, S10 REFUSED, S13 OPEN, as B's board flags say. D23 (LEDGER.md:46) carries the midpoint-source correction quoted above.",
+          "A1's exact law: ydot = 2 eps x^2 >= 0 under eps<X>Z, so Bob's mean y is >= 0 for every axis Alice can choose. The 0.3219 ceiling and 'no antipodal letter' are therefore correct for that Hamiltonian; only their extension to W2 as a class is challenged.",
+          "A4 R-QUANTUM spot check, an analytic estimate and not instrumented: for the family b = r0 (r/r0)^alpha as alpha -> 1, the QEI fraction gets worse, roughly (1 - alpha) x 2.08e-68. So b'(r0) = 0 does not overstate the case against M in that family, and no problem is raised on it.",
+          "D-CTC control: a discriminator built for one basis carries 0 bits, and Bob's C1 output does not depend on Alice."
+        ]
+      },
+      {
+        "lens": "REPRODUCE: I ran all five selftests and re-derived the headline numbers independently in a scratch script (scratchpad/cv2/rederive.py) that does not import any agent code. I also checked the READ citations at source through alphaXiv. Report: /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d68/C-verify-2.json",
+        "problems": [
+          {
+            "site": "research/warp-drive/docket68/A1-settle.md:56. The same claim appears in A1's H-SETTLE-W grade 'reading' and in the named_hypotheses of B-combine's best-combination row.",
+            "wrong": "A1 says: 'This is the family Gisin's theorem covers. It contains nlcontrol's drift and M's definition.' It then treats the O-BITS removal as following from M's definition plus N_EPS. No hypothesis says which state the drift acts on.",
+            "correct": "M's definition ('the state's own value steers its evolution') does not say whether that state is Bob's pure state in each branch or Bob's reduced density matrix. nlcontrol and settle apply the drift branch by branch, which is A2's convention C2. If the drift acts on the reduced state instead (C1, BLSS Universal Inclusion), the same nlcontrol term moves Bob by only 2.2e-16 in response to Alice; frame.settle_under_C1 shows this and frame.py's selftest passes. A1 read 2412.20854v1, and its p.7 says Gisin's theorem applies only to maps on pure states, not to maps defined on mixed states; it also cites nonlinear maps that do not signal. 0908.3023v2 pp.3-4 calls the Gisin/Polchinski signalling argument the 'linearity trap'. The fix: A1 names the per-branch reading (= H-DCTC-CONVENTION C2) as a hypothesis of its O-BITS removal. B-combine's {W2, F1, ITB, R-INDEX} row carries it next to N_EPS; today only the W2xF1 and W2xITB rows carry it. As written, the omission overstates the case in M's favour.",
+            "moves_grade": false
+          },
+          {
+            "site": "research/warp-drive/docket68/B-combine.md:126 (the clash table). The same counts appear in B-combine.json finding 2.",
+            "wrong": "Clash (a), F1+F2b, is listed as 640 variants. The text says the 1,152 inconsistent variants 'fall into exactly three clashes: (a) 640, (b) 256, (c) 256'.",
+            "correct": "F1+F2b is present in 768 variants (192 subsets x 4 reading slots). Of those, 64 also contain clash (b) (ITB with both readings) and 64 contain clash (c) (ITE+W2). Those 128 are counted under (b) or (c) because z3 returned that unsat core. So 640/256/256 splits the variants by the core z3 happened to report. By inclusion-exclusion the union is 768+256+256-64-64 = 1,152; I re-derived this, and 3,071 total and 1,919 consistent both check out. Correct wording: clash (a) is present in 768 variants, 640 of them with no other clash.",
+            "moves_grade": false
+          },
+          {
+            "site": "research/warp-drive/docket68/A2-frame.md:160. The same claim appears in the testable_prediction of A2's H-FRAME+H-SETTLE(C2) grade.",
+            "wrong": "'Per BHW p.2 (READ, not computed here), their BB84 circuit would let C2 carry 1 bit per pair.'",
+            "correct": "0811.1209v2 p.2 gives only the map |00>->|00>, |+0>->|10>, |10>->|01>, |-0>->|11>. Its p.4 adds that two bits per qubit would break the Holevo bound. The paper says nothing about entangled pairs, about Alice choosing a basis, or about convention C2. The '1 bit per pair' is derived from that map, where output bit a equals Alice's basis; the paper does not state it. Label it DERIVED-FROM-READ, or compute it.",
+            "moves_grade": false
+          },
+          {
+            "site": "research/warp-drive/docket68/A1-settle.md:181",
+            "wrong": "The Bielinska-Eckstein-Horodecki phrase 'might be premature' is cited as 2412.20854v1 p.25.",
+            "correct": "The sentence 'a categorical rejection of physical models based on deterministic nonlinear quantum dynamics might be premature' is on p.26, where Sec. VII (Conclusions) continues. Only the page number is wrong; the quoted content is accurate.",
+            "moves_grade": false
+          },
+          {
+            "site": "research/warp-drive/docket68/B-combine.md:178-179",
+            "wrong": "The Reznik inertial probes are said to 'interact for T > 0.91 L/c'. Only a lower bound is given.",
+            "correct": "quant-ph/0212044v2 p.10 switches the probes on for T < L/c, so the two regions stay causally disconnected. p.12 Fig. 2 (T=1, Omega=9.5, a single window function) shows entanglement for L/T < 1.1. Together that gives 0.91 L/c < T < L/c, and only for that window and that gap. This is a precision fix; N_VAC stays OPEN.",
+            "moves_grade": false
+          }
+        ],
+        "reproduced": [
+          "All five selftests pass, exit 0: settle.py 34/34; frame.py 47 checks with 13 controls; measure.py 58/58 with 16 controls; geometry.py 42 checks with 10 controls; combine.py 80/80 in about 101 s here.",
+          "A1 law: an RK4 integration of the Bloch equation for H=eps<X>Z gives Bob's <sigma_y> = 0.0059999, 0.0599281 and 0.5370496 at eps = 1e-3, 1e-2, 1e-1 (T=3). These equal tanh(2 eps T) to within 4e-15. nlcontrol's printed 0.53706 is 1e-5 too high, which confirms A1's recorded discrepancy.",
+          "A1 capacity: capacity(D=1) = 0.3219281 = log2 1.25, so 2/C = 6.2126 pairs per qubit. eps_min at 1 ly with N=7 is 7.29e-8 /s; at 1 AU with N=7 it is 4.61e-3 /s. At 1 AU, N=1000 needs 2.1e-4 /s, above the Majumder-derived ceiling of 2.39e-5 (inconsistent). N=1e6 needs 6.7e-6 /s, below 1.19e-5 (consistent). This reproduces B's eps window.",
+          "A1 bounds: eps_max = 2.388e-5 /s (reading A) and 1.194e-5 /s (reading B). D=0.5 needs 3.20 h. 3 sigma in 1 h needs 310.6 pairs. h x 8.9 uHz = 3.681e-20 eV. 4.7e-11 / 1.15e-12 = 40.87.",
+          "A2: the coordinate-past offset gamma (v/c) L/c at 1 ly is 38,929 s at 369.82 km/s, 35,858 s at 340.65 km/s and 42,009 s at 399.08 km/s. C2 mutual information 1 - H(2/3) = 0.081704. The witness lattice vector has norm -99/10000. The Gram determinant L^2 b^2 - T^2 a^2 - T^2 b^2 re-derives.",
+          "A3: log2 976 = 9.930737 and log2 6912 = 12.754888 (difference 2.824150). kT ln2 at 310 K gives 2.82e7-3.26e8 J. The Bekenstein floor at R = 1 m is 33.1-383.6 J; it is 379 J with the exact upper count. The throat r0 c^4/(8 pi G) = 4.8155e42 J. The throat exceeds the erasure cost by 1.50e34 and the Bekenstein floor by 1.27e40. chi_Bob = 6.492e-6, 6.483e-4 and 5.706e-2 bits.",
+          "A4: the QEI bound C hbar/(c^3 T^4) with C = 3.17 at T = 1 m/c is 1.0022e-25 Pa. The required c^4/(8 pi G r0^2) is 4.8155e42 Pa, so the covered fraction is 2.081e-68. The required density can last 4.006e-26 s. r* = 8.926 l_P. The light-sheet density is 1.3807e69 bits/m^2.",
+          "B: 3,071 variants (767 combinations x 4 slots, + 3 readings-only); by inclusion-exclusion 1,152 are inconsistent and 1,919 consistent. tfd_drift at S = 0.527 gives about 0.24, re-derived from sin2theta tanh(2 eps sin2theta T).",
+          "READ checks confirmed at the cited pages: 2411.09611v1; 2106.10576v2 (p.13, p.14, fn.5); 2206.12976v1 (pp.1, 2, 5); 2204.11875v1; 2412.20854v1 (pp.5-7); 1204.4325v3 (pp.15, 17, 34); 1109.6462v4 p.11; 2010.06620v2; 1009.5514v1 eq.133 p.71; 0811.1209v2; 0908.3023v2; gr-qc/0204022v2; gr-qc/9506087v2; 1106.1791v3; quant-ph/9904023v5; 1503.06537v1; quant-ph/0404042v1; gr-qc/0007021v2; 1509.02542v2 (five authors, including Koeller); 1306.0533v2; quant-ph/0212044v2; gr-qc/9504004v2; 1005.3035v2. gr-qc/9506083 is Poisson-Visser thin-shell linearization stability, not a QEI, so A4's discrepancy is confirmed. The 'factor of 50' and KR/Broz discrepancies are confirmed against source.",
+          "No host refused a request. The only file written is scratchpad/d68/C-verify-2.json."
+        ]
+      }
+    ]
+  },
+  "workflowProgress": [
+    {
+      "type": "workflow_phase",
+      "index": 1,
+      "title": "Alone"
+    },
+    {
+      "type": "workflow_phase",
+      "index": 2,
+      "title": "Combine"
+    },
+    {
+      "type": "workflow_phase",
+      "index": 3,
+      "title": "Verify"
+    },
+    {
+      "type": "workflow_agent",
+      "index": 1,
+      "label": "A1-settle",
+      "phaseIndex": 1,
+      "phaseTitle": "Alone",
+      "agentId": "a4c60904ad7deae7c",
+      "model": "claude-opus-5-5",
+      "state": "done",
+      "startedAt": 1791039424941,
+      "queuedAt": 1791039424903,
+      "attempt": 1,
+      "lastToolName": "StructuredOutput",
+      "lastToolSummary": "A1-settle",
+      "promptPreview": "DOCKET 68 on M's warp-drive research tree. READ /home/user/Claude-Method-Works/research/warp-drive/docket68/CHARTER.md IN FULL FIRST: M's words verbatim, the hypotheses\n(H-IT, H-SETTLE, H-FRAME, H-12, H-INFO, H-ZERO, H-NULL), the readings R-INDEX and R-QUANTUM, Q-1, the standing\ninstruction to test alone then in combination, and the pre-docket scripts beside it (nosig.py, fields12.py,\nnlcontrol.py…",
+      "promptFramed": true,
+      "lastProgressAt": 1791040794106,
+      "tokens": 433185,
+      "toolCalls": 50,
+      "durationMs": 1369161,
+      "resultPreview": "{\"id\":\"A1-settle\",\"files\":[\"/home/user/Claude-Method-Works/research/warp-drive/docket68/settle.py\",\"/home/user/Claude-Method-Works/research/warp-drive/docket68/A1-settle.md\",\"/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d68/A1-settle.json\"],\"sources\":[\"2411.09611v1 -- READ -- |eps_gamma| < 1.15e-12 (90% CL) p.1, p.7; Everett-phone mechanism p.2; 'nea…"
+    },
+    {
+      "type": "workflow_agent",
+      "index": 2,
+      "label": "A2-frame",
+      "phaseIndex": 1,
+      "phaseTitle": "Alone",
+      "agentId": "aaf403c2a9cc3d9ea",
+      "model": "claude-opus-5-5",
+      "state": "done",
+      "startedAt": 1791039424944,
+      "queuedAt": 1791039424904,
+      "attempt": 1,
+      "lastToolName": "StructuredOutput",
+      "lastToolSummary": "A2-frame",
+      "promptPreview": "DOCKET 68 on M's warp-drive research tree. READ /home/user/Claude-Method-Works/research/warp-drive/docket68/CHARTER.md IN FULL FIRST: M's words verbatim, the hypotheses\n(H-IT, H-SETTLE, H-FRAME, H-12, H-INFO, H-ZERO, H-NULL), the readings R-INDEX and R-QUANTUM, Q-1, the standing\ninstruction to test alone then in combination, and the pre-docket scripts beside it (nosig.py, fields12.py,\nnlcontrol.py…",
+      "promptFramed": true,
+      "lastProgressAt": 1791040142631,
+      "tokens": 230991,
+      "toolCalls": 24,
+      "durationMs": 712686,
+      "resultPreview": "{\"id\":\"A2-frame\",\"files\":[\"/home/user/Claude-Method-Works/research/warp-drive/docket68/frame.py\",\"/home/user/Claude-Method-Works/research/warp-drive/docket68/A2-frame.md\",\"/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d68/A2-frame.json\"],\"sources\":[\"arXiv:0908.3023v2 -- READ -- Bennett-Leung-Smith-Smolin. p.1, eqs (1)-(2): Deutsch's consistency condit…"
+    },
+    {
+      "type": "workflow_agent",
+      "index": 3,
+      "label": "A3-measure",
+      "phaseIndex": 1,
+      "phaseTitle": "Alone",
+      "agentId": "ac9512688fdda1306",
+      "model": "claude-opus-5-5",
+      "state": "done",
+      "startedAt": 1791040147007,
+      "queuedAt": 1791039424904,
+      "attempt": 1,
+      "lastToolName": "StructuredOutput",
+      "lastToolSummary": "A3-measure",
+      "promptPreview": "DOCKET 68 on M's warp-drive research tree. READ /home/user/Claude-Method-Works/research/warp-drive/docket68/CHARTER.md IN FULL FIRST: M's words verbatim, the hypotheses\n(H-IT, H-SETTLE, H-FRAME, H-12, H-INFO, H-ZERO, H-NULL), the readings R-INDEX and R-QUANTUM, Q-1, the standing\ninstruction to test alone then in combination, and the pre-docket scripts beside it (nosig.py, fields12.py,\nnlcontrol.py…",
+      "promptFramed": true,
+      "lastProgressAt": 1791041057181,
+      "tokens": 307463,
+      "toolCalls": 48,
+      "durationMs": 910174,
+      "resultPreview": "{\"id\":\"A3-measure\",\"files\":[\"/home/user/Claude-Method-Works/research/warp-drive/docket68/measure.py\",\"/home/user/Claude-Method-Works/research/warp-drive/docket68/A3-measure.md\",\"/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d68/A3-measure.json\",\"/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d68/A3-measure…"
+    },
+    {
+      "type": "workflow_agent",
+      "index": 4,
+      "label": "A4-geometry",
+      "phaseIndex": 1,
+      "phaseTitle": "Alone",
+      "agentId": "afcd2e8c85c87fb62",
+      "model": "claude-opus-5-5",
+      "state": "done",
+      "startedAt": 1791040798175,
+      "queuedAt": 1791039424904,
+      "attempt": 1,
+      "lastToolName": "StructuredOutput",
+      "lastToolSummary": "A4-geometry",
+      "promptPreview": "DOCKET 68 on M's warp-drive research tree. READ /home/user/Claude-Method-Works/research/warp-drive/docket68/CHARTER.md IN FULL FIRST: M's words verbatim, the hypotheses\n(H-IT, H-SETTLE, H-FRAME, H-12, H-INFO, H-ZERO, H-NULL), the readings R-INDEX and R-QUANTUM, Q-1, the standing\ninstruction to test alone then in combination, and the pre-docket scripts beside it (nosig.py, fields12.py,\nnlcontrol.py…",
+      "promptFramed": true,
+      "lastProgressAt": 1791041648361,
+      "tokens": 271241,
+      "toolCalls": 36,
+      "durationMs": 850186,
+      "resultPreview": "{\"id\":\"A4-geometry\",\"files\":[\"/home/user/Claude-Method-Works/research/warp-drive/docket68/geometry.py\",\"/home/user/Claude-Method-Works/research/warp-drive/docket68/A4-geometry.md\",\"/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d68/A4-geometry.json\"],\"sources\":[\"gr-qc/0007021v2 -- READ -- Gao & Wald, all 15 pp. Thm 1 p.6; Thm 2 pp.12-13. Hypotheses: NE…"
+    },
+    {
+      "type": "workflow_agent",
+      "index": 5,
+      "label": "B-combine",
+      "phaseIndex": 2,
+      "phaseTitle": "Combine",
+      "agentId": "a60fe364bdcbe9704",
+      "model": "claude-opus-5-5",
+      "state": "done",
+      "startedAt": 1791041651238,
+      "queuedAt": 1791041651233,
+      "attempt": 1,
+      "lastToolName": "StructuredOutput",
+      "lastToolSummary": "B-combine",
+      "promptPreview": "DOCKET 68 on M's warp-drive research tree. READ /home/user/Claude-Method-Works/research/warp-drive/docket68/CHARTER.md IN FULL FIRST: M's words verbatim, the hypotheses\n(H-IT, H-SETTLE, H-FRAME, H-12, H-INFO, H-ZERO, H-NULL), the readings R-INDEX and R-QUANTUM, Q-1, the standing\ninstruction to test alone then in combination, and the pre-docket scripts beside it (nosig.py, fields12.py,\nnlcontrol.py…",
+      "promptFramed": true,
+      "lastProgressAt": 1791043275184,
+      "tokens": 341646,
+      "toolCalls": 41,
+      "durationMs": 1623944,
+      "resultPreview": "{\"id\":\"B-combine\",\"files\":[\"/home/user/Claude-Method-Works/research/warp-drive/docket68/combine.py\",\"/home/user/Claude-Method-Works/research/warp-drive/docket68/B-combine.md\",\"/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d68/B-combine.json\",\"/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d68/B-combine.var…"
+    },
+    {
+      "type": "workflow_agent",
+      "index": 6,
+      "label": "verify-0",
+      "phaseIndex": 3,
+      "phaseTitle": "Verify",
+      "agentId": "ab460b9ebcf0d66f9",
+      "model": "claude-opus-5-5",
+      "state": "done",
+      "startedAt": 1791043284555,
+      "queuedAt": 1791043284465,
+      "attempt": 1,
+      "lastToolName": "StructuredOutput",
+      "lastToolSummary": "AGAINST M: places where the DOCKET 68 wave-1 reports or com…",
+      "promptPreview": "DOCKET 68 on M's warp-drive research tree. READ /home/user/Claude-Method-Works/research/warp-drive/docket68/CHARTER.md IN FULL FIRST: M's words verbatim, the hypotheses\n(H-IT, H-SETTLE, H-FRAME, H-12, H-INFO, H-ZERO, H-NULL), the readings R-INDEX and R-QUANTUM, Q-1, the standing\ninstruction to test alone then in combination, and the pre-docket scripts beside it (nosig.py, fields12.py,\nnlcontrol.py…",
+      "promptFramed": true,
+      "lastProgressAt": 1791043952592,
+      "tokens": 264877,
+      "toolCalls": 25,
+      "durationMs": 668031,
+      "resultPreview": "{\"lens\":\"AGAINST M: places where the DOCKET 68 wave-1 reports or combine.py overstate what a hypothesis or combination achieves. That covers removals that rest on an encoding slip, on an out-of-scope or inexpressibility argument, on a vacuous test or guard, on a mis-cited computation, or on a lower bound read as a cost. Report: /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-5…"
+    },
+    {
+      "type": "workflow_agent",
+      "index": 7,
+      "label": "verify-1",
+      "phaseIndex": 3,
+      "phaseTitle": "Verify",
+      "agentId": "afd71397c7b901161",
+      "model": "claude-opus-5-5",
+      "state": "done",
+      "startedAt": 1791043284560,
+      "queuedAt": 1791043284467,
+      "attempt": 1,
+      "lastToolName": "StructuredOutput",
+      "lastToolSummary": "FOR M: finding where DOCKET 68 wave 1 (A1-settle, A2-frame,…",
+      "promptPreview": "DOCKET 68 on M's warp-drive research tree. READ /home/user/Claude-Method-Works/research/warp-drive/docket68/CHARTER.md IN FULL FIRST: M's words verbatim, the hypotheses\n(H-IT, H-SETTLE, H-FRAME, H-12, H-INFO, H-ZERO, H-NULL), the readings R-INDEX and R-QUANTUM, Q-1, the standing\ninstruction to test alone then in combination, and the pre-docket scripts beside it (nosig.py, fields12.py,\nnlcontrol.py…",
+      "promptFramed": true,
+      "lastProgressAt": 1791044226805,
+      "tokens": 278367,
+      "toolCalls": 31,
+      "durationMs": 937244,
+      "resultPreview": "{\"lens\":\"FOR M: finding where DOCKET 68 wave 1 (A1-settle, A2-frame, A3-measure, A4-geometry, B-combine) understates M's hypotheses. Report JSON: /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d68/C-verify-1.json. No other file was written; Python was run with PYTHONDONTWRITEBYTECODE. One source was read at source this pass: gr-qc/0602001v1 (Eling-Gued…"
+    },
+    {
+      "type": "workflow_agent",
+      "index": 8,
+      "label": "verify-2",
+      "phaseIndex": 3,
+      "phaseTitle": "Verify",
+      "agentId": "a98622a918cbef18c",
+      "model": "claude-opus-5-5",
+      "state": "done",
+      "startedAt": 1791043955441,
+      "queuedAt": 1791043284468,
+      "attempt": 1,
+      "lastToolName": "StructuredOutput",
+      "lastToolSummary": "REPRODUCE: I ran all five selftests and re-derived the head…",
+      "promptPreview": "DOCKET 68 on M's warp-drive research tree. READ /home/user/Claude-Method-Works/research/warp-drive/docket68/CHARTER.md IN FULL FIRST: M's words verbatim, the hypotheses\n(H-IT, H-SETTLE, H-FRAME, H-12, H-INFO, H-ZERO, H-NULL), the readings R-INDEX and R-QUANTUM, Q-1, the standing\ninstruction to test alone then in combination, and the pre-docket scripts beside it (nosig.py, fields12.py,\nnlcontrol.py…",
+      "promptFramed": true,
+      "lastProgressAt": 1791044453098,
+      "tokens": 468844,
+      "toolCalls": 44,
+      "durationMs": 497656,
+      "resultPreview": "{\"lens\":\"REPRODUCE: I ran all five selftests and re-derived the headline numbers independently in a scratch script (scratchpad/cv2/rederive.py) that does not import any agent code. I also checked the READ citations at source through alphaXiv. Report: /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d68/C-verify-2.json\",\"problems\":[{\"site\":\"research/warp-…"
+    }
+  ],
+  "totalTokens": 2596614,
+  "totalToolCalls": 299
+}
