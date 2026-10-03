@@ -51,22 +51,29 @@ or a CORRECTED note, and the old value is still checked as a RECORD.
 QED coefficients READ-VIA-RESTATEMENT (address); horizon computed from READ Planck inputs (cosmo); G_F and m_h READ,
 125.20 WITHDRAWN, Higgs-inflation ξ COMPUTED from READ eq. (13) (higgs, excite, xigate, ledger D20, massform S11).
 
-## 4. Left for M — each needs a ruling, nothing was changed
+## 4. M's closing rulings (2026-10-03), seated in f44b2cf
 
-1. **GATE 1 re-size.** It stands at 4902 m = 0.859× nuclear; re-sizing to drivespec's 4544 m moves every GATE 1 figure.
-2. **The OPEN-cell reading.** Cells moved to 0 on Y/Z for OPEN (the house NU-OPEN reading); some older OPEN rows
-   read −1.
-3. **A new finding: the Ford-Roman crossover rests on a sampling choice.** candidates.py reads Ford-Roman's
-   Lorentzian time average at t0 = R/c (its own modelling choice, which it names) and finds the bound meets the
-   requirement at R = l_P √(3Λ/32π²) = **0.307933 l_P**, "only below the Planck length". The inequality written for
-   a density held for a duration T, achievable.duration_bound, allows 333.709× more (Fewster's C = 3.16986 against
-   3/(32π²)). On it the crossover is l_P √(CΛ) = **5.625229 l_P**, above the Planck length, and the shortfall
-   is 68.083 orders at 1 m (50.083 at 1 nm) against the printed 70.606 (52.606). The refusal on Y stands on both
-   readings. What moves is the headline "the framework fails before the bound does" / "the magnitude gate and the
-   Planck scale are the same gate", which holds only on the t0 = R/c reading. It reaches candidates.py,
-   magnitude.py's area law (k_FR), index3's three-crossovers and diagonal rows, and the paper's H37d and the
-   tables that quote 0.307933. Computed; nothing changed.
-4. research/README.md's journal keeps first-written passages as history.
+1. **Ford-Roman crossover — "Carry both".** candidates.py and magnitude.py carry both readings, each computed:
+   0.307933 l_P and 70.606 / 52.606 orders (1 m / 1 nm) on Ford-Roman read at t0 = R/c; **5.625229 l_P** and
+   **68.083 / 50.083** on the duration bound (C = 3.16986, 333.709×). "Below the Planck length", "the framework
+   fails before the bound does" and "the same gate" are narrowed to the t0 = R/c reading; on the duration bound
+   which fails first is NOT ESTABLISHED. The refusal on Y stands on both. Carried to coefficients, coincidence,
+   exact, overturn, switch, gaps, unidentified, oneobject, achievable, index3 and the paper (H37d–H37g and the
+   tables), under '(Corrected on M's "Carry both", DOCKET 67: ...)'.
+2. **GATE 1 — "Re-size to 4544 m".** R1 = drivespec.radius_for_density(address.RHO_NUCLEAR) = 4544.176 m, 1.0255 M☉,
+   1.0879e46 J, shell exactly 1.0× nuclear; every figure recomputed in gate1, torus (TORUS-ASPECT-HELD, margin
+   5.89×; 6.04× with a held at 1600 m), gatespec, launcher, residue, kerr, GATE-CLOSED.md, THE-DRIVE.md; index3's
+   bore closure 95.47× (first 102.98×). GATE1-SIZED-ON-RECALLED-DENSITY discharged; 4902 m figures kept as RECORD.
+3. **OPEN cells — "Unify to 0".** TYPE-IV (+1,−1,−1) → (+1,0,0) (obstruct: "Not forbidden -- unknown").
+   **Held for M:** five OPEN rows at (0,−1,0) — NOT-CERTIFIED, AXIAL-TERM, SELF-CONSISTENT-OPEN, EXACT-ORDER-OPEN,
+   UNPROVEN-LOAD. Moving Y to 0 seats each at (0,0,0), the cell index3 declares not a finding, adds a 17th occupied
+   cell and moves pathmetric's fixture 310 → 378. Each row now says its −1 is not a bound (OPEN-AT-NULL-HELD).
+   index3 pins 283/166, with controls reproducing every earlier pin.
+
+Also: paper H37g "runs out exactly where" → "within an order-one factor" (the candidates.py correction had not
+reached the paper). ledger's DOCKET 67 marker census now reads any of M's quoted words.
+
+Still open: research/README.md's journal keeps first-written passages as history.
 
 Done under the existing rulings after the residue pass: index3's two Ford-Roman rows (BOUNDS-FALL-FASTER-THAN-NEED,
 QI-CARRIES-THE-WHOLE-WEIGHT) brought to their owners' corrected wording, cells kept; paper H37d's
