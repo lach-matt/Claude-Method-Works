@@ -1,17 +1,58 @@
 # DOCKET 68 · A3-measure: Q-1 (the substrate-free measure), H-INFO and R-INDEX
 
 **Status: a docket work item. Nothing here is seated.** The instrument is `measure.py`, which sits beside this file.
-`python3 measure.py --selftest` runs 65 checks, and all 65 pass in about 15 s. Fifteen of them are **controls**: cases
-built to fail, and every one of them fails. Five more are printed **STRUCTURAL**: they cannot fail by construction
+`python3 measure.py --selftest` runs 85 checks, and all 85 pass in about 27 s. Nineteen of them are **controls**: cases
+built to fail, and every one of them fails. Six more are printed **STRUCTURAL**: they cannot fail by construction
 (a literal, or a comparison of typed values), so they are not counted as controls and are not cited as evidence.
 *Wave 1 first said* "58 checks ... Sixteen of the checks are controls", and four of those sixteen were structural.
+*Wave 3 first said* "65 checks ... Fifteen ... controls ... Five ... STRUCTURAL"; the Q-1s integration (§ (vii)) added
+20 checks, 4 controls and 1 structural.
 The instrument imports everything it uses and copies nothing:
 
 - `tools/cypher.py` for Λ;
 - `nopath`, `massform`, `stock`, `wormhole` and `transit` for every board figure;
-- `nlcontrol.py` for the drift model.
+- `nlcontrol.py` for the drift model;
+- `signed.py` (Q-1s, `Q1s-signed.md`) for the signed measure, imported lazily inside the functions that use it,
+  because `signed.py` itself imports this file inside two of its functions.
 
 It writes nothing outside `docket68/`.
+
+**Headline, member-attributed first (wave 3).**
+- Nothing in this work item removes an obstruction that a member can claim. Q-1, H-INFO and R-INDEX are each
+  LEAVES-ALL.
+- **H-SETTLE × H-INFO adds nothing to H-SETTLE-W.** The drift's O-BITS removal is H-SETTLE-W × H-FRAME's (A1, A2).
+- H-INFO-S is a **CLASH** with B-RECV, and it stays M's to rule.
+- R-INDEX's NOT-BOUND-IF {H-IT, H-MEASURE-PHYSICAL} is in a column of its own, and so is the geometry's corridor O-LOOP
+  removal, which is credited to no hypothesis.
+- **Q-1s is now in use (§ (vii)).** Q-1 takes signed cell weights under H-SIGNED-CELLS, and returns Shannon exactly
+  when no weight is negative. **No grade moves**; each was re-examined, and the reason it does not move is recorded.
+
+## Q-1s integration (2026-10-03): what changed, and why
+
+M, in the charter: *"Let's create the instrument and implement its use."* `signed.py` was built in Q1s-build; this
+pass puts it to use in Q-1. What was added to `measure.py`, all of it in section (vii):
+
+| added | what it does | what checks it |
+|---|---|---|
+| `q1(p)` | Q-1 on a cell weighting. If no weight is negative, the case is **SHANNON** and the value is H(p), with the signed quantities alongside. If some weight is negative, the case is **SIGNED**: (Re H, Im H = πN, N, M) from `signed.py`, under H-SIGNED-CELLS, and no Shannon value is offered. A total other than 1 is refused (H-NORM). | Shannon is recovered **exactly** on 301 vectors with no negative weight: Re H equals H bit for bit, Im H = 0, N = 0, \|M\| ≤ 1.1e-14 nats. Two controls: a weighting with one negative entry is routed SIGNED and differs from the clip-and-renormalise value; a total of 2 is refused. |
+| `signed_loss` | Re H(p) − Re H(f₊p), the signed analogue of the BFL loss | equal to `F_shannon` bit for bit on 300 random FinProb morphisms. Control: it leaves Theorem 2's codomain [0, ∞) on signed morphisms. |
+| `boundary_continuity` | a weight crossing zero from below | the signed case joins the Shannon case: the Re H gap falls 4.9e-2 → 2.3e-9 over e = 1e-2 … 1e-10, and Im H and M → 0 |
+| `holder_ceiling` | whether Re H keeps Shannon's ceiling ln n | computed on `signed.py`'s extremal vectors, each evaluated by `q1` |
+| `rindex_signed` | R-INDEX on Λ with signed cell weights (H-MOBIUS-WEIGHT, `signed.lambda_mobius`) | reproduces Q1s-build's recorded figures; control: a full box gives a one-point weight, case SHANNON |
+| `Q1S_GRADE_REVIEW` | each A3 grade, re-examined | every grade is covered and every verdict is unchanged (STRUCTURAL: a comparison of typed values) |
+
+`signed.py` gained one keyword, `lambda_mobius(..., vectors=True)`, which returns the two normalised weightings so that
+`q1` evaluates them itself. Nothing else in `signed.py` changed.
+
+## Wave 3 repair (2026-10-03): the two re-verifications
+
+| re-verification item | resolution |
+|---|---|
+| RV-0 #6: H-SETTLE × H-INFO graded PARTIAL, "complementary obstructions", but H-INFO contributes nothing | **Applied.** The verdict is now **LEAVES-ALL, adding nothing to H-SETTLE-W**. The χ in this file is nlcontrol's Holevo information, which is H-SETTLE-W's alone, counted in Q-1's unit, so H-INFO is not load-bearing. The drift's removal needs a preferred slicing (H-FRAME3b ⇐ F1) and so belongs to H-SETTLE-W × H-FRAME, with one removal set: {N_EPS, H-C2, H-FRAME3b ⇐ F1, H-COHERE, H-NLCONTROL-FORM, H-BORN-AT-BOB, H-BLOCK}. The window premises {H-MAP, H-TRANSFER, H-SPIN} are kept separate. |
+| RV-0 #13: "a measured 6.4920"; prediction 1 omits H-C2 | **Applied.** The value now reads "integrated (nlcontrol)", in the text and in `measure.py`'s check. Prediction 1 now reads: under H-C2 and H-NLCONTROL-FORM, χ_Bob bounds ε through χ ≈ 6.5ε²; under C1 a null result does not bound ε. |
+| RV-1 #6: clash (d) carries conditions named nowhere beside it | **Applied** (§ H-INFO-S). B-RECV's conditions are listed beside the clash: C3, P-UNIFORM and H-UNSOURCED-SEAT (LEDGER S10 and D27, READ); Bekenstein's scope; and what φ(1) = 0 does and does not require. **The clash stays a CLASH for M to rule.** Encoding B-RECV with a premise would let H-INFO-S remove O-MATTER by assertion, which would over-represent in the other direction. |
+| RV-1 #9: LEAVES-ALL rows do not carry the geometry's O-LOOP | **Applied.** Each LEAVES-ALL row's O-LOOP is SILENT within the measure. For a physical corridor in exact FRW it is REMOVED-IF {H-FRW-EXACT, H-NOT-DE-SITTER, H-CORRIDOR-MODEL}, by the geometry, credited to no hypothesis. |
+| RV-0 unresolved #4: N_MEASPHYS has no READ source | **Answered.** That is correct, and it is what the grade says. H-MEASURE-PHYSICAL is a named hypothesis carried so the grade can state what a removal would take. It is never cited as evidence, and the obstruction stays NOT-BOUND-IF, not REMOVED. |
 
 ## Wave 2 repair (2026-10-03): what changed, and why
 
@@ -20,7 +61,7 @@ It writes nothing outside `docket68/`.
 | AGAINST #1: R-INDEX "removes" O-HOLD and O-MAKE within the measure because they are not expressible, while O-LOOP's inexpressibility is called silence | **Applied.** One reason gets one verdict: within the measure, O-HOLD, O-MAKE and O-LOOP are all **SILENT**. For a physical corridor, the NEC and Geroch are **NOT-BOUND-IF {H-IT, H-MEASURE-PHYSICAL}**, never REMOVED: showing a theorem cannot be stated in a formalism is not showing its conclusion false. R-INDEX alone is **LEAVES-ALL**. The Bekenstein floor belongs to the destination holder (O-MATTER). |
 | AGAINST #0 (sited in combine; it cites this file): B-THROAT reads "physical only under H-IT" as sufficiency | **Answered at the source.** Here H-IT is *necessary*. Sufficiency would need H-MEASURE-PHYSICAL ("under H-IT, the measure-level absence of an NEC is physical"), which no instrument or READ source supplies. It is named so the grade can say what it would take. |
 | AGAINST #9: lower bounds read as costs ("the 'costs little' half, priced") | **Applied.** Every joule figure is a **floor**. Landauer prices *erasure*, which teleportation does not require. Bekenstein floors a holder's gravitating energy. No upper bound on any cost is computed. The one READ-backed holder, the body, has Mc² = 6.29e18 J. "Costs little" is **floored, not priced**. |
-| AGAINST #14: H-SETTLE × H-INFO "removes O-BITS in nlcontrol's model only", with no distance in the model and C2 unnamed | **Applied.** The model shows a channel **exists**: χ = (2T)²ε²/(8 ln 2) per use for small ε, coefficient 6.49 at T = 3 (computed, and it matches χ(1e-3)/1e-6 = 6.4920). This holds under H-C2; under C1 there is none. O-BITS is REMOVED-IF {N_EPS (A1's timing), H-C2, H-BORN-AT-BOB, H-FRAME3b}. |
+| AGAINST #14: H-SETTLE × H-INFO "removes O-BITS in nlcontrol's model only", with no distance in the model and C2 unnamed | **Applied.** The model shows a channel **exists**: χ = (2T)²ε²/(8 ln 2) per use for small ε, coefficient 6.49 at T = 3 (computed, and it matches χ(1e-3)/1e-6 = 6.4920). This holds under H-C2; under C1 there is none. O-BITS is REMOVED-IF {N_EPS (A1's timing), H-C2, H-BORN-AT-BOB, H-FRAME3b}. *Superseded in wave 3:* the pair adds nothing to H-SETTLE-W, and the removal is H-SETTLE-W × H-FRAME's (RV-0 #6). |
 | FOR #8: H-INFO's sufficiency reading was never screened, so "O-MATTER survives because none of the seven touches it" is not established | **Applied.** H-INFO-S is graded: a **CLASH** with B-RECV, not a removal (`info_s_clash`). |
 | FOR #0 (sited in combine): rule-2 retirement of H-INFO rests on an inert encoding | **Recorded here.** H-INFO is exercised in this file (it reprices nothing and removes nothing). Combine's verdict that it is "not load-bearing" is UNTESTED-BY-SCREEN, because its MEASURE atom is in no constraint. Retirement is not established. |
 | (rule: vacuous controls) four wave-1 controls could not fail | **Applied.** They are now printed STRUCTURAL. One of them (the mis-stated identity) was given content: a mis-stated line, parsed by `read_identity`'s own pattern, must fail the comparison with cypher's computation. |
@@ -182,6 +223,61 @@ object is cheap at every exchange rate." That treated lower bounds as costs. Wha
 - Under H-FAITHFUL the information must still be *sent*, at 2 classical bits per qubit, through a channel no faster
   than light (`transit.BEATS_LIGHT` is False; imported).
 
+## (vii) Q-1s in use: R-INDEX with signed cell weights
+
+**The hypothesis.** H-SIGNED-CELLS: a cell weighting on R-INDEX may be a quasi-probability. Its weights are real,
+total exactly 1 (H-NORM, enforced), and some may be negative. Its Q-1 value is then `signed.py`'s (Re H, Im H = πN,
+N, M = ln Σ|p|) on the principal branch (H-PRINCIPAL). *Which* signed weighting is meant is a further choice; here
+it is `signed.py`'s H-MOBIUS-WEIGHT. **Λ itself carries no negative probability.** A signed weighting is a
+decomposition of Λ, not a measurement of it.
+
+**Control: the ordinary case is recovered exactly.** When no weight is negative, `q1` reports case SHANNON. On 301
+vectors (random, some with exact zeros, and the uniform measure on Λ) the signed path gives Re H equal to this
+file's H **bit for bit**, Im H = 0 and N = 0. M is zero up to the rounding of Σp (at most 1.1e-14 nats). The signed
+loss equals `F_shannon` bit for bit on 300 random FinProb morphisms. A weight crossing zero from below joins the
+Shannon case continuously. These checks can fail: a weighting with one negative entry, (0.5, 0.6, −0.1), is routed
+SIGNED with Im H > 0 and M > 0, and its Re H (0.422810 nats) differs from the clip-and-renormalise Shannon value
+(0.918428 nats), which is what a dispatcher that ignored the sign would have returned.
+
+**On Λ (COMPUTED).**
+
+| weighting (hypothesis) | case | cells | Re H, bits | Im H | N | M, bits |
+|---|---|---|---|---|---|---|
+| uniform (H-UNIFORM) | SHANNON | 976 | 9.930737 | 0 | 0 | 0 |
+| Möbius p (H-MOBIUS-WEIGHT) | SIGNED | 317 | 0 (every \|p\| = 1) | 496.3716 = 158π | 158 | 8.3083 = log₂ 317 |
+| box mixture q (H-MOBIUS-WEIGHT) | SIGNED | 317 | −3.033176 | 256.6643 | 81.6988 | 7.3610 |
+| full box (control) | SHANNON | 1 | 0 | 0 | 0 | 0 |
+
+The figures match Q1s-build's (N = 158, Re H = 0, M = 8.308 bits; Re H = −3.033 bits, N = 81.70). The uniform row is
+§ (ii)'s log₂ 976.
+
+**What does not carry from § (i). It is computed, not asserted.**
+- **Theorem 2's codomain fails.** Crushing (1.5, −0.5) to a point has signed loss **−0.954771 nats**. Merging
+  (1.6, −0.3, −0.3) to (1.6, −0.6) has loss −0.6 ln 2 = −0.415888 nats, with N unchanged. A measure-preserving map can
+  *raise* Re H, so Q-1's uniqueness (Theorem 2) is **not inherited** by signed weights (H-FINSIGNED). Within a
+  12-functional dictionary the lawful family is span{Re H, N} (Q1s-signed.md § 4, H-DICTIONARY). Over all continuous
+  functionals, uniqueness is **OPEN**.
+- **Re H has no ceiling ln n.** These values come from `signed.py`'s extremal vectors, each evaluated by `q1` and
+  agreeing with the closed form to 1e-9:
+  - **n = 1:** the only weighting with total 1 is (1), so Re H = 0 = φ(1), signed or not.
+  - **n = 2:** Re H < 0 at every N tested (−0.9548, −1.9095, −3.3510, −5.6102 nats at N = 0.5, 2, 10, 100).
+  - **n = 3:** the extremal (P/2, P/2, −N) has Re H = 0.1699, 4.2736 and 64.3977 nats at N = 2, 10 and 100, against
+    ln 3 = 1.0986. Re H grows without bound in N.
+  - **n = 5:** Re H already exceeds ln 5 at N = 2 (2.2493 nats).
+  So "I bits at the destination need at least 2^I states" holds for Shannon only. Read as information, Re H would bound
+  no holder's size. But Re H's operational meaning is **OPEN** (Q1s-signed.md, OPEN 6). The finding therefore neither
+  weakens B-RECV nor supports H-INFO-S; it is not to be read either way.
+
+**Grades re-examined (`Q1S_GRADE_REVIEW`). None moves.**
+
+| grade | verdict | why it does not move |
+|---|---|---|
+| Q-1 | LEAVES-ALL | The signed measure counts, as Q-1 does. It sends no bit, holds no throat, forms no matter, closes no loop. Only its scope changes: Theorem 2's uniqueness covers the SHANNON case only. |
+| H-INFO | LEAVES-ALL | Clause (a) was already scoped to probability measures (BFL's hypotheses, READ pp.3-4). For signed weights a substrate-free candidate exists, but it is not BFL-unique. So clause (a) is **SUPPORTED for probability weights and OPEN for signed ones**. Clause (b) is untouched: Re H gives no lower bound per unit matter either. |
+| H-INFO-S | CLASH | φ(1) = 0 survives signed weights (n = 1 above). The 2^I leg is Shannon's (n = 3 above), and Re H's meaning is OPEN. The clash stays M's to rule. |
+| R-INDEX | LEAVES-ALL | Its values are (Re H, Im H, N, M). None is an energy density: a negative weight is not a negative T_ab k^a k^b. So O-HOLD stays SILENT within the measure, and NOT-BOUND-IF {H-IT, H-MEASURE-PHYSICAL} for a corridor. To read a negative weight as the throat's null deficit (one reading of M's "supplied by probability in the citation/seating") is **H-NEGWEIGHT-NEC**: named, with no instrument and no source, and not credited. O-BITS: a signed weighting sends nothing. O-MATTER: unchanged. O-LOOP: SILENT. |
+| H-SETTLE × H-INFO | LEAVES-ALL | Its χ is a Holevo quantity of density matrices, whose spectra are non-negative. No signed weight enters it. |
+
 ## (iv) Grades
 
 ### Q-1 (the measure), alone: **LEAVES-ALL**
@@ -205,7 +301,8 @@ Per obstruction, alone:
   computed.
 - **O-MAKE** and **O-HOLD** are left: a premise about primacy is not a mechanism.
 - **O-MATTER** is left. Bekenstein's bound applies to a complete system with E > 0, which must hold the bits.
-- **O-LOOP** is SILENT: the measure has no time variable. It is left, not decided.
+- **O-LOOP** is SILENT: the measure has no time variable. It is left, not decided. In the geometry column, credited to
+  no hypothesis: for a corridor in exact FRW it is REMOVED-IF {H-FRW-EXACT, H-NOT-DE-SITTER, H-CORRIDOR-MODEL}.
 
 H-INFO is exercised here and removes nothing. That is not a retirement under rule 2: combine's screen encodes it
 inertly, so its result there is UNTESTED-BY-SCREEN.
@@ -225,7 +322,20 @@ Against the board holding B-RECV (a holder must be at the destination), computed
 H-INFO-S says the arriving information suffices; B-RECV says a holder must already be there. As commitments they
 clash. Nothing computed here shows information constituting its own holder. So O-MATTER is **CLASH**: REMOVED-IF
 {H-INFO-S} holds only on a board without B-RECV. O-MATTER's survival is therefore a board-versus-M clash, not
-something "none of the seven touches". The z3 screen of that clash belongs to combine and is not run here.
+something "none of the seven touches". The z3 screen of that clash (combine's clash (d)) belongs to combine and is not
+run here.
+
+**B-RECV's conditions, listed beside the clash (wave 3, RV-1 #6).** The clash stays a **CLASH, for M to rule**. These
+are what a ruling for H-INFO-S would have to overturn. O-MATTER's survival is unchanged.
+
+| B-RECV rests on | its condition | where |
+|---|---|---|
+| S10 (atomic mass formed at the seat: REFUSED) | **C3**: holds for renormalisable couplings, dimension ≤ 4. "a higher-dimension operator carrying B or L would reverse it". | `LEDGER.md:67` (READ) |
+| | **P-UNIFORM**: the vev takes one value wherever nothing sources it. A named premise, M-D65-4. | `LEDGER.md:50` (D27), `:181` (READ) |
+| | **H-UNSOURCED-SEAT**: nothing holds a source at the seat before arrival. Where it fails, what remains is the held-seat release route S13, OPEN, priced, and forming no baryons. | `LEDGER.md:67`, `:70` (READ) |
+| Bekenstein's bound (0 bits at E = 0) | scope: "complete, weakly self-gravitating, isolated objects" (p.2); E is the **gravitating** energy (p.1), a geometric quantity | quant-ph/0404042v1 (READ) |
+| Q-1, φ(1) = 0 | needs **2^I distinguishable states at the destination**. It does not by itself require that those states be matter already there; "the holder's states are material" is a further premise of B-RECV. *(Q-1s:)* φ(1) = 0 holds for signed weights too; the 2^I leg is Shannon's, because signed Re H on 3 cells has no ceiling (§ (vii)) | BFL 1106.1791v3 pp.3-4 (READ); computed here |
+| transit.py | `CARRIES_SUBSTANCE = False`: the protocol moves a state into a receiver that is already there (a property of linear-QM teleportation) | imported |
 
 Under "Holding it open" in the charter's corridor replies, M says *"This is simply a translation of information
 only. No physics. The null energy doesn't exist here"*. That is true *of the measure*. It is not yet true of the
@@ -254,14 +364,24 @@ manifold, so neither Morris-Thorne's NEC nor Geroch's theorem can even be stated
 - **R-INDEX leaves O-MATTER.** A holder with at least 2^I distinguishable states must be at the destination, and
   Bekenstein's E counts its rest energy (pp.2, 8).
 - **R-INDEX leaves O-LOOP.** The measure has no time coordinate, so it is silent on loops and decides nothing about
-  them.
+  them. In the geometry column, credited to no hypothesis: for a physical corridor in exact FRW it is REMOVED-IF
+  {H-FRW-EXACT, H-NOT-DE-SITTER, H-CORRIDOR-MODEL}. Combined with H-IT read as ITB under N_QTOPO it is NOT-BOUND-IF
+  {N_QTOPO}, and {N_QTOPO, N_CORR} is a premise clash.
 
 ## Combinations, per the standing instruction
 
-**H-SETTLE × H-INFO: complementary obstructions, and computed. Verdict PARTIAL: O-BITS REMOVED-IF {N_EPS, H-C2,
-H-BORN-AT-BOB, H-FRAME3b}.** The O-BITS bound read above rests on causality (BSST p.3), and H-SETTLE breaks the
-linearity behind that premise. With `nlcontrol.py`'s model imported, Bob's two ensembles carry the Holevo information
-in the table below. The named hypotheses are:
+**H-SETTLE × H-INFO: computed, and it adds nothing to H-SETTLE-W. Verdict LEAVES-ALL (wave 3).** The O-BITS bound read
+above rests on causality (BSST p.3), and H-SETTLE breaks the linearity behind that premise. With `nlcontrol.py`'s model
+imported, Bob's two ensembles carry the Holevo information in the table below. That information is H-SETTLE-W's,
+counted in Q-1's unit. H-INFO changes nothing in it, so H-INFO is not load-bearing and this is not a complementary
+pair.
+- The drift's O-BITS removal needs a preferred slicing (H-FRAME3b ⇐ F1). It is therefore H-SETTLE-W × H-FRAME's
+  (A1 §5, A2): REMOVED-IF {N_EPS, H-C2, H-FRAME3b ⇐ F1, H-COHERE, H-NLCONTROL-FORM, H-BORN-AT-BOB, H-BLOCK}.
+- The window premises {H-MAP, H-TRANSFER, H-SPIN} are separate.
+- *Wave 2 first said* "complementary obstructions, and computed. Verdict PARTIAL: O-BITS REMOVED-IF {N_EPS, H-C2,
+  H-BORN-AT-BOB, H-FRAME3b}" (RV-0 #6).
+
+The named hypotheses of the computation are:
 - H-BORN-AT-BOB: Bob's final measurement follows the Born rule;
 - **H-C2**: the drift acts on the branch state. *Wave 1 first omitted it.* Under C1 χ = 0.
 
@@ -275,15 +395,16 @@ in the table below. The named hypotheses are:
 - For small ε, χ scales as ε²: the ratio between ε = 1e-2 and ε = 1e-3 is 99.9.
 - Each use consumes one pre-shared pair, and the pairs had to cross the distance first (`transit.py`: the traversal
   is moved earlier, not removed).
-- For small ε the law is χ = (2T)²ε²/(8 ln 2). The computed coefficient is 6.4921 at T = 3, against a measured
-  6.4920.
+- For small ε the law is χ = (2T)²ε²/(8 ln 2). The computed coefficient is 6.4921 at T = 3, against 6.4920 integrated
+  by nlcontrol. *Wave 2 first wrote* "against a measured 6.4920", which read as experimental (RV-0 #13).
 - **What the model shows is that a channel exists.** nlcontrol has no distance, so "before light" is not defined
   inside it. The O-BITS removal needs A1's timing condition (N_EPS: ε > ε_any(L, N)) and H-C2.
   - *Wave 1 first said* "removes O-BITS, in nlcontrol's model only, at a priced capacity".
   - The capacity figures are nlcontrol's single Hamiltonian's (H-NLCONTROL-FORM). A1 §1b computes the W2 class.
 - Its supply of pairs reintroduces transit.
 
-**H-INFO × H-ZERO: tested at the source, and narrowed.** Bekenstein p.1 takes E as the gravitating energy precisely
+**H-INFO × H-ZERO: tested at the source, and narrowed. On obstructions it adds nothing: neither member removes one,
+and the pair removes none.** Bekenstein p.1 takes E as the gravitating energy precisely
 to "dispose of any ambiguity" about the zero, and p.8 includes the ground-state energy. So relabelling the zero
 cannot lower the Bekenstein exchange rate within general relativity. Whether it can in the emergent paradigm
 (H-IT; Padmanabhan & Padmanabhan, as the charter reads it) is **OPEN**.
@@ -291,16 +412,19 @@ cannot lower the Bekenstein exchange rate within general relativity. Whether it 
 **H-INFO × R-QUANTUM.** A memory entangled with the system lowers erasure below zero: the work cost is H(S|O) kT
 ln 2, so a Bell pair yields kT ln 2 (del Rio). This is a real quantum discount on the Landauer exchange rate, but
 the protocol acts on S and O jointly. Whether a spatially separated, LOCC version keeps the discount is **OPEN**
-here. It carries no signalling: S(A|B) = −1 is a property of the joint state.
+here. It carries no signalling: S(A|B) = −1 is a property of the joint state. On obstructions the pair adds nothing.
 
 **H-NULL × H-INFO.** These are cross-referenced only. The counts (≤ 1.1e29 bits) sit about 41 orders below the
-light-sheet cap of a 1 m sphere. That is not a test of the QNEC pricing in `nullinfo.py`.
+light-sheet cap of a 1 m sphere. That is not a test of the QNEC pricing in `nullinfo.py`. The pair adds nothing on
+obstructions.
 
 ## Testable predictions
 
 1. **Any signalling channel shows up in the superdense test.** Any channel in which Bob's statistics depend on
-   Alice's choice, with nothing sent, would give χ_Bob > 0 in that test. Linear QM gives 0, which is computed. In
-   nlcontrol's drift, a measured χ_Bob per use would bound ε through χ ≈ 6.5 ε² bits (small ε, T = 3).
+   Alice's choice, with nothing sent, would give χ_Bob > 0 in that test. Linear QM gives 0, which is computed.
+   **Under H-C2 and H-NLCONTROL-FORM**, a measured χ_Bob per use would bound ε through χ ≈ 6.5 ε² bits (small ε,
+   T = 3). **Under C1, χ = 0 for every ε, so a null result does not bound ε.** *Wave 2 first said* "In nlcontrol's
+   drift, a measured χ_Bob per use would bound ε", without naming H-C2.
 2. **Nothing satisfies Theorem 2's axioms except c·ΔH.** Any functional on FinProb that satisfies all three axioms
    and is not c·ΔH would refute the theorem. All four non-Shannon controls fail an axiom.
 3. **Landauer has a measurable floor.** A measured mean erasure heat below kT[ln 2 + p ln p + (1−p) ln(1−p)], with no
@@ -321,5 +445,9 @@ light-sheet cap of a 1 m sphere. That is not a test of the QNEC pricing in `null
   the same word within the measure.
 - **H-INFO-S's clash is not z3-screened here.** It is graded from computed facts (φ(1) = 0, Bekenstein at E = 0,
   `transit.CARRIES_SUBSTANCE`); the screen is combine's.
+- **Q-1s: what stays OPEN.** Uniqueness of a signed measure over all continuous functionals. The operational meaning
+  of Re H when some weight is negative. Which signed weighting of Λ, if any, The Method means (H-MOBIUS-WEIGHT is one
+  choice among many). H-NEGWEIGHT-NEC has no source. None of `signed.py`'s literature was re-read in this pass; it is
+  cited as Q1s-build READ it (Q1s-signed.md § 6).
 - **The task's file list named `docket68/undefined`.** That is a script fault in the computed task text. The
   instrument is named `measure.py`, as the body of the task asked.

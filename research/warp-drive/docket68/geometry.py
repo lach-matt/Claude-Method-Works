@@ -60,6 +60,11 @@ SOURCES, READ at source through alphaXiv on 2026-10-03 (arXiv is the object, M-D
 #   * H-ZERO + H-IT and H-IT + H-NULL: O-HOLD is OPEN via N_EQUIL (EGJ's non-equilibrium f(R) equation of state,
 #     READ), not LEFT and not removed -- egj_fR_throat computes it.
 #   * the Minkowski light-sheet control computes theta instead of typing -2.
+# WAVE 3 (after the re-verifications RV-0 AGAINST M, RV-1 FOR M).  N_EQUIL is H-IT's in a named Jacobson/thermodynamic
+# reading (ITJ), neither ITE nor ITB; H-ZERO + H-IT and H-IT + H-NULL are split by reading, and their OPEN is H-IT's
+# (wave 2 first credited it to the pairings).  R-QUANTUM's refusal is LEFT-IF {H_flat, H-PATH, H-MIN-SCALAR} (wave 2
+# first wrote 'in scope').  O-LOOP for corridors is the geometry's, credited to no hypothesis; under ITB + N_QTOPO it
+# is NOT-BOUND-IF {N_QTOPO}, and {N_QTOPO, N_CORR} is a premise clash.
 import contextlib
 import io
 import json
@@ -544,6 +549,9 @@ OBS = ["O-BITS", "O-MAKE", "O-HOLD", "O-MATTER", "O-LOOP"]
 # shown not to bind, its premise named) / OPEN / LEAVES-ALL / CLASH.  Per obstruction: LEAVES, SILENT, NOT-BOUND-IF
 # {..}, REMOVED-IF {..}, OPEN (via ..), CLASH.  O-MAKE is split: -TOPO (topology change) and -DIST (distribution).
 
+GEO_LOOP = ("REMOVED-IF {H-FRW-EXACT, H-NOT-DE-SITTER, H-CORRIDOR-MODEL} for corridors, by the geometry, credited to "
+            "no hypothesis (A2: frame.frw_time_function_lemma; wave 3, RV-0 #3, RV-1 #9)")
+
 GRADES = [
     {"hypothesis": "H-IT read as ER=EPR (ITE; Maldacena-Susskind, READ), alone", "verdict": "NOT-BOUND-IF",
      "removes": [],
@@ -558,9 +566,10 @@ GRADES = [
                 "separated at <= c, merged; LOCC cannot create entanglement (computed 8.9e-16; nonlocal control 1.965)",
                 "O-HOLD (MS fn.1: non-traversability is an ASSUMPTION of ER=EPR; Gao-Wald Thm 2 needs one of its "
                 "hypotheses broken)",
-                "O-MATTER (no READ result on it)", "O-LOOP (no READ result on it; H-FRAME is A2's)"],
+                "O-MATTER (no READ result on it)", "O-LOOP as a member grade (no READ result on it; H-FRAME is A2's)"],
      "per": {"O-BITS": "LEAVES", "O-MAKE-TOPO": "NOT-BOUND-IF {H-ER=EPR} (non-traversable bridge only)",
-             "O-MAKE-DIST": "LEAVES", "O-HOLD": "LEAVES", "O-MATTER": "LEAVES", "O-LOOP": "LEAVES"},
+             "O-MAKE-DIST": "LEAVES", "O-HOLD": "LEAVES", "O-MATTER": "LEAVES", "O-LOOP": "LEAVES (member)"},
+     "geometry": {"O-LOOP": GEO_LOOP},
      "wave1": "wave 1 first graded H-IT (made under H-ER=EPR) PARTIAL, removing O-MAKE's topology-change form"},
     {"hypothesis": "H-IT read as an information layer beneath geometry (ITB), alone", "verdict": "NOT-BOUND-IF",
      "removes": [],
@@ -572,58 +581,99 @@ GRADES = [
                       "not apply').  What the information layer charges to hold a corridor is OPEN"],
      "leaves": ["O-BITS (linear QM inside any READ model: computed 1.55e-15)",
                 "O-MAKE-DIST (LOCC cannot create entanglement -- linear QM, computed; it binds ITB unless ITB drops "
-                "linear QM)", "O-MATTER", "O-LOOP"],
+                "linear QM)", "O-MATTER"],
      "per": {"O-BITS": "LEAVES", "O-MAKE-TOPO": "NOT-BOUND-IF {N_QTOPO}", "O-MAKE-DIST": "LEAVES",
              "O-HOLD": "NOT-BOUND-IF {N_QTOPO} (geometric form); information-layer holding cost OPEN",
-             "O-MATTER": "LEAVES", "O-LOOP": "LEAVES"},
+             "O-MATTER": "LEAVES",
+             "O-LOOP": "NOT-BOUND-IF {N_QTOPO} for corridors (wave 3, RV-1 #2): an ITB corridor is not a Lorentzian "
+                       "quotient, so neither the FRW keying lemma nor latticectc's loop theorem binds it -- neither "
+                       "removed nor shown to close; loops made by SIGNALS unchanged (none here: ITB carries no channel). "
+                       "Premise clash {N_QTOPO, N_CORR}: N_CORR (H-CORRIDOR-MODEL) makes the same corridor a Lorentzian "
+                       "quotient.  Wave 2 first said LEAVES"},
+     "geometry": {"O-LOOP": "does not bind an ITB corridor under N_QTOPO (see per)"},
      "note": "ITB has no READ realisation: as combine encodes it, it commits to nothing beyond these two non-bindings, "
              "so its consistency with H-SETTLE W2 is by construction, not a finding (C-verify-0 #12).  The READ "
              "realisations of H-IT (MS, Van Raamsdonk) assume linear QM.",
      "wave1": "wave 1 had no ITB grade; combine tied ITB to the H-IT grade made under H-ER=EPR (C-verify-0 #4)"},
+    {"hypothesis": "H-IT read as Jacobson / thermodynamic emergent gravity (ITJ; Jacobson gr-qc/9504004v2, EGJ "
+                   "gr-qc/0602001v1, both READ), alone -- wave 3 (RV-0 #1)", "verdict": "OPEN",
+     "removes": [],
+     "leaves": ["O-BITS", "O-MAKE-TOPO", "O-MAKE-DIST", "O-MATTER"],
+     "per": {"O-BITS": "LEAVES", "O-MAKE-TOPO": "LEAVES (spacetime stays a Lorentzian manifold with an emergent "
+                                                "equation of state: Geroch's kinematic theorem binds whatever the field "
+                                                "equation; board D67 NARROWED, not re-read)",
+             "O-MAKE-DIST": "LEAVES",
+             "O-HOLD": "OPEN via N_EQUIL: with Jacobson's local equilibrium (H-EQUIL) the throat needs T_kk < 0; with "
+                       "H-EQUIL relaxed (EGJ eq.(21), READ) T_kk(r0) >= 0 for beta <= -r0^2/2 (1.9e69 l_P^2 at 1 m, "
+                       "against EGJ's dimensional beta ~ l_P^2), and for b = r0^2/r, f = 1 + beta R, T_kk < 0 somewhere "
+                       "for EVERY beta (r^4 T_kk -> -2 r0^2): for the computed shape and f the deficit is MOVED, not "
+                       "removed (egj_fR_throat); other shapes and f not computed",
+             "O-MATTER": "LEAVES", "O-LOOP": "LEAVES (member)"},
+     "geometry": {"O-LOOP": GEO_LOOP},
+     "note": "N_EQUIL is H-IT's content in this reading.  It is neither ITE (MS fn.1 assumes non-traversability, which "
+             "closes the route) nor ITB (under N_QTOPO there is no metric throat for EGJ's equation to act on).",
+     "wave1": "wave 2 first attributed N_EQUIL to the pairings H-ZERO + H-IT and H-IT + H-NULL, with no reading named"},
     {"hypothesis": "H-ZERO (zero = ground state), alone", "verdict": "LEAVES-ALL",
      "removes": [], "leaves": OBS[:],
-     "per": {o: "LEAVES" for o in ["O-BITS", "O-MAKE-TOPO", "O-MAKE-DIST", "O-HOLD", "O-MATTER", "O-LOOP"]},
+     "per": {o: "LEAVES" for o in ["O-BITS", "O-MAKE-TOPO", "O-MAKE-DIST", "O-HOLD", "O-MATTER"]} | {"O-LOOP": "LEAVES (member)"},
+     "geometry": {"O-LOOP": GEO_LOOP},
      "note": "relabels WEC violations away; the NEC combination changes by exactly 0 (zero.py; z3 UNSAT of the "
              "negation over every T, lambda and null k).  Rule 2: combine encoded H-ZERO's commitments as inert "
              "atoms (in no board constraint), so its 'not load-bearing' is UNTESTED-BY-SCREEN, not a retirement."},
-    {"hypothesis": "H-ZERO with H-IT (emergent gravity: Jacobson; Padmanabhan pp.6-7; EGJ out of equilibrium)",
-     "verdict": "OPEN",
+    {"hypothesis": "H-ZERO with H-IT (split by reading, wave 3)", "verdict": "OPEN (under ITJ only; the OPEN is H-IT's)",
      "removes": [],
-     "leaves": ["O-BITS", "O-MAKE-DIST", "O-MATTER", "O-LOOP"],
-     "per": {"O-BITS": "LEAVES", "O-MAKE-TOPO": "NOT-BOUND-IF (inherited from the H-IT reading: {N_QTOPO} for ITB, "
-                                                "{H-ER=EPR} for ITE)",
+     "leaves": ["O-BITS", "O-MAKE-DIST", "O-MATTER"],
+     "per": {"O-BITS": "LEAVES",
+             "O-MAKE-TOPO": "ITE: NOT-BOUND-IF {H-ER=EPR}; ITB: NOT-BOUND-IF {N_QTOPO}; ITJ: LEAVES (Geroch)",
              "O-MAKE-DIST": "LEAVES",
-             "O-HOLD": "OPEN via N_EQUIL: with Jacobson's local equilibrium (H-EQUIL) the throat needs T_kk < 0, which "
-                       "the free zero cannot reach; with H-EQUIL relaxed (EGJ eq.(21), READ) T_kk(r0) >= 0 for beta <= "
-                       "-r0^2/2 (1.9e69 l_P^2 at 1 m, against EGJ's dimensional beta ~ l_P^2), and for b = r0^2/r "
-                       "T_kk < 0 somewhere for EVERY beta (r^4 T_kk -> -2 r0^2): computed, egj_fR_throat",
-             "O-MATTER": "LEAVES", "O-LOOP": "LEAVES"},
-     "note": "removes the GR objection to H-ZERO itself: in Jacobson's derivation only T_kk enters, Lambda is an "
-             "integration constant and a zero shift is invisible (computed).",
-     "wave1": "wave 1 first graded this LEAVES-ALL with H-EQUIL named OPEN but not carried as a pathway"},
-    {"hypothesis": "H-IT with H-NULL", "verdict": "OPEN", "removes": [],
-     "leaves": ["O-BITS", "O-MAKE-DIST", "O-MATTER", "O-LOOP"],
-     "per": {"O-BITS": "LEAVES", "O-MAKE-TOPO": "NOT-BOUND-IF (inherited, as above)", "O-MAKE-DIST": "LEAVES",
-             "O-HOLD": "OPEN via N_EQUIL (as above): the throat's NEC deficit is an entropy decrease on local horizons "
-                       "only under H-EQUIL",
-             "O-MATTER": "LEAVES", "O-LOOP": "LEAVES"},
-     "wave1": "wave 1 first said 'Nothing is removed' and left O-HOLD standing"},
+             "O-HOLD": "ITE: LEAVES (MS fn.1); ITB: NOT-BOUND-IF {N_QTOPO} (geometric form), the layer's cost OPEN; "
+                       "ITJ: OPEN via N_EQUIL -- H-IT's, not the pairing's: EGJ eq.(21) contracted with null k drops "
+                       "the g_ab term, where a zero shift would enter, so H-ZERO adds no O-HOLD content (exercised: "
+                       "egj_fR_throat has no lambda term)",
+             "O-MATTER": "LEAVES",
+             "O-LOOP": "LEAVES (member); ITB: NOT-BOUND-IF {N_QTOPO} for corridors"},
+     "geometry": {"O-LOOP": GEO_LOOP + " (not under ITB + N_QTOPO)"},
+     "note": "the pairing's own computed contribution is that the zero is FREE (in Jacobson's derivation only T_kk "
+             "enters; Lambda is an integration constant): it removes the GR objection to H-ZERO itself, and no "
+             "obstruction.  On obstructions it adds nothing to H-IT.",
+     "wave1": "wave 1 first graded this LEAVES-ALL with H-EQUIL named OPEN but not carried; wave 2 first graded it "
+              "OPEN via N_EQUIL with no reading named and credited the OPEN to the pairing (RV-0 #1, #5; RV-1 #4)"},
+    {"hypothesis": "H-IT with H-NULL (split by reading, wave 3)", "verdict": "OPEN (under ITJ only; the OPEN is H-IT's)",
+     "removes": [],
+     "leaves": ["O-BITS", "O-MAKE-DIST", "O-MATTER"],
+     "per": {"O-BITS": "LEAVES",
+             "O-MAKE-TOPO": "ITE: NOT-BOUND-IF {H-ER=EPR}; ITB: NOT-BOUND-IF {N_QTOPO}; ITJ: LEAVES (Geroch)",
+             "O-MAKE-DIST": "LEAVES",
+             "O-HOLD": "ITE: LEAVES; ITB: NOT-BOUND-IF {N_QTOPO} (geometric form); ITJ: OPEN via N_EQUIL -- H-IT's: "
+                       "EGJ eq.(21) has no null-information term, so H-NULL adds no O-HOLD content (it supplies the "
+                       "bookkeeping: under H-EQUIL the deficit is an entropy decrease on local horizons)",
+             "O-MATTER": "LEAVES",
+             "O-LOOP": "LEAVES (member); ITB: NOT-BOUND-IF {N_QTOPO} for corridors"},
+     "geometry": {"O-LOOP": GEO_LOOP + " (not under ITB + N_QTOPO)"},
+     "note": "on obstructions the pairing adds nothing to H-IT.",
+     "wave1": "wave 1 first said 'Nothing is removed' and left O-HOLD standing; wave 2 first graded it OPEN via N_EQUIL "
+              "with no reading named"},
     {"hypothesis": "H-NULL (null is a containment where information lives)", "verdict": "LEAVES-ALL",
      "removes": [], "leaves": OBS[:],
-     "per": {o: "LEAVES" for o in ["O-BITS", "O-MAKE-TOPO", "O-MAKE-DIST", "O-HOLD", "O-MATTER", "O-LOOP"]},
+     "per": {o: "LEAVES" for o in ["O-BITS", "O-MAKE-TOPO", "O-MAKE-DIST", "O-HOLD", "O-MATTER"]} | {"O-LOOP": "LEAVES (member)"},
+     "geometry": {"O-LOOP": GEO_LOOP},
      "note": "prices O-HOLD in bits (QNEC outside scope): S''/A <= -1.38e69 bits/m^4 at r0 = 1 m; over a null run r0 "
              "that is |dS|/A = 0.5 x the light-sheet cap -- a requirement (floor), not a supply. The containment (a "
              "light-sheet, theta <= 0) is exactly what the throat breaks: no light-sheet leaves the throat sphere "
              "(computed).  Rule 2: UNTESTED-BY-SCREEN in combine's encoding (QNEC_PRICED in no constraint)."},
-    {"hypothesis": "R-QUANTUM (QEI-bounded negative energy holds the throat)", "verdict": "LEAVES-ALL",
+    {"hypothesis": "R-QUANTUM (QEI-bounded negative energy holds the throat)", "verdict": "LEAVES-ALL (only IF {H_flat, H-PATH, H-MIN-SCALAR}) / OPEN (xi > 0)",
      "removes": [], "leaves": OBS[:],
-     "per": {o: "LEAVES" for o in ["O-BITS", "O-MAKE-TOPO", "O-MAKE-DIST", "O-MATTER", "O-LOOP"]} |
-            {"O-HOLD": "LEAVES in the bound's scope; OPEN for the xi > 0 scalar"},
-     "note": "in the bound's proven scope (massless minimal scalar, Hadamard, flat: H_flat) the allowed density at "
-             "the hold time covers ~2e-68 of the deficit at r0 = 1 m; OPEN for the nonminimally coupled scalar "
-             "(no state-independent QEI, Fewster-Osterbrink, board NARROWED).  R-QUANTUM presupposes a GEOMETRIC "
-             "throat; ITB's non-binding presupposes NONE -- for one corridor the two premises are alternatives (a "
-             "named clash if both are asserted)."},
+     "per": {o: "LEAVES" for o in ["O-BITS", "O-MAKE-TOPO", "O-MAKE-DIST", "O-MATTER"]} |
+            {"O-HOLD": "LEFT-IF {H_flat, H-PATH, H-MIN-SCALAR}; OPEN on the xi > 0 branch; curved-space QEIs "
+                       "NAMED-NOT-READ", "O-LOOP": "LEAVES (member)"},
+     "geometry": {"O-LOOP": GEO_LOOP},
+     "note": "the QEI's proven scope is a massless minimal scalar in Hadamard states in FLAT space; a 1 m throat is "
+             "curved, so the refusal holds only under H_flat (a flat-space QEI carried to a curved throat), H-PATH and "
+             "H-MIN-SCALAR -- wave 2 first wrote 'in scope'.  Under those, the allowed density at the hold time covers "
+             "2.08e-68 of the deficit at r0 = 1 m (computed); OPEN for the nonminimally coupled scalar (no "
+             "state-independent QEI, Fewster-Osterbrink, board NARROWED).  R-QUANTUM presupposes a GEOMETRIC throat; "
+             "ITB's non-binding presupposes NONE -- for one corridor the two premises are alternatives (a named clash "
+             "if both are asserted)."},
 ]
 
 
@@ -707,6 +757,8 @@ def report():
         print(f"  {g['verdict']:12s} {g['hypothesis']}")
         for o, w in g["per"].items():
             print(f"               {o:<12} {w}")
+        for o, w in g.get("geometry", {}).items():
+            print(f"               {o:<12} [geometry column, credited to no hypothesis] {w}")
     return d
 
 

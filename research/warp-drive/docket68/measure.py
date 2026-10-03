@@ -40,6 +40,13 @@ WHAT IT DOES
         and prices, in bits and joules, the information defining a 70 kg body under NAMED counting hypotheses,
         against the board's geometric prices (wormhole.throat_mass, nopath.coincidence_mass, massform floors).
   (iv)  Grades H-INFO, R-INDEX and Q-1 per obstruction (O-BITS, O-MAKE, O-HOLD, O-MATTER, O-LOOP).
+  (vii) Q-1s in use (CHARTER work item Q-1s; M, 2026-10-03: "Let's create the instrument and implement its use").
+        signed.py (Q1s-signed.md) is IMPORTED, never copied.  q1(p) is Q-1 on a cell weighting: no negative weight ->
+        Shannon, BFL's case, with the signed quantities recovered exactly (Re H == H bit for bit, Im H = 0, N = 0);
+        some negative weight -> the signed measure (Re H, Im H, N, M) on the principal branch, under H-SIGNED-CELLS.
+        R-INDEX is evaluated with signed cell weights on Lambda under H-MOBIUS-WEIGHT (signed.lambda_mobius).  What
+        does NOT carry from (i) is computed, not asserted: the signed loss Re H(p) - Re H(q) leaves BFL's codomain
+        [0, inf), and Re H on n >= 3 cells has no ceiling ln n (so 'I bits need 2^I states' is Shannon's alone).
 
 NAMED HYPOTHESES (every limitation carried by name)
   H-FINITE   BFL's theorem is about FINITE sets and measure-preserving FUNCTIONS (deterministic maps); it says
@@ -69,6 +76,16 @@ NAMED HYPOTHESES (every limitation carried by name)
   H-INFO-S   (wave 2) the sufficiency reading of M's premise: information at the destination SUFFICES to constitute
              the matter (CHARTER: "only the information defining it is necessary"; "the only multi-universal
              currency").  Graded against the board holding B-RECV (a holder must be at the destination).
+  H-SIGNED-CELLS (Q-1s) a cell weighting on R-INDEX may be a quasi-probability: real weights, sum exactly 1
+             (signed.py's H-NORM, enforced: q1 refuses any other total), some possibly negative; its Q-1 value is then
+             signed.py's (Re H, Im H = pi N, N, M = ln sum|p|) on the principal branch (signed.py's H-PRINCIPAL).
+             Which weighting is meant is a further choice: here signed.py's H-MOBIUS-WEIGHT.  Lambda itself carries
+             no negative probability; a signed weighting is a decomposition of it, not a measurement of it.
+  H-FINSIGNED (signed.py's) BFL's category with signed measures.  Theorem 2 is proved for FinProb only (READ
+             1106.1791v3 p.3: measures non-negative); its uniqueness is NOT inherited by the signed case.
+  H-NEGWEIGHT-NEC (Q-1s) a negative cell weight is, or supplies, a throat's null-energy deficit -- one reading of M's
+             "supplied by probability in the citation/seating".  No instrument and no READ source supplies it; it is
+             named so the R-INDEX grade can say what it would take, and it is not credited.
 
 WAVE 2 (repair after three adversarial verifications).  Wave 1 first said: R-INDEX 'PARTIAL', removing O-HOLD and
 O-MAKE 'within the measure' because they are 'not expressible' there; the information is 'cheap at every exchange
@@ -83,8 +100,17 @@ rate' ('the costs-little half priced'); H-SETTLE x H-INFO 'removes O-BITS, in nl
   * H-SETTLE x H-INFO shows a channel EXISTS in nlcontrol's model (chi = (2T)^2 eps^2/(8 ln 2) per use for small
     eps, computed coefficient 6.49 at T = 3) under H-C2; O-BITS is REMOVED-IF {N_EPS (A1's timing), H-C2,
     H-BORN-AT-BOB, H-FRAME3b}.  nlcontrol has no distance, so 'before light' is not defined inside it.
+WAVE 3 (after the re-verifications RV-0, RV-1).  Wave 2 first graded H-SETTLE x H-INFO PARTIAL, 'complementary
+obstructions'.  H-INFO is not load-bearing there (the chi is H-SETTLE-W's, in Q-1's unit), and the removal needs a
+preferred slicing (H-FRAME3b => F1): the pair is LEAVES-ALL, adding nothing; the removal is H-SETTLE-W x H-FRAME's.
+'measured 6.4920' now reads 'integrated (nlcontrol)'.  O-LOOP for corridors in exact FRW is credited to the
+geometry, to no hypothesis.
   * H-INFO-S is graded: a CLASH with B-RECV, not a removal (info_s_clash).
   * Checks that cannot fail by construction are printed STRUCTURAL and are not counted as controls.
+
+Q-1s INTEGRATION (2026-10-03, after Q1s-build).  No grade moves: the signed measure counts, as Q-1 does, and none of
+its values is an energy, a metric or a channel.  Each grade was re-examined (Q1S_GRADE_REVIEW) and the reason it does
+not move is recorded there.
 
 stdlib + numpy (eigenvalues) + sympy (one symbolic identity).
 """
@@ -603,6 +629,182 @@ def info_s_clash():
             "holder_states_needed_for_1_bit": 2 ** 1}
 
 
+# ============================================================================ (vii) Q-1s in use: signed cell weights
+# signed.py is imported lazily: it imports this module inside two of its functions (app_bell, lambda_mobius), so a
+# module-level import here would make each file's import order matter.  Nothing from signed.py is copied.
+
+def _signed():
+    import signed
+    return signed
+
+
+SUM_TOL = 1e-9     # H-NORM tolerance on the float total of a weighting (976 summed floats drift ~1e-13)
+
+
+def q1(p):
+    """Q-1 on a cell weighting p (a list of reals with total 1).
+      no weight negative  -> case 'SHANNON': H(p), BFL Thm 2's measure; the signed quantities are returned beside it
+                             and must reduce to it (Re H == H exactly, Im H = 0, N = 0, M = 0 up to rounding of sum p).
+      some weight negative -> case 'SIGNED' under H-SIGNED-CELLS: (Re H, Im H, N, M) from signed.py; no Shannon value is
+                             offered, and Theorem 2's guarantee is not claimed (H-FINSIGNED).
+    A total other than 1 is REFUSED (signed.py's H-NORM: Re H additivity depends on it)."""
+    sg = _signed()
+    tot = sum(p)
+    if abs(tot - 1.0) > SUM_TOL:
+        raise ValueError(f"q1: weights total {tot!r}, not 1 (H-NORM)")
+    out = {"n": len(p), "re_h_nats": sg.re_h(p), "im_h": sg.im_h(p), "N": sg.neg(p), "M_nats": sg.mana(p)}
+    out["re_h_bits"] = out["re_h_nats"] / LN2
+    out["M_bits"] = out["M_nats"] / LN2
+    if min(p) >= 0:
+        out["case"] = "SHANNON"
+        out["H_nats"] = H(p)
+        out["H_bits"] = out["H_nats"] / LN2
+    else:
+        out["case"] = "SIGNED"
+        out["hypotheses"] = ["H-SIGNED-CELLS", "H-PRINCIPAL", "H-NORM", "H-FINSIGNED"]
+    return out
+
+
+def signed_loss(p, f, ny):
+    """The signed analogue of F_shannon: Re H(p) - Re H(f_* p).  Equal to F_shannon on probability measures."""
+    sg = _signed()
+    return sg.re_h(p) - sg.re_h(push(p, f, ny))
+
+
+def shannon_recovery(rng, trials=300):
+    """CONTROL CASE of the integration: on weightings with no negative entry (random, with exact zeros, and the uniform
+    measure on Lambda) the signed path must give Shannon EXACTLY: Re H == H bit for bit, Im H == 0, N == 0, and
+    |M| at the rounding of sum p; and the signed loss must equal F_shannon bit for bit on random FinProb morphisms."""
+    worst_M, mism, cases = 0.0, 0, set()
+    vecs = [rand_prob(rng, rng.randint(2, 12), zeros=rng.randint(0, 1)) for _ in range(trials)]
+    cells = lambda_counts()[0]
+    vecs.append([1.0 / cells] * cells)
+    for p in vecs:
+        r = q1(p)
+        cases.add(r["case"])
+        mism += not (r["re_h_nats"] == r["H_nats"] and r["im_h"] == 0 and r["N"] == 0)
+        worst_M = max(worst_M, abs(r["M_nats"]))
+    loss_mism = 0
+    for _ in range(trials):
+        n = rng.randint(2, 9)
+        m = rng.randint(1, n)
+        p = rand_prob(rng, n, zeros=rng.randint(0, 1))
+        f = rand_surj(rng, n, m)
+        loss_mism += signed_loss(p, f, m) != F_shannon(p, f, m)
+    return {"vectors": len(vecs), "cases": sorted(cases), "value_mismatches": mism, "worst_abs_M_nats": worst_M,
+            "loss_mismatches": loss_mism, "uniform_lambda_bits": q1(vecs[-1])["H_bits"]}
+
+
+def boundary_continuity(eps_list=(1e-2, 1e-4, 1e-6, 1e-8, 1e-10)):
+    """A weight crossing zero from below: p(e) = (0.5 + e, 0.5, -e) -> the probability (0.5, 0.5, 0).  The signed
+    values must approach Shannon's (Re H -> ln 2, Im H -> 0, M -> 0): the signed case joins the Shannon case at its
+    boundary.  Returns the gaps per e."""
+    base = H([0.5, 0.5, 0.0])
+    rows = []
+    for e in eps_list:
+        r = q1([0.5 + e, 0.5, -e])
+        rows.append({"e": e, "case": r["case"], "re_gap": abs(r["re_h_nats"] - base), "im": r["im_h"],
+                     "M": r["M_nats"]})
+    return base, rows
+
+
+def clip_fallacy_control():
+    """CONTROL: a weighting with one negative entry, (0.5, 0.6, -0.1).  A dispatcher that ignored the sign (Shannon of
+    |p| renormalised -- 'clip and renormalise') would return a Shannon value; q1 must route it SIGNED, with Im H > 0
+    and M > 0, and its Re H must differ from the clipped Shannon value."""
+    p = [0.5, 0.6, -0.1]
+    r = q1(p)
+    a = [abs(x) for x in p]
+    s = sum(a)
+    clipped = H([x / s for x in a])
+    return r, clipped
+
+
+def norm_refusal_control():
+    """CONTROL: weights totalling 2 must be refused (H-NORM).  Returns True when q1 refuses."""
+    try:
+        q1([1.5, 0.5])
+    except ValueError:
+        return True
+    return False
+
+
+def signed_codomain():
+    """BFL Theorem 2's codomain [0, inf) on signed morphisms, computed with this file's push and signed_loss:
+      crush (1.5, -0.5) -> one point: loss = Re H(1.5, -0.5) = -0.954771 nats;
+      merge (1.6, -0.3, -0.3) -> (1.6, -0.6): loss = -0.6 ln 2, with N unchanged.
+    A measure-preserving map can RAISE Re H.  So Q-1's uniqueness (Theorem 2) is not inherited by signed weights."""
+    crush = signed_loss([1.5, -0.5], [0, 0], 1)
+    merge = signed_loss([1.6, -0.3, -0.3], [0, 1, 1], 2)
+    sg = _signed()
+    return {"crush_loss_nats": crush, "merge_loss_nats": merge, "merge_predicted": -0.6 * LN2,
+            "merge_N_before": sg.neg([1.6, -0.3, -0.3]), "merge_N_after": sg.neg(push([1.6, -0.3, -0.3], [0, 1, 1], 2))}
+
+
+def holder_ceiling():
+    """Does Re H keep Shannon's ceiling ln n -- the fact behind 'I bits at the destination need >= 2^I states'
+    (info_s_clash)?  Computed on signed.py's exact extremal vectors (each evaluated here by q1, not taken from the
+    closed form):
+      n = 1: the only weighting with total 1 is (1): Re H = 0 = phi(1), signed or not;
+      n = 2: max Re H < 0 for every N > 0 (signed.reh_bounds);
+      n = 3: the extremal (P/2, P/2, -N) has Re H > ln 3 once N is large, and Re H grows without bound in N."""
+    sg = _signed()
+    rows = []
+    for n in (2, 3, 5):
+        for N in (0.5, 2.0, 10.0, 100.0):
+            _, hi = sg.reh_bounds(n, N)
+            _, vec = sg.reh_extremals(n, N)
+            r = q1(vec)
+            rows.append({"n": n, "N": N, "max_re_h_nats": r["re_h_nats"], "closed_form": hi, "ln_n": math.log(n),
+                         "exceeds_ln_n": r["re_h_nats"] > math.log(n)})
+    return {"n1": q1([1.0]), "rows": rows}
+
+
+def rindex_signed():
+    """R-INDEX with signed cell weights on Lambda, under H-SIGNED-CELLS and H-MOBIUS-WEIGHT (signed.lambda_mobius,
+    imported).  The uniform measure (H-UNIFORM, non-negative) goes through the same q1 and must return log2 976."""
+    sg = _signed()
+    with contextlib.redirect_stdout(io.StringIO()):
+        lm = sg.lambda_mobius(vectors=True)
+        box = sg.lambda_mobius(control_box=True, vectors=True)
+    cells = lm["cells_imported"]
+    uni = q1([1.0 / cells] * cells)
+    rp = q1(lm["p_vector"])
+    rq = q1(lm["q_vector"])
+    rb = q1(box["p_vector"])
+    return {"uniform": uni, "mobius_p": rp, "mobius_q": rq, "box_control": rb,
+            "p_support": lm["support"], "p_n_negative": lm["n_negative"], "p_n_positive": lm["n_positive"],
+            "reconstruction_max_err": lm["reconstruction_max_err"], "sum_p": lm["sum_p"]}
+
+
+# Each A3 grade, re-examined against what (vii) computes.  None moves; the reason is recorded per grade.
+Q1S_GRADE_REVIEW = {
+    "Q-1": "NOT MOVED (LEAVES-ALL).  The signed measure counts as Q-1 does; q1 sends no bit, holds no throat, forms no "
+           "matter, closes no loop.  What changes is scope: Theorem 2's uniqueness covers the SHANNON case only; on "
+           "signed weights the loss leaves [0, inf) (signed_codomain, computed) and uniqueness is OPEN (Q1s-signed.md "
+           "section 4: lawful family span{Re H, N} inside a 12-functional dictionary, H-DICTIONARY).",
+    "H-INFO": "NOT MOVED (LEAVES-ALL).  Clause (a) was already scoped to probability measures (BFL's hypotheses, READ "
+              "p.3-4); for signed weights a substrate-free candidate exists (Re H, with N and M; signed.py names only "
+              "finite sets and signed measures) but it is not BFL-unique, so clause (a) is SUPPORTED for probability "
+              "weights and OPEN for signed ones.  Clause (b) is untouched: Re H has no lower bound per unit matter "
+              "either.",
+    "H-INFO-S (sufficiency reading)": "NOT MOVED (CLASH).  phi(1) = 0 survives signed weights: one cell forces the "
+              "weighting (1), Re H = 0, N = 0 (holder_ceiling n = 1).  The leg 'I bits need >= 2^I states' is "
+              "Shannon's: under H-SIGNED-CELLS Re H on 3 cells exceeds ln 3 and grows without bound in N "
+              "(holder_ceiling), so read as information it would bound no holder's size -- but Re H's operational "
+              "meaning is OPEN (Q1s-signed.md OPEN 6), so this neither weakens B-RECV nor supports H-INFO-S.  The "
+              "clash stays M's to rule.",
+    "R-INDEX": "NOT MOVED (LEAVES-ALL).  With signed cell weights (H-SIGNED-CELLS, H-MOBIUS-WEIGHT) R-INDEX's values are "
+               "(Re H, Im H, N, M) -- computed on Lambda: N = 158, Re H = 0 bits, M = log2 317.  None is an energy "
+               "density: a negative weight is not a negative T_ab k^a k^b, so O-HOLD stays SILENT within the measure "
+               "and NOT-BOUND-IF {H-IT, H-MEASURE-PHYSICAL} for a corridor.  Reading a negative weight as the throat's "
+               "null deficit is H-NEGWEIGHT-NEC: named, no instrument, no source, not credited.  O-BITS: a signed "
+               "weighting sends nothing.  O-MATTER: unchanged (holder_ceiling).  O-LOOP: SILENT.",
+    "H-SETTLE x H-INFO": "NOT MOVED (LEAVES-ALL).  The chi there is a Holevo quantity of density matrices (non-negative "
+                         "spectra); no signed weight enters it.",
+}
+
+
 # ============================================================================ (iv) grades
 
 OBSTRUCTIONS = ("O-BITS", "O-MAKE", "O-HOLD", "O-MATTER", "O-LOOP")
@@ -636,7 +838,9 @@ GRADES = {
                 "O-MAKE": "LEAVES (a premise about primacy is not a mechanism for identification)",
                 "O-HOLD": "LEAVES (same)",
                 "O-MATTER": "LEAVES (Bekenstein: a complete system with E > 0 must hold the bits)",
-                "O-LOOP": "SILENT (no time variable) -- left, not decided"},
+                "O-LOOP": "SILENT (no time variable) -- left, not decided; for corridors in exact FRW the geometry "
+                          "removes it, REMOVED-IF {H-FRW-EXACT, H-NOT-DE-SITTER, H-CORRIDOR-MODEL}, credited to no "
+                          "hypothesis"},
     },
     "H-INFO-S (sufficiency reading)": {
         "verdict": "CLASH",
@@ -668,20 +872,29 @@ GRADES = {
                           "H-MEASURE-PHYSICAL}; nothing here prices holding a corridor open",
                 "O-MATTER": "LEAVES (a holder with at least 2^I distinguishable states must be at the "
                             "destination; Bekenstein E counts its rest energy, READ p.2, p.8; its floor 33-379 J)",
-                "O-LOOP": "SILENT (the index has no time coordinate in the measure: not decided)"},
+                "O-LOOP": "SILENT (the index has no time coordinate in the measure: not decided); for a physical "
+                          "corridor in exact FRW the geometry removes it, REMOVED-IF {H-FRW-EXACT, H-NOT-DE-SITTER, "
+                          "H-CORRIDOR-MODEL}, credited to no hypothesis"},
     },
     "H-SETTLE x H-INFO": {
-        "verdict": "PARTIAL",
-        "reading": "nlcontrol's drift (imported) under H-C2 carries chi_Bob = 6.49e-6 / 6.48e-4 / 5.71e-2 bits per "
-                   "use at eps = 1e-3 / 1e-2 / 1e-1, T = 3 (linear control 0; small-eps law (2T)^2 eps^2/(8 ln 2), "
-                   "coefficient 6.49 computed): a channel EXISTS in that model.  nlcontrol has no distance, so "
-                   "'before light' is undefined inside it; the O-BITS removal is A1's, REMOVED-IF {N_EPS, H-C2, "
-                   "H-BORN-AT-BOB, H-FRAME3b}.  Under C1 there is no channel.  Wave 1 first said 'removes O-BITS, in "
-                   "nlcontrol's model only, at a priced capacity' and named H-BORN-AT-BOB but not H-C2.",
-        "per": {"O-BITS": "REMOVED-IF {N_EPS (A1 eps > eps_any_advantage(L, N)), H-C2, H-BORN-AT-BOB, H-FRAME3b, "
-                          "H-NLCONTROL-FORM for the figures}",
+        "verdict": "LEAVES-ALL",
+        "reading": "ADDS NOTHING to H-SETTLE-W: H-INFO is not load-bearing (the chi below is nlcontrol's Holevo "
+                   "information, H-SETTLE-W's alone, counted in Q-1's unit).  nlcontrol's drift (imported) under H-C2 "
+                   "carries chi_Bob = 6.49e-6 / 6.48e-4 / 5.71e-2 bits per use at eps = 1e-3 / 1e-2 / 1e-1, T = 3 "
+                   "(INTEGRATED by nlcontrol; linear control 0; small-eps law (2T)^2 eps^2/(8 ln 2), coefficient 6.49 "
+                   "computed): a channel EXISTS in that model.  Its O-BITS removal needs a preferred slicing "
+                   "(H-FRAME3b, which is H-FRAME clause 1's substance), so it is H-SETTLE-W x H-FRAME's (A1/A2): "
+                   "REMOVED-IF {N_EPS, H-C2, H-FRAME3b => F1, H-COHERE, H-NLCONTROL-FORM, H-BORN-AT-BOB, H-BLOCK}; "
+                   "window premises separate: {H-MAP, H-TRANSFER, H-SPIN}.  Under C1 there is no channel.  Wave 1 "
+                   "first said 'removes O-BITS, in nlcontrol's model only, at a priced capacity'; wave 2 first graded "
+                   "it PARTIAL, 'complementary obstructions', with O-BITS REMOVED-IF {N_EPS, H-C2, H-BORN-AT-BOB, "
+                   "H-FRAME3b} (RV-0 #6).",
+        "per": {"O-BITS": "LEFT by this pair (H-INFO not load-bearing; the drift's removal is H-SETTLE-W x H-FRAME's, "
+                          "REMOVED-IF {N_EPS, H-C2, H-FRAME3b => F1, H-COHERE, H-NLCONTROL-FORM, H-BORN-AT-BOB, H-BLOCK})",
                 "O-MAKE": "LEAVES (each use consumes a pre-distributed pair)", "O-HOLD": "LEAVES",
-                "O-MATTER": "LEAVES", "O-LOOP": "LEAVES (A1: REMOVED-IF {H-FRW-EXACT, H-NOT-DE-SITTER, N_SIGKEY})"},
+                "O-MATTER": "LEAVES",
+                "O-LOOP": "LEAVES as a member grade; for corridors in exact FRW the geometry removes it, REMOVED-IF "
+                          "{H-FRW-EXACT, H-NOT-DE-SITTER, H-CORRIDOR-MODEL}, credited to no hypothesis"},
     },
 }
 
@@ -724,6 +937,8 @@ def collect():
         "superdense_chi": {"joint_after_send": sd[0], "bob_alone": sd[1]},
         "S_A_given_B_bell": conditional_entropy_bell(),
         "settle_chi_bits_per_use": {str(e): settle_bits(e)[0] for e in (1e-3, 1e-2, 1e-1)},
+        "q1s": {"rindex_signed": {k: v for k, v in rindex_signed().items()}, "signed_codomain": signed_codomain(),
+                "holder_ceiling": holder_ceiling(), "grade_review": Q1S_GRADE_REVIEW},
         "grades": GRADES}
 
 
@@ -766,6 +981,24 @@ def report():
               f"{tr:.4e}; uses to carry the 1 A grid count: {grid_bits / chi:.3e}")
     print(f"     small-eps law chi = k eps^2, k = (2T)^2/(8 ln 2) = {settle_small_eps_coefficient():.4f} at T = 3 (under H-C2; C1 gives 0)")
     print(f"\n(vi) H-INFO-S vs B-RECV: {info_s_clash()}")
+    print("\n(vii) Q-1s in use: q1 on signed cell weights (signed.py imported; H-SIGNED-CELLS)")
+    ri = rindex_signed()
+    for lab, key in (("uniform Lambda (H-UNIFORM)", "uniform"), ("Mobius p (H-MOBIUS-WEIGHT)", "mobius_p"),
+                     ("box-mixture q (H-MOBIUS-WEIGHT)", "mobius_q"), ("full-box control", "box_control")):
+        r = ri[key]
+        print(f"     {lab:<32} case {r['case']:<8} n {r['n']:<5} Re H {r['re_h_bits']:+.6f} bits  Im H {r['im_h']:.4f}"
+              f"  N {r['N']:.4f}  M {r['M_bits']:.4f} bits")
+    sc = signed_codomain()
+    print(f"     signed loss leaves [0, inf): crush (1.5,-0.5) {sc['crush_loss_nats']:.6f} nats; merge negatives "
+          f"{sc['merge_loss_nats']:.6f} nats (N {sc['merge_N_before']} -> {sc['merge_N_after']})")
+    hc = holder_ceiling()
+    for r in hc["rows"]:
+        print(f"     n {r['n']} N {r['N']:<6} max Re H {r['max_re_h_nats']:+.4f} nats vs ln n {r['ln_n']:.4f}"
+              f"{'  EXCEEDS' if r['exceeds_ln_n'] else ''}")
+    print("     grades re-examined (Q1S_GRADE_REVIEW):")
+    for k, v in Q1S_GRADE_REVIEW.items():
+        print(f"       {k}: {v[:v.index(')') + 1]}")
+
     print("\n(iv) grades")
     for k, g in GRADES.items():
         print(f"  {k}: {g['verdict']}")
@@ -902,7 +1135,7 @@ def selftest():
     chk("chi stays within Holevo's log2 2 = 1 bit", c1 <= 1.0, f"{c1:.4f}")
     k = settle_small_eps_coefficient()
     chk("small-eps law chi = (2T)^2 eps^2/(8 ln 2): computed coefficient 6.49 matches chi(1e-3)/1e-6", abs(c3 / 1e-6 / k - 1) < 1e-2,
-        f"k = {k:.4f}, measured {c3 / 1e-6:.4f}")
+        f"k = {k:.4f}, integrated (nlcontrol) {c3 / 1e-6:.4f}")
 
     print("\n(vi) H-INFO-S against B-RECV (wave 2)")
     ic = info_s_clash()
@@ -910,6 +1143,67 @@ def selftest():
     chk("Bekenstein at E = 0 admits 0 bits (nopath.bekenstein_bits)", abs(ic["bekenstein_bits_at_E0_R1m"]) < 1e-12)
     chk("transit.CARRIES_SUBSTANCE is False (imported)", ic["transit_CARRIES_SUBSTANCE"] is False)
     chk("a two-state destination holds 1 bit (phi(2) = ln 2 nats)", abs(phi(2) / LN2 - 1) < 1e-12, "", True)
+
+    print("\n(vii) Q-1s in use: signed cell weights (signed.py imported)")
+    sr = shannon_recovery(rng)
+    chk("no weight negative -> case SHANNON on every vector (random, with exact zeros, uniform on Lambda)",
+        sr["cases"] == ["SHANNON"], f"{sr['vectors']} vectors, cases {sr['cases']}")
+    chk("Shannon recovered EXACTLY: Re H == H bit for bit, Im H == 0, N == 0 on every one (signed.re_h vs this file's H)",
+        sr["value_mismatches"] == 0, f"mismatches {sr['value_mismatches']}")
+    chk("M = ln sum|p| is 0 up to the rounding of sum p when no weight is negative", sr["worst_abs_M_nats"] < 1e-13,
+        f"max |M| {sr['worst_abs_M_nats']:.1e} nats")
+    chk("signed loss == F_shannon bit for bit on 300 random FinProb morphisms (Theorem 2's loss recovered)",
+        sr["loss_mismatches"] == 0, f"mismatches {sr['loss_mismatches']}")
+    chk("uniform Lambda through q1 = method_bits' log2 976", abs(sr["uniform_lambda_bits"] - m["bits_per_cell"]) < 1e-12,
+        f"{sr['uniform_lambda_bits']:.9f}")
+    base, rows = boundary_continuity()
+    chk("a weight crossing 0 from below joins the Shannon case: Re H -> H, Im H -> 0, M -> 0 (gaps fall with e)",
+        all(r["case"] == "SIGNED" for r in rows) and rows[-1]["re_gap"] < 1e-8 and rows[-1]["im"] < 1e-9
+        and rows[-1]["M"] < 1e-9 and rows[0]["re_gap"] > rows[-1]["re_gap"],
+        f"Re gaps {['%.1e' % r['re_gap'] for r in rows]}")
+    rc, clipped = clip_fallacy_control()
+    chk("one negative weight (0.5, 0.6, -0.1) is routed SIGNED, Im H > 0, M > 0, and Re H differs from the "
+        "clip-and-renormalise Shannon value", rc["case"] == "SIGNED" and rc["im_h"] > 0 and rc["M_nats"] > 0
+        and abs(rc["re_h_nats"] - clipped) > 1e-3,
+        f"Re H {rc['re_h_nats']:.6f} vs clipped {clipped:.6f} nats", True)
+    chk("weights totalling 2 are refused (H-NORM)", norm_refusal_control(), "", True)
+    sc = signed_codomain()
+    chk("Theorem 2's codomain [0, inf) FAILS on signed morphisms: crush (1.5,-0.5) loses -0.954771 nats",
+        sc["crush_loss_nats"] < 0 and abs(sc["crush_loss_nats"] + 0.9547712) < 1e-6, f"{sc['crush_loss_nats']:.7f}", True)
+    chk("merge of two negatives (1.6,-0.3,-0.3) -> (1.6,-0.6): loss -0.6 ln 2 with N unchanged",
+        abs(sc["merge_loss_nats"] - sc["merge_predicted"]) < 1e-12 and abs(sc["merge_N_before"] - sc["merge_N_after"]) < 1e-12,
+        f"{sc['merge_loss_nats']:.6f}")
+    hc = holder_ceiling()
+    r3 = {r["N"]: r for r in hc["rows"] if r["n"] == 3}
+    r2 = [r for r in hc["rows"] if r["n"] == 2]
+    chk("n = 1: the only total-1 weighting is (1) -> Re H = 0 = phi(1), case SHANNON", hc["n1"]["case"] == "SHANNON"
+        and hc["n1"]["re_h_nats"] == 0 and hc["n1"]["N"] == 0)
+    chk("n = 2: Re H < 0 at every tested N (max of the range, evaluated on the extremal vector)",
+        all(r["max_re_h_nats"] < 0 for r in r2), f"{[round(r['max_re_h_nats'], 4) for r in r2]}")
+    chk("n = 3: Re H of the extremal (P/2, P/2, -N) exceeds ln 3 at N = 10 and grows with N (no ceiling ln n)",
+        r3[10.0]["exceeds_ln_n"] and r3[100.0]["max_re_h_nats"] > r3[10.0]["max_re_h_nats"] > r3[2.0]["max_re_h_nats"],
+        f"N=2 {r3[2.0]['max_re_h_nats']:.4f}, N=10 {r3[10.0]['max_re_h_nats']:.4f}, N=100 {r3[100.0]['max_re_h_nats']:.4f}"
+        f" vs ln 3 = {math.log(3):.4f}")
+    chk("extremal vectors evaluated by q1 agree with signed.reh_bounds' closed form",
+        max(abs(r["max_re_h_nats"] - r["closed_form"]) for r in hc["rows"]) < 1e-9)
+    ri = rindex_signed()
+    chk("R-INDEX, uniform (non-negative) Lambda via q1: SHANNON, log2 976", ri["uniform"]["case"] == "SHANNON" and
+        abs(ri["uniform"]["H_bits"] - 9.930737) < 5e-7, f"{ri['uniform']['H_bits']:.7f}")
+    mp = ri["mobius_p"]
+    chk("R-INDEX, Mobius weighting (H-MOBIUS-WEIGHT): SIGNED; 317 cells, 159 at +1, 158 at -1 (Q1s-build's figures)",
+        mp["case"] == "SIGNED" and ri["p_support"] == 317 and ri["p_n_positive"] == 159 and ri["p_n_negative"] == 158)
+    chk("its N = 158 = (sum|p| - 1)/2, Re H = 0 (every |p| = 1), M = log2 317 = 8.308 bits",
+        abs(mp["N"] - 158) < 1e-9 and abs(mp["re_h_bits"]) < 1e-12 and abs(mp["M_bits"] - math.log2(317)) < 1e-12,
+        f"N {mp['N']:.4f}, Re H {mp['re_h_bits']:.1e}, M {mp['M_bits']:.4f}")
+    mq = ri["mobius_q"]
+    chk("box-mixture weighting q: Re H = -3.033 bits, N = 81.70 (Q1s-build's recorded figures)",
+        mq["case"] == "SIGNED" and abs(mq["re_h_bits"] + 3.033) < 5e-4 and abs(mq["N"] - 81.70) < 5e-3,
+        f"Re H {mq['re_h_bits']:.4f}, N {mq['N']:.4f}, M {mq['M_bits']:.4f}")
+    chk("a full box's Mobius weight is one point -> SHANNON, 0 bits", ri["box_control"]["case"] == "SHANNON" and
+        ri["box_control"]["n"] == 1 and ri["box_control"]["H_bits"] == 0, "", True)
+    chk("Q1S_GRADE_REVIEW covers every A3 grade, and records NOT MOVED with each verdict unchanged",
+        set(Q1S_GRADE_REVIEW) == set(GRADES) and all(Q1S_GRADE_REVIEW[k].startswith(f"NOT MOVED ({GRADES[k]['verdict']})")
+                                                        for k in GRADES), "", structural=True)
 
     print("\n(iv) grades")
     chk("grades well-formed and internally consistent (LEAVES-ALL has no removal; SILENT/NOT-BOUND-IF are not removals)",

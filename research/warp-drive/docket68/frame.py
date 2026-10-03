@@ -18,6 +18,14 @@ THE THREE PARTS (as the computed task put them):
       relation to H-SETTLE, and whether it signals.
  (iii) whether a preferred frame removes O-BITS.
 
+WAVE 3 (2026-10-03, after the re-verifications RV-0 AGAINST M and RV-1 FOR M):
+ * four_basis_c2_table: BHW's general construction (0811.1209v2 pp.3-4, READ) on four axes with an 8-dimensional
+   CTC gives 2.000000 bits per pair under C2, zero error (C-verify-1 #7's figure, first cited 'not re-run', now run).
+ * clause 2b: O-BITS REMOVED-IF {a CTC at Bob, H-DCTC, C2, H-DCTC-SELECT} with O-LOOP reintroduced; O-MAKE
+   NOT-BOUND-IF {2b's CTC; Geroch-compact only}, Tipler still binding.  Wave 2 first said LEAVES / OPEN.
+ * drift_ordering's 'Bob first gives 0' is printed STRUCTURAL (H = 0 on I/2); the rule is named as part of H-C2.
+ * O-LOOP for corridors in exact FRW is credited to the geometry, to no hypothesis.
+
 SOURCES (status as M-D67-2 requires; quotes kept to short phrases):
  * Deutsch, Phys. Rev. D 44, 3197 (1991) -- not on arXiv (pre-dates gr-qc).  READ-VIA-RESTATEMENT:
    Bennett-Leung-Smith-Smolin arXiv:0908.3023v2 p.1 eqs (1)-(2) (the consistency condition; "because the fixed
@@ -607,6 +615,126 @@ def bb84_c2_table():
     return {"read_map_reproduced": repro, "P(a=1)": res, "MI_bits_per_pair": mi, "fixed_point_dims": sorted(dims)}
 
 
+def _bloch_ket(n):
+    np = _np()
+    x, y, z = n
+    th = math.acos(max(-1.0, min(1.0, z)))
+    ph = math.atan2(y, x)
+    return np.array([math.cos(th / 2), complex(math.cos(ph), math.sin(ph)) * math.sin(th / 2)], complex)
+
+
+def _gs(vecs, v, tol=1e-10):
+    np = _np()
+    for b in vecs:
+        v = v - b * (b.conj() @ v)
+    n = np.linalg.norm(v)
+    return None if n < tol else v / n
+
+
+def bhw_general_unitaries(states, tol=1e-9):
+    """Wave 3.  BHW 0811.1209v2 p.3-4 (READ), the Theorem's construction for N distinct states in dimension N: for
+    each k, U_k = sum_m |c_m><b_m| with b_1 = psi_k, c_1 = |k>; then repeatedly Gram-Schmidt an unused state into
+    the next b, collect every unused state now inside span(b_1..b_t), and set c_t to the normalised sum of their |j>;
+    complete both bases arbitrarily.  Conditions (p.3): U_k psi_k = |k>, and <j|U_k|psi_j> != 0 for all j, k
+    (sufficient for a unique fixed point).  Returns the list U_k."""
+    np = _np()
+    N = len(states)
+    I = np.eye(N, dtype=complex)
+    Us = []
+    for k in range(N):
+        bs, cs, used = [states[k] / np.linalg.norm(states[k])], [I[k]], {k}
+        while len(used) < N:
+            t = min(j for j in range(N) if j not in used)
+            bs.append(_gs(bs, states[t]))
+            P = sum(np.outer(x, x.conj()) for x in bs)
+            grp = [j for j in range(N) if j not in used and np.linalg.norm(P @ states[j] - states[j]) < tol]
+            used |= set(grp)
+            cs.append(sum(I[j] for j in grp) / math.sqrt(len(grp)))
+        for basis in (bs, cs):
+            for e in I:
+                if len(basis) == N:
+                    break
+                v = _gs(basis, e)
+                if v is not None:
+                    basis.append(v)
+        Us.append(sum(np.outer(c, b.conj()) for c, b in zip(cs, bs)))
+    return Us
+
+
+def bhw_general_V(Us):
+    """SWAP(system, CTC), then sum_k |k><k| (x) U_k (system controls, CTC target).  Ordering (system, CTC)."""
+    np = _np()
+    N = len(Us)
+    ctrl = sum(np.kron(np.outer(np.eye(N)[k], np.eye(N)[k]), Us[k]) for k in range(N))
+    sw = np.zeros((N * N, N * N), complex)
+    for i in range(N):
+        for j in range(N):
+            sw[j * N + i, i * N + j] = 1
+    return ctrl @ sw
+
+
+FOUR_AXES = ((0.0, 0.0, 1.0), (1.0, 0.0, 0.0), (0.0, 1.0, 0.0), (3 ** -0.5, 3 ** -0.5, 3 ** -0.5))
+
+
+def four_basis_c2_table(axes=FOUR_AXES):
+    """Wave 3 (RV-0 unresolved #4; RV-1 unresolved #0; C-verify-1 #7's figure, cited by A2 wave 2 as 'not re-run',
+    now COMPUTED).  Alice measures her singlet half along one of len(axes) axes (uniform prior); outcome s leaves
+    Bob's qubit along -s n.  Bob appends a two-qubit ancilla |00> and runs BHW's general construction
+    (bhw_general_unitaries) on the 8 branch states with an 8-dimensional CTC, through this file's Deutsch fixed point;
+    he reads output j and decodes Alice's axis as j // 2.  C2: each branch is run separately (the rule per branch).
+    C1: his input is his reduced state I/2 (x) |00><00| for every choice.  Returns the map reproduction (P(j | psi_j)),
+    the BHW condition-2 minimum, fixed-point dimensions, P(axis' | axis) per convention and I(axis; axis') in bits."""
+    np = _np()
+    anc = np.zeros(4, complex)
+    anc[0] = 1
+    states = [np.kron(_bloch_ket(tuple(-s * c for c in n)), anc) for n in axes for s in (+1, -1)]
+    N = len(states)
+    if N != 8:
+        raise ValueError("this table is built for four axes (8 branch states in C^8)")
+    Us = bhw_general_unitaries(states)
+    cond2 = min(abs((Us[k] @ states[j])[j]) for j in range(N) for k in range(N))
+    V = bhw_general_V(Us)
+    outs, dims, repro = {}, set(), {}
+    for j, psi in enumerate(states):
+        out, sig, kdim, res, mn = deutsch_output(V, np.outer(psi, psi.conj()), N, N)
+        outs[j] = np.real(np.diag(out))
+        dims.add(kdim)
+        repro[j] = float(outs[j][j])
+    nb = len(axes)
+    pc2 = [[sum(0.5 * outs[2 * b + s][2 * bb + t] for s in (0, 1) for t in (0, 1)) for bb in range(nb)] for b in range(nb)]
+    out1, *_ = deutsch_output(V, np.kron(np.eye(2) / 2, np.outer(anc, anc.conj())), N, N)
+    d1 = np.real(np.diag(out1))
+    pc1 = [[float(d1[2 * bb] + d1[2 * bb + 1]) for bb in range(nb)] for _ in range(nb)]
+
+    def mi(P):
+        H = lambda q: -sum(x * math.log2(x) for x in q if x > 1e-15)
+        col = [sum(P[b][bb] for b in range(nb)) / nb for bb in range(nb)]
+        return H(col) - sum(H(P[b]) for b in range(nb)) / nb
+    return {"map_reproduced": repro, "cond2_min": float(cond2), "fixed_point_dims": sorted(dims),
+            "P(axis'|axis) C2": pc2, "P(axis'|axis) C1": pc1, "MI_bits_per_pair": {"C2": mi(pc2), "C1": mi(pc1)}}
+
+
+def four_basis_one_axis_control():
+    """CONTROL (must give 0): the four 'choices' all name the SAME axis (z).  The branch states then repeat, so
+    BHW's construction does not apply to 8 distinct states; the channel is evaluated directly: every choice gives
+    Bob the same mixture, whatever circuit he runs, so I = 0 must come out of the same decoding code path.  Here the
+    BB84 construction (bhw_bb84_unitary) is used on the repeated z-states."""
+    np = _np()
+    V = bhw_bb84_unitary()
+    z0 = np.array([1, 0], complex)
+    rows = []
+    for _ in range(4):
+        acc = np.zeros(4)
+        for lab in "01":
+            psi = np.kron(np.array(KET["1" if lab == "0" else "0"], complex), z0)
+            out, *_ = deutsch_output(V, np.outer(psi, psi.conj()), 4, 4)
+            acc += 0.5 * np.real(np.diag(out))
+        rows.append([float(x) for x in acc])
+    H = lambda q: -sum(x * math.log2(x) for x in q if x > 1e-15)
+    col = [sum(r[i] for r in rows) / 4 for i in range(4)]
+    return H(col) - sum(H(r) for r in rows) / 4
+
+
 # =====================================================================================================================
 # THE GRADES (data; the write-up is A2-frame.md)
 # =====================================================================================================================
@@ -614,12 +742,14 @@ GRADES = {
     # Wave 2: clause 1 is M's 'a preferred frame exists'; 'corridors keyed to it' is the docket's modelling addition
     # (H-KEYING) -- EXCEPT in exact flat FRW, where frw_time_function_lemma shows only equal-cosmic-time
     # identifications are isometries, so the keying is FORCED by H-FRW-EXACT + H-NOT-DE-SITTER (C-verify-1 #6, #9).
-    "H-FRAME clause 1 (a preferred frame; corridors keyed to it)": {
-        "O-LOOP": "REMOVES -- REMOVED-IF {H-CORRIDOR-MODEL, H-KEYING} in the corridor-as-identification model "
-                  "(latticectc H1-H3; Sylvester, any rank); in exact flat FRW the keying is forced, so REMOVED-IF "
-                  "{H-FRW-EXACT, H-NOT-DE-SITTER} (z3 time-function lemma, any a(t) > 0) -- and then it is the "
-                  "geometry, not clause 1, that removes it for corridors; for SIGNALS (a superluminal channel) the "
-                  "removal needs N_SIGKEY (signals keyed to the same slice; antitelephone computed: -3/5 vs 0)",
+    # Wave 3 (RV-0 #3, #12; RV-1 #2, #9): the FRW removal of corridor loops is credited to the GEOMETRY and to no
+    # hypothesis, uniformly; under ITB + N_QTOPO the lemma and latticectc's theorem do not bind an ITB corridor.
+    "H-FRAME clause 1 (a preferred frame exists)": {
+        "O-LOOP": "REMOVED-IF {H-CORRIDOR-MODEL, H-KEYING} in the corridor-as-identification model (a keyed network "
+                  "closes no causal curve at any rank: latticectc H1-H3, Sylvester); in exact flat FRW the corridor "
+                  "removal is the GEOMETRY's, REMOVED-IF {H-FRW-EXACT, H-NOT-DE-SITTER, H-CORRIDOR-MODEL}, credited to "
+                  "no hypothesis (clause 1 adds nothing for corridors there; fails in exact de Sitter); for SIGNALS "
+                  "(only where a channel exists) REMOVED-IF {N_SIGKEY} (antitelephone computed: -3/5 vs 0)",
         "O-BITS": "LEAVES -- no-signalling holds in every ordering (sequential Lueders, deviation 0 to rounding)",
         "O-MAKE": "LEAVES -- and closes one escape: Geroch's kinematic theorem (board D67 NARROWED) allows "
                   "compact topology change only WITH a CTC; a global time function excludes that clause",
@@ -635,21 +765,38 @@ GRADES = {
                                        "corridor closes a causal curve for EVERY T > 0 (O-LOOP returns); Hawking's "
                                        "conjecture would forbid it but is a conjecture (OPEN); Deutsch/Novikov make a "
                                        "loop consistent, not absent",
+        "2b O-BITS (wave 3, RV-1 #1)": "REMOVED-IF {a CTC at Bob, H-DCTC, H-DCTC-CONVENTION C2, H-DCTC-SELECT}: "
+                                       "1.000000 bit per pair (BB84, 2 pairs per teleported qubit) and 2.000000 bits "
+                                       "per pair (four axes, four_basis_c2_table: 1 pair per teleported qubit), both "
+                                       "ZERO-ERROR (every fixed point unique, P = 1), with O-LOOP REINTRODUCED; under C1 "
+                                       "0 bits.  Wave 2 first said 'LEAVES; a channel needs H-SETTLE under C2'",
+        "2b O-MAKE (wave 3, RV-0 #7)": "NOT-BOUND-IF {clause 2b's CTC; Geroch's compact case only}: Geroch's 'no CTC' "
+                                       "hypothesis fails, so it does not bind, and its conclusion is not shown false; "
+                                       "Tipler's non-compact case still binds (a CTC does not escape it); bought with "
+                                       "O-LOOP, which 2b reintroduces.  Wave 2 first said 'OPEN (a CTC reopens the "
+                                       "Geroch clause)'",
     },
     "H-FRAME + H-SETTLE-W under C2 (the drift, not the D-CTC)": {
-        "O-BITS": "REMOVED-IF {N_EPS (A1: eps > eps_any_advantage(L, N)), H-C2, H-BORN-AT-BOB, A1's H-MAP, "
-                  "H-TRANSFER, H-SPIN, H-COHERE} -- the channel is nlcontrol's drift tanh(2 eps T) (settle.py); "
-                  "wave 1 first listed O-BITS under 'removes' unconditionally, grounded on the D-CTC's 0.0817 bits",
-        "O-LOOP": "REMOVED-IF {N_SIGKEY} (antitelephone: reply keyed to the cosmic frame arrives at t = 0, computed)",
-        "ordering": "COMPUTED for the drift (drift_ordering): Bob's signal is tanh(2 eps (T - t_A)) -- 0.537 if "
-                    "Alice measures before Bob's window, 0 if after; so C2 is undefined without a slicing",
+        "O-BITS": "REMOVED-IF {N_EPS (A1: eps > eps_any(L, N)), H-C2 (incl. its no-branch-before-t_A rule), "
+                  "H-FRAME3b (= clause 1's substance: clause 1 is load-bearing here), H-COHERE, H-NLCONTROL-FORM, "
+                  "H-BORN-AT-BOB, H-BLOCK}; window (exclusion) premises, separate: {H-MAP, H-TRANSFER, H-SPIN, "
+                  "H-DILUTION, the NAMED-NOT-READ bound values}.  Pair counts from N x C >= 2 are FLOORS.  Wave 1 "
+                  "first listed O-BITS under 'removes' unconditionally, grounded on the D-CTC's 0.0817 bits; wave 2 "
+                  "listed H-MAP/H-TRANSFER/H-SPIN among the removal premises",
+        "O-LOOP": "signals: REMOVED-IF {N_SIGKEY} (antitelephone: reply keyed to the cosmic frame arrives at t = 0, "
+                  "computed); corridors: the geometry's, as above",
+        "ordering": "computed for the drift (drift_ordering) GIVEN H-C2's rule (no branch before t_A, so the reduced "
+                    "state): Bob's signal is tanh(2 eps (T - t_A)) -- 0.537 if Alice measures before Bob's window; "
+                    "'0 if after' is that rule's output (STRUCTURAL, H = 0 on I/2), so 'C2 is undefined without a "
+                    "slicing' is derived given the rule",
         "O-MAKE": "LEAVES", "O-HOLD": "LEAVES", "O-MATTER": "LEAVES",
     },
-    "D-CTC (Deutsch) under C2 -- needs a CTC at Bob, so it cannot coexist with clause 1": {
-        "O-BITS": "a channel: BHW circuit 0.0817 bits per use; BHW's BB84 construction 1.000 bit per pair "
-                  "(bb84_c2_table, computed from the READ construction), so 2 pairs per teleported qubit by "
-                  "arithmetic; under C1 0 bits; BHW p.4 (READ): a CTC-assisted rate is unbounded",
-        "O-LOOP": "REINTRODUCED -- the channel IS a closed timelike curve (a clause-2b world)",
+    "D-CTC (Deutsch) under C2 -- needs a CTC at Bob, so it cannot coexist with clause 1 (a clause-2b world)": {
+        "O-BITS": "REMOVED-IF {a CTC at Bob, H-DCTC, H-DCTC-CONVENTION C2, H-DCTC-SELECT}: BHW circuit 0.0817 bits "
+                  "per use; BHW BB84 1.000 bit per pair (2 pairs per teleported qubit); four axes 2.000 bits per pair "
+                  "(1 pair per teleported qubit), zero-error; under C1 0 bits; BHW p.4 (READ): unbounded if CTC qubits "
+                  "are a free resource",
+        "O-LOOP": "REINTRODUCED -- the channel IS a closed timelike curve; M-S1A-P3 disqualifies it at the seat only",
     },
 }
 
@@ -676,6 +823,14 @@ NAMED_HYPOTHESES = [
     "2b is not excluded by clause 1",
     "N_SIGKEY (wave 2): a superluminal signal is keyed to the same slice as the corridors (A1's H-SIG-COR)",
     "H-C2 / H-BORN-AT-BOB (wave 2): as in settle.py -- the drift acts on the branch state; Bob reads by the Born rule",
+    "H-C2 rule (wave 3, RV-0 #11): part of H-C2 -- before Alice's measurement in the chosen slicing there is no branch, "
+    "so the drift acts on Bob's reduced state; drift_ordering's 'Bob first gives 0' is this rule's output",
+    "H-BLOCK (wave 3): reliable transfer is block-coded; pair counts from N x C >= 2 are floors (settle.zero_error_table)",
+    "H-FRAME3b => F1 (wave 3, RV-0 #2): the drift's preferred slicing is clause 1's substance",
+    "CTC at Bob (wave 3): clause 2b's D-CTC channel needs a closed timelike curve at Bob -- not shown to exist",
+    "N_QTOPO / N_CORR clash (wave 3, RV-1 #2): an ITB corridor that is not a Lorentzian object (N_QTOPO) cannot also be "
+    "a Lorentzian quotient by translation (N_CORR, H-CORRIDOR-MODEL); under ITB + N_QTOPO the FRW lemma and "
+    "latticectc's theorem do not bind it: corridor O-LOOP NOT-BOUND-IF {N_QTOPO}; signal loops unchanged",
 ]
 
 
@@ -736,6 +891,11 @@ def report():
     print(f"    P(a = 1 | Alice z / x): C2 {bb['P(a=1)'][('C2', 'z')]:.6f} / {bb['P(a=1)'][('C2', 'x')]:.6f};"
           f" C1 {bb['P(a=1)'][('C1', 'z')]:.6f} / {bb['P(a=1)'][('C1', 'x')]:.6f};  I = C2 {bb['MI_bits_per_pair']['C2']:.6f},"
           f" C1 {bb['MI_bits_per_pair']['C1']:.6f} bits per pair")
+    fb = four_basis_c2_table()
+    print(f"  WAVE 3 -- BHW general construction, four axes, 8-dim CTC: map reproduced (min) {min(fb['map_reproduced'].values()):.9f};"
+          f" condition 2 min {fb['cond2_min']:.4f}; fixed-point dims {fb['fixed_point_dims']}")
+    print(f"    I(axis; Bob) = C2 {fb['MI_bits_per_pair']['C2']:.6f}, C1 {fb['MI_bits_per_pair']['C1']:.6f} bits per pair;"
+          f" CONTROL one axis named four times: {four_basis_one_axis_control():.2e}")
     print("\n(iii) DOES A PREFERRED FRAME REMOVE O-BITS?")
     wo, wb = ordering_test()
     print(f"  Alice-first vs Bob-first joint distributions: max diff {wo:.1e}; max |P(Bob=+1|a) - 1/2| {wb:.1e}")
@@ -752,8 +912,12 @@ def selftest():
     np = _np()
     fails = []
 
+    structural, n_checks, n_controls = [], [0], [0]
+
     def chk(label, got, want, tol=None):
         ok = (abs(got - want) <= tol) if tol is not None else (got == want)
+        n_checks[0] += 1
+        n_controls[0] += label.strip().startswith("CONTROL")
         print(f"  {'ok  ' if ok else 'FAIL'} {label}: got {got!r} want {want!r}")
         if not ok:
             fails.append(label)
@@ -832,14 +996,28 @@ def selftest():
     do = drift_ordering()
     chk("drift under C2, Alice first (frac 0): tanh(0.6)", do[0.0], math.tanh(0.6), tol=2e-4)
     chk("drift under C2, Alice at mid-window: tanh(0.3)", do[0.5], math.tanh(0.3), tol=2e-4)
-    chk("CONTROL drift under C2, Bob's window over before Alice measures (drift run on his reduced state): 0", do[1.0], 0.0, tol=1e-12)
+    # Wave 3 (RV-0 #11): wave 2 first labelled this row 'CONTROL'.  It integrates the drift on I/2, where <X> = 0, so
+    # H = 0 identically: it cannot be nonzero.  It is the output of H-C2's no-branch rule, printed STRUCTURAL.
+    structural.append(("drift under C2, Bob's window over before Alice measures (H = 0 on I/2; H-C2's rule)", abs(do[1.0]) < 1e-12))
+    print(f"  STRUCTURAL (cannot fail; not evidence) drift under C2, Bob first: got {do[1.0]!r}")
     bb = bb84_c2_table()
     chk("BHW BB84 construction reproduces the READ map for all four inputs", min(bb["read_map_reproduced"].values()), 1.0, tol=1e-9)
     chk("BHW BB84 fixed points unique (dim 1), as BHW p.2-3 claim", bb["fixed_point_dims"], [1])
     chk("D-CTC under C2: 1 bit per pair (computed, wave 1 labelled it READ)", bb["MI_bits_per_pair"]["C2"], 1.0, tol=1e-9)
     chk("CONTROL D-CTC under C1: 0 bits per pair", bb["MI_bits_per_pair"]["C1"], 0.0, tol=1e-9)
     chk("de Sitter segment tangent norm computed (wave 1 typed -1)", tn, -1)
-    print(f"\n{'ALL PASS' if not fails else 'FAILURES: ' + ', '.join(fails)}  ({len(fails)} failed)")
+    print(" (wave 3) BHW's general construction: four axes, an 8-dimensional CTC")
+    fb = four_basis_c2_table()
+    chk("four axes: BHW map psi_j -> |j> reproduced for all 8 branch states", min(fb["map_reproduced"].values()), 1.0, tol=1e-9)
+    chk("four axes: BHW condition 2, min |<j|U_k|psi_j>| > 0", fb["cond2_min"] > 1e-3, True)
+    chk("four axes: fixed points unique (dim 1)", fb["fixed_point_dims"], [1])
+    chk("four axes under C2: 2 bits per pair, zero error (computed; C-verify-1 #7's figure re-run)", fb["MI_bits_per_pair"]["C2"], 2.0, tol=1e-9)
+    chk("CONTROL four axes under C1: 0 bits per pair", fb["MI_bits_per_pair"]["C1"], 0.0, tol=1e-9)
+    chk("CONTROL four 'choices' naming one axis: 0 bits per pair", four_basis_one_axis_control(), 0.0, tol=1e-9)
+    bad_struct = [l for l, g in structural if not g]
+    fails += bad_struct
+    print(f"\n{'ALL PASS' if not fails else 'FAILURES: ' + ', '.join(fails)}  ({len(fails)} failed; {n_checks[0]} checks, "
+          f"{n_controls[0]} controls; {len(structural)} printed STRUCTURAL, not counted, not evidence)")
     return 0 if not fails else 1
 
 

@@ -26,6 +26,26 @@ conclusion false. Where an AGAINST finding and a FOR finding pulled opposite way
 | (rule: declared values in checks) the Minkowski light-sheet control typed θ = −2 | **Applied.** θ = (1/√−g)∂_a(√−g k^a) is now computed for the ingoing k in spherical coordinates. |
 
 
+**Headline, member-attributed first (wave 3).**
+- No hypothesis in this work item removes an obstruction, alone or in combination.
+- The NOT-BOUND-IF entries are listed separately: O-MAKE-TOPO under ITE {H-ER=EPR} and under ITB {N_QTOPO}; O-HOLD's
+  geometric form under ITB {N_QTOPO}; corridor O-LOOP under ITB {N_QTOPO}.
+- The one OPEN pathway on O-HOLD is **H-IT's, in a named Jacobson/thermodynamic reading (ITJ)**, via N_EQUIL. For the
+  computed shape and f it moves the deficit and does not remove it.
+- In a separate geometry column, corridor O-LOOP is REMOVED-IF {H-FRW-EXACT, H-NOT-DE-SITTER, H-CORRIDOR-MODEL},
+  credited to no hypothesis.
+
+## Wave 3 repair (2026-10-03): the two re-verifications
+
+| re-verification item | resolution |
+|---|---|
+| RV-0 #1: N_EQUIL encoded as needing H-ZERO or H-NULL, which gives them content they lack | **Applied.** `egj_fR_throat` (EGJ eq.(21) contracted with a null k, f = 1 + βR, b = r0²/r) contains no zero shift (a shift could enter only through the g_ab term, which drops on null contraction, as Λ does) and no null-information term. N_EQUIL is **H-IT's content in a named Jacobson/thermodynamic reading, ITJ**. ITJ is neither ITE, where MS fn.1 closes the route, nor ITB, where under N_QTOPO there is no metric throat for EGJ's equation to act on. H-ZERO and H-NULL have **no O-HOLD content** here: exercised, they add no term. H-ZERO + H-IT keeps only its own computed contribution, that the zero is free. Whether combine's screen tests them on O-HOLD is combine's to say (RV-0 names UNTESTED-BY-SCREEN). |
+| RV-0 #5, RV-1 #4 / RV-0 unresolved #1: H-ZERO + H-IT and H-IT + H-NULL graded without a reading | **Applied: split by reading.** Under ITE, O-HOLD is LEFT (MS fn.1) and O-MAKE-TOPO NOT-BOUND-IF {H-ER=EPR}. Under ITB, O-HOLD's geometric form and O-MAKE-TOPO are NOT-BOUND-IF {N_QTOPO}, and the layer's cost is OPEN. Under ITJ, O-HOLD is OPEN via N_EQUIL, and that OPEN is H-IT's, not the pairing's. For the computed shape and f it is not removed: r⁴T_kk → −2r0² for every β. O-MAKE-TOPO is LEFT under ITJ, because Geroch's kinematic theorem binds any Lorentzian manifold whatever its field equation. RV-1 #4 proposed "OPEN via N_EQUIL / N_ILFREE" under ITB. **Not applied, for a computed reason:** EGJ's eq.(21) is a field equation on a metric, and under N_QTOPO there is none to act on. That leaves N_ILFREE, combine's premise, which has no READ source; here the layer's own cost is OPEN. |
+| RV-1 #5: R-QUANTUM graded "in scope" | **Applied.** R-QUANTUM, O-HOLD: **LEFT only IF {H_flat, H-PATH, H-MIN-SCALAR}**. The QEI is proven for a massless minimal scalar in Hadamard states in flat space, and a 1 m throat is curved. It is OPEN on the ξ > 0 branch. Curved-space QEIs are NAMED-NOT-READ. "In scope" is dropped. The 2.08e-68 fraction stands as computed under those hypotheses. |
+| RV-1 #2: under ITB + N_QTOPO the loop theorems do not bind either | **Applied, symmetrically.** ITB, O-LOOP: **NOT-BOUND-IF {N_QTOPO}** for corridors. Neither the FRW keying lemma nor latticectc's loop theorem binds a corridor that is not a Lorentzian quotient, so it is neither removed nor shown to close. Loops made by signals are unchanged, and ITB carries no channel. **{N_QTOPO, N_CORR} is a premise clash**, the same shape as ITB + R-QUANTUM: one corridor with two accounts. *Wave 2 first said* ITB "leaves O-LOOP". |
+| RV-1 #9: LEAVES-ALL rows do not carry the geometry's O-LOOP | **Applied.** Every row has a geometry column: corridor O-LOOP REMOVED-IF {H-FRW-EXACT, H-NOT-DE-SITTER, H-CORRIDOR-MODEL}, credited to no hypothesis, and not binding under ITB + N_QTOPO. |
+| RV-0 unresolved #4: N_QTOPO and N_ILFREE have no READ source | **Answered.** That is correct, and every grade that uses them says so. N_QTOPO is the charter's reading ("with no throat it does not apply"), carried as a named hypothesis. N_ILFREE is combine's. Neither is cited as evidence, and each gives NOT-BOUND-IF or OPEN, never a removal. |
+
 The work order named my files as `docket68/undefined` and `A4-geometry.md`. "undefined" is a fault in the script
 that produced the order. The instrument goes by the name the order's text gives it, `geometry.py`.
 
@@ -43,7 +63,7 @@ the hypothesis is true.**
 | Bousso, Fisher, **Koeller**, Leichenauer & Wall, arXiv:1509.02542v2 | READ (pp.1-13, 24-27, 29-31) | Abstract. pp.1-2: ⟨T_kk⟩ at a point can be negative "with magnitude as large as we wish". p.2: the right-hand side "can have any sign". p.4: "fixed background spacetimes with no dynamical gravity". p.4: the quantum expansion reduces to the classical one as ħ→0. Eq.(2.2), p.7. Eq.(5.3), p.25. |
 | Maldacena & Susskind, arXiv:1306.0533v2 | READ (pp.1-4, 7-9, 11, 14-22, 31, 42, 47) | Footnote 1, p.2: non-traversability "can be shown using the integrated null energy condition", and "If this were not true, the ER=EPR connection would be wrong". §3.1, p.16. §3.2, pp.16-17: a bridge between distant black holes is not made "without preexisting bridges"; making pairs, separating them and then merging them does make one. p.17: non-trivial topologies "should be allowed as possible quantum states". |
 | Padmanabhan & Padmanabhan, arXiv:1703.06144v1 | READ, pp.1-9 | pp.6-7: emergent gravity's field equations are invariant under adding a constant to the matter Lagrangian, and Λ is "an integration constant". |
-| Eling, Guedens & Jacobson, arXiv:gr-qc/0602001v1 | READ, all 4 pp. (wave 2; first READ by the FOR verifier, re-read here) | Eq.(11), p.3: dS = δQ/T + d_iS. Eq.(21), p.3: f R_ab − f_;ab + (f − L/2) g_ab = (2π/ħα) T_ab, with f = dL/dR. p.3: the equilibrium (Clausius) version (14) "is inconsistent with energy conservation", and the internal entropy production d_iS resolves it. p.4, remark 5: "dimensional analysis suggests that in nature we have β₁ ∼ ε² ∼ L²_Planck". |
+| Eling, Guedens & Jacobson, arXiv:gr-qc/0602001v1 | READ, all 4 pp. (wave 2; first READ by the FOR verifier, re-read here; contracted with a null k, its eq.(21) loses the g_ab term where a zero shift would enter, and it has no null-information term, which is why N_EQUIL is ITJ's alone, wave 3) | Eq.(11), p.3: dS = δQ/T + d_iS. Eq.(21), p.3: f R_ab − f_;ab + (f − L/2) g_ab = (2π/ħα) T_ab, with f = dL/dR. p.3: the equilibrium (Clausius) version (14) "is inconsistent with energy conservation", and the internal entropy production d_iS resolves it. p.4, remark 5: "dimensional analysis suggests that in nature we have β₁ ∼ ε² ∼ L²_Planck". |
 | Bousso hep-th/9905177; QNEC; 1208.5399; Fewster-Osterbrink; gr-qc/0209036; kontou-fo-ffkp; gr-qc/9510071 | the board's D67 grades (all NARROWED; `docket67-raw/GRADES.tsv`, `audits/`) | Bousso's hypotheses: Einstein's equation, plus the dominant (or the null + causal) energy condition. 1208.5399: duration bound eq.(4), C ≈ 3.17. Fewster-Osterbrink: a ξ > 0 field has no state-independent QEI. gr-qc/0209036: no QI along null geodesics, for a free massless minimally coupled scalar in 4D Minkowski. |
 
 No host refused a request. Every alphaXiv call returned page text.
@@ -128,9 +148,18 @@ essay makes. It does not compute a bulk.
     So relaxing H-EQUIL opens a pathway, neither excluded nor shown: it can move the deficit off the throat point,
     but not out of this shape, and only at a β 69 orders above the dimensional estimate. Other shapes and other f
     are not computed.
-  - **Grade: OPEN** (O-HOLD OPEN via N_EQUIL; O-MAKE-TOPO NOT-BOUND-IF, inherited from the H-IT reading). The pairing
-    also removes an objection to H-ZERO itself. *Wave 1 first said* "Grade: LEAVES-ALL ... It removes none of the
-    five obstructions", which left H-EQUIL named but not carried.
+  - **Grade (wave 3): split by reading, and the OPEN is H-IT's.** EGJ's null-contracted equation carries no zero shift (the g_ab term drops), so N_EQUIL is
+    H-IT's content in the Jacobson/thermodynamic reading (ITJ), and H-ZERO adds no O-HOLD term.
+    - ITJ: O-HOLD OPEN via N_EQUIL; for the computed shape and f the deficit is moved, not removed. O-MAKE-TOPO is
+      LEFT (Geroch, kinematic).
+    - ITE: O-HOLD LEFT (MS fn.1); O-MAKE-TOPO NOT-BOUND-IF {H-ER=EPR}.
+    - ITB: O-HOLD's geometric form and O-MAKE-TOPO NOT-BOUND-IF {N_QTOPO}. There is no metric throat for EGJ to act on.
+    - The pairing's own contribution is that **the zero is free**, which removes GR's objection to H-ZERO itself and no
+      obstruction.
+    - *Wave 2 first said* "Grade: OPEN (O-HOLD OPEN via N_EQUIL; O-MAKE-TOPO NOT-BOUND-IF, inherited from the H-IT
+      reading)", with no reading named and the OPEN credited to the pairing (RV-0 #1, #5).
+    - *Wave 1 first said* "Grade: LEAVES-ALL ... It removes none of the five obstructions", which left H-EQUIL named but
+      not carried.
 
 ## (iii) H-NULL — "Null (NEC) is a containment"
 
@@ -188,15 +217,19 @@ essay makes. It does not compute a bulk.
     §5.1, board NARROWED). On that branch R-QUANTUM is **OPEN, not refused**.
   - gr-qc/0209036 (board NARROWED) finds no QI along null geodesics for the free massless minimal scalar in 4D
     Minkowski. A timelike-worldline QNEI does exist there, and that is the form used above.
-- **Grade: LEAVES-ALL** in the bound's proven scope, with the ξ > 0 branch OPEN.
+- **Grade (wave 3): LEAVES-ALL only IF {H_flat, H-PATH, H-MIN-SCALAR}; OPEN on the ξ > 0 branch.** A 1 m throat is
+  curved and the QEI is proven in flat space, so the refusal rests on carrying it to the throat (H_flat), on the
+  crossing (H-PATH) and on the field class (H-MIN-SCALAR). Curved-space QEIs are NAMED-NOT-READ. *Wave 2 first said*
+  "LEAVES-ALL in the bound's proven scope", presenting a scope extension as within scope (RV-1 #5).
 
 ## Combinations (standing instruction)
 
 | combination | result |
 |---|---|
-| H-ZERO + H-IT | Pairing named in the charter. The zero becomes free (ii). O-HOLD is **OPEN via N_EQUIL** (EGJ computed in (ii)). O-MAKE-TOPO is NOT-BOUND-IF (inherited). The rest stand. *Wave 1 first said* "the five obstructions stand". |
-| H-NULL + R-QUANTUM | Both bear on O-HOLD. At 1 m the throat needs \|ΔS\|/A = 0.5 of the light-sheet cap (QNEC outside scope) **and** a deficit lasting 3.3e-9 s, against 4.0e-26 s allowed. These are requirements (floors), not supplies. O-HOLD stays. |
-| H-IT + H-NULL | Jacobson's NEC ⇔ focusing ⇔ the area/entropy bookkeeping (computed in (ii)). Under H-EQUIL the throat's NEC deficit becomes an entropy decrease on local horizons. With H-EQUIL relaxed, O-HOLD is **OPEN via N_EQUIL**, as above. Nothing is removed. *Wave 1 first said* "Nothing is removed" and left O-HOLD standing. |
+| H-ZERO + H-IT | Pairing named in the charter. **On obstructions it adds nothing to H-IT** (wave 3). The zero becomes free (ii); that is its own contribution. Split by reading: ITJ, O-HOLD **OPEN via N_EQUIL**, which is H-IT's and moved rather than removed for the computed shape and f, with O-MAKE-TOPO LEFT; ITE, O-HOLD LEFT and O-MAKE-TOPO NOT-BOUND-IF {H-ER=EPR}; ITB, both NOT-BOUND-IF {N_QTOPO}. *Wave 2 first said* "O-HOLD is OPEN via N_EQUIL ... O-MAKE-TOPO is NOT-BOUND-IF (inherited)", with no reading named. *Wave 1 first said* "the five obstructions stand". |
+| H-NULL + R-QUANTUM | Both bear on O-HOLD. At 1 m the throat needs \|ΔS\|/A = 0.5 of the light-sheet cap (QNEC outside scope) **and** a deficit lasting 3.3e-9 s, against 4.0e-26 s allowed (under H_flat, H-PATH, H-MIN-SCALAR). These are requirements (floors), not supplies. O-HOLD stays. **The pair adds nothing.** |
+| H-IT + H-NULL | Jacobson's NEC ⇔ focusing ⇔ the area/entropy bookkeeping (computed in (ii)). Under H-EQUIL the throat's NEC deficit becomes an entropy decrease on local horizons. **On obstructions it adds nothing to H-IT** (wave 3). EGJ's eq.(21) has no null-information term, so H-NULL adds no O-HOLD content. The split by reading is as in the row above. Nothing is removed. *Wave 2 first said* "With H-EQUIL relaxed, O-HOLD is OPEN via N_EQUIL", with no reading named. *Wave 1 first said* "Nothing is removed" and left O-HOLD standing. |
+| ITB + H-CORRIDOR-MODEL (N_CORR) | **A named premise clash, wave 3 (RV-1 #2).** N_QTOPO says the ITB corridor is not a Lorentzian object. N_CORR says a corridor is a Lorentzian quotient by translation. Under ITB + N_QTOPO the FRW lemma and latticectc's loop theorem do not bind the corridor, so corridor O-LOOP is NOT-BOUND-IF {N_QTOPO}. Signal loops are unchanged. |
 | ITB + R-QUANTUM | **A named clash for one corridor.** R-QUANTUM's premise is a geometric throat held by QEI-bounded negative energy. ITB's non-binding premise (N_QTOPO) is that there is no geometric throat. They are alternative accounts of the same corridor and cannot both be asserted of it (FOR #1's caution). |
 | ITE + H-SETTLE W2 (sited in combine) | INCONSISTENT-AS-ENCODED, not REFUTED. MS assume linearity (§5.4) and non-traversability (fn.1, via the integrated NEC), and W2 drops linearity. A W2 signal on entangled pairs would be a test of ER=EPR as stated, not a refutation of W2. |
 | the other subsets of {H-IT, H-ZERO, H-NULL, R-QUANTUM} | **Not tested, for a stated reason.** There is no removal in this set: wave 2 grades every former removal NOT-BOUND-IF or OPEN. No member removes an obstruction that another leaves, so these subsets offer no complementary pairing to test. |
@@ -206,16 +239,22 @@ essay makes. It does not compute a bulk.
 Verdict words: **NOT-BOUND-IF** means nothing is removed, but a theorem is shown not to bind under the named premise.
 **OPEN** means a pathway is neither excluded nor shown.
 
-| hypothesis | verdict | removes | not bound / open | leaves |
-|---|---|---|---|---|
-| H-IT read as ER=EPR (ITE) | **NOT-BOUND-IF** | — | O-MAKE-TOPO NOT-BOUND-IF {H-ER=EPR}, non-traversable bridge only (MS fn.1; Planckian for pairs, p.17) | O-BITS (computed); O-MAKE-DIST (MS §3.2; LOCC computed); O-HOLD (MS fn.1 assumes it; Gao-Wald); O-MATTER; O-LOOP |
-| H-IT read as an information layer (ITB) | **NOT-BOUND-IF** | — | O-MAKE-TOPO and O-HOLD's geometric form NOT-BOUND-IF {N_QTOPO}, no READ source; the layer's own holding cost OPEN | O-BITS; O-MAKE-DIST (linear QM, computed); O-MATTER; O-LOOP |
-| H-ZERO | LEAVES-ALL | — | — | all five (z3: NEC invariant). Rule 2: UNTESTED-BY-SCREEN in combine |
-| H-ZERO + H-IT | **OPEN** | (only GR's objection to H-ZERO) | O-HOLD OPEN via N_EQUIL (EGJ, computed); O-MAKE-TOPO NOT-BOUND-IF (inherited) | O-BITS, O-MAKE-DIST, O-MATTER, O-LOOP |
-| H-IT + H-NULL | **OPEN** | — | O-HOLD OPEN via N_EQUIL; O-MAKE-TOPO NOT-BOUND-IF (inherited) | O-BITS, O-MAKE-DIST, O-MATTER, O-LOOP |
-| H-NULL | LEAVES-ALL | — | — | all five; O-HOLD's requirement is 0.5 of the light-sheet cap per m² at 1 m (a floor, not a supply). Rule 2: UNTESTED-BY-SCREEN in combine |
-| R-QUANTUM | LEAVES-ALL (in scope) / OPEN (ξ > 0) | — | — | all five; the bound covers 2.1e-68 of O-HOLD's deficit |
+Geometry column (credited to no hypothesis), for every row unless the row says otherwise: corridor O-LOOP REMOVED-IF
+{H-FRW-EXACT, H-NOT-DE-SITTER, H-CORRIDOR-MODEL}; it does not bind under ITB + N_QTOPO.
 
+| hypothesis | verdict (member-attributed) | removes | NOT-BOUND-IF / OPEN | leaves |
+|---|---|---|---|---|
+| H-IT read as ER=EPR (ITE) | **NOT-BOUND-IF** | — | O-MAKE-TOPO NOT-BOUND-IF {H-ER=EPR}, non-traversable bridge only (MS fn.1; Planckian for pairs, p.17) | O-BITS (computed); O-MAKE-DIST (MS §3.2; LOCC computed); O-HOLD (MS fn.1 assumes it; Gao-Wald); O-MATTER; O-LOOP (member) |
+| H-IT read as an information layer (ITB) | **NOT-BOUND-IF** | — | O-MAKE-TOPO, O-HOLD's geometric form and **corridor O-LOOP** NOT-BOUND-IF {N_QTOPO}, no READ source; the layer's own holding cost OPEN; premise clash {N_QTOPO, N_CORR} | O-BITS; O-MAKE-DIST (linear QM, computed); O-MATTER |
+| H-IT read as Jacobson / thermodynamic emergent gravity (ITJ), wave 3 | **OPEN** | — | O-HOLD OPEN via N_EQUIL (EGJ computed: for b = r0²/r, f = 1 + βR the deficit is moved, not removed) | O-BITS; O-MAKE-TOPO (Geroch, kinematic); O-MAKE-DIST; O-MATTER; O-LOOP (member) |
+| H-ZERO | LEAVES-ALL | — | — | all five (z3: NEC invariant). Rule 2: UNTESTED-BY-SCREEN in combine |
+| H-ZERO + H-IT | **adds nothing to H-IT on obstructions** (its own result: the zero is free) | (only GR's objection to H-ZERO) | by reading: ITJ O-HOLD OPEN via N_EQUIL (H-IT's); ITE O-MAKE-TOPO NOT-BOUND-IF {H-ER=EPR}; ITB O-MAKE-TOPO, O-HOLD (geometric) NOT-BOUND-IF {N_QTOPO} | O-BITS, O-MAKE-DIST, O-MATTER; O-HOLD under ITE; O-MAKE-TOPO under ITJ |
+| H-IT + H-NULL | **adds nothing to H-IT on obstructions** | — | as H-IT, by reading (H-NULL adds no term to EGJ's eq.(21)) | as H-IT, by reading |
+| H-NULL | LEAVES-ALL | — | — | all five; O-HOLD's requirement is 0.5 of the light-sheet cap per m² at 1 m (a floor, not a supply). Rule 2: UNTESTED-BY-SCREEN in combine |
+| R-QUANTUM | **LEAVES-ALL only IF {H_flat, H-PATH, H-MIN-SCALAR}** / OPEN (ξ > 0) | — | O-HOLD OPEN on the ξ > 0 branch; curved-space QEIs NAMED-NOT-READ | all five under those hypotheses; the bound covers 2.08e-68 of O-HOLD's deficit |
+
+*Wave 2 first said:* ITB "leaves ... O-LOOP"; H-ZERO + H-IT and H-IT + H-NULL **OPEN** via N_EQUIL with no reading
+named; R-QUANTUM "LEAVES-ALL (in scope)".
 *Wave 1 first said:* H-IT **PARTIAL**, removing "O-MAKE, the Geroch/Tipler topology-change form, under H-ER=EPR"; H-ZERO
 + H-IT **LEAVES-ALL**. Both changed on the principle stated at the top.
 
@@ -226,7 +265,9 @@ footnote 1). N_QTOPO (wave 2: an information-layer corridor is not a Lorentzian 
 throat; the charter's reading, no READ source). N_EQUIL (wave 2: Jacobson's local equilibrium relaxed, EGJ's
 non-equilibrium equation of state in its place). H-QNEC-OUT-OF-SCOPE. H-CONST (S″ constant over the null run). H-EQUIL (Jacobson's local equilibrium at a
 throat). H-PATH (the boosted observer's crossing). H_flat (a flat-space QEI applied at a curved throat; the board's).
-H-MIN-SCALAR (the QEI's field class). The reading of eq.(2) in nats: the stricter of the two readings.
+H-MIN-SCALAR (the QEI's field class). The reading of eq.(2) in nats: the stricter of the two readings. **ITJ** (wave 3:
+H-IT read as Jacobson / EGJ thermodynamic emergent gravity; N_EQUIL is its content). **{N_QTOPO, N_CORR}** (wave 3: a
+premise clash; an ITB corridor cannot be both a non-Lorentzian object and a Lorentzian quotient).
 
 ## Testable predictions
 

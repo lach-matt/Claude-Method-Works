@@ -2,9 +2,35 @@
 
 **Status: a docket work item. Nothing here is seated.** The instrument is `frame.py`, which sits beside this file
 and imports `corridors.py` (and through it `latticectc.py`), `frw_frame.py`, `nosig.py`, `nlcontrol.py` and
-`../transit.py` rather than copying them. `python3 frame.py --selftest` runs 56 checks and passes all 56
-(about 25 s, most of it spent importing the pre-docket scripts, which run their own computations when imported).
-Fifteen of those checks are **controls**: cases built to fail, and they do. *Wave 1 first said* 47 checks, 13 controls.
+`../transit.py` rather than copying them. `python3 frame.py --selftest` runs 61 checks and passes all 61
+(about 30 s, most of it spent importing the pre-docket scripts, which run their own computations when imported).
+Sixteen of those checks are **controls**: cases built to fail, and they do. One more row is printed **STRUCTURAL**
+(it cannot fail) and is neither counted nor cited. *Wave 2 first said* 56 checks, 15 controls, and counted that row as
+a control. *Wave 1 first said* 47 checks, 13 controls.
+
+**Headline, member-attributed first (wave 3).**
+- **H-FRAME alone removes no obstruction a member can claim.** Clause 1 removes O-LOOP only for a keyed network
+  (H-KEYING). In exact FRW the corridor removal is the geometry's, credited to no hypothesis.
+- **H-FRAME × H-SETTLE-W is PARTIAL, and both members are load-bearing:** O-BITS REMOVED-IF {N_EPS, H-C2, H-FRAME3b
+  ⇐ F1, H-COHERE, H-NLCONTROL-FORM, H-BORN-AT-BOB, H-BLOCK}, window premises separate, and signal O-LOOP REMOVED-IF
+  {N_SIGKEY}.
+- **Clause 2b's D-CTC channel is REMOVED-IF {a CTC at Bob, H-DCTC, C2, H-DCTC-SELECT}** at 1 pair per teleported qubit
+  (four axes, zero-error, computed), and O-LOOP is reintroduced.
+
+## Wave 3 repair (2026-10-03): the two re-verifications
+
+| re-verification item | resolution |
+|---|---|
+| RV-1 #1: clause 2b's O-BITS column reads LEAVES, though its own D-CTC row grades the channel | **Applied.** Clause 2b, O-BITS: **REMOVED-IF {a CTC at Bob, H-DCTC, H-DCTC-CONVENTION C2, H-DCTC-SELECT}**. The BB84 route gives 1.000000 bit per pair (2 pairs per teleported qubit). Four axes give 2.000000 bits per pair (1 pair). Both are zero-error, since every fixed point is unique and P = 1. **O-LOOP is REINTRODUCED.** Under M-S1A-P3 that loop disqualifies the device at the seat only. A CTC is not shown to exist, and Hawking's conjecture stays OPEN. Whether combine carries it is combine's to decide. |
+| RV-0 unresolved #4, RV-1 unresolved #0: the four-basis 2 bits/pair figure was cited, not computed | **Applied: computed.** `four_basis_c2_table` runs BHW's general construction (0811.1209v2 pp.3-4, re-READ this pass) on four axes. Bob holds his qubit plus a two-qubit ancilla, so the 8 branch states sit in C⁸, with an 8-dimensional CTC. The map ψ_j → \|j⟩ is reproduced with probability 1 and BHW's condition 2 holds (minimum 0.174). Every fixed point is unique. **I = 2.000000 bits per pair under C2, 0 under C1.** Control: four "choices" naming one axis give 0. |
+| RV-0 #7: clause 2b × O-MAKE graded OPEN | **Applied.** It is **NOT-BOUND-IF {clause 2b's CTC; Geroch's compact case only}**. Geroch's "no CTC" hypothesis fails, so the theorem does not bind, and its conclusion is not shown false. Tipler's non-compact case still binds. The release is bought with O-LOOP, which 2b reintroduces. |
+| RV-0 #11: the drift-ordering "control" cannot be nonzero | **Applied.** That row integrates the drift on I/2, where H = 0, so it is printed STRUCTURAL. "C2 is undefined without a slicing" is **derived given H-C2's rule**: no branch exists before t_A, so the drift acts on the reduced state. The rule is now named as part of H-C2. |
+| RV-0 #12: "Clause 1 removes O-LOOP, at any rank" stated unconditionally | **Applied.** It now reads: "A keyed network (H-KEYING, under H-CORRIDOR-MODEL) closes no causal curve at any rank." Wave 1's form is kept as history. |
+| RV-0 #3, RV-1 #9: the FRW removal attributed to hypotheses | **Applied, uniformly.** In exact FRW, corridor O-LOOP is REMOVED-IF {H-FRW-EXACT, H-NOT-DE-SITTER, H-CORRIDOR-MODEL}. It is the geometry's removal and credited to no hypothesis, so clause 1 adds nothing for corridors there. |
+| RV-1 #2: {N_QTOPO, N_CORR} | **Applied.** Under ITB + N_QTOPO, neither the lemma nor latticectc's theorem binds an ITB corridor, so corridor O-LOOP is NOT-BOUND-IF {N_QTOPO}. Signal loops are unchanged. The pair is a premise clash. |
+| RV-0 #2: H-FRAME3b is clause 1's substance | **Applied.** In the H-FRAME + H-SETTLE-W row clause 1 is load-bearing: it supplies the drift's slicing. H-SETTLE-W alone leaves O-BITS (A1). |
+| RV-1 #3, RV-0 #0: premise sets differ across reports; pair counts read as sufficient | **Applied.** One removal set is used, with window premises in a separate column. Pair counts from N·C ≥ 2 are floors (H-BLOCK). The D-CTC route is zero-error, so its counts are exact rather than floors. |
+| RV-1 #0: the W2 "class floor" assumed the drift acts on Bob's qubit only | **Applied** (A1 §1b). That floor is the qubit-only subclass's (H-QUBIT-DRIFT). Without it, A1 computes a W2 member at 1 pair per teleported qubit, zero-error, under H-EXTEND. |
 
 ## Wave 2 repair (2026-10-03): what changed, and why
 
@@ -17,7 +43,7 @@ marked *wave 1 first said*.
 | AGAINST #5: the 0.0817 bits and "C2 needs a frame" come from the D-CTC, which needs a CTC at Bob, and clause 1 excludes every CTC | **Applied.** The D-CTC numbers are withdrawn as ground for H-FRAME + H-SETTLE. That row's channel is now nlcontrol's drift, and **the drift's own ordering dependence is computed** (`drift_ordering`): Bob's signal is tanh(2ε(T − t_A)), giving 0.537 with Alice first, 0.291 with Alice at mid-window, and 0 when Bob's window is over first (the drift is computed on his reduced state, not assumed). The D-CTC under C2 gets a row of its own, as a clause-2b world. |
 | AGAINST #7: the H-FRAME + H-SETTLE (C2) row lists O-BITS as removed, with no ε condition and no timing | **Applied.** O-BITS is REMOVED-IF {N_EPS (A1: ε > ε_any(L, N)), H-C2, H-BORN-AT-BOB, A1's bound hypotheses}. On A2's own evidence alone it was OPEN. |
 | AGAINST #8, REPRODUCE #2: "per BHW p.2 (READ, not computed here) ... 1 bit per pair" labels a derived figure READ | **Applied, and now computed.** BHW's own construction (p.2 Fig. 2 and the p.3 theorem, re-READ) is run through this file's Deutsch fixed point (`bb84_c2_table`). It reproduces the READ map for all four inputs with unique fixed points, and gives **1.000000 bit per pair under C2 and 0 under C1**. |
-| FOR #2 (3): "the per-qubit budget under C2 is OPEN" when 1 bit per pair × 2 pairs is arithmetic | **Applied.** The D-CTC under C2 needs 2 pairs per teleported qubit. FOR #2 also reports a four-basis discriminator at 2 bits per pair; that figure is the verifier's computation and was not re-run here. BHW p.4 (READ): a CTC-assisted rate is unbounded. |
+| FOR #2 (3): "the per-qubit budget under C2 is OPEN" when 1 bit per pair × 2 pairs is arithmetic | **Applied.** The D-CTC under C2 needs 2 pairs per teleported qubit. FOR #2 also reports a four-basis discriminator at 2 bits per pair; that figure is the verifier's computation and was not re-run here. BHW p.4 (READ): a CTC-assisted rate is unbounded. *Wave 3: now computed* (`four_basis_c2_table`, 2.000000 bits per pair). |
 | FOR #6: "M's sentence contradicts itself" (B-combine) rests on the docket's keying, not M's words | **Applied here at the source.** Clause 1 is M's "a preferred frame exists". "Corridors keyed to it" is the docket's modelling addition, now named H-KEYING. M's sentence is satisfied without contradiction by clause 1 + 2a. Clause 2b is excluded only by H-KEYING (or, in exact FRW, by the geometry) and only if corridors are the sole route to the cosmic past (H-2B-VIA-CORRIDOR). |
 | FOR #9: O-LOOP keying is forced by exact FRW | **Applied.** This file's own z3 lemma shows that under H-FRW-EXACT + H-NOT-DE-SITTER only equal-cosmic-time identifications are isometries. So for corridors, the keying is the geometry's, not clause 1's. H-FRAME's contribution reduces to N_SIGKEY (signals keyed to that slice) plus H-CMB-IS-COSMIC. |
 | (rule: declared values in checks) the de Sitter tangent norm was typed as −1 | **Applied.** It is now computed from the metric. |
@@ -38,7 +64,8 @@ each is graded on its own:
 |---|---|---|
 | Deutsch, PRD 44, 3197 (1991) | NAMED-NOT-READ (not on arXiv); **READ-VIA-RESTATEMENT** | The consistency condition and the output map are BLSS arXiv:0908.3023v2 p.1, eqs (1)-(2). The phrase "because the fixed point is allowed to be a mixed state, it always exists" and the remark that the induced map "is nonlinear" are on the same page. BHW arXiv:0811.1209v2 p.1, eqs (1)-(2), adds that the solution "does not necessarily have to be unique". |
 | Bennett, Leung, Smith & Smolin, arXiv:0908.3023v2 | READ | p.1: EPR half sent into a CTC gives ρ_CTC = I/2 and ρ'_AB = I/4. p.2, Fig. 2: the "linearity trap". p.4: the "Principle of Universal Inclusion", and the point that Deutsch's formalism reduces to standard QM far from a CTC. p.3: Weinberg-type FTL claims fall into the same trap. |
-| Brun, Harrington & Wilde, arXiv:0811.1209v2 | READ | p.2, Fig. 1: SWAP then controlled-H. Input \|0⟩ gives ρ_CTC = \|0⟩⟨0\|, input \|−⟩ gives \|1⟩⟨1\|, and both are unique. p.2, Fig. 2: perfect discrimination of the four BB84 states. p.4: the Holevo bound is broken. |
+| Brun, Harrington & Wilde, arXiv:0811.1209v2 | READ (pp.1-4 re-READ in wave 3) | p.2, Fig. 1: SWAP then controlled-H. Input \|0⟩ gives ρ_CTC = \|0⟩⟨0\|, input \|−⟩ gives \|1⟩⟨1\|, and both are unique. p.2, Fig. 2: perfect discrimination of the four BB84 states. pp.3-4: the Theorem for N distinct states in dimension N, and its construction (conditions 1 and 2, the b/c bases), run in `four_basis_c2_table`. p.4: the Holevo bound is broken; unbounded "if CTC qubits are treated as a free resource". |
+| Hsu, arXiv:2511.15935v1 | READ, pp.1-3, 5 (wave 3) | Foliation independence of a Weinberg-type term holds only under microcausality, which "cannot be consistently maintained" under state-dependent evolution (p.2). This corroborates that C2 and the drift need a preferred slicing. |
 | Novikov, PRD 45, 1989 (1992) | NAMED-NOT-READ; **READ-VIA-RESTATEMENT** | Carlini, Frolov, Mensky, Novikov & Soleng, arXiv:gr-qc/9506087v2, p.3: only "globally self-consistent" solutions occur locally. pp.13-14: Echeverria, Klinkhammer & Thorne found multiple (even infinitely many) self-consistent solutions and "no evidence for non self-consistent trajectories". Visser, gr-qc/0204022v2 p.5. |
 | Hawking, PRD 46, 603 (1992) | NAMED-NOT-READ (not on arXiv: an alphaXiv title query resolved to 2607.22056 instead); **READ-VIA-RESTATEMENT** | Visser, gr-qc/0204022v2: p.2 states the conjecture. pp.6-9 cover the chronology horizon, the fountain, and the divergence of ⟨T_μν⟩ on the polarized hypersurfaces. pp.10-11: Kay, Radzikowski & Wald show the semiclassical equations fail on the horizon. p.14: "we do not know for certain". p.5: canonical gravity's universal foliation "forbids closed timelike curves at the kinematical level". Bermudez & Leonhardt, arXiv:2607.22056v1, p.11 and App. A, quote Hawking's sentences. |
 | CMB dipole | the board's D67 grade, `cmb-dipole-370kms` **NARROWED** (`docket67-raw/GRADES.tsv:112`; audit json) | 369.82 ± 0.11 km/s, READ-VIA-RESTATEMENT of Planck 2018. Its H1 (the dipole is kinematic) and H2 (the reference point is the Solar-System barycentre; Earth moves at 340.65-399.08 km/s over a year) are carried here as hypotheses. |
@@ -53,7 +80,9 @@ latticectc's H1-H3 (flat bulk, a translation lattice acting freely, test branes)
 cosmic frame* when ξ has no time component in the comoving frame u. Equating that frame with the CMB-dipole-free
 frame is a further hypothesis, H-CMB-IS-COSMIC.
 
-1. **Clause 1 removes O-LOOP, at any rank.** If every generator has ξ_t = 0, the Minkowski Gram matrix is the
+1. **A keyed network (H-KEYING, under H-CORRIDOR-MODEL) closes no causal curve at any rank.** *Wave 1 first said*
+   "Clause 1 removes O-LOOP, at any rank". The keying is H-KEYING's, not clause 1's (RV-0 #12). If every generator has
+   ξ_t = 0, the Minkowski Gram matrix is the
    Euclidean Gram matrix of the spatial parts. That matrix is positive definite, so the span holds no nonzero
    causal vector, and by latticectc's THEOREM (a) no closed causal curve exists. The argument is proved by
    inspection. The exact Sylvester test confirms it on 300 rank-2 and 300 rank-3 lattices, with 0 failures. This
@@ -158,9 +187,13 @@ density matrix (it does not signal) or on the branch's state (it signals).
   I/2, so the drift (computed on that state) does nothing.
   - Alice first: tanh(2εT) = 0.537 at ε = 0.1, T = 3.
   - Alice at mid-window: tanh(εT) = 0.291.
-  - Alice after Bob's window: 0.
+  - Alice after Bob's window: 0. This value is the output of H-C2's rule: the drift is integrated on I/2, where
+    ⟨X⟩ = 0 and H = 0. It cannot be anything else, so it is printed STRUCTURAL. *Wave 2 first labelled it a CONTROL.*
   - The same events give different predictions in different frames, so **C2 is not well defined without a preferred
-    slicing**.
+    slicing**. This is derived *given* H-C2's rule, that no branch exists before t_A in the chosen frame. The rule is
+    a definition inside H-C2, not an output (RV-0 #11). Corroboration, READ in wave 3: 2511.15935v1 pp.1-3. A
+    Weinberg-type term is foliation-independent only under microcausality, which "cannot be consistently maintained"
+    under state-dependent evolution (p.2).
 - *Wave 1 first said* this only for the CTC circuit, and then cited the CTC numbers as ground for the drift pairing.
   The CTC needs a closed timelike curve at Bob, which clause 1 excludes, so those numbers cannot ground H-FRAME +
   H-SETTLE.
@@ -173,6 +206,17 @@ Deutsch fixed point:
 - Bob holds half a singlet and reads the first output bit a. P(a = 1) is 0 if Alice chose z and 1 if she chose x,
   under C2: **1.000000 bit per pair**;
 - under C1 his input I/2 ⊗ |0⟩⟨0| is the same for both choices: **0 bits**.
+
+**Four axes (wave 3, computed from BHW's general construction, 0811.1209v2 pp.3-4, READ).** BHW's Theorem builds,
+for N distinct states in dimension N, unitaries U_k with U_k ψ_k = \|k⟩ and ⟨j\|U_k\|ψ_j⟩ ≠ 0. This makes the
+fixed point unique and the map ψ_j → \|j⟩ exact. `four_basis_c2_table` applies it to Alice's four axes (z, x, y and
+(1,1,1)/√3). Bob's qubit with a two-qubit ancilla \|00⟩ carries the 8 branch states in C⁸, and the CTC is
+8-dimensional.
+- The map is reproduced with probability 1 for all 8 states.
+- Condition 2's minimum is 0.174, and every fixed point is unique.
+- **I(axis; Bob) = 2.000000 bits per pair under C2**, with zero error. So the D-CTC needs 1 pair per teleported qubit.
+- Under C1: 0 bits. Control: four "choices" naming one axis give 0.
+- BHW p.4: 2ⁿ states carry n bits per qubit, unbounded "if CTC qubits are treated as a free resource".
 
 ## (iii) Does a preferred frame remove O-BITS?
 
@@ -191,9 +235,10 @@ choosing one changes nothing.
 
 | combination | removes | leaves | ground |
 |---|---|---|---|
-| H-FRAME clause 1 + curvature (FRW) | O-LOOP REMOVED-IF {H-FRW-EXACT, H-NOT-DE-SITTER}. For corridors this is the geometry's removal: the keying is forced. It fails in exact de Sitter. | O-BITS, O-MAKE, O-HOLD, O-MATTER | z3 lemma; the Killing table |
-| **H-FRAME + H-SETTLE-W (the drift, under C2)** | **O-BITS REMOVED-IF {N_EPS, H-C2, H-BORN-AT-BOB, A1's H-MAP/H-TRANSFER/H-SPIN/H-COHERE}**; **O-LOOP REMOVED-IF {N_SIGKEY}** | O-MAKE, O-HOLD, O-MATTER | settle.py's drift tanh(2εT); `drift_ordering` (C2 undefined without a slicing, computed); antitelephone, both values computed: a reply keyed to the sender's frame arrives at t = −3/5 (a loop), keyed to the cosmic frame at t = 0 |
-| D-CTC under C2 (a CTC at Bob, so not compatible with clause 1) | O-BITS as a channel: 0.0817 bits per use (BHW circuit), 1.000 bit per pair (BHW BB84), unbounded per BHW p.4 | O-LOOP REINTRODUCED (the channel is a CTC); O-MAKE, O-HOLD, O-MATTER | `signalling_table`, `bb84_c2_table` |
+| H-FRAME clause 1 + curvature (FRW) | **adds nothing for corridors**: corridor O-LOOP REMOVED-IF {H-FRW-EXACT, H-NOT-DE-SITTER, H-CORRIDOR-MODEL} is the geometry's removal, credited to no hypothesis (the keying is forced; it fails in exact de Sitter, where the matter content, not the geometry, selects the frame) | O-BITS, O-MAKE, O-HOLD, O-MATTER | z3 lemma; the Killing table |
+| **H-FRAME + H-SETTLE-W (the drift, under C2)**: both load-bearing | **O-BITS REMOVED-IF {N_EPS, H-C2 (with its no-branch rule), H-FRAME3b ⇐ F1, H-COHERE, H-NLCONTROL-FORM, H-BORN-AT-BOB, H-BLOCK}**; window, separate: {H-MAP, H-TRANSFER, H-SPIN, H-DILUTION, the NAMED-NOT-READ values}; **signal O-LOOP REMOVED-IF {N_SIGKEY}** | O-MAKE, O-HOLD, O-MATTER (corridor O-LOOP: the geometry's) | settle.py's drift tanh(2εT); `drift_ordering` (C2 undefined without a slicing, derived given H-C2's rule); antitelephone, both values computed: a reply keyed to the sender's frame arrives at t = −3/5 (a loop), keyed to the cosmic frame at t = 0 |
+| D-CTC under C2 (a CTC at Bob, so not compatible with clause 1: a clause-2b world) | **O-BITS REMOVED-IF {a CTC at Bob, H-DCTC, C2, H-DCTC-SELECT}**: 0.0817 bits per use (BHW circuit), 1.000 bit per pair (BHW BB84), **2.000 bits per pair (four axes)**, all zero-error, unbounded per BHW p.4 if CTC qubits are free | **O-LOOP REINTRODUCED** (the channel is a CTC; M-S1A-P3: disqualifying at the seat only); O-MAKE NOT-BOUND-IF {its CTC; Geroch-compact only}; O-HOLD, O-MATTER | `signalling_table`, `bb84_c2_table`, `four_basis_c2_table` |
+| any of the above × H-IT read as ITB, under N_QTOPO | corridor O-LOOP **NOT-BOUND-IF {N_QTOPO}** (the lemma and latticectc's theorem do not bind an ITB corridor); premise clash {N_QTOPO, N_CORR} | signal loops unchanged | wave 3, RV-1 #2 |
 | H-SETTLE (under C1) or D-CTC (under C1), with or without H-FRAME | nothing | all five | C1 signalling: 0 bits; drift on the reduced state 2.2e-16 |
 
 *Wave 1 first said* the H-FRAME + H-SETTLE (C2) row "removes O-BITS (0.0817 bits per pair with this circuit) and the
@@ -207,22 +252,32 @@ timing condition. The row is the one complementary pair found here, and it is **
 - *Wave 1 first said* "Per BHW p.2 (READ, not computed here), their BB84 circuit would let C2 carry 1 bit per pair ...
   so the per-qubit budget under C2 is OPEN". The 1 bit per pair is now computed (`bb84_c2_table`, 1.000000), and 2
   pairs per teleported qubit follows by arithmetic. That is the D-CTC's budget, which needs a CTC.
-- The drift's budget is A1's: ≥ 6.21 pairs on average for nlcontrol's Hamiltonian, and > 2 for the W2 class under
-  H-BORN-AT-BOB. The general W2 capacity is OPEN without H-BORN-AT-BOB.
+- The drift's budget is A1's, and every figure from N·C ≥ 2 is a floor with reliable transfer block-coded (H-BLOCK).
+  - nlcontrol's Hamiltonian: ≥ 6.21 pairs on average, ≥ 7 per qubit, never zero-error.
+  - The qubit-only subclass (H-BORN-AT-BOB + H-QUBIT-DRIFT): > 2 on average.
+  - Without H-QUBIT-DRIFT, a computed W2 member needs 1 pair per teleported qubit, zero-error (A1 §1b, H-EXTEND).
+  - The general W2 capacity is OPEN without H-BORN-AT-BOB.
+  - *Wave 2 first said* "> 2 for the W2 class under H-BORN-AT-BOB".
+- *Wave 2 first cited* "FOR #2 ... a four-basis discriminator at 2 bits per pair; that figure is the verifier's computation
+  and was not re-run here". It is now computed (`four_basis_c2_table`).
 
 ## Grades (H-FRAME)
 
 | obstruction | clause 1 alone | clause 2a | clause 2b |
 |---|---|---|---|
-| O-BITS | LEAVES (computed) | LEAVES | LEAVES; a channel needs H-SETTLE under C2 |
-| O-MAKE | LEAVES, and closes the "with a CTC" escape in Geroch's compact case (board grade, not re-read) | LEAVES | OPEN (a CTC reopens the Geroch clause) |
+| O-BITS | LEAVES (computed) | LEAVES | **REMOVED-IF {a CTC at Bob, H-DCTC, C2, H-DCTC-SELECT}**, 1 pair per teleported qubit (four axes, zero-error, computed), with O-LOOP reintroduced. *Wave 2 first said* "LEAVES; a channel needs H-SETTLE under C2" |
+| O-MAKE | LEAVES, and closes the "with a CTC" escape in Geroch's compact case (board grade, not re-read) | LEAVES | **NOT-BOUND-IF {2b's CTC; Geroch-compact case only}**; Tipler's non-compact case still binds; traded for O-LOOP. *Wave 2 first said* "OPEN (a CTC reopens the Geroch clause)" |
 | O-HOLD | LEAVES | LEAVES | LEAVES |
 | O-MATTER | LEAVES | LEAVES | LEAVES |
-| O-LOOP | **REMOVED-IF** {H-CORRIDOR-MODEL, H-KEYING} in the model; in exact flat FRW REMOVED-IF {H-FRW-EXACT, H-NOT-DE-SITTER}, with the keying forced (not in exact de Sitter); for signals, + N_SIGKEY | no loop | **REINTRODUCES** in the model for every T > 0, if corridors are its route (H-2B-VIA-CORRIDOR). Deutsch/Novikov make the loop consistent, not absent; Hawking's conjecture would forbid it (OPEN); M-S1A-P3 disqualifies it at the seat. |
+| O-LOOP | **REMOVED-IF** {H-CORRIDOR-MODEL, H-KEYING} in the model (a keyed network); in exact flat FRW the corridor removal is the **geometry's**, REMOVED-IF {H-FRW-EXACT, H-NOT-DE-SITTER, H-CORRIDOR-MODEL}, credited to no hypothesis (not in exact de Sitter); for signals, REMOVED-IF {N_SIGKEY}; under ITB + N_QTOPO, corridor O-LOOP NOT-BOUND-IF {N_QTOPO} | no loop | **REINTRODUCES** in the model for every T > 0, if corridors are its route (H-2B-VIA-CORRIDOR). Deutsch/Novikov make the loop consistent, not absent; Hawking's conjecture would forbid it (OPEN); M-S1A-P3 disqualifies it at the seat. |
 
-For M's thesis: **H-FRAME alone does not touch the two classical bits.** What it does is make a superluminal
-channel chronology-safe, *if* such a channel exists. That is why it pairs with H-SETTLE: one supplies the
-channel, the other removes the loop the channel would otherwise bring.
+For M's thesis:
+- **Clause 1 alone does not touch the two classical bits.** What it does is supply the slicing a drift channel needs,
+  and make such a channel chronology-safe, *if* the channel exists. That is why it pairs with H-SETTLE: one supplies
+  the channel, the other the slicing and the keying that removes the signal loop.
+- **Clause 2b touches the two bits only through a CTC at Bob** (the D-CTC under C2, REMOVED-IF {a CTC at Bob, H-DCTC,
+  C2, H-DCTC-SELECT}), and it pays for this by reintroducing O-LOOP.
+- *Wave 2 first said* "H-FRAME alone does not touch the two classical bits", which left clause 2b's D-CTC route out.
 
 **Testable prediction.** Under clause 1, Bell-type statistics are frame-independent (computed). Under
 H-FRAME + H-SETTLE (C2), Bob's statistics would depend on whether Alice's measurement precedes his in **cosmic**
@@ -248,6 +303,13 @@ The full list is `NAMED_HYPOTHESES` in `frame.py`. The ones every result above d
 - **H-2B-VIA-CORRIDOR** (wave 2): corridors are the only route to the cosmic past.
 - **N_SIGKEY** (wave 2): a superluminal signal is keyed to the same slice (A1's H-SIG-COR).
 - **H-C2, H-BORN-AT-BOB** (wave 2): as in settle.py.
+- **H-C2's rule** (wave 3): before Alice measures in the chosen slicing there is no branch, so the drift acts on Bob's
+  reduced state.
+- **H-BLOCK** (wave 3): reliable transfer is block-coded; pair counts from N·C ≥ 2 are floors.
+- **H-FRAME3b ⇐ F1** (wave 3): the drift's preferred slicing is clause 1's substance.
+- **a CTC at Bob** (wave 3): clause 2b's D-CTC channel needs one, and none is shown to exist.
+- **{N_QTOPO, N_CORR}** (wave 3): a premise clash. An ITB corridor that is not a Lorentzian object cannot also be a
+  Lorentzian quotient by translation.
 
 ## Findings (recorded, not repaired)
 

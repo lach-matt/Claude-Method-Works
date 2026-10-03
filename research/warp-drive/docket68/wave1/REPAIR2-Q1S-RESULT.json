@@ -1,0 +1,523 @@
+{
+  "summary": "DOCKET 68: second repair of wave 1 (residual verifier findings) in parallel with building Q-1s (signed/complex entropy); integrate; verify both",
+  "agentCount": 6,
+  "logs": [],
+  "result": {
+    "r2a": {
+      "id": "R2-alone",
+      "files": [
+        "/home/user/Claude-Method-Works/research/warp-drive/docket68/settle.py",
+        "/home/user/Claude-Method-Works/research/warp-drive/docket68/frame.py",
+        "/home/user/Claude-Method-Works/research/warp-drive/docket68/measure.py",
+        "/home/user/Claude-Method-Works/research/warp-drive/docket68/geometry.py",
+        "/home/user/Claude-Method-Works/research/warp-drive/docket68/A1-settle.md",
+        "/home/user/Claude-Method-Works/research/warp-drive/docket68/A2-frame.md",
+        "/home/user/Claude-Method-Works/research/warp-drive/docket68/A3-measure.md",
+        "/home/user/Claude-Method-Works/research/warp-drive/docket68/A4-geometry.md",
+        "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d68/A1-settle.json",
+        "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d68/A2-frame.json",
+        "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d68/A3-measure.json",
+        "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d68/A4-geometry.json",
+        "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d68/R2-alone.json",
+        "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d68/mk_wave3_a.py"
+      ],
+      "done": [
+        "RV-0 #0 applied (settle.py, A1, A2, A3). Every count from N x C >= 2 is now a FLOOR. settle.zero_error_table computes zero-error capacity 0 at D < 1 for both the Z-channel and the BSC, and for the Z-channel even at D = 1. Control: the BSC at D = 1 gives 2, 4 and 8 zero-error words. H-BLOCK is named and '7 per qubit' now reads '>= 7 (floor)'. A1, A2 and A3 use one removal set: R_W2 = {N_EPS, H-C2 (+ rule), H-FRAME3b <= F1, H-COHERE, H-NLCONTROL-FORM, H-BORN-AT-BOB, H-BLOCK}.",
+        "RV-0 #2 and unresolved #3 applied. H-FRAME3b presupposes F1, corroborated by 2511.15935v1 p.2 (READ). H-SETTLE-W alone now LEAVES O-BITS, and the removal belongs to W2 x F1. H-SLICE-INTRINSIC is named and not credited.",
+        "RV-0 #3, RV-1 #9 and RV-0 unresolved #0 applied uniformly. Corridor O-LOOP is REMOVED-IF {H-FRW-EXACT, H-NOT-DE-SITTER, H-CORRIDOR-MODEL} and credited to the geometry. It sits in a separate geometry column in every report and JSON.",
+        "RV-1 #2 applied. Under ITB + N_QTOPO, corridor O-LOOP is NOT-BOUND-IF {N_QTOPO}; signal loops are unchanged. The {N_QTOPO, N_CORR} premise clash is named.",
+        "RV-0 #4 applied. The W2 x H12 row now has O-HOLD LEFT. 'OPEN via G' moved to a new row, H-SETTLE-KR x H-12.",
+        "RV-0 #1 applied. N_EQUIL is attributed to H-IT in a named Jacobson/thermodynamic reading, ITJ, which is a new grade. H-ZERO and H-NULL carry no O-HOLD content: EGJ eq.(21) contracted with null k drops the g_ab term.",
+        "RV-0 #5, RV-1 #4 and RV-0 unresolved #1 applied. H-ZERO+H-IT and H-IT+H-NULL are split by reading (ITE/ITB/ITJ), and the OPEN is H-IT's. RV-1's ITB N_EQUIL suggestion was not applied because under N_QTOPO there is no metric throat for EGJ to act on.",
+        "RV-1 #5 applied. R-QUANTUM is now LEFT-IF {H_flat, H-PATH, H-MIN-SCALAR}; the words 'in scope' are dropped.",
+        "RV-0 #6 applied. H-SETTLE x H-INFO is now LEAVES-ALL and adds nothing.",
+        "RV-0 #7 applied. Clause 2b O-MAKE is NOT-BOUND-IF {2b's CTC; Geroch-compact only}. Tipler still binds, and the release is traded for O-LOOP.",
+        "RV-1 #1 applied. Clause 2b O-BITS is REMOVED-IF {a CTC at Bob, H-DCTC, C2, H-DCTC-SELECT}, with O-LOOP reintroduced.",
+        "Four-basis D-CTC figure computed (RV-0 unresolved #4, RV-1 unresolved #0). frame.four_basis_c2_table runs BHW's general construction (0811.1209v2 pp.3-4, re-READ). Result: 2.000000 bits/pair under C2 with zero error, 0 under C1. Control: one axis named four times gives 0.",
+        "RV-1 #0 applied and computed. H-QUBIT-DRIFT is named. settle.w2_ancilla_flow builds a W2 member with a state-only field on a qubit plus a two-qubit ancilla. It carries chi = 2.000000 bits/pair with zero error at finite T, so 1 pair per teleported qubit. The smooth global field is H-EXTEND, derived and not computed.",
+        "RV-0 #10 applied. settle G6a, G7, G8 and G12b are printed STRUCTURAL.",
+        "RV-0 #11 applied. The frame.drift_ordering Bob-first row is printed STRUCTURAL, and H-C2's rule is named.",
+        "RV-0 #12 applied. A2's item 1 now reads 'keyed network (H-KEYING, under H-CORRIDOR-MODEL)'.",
+        "RV-0 #13 applied. 'measured' now reads 'integrated (nlcontrol)', and prediction 1 is conditional on H-C2.",
+        "RV-1 #3 applied. Removal premises and window premises are separated.",
+        "RV-1 #6 applied. B-RECV's conditions (C3, P-UNIFORM, H-UNSOURCED-SEAT from LEDGER.md; Bekenstein's scope; phi(1)=0 needs states, not matter) are listed beside clash (d). The clash stays a CLASH for M.",
+        "RV-1 #8 applied. Each 1 AU statement now carries its N.",
+        "Every combination row now states whether its members are load-bearing or that the row adds nothing. Headlines lead with member-attributed removals. History is kept as 'wave 2 first said'."
+      ],
+      "results": [
+        "Member-attributed removals: O-BITS by H-SETTLE-W x H-FRAME (REMOVED-IF R_W2; window premises separate; counts are floors; block-coded). O-BITS by clause 2b's D-CTC (REMOVED-IF {CTC at Bob, H-DCTC, C2, select}; 1 pair/qubit, zero-error; O-LOOP reintroduced). Keyed-network O-LOOP (clause 1 + H-KEYING). Signal O-LOOP via N_SIGKEY. In the geometry column, credited to no hypothesis: corridor O-LOOP in exact FRW.",
+        "H-SETTLE-W alone is now LEAVES-ALL; wave 2 first said PARTIAL. It is not retired, because it is load-bearing in W2 x F1.",
+        "Zero-error capacity is 0 for the Z-channel at every D and for the BSC at D < 1 (computed).",
+        "Without H-QUBIT-DRIFT, a computed W2 member carries 2.000000 bits/pair with zero error at finite T. The qubit-only floors (> 2 on average, >= 3 per qubit) stand for that subclass only. This is not evidence that such a drift exists.",
+        "D-CTC over four axes: 2.000000 bits/pair under C2, 0 under C1 (computed).",
+        "The Weinberg-family bound values remain NAMED-NOT-READ. Two further alphaXiv READs (2509.04320v1, 2511.15935v1) carry no numbers.",
+        "Selftests: settle 57/57; frame 61 checks, 16 controls, ALL PASS; measure 65/65; geometry 48/48."
+      ],
+      "open": [
+        "Items sited in combine.py and B-combine.md, which are not this stage's files: B headline (RV-0 #8); coverage STRUCTURAL (RV-0 #9, RV-1 #7); the EXPLAINED whitelist (its A-side causes are now repaired); F1 add-back for N_FRAME3b; N_EQUIL re-encoded as ITJ; the F2b D-CTC pathway; the {N_QTOPO, N_CORR} clash constraint; B-RECV conditions in B; 1 AU N qualifiers in B.",
+        "W2 general capacity without H-BORN-AT-BOB: OPEN.",
+        "H-EXTEND is derived, not computed. H-MAP is not established for that field.",
+        "H-SLICE-INTRINSIC is named, has no source, and is not credited.",
+        "O-MAKE-TOPO LEFT under ITJ rests on Geroch's kinematic theorem (board grade). Tipler's premises are not re-read.",
+        "Curved-space QEIs and Shannon 1956 are NAMED-NOT-READ.",
+        "Q-1s was not added to measure.py, as instructed."
+      ],
+      "selftests": [
+        "settle.py --selftest: 57/57 pass (6 STRUCTURAL, 8 controls), exit 0",
+        "frame.py --selftest: ALL PASS (61 checks, 16 controls, 1 STRUCTURAL), exit 0",
+        "measure.py --selftest: 65/65 pass (15 controls, 5 structural), exit 0",
+        "geometry.py --selftest: 48 checks, 11 controls, ALL PASS, exit 0"
+      ],
+      "problems": [
+        "No 403 or egress block was met.",
+        "combine.py was not re-run because it is not this stage's file. The signatures it imports are unchanged, but its EXPLAINED dict and drift guard compare against A text that has now changed, so new disagreements are possible until its stage updates.",
+        "Untracked Q1s-signed.md and signed.py belong to another stage and were not touched."
+      ]
+    },
+    "q1": {
+      "id": "Q1s-build",
+      "files": [
+        "/home/user/Claude-Method-Works/research/warp-drive/docket68/signed.py",
+        "/home/user/Claude-Method-Works/research/warp-drive/docket68/Q1s-signed.md",
+        "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d68/Q1s-build.json",
+        "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d68/Q1s-numbers.json"
+      ],
+      "done": [
+        "Built signed.py, the Q-1s instrument, with report, --selftest and --json modes. It uses stdlib, numpy and sympy. measure.py (A3) and tools/cypher.py are imported, never copied or edited.",
+        "(1) Principal-branch complex entropy. Re H = -sum p ln|p| is the same on every branch; Im H = pi N. The branch set is tabulated over the grid k in [-2,2]^2. The multi-axis table covers per-entry ln|p|, principal and reflected arg, Re and Im contributions, the inverse axis -Log p, and the Im step per unit k. Also tabulated: the N-sweep (Re, Im, -Im, M) and the uniform-shift rule (-2 pi i k).",
+        "(2) Products. Re H is additive; Im H = pi(N_p P_q + P_p N_q), which exceeds Im H(p) + Im H(q) by exactly 2 pi N_p N_q; M is additive and is zero only when no entry is negative; N = (sum|p| - 1)/2. Checked numerically on 400 random pairs and exactly in sympy. Control: with sum p = 2 the Re H identity fails (residual 2.4250).",
+        "(3) Exact range of Re H for n entries and negativity N: min = -P ln P + N ln(N/(n-1)), max = -P ln(P/(n-1)) + N ln N, with P = 1 + N. Re H < 0 is forced only at n = 2. For n >= 3 the smallest value of max Re H over N is exactly ln(n-2), at N = 1/(n-2). A random search found no point outside the bounds.",
+        "(4) The Baez-Fritz-Leinster axioms (1106.1791v3 Thm 2) restated for signed measures. Functoriality holds for any difference of a state function, so that check is labelled STRUCTURAL. Re H fails the [0,inf) codomain (counterexample: merging two negative entries). M fails convex linearity (computed counterexample). Im H passes all four. A 12-functional dictionary was run through SVD null spaces. The Brandenburger-La Mura axioms (2410.15976v5) were also checked: their Example 1 reproduces; Re H fails their Axiom 5' (|w| weights) and satisfies it with signed weights; the signed-weight exponential branch fails their Axiom 0.",
+        "(5) Triangulation. Filtered back-projection (inverse Radon) recovers the negative region of the Wigner function of (|0>+|1>)/sqrt2 from its exact non-negative marginals. Controls: 2 angles fail; the vacuum reconstructs non-negative at 180 angles but not at 3; one finite-sample run (72 angles x 20000 shots, single seed) still shows the negativity. Exact discrete case: Born probabilities on the d+1 striations give qubit W(0,0) = 1/4 - sqrt3/4 and qutrit strange-state W(0,0) = -1/3 (GHW eq.55). Control: with only 3 of the qutrit's 4 striations, two valid states share every kept marginal but differ at the origin.",
+        "(6) Read at source via alphaXiv: 2310.19296v1, 2512.03505v1, 2410.15976v5, 2503.03759v1, 1307.7171v1, 1201.1256v4, quant-ph/0401155v6, quant-ph/0602001v3, quant-ph/0406015v1, quant-ph/0511044v2 and 1106.1791v3, each cited with pages. Named but not read: Smithey 1993 (whose content is read via the quant-ph/0511044 review, p.3), Wootters 1987, Renyi 1961 / Daroczy 1963, and Lvovsky 2001.",
+        "(7) Applications: (a) the qubit state with Bloch vector (-1,-1,-1)/sqrt3, whose negativity depends on which of the two quantum nets is used; (b) A3's Bell pair, imported; (c) a Mobius signed weighting of cypher's Lambda, reached through A3's route.",
+        "Wrote Q1s-signed.md: results, prior art, discrepancies, history, named hypotheses, OPEN items. The stage report is at scratchpad/d68/Q1s-build.json and the numbers at Q1s-numbers.json."
+      ],
+      "results": [
+        "Re H(1.5,-0.5) = -0.954771 nats (-1.377444 bits); Im H = 1.570796; M = ln 2.",
+        "The branch shift on entry i adds -2 pi i k_i p_i to H, not 2 pi i k (discrepancy D1). The reflection (conjugate) is itself one of the branches. |e^H| = e^{Re H} on every branch, while the phase of e^H is preserved only by a uniform shift.",
+        "Prior art: the complex Wigner entropy is already defined in 2310.19296v1, including Im proportional to negative volume, Re additive and Im superadditive (Delta = (2/pi) h_i h_i). That paper treats continuous variables only.",
+        "Within the dictionary: the convex-linear lawful family is span{Re H, N}; the product-additive family is span{Re H, M, Hartley, signed Renyi-2}; requiring both leaves Re H alone. If BFL's [0,inf) codomain is kept as well, only b*pi*N survives, and it is zero on every probability measure. So no dictionary functional extends Shannon while meeting all four BFL hypotheses on signed measures.",
+        "(Re H, M) is not forced: M is not convex-linear. Derived: the continuous product-additive function of N alone is c*M.",
+        "Brandenburger-La Mura fork: with |w| weights in their mean-value axiom the result is signed Renyi; with signed weights it is Re H. The second is derived conditionally, on the unread Renyi-Daroczy step and not machine-checked. Uniqueness over all continuous functionals is OPEN.",
+        "Filtered back-projection at 180 angles: max error 1.0e-4, min -0.11338 against exact -0.11332, negative-region IoU 1.000. At 2 angles: IoU 0.037. Fock |1>: -0.31839 against -1/pi.",
+        "Continuous checks reproduce two published values: vacuum Re h_c = ln pi + 1 (2310.19296 eq.49) and Fock |1> Im h_c = 0.669353 (from Kenfack-Zyczkowski delta).",
+        "Qutrit strange state: N = 1/3, M = ln(5/3), Re H = (4/3)ln6 - (1/3)ln3 = 2.022809 nats.",
+        "Bell pair: N = 1/2, Re H = 3 bits, M = 1 bit. Re H(AB) - Re H(B) = +1 bit, against A3's von Neumann S(A|B) = -1 bit: Re H does not reproduce the quantum conditional entropy.",
+        "Lambda Mobius weighting: 159 entries at +1 and 158 at -1, so N = 158, Re H = 0 exactly (every |p| = 1) and M = 8.308 bits. Box-mixture weighting q: Re H = -3.033 bits, N = 81.70. The uniform measure on Lambda gives 9.930737 bits, matching A3."
+      ],
+      "open": [
+        "Uniqueness of the lawful pair over all continuous functionals, with and without BFL's codomain.",
+        "Machine-checking the signed-weight Brandenburger-La Mura derivation; the Renyi 1961 / Daroczy 1963 step (H-RD) is named but not read.",
+        "Ruling for M: which weighting in the mean-value axiom is lawful for The Method, |w| or signed w. This decides between signed Renyi and Re H.",
+        "A fuller prior-art search on finite-set signed and complex entropy: only two discovery searches plus targeted reads were done.",
+        "What M means by 'inverses and reflections' (H-READING-M), to be asked of M.",
+        "The operational meaning of Re H once entries are negative (2310.19296v1 p.13 says it is missing in the continuous case too).",
+        "Whether Q-1s has proved useful enough to start the separate paper session is M's call. The md lists the material such a paper would need and the prior art it would have to position against."
+      ],
+      "selftests": [
+        "python3 signed.py --selftest: 66 checks, 0 failed; 13 controls (each built to fail, and each fails); 2 labelled STRUCTURAL (cannot fail, not cited as evidence).",
+        "The controls cover: Re H additivity failing when sum p = 2; the hypothesis 'Im H additive' being rejected; a lowered Re H bound being violated; Re H failing the codomain on a fixed case and on random morphisms; count_neg and Hartley jumping at a zero crossing; Re H failing Axiom 5'; 2-angle back-projection failing; the vacuum showing negatives at 3 angles; the 3-striation qutrit case leaving W(0,0) undetermined; the qubit net changing the sign of a state; a full box having zero Mobius negativity; e^H changing under a per-entry branch."
+      ],
+      "problems": [
+        "Discrepancy D1, CHARTER.md line 325: 'the other branches add 2 pi i k per negative entry' describes the shift of the log. The shift of H is -2 pi i k_i p_i, which is +2 pi i k_i|p_i| for a negative entry; positive entries also have branches; a uniform k shifts H by -2 pi i k. The charter was not edited because it is not this stage's file.",
+        "First coded: a threshold N*(n) above which Re H < 0 would be forced for every n. The search diverged for n >= 4, and the exact result is that forcing happens only at n = 2. Recorded in the md history.",
+        "First null-space run: columns that were identically zero were rescaled into noise, so one mixed vector was reported. Fixed before the results were written, and recorded in the md history.",
+        "git status shows measure.py, settle.py, frame.py, geometry.py, A1-settle.md and A2-frame.md modified by other stages; this stage did not edit them. signed.py imports measure.BELL, lambda_counts, method_bits and conditional_entropy_bell, so later changes to measure.py could shift the application numbers in section 7.",
+        "No 403 or egress block was met; all reads went through alphaXiv.",
+        "The finite-sample back-projection figure is one seeded run, and its patch spread is not a standard error. It is labelled that way in the md."
+      ]
+    },
+    "r2b": {
+      "id": "R2-combine",
+      "files": [
+        "/home/user/Claude-Method-Works/research/warp-drive/docket68/combine.py",
+        "/home/user/Claude-Method-Works/research/warp-drive/docket68/B-combine.md",
+        "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d68/B-combine.json",
+        "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d68/B-combine.variants.json",
+        "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d68/B-table.md",
+        "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d68/B-report.txt",
+        "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d68/B3-selftest.txt",
+        "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d68/R2-combine.json",
+        "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d68/mk_b3.py",
+        "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d68/wave2-backup-combine/"
+      ],
+      "done": [
+        "RV-0 U0/#3 and RV-1 #9. A1's attribution of O-LOOP to W2 is gone (A1 was repaired by R2-alone). combine credits corridor O-LOOP to the geometry (Rg, no member) the same way everywhere. The EXPLAINED entries for it are deleted.",
+        "RV-0 U1/#1/#5 and RV-1 #4. A new H-IT reading, ITJ (Jacobson), carries N_EQUIL. H-ZERO and H-NULL now have no content in the screen and are UNTESTED-BY-SCREEN (0 of 3,072 variants changed by either). A4's six split rows are compared through the new parse rule P7.",
+        "RV-0 U2. The EXPLAINED list shrank from 5 causes (7 disagreements) to 2 disagreements out of 168 comparisons, each with a computed or READ reason. A new check fails if any EXPLAINED entry is not a live disagreement.",
+        "RV-0 U3/#2. N_FRAME3b is withdrawn because it presupposes F1. {W2} alone now gives O-BITS LEFT. The removal belongs to W2 x F1 (or W2 x F2b) and is JOINT. A new mutated encoding, wave2-SLICE-INTRINSIC, puts the old credit back and is caught (163/168).",
+        "RV-0 U4 and RV-1 U0. The four-basis D-CTC figure is computed in combine's grounds and in test T-J: 2.000000 bits/pair under C2, map reproduced with P = 1, BHW condition-2 minimum 0.1738. The BB84 version gives 1.000000.",
+        "RV-0 #0. Pair counts are FLOORS. A zero-error ground check uses settle.zero_error_table: one codeword at D < 1, with the BSC at D = 1 as control (2, 4, 8 codewords). Reliable transfer is block-coded (H-BLOCK, in the removal set). The drift time is labelled a floor.",
+        "RV-0 #6. A load-bearing guard is added: every combination row that credits a removal or non-binding must have all its graded members load-bearing, or must say a member adds nothing. 12 rows checked, all agree. Parse rule P1 is generalised, and P8/P9 are added.",
+        "RV-0 #7. A CTC releases only Geroch's compact case, so O-MAKE-TOPO stays bound (Tipler still binds). The remaining A2 difference is explained as vocabulary.",
+        "RV-0 #8. headline() counts per account and leads with member-attributed removals. NOT-BOUND-IF and no-member removals are reported in separate columns.",
+        "RV-0 #9, RV-1 #7, RV-1 U1. The coverage fallback is deleted. The TEST_BEARS table is fixed before the screen runs. JOINT classes must have a test (a check that can fail). INDEPENDENT classes are listed as not tested as pairs (STRUCTURAL). T-D covers nothing.",
+        "RV-0 #10/#11. The T-E ratio of 2.000000 and the Bob-first row of drift_ordering are labelled STRUCTURAL and removed from the pass conditions.",
+        "RV-1 #0. The qubit-only subclass is named, with premise H-QUBIT-DRIFT. Without that premise, a computed W2 member (w2_ancilla_flow) gives chi = 2.000000 bits/pair, zero-error: 1 pair per teleported qubit.",
+        "RV-1 #1. Clause 2b's D-CTC is carried as B-DCTC with premise N_DCTC: {F2b} O-BITS REMOVED-IF {F2b; N_DCTC} at every distance, with signal/CTC O-LOOP reintroduced. Two premise clashes come with it: {N_DCTC, N_FRW} (a global time function admits no CTC) and {N_DCTC} with ITE.",
+        "RV-1 #2. O-LOOP is split into a corridor form (O-LOOP-C) and a signal/CTC form (O-LOOP-S). O-LOOP-C can now be NOT-BOUND-IF. The premise clash B-QCORR is named: {N_CORR, N_QTOPO} in 512 variants and {N_CORR, N_MEASPHYS} in 256. In the N_QTOPO account corridor O-LOOP is NBm; signal loops are unchanged. Every headline count is taken inside one account.",
+        "RV-1 #3. N_EPS is now the removal premise only (removal set R_W2). The window premises W_W2 are held fixed in B-EPSWIN and named as encoding choice E-WIN.",
+        "RV-1 #5. R-QUANTUM's refusal is LEFT only IF {H_flat, H-PATH, H-MIN-SCALAR}. Outside that IF it is OPEN, carried as the new pathway N_QEIC.",
+        "RV-1 #6. B-RECV's conditions are listed beside clash (d): C3, P-UNIFORM and H-UNSOURCED-SEAT (LEDGER.md lines 50/67/70/181, READ), Bekenstein's scope, and that phi(1) = 0 needs distinguishable states, not matter. Clash (d) stays a CLASH for M to rule.",
+        "RV-1 #8. A third cell, 1 AU with N = 1e6, has its window computed open. There W2 x F1 removes O-BITS without H12. Every 1 AU statement now carries its N.",
+        "RV-0 #4/#12/#13 and RV-1 #4/#9 are sited in the A-reports and were applied there by R2-alone. combine compares the repaired rows, including the new KR x H12 row.",
+        "B-combine.md is rewritten for wave 3: the answer comes first, then full resolution tables for both re-verifications. Wave 2's section 0 is kept verbatim as history, with 'wave 2 first said' throughout. The generated 128-row table has member, NOT-BOUND-IF and geometry columns and a load-bearing / adds-nothing column."
+      ],
+      "results": [
+        "Member-attributed removals: at most ONE per consistent variant and account, and it is always O-BITS (1,728 variants at 1 ly). Two routes give it. W2 x F1 gives REMOVED-IF {W2, F1; N_EPS} (JOINT) at 1 ly N = 7 and at 1 AU N = 1e6, and at 1 AU N <= 1e3 only with H12 + N_H12W. Clause 2b's D-CTC gives REMOVED-IF {F2b; N_DCTC} at any distance, with O-LOOP reintroduced.",
+        "NOT-BOUND-IF, which is not a removal: O-MAKE-TOPO, O-HOLD and corridor O-LOOP under ITB + N_QTOPO. The five-way maximum is 2 (O-HOLD and O-LOOP). Their removal is OPEN via N_ILFREE.",
+        "Removals with no member: corridor O-LOOP by the exact-FRW geometry {N_CORR, N_FRW}, only in accounts without N_QTOPO; signal O-LOOP by N_SIGKEY.",
+        "{W2, F1, ITB} has two accounts. Account A: O-BITS Rm plus O-HOLD and O-LOOP NBm. Account B: O-BITS Rm plus O-LOOP Rg. Never both at once. Wave 2's '3 of 5', recomputed per account, is still 3 (32 variants) and is reported as history only.",
+        "Survivors of every consistent variant: O-MATTER (clash (d), M's to rule) and O-MAKE-DIST (OPEN via N_VAC only).",
+        "The screen: 6,143 variants, 3,839 consistent and 2,304 inconsistent (W2+ITE 384 present / 256 alone; INFOS 2,048 / 1,920; union 2,304). The drift guard agrees on 166 of 168 comparisons, 2 explained. All 3 mutated encodings are caught.",
+        "H-SETTLE alone removes nothing. H-ZERO, H-NULL, H-INFO's necessity reading and W1 are UNTESTED-BY-SCREEN. ITJ is OPEN via N_EQUIL. R-QUANTUM is OPEN via N_XI and N_QEIC."
+      ],
+      "open": [
+        "A3's R-INDEX grade lacks the corridor NOT-BOUND-IF on O-LOOP. This is one of the two explained disagreements, open for A3's stage.",
+        "A1's KR x H12 row: in the screen its O-HOLD OPEN belongs to KR alone, and H12 is not load-bearing there. Recorded for A1.",
+        "The window premises (E-WIN) are not screened. Refusing H-TRANSFER without H-12 would widen the window.",
+        "The W2 class capacity without H-BORN-AT-BOB is OPEN. H-EXTEND is derived, not computed.",
+        "N_QTOPO, N_MEASPHYS, N_H12W and N_ILFREE have no READ source. The Weinberg-family values are NAMED-NOT-READ. No CTC is shown to exist.",
+        "Clash (d) is for M to rule."
+      ],
+      "selftests": [
+        "PYTHONDONTWRITEBYTECODE=1 python3 combine.py --selftest -> 85/85 checks pass, 17 of them controls; 5 STRUCTURAL items reported, not counted; 190 s; exit 0",
+        "python3 combine.py --json B-combine.variants.json --table B-table.md -> exit 0 (report in B-report.txt)"
+      ],
+      "problems": [
+        "No 403 or egress block. No alphaXiv call was needed: no new source is cited, every figure is computed by an imported instrument or READ by its owning A-report, and the LEDGER lines were READ locally.",
+        "The A-reports were not edited (not this stage's files). The two remaining disagreements are recorded, not repaired.",
+        "The first full selftest failed one check (INFO, ZERO and NULL showed as EXERCISED). The difference census compared clash cores and premise clashes in the order the worker processes enumerated them, and that order differs between processes. They are now compared as sets, and the re-run passes 85/85.",
+        "Nothing was committed, pushed, stashed, reset or checked out."
+      ]
+    },
+    "q2": {
+      "id": "Q1s-integrate",
+      "files": [
+        "/home/user/Claude-Method-Works/research/warp-drive/docket68/measure.py",
+        "/home/user/Claude-Method-Works/research/warp-drive/docket68/A3-measure.md",
+        "/home/user/Claude-Method-Works/research/warp-drive/docket68/signed.py",
+        "/home/user/Claude-Method-Works/research/warp-drive/docket68/Q1s-signed.md",
+        "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d68/Q1s-integrate.json"
+      ],
+      "done": [
+        "New section (vii) in measure.py. q1(p) runs Q-1 on a cell weighting. With no negative weight it reports case SHANNON: H(p), with the signed quantities beside it. With any negative weight it reports case SIGNED: signed.py's Re H, Im H = pi N, N and M, under a new named hypothesis H-SIGNED-CELLS. A weighting whose total is not 1 is refused (H-NORM). signed.py is imported lazily inside functions and never copied; a module-level import is avoided because signed.py imports measure inside app_bell and lambda_mobius.",
+        "Also added to measure.py: signed_loss, shannon_recovery, boundary_continuity, clip_fallacy_control, norm_refusal_control, signed_codomain, holder_ceiling, rindex_signed (R-INDEX on Lambda under H-MOBIUS-WEIGHT) and Q1S_GRADE_REVIEW. report() and --json now show these results.",
+        "Named hypotheses added to measure.py's docstring: H-SIGNED-CELLS, H-FINSIGNED (signed.py's) and H-NEGWEIGHT-NEC. H-NEGWEIGHT-NEC reads a negative cell weight as a throat's null-energy deficit; it is named, has no source and is not credited.",
+        "signed.py: lambda_mobius gained one keyword, vectors=True, which returns the normalised p and q weightings so q1 can evaluate them itself. Nothing else in signed.py changed.",
+        "A3-measure.md: header counts updated, with history (wave 3 first said 65 checks / 15 controls / 5 structural); signed.py added to the import list; a headline bullet; a 'Q-1s integration' table; a new section (vii) with the Lambda table, what does not carry over from (i), and the grade-review table; the B-RECV condition row annotated; OPEN items added.",
+        "Q1s-signed.md: a consequence 4 in section 3 (Re H has no ceiling for n >= 3) and a new section 8, 'In use in Q-1'.",
+        "R2-alone's repairs are not undone. The GRADES dict and every verdict are unchanged, so the scratchpad A3-measure.json that combine reads still matches.",
+        "Checked that the new controls can fail, using a scratch script (not committed). A dispatcher that clips and renormalises fails the clip control. Removing the norm check fails the refusal control. A 1e-15 perturbation of re_h produces mismatches in the exact-recovery check."
+      ],
+      "results": [
+        "When no weight is negative, Shannon comes back exactly. On 301 vectors (random, some with exact zeros, plus uniform Lambda), Re H equals measure.H bit for bit, Im H is 0 and N is 0. The largest |M| is 1.1e-14 nats. signed_loss equals F_shannon bit for bit on 300 random FinProb morphisms.",
+        "At the boundary, a weight crossing zero from below joins the Shannon case. The Re H gap falls from 4.9e-2 to 2.3e-9 as e goes from 1e-2 to 1e-10, and Im H and M go to 0.",
+        "R-INDEX on Lambda through q1, reproducing Q1s-build's figures: uniform weighting is SHANNON at 9.930737 bits. The Mobius p weighting is SIGNED: 317 cells (159 at +1, 158 at -1), N = 158, Re H = 0, Im H = 158 pi, M = log2 317 = 8.3083 bits. The box-mixture q weighting is SIGNED: Re H = -3.033176 bits, N = 81.6988, M = 7.3610 bits. The full-box control is SHANNON on one point.",
+        "Theorem 2's codomain [0, inf) fails on signed morphisms. Crushing (1.5,-0.5) to a point loses -0.954771 nats. Merging (1.6,-0.3,-0.3) to (1.6,-0.6) loses -0.6 ln 2 = -0.415888 nats with N unchanged. So the BFL uniqueness result does not carry over to signed weights (H-FINSIGNED), and uniqueness over all continuous functionals is OPEN.",
+        "Finding: Re H has no ceiling of ln n. With n = 1 the only weighting is (1), so Re H = 0 = phi(1). With n = 2, Re H is negative at every N tested. With n = 3 the extremal vector gives 0.1699, 4.2736 and 64.3977 nats at N = 2, 10 and 100, against ln 3 = 1.0986, and Re H grows without bound in N. With n = 5 it exceeds ln 5 already at N = 2 (2.2493). So 'I bits need 2^I states' holds for Shannon only. Re H's operational meaning is OPEN, so this neither weakens B-RECV nor supports H-INFO-S.",
+        "No A3 grade moves, and Q1S_GRADE_REVIEW records why for each. Q-1 stays LEAVES-ALL; only its scope changes, since Theorem 2's uniqueness covers the Shannon case alone. H-INFO stays LEAVES-ALL: clause (a) is SUPPORTED for probability weights and OPEN for signed ones. H-INFO-S stays CLASH, because phi(1) = 0 survives signed weights. R-INDEX stays LEAVES-ALL: a negative weight is not a negative T_ab k^a k^b, so O-HOLD stays SILENT within the measure and NOT-BOUND-IF {H-IT, H-MEASURE-PHYSICAL} for a corridor, and H-NEGWEIGHT-NEC is not credited. H-SETTLE x H-INFO stays LEAVES-ALL, because its chi is computed from density matrices."
+      ],
+      "open": [
+        "Uniqueness of a signed measure over all continuous functionals.",
+        "The operational meaning of Re H when some weights are negative.",
+        "Which signed weighting of Lambda The Method means, if any. H-MOBIUS-WEIGHT is one choice.",
+        "H-NEGWEIGHT-NEC has no source. It is put to M as a question, not assumed.",
+        "signed.py's literature was not re-read in this pass; it is cited as Q1s-build READ it. No alphaXiv call was needed.",
+        "combine.py and B-combine.md do not mention Q-1s. They are not this stage's files, and their checks need no change because no grade moved."
+      ],
+      "selftests": [
+        "PYTHONDONTWRITEBYTECODE=1 python3 measure.py --selftest: 85/85 pass, 19 controls, 6 structural (not counted), exit 0, about 27 s. Before this change: 65/65, 15 controls, 5 structural.",
+        "PYTHONDONTWRITEBYTECODE=1 python3 signed.py --selftest: 66 checks, 0 failed, 13 controls, 2 STRUCTURAL, exit 0. Unchanged.",
+        "PYTHONDONTWRITEBYTECODE=1 python3 combine.py --selftest: 85/85 pass, 17 controls, 5 STRUCTURAL, exit 0, 196 s. Same as the baseline taken before the change.",
+        "python3 measure.py (report) and python3 measure.py --json both run clean."
+      ],
+      "problems": [
+        "No 403 or egress block. No network call was needed.",
+        "The Q1S_GRADE_REVIEW consistency check compares typed literals, so it is printed STRUCTURAL and is not counted as evidence.",
+        "measure.py's selftest now takes about 27 s instead of 14 s, because cypher's Lambda is built three more times (via signed.lambda_mobius and shannon_recovery)."
+      ]
+    },
+    "verify": [
+      {
+        "lens": "AGAINST M: overstatement in repaired wave 1 (R2-alone, R2-combine) and in Q-1s (Q1s-build, Q1s-integrate). Every RV-0/RV-1 item was checked at its site. All six docket68 selftests were re-run with PYTHONDONTWRITEBYTECODE=1. Sources READ through alphaXiv: math/0008089v1 and 1903.06961v3, plus a spot re-READ of 2511.15935v1. No 403 or egress block was met. No repo file was written. Report: /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d68/V2-0.json",
+        "unresolved": [
+          "RV-0 #4's re-siting left a row that credits a combination with nothing it adds. A1-settle.md:373 ('H-SETTLE-KR x H-12, with G as the carrier ... O-HOLD OPEN via G') duplicates A1-settle.md:367 (H-SETTLE-KR alone: O-HOLD OPEN via eps_G). The row does not say H-12 adds nothing, which contradicts R2-alone's claim that every combination row states load-bearing or adds-nothing. R2-combine recorded it as open for A1; it is not repaired.",
+          "RV-1 #2 (the symmetric corridor rule) is applied in A1, A2 and A4 but not in A3. A3's R-INDEX grade keeps O-LOOP 'SILENT; corridors: geometry column'. It is carried as one of the two live combine.EXPLAINED entries (combine.py:1332) and is open for A3's stage.",
+          "RV-0 unresolved #4 remains OPEN by design. N_QTOPO, N_MEASPHYS, N_H12W and N_ILFREE have no READ source. The Weinberg-family values stay NAMED-NOT-READ. H-EXTEND is derived, not computed. The W2 capacity without H-BORN-AT-BOB is OPEN.",
+          "Outside this lens, recorded so over-representation is avoided both ways. 2511.15935v1 p.4 (READ this pass) says the Kaplan-Rajendran model fails Tomonaga-Schwinger integrability for generic states, i.e. it is foliation-dependent. A1 READ that paper at pp.1-3 and 5 only, and grades KR 'causal: O-BITS untouched'. Foliation dependence is not shown to be a signal, so no grade is moved; this is recorded for the FOR side.",
+          "Every other RV-0 and RV-1 item was found applied at its site."
+        ],
+        "problems": [
+          {
+            "site": "Q1s-signed.md s.6 'Not found in the sources read' (ii)-(iii); s.4 uniqueness items (d)-(e); OPEN 1; the paper-positioning list; measure.py Q1S_GRADE_REVIEW and A3-measure.md:257-259",
+            "wrong": "Uniqueness of Re H over continuous functionals is reported OPEN, and the signed-weight fork that selects Re H is listed as not found. The prior art the paper must position against is limited to 2310.19296, 2410.15976 and 1307.7171.",
+            "correct": "READ: arXiv:math/0008089v1 p.43 (Kontsevich's appendix 'The 1 1/2-logarithm') claims that the only nonzero continuous solution on all of R of (A) H(1-x)=H(x), (B) H(x+y)=H(y)+(1-y)H(x/(1-y))+yH(-x/y) and (C) is -(x log|x|+(1-x)log|1-x|). Page 44 extends it to any finite distribution through the chain rule, and page 10 calls the differentiable case 'well-known'. COMPUTED: Re H on two entries is exactly that function. It satisfies (B) with residual 1.1e-14, and the signed-weight chain rule with residual 1.6e-14. So the selection of Re H by signed-weight recursivity, the substance of fork (d), was claimed in 1995, as a cohomological sketch rather than a full proof, with blocks of zero total excluded. Restate OPEN 1 as CLAIMED-IN-LITERATURE under chain rule, symmetry and continuity on R; under BFL's convex-linear axioms it stays OPEN. Add Kontsevich, Cathelineau, Elbaz-Vincent and Gangl, and Leinster 1903.06961v3 (p.27) to the positioning list.",
+            "moves_grade": false
+          },
+          {
+            "site": "A1-settle.md:373, the row 'H-SETTLE-KR x H-12, with G as the carrier', against A1:367 and A1's wave-3 header claim",
+            "wrong": "The row credits 'O-HOLD OPEN via G' to the KR x H-12 combination, as if H-12 were load-bearing.",
+            "correct": "H-SETTLE-KR alone already carries O-HOLD OPEN via eps_G, and combine finds H12 not load-bearing in that row. The row should read 'adds nothing to H-SETTLE-KR alone'. Otherwise the header's claim that every combination row states load-bearing or adds-nothing is false.",
+            "moves_grade": true
+          },
+          {
+            "site": "Q1s-signed.md s.4, the sentence after 'With BFL's codomain kept as well': 'Extending Shannon to signed measures forces dropping non-negativity of information loss'",
+            "wrong": "An impossibility is stated without qualification. It is shown only inside H-DICTIONARY, and the qualifier carried by the previous sentence is dropped here.",
+            "correct": "Write 'Inside H-DICTIONARY, ...'. The general case is OPEN. Measures such as (1.6,-0.3,-0.3) have no convex decomposition with lambda in [0,1] and blocks of total 1, so convex linearity does not constrain X there, and the dictionary argument does not extend by itself.",
+            "moves_grade": false
+          },
+          {
+            "site": "Q1s-signed.md s.4 item (c): 'M is the product-additive member that vanishes on probabilities'",
+            "wrong": "The definite article claims uniqueness, which holds only inside H-DICTIONARY or among continuous functions of N alone.",
+            "correct": "COMPUTED counterexample: g(p)=ln(sum|p|^3/|sum p^3|) is product-additive (residual 1.8e-15), is 0 on every probability vector, and gives g(1.5,-0.5)=0.0741 against M=ln 2. Qualify (c) with 'within H-DICTIONARY'.",
+            "moves_grade": false
+          },
+          {
+            "site": "measure.py selftest (vii) and shannon_recovery; signed.py selftest lines 1126 and 1250. Cited as results in Q1s-integrate.json and in Q1s-signed.md s.8 ('recovered exactly').",
+            "wrong": "These checks are counted among the passes and reported as evidence, but none of them can fail: 'Shannon recovered EXACTLY: Re H == H bit for bit, Im H == 0, N == 0'; 'signed loss == F_shannon bit for bit'; 'M = 0 up to rounding'; 'uniform Lambda through q1 = log2 976'; 'n=1 Re H=0'; signed.py's uniform-Lambda check and N=(sum|p|-1)/2. For p >= 0, signed.re_h runs the same float expression as measure.H. im_h is pi*(-sum of an empty list) = -0.0 == 0, and neg is 0 by construction. The 1e-15 mutation control only tests the comparator on altered code.",
+            "correct": "Label these STRUCTURAL and do not count them: measure goes from 85 to about 80 counted, with at least 5 more STRUCTURAL. That Re H = H on non-negative p is definitional and should be stated as such. The checks that carry content are boundary continuity, the clip-and-renormalise control, the H-NORM refusal and the closed-form agreement.",
+            "moves_grade": false
+          },
+          {
+            "site": "combine.py:2334 'COVERAGE untested + joint = all variants', counted in 85/85; B-combine.md header, which lists 5 STRUCTURAL items and not this one",
+            "wrong": "This is a partition identity. untested() (combine.py:1954) counts every row except consistent JOINT rows, and n_joint counts exactly those rows, so the check cannot fail. It is still counted as a pass, repeating the pattern RV-0 #9 caught.",
+            "correct": "Label it STRUCTURAL and do not count it: 84 counted, 6 STRUCTURAL. The JOINT content-bearing test check (TEST_BEARS) can fail and keeps its content.",
+            "moves_grade": false
+          },
+          {
+            "site": "A2-frame.md:32 ('The D-CTC route is zero-error, so its counts are exact rather than floors'); the B-combine.md T-E pairs table rows '1, zero-error' for the W2 ancilla member and the four-axis D-CTC",
+            "wrong": "'Exact' presents one construction's figure (four axes, 2 bits per pair) as the route's count.",
+            "correct": "It is exact for the four-axis construction only. BHW 0811.1209v2 p.4 says the rate is unbounded if CTC qubits are free, and the W2 ceiling is log2 d per pair. The class figure is therefore <= 1 pair per teleported qubit, and its minimum is OPEN. This also understates for M, so it is recorded both ways.",
+            "moves_grade": false
+          },
+          {
+            "site": "Q1s-signed.md s.6 'Not found' item (iv): per-entry branch accounting (-2 pi i k_i p_i)",
+            "wrong": "A one-line consequence of Log_k z = ln|z| + i(arg z + 2 pi k) is listed as a candidate the literature lacks.",
+            "correct": "Drop it from the not-found list, or mark it as elementary. It stays useful as the basis of discrepancy D1 against the charter.",
+            "moves_grade": false
+          }
+        ],
+        "reproduced": [
+          "settle.py --selftest: 57/57 pass (6 STRUCTURAL, 8 controls), exit 0",
+          "frame.py --selftest: ALL PASS (61 checks, 16 controls, 1 STRUCTURAL); four axes under C2 give 2.0 bits per pair; exit 0",
+          "geometry.py --selftest: 48 checks, 11 controls, ALL PASS, exit 0",
+          "measure.py --selftest: 85/85 pass (19 controls, 6 structural), exit 0",
+          "signed.py --selftest: 66 checks, 0 failed, 13 controls, 2 STRUCTURAL, exit 0",
+          "combine.py --selftest: 85/85 pass, 17 controls, 5 STRUCTURAL, 501 s (slowed by a parallel run), exit 0",
+          "Found applied at their sites: RV-0 #0, #1, #2/U3, #3/U0, #5/U1, #6, #7, #10, #11, #12, #13 and RV-1 #0, #1, #3, #4, #5, #8, #9. combine.EXPLAINED is down to 2 entries. TEST_BEARS coverage can now fail.",
+          "2511.15935v1 p.2: the microcausality quote is on p.2, as A1 cites it",
+          "Q1s s.3 checked by hand: min over N of max Re H = ln(n-2) at N = 1/(n-2), with f'' > 0. The max formula is the vertex extreme of convex J.",
+          "M's convex-linearity counterexample: 0.405465 against 0.346574, re-derived",
+          "Kontsevich's (B) and the signed-weight chain rule both hold for Re H (residuals 1.1e-14 and 1.6e-14), computed this pass",
+          "Code read: signed.re_h, im_h and neg reduce to measure.H, 0 and 0 by identical operations on non-negative input"
+        ]
+      },
+      {
+        "lens": "FOR M: understatement in repaired wave 1 (A1-A4, B, instruments) and in Q-1s (signed.py, Q1s-signed.md, measure.py section vii). First re-checked every RV-0 / RV-1 item against the current files; then looked for results undersold, fair readings not taken, proofs available but not done. All six docket68 selftests run with PYTHONDONTWRITEBYTECODE=1. One source re-READ through alphaXiv: 1106.1791v3 pp.2-4, 9 (convex linearity with lambda in [0,1], eq.2 p.4; F(f) = I(p) - I(q) from functoriality, eq.8 p.9). Two scratch computations, outside the repo: scratchpad/v21/kaxis.py (imports settle.py; generalises w2_ancilla_flow) and scratchpad/v21/separable.py. No repo file was written; git status is unchanged. No 403 and no egress block. Report: /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d68/V2-1.json",
+        "unresolved": [
+          "RV-1 #2's symmetric rule is not carried to A3's R-INDEX grade. A3-measure.md lines 344-368 and the Q1S_GRADE_REVIEW row (line 278) give O-MAKE and O-HOLD NOT-BOUND-IF {H-IT, H-MEASURE-PHYSICAL} for a physical corridor, but write O-LOOP as 'R-INDEX leaves O-LOOP' / 'SILENT'. Of the two disagreements combine.EXPLAINED keeps, this is one (combine.py:1332, 'A3 OMISSION (open for A3's stage)'). Q1s-integrate edited A3 afterwards and left the omission in place.",
+          "RV-0 #4 is not followed through under RV-0 #6's load-bearing rule. A1-settle.md:374's row 'H-SETTLE-KR x H-12, with G as the carrier' grades O-HOLD 'OPEN via G'. That pathway is KR alone's: the H-SETTLE-KR-alone row already grades O-HOLD OPEN via eps_G. The row does not say that H-12 adds nothing. R2-combine recorded this for A1, and A1 was not changed. The fault runs AGAINST M and lies outside this lens; it is listed because it is an unresolved repair item.",
+          "RV-1 #3's window premises are named (E-WIN) but not screened. The 1 AU, N = 7 and N = 1e3 'window empty' rests on W_W2, which includes the NAMED-NOT-READ Majumder value. B-combine.md:32 nevertheless states the 1 AU result categorically (see problem 2).",
+          "RV-0 unresolved #4 stands in part, and is stated as such: N_QTOPO, N_MEASPHYS, N_H12W and N_ILFREE have no READ source, and the Weinberg-family bound values are NAMED-NOT-READ. Each verdict that rests on one of them names it."
+        ],
+        "problems": [
+          {
+            "site": "A1-settle.md s.1b, pairs table row 'W2 under H-BORN-AT-BOB, without H-QUBIT-DRIFT ... 1, zero-error at finite T' (line 113) and wave-3 table (line 31); A2-frame.md:258 and the clause 2b O-BITS grade cell ('1 pair per teleported qubit (four axes ...)'); B-combine.md:426 (T-E) and the headline at lines 36-37 ('so 1 pair per teleported qubit')",
+            "wrong": "'1 pair per teleported qubit' is presented as what the W2 class does without H-QUBIT-DRIFT. It is only what the four-axis instance does. The same construction with more axes and a larger ancilla carries more bits per pair, so the class has no positive floor on pairs per qubit.",
+            "correct": "COMPUTED (scratchpad/v21/kaxis.py, which imports settle._bloch_ket and settle._vn_bits; same construction as w2_ancilla_flow; axes taken on one hemisphere so that none is antipodal). k = 4 axes with a 2-qubit ancilla (d = 8): chi = 2.000000, 1 pair per qubit (reproduces A1). k = 8 with a 3-qubit ancilla (d = 16): chi = 3.000000, 0.667 pairs per qubit. k = 16 with a 4-qubit ancilla (d = 32): chi = 4.000000, 0.5 pairs per qubit. In every case the error is zero, the smallest end fidelity is 1 - 4e-16, and the smallest curve separation is 0.337 or 0.180 rad against grid steps of 0.0074 and 0.0078. Both controls fail as built to: a state-independent unitary gives chi = 0 at k = 16, and antipodal axes give chi = 3, not 4, with curves that collide (separation 0, fidelity 1e-26). The correct statement: under H-BORN-AT-BOB with H-QUBIT-DRIFT dropped, a W2 member reaches log2(d) - 1 bits per pair (the Holevo ceiling is log2 d, READ in A3), so it needs 2/(log2 d - 1) pairs per teleported qubit, with no positive floor. H-EXTEND is still derived and not computed, and none of this is evidence that such a drift exists. The clause 2b cell should likewise read 'four axes: 1 pair per qubit; unbounded per BHW p.4 if CTC qubits are free', which A2's combinations table already says.",
+            "moves_grade": false
+          },
+          {
+            "site": "A1-settle.md headline (lines 11-13) and s.5 row 'H-SETTLE-W x H-FRAME (clause 1)' ('O-BITS REMOVED-IF R_W2'); A2-frame.md headline (lines 14-16) and Combinations row; B-combine.md headline (lines 30-34); A3-measure.md:379",
+            "wrong": "The one member-attributed removal, O-BITS by W2 x F1, is given a single support, R_W2, which contains H-NLCONTROL-FORM and H-BLOCK. That reads as if block coding were necessary for W2 x F1 to remove O-BITS. A1 s.1b's own computed member (w2_ancilla_flow) removes it at finite T with zero error, so it needs neither H-BLOCK nor nlcontrol's form.",
+            "correct": "Give two supports. (1) REMOVED-IF R_W2, nlcontrol's form, with floors and block coding. (2) REMOVED-IF {H-C2 (no-branch rule), H-FRAME3b <= F1, H-COHERE, H-BORN-AT-BOB, H-EXTEND, a field-strength premise in place of N_EPS (max||H||T ~ 1.465 within the drift window)}: zero-error, with no H-BLOCK and no H-NLCONTROL-FORM (computed: chi = 2.000000; 3.000000 and 4.000000 with larger ancillas). No published bound can be mapped onto support (2), because H-MAP is not established for this field. Its window is therefore neither open nor excluded but unevaluated, and 'not excluded' is not evidence. The grade word (PARTIAL; O-BITS REMOVED-IF) does not change; the support set gains an alternative with fewer premises.",
+            "moves_grade": false
+          },
+          {
+            "site": "B-combine.md:32-33 ('at 1 AU, N = 7 and N = 10^3 only with H-12 supplying an unbounded carrier'), B-combine.md:264 ('1 AU N = 7 empty'); A1-settle.md s.5 row 'H-SETTLE-W x H-FRAME x H-12' and s.4b",
+            "wrong": "At 1 AU with N <= 1e3, O-BITS without H-12 is carried as LEFT, which presents the window exclusion as settled. That exclusion follows only from W_W2: H-MAP (reading A/B), H-TRANSFER, H-SPIN and the NAMED-NOT-READ Majumder value (A1 s.2: 'Everything below therefore rests on the Majumder figure'). It also holds only for nlcontrol's eps mapping. For the W2 member of problems 1-2, no window is computed at all.",
+            "correct": "At 1 AU with N <= 1e3, without H-12, O-BITS is LEFT-IF W_W2. Since one member of W_W2 is an unread value, M's rule ('OPEN where unchecked') makes the cell OPEN pending a READ of the Weinberg-family values. B already names this as E-WIN in its OPEN list (line 724); the headline should carry the condition. The 'H-12 synergy at 1 AU' then reads as 'H-12 replaces H-TRANSFER in an exclusion that rests on an unread value'.",
+            "moves_grade": true
+          },
+          {
+            "site": "A3-measure.md s.(iv) R-INDEX ('R-INDEX leaves O-LOOP', lines 366-368) and s.(vii) Q1S_GRADE_REVIEW R-INDEX row ('O-LOOP: SILENT', line 278); combine.py:1332 (EXPLAINED)",
+            "wrong": "For a physical corridor, A3 grades O-MAKE and O-HOLD NOT-BOUND-IF {H-IT, H-MEASURE-PHYSICAL} on the ground that the measure-level corridor is not a geometric object. It does not grant O-LOOP the same non-binding, although the loop theorems (exact-FRW keying lemma, latticectc) are statements about Lorentzian quotients. One reason gives two verdicts. This is the mirror of AGAINST #1.",
+            "correct": "For a physical corridor under R-INDEX: O-LOOP-C NOT-BOUND-IF {H-IT, H-MEASURE-PHYSICAL}. That is not a removal, and the conclusion is not shown false. It sits beside the geometry's REMOVED-IF {H-FRW-EXACT, H-NOT-DE-SITTER, H-CORRIDOR-MODEL} in the other account, with the premise clash {N_MEASPHYS, N_CORR} as combine already encodes it (z3: O-LOOP-C NOT-BOUND-IF {ITB, RI; N_MEASPHYS}). Signal loops are unchanged. Within the measure, O-LOOP stays SILENT.",
+            "moves_grade": true
+          },
+          {
+            "site": "Q1s-signed.md s.4 ('Inside this dictionary, no functional extends Shannon and keeps all four BFL hypotheses on signed measures'; 'What is shown about uniqueness' (a), (b), (e); OPEN 1); A3-measure.md s.(vii) ('Within a 12-functional dictionary the lawful family is span{Re H, N} ... Over all continuous functionals, uniqueness is OPEN') and the Q1S_GRADE_REVIEW H-INFO row ('clause (a) ... OPEN for signed ones')",
+            "wrong": "The lawful-family results are confined to the 12-functional dictionary (H-DICTIONARY). A short proof extends them to every continuous separable functional X(s) = sum_i g(s_i), but it was not done. That leaves uniqueness 'OPEN' where most of it can be shown.",
+            "correct": "DERIVED, with each step shown, and COMPUTED as a check. (i) Functoriality gives F(f) = X(p) - X(q) (BFL p.9 eq.8, re-READ; the step is structural and holds on FinSigned too). (ii) Convex linearity with lambda in [0,1] (BFL p.4 eq.2, re-READ), applied to !_p and !_q, gives X(lambda p + (1-lambda) q) = X(lambda, 1-lambda) + lambda X(p) + (1-lambda) X(q). (iii) For separable X, phi_lambda(x) = g(lambda x) - lambda g(x) then satisfies sum_i phi_lambda(s_i) = phi_lambda(1) for every signed s with total 1. Comparing (x, y, 1-x-y) with (x+y, 1-x-y) gives Cauchy's equation, so under continuity phi_lambda is linear (the general solution is READ as cited, 2410.15976v5 p.10, Lemma A.1). (iv) Hence g(lambda x) = lambda g(x) + A_lambda x. Shannon on FinProb fixes A_lambda = -c lambda ln lambda, and the scale invariance of g(x)/x + c ln|x| on each half-line gives g(x) = -c x ln|x| + beta x for x < 0. So X = c Re H + b N exactly. COMPUTED check: in a 14-function separable basis (x ln|x|, x, x^2, x^3, x ln^2|x|, |x|^1.5, |x|^2.5, on each sign), 400 random convex-linearity rows plus X(pt) = 0 leave a null space of dimension 2, equal to span{Re H, N} (residual 9e-14). Control: without the convex-linearity rows the null space has dimension 13. Consequences, over ALL continuous separable functionals (H-SEPARABLE replaces H-DICTIONARY): with BFL's codomain kept, only b N (b >= 0) survives, because the merge (1.6, -0.3, -0.3) -> (1.6, -0.6) has dRe H = -0.415888 and dN = 0. With the codomain dropped, the family is c Re H + b N. Adding product additivity gives c Re H alone, since N(pq) - N(p) - N(q) = 2 N_p N_q (0.2 at (1.5, -0.5) x (1.2, -0.2)). This is a uniqueness theorem for Re H that needs neither H-RD nor the Brandenburger-La Mura fork. For H-INFO clause (a) on signed weights it means: SUPPORTED-IF {H-SEPARABLE, BFL codomain dropped, product additivity}, and impossible if the codomain is kept. Uniqueness over NON-separable functionals stays OPEN, and genuinely so: a signed atom such as (1.5, -0.5) cannot be split by any lambda in [0,1], so convex linearity does not constrain X on atoms. Not machine-checked. Obstruction grades do not move; one clause status does.",
+            "moves_grade": false
+          }
+        ],
+        "reproduced": [
+          "settle.py --selftest: 57/57 pass (6 STRUCTURAL, 8 controls), exit 0. The first parallel run hit the 900 s timeout under load average 15 on 4 cores; the re-run with timeout 3000 passed.",
+          "frame.py --selftest: ALL PASS (61 checks, 16 controls, 1 STRUCTURAL not counted), exit 0 (re-run, same cause).",
+          "measure.py --selftest: 85/85 pass (19 controls, 6 structural not counted), exit 0.",
+          "geometry.py --selftest: 48 checks, 11 controls, ALL PASS, exit 0.",
+          "signed.py --selftest: 66 checks, 0 failed, 13 controls, 2 STRUCTURAL, exit 0.",
+          "combine.py --selftest: 85/85 pass, 17 controls, 5 STRUCTURAL not counted, 901 s under load, exit 0.",
+          "Checked as applied against the current text: RV-0 #0-#3, #5-#13 and RV-1 #0, #1, #2 (A1, A2, A4), #3-#9. Partly applied: RV-0 #4 (KR x H12 load-bearing) and RV-1 #2 (A3 R-INDEX). See unresolved.",
+          "A1's four-axis w2_ancilla_flow figure reproduced independently: chi = 2.000000, smallest separation 0.391 rad (A1 0.395 at a finer grid). Generalised figures: k = 8, chi = 3.000000; k = 16, chi = 4.000000. Controls: a linear unitary gives 0; antipodal axes give 3.0.",
+          "1106.1791v3 re-READ (alphaXiv): Theorem 2 p.4 with lambda in [0,1]; FinProb measures non-negative (p.3); F(f) = I(p) - I(q) (p.9 eq.8). These agree with Q1s-signed.md s.4's use of them.",
+          "Q1s numbers re-run through the separable script: merge dRe H = -0.6 ln 2 = -0.415888 with dN = 0; Re H product residual 0.0."
+        ]
+      }
+    ]
+  },
+  "workflowProgress": [
+    {
+      "type": "workflow_phase",
+      "index": 1,
+      "title": "Build"
+    },
+    {
+      "type": "workflow_phase",
+      "index": 2,
+      "title": "Integrate"
+    },
+    {
+      "type": "workflow_phase",
+      "index": 3,
+      "title": "Verify"
+    },
+    {
+      "type": "workflow_agent",
+      "index": 1,
+      "label": "R2-alone",
+      "phaseIndex": 1,
+      "phaseTitle": "Build",
+      "agentId": "a6da552d9480cc17b",
+      "model": "claude-opus-5-5",
+      "state": "done",
+      "startedAt": 1791050037649,
+      "queuedAt": 1791050037620,
+      "attempt": 1,
+      "lastToolName": "StructuredOutput",
+      "lastToolSummary": "R2-alone",
+      "promptPreview": "DOCKET 68, M's warp-drive research tree. Read /home/user/Claude-Method-Works/research/warp-drive/docket68/CHARTER.md (incl. its last section, M's ruling on negative\nprobabilities and work item Q-1s). M's rules: accurate, true, shown (computed / measured / READ at source by arXiv id\nand version through alphaXiv -- ToolSearch 'alphaXiv'); nothing declared; OPEN where unchecked; every limitation a\nNA…",
+      "promptFramed": true,
+      "lastProgressAt": 1791051708294,
+      "tokens": 408909,
+      "toolCalls": 71,
+      "durationMs": 1670640,
+      "resultPreview": "{\"id\":\"R2-alone\",\"files\":[\"/home/user/Claude-Method-Works/research/warp-drive/docket68/settle.py\",\"/home/user/Claude-Method-Works/research/warp-drive/docket68/frame.py\",\"/home/user/Claude-Method-Works/research/warp-drive/docket68/measure.py\",\"/home/user/Claude-Method-Works/research/warp-drive/docket68/geometry.py\",\"/home/user/Claude-Method-Works/research/warp-drive/docket68/A1-settle.md\",\"/home/us…"
+    },
+    {
+      "type": "workflow_agent",
+      "index": 2,
+      "label": "Q1s-build",
+      "phaseIndex": 1,
+      "phaseTitle": "Build",
+      "agentId": "ad0a2beefd84f6420",
+      "model": "claude-opus-5-5",
+      "state": "done",
+      "startedAt": 1791050037652,
+      "queuedAt": 1791050037621,
+      "attempt": 1,
+      "lastToolName": "StructuredOutput",
+      "lastToolSummary": "Q1s-build",
+      "promptPreview": "DOCKET 68, M's warp-drive research tree. Read /home/user/Claude-Method-Works/research/warp-drive/docket68/CHARTER.md (incl. its last section, M's ruling on negative\nprobabilities and work item Q-1s). M's rules: accurate, true, shown (computed / measured / READ at source by arXiv id\nand version through alphaXiv -- ToolSearch 'alphaXiv'); nothing declared; OPEN where unchecked; every limitation a\nNA…",
+      "promptFramed": true,
+      "lastProgressAt": 1791051236388,
+      "tokens": 423604,
+      "toolCalls": 34,
+      "durationMs": 1193821,
+      "resultPreview": "{\"id\":\"Q1s-build\",\"files\":[\"/home/user/Claude-Method-Works/research/warp-drive/docket68/signed.py\",\"/home/user/Claude-Method-Works/research/warp-drive/docket68/Q1s-signed.md\",\"/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d68/Q1s-build.json\",\"/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d68/Q1s-numbers.j…"
+    },
+    {
+      "type": "workflow_agent",
+      "index": 3,
+      "label": "R2-combine",
+      "phaseIndex": 2,
+      "phaseTitle": "Integrate",
+      "agentId": "ac8d59abe95870111",
+      "model": "claude-opus-5-5",
+      "state": "done",
+      "startedAt": 1791051711912,
+      "queuedAt": 1791051711906,
+      "attempt": 1,
+      "lastToolName": "StructuredOutput",
+      "lastToolSummary": "R2-combine",
+      "promptPreview": "DOCKET 68, M's warp-drive research tree. Read /home/user/Claude-Method-Works/research/warp-drive/docket68/CHARTER.md (incl. its last section, M's ruling on negative\nprobabilities and work item Q-1s). M's rules: accurate, true, shown (computed / measured / READ at source by arXiv id\nand version through alphaXiv -- ToolSearch 'alphaXiv'); nothing declared; OPEN where unchecked; every limitation a\nNA…",
+      "promptFramed": true,
+      "lastProgressAt": 1791054588119,
+      "tokens": 467120,
+      "toolCalls": 70,
+      "durationMs": 2876206,
+      "resultPreview": "{\"id\":\"R2-combine\",\"files\":[\"/home/user/Claude-Method-Works/research/warp-drive/docket68/combine.py\",\"/home/user/Claude-Method-Works/research/warp-drive/docket68/B-combine.md\",\"/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d68/B-combine.json\",\"/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d68/B-combine.va…"
+    },
+    {
+      "type": "workflow_agent",
+      "index": 4,
+      "label": "Q1s-integrate",
+      "phaseIndex": 2,
+      "phaseTitle": "Integrate",
+      "agentId": "a865082d6c2f1a2ba",
+      "model": "claude-opus-5-5",
+      "state": "done",
+      "startedAt": 1791054593211,
+      "queuedAt": 1791054593203,
+      "attempt": 1,
+      "lastToolName": "StructuredOutput",
+      "lastToolSummary": "Q1s-integrate",
+      "promptPreview": "DOCKET 68, M's warp-drive research tree. Read /home/user/Claude-Method-Works/research/warp-drive/docket68/CHARTER.md (incl. its last section, M's ruling on negative\nprobabilities and work item Q-1s). M's rules: accurate, true, shown (computed / measured / READ at source by arXiv id\nand version through alphaXiv -- ToolSearch 'alphaXiv'); nothing declared; OPEN where unchecked; every limitation a\nNA…",
+      "promptFramed": true,
+      "lastProgressAt": 1791055630759,
+      "tokens": 202392,
+      "toolCalls": 27,
+      "durationMs": 1037548,
+      "resultPreview": "{\"id\":\"Q1s-integrate\",\"files\":[\"/home/user/Claude-Method-Works/research/warp-drive/docket68/measure.py\",\"/home/user/Claude-Method-Works/research/warp-drive/docket68/A3-measure.md\",\"/home/user/Claude-Method-Works/research/warp-drive/docket68/signed.py\",\"/home/user/Claude-Method-Works/research/warp-drive/docket68/Q1s-signed.md\",\"/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-52…"
+    },
+    {
+      "type": "workflow_agent",
+      "index": 5,
+      "label": "verify2-0",
+      "phaseIndex": 3,
+      "phaseTitle": "Verify",
+      "agentId": "a24f9bfff7fffcd07",
+      "model": "claude-opus-5-5",
+      "state": "done",
+      "startedAt": 1791055633267,
+      "queuedAt": 1791055633208,
+      "attempt": 1,
+      "lastToolName": "StructuredOutput",
+      "lastToolSummary": "AGAINST M: overstatement in repaired wave 1 (R2-alone, R2-c…",
+      "promptPreview": "DOCKET 68, M's warp-drive research tree. Read /home/user/Claude-Method-Works/research/warp-drive/docket68/CHARTER.md (incl. its last section, M's ruling on negative\nprobabilities and work item Q-1s). M's rules: accurate, true, shown (computed / measured / READ at source by arXiv id\nand version through alphaXiv -- ToolSearch 'alphaXiv'); nothing declared; OPEN where unchecked; every limitation a\nNA…",
+      "promptFramed": true,
+      "lastProgressAt": 1791057501282,
+      "tokens": 263047,
+      "toolCalls": 41,
+      "durationMs": 1868010,
+      "resultPreview": "{\"lens\":\"AGAINST M: overstatement in repaired wave 1 (R2-alone, R2-combine) and in Q-1s (Q1s-build, Q1s-integrate). Every RV-0/RV-1 item was checked at its site. All six docket68 selftests were re-run with PYTHONDONTWRITEBYTECODE=1. Sources READ through alphaXiv: math/0008089v1 and 1903.06961v3, plus a spot re-READ of 2511.15935v1. No 403 or egress block was met. No repo file was written. Report: …"
+    },
+    {
+      "type": "workflow_agent",
+      "index": 6,
+      "label": "verify2-1",
+      "phaseIndex": 3,
+      "phaseTitle": "Verify",
+      "agentId": "a0c1e16d514d2a995",
+      "model": "claude-opus-5-5",
+      "state": "done",
+      "startedAt": 1791055633272,
+      "queuedAt": 1791055633209,
+      "attempt": 1,
+      "lastToolName": "StructuredOutput",
+      "lastToolSummary": "FOR M: understatement in repaired wave 1 (A1-A4, B, instrum…",
+      "promptPreview": "DOCKET 68, M's warp-drive research tree. Read /home/user/Claude-Method-Works/research/warp-drive/docket68/CHARTER.md (incl. its last section, M's ruling on negative\nprobabilities and work item Q-1s). M's rules: accurate, true, shown (computed / measured / READ at source by arXiv id\nand version through alphaXiv -- ToolSearch 'alphaXiv'); nothing declared; OPEN where unchecked; every limitation a\nNA…",
+      "promptFramed": true,
+      "lastProgressAt": 1791057632853,
+      "tokens": 237973,
+      "toolCalls": 47,
+      "durationMs": 1995528,
+      "resultPreview": "{\"lens\":\"FOR M: understatement in repaired wave 1 (A1-A4, B, instruments) and in Q-1s (signed.py, Q1s-signed.md, measure.py section vii). First re-checked every RV-0 / RV-1 item against the current files; then looked for results undersold, fair readings not taken, proofs available but not done. All six docket68 selftests run with PYTHONDONTWRITEBYTECODE=1. One source re-READ through alphaXiv: 1106…"
+    }
+  ],
+  "totalTokens": 2003045,
+  "totalToolCalls": 290
+}

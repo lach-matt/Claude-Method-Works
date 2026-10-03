@@ -38,7 +38,12 @@ NAMED HYPOTHESES (every limitation is one):
              here (nlcontrol's eps<X>Z is not rotation-invariant; it is a torsion-class term, cf. 2112.09005v3
              eq. 99 and p.23 "frequency 2 J1 x", READ).
   H-FRAME3b  Gisin's protocol needs the remote preparation on a fixed spacelike hypersurface (2412.20854v1 p.6,
-             assumption (3b), READ) -- a preferred slicing.
+             assumption (3b), READ) -- a preferred slicing.  WAVE 3 (RV-0 #2): a preferred slicing IS M's 'a preferred
+             frame exists' (H-FRAME clause 1, F1), so H-FRAME3b PRESUPPOSES F1 (or clause 2b's cosmic clock): the O-BITS
+             removal is W2 x F1's, not H-SETTLE-W's alone.  Corroborated: 2511.15935v1 p.1-3 (READ wave 3) -- a
+             Weinberg-type term keeps foliation independence only under microcausality, which "cannot be consistently
+             maintained" under state-dependent evolution (p.2).  Wave 2 first said 'H-SETTLE alone removes O-BITS ...
+             with a preferred slicing built in'.
   H-COHERE   Bob holds coherence for the drift time T.
   H-DILUTION KR p.13 (READ): nonlinear effects can be diluted by cosmic history (eps -> eps/N).
   H-SIG-COR  a signal keyed to a frame is modelled as latticectc's identification (corridors.py's model choice).
@@ -47,8 +52,20 @@ NAMED HYPOTHESES (every limitation is one):
              Bob's REDUCED state) there is NO signal: frame.settle_under_C1 gives 2.2e-16.  2412.20854v1 p.4, p.7
              (READ): Gisin's theorem covers local maps on PURE states only; maps defined on mixed states can be
              nonlinear and non-signalling (their refs [40, 41]).  Every signal below is conditional on H-C2.
-  H-BORN-AT-BOB  Bob's final readout is a Born-rule measurement of his drifted qubit, so Holevo's bound (a theorem
-             of linear QM, READ in A3: quant-ph/9611023v1 pp.2-3) applies to that last step only.
+  H-BORN-AT-BOB  Bob's final readout is a Born-rule measurement of his drifted system, so Holevo's bound (a theorem
+             of linear QM, READ in A3: quant-ph/9611023v1 pp.2-3) applies to that last step only: chi <= log2 of the
+             drifted system's dimension.  Wave 2 first said 'of his drifted qubit', which silently added H-QUBIT-DRIFT.
+  H-QUBIT-DRIFT  (wave 3, RV-1 #0) the drift acts on Bob's received qubit and nothing else.  Only under it is the
+             readout ceiling 1 bit per pair (the 'qubit-only subclass').  Without it (an Alice-independent ancilla
+             beside the qubit) w2_ancilla_flow computes a member at 2 bits per pair, zero error, finite T.
+  H-EXTEND   (wave 3) the field computed on w2_ancilla_flow's disjoint curves extends to a smooth field on the whole
+             state space (DERIVED from their separation by a bump-function extension; not computed).
+  H-BLOCK    (wave 3, RV-0 #0) reliable transfer of the 2 bits is block-coded over many teleported qubits at a rate
+             below capacity, error -> 0 only as block length -> infinity.  N x C >= 2 (Shannon's converse) is
+             necessary, not sufficient: every pair count from it is a FLOOR; where the zero-error capacity is 0
+             (zero_error_table) no finite per-qubit N delivers the bits with certainty.
+  H-C2 rule  (wave 3, RV-0 #11) part of H-C2: before Alice's measurement in the chosen slicing there is no branch, so
+             the drift acts on Bob's reduced state; frame.drift_ordering's 'Bob first gives 0' is this rule's output.
   H-NLCONTROL-FORM  the drift is nlcontrol's single Hamiltonian eps <X> Z.  CMAX = log2(1.25), 6.21 pairs per
              teleported qubit and 'N >= 7' are properties of THIS Hamiltonian, not of the W2 class.
   H-12-CARRIER / H-12-W  (wave 2) Bob's carrier is one of the twelve with no state-dependent bound of any kind
@@ -72,6 +89,16 @@ T = L/2c', and D6 'CONTROL (must signal): pure deterministic drift' fed a hand-t
     H-12-W) N_EPS is not excluded at 1 AU either -- computed, and 'not excluded' is still not evidence.
   * D6 now runs the drift through sde_ensemble with lambda = 0 and must reproduce tanh(2 eps T).
   * Checks that cannot fail by construction are printed STRUCTURAL and are not counted as evidence.
+
+WAVE 3 (repair after the two re-verifications RV-0 AGAINST M, RV-1 FOR M; 2026-10-03):
+  * pair counts from N x C >= 2 are FLOORS; zero_error_table shows the zero-error capacity is 0 for D < 1 (and for
+    nlcontrol's Z-channel at every D); H-BLOCK named.  Wave 2 first said '7 if each qubit is coded alone'.
+  * H-QUBIT-DRIFT named; w2_ancilla_flow: without it, a W2 member carries 2 bits per pair with zero error at finite
+    T (1 pair per teleported qubit), so the qubit-only floor (> 2, >= 3) is that subclass's.  Not evidence of a drift.
+  * H-FRAME3b presupposes F1: H-SETTLE-W alone LEAVES O-BITS; the removal is W2 x F1's.
+  * O-LOOP for corridors is the geometry's (H-FRW-EXACT, H-NOT-DE-SITTER, H-CORRIDOR-MODEL), credited to no
+    hypothesis; wave 2 first credited it to H-SETTLE-W alone.
+  * G6a, G7, G8 and G12b are printed STRUCTURAL (identities); G6b and G12a keep the content-bearing halves.
 
 Run:  python3 settle.py            (report)
       python3 settle.py --selftest (fixtures computed or READ; controls that must fail do)
@@ -389,7 +416,137 @@ def finite_T_rank(eps=0.3, T=3.0):
 
 
 W2_CLASS_CEILING_BITS_PER_PAIR = math.log2(2)  # log2 2: Holevo at a one-qubit Born readout (H-BORN-AT-BOB) -- the bound
-                                          # is checked by readout_holevo_check and approached by capacity_bsc(D -> 1)
+                                          # is checked by readout_holevo_check and approached by capacity_bsc(D -> 1).
+                                          # WAVE 3: this is the ceiling of the QUBIT-ONLY SUBCLASS (H-QUBIT-DRIFT: the
+                                          # drift acts on Bob's received qubit and nothing else).  It is NOT the W2
+                                          # class's ceiling: see w2_ancilla_flow below (RV-1 #0).
+
+
+# ------------------------------------------------------------------------- B''. wave 3: floors, zero error, the class
+# RV-0 #0: N x C >= 2 is Shannon's converse -- NECESSARY, not sufficient.  The pair counts it gives are FLOORS.  When
+# every pair of Alice's inputs can produce a common output of Bob's, no two codewords of any length are
+# non-confusable, so the ZERO-ERROR capacity is 0 (Shannon 1956, NAMED-NOT-READ; the step is DERIVED here: two
+# words are confusable iff every coordinate pair is equal or confusable).  Then no finite number of pairs per qubit
+# delivers the 2 bits with certainty: reliable transfer is BLOCK-CODED over many qubits at a rate below C, with the
+# error (and so the teleportation infidelity) going to 0 only as the block length goes to infinity (H-BLOCK).
+
+def zero_error_words(P, n):
+    """P: transition matrix P[input][output].  Returns the largest set of length-n input words that are pairwise
+    NON-confusable (a zero-error code), by exhaustive search over the 2-letter alphabets used here (n <= 4)."""
+    import itertools
+    k = len(P)
+    conf = [[any(P[a][y] > 0 and P[b][y] > 0 for y in range(len(P[0]))) for b in range(k)] for a in range(k)]
+    words = list(itertools.product(range(k), repeat=n))
+    nonconf = lambda u, v: any(not conf[a][b] for a, b in zip(u, v))
+    best = 1
+    for r in range(len(words), 1, -1):        # largest clique of the non-confusability graph (small: 2^n words)
+        if r <= best:
+            break
+        for S in itertools.combinations(words, r):
+            if all(nonconf(u, v) for u, v in itertools.combinations(S, 2)):
+                best = r
+                break
+    return best
+
+
+def zero_error_table(n_max=3):
+    """Zero-error code sizes for nlcontrol's Z-channel and H2's BSC at D < 1 and D = 1.  log2(size)/n is the
+    zero-error rate per pair at block length n."""
+    def zch(D):                                       # inputs (x, z); outputs (+, -) of sigma_y
+        return [[(1 + D) / 2, (1 - D) / 2], [0.5, 0.5]]
+
+    def bsc(D):
+        return [[(1 + D) / 2, (1 - D) / 2], [(1 - D) / 2, (1 + D) / 2]]
+    out = {}
+    for name, ch in (("nlcontrol Z-channel", zch), ("H2 BSC", bsc)):
+        for D in (0.9, 0.999999, 1.0):
+            out[(name, D)] = [zero_error_words(ch(D), n) for n in range(1, n_max + 1)]
+    return out
+
+
+def hermitian_from_tangent(psi, v):
+    """DERIVED in RV-1 #0 and checked here: for unit psi and v orthogonal to psi, H = i(v psi^dag - psi v^dag) is
+    Hermitian and -i H psi = v.  So any velocity field on the state sphere that is horizontal is generated by a
+    state-dependent Hermitian H(psi): a W2-form drift (deterministic, per branch, the state's own value steering it)."""
+    H = 1j * (np.outer(v, psi.conj()) - np.outer(psi, v.conj()))
+    return H, float(np.abs(H - H.conj().T).max()), float(np.abs(-1j * H @ psi - v).max())
+
+
+def _bloch_ket(n):
+    x, y, z = n
+    th = math.acos(max(-1.0, min(1.0, z)))
+    ph = math.atan2(y, x)
+    return np.array([math.cos(th / 2), complex(math.cos(ph), math.sin(ph)) * math.sin(th / 2)], complex)
+
+
+FOUR_AXES = ((0.0, 0.0, 1.0), (1.0, 0.0, 0.0), (0.0, 1.0, 0.0), (3 ** -0.5, 3 ** -0.5, 3 ** -0.5))
+
+
+def w2_ancilla_flow(n_steps=800, seed=5, n_grid=401, linear_control=False):
+    """RV-1 #0, COMPUTED.  Drop H-QUBIT-DRIFT, keep H-BORN-AT-BOB and H-C2.  Bob's received qubit sits beside a
+    two-qubit ancilla in the fixed state |00> (Alice-independent), so his per-branch state lives in C^8.  Alice
+    measures her singlet half along one of four axes (FOUR_AXES; uniform prior); outcome s leaves Bob's qubit along
+    -s n_b, so there are 8 distinct branch states a_j (j = 2b + s).  The drift carries each a_j along the
+    Fubini-Study geodesic to the j-th vector of an orthonormal basis (a seeded random unitary's columns), in time
+    T = 1.  The curves are checked to be pairwise DISJOINT AS SETS (so one autonomous field, a function of the state
+    alone, is single-valued on them); the field on them is H(psi) = i(v psi^dag - psi v^dag) (hermitian_from_tangent);
+    off the curves H is taken from the nearest curve point (piecewise; a SMOOTH global extension is H-EXTEND,
+    DERIVED from the curves' separation, not computed).  Each branch is integrated (RK4) under H evaluated on its
+    own current state only.  Bob reads by a Born measurement in the target basis.
+    linear_control=True replaces the drift by one fixed unitary for every branch (state-INDEPENDENT): chi must be 0.
+    Returns chi (bits per pair), Bob's P(b' | b) table, the smallest end fidelity, the smallest inter-curve distance,
+    the grid step, and max ||H|| x T (= the largest geodesic angle)."""
+    rng = np.random.default_rng(seed)
+    anc = np.zeros(4, complex)
+    anc[0] = 1
+    A = [np.kron(_bloch_ket(tuple(-s * c for c in n)), anc) for n in FOUR_AXES for s in (+1, -1)]
+    Q, _ = np.linalg.qr(rng.normal(size=(8, 8)) + 1j * rng.normal(size=(8, 8)))
+    E = [Q[:, j] for j in range(8)]
+    if linear_control:
+        fin = [Q @ a for a in A]
+        mind = step = th_max = float("nan")
+        fid = float("nan")
+    else:
+        G = []
+        for a, e in zip(A, E):
+            ov = e.conj() @ a
+            e2 = e * (ov / abs(ov) if abs(ov) > 1e-14 else 1.0)
+            w = e2 - a * (a.conj() @ e2)
+            G.append((math.acos(min(1.0, abs(ov))), w / np.linalg.norm(w)))
+        ts = np.linspace(0.0, 1.0, n_grid)
+        pt = lambda j, t: math.cos(G[j][0] * t) * A[j] + math.sin(G[j][0] * t) * G[j][1]
+        vel = lambda j, t: G[j][0] * (-math.sin(G[j][0] * t) * A[j] + math.cos(G[j][0] * t) * G[j][1])
+        P = np.array([[pt(j, t) for t in ts] for j in range(8)])
+        mind = 9.0
+        for j in range(8):
+            for k in range(j + 1, 8):
+                ov = np.abs(np.einsum("ti,si->ts", P[j].conj(), P[k]))
+                mind = min(mind, float(np.arccos(np.clip(ov.max(), 0.0, 1.0))))
+        th_max = max(g[0] for g in G)
+        step = th_max / (n_grid - 1)
+        flatP = P.reshape(-1, 8)
+        flatV = np.array([[vel(j, t) for t in ts] for j in range(8)]).reshape(-1, 8)
+
+        def rhs(psi):
+            i = int(np.argmax(np.abs(flatP.conj() @ psi)))     # the field depends on the current state ONLY
+            H = 1j * (np.outer(flatV[i], flatP[i].conj()) - np.outer(flatP[i], flatV[i].conj()))
+            return -1j * H @ psi
+        fin = []
+        dt = 1.0 / n_steps
+        for j in range(8):
+            psi = A[j].copy()
+            for _ in range(n_steps):
+                k1 = rhs(psi); k2 = rhs(psi + dt / 2 * k1); k3 = rhs(psi + dt / 2 * k2); k4 = rhs(psi + dt * k3)
+                psi = psi + dt / 6 * (k1 + 2 * k2 + 2 * k3 + k4)
+                psi /= np.linalg.norm(psi)
+            fin.append(psi)
+        fid = min(abs(E[j].conj() @ fin[j]) ** 2 for j in range(8))
+    rhos = [(np.outer(fin[2 * b], fin[2 * b].conj()) + np.outer(fin[2 * b + 1], fin[2 * b + 1].conj())) / 2 for b in range(4)]
+    chi = _vn_bits(sum(rhos) / 4) - sum(_vn_bits(r) for r in rhos) / 4
+    table = [[float(sum(np.real(E[2 * bb + s].conj() @ rhos[b] @ E[2 * bb + s]) for s in (0, 1))) for bb in range(4)]
+             for b in range(4)]
+    return {"chi_bits_per_pair": float(chi), "P(b'|b)": table, "min_end_fidelity": fid,
+            "min_curve_separation_rad": mind, "grid_step_rad": step, "max_H_times_T": th_max}
 
 
 # ------------------------------------------------------------------------- C'. H-SETTLE x H-12: an unbounded carrier
@@ -628,12 +785,27 @@ def build():
     R["two_axis"] = {"signal_eps0.1_T3": two_axis_signal(0.1, 3.0), "exact": 2 * math.tanh(0.6),
                      "cap_D": {D: capacity_bsc(D) for D in (0.1, 0.5, 0.9, 0.99, 0.999999)},
                      "readout_holevo_max": readout_holevo_check(), "finite_T_rank": finite_T_rank()}
-    R["pairs_per_qubit"] = {"nlcontrol (H-NLCONTROL-FORM), average with block coding": 2.0 / CMAX,
-                            "nlcontrol, per qubit (integer)": math.ceil(2.0 / CMAX),
-                            "W2 class under H-BORN-AT-BOB, average (infimum, not attained)": 2.0 / W2_CLASS_CEILING_BITS_PER_PAIR,
+    # Wave 3 (RV-0 #0, RV-1 #0): every count from N x C >= 2 is a FLOOR (Shannon's converse); the qubit-only rows
+    # are the subclass H-QUBIT-DRIFT, not the W2 class.  Wave 2 first labelled them 'nlcontrol, per qubit (integer)'
+    # and 'W2 class under H-BORN-AT-BOB'.
+    R["pairs_per_qubit"] = {"nlcontrol (H-NLCONTROL-FORM), average, block-coded (H-BLOCK): floor": 2.0 / CMAX,
+                            "nlcontrol, one qubit coded alone: floor (no finite N is zero-error; zero-error capacity 0)": math.ceil(2.0 / CMAX),
+                            "qubit-only subclass (H-BORN-AT-BOB + H-QUBIT-DRIFT), average: infimum, not attained": 2.0 / W2_CLASS_CEILING_BITS_PER_PAIR,
                             # strict: the 1-bit ceiling is not attained at finite T (finite_T_rank), so N x C = 2 needs N > 2
-                            "W2 class under H-BORN-AT-BOB, per qubit at finite T (integer)":
+                            "qubit-only subclass, one qubit coded alone at finite T: floor":
                                 math.floor(2.0 / W2_CLASS_CEILING_BITS_PER_PAIR) + 1}
+    R["zero_error"] = zero_error_table()
+    R["w2_ancilla"] = w2_ancilla_flow()
+    R["w2_ancilla_linear_control"] = w2_ancilla_flow(linear_control=True)
+    rng = np.random.default_rng(23)
+    herm = []
+    for _ in range(50):
+        psi = rng.normal(size=8) + 1j * rng.normal(size=8); psi /= np.linalg.norm(psi)
+        v = rng.normal(size=8) + 1j * rng.normal(size=8); v -= psi * (psi.conj() @ v)
+        herm.append(hermitian_from_tangent(psi, v)[1:])
+    vbad = rng.normal(size=8) + 1j * rng.normal(size=8)          # NOT orthogonal to psi: -iH psi = v must FAIL
+    R["hermitian_tangent"] = {"max_nonhermiticity": max(h[0] for h in herm), "max_residual": max(h[1] for h in herm),
+                              "control_nonorthogonal_residual": hermitian_from_tangent(psi, vbad)[2]}
     # C' (wave 2): timing.  Drift time is distance-independent; eps for any advantage is half the T = L/2c figure.
     tim = {}
     for lab, eps in eps_readings(f).items():
@@ -674,8 +846,11 @@ def report(R):
     for D, (m, (c, q), chi) in R["info"].items():
         p(f"   D={D:<6} I(uniform) {m:.4e} bits  capacity {c:.4e} (q*={q:.3f})  Holevo(uniform) {chi:.4e}  D^2/(8 ln2) {D*D/(8*LN2):.4e}")
     p(f"   ceiling at D -> 1: {R['CMAX']:.6f} bits/pair = log2(1.25) = {math.log2(1.25):.6f};  pairs per teleported qubit >= {R['min_pairs_per_qubit']:.3f}")
-    p("   (ceiling of THIS two-choice protocol; mean y >= 0 for every Alice axis, so no antipodal letter exists.  Any protocol on a")
-    p("    qubit is capped at 1 bit per pair by Holevo's bound -- NAMED-NOT-READ here -- so >= 2 pairs per teleported qubit always.)")
+    p("   (ceiling of THIS two-choice protocol; mean y >= 0 for every Alice axis, so no antipodal letter exists.  The pair count is a")
+    p("    FLOOR from Shannon's converse; this Z-channel's zero-error capacity is 0 at every D (both inputs give '+'), so reliable")
+    p("    transfer is block-coded (H-BLOCK).  Wave 1 first printed here: 'Any protocol on a qubit is capped at 1 bit per pair by")
+    p("    Holevo's bound -- NAMED-NOT-READ here -- so >= 2 pairs per teleported qubit always' -- Holevo is READ in A3 and binds only")
+    p("    a Born readout of a QUBIT (H-BORN-AT-BOB + H-QUBIT-DRIFT); see WAVE 3 for the class without H-QUBIT-DRIFT.)")
     p("\nC. BOUNDS")
     p("   KR (causal) family -- dimensionless eps_gamma, READ:")
     for k, (v, src) in BOUNDS_KR.items():
@@ -729,7 +904,10 @@ def report(R):
     zl = R["frw_lemma"]
     p(f"   exact flat FRW (frame.frw_time_function_lemma, imported): claim {zl['claim']} (unsat = proved), vacuity {zl['vacuity']},"
       f" control a>=0 {zl['control_a_ge_0']} -> corridor keying is FORCED by H-FRW-EXACT + H-NOT-DE-SITTER;")
-    p("   H-SETTLE-W alone: O-LOOP REMOVED-IF {H-FRW-EXACT, H-NOT-DE-SITTER, N_SIGKEY (signals keyed to the cosmic slice, H-SIG-COR)}")
+    p("   O-LOOP for CORRIDORS: REMOVED-IF {H-FRW-EXACT, H-NOT-DE-SITTER, H-CORRIDOR-MODEL} BY THE GEOMETRY, credited to no hypothesis")
+    p("   (wave 2 first credited it to H-SETTLE-W alone, with N_SIGKEY; RV-0 #3).  For SIGNALS, which exist only where a channel")
+    p("   exists (W2 with a preferred slicing): REMOVED-IF {N_SIGKEY under H-SIG-COR}.  Under ITB + N_QTOPO the lemma does not bind")
+    p("   an ITB corridor (not a Lorentzian quotient): corridor O-LOOP NOT-BOUND-IF {N_QTOPO}; {N_QTOPO, N_CORR} is a premise clash.")
     p("\nWAVE 2 -- CONVENTION, CAPACITY, TIMING, H-12")
     p(f"   H-C2 named: under C1 (drift on Bob's reduced state) the signal is {R['c1_signal']:.1e} (frame.settle_under_C1) -- no channel.")
     ta = R["two_axis"]
@@ -755,6 +933,24 @@ def report(R):
     for r in rows:
         p(f"     {r['L']:<24} N = {r['N']:<8g}: eps > {r['eps_any_advantage']:.3e}  {r['H-TRANSFER']:<13} | {r['H-12-CARRIER']}")
     p(f"     cells that flip EXCLUDED -> NOT EXCLUDED: {flips}  (not evidence: an absent bound is not a measurement)")
+    p("\nWAVE 3 -- FLOORS, ZERO ERROR, AND THE W2 CLASS WITHOUT H-QUBIT-DRIFT")
+    for (name, D), sizes in R["zero_error"].items():
+        p(f"   zero-error code sizes, {name}, D = {D}: block length 1..{len(sizes)}: {sizes}  -> zero-error rate "
+          f"{max(math.log2(x) / (i + 1) for i, x in enumerate(sizes)):.3f} bits/pair")
+    p("   => at D < 1 (and for nlcontrol's Z-channel even at D = 1) no finite number of pairs delivers 2 bits with certainty;")
+    p("      every 'pairs per qubit' figure from N x C >= 2 is a FLOOR, and reliable transfer is block-coded (H-BLOCK).")
+    ht = R["hermitian_tangent"]
+    p(f"   H = i(v psi^+ - psi v^+): max non-hermiticity {ht['max_nonhermiticity']:.1e}, max |-iH psi - v| {ht['max_residual']:.1e} (50 random);"
+      f" CONTROL v not orthogonal to psi: residual {ht['control_nonorthogonal_residual']:.3f}")
+    w = R["w2_ancilla"]
+    p(f"   W2 member on qubit + 2-qubit ancilla (4 axes, H-BORN-AT-BOB, H-C2, NOT H-QUBIT-DRIFT): chi = {w['chi_bits_per_pair']:.6f} bits/pair;"
+      f" end fidelity {w['min_end_fidelity']:.12f}; curves disjoint as sets, min separation {w['min_curve_separation_rad']:.4f} rad"
+      f" (grid step {w['grid_step_rad']:.4f}); max ||H|| T = {w['max_H_times_T']:.4f}")
+    p("     Bob's P(b'|b): " + "; ".join("[" + ", ".join(f"{x:.6f}" for x in row) + "]" for row in w["P(b'|b)"]))
+    p(f"     CONTROL, one fixed unitary for every branch (state-independent): chi = {R['w2_ancilla_linear_control']['chi_bits_per_pair']:.2e}")
+    p("     => 2 bits per pair with ZERO error at finite T: 1 pair per teleported qubit for this member (smooth global field:")
+    p("        H-EXTEND, derived, not computed).  The qubit-only floor (> 2, >= 3) is H-QUBIT-DRIFT's, not the class's.")
+    p("        This shows what the CLASS admits; it is not evidence that such a drift exists.")
 
 
 # ======================================================================================= selftest
@@ -841,13 +1037,20 @@ def selftest():
     mn, td = ta["finite_T_rank"]
     ok("G5 finite T: Bob's per-choice state has rank 2 and trace distance < 1 (ceiling not attained)", mn > 1e-6 and td < 1.0,
        f"min eig {mn:.2e}, td {td:.6f}")
-    ok("G6 CONTROL (must fail): a 2-pair budget at finite T does not reach 2 bits under the 1-bit ceiling",
-       2 * capacity_bsc(math.tanh(2 * 0.3 * 3.0)) < 2.0 and 3 * capacity_bsc(math.tanh(2 * 0.3 * 3.0)) >= 2.0)
+    # Wave 3 (RV-0 #10): wave 2 first printed G6 as one 'CONTROL (must fail)'.  Its first half, 2 C < 2, is 1 - h2 < 1
+    # for any D < 1 and cannot fail; it is now STRUCTURAL.  The second half (3 pairs reach 2 bits at eps = 0.3, T = 3)
+    # carries content and stays a check.  G7 and G8 are identities of the bisection (eps_to_remove depends only on
+    # eps * frac * L): the factor 2 and the distance-independence are ANALYTIC consequences of T = atanh(D_N)/(2 eps),
+    # stated as such, not evidence.
+    structural("G6a 2 pairs at finite T stay below 2 bits under the 1-bit qubit ceiling (2(1 - h2) < 2 for D < 1)",
+               2 * capacity_bsc(math.tanh(2 * 0.3 * 3.0)) < 2.0)
+    ok("G6b 3 pairs of the two-axis drift at eps = 0.3, T = 3 reach 2 bits (Shannon floor met; zero-error is not)",
+       3 * capacity_bsc(math.tanh(2 * 0.3 * 3.0)) >= 2.0, f"{3 * capacity_bsc(math.tanh(1.8)):.4f}")
     ratios = [eh / ea for ea, eh in R["eps_any_vs_half"].values()]
-    ok("G7 eps for any advantage is exactly half the T = L/2c figure at every row", all(abs(r - 2.0) < 1e-6 for r in ratios),
-       f"{min(ratios):.6f}..{max(ratios):.6f}")
+    structural("G7 eps for any advantage is exactly half the T = L/2c figure (identity of the bisection)", all(abs(r - 2.0) < 1e-6 for r in ratios),
+               f"{min(ratios):.6f}..{max(ratios):.6f}")
     Ts = [eps_to_remove(L, 7, frac=1.0) * L for L in (AU_M, LY_M, 4.24 * LY_M)]
-    ok("G8 drift time is distance-independent (eps_any x L constant over 1 AU, 1 ly, 4.24 ly)", max(Ts) / min(Ts) - 1 < 1e-6)
+    structural("G8 drift time distance-independent (eps_any x L constant; identity of the bisection)", max(Ts) / min(Ts) - 1 < 1e-6)
     tA = R["timing"][("A (eps = 2 pi f)", 7)]
     ok("G9 reading A, N = 7: T = 13.38 h; 1 ly read 0.99847 L/c early (C-verify-1 #3 reproduced)",
        abs(tA["T_h"] - 13.38) < 0.01 and abs(tA["early_fraction_1ly"] - 0.99847) < 1e-5, f"{tA['T_h']:.3f} h, {tA['early_fraction_1ly']:.6f}")
@@ -857,16 +1060,44 @@ def selftest():
        not first_transit_times(LY_M, 0.6 * LY_M / C_LIGHT, "midpoint")["beats_light_launched_at_firing"])
     rows, flips = R["h12_case"]
     au7 = [r for r in rows if r["L"] == "1 AU" and r["N"] == 7][0]
-    ok("G12 H-SETTLE x H-12: 1 AU N = 7 EXCLUDED under H-TRANSFER, NOT EXCLUDED with an unbounded carrier; >= 1 cell flips",
-       au7["H-TRANSFER"] == "EXCLUDED" and au7["H-12-CARRIER"].startswith("NOT EXCLUDED") and flips >= 1, f"flips {flips}")
+    # Wave 3 (RV-0 #10): wave 2 first printed G12 as one check.  Its 'NOT EXCLUDED with an unbounded carrier' half is
+    # carrier_ok = (N x CMAX >= 2), true by construction for N = 7; it is STRUCTURAL.  The H-TRANSFER half compares
+    # eps_any with the (NAMED-NOT-READ) Majumder figure and carries content.
+    ok("G12a H-TRANSFER: 1 AU, N = 7 is EXCLUDED by the (unread) Majumder figure; 1 ly, N = 7 is not",
+       au7["H-TRANSFER"] == "EXCLUDED" and [r for r in rows if r["L"] == "1 ly" and r["N"] == 7][0]["H-TRANSFER"] == "NOT EXCLUDED")
+    structural("G12b with an unbounded carrier the 1 AU, N = 7 cell is NOT EXCLUDED (carrier_ok = N x CMAX >= 2)",
+               au7["H-12-CARRIER"].startswith("NOT EXCLUDED") and flips >= 1, f"flips {flips}")
     zl = R["frw_lemma"]
-    ok("G13 O-LOOP keying forced in exact flat FRW (frame lemma unsat, vacuity sat, control sat)",
+    ok("G13 corridor O-LOOP keying forced in exact flat FRW, credited to the geometry (frame lemma unsat, vacuity sat, control sat)",
        zl["claim"] == "unsat" and zl["vacuity"] == "sat" and zl["control_a_ge_0"] == "sat")
+    # ---- wave 3
+    ze = R["zero_error"]
+    ok("G14 zero-error capacity 0 at D < 1: one codeword at block lengths 1-3 (nlcontrol Z-channel and H2 BSC, D = 0.9, 0.999999)",
+       all(ze[(nm, D)] == [1, 1, 1] for nm in ("nlcontrol Z-channel", "H2 BSC") for D in (0.9, 0.999999)))
+    ok("G15 CONTROL (must fail the zero-capacity pattern): H2's BSC at D = 1 has 2^n zero-error words",
+       ze[("H2 BSC", 1.0)] == [2, 4, 8], f"{ze[('H2 BSC', 1.0)]}")
+    ok("G15b nlcontrol's Z-channel stays zero-error-0 even at D = 1 (both inputs give '+')", ze[("nlcontrol Z-channel", 1.0)] == [1, 1, 1])
+    ht = R["hermitian_tangent"]
+    ok("G16 H = i(v psi^+ - psi v^+) is Hermitian and generates v (50 random, C^8)",
+       ht["max_nonhermiticity"] < 1e-12 and ht["max_residual"] < 1e-12, f"{ht['max_residual']:.1e}")
+    ok("G17 CONTROL (must fail): v not orthogonal to psi is not generated", ht["control_nonorthogonal_residual"] > 1e-2,
+       f"{ht['control_nonorthogonal_residual']:.3f}")
+    w = R["w2_ancilla"]
+    ok("G18 W2 member on qubit + 2-qubit ancilla: curves disjoint as sets (separation >> grid step) and the state-only field reaches the targets",
+       w["min_curve_separation_rad"] > 20 * w["grid_step_rad"] and w["min_end_fidelity"] > 1 - 1e-6,
+       f"sep {w['min_curve_separation_rad']:.4f} rad, fidelity {w['min_end_fidelity']:.10f}")
+    ok("G19 ... and carries 2 bits per pair with zero error at finite T (chi = 2, P(b'|b) = identity)",
+       abs(w["chi_bits_per_pair"] - 2.0) < 1e-6 and all(abs(w["P(b'|b)"][b][bb] - (b == bb)) < 1e-6 for b in range(4) for bb in range(4)),
+       f"chi {w['chi_bits_per_pair']:.8f}")
+    ok("G20 CONTROL (must fail to signal): one state-independent unitary for every branch gives chi = 0",
+       abs(R["w2_ancilla_linear_control"]["chi_bits_per_pair"]) < 1e-9, f"{R['w2_ancilla_linear_control']['chi_bits_per_pair']:.1e}")
     w = max(len(n) for n, _, _ in checks)
     for n, good, det in checks:
         print(f"  [{'PASS' if good else 'FAIL'}] {n:<{w}} {det}")
     bad = [n for n, g, _ in checks if not g]
-    print(f"\n{len(checks) - len(bad)}/{len(checks)} checks pass")
+    nstr = sum(n.startswith("STRUCTURAL") for n, _, _ in checks)
+    nctl = sum("CONTROL" in n and not n.startswith("STRUCTURAL") for n, _, _ in checks)
+    print(f"\n{len(checks) - len(bad)}/{len(checks)} checks pass ({nstr} printed STRUCTURAL, not evidence; {nctl} controls)")
     return 0 if not bad else 1
 
 
