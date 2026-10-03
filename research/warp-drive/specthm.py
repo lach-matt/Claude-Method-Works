@@ -1521,8 +1521,10 @@ def requirements(F):
             "own figure at 1e-3, and spec cites the published value, ~550 AU "
             "(%.2f%% apart, computed here from spec's figure and pinned by no "
             "selftest).  %s.  Weyl focusing is sign-blind at first order in M "
-            "(composite.py; computed 55.17 against 56.50 at the two signs, so not "
-            "exactly -- DOCKET 67); Ricci "
+            "(composite.py; computed 55.17 against 56.50 at the two signs at "
+            "composite.survey's default n = 900, 55.21 against 56.56 converged at "
+            "n = 3600, so not exactly -- DOCKET 67; the converged pair added in "
+            "the DOCKET 67 follow-ups, first given at n = 900 alone); Ricci "
             "focusing needs T_kk > 0, which ordinary matter has."
             % ("; ".join(spec.DOES), F["f_sun_m"], F["f_sun_AU"],
                100.0 * abs(F["f_sun_AU"] / F["published_sun_AU"] - 1.0),
