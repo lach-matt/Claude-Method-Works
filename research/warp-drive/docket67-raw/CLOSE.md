@@ -61,8 +61,7 @@ QED coefficients READ-VIA-RESTATEMENT (address); horizon computed from READ Plan
 
 ## 5. Checks
 
-Full selftest sweep over the instruments under research/warp-drive (281 with a selftest): see the final commit
-message for the count. Two fail, and both fail identically at 68d7ac7, before any follow-up: `preserve.py`
+Full selftest sweep over the instruments under research/warp-drive and docket68/, on c9ae0c7: **279 of 281 pass**. Two fail, and both fail identically at 68d7ac7, before any follow-up: `preserve.py`
 (bosonqp.py and phonondex.py replacements from 3f171f8 / 0ab3aa8 not adjudicated) and `subpop.py` (index counts
 23 ≠ 20, 5 ≠ 4, chain depths). Neither is a DOCKET 67 file; both are recorded, not repaired.
 `ledger.py --check` ok; `tools/docfigures.py` 59/59.
