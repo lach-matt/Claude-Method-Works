@@ -15,9 +15,25 @@ and residue.py all carry it), so its shell is 0.859 x nuclear saturation, and
 drivespec.py's nuclear-density point has moved to R1 = 4544 m, 1.03 Msun.
 NAMED HYPOTHESIS GATE1-SIZED-ON-RECALLED-DENSITY: the 4902 m design was sized
 to saturation on the recalled 2.3e17; re-sizing GATE 1 to 4544 m is a design
-choice for M and is not made here.  The 2.3e17 figures are kept as RECORD.  Everything here is engineering ON TOP of measurements already
-taken; where a step is unsolved it is marked OPEN at the place it occurs and
-not swept to the end.
+choice for M and is not made here.  The 2.3e17 figures are kept as RECORD.
+
+CORRECTED (DOCKET 67, on M's ruling "Re-size to 4544 m"): first GATE 1 kept
+R1 = 4902 m (above) and named the gap GATE1-SIZED-ON-RECALLED-DENSITY.  M ruled
+the re-size.  R1 is now drivespec.radius_for_density(address.RHO_NUCLEAR, 2/3)
+= 4544.176 m, called here and never typed, and M_GATE, R2, RHO and the
+reservoir E_STORE (drivespec.circulation_energy at 0.330 c) follow from it.
+GATE1-SIZED-ON-RECALLED-DENSITY is DISCHARGED by that ruling and kept as history
+in HYPOTHESES_DISCHARGED.  The first-written design is R1_AS_FIRST_WRITTEN =
+4902 m and E_STORE_AS_FIRST_WRITTEN = 1.17e46 J, and each of its figures is
+still checked as a RECORD.  NAMED HYPOTHESIS GATE1-SIZED-ON-ORDER-DENSITY: the
+re-sized R1 is only as good as address.RHO_NUCLEAR, which is DERIVED-FROM-ORDER
+(n_0 = 0.16 fm^-3 x m_p, not READ; its m_N = m_p half is not reconciled).
+R1 goes as rho^(-1/2), so a fractional error e in that density moves R1 by
+about -e/2.  The selftest computes that scaling.
+
+Everything here is engineering ON TOP of measurements already taken; where a
+step is unsolved it is marked OPEN at the place it occurs and not swept to the
+end.
 
 stdlib only.
 """
@@ -30,20 +46,47 @@ SIGMA_T, M_P = 6.6524587e-29, 1.67262192e-27
 # (copied from arrival.py; no source word was attached -- DOCKET 67).
 
 # ---- the seated design -------------------------------------------------------
+import address as _address
+import drivespec as _drivespec
+RHO_NUC   = _address.RHO_NUCLEAR       # kg/m^3, 2.676e17, DERIVED-FROM-ORDER there
+RHO_NUC_WITHDRAWN = 2.3e17             # as first written (RECALLED); RECORD only
+
 F_FILL   = 2.0/3.0
 GAMMA_G  = 1.0 + math.sqrt(3.0)        # R2/R1
-R1       = 4902.0                      # m
+# CORRECTED (DOCKET 67, on M's ruling "Re-size to 4544 m"): first R1 = 4902.0 m
+# typed here (sized on the recalled 2.3e17).  R1 is now drivespec's
+# nuclear-density radius on address.RHO_NUCLEAR, computed by drivespec.
+R1_AS_FIRST_WRITTEN = 4902.0           # m, RECORD only
+R1       = _drivespec.radius_for_density(RHO_NUC, F_FILL)    # m, 4544.176
 R2       = GAMMA_G*R1
 M_GATE   = F_FILL*R1*c**2/(2.0*G)      # kg
 RHO      = 3.0*F_FILL*c**2/(8.0*math.pi*G*R1**2*(GAMMA_G**3-1.0))
 V_WARP   = 0.0476                      # c
 V_CIRC   = 0.330                       # c, wall circulation
-E_STORE  = 1.17e46                     # J, circulation reservoir
+# CORRECTED (DOCKET 67, on M's ruling "Re-size to 4544 m"): first E_STORE =
+# 1.17e46 J typed (drivespec's circulation energy at R1 = 4902 m, 1.1736e46, to
+# three figures).  It is now computed on the re-sized mass.
+E_STORE_AS_FIRST_WRITTEN = 1.17e46     # J, RECORD only
+E_STORE  = _drivespec.circulation_energy(M_GATE, V_CIRC)     # J, circulation reservoir
+
+# the first-written design, kept so every first figure is still checked as RECORD
+R2_AS_FIRST_WRITTEN     = GAMMA_G*R1_AS_FIRST_WRITTEN
+M_GATE_AS_FIRST_WRITTEN = F_FILL*R1_AS_FIRST_WRITTEN*c**2/(2.0*G)
+RHO_AS_FIRST_WRITTEN    = 3.0*F_FILL*c**2/(8.0*math.pi*G*R1_AS_FIRST_WRITTEN**2*(GAMMA_G**3-1.0))
+
+HYPOTHESES = {
+    "GATE1-SIZED-ON-ORDER-DENSITY":
+        "R1 = drivespec.radius_for_density(address.RHO_NUCLEAR, 2/3); that density is "
+        "DERIVED-FROM-ORDER (n_0 = 0.16 fm^-3 x m_p, not READ), and R1 goes as rho^(-1/2)",
+}
+HYPOTHESES_DISCHARGED = {
+    "GATE1-SIZED-ON-RECALLED-DENSITY":
+        "the 4902 m design was sized to saturation on a recalled 2.3e17 and sat at 0.859 x "
+        "address.RHO_NUCLEAR.  DISCHARGED (DOCKET 67) by M's ruling \"Re-size to 4544 m\": "
+        "R1 is now drivespec's nuclear-density radius",
+}
 
 # ---- materials ---------------------------------------------------------------
-import address as _address
-RHO_NUC   = _address.RHO_NUCLEAR       # kg/m^3, 2.676e17, DERIVED-FROM-ORDER there
-RHO_NUC_WITHDRAWN = 2.3e17             # as first written (RECALLED); RECORD only
 P_DEGEN   = 1.0e34                     # Pa, degenerate matter at saturation
 P_ANVIL   = 1.0e12                     # Pa, best static laboratory pressure
 P_LASER   = 1.0e13                     # Pa, best dynamic (laser shock)
@@ -111,38 +154,87 @@ def selftest():
     # drivespec.py now computes on address.RHO_NUCLEAR and its nuclear-density
     # point is R1 = 4544 m, so GATE 1's seated 4902 m is drivespec's point as
     # first written, and its shell is 0.8593 x nuclear (computed).
-    print("Carried design -- drivespec.py's point design as first seated (R1 = 4902 m)")
-    chk("gate mass (Msun)", M_GATE/MSUN, 1.1062936, tol=1e-7)
-    chk("R2 (m)", R2, 13392.5131, tol=1e-8)
-    chk("nuclear density is address.RHO_NUCLEAR", float(RHO_NUC == _address.RHO_NUCLEAR), 1.0)
-    chk("shell density / nuclear saturation (address.RHO_NUCLEAR)", RHO/RHO_NUC, 0.859337, tol=1e-5)
-    chk("  RECORD: on the withdrawn 2.3e17", RHO/RHO_NUC_WITHDRAWN, 1.0000, tol=2e-3)
+    # CORRECTED (DOCKET 67, on M's ruling "Re-size to 4544 m"): first the block
+    # below pinned the 4902 m design (1.1062936 Msun, R2 13392.5131 m, shell
+    # 0.859337 x nuclear).  GATE 1 is now re-sized to drivespec's radius, and
+    # every pin is the computed value; the 4902 m pins are RECORD checks.
+    print("Carried design -- drivespec.py's point design on address.RHO_NUCLEAR (re-sized)")
     import drivespec
+    chk("R1 is drivespec's nuclear-density radius (m)", R1,
+        drivespec.radius_for_density(_address.RHO_NUCLEAR, F_FILL), tol=1e-15)
+    chk("R1 (m)", R1, 4544.175959, tol=1e-9)
+    chk("gamma = R2/R1 is drivespec's GAMMA_OPT (identity)", GAMMA_G, drivespec.GAMMA_OPT, tol=1e-15)
+    chk("gate mass (Msun)", M_GATE/MSUN, 1.02553917, tol=1e-7)
+    chk("  is drivespec's shell mass there (identity)", M_GATE,
+        drivespec.shell_mass(R1, F_FILL), tol=1e-12)
+    chk("R2 (m)", R2, 12414.919599, tol=1e-8)
+    chk("wall thickness R2 - R1 (m)", R2 - R1, 7870.743640, tol=1e-8)
+    chk("nuclear density is address.RHO_NUCLEAR", float(RHO_NUC == _address.RHO_NUCLEAR), 1.0)
+    chk("shell density / nuclear saturation (address.RHO_NUCLEAR)", RHO/RHO_NUC, 1.0, tol=1e-12)
+    chk("reservoir E_STORE (J)", E_STORE, 1.0878866e46, tol=1e-7)
+    chk("  is drivespec's circulation energy at 0.330 c (identity)", E_STORE,
+        drivespec.circulation_energy(M_GATE, V_CIRC), tol=1e-12)
+    chk("  as a fraction of rest mass (scale-free)", E_STORE/(M_GATE*c**2), 0.05934343, tol=1e-7)
+    # GATE1-SIZED-ON-ORDER-DENSITY: R1 goes as rho^(-1/2) -- computed, not asserted
+    chk("R1 scales as rho^(-1/2): R1(1.01 rho)/R1(rho) (identity)",
+        drivespec.radius_for_density(1.01*RHO_NUC, F_FILL)/R1, 1.01**-0.5, tol=1e-12)
+    chk("named hypotheses: one live, one discharged",
+        (sorted(HYPOTHESES), sorted(HYPOTHESES_DISCHARGED)) ==
+        (["GATE1-SIZED-ON-ORDER-DENSITY"], ["GATE1-SIZED-ON-RECALLED-DENSITY"]), True)
+    print("  RECORD -- the design as first written (R1 = 4902 m, E_STORE = 1.17e46 J)")
+    chk("  RECORD: gate mass (Msun)", M_GATE_AS_FIRST_WRITTEN/MSUN, 1.1062936, tol=1e-7)
+    chk("  RECORD: R2 (m)", R2_AS_FIRST_WRITTEN, 13392.5131, tol=1e-8)
+    chk("  RECORD: shell density / nuclear saturation (address.RHO_NUCLEAR)",
+        RHO_AS_FIRST_WRITTEN/RHO_NUC, 0.859337, tol=1e-5)
+    chk("  RECORD: on the withdrawn 2.3e17", RHO_AS_FIRST_WRITTEN/RHO_NUC_WITHDRAWN, 1.0000, tol=2e-3)
     chk("drivespec's nuclear-density radius now (m)",
         drivespec.radius_for_density(RHO_NUC, F_FILL), 4544.176, tol=1e-6)
     chk("  RECORD: on the withdrawn 2.3e17 it was GATE 1's R1 (m)",
-        drivespec.radius_for_density(RHO_NUC_WITHDRAWN, F_FILL), R1, tol=2e-4)
+        drivespec.radius_for_density(RHO_NUC_WITHDRAWN, F_FILL), R1_AS_FIRST_WRITTEN, tol=2e-4)
+    chk("  RECORD: 1.17e46 J was drivespec's circulation energy at 4902 m, to 3 figures",
+        drivespec.circulation_energy(M_GATE_AS_FIRST_WRITTEN, V_CIRC), E_STORE_AS_FIRST_WRITTEN, tol=0.005/1.17)
 
     print("\nMaterials -- why there is no pressure vessel")
     chk("degenerate pressure / best static lab pressure", confinement_gap(), 1.0e22)
     chk("degenerate pressure / best laser shock", confinement_gap(P_LASER), 1.0e21)
     # self-gravity must supply the confining pressure, so it has to REACH it
-    chk("self-gravity pressure scale (Pa)", self_gravity_pressure(), 1.004461e34, tol=1e-6)
+    # CORRECTED (DOCKET 67, on M's ruling "Re-size to 4544 m"): first 1.004461e34
+    # at R1 = 4902 m; G M^2/R^4 goes as 1/R^2, computed on the re-sized design.
+    chk("self-gravity pressure scale (Pa)", self_gravity_pressure(), 1.168878e34, tol=1e-6)
+    chk("  RECORD: at R1 = 4902 m (Pa)",
+        self_gravity_pressure(M_GATE_AS_FIRST_WRITTEN, R2_AS_FIRST_WRITTEN), 1.004461e34, tol=1e-6)
     chk("  and that is within an order of the degenerate pressure",
         0.1 < self_gravity_pressure()/P_DEGEN < 10.0, True)
 
     print("\nPower -- accretion")
     # My hand value was 2.76e31 -- off by exactly 2x. The standard form
     # L_Edd = 1.26e31 (M/Msun) W gives 1.394e31, agreeing with the code.
-    chk("Eddington luminosity (W)", eddington_luminosity(), 1.391040e31, tol=1e-6)
+    # CORRECTED (DOCKET 67, on M's ruling "Re-size to 4544 m"): first 1.391040e31
+    # W, 0.5364598 Msun and 26.65277 Myr on the 4902 m mass and the typed
+    # 1.17e46 J.  L_Edd goes as M; eta is scale-free; the computed reservoir
+    # moves the accreted mass and (through 1.17e46 -> 5.934 % of rest mass) the
+    # time.  The first pins are RECORD checks on the first-written design.
+    chk("Eddington luminosity (W)", eddington_luminosity(), 1.289500e31, tol=1e-6)
+    chk("  RECORD: at R1 = 4902 m (W)", eddington_luminosity(M_GATE_AS_FIRST_WRITTEN),
+        1.391040e31, tol=1e-6)
     # 1.26e31 is a 3-significant-figure textbook constant (pure hydrogen,
     # rounded), so its own precision is the tolerance here -- not the code's.
     chk("  agrees with L_Edd = 1.26e31 (M/Msun) W", eddington_luminosity(),
         1.26e31*(M_GATE/MSUN), tol=5e-3)
     chk("accretion efficiency eta", accretion_efficiency(), 0.1220085, tol=1e-6)
+    chk("  RECORD: at R1 = 4902 m (scale-free, unchanged)",
+        accretion_efficiency(M_GATE_AS_FIRST_WRITTEN, R2_AS_FIRST_WRITTEN), 0.1220085, tol=1e-6)
     chk("accreted mass for the reservoir (Msun)",
-        accreted_mass_for(E_STORE)/MSUN, 0.5364598, tol=1e-6)
-    chk("time at Eddington (Myr)", accretion_time(E_STORE)/YR/1e6, 26.65277, tol=1e-6)
+        accreted_mass_for(E_STORE)/MSUN, 0.4988098, tol=1e-6)
+    chk("  as a fraction of the gate mass (scale-free)",
+        accreted_mass_for(E_STORE)/M_GATE, 0.4863878, tol=1e-6)
+    chk("time at Eddington (Myr)", accretion_time(E_STORE)/YR/1e6, 26.73365, tol=1e-6)
+    chk("  RECORD: accreted mass, 4902 m and 1.17e46 J (Msun)",
+        accreted_mass_for(E_STORE_AS_FIRST_WRITTEN, M_GATE_AS_FIRST_WRITTEN,
+                          R2_AS_FIRST_WRITTEN)/MSUN, 0.5364598, tol=1e-6)
+    chk("  RECORD: time at Eddington, 4902 m and 1.17e46 J (Myr)",
+        accretion_time(E_STORE_AS_FIRST_WRITTEN, M_GATE_AS_FIRST_WRITTEN)/YR/1e6,
+        26.65277, tol=1e-6)
     # identity: mass * eta * c^2 must be the energy asked for
     chk("accreted mass x eta c^2 == E (identity)",
         accreted_mass_for(E_STORE)*accretion_efficiency()*c**2, E_STORE, tol=1e-12)
