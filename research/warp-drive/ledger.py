@@ -562,7 +562,7 @@ DEMAND = [
      "Holding eps costs source 4 rho_EW eps(2-eps)(1-eps)^2 plus field "
      "rho_EW eps^2(2-eps)^2.  At the clock-comparison ORDER eps = %.0e that "
      "is %.6e kg/m^3 of Higgs-derived density, and %.2g (H1) to %.2g (H2) "
-     "kg/m^3 of stable matter.  m_h is READ (125.13, captures/PDG-2026.tsv); "
+     "kg/m^3 of stable matter.  m_h is READ (%.2f, captures/PDG-2026.tsv); "
      "G_F is %s (PDG 2024 Table 1.1, 1.1663788(6)e-5 GeV^-2, identical to "
      "the typed digits), and the figure inherits G_F's status.  CORRECTED "
      "(DOCKET 67 follow-ups): this read 'G_F is NAMED-NOT-READ'; DOCKET 67 "
@@ -576,7 +576,7 @@ DEMAND = [
      "N3LO's 0.23839), all computed by DOCKET 67"
      % (excite.EPS_AT_FIXTURE, excite.HOLD_HIGGS_DERIVED_KG_M3_AT_EPS_1E18,
         excite.HOLD_STABLE_KG_M3_AT_EPS_1E18["H1"],
-        excite.HOLD_STABLE_KG_M3_AT_EPS_1E18["H2"],
+        excite.HOLD_STABLE_KG_M3_AT_EPS_1E18["H2"], higgs.M_HIGGS,
         higgs.STATUS_D67["G_FERMI"]),
      MEASURED, ("excite", "HOLD_HIGGS_DERIVED_KG_M3_AT_EPS_1E18"),
      "a cheaper stable neutral source (DOCKET 63 E1, unsettled), the "
@@ -781,9 +781,10 @@ DEMAND = [
      + ".  DOCKET 64 (formation.py): %s (DOCKET 67: MacGregor 2018 finds "
      "no NEED to posit the 1-4 au belt -- evidence removed by the source = "
      "%s (READ) -- and its first-12 image falls %.2f sigma below star + a "
-     "%.0f uJy belt, under the %.0f sigma that would exclude it, so excluded "
-     "by the source = %s (computed, formation.belt_excluded), and a belt "
-     "below %.0f uJy is not spoken against even at %.0f sigma; that is not a "
+     "%.0f uJy belt (on formation's H_unres and H_peak), under the %.0f "
+     "sigma that would exclude it (H_3sig), so excluded by the source = %s "
+     "(computed, formation.belt_excluded), and a belt below %.0f uJy is not "
+     "spoken against even at %.0f sigma; that is not a "
      "withdrawal.  CORRECTED, DOCKET 67 follow-ups: this read 'about 2 sigma "
      "against it, and a belt below ~130 uJy is not excluded').  The "
      "aperture search covered "
@@ -2740,7 +2741,8 @@ W_SUPPLY_NOTE = 5000              # DOCKET 65: S10's claim and movers, one note,
                                   # and the item S10 (open) (M-D65-2)
 W_OPEN_CLAIM = 4400               # DOCKET 67: as W_DEMAND_CLAIM (D24 is OPEN);
                                   # follow-ups: O5 names FO/FFKP REFUSED on the
-                                  # Hadamard clause, with its correction (4052)
+                                  # Hadamard clause, with its correction (4065
+                                  # chars as rendered at the follow-ups)
 W_OPEN_ANSWER = 1400              # DOCKET 67: O2's answer names its
                                   # conditions (M ruled "Repair all")
 W_WAS = 1400
@@ -2750,7 +2752,8 @@ W_RULING = 1200                   # DOCKET 65: M-D65-4's ruling cell names M's
                                   # rule for the paper and the DOCKET 63 marker
                                   # READ back from the paper; 600 would cut it.
                                   # DOCKET 67 follow-ups: it now carries the
-                                  # DOCKET 67 markers' correction (1005)
+                                  # DOCKET 67 markers' correction (1007 chars
+                                  # as rendered at the follow-ups)
 
 
 def _cell(text, width):
@@ -3397,6 +3400,24 @@ def selftest():
         ("%d files hit" % len(set(formation.APERTURE_HITS)
                               | set(formation.APERTURE_SYNONYM_HITS)))
         in row["D25"][1], True)
+    # DOCKET 67 follow-ups: the 1-4 au belt's status is asked of formation.py
+    # (evidence removed READ, excluded COMPUTED False, its hypotheses named),
+    # and the wording it replaces survives only as the quoted correction.
+    _d25 = row["D25"][1]
+    chk("  D25's belt: evidence removed (READ), not excluded (computed), "
+        "H_unres/H_peak/H_3sig named, old wording only quoted",
+        (formation.SURVEY_BELT_1_4AU_EVIDENCE_REMOVED_BY_SOURCE,
+         formation.SURVEY_BELT_1_4AU_EXCLUDED_BY_SOURCE,
+         formation.SURVEY_BELT_1_4AU_EXCLUDED_BY_SOURCE
+         == formation.belt_excluded(formation.BELT_ANGLADA_UJY),
+         "excluded by the source = %s" % formation.belt_excluded(
+             formation.BELT_ANGLADA_UJY) in _d25,
+         "%.2f sigma below" % formation.belt_sigma_low(
+             formation.BELT_PHOTOSPHERE_UJY + formation.BELT_ANGLADA_UJY) in _d25,
+         all(h in _d25 for h in ("H_unres", "H_peak", "H_3sig")),
+         _d25.count("about 2 sigma against it"),
+         "this read 'about 2 sigma against it" in _d25),
+        (True, False, True, True, True, True, 1, True))
     # D26, DOCKET 64: opened by the docket that built its instrument.
     # A GREEN BOARD OVER A RED OWNER is what the ownership contract forbids
     # (DOCKET 64 seating verifier): D26's typed flag alone cannot see linstab's

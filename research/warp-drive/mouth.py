@@ -82,9 +82,14 @@ than the failure, and there is one escape that this pass does NOT close.
       MAKES the corridor and the stock demanded AT THE FAR END are the same
       number.  Whether that is one quantity carried under two names, or the
       same bill genuinely due twice, is NOT decided here.  (4.2465 ly is the
-      tree's Proxima distance, ledger.PROXIMA_LY.  phase1.py prices the
-      "Alpha Centauri" corridor at 4.0 ly, 6.2 % less: one corridor at two
-      distances in one tree -- recorded in DOCKET 67, not resolved here.)
+      tree's Proxima distance; phase1.py and closeout.py now price the corridor
+      at Proxima's Gaia DR3 distance, phase1.L_PROXIMA = 4.24646 ly, READ-VIA-
+      RESTATEMENT, and this file imports it as closeout.PROXIMA_LY.  On it the
+      product is 2.72477e12, agreeing with the banked stock to 0.02 %.
+      CORRECTED, DOCKET 67 follow-up: this read "phase1.py prices the 'Alpha
+      Centauri' corridor at 4.0 ly, 6.2 % less: one corridor at two distances
+      in one tree"; phase1 has been re-based, and the tree prices one corridor
+      at one distance.)
 
     python3.12 mouth.py            full report
     python3.12 mouth.py --selftest
@@ -103,9 +108,23 @@ LY = ladder.LY
 M_EARTH = ladder.M_EARTH
 M_SUN = ladder.M_SUN
 M_JUPITER = 1.89813e27          # RECALLED
-RHO_NUCLEAR = 2.3e17            # kg/m^3, RECALLED (n0 = 0.1375 fm^-3 x m_p)
-# address.py's RHO_NUCLEAR is 2.676e17 (n0 = 0.16 fm^-3 x m_N): the tree carries
-# two nuclear densities 16 % apart -- recorded in DOCKET 67, not resolved here.
+import address as _address
+RHO_NUCLEAR = _address.RHO_NUCLEAR   # kg/m^3, 2.676e17 (n0 = 0.16 fm^-3 x m_N)
+# CORRECTED (DOCKET 67 follow-up, M: "repair all figures"; key
+# nuclear-saturation-density).  This read RHO_NUCLEAR = 2.3e17, RECALLED
+# (n0 = 0.1375 fm^-3 x m_p), 16 % below address.py's 2.676e17, and recorded the
+# two as "not resolved here".  warpdrive.py now imports address's value, so this
+# file does too and the tree carries one nuclear density.  Its status is
+# address's, DERIVED-FROM-ORDER: computed on the conventional n0 = 0.16 fm^-3,
+# NOT READ (the record holds no READ saturation density).  The ten-foot mouth's
+# density is 2.586e8 x nuclear on it (3.009e8 on 2.3e17); the selftest's
+# "over 1e8" holds on both, and is checked on both.
+RHO_NUCLEAR_WITHDRAWN = 2.3e17
+#: Proxima, imported: closeout.PROXIMA_LY is phase1.L_PROXIMA / LY (Gaia DR3,
+#: READ-VIA-RESTATEMENT).  CORRECTED (DOCKET 67 follow-up): this file typed
+#: 4.2465 ly at each use; that value is PROXIMA_LY_AS_FIRST_WRITTEN.
+PROXIMA_M = closeout.PROXIMA_LY * LY
+PROXIMA_LY_AS_FIRST_WRITTEN = 4.2465
 FOOT = 0.3048                   # exact by definition
 
 MOUTH_DIAMETER_FT = 10.0
@@ -220,7 +239,7 @@ def report():
           % ("reach", "mouth diameter (m)", "mass (kg)", "Earth masses"))
     for name, dd in [("7.6 m (ten-foot mouth)", d), ("one kilometre", 1e3),
                      ("Earth to Moon", 3.844e8), ("one light year", LY),
-                     ("Proxima, 4.2 ly", 4.2465 * LY)]:
+                     ("Proxima, 4.2 ly", PROXIMA_M)]:
         rr = radius_for_reach(dd)
         mm = ladder.mass_for_delta_d(dd)
         print("      %-26s %18.6e %20.6e %16.4e"
@@ -228,9 +247,9 @@ def report():
     print()
     print("      A KILOMETRE NEEDS A %.1f METRE MOUTH.  PROXIMA NEEDS ONE"
           % (2 * radius_for_reach(1e3)))
-    print("      %.3f LIGHT YEARS ACROSS." % (2 * radius_for_reach(4.2465 * LY) / LY))
+    print("      %.3f LIGHT YEARS ACROSS." % (2 * radius_for_reach(PROXIMA_M) / LY))
     print()
-    pf = packing_factor(4.2465 * LY, r)
+    pf = packing_factor(PROXIMA_M, r)
     print("      And keeping the ten-foot mouth while reaching Proxima would")
     print("      need that mass packed %.4e TIMES INSIDE ITS OWN" % pf)
     print("      GRAVITATIONAL RADIUS.  Not compressed -- INSIDE ITS HORIZON,")
@@ -283,7 +302,8 @@ def report():
     print("    cannot be separated at positive mass.")
     print()
     print("    SCOPE: %s." % SCOPE)
-    print("    Jupiter and nuclear-density figures are RECALLED, not read.")
+    print("    The Jupiter figure is RECALLED, not read; nuclear density is")
+    print("    address.py's, DERIVED-FROM-ORDER (n0 = 0.16 fm^-3, not READ).")
     print("    Nothing here is repaired.")
     print()
 
@@ -333,14 +353,22 @@ def selftest():
         abs(density(r) * (4.0 / 3.0) * math.pi * r ** 3 / M - 1.0) < 1e-12, True)
     chk("and it exceeds nuclear density by over 1e8",
         density(r) / RHO_NUCLEAR > 1e8, True)
+    chk("  nuclear density is address.RHO_NUCLEAR (one value in the tree)",
+        RHO_NUCLEAR == _address.RHO_NUCLEAR, True)
+    chk("  RECORD: and on the withdrawn 2.3e17 it exceeded 1e8 too",
+        density(r) / RHO_NUCLEAR_WITHDRAWN > 1e8, True)
 
     # the inversion
     chk("a kilometre needs a mouth over 100 m",
         2 * radius_for_reach(1e3) > 100.0, True)
     chk("Proxima needs one over a light year across",
-        2 * radius_for_reach(4.2465 * LY) / LY > 1.0, True)
+        2 * radius_for_reach(PROXIMA_M) / LY > 1.0, True)
     chk("packing factor for Proxima at ten feet exceeds 1e15",
-        packing_factor(4.2465 * LY, r) > 1e15, True)
+        packing_factor(PROXIMA_M, r) > 1e15, True)
+    chk("  Proxima is phase1's Gaia DR3 distance, imported",
+        abs(PROXIMA_M / __import__("phase1").L_PROXIMA - 1.0) < 1e-6, True)
+    chk("  RECORD: the 4.2465 ly first typed agrees with it to 4 places",
+        round(closeout.PROXIMA_LY, 4), PROXIMA_LY_AS_FIRST_WRITTEN)
 
     # the escape, and its status
     chk("the bound is a theorem for positive mass",
@@ -355,7 +383,7 @@ def selftest():
     chk("so the escape is real: no horizon, hence no aspect-ratio bound, at m < 0",
         BOUND_IS_A_THEOREM_FOR_NEGATIVE_MASS, False)
     chk("but the bill is unchanged -- Proxima in solar masses of NEGATIVE mass",
-        round(4.2465 * 9.4607304725808e15 * 1.348948e26 / 1.98892e30 / 1e12, 3),
+        round(PROXIMA_M * 1.348948e26 / 1.98892e30 / 1e12, 3),
         2.725)
     chk("and the resolution is scoped to where certify.py's theorem holds",
         SIGN_RESOLUTION_SCOPE,

@@ -10,6 +10,10 @@ never treated as the free parameter it is.
     rho = 3 f c^2 / (8 pi G R1^2 (g^3 - 1))  -- falls as 1/R^2
 
 So "666,000 x nuclear density" is a property of a 20 m ship, not of warp shells.
+(CORRECTED, DOCKET 67 follow-up: on address.RHO_NUCLEAR = 2.676e17 kg/m^3 --
+n0 = 0.16 fm^-3, DERIVED-FROM-ORDER, not READ -- the 20 m ship is 572,000 x
+nuclear; 666,000 was on a recalled 2.3e17.  The nuclear-density ship is
+R1 = 4.54 km at 1.03 Msun, first 4.90 km at 1.11 Msun.)
 Make it bigger and the material requirement collapses.  The engine is then a
 materials-and-scale trade with a real optimum, not a 10^31 wall.
 
@@ -31,15 +35,22 @@ C_COS      = math.pi**2 / 2.0              # max|S''| d^2, raised cosine
 KAPPA      = 0.145                         # calibrated, THE-DESIGN-EQUATION.md
 PHI        = 0.33                          # flux ratio at NEC failure
 
+import address as _address
+RHO_NUCLEAR = _address.RHO_NUCLEAR         # 2.676e17, DERIVED-FROM-ORDER there
+RHO_NUCLEAR_WITHDRAWN = 2.3e17             # as first written; kept, checked
+
 MATERIALS = [                              # name, density kg/m^3, note
     ("steel",                 7_850,     "ordinary structural alloy"),
     ("osmium",               22_590,     "densest stable element"),
     ("white-dwarf matter",    1.0e9,     "electron-degenerate"),
     ("neutron-star crust",    1.0e14,    "inner crust, neutron drip"),
-    # 2.3e17 is n0 = 0.1375 fm^-3 x m_p, RECALLED.  address.py's RHO_NUCLEAR is
-    # 2.676e17 (n0 = 0.16 fm^-3 x m_N): the tree carries two nuclear densities
-    # 16 % apart -- a discrepancy recorded in DOCKET 67, not resolved here.
-    ("nuclear matter",        2.3e17,    "saturation density"),
+    # CORRECTED (DOCKET 67 follow-up, M: "repair all figures"; key
+    # nuclear-saturation-density): this row carried 2.3e17 (n0 = 0.1375 fm^-3
+    # x m_p, RECALLED), 16 % below address.py's RHO_NUCLEAR, "recorded, not
+    # resolved here".  warpdrive.py now imports address's value, and so does
+    # this row: one nuclear density in the tree, status DERIVED-FROM-ORDER
+    # (n0 = 0.16 fm^-3, NOT READ).  The withdrawn value is RHO_NUCLEAR_WITHDRAWN.
+    ("nuclear matter",        RHO_NUCLEAR, "saturation density"),
     ("NS core",               1.0e18,    "a few x saturation"),
 ]
 
@@ -101,13 +112,22 @@ def selftest():
     chk("  as Earth masses", M20/5.972e24, 751.6, tol=0.002)
     rho20 = shell_density(10.0, 2.0/3.0, gamma=2.0)
     chk("published shell density (kg/m^3)", rho20, 1.5314e23, tol=0.002)
-    chk("  as multiples of nuclear", rho20/2.3e17, 665_800.0, tol=0.01)
+    # CORRECTED (DOCKET 67 follow-up): repinned to the computed values on
+    # address.RHO_NUCLEAR (python3 -c "import drivespec as d; r=d.RHO_NUCLEAR;
+    # print(d.shell_density(10,2/3,gamma=2.0)/r, d.radius_for_density(r,2/3))").
+    # The first-written pins, on 2.3e17, are kept as RECORD checks.
+    chk("  as multiples of nuclear", rho20/RHO_NUCLEAR, 572_060.0, tol=0.01)
+    chk("  RECORD: on the withdrawn 2.3e17", rho20/RHO_NUCLEAR_WITHDRAWN, 665_800.0, tol=0.01)
+    chk("  nuclear density is address.RHO_NUCLEAR", RHO_NUCLEAR == _address.RHO_NUCLEAR, True)
 
     print("\nThe scaling that was missed")
     # Same physics, same f, optimal geometry -- solve for nuclear density.
-    Rn = radius_for_density(2.3e17, 2.0/3.0)
-    chk("radius at which rho = nuclear (m)", Rn, 4903.0, tol=0.01)
-    chk("  mass there (Msun)", shell_mass(Rn, 2.0/3.0)/MSUN, 1.1088, tol=0.01)
+    Rn = radius_for_density(RHO_NUCLEAR, 2.0/3.0)
+    chk("radius at which rho = nuclear (m)", Rn, 4544.2, tol=0.01)
+    chk("  mass there (Msun)", shell_mass(Rn, 2.0/3.0)/MSUN, 1.0255, tol=0.01)
+    Rw = radius_for_density(RHO_NUCLEAR_WITHDRAWN, 2.0/3.0)
+    chk("  RECORD: on the withdrawn 2.3e17 (m)", Rw, 4903.0, tol=0.01)
+    chk("  RECORD:   mass there (Msun)", shell_mass(Rw, 2.0/3.0)/MSUN, 1.1088, tol=0.01)
     # 1/R^2 scaling check: 10x the radius is 100x less dense.
     chk("rho(49 km)/rho(4.9 km) = 1/100",
         shell_density(10*Rn, 2.0/3.0)/shell_density(Rn, 2.0/3.0), 0.01)
@@ -133,7 +153,8 @@ def report():
   rho = 3 f c^2 / (8 pi G R1^2 (g^3 - 1))  falls as 1/R^2
 
 The "666,000 x nuclear" figure this series kept quoting is a property of a 20 m
-ship, not of warp shells.  Scale is free.  Here is the whole trade:
+ship, not of warp shells (572,000 x on address.RHO_NUCLEAR; 666,000 was on a
+recalled 2.3e17 -- CORRECTED, DOCKET 67 follow-up).  Scale is free.  Here is the whole trade:
 """)
     print("  %-22s %14s %14s %14s" % ("material", "density", "min radius", "mass"))
     for name, rho, note in MATERIALS:
@@ -150,11 +171,11 @@ price of getting there is mass, because mass grows linearly all the way.
 
 The knee is neutron-star matter at ~5 km.  That is not a coincidence: it is the
 statement that a warp shell of this class IS a compact star.  And unlike 751
-Earth masses at 666,000 x nuclear -- which is nothing that exists -- there are
+Earth masses at 572,000 x nuclear -- which is nothing that exists -- there are
 of order 10^8 objects of that description in this galaxy.
 """)
     print("-- The point design ----------------------------------------------------------")
-    R1  = radius_for_density(2.3e17, f)
+    R1  = radius_for_density(RHO_NUCLEAR, f)
     M   = shell_mass(R1, f)
     vw  = v_warp_max(f)
     vc  = v_circulation(vw, f)

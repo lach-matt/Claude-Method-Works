@@ -62,10 +62,16 @@ M_SUN = ladder.M_SUN
 
 PROXIMA_LY = 4.2465
 # CORRECTED (DOCKET 67): the body and epoch were unnamed.  4.2465 ly is
-# PROXIMA Centauri (Gaia DR3 parallax 768.0665 mas, NAMED-NOT-READ; epoch
-# J2016.0), not alpha Cen AB (4.344-4.390 ly from the orbital parallaxes DOCKET
-# 67 read).  The tree is inconsistent here: phase1.py prices the same corridor
-# at 4.0 ly for "Alpha Centauri".  Recorded; the value is unchanged.
+# PROXIMA Centauri (Gaia DR3 parallax 768.0665 mas, epoch J2016.0), not alpha
+# Cen AB (4.344-4.390 ly from the orbital parallaxes DOCKET 67 read).
+# CORRECTED again (DOCKET 67 follow-up): this note said the parallax was
+# NAMED-NOT-READ and that "phase1.py prices the same corridor at 4.0 ly for
+# 'Alpha Centauri'".  Both are now stale: phase1.py and closeout.py price the
+# corridor at Proxima's Gaia DR3 distance, phase1.L_PROXIMA = 4.24646 ly, with
+# the parallax READ-VIA-RESTATEMENT (Reyle et al. 2021 Table 1; key
+# gaia-dr3-proxima-distance), so the tree prices one corridor at one distance.
+# This value is that distance to the 4 places it is typed to; the selftest
+# checks it against phase1.L_PROXIMA rather than retyping it.  Unchanged.
 PROXIMA_RADIAL_MS = 22.2e3        # RECALLED: ~ -22.2 km/s relative to the Sun
 # CORRECTED (DOCKET 67): RADIAL COMPONENT ONLY, and relative to the Sun.
 # Kervella et al. 2017 give -22.204 +/- 0.032 km/s (READ-VIA-RESTATEMENT);
@@ -304,6 +310,9 @@ def selftest():
     print("oneway.py --selftest")
     print()
     d = PROXIMA_LY * LY
+    import phase1
+    chk("PROXIMA_LY is phase1's Gaia DR3 distance to 4 places",
+        round(phase1.L_PROXIMA / phase1.LIGHT_YEAR, 4), PROXIMA_LY)
 
     # 0.  the correction
     chk("'both ways' was measured", BOTH_WAYS_WAS_MEASURED, False)

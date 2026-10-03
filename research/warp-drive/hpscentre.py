@@ -1521,6 +1521,24 @@ def selftest():
     chk("M_NEGATIVE_FOUND_IN_HPS_SYSTEM agrees with the centre run (c3 > 0)",
         M_NEGATIVE_FOUND_IN_HPS_SYSTEM, c['m_near_centre'] < 0)
 
+    # DOCKET 67 follow-ups: O5_ANSWERED_BY's FO/FFKP clause is asked of
+    # qeihps.py, the owner -- it names the Hadamard blocker, and qeihps
+    # REFUSES both theorems on HPS's state for want of it.
+    import qeihps                    # imported here: qeihps imports no hpscentre
+
+    def _names_blocker(text):
+        return ("HPS's state established Hadamard" in text
+                and "REFUSED until then" in text)
+    _refused = (qeihps.FO_ON_HPS.startswith("REFUSED")
+                and qeihps.FFKP_IV1_ON_HPS.startswith("REFUSED")
+                and not qeihps.HPS_STATE_HADAMARD_ESTABLISHED)
+    chk("O5_ANSWERED_BY names the Hadamard blocker; qeihps REFUSES FO, FFKP on it",
+        (_refused, _names_blocker(O5_ANSWERED_BY)), (True, True))
+    chk("  CONTROL: the clause as first written (no blocker) is caught",
+        _names_blocker(O5_ANSWERED_BY.replace(
+            "HPS's state established Hadamard -- both REFUSED until then, "
+            "qeihps.HPS_STATE_HADAMARD_ESTABLISHED -- and then ", "")), False)
+
     print("\n10. THE ROW -- RECORD PINS (printed, not counted: they compare nothing computed)")
     record("HPS_INTEGRATED_THE_PRINTED_SYSTEM (ruling B2; attribution() checks it above)",
            HPS_INTEGRATED_THE_PRINTED_SYSTEM)

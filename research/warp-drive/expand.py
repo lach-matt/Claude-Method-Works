@@ -16,7 +16,13 @@ That is register 1173's own hierarchy and I have not been writing it:
 
 EVERY HEADLINE NUMBER THIS PROJECT HAS PRODUCED IS AN ANALYSIS ANSWER.  65
 orders, 2 pi^2, 4.387e71 D^2 -- magnitudes, every one, and by 1173 analysis
-earns no row because logic cannot get a binary back from it.  I have been
+earns no row because logic cannot get a binary back from it.  (CORRECTED,
+DOCKET 67 follow-up: these are the numbers as the project first produced them,
+and two no longer stand as printed.  "65 orders" is the Ford-Roman census
+DOCKET 55 withdrew -- what holds is achievable.py's duration bound; and
+4.387e71 D^2 is gjw.py's energy-density ratio, kept there as a record -- its
+gain against T_kk along the winding null direction (H-WIND) is 1.097e71 D^2.
+Either way each is a magnitude, which is the point of the sentence.)  I have been
 answering a binary question in a language that cannot answer it, for twenty-odd
 passes, and achronal.py caught me doing it once already with ANEC.
 
@@ -29,8 +35,14 @@ This file does it the stated way.
   ORDER        is the causal structure admissible?  Can a non-achronal
                connection exist between the endpoints?
                GJW: YES -- by an external causal path, not through the matter.
-               achronal.py proved the matter route closed; gjw.py found the
-               other one.                                     ADMITS
+               achronal.py found no conjugate point on any ANEC-violating
+               ray (shear-dropped reduction); gjw.py found the external
+               path.                                          ADMITS
+               (CORRECTED, DOCKET 67 follow-up: first "achronal.py proved the
+               matter route closed".  "No conjugate point" does not make a
+               ray achronal -- the converse is false -- so whether the matter
+               route is closed is OPEN (obstruct.py's ACHRONALITY row).  The
+               row's ADMITS rests on GJW and does not move.)
 
   GEOMETRY     does the configuration embed?  Monotone areal radius (no
                throat), g_tt < 0 everywhere (no horizon), M_ADM = 0.
@@ -53,8 +65,9 @@ This file does it the stated way.
                optimum at 2.0e-2.  The device is not fine-tuned.  statrow.py.
                                                                 ADMITS
 
-  ANALYSIS     is there a continuous law?  Yes, and it returns 4.387e71 D^2 --
-               A MAGNITUDE.  By register 1173 it earns NO ROW.   (no row)
+  ANALYSIS     is there a continuous law?  Yes, and it returns 1.097e71 D^2 --
+               A MAGNITUDE (gjw.py, T_kk on H-WIND; first written 4.387e71,
+               the energy-density ratio -- CORRECTED, DOCKET 67 follow-up).  By register 1173 it earns NO ROW.   (no row)
 
 -- THE LOGIC EXPANSION: THE PAIRS --------------------------------------------
 FIVE languages now hold rows, so C(5,2) = 10 pairs.  Four agree with each other
@@ -99,8 +112,10 @@ admits.  Embedding is a geometry question and geometry admits.  Nothing
 structural stands in the way of faster or cheaper.
 
 DOES NOT: make anything faster or cheaper.  Information's refusal is a measured
-refusal -- rho < 0 at the required magnitude is not available, and 4.387e71 is a
-real number about the real world.  A language having no row in the cypher does
+refusal -- rho < 0 at the required magnitude is not available, and 1.097e71 is a
+real number about the real world, on gjw.py's named model (one free scalar,
+flat 2D cycle, H-WIND; first written 4.387e71, the energy-density ratio --
+CORRECTED, DOCKET 67 follow-up).  A language having no row in the cypher does
 not make its measurement false; register 1173 governs WHICH LANGUAGE ANSWERS A
 BINARY, not which measurements are true.
 
@@ -111,8 +126,11 @@ BINARY, not which measurements are true.
 
 -- AND ONE THING THE EXPANSION SURFACES THAT THE MAGNITUDES HID --------------
 ORDER ADMITS BECAUSE OF GJW, AND ONLY BECAUSE OF GJW.  Before pass 27 this row
-was a refusal too -- achronal.py had closed the matter route and nothing else was
-known.  So the expansion has ALREADY moved once this session, from two refusals
+was a refusal too -- achronal.py was read as closing the matter route and nothing
+else was known.  (CORRECTED, DOCKET 67 follow-up: that reading rested on the
+false converse of the conjugate-point theorem; achronal.py shows no conjugate
+point in the shear-dropped reduction, not achronality, and the ACHRONALITY row
+in obstruct.py is OPEN.  The move to ADMITS is GJW's and stands.)  So the expansion has ALREADY moved once this session, from two refusals
 to one, and it moved in the row that governs SPEED.
 
 That is the only structural change the project has made to the speed question,
@@ -128,8 +146,11 @@ INPUT_BINARY = "TRANSITION-POSSIBLE"
 
 
 def order_row():
-    """Can a non-achronal connection exist?  Matter route closed; external
-    causal path open (GJW).  Recomputed from both instruments."""
+    """Can a non-achronal connection exist?  External causal path open (GJW).
+    The second value is achronal.py's "no ANEC-violating ray has a conjugate
+    point" (shear-dropped reduction) -- NOT achronality, which is OPEN.
+    CORRECTED (DOCKET 67 follow-up): first documented as "matter route
+    closed".  Recomputed from both instruments."""
     import achronal, gjw
     matter_closed = achronal.escapes(achronal.survey()) == []
     external_open = gjw.bank_loan_theorem()      # GJW's mechanism exists
@@ -278,16 +299,28 @@ def selftest():
     print("              speed is an order question and order admits; cost is an")
     print("              algebra question and algebra admits.")
     print("     DOES NOT make anything faster or cheaper.  Information's refusal")
-    print("              is MEASURED, and 4.387e71 is a real number about the")
-    print("              real world.  1173 governs which language answers a")
+    print("              is MEASURED, and 1.097e71 (gjw.py, T_kk on H-WIND) is")
+    print("              a real number on a named model.  1173 governs which language answers a")
     print("              binary, not which measurements are true.")
     import achievable
-    chk("the magnitude is unmoved by any of this", achievable.ratio(1.0) < 1e-60, True)
+    # CORRECTED (DOCKET 67 follow-up): achievable.ratio() is the DOCKET 55-
+    # withdrawn ratio of two densities, not a shortfall against any bound
+    # (budget.py relabels the same check).  Kept, relabelled; the duration
+    # bound's shortfall is what holds, and it is checked beside it.
+    chk("the withdrawn density ratio is unmoved (< 1e-60; a ratio, NOT a shortfall)",
+        achievable.ratio(1.0) < 1e-60, True)
+    chk("the duration-bound shortfall still refuses at b = 1 m (> 1e30)",
+        achievable.persistence_shortfall(1.0) > 1e30, True)
 
     print("\nAND THE ROW THAT MOVED THIS SESSION")
     _o, matter_closed = order_row()
-    chk("achronal.py closed the MATTER route to non-achronality", matter_closed, True)
-    print("       So before pass 27 ORDER refused too, and the expansion stood at")
+    # CORRECTED (DOCKET 67 follow-up): relabelled, value unchanged.  First
+    # "achronal.py closed the MATTER route to non-achronality", which rested on
+    # the false converse; what is computed is the absence of conjugate points.
+    chk("achronal.py: no ANEC-violating ray has a conjugate point (achronality NOT shown)",
+        matter_closed, True)
+    print("       So before pass 27 ORDER was read as refusing (CORRECTED: on the")
+    print("       false converse; achronality is OPEN), and the expansion stood at")
     print("       TWO refusals.  GJW's external causal path moved it to one -- and")
     print("       it moved the row that governs SPEED.  That is the only")
     print("       structural change this project has made to the speed question,")

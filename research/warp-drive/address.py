@@ -669,9 +669,12 @@ A_BOHR_M = 5.29177210903e-11     # CODATA                           NAMED-NOT-RE
 ALPHA_EM = 1.0 / 137.035999084   # CODATA                           NAMED-NOT-READ
 RHO_NUCLEAR = 2.676e17           # kg/m^3, n_0 = 0.16/fm^3 * m_N    DERIVED-FROM-ORDER
 #   DOCKET 67, recorded and not reconciled: m_N here is m_p (n_0 m_p to 4
-#   digits).  The tree's other nuclear density is 2.3e17 (n_0 = 0.1375;
-#   warpdrive.py, emwarp.py, drivespec.py, mouth.py), 16% lower; at 2.3e17
-#   the section 5 ratios are 342x (H1) and 98.2x (H2).
+#   digits).  The tree's other nuclear density is 2.3e17 (n_0 = 0.1375), 16%
+#   lower; at 2.3e17 the section 5 ratios are 342x (H1) and 98.2x (H2).
+#   CORRECTED (DOCKET 67 follow-up): this list read "warpdrive.py, emwarp.py,
+#   drivespec.py, mouth.py".  Those four now import this RHO_NUCLEAR (each
+#   keeps 2.3e17 only as a withdrawn record); 2.3e17 is still typed in
+#   core.py, elements.py, gate1.py, gatespec.py, launcher.py and residue.py.
 GRAVIMETER_FLOOR = 1.0e-9        # m/s^2, ~0.1 microGal             ORDER
 #   DOCKET 67 (Freier et al. 1512.05660 READ): at source 1e-9 is a RELATIVE
 #   long-term stability figure (~1e5 s Allan deviation).  Absolute accuracy is

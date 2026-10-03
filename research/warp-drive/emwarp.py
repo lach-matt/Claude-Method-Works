@@ -154,8 +154,10 @@ beside the rig.  It is about 751 Earth masses inside a twenty-metre radius.
 `the_real_barrier()` reports two further numbers that say what shape the barrier
 has, and they point opposite ways.
 
-**THE DENSITY IS THE BARRIER.**  The mean density needed is **6.66e5 times
-NUCLEAR density** -- the shell is not made of any material that exists.  It is
+**THE DENSITY IS THE BARRIER.**  The mean density needed is **5.72e5 times
+NUCLEAR density** (address.RHO_NUCLEAR = 2.676e17 kg/m^3, n0 = 0.16 fm^-3,
+DERIVED-FROM-ORDER, not READ; CORRECTED, DOCKET 67 follow-up: first 6.66e5, on
+a recalled 2.3e17) -- the shell is not made of any material that exists.  It is
 denser than a neutron star by five orders of magnitude, and no equation of state
 in the literature supports matter like that.
 
@@ -222,11 +224,16 @@ EARTH_M, EARTH_R, EARTH_MOI, EARTH_DAY = 5.972e24, 6.371e6, 0.3307, 86164.0
 
 #: Saturation density of nuclear matter, the densest matter that exists outside
 #: a black hole.  The shell's requirement is measured against it in section 5.
-NUCLEAR_DENSITY = 2.3e17
-#: DOCKET 67, recorded and not reconciled: 2.3e17 kg/m^3 corresponds to
-#: n_0 = 0.1375 fm^-3.  address.py carries RHO_NUCLEAR = 2.676e17 (n_0 = 0.16
-#: fm^-3 times m_p), 16% higher; the tree uses both.  n_0 was not read at
-#: source.
+import address as _address
+NUCLEAR_DENSITY = _address.RHO_NUCLEAR
+#: CORRECTED (DOCKET 67 follow-up, M: "repair all figures"; key
+#: nuclear-saturation-density).  This was NUCLEAR_DENSITY = 2.3e17 (n_0 =
+#: 0.1375 fm^-3), "recorded and not reconciled" against address.py's
+#: RHO_NUCLEAR = 2.676e17 (n_0 = 0.16 fm^-3 times m_p), 16% higher.  warpdrive.py
+#: now imports address's value, so this file does too and the tree carries one.
+#: Its status is address's, DERIVED-FROM-ORDER: n_0 was not read at source.
+#: The shell's requirement moves from 6.66e5 to 5.72e5 x nuclear; both checked.
+NUCLEAR_DENSITY_WITHDRAWN = 2.3e17
 
 
 # ------------------------------------------------------ vector helpers (stdlib)
@@ -673,8 +680,14 @@ def selftest():
         b["earth_masses"] > 700, True)
     chk("and over 1e35 times the rig's stored-field mass",
         b["over_rig_field_mass"] > 1e35, True)
-    chk("the density needed is 6.7e5 x nuclear -- THE barrier",
-        float("%.2g" % b["over_nuclear_density"]), 6.7e5)
+    # CORRECTED (DOCKET 67 follow-up): repinned to the computed value on
+    # address.RHO_NUCLEAR; the first-written 6.7e5 (on 2.3e17) is a RECORD.
+    chk("the density needed is 5.7e5 x nuclear -- THE barrier",
+        float("%.2g" % b["over_nuclear_density"]), 5.7e5)
+    chk("  nuclear density is address.RHO_NUCLEAR (one value in the tree)",
+        NUCLEAR_DENSITY == _address.RHO_NUCLEAR, True)
+    chk("  RECORD: on the withdrawn 2.3e17 it read 6.7e5 x nuclear",
+        float("%.2g" % (b["mean_density_kg_m3"] / NUCLEAR_DENSITY_WITHDRAWN)), 6.7e5)
     chk("but the shell sits OUTSIDE its own Schwarzschild radius",
         b["schwarzschild_radius_m"] < FUCHS_SHELL["R1_m"], True)
     chk("with this much margin", float("%.2g" % (FUCHS_SHELL["R1_m"]

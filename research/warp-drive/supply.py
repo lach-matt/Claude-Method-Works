@@ -162,7 +162,12 @@ contraction eps goes as 1/b^2, so the ratio closes as b shrinks:
     seat and a coupling -- ALL CROSSING WITHIN TWO ORDERS OF THE PLANCK LENGTH.
     (CORRECTED, DOCKET 67 follow-up: gjw.py's separation was 0.0934 l_P while
     its gain divided the energy density into a T_kk threshold; against the
-    winding-direction T_kk (H-WIND) it is sqrt(pi/90) l_P = 0.187 l_P.)
+    winding-direction T_kk (H-WIND) it is sqrt(pi/90) l_P = 0.187 l_P.
+    And "INDEPENDENT" overstates the agreement: each is a crossover of the
+    form L = l_P/sqrt(kappa), so landing within two orders of l_P is a
+    dimensional identity for any O(1) kappa -- scale.py's theorem; gjw.py
+    records its own figure as "not an independent route to the Planck scale".
+    The three are three values of kappa, not three corroborations.)
 
     That is the answer to "what must we apply".  Not a bigger supply and not a
     better conversion: THE ONLY FREE VARIABLE IS THE GAP, and the gap has to

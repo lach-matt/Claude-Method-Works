@@ -52,7 +52,14 @@ equation, not only in its geometry.
 `gjw.py` closes the flat-space calculation GJW leave as a remark, and the answer
 is a quadratic law -- measured at exponent 2.0000 over six decades:
 
-    required gain  =  C D^2,        C = 4.386649e71 m^-2
+    required gain  =  C D^2,        C = 1.096662e71 m^-2
+
+(gjw.py's gain against the cycle's T_kk along the winding null direction --
+its NAMED HYPOTHESIS H-WIND; along transverse null directions that T_kk is 0
+and no gain suffices.  CORRECTED (DOCKET 67 follow-up): first C = 4.386649e71
+m^-2, gjw.py's T_kk threshold divided by an ENERGY DENSITY, which gjw.py now
+keeps as energy_density_gain_coefficient().  The 1/N law, the floor and the
+product invariant below hold for either C; only the figures move.)
 
 **A QUADRATIC COST IS THE BEST POSSIBLE NEWS FOR SPLITTING.**  Break the span
 into N segments of length D/N.  Each needs C(D/N)^2, so the total is
@@ -68,8 +75,9 @@ rather than restating it.
 ===============================================================================
 
 Segments cannot usefully be shorter than the length at which the gain is
-already unity.  `gjw.py` computes that length: **d1 = 1.509849e-36 m = 0.0934
-Planck lengths**, where C d1^2 = 1 exactly.  So N <= D/d1, and at that floor
+already unity.  `gjw.py` computes that length: **d1 = 3.019698e-36 m = 0.1868
+Planck lengths**, where C d1^2 = 1 exactly.  (CORRECTED, DOCKET 67 follow-up:
+first d1 = 1.509849e-36 m = 0.0934 Planck lengths, on the energy-density C.)  So N <= D/d1, and at that floor
 
     total  =  C D^2 / (D/d1)  =  C D d1  =  D / d1  =  N itself.
 
@@ -85,16 +93,18 @@ wrote that product as "gain per segment times count"; that quantity is merely
 the total again, and `product_invariant`'s fixture caught it.)
 What survives at maximum splitting is
 
-    D / d1  --  THE PATH LENGTH MEASURED IN UNITS OF 0.0934 PLANCK LENGTHS.
+    D / d1  --  THE PATH LENGTH MEASURED IN UNITS OF 0.1868 PLANCK LENGTHS.
 
-For Proxima Centauri at 4.2465 ly that residue is **2.6609e52**.  It is not an
+For Proxima Centauri at 4.2465 ly that residue is **1.3304e52**.  (CORRECTED,
+DOCKET 67 follow-up: first 2.6609e52 cells of 0.0934 l_P, on the energy-density
+C; kept as PROXIMA_RESIDUE_AS_FIRST_WRITTEN and still checked against it.)  It is not an
 energy, a mass or a gain; it is a count of cells along the path, and no way of
 dividing the work reduces it.
 
 **BOTH COST MEASURES AGREE, AND ONE OF THEM WAS GUESSED WRONG BEFORE IT WAS
 COMPUTED.**  If cost is linear in gain, the total falls monotonically to the
-floor.  If cost is measured in decibels, `decibel_cost()` rises from 1.05e3 dB
-at N = 1, peaks, and falls to EXACTLY ZERO at N = N_max where every segment
+floor.  If cost is measured in decibels, `decibel_cost()` rises from 1.04e3 dB
+at N = 1 (1.05e3 on the energy-density C, as first written), peaks, and falls to EXACTLY ZERO at N = N_max where every segment
 needs unity gain.  The stationary point at N_max/e is a MAXIMUM -- the second
 derivative is -20/(N ln 10) < 0 -- so the dB measure is worst in the middle and
 cheapest at maximum splitting.  `db_stationary_is_a_maximum()` checks the sign
@@ -178,8 +188,9 @@ the conclusion does not rest on the choice.  Both agree; neither is assumed.
 **TO CLAIM THE CONCATENATION.**  See section 5.  Without it, section 2 is
 arithmetic about a chain nobody has shown can be built.
 
-**TO CALL 2.6609e52 AN ENERGY.**  It is a dimensionless residue -- a count of
-0.0934-Planck-length cells along the path.  Converting it to joules needs a cost
+**TO CALL 1.3304e52 AN ENERGY.**  It is a dimensionless residue -- a count of
+0.1868-Planck-length cells along the path (first written 2.6609e52 cells of
+0.0934 l_P; see section 3's CORRECTED note).  Converting it to joules needs a cost
 per cell that nothing here supplies.
 
 **TO RE-DERIVE gjw.py.**  C, d1 and the D^2 law are IMPORTED from it, never
@@ -210,6 +221,12 @@ SWAP_CITE = ("Zukowski, Zeilinger, Horne & Ekert (1993), PRL 71, 4287 -- "
 LY = 9.4607304726e15
 C_LIGHT = 2.99792458e8
 PROXIMA_M = 4.2465 * LY
+
+#: CORRECTED (DOCKET 67 follow-up): the residue and cell as first written, on
+#: gjw.py's energy-density coefficient (4.3866e71).  Kept as history; the
+#: selftest recomputes both from gjw.energy_density_gain_coefficient().
+PROXIMA_RESIDUE_AS_FIRST_WRITTEN = 2.6609e52
+CELL_LP_AS_FIRST_WRITTEN = 0.09342
 
 
 # ------------------------------------------------ 2 & 3. the amplification split
@@ -298,7 +315,8 @@ def decibel_floor(D=PROXIMA_M):
 
 
 def planck_residue(D=PROXIMA_M):
-    """What survives maximum splitting: the path in 0.0934-Planck-length cells."""
+    """What survives maximum splitting: the path in 0.1868-Planck-length cells
+    (gjw.py's T_kk unity separation, H-WIND; first written 0.0934)."""
     return max_segments(D), unity_length() / gjw.L_PLANCK
 
 
@@ -426,9 +444,20 @@ def selftest():
     chk("the floor equals N_max at all four separations",
         [ok for _d, _n, _f, ok in floor_equals_count()],
         [True, True, True, True])
-    chk("Proxima's residue", float("%.5g" % max_segments(PROXIMA_M)), 2.6609e52)
-    chk("and it is the path in 0.0934 Planck lengths",
-        float("%.4g" % planck_residue()[1]), 0.09342)
+    # CORRECTED (DOCKET 67 follow-up): repinned to the computed values when
+    # gjw.gain_coefficient() became the winding-direction T_kk gain (H-WIND).
+    # The first-written pins are kept below as RECORD checks.
+    chk("Proxima's residue", float("%.5g" % max_segments(PROXIMA_M)), 1.3304e52)
+    chk("and it is the path in 0.1868 Planck lengths",
+        float("%.4g" % planck_residue()[1]), 0.1868)
+    _d1_ed = gjw.energy_density_gain_coefficient() ** -0.5
+    chk("RECORD: first-written residue, on the energy-density C",
+        float("%.5g" % (PROXIMA_M / _d1_ed)), PROXIMA_RESIDUE_AS_FIRST_WRITTEN)
+    chk("RECORD: and its 0.0934-Planck-length cell",
+        float("%.4g" % (_d1_ed / gjw.L_PLANCK)), CELL_LP_AS_FIRST_WRITTEN)
+    chk("the T_kk residue is the first-written one / sqrt(4)",
+        abs(max_segments(PROXIMA_M) * 2.0 / (PROXIMA_M / _d1_ed) - 1.0) < 1e-12,
+        True)
 
     # -- the product is invariant ---------------------------------------------
     ps = [p for _n, p in product_invariant()]

@@ -797,16 +797,28 @@ def objects(F):
             "(D1: 'Nothing is transported anywhere by the operator itself').  "
             "WITHDRAWN inside spec.py and not part of S: the Sturm-universal "
             "B*l specification, the magnetar figure, and the ANEC-protects-"
-            "achronality line (struck, anecscope.py).  STALE TEXT IN THE OWNER, "
-            "recorded not repaired: spec.py's prose DOES paragraph still says "
-            "'UNIVERSAL in Sturm's sense' (%s) and spec.report() still prints "
-            "the struck ANEC line and the withdrawn 65 orders (%s)."
+            "achronality line (struck, anecscope.py).  STALE TEXT THIS FILE "
+            "RECORDED IN THE OWNER, since repaired there (DOCKET 67 follow-up "
+            "D): spec.py's prose DOES paragraph now reads 'The seating "
+            "condition is SUFFICIENT, and its universality is Sturm's' -- over "
+            "shapes and entry states, the collapse computed only for T_kk = u "
+            "along a ball's radius (%s) -- and spec.report() prints the "
+            "duration bound's %.3f orders (achievable.persistence_shortfall at "
+            "1 m) in place of the withdrawn Ford-Roman census (that figure "
+            "still in report(): %s); the struck ANEC line is printed marked "
+            "STRUCK.  (CORRECTED, DOCKET 67 follow-up: this clause read "
+            "\"still says 'UNIVERSAL in Sturm's sense' ... still prints the "
+            "struck ANEC line and the withdrawn\" figure.)"
             % ("; ".join(spec.DOES), "; ".join(spec.DOES_NOT), ruled("M-S1A-P1"),
                "contract" in open(spec.__file__, encoding="utf-8").read().lower(),
                massform.mechanism_label(), priced65(),
                priced65(massform.HELD_SEAT_ROUTE_PRICED), S13_CANDIDACY,
                F["certify_iff"],
-               "UNIVERSAL in Sturm" in spec.__doc__,
+               ("The seating condition is SUFFICIENT, and its universality is "
+                "Sturm's" in " ".join(spec.__doc__.split())
+                and "computed only for T_kk = u along a ball's radius"
+                in " ".join(spec.__doc__.split())),
+               math.log10(achievable.persistence_shortfall(1.0)),
                "65 orders" in _source(spec.report)),
          "source": "spec.py (DOES, DOES_NOT, focal_length, LENSES, "
                    "seat_over_collapse, HALTED), turnseat.py, composite.py, "
@@ -814,9 +826,13 @@ def objects(F):
         {"id": "W", "name": "the throat gate",
          "definition":
             "A shortcut through non-simply-connected spatial topology.  It is "
-            "not a transition: create.which_fails() = %s, on topology "
-            "(fails_on_topology() = %s) -- R^3 is simply connected and a "
-            "wormhole is not.  It is excluded from R2 on THAT ground only.  At "
+            "not a transition: create.which_fails() = %s -- it fails phase1's "
+            "fixed-manifold clause, on topology (fails_on_topology() = %s): "
+            "R^3 is simply connected and a handle wormhole is not (a "
+            "Morris-Thorne inter-universe section R x S^2 is simply connected; "
+            "create.py).  It is excluded from R2 on THAT ground only.  "
+            "(CORRECTED, DOCKET 67 follow-up: first written with which_fails() "
+            "= ['D2'] and 'a wormhole is not', unqualified.)  At "
             "the throat itself m = %s (throatmass.THROAT_MASS); in HPS's "
             "conserved system the flare carries m < 0 from %.4f l_P "
             "(hpscentre, %s reading, outside the established domain).  Two "
@@ -1727,7 +1743,10 @@ def requirements(F):
             "P-UNIFORM (M-D65-4, on the board: %s; M: '%s'): a paper edit on M's "
             "ruling under M's rule for the paper (\"%s\", verbatim from the "
             "session, witnessed by the lead); the paper's other marked edit on "
-            "M's ruling is DOCKET 63's (paper/CLAIMS.md:%s), and no verdict here "
+            "M's ruling is DOCKET 63's (paper/CLAIMS.md:%s) -- so it stood when "
+            "M ruled.  CORRECTED (DOCKET 67 follow-ups): the paper has since "
+            "carried DOCKET 67's markers, '%s ...)', which name M's ruling "
+            "by M's words and which the census below READs; no verdict here "
             "moves on it.  M ruled the ruling id into the paper's clause "
             "(M-D65-5, on the board: %s; M: '%s'); on the board, %s."
             % (massform.M_MECHANISM, massform.MECHANISM_VERDICT[0],
@@ -1751,7 +1770,7 @@ def requirements(F):
                ruled("M-D65-3"), len(facts_in_force_names()),
                d67_clauses()[0], d67_clauses()[1], d67_clauses()[2],
                ruled("M-D65-4"), ledger.M_D65_4_ANSWER, ledger.M_PAPER_RULE_WORDS,
-               ledger.paper_d63_marker()[0],
+               ledger.paper_d63_marker()[0], ledger.PAPER_D67_MARKER_HEAD,
                ruled("M-D65-5"), ledger.M_D65_5_ANSWER, ledger.paper_markers_clause())},
     ]
 
@@ -2455,7 +2474,10 @@ def escape_texts(model=None):
          "O1 ('%s'; the ledger's text prices it at >= %s, figures no instrument "
          "re-derives); state-dependent NMC bounds exist (Fewster-Osterbrink "
          "0708.2450, FFKP 2309.10848, as qeihps.py reads them -- FO's for xi in "
-         "[0, 1/4], along timelike geodesics, difference type) and an absolute "
+         "[0, 1/4], along timelike geodesics in a globally hyperbolic "
+         "neighbourhood, difference type; both for Hadamard states only, the "
+         "hypotheses qeihps.FORM_TAGS carries since DOCKET 67's follow-up) and "
+         "an absolute "
          "one is %s.  Interacting fields: no state-independent QEI is expected "
          "(Fewster's lectures, Sec. 5.2; the source's own qualifications: QEIs "
          "hold for 2D CFTs, and 'modified QEIs' may hold -- DOCKET 67).  "
@@ -2664,7 +2686,11 @@ QUOTES = (
     ("phase1", "Nothing is transported anywhere by the operator itself"),
     ("spec", "DROP THE LEAD.  KEEP THE SEAT."),
     ("spec", "nothing else"),
-    ("spec", "UNIVERSAL in Sturm's sense"),
+    # CORRECTED (DOCKET 67 follow-up): was ("spec", "UNIVERSAL in Sturm's
+    # sense"), which after spec.py's repair matched only its CORRECTED note's
+    # verbatim history; the live DOES text is quoted instead.
+    ("spec", "The seating condition is SUFFICIENT, and its universality is Sturm's"),
+    ("spec", "computed only for T_kk = u along a ball's radius"),
     ("spec", "one untested door"),
     ("create", "manufacture a wormhole -- closed"),
     ("drivensource", "THE BREAK IS EMPTY"),
@@ -2712,6 +2738,10 @@ QUOTES = (
     ("ledger:M-D65-4", "No further edit will be made to it unless a finding changes "
                        "any of the already existing paper"),
     ("ledger:M-D65-4", "the paper's other marked edit on M's ruling is DOCKET 63's"),
+    # DOCKET 67 follow-ups: SR5 mirrors the cell's correction; quoted so a
+    # change in the owner's wording fails here.
+    ("ledger:M-D65-4", "so it stood when M ruled"),
+    ("ledger:M-D65-4", "the paper has since carried DOCKET 67's markers"),
     ("ledger:M-D65-5", "add the id"),
 )
 
@@ -4601,6 +4631,19 @@ def selftest():
          len(outside_results_in("(Fewster-Osterbrink 0708.2450, FFKP 2309.10848, "
                                 "Planted 0000.00001, as qeihps.py reads them)"))),
         (["Fewster-Osterbrink 0708.2450", "FFKP 2309.10848"], 3))
+    # DOCKET 67 follow-up: H_M0's text says FO and FFKP hold for Hadamard
+    # states only, and FO in a globally hyperbolic neighbourhood -- asked of
+    # qeihps.FORM_TAGS, the owner, so a dropped tag there fails here.
+    _fo = [k for k in qeihps.FORM_TAGS if k.startswith("Fewster-Osterbrink")]
+    _ffkp = [k for k in qeihps.FORM_TAGS if k.startswith("FFKP") and "IV.1" in k]
+    chk("chk", "H_M0's FO/FFKP hypotheses are qeihps.FORM_TAGS': FO carries "
+        "hadamard and globhyp, FFKP Thm IV.1 hadamard; and H_M0's text says so",
+        (len(_fo), len(_ffkp),
+         {"hadamard", "globhyp"} <= qeihps.FORM_TAGS[_fo[0]] if _fo else None,
+         "hadamard" in qeihps.FORM_TAGS[_ffkp[0]] if _ffkp else None,
+         any("both for Hadamard states only" in t and "globally hyperbolic" in t
+             for h, _t, t in escape_texts()[0] if h == "H_M0")),
+        (1, 1, True, True, True))
     # The list is printed as a FLOOR, under a label in the method's own words
     # that says what the regex reaches; the escapes' texts name more.
     chk("chk", "the escapes' list is labelled a FLOOR at the record and at SR5, "
@@ -4716,10 +4759,14 @@ def selftest():
          "board: %s; M: '%s'): a paper edit on M's ruling under M's rule for the "
          "paper (\"%s\", verbatim from the session, witnessed by the lead); the "
          "paper's other marked edit on M's ruling is DOCKET 63's (paper/CLAIMS.md:"
-         "%s), and no verdict here moves on it.  M ruled the ruling id into the "
+         "%s) -- so it stood when M ruled.  CORRECTED (DOCKET 67 follow-ups): the "
+         "paper has since carried DOCKET 67's markers, '%s ...)', which name M's "
+         "ruling by M's words and which the census below READs; no verdict here "
+         "moves on it.  M ruled the ruling id into the "
          "paper's clause (M-D65-5, on the board: %s; M: '%s'); on the board, %s."
          % (ruled("M-D65-4"), ledger.M_D65_4_ANSWER, ledger.M_PAPER_RULE_WORDS,
-            ledger.paper_d63_marker()[0], ruled("M-D65-5"), ledger.M_D65_5_ANSWER,
+            ledger.paper_d63_marker()[0], ledger.PAPER_D67_MARKER_HEAD,
+            ruled("M-D65-5"), ledger.M_D65_5_ANSWER,
             ledger.paper_markers_clause())
          in sr5["statement"],
          ruled("M-D65-4"), ruled("M-D65-5"),
@@ -4791,6 +4838,18 @@ def selftest():
          _Snote.index("stable only on") < _Snote.index("the candidacy rests"),
          "as Rec does not, stable only on" in _Snote),
         (True, True, [True], True, False))
+    # DOCKET 67 follow-up: object S's clause on spec.py's repaired text, asked
+    # live -- the scoped DOES sentence found (True), the withdrawn figure gone
+    # from report() (False) -- and object W's clause on create.which_fails().
+    _Wdef = [o["definition"] for o in model["objects"] if o["id"] == "W"][0]
+    chk("chk", "object S reads spec.py's scoped DOES (True) and no withdrawn "
+        "figure in report() (False); object W prints which_fails() and the "
+        "handle qualifier",
+        ("radius (True)" in _Sdef, "still in report(): False" in _Sdef,
+         "recorded not repaired: spec.py's prose DOES" in _Sdef,
+         str(create.which_fails()) in _Wdef,
+         "a handle wormhole is not" in _Wdef),
+        (True, True, False, True, True))
     chk("ctl", "the note as it stood ('S-3 candidate' with no basis), and the "
         "WHAT IT DOES NOT SAY entry without it, are caught",
         ("the candidacy rests " + S13_CANDIDACY

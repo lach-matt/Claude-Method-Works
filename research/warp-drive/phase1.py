@@ -703,11 +703,15 @@ CANDIDATES = (
      "sentence; the static couplings of 1804.00491 and 1807.04726 are "
      "reusable (DOCKET 67).  Theorem 5 is not applied to the 2016 protocol"),
     ("Casimir corridor", None, True,
-     "reusable; gjw.py's 4.39e71 short at metre scale is GJW's flat-space "
+     "reusable; gjw.py's 1.10e71 short at metre scale (T_kk along the "
+     "winding null direction, H-WIND; CORRECTED, DOCKET 67 follow-up: first "
+     "written 4.39e71, the energy-density ratio) is GJW's flat-space "
      "CYCLE (one free massless scalar, flat transversely infinite uniform "
      "density, cycle length 2D), not this corridor.  CORRECTED (DOCKET 67): "
-     "the plate model (vacuumcorridor.py) gives 2.193e71 at 1 m, and every "
-     "variant computed stays at 5e70 to 3.5e72"),
+     "the plate model (vacuumcorridor.py) gives 5.48e70 at 1 m on the same "
+     "T_kk footing, and every variant computed stays at 5.5e70 to 8.6e71 "
+     "(gjw.py; first written 2.193e71 and 5e70 to 3.5e72, against the "
+     "energy density)"),
     ("charge state", 0.0, True,
      "no contraction at all: Phi > 0 only inside r < Q^2/2M, which is hidden "
      "at every Q up to extremal (charge.py samples q <= 1).  CORRECTED "

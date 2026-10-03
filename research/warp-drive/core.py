@@ -111,12 +111,26 @@ g_tt = -e^{2Phi}, g_ij = e^{-2Phi}, which agrees with the linear form to first
 order and validates at 4M/b to 0.03 %:
 
         m         conjugate (lin / exp)     t-|dx| (lin / exp)
-        5.0e-3    228.5  /  228.5           -8.4239e-2 / -8.4240e-2
-        2.0e-2    165.4  /  165.4           -1.7852e-1 / -1.7888e-1
+        5.0e-3    228.6  /  228.7           -8.4239e-2 / -8.4240e-2
+        2.0e-2    165.4  /  165.5           -1.7852e-1 / -1.7888e-1
         8.0e-2    late   /  late            +1.036e+0  / +9.813e-1
 
-    IDENTICAL TO FOUR FIGURES, because the rays live in the corridor where
-    Phi ~ 0.02 and the two metrics differ at O(Phi^2) ~ 4e-4.  So the limit in
+    THE SAME VERDICT ON EVERY ROW, because the rays live in the corridor where
+    Phi ~ 0.02 and the two metrics differ at O(Phi^2) ~ 4e-4: the conjugate
+    points agree to one integration step (h = 0.12), the delays to 1e-5
+    relative at m = 5e-3, 2e-3 at 2e-2 and 5 % at 8e-2, and seat / lead / late
+    is identical in every row.
+
+    CORRECTED (DOCKET 67 follow-up, on concentric.py's corrected Jacobi sign,
+    eq. 11).  The conjugate column was computed with the first-written sign and
+    read 228.5 / 228.5 and 165.4 / 165.4 (228.48 both, at n = 2500); re-run
+    with concentric.survey's eq. (11) sign it is 228.60 / 228.72 and
+    165.36 / 165.48, and at m = 8e-2 the ray still seats late (154.44 /
+    154.68).  The delay column does not depend on the sign and is unchanged.
+    The paragraph also read "IDENTICAL TO FOUR FIGURES", which the delay
+    column never supported at 2e-2 or 8e-2; it now states the measured
+    agreement.  (Re-run: composite.metric swapped for g_tt = -e^{2Phi},
+    g_ii = e^{-2Phi}, concentric.survey(m) at its defaults.)  So the limit in
     §2 was REAL ABOUT THE CORE'S INTERIOR DESCRIPTION and IRRELEVANT TO EVERY
     MEASURED RESULT, all of which happen in the corridor.  Both halves of that
     sentence are kept.

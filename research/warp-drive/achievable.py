@@ -306,9 +306,11 @@ other.  bounds.py was right.  The three sentences that carried the fault:
     l from a Casimir plate and states that the known Casimir density -- that of
     the massless minimally coupled scalar between ideal Dirichlet plates --
     "ranges between 3-7% of the bound".  Reproduced from his own expression by
-    bounds.py's casimir_fraction_of_bound (no code here computes it): 6.8% at
-    the midpoint, 3.4% and 3.2% at z/L = 0.2 and 0.4, on his printed 1140,
-    which is a misprint for 1440 (6.7%, 3.3%, 3.2% on 1440).  He then asks, in
+    bounds.py's casimir_fraction_of_bound (no code here computes it): 6.7% at
+    the midpoint, 3.3% and 3.2% at z/L = 0.2 and 0.4, on the Dirichlet
+    scalar's constant term pi^2/1440 (its default); 6.8%, 3.4% and 3.2% on his
+    printed 1140, a misprint for 1440.  (CORRECTED, DOCKET 67 follow-up: this
+    led with the 1140 figures, from when bounds.py defaulted to them.)  He then asks, in
     print, "why is the Casimir energy density a comparatively small proportion
     of the allowed bound?"  Saturation of Fewster's bound is not 3 %.  Two
     limits on that: Fewster states the bound rests on Eq. (3), which "is known

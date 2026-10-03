@@ -179,10 +179,17 @@ C-twisted bundle carries net charge too.  On those hypotheses that is M's
 principle as a theorem, with no defect possible, exactly as stated.  ADM
 energy is not defined there (pair.py: no spatial infinity); whether the total
 energy is 'undefined' or zero is a contested convention, since ADT/Killing
-charges, the on-shell Hamiltonian and pseudotensors give zero.  The contrast
-with charge holds for expanding closed FRW, which has no timelike Killing
-field; on a static closed background the perturbative conserved energy is
-forced to zero by topology too (Deser-Brill 1973).  Baryon number is not
+charges, the on-shell Hamiltonian and pseudotensors give zero.  pair.py now
+COMPUTES that split: CLOSED_UNIVERSE_ADM_ENERGY = UNDEFINED,
+CLOSED_UNIVERSE_HAMILTONIAN_ENERGY = 0.0 on shell (its named prescription
+H_HAM), so CLOSED_UNIVERSE_TOTAL_ENERGY = CONTESTED.  The contrast with
+charge is therefore a contrast with the ADM energy only: for expanding closed
+FRW there is no timelike Killing field, but on pair.py's Hamiltonian
+prescription the constraint forces the total to zero much as Gauss forces the
+charge, and on a static closed background the perturbative conserved energy
+is forced to zero by topology too (Deser-Brill 1973).  (CORRECTED, DOCKET 67
+follow-up: this read "The contrast with charge holds for expanding closed
+FRW", written before pair.py computed the Hamiltonian total.)  Baryon number is not
 forced, given no gauged U(1) acting on B or B-L with a massless untwisted
 boson (in the SM U(1)_B is anomalous and cannot be gauged); and the SM does
 not conserve B at all, only B-L.  Topology does not fix B's value; it
@@ -456,7 +463,8 @@ def total_charge_forced_zero(closed):
 CONSTRAINED_BY_CLOSURE = (
     ("electric charge", True,
      "Gauss on a boundaryless manifold (m_gamma = 0, untwisted): exactly zero"),
-    ("ADM energy", False, "not defined there at all -- pair.py"),
+    ("ADM energy", False, "not defined there at all -- pair.py (the TOTAL "
+     "energy is CONTESTED there: Hamiltonian 0 on shell, pair.py)"),
     ("baryon number", False,
      "not forced (no massless gauged U(1) on B or B-L); topology quantises B"),
 )
@@ -597,6 +605,10 @@ def selftest():
     chk("an open one does not", total_charge_forced_zero(False), False)
     chk("closure constrains electric charge", closure_constrains("electric charge"), True)
     chk("closure constrains ADM energy", closure_constrains("ADM energy"), False)
+    import pair
+    chk("  pair.py: ADM UNDEFINED, Hamiltonian 0, total CONTESTED (computed there)",
+        (pair.CLOSED_UNIVERSE_ADM_ENERGY, pair.CLOSED_UNIVERSE_HAMILTONIAN_ENERGY,
+         pair.CLOSED_UNIVERSE_TOTAL_ENERGY), ("UNDEFINED", 0.0, "CONTESTED"))
     chk("independent arrivals at the sign-blind split",
         len(ARRIVALS_AT_THE_SPLIT), 3)
     for a in ARRIVALS_AT_THE_SPLIT:
@@ -698,9 +710,12 @@ def report():
   SAME ONE AGAIN.  Gauss's law on a manifold with no boundary forces
   TOTAL ELECTRIC CHARGE TO BE EXACTLY ZERO in a spatially closed
   universe -- forced by topology, given a massless photon and an
-  untwisted bundle.  ADM energy is not defined there, and for expanding
-  closed FRW there is no energy counterpart (on a static closed
-  background Deser-Brill forces the Killing energy to zero too).
+  untwisted bundle.  ADM energy is not defined there; the TOTAL energy
+  is CONTESTED (pair.py computes it: ADM UNDEFINED, the closed-FRW
+  Hamiltonian 0 on shell under its named prescription), and on a static
+  closed background Deser-Brill forces the Killing energy to zero too.
+  (CORRECTED, DOCKET 67 follow-up: this read "for expanding closed FRW
+  there is no energy counterpart".)
   Baryon number is not forced, absent a massless gauged U(1) on B or
   B-L.  Third independent arrival at the split:
   A SIGN-BLIND QUANTITY IS WHAT A CLOSED INDEX CAN CONSTRAIN.

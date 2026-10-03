@@ -460,7 +460,7 @@ no mixed quantity is reported.
 ## ★★ HEADLINE — the device *(the LEAD half WITHDRAWN, see H17)*
 
 **H10. The two-region device seats with `M_ADM = 0` exactly, so the positive mass theorem has no
-objection to it — and respecting the theorem is nearly free.**
+objection to it — and zeroing `M_ADM` costs the shell's delay, 13.1 % of the core's advance.** *(Corrected on M's "Repair all", DOCKET 67: the headline read "and respecting the theorem is nearly free", resting on the design rule as first written, 7.8 %; `concentric.py` computes 13.1 %. The theorem's "no objection" is true and vacuous: it assumes the DEC, which the core violates.)*
 
 > **~~and leads~~ — WITHDRAWN.** Every lead figure in this section was measured with **both endpoints
 > inside the device's own shell** (`x₀ = ±150`, `R_s = 200`), where the metric is not asymptotically
@@ -468,14 +468,14 @@ objection to it — and respecting the theorem is nearly free.**
 > **seating**, `M_ADM = 0`, the vacuum corridor and the shell's ordinariness are all untouched — none
 > of them is a statement about arrival time. See **H17**, and `chronology.py`.
 
-> H8's result needed a **bare negative mass**, which the positive mass theorem forbids, and a result
-> that needs one is not a device. The construction that fixes it is a compact **negative core inside a
-> positive shell of equal magnitude**:
+> H8's result needed a **bare negative mass**, which the positive mass theorem forbids only under the DEC — and a bare negative mass violates the DEC, so the theorem does not forbid it — and a result
+> that needs one fails D2 (`M_ADM = −|M|`, felt at every distance). The construction that keeps D2 is a compact **negative core inside a
+> positive shell of equal magnitude**: *(Corrected on M's "Repair all", DOCKET 67: first "which the positive mass theorem forbids, and a result that needs one is not a device". `phase1.py` now includes the bare negative mass and ranks it first on cost — `Λ` 21.19 at its window, above the corridor's 9.98 at every `X > 73.6 b` — at the cost of D2 and the DEC, which the corridor's core also violates; the corridor is the only ranked entry that keeps D2, `phase1.the_winner_keeping_d2()`.)*
 >
 > `Φ(r) = m/√(r²+a²) − m/max(r, R_s)`
 >
-> **The monopoles cancel, so `M_ADM = 0` exactly.** Measured: `Φ(1000) = −6.2×10⁻¹³` against
-> `Φ(1) = +4.98×10⁻³`. No `1/r` tail, so no ADM mass, so nothing for the theorem to object to.
+> **The monopoles cancel, so `M_ADM = 0` exactly** (for the metric as written). Measured at `m = 5×10⁻³`: `Φ(1000) = −1.0×10⁻¹⁵` against
+> `Φ(1) = +4.97×10⁻³`. No `1/r` tail, so no ADM mass, so nothing for the theorem to object to. *(Corrected on M's "Repair all", DOCKET 67: first `−6.2×10⁻¹³` and `+4.98×10⁻³`; the first is the broken harness's `a = 0.5` value, `concentric.py`.)*
 >
 > **Newton's shell theorem does the division of labour**, and it is a theorem rather than an
 > assumption: inside a spherical shell the potential is constant, so the shell contributes to `g_tt`
@@ -486,21 +486,21 @@ objection to it — and respecting the theorem is nearly free.**
 > |---|---|---|---|---|---|
 > | 1.0×10⁻³ | 250 | none | −1.92×10⁻² | −6.4×10⁻⁵ | leads, no seat |
 > | 3.0×10⁻³ | 83 | none | −5.40×10⁻² | −1.8×10⁻⁴ | leads, no seat |
-> | **5.0×10⁻³** | 50 | **228.5** | **−8.42×10⁻²** | −2.8×10⁻⁴ | **SEATS + LEADS** |
-> | **1.0×10⁻²** | 25 | **182.2** | **−1.41×10⁻¹** | −4.7×10⁻⁴ | **SEATS + LEADS** |
+> | **5.0×10⁻³** | 50 | **228.6** | **−8.42×10⁻²** | −2.8×10⁻⁴ | **SEATS + LEADS** |
+> | **1.0×10⁻²** | 25 | **182.3** | **−1.41×10⁻¹** | −4.7×10⁻⁴ | **SEATS + LEADS** |
 > | **2.0×10⁻²** | 12.5 | **165.4** | **−1.79×10⁻¹** | **−6.0×10⁻⁴** | **SEATS + LEADS** |
 > | 8.0×10⁻² | 3.1 | 154.4 | +1.04 | +3.5×10⁻³ | seats, LATE |
 >
-> **A window of most of a decade**, and the conjugate point is converged to `228.45 ± 0.04` over a
-> sixfold refinement in step count.
+> **A window of most of a decade**, and the conjugate point is converged to `228.65 ± 0.05` over a
+> sixfold refinement in step count. *(Corrected on M's "Repair all", DOCKET 67: the Jacobi loop first ran with the opposite sign to Gao-Wald eq. (11); corrected, the conjugate points at `5×10⁻³` and `10⁻²` move one step, from 228.5 and 182.2, and the band from `228.45 ± 0.04`. No verdict and no window edge moves.)*
 >
-> **And it is nearly free.** The best relative lead, `−6.0×10⁻⁴`, is if anything slightly *better* than
-> H8's bare mass. The reason is a design rule, not luck:
+> **What it costs.** The best relative lead is `−6.0×10⁻⁴` at `m = 2×10⁻²` (H8's bare mass gives `~5×10⁻⁴`, but in another
+> geometry — `b = 0.3` against `b = 1` — so the two are not a like-for-like comparison). Zeroing `M_ADM` costs the shell's delay, set by a design rule, not luck:
 >
-> **`shell delay / core advance ≈ (L/R_s) / (2 ln(L/a)) ≈ 8%`**
+> **`shell delay / core advance ≈ (L/R_s) / (2 ln(L/b)) = 0.1315`** (`b ≫ a`; computed)
 >
-> The core's advance carries a **logarithm of its compactness** and the shell's delay does not. **Put
-> the shell far and make the core small.**
+> The core's advance carries a **logarithm** and the shell's delay does not. **Put
+> the shell far.** The core is still made small — for the vacuum corridor below, not for the delay. *(Corrected on M's "Repair all", DOCKET 67: first "And it is nearly free … slightly *better* than H8's bare mass", and the rule with the core radius `a` in the logarithm, `≈ 8%`, read as "make the core small"; the first-order advance is `4m asinh((L/2)/√(b²+a²))`, so the logarithm is of `L/b`, `concentric.py`.)*
 >
 > **One hard design constraint:** the corridor is vacuum only if the core is compact against the
 > impact parameter. Tidal trace ratio `3.99×10⁻¹` at `b/a = 2` against `7.55×10⁻⁴` at `b/a = 50`. Below
@@ -510,7 +510,7 @@ objection to it — and respecting the theorem is nearly free.**
 | | `concentric.py` |
 |---|---|
 | status | **MEASURED**, converged over a sixfold refinement, on `composite.py`'s thrice-validated pipeline |
-| new? | the zero-ADM construction and the `(L/R_s)/(2 ln(L/a))` design rule, yes |
+| new? | the zero-ADM construction and the `(L/R_s)/(2 ln(L/b))` design rule, yes *(Corrected on M's "Repair all", DOCKET 67: first written with `ln(L/a)`.)* |
 | falsified by | a strong-field treatment that closes the window — `Φ_max ≈ 0.25` at the design point is **not small**, and this is the weakest point in the result |
 | **not** claimed | five things, below |
 
@@ -662,8 +662,8 @@ fluid* — its own internal modes — is untouched.
 
 ## ⚠ THE HARD RESULT — and it belongs in the abstract
 
-**H13. There is no achievable core. Every known source of negative energy density obeys
-`|ρ| ≲ ℏc/L⁴`, and the core needs 65 orders of magnitude more.**
+**H13. There is no achievable core. ~~Every known source of negative energy density obeys
+`|ρ| ≲ ℏc/L⁴`, and the core needs 65 orders of magnitude more.~~ The core cannot hold its negative energy for one light-crossing: on the worldline QEI's duration bound it is 71.256 orders short at `b = 1 m`, widening as `b²`.** *(Corrected on M's "Repair all", DOCKET 67: the struck headline is the census DOCKET 55 withdrew in `achievable.py`: Ford & Roman's inequality is a time average at one point, not a cap over a scale `L`, and "65 orders" was computed from that misreading with its own `3/(32π²)` dropped. The duration bound holds for the massless minimally coupled scalar in Hadamard states, in flat space — the one field where a state-independent QEI is proven.)*
 
 > **The census of real negative energy density** — Casimir (measured), squeezed vacuum (what is measured is a negative normal-ordered quadrature variance, which is a negative `⟨:T₀₀:⟩` only under the single-mode plane-wave identification and on part of each cycle;
 > LIGO uses it, corroborated by search summaries only), dynamical Casimir (observed, Wilson 2011: photon generation and two-mode squeezing; the paper measures no energy density), Hawking/Unruh flux (analogue-measured),
@@ -672,7 +672,7 @@ fluid* — its own internal modes — is untouched.
 > that bound saturated, not an exception to it. This is a theorem about quantum field theory, **not a
 > limit of apparatus**.~~ *(Corrected on M's "Repair all", DOCKET 67: the struck sentence was withdrawn in `achievable.py` under DOCKET 55, each clause failing against the paper it names, and what replaces it is a bound on duration, not on magnitude; the census entries carried "measured" past what each experiment measured.)*
 >
-> | `b` | required (Pa) | available (Pa) | avail/req |
+> | `b` | required (Pa) | "available" (Pa) — a density, not a bound | avail/req — a ratio of two densities *(Corrected on M's "Repair all", DOCKET 67: this column was priced as the quantum bound over the core's size; it reads a spatial radius into a temporal sampling slot and drops `3/(32π²)`, so nothing asserts it.)* |
 > |---|---|---|---|
 > | 1 m | 1.806×10⁴⁶ | 1.976×10⁻¹⁹ | **1.09×10⁻⁶⁵** |
 > | 100 km | 1.806×10³⁶ | 1.976×10⁻³⁹ | 1.09×10⁻⁷⁵ |
@@ -680,13 +680,13 @@ fluid* — its own internal modes — is untouched.
 > | 1 light-year | 1.806×10¹⁴ | 1.976×10⁻⁸³ | 1.09×10⁻⁹⁷ |
 >
 > **And the gap widens with size, which is the part that matters.** Required falls as `1/b²`;
-> available falls as `1/b⁴`. **Going bigger loses by two powers.** That closes an escape this project
+> ~~available falls as `1/b⁴`~~ — on the duration bound, with the hold time forced to `T = b/c`, the shortfall goes exactly as `b²`. **Going bigger loses by two powers.** *(Corrected on M's "Repair all", DOCKET 67: DOCKET 55 withdrew the reason, not the trend: the `1/b⁴` held only because the sampling length was chosen as `0.02 b`, and Ford, Helfer and Roman prove no purely spatially averaged QEI exists over a bounded region for the massless minimally coupled scalar in 4D Minkowski spacetime.)* That closes an escape this project
 > used twice — `seatindex.py`'s `1/ℓ` saving and `concentric.py`'s far shell were both "go bigger".
 > Here there is no large-scale corner to retreat to.
 >
-> The curves cross only at a core size of **4.09 Planck lengths** — a **third independent route to the
+> The curves cross only at a core size of **4.09 Planck lengths** ~~— a **third independent route to the
 > Planck scale**, after `corridor.py`'s Unruh crossover and its Casimir crossover, and about a
-> different object. When three unrelated calculations land there, that is where the physics is.
+> different object. When three unrelated calculations land there, that is where the physics is.~~ — a dimensional identity, not a route: `ℏc/L⁴ = K c⁴/(G L²)` gives `L = l_P/√K` for any dimensionless `K`, so every crossover of this shape is `l_P` times an O(1) number by construction, and at Ford & Roman's sourced sampling fractions it moves at least a decade. *(Corrected on M's "Repair all", DOCKET 67: the struck sentence is DOCKET 55's withdrawal in `achievable.py`.)*
 >
 > **Two things that look like exceptions and are not**, named so they are not reached for later:
 > **dark energy** has negative *pressure* and *positive* energy density — the wrong sign of the wrong
@@ -694,16 +694,16 @@ fluid* — its own internal modes — is untouched.
 > relation*, not `T₀₀`, and does not gravitate.
 
 **What this does not retract.** `concentric.py`'s device remains a valid solution: `M_ADM = 0`, a
-vacuum corridor, seats and leads over most of a decade, a shell of ordinary matter that is radially
+vacuum corridor, seats over most of a decade (its lead is interior-only, **H17**), a shell of ordinary matter that is radially
 stable for free, a Type I core whose exoticism is exactly one sign. **Every one of those stands.** What
-is settled is that the core is **not buildable with known physics**, and that the shortfall is a
-**theorem rather than a budget**.
+is settled is that the core is **not buildable with known physics**, ~~and that the shortfall is a
+**theorem rather than a budget**~~ — on a convergence of proven limits, a survey and not a theorem. *(Corrected on M's "Repair all", DOCKET 67: "and leads" dropped, and the struck clause is DOCKET 55's withdrawal: no theorem of the right shape caps the ball integral, Ford-Helfer-Roman prove none can exist over a bounded region in 4D Minkowski spacetime, and the duration theorem that does exist holds for the massless minimally coupled scalar in Hadamard states, in flat space; the massless scalar nonminimally coupled with `ξ > 0` admits no state-independent QEI.)*
 
 **The honest statement of this work, in one sentence:**
 
 > A complete, self-consistent, stability-checked warp architecture whose single unmet requirement is a
-> matter type no known physics provides — with the shortfall quantified at **65 orders of magnitude**
-> and shown to **widen with scale**.
+> matter type no known physics provides; whose demand no spatial bound can refuse, because Ford-Helfer-Roman prove none exists; and which is nonetheless refused, on the persistence axis, by **71.256 orders** at metre scale
+> for the one field where a state-independent QEI is proven, the shortfall **widening as `b²`**. *(Corrected on M's "Repair all", DOCKET 67: first "with the shortfall quantified at 65 orders of magnitude and shown to widen with scale", the sentence DOCKET 55 withdrew in `achievable.py`; "65 orders" is not the banked figure and must not be quoted.)*
 
 **Not settled:** whether physics beyond the standard framework supplies it. That is a question this
 project cannot ask, and pretending otherwise would be the failure mode every withdrawal in this tree
@@ -719,7 +719,7 @@ the boundary between matter that satisfies the energy conditions and matter that
 > Charge is the most natural remaining escape: the Reissner–Nordström term `+Q²/r²` enters the metric
 > with the **opposite sign to mass**, and electromagnetic stress-energy satisfies **every** energy
 > condition — so if charge could supply what the core supplies, Ford–Roman would never apply and H13's
-> 65 orders would be irrelevant.
+> shortfall would be irrelevant. *(Corrected on M's "Repair all", DOCKET 67: first "H13's 65 orders", the figure DOCKET 55 withdrew; H13 now carries the duration bound's 71.256.)*
 >
 > **The lead: no, and it is a theorem.** `Φ = −M/r + Q²/2r²`, so `Φ > 0` iff `r < Q²/2M`, against a
 > horizon at `r₊ = M + √(M²−Q²)`:
@@ -753,8 +753,8 @@ the boundary between matter that satisfies the energy conditions and matter that
 
 | | needs | status |
 |---|---|---|
-| **Part 2 — the turn** | `T_kk > 0` | **ACHIEVABLE** — ordinary electromagnetism |
-| **Parts 1 & 3 — the lead and its closure** | `Φ > 0` | **FORBIDDEN** — `Q ≤ M` for charge, 65 orders for negative energy |
+| **Part 2 — the turn** | `T_kk > 0` (Ricci focusing, the shear-free scalar model; with shear, vacuum Weyl focusing turns too) | **ACHIEVABLE** — ordinary electromagnetism *(Corrected on M's "Repair all", DOCKET 67: the scalar-model hypothesis was unstated.)* |
+| **Parts 1 & 3 — the lead and its closure** | `Φ > 0` | **FORBIDDEN** — `Q ≤ M` for charge; for negative energy, H13's duration bound (71.256 orders at 1 m) *(Corrected on M's "Repair all", DOCKET 67: first "65 orders", withdrawn under DOCKET 55.)* |
 
 > **The device is not uniformly out of reach. Its focusing half is buildable with physics we have, and
 > its advantage half is blocked by two independent theorems that agree.**
@@ -808,7 +808,7 @@ and the whole specification is one invariant: `B·ℓ = 1.5456×10¹⁹ T·m`.~~
 >
 > **And the residual gap is engineering.** From the best human field (1200 T, destructively pulsed) to
 > magnetar class is **8.3×10⁷ in field, 6.9×10¹⁵ in energy density — against no theorem.** Not
-> comparable to H13's 65 orders, which was a gap against Ford–Roman that **widened** with scale. This
+> comparable to H13's shortfall, which **widens** with scale (as `b²` on the duration bound). *(Corrected on M's "Repair all", DOCKET 67: first "H13's 65 orders, which was a gap against Ford–Roman", the figure DOCKET 55 withdrew.)* This
 > one **closes** with scale: a weaker field simply seats further out along `B·ℓ = const`, and nature
 > already operates at the strong end.
 
@@ -845,8 +845,8 @@ required. **`NOT-RUN`, with a reason, and it is the one untested door if the lea
 **The scoping result stands.** Every theorem that blocked this work — Olum, Ford–Roman, `Q ≤ M` — is a
 theorem about **beating light**. If the requirement is only that the transported matter exist at both
 ends under the same physics, that demand is never made, and every blocking result is attached to a
-requirement no longer posed. `transit.py`'s Part 1 and Part 3 are unchanged; Part 2 needs `T_kk > 0`,
-which is what ordinary matter has. **None of that depended on `B·ℓ`.**
+requirement no longer posed. `transit.py`'s Part 1 and Part 3 are unchanged; Part 2 needs focusing — in the shear-free scalar model `T_kk > 0`,
+which is what ordinary matter has, and with shear vacuum Weyl focusing turns a congruence at either sign of the source, sign-blind at first order (H8, H10). **None of that depended on `B·ℓ`.** *(Corrected on M's "Repair all", DOCKET 67: first "Part 2 needs `T_kk > 0`", the scalar model's condition stated as the general one.)*
 
 **The specification does not stand, and it failed in two independent ways.**
 
@@ -1054,7 +1054,7 @@ hole at the far end — **measured impassable**: the throat falls from `2M` to `
 |---|---|
 | status | **PROVEN** (rigidity ⇒ DEC failure; ER non-traversability, exact; charge sign-blindness) + **MEASURED** (Hawking temperatures; 200,000-ray scan) |
 | new? | the rigidity clause applied to this device — **yes, and it upgrades an assumption to a derivation** |
-| **not** claimed | that the balance principle licenses a `±E` pair — it forbids one; that a closed universe's total energy is **zero** — ADM mass is a surface integral at spatial infinity, and a closed universe has none, so the quantity is **undefined**, not zero (a definitional refusal, filed as one); that the ER bridge is a route to anything — it is the solution that does *not* work; that any magnitude in the exotic-matter bill has moved — none has |
+| **not** claimed | that the balance principle licenses a `±E` pair — it forbids one; that a closed universe's total energy is **zero** — ADM mass is a surface integral at spatial infinity, and a closed universe has none, so the **ADM** energy is **undefined**; the **total** is **CONTESTED**, computed in `pair.py` (the closed-FRW Hamiltonian, a named prescription, is 0 on shell), and either way it pairs nothing *(Corrected on M's "Repair all", DOCKET 67: first "so the quantity is undefined, not zero (a definitional refusal, filed as one)", a declared constant `pair.py` now computes.)*; that the ER bridge is a route to anything — it is the solution that does *not* work; that any magnitude in the exotic-matter bill has moved — none has |
 
 ---
 
@@ -1096,8 +1096,8 @@ evidence.*
 
 **And a closed index constrains exactly one quantity — the same one again.** Gauss's law on a manifold
 with no boundary forces **total electric charge to be exactly zero** in a spatially closed universe:
-topology, not observation. No counterpart for energy (undefined there — **H19**) or baryon number (not
-forced). **Third independent arrival** at the sign-blind split, after Wheeler's charge-without-charge
+topology, not observation. No counterpart for the ADM energy (undefined there — **H19**; the total is CONTESTED, `pair.py`) or baryon number (not
+forced). *(Corrected on M's "Repair all", DOCKET 67: first "No counterpart for energy (undefined there)".)* **Third independent arrival** at the sign-blind split, after Wheeler's charge-without-charge
 and Weyl-against-Ricci.
 
 **The picture also has a real formulation.** *Unimodular gravity* fixes `det g` and varies only the
@@ -1113,7 +1113,7 @@ problem; it does not solve it, and classically, with that conservation, no obser
 
 ---
 
-## ★★★ H21 — `M_ADM` is a free parameter; the **lead** is the whole cost, and the DEC branch is exhausted
+## ★★★ H21 — `M_ADM` is a free parameter; the **lead** is the whole cost, and the DEC branch is exhausted on its collapse sub-case, OPEN beyond *(Corrected on M's "Repair all", DOCKET 67: first "and the DEC branch is exhausted"; `apply.dichotomy_is_exhaustive()` computes False.)*
 
 **H21. Letting the shell mass float free of the core's, `M_ADM = 0`, `+5.0e−3` and `+1.5e−2` all seat
 and all lead, while a positive core — ordinary matter throughout — seats and arrives *late*. `M_ADM` is
@@ -1136,21 +1136,21 @@ never about `M_ADM`** — it tightens nothing, and removes only the hope that bo
 
 > **The seat is free. The lead is the whole cost.**
 
-**And that makes the dichotomy exhaustive rather than enumerated.**
+**And that makes the dichotomy exhaustive rather than enumerated — on the collapse sub-case; one sub-case is OPEN.**
 
 | case | verdict | by |
 |---|---|---|
 | `M_ADM < 0`, DEC holds | **forbidden** | positive mass theorem, the inequality |
 | `M_ADM = 0`, DEC holds | **Minkowski** | positive mass theorem, the **rigidity clause** |
-| `M_ADM > 0`, DEC holds | **collapse** | Sturm density exceeds it by `2π²/3` for `T_kk = u` on a radius; over every ball OPEN *(Corrected on M's "Repair all", DOCKET 67: the `T_kk = u` condition was unstated.)* |
+| `M_ADM > 0`, DEC holds | **collapse** where `(T_kk/u)(s/ℓ)² < 2π²/3`; **OPEN** where it is `≥ 2π²/3` | the Sturm density over the trapping bound is `(2π²/3)/((T_kk/u)(s/ℓ)²)` — `2π²/3` for `T_kk = u` on a radius, `1.6449` for dust on a diameter, `0.8225` for a `T_kk = 2u` member on a diameter, within the DEC *(Corrected on M's "Repair all", DOCKET 67: the `T_kk = u` condition was unstated, and the OPEN sub-case is now computed, `apply.dec_cases_open()`.)* |
 | DEC fails | the device | everything this tree has built |
 
-> **Under the dominant energy condition there is no seat-and-lead** — a statement about every case,
-> not about the ones somebody thought to try. It is the strongest negative result the project holds. Whether it survives the collapse row's OPEN case — on a diameter the Sturm ratio falls to `≤ 1` for `w ≥ 0.644934`, inside the DEC — is itself OPEN: no verifier computed it (DOCKET 67).
+> **Under the dominant energy condition no case has a demonstrated seat-and-lead** — and one sub-case has no ground either way:
+> `M_ADM > 0` with `(T_kk/u)(s/ℓ)² ≥ 2π²/3` is OPEN, closed by no theorem, and lies in none of the three doors below (`apply.DEC_BRANCH_OPEN_OUTSIDE_THE_DOORS`); whether it holds a seat-and-lead — no witness is built, its lead is not examined — is OPEN. *(Corrected on M's "Repair all", DOCKET 67: first "there is no seat-and-lead — a statement about every case, not about the ones somebody thought to try. It is the strongest negative result the project holds", then "whether it survives the collapse row's OPEN case … is itself OPEN: no verifier computed it"; `apply.py` now computes the split, and the dichotomy is exhaustive only on the collapse sub-case.)*
 
-**One line closes five proposed routes at once.** A sign-blind quantity pairs, balances and is
-constrained by closure; a sign-committed one is not; and **energy is sign-committed** by the positive
-mass theorem. So balance (`pair.py`), closure and permutation (`permute.py`), entanglement symmetry
+**One line closes five proposed routes at once.** A sign-blind quantity can pair, balance and be
+constrained by closure (closure needs a Gauss constraint from a massless gauge field to bind it — baryon number is sign-blind and not forced); a sign-committed one is not; and **energy is sign-committed** by the positive
+mass theorem. *(Corrected on M's "Repair all", DOCKET 67: first "A sign-blind quantity pairs, balances and is constrained by closure", as a universal; sign-blindness is necessary, not sufficient, `apply.py`.)* So balance (`pair.py`), closure and permutation (`permute.py`), entanglement symmetry
 (`entsym.py`) and the binary chain's geometry (`chain.py`) all die — *not case by case*, but because the
 class of quantity they act on does not include energy.
 
@@ -1164,15 +1164,15 @@ masses whatever their signs, and its one escape — constant potential — is ex
 hands the device. Neutral is optimal, so drift to contact is the **Newtonian ceiling**, and what remains
 is one named `NOT-RUN` about whether GR moves it.
 
-**What is left is three doors, and they are the only three:** **outside GR** (f(R), noncommutative
+**What is left is three doors** — and, outside them, the DEC branch's OPEN sub-case above; whether it is a fourth door is OPEN *(Corrected on M's "Repair all", DOCKET 67: first "and they are the only three".)*: **outside GR** (f(R), noncommutative
 geometry — where the DEC and the positive mass theorem are not the governing theorems; scope still
 unchosen); **not an energy question** (order, causal structure, chronology protection); **a relic rather
 than a construction** (`create.py`'s topology theorems and `detect.py`'s search already agree).
 
 | | `apply.py` |
 |---|---|
-| status | **MEASURED** (four surveys on `concentric.py`'s own machinery) + **PROVEN** (the DEC-branch exhaustion, from three named theorems) |
-| new? | that `M_ADM` is free of the mechanism, and the exhaustion of the DEC branch, yes |
+| status | **MEASURED** (four surveys on `concentric.py`'s own machinery) + **PROVEN** (the DEC branch's exhaustion on its collapse sub-case, from three named theorems) + **OPEN** (the sub-case `(T_kk/u)(s/ℓ)² ≥ 2π²/3`) *(Corrected on M's "Repair all", DOCKET 67: first "the DEC-branch exhaustion", unscoped.)* |
+| new? | that `M_ADM` is free of the mechanism, and the exhaustion of the DEC branch's collapse sub-case, yes |
 | **not** claimed | that anything moved — `expand.py` still reads `E = 1` with the dissent in INFORMATION alone, recomputed here and said first; that the exhaustion extends beyond GR-with-matter, which is precisely door one; that three doors means three routes — none of them is open, they are the only places left to look |
 
 ---
@@ -1281,8 +1281,8 @@ negative.
 
 **H24. Every denomination is tied to mass-energy by a monomial in `G`, `c`, `ℏ`, `k` — or by a bound
 that runs against the trade. The whole conversion table holds exactly two dimensionless numbers: `Λ`,
-determined and O(10), and `κ`, the one genuine lever, already measured at `π/360` against the
-`3.8281e69` needed.**
+determined and O(10), and `κ`, the one genuine lever, already measured at `π/90` against the
+`3.8281e69` needed.** *(Corrected on M's "Repair all", DOCKET 67: first `π/360`, `gjw.py`'s `T_kk` threshold divided by an energy density; against the cycle's `T_kk` along the winding null direction, its named hypothesis H-WIND, `κ = π/90`, `scale.py`.)*
 
 | denomination | rate | value |
 |---|---|---|
@@ -1301,7 +1301,7 @@ bounds energy *below*, by information.
 > enter through `κ` or through the base, and the base is door one.**
 
 **And the door count does not move.** `nopath.py`'s dimensional drift is a warped braneworld — door one.
-`spectra.py`'s optimised spectrum is a black hole — inside the DEC branch **H21** exhausted. **Five
+`spectra.py`'s optimised spectrum is a black hole — inside the collapse sub-case of the DEC branch **H21** exhausts *(Corrected on M's "Repair all", DOCKET 67: first "inside the DEC branch H21 exhausted"; the branch is exhausted only there.)*. **Five
 passes, still three doors**, and two of the five were built on M's principles rather than on the device.
 
 **Door three gained a third independent arrival:** `create.py` from the topology theorems, `detect.py`
@@ -1337,7 +1337,7 @@ measured supply side, not about a category.**
 |---|---|
 | status | **PROVEN** (each rate reconstructed from the constants; the two bound directions) + **MEASURED** (the 31.22-order braneworld gain, from `scale.py`) |
 | new? | the exhaustion argument for the currency question, and door one as a number, yes |
-| **not** claimed | that 31.22 orders is a result — `scale.py`'s demand side is `NOT-RUN` and it cannot be quoted as one; that door three is the correct door — only that it is the only one with a payable cost; that `κ` has been shown impossible — it has been shown insufficient at `π/360` |
+| **not** claimed | that 31.22 orders is a result — `scale.py`'s demand side is `NOT-RUN` and it cannot be quoted as one; that door three is the correct door — only that it is the only one with a payable cost; that `κ` has been shown impossible — it has been shown insufficient at `π/90` (first written `π/360`, the energy-density ratio) |
 
 ---
 
@@ -7528,7 +7528,7 @@ not the same as having found it.**
 ### H95c — the fit was run so that it could be refused with a number
 
 **412608** expressions of the form `b₁^e₁ b₂^e₂ b₃^e₃` over `{Λ, π, e, 2, 3, 5, 7}` with exponents in
-`[−8, 8]`, against `v/M_reduced = 1.0110346504e-16`:
+`[−8, 8]`, against `v/M_reduced = 1.0110346501e-16` *(Corrected on M's "Repair all", DOCKET 67: first `1.0110346504e-16`, on a truncated `ℏ`; `higgs.hierarchy()` now computes it on the exact `h/2π`, and the error and widths below do not move at the figures printed.)*:
 
 | | |
 |---|---|
