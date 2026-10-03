@@ -62,8 +62,29 @@ NAMED HYPOTHESES (every limitation carried by name)
              ERASING (or resetting a register for) the count, not of holding or copying it.
   H-R        R = 1 m for the Bekenstein comparison (massform's H-R).
   H-TBODY    310 K for a warm-body reservoir; T_CMB = nopath.T_CMB for the coldest natural one.
-  H-IT       (M's) spacetime comes from information -- needed for any removal "within the measure" to be a
-             physical removal.
+  H-IT       (M's) spacetime comes from information.  NECESSARY for a measure-level statement to bear on a physical
+             corridor; NOT sufficient (wave 2: C-verify-0 #0, #1).
+  H-MEASURE-PHYSICAL (wave 2) under H-IT, the absence of an NEC from the measure is a fact about the corridor.  No
+             instrument and no READ source supplies it; it is named so the grade can say what it would take.
+  H-INFO-S   (wave 2) the sufficiency reading of M's premise: information at the destination SUFFICES to constitute
+             the matter (CHARTER: "only the information defining it is necessary"; "the only multi-universal
+             currency").  Graded against the board holding B-RECV (a holder must be at the destination).
+
+WAVE 2 (repair after three adversarial verifications).  Wave 1 first said: R-INDEX 'PARTIAL', removing O-HOLD and
+O-MAKE 'within the measure' because they are 'not expressible' there; the information is 'cheap at every exchange
+rate' ('the costs-little half priced'); H-SETTLE x H-INFO 'removes O-BITS, in nlcontrol's model only'.  Now:
+  * 'not expressible' is SILENCE, as for O-LOOP: within the measure O-HOLD, O-MAKE and O-LOOP are SILENT.  For a
+    physical corridor the NEC and Geroch are NOT-BOUND-IF {H-IT, H-MEASURE-PHYSICAL} -- not REMOVED: showing a
+    theorem cannot be stated in a formalism is not showing its conclusion false.  R-INDEX alone: LEAVES-ALL.
+  * Landauer and Bekenstein give FLOORS (least energies), not prices.  No upper bound on any cost is computed here;
+    Landauer prices erasure, which teleportation does not require; the Bekenstein floor is a property of the
+    destination holder (O-MATTER), not a price of holding a corridor open.  The one READ-backed holder, the body,
+    has Mc^2 = 6.29e18 J.
+  * H-SETTLE x H-INFO shows a channel EXISTS in nlcontrol's model (chi = (2T)^2 eps^2/(8 ln 2) per use for small
+    eps, computed coefficient 6.49 at T = 3) under H-C2; O-BITS is REMOVED-IF {N_EPS (A1's timing), H-C2,
+    H-BORN-AT-BOB, H-FRAME3b}.  nlcontrol has no distance, so 'before light' is not defined inside it.
+  * H-INFO-S is graded: a CLASH with B-RECV, not a removal (info_s_clash).
+  * Checks that cannot fail by construction are printed STRUCTURAL and are not counted as controls.
 
 stdlib + numpy (eigenvalues) + sympy (one symbolic identity).
 """
@@ -479,7 +500,8 @@ def berut_generalised(p):
 
 def bekenstein_floor_j(bits, R=1.0):
     """The least total gravitating energy E that Bekenstein's eq.(1) permits a complete system of radius R to
-    have while holding `bits`: E >= bits hbar c ln2 / (2 pi R).  An exchange rate, not a price paid."""
+    have while holding `bits`: E >= bits hbar c ln2 / (2 pi R).  A FLOOR on the destination holder's energy
+    (O-MATTER), not a price paid and not a cost of holding a corridor open."""
     nopath = import_board()[0]
     return bits * nopath.HBAR * nopath.C * LN2 / (2.0 * math.pi * R)
 
@@ -560,10 +582,34 @@ def settle_bits(eps, lin=False):
     return holevo_chi([0.5, 0.5], [rs["z"], rs["x"]]), tr
 
 
+def settle_small_eps_coefficient(T=3.0):
+    """chi ~ k eps^2 for small eps: Bob's two ensembles are I/2 and Bloch (0, D, 0) with D = tanh(2 eps T) ~ 2 eps T;
+    Holevo with prior 1/2 is D^2/(8 ln 2) to leading order, so k = (2T)^2/(8 ln 2).  Computed, not fitted."""
+    return (2 * T) ** 2 / (8 * LN2)
+
+
+def info_s_clash():
+    """H-INFO-S against B-RECV, computed from what this file already holds.
+      phi(1): Q-1 assigns 0 bits to a one-point space -- a destination with one state holds nothing, so I > 0 bits at
+              the destination needs a holder with >= 2^I distinguishable states there (BFL, READ p.3-4);
+      Bekenstein at E = 0: the bound admits 0 bits -- within its scope (complete, weakly self-gravitating systems,
+              READ p.2) information presupposes gravitating energy at the destination;
+      transit.CARRIES_SUBSTANCE: False -- the protocol moves state into a receiver already there.
+    H-INFO-S says the arriving information suffices; B-RECV says a holder must already be there.  As commitments
+    they clash; nothing computed here makes the information constitute its own holder."""
+    nopath, _, _, _, transit = import_board()
+    return {"phi_1_bits": phi(1), "bekenstein_bits_at_E0_R1m": nopath.bekenstein_bits(1.0, 0.0),
+            "transit_CARRIES_SUBSTANCE": transit.CARRIES_SUBSTANCE,
+            "holder_states_needed_for_1_bit": 2 ** 1}
+
+
 # ============================================================================ (iv) grades
 
 OBSTRUCTIONS = ("O-BITS", "O-MAKE", "O-HOLD", "O-MATTER", "O-LOOP")
-VERDICTS = ("REMOVES", "PARTIAL", "LEAVES-ALL", "REFUTED", "OPEN")
+VERDICTS = ("REMOVES", "PARTIAL", "LEAVES-ALL", "REFUTED", "OPEN", "CLASH")
+# per-obstruction words (wave 2): LEAVES / SILENT (the formalism cannot state it) / NOT-BOUND-IF {premise} (a theorem
+# does not bind; its conclusion is not shown false) / REMOVED-IF {premise} / REMOVED / OPEN / CLASH
+REMOVING = ("REMOVED", "REMOVES")
 
 GRADES = {
     "Q-1": {
@@ -579,47 +625,89 @@ GRADES = {
                    "BFL hypotheses name only finite sets, probability measures and functions (READ p.3-4) -- up "
                    "to H-UNIT and H-ALT.  Clause (b) 'matter cannot exist without it' is OPEN: the measure "
                    "assigns 0 bits to a one-point space and none of the READ exchange rates is a LOWER bound on "
-                   "information per unit matter (Bekenstein is an upper bound).  Alone it removes no obstruction; "
-                   "it does reprice the transfer -- erasing the information defining a 70 kg body costs "
-                   "2.8e7-3.2e8 J at 310 K (2.5e5-2.8e6 J at T_CMB) under the four counts here, against 4.8e42 J "
-                   "for a 1 m throat on the board (wormhole.throat_mass).",
+                   "information per unit matter (Bekenstein is an upper bound).  Alone it removes no obstruction.  "
+                   "It FLOORS, not prices, the transfer: erasing the information defining a 70 kg body would cost "
+                   "AT LEAST 2.8e7-3.2e8 J at 310 K (2.5e5-2.8e6 J at T_CMB) under the four counts here -- and "
+                   "teleportation need not erase -- and a holder at R = 1 m must have AT LEAST 33-379 J of "
+                   "gravitating energy; no upper bound on any cost is computed, and the one READ-backed holder (the "
+                   "body) has Mc^2 = 6.29e18 J.  Wave 1 first said these were the 'costs little' half 'priced'.",
         "per": {"O-BITS": "LEAVES (BSST p.1: prior entanglement alone carries no classical information; chi_Bob "
                           "= 0 computed)",
                 "O-MAKE": "LEAVES (a premise about primacy is not a mechanism for identification)",
                 "O-HOLD": "LEAVES (same)",
                 "O-MATTER": "LEAVES (Bekenstein: a complete system with E > 0 must hold the bits)",
-                "O-LOOP": "LEAVES (silent: no time variable)"},
+                "O-LOOP": "SILENT (no time variable) -- left, not decided"},
+    },
+    "H-INFO-S (sufficiency reading)": {
+        "verdict": "CLASH",
+        "reading": "Information at the destination suffices to constitute the matter.  Against the board holding "
+                   "B-RECV it is a named clash, not a removal: Q-1 gives a one-state destination 0 bits (phi(1) = 0), "
+                   "Bekenstein admits 0 bits at E = 0 within its scope, and transit.CARRIES_SUBSTANCE is False -- "
+                   "the arriving state needs a receiver already there.  So O-MATTER's survival is a board-versus-M "
+                   "clash, not something 'none of the seven touches'.  No instrument here shows information "
+                   "constituting its own holder.",
+        "per": {"O-BITS": "LEAVES", "O-MAKE": "LEAVES", "O-HOLD": "LEAVES",
+                "O-MATTER": "CLASH (with B-RECV: REMOVED-IF {H-INFO-S} only in a board without B-RECV)",
+                "O-LOOP": "SILENT"},
     },
     "R-INDEX": {
-        "verdict": "PARTIAL",
+        "verdict": "LEAVES-ALL",
         "reading": "Within the measure there is no stress tensor, no metric and no manifold (BFL's objects are "
-                   "finite probability spaces), so neither Morris-Thorne's NEC nor Geroch's theorem can be STATED: "
-                   "O-HOLD and O-MAKE are not expressible -- 'removed within the measure'.  That is a physical "
-                   "removal only under H-IT.  Energy re-enters at three exchange rates: Holevo (moving), Landauer "
-                   "(erasing), Bekenstein (holding) -- and Bekenstein's E is the GRAVITATING energy and R a "
-                   "radius in asymptotically flat spacetime (READ p.1), so geometry re-enters there, not as an "
-                   "NEC but as E and R.  O-BITS, O-MATTER and O-LOOP are left.",
+                   "finite probability spaces), so neither Morris-Thorne's NEC nor Geroch's theorem can be STATED.  "
+                   "That is SILENCE, exactly as for O-LOOP -- wave 1 first called it 'removed within the measure' "
+                   "and graded R-INDEX PARTIAL.  For a physical corridor the two theorems are NOT-BOUND-IF "
+                   "{H-IT, H-MEASURE-PHYSICAL}: H-IT is necessary, not sufficient, and no source supplies the second "
+                   "premise.  Energy and geometry re-enter at the exchange rates -- Holevo (moving), Landauer "
+                   "(erasing), Bekenstein (holding: E the GRAVITATING energy, R a radius, READ p.1) -- each a FLOOR.  "
+                   "The Bekenstein floor (33-379 J at R = 1 m) belongs to the destination holder, O-MATTER.",
         "per": {"O-BITS": "LEAVES (a cell's bits must still be sent: C_E = 2 log2 d per qudit sent; nothing "
                           "without a sent system)",
-                "O-MAKE": "MOVED to the exchange rate, conditional on H-IT (not expressible in the measure)",
-                "O-HOLD": "MOVED to the exchange rate, conditional on H-IT: no NEC in the measure; the holding "
-                          "price becomes the Bekenstein floor E >= I hbar c ln2/(2 pi R)",
+                "O-MAKE": "SILENT within the measure; for a physical corridor Geroch/Tipler NOT-BOUND-IF {H-IT, "
+                          "H-MEASURE-PHYSICAL}",
+                "O-HOLD": "SILENT within the measure; for a physical corridor the NEC NOT-BOUND-IF {H-IT, "
+                          "H-MEASURE-PHYSICAL}; nothing here prices holding a corridor open",
                 "O-MATTER": "LEAVES (a holder with at least 2^I distinguishable states must be at the "
-                            "destination; Bekenstein E counts its rest energy, READ p.2, p.8)",
-                "O-LOOP": "LEAVES (the index has no time coordinate in the measure: silent, not decided)"},
+                            "destination; Bekenstein E counts its rest energy, READ p.2, p.8; its floor 33-379 J)",
+                "O-LOOP": "SILENT (the index has no time coordinate in the measure: not decided)"},
+    },
+    "H-SETTLE x H-INFO": {
+        "verdict": "PARTIAL",
+        "reading": "nlcontrol's drift (imported) under H-C2 carries chi_Bob = 6.49e-6 / 6.48e-4 / 5.71e-2 bits per "
+                   "use at eps = 1e-3 / 1e-2 / 1e-1, T = 3 (linear control 0; small-eps law (2T)^2 eps^2/(8 ln 2), "
+                   "coefficient 6.49 computed): a channel EXISTS in that model.  nlcontrol has no distance, so "
+                   "'before light' is undefined inside it; the O-BITS removal is A1's, REMOVED-IF {N_EPS, H-C2, "
+                   "H-BORN-AT-BOB, H-FRAME3b}.  Under C1 there is no channel.  Wave 1 first said 'removes O-BITS, in "
+                   "nlcontrol's model only, at a priced capacity' and named H-BORN-AT-BOB but not H-C2.",
+        "per": {"O-BITS": "REMOVED-IF {N_EPS (A1 eps > eps_any_advantage(L, N)), H-C2, H-BORN-AT-BOB, H-FRAME3b, "
+                          "H-NLCONTROL-FORM for the figures}",
+                "O-MAKE": "LEAVES (each use consumes a pre-distributed pair)", "O-HOLD": "LEAVES",
+                "O-MATTER": "LEAVES", "O-LOOP": "LEAVES (A1: REMOVED-IF {H-FRW-EXACT, H-NOT-DE-SITTER, N_SIGKEY})"},
     },
 }
 
 
 def grades_consistent():
+    """Each verdict agrees with its per-obstruction words: LEAVES-ALL has no REMOVED/REMOVED-IF anywhere (SILENT and
+    NOT-BOUND-IF are not removals); PARTIAL has at least one; CLASH has a CLASH entry."""
     ok = True
     for k, g in GRADES.items():
         ok &= g["verdict"] in VERDICTS
         ok &= set(g["per"]) == set(OBSTRUCTIONS)
-    # a verdict of LEAVES-ALL must leave every obstruction; PARTIAL must move or remove at least one
-    ok &= all(v.startswith("LEAVES") for v in GRADES["H-INFO"]["per"].values())
-    ok &= any(not v.startswith("LEAVES") for v in GRADES["R-INDEX"]["per"].values())
+        rem = any(v.startswith(REMOVING) for v in g["per"].values())
+        if g["verdict"] == "LEAVES-ALL":
+            ok &= not rem
+        if g["verdict"] == "PARTIAL":
+            ok &= rem
+        if g["verdict"] == "CLASH":
+            ok &= any(v.startswith("CLASH") for v in g["per"].values())
     return ok
+
+
+def grades_consistent_control():
+    """CONTROL: wave 1's R-INDEX grade (PARTIAL with no REMOVED word, only 'MOVED') must fail the rule above."""
+    g = {"verdict": "PARTIAL", "per": {o: ("MOVED to the exchange rate" if o in ("O-HOLD", "O-MAKE") else "LEAVES")
+                                       for o in OBSTRUCTIONS}}
+    return any(v.startswith(REMOVING) for v in g["per"].values())
 
 
 # ============================================================================ report / selftest
@@ -660,10 +748,11 @@ def report():
     print(f"\n     object: {d['object']['atoms']:.4e} atoms (stock.HUMAN), "
           f"{d['object']['species_bits_per_atom']:.4f} species bits/atom")
     for r in d["prices"]:
-        print(f"     {r['count']:<42} {r['bits']:.4e} bits | Landauer 310 K {r['landauer_J_310K']:.3e} J, T_CMB "
+        print(f"     {r['count']:<42} {r['bits']:.4e} bits | Landauer FLOOR 310 K {r['landauer_J_310K']:.3e} J, T_CMB "
               f"{r['landauer_J_TCMB']:.3e} J | Bekenstein floor (R=1 m) {r['bekenstein_floor_J_R1m']:.3e} J | "
               f"teleport {r['classical_bits_to_teleport_if_qubits']:.3e} classical bits")
-    print("     board geometric prices (imported):")
+    print("     FLOORS, not prices: no upper bound on any cost is computed; Landauer prices erasure only (H-ERASE)")
+    print("     board geometric figures (imported):")
     for k, v in d["geometric_J"].items():
         print(f"       {k:<62} {v:.4e} J")
     for k, v in d["ceilings_bits"].items():
@@ -675,6 +764,8 @@ def report():
         chil, _ = settle_bits(eps, lin=True)
         print(f"     eps = {eps:<6} chi_Bob = {chi:.4e} bits/use (linear control {chil:.1e}); trace distance "
               f"{tr:.4e}; uses to carry the 1 A grid count: {grid_bits / chi:.3e}")
+    print(f"     small-eps law chi = k eps^2, k = (2T)^2/(8 ln 2) = {settle_small_eps_coefficient():.4f} at T = 3 (under H-C2; C1 gives 0)")
+    print(f"\n(vi) H-INFO-S vs B-RECV: {info_s_clash()}")
     print("\n(iv) grades")
     for k, g in GRADES.items():
         print(f"  {k}: {g['verdict']}")
@@ -686,9 +777,12 @@ def selftest():
     rng = random.Random(20261003)
     results = []
 
-    def chk(name, ok, detail="", control=False):
-        results.append((name, bool(ok), control))
-        print(f"  {'ok  ' if ok else 'FAIL'} {'[CONTROL] ' if control else ''}{name}  {detail}")
+    def chk(name, ok, detail="", control=False, structural=False):
+        """structural=True: the check cannot fail by construction (a literal, or a comparison of typed values).
+        It is printed and must pass, but it is NOT counted as a control and is not evidence (wave 2)."""
+        results.append((name, bool(ok), control and not structural, structural))
+        tag = "[STRUCTURAL: cannot fail, not evidence] " if structural else ("[CONTROL] " if control else "")
+        print(f"  {'ok  ' if ok else 'FAIL'} {tag}{name}  {detail}")
 
     print("(i) BFL Theorem 2 (1106.1791v3 p.4), on finite spaces")
     ok, w = check_functorial(F_shannon, rng); chk("Shannon loss is functorial", ok, f"max err {w:.1e}")
@@ -719,7 +813,7 @@ def selftest():
     ok, g = check_continuity(F_hartley); chk("Hartley-of-support FAILS continuity", not ok, f"gap {g[-1]:.3f}", True)
     ok, w = check_convex(F_hartley, rng); chk("Hartley-of-support FAILS convex linearity", not ok, f"{w:.3f}", True)
     ok, w = check_functorial(F_shannon, rng, tol=-1.0)
-    chk("guard: a functoriality check with an impossible tolerance reports FAIL", not ok, "", True)
+    chk("guard: a functoriality check with an impossible tolerance reports FAIL", not ok, "", True, structural=True)
 
     print("\n(ii) The Method's closed index")
     m = method_bits()
@@ -729,8 +823,14 @@ def selftest():
     chk("READ identity matches computation: 6,912 = 976 + 0 + 5,936",
         ident == (m["box"], m["cells"], m["E_order"], m["refused"]), line or "")
     chk("identity is exact: 976 + 0 + 5,936 = 6,912", ident and ident[1] + ident[2] + ident[3] == ident[0])
-    chk("a mis-stated identity (5,935 refused) fails the sum",
-        not (976 + 0 + 5935 == 6912), "", True)
+    chk("a mis-stated identity (5,935 refused) fails the sum (literal arithmetic)",
+        not (976 + 0 + 5935 == 6912), "", True, structural=True)
+    # wave 2: the same control given content -- the READ-vs-computed comparison must reject a mis-stated line
+    bad_line = "6,912 = 976 + 0 + 5,935"
+    mm = re.search(r"([\d,]+) = ([\d,]+) \+ ([\d,]+) \+ ([\d,]+)", bad_line)
+    bad_ident = tuple(int(g.replace(",", "")) for g in mm.groups())
+    chk("a mis-stated identity line, parsed by read_identity's pattern, fails the comparison with cypher's computation",
+        bad_ident != (m["box"], m["cells"], m["E_order"], m["refused"]), bad_line, True)
     chk("log2 976 = 9.930737 (charter)", abs(m["bits_per_cell"] - 9.930737) < 5e-7, f"{m['bits_per_cell']:.7f}")
     chk("log2 6912 = 12.754888 (charter)", abs(m["bits_per_box_cell"] - 12.754888) < 5e-7,
         f"{m['bits_per_box_cell']:.7f}")
@@ -740,7 +840,7 @@ def selftest():
     chk("H-UNIFORM is the maximum: 50 random measures on 976 cells all < log2 976", worst < m["bits_per_cell"],
         f"max {worst:.4f}")
     chk("a claim of 10.0 bits per cell exceeds log2 976 and is flagged", 10.0 > m["bits_per_cell"], "",
-        True)
+        True, structural=True)
 
     print("\n(iii) exchange rates")
     ok, w = check_holevo(rng); chk("Holevo: chi <= log2 d - avg S on 200 random ensembles, d = 2,4,8", ok,
@@ -764,10 +864,10 @@ def selftest():
         f"{landauer_j(1, 300.0):.3e}")
     chk("Berut p.13: generalised bound at P = 0.80 is ~0.19 kT", abs(berut_generalised(0.80) - 0.19) < 0.005,
         f"{berut_generalised(0.80):.4f}")
-    chk("Berut p.14: fitted asymptote A = 0.72 kT within the +/-0.15 kT bars of ln 2", abs(0.72 - LN2) <= 0.15,
-        f"ln2 = {LN2:.4f}")
+    chk("Berut p.14: fitted asymptote A = 0.72 kT within the +/-0.15 kT bars of ln 2 (two READ numbers and ln 2)",
+        abs(0.72 - LN2) <= 0.15, f"ln2 = {LN2:.4f}", structural=True)
     chk("a 'measured' 0.5 kT at full efficiency is below ln 2 and flagged", 0.5 < berut_generalised(1.0),
-        "", True)
+        "", True, structural=True)
     chk("board: massform.bekenstein_bits() = 1.80e45 (READ finding, 3e-3)",
         abs(massform.bekenstein_bits() / 1.80e45 - 1) < 3e-3, f"{massform.bekenstein_bits():.4e}")
     chk("Bekenstein floor inverts the bound: bits(floor(I)) = I",
@@ -788,9 +888,9 @@ def selftest():
     rows, geo, ceil, _ = price_table()
     allb = [r["bits"] for r in rows]
     chk("every count lies below the Bekenstein ceiling (1.80e45 bits)", max(allb) < massform.bekenstein_bits())
-    chk("every Landauer price at 310 K is below the board's 1 m throat (c^2 throat_mass(1 m))",
+    chk("every Landauer FLOOR at 310 K is below the board's 1 m throat figure (a floor vs a board figure, not cost vs cost)",
         max(r["landauer_J_310K"] for r in rows) < wormhole.throat_mass(1.0) * nopath.C ** 2)
-    chk("every Bekenstein floor (R = 1 m) is below Mc^2 of the body", max(r["bekenstein_floor_J_R1m"] for r in rows)
+    chk("every Bekenstein floor (R = 1 m) is below Mc^2 of the body (the one READ-backed holder)", max(r["bekenstein_floor_J_R1m"] for r in rows)
         < massform.rest_energy_j())
 
     print("\n(v) H-SETTLE x H-INFO")
@@ -800,12 +900,26 @@ def selftest():
     chk("linear control carries none: chi_Bob = 0", abs(l2) < 1e-12, f"{l2:.1e}", True)
     chk("small-eps scaling is quadratic: chi(1e-2)/chi(1e-3) ~ 100", 95 < c2 / c3 < 105, f"{c2 / c3:.2f}")
     chk("chi stays within Holevo's log2 2 = 1 bit", c1 <= 1.0, f"{c1:.4f}")
+    k = settle_small_eps_coefficient()
+    chk("small-eps law chi = (2T)^2 eps^2/(8 ln 2): computed coefficient 6.49 matches chi(1e-3)/1e-6", abs(c3 / 1e-6 / k - 1) < 1e-2,
+        f"k = {k:.4f}, measured {c3 / 1e-6:.4f}")
+
+    print("\n(vi) H-INFO-S against B-RECV (wave 2)")
+    ic = info_s_clash()
+    chk("Q-1: a one-state destination holds 0 bits (phi(1) = 0)", abs(ic["phi_1_bits"]) < 1e-15)
+    chk("Bekenstein at E = 0 admits 0 bits (nopath.bekenstein_bits)", abs(ic["bekenstein_bits_at_E0_R1m"]) < 1e-12)
+    chk("transit.CARRIES_SUBSTANCE is False (imported)", ic["transit_CARRIES_SUBSTANCE"] is False)
+    chk("a two-state destination holds 1 bit (phi(2) = ln 2 nats)", abs(phi(2) / LN2 - 1) < 1e-12, "", True)
 
     print("\n(iv) grades")
-    chk("grades well-formed and internally consistent", grades_consistent())
-    bad = [n for n, ok, _ in results if not ok]
-    nctl = sum(1 for _, _, c in results if c)
-    print(f"\n{len(results) - len(bad)}/{len(results)} pass ({nctl} controls)")
+    chk("grades well-formed and internally consistent (LEAVES-ALL has no removal; SILENT/NOT-BOUND-IF are not removals)",
+        grades_consistent())
+    chk("wave 1's R-INDEX grade (PARTIAL, only 'MOVED') fails the consistency rule", not grades_consistent_control(),
+        "", True)
+    bad = [n for n, ok, _, _ in results if not ok]
+    nctl = sum(1 for _, _, c, _ in results if c)
+    nst = sum(1 for _, _, _, st in results if st)
+    print(f"\n{len(results) - len(bad)}/{len(results)} pass ({nctl} controls; {nst} structural checks, not counted as controls)")
     return not bad
 
 

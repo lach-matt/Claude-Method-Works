@@ -1,0 +1,448 @@
+{
+  "summary": "DOCKET 68 wave 1 repair: apply every verifier finding (both directions), re-run the screen, re-verify",
+  "agentCount": 4,
+  "logs": [],
+  "result": {
+    "a": {
+      "id": "R-alone",
+      "files": [
+        "/home/user/Claude-Method-Works/research/warp-drive/docket68/settle.py",
+        "/home/user/Claude-Method-Works/research/warp-drive/docket68/frame.py",
+        "/home/user/Claude-Method-Works/research/warp-drive/docket68/measure.py",
+        "/home/user/Claude-Method-Works/research/warp-drive/docket68/geometry.py",
+        "/home/user/Claude-Method-Works/research/warp-drive/docket68/A1-settle.md",
+        "/home/user/Claude-Method-Works/research/warp-drive/docket68/A2-frame.md",
+        "/home/user/Claude-Method-Works/research/warp-drive/docket68/A3-measure.md",
+        "/home/user/Claude-Method-Works/research/warp-drive/docket68/A4-geometry.md",
+        "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d68/A1-settle.json",
+        "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d68/A2-frame.json",
+        "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d68/A3-measure.json",
+        "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d68/A4-geometry.json",
+        "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d68/R-alone.json",
+        "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d68/mk_wave2_a.py",
+        "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d68/wave1-backup/"
+      ],
+      "resolved": [
+        "PRINCIPLE: a theorem that does not bind a non-geometric corridor makes the obstruction NOT-BOUND-IF (premise named), never REMOVED. Showing a theorem does not apply is not showing its conclusion false. Applied to O-MAKE-TOPO (ITE and ITB), to O-HOLD's geometric form under ITB, and to R-INDEX, which is SILENT within the measure and physically NOT-BOUND-IF {H-IT, H-MEASURE-PHYSICAL}.",
+        "C-verify-0 #1 (A3 R-INDEX grade) -> applied. Within the measure, O-HOLD, O-MAKE and O-LOOP are all SILENT. For a physical corridor they are NOT-BOUND-IF {H-IT, H-MEASURE-PHYSICAL}. R-INDEX alone is LEAVES-ALL; wave 1's PARTIAL is kept as its first form. The Bekenstein floor moved to the destination holder (O-MATTER).",
+        "C-verify-0 #0 (B-THROAT in combine, citing A3) -> answered at the source in A3 and measure.py. H-IT is necessary but not sufficient. Sufficiency needs H-MEASURE-PHYSICAL, which no instrument or READ source supplies. combine.py was not edited.",
+        "C-verify-0 #5 (frame.py signalling_table and c2_needs_a_frame; A2 row) -> applied. The D-CTC numbers are withdrawn as ground for W2xF1, because the D-CTC needs a CTC at Bob, which clause 1 excludes. New frame.drift_ordering computes the drift's own ordering dependence under C2: tanh(2 eps (T - t_A)) = 0.537 / 0.291 / 0 with Alice before / mid / after Bob's window. The D-CTC now has its own clause-2b row.",
+        "C-verify-0 #6 (antitelephone hard-codes 0) -> applied. reply_arrival(u) solves the Lorentz condition with sympy, so both values are computed (-3/5 and 0). Independent check: u=1/2, L=2 gives -1.",
+        "C-verify-0 #7 (A2 O-BITS listed as removed with no eps or timing) -> applied. Now REMOVED-IF {N_EPS, H-C2, H-BORN-AT-BOB, A1's bound hypotheses}.",
+        "C-verify-0 #8 / C-verify-2 #2 (BHW '1 bit per pair' labelled READ) -> applied, and now computed. BHW's Fig. 2 / p.3 construction (re-READ) runs through frame.py's Deutsch fixed point in bb84_c2_table. It reproduces the READ map with unique fixed points and gives 1.000000 bit/pair under C2, 0 under C1.",
+        "C-verify-0 #9 (lower bounds read as costs) -> applied. Every joule figure is labelled a FLOOR. Landauer prices erasure, which teleportation need not do. No upper bound on any cost is computed. The body's Mc^2 = 6.29e18 J is the one READ-backed holder. 'Costs little' is floored, not priced; wave 1's sentence is kept as its first form.",
+        "C-verify-0 #11 (A4 O-MAKE-TOPO 'removed') -> applied. ITE: NOT-BOUND-IF {H-ER=EPR}, non-traversable bridge only. ITB: NOT-BOUND-IF {N_QTOPO}, no READ source. C-verify-0 #4 -> H-IT is now graded in two readings, ITE and ITB. C-verify-0 #12 -> ITB's grade records that its consistency with W2 holds by construction.",
+        "C-verify-0 #13 -> A1's O-BITS removal now carries H-FRAME3b, which is H-FRAME clause 1's substance (a preferred slicing).",
+        "C-verify-0 #14 (A3 H-SETTLE x H-INFO) -> applied. The model shows a channel exists: chi = (2T)^2 eps^2/(8 ln 2), coefficient 6.4921 computed against 6.4920 measured, under H-C2. O-BITS is REMOVED-IF {N_EPS, H-C2, H-BORN-AT-BOB, H-FRAME3b}.",
+        "C-verify-0 #15 (D6 vacuous) -> applied. D6 now runs the drift through sde_ensemble with lambda=0 and gets 0.94698 against the exact 0.94681. C3 and E2 are printed STRUCTURAL.",
+        "C-verify-0 #16 vs C-verify-1 #7 (H-SETTLE x H-12) -> both hold, under different hypotheses, and both are computed by settle.h12_carrier_case. Under H-TRANSFER, H-12 adds nothing. Under H-12-CARRIER + H-12-W (carrier alpha_s, G or v, with no READ state-dependent bound), 2 of 9 cells flip from EXCLUDED to NOT EXCLUDED, both at 1 AU. 'Not excluded' is not evidence.",
+        "C-verify-1 #0 (rule-2 retirement on inert encodings) -> recorded in each owning grade. H-12, H-INFO, H-ZERO and H-NULL are UNTESTED-BY-SCREEN, so retirement is not established. H-12 was exercised and is load-bearing under H-12-CARRIER.",
+        "C-verify-1 #1 (asymmetric throat encoding) -> applied symmetrically. Under ITB, O-HOLD's geometric form is NOT-BOUND-IF {N_QTOPO} and the information layer's holding cost is OPEN. Under ITE it stays LEFT, because MS fn.1 assumes it. ITB + R-QUANTUM is named as a clash for one corridor.",
+        "C-verify-1 #2 (6.21 pairs / Holevo) -> applied and computed. 6.21 is nlcontrol's Hamiltonian's figure (H-NLCONTROL-FORM). A second W2 Hamiltonian, eps(<X>Z+<Z>X), approaches 1 bit/pair. Under H-BORN-AT-BOB the class ceiling is 1 bit/pair and is not reached at finite T (rank 2, trace distance 0.947): more than 2 pairs per qubit on average, at least 3 per qubit. Without H-BORN-AT-BOB, W2's capacity is OPEN. Holevo is relabelled READ (A3). The D-CTC under C2 needs 2 pairs per qubit, by arithmetic.",
+        "C-verify-1 #3 (timing) -> applied. The drift time does not depend on distance. eps for any advantage is exactly half the wave-1 figure at every row. Reading A, N=7: T = 13.38 h, arriving 0.99847 L/c early at 1 ly. No excluded/not-excluded entry flips.",
+        "C-verify-1 #4 (first transit) -> applied, using LEDGER D23 as corrected in DOCKET 67. A midpoint source reads at L/2c + T and beats light launched at firing iff T < L/2c. One-end distribution never beats it. The control with T > L/2c fails, as it should.",
+        "C-verify-1 #5 (H-EQUIL) -> applied and computed. gr-qc/0602001v1 was re-READ, and geometry.egj_fR_throat gives T_kk(r0) = 2(-2 beta - r0^2)/r0^4, which is >= 0 only for beta <= -r0^2/2 (1.9e69 l_P^2 at 1 m, against EGJ's expected beta of order l_P^2). New result: r^4 T_kk -> -2 r0^2 for every beta. H-ZERO x H-IT and H-IT x H-NULL are now OPEN, via N_EQUIL.",
+        "C-verify-1 #6 -> applied in A2. Clause 1 is M's 'a preferred frame exists'; keying corridors to it is the docket's addition, H-KEYING. M's sentence is satisfied by clause 1 + 2a.",
+        "C-verify-1 #8 -> applied. The sufficiency reading H-INFO-S is graded a CLASH with B-RECV. Computed support: phi(1) = 0; Bekenstein gives 0 bits at E = 0; transit.CARRIES_SUBSTANCE is False.",
+        "C-verify-1 #9 -> applied. H-SETTLE-W alone now has O-LOOP REMOVED-IF {H-FRW-EXACT, H-NOT-DE-SITTER, N_SIGKEY}.",
+        "C-verify-1 #10 -> recorded in A4: ITE x W2 is INCONSISTENT-AS-ENCODED, a test of ER=EPR, not a refutation of W2.",
+        "C-verify-2 #0 -> applied. H-C2 is named on every signal; under C1 the drift gives 2.2e-16. 2412.20854v1 pp.4 and 7 were re-READ. C-verify-2 #3 -> the page is p.26 (re-READ).",
+        "Not sited in my files, so untouched: C-verify-0 #2, #3, #10 and C-verify-2 #1, #4 are combine's and B-combine's. The A-report facts they depend on are updated.",
+        "Rule on declared values -> the de Sitter tangent norm (frame.py) and the Minkowski theta (geometry.py) are now computed. Five non-failing checks in measure.py and one grade check in geometry.py are printed STRUCTURAL. The mis-stated-identity control in measure.py was given content."
+      ],
+      "grades_moved": [
+        "A1 H-SETTLE-W alone: O-LOOP moved from LEAVES to REMOVED-IF {H-FRW-EXACT, H-NOT-DE-SITTER, N_SIGKEY}. O-BITS is now also conditional on H-C2 and H-FRAME3b.",
+        "A1: new grades for H-SETTLE-W under C1 (LEAVES-ALL) and for the W2 class capacity (OPEN). H-SETTLE x H-12 is split: under H-TRANSFER it adds nothing; under H-12-CARRIER + H-12-W it is REMOVED-IF in 2 more cells.",
+        "A2 H-FRAME + H-SETTLE (C2): O-BITS moved from 'removes' to REMOVED-IF. Its ground moved from the D-CTC to the drift.",
+        "A2 clause 1: O-LOOP moved from REMOVES to REMOVED-IF {H-CORRIDOR-MODEL, H-KEYING} / {H-FRW-EXACT, H-NOT-DE-SITTER}. New rows: clause 2a, clause 2b, and the D-CTC under C2.",
+        "A3 R-INDEX: PARTIAL -> LEAVES-ALL.",
+        "A3: new grade H-INFO-S, CLASH.",
+        "A3 H-SETTLE x H-INFO: 'removes' -> REMOVED-IF {N_EPS, H-C2, H-BORN-AT-BOB, H-FRAME3b}.",
+        "A4 H-IT: PARTIAL -> two grades, ITE and ITB, both NOT-BOUND-IF. ITB's O-HOLD (geometric form): LEFT -> NOT-BOUND-IF {N_QTOPO}.",
+        "A4 H-ZERO + H-IT and H-IT + H-NULL: LEAVES-ALL -> OPEN (O-HOLD via N_EQUIL)."
+      ],
+      "selftests": [
+        "python3 settle.py --selftest -> 47/47 PASS (2 printed STRUCTURAL), exit 0",
+        "python3 frame.py --selftest -> 56 checks, 15 controls, ALL PASS, exit 0",
+        "python3 measure.py --selftest -> 65/65 pass (15 controls; 5 STRUCTURAL, not counted as controls), exit 0",
+        "python3 geometry.py --selftest -> 48 checks, 11 controls, ALL PASS (1 STRUCTURAL), exit 0",
+        "frame.py and measure.py reports run, exit 0"
+      ],
+      "problems": [
+        "combine.py --selftest now FAILS with 'guards did not refuse'. Its encoding-drift guard compares its expectations with the A-report grade text, and wave 2 changed that text: RI no longer removes anything, ITB+RI no longer removes O-HOLD, and A1's H12 wording changed. The guard is doing its job. The fix belongs to the stage that owns combine.py and B-combine.md, which I did not edit.",
+        "Another process committed settle.py partway through my work, as commit 7ee97e6 ('snapshot'). I did not commit, push, stash, reset or checkout.",
+        "Three premises have no READ source: H-12-W, H-MEASURE-PHYSICAL and N_QTOPO. Every grade that rests on one names it.",
+        "The four-basis D-CTC figure (2 bits/pair) is C-verify-1's computation, cited but not re-run. The EGJ computation covers one shape (b = r0^2/r) and f = 1 + beta R only.",
+        "The Weinberg-family bounds remain NAMED-NOT-READ, and every eps and timing figure inherits that. eps_to_remove keeps its default T = L/2c, labelled DECLARED, so wave-1 numbers stay comparable; eps_any_advantage gives the corrected figure.",
+        "No host refused a request."
+      ]
+    },
+    "b": {
+      "id": "R-combine",
+      "files": [
+        "/home/user/Claude-Method-Works/research/warp-drive/docket68/combine.py",
+        "/home/user/Claude-Method-Works/research/warp-drive/docket68/B-combine.md",
+        "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d68/B-combine.json",
+        "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d68/B-combine.variants.json",
+        "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d68/B-table.md",
+        "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d68/B-report.txt",
+        "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d68/B-selftest.txt",
+        "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d68/R-combine.json",
+        "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d68/mk_b2.py",
+        "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d68/wave1-backup-combine/"
+      ],
+      "resolved": [
+        "PRINCIPLE (stated in combine.py header and B-combine.md s.0): when a theorem does not bind a non-geometric corridor, the obstruction becomes NOT-BOUND-IF with its premise named, never REMOVED. This is applied symmetrically to O-MAKE-TOPO and to O-HOLD's geometric form: under ITB (premise N_QTOPO), under ITE (premise N_MS17, topology only), and under ITB+R-INDEX (premise N_MEASPHYS, keeping A3's only-if direction). NOT-BOUND-IF is its own verdict. The removal's own status (OPEN via N_ILFREE) is reported beside it.",
+        "C-verify-0 #0 (B-THROAT made H-IT sufficient; O-HOLD REMOVED) -> APPLIED. O-HOLD is never REMOVED. Under ITB+RI it is NOT-BOUND-IF with supports {ITB; N_QTOPO} and {ITB, RI; N_MEASPHYS}. The wave-1 encoding is kept as the mutated control 'wave1-THROAT', and that control is caught.",
+        "C-verify-1 #1 (B-THROAT and B-TOPO asymmetric) -> APPLIED symmetrically. ITB alone gives NOT-BOUND-IF {N_QTOPO} on both. The 192-variant synergy is gone. ITB+RQ is now a premise clash on N_QTOPO.",
+        "C-verify-0 #11 (O-MAKE-TOPO removal out of scope) -> APPLIED. Now NOT-BOUND-IF {N_QTOPO} (no READ source) or {N_MS17} (non-traversable bridge only).",
+        "C-verify-0 #2 (T-D could not fail) -> APPLIED. T-D is renamed a RECORD of O-MATTER's holder floors, and it states that it does not test O-HOLD. It now has a CODATA cross-check with content.",
+        "C-verify-0 #3 (premise guard structural; N_EPS true at 1 AU) -> APPLIED. N_EPS is tied to a distance cell through B-EPSWIN (eps_window, z3 reals). The 1 AU re-screen covers every W2 variant, and z3 proves that is complete. The guard is reported STRUCTURAL. Its content is shown by a control: the wave-1 engine gives 3/3 vacuous REMOVED-IF at 1 AU. A census reports which named premises can never fail.",
+        "C-verify-0 #4 (drift guard compared z3 with hand expectations, not the reports) -> APPLIED. z3 is now compared with the A-reports' own wave-2 grade text: 127 of 134 agree. The 7 disagreements come from 5 causes, each explained. Two mutated encodings are each caught as unexplained disagreements.",
+        "C-verify-0 #5 (D-CTC ground for W2xF1) -> APPLIED. The D-CTC C2 numbers are withdrawn. The ground is now frame.drift_ordering, checked against tanh(2 eps (T - t_A)).",
+        "C-verify-0 #6 (antitelephone literal) -> APPLIED in T-A and the grounds. The value comes from frame.reply_arrival and is checked against -uL.",
+        "C-verify-0 #9 (floors read as costs, B-combine:162) -> APPLIED. 33-379 J are now FLOORS. Mc^2 = 6.29e18 J is the READ-backed holder.",
+        "C-verify-0 #10 (conditions dropped, B-combine:147) -> APPLIED. Every verdict now lists every support.",
+        "C-verify-0 #12 (ITB commits to nothing) -> STATED. ITB+W2 consistency holds by construction, so it is not evidence.",
+        "C-verify-0 #13 (W2 => SLICE) -> APPLIED. The slicing is now a named premise, N_FRAME3b (or F1/F2b). H-SETTLE alone gives REMOVED-IF {W2; N_EPS, N_FRAME3b}.",
+        "C-verify-1 #0 (inert H-12/INFO/ZERO/NULL; rule 2 'measured') -> APPLIED. These now carry real content: N_H12W, INFOS vs B-RECV, and N_EQUIL. A difference census measures which literals are exercised. INFO (necessity) and W1 change nothing, so they are UNTESTED-BY-SCREEN and no retirement is claimed.",
+        "C-verify-1 #2 (FRW keying lemma) -> APPLIED. O-LOOP is REMOVED-IF {N_FRW, N_CORR} in every consistent variant without F2b, with no member in the support. F1's route is {F1; N_KEYING, N_CORR}.",
+        "C-verify-1 #3 (H-EQUIL) -> APPLIED. N_EQUIL is now an OPEN pathway. Under ITB+ZERO/NULL, O-HOLD's removal is OPEN via N_EQUIL. Under ITE, MS fn.1 closes it; this disagrees with A4 and the disagreement is explained.",
+        "C-verify-1 #4 (H-12 load-bearing) -> COMPUTED. At 1 AU, {W2} gives LEFT and {W2,H12} gives REMOVED-IF {..N_H12W}. This is the only synergy, in 256 variants, and it is not evidence.",
+        "C-verify-1 #5 (H-INFO-S) -> APPLIED. INFOS is screened, and it clashes with B-RECV in all 1,536 of its variants. O-MATTER's survival is a clash between the board and M.",
+        "C-verify-1 #6 ('M's sentence contradicts itself') -> APPLIED. F1 is now 'a preferred frame' only, and keying is N_KEYING. F1+F2b is consistent as commitments. Two premise clashes remain: {N_KEYING, N_2BVIA} (704 variants) and {N_FRW, N_2BVIA} (1,408 variants).",
+        "C-verify-1 #7 (6.21/N>=7/Holevo) -> APPLIED. These are labelled H-NLCONTROL-FORM. The W2 class needs more than 2 pairs per qubit on average and at least 3 per qubit under H-BORN-AT-BOB; without it the class capacity is OPEN.",
+        "C-verify-1 #8 (T = L/2c) -> APPLIED. The drift time does not depend on distance: 13.38 h, arriving 0.99847 L/c early. eps_any is half of wave 1's figure, and 0 of 18 window entries flip.",
+        "C-verify-1 #9 (first transit) -> APPLIED. With a midpoint source (D23 corrected) the first read comes 0.50153 yr after firing and beats light. With one-end distribution it never does. A control at 1 AU fails, as it should.",
+        "C-verify-1 #10 (ITE x W2 REFUTED) -> APPLIED. Now INCONSISTENT-AS-ENCODED: a test of ER=EPR.",
+        "C-verify-2 #0 (C2 not named on the best row) -> APPLIED. W2 is defined as H-C2. Under C1 (W1) there is no signal.",
+        "C-verify-2 #1 (clash counts) -> APPLIED. Every core is enumerated and counted by inclusion-exclusion. (c) W2+ITE: 384 present, 256 alone. (d) INFOS: 1,536 present, 1,408 alone. Union 1,792. The wave-1 census is recomputed as (a) 768 present, 640 alone, union 1,152.",
+        "C-verify-2 #4 (Reznik window) -> APPLIED. 0.91 L/c < T < L/c, labelled DERIVED-FROM-READ.",
+        "Declared/derived labels -> T = L/2c is replaced by a computed drift time. nlcontrol's eps = 0.1 and T = 3 are labelled illustrative. The C-KR ground is relabelled DERIVED-FROM-READ."
+      ],
+      "grades_moved": [
+        "Best consistent variant: wave 1 had {W2,F1,ITB,RI} removing 4 of the six-way split, with O-HOLD REMOVED. Wave 2 has {W2,ITB} with 3 of five removed or NOT-BOUND: O-BITS REMOVED-IF, O-HOLD NOT-BOUND-IF, O-LOOP REMOVED-IF by the geometry. Removed-only, the maximum is 2.",
+        "O-HOLD under ITB(+RI): REMOVED -> NOT-BOUND-IF, with the removal OPEN via N_ILFREE.",
+        "O-MAKE-TOPO under ITB/ITE: REMOVED-IF -> NOT-BOUND-IF {N_QTOPO} / {N_MS17}.",
+        "O-LOOP: attributed to F1 -> REMOVED-IF {N_FRW, N_CORR} in every variant without F2b, with no member in the support.",
+        "O-BITS, W2 alone: REMOVED-IF N_EPS -> REMOVED-IF {N_EPS, N_FRAME3b} at 1 ly, and LEFT at 1 AU unless H12 is present.",
+        "ITE x W2: REFUTED -> INCONSISTENT-AS-ENCODED.",
+        "F1+F2b: REFUTED -> consistent, with a premise clash.",
+        "ITB+RI+RQ: REFUTED -> consistent, with a premise clash.",
+        "H-INFO-S (new): CLASH with B-RECV.",
+        "Rule 2: H-12 -> kept PARTIAL. INFO -> UNTESTED-BY-SCREEN. ZERO and NULL -> kept (OPEN pathway). W1 -> UNTESTED-BY-SCREEN.",
+        "Synergy: ITBxRI on O-HOLD -> W2xH12 on O-BITS at 1 AU.",
+        "Interference: none -> 1,088 variants at 1 ly.",
+        "First transit: 'cannot beat light' -> beats light, conditionally, with a midpoint source."
+      ],
+      "selftests": [
+        "python3 combine.py --selftest -> 65/65 pass, 11 controls, 1 STRUCTURAL guard reported and not counted, exit 0, ~99 s",
+        "python3 combine.py --json/--table -> exit 0; regenerated B-combine.variants.json and B-table.md; B-combine.json rebuilt from the run by mk_b2.py",
+        "Screen sizes: 4,607 variants at 1 ly (2,815 consistent, 1,792 inconsistent) and 1,152 W2 variants at 1 AU (512 consistent)"
+      ],
+      "problems": [
+        "ANSWER: no consistent variant removes or makes NOT-BOUND all five obstructions. The most is 3 of 5, in 64 variants, all containing W2+ITB. The obstructions that survive every consistent variant, in both cells, are O-MATTER (LEFT; INFOS, the only reading that would remove it, clashes with B-RECV in every variant) and O-MAKE in its distribution form (OPEN via N_VAC only).",
+        "The selftest went from 80/80 to 65/65 because checks that could not fail were removed or relabelled. The variant count went from 3,071 to 4,607 because H-INFO now has two readings.",
+        "Five drift disagreements are explained here but sit in the A-reports, which are not this stage's files: A1's O-LOOP attribution to H-SETTLE-W, which also contradicts A1's own H-12-alone grade; A1's W2xH12 'G in KR form'; A2's 'CTC reopens Geroch' for clause 2b; and A4's H-ZERO+H-IT reading under ITE.",
+        "Named premises with no READ source: N_QTOPO, N_MEASPHYS, N_H12W, N_ILFREE. Premises that are never constrained, so assuming them is STRUCTURAL: N_FRAME3b, N_SIGKEY, N_CORR, N_MS17, N_H12W.",
+        "Every timing and capacity figure belongs to nlcontrol's single Hamiltonian, evaluated at a NAMED-NOT-READ limit. The W2 class capacity is OPEN without H-BORN-AT-BOB.",
+        "No source was re-read this pass. Nothing was committed, pushed, stashed, reset or checked out."
+      ]
+    },
+    "reverify": [
+      {
+        "lens": "AGAINST M: overstatement remaining after the wave-1 repair. Checked every wave-1 verifier problem (AGAINST 0-16, FOR 0-10, REPRODUCE 0-4) against the repaired A1-A4, B-combine and the five instruments, then looked for new faults. All five selftests re-run with PYTHONDONTWRITEBYTECODE; no repo file written (git status unchanged). One source re-READ: BHW 0811.1209v2. Report: /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d68/RV-0.json",
+        "unresolved": [
+          "FOR #2 is applied twice, inconsistently: A1 credits O-LOOP to H-SETTLE-W alone (REMOVED-IF {H-FRW-EXACT, H-NOT-DE-SITTER, N_SIGKEY}), while B finds the removal rests on no member ({N_FRW, N_CORR}). B whitelists this in combine.EXPLAINED and does not repair A1.",
+          "FOR #3 is only half applied in A4: the H-ZERO + H-IT and H-IT + H-NULL grades are still not split by reading. Under ITE, A4's own ITE row keeps O-HOLD LEFT (MS fn.1). B whitelists this and A4 is unchanged.",
+          "AGAINST #4: the drift guard now compares z3 with the report text (127/134), but the 7 disagreements are made to pass through a hand-typed EXPLAINED dict (combine.py:1062) instead of being repaired in A1/A2/A4. Four of the five causes are A-report overstatements (problems 4, 5, 6 and 8).",
+          "AGAINST #13 is named but not carried through. B's rule says a member that a premise presupposes is added back, and A1 says H-FRAME3b is H-FRAME clause 1's substance. Even so, N_FRAME3b is unconstrained and never adds F1 back, so {W2} alone is still credited with O-BITS REMOVED-IF while F1 is false under the closed-world rule.",
+          "Not re-run by any stage: FOR #2's four-basis D-CTC figure (2 bits/pair) is cited, not computed. N_H12W, N_MEASPHYS, N_QTOPO and N_ILFREE have no READ source. The Weinberg-family bounds remain NAMED-NOT-READ."
+        ],
+        "problems": [
+          {
+            "site": "A1-settle.md:52, 78, 157-171 (the epsilon that removes O-BITS; grade row H-SETTLE-W alone); settle.py:241-265 (eps_to_remove / eps_any_advantage); B-combine.md:331-335 (T-E table 'nlcontrol pairs, N = 7 (upper figure, one Hamiltonian)')",
+            "wrong": "eps > eps_any(L,N) and N >= 7 pairs per qubit ('7 if each qubit is coded alone', '7 per qubit') are presented as the condition under which O-BITS is removed. B labels the N = 7 totals an 'upper figure'. Both quantities are computed from N*C(D) >= 2. That is Shannon's converse, a necessary condition. It is not sufficient.",
+            "correct": "These are FLOORS. At D < 1 both of Alice's inputs produce both of Bob's outcomes with positive probability (Z-channel for nlcontrol, BSC for H2), so the zero-error capacity is 0. Per-qubit coding with any finite N therefore never delivers the 2 bits with certainty. Reliable transmission needs block coding over many qubits at a rate strictly below C, with error, and so teleportation infidelity, going to 0 only as the block length goes to infinity. The block-coding premise (call it H-BLOCK) should be named in the removal's support. '7 per qubit' should read '>= 7 (floor)'. 'Upper figure' is correct only relative to the W2 class; within nlcontrol, N = 7 is a lower bound. A1, A2, A3 and B also state the same removal's premise set differently (H-BORN-AT-BOB and H-NLCONTROL-FORM appear in some and not others); it should be one set.",
+            "moves_grade": true
+          },
+          {
+            "site": "combine.py:278-279 (B-HELD: held requires (ITB|ITE) & (ZERO|NULL) & N_EQUIL); B-combine.md s.5 ZERO/NULL rows 'exercised: 256 ... kept: OPEN pathway'; A4-geometry.md grades H-ZERO + H-IT and H-IT + H-NULL 'OPEN'",
+            "wrong": "The N_EQUIL pathway is encoded as needing H-ZERO or H-NULL. That makes ZERO and NULL 'exercised' in the difference census, and it keeps them under rule 2. But geometry.egj_fR_throat (EGJ eq. 21, f = 1 + beta R, b = r0^2/r) contains no zero shift and no null-information term. The pathway is Jacobson's emergent gravity with local equilibrium relaxed, which is H-IT's content alone. This mirrors FOR #0: wave 1 gave these literals too little content, and wave 2 gives them content they do not have.",
+            "correct": "Attribute N_EQUIL to H-IT in a named Jacobson/thermodynamic reading. It is neither ITE (MS fn.1 closes it) nor ITB (under N_QTOPO there is no geometric throat for EGJ to act on). H-ZERO and H-NULL then have no O-HOLD content: on O-HOLD they are UNTESTED-BY-SCREEN, and retirement is neither established nor refuted. H-ZERO + H-IT keeps only its own computed contribution, which is that the zero is free. Its O-HOLD OPEN is H-IT's, not the pairing's.",
+            "moves_grade": true
+          },
+          {
+            "site": "combine.py B-FRAME and named-premise census (N_FRAME3b 'never constrained, STRUCTURAL'); B-combine.md s.1 ('a member that a premise presupposes is added back'), s.3 best variant {W2, ITB}, s.6 table row 2 (SET: O-BITS R-IF); A1-settle.md:25",
+            "wrong": "A1 says H-FRAME3b 'is H-FRAME clause 1's substance (a preferred slicing)'. B's stated rule adds back any member a premise presupposes. N_FRAME3b nevertheless never adds F1 back and is never inadmissible. So {W2} alone, with F1 false under the closed-world rule, is credited O-BITS REMOVED-IF {W2; N_EPS, N_FRAME3b}. The smallest three-of-five variant is reported as {W2, ITB}.",
+            "correct": "Either N_FRAME3b presupposes F1 (added back), or B argues why a preferred slicing for remote preparation is not M's 'a preferred frame exists'. A1 currently asserts the opposite. If it presupposes F1, then H-SETTLE alone leaves O-BITS. The removal belongs to W2 x F1 (or W2 x F2b), the smallest best variant is {W2, F1, ITB}, and table row 2 reads L on O-BITS.",
+            "moves_grade": true
+          },
+          {
+            "site": "A1-settle.md s.5 grade row 'H-SETTLE-W alone': O-LOOP REMOVED-IF {H-FRW-EXACT, H-NOT-DE-SITTER, N_SIGKEY}; 'This moves a removal to H-SETTLE alone'",
+            "wrong": "A1 credits H-SETTLE-W alone with the O-LOOP removal. B computes that the removal rests on no member in every variant without clause 2b. A1's own H-12-alone row leaves O-LOOP for the same geometry, so A1's two rows contradict each other. The premise set also omits H-CORRIDOR-MODEL (N_CORR) and H-SIG-COR.",
+            "correct": "O-LOOP REMOVED-IF {H-FRW-EXACT, H-NOT-DE-SITTER, H-CORRIDOR-MODEL}, by the geometry and attributed to no hypothesis. W2 adds only the need for N_SIGKEY under H-SIG-COR. The rows treat this uniformly. The wave-1 first form and the FOR #2 form are both kept as history.",
+            "moves_grade": true
+          },
+          {
+            "site": "A1-settle.md s.5 row 'H-SETTLE-W x H-12 under H-12-CARRIER + H-12-W': leaves 'O-HOLD (OPEN via G in KR form)'",
+            "wrong": "H-12-W assumes the carrier drifts in Weinberg (per-branch) form. 'OPEN via G in KR form' is H-SETTLE-KR's pathway (N_EPSG), which is absent in a W2 reading. The row credits an OPEN pathway that contradicts its own premise. B whitelists this and does not repair it.",
+            "correct": "In that row O-HOLD is LEFT. 'OPEN via G' belongs only to H-SETTLE-KR x H-12 with G as the carrier.",
+            "moves_grade": true
+          },
+          {
+            "site": "A4-geometry.md Grades rows 'H-ZERO + H-IT' and 'H-IT + H-NULL' (OPEN via N_EQUIL), and the combinations table",
+            "wrong": "The grades do not say which reading of H-IT they are made under. Under ITE, A4's own ITE row keeps O-HOLD LEFT because MS fn.1 assumes non-traversability, which closes the EGJ route (combine C-ITE). Grading the pairing OPEN without a reading overstates it under ITE.",
+            "correct": "Split by reading. Under ITE: O-HOLD LEFT; O-MAKE-TOPO NOT-BOUND-IF {H-ER=EPR}. Under the Jacobson reading: O-HOLD OPEN via N_EQUIL, and for the computed shape and f it is not removed (r^4 T_kk -> -2 r0^2 for every beta). Under ITB: NOT-BOUND-IF {N_QTOPO}. See problem 2: the OPEN is H-IT's, not the pairing's.",
+            "moves_grade": true
+          },
+          {
+            "site": "A3-measure.md 'H-SETTLE x H-INFO: complementary obstructions, and computed. Verdict PARTIAL: O-BITS REMOVED-IF {...}'; combine.py z3_class rule Z1",
+            "wrong": "The combination is graded PARTIAL as 'complementary obstructions', but H-INFO contributes nothing: the computation is nlcontrol's Holevo chi, which is H-SETTLE-W's alone. B's difference census finds that INFO changes nothing in any variant. The drift guard still matches A3, because rule Z1 needs only one graded literal (W2) in the support. This is the pattern AGAINST #16 caught for H-12, and A1 repaired it there, but not here. The premise list also omits H-NLCONTROL-FORM and H-MAP/H-TRANSFER/H-SPIN/H-COHERE.",
+            "correct": "PARTIAL, adding nothing to H-SETTLE-W alone: O-BITS REMOVED-IF on H-SETTLE-W's full premise set, with H-INFO not load-bearing. It is not a complementary pair. The guard should require that every graded literal of a combination row be load-bearing.",
+            "moves_grade": true
+          },
+          {
+            "site": "A2-frame.md Grades, clause 2b x O-MAKE: 'OPEN (a CTC reopens the Geroch clause)'",
+            "wrong": "This is graded OPEN, a pathway. By the repair's own principle, a theorem whose hypothesis fails (Geroch's 'no CTC') does not bind, and its conclusion is not shown false. That is NOT-BOUND-IF, not OPEN. A CTC also does not escape Tipler's non-compact case, and the release is bought with O-LOOP, which clause 2b reintroduces. B does not carry it and whitelists the disagreement.",
+            "correct": "O-MAKE-TOPO NOT-BOUND-IF {F2b's CTC; Geroch-compact case only}, with Tipler's case still binding, and stated as traded for O-LOOP.",
+            "moves_grade": true
+          },
+          {
+            "site": "B-combine.md s.3 'The answer' and s.10 finding 1 ('The most is three (O-BITS REMOVED-IF, O-HOLD NOT-BOUND-IF, O-LOOP REMOVED-IF)'); s.6 column 'five-way removed or not-bound'",
+            "wrong": "The headline count of 'three of five' combines a REMOVED-IF, a NOT-BOUND-IF (which B defines as 'Not a removal') and an O-LOOP removal that B's own finding 5 says belongs to no hypothesis. The column lists LOOP for every combination, including H-12, H-INFO, H-ZERO and H-NULL alone.",
+            "correct": "Lead with the member-attributed figure. In {W2, ITB} the hypotheses remove one obstruction, O-BITS, REMOVED-IF (and that depends on problem 3). With F1 present there are two, both conditional. NOT-BOUND-IF entries and the geometry's O-LOOP should be reported in separate columns, not added into one count.",
+            "moves_grade": false
+          },
+          {
+            "site": "combine.py:1445-1468 (complementary_tests) and selftest 'COVERAGE every complementary class has a test'; B-combine.md s.4 'Every class has a test', s.7",
+            "wrong": "Tests are assigned by member membership, with a fallback ('if ITB in c and not tests: T-D'). Any class containing F1, W2 or ITB therefore receives a test by construction. F1xITB, F1xITB,RI and F1xITE (288 of the 512 variants at 1 ly) are 'covered' by T-A, which exercises W2's drift ordering, not either member of those classes. The check cannot fail and is counted among the 65 PASS.",
+            "correct": "Report the coverage check as STRUCTURAL. State that the F1 x IT(E/B) classes are not instrument-tested: their content is F1's keying (already ground-checked) plus a NOT-BOUND-IF on N_QTOPO (no source) or N_MS17 (READ), and none of it is computable.",
+            "moves_grade": false
+          },
+          {
+            "site": "settle.py:840-862 (G6, G7, G8, G12); A1-settle.md s.2 ('check G7: ratio 2.000000')",
+            "wrong": "G7 (ratio exactly 2) and G8 (eps_any x L constant) cannot fail: eps_to_remove's condition depends only on eps*frac*L, so both are identities of the bisection. A1 cites G7 as evidence. G6 is labelled 'CONTROL (must fail)', but its half '2*C < 2' is 1 - h2 < 1 for D < 1, which cannot fail. G12's 'NOT EXCLUDED with an unbounded carrier' is carrier_ok = (N*CMAX >= 2), also structural.",
+            "correct": "Print G7, G8 and G6's first half as STRUCTURAL. State the distance-independence and the factor 2 as analytic consequences of T = atanh(D_N)/(2 eps), which they are, not as checks. Keep G6's '3*C >= 2' half and G12's H-TRANSFER half as the content-bearing checks.",
+            "moves_grade": false
+          },
+          {
+            "site": "frame.py drift_ordering CONTROL 'Bob's window over before Alice measures ... 0'; A2-frame.md (ii) 'C2 needs a preferred frame (computed ... for the drift)'",
+            "wrong": "The 'control' integrates the drift on I/2, where <X> = 0, so H = 0 identically. It cannot be nonzero. The frame-dependence of C2 is computed only within the encoding choice that C2 acts on the reduced state before Alice's measurement in the chosen frame, which is a definition, not an output.",
+            "correct": "Label that row STRUCTURAL. Say that 'C2 is undefined without a slicing' is derived given the stated rule (no branch, so the reduced state, before t_A). The rule should be named as part of H-C2.",
+            "moves_grade": false
+          },
+          {
+            "site": "A2-frame.md s.(i) item 1 'Clause 1 removes O-LOOP, at any rank.'",
+            "wrong": "This is still stated unconditionally of clause 1, although the repair moves keying out of clause 1 into H-KEYING, and A2's own grade reads REMOVED-IF {H-CORRIDOR-MODEL, H-KEYING}. It is not marked as the wave-1 first form.",
+            "correct": "'A keyed network (H-KEYING, under H-CORRIDOR-MODEL) closes no causal curve at any rank.' Keep 'Clause 1 removes O-LOOP' as wave 1's first form.",
+            "moves_grade": false
+          },
+          {
+            "site": "A3-measure.md:23 and the H-SETTLE x H-INFO bullets ('against a measured 6.4920'); measure.py check text; A3 Testable prediction 1",
+            "wrong": "A numerically integrated value is labelled 'measured', which reads as experimental. Prediction 1 says a measured chi_Bob 'would bound eps through chi ~ 6.5 eps^2' without naming H-C2. Under C1, chi = 0 for every eps, so a null result bounds nothing.",
+            "correct": "Say 'integrated (nlcontrol)', not 'measured'. Prediction 1 should read: 'under H-C2 and H-NLCONTROL-FORM, chi_Bob bounds eps through ...; under C1 a null result does not bound eps.'",
+            "moves_grade": false
+          }
+        ],
+        "reproduced": [
+          "settle.py --selftest 47/47 pass (2 STRUCTURAL), exit 0. frame.py: ALL PASS (56), exit 0. measure.py: 65/65 (15 controls, 5 STRUCTURAL), exit 0. geometry.py: 48 checks, 11 controls, ALL PASS (1 STRUCTURAL), exit 0. combine.py: 65/65, 11 controls, 1 STRUCTURAL, exit 0, 146 s. R-alone's reported combine failure ('guards did not refuse') no longer occurs: that guard now PASSes.",
+          "Resolved as reported, checked against the text and code: AGAINST #0, #1, #2, #3, #5, #6, #7, #8, #9, #10, #11, #12, #14, #15 and #16; FOR #0 (with problem 2's reversal), #1, #4, #5, #6, #7, #8, #9 and #10; REPRODUCE #0-#4. Partial: AGAINST #4 and #13, FOR #2 and #3.",
+          "Timing: T = atanh(D_N)/(2 eps) has no L. Reading A, N = 7: 13.38 h, 0.99847 L/c early at 1 ly. The midpoint first transit reads at L/2c + T, which beats light launched at firing iff T < L/2c; the one-end case never does.",
+          "BHW 0811.1209v2 re-READ in full. 'Unbounded' is on p.1 and p.4 ('If CTC qubits are treated as a free resource ... unbounded'), and the Theorem (p.3) needs an N-dimensional CTC system. A1/A2's citation is a correct READ, conditional on that free-resource premise. BHW's 'any nonlinearity' remark (p.4) is a conjecture, consistent with W2's capacity being OPEN.",
+          "EGJ algebra as reported: T_kk(r0) = 2(-2 beta - r0^2)/r0^4, and r^4 T_kk -> -2 r0^2 for every beta. It supports OPEN only for shapes and f that were not computed. For the computed family the deficit is moved, not removed.",
+          "Combine's 1 AU coverage proof and the inclusion-exclusion census (1,792 = 384 + 1,536 - 128) pass."
+        ]
+      },
+      {
+        "lens": "FOR M: understatement remaining after the wave-2 repair of DOCKET 68 wave 1 (A1-A4, B-combine and their instruments). First I checked all 33 wave-1 verifier problems (17 AGAINST, 11 FOR, 5 REPRODUCE). Then I looked for faults the repair introduced, in either direction, so that over-representation is avoided both ways. All five selftests were run. The only file written is /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d68/RV-1.json.",
+        "unresolved": [
+          "C-verify-1 #7 (FOR #7) is resolved only in part. Its 'one pair per qubit with four settings' (the four-basis discriminator, 2.000000 bits per pair) is answered by restricting the class to H-BORN-AT-BOB on Bob's qubit alone. A2 cites the four-basis figure as 'not re-run'. A1 s.1b and B T-E leave it out. Problem 1 shows the restriction is an unnamed premise.",
+          "C-verify-0 #2 (AGAINST #2) is resolved in its text: T-D is renamed a record that 'does not test O-HOLD'. But combine.complementary_tests still assigns T-D as a covering test to every ITB+RI class, and that assignment feeds 'COVERAGE every complementary class has a test' (problem 8).",
+          "Each of the other 31 wave-1 problems is applied, or answered with a computed or READ reason, at its site."
+        ],
+        "problems": [
+          {
+            "site": "settle.py:50 and 361-391 (H-BORN-AT-BOB 'Born-rule measurement of his drifted qubit'; readout_holevo_check samples 2x2 only; W2_CLASS_CEILING = log2 2); A1-settle.md s.1b (ceiling bullet and pairs table); A2-frame.md Combinations; B-combine.md T-E 'W2 class floor' column; combine.py B-CAP ground",
+            "wrong": "The W2 class floor of more than 2 pairs per teleported qubit, and at least 3 per qubit at finite T, rests on a premise nobody named: that the drift acts on Bob's received qubit and nothing else. A per-branch deterministic drift that also acts on Bob's local apparatus, an ancilla in a fixed state independent of Alice, still has W2's form. Holevo at a Born readout of that drifted system is capped at log2(2d) bits per pair, not 1. The rank-2 argument fails there too. A flow is injective, but it can bring Alice's two outcome branches close together while moving different basis choices into near-orthogonal subspaces. Each choice's state is then near-pure, and chi tends to log2 k for k settings when 2d >= k. C-verify-1's four-basis D-CTC discriminator at 2 bits per pair is an instance of this.",
+            "correct": "Name the premise, for example H-QUBIT-DRIFT. Under H-BORN-AT-BOB + H-QUBIT-DRIFT the floor stands: > 2 on average, >= 3 per qubit at finite T. Under H-BORN-AT-BOB alone, the ceiling per pair is log2 of the drifted system's dimension (Holevo, READ in A3). The class's pairs per qubit is then OPEN, down to 1 with 4 settings and a 2-qubit ancilla. That is DERIVED, not computed: any tangent field v orthogonal to psi equals -iH(psi)psi with H = i(v psi^dag - psi v^dag), which is Hermitian, so any smooth isotopy of CP^3 is a W2 flow. Until a Hamiltonian is computed, B's 'W2 class floor' column and A1's table should be labelled as the qubit-only subclass. This is not evidence such a drift exists.",
+            "moves_grade": true
+          },
+          {
+            "site": "A2-frame.md Grades table, clause 2b O-BITS ('LEAVES; a channel needs H-SETTLE under C2'); A2-frame.json clause-2b grade (O-BITS LEAVES) against the 'Deutsch D-CTC under C2 (a clause-2b world)' grade (REMOVED-IF); combine.py B-NOCOM (SIG => W2) and B-CAP (CAP == SIG and N_EPS)",
+            "wrong": "A2's own D-CTC row grades the clause-2b world's channel REMOVED-IF, computed at 1.000000 bit per pair, so 2 pairs per qubit. That route needs no epsilon and no drift time, and it is not subject to the Weinberg spin bounds. Yet clause 2b's O-BITS column reads LEAVES. The screen sends every signal through W2 plus N_EPS, so at 1 AU, N = 7, every F2b variant without H12 is O-BITS LEFT, and the D-CTC route appears nowhere in combine. B names the clause-2b O-MAKE pathway as an uncarried encoding choice, but not this one.",
+            "correct": "Clause 2b, O-BITS: REMOVED-IF {a CTC at Bob, H-DCTC, H-DCTC-CONVENTION C2, H-DCTC-SELECT}, at 2 pairs per qubit (computed), with O-LOOP REINTRODUCED. Under M-S1A-P3 that loop is disqualifying at the seat only. In combine, either carry it as an F2b pathway whose support does not include N_EPS, which changes F2b's O-BITS at 1 AU, or name its absence as an encoding choice. A CTC is not shown to exist, and Hawking's conjecture stays OPEN.",
+            "moves_grade": true
+          },
+          {
+            "site": "combine.py N_CORR / B-TIMEFUNC against N_QTOPO / B-TOPO / B-THROAT; B-combine.md s.3 best variant {W2, ITB}, and the premise-clash table. This direction is against M, outside this lens, recorded so that over-representation is avoided both ways.",
+            "wrong": "In the same variant, O-HOLD and O-MAKE-TOPO are NOT-BOUND-IF {ITB; N_QTOPO}, where N_QTOPO says the ITB corridor is not a classical Lorentzian object. O-LOOP is REMOVED-IF on N_CORR, which says a corridor is an identification by translation, a Lorentzian quotient. These are two accounts of one corridor, the same shape the repair named as a premise clash for ITB+RQ (512 variants). {N_QTOPO, N_CORR} is never named, so '3 of 5' and 'removed-only 2' mix incompatible corridor models.",
+            "correct": "Name {N_QTOPO, N_CORR} as a premise clash in ITB variants. Applying the rule symmetrically: under ITB + N_QTOPO, the FRW lemma and latticectc's loop theorem do not bind the corridor, so O-LOOP for corridors is NOT-BOUND-IF {N_QTOPO}, not REMOVED-IF. Loops made by signals stay REMOVED-IF {N_FRW or a frame, N_SIGKEY}. The five-way removed-or-not-bound count can stay at 3, but O-LOOP's verdict changes, and in ITB variants the removed-only maximum falls from 2 to 1 for corridor loops.",
+            "moves_grade": true
+          },
+          {
+            "site": "A1-settle.md s.5 row 1 and A1-settle.json (O-BITS REMOVED-IF {N_EPS, H-C2, H-FRAME3b, H-MAP, H-TRANSFER, H-SPIN, H-COHERE}); A2-frame.md/json H-FRAME + H-SETTLE-W row; A3-measure.md H-SETTLE x H-INFO; B-combine.md s.3",
+            "wrong": "H-MAP, H-TRANSFER and H-SPIN are premises of 'N_EPS is not excluded at (L, N)'. They are not premises of the removal. Listing H-TRANSFER as a condition of the removal points it the wrong way: when H-TRANSFER fails, the window widens. A1 s.4b computes this, with 2 of 9 cells flipping to NOT EXCLUDED. One removal also carries four different premise sets across A1, A2, A3 and B, and H-BORN-AT-BOB appears in two of them only.",
+            "correct": "Removal premises: {N_EPS, H-C2, H-FRAME3b (or a frame from H-FRAME), H-COHERE, H-NLCONTROL-FORM}. H-BORN-AT-BOB should appear in every report or in none; since nlcontrol's readout is a Born measurement, every report is the accurate choice. Move H-MAP, H-TRANSFER and H-SPIN to the exclusion column.",
+            "moves_grade": false
+          },
+          {
+            "site": "A4-geometry.md Combinations and Grades rows 'H-ZERO + H-IT' and 'H-IT + H-NULL'",
+            "wrong": "Both rows inherit O-MAKE-TOPO's NOT-BOUND-IF but not O-HOLD's geometric NOT-BOUND-IF {N_QTOPO} under ITB, which A4's own ITB grade gives. They also do not say which H-IT reading they grade (EGJ/Jacobson is emergent geometry, neither ITE nor ITB). combine's z3 under ITB+ZERO gives O-HOLD NOT-BOUND-IF {N_QTOPO}, removal status OPEN via N_EQUIL/N_ILFREE. Under ITE, MS fn.1 closes the route, and B records that disagreement with A4. A4 was not split.",
+            "correct": "Split both rows by reading. ITB: O-HOLD (geometric form) NOT-BOUND-IF {N_QTOPO}, removal status OPEN via N_EQUIL / N_ILFREE. ITE: O-HOLD LEFT (MS fn.1). Emergent-geometry reading: OPEN via N_EQUIL.",
+            "moves_grade": false
+          },
+          {
+            "site": "A4-geometry.md s.(iv) and Grades row 'R-QUANTUM: LEAVES-ALL (in scope)'; A4-geometry.json reading; combine.py B-HELD ground '(minimal scalar, in scope)'",
+            "wrong": "The QEI's proven scope is a massless minimal scalar in Hadamard states in flat space. A 1 m throat is curved, so the refusal holds only under H_flat and H-PATH. Calling it 'in scope' presents a scope extension as within scope. This is the mirror of the repair's rule: a theorem carried outside its scope does not establish its conclusion against M either.",
+            "correct": "R-QUANTUM, O-HOLD: LEFT only IF {H_flat, H-PATH, H-MIN-SCALAR}; OPEN on the xi > 0 branch; curved-space QEIs NAMED-NOT-READ. Drop 'in scope' from the grade word and from B-HELD's ground. The 2.08e-68 fraction stands as computed under those hypotheses.",
+            "moves_grade": false
+          },
+          {
+            "site": "combine.py B-RECV (encoded as a bare A['RECV'], no premise) and C-INFOS; B-combine.md clash (d); A3-measure.md H-INFO-S",
+            "wrong": "Clash (d) is an unconditional inconsistency in all 1,536 INFOS variants, yet B-RECV's grounds carry conditions named nowhere in the clash. S10 rests on C3 (renormalisable couplings, dimension <= 4; a higher-dimension operator carrying B or L would reverse it, per LEDGER), on P-UNIFORM and on H-UNSOURCED-SEAT. Bekenstein holds for 'complete, weakly self-gravitating, isolated objects' (p.2), with E the gravitating energy, a geometric quantity. phi(1) = 0 requires 2^I distinguishable states at the destination, not that they be matter already there.",
+            "correct": "Keep clash (d) labelled CLASH, board versus M (M's to rule). Encoding B-RECV with a premise would let INFOS remove O-MATTER by assertion, which is over-representation the other way. But list B-RECV's conditions beside the clash: C3 / P-UNIFORM / H-UNSOURCED-SEAT, Bekenstein's scope, and 'the holder's states are material'. Then M can see what a ruling would have to overturn. O-MATTER's survival is unchanged.",
+            "moves_grade": false
+          },
+          {
+            "site": "combine.py:1445-1470 (complementary_tests cover rules and the ITB fallback) and combine.py:1831 ('COVERAGE every complementary class has a test'); B-combine.md s.4",
+            "wrong": "The class 'O-MAKE-TOPO|O-HOLD|O-LOOP <- F1,ITB' (48 variants at 1 ly, 8 at 1 AU) is covered only by T-A W2xF1, which tests nothing of F1 x ITB. T-D, renamed a record that 'does not test O-HOLD', is still assigned to every ITB+RI class. The fallback gives a test name to any class containing ITB. The check therefore cannot fail for any class found, yet it is reported as PASS evidence, not as STRUCTURAL.",
+            "correct": "Either report the coverage check as STRUCTURAL, or require a test whose content bears on the class's attributed obstructions. State that F1 x ITB has no test; it is two independent single-member results and arguably not complementary at all. Stop counting T-D as a test.",
+            "moves_grade": false
+          },
+          {
+            "site": "B-combine.md s.3 ('At 1 AU the most is again three ... all of which also contain H12'), s.2 premise census ('N_EPS: yes, at 1 AU'), s.5 H12 row; R-combine.json grades_moved ('LEFT at 1 AU unless H12 is present')",
+            "wrong": "These are true at 1 AU only for N <= 1e3. B's own T-E table has 1 AU, N = 1e6 consistent (eps_any 3.34e-6, below 1.19e-5 and 2.39e-5). At that N, W2 alone is not excluded at 1 AU, O-BITS is REMOVED-IF with no H12, and the 'one synergy' W2 x H12 does not arise.",
+            "correct": "Qualify each 1 AU statement with its N. At 1 AU, N = 1e6, W2 alone gives O-BITS REMOVED-IF {W2; N_EPS, N_FRAME3b} under H-TRANSFER. The W2 x H12 synergy is specific to N <= 1e3. 'Not excluded' is still not evidence.",
+            "moves_grade": false
+          },
+          {
+            "site": "A1-settle.md s.5 grade rows (H-12 alone, C1, collapse and KR leave O-LOOP) against the H-SETTLE-W-alone row's O-LOOP REMOVED-IF {H-FRW-EXACT, H-NOT-DE-SITTER, N_SIGKEY}; A1 W2 x H12 'O-HOLD (OPEN via G in KR form)'; B-combine.md s.2 drift-disagreement table",
+            "wrong": "B shows the O-LOOP removal rests on no member: the exact-FRW geometry with N_CORR, in every variant without clause 2b. A1 still credits it to H-SETTLE-W alone and grades every other row as leaving O-LOOP under the same geometry. The five drift disagreements are named but not reconciled, so A1 contradicts itself and B. The LEAVES-ALL rows understate O-LOOP's status, and the H-SETTLE-W row over-attributes it.",
+            "correct": "In A1, and in the LEAVES-ALL rows of A3 and A4, write O-LOOP as 'REMOVED-IF {H-FRW-EXACT, H-NOT-DE-SITTER, H-CORRIDOR-MODEL} by the geometry, credited to no hypothesis'. H-SETTLE-W adds only N_SIGKEY. Re-site 'OPEN via G in KR form' to the KR reading.",
+            "moves_grade": false
+          }
+        ],
+        "reproduced": [
+          "settle.py --selftest: 47/47 pass, 2 printed STRUCTURAL, exit 0 (G10/G11 midpoint first transit and its control, G12 2 cells flip, G13 FRW lemma)",
+          "frame.py --selftest: 56 checks, 15 controls, ALL PASS, exit 0",
+          "measure.py --selftest: 65/65 pass (15 controls; 5 STRUCTURAL not counted), exit 0",
+          "geometry.py --selftest: 48 checks, 11 controls, ALL PASS (1 STRUCTURAL), exit 0",
+          "combine.py --selftest: 65/65 pass, 11 controls, 1 STRUCTURAL guard not counted, 99 s, exit 0; the FAIL R-alone recorded is gone",
+          "frame.reply_arrival solves the Lorentz condition with sympy: -3/5 keyed to the sender, 0 keyed to the cosmic frame; neither is typed in (AGAINST #6 resolved)",
+          "Drift time at the unread limit, reading A, N = 7: atanh(0.9801)/(2 x 2.388e-5) = 13.4 h, matching 13.38 h; eps_any / eps(T = L/2c) = 1/2 exactly, by algebra",
+          "Hermitian construction in problem 1: H = i(v psi^dag - psi v^dag) is self-adjoint, and -iH psi = v for a unit psi with v orthogonal to it (checked by hand)",
+          "combine.py: B-RECV is a bare A['RECV'] and C-INFOS is INFOS => not RECV; no premise-clash constraint links N_CORR and N_QTOPO",
+          "B-combine.variants.json cover: T-A is the only test for 'O-MAKE-TOPO|O-HOLD|O-LOOP <- F1,ITB' (48 variants), and T-D is assigned to every ITB+RI class"
+        ]
+      }
+    ]
+  },
+  "workflowProgress": [
+    {
+      "type": "workflow_phase",
+      "index": 1,
+      "title": "Repair"
+    },
+    {
+      "type": "workflow_phase",
+      "index": 2,
+      "title": "Rescreen"
+    },
+    {
+      "type": "workflow_phase",
+      "index": 3,
+      "title": "Reverify"
+    },
+    {
+      "type": "workflow_agent",
+      "index": 1,
+      "label": "R-alone",
+      "phaseIndex": 1,
+      "phaseTitle": "Repair",
+      "agentId": "aedffb5b26f32b73d",
+      "model": "claude-opus-5-5",
+      "state": "done",
+      "startedAt": 1791044521353,
+      "queuedAt": 1791044521321,
+      "attempt": 1,
+      "lastToolName": "StructuredOutput",
+      "lastToolSummary": "R-alone",
+      "promptPreview": "DOCKET 68 wave 1 repair, M's warp-drive research tree. Read /home/user/Claude-Method-Works/research/warp-drive/docket68/CHARTER.md, then /home/user/Claude-Method-Works/research/warp-drive/docket68/wave1/WAVE1-RESULT.json (JSON; key result.verdicts\nholds three adversarial verification reports -- AGAINST M, FOR M, REPRODUCE -- each a list of problems with site,\nwrong, correct, moves_grade). Every pr…",
+      "promptFramed": true,
+      "lastProgressAt": 1791046395845,
+      "tokens": 456012,
+      "toolCalls": 56,
+      "durationMs": 1874491,
+      "resultPreview": "{\"id\":\"R-alone\",\"files\":[\"/home/user/Claude-Method-Works/research/warp-drive/docket68/settle.py\",\"/home/user/Claude-Method-Works/research/warp-drive/docket68/frame.py\",\"/home/user/Claude-Method-Works/research/warp-drive/docket68/measure.py\",\"/home/user/Claude-Method-Works/research/warp-drive/docket68/geometry.py\",\"/home/user/Claude-Method-Works/research/warp-drive/docket68/A1-settle.md\",\"/home/use…"
+    },
+    {
+      "type": "workflow_agent",
+      "index": 2,
+      "label": "R-combine",
+      "phaseIndex": 2,
+      "phaseTitle": "Rescreen",
+      "agentId": "aedf21b822c33ee6f",
+      "model": "claude-opus-5-5",
+      "state": "done",
+      "startedAt": 1791046400269,
+      "queuedAt": 1791046400263,
+      "attempt": 1,
+      "lastToolName": "StructuredOutput",
+      "lastToolSummary": "R-combine",
+      "promptPreview": "DOCKET 68 wave 1 repair, M's warp-drive research tree. Read /home/user/Claude-Method-Works/research/warp-drive/docket68/CHARTER.md, then /home/user/Claude-Method-Works/research/warp-drive/docket68/wave1/WAVE1-RESULT.json (JSON; key result.verdicts\nholds three adversarial verification reports -- AGAINST M, FOR M, REPRODUCE -- each a list of problems with site,\nwrong, correct, moves_grade). Every pr…",
+      "promptFramed": true,
+      "lastProgressAt": 1791049187279,
+      "tokens": 449853,
+      "toolCalls": 51,
+      "durationMs": 2787009,
+      "resultPreview": "{\"id\":\"R-combine\",\"files\":[\"/home/user/Claude-Method-Works/research/warp-drive/docket68/combine.py\",\"/home/user/Claude-Method-Works/research/warp-drive/docket68/B-combine.md\",\"/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d68/B-combine.json\",\"/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d68/B-combine.var…"
+    },
+    {
+      "type": "workflow_agent",
+      "index": 3,
+      "label": "reverify-0",
+      "phaseIndex": 3,
+      "phaseTitle": "Reverify",
+      "agentId": "ab8904b3811f5549a",
+      "model": "claude-opus-5-5",
+      "state": "done",
+      "startedAt": 1791049191493,
+      "queuedAt": 1791049191420,
+      "attempt": 1,
+      "lastToolName": "StructuredOutput",
+      "lastToolSummary": "AGAINST M: overstatement remaining after the wave-1 repair.…",
+      "promptPreview": "DOCKET 68 wave 1 repair, M's warp-drive research tree. Read /home/user/Claude-Method-Works/research/warp-drive/docket68/CHARTER.md, then /home/user/Claude-Method-Works/research/warp-drive/docket68/wave1/WAVE1-RESULT.json (JSON; key result.verdicts\nholds three adversarial verification reports -- AGAINST M, FOR M, REPRODUCE -- each a list of problems with site,\nwrong, correct, moves_grade). Every pr…",
+      "promptFramed": true,
+      "lastProgressAt": 1791049932617,
+      "tokens": 266756,
+      "toolCalls": 35,
+      "durationMs": 741119,
+      "resultPreview": "{\"lens\":\"AGAINST M: overstatement remaining after the wave-1 repair. Checked every wave-1 verifier problem (AGAINST 0-16, FOR 0-10, REPRODUCE 0-4) against the repaired A1-A4, B-combine and the five instruments, then looked for new faults. All five selftests re-run with PYTHONDONTWRITEBYTECODE; no repo file written (git status unchanged). One source re-READ: BHW 0811.1209v2. Report: /tmp/claude-0/-…"
+    },
+    {
+      "type": "workflow_agent",
+      "index": 4,
+      "label": "reverify-1",
+      "phaseIndex": 3,
+      "phaseTitle": "Reverify",
+      "agentId": "ab556ce0b11ed9d95",
+      "model": "claude-opus-5-5",
+      "state": "done",
+      "startedAt": 1791049191497,
+      "queuedAt": 1791049191421,
+      "attempt": 1,
+      "lastToolName": "StructuredOutput",
+      "lastToolSummary": "FOR M: understatement remaining after the wave-2 repair of …",
+      "promptPreview": "DOCKET 68 wave 1 repair, M's warp-drive research tree. Read /home/user/Claude-Method-Works/research/warp-drive/docket68/CHARTER.md, then /home/user/Claude-Method-Works/research/warp-drive/docket68/wave1/WAVE1-RESULT.json (JSON; key result.verdicts\nholds three adversarial verification reports -- AGAINST M, FOR M, REPRODUCE -- each a list of problems with site,\nwrong, correct, moves_grade). Every pr…",
+      "promptFramed": true,
+      "lastProgressAt": 1791049959386,
+      "tokens": 258749,
+      "toolCalls": 27,
+      "durationMs": 764288,
+      "resultPreview": "{\"lens\":\"FOR M: understatement remaining after the wave-2 repair of DOCKET 68 wave 1 (A1-A4, B-combine and their instruments). First I checked all 33 wave-1 verifier problems (17 AGAINST, 11 FOR, 5 REPRODUCE). Then I looked for faults the repair introduced, in either direction, so that over-representation is avoided both ways. All five selftests were run. The only file written is /tmp/claude-0/-ho…"
+    }
+  ],
+  "totalTokens": 1431370,
+  "totalToolCalls": 169
+}

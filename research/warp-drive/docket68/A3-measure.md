@@ -1,15 +1,29 @@
 # DOCKET 68 · A3-measure: Q-1 (the substrate-free measure), H-INFO and R-INDEX
 
 **Status: a docket work item. Nothing here is seated.** The instrument is `measure.py`, which sits beside this file.
-`python3 measure.py --selftest` runs 58 checks, and all 58 pass in about 13 s. Sixteen of the checks are
-**controls**: cases built to fail, and every one of them fails. The instrument imports everything it uses and
-copies nothing:
+`python3 measure.py --selftest` runs 65 checks, and all 65 pass in about 15 s. Fifteen of them are **controls**: cases
+built to fail, and every one of them fails. Five more are printed **STRUCTURAL**: they cannot fail by construction
+(a literal, or a comparison of typed values), so they are not counted as controls and are not cited as evidence.
+*Wave 1 first said* "58 checks ... Sixteen of the checks are controls", and four of those sixteen were structural.
+The instrument imports everything it uses and copies nothing:
 
 - `tools/cypher.py` for Λ;
 - `nopath`, `massform`, `stock`, `wormhole` and `transit` for every board figure;
 - `nlcontrol.py` for the drift model.
 
 It writes nothing outside `docket68/`.
+
+## Wave 2 repair (2026-10-03): what changed, and why
+
+| verifier problem | resolution |
+|---|---|
+| AGAINST #1: R-INDEX "removes" O-HOLD and O-MAKE within the measure because they are not expressible, while O-LOOP's inexpressibility is called silence | **Applied.** One reason gets one verdict: within the measure, O-HOLD, O-MAKE and O-LOOP are all **SILENT**. For a physical corridor, the NEC and Geroch are **NOT-BOUND-IF {H-IT, H-MEASURE-PHYSICAL}**, never REMOVED: showing a theorem cannot be stated in a formalism is not showing its conclusion false. R-INDEX alone is **LEAVES-ALL**. The Bekenstein floor belongs to the destination holder (O-MATTER). |
+| AGAINST #0 (sited in combine; it cites this file): B-THROAT reads "physical only under H-IT" as sufficiency | **Answered at the source.** Here H-IT is *necessary*. Sufficiency would need H-MEASURE-PHYSICAL ("under H-IT, the measure-level absence of an NEC is physical"), which no instrument or READ source supplies. It is named so the grade can say what it would take. |
+| AGAINST #9: lower bounds read as costs ("the 'costs little' half, priced") | **Applied.** Every joule figure is a **floor**. Landauer prices *erasure*, which teleportation does not require. Bekenstein floors a holder's gravitating energy. No upper bound on any cost is computed. The one READ-backed holder, the body, has Mc² = 6.29e18 J. "Costs little" is **floored, not priced**. |
+| AGAINST #14: H-SETTLE × H-INFO "removes O-BITS in nlcontrol's model only", with no distance in the model and C2 unnamed | **Applied.** The model shows a channel **exists**: χ = (2T)²ε²/(8 ln 2) per use for small ε, coefficient 6.49 at T = 3 (computed, and it matches χ(1e-3)/1e-6 = 6.4920). This holds under H-C2; under C1 there is none. O-BITS is REMOVED-IF {N_EPS (A1's timing), H-C2, H-BORN-AT-BOB, H-FRAME3b}. |
+| FOR #8: H-INFO's sufficiency reading was never screened, so "O-MATTER survives because none of the seven touches it" is not established | **Applied.** H-INFO-S is graded: a **CLASH** with B-RECV, not a removal (`info_s_clash`). |
+| FOR #0 (sited in combine): rule-2 retirement of H-INFO rests on an inert encoding | **Recorded here.** H-INFO is exercised in this file (it reprices nothing and removes nothing). Combine's verdict that it is "not load-bearing" is UNTESTED-BY-SCREEN, because its MEASURE atom is in no constraint. Retirement is not established. |
+| (rule: vacuous controls) four wave-1 controls could not fail | **Applied.** They are now printed STRUCTURAL. One of them (the mis-stated identity) was given content: a mis-stated line, parsed by `read_identity`'s own pattern, must fail the comparison with cypher's computation. |
 
 M's request, quoted from the charter: *"We need to quantify information, unambiguously and independently of all
 cosmic/quantum physicalities"*. H-INFO and both readings are carried as M's hypotheses. Each is graded on what it
@@ -119,15 +133,18 @@ lies within ±0.15 kT of ln 2.
 (computed). This requires joint operations on S and O.
 
 **Bekenstein.** `massform.bekenstein_bits()` gives 1.8038e45 bits for 70 kg at R = 1 m, matching the board's READ
-finding. Inverted, the bound gives an **exchange-rate floor**: E ≥ I ħc ln 2/(2πR) is the least total gravitating
-energy of a complete system that holds I bits.
+finding. Inverted, the bound gives a **floor**: E ≥ I ħc ln 2/(2πR) is the least total gravitating energy of a complete
+system that holds I bits. It is a property of the holder, which bears on O-MATTER. It is not a price paid, and it is
+not the cost of holding a corridor open.
 
 **Control.** Taking R in centimetres moves the figure by a factor of 100, and the check flags it.
 
 **The object.** A 70 kg body. stock.HUMAN gives 6.7117e27 atoms and 1.4168 species bits per atom. The counts carry
 the named hypotheses H-LISTED, H-RHO, H-GRID and H-THERMO:
 
-| count (named hypotheses) | bits | Landauer, 310 K | Landauer, T_CMB | Bekenstein floor, R = 1 m | classical bits to teleport (H-FAITHFUL) |
+Every joule column is a floor:
+
+| count (named hypotheses) | bits | Landauer floor, 310 K | Landauer floor, T_CMB | Bekenstein floor, R = 1 m | classical bits to teleport (H-FAITHFUL) |
 |---|---|---|---|---|---|
 | species sequence (H-LISTED) | 9.509e27 | 2.82e7 J | 2.48e5 J | 33 J | 1.90e28 |
 | grid at 1 Å (H-GRID, H-RHO; 9.6 % of sites filled) | 4.142e28 | 1.23e8 J | 1.08e6 J | 144 J | 8.28e28 |
@@ -139,9 +156,9 @@ the named hypotheses H-LISTED, H-RHO, H-GRID and H-THERMO:
 The four counts span one decade, 9.5e27 to 1.1e29 bits. That spread **is H-ALT made visible**: the measure is
 exact once the alternatives are fixed, and the alternatives for an object are a choice.
 
-Against the board's geometric prices (imported, not re-graded):
+Against the board's geometric figures (imported, not re-graded):
 
-| board price | joules |
+| board figure | joules |
 |---|---|
 | O-HOLD: `wormhole.throat_mass(1 m)·c²` | 4.8155e42 |
 | O-MAKE: `nopath.coincidence_mass()·c²` (Proxima, contraction) | 4.8707e59 |
@@ -151,13 +168,19 @@ Against the board's geometric prices (imported, not re-graded):
 Every count lies below the Bekenstein ceiling of 1.80e45 bits and far below the light-sheet cap for a 1 m sphere,
 1.735e70 bits (`nopath.holographic_bits`).
 
-The largest erasure price at 310 K, 3.2e8 J, is **1.5e34 times smaller** than the 1 m throat. **This is the
-"costs little" half of M's thesis, priced:** the information that defines the object is cheap at every exchange
-rate. Two things keep that from being over-read:
+**Floors, not prices (wave 2).** *Wave 1 first said:* "The largest erasure price at 310 K, 3.2e8 J, is 1.5e34 times
+smaller than the 1 m throat. This is the 'costs little' half of M's thesis, priced: the information that defines the
+object is cheap at every exchange rate." That treated lower bounds as costs. What the computation shows:
 
-- It prices the information, not the corridor.
-- Under H-FAITHFUL it must still be *sent*, at 2 classical bits per qubit, through a channel no faster than light
-  (`transit.BEATS_LIGHT` is False; imported).
+- **Landauer.** Erasing the count would cost **at least** 2.8e7-3.2e8 J at 310 K, and teleportation need not erase at
+  all (H-ERASE).
+- **Bekenstein.** A holder at R = 1 m must have **at least** 33-379 J of gravitating energy.
+- **No upper bound on any cost is computed here.** No instrument exhibits a holder near its floor. The one READ-backed
+  holder, the body itself, has Mc² = 6.29e18 J (`massform`).
+- **So "costs little" is floored, not priced.** The floors sit 1.5e34 (Landauer) and 1.3e40 (Bekenstein) below the
+  board's 1 m throat figure. That is a comparison of floors with a board figure, not of cost with cost.
+- Under H-FAITHFUL the information must still be *sent*, at 2 classical bits per qubit, through a channel no faster
+  than light (`transit.BEATS_LIGHT` is False; imported).
 
 ## (iv) Grades
 
@@ -182,23 +205,47 @@ Per obstruction, alone:
   computed.
 - **O-MAKE** and **O-HOLD** are left: a premise about primacy is not a mechanism.
 - **O-MATTER** is left. Bekenstein's bound applies to a complete system with E > 0, which must hold the bits.
-- **O-LOOP** is left: the measure is silent, because it has no time variable.
+- **O-LOOP** is SILENT: the measure has no time variable. It is left, not decided.
+
+H-INFO is exercised here and removes nothing. That is not a retirement under rule 2: combine's screen encodes it
+inertly, so its result there is UNTESTED-BY-SCREEN.
+
+### H-INFO-S, the sufficiency reading (wave 2): **CLASH with B-RECV**
+
+M's premise read as sufficiency: information at the destination **suffices** to constitute the matter. The charter
+gives the textual ground: "only the information defining it is necessary"; "the only multi-universal currency".
+Against the board holding B-RECV (a holder must be at the destination), computed in `info_s_clash`:
+
+- Q-1 gives a one-state destination **0 bits** (φ(1) = 0). Control: a two-state destination holds 1 bit. So I > 0 bits
+  at the destination needs a holder with at least 2^I distinguishable states already there.
+- Bekenstein admits **0 bits at E = 0** (`nopath.bekenstein_bits`). Within its scope (READ p.2), information
+  presupposes gravitating energy at the destination.
+- `transit.CARRIES_SUBSTANCE` is False: the protocol moves a state into a receiver that is already there.
+
+H-INFO-S says the arriving information suffices; B-RECV says a holder must already be there. As commitments they
+clash. Nothing computed here shows information constituting its own holder. So O-MATTER is **CLASH**: REMOVED-IF
+{H-INFO-S} holds only on a board without B-RECV. O-MATTER's survival is therefore a board-versus-M clash, not
+something "none of the seven touches". The z3 screen of that clash belongs to combine and is not run here.
 
 Under "Holding it open" in the charter's corridor replies, M says *"This is simply a translation of information
 only. No physics. The null energy doesn't exist here"*. That is true *of the measure*. It is not yet true of the
 corridor.
 
-### R-INDEX: **PARTIAL**
+### R-INDEX: **LEAVES-ALL** (wave 1 first said PARTIAL)
 
 BFL's objects are finite probability spaces. Inside the measure there is no stress tensor, no metric and no
 manifold, so neither Morris-Thorne's NEC nor Geroch's theorem can even be stated.
 
-- **O-HOLD and O-MAKE are not expressible in the measure.** They are therefore removed *within the measure*. That
-  becomes a *physical* removal only under H-IT. What happens to them is that they **move to the exchange rate**:
-  - the holding price becomes the Bekenstein floor, 33-379 J for the counts above at R = 1 m, against the 4.8e42 J
-    throat;
-  - erasure moves to Landauer;
-  - transfer moves to Holevo.
+- **O-HOLD and O-MAKE are SILENT within the measure, exactly as O-LOOP is.** A formalism that cannot state a theorem
+  is silent on it.
+  - *Wave 1 first said* they "are therefore removed *within the measure*. That becomes a *physical* removal only under
+    H-IT ... the holding price becomes the Bekenstein floor". One reason gave two verdicts (AGAINST #1).
+- **For a physical corridor: NOT-BOUND-IF {H-IT, H-MEASURE-PHYSICAL}.** H-IT is necessary but not sufficient. The
+  second premise, that the measure-level absence of an NEC is a fact about the corridor, is supplied by no instrument
+  and no READ source. Not bound is not removed.
+- **The exchange rates are floors.** Erasure goes to Landauer and transfer to Holevo. The Bekenstein floor (33-379 J
+  at R = 1 m) bounds the **destination holder**, so it bears on O-MATTER, not on holding a corridor open. Nothing here
+  prices holding a corridor open.
 - **Energy and geometry re-enter at the exchange rate, not as an NEC.** Bekenstein's E is the *gravitating* energy
   and R is a radius in asymptotically flat spacetime (READ p.1-2). The exchange rate that prices holding is stated
   in geometric terms.
@@ -211,10 +258,12 @@ manifold, so neither Morris-Thorne's NEC nor Geroch's theorem can even be stated
 
 ## Combinations, per the standing instruction
 
-**H-SETTLE × H-INFO: complementary obstructions, and computed.** The O-BITS bound read above rests on causality
-(BSST p.3). H-SETTLE breaks the linearity behind that premise. With `nlcontrol.py`'s model imported, Bob's two
-ensembles carry the following Holevo information, under the named hypothesis H-BORN-AT-BOB (Bob's final measurement
-follows the Born rule):
+**H-SETTLE × H-INFO: complementary obstructions, and computed. Verdict PARTIAL: O-BITS REMOVED-IF {N_EPS, H-C2,
+H-BORN-AT-BOB, H-FRAME3b}.** The O-BITS bound read above rests on causality (BSST p.3), and H-SETTLE breaks the
+linearity behind that premise. With `nlcontrol.py`'s model imported, Bob's two ensembles carry the Holevo information
+in the table below. The named hypotheses are:
+- H-BORN-AT-BOB: Bob's final measurement follows the Born rule;
+- **H-C2**: the drift acts on the branch state. *Wave 1 first omitted it.* Under C1 χ = 0.
 
 | ε | χ_Bob, bits per use | trace distance | uses needed for the 1 Å count |
 |---|---|---|---|
@@ -226,8 +275,13 @@ follows the Born rule):
 - For small ε, χ scales as ε²: the ratio between ε = 1e-2 and ε = 1e-3 is 99.9.
 - Each use consumes one pre-shared pair, and the pairs had to cross the distance first (`transit.py`: the traversal
   is moved earlier, not removed).
-- So in this model, H-SETTLE is the member that could remove O-BITS. Its capacity is priced by Q-1, and its supply
-  of pairs reintroduces transit.
+- For small ε the law is χ = (2T)²ε²/(8 ln 2). The computed coefficient is 6.4921 at T = 3, against a measured
+  6.4920.
+- **What the model shows is that a channel exists.** nlcontrol has no distance, so "before light" is not defined
+  inside it. The O-BITS removal needs A1's timing condition (N_EPS: ε > ε_any(L, N)) and H-C2.
+  - *Wave 1 first said* "removes O-BITS, in nlcontrol's model only, at a priced capacity".
+  - The capacity figures are nlcontrol's single Hamiltonian's (H-NLCONTROL-FORM). A1 §1b computes the W2 class.
+- Its supply of pairs reintroduces transit.
 
 **H-INFO × H-ZERO: tested at the source, and narrowed.** Bekenstein p.1 takes E as the gravitating energy precisely
 to "dispose of any ambiguity" about the zero, and p.8 includes the ground-state energy. So relabelling the zero
@@ -251,9 +305,10 @@ light-sheet cap of a 1 m sphere. That is not a test of the QNEC pricing in `null
    and is not c·ΔH would refute the theorem. All four non-Shannon controls fail an axiom.
 3. **Landauer has a measurable floor.** A measured mean erasure heat below kT[ln 2 + p ln p + (1−p) ln(1−p)], with no
    quantum side information, would refute Landauer. Bérut's 0.72 ± 0.15 kT is consistent with it.
-4. **Under R-INDEX with H-IT, holding has a floor.** Holding the definition of a 70 kg body at R = 1 m needs a
-   complete system of total gravitating energy at least 33-379 J, depending on the count. Bekenstein forbids any
-   holder below that.
+4. **Any holder has a floor.** Holding the definition of a 70 kg body at R = 1 m needs a complete system of total
+   gravitating energy at least 33-379 J, depending on the count; Bekenstein forbids any holder below that. This is a
+   floor on the destination holder (O-MATTER). It is not a price, and it does not need R-INDEX or H-IT. *Wave 1 first
+   said* "Under R-INDEX with H-IT, holding has a floor".
 
 ## What was not done
 
@@ -262,6 +317,9 @@ light-sheet cap of a 1 m sphere. That is not a test of the QNEC pricing in `null
 - **H-THERMO's datum is not read at source.** The entropy of water, 69.95 J/(mol·K), was not read, so that row is
   conditional on it.
 - **H-RHO is a round assumption.**
-- **The O-LOOP grade is "silent".** It is not a decision; `frame.py` (A2) owns it.
+- **The O-LOOP grade is "silent".** It is not a decision; `frame.py` (A2) owns it. In wave 2, O-HOLD and O-MAKE take
+  the same word within the measure.
+- **H-INFO-S's clash is not z3-screened here.** It is graded from computed facts (φ(1) = 0, Bekenstein at E = 0,
+  `transit.CARRIES_SUBSTANCE`); the screen is combine's.
 - **The task's file list named `docket68/undefined`.** That is a script fault in the computed task text. The
   instrument is named `measure.py`, as the body of the task asked.

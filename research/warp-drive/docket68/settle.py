@@ -688,7 +688,7 @@ def report(R):
         p(f"     {k:<40} f = {d['f_Hz']}   {d['status']}")
     p(f"     consistency: h x 8.9 uHz = {R['walsworth_check_eV']:.3e} eV (abstract: 3.7e-20 eV)")
     for lab, c in R["conditional"].items():
-        p(f"   CONDITIONAL on H-MAP reading {lab}, H-TRANSFER, H-SPIN, H-COHERE, H-FRAME3b, eps AT the Majumder upper limit:")
+        p(f"   CONDITIONAL on H-MAP reading {lab}, H-TRANSFER, H-SPIN, H-COHERE, H-FRAME3b, H-C2, H-NLCONTROL-FORM, eps AT the Majumder upper limit:")
         p(f"     eps_max = {c['eps_max']:.4e} /s;  drift time to D = 0.5: {c['T_half']:.4e} s = {c['T_half']/3600:.2f} h")
         for T, D, C, Nd in c["rows"]:
             p(f"     T = {T:>8.0f} s: D = {D:.4e}, capacity {C:.4e} bits/pair, pairs for a 3-sigma detection {Nd:.3e}")
@@ -698,7 +698,8 @@ def report(R):
             if em is None:
                 p(f"     O-BITS at {Ln:<24} with N = {N:<8g}: IMPOSSIBLE at any eps (N x {CMAX:.4f} < 2 bits)")
             else:
-                p(f"     O-BITS at {Ln:<24} with N = {N:<8g}: needs eps >= {em:.4e} /s  -> {'NOT EXCLUDED' if ok else 'EXCLUDED'} by the (unread) bound")
+                p(f"     O-BITS at {Ln:<24} with N = {N:<8g}: needs eps >= {em:.4e} /s at T = L/2c (wave-1 table; T = L/2c is a DECLARED choice,"
+                  f" any advantage needs only half: see WAVE 2)  -> {'NOT EXCLUDED' if ok else 'EXCLUDED'} by the (unread) bound")
     p("\nD. COLLAPSE-TYPE (STOCHASTIC) DRIFT -- the control that must NOT signal")
     C = R["collapse"]
     for k, r in C["per_state"].items():

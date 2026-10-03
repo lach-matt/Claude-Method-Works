@@ -37,12 +37,29 @@ SOURCES, READ at source through alphaXiv on 2026-10-03 (arXiv is the object, M-D
       states".
   Padmanabhan & Padmanabhan, arXiv:1703.06144v1, pp.6-7: emergent gravity -- field equations "invariant under the
       addition of a constant to the matter Lagrangian", Lambda "an integration constant".
+  Eling, Guedens & Jacobson, arXiv:gr-qc/0602001v1 (1 Feb 2006), READ at source this pass (wave 2), all 4 pages:
+      eq.(11) p.3 entropy balance dS = dQ/T + d_iS; eq.(21) p.3 the equation of state
+      f R_ab - f_;ab + (f - L/2) g_ab = (2 pi / hbar alpha) T_ab with f = dL/dR (an f(R) entropy density alpha f(R));
+      p.4 remark 5: dimensional analysis suggests beta_1 ~ eps^2 ~ L_Planck^2.  (First READ by the FOR verifier,
+      C-verify-1 #5; re-read here.)
   Board holdings (DOCKET 67 grades, docket67-raw/GRADES.tsv and audits/): Bousso hep-th/9905177 bousso-covariant
       NARROWED (hypotheses: Einstein's equation, dominant -- or null + causal -- energy condition); QNEC BFKLW
       NARROWED; 1208.5399 NARROWED (duration bound eq.(4), C ~ 3.17); fewster-osterbrink-qei NARROWED; gr-qc/0209036
       NARROWED; kontou-fo-ffkp-nmc-qei NARROWED; gr-qc/9510071 NARROWED; gr-qc/9506083 STANDS -- which is
       Poisson-Visser thin-shell stability, NOT a quantum energy inequality (a discrepancy in the charter's list).
 """
+# WAVE 2 (repair after three adversarial verifications, 2026-10-03).  Wave 1 first said: H-IT 'PARTIAL', removing
+# 'O-MAKE in its topology-change form'; H-IT leaves O-HOLD (Gao-Wald, MS fn.1); H-ZERO + H-IT and H-IT + H-NULL
+# 'LEAVES-ALL' with H-EQUIL named OPEN.  Now, on one principle -- a theorem that does not bind a non-geometric corridor
+# makes the obstruction NOT-BOUND-IF (its premise named), never REMOVED; showing a theorem does not apply is not
+# showing its conclusion false -- applied symmetrically:
+#   * H-IT is graded in its two readings.  ITE (ER=EPR, READ: MS): O-MAKE-TOPO NOT-BOUND-IF {H-ER=EPR}, for a
+#     NON-traversable bridge only (MS fn.1), Planckian for pairs (p.17); O-HOLD LEFT (MS fn.1 assumes it).  ITB (an
+#     information layer beneath geometry, no READ source): O-MAKE-TOPO and O-HOLD's geometric (NEC/throat) form both
+#     NOT-BOUND-IF {N_QTOPO}; the information layer's own holding cost OPEN.
+#   * H-ZERO + H-IT and H-IT + H-NULL: O-HOLD is OPEN via N_EQUIL (EGJ's non-equilibrium f(R) equation of state,
+#     READ), not LEFT and not removed -- egj_fR_throat computes it.
+#   * the Minkowski light-sheet control computes theta instead of typing -2.
 import contextlib
 import io
 import json
@@ -351,6 +368,43 @@ def jacobson_null_equation():
             "G_of_eta": str(G_of_eta), "dQ": str(sp.simplify(dQ)), "dA": str(sp.simplify(dA))}
 
 
+def egj_fR_throat(r0_m=R0, k_grid=(0.0, 0.25, 0.5, 1.0, 2.0, 5.0)):
+    """Wave 2, H-EQUIL relaxed.  Eling-Guedens-Jacobson gr-qc/0602001v1 eq.(21) p.3 (READ): out of local equilibrium the
+    entropy balance dS = dQ/T + d_iS gives f R_ab - f_;ab + (f - L/2) g_ab = (2 pi/hbar alpha) T_ab.  Contracted with a
+    null k the g_ab term drops (as Lambda and R did in Jacobson's equation): (2 pi/hbar alpha) T_kk = f R_kk - k^a k^b
+    f_;ab, and for an affinely parametrised k, k^a k^b f_;ab = d^2 f/d lambda^2.  Computed for Morris-Thorne, Phi = 0,
+    b = r0^2/r (a flare-out shape), f = 1 + beta R (EGJ's beta_1, p.4):
+      T_kk(r) up to the positive factor, T_kk(r0), the beta at which T_kk(r0) >= 0, its size in Planck units at r0 =
+      r0_m, the grid of T_kk(r) for beta = -k r0^2, and the large-r limit r^4 T_kk (independent of beta).
+    CONTROL: beta = 0 must return Jacobson's R_kk = -2 r0^2/r^4 < 0."""
+    t, r, th, ph = sp.symbols('t r theta phi', positive=True)
+    r0, beta = sp.symbols('r_0 beta', real=True)
+    b = r0 ** 2 / r
+    gm = sp.diag(-1, 1 / (1 - b / r), r ** 2, r ** 2 * sp.sin(th) ** 2)
+    Ric = ricci(gm, [t, r, th, ph])
+    gi = gm.inv()
+    Rs = sp.simplify(sum(gi[i, j] * Ric[i, j] for i in range(4) for j in range(4)))
+    k = sp.Matrix([1, sp.sqrt(1 - b / r), 0, 0])
+    Rkk = sp.simplify((k.T * Ric * k)[0])
+    f = 1 + beta * Rs
+    drdl = sp.sqrt(1 - b / r)
+    fkk = sp.simplify(drdl * sp.diff(drdl * sp.diff(f, r), r))
+    Tkk = sp.factor(sp.simplify(f * Rkk - fkk))
+    T0 = sp.simplify(Tkk.subs(r, r0))
+    beta_crit = sp.solve(sp.Eq(T0, 0), beta)[0]                  # T_kk(r0) >= 0 iff beta <= beta_crit
+    lim = sp.limit(Tkk * r ** 4, r, sp.oo)
+    grid = {}
+    for kk in k_grid:
+        e = Tkk.subs({r0: 1, beta: -kk})
+        grid[kk] = {x: float(e.subs(r, x)) for x in (1.0, 1.05, 1.2, 2.0, 10.0)}
+    f_at_throat = sp.simplify(f.subs(r, r0).subs(beta, beta_crit))
+    beta_planck = abs(float(beta_crit.subs(r0, r0_m))) / LP ** 2
+    return {"R_scalar": str(Rs), "Rkk": str(Rkk), "Tkk": str(Tkk), "Tkk_r0": str(T0), "beta_crit": str(beta_crit),
+            "beta_crit_over_lP2_at_r0": beta_planck, "f_at_throat_at_beta_crit": str(f_at_throat),
+            "large_r_limit_r4Tkk": str(lim), "grid_r0=1": grid,
+            "CONTROL_beta0_equals_Rkk": sp.simplify(Tkk.subs(beta, 0) - Rkk) == 0}
+
+
 # =====================================================================================================================
 # PART (iii) -- H-NULL.  The throat against the light-sheet construction, and the QNEC price (nullinfo.py).
 # =====================================================================================================================
@@ -417,8 +471,13 @@ def shape_checks():
                      "theta(1.01 r0)": float(th.subs(num).subs(r, 1.01)),
                      "dtheta(r0)": float(dth.subs(num).subs(r, 1)),
                      "Rkk(r0)": float(Rkk.subs(num).subs(r, 1))}
-    # CONTROL 1: Minkowski, ingoing congruence from a sphere of radius R: theta = -2/R < 0
-    out["CONTROL Minkowski ingoing theta at R=1"] = float(-2 / 1.0)
+    # CONTROL 1: Minkowski, ingoing congruence from a sphere of radius R.  Wave 1 typed float(-2/1.0) (a declared
+    # value in a check).  Now computed: theta = (1/sqrt(-g)) d_a (sqrt(-g) k^a) for k = (1, -1, 0, 0) in spherical
+    # coordinates (sqrt(-g) = r^2 sin(theta)), evaluated at r = 1.
+    sq = r ** 2 * sp.sin(sp.Symbol('theta_ang', positive=True))
+    kin = [1, -1]
+    theta_in = sp.simplify((sp.diff(sq * kin[0], sp.Symbol('t_m')) + sp.diff(sq * kin[1], r)) / sq)
+    out["CONTROL Minkowski ingoing theta at R=1"] = float(theta_in.subs(r, 1))
     # CONTROL 2: b'(r0) = 1 (e.g. b = r near r0 -- not a throat): dtheta and R_kk vanish
     out["CONTROL bprime=1 dtheta(r0)"] = float(mt["dtheta_throat"].subs(mt["bp"], 1).subs(r0, 1))
     out["CONTROL bprime=1 Rkk(r0)"] = float(mt["Rkk_throat"].subs(mt["bp"], 1).subs(r0, 1))
@@ -481,43 +540,90 @@ def r_quantum(r0=R0, bprime=0.0):
 # Grades
 # =====================================================================================================================
 OBS = ["O-BITS", "O-MAKE", "O-HOLD", "O-MATTER", "O-LOOP"]
+# grade verdicts (wave 2): REMOVES / PARTIAL (some REMOVED or REMOVED-IF) / NOT-BOUND-IF (nothing removed; a theorem
+# shown not to bind, its premise named) / OPEN / LEAVES-ALL / CLASH.  Per obstruction: LEAVES, SILENT, NOT-BOUND-IF
+# {..}, REMOVED-IF {..}, OPEN (via ..), CLASH.  O-MAKE is split: -TOPO (topology change) and -DIST (distribution).
 
 GRADES = [
-    {"hypothesis": "H-IT (spacetime from information), alone", "verdict": "PARTIAL",
-     "removes": ["O-MAKE as Geroch/Tipler topology change: under ER=EPR the bridge is a property of an entangled state "
-                 "and Maldacena-Susskind p.17 say non-trivial topologies 'should be allowed as possible quantum states'; "
-                 "Geroch is a theorem about Lorentzian manifolds and does not reach that description"],
-     "leaves": ["O-BITS (computed: Bob's state in Van Raamsdonk's eq.(1) state moves by <1e-14 over 900 choices of "
-                "Alice; transit.BEATS_LIGHT False)",
-                "O-MAKE as entanglement distribution: MS sec.3.2 p.16-17 -- no bridge 'without preexisting bridges'; "
-                "a bridge is made by making pairs together, separating them (at <= c) and merging; LOCC cannot create "
-                "entanglement (computed: local unitaries change S by <1e-13; a nonlocal control changes it)",
-                "O-HOLD (MS footnote 1: non-traversability via the integrated NEC; Gao-Wald Thm 2: a bulk shortcut "
-                "needs one of NEC/Borde-ANEC, null-generic, strong causality, compactness to fail)",
-                "O-MATTER (no READ result on it)", "O-LOOP (no READ result on it; H-FRAME is A2's)"]},
+    {"hypothesis": "H-IT read as ER=EPR (ITE; Maldacena-Susskind, READ), alone", "verdict": "NOT-BOUND-IF",
+     "removes": [],
+     "not_bound_if": ["O-MAKE-TOPO NOT-BOUND-IF {H-ER=EPR}: Geroch/Tipler are Lorentzian-manifold theorems and MS p.17 "
+                      "allow non-trivial topologies 'as possible quantum states' -- but what is then 'made' is a "
+                      "NON-traversable bridge (MS fn.1, assumed via the integrated NEC), Planckian for particle pairs "
+                      "and 'probably' not classical geometry (p.17), introduced as speculation (p.2).  Not a crossable "
+                      "corridor; the theorem's conclusion is not shown false"],
+     "leaves": ["O-BITS (computed: Bob's state in Van Raamsdonk's eq.(1) state moves by <= 1.55e-15 over 900 choices; "
+                "transit.BEATS_LIGHT False)",
+                "O-MAKE-DIST: MS sec.3.2 p.16-17 -- no bridge 'without preexisting bridges'; pairs made together, "
+                "separated at <= c, merged; LOCC cannot create entanglement (computed 8.9e-16; nonlocal control 1.965)",
+                "O-HOLD (MS fn.1: non-traversability is an ASSUMPTION of ER=EPR; Gao-Wald Thm 2 needs one of its "
+                "hypotheses broken)",
+                "O-MATTER (no READ result on it)", "O-LOOP (no READ result on it; H-FRAME is A2's)"],
+     "per": {"O-BITS": "LEAVES", "O-MAKE-TOPO": "NOT-BOUND-IF {H-ER=EPR} (non-traversable bridge only)",
+             "O-MAKE-DIST": "LEAVES", "O-HOLD": "LEAVES", "O-MATTER": "LEAVES", "O-LOOP": "LEAVES"},
+     "wave1": "wave 1 first graded H-IT (made under H-ER=EPR) PARTIAL, removing O-MAKE's topology-change form"},
+    {"hypothesis": "H-IT read as an information layer beneath geometry (ITB), alone", "verdict": "NOT-BOUND-IF",
+     "removes": [],
+     "not_bound_if": ["O-MAKE-TOPO NOT-BOUND-IF {N_QTOPO}: a corridor in an information layer is not a Lorentzian "
+                      "topology change, so Geroch/Tipler say nothing about it -- the charter's reading, no READ source",
+                      "O-HOLD in its geometric (NEC/throat) form NOT-BOUND-IF {N_QTOPO}: Morris-Thorne, Gao-Wald "
+                      "(asymptotically AdS Lorentzian, NEC) and MS fn.1 (ER=EPR) all presuppose a geometric throat; "
+                      "with none they do not apply (the charter applies the same logic, CHARTER 'with no throat it does "
+                      "not apply').  What the information layer charges to hold a corridor is OPEN"],
+     "leaves": ["O-BITS (linear QM inside any READ model: computed 1.55e-15)",
+                "O-MAKE-DIST (LOCC cannot create entanglement -- linear QM, computed; it binds ITB unless ITB drops "
+                "linear QM)", "O-MATTER", "O-LOOP"],
+     "per": {"O-BITS": "LEAVES", "O-MAKE-TOPO": "NOT-BOUND-IF {N_QTOPO}", "O-MAKE-DIST": "LEAVES",
+             "O-HOLD": "NOT-BOUND-IF {N_QTOPO} (geometric form); information-layer holding cost OPEN",
+             "O-MATTER": "LEAVES", "O-LOOP": "LEAVES"},
+     "note": "ITB has no READ realisation: as combine encodes it, it commits to nothing beyond these two non-bindings, "
+             "so its consistency with H-SETTLE W2 is by construction, not a finding (C-verify-0 #12).  The READ "
+             "realisations of H-IT (MS, Van Raamsdonk) assume linear QM.",
+     "wave1": "wave 1 had no ITB grade; combine tied ITB to the H-IT grade made under H-ER=EPR (C-verify-0 #4)"},
     {"hypothesis": "H-ZERO (zero = ground state), alone", "verdict": "LEAVES-ALL",
-     "removes": [],
-     "leaves": OBS[:],
+     "removes": [], "leaves": OBS[:],
+     "per": {o: "LEAVES" for o in ["O-BITS", "O-MAKE-TOPO", "O-MAKE-DIST", "O-HOLD", "O-MATTER", "O-LOOP"]},
      "note": "relabels WEC violations away; the NEC combination changes by exactly 0 (zero.py; z3 UNSAT of the "
-             "negation over every T, lambda and null k)"},
-    {"hypothesis": "H-ZERO with H-IT (emergent gravity: Jacobson; Padmanabhan pp.6-7)", "verdict": "LEAVES-ALL",
+             "negation over every T, lambda and null k).  Rule 2: combine encoded H-ZERO's commitments as inert "
+             "atoms (in no board constraint), so its 'not load-bearing' is UNTESTED-BY-SCREEN, not a retirement."},
+    {"hypothesis": "H-ZERO with H-IT (emergent gravity: Jacobson; Padmanabhan pp.6-7; EGJ out of equilibrium)",
+     "verdict": "OPEN",
      "removes": [],
-     "leaves": OBS[:],
+     "leaves": ["O-BITS", "O-MAKE-DIST", "O-MATTER", "O-LOOP"],
+     "per": {"O-BITS": "LEAVES", "O-MAKE-TOPO": "NOT-BOUND-IF (inherited from the H-IT reading: {N_QTOPO} for ITB, "
+                                                "{H-ER=EPR} for ITE)",
+             "O-MAKE-DIST": "LEAVES",
+             "O-HOLD": "OPEN via N_EQUIL: with Jacobson's local equilibrium (H-EQUIL) the throat needs T_kk < 0, which "
+                       "the free zero cannot reach; with H-EQUIL relaxed (EGJ eq.(21), READ) T_kk(r0) >= 0 for beta <= "
+                       "-r0^2/2 (1.9e69 l_P^2 at 1 m, against EGJ's dimensional beta ~ l_P^2), and for b = r0^2/r "
+                       "T_kk < 0 somewhere for EVERY beta (r^4 T_kk -> -2 r0^2): computed, egj_fR_throat",
+             "O-MATTER": "LEAVES", "O-LOOP": "LEAVES"},
      "note": "removes the GR objection to H-ZERO itself: in Jacobson's derivation only T_kk enters, Lambda is an "
-             "integration constant and a zero shift is invisible (computed). It removes none of the five: the throat "
-             "needs R_kk < 0, i.e. T_kk < 0, which is exactly the part the free zero cannot touch."},
+             "integration constant and a zero shift is invisible (computed).",
+     "wave1": "wave 1 first graded this LEAVES-ALL with H-EQUIL named OPEN but not carried as a pathway"},
+    {"hypothesis": "H-IT with H-NULL", "verdict": "OPEN", "removes": [],
+     "leaves": ["O-BITS", "O-MAKE-DIST", "O-MATTER", "O-LOOP"],
+     "per": {"O-BITS": "LEAVES", "O-MAKE-TOPO": "NOT-BOUND-IF (inherited, as above)", "O-MAKE-DIST": "LEAVES",
+             "O-HOLD": "OPEN via N_EQUIL (as above): the throat's NEC deficit is an entropy decrease on local horizons "
+                       "only under H-EQUIL",
+             "O-MATTER": "LEAVES", "O-LOOP": "LEAVES"},
+     "wave1": "wave 1 first said 'Nothing is removed' and left O-HOLD standing"},
     {"hypothesis": "H-NULL (null is a containment where information lives)", "verdict": "LEAVES-ALL",
-     "removes": [],
-     "leaves": OBS[:],
+     "removes": [], "leaves": OBS[:],
+     "per": {o: "LEAVES" for o in ["O-BITS", "O-MAKE-TOPO", "O-MAKE-DIST", "O-HOLD", "O-MATTER", "O-LOOP"]},
      "note": "prices O-HOLD in bits (QNEC outside scope): S''/A <= -1.38e69 bits/m^4 at r0 = 1 m; over a null run r0 "
-             "that is |dS|/A = 0.5 x the light-sheet cap. The containment (a light-sheet, theta <= 0) is exactly what "
-             "the throat breaks: no light-sheet leaves the throat sphere (computed)."},
+             "that is |dS|/A = 0.5 x the light-sheet cap -- a requirement (floor), not a supply. The containment (a "
+             "light-sheet, theta <= 0) is exactly what the throat breaks: no light-sheet leaves the throat sphere "
+             "(computed).  Rule 2: UNTESTED-BY-SCREEN in combine's encoding (QNEC_PRICED in no constraint)."},
     {"hypothesis": "R-QUANTUM (QEI-bounded negative energy holds the throat)", "verdict": "LEAVES-ALL",
-     "removes": [],
-     "leaves": OBS[:],
+     "removes": [], "leaves": OBS[:],
+     "per": {o: "LEAVES" for o in ["O-BITS", "O-MAKE-TOPO", "O-MAKE-DIST", "O-MATTER", "O-LOOP"]} |
+            {"O-HOLD": "LEAVES in the bound's scope; OPEN for the xi > 0 scalar"},
      "note": "in the bound's proven scope (massless minimal scalar, Hadamard, flat: H_flat) the allowed density at "
              "the hold time covers ~2e-68 of the deficit at r0 = 1 m; OPEN for the nonminimally coupled scalar "
-             "(no state-independent QEI, Fewster-Osterbrink, board NARROWED)"},
+             "(no state-independent QEI, Fewster-Osterbrink, board NARROWED).  R-QUANTUM presupposes a GEOMETRIC "
+             "throat; ITB's non-binding presupposes NONE -- for one corridor the two premises are alternatives (a "
+             "named clash if both are asserted)."},
 ]
 
 
@@ -536,7 +642,7 @@ def report_data():
         "ii_H-ZERO": {"zero_py_nec_change": str(zero.nec), "zero_py_wec_change": str(zero.wec),
                       "zero_py_sec_change": str(zero.sec),
                       "z3_nec_invariance": nec_shift_z3(), "z3_CONTROL_timelike": nec_shift_z3(control_timelike=True),
-                      "jacobson": jacobson_null_equation(),
+                      "jacobson": jacobson_null_equation(), "egj_fR_throat": egj_fR_throat(),
                       "cosmin_nu": cosmin.nu, "cosmin_checkA_Ic_minus_4pi": cosmin.Ic_of(cosmin.nu) - 4 * math.pi},
         "iii_H-NULL": {"Rkk_throat": str(mt["Rkk_throat"]), "dtheta_throat": str(mt["dtheta_throat"]),
                        "theta_throat": str(mt["theta_throat"]), "Rkk_equals_8pi(rho+p_r)_of_zero_py": mt["agree"],
@@ -571,6 +677,13 @@ def report():
           f"zero shift invisible: {j['zero_shift_invisible']}; CONTROL timelike keeps Lambda: {j['CONTROL_timelike_keeps_Lambda']}")
     print(f"    negative T_kk -> delta Q < 0 and delta A < 0 (eqs. 2, 5): {j['negative_Tkk_gives_dQ_dA_negative']}")
     print(f"    cosmin.py: nu = {ii['cosmin_nu']:.4g}; Ic(nu) - 4 pi = {ii['cosmin_checkA_Ic_minus_4pi']:.1e}")
+    eg = ii["egj_fR_throat"]
+    print(f"    WAVE 2, H-EQUIL relaxed (EGJ gr-qc/0602001v1 eq.(21), f = 1 + beta R, b = r0^2/r): R = {eg['R_scalar']}")
+    print(f"      T_kk (x hbar alpha/2pi) = {eg['Tkk']};  T_kk(r0) = {eg['Tkk_r0']};  >= 0 iff beta <= {eg['beta_crit']}")
+    print(f"      |beta_crit| at r0 = 1 m = {eg['beta_crit_over_lP2_at_r0']:.3e} l_P^2 (EGJ p.4: beta ~ l_P^2); f(r0) there = {eg['f_at_throat_at_beta_crit']}")
+    print(f"      large r: r^4 T_kk -> {eg['large_r_limit_r4Tkk']} for every beta -> T_kk < 0 somewhere for every beta (this shape)")
+    for kk, row in eg["grid_r0=1"].items():
+        print(f"      beta = -{kk} r0^2: " + ", ".join(f"r={x}: {v:+.4f}" for x, v in row.items()))
     print("\n(iii) H-NULL, Morris-Thorne Phi = 0")
     print(f"    R_kk at the throat = {iii['Rkk_throat']}   (= 8 pi (rho + p_r) of zero.py: {iii['Rkk_equals_8pi(rho+p_r)_of_zero_py']})")
     print(f"    theta at throat = {iii['theta_throat']};  d theta/d lambda at throat = {iii['dtheta_throat']}")
@@ -591,8 +704,9 @@ def report():
     print(f"    bound stops refusing at r* = sqrt(8 pi C) l_P = {rq['r_star_over_lP']:.3f} l_P (dimensional, not evidence)")
     print("\nGRADES")
     for g in GRADES:
-        print(f"  {g['verdict']:10s} {g['hypothesis']}")
-        print(f"             removes: {g['removes'] or 'none of the five'}")
+        print(f"  {g['verdict']:12s} {g['hypothesis']}")
+        for o, w in g["per"].items():
+            print(f"               {o:<12} {w}")
     return d
 
 
@@ -647,6 +761,17 @@ def selftest():
     chk("contracted with a timelike u, Lambda stays", j["CONTROL_timelike_keeps_Lambda"], control=True)
     chk("Jacobson eqs.(2),(5): T_kk < 0 gives delta Q < 0 and delta A < 0", j["negative_Tkk_gives_dQ_dA_negative"])
     chk("cosmin.py's check A round-trips: Ic(nu) = 4 pi (< 1e-9)", abs(cosmin.Ic_of(cosmin.nu) - 4 * math.pi) < 1e-9)
+    eg = egj_fR_throat()
+    r0s, bs = sp.symbols('r_0 beta', real=True)
+    chk("EGJ (wave 2): beta = 0 recovers Jacobson's R_kk (GR) for b = r0^2/r", eg["CONTROL_beta0_equals_Rkk"], control=True)
+    chk("EGJ: T_kk(r0) = 2(-2 beta - r0^2)/r0^4 (C-verify-1 #5 reproduced)",
+        sp.simplify(sp.sympify(eg["Tkk_r0"], locals={"r_0": r0s, "beta": bs}) - 2 * (-2 * bs - r0s ** 2) / r0s ** 4) == 0)
+    chk("EGJ: T_kk(r0) >= 0 needs beta <= -r0^2/2, i.e. ~1.9e69 l_P^2 at 1 m", abs(eg["beta_crit_over_lP2_at_r0"] / 1.914e69 - 1) < 1e-2)
+    chk("EGJ: at beta = -r0^2/2 T_kk is negative just outside (1.05 r0: -1.68)", abs(eg["grid_r0=1"][0.5][1.05] + 1.679) < 1e-2)
+    chk("EGJ: r^4 T_kk -> -2 r0^2 for every beta (T_kk < 0 somewhere for every beta, this shape)",
+        sp.simplify(sp.sympify(eg["large_r_limit_r4Tkk"], locals={"r_0": r0s}) + 2 * r0s ** 2) == 0)
+    chk("STRUCTURAL (checks the typed grades; cannot fail unless they are edited): no grade lists a REMOVED (non-binding is not removal)",
+        all(not g["removes"] for g in GRADES) and all(not str(w).startswith("REMOVED") for g in GRADES for w in g["per"].values()))
     # (iii)
     mt = morris_thorne()
     r0, bp = mt["r0"], mt["bp"]

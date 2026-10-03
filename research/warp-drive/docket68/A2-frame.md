@@ -2,15 +2,34 @@
 
 **Status: a docket work item. Nothing here is seated.** The instrument is `frame.py`, which sits beside this file
 and imports `corridors.py` (and through it `latticectc.py`), `frw_frame.py`, `nosig.py`, `nlcontrol.py` and
-`../transit.py` rather than copying them. `python3 frame.py --selftest` runs 47 checks and passes all 47
-(about 20 s, most of it spent importing the pre-docket scripts, which run their own computations when imported).
-Thirteen of those checks are **controls**: cases built to fail, and they do.
+`../transit.py` rather than copying them. `python3 frame.py --selftest` runs 56 checks and passes all 56
+(about 25 s, most of it spent importing the pre-docket scripts, which run their own computations when imported).
+Fifteen of those checks are **controls**: cases built to fail, and they do. *Wave 1 first said* 47 checks, 13 controls.
+
+## Wave 2 repair (2026-10-03): what changed, and why
+
+Each verifier problem sited in this work item is listed with its resolution. Wave 1's first forms are kept below,
+marked *wave 1 first said*.
+
+| verifier problem | resolution |
+|---|---|
+| AGAINST #6: `antitelephone` hard-codes the cosmic-frame 0 | **Applied.** `reply_arrival(u)` solves the Lorentz transformation with sympy for any keying frame u. Both values are now computed: −3/5 keyed to the sender, 0 keyed to the cosmic frame. An independent value (u = ½, L = 2 gives −1) is checked. |
+| AGAINST #5: the 0.0817 bits and "C2 needs a frame" come from the D-CTC, which needs a CTC at Bob, and clause 1 excludes every CTC | **Applied.** The D-CTC numbers are withdrawn as ground for H-FRAME + H-SETTLE. That row's channel is now nlcontrol's drift, and **the drift's own ordering dependence is computed** (`drift_ordering`): Bob's signal is tanh(2ε(T − t_A)), giving 0.537 with Alice first, 0.291 with Alice at mid-window, and 0 when Bob's window is over first (the drift is computed on his reduced state, not assumed). The D-CTC under C2 gets a row of its own, as a clause-2b world. |
+| AGAINST #7: the H-FRAME + H-SETTLE (C2) row lists O-BITS as removed, with no ε condition and no timing | **Applied.** O-BITS is REMOVED-IF {N_EPS (A1: ε > ε_any(L, N)), H-C2, H-BORN-AT-BOB, A1's bound hypotheses}. On A2's own evidence alone it was OPEN. |
+| AGAINST #8, REPRODUCE #2: "per BHW p.2 (READ, not computed here) ... 1 bit per pair" labels a derived figure READ | **Applied, and now computed.** BHW's own construction (p.2 Fig. 2 and the p.3 theorem, re-READ) is run through this file's Deutsch fixed point (`bb84_c2_table`). It reproduces the READ map for all four inputs with unique fixed points, and gives **1.000000 bit per pair under C2 and 0 under C1**. |
+| FOR #2 (3): "the per-qubit budget under C2 is OPEN" when 1 bit per pair × 2 pairs is arithmetic | **Applied.** The D-CTC under C2 needs 2 pairs per teleported qubit. FOR #2 also reports a four-basis discriminator at 2 bits per pair; that figure is the verifier's computation and was not re-run here. BHW p.4 (READ): a CTC-assisted rate is unbounded. |
+| FOR #6: "M's sentence contradicts itself" (B-combine) rests on the docket's keying, not M's words | **Applied here at the source.** Clause 1 is M's "a preferred frame exists". "Corridors keyed to it" is the docket's modelling addition, now named H-KEYING. M's sentence is satisfied without contradiction by clause 1 + 2a. Clause 2b is excluded only by H-KEYING (or, in exact FRW, by the geometry) and only if corridors are the sole route to the cosmic past (H-2B-VIA-CORRIDOR). |
+| FOR #9: O-LOOP keying is forced by exact FRW | **Applied.** This file's own z3 lemma shows that under H-FRW-EXACT + H-NOT-DE-SITTER only equal-cosmic-time identifications are isometries. So for corridors, the keying is the geometry's, not clause 1's. H-FRAME's contribution reduces to N_SIGKEY (signals keyed to that slice) plus H-CMB-IS-COSMIC. |
+| (rule: declared values in checks) the de Sitter tangent norm was typed as −1 | **Applied.** It is now computed from the metric. |
+| A2-frame.json had no `grades` list | **Applied.** The JSON now carries one, in A1's schema, with the summary kept for combine's reader. |
 
 The hypothesis is M's, quoted from the charter: *"A preferred frame - maybe messages can travel into the past, it
 seems impossible because our lack of understanding about cosmic information"*. It is carried as two clauses, and
 each is graded on its own:
 
-- **clause 1**: a preferred frame exists, and corridors are keyed to it;
+- **clause 1**: a preferred frame exists. *Wave 1 first said* "a preferred frame exists, and corridors are keyed to
+  it". The keying is the docket's modelling addition (**H-KEYING**), not M's words, except in exact flat FRW, where
+  the geometry forces it (part (i));
 - **clause 2**: messages may travel into the past.
 
 ## Sources (M-D67-2: arXiv is the object)
@@ -57,9 +76,16 @@ frame is a further hypothesis, H-CMB-IS-COSMIC.
    delivers at dt' = −γ(v/c)·(1 yr) = **−38,929 s (−10.81 h)**. For Earth over a year, the figure runs from
    −35,858 s to −42,009 s. This is a "past" in that frame's coordinate time only.
 
-**The tension with M's second clause, stated exactly.** Clause 1 admits clause 2a and excludes clause 2b.
-Clause 2b, added to a clause-1 network, brings O-LOOP back in the model for every T > 0. So the two clauses cannot
-both hold in their strong form unless something else (a consistency principle, part (ii)) handles the loop. M's
+**The tension with M's second clause, stated exactly (wave 2).**
+- A clause-1 network *keyed to the frame* (H-KEYING) admits clause 2a and excludes clause 2b. Clause 2b added to such
+  a network brings O-LOOP back in the model for every T > 0.
+- **M's sentence itself does not contradict itself.** "A preferred frame exists" plus "messages may travel into the
+  past" is satisfied by clause 1 + 2a: the coordinate past of moving frames, −38,929 s per light-year in the
+  barycentre frame, with no loop.
+- The exclusion of 2b comes from H-KEYING (or, in exact FRW, from the geometry), and it holds only if corridors are the
+  only route to the cosmic past (H-2B-VIA-CORRIDOR).
+- *Wave 1 first said* "the two clauses cannot both hold in their strong form unless something else (a consistency
+  principle, part (ii)) handles the loop". That is true of the keyed network, not of M's sentence. M's
 own ruling, M-S1A-P3 (`LEDGER.md:175`), already prices this: a closed causal curve disqualifies a device **at the
 seat only**. So clause 2b is disqualifying when its loop passes through the seat, and is not disqualified
 otherwise.
@@ -125,10 +151,28 @@ for the drift:
 So "does H-SETTLE signal?" is not settled by the dynamics. It is settled by whether the nonlinearity acts on the
 density matrix (it does not signal) or on the branch's state (it signals).
 
-**C2 needs a preferred frame (computed).** When Alice and Bob are spacelike separated, some frame puts Bob's CTC
-interaction first. In that ordering no branch exists yet and C2 returns 1/2; with Alice first it returns 2/3 or
-1/3. C2 is therefore **not well defined without H-FRAME**: the same events give different predictions in
-different frames.
+**C2 needs a preferred frame (computed for the CTC circuit and, in wave 2, for the drift).**
+- **The CTC circuit.** When Alice and Bob are spacelike separated, some frame puts Bob's CTC interaction first. In that
+  ordering no branch exists yet and C2 returns 1/2; with Alice first it returns 2/3 or 1/3.
+- **The drift** (`drift_ordering`). Bob's drift window is [0, T]. Before Alice measures, C2 has only his reduced state
+  I/2, so the drift (computed on that state) does nothing.
+  - Alice first: tanh(2εT) = 0.537 at ε = 0.1, T = 3.
+  - Alice at mid-window: tanh(εT) = 0.291.
+  - Alice after Bob's window: 0.
+  - The same events give different predictions in different frames, so **C2 is not well defined without a preferred
+    slicing**.
+- *Wave 1 first said* this only for the CTC circuit, and then cited the CTC numbers as ground for the drift pairing.
+  The CTC needs a closed timelike curve at Bob, which clause 1 excludes, so those numbers cannot ground H-FRAME +
+  H-SETTLE.
+
+**The D-CTC's capacity under C2 (wave 2, computed from BHW's READ construction).** BHW p.2 (Fig. 2) and the p.3
+theorem: swap the system with the CTC qubits, then apply Σ_k |k⟩⟨k| ⊗ U_k with eq.(3)'s U₀₀ … U₁₁. Through this file's
+Deutsch fixed point:
+- the READ map |00⟩→|00⟩, |10⟩→|01⟩, |+0⟩→|10⟩, |−0⟩→|11⟩ is reproduced with probability 1, and every fixed point is
+  unique;
+- Bob holds half a singlet and reads the first output bit a. P(a = 1) is 0 if Alice chose z and 1 if she chose x,
+  under C2: **1.000000 bit per pair**;
+- under C1 his input I/2 ⊗ |0⟩⟨0| is the same for both choices: **0 bits**.
 
 ## (iii) Does a preferred frame remove O-BITS?
 
@@ -147,18 +191,24 @@ choosing one changes nothing.
 
 | combination | removes | leaves | ground |
 |---|---|---|---|
-| H-FRAME clause 1 + curvature (FRW) | O-LOOP (an exact time function; holds for ΛCDM, fails in exact de Sitter) | O-BITS, O-MAKE, O-HOLD, O-MATTER | z3 lemma; the Killing table |
-| **H-FRAME + H-SETTLE (under C2)** | **O-BITS (0.0817 bits per pair with this circuit) and the O-LOOP that superluminal signalling otherwise brings** | O-MAKE, O-HOLD, O-MATTER | signalling table; antitelephone. A reply keyed to the sender's frame arrives at t = −3/5 (a loop); keyed to the cosmic frame it arrives at t = 0, never earlier. H-FRAME is what makes C2 well defined at all. |
-| H-SETTLE (under C1) or D-CTC (under C1), with or without H-FRAME | nothing | all five | C1 signalling: 0 bits |
+| H-FRAME clause 1 + curvature (FRW) | O-LOOP REMOVED-IF {H-FRW-EXACT, H-NOT-DE-SITTER}. For corridors this is the geometry's removal: the keying is forced. It fails in exact de Sitter. | O-BITS, O-MAKE, O-HOLD, O-MATTER | z3 lemma; the Killing table |
+| **H-FRAME + H-SETTLE-W (the drift, under C2)** | **O-BITS REMOVED-IF {N_EPS, H-C2, H-BORN-AT-BOB, A1's H-MAP/H-TRANSFER/H-SPIN/H-COHERE}**; **O-LOOP REMOVED-IF {N_SIGKEY}** | O-MAKE, O-HOLD, O-MATTER | settle.py's drift tanh(2εT); `drift_ordering` (C2 undefined without a slicing, computed); antitelephone, both values computed: a reply keyed to the sender's frame arrives at t = −3/5 (a loop), keyed to the cosmic frame at t = 0 |
+| D-CTC under C2 (a CTC at Bob, so not compatible with clause 1) | O-BITS as a channel: 0.0817 bits per use (BHW circuit), 1.000 bit per pair (BHW BB84), unbounded per BHW p.4 | O-LOOP REINTRODUCED (the channel is a CTC); O-MAKE, O-HOLD, O-MATTER | `signalling_table`, `bb84_c2_table` |
+| H-SETTLE (under C1) or D-CTC (under C1), with or without H-FRAME | nothing | all five | C1 signalling: 0 bits; drift on the reduced state 2.2e-16 |
 
-The H-FRAME + H-SETTLE (C2) row is the one complementary pair found here, and it is **PARTIAL and conditional**.
+*Wave 1 first said* the H-FRAME + H-SETTLE (C2) row "removes O-BITS (0.0817 bits per pair with this circuit) and the
+O-LOOP". The 0.0817 was the D-CTC's, the circuit is incompatible with clause 1, and the removal carried no ε and no
+timing condition. The row is the one complementary pair found here, and it is **PARTIAL and conditional**.
 
 - C2 is the convention BLSS argue is ill defined (p.4: it needs "additional degrees of freedom identifying the
   'correct' decomposition", which "does not reduce to standard quantum mechanics far from any CTC").
 - It needs measurement to be a physical event placed in cosmic time.
 - Experimental bounds on nonlinear QM are NAMED-NOT-READ in the charter.
-- Per BHW p.2 (READ, not computed here), their BB84 circuit would let C2 carry 1 bit per pair (Alice's choice of
-  basis). Teleportation needs 2 bits per qubit, so the per-qubit budget under C2 is OPEN.
+- *Wave 1 first said* "Per BHW p.2 (READ, not computed here), their BB84 circuit would let C2 carry 1 bit per pair ...
+  so the per-qubit budget under C2 is OPEN". The 1 bit per pair is now computed (`bb84_c2_table`, 1.000000), and 2
+  pairs per teleported qubit follows by arithmetic. That is the D-CTC's budget, which needs a CTC.
+- The drift's budget is A1's: ≥ 6.21 pairs on average for nlcontrol's Hamiltonian, and > 2 for the W2 class under
+  H-BORN-AT-BOB. The general W2 capacity is OPEN without H-BORN-AT-BOB.
 
 ## Grades (H-FRAME)
 
@@ -168,7 +218,7 @@ The H-FRAME + H-SETTLE (C2) row is the one complementary pair found here, and it
 | O-MAKE | LEAVES, and closes the "with a CTC" escape in Geroch's compact case (board grade, not re-read) | LEAVES | OPEN (a CTC reopens the Geroch clause) |
 | O-HOLD | LEAVES | LEAVES | LEAVES |
 | O-MATTER | LEAVES | LEAVES | LEAVES |
-| O-LOOP | **REMOVES** (model + exact flat FRW; NOT in exact de Sitter) | no loop | **REINTRODUCES** in the model for every T > 0. Deutsch/Novikov make the loop consistent, not absent; Hawking's conjecture would forbid it (OPEN); M-S1A-P3 disqualifies it at the seat. |
+| O-LOOP | **REMOVED-IF** {H-CORRIDOR-MODEL, H-KEYING} in the model; in exact flat FRW REMOVED-IF {H-FRW-EXACT, H-NOT-DE-SITTER}, with the keying forced (not in exact de Sitter); for signals, + N_SIGKEY | no loop | **REINTRODUCES** in the model for every T > 0, if corridors are its route (H-2B-VIA-CORRIDOR). Deutsch/Novikov make the loop consistent, not absent; Hawking's conjecture would forbid it (OPEN); M-S1A-P3 disqualifies it at the seat. |
 
 For M's thesis: **H-FRAME alone does not touch the two classical bits.** What it does is make a superluminal
 channel chronology-safe, *if* such a channel exists. That is why it pairs with H-SETTLE: one supplies the
@@ -193,6 +243,11 @@ The full list is `NAMED_HYPOTHESES` in `frame.py`. The ones every result above d
 - **H-DCTC-CONVENTION**: C1 versus C2.
 - **H-DCTC-SELECT**: a selection rule where the fixed point is not unique.
 - **H-LINEAR-QM**: assumed in part (iii).
+- **H-KEYING** (wave 2): corridors are keyed to the preferred frame. This is the docket's addition, forced by geometry
+  only under H-FRW-EXACT + H-NOT-DE-SITTER.
+- **H-2B-VIA-CORRIDOR** (wave 2): corridors are the only route to the cosmic past.
+- **N_SIGKEY** (wave 2): a superluminal signal is keyed to the same slice (A1's H-SIG-COR).
+- **H-C2, H-BORN-AT-BOB** (wave 2): as in settle.py.
 
 ## Findings (recorded, not repaired)
 

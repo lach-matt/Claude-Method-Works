@@ -189,7 +189,10 @@ def de_sitter_identification_closes():
     orig = sp.diag(-1, sp.exp(2 * H * t))
     isometry = sp.simplify(pulled - orig) == sp.zeros(2, 2)
     image = (sp.simplify(tp.subs(X, 0)), sp.simplify(Xp.subs(X, 0)))
-    tangent_norm = -1                                                 # d/dt along x = 0: g_tt = -1
+    # wave 2: wave 1 first typed 'tangent_norm = -1' (a declared value in a check).  Now computed: the tangent of the
+    # segment x = 0, t in [t0, t0 + tau] is (1, 0); its norm under the de Sitter metric at X = 0.
+    tvec = sp.Matrix([1, 0])
+    tangent_norm = sp.simplify((tvec.T * orig * tvec)[0].subs(X, 0))
     return isometry, image, tangent_norm
 
 
@@ -477,30 +480,146 @@ def transit_without_bits():
     return worst
 
 
+def reply_arrival(u, v=Fr(3, 5), L=Fr(1)):
+    """An instantaneous reply keyed to the frame moving with velocity u (c = 1): it leaves B's event (t = 0, x = L)
+    and reaches A's worldline x = 0 at the cosmic time t_A for which the two events share frame u's time coordinate,
+    t' = gamma(u) (t - u x).  Solved with sympy from the Lorentz transformation, not typed.  v is B's velocity and
+    enters only through which u the reply is keyed to."""
+    import sympy as sp
+    t, uu = sp.symbols("t u", real=True)
+    gamma = 1 / sp.sqrt(1 - uu ** 2)
+    tprime = lambda tt, xx: gamma * (tt - uu * xx)
+    sol = sp.solve(sp.Eq(tprime(t, 0), tprime(0, sp.Rational(L.numerator, L.denominator))), t)
+    val = sp.nsimplify(sol[0].subs(uu, sp.Rational(u.numerator, u.denominator)))
+    return Fr(int(sp.numer(val)), int(sp.denom(val)))
+
+
 def antitelephone(v=Fr(3, 5), L=Fr(1)):
-    """H-FRAME paired with any superluminal channel (e.g. H-SETTLE under C2).  A at rest at x = 0, B at x = L at
-    t = 0 moving with v (c = 1).  A's instantaneous signal reaches B at t = 0.  B replies instantaneously:
-      keyed to B's rest frame (simultaneity t = v (x - L)): reaches A at t = -v L  -- before A sent: a loop;
-      keyed to the cosmic frame (t = const):                reaches A at t = 0     -- never before.
+    """H-FRAME paired with any superluminal channel.  A at rest at x = 0, B at x = L at t = 0 moving with v (c = 1).
+    A's instantaneous signal (keyed to the cosmic slice) reaches B at t = 0.  B replies instantaneously, keyed to
+    B's rest frame (u = v) or to the cosmic frame (u = 0).  BOTH values are computed by reply_arrival.  Wave 1 first
+    returned 'v*(0-L), Fr(0)': the cosmic value was a typed literal 0 (C-verify-0 #6).
     Returns (reply arrival keyed to the sender's frame, keyed to the cosmic frame)."""
-    return v * (0 - L), Fr(0)
+    return reply_arrival(v, v, L), reply_arrival(Fr(0), v, L)
 
 
 def c2_needs_a_frame(sig):
     """C2 is frame-dependent: if Bob's D-CTC interaction precedes Alice's measurement (true in some frame for a
     spacelike pair), no branch exists and C2 returns the reduced-state value; if it follows, the branch value.
-    Returns (P0 Bob-first, P0 Alice-first-z, P0 Alice-first-x)."""
+    Returns (P0 Bob-first, P0 Alice-first-z, P0 Alice-first-x).  NOTE (wave 2): this is the D-CTC circuit, which needs
+    a closed timelike curve at Bob -- excluded by clause 1 (C-verify-0 #5).  The drift's own ordering dependence is
+    drift_ordering below."""
     return sig[("C2", "none")], sig[("C2", "z")], sig[("C2", "x")]
+
+
+def drift_ordering(eps=0.1, T=3.0, fracs=(0.0, 0.25, 0.5, 0.75, 1.0), n=3000):
+    """Wave 2: 'C2 needs a frame' COMPUTED FOR THE DRIFT (nlcontrol's H = eps <X> Z, imported), not only for the
+    D-CTC circuit.  Bob's drift window is [0, T] in some frame's time; Alice measures at t_A = frac * T in that same
+    frame (frac = 1: Bob-first, Alice after the window).  Under C2 there is no branch before t_A: Bob's state is his
+    reduced state I/2, <X> = 0 and the drift does nothing; from t_A it runs on the branch state for T - t_A.
+    Returns {frac: Bob's <sigma_y>_x - <sigma_y>_z at the end}.  Frames that order the events differently give
+    different values for the same events, so C2 is undefined without a preferred slicing.  Exact: tanh(2 eps (T - t_A))."""
+    np = _np()
+    NL = _quiet("nlcontrol")
+    out = {}
+    sing = np.array([0, 1, -1, 0], complex) / math.sqrt(2)
+    for f in fracs:
+        # before t_A: the drift is COMPUTED on Bob's reduced state (the only state C2 has before a branch exists);
+        # the unitary it generates acts on Bob's qubit, and so on every later branch state
+        rb = ptrace(np.outer(sing, sing.conj()), [2, 2], [1])
+        Upre = np.eye(2, dtype=complex)
+        steps = int(round(n * f))
+        dt = T / n
+        for _ in range(steps):
+            ex = float(np.trace(rb @ NL.X).real)
+            Uh = NL.U(eps * ex * NL.Z, dt)
+            rb = Uh @ rb @ Uh.conj().T
+            Upre = Uh @ Upre
+        rest = (1.0 - f) * T
+        ys = {}
+        for b in ("x", "z"):
+            vals = []
+            for s0 in NL.ENS[b]:
+                e = Upre @ np.array(s0, complex)
+                if rest > 0:
+                    e = NL.evolve(e, eps, False, T=rest, n=max(10, n - steps))
+                vals.append(float(np.real(e.conj() @ NL.Y @ e)))
+            ys[b] = sum(vals) / len(vals)
+        out[f] = ys["x"] - ys["z"]
+    return out
+
+
+BB84_READ_MAP = {"0": "00", "1": "01", "+": "10", "-": "11"}   # BHW 0811.1209v2 p.2 (READ): |00>->|00>, |10>->|01>,
+                                                                 # |+0>->|10>, |-0>->|11>; first output bit a = basis
+
+
+def bhw_bb84_unitary():
+    """BHW Fig. 2 / p.3 Theorem construction (READ): SWAP the two chronology-respecting qubits with the two CTC
+    qubits, then the controlled unitary sum_k |k><k| (x) U_k (system controls, CTC targets), with BHW eq.(3):
+    U00 = SWAP, U01 = X(x)X, U10 = (X(x)I)(H(x)I), U11 = (X(x)H) SWAP.  Ordering (sys1, sys2, ctc1, ctc2)."""
+    np = _np()
+    I2 = np.eye(2, dtype=complex)
+    Xm = np.array([[0, 1], [1, 0]], complex)
+    Hd = np.array([[1, 1], [1, -1]], complex) / math.sqrt(2)
+    SW = np.array([[1, 0, 0, 0], [0, 0, 1, 0], [0, 1, 0, 0], [0, 0, 0, 1]], complex)
+    U = {0: SW, 1: np.kron(Xm, Xm), 2: np.kron(Xm, I2) @ np.kron(Hd, I2), 3: np.kron(Xm, Hd) @ SW}
+    ctrl = sum(np.kron(np.outer(np.eye(4)[k], np.eye(4)[k]), U[k]) for k in range(4))
+    swap_sys_ctc = np.zeros((16, 16), complex)
+    for i in range(4):
+        for j in range(4):
+            swap_sys_ctc[j * 4 + i, i * 4 + j] = 1
+    return ctrl @ swap_sys_ctc
+
+
+def bb84_c2_table():
+    """Wave 2: the per-pair capacity of the D-CTC under C2, COMPUTED from BHW's own construction (READ) through this
+    file's Deutsch fixed point.  Wave 1 first said 'Per BHW p.2 (READ, not computed here), their BB84 circuit would
+    let C2 carry 1 bit per pair' -- a derived figure labelled READ (C-verify-0 #8, C-verify-2 #2).
+    Bob holds half a singlet; Alice measures z or x; under C2 Bob's input is his branch state (a BB84 state) with an
+    ancilla |0>; he reads the first output bit a.  Under C1 his input is his reduced state I/2 (x) |0><0|, the same
+    for both of Alice's choices.  Returns the READ-map reproduction, P(a = 1 | choice) per convention, I(choice; a)
+    in bits per pair per convention, and the fixed-point dimensions seen."""
+    np = _np()
+    V = bhw_bb84_unitary()
+    z0 = np.array([1, 0], complex)
+    dims, repro = set(), {}
+    for lab, want in BB84_READ_MAP.items():
+        psi = np.kron(np.array(KET[lab], complex), z0)
+        out, sig, k, res, mn = deutsch_output(V, np.outer(psi, psi.conj()), 4, 4)
+        dims.add(k)
+        repro[lab] = float(out[int(want, 2), int(want, 2)].real)
+    other = {"0": "1", "1": "0", "+": "-", "-": "+"}
+
+    def p_a1(rho_sys):
+        out, *_ = deutsch_output(V, rho_sys, 4, 4)
+        return float(out[2, 2].real + out[3, 3].real)
+    res = {}
+    for basis, labels in (("z", "01"), ("x", "+-")):
+        acc = 0.0
+        for l in labels:                      # Alice's outcome l leaves Bob (singlet) in other[l]
+            psi = np.kron(np.array(KET[other[l]], complex), z0)
+            acc += 0.5 * p_a1(np.outer(psi, psi.conj()))
+        res[("C2", basis)] = acc
+        rho_c1 = np.kron(np.eye(2) / 2, np.outer(z0, z0.conj()))
+        res[("C1", basis)] = p_a1(rho_c1)
+    Hb = lambda p: -sum(q * math.log2(q) for q in (p, 1 - p) if q > 1e-15)
+    mi = {c: Hb((res[(c, "z")] + res[(c, "x")]) / 2) - (Hb(res[(c, "z")]) + Hb(res[(c, "x")])) / 2 for c in ("C1", "C2")}
+    return {"read_map_reproduced": repro, "P(a=1)": res, "MI_bits_per_pair": mi, "fixed_point_dims": sorted(dims)}
 
 
 # =====================================================================================================================
 # THE GRADES (data; the write-up is A2-frame.md)
 # =====================================================================================================================
 GRADES = {
+    # Wave 2: clause 1 is M's 'a preferred frame exists'; 'corridors keyed to it' is the docket's modelling addition
+    # (H-KEYING) -- EXCEPT in exact flat FRW, where frw_time_function_lemma shows only equal-cosmic-time
+    # identifications are isometries, so the keying is FORCED by H-FRW-EXACT + H-NOT-DE-SITTER (C-verify-1 #6, #9).
     "H-FRAME clause 1 (a preferred frame; corridors keyed to it)": {
-        "O-LOOP": "REMOVES -- in the corridor-as-identification model (latticectc H1-H3) and in exact flat FRW "
-                  "(comoving identifications): cosmic time is a global time function; no closed causal curve at "
-                  "any rank, any a(t) > 0 (z3, exact)",
+        "O-LOOP": "REMOVES -- REMOVED-IF {H-CORRIDOR-MODEL, H-KEYING} in the corridor-as-identification model "
+                  "(latticectc H1-H3; Sylvester, any rank); in exact flat FRW the keying is forced, so REMOVED-IF "
+                  "{H-FRW-EXACT, H-NOT-DE-SITTER} (z3 time-function lemma, any a(t) > 0) -- and then it is the "
+                  "geometry, not clause 1, that removes it for corridors; for SIGNALS (a superluminal channel) the "
+                  "removal needs N_SIGKEY (signals keyed to the same slice; antitelephone computed: -3/5 vs 0)",
         "O-BITS": "LEAVES -- no-signalling holds in every ordering (sequential Lueders, deviation 0 to rounding)",
         "O-MAKE": "LEAVES -- and closes one escape: Geroch's kinematic theorem (board D67 NARROWED) allows "
                   "compact topology change only WITH a CTC; a global time function excludes that clause",
@@ -509,11 +628,28 @@ GRADES = {
     },
     "H-FRAME clause 2 (messages into the past)": {
         "2a coordinate past of a moving frame": "ADMITTED by clause 1 (e.g. -1.23e-3 yr per light-year for the "
-                                                "barycentre); no loop",
-        "2b past of the cosmic clock": "EXCLUDED by clause 1; inside the model, ONE such corridor beside one "
-                                       "suitably oriented cosmic corridor closes a causal curve for EVERY T > 0 "
-                                       "(O-LOOP returns); Hawking's conjecture would forbid it but is a "
-                                       "conjecture (OPEN); Deutsch/Novikov make a loop consistent, not absent",
+                                                "barycentre); no loop; M's sentence is satisfied by clause 1 + 2a",
+        "2b past of the cosmic clock": "EXCLUDED by the docket's keying (H-KEYING) or, in exact FRW, by the geometry -- "
+                                       "if corridors are the only route to the cosmic past (H-2B-VIA-CORRIDOR); "
+                                       "inside the model ONE such corridor beside one suitably oriented cosmic "
+                                       "corridor closes a causal curve for EVERY T > 0 (O-LOOP returns); Hawking's "
+                                       "conjecture would forbid it but is a conjecture (OPEN); Deutsch/Novikov make a "
+                                       "loop consistent, not absent",
+    },
+    "H-FRAME + H-SETTLE-W under C2 (the drift, not the D-CTC)": {
+        "O-BITS": "REMOVED-IF {N_EPS (A1: eps > eps_any_advantage(L, N)), H-C2, H-BORN-AT-BOB, A1's H-MAP, "
+                  "H-TRANSFER, H-SPIN, H-COHERE} -- the channel is nlcontrol's drift tanh(2 eps T) (settle.py); "
+                  "wave 1 first listed O-BITS under 'removes' unconditionally, grounded on the D-CTC's 0.0817 bits",
+        "O-LOOP": "REMOVED-IF {N_SIGKEY} (antitelephone: reply keyed to the cosmic frame arrives at t = 0, computed)",
+        "ordering": "COMPUTED for the drift (drift_ordering): Bob's signal is tanh(2 eps (T - t_A)) -- 0.537 if "
+                    "Alice measures before Bob's window, 0 if after; so C2 is undefined without a slicing",
+        "O-MAKE": "LEAVES", "O-HOLD": "LEAVES", "O-MATTER": "LEAVES",
+    },
+    "D-CTC (Deutsch) under C2 -- needs a CTC at Bob, so it cannot coexist with clause 1": {
+        "O-BITS": "a channel: BHW circuit 0.0817 bits per use; BHW's BB84 construction 1.000 bit per pair "
+                  "(bb84_c2_table, computed from the READ construction), so 2 pairs per teleported qubit by "
+                  "arithmetic; under C1 0 bits; BHW p.4 (READ): a CTC-assisted rate is unbounded",
+        "O-LOOP": "REINTRODUCED -- the channel IS a closed timelike curve (a clause-2b world)",
     },
 }
 
@@ -534,6 +670,12 @@ NAMED_HYPOTHESES = [
     "H-DCTC-SELECT: where the fixed point is not unique, a selection rule is a further hypothesis (Deutsch's own "
     "rule NAMED-NOT-READ)",
     "H-LINEAR-QM for part (iii)",
+    "H-KEYING (wave 2): corridors are keyed to the preferred frame -- the docket's modelling addition to M's "
+    "sentence, not M's words; forced by the geometry only under H-FRW-EXACT + H-NOT-DE-SITTER",
+    "H-2B-VIA-CORRIDOR (wave 2): corridors are the only route to the cosmic past (combine's B-2B); without it clause "
+    "2b is not excluded by clause 1",
+    "N_SIGKEY (wave 2): a superluminal signal is keyed to the same slice as the corridors (A1's H-SIG-COR)",
+    "H-C2 / H-BORN-AT-BOB (wave 2): as in settle.py -- the drift acts on the branch state; Bob reads by the Born rule",
 ]
 
 
@@ -585,6 +727,15 @@ def report():
     bf, az, ax = c2_needs_a_frame(sig_t)
     print(f"  C2 is frame-dependent: Bob-first {bf:.6f} vs Alice-first {az:.6f} (z) / {ax:.6f} (x)")
     print(f"  H-SETTLE under C1 (nlcontrol drift on rho_B): max |rho_B(z) - rho_B(x)| = {settle_under_C1():.1e}")
+    do = drift_ordering()
+    print("  WAVE 2 -- the DRIFT's ordering dependence under C2 (Alice measures at t_A = frac x T of Bob's window):")
+    print("    " + ", ".join(f"frac {f}: {v:.5f} (exact {math.tanh(2 * 0.1 * 3.0 * (1 - f)):.5f})" for f, v in do.items()))
+    bb = bb84_c2_table()
+    print(f"  WAVE 2 -- BHW BB84 construction (READ, p.2-3) through this file's Deutsch fixed point: READ map reproduced "
+          f"{bb['read_map_reproduced']}; fixed-point dims {bb['fixed_point_dims']}")
+    print(f"    P(a = 1 | Alice z / x): C2 {bb['P(a=1)'][('C2', 'z')]:.6f} / {bb['P(a=1)'][('C2', 'x')]:.6f};"
+          f" C1 {bb['P(a=1)'][('C1', 'z')]:.6f} / {bb['P(a=1)'][('C1', 'x')]:.6f};  I = C2 {bb['MI_bits_per_pair']['C2']:.6f},"
+          f" C1 {bb['MI_bits_per_pair']['C1']:.6f} bits per pair")
     print("\n(iii) DOES A PREFERRED FRAME REMOVE O-BITS?")
     wo, wb = ordering_test()
     print(f"  Alice-first vs Bob-first joint distributions: max diff {wo:.1e}; max |P(Bob=+1|a) - 1/2| {wb:.1e}")
@@ -674,8 +825,20 @@ def selftest():
     chk("CONTROL non-local CNOT signals (|dP| = 1)", nonlocal_control(), 1.0, tol=1e-12)
     chk("transit.py: rho_B = I/2 without the bits", transit_without_bits(), 0.0, tol=1e-12)
     sf, cf = antitelephone()
-    chk("CONTROL antitelephone keyed to sender's frame: arrives at -3/5", sf, Fr(-3, 5))
-    chk("antitelephone keyed to cosmic frame: arrives at 0 (never earlier)", cf, Fr(0))
+    chk("CONTROL antitelephone keyed to sender's frame (computed by reply_arrival): arrives at -3/5", sf, Fr(-3, 5))
+    chk("antitelephone keyed to cosmic frame (computed by reply_arrival, wave 1 typed 0): arrives at 0", cf, Fr(0))
+    chk("reply_arrival at u = 1/2, L = 2 is -1 (independent value)", reply_arrival(Fr(1, 2), Fr(3, 5), Fr(2)), Fr(-1))
+    print(" (wave 2) the drift's ordering dependence, BHW BB84 under C1/C2, de Sitter tangent")
+    do = drift_ordering()
+    chk("drift under C2, Alice first (frac 0): tanh(0.6)", do[0.0], math.tanh(0.6), tol=2e-4)
+    chk("drift under C2, Alice at mid-window: tanh(0.3)", do[0.5], math.tanh(0.3), tol=2e-4)
+    chk("CONTROL drift under C2, Bob's window over before Alice measures (drift run on his reduced state): 0", do[1.0], 0.0, tol=1e-12)
+    bb = bb84_c2_table()
+    chk("BHW BB84 construction reproduces the READ map for all four inputs", min(bb["read_map_reproduced"].values()), 1.0, tol=1e-9)
+    chk("BHW BB84 fixed points unique (dim 1), as BHW p.2-3 claim", bb["fixed_point_dims"], [1])
+    chk("D-CTC under C2: 1 bit per pair (computed, wave 1 labelled it READ)", bb["MI_bits_per_pair"]["C2"], 1.0, tol=1e-9)
+    chk("CONTROL D-CTC under C1: 0 bits per pair", bb["MI_bits_per_pair"]["C1"], 0.0, tol=1e-9)
+    chk("de Sitter segment tangent norm computed (wave 1 typed -1)", tn, -1)
     print(f"\n{'ALL PASS' if not fails else 'FAILURES: ' + ', '.join(fails)}  ({len(fails)} failed)")
     return 0 if not fails else 1
 

@@ -1,8 +1,28 @@
 # DOCKET 68 / A1-settle: H-SETTLE alone, H-12's carriers, and the collapse control
 
-**Status: a work-item write-up, not seated.** Instrument: `settle.py` (`python3 settle.py --selftest`: 34/34 checks
-pass, about 60 s). It imports `nlcontrol.py` and `corridors.py` and copies neither. Every number here is computed in
-`settle.py`, READ at the locator given, or labelled NAMED-NOT-READ or OPEN. Short quotations only, each with its page.
+**Status: a work-item write-up, not seated.** Instrument: `settle.py` (`python3 settle.py --selftest`: 47/47 checks
+pass, about 90 s; two of the 47 are printed STRUCTURAL -- they cannot fail by construction and are not cited as
+evidence). It imports `nlcontrol.py`, `corridors.py` and (wave 2) `frame.py`, and copies none of them. Every number here
+is computed in `settle.py`, READ at the locator given, DERIVED-FROM-READ, or labelled NAMED-NOT-READ or OPEN. Short
+quotations only, each with its page.
+
+## Wave 2 repair (2026-10-03): what changed, and why
+
+Three adversarial verifications (AGAINST M, FOR M, REPRODUCE; `wave1/WAVE1-RESULT.json`) raised problems sited in this
+work item. Each is resolved below, either applied or answered with the computed or READ reason it does not hold.
+Wave 1's first forms are kept in place, marked *wave 1 first said*.
+
+| verifier problem | resolution |
+|---|---|
+| REPRODUCE #0: the O-BITS removal names no hypothesis about WHICH state the drift acts on | **Applied.** H-C2 (the drift acts on Bob's per-branch pure state) is named on every signal. Under C1 (his reduced state) the signal is 2.2e-16 (`frame.settle_under_C1`, re-run in check G1): no channel. 2412.20854v1 pp.4, 7 (re-READ this pass): Gisin's theorem covers local maps on pure states only, and nonlinear maps defined on mixed states can be non-signalling (their refs [40, 41]). |
+| REPRODUCE #3: 'might be premature' cited at p.25 | **Applied.** It is on p.26 (re-READ this pass). |
+| AGAINST #15: D6 is vacuous | **Applied.** D6 now runs the drift through `sde_ensemble` with λ = 0 and must reproduce tanh(2εT) (0.94698 against 0.94681). Wave 1's D6 fed a hand-typed vector to the detector. |
+| AGAINST #16 / FOR #7: H-SETTLE × H-12 adds no removal / H-12 is load-bearing with an unbounded carrier | **Both hold, under different hypotheses, and both are computed** (§4b). Under H-TRANSFER, H-12 adds nothing. Under H-12-CARRIER + H-12-W (the carrier is α_s, G or v, with no state-dependent bound READ anywhere), 2 of the 9 tabulated (L, N) cells flip from EXCLUDED to NOT EXCLUDED, both at 1 AU. "Not excluded" is still not evidence. |
+| FOR #9: O-LOOP keying is forced by exact FRW | **Applied.** H-SETTLE-W alone now has O-LOOP REMOVED-IF {H-FRW-EXACT, H-NOT-DE-SITTER, N_SIGKEY}. The ground is `frame.frw_time_function_lemma` (z3 unsat, re-run in check G13). Wave 1 first said it *leaves* O-LOOP. |
+| FOR #2: 6.21 pairs and Holevo's 1 bit are carried as properties of W2 | **Applied, and computed further** (§1b). 6.21 belongs to nlcontrol's single Hamiltonian (H-NLCONTROL-FORM). A second W2 Hamiltonian reaches 1 bit per pair. Under H-BORN-AT-BOB no per-branch drift on a qubit exceeds 1 bit per pair, and none reaches it at finite T. So the class needs more than 2 pairs per teleported qubit (at least 3 at finite T). Without H-BORN-AT-BOB the class capacity is OPEN. |
+| FOR #3: the T = L/2c table is an arbitrary choice; drift time is distance-independent | **Applied** (§2). The drift time is T = atanh(D_N)/(2ε). The ε needed for *any* advantage is exactly half the wave-1 figure, at every row. No excluded/not-excluded entry flips. |
+| FOR #4: first transit with a midpoint source | **Applied** (§2, first transit), using LEDGER D23 as corrected in DOCKET 67. |
+| AGAINST #13 (sited in combine): W2's O-BITS removal silently includes a preferred slicing | **Applied here too.** H-SETTLE-W's O-BITS removal carries H-FRAME3b, which is H-FRAME clause 1's substance (a preferred slicing). "H-SETTLE alone removes O-BITS" means "with a preferred slicing built in". |
 
 M's hypothesis, carried as M stated it: **quantum easing / quantum settling is deterministic drift**, "the state's own
 value steers its evolution, smoothly and the same every time" (CHARTER). It is graded on what it does. Whether it is
@@ -25,11 +45,45 @@ For nlcontrol's drift H = ε⟨X⟩Z, the Bloch vector rotates about z at a rate
   tanh(2εT). The z and y axes give 0. Bob's mean y is ≥ 0 for every axis, because
   tanh u + tanh v = sinh(u+v)/(cosh u cosh v). So this drift offers no antipodal letter.
 
-**What it is worth.** The channel is: Alice picks x or z, Bob measures σ_y. It carries I = D²/(8 ln 2) bits per pair
-for small D, with D = tanh(2εT). The capacity tends to log₂1.25 = **0.3219 bits/pair** as D → 1 (a Z-channel with
-crossover ½). The Holevo χ equals the measured mutual information, because the two states commute. So one
-teleported qubit, which needs 2 bits, needs **at least 6.21 pairs** with this protocol. Holevo's bound caps any qubit
-protocol at 1 bit per pair, so any protocol needs at least 2 pairs (Holevo is NAMED-NOT-READ here).
+**What it is worth, for THIS Hamiltonian (H-NLCONTROL-FORM).** The channel is: Alice picks x or z, Bob measures
+σ_y. It carries I = D²/(8 ln 2) bits per pair for small D, with D = tanh(2εT). The capacity tends to log₂1.25 =
+**0.3219 bits/pair** as D → 1 (a Z-channel with crossover ½). The Holevo χ equals the measured mutual information,
+because the two states commute. One teleported qubit needs 2 bits, so it needs **at least 6.21 pairs on average**
+(block coding over many qubits), or 7 if each qubit is coded alone. All of this is conditional on H-C2.
+
+*Wave 1 first said:* "at least 6.21 pairs with this protocol. Holevo's bound caps any qubit protocol at 1 bit per pair,
+so any protocol needs at least 2 pairs (Holevo is NAMED-NOT-READ here)". Three things in that sentence were wrong:
+- 6.21 was carried downstream (by B-combine) as H-SETTLE's figure, and it is not;
+- Holevo's bound is READ in A3 (quant-ph/9611023v1 pp.2-3);
+- Holevo is a theorem of *linear* QM, so it binds only Bob's final Born-rule readout (H-BORN-AT-BOB), not the drift.
+
+### 1b. The W2 class, not one Hamiltonian (wave 2, computed)
+
+- **A second member of the class.** H₂ = ε(⟨X⟩Z + ⟨Z⟩X) is deterministic, acts per branch, and is steered by the
+  state's own value. Its Z term pulls Alice's x-branch states ±x to +y, which is nlcontrol's law. Its X term pulls
+  her z-branch states ±z to −y.
+  - Bob's σ_y difference is 2 tanh(2εT). The integrator gives 1.074111 at ε = 0.1, T = 3, against the exact 1.074099.
+  - The channel is binary symmetric. Its capacity is 1 − h₂((1 − D)/2): 0.7136 at D = 0.9, 0.9546 at D = 0.99, and
+    0.99999 at D = 0.999999.
+- **The ceiling under H-BORN-AT-BOB.** Whatever drift produced Bob's per-choice states, his readout is a Born
+  measurement of one qubit, so χ ≤ log₂2 = 1 bit. This holds however many settings Alice has. The arithmetic was
+  checked on 300 random ensembles of up to 8 choices: the largest χ was 0.812.
+- **The ceiling is never reached at finite T.** A drift is a flow, and a flow is injective. Alice's two outcomes in
+  one basis therefore stay distinct pure states, and their mixture has rank 2. Computed for H₂ at ε = 0.3, T = 3: the
+  smallest eigenvalue is 2.7e-2 and the trace distance is 0.947, below 1.
+- **Pairs per teleported qubit:**
+
+| hypothesis | pairs per teleported qubit |
+|---|---|
+| nlcontrol (H-NLCONTROL-FORM) | ≥ 6.21 on average, 7 per qubit |
+| the W2 class under H-BORN-AT-BOB | > 2 on average (2 is the infimum and is never attained), ≥ 3 per qubit at finite T |
+| the W2 class without H-BORN-AT-BOB | **OPEN** |
+
+  Without H-BORN-AT-BOB, the D-CTC analogue under C2 carries 1.000 bit per pair through BHW's BB84 construction
+  (`frame.bb84_c2_table`, computed). BHW 0811.1209v2 p.4 (READ) say a CTC-assisted rate is unbounded. **W2's general
+  capacity is OPEN.**
+- H₂ at 1 ly with N = 3 needs ε > 2.16e-8 /s for any advantage. That figure assumes H-MAP carries over to H₂, which
+  has not been established, so it is illustration only.
 
 ## 2. The published bounds, by family, and what each permits at Bob
 
@@ -45,16 +99,29 @@ Green's functions. The bounds on |ε_γ|:
 | 4.7e-11 at 90% CL | 2204.11875v1 p.1, p.3 |
 | ≲1e-5 from ion traps, ε > 0 only | 2106.10576v2 p.14 |
 
-**Inverting these bounds into the largest superluminal signal at Bob gives 0, at every ε.** The experiments bound an
-inter-branch effect, the "Everett phone" (2411.09611v1 p.2). It is not a channel from Alice to Bob. This family
-removes nothing from O-BITS.
+**Inverting these bounds into the largest superluminal signal at Bob gives 0, at every ε.** This is DERIVED-FROM-READ
+(from KR's factorisation, §2.3). The experiments bound an inter-branch effect, the "Everett phone"
+(2411.09611v1 p.2), which is not a channel from Alice to Bob. This family removes nothing from O-BITS.
 Two discrepancies are recorded and neither is a refutation:
 * 2411.09611 calls its result an improvement "by nearly a factor of 50" (p.1). The computed ratio
   4.7e-11/1.15e-12 is 40.87.
 * KR v2 p.14 prints its Lamb-shift estimate as |ε_γ| ≲ 1e-4. Brož et al. restate it as ≲ 1e-2 (2206.12976v1 p.2, p.5).
 
 **The Weinberg family: deterministic, local on pure states.** This is the family Gisin's theorem covers. It contains
-nlcontrol's drift and M's definition. The 1989–90 spin experiments are PRLs that are not on arXiv:
+nlcontrol's drift, and M's definition **read per branch (H-C2)**.
+
+*Wave 1 first said* "It contains nlcontrol's drift and M's definition", naming no convention. M's words ("the state's
+own value steers its evolution") do not say whether the state is Bob's branch pure state (C2) or his reduced density
+matrix (C1). The two readings give different answers:
+- Under C1 the drift gives 2.2e-16: no channel.
+- 2412.20854v1 p.7 (re-READ): Gisin's argument is "limited to local dynamical maps acting on pure states only. It does
+  not apply" to dynamics defined directly on mixed states, and refs [40, 41] give explicit nonlinear maps on mixed
+  states that "bypass" it. p.4 says the same.
+- 0908.3023v2 pp.3-4 (READ by A2) calls the per-branch argument the "linearity trap".
+
+So every signal in this report is conditional on H-C2.
+
+The 1989–90 spin experiments are PRLs that are not on arXiv:
 * Majumder et al.: |ε|/2π ≤ 3.8 µHz.
 * Walsworth et al.: 3.7e-20 eV, equal to 8.9 µHz. The check h × 8.9 µHz = 3.68e-20 eV is consistent. The abstract's
   text layer prints the exponent as "10^{20}", which is a discrepancy, not a refutation.
@@ -72,6 +139,8 @@ these named hypotheses:
 * H-FRAME3b: the remote preparation happens on a fixed spacelike hypersurface. 2412.20854v1 p.6 calls this a "rather
   strong assumption" that needs "some preferred time-slicing".
 * H-DILUTION: KR p.13 says nonlinear effects can be diluted by cosmic history.
+* H-C2: the drift acts on the branch state. Under C1 there is no signal.
+* H-NLCONTROL-FORM: the drift is ε⟨X⟩Z. The capacity figures below are this Hamiltonian's.
 * **The bound is an upper limit measured consistent with zero.**
 
 Conditional numbers. The table uses reading A, ε_max = 2.39e-5 s⁻¹; reading B halves ε.
@@ -85,14 +154,41 @@ Conditional numbers. The table uses reading A, ε_max = 2.39e-5 s⁻¹; reading 
 | best rate per pair | 6.7e-6 bits/s, at T = 8.6 h | 3.4e-6 bits/s, at T = 17.2 h |
 
 * Pairs for a 3σ detection at the limit, reading A: 3.9e9 at T = 1 s, 310 at T = 1 h.
-* **The ε that removes O-BITS.** Bob holds each pair for T = L/2c, so the bits arrive before light would. One
-  teleported qubit needs N·C ≥ 2 bits. N < 7 is impossible at any ε.
+* **The ε that removes O-BITS (wave 2).** One teleported qubit needs N·C ≥ 2 bits. With nlcontrol's Hamiltonian,
+  N < 7 is impossible at any ε when each qubit is coded alone.
+  - The drift time needed is **T = atanh(D_N)/(2ε), independent of distance**. The read precedes light whenever
+    T < L/c.
+  - So the condition is ε > ε_any(L, N), which is the ε at which T reaches L/c.
+  - *Wave 1 first said* "Bob holds each pair for T = L/2c" and tabulated ε at that T. T = L/2c was a declared choice,
+    and its ε is exactly twice ε_any at every row (check G7: ratio 2.000000).
 
-| distance | ε needed at N = 7 | ε needed at N = 1e3 | ε needed at N = 1e6 |
-|---|---|---|---|
-| 1 AU | 4.6e-3 s⁻¹ (excluded) | 2.1e-4 s⁻¹ (excluded) | 6.7e-6 s⁻¹ (not excluded) |
-| 1 ly | 7.3e-8 s⁻¹ (not excluded) | 3.3e-9 s⁻¹ (not excluded) | 1.1e-10 s⁻¹ (not excluded) |
-| 4.24 ly (illustrative) | 1.7e-8 s⁻¹ (not excluded) | 7.9e-10 s⁻¹ (not excluded) | 2.5e-11 s⁻¹ (not excluded) |
+| distance | N = 7: ε_any (wave 1, at T = L/2c) | N = 1e3 | N = 1e6 | under H-TRANSFER, reading A |
+|---|---|---|---|---|
+| 1 AU | 2.30e-3 (4.6e-3) s⁻¹ | 1.06e-4 (2.1e-4) | 3.34e-6 (6.7e-6) | excluded, excluded, not excluded |
+| 1 ly | 3.64e-8 (7.3e-8) s⁻¹ | 1.67e-9 (3.3e-9) | 5.28e-11 (1.1e-10) | not excluded ×3 |
+| 4.24 ly (illustrative) | 8.60e-9 (1.7e-8) s⁻¹ | 3.94e-10 (7.9e-10) | 1.24e-11 (2.5e-11) | not excluded ×3 |
+
+  No excluded/not-excluded entry flips between the two columns.
+* **Timing at the NAMED-NOT-READ limit.** The drift times are:
+
+| reading | N = 7 | N = 1000 |
+|---|---|---|
+| A | T = 13.38 h | T = 0.61 h |
+| B | T = 26.76 h | T = 1.23 h |
+
+  Once the pairs are in place, a transit at 1 ly with N = 7 reads 0.99847 L/c early under reading A (0.99695 under
+  reading B).
+* **The first transit (LEDGER D23, as corrected in DOCKET 67: "a midpoint source spans D at D/(2c)").** Times are
+  counted from when the source fires. The pairs move at c, which is setup, not message latency.
+  - **One-end source:** Bob holds his half from L/c, so the read comes at L/c + T, after light launched from Alice at
+    the firing. It never beats light.
+  - **Midpoint source:** both parties hold their halves from L/2c, so the read comes at L/2c + T (0.501526 yr at 1 ly,
+    reading A, N = 7). That beats light launched from Alice's end at the firing whenever T < L/2c (check G10; control
+    G11 with T > L/2c does not). Against light launched when Alice measures, the advantage is L/c − T, the same as for
+    later transits.
+  - *Wave 1 (via B-combine) first said* "the first cannot [beat light]". That holds only for one-end distribution.
+  - The source, the pairs and the holder still arrive at ≤ c.
+  - Every timing here is conditional on N_EPS, H-C2, H-NLCONTROL-FORM and the unread limit.
 
   Read this table as: at interstellar distances **the unread upper limit does not exclude** a Weinberg-type drift strong
   enough to carry the two bits. It is **not** evidence that such a drift exists. A measurement consistent with zero
@@ -111,6 +207,14 @@ against a Lindblad |x| of 0.18. This is the vacuity guard. The **ensemble** foll
 λ = 0.2, T = 3) reads 0.259 ± 0.003, which is 93σ. Noise does not wash out a deterministic nonlinearity. What protects
 causality is a linear ensemble map. Weinberg makes the same point (1109.6462v4 p.11): if the density matrix's evolution
 depends on the ensemble, then "instantaneous communication between isolated systems would be possible".
+
+*Recorded fault (wave 2), kept like fields12's.* Wave 1's D6 ("CONTROL (must signal): pure deterministic drift, same
+detector") passed the detector a hand-typed vector (0, tanh 0.6, 0) with zero error. It returned ∞ whatever the drift
+code did, so it tested the detector's arithmetic, not a drift (AGAINST #15). D5 (93σ) was always the real must-signal
+control.
+- D6 now runs the drift through `sde_ensemble` with λ = 0 and must reproduce tanh(2εT).
+- Wave 1's C3 (two typed READ values differ) and E2 (counting the H-12 table's own labels) cannot fail by
+  construction. They are now printed STRUCTURAL and are not cited as evidence.
 
 *Recorded fault, kept like fields12's:* in a scratch prototype (not in settle.py) I tried a "non-martingale"
 stochastic control: wrong drift coefficient, explicit renormalisation. It showed no signal. The likely cause is that
@@ -149,20 +253,55 @@ G_θ static bound: |d_n| < 1.8e-26 e·cm at 90% CL (2001.11966v1 p.6). The conve
 **Named limit: a time-variation bound bounds a drift common to all states. It does not bound state-dependence.**
 Among the twelve, only Z0 has a state-dependent bound.
 
+### 4b. H-SETTLE × H-12 with an unbounded carrier (wave 2, computed: `h12_carrier_case`)
+
+*Wave 1 first graded* H-SETTLE × H-12 PARTIAL, "removing O-BITS only through a Weinberg-type carrier drift". AGAINST
+#16 answered that the removal is entirely H-SETTLE-W's. FOR #7 answered that H-12's carrier map is the alternative to
+H-TRANSFER. Both are right, under different hypotheses:
+
+- **Under H-TRANSFER** (the ²⁰¹Hg bound applies to Bob's carrier), H-12 adds no removal. It contributes a test list.
+- **Under H-12-CARRIER + H-12-W**, Bob's carrier is α_s, G or v, which have no state-dependent bound of any kind:
+  - α_s: KR fn.5 says "no non-trivial bounds can be placed";
+  - G: KR p.14, no data;
+  - v: no bound located.
+  The carrier is also assumed to drift in Weinberg (per-branch) rather than KR (causal) form. **No READ source gives
+  a model of that.** With no bound capping ε, a cell is excluded only if N·C < 2. At 1 AU, N = 7 (ε > 2.3e-3 /s) and
+  N = 1000 (ε > 1.06e-4 /s) flip from EXCLUDED to NOT EXCLUDED: **2 of 9 cells** (check G12).
+- **So SET × 12 removes O-BITS REMOVED-IF {N_EPS, H-C2, H-FRAME3b, H-12-CARRIER, H-12-W} in strictly more cases than
+  SET under H-TRANSFER.** An absent bound is not a measurement, so this is not evidence that such a drift exists.
+- **Rule 2.** H-12 was exercised here and is load-bearing under H-12-CARRIER. It is not retired. B-combine's
+  "H-12 load-bearing for nothing" came from an encoding in which H-12's atoms sit in no constraint, so that result is
+  UNTESTED-BY-SCREEN.
+
 **Discrepancy (recorded, not repaired).** `warpfolder.py` §4 calls the 12-vector "a list of COUPLING CONSTANTS AND ONE
 VACUUM EXPECTATION VALUE". The PDF defines M, R, K and T as emergent atomic and condensed-matter properties, and Z0 as an
 impedance. warpfolder's category conclusion, that none of the twelve carries a quantum number, is unaffected.
 
 ## 5. Grades, alone and in the combinations the charter names
 
+Verdict words (wave 2): REMOVED-IF {premises} is a removal that holds if the named premises hold. NOT-BOUND-IF {premise}
+means a theorem does not bind; its conclusion is not shown false, so it is not a removal. SILENT means the formalism
+cannot state it. OPEN means a pathway exists that is neither excluded nor shown. Every O-BITS entry below carries
+N_EPS, H-C2 and the NAMED-NOT-READ bounds.
+
 | hypothesis | verdict | removes | leaves |
 |---|---|---|---|
-| H-SETTLE-W, M's definition (Weinberg/Gisin type), alone | PARTIAL | O-BITS, conditional on ε ≥ ε_min(L, N) and on the hypotheses in §2 | O-MAKE, O-HOLD, O-MATTER, O-LOOP; without a fixed slicing, signals faster than light reopen loops |
+| H-SETTLE-W, M's definition read per branch, alone | PARTIAL | **O-BITS REMOVED-IF {N_EPS (ε > ε_any(L, N)), H-C2, H-FRAME3b (a preferred slicing, H-FRAME clause 1's substance), H-MAP, H-TRANSFER, H-SPIN, H-COHERE}**; **O-LOOP REMOVED-IF {H-FRW-EXACT, H-NOT-DE-SITTER, N_SIGKEY}** | O-MAKE, O-HOLD, O-MATTER |
+| H-SETTLE-W read on the reduced state (C1), alone | LEAVES-ALL | none (2.2e-16) | all five |
 | H-SETTLE-KR (causal field-expectation form), alone | OPEN | none | O-BITS, O-MAKE, O-MATTER, O-LOOP; **O-HOLD OPEN** |
 | Collapse-type stochastic drift | LEAVES-ALL | none (control: no signal) | all five |
 | H-12 alone, linear QM | LEAVES-ALL | none (fields12.py: 1.44e-15) | all five |
-| H-SETTLE × H-12 | PARTIAL | O-BITS only through a Weinberg-type carrier drift; none in KR form | the other four |
-| H-SETTLE-W × H-FRAME | PARTIAL | O-BITS (conditional); O-LOOP, under the model choice H-SIG-COR | O-MAKE, O-HOLD, O-MATTER |
+| H-SETTLE-W × H-12 under H-TRANSFER | PARTIAL, adding nothing to H-SETTLE-W | as H-SETTLE-W | as H-SETTLE-W |
+| H-SETTLE-W × H-12 under H-12-CARRIER + H-12-W | PARTIAL | O-BITS REMOVED-IF {N_EPS, H-C2, H-FRAME3b, H-12-CARRIER, H-12-W}, at 2 more of 9 cells (1 AU) | O-MAKE, O-HOLD (OPEN via G in KR form), O-MATTER |
+| H-SETTLE-W × H-FRAME | PARTIAL | O-BITS (as above); O-LOOP REMOVED-IF {N_SIGKEY} under H-SIG-COR | O-MAKE, O-HOLD, O-MATTER |
+
+*Wave 1 first said:*
+- H-SETTLE-W alone "leaves O-LOOP (without a fixed slicing, signals faster than light reopen loops)". Exact flat FRW
+  forces corridor keying (`frame.frw_time_function_lemma`, A2's z3 lemma), and the drift already needs a slicing
+  (H-FRAME3b). So with the drift's slicing keyed to cosmic time (N_SIGKEY, under H-SIG-COR), O-LOOP is
+  REMOVED-IF {H-FRW-EXACT, H-NOT-DE-SITTER, N_SIGKEY}. This moves a removal to H-SETTLE alone; it does not add a new
+  one. H-FRAME's own contribution reduces to N_SIGKEY and the CMB identification.
+- H-SETTLE × H-12 "PARTIAL: O-BITS only through a Weinberg-type carrier drift". See §4b.
 
 Why H-SETTLE-KR's O-HOLD is OPEN: KR p.13 reads a gravitational nonlinearity as positive-energy matter in another
 branch appearing here as a null-energy-violating source ("may cause it to undergo a bounce"). That is speculation in
@@ -178,14 +317,20 @@ The record on the theory itself is contested, and the grades above carry no verd
   signalling generic for local deterministic nonlinearity.
 * Polchinski's causal restriction (READ-VIA-RESTATEMENT: 2206.12976v1 p.1; quant-ph/0012041v3 p.1) is disputed by
   Mielnik (quant-ph/0012041v3 p.5). Mielnik argues that an observable satisfying the criterion must be quadratic.
-* Bielińska–Eckstein–Horodecki find that a categorical rejection "might be premature" (2412.20854v1 p.25).
+* Bielińska–Eckstein–Horodecki find that a categorical rejection "might be premature" (2412.20854v1 p.26; *wave 1
+  first said p.25*, a page misprint, now re-READ).
 
 ## 6. Testable predictions
 
-* **H-SETTLE-W**: Bob's mean σ_y shifts by tanh(2εT) when Alice switches from z to x; the shift is 2εT for small εT.
-  At the Majumder limit (reading A), about 310 pairs held for 1 h detect it at 3σ. The arrival time is Alice's time in
-  the preferred slicing plus T, whatever the distance. The candidate frame is the CMB rest frame
-  (`cmb-dipole-370kms`, D67 NARROWED).
+* **H-SETTLE-W (under H-C2)**: Bob's mean σ_y shifts by tanh(2εT) when Alice switches from z to x; the shift is 2εT
+  for small εT.
+  - At the Majumder limit (reading A), about 310 pairs held for 1 h detect it at 3σ.
+  - The arrival time is Alice's time in the preferred slicing plus T, whatever the distance.
+  - The signal falls to tanh(2ε(T − t_A)) if Alice measures partway through Bob's window, and to 0 if she measures
+    after it (`frame.drift_ordering`, computed). So the effect is keyed to the slicing.
+  - The candidate frame is the CMB rest frame (`cmb-dipole-370kms`, D67 NARROWED).
+  - **Under C1 there is no shift.** A null result therefore does not separate "no drift" from "drift on the reduced
+    state".
 * **H-SETTLE-KR × G**: a gravity gradient from a test mass positioned according to a qubit outcome, read by an atom
   interferometer, as proposed in 2204.11875v1 p.4. It would bound ε_G, which is the parameter that bears on O-HOLD.
 
@@ -200,7 +345,9 @@ READ means read at source through alphaXiv.
 | 2206.12976v1 | READ, pp.1–5 | |
 | 2106.10576v2 | READ, pp.1–3, 7–8, 13–14, 22 | |
 | quant-ph/0012041v3 | READ, pp.1–6 | |
-| 2412.20854v1 | READ, pp.1–10, 17–26 | |
+| 2412.20854v1 | READ, pp.1–10, 17–26; pp.4, 7, 26 re-READ in wave 2 | Gisin limited to pure-state maps (pp.4, 7); "might be premature" (p.26) |
+| 0811.1209v2 | READ by A2; p.4 re-READ in wave 2 | Holevo broken by a CTC-assisted party (relevant only without H-BORN-AT-BOB) |
+| quant-ph/9611023v1 | READ in A3 | Holevo's bound (wave 1 first labelled it NAMED-NOT-READ here) |
 | 1204.4325v3 | READ, pp.1–2, 15–17, 31, 34, 53, 87, 89, 111–112, 131 | |
 | 1109.6462v4 | READ, pp.1–14 | |
 | 2112.09005v3 | READ, pp.1–11, 23–24 | |
