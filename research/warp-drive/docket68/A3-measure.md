@@ -1,10 +1,11 @@
 # DOCKET 68 · A3-measure: Q-1 (the substrate-free measure), H-INFO and R-INDEX
 
 **Status: a docket work item. Nothing here is seated.** The instrument is `measure.py`, which sits beside this file.
-`python3 measure.py --selftest` runs 86 checks. Thirteen are printed **STRUCTURAL**: they cannot fail by construction
+`python3 measure.py --selftest` runs 99 checks. Fourteen are printed **STRUCTURAL**: they cannot fail by construction
 (a literal, a comparison of typed values, or two runs of one expression), so they are **not counted** and are not cited
-as evidence. **The 73 counted checks all pass** (about 30 s); nineteen of them are **controls**: cases built to fail,
-and every one of them fails. *Wave 4 first-said record:* the summary printed "85/85 pass" with six STRUCTURAL inside
+as evidence. **The 85 counted checks all pass** (about 35 s); twenty-one of them are **controls**: cases built to fail,
+and every one of them fails. *M-apply first-said record:* "86 checks ... Thirteen ... STRUCTURAL ... The 73 counted
+... nineteen ... controls"; M-apply added § (viii), 13 checks (2 controls, 1 STRUCTURAL). *Wave 4 first-said record:* the summary printed "85/85 pass" with six STRUCTURAL inside
 the 85; wave 4 relabels six checks of § (vii) STRUCTURAL (V2-0 problem 5), adds one STRUCTURAL guard for the
 symmetric rule, and prints the counted total.
 *Wave 1 first said* "58 checks ... Sixteen of the checks are controls", and four of those sixteen were structural.
@@ -24,11 +25,29 @@ It writes nothing outside `docket68/`.
 - Nothing in this work item removes an obstruction that a member can claim. Q-1, H-INFO and R-INDEX are each
   LEAVES-ALL.
 - **H-SETTLE × H-INFO adds nothing to H-SETTLE-W.** The drift's O-BITS removal is H-SETTLE-W × H-FRAME's (A1, A2).
-- H-INFO-S is a **CLASH** with B-RECV, and it stays M's to rule.
+- **M has ruled clash (d) (M-apply, 2026-10-03; § (viii)).** The reading is **H-INFO-SHAPE**: what arrives is the
+  information that shapes the geometry at the seat, and the substance comes "from the seat". Under it the clash with
+  B-RECV is **dissolved by relocation** (z3: H-INFO-SHAPE & B-RECV satisfiable; H-INFO-S & B-RECV not), and
+  **O-MATTER is relocated to O-SEAT, "supply at the seat"**, which stays an obstruction: LEFT, with the board's S13
+  (OPEN, priced, restoring at most ~1.7e-3 of the payload and forming no baryons) and S10 (REFUSED) stated exactly.
+  H-INFO-SHAPE is LEAVES-ALL. *Wave 4 first said* "H-INFO-S is a **CLASH** with B-RECV, and it stays M's to rule";
+  H-INFO-S is kept as history and as the alternative reading.
 - R-INDEX's NOT-BOUND-IF {H-IT, H-MEASURE-PHYSICAL} is in a column of its own -- on O-MAKE, O-HOLD **and (wave 4)
   corridor O-LOOP** -- and so is the geometry's corridor O-LOOP removal, which is credited to no hypothesis.
 - **Q-1s is now in use (§ (vii)).** Q-1 takes signed cell weights under H-SIGNED-CELLS, and returns Shannon exactly
   when no weight is negative. **No grade moves**; each was re-examined, and the reason it does not move is recorded.
+
+## M-apply (2026-10-03): M's rulings, and V3's residuals sited here
+
+M's answers (`M-RULINGS-2026-10-03.md`, carried verbatim into CHARTER.md's last section) are rulings and are applied as
+worded. Earlier forms are kept, marked *wave 4 first said*.
+
+| item | resolution |
+|---|---|
+| M items 1 and 5: "Teleportation carries no physical substance, but does carry information (non physical properties/bounds that give shape to the geometry at the seat)"; the substance: "Yes, from the seat" | **Applied, § (viii).** H-INFO-SHAPE is graded beside H-INFO-S (kept as history and alternative). The z3 screen (`info_shape_screen`, H-SHAPE-ENCODING named) reproduces clash (d) for H-INFO-S and finds H-INFO-SHAPE & B-RECV satisfiable. O-MATTER is **relocated to O-SEAT**, not removed: both "O-SEAT removed" and "O-SEAT left" are satisfiable, and with S10 refused a removal needs S13's supply shown. **LEAVES-ALL**. |
+| O-SEAT against S10 and S13 (LEDGER rows READ; DOCKET 65's `massform`/`excite` imported) | **Stated exactly, § (viii):** what the seat must supply, and every price the board has computed. |
+| M item 2 (both weightings) and items 3, 6 (the ground-state calibration) | Sited in `signed.py` § (8)-(9) and Q1s-signed.md §§ 9-10. In Q-1's grades nothing moves: the calibration is a measure on a weighting, and none of its values is an energy at a throat or a channel. |
+| V3 problems (`wave1/REPAIR3-RESULT.json` key `result.v`) | None is sited in A3: problem 1 is B-combine's field figure, problem 3 is combine's B-EPSWIN (its A1 half is applied in A1 and `settle.window_given`). **Problem 2 (numbering)**: the item numbers in this file's re-verification tables are **1-based**, while `V2-0.json` and `V2-1.json` store 0-based arrays -- so "V2-1 problem 5" here is `V2-1.json` `problems[4]`. Each row also cites its item by site text. |
 
 ## Wave 4 repair (R3-alone, 2026-10-03): the second pair of re-verifications
 
@@ -303,8 +322,56 @@ The figures match Q1s-build's (N = 158, Re H = 0, M = 8.308 bits; Re H = −3.03
 | Q-1 | LEAVES-ALL | The signed measure counts, as Q-1 does. It sends no bit, holds no throat, forms no matter, closes no loop. Only its scope changes: Theorem 2's uniqueness covers the SHANNON case only; for signed weights uniqueness holds over separable functionals (Re H with product additivity), is CLAIMED-IN-LITERATURE under signed recursivity (Kontsevich), and is OPEN otherwise. |
 | H-INFO | LEAVES-ALL | Clause (a) was already scoped to probability measures (BFL's hypotheses, READ pp.3-4). For signed weights (wave 4): **SUPPORTED-IF {H-SEPARABLE, BFL's codomain dropped, product additivity}** -- Re H is then the unique measure, and those hypotheses name only finite sets, signed measures and functions; **impossible** inside H-SEPARABLE (and inside H-DICTIONARY) if the codomain is kept; OPEN over non-separable functionals. *Wave 3 first said* "SUPPORTED for probability weights and OPEN for signed ones". One clause status moves; the verdict does not. Clause (b) is untouched: Re H gives no lower bound per unit matter either. |
 | H-INFO-S | CLASH | φ(1) = 0 survives signed weights (n = 1 above). The 2^I leg is Shannon's (n = 3 above), and Re H's meaning is OPEN. The clash stays M's to rule. |
+| H-INFO-SHAPE (M-apply) | LEAVES-ALL | Graded after Q-1s (§ (viii)): a signed weighting supplies no substance at the seat; the holder leg φ(1) = 0 is unchanged by signed weights. *M has ruled clash (d); the row above is kept as history.* |
 | R-INDEX | LEAVES-ALL | Its values are (Re H, Im H, N, M). None is an energy density: a negative weight is not a negative T_ab k^a k^b. So O-HOLD stays SILENT within the measure, and NOT-BOUND-IF {H-IT, H-MEASURE-PHYSICAL} for a corridor. To read a negative weight as the throat's null deficit (one reading of M's "supplied by probability in the citation/seating") is **H-NEGWEIGHT-NEC**: named, with no instrument and no source, and not credited. O-BITS: a signed weighting sends nothing. O-MATTER: unchanged. O-LOOP: SILENT within the measure; for a physical corridor O-LOOP-C NOT-BOUND-IF {H-IT, H-MEASURE-PHYSICAL}, as O-MAKE and O-HOLD (wave 4; *wave 3 first said* "O-LOOP: SILENT"). |
 | H-SETTLE × H-INFO | LEAVES-ALL | Its χ is a Holevo quantity of density matrices, whose spectra are non-negative. No signed weight enters it. |
+
+## (viii) H-INFO-SHAPE and O-SEAT (M-apply, 2026-10-03)
+
+**M's words, verbatim** (M-RULINGS items 1 and 5): "Teleportation carries no physical substance, but does carry
+information (non physical properties/bounds that give shape to the geometry at the seat)"; and, asked whether the
+physical substance is supplied by the seat itself, "Yes, from the seat".
+
+**The screen** (`info_shape_screen`, z3; COMPUTED). Atoms INFOS (H-INFO-S), SHAPE (H-INFO-SHAPE), RECV (B-RECV), O-MATTER
+removed, O-SEAT removed, S10 supplies, S13's supply shown. Constraints: combine.py's DEF-MATTER (combine.py:509-510,
+READ by grep: O-MATTER removed iff no receiver must already be at the destination); INFOS ⇒ O-MATTER removed; SHAPE ⇒
+RECV ("from the seat"); O-SEAT removed ⇔ (S10 ∨ S13); S10 false (REFUSED). That encoding is **H-SHAPE-ENCODING**, a
+named choice.
+
+| query | result |
+|---|---|
+| vacuity: the base, and INFOS, SHAPE, RECV each alone | sat |
+| H-INFO-S & B-RECV | **unsat** -- clash (d) reproduced |
+| H-INFO-SHAPE & B-RECV | **sat** -- dissolved by relocation |
+| H-INFO-SHAPE & B-RECV & O-SEAT removed / & O-SEAT left | sat / sat -- the screen decides nothing about the seat |
+| H-INFO-SHAPE & O-SEAT removed & S13 not shown | unsat -- with S10 refused, a removal needs S13's supply shown |
+| H-INFO-SHAPE & O-MATTER removed | unsat |
+| CONTROL: drop DEF-MATTER, then H-INFO-S & B-RECV | sat -- the clash is DEF-MATTER's |
+| CONTROL: un-refuse S10, then O-SEAT removed without S13 | sat |
+
+**What the seat must supply** (COMPUTED from imports; `seat_supply`, `O_SEAT_TEXT`, a drift guard checks the prose
+against the instruments). Under H-INFO-SHAPE the information arrives and the substance does not
+(`transit.CARRIES_SUBSTANCE` False). So the seat must supply **the payload's substance itself -- its baryons and leptons
+as elements** -- in a holder with at least 2^I distinguishable states (φ(1) = 0) and at least the Bekenstein floor
+(33-379 J at R = 1 m, § (iii)).
+
+**What the board has computed for that supply** (LEDGER.md rows READ; DOCKET 65's `massform`, which asks `excite`):
+
+| route | board status | what it supplies, and at what price |
+|---|---|---|
+| S10, M's mechanism (mass formed by the triggered Higgs field) | **REFUSED** (`massform.MECHANISM_VERDICT`: REFUSED on all six readings) | nothing: refused as a supply |
+| S13, the held-seat release route | **OPEN, priced** (`HELD_SEAT_ROUTE_PRICED` True) | it **restores** Higgs-given mass to templates already at the seat and **forms no baryons** (C3): the electrons regain **3.010e-6** of the payload (exact on H-TREE), the nucleons about **1.716e-3** (first order; an estimate, not a bound). Price at ε = 1/100: a prepared source of **1.930e44 J/m³** holding **9.80e41 J/m³** of field, **197.0 J** of φ-coupled rest energy per J of field (exactly 39204/199), **2.148e27 kg/m³** of Higgs-derived mass where the templates sit; a static hold is stable only below ε = **0.4226**; regained/released at ε₀ = 1e-12, 1e-6, 1/1000, 1/200: 2.02e-10, 2.02e-4, 0.1834, 0.6695; the seat is prepared in advance, so something arrived at ≤ c first (D23, `preparation_needs_prior_arrival` True) |
+| S12, the pair route | OPEN, priced | mass as matter with antimatter: the floor **1.2567e19 J** for 70 kg (B units of antibaryon held apart) |
+| S5, reconstruction from stock at the seat | OPEN; survives (`massform.RECONSTRUCTION_SURVIVES`) | the elements are already at the seat as stock; S5's own price figures are not re-derivable (LEDGER S5, downgraded) |
+
+So **S13 is not a supply of substance**: at least 0.998 of the payload must already be at the seat for it to act on.
+**O-SEAT is LEFT** -- an obstruction until the seat's supply is shown, exactly as M's ruling states. Nothing is credited
+to H-INFO-SHAPE: it relocates the question and supplies nothing. Its grade, per obstruction: O-BITS LEAVES (two
+classical bits per qubit still cross at ≤ c); O-MAKE, O-HOLD LEAVES; O-MATTER **RELOCATED to O-SEAT, LEFT there**;
+O-LOOP SILENT. **Verdict: LEAVES-ALL.**
+
+*Wave 4 first said*, of H-INFO-S, "The clash stays a CLASH, for M to rule." M has ruled; the H-INFO-S section below is
+kept unchanged as history and as the alternative reading.
 
 ## (iv) Grades
 

@@ -84,6 +84,15 @@ NAMED HYPOTHESES (every limitation carried by name)
              no negative probability; a signed weighting is a decomposition of it, not a measurement of it.
   H-FINSIGNED (signed.py's) BFL's category with signed measures.  Theorem 2 is proved for FinProb only (READ
              1106.1791v3 p.3: measures non-negative); its uniqueness is NOT inherited by the signed case.
+  H-INFO-SHAPE (M's ruling, 2026-10-03, M-RULINGS items 1 and 5; graded in (viii)) M, verbatim: "Teleportation carries
+             no physical substance, but does carry information (non physical properties/bounds that give shape to the
+             geometry at the seat)"; asked whether the physical substance is supplied by the seat itself: "Yes, from the
+             seat".  What arrives is the defining information; the substance comes from the seat.  H-INFO-S is KEPT as
+             history and as an alternative reading.  O-MATTER is RELOCATED to O-SEAT ("supply at the seat"), not removed.
+  H-SHAPE-ENCODING (viii) the z3 screen encodes H-INFO-SHAPE as "the holder / substance is at the seat" (=> B-RECV's
+             antecedent holds), H-INFO-S as "the arriving information constitutes its holder", and combine.py's DEF-MATTER
+             (combine.py:509-510, READ by grep: O-MATTER removed iff no receiver must already be at the destination).
+             An encoding is a choice; it is named so the screen's verdict says what it rests on.
   H-NEGWEIGHT-NEC (Q-1s) a negative cell weight is, or supplies, a throat's null-energy deficit -- one reading of M's
              "supplied by probability in the citation/seating".  No instrument and no READ source supplies it; it is
              named so the R-INDEX grade can say what it would take, and it is not credited.
@@ -818,7 +827,111 @@ Q1S_GRADE_REVIEW = {
                "symmetric rule, RV-1 #2, now carried here; wave 3 first wrote 'O-LOOP: SILENT' only).",
     "H-SETTLE x H-INFO": "NOT MOVED (LEAVES-ALL).  The chi there is a Holevo quantity of density matrices (non-negative "
                          "spectra); no signed weight enters it.",
+    "H-INFO-SHAPE (M's ruling, 2026-10-03)": "NOT MOVED (LEAVES-ALL).  Graded after Q-1s: a signed weighting supplies no "
+                         "substance at the seat; the holder leg (phi(1) = 0) is unchanged by signed weights (holder_ceiling "
+                         "n = 1).",
 }
+
+
+# ============================================================================ (viii) H-INFO-SHAPE and O-SEAT (M's rulings)
+# M-RULINGS-2026-10-03.md items 1 and 5 (verbatim in CHARTER.md).  H-INFO-SHAPE: the information arrives, the substance
+# comes from the seat.  O-MATTER is relocated to O-SEAT, "supply at the seat", and graded against the board's S10
+# (REFUSED as a supply) and S13 (the held-seat release route, OPEN, priced) -- every figure IMPORTED from DOCKET 65's
+# instruments (massform, which asks excite), the ledger rows READ from LEDGER.md.  Nothing is copied.
+
+LEDGER_MD = os.path.join(WD, "LEDGER.md")
+
+
+def ledger_row(row_id):
+    """(status, title) of a LEDGER.md row, READ from the generated ledger (grep, never retyped)."""
+    with open(LEDGER_MD, encoding="utf-8") as fh:
+        for ln in fh:
+            if ln.startswith(f"| {row_id} |"):
+                parts = [x.strip() for x in ln.split("|")]
+                return parts[2].strip("*"), parts[3]
+    return None, None
+
+
+def seat_supply():
+    """What the seat must supply under H-INFO-SHAPE, and what the board has computed for it (DOCKET 65, imported)."""
+    nopath, massform, _, _, transit = import_board()
+    route = massform.HELD_SEAT_ROUTE
+    payload = massform.PAYLOAD_KG
+    return {
+        "ledger_S10": ledger_row("S10"), "ledger_S13": ledger_row("S13"), "ledger_S12": ledger_row("S12"),
+        "ledger_S5": ledger_row("S5"),
+        "S10_mechanism_verdict": massform.MECHANISM_VERDICT,
+        "S10_reading_verdicts": massform.READING_VERDICTS,
+        "S13_priced": massform.HELD_SEAT_ROUTE_PRICED,
+        "S13_eps": float(route["eps"]),
+        "S13_source_J_m3": route["source J/m^3"], "S13_field_J_m3": route["field J/m^3"],
+        "S13_source_per_J_field": float(route["source per J of field"]),
+        "S13_source_per_J_field_exact": str(route["source per J of field"]),
+        "S13_higgs_derived_kg_m3": route["Higgs-derived kg/m^3"],
+        "S13_stable": route["stable"], "S13_stability_edge_eps": massform.excite.stability_edge(),
+        "S13_electrons_regained_of_payload": route["electrons regained"],
+        "S13_nucleons_first_order_of_payload": route["nucleons first order"],
+        "S13_forms_baryons": route["forms baryons"],
+        "S13_regained_over_released": [(str(e0), float(r)) for e0, r in massform.held_release_regained_shares()],
+        "S13_needs_prior_arrival_D23": massform.preparation_needs_prior_arrival(),
+        "S12_pair_floor_J_70kg": massform.pair_floor_j(), "payload_kg": payload,
+        "payload_rest_energy_J": massform.rest_energy_j(),
+        "S5_reconstruction_survives": massform.RECONSTRUCTION_SURVIVES,
+        "transit_CARRIES_SUBSTANCE": transit.CARRIES_SUBSTANCE,
+        "holder_phi_1_bits": phi(1),
+    }
+
+
+def info_shape_screen():
+    """z3 screen of H-INFO-SHAPE beside H-INFO-S against B-RECV, under H-SHAPE-ENCODING, with vacuity guards.
+    Atoms: INFOS, SHAPE (H-INFO-SHAPE), RECV (B-RECV), rmM (O-MATTER removed), rmSEAT (O-SEAT removed), S10 (S10
+    supplies), S13 (S13's supply shown).  Constraints: DEF-MATTER rmM <-> not RECV (combine.py:509-510); INFOS -> rmM;
+    SHAPE -> RECV (the substance is at the seat: "Yes, from the seat"); rmSEAT <-> (S10 or S13); S10 is False (REFUSED,
+    LEDGER S10).  Returns None if z3 is absent (the checks are then SKIPPED, not counted)."""
+    try:
+        import z3
+    except ImportError:
+        return None
+    INFOS, SHAPE, RECV, rmM, rmSEAT, S10, S13 = z3.Bools("INFOS SHAPE RECV rmM rmSEAT S10 S13")
+    base = [rmM == z3.Not(RECV), z3.Implies(INFOS, rmM), z3.Implies(SHAPE, RECV), rmSEAT == z3.Or(S10, S13),
+            z3.Not(S10)]
+
+    def sat(*extra, constraints=None):
+        so = z3.Solver()
+        so.add(*(base if constraints is None else constraints), *extra)
+        return so.check() == z3.sat
+
+    return {
+        "vacuity: base alone sat": sat(),
+        "vacuity: INFOS alone sat": sat(INFOS), "vacuity: SHAPE alone sat": sat(SHAPE), "vacuity: RECV alone sat": sat(RECV),
+        "INFOS & RECV sat (clash (d) if False)": sat(INFOS, RECV),
+        "SHAPE & RECV sat (dissolved if True)": sat(SHAPE, RECV),
+        "SHAPE & RECV & O-SEAT removed sat": sat(SHAPE, RECV, rmSEAT),
+        "SHAPE & RECV & O-SEAT left sat": sat(SHAPE, RECV, z3.Not(rmSEAT)),
+        "SHAPE & O-SEAT removed & S13 not shown sat": sat(SHAPE, rmSEAT, z3.Not(S13)),
+        "SHAPE & O-MATTER removed sat": sat(SHAPE, rmM),
+        "CONTROL without DEF-MATTER: INFOS & RECV sat": sat(INFOS, RECV, constraints=base[1:]),
+        "CONTROL S10 not refused: SHAPE & O-SEAT removed & S13 not shown sat":
+            sat(SHAPE, rmSEAT, z3.Not(S13), constraints=base[:-1]),
+    }
+
+
+O_SEAT_TEXT = (
+    "O-SEAT (supply at the seat; O-MATTER RELOCATED here by M's ruling, item 5, not removed): LEFT -- an obstruction until "
+    "the seat's supply is shown.  WHAT THE SEAT MUST SUPPLY: the payload's substance itself, its baryons and leptons as "
+    "elements (H-INFO-SHAPE: information arrives, substance does not; transit.CARRIES_SUBSTANCE False), in a holder with "
+    "at least 2^I distinguishable states (phi(1) = 0) and at least the Bekenstein floor (33-379 J at R = 1 m).  THE "
+    "BOARD'S ROUTES, every figure imported (seat_supply): S10 REFUSED as a supply (massform.MECHANISM_VERDICT: REFUSED "
+    "on all six readings); S13 OPEN and PRICED (massform.HELD_SEAT_ROUTE, eps = 1/100): it RESTORES Higgs-given mass to "
+    "templates already at the seat and forms no baryons -- the electrons regain 3.010e-6 of the payload (exact on H-TREE), "
+    "the nucleons about 1.716e-3 (first order, an estimate, not a bound) -- at a prepared source of 1.930e44 J/m^3 "
+    "holding 9.80e41 J/m^3 of field, 197.0 J of phi-coupled rest energy per J of field (39204/199), 2.148e27 kg/m^3 of "
+    "Higgs-derived mass where the templates sit, stable only below eps = 0.4226, with the seat prepared in advance, a "
+    "prior arrival at <= c (D23).  So S13 is not a supply of substance: at least 0.998 of the payload must already be "
+    "at the seat for it to act on.  Beside it the board holds S12 (the pair route, priced at the floor 1.2567e19 J for "
+    "70 kg, with B units of antibaryon held apart) and S5 (reconstruction from stock at the seat, which survives, "
+    "massform.RECONSTRUCTION_SURVIVES; S5's own price figures are not re-derivable, LEDGER S5).  Not credited to "
+    "H-INFO-SHAPE: it relocates the question, it supplies nothing.")
 
 
 # ============================================================================ (iv) grades
@@ -865,9 +978,26 @@ GRADES = {
                    "Bekenstein admits 0 bits at E = 0 within its scope, and transit.CARRIES_SUBSTANCE is False -- "
                    "the arriving state needs a receiver already there.  So O-MATTER's survival is a board-versus-M "
                    "clash, not something 'none of the seven touches'.  No instrument here shows information "
-                   "constituting its own holder.",
+                   "constituting its own holder.  KEPT AS HISTORY AND AS AN ALTERNATIVE (M-apply, 2026-10-03): M ruled "
+                   "the reading H-INFO-SHAPE (graded below), under which the clash is dissolved by relocation.",
         "per": {"O-BITS": "LEAVES", "O-MAKE": "LEAVES", "O-HOLD": "LEAVES",
                 "O-MATTER": "CLASH (with B-RECV: REMOVED-IF {H-INFO-S} only in a board without B-RECV)",
+                "O-LOOP": "SILENT"},
+    },
+    "H-INFO-SHAPE (M's ruling, 2026-10-03)": {
+        "verdict": "LEAVES-ALL",
+        "reading": "M: teleportation 'carries no physical substance, but does carry information (non physical "
+                   "properties/bounds that give shape to the geometry at the seat)'; the substance comes 'from the "
+                   "seat'.  Consistent with transit.CARRIES_SUBSTANCE = False and with B-RECV: the z3 screen "
+                   "(info_shape_screen, H-SHAPE-ENCODING) finds H-INFO-SHAPE & B-RECV SATISFIABLE where H-INFO-S & "
+                   "B-RECV is not -- clash (d) is DISSOLVED by relocation, not removed by assertion.  It removes no "
+                   "obstruction: O-MATTER is RELOCATED to O-SEAT, and O-SEAT stays an obstruction (both 'removed' and "
+                   "'left' are satisfiable, so the screen decides nothing; with S10 refused a removal needs S13's supply "
+                   "shown).  H-INFO-S is kept as history and as the alternative reading.",
+        "per": {"O-BITS": "LEAVES (it says what arrives, not how: two classical bits per qubit still cross at <= c, "
+                          "transit.BEATS_LIGHT False)",
+                "O-MAKE": "LEAVES", "O-HOLD": "LEAVES",
+                "O-MATTER": "RELOCATED to O-SEAT, LEFT there: " + O_SEAT_TEXT,
                 "O-LOOP": "SILENT"},
     },
     "R-INDEX": {
@@ -959,6 +1089,7 @@ def collect():
         "settle_chi_bits_per_use": {str(e): settle_bits(e)[0] for e in (1e-3, 1e-2, 1e-1)},
         "q1s": {"rindex_signed": {k: v for k, v in rindex_signed().items()}, "signed_codomain": signed_codomain(),
                 "holder_ceiling": holder_ceiling(), "grade_review": Q1S_GRADE_REVIEW},
+        "info_shape": {"seat_supply": seat_supply(), "screen": info_shape_screen(), "O_SEAT": O_SEAT_TEXT},
         "grades": GRADES}
 
 
@@ -1018,6 +1149,23 @@ def report():
     print("     grades re-examined (Q1S_GRADE_REVIEW):")
     for k, v in Q1S_GRADE_REVIEW.items():
         print(f"       {k}: {v[:v.index(')') + 1]}")
+
+    print("\n(viii) H-INFO-SHAPE and O-SEAT (M's rulings, 2026-10-03; DOCKET 65 imported)")
+    ss = seat_supply()
+    for k in ("ledger_S10", "ledger_S13", "ledger_S12", "ledger_S5", "S10_mechanism_verdict", "S13_priced", "S13_eps",
+              "S13_source_J_m3", "S13_field_J_m3", "S13_source_per_J_field_exact", "S13_higgs_derived_kg_m3",
+              "S13_stable", "S13_stability_edge_eps", "S13_electrons_regained_of_payload",
+              "S13_nucleons_first_order_of_payload", "S13_forms_baryons", "S13_regained_over_released",
+              "S13_needs_prior_arrival_D23", "S12_pair_floor_J_70kg", "S5_reconstruction_survives",
+              "transit_CARRIES_SUBSTANCE"):
+        print(f"     {k:<40} {ss[k]}")
+    sc8 = info_shape_screen()
+    if sc8 is None:
+        print("     z3 absent: screen SKIPPED")
+    else:
+        for k, v in sc8.items():
+            print(f"     z3: {k:<70} {v}")
+    print(f"     {O_SEAT_TEXT}")
 
     print("\n(iv) grades")
     for k, g in GRADES.items():
@@ -1229,6 +1377,48 @@ def selftest():
     chk("Q1S_GRADE_REVIEW covers every A3 grade, and records NOT MOVED with each verdict unchanged",
         set(Q1S_GRADE_REVIEW) == set(GRADES) and all(Q1S_GRADE_REVIEW[k].startswith(f"NOT MOVED ({GRADES[k]['verdict']})")
                                                         for k in GRADES), "", structural=True)
+
+    print("\n(viii) H-INFO-SHAPE and O-SEAT (M's rulings, 2026-10-03)")
+    ss = seat_supply()
+    chk("LEDGER.md READ: S10 is REFUSED and S13 is OPEN (the board's own status words)",
+        ss["ledger_S10"][0] == "REFUSED" and ss["ledger_S13"][0] == "OPEN", f"{ss['ledger_S10']}, {ss['ledger_S13']}")
+    chk("massform (DOCKET 65, imported): M's mechanism REFUSED on all six readings -- S10 is no supply",
+        ss["S10_mechanism_verdict"][0] == "REFUSED" and len(ss["S10_reading_verdicts"]) == 6 and
+        all(v[0] == "REFUSED" for v in ss["S10_reading_verdicts"].values()), str(ss["S10_mechanism_verdict"]))
+    chk("S13 is PRICED (massform.HELD_SEAT_ROUTE_PRICED) at eps = 1/100, stable there, and needs a prior arrival (D23)",
+        ss["S13_priced"] is True and ss["S13_stable"] and ss["S13_eps"] == 0.01 and ss["S13_needs_prior_arrival_D23"] is True,
+        f"{ss['S13_source_per_J_field']:.1f} J per J of field; edge eps {ss['S13_stability_edge_eps']:.4f}")
+    chk("S13 forms no baryons and restores under 1% of the payload: it is not a supply of substance",
+        ss["S13_forms_baryons"] is False and ss["S13_electrons_regained_of_payload"] +
+        ss["S13_nucleons_first_order_of_payload"] < 1e-2,
+        f"{ss['S13_electrons_regained_of_payload']:.3e} + {ss['S13_nucleons_first_order_of_payload']:.3e} (first order)")
+    chk("O_SEAT_TEXT prints the imported S13 figures (1.930e44, 9.80e41, 39204/199, 2.148e27, 0.4226, 1.2567e19)",
+        all(t.replace("e+", "e").replace("e-0", "e-") in O_SEAT_TEXT for t in (
+            "%.3e" % ss["S13_source_J_m3"], "%.2e" % ss["S13_field_J_m3"], ss["S13_source_per_J_field_exact"],
+            "%.3e" % ss["S13_higgs_derived_kg_m3"], "%.4f" % ss["S13_stability_edge_eps"],
+            "%.4e" % ss["S12_pair_floor_J_70kg"], "%.3e" % ss["S13_electrons_regained_of_payload"],
+            "%.3e" % ss["S13_nucleons_first_order_of_payload"])),
+        "a drift guard: the prose must match the instruments")
+    sc8 = info_shape_screen()
+    if sc8 is None:
+        print("  SKIPPED (z3 absent): the H-INFO-SHAPE screen")
+    else:
+        chk("z3 vacuity guards: the base, and INFOS, SHAPE, RECV each alone, are satisfiable",
+            all(sc8[k] for k in sc8 if k.startswith("vacuity")))
+        chk("z3: H-INFO-S & B-RECV UNSAT -- clash (d) reproduced under H-SHAPE-ENCODING", not sc8["INFOS & RECV sat (clash (d) if False)"])
+        chk("z3: H-INFO-SHAPE & B-RECV SAT -- the clash is dissolved under M's reading", sc8["SHAPE & RECV sat (dissolved if True)"])
+        chk("z3: under H-INFO-SHAPE O-SEAT removed and O-SEAT left are both SAT -- relocated, not removed by assertion",
+            sc8["SHAPE & RECV & O-SEAT removed sat"] and sc8["SHAPE & RECV & O-SEAT left sat"])
+        chk("z3: with S10 refused, removing O-SEAT without S13's supply shown is UNSAT; O-MATTER cannot be removed under SHAPE",
+            not sc8["SHAPE & O-SEAT removed & S13 not shown sat"] and not sc8["SHAPE & O-MATTER removed sat"])
+        chk("z3 CONTROL: drop DEF-MATTER and the clash disappears (the clash is DEF-MATTER's)",
+            sc8["CONTROL without DEF-MATTER: INFOS & RECV sat"], "", True)
+        chk("z3 CONTROL: un-refuse S10 and O-SEAT can be removed without S13", sc8["CONTROL S10 not refused: SHAPE & O-SEAT "
+            "removed & S13 not shown sat"], "", True)
+    gs = GRADES["H-INFO-SHAPE (M's ruling, 2026-10-03)"]
+    chk("H-INFO-SHAPE's O-MATTER entry reads RELOCATED to O-SEAT and carries no removal word; H-INFO-S kept (history)",
+        gs["per"]["O-MATTER"].startswith("RELOCATED to O-SEAT") and "H-INFO-S (sufficiency reading)" in GRADES,
+        "", structural=True)
 
     rg = GRADES["R-INDEX"]["per"]
     chk("symmetric rule (RV-1 #2, wave 4): R-INDEX's O-MAKE, O-HOLD and O-LOOP all carry NOT-BOUND-IF {H-IT, "

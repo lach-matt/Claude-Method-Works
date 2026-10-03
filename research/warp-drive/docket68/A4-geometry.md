@@ -8,6 +8,16 @@ checks are **controls**: cases built to fail, and they do fail. One more check i
 grades and cannot fail unless they are edited), and it is not cited as evidence. *Wave 1 first said* 42 checks, 10
 controls.
 
+## M-apply (2026-10-03): M's rulings sited here
+
+M's answers (`M-RULINGS-2026-10-03.md`, carried verbatim into CHARTER.md's last section) are rulings and are applied as
+worded.
+
+| item | resolution |
+|---|---|
+| M item 5: O-MATTER is relocated to **O-SEAT, "supply at the seat"** ("Yes, from the seat") | **Applied as a relabel, no grade moves.** Every O-MATTER entry in this file is LEAVES ("no READ result on H-IT addresses" it), and it stays LEAVES read as O-SEAT: no reading of H-IT (ITE, ITB, ITJ) supplies substance at the seat. M's H-INFO-SHAPE does say the arriving information gives "shape to the geometry at the seat"; whether any H-IT reading turns that shape into geometry is the docket's question and is **not** computed here (no READ source). The seat's supply and the board's prices for it are stated once, in A3-measure.md § (viii). `geometry.py` is unchanged; its keys still read "O-MATTER" for `combine.py`. |
+| V3 problems 1-3 | None is sited in A4. |
+
 ## Wave 2 repair (2026-10-03): what changed, and why
 
 **The principle, stated once and applied both ways.** A theorem that does not bind a non-geometric corridor makes the

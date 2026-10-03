@@ -342,3 +342,34 @@ p = (1.5, -0.5), k = 1 on the negative entry moves Im H by +pi, not 2 pi); posit
 (-2 pi k_i p_i each); and a uniform k on every entry shifts H by exactly -2 pi i k, because sum p = 1. Re H is
 branch-free. This is elementary and is computed in `signed.py` (selftest, section (1)); see Q1s-signed.md section 1 and
 "Discrepancies and history", D1.
+
+## M's rulings of 2026-10-03, verbatim (carried from M-RULINGS-2026-10-03.md; appended by M-apply, nothing above changed)
+
+M's words are quoted exactly as `M-RULINGS-2026-10-03.md` records them; the line under each says only where it is
+applied. These are rulings and are applied as worded.
+
+1. **Clash (d), H-INFO-S against B-RECV.** M:
+   > Teleportation carries no physical substance, but does carry information (non physical properties/bounds that
+   > give shape to the geometry at the seat)
+
+   Carried as the reading **H-INFO-SHAPE** (A3-measure.md § (viii), `measure.py` GRADES and `info_shape_screen`).
+   H-INFO-S is kept as history and as the alternative reading.
+2. **Weighting in the mean-value axiom.** M: "Carry both (Recommended)". Both are carried, each with the axioms it
+   satisfies (`signed.py` § (8), Q1s-signed.md § 9): signed w selects Re H; |w| selects signed Rényi.
+3. **"All its inverses and reflections".** M:
+   > All of the above. Remember that the center begins at the ground state values given in real numbers from the
+   > periodic table. That is the calibration
+
+   All four are carried on one multi-axis table centred at the ground state (`signed.py` § (9), Q1s-signed.md § 10):
+   the log branches, the conjugate and reciprocal, the fold to |p|, and the Radon inverse.
+4. **D67's five held OPEN rows at (0,-1,0).** M: "Keep held, noted (Recommended)". They stay as they are, each saying
+   in its text that the -1 is not a bound.
+5. **H-INFO-SHAPE confirmed.** Asked whether what arrives is the defining information that shapes the geometry at the
+   seat, with the physical substance supplied by the seat itself, M: "Yes, from the seat". O-MATTER is relocated to
+   **O-SEAT, supply at the seat**, graded against LEDGER S13 (held-seat release, OPEN, priced) and S10 (REFUSED as a
+   supply), DOCKET 65's instruments imported (A3-measure.md § (viii)). It stays an obstruction until the seat's
+   supply is shown.
+6. **Calibration of the origin.** M: "Mass/ binding. But could work for any of the other options depending on the
+   question being asks or the object of study". The default calibration is MASS/BINDING (READ AME2020 / PDG / NIST
+   values); GROUND-CONFIG (LW1-ground.py) and IONISATION are selectable, and every use names its calibration
+   (`signed.calibrate`).

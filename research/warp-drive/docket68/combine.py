@@ -30,12 +30,36 @@ every item resolved in B-combine.md section 0).  Wave 3's form of each changed l
   - The COVERAGE partition identity (untested + joint = all variants) cannot fail: STRUCTURAL, not counted.
   - combine.EXPLAINED keeps only entries whose cause is still live (A3's O-LOOP omission was repaired by R3-alone).
 
+WAVE 5 (M-combine, 2026-10-03: M's rulings, M-RULINGS-2026-10-03.md, verbatim in CHARTER.md; and the three V3
+residuals of wave1/REPAIR3-RESULT.json key result.v sited here).  Wave 4's form of each changed line is kept in
+B-combine.md section 0 as history.  Item numbers of V2-0 / V2-1 / V3 are 1-BASED throughout this file ("problem n" is
+the n-th entry, JSON index n - 1), the convention M-apply stated in A1, A2, A3 and Q1s.
+  - Clash (d) was H-INFO-S against B-RECV, "M's to rule".  M ruled (items 1 and 5): "Teleportation carries no physical
+    substance, but does carry information (non physical properties/bounds that give shape to the geometry at the
+    seat)"; the substance comes "from the seat".  Carried as the H-INFO reading SHAPE (H-INFO-SHAPE), screened in every
+    combination beside INFO and INFOS: (4*4*4*4*2*2*2 - 1)*4 + 3 = 8,191 variants (wave 4: 6,143).  INFOS is KEPT as
+    an alternative reading; its clash with B-RECV still stands under the screen and is recorded as history ("M ruled
+    2026-10-03").  SHAPE & B-RECV is satisfiable: the clash is dissolved by relocation, not removed by assertion.
+  - O-MATTER is REPLACED by O-SEAT, "supply at the seat" (M: "Yes, from the seat"), encoded from LEDGER S10 and S13 as
+    M-apply graded them (measure.GRADES H-INFO-SHAPE; A3-measure.md (viii)): O-SEAT is removed iff the seat's supply
+    of the substance is shown -- S10 REFUSED as a supply (massform.MECHANISM_VERDICT, six readings), S13 (OPEN, priced)
+    forms no baryons (LEDGER S13, READ: "C3: the elements were already there"; massform.HIGGS_COUPLING_CARRIES_B_OR_L
+    False).  Both rest on C3 (H-C3, named).  The pair route S12 (OPEN, priced) is NOT encoded as a supply (M-apply sets
+    it beside O-SEAT, uncredited); reading it as one (H-SEAT-S12, adopted nowhere) is computed beside the screen.
+  - V3 residual 1: the support-2 field figure is per MEMBER (support2_field_rows): the four-axis w2_ancilla_flow has
+    max||H||T = 1.465, the w2_ancilla_flow_k members 1.431 / 1.484 / 1.556; wave 4 printed 1.465 beside k = 4's
+    figures.  Both H-MAP-W2 readings, never adopted.
+  - V3 residual 3: M's rule applied BOTH ways -- a support-1 removal at a cell whose window is OPEN from the unread
+    value (1 ly N = 7; 1 AU N = 1e6) carries the flag "admissible given W_W2" (settle.window_given, imported: Majumder
+    and Walsworth NAMED-NOT-READ, Bollinger and Chupp-Hoare OPEN).  A flag, not a premise: no verdict moves.
+
 WHAT THIS FILE DOES
   (1) builds the 127 non-empty combinations of the seven hypotheses.  Hypotheses with more than one reading are carried
       in EVERY reading: H-SETTLE W2 / W1 / KR; H-FRAME F1 / F2b / F1+F2b; H-IT ITB / ITE / ITJ (wave 3: the
       Jacobson/thermodynamic reading A4 names, which carries N_EQUIL); H-INFO INFO (necessity) / INFOS (sufficiency,
-      A3's H-INFO-S).  Each runs with the four reading slots {none, R-INDEX, R-QUANTUM, both}:
-      (4*4*4*3*2*2*2 - 1)*4 + 3 = 6,143 variants, all screened.  (Wave 2: 4,607, without ITJ.)
+      A3's H-INFO-S, the alternative) / SHAPE (H-INFO-SHAPE, M's ruling, wave 5).  Each runs with the four reading
+      slots {none, R-INDEX, R-QUANTUM, both}: (4*4*4*4*2*2*2 - 1)*4 + 3 = 8,191 variants, all screened.  (Wave 4:
+      6,143, without SHAPE; wave 2: 4,607, without ITJ.)
   (2) SCREENS each variant in z3 against the board holdings the four A-reports cite, at DISTANCE CELLS (N_EPS is tied
       to L and N through settle.eps_any_advantage and the NAMED-NOT-READ Weinberg-family limit, under the WINDOW
       premises, which are held fixed and reported in their own column).  Every holding and commitment is a TRACKED
@@ -151,7 +175,13 @@ SUBREADINGS = {
         "INFO": "necessity: matter cannot exist without information -- A3 (no screen content: UNTESTED-BY-SCREEN)",
         "INFOS": "sufficiency (A3's H-INFO-S): information at the destination suffices to constitute the matter "
                  "('Cosmic/quantum information is all that matters'; 'only the information defining it is "
-                 "necessary') -- commits: no holder need already be there",
+                 "necessary') -- commits: no holder need already be there.  Wave 5: KEPT AS THE ALTERNATIVE READING; "
+                 "its clash with B-RECV (clash (d)) stands and is history -- M ruled 2026-10-03 for SHAPE",
+        "SHAPE": "H-INFO-SHAPE, M's ruling 2026-10-03 (M-RULINGS items 1 and 5, verbatim): 'Teleportation carries no "
+                 "physical substance, but does carry information (non physical properties/bounds that give shape to "
+                 "the geometry at the seat)'; the substance comes 'from the seat'.  Commits: the substance is "
+                 "supplied at the seat, not carried (=> B-RECV's holder; transit.CARRIES_SUBSTANCE False).  Removes "
+                 "no obstruction (A3 LEAVES-ALL): it relocates O-MATTER to O-SEAT",
     },
     "H-ZERO": {"ZERO": "zero = ground state -- A4.  No obstruction content (wave 3, RV-0 #1): EGJ eq.(21) contracted "
                        "with a null k drops the g_ab term where a zero shift would enter; its own result, 'the zero is "
@@ -167,8 +197,10 @@ READING_SLOTS = [(), ("RI",), ("RQ",), ("RI", "RQ")]
 
 # Six-way split of the charter's five obstructions, wave 3: O-MAKE in two forms (topology / distribution) and O-LOOP in
 # two forms (corridor loops / signal-and-CTC loops).  In five-way terms a split obstruction counts only if both forms do.
-OBST = ["O-BITS", "O-MAKE-TOPO", "O-MAKE-DIST", "O-HOLD", "O-MATTER", "O-LOOP-C", "O-LOOP-S"]
-FIVE = ["O-BITS", "O-MAKE", "O-HOLD", "O-MATTER", "O-LOOP"]
+# Wave 5: O-MATTER ("the matter must already be at the destination") is REPLACED by O-SEAT ("supply at the seat"), by
+# M's ruling (item 5); the A-reports' 'O-MATTER' key is compared with O-SEAT (drift rule P10).
+OBST = ["O-BITS", "O-MAKE-TOPO", "O-MAKE-DIST", "O-HOLD", "O-SEAT", "O-LOOP-C", "O-LOOP-S"]
+FIVE = ["O-BITS", "O-MAKE", "O-HOLD", "O-SEAT", "O-LOOP"]
 FOLD = {"O-MAKE": ("O-MAKE-TOPO", "O-MAKE-DIST"), "O-LOOP": ("O-LOOP-C", "O-LOOP-S")}
 NB_OBST = ("O-MAKE-TOPO", "O-HOLD", "O-LOOP-C")   # the three whose theorem has a geometric premise that can fail
 RMV = ("REMOVED", "REMOVED-IF")
@@ -260,9 +292,10 @@ OPEN_NAMED = {
                "rule an unread value makes the cell OPEN, never LEFT",
 }
 
-LIT_NAMES = ["W2", "W1", "KR", "F1", "F2b", "ITB", "ITE", "ITJ", "H12", "INFO", "INFOS", "ZERO", "NULL", "RI", "RQ"]
+LIT_NAMES = ["W2", "W1", "KR", "F1", "F2b", "ITB", "ITE", "ITJ", "H12", "INFO", "INFOS", "SHAPE", "ZERO", "NULL", "RI",
+             "RQ"]
 PHYS = ["SIG", "LIN", "FRAME", "SIGKEY", "KEYED", "PAST", "LOOPC", "LOOPS", "LOOP", "CTC", "NONGEO", "GTOPO", "DIST",
-        "THROAT", "HELD", "ILFREE", "RECV", "CAP", "CAPD"]
+        "THROAT", "HELD", "ILFREE", "RECV", "CAP", "CAPD", "S10SUP", "S13SUP", "S12SUP"]
 RM = {o: "rm:" + o for o in OBST}
 NB = {o: "nb:" + o for o in NB_OBST}
 LIT_OF = {lit: h for h, rd in SUBREADINGS.items() for k in rd for lit in k.split("+")}
@@ -278,6 +311,10 @@ INERT = {
             "touches no obstruction atom",
     "NULL": "A4 wave 3: no obstruction content (EGJ eq.(21) has no null-information term); it supplies bookkeeping "
             "(the deficit as an entropy decrease on local horizons under H-EQUIL), not a removal",
+    "SHAPE": "wave 5, M's ruling: its one commitment (the substance is supplied at the seat, so a holder is there) is "
+             "already the board holding B-RECV, so it touches no obstruction atom; its effect is the RELOCATION of "
+             "O-MATTER to O-SEAT, which M ruled about the obstruction itself and which is therefore applied in every "
+             "variant (H-SEAT-GLOBAL), not credited to the literal.  A3 grades it LEAVES-ALL",
 }
 
 # Distance cells: (label, L in metres, N pairs per qubit -- a FLOOR).  The transferred-bound window is COMPUTED per cell.
@@ -286,8 +323,13 @@ CELLS = {"1 ly, N = 7": ("LY_M", 1.0, 7), "1 AU, N = 7": ("AU_M", 1.0, 7), "1 AU
 CELL_MAIN, CELL_AU, CELL_AU3, CELL_AU6 = "1 ly, N = 7", "1 AU, N = 7", "1 AU, N = 1e3", "1 AU, N = 1e6"
 
 
+# An OPEN pathway used ONLY by the alternative encoding 'seat-S12' (never in the screen's OPEN_NAMED)
+ALT_OPEN = {"N_S12": "H-SEAT-S12 (adopted nowhere): the pair route S12 supplies the payload's substance at the seat from "
+                     "energy held there (LEDGER S12 OPEN, priced; holding the antibaryons apart not computed)"}
+
+
 def atoms():
-    A = {n: z3.Bool(n) for n in LIT_NAMES + PHYS + list(NAMED) + list(OPEN_NAMED)}
+    A = {n: z3.Bool(n) for n in LIT_NAMES + PHYS + list(NAMED) + list(OPEN_NAMED) + list(ALT_OPEN)}
     A.update({RM[o]: z3.Bool(RM[o]) for o in OBST})
     A.update({NB[o]: z3.Bool(NB[o]) for o in NB_OBST})
     return A
@@ -324,6 +366,13 @@ def eps_window(L_list=None, N_list=(7, 1000, 1e6)):
 
 
 _WIN_CACHE = {}
+
+# V3 residual 3 (wave 5): an OPEN window computed from the unread value is admissible GIVEN that value, flagged, not
+# settled (settle.window_given, imported in the grounds: Majumder and Walsworth NAMED-NOT-READ, Bollinger 1989 and
+# Chupp-Hoare 1990 OPEN -- never checked at all).  Wave 4 applied the rule one way only (empty -> OPEN via N_WREAD).
+WINDOW_GIVEN_FLAG = ("ADMISSIBLE GIVEN W_W2 (flagged, not settled): the window is open from the NAMED-NOT-READ "
+                     "Majumder figure; Walsworth NAMED-NOT-READ; Bollinger 1989 and Chupp-Hoare 1990 OPEN, never "
+                     "checked")
 
 
 def cell_window_open(cell):
@@ -475,15 +524,40 @@ def _board(A, win_open, mutate=()):
                    "(READ, A3): a complete system with E > 0 holds the bits (a FLOOR on the holder: measure."
                    "bekenstein_floor_j 33-379 J at R = 1 m); LEDGER.md S10 REFUSED, S13 and S5 OPEN, both needing a "
                    "prior arrival at <= c (D23); measure.info_s_clash: phi(1) = 0 bits, Bekenstein 0 bits at E = 0.  "
-                   "Encoded bare (no premise) so that INFOS cannot remove O-MATTER by assertion; its CONDITIONS, which a "
-                   "ruling on clash (d) would have to overturn (RV-1 #6; A3 wave 3; LEDGER.md:50,67,70,181): S10 rests "
+                   "Encoded bare (no premise) so that INFOS cannot remove the matter obstruction by assertion.  Wave 5: "
+                   "M ruled clash (d) 2026-10-03 for H-INFO-SHAPE, under which B-RECV holds (the substance is at the "
+                   "seat) and the clash is dissolved by relocation; INFOS, kept as the alternative, still clashes with "
+                   "it.  Its CONDITIONS (RV-1 #6; A3 wave 3; LEDGER.md:50,67,70,181), which the alternative reading "
+                   "would have to overturn: S10 rests "
                    "on C3 (renormalisable couplings, dimension <= 4; a higher-dimension operator carrying B or L would "
                    "reverse it), P-UNIFORM and H-UNSOURCED-SEAT; Bekenstein holds for 'complete, weakly "
                    "self-gravitating, isolated objects' (p.2) with E the gravitating energy; phi(1) = 0 needs 2^I "
                    "distinguishable states at the destination, not that they be matter already there ('the holder's "
                    "states are material' is the condition)",
          A["RECV"]),
-    ]
+        ("B-S10", "wave 5, O-SEAT (M's ruling item 5; M-apply's grade, measure.seat_supply): LEDGER S10 REFUSED (READ, "
+                  "measure.ledger_row) -- M's mechanism, atomic mass formed at the seat by the triggered Higgs field, is "
+                  "refused AS A SUPPLY on all six readings (massform.MECHANISM_VERDICT: CREATION, DISPLACEMENT, QUANTA, "
+                  "STOCK, SWITCH-ON, TEMPLATE).  Conditions named, not assumed away: C1 (the field is already on, "
+                  "P-UNIFORM), H-C3 (renormalisable couplings carry no net B or L: massform."
+                  "HIGGS_COUPLING_CARRIES_B_OR_L False; a higher-dimension operator carrying B or L would reverse it), "
+                  "C4 (rests on D29's bridge), C5; H-UNSOURCED-SEAT",
+         z3.Not(A["S10SUP"])),
+        ("B-S13", "wave 5, O-SEAT: LEDGER S13 OPEN and PRICED (READ) -- the held-seat release route RESTORES Higgs-given "
+                  "mass to templates already at the seat and 'forms no baryons (C3: the elements were already there)' "
+                  "(LEDGER S13, READ; massform.HELD_SEAT_ROUTE['forms baryons'] False): electrons 3.010e-6 of the "
+                  "payload (exact, H-TREE), nucleons ~1.716e-3 (first order, an estimate, not a bound), so >= 0.998 of "
+                  "the payload must already be at the seat; seat prepared in advance, a prior arrival at <= c (D23).  "
+                  "So S13 is not a supply of the SUBSTANCE (M-apply: 'So S13 is not a supply of substance').  What "
+                  "S13 leaves OPEN on the board -- its finite nucleon response up to the stability edge and the "
+                  "source's fate (H-RELEASE) -- bears on how much mass returns to templates already there, not on "
+                  "baryon number; the refusal of S13 as a supply rests on H-C3, as S10's does",
+         z3.Not(A["S13SUP"])),
+    ] + ([("B-S12-ALT", "ALTERNATIVE (mutate 'seat-S12'; H-SEAT-S12, adopted nowhere): LEDGER S12 (the pair route, "
+                        "OPEN, priced at the floor 1.2567e19 J for 70 kg, antibaryons held apart -- not computed) read "
+                        "as a supply at the seat; the energy it converts must itself be at the seat (D23: prior "
+                        "arrival at <= c).  M-apply sets S12 beside O-SEAT, uncredited",
+          I(A["S12SUP"], A["N_S12"]))] if "seat-S12" in mutate else [])
 
 
 def _defs(A, mutate=()):
@@ -506,8 +580,12 @@ def _defs(A, mutate=()):
          E(A[RM["O-HOLD"]], hold)),
         ("DEF-NB-HOLD", "Morris-Thorne does not bind iff there is no geometric throat",
          E(A[NB["O-HOLD"]], N(A["THROAT"]))),
-        ("DEF-MATTER", "O-MATTER removed iff no receiver/holder must already be at the destination",
-         E(A[RM["O-MATTER"]], N(A["RECV"]))),
+        ("DEF-SEAT", "wave 5 (M's ruling item 5; O-MATTER relocated): O-SEAT removed iff the seat's supply of the "
+                     "payload's substance is shown -- by S10 (M's mechanism) or S13 (the held-seat release), the two "
+                     "routes M-apply grades it against" + (" or, in the ALTERNATIVE H-SEAT-S12, by S12" if
+                                                            "seat-S12" in mutate else ""),
+         E(A[RM["O-SEAT"]], Or(A["S10SUP"], A["S13SUP"], *([A["S12SUP"]] if "seat-S12" in mutate else [])))
+         if "wave4-DEF-MATTER" not in mutate else E(A[RM["O-SEAT"]], N(A["RECV"]))),
         ("DEF-LOOP-C", "corridor O-LOOP removed iff the corridor network closes no causal curve",
          E(A[RM["O-LOOP-C"]], N(A["LOOPC"]))),
         ("DEF-NB-LOOP-C", "the corridor loop theorems (FRW keying lemma, latticectc) do not bind iff the corridor is not "
@@ -538,8 +616,12 @@ def _commitments(A):
                   "sec.3.1 p.16 no local operation on one member 'can influence the other'; sec.5.4 pp.36-37 a "
                   "geometric feature is a linear operator; emtension.ENTANGLED_BRIDGE_IS_TRAVERSABLE False",
          A["ITE"], An(A["LIN"], N(A["SIG"]), A["THROAT"], N(A["HELD"]))),
-        ("C-INFOS", "A3 H-INFO-S: information at the destination suffices; no holder need already be there",
+        ("C-INFOS", "A3 H-INFO-S: information at the destination suffices; no holder need already be there "
+                    "(wave 5: the alternative reading, kept; M ruled 2026-10-03 for SHAPE)",
          A["INFOS"], N(A["RECV"])),
+        ("C-SHAPE", "wave 5, M's ruling (H-INFO-SHAPE): the substance is supplied at the seat, not carried -- a holder "
+                    "is there (measure.info_shape_screen's H-SHAPE-ENCODING: SHAPE => RECV)",
+         A["SHAPE"], A["RECV"]),
         ("C-RQ", "A4: R-QUANTUM holds a geometric throat with QEI-bounded negative energy", A["RQ"], A["THROAT"]),
     ]
 
@@ -761,6 +843,17 @@ class Screen:
         k = [bool(s["members"]) for s in sups]
         return "member" if all(k) else ("alternative" if any(k) else "none")
 
+    def _window_flag(self, sp):
+        """Wave 5 (V3 residual 3, M's rule BOTH ways): what a support's window rests on.  A flag, never a premise:
+        signature() does not read it, so no verdict can move by it."""
+        if "N_EPS" in sp["named"]:
+            if "N_H12W" in sp["named"]:
+                return "N_EPS through N_H12W: H-12 replaces H-TRANSFER; the unread window is not used"
+            return WINDOW_GIVEN_FLAG if self.win_open else "EMPTY GIVEN W_W2 -> OPEN (N_WREAD)"
+        if "N_W2ANC" in sp["named"]:
+            return "UNEVALUATED: H-MAP not established for support 2's field (no READ bound reaches it)"
+        return None
+
     def _obstruction(self, L, mss, o, wave1_engine=False, pos=None, neg=None):
         A = self.A
         rm = A[RM[o]]
@@ -788,6 +881,10 @@ class Screen:
         else:
             out = self._open_status(L, rm)
         if "supports" in out:
+            for sp in out["supports"]:
+                wf = self._window_flag(sp)
+                if wf:
+                    sp["window"] = wf
             out["attribution"] = self._attribution(out["supports"])
             out["rests_on"] = sorted({m for s in out["supports"] for m in s["members"]}, key=LIT_NAMES.index)
             out["necessary_members"] = sorted(set.intersection(*[set(s["members"]) for s in out["supports"]]),
@@ -851,7 +948,7 @@ def five_view(res, kinds=RMV + NBV):
     """Fold the split forms (O-MAKE-TOPO/DIST, O-LOOP-C/S) into O-MAKE and O-LOOP (counted only if both forms are).
     Union over accounts (history view; the headline uses account_view)."""
     r = set(counts(res, kinds))
-    out = [o for o in ("O-BITS", "O-HOLD", "O-MATTER") if o in r]
+    out = [o for o in ("O-BITS", "O-HOLD", "O-SEAT") if o in r]
     for f, (x, y) in FOLD.items():
         if x in r and y in r:
             out.append(f)
@@ -1142,7 +1239,7 @@ def guard_vacuity(scr, scr_au):
     out, structural = {}, {}
     none = scr.lits(set())
     out["board_alone_sat"] = scr.sat(none)
-    out["each_single_reading_sat"] = {n: scr.sat(scr.lits({n})) for n in LIT_NAMES if n != "INFOS"}
+    out["each_single_reading_sat"] = {n: scr.sat(scr.lits({n})) for n in LIT_NAMES if n != "INFOS"}   # SHAPE included
     out["INFOS_alone_unsat (a clash with B-RECV, A3)"] = not scr.sat(scr.lits({"INFOS"}))
     out["named_jointly_sat_with_board (1 ly)"] = scr.sat(none + scr.noopen + [A[n] for n in NAMED])
     out["named_jointly_UNSAT_with_board (1 AU: N_EPS excluded)"] = not scr_au.sat(scr_au.lits(set()) + scr_au.noopen +
@@ -1155,7 +1252,8 @@ def guard_vacuity(scr, scr_au):
     out["all_named_and_open_sat_with_board"] = scr.sat(none + [A[n] for n in list(NAMED) + list(OPEN_NAMED)])
     caught = {
         "ITE & W2 (MS assumptions vs per-branch drift)": not scr.sat(scr.lits({"ITE", "W2"})),
-        "INFOS (H-INFO-S vs B-RECV)": not scr.sat(scr.lits({"INFOS"})),
+        "INFOS (H-INFO-S vs B-RECV; the alternative reading -- M ruled 2026-10-03 for SHAPE)": not scr.sat(
+            scr.lits({"INFOS"})),
         "planted signal in linear QM (no W2, SIG)": not scr.sat(none + [A["SIG"]]),
         "F1 & F2b under N_KEYING & N_2BVIA (premise clash)": not scr.sat(scr.lits({"F1", "F2b"}) +
                                                                            [A["N_KEYING"], A["N_2BVIA"]]),
@@ -1183,8 +1281,29 @@ def guard_vacuity(scr, scr_au):
     out["board_admits_loop"] = scr.sat(none + [A["LOOP"]])
     out["board_admits_no_loop"] = scr.sat(none + [z3.Not(A["LOOP"])])
     out["board_alone_forces_recv"] = not scr.sat(none + [z3.Not(A["RECV"])])
+    # wave 5 (M's rulings items 1 and 5): clash (d) under the ruled reading, and O-SEAT
+    out["CONTENT clash (d) dissolved: SHAPE & B-RECV SAT, INFOS & B-RECV UNSAT"] = (
+        scr.sat(scr.lits({"SHAPE"})) and not scr.sat(scr.lits({"INFOS"})))
     scr2 = Screen(drop=("B-RECV",))
-    out["CONTROL without_B_RECV_matter_removable"] = scr2.sat(scr2.lits(set()) + [A["rm:O-MATTER"]])
+    out["CONTROL without B-RECV, INFOS becomes consistent (the clash is carried by B-RECV)"] = scr2.sat(
+        scr2.lits({"INFOS"}))
+    # STRUCTURAL (cannot fail, reported, never counted): B-S10 and B-S13 are bare refusals and no commitment names
+    # S10SUP / S13SUP, so O-SEAT is LEFT in every model; the content is in the two CONTROLS below (each refusal carries it)
+    o_seat_left = not scr.sat(none + [A["rm:O-SEAT"]]) and not scr.sat(scr.lits({"SHAPE"}) + [A["rm:O-SEAT"]])
+    s10 = Screen(drop=("B-S10",))
+    out["CONTROL S10 un-refused (B-S10 dropped): O-SEAT removable"] = s10.sat(s10.lits(set()) + [s10.A["rm:O-SEAT"]])
+    s13 = Screen(drop=("B-S13",))
+    out["CONTROL S13 credited as a supply (B-S13 dropped): O-SEAT removable"] = s13.sat(
+        s13.lits(set()) + [s13.A["rm:O-SEAT"]])
+    # ALTERNATIVE (H-SEAT-S12, adopted nowhere): the pair route read as a supply makes O-SEAT OPEN via N_S12, not LEFT
+    s12 = Screen(mutate=("seat-S12",))
+    b12 = s12.lits(set()) + s12.noopen
+    alt12 = (not s12.sat(b12 + [z3.Not(s12.A["N_S12"]), s12.A["rm:O-SEAT"]]) and
+             s12.sat(b12 + [s12.A["N_S12"], s12.A["rm:O-SEAT"]]))
+    # wave 4's DEF-MATTER under the O-SEAT atom gives the same verdict (LEFT) in the board-alone variant and under
+    # SHAPE: the relocation moves no verdict, it renames what stands
+    wm = Screen(mutate=("wave4-DEF-MATTER",))
+    hist_dm = (not wm.sat(wm.lits(set()) + [wm.A["rm:O-SEAT"]]) and not wm.sat(wm.lits({"SHAPE"}) + [wm.A["rm:O-SEAT"]]))
     # N_EPS reaches no variant without W2: proved (it occurs only in B-CAP and B-EPSWIN, and CAP needs SIG needs W2)
     out["N_EPS occurs only in"] = mentions(scr, "N_EPS")
     out["no CAP without W2 (z3)"] = not scr_au.sat(scr_au.lits(set()) + [scr_au.A["CAP"]])
@@ -1194,12 +1313,26 @@ def guard_vacuity(scr, scr_au):
         1 for p in w1 if p["verdict"] == "REMOVED-IF" and not p["premises_sat"])
     structural["every REMOVED-IF / NOT-BOUND-IF support is drawn from a premise set consistent with the variant"] = (
         "STRUCTURAL: true by construction of the engine (cannot fail); its content is the control above")
+    structural["O-SEAT LEFT in the board-alone variant and under SHAPE"] = (
+        f"{o_seat_left} -- STRUCTURAL: B-S10 and B-S13 are bare refusals and no commitment names a supply, so O-SEAT "
+        f"stands in every model (wave 4 COUNTED the same check on O-MATTER, which B-RECV, bare, made equally "
+        f"unfailable); the content is the two CONTROLS (dropping either refusal frees it)")
+    structural["ALTERNATIVE H-SEAT-S12 (adopted nowhere): O-SEAT would read OPEN via N_S12"] = (
+        f"{alt12} -- STRUCTURAL: by construction of the alternative (S12SUP => N_S12); its content is which LEDGER "
+        f"route it reads as a supply (S12, OPEN, priced 1.2567e19 J for 70 kg; its energy must be at the seat, D23)")
+    structural["HISTORY wave 4's DEF-MATTER under the O-SEAT atom: also LEFT (board alone, SHAPE)"] = (
+        f"{hist_dm} -- STRUCTURAL: B-RECV is bare; the relocation renames what stands, it moves no verdict")
     ok = (out["board_alone_sat"] and all(out["each_single_reading_sat"].values())
           and out["INFOS_alone_unsat (a clash with B-RECV, A3)"] and out["named_jointly_sat_with_board (1 ly)"]
           and out["named_jointly_UNSAT_with_board (1 AU: N_EPS excluded)"] and out["all_named_and_open_sat_with_board"]
           and out["CONTENT at 1 AU N_EPS admissible only through N_WREAD (OPEN pathway)"]
           and all(caught.values()) and out["board_admits_loop"] and out["board_admits_no_loop"]
-          and out["board_alone_forces_recv"] and out["CONTROL without_B_RECV_matter_removable"]
+          and out["board_alone_forces_recv"]
+          and out["CONTENT clash (d) dissolved: SHAPE & B-RECV SAT, INFOS & B-RECV UNSAT"]
+          and out["CONTROL without B-RECV, INFOS becomes consistent (the clash is carried by B-RECV)"]
+          and out["CONTROL S10 un-refused (B-S10 dropped): O-SEAT removable"]
+          and out["CONTROL S13 credited as a supply (B-S13 dropped): O-SEAT removable"]
+
           and out["N_EPS occurs only in"] == ["B-CAP", "B-EPSWIN"] and out["no CAP without W2 (z3)"]
           and out["CONTROL wave-1 engine at 1 AU: vacuous REMOVED-IF on O-BITS caught"] == 3
           and out["F1 & F2b consistent as commitments (wave 1 called this M's sentence contradicting itself)"]
@@ -1208,7 +1341,13 @@ def guard_vacuity(scr, scr_au):
     return ok, out
 
 
+SHAPE_GRADE_KEY = "H-INFO-SHAPE (M's ruling, 2026-10-03)"
+
+
 def _report_grades():
+    """The A-reports' wave-4 JSON grades.  Wave 5: A3's JSON carries no H-INFO-SHAPE grade row (M-apply graded it in
+    measure.GRADES and A3-measure.md (viii)); it is read from measure.GRADES, the instrument's own grade table, and
+    tagged with its source -- never retyped."""
     G = {}
     for rid in ("A1-settle", "A2-frame", "A3-measure", "A4-geometry"):
         p = os.path.join(SCRATCH_REPORTS, rid + ".json")
@@ -1217,6 +1356,12 @@ def _report_grades():
                 G[rid] = json.load(f)["grades"]
         except Exception:
             G[rid] = None
+    if G.get("A3-measure") is not None and not any("H-INFO-SHAPE" in g["hypothesis"] for g in G["A3-measure"]):
+        gs = _quiet("measure").GRADES.get(SHAPE_GRADE_KEY)
+        if gs is not None:
+            G["A3-measure"] = list(G["A3-measure"]) + [{"hypothesis": SHAPE_GRADE_KEY, "verdict": gs["verdict"],
+                                                         "per_obstruction": dict(gs["per"]),
+                                                         "source": "measure.GRADES (A3 JSON has no such row)"}]
     return G
 
 
@@ -1352,7 +1497,8 @@ EXPECT = [
     ({"W1"}, CELL_MAIN, "A2-frame", "under convention C1, with or without", {"W1"}, "5"),
     ({"W1", "F1"}, CELL_MAIN, "A2-frame", "under convention C1, with or without", {"W1"}, "5"),
     ({"INFO"}, CELL_MAIN, "A3-measure", "H-INFO (information is primary", {"INFO"}, "5"),
-    ({"INFOS"}, CELL_MAIN, "A3-measure", "H-INFO-S", {"INFOS"}, "5"),
+    ({"INFOS"}, CELL_MAIN, "A3-measure", "H-INFO-S (sufficiency", {"INFOS"}, "5"),
+    ({"SHAPE"}, CELL_MAIN, "A3-measure", "H-INFO-SHAPE (M's ruling", {"SHAPE"}, "5"),
     ({"RI"}, CELL_MAIN, "A3-measure", "R-INDEX", {"RI"}, "5"),
     ({"ITB", "RI"}, CELL_MAIN, "A3-measure", "R-INDEX", {"RI", "ITB"}, "TOPO"),
     ({"W2", "INFO"}, CELL_MAIN, "A3-measure", "H-SETTLE x H-INFO", {"W2", "INFO"}, "5"),
@@ -1418,6 +1564,10 @@ def guard_drift(scrs, G=None):
                          "explained": EXPLAINED.get((rid, tag, "verdict"))})
             continue
         for o, text in g.get("per_obstruction", {}).items():
+            # P10 (wave 5): M's ruling item 5 relocates O-MATTER to O-SEAT; an A-report's 'O-MATTER' text is compared
+            # with z3's O-SEAT (A1, A2 and A4 record the relocation as a relabel, all LEAVES; A3's SHAPE row reads
+            # 'RELOCATED to O-SEAT, LEFT there')
+            o = "O-SEAT" if o == "O-MATTER" else o
             if o not in FIVE + OBST:
                 continue
             rep = parse_report_class(text, present, g, G, rid)
@@ -1525,9 +1675,11 @@ def board_flags():
     led = {}
     with open(os.path.join(WD, "LEDGER.md")) as f:
         for line in f:
-            m = re.match(r"^\| (S5|S10|S13) \| \*\*([A-Z]+)\*\*", line)
+            m = re.match(r"^\| (S5|S10|S12|S13) \| \*\*([A-Z]+)\*\*", line)
             if m:
                 led[m.group(1)] = m.group(2)
+                if m.group(1) == "S13":
+                    led["S13 forms no baryons (READ)"] = "It forms no baryons (C3" in line
     return {"transit.BEATS_LIGHT": tr.BEATS_LIGHT, "transit.TRAVERSAL_IS_REMOVED": tr.TRAVERSAL_IS_REMOVED,
             "transit.CARRIES_SUBSTANCE": tr.CARRIES_SUBSTANCE, "transit.IT_IS_A_MOVE_NOT_A_COPY":
             tr.IT_IS_A_MOVE_NOT_A_COPY, "emtension.ENTANGLED_BRIDGE_IS_TRAVERSABLE":
@@ -1564,26 +1716,72 @@ def ground_checks():
     out["B-CAP w2_ancilla_flow_k"] = {(k, m): ST.w2_ancilla_flow_k(k, m) for k, m in ((4, 2), (8, 3), (16, 4))}
     out["B-CAP w2_ancilla_flow_k CONTROL linear k=16"] = ST.w2_ancilla_flow_k(16, 4, linear_control=True)["chi_bits_per_pair"]
     out["B-CAP w2_ancilla_flow_k CONTROL antipodal k=8"] = ST.w2_ancilla_flow_k(8, 3, antipodal=True)
-    out["N_W2ANC field figure"] = support2_field_rows(out["B-CAP w2_ancilla_flow"]["max_H_times_T"])
+    out["N_W2ANC field figure"] = support2_field_rows(support2_members())
+    # wave 5 (V3 residual 3): settle's per-cell support-1 verdicts, M's rule both ways (imported, never copied)
+    out["window_given"] = ST.window_given()
+    zrows, _ = eps_window(L_list=(("1 AU", ST.AU_M), ("1 ly", ST.LY_M)))
+    agree, cmp = True, []
+    for wr in out["window_given"]["rows"]:
+        zr = next(z for z in zrows if z["L"] == wr["L"] and z["N"] == wr["N"] and z["reading"] == wr["reading"])
+        flag_open = wr["support 1"].startswith("ADMISSIBLE")
+        tight_ok = (wr["tightening to close (context)"] is None) == (not zr["consistent"]) and (
+            not zr["consistent"] or abs(wr["tightening to close (context)"] - zr["eps_max"] / zr["eps_any_advantage"])
+            < 1e-9 * wr["tightening to close (context)"])
+        ok1 = (flag_open == zr["consistent"]) and tight_ok and (
+            wr["support 1"].startswith("ADMISSIBLE GIVEN") or wr["support 1"].startswith("EMPTY GIVEN"))
+        agree &= ok1
+        cmp.append((wr["L"], wr["N"], wr["reading"][:1], wr["support 1"][:24], wr["tightening to close (context)"], ok1))
+    out["window_given_agrees"] = {"agree": agree, "rows": cmp}
+    seat = dict(ME.seat_supply())
+    seat["info_shape_screen"] = ME.info_shape_screen()
+    mf = _quiet("massform")
+    seat["C3 HIGGS_COUPLING_CARRIES_B_OR_L"] = mf.HIGGS_COUPLING_CARRIES_B_OR_L
+    seat["S13_forms_baryons"] = mf.HELD_SEAT_ROUTE["forms baryons"]
+    out["seat"] = seat
     out["flags"] = board_flags()
     return out
 
 
-def support2_field_rows(hT):
+def support2_members():
+    """Wave 5 (V3 residual 1): every computed support-2 member with its own max||H||T, each named by its construction.
+    Wave 4 printed the four-axis member's 1.465 beside figures computed from w2_ancilla_flow_k(4, 2)'s 1.4306."""
+    ST = _quiet("settle")
+    out = {"w2_ancilla_flow (four-axis member, d = 8)": ST.w2_ancilla_flow()["max_H_times_T"]}
+    for k, m in ((4, 2), (8, 3), (16, 4)):
+        r = ST.w2_ancilla_flow_k(k, m)
+        out[f"w2_ancilla_flow_k({k}, {m}) (k = {k}, d = {r['d']})"] = r["max_H_times_T"]
+    return out
+
+
+def support2_field_rows(members):
     """Support 2 (N_W2ANC) needs max||H|| x T ~ hT within T < L/c, i.e. a drift rate ||H|| >= hT c / L.  No READ bound
     maps onto that field (H-MAP not established): the screen leaves N_W2ANC unconstrained (window UNEVALUATED).  For
-    BOTH-WAYS reporting only, the rate is set beside the NAMED-NOT-READ Majumder figure under the two H-MAP readings, as
-    if H-MAP-W2 (that unread precession bound read as a bound on ||H||) held -- a hypothesis NOT adopted anywhere."""
+    BOTH-WAYS reporting only, the rate is set beside the NAMED-NOT-READ Majumder figure under BOTH H-MAP readings, as if
+    H-MAP-W2 (that unread precession bound read as a bound on ||H||) held -- a hypothesis NOT adopted anywhere.
+    Wave 5 (V3 residual 1): one row per MEMBER (members = {construction: hT}), each naming the construction whose hT it
+    uses, and the range over the computed members."""
     ST = _quiet("settle")
     f = ST.BOUNDS_WEINBERG["Majumder+ 1990, 201Hg, PRL 65 2931"]["f_Hz"]
     em = ST.eps_readings(f)
     rows = []
-    for lab, L in (("1 ly", ST.LY_M), ("1 AU", ST.AU_M)):
-        need = hT * ST.C_LIGHT / L
-        rows.append({"cell": lab, "L/c (s)": L / ST.C_LIGHT, "needed ||H|| (1/s)": need,
-                     "IF H-MAP-W2 (not adopted): within eps_max": {k: need < v for k, v in em.items()},
-                     "eps_max (NAMED-NOT-READ)": em})
-    return rows
+    for name, hT in members.items():
+        for lab, L in (("1 ly", ST.LY_M), ("1 AU", ST.AU_M)):
+            need = hT * ST.C_LIGHT / L
+            rows.append({"member": name, "max||H||T": hT, "cell": lab, "L/c (s)": L / ST.C_LIGHT,
+                         "needed ||H|| (1/s)": need,
+                         "IF H-MAP-W2 (not adopted): needed / eps_max": {k: need / v for k, v in em.items()},
+                         "IF H-MAP-W2 (not adopted): within eps_max": {k: need < v for k, v in em.items()},
+                         "eps_max (NAMED-NOT-READ)": em})
+    rng = {}
+    for lab in ("1 ly", "1 AU"):
+        rr = [r for r in rows if r["cell"] == lab]
+        rng[lab] = {"needed ||H|| (1/s)": (min(r["needed ||H|| (1/s)"] for r in rr),
+                                           max(r["needed ||H|| (1/s)"] for r in rr)),
+                    "needed / eps_max": {k: (min(r["IF H-MAP-W2 (not adopted): needed / eps_max"][k] for r in rr),
+                                             max(r["IF H-MAP-W2 (not adopted): needed / eps_max"][k] for r in rr))
+                                         for k in em}}
+    return {"rows": rows, "max||H||T range": (min(members.values()), max(members.values())), "range": rng,
+            "status": "H-MAP-W2 adopted nowhere; support 2's window is UNEVALUATED; no verdict moves"}
 
 
 def grounds_ok(g):
@@ -1645,7 +1843,33 @@ def grounds_ok(g):
         "board flags as encoded": (f["transit.BEATS_LIGHT"] is False and f["transit.TRAVERSAL_IS_REMOVED"] is False
                                    and f["transit.CARRIES_SUBSTANCE"] is False
                                    and f["emtension.ENTANGLED_BRIDGE_IS_TRAVERSABLE"] is False
-                                   and f["LEDGER"] == {"S5": "OPEN", "S10": "REFUSED", "S13": "OPEN"}),
+                                   and f["LEDGER"] == {"S5": "OPEN", "S10": "REFUSED", "S12": "OPEN", "S13": "OPEN",
+                                                       "S13 forms no baryons (READ)": True}),
+        "O-SEAT as encoded (wave 5): massform.MECHANISM_VERDICT REFUSED on six readings; S13 forms no baryons and the "
+        "Higgs coupling carries no B or L (H-C3); measure.info_shape_screen reproduces clash (d) for INFOS and "
+        "dissolves it for SHAPE; S13's imported price figures":
+            g["seat"]["S10_mechanism_verdict"][0] == "REFUSED" and len(g["seat"]["S10_mechanism_verdict"][1]) == 6
+            and g["seat"]["S13_forms_baryons"] is False and g["seat"]["C3 HIGGS_COUPLING_CARRIES_B_OR_L"] is False
+            and not g["seat"]["info_shape_screen"]["INFOS & RECV sat (clash (d) if False)"]
+            and g["seat"]["info_shape_screen"]["SHAPE & RECV sat (dissolved if True)"]
+            and abs(g["seat"]["S13_electrons_regained_of_payload"] - 3.010e-6) < 5e-10
+            and abs(g["seat"]["S13_source_per_J_field"] - 39204 / 199) < 1e-9,
+        "support-2 field figure per member (wave 5, V3 residual 1): needed ||H|| = max||H||T x c / L with independent "
+        "constants (c = 299792458 m/s, 1 ly = c x 31557600 s, 1 AU = 149597870700 m); the four-axis member's 1.465 gives "
+        "4.64e-8 /s at 1 ly and 2.94e-3 /s at 1 AU; the members span 1.43-1.56":
+            all(abs(r["needed ||H|| (1/s)"] - r["max||H||T"] * 299792458.0 /
+                    (299792458.0 * 31557600.0 if r["cell"] == "1 ly" else 149597870700.0)) <
+                1e-9 * r["needed ||H|| (1/s)"] for r in g["N_W2ANC field figure"]["rows"])
+            and any(r["member"].startswith("w2_ancilla_flow (four-axis") and r["cell"] == "1 AU" and
+                    abs(r["needed ||H|| (1/s)"] - 2.937e-3) < 1e-6 for r in g["N_W2ANC field figure"]["rows"])
+            and 1.42 < g["N_W2ANC field figure"]["max||H||T range"][0] < 1.44
+            and 1.55 < g["N_W2ANC field figure"]["max||H||T range"][1] < 1.57,
+        "support-1 window both ways (wave 5, V3 residual 3): settle.window_given (float) agrees with combine's z3 window "
+        "(exact rationals) in every cell and reading -- ADMISSIBLE GIVEN W_W2 where open (1 ly N = 7, 1 AU N = 1e6), "
+        "EMPTY GIVEN W_W2 -> OPEN where empty; the tightening to close equals eps_max / eps_any; two bounds unread, two "
+        "OPEN":
+            g["window_given_agrees"]["agree"] and g["window_given"]["open_bounds"] and
+            len(g["window_given"]["unread_bounds"]) == 2 and len(g["window_given"]["open_bounds"]) == 2,
     }
     return all(tests.values()), tests
 
@@ -1848,7 +2072,7 @@ def complementary_tests(S, S_au):
                                                  "local_unitary_dS (geometry)": GE.locc_entropy_change()[1],
                                                  "nonlocal_control_dS (geometry)": GE.locc_entropy_change(nonlocal_control=True)[1]}
     T["T-C W2 x O-MAKE-DIST (product_drift)"]["pass"] = bool(pw < 1e-12 and bell > 0.5)
-    # T-D  a RECORD of the holder floors (O-MATTER), cross-checked; it tests no verdict
+    # T-D  a RECORD of the holder floors (O-SEAT; wave 4: O-MATTER), cross-checked; it tests no verdict
     ft = first_transit()
     floors = [c["holder_FLOOR_J_R1m"] for c in ft["counts"]]
     xchk = max(abs(c["holder_FLOOR_J_R1m"] - c["holder_floor_crosscheck_J"]) / c["holder_FLOOR_J_R1m"] for c in ft["counts"])
@@ -1856,7 +2080,7 @@ def complementary_tests(S, S_au):
         "holder_floor_J_range (FLOORS, not prices)": (min(floors), max(floors)), "throat_J": ft["throat_J"],
         "body Mc^2 J": ft["body_rest_energy_J (massform, the READ-backed holder)"],
         "max relative difference vs CODATA cross-check": xchk,
-        "what it is": "a record of the floor on O-MATTER's holder; it tests no verdict and covers no class (wave 2 "
+        "what it is": "a record of the floor on O-SEAT's holder (wave 4: O-MATTER's); it tests no verdict and covers no class (wave 2 "
                       "still counted it as a covering test for ITB+RI classes: RV-1 unresolved #1); wave 1 first "
                       "called it a test that O-HOLD is removed"}
     T["T-D holder FLOOR record"]["pass"] = xchk < 1e-3
@@ -1914,6 +2138,9 @@ def complementary_tests(S, S_au):
     T["T-H ITJ (egj_fR_throat)"]["pass"] = (egj["CONTROL_beta0_equals_Rkk"] and egj["large_r_limit_r4Tkk"] == "-2*r_0**2")
     # T-I  INFOS x board: the clash's computed support
     T["T-I INFOS vs B-RECV (info_s_clash)"] = ME.info_s_clash()
+    T["T-I INFOS vs B-RECV (info_s_clash)"]["wave 5: measure.info_shape_screen (H-SHAPE-ENCODING)"] = ME.info_shape_screen()
+    T["T-I INFOS vs B-RECV (info_s_clash)"]["wave 5"] = ("M ruled 2026-10-03 for H-INFO-SHAPE; INFOS kept as the "
+                                                         "alternative, its clash recorded as history")
     T["T-I INFOS vs B-RECV (info_s_clash)"]["pass"] = (ME.info_s_clash()["phi_1_bits"] == 0 and
                                                        ME.info_s_clash()["bekenstein_bits_at_E0_R1m"] == 0)
     # T-J  F2b: the D-CTC channel (wave 3, RV-1 #1)
@@ -1943,7 +2170,7 @@ def complementary_tests(S, S_au):
         "table": kt, "CONTROL linear k=16 chi": lin,
         "z3 {W2,F1} supports at 1 ly": [(x["members"], x["named"]) for x in
                                          S["by"][frozenset({"W2", "F1"})]["per"]["O-BITS"]["supports"]],
-        "field figure (needed ||H||; H-MAP-W2 NOT adopted)": support2_field_rows(kt["k=4, d=8"]["max_H_times_T"]),
+        "field figure (needed ||H||; H-MAP-W2 NOT adopted; per member, wave 5)": support2_field_rows(support2_members()),
         "what it is": "support 2 of W2 x F1 (N_W2ANC): chi = log2 d - 1 with zero error, 2/(log2 d - 1) pairs per "
                       "teleported qubit; H-EXTEND derived, not computed; the separation shrinks with k; not evidence "
                       "a drift exists"}
@@ -2129,10 +2356,16 @@ def rule2(S, S_au, ex):
                                 any(h in sp["members"] for sp in v.get("supports", [])) else "NOT-BOUND-IF")
                         att.add((r["cell"], o, kind))
         st = ex[h]["status"]
-        if st.startswith("UNTESTED-BY-SCREEN"):
+        if st.startswith("UNTESTED-BY-SCREEN") and h != "SHAPE":
             verdict = "UNTESTED-BY-SCREEN (inert encoding): retirement neither established nor refuted"
         elif h == "INFOS":
-            verdict = "CLASH with B-RECV in every variant: a board-versus-M clash, M's to rule; not a retirement"
+            verdict = ("CLASH with B-RECV in every variant: a board-versus-M clash -- M ruled 2026-10-03 (M-RULINGS items "
+                       "1 and 5) for the reading H-INFO-SHAPE; INFOS is KEPT as the alternative reading and its clash "
+                       "stands under it (history: wave 4 said 'M's to rule'); not a retirement")
+        elif h == "SHAPE" and st.startswith("UNTESTED-BY-SCREEN"):
+            verdict = ("UNTESTED-BY-SCREEN (inert encoding): M's ruled reading; consistent with B-RECV (clash (d) "
+                       "dissolved by relocation); removes nothing (A3 LEAVES-ALL); O-MATTER relocated to O-SEAT, which "
+                       "stays LEFT until the seat's supply is shown; retirement neither established nor refuted")
         elif att:
             verdict = "kept: contributes " + ", ".join(sorted({f"{o} {v}" for _, o, v in att}))
         else:
@@ -2233,7 +2466,7 @@ def report(R):
         return
     rows = R["rows"]
     cons = [r for r in rows if r["consistent"]]
-    print(f"DOCKET 68 / B-combine (wave 4).  {len(rows)} variants over {len(R['table'])} combinations (127 + "
+    print(f"DOCKET 68 / B-combine (wave 5).  {len(rows)} variants over {len(R['table'])} combinations (127 + "
           f"readings-only) at {CELL_MAIN}; consistent {len(cons)}, inconsistent {len(rows) - len(cons)}; "
           f"z3 {R['screen']['seconds']:.1f} s.  At {CELL_AU}: {len(R['rows_au'])} W2 variants re-screened.  "
           f"{CELL_AU6}: {_fmt(R['cell_1AU_N1e6'])}  {CELL_AU3}: {_fmt(R['cell_1AU_N1e3'])}")
@@ -2283,6 +2516,22 @@ def report(R):
     for k, v in sorted(itf.items(), key=lambda kv: -kv[1]):
         print(f"  {v:5d}  {k}")
     if "tests" in R:
+        g = R["grounds"]
+        print("\nWAVE 5 -- O-SEAT (M's ruling item 5; seat figures imported, measure.seat_supply):",
+              _fmt({k: g["seat"][k] for k in ("ledger_S10", "ledger_S13", "ledger_S12", "S10_mechanism_verdict",
+                                               "S13_forms_baryons", "C3 HIGGS_COUPLING_CARRIES_B_OR_L",
+                                               "S13_electrons_regained_of_payload", "S13_nucleons_first_order_of_payload",
+                                               "S13_source_J_m3", "S13_field_J_m3", "S13_source_per_J_field_exact",
+                                               "S13_stability_edge_eps", "S12_pair_floor_J_70kg")}))
+        print("WAVE 5 -- clash (d) under H-SHAPE-ENCODING (measure.info_shape_screen):", _fmt(g["seat"]["info_shape_screen"]))
+        print("WAVE 5 -- support-2 field figure per member (V3 residual 1; H-MAP-W2 adopted nowhere):")
+        for r in g["N_W2ANC field figure"]["rows"]:
+            print(f"     {r['member']:48s} hT {r['max||H||T']:.4f}  {r['cell']:4s}  needed {r['needed ||H|| (1/s)']:.4e} /s"
+                  f"  x eps_max: " + ", ".join(f"{k[:1]} {v:.1f}" for k, v in
+                                               r["IF H-MAP-W2 (not adopted): needed / eps_max"].items()))
+        print("     range:", _fmt(g["N_W2ANC field figure"]["range"]))
+        print("WAVE 5 -- support 1 per cell, M's rule both ways (V3 residual 3; settle.window_given vs combine's z3 "
+              "window):", _fmt(g["window_given_agrees"]))
         print("\nGROUNDS:", R["grounds_ok"])
         print("GROUNDS STRUCTURAL (not counted):", _fmt(R["grounds_structural"]))
         print("\nCOMPLEMENTARY CLASSES -> content-bearing tests (JOINT only; INDEPENDENT listed, not tested as pairs):")
@@ -2299,7 +2548,7 @@ def report(R):
 
 ABBR = {"H-IT": "IT", "H-SETTLE": "SET", "H-FRAME": "FR", "H-12": "12", "H-INFO": "INF", "H-ZERO": "ZER",
         "H-NULL": "NUL"}
-SH = {"O-BITS": "BITS", "O-MAKE-TOPO": "TOPO", "O-MAKE-DIST": "DIST", "O-HOLD": "HOLD", "O-MATTER": "MATTER",
+SH = {"O-BITS": "BITS", "O-MAKE-TOPO": "TOPO", "O-MAKE-DIST": "DIST", "O-HOLD": "HOLD", "O-SEAT": "SEAT",
       "O-LOOP-C": "LOOP-C", "O-LOOP-S": "LOOP-S"}
 CSH = {"Rm": "Rm", "Rg": "Rg", "NBm": "NBm", "NBg": "NBg"}
 
@@ -2322,7 +2571,7 @@ def markdown_table(R):
     for r in R["rows"]:
         by.setdefault(tuple(r["combo"]) or ("(readings only)",), []).append(r)
     out = ["| # | combination | variants | consistent | clash (literals in core) | premise clashes | best variant "
-           "(one account) | BITS/TOPO/DIST/HOLD/MATTER/LOOP-C/LOOP-S | member-attributed removals | NOT-BOUND-IF | "
+           "(one account) | BITS/TOPO/DIST/HOLD/SEAT/LOOP-C/LOOP-S | member-attributed removals | NOT-BOUND-IF | "
            "removed with no member (geometry / board / premise) | load-bearing members; adds nothing | joint / "
            "independent variants | 1 AU, N = 7: W2 variants with O-BITS member-removed |",
            "|---|---|---|---|---|---|---|---|---|---|---|---|---|---|"]
@@ -2381,7 +2630,17 @@ def selftest():
     ck("RESULT ITB & RI & RQ consistent as commitments", V["ITB & RI & RQ consistent as commitments (wave 1's clash b "
                                                            "was B-THROAT's slip)"])
     ck("NON-TRIVIAL board admits a loop and no loop", V["board_admits_loop"] and V["board_admits_no_loop"])
-    ck("CONTROL without B-RECV, O-MATTER becomes removable", V["CONTROL without_B_RECV_matter_removable"])
+    # wave 5 (M's rulings items 1 and 5).  Wave 4's "CONTROL without B-RECV, O-MATTER becomes removable" is gone with
+    # DEF-MATTER; its role (showing what carries the clash) passes to the INFOS control below
+    ck("CONTENT clash (d) under M's ruling: H-INFO-SHAPE & B-RECV SAT (dissolved by relocation), H-INFO-S & B-RECV "
+       "UNSAT (the alternative reading's clash stands)", V["CONTENT clash (d) dissolved: SHAPE & B-RECV SAT, INFOS & "
+                                                           "B-RECV UNSAT"])
+    ck("CONTROL without B-RECV, INFOS becomes consistent (the clash is carried by B-RECV)",
+       V["CONTROL without B-RECV, INFOS becomes consistent (the clash is carried by B-RECV)"])
+    ck("CONTROL S10 un-refused (B-S10 dropped): O-SEAT becomes removable",
+       V["CONTROL S10 un-refused (B-S10 dropped): O-SEAT removable"])
+    ck("CONTROL S13 credited as a supply (B-S13 dropped): O-SEAT becomes removable",
+       V["CONTROL S13 credited as a supply (B-S13 dropped): O-SEAT removable"])
     ck("PROOF N_EPS occurs only in B-CAP and B-EPSWIN, and no CAP without W2 (so the 1 AU re-screen of W2 variants "
        "covers every variant N_EPS can reach)", V["N_EPS occurs only in"] == ["B-CAP", "B-EPSWIN"] and
        V["no CAP without W2 (z3)"])
@@ -2399,7 +2658,8 @@ def selftest():
         ck(f"CONTROL mutated encoding '{k}' caught as an unexplained disagreement", v["caught"])
     rows = R["rows"]
     cons = [r for r in rows if r["consistent"]]
-    ck("COVERAGE 6,143 variants screened ((4*4*4*3*8 - 1) * 4 + 3)", len(rows) == 6143, len(rows))
+    ck("COVERAGE 8,191 variants screened ((4*4*4*4*8 - 1) * 4 + 3; wave 4: 6,143, before SHAPE)", len(rows) == 8191,
+       len(rows))
     ck("COVERAGE 127 combinations + readings-only", len(R["table"]) == 128, len(R["table"]))
     ck("COVERAGE every combination has >= 1 consistent variant", all(t["consistent"] >= 1 for t in R["table"]))
     cc = R["clash_census"]["families"]
@@ -2419,9 +2679,16 @@ def selftest():
        set(H["member_removed_by_obstruction"]) == {"O-BITS"} and
        set(R["headline_au"]["member_removed_by_obstruction"]) <= {"O-BITS"}, H["member_removed_by_obstruction"])
     sv = R["survivors"]
-    ck("RESULT O-MATTER removed or not-bound in no consistent variant (both cells)",
-       "O-MATTER" in sv["removed_or_not_bound_in_no_consistent_variant"] and
-       "O-MATTER" in R["survivors_au"]["removed_or_not_bound_in_no_consistent_variant"])
+    # wave 5: O-SEAT survives every consistent variant -- STRUCTURAL (bare refusals B-S10, B-S13), printed, not counted.
+    # Wave 4 COUNTED the same check on O-MATTER, which the bare B-RECV made equally unfailable
+    seat_surv = ("O-SEAT" in sv["removed_or_not_bound_in_no_consistent_variant"] and
+                 "O-SEAT" in R["survivors_au"]["removed_or_not_bound_in_no_consistent_variant"] and
+                 "O-SEAT" not in sv["open_somewhere"])
+    ck("RESULT clash census under SHAPE: 8,191 = 5,759 consistent + 2,432 inconsistent; INFOS 2,048 (unchanged), "
+       "W2+ITE 512 (wave 4: 384), intersection 128; SHAPE enters no core",
+       cons and len(cons) == 5759 and len(rows) - len(cons) == 2432 and cc["present"].get("INFOS") == 2048 and
+       cc["present"].get("W2 + ITE") == 512 and not any("SHAPE" in k for k in cc["present"]),
+       (len(cons), cc["present"]))
     ck("RESULT O-MAKE-DIST removed or not-bound in no consistent variant; OPEN via N_VAC",
        "O-MAKE-DIST" in sv["removed_or_not_bound_in_no_consistent_variant"] and "O-MAKE-DIST" in sv["open_somewhere"])
     ck("RESULT O-HOLD and O-MAKE-TOPO are never REMOVED at 1 ly (only NOT-BOUND-IF)",
@@ -2437,6 +2704,13 @@ def selftest():
        sorted((s["members"], s["named"]) for s in w2f["per"]["O-BITS"]["supports"]) ==
        [(["W2", "F1"], ["N_EPS"]), (["W2", "F1"], ["N_W2ANC"])] and
        w2f.get("joint") and "O-BITS" in w2f["synergy"])
+    sw = {tuple(s["named"]): s.get("window") for s in w2f["per"]["O-BITS"]["supports"]}
+    sau6 = Screen(cell=CELL_AU6).variant({"W2", "F1"})["per"]["O-BITS"]["supports"]
+    ck("RESULT M's rule both ways (V3 residual 3): {W2, F1} support 1 at 1 ly N = 7 AND at 1 AU N = 1e6 is flagged "
+       "ADMISSIBLE GIVEN W_W2, support 2 UNEVALUATED; the verdict REMOVED-IF does not move",
+       sw.get(("N_EPS",)) == WINDOW_GIVEN_FLAG and str(sw.get(("N_W2ANC",))).startswith("UNEVALUATED") and
+       any(s["named"] == ["N_EPS"] and s.get("window") == WINDOW_GIVEN_FLAG for s in sau6) and
+       w2f["per"]["O-BITS"]["verdict"] == "REMOVED-IF", (sw, [(s["named"], s.get("window")) for s in sau6]))
     gr = D["ground_rows"]
     ck("RESULT 1 AU, N = 7 (and N = 1e3, same window): support 1 without H12 is OPEN via N_WREAD, not LEFT -- the "
        "exclusion rests on an unread value", gr["z3 support 1 only, {W2,F1} O-BITS at 1 AU"] == ("OPEN", ["N_WREAD"]),
@@ -2474,9 +2748,10 @@ def selftest():
        R["base"]["per"]["O-LOOP-C"]["verdict"] == "REMOVED-IF" and
        any(set(s["named"]) == {"N_FRW", "N_CORR"} for s in R["base"]["per"]["O-LOOP-C"]["supports"]))
     ex = R["exercised"]
-    ck("RESULT INFO, ZERO and NULL are UNTESTED-BY-SCREEN (difference census: they change nothing)",
-       all(ex[h]["status"] == "UNTESTED-BY-SCREEN" for h in ("INFO", "ZERO", "NULL")),
-       {h: ex[h]["status"] for h in ("INFO", "ZERO", "NULL")})
+    ck("RESULT INFO, SHAPE, ZERO and NULL are UNTESTED-BY-SCREEN (difference census: they change nothing; SHAPE's one "
+       "commitment is the board's B-RECV)",
+       all(ex[h]["status"] == "UNTESTED-BY-SCREEN" for h in ("INFO", "SHAPE", "ZERO", "NULL")),
+       {h: ex[h]["status"] for h in ("INFO", "SHAPE", "ZERO", "NULL")})
     ck("RESULT ITJ exercised (O-HOLD OPEN via N_EQUIL)", ex["ITJ"]["status"] == "EXERCISED")
     ck("RESULT H12 load-bearing at 1 AU (synergy W2 x F1 x H12), its support naming N_H12W",
        "H12" in R["load_bearing_au"][0] and "N_H12W" in R["load_bearing_au"][1])
@@ -2496,18 +2771,20 @@ def selftest():
     part = (sum(R["untested"][CELL_MAIN].values()), n_joint, len(rows))
     print(f"STRUCTURAL (not counted): COVERAGE untested {part[0]} + joint {part[1]} = {part[0] + part[1]} of "
           f"{part[2]} variants -- a partition identity of untested(); wave 3 counted it")
+    print(f"STRUCTURAL (not counted): O-SEAT removed, not-bound or OPEN in no consistent variant (both cells): {seat_surv} "
+          f"-- B-S10 and B-S13 are bare refusals; wave 4 counted the same check on O-MATTER (B-RECV bare)")
     print("STRUCTURAL (not counted): Q-1s (signed.py) moves no screen verdict -- every bit count the screen uses is a "
           "capacity, a Holevo chi or log2 976 over NON-NEGATIVE probabilities, where Re H = H by definition, and no "
           "board holding or commitment names the measure's functional form (INFO is inert)")
     npass = sum(1 for _, c, _ in checks if c)
     for n, c, d in checks:
         print(("PASS " if c else "FAIL ") + n + (f"  [{d}]" if d not in ("", None) and not c else ""))
-    nstruct = len(V["STRUCTURAL"]) + len(R["grounds_structural"]) + 2
+    nstruct = len(V["STRUCTURAL"]) + len(R["grounds_structural"]) + 3
     print(f"\n{npass}/{len(checks)} checks pass, "
           f"{sum(1 for n, _, _ in checks if n.startswith('CONTROL'))} of them controls; "
           f"{nstruct} STRUCTURAL items reported, not counted (engine premise-consistency; "
           f"{len(R['grounds_structural'])} ground values; INDEPENDENT classes carry no test by definition; the COVERAGE "
-          f"partition identity); "
+          f"partition identity; O-SEAT's survival and two O-SEAT encodings, bare refusals); "
           f"{time.time() - t0:.0f} s")
     return 0 if npass == len(checks) else 1
 

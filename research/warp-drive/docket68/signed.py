@@ -53,6 +53,20 @@ WHAT IS COMPUTED (each item is a function below; every number in Q1s-signed.md i
       imported) on the product phase space; (c) a signed weighting of The Method's index Lambda (tools/cypher via
       A3's route) under H-MOBIUS-WEIGHT.
 
+  (8) (M-apply, 2026-10-03; M item 2 "Carry both") BOTH mean-value weightings carried, each with the functional it
+      selects and every axiom computed for it: SIGNED w -> Re H (A0, A2', A3, A4, A5'(w) hold; A5'(|w|) fails; keeps
+      BFL convex linearity on FinProb), |w| -> signed Renyi H_alpha (A0, A2', A3, A4, A5'(|w|) hold, BLM Theorem 1
+      READ; A5'(w) fails; on probabilities it is Renyi, not BFL's Shannon).  Neither is preferred here.
+  (9) (M-apply; M items 3 and 6) the GROUND-STATE CALIBRATION.  Default MASS/BINDING: a state's mass budget over
+      protons, electrons, neutrons and the (negative) binding, from READ AME2020 / PDG / NIST values; the ground is the
+      neutral atom.  Selectable: GROUND-CONFIG (LW1-ground.py via populate) and IONISATION (NIST ladder; populate's
+      banked limits reported).  ONE multi-axis table centred at the ground carries all four inverses and reflections
+      (log branches of p/p0; conjugate and reciprocal; fold to |p|; Radon inverse).  TESTED, not assumed: the signed
+      relative entropy D_s(p||p0) = sum p Log(p/p0) is 0 at the ground (STRUCTURAL) and meets product additivity (Re),
+      convex linearity and the chain rule, and FAILS Gibbs non-negativity and data processing; the entropy deviation
+      Re H(p) - Re H(p0) is NOT a relative entropy unless the cross term sum (p - p0) ln|p0| vanishes.  Applied to
+      Fe-56 and its ions, C-12+, the proton, and The Method's index under H-INDEX-GROUND-BOX / -LAMBDA.
+
 NAMED HYPOTHESES (every limitation is one)
   H-PRINCIPAL   principal branch, arg in (-pi, pi], arg(negative) = +pi (2310.19296v1 p.5 convention).
   H-READING-M   "inverses and reflections" is READ here as: the branch lattice, the conjugate branch (arg = -pi,
@@ -75,6 +89,18 @@ NAMED HYPOTHESES (every limitation is one)
                 wise order of cypher's rank-coded box, normalised at the bottom cell.  One choice among many; it
                 says nothing about register 66 (order ideal), which is not touched here.
   H-UNIFORM     (A3's) every admitted cell equiprobable, for the non-negative baseline.
+  (M-apply, 2026-10-03)
+  H-READING-M is ANSWERED by M (item 3): "All of the above" -- all four readings are carried, centred at the ground.
+  H-CAL          which calibration a use takes; named at every use (default MASS/BINDING, M item 6).
+  H-MASS-CELLS   a state's mass budget written over four cells (Z m_p, (Z-q) m_e, N m_n, -B); B the shortfall.
+  H-AME-ATOMIC   AME2020's masses are neutral-atom ground-state masses (the table's own convention, header READ).
+  H-IE-GROUND    NIST's ionisation energies are ground-to-ground, so M_ion = M_atom - q m_e + sum of the first q.
+  H-ISOELECTRONIC (GROUND-CONFIG) an ion's configuration is its isoelectronic neutral's -- populate's mapping,
+                 RECONSTRUCTED there and here.
+  H-LADDER-CELLS (IONISATION) the cells are the electrons in removal order, weighted by each ionisation energy.
+  H-RADON-PAD    the Radon column lays cells row-major on Z_d^2 (d prime) and pads with zeros.
+  H-INDEX-GROUND-BOX / H-INDEX-GROUND-LAMBDA  The Method's index has no periodic-table ground: the uniform measure on
+                 the 6,912-cell box, or on Lambda's 976 cells, is named as its ground.
 
 stdlib + numpy + sympy.
 """
@@ -1119,7 +1145,7 @@ def app_bell():
     return out
 
 
-def lambda_mobius(control_box=False, random_set=None, vectors=False):
+def lambda_mobius(control_box=False, random_set=None, vectors=False, support_cells=False):
     """(c) H-MOBIUS-WEIGHT on cypher's Lambda, imported by A3's route (measure.lambda_counts / cypher._lambda).
     vectors=True (added by Q1s-integrate, 2026-10-03) also returns the two normalised signed weightings as lists
     ("p_vector", "q_vector"), so that measure.py's Q-1 can evaluate them itself; nothing else changes."""
@@ -1169,6 +1195,515 @@ def lambda_mobius(control_box=False, random_set=None, vectors=False):
                     "A3_bits_per_cell": measure.method_bits()["bits_per_cell"]})
         if vectors:
             out.update({"p_vector": [float(x) for x in pv], "q_vector": [float(x) for x in qv]})
+        if support_cells:                     # M-apply (2026-10-03): the support's coordinates, same order as p_vector
+            out["support_cells"] = [tuple(int(i) for i in x) for x in idx]
+    return out
+
+
+# ============================================================================ (8) both weightings carried (M, item 2)
+# M (M-RULINGS-2026-10-03.md item 2): "Carry both (Recommended)".  Brandenburger-La Mura's mean-value axiom 5'
+# (2410.15976v5 p.3 eq.(9), READ this pass) weights the two parts by |w(P)|, |w(Q)| over |w(P) + w(Q)|; the variant
+# with SIGNED weights w(P), w(Q) over w(P) + w(Q) is this file's (4)(d).  Each weighting is carried with the functional
+# it selects and with every axiom computed for it below -- none is declared.  Axiom numbering is theirs (p.3):
+# A0 real-valuedness, A2' continuity of H((p)) for p != 0, A3 calibration H((1/2)) = 1, A4 extensivity
+# H(P * Q) = H(P) + H(Q), A5' the mean-value property with the stated weighting.
+
+WEIGHTING_ALPHAS = (0.5, 2.0)        # two orders of signed Renyi (alpha > 0, alpha != 1; BLM Theorem 1, p.4)
+
+
+def blm_hartley(P):
+    """BLM's alpha = 0 limit (p.4, eq.(A.18) p.11): log2(#{p_i != 0} / |sum p|)."""
+    return math.log2(sum(1 for x in P if x != 0) / abs(sum(P)))
+
+
+def _rand_signed_measure(rng, nmax=4):
+    while True:
+        A = [rng.uniform(-1, 2) for _ in range(rng.randint(1, nmax))]
+        if abs(sum(A)) > 1e-2 and all(abs(x) > 1e-9 for x in A):
+            return A
+
+
+def mean_value_residual(F, g, ginv, weighting, rng, trials=300):
+    """max |F(P u Q) - g^-1(mean)| over random signed P, Q, with the mean taken under `weighting`:
+    'abs'    : (|wP| g(F(P)) + |wQ| g(F(Q))) / |wP + wQ|     (BLM Axiom 5', p.3 eq.(9), READ)
+    'signed' : ( wP  g(F(P)) +  wQ  g(F(Q))) /  (wP + wQ)    (this file's signed-weight variant)
+    Returns (worst residual, number of pairs where g^-1 is undefined, one such pair)."""
+    worst, undefined, witness = 0.0, 0, None
+    for _ in range(trials):
+        A, B = _rand_signed_measure(rng), _rand_signed_measure(rng)
+        wA, wB = sum(A), sum(B)
+        if abs(wA + wB) < 1e-2:
+            continue
+        if weighting == "abs":
+            m = (abs(wA) * g(F(A)) + abs(wB) * g(F(B))) / abs(wA + wB)
+        else:
+            m = (wA * g(F(A)) + wB * g(F(B))) / (wA + wB)
+        try:
+            v = ginv(m)
+        except ValueError:
+            undefined += 1
+            witness = witness or (A, B, m)
+            continue
+        worst = max(worst, abs(F(A + B) - v))
+    return worst, undefined, witness
+
+
+def _axioms_of(F, g, ginv, rng):
+    """A0, A2', A3, A4 and A5' under both weightings, computed for the functional F (BLM normalisation)."""
+    vals = [F(_rand_signed_measure(rng, 6)) for _ in range(300)]
+    a0 = all(isinstance(v, float) and math.isfinite(v) for v in vals)
+    grid = [x / 50 for x in range(-100, 101) if x != 0]
+    a2 = max(abs(F([x]) + math.log2(abs(x))) for x in grid)          # H((p)) = -log2|p| (BLM Lemma A.1, p.10)
+    a3 = F([0.5])
+    a4 = 0.0
+    for _ in range(300):
+        A, B = _rand_signed_measure(rng), _rand_signed_measure(rng)
+        a4 = max(a4, abs(F(product(A, B)) - F(A) - F(B)))
+    mv_abs = mean_value_residual(F, g, ginv, "abs", rng)
+    mv_sgn = mean_value_residual(F, g, ginv, "signed", rng)
+    return {"A0_real_on_300_signed": a0, "A2_max_dev_from_-log2|p|": a2, "A3_H((1/2))": a3,
+            "A4_extensivity_worst": a4,
+            "A5_abs_weights_worst": mv_abs[0], "A5_abs_weights_undefined": mv_abs[1],
+            "A5_signed_weights_worst": mv_sgn[0], "A5_signed_weights_undefined": mv_sgn[1]}
+
+
+def weightings(rng):
+    """Both weightings, each with the functional it selects and the axioms computed for it.
+      signed w -> Re H (affine g; BLM normalisation -sum p log2|p| / sum p).  Selection DERIVED-CONDITIONAL (4)(d),
+                  carrying H-RD.  Its exponential branch fails A0 (axiom0_counterexample).
+      |w|      -> signed Renyi H_alpha (exponential g(x) = 2^((1-alpha)x)); READ: BLM Theorem 1 (p.4), proof pp.10-11
+                  carrying H-RD.  Its affine branch, the |p|-weighted 'signed Shannon' eq.(11), fails A4 (Example 1,
+                  p.4, reproduced in blm_checks).
+    Also computed for each: does it reduce to BFL's Shannon on probability measures (convex linearity on FinProb),
+    and does it keep BFL's codomain [0, inf) on signed morphisms."""
+    lin = (lambda x: x, lambda y: y)
+    out = {"signed w": {"functional": "Re H (BLM-normalised)", "g": "affine",
+                        "selection_status": "DERIVED-CONDITIONAL (H-RD; Lemma A.2 induction with signed weights)",
+                        "axioms": _axioms_of(blm_reh, lin[0], lin[1], rng)}}
+    for a in WEIGHTING_ALPHAS:
+        g = (lambda a_: (lambda x: 2.0 ** ((1 - a_) * x)))(a)
+
+        def ginv(y, a_=a):
+            if y <= 0:
+                raise ValueError("g^-1 undefined: argument <= 0")
+            return math.log2(y) / (1 - a_)
+        F = (lambda a_: (lambda P: blm_renyi(P, a_)))(a)
+        out[f"|w|, alpha = {a}"] = {"functional": f"signed Renyi H_{a}", "g": "exponential",
+                                    "selection_status": "READ (BLM Theorem 1, p.4; proof pp.10-11 carries H-RD)",
+                                    "axioms": _axioms_of(F, g, ginv, rng)}
+    # on probability measures: Re H IS Shannon; signed Renyi-alpha is Renyi-alpha, which fails BFL convex linearity
+    # (measure.py's control F_renyi2); computed here on the 1106.1791 convex combination for the two functionals.
+    def convex_gap(Fp):
+        worst = 0.0
+        for _ in range(200):
+            lam = rng.random()
+            p1, p2 = rand_prob(rng, rng.randint(2, 5)), rand_prob(rng, rng.randint(2, 5))
+            q1, q2 = [sum(p1)], [sum(p2)]
+            loss = lambda p, q: Fp(p) - Fp(q)
+            lhs = loss(direct_sum(lam, p1, p2), direct_sum(lam, q1, q2))
+            rhs = lam * loss(p1, q1) + (1 - lam) * loss(p2, q2)
+            worst = max(worst, abs(lhs - rhs))
+        return worst
+    out["signed w"]["BFL_convex_linearity_on_FinProb_worst"] = convex_gap(blm_reh)
+    for a in WEIGHTING_ALPHAS:
+        out[f"|w|, alpha = {a}"]["BFL_convex_linearity_on_FinProb_worst"] = convex_gap(lambda P, a_=a: blm_renyi(P, a_))
+    # BFL codomain on the signed crush (1.5, -0.5) -> one point: loss = F(p) - F((1))
+    out["signed w"]["crush_loss_(1.5,-0.5)_bits"] = blm_reh([1.5, -0.5]) - blm_reh([1.0])
+    for a in WEIGHTING_ALPHAS:
+        out[f"|w|, alpha = {a}"]["crush_loss_(1.5,-0.5)_bits"] = blm_renyi([1.5, -0.5], a) - blm_renyi([1.0], a)
+    out["hartley_alpha0"] = {"A3": blm_hartley([0.5]), "A4_on_(2,-1)x(2,-1)": blm_hartley([4, -2, -2, 1]) -
+                             2 * blm_hartley([2, -1])}
+    return out
+
+
+def both_on(p):
+    """Both weightings' functionals on one weighting p (sum p = 1), in bits: Re H and signed Renyi-alpha."""
+    return {"Re H (signed w)": re_h(p) / LN2, **{f"H_{a} (|w|)": blm_renyi(p, a) for a in WEIGHTING_ALPHAS}}
+
+
+# ============================================================================ (9) the ground-state calibration
+# M (item 3): "Remember that the center begins at the ground state values given in real numbers from the periodic
+# table. That is the calibration".  M (item 6): "Mass/ binding. But could work for any of the other options depending
+# on the question being asks or the object of study".  So the DEFAULT calibration is MASS/BINDING, and two others are
+# selectable: GROUND-CONFIG (LW1-ground.py, through tools/populate.py) and IONISATION (the ionisation ladder; what
+# tools/populate.py itself banks is reported beside it).  Every use below names its calibration.
+#
+# THE OBJECT (named: H-MASS-CELLS).  A state of an atom or ion is written as its mass-energy budget over four cells --
+# protons Z m_p, electrons (Z - q) m_e, neutrons N m_n, and the binding -B -- divided by the state's mass M.  The four
+# weights total 1 EXACTLY (B is defined as the shortfall), and the binding is a NEGATIVE weight: a quasi-probability
+# read straight off the periodic table's real numbers.  The GROUND is the neutral atom in its ground state (AME2020's
+# atomic mass); a state's signed deviation from it is d = p - p0, and in log space ln(p/p0), which is 0 at the ground.
+#
+# DATA (each READ on the board; none typed here):
+#   AME2020 Table I mass excesses -- gravity.nuclides() (imported), the board's capture of the published table
+#     (Chinese Physics C 45, 030003, from the PDF M supplied; cross-checked by its header against the fetched
+#     mass_1.mas20).  No arXiv copy of AME2020 was found (alphaXiv search, 2026-10-03), so the arXiv route is closed;
+#     the capture is the READ.
+#   m_p, m_n, m_e -- massform.MASS_MEV (imported), PDG-2026 capture, READ.
+#   ionisation energies -- NIST ASD captures IE-neutral-all.tsv (first IE, Z = 1-108) and LADDER-K-Kr.tsv (every
+#     charge, Z = 19-36), read here as data (no board instrument reads them yet).
+#   u c^2 -- DERIVED-FROM-READ: M(1H) = m_p + m_e - I(H) and M(1H) = u + Delta(1H) give u = m_p + m_e - I(H) - Delta(1H).
+#     CODATA 2018's u (gravity.U_KG, typed there; NAMED-NOT-READ) is a cross-check only.
+
+CAPTURES = os.path.abspath(os.path.join(HERE, "..", "..", "..", "extracted", "archives", "restore-point-2-13",
+                                        "captures"))
+CAL_DEFAULT = "MASS/BINDING"
+CALIBRATIONS = ("MASS/BINDING", "GROUND-CONFIG", "IONISATION")
+MASS_CELLS = ("protons", "electrons", "neutrons", "binding")
+_CAL_CACHE = {}
+
+
+def _board_mod(name):
+    """Import a board instrument quietly from research/warp-drive or tools (several print at import)."""
+    wd = os.path.abspath(os.path.join(HERE, ".."))
+    tools = os.path.abspath(os.path.join(HERE, "..", "..", "..", "tools"))
+    for d in (wd, tools):
+        if d not in sys.path:
+            sys.path.insert(0, d)
+    with contextlib.redirect_stdout(io.StringIO()):
+        return __import__(name)
+
+
+def _read_tsv(fname, ncol):
+    rows = []
+    with open(os.path.join(CAPTURES, fname), encoding="utf-8") as fh:
+        for ln in fh:
+            if ln.startswith("#") or not ln.strip():
+                continue
+            parts = ln.rstrip("\n").split("\t")
+            if len(parts) >= ncol and parts[0].strip().lstrip("-").isdigit():
+                rows.append(parts)
+    return rows
+
+
+def ionisation_ev():
+    """{(Z, charge): (IE eV, quality)} from the two NIST captures (READ).  Where both carry a neutral value they are
+    compared in the selftest (the ladder capture is the multi-charge one)."""
+    if "ie" not in _CAL_CACHE:
+        ie, first = {}, {}
+        for r in _read_tsv("IE-neutral-all.tsv", 5):
+            first[int(r[0])] = (float(r[2]), r[4].strip())
+        for r in _read_tsv("LADDER-K-Kr.tsv", 4):
+            ie[(int(r[0]), int(r[1].replace("+", "")))] = (float(r[2]), r[3].strip())
+        for z, v in first.items():
+            ie.setdefault((z, 0), v)
+        _CAL_CACHE["ie"] = (ie, first)
+    return _CAL_CACHE["ie"]
+
+
+def read_constants():
+    """Every number the MASS/BINDING calibration uses, with its status."""
+    if "k" not in _CAL_CACHE:
+        mf, gr = _board_mod("massform"), _board_mod("gravity")
+        ie, first = ionisation_ev()
+        dH = [r for r in gr.nuclides() if r[0] == 1 and r[2] == 1][0][4]
+        dn = [r for r in gr.nuclides() if r[0] == 0 and r[2] == 1][0][4]
+        mp, mn, me = (mf.MASS_MEV[k] * 1000.0 for k in ("p", "n", "e"))            # keV
+        u = mp + me - first[1][0] / 1000.0 - dH                                       # keV, DERIVED-FROM-READ
+        u_codata = gr.U_KG * gr.C_SI ** 2 / gr.KEV_J                                  # NAMED-NOT-READ cross-check
+        _CAL_CACHE["k"] = {"m_p_keV": mp, "m_n_keV": mn, "m_e_keV": me, "Delta_1H_keV": dH, "Delta_n_keV": dn,
+                           "I_H_eV": first[1][0], "u_keV": u, "u_keV_CODATA2018": u_codata,
+                           "m_n_via_AME_keV": u + dn,
+                           "status": {"m_p, m_n, m_e": "READ (PDG-2026 capture via massform.MASS_MEV)",
+                                      "Delta": "READ (AME2020 Table I capture via gravity.nuclides)",
+                                      "I": "READ (NIST ASD captures)", "u": "DERIVED-FROM-READ",
+                                      "u_CODATA2018": "NAMED-NOT-READ (gravity.U_KG), cross-check only"}}
+    return _CAL_CACHE["k"]
+
+
+def mass_excess_keV(Z, A):
+    gr = _board_mod("gravity")
+    rows = [r for r in gr.nuclides() if r[0] == Z and r[2] == A]
+    if not rows:
+        raise KeyError(f"AME2020 Table I holds no Z = {Z}, A = {A}")
+    return rows[0][4], rows[0][5]
+
+
+def mass_cells(Z, A, q=0):
+    """H-MASS-CELLS for the state (Z, A, charge q), in keV: (cells, M_state).  M_state = M_atom - q m_e + sum of the
+    first q ionisation energies (each ground-to-ground, H-IE-GROUND); B_state = Z m_p + (Z-q) m_e + N m_n - M_state.
+    Refuses (KeyError) a q whose ladder the captures do not hold: an unread value is not filled in."""
+    k = read_constants()
+    ie, _ = ionisation_ev()
+    dm, quality = mass_excess_keV(Z, A)
+    M_atom = A * k["u_keV"] + dm
+    need = [(Z, j) for j in range(q)]
+    missing = [s for s in need if s not in ie]
+    if missing:
+        raise KeyError(f"ionisation energies NOT READ for {missing[:3]}{'...' if len(missing) > 3 else ''}")
+    sum_ie = sum(ie[s][0] for s in need) / 1000.0
+    M = M_atom - q * k["m_e_keV"] + sum_ie
+    N = A - Z
+    cells = [Z * k["m_p_keV"], (Z - q) * k["m_e_keV"], N * k["m_n_keV"]]
+    cells.append(M - sum(cells))                                          # = -B_state
+    return cells, M, {"AME_quality": quality, "IE_qualities": sorted({ie[s][1] for s in need}), "sum_IE_keV": sum_ie}
+
+
+def calibrate(Z, A=None, q=0, calibration=CAL_DEFAULT):
+    """(p, p0, cells, info) for the state (Z, A, q) against its element's ground, under the NAMED calibration.
+      MASS/BINDING  (default)  H-MASS-CELLS: p = cells / M_state, p0 = the neutral atom's (READ masses / binding).
+      GROUND-CONFIG            LW1-ground.py's observed ground configuration (through tools/populate.py, imported):
+                               p = subshell occupancies / electrons.  The ion's configuration is the isoelectronic
+                               neutral's (populate.ionisation_cells' mapping: RECONSTRUCTED there, and here).
+      IONISATION               cells = the Z electrons in removal order, weight = each one's ionisation energy (NIST
+                               ladder, READ); the ion's first q cells are empty.  populate.series_limit is consulted
+                               for every stage and what it banks is reported (it banks very few stages).
+    Only MASS/BINDING carries a negative weight; the other two are non-negative, so their measures are Shannon's."""
+    if calibration not in CALIBRATIONS:
+        raise ValueError(f"calibration must be one of {CALIBRATIONS}")
+    if calibration == "MASS/BINDING":
+        if A is None:
+            raise ValueError("MASS/BINDING needs a nuclide (Z, A)")
+        x, M, inf = mass_cells(Z, A, q)
+        x0, M0, inf0 = mass_cells(Z, A, 0)
+        return ([v / M for v in x], [v / M0 for v in x0], list(MASS_CELLS),
+                {"calibration": calibration, "unit": "keV", "x": x, "x0": x0, "M_state_keV": M, "M_ground_keV": M0,
+                 "B_ground_keV": -x0[3], "B_state_keV": -x[3], **inf,
+                 "hypotheses": ["H-MASS-CELLS", "H-IE-GROUND", "H-AME-ATOMIC"]})
+    if calibration == "GROUND-CONFIG":
+        pop = _board_mod("populate")
+        Ne = Z - q
+        if Ne < 1:
+            raise ValueError("no electrons: GROUND-CONFIG has no distribution for a bare nucleus")
+        g0 = {(n, l): o for n, l, o in pop.LW1.expand(Z)}
+        g = {(n, l): o for n, l, o in pop.LW1.expand(Ne)}
+        keys = sorted(set(g0) | set(g))
+        cells = ["%d%s" % (n, pop.LSYM[l]) for n, l in keys]
+        return ([g.get(k, 0) / Ne for k in keys], [g0.get(k, 0) / Z for k in keys], cells,
+                {"calibration": calibration, "unit": "electrons", "x": [g.get(k, 0) for k in keys],
+                 "x0": [g0.get(k, 0) for k in keys], "ground_level": pop.LW1.GROUND[Z][2],
+                 "ion_configuration_status": "RECONSTRUCTED (isoelectronic neutral, populate.ionisation_cells)",
+                 "hypotheses": ["H-ISOELECTRONIC"]})
+    pop = _board_mod("populate")
+    ie, _ = ionisation_ev()
+    stages = [(Z, j) for j in range(Z)]
+    missing = [s for s in stages if s not in ie]
+    if missing:
+        raise KeyError(f"IONISATION needs the full ladder; NOT READ for {len(missing)} stages of Z = {Z}")
+    x0 = [ie[s][0] for s in stages]
+    x = [0.0 if j < q else x0[j] for j in range(Z)]
+    banked = {j + 1: pop.series_limit(Z, j + 1) for j in range(Z)}
+    return ([v / sum(x) for v in x], [v / sum(x0) for v in x0], [f"e{j + 1}" for j in range(Z)],
+            {"calibration": calibration, "unit": "eV", "x": x, "x0": x0,
+             "populate_series_limit_banked": {k: v for k, v in banked.items() if v is not None},
+             "qualities": sorted({ie[s][1] for s in stages}), "hypotheses": ["H-LADDER-CELLS"]})
+
+
+# ---------------------------------------------------------------------------- the centred measures
+
+def rel_entropy(p, p0):
+    """D_s(p || p0) = sum p_i Log(p_i / p0_i), principal branch (H-PRINCIPAL), complex.  0 Log(0/x) = 0.  Returns
+    None where p_i != 0 at p0_i = 0 (BF 1402.3067v2 p.1: the term is infinite) -- absolute continuity fails."""
+    tot = 0j
+    for a, b in zip(p, p0):
+        if a == 0:
+            continue
+        if b == 0:
+            return None
+        r = a / b
+        tot += a * complex(math.log(abs(r)), PI if r < 0 else 0.0)
+    return tot
+
+
+def centred(p, p0):
+    """The two ground-centred candidates, and the identity that relates them (DERIVED, checked here):
+         Re H(p0) - Re H(p) = Re D_s(p||p0) + X,     X = sum (p_i - p0_i) ln|p0_i|   (the cross term).
+    So the entropy deviation dRe H = Re H(p) - Re H(p0) equals -Re D_s exactly when X = 0 (e.g. |p0| constant on
+    the joint support and both totals 1), and otherwise it is NOT a relative entropy."""
+    D = rel_entropy(p, p0)
+    X = sum((a - b) * math.log(abs(b)) for a, b in zip(p, p0) if b != 0)
+    dre = re_h(p) - re_h(p0)
+    return {"D": D, "re_D": None if D is None else D.real, "im_D": None if D is None else D.imag,
+            "D_reverse": rel_entropy(p0, p), "dReH": dre, "cross_X": X,
+            "identity_residual": None if D is None else (re_h(p0) - re_h(p)) - (D.real + X)}
+
+
+def radon_grid(vals, d=None):
+    """The discrete Radon transform on Z_d^2 (d prime; cells laid row-major, zero-padded: H-RADON-PAD) and its exact
+    inverse W(a) = (sum over the d+1 lines through a of P(line) - T) / d, T the total (DERIVED: every other point
+    shares exactly one line with a; the GHW eq.(55) form, p.27, for T = 1).  Returns (line sums, reconstruction,
+    max reconstruction error, min line sum)."""
+    if d is None:
+        d = next(k for k in (2, 3, 5, 7, 11, 13) if k * k >= len(vals))
+    pts = [(i // d, i % d) for i in range(d * d)]
+    W = {pt: (vals[i] if i < len(vals) else 0.0) for i, pt in enumerate(pts)}
+    T = sum(W.values())
+    L = lines(d)
+    P = {(dirn, Lset): sum(W[x] for x in Lset) for dirn, Lset in L}
+    rec = {a: (sum(v for (dirn, Lset), v in P.items() if a in Lset) - T) / d for a in pts}
+    err = max(abs(rec[a] - W[a]) for a in pts)
+    return P, [rec[a] for a in pts][:len(vals)], err, min(P.values())
+
+
+def centred_table(p, p0, cells):
+    """ONE multi-axis table, centred at the ground state: per cell the deviation and the four 'inverses and
+    reflections' M ruled all carried (item 3) -- (1) the log branches of the ratio r = p/p0, (2) the conjugate and
+    the reciprocal (reflection through the ground), (3) the fold to |p|, (4) the Radon inverse -- each 0 / identity
+    at the ground by construction where it is a deviation."""
+    rows = []
+    _, rec_d, err_d, min_d = radon_grid([a - b for a, b in zip(p, p0)])
+    _, rec_p, err_p, min_p = radon_grid(p)
+    for i, (a, b, c) in enumerate(zip(p, p0, cells)):
+        r = None if b == 0 else a / b
+        arg = None if r is None or r == 0 else (PI if r < 0 else 0.0)
+        rows.append({
+            "cell": c, "p": a, "p0": b, "d=p-p0": a - b,
+            "(1) ln|r|": None if not r else math.log(abs(r)), "(1) arg r (principal)": arg,
+            "(1) Im D step per unit k_i": None if r is None else 2 * PI * a,
+            "(2) arg conj": None if arg is None else -arg, "(2) 1/r": None if not r else 1 / r,
+            "(2) -Log r (re)": None if not r else -math.log(abs(r)),
+            "(3) |p|": abs(a), "(3) |p0|": abs(b),
+            "(3) ln(|p|/|p0|)": None if (a == 0 or b == 0) else math.log(abs(a) / abs(b)),
+            "(4) Radon-inverse d": rec_d[i], "(4) Radon-inverse p": rec_p[i]})
+    sa, sb = sum(abs(x) for x in p), sum(abs(x) for x in p0)
+    fold_D = rel_entropy([abs(x) / sa for x in p], [abs(x) / sb for x in p0])
+    return {"rows": rows, "radon_err_d": err_d, "radon_err_p": err_p, "radon_min_line_d": min_d,
+            "radon_min_line_p": min_p, "fold_renormalised_D": None if fold_D is None else fold_D.real,
+            "reflection_D_reverse": rel_entropy(p0, p)}
+
+
+# ---------------------------------------------------------------------------- is it a relative entropy? (tested)
+
+def rand_full_signed(rng, n, N=None):
+    """A random quasi-probability with total 1 and no zero entry (n >= 2)."""
+    return rand_quasi(rng, n, Ntarget=N)
+
+
+def re_axioms(rng, trials=400):
+    """Re D_s tested against relative entropy's properties.  Shannon cases (both non-negative) must pass every one --
+    that is the control set; signed cases are measured, not presumed.
+      R0  D(p||p) = 0                                (definitional: ln 1 = 0; printed STRUCTURAL)
+      R1  Gibbs: D >= 0  (BF Theorem 7's codomain [0, inf], 1402.3067v2 p.11)
+      R2  product additivity  D(p x q || p0 x q0) = D(p||p0) + D(q||q0)
+      R3  data processing under coarse-graining f:  D(f_*p || f_*p0) <= D(p||p0)
+      R4  convex linearity (BF p.3, p.15):  D(lam p (+) (1-lam) q || lam p0 (+) (1-lam) q0) = lam D + (1-lam) D'
+      R5  chain rule (the conditional-expectation law, BF p.26 eq.(5.1) form): D(p||p0) = D(f_*p||f_*p0)
+          + sum_y (f_*p)_y D(p|y || p0|y), block totals non-zero."""
+    out = {}
+    sh_min, sg_min, sg_w = 1e9, 1e9, None
+    for _ in range(trials):
+        n = rng.randint(2, 6)
+        a, b = rand_prob(rng, n), rand_prob(rng, n)
+        sh_min = min(sh_min, rel_entropy(a, b).real)
+        s, t = rand_full_signed(rng, n), rand_full_signed(rng, n)
+        v = rel_entropy(s, t).real
+        if v < sg_min:
+            sg_min, sg_w = v, (s, t)
+    out["R1_shannon_min"] = sh_min
+    out["R1_signed_min"] = sg_min
+    out["R1_signed_witness"] = sg_w
+    out["R1_reference_signed_(0.5,0.5)||(1.5,-0.5)"] = rel_entropy([0.5, 0.5], [1.5, -0.5]).real
+    out["R1_state_signed_(1.5,-0.5)||(0.9,0.1)"] = rel_entropy([1.5, -0.5], [0.9, 0.1]).real
+    r2, r2im, r2c = 0.0, 0.0, 0.0
+    for _ in range(trials):
+        p, p0 = rand_full_signed(rng, 3), rand_full_signed(rng, 3)
+        q, q0 = rand_full_signed(rng, 2), rand_full_signed(rng, 2)
+        lhs = rel_entropy(product(p, q), product(p0, q0))
+        rhs = rel_entropy(p, p0) + rel_entropy(q, q0)
+        r2 = max(r2, abs(lhs.real - rhs.real))
+        r2im = max(r2im, abs(lhs.imag - rhs.imag))
+        q2 = [2 * x for x in q]                                      # control: total 2 breaks Re additivity
+        r2c = max(r2c, abs(rel_entropy(product(p, q2), product(p0, q0)).real - rel_entropy(p, p0).real
+                           - rel_entropy(q2, q0).real))
+    out["R2_re_worst"], out["R2_im_worst"], out["R2_control_total2_worst"] = r2, r2im, r2c
+    sh_viol, sg_viol, sg_wit = 0, 0, None
+    for _ in range(trials):
+        n = rng.randint(3, 6)
+        m = rng.randint(2, n - 1)
+        f = rand_surj(rng, n, m)
+        a, b = rand_prob(rng, n), rand_prob(rng, n)
+        sh_viol += rel_entropy(push(a, f, m), push(b, f, m)).real > rel_entropy(a, b).real + 1e-12
+        s, t = rand_full_signed(rng, n), rand_full_signed(rng, n)
+        ps, pt = push(s, f, m), push(t, f, m)
+        if min(abs(x) for x in ps + pt) < 1e-6:
+            continue
+        if rel_entropy(ps, pt).real > rel_entropy(s, t).real + 1e-12:
+            sg_viol += 1
+            sg_wit = sg_wit or (s, t, f)
+    out["R3_shannon_violations"], out["R3_signed_violations"], out["R3_signed_witness"] = sh_viol, sg_viol, sg_wit
+    r4 = 0.0
+    for _ in range(trials):
+        lam = rng.random()
+        p, p0 = rand_full_signed(rng, 3), rand_full_signed(rng, 3)
+        q, q0 = rand_full_signed(rng, 2), rand_full_signed(rng, 2)
+        lhs = rel_entropy(direct_sum(lam, p, q), direct_sum(lam, p0, q0))
+        rhs = lam * rel_entropy(p, p0) + (1 - lam) * rel_entropy(q, q0)
+        r4 = max(r4, abs(lhs - rhs))
+    out["R4_convex_worst"] = r4
+    r5 = 0.0
+    for _ in range(trials):
+        n = rng.randint(3, 6)
+        m = rng.randint(2, n - 1)
+        f = rand_surj(rng, n, m)
+        s, t = rand_full_signed(rng, n), rand_full_signed(rng, n)
+        ps, pt = push(s, f, m), push(t, f, m)
+        if min(abs(x) for x in ps + pt) < 1e-3:
+            continue
+        cond = 0.0
+        for y in range(m):
+            idx = [i for i in range(n) if f[i] == y]
+            cond += ps[y] * rel_entropy([s[i] / ps[y] for i in idx], [t[i] / pt[y] for i in idx]).real
+        r5 = max(r5, abs(rel_entropy(s, t).real - rel_entropy(ps, pt).real - cond))
+    out["R5_chain_rule_re_worst"] = r5
+    return out
+
+
+def index_centred():
+    """The Method's index under a NAMED ground (no periodic-table numbers exist for it):
+      H-INDEX-GROUND-BOX     the ground is the uniform measure on the full product box (6,912 cells: every coordinate
+                             combination, before closure);
+      H-INDEX-GROUND-LAMBDA  the ground is the uniform measure on Lambda (976 cells; A3's H-UNIFORM).
+    States: the Mobius weighting p and the box-mixture q (H-MOBIUS-WEIGHT), and the uniform measure on Lambda."""
+    import measure
+    import cypher
+    ix = cypher._lambda()
+    shape = tuple(len(a) for a in ix.alphabets)
+    ind = np.zeros(shape)
+    for c in ix.cells:
+        ind[c] = 1.0
+    with contextlib.redirect_stdout(io.StringIO()):
+        lm = lambda_mobius(vectors=True, support_cells=True)
+    box_n = int(np.prod(shape))
+    lam_n = int(ind.sum())
+    supp = lm["support_cells"]
+    in_lambda = sum(1 for c in supp if ind[c] == 1.0)
+    out = {"box": box_n, "lambda": lam_n, "support": len(supp), "support_in_lambda": in_lambda,
+           "support_outside_lambda": len(supp) - in_lambda}
+    for nm, vec in (("mobius_p", lm["p_vector"]), ("box_mixture_q", lm["q_vector"])):
+        D = sum(a * complex(math.log(abs(a) * box_n), PI if a < 0 else 0.0) for a in vec)
+        out[nm] = {"D_vs_box_bits": D.real / LN2, "imD_vs_box": D.imag, "N": neg(vec),
+                   "dReH_vs_box_bits": (re_h(vec) - math.log(box_n)) / LN2,
+                   "cross_X_vs_box": -math.log(box_n) * (sum(vec) - 1.0),
+                   "D_vs_lambda": None if in_lambda < len(supp) else "finite",
+                   "both_weightings": both_on(vec)}
+    out["uniform_lambda_vs_box_bits"] = math.log(box_n / lam_n) / LN2
+    out["A3_closure_bits"] = measure.method_bits()["closure_bits"]
+    return out
+
+
+def centred_applications():
+    """The calibration applied: one element and its ions under the DEFAULT calibration, the alternatives offered on
+    the same ion, and two controls.  Every entry names its calibration."""
+    out = {}
+    for lab, (Z, A, q) in {"Fe-56 ground (element; centre)": (26, 56, 0), "Fe-56 +1 (ion)": (26, 56, 1),
+                           "Fe-56 +26 (bare nucleus)": (26, 56, 26), "C-12 +1 (ion)": (6, 12, 1),
+                           "H-1 +1 (the proton)": (1, 1, 1)}.items():
+        p, p0, cells, info = calibrate(Z, A, q, CAL_DEFAULT)
+        c = centred(p, p0)
+        out[lab] = {"calibration": info["calibration"], "p": p, "p0": p0, "N_p": neg(p), "N_p0": neg(p0),
+                    "case": "SIGNED" if min(p) < 0 else "SHANNON", "B_ground_keV": info["B_ground_keV"],
+                    "B_state_keV": info["B_state_keV"], "sum_IE_keV": info["sum_IE_keV"],
+                    "re_h_p_nats": re_h(p), "re_h_p0_nats": re_h(p0), **{k: c[k] for k in c},
+                    "table": centred_table(p, p0, cells), "both_weightings": both_on(p)}
+    alt = {}
+    for cal in ("GROUND-CONFIG", "IONISATION"):
+        p, p0, cells, info = calibrate(26, 56, 1, cal)
+        alt[cal] = {"calibration": cal, "cells": cells, "N_p": neg(p), **centred(p, p0),
+                    "info": {k: v for k, v in info.items() if k not in ("x", "x0")}}
+    out["alternatives, Fe +1"] = alt
+    p, p0, _, _ = calibrate(26, 54, 0)
+    q, q0, _, _ = calibrate(26, 56, 0)
+    out["CONTROL another ground: Fe-54 ground vs Fe-56 ground"] = centred(p, q0)
     return out
 
 
@@ -1229,6 +1764,23 @@ LITERATURE = [
      "Shannon entropy of finite REAL PROBABILITY distributions is characterised by measurability, symmetry and the "
      "chain rule (Lee 1964); Remark 9.6: symmetry is essential to fundamental-equation approaches (F(pi) = pi also "
      "solves (152))."),
+    ("1402.3067v2", "Baez, Fritz, A Bayesian characterization of relative entropy (M-apply, 2026-10-03)", "READ",
+     "p.1 S(q,p) = sum q ln(q/p), infinite where p = 0 < q, values in [0, inf]; p.2-3 FinStat (finite sets with "
+     "PROBABILITY distributions; stochastic hypotheses s), RE a functor; p.3 lower semicontinuity, convex linearity; "
+     "p.9 Def.6 FP (optimal hypotheses); p.11 Theorem 7: lower semicontinuous, convex linear functors FinStat -> [0, inf] "
+     "vanishing on FP are c RE; p.13 P(X) = distributions in [0,1]; p.15 convex linearity computed; p.26-27 Petz's "
+     "conditional-expectation law (5.1) and its gap.  Proved for probability measures only: nothing is inherited by "
+     "signed ones."),
+    ("2410.15976v5 (re-read)", "Brandenburger, La Mura, Axiom 5' (M-apply, 2026-10-03)", "READ",
+     "p.3 eq.(9): numerator |w(P)| g(H(P)) + |w(Q)| g(H(Q)), denominator |w(P) + w(Q)|; p.4: why |w| (subsystem size) "
+     "and why the summed denominator; p.2 eq.(1); p.4 Theorem 1 (alpha > 0, alpha != 1; alpha = 0 as Hartley); p.10-11 "
+     "Lemmas A.1-A.5 (A.3: affine g excluded by A4 on (1/2,1/2) x (2,-1))."),
+    ("AME2020 Table I (Wang, Huang, Kondev, Audi, Naimi, Chinese Physics C 45, 030003 (2021))", "the atomic mass table",
+     "READ (board capture)", "not on arXiv (alphaXiv discovery search 2026-10-03 found no copy); READ as the board's "
+     "capture extracted/.../captures/AME2020-TableI.tsv from the published PDF M supplied, through gravity.nuclides()."),
+    ("NIST ASD ver. 5.12 (Kramida, Ralchenko, Reader, NIST ASD Team 2024)", "ionisation energies", "READ (board capture)",
+     "IE-neutral-all.tsv (first IE, Z = 1-108) and LADDER-K-Kr.tsv (every charge, Z = 19-36), fetched 2026-08-11; "
+     "not on arXiv."),
     ("Cathelineau, Math. Scand. 63 (1988); Ann. Inst. Fourier 46 (1996)", "the same equation from Hilbert's third "
      "problem / infinitesimal polylogarithms", "NAMED-NOT-READ", "cited math/0008089v1 p.2, 1903.06961v3 p.4."),
     ("Lee, Ann. Math. Stat. 35 (1964); Aczel-Dhombres (1989)", "fundamental equation; Cauchy's equation",
@@ -1325,6 +1877,12 @@ def build():
     with contextlib.redirect_stdout(io.StringIO()):
         R["app_lambda"] = lambda_mobius()
         R["app_lambda_box_control"] = lambda_mobius(control_box=True)
+    # (8)-(9), M-apply (2026-10-03): separate RNG streams, so every earlier number is unchanged
+    R["weightings"] = weightings(random.Random(20261005))
+    R["constants"] = read_constants()
+    R["centred_apps"] = centred_applications()
+    R["index_centred"] = index_centred()
+    R["re_axioms"] = re_axioms(random.Random(20261006))
     R["literature"] = [{"id": a, "title": b, "status": c, "used": d} for a, b, c, d in LITERATURE]
     return R
 
@@ -1405,6 +1963,42 @@ def report(R):
     print("    (b) Bell (measure.BELL):", R["app_bell"])
     print("    (c) Lambda (H-MOBIUS-WEIGHT):", R["app_lambda"])
     print("        box control:", {k: R["app_lambda_box_control"][k] for k in ("N_p", "support", "n_negative")})
+    print("\n(8) both weightings carried (M item 2): the functional each selects, and its axioms (computed)")
+    for k, v in R["weightings"].items():
+        if k == "hartley_alpha0":
+            print(f"    signed Hartley (alpha = 0): A3 {v['A3']}, A4 on (2,-1)x(2,-1) {v['A4_on_(2,-1)x(2,-1)']}")
+            continue
+        a = v["axioms"]
+        print(f"    {k:<16} -> {v['functional']:<24} [{v['selection_status']}]")
+        print(f"        A0 {a['A0_real_on_300_signed']}  A2' {a['A2_max_dev_from_-log2|p|']:.1e}  A3 {a['A3_H((1/2))']:.6f}"
+              f"  A4 {a['A4_extensivity_worst']:.1e}  A5'(|w|) {a['A5_abs_weights_worst']:.2e} ({a['A5_abs_weights_undefined']} undefined)"
+              f"  A5'(w) {a['A5_signed_weights_worst']:.2e} ({a['A5_signed_weights_undefined']} undefined)")
+        print(f"        BFL convex linearity on FinProb, worst {v['BFL_convex_linearity_on_FinProb_worst']:.2e}; "
+              f"crush (1.5,-0.5) loss {v['crush_loss_(1.5,-0.5)_bits']:+.6f} bits")
+    print("\n(9) the ground-state calibration (M items 3, 6): default MASS/BINDING; GROUND-CONFIG and IONISATION selectable")
+    k = R["constants"]
+    print(f"    u = m_p + m_e - I(H) - Delta(1H) = {k['u_keV']:.4f} keV (DERIVED-FROM-READ); CODATA 2018 "
+          f"{k['u_keV_CODATA2018']:.4f} (NAMED-NOT-READ); m_n via AME {k['m_n_via_AME_keV']:.4f} vs PDG {k['m_n_keV']:.4f}")
+    for lab, v in R["centred_apps"].items():
+        if "table" not in v:
+            continue
+        print(f"    [{v['calibration']}] {lab}: case {v['case']}, N {v['N_p']:.9f} (ground {v['N_p0']:.9f}); "
+              f"B {v['B_state_keV']:.4f} keV (ground {v['B_ground_keV']:.4f})")
+        print(f"        Re D(p||p0) {v['re_D']:.6e} nats, Im D {v['im_D']:.3e}; dRe H {v['dReH']:+.6e}; cross X "
+              f"{v['cross_X']:+.6e}; identity residual {v['identity_residual']:.1e}; D(p0||p) "
+              f"{'inf' if v['D_reverse'] is None else '%.6e' % v['D_reverse'].real}")
+        t = v["table"]
+        print(f"        Radon inverse error {t['radon_err_p']:.1e} (p), {t['radon_err_d']:.1e} (d); min line sum of p "
+              f"{t['radon_min_line_p']:+.6f}; folded-renormalised D {t['fold_renormalised_D']}")
+        print(f"        both weightings: {v['both_weightings']}")
+        for r in t["rows"]:
+            print("          " + "  ".join(f"{kk}={('%.6g' % vv) if isinstance(vv, float) else vv}" for kk, vv in r.items()))
+    for cal, v in R["centred_apps"]["alternatives, Fe +1"].items():
+        print(f"    [{cal}] Fe +1: N {v['N_p']}, Re D {v['re_D']:.6e}, dRe H {v['dReH']:+.6e}, X {v['cross_X']:+.6e}; "
+              f"{v['info']}")
+    print(f"    CONTROL another ground (Fe-54 vs Fe-56): {R['centred_apps']['CONTROL another ground: Fe-54 ground vs Fe-56 ground']}")
+    print(f"    The Method's index (H-INDEX-GROUND-BOX / -LAMBDA): {R['index_centred']}")
+    print(f"    is the centred measure a relative entropy? Re D_s against R0-R5: {R['re_axioms']}")
     print("\n(6) literature:")
     for L in R["literature"]:
         print(f"    [{L['status']}] {L['id']}: {L['title']}")
@@ -1630,6 +2224,112 @@ def selftest():
     chk("the Mobius weighting of Lambda is signed (N > 0)", al["N_p"] > 0, f"N_p = {al['N_p']:.4f}")
     ac = R["app_lambda_box_control"]
     chk("a full box has a one-point Mobius weight, N = 0", ac["support"] == 1 and ac["N_p"] == 0, control=True)
+    print("(8) both weightings carried (M item 2)")
+    W = R["weightings"]
+    ws = W["signed w"]["axioms"]
+    chk("signed w -> Re H: A0 real, A2' H((p)) = -log2|p|, A3 = 1, A4 extensive, A5' with SIGNED weights exact",
+        ws["A0_real_on_300_signed"] and ws["A2_max_dev_from_-log2|p|"] < 1e-12 and abs(ws["A3_H((1/2))"] - 1) < 1e-12
+        and ws["A4_extensivity_worst"] < 1e-9 and ws["A5_signed_weights_worst"] < 1e-9,
+        f"A4 {ws['A4_extensivity_worst']:.1e}, A5'(w) {ws['A5_signed_weights_worst']:.1e}")
+    chk("Re H FAILS A5' with |w| weights (BLM's eq.(9), READ p.3)", ws["A5_abs_weights_worst"] > 1e-2,
+        f"worst {ws['A5_abs_weights_worst']:.3f}", control=True)
+    for a in WEIGHTING_ALPHAS:
+        wa = W[f"|w|, alpha = {a}"]["axioms"]
+        chk(f"|w| -> signed Renyi H_{a}: A0, A2', A3, A4 and A5' with |w| weights exact (tests the reading of eq.(9))",
+            wa["A0_real_on_300_signed"] and wa["A2_max_dev_from_-log2|p|"] < 1e-12 and abs(wa["A3_H((1/2))"] - 1) < 1e-12
+            and wa["A4_extensivity_worst"] < 1e-9 and wa["A5_abs_weights_worst"] < 1e-9 and wa["A5_abs_weights_undefined"] == 0,
+            f"A5'(|w|) {wa['A5_abs_weights_worst']:.1e}")
+        chk(f"signed Renyi H_{a} FAILS A5' with signed weights (residual or undefined g^-1)",
+            wa["A5_signed_weights_worst"] > 1e-2 or wa["A5_signed_weights_undefined"] > 0,
+            f"worst {wa['A5_signed_weights_worst']:.3f}, undefined {wa['A5_signed_weights_undefined']}", control=True)
+        chk(f"on probability measures H_{a} is not BFL's Shannon: it fails BFL convex linearity",
+            W[f"|w|, alpha = {a}"]["BFL_convex_linearity_on_FinProb_worst"] > 1e-2,
+            f"{W[f'|w|, alpha = {a}']['BFL_convex_linearity_on_FinProb_worst']:.3f}")
+    chk("Re H (BLM-normalised) keeps BFL convex linearity on FinProb", W["signed w"]["BFL_convex_linearity_on_FinProb_worst"]
+        < 1e-12, f"{W['signed w']['BFL_convex_linearity_on_FinProb_worst']:.1e}")
+    chk("signed Hartley (alpha = 0): A3 = 1 and A4 on (2,-1)x(2,-1) = 0", abs(W["hartley_alpha0"]["A3"] - 1) < 1e-12 and
+        abs(W["hartley_alpha0"]["A4_on_(2,-1)x(2,-1)"]) < 1e-12)
+
+    print("(9) the ground-state calibration (M items 3, 6)")
+    k = R["constants"]
+    chk("u derived from READ values (m_p + m_e - I(H) - Delta(1H)) agrees with CODATA 2018 within 2 eV (PDG rounds m_p to 1 eV)",
+        abs(k["u_keV"] - k["u_keV_CODATA2018"]) < 2e-3, f"{(k['u_keV'] - k['u_keV_CODATA2018']) * 1e3:+.3f} eV")
+    chk("m_n by two READ routes (PDG; u + Delta(n) from AME) agrees within 2 eV", abs(k["m_n_via_AME_keV"] - k["m_n_keV"]) < 2e-3,
+        f"{(k['m_n_via_AME_keV'] - k['m_n_keV']) * 1e3:+.3f} eV")
+    ie, first = ionisation_ev()
+    chk("NIST: Fe I's IE in the ladder capture equals the neutral-row capture", abs(ie[(26, 0)][0] - first[26][0]) < 1e-6,
+        f"{ie[(26, 0)][0]} vs {first[26][0]} eV")
+    A = R["centred_apps"]
+    fe0, fe1, fe26 = A["Fe-56 ground (element; centre)"], A["Fe-56 +1 (ion)"], A["Fe-56 +26 (bare nucleus)"]
+    gr = _board_mod("gravity")
+    b_ame = 26 * k["Delta_1H_keV"] + 30 * k["Delta_n_keV"] - mass_excess_keV(26, 56)[0]
+    chk("Fe-56: B by the four-cell route = AME's B (Z Delta_H + N Delta_n - Delta) + Z I(H), within N x 2 eV",
+        abs(fe0["B_ground_keV"] - b_ame - 26 * k["I_H_eV"] / 1000) < 30 * 2e-3,
+        f"{fe0['B_ground_keV']:.4f} vs {b_ame + 26 * k['I_H_eV'] / 1000:.4f} keV")
+    chk("each weighting totals 1 (B is defined as the shortfall)", all(abs(sum(v["p"]) - 1) < 1e-12 and abs(sum(v["p0"]) - 1)
+        < 1e-12 for v in A.values() if "p" in v), structural=True)
+    chk("H-1 ground: B = I(H) exactly (u was defined through M(1H))", abs(A["H-1 +1 (the proton)"]["B_ground_keV"] -
+        k["I_H_eV"] / 1000) < 1e-9, structural=True)
+    chk("the element's ground is a quasi-probability: exactly one negative cell, the binding (Fe-56, C-12)",
+        fe0["case"] == "SIGNED" and sum(1 for x in fe0["p0"] if x < 0) == 1 and fe0["p0"][3] < 0
+        and A["C-12 +1 (ion)"]["p0"][3] < 0, f"N(Fe-56) = {fe0['N_p0']:.9f}")
+    chk("the proton (H-1 +1) carries no binding: case SHANNON, N = 0", A["H-1 +1 (the proton)"]["case"] == "SHANNON")
+    chk("at the ground, D(p0||p0) = 0, dRe H = 0, every deviation 0 (the required value at p = p0)",
+        fe0["re_D"] == 0 and fe0["im_D"] == 0 and fe0["dReH"] == 0 and all(r["d=p-p0"] == 0 for r in fe0["table"]["rows"]),
+        "ln(x/x) = 0 by definition", structural=True)
+    ctl = A["CONTROL another ground: Fe-54 ground vs Fe-56 ground"]
+    chk("CONTROL: a different ground (Fe-54's state against Fe-56's ground) gives D != 0", ctl["re_D"] > 1e-6,
+        f"{ctl['re_D']:.3e} nats", control=True)
+    apps = [v for v in A.values() if "table" in v]
+    chk("the identity Re H(p0) - Re H(p) = Re D + X holds on every application (DERIVED, checked)",
+        all(abs(v["identity_residual"]) < 1e-12 for v in apps), f"max {max(abs(v['identity_residual']) for v in apps):.1e}")
+    chk("TEST: the ground-centred entropy deviation is NOT a relative entropy -- for Fe +1, dRe H != -Re D (X != 0)",
+        abs(fe1["dReH"] + fe1["re_D"]) > 1e-6 and abs(fe1["cross_X"]) > 1e-6,
+        f"dRe H {fe1['dReH']:+.3e} vs -Re D {-fe1['re_D']:+.3e}; X {fe1['cross_X']:+.3e}")
+    chk("Fe +1 and Fe +26 (MASS/BINDING): D(p||p0) > 0, signs agree cell by cell (Im D = 0), binding falls by sum IE",
+        fe1["re_D"] > 0 and fe26["re_D"] > fe1["re_D"] and fe1["im_D"] == 0 and fe26["im_D"] == 0 and
+        abs(fe0["B_ground_keV"] - fe1["B_state_keV"] - fe1["sum_IE_keV"]) < 1e-6,  # keV; float floor ~5e-9 at M ~ 5e7 keV
+        f"Re D {fe1['re_D']:.3e} / {fe26['re_D']:.3e} nats")
+    chk("Radon inverse on Z_2^2 recovers every cell and every deviation exactly", all(v["table"]["radon_err_p"] < 1e-14 and
+        v["table"]["radon_err_d"] < 1e-14 for v in apps))
+    chk("but the positive-projection triangulation does not hold for H-MASS-CELLS: a line sum of the ground is negative",
+        fe0["table"]["radon_min_line_p"] < 0, f"min {fe0['table']['radon_min_line_p']:+.6f}")
+    alt = A["alternatives, Fe +1"]
+    chk("alternatives selectable: GROUND-CONFIG and IONISATION give non-negative weights (Shannon case), finite D",
+        all(v["N_p"] == 0 and v["re_D"] is not None and v["re_D"] > 0 for v in alt.values()),
+        f"{ {c: round(v['re_D'], 6) for c, v in alt.items()} }")
+    chk("populate.series_limit banks no stage of Fe (reported, not filled in)", alt["IONISATION"]["info"]
+        ["populate_series_limit_banked"] == {})
+    refused = []
+    for args in ((6, 12, 0, "IONISATION"), (6, 12, 2, "MASS/BINDING")):
+        try:
+            calibrate(args[0], args[1], args[2], args[3])
+        except KeyError:
+            refused.append(args)
+    chk("an unread value is not filled in: C's full ladder and C II's IE are NOT READ, and both calls refuse",
+        len(refused) == 2, str(refused), control=True)
+    ix = R["index_centred"]
+    chk("index, H-INDEX-GROUND-BOX: dRe H = -Re D exactly (X = 0: |p0| constant, both totals 1); Re D = log2 6912 for the Mobius p",
+        abs(ix["mobius_p"]["dReH_vs_box_bits"] + ix["mobius_p"]["D_vs_box_bits"]) < 1e-9 and
+        abs(ix["mobius_p"]["D_vs_box_bits"] - math.log2(6912)) < 1e-9, f"{ix['mobius_p']['D_vs_box_bits']:.6f} bits")
+    chk("index, H-INDEX-GROUND-LAMBDA: D is infinite -- 288 of the Mobius weight's 317 cells lie outside Lambda",
+        ix["support_outside_lambda"] == 288 and ix["mobius_p"]["D_vs_lambda"] is None, f"{ix['support_in_lambda']} inside")
+    chk("D(uniform Lambda || uniform box) = A3's closure bits log2(6912/976)", abs(ix["uniform_lambda_vs_box_bits"] -
+        ix["A3_closure_bits"]) < 1e-12, f"{ix['uniform_lambda_vs_box_bits']:.6f}")
+    ra = R["re_axioms"]
+    chk("R1 Gibbs: Shannon pairs D >= 0 (control set)", ra["R1_shannon_min"] >= 0, f"min {ra['R1_shannon_min']:.2e}")
+    chk("R1 Gibbs FAILS on signed pairs, with the reference signed and with the state signed",
+        ra["R1_signed_min"] < 0 and ra["R1_reference_signed_(0.5,0.5)||(1.5,-0.5)"] < 0 and
+        ra["R1_state_signed_(1.5,-0.5)||(0.9,0.1)"] < 0, f"{ra['R1_reference_signed_(0.5,0.5)||(1.5,-0.5)']:.4f}, "
+        f"{ra['R1_state_signed_(1.5,-0.5)||(0.9,0.1)']:.4f}")
+    chk("R2 product additivity holds for Re D_s (totals 1)", ra["R2_re_worst"] < 1e-9, f"{ra['R2_re_worst']:.1e}")
+    chk("R2 CONTROL: a factor of total 2 breaks it", ra["R2_control_total2_worst"] > 1e-3, control=True)
+    chk("R2 does NOT hold for Im D_s (sign mismatches do not factor)", ra["R2_im_worst"] > 1e-3, f"{ra['R2_im_worst']:.3f}")
+    chk("R3 data processing: 0 Shannon violations; signed violations found", ra["R3_shannon_violations"] == 0 and
+        ra["R3_signed_violations"] > 0, f"signed {ra['R3_signed_violations']}")
+    chk("R4 convex linearity (BF p.3) holds for D_s, Re and Im", ra["R4_convex_worst"] < 1e-9, f"{ra['R4_convex_worst']:.1e}")
+    chk("R5 chain rule (conditional-expectation law) holds for Re D_s", ra["R5_chain_rule_re_worst"] < 1e-9,
+        f"{ra['R5_chain_rule_re_worst']:.1e}")
     n_ctrl = sum(1 for r in res if r[2])
     n_struct = sum(1 for r in res if r[3])
     n_fail = sum(1 for r in res if not r[1])

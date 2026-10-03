@@ -22,6 +22,18 @@ a control. *Wave 1 first said* 47 checks, 13 controls.
   free resource, so the route's figure is **≤ 1 pair per teleported qubit, with its minimum OPEN**. O-LOOP is
   reintroduced. *Wave 3 first said* "at 1 pair per teleported qubit (four axes ...)", which read as the route's count.
 
+## M-apply (2026-10-03): M's rulings, and V3's residuals sited here
+
+M's answers (`M-RULINGS-2026-10-03.md`, carried verbatim into CHARTER.md's last section) are rulings and are applied as
+worded.
+
+| item | resolution |
+|---|---|
+| M item 5: O-MATTER is relocated to **O-SEAT, "supply at the seat"** ("Yes, from the seat") | **Applied as a relabel, no grade moves.** Every O-MATTER entry in this file was LEAVES ("says nothing about the seat"), and it stays LEAVES read as O-SEAT: H-FRAME supplies nothing at the seat. What the seat must supply, and the board's prices for it (S13 OPEN, priced; S10 REFUSED), are stated once, in A3-measure.md § (viii), not repeated here. `frame.py` is unchanged: its keys still read "O-MATTER" so that `combine.py`'s imports stay comparable. |
+| V3 problem 1 (support 2's field figure, 1.465 vs 1.4306) | Not sited here: this file carries no /s field figure. A2's support-2 premise H-FIELD-W2 already gives the computed range max‖H‖T ≈ 1.43-1.56, and A1 § 1b names which construction gives 1.465 (the four-axis `w2_ancilla_flow`). |
+| V3 problem 2 (numbering) | The item numbers in this file's re-verification tables are **1-based**; `V2-0.json` and `V2-1.json` store 0-based arrays, so "V2-0 problem 7" here is `V2-0.json` `problems[6]` (the D-CTC "exact" item). Each row also cites its item by site text. |
+| V3 problem 3 (M's rule both ways) | The window is A1's (support 1); `settle.window_given` now flags every open window ADMISSIBLE GIVEN W_W2. In this file's W2 × F1 row the window column already names "the NAMED-NOT-READ values"; read it as: an open window there is **admissible given** those values, flagged, not settled. |
+
 ## Wave 4 repair (R3-alone, 2026-10-03): the second pair of re-verifications
 
 V2-0 (AGAINST M) and V2-1 (FOR M), `wave1/REPAIR2-Q1S-RESULT.json` key `result.verify`. Wave 3's forms are kept,
@@ -288,7 +300,7 @@ timing condition. The row is the one complementary pair found here, and it is **
 | O-BITS | LEAVES (computed) | LEAVES | **REMOVED-IF {a CTC at Bob, H-DCTC, C2, H-DCTC-SELECT}**: four axes, 1 pair per qubit (zero-error, computed); unbounded per BHW p.4 if CTC qubits are free -- route figure ≤ 1, minimum OPEN; O-LOOP reintroduced. *Wave 3 first said* "1 pair per teleported qubit (four axes ...)"; *wave 2 first said* "LEAVES; a channel needs H-SETTLE under C2" |
 | O-MAKE | LEAVES, and closes the "with a CTC" escape in Geroch's compact case (board grade, not re-read) | LEAVES | **NOT-BOUND-IF {2b's CTC; Geroch-compact case only}**; Tipler's non-compact case still binds; traded for O-LOOP. *Wave 2 first said* "OPEN (a CTC reopens the Geroch clause)" |
 | O-HOLD | LEAVES | LEAVES | LEAVES |
-| O-MATTER | LEAVES | LEAVES | LEAVES |
+| O-MATTER (read as O-SEAT, M item 5) | LEAVES | LEAVES | LEAVES |
 | O-LOOP | **REMOVED-IF** {H-CORRIDOR-MODEL, H-KEYING} in the model (a keyed network); in exact flat FRW the corridor removal is the **geometry's**, REMOVED-IF {H-FRW-EXACT, H-NOT-DE-SITTER, H-CORRIDOR-MODEL}, credited to no hypothesis (not in exact de Sitter); for signals, REMOVED-IF {N_SIGKEY}; under ITB + N_QTOPO, corridor O-LOOP NOT-BOUND-IF {N_QTOPO} | no loop | **REINTRODUCES** in the model for every T > 0, if corridors are its route (H-2B-VIA-CORRIDOR). Deutsch/Novikov make the loop consistent, not absent; Hawking's conjecture would forbid it (OPEN); M-S1A-P3 disqualifies it at the seat. |
 
 For M's thesis:

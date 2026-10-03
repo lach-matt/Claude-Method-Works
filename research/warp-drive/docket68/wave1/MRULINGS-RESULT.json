@@ -1,0 +1,349 @@
+{
+  "summary": "DOCKET 68: apply M's 2026-10-03 rulings (H-INFO-SHAPE, both weightings, four reflections, ground-state calibration) and the last residuals; re-screen; verify both ways",
+  "agentCount": 4,
+  "logs": [],
+  "result": {
+    "a": {
+      "id": "M-apply",
+      "files": [
+        "/home/user/Claude-Method-Works/research/warp-drive/docket68/CHARTER.md",
+        "/home/user/Claude-Method-Works/research/warp-drive/docket68/signed.py",
+        "/home/user/Claude-Method-Works/research/warp-drive/docket68/measure.py",
+        "/home/user/Claude-Method-Works/research/warp-drive/docket68/settle.py",
+        "/home/user/Claude-Method-Works/research/warp-drive/docket68/A1-settle.md",
+        "/home/user/Claude-Method-Works/research/warp-drive/docket68/A2-frame.md",
+        "/home/user/Claude-Method-Works/research/warp-drive/docket68/A3-measure.md",
+        "/home/user/Claude-Method-Works/research/warp-drive/docket68/A4-geometry.md",
+        "/home/user/Claude-Method-Works/research/warp-drive/docket68/Q1s-signed.md",
+        "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d68/M-apply.json",
+        "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d68/A1-settle.json",
+        "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d68/A2-frame.json",
+        "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d68/A3-measure.json",
+        "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d68/A4-geometry.json",
+        "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d68/Q1s-build.json"
+      ],
+      "done": [
+        "CHARTER.md: added a new section at the end carrying M-RULINGS-2026-10-03.md's six items, with M's words quoted verbatim. Nothing earlier was changed: the first 344 lines diff clean against the backup.",
+        "(1) H-INFO-SHAPE is graded in measure.py (GRADES, info_shape_screen, seat_supply, O_SEAT_TEXT) and in A3 section (viii), next to H-INFO-S, which is kept as history and as the alternative reading. O-MATTER is RELOCATED to O-SEAT, not removed. O-SEAT is graded against LEDGER rows S10 and S13, read from LEDGER.md at runtime, with DOCKET 65's massform/excite imported and nothing copied. A drift guard checks that the O-SEAT prose matches the instruments.",
+        "(2) Both weightings are carried in signed.py section (8) and Q1s section 9. Signed w gives Re H; |w| gives signed Renyi, computed at alpha = 0.5 and 2, plus Hartley at alpha = 0. Every Brandenburger-La Mura axiom (0, 2', 3, 4, 5') is computed under both weightings. BLM 2410.15976v5 was re-READ for the exact form of eq.(9).",
+        "(3) The ground-state calibration is implemented as signed.calibrate. Default is MASS/BINDING (H-MASS-CELLS): the state's mass is split over protons, electrons, neutrons and the binding, and the binding comes out as a negative weight. Inputs: AME2020 Table I via the board capture (gravity.nuclides), PDG masses via massform, and NIST IE captures. u is derived from READ values. GROUND-CONFIG (LW1-ground via populate) and IONISATION (NIST ladder, with populate.series_limit consulted) are selectable, and every use names its calibration. One multi-axis table, centred at the ground state, carries all four inverses/reflections: log branches of p/p0, conjugate and reciprocal, fold to |p|, Radon inverse. Whether the centred measure is a relative entropy is TESTED in re_axioms and centred(). Applied to the element Fe-56, the ions Fe+1, Fe+26 and C-12+1, the proton, and The Method's index under H-INDEX-GROUND-BOX and H-INDEX-GROUND-LAMBDA.",
+        "(4) V3 residuals: problem 3 is applied both ways in settle.window_given (checks G26-G30) and in A1, with a note in A2. Problem 2: the 1-based numbering convention is stated in A1, A2, A3 and Q1s. Problem 1 is in B-combine, not in my files; this is noted in A1 and A2.",
+        "Read at alphaXiv: Baez-Fritz 1402.3067v2 (relative entropy characterisation). An alphaXiv search found no arXiv copy of AME2020, so the board capture is the READ, and this is reported. No 403 was met."
+      ],
+      "results": [
+        "H-INFO-SHAPE: LEAVES-ALL. z3 under the named H-SHAPE-ENCODING: H-INFO-S & B-RECV is UNSAT (clash (d) reproduced). H-INFO-SHAPE & B-RECV is SAT, so the clash is dissolved by relocation. 'O-SEAT removed' and 'O-SEAT left' are both SAT. With S10 refused, removing O-SEAT without S13's supply shown is UNSAT. Controls: dropping DEF-MATTER removes the clash, and un-refusing S10 frees O-SEAT.",
+        "O-SEAT is LEFT. The seat must supply the payload's substance itself (its baryons and leptons as elements), in a holder with at least 2^I distinguishable states and at least the Bekenstein floor of 33-379 J at R = 1 m.",
+        "O-SEAT routes: S10 is REFUSED on all six readings. S13 is OPEN and priced at eps = 1/100, but it only restores Higgs-given mass to templates already at the seat and forms no baryons. It restores electrons 3.010e-6 of the payload (exact) and nucleons about 1.716e-3 (first-order estimate). Price: a prepared source of 1.930e44 J/m^3 holding 9.80e41 J/m^3 of field, 197.0 J per J (exactly 39204/199), 2.148e27 kg/m^3 of Higgs-derived mass. It is stable only below eps = 0.4226 and needs a prior arrival at <= c (D23). So at least 0.998 of the payload must already be at the seat. S12's pair floor is 1.2567e19 J for 70 kg. S5, reconstruction from stock, survives.",
+        "Weightings: Re H passes A5' with signed weights (5.7e-14), fails it with |w| (27.9), and keeps BFL convex linearity on probability measures. Signed Renyi passes A5' with |w| (2.7e-15, which confirms the reading of eq.(9)), fails it with signed weights, and fails BFL convex linearity on probability measures (0.264 at alpha 0.5, 0.403 at alpha 2). Nothing computed separates the two, so both stay carried.",
+        "Calibration inputs: u = m_p + m_e - I(H) - Delta(1H) = 931494.1033 keV, against CODATA 2018 (NAMED-NOT-READ) 931494.1024 keV, a difference of +0.875 eV. m_n by the AME route differs from PDG by -0.607 eV. Fe-56 B = 492260.32 keV.",
+        "TESTED: D_s(p||p0) is zero at p = p0 (STRUCTURAL; control: Fe-54 against Fe-56 gives 5.989e-4 nats). Re D_s HOLDS product additivity, convex linearity and the chain rule. It FAILS Gibbs non-negativity (-0.549306 with a signed reference, -0.038481 with a signed state) and data processing (172 violations). Im D_s is not additive.",
+        "The ground-centred entropy deviation dRe H = Re H(p) - Re H(p0) is NOT a relative entropy unless the cross term X = sum (p - p0) ln|p0| vanishes. The identity Re H(p0) - Re H(p) = Re D + X holds to a residual of 8.8e-17 or less. For Fe+1: dRe H = -7.501e-5 against -Re D = -1.910e-7.",
+        "Applications (Re D_s in nats, MASS/BINDING unless named): Fe-56+1 1.910e-7; Fe-56+26 2.550e-4; C-12+1 4.040e-6; the proton (Shannon case) 5.445e-4; Fe+1 under GROUND-CONFIG 2.756e-3; Fe+1 under IONISATION 2.283e-4. The Radon inverse is exact on Z_2^2, but a line sum of Fe-56's ground is negative (-0.009193), so M's triangulation from positive values does not hold for this object.",
+        "Method's index: with Lambda as the ground, D is infinite, because 288 of the Mobius weight's 317 support cells lie outside Lambda. With the full box as the ground, Re D = log2 6912 = 12.754888 bits and dRe H = -Re D exactly (X = 0). D(uniform Lambda || uniform box) = 2.824150 bits, which equals A3's closure bits.",
+        "V3 problem 3: of the 12 support-1 cells, 8 are now ADMISSIBLE GIVEN W_W2 (flagged, not settled) and 4 are EMPTY GIVEN W_W2, so OPEN. Context only, not evidence: closing the 1 ly N=7 window needs a bound 655.2x (reading A) or 327.6x (reading B) tighter; closing 1 AU N=1e6 needs 7.16x or 3.58x. No verdict moves."
+      ],
+      "open": [
+        "Which mean-value weighting is lawful for The Method: both are carried, as M ruled, and nothing computed separates them. Both rest on H-RD, which is NAMED-NOT-READ.",
+        "Which ground-state quantity a given question should use beyond the default MASS/BINDING. M: 'depending on the question being asks or the object of study'.",
+        "Lower semicontinuity of D_s, and any characterisation of a signed relative entropy: Baez-Fritz covers probability distributions only.",
+        "O-SEAT remains an obstruction until the seat's supply is shown. On the board, S13's finite nucleon response and H-RELEASE (what becomes of the source) are OPEN.",
+        "H-ISOELECTRONIC (the GROUND-CONFIG ion configuration) is RECONSTRUCTED, not READ. populate.series_limit banks no stage of Fe.",
+        "Whether the Mobius support lying outside Lambda bears on register 66 is not adjudicated here; tools/orderideal.py is the instrument for that.",
+        "The Weinberg-family bound values are still NAMED-NOT-READ (Majumder, Walsworth) or OPEN (Bollinger, Chupp-Hoare), so every open window is admissible only given them.",
+        "Whether any H-IT reading turns H-INFO-SHAPE's 'shape' into geometry at the seat: not computed, and no READ source."
+      ],
+      "selftests": [
+        "signed.py --selftest: 113/113 counted checks pass, 24 controls, 12 STRUCTURAL not counted, 0 SKIPPED, exit 0. Wave 4 first said 77/77, 18 controls, 9 STRUCTURAL.",
+        "measure.py --selftest: 85/85 counted pass, 21 controls, 14 STRUCTURAL, 99 checks in all, exit 0. Wave 4 first said 73/73, 19 controls, 13 STRUCTURAL, 86 in all.",
+        "settle.py --selftest: 67/67 pass, 7 STRUCTURAL, 11 controls, counted 60/60, exit 0. Wave 4 first said 62/62, 6 STRUCTURAL, 10 controls, 56/56.",
+        "frame.py --selftest: ALL PASS, 61 checks, 16 controls, 1 STRUCTURAL, exit 0 (file unchanged).",
+        "geometry.py --selftest: 48 checks, 11 controls, ALL PASS, exit 0 (file unchanged).",
+        "combine.py --selftest: 90/90 pass, 18 controls, 6 STRUCTURAL not counted, 367 s, exit 0."
+      ],
+      "problems": [
+        "frame.py and geometry.py were not edited. Their O-MATTER keys are kept so combine.py's imports stay comparable; the relocation to O-SEAT is recorded in A2 and A4 as a relabel, and every entry there was and stays LEAVES.",
+        "combine.py's own screen still encodes INFOS (H-INFO-S), not H-INFO-SHAPE. Re-screening clash (d) under H-INFO-SHAPE inside combine belongs to combine's stage; the 7-atom screen in measure.py mirrors combine's DEF-MATTER under the named H-SHAPE-ENCODING.",
+        "Two V3 items are in files outside my set and were not applied here: problem 1 (B-combine's field figure from hT = 1.465 instead of 1.4306) and the combine half of problem 3 (the B-EPSWIN z3 flag).",
+        "AME2020 was READ only as the board's capture of the published table, because no arXiv copy was found. The CODATA u is NAMED-NOT-READ and used as a cross-check only.",
+        "No 403 was met. Nothing was committed, pushed, stashed, reset or checked out."
+      ]
+    },
+    "b": {
+      "id": "M-combine",
+      "files": [
+        "/home/user/Claude-Method-Works/research/warp-drive/docket68/combine.py",
+        "/home/user/Claude-Method-Works/research/warp-drive/docket68/B-combine.md",
+        "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d68/B-combine.json",
+        "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d68/B-combine.variants.json",
+        "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d68/B-table.md",
+        "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d68/B-report.txt",
+        "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d68/m-combine-selftest.txt",
+        "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d68/M-combine.json",
+        "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d68/mk_b5.py",
+        "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d68/mcombine-backup/"
+      ],
+      "done": [
+        "H-INFO-SHAPE is now an H-INFO reading (SHAPE, M's words verbatim). It is screened in every combination: (4*4*4*4*2*2*2-1)*4+3 = 8,191 variants (wave 4 first said 6,143). Its commitment C-SHAPE (SHAPE => RECV) follows measure.py's H-SHAPE-ENCODING.",
+        "INFOS is kept as the alternative reading. Its clash with B-RECV is recorded as history ('M ruled 2026-10-03') in the vocabulary, the B-RECV ground, rule 2, the clash table, the findings and section 12.",
+        "O-MATTER is replaced by O-SEAT. DEF-SEAT: O-SEAT is removed iff S10 or S13 supplies the substance. B-S10 records LEDGER S10 REFUSED (massform, six readings). B-S13 records LEDGER S13 'forms no baryons'. Both rest on H-C3, which is named. Drift rule P10 compares an A-report's O-MATTER text with O-SEAT. A3's H-INFO-SHAPE grade is read from measure.GRADES and tagged with that source.",
+        "No obstruction is removed by assertion. CONTROLS show O-SEAT becomes removable when B-S10 or B-S13 is dropped. The H-SEAT-S12 alternative (adopted nowhere) would read OPEN via N_S12; it is printed STRUCTURAL.",
+        "V3 problem 1: the support-2 field figure is now given per member, each with its own max||H||T, under both H-MAP-W2 readings. A new GROUND check recomputes it from independent constants.",
+        "V3 problem 2: the 1-based convention is stated. Wave-4 section-0 tables are marked as printing the 0-based JSON index, and each row's site text is the reference.",
+        "V3 problem 3: every N_EPS support at an open-window cell carries the flag 'ADMISSIBLE GIVEN W_W2 (flagged, not settled)'. It is a flag, not a premise, so no verdict moves. A GROUND check against settle.window_given agrees in all 12 rows.",
+        "Three checks that cannot fail are now STRUCTURAL: O-SEAT's survival, the S12 alternative, and wave 4's DEF-MATTER under the O-SEAT atom.",
+        "The selftest, report, JSON and table were re-run on the final code. B-combine.md has a new answer (member-attributed first) and a new wave-5 section 0. Wave 4's answer and section 0 are kept verbatim as history, sections 1-12 are updated, section 6 is regenerated, and 'wave 4 first said' is kept throughout."
+      ],
+      "results": [
+        "Member-attributed removals: at most ONE per consistent variant and account, always O-BITS. That is 2,592 variants at 1 ly, N=7 and 864 of 1,152 consistent W2 variants at 1 AU (wave 4 first said 1,728 and 576 of 768). Every maximum and smallest variant is unchanged. Counts are x3/2 because SHAPE adds a third consistent H-INFO reading and moves no verdict.",
+        "W2 x F1 (JOINT) has two supports. (1) REMOVED-IF {W2,F1; N_EPS}: at 1 ly N=7 and 1 AU N=1e6 it is ADMISSIBLE GIVEN W_W2, flagged, not settled. Majumder and Walsworth are NAMED-NOT-READ; Bollinger and Chupp-Hoare are OPEN. Closing the window would need a bound 655x/328x tighter at 1 ly and 7.16x/3.58x at 1 AU N=1e6 (context, not evidence). At 1 AU N=7 and 1e3 it is OPEN via N_WREAD. (2) REMOVED-IF {W2,F1; N_W2ANC}: zero-error, 2/(log2 d - 1) pairs per teleported qubit, window UNEVALUATED.",
+        "Support-2 field figure: the four-axis member (max||H||T 1.4654) needs 4.643e-8 /s at 1 ly and 2.937e-3 /s at 1 AU, which would be 123x/246x eps_max IF H-MAP-W2 held. Across the members (1.43-1.56) the 1 AU figure is 2.87e-3 to 3.12e-3 /s, i.e. 120-131x (A) and 240-261x (B). Wave 4 first said '1.465 c/L, 4.5e-8, 2.9e-3, 120x'. No verdict moves.",
+        "Clause 2b's D-CTC: REMOVED-IF {F2b; N_DCTC} at any distance, with O-LOOP reintroduced. The route needs <= 1 pair per qubit; its minimum is OPEN.",
+        "NOT-BOUND-IF (not removals): O-MAKE-TOPO, O-HOLD and the corridor form of O-LOOP under ITB + N_QTOPO (or ITB+RI+N_MEASPHYS). Removed with no member: corridor O-LOOP by FRW {N_CORR, N_FRW}, and signal O-LOOP by N_SIGKEY.",
+        "Clash (d) under H-INFO-SHAPE: SHAPE & B-RECV is SAT, SHAPE enters no core, and the difference census finds SHAPE inert. The clash is dissolved by relocation, not removed. INFOS & B-RECV stays UNSAT in all 2,048 INFOS variants (the alternative reading, recorded as history).",
+        "Survivors: O-SEAT is LEFT in all 5,759 consistent variants and all 1,152 consistent W2 variants at 1 AU. S10 is refused as a supply; S13 forms no baryons; at least 0.998 of the payload must already be at the seat; both rest on H-C3. This is STRUCTURAL because the refusals are bare. O-MAKE-DIST is OPEN via N_VAC.",
+        "Screen: 8,191 variants, 5,759 consistent, 2,432 inconsistent (INFOS 2,048, W2+ITE 512, overlap 128). JOINT: 288 variants at 1 ly and 288 at 1 AU. Drift: 172/173 agree; the one difference is A2's vocabulary, explained. All three mutated encodings are caught. Load-bearing: 13/13."
+      ],
+      "open": [
+        "O-SEAT stays an obstruction until the seat's supply is shown. S13's nucleon response and H-RELEASE are OPEN on the board. Whether S12 counts as a supply at the seat (H-SEAT-S12) is not ruled.",
+        "Weinberg-family values are NAMED-NOT-READ or OPEN. Support 1 is OPEN at 1 AU N<=1e3, and only admissible GIVEN W_W2 where its window is open.",
+        "Support 2's window is unevaluated; H-EXTEND is derived, not computed; H-MAP-W2 is adopted nowhere.",
+        "Whether any H-IT reading turns H-INFO-SHAPE's 'shape' into geometry at the seat: not computed, no READ source.",
+        "H-CORES-AS-SCREENED: the clash cores are re-enumerated under SHAPE but not re-derived from the board holdings.",
+        "Still OPEN: the rest of E-WIN (not screened), the D-CTC route's minimum, H-KR-TS, and N_QTOPO, N_MEASPHYS, N_H12W, N_ILFREE (no READ source)."
+      ],
+      "selftests": [
+        "PYTHONDONTWRITEBYTECODE=1 python3 combine.py --selftest -> 97/97 pass, 20 controls, 10 STRUCTURAL not counted, 348 s, exit 0. Wave 4 first said 90/90, 18 controls, 6 STRUCTURAL.",
+        "python3 combine.py --json B-combine.variants.json --table B-table.md > B-report.txt -> exit 0.",
+        "python3 mk_b5.py -> B-combine.json written (wave 5, 26 grades)."
+      ],
+      "problems": [
+        "A3-measure.json has no H-INFO-SHAPE grade row, so combine reads it from measure.GRADES and tags the source. A3's JSON is not this stage's file.",
+        "measure.info_shape_screen leaves S13 free, so it finds O-SEAT removed and left both satisfiable. Combine encodes LEDGER S13's 'forms no baryons' and gets LEFT, which is M-apply's grade. B records this as a difference in how much of the board each screen encodes, not in the verdict.",
+        "Most O-SEAT facts cannot fail because the refusals are bare. They are printed STRUCTURAL, and only the controls carry content.",
+        "No source was READ this stage and no 403 was met. Nothing was committed, pushed, stashed, reset or checked out, and no other agent's files were edited."
+      ]
+    },
+    "verify": [
+      {
+        "lens": "AGAINST M: overstatement. Questions asked: was anything granted by assertion, including in the calibration and in the relocation of O-MATTER? Were the rulings applied exactly as worded? Every docket68 selftest was run, and the calibrated measure was re-derived independently for Fe-56 (mpmath, inputs read directly from the capture TSVs). Report: /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d68/V4-0.json",
+        "unresolved": [
+          "Whether S5 (reconstruction from stock at the seat) counts as the seat's supply under H-INFO-SHAPE was not computed. By the S12 analogy it would make O-SEAT OPEN via N_S5 rather than LEFT. M ruled the two tests (S13, S10), not the full set of routes.",
+          "The 0.37 eV of the u-against-CODATA-2018 difference that rounding does not explain is OPEN. A later CODATA adjustment is a candidate but was not READ.",
+          "S13's finite (non-first-order) nucleon response is OPEN on the board, so the mass share that must already be at the seat (about 0.998) is not bounded.",
+          "Whether BFL convex linearity on FinProb binds The Method, which would separate the two weightings, is M's to rule.",
+          "V4-0 READ no external source and met no 403. Nothing was committed, pushed, stashed, reset or checked out. The only file written is V4-0.json."
+        ],
+        "problems": [
+          {
+            "site": "measure.py:1407-1412 (section (viii) z3 checks, counted); A3-measure.md section (viii) and GRADES['H-INFO-SHAPE'] reading",
+            "wrong": "Four counted z3 checks cannot fail once the encoding is fixed. 'H-INFO-SHAPE & B-RECV SAT' follows from the counted vacuity check 'SHAPE alone sat', because the encoding contains SHAPE => RECV (enumerated: every SHAPE model has RECV). In every model rmSEAT is identical to S13, so 'removed/left both SAT' and 'removed without S13 UNSAT' hold by construction (the bare refusal S10 = False). 'SHAPE & O-MATTER removed UNSAT' is two constraints chained. combine.py prints the same content (O-SEAT's survival under bare refusals) STRUCTURAL. The dissolution is presented as something z3 found, when it is M's ruling encoded as SHAPE => RECV.",
+            "correct": "Print these STRUCTURAL and do not count them, which takes measure from 85 to about 81 counted. The controls (drop DEF-MATTER; un-refuse S10) keep the content. Credit the dissolution to M's ruling under H-SHAPE-ENCODING; z3 shows only that the encoding is consistent.",
+            "moves_grade": false
+          },
+          {
+            "site": "combine.py:1285-1286 and :2635 ('CONTENT clash (d) under M's ruling', counted)",
+            "wrong": "The check is the conjunction of scr.sat(scr.lits({'SHAPE'})), the same query as the SHAPE entry of each_single_reading_sat (:1242), already counted as VACUITY at :2621, and not scr.sat(scr.lits({'INFOS'})), the same as INFOS_alone_unsat (:1243), already in the RESULT census at :2673. It is double-counted, and a vacuity query is labelled content.",
+            "correct": "Drop it or print it STRUCTURAL, so combine counts 96/96. State that the dissolution is M's ruling under C-SHAPE, with RECV already forced by the board (board_alone_forces_recv). The informative half is the existing INFOS-without-B-RECV control.",
+            "moves_grade": false
+          },
+          {
+            "site": "measure.py:930 O_SEAT_TEXT; A3-measure.md section (viii); combine.py:549 B-S13 text; M-apply results line 3; measure.py:1390 check 'restores under 1%'",
+            "wrong": "'At least 0.998 of the payload must already be at the seat' is a bound derived from the nucleon figure 1.716e-3, which the same sentence calls 'first order, an estimate, not a bound' (H-LINEAR; LEDGER S10: 'none a bound'; S13's finite response OPEN). The counted check at :1390 also treats the estimate as an upper bound.",
+            "correct": "Exact: S13 forms no baryons, so every baryon must already be at the seat (C3, under H-C3). The mass share already there is about 0.998 at first order (H-LINEAR), an estimate; as a bound it is OPEN, or admissible given H-LINEAR, flagged. 'S13 is not a supply' rests on 'forms no baryons', so no grade moves.",
+            "moves_grade": false
+          },
+          {
+            "site": "combine.py:583-587 DEF-SEAT (O-SEAT removed iff S10SUP or S13SUP); measure.py:932-933; A3 section (viii) row S5; B-combine survivors 'O-SEAT LEFT in all 5,759'",
+            "wrong": "No hypothesis names the restriction of supply routes to {S10, S13}. S5, reconstruction from stock at the seat (LEDGER OPEN; RECONSTRUCTION_SURVIVES True), is the route nearest to M's 'Yes, from the seat'. It is printed uncredited and never computed as an alternative, while S12 gets H-SEAT-S12 and reads 'OPEN via N_S12'. So 'LEFT in every variant' depends on an unnamed premise; M named two tests, not the only routes.",
+            "correct": "Name H-SEAT-ROUTES = {S10, S13} (M's two named tests) and compute H-SEAT-S5 as an alternative. By the S12 analogy it would read OPEN via N_S5. The adopted grade stays 'LEFT given H-SEAT-ROUTES', which agrees with M's 'stays an obstruction until the seat's supply is shown'.",
+            "moves_grade": false
+          },
+          {
+            "site": "Q1s-signed.md:477-478 ('the periodic table's real numbers give a quasi-probability with no further choice'); signed.py:1334 ('read straight off the periodic table'); signed.py:2272 label 'the element's ground'; M-apply 'the element Fe-56'",
+            "wrong": "The calibration is granted by assertion. AME2020 Table I nuclide masses are not the periodic table, which carries standard atomic weights of isotope mixtures. B is DERIVED-FROM-READ in a free-constituent basis that differs from AME's own convention by 371.8 eV for Fe-56 (computed). 'No further choice' contradicts the paragraph's own H-MASS-CELLS. Using one nuclide (Fe-56) for 'the element' is named nowhere. The ruling gloss says 'a signed weight is a deviation from the ground state (H-ZERO)', yet H-MASS-CELLS makes the ground itself signed; the two sources of sign are not named.",
+            "correct": "Say 'from READ nuclide masses (AME2020), PDG masses and NIST IEs, under H-MASS-CELLS'. Name H-NUCLIDE: one nuclide stands for the element, and the standard atomic weight is not used. Write 'nuclide Fe-56'. Name both sign sources (a signed ground; a signed deviation d = p - p0). No number changes.",
+            "moves_grade": false
+          },
+          {
+            "site": "Q1s-signed.md:487 ('+0.875 eV, within PDG's 1 eV rounding of m_p'); signed.py:2254-2256 (tolerance 2 eV)",
+            "wrong": "Rounding of a value quoted to 1 eV is at most 0.5 eV, and the other inputs add about 0.01 eV. The computed +0.8754 eV exceeds that budget, so rounding of m_p does not explain it. The check passes with a 2 eV tolerance, four times the budget its label cites.",
+            "correct": "Report +0.875 eV against a rounding budget of about 0.51 eV, leaving about 0.37 eV unexplained (OPEN; a CODATA-edition difference is a candidate but NAMED-NOT-READ). Tighten the tolerance or reword the label. No grade depends on it.",
+            "moves_grade": false
+          },
+          {
+            "site": "signed.py:2262-2264 (counted 'Fe-56 B = AME's B + Z I(H) within N x 2 eV'); signed.py:2271 (counted 'the proton carries no binding: SHANNON')",
+            "wrong": "Both are algebraic identities, given that u is defined through M(1H). B_4cell - B_AME - Z I(H) = 30 x 0.6074 eV = 18.2 eV exactly, which is the m_n check (:2257) times N, counted again. The proton's binding is exactly 0 by definition, yet it is counted, while the sibling 'H-1 ground B = I(H)' is printed STRUCTURAL.",
+            "correct": "Print both STRUCTURAL, taking signed.py from 113 to 111 counted, or report the Fe-56 line as '30 x the m_n discrepancy (identity)'.",
+            "moves_grade": false
+          },
+          {
+            "site": "M-apply results line 4 and Q1s-signed.md section 9 ('nothing computed here separates them') against the same section's 'the two branches part company already [on probability measures]'",
+            "wrong": "This understates. A computation separates the branches conditionally: only signed w agrees with Q-1's delivered BFL Shannon measure on probability measures, and signed Renyi fails BFL convex linearity there (0.264, 0.403). The condition is unnamed, and the sentence claims no separation.",
+            "correct": "Say 'separated conditionally: if BFL convex linearity on FinProb binds The Method (H-BFL-BINDS), only signed w survives; whether it binds is M's'. Both stay carried, as M ruled.",
+            "moves_grade": false
+          }
+        ],
+        "reproduced": [
+          "Selftests, all exit 0. signed.py: 113/113 counted, 24 controls, 12 STRUCTURAL, 0 SKIPPED. measure.py: 85/85 counted, 21 controls, 14 STRUCTURAL, 99 in all. settle.py: 67/67, 7 STRUCTURAL, 11 controls, counted 60/60. frame.py: ALL PASS, 61 checks, 16 controls, 1 STRUCTURAL. geometry.py: 48 checks, 11 controls, ALL PASS. combine.py: 97/97, 20 controls, 10 STRUCTURAL; 1457 s under shared load, against M-combine's 348 s.",
+          "Fe-56 under MASS/BINDING, re-derived independently from AME2020-TableI.tsv, PDG-2026.tsv and the NIST captures: u = 931494.103293 keV; B_ground = 492260.3223 keV; p0 = (0.468208068, 0.000254994, 0.540984757, -0.009447819); Re H(p0) = 0.931580 bits. Fe+1: Re D_s 1.910245e-7, dRe H -7.500786e-5, X +7.481684e-5. Fe+26: 2.550266e-4. C-12+1: 4.039989e-6. Fe-54 against Fe-56: 5.989323e-4. B falls by sum IE = 34.61932 keV. All match Q1s section 10.",
+          "AME's own convention gives Fe-56 B = 492259.9506 keV (8790.3563 keV per nucleon). The four-cell B exceeds it by 371.8 eV = Z I(H) 353.6 eV + 30 x 0.6074 eV 18.2 eV.",
+          "M's six answers are verbatim in CHARTER.md and M-RULINGS. Every full or partial quote in signed.py, measure.py, combine.py, A2, A3, A4, Q1s and B-combine is exact (whitespace and wrap normalised).",
+          "CHARTER.md is append-only against HEAD (one hunk, @@ -344,0 +345,31 @@). Item 4 is applied: index3.py:47, 51, 426, 436 and 460 each say 'its -1 on Y is not a bound'. frame.py and geometry.py are unmodified.",
+          "Variant arithmetic: 8191 = (2048-1)*4+3, against wave 4's 6143 = (1536-1)*4+3. The x3/2 scaling holds (1728 to 2592, 576 to 864, 768 to 1152).",
+          "Brute-force enumeration of measure.info_shape_screen's base (8 models) reproduces every z3 verdict.",
+          "The Fe-56 ground's Radon line sum of -0.0091929 does not depend on layout: on Z_2^2 every pair of points is a line."
+        ]
+      },
+      {
+        "lens": "FOR M: understatement, including whether the rulings were applied exactly as M worded them and any fair reading not taken. All six docket68 selftests run. MASS/BINDING calibration re-derived for Fe-56 (and Fe+1, Fe+26, C-12+1, H+) from the raw TSV captures, independently of signed.py. Report: /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d68/V4-1.json",
+        "unresolved": [
+          "GROUND-CONFIG Fe+1 = 2.756e-3 rests on H-ISOELECTRONIC (Fe+ given Mn's 3d5 4s2), which is RECONSTRUCTED and correctly named. No observed Fe II configuration is held in the repo. If the NIST Fe II ground 3d6 4s (NAMED-NOT-READ here) held, the value would be 0.96 ln(26/25) + 0.04 ln(0.52) = 1.149e-2, about 4.2x larger. This is a sensitivity only; the NIST value was not READ.",
+          "The O-SEAT grade under the S5/D25 reading is computed here only as a cell assignment from the board flags (massform.RECONSTRUCTION_SURVIVES True; LEDGER S5 and D25 OPEN). Combine's z3 screen was not re-run with an S5 supply atom, so the variant counts under that reading are OPEN.",
+          "'H+ (the Shannon case)': p = (1,0,0,0) is a probability, but p0 carries the -13.6 eV binding weight, so the reference is signed. The label is loose; the value 5.4445e-4 = ln(M(1H)/m_p) is correct.",
+          "No source was READ this pass and no 403 was met. Nothing was committed, pushed, stashed, reset or checked out."
+        ],
+        "problems": [
+          {
+            "site": "A3-measure.md section (viii) (~357-371, 'O-SEAT is LEFT ... exactly as M's ruling states'); measure.py O_SEAT_TEXT (~920-934) and info_shape_screen (rmSEAT <-> (S10 or S13), ~889); combine.py DEF-SEAT; B-combine.md:1050-1051 E-SEAT ('S5 ... needs the stock already at the seat (D23), so it is not a supply'); B results 'O-SEAT is LEFT in all 5,759 consistent variants'",
+            "wrong": "O-SEAT's removal is tested only against S10 and S13, and the board's own supply-from-the-seat route is excluded. massform.py:3142 defines RECONSTRUCTION_SURVIVES = (not transit.CARRIES_SUBSTANCE) and bool(stockgate.GATE): H-INFO-SHAPE's premise plus destination stock. massform's S5 note says 'reconstruction from destination stock survives M's mechanism'. LEDGER S5 (reconstruction route, specification not mass) and D25 (destination stock gate) are both OPEN and priced. A3 lists S5 as 'OPEN; survives' but gives no reason for leaving it out of the grade. B's reason, 'needs stock already at the seat, so it is not a supply', inverts M's 'Yes, from the seat' and cites D23 (the first trip, a channel constraint) where the stock condition is D25. M's quoted words are only 'Yes, from the seat'. The S10/S13 restriction and 'stays an obstruction until shown' are the record's carrying, yet A3 says LEFT is 'exactly as M's ruling states'.",
+            "correct": "Take the fair reading and name the choice. Under M's 'Yes, from the seat' with S5/D25, O-SEAT reads OPEN: REMOVED-IF {H-INFO-SHAPE; S5 reconstruction from stock, D25 stock gate}, with S5's price not re-derivable and D25 OPEN. That follows M's rule that an unchecked value makes a cell OPEN in both directions; it is not LEFT. If the S10/S13-only test is kept, it must be a NAMED hypothesis in A3 and measure.py (as combine's E-SEAT is), with B's citation corrected from D23 to D25 and its reason from 'not a supply' to 'excluded by choice'. A3 should not attribute the restriction to M's quoted words. D23 still binds S5's channel (O-BITS), not its substance.",
+            "moves_grade": true
+          },
+          {
+            "site": "signed.py calibrate()/mass_cells() and its NAMED HYPOTHESES block (~70-125); Q1s-signed.md section 10; CHARTER.md appended item 6; M-RULINGS item 6 record 'each element's mass / binding ground'",
+            "wrong": "M: 'ground state values given in real numbers from the periodic table'. The implementation centres each element on one nuclide (MASS/BINDING requires A; Fe uses Fe-56). That isotope choice is a limitation and is not a NAMED hypothesis. The periodic table's real number for an element is its standard atomic weight, and the board holds it (stock.ATOMIC_MASS: Fe 55.845). measure.py already uses that mass for the 70 kg body, so docket68 uses two different 'element' masses without saying so.",
+            "correct": "Name the choice (e.g. H-NUCLIDE-GROUND: an element's ground is one nuclide, its most abundant, from AME2020). Carry the periodic-table reading (isotope-averaged standard atomic weight, non-integer mean N) as the alternative, after giving stock.ATOMIC_MASS's status. No verdict moves.",
+            "moves_grade": false
+          },
+          {
+            "site": "M-apply results 'Fe-56 B = 492260.32 keV'; signed.calibrate info B_ground_keV; H-MASS-CELLS 'B the shortfall'",
+            "wrong": "The printed B is not AME2020's binding energy. Under H-MASS-CELLS it is Z m_p + Z m_e + N m_n(PDG) - M_atom, i.e. nuclear plus electronic binding. AME's own convention, computed from the same READ table, is Z Delta(1H) + N Delta(n) - Delta = 492259.951 keV (B/A 8790.356). The +0.372 keV difference (= Z*I(H) + N*0.607 eV) is not stated. The record's 'READ ... binding energies' does not hold, because the binding is DERIVED-FROM-READ.",
+            "correct": "Label it 'B (H-MASS-CELLS shortfall: nuclear + electronic, PDG m_n)', status DERIVED-FROM-READ, and print AME's-convention 492259.95 keV beside it with the +0.372 keV difference.",
+            "moves_grade": false
+          },
+          {
+            "site": "CHARTER.md appended item 6; signed.CALIBRATIONS; M-RULINGS item 6 record 'ground configurations, ionisation energies, or populate.py's axes'",
+            "wrong": "M: 'could work for any of the other options'. Of the three options the record lists, populate.py's axes are not carried as a selectable calibration (series_limit is only consulted inside IONISATION). The omission appears in no 'open' list, and the charter's item-6 line drops it silently.",
+            "correct": "Carry a POPULATE-AXES calibration, or list it as OPEN ('populate.py's axes as a calibration: not implemented') in signed.py's hypotheses, Q1s section 10 and the charter's application line.",
+            "moves_grade": false
+          }
+        ],
+        "reproduced": [
+          "Selftests (PYTHONDONTWRITEBYTECODE=1). signed.py: 113/113 counted, 24 controls, 12 STRUCTURAL, 0 SKIPPED, exit 0. measure.py: 85/85, 21 controls, 14 STRUCTURAL, 99 in all, exit 0. settle.py: 67/67, 7 STRUCTURAL, 11 controls, counted 60/60, exit 0. frame.py: ALL PASS, 61 checks, 16 controls, 1 STRUCTURAL, exit 0. geometry.py: 48 checks, 11 controls, ALL PASS, exit 0. combine.py: 97/97, 20 controls, 10 STRUCTURAL, 451 s, exit 0. A first run each of frame and combine hit my own timeouts under machine load (exit 124); those are not failures. Every reported count is reproduced.",
+          "Fe-56 MASS/BINDING, independent (mpmath at 40 digits, raw AME2020-TableI.tsv, PDG-2026.tsv and NIST IE TSVs only): u = 931494.1033 keV (+0.8755 eV vs CODATA via gravity.U_KG); m_n(AME) - m_n(PDG) = -0.607 eV; M(56Fe) = 52103062.6244 keV; B = 492260.3223 keV; p0 = (0.468208068, 0.000254994, 0.540984757, -0.009447819). Fe+1: Re D 1.910245e-7, dRe H -7.500786e-5, X 7.481684e-5, identity residual about 1e-41. Fe+26: Re D 2.550266e-4. C-12+1: 4.039989e-6. H+: 5.444543e-4. All match M-apply.",
+          "Fe+1 GROUND-CONFIG by hand: 0.8 ln(26/25) + 0.2 ln(26/30) = 2.7564e-3, matching.",
+          "Ruling 4 holds, though M-apply's report does not mention it. All five OPEN_AT_NULL_HELD rows in index3.py (NOT-CERTIFIED, AXIAL-TERM, SELF-CONSISTENT-OPEN, EXACT-ORDER-OPEN, UNPROVEN-LOAD) read (0,-1,0) and carry 'OPEN-AT-NULL-HELD' and 'is not a bound'. index3.py is unchanged.",
+          "CHARTER.md diff is one additions-only hunk after line 344 (@@ -344,0 +345,31 @@). M's quoted words match M-RULINGS verbatim there and at measure.py:990, combine.py:38, A3-measure.md:47/332 and B-combine.md:89/123/444/1035.",
+          "Ruling 2 is applied as worded. Q1s section 9 carries both weightings with their axioms, reports the BFL convex-linearity difference (Re H 1.8e-15 holds; Renyi fails 0.264/0.403), and leaves the choice to M. No understatement there."
+        ]
+      }
+    ]
+  },
+  "workflowProgress": [
+    {
+      "type": "workflow_phase",
+      "index": 1,
+      "title": "Apply"
+    },
+    {
+      "type": "workflow_phase",
+      "index": 2,
+      "title": "Rescreen"
+    },
+    {
+      "type": "workflow_phase",
+      "index": 3,
+      "title": "Verify"
+    },
+    {
+      "type": "workflow_agent",
+      "index": 1,
+      "label": "M-apply",
+      "phaseIndex": 1,
+      "phaseTitle": "Apply",
+      "agentId": "a215b58e7f7584cd3",
+      "model": "claude-opus-5-5",
+      "state": "done",
+      "startedAt": 1791062945962,
+      "queuedAt": 1791062945929,
+      "attempt": 1,
+      "lastToolName": "StructuredOutput",
+      "lastToolSummary": "M-apply",
+      "promptPreview": "DOCKET 68, M's warp-drive research tree. Read /home/user/Claude-Method-Works/research/warp-drive/docket68/CHARTER.md, /home/user/Claude-Method-Works/research/warp-drive/docket68/M-RULINGS-2026-10-03.md (M's answers, verbatim --\nthese are RULINGS, applied exactly as M worded them), and /home/user/Claude-Method-Works/research/warp-drive/docket68/wave1/REPAIR3-RESULT.json key result.v (the reproducti…",
+      "promptFramed": true,
+      "lastProgressAt": 1791065542033,
+      "tokens": 451728,
+      "toolCalls": 79,
+      "durationMs": 2596071,
+      "resultPreview": "{\"id\":\"M-apply\",\"files\":[\"/home/user/Claude-Method-Works/research/warp-drive/docket68/CHARTER.md\",\"/home/user/Claude-Method-Works/research/warp-drive/docket68/signed.py\",\"/home/user/Claude-Method-Works/research/warp-drive/docket68/measure.py\",\"/home/user/Claude-Method-Works/research/warp-drive/docket68/settle.py\",\"/home/user/Claude-Method-Works/research/warp-drive/docket68/A1-settle.md\",\"/home/use…"
+    },
+    {
+      "type": "workflow_agent",
+      "index": 2,
+      "label": "M-combine",
+      "phaseIndex": 2,
+      "phaseTitle": "Rescreen",
+      "agentId": "a793811b012856e46",
+      "model": "claude-opus-5-5",
+      "state": "done",
+      "startedAt": 1791065545327,
+      "queuedAt": 1791065545321,
+      "attempt": 1,
+      "lastToolName": "StructuredOutput",
+      "lastToolSummary": "M-combine",
+      "promptPreview": "DOCKET 68, M's warp-drive research tree. Read /home/user/Claude-Method-Works/research/warp-drive/docket68/CHARTER.md, /home/user/Claude-Method-Works/research/warp-drive/docket68/M-RULINGS-2026-10-03.md (M's answers, verbatim --\nthese are RULINGS, applied exactly as M worded them), and /home/user/Claude-Method-Works/research/warp-drive/docket68/wave1/REPAIR3-RESULT.json key result.v (the reproducti…",
+      "promptFramed": true,
+      "lastProgressAt": 1791067324409,
+      "tokens": 393096,
+      "toolCalls": 84,
+      "durationMs": 1779081,
+      "resultPreview": "{\"id\":\"M-combine\",\"files\":[\"/home/user/Claude-Method-Works/research/warp-drive/docket68/combine.py\",\"/home/user/Claude-Method-Works/research/warp-drive/docket68/B-combine.md\",\"/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d68/B-combine.json\",\"/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d68/B-combine.var…"
+    },
+    {
+      "type": "workflow_agent",
+      "index": 3,
+      "label": "verify4-0",
+      "phaseIndex": 3,
+      "phaseTitle": "Verify",
+      "agentId": "a960ed0f1bd69596b",
+      "model": "claude-opus-5-5",
+      "state": "done",
+      "startedAt": 1791067327710,
+      "queuedAt": 1791067327657,
+      "attempt": 1,
+      "lastToolName": "StructuredOutput",
+      "lastToolSummary": "AGAINST M: overstatement. Questions asked: was anything gra…",
+      "promptPreview": "DOCKET 68, M's warp-drive research tree. Read /home/user/Claude-Method-Works/research/warp-drive/docket68/CHARTER.md, /home/user/Claude-Method-Works/research/warp-drive/docket68/M-RULINGS-2026-10-03.md (M's answers, verbatim --\nthese are RULINGS, applied exactly as M worded them), and /home/user/Claude-Method-Works/research/warp-drive/docket68/wave1/REPAIR3-RESULT.json key result.v (the reproducti…",
+      "promptFramed": true,
+      "lastProgressAt": 1791069887303,
+      "tokens": 201056,
+      "toolCalls": 52,
+      "durationMs": 2559590,
+      "resultPreview": "{\"lens\":\"AGAINST M: overstatement. Questions asked: was anything granted by assertion, including in the calibration and in the relocation of O-MATTER? Were the rulings applied exactly as worded? Every docket68 selftest was run, and the calibrated measure was re-derived independently for Fe-56 (mpmath, inputs read directly from the capture TSVs). Report: /tmp/claude-0/-home-user-Claude-Method-Works…"
+    },
+    {
+      "type": "workflow_agent",
+      "index": 4,
+      "label": "verify4-1",
+      "phaseIndex": 3,
+      "phaseTitle": "Verify",
+      "agentId": "a66979ae72321d260",
+      "model": "claude-opus-5-5",
+      "state": "done",
+      "startedAt": 1791067327713,
+      "queuedAt": 1791067327657,
+      "attempt": 1,
+      "lastToolName": "StructuredOutput",
+      "lastToolSummary": "FOR M: understatement, including whether the rulings were a…",
+      "promptPreview": "DOCKET 68, M's warp-drive research tree. Read /home/user/Claude-Method-Works/research/warp-drive/docket68/CHARTER.md, /home/user/Claude-Method-Works/research/warp-drive/docket68/M-RULINGS-2026-10-03.md (M's answers, verbatim --\nthese are RULINGS, applied exactly as M worded them), and /home/user/Claude-Method-Works/research/warp-drive/docket68/wave1/REPAIR3-RESULT.json key result.v (the reproducti…",
+      "promptFramed": true,
+      "lastProgressAt": 1791070020636,
+      "tokens": 164262,
+      "toolCalls": 45,
+      "durationMs": 2687922,
+      "resultPreview": "{\"lens\":\"FOR M: understatement, including whether the rulings were applied exactly as M worded them and any fair reading not taken. All six docket68 selftests run. MASS/BINDING calibration re-derived for Fe-56 (and Fe+1, Fe+26, C-12+1, H+) from the raw TSV captures, independently of signed.py. Report: /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d68/…"
+    }
+  ],
+  "totalTokens": 1210142,
+  "totalToolCalls": 260
+}

@@ -2,9 +2,10 @@
 
 Instrument: `signed.py` (stdlib + numpy + sympy; z3-solver for § 4b, pip-installed and not vendored -- without it
 the six z3 obligations are printed SKIPPED and not counted). `python3 signed.py` prints every table below as data;
-`--selftest` runs **86 checks: 77 counted, all pass, 18 of them controls (cases built to fail, which do fail); 9 more
-are printed STRUCTURAL** (they cannot fail, so they are neither counted nor cited as evidence); `--json` gives the
-numbers. *Wave 4 first-said record:* "66 checks, 0 failed: 13 controls ... 2 STRUCTURAL"; wave 4 (R3-alone) added 20
+`--selftest` runs **125 checks: 113 counted, all pass, 24 of them controls (cases built to fail, which do fail); 12
+more are printed STRUCTURAL** (they cannot fail, so they are neither counted nor cited as evidence); `--json` gives the
+numbers. *M-apply first-said record:* "86 checks: 77 counted ... 18 ... controls ...; 9 more ... STRUCTURAL"; M-apply
+added §§ 9-10 (39 checks: 6 controls, 3 STRUCTURAL). *Wave 4 first-said record:* "66 checks, 0 failed: 13 controls ... 2 STRUCTURAL"; wave 4 (R3-alone) added 20
 checks for § 4b-4c and relabelled five STRUCTURAL (V2-0 problem 5 and the same test applied to the rest). Nothing here edits `measure.py`
 (A3) or the board. `measure.py` and `tools/cypher.py` are **imported, never copied**.
 
@@ -367,6 +368,8 @@ M's triangulation is that principle. What `signed.py` adds is the computation an
 | quant-ph/0511044v2 Lvovsky, Raymer (review) | Smithey 1993 (p.3); projections (p.6); FBP (p.7); ripples and MaxLik (p.9); single-photon negativity (pp.17–18) |
 | 1106.1791v3 Baez, Fritz, Leinster | FinProb with non-negative measures (p.3); Theorem 2 and its continuity (p.4); Faddeev with I ≥ 0 (pp.7–8) |
 | math/0008089v1 Elbaz-Vincent, Gangl; appendix by Kontsevich (wave 4) | (A), (B), (C) proved for H_p on ℤ/p (p.42); the CLAIM of a unique continuous solution on ℝ, H_∞ = Re H on (x, 1−x), with a cohomological sketch (p.43); chain rule for probabilities and the reduction to two values (p.44); differentiable case "well-known" (p.10); Aczél–Dhombres on ]0, 1[ (pp.10–11); Cathelineau (p.2) |
+| 1402.3067v2 Baez, Fritz (M-apply) | relative entropy S(q,p) and its infinities (p.1); FinStat over probability distributions (pp.2-3, 13); Theorem 7 (p.11); convex linearity (pp.3, 15); Petz's conditional-expectation law and its gap (pp.26-27) |
+| 2410.15976v5 Brandenburger, La Mura, re-read (M-apply) | Axiom 5′ eq. (9) with \|w\| and the summed denominator, and the reason given (pp.3-4); Theorem 1 (p.4); Lemmas A.1-A.5 (pp.10-11) |
 | 1903.06961v3 Leinster (wave 4) | builds on Kontsevich (pp.1–4); mod-p probabilities summing to zero (p.8); real reduction to two elements (p.26); real Shannon characterised by measurability, symmetry and chain rule, and symmetry essential to the fundamental-equation approach (p.27, Rem. 9.6) |
 
 NAMED-NOT-READ: Smithey et al. PRL 70, 1244 (1993); Wootters, Ann. Phys. 176, 1 (1987); Rényi 1961 and Daróczy 1963
@@ -436,8 +439,143 @@ reproduces § 7(c) through `q1`. No A3 grade moves; the reasons are in A3-measur
 `lambda_mobius` gained one keyword, `vectors=True`, which returns the two normalised weightings as lists. Nothing else
 here changed, and the selftest count is unchanged.
 
+## 9. Both weightings carried (M-apply, 2026-10-03; M item 2)
+
+M, verbatim: "Carry both (Recommended)". Brandenburger–La Mura's Axiom 5′ (2410.15976v5 p.3 eq. (9), **re-READ this
+pass**) is H(P ∪ Q) = g⁻¹[(|w(P)| g(H(P)) + |w(Q)| g(H(Q))) / |w(P) + w(Q)|]; p.4 gives their reason: |w| is "the
+physically meaningful measure of the size of a signed subsystem", and the summed denominator keeps cancellation. The
+signed-weight variant puts w(P), w(Q) and w(P) + w(Q) in those places. **Both are carried; neither is preferred here.**
+Every entry below is COMPUTED by `signed.weightings` (300 random signed measures and splits per axiom; BLM
+normalisation, base 2):
+
+| weighting | functional it selects | how the selection is known | A0 real | A2′ H((p)) = −log₂\|p\| | A3 H((½)) | A4 extensive | A5′ with \|w\| | A5′ with signed w | BFL convex linearity on FinProb | crush (1.5, −0.5) → point |
+|---|---|---|---|---|---|---|---|---|---|---|
+| **signed w** | **Re H** (affine g) | DERIVED-CONDITIONAL (§ 4(d); H-RD carried) | holds | 4.4e-16 | 1 | 3.2e-12 | **fails** (27.9) | **holds** (5.7e-14) | **holds** (1.8e-15): on probabilities it is Shannon | −1.377444 bits: BFL's codomain fails |
+| **\|w\|**, α = 0.5 | **signed Rényi H₀.₅** (exponential g) | READ (BLM Theorem 1, p.4; proof pp.10–11 carries H-RD) | holds | 4.4e-16 | 1 | 2.0e-13 | **holds** (2.7e-15) | **fails** (11.4; g⁻¹ undefined on 22 of 300) | **fails** (0.264): on probabilities it is Rényi-½, not Shannon | +1.899969 bits (codomain kept on this morphism; not tested further) |
+| **\|w\|**, α = 2 | **signed Rényi H₂** | READ (as above) | holds | 2.2e-16 | 1 | 5.3e-15 | **holds** (2.7e-15) | **fails** (4.05; undefined on 14) | **fails** (0.403) | −1.321928 bits: codomain fails |
+| \|w\|, α = 0 | signed Hartley (BLM's limit, p.4, eq. (A.18)) | READ | — | — | 1 | 0 on (2, −1)×(2, −1) | — | — | — | — |
+
+What this settles and what it does not:
+- The A5′(|w|) column for signed Rényi is a **test of the reading of eq. (9)**: had the denominator been |w(P)| + |w(Q)|,
+  it would fail. It holds to 2.7e-15, so the reading is the paper's.
+- **The fork is real and exact**: each weighting is satisfied by its own functional and violated by the other's.
+  On probability measures the two branches part company already: under signed w Q-1's Shannon case (BFL's Theorem 2)
+  is recovered; under |w| it is not, since signed Rényi fails BFL convex linearity there.
+- Both carry H-RD (the Rényi–Daróczy step is NAMED-NOT-READ). **Which is lawful for The Method stays M's** (OPEN 3);
+  M has ruled that both are carried until a computation or M separates them, and nothing computed here separates them.
+- Values on the applications (§ 10): for Fe-56's ground under MASS/BINDING, Re H = 0.931580, H₀.₅ = 1.232607,
+  H₂ = 0.965861 bits; for the Möbius weighting of Λ, Re H = 0, H₀.₅ = 16.617, H₂ = −8.308 bits.
+
+## 10. The ground-state calibration and the four inverses and reflections (M-apply; M items 3 and 6)
+
+M, verbatim: "All of the above. Remember that the center begins at the ground state values given in real numbers from
+the periodic table. That is the calibration"; and "Mass/ binding. But could work for any of the other options depending
+on the question being asks or the object of study". **H-READING-M is answered**: all four readings are carried.
+
+**The default calibration, MASS/BINDING** (`signed.calibrate`; named hypothesis **H-MASS-CELLS**). A state of an atom or
+ion (Z, A, charge q) is written over four cells, protons Z m_p, electrons (Z − q) m_e, neutrons N m_n, and the binding
+−B, each divided by the state's mass M. B is the shortfall, so the weights total 1 exactly (STRUCTURAL), and **the
+binding is a negative weight**: the periodic table's real numbers give a quasi-probability with no further choice. The
+**ground** is the neutral atom in its ground state; a state's signed weight is its deviation from it, d = p − p₀, and
+in log space ln(p/p₀), which is 0 at the ground. Every number is READ on the board or derived from READ numbers:
+
+| quantity | source | status |
+|---|---|---|
+| mass excesses Δ | AME2020 Table I, the board's capture (`gravity.nuclides`, imported) from the published table M supplied | READ (board capture). **No arXiv copy of AME2020 was found** (alphaXiv discovery search, 2026-10-03), so the arXiv route is closed and reported |
+| m_p, m_n, m_e | PDG-2026 capture via `massform.MASS_MEV` (imported) | READ |
+| ionisation energies | NIST ASD captures `IE-neutral-all.tsv` (first IE, Z = 1-108) and `LADDER-K-Kr.tsv` (every charge, Z = 19-36), read as data | READ |
+| u c² | m_p + m_e − I(H) − Δ(¹H) = 931494.1033 keV | DERIVED-FROM-READ; CODATA 2018's 931494.1024 (typed in `gravity.py`, NAMED-NOT-READ) agrees to +0.875 eV, within PDG's 1 eV rounding of m_p |
+| cross-checks | m_n by AME (u + Δ(n)) vs PDG: −0.607 eV; Fe I's IE in both NIST captures: equal; Fe-56's B by this route vs AME's own Z Δ(¹H) + N Δ(n) − Δ: equal up to Z·I(H) within N × 2 eV | COMPUTED |
+
+Hypotheses carried: H-MASS-CELLS, **H-AME-ATOMIC** (AME's masses are neutral-atom ground states), **H-IE-GROUND**
+(NIST's IEs are ground-to-ground, so M_ion = M_atom − q m_e + Σ first q IEs). A value the captures do not hold is
+**not filled in**: C's full ladder and C II's IE are NOT READ, and the calls refuse (control).
+
+**Selectable alternatives** (M: "depending on the question"). Every use names its calibration.
+- **GROUND-CONFIG** -- LW1-ground.py's observed ground configuration, through `tools/populate.py` (imported): weights =
+  subshell occupancies / electrons. The ion's configuration is its isoelectronic neutral's (**H-ISOELECTRONIC**,
+  populate's own mapping, RECONSTRUCTED there and here). Non-negative, so the measures are Shannon's.
+- **IONISATION** -- the electrons in removal order, each weighted by its ionisation energy (NIST ladder, READ;
+  **H-LADDER-CELLS**). `populate.series_limit` (populate's 26th axis, READ or FITTED) is consulted for every stage; it
+  **banks no stage of Fe**, which is reported, not filled in. Non-negative.
+
+**One multi-axis table, centred at the ground** (`centred_table`). Per cell: p, p₀, d = p − p₀, and the four
+"inverses and reflections" M ruled carried -- **(1)** the log branches of r = p/p₀ (ln|r|, arg r, and the Im D step
+2πp_i per unit branch k_i); **(2)** the conjugate (arg → −arg) and the reciprocal 1/r, i.e. −Log r, the reflection
+through the ground (summed: D(p₀‖p)); **(3)** the fold to |p| (|p|, |p₀|, ln(|p|/|p₀|), and the renormalised folded D);
+**(4)** the Radon inverse (cells laid on Z_d², d prime, zero-padded, **H-RADON-PAD**; inverse W(a) = (Σ_{lines ∋ a}
+P(line) − T)/d, DERIVED -- GHW's eq. (55) form for T = 1). Each deviation column is 0 at the ground. **Fe-56 +1**,
+MASS/BINDING (COMPUTED):
+
+| cell | p | p₀ | d | (1) ln\|r\| | (1) arg r | (2) 1/r | (3) ln(\|p\|/\|p₀\|) | (4) Radon-inverse d |
+|---|---|---|---|---|---|---|---|---|
+| protons | 0.468213 | 0.468208 | +4.59191e-6 | +9.80736e-6 | 0 | 0.999990 | +9.80736e-6 | +4.59191e-6 |
+| electrons | 0.000245189 | 0.000254994 | −9.80506e-6 | −0.0392109 | 0 | 1.03999 | −0.0392109 | −9.80506e-6 |
+| neutrons | 0.540990 | 0.540985 | +5.30566e-6 | +9.80736e-6 | 0 | 0.999990 | +9.80736e-6 | +5.30566e-6 |
+| binding | −0.00944791 | −0.00944782 | −9.2507e-8 | +9.79131e-6 | 0 | 0.999990 | +9.79131e-6 | −9.2507e-8 |
+
+The Radon inverse recovers every cell and every deviation exactly (error ≤ 1.1e-16). **But M's triangulation from
+positive values does not hold for this object**: a line sum of the ground itself is negative (−0.009193 for Fe-56: the
+binding cell shares a line with the electrons), so the projections are not all non-negative as they are for a quantum
+state's Born probabilities (§ 5). This is a computed difference between H-MASS-CELLS and a Wigner function, not a
+failure of the inverse.
+
+**Is the ground-centred measure a relative entropy? TESTED, not assumed.** Two candidates are centred at the ground:
+- the **signed relative entropy** D_s(p‖p₀) = Σ p_i Log(p_i/p₀_i) (principal branch; infinite where p_i ≠ 0 = p₀_i, as
+  in Baez–Fritz 1402.3067v2 p.1, **READ this pass**);
+- the **entropy deviation** ΔRe H = Re H(p) − Re H(p₀).
+
+They are related exactly by **Re H(p₀) − Re H(p) = Re D_s(p‖p₀) + X, X = Σ (p_i − p₀_i) ln|p₀_i|** (DERIVED; residual
+≤ 8.8e-17 on every application). So **ΔRe H is a relative entropy (−Re D_s) only when X = 0** -- e.g. when |p₀| is
+constant on the support and both totals are 1. For Fe-56 +1 it is not: ΔRe H = −7.501e-5 nats against −Re D_s =
+−1.910e-7, with X = +7.482e-5. **The deviation is not a relative entropy; D_s is.** At p = p₀ every one of them is 0
+(the required value; STRUCTURAL, since ln(x/x) = 0); control: Fe-54's ground against Fe-56's gives D_s = 5.989e-4 nats.
+
+Re D_s against relative entropy's properties (`re_axioms`, 400 random cases each; Shannon pairs are the control set and
+pass every one):
+
+| property | Shannon pairs | signed pairs |
+|---|---|---|
+| R0 D(p‖p) = 0 | holds | holds (STRUCTURAL) |
+| R1 Gibbs D ≥ 0 (BF Theorem 7's codomain [0, ∞], p.11) | holds (min 5.7e-5) | **fails**: D((0.5, 0.5)‖(1.5, −0.5)) = −0.549306 (reference signed); D((1.5, −0.5)‖(0.9, 0.1)) = −0.038481 (state signed) |
+| R2 product additivity | holds | **holds for Re D_s** (8.9e-15; control: a factor of total 2 breaks it); **fails for Im D_s** (12.05) |
+| R3 data processing under coarse-graining | 0 violations | **fails**: 172 violations |
+| R4 convex linearity (BF p.3, p.15) | holds | **holds** (2.8e-15, Re and Im) |
+| R5 chain rule (the conditional-expectation law, BF p.26 eq. (5.1) form) | holds | **holds for Re D_s** (1.8e-15; block totals non-zero) |
+
+So D_s keeps the **algebra** of relative entropy (additivity, convex linearity, chain rule) and loses its **order**
+(non-negativity, data processing). Baez–Fritz's characterisation (Theorem 7, p.11: lower semicontinuous, convex linear
+functors FinStat → [0, ∞] vanishing on FP) is proved over probability distributions only (P(X) ⊂ [0, 1], p.13);
+**nothing of its uniqueness is inherited** by the signed case, and lower semicontinuity was not tested here.
+
+**Applied** (COMPUTED; default calibration unless named):
+
+| state, calibration | case | N (ground N) | Re D_s(p‖p₀) nats | ΔRe H nats | X | D(p₀‖p) |
+|---|---|---|---|---|---|---|
+| Fe-56 ground, MASS/BINDING (the centre) | SIGNED | 0.009447819 | 0 | 0 | 0 | 0 |
+| **Fe-56 +1** (ion), MASS/BINDING | SIGNED | 0.009447912 (0.009447819) | 1.910e-7 | −7.501e-5 | +7.482e-5 | 1.935e-7 |
+| Fe-56 +26 (bare nucleus), MASS/BINDING | SIGNED | 0.009449558 | 2.550e-4 | −2.198e-3 | +1.943e-3 | ∞ (electrons absent) |
+| C-12 +1, MASS/BINDING | SIGNED | 0.008245357 (0.008244982) | 4.040e-6 | −3.491e-4 | +3.451e-4 | 4.293e-6 |
+| H-1 +1 (the proton), MASS/BINDING | SHANNON (no binding) | 0 (1.45e-8) | 5.445e-4 | −4.635e-3 | +4.091e-3 | ∞ |
+| Fe +1, GROUND-CONFIG (H-ISOELECTRONIC) | SHANNON | 0 | 2.756e-3 | +1.076e-2 | −1.352e-2 | 2.853e-3 |
+| Fe +1, IONISATION (H-LADDER-CELLS) | SHANNON | 0 | 2.283e-4 | −1.613e-3 | +1.385e-3 | ∞ |
+
+Under MASS/BINDING the binding falls by exactly Σ IE (Fe +1: 7.902 eV); the cells keep their signs, so Im D_s = 0.
+
+**The Method's index, under a NAMED ground** (Λ has no periodic-table numbers; `index_centred`):
+- **H-INDEX-GROUND-LAMBDA** (the uniform measure on Λ's 976 cells, A3's H-UNIFORM): D_s of the Möbius weighting is
+  **infinite** -- **288 of its 317 support cells lie outside Λ** (29 inside), where this ground is 0. Computed. Whether
+  that bears on register 66 (Λ as an order ideal) is not adjudicated here; `tools/orderideal.py` is that instrument.
+- **H-INDEX-GROUND-BOX** (the uniform measure on the 6,912-cell box): Re D_s(p‖box) = **12.754888 bits = log₂ 6912**
+  for the Möbius p (its Re H is 0), Im D_s = −158π; for the box-mixture q, 15.788064 bits. Here X = 0, so **ΔRe H =
+  −Re D_s exactly** -- the positive case of the identity.
+- D(uniform Λ ‖ uniform box) = **2.824150 bits = log₂(6912/976)**, A3's "closure supplies" figure (`measure.method_bits`).
+
 ## Discrepancies and history (first said … now)
 
+- **Numbering (V3 problem 2, M-apply).** The re-verification item numbers in this file are **1-based**; `V2-0.json` and
+  `V2-1.json` store 0-based arrays, so "V2-0 problem 8" here is `V2-0.json` `problems[7]`. Each citation also names its
+  item's site text.
 - **D1, charter line 325:** "the other branches add 2 pi i k per negative entry". That is the shift of the **log**. The
   shift of **H** is −2πik_i p_i, which is +2πik_i|p_i| for a negative entry. Positive entries also have branches, and a
   uniform k shifts H by −2πik. COMPUTED in the selftest (elementary). *Q1s-build first said* "The charter itself is not
@@ -456,7 +594,14 @@ here changed, and the selftest count is unchanged.
 | hypothesis | what it fixes |
 |---|---|
 | H-PRINCIPAL | the branch convention |
-| H-READING-M | the reading of "inverses and reflections" (ASKED of M) |
+| H-READING-M | the reading of "inverses and reflections" -- **answered by M (M-apply): "All of the above"**; all four carried (§ 10) |
+| H-CAL | which calibration a use takes (default MASS/BINDING; GROUND-CONFIG, IONISATION selectable), named at every use |
+| H-MASS-CELLS | a state's mass budget over (Z m_p, (Z−q) m_e, N m_n, −B), B the shortfall |
+| H-AME-ATOMIC / H-IE-GROUND | AME masses are neutral ground-state atoms; NIST IEs are ground-to-ground |
+| H-ISOELECTRONIC | (GROUND-CONFIG) an ion's configuration is its isoelectronic neutral's (RECONSTRUCTED) |
+| H-LADDER-CELLS | (IONISATION) electrons in removal order, weighted by their IEs |
+| H-RADON-PAD | the Radon column's row-major layout on Z_d², zero-padded |
+| H-INDEX-GROUND-BOX / -LAMBDA | the named ground of The Method's index |
 | H-NORM | Σp = 1 |
 | H-FINSIGNED | the category used for BFL on signed measures |
 | H-DICTIONARY | the 12 functionals the lawful-family results range over |
@@ -480,10 +625,16 @@ here changed, and the selftest count is unchanged.
    said* "Uniqueness over all continuous functionals, both with and without BFL's codomain."
 2. A machine-checked version of the signed-weight Brandenburger–La Mura derivation (H-RD is still NAMED-NOT-READ).
 3. Which mean-value weighting (|w| or w) is *lawful* for The Method. That is a ruling for M, not a computation.
+   *M-apply:* M ruled "Carry both (Recommended)" -- both are carried with their axioms (§ 9) until a computation or M
+   separates them; nothing computed so far separates them.
 4. A fuller prior-art search on finite-set signed entropy (wave 4 found Kontsevich and Leinster through the verifier;
    the polylogarithm and information-cohomology literature -- Cathelineau, Baudot–Bennequin, Vigneaux -- is
    NAMED-NOT-READ).
-5. The meaning of M's "inverses and reflections" (H-READING-M).
+5. The meaning of M's "inverses and reflections" (H-READING-M). *M-apply:* **answered** ("All of the above"); carried,
+   centred at the ground (§ 10). Still OPEN: which ground-state quantity a given question should take beyond M's
+   default MASS/BINDING -- M: "depending on the question being asks or the object of study".
+7. (M-apply) Lower semicontinuity of D_s, and any characterisation of a signed relative entropy: Baez–Fritz's is proved
+   for probability distributions only.
 6. Whether any operational meaning attaches to Re H once p has negative entries. 2310.19296v1 p.13 says this is
    missing for the continuous case as well.
 

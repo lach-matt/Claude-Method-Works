@@ -85,6 +85,11 @@ T = L/2c', and D6 'CONTROL (must signal): pure deterministic drift' fed a hand-t
     the read precedes light is exactly half the T = L/2c figure (frac = 0.5 was a DECLARED choice, kept only so
     wave-1 numbers can be compared).
   * first_transit_times: one-end distribution and the midpoint source (LEDGER D23 as corrected in DOCKET 67).
+  * window_given (M-apply, 2026-10-03; V3 residual 3): M's rule applied both ways.  An EMPTY window from the unread
+    Majumder value makes the cell OPEN (N_WREAD, wave 4); an OPEN window from the same value is ADMISSIBLE GIVEN W_W2,
+    flagged and not settled, naming the unread bound and the two OPEN ones (Bollinger 1989, Chupp-Hoare 1990, never
+    checked).  The tightening that would close each open window is printed as CONTEXT, not evidence: 655x (A) / 328x
+    (B) at 1 ly, N = 7; 7.2x / 3.6x at 1 AU, N = 1e6.  Support 2 has no window (UNEVALUATED).  No verdict moves.
   * h12_carrier_case: H-SETTLE x H-12 adds nothing under H-TRANSFER; with an unbounded carrier (H-12-CARRIER,
     H-12-W) N_EPS is not excluded at 1 AU either -- computed, and 'not excluded' is still not evidence.
   * D6 now runs the drift through sde_ensemble with lambda = 0 and must reproduce tanh(2 eps T).
@@ -669,6 +674,42 @@ def h12_carrier_case(L_list=None, N_list=(7, 1000, 1e6)):
     return rows, flips
 
 
+def window_given(L_list=None, N_list=(7, 1000, 1e6), bounds=None):
+    """M's rule applied BOTH ways (V3 residual 3, M-apply 2026-10-03): an unread value makes a cell OPEN in either
+    direction.  For support 1 (R_W2, nlcontrol's eps mapping) at each (L, N) and each reading of H-MAP:
+      EMPTY window (eps_any >= eps_max)  -> 'EMPTY GIVEN W_W2' -> the cell is OPEN (N_WREAD; wave 4);
+      OPEN window  (eps_any <  eps_max)  -> 'ADMISSIBLE GIVEN W_W2' -- flagged, not settled -- with the unread and the
+                                            OPEN bounds named, and the tightening that would close it (eps_max / eps_any:
+                                            CONTEXT, not evidence);
+    a bound whose status is READ would drop the GIVEN flag (the control passes such a bound).  Support 2 (R_W2', the
+    ancilla member) has no window at all: H-MAP is not established for its field, so it reads UNEVALUATED."""
+    bounds = BOUNDS_WEINBERG if bounds is None else bounds
+    L_list = L_list or (("1 AU", AU_M), ("1 ly", LY_M))
+    key = "Majumder+ 1990, 201Hg, PRL 65 2931"
+    f = bounds[key]["f_Hz"]
+    used_read = bounds[key]["status"].startswith("READ")
+    unread = [k for k, v in bounds.items() if v["f_Hz"] is not None and not v["status"].startswith("READ")]
+    open_ = [k for k, v in bounds.items() if v["f_Hz"] is None]
+    rows = []
+    for Ln, L in L_list:
+        for N in N_list:
+            e_any = eps_any_advantage(L, N)
+            for lab, emax in eps_readings(f).items():
+                if e_any is None:
+                    verdict, tighten = "IMPOSSIBLE at any eps (N x CMAX < 2)", None
+                elif e_any < emax:
+                    verdict = "ADMISSIBLE" if used_read and not open_ else "ADMISSIBLE GIVEN W_W2 (flagged, not settled)"
+                    tighten = emax / e_any
+                else:
+                    verdict = "EXCLUDED" if used_read and not open_ else "EMPTY GIVEN W_W2 -> cell OPEN (N_WREAD)"
+                    tighten = None
+                rows.append({"L": Ln, "N": N, "reading": lab, "eps_any": e_any, "eps_max": emax, "support 1": verdict,
+                             "tightening to close (context)": tighten,
+                             "support 2": "UNEVALUATED (H-MAP not established for its field)"})
+    return {"rows": rows, "unread_bounds": unread, "open_bounds": open_, "bound_used": key,
+            "bound_used_status": bounds[key]["status"]}
+
+
 # ======================================================================================= D. collapse control
 def lindblad_super(H, A, lam):
     I2 = np.eye(2)
@@ -918,6 +959,10 @@ def build():
     R["two_axis_eps_any_1ly_N3"] = eps_any_advantage(LY_M, 3, cap=capacity_bsc, cmax=1.0)
     # C'' (wave 2): H-SETTLE x H-12 with an unbounded carrier
     R["h12_case"] = h12_carrier_case()
+    R["window_given"] = window_given()                    # M-apply (V3 residual 3): the rule both ways
+    R["window_given_control_read"] = window_given(bounds={  # CONTROL: the same value marked READ, nothing OPEN
+        "Majumder+ 1990, 201Hg, PRL 65 2931": {"f_Hz": BOUNDS_WEINBERG["Majumder+ 1990, 201Hg, PRL 65 2931"]["f_Hz"],
+                                               "status": "READ (control fixture, not a claim)"}})
     return R
 
 
@@ -1030,6 +1075,13 @@ def report(R):
     for r in rows:
         p(f"     {r['L']:<24} N = {r['N']:<8g}: eps > {r['eps_any_advantage']:.3e}  {r['H-TRANSFER']:<13} | {r['H-12-CARRIER']}")
     p(f"     cells that flip EXCLUDED -> NOT EXCLUDED: {flips}  (not evidence: an absent bound is not a measurement)")
+    wg = R["window_given"]
+    p("   M's rule BOTH ways (M-apply, V3 residual 3): support 1's window per cell and reading; support 2 UNEVALUATED")
+    p(f"     bound used: {wg['bound_used']} [{wg['bound_used_status'][:16]}]; OPEN, never checked: {wg['open_bounds']}")
+    for r in wg["rows"]:
+        t = r["tightening to close (context)"]
+        p(f"     {r['L']:<5} N = {r['N']:<8g} {r['reading'][:1]}: eps_any {r['eps_any']:.4e} vs eps_max {r['eps_max']:.4e} -> "
+          f"{r['support 1']}" + (f"; closing it needs a bound {t:.1f}x tighter (context, not evidence)" if t else ""))
     p("\nWAVE 3 -- FLOORS, ZERO ERROR, AND THE W2 CLASS WITHOUT H-QUBIT-DRIFT")
     for (name, D), sizes in R["zero_error"].items():
         p(f"   zero-error code sizes, {name}, D = {D}: block length 1..{len(sizes)}: {sizes}  -> zero-error rate "
@@ -1214,6 +1266,32 @@ def selftest():
        f"chi {ap['chi_bits_per_pair']:.4f}, sep {ap['min_curve_separation_rad']:.1e}, P(error) {ap['p_error']:.3f}")
     ok("G25 CONTROL (must fail to signal): k = 16, one state-independent unitary gives chi = 0",
        abs(R["w2_k_control_linear"]["chi_bits_per_pair"]) < 1e-9, f"{R['w2_k_control_linear']['chi_bits_per_pair']:.1e}")
+    # ---- M-apply (2026-10-03): V3 residual 3, M's rule both ways
+    wg = R["window_given"]
+    cell = lambda L, N, rd: [r for r in wg["rows"] if r["L"] == L and r["N"] == N and r["reading"].startswith(rd)][0]
+    opened = [r for r in wg["rows"] if r["eps_any"] is not None and r["eps_any"] < r["eps_max"]]
+    ok("G26 (M-apply) every OPEN window computed from the unread value is flagged ADMISSIBLE GIVEN W_W2, and every EMPTY "
+       "one OPEN: no cell is settled in either direction",
+       opened and all(r["support 1"].startswith("ADMISSIBLE GIVEN") for r in opened) and
+       all(r["support 1"].startswith(("ADMISSIBLE GIVEN", "EMPTY GIVEN", "IMPOSSIBLE")) for r in wg["rows"]),
+       f"{len(opened)} open-window cells of {len(wg['rows'])}")
+    ok("G27 (M-apply) the GIVEN flag names the unread bound used (Majumder; Walsworth, also NAMED-NOT-READ, is not used) "
+       "and the two OPEN, never checked (Bollinger, Chupp-Hoare)",
+       wg["open_bounds"] == ["Bollinger+ 1989, 9Be+, PRL 63 1031", "Chupp & Hoare 1990, 21Ne, PRL 64 2261"] and
+       wg["bound_used_status"].startswith("NAMED-NOT-READ"), f"unread {len(wg['unread_bounds'])}, OPEN {len(wg['open_bounds'])}")
+    c1A, c1B = cell("1 ly", 7, "A"), cell("1 ly", 7, "B")
+    c6A, c6B = cell("1 AU", 1e6, "A"), cell("1 AU", 1e6, "B")
+    ok("G28 (M-apply) context, not evidence: closing 1 ly N = 7 needs a bound 655x (A) / 328x (B) tighter; 1 AU N = 1e6 "
+       "only 7.2x / 3.6x (V3 reproduced)",
+       abs(c1A["tightening to close (context)"] - 655) < 2 and abs(c1B["tightening to close (context)"] - 328) < 1.5 and
+       abs(c6A["tightening to close (context)"] - 7.16) < 0.05 and abs(c6B["tightening to close (context)"] - 3.58) < 0.05,
+       f"{c1A['tightening to close (context)']:.1f} / {c1B['tightening to close (context)']:.1f}; "
+       f"{c6A['tightening to close (context)']:.2f} / {c6B['tightening to close (context)']:.2f}")
+    ok("G29 CONTROL (must change): with the bound marked READ and nothing OPEN, the GIVEN flag disappears",
+       all(not r["support 1"].endswith("(flagged, not settled)") and "GIVEN" not in r["support 1"]
+           for r in R["window_given_control_read"]["rows"]))
+    structural("G30 support 2 carries no window: UNEVALUATED on every row", all(r["support 2"].startswith("UNEVALUATED")
+                                                                            for r in wg["rows"]))
     w = max(len(n) for n, _, _ in checks)
     for n, good, det in checks:
         print(f"  [{'PASS' if good else 'FAIL'}] {n:<{w}} {det}")

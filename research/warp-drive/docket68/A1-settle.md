@@ -1,8 +1,9 @@
 # DOCKET 68 / A1-settle: H-SETTLE alone, H-12's carriers, and the collapse control
 
-**Status: a work-item write-up, not seated.** Instrument: `settle.py` (`python3 settle.py --selftest`: 62/62 checks
-pass, about 2 min; six of the 62 are printed STRUCTURAL -- they cannot fail by construction and are not counted -- so
-**56/56 counted**, ten of them controls built to fail; *wave 3 first said* 57/57 with six STRUCTURAL and eight controls;
+**Status: a work-item write-up, not seated.** Instrument: `settle.py` (`python3 settle.py --selftest`: 67/67 checks
+pass, about 2 min; seven of the 67 are printed STRUCTURAL -- they cannot fail by construction and are not counted -- so
+**60/60 counted**, eleven of them controls built to fail; *M-apply first said* 62/62, six STRUCTURAL, 56/56 counted,
+ten controls -- `window_given` added G26-G30; *wave 3 first said* 57/57 with six STRUCTURAL and eight controls;
 *wave 2 first said* 47/47 with two STRUCTURAL). It imports
 `nlcontrol.py`, `corridors.py` and (wave 2) `frame.py`, and copies none of them. Every number here is computed in
 `settle.py`, READ at the locator given, DERIVED-FROM-READ, or labelled NAMED-NOT-READ or OPEN. Short quotations only,
@@ -19,6 +20,19 @@ support (2) no window is computed: H-MAP is not established for its field, so th
 open nor excluded, and "not excluded" is not evidence. No NOT-BOUND-IF arises here. *Wave 3 first said* the removal
 had the single support (1), which read as if block coding were necessary (V2-1 problem 2). In a separate geometry
 column, corridor O-LOOP is REMOVED-IF {H-FRW-EXACT, H-NOT-DE-SITTER, H-CORRIDOR-MODEL}, credited to no hypothesis.
+
+## M-apply (2026-10-03): M's rulings, and V3's residuals sited here
+
+M's answers (`M-RULINGS-2026-10-03.md`, carried verbatim into CHARTER.md's last section) are rulings and are applied as
+worded. The third verification (V3, `wave1/REPAIR3-RESULT.json` key `result.v`) left three small problems. Earlier
+forms are kept, marked *wave 4 first said*.
+
+| item | resolution |
+|---|---|
+| V3 problem 3: M's rule applied one way only -- an EMPTY window from the unread value is OPEN (N_WREAD), but an OPEN window from the same value reads as settled admissibility; A1:205-206 records Bollinger 1989 and Chupp-Hoare 1990 as OPEN, so those bounds were never checked | **Applied both ways, and computed** (`settle.window_given`, checks G26-G30). Per cell and reading, support 1 reads either **EMPTY GIVEN W_W2 -> cell OPEN** or **ADMISSIBLE GIVEN W_W2 (flagged, not settled)**; the flag names the unread bound used (Majumder; Walsworth, also NAMED-NOT-READ, is not used) and the two OPEN bounds, never checked. Support 2 has no window (UNEVALUATED). The tightening that would close an open window is printed as **context, not evidence**: **655x (reading A) / 328x (B) at 1 ly, N = 7; 7.2x / 3.6x at 1 AU, N = 1e6** (V3 reproduced). Control G29: the same value marked READ, nothing OPEN, and the flag disappears. **No verdict moves**: W2 × F1's O-BITS is REMOVED-IF R_W2 (window W_W2) or REMOVED-IF R_W2′, and support 2 does not use the window. This is AGAINST M, and it is carried. |
+| V3 problem 1: support 2's field figure printed from hT = 1.465 when the numbers came from hT = 1.4306 | Sited in B-combine, not here. A1 § 1b's "max‖H‖·T = 1.465" is the four-axis `w2_ancilla_flow` instance and is labelled so; the k-axis members give 1.43-1.56 (R_W2′'s H-FIELD-W2). No /s field figure is printed in A1. |
+| V3 problem 2: one V2 item numbered two ways | The item numbers in this file's re-verification tables are **1-based**; `V2-0.json` and `V2-1.json` store 0-based arrays, so "V2-1 problem 3" here is `V2-1.json` `problems[2]` (the 1 AU item). Each row also cites its item by site text. |
+| M item 5: O-MATTER relocated to **O-SEAT, "supply at the seat"** | **Applied as a relabel, no grade moves.** Every "leaves" column entry O-MATTER in § 5 reads as O-SEAT: no H-SETTLE reading supplies substance at the seat. The seat's supply and the board's prices (S13 OPEN, priced; S10 REFUSED) are stated once, in A3-measure.md § (viii). |
 
 ## Wave 4 repair (R3-alone, 2026-10-03): the second pair of re-verifications
 
@@ -257,6 +271,9 @@ Conditional numbers. The table uses reading A, ε_max = 2.39e-5 s⁻¹; reading 
 | 4.24 ly (illustrative) | 8.60e-9 (1.7e-8) s⁻¹ | 3.94e-10 (7.9e-10) | 1.24e-11 (2.5e-11) | not excluded ×3 |
 
   No excluded/not-excluded entry flips between the two columns.
+  *M-apply (V3 problem 3):* every entry in the last column is computed from the unread Majumder value, so "excluded"
+  reads **EMPTY GIVEN W_W2 -> cell OPEN** and "not excluded" reads **ADMISSIBLE GIVEN W_W2**, flagged and not settled
+  (Bollinger 1989 and Chupp-Hoare 1990 never checked). *Wave 4 first said* "excluded" / "not excluded" unqualified.
 * **Timing at the NAMED-NOT-READ limit.** The drift times are:
 
 | reading | N = 7 | N = 1000 |
@@ -401,7 +418,7 @@ premise clash. Removal premises and window premises are kept apart. The canonica
 | H-SETTLE-KR (causal field-expectation form), alone | OPEN | none (H-KR-TS, wave 4: KR fails Tomonaga-Schwinger integrability, 2511.15935v1 p.4 READ; no signal shown, so O-BITS stays left) | **O-HOLD OPEN** via ε_G (KR p.13, speculation in the source) | corridor O-LOOP | O-BITS, O-MAKE, O-MATTER |
 | Collapse-type stochastic drift | LEAVES-ALL | none (control: no signal) | — | corridor O-LOOP | O-BITS, O-MAKE, O-HOLD, O-MATTER |
 | H-12 alone, linear QM | LEAVES-ALL | none (fields12.py: 1.44e-15) | — | corridor O-LOOP | O-BITS, O-MAKE, O-HOLD, O-MATTER |
-| **H-SETTLE-W × H-FRAME (clause 1)**: both load-bearing (W2 supplies the channel; F1 the slicing and the signal keying) | **PARTIAL** | **O-BITS REMOVED-IF R_W2** (window W_W2; ε_any(1 ly, N = 7) = 3.64e-8 /s, a floor) **or REMOVED-IF R_W2′** (zero-error; window unevaluated); **signal O-LOOP REMOVED-IF {N_SIGKEY}** under H-SIG-COR | — | corridor O-LOOP | O-MAKE, O-HOLD, O-MATTER |
+| **H-SETTLE-W × H-FRAME (clause 1)**: both load-bearing (W2 supplies the channel; F1 the slicing and the signal keying) | **PARTIAL** | **O-BITS REMOVED-IF R_W2** (window W_W2; ε_any(1 ly, N = 7) = 3.64e-8 /s, a floor; the window there is **admissible given W_W2** -- one unread bound used, two OPEN -- flagged, not settled; M-apply) **or REMOVED-IF R_W2′** (zero-error; window unevaluated); **signal O-LOOP REMOVED-IF {N_SIGKEY}** under H-SIG-COR | — | corridor O-LOOP | O-MAKE, O-HOLD, O-MATTER (read as O-SEAT) |
 | H-SETTLE-W × H-12 under H-TRANSFER | adds nothing (to W2 alone or to W2 × F1) | as without H-12 | — | corridor O-LOOP | as without H-12 |
 | H-SETTLE-W × H-FRAME × H-12 under H-12-CARRIER + H-12-W | PARTIAL; H-12 load-bearing **on the window only** | O-BITS REMOVED-IF R_W2, with H-12-CARRIER + H-12-W replacing H-TRANSFER in the window: 2 more of 9 cells (**1 AU, N = 7 and N = 1000**; at 1 AU, N = 1e6 H-12 adds nothing). Wave 4: without H-12 those two cells are LEFT-IF W_W2, hence **OPEN** (W_W2 holds the unread Majumder value) | — | corridor O-LOOP | O-MAKE, **O-HOLD LEFT** (H-12-W is Weinberg form), O-MATTER |
 | H-SETTLE-KR × H-12, with G as the carrier | **adds nothing to H-SETTLE-KR alone** (wave 4) | none (KR is causal: O-BITS untouched) | O-HOLD OPEN via ε_G -- **H-SETTLE-KR's alone**; naming G adds no premise the pathway uses | corridor O-LOOP | O-BITS, O-MAKE, O-MATTER |
