@@ -125,18 +125,24 @@ E_supplied:
 
         Delta d  =  Lambda * (G/c^4) * eta * E_supplied
 
-Solve for eta at a human budget.  To contract four light years by one per cent
-using the WORLD'S ANNUAL ENERGY PRODUCTION (6.0e20 J):
+Solve for eta at a human budget.  To contract the road to Proxima (phase1's
+L_PROXIMA, 4.2465 ly at its Gaia DR3 parallax, READ-VIA-RESTATEMENT) by one per
+cent using the WORLD'S ANNUAL ENERGY PRODUCTION (6.0e20 J):
 
-        eta  >  7.6e36
+        eta  >  8.1e36
 
     ETA MUST EXCEED ONE BY THIRTY-SIX ORDERS.  More negative energy out than
     energy in, which no conversion permits at any efficiency.
 
     AND EVEN AT eta = 1 -- perfect, thermodynamically impossible, every joule
-    becoming a joule of negative energy -- the requirement is 4.59e57 J, the
-    entire mass-energy of 2.6e10 SUNS.  Efficiency is not the problem.  The
-    problem is c^4/G, and no conversion touches it.
+    becoming a joule of negative energy -- the requirement is 4.87e57 J, the
+    entire mass-energy of 2.72e10 SUNS (phase1's own 2.72477e10).  Efficiency is
+    not the problem.  The problem is c^4/G, and no conversion touches it.
+
+    CORRECTED (DOCKET 67 follow-up, M: "repair all figures"): first priced at
+    a round 4.0 ly ("four light years", 7.6e36, 4.59e57 J, 2.6e10 suns), a
+    second distance beside phase1's.  It now imports phase1.L_PROXIMA; the
+    4.0 ly figures are kept as DD_AS_FIRST_WRITTEN and still checked.
 
 ===============================================================================
 S6 -- SO THE LEVER IS GEOMETRY, NOT POWER -- AND THREE ROUTES AGREE WHERE
@@ -152,8 +158,11 @@ contraction eps goes as 1/b^2, so the ratio closes as b shrinks:
 
     AND THAT AGREES WITH TWO INDEPENDENT MEASUREMENTS ALREADY IN THE TREE:
     corridor.py's Casimir seat crossing at 0.132 l_P and gjw.py's unity
-    separation at 0.0934 l_P.  THREE DIFFERENT QUANTITIES -- a contraction, a
+    separation at 0.187 l_P.  THREE DIFFERENT QUANTITIES -- a contraction, a
     seat and a coupling -- ALL CROSSING WITHIN TWO ORDERS OF THE PLANCK LENGTH.
+    (CORRECTED, DOCKET 67 follow-up: gjw.py's separation was 0.0934 l_P while
+    its gain divided the energy density into a T_kk threshold; against the
+    winding-direction T_kk (H-WIND) it is sqrt(pi/90) l_P = 0.187 l_P.)
 
     That is the answer to "what must we apply".  Not a bigger supply and not a
     better conversion: THE ONLY FREE VARIABLE IS THE GAP, and the gap has to
@@ -281,8 +290,19 @@ def required_eta(dd_metres, budget_joules, lam=LAMBDA):
     return energy_for_contraction(dd_metres, 1.0, lam) / budget_joules
 
 
-def eta_exceeds_unity(dd_metres=0.01 * 4.0 * LIGHT_YEAR,
-                      budget_joules=WORLD_ANNUAL_J):
+def proxima_dd():
+    """1 % of phase1's L_PROXIMA (Gaia DR3, READ-VIA-RESTATEMENT), imported."""
+    import phase1
+    return 0.01 * phase1.L_PROXIMA
+
+
+#: CORRECTED (DOCKET 67 follow-up): the contraction as first written, 1 % of a
+#: round 4.0 ly on this file's LIGHT_YEAR.  Kept as history and still checked.
+DD_AS_FIRST_WRITTEN = 0.01 * 4.0 * LIGHT_YEAR
+
+
+def eta_exceeds_unity(dd_metres=None, budget_joules=WORLD_ANNUAL_J):
+    dd_metres = proxima_dd() if dd_metres is None else dd_metres
     return required_eta(dd_metres, budget_joules) > 1.0
 
 
@@ -307,7 +327,10 @@ def unity_gap_in_planck_lengths(eps=0.01):
 
 
 CORRIDOR_CROSSING_LP = 0.132          # corridor.py, the Casimir SEAT crossing
-GJW_CROSSING_LP = 0.0934              # gjw.py, the unity SEPARATION
+GJW_CROSSING_LP = 0.1868              # gjw.py, the unity SEPARATION (T_kk, winding)
+#: CORRECTED (DOCKET 67 follow-up): as first written, gjw.py's energy-density
+#: unity separation sqrt(pi/360) l_P; checked against gjw.py, not retyped twice.
+GJW_CROSSING_LP_AS_FIRST_WRITTEN = 0.0934
 
 
 def three_routes_agree(tol_orders=2.0):
@@ -364,13 +387,32 @@ def selftest():
     print("      positive mass theorem.  The fourth is bounded by hbar instead.")
 
     print("\nS5 -- THE EFFICIENCY DEMANDED, AND IT EXCEEDS ONE")
-    dd = 0.01 * 4.0 * LIGHT_YEAR
-    near("energy at eta = 1 for 1 % of 4 ly (J)", energy_for_contraction(dd), 4.5878e57, 1e-4)
+    # CORRECTED (DOCKET 67 follow-up): re-based on phase1's L_PROXIMA.  Pins
+    # computed by: python3 -c "import supply as s; d=s.proxima_dd();
+    #   print(s.energy_for_contraction(d), s.energy_for_contraction(d)/
+    #   (s.SOLAR_MASS*s.C**2), s.required_eta(d, s.WORLD_ANNUAL_J))"
+    dd = proxima_dd()
+    near("energy at eta = 1 for 1 % of Proxima (J)", energy_for_contraction(dd),
+         4.8707e57, 1e-4)
     near("  in solar mass-energies", energy_for_contraction(dd) / (SOLAR_MASS * C * C),
-         2.5667e10, 1e-4)
+         2.7248e10, 1e-4)
+    import phase1
+    near("  and it is phase1's own price for 1 % of Proxima",
+         energy_for_contraction(dd) / (SOLAR_MASS * C * C),
+         phase1.mass_for_contraction(dd) / phase1.SOLAR_MASS, 1e-6)
     near("eta required against world annual energy", required_eta(dd, WORLD_ANNUAL_J),
-         7.6463e36, 1e-4)
+         8.1178e36, 1e-4)
     chk("eta must exceed 1 -- no conversion suffices", eta_exceeds_unity(), True)
+    # the figures as first written, on a round 4.0 ly -- kept and still checked
+    near("RECORD: as first written, 1 % of 4 ly (J)",
+         energy_for_contraction(DD_AS_FIRST_WRITTEN), 4.5878e57, 1e-4)
+    near("RECORD:   in solar mass-energies",
+         energy_for_contraction(DD_AS_FIRST_WRITTEN) / (SOLAR_MASS * C * C),
+         2.5667e10, 1e-4)
+    near("RECORD:   eta against world annual energy",
+         required_eta(DD_AS_FIRST_WRITTEN, WORLD_ANNUAL_J), 7.6463e36, 1e-4)
+    chk("RECORD:   eta exceeded 1 there too",
+        eta_exceeds_unity(DD_AS_FIRST_WRITTEN), True)
     print("      Efficiency is not the problem.  c^4/G is, and no conversion")
     print("      touches it.")
 
@@ -381,6 +423,12 @@ def selftest():
     near("  in Planck lengths", unity_gap_in_planck_lengths(), 3.6982, 1e-3)
     print("      corridor.py's seat crossing   %.4f l_P" % CORRIDOR_CROSSING_LP)
     print("      gjw.py's unity separation     %.4f l_P" % GJW_CROSSING_LP)
+    import gjw
+    near("  GJW_CROSSING_LP is gjw.py's T_kk unity separation",
+         GJW_CROSSING_LP, gjw.unity_separation() / L_PLANCK, 1e-3)
+    near("  and the first-written 0.0934 was its energy-density one",
+         GJW_CROSSING_LP_AS_FIRST_WRITTEN,
+         (gjw.energy_density_gain_coefficient() ** -0.5) / L_PLANCK, 1e-3)
     chk("three different quantities, all within two orders of l_P",
         three_routes_agree(), True)
 
@@ -421,12 +469,13 @@ def report():
   EFFICIENCY CANNOT RESCUE IT.  Against the world's annual energy
   production, eta would have to exceed 1 by thirty-six orders -- more
   negative energy out than energy in.  And at a perfect eta = 1 the
-  requirement is still the mass-energy of 26 billion suns.
+  requirement is still the mass-energy of 27 billion suns (1 % of the
+  road to Proxima, phase1's Gaia DR3 distance).
 
   WHAT IS LEFT IS THE GAP.  The requirement falls as 1/b^2 and the
   Casimir density rises as 1/b^4, so the ratio closes -- at
   b = 3.7 Planck lengths.  corridor.py put its seat crossing at
-  0.132 l_P and gjw.py its coupling at 0.0934 l_P.  THREE DIFFERENT
+  0.132 l_P and gjw.py its coupling at 0.187 l_P.  THREE DIFFERENT
   QUANTITIES, ALL CROSSING WITHIN TWO ORDERS OF THE PLANCK LENGTH.
 
   That is the answer.  Not a bigger supply, not a better conversion:

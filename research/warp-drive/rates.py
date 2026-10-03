@@ -18,12 +18,20 @@ denominations, closes here for the WHOLE SPACE by a different argument.
 nopath.py's dimensional drift is a warped braneworld, which is an
 extra-dimensional theory -- DOOR ONE, outside general relativity.  spectra.py's
 optimised spectral currency is a black hole, which is dichotomy.py's RICCI route
-inside the DEC branch apply.py already exhausted.
+inside the COLLAPSE sub-case of apply.py's DEC branch.
+    CORRECTED (DOCKET 67 follow-up): first "inside the DEC branch apply.py
+    already exhausted".  apply.py now computes that branch exhausted only where
+    (T_kk/u)(s/l)^2 < 2 pi^2/3 (COLLAPSE) and OPEN beyond it
+    (apply.DEC_BRANCH_OPEN_OUTSIDE_THE_DOORS).  The sentence now claims only
+    the COLLAPSE sub-case; the branch as a whole is not exhausted.
 
     THE DOOR COUNT HAS BEEN STABLE ACROSS FIVE PASSES, and two of those passes
     were built specifically on new principles of M's rather than on the device.
     That is worth more than any single closure: the list is not growing because
-    nobody has thought hard enough about it.
+    nobody has thought hard enough about it.  (CORRECTED, DOCKET 67 follow-up:
+    "the door count" is the three doors apply.DOORS holds.  The DEC branch's
+    OPEN sub-case is none of them, and whether it is a fourth door is OPEN in
+    apply.py -- no witness built, its lead not examined.)
 
 ===============================================================================
 2. BUT DOOR THREE GAINED A THIRD INDEPENDENT ARRIVAL
@@ -98,8 +106,12 @@ pattern is now visible and it is not a coincidence:
                              digits, and O(10).  A number that size cannot buy
                              orders whatever it is.
         kappa    free        THE ONE GENUINE LEVER IN THE WHOLE TABLE, and
-                             scale.py owns it: kappa_GJW = pi/360 = 8.7266e-3,
+                             scale.py owns it: kappa_GJW = pi/90 = 3.4907e-2,
                              and the kappa needed at 1 m is 3.8281e69.
+                             (CORRECTED, DOCKET 67 follow-up: first pi/360 =
+                             8.7266e-3, gjw.py's T_kk threshold against an
+                             energy density; pi/90 is against the winding
+                             T_kk, H-WIND.)
 
     SO THE CLOSURE IS NOT "FIVE DENOMINATIONS FAILED".  IT IS THAT THE
     CONVERSION TABLE HAS NO FREE PARAMETER IN IT EXCEPT ONE, AND THAT ONE IS
@@ -383,7 +395,9 @@ def selftest():
     print("     the two dimensionless numbers in the table:")
     near("  Lambda", lambda_value(), 9.982529, 1e-6)
     chk("  can a number that size buy orders", lambda_can_buy_orders(), False)
-    near("  kappa_GJW", kappa_gjw(), math.pi / 360.0, 1e-12)
+    # CORRECTED (DOCKET 67 follow-up): scale.kappa_gjw() is now pi/90 (winding
+    # T_kk); the first-written pi/360 is scale.KAPPA_GJW_AS_FIRST_WRITTEN.
+    near("  kappa_GJW", kappa_gjw(), math.pi / 90.0, 1e-12)
     near("  kappa needed at 1 m", kappa_needed(), 3.8281e69)
     chk("  does kappa close the gap", kappa_closes_the_gap(), False)
     chk("kappa is the only free dimensionless number in the table",
@@ -421,8 +435,9 @@ def report():
 
   NEITHER PASS ADDS A DOOR, AND THAT IS THE HEADLINE.  Dimensional
   drift is a warped braneworld, which is door one; the optimised
-  spectral currency is a black hole, which is inside the DEC branch
-  apply.py exhausted.  FIVE PASSES, STILL THREE DOORS -- and two of the
+  spectral currency is a black hole, which is inside the COLLAPSE
+  sub-case of apply.py's DEC branch (exhausted only there; OPEN where
+  (T_kk/u)(s/l)^2 >= 2 pi^2/3).  FIVE PASSES, STILL THREE DOORS -- two of the
   five were built on M's principles rather than on the device, so the
   list is not staying short for want of anybody thinking about it.
 
@@ -462,7 +477,7 @@ def report():
   dimensionless numbers: Lambda, determined by the geometry, saturating
   to nine digits and O(10), which cannot buy orders whatever it is; and
   kappa, the one genuine lever, which scale.py owns and has measured at
-  pi/360 against the 3.8281e69 that would be needed.  A SIXTH
+  pi/90 against the 3.8281e69 that would be needed.  A SIXTH
   DENOMINATION WOULD HAVE TO ENTER THROUGH KAPPA OR THROUGH THE BASE,
   AND THE BASE IS DOOR ONE.
 

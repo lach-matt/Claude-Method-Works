@@ -40,19 +40,28 @@ IT IS NOT HAND-WAVING: IT REPRODUCES A NUMBER THE TREE COMPUTED ANOTHER WAY
 ===============================================================================
 
 For gjw.py's route the prefactor is available in closed form.  With
-T_kk_req = pi c^4/(4 G D^2) and u_Casimir = pi^2 hbar c/(90 (2D)^4),
+T_kk_req = pi c^4/(4 G D^2) and the cycle's T_kk along the winding null
+direction, 4 u_Casimir = 4 pi^2 hbar c/(90 (2D)^4) (FOP eq. 24; H-WIND),
 
-        ratio  =  (pi/360) (l_P/D)^2,        kappa = pi/360 = 8.726646e-03
+        ratio  =  (pi/90) (l_P/D)^2,         kappa = pi/90 = 3.490659e-02
 
-    PREDICTED amplification at D = 1 m:   4.3866e+71
-    gjw.py's own gain_coefficient():      4.3866e+71     -- FIVE DIGITS, and
+    PREDICTED amplification at D = 1 m:   1.0967e+71
+    gjw.py's own gain_coefficient():      1.0967e+71     -- FIVE DIGITS, and
                                                             gjw.py computes it
                                                             from the Casimir
                                                             formula directly,
                                                             sharing no algebra
                                                             with this.
-    PREDICTED unity separation:  l_P sqrt(pi/360) = 1.5098e-36 m = 0.0934 l_P
-    gjw.py's own unity_separation():                 1.5098e-36 m = 0.0934 l_P
+    PREDICTED unity separation:  l_P sqrt(pi/90) = 3.0197e-36 m = 0.1868 l_P
+    gjw.py's own unity_separation():                3.0197e-36 m = 0.1868 l_P
+
+    CORRECTED (DOCKET 67 follow-up).  First written kappa = pi/360 =
+    8.726646e-03, "T_kk against u_C": a T_kk threshold divided by an ENERGY
+    DENSITY, 4x the T_kk gain (4.3866e+71, unity at 1.5098e-36 m = 0.0934
+    l_P).  gjw.py now keeps that ratio as energy_density_gain_coefficient();
+    this file keeps it as KAPPA_GJW_AS_FIRST_WRITTEN and still checks it.
+    Along transverse null directions the cycle's T_kk is 0 and no gain
+    suffices (gjw.TKK_OVER_RHO_TRANSVERSE); kappa = pi/90 holds on H-WIND.
 
 And kappa is measured SCALE-INVARIANT, which is the theorem's real signature:
 achievable.py's ratio gives kappa = 4.18879e+04 at b = 1 m, at 1e3 m and at
@@ -63,7 +72,7 @@ THE CENSUS, AND THE OUTLIER RECONCILES
 ===============================================================================
 
         route                       kappa        crossing, on its own length
-        gjw.py    coupling gap      8.7266e-03   0.0934 l_P
+        gjw.py    coupling gap      3.4907e-02   0.1868 l_P
         corridor.py  Casimir seat   1.7424e-02   0.1320 l_P
         supply.py contraction 1 %   1.3699e+01   3.6992 l_P
         achievable.py core density  4.1888e+04   204.67 l_P   <- OUTLIER?
@@ -74,9 +83,10 @@ THE CENSUS, AND THE OUTLIER RECONCILES
     as its own "core size there, in Planck lengths: 4.09".
 
     MEASURED ON THE SCALE OF THE THING THAT ACTUALLY CARRIES THE ENERGY, ALL
-    FOUR LAND BETWEEN 0.093 AND 4.09 l_P -- A FACTOR OF 44, INSIDE TWO ORDERS.
+    FOUR LAND BETWEEN 0.132 AND 4.09 l_P -- A FACTOR OF 31, INSIDE TWO ORDERS.
     supply.py's "within two orders" was right, and right for a reason it did
-    not give.
+    not give.  (CORRECTED, DOCKET 67 follow-up: first "between 0.093 and 4.09
+    l_P -- a factor of 44", on gjw.py's energy-density kappa pi/360.)
 
 ===============================================================================
 THE CONSEQUENCE, AND IT IS THE POINT OF THIS FILE
@@ -90,7 +100,7 @@ THE CONSEQUENCE, AND IT IS THE POINT OF THIS FILE
 At L = 1 m the geometric factor (L/l_P)^2 is 3.8281e+69, and every "orders
 short" figure this project has produced is that number divided by a kappa:
 
-        gjw.py         4.3866e+71 short      = 3.8281e69 / 8.7266e-03
+        gjw.py         1.0967e+71 short      = 3.8281e69 / 3.4907e-02
         achievable.py  9.1387e+64 short      = 3.8281e69 / 4.1888e+04
         supply.py      2.7943e+68 short      = 3.8281e69 / 1.3699e+01
 
@@ -184,12 +194,20 @@ def crossing_in_planck(kappa):
 # ------------------------------------------- the closed-form gjw prefactor
 
 def kappa_gjw():
-    """pi/360, from T_kk = pi c^4/4GD^2 against u_C = pi^2 hbar c/90(2D)^4."""
-    return math.pi / 360.0
+    """pi/90, from T_kk = pi c^4/4GD^2 against the cycle's winding-direction
+    T_kk = 4 u_C = 4 pi^2 hbar c/90(2D)^4 (H-WIND).  CORRECTED (DOCKET 67
+    follow-up): first returned pi/360, T_kk against u_C, an energy density."""
+    return math.pi / 90.0
+
+
+#: CORRECTED (DOCKET 67 follow-up): kappa as first written, pi/360 -- the T_kk
+#: threshold against the ENERGY DENSITY u_C.  Kept as history; it reproduces
+#: gjw.energy_density_gain_coefficient(), and the selftest still checks that.
+KAPPA_GJW_AS_FIRST_WRITTEN = math.pi / 360.0
 
 
 def gjw_amplification(D=1.0):
-    """Predicted from the theorem alone.  gjw.py computes 4.3866e71 its own way."""
+    """Predicted from the theorem alone.  gjw.py computes 1.0967e71 its own way."""
     return shortfall(D, kappa_gjw())
 
 
@@ -208,7 +226,7 @@ def kappa_is_scale_invariant(fn, lengths=(1.0, 1.0e3, 1.0e6), rtol=1e-9):
 
 # (route, kappa, the length it measures, scale factor to the energy-carrying gap)
 CENSUS = (
-    ("gjw.py coupling gap", 8.726646e-03, "plate separation D", 1.0),
+    ("gjw.py coupling gap", 3.490659e-02, "plate separation D", 1.0),   # pi/90
     ("corridor.py Casimir seat", 1.742400e-02, "gap", 1.0),
     ("supply.py contraction 1 %", 1.369937e+01, "corridor radius b", 1.0),
     ("achievable.py core density", 4.188790e+04, "corridor radius b", 0.02),
@@ -311,13 +329,28 @@ def selftest():
     print("\nIT REPRODUCES A NUMBER THE TREE COMPUTED ANOTHER WAY")
     # EXACT IDENTITY, not a transcribed constant: a 7-digit literal against a
     # 1e-9 tolerance fails on its own truncation, which is what happened here.
-    chk("kappa_gjw is exactly pi/360", kappa_gjw() == math.pi / 360.0, True)
-    near("  numerically", kappa_gjw(), 8.7266e-03, 1e-4)
+    # CORRECTED (DOCKET 67 follow-up): pi/90 against the winding T_kk; the
+    # first-written pi/360 (energy density) is checked below as a RECORD.
+    chk("kappa_gjw is exactly pi/90", kappa_gjw() == math.pi / 90.0, True)
+    near("  numerically", kappa_gjw(), 3.4907e-02, 1e-4)
     import gjw
     near("predicted gjw amplification at 1 m", gjw_amplification(1.0),
          gjw.gain_coefficient(), 1e-4)
     near("predicted unity separation (m)", crossing(kappa_gjw()),
          gjw.unity_separation(), 1e-4)
+    near("  in Planck lengths", crossing_in_planck(kappa_gjw()), 0.18683, 1e-4)
+    near("CENSUS carries the same kappa", CENSUS[0][1], kappa_gjw(), 1e-6)
+    chk("kappa_gjw / first-written = gjw's winding T_kk / rho",
+        abs(kappa_gjw() / KAPPA_GJW_AS_FIRST_WRITTEN - gjw.TKK_OVER_RHO_WINDING) < 1e-12,
+        True)
+    chk("RECORD: kappa as first written is exactly pi/360",
+        KAPPA_GJW_AS_FIRST_WRITTEN == math.pi / 360.0, True)
+    near("RECORD: it reproduces gjw's energy-density coefficient 4.3866e71",
+         shortfall(1.0, KAPPA_GJW_AS_FIRST_WRITTEN),
+         gjw.energy_density_gain_coefficient(), 1e-4)
+    near("RECORD: and its unity separation 1.5098e-36 m",
+         crossing(KAPPA_GJW_AS_FIRST_WRITTEN),
+         gjw.energy_density_gain_coefficient() ** -0.5, 1e-4)
     print("      gjw.py computes both from the Casimir formula directly and")
     print("      shares no algebra with this file.")
 

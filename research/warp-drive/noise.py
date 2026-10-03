@@ -1052,8 +1052,11 @@ def selftest():
         abs(corridor(float(r['K_P']), 9.4607e15)['sd_over_Q'] / c['sd_over_Q'] - 1) < 1e-12, True)
     near("RECORD: demand at b = 1 m, achievable.required_density(1)", c['D'],
          1.8057952075209083e46, 1e-12)
+    # CORRECTED (DOCKET 67): repinned from 1.002159073400914e-25 (as first
+    # written) when achievable.HBAR was made exact h/2pi (it was typed
+    # truncated, low by 6.13e-10); the pin moved only to the computed value.
     near("RECORD: C/tau^4 at tau = b/c, achievable.persistence_allow(1)", c['Q'],
-         1.002159073400914e-25, 1e-12)
+         1.0021590740149563e-25, 1e-12)
     within("CONTROL: log10(D/SD_0) = log10(D/Q) - log10(SD0/C) (abs, 1e-12)",
            abs(c['orders_sd'] - (c['orders_Q'] - math.log10(c['sd_over_Q']))), PIN_TOL)
 

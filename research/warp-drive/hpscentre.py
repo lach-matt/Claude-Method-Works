@@ -357,12 +357,20 @@ CHANGES_A_REQUIREMENT = False
 O5_ANSWERED_BY = ("a <T_ab> established at a centre that is not asymptotically "
                   "flat, or an asymptotically flat self-consistent solution with "
                   "m < 0; FO Thm 4.2 or FFKP Thm IV.1 (eq. 72) evaluated on HPS "
-                  "(both need a reference Hadamard state / W_0 and <:Phi^2:> there; "
+                  "(both need HPS's state established Hadamard -- both REFUSED "
+                  "until then, qeihps.HPS_STATE_HADAMARD_ESTABLISHED -- and then "
+                  "a reference Hadamard state / W_0 and <:Phi^2:> there; "
                   "qeihps.KONTOU_REQUESTED_TEST_ON_HPS); a non-trivial nonlinear "
                   "regular-centre existence theorem (Minkowski is a member of the "
                   "class) for a positive Hadamard <T> outside the xi = 1/2 stealth "
                   "sector -- NOT-FOUND by DOCKET 67, not shown not to exist.  Read "
                   "AHS PRD 51 4337 (NOT-REACHED)")
+#: CORRECTED (DOCKET 67, follow-ups, on M's ruling adding the Hadamard
+#: hypothesis in qeihps): the FO/FFKP clause read "(both need a reference
+#: Hadamard state / W_0 and <:Phi^2:> there; ...)", omitting the blocker
+#: qeihps.py now computes first -- HPS's state is not established Hadamard
+#: (qeihps.HPS_STATE_HADAMARD_ESTABLISHED = False), so both theorems are
+#: REFUSED on HPS's state as published, and OPEN only were it Hadamard.
 #: CORRECTED (DOCKET 67, no-existence-theorem-ssaf): the line read 'the nonlinear
 #: regular-centre existence theorem', without the qualifiers the audit found it
 #: needs -- non-trivial (Minkowski satisfies the class), a positive Hadamard <T>

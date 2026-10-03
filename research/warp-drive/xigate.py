@@ -154,7 +154,9 @@ SCALES = [
     ("reduced Planck mass", None),          # filled from higgs.py
 ]
 # DOCKET 63 F9.  ONE NAMED CONSTANT, ONE VALUE: imported from its owner.
-XI_HIGGS_INFLATION = H.XI_HIGGS_INFLATION          # 1.7e4, NAMED-NOT-READ there
+XI_HIGGS_INFLATION = H.XI_HIGGS_INFLATION          # 1.7e4; higgs.py now: COMPUTED
+#   from READ eq. (13), quoted truncated (17,608 -> 1.7e4).  CORRECTED (DOCKET 67):
+#   this comment first said 'NAMED-NOT-READ there', the status higgs.py then carried.
 #   DOCKET 67: a tree-level-lambda evaluation, and in Bezrukov-Shaposhnikov's
 #   sign convention (xi_BV = -xi_BS) -- see the CORRECTED note in section 1.
 #: The first draft's own pin for the same constant.  WITHDRAWN, kept.
@@ -278,8 +280,11 @@ def selftest():
 
     print("xigate selftest")
     # The seated gate, imported not copied.
+    # CORRECTED (DOCKET 67): repinned from 9.7829068836e31 at 1e-9 (as first
+    # written; the ratio had drifted to 1.0000000006 when the HBAR the hierarchy
+    # rests on was made exact h/2pi) to the computed 9.7829068896e31 at 1e-10.
     chk("the Higgs-VEV gate is the seated 9.78e31",
-        xi_required(H.vev()) / 9.7829068836e31, 1.0, 1e-9)
+        xi_required(H.vev()) / 9.7829068896e31, 1.0, 1e-10)
     chk("and it IS the hierarchy squared, as higgs.py proves",
         xi_required(H.vev()) * (H.vev() / H.reduced_planck_gev()) ** 2, 1.0, 1e-12)
 

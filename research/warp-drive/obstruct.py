@@ -600,7 +600,10 @@ LEDGER = [
   "a UV-complete theory. THE CONDITION IS THAT THE SAME MOVE FORBIDS SPEED -- "
   "non-achronality requires an existing outside path, so the wormhole never "
   "beats it. Their flat-space version, left as a remark, needs amplification "
-  "4.387e71 D^2, rising with D and reaching unity at 0.093 Planck lengths",
+  "1.097e71 D^2 against T_kk (winding direction, H-WIND), rising with D and "
+  "reaching unity at 0.187 Planck lengths [CORRECTED, DOCKET 67 follow-up: "
+  "first 4.387e71 D^2 and 0.093 Planck lengths, the T_kk threshold against "
+  "the energy density, now gjw.energy_density_gain_coefficient()]",
   "gjw.py"),
  ("STANDING-COUPLING", "the ORDER row is open somewhere useful", "CONDITIONAL",
   "IT IS OPEN AT EXACTLY ONE POINT. The single-trip advantage is closed by the "
@@ -699,7 +702,8 @@ LEDGER = [
   "CLOSED BY EXHAUSTION, NOT BY CASE COUNT -- see rates.py: every "
   "denomination is tied to mass-energy by a MONOMIAL in G, c, hbar and k, or "
   "by a bound running against the trade, and the whole conversion table holds "
-  "one free dimensionless number (kappa, pi/360 against 3.8281e69 needed). A "
+  "one free dimensionless number (kappa, pi/90 against 3.8281e69 needed; "
+  "CORRECTED, DOCKET 67 follow-up: first pi/360, the energy-density ratio). A "
   "sixth denomination must enter through kappa or through the base. "
   "PURSUED IN THREE STAGES AND CLOSED, AND THE FIRST TWO STAGES SAY THE "
   "INSTINCT WAS RIGHT. (1) Entropy IS a structurally better denomination: "
@@ -956,8 +960,13 @@ def check_entanglement_route():
             and entangle.holographic_excess(1.0) > 1.0)
 
 def check_gjw():
+    # CORRECTED (DOCKET 67 follow-up): gjw.gain_coefficient() is now the T_kk
+    # gain 1.0967e71 (winding direction); the 4.3866e71 first pinned here is
+    # the energy-density ratio, and is still checked -- against
+    # gjw.energy_density_gain_coefficient(), the record gjw.py keeps.
     import gjw, math
-    return (abs(gjw.gain_coefficient()/4.3866e71 - 1.0) < 1e-3
+    return (abs(gjw.gain_coefficient()/1.0967e71 - 1.0) < 1e-3
+            and abs(gjw.energy_density_gain_coefficient()/4.3866e71 - 1.0) < 1e-3
             and gjw.amplification_needed(1e6) > gjw.amplification_needed(1.0)
             and gjw.unity_separation() < gjw.L_PLANCK)
 

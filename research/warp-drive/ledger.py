@@ -259,8 +259,12 @@ a paper edit on M's ruling under M's rule for the paper (M_PAPER_RULE_WORDS,
 M's words verbatim from the session, witnessed by the lead; the tree holds no
 copy to check them against); the paper's other marked edit on M's ruling is
 DOCKET 63's, at the marker paper_d63_marker() READs back from paper/CLAIMS.md
-(PAPER_D63_MARKER_LINE) -- the paper's edits are not counted here, the
-markers are named and the reader counts.  M's ruling on the ruling id in the
+(PAPER_D63_MARKER_LINE) -- so it stood when M ruled M-D65-4; CORRECTED
+(DOCKET 67 follow-ups): the paper has since carried DOCKET 67's markers,
+'(Corrected on M's "Repair all", DOCKET 67: ...)', which name M's ruling by
+M's words and which paper_docket_markers() READs as naming one -- the
+paper's edits are not counted here, the markers are named and the reader
+counts.  M's ruling on the ruling id in the
 paper's clause is M-D65-5: added (M_D65_5_ANSWER); the markers this file names
 each name a ruling, and the paper's DOCKET markers are asked of the paper by
 paper_docket_markers() and printed in M-D65-5's cell, a census the reader
@@ -559,9 +563,10 @@ DEMAND = [
      "rho_EW eps^2(2-eps)^2.  At the clock-comparison ORDER eps = %.0e that "
      "is %.6e kg/m^3 of Higgs-derived density, and %.2g (H1) to %.2g (H2) "
      "kg/m^3 of stable matter.  m_h is READ (125.13, captures/PDG-2026.tsv); "
-     "G_F is NAMED-NOT-READ, and the figure inherits G_F's status.  "
-     "CORRECTED (DOCKET 67): DOCKET 67 READ G_F in PDG 2024 Table 1.1, "
-     "1.1663788(6)e-5 GeV^-2, identical to the pin.  The printed digits are "
+     "G_F is %s (PDG 2024 Table 1.1, 1.1663788(6)e-5 GeV^-2, identical to "
+     "the typed digits), and the figure inherits G_F's status.  CORRECTED "
+     "(DOCKET 67 follow-ups): this read 'G_F is NAMED-NOT-READ'; DOCKET 67 "
+     "READ it, and no value moved.  The printed digits are "
      "arithmetic, not physical precision: the figure is tree level (MS-bar "
      "NNLO lambda/LO = 0.9757 moves it -2.4%%), eps's '+1' coefficient "
      "carries O(1e-3), and the value assumes SM self-couplings (it scales "
@@ -571,11 +576,14 @@ DEMAND = [
      "N3LO's 0.23839), all computed by DOCKET 67"
      % (excite.EPS_AT_FIXTURE, excite.HOLD_HIGGS_DERIVED_KG_M3_AT_EPS_1E18,
         excite.HOLD_STABLE_KG_M3_AT_EPS_1E18["H1"],
-        excite.HOLD_STABLE_KG_M3_AT_EPS_1E18["H2"]),
+        excite.HOLD_STABLE_KG_M3_AT_EPS_1E18["H2"],
+        higgs.STATUS_D67["G_FERMI"]),
      MEASURED, ("excite", "HOLD_HIGGS_DERIVED_KG_M3_AT_EPS_1E18"),
      "a cheaper stable neutral source (DOCKET 63 E1, unsettled), the "
      "Yukawa-running correction to the 2/9 source fraction (E10, unsettled), "
-     "a READ G_F or m_h, or the H1/H2 choice, which no Standard Model instrument can "
+     "a later G_F or m_h differing from the READ values carried (CORRECTED, "
+     "DOCKET 67 follow-ups: this read 'a READ G_F or m_h'; both are READ), "
+     "or the H1/H2 choice, which no Standard Model instrument can "
      "make and this file does not"),
 
     # ----- DOCKET 62: the O3 narrowing, seated as its own THEOREM. ----------
@@ -771,8 +779,13 @@ DEMAND = [
      # DOCKET 64 appends; the figures above are stockgate's and are NOT
      # re-printed below (formation.py's [W1]: over-representation).
      + ".  DOCKET 64 (formation.py): %s (DOCKET 67: MacGregor 2018 finds "
-     "no NEED to posit the 1-4 au belt, about 2 sigma against it, and a belt "
-     "below ~130 uJy is not excluded; that is not a withdrawal).  The "
+     "no NEED to posit the 1-4 au belt -- evidence removed by the source = "
+     "%s (READ) -- and its first-12 image falls %.2f sigma below star + a "
+     "%.0f uJy belt, under the %.0f sigma that would exclude it, so excluded "
+     "by the source = %s (computed, formation.belt_excluded), and a belt "
+     "below %.0f uJy is not spoken against even at %.0f sigma; that is not a "
+     "withdrawal.  CORRECTED, DOCKET 67 follow-ups: this read 'about 2 sigma "
+     "against it, and a belt below ~130 uJy is not excluded').  The "
      "aperture search covered "
      "'aperture' and its synonyms; %d files hit (%s among them) and none "
      "gives the arrival aperture a value (formation.APERTURE_SEARCH).  "
@@ -780,6 +793,12 @@ DEMAND = [
      "confirmed reservoir = %s; primitive measured = %s; accessible "
      "measured = %s; the data constrain bodies = %s"
      % (formation.D25_VERDICT,
+        formation.SURVEY_BELT_1_4AU_EVIDENCE_REMOVED_BY_SOURCE,
+        formation.belt_sigma_low(formation.BELT_PHOTOSPHERE_UJY
+                                 + formation.BELT_ANGLADA_UJY),
+        formation.BELT_ANGLADA_UJY, formation.BELT_DETECT_SIGMA,
+        formation.SURVEY_BELT_1_4AU_EXCLUDED_BY_SOURCE,
+        formation.belt_unexcluded_floor_ujy(), formation.BELT_PEAK_SIGMA,
         len(set(formation.APERTURE_HITS)
             | set(formation.APERTURE_SYNONYM_HITS)),
         " and ".join(sorted(
@@ -1003,9 +1022,16 @@ PAPER_CAVEAT_B_HEAD = "- **(b) It is uniform where nothing sources it**"
 #: M-D65-5's cell; this file names them and counts none.  Since M-D65-5 put
 #: the ruling id into the paper's clause, M_D65_4_RULING_T's "the paper's
 #: other marked edit on M's ruling is DOCKET 63's" is what the paper's own
-#: markers say: the selftest asks paper_docket_markers() which markers name a
-#: ruling, and the answer is those at PAPER_CAVEAT_B_LINE and inside the
-#: DOCKET 63 marker, no other.
+#: markers said when M ruled M-D65-4: the selftest asked paper_docket_markers()
+#: which markers name a ruling, and the answer was those at PAPER_CAVEAT_B_LINE
+#: and inside the DOCKET 63 marker, no other.  CORRECTED (DOCKET 67
+#: follow-ups): the paper's DOCKET 67 corrections are marked '(Corrected on
+#: M's "Repair all", DOCKET 67: ...)' -- M's ruling named by M's quoted words,
+#: not by the word 'ruling', so the census first READ them as naming none.
+#: paper_docket_markers() now reads M's quoted words before the docket token
+#: (PAPER_M_QUOTED_RULING_RE) as a ruling named; the selftest asks which of
+#: the paper's DOCKET 67 tokens carry that form, and the template below keeps
+#: M-D65-4's sentence as it stood, with the correction after it.
 M_PAPER_RULE_WORDS = ("the paper is finalized and in the website now. No further "
                       "edit will be made to it unless a finding changes any of the "
                       "already existing paper")
@@ -1023,7 +1049,12 @@ M_D65_4_RULING_T = ("RULED BY M: YES, QUALIFY IT -- M's answer: '%s'.  APPLIED: 
                     "ruling id was added on M-D65-5) -- a paper edit on "
                     "M's ruling under M's rule for the paper (\"%s\", verbatim from "
                     "the session, witnessed by the lead); the paper's other marked "
-                    "edit on M's ruling is DOCKET 63's (paper/CLAIMS.md:%s: \"%s\")")
+                    "edit on M's ruling is DOCKET 63's (paper/CLAIMS.md:%s: \"%s\") "
+                    "-- so it stood when M ruled.  CORRECTED (DOCKET 67 follow-ups): "
+                    "the paper has since carried DOCKET 67's markers, '" +
+                    "(Corrected on M's \"Repair all\", DOCKET 67: ...)', which name "
+                    "M's ruling \"Repair all\" by M's words; M-D65-5's census READs "
+                    "them")
 M_D65_4_UNBLOCKS_T = ("nothing; M's rule for the paper stands (\"%s\", verbatim from "
                       "the session, witnessed by the lead)")
 #: M-D65-4's `why` cell, a TEMPLATE over (the caveat line, massform's asked
@@ -1061,6 +1092,14 @@ M_D65_5_RULING_T = ("RULED BY M: ADD THE ID -- M's answer: '%s'.  APPLIED: "
                     "paper_caveat_b_faults()); " + PAPER_MARKERS_CLAUSE_T)
 #: A DOCKET marker in the paper: the word and its number.
 PAPER_DOCKET_MARKER_RE = re.compile(r"DOCKET (\d+)")
+#: M's ruling named by M's quoted words immediately before a docket token --
+#: the paper's DOCKET 67 markers read '(Corrected on M's "Repair all", DOCKET
+#: 67: ...)'.  Matched against the line up to the token (DOCKET 67
+#: follow-ups); a docket mentioned later inside such a marker is not its
+#: docket and is not matched.
+PAPER_M_QUOTED_RULING_RE = re.compile(r"\bM's \"[^\"]+\", $")
+#: The head of the paper's DOCKET 67 markers, READ in the selftest.
+PAPER_D67_MARKER_HEAD = "(Corrected on M's \"Repair all\", DOCKET 67:"
 #: A COUNT of the paper's edits or markers in this board's own words -- what
 #: the selftests forbid in the M-D65-4 / M-D65-5 cells, the docstring, the
 #: source region around them and specthm's SR5: the items are NAMED and the
@@ -1270,14 +1309,19 @@ def _marker_text(lines, i, pos=0):
 def paper_docket_markers(lines=None):
     """{docket: [(line, ruling_named)]} -- every 'DOCKET <n>' the paper carries,
     READ from paper/CLAIMS.md by PAPER_DOCKET_MARKER_RE with its line number,
-    and for each whether the word 'ruling' stands in the marker's own text
-    (_marker_text(): the enclosing parenthetical, or the line).  Asked, never
-    typed: a marker added to or dropped from the paper moves the census."""
+    and for each whether a ruling is named: the word 'ruling' in the marker's
+    own text (_marker_text(): the enclosing parenthetical, or the line), or
+    M's quoted words immediately before the token (PAPER_M_QUOTED_RULING_RE,
+    the DOCKET 67 form '(Corrected on M's "Repair all", DOCKET 67: ...)' --
+    CORRECTED, DOCKET 67 follow-ups: the census first read only the word, and
+    printed those markers as naming none).  Asked, never typed: a marker
+    added to or dropped from the paper moves the census."""
     lines = _paper_lines() if lines is None else lines
     out = {}
     for i, line in enumerate(lines, 1):
         for m in PAPER_DOCKET_MARKER_RE.finditer(line):
-            named = bool(re.search(r"\bruling\b", _marker_text(lines, i, m.start()), re.I))
+            named = (bool(re.search(r"\bruling\b", _marker_text(lines, i, m.start()), re.I))
+                     or bool(PAPER_M_QUOTED_RULING_RE.search(line[:m.start()])))
             out.setdefault(int(m.group(1)), []).append((i, named))
     return out
 
@@ -2014,9 +2058,14 @@ OPEN_ROWS = [
      "0.187 l_P), which the order-reduction literature holds non-physical, "
      "naming HPS; 'derived or established' holds on its 'established' half, "
      "the 'derived' half being contested (HPS p.3, Arrechea App. B); and "
-     "FO's and FFKP's theorems apply in form only where their hypotheses do "
-     "-- FO needs global hyperbolicity, FFKP's printed Ricci term needs "
-     "R_ll = 0 or xi = 0.  %d of the %d families ONE literature pass "
+     "FO's and FFKP's theorems are REFUSED on HPS's state as published -- "
+     "both hold only for Hadamard states, and that clause is NOT-ESTABLISHED "
+     "(qeihps.py; OPEN were the state Hadamard, FO's global hyperbolicity "
+     "then met locally), and FFKP's printed Ricci term needs R_ll = 0 or "
+     "xi = 0 (CORRECTED, DOCKET 67 follow-ups: this read 'FO's and FFKP's "
+     "theorems apply in form only where their hypotheses do -- FO needs "
+     "global hyperbolicity', before M's ruling added the Hadamard "
+     "hypothesis).  %d of the %d families ONE literature pass "
      "returned as self-consistent REPORT m < 0 (throatmass.py, READ) -- "
      "true of what was reported, and no longer the tree's finding (DOCKET "
      "67: other families are cited, 2607.07583v1 p.1, and KS, Garattini and "
@@ -2107,10 +2156,12 @@ OPEN_ROWS = [
 
     ("O2",
      "Fewster & Teo's exact static-spacetime QEI on the corridor.  NARROWED BY "
-     "DOCKET 62 (fewsterteo.py), NOT CLOSED.  Its prefactor is exactly %d, two "
-     "routes in sympy -- in the tree's reading: F&T's printed prefactor is "
-     "1/pi by four in-paper routes, and the two sympy routes share the one "
-     "step that drops the pi (DOCKET 67; a discrepancy that feeds no "
+     "DOCKET 62 (fewsterteo.py), NOT CLOSED.  Its prefactor is %s as "
+     "printed (READ, pi glyph restored, fixed by four in-paper routes), and "
+     "both sympy routes solve for it from the pi-restored (2.10) and (3.2) "
+     "(CORRECTED, DOCKET 67 follow-ups: this read 'exactly 1, two routes in "
+     "sympy -- in the tree's reading'; on the text-layer -1/2 readings, each "
+     "missing the same pi, both routes return 1 = pi x 1/pi; it feeds no "
      "figure).  Its %d/%d against Ford-Roman is exact and MUST NOT be "
      "applied to C_F, which already IS that family's constant at the optimal "
      "compactly supported sampler (the Parseval route is new; the agreement "
@@ -2123,7 +2174,7 @@ OPEN_ROWS = [
      "tightening came entirely from the witness's H^3 spectral gap, and the "
      "corridor has none (%s: gap %g), so the persistence refusal stays at "
      "%.3f orders, unmoved in either direction"
-     % (fewsterteo.PREFACTOR_212, fewsterteo.NINE_64[0], fewsterteo.NINE_64[1],
+     % (fewsterteo.PREFACTOR_212_PRINTED, fewsterteo.NINE_64[0], fewsterteo.NINE_64[1],
         fewsterteo.CORRIDOR_MODE_FUNCTIONS, fewsterteo.GAP_HYPOTHESIS,
         fewsterteo.CORRIDOR_SPECTRAL_GAP, fewsterteo.FLAT_SHORTFALL_ORDERS),
      fewsterteo.O2_ANSWERED_BY + ".  The right instrument is " +
@@ -2687,15 +2738,19 @@ W_DEMAND_CLAIM = 4000             # DOCKET 67: D24 names the dropped
 W_DEMAND_MOVES = 1200             # DOCKET 65: D27's movers run past 1000
 W_SUPPLY_NOTE = 5000              # DOCKET 65: S10's claim and movers, one note,
                                   # and the item S10 (open) (M-D65-2)
-W_OPEN_CLAIM = 4000               # DOCKET 67: as W_DEMAND_CLAIM (D24 is OPEN)
+W_OPEN_CLAIM = 4400               # DOCKET 67: as W_DEMAND_CLAIM (D24 is OPEN);
+                                  # follow-ups: O5 names FO/FFKP REFUSED on the
+                                  # Hadamard clause, with its correction (4052)
 W_OPEN_ANSWER = 1400              # DOCKET 67: O2's answer names its
                                   # conditions (M ruled "Repair all")
 W_WAS = 1400
 W_WHY = 1000                      # DOCKET 67: superseded rows carry
                                   # the corrections M ruled ("Repair all")
-W_RULING = 1000                   # DOCKET 65: M-D65-4's ruling cell names M's
+W_RULING = 1200                   # DOCKET 65: M-D65-4's ruling cell names M's
                                   # rule for the paper and the DOCKET 63 marker
-                                  # READ back from the paper; 600 would cut it
+                                  # READ back from the paper; 600 would cut it.
+                                  # DOCKET 67 follow-ups: it now carries the
+                                  # DOCKET 67 markers' correction (1005)
 
 
 def _cell(text, width):
@@ -2938,6 +2993,9 @@ SEATED_QUALIFIERS = {
             ("H-PRESENT", 5), ("H-UNSOURCED-SEAT", 4), ("H-TREE", 3), ("P-UNIFORM", 6)),
     # D28's 'at least': the pair floor is PROVED as a floor; without it the
     # row states an exact cost, which is false.
+    # 'both NAMED-NOT-READ' is still its owners' status (DOCKET 67 follow-ups,
+    # checked): gravity.U_KG is typed CODATA 2018 and stock.ATOMIC_MASS is
+    # uncited -- neither was READ by DOCKET 67, unlike G_F (D20, S11).
     "D28": (("both NAMED-NOT-READ", 1), ("H-BL", 1), ("H-AME", 1),
             ("negligible at payload scale", 1), ("costs at least", 1)),
     # D29's and S12's H-BRIDGE (DOCKET 67, key 1809.06923, M's ruling
@@ -2957,9 +3015,18 @@ SEATED_QUALIFIERS = {
             ("(H-LINEAR)", 1), ("Not computed and not read here", 1),
             ("whether it exceeds half is undecided here", 2),
             ("H-LINEAR", 2), ("undecided", 2)),
-    # S11's admission that v is NAMED-NOT-READ (via alpha_W).
+    # S11's admission that v is NAMED-NOT-READ (via alpha_W) -- as first
+    # pinned.  CORRECTED (DOCKET 67 follow-ups): DOCKET 67 READ G_F (PDG 2024
+    # Table 1.1) and massform.py now says v is COMPUTED from the READ G_F, at
+    # tree level; the old phrase survives at the owner only as history ("which
+    # lifted alpha_W's NAMED-NOT-READ"), so that pin now guards the record of
+    # the lift, and the current status and its tree-level scope are pinned
+    # beside it (counts as _row_text returned them when pinned).
     "S11": (("CONTESTED", 1), ("dissent", 1), ("decides nothing", 1), ("unproven", 1),
-            ("alpha_W's NAMED-NOT-READ", 1)),
+            ("alpha_W's NAMED-NOT-READ", 1),
+            ("lifted alpha_W's NAMED-NOT-READ", 1),
+            ("v (COMPUTED from the READ G_F, tree level)", 1),
+            ("tree-level G_mu-scheme coupling, its scale and scheme unfixed", 1)),
     # S12's 'at least': the carrier supplies the pair floor or more.
     "S12": (("(not computed here)", 1), ("supplies at least the pair floor", 1),
             ("H-BRIDGE", 3), ("rests on H-BRIDGE through D29", 1)),
@@ -3201,6 +3268,14 @@ def selftest():
     chk("D20 reproduces DOCKET 63's 2.204772e11 kg/m^3, rescaled by (m_read/m_pin)^2",
         abs(ask(("excite", "HOLD_HIGGS_DERIVED_KG_M3_AT_EPS_1E18"))
             / (2.204772e11 * _mh ** 2) - 1.0) < 1e-6, True)
+    # DOCKET 67 follow-ups: D20's G_F status word is asked of higgs.py, which
+    # READ it (PDG 2024 Table 1.1); the old word survives only in the quote.
+    _d20 = _row_text("D20")
+    chk("  D20's G_F status is higgs.STATUS_D67's READ, the old word only quoted",
+        (higgs.STATUS_D67["G_FERMI"], "G_F is READ (PDG 2024 Table 1.1" in _d20,
+         _d20.count("G_F is NAMED-NOT-READ"),
+         "this read 'G_F is NAMED-NOT-READ'" in _d20),
+        ("READ", True, 1, True))
     chk("  and it IS address.source_density at the fixture's eps",
         ask(("excite", "HOLD_HIGGS_DERIVED_KG_M3_AT_EPS_1E18")),
         address.source_density(excite.EPS_AT_FIXTURE, 1.0)[1])
@@ -3603,11 +3678,30 @@ def selftest():
         (qeihps.VERDICT_THROAT_GEODESIC.startswith("NOT A TEST"),
          ("On the throat geodesic: " + qeihps.VERDICT_THROAT_GEODESIC)
          in o5[1]), (True, True))
-    chk("  Kontou's test is the owner's (FO and FFKP both OPEN), F-S REFUSED",
+    # CORRECTED (DOCKET 67 follow-ups): this label read "(FO and FFKP both
+    # OPEN)", true before M's ruling added the Hadamard hypothesis in qeihps;
+    # the owner now REFUSES both on the Hadamard clause, OPEN only were HPS's
+    # state Hadamard -- asked of the owner below, not of the label.
+    chk("  Kontou's test is the owner's (FO and FFKP both REFUSED on the "
+        "Hadamard clause; OPEN if Hadamard), F-S REFUSED",
         (qeihps.KONTOU_REQUEST_FOUND,
          qeihps.KONTOU_REQUESTED_TEST_ON_HPS in o5[1],
          qeihps.FEWSTER_SMITH_ON_HPS.startswith("REFUSED"),
          qeihps.DOCKET62_INSTRUMENT_STANDS), (True, True, True, False))
+    chk("  FO and FFKP REFUSED on HPS's state, Hadamard NOT-ESTABLISHED, "
+        "OPEN/OPEN only were it Hadamard (asked of qeihps)",
+        (qeihps.FO_ON_HPS.startswith("REFUSED"),
+         qeihps.FFKP_IV1_ON_HPS.startswith("REFUSED"),
+         qeihps.HPS_STATE_HADAMARD_ESTABLISHED,
+         sorted(v[0] for v in qeihps.CONDITIONAL_IF_HADAMARD.values())),
+        (True, True, False, ["OPEN", "OPEN"]))
+    chk("  O5's prose and hpscentre's answer name the Hadamard blocker",
+        ("REFUSED on HPS's state as published" in o5[1],
+         "NOT-ESTABLISHED" in o5[1],
+         "HPS's state established Hadamard" in hpscentre.O5_ANSWERED_BY,
+         "apply in form only where their hypotheses do -- FO needs global "
+         "hyperbolicity, FFKP" in o5[1]),
+        (True, True, True, False))
     _tm = "-- %s, not NO" % throatmass.NEGATIVE_MASS_SELF_CONSISTENT_FOUND
     chk("  throatmass's NOT-FOUND is no longer printed as the tree's finding",
         (_tm in o5[1], _tm in O5_DOCKET62[0]), (False, True))
@@ -3636,6 +3730,17 @@ def selftest():
     chk("fluctuation.py's own flag that it moves no row is unmoved",
         fluctuation.LEDGER_ROW_MOVES, False)
     o2 = [r for r in OPEN_ROWS if r[0] == "O2"][0]
+    # DOCKET 67 follow-ups: fewsterteo.PREFACTOR_212 is now the printed 1/pi;
+    # the cell prints the owner's printed string, never a '%d' of the float
+    # (which rendered 'exactly 0'), and the text-layer 1 is pi x 1/pi.
+    chk("O2 prints fewsterteo's printed prefactor (1/pi), not 'exactly 0' or 1",
+        (("Its prefactor is %s as printed" % fewsterteo.PREFACTOR_212_PRINTED)
+         in o2[1],
+         abs(fewsterteo.PREFACTOR_212 - 1.0 / math.pi) < 1e-15,
+         abs(math.pi * fewsterteo.PREFACTOR_212
+             - fewsterteo.PREFACTOR_212_TEXT_LAYER_READING) < 1e-15,
+         "prefactor is exactly 0" in o2[1], "Its prefactor is exactly 1" in o2[1]),
+        (True, True, True, False, False))
     chk("O2's answer now names D22's curved question (ruling C addendum)",
         ("D22's distribution question" in o2[2],
          "note [18]" in o2[2]), (True, True))
@@ -4284,6 +4389,30 @@ def selftest():
          paper_docket_markers_clause() in _d5[0][3],
          _cnt.findall(_d5[0][3] + " " + _d5[0][4] + " " + __doc__)),
         (True, [(PAPER_CAVEAT_B_LINE, True)], [True], [True], [63, 65], True, []))
+    # DOCKET 67 follow-ups: the paper's DOCKET 67 corrections name M's ruling
+    # by M's words ('(Corrected on M's "Repair all", DOCKET 67: ...)'); the
+    # census READs exactly the tokens that open such a marker as naming a
+    # ruling, no other DOCKET 67 token, and not a docket mentioned inside one.
+    _plines = _paper_lines()
+    _d67heads = [i for i, l in enumerate(_plines, 1) if PAPER_D67_MARKER_HEAD in l]
+    _d67named = sorted(l for l, r in _pdm.get(67, []) if r)
+    _inside = [d for d, sites in _pdm.items() if d != 67
+               for l, r in sites if l in _d67heads]
+    chk("  the paper's DOCKET 67 markers ('%s ...)') are READ as naming M's "
+        "ruling, exactly those tokens; a docket mentioned inside one is not; "
+        "M-D65-4's cell and the docstring carry the correction"
+        % PAPER_D67_MARKER_HEAD,
+        (_d67heads != [], _d67named == _d67heads,
+         [d for d, sites in _pdm.items() if d != 67 for l, r in sites
+          if l in _d67heads and r],
+         "the paper has since carried DOCKET 67's markers" in _d4[0][3],
+         "the paper has since carried DOCKET 67's markers" in " ".join(__doc__.split())),
+        (True, True, [], True, True))
+    _unq = [l.replace("M's \"Repair all\", DOCKET 67", "DOCKET 67") for l in _plines]
+    chk("  CONTROL: M's quoted words dropped from the DOCKET 67 markers in a "
+        "private copy of the paper's lines -- the census READs none of them as "
+        "naming a ruling (the word-only reading this replaced)",
+        sorted(l for l, r in paper_docket_markers(_unq).get(67, []) if r), [])
     _l52 = _pdm.get(52, [(0, False)])[0][0]
     _alt = [l.replace("DOCKET 52", "DOCKET 5", 1) if i + 1 == _l52 else l
             for i, l in enumerate(_paper_lines())]
