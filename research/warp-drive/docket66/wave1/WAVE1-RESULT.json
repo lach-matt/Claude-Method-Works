@@ -1,0 +1,888 @@
+{
+  "summary": "DOCKET 66 wave 1: defects as seats, the throat compressed to bits, QET; read the literature; screen with D68; verify both ways",
+  "agentCount": 7,
+  "logs": [],
+  "result": {
+    "alone": [
+      {
+        "id": "A1-defects",
+        "files": [
+          "/home/user/Claude-Method-Works/research/warp-drive/docket66/defects.py",
+          "/home/user/Claude-Method-Works/research/warp-drive/docket66/A1-defects.md",
+          "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d66/A1-defects.json",
+          "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d66/A1-defects-report.json"
+        ],
+        "sources": [
+          "Hindmarsh & Kibble, Cosmic strings, arXiv hep-ph/9411342v1 -- READ via alphaXiv full text; pp.16,26,33-34,36,53-54,63,84-85,90",
+          "Durrer, Global field dynamics and cosmological structure formation, arXiv astro-ph/9411010 -- READ via alphaXiv; pp.4,8-10,12-13,18",
+          "Cvetic, Griffies & Soleng, domain wall space-times, arXiv gr-qc/9306005 -- READ via alphaXiv; abstract, pp.2,6,10,12",
+          "Visser, Traversable wormholes: some simple examples, arXiv 0809.0907 (PRD 39 3182) -- READ via alphaXiv; pp.3-6",
+          "Gibbons & Volkov, Weyl metrics and wormholes, arXiv 1701.05533v3 -- READ via alphaXiv; pp.3,20-22",
+          "Frolov, Krtous & Zelnikov, Ring wormholes and time machines, arXiv 2305.03887 -- READ via alphaXiv; pp.1,5,17-18",
+          "Carroll, Farhi, Guth & Olum, Gott time machines, arXiv gr-qc/9404065 -- READ via alphaXiv; abstract, pp.2,4,10",
+          "De Lorenci & Moreira, spinning strings and dislocations, arXiv gr-qc/0309122v2 -- READ via alphaXiv; p.1 eqs.(2)-(3)",
+          "Planck 2013 XXV, arXiv 1303.5085 -- READ via alphaXiv; abstract, Tables 2-3",
+          "Friedman, Schleich & Witt, Topological censorship, arXiv gr-qc/9305017v2 -- READ via alphaXiv; pp.2-3",
+          "Fu, Grado-White & Marolf, arXiv 1908.03273v2 -- READ via alphaXiv; abstract, pp.1-5,15-17",
+          "Eto & Suzuki, Massless monopole-string-domain wall fermions, arXiv 2506.16765v1 -- READ via alphaXiv; pp.15-16,22,25",
+          "arXiv gr-qc/9506068 (gauge monopole attractive) -- READ (abstract) via Firecrawl research search",
+          "arXiv gr-qc/9903059 (thick walls, only de Sitter for large epsilon) -- READ (abstract) via Firecrawl research search",
+          "ROUTE ERROR: arXiv hep-th/0001128 tried as Rubakov-Shaposhnikov 1983 is Fring & Korff (unrelated); R-S 1983 NOT READ, nothing rests on it"
+        ],
+        "grades": [
+          {
+            "hypothesis": "H-DEFECT-SEAT (defect at the seat), string (static, straight, positive tension)",
+            "per_obstruction": "O-SEAT OPEN via N_S5 | N_DEFB (the board's grade is not moved); O-HOLD LEAVES; O-LOOP: none (static); O-MAKE-TOPO LEAVES (no topology change); O-MAKE-DIST LEAVES; O-BITS LEAVES (zero modes move at exactly c; the cone shortens paths by 4.4e-13, and only relative to flat space)",
+            "seat_conditions": "M-S1A-P3 (i) PASSES (static, g^tt = -1). A spinning string is DISQUALIFIED inside r < S/alpha unless S < kappa. A Gott pair needs gamma > 5.3e5 and cannot form in an open universe. specthm class S-3. Sturm never certifies (16 mu or 32 mu, against the cone closing at mu = 1/4). Its turn is a crossing at L = b/tan(4 pi G mu), with no caustic",
+            "ground": "defects.py energy_conditions, string_deficit_linear, static_is_stably_causal, spinning_ctc, sturm_bounds/limits, string_crossing, grades(); HK pp.53,84,90; DLM04 eq.(2); CFG94 eq.(32); PLANCK13",
+            "named_hypotheses": [
+              "H-THIN",
+              "H-LINEAR-GRAV",
+              "H-UNIFORM-CORE",
+              "H-STATIC-STRING",
+              "H-YUKAWA",
+              "H-TURN-CONJUGATE",
+              "H-TURN-CROSSING",
+              "H-SM-ONLY",
+              "N_DEFB",
+              "N_S5"
+            ]
+          },
+          {
+            "hypothesis": "H-DEFECT-SEAT, domain wall (thin vacuum wall)",
+            "per_obstruction": "O-SEAT OPEN via N_S5 | N_DEFB; O-HOLD LEAVES; O-LOOP OPEN (the VIS causal structure was not computed); O-MAKE-TOPO LEAVES; O-MAKE-DIST LEAVES; O-BITS LEAVES",
+            "seat_conditions": "CTC/Borde at a wall seat is OPEN. The SEC is VIOLATED (repulsive, R_uu = -4 pi G sigma) but the NEC holds and light crossing the wall is focused (R_kk = +8 pi G sigma): a genuine caustic at f = c^4/(4 pi G sigma) = 1/(2 beta). Sturm: a thin wall never certifies; a thick wall needs w >= (pi^2/2)/beta, about 4.93 of its own de Sitter radii. specthm class S-3",
+            "ground": "defects.py wall_split, wall_thin_lens, vis_beta, sturm_limits; CGS pp.2,6,10,12; gr-qc/9903059 abstract",
+            "named_hypotheses": [
+              "H-THIN",
+              "H-YUKAWA",
+              "H-SM-ONLY",
+              "H-TURN-CONJUGATE",
+              "N_DEFB",
+              "N_S5"
+            ]
+          },
+          {
+            "hypothesis": "H-DEFECT-SEAT, global monopole",
+            "per_obstruction": "O-SEAT OPEN via N_S5 | N_DEFB; O-HOLD LEAVES; O-LOOP: none (static); the others LEAVES",
+            "seat_conditions": "PASSES (static). Exact deficit Delta = 8 pi eta^2/(1 + 8 pi eta^2). Sturm never certifies (sup K s^2 = 2 eps needs eps >= pi^2/2, against eps < 1). Deflection is eps*pi for every b (an axicon: a focal line, not a point). specthm class S-3",
+            "ground": "defects.py hedgehog_stress, monopole_einstein, monopole_deflection, sturm_bounds; DURRER pp.8-12; ETO25 App. A",
+            "named_hypotheses": [
+              "H-YUKAWA",
+              "H-TURN-CONJUGATE",
+              "H-TURN-CROSSING",
+              "N_DEFB",
+              "N_S5"
+            ]
+          },
+          {
+            "hypothesis": "H-DEFECT-SEAT, gauge monopole (exterior)",
+            "per_obstruction": "O-SEAT OPEN via N_S5 | N_DEFB (the core violates baryon number, but direction and rate were not computed); O-HOLD LEAVES; O-LOOP: none outside r_+; the others LEAVES",
+            "seat_conditions": "PASSES outside r_+ (static). All energy conditions hold; SEC SAT (attractive). Sturm needs Q/b >= pi, i.e. 2 M_out/b >= pi^2 > 1 (trapped), so never for a regular monopole. Lensing seat not computed (OPEN). None exists in the SM (pi_2(S^3) = 0)",
+            "ground": "defects.py maxwell_radial, sturm_bounds/limits, static_is_stably_causal; DURRER pp.4,18; HK p.63; gr-qc/9506068 abstract",
+            "named_hypotheses": [
+              "H-YUKAWA",
+              "H-SM-ONLY",
+              "N_DEFB",
+              "N_S5"
+            ]
+          },
+          {
+            "hypothesis": "H-DEFECT-SEAT, texture",
+            "per_obstruction": "no obstruction moved (a texture is an event, not a place)",
+            "seat_conditions": "EMPTY IF {H-SEAT-PERSISTS}. A texture is unstable: Derrick gives dE/dlambda = I1 + 3 I2 > 0 in d = 3 and z3 finds no stationary point (the d = 1 control does admit one). Textures are d = 0 events in spacetime (DURRER Table 1)",
+            "ground": "defects.py derrick, canonical_nec; DURRER pp.4,9,13",
+            "named_hypotheses": [
+              "H-SEAT-PERSISTS",
+              "H-CANONICAL"
+            ]
+          },
+          {
+            "hypothesis": "a defect as the THROAT's support (string-supported wormholes: Visser polyhedral, GV ring, FGM quantum)",
+            "per_obstruction": "O-HOLD is LEFT given H-CANONICAL: canonical fields satisfy the NEC pointwise, so FSW binds. Outside it, OPEN via N_NEGT: the throat needs tension -c^4/(4G), and no mechanism is known (Visser p.5). Quantum string fluctuations (FGM) give an opening that is brief and exponentially fragile, with transit d + logs; that is not a hold. Never REMOVED. O-LOOP is reintroduced when both mouths are in one space with unequal surrounding mass (FKZ: T ~ R L c/(G M)). O-MAKE-TOPO binds if the wormhole is made from flat space (create.is_topology_change(False,True), Geroch, Gannon). O-BITS LEAVES",
+            "seat_conditions": "The seat mouth lies on the FKZ loop, so M-S1A-P3 (i) disqualifies it unless the masses balance. The GV ring's curvature singularity is at the throat, which M-S1A-P3 (i) does not disqualify",
+            "ground": "defects.py canonical_nec, grades() (z3, vacuity guard, 4 mutation controls), figures (GV 3.0256e43 N, Visser 1.513e43 J/m, 1.11 Jupiter masses); FSW93, GV17, VISSER89, FKZ23, FGM19",
+            "named_hypotheses": [
+              "H-CANONICAL",
+              "N_NEGT"
+            ]
+          }
+        ],
+        "findings": [
+          "F1 (FOR M): M's phrase 'matter can occur but not in its original geometric form' has an exact counterpart in the literature: fermion zero modes. A mass that comes from a Yukawa coupling vanishes at the defect's core, and the matter there becomes massless modes confined to the defect (1+1 dimensions on strings, moving at exactly c; 2+1 on walls; bound on monopoles). Sources: HK pp.33-34, ETO25 pp.15-16,22. The Jackiw-Rebbi profile was computed and is normalisable; with the wrong coupling sign it is not (the control). SUPPORTED, on H-YUKAWA.",
+          "F2 (AGAINST M): no source read gives a defect that SUPPLIES matter at a seat. What happens is that matter already there changes form. O-SEAT stays OPEN and the board's grade is not moved. One new OPEN pathway is named, N_DEFB (a core that violates baryon number, HK p.63); its direction, rate and feedstock are computed nowhere.",
+          "F3: in every class, Sturm's certificate (in specthm's own form, read from its source) lies beyond the class's own gravitational limit. String core: mu >= pi^2/32, against the cone closing at 1/4. Global monopole: eps >= pi^2/2, against eps < 1. Gauge monopole: 2M_out/b >= pi^2, which is trapped. Thick wall: thicker than 4.93 of its own de Sitter radii. This has the same shape as spec.py's 2 pi^2/3 for the ball.",
+          "F4: the wall is the only class that gives light a genuine focal point (f = c^4/(4 pi G sigma), half its de Sitter radius), even though it violates the SEC and repels matter at rest. A 1 AU focus would need sigma = 6.4e31 J/m^2.",
+          "F5: the string and the global monopole bend rays by an angle that does not depend on b, so rays cross but do not focus. For a string at the Planck bound with b = R_sun, the crossing is at 2,467 AU; the Sun's focus is at 548 AU. The board never fixed whether TURN means a conjugate point or any crossing, so both readings are named (H-TURN-CONJUGATE, H-TURN-CROSSING) for M to rule on.",
+          "F6: static string and monopole seats pass M-S1A-P3 (i). A spinning string is disqualified inside r < S/alpha when S > kappa. A Gott pair needs gamma > 5.3e5 at the Planck bound and cannot form in an open universe.",
+          "F7: under H-SM-ONLY no stable defect exists (S^3 has pi_0 = pi_1 = pi_2 = 0; Z-strings are unstable; textures are transient). Even at an electroweak core, at most the Higgs share of the payload would change form: <= 0.172 on massform's largest first-order reading.",
+          "F8 (link to S13): a defect core holds |phi| = 0 with no source, below massform.STABLE_RANGE (0.5774 v). But topology forbids releasing it locally: the hold ends only by annihilating the defect, which releases mu c^2 = 1.8e37 J per metre at the Planck bound, so H-RELEASE cannot apply. Recorded for the combination step.",
+          "F9: every string-supported traversable throat read needs negative tension, or a brief quantum opening. With both mouths in one space it becomes a time machine (FKZ: 1.4e9 yr for an Earth-mass shell with L = 1 ly), so the seat mouth would carry a CTC.",
+          "H-DEFECT-SEAT removes no obstruction. It is not retired: combinations are step 3."
+        ],
+        "open": [
+          "Domain wall global causal structure (CTC or Borde pathology at a wall seat): not computed",
+          "N_DEFB: whether a core that violates baryon number can supply baryons. Direction, rate and feedstock are computed nowhere",
+          "N_NEGT: a negative-tension string. No mechanism is known",
+          "Lensing seat of a specific gauge monopole: not computed",
+          "A texture 'event-seat' is not defined on the board: OPEN without H-SEAT-PERSISTS",
+          "Whether TURN means a conjugate point or any crossing: for M",
+          "Combinations not screened: defect seat x H-THROAT-BITS (M-S1A-P3 (i) allows a singular ring throat, but it still needs N_NEGT); defect core x S13 (topological hold vs H-RELEASE); defect seat x H-QET-EXOTIC",
+          "Observational bounds on walls and monopoles (Zel'dovich-Kobzarev-Okun, Parker): NAMED, NOT READ",
+          "Rubakov-Shaposhnikov 1983 not read (route error recorded). Jackiw-Rebbi and Jackiw-Rossi are CITED via ETO25, not read"
+        ],
+        "selftests": [
+          "PYTHONDONTWRITEBYTECODE=1 python3 docket66/defects.py --selftest: 71 counted checks, 71 passed, 19 of them controls; 1 STRUCTURAL item printed, not counted; rc 0; about 30 s",
+          "Controls include: the negative-tension string violates the NEC and WEC; a phantom scalar gives T_kk < 0; 4 pi G mu fails to reproduce HK's 5.18 arcsec; a rod (T = 0) gives a force; A = 1 gives rho = 0; a negative-tension wall gives no caustic; Derrick in d = 1 admits a stationary point; the S-1 lens is quadratic in b; S = 0 gives no CTC; the wrong Yukawa sign is not normalisable; c^4/(4 pi G) fails to reproduce Visser's edge; and the z3 mutations drop-FSW, neg-asserted, defb-asserted and spin-ok are each caught",
+          "Owners imported, never copied: spec, specthm (classes, sturm_ratio, and the Sturm sentence read from its source), massform, excite, create, ledger (M's words), docket68/seat (grade_o_seat)"
+        ],
+        "problems": [
+          "arXiv hep-th/0001128 is not Rubakov-Shaposhnikov 1983 (route error, recorded). The wall zero mode rests on ETO25 and the computation instead",
+          "Two sources (gr-qc/9506068 and gr-qc/9903059) were read only as the abstracts Firecrawl search returned; their authors were not read",
+          "The z3 screen is small bookkeeping over findings owned elsewhere; its encoding of OPEN pathways is STRUCTURAL",
+          "docket66/ also holds A2's files (throatbits.py, A2-throatbits.md), written by another agent; I did not touch them"
+        ]
+      },
+      {
+        "id": "A2-throatbits",
+        "files": [
+          "/home/user/Claude-Method-Works/research/warp-drive/docket66/throatbits.py",
+          "/home/user/Claude-Method-Works/research/warp-drive/docket66/A2-throatbits.md",
+          "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d66/A2-throatbits.json",
+          "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d66/A2-throatbits-report.json"
+        ],
+        "sources": [
+          "Poisson & Visser, Thin-shell wormholes: Linearization stability, arXiv:gr-qc/9506083v1 -- READ all 4 pages via alphaXiv answer_pdf_queries (open arXiv full text), 2026-10-04; eqs (11)-(13),(18)-(19),(29),(33)-(36), p.1 Dirac-distribution throat on a geodesically complete manifold, p.3-4 caveats",
+          "Gao, Jafferis & Wall, Traversable Wormholes via a Double Trace Deformation, arXiv:1608.05687v3 -- READ pp.1-5,10,12-15 via alphaXiv; p.4 decoupled boundaries give no bulk signal, p.10 ANEC<0, eq.(5.1), p.13 no CTC, fn.8 information limit presumed not derived, p.14 no faster than light over long distances, pp.14-15 teleportation reading",
+          "Maldacena, Stanford & Yang, Diving into traversable wormholes, arXiv:1704.05333v1 -- READ pp.1-4,12-14,22-24,36-37,47-49 via alphaXiv; eqs (2.21),(2.25) N_send <~ g <~ N_bits (parametric), p.13 factor 2 not reproduced, pp.22-23 teleportation, (D.92)",
+          "Almheiri, Hartman, Maldacena, Shaghoulian & Tajdini, The entropy of Hawking radiation, arXiv:2006.06872v1 -- READ pp.1-5,13-14,21-34,37-39,41-42 via alphaXiv; eq.(2.4) S_gen, p.13 central dogma (p.14 unproven assumption), eq.(8.2) island formula, p.33 decoding complexity, pp.33-34 bag of gold, p.37 replica wormholes, p.38 entropy not state",
+          "Board readings used, not re-read: Bousso hep-th/9905177 (NARROWED), QNEC 1509.02542 (geometry.qnec_price), BSST quant-ph/9904023 (measure H-FAITHFUL), Maldacena-Susskind 1306.0533v2 (geometry.GRADES ITE), Bekenstein quant-ph/0404042 (measure; NARROWED)",
+          "No paywall, login wall or 403 met; Firecrawl not needed; Visser 1989 originals (PRD 39 3182, NPB 328 203) NAMED-NOT-READ"
+        ],
+        "grades": [
+          {
+            "hypothesis": "H-THROAT-BITS, reading R-HOLO (geometry at holographic density A/(4 l_P^2 ln2))",
+            "per_obstruction": "O-BITS LEFT (a capacity is not a channel); O-MAKE-TOPO OPEN via specthm W-create-ncc (OPEN) -- Tipler/Borde still bind, the pathology sits at the throat, which M-S1A-P3 (i) does not disqualify; admitted by ruling, not shown realisable; O-MAKE-DIST SILENT; O-HOLD LEFT-IF {H-SINGULAR-IS-THINSHELL, H-PV-STATIC} plus QNEC price = 0.500 of the count at r_fit, R-QUANTUM covers 3.8e-26; O-SEAT OPEN via N_S5 (unchanged); O-LOOP SILENT",
+            "seat_conditions": "specthm seating classes unmoved (S-1 NONEMPTY, S-2 OPEN, S-3 OPEN, Rec OPEN; z3 at run time); Sturm condition untouched (no T_kk supplied at the seat); seat free of CTC/Borde SATISFIED-IF {H-SEAT-OFF-THROAT}; throat classes W-create-cc/ncc/W-enlarge OPEN, unmoved",
+            "ground": "computed: r_fit = 7.40e-22 to 2.50e-21 m by bisection on nopath.holographic_bits (closed-form check); Bekenstein radius at Mc^2 5.27e-18 to 6.03e-17 m; saturation identity E_floor(r_fit) = r_fit c^4/(2G) (sympy), M_sat = 4.98e5-1.69e6 kg = 7,100-24,000 x payload; geometry.shape_checks: no light-sheet leaves a flare-out throat; READ 2006.06872 pp.5,13-14,33-34",
+            "named_hypotheses": [
+              "H-CAP-AT-THROAT",
+              "H-NECK-DOGMA",
+              "H-COUNT-IS-ENTROPY",
+              "H-ALT",
+              "H-BEK-SCOPE",
+              "H-QNEC-OUT-OF-SCOPE",
+              "H-CONST",
+              "H_flat",
+              "H-PATH",
+              "H-MIN-SCALAR"
+            ]
+          },
+          {
+            "hypothesis": "H-THROAT-BITS, reading R-THINSHELL (singular throat = Poisson-Visser distributional shell)",
+            "per_obstruction": "O-BITS LEFT; O-MAKE-TOPO OPEN via W-create-ncc (cut-and-paste gives a spacetime, does not make one); O-MAKE-DIST SILENT; O-HOLD LEFT-IF {H-SINGULAR-IS-THINSHELL, H-PV-STATIC}: sigma_0<0 every a_0>2M, shell NEC fails for a_0>3M, unstable for 0<beta_0^2<=1, stable only in PV regions I/II (OPEN within PV p.4's caveat); O-SEAT OPEN via N_S5; O-LOOP SILENT",
+            "seat_conditions": "as R-HOLO; PV's manifold is geodesically complete with the shell as singular support, so the seat condition holds off the throat (H-SEAT-OFF-THROAT); M's ruling (singular throat not disqualified) applied and costs GR nothing",
+            "ground": "READ gr-qc/9506083v1; computed: conservation (13) from (11)-(12) (control fails when sign flipped), sigma_0+p_0 closed form, stability grid reproduces PV p.3, roots (34) verified, shell mass -2a c^2/G = -16 pi x wormhole.throat_mass = -4 x M_sat",
+            "named_hypotheses": [
+              "H-SINGULAR-IS-THINSHELL",
+              "H-PV-STATIC",
+              "H-SEAT-OFF-THROAT"
+            ]
+          },
+          {
+            "hypothesis": "H-THROAT-BITS, reading R-TELEPORT (compressed to binary information then pushed = traversable-wormhole teleportation, GJW/MSY)",
+            "per_obstruction": "O-BITS LEFT (GJW p.4, p.14; MSY (2.21),(2.25) parametric; >= 1.9e28-2.2e29 classical bits for the payload under H-FAITHFUL); O-MAKE-TOPO NOT-BOUND-IF {H-ER=EPR} (D68 ITE grade carried in, not added); O-MAKE-DIST LEFT-IF {H-GJW-COUNTERPART, MS sec.3.2}; O-HOLD REMOVED-IF {H-GJW-COUNTERPART, H-ADS-TFD, H-COUPLED} in GJW's AdS setting only, credited to the premise set not to H-THROAT-BITS, resting on H-COUPLED which is O-BITS's channel; for one space OPEN via N_GJW-AMBIENT (stated, not computed); O-SEAT OPEN via N_S5 (B-RECV as H-INFO-SHAPE has it); O-LOOP SILENT (GJW p.13 excludes CTC)",
+            "seat_conditions": "as R-HOLO; GJW p.13: coupling fixes relative time, no CTC; specthm classes unmoved",
+            "ground": "READ 1608.05687v3 and 1704.05333v1 at the cited pages; D68 geometry.GRADES ITE row imported as text",
+            "named_hypotheses": [
+              "H-GJW-COUNTERPART",
+              "H-ADS-TFD",
+              "H-COUPLED",
+              "N_GJW-AMBIENT",
+              "H-FAITHFUL",
+              "H-ER=EPR"
+            ]
+          },
+          {
+            "hypothesis": "H-THROAT-BITS, reading R-ISLAND (area term / island formula)",
+            "per_obstruction": "O-BITS LEFT-IF {H-ISLAND-COUNTERPART} (entropy not state, p.38; radiation leaves physically; decoding roughly exponential, p.33); O-MAKE-TOPO SILENT (replica wormholes Euclidean saddles, p.37); O-MAKE-DIST SILENT; O-HOLD SILENT; O-SEAT OPEN via N_S5; O-LOOP SILENT",
+            "seat_conditions": "as R-HOLO; specthm classes unmoved",
+            "ground": "READ 2006.06872v1 eq.(8.2), pp.33, 37-38",
+            "named_hypotheses": [
+              "H-ISLAND-COUNTERPART",
+              "H-NECK-DOGMA"
+            ]
+          },
+          {
+            "hypothesis": "H-THROAT-BITS, reading R-ITB (literal: geometry ceases at the throat, information continues beneath, D68 ITB)",
+            "per_obstruction": "O-BITS LEFT (D68 ITB; push has no READ realisation; combination with W2 x F1 is a step-3 candidate); O-MAKE-TOPO NOT-BOUND-IF {N_QTOPO} (H-IT's, imported); O-MAKE-DIST LEFT (D68 ITB); O-HOLD NOT-BOUND-IF {N_QTOPO} geometric form, layer's cost OPEN; O-SEAT OPEN via N_S5; O-LOOP NOT-BOUND-IF {N_QTOPO} for corridors",
+            "seat_conditions": "as R-HOLO; specthm classes unmoved",
+            "ground": "geometry.GRADES ITB row imported as text (check F7); H-THROAT-BITS adds the location only",
+            "named_hypotheses": [
+              "H-ITB",
+              "N_QTOPO"
+            ]
+          }
+        ],
+        "findings": [
+          "Payload's defining information 9.5e27-1.1e29 bits (measure.price_table, H-ALT) fits a throat sphere at A/(4 l_P^2 ln2) capacity at r_fit = 7.40e-22 to 2.50e-21 m (4.6e13-1.5e14 l_P), under H-CAP-AT-THROAT / H-NECK-DOGMA / H-COUNT-IS-ENTROPY",
+          "Bousso's light-sheet bound gives no cap at a throat: geometry.shape_checks computes theta = 0 at r0 and > 0 on both sides of a flare-out throat (no light-sheet); the READ route to a cap at a neck is the central dogma / bag of gold (2006.06872 pp.13-14, 33-34), an assumption by the source's own words",
+          "Mass of compression (floor): at the payload's own Mc^2 Bekenstein (in scope, R_Bek > 1e6 r_s) admits the count only at R >= 5.27e-18 to 6.03e-17 m; at r_fit the least energy is exactly r_fit c^4/(2G) (sympy identity, numeric check), M_sat = 4.98e5-1.69e6 kg = 7,100-24,000 x the payload",
+          "QNEC price of a throat in bits = (1-b')/2 of its own A/4 capacity at every radius: 0.500 of the payload count at r_fit (H-QNEC-OUT-OF-SCOPE, H-CONST); R-QUANTUM covers 3.8e-26 to 3.3e-27 of the deficit at r_fit",
+          "Singular throat in GR (Poisson-Visser, READ): distributional Einstein tensor on a geodesically complete manifold -- M's ruling has a precise GR counterpart; computed sigma_0 < 0 all a_0 > 2M, shell NEC fails for a_0 > 3M, unstable for 0 < beta_0^2 <= 1, shell mass -2a c^2/G = -16 pi x wormhole.throat_mass: the singular throat concentrates the NEC deficit, it does not remove it",
+          "Largest board self-consistent semiclassical throat (throatmass, 300 l_P) holds 4.08e5 bits; payload is 2.3e22-2.7e23 x that",
+          "Closest READ counterpart of M's whole sentence is traversable-wormhole teleportation (GJW, MSY): information passes the throat 'via the entanglement', paid by a prior bridge plus a coupling carried outside at <= c; O-BITS LEFT; MSY's bound N_send <~ g <~ N_bits is parametric",
+          "H-THROAT-BITS removes no obstruction by itself in any of five readings (member-attributed removals: none; planted removal caught by control); O-SEAT stays OPEN via N_S5; no specthm seating or throat class verdict moves",
+          "Recorded: no READ source gives a sharp bits-through-a-throat bound (GJW fn.8 presumes one, MSY sec.2.5 parametric), so any per-throat bit figure rests on the capacity reading"
+        ],
+        "open": [
+          "Whether any construction holds a throat at r_fit (needs a microphysics for beta_0, PV p.4) -- OPEN",
+          "A sharp information bound through a traversable throat (GJW fn.8, MSY sec.2.5) -- OPEN",
+          "N_GJW-AMBIENT: GJW p.14 same-space version, stated not computed -- OPEN",
+          "H-SINGULAR-IS-PINCH (curvature-singular, geodesically incomplete throat) not modelled",
+          "Step-3 candidates not screened: R-TELEPORT x D68 H-SETTLE W2 x H-FRAME F1 on O-BITS; R-ITB x D68 H-IT (ITB); R-TELEPORT x H-QET-EXOTIC on whether arriving-information negative energy can be the throat's ANEC deficit",
+          "Visser 1989 originals (PRD 39 3182; NPB 328 203) NAMED-NOT-READ (not on arXiv); no figure rests on them"
+        ],
+        "selftests": [
+          "PYTHONDONTWRITEBYTECODE=1 python3 /home/user/Claude-Method-Works/research/warp-drive/docket66/throatbits.py --selftest: 41 counted checks, 41 pass, 0 fail; 9 controls (value off by 1%, nats capacity x2, b'=1, Minkowski light-sheet, PV sign flip, PV regions I/II stable, planted bare REMOVED, planted member removal); 4 STRUCTURAL not counted; ~45 s (specthm z3 derive ~42 s)",
+          "python3 throatbits.py --json regenerated scratchpad d66/A2-throatbits-report.json"
+        ],
+        "problems": [
+          "specthm.build()+derive() adds ~42 s per selftest/report run (run-time z3 derivation of the class verdicts, by design: verdicts are asked, not typed)",
+          "Grade-text guards F5/F6 restate the authored grades and are printed STRUCTURAL, not counted; F1/F4 are rule audits with failing controls",
+          "Another agent's file docket66/defects.py is present and untouched"
+        ]
+      },
+      {
+        "id": "A3-qet",
+        "files": [
+          "/home/user/Claude-Method-Works/research/warp-drive/docket66/qet.py",
+          "/home/user/Claude-Method-Works/research/warp-drive/docket66/A3-qet.md",
+          "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d66/A3-qet.json"
+        ],
+        "sources": [
+          "Hotta arXiv:0803.2272v3 (16 Jul 2008) = PRD 78 045006, the 'Hotta 2008' named to M. READ via alphaXiv answer_pdf_queries (open PDF). Read: Bob acts after Alice's wavepackets have passed (p.11); eq.(25) <H_B> = -eta^2/2xi (p.14); local vacuum before Bob's step (p.14); eq.(10) (p.9); classical channel bounded by light (p.2). Spin-chain QET arXiv:0803.0348 is cited there and NOT READ.",
+          "Hotta arXiv:1002.0200v2 (25 Jun 2010) = PLA 374 3416, the minimal model. READ via alphaXiv. Read: eqs (1)-(5), (8), (9)-(10), (12), (15); E_B bounded by E_A (p.2); the output energy is at B 'even before the start' (p.3).",
+          "Funai & Martin-Martinez arXiv:1701.03805v2 (19 Mar 2025). READ via alphaXiv. Read: couplings eqs (1)-(2); eq.(7) p.3; light-cone condition p.3; the well sits between positive peaks and none can precede the pulse for a massless field (p.7); scaling (34)-(36) and quantum interest (p.11).",
+          "Ikeda arXiv:2301.02666v5 (22 Aug 2023). READ via alphaXiv. Read: minimal model eqs (1)-(14); Table I p.6 and Table II p.11, used as fixtures; eqs (A7), (A9), (A10)-(A12) p.10.",
+          "Ragula & Martin-Martinez review arXiv:2505.04689v3 (11 Jul 2025). READ via alphaXiv. Read: minimal QET p.4-6 (E_B <= injected energy, p.6); eq.(116) p.21, the 1+1 density computed in qet.py; scaling (135)-(137) p.26; exotic-matter framing p.26.",
+          "Zachary arXiv:2506.19878v1 (23 Jun 2025). READ via alphaXiv. Read: eq.(3) p.5 is a Gaussian model, not derived from a protocol; App. B.4 p.25 assumes eps ~ 1e-11 J/m^3; eqs (A.3) p.23 and (B.2) p.25 have opposite signs; QIX-C is not superluminal (p.20).",
+          "Flanagan arXiv:gr-qc/9706006v2 (16 Jul 1997). READ via alphaXiv; used to grade the computed field state. Read: eq.(1.8) and the right-moving eq.(2.5) p.2.",
+          "Board owners imported, not copied: achievable.duration_bound/FEWSTER_C/HBAR/C_SI, wormhole.throat_mass/G, docket68/geometry.r_quantum, docket68/measure (H, LN2, landauer_j, bekenstein_floor_j), massform.PAYLOAD_KG, phase1.L_PROXIMA, transit.BEATS_LIGHT, specthm.build/derive (z3), ledger.RULED_BY_M M-D65-1. No paywall or login wall was met and no 403 was returned."
+        ],
+        "grades": [
+          {
+            "hypothesis": "H-QET-EXOTIC read as R-QET, the operational reading. Alice's measurement bit arrives at the destination. A local operation there, conditioned on the bit, acts in an entangled ground state and leaves a local negative-energy region. This is the question's parenthetical, now READ. Own content: TRUE-IF {H-GROUND, H-CORR, H-ACT, H-INSTANT}. The parenthetical as put to M is INEXACT: the arrival alone creates nothing (local energy 0, check A10); the conditioned operation creates the region.",
+            "per_obstruction": "O-BITS LEFT: the bit is required. No-signalling holds (B's reduced state moves by 1.4e-17). Without the bit no operation extracts (Hotta eq.(5)). With Alice's information erased in the field, the density is >= 0. | O-MAKE-TOPO SILENT. | O-MAKE-DIST SILENT: QET consumes correlation that already exists (Delta S_AB > 0) and distributes none. | O-HOLD LEFT-IF {H_flat, H-PATH, H-MIN-SCALAR, H-QET-HADAMARD}. QET's states are free-field states, so the duration bound binds them. They cover at most 2.081e-68 of the 1 m throat's 4.8155e42 J deficit (geometry.r_quantum, imported), and QET does not move that figure. The computed 1+1 QET flux reaches 0.071 of Flanagan's bound. O-HOLD is OPEN on xi > 0 via N_QET-NMC, the board's R-QUANTUM branch, which is not computed. Under ITB it is NOT-BOUND-IF {N_QTOPO}, the board's grade, unchanged. | O-SEAT LEFT-IF {H-QET-BUDGET} as a supply route. QET relocates at most E_A (minimal model: E_B/E_A < 1/4, approached as k/h -> inf), gated by a bit at <= c, and forms no substance. A 70 kg payload would need more than 2.52e19 J injected at the source under H-MINIMAL. The board's O-SEAT stays OPEN via N_S5; no grade moves. | O-LOOP SILENT: the protocol is causal.",
+            "seat_conditions": "specthm's classes are not moved (z3, run time): S-1 NONEMPTY, S-2/S-3/Rec OPEN. The Sturm condition is untouched: it is sufficient and needs positive T_kk, while QET supplies negative T_kk, so it certifies no seating and refuses none. M-S1A-P3 (i) is SATISFIED-IF {H-FLAT-QFT}: no CTC and no Borde pathology at the seat.",
+            "ground": "Computed in qet.py: Hotta's minimal model exactly; Ikeda's 20 analytic Table II values reproduced within one printed digit; Hotta eq.(8) equals a numeric optimum over all SU(2) operations on B; Hotta eqs (5), (12), (15) checked; duration t* = 0.1450/k at (1.5, 1); the 1+1 field QET density (review eq.(116)) with Flanagan's QEI and FMM's scaling law. READ: Hotta 2008/2010, FMM, Ikeda, the review, Flanagan. 45/45 counted checks pass, including 9 controls.",
+            "named_hypotheses": [
+              "H-GROUND",
+              "H-CORR",
+              "H-ACT",
+              "H-INSTANT",
+              "H-MINIMAL",
+              "H-PROJ",
+              "H-1+1",
+              "H-GAUSS",
+              "H-EFF-SUPPORT",
+              "H-DELTA-SWITCH",
+              "H-SAMPLER",
+              "H-QET-HADAMARD",
+              "H_flat",
+              "H-PATH",
+              "H-MIN-SCALAR",
+              "H-QET-BUDGET",
+              "H-1+1-TO-3+1",
+              "H-FLAT-QFT",
+              "N_QET-NMC",
+              "N_QTOPO",
+              "ITB"
+            ]
+          },
+          {
+            "hypothesis": "H-QET-EXOTIC read as R-LIT, M's sentence alone: information introduced into a space that never contained it is exotic matter, with no conditioned operation and no prior correlation. Own content: FALSE-IF {H-MINIMAL or H-1+1 as the test models, linear QM}.",
+            "per_obstruction": "SILENT on all six obstructions (O-BITS, O-MAKE-TOPO, O-MAKE-DIST, O-HOLD, O-SEAT, O-LOOP). Its operative content is R-QET's.",
+            "seat_conditions": "As for R-QET: specthm classes unmoved; Sturm untouched; M-S1A-P3 (i) SATISFIED-IF {H-FLAT-QFT}.",
+            "ground": "Four computed counterexamples. (1) The bit arrives and Bob does nothing: local energy at B is 0. (2) No ground-state correlation (k = 0): the best conditioned operation extracts 0. (3) A bit uncorrelated with B (eps = 1/2): E_B = 0, and a fixed operation costs energy. (4) The same one bit yields exactly 3x the energy when (h, k) is tripled, so information fixes no amount of energy of either sign. Hotta 1002.0200v2 p.3 places the extracted energy at B before the protocol starts: the correlation pre-exists, and what is new at the destination is the classical record.",
+            "named_hypotheses": [
+              "H-MINIMAL",
+              "H-1+1",
+              "H-LINEAR-QM"
+            ]
+          }
+        ],
+        "findings": [
+          "Information arriving does not by itself create negative energy. After Alice's bit reaches B and before Bob acts, the local energy at B is 0 (|.| < 1e-12). Hotta 0803.2272v3 p.14 finds the same in the field: the state at Bob is a local vacuum until his step. The negative region comes from Bob's operation conditioned on the bit, in an entangled ground state. The parenthetical put to M is therefore inexact.",
+          "M's reading gets three things right. QET does produce genuine WEC-violating negative energy density (FMM abstract; review p.26). The bit is necessary: without it no operation extracts (Hotta eq.(5), checked numerically). The yield rises monotonically with the mutual information carried, from E_B = 0 at I = 0 to 0.1425 h at I = 1 bit; the slope at I -> 0 is 0.2036 h per bit.",
+          "Minimal model magnitudes. E_B equals minus the local energy left at B. At (h, k) = (1.5, 1), E_B = 0.1425 h, against E_A = 1.2481 h. E_B/E_A < 1/4 for every k/h, approaching 1/4 as k/h -> inf. Entanglement consumed: 0.494 h of E_B per nat of Delta S_AB at projective measurement. Hotta's inequalities (12) and (15) hold on the whole POVM family.",
+          "Duration in the minimal model: after Bob's step the local energy at B stays negative for t* = 0.1450/k at (1.5, 1) and 0.1855/k at (1, 1), until Alice's energy arrives through the coupling.",
+          "Duration in the 1+1 field (H-1+1, Gaussian smearings): the negative well rides at c behind Alice's positive pulse. Depth -0.0293, integrated -0.0081 hbar c/d, width 0.427 d. At a 1 m width this is -2.57e-28 J, seen at a point for 1.42 ns. Total field energy stays >= 0.",
+          "The computed field QET state obeys Flanagan's 1+1 QEI (gr-qc/9706006v2 eq.(2.5)), reaching at most 0.0713 of the bound on the Gaussian samplers tried. The same test fails at 496x the bound when the QET cross-term is inflated x10, so the test can fail. FMM's scaling law (34)-(36) holds to 5e-15: arbitrarily large negative energy appears only in arbitrarily thin regions, with E x width invariant.",
+          "No fixed exchange rate between information and energy exists. The same one bit gives E_B(s h, s k) = s E_B(h, k). A noisy bit used as if clean costs energy: E_B = -0.079 h at eps = 0.4. No theorem ties E_B per bit to Landauer's kT ln 2 or to the Bekenstein floor.",
+          "Timing: QET is bit-gated. No-signalling holds (B's reduced state moves by 1.4e-17). Bob's step at a destination D away comes no earlier than D/c, which is 4.2465 yr to Proxima (phase1). QET's literature speed advantage is over slow internal diffusion (time scale 1/k), not over light.",
+          "O-HOLD is LEFT-IF {H_flat, H-PATH, H-MIN-SCALAR, H-QET-HADAMARD}: QET can at most saturate the duration bound, which covers 2.08e-68 of the 1 m throat's deficit, and QET does not move that figure. It is OPEN only on the board's xi > 0 branch (N_QET-NMC). QET removes nothing on any obstruction.",
+          "O-SEAT is LEFT-IF {H-QET-BUDGET} as a supply route. Hotta's location of the energy, in the seat's own zero-point fluctuation, fits M's 'from the seat', but the energy is borrowed: the seat is left at -E_B until A's positive energy arrives. The board's O-SEAT stays OPEN via N_S5.",
+          "Ikeda's Table II analytic values agree with the computation within one unit of the last printed digit, but not to 4-decimal rounding. The table truncates in places, and its (1.5, 1) <V> = -0.4905 equals its own printed E_1 - H_1, against -0.490600 computed. This is a fixture note, not a finding against Ikeda.",
+          "2506.19878v1 App. B.4: its own eq.(B.3) with c restored gives 2.08e-54 m^-2 from its stated eps = 1e-11 J/m^3. It prints ~1e-36 m^-2, which is 4.8e17x larger. Its eqs (A.3) and (B.2) also have opposite signs. Its numbers are assumed rather than derived from a protocol, so no grade rests on it."
+        ],
+        "open": [
+          "QET in 3+1 is not computed. FMM eq.(23) is READ only. The 3+1 bound enters through geometry.r_quantum on H-QET-HADAMARD.",
+          "H-QET-HADAMARD is not proved: that superpositions of coherent vacuum states lie in the class the duration bound covers.",
+          "N_QET-NMC is open: QET with a nonminimally coupled scalar (xi > 0). It is the only OPEN branch on O-HOLD, and it is the board's R-QUANTUM branch.",
+          "The distance dependence of field QET yield in 3+1 at interstellar separation is not computed. Hotta's 1+1 eq.(37) depends on null separations.",
+          "Combinations are not screened. R-QET x H-THROAT-BITS / H-INFO-SHAPE (bits pushed to the seat and used there for QET extraction) would need seat-source vacuum correlation and would supply at most E_A, with the bit at <= c. It belongs to the combine stage.",
+          "Hotta's spin-chain QET paper arXiv:0803.0348 is cited and not READ.",
+          "Flanagan's bound was tested on Gaussian samplers only (H-SAMPLER). A pass there is necessary, not sufficient."
+        ],
+        "selftests": [
+          "PYTHONDONTWRITEBYTECODE=1 python3 /home/user/Claude-Method-Works/research/warp-drive/docket66/qet.py --selftest: 45 counted checks, 45 pass, 0 fail, 9 controls (A3, A7, A9, A12, A19, B3, C3, C7, C9). 2 STRUCTURAL items not counted. About 50 s, most of it specthm's z3.",
+          "python3 qet.py prints the report; python3 qet.py --json prints its numbers as JSON (verified to serialise)."
+        ],
+        "problems": [
+          "The first selftest run failed check A2: Ikeda's Table II is truncated in places and is not uniformly rounded. The tolerance was set to one unit of the last printed digit, and the reason is stated in the check text and in A3-qet.md. The control A3 (a 1e-3 shift is rejected) still bites.",
+          "The field optimisation only tunes Bob's coupling at a fixed smearing ratio (Bob's width = 0.1 of Alice's). It is not FMM's full parameter search, so the well depth is one configuration and not an optimum over all configurations.",
+          "Gaussian smearings are not compactly supported. Causality is checked on a 4-width effective support (H-EFF-SUPPORT)."
+        ]
+      }
+    ],
+    "combine": {
+      "id": "B-combine66",
+      "files": [
+        "/home/user/Claude-Method-Works/research/warp-drive/docket66/combine66.py",
+        "/home/user/Claude-Method-Works/research/warp-drive/docket66/B-combine66.md",
+        "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d66/B-combine66.json",
+        "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d66/B-combine66-run.json",
+        "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d66/selftest66.txt",
+        "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d66/conservative-full.txt"
+      ],
+      "sources": [
+        "No outside source was READ at this stage. Every outside reading is the A-reports', with their routes recorded there: A1 (alphaXiv full text and Firecrawl abstracts), A2 (alphaXiv: PV, GJW, MSY, AHMST), A3 (alphaXiv: Hotta 2008/2010, FMM, Ikeda, the review, Zachary, Flanagan). No paywall, login wall or 403 was met.",
+        "Board and owner files READ and imported, never copied: docket68/combine.py (Screen, _board, _defs, _commitments, account_view, attributed, counts, signature, parse_report_class, z3_class, _form_class, variants), docket68/B-combine.md sections 1-3, docket68/M-RULINGS-2026-10-03.md, docket66/CHARTER.md, PROOF-ASSISTANT.md (the vacuity and encoding-drift guards)",
+        "Grounds re-run from their owners: defects.grades / canonical_nec / static_is_stably_causal / derrick / figures; throatbits.pv_static / pv_conservation / specthm_verdicts (specthm z3 at run time); qet.model / post_alice / minimal_values / no_signalling; geometry.r_quantum; massform.derive_readings / READING_REASONS / HELD_SEAT_ROUTE / READINGS; seat.grade_o_seat",
+        "The A-reports' grades as STORED (scratchpad d66): A1-defects.json; A2-throatbits-report.json (throatbits.py's own grade table; A2-throatbits.json holds no grade table); A3-qet.json (qet.grades)"
+      ],
+      "grades": [
+        {
+          "hypothesis": "H-DEFECT-SEAT alone (DSTR, DWALL, DGMON, DMON, DTEX, DTHR) x 32 D68 contexts: 192 variants, 168 consistent",
+          "per_obstruction": "No D66-load-bearing lift. O-SEAT OPEN via {N_S5, N_DEFB} for string/wall/monopole, N_S5 alone otherwise. O-HOLD OPEN via N_NEGT (DTHR). O-LOOP-S REMOVED (board) but defeasible via N_WALLLOOP (wall) and via N_NEGT/N_XI/N_QEIC/N_EQUIL (DTHR, FKZ). Interference: DTHR undoes ITB's O-MAKE-TOPO and O-HOLD NOT-BOUND-IF ({N_QTOPO} premise clash, 4 variants). Every other obstruction stays as D68 leaves it",
+          "seat_conditions": "SATISFIED in 116; SATISFIED but defeasible in 52 (via N_WALLLOOP for the wall; via the hold pathways for DTHR). CONTENT: with the string-supported throat held, the seat is free given N_MBAL, and a seat loop is FORCED without it. DTEX: premise clash {N_SEATPERSIST}",
+          "ground": "combine66.py run (B-combine66-run.json); defects.grades agrees (OPEN via N_NEGT; OPEN via N_S5 | N_DEFB; static PASSES); fkz_conditional",
+          "named_hypotheses": [
+            "H-CANONICAL",
+            "H-STATIC-STRING",
+            "H-SEAT-PERSISTS",
+            "H-MASS-BALANCE",
+            "H-SM-ONLY",
+            "N_DEFB",
+            "N_NEGT",
+            "N_WALLLOOP",
+            "E-THROAT",
+            "E-FKZ",
+            "E-DEFB"
+          ]
+        },
+        {
+          "hypothesis": "H-THROAT-BITS alone (TBHOLO, TBTSH, TBTEL, TBISL, TBITB+ITB) x contexts: 136 variants, 120 consistent",
+          "per_obstruction": "No D66-load-bearing lift. O-MAKE-TOPO OPEN via N_WNCC (TBHOLO/TBTSH; specthm W-create-ncc OPEN at its owner). O-HOLD OPEN via N_PINCH (TBHOLO/TBTSH) or N_GJWAMB (TBTEL, one space; GJW's AdS removal outside the setting, E-ADS). TBITB: ITB's NOT-BOUND-IF {N_QTOPO}, credited to ITB (TBITB inert). Interference: TBHOLO/TBTSH/TBTEL make {N_QTOPO} a premise clash beside ITB, undoing its two non-bindings. O-SEAT OPEN via N_S5 only. O-MAKE-DIST and O-BITS as D68",
+          "seat_conditions": "SATISFIED-IF {N_SEATOFF} in all 120 (E-SEATOFF-ALL; A2's stored seat text names R-HOLO and R-THINSHELL, and says R-TELEPORT 'adds GJW p.13')",
+          "ground": "combine66.py run; throatbits.pv_static (sigma_0 < 0 at every a_0 > 2M); throatbits.specthm_verdicts (W-create-ncc OPEN)",
+          "named_hypotheses": [
+            "H-SINGULAR-IS-THINSHELL",
+            "H-PV-STATIC",
+            "H-SEAT-OFF-THROAT",
+            "H-GJW-COUNTERPART",
+            "H-ADS-TFD",
+            "H-COUPLED",
+            "N_WNCC",
+            "N_PINCH",
+            "N_GJWAMB",
+            "N_QTOPO",
+            "E-ADS",
+            "E-SINGOK",
+            "E-SEATOFF-ALL"
+          ]
+        },
+        {
+          "hypothesis": "H-QET-EXOTIC alone (QET, QLIT) x contexts: 64 variants, 40 consistent",
+          "per_obstruction": "No D66-load-bearing lift. QET: O-HOLD OPEN via N_XI, N_QEIC (the board's R-QUANTUM branches) and N_QETHAD. O-SEAT OPEN via N_S5 only (QET no supply). R-LIT: INCONSISTENT without a non-linear member (core C-QLIT + B66-ARR + B66-LIN + B-DCTC; with ITE, C-ITE's linearity); with W2 not refuted (STRUCTURAL: absence of a refutation), SILENT on all six obstructions",
+          "seat_conditions": "SATISFIED-IF {N_FLATQFT} in all 40",
+          "ground": "combine66.py run; qet.post_alice (arrival alone: local energy 0, |.| < 1e-12); qet.minimal_values (E_B = 0.14252, control); geometry.r_quantum 2.0811e-68",
+          "named_hypotheses": [
+            "H-QET-HADAMARD",
+            "H-FLAT-QFT",
+            "H-QET-BUDGET",
+            "H-LINEAR-QM",
+            "H-MINIMAL",
+            "N_QETHAD",
+            "N_XI",
+            "N_QEIC",
+            "N_QLITNL (candidate)",
+            "E-LIN"
+          ]
+        },
+        {
+          "hypothesis": "H-DEFECT-SEAT x H-THROAT-BITS: 816 variants, 720 consistent",
+          "per_obstruction": "No D66-load-bearing lift. Union of OPEN pathways (N_DEFB 480, N_WNCC 336, N_PINCH 288, N_GJWAMB 144, N_NEGT 104 variants); none closes another's gap. E.g. {DTHR, TBHOLO}: O-HOLD OPEN via {N_NEGT, N_PINCH}; O-MAKE-TOPO OPEN via N_WNCC. Interference: ITB's non-bindings undone by every throat reading (jointly in 12 variants, where two throat readings are each sufficient)",
+          "seat_conditions": "SATISFIED-IF 496; SATISFIED-IF but defeasible 224 (N_WALLLOOP; the FKZ loop via any hold pathway wherever DTHR is held)",
+          "ground": "combine66.py run, by_combo",
+          "named_hypotheses": [
+            "N_DEFB",
+            "N_WNCC",
+            "N_PINCH",
+            "N_GJWAMB",
+            "N_NEGT",
+            "N_WALLLOOP",
+            "H-SEAT-OFF-THROAT",
+            "H-MASS-BALANCE"
+          ]
+        },
+        {
+          "hypothesis": "H-DEFECT-SEAT x H-QET-EXOTIC: 384 variants, 240 consistent",
+          "per_obstruction": "No D66-load-bearing lift. O-HOLD OPEN via N_QETHAD/N_XI/N_QEIC (QET) together with N_NEGT (DTHR): two pathways side by side, no ratio computed. O-SEAT OPEN via {N_S5, N_DEFB} for string/wall/monopole; QET adds no supply. Interference by DTHR on ITB (6)",
+          "seat_conditions": "SATISFIED-IF 164; SATISFIED-IF but defeasible 76",
+          "ground": "combine66.py run, by_combo",
+          "named_hypotheses": [
+            "N_DEFB",
+            "N_NEGT",
+            "N_QETHAD",
+            "H-QET-BUDGET",
+            "H-FLAT-QFT"
+          ]
+        },
+        {
+          "hypothesis": "H-THROAT-BITS x H-QET-EXOTIC: 272 variants, 172 consistent",
+          "per_obstruction": "No D66-load-bearing lift. R-TELEPORT x QET (the ANEC-deficit question): O-HOLD OPEN via {N_GJWAMB, N_XI, N_QEIC, N_QETHAD}, no pathway closing another's gap. QET x SHAPE / TBTEL (bits pushed and used at the seat): O-SEAT OPEN via N_S5 only. Interference by TBHOLO/TBTSH/TBTEL on ITB (6 each)",
+          "seat_conditions": "SATISFIED-IF 172 (no defeasibility: FKZ encoded for DTHR only; reading fkz-generic adds it)",
+          "ground": "combine66.py run, by_combo",
+          "named_hypotheses": [
+            "N_GJWAMB",
+            "N_QETHAD",
+            "N_PINCH",
+            "N_WNCC",
+            "H-ADS-TFD",
+            "H-FKZ-GENERIC (reading)"
+          ]
+        },
+        {
+          "hypothesis": "H-DEFECT-SEAT x H-THROAT-BITS x H-QET-EXOTIC: 1,632 variants, 1,032 consistent",
+          "per_obstruction": "No D66-load-bearing lift. Every D66 pathway appears (N_DEFB 688, N_QETHAD 624, N_WNCC 480, N_PINCH 432, N_XI/N_QEIC 312, N_GJWAMB 216, N_NEGT 156 variants); removals only D68's (O-BITS by W2 x F1) or the board's (loops)",
+          "seat_conditions": "SATISFIED-IF 704; SATISFIED-IF but defeasible 328",
+          "ground": "combine66.py run, by_combo",
+          "named_hypotheses": [
+            "all D66 OPEN pathways",
+            "H-SEAT-OFF-THROAT",
+            "H-FLAT-QFT",
+            "H-MASS-BALANCE"
+          ]
+        },
+        {
+          "hypothesis": "All seven, both cells (1 ly N = 7: 2,492 consistent; 1 AU N = 7, W2 x F1 variants: 1,332 consistent)",
+          "per_obstruction": "Member-attributed removals per account at most 1, always O-BITS by D68's {W2, F1}, in 1,332 variants at each cell. Supports: N_EPS or N_W2ANC at 1 ly; at 1 AU N_W2ANC only, N_EPS being a premise clash in all 1,332. D66 load-bearing removals 0 and non-bindings 0 at both cells. NOT-BOUND-IF only ITB's (max 2: O-MAKE-TOPO and O-HOLD, 176 variants at 1 ly, 106 at 1 AU) or ITE's. Survivors, lifted in no consistent variant: O-SEAT (OPEN via N_S5, plus N_DEFB with a string/wall/monopole: 1,440 / 768; N_S5 alone 1,052 / 564; LEFT under H-SEAT-ROUTES) and O-MAKE-DIST (OPEN via N_VACNP, plus N_NLDIST and N_W2WEAK with W2 x F1)",
+          "seat_conditions": "VIOLATED in no consistent variant (F2b, the D68 member with a CTC at Bob, is not in the bearing list)",
+          "ground": "combine66.py --selftest 58/58 (20 controls, 5 STRUCTURAL not counted, 567 s); --conservative-full 8,192/8,192 identical",
+          "named_hypotheses": [
+            "W_W2R",
+            "R_W2",
+            "H-NEARMAX",
+            "N_EPS",
+            "N_W2ANC",
+            "N_S5",
+            "H-SEAT-S5",
+            "H-SEAT-ROUTES",
+            "H-VAC-LEFTIF",
+            "N_QTOPO",
+            "E-EXTEND"
+          ]
+        }
+      ],
+      "findings": [
+        "MEMBER-ATTRIBUTED FIRST: in all seven combinations, in every reading and with every bearing D68 context, at most ONE member-attributed removal per account, always O-BITS, always by D68's {W2, F1}. No D66 literal is load-bearing in any support of any removal or non-binding: 0 in 2,492 consistent variants at 1 ly and 0 in 1,332 at 1 AU. M's standing instruction was tested and, on every obstruction, the D66 hypotheses do not work better in combination.",
+        "R-LIT appears inside an O-BITS support in 448 variants per cell, but only because it entails W2 under the closed world (B66-LIN). With R-LIT freed, {W2, F1} still removes O-BITS. A naive 'member in a support' count would credit M's literal reading with W2 x F1's removal. The z3 load-bearing test refuses that credit, and a control (a planted D66 removal) shows the test can fail.",
+        "What the D66 hypotheses add in combination is OPEN pathways, never a removal: N_DEFB on O-SEAT; N_NEGT, N_GJWAMB, N_PINCH and N_QETHAD on O-HOLD (plus the board's N_XI and N_QEIC through QET); N_WNCC on O-MAKE-TOPO. In no combination does one member's pathway close another member's gap.",
+        "Interference: every geometric-throat reading (DTHR, TBHOLO, TBTSH, TBTEL) beside ITB makes {N_QTOPO} a premise clash (656 variants at 1 ly), so ITB's NOT-BOUND-IF on O-MAKE-TOPO and O-HOLD falls, as R-QUANTUM's throat does in D68. A D66 throat and ITB's non-binding cannot be had in one account.",
+        "A1's FKZ sentence holds as a conditional: once the string-supported throat is held (via N_NEGT), the seat loop is FORCED unless N_MBAL. With OPEN pathways false the seat reads SATISFIED, defeasible via the hold's pathways.",
+        "Survivors of every consistent variant at both cells: O-SEAT (OPEN via N_S5, plus N_DEFB exactly where a string, wall or monopole is present; LEFT under H-SEAT-ROUTES in all 356 single-reading variants re-screened) and O-MAKE-DIST (OPEN via D68's vacuum pathways).",
+        "R-LIT (M's sentence alone) is inconsistent in linear QM: 588 variants with no non-linear member, plus 280 with ITE. With W2 it is not refuted, but only by the absence of a refutation (STRUCTURAL); it is load-bearing nowhere. N_QLITNL is named as a candidate and computed nowhere.",
+        "Defect core x S13 (A1 F8): massform.derive_readings shows TEMPLATE is refused on C1 alone and STANDS with C1's link holding. At a defect core |phi| = 0 is held with no local source, so the GROUND of the refusal moves from P-UNIFORM to topology (restoration needs annihilation). TEMPLATE makes no new baryon number, so O-SEAT does not move.",
+        "Readings run beside the screen: H-SEAT-ROUTES (O-SEAT to LEFT, 356 variants); singok-board, M's singular-throat admission read as a board ruling (O-MAKE-TOPO LEFT to OPEN via N_WNCC in 222 variants, 20 of them D68-only); fkz-generic (defeasibility only, 220 variants, 16 D68-only); H-SM-ONLY (all 2,520 variants with a string, wall, monopole or string-supported throat become inconsistent).",
+        "Unit note: A3 prints the minimal-model E_B as '0.1425 h'. It is the raw model value at (h, k) = (1.5, 1), so E_B = 0.14252 and E_B/h = 0.0950. This is not a finding against A3's numbers."
+      ],
+      "open": [
+        "N_DEFB: whether a baryon-violating defect core supplies baryons (direction, rate, feedstock); computed nowhere (A1)",
+        "N_NEGT, N_GJWAMB, N_PINCH, N_QETHAD, N_WNCC, N_WALLLOOP: each computed nowhere",
+        "N_QLITNL: arrival-alone negative energy under any non-linear dynamics (R-LIT x W2); computed nowhere",
+        "Whether GJW's negative ANEC is itself QET-like (R-TELEPORT x QET): not read",
+        "H-FKZ-GENERIC: whether FKZ's time machine applies to every held throat with mouths in one space; shown as a reading, adopted nowhere",
+        "Whether M's singular-throat admission is a board ruling (singok-board) or H-THROAT-BITS's (E-SINGOK, adopted): for M",
+        "NOT TESTED, each with its reason in B-combine66.md section 6: R-ITB with ITE/ITJ (336 variants: two readings of H-IT at once); D68 members outside the bearing list (W1, KR, F2b, F1 or W2 alone, H12, INFO, INFOS, ZERO, NULL, R-INDEX); two readings of one D66 hypothesis at once; the 1 AU N = 1e3/1e6 and 4.2465 ly cells (board equalities); specthm classes and Sturm per combination (no D66 reading enters specthm's axioms); H-SEAT-S12; H-SINGULAR-IS-PINCH (carried only as N_PINCH)"
+      ],
+      "selftests": [
+        "PYTHONDONTWRITEBYTECODE=1 python3 docket66/combine66.py --selftest --json <scratch>/B-combine66-run.json: 58 counted checks, 58 passed, 0 failed; 20 controls; 5 STRUCTURAL printed, not counted; 567 s; rc 0",
+        "The first run failed one check (the QET control compared E_B/h with A3's '0.1425 h'). Fixed to compare the raw model value 0.14252; the reason is recorded in B-combine66.md",
+        "python3 docket66/combine66.py --conservative-full: 8,192 compared (all 8,191 of combine.variants() plus the empty board context), 0 differ; 1,750 s; rc 0",
+        "Controls include: the open-forced vacuity trip; the planted D66 removal credited by the load-bearing test; 7 pathway ties; 6 drift mutations caught (defb-asserted, negt-asserted, gjw-ads, qet-holds, wall-clean, qlit-free); the R-ITB no-throat control; the phantom NEC; Derrick d = 1; the PV sign flip; QET E_B > 0",
+        "Drift: 83 fragments anchored verbatim in the stored A-report grades; 81 agree; 2 explained (A2 R-ISLAND O-BITS: vocabulary; A1 throat-support seat: presupposes the held throat); 0 unexplained"
+      ],
+      "problems": [
+        "The task text's summaries of A2 and A3 differ in wording from the stored JSON. A2-throatbits.json has no grade table, so the drift guard reads throatbits.py's own grade table (A2-throatbits-report.json) and qet.grades (A3-qet.json), anchored on their stored texts",
+        "E-EXTEND extends combine's vocabulary in process only (combine.py is not edited). It is guarded by the conservative-extension check over all 8,191 D68 variants (0 differ)",
+        "Four new drift rules were added (Z7 defeasibility, the seat parse, the one-space clause for R-TELEPORT O-HOLD, the carried-in rule comparing A2's ITE grade with ITE present). Each is stated in DRIFT_ROWS notes and in the md",
+        "Only my two files were written in docket66/. A1/A2/A3's files there were not touched; nothing was committed, pushed, stashed, reset or checked out"
+      ]
+    },
+    "verify": [
+      {
+        "lens": "AGAINST M: overstatement in M's favour (a defect called a seat on an unread source; QET energy presented as usable for a throat; a bit-count presented as a mechanism). Outside reads this pass all went through alphaXiv answer_pdf_queries (open arXiv full text; no paywall, no login wall, no 403): GJW 1608.05687v3 pp.1-4, 9-15; FMM 1701.03805v2 pp.1-3, 5, 8, 10-12; Maldacena & Qi 1804.00491v3 pp.1-4, 7-9, 51-53; Hindmarsh & Kibble hep-ph/9411342v1 pp.33-36, 54, 60-65. Full report at /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d66/V66-0.json. No other file was written; the temporary selftest logs were deleted.",
+        "problems": [
+          {
+            "site": "A2-throatbits.md (E) R-TELEPORT O-HOLD; throatbits.py grades() G[2] O-HOLD; A2-throatbits-report.json; A2 answer item 7",
+            "wrong": "O-HOLD is graded REMOVED-IF {H-GJW-COUNTERPART, H-ADS-TFD, H-COUPLED} on GJW alone. But GJW opens the throat only briefly and slightly, which the grade's own text concedes ('open only briefly, p.13'). GJW READ: 'slightly traversable' (p.12); 'only open for a small proper time in the interior region ... quite different from the usual static wormhole' (p.13); the opening is Delta V ~ h G_N/R^(D-2) (eq.5.1); in the teleportation reading, the one A2 uses, 'the traversable window will be very small ... just enough to let the single qubit Q pass through' (p.15). A brief opening is not a hold. A1 grades the same shape (FGM's brief quantum opening) as 'not a hold. Never REMOVED'. The two A-reports are therefore inconsistent, and A2's version is the one that favours M.",
+            "correct": "On GJW alone: O-HOLD is LEFT-IF {H-GJW-COUNTERPART, H-ADS-TFD, H-COUPLED} for a hold. GJW shows a brief opening of size Delta V ~ h G_N/R^(D-2), and that is not a hold (as A1 grades FGM). A held AdS throat does exist, but in Maldacena & Qi 1804.00491v3 (READ this pass): an eternal traversable wormhole in nearly-AdS2 with a time-independent coupling and many bulk fields (abstract; p.2; p.19 needs Delta < 1/2, i.e. alternate boundary conditions). If REMOVED-IF is kept, it must be re-grounded on MQ with those premises named, still credited to the premise set and still resting on the coupling. In combine, N_GJWAMB should cite MQ p.52 Fig.23 (the one-space sketch; its stated challenges are mutual attraction, gravitational-wave emission, large N and boundary conditions) rather than GJW p.14, whose same-space version again opens only briefly, with Casimir energy that is 'extremely tiny if the black holes were far apart'.",
+            "moves_grade": true
+          },
+          {
+            "site": "A1-defects.json grades[6] / A1-defects.md sec.5 and sec.6; defects.HYPOTHESES N_DEFB; combine66.py D66_OPEN N_DEFB ('direction and rate computed nowhere')",
+            "wrong": "N_DEFB (a baryon-violating core supplies the payload's baryons) is carried as an OPEN supply pathway whose direction is 'computed nowhere'. The cited source states the direction on the pages after p.63. HK p.63: a quark reaching the core can 'emerge a lepton, and vice versa'. HK eq.(4.33) p.64: dn_B/dt ~ -v sigma n_B/xi^2, and an existing B-asymmetry 'can relax to zero via scattering off strings'. HK p.65: emitting baryon number needs CP-violating couplings and a departure from equilibrium (Sakharov). Absent those conditions, the READ direction is wash-out, which converts payload quarks into leptons: the opposite of supply.",
+            "correct": "N_DEFB: OPEN only IF {CP-violating core couplings, departure from equilibrium} (HK p.65). Otherwise the READ direction is wash-out of existing baryon number (HK eq.4.33 p.64), which is not a supply. The feedstock would be leptons, and the rate is still not computed. O-SEAT stays OPEN via N_S5 and no count moves, but N_DEFB's text should cite HK pp.64-65 instead of 'direction computed nowhere'.",
+            "moves_grade": false
+          },
+          {
+            "site": "A1-defects.md answer item 1 and F1; A1-defects.json findings F1 ('exact counterpart in the literature')",
+            "wrong": "The fermion zero modes are called an 'exact counterpart' of M's 'matter can occur but not in its original geometric form' and graded SUPPORTED. HK pp.33-34 (READ this pass) say only that the Yukawa mass 'vanishes at the core', so there 'could be massless states confined to the string' that move at c. The source says nothing about geometric form. Reading 'geometric form' as rest mass and dimensionality is the grader's mapping, not the source's.",
+            "correct": "'A counterpart under a named reading': SUPPORTED-IF {H-YUKAWA, H-FORM-IS-MASS-AND-DIMENSION}, with the second hypothesis stating the mapping. No obstruction grade changes; F2 already refuses to read this as a supply.",
+            "moves_grade": false
+          },
+          {
+            "site": "A2-throatbits.md answer item 1 ('the payload gets a definite size'), item 7 ('gives sizes to M's mechanism (r_fit, M_sat, the QNEC price)'); throatbits.py R-HOLO what_it_does ('a precise size'), R-ISLAND what_it_does ('A precise sense in which geometry is compressed to binary information')",
+            "wrong": "These sentences present a bit-count as a mechanism's size. r_fit is only the radius at which the payload's count equals an entropy ceiling. A2's own C5 shows that Bousso gives no cap at a flare-out throat, so the ceiling rests wholly on H-CAP-AT-THROAT and H-NECK-DOGMA. The second is 'an unproven assumption' (2006.06872 p.14) and covers a neck that becomes a black hole. In R-ISLAND, Area/4G counts entropy, not state (p.38). Elsewhere A2 says 'a capacity is a ceiling, not an encoding', so these sentences contradict its own caveat.",
+            "correct": "'r_fit is the radius at which the A/4 ceiling equals the payload's count, IF {H-CAP-AT-THROAT, H-NECK-DOGMA, H-COUNT-IS-ENTROPY}; no mechanism that compresses or encodes at that density is constructed or READ.' Drop 'precise' and 'sizes to M's mechanism'. In R-ISLAND: 'the area term counts fine-grained entropy, not a state or an encoding'.",
+            "moves_grade": false
+          },
+          {
+            "site": "A2-throatbits.md answer item 2 heading ('A singular throat is a standard object in GR, so M's ruling costs GR nothing'); throatbits.py R-THINSHELL what_it_does ('precise GR counterpart')",
+            "wrong": "The headline drops the reading hypothesis. PV's distributional throat on a complete manifold is the H-SINGULAR-IS-THINSHELL reading only. Under H-SINGULAR-IS-PINCH, which A2 names and does not model, nothing crosses. 'Costs GR nothing' sits beside A2's own result that the shell needs sigma_0 < 0 (exotic, PV p.3).",
+            "correct": "'Under H-SINGULAR-IS-THINSHELL, a singular throat is a standard distributional object (PV p.1), so admitting it costs GR no new structure; it still needs sigma_0 < 0 (computed), so the deficit is concentrated, not removed. Under H-SINGULAR-IS-PINCH: not modelled.'",
+            "moves_grade": false
+          },
+          {
+            "site": "A3-qet.md answer item 3 ('genuine negative energy density ... \"exotic matter\" in the standard sense (FMM abstract; review p.26)')",
+            "wrong": "The phrase lets QET's local WEC violation read as the exotic matter a throat needs. FMM's abstract (READ) says 'violate energy conditions and have negative local stress-energy densities'; it does not say 'exotic matter'. FMM p.3: local negative densities 'must be offset by positive energy densities elsewhere'. FMM pp.5 and 11: the protocol respects the quantum energy conditions. A3's own C6 shows Flanagan's QEI holds. O-HOLD needs an averaged (ANEC) violation (GJW p.2: 'a prerequisite for all traversable wormholes'), which these free-field flat-space states do not supply.",
+            "correct": "'Under R-QET the result is a local negative energy density (pointwise WEC violation), which the review calls a pathway to exotic matter (p.26). It is offset by positive energy (FMM p.3), it obeys the QEIs (C6; FMM p.11), and it is not the averaged violation a throat requires (O-HOLD LEFT-IF, 2.08e-68).' R-QET's TRUE-IF stands.",
+            "moves_grade": false
+          },
+          {
+            "site": "B-combine66.md/.json triple grade ('Every D66 pathway appears (... N_XI/N_QEIC 312 ...)') and finding 3 ('plus the board's N_XI and N_QEIC through QET'); combine66.py B-HELD widening An(QET, Or(N_XI, N_QEIC, N_QETHAD))",
+            "wrong": "N_XI and N_QEIC are counted among 'every D66 pathway', and the screen gates them through the QET literal. That presents QET as giving the throat-holding routes, while A3 states both are the board's R-QUANTUM branches and that 'QET adds nothing'. QET's own O-HOLD content is N_QETHAD only. N_QETHAD is also weak: the post-protocol field state is a mixture of finite superpositions of Weyl-displaced vacua with smooth smearings, whose two-point functions are, by the standard argument, the vacuum singularity plus smooth terms. That check is not done (OPEN), but it can be done.",
+            "correct": "List N_XI and N_QEIC as the board's pathways, present with or without QET. Count only N_QETHAD as D66's, and record that H-QET-HADAMARD is a short check, not a hard open question. No removal count moves: both are OPEN either way.",
+            "moves_grade": false
+          }
+        ],
+        "reproduced": [
+          "defects.py --selftest: 71 counted checks (19 controls), 71 passed, 1 STRUCTURAL, rc 0",
+          "throatbits.py --selftest: 41 counted, 41 pass, 9 controls, 4 STRUCTURAL, rc 0",
+          "qet.py --selftest: 45 counted, 45 pass, 9 controls, 2 STRUCTURAL, rc 0",
+          "combine66.py --selftest (no --json): 58 counted, 58 passed, 20 controls, 5 STRUCTURAL, 692 s, rc 0",
+          "Hand checks: r_fit = l_P sqrt(I ln2/pi) = 7.40e-22 m; Bekenstein = holographic gives E = r c^4/(2G), M_sat = 4.98e5 kg; string crossing 2,467 AU at b = R_sun, G mu = 1.5e-7; wall sigma for a 1 AU focus = 6.4e31 J/m^2; FKZ R_E L c/(G M_E) = 1.44e9 yr; QET 4 x 6.29e18 J = 2.52e19 J",
+          "READ confirmations: FMM abstract says 'saturates the quantum interest conjecture' (A3 stands); HK pp.33-34 zero modes massless at the core and moving at c (A1 F1's physics stands); GJW p.13 no CTC and p.14 no faster than light (A2's O-LOOP and O-BITS stand)",
+          "No defect is called a seat on an unread source: every A1 seat verdict is computed, and both abstract-only Firecrawl sources bear on figures that are also computed",
+          "QET is never credited with a removal on O-HOLD in A3 or combine (A3 E7; combine: 0 D66 load-bearing removals in 2,492 / 1,332 variants)"
+        ]
+      },
+      {
+        "lens": "FOR M: understatement (a fair reading of M not taken; a result undersold; a theorem applied outside its hypotheses against M). Report: /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d66/V66-1.json. Outside sources READ via alphaXiv answer_pdf_queries (open arXiv full text): Maldacena-Milekhin-Popov 1807.04726v3 (pp.1, 4-5, 15, 17-20, 22-23, 25-26) and Cvetic-Griffies-Soleng gr-qc/9306005v1 (pp.1, 3, 14-15, 17, Fig.4). No paywall, login wall or 403 met.",
+        "problems": [
+          {
+            "site": "docket66/defects.py throat-support row 'O-MAKE-TOPO binds if made from flat space'; combine66.py DEF-TOPO/66 with E-SINGOK; B-combine66.md sec.4 (singok-board) and sec.10 ('for M')",
+            "wrong": "A1 grades the creation of a string-supported throat as binding (LEFT). combine credits the singular-throat creation route only to TBHOLO/TBTSH, and calls the board reading an open question for M.",
+            "correct": "M has already ruled. ledger.py M-S1A-P3 reads 'APPLIED at the seat; a singular throat is not disqualified', with the consequence 'the throat-creation classes stay OPEN'. A1's own F6 applies the ruling to the GV ring's curvature singularity at the throat, and A2 grades the same Tipler/Borde structure OPEN via W-create-ncc. So DTHR's O-MAKE-TOPO should read OPEN via N_WNCC. singok-board is the reading M already ruled, not one awaiting M. It moves O-MAKE-TOPO from LEFT to OPEN in 222 variants. The 20 context-only variants among them are D68's, which combine66 cannot change under its conservative-extension rule.",
+            "moves_grade": true
+          },
+          {
+            "site": "A2-throatbits.md Open, and throatbits.py R-TELEPORT O-HOLD ('N_GJW-AMBIENT ... stated, not computed'); combine66's OPEN pathway N_GJWAMB ('computed nowhere') and B-combine66.md sec.10",
+            "wrong": "The one-space version of GJW is carried as an OPEN pathway with no realisation anywhere.",
+            "correct": "The board's D67 audits already READ a realisation, Maldacena-Milekhin-Popov 1807.04726, and it is re-READ here. It is a wormhole in one asymptotically flat 4D space that 'does not lead to causality violations' (p.1). The interaction between the two mouths is 'generated automatically by the exchange of massless fields in the bulk' (p.4). It can be embedded in the SM if the mouth separation d is below the electroweak scale (pp.4, 25-26). It is fragile: 'not safe for human travelers' (p.18). The correct grade for O-HOLD in one space is REMOVED-IF {H-MMP: a near-extremal magnetic black-hole pair, massless charged fermions, rotation-stabilised mouths, r_e << d << 1/TeV}, credited to the premise set, at sub-electroweak scale. O-BITS stays LEFT, since pi l > d (pp.19-20). At the payload's r_fit it stays OPEN. An order-of-magnitude estimate from eqs.(2.3) and (6.52) (g = 0.36; N_f and O(1) factors not carried) shows why: the mouths need d >> 2.7e-12 to 2.1e-11 m, beyond 1.97e-19 m. So N_GJWAMB splits by scale; it is not 'computed nowhere'.",
+            "moves_grade": true
+          },
+          {
+            "site": "defects.py wall row 'seat: CTC/Borde OPEN: the VIS global causal structure is not computed'; A1 grade 'O-LOOP OPEN'; combine66 N_WALLLOOP (removals made defeasible in 28 / 120 / 40 / 172 variants)",
+            "wrong": "The wall's global causal structure is left OPEN and used as a defeating pathway.",
+            "correct": "It is READ in A1's own source. CGS p.15 and Fig.4: each M4 side of the non-extreme wall is the interior of r^2 - t^2 = beta^-2 in Minkowski space, with t_in = beta^-1 e^(-beta z) sinh(beta t). At z = 0 both sides give the same t, so Minkowski t is a global time function and no closed causal curve exists. The abstract calls these spacetimes 'singularity free'. CTCs arise only by identification across AdS Cauchy horizons (p.14), and an M4-M4 wall has none. So a DWALL seat PASSES under the named hypothesis H-VIS-MINKOWSKI (Lambda = 0 on both sides, no identification), and N_WALLLOOP's defeasibility drops. This is argued from the source and not run in code (PLAUSIBLE).",
+            "moves_grade": true
+          },
+          {
+            "site": "defects.py global-monopole row 'seat: turn ... none under H-TURN-CONJUGATE'; A1 F5 'the string and the global monopole ... rays cross but do not focus'",
+            "wrong": "The global monopole is lumped with the string as crossing-only, with no caustic.",
+            "correct": "The rotation Killing field about the axis through the source and the monopole centre is a Jacobi field. It vanishes at the source and wherever a ray recrosses that axis, so each recrossing is a genuine conjugate point (a line caustic on the axis). That is the same structure as the Sun's focus: the Sun focuses rays along the axis at L proportional to b^2, and 548 AU is only the nearest point. A deflection that does not depend on b moves the foci along the axis; it does not remove them. Only the string, a flat cone without this symmetry, is crossing-only. So the global monopole gives a TURN under both H-TURN-CONJUGATE and H-TURN-CROSSING.",
+            "moves_grade": true
+          },
+          {
+            "site": "defects.py gauge-monopole row 'specthm class S-3 (or S-1 if its lensing seats; not computed)'; A1 open item 'Lensing seat of a specific gauge monopole: not computed'",
+            "wrong": "Left OPEN, although the owner's function gives it in one line.",
+            "correct": "spec.focal_length with M = 1.78e-10 kg (1e17 GeV, named H-MONOPOLE-MASS) puts a 1 AU focus at b = 2.81e-13 m, with r_s = 2.6e-37 m. That b is far outside a ~1e-32 m core and outside r_s, and the field energy beyond b is negligible (named H-WEAK-FIELD). So S-1's weak-field point-lens formula applies and the gauge monopole lands in S-1 (NONEMPTY), not S-3 (OPEN). The named caveat is that S-1's 'wl' condition says lensing 'through vacuum', while the monopole's exterior holds a Maxwell field.",
+            "moves_grade": true
+          },
+          {
+            "site": "A2-throatbits.md (B) and its findings: 'the board's largest surveyed self-consistent throat (300 l_P) holds 4.08e5 bits; the payload is 2.3e22-2.7e23 x that'",
+            "wrong": "The shortfall is measured against the 300 l_P throat, which the board's own D67 audit marks as contested by MMP.",
+            "correct": "MMP's semiclassical throat, SM-embedded and rotation-stabilised, is limited by d_min << 1/TeV. That gives r_e << ~3.8e-26 m (about 2.4e9 l_P) and a capacity of about 2.5e19 bits. The payload then exceeds the largest held throat by ~4e8 to 4e9, not by 2.3e22 to 2.7e23. This is an order-of-magnitude estimate (MMP's O(1) factors and N_f = 54 not carried). A magnitude is undersold; no grade word moves.",
+            "moves_grade": false
+          },
+          {
+            "site": "qet.py / A3-qet.md, where R-LIT is labelled 'M's sentence alone'; B-combine66.md 'R-LIT (M's sentence alone) is inconsistent in linear QM'",
+            "wrong": "The FALSE / INCONSISTENT reading is attributed to M's words.",
+            "correct": "M's words are 'introduction of information into a space that never previously contained it', and 'introduction' is an act. A3 itself says 'what the destination never previously contained was the classical record', which is R-QET. R-LIT's added conditions (no conditioned operation, no prior correlation) come from the question's parenthetical ('information arriving ... creates'), not from M's sentence. Fairly labelled, M's sentence read operationally is R-QET, TRUE-IF {H-GROUND, H-CORR, H-ACT, H-INSTANT}, and R-LIT is the parenthetical's arrival-alone reading. No verdict word changes.",
+            "moves_grade": false
+          },
+          {
+            "site": "A2-throatbits.md item 7 / F4 'member-attributed removals by H-THROAT-BITS: none'; R-TELEPORT O-HOLD 'credited to the premise set, not to H-THROAT-BITS'",
+            "wrong": "Attribution to M's hypothesis is denied even inside GJW's own setting.",
+            "correct": "The removal's support {H-GJW-COUNTERPART, H-ADS-TFD, H-COUPLED} contains H-GJW-COUNTERPART, which is M's reading (TBTEL), so inside AdS that reading is load-bearing. The fair statement is that the removal is attributable to TBTEL with H-ADS-TFD and H-COUPLED in AdS, which lies outside the board's one-space setting (E-ADS). The board-setting count of 0 stands.",
+            "moves_grade": false
+          }
+        ],
+        "reproduced": [
+          "ledger.py M-S1A-P3 (lines 2281-2299): 'APPLIED at the seat; a singular throat is not disqualified' and 'the throat-creation classes stay OPEN'",
+          "combine66.py DEF-TOPO/66 widens O-MAKE-TOPO with (TBHOLO or TBTSH) and N_WNCC only; A1's drift row 'O-MAKE-TOPO binds if made from flat space' for DTHR is anchored at line 944",
+          "throatbits.py R-HOLO and R-THINSHELL O-MAKE-TOPO apply M's ruling (OPEN via W-create-ncc); defects.py does not apply it for DTHR",
+          "The board's D67 audits READ 1807.04726 (_mk_1608.05687.py line 42; _mk_casimir-effect-magnitude.py later_literature); A2's list of board readings used omits it",
+          "MMP READ via alphaXiv: abstract (one asymptotically flat space, no causality violation), p.4 (interaction generated automatically), eq.(2.3), eq.(6.52), SM embedding p.26, fragility p.18, pi l > d pp.19-20",
+          "Python estimates from MMP eqs.(2.3) and (6.52): d_min at r_fit is 2.7e-12 to 2.1e-11 m, against the EW length 1.97e-19 m; the SM-embedded r_e bound is about 3.8e-26 m, holding about 2.5e19 bits",
+          "spec.focal_length: a 1 AU focus at b = 2.81e-13 m for M = 1.78e-10 kg; r_s = 2.6e-37 m",
+          "CGS READ via alphaXiv: p.15 and Fig.4 (the M4 sides are interiors of the hyperboloid with the same inertial time at z = 0); p.14 (CTCs only by identification across AdS Cauchy horizons); abstract 'singularity free'",
+          "defects.monopole_deflection = eps*pi, independent of b (code read); the symmetry argument gives a conjugate point on the axis"
+        ]
+      },
+      {
+        "lens": "REPRODUCE (V66-2). I re-ran every selftest: defects.py 71/71 (19 controls), throatbits.py 41/41 (9 controls), qet.py 45/45 (9 controls) and combine66.py 58/58 (20 controls, 640 s). All returned rc 0 and match what the agents reported. I did not re-run combine66's --conservative-full. I re-derived the headline numbers independently with CODATA constants and my own numpy/sympy. I re-checked each READ citation at its page with alphaXiv answer_pdf_queries on the open arXiv full text. Those papers were Planck XXV, HK, Visser, CFG, DLM, GV, FKZ, FGM, FSW, Durrer, CGS, Eto, PV, GJW, MSY, AHMST, Hotta 2008/2010, FMM, Ikeda, the review, Zachary and Flanagan. I did not re-check the two Firecrawl-only abstracts or the board readings that A2 carried. Report written to /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d66/V66-2.json. No wave-1 file was edited. Scratch logs were deleted after use. Result: one computational error (A1's global-monopole deficit), six wording, rounding or citation-page inaccuracies, and nothing that moves a grade.",
+        "problems": [
+          {
+            "site": "A1: defects.py monopole_einstein check (lines 872-880), grade text line 759, A1-defects.md line 115, global-monopole grade 'Exact deficit Delta = 8 pi eta^2/(1 + 8 pi eta^2)'",
+            "wrong": "The deficit is labelled EXACT, but it comes from setting the cone metric's rho = (1-A)/(8 pi A r^2) equal to the flat-space hedgehog density eta^2/r^2. In the cone metric the hedgehog's gradient energy is eta^2/(A r^2). The selftest check passes only because its input is itself inconsistent, and no control tests this.",
+            "correct": "With the consistent hedgehog stress, sympy gives Delta = 8 pi G eta^2 exactly outside the core, which is Barriola-Vilenkin's value. The Sturm verdict (eps >= pi^2/2 needed, against eps < 1) and the deflection eps*pi are unchanged.",
+            "moves_grade": false
+          },
+          {
+            "site": "A1 string grade seat_conditions and F6 (A1-defects.json); defects.py grade text line 710",
+            "wrong": "'A Gott pair ... cannot form in an open universe', with no qualifier.",
+            "correct": "CFG94 (abstract, p.4, p.17) says a Gott time machine cannot be created in an open (2+1)-dimensional universe with timelike total momentum. A1-defects.md line 35 and defects.py line 139 keep this qualifier; the grade text and the JSON drop it, which overstates the result against M.",
+            "moves_grade": false
+          },
+          {
+            "site": "A1 grade seat_conditions and F6: 'spinning string DISQUALIFIED inside r < S/alpha unless S < kappa'",
+            "wrong": "Mixes DLM04 eq.(2), which has no dislocation, with eq.(3), which has dislocation kappa.",
+            "correct": "With dislocation, CTCs exist when S > kappa, in r < sqrt(S^2-kappa^2)/alpha (DLM04 p.1). The bound r < S/alpha holds only for kappa = 0. defects.py's checks (lines 943-944) carry both forms; only the grade sentence conflates them.",
+            "moves_grade": false
+          },
+          {
+            "site": "A3: qet.py duration() (lines 273-286); grade and findings 't* = 0.1450/k at (1.5,1)' and '0.1855/k at (1,1)'",
+            "wrong": "Printed to four digits, but each value is the first grid point at or above zero on a 6001-point grid over 3/k (step 0.0005/k), so it is an upper grid value, not the crossing.",
+            "correct": "Independent bisection gives t*k = 0.144941 and 0.185373, i.e. 0.1449/k and 0.1854/k.",
+            "moves_grade": false
+          },
+          {
+            "site": "A3-qet.md and A3 findings: 'E_B = 0.1425 h', 'E_A = 1.2481 h', '0.494 h per nat', '0.2036 h per bit', 'E_B = -0.079 h'",
+            "wrong": "Every one carries the unit label 'h', but they are raw model energies computed at h = 1.5. B-combine's unit note corrects only E_B.",
+            "correct": "Raw values at (h,k) = (1.5,1): E_B = 0.14252 (E_B/h = 0.0950) and E_A = h^2/sqrt(h^2+k^2) = 1.2481 (E_A/h = 0.832). The per-nat and per-bit figures are in the same raw unit. The numbers are right; the unit word is not.",
+            "moves_grade": false
+          },
+          {
+            "site": "A3-qet.md lines 60 and 234, qet.py line 35: page citations for Hotta 1002.0200v2",
+            "wrong": "'even before the start' is cited to p.3 while 'E_B bounded by E_A' is cited to p.2, and eq.(8) is cited to p.7.",
+            "correct": "Both statements are on the same page, printed p.2 (PDF p.3). Eq.(8) is on printed p.8 (PDF p.9). A3's other Hotta citations use printed page numbers, so these two are off by one. The content is quoted correctly.",
+            "moves_grade": false
+          },
+          {
+            "site": "A1 throat-support grade: 'The GV ring's curvature singularity is at the throat'",
+            "wrong": "Imprecise. At the tension used for the figures (T = -c^4/(4G), sigma = 0), GV's geometry is locally flat and the ring carries only a conical (distributional) singularity. The power-law curvature singularity appears only for sigma != 0 (GV pp.20-22).",
+            "correct": "Describe it as a singular ring bounding the throat disc: conical only at sigma = 0, conical plus power-law at sigma != 0. The M-S1A-P3 (i) reading is unaffected.",
+            "moves_grade": false
+          }
+        ],
+        "reproduced": [
+          "Selftests re-run: defects 71/71 (19 controls), throatbits 41/41 (9 controls), qet 45/45 (9 controls), combine66 58/58 (20 controls, 5 STRUCTURAL items, 640 s); all rc 0 and all match the agents' reports. combine66 --conservative-full was not re-run.",
+          "A1: Gott condition gamma > 1/sin(4 pi G mu) = 5.305e5 at G mu/c^2 = 1.5e-7, from CFG eq.(32) (cosh xi sin(alpha/2) > 1, checked at p.10). The 1.5e-7 bound is in Planck 2013 XXV Tables 2-3 (NAMBU, Planck+WP).",
+          "A1: string crossing R_sun/tan(4 pi G mu) = 2,467.1 AU; the Sun's own focus is at 547.8 AU.",
+          "A1: wall surface density for a 1 AU focus, c^4/(4 pi G AU) = 6.44e31 J/m^2. I re-derived f = c^4/(4 pi G sigma) from Raychaudhuri with T_kk = sigma delta.",
+          "A1: Visser edge c^4/(8G) = 1.5128e43 J/m (Visser p.5 prints 1.52e43, with 'no natural mechanism' for negative tension); GV c^4/(4G) = 3.0256e43 N (GV p.22 prints 3.0257e43); a 1 m ring = 2.115e27 kg = 1.11 Jupiter masses; FKZ T = RLc/(GM) = 1.437e9 yr (eq.6.9 checked); 1 - cos(Delta/4) = 4.44e-13.",
+          "A2: r_fit = l_P sqrt(N ln2/pi) = 7.4033e-22 m and 2.5040e-21 m; M_sat = r c^2/(2G) = 4.985e5 and 1.686e6 kg (7,121x and 24,084x the payload); Bekenstein radius 5.272e-18 and 6.031e-17 m; E_floor(r_fit) = r_fit c^4/(2G); a 300 l_P throat holds 4.079e5 bits.",
+          "A3: minimal model rebuilt independently. E_B = 0.142524, equal to Hotta eq.(8); E_A = 1.248075; <V> = -0.490608 and <H_B> = 0.348084 (Ikeda Table II: -0.4905, 0.3480); E_B/E_A = 0.1142, approaching 1/4; Delta S_AB = 0.28837 nats, giving 0.4942 per nat; slope 0.20355 per bit; the 70 kg payload needs at least 2.52e19 J injected; Zachary eq.(B.3) gives 2.08e-54 m^-2, against the ~1e-36 m^-2 the paper prints.",
+          "Every READ citation I re-checked holds in substance. GJW p.10 (negative integrated null energy, Fig.3.2), PV's stability regions I/II and caveats, MSY's 'parametric only' bounds, AHMST's central dogma, Hotta 2008 eq.(25) and the local vacuum before Bob's step, FMM p.7, the review p.6 / eq.(116) / p.26, Zachary's opposite-sign eqs.(A.3)/(B.2), Flanagan eqs.(1.8)/(2.5), HK pp.33-34/53/63/84-85/90, Durrer, CGS, Eto, FSW and FGM all confirmed at page. The exceptions are the two off-by-one Hotta 2010 pages in A3."
+        ]
+      }
+    ]
+  },
+  "workflowProgress": [
+    {
+      "type": "workflow_phase",
+      "index": 1,
+      "title": "Alone"
+    },
+    {
+      "type": "workflow_phase",
+      "index": 2,
+      "title": "Combine"
+    },
+    {
+      "type": "workflow_phase",
+      "index": 3,
+      "title": "Verify"
+    },
+    {
+      "type": "workflow_agent",
+      "index": 1,
+      "label": "A1-defects",
+      "phaseIndex": 1,
+      "phaseTitle": "Alone",
+      "agentId": "a34f665cc041c250f",
+      "model": "claude-opus-5-5",
+      "state": "done",
+      "startedAt": 1791134150855,
+      "queuedAt": 1791134150821,
+      "attempt": 1,
+      "lastToolName": "StructuredOutput",
+      "lastToolSummary": "A1-defects",
+      "promptPreview": "DOCKET 66 on M's warp-drive research tree. READ /home/user/Claude-Method-Works/research/warp-drive/docket66/CHARTER.md IN FULL FIRST (M's words verbatim; hypotheses H-DEFECT-SEAT,\nH-THROAT-BITS, H-QET-EXOTIC; what the board holds). Also read /home/user/Claude-Method-Works/research/warp-drive/docket68/B-combine.md (the obstruction vocabulary O-BITS,\nO-MAKE-TOPO, O-MAKE-DIST, O-HOLD, O-SEAT, O-LOOP …",
+      "promptFramed": true,
+      "lastProgressAt": 1791135688476,
+      "tokens": 495107,
+      "toolCalls": 64,
+      "durationMs": 1537617,
+      "resultPreview": "{\"id\":\"A1-defects\",\"files\":[\"/home/user/Claude-Method-Works/research/warp-drive/docket66/defects.py\",\"/home/user/Claude-Method-Works/research/warp-drive/docket66/A1-defects.md\",\"/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d66/A1-defects.json\",\"/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d66/A1-defects…"
+    },
+    {
+      "type": "workflow_agent",
+      "index": 2,
+      "label": "A2-throatbits",
+      "phaseIndex": 1,
+      "phaseTitle": "Alone",
+      "agentId": "ad07ec48dcaa3d7d0",
+      "model": "claude-opus-5-5",
+      "state": "done",
+      "startedAt": 1791134150858,
+      "queuedAt": 1791134150821,
+      "attempt": 1,
+      "lastToolName": "StructuredOutput",
+      "lastToolSummary": "A2-throatbits",
+      "promptPreview": "DOCKET 66 on M's warp-drive research tree. READ /home/user/Claude-Method-Works/research/warp-drive/docket66/CHARTER.md IN FULL FIRST (M's words verbatim; hypotheses H-DEFECT-SEAT,\nH-THROAT-BITS, H-QET-EXOTIC; what the board holds). Also read /home/user/Claude-Method-Works/research/warp-drive/docket68/B-combine.md (the obstruction vocabulary O-BITS,\nO-MAKE-TOPO, O-MAKE-DIST, O-HOLD, O-SEAT, O-LOOP …",
+      "promptFramed": true,
+      "lastProgressAt": 1791135404112,
+      "tokens": 295514,
+      "toolCalls": 47,
+      "durationMs": 1249298,
+      "resultPreview": "{\"id\":\"A2-throatbits\",\"files\":[\"/home/user/Claude-Method-Works/research/warp-drive/docket66/throatbits.py\",\"/home/user/Claude-Method-Works/research/warp-drive/docket66/A2-throatbits.md\",\"/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d66/A2-throatbits.json\",\"/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d6…"
+    },
+    {
+      "type": "workflow_agent",
+      "index": 3,
+      "label": "A3-qet",
+      "phaseIndex": 1,
+      "phaseTitle": "Alone",
+      "agentId": "a2846fd46459d1a9a",
+      "model": "claude-opus-5-5",
+      "state": "done",
+      "startedAt": 1791135409081,
+      "queuedAt": 1791134150821,
+      "attempt": 1,
+      "lastToolName": "StructuredOutput",
+      "lastToolSummary": "A3-qet",
+      "promptPreview": "DOCKET 66 on M's warp-drive research tree. READ /home/user/Claude-Method-Works/research/warp-drive/docket66/CHARTER.md IN FULL FIRST (M's words verbatim; hypotheses H-DEFECT-SEAT,\nH-THROAT-BITS, H-QET-EXOTIC; what the board holds). Also read /home/user/Claude-Method-Works/research/warp-drive/docket68/B-combine.md (the obstruction vocabulary O-BITS,\nO-MAKE-TOPO, O-MAKE-DIST, O-HOLD, O-SEAT, O-LOOP …",
+      "promptFramed": true,
+      "lastProgressAt": 1791136605220,
+      "tokens": 324637,
+      "toolCalls": 37,
+      "durationMs": 1196139,
+      "resultPreview": "{\"id\":\"A3-qet\",\"files\":[\"/home/user/Claude-Method-Works/research/warp-drive/docket66/qet.py\",\"/home/user/Claude-Method-Works/research/warp-drive/docket66/A3-qet.md\",\"/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d66/A3-qet.json\"],\"sources\":[\"Hotta arXiv:0803.2272v3 (16 Jul 2008) = PRD 78 045006, the 'Hotta 2008' named to M. READ via alphaXiv answer_pd…"
+    },
+    {
+      "type": "workflow_agent",
+      "index": 4,
+      "label": "B-combine66",
+      "phaseIndex": 2,
+      "phaseTitle": "Combine",
+      "agentId": "a1672a247aee474e3",
+      "model": "claude-opus-5-5",
+      "state": "done",
+      "startedAt": 1791136610892,
+      "queuedAt": 1791136610884,
+      "attempt": 1,
+      "lastToolName": "StructuredOutput",
+      "lastToolSummary": "B-combine66",
+      "promptPreview": "DOCKET 66 on M's warp-drive research tree. READ /home/user/Claude-Method-Works/research/warp-drive/docket66/CHARTER.md IN FULL FIRST (M's words verbatim; hypotheses H-DEFECT-SEAT,\nH-THROAT-BITS, H-QET-EXOTIC; what the board holds). Also read /home/user/Claude-Method-Works/research/warp-drive/docket68/B-combine.md (the obstruction vocabulary O-BITS,\nO-MAKE-TOPO, O-MAKE-DIST, O-HOLD, O-SEAT, O-LOOP …",
+      "promptFramed": true,
+      "lastProgressAt": 1791141340961,
+      "tokens": 469980,
+      "toolCalls": 60,
+      "durationMs": 4730067,
+      "resultPreview": "{\"id\":\"B-combine66\",\"files\":[\"/home/user/Claude-Method-Works/research/warp-drive/docket66/combine66.py\",\"/home/user/Claude-Method-Works/research/warp-drive/docket66/B-combine66.md\",\"/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d66/B-combine66.json\",\"/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d66/B-com…"
+    },
+    {
+      "type": "workflow_agent",
+      "index": 5,
+      "label": "verify66-0",
+      "phaseIndex": 3,
+      "phaseTitle": "Verify",
+      "agentId": "aaaddaef0cb3da9a0",
+      "model": "claude-opus-5-5",
+      "state": "done",
+      "startedAt": 1791141346370,
+      "queuedAt": 1791141346314,
+      "attempt": 1,
+      "lastToolName": "StructuredOutput",
+      "lastToolSummary": "AGAINST M: overstatement in M's favour (a defect called a s…",
+      "promptPreview": "DOCKET 66 on M's warp-drive research tree. READ /home/user/Claude-Method-Works/research/warp-drive/docket66/CHARTER.md IN FULL FIRST (M's words verbatim; hypotheses H-DEFECT-SEAT,\nH-THROAT-BITS, H-QET-EXOTIC; what the board holds). Also read /home/user/Claude-Method-Works/research/warp-drive/docket68/B-combine.md (the obstruction vocabulary O-BITS,\nO-MAKE-TOPO, O-MAKE-DIST, O-HOLD, O-SEAT, O-LOOP …",
+      "promptFramed": true,
+      "lastProgressAt": 1791142336302,
+      "tokens": 252224,
+      "toolCalls": 26,
+      "durationMs": 989926,
+      "resultPreview": "{\"lens\":\"AGAINST M: overstatement in M's favour (a defect called a seat on an unread source; QET energy presented as usable for a throat; a bit-count presented as a mechanism). Outside reads this pass all went through alphaXiv answer_pdf_queries (open arXiv full text; no paywall, no login wall, no 403): GJW 1608.05687v3 pp.1-4, 9-15; FMM 1701.03805v2 pp.1-3, 5, 8, 10-12; Maldacena & Qi 1804.00491v…"
+    },
+    {
+      "type": "workflow_agent",
+      "index": 6,
+      "label": "verify66-1",
+      "phaseIndex": 3,
+      "phaseTitle": "Verify",
+      "agentId": "a5df35454ad9b34d1",
+      "model": "claude-opus-5-5",
+      "state": "done",
+      "startedAt": 1791141346375,
+      "queuedAt": 1791141346315,
+      "attempt": 1,
+      "lastToolName": "StructuredOutput",
+      "lastToolSummary": "FOR M: understatement (a fair reading of M not taken; a res…",
+      "promptPreview": "DOCKET 66 on M's warp-drive research tree. READ /home/user/Claude-Method-Works/research/warp-drive/docket66/CHARTER.md IN FULL FIRST (M's words verbatim; hypotheses H-DEFECT-SEAT,\nH-THROAT-BITS, H-QET-EXOTIC; what the board holds). Also read /home/user/Claude-Method-Works/research/warp-drive/docket68/B-combine.md (the obstruction vocabulary O-BITS,\nO-MAKE-TOPO, O-MAKE-DIST, O-HOLD, O-SEAT, O-LOOP …",
+      "promptFramed": true,
+      "lastProgressAt": 1791141937865,
+      "tokens": 244333,
+      "toolCalls": 26,
+      "durationMs": 586517,
+      "resultPreview": "{\"lens\":\"FOR M: understatement (a fair reading of M not taken; a result undersold; a theorem applied outside its hypotheses against M). Report: /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d66/V66-1.json. Outside sources READ via alphaXiv answer_pdf_queries (open arXiv full text): Maldacena-Milekhin-Popov 1807.04726v3 (pp.1, 4-5, 15, 17-20, 22-23, 25…"
+    },
+    {
+      "type": "workflow_agent",
+      "index": 7,
+      "label": "verify66-2",
+      "phaseIndex": 3,
+      "phaseTitle": "Verify",
+      "agentId": "a699251db80e57f95",
+      "model": "claude-opus-5-5",
+      "state": "done",
+      "startedAt": 1791141940440,
+      "queuedAt": 1791141346316,
+      "attempt": 1,
+      "lastToolName": "StructuredOutput",
+      "lastToolSummary": "REPRODUCE (V66-2). I re-ran every selftest: defects.py 71/7…",
+      "promptPreview": "DOCKET 66 on M's warp-drive research tree. READ /home/user/Claude-Method-Works/research/warp-drive/docket66/CHARTER.md IN FULL FIRST (M's words verbatim; hypotheses H-DEFECT-SEAT,\nH-THROAT-BITS, H-QET-EXOTIC; what the board holds). Also read /home/user/Claude-Method-Works/research/warp-drive/docket68/B-combine.md (the obstruction vocabulary O-BITS,\nO-MAKE-TOPO, O-MAKE-DIST, O-HOLD, O-SEAT, O-LOOP …",
+      "promptFramed": true,
+      "lastProgressAt": 1791142732863,
+      "tokens": 530747,
+      "toolCalls": 53,
+      "durationMs": 792422,
+      "resultPreview": "{\"lens\":\"REPRODUCE (V66-2). I re-ran every selftest: defects.py 71/71 (19 controls), throatbits.py 41/41 (9 controls), qet.py 45/45 (9 controls) and combine66.py 58/58 (20 controls, 640 s). All returned rc 0 and match what the agents reported. I did not re-run combine66's --conservative-full. I re-derived the headline numbers independently with CODATA constants and my own numpy/sympy. I re-checked…"
+    }
+  ],
+  "totalTokens": 2612542,
+  "totalToolCalls": 313
+}
