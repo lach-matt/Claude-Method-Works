@@ -1,6 +1,6 @@
 # Per-source comments — scope ruled by M (DOCKET 67, task: comments on audited sources)
 
-**Not started.** The comments are written after M has reviewed DOCKET 67's verified grades. Nothing here is seated.
+**Drafted 2026-10-04: 64 comments (2 WRONG, 62 discrepancy), verified per batch -- see COMMENTS-INDEX.md. Drafts only; nothing sent or posted.**
 
 ## M's decisions, verbatim from the session (witnessed by the lead)
 

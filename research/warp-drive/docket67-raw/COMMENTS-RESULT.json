@@ -1,0 +1,1520 @@
+{
+  "summary": "DOCKET 67 step 3: census every source with a finding against the source itself, draft one comment per source, verify each",
+  "agentCount": 9,
+  "logs": [
+    "64 sources to comment on; 14 borderline cases excluded"
+  ],
+  "result": {
+    "census": {
+      "sources": [
+        {
+          "key": "gr-qc/9304008",
+          "paper": "C.-I. Kuo & L. H. Ford, 'Semiclassical gravity theory and quantum fluctuations' (Phys. Rev. D 47, 4510 (1993))",
+          "version_read": "arXiv gr-qc/9304008v1 (6 Apr 1993; TUTP-93-1), PDF text layer via alphaXiv (cached harvest md5 f1a6628604751cf61b2a4bd411b00153; re-read at source in the adjudication pass); page images not viewed. Journal version: COMPARED-BY-M under ruling M-D67-1 (M read it beside v1 and reports them identical) - findings carry to PRD 47, 4510 on M's comparison, never on a reading by the board; JOURNAL_VERSION_READ = False. APS abstract page READ (Received 9 Dec 1992, Published 15 May 1993); its abstract is word-for-word identical to v1 (198/198 words).",
+          "cls": "WRONG",
+          "findings": [
+            "WRONG (claim after eq. 3.8): the sentence that rho < 0 implies Delta > 1 fails for the paper's own vac+2 family (2.15) with Delta as defined in (3.2): exact Fock-space moments give Delta = |1 - (2eps - sqrt2 cos2theta)^2/(3(1+eps^2))|, and z3 proves no member has rho < 0 and Delta > 1; in fact 1/3 < Delta < 1 wherever rho < 0 (witness eps = 1/10, theta = 0: exact 0.5134 against 2.0118 from printed (3.8)). Not a misprint: the sentence follows validly from printed (3.8).",
+            "WRONG (eq. 3.8): printed (10eps + sqrt2 cos2theta)/(12eps) is negative (-0.3452 at eps = 1/10, cos2theta = -1) although (3.2) defines Delta as an absolute value, and it is linear in cos2theta where (3.2) gives a quadratic; no combination of printed (2.16) and (3.7) reproduces it.",
+            "DISCREPANCY, not WRONG (eq. 3.7, same key): printed <:T00^2:> differs from the exact 12K^2 eps^2/(1+eps^2) by a factor 1/(1+eps^2) (state normalisation squared); on its own a slip a misprint could explain, and not the basis of the WRONG grade.",
+            "WRONG (qualitative conclusion; abstract 'We find in all cases studied that the energy density fluctuations are large whenever the local energy density is negative', Sec. III.B 'we always have that Delta is at least of order unity'): in KF's own case (ii), the displaced squeezed state at theta = pi/2, gamma = delta = 0, |alpha|^2 = (1 - e^{-2r})/8, gives rho = K sinh r (sinh r - cosh r) < 0 with <:T00^2:> = rho^2 identically, so Delta = 0 exactly (r = 1: rho = -0.4323 K, numeric Delta 2e-14). The headline sentence is READ in the journal's own abstract, so this point does not need M's comparison.",
+            "DISCREPANCY (eq. 2.16): the final line is exactly half the middle line (dropped overall factor 2); the middle line and (2.10) are exact; sign of rho and the condition cos2theta > sqrt2 eps unaffected.",
+            "DISCREPANCY (eqs. 3.19, 3.23): both disagree with the exact result ((3.23) vs 6K^2 s^2[c^2 cos4theta + 4sc cos2theta + 3s^2 + 1] in three coefficients); (3.19) breaks the exact U(1) phase symmetry, and (3.19) at alpha = delta = 0 does not give (3.23); (3.18), (3.22) exact.",
+            "DISCREPANCY (eqs. 3.41-3.42): coefficient 1/2 printed where the operator identity phidot^2 = (rho + sum p)/2 requires 1/4; non-propagating - (3.43)'s 1/8 and the printed 1/2, 1/3, 6, 6/7 are the 1/4 values.",
+            "DISCREPANCY (eq. 3.43): a leading 'rho' inside each bracket where '1' is required; read literally its value at xi = 0 is rho^2/2, contradicting KF's next sentence ('minimum ... is 1/2'); does not affect (3.45); possibly text-layer.",
+            "DISCREPANCY, minor: the printed condition cos2theta > sqrt2 eps for rho < 0 is exact only for eps > 0 while eps is stated real; for eps < 0 it reverses (z3 counter-point); equivalent to a theta shift of pi/2, nothing physical moves."
+          ],
+          "evidence": [
+            "research/warp-drive/docket67-raw/shards/shard00.json [key gr-qc/9304008-claim-after-3.8] grade_evidence (C5-C9); rederive/gr-qc_9304008-claim-after-3.8.py",
+            "shards/shard11.json [key gr-qc/9304008-eq3.7-3.8] grade_evidence; rederive/gr-qc_9304008-eq3.7-3.8.py",
+            "shards/shard04.json [key gr-qc/9304008-qualitative-conclusion] grade_evidence (C3, C4, C6); rederive/gr-qc_9304008-qualitative-conclusion.py",
+            "adjudications/kuo-ford-1993-prd-47-4510.json decision (independent check run/kfprd_check2.py; COMPARED-BY-M; hypothesis H-M named)",
+            "shards/shard10.json [key gr-qc/9304008-eq2.16] grade_evidence",
+            "shards/shard01.json [key gr-qc/9304008-eq3.18-3.23] grade_evidence, hypothesis_drift (C6, C9)",
+            "shards/shard02.json [key gr-qc/9304008-eq3.41-3.43] rederivation.outcome (1)-(6)",
+            "shards/shard03.json [key gr-qc/9304008-eq3.45] hypothesis_drift; shards/shard06.json [key gr-qc/9304008] grade_evidence (C6c-e); shards/shard01.json [key kuo-ford-1993-measure] rederivation.outcome",
+            "VERIFIED-GRADES.tsv (three WRONG rows); REVIEW.md section 2 (all paths under research/warp-drive/docket67-raw/)"
+          ],
+          "stands": "Definition (3.2) with its normal ordering; (2.10) and the middle line of (2.16); (3.18), (3.22); (3.44) on the Gaussian class; (3.45) with its 1/2, 1/3 and the Casimir 6 and 6/7; the condition cos2theta > sqrt2 eps (eps > 0); Delta of order unity on rho < 0 for vac+2 (1/3 < Delta < 1), the squeezed vacuum (2/3) and every zero-mean Gaussian/Casimir state; in case (ii) the failure is confined to a codimension-one surface and a thin band beside a region where Delta > 1, so 'generically of order unity' survives. Sec. V's quartic-renormalisation remark was accurate and dated for 1993. No measured datum enters."
+        },
+        {
+          "key": "2604.01047",
+          "paper": "Galanda, Meda, Murro, Pinamonti, Schmid (GMMPS), 'The Semiclassical Einstein-Klein-Gordon System: Asymptotic Analysis of Minkowski Spacetime'",
+          "version_read": "arXiv:2604.01047v1 [math-ph], 1 Apr 2026: alphaXiv answer_pdf_queries page text (pp. 1, 7, 9, 22-23, 27, 31-33, 35-40, 58-63) and the v1 full-text layer from DOCKET 64 (galanda.txt, md5 4bac4a9400afceac615c5aa3b9f83c6e); live re-read 2026-10-02. No journal version exists or is claimed.",
+          "cls": "WRONG",
+          "findings": [
+            "WRONG, Theorem 3.6, S half only: the S-half derivation evaluates (3.21) with the renormalisation scale mu held fixed relative to the background; in the late region (Omega^2 eta, constant Omega = 1 + W, mass m) the dilation x -> Omega x is an isometry onto Minkowski with the same m, the paper's convergence step puts the state in the vacuum, and general local covariance (invoked by the theorem, and used by the paper's own TT procedure on p. 39 with the same mu) gives <T> = 0 at every order in W via Omega^2 H_g(m, mu) = H_eta(Omega m, Omega mu); inserting 0 into the p. 37 comparison gives alpha~^S_1 = 0, not the printed 1/(64 pi^2), whose m^4 term equals dT_vac/d log mu^2. Not a misprint: the paper's algebra reproduces 1/(64 pi^2) from (3.21) exactly, and p. 36 derives (3.22) with no compensating term. An inconsistency inside the paper's procedure; it does not say the instability is wrong in general, nor that AMM is right in general.",
+            "DISCREPANCY (p. 23): '[w_0] = m^2/16pi^2, [w_1] = m^4/64pi^2' are evidently the v coefficients (p. 39 prints them as [v_0], [v_1]); inserted literally into (3.3), [v_1] does not give Prop. 3.1's alpha_1 (off by (8pi^2 - 1)/(256 pi^4)); convention or typo undecidable; alpha_1 stands.",
+            "DISCREPANCY, misprint (Sec. 5.1, p. 59): alpha~^S_1 printed (64 pi)^-1 against Thm 3.6's 1/(64 pi^2); Sec. 5.3's printed m ~ 7.8e-3 eV is reproduced only with 1/(64 pi^2) (7.885e-3); (64 pi)^-1 gives 5.92e-3 (-24.1%); ratio exactly pi^(1/4).",
+            "DISCREPANCY (Sec. 5.1): 'For sufficiently large -b_2, this is the only negative zero' fails on the printed b_i (b_2 < 0 gives a second negative zero, e.g. two at -1.08e120, and none real below about b_2 = -8.6e120, m = 1 units); it holds for b_2 > 0, agreeing with Fig. 1 and 5.2.1; probably a sign slip.",
+            "DISCREPANCY (under (5.3)): 'equals Q(-w) for xi = -w^2' drops a sign (F_S(-w^2) = -Q(w^2)) and reuses xi, the coupling's name; zeros unaffected.",
+            "DISCREPANCY, gap in the source (TT sector, Sec. 5.2/p. 62): a = 4m^2 is the endpoint Prop. 4.12 excludes and lies outside Thm 4.14's open range, yet Thm 4.14 is cited; Sec. 5.2 skips h_0 because b_0 = 0 while p. 62 invokes Prop. 4.10 (needs b_0 != 0) for TT. Unique past-compact existence is proved at source for the S sector only.",
+            "DISCREPANCY (Thm 1.2, p. 11): (i) bound printed 'h~ <= e^{-Ht} eta' for a solution said to grow (5.2.1: Omega = e^{-Ht} removes growth; e^{tH} meant); (ii) 'any nontrivial source ... grows' claims more than Thm 4.16 ('for some ranges') and conflicts with 5.2's own Planck-mass TT example (all zeros >= 0); (iii) Thm 1.2 and (1.9) print Sigma_eps where (1.8) has Sigma_-eps; (iv) Prop. 4.5 writes '1 < c < 4m^2' for a constant of dimension mass^2.",
+            "DISCREPANCY (Sec. 1.5 vs 5.2.1): 1.5 says 'regardless of renormalisation constants', 5.2.1 attributes the behaviour to Thm 3.6's choice; computation supports 5.2.1 (branch zero vanishes at alpha~^S_1 = 0).",
+            "DISCREPANCY, misprints: (4.31) and the Thm 4.16 proof write 'gamma in Z' with G^gamma_ret, Q'(-gamma), S^(+-sqrt gamma, 0), inconsistent with Z as zeros of Q in w^2; the proof writes Z within (-4m^2, inf) for the decay estimate (statement governs); p. 62 'cat' for 'cut'."
+          ],
+          "evidence": [
+            "research/warp-drive/docket67-raw/adjudications/2604.01047_thm3.6.json decision + corrections_to_record (C3-C6; p. 36 read)",
+            "shards/shard09.json [key 2604.01047#thm3.6] grade_evidence, rederivation.outcome C1-C6; rederive/2604.01047_thm3.6.py",
+            "shards/shard02.json [key 2604.01047#sec5.3-mass] grade_evidence; shards/shard03.json [key planck-cosmological-parameters-via-2604.01047] rederivation.outcome C4",
+            "shards/shard11.json [key amm-gmmps-linearised-stability] rederivation.outcome S3, S9",
+            "shards/shard00.json [key 2604.01047#dispersion-s-tt] hypothesis_drift, grade_evidence (a)-(c)",
+            "adjudications/2604.01047_thm4.16-prop4.10.json and 2604.01047_sec5.2-tt.json corrections_to_record",
+            "shards/shard08.json [key 2604.01047#setting-thm1.2] hypothesis_drift; shards/shard01.json [key 2604.01047#sec5.1-5.3-mode] later_literature",
+            "REVIEW.md section 2; VERIFIED-GRADES.tsv row 2604.01047#thm3.6"
+          ],
+          "stands": "Thm 3.6's TT half (alpha~^TT_1 = 0) and Prop. 3.1's alpha_1 STAND; dispersion functions (3.11), (3.16), (4.9) -> (4.30) re-derive; F_S(-w^2) = -Q(w^2); rho and J ((4.5), (4.17)) exact; Thm 4.16's growth clause; S-sector existence via Thm 4.14 for a < 4m^2; Sec. 5.3's matching formula and Planck inputs (copied correctly to 3 s.f.); Sec. 5.2's TT 'always negative' (computed kappa m^2 < 360 pi^2). Downstream, 5.1's S zero and 5.3's gamma_0 and m ~ 8 meV rest on alpha~^S_1 = 1/(64 pi^2) and fall with the S half; at alpha~^S_1 = 0, gamma = 0 is an exact root."
+        },
+        {
+          "key": "gr-qc/9701064",
+          "paper": "Hochberg, Popov & Sushkov (HPS), 'Self-consistent Wormhole Solutions of Semiclassical Gravity' (PRL 78, 2050 (1997))",
+          "version_read": "arXiv gr-qc/9701064v1 (30 Jan 1997), full PDF text layer pp. 1-12 via alphaXiv (cached hps_0.xml, md5 a5f55d322aed581c9b1dead99d63cb84); page images and PRL text not read.",
+          "cls": "DISCREPANCY",
+          "findings": [
+            "M1: in the log bracket of eqs. (5)-(7) the text layer prints 16 where conservation requires 116; with the printed value no choice conserves the tensor, and (116, 21) at r^2 is the unique conserving repair, equal to exactly 24 x the Bach tensor (Popov's B1 prints 116).",
+            "M2: eq. (6)'s ln f term '-4 f'^2 r'^2/(f^2 r)' has dimension L^-3 while every other term of (5)-(7) is L^-4; conservation and homogeneity require r^2 (Popov's B2 prints r^2). M1 and M2 vanish at the throat, so eqs. (8), (9), r(0) ~ 0.02 and ~67 l_P are unaffected; whether the defects are in the PRL or only the arXiv layer is undetermined.",
+            "Over-statement (p. 4): 'a GENERAL static and spherically symmetric spacetime can be cast into the form (2)' - with f > 0, form (2) covers only the static region outside Killing horizons, and HPS report solutions 'with horizons located far from the throat' (p. 8).",
+            "Footnote [22] derives f'(0) = 0 from r'(0) = 0 'by the chain rule', assuming df/dr finite at the throat; HPS's reflection symmetry supplies f'(0) = 0 independently, so a hypothesis is presented as a consequence (noted in passing)."
+          ],
+          "evidence": [
+            "research/warp-drive/docket67-raw/shards/shard01.json [key gr-qc/9701064] hypothesis_drift, grade_evidence (C3, C4a-d, C10)",
+            "shards/shard10.json [key ahs-prd-51-4337-hps] rederivation.outcome E/F; rederive/ahs-prd-51-4337-hps.py",
+            "shards/shard06.json [key hps-1997-largest-throat-300lp] rederivation.outcome (B)",
+            "adjudications/no-existence-theorem-ssaf.json corrections_to_record (A1)",
+            "shards/shard03.json [key gr-qc/9701064#eq2-einstein] hypothesis_drift, lacked_data"
+          ],
+          "stands": "Eq. (2) and its Einstein-tensor components; the model system (5)-(7) at xi = 1/6, m = kappa = 0 in the conserved reading; eq. (8); eq. (9) and r(0) = 0.02428 and 67.26 l_P; omega_1, omega_2; throat values rho = -45/L, p_l = -rho, p_t = 0; the p. 8 statement that the metric as a whole is not asymptotically flat."
+        },
+        {
+          "key": "hep-th/0302039",
+          "paper": "A. A. Popov, 'Analytical approximation of the stress-energy tensor of a quantized scalar field in static spherically symmetric spacetimes' (PRD 67, 044021 (2003))",
+          "version_read": "arXiv hep-th/0302039v2, read at source via alphaXiv in the adjudication pass (Secs. I-VI, eqs. (21), (55)-(83), App. B); journal not read.",
+          "cls": "DISCREPANCY",
+          "findings": [
+            "M3: in (B3) the term -21 r^8 f'^4 is printed inside the (xi - 1/6)^2 log bracket (opening '(2880 r^4 f^4 - 21 r^8 f'^4 - 8640 ...', closing '+7020 r^8 f'^4)'); that bracket conserves only at net 7020, not the printed 6999, and at xi = 1/6 (B3) without +21 f'^4/f^4 is not conserved - a misplacement in the arXiv v2 text decided by conservation, not a refutation."
+          ],
+          "evidence": [
+            "research/warp-drive/docket67-raw/adjudications/hep-th_0302039.json corrections_to_record (M3)",
+            "shards/shard08.json [key hep-th/0302039] hypothesis_drift",
+            "shards/shard10.json [key hep-th/0302039#seciv] grade_evidence (ii); rederive/hep-th_0302039_seciv.py"
+          ],
+          "stands": "(B1) with 116 and (B2) with r^2 (decided correct by conservation); the non-log parts identical to HPS; the high-frequency (AHS) expression is state-free and, with M3 restored, identically conserved with a separately conserved traceless scale part."
+        },
+        {
+          "key": "2309.10848",
+          "paper": "Fliss, Freivogel, Kontou & Pardo Santos (FFKP), 'Non-minimal coupling, negative null energy, and effective field theory' (SciPost Phys. 16, 119 (2024), not read)",
+          "version_read": "arXiv:2309.10848v1 [hep-th], full text via alphaXiv get_paper_content (cached, md5 4f31876842f625e48506444afd216ee0); nothing is stated about the SciPost version.",
+          "cls": "DISCREPANCY",
+          "findings": [
+            "The Ricci coefficient in Q[f] ((64), (69b), (72)) is printed +1/2, but the paper's own stress tensor (9) - conserved off-shell on a generic metric (residual 2e-165) - gives -1 after the integration by parts (62)-(63); (12)/(13) carry the opposite sign of the R_mn phi^2 term ((9) - (12) = 2 xi R_mn phi^2), giving +1, and (61) as extracted gives +2. Invisible in FFKP's Minkowski applications; no state violating the printed bound is exhibited; the theorem survives with the corrected Q.",
+            "The xi-term of (80)/(85)/(93) appears as INT d_-^2(f^2) without absolute-value bars, identically zero; (96) needs |.|, and (79) -> (80) needs |<:phi^2:>| <= phi_max^2 where (79) is one-sided (text layer).",
+            "Eq. (89): printed 'alpha^4' matches the general-n expression only at n = 4 (minor).",
+            "After eq. (3), 'Planckian or sub-Planckian ... small': with the non-reduced Planck mass x = 4.19 > 1 at M_c = M_P, xi = 1/6 (Omega^2 < 0), with the reduced mass 0.167; the paper does not say which it means.",
+            "Abstract and Discussion say the effective ANEC 'must' be violated without Sec. II.C's hedge ('This point requires further consideration, but so far'), where it is a theorem only for short wormholes and an argument for asymptotically flat regions otherwise.",
+            "Sec. I eq. (1) writes delta L = xi R phi^2, while action (7) (like BV (2.1), FO (1)) carries -(1/2) xi R phi^2 - a normalisation/sign difference read literally."
+          ],
+          "evidence": [
+            "research/warp-drive/docket67-raw/shards/shard01.json [key 2309.10848-thmiv.1] hypothesis_drift, grade_evidence, rederivation.outcome C1-C4; rederive/2309.10848-thmiv.1.py",
+            "shards/shard05.json [key kontou-fo-ffkp-nmc-qei] (N1-N3); shards/shard02.json [key nmc-classical-nec-violation] hypothesis_drift, rederivation.outcome F",
+            "shards/shard04.json [key 2309.10848] rederivation.outcome D; shards/shard02.json [key 2309.10848-dsnec] rederivation.outcome C, D",
+            "shards/shard05.json [key 2309.10848-frame-map] hypothesis_drift (K5); shards/shard04.json [key 2309.10848-verdict-anec] hypothesis_drift"
+          ],
+          "stands": "Thm IV.1's structure, validity for any real xi, the difference structure (59); (94), (96); the ANEC limit (89); the frame map (21), (98)-(103) and the Einstein-frame NEC; (116), (117), (119); the Sec. V EFT argument as an argument; DSNEC as a Minkowski statement. No counterexample to FFKP was found."
+        },
+        {
+          "key": "1208.5399",
+          "paper": "C. J. Fewster, 'Lectures on quantum energy inequalities'",
+          "version_read": "arXiv:1208.5399v1 [gr-qc] (27 Aug 2012), alphaXiv page text pp. 1-3, 8-15, 24-27, 29-30, 44-49.",
+          "cls": "DISCREPANCY",
+          "findings": [
+            "Sec. 1.3 prints the Dirichlet-scalar Casimir constant as pi^2/(1140 L^4); the zeta mode sum and the image sum both give 1440. The midpoint ratio moves from 6.76% to 6.70% and the stated '3-7%' is intact - a misprint, not a refutation."
+          ],
+          "evidence": [
+            "research/warp-drive/docket67-raw/shards/shard09.json [key 1208.5399] hypothesis_drift, rederivation.outcome (C)",
+            "shards/shard01.json [key 1208.5399-sec1.3] rederivation.outcome B; rederive/1208.5399-sec1.3.py",
+            "shards/shard08.json [key ford-roman-qi-and-fewster-casimir-fraction] rederivation.outcome C"
+          ],
+          "stands": "Eq. (3)/(4) and C ~ 3.17 (re-derived 3.16985793831; '0.20/l^4'); the minimal-coupling Casimir term; '3-7%' on either constant; the author's statement that the bound is not optimal."
+        },
+        {
+          "key": "0708.2450",
+          "paper": "C. J. Fewster & L. W. Osterbrink, 'Quantum Energy Inequalities for the Non-Minimally Coupled Scalar Field' (J. Phys. A 41, 025402 (2008), not read)",
+          "version_read": "arXiv:0708.2450v2 [gr-qc] (23 Oct 2007), full text via alphaXiv get_paper_content.",
+          "cls": "DISCREPANCY",
+          "findings": [
+            "The constant in (72), printed 2(2+3xi)/(3pi) per ||f||^2_L2, disagrees with the derived f(0)^2 (1+4xi)/(2pi) (numerically confirmed to 5e-7); the xi-coefficients agree, and normalising by ||f||^2_L2 is dimensionally inconsistent (text extraction only).",
+            "As extracted, the first term of (71) reads 4/(1+t^2k^2) while state (70) gives that term cubed - possibly a superscript lost in extraction."
+          ],
+          "evidence": [
+            "research/warp-drive/docket67-raw/shards/shard04.json [key fewster-osterbrink-qei] rederivation.outcome (ii), (iii); rederive/fewster-osterbrink-qei.py"
+          ],
+          "stands": "Theorems 4.2, 4.3, 5.1, 5.3, Cor. 5.4; the Sec. 3 counterexample ((26)-(29)) showing no state-independent bound for xi > 0; the xi = 0 reduction to Fewster-Eveson; the q >= 3 conclusion. (The missing beta^{2-n} in (61) is already acknowledged in Fewster-Kontou 1809.05047 fn. 4 and is not counted.)"
+        },
+        {
+          "key": "hep-ph/9410274",
+          "paper": "X. Ji, 'A QCD analysis of the mass structure of the nucleon' (PRL 74, 1071 (1995), not read)",
+          "version_read": "arXiv:hep-ph/9410274v1, pp. 1-9, via alphaXiv get_paper_content fullText (adjudication pass); typeset PRL not read.",
+          "cls": "DISCREPANCY",
+          "findings": [
+            "Table I, m_s -> infinity column: the quark-energy entry recomputes from a = 0.55 and bM = 106.7 MeV to 307.3 MeV (307.8 at M = 940), rounding to 310, but 300 is printed; with 300 the column sums to 940, with 310 to 950 (the m_s -> 0 column rebuilds exactly to 270/160/320/190).",
+            "As extracted, Eq. (31)'s ratio 0.11 x <uu+dd> with sigma = 45 MeV, m-hat = 7 MeV gives <ss> = 0.707, not Eq. (32)'s 0.77 (needs 0.1198); downstream 115 MeV and bM = 160 use 0.77. Possibly an extraction or print artefact."
+          ],
+          "evidence": [
+            "research/warp-drive/docket67-raw/adjudications/hep-ph_9410274.json corrections_to_record (source-internal items)",
+            "shards/shard04.json [key qcd-trace-anomaly-nucleon-mass] grade_evidence; rederive/hep-ph_9410274.py"
+          ],
+          "stands": "The decomposition (Eq. 20, b dimensionless; Eq. 30 bM = sigma_piN + <m_s ss>; Eq. 33); the inputs sigma = 45 +- 5 MeV, m-hat = 7 MeV, m_s = 150 MeV at 1 GeV^2; both Table I columns summing to ~940 MeV; scale independence of the mass and anomaly operators; the stated leading-order neglect of gamma_m."
+        },
+        {
+          "key": "hep-ph/9603208",
+          "paper": "V. A. Rubakov & M. E. Shaposhnikov (RS96), 'Electroweak baryon number non-conservation in the early universe and in high energy collisions' (Usp. Fiz. Nauk 166 (1996) 493)",
+          "version_read": "arXiv:hep-ph/9603208v2, read live at source via alphaXiv 2026-10-02 (eqs. (2.6)-(2.8), (2.11)) and in the adjudication pass.",
+          "cls": "DISCREPANCY",
+          "findings": [
+            "Eq. (2.8) pairs the suppression 10^-170 with alpha_W = 1/29, but exp(-4 pi/alpha_W) at 1/29 is 10^-158.27, an 11.73-decade gap; 10^-170 corresponds to 1/alpha_W = 31.15 = 137.036 x 0.2273 (Thomson alpha over sin^2 theta_W) - that two conventions are mixed is an inference, not a reading of the authors' intent."
+          ],
+          "evidence": [
+            "research/warp-drive/docket67-raw/adjudications/hep-ph_9603208-instanton.json corrections_to_record",
+            "shards/shard10.json [key hep-ph/9603208-instanton] hypothesis_drift, grade_evidence",
+            "shards/shard00.json [key thooft-1976] rederivation.outcome (E); reaudit/thooft-1976.json; rederive/thooft-1976.py"
+          ],
+          "stands": "exp(-4 pi/alpha_W) = exp(-2 S_inst), S_inst = 8 pi^2/g^2 (machine-checked from BPST); eq. (2.9) and the Higgs-phase suppression statement; g of m_W = gv/2; the Klinkhamer-Manton range in eq. (2.11) (re-audit: a variational upper-bound bracket, not a misquote); E_sph ~ 9-10 TeV."
+        },
+        {
+          "key": "1612.05431",
+          "paper": "K. Funakubo, K. Fuyuto & E. Senaha (FFS), 'Does a band structure affect sphaleron processes?'",
+          "version_read": "arXiv:1612.05431v1, pp. 1-5, read live via alphaXiv answer_pdf_queries (2026-10-02).",
+          "cls": "DISCREPANCY",
+          "findings": [
+            "p.1 writes 'e^{-S_instanton} ~ 10^-162'; with S_instanton = 2 pi/alpha_W, e^{-S} = 10^-80.47 and e^{-2S} = 10^-160.95, so the printed value matches e^{-2S} and the exponent omits the factor 2 (misprint class)."
+          ],
+          "evidence": [
+            "research/warp-drive/docket67-raw/shards/shard10.json [key sphaleron-instanton-and-collider-dispute] rederivation.outcome",
+            "rederive/sphaleron-instanton-and-collider-dispute.out line 13; rederive/sphaleron-instanton-and-collider-dispute.py"
+          ],
+          "stands": "beta_1 = 1.313, beta_2 = 0.603, E_sph = 9.08 TeV (reproduced 9.0818 TeV); the 80-W counting and 10^-175.87."
+        },
+        {
+          "key": "1710.07223",
+          "paper": "S.-H. H. Tye & S. S. C. Wong (TW17); title not recorded in the audit record",
+          "version_read": "arXiv:1710.07223v1, pp. 1-4, 6, 11-12, read live via alphaXiv (2026-10-02).",
+          "cls": "DISCREPANCY",
+          "findings": [
+            "p.4 prints 'E_0 = sqrt(6) pi m_W/alpha_W ~ 15 TeV', but at the paper's own m_W ~ 80 GeV, alpha_W ~ 1/30 (p.1) the formula gives 18.47 TeV (18.24 at current inputs): the printed 15 is ~19% low (misprint class)."
+          ],
+          "evidence": [
+            "research/warp-drive/docket67-raw/shards/shard10.json [key sphaleron-instanton-and-collider-dispute] rederivation.outcome; rederive/sphaleron-instanton-and-collider-dispute.out line 39"
+          ],
+          "stands": "g ~ 0.645 <-> alpha_W ~ 1/30, m_W ~ 80 GeV (p.1); the exact solid-angle fraction of eq. (41) at d = 4; the collider-rate dissent is not checkable here and not graded."
+        },
+        {
+          "key": "gr-qc/0003025",
+          "paper": "C. Barcelo & M. Visser, 'Scalar fields, energy conditions, and traversable wormholes' (CQG 17 (2000) 3843, not read)",
+          "version_read": "arXiv:gr-qc/0003025v2 (14 Jul 2000), full text (25 pages) via alphaXiv get_paper_content.",
+          "cls": "DISCREPANCY",
+          "findings": [
+            "The three Sec. 2.2 case statements beside eq. (2.6) (xi < 0 'local minimum'; xi > 0 small field 'local maximum'; xi > 0 large field 'local minimum') each name the opposite extremum type to the one eq. (2.6) as printed gives (computed: maximum, minimum, maximum; FFKP eq. (18) states the consistent version); 'pointwise NEC violation is cheap' holds with max and min swapped."
+          ],
+          "evidence": [
+            "research/warp-drive/docket67-raw/shards/shard04.json [key gr-qc/0003025-eq2.6-minimal-scalar-nec] rederivation.outcome; rederive/gr-qc_0003025-eq2.6-minimal-scalar-nec.py",
+            "shards/shard00.json [key gr-qc/0003025-anec-cases] hypothesis_drift (G1); shards/shard02.json [key nmc-classical-nec-violation] rederivation.outcome C"
+          ],
+          "stands": "(2.2) conserved on shell; (2.6); (2.8) -> (2.10); case-1/case-2 ANEC positivity and confinement of negative integrands to case 3; the existence result for the massless static spherically symmetric scalar."
+        },
+        {
+          "key": "1609.03449",
+          "paper": "G. Anglada-Escude et al., 'A terrestrial planet candidate in a temperate orbit around Proxima Centauri' (Nature 536, 437 (2016), not read)",
+          "version_read": "arXiv:1609.03449v1 (12 Sep 2016), alphaXiv page text pp. 1-6, Table 1 p.10, pp. 14-16, 19, 21, Extended Data Table 1 p.33.",
+          "cls": "DISCREPANCY",
+          "findings": [
+            "Table 1's own MAP inputs (K = 1.38 m/s, P = 11.186 d, M* = 0.120 Msun, e = 0) give m sin i = 1.174 M_earth, not the printed 1.27 (ratio 1.082); interval edges show the same offset (0.996 vs 1.10, 1.353 vs 1.46); Suarez Mascareno 2020 (K = 1.377) gives 1.15. M* = 0.135 would give 1.27 but a = 0.0502 au, not 0.0485, so that is not the explanation; the cause cannot be decided from the text, and 1.174 lies inside the paper's 68% interval."
+          ],
+          "evidence": [
+            "research/warp-drive/docket67-raw/shards/shard00.json [key anglada-escude-2016-proxima-b] rederivation.outcome, grade_evidence; rederive/anglada-escude-2016-proxima-b.py"
+          ],
+          "stands": "The detection and minimum-mass character of m sin i (confirmed by two instruments); a = 0.0485 au; the abstract's 1.3 M_earth and 0.05 au as rounded figures."
+        },
+        {
+          "key": "1508.07161",
+          "paper": "M. D'Onofrio & K. Rummukainen, 'The Standard Model cross-over on the lattice' (PRD 93, 025003 (2016), not read)",
+          "version_read": "arXiv:1508.07161v1, pp. 1-5 and 7-10, read at source via alphaXiv in the adjudication pass.",
+          "cls": "DISCREPANCY",
+          "findings": [
+            "Abstract vs body: the abstract gives T_c = 159.5 +- 1.5 GeV, while the paper's continuum value is 159.58 +- 0.06 GeV (eq. 16, p.5), rounding to 159.6 as Sec. VII and p.2 print - a 0.08 GeV difference inside the source; the abstract's figure is the one attributed to ref. [20].",
+            "Misquoted earlier paper: p.1 says ref. [20], arXiv:1404.3565, reported 'T_c = 159.5 +/- 1.5 GeV' (p.9: central 159.5), but 1404.3565v1 prints (159 +- 1) GeV in its abstract, body (p.3) and conclusions (p.4). The PRL version of 1404.3565 was not read (v2 fetch failed), so whether it carries 159.5 is OPEN."
+          ],
+          "evidence": [
+            "research/warp-drive/docket67-raw/adjudications/1508.07161.json corrections_to_record",
+            "shards/shard03.json [key 1508.07161] hypothesis_drift; shards/shard04.json [key 1404.3565] grade_evidence; rederive/1508.07161.py"
+          ],
+          "stands": "T_c = 159.6 +- 0.1 +- 1.5 GeV (continuum limit); the 1.5 GeV as a conservative effective-theory uncertainty; the U(1) shift <= ~0.5 GeV; agreement with 159 +- 1 within errors (called 'partly coincidental' by the paper)."
+        },
+        {
+          "key": "1808.08677",
+          "paper": "Y.-B. Yang, J. Liang, Y.-J. Bi, Y. Chen, T. Draper, K.-F. Liu, Z. Liu, 'Proton Mass Decomposition from the QCD Energy Momentum Tensor' (PRL 121, 212001 (2018), not read)",
+          "version_read": "arXiv:1808.08677v2, abstract and pp. 1-5, read at source via alphaXiv in the adjudication pass.",
+          "cls": "DISCREPANCY",
+          "findings": [
+            "Abstract vs body: with Eqs. (1), (2), (5), (6) and x_q + x_g = 1 the four shares sum to exactly 100%; from the p.3 fractions 0.307/0.160/0.051/0.482 the quark and glue energies are 32.10% and 36.15%, reproducing p.5, while the abstract's 33% + 37% needs E + G >= 69.0% against 68.25%, so it cannot come from the body's central values. No number the tree uses is affected."
+          ],
+          "evidence": [
+            "research/warp-drive/docket67-raw/adjudications/1808.08677.json corrections_to_record (first item; supersedes shards/shard03.json [key 1808.08677] check C)"
+          ],
+          "stands": "The 9(2)(1)% condensate (imported from chiQCD 1511.09089) and 23(1)(1)% quarter anomaly under the trace sum rule (Eq. 2); the body's 32%/36%; the isospin-limit nucleon treatment."
+        },
+        {
+          "key": "0911.1955",
+          "paper": "D. J. Fixsen, 'The Temperature of the Cosmic Microwave Background' (ApJ 707, 916 (2009), not read)",
+          "version_read": "arXiv:0911.1955v2, pp. 1-6, read at source via alphaXiv by three verifiers and the adjudicator.",
+          "cls": "DISCREPANCY",
+          "findings": [
+            "The combined fit does not reproduce exactly from the paper's own table: three independent recomputations give chi^2 = 18.07-18.1 against the printed 17.9, and a mean 2.725486 K against the printed 2.72548 K. Rounded table entries are a plausible cause but not shown; the inputs are mutually consistent (p = 0.27) either way."
+          ],
+          "evidence": [
+            "research/warp-drive/docket67-raw/adjudications/0911.1955.json corrections_to_record ('Discrepancy, not a refutation'); rederive/0911.1955.py"
+          ],
+          "stands": "T0 = 2.72548 +- 0.00057 K and its hypotheses; the recalibration via the WMAP spacecraft velocity; the non-FIRAS compilation 2.729 +- 0.0038 K."
+        },
+        {
+          "key": "gr-qc/9712019",
+          "paper": "S. M. Carroll, 'Lecture Notes on General Relativity'",
+          "version_read": "arXiv:gr-qc/9712019v1 (Dec 1997), via alphaXiv (eqs. (1.111), (7.106)-(7.109), (8.25)-(8.26)).",
+          "cls": "DISCREPANCY",
+          "findings": [
+            "Eq. (1.111) prints the electromagnetic stress tensor with a -1/(4pi) prefactor, giving T^00 = -(E^2+B^2)/8pi (computed); the same notes' (7.107) and (8.25) print +1/(4pi) - a sign misprint in (1.111)."
+          ],
+          "evidence": [
+            "research/warp-drive/docket67-raw/shards/shard04.json [key maxwell-stress-energy-curved] hypothesis_drift, rederivation.outcome (D); rederive/maxwell-stress-energy-curved.py"
+          ],
+          "stands": "(7.107)-(7.109), (8.25)-(8.26): the Maxwell stress tensor with +1/(4pi), the general spherical field strength (F_tr and F_thph), Reissner-Nordstrom."
+        },
+        {
+          "key": "gr-qc/9712010",
+          "paper": "M. Visser, 'Acoustic black holes: horizons, ergospheres, and Hawking radiation' (CQG 15 (1998) 1767, not read)",
+          "version_read": "arXiv:gr-qc/9712010v2 (15 Dec 1997), pp. 3, 8, 10, 13-18 via alphaXiv.",
+          "cls": "DISCREPANCY",
+          "findings": [
+            "Eq. (56), with its +- matched to eq. (55), leaves a cross term 2c r0^2/r^2; the paper's own eq. (62) gives the opposite sign, so (56) reads as a sign misprint in arXiv v2 (CQG print not read)."
+          ],
+          "evidence": [
+            "research/warp-drive/docket67-raw/shards/shard08.json [key acoustic-metric-analogue] rederivation.outcome; rederive/acoustic-metric-analogue.py"
+          ],
+          "stands": "The acoustic metric (4), horizon/ergosurface structure and surface gravity (28)-(45), the Hawking temperature, eqs. (59)-(65); 24/24 checks pass."
+        },
+        {
+          "key": "2505.02210",
+          "paper": "A. Pisana, B. Shoshany, S. Antoniou, L. H. Kauffman, S. Lambropoulou, 'Wormhole Nucleation via Topological Surgery in Lorentzian Geometry'",
+          "version_read": "arXiv:2505.02210v4 [gr-qc] (stamped 20 Apr 2026), read in full via alphaXiv.",
+          "cls": "DISCREPANCY",
+          "findings": [
+            "Criterion (19) as printed classifies the measure-zero case T01 = 0, T00 + T11 = 0 as type II, whereas Maeda-Harada Lemma 1 (the paper's ref. [83]) makes every T01 = 0 case type I; (19) omits that carve-out.",
+            "For Lambda != 6 the printed (23) and (28) do not give (30) (largest component difference 10.6); dropping the sqrt(6/Lambda) prefactor from (28), or rescaling (23), restores (30) to 1e-13 - a scale-convention slip; nothing downstream moves."
+          ],
+          "evidence": [
+            "research/warp-drive/docket67-raw/shards/shard08.json [key 2505.02210-energy-conditions] rederivation.outcome",
+            "shards/shard07.json [key 2505.02210] grade_evidence, rederivation.outcome; rederive/2505.02210.py"
+          ],
+          "stands": "36/36 closed-form claims the tree relies on re-derive: the energy-condition hierarchy, (11)-(14), (18a)-(18c), the type-IV point, the Misner-trick and kink-number arithmetic, the footnote-9 CTC, the junction equations (34), (37), (38), (40)."
+        },
+        {
+          "key": "gr-qc/9802046",
+          "paper": "D. Hochberg & M. Visser, 'Dynamic wormholes, antitrapped surfaces, and energy conditions' (PRD 58, 044021 (1998), not read)",
+          "version_read": "arXiv:gr-qc/9802046v2 (18 Jun 1998), text layer via alphaXiv.",
+          "cls": "DISCREPANCY",
+          "findings": [
+            "Text-layer discrepancies, sign-preserving, none carrying a conclusion: (83) prints 1/r0^2 where 1/(2 r0^2) is computed; (86) prints (1/2) e^psi (1 - 2m/r) where e^psi (1 - 2m/r)/r is computed, and HV's own (88) follows only from the computed form; (89) omits a factor e^{-psi}; (47) prints 1/2 where 1/sqrt2 is needed for (15); Sec. 6.1.1 says 'only one extremal hypersurface' where (74) has two roots for the b used. Whether these are in the published text is undetermined."
+          ],
+          "evidence": [
+            "research/warp-drive/docket67-raw/shards/shard03.json [key gr-qc/9802046] rederivation.outcome, grade_evidence; rederive/gr-qc_9802046.py"
+          ],
+          "stands": "The dynamic-throat NEC-violation theorem with its hypotheses; HV (75) in closed form; the family (69) behaves as HV's analysis requires."
+        },
+        {
+          "key": "gr-qc/9802048",
+          "paper": "D. Hochberg & M. Visser, 'The null energy condition in dynamic wormholes' (PRL 81, 746 (1998), not read)",
+          "version_read": "arXiv:gr-qc/9802048v3 (18 Jun 1998), all 4 pages via alphaXiv; companion gr-qc/9802046v2 read for the deferred proof.",
+          "cls": "DISCREPANCY",
+          "findings": [
+            "The sketched step (10) -> (11) drops theta^2: the second variation is f^2 (theta' + theta^2) sqrt(gamma), and the companion's eq. 33 keeps theta^2, dropping it only on the throat (a toy with A'' > 0 and INT f^2 sqrt(g) theta' < 0 violates eq. (3), so it is not a counterexample to the theorem).",
+            "The parenthetical '(in general (-delta2, 0) U (0, delta2))' fails for smooth A."
+          ],
+          "evidence": [
+            "research/warp-drive/docket67-raw/shards/shard04.json [key gr-qc/9802048] hypothesis_drift (C4, C4b, C4c, C5); rederive/gr-qc_9802048.py"
+          ],
+          "stands": "Results (1)-(4) under the published hypotheses; no counterexample found."
+        },
+        {
+          "key": "gr-qc/0501105",
+          "paper": "R. Garattini, 'Self sustained traversable wormholes?' (CQG 22, 1105 (2005), not read)",
+          "version_read": "arXiv:gr-qc/0501105v1 (31 Jan 2005), the only version, via alphaXiv.",
+          "cls": "DISCREPANCY",
+          "findings": [
+            "Case 2's throat 0.4473670842 l_P does not reproduce from the paper's own eqs. (57), (61)-(65) with (B7): the printed b equals B_ln + (4 ln2 - 1) S A to 1.6e-10, and the consistent value is 0.6968196708 l_P (case 1, 1.158822606 l_P, unchanged).",
+            "Eq. (39) prints 1/4 where eq. (38)'s true minimum is w/2 (the author's 1301.0221 eq. 4 prints 1/2); a WKB count with w/2 reproduces the printed c = 212.0575041 but gives a = 106.03, b = 182.63, not the printed 23.357 and 276.603; the printed c and printed prefactors disagree by 4 pi."
+          ],
+          "evidence": [
+            "research/warp-drive/docket67-raw/shards/shard08.json [key gr-qc/0501105] grade_evidence, rederivation.outcome [4]-[6]"
+          ],
+          "stands": "Eqs. (74)-(75) from the printed a, b, c (1.158822606, 0.4473670842, 0.3860531213, 0.6065306597 reproduce); m(r) = r_t^2/(2r) > 0, ADM mass 0, b'(r_t) = -1."
+        },
+        {
+          "key": "gr-qc/9702026",
+          "paper": "M. J. Pfenning & L. H. Ford, 'The unphysical nature of \"warp drive\"' (CQG 14, 1743 (1997), not read)",
+          "version_read": "arXiv:gr-qc/9702026v3, all 11 pages via alphaXiv; cross-read in Pfenning's thesis gr-qc/9805037 ch. 5.",
+          "cls": "DISCREPANCY",
+          "findings": [
+            "Two printed figures do not follow from the paper's formulas: the intermediate 6.2e70 L_P is 1.94x the computed 3.19e70; '-400 M_sun' for a one-Compton-wavelength bubble disagrees with eq. (28) with eq. (23) at v_b = 1, which gives ~-2.06e5 M_sun (514x; Van Den Broeck eq. (9) scaled by R^2 gives 2.07e5).",
+            "Delta = 1 m gives 0.56 M_sun from the paper's formulas, against the printed 'a quarter'."
+          ],
+          "evidence": [
+            "research/warp-drive/docket67-raw/shards/shard02.json [key gr-qc/9702026] rederivation.outcome, hypothesis_drift; rederive/gr-qc_9702026.py"
+          ],
+          "stands": "The QI bound on wall thickness and the energy requirement: eqs. (17), (19), (22), (26), (28) re-derive; at R = 100 m, 6.94e65 g (printed 6.2e65) - the qualitative conclusion stands."
+        },
+        {
+          "key": "gr-qc/0208045",
+          "paper": "L. H. Ford, A. D. Helfer & T. A. Roman, 'Spatially averaged quantum inequalities do not exist in four-dimensional spacetime' (PRD 66, 124012 (2002), not read)",
+          "version_read": "arXiv:gr-qc/0208045v2 (24 Oct 2002), all 13 pages via alphaXiv.",
+          "cls": "DISCREPANCY",
+          "findings": [
+            "Misprints: p.4 'the integral in Eq. (5)' (twice) should read Eq. (10) (Eq. (5) is the sampling normalisation); Eq. (33) has an unbalanced parenthesis.",
+            "p.10 'we can choose lambda0 > r0' is not sufficient as written: f2 first changes sign at p0 r = 3.8703 = 0.616 lambda0, and rho < 0 at leading log only for p0 r < 3.80-3.86; p.8's r << 1/p0 is the condition that works, and since p0 is arbitrary the conclusion is unaffected."
+          ],
+          "evidence": [
+            "research/warp-drive/docket67-raw/shards/shard10.json [key gr-qc/0208045] rederivation.outcome; rederive/gr-qc_0208045.py"
+          ],
+          "stands": "No universal spatially averaged QI over a bounded region in 4D Minkowski; rho2's ln Lambda coefficient 16 pi^2/15 p0^5 and rho1's reproduced."
+        },
+        {
+          "key": "gr-qc/0209036",
+          "paper": "C. J. Fewster & T. A. Roman, 'Null energy conditions in quantum field theory' (PRD 67, 044003 (2003); Erratum PRD 80, 069903 (2009) - neither read)",
+          "version_read": "arXiv:gr-qc/0209036v2 (revised 25 Nov 2002), via alphaXiv. The 2009 Erratum exists but was not read and may already correct these points; the comment stage must read it first.",
+          "cls": "DISCREPANCY",
+          "findings": [
+            "(II.22) and (II.24) print the prefactor N^2/(2pi)^4 where (II.20)/(II.21) imply 2N^2/(2pi)^4 (numerically confirmed, ratio 2.000000); signs and exponents untouched.",
+            "The order swap (II.16) -> (II.17) prints the weight u1^(2nu+1) where the exact swap gives (Lambda0^(2nu+1) - u1^(2nu+1)), so (II.27) prints C = 1/(24 pi^2 Lambda0^4) where (II.16) gives 1/(8 pi^2 Lambda0^4) - a factor 3 carried into (II.29)/(II.31); the corrected kernel keeps properties (i)-(iv) and moves only rho_1, which goes to 0 anyway.",
+            "'variance tau0' should read 'standard deviation tau0' (wording)."
+          ],
+          "evidence": [
+            "research/warp-drive/docket67-raw/shards/shard11.json [key gr-qc/0209036] rederivation.outcome (a)-(c); rederive/gr-qc_0209036.py"
+          ],
+          "stands": "No QI along null geodesics in 4D Minkowski (numeric counterexample falls like -alpha^(-1/4)); the alpha exponents of (II.12), (II.15), (II.22), (II.24); (II.28), (II.31), (II.34); Sec. III incl. (III.13) = 1/(64 pi^2 tau0^4)."
+        },
+        {
+          "key": "gr-qc/0007021",
+          "paper": "S. Gao & R. M. Wald, 'Theorems on gravitational time delay and related issues' (CQG 17, 4999 (2000), not read)",
+          "version_read": "arXiv:gr-qc/0007021v2 (28 Jul 2000), all 15 pages via alphaXiv.",
+          "cls": "DISCREPANCY",
+          "findings": [
+            "Notational: read literally (A the full n x n matrix, 'any dimension'), eq. (13) is not an identity - det A = lambda^2 det A_perp, and in flat space G'' = 2 against 0; the coefficient 1/2 holds only for n = 4. The correct object is (det A_perp)^(1/(n-2)) with coefficient 1/(n-2); Lemma 1's proof survives with it."
+          ],
+          "evidence": [
+            "research/warp-drive/docket67-raw/shards/shard02.json [key gr-qc/0007021] hypothesis_drift, rederivation.outcome A1-A3, B1-B2; rederive/gr-qc_0007021.py"
+          ],
+          "stands": "Theorem 1, Lemma 1, Corollary 1, Theorem 2; eq. (13) exactly in 4D; eqs. (7)-(8)."
+        },
+        {
+          "key": "gr-qc/9510071",
+          "paper": "L. H. Ford & T. A. Roman, 'Quantum field theory constrains traversable wormhole geometries' (PRD 53, 5496 (1996), not read)",
+          "version_read": "arXiv:gr-qc/9510071v1 (31 Oct 1995), Sec. 2 pp. 4-6, Sec. 4.5 pp. 18-19 via alphaXiv.",
+          "cls": "DISCREPANCY",
+          "findings": [
+            "Eq. (3)'s Casimir coefficient pi^2/45 is twice the computed pi^2/90 (as recorded by the audit), which moves the cap to 0.5425 L; the qualitative conclusion survives."
+          ],
+          "evidence": [
+            "research/warp-drive/docket67-raw/shards/shard00.json [key gr-qc/9510071] grade_evidence (e); rederive/gr-qc_9510071.py"
+          ],
+          "stands": "The flat-space QI and the wormhole constraints derived from it; with the capped sampling time the Casimir density meets the bound at the cap by construction."
+        },
+        {
+          "key": "2007.14311",
+          "paper": "K. Sanders, 'Static symmetric solutions of the semi-classical Einstein-Klein-Gordon system' (Ann. Henri Poincare 23 (2022) 1321, not read)",
+          "version_read": "arXiv:2007.14311v2 [math-ph] (17 Sep 2021), via alphaXiv.",
+          "cls": "DISCREPANCY",
+          "findings": [
+            "Y_2(c = 0) is printed -1/(480 pi^2 a^2), dimensionally inconsistent with (94), where a^4 is required (misprint or extraction artefact; text layer only)."
+          ],
+          "evidence": [
+            "research/warp-drive/docket67-raw/shards/shard10.json [key 2007.14311] rederivation.outcome C6; rederive/2007.14311.py"
+          ],
+          "stands": "Cor. 5.2(3) (necessity z3-proved for N = 2, 4, 8, equality only in the ground state); ESU Misner-Sharp mass (a/2) sin^3 chi >= 0."
+        },
+        {
+          "key": "2111.09240",
+          "paper": "Yu. V. Pavlov & O. B. Zaslavskii, 'Particle decay, Oberth effect and a relativistic rocket in the Schwarzschild background'",
+          "version_read": "arXiv:2111.09240v2 [gr-qc] (3 Mar 2023), pp. 1-27 via alphaXiv; re-checked at source in this census stage (alphaXiv get_paper_content): text reads 'For the case corresponding to Fig. 1, this gives us -7/16 ~ -0.22'.",
+          "cls": "DISCREPANCY",
+          "findings": [
+            "Eq. (48) evaluates to -7/32 = -0.21875, matching the paper's own '~ -0.22' and Fig. 1, but '-7/16' (= -0.4375) is printed beside it - a misprint."
+          ],
+          "evidence": [
+            "research/warp-drive/docket67-raw/shards/shard04.json [key photon-rocket-optimality-floor] rederivation.outcome C9; rederive/photon-rocket-optimality-floor.py",
+            "census re-check: alphaXiv get_paper_content(arxiv.org/abs/2111.09240), line 1382 of the returned text"
+          ],
+          "stands": "Eq. (49): flat-space photon ejection from rest turns exactly dm/(2 m0) of the rest energy spent into kinetic energy; the -0.22 value and Fig. 1."
+        },
+        {
+          "key": "2606.01061",
+          "paper": "Simmonds & Visser (title not recorded in the audit record)",
+          "version_read": "arXiv:2606.01061 (version not recorded in the audit), eqs. (2.22)-(2.26) as served by alphaXiv.",
+          "cls": "DISCREPANCY",
+          "findings": [
+            "The served text of eqs. (2.24)/(2.25) lacks a factor r and is dimensionally inconsistent; with g_thth = r^2 g_rr, eq. (2.22) gives the Misner-Sharp mass exactly M. Whether the PDF or the extraction is at fault is undetermined."
+          ],
+          "evidence": [
+            "research/warp-drive/docket67-raw/shards/shard05.json [key schwarzschild-isotropic-vacuum] rederivation.outcome E5; rederive/schwarzschild-isotropic-vacuum.py"
+          ],
+          "stands": "Eq. (2.22) (Misner-Sharp mass exactly M) and the isotropic Schwarzschild form (2.26)."
+        },
+        {
+          "key": "1307.3536",
+          "paper": "Buttazzo, Degrassi, Giardino, Giudice, Sala, Salvio, Strumia, 'Investigating the near-criticality of the Higgs boson' (JHEP 12 (2013) 089, not read)",
+          "version_read": "arXiv:1307.3536v4 [hep-ph] (22 Sep 2014), PDF pp. 1-22, 24, 28-32, 34-36, 39 via alphaXiv.",
+          "cls": "DISCREPANCY",
+          "findings": [
+            "The +-1.5 in eq. (65) reproduces only as 2.0 x 0.76 (1.52); the quadrature of the components the text names gives +-1.74 (+-1.63 without the top theory error).",
+            "Inverting eq. (64) gives M_t,crit = 171.12 GeV, 0.41 below eq. (66)'s 171.53 (boundary curvature a possible cause, not computed; later AFS 171.18 and Hiller 171.10 sit near 171.12); the +-0.42 of (66) is not the quadrature of its three printed parts (0.31), becoming 0.43 only with the 0.3 top theory error.",
+            "The stability exclusion is 2.8 sigma on p.20 and 99.3% CL (= 2.46 sigma one-sided) on p.31; 2.8 sigma one-sided is 99.74%, printed 99.8%."
+          ],
+          "evidence": [
+            "research/warp-drive/docket67-raw/shards/shard05.json [key 1307.3536] rederivation.outcome C1-C4; rederive/1307.3536.py"
+          ],
+          "stands": "Every reading excludes absolute stability at > 2.5 sigma; Lambda_I = 10^10-10^12 GeV; M_h = 125.15 +- 0.24; the metastability conclusion and its stated caveats; eq. (18) g = 2M_W/v."
+        },
+        {
+          "key": "2011.10991",
+          "paper": "F. Sorge, 'Quasi-local Casimir energy and vacuum buoyancy in a weak gravitational field'",
+          "version_read": "arXiv:2011.10991v1 [gr-qc] (22 Nov 2020), whole paper via alphaXiv; journal version exists, not read.",
+          "cls": "DISCREPANCY",
+          "findings": [
+            "Eq. (33) prints (1/sqrt(-g)) d_mu T^mu_z where the covariant divergence is (1/sqrt(-g)) d_mu(sqrt(-g) T^mu_z); the difference d_j((sqrt(-g) - 1) T^j_z) is a total derivative and does not reach (36) - a display discrepancy."
+          ],
+          "evidence": [
+            "research/warp-drive/docket67-raw/shards/shard09.json [key 2011.10991] hypothesis_drift; rederive/2011.10991.py"
+          ],
+          "stands": "Eq. (36) and the quasi-local Casimir energy/buoyancy result (Sec. 6, App. (64)-(72))."
+        },
+        {
+          "key": "1802.08257",
+          "paper": "M. A. MacGregor et al., 'Detection of a millimeter flare from Proxima Centauri' (ApJL, not read)",
+          "version_read": "arXiv:1802.08257v1 [astro-ph.EP] (22 Feb 2018), all 7 PDF pages via alphaXiv.",
+          "cls": "DISCREPANCY",
+          "findings": [
+            "The rms noise figures quoted in the text are mutually inconsistent.",
+            "sigma_delta is printed 0.83 while linear propagation from the paper's inputs gives 0.50 (delta = 3.32 reproduces).",
+            "The background estimate 13 (+10, -8) is not reproduced from the cited counts under the literal FWHM beam area (~1.6) and fits only with a first-null area.",
+            "The quoted 1e21 luminosity is given without stating the band it is computed over.",
+            "Citation: in-text 'Shkolnik et al. 2014' corresponds to the reference 'Shkolnik, E. L. & Barman, T. S. 2014, AJ 148, 64', which has two authors."
+          ],
+          "evidence": [
+            "research/warp-drive/docket67-raw/shards/shard09.json [key 1802.08257] rederivation.outcome (i)-(iv); rederive/1802.08257.py",
+            "shards/shard10.json [key 1802.08257-pms-luminosity] hypothesis_drift"
+          ],
+          "stands": "The flare detection (peak ~100 +- 4 mJy, ~1 min, FWHM 30 s); fluence matching the final-observation flux; the 334 uJy combined flux; peak L_nu 2.02e14; the solar-flare comparison; 'no need to posit' a belt (removes the evidence without excluding it)."
+        },
+        {
+          "key": "1711.00578",
+          "paper": "G. Anglada et al., 'ALMA Discovery of Dust Belts Around Proxima Centauri' (ApJL 850, L6 (2017), not read)",
+          "version_read": "arXiv:1711.00578v1 [astro-ph.EP] (2 Nov 2017), secs. 1, 2, 3.1-3.4 and abstract via alphaXiv.",
+          "cls": "DISCREPANCY",
+          "findings": [
+            "The warm-dust mass does not reproduce from the printed inputs: 30 uJy at 90 K gives 2.82e-7 M_earth against the printed 5.5e-7 (factor 0.51); the printed value needs ~59 uJy."
+          ],
+          "evidence": [
+            "research/warp-drive/docket67-raw/shards/shard11.json [key 1711.00578] rederivation.outcome C; rederive/1711.00578.py"
+          ],
+          "stands": "The size-law extrapolation (m ~ Dmax^0.5), T_d at 1/2/4 au, m_dust 4.23e-6 (printed 4e-6), m_tot 9.45e-3, the 30 au belt 1.44e-4 and 0.32 M_earth (printed 1.4e-4, 0.33). The later flare reading (MacGregor 2018) is a later datum, not a fault of the paper."
+        },
+        {
+          "key": "0909.5539",
+          "paper": "F. S. N. Lobo & M. A. Oliveira, 'Wormhole geometries in f(R) modified theories of gravity' (PRD 80, 104012 (2009), not read)",
+          "version_read": "arXiv:0909.5539 (version not recorded in the audit), eqs. (2)-(21) and examples (25), (29)-(34) via alphaXiv answer_pdf_queries.",
+          "cls": "DISCREPANCY",
+          "findings": [
+            "For example (25), f from the trace equation (their eq. 29, f = -R F) fails df/dR = F (residuals 12.56, 0.685, 0.0757 at r/r0 = 1.25, 2, 3), so the quoted rho of (16) is not the density of a metric-f(R) solution; enforcing f = INT F dR shifts rho (0.815 -> 2.278 at 1.25 r0) but leaves rho + p_r unchanged.",
+            "Eq. (34) as extracted, at alpha = -1, gives df/dR = -5 where eq. (31) requires -1 (extraction or misprint)."
+          ],
+          "evidence": [
+            "research/warp-drive/docket67-raw/shards/shard11.json [key modified-gravity-effective-stress] rederivation.outcome; rederive/modified-gravity-effective-stress.py"
+          ],
+          "stands": "The field equations and effective-stress rearrangement (2)-(21); example (31); rho + p_r for (25), invariant under the correction."
+        },
+        {
+          "key": "2309.05759",
+          "paper": "D. Kabat & M. Nomura, 'Induced Lorentz Violation on a Moving Braneworld' (PRD 108, 105014 (2023), not read)",
+          "version_read": "arXiv:2309.05759v2 [hep-ph] (15 Nov 2023), pp. 1-30 read at source via alphaXiv in the adjudication pass; PRD numbering not verified.",
+          "cls": "DISCREPANCY",
+          "findings": [
+            "Eq. (76) as printed (m = 0, mu -> 0) diverges as -(zeta(3)/2) gamma^3 when b^2 -> 1, while the Fig. 7 caption says I_gravity 'decreases rapidly but has a finite limit as b^2 -> 1' - an unreconciled internal discrepancy, possibly a misprint (b^2 = 1 is outside the stated domain, footnote 3).",
+            "p.25 cites the ~1e-21 bound [14] (Dreissen et al., 2206.00570) 'for the electron', but Dreissen bound the combined electron-photon c' = c + k/2 (their p.2) - a restatement discrepancy."
+          ],
+          "evidence": [
+            "research/warp-drive/docket67-raw/adjudications/2309.05759-eqs76-77.json corrections_to_record",
+            "adjudications/dreissen-sme-lab-bound.json decision, corrections_to_record",
+            "shards/shard06.json [key sme-loop-induced-lorentz-violation] rederivation.outcome CHECK4; rederive/sme-loop-induced-lorentz-violation.py"
+          ],
+          "stands": "Eqs. 76-77 within b^2 ~ 0, m ~ 0, mu r -> 0 (mu the graviton IR regulator); I(0) = -zeta(3)/4 reproduced; eq. 41's Yukawa coupling; eqs. 68-73 and footnote 8 (G4 = 1/(8 pi M4^2)); Mbar4 = 2.4e18 GeV as a rounding."
+        },
+        {
+          "key": "1105.4714",
+          "paper": "C. M. Wilson et al., 'Observation of the dynamical Casimir effect in a superconducting circuit' (Nature 479, 376 (2011), not read)",
+          "version_read": "arXiv:1105.4714v1 (24 May 2011), pp. 1-12 read in full via alphaXiv in the adjudication pass.",
+          "cls": "DISCREPANCY",
+          "findings": [
+            "With sigma2 ~ v_e/(2 c0), v/c ~ 0.05 (p.3) and c0 ~ 0.4c, sigma2 comes to ~0.06, but the paper says 'about 2%' (implying v_e/c0 ~ 0.04), then measures ~0.04 and calls it 'consistent'; Fig. 3c's squeezing axis, as extracted, spans 0-2.0%. The text does not settle whether 0.05 is against c or c0."
+          ],
+          "evidence": [
+            "research/warp-drive/docket67-raw/adjudications/wilson-2011-dynamical-casimir.json corrections_to_record"
+          ],
+          "stands": "The observation of photon generation by a modulated SQUID (~11 GHz drive; 8.70 and 11.30 GHz in Figs. 2-3), the 'few percent of c' effective velocity, the qualitative DCE observation; the absolute rate rests on the stated Q^2 parasitic-resonance model."
+        },
+        {
+          "key": "2504.00064",
+          "paper": "N. Dadhich (title not recorded in the audit record)",
+          "version_read": "arXiv:2504.00064v2 (2025), p.7, cached alphaXiv page text.",
+          "cls": "DISCREPANCY",
+          "findings": [
+            "p.7 restates Ames-Andreasson-Logg (Einstein-Vlasov shells -> 2M/R = 8/9 with 2p_t/rho -> 1) together with 'v^2 = 8/9'; for a single-speed 2D gas 2p_t/rho = v^2, so 2p_t/rho -> 1 means v -> 1. The 'v^2 = 8/9' is the author's own virial relation ('M/R = 4/9 for massive particles with velocity, v^2 = 8/9'), not the AAL limit - an internal tension in the restatement."
+          ],
+          "evidence": [
+            "research/warp-drive/docket67-raw/adjudications/counter-rotating-shell-kinetic-model.json corrections_to_record (Dadhich item)",
+            "shards/shard11.json [key counter-rotating-shell-kinetic-model] later_literature"
+          ],
+          "stands": "The restated AAL result (2M/R -> 8/9, numerical), consistent with the computed expiry at x = 8/9."
+        },
+        {
+          "key": "2405.05963",
+          "paper": "E.-A. Kontou (Universe 10 (2024) 291; title not recorded in the audit record)",
+          "version_read": "arXiv:2405.05963v2, p.19 (Sec. 5.2), pp. 9, 25, bibliography pp. 25-28, read at source via alphaXiv in the adjudication pass.",
+          "cls": "DISCREPANCY",
+          "findings": [
+            "Sec. 5.2 places HPS's lower-end throat at a size 'of Planck length', while HPS's plotted throat is 1/sqrt(540 pi) = 0.0243 l_P (HPS '~0.02 l_P'), 1.6 decades below l_P, and every throat in HPS's class (9) is <= 0.0297 l_P; the imprecision strengthens Kontou's own regime doubt and may be intended as order-of-magnitude wording."
+          ],
+          "evidence": [
+            "research/warp-drive/docket67-raw/adjudications/2405.05963-sec5.2-request.json corrections_to_record",
+            "shards/shard08.json [key 2405.05963-sec5.2-request] hypothesis_drift; rederive/2405.05963-sec5.2-request.py"
+          ],
+          "stands": "The Sec. 5.2 request and its citations ([17] FFKP, [30] Fewster-Osterbrink, [90] HPS); the regime doubt (borne out: l_P^2 |Riem| = 1696 at the plotted throat); p.25's non-traversability remark; p.9's state-dependent bounds."
+        },
+        {
+          "key": "1809.06923",
+          "paper": "T. Markkanen, A. Rajantie & S. Stopyra, 'Cosmological Aspects of Higgs Vacuum Metastability'",
+          "version_read": "arXiv:1809.06923v2 (18 Jan 2019), read at source via alphaXiv in the adjudication pass.",
+          "cls": "DISCREPANCY",
+          "findings": [
+            "Misprint, printed p.3: 'any destroying everything in its way' for 'and destroying'."
+          ],
+          "evidence": [
+            "research/warp-drive/docket67-raw/adjudications/1809.06923.json corrections_to_record"
+          ],
+          "stands": "The vacuum-decay statements used (p.24 Sec. 4.1; p.54 Sec. 6): near-light-speed bubble expansion, negative-energy true vacuum, AdS collapse (pp. 36-37); M_h, M_t in eq. (1.1)."
+        },
+        {
+          "key": "1309.6303",
+          "paper": "N. Pinamonti & D. Siemssen, 'Global existence of solutions of the semiclassical Einstein equation for cosmological spacetimes'",
+          "version_read": "arXiv:1309.6303 (version not recorded in the audit), read at source via alphaXiv answer_pdf_queries 2026-10-02.",
+          "cls": "DISCREPANCY",
+          "findings": [
+            "Abstract vs body: the abstract prints 'H_c = 180 pi/G', while the body (eq. 1.9) defines H_c^2 = 180 pi/G - a misprint in the abstract."
+          ],
+          "evidence": [
+            "research/warp-drive/docket67-raw/adjudications/pinamonti-siemssen-flrw-existence.json decision, corrections_to_record"
+          ],
+          "stands": "Thm 3.2, Prop. A.7: a unique maximal solution via the Banach fixed point for adiabatic order-zero states, xi = 1/6, with the stated renormalisation choice."
+        },
+        {
+          "key": "2007.14665",
+          "paper": "P. Meda, N. Pinamonti & D. Siemssen, 'Existence and uniqueness of solutions of the semiclassical Einstein equation in cosmological models'",
+          "version_read": "arXiv:2007.14665 (version not recorded in the audit), read at source via alphaXiv answer_pdf_queries 2026-10-02.",
+          "cls": "DISCREPANCY",
+          "findings": [
+            "Abstract vs body: the abstract calls the coupling 'arbitrary', but the theorems (Prop. 5.8, Thm 5.9) are proved for xi != 1/6."
+          ],
+          "evidence": [
+            "research/warp-drive/docket67-raw/adjudications/pinamonti-siemssen-flrw-existence.json decision (ii), corrections_to_record"
+          ],
+          "stands": "Local existence and uniqueness for flat FLRW via the Banach fixed point (Prop. 5.8, Thm 5.9) for 'sufficiently regular' states, xi != 1/6."
+        },
+        {
+          "key": "ICRP-23",
+          "paper": "ICRP Publication 23 (1975), 'Report of the Task Group on Reference Man' (Snyder, Cook, Nasset, Karhausen, Howells, Tipton; Pergamon)",
+          "version_read": "Not arXiv. Chapter 2 (pp. 273-334) READ as the OCR text layer of a .docx M supplied (Drive 16DVXUYgP--2YmXOP4VaAguXyIY_rWqM9, md5 09a25adf33de8b2997bf9e355a115746, saved as reaudit2/icrp23_p273-334.docx; no page images); front matter to p.61 read by the earlier re-audit. The sagepub PDF was refused (proxy 403) and exceeds alphaXiv's 20 MB limit.",
+          "cls": "DISCREPANCY",
+          "findings": [
+            "Table 110 (p.327): Cl 95 g carries a per-cent cell '0.12', but 95/70,000 = 0.136% (Na beside it prints 0.14 for 100 g; the other 33 cells agree) - a printed misprint or an OCR misread, not settled without the page image.",
+            "The Chapter 2 introduction (p.273) says Table 108 summarises the weights and Table 109 the elemental content, while the tables put weights in 109 and total-body elements in 110 - numbering off by one."
+          ],
+          "evidence": [
+            "research/warp-drive/docket67-raw/reaudit2/icrp-23-reference-man.json hypothesis_drift ('SOURCE OR OCR DISCREPANCY')",
+            "reaudit2/icrp-reference-adult-and-ci-chondrite.json hypothesis_drift ('SOURCE DISCREPANCY'); reaudit2/VERDICTS.json; reaudit2/icrp-23-reference-man.py"
+          ],
+          "stands": "Every ICRP 23 datum the binders use is confirmed at source: the 70 kg reference adult male, Table 110's masses (Cl 95 g corroborated by p.288's 98 g), the two-significant-figure rounding rule (p.273); no ICRP 23 value is contradicted."
+        },
+        {
+          "key": "0909.0948",
+          "paper": "M. Asplund, N. Grevesse, A. J. Sauval & P. Scott, 'The chemical composition of the Sun' (ARA&A 47, 481 (2009), not read)",
+          "version_read": "arXiv:0909.0948v1, full text via alphaXiv.",
+          "cls": "DISCREPANCY",
+          "findings": [
+            "Internal: pp. 18-19 name Cd among the elements analysed and adopted photospherically (only heavily blended lines), yet Table 1 prints a single Cd value, 1.71 +- 0.03, equal to CI, and Asplund-Amarsi-Grevesse 2021 mark Cd 'meteorites'. Immaterial."
+          ],
+          "evidence": [
+            "research/warp-drive/docket67-raw/adjudications/asplund-2009-hybrid-column-recommendation.json corrections_to_record (A09 internal discrepancy)"
+          ],
+          "stands": "The photospheric column as the recommended composition with CI values 'also provided' (pp. 8, 24); the Si peg; CI volatile depletion; Li depletion requiring mixing below the convection zone (p.10)."
+        },
+        {
+          "key": "hep-th/0402058",
+          "paper": "R. Bousso, 'Flat space physics from holography' (UCB-PTH-04/02)",
+          "version_read": "arXiv:hep-th/0402058v2 (14 Aug 2004), all 12 pages via alphaXiv; re-checked at source in this census stage (Sec. 2.2: 'for an electron, the holographic bound gives S <= 10^44').",
+          "cls": "DISCREPANCY",
+          "findings": [
+            "Sec. 2.2's illustration: for an electron localised to a Compton wavelength, pi R^2/l_Pl^2 computes to 1.8e45 (reduced Compton wavelength) to 7.1e46 (Compton wavelength), against the printed 10^44 - 1.3 to 2.9 orders low; an order-of-magnitude illustration that does not touch the 'correct but rather uninteresting' point."
+          ],
+          "evidence": [
+            "research/warp-drive/docket67-raw/shards/shard07.json [key hep-th/0402058] rederivation.outcome (h), lacked_data; rederive/hep-th_0402058.py",
+            "census re-check: alphaXiv get_paper_content(arxiv.org/abs/hep-th/0402058)"
+          ],
+          "stands": "Eq. (2.2) S <= 2 pi M R/hbar carries no G and is nontrivial at G = 0; S_Bek/S_hol = 2GM/R; the X-ray argument reproduces the Bekenstein bound up to order-one factors; restriction to weakly gravitating regions."
+        },
+        {
+          "key": "gr-qc/9506083",
+          "paper": "E. Poisson & M. Visser, 'Thin-shell wormholes: Linearization stability' (PRD 52, 7318 (1995), not read)",
+          "version_read": "arXiv:gr-qc/9506083v1 (30 Jun 1995), 4 pp., via alphaXiv.",
+          "cls": "DISCREPANCY",
+          "findings": [
+            "Eq. (36) prints the stability boundary as '<= -1/2' where the inequality should be strict (minor; unused by the tree)."
+          ],
+          "evidence": [
+            "research/warp-drive/docket67-raw/shards/shard11.json [key gr-qc/9506083] rederivation.outcome"
+          ],
+          "stands": "The symmetric thin-shell construction (1)-(2), Lanczos/Israel (6)-(8), sigma and p (11)-(12), the linearised stability analysis; every number the tree takes reproduces."
+        },
+        {
+          "key": "2504.05813",
+          "paper": "A. Escriva, 'A new approach for simulating PBH formation from generic curvature fluctuations with the Misner-Sharp formalism'",
+          "version_read": "arXiv:2504.05813v3 [astro-ph.CO] (28 Nov 2025), Sec. 2 pp. 3-5 and p.12 via alphaXiv.",
+          "cls": "DISCREPANCY",
+          "findings": [
+            "Presentation: the printed positive root of the Misner-Sharp constraint silently assumes R' > 0, satisfied in the type-I literature it inherits from but violated by the paper's own type-II subject (p.12, Gamma < 0); the squared constraint is correct on both branches and is what the numerics use."
+          ],
+          "evidence": [
+            "research/warp-drive/docket67-raw/shards/shard09.json [key 2504.05813] lacked_data; rederive/2504.05813.py"
+          ],
+          "stands": "Eqs. (2.1)-(2.5), (2.12) re-derive (residual 0); the squared constraint and the numerics on both branches."
+        },
+        {
+          "key": "0802.0658",
+          "paper": "B. L. Hu & E. Verdaguer, 'Stochastic Gravity: Theory and Applications' (Living Rev. Rel. 11 (2008) 3)",
+          "version_read": "arXiv:0802.0658v1 [gr-qc] (5 Feb 2008), Sec. 3.2 p.10 and Sec. 5.2.1 pp. 29-30 via alphaXiv.",
+          "cls": "DISCREPANCY",
+          "findings": [
+            "Normalisation: Eq. (3.11) has N = (1/2)<{t,t}> and Eq. (5.17) N = (1/8)<{t,t}>, a factor 4 apart, yet Sec. 5.2.1 calls its N 'the noise kernel introduced in Eq. (3.11)'; Sec. 5 follows Phillips-Hu and is self-consistent."
+          ],
+          "evidence": [
+            "research/warp-drive/docket67-raw/shards/shard10.json [key 0802.0658-sec5.2.1] rederivation.outcome; rederive/0802.0658-sec5.2.1.py"
+          ],
+          "stands": "Sec. 5.2.1's finiteness of the noise kernel (5.17)-(5.22) in flat space, vacuum, m = 0."
+        },
+        {
+          "key": "2603.22223",
+          "paper": "G. Gardella, M. Varma & P. Schweitzer, 'The energy-momentum tensor in a classical model of the electron'",
+          "version_read": "arXiv:2603.22223v1 [hep-ph] (23 Mar 2026), alphaXiv extracted text; re-checked at source in this census stage (full text read).",
+          "cls": "DISCREPANCY",
+          "findings": [
+            "Eq. (9) as printed integrates to M = m_fluid + 3 pi alpha/(32R) - pi alpha/(32R) = m_fluid + pi alpha/(16R) (its Poincare-stress term -lambda_p alpha R^2/(8 pi (r^2+R^2)^3) integrates to -lambda_p pi alpha/(32R)), whereas eq. (11) has -lambda_p 5 pi alpha/(32R) and eqs. (11)-(12) give M = m_fluid - pi alpha/(16R); the third term of (9) lacks the factor 5 that eq. (6) (5 kappa n^{6/5}) carries. Possibly an extraction artefact; the census re-read shows the same text."
+          ],
+          "evidence": [
+            "research/warp-drive/docket67-raw/shards/shard10.json [key classical-charge-radius-inside-body] rederivation.outcome (G); rederive/classical-charge-radius-inside-body.py",
+            "census re-check: alphaXiv get_paper_content(arxiv.org/abs/2603.22223), eqs. (6), (9), (11)-(12)"
+          ],
+          "stands": "Eqs. (11)-(13) (E_bind = -pi alpha/(16R)), the stress distributions (17)-(18) obeying conservation and von Laue, the long-distance forms (19), the form-factor results (24)-(29)."
+        },
+        {
+          "key": "0907.5424",
+          "paper": "D. Baumann, 'TASI Lectures on Inflation' [restating source read by the audit, not the audited result]",
+          "version_read": "arXiv:0907.5424v2, pp. 1, 3, 15-21, 23, 28, 32, 41-42, 45, 129, 134, 138-139 via alphaXiv.",
+          "cls": "DISCREPANCY",
+          "findings": [
+            "Problem 3 eq. (109) prints R_ij = delta_ij [2 adot^2 + a addot + 2k/a^2], but the computed value is R_rr = (a addot + 2 adot^2 + 2k)/(1 - k r^2); the printed form matches only at k = 0 in Cartesian coordinates - a misprint in a problem-set hint."
+          ],
+          "evidence": [
+            "research/warp-drive/docket67-raw/shards/shard00.json [key frw-metric-k-minus1-and-k0] rederivation.outcome C2; rederive/frw-metric-k-minus1-and-k0.py"
+          ],
+          "stands": "Eqs. (1)-(3), (105)-(107): the FRW metric for k = -1, 0, +1; R_00, the Ricci scalar, eqs. (110)-(111)."
+        },
+        {
+          "key": "1308.1342",
+          "paper": "A. R. Klotz (gravity-tunnel paper; title not recorded in the audit record) [restating source]",
+          "version_read": "arXiv:1308.1342v1, eqs. (1), (8)-(9) via alphaXiv; journal not read.",
+          "cls": "DISCREPANCY",
+          "findings": [
+            "Printed eqs. (8)-(9) take M(r)/r as the interior potential, giving 11.19 km/s at Earth's centre - sqrt(2) above the 7.91 km/s the shell theorem gives and that the paper's own text quotes ('near 8 km/s')."
+          ],
+          "evidence": [
+            "research/warp-drive/docket67-raw/shards/shard09.json [key uniform-sphere-newtonian-potential-redshift] rederivation.outcome K1"
+          ],
+          "stands": "Eq. (1), the Newtonian interior field, and the text's 'near 8 km/s'."
+        },
+        {
+          "key": "1004.1456",
+          "paper": "A. Abreu & M. Visser, 'Kodama time: Geometrically preferred foliations of spherically symmetric spacetimes' [restating source]",
+          "version_read": "arXiv:1004.1456v3 (2010), pp. 1-7, 10 via alphaXiv.",
+          "cls": "DISCREPANCY",
+          "findings": [
+            "The text on p.7 reads '8 pi G_ab = T_ab', while eq. 77 follows from G_ab = 8 pi T_ab - a typographical slip."
+          ],
+          "evidence": [
+            "research/warp-drive/docket67-raw/shards/shard02.json [key kodama-1980-mass-flux] later_literature, grade_evidence (iv)"
+          ],
+          "stands": "Div J = 0 as a geometric identity (31), J = -(2/r^2) eps grad m (39), the Brown-York energy (81)."
+        },
+        {
+          "key": "2506.00860",
+          "paper": "Verma, Aluri, Mota & Obukhov (title not recorded in the audit record) [later-literature source]",
+          "version_read": "arXiv:2506.00860 (version not recorded in the audit), pp. 1-3, 7-9, 11-14, 17, 19 via alphaXiv.",
+          "cls": "DISCREPANCY",
+          "findings": [
+            "Eq. (1) prints Goedel's metric with the e^{2x} dy^2 term at coefficient 1; as printed the metric is degenerate (det g = 0), and dust plus Lambda forces the coefficient 1/2 uniquely."
+          ],
+          "evidence": [
+            "research/warp-drive/docket67-raw/shards/shard02.json [key godel-1949-ctc-metric] hypothesis_drift, grade_evidence (3); rederive/godel-1949-ctc-metric.py"
+          ],
+          "stands": "Not otherwise assessed; Goedel's metric itself solves the field equations with rho = 1/(8 pi G a^2), Lambda = -1/(2a^2)."
+        },
+        {
+          "key": "2512.15610",
+          "paper": "de Farias et al. (2025; title not recorded in the audit record) [later-literature source]",
+          "version_read": "arXiv:2512.15610v1, eqs. (17), (26)-(33) via alphaXiv.",
+          "cls": "DISCREPANCY",
+          "findings": [
+            "Eq. (33) prints the flat-space thermal scalar energy density as pi^2 (1 + xi)/(30 beta^4); the flat-space thermal rho does not depend on xi (computed three ways; 1804.05382 eq. (15) has no xi). The two agree at xi = 0."
+          ],
+          "evidence": [
+            "research/warp-drive/docket67-raw/shards/shard03.json [key stefan-boltzmann] later_literature; rederive/stefan-boltzmann.py"
+          ],
+          "stands": "The xi = 0 value pi^2/(30 beta^4)."
+        },
+        {
+          "key": "0706.0553",
+          "paper": "Fearn (2007; title not recorded in the audit record) [later-literature source]",
+          "version_read": "arXiv:0706.0553 (version not recorded in the audit), READ via alphaXiv; journal not read.",
+          "cls": "DISCREPANCY",
+          "findings": [
+            "The quoted Scharnhorst-effect magnitude '1.6e-36 at 1 um' equals the formula (eq. (10) of the audited comparison) at 10 um; at 1 um it gives 1.59e-32."
+          ],
+          "evidence": [
+            "research/warp-drive/docket67-raw/shards/shard03.json [key relativistic-causality-signals-at-most-c] rederivation.outcome (5), later_literature"
+          ],
+          "stands": "The paper's dispute of the dispersion relation is not assessed."
+        },
+        {
+          "key": "1410.0665",
+          "paper": "E.-A. Kontou & K. D. Olum (PRD 91, 104005 (2015); title not recorded in the audit record) [later-literature source]",
+          "version_read": "arXiv:1410.0665v2, cached alphaXiv text pp. 1-21.",
+          "cls": "DISCREPANCY",
+          "findings": [
+            "A sentence says the result holds when the 'radius of curvature is small as compared to the sampling time' - the inverse of what the paper proves; a misprint."
+          ],
+          "evidence": [
+            "research/warp-drive/docket67-raw/shards/shard08.json [key ford-roman-sampling-practice] later_literature"
+          ],
+          "stands": "The first-order-in-Ricci confirmation of Ford-Roman's curved-space premise with O(R_max t_0^2) corrections, its causal-diamond condition and renormalisation ambiguity."
+        },
+        {
+          "key": "2511.07526",
+          "paper": "R. R. Caldwell & E. V. Linder, 'Null Impact of the Null Energy Condition in Current Cosmology' [later-literature source]",
+          "version_read": "arXiv:2511.07526v1 (2025), banked alphaXiv page text pp. 1-6.",
+          "cls": "DISCREPANCY",
+          "findings": [
+            "The Fig. 3 caption prints 'w_a ~ 1' where the text prints 'w_a ~ -1'."
+          ],
+          "evidence": [
+            "research/warp-drive/docket67-raw/shards/shard07.json [key dark-energy-positive-rho] later_literature"
+          ],
+          "stands": "'Under the current best-fit cosmological model no violation of the NEC takes place, past or future', applied to the total fluid."
+        },
+        {
+          "key": "2004.12523",
+          "paper": "Osorio Morales & Santillan (title not recorded in the audit record) [later-literature source]",
+          "version_read": "arXiv:2004.12523v4, read in part via alphaXiv.",
+          "cls": "DISCREPANCY",
+          "findings": [
+            "p.11 states that a null geodesic without conjugate points has achronal image - the converse of Hawking-Ellis Prop. 4.5.12, false in general: on a flat cylinder a null geodesic has no conjugate point yet is not achronal (computed, R5)."
+          ],
+          "evidence": [
+            "research/warp-drive/docket67-raw/shards/shard02.json [key conjugate-point-not-achronal] later_literature, rederivation.outcome R5; rederive/conjugate-point-not-achronal.py"
+          ],
+          "stands": "The paper's use of the forward direction."
+        },
+        {
+          "key": "2510.20843",
+          "paper": "G. Banerjee (2025; title not recorded in the audit record) [restating source]",
+          "version_read": "arXiv:2510.20843v2, pp. 1-11 via alphaXiv.",
+          "cls": "DISCREPANCY",
+          "findings": [
+            "p.5 states the Henstock-Kurzweil FTC as 'if f' exists almost everywhere, then INT_a^b f' = f(b) - f(a)'; the Cantor function is a counterexample (the standard HK form needs differentiability everywhere or off a countable set, with continuity)."
+          ],
+          "evidence": [
+            "research/warp-drive/docket67-raw/shards/shard06.json [key ftc-absolute-continuity] later_literature"
+          ],
+          "stands": "Lebesgue's FTC for AC functions on [a,b]; AC(I) iff AC_loc(I) with f' in L^1 on non-compact intervals."
+        },
+        {
+          "key": "2101.10693",
+          "paper": "P. Brax & C. Burrage, 'Screening the Higgs portal' [restating source]",
+          "version_read": "arXiv:2101.10693v2 (2021), pp. 5-7, 13-15 (on-disk capture).",
+          "cls": "DISCREPANCY",
+          "findings": [
+            "Footnote 2 says the gluon part of the nucleon's Higgs coupling is uncoupled, contrary to SVZ, the coupling the read literature supports (f_N = 0.30, Cline eqs. (11)-(13)); recorded as a discrepancy in the reading source."
+          ],
+          "evidence": [
+            "research/warp-drive/docket67-raw/shards/shard02.json [key higgs-yukawa-static-sourcing] hypothesis_drift, later_literature"
+          ],
+          "stands": "Eq. (10) and the exponential decay of linear static solutions outside a constant-density source."
+        },
+        {
+          "key": "gr-qc/9812046",
+          "paper": "G. F. R. Ellis & H. van Elst, 'Cosmological models (Cargese lectures 1998)' [restating source]",
+          "version_read": "arXiv:gr-qc/9812046v5 (2 Sep 2008), cached alphaXiv text.",
+          "cls": "DISCREPANCY",
+          "findings": [
+            "p.23 reads 'Hubble time 1/H0 of about 1.8 x 10^9' (years) for H0 ~ 50 km/s/Mpc, while 1/(50 km/s/Mpc) = 19.56 Gyr; possibly a superscript lost in extraction - confirm on the typeset PDF first."
+          ],
+          "evidence": [
+            "research/warp-drive/docket67-raw/shards/shard01.json [key expansion-scalar-3h-flrw] lacked_data"
+          ],
+          "stands": "Eqs. (11), (25), (104): Theta = 3H for FLRW fundamental observers."
+        },
+        {
+          "key": "gr-qc/0611123",
+          "paper": "S. Kar & S. SenGupta (Raychaudhuri-equation review; title not recorded in the audit record) [restating source]",
+          "version_read": "arXiv:gr-qc/0611123 (version not recorded in the audit), eq. (10), cached alphaXiv text.",
+          "cls": "DISCREPANCY",
+          "findings": [
+            "The text says 'a^6 is the volume' where the formula uses sqrt(a^6) = a^3 - a wording slip; the formula is correct."
+          ],
+          "evidence": [
+            "research/warp-drive/docket67-raw/shards/shard01.json [key expansion-scalar-3h-flrw] later_literature"
+          ],
+          "stands": "Eq. (10): Theta = 3 adot/a in FLRW, shear and rotation zero."
+        },
+        {
+          "key": "2003.01815",
+          "paper": "E.-A. Kontou & K. Sanders, 'Energy conditions in general relativity and quantum field theory' (CQG 37, 193001 (2020)) [restating source]",
+          "version_read": "arXiv:2003.01815v2, pp. 1, 5, 24-25, 34-36, 50 via alphaXiv.",
+          "cls": "DISCREPANCY",
+          "findings": [
+            "Eq. (102), restating Fewster-Roman, prints (gamma-dot . k) unsquared - the review's own discrepancy, not Fewster-Roman's."
+          ],
+          "evidence": [
+            "research/warp-drive/docket67-raw/shards/shard11.json [key gr-qc/0209036] later_literature"
+          ],
+          "stands": "The restatement of Fewster-Roman with its hypotheses; Table 3's QEI status by field; p.24's hedged 'usually no QEI' for spatial averages."
+        },
+        {
+          "key": "2005.10656",
+          "paper": "Ivanov, Ali-Haimoud & Lesgourgues (T0 from cosmological data; title not recorded in the audit record) [later-literature source]",
+          "version_read": "arXiv:2005.10656v2, pp. 2-3, 15-17 via alphaXiv.",
+          "cls": "DISCREPANCY",
+          "findings": [
+            "The Planck+SH0ES vs FIRAS tension is printed '3.3 sigma' (pp. 16, 17) and '3.2 sigma T0 tension' in the same p.16 paragraph; quadrature from Table I gives 3.23."
+          ],
+          "evidence": [
+            "research/warp-drive/docket67-raw/adjudications/0911.1955.json corrections_to_record (Ivanov item)"
+          ],
+          "stands": "Table I's T0 inferences and the statement that at fixed baryon- and DM-to-photon ratios the recombination temperature is fixed."
+        }
+      ],
+      "excluded": [
+        "TREE DRIFT ONLY (repairs to the tree, not comments): every NARROWED grade whose finding is the tree's wider use or dropped hypothesis, and the 1,162 sites in TREE-CORRECTIONS.tsv; plus tree-internal items labelled 'discrepancy' in the shards: solar-mass-light-year-year, alpha-centauri-distance-4ly, cosmic-string-deficit-angle-8pigmu (canonical paraphrase), tipler-1977 ('section VIII.A' is in specthm.py), clock-accuracy-1e-18 (prose 8.20e11), 0909.0948 (Ne/Ar transcription in stockgate.py), lodders-2003-* (CHONDRITE table is not L03's - the tree's attribution, not an error in Lodders), misner-sharp-1964 (driven.py quotation), hawking-ellis-type-iv, gravimeter-floor, magnetar-surface-field, epstein-glaser-jaffe-1965 and 0705.3193 (tree attribution), fewster-teo-sec7 (fewsterteo.py's wording), 2604.05980-fig1-growth-rate (the tree's figure reading), le-2026-eq17-dec-margin (wall.py's rearranged form), minkowski-plane-wave-mode-normalisation and gr-qc/9812032 / fewster-teo-3.2 (the lost pi is the tree's transcription from the text layer; F&T's printed 9/64 needs the printed 1/(2 pi)).",
+        "Klinkhamer-Manton 1984 / RS96 eq. (2.11) bracket 1.56-2.72 vs computed 1.520/2.706: resolved by reaudit/klinkhamer-manton-1984.json as a variational upper-bound bracket the tree reads as exact - neither an RS96 misquote nor a KM error.",
+        "Dreissen et al. arXiv:2206.00570v4: adjudication states 'No error in Dreissen is shown'; only Kabat-Nomura's restatement is carried (under 2309.05759).",
+        "HPS gr-qc/9701064: abstract 'asymptotically spatially flat regions' vs p.8 'not asymptotically flat' adjudicated as both true; unit/window of the (a, b) law and the K^-2 axis-scaling sentence are an omission and a tension with the tree's K-unit reading, undecided; ripple size vs 'modulo the Planck-scale wiggles' depends on the same unresolved unit hypothesis; 'arbitrarily large' throat - the adjudicator corrected the 'unproved claim' framing (eq. (8) admits it).",
+        "Already corrected by the authors in print or a later version: GKLP 2208.09014 v1 eq. (34) unbalanced parenthesis (fixed in v3 eq. (36)); Fewster-Osterbrink eq. (61) beta^{2-n} (acknowledged in 1809.05047 fn. 4); Cavero-Pelaez-Milton-Wagner hep-th/0508001 eq. (4.8) sign (Milton fn. 4); Deutsch-Candelas beta4 sign (recorded by Miao-Chu; DC not read); Lamoreaux 1997 (1998 erratum exists; the finding is the tree's omission of it).",
+        "Text-layer artefacts shown or likely, not the paper: Milton 1005.0031v1 eq. (58) matrix typography (audit forbids quoting until glyphs read); Fewster-Smith gr-qc/0702056v3 (87) = pi x (88) as transcribed (same pi-glyph drop proven for Fewster-Teo); Olum gr-qc/9805003v2 '(1+sqrt5)/2 ~ 0.618' (likely dropped minus; 0.618 right); Vilenkin PRD 23 852 volume '28' (Drive's extraction); Perez-Sudarsky 2512.17789v2 eq. (16) cross-term sign (possibly lost minus, App. C unread, different model).",
+        "Rounding or approximation under '~' or within stated errors: Tye-Wong 1505.03690v3 p.2 '10^-162 at alpha_W ~ 1/30' (its p.7 pairs 1/29.7 exactly) and coefficients 1.31 + 0.60; FFS '~10^-155' vs 10^-154.12 (FFS's e^{-S} misprint IS carried); BLRRT hep-ph/0304180v2 '8 TeV'/'250 TeV' ~5-6% low; TW17 '~70 orders' and dropped order-unity factor (its 15 TeV E_0 IS carried); Khoze-Milne 2011.07167v1 'at least 0.70' vs Table 2 min 0.696 (its p.10 says F 'does not drop far below 0.7'); GMMPS 7.8e-3 vs 7.885e-3 eV truncation and (4.17)'s redundant m/m and varrho/rho notation; MuLan 1211.0960 eq. 23 re-run +0.27 ppm (0.5 sigma, inside its error); Buttazzo eq. 11 last digit; Hippke 1711.07962 '~546 au' vs 548.4; Skokov et al. 0907.1396 '~1e18 G' (x3.28, order of magnitude); PDG summary m_u, m_d implying mbar 3.43 vs 3.49 +- 0.07; Fewster-Osterbrink's conservative constants (a loose bound is not an error); Schwarzschild 1916 (physics/9905030) '10^-12' for Mercury, true as an upper bound; Pfenning-Ford 6.94e65 g vs printed 6.2e65 g.",
+        "Notation or convention only: Haque 2601.18718v1 abstract |E_A - E_B| vs body DeltaE; 1206.2942 phi = 246 GeV vs v(0) = 174 GeV (v/sqrt2 convention); von Laue cited as Ann. Phys. 35 vs 340 (series vs cumulative volume, both correct); '< 1' vs '<= 1' between causality sources (boundary outside the window).",
+        "Cross-paper disagreements with no fault located: Euler's Basel proof dated 1735 (2203.13930) vs 1740 (2307.08063); 'Pen' vs 'Pan' (Pitre-Schneider-Poisson vs Le); Burton 2025 vs MacGregor 2018 flare flux reanalyses; Hu-Phillips gr-qc/0004006 misspelling 'C.-I. Kou' and its criterion critique (bibliographic slip and scientific dispute).",
+        "Not read as the source: Emsley 'Nature's Building Blocks' Li 7 mg vs 2.17 mg (inconsistency is in a Wikipedia restatement of Emsley's column); Kuo-Ford date framing (journal 'Received 9 Dec 1992' vs M's 'written in February 1993' concerns M's words, not the paper).",
+        "Non-external documents: the Drive 'Warp' folder specification PDFs (warp-folder-printed-parameters, capacitor-and-pulse-energy, mass-energy-equivalence, planck-energy) are assistant-produced documents M supplied, with no outside authors; their internal slips (x10 third-row E, 50 ohm x 10 nF = 500 ns vs ~12 ns, f/1 diffraction limit, 'Half-Width Half-Max (FWHM)') belong to the tree's own record.",
+        "Conflicting records needing a re-read first: shard02 nmc-classical-nec-violation records FFKP eq. (9)'s trace-term sign as NOT conserved (A2), while shard01 2309.10848-thmiv.1 finds eq. (9) conserved off-shell to 2e-165; only the corroborated items (Ricci-term sign of (12)/(13), the Q[f] coefficient) are carried under 2309.10848.",
+        "Possible-only or hypothetical: fewster-teo-3.2/3.5 ('if an erratum were located'), israel-1966 (1967 erratum unread), 1801.08358 (no erratum found), and keys where 'a misprint would be a discrepancy' is conditional - no finding exists.",
+        "Process note: the census file was first written to the repository root by mistake and immediately moved (mv) to the scratchpad; no repository file was modified, and census.json now exists only at /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/comments/census.json (builder script build_census.py beside it)."
+      ]
+    },
+    "results": [
+      {
+        "problems": [
+          {
+            "file": "/home/user/Claude-Method-Works/research/warp-drive/docket67-raw/comments/gr-qc_9304008.md",
+            "wrong": "Finding 3's proportion gave 'Δ > 1 in 27.4%' without saying what the count includes. The evidence (qualitative-conclusion.out, C7) states it includes the cells where ⟨:T₀₀²:⟩ < 0.",
+            "correct": "'Δ > 1 in 27.4% (this count includes the cells where ⟨:T₀₀²:⟩ < 0, which the normal-ordered square permits)'. Re-read at source in this stage: (2.16), (3.2), (3.7), (3.8) and the sentence after it, (3.41)-(3.45), the abstract, Sec. III.B and the Fig. 2 caption all match the draft's quotations. The other numbers re-derive from the .out files and the adjudication: −0.3452, 2.0118, 0.5134, −0.2404, 0.32876, −0.4323, 4.45e-16 at dim 220, 2e-14 at N = 400, 0.9920/0.9976/0.9999, 0.90%, 3.6%. WRONG is applied only to (3.8), the inequality after it, and the universal wording, which matches the VERIFIED-GRADES scope ((3.7) is a discrepancy and not the basis of the grade)."
+          },
+          {
+            "file": "/home/user/Claude-Method-Works/research/warp-drive/docket67-raw/comments/2309.10848.md",
+            "wrong": "Finding 3 said that for general n the second term goes as δ₊/(Aαⁿ) and that α⁴ is a printed power for the general case. That presents one reading as the only one. shard04's 2309.10848-verdict-anec (D2-D3) records that with φ_max held fixed the term goes as δ₊/(Aα²), and calls the printed α⁴ a reading ambiguity, not an error. The draft cited only the dsnec audit.",
+            "correct": "Rewritten to give both readings. With φ̃²_max = (δ₊δ₋)^{(n−2)/2}φ²_max held fixed (as in (86)-(87), confirmed at source), the term goes as δ₊/(Aαⁿ), and α⁴ matches this only at n = 4. With φ²_max held fixed, it goes as δ₊/(Aα²). Every reading tends to zero, so (89) holds. The class is now 'minor discrepancy (a reading ambiguity)' and both shards are cited. The summary phrase was changed to match."
+          },
+          {
+            "file": "/home/user/Claude-Method-Works/research/warp-drive/docket67-raw/comments/2309.10848.md",
+            "wrong": "Finding 5 attributed the unhedged Discussion wording to 'the audit record' without quoting it.",
+            "correct": "Re-read at source in this stage. Sec. VI (p. 29) is now quoted: 'traversable wormholes are only possible if the effective average null energy condition (ANEC) is violated'. Also confirmed at source: the convention □_g := −g^{μν}∇∇ (p. 5), which supports the draft's choice to read eq. (9) as conserved (the thmiv.1 script encodes it this way; the shard02 A2 control used the opposite sign); eq. (1) against action (7); and the unbarred ∫∂²_{s−}(F²) in (87)."
+          },
+          {
+            "file": "/home/user/Claude-Method-Works/research/warp-drive/docket67-raw/comments/hep-ph_9603208.md",
+            "wrong": "The draft stated as fact that 1/29 'is a value of the α(M_Z) type', and that every convention leaves the suppression 'below 10⁻¹⁵⁸'. The adjudication records that the non-tree scheme values (29.59, 30.59, 31.73, 31.15) rest on RECALLED inputs, not read ones.",
+            "correct": "The α(0) versus electroweak-scale attribution is now explicitly our inference, with recalled scheme inputs and no reading of the authors' intent. The band is given as 10^−158.27 to 10^−173.16, as in adjudication (8), with the recalled-input caveat. Unchanged and re-derived: 10^−158.27, 11.73 decades, 31.15, and 5.46 decades per unit of 1/α_W."
+          },
+          {
+            "file": "/home/user/Claude-Method-Works/research/warp-drive/docket67-raw/comments/1609.03449.md",
+            "wrong": "(a) 'The offset is the same' for the interval edges, but the ratios are 1.10 and 1.08. (b) 'Every later published m sin i to within 0.013 M_⊕: 1.29, 1.173, 1.07 and 1.055' omitted 1.15, the only case that reaches 0.013. The four listed agree to 0.004.",
+            "correct": "(a) 'a similar offset (ratios 1.10 and 1.08)'. (b) The list now includes 1.15 and notes that the largest difference, 0.013, is for 1.15, and the others agree to 0.004. I re-ran the script (0 failures): 1.1742, 0.04828 AU, 0.996/1.353, 0.1350 M_sun → 0.0502 AU, 1.0999 at e = 0.35. The FAP of 7 × 10⁻⁸ and the Table 1 values were confirmed at source. The Bayesian odds of 2.1 × 10⁷ were added."
+          },
+          {
+            "file": "/home/user/Claude-Method-Works/research/warp-drive/docket67-raw/comments/gr-qc_9712019.md",
+            "wrong": "The misprint claim rested on the sign alone and did not rule out that a different index placement or contraction order in (1.111) explains it. With the order F^{μλ}F_λ^ν, a −1/4π would be correct.",
+            "correct": "Re-read at source in this stage. (1.111) prints F^{μλ}F^ν_λ, and (8.25) prints the identical index structure with +1/(4π). The comment now says this, so the sign flip cannot come from index conventions. (1.8) and (1.75) were confirmed. The T⁰⁰ arithmetic was re-derived: −(E²+B²)/8π."
+          },
+          {
+            "file": "/home/user/Claude-Method-Works/research/warp-drive/docket67-raw/comments/gr-qc_0209036.md",
+            "wrong": "(a) The Erratum's equation numbers (2.17), (2.27), (2.29) and (2.31) were used next to v2's (II.xx) numbers without saying how they correspond. (b) Finding 2 said 'This is the correction the authors themselves published', but the Erratum's corrected display of (2.17) did not render, so the corrected kernel was never compared with ours.",
+            "correct": "(a) Added that, by content, the Erratum's equations are v2's (II.17), (II.27), (II.29) and (II.31), the last three being v2's factor-24 equations. (b) Now says the Erratum names the same equation and the same 24→8 replacement, and that its corrected kernel was not compared. I re-scraped the open APS page with Firecrawl (served from its same-day cache) and got the same prose; no paywall was involved. I re-read v2 at source: (II.20)-(II.24), (II.27) 1/(24π²Λ₀⁴), and 'variance τ₀' on p. 12 all confirmed. The numbers −5.110921e-05, −1.022184e-04, ratio 2, −2.71e-5/−1.02e-4/−1.82e-3 re-derive from the .out file."
+          },
+          {
+            "file": "/home/user/Claude-Method-Works/research/warp-drive/docket67-raw/comments/2111.09240.md",
+            "wrong": "(a) The eq. (48) arithmetic was written as '(m₂² − m₀²)/(2m₀²) · (1 − 0)' and did not show the formula. (b) 'What stands' said eq. (49) was checked for Δm/m₀ = 0.001, 0.0465 and 0.25. Those values exist only in the session scratchpad copy of the script, not in the repository or the shard.",
+            "correct": "(a) Eq. (48) is written out as printed (confirmed at source, p. 9), and the bracket is shown to equal 1 at E₀ = m₀c², giving −7/32 = −0.21875 against the printed −7/16 ≈ −0.22. (b) Replaced with a one-line exact derivation from four-momentum conservation (KE/Δm = Δm/(2m₀)) and the shard04 C9 citation."
+          },
+          {
+            "file": "/home/user/Claude-Method-Works/research/warp-drive/docket67-raw/comments/1802.08257.md",
+            "wrong": "(a) 'Image weighting reproduces the combined 334 μJy at the upper end of our 1σ range' turns the evidence around. The script gives 199-312 μJy, which lies within the 1σ range of the measured 334 ± 48. (b) In the summary, the sentence 'We reproduce the numbers…' had been merged into the last bullet.",
+            "correct": "(a) 'Image weighting of the final observation gives a combined 199-312 μJy, within 1σ of the measured 334 ± 48 μJy.' (b) The sentence is now its own paragraph. I re-ran the script; every other number matches (62, 0.50, 1.6/2.3/9.0, 55″, 6.07e10, 1.41e22, 16 GHz → 1.1e21, 1.7e-10, 2.022e14, 27 ± 9.8). All quotations, including the Shkolnik & Barman reference, were re-read at source."
+          },
+          {
+            "file": "/home/user/Claude-Method-Works/research/warp-drive/docket67-raw/comments/1105.4714.md",
+            "wrong": "'Either way, the measured σ₂ ∼ 0.04 is about twice the about 2%' tied a reading-independent fact to the two readings. Under the v_e/c reading, the measured value is below the expectation (0.0625), not above it.",
+            "correct": "'Independently of that reading, the measured σ₂ ∼ 0.04 (p. 9) is about twice the \"squeezing of about 2%\" that the paper derives from σ₂ ≈ v_e/2c₀ (pp. 8-9)… Under the v_e/c reading it would instead be about two-thirds of the expected 0.0625.' All quotations were re-read at source, including Fig. 3c's axis (0-2.0%) and n = 0.008."
+          },
+          {
+            "file": "/home/user/Claude-Method-Works/research/warp-drive/docket67-raw/comments/1309.6303.md",
+            "wrong": "'In the paper's units (c = ħ = 1)' is incomplete. The paper sets 8πG = c = ħ = 1 (p. 1) and restores G in (1.9).",
+            "correct": "Now states the paper's convention and that the dimensional argument (1/G ~ rate² with c = ħ = 1) applies to (1.9) as written. Re-read at source (v3): the abstract 'H_c = 180π/G', the (1.9) definition H_c² := 1440π²/(8πG) = 180π/G, Theorem 3.2 with |H₀| < H_c, and Sec. 4 'H² becomes bigger than H_c²'."
+          },
+          {
+            "file": "/home/user/Claude-Method-Works/research/warp-drive/docket67-raw/comments/hep-th_0402058.md",
+            "wrong": "The draft said the printed 10⁴⁴ is 'low by 1.3 to 2.9 orders of magnitude'. Read at source, Sec. 2.2 fixes R ≈ ℏ/M (the reduced Compton wavelength), so the paper's own reading gives a discrepancy of 1.3 orders (a factor of about 18). The 2.9 figure comes from a radius the paper does not use, so the range overstated the discrepancy. The 'spin entropy ln 2' framing was also ours, not the paper's.",
+            "correct": "Rewritten to quote 'R ≈ ℏ/M' and 'πR²/l²_Pl'. 1.8 × 10⁴⁵ (1.3 orders, about ×18) is now the comparison, and 7.1 × 10⁴⁶ is shown only as the alternative h/(mc) reading. The closing point uses the paper's own words ('of order one'). I re-ran the script: 1.793e45 and 7.080e46."
+          },
+          {
+            "file": "/home/user/Claude-Method-Works/research/warp-drive/docket67-raw/comments/2603.22223.md",
+            "wrong": "'What stands' and the summary said the paper's form factors (24)-(29), the QED-matching terms included, stand. Nothing in the verified record re-derived them, and the record checked only eq. (9) against (11). That is declaring, not showing.",
+            "correct": "(11)-(13) with the factor 5, (16a), (16b) at λ_p = 1, and the (19) asymptotics were re-derived symbolically (sympy) in this stage; printed (9) integrates to m + (3−λ_p)πα/32R, and with the factor 5 to m + (3−5λ_p)πα/32R. These are now stated as checked. The form factors are marked 'Not assessed'. Also confirmed at source: (6) −5κn^{6/5}, (9) without the 5, (18), and the 3:5 ratio in (13) (42,351.306/70,585.510 = 0.6). The ratio numbers were added."
+          },
+          {
+            "file": "/home/user/Claude-Method-Works/research/warp-drive/docket67-raw/comments/2506.00860.md",
+            "wrong": "The cross-check quoted the paper's determinant as '|g| = −(k + σ)e^{2mx}' without noting that the printed formula omits a factor R⁶.",
+            "correct": "Now says '|g_{μν}| = −(k + σ)e^{2mx} (p. 3; a factor R⁶ is not written there, which does not affect the conclusion)'. Eq. (1) with coefficient 1, ω² = 1/2a² = 4πGε = −Λ, and eq. (2) were confirmed at source. The mapping σ = 1, k = −1 and k + σ = 0, and Gödel's k = −1/2, were re-derived."
+          },
+          {
+            "file": "/home/user/Claude-Method-Works/research/warp-drive/docket67-raw/comments/gr-qc_9812046.md",
+            "wrong": "'The printed figure is an order of magnitude smaller' called a text-layer figure 'printed', and did not record the shard verifier's point that the mantissa (1.8 against 1.96) also differs.",
+            "correct": "Now says 'the figure as the text layer gives it', adds that the mantissa differs so a lost superscript would not by itself explain it, and cites shard01's `verifiers` field. Re-read at source in this stage: the '1.8 × 10⁹' and '1.2 × 10⁹' sentence on p. 23. The hedge that the typeset page is unverified is kept."
+          }
+        ],
+        "fixed": [
+          "All 16 files were edited in place under /home/user/Claude-Method-Works/research/warp-drive/docket67-raw/comments/. Nothing was sent, posted, committed, staged or stashed, and no file outside the 16 named was written. The sympy check for 2603.22223 lives only in the scratchpad.",
+          "Re-checked at source this stage (alphaXiv answer_pdf_queries; no 403s and no quota refusals): gr-qc/9304008v1, 2309.10848v1, 1609.03449v1, gr-qc/9712019v1, gr-qc/9802048v3, gr-qc/0209036v2, 2111.09240v2, 1802.08257v1, 1105.4714v1, 1309.6303v3, hep-th/0402058v2, 2603.22223v1, 2506.00860v1, 2511.07526v1, gr-qc/9812046v5. hep-ph/9603208v2 was not re-read; it rests on the 2026-10-02 adjudication read. The Fewster-Roman Erratum was re-scraped by Firecrawl from the open APS page; Firecrawl served it from its same-day cache; no paywall was involved.",
+          "Scripts re-run this stage: rederive/anglada-escude-2016-proxima-b.py (0 FAIL), rederive/1802.08257.py, rederive/hep-th_0402058.py. Every repository path cited in the 16 comments exists, and so does every '.py and .out' companion cited.",
+          "Each of the 16 files now names the arXiv version and records the verification-stage re-read in its Version read section. Every comment except Kuo & Ford keeps its no-journal-claim scope line. WRONG appears only in gr-qc_9304008.md and only for the three verified parts.",
+          "Verified unchanged and correct: gr-qc_9802048.md. The C5 function and the θ² step match the shard and the source text; only the verification-stage line was added.",
+          "Verified unchanged in substance: 2511.07526.md (the caption's 'w_a ≈ 1' against the text's 'w_a ≈ −1' confirmed; w0+wa = −1.7 against +0.3 re-derived; Sec. I's crossing from w_de < −1 to w_de > −1 confirmed) and the Kuo & Ford numbers.",
+          "Left out, for M's decision (agrees with the drafter): the T00(0) < 0 consequence of inserting the factor 5 in 2603.22223. It is not in the verified shard. It does appear in audits/classical-charge-radius-inside-body.json, rederivation (G): 'a Poincare coefficient 5 restores (11) and then T00(0) < 0 for MR << alpha'. It would bear on the Conclusions' 'positive definite energy distribution'. With printed (9) T00(0) > 0 at R = 1e-20 m; with the 5 it is negative there. It is a candidate for verification, not something to include now.",
+          "Also left out, agreeing with the drafter: shard02 A2's claim that FFKP eq. (9)'s trace term is not conserved. It rests on reading −g□ with □ = +g∇∇, while the paper's p. 5 (confirmed at source) defines □_g := −g^{μν}∇∇. The thmiv.1 script, which uses the paper's convention, finds (9) conserved to 2e-165."
+        ]
+      },
+      {
+        "problems": [
+          {
+            "file": "comments/2604.01047.md",
+            "wrong": "Finding 3: '(64π)⁻¹ would give 5.92 × 10⁻³ eV, which is 24.1% lower' was placed right after the 7.885 × 10⁻³ eV figure. The 24.1% is measured against the printed 7.8 × 10⁻³. Against 7.885 × 10⁻³ the gap is 24.9%, i.e. a factor π^(-1/4) (shard02 verifier note).",
+            "correct": "Now states both: 24.1% below the printed 7.8 × 10⁻³ eV and 24.9% below the unrounded 7.885 × 10⁻³ eV."
+          },
+          {
+            "file": "comments/2604.01047.md",
+            "wrong": "Finding 4 gave zero counts with no window and said the full F_S 'behaves the same way'. The '−1000 gives none' count holds only on the grid [−10⁶, −10⁻⁶]. Shard11's verifier (farzero.py) found that for every b_2 < 0 there is one more real negative zero far beyond the Planck scale. So below the threshold there are three negative zeros in D, not two. Above it the one real negative zero is that far zero, and γ_0 is complex.",
+            "correct": "Every count now carries its window: (−10⁻⁴⁰, −10⁻¹³⁰) M_P² for S3, (−10¹⁰, −10⁻¹³⁰) M_P² for S9, and [−10⁶, −10⁻⁶] for N2. The threshold 8.62 × 10¹²⁰ is named. A paragraph on the far zero gives its asymptotic form, F_S(−X) ≈ −X²(b_2 + log(X/m²)/16π²), and shows that γ_0 is still never the only negative zero, so the finding survives. The far-zero note and its scratchpad-only location are cited."
+          },
+          {
+            "file": "comments/2604.01047.md",
+            "wrong": "Finding 6 said that for b_2 > 1/(8π²) no auxiliary (b_0, b_1) gives three real roots, 'checked on a grid'. The check actually ran only at b_2 = 0.1, 1, 10 and 10³ with m = 1, and the threshold was located numerically.",
+            "correct": "Now names the four tested b_2 values, m = 1, the threshold 1/(8π²) ≈ 0.0127 (located numerically, independent of m), and says this is not a proof over the continuum."
+          },
+          {
+            "file": "comments/1208.5399.md",
+            "wrong": "'Nothing that follows in the lectures depends on it.' This was declared, not shown.",
+            "correct": "Now: 'In the pages we read, nothing else rests on the constant beyond the 3-7% range, which it does not change.'"
+          },
+          {
+            "file": "comments/1612.05431.md",
+            "wrong": "The overlap factor was said to compute to 'between 10⁻¹⁵⁴·² and 10⁻¹⁵⁴·¹ for m_W between 80.24 and 80.39 GeV'. The .out file (line 20) gives 10⁻¹⁵⁴·³⁹ at 80.24 GeV, and π·9080/80.24/ln10 = 154.39.",
+            "correct": "Now 10⁻¹⁵⁴·⁴ (m_W = 80.24) to 10⁻¹⁵⁴·¹ (m_W = 80.39), citing .out lines 20-23."
+          },
+          {
+            "file": "comments/1612.05431.md",
+            "wrong": "'Nothing else in the paper depends on this sentence.' This was declared, not shown.",
+            "correct": "Now: the sentence is introductory, and none of the re-derived results (eqs. 8-10 and the p. 4 suppression factors) uses it."
+          },
+          {
+            "file": "comments/gr-qc_9712010.md",
+            "wrong": "'What stands' said the 24 checks cover the surface gravity (28)-(45), the Hawking temperature, (4) and (59)-(65). Re-running acoustic-metric-analogue.py shows that no check tests the surface gravity or the Hawking temperature. Several of the 24 checks concern the tree, not the paper.",
+            "correct": "The list now holds only what the checks touch: (29) with ρ = kc, (35) and the sound speeds v ± c, (44)-(45), (54)-(57) via (62), and the continuity of eq. (53). It states explicitly that the surface gravity and the Hawking temperature were not tested."
+          },
+          {
+            "file": "comments/gr-qc_0501105.md",
+            "wrong": "The printed c was given as 212.0575041, but the paper prints c = 212.0575042 (text layer, p. 8). Separately, finding 1 said case 1 is 'unchanged by the same recomputation' but left out that case 1's μ_0 (and case 2's √G_0) move from the printed 0.3860531213 to 0.6013169464 (re-run of gr-qc_0501105.py).",
+            "correct": "The printed coefficients are now quoted in full (a = 23.35740218, b = 276.6026775, c = 212.0575042, p. 8), and the WKB value 212.0575041 is shown agreeing with them to 3.9e-10. Finding 1 now states the μ_0 and √G_0 shift."
+          },
+          {
+            "file": "comments/gr-qc_0007021.md",
+            "wrong": "It said the dimension-independence was 'our reading of its hypotheses, not a sentence of the paper'. The paper does state it (p. 6): 'No assumption will be made about the dimensionality of spacetime, i.e., our results hold in any spacetime dimension.' It also said the theorems 'stand as stated' and that 'every theorem stands as read', though they were not re-proved.",
+            "correct": "The p. 6 sentence is now quoted. The other wording is now 'nothing we found bears against Theorem 1, Lemma 1, Corollary 1 or Theorem 2; not re-proved' and 'it touches no theorem of the paper'."
+          },
+          {
+            "file": "comments/1711.00578.md",
+            "wrong": "The paper's '∼30 μJy', 'T_d ≃ 90 K', '∼5.5 × 10⁻⁷' and '∼10⁻³' were quoted without their ∼ and ≃ signs. 'What stands' could be read as confirming the belts, when the check covers only the arithmetic from printed inputs.",
+            "correct": "The quotes are now verbatim, with p. 5. The factor-of-two gap is set against the ≤6% agreement of the paper's other masses. A sentence now says that 'What stands' checks the calculation, not the detections."
+          },
+          {
+            "file": "comments/2504.00064.md",
+            "wrong": "It said the restatement of 'Ames, Andréasson and Logg's numerical result stands'. Those papers (refs. [11, 12]) were never read.",
+            "correct": "Now: the paper restates refs. [11, 12] (Ames, Andréasson and Logg); we did not read them and raise nothing against the restatement. Our K1-K2 computation (2p_t/σ = v², and v = 1 at 2M/R = 8/9) is cited as consistent with it."
+          },
+          {
+            "file": "comments/2007.14665.md",
+            "wrong": "'The main result ... stands' and 'The theorems stand as stated'. The adjudication records that the proofs were read, not machine-checked. It listed Lemma 5.7 among the results 'stated for ξ ≠ 1/6', but the lemma only carries (6ξ − 1)⁻¹ factors. It also left out that Sec. 5.2 itself announces the result 'for a fixed arbitrary coupling parameter ξ ≠ 1/6'.",
+            "correct": "Re-read at source through alphaXiv (2007.14665v1, pp. 1-34 as served). The comment now says 'we raise nothing against' the result and that the proof was read, not machine-checked. It lists Prop. 4.1, Prop. 4.2, Thm 4.4 and Prop. 5.8 as stated for ξ ≠ 1/6, gives Lemma 5.7's (6ξ − 1)⁻¹ separately, and quotes the Sec. 5.2 sentence (p. 33) and the p. 23 remark after Prop. 4.2."
+          },
+          {
+            "file": "comments/gr-qc_9506083.md",
+            "wrong": "(36) was called 'the asymptotic boundary of the stability region'. The paper prints it as region II, 'β_0² ≤ −1/2, a_0 > a_0⁻'. 'Every formula ... 45 of 45' counted checks on the tree as checks on the paper. 'Nothing else in the paper depends on it' was declared, not shown. The second discrepancy recorded in the shard was missing: Sec. IV writes 'β² = ∂σ/∂p = −1', the inverse of definition (23).",
+            "correct": "(36) is now quoted verbatim, with the (31) argument, the adjacent sentence and the verifier's computation at β² = −1/2. The 45-check count is separated from what bears on the paper. Finding 2 is added: the inverted derivative, a notation discrepancy that leaves the value unchanged because p = −σ."
+          },
+          {
+            "file": "comments/0907.5424.md",
+            "wrong": "The version date was missing. The uniqueness statement of Problem 1 was said to 'stand' though it was not re-derived. The finding had no page, and no quote had been checked at source in this draft.",
+            "correct": "Now arXiv:0907.5424v2 [hep-th], 30 Nov 2012. Eq. (109) was checked against the cached v2 text layer (p. 42). The uniqueness statement is now 'we raise nothing against it, read but not re-derived'. The FRW forms cite check C1."
+          },
+          {
+            "file": "comments/2512.15610.md",
+            "wrong": "The 'rescales the normalization' quote was attributed to the paper's flat-space discussion. The paper says it of the exterior Schwarzschild region and then adds that 'the same interpretation applies in the flat–spacetime limit'.",
+            "correct": "The attribution is fixed with both sentences quoted. Eqs. (4), (17) and (33) were checked against the cached v1 text layer, and (17)'s (1/2 + ξ) is confirmed."
+          },
+          {
+            "file": "comments/2004.12523.md",
+            "wrong": "The forward direction was credited to Hawking-Ellis only. The paper takes its Proposition 1 from Wald's Thm 9.3.8.",
+            "correct": "Wald Thm 9.3.8 is now named as the paper's source. The p. 4 and p. 11 quotes were re-read at source through alphaXiv (2004.12523v4) and match. R5 was re-run on its own and passes (the full script runs past 300 s)."
+          },
+          {
+            "file": "comments/gr-qc_0611123.md",
+            "wrong": "'a⁶ is the determinant of the spatial metric' is true only for k = 0 in Cartesian coordinates.",
+            "correct": "Now: 'a⁶ is the time-dependent factor of the determinant (the whole determinant for k = 0 in Cartesian coordinates)'."
+          },
+          {
+            "file": "comments/2606.01061.md",
+            "wrong": "'No journal version exists to our knowledge' is a claim about whether a journal version exists.",
+            "correct": "Now: 'No journal version was read or compared'."
+          }
+        ],
+        "fixed": [
+          "All 16 files are fixed in place under /home/user/Claude-Method-Works/research/warp-drive/docket67-raw/comments/. No other file was written, and nothing was committed, pushed, stashed, reset, checked out, sent or posted.",
+          "Verified with no change needed: 1508.07161.md. Every quote and number matches the cached 1508.07161v1 and 1404.3565v1 text layers (159.5 ± 1.5 at p. 1 and p. 9; 159.6 ± 0.1 ± 1.5 at p. 2 and p. 8; 159.58 ± 0.06 at p. 5; 159 ± 1 at 1404.3565 pp. 1, 3, 4) and adjudication items 2-3. 2606.01061.md was verified the same way apart from the one journal sentence: its (2.24)/(2.25) finding was re-derived in sympy here (literal form gives m(mr − m + 2r²)/(2r³); with r inside the bracket it gives m, and gives (2.27) for the star). Whether the PDF or the text extraction drops the r is still undetermined.",
+          "WRONG is still used only for the S half of GMMPS Thm 3.6 (2604.01047). That comment says the TT half and Prop. 3.1 stand. thm3.6.py was re-run (19 PASS); C1-C6 and the (3.21), p. 23 [w0]/[v0], p. 35 and p. 39 quotes were checked against the banked galanda.txt (md5 4bac4a94…). The 'cat' for 'cut' slip occurs on p. 62 as cited, and also on p. 45.",
+          "Re-run at verification: 2604.01047_thm3.6.py (ALL CHECKS BEHAVE AS STATED); 2604.01047_dispersion-s-tt.py (R and N2 pass, D1 fail only on moved tree line numbers); setting-thm1.2 log; amm .out lines 25-60; 1208.5399-sec1.3.out; sphaleron .out; acoustic-metric-analogue.py (24 ok); scratchpad gr-qc_0501105.py; gr-qc_0007021.out; schwarzschild-isotropic-vacuum.py (E5); 1711.00578.py; counter-rotating .out (K1-K2); gr-qc_9506083.py (45 PASS); frw-metric-k-minus1-and-k0.py (0 FAIL); stefan-boltzmann.py (0 FAIL); conjugate-point R5 alone (PASS); expansion-scalar-3h-flrw.py.",
+          "Re-checked at source: alphaXiv answer_pdf_queries on 2007.14665v1 and 2004.12523v4, with no 403 and no quota refusal. All other quotes were checked against the cached alphaXiv text layers in the audit scratchpad (d67/src/casmag/all/*.txt and d64/L4/galanda.txt). No paywall was approached.",
+          "For M: (1) GMMPS finding 4 now rests partly on the verifier's farzero.py note in shard11, a script that exists only in the scratchpad, as do gr-qc_0501105.py and the 81/81 AMM script. (2) The full conjugate-point-not-achronal.py takes more than 300 s, so only R5 was confirmed; the drafter's R7a observation was not re-checked. (3) The cached 1508.07161v1 text layer carries 'Dated: June 11, 2018', apparently a compile date; the arXiv stamp reads v1, 28 Aug 2015."
+        ]
+      },
+      {
+        "problems": [
+          {
+            "file": "/home/user/Claude-Method-Works/research/warp-drive/docket67-raw/comments/ICRP-23.md",
+            "wrong": "Said the .docx was 'saved in the repository as research/warp-drive/docket67-raw/reaudit2/icrp23_p273-334.docx'. No such file is in the repository.",
+            "correct": "The copy is in the session scratchpad (d67/reaudit2/icrp23_p273-334.docx, md5 09a25adf... confirmed). The repository's reaudit2/ holds only the scripts and records made from it."
+          },
+          {
+            "file": "/home/user/Claude-Method-Works/research/warp-drive/docket67-raw/comments/ICRP-23.md",
+            "wrong": "Gave the chlorine note as p. 288 and said the notes 'give a whole-body Cl of 98 g'.",
+            "correct": "The note is on p. 287 (a correction already in reaudit2/VERDICTS.json, and confirmed in the text layer). It cites Moore et al.'s 98 g of exchangeable chloride, which is 'approximately the same value as the sum of the chlorine content of individual organs', and Cotlove and Hogben's 84-94 g. That is consistent with the 95 g, not ICRP's own whole-body value."
+          },
+          {
+            "file": "/home/user/Claude-Method-Works/research/warp-drive/docket67-raw/comments/ICRP-23.md",
+            "wrong": "Summary said 'Every ICRP 23 value the research tree uses is confirmed at source'. In fact 14 of the values the tree labels ICRP differ from Table 110, because they are Emsley's. The draft also said the source had not been re-read.",
+            "correct": "Now says only that the values our work relies on (70 kg Reference Man, 11 bulk and 10 trace masses, the rounding rule) are confirmed. Records that this pass re-read the cached text layer (md5 unchanged) at the Cl and Na rows of Table 110, the p. 273 introduction and the p. 287 note. Cl 95 g / 0.12 and Na 100 g / 0.14 read as stated."
+          },
+          {
+            "file": "/home/user/Claude-Method-Works/research/warp-drive/docket67-raw/comments/2003.01815.md",
+            "wrong": "Cited Kontou 2405.05963v2 eq. (72) as being on p. 18, and said the squared factor appears in eqs. (74)-(75).",
+            "correct": "Read at source: eq. (72) is on p. 19. Eq. (75) has no (l·U) factor. The squared Fewster-Roman form is eq. (46) on p. 10, and the square reappears in eq. (74)."
+          },
+          {
+            "file": "/home/user/Claude-Method-Works/research/warp-drive/docket67-raw/comments/2003.01815.md",
+            "wrong": "Did not mention that the power of t0 in eq. (102) also disagrees with the review's own scaling. The draft also declared that the 'account stands' and listed Sec. 4.1, which was never read.",
+            "correct": "Added, labelled as noted in verification: with (62), the right-hand side should scale as t0^-4, as in the review's own (63). The printed t0^2 together with C = ∫dt f''(t/t0)^2 gives t0^-1, or t0^-2 under the other reading. Agreement is now limited to the parts read, and Sec. 4.1 is marked not read."
+          },
+          {
+            "file": "/home/user/Claude-Method-Works/research/warp-drive/docket67-raw/comments/2510.20843.md",
+            "wrong": "Said 'The paper's main result stands' and listed Theorems 3.0.2 and 3.0.5 under What stands, though no audit checked their proofs. Also left out a clear abstract-versus-body discrepancy.",
+            "correct": "The theorems are now under 'Not assessed'. Example 3.0.1 and the Lebesgue FTC restatement are kept. Added an in-passing discrepancy, labelled as not in the audit record: the abstract calls L1_G 'a strict subspace of L1(R)', but the constant 1 is in L1_G and not in L1. The body's own p. 2 argument and the p. 6 wording ('strict subspace of L1_loc') show the inclusion the other way. All of this was read at source."
+          },
+          {
+            "file": "/home/user/Claude-Method-Works/research/warp-drive/docket67-raw/comments/2504.05813.md",
+            "wrong": "Under What stands it declared the K variable (2.15), the evolution system (2.17)-(2.23) and the numerical results as standing 'on both branches', though none was re-derived. The Summary said 'The formalism and the numerical results stand'.",
+            "correct": "These are now under 'Not examined'. The comment instead states, verified at source, that the paper's own procedure avoids the + root: Gamma comes from (2.21), M from (2.24), and the initial Gamma from R'/B (printed p. 9)."
+          },
+          {
+            "file": "/home/user/Claude-Method-Works/research/warp-drive/docket67-raw/comments/1307.3536.md",
+            "wrong": "Said absolute stability 'is excluded at more than 2.5 sigma on every reading', with no restriction. At present inputs, through eq. (64), the cross-section top mass gives 1.67 sigma.",
+            "correct": "Restricted to the paper's 2013 inputs, in both the Summary and What stands. Added the present-input figures from rederive C5: 2.86 sigma (MC mass) and 1.67 sigma (cross-section mass), both still metastable."
+          },
+          {
+            "file": "/home/user/Claude-Method-Works/research/warp-drive/docket67-raw/comments/1308.1342.md",
+            "wrong": "Declared eq. (7) as standing without checking it, and said nothing about how far the eq. (9) slip could reach the PREM results. Called eq. (1) the general interior-field condition, though eq. (1) is the uniform-density case.",
+            "correct": "Eq. (7) checked by direct integration in this pass: relative differences 4e-7 at theta0 = 0.3 and 7e-4 at 1.0, consistent with O(theta0^6). Eq. (3) gives 38.0 min. Added, from the source: the paper's own fit alpha = 1.97 ± 0.02 puts PREM near M ∝ r^2, where (8)-(9) are exact, and the appendix's uniform-density time gives 42 min, the value of the correct potential. The eq. (1) wording is fixed. Fig. 7 is noted as seen only as a caption."
+          },
+          {
+            "file": "/home/user/Claude-Method-Works/research/warp-drive/docket67-raw/comments/0706.0553.md",
+            "wrong": "Listed Sec. II and Sec. III under 'What stands' while saying in the same place that they are not assessed.",
+            "correct": "Moved them to a separate 'Not assessed' section, together with the invariant-length proposal."
+          },
+          {
+            "file": "/home/user/Claude-Method-Works/research/warp-drive/docket67-raw/comments/gr-qc_9510071.md",
+            "wrong": "Credited the paper with 'the observation that the capped Casimir density meets the bound only at the cap'. That is the audit's inference, not the paper's statement.",
+            "correct": "Replaced with the paper's verbatim p. 6 conclusion ('if we restrict tau0 < 0.42 l1 ... the Minkowski space quantum inequality also holds in the compactified spacetime'), with the re-derived 0.456190 L and 0.424533."
+          },
+          {
+            "file": "/home/user/Claude-Method-Works/research/warp-drive/docket67-raw/comments/1710.07223.md",
+            "wrong": "Said 'The paper's inputs and its estimate stand as stated', although the physics behind the estimate cannot be checked here. It also gave no account of the factor 3/2 that the rederive output records for the near-threshold form (41).",
+            "correct": "Now says the inputs and the phase-space arithmetic check, and that the physical argument is not checked either way. Noted as information, not a finding, that (41) is 3/2 below the exact d = 4 fraction, within its '~'. The source was re-read: E0 ≈ 15 TeV on p. 4, inputs on p. 1, and Sec. XI uses d ≈ 4 and E_sph = 9.0 TeV."
+          },
+          {
+            "file": "/home/user/Claude-Method-Works/research/warp-drive/docket67-raw/comments/gr-qc_9702026.md",
+            "wrong": "The Summary stated the energy conclusion with no restriction, while What stands (and the audit) limit it to the spherical Alcubierre bubble.",
+            "correct": "The Summary now says 'for the spherical Alcubierre bubble it treats'."
+          },
+          {
+            "file": "/home/user/Claude-Method-Works/research/warp-drive/docket67-raw/comments/0708.2450.md",
+            "wrong": "Said 'the authors have already noted it in Fewster and Kontou', but Osterbrink is not an author of 1809.05047. It also left out the recorded conservative-constant discrepancies in Sec. 3.",
+            "correct": "Now reads 'already noted in Fewster and Kontou (footnote 4)'. Added an in-passing note: the j threshold is 16 = 2^4 larger than needed and (34) is loose by a factor 2, and both remain true as printed (rederive/0708.2450.out; shard03 rederivation)."
+          },
+          {
+            "file": "/home/user/Claude-Method-Works/research/warp-drive/docket67-raw/comments/gr-qc_9701064.md",
+            "wrong": "The phrase 'differs from the printed 16 by exactly -100 f'^2 f''/f^3' was unclear about direction. It called both far-zone statements 'true', which an integration to 1e5 K cannot show. It gave no account of the NARROWED (a,b) far-zone fit or the ripple-size tension.",
+            "correct": "Now says the printed 16 is 100 below the conserving 116. The far-zone statements are called consistent, and the first is borne out by integration as far as a finite run can show. Added a 'Not included' section: the (a,b) law and the ripple size depend on which system HPS integrated, which could not be determined, and the NARROWED grade records the tree's use, so neither is put to the authors. The text layer was re-read: md5 a5f55d32 unchanged; eq. (5) +16, eq. (6) -4 f'^2 r'^2/(f^2 r), footnote [22] and the p. 8 sentences all as quoted."
+          },
+          {
+            "file": "/home/user/Claude-Method-Works/research/warp-drive/docket67-raw/comments/2405.05963.md",
+            "wrong": "Called the 200-300 l_P local solutions 'exhibited values' of HPS. HPS only mention them, and they use other xi and other boundary data.",
+            "correct": "Reworded to 'the other values HPS state ... which use other values of xi and other boundary data'. The p. 19 quote, the v2 date (8 Jul 2024) and r0 = 1/sqrt(540 pi) = 0.0243 l_P were verified."
+          }
+        ],
+        "fixed": [
+          "Checked all 16 drafts. 15 were edited in place. 1808.08677, 2505.02210 and 0909.5539 needed no correction: every number re-derived and was confirmed at source. No other file was written apart from scratch files outside the repository. Nothing was committed, pushed, sent or posted.",
+          "Re-checked at source through alphaXiv answer_pdf_queries on 2026-10-04, open content only: 1710.07223v1, gr-qc/9510071v1, 2504.05813v3, 1308.1342v1, 0706.0553v1, 2510.20843v2, 2003.01815v2, 2405.05963v2, 1808.08677v2 and 0909.5539v2. Every quoted sentence and equation used in the drafts matched, apart from the page and equation errors listed. The HPS cached text layer (md5 a5f55d32..., unchanged) and the FO cache (md5 5ef2edee...) were re-read. The ICRP 23 Chapter 2 .docx (md5 09a25adf..., in the scratchpad) was re-read. No sagepub or other paywalled route was attempted. The earlier 403 on the ICRP PDF stands as reported.",
+          "Re-ran or re-derived the numbers: HPS C1-C10 output, including (116, 21) unique, 24 x Bach, r0 = 0.02428 and 67.26 l_P; FO B1-B5, including 0.222817 against 0.6117, and the 4/(3pi) versus 1/(2pi) split checked by hand; TW E0 = 18.47 TeV and the d = 4 hypergeometric reduction; chiQCD 32.10/36.15/22.75 and 68.25 against 69.0; the 2505.02210 C10a numbers; PF 3.19e70, 6.94e65 g, 2.06e5 M_sun, 0.56 M_sun and v_b = 1.95e-3 (with Delta at the bound); FR pi^2/90, 0.5425 L, 0.5049 l1 and the EM matched cap (script re-run, ALL PASS); BDGGSSS 1.74, 171.115, 0.313/0.433, 99.744 %, 2.457, z = 2.93/2.54; Lobo residuals 12.56/0.685/0.0757, rho 0.815 to 2.278, and df/dR = -5 (script re-run, ALL PASS; (29) = -RF checked by substitution); Fearn 1.587e-32 at 1 um, 1.23e-32 from the paper's own p. 6 formula, 1.6e4 at 1 fm; Klotz 11.19/7.91 km/s, eq. (7) by numerical quadrature, 38.0 and 42.2 min; ICRP 95/70000 = 0.136 %.",
+          "Confirmed throughout: no source is called wrong (none of the 16 has a WRONG grade). Every finding is labelled a discrepancy and stated against the named arXiv version, or for ICRP the named OCR copy. No journal-version claim is made. Kuo & Ford is not among these keys.",
+          "Three findings were added beyond the audit record, each labelled 'noted in the verification re-read, not in the audit record' and each shown by a one-line computation read against the source: the t0 power in Kontou-Sanders eq. (102); the 2510.20843 abstract's 'strict subspace of L1(R)'; and, as information only, the factor 3/2 under the '~' of TW eq. (41). The orchestrator may wish to have these confirmed before seating."
+        ]
+      },
+      {
+        "problems": [
+          {
+            "file": "research/warp-drive/docket67-raw/comments/hep-th_0302039.md",
+            "wrong": "The summary said \"Appendix B stands\" outright, and \"What stands\" gave the agreement of the non-log parts with HPS 1997 and their anomaly trace with no scope or limit. The adjudication covers only xi = 1/6, m = 0, and it computes that conservation plus the trace leave 7 non-scale directions undetermined. The PRD citation was given as fact, but it rests only on a WebSearch listing.",
+            "correct": "The comment now says what we checked of Appendix B stands at xi = 1/6, m = 0, and that the (xi-1/6) and m^2 brackets were not checked. Agreement and the trace are stated as consistency, not uniqueness, citing adjudication decision (3), with 'nothing found calls any shared term into question'. The journal reference is marked as a listing only. 'Wrong bracket' is reworded."
+          },
+          {
+            "file": "research/warp-drive/docket67-raw/comments/hep-ph_9410274.md",
+            "wrong": "Finding 1 said \"We do not suggest a cause\" and then suggested one (300 chosen to make the column sum to 940). It also called p.6's 5-10 MeV the allowance for omitted higher-order effects only, but p.6 gives it for those effects together with the errors on the sigma-term and the quark masses. Finding 2 cited rederive/hep-ph_9410274.py as showing the Eq. (31) item, but the script does not test Eq. (31).",
+            "correct": "The speculation is removed. The p.6 caveat is quoted as printed, re-read in the v1 text layer. The script is now cited only for the inputs and the Table I arithmetic, with a note that it does not test Eq. (31). The arithmetic was re-checked: 307.3 -> 310, 0.707 against 0.77, ratio 0.1198."
+          },
+          {
+            "file": "research/warp-drive/docket67-raw/comments/gr-qc_0003025.md",
+            "wrong": "The draft claimed \"the full 25 pages\" were read, but the text layer has 24 pages and the audits read Sects. 2.1-2.3 and 5. It gave an unverified v1 date of 7 Mar 2000. It stated the ANEC cases without BV's complete-geodesic and T_eff conditions, which are load-bearing (D2 gives I = -0.0025 on a segment). It said the existence result 'stands' though it was never re-run.",
+            "correct": "Version line now reads 'stamped 14 Jul 2000'. The ANEC item carries T_eff, complete null geodesics and asymptotic fall-off, with checks A, B and D cited. The existence result is stated as 'we raise nothing against it; we did not re-run it numerically'. The max/min swap itself was re-verified from the eq. (2.6) text."
+          },
+          {
+            "file": "research/warp-drive/docket67-raw/comments/0911.1955.md",
+            "wrong": "It quoted only P(chi2 > 17.9) = 0.268 for 'either chi2' and never computed P for 18.07. 'So do the hypotheses behind it' reads as if hypotheses could stand.",
+            "correct": "P(chi2 > 18.07 | 15) = 0.259 was computed and added. Table 2 was re-read live (v2, 10 Nov 2009): all 16 rows match the transcription. The recomputation re-ran: mean 2.725486, 0.5732 mK, chi2 18.07, FIRAS weight 0.978, largest pull 2.30. The wording is now 'stands, under the hypotheses the paper states'."
+          },
+          {
+            "file": "research/warp-drive/docket67-raw/comments/gr-qc_9802046.md",
+            "wrong": "It said 'the paper's main result stands' without limit, but only the spherically symmetric form (eqs. 72-77) was recomputed, and HV's theorem assumes no symmetry. Item 5 did not note that the sentence directly follows the observation that only theta- (expanding) or theta+ (collapsing) can vanish, which supports the 'one kind' reading.",
+            "correct": "Now reads 'we raise nothing against' the theorem, adds 'or on the verge' for simple flare-out, and says it was recomputed in spherical symmetry only. Item 5 now gives the context, read in the v2 text layer, and says the sentence is correct on the 'one kind' reading. The script re-ran: 0 unexpected FAIL; r* = 1.03528 and 3.86370; -4.1920 and -5.0580."
+          },
+          {
+            "file": "research/warp-drive/docket67-raw/comments/gr-qc_0208045.md",
+            "wrong": "The summary stated the no-go with no field or state qualifier, which repeats the very scope drift the shard records.",
+            "correct": "The summary now reads 'For the massless minimally coupled scalar ... no state-independent spatially averaged QI'. Item 2 adds the paper's own 'approximately constant over the region' gloss. The script re-ran with 0 FAIL: first zero 3.8703, rho < 0 for p0 r below 3.80-3.86, coefficient match to 1.15e-8. The Eq. (5)/(10) quotes were verified in the text layer."
+          },
+          {
+            "file": "research/warp-drive/docket67-raw/comments/2007.14311.md",
+            "wrong": "It said the definition of X2 (eq. 133) 'was not in the pages read', but eq. 133 is on p.29 of the text layer and a verifier read (131) and (133) at source. It argued the a^-4 power holds 'whatever the value of X2', which is false, since (133) gives X2 = 4 pi^2 a^4 S2 + (1+10c-15c^2)/120. It cited C6's dimension check, which is a hard-coded dict. It omitted the verifiers' wider page reads. The Cor. 5.2(3) z3 check was called a proof, and the spectrum was presented as read.",
+            "correct": "The finding is rebuilt on the computed scaling argument (verifier V9): every Y2 term scales as lambda^-4 and the printed term as lambda^-2. It adds the X2 = 1/120 consistency and eq. (133)'s constant part 1/120 at c = 0, with S2 (p.27) flagged as unread. The verifiers' pages are listed. Cor. 5.2(3) is now a finite N = 2, 4, 8 check, and the spectrum is marked as reconstructed, with eqs. (86)-(87) not read."
+          },
+          {
+            "file": "research/warp-drive/docket67-raw/comments/2011.10991.md",
+            "wrong": "\"What stands\" claimed the quasi-local energy and buoyancy results of 'Sec. 6 and the Appendix, eqs. (64)-(72)', but none of them was re-derived and buoyancy is Sec. 8.1, not Sec. 6. 'A journal version exists' was inferred from thanks to referees. Eq. (36) was said to 'stand' without its premise (32) and order.",
+            "correct": "Now reads 'We raise nothing against them; we did not re-derive them (Sec. 8, 8.1, Appendix)'. The journal point is softened to 'suggests a refereed version exists'. Eq. (36) stands under (32) at the paper's order. Eq. (33) is located in Sec. 6, as verified in the text layer."
+          },
+          {
+            "file": "research/warp-drive/docket67-raw/comments/2309.05759.md",
+            "wrong": "Dreissen's Table 1 figures (3.9-9.3)e-21 were phrased as if they were the bounds themselves; they are 1-sigma uncertainties. 'Which is in error' was a needless judgement.",
+            "correct": "Reworded to 'with 1-sigma uncertainties of (3.9-9.3)e-21', noting that KN's ~1e-21 matches the abstract's 'level'. The softened wording asks which of the two the authors would amend. Every figure was re-derived by mpmath: I(0) = -zeta(3)/4; I(1-b^2)^{3/2} = -0.3771, -0.5136, -0.5870, -0.5994, -0.6009 against -zeta(3)/2 = -0.6010; ratios 3.549 and 54.05. The limit -zeta(3)/2 was confirmed analytically (-3 sqrt(pi) x zeta(3)/(6 sqrt(pi)))."
+          },
+          {
+            "file": "research/warp-drive/docket67-raw/comments/0802.0658.md",
+            "wrong": "It called Sec. 5.2.1 a 'finiteness analysis'; it is about the divergent coincidence limit. It gave the 1/105 smeared value as though it were the paper's result. It did not say that the N~_c'd' term was taken as the x<->y mirror of (5.31) because it was not printed on the pages read.",
+            "correct": "Reworded to 'account of the coincidence limit (flat, vacuum, m = 0; curved Hadamard case not checked)'. The 1/105 is marked as our own computation, not the paper's claim. The mirror assumption is stated."
+          },
+          {
+            "file": "research/warp-drive/docket67-raw/comments/1410.0665.md",
+            "wrong": "The version line claimed pp. 1-21 were read in this stage, but the text layer has 20 pages and was not re-fetched. 'Wrong way round' was blunt.",
+            "correct": "Version line now: cached text layer, read in full by the audit, not re-fetched this stage. Wording is now 'comparison inverted'. The p.2, p.19 and p.20 quotes were verified verbatim."
+          },
+          {
+            "file": "research/warp-drive/docket67-raw/comments/2005.10656.md",
+            "wrong": "It said the T0 inferences 'stand' though no fit was re-run. It omitted the paragraph's own rounded route: Delta T0 = 0.16 K with +-0.05 gives 3.20 sigma.",
+            "correct": "Now reads 'We raise nothing against ... we did not re-run the fits'. The 3.20-sigma route is added. All quotes and Table I were re-read live (v2, 9 Jul 2020), and 3.30, 3.17, 3.23 and 3.31 were re-computed."
+          }
+        ],
+        "fixed": [
+          "research/warp-drive/docket67-raw/comments/hep-th_0302039.md",
+          "research/warp-drive/docket67-raw/comments/hep-ph_9410274.md",
+          "research/warp-drive/docket67-raw/comments/gr-qc_0003025.md",
+          "research/warp-drive/docket67-raw/comments/0911.1955.md",
+          "research/warp-drive/docket67-raw/comments/gr-qc_9802046.md",
+          "research/warp-drive/docket67-raw/comments/gr-qc_0208045.md",
+          "research/warp-drive/docket67-raw/comments/2007.14311.md",
+          "research/warp-drive/docket67-raw/comments/2011.10991.md",
+          "research/warp-drive/docket67-raw/comments/2309.05759.md",
+          "research/warp-drive/docket67-raw/comments/0802.0658.md",
+          "research/warp-drive/docket67-raw/comments/1410.0665.md",
+          "research/warp-drive/docket67-raw/comments/2005.10656.md",
+          "VERIFIED WITHOUT CHANGE: 1809.06923.md (the p.3 'any destroying' sentence and the p.38 and p.54 parallels re-read in the v2 text layer; matches the adjudication), 0909.0948.md (pp.18-19 Cd sentences and Table 1, including W, Os and the single Cd 1.71 +- 0.03, re-read live through alphaXiv; p.25 '45 elements, 0.00 +- 0.05' and p.9 'factor of 150' confirmed), 1004.1456.md (eqs. 76-77 and the '8 pi G_ab = T_ab' text confirmed; 2/(8 pi) = 1/(4 pi), ratio 64 pi^2), 2101.10693.md (Cline arithmetic re-done: light share 0.100, heavy share 0.200 at f_N = 0.30; scope and wording on footnote 2 appropriate).",
+          "SCRIPTS RE-RUN THIS STAGE: rederive/hep-th_0302039_seciv.py (ALL PASS), rederive/hep-ph_9410274.py (A-E pass), rederive/gr-qc_9802046.py (FAILED: none; 2 expected FAILs), rederive/gr-qc_0208045.py (0 FAIL), and the scratchpad Fixsen Table 2 recomputation. Kabat-Nomura I_gravity was recomputed independently with mpmath.",
+          "SOURCE ROUTES: alphaXiv answer_pdf_queries live for 0909.0948v1, 2005.10656v2 and 0911.1955v2. Cached alphaXiv text layers in scratchpad d67/src/casmag/all/ for the others. No 403 and no paywall met.",
+          "No source has a WRONG grade among these 16; nothing is called wrong, and no journal claim is made (the Kuo & Ford exception does not apply). Nothing was committed, pushed, sent or posted; only the 12 named comment files were edited, all still untracked under research/warp-drive/docket67-raw/comments/."
+        ]
+      }
+    ]
+  },
+  "workflowProgress": [
+    {
+      "type": "workflow_phase",
+      "index": 1,
+      "title": "Census"
+    },
+    {
+      "type": "workflow_phase",
+      "index": 2,
+      "title": "Draft"
+    },
+    {
+      "type": "workflow_phase",
+      "index": 3,
+      "title": "Verify"
+    },
+    {
+      "type": "workflow_agent",
+      "index": 1,
+      "label": "census",
+      "phaseIndex": 1,
+      "phaseTitle": "Census",
+      "agentId": "a6b6cdfaef872a6f1",
+      "model": "claude-opus-5-5",
+      "state": "done",
+      "startedAt": 1791115128004,
+      "queuedAt": 1791115127955,
+      "attempt": 1,
+      "lastToolName": "StructuredOutput",
+      "promptPreview": "M's warp-drive research tree. M ruled the order \"1 then 2 then 3 then 4\"; this is step 3: the DOCKET 67 per-source\ncomments. Read /home/user/Claude-Method-Works/research/warp-drive/docket67-raw/COMMENTS-PLAN.md first: M's three decisions verbatim -- one comment per source; \"Comment on each\"\n(every source with a WRONG grade or a recorded discrepancy); \"arXiv is the object\" (every finding stated aga…",
+      "promptFramed": true,
+      "lastProgressAt": 1791116618279,
+      "tokens": 560106,
+      "toolCalls": 75,
+      "durationMs": 1490273,
+      "resultPreview": "{\"sources\":[{\"key\":\"gr-qc/9304008\",\"paper\":\"C.-I. Kuo & L. H. Ford, 'Semiclassical gravity theory and quantum fluctuations' (Phys. Rev. D 47, 4510 (1993))\",\"version_read\":\"arXiv gr-qc/9304008v1 (6 Apr 1993; TUTP-93-1), PDF text layer via alphaXiv (cached harvest md5 f1a6628604751cf61b2a4bd411b00153; re-read at source in the adjudication pass); page images not viewed. Journal version: COMPARED-BY-M…"
+    },
+    {
+      "type": "workflow_agent",
+      "index": 2,
+      "label": "draft-0",
+      "phaseIndex": 2,
+      "phaseTitle": "Draft",
+      "agentId": "a98e2c0130a0e2d74",
+      "model": "claude-opus-5-5",
+      "state": "done",
+      "startedAt": 1791116622043,
+      "queuedAt": 1791116622003,
+      "attempt": 1,
+      "lastToolName": "StructuredOutput",
+      "promptPreview": "M's warp-drive research tree. M ruled the order \"1 then 2 then 3 then 4\"; this is step 3: the DOCKET 67 per-source\ncomments. Read /home/user/Claude-Method-Works/research/warp-drive/docket67-raw/COMMENTS-PLAN.md first: M's three decisions verbatim -- one comment per source; \"Comment on each\"\n(every source with a WRONG grade or a recorded discrepancy); \"arXiv is the object\" (every finding stated aga…",
+      "promptFramed": true,
+      "lastProgressAt": 1791117673865,
+      "tokens": 513815,
+      "toolCalls": 84,
+      "durationMs": 1051815,
+      "resultPreview": "{\"files\":[\"/home/user/Claude-Method-Works/research/warp-drive/docket67-raw/comments/gr-qc_9304008.md\",\"/home/user/Claude-Method-Works/research/warp-drive/docket67-raw/comments/2309.10848.md\",\"/home/user/Claude-Method-Works/research/warp-drive/docket67-raw/comments/hep-ph_9603208.md\",\"/home/user/Claude-Method-Works/research/warp-drive/docket67-raw/comments/1609.03449.md\",\"/home/user/Claude-Method-W…"
+    },
+    {
+      "type": "workflow_agent",
+      "index": 3,
+      "label": "draft-1",
+      "phaseIndex": 2,
+      "phaseTitle": "Draft",
+      "agentId": "a438b7806b2de1bfc",
+      "model": "claude-opus-5-5",
+      "state": "done",
+      "startedAt": 1791116622048,
+      "queuedAt": 1791116622003,
+      "attempt": 1,
+      "lastToolName": "StructuredOutput",
+      "promptPreview": "M's warp-drive research tree. M ruled the order \"1 then 2 then 3 then 4\"; this is step 3: the DOCKET 67 per-source\ncomments. Read /home/user/Claude-Method-Works/research/warp-drive/docket67-raw/COMMENTS-PLAN.md first: M's three decisions verbatim -- one comment per source; \"Comment on each\"\n(every source with a WRONG grade or a recorded discrepancy); \"arXiv is the object\" (every finding stated aga…",
+      "promptFramed": true,
+      "lastProgressAt": 1791117777082,
+      "tokens": 446123,
+      "toolCalls": 96,
+      "durationMs": 1150564,
+      "resultPreview": "{\"files\":[\"/home/user/Claude-Method-Works/research/warp-drive/docket67-raw/comments/2604.01047.md\",\"/home/user/Claude-Method-Works/research/warp-drive/docket67-raw/comments/1208.5399.md\",\"/home/user/Claude-Method-Works/research/warp-drive/docket67-raw/comments/1612.05431.md\",\"/home/user/Claude-Method-Works/research/warp-drive/docket67-raw/comments/1508.07161.md\",\"/home/user/Claude-Method-Works/res…"
+    },
+    {
+      "type": "workflow_agent",
+      "index": 4,
+      "label": "draft-2",
+      "phaseIndex": 2,
+      "phaseTitle": "Draft",
+      "agentId": "aa9ac9aa62cc8484e",
+      "model": "claude-opus-5-5",
+      "state": "done",
+      "startedAt": 1791117676725,
+      "queuedAt": 1791116622004,
+      "attempt": 1,
+      "lastToolName": "StructuredOutput",
+      "promptPreview": "M's warp-drive research tree. M ruled the order \"1 then 2 then 3 then 4\"; this is step 3: the DOCKET 67 per-source\ncomments. Read /home/user/Claude-Method-Works/research/warp-drive/docket67-raw/COMMENTS-PLAN.md first: M's three decisions verbatim -- one comment per source; \"Comment on each\"\n(every source with a WRONG grade or a recorded discrepancy); \"arXiv is the object\" (every finding stated aga…",
+      "promptFramed": true,
+      "lastProgressAt": 1791118683268,
+      "tokens": 471235,
+      "toolCalls": 90,
+      "durationMs": 1006542,
+      "resultPreview": "{\"files\":[\"/home/user/Claude-Method-Works/research/warp-drive/docket67-raw/comments/gr-qc_9701064.md\",\"/home/user/Claude-Method-Works/research/warp-drive/docket67-raw/comments/0708.2450.md\",\"/home/user/Claude-Method-Works/research/warp-drive/docket67-raw/comments/1710.07223.md\",\"/home/user/Claude-Method-Works/research/warp-drive/docket67-raw/comments/1808.08677.md\",\"/home/user/Claude-Method-Works/…"
+    },
+    {
+      "type": "workflow_agent",
+      "index": 5,
+      "label": "draft-3",
+      "phaseIndex": 2,
+      "phaseTitle": "Draft",
+      "agentId": "a2b3d50d690496641",
+      "model": "claude-opus-5-5",
+      "state": "done",
+      "startedAt": 1791117779874,
+      "queuedAt": 1791116622004,
+      "attempt": 1,
+      "lastToolName": "StructuredOutput",
+      "promptPreview": "M's warp-drive research tree. M ruled the order \"1 then 2 then 3 then 4\"; this is step 3: the DOCKET 67 per-source\ncomments. Read /home/user/Claude-Method-Works/research/warp-drive/docket67-raw/COMMENTS-PLAN.md first: M's three decisions verbatim -- one comment per source; \"Comment on each\"\n(every source with a WRONG grade or a recorded discrepancy); \"arXiv is the object\" (every finding stated aga…",
+      "promptFramed": true,
+      "lastProgressAt": 1791118866784,
+      "tokens": 369886,
+      "toolCalls": 101,
+      "durationMs": 1086909,
+      "resultPreview": "{\"files\":[\"/home/user/Claude-Method-Works/research/warp-drive/docket67-raw/comments/hep-th_0302039.md\",\"/home/user/Claude-Method-Works/research/warp-drive/docket67-raw/comments/hep-ph_9410274.md\",\"/home/user/Claude-Method-Works/research/warp-drive/docket67-raw/comments/gr-qc_0003025.md\",\"/home/user/Claude-Method-Works/research/warp-drive/docket67-raw/comments/0911.1955.md\",\"/home/user/Claude-Metho…"
+    },
+    {
+      "type": "workflow_agent",
+      "index": 6,
+      "label": "verify-0",
+      "phaseIndex": 3,
+      "phaseTitle": "Verify",
+      "agentId": "a69a773bf9eb7b451",
+      "model": "claude-opus-5-5",
+      "state": "done",
+      "startedAt": 1791118686403,
+      "queuedAt": 1791117676769,
+      "attempt": 1,
+      "lastToolName": "StructuredOutput",
+      "promptPreview": "M's warp-drive research tree. M ruled the order \"1 then 2 then 3 then 4\"; this is step 3: the DOCKET 67 per-source\ncomments. Read /home/user/Claude-Method-Works/research/warp-drive/docket67-raw/COMMENTS-PLAN.md first: M's three decisions verbatim -- one comment per source; \"Comment on each\"\n(every source with a WRONG grade or a recorded discrepancy); \"arXiv is the object\" (every finding stated aga…",
+      "promptFramed": true,
+      "lastProgressAt": 1791119500147,
+      "tokens": 520830,
+      "toolCalls": 85,
+      "durationMs": 813743,
+      "resultPreview": "{\"problems\":[{\"file\":\"/home/user/Claude-Method-Works/research/warp-drive/docket67-raw/comments/gr-qc_9304008.md\",\"wrong\":\"Finding 3's proportion gave 'Δ > 1 in 27.4%' without saying what the count includes. The evidence (qualitative-conclusion.out, C7) states it includes the cells where ⟨:T₀₀²:⟩ < 0.\",\"correct\":\"'Δ > 1 in 27.4% (this count includes the cells where ⟨:T₀₀²:⟩ < 0, which the normal-or…"
+    },
+    {
+      "type": "workflow_agent",
+      "index": 7,
+      "label": "verify-1",
+      "phaseIndex": 3,
+      "phaseTitle": "Verify",
+      "agentId": "a4ab89c168e556763",
+      "model": "claude-opus-5-5",
+      "state": "done",
+      "startedAt": 1791118877924,
+      "queuedAt": 1791117779908,
+      "attempt": 1,
+      "lastToolName": "StructuredOutput",
+      "promptPreview": "M's warp-drive research tree. M ruled the order \"1 then 2 then 3 then 4\"; this is step 3: the DOCKET 67 per-source\ncomments. Read /home/user/Claude-Method-Works/research/warp-drive/docket67-raw/COMMENTS-PLAN.md first: M's three decisions verbatim -- one comment per source; \"Comment on each\"\n(every source with a WRONG grade or a recorded discrepancy); \"arXiv is the object\" (every finding stated aga…",
+      "promptFramed": true,
+      "lastProgressAt": 1791120561584,
+      "tokens": 359540,
+      "toolCalls": 109,
+      "durationMs": 1683658,
+      "resultPreview": "{\"problems\":[{\"file\":\"comments/2604.01047.md\",\"wrong\":\"Finding 3: '(64π)⁻¹ would give 5.92 × 10⁻³ eV, which is 24.1% lower' was placed right after the 7.885 × 10⁻³ eV figure. The 24.1% is measured against the printed 7.8 × 10⁻³. Against 7.885 × 10⁻³ the gap is 24.9%, i.e. a factor π^(-1/4) (shard02 verifier note).\",\"correct\":\"Now states both: 24.1% below the printed 7.8 × 10⁻³ eV and 24.9% below t…"
+    },
+    {
+      "type": "workflow_agent",
+      "index": 8,
+      "label": "verify-2",
+      "phaseIndex": 3,
+      "phaseTitle": "Verify",
+      "agentId": "ace7986769ebbfa39",
+      "model": "claude-opus-5-5",
+      "state": "done",
+      "startedAt": 1791119502834,
+      "queuedAt": 1791118686438,
+      "attempt": 1,
+      "lastToolName": "StructuredOutput",
+      "promptPreview": "M's warp-drive research tree. M ruled the order \"1 then 2 then 3 then 4\"; this is step 3: the DOCKET 67 per-source\ncomments. Read /home/user/Claude-Method-Works/research/warp-drive/docket67-raw/COMMENTS-PLAN.md first: M's three decisions verbatim -- one comment per source; \"Comment on each\"\n(every source with a WRONG grade or a recorded discrepancy); \"arXiv is the object\" (every finding stated aga…",
+      "promptFramed": true,
+      "lastProgressAt": 1791120412853,
+      "tokens": 466585,
+      "toolCalls": 79,
+      "durationMs": 910018,
+      "resultPreview": "{\"problems\":[{\"file\":\"/home/user/Claude-Method-Works/research/warp-drive/docket67-raw/comments/ICRP-23.md\",\"wrong\":\"Said the .docx was 'saved in the repository as research/warp-drive/docket67-raw/reaudit2/icrp23_p273-334.docx'. No such file is in the repository.\",\"correct\":\"The copy is in the session scratchpad (d67/reaudit2/icrp23_p273-334.docx, md5 09a25adf... confirmed). The repository's reaudi…"
+    },
+    {
+      "type": "workflow_agent",
+      "index": 9,
+      "label": "verify-3",
+      "phaseIndex": 3,
+      "phaseTitle": "Verify",
+      "agentId": "af7860649970c95ee",
+      "model": "claude-opus-5-5",
+      "state": "done",
+      "startedAt": 1791120415410,
+      "queuedAt": 1791118877972,
+      "attempt": 1,
+      "lastToolName": "StructuredOutput",
+      "promptPreview": "M's warp-drive research tree. M ruled the order \"1 then 2 then 3 then 4\"; this is step 3: the DOCKET 67 per-source\ncomments. Read /home/user/Claude-Method-Works/research/warp-drive/docket67-raw/COMMENTS-PLAN.md first: M's three decisions verbatim -- one comment per source; \"Comment on each\"\n(every source with a WRONG grade or a recorded discrepancy); \"arXiv is the object\" (every finding stated aga…",
+      "promptFramed": true,
+      "lastProgressAt": 1791121160424,
+      "tokens": 300483,
+      "toolCalls": 79,
+      "durationMs": 745014,
+      "resultPreview": "{\"problems\":[{\"file\":\"research/warp-drive/docket67-raw/comments/hep-th_0302039.md\",\"wrong\":\"The summary said \\\"Appendix B stands\\\" outright, and \\\"What stands\\\" gave the agreement of the non-log parts with HPS 1997 and their anomaly trace with no scope or limit. The adjudication covers only xi = 1/6, m = 0, and it computes that conservation plus the trace leave 7 non-scale directions undetermined.…"
+    }
+  ],
+  "totalTokens": 4008603,
+  "totalToolCalls": 798
+}
