@@ -390,3 +390,8 @@ Appended; nothing above this note was changed. Two application lines in the sect
   AME2020); the periodic table's standard atomic weight, an isotope mean, is carried as the alternative **PT-AVERAGE**
   (**H-PT-WEIGHT**; CIAAW 2024 as DOCKET 67's raw audit read it, NAMED-NOT-READ at source this pass -- ciaaw.org 403).
   No verdict moves on the choice (Q1s-signed.md § 10).
+
+**Dated note (2026-10-04), appended; nothing above edited.** The question this charter records as "asked of M and
+unanswered" -- whether to record emtension.py's ENTANGLED_BRIDGE_IS_TRAVERSABLE against Maldacena & Susskind
+arXiv:1306.0533v2 -- had been answered on 2026-10-02 before this charter was written: M, "Record it (Recommended)".
+Recorded verbatim in M-RULINGS-2026-10-03.md item 14 and in the ledger as M-D68-C12; emtension.py carries the record.

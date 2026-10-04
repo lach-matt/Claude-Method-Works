@@ -323,9 +323,12 @@ asked of combine.Screen at run time, for the variants D68_VARIANTS names.
        row) and D23 (S5's channel, and N_VAC, the pair supply wave 2 reads).
   RULED_BY_M  M-D68-1..11 (M-RULINGS-2026-10-03.md, items 1-11; item 11, M's
        novelty gate on the paper, recorded 2026-10-04 and ADDED by the
-       residuals) and the charter's rulings M-D68-C1, C2, C3, C5 and C8
+       residuals), the charter's rulings M-D68-C1, C2, C3, C5 and C8
        (open after D67; the 12-vector; deterministic drift; consider both 1
-       and 2; negative probabilities and Q-1s), each with M's words
+       and 2; negative probabilities and Q-1s), and M-D68-C12 (record the
+       ER = EPR source in emtension.py: ruled 2026-10-02, before DOCKET 68
+       opened, and applied that day; M-RULINGS-2026-10-03.md item 14 holds
+       the question and M's answer verbatim), each with M's words
        verbatim, held once in D68_M_WORDS and checked by the selftest
        against the tree's own copy (M-RULINGS-2026-10-03.md or CHARTER.md),
        the question as the tree records it, the option taken and what was
@@ -354,9 +357,16 @@ asked of combine.Screen at run time, for the variants D68_VARIANTS names.
        index3.py's DOCKET 68 rows must occur verbatim in CHARTER.md or
        M-RULINGS-2026-10-03.md.  ADDED by the residuals: the D23 note first
        printed M's words emended.
-  PENDING  M-D68-P1: whether to record emtension.py's
+  PENDING  none.  M-D68-P1 -- whether to record emtension.py's
        ENTANGLED_BRIDGE_IS_TRAVERSABLE = False against Maldacena-Susskind
-       (CHARTER.md: "asked of M and unanswered").  RECORDED, NOT APPLIED.
+       arXiv:1306.0533v2 -- was first recorded as pending because CHARTER.md
+       reads 'asked of M and unanswered'.  That was stale: M had answered,
+       "Record it (Recommended)", before DOCKET 68 opened, and it was applied
+       the same day (emtension.py's ER_EPR_SOURCE, ER_EPR_SOURCE_STATUS,
+       ER_EPR_FOOTNOTE_1 and their selftest checks).  CONVERTED to the ruling
+       M-D68-C12 (not C9, which is the charter's carried H-IT instruction),
+       its owner values asked of emtension and its first text kept as history
+       (D68_P1_AS_FIRST_RECORDED).  The flag's value never moved.
 
 NAMED LIMITATIONS OF THIS SEATING.
   H-LEDGER-ASKS-REPRESENTATIVES: the board asks the variants D68_VARIANTS
@@ -2126,7 +2136,22 @@ D68_M_WORDS = {
                   "implement its use. Incidently, if this does prove useful, we should set up "
                   "instructions for a new separate session to write a professional paper about "
                   "the complex and negative entropy findings", D68_CHARTER_FILE),
+    # ADDED (M-D68-P1 converted): M answered the ER = EPR citation question on
+    # 2026-10-02, before DOCKET 68 opened, and it was applied the same day
+    # (emtension.py's ER_EPR_*).  The charter, written before the answer,
+    # still reads 'asked of M and unanswered', so the ledger first carried it
+    # as pending (M-D68-P1).  The words are held from M-RULINGS-2026-10-03.md
+    # item 14, which records the question and answer verbatim.  C12, not C9:
+    # M-D68-C9 is the charter's carried H-IT instruction (D68_CARRIED_WORDS).
+    "M-D68-C12": ("Record it (Recommended)", D68_RULINGS_FILE),
 }
+
+#: THE QUESTION PUT TO M FOR M-D68-C12, verbatim, as M-RULINGS-2026-10-03.md
+#: item 14 records it -- held once, checked against that file like M's words
+#: (D68_INLINE_QUOTES), and quoted in the ruling's question cell.
+D68_C12_QUESTION = ("emtension.py states that the ER = EPR bridge cannot be crossed, but cites "
+                    "no source. Should I record today's reading of Maldacena & Susskind (arXiv "
+                    "1306.0533 v2, read at source) there?")
 
 #: M'S OWN WORDS FOR WHAT THE CHARTER CARRIES WITHOUT A RULING: id -> (words,
 #: file), checked exactly as D68_M_WORDS is.  M's proposals, statements and
@@ -2272,6 +2297,46 @@ def _emtension_flag():
     with contextlib.redirect_stdout(io.StringIO()):
         import emtension
     return emtension.ENTANGLED_BRIDGE_IS_TRAVERSABLE
+
+
+def _emtension_record():
+    """What M-D68-C12 applied, ASKED of emtension.py (never typed here): the
+    ER = EPR source, its status, the assumption flag, whether footnote 1 is
+    held whole (its first and last sentences READ), the speculation flag, and
+    the bridge flag the citation concerns."""
+    with contextlib.redirect_stdout(io.StringIO()):
+        import emtension
+    fn = getattr(emtension, "ER_EPR_FOOTNOTE_1", "")
+    return {
+        "ER_EPR_SOURCE": getattr(emtension, "ER_EPR_SOURCE", None),
+        "ER_EPR_SOURCE_STATUS": getattr(emtension, "ER_EPR_SOURCE_STATUS", None),
+        "ER_EPR_NONTRAVERSABLE_IS_ASSUMED": getattr(emtension,
+                                                    "ER_EPR_NONTRAVERSABLE_IS_ASSUMED", None),
+        "ER_EPR_FOOTNOTE_1 whole": (fn.startswith("This can be shown using the integrated null")
+                                    and fn.endswith("the ER=EPR connection would be wrong.")),
+        "ER_EPR_PARTICLE_PAIR_FORM_IS_SPECULATION": getattr(
+            emtension, "ER_EPR_PARTICLE_PAIR_FORM_IS_SPECULATION", None),
+        "ENTANGLED_BRIDGE_IS_TRAVERSABLE": emtension.ENTANGLED_BRIDGE_IS_TRAVERSABLE,
+    }
+
+
+#: M-D68-P1 AS FIRST RECORDED -- the pending question M-D68-C12 replaced, kept
+#: as history and printed in M-D68-C12's ruling cell: (question, why it was
+#: asked, proposed, waiting on it), as the PENDING_RULINGS row stood.  STALE
+#: WHEN WRITTEN: M had answered before DOCKET 68 opened; the charter's
+#: 'asked of M and unanswered' predates the answer, and the row read the
+#: charter.
+D68_P1_AS_FIRST_RECORDED = (
+    "Whether to record emtension.py's ENTANGLED_BRIDGE_IS_TRAVERSABLE = False, which cites "
+    "no source, against Maldacena & Susskind arXiv:1306.0533v2 (CHARTER.md records the "
+    "question as asked of M and unanswered)",
+    "emtension.ENTANGLED_BRIDGE_IS_TRAVERSABLE = %s (asked) cites no source; combine.py "
+    "reads it as a board flag; DOCKET 68 READ 1306.0533v2 at source, whose footnote 1 makes "
+    "non-traversability an assumption of the conjecture" % _emtension_flag(),
+    "none: the record is M's to rule.  Either way the flag's value stands and no grade "
+    "moves; only its citation would change",
+    "emtension.py's citation; nothing on this board",
+)
 
 
 _SEAT = d68_uniform("O-SEAT")
@@ -2456,6 +2521,30 @@ D68_RULED = [
                "proof not previously published (M-D68-11, the novelty gate)"
                % d68_words("M-D68-C8b")),
      "Q-1s; the paper brief, gated on novelty (M-D68-11)"),
+    # CONVERTED FROM PENDING (M-D68-P1): M answered before DOCKET 68 opened
+    # and the answer was applied the same day; the row first read the
+    # charter, which predates the answer.  M's words and the question are
+    # held from M-RULINGS-2026-10-03.md item 14; the values are asked.
+    ("M-D68-C12",
+     "The question put to M (M-RULINGS-2026-10-03.md item 14; answered 2026-10-02, before "
+     "DOCKET 68 opened): \"%s\"" % D68_C12_QUESTION,
+     "emtension.py's ENTANGLED_BRIDGE_IS_TRAVERSABLE = False cited no source, and "
+     "1306.0533v2 had been read at source that day; CHARTER.md, written before the answer, "
+     "records the question as asked of M and unanswered",
+     _d68_rule("RECORD IT", "M-D68-C12",
+               "emtension.py carries ER_EPR_SOURCE = %s, ER_EPR_SOURCE_STATUS = %s, "
+               "ER_EPR_NONTRAVERSABLE_IS_ASSUMED = %s, ER_EPR_FOOTNOTE_1 (the source's "
+               "footnote 1, held whole: %s) and ER_EPR_PARTICLE_PAIR_FORM_IS_SPECULATION = %s, "
+               "each checked by emtension.py's own selftest; the flag itself, "
+               "ENTANGLED_BRIDGE_IS_TRAVERSABLE = %s, is unchanged and no grade moves -- only "
+               "its citation changed.  All asked of emtension.  FIRST RECORDED AS PENDING "
+               "(M-D68-P1), stale when written, as it stood: %s || %s || proposed: %s || "
+               "waiting on it: %s"
+               % (tuple(_emtension_record()[k] for k in (
+                   "ER_EPR_SOURCE", "ER_EPR_SOURCE_STATUS", "ER_EPR_NONTRAVERSABLE_IS_ASSUMED",
+                   "ER_EPR_FOOTNOTE_1 whole", "ER_EPR_PARTICLE_PAIR_FORM_IS_SPECULATION",
+                   "ENTANGLED_BRIDGE_IS_TRAVERSABLE")) + D68_P1_AS_FIRST_RECORDED)),
+     "emtension.py's citation; combine.py's board flag reads the same value, unchanged"),
 ]
 
 RULED_BY_M += D68_RULED
@@ -2563,21 +2652,11 @@ D68_CARRIED = [
      "H-INFO in every combination; Q-1 and Q-1s on O9"),
 ]
 
-#: DOCKET 68's one question pending M: asked and unanswered in CHARTER.md.
-#: RECORDED, NOT APPLIED -- no grade moves either way (the flag's value is not
-#: in question, only its citation).
-PENDING_RULINGS += [
-    ("M-D68-P1",
-     "Whether to record emtension.py's ENTANGLED_BRIDGE_IS_TRAVERSABLE = False, which cites "
-     "no source, against Maldacena & Susskind arXiv:1306.0533v2 (CHARTER.md records the "
-     "question as asked of M and unanswered)",
-     "emtension.ENTANGLED_BRIDGE_IS_TRAVERSABLE = %s (asked) cites no source; combine.py "
-     "reads it as a board flag; DOCKET 68 READ 1306.0533v2 at source, whose footnote 1 makes "
-     "non-traversability an assumption of the conjecture" % _emtension_flag(),
-     "none: the record is M's to rule.  Either way the flag's value stands and no grade "
-     "moves; only its citation would change",
-     "emtension.py's citation; nothing on this board"),
-]
+#: DOCKET 68's one pending question, M-D68-P1 (emtension.py's ER = EPR
+#: citation), is NO LONGER PENDING: M had answered it before DOCKET 68 opened
+#: ("Record it (Recommended)", applied the same day), and it is on RULED_BY_M
+#: as M-D68-C12, its first text kept there as history
+#: (D68_P1_AS_FIRST_RECORDED).  Nothing from DOCKET 68 is pending M.
 
 
 # ----- index3.py's DOCKET 68 rows, checked against their owners -------------
@@ -3210,6 +3289,7 @@ D68_INLINE_QUOTES = {
                                                  D68_RULINGS_FILE),
     "M-D68-C10: the charter on flatness": (D68_CHARTER_STRIKE, D68_CHARTER_FILE),
     "M-D68-C1: the charter's header": ("CHARTER, NOT YET OPENED", D68_CHARTER_FILE),
+    "M-D68-C12: the question put, as item 14 records it": (D68_C12_QUESTION, D68_RULINGS_FILE),
 }
 
 
@@ -3747,7 +3827,8 @@ def statuses():
 
 
 def pending_rulings():
-    """PENDING_RULINGS as printed (none since M ruled M-D65-2)."""
+    """PENDING_RULINGS as printed (none since M ruled M-D65-2; DOCKET 68's
+    M-D68-P1 was converted to the ruling M-D68-C12)."""
     return list(PENDING_RULINGS)
 
 
@@ -4736,11 +4817,14 @@ def selftest():
         # novelty gate); M-D68-C4, C6 and C7 OFF this list -- M's instruction,
         # proposal and statement, carried by the charter and not rulings, now
         # in D68_CARRIED (pinned below), never counted here.
+        # RE-PINNED WHEN M-D68-P1 WAS CONVERTED: + M-D68-C12 (M had answered
+        # the ER = EPR citation question before DOCKET 68 opened; item 14),
+        # and the pending list empties -- nothing is pending M.
         (["M-D64-1", "M-S1A-P1", "M-S1A-P2", "M-S1A-P3", "M-S1A-P4",
           "M-S1A-P5", "M-D65-1", "M-D65-2", "M-D65-3", "M-D65-4", "M-D65-5",
           "M-D67-1", "M-D67-2"]
          + ["M-D68-%d" % i for i in range(1, 12)]
-         + ["M-D68-C%d" % i for i in (1, 2, 3, 5, 8)], ["M-D68-P1"],
+         + ["M-D68-C%d" % i for i in (1, 2, 3, 5, 8, 12)], [],
          True, False, False, True, False))
 
     print("\n3. THE EXCHANGE RATE, RE-DERIVED FROM ASKED CONSTANTS")
@@ -4768,7 +4852,8 @@ def selftest():
     # RE-PINNED BY DOCKET 68 (M: "1 then 2 then 3 then 4") to what statuses()
     # returned after the seating: OPEN 13 -> 14, O9 (the two classical bits,
     # asked of combine.py).  The notes on S5, S10, S13, D23 and D25 move no
-    # status; M-D68-* are rulings and M-D68-P1 is pending, neither a status.
+    # status; M-D68-* are rulings (M-D68-P1, first pending, is now the ruling
+    # M-D68-C12), not statuses.
     # RE-PINNED BY DOCKET 65 to what statuses() returned after the seating
     # (M: "Seat as proposed"), every status asked of massform.PROPOSED_ROWS:
     #   THEOREM 17 -> 20: D27, D28, D29.
@@ -5148,8 +5233,8 @@ def selftest():
          "M's answer: '%s'" % M_D65_2_ANSWER in _ms2[0][3],
          all("'%s'" % f in _ms2[0][2] for f in M_D65_2_OPTION),
          M_D65_2_QUESTION in _md, "'%s'" % M_D65_2_ANSWER in _md,
-         # DOCKET 68 added a pending question of its own (M-D68-P1); none is
-         # DOCKET 65's.
+         # DOCKET 68 added a pending question of its own (M-D68-P1, since
+         # converted to the ruling M-D68-C12); none is DOCKET 65's.
          [p[0] for p in PENDING_RULINGS if not p[0].startswith("M-D68-")],
          "O8" not in [r[0] for r in OPEN_ROWS]),
         (1, True, True, True, True, True, True, [], True))
@@ -6033,11 +6118,47 @@ def selftest():
         "unblocks, uncut", ([r[0] for r in D68_RULED if not all(r[1:])],
                             [t for t in _truncated_cells() if t[0] == "ruled"
                              and t[1].startswith("M-D68")]), ([], []))
-    chk("M-D68-P1 is PENDING, recorded and not applied; the flag it concerns, "
-        "asked, is unchanged",
-        ([p_[0] for p_ in PENDING_RULINGS], _emtension_flag(),
-         "= %s (asked)" % _emtension_flag() in PENDING_RULINGS[0][2]),
-        (["M-D68-P1"], False, True))
+    # CONVERTED: this check first pinned M-D68-P1 as PENDING (CHARTER.md: asked
+    # of M and unanswered).  M had answered before DOCKET 68 opened; the row is
+    # now the ruling M-D68-C12, and nothing is pending.
+    _c12 = [r for r in D68_RULED if r[0] == "M-D68-C12"]
+    _c12c = " ".join(" ".join(_c12[0][3].split()).split()) if _c12 else ""
+    _er = _emtension_record()
+    chk("M-D68-C12 (first recorded as pending, M-D68-P1) is RULED and on RULED_BY_M: "
+        "the question as item 14 records it, M's words verbatim, the owner values "
+        "ASKED of emtension and printed, the P1 text kept as history; nothing pending",
+        ([p_[0] for p_ in PENDING_RULINGS], len(_c12),
+         [r[0] for r in RULED_BY_M].count("M-D68-C12"),
+         ('"%s"' % D68_C12_QUESTION) in " ".join(_c12[0][1].split()) if _c12 else None,
+         _c12c.startswith("RULED BY M: RECORD IT -- " + d68_words("M-D68-C12")),
+         _er,
+         all(("%s = %s" % (k, _er[k])) in _c12c for k in
+             ("ER_EPR_SOURCE", "ER_EPR_SOURCE_STATUS", "ER_EPR_NONTRAVERSABLE_IS_ASSUMED",
+              "ER_EPR_PARTICLE_PAIR_FORM_IS_SPECULATION", "ENTANGLED_BRIDGE_IS_TRAVERSABLE")),
+         "FIRST RECORDED AS PENDING (M-D68-P1)" in _c12c,
+         all(" ".join(h.split()) in _c12c for h in D68_P1_AS_FIRST_RECORDED),
+         [k for k in d68_words_faults() if "C12" in k]),
+        ([], 1, 1, True, True,
+         {"ER_EPR_SOURCE": "arXiv:1306.0533v2", "ER_EPR_SOURCE_STATUS": "READ",
+          "ER_EPR_NONTRAVERSABLE_IS_ASSUMED": True, "ER_EPR_FOOTNOTE_1 whole": True,
+          "ER_EPR_PARTICLE_PAIR_FORM_IS_SPECULATION": True,
+          "ENTANGLED_BRIDGE_IS_TRAVERSABLE": False},
+         True, True, True, []))
+    _ht12 = dict(_d68_held_texts())
+    _k12 = "M-D68-C12: the question put, as item 14 records it"
+    _ht12[_k12] = (D68_C12_QUESTION.replace("today's", "yesterday's"), D68_RULINGS_FILE)
+    chk("  CONTROL: M-D68-C12's question altered by one word is caught against item 14",
+        [k for k in d68_words_faults(held=_ht12) if "C12" in k], [_k12])
+    with contextlib.redirect_stdout(io.StringIO()):
+        import emtension as _em
+    _keep = _em.ER_EPR_SOURCE_STATUS
+    _em.ER_EPR_SOURCE_STATUS = "CITED"
+    try:
+        _er2 = _emtension_record()["ER_EPR_SOURCE_STATUS"]
+    finally:
+        _em.ER_EPR_SOURCE_STATUS = _keep
+    chk("  CONTROL: the owner values are asked of emtension, not typed (a scratch "
+        "status reaches the record)", _er2, "CITED")
     chk("M-D68-9: the paper brief stays in the tree; M-D68-4: index3.py's held rows "
         "are named in the ruling, asked",
         (d68_paper_brief_present(),

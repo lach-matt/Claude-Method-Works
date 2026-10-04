@@ -4626,7 +4626,7 @@ Averaged over A's unknown outcome, the far end carries no information until **2 
 | Earth–Proxima | 4.246 yr | 4.246 yr | **0.000** |
 | Milky Way crossing | 99984.675 yr | 99984.675 yr | **0.000** |
 
-**Not small. Not hard. Identical — and provably, because the no-communication theorem is a theorem** — in linear quantum mechanics. *(Corrected on M's "Scope it (Recommended)", DOCKET 68: first written without the scope. DOCKET 68 computed routes outside linear quantum mechanics that would remove the two classical bits only on premises not shown -- a deterministic state-dependent drift with a preferred slicing, or a time loop at Bob -- none shown to exist; ledger O9.)*
+**Not small. Not hard. Identical — and provably, because the no-communication theorem is a theorem** — in linear quantum mechanics. *(Corrected on M's "Scope it (Recommended)", DOCKET 68: first written without the scope. Computed since: routes outside linear quantum mechanics that would remove the two classical bits only on premises not shown -- a deterministic state-dependent drift with a preferred slicing, or a time loop at Bob -- none shown to exist; ledger O9.)*
 
 > **This is the only route in the project whose failure is *proved* (in linear quantum mechanics) rather than bounded.** Every other
 > door closed on a magnitude, a sub-Planckian crossover, or an unresolved conjecture. This one closes on

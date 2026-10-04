@@ -4916,7 +4916,10 @@ def selftest():
         # RE-PINNED BY DOCKET 68: the board holds one pending question,
         # M-D68-P1 (emtension.py's citation); it names no specthm, so it is
         # not PENDING FOR M here (pending_here() is still empty).
-        ([], True, True, True, ["M-D68-P1"]))
+        # RE-PINNED WHEN M-D68-P1 WAS CONVERTED: M had answered it before
+        # DOCKET 68 opened; it is the ruling M-D68-C12 on the board, and the
+        # board's pending list is empty.
+        ([], True, True, True, []))
     _r11 = [r for r in model["requirements"] if r["id"] == "R11"][0]
     _r11s = " ".join(_r11["statement"].split())
     chk("chk", "R11 names BOTH of O9's member routes, asked in full (W2 x F1 with its "
