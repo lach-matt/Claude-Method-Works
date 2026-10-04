@@ -1332,6 +1332,12 @@ def requirements(F):
          # DOCKET 68 (ledger O9 and M-D68-*): placed here, beside the bit count
          # and the seat's supply they bear on.  No class or object verdict
          # moves: no DOCKET 68 owner value is a fact in force in this file.
+         # CORRECTED (DOCKET 68 residuals): the statement first printed only
+         # 'O-BITS REMOVED-IF under H-SETTLE W2 x H-FRAME F1' (the supports and
+         # their windows cut at ' {') and left out the second member route,
+         # clause 2b's D-CTC; both are now printed as asked.  The rows follow
+         # ledger.D68_RULED, so M-D68-11 joins and the charter's carried items
+         # (ledger.D68_CARRIED: not rulings, not board rows) do not.
          "rows": ["D13", "D21", "D23", "D25", "S5", "S9", "O3", "O6", "O7",
                   "M-S1A-P5", "O9"] + [r[0] for r in ledger.D68_RULED], "see": [],
          "owners": [("transit", "TRAVERSAL_IS_REMOVED"), ("transit", "READING_CARRIES_NOTHING_ALONE"),
@@ -1401,12 +1407,15 @@ def requirements(F):
                warpfolder.HEATING_TO_EW_SCALE_RESTORES_SYMMETRY)
             + "  DOCKET 68 (O9, %s; asked of combine.py on the board): outside "
             "linear quantum mechanics M's hypotheses remove the two classical bits "
-            "only IF named premises hold -- O-BITS %s under H-SETTLE W2 x H-FRAME "
-            "F1 -- so no transit.py result moves here, each staying exact in the "
-            "linear, chronology-respecting quantum mechanics this requirement "
-            "names; the supply at the seat (O-SEAT, on M's rulings M-D68-5 and "
-            "M-D68-7) is %s."
-            % (st("O9"), ledger.d68_asked("W2 x F1", "O-BITS").split(" {")[0],
+            "only IF named premises hold, by two member routes -- O-BITS %s under "
+            "H-SETTLE W2 x H-FRAME F1; or O-BITS %s under clause 2b's D-CTC, with "
+            "O-LOOP reintroduced (corridor O-LOOP %s there) and no CTC shown -- so "
+            "no transit.py result moves here, each staying exact in the linear, "
+            "chronology-respecting quantum mechanics this requirement names; the "
+            "supply at the seat (O-SEAT, on M's rulings M-D68-5 and M-D68-7) is %s."
+            % (st("O9"), ledger.d68_asked("W2 x F1", "O-BITS"),
+               ledger.d68_asked("clause 2b's D-CTC (F2b)", "O-BITS"),
+               ledger.d68_asked("clause 2b's D-CTC (F2b)", "O-LOOP-C"),
                ledger.d68_uniform("O-SEAT"))},
 
         {"id": "R12", "applies_to": ["C"],
@@ -4908,6 +4917,18 @@ def selftest():
         # M-D68-P1 (emtension.py's citation); it names no specthm, so it is
         # not PENDING FOR M here (pending_here() is still empty).
         ([], True, True, True, ["M-D68-P1"]))
+    _r11 = [r for r in model["requirements"] if r["id"] == "R11"][0]
+    _r11s = " ".join(_r11["statement"].split())
+    chk("chk", "R11 names BOTH of O9's member routes, asked in full (W2 x F1 with its "
+        "supports and windows; clause 2b's D-CTC with O-LOOP reintroduced), and its rows "
+        "are the board's DOCKET 68 rulings (ledger.D68_RULED), the carried items not "
+        "among them",
+        (ledger.d68_asked("W2 x F1", "O-BITS") in _r11s,
+         ledger.d68_asked("clause 2b's D-CTC (F2b)", "O-BITS") in _r11s,
+         "O-LOOP reintroduced" in _r11s,
+         [x for x in _r11["rows"] if x.startswith("M-D68")] == [r[0] for r in ledger.D68_RULED],
+         [c[0] for c in ledger.D68_CARRIED if c[0] in _r11["rows"]]),
+        (True, True, True, True, []))
     _fake = ledger.PENDING_RULINGS + [("M-X-9", "a scratch question for M?", "why",
                                        "either way", "specthm's scratch placement")]
     with patched(ledger, "PENDING_RULINGS", _fake):

@@ -4634,7 +4634,7 @@ Averaged over A's unknown outcome, the far end carries no information until **2 
 
 ### H62e — the traversal is not removed, it is moved earlier
 
-A Bell pair spanning `D` required something to cross `D` at `≤ c` beforehand.
+A Bell pair spanning `D` required a common causal past: from a midpoint source it spans `D` in `D/(2c)`, no carrier moving more than `D/2`; with every resource sent from one end, it is in place no earlier than `D/c`. *(Corrected on M's "Repair all", DOCKET 67: first written "A Bell pair spanning `D` required something to cross `D` at `≤ c` beforehand", which holds for initially separable systems with every resource starting at one end, S5's case, and so do "must be traversed" and "the full light-speed trip" below; a shared pair needs only a common causal past (`transit.py`, ledger D23). The vacuum is already entangled across spacelike regions, but weakly, and purifying that entanglement (LOCC) needs classical messages at `≤ c`. The advantage over light stays zero.)*
 
 > **The corridor must be traversed in order to exist.**
 
