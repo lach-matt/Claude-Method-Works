@@ -395,3 +395,8 @@ Appended; nothing above this note was changed. Two application lines in the sect
 unanswered" -- whether to record emtension.py's ENTANGLED_BRIDGE_IS_TRAVERSABLE against Maldacena & Susskind
 arXiv:1306.0533v2 -- had been answered on 2026-10-02 before this charter was written: M, "Record it (Recommended)".
 Recorded verbatim in M-RULINGS-2026-10-03.md item 14 and in the ledger as M-D68-C12; emtension.py carries the record.
+
+**Correction to the note above (2026-10-04), appended.** That note said the question "had been answered on 2026-10-02
+before this charter was written". The commit times show the reverse: this charter was committed (a1a2890, 14:44:20)
+still reading "asked of M and unanswered", and M's answer was applied to emtension.py afterwards (50c53b9, 14:56:49).
+The charter was written that day before the answer, as M-RULINGS item 14 and ledger M-D68-C12 say.

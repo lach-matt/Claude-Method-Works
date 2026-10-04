@@ -321,9 +321,12 @@ asked of combine.Screen at run time, for the variants D68_VARIANTS names.
        as massform states them, D23 OPEN).  O-SEAT touches S5 (the route),
        D25 (the gate), S13 (it forms no baryons, C3, under H-C3), S10 (its
        row) and D23 (S5's channel, and N_VAC, the pair supply wave 2 reads).
-  RULED_BY_M  M-D68-1..11 (M-RULINGS-2026-10-03.md, items 1-11; item 11, M's
+  RULED_BY_M  M-D68-1..13 (M-RULINGS-2026-10-03.md, items 1-13; item 11, M's
        novelty gate on the paper, recorded 2026-10-04 and ADDED by the
-       residuals), the charter's rulings M-D68-C1, C2, C3, C5 and C8
+       residuals; items 12 and 13, M's rulings on the paper -- correct
+       CLAIMS.md 4647-4648, scope H62d -- whose applied text is the paper's
+       marked line, READ back by paper_d68_marker() from M's words in the
+       marker head, never typed), the charter's rulings M-D68-C1, C2, C3, C5 and C8
        (open after D67; the 12-vector; deterministic drift; consider both 1
        and 2; negative probabilities and Q-1s), and M-D68-C12 (record the
        ER = EPR source in emtension.py: ruled 2026-10-02, before DOCKET 68
@@ -384,11 +387,15 @@ NAMED LIMITATIONS OF THIS SEATING.
     numpy and scipy into this file's import, which until DOCKET 68 needed
     only the stdlib and its stdlib peers.  Without them the import fails;
     nothing is skipped silently.
-  The paper (paper/CLAIMS.md) is NOT edited by DOCKET 68.  The non-edit is
-    M's rule for the paper (M_PAPER_RULE_WORDS: a finding must change
-    existing paper text), not M-D68-9, whose 'Wait' concerns the separate
-    Q-1s paper session; what DOCKET 68 bears on in the paper is reported for
-    M, not applied.  One DOCKET 67 correction the DOCKET 67 pass missed --
+  The paper (paper/CLAIMS.md) was NOT edited by DOCKET 68's seating.  The
+    non-edit is M's rule for the paper (M_PAPER_RULE_WORDS: a finding must
+    change existing paper text), not M-D68-9, whose 'Wait' concerns the
+    separate Q-1s paper session; what DOCKET 68 bears on in the paper is
+    reported for M, and applied only on M's ruling.  ADDED: on items 12 and
+    13 (M-D68-12, M-D68-13) the lead corrected CLAIMS.md 4647-4648 and scoped
+    H62d, each under the head '(Corrected on M's "<M's words>", DOCKET 68:'
+    (PAPER_D68_MARKER_HEAD_RE, read as DOCKET 67's are); the census
+    (paper_docket_markers) READs them like the others.  One DOCKET 67 correction the DOCKET 67 pass missed --
     H62e's opening sentence, which predates the midpoint-source correction
     D23 carries -- is made under M's DOCKET 67 ruling "Repair all", with the
     paper's DOCKET 67 marker; it is DOCKET 67's, and the paper-marker census
@@ -1725,6 +1732,40 @@ def paper_d67_words_clause(lines=None):
     return ", ".join('"%s"' % w for w in paper_d67_words(lines)) or "none"
 
 
+#: The head of the paper's DOCKET 68 markers, read as DOCKET 67's are
+#: (PAPER_D67_MARKER_HEAD_RE): group 1 is M's quoted words.  ADDED with
+#: M-D68-12 and M-D68-13 (M-RULINGS-2026-10-03.md items 12-13), the rulings
+#: on the paper whose corrections carry it.
+PAPER_D68_MARKER_HEAD_RE = re.compile(r"\(Corrected on M's \"([^\"]+)\", DOCKET 68:")
+
+
+def paper_d68_words(lines=None):
+    """M's quoted words in the paper's DOCKET 68 marker heads, in order of
+    first appearance, READ by PAPER_D68_MARKER_HEAD_RE."""
+    lines = _paper_lines() if lines is None else lines
+    out = []
+    for line in lines:
+        for m in PAPER_D68_MARKER_HEAD_RE.finditer(line):
+            if m.group(1) not in out:
+                out.append(m.group(1))
+    return out
+
+
+def paper_d68_marker(words, lines=None):
+    """(line, marker text) of the paper's DOCKET 68 marker whose head carries
+    M's `words`, READ from paper/CLAIMS.md: the line of its head and the whole
+    parenthetical (_marker_text, as the census reads it).  (None, 'MARKER NOT
+    FOUND ...') if no head carries those words -- the board still imports, and
+    the selftest goes red."""
+    lines = _paper_lines() if lines is None else lines
+    for i, line in enumerate(lines, 1):
+        for m in PAPER_D68_MARKER_HEAD_RE.finditer(line):
+            if m.group(1) == words:
+                pos = line.index("DOCKET 68", m.start())
+                return i, " ".join(_marker_text(lines, i, pos).split())
+    return None, "MARKER NOT FOUND -- no DOCKET 68 marker head carries M's words %s" % words
+
+
 def m_d65_4_ruling():
     """M-D65-4's ruling cell: M_D65_4_RULING_T filled from M's answer, the
     caveat's line and clause, M's rule for the paper and the DOCKET 63 marker
@@ -2121,6 +2162,11 @@ D68_M_WORDS = {
     "M-D68-11": ("The paper is not a priority, just an additional if the math concept is novel "
                  "or introduces new theorems/proofs not otherwise previously published art",
                  D68_RULINGS_FILE),
+    # ADDED: items 12 and 13 (2026-10-04), M's rulings on the paper; applied
+    # by the lead in paper/CLAIMS.md under DOCKET 68 marker heads, which
+    # paper_d68_marker() READs back.
+    "M-D68-12": ("Correct it (Recommended)", D68_RULINGS_FILE),
+    "M-D68-13": ("Scope it (Recommended)", D68_RULINGS_FILE),
     "M-D68-C1": ("Open after D67", D68_CHARTER_FILE),
     "M-D68-C2": ("test the 12 fields in the 12 vertex trajectory model of the warp device idea",
                  D68_CHARTER_FILE),
@@ -2152,6 +2198,20 @@ D68_M_WORDS = {
 D68_C12_QUESTION = ("emtension.py states that the ER = EPR bridge cannot be crossed, but cites "
                     "no source. Should I record today's reading of Maldacena & Susskind (arXiv "
                     "1306.0533 v2, read at source) there?")
+
+#: THE QUESTIONS PUT TO M FOR M-D68-12 AND M-D68-13, as items 12 and 13 of
+#: M-RULINGS-2026-10-03.md record them (the file's words, held once, checked
+#: against it through D68_INLINE_QUOTES), and the paper's first wording as
+#: item 12 quotes it -- which the paper's own marker also quotes.
+D68_PAPER_QUESTIONS = {
+    "M-D68-12": ("Asked whether to correct 'For an object to arrive, an identical stock of "
+                 "matter must already be there — and that had to travel', which says more than "
+                 "the board holds under 'S5 counts'."),
+    "M-D68-13": ("Asked whether to scope the no-communication statements to linear quantum "
+                 "mechanics."),
+}
+D68_PAPER_FIRST_WORDING = ("an identical stock of matter must already be there — and that had "
+                           "to travel")
 
 #: M'S OWN WORDS FOR WHAT THE CHARTER CARRIES WITHOUT A RULING: id -> (words,
 #: file), checked exactly as D68_M_WORDS is.  M's proposals, statements and
@@ -2457,6 +2517,31 @@ D68_RULED = [
                "item is already published the session reports to M and writes no paper.  No "
                "session is started (M-D68-9); no novelty is claimed here" % d68_brief_has_gate()),
      "the Q-1s paper session, when M starts it: prior-art search first, paper only on novelty"),
+    # ADDED: items 12 and 13, M's rulings on the paper (2026-10-04).  What was
+    # applied is the paper's marked line, READ back by paper_d68_marker()
+    # from M's words in its head -- never typed here.
+    ("M-D68-12",
+     "Paper, CLAIMS.md 4647-4648 (M-RULINGS-2026-10-03.md item 12, 2026-10-04, as the file "
+     "records it): \"%s\"" % D68_PAPER_QUESTIONS["M-D68-12"],
+     "M-D68-7 adopted H-SEAT-S5: O-SEAT is OPEN via S5, reconstruction from stock at the seat, "
+     "so a sentence requiring an identical, travelled stock said more than the board holds",
+     _d68_rule("CORRECT IT", "M-D68-12",
+               "the paper's marked line, READ back: paper/CLAIMS.md:%s carries %s -- an "
+               "identical, travelled stock is one route; reconstruction from local stock (S5) "
+               "is another, open and not shown.  No board status moves" % paper_d68_marker(
+                   D68_M_WORDS["M-D68-12"][0])),
+     "the paper's S5 sentence; nothing on this board"),
+    ("M-D68-13",
+     "Paper, H62d (M-RULINGS-2026-10-03.md item 13, 2026-10-04, as the file records it): "
+     "\"%s\"" % D68_PAPER_QUESTIONS["M-D68-13"],
+     "DOCKET 68 computed routes outside linear quantum mechanics that would remove the two "
+     "classical bits only on premises not shown (O9's member routes: W2 x F1, and clause 2b's "
+     "D-CTC), none shown to exist; the paper's no-communication statements were unscoped",
+     _d68_rule("SCOPE IT", "M-D68-13",
+               "the paper's marked line, READ back: paper/CLAIMS.md:%s carries %s -- the "
+               "statements scoped to linear quantum mechanics; O9's verdicts do not move"
+               % paper_d68_marker(D68_M_WORDS["M-D68-13"][0])),
+     "the paper's H62d scope; nothing on this board"),
     ("M-D68-C1",
      "When does DOCKET 68 open? (CHARTER.md: chartered 2026-10-02)",
      "DOCKET 67 was running when the docket was chartered",
@@ -3290,6 +3375,12 @@ D68_INLINE_QUOTES = {
     "M-D68-C10: the charter on flatness": (D68_CHARTER_STRIKE, D68_CHARTER_FILE),
     "M-D68-C1: the charter's header": ("CHARTER, NOT YET OPENED", D68_CHARTER_FILE),
     "M-D68-C12: the question put, as item 14 records it": (D68_C12_QUESTION, D68_RULINGS_FILE),
+    "M-D68-12: the question, as item 12 records it": (D68_PAPER_QUESTIONS["M-D68-12"],
+                                                      D68_RULINGS_FILE),
+    "M-D68-13: the question, as item 13 records it": (D68_PAPER_QUESTIONS["M-D68-13"],
+                                                      D68_RULINGS_FILE),
+    "M-D68-12: the paper's first wording, as item 12 quotes it": (D68_PAPER_FIRST_WORDING,
+                                                                  D68_RULINGS_FILE),
 }
 
 
@@ -4820,10 +4911,12 @@ def selftest():
         # RE-PINNED WHEN M-D68-P1 WAS CONVERTED: + M-D68-C12 (M had answered
         # the ER = EPR citation question before DOCKET 68 opened; item 14),
         # and the pending list empties -- nothing is pending M.
+        # RE-PINNED WITH ITEMS 12 AND 13: + M-D68-12 and M-D68-13, M's rulings
+        # on the paper ("Correct it", "Scope it"), seated after M-D68-11.
         (["M-D64-1", "M-S1A-P1", "M-S1A-P2", "M-S1A-P3", "M-S1A-P4",
           "M-S1A-P5", "M-D65-1", "M-D65-2", "M-D65-3", "M-D65-4", "M-D65-5",
           "M-D67-1", "M-D67-2"]
-         + ["M-D68-%d" % i for i in range(1, 12)]
+         + ["M-D68-%d" % i for i in range(1, 14)]
          + ["M-D68-C%d" % i for i in (1, 2, 3, 5, 8, 12)], [],
          True, False, False, True, False))
 
@@ -5758,7 +5851,28 @@ def selftest():
          sorted(d for d, sites in _pdm.items() if all(r for _l, r in sites)),
          paper_docket_markers_clause() in _d5[0][3],
          _cnt.findall(_d5[0][3] + " " + _d5[0][4] + " " + __doc__)),
-        (True, [(PAPER_CAVEAT_B_LINE, True)], [True], [True], [63, 65], True, []))
+        # RE-PINNED [63, 65] -> [63, 65, 68] when M-D68-12 and M-D68-13 were
+        # seated: every DOCKET 68 token in the paper now opens a marker head
+        # carrying M's words (PAPER_D68_MARKER_HEAD_RE), so DOCKET 68 joins.
+        # It was first kept out only by a body mention ('DOCKET 68 computed
+        # routes') inside the H62d marker, which the lead reworded.  The
+        # reading is tied to the heads by the check and control below.
+        (True, [(PAPER_CAVEAT_B_LINE, True)], [True], [True], [63, 65, 68], True, []))
+    _d68heads = [i for i, l in enumerate(_paper_lines(), 1) if PAPER_D68_MARKER_HEAD_RE.search(l)]
+    chk("  the paper's DOCKET 68 markers ('(Corrected on M's \"<M's words>\", DOCKET 68: "
+        "...)') are READ as naming M's ruling, exactly those tokens, as DOCKET 67's are; "
+        "every DOCKET 68 token is such a head",
+        (_d68heads, sorted(l for l, r in _pdm.get(68, []) if r),
+         sorted(l for l, _r in _pdm.get(68, []))),
+        (_d68heads, _d68heads, _d68heads))
+    _pl68c = [l.replace('M\'s "Correct it (Recommended)", DOCKET 68:', "DOCKET 68:")
+              for l in _paper_lines()]
+    _pdm68c = paper_docket_markers(_pl68c)
+    chk("  CONTROL: M's words stripped from one DOCKET 68 head in a private copy -- that "
+        "token reads as naming no ruling, and DOCKET 68 leaves the all-named set",
+        (sorted(l for l, r in _pdm68c.get(68, []) if not r),
+         68 in [d for d, s in _pdm68c.items() if all(r for _l, r in s)]),
+        ([paper_d68_marker(D68_M_WORDS["M-D68-12"][0])[0]], False))
     # DOCKET 67 follow-ups: the paper's DOCKET 67 corrections name M's ruling
     # by M's words ('(Corrected on M's "Repair all", DOCKET 67: ...)'); the
     # census READs exactly the tokens that open such a marker as naming a
@@ -6159,6 +6273,34 @@ def selftest():
         _em.ER_EPR_SOURCE_STATUS = _keep
     chk("  CONTROL: the owner values are asked of emtension, not typed (a scratch "
         "status reaches the record)", _er2, "CITED")
+    _m12 = paper_d68_marker(D68_M_WORDS["M-D68-12"][0])
+    _m13 = paper_d68_marker(D68_M_WORDS["M-D68-13"][0])
+    _r1213 = {r[0]: [" ".join(c.split()) for c in r] for r in D68_RULED
+              if r[0] in ("M-D68-12", "M-D68-13")}
+    chk("M-D68-12 and M-D68-13 (items 12-13, M's rulings on the paper) are seated: the "
+        "question as each item records it, M's words verbatim, and what was applied -- "
+        "the paper's marked line READ back from M's words in its DOCKET 68 head, the "
+        "heads' words exactly the held words",
+        (sorted(_r1213), [r[0] for r in RULED_BY_M].count("M-D68-12"),
+         [r[0] for r in RULED_BY_M].count("M-D68-13"),
+         [('"%s"' % D68_PAPER_QUESTIONS[k]) in _r1213[k][1] for k in sorted(_r1213)],
+         [_r1213[k][3].startswith("RULED BY M: %s -- %s" % (o, d68_words(k)))
+          for k, o in (("M-D68-12", "CORRECT IT"), ("M-D68-13", "SCOPE IT"))],
+         _m12[0] is not None and _m13[0] is not None,
+         ("paper/CLAIMS.md:%s carries %s" % _m12) in _r1213["M-D68-12"][3],
+         ("paper/CLAIMS.md:%s carries %s" % _m13) in _r1213["M-D68-13"][3],
+         D68_PAPER_FIRST_WORDING in _m12[1], "linear quantum mechanics" in _m13[1],
+         sorted(paper_d68_words()), sorted(paper_docket_markers().get(68, []))
+         == sorted((_m, True) for _m in (_m12[0], _m13[0]))),
+        (["M-D68-12", "M-D68-13"], 1, 1, [True, True], [True, True], True, True, True,
+         True, True, sorted([D68_M_WORDS["M-D68-12"][0], D68_M_WORDS["M-D68-13"][0]]),
+         True))
+    _pl68 = [l.replace('M\'s "Scope it (Recommended)", DOCKET 68:', "M's ruling, DOCKET 68:")
+             for l in _paper_lines()]
+    chk("  CONTROL: a private copy of the paper whose H62d marker head drops M's words is "
+        "not READ as carrying M-D68-13's marker",
+        (paper_d68_marker(D68_M_WORDS["M-D68-13"][0], _pl68)[0], paper_d68_words(_pl68)),
+        (None, [D68_M_WORDS["M-D68-12"][0]]))
     chk("M-D68-9: the paper brief stays in the tree; M-D68-4: index3.py's held rows "
         "are named in the ruling, asked",
         (d68_paper_brief_present(),
