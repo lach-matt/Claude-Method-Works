@@ -95,7 +95,8 @@ in B-combine.md section 0 as history, and every superseded encoding stays runnab
     it); the nine-hypothesis reading is computed as H-VAC-LEFTIF (mutate 'vac-left-if').  vacuum.GRADES is compared
     by the drift guard like an A-report.
   - W2C-seat (seat.py): O-SEAT stays OPEN via N_S5 -- no grade moved.  N_S5's text now carries what seat.py found:
-    the gate's binder at a CI-like body is P (runner-up N), measured in no star of the Proxima system and in no body;
+    the gate's binder at a CI-like body is P (runner-up N), [wave 7 first said: 'measured in no star of the Proxima
+    system and in no body' -- right for P, wrong for N, which IS measured in alpha Cen A (W2-fix, below)];
     accessible mass unmeasured; E_fab computed nowhere, m_set specified nowhere.  seat.grade_o_seat is compared by the
     drift guard and against z3 in three board states (grounds).
 
@@ -111,8 +112,9 @@ moves; what moves is scope and status:
     2016 models water only (no C, N, P), so it leaves the primitive conjunct unconstrained; N IS measured in alpha
     Cen A ('solar', Porto de Mello et al. 2008 p.12, READ), P in no Proxima-system star in the sources read.
   - H-MAP: the full texts (login wall, not read) MAY carry each paper's eps convention.
-  Wave 7's line just above ('measured in no star of the Proxima system') is kept as written; it was right for P and
-  wrong for N.
+  Wave 7's line just above ('measured in no star of the Proxima system') is kept as written, marked in-line 'wave 7
+  first said'; it was right for P and wrong for N.  (The W2 reproduction, wave2/FIX-SEAT-RESULT.json: the in-line
+  mark and N_S5's three in-line marks were added there, so the text no longer contradicts itself.)
 
 WHAT THIS FILE DOES
   (1) builds the 127 non-empty combinations of the seven hypotheses.  Hypotheses with more than one reading are carried
@@ -365,12 +367,14 @@ OPEN_NAMED = {
             "from that stock, is shown (LEDGER S5 OPEN; its price per reconstruction is not re-derivable, DOCKET 56's "
             "instrument owed).  massform.RECONSTRUCTION_SURVIVES True says only that S5 is NOT REFUSED by M's "
             "mechanism.  The board's route: no member opens it.  Wave 7 (D68 wave 2, W2C-seat; seat.py, imported in "
-            "the grounds): at Proxima the gate's binder at a CI-like body is P (10.70 kg/kg; runner-up N), measured in "
-            "no star of the Proxima system and in no body in the sources read (not among Morel 2018's 21 alpha Cen "
-            "species), so the composition conjunct cannot be evaluated at its binder; Proxima b's mass READ 1.07 "
-            "M_earth (Faria 2022) but accessible mass unmeasured (H-BODY-ACCESS) and the aperture NOT EVALUABLE; a "
-            "devolatilised body fails the CI budget on N, C, H and P, and Brugger 2016 admits both a primitive and a "
-            "devolatilised Proxima b; E_fab computed nowhere, m_set specified nowhere, k* only an identity.  "
+            "the grounds): at Proxima the gate's binder at a CI-like body is P (10.70 kg/kg; runner-up N), [wave 7 first "
+            "said: 'measured in no star of the Proxima system and in no body in the sources read (not among Morel "
+            "2018's 21 alpha Cen species)' -- right for P, wrong for N (W2-fix, below)], so the composition conjunct "
+            "cannot be evaluated at its binder; Proxima b's [wave 7 first said: 'mass READ 1.07 M_earth' -- it is the "
+            "minimum mass m sin i (W2-fix, below)] (Faria 2022) but accessible mass unmeasured (H-BODY-ACCESS) and "
+            "the aperture NOT EVALUABLE; a devolatilised body fails the CI budget on N, C, H and P[, and wave 7 first "
+            "said: 'Brugger 2016 admits both a primitive and a devolatilised Proxima b' -- Brugger leaves the "
+            "primitive conjunct unconstrained (W2-fix, below)]; E_fab computed nowhere, m_set specified nowhere, k* only an identity.  "
             "seat.grade_o_seat: OPEN (no conjunct False, none True).  W2-fix (the re-verifications W2V-0/W2V-1): "
             "the 1.07 M_earth is the MINIMUM mass m sin i (Faria 2022 Table C.1 p.17, p.9; no transit, i unknown), so "
             "the minimum mass is >= 8.53e21 x the CI threshold, a floor; Brugger 2016 models water only (core, mantles, "
@@ -710,8 +714,9 @@ def _board(A, win_open, mutate=()):
                    "non-communicating probes (TRUE-IF {H-UDW, H-PERTURB, H-MINK-VAC, H-SPACELIKE}; Reznik Figs.1-2 "
                    "reproduced) but is not usable as the channel's pairs with nothing crossing at <= c first (FALSE-IF "
                    "{H-LOCC, H-NEARMAX, H-PROBE-OPERATED}): the probes cross (D23), the harvested state is symmetric "
-                   "extendible on both sides (Chen et al. 1310.3530v2 Thm 1), so near-maximal pairs need classical "
-                   "messages each way; the computed floor arrives at 2.50 / 3.00 L/c for the Gaussian at beta = 7 "
+                   "extendible on both sides (Chen et al. 1310.3530v2 Thm 1), so near-maximal pairs distilled from it need "
+                   "classical messages each way (computed for the Gaussian and Reznik states; for R2's windows only "
+                   ">= 1 message is shown -- wave 7 first said this unscoped); the computed floor arrives at 2.50 / 3.00 L/c for the Gaussian at beta = 7 "
                    "(2.41-3.00 L/c over the two window families computed), and at >= 1.50 / 2.00 L/c with no window "
                    "assumption (vacuum.window_free_floor; R2: T_window -> 0 admissible).  Distribution is RELOCATED, not "
                    "removed: LEFT-IF the nine hypotheses of vacuum.GRADES, OPEN outside them via N_NLDIST (with W2), "

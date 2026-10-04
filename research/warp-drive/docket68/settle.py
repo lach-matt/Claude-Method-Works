@@ -137,8 +137,10 @@ readings); one window (1 AU, N = 1e3, A) depends on H-SAME-EPS.  Checks G31-G39.
 
 W2-FIX (2026-10-04, the two re-verifications W2V-0 / W2V-1 of wave2/WAVE2-RESULT.json, key result.verify): the Proxima
 cell's distance is IMPORTED from phase1.L_PROXIMA (Gaia DR3, READ via restatement, DOCKET 67), never typed; Faria 2022
-Table 1 p.2's READ 768.50 +- 0.20 mas (4.2439 ly) is recorded beside it with the discrepancy computed
-(proxima_distances: 0.056 %, 2.17 sigma on Faria's error alone; no window moves).  Checks G40-G42.  Wave 2 first said
+Table 1 p.2's READ 768.50 +- 0.20 mas (4.2441 ly from Faria's parallax; 4.2439 from its rounded printed pc) is
+recorded beside it with the discrepancy computed (proxima_distances: 0.056 %, 2.17 sigma on Faria's error alone; no
+window moves; W2-fix first wrote '(4.2439 ly)' beside the 0.056 %, which is computed from the parallax -- against the
+printed pc the gap is 0.059 %, the W2 reproduction).  Checks G40-G42.  Wave 2 first said
 "4.2465 ly is the figure the task gives (Proxima Centauri's distance is NAMED-NOT-READ here)".  H-MAP's wording: the
 full texts (login wall, not read) MAY carry each paper's eps convention -- what they contain is not known here.
 
@@ -836,7 +838,12 @@ PROXIMA_DISTANCES_READ = {
     "Faria et al. 2022, Table 1 p.2": {
         "parallax_mas": (768.50, 0.20), "distance_pc_printed": (1.3012, 0.0003),
         "source": "arXiv:2202.05188v1 Table 1 p.2, 'compiled from the literature'; reference 1 for both rows is "
-                  "'Gaia Collaboration et al. (2016)' -- a Gaia DR1-era value, not DR3",
+                  "'Gaia Collaboration et al. (2016)': cited to the Gaia DR1 summary paper (Brown et al. 2016, A&A "
+                  "595 A2: 2202.05188v1 p.2 and its reference list pp.10-11 re-READ via alphaXiv by the W2 "
+                  "reproduction); the figures agree with DR2's published parallax, 768.5004 +- 0.2030 mas "
+                  "(secondary: a Firecrawl web-search excerpt, the Gaia archive not read, NAMED-NOT-READ); which release: OPEN.  If it is DR2, the 2.17 sigma is the DR2 -> DR3 shift; no "
+                  "window moves either way (G42).  W2-fix first said 'a Gaia DR1-era value, not DR3' -- an "
+                  "inference stated as fact, and the numbers point against it",
         "status": "READ via alphaXiv (answer_pdf_queries on 2202.05188v1, Table 1 p.2), W2-fix 2026-10-04"},
 }
 

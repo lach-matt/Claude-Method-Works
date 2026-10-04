@@ -1443,14 +1443,18 @@ D68_NOTES = {
         "H-VAC-LEFTIF, the nine taken together (%s).  Asked of vacuum.py: the "
         "harvested pair at beta = 7, lambda = 0.1 has N = %s and f - 1/2 = %s "
         "(the single-copy LOCC ceiling), symmetric-extendible on both sides "
-        "(margins %s, %s), so a near-maximal pair needs classical messages "
-        "each way; recurrence before hashing pays takes %d rounds (twirl) or %d "
+        "(margins %s, %s), so a near-maximal pair distilled from it needs "
+        "classical messages each way; recurrence before hashing pays takes %d rounds (twirl) or %d "
         "(rotation).  With no window family assumed (R2 harvests with cT << L at "
         "every L, at a negativity R2 guarantees only down to exp(-(L/cT)^3): %.3g "
         "at cT = L/2) the vacuum route's floor is t_hold + L/c, %.2f L/c from a "
         "midpoint and %.2f L/c from one end (vacuum.window_free_floor), after the "
         "light time and after a midpoint pair source (%.2f L/c): the distribution "
-        "is relocated to the probes and to two-way messages, not removed.  The "
+        "is relocated to the probes and to at least one classical message, not "
+        "removed -- two-way (R9) in the two computed families, the Gaussian and "
+        "Reznik's; for R2's windows only >= 1 message is shown, and the floor "
+        "counts only the one (the wave-2 seat first said 'relocated to the probes "
+        "and to two-way messages', unscoped).  The "
         "family-specific window bound (Reznik's window over gaps in [2, 40]) is "
         "vacuum.compact_boundary's and is not re-run here.  IF W2 x F1's first "
         "support held (N_EPS at the READ (abstract) Weinberg-family limit under "
@@ -2716,22 +2720,33 @@ def d68_w2_routes():
     """Wave 2's recorded retrieval routes, ASKED of the owners: settle's four
     Weinberg-family statuses (settle.window_read), vacuum.py's R-sources (its
     docstring's 'R<n> ... -- READ ... via <route>' lines) and seat.py's source
-    records (its module dicts carrying a 'route').  Counted by route; a source
-    whose route names neither instrument is listed, never dropped."""
+    records (its module dicts carrying a 'route'); and W2-fix's own reads,
+    added after the W2 reproduction found them uncounted: the wave-2 row of
+    settle.PROXIMA_DISTANCES_READ (its status names W2-fix; the board's
+    DOCKET 67 row is not a wave-2 read) and vacuum.BDSW_TABLE1_ROUTE.  Counted
+    by route; a source whose route names neither instrument is listed, never
+    dropped."""
     st = list(D68_WINDOW_READ["statuses"].values())
     vac = re.findall(r"^\s+R(\d+) .*? -- (READ[^\n]*)", vacuum.__doc__, re.M)
     sea = [v["route"] for k, v in sorted(vars(seat).items())
            if isinstance(v, dict) and isinstance(v.get("route"), str)]
+    pdr = [v["status"] for v in settle.PROXIMA_DISTANCES_READ.values() if "W2-fix" in v["status"]]
+    bdt = [vacuum.BDSW_TABLE1_ROUTE]
     via = lambda t, w: sum(1 for x in t if ("via " + w) in x)
-    other = ([x for x in st + [r for _n, r in vac] + sea
+    other = ([x for x in st + [r for _n, r in vac] + sea + pdr + bdt
               if "via alphaXiv" not in x and "via Firecrawl" not in x])
     return ("settle's four Weinberg-family limits, %d of %d via Firecrawl (scrape of the "
             "publisher's public abstract page); vacuum.py's R1-R%s, %d via alphaXiv and %d via "
             "Firecrawl; seat.py's %d recorded sources, %d via alphaXiv and %d via Firecrawl; "
-            "routes naming neither instrument: %s"
+            "W2-fix's own reads: settle.PROXIMA_DISTANCES_READ's wave-2 row%s (Faria 2022 "
+            "Table 1 p.2, the paper seat.py also records), %d via alphaXiv, and "
+            "vacuum.BDSW_TABLE1_ROUTE (R6 Table 1 p.24 and p.29, inside R6's recorded pages), "
+            "%d via alphaXiv; routes naming neither instrument: %s"
             % (via(st, "Firecrawl"), len(st), vac[-1][0] if vac else "?",
                via([r for _n, r in vac], "alphaXiv"), via([r for _n, r in vac], "Firecrawl"),
-               len(sea), via(sea, "alphaXiv"), via(sea, "Firecrawl"), other or "none"))
+               len(sea), via(sea, "alphaXiv"), via(sea, "Firecrawl"),
+               "" if len(pdr) == 1 else "s (%d)" % len(pdr), via(pdr, "alphaXiv"),
+               via(bdt, "alphaXiv"), other or "none"))
 
 
 _SEAT = d68_uniform("O-SEAT")
@@ -2913,8 +2928,11 @@ D68_RULED = [
                "with each reading.  Wave 2's recorded routes, asked of the owners: %s.  A full "
                "text behind a login wall was not read and stays a named hypothesis (H-MAP); an "
                "erratum page with no abstract stays NAMED-NOT-READ (H-ERRATUM)" % d68_w2_routes()),
-     "every wave-2 reading of outside art, each with its route; H-MAP and H-ERRATUM stay "
-     "named"),
+     "every wave-2 reading of outside art that an owner records with a route (settle, "
+     "vacuum, seat -- W2-fix's own reads included since the W2 reproduction), each with "
+     "its route; H-MAP and H-ERRATUM stay named.  The wave-2 seat first said 'every "
+     "wave-2 reading of outside art, each with its route' while its census left W2-fix's "
+     "own reads out"),
     ("M-D68-C1",
      "When does DOCKET 68 open? (CHARTER.md: chartered 2026-10-02)",
      "DOCKET 67 was running when the docket was chartered",
@@ -3783,6 +3801,13 @@ D68_INLINE_QUOTES = {
 D68_NOT_QUOTES = {
     "it already exists everywhere": "combine.py's emended gloss of M's words (D23 note), "
                                     "printed as not M's",
+    # ADDED (the W2 reproduction): the wave-2 seat's own superseded wording,
+    # quoted as history beside 'first said'; neither is M's nor the charter's.
+    "relocated to the probes and to two-way messages": "the wave-2 seat's own wording "
+                                                       "(D23 note, O9), printed as history",
+    "every wave-2 reading of outside art, each with its route": "the wave-2 seat's own "
+                                                                "wording (M-D68-16), "
+                                                                "printed as history",
 }
 
 
@@ -3890,14 +3915,20 @@ def o9_claim():
         "Proxima (seat.py, W2C-seat): seat.grade_o_seat = %s; the D25 gate's binder "
         "at a CI-like body is %s, measured in no Proxima-system star or body in the "
         "sources read (seat.P_MEASURED_IN_PROXIMA_SYSTEM = %s), so the gate cannot "
-        "be evaluated at its binder; N, the runner-up: %s.  O-MAKE in its "
+        "be evaluated at its binder; N, the runner-up: %s (seat.proxima_measured's "
+        "own words, as D25's note carries them; the wave-2 seat first printed only "
+        "the clause before the first parenthesis, without the status).  O-MAKE in its "
         "distribution form (wave 2, vacuum.py, W2B-vacuum: N_VAC split, and retired "
         "to combine's history): vacuum.GRADES grades it LEFT-IF {%s} and OPEN "
         "outside that set via %s, none computed; combine screens it %s; given "
         "H-VAC-LEFTIF (the nine taken together) %s.  The distribution is relocated "
-        "to the probes and to two-way messages, not removed: the vacuum route's "
+        "to the probes and to at least one classical message, not removed -- "
+        "two-way (R9) in the two computed families; for R2's windows only >= 1 "
+        "message is shown: the vacuum route's "
         "window-free floor is %.2f / %.2f L/c (midpoint / one end), against a "
-        "midpoint pair source at %.2f L/c (D23's note).  WAVE 1 FIRST SAID (kept): "
+        "midpoint pair source at %.2f L/c (D23's note).  The wave-2 seat first "
+        "said 'relocated to the probes and to two-way messages', unscoped.  "
+        "WAVE 1 FIRST SAID (kept): "
         "%s (as-of: combine's HISTORY encoding wave6-NVAC).  M's H-INFO-SHAPE "
         "removes nothing (O-SEAT %s "
         "under it: the board's pathway, not the hypothesis's).  THE MEASURE "
@@ -3954,7 +3985,7 @@ def o9_claim():
            d68_asked("H-FRAME clause 1 alone (F1)", "O-LOOP-C"),
            d68_uniform("O-SEAT"), d68_verdict(D68_SEAT_ROUTES),
            D68_SEAT["grade"], D68_SEAT["binder"][0], D68_SEAT["P in the system"],
-           D68_SEAT["N alpha Cen"].split(" (")[0],
+           D68_SEAT["N alpha Cen"],
            ", ".join(d68_vac_grade()[0]), ", ".join(d68_vac_grade()[1]),
            d68_grouped("O-MAKE-DIST"), d68_grouped("O-MAKE-DIST", D68_VACLEFT_ASKED),
            D68_VAC["floor midpoint, one end (L/c)"][0], D68_VAC["floor midpoint, one end (L/c)"][1],
@@ -4566,7 +4597,7 @@ W_DEMAND_CLAIM = 5200             # DOCKET 67: D24 names the dropped
 W_DEMAND_MOVES = 1200             # DOCKET 65: D27's movers run past 1000
 W_SUPPLY_NOTE = 5000              # DOCKET 65: S10's claim and movers, one note,
                                   # and the item S10 (open) (M-D65-2)
-W_OPEN_CLAIM = 9000               # DOCKET 67: as W_DEMAND_CLAIM (D24 is OPEN);
+W_OPEN_CLAIM = 10000              # DOCKET 67: as W_DEMAND_CLAIM (D24 is OPEN);
                                   # follow-ups: O5 names FO/FFKP REFUSED on the
                                   # Hadamard clause, with its correction (4065
                                   # chars as rendered at the follow-ups).
@@ -4577,7 +4608,12 @@ W_OPEN_CLAIM = 9000               # DOCKET 67: as W_DEMAND_CLAIM (D24 is OPEN);
                                   # 6000 -> 9000 -- O9 prints support 1's nine
                                   # READ windows, the vacuum and seat grades,
                                   # and wave 1's words kept (8474 chars as
-                                  # rendered)
+                                  # rendered).  W2 reproduction: 9000 -> 10000
+                                  # -- O9 keeps N's whole status from
+                                  # seat.proxima_measured and scopes the
+                                  # message count, with the wave-2 seat's words
+                                  # kept (9170 chars as rendered; at 9000 the
+                                  # cut-cell check caught it)
 W_OPEN_ANSWER = 2400              # DOCKET 67: O2's answer names its
                                   # conditions (M ruled "Repair all").
                                   # DOCKET 68 wave 2: 1400 -> 2400 -- O9's

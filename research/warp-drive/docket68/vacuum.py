@@ -590,6 +590,10 @@ BDSW_TABLE1 = {
     "B_y": ("Psi-", "Psi+", "Phi+", "Phi-"),
     "B_z": ("Psi-", "Phi+", "Phi-", "Psi+"),
 }
+#: The route of W2-fix's re-read of R6 (Table 1 p.24, p.29 B_x), recorded as data so the LEDGER's route census
+#: (ledger.d68_w2_routes, M-D68-16) can ask it; the pages lie inside R6's recorded pp.22-42 (the W2 reproduction).
+BDSW_TABLE1_ROUTE = ("READ via alphaXiv (answer_pdf_queries on quant-ph/9604024v2), Table 1 p.24 and p.29 (B_x named), "
+                     "W2-fix re-read 2026-10-04")
 #: R6 eq.(40) p.26 (READ): Phi+ = 00, Psi+ = 01, Phi- = 10, Psi- = 11 -- the index order of every p tuple here.
 BDSW_EQ40 = {"Phi+": 0, "Psi+": 1, "Phi-": 2, "Psi-": 3}
 
@@ -809,21 +813,26 @@ GRADES = {
         "SPLIT, computed.  (i) The vacuum's entanglement reaches probes that cannot communicate: TRUE given "
         "{H-UDW, H-PERTURB, H-MINK-VAC, H-SPACELIKE} (R1, R2, R3, R4 READ; R1's two figures reproduced).  No entangled "
         "carrier crosses.  (ii) Usable as the channel's pairs with nothing crossing at <= c first: FALSE given "
-        "{H-LOCC, H-NEARMAX, H-PROBE-OPERATED} -- the probes cross (D23), a near-maximal pair needs classical messages "
-        "in BOTH directions (R9: the harvested state is symmetric extendible both ways, so zero-way and one-way "
-        "distillation are impossible), and the window itself lasts >= 0.91 L/c for Reznik's cos^2(pi t) window with "
+        "{H-LOCC, H-NEARMAX, H-PROBE-OPERATED} -- the probes cross (D23), a near-maximal pair needs at least one "
+        "classical message (R7 Prop.3 / R8 Thm 1, any state) and, in the two computed families, messages in BOTH "
+        "directions (R9: the harvested state there is symmetric extendible both ways, so zero-way and one-way "
+        "distillation are impossible; R9 is not computed for R2's windows), and the window itself lasts >= 0.91 L/c for Reznik's cos^2(pi t) window with "
         "Omega T in [2, 40], or 7T = 7L/(beta c) for the Gaussian at beta = 7 -- those two families only.  With no "
         "window assumption (R2 harvests with cT << L at every L) the floor is t_hold + L/c: >= 1.50 L/c from a midpoint, "
         ">= 2.00 L/c from one end (window_free_floor), still after the light time and after a midpoint pair source "
         "(0.50 L/c), at a negativity R2 guarantees only down to exp(-(L/cT)^3).  Wave 2 first said 'the window itself "
-        "lasts >= 0.91 L/c (compact) or 7T = 7L/(beta c)', unscoped.",
+        "lasts >= 0.91 L/c (compact) or 7T = 7L/(beta c)', unscoped, and 'a near-maximal pair needs classical "
+        "messages in BOTH directions', with no family scope.",
     "O-MAKE-DIST":
         "LEFT-IF {H-UDW, H-PERTURB, H-O4-FLOOR, H-MINK-VAC, H-SPACELIKE, H-LOCC, H-IID, H-NEARMAX, H-PROBE-OPERATED}: "
-        "the distribution is not removed but relocated -- from the pairs to the probes (<= c, D23) and to two-way "
-        "classical messages (>= L/c after the window; the window is ~ L/c in the two families computed and -> 0 "
-        "admissible in R2's, so the floor is >= 1.50 L/c midpoint / 2.00 L/c one end).  OPEN outside that set via "
+        "the distribution is not removed but relocated -- from the pairs to the probes (<= c, D23) and to at least "
+        "one classical message (>= L/c after the window; two-way (R9) in the two computed families, the Gaussian and "
+        "Reznik's; for R2's windows only >= 1 message is shown, R7 Prop.3 / R8 Thm 1; the window is ~ L/c in the two "
+        "families computed and -> 0 admissible in R2's, so the floor is >= 1.50 L/c midpoint / 2.00 L/c one end, "
+        "which needs only the one message).  OPEN outside that set via "
         "N_NLDIST, N_W2WEAK, N_VACNP, "
-        "none computed.  Wave 1 said: OPEN via N_VAC only.",
+        "none computed.  Wave 2 first said 'relocated ... to two-way classical messages', with no family scope.  "
+        "Wave 1 said: OPEN via N_VAC only.",
     "weak pairs consumed as they are (H-NEARMAX dropped)":
         "teleportation fidelity (2f + 1)/3 = 2/3 + 2N/3 (computed; f = 1/2 + N for the harvested state, the R8 "
         "Thm 1 / R7 eq.39 ceiling for any LOCC on one copy, so no processing of a single copy does better): at "
@@ -1183,9 +1192,11 @@ def selftest():
            f"{m['window-free floor t_hold + L/c'] / lt:.3f} / {e1['window-free floor t_hold + L/c'] / lt:.3f} L/c")
     tlr = R["I_timeline"]["1 ly"]
     wf = R["I_window_free"]["1 ly"]
-    ok("I4 CONTROL (must change): the computed families' floors are the window-free floor plus their window exactly -- "
-       "Gaussian beta = 7 (window L/c) 2.50 / 3.00, Reznik L/T = 1.05 (0.952 L/c) 2.45 / 2.95 -- so the 2.41-3.00 range "
-       "is the window families', and dropping the window moves it",
+    structural("I4 (a drift guard, not a control; W2-fix first labelled it 'CONTROL (must change)' and counted it): the "
+       "computed families' floors are the window-free floor plus their window exactly -- Gaussian beta = 7 (window L/c) "
+       "2.50 / 3.00, Reznik L/T = 1.05 (0.952 L/c) 2.45 / 2.95.  It holds by construction: timeline() and "
+       "window_free_floor() use the same imported t_hold and the same t0 + tw + L/c, so it can catch a drift between "
+       "the two functions but cannot fail on content",
        all(abs(tl[src]["floor: one two-way exchange (R9)"] - wf[src]["window-free floor t_hold + L/c"] - tl[src]["harvest window"])
            < 1e-9 * tl[src]["light time L/c"] and tl[src]["floor: one two-way exchange (R9)"] - wf[src]["window-free floor t_hold + L/c"]
            > 0.9 * tl[src]["light time L/c"]

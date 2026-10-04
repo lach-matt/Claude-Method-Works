@@ -400,3 +400,63 @@ Recorded verbatim in M-RULINGS-2026-10-03.md item 14 and in the ledger as M-D68-
 before this charter was written". The commit times show the reverse: this charter was committed (a1a2890, 14:44:20)
 still reading "asked of M and unanswered", and M's answer was applied to emtension.py afterwards (50c53b9, 14:56:49).
 The charter was written that day before the answer, as M-RULINGS item 14 and ledger M-D68-C12 say.
+
+**Dated note (2026-10-04, after the DOCKET 68 wave-2 seat 382f50c), appended; nothing above edited.** M's rulings on
+the retrieval route for wave 2 -- items 15 and 16 of M-RULINGS-2026-10-03.md, which records them verbatim -- are
+carried here. M's words are the quoted strings after "M:"; everything else is the record's application, not M's
+words. Item 15 is superseded by item 16 and kept as history, as the rulings file keeps it. Quoted from the rulings
+file, whole:
+
+> 15. **Retrieval route for wave 2 (2026-10-04).** M: "The methods own navigation and retrieval instruments are available
+>     for obtaining outside art in non-conventional ways". Asked which instruments, M chose "Corpus instruments": the
+>     repository's own tools (tools/coverage.py, tools/recover.py, the sharded chat export drive/chats with its
+>     INDEX.tsv, the Drive mirror's MANIFEST.tsv, extracted/LEDGER.tsv and recovered/LEDGER.tsv), to find whether outside
+>     papers or their numbers were already retrieved or quoted in the corpus. No paywall or host block is circumvented.
+>
+> 16. **Correction to item 15 (2026-10-04).** M: "No. I mean their are instruments to assist navigating and retrieval of
+>     papers from the web". Item 15's reading (corpus instruments only) is superseded: the instruments are the session's
+>     web-retrieval connectors -- Firecrawl (web search, scrape of a supplied public page, research-paper search,
+>     inspect and read) beside alphaXiv. Used for openly available content only: public abstract pages, open-access
+>     copies, indexed full text; a paywalled full text or a login wall is not circumvented, and the route is recorded with
+>     each reading (e.g. 'READ via Firecrawl scrape of the publisher's public abstract page'). First use: Majumder et al.,
+>     PRL 65, 2931 (1990), public abstract at journals.aps.org: "upper limit on epsilon ... of ||epsilon||/2 pi hbar < 3.8
+>     micro Hz, which corresponds to 2.0 x 10^-27 of the binding energy per nucleon" -- READ (abstract).
+
+The ledger seats them as M-D68-15 and M-D68-16, reading the rulings file; the routes wave 2 recorded are asked of the
+owners there (`ledger.d68_w2_routes`). This note carries items 15 and 16 only: the rulings file's items 7-14 are not
+carried into this charter by it, and whether they are to be is not decided here.
+
+
+## M-RULINGS items 7-14, carried (2026-10-04), verbatim from M-RULINGS-2026-10-03.md; append-only
+
+## Rulings after wave 1 closed, verbatim answers (2026-10-04)
+
+7. **Seat-route reading.** M: "S5 counts (Recommended)". H-SEAT-S5 is adopted: O-SEAT is OPEN via S5 (reconstruction
+   from stock at the seat) and the D25 stock gate, until both are shown. H-SEAT-ROUTES ({S10, S13} only) is kept as the
+   alternative on record.
+8. **Does BFL convex linearity bind The Method?** M: "Keep both (Recommended)". Both weightings stay carried; the
+   conditional separation (H-BFL-BINDS) stays named and unruled.
+9. **The paper session.** M: "Wait". PAPER-BRIEF-Q1s.md stays in the tree; no session is started.
+10. **Order of work.** M: "1 then 2 then 3 then 4" -- (1) seat D68 wave 1 into the ledger and index3 under the usual
+    checks; (2) D68 wave 2 (the Weinberg-family limits read at source, vacuum entanglement as pair supply, the S5 seat
+    route); (3) the D67 per-source comments; (4) DOCKET 66.
+
+11. **The paper's priority (2026-10-04).** M: "The paper is not a priority, just an additional if the math concept is
+    novel or introduces new theorems/proofs not otherwise previously published art". The paper is conditional on
+    novelty: it is written only if the prior-art search shows a theorem or proof not previously published.
+
+12. **Paper, CLAIMS.md 4647-4648 (2026-10-04).** Asked whether to correct 'For an object to arrive, an identical stock
+    of matter must already be there — and that had to travel', which says more than the board holds under 'S5 counts'.
+    M: "Correct it (Recommended)". Qualified under a marked note: an identical, travelled stock is one route;
+    reconstruction from local stock (S5) is another, open and not shown.
+13. **Paper, H62d (2026-10-04).** Asked whether to scope the no-communication statements to linear quantum mechanics.
+    M: "Scope it (Recommended)". Scoped 'in linear quantum mechanics', with a marked note that D68 found conditional
+    routes outside that scope, none shown to exist.
+14. **emtension.py's ER = EPR citation (answered 2026-10-02, before DOCKET 68 opened; recorded here 2026-10-04).**
+    Asked: "emtension.py states that the ER = EPR bridge cannot be crossed, but cites no source. Should I record
+    today's reading of Maldacena & Susskind (arXiv 1306.0533 v2, read at source) there?" M: "Record it (Recommended)".
+    Applied the same day (50c53b9): emtension.py carries ER_EPR_SOURCE = "arXiv:1306.0533v2", ER_EPR_SOURCE_STATUS =
+    "READ", ER_EPR_NONTRAVERSABLE_IS_ASSUMED, ER_EPR_FOOTNOTE_1 (the source's footnote 1, whole) and
+    ER_EPR_PARTICLE_PAIR_FORM_IS_SPECULATION, each checked by its selftest; ENTANGLED_BRIDGE_IS_TRAVERSABLE = False is
+    unchanged. CHARTER.md, written that day before the answer, still records the question as asked of M and
+    unanswered; the ledger, reading the charter, first carried it as pending (M-D68-P1).

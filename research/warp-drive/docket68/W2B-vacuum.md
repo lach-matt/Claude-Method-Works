@@ -2,9 +2,10 @@
 
 **Status: a docket work item, wave 2 (2026-10-04). Nothing here is seated.** This is step 2 of M's order (M-RULINGS item 10:
 *"1 then 2 then 3 then 4"*). The instrument is `vacuum.py`, beside this file. `PYTHONDONTWRITEBYTECODE=1 python3 vacuum.py
---selftest` runs **57 counted checks and passes all 57**. **12 of them are controls** built to fail
-if the code is wrong. One counted check, B1, did fail during the build and exposed a fault in the draft (section B). **9 items cannot fail.** They are printed STRUCTURAL and not counted. *Wave 2 first said* 50 counted, 10 controls; the
-W2-fix pass (section W, at the end) added G6-G8 and I3-I5. `python3
+--selftest` runs **56 counted checks and passes all 56**. **11 of them are controls** built to fail
+if the code is wrong. One counted check, B1, did fail during the build and exposed a fault in the draft (section B). **10 items cannot fail on content.** They are printed STRUCTURAL and not counted. *Wave 2 first said* 50 counted, 10 controls; the
+W2-fix pass (section W, at the end) added G6-G8 and I3-I5, and *W2-fix first said* 57 counted, 12 controls, 9 STRUCTURAL:
+I4 was counted as a control, but it holds by construction and is now STRUCTURAL (section W). `python3
 vacuum.py` prints the report, and `--json PATH` writes it as JSON.
 
 `vacuum.py` imports what it uses and copies nothing. From `settle.py` it takes `first_transit_times`, which is LEDGER D23 as
@@ -34,9 +35,12 @@ computed: OPEN"*. This file computes it.
      **T > 0.9097 L/c** for Reznik's cos²(πt) window at any gap ΩT in [2, 40], or **7T = L/c** for a Gaussian at β = 7.
      This is a property of those families, not of harvesting: R2's windows harvest with cT ≪ L at every L, so
      **T_window → 0 is admissible** (section W).
-   - A near-maximal pair needs classical messages in **both** directions. The harvested state has a symmetric extension on
-     each side, so by Chen et al.'s Theorem 1 no protocol with no messages, or with messages in one direction only, can
-     distil it.
+   - A near-maximal pair needs **at least one** classical message, for any state (Vidal-Werner Prop.3, Verstraete-Verschelde
+     Thm 1). In the two families computed, the Gaussian and Reznik's, it needs messages in **both** directions: the
+     harvested state there has a symmetric extension on each side, so by Chen et al.'s Theorem 1 no protocol with no
+     messages, or with messages in one direction only, can distil it. For R2's windows that is not computed; only ≥ 1
+     message is shown. *Wave 2 first said* "A near-maximal pair needs classical messages in **both** directions", with
+     no family scope.
 
    So, **given those two window families**, the vacuum route's floor for any protocol is **2.41-3.00 L/c**. **With no
    window assumption** the floor is t_hold + L/c, computed from D23 (`window_free_floor`): **≥ 1.50 L/c with probes from
@@ -45,8 +49,9 @@ computed: OPEN"*. This file computes it.
    recurrence-and-hashing protocols take **43-204 L/c**. *Wave 2 first said* "the vacuum route's floor, for any
    protocol, is 2.41-3.00 L/c", unscoped.
 3. **O-MAKE-DIST: OPEN → LEFT-IF {H-UDW, H-PERTURB, H-O4-FLOOR, H-MINK-VAC, H-SPACELIKE, H-LOCC, H-IID, H-NEARMAX,
-   H-PROBE-OPERATED}.** Distribution is relocated, not removed: from the pairs to the probes and to two-way classical
-   messages. Outside that set it is **OPEN** via N_NLDIST, N_W2WEAK and N_VACNP, and none of the three is computed. *Wave 1
+   H-PROBE-OPERATED}.** Distribution is relocated, not removed: from the pairs to the probes and to at least one classical
+   message -- two-way (R9) in the two computed families; for R2's windows only ≥ 1 message is shown. The 1.50 / 2.00 L/c
+   floor needs only the one message and does not move. *Wave 2 first said* "to two-way classical messages", unscoped. Outside that set it is **OPEN** via N_NLDIST, N_W2WEAK and N_VACNP, and none of the three is computed. *Wave 1
    said: OPEN via N_VAC only.*
 4. **Weak pairs used as they come (H-NEARMAX dropped).** These figures are at β = 7, λ = 0.1.
    - Teleportation fidelity is **2/3 + 2N/3**, an excess of **2.7e-17** over the classical 2/3. The harvested state already
@@ -226,8 +231,10 @@ Every entry scales with L, so the factors are the same at 1 AU and at 1 ly. At 1
 case is 7.89e7 s, or 2.5 yr; the window-free midpoint floor is 4.73e7 s, or 1.5 yr. The Reznik boundary window
 (T = 0.9097 L/c) gives 2.41 L/c from the midpoint, the low end of the family range. Every vacuum-route floor arrives
 **after the light time**, and the midpoint pair source arrives before it (I1, all four cases; I3, the window-free case,
-at 1 AU and 1 ly). Control I4: each family's floor is the window-free floor plus its window exactly, so dropping the
-window moves the floor -- the 2.41-3.00 range is the families', not harvesting's.
+at 1 AU and 1 ly). I4 (STRUCTURAL, not counted): each family's floor is the window-free floor plus its window exactly,
+so dropping the window moves the floor -- the 2.41-3.00 range is the families', not harvesting's. It holds by
+construction (both functions use the same imported t_hold and t0 + tw + L/c), so it guards against drift between them
+and is not evidence. *W2-fix first said* "Control I4".
 
 Probes placed in advance amortise their placement exactly as pairs stored in advance do. Neither changes O-BITS: the two
 classical bits per teleported qubit are still sent at c when the pair is used.
@@ -298,7 +305,7 @@ read as (ii). Whether to do so is for the seating step and M.
 
 ```
 cd research/warp-drive/docket68
-PYTHONDONTWRITEBYTECODE=1 python3 vacuum.py --selftest     # 57/57 counted, 12 controls, 9 STRUCTURAL (wave 2: 50/50, 10)
+PYTHONDONTWRITEBYTECODE=1 python3 vacuum.py --selftest     # 56/56 counted, 11 controls, 10 STRUCTURAL (wave 2: 50/50, 10; W2-fix: 57/57, 12, 9)
 python3 vacuum.py --json /tmp/vacuum.json                 # the report above
 ```
 
@@ -309,8 +316,16 @@ here. Neither moves a grade. Wave 2's sentences are kept above, marked *wave 2 f
 
 | verifier item | resolution |
 |---|---|
-| W2V-0 #1 / W2V-1 #1: T > 0.9097 L/c and the 2.41-3.00 L/c floor stated for any window or protocol, but computed only for Reznik's cos²(πt) window (ΩT in [2, 40]) and the Gaussian at β = 7; R2 (quant-ph/0310058v2, READ) harvests with cT ≪ L at every L, with N ≥ e^(−(L/cT)³) (eq.8 p.3) | **Applied, and computed.** Both figures are scoped to their families wherever stated (here, `vacuum.py` GRADES and `timeline` docstring, `combine.py`'s N_VAC history, B-LOCC and ground-check names, B-combine.md). `vacuum.window_free_floor` computes the floor with no window assumption from D23 (imported): **t_hold + L/c = 1.50 L/c (midpoint), 2.00 L/c (one end)**, checked at 1 AU and 1 ly (I3); with a window cT = xL the floor is (1.5 + x) L/c from the midpoint (2.5, 2.0, 1.75, 1.6 at x = 1, 1/2, 1/4, 1/10); R2's guarantee there is e^−1, e^−8, e^−64, e^−1000 (I5). Control I4 shows the family floors are the window-free floor plus their window exactly. The exchange the floor counts needs only that zero-way processing gives no near-maximal pair (R7 Prop.3, R8 Thm 1), which holds for every state; R9's two-way requirement is not computed for R2's states and is not used. Still after the light time and after the midpoint source (0.50 L/c): O-MAKE-DIST's LEFT-IF and O-BITS are unchanged. |
+| W2V-0 #1 / W2V-1 #1: T > 0.9097 L/c and the 2.41-3.00 L/c floor stated for any window or protocol, but computed only for Reznik's cos²(πt) window (ΩT in [2, 40]) and the Gaussian at β = 7; R2 (quant-ph/0310058v2, READ) harvests with cT ≪ L at every L, with N ≥ e^(−(L/cT)³) (eq.8 p.3) | **Applied, and computed.** Both figures are scoped to their families wherever stated (here, `vacuum.py` GRADES and `timeline` docstring, `combine.py`'s N_VAC history, B-LOCC and ground-check names, B-combine.md). `vacuum.window_free_floor` computes the floor with no window assumption from D23 (imported): **t_hold + L/c = 1.50 L/c (midpoint), 2.00 L/c (one end)**, checked at 1 AU and 1 ly (I3); with a window cT = xL the floor is (1.5 + x) L/c from the midpoint (2.5, 2.0, 1.75, 1.6 at x = 1, 1/2, 1/4, 1/10); R2's guarantee there is e^−1, e^−8, e^−64, e^−1000 (I5). I4 shows the family floors are the window-free floor plus their window exactly (*W2-fix first said* "Control I4"; it holds by construction and is now STRUCTURAL, not counted -- the W2 reproduction's item, below). The exchange the floor counts needs only that zero-way processing gives no near-maximal pair (R7 Prop.3, R8 Thm 1), which holds for every state; R9's two-way requirement is not computed for R2's states and is not used. Still after the light time and after the midpoint source (0.50 L/c): O-MAKE-DIST's LEFT-IF and O-BITS are unchanged. |
 | W2V-0 #4: "which rotation BDSW attribute to Macchiavello is not established" understates the source; BDSW p.29 names B_x (READ); check it against Table 1 for the 10 ↔ 11 labelling | **Applied, and computed** (`bdsw_bx_from_table1`, G6-G8). R6 p.29 and Table 1 p.24 READ via alphaXiv this pass. Table 1's B_x is 00 ↔ 01 in eq.(40) labels; σ_y-conjugated (R6 item 5) it is 10 ↔ 11, equal to `swap_post`; both give 0.0045700549. What stays a derivation, not a reading: which of the two equivalent forms Macchiavello meant -- R6 p.29 says "B_x" in a section where Φ⁺ is the standard state, and the yield cannot separate them. |
 
 Not in scope here, recorded for completeness: W2V-1 #5 (the verifier's own process note) needs no change in this file.
+
+**The W2 reproduction (`wave2/FIX-SEAT-RESULT.json`, key `result.v.problems`), two items sited here; neither moves a
+grade.** (1) *"Two-way messages"* stood unscoped in `vacuum.GRADES['O-MAKE-DIST']`, in the N_VAC grade, in the answer's
+item 2 (third bullet) and item 3, and in the LEDGER's D23 note and O9 that inherit them. **Applied:** at least one
+classical message for any state (R7 Prop.3, R8 Thm 1); two-way (R9) in the two computed families; for R2's windows only
+≥ 1 message is shown. The 1.50 / 2.00 L/c floor counts one message and does not move. (2) I4 was labelled a control,
+but it holds by construction. **Applied:** it is now STRUCTURAL and not counted: 56/56 counted, 11 controls, 10
+STRUCTURAL.
 

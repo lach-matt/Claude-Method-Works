@@ -179,9 +179,10 @@ BRUGGER_2016 = {
 }
 #: W2-fix: Proxima's distance is IMPORTED from the board's owner, phase1.L_PROXIMA (Gaia DR3 parallax 768.066539 mas,
 #: READ via restatement, DOCKET 67), through settle (one import, never typed).  Wave 2 first used foliation's 4.2465 ly
-#: (phase1's value rounded to four decimals).  Faria 2022 Table 1 p.2 prints 768.50 +- 0.20 mas (1.3012 pc, 4.2439 ly):
-#: both READ values are recorded in settle.PROXIMA_DISTANCES_READ, the discrepancy (0.056 %, 2.17 sigma on Faria's error
-#: alone) computed by settle.proxima_distances().
+#: (phase1's value rounded to four decimals).  Faria 2022 Table 1 p.2 prints 768.50 +- 0.20 mas (4.2441 ly from that
+#: parallax) and 1.3012 pc (4.2439 ly, rounded): both READ values are recorded in settle.PROXIMA_DISTANCES_READ, the
+#: discrepancy (0.056 % from Faria's parallax, 2.17 sigma on Faria's error alone; 0.059 % against the printed pc)
+#: computed by settle.proxima_distances().  W2-fix first wrote '(1.3012 pc, 4.2439 ly)' beside the 0.056 %.
 #: Porto de Mello, Lyra & Keller 2008, arXiv:0804.3712v2 -- READ via alphaXiv (W2-fix, 2026-10-04): p.12 'The available
 #: literature data also suggests that the C, N and O abundance ratios of alpha Cen A are solar'; Fig. 8 p.14 (alpha Cen
 #: A, six studies, N plotted; caption: 'C, N, O ... are normal'); their own Table 4 p.12 carries no N and no P.
@@ -263,9 +264,11 @@ def proxima_measured():
                    ("'roughly solar' (restated, NAMED-NOT-READ)" if e == "Na" else "not measured in sources read"),
                    "alpha_Cen_AB": "measured (Morel 2018)" if acen else
                    ("reference element (H)" if e == "H" else
-                    ("measured in alpha Cen A in the literature: solar, [N/Fe] ~ 0 (Porto de Mello et al. 2008 p.12, "
-                     "READ; primaries NAMED-NOT-READ); also A and B by Laird 1985, offset -0.65 dex per Hinkel & Kane "
-                     "2013 p.2 (READ). NOT among Morel 2018's 21 species" if e == "N" else
+                    ("measured in alpha Cen A in the literature: solar, [N/Fe] ~ 0 -- a qualitative literature "
+                     "summary, which the source says the data 'suggests' (Porto de Mello et al. 2008 p.12, READ; "
+                     "primaries NAMED-NOT-READ); in conflict, Laird 1985 measured N in A and B with [N/Fe] offset "
+                     "-0.65 dex, which Hinkel & Kane 2013 p.2 (READ) attribute to atmospheres too cool and exclude "
+                     "(Laird's primary NAMED-NOT-READ). NOT among Morel 2018's 21 species" if e == "N" else
                      "NOT measured in any source read (not among Morel 2018's 21 species, Porto de Mello 2008 "
                      "Table 4 or Hinkel & Kane 2013 Table 1)")),
                    "any_body": "not measured (no composition of any Proxima-system body exists in the sources read)"}

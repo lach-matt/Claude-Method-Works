@@ -107,7 +107,7 @@ the board; it only sharpens the figure, and every ratio built on it is a floor.
   slower values: 21.2 yr at 0.2 c, 42.5 yr at 0.1 c, 425 yr at 0.01 c. **Proxima's distance has two READ values**
   (W2-fix): phase1's, from the Gaia DR3 parallax 768.066539 mas (READ via restatement, DOCKET 67), 4.24646 ly; and
   Faria 2022 Table 1 p.2's, 768.50 ± 0.20 mas and 1.3012 ± 0.0003 pc (referenced there to Gaia Collaboration 2016),
-  4.2439 ± 0.0010 ly. They differ by 0.056 %: 2.17 σ on Faria's parallax error alone (2.10 σ on both errors; 2.57 σ
+  4.2441 ly from Faria's parallax (4.2439 ± 0.0010 from its rounded printed pc). They differ by 0.056 % (*W2-fix first said* "4.2439 ± 0.0010 ly" beside "0.056 %"; the W2 reproduction: 4.2439 is the printed pc, and against it the gap is 0.059 %): 2.17 σ on Faria's parallax error alone (2.10 σ on both errors; 2.57 σ
   against Faria's printed, rounded 1.3012 pc). phase1's is imported for every computation; on Faria's the arrival is
   4.244 yr and the report home 8.488 yr. No verdict moves (`settle.proxima_distances`, G40-G42).
 - **Survey:** Proxima b does not transit (Faria 2022 p.9; Brugger p.1 gives a 1.5 % transit probability). So no radius
