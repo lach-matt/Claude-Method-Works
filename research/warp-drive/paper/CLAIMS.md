@@ -4626,15 +4626,15 @@ Averaged over A's unknown outcome, the far end carries no information until **2 
 | Earth–Proxima | 4.246 yr | 4.246 yr | **0.000** |
 | Milky Way crossing | 99984.675 yr | 99984.675 yr | **0.000** |
 
-**Not small. Not hard. Identical — and provably, because the no-communication theorem is a theorem.**
+**Not small. Not hard. Identical — and provably, because the no-communication theorem is a theorem** — in linear quantum mechanics. *(Corrected on M's "Scope it (Recommended)", DOCKET 68: first written without the scope. DOCKET 68 computed routes outside linear quantum mechanics that would remove the two classical bits only on premises not shown -- a deterministic state-dependent drift with a preferred slicing, or a time loop at Bob -- none shown to exist; ledger O9.)*
 
-> **This is the only route in the project whose failure is *proved* rather than bounded.** Every other
+> **This is the only route in the project whose failure is *proved* (in linear quantum mechanics) rather than bounded.** Every other
 > door closed on a magnitude, a sub-Planckian crossover, or an unresolved conjecture. This one closes on
 > an identity.
 
 ### H62e — the traversal is not removed, it is moved earlier
 
-A Bell pair spanning `D` required a common causal past: from a midpoint source it spans `D` in `D/(2c)`, no carrier moving more than `D/2`; with every resource sent from one end, it is in place no earlier than `D/c`. *(Corrected on M's "Repair all", DOCKET 67: first written "A Bell pair spanning `D` required something to cross `D` at `≤ c` beforehand", which holds for initially separable systems with every resource starting at one end, S5's case, and so do "must be traversed" and "the full light-speed trip" below; a shared pair needs only a common causal past (`transit.py`, ledger D23). The vacuum is already entangled across spacelike regions, but weakly, and purifying that entanglement (LOCC) needs classical messages at `≤ c`. The advantage over light stays zero.)*
+A Bell pair spanning `D` required a common causal past: from a midpoint source it spans `D` in `D/(2c)`, no carrier moving more than `D/2`; with every resource sent from one end, it is in place no earlier than `D/c`. *(Corrected on M's "Repair all", DOCKET 67: first written "A Bell pair spanning `D` required something to cross `D` at `≤ c` beforehand", which holds for initially separable systems with every resource starting at one end, S5's case, and so do "must be traversed" and "the full light-speed trip" below; a shared pair needs only a common causal past (`transit.py`, ledger D23). The vacuum is already entangled across spacelike regions, but weakly: nothing read shows it distils into a near-maximal pair across a macroscopic `D` (`transit.py`). The advantage over light stays zero by construction (`transit.py`).)*
 
 > **The corridor must be traversed in order to exist.**
 
@@ -4644,8 +4644,8 @@ exactly light speed. *The accounting defeats it at a step the description does n
 before the transit, not during it.*
 
 **And it carries state, not substance.** Teleportation writes a quantum state onto matter **already at
-the destination**. No mass moves. No energy moves. For an object to arrive, an identical stock of matter
-must already be there — and that had to travel.
+the destination**. No mass moves. No energy moves. For an object to arrive, matter must already be there: an identical stock
+that had to travel, or stock already at the destination from which the object is reconstructed (S5: open, not shown). *(Corrected on M's "Correct it (Recommended)", DOCKET 68: first written "an identical stock of matter must already be there — and that had to travel"; the seat's supply may be reconstruction from local stock (M: "S5 counts (Recommended)"), ledger S5 and M-D68-7.)*
 
 > **Three things are true together and all three have to be said: the mechanism is real, the description
 > of it is correct in all four clauses, and it is not faster.** A correct description of a real mechanism
