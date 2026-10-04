@@ -1,0 +1,268 @@
+{
+  "summary": "DOCKET 66 wave 1: resolve every verifier finding, re-screen, seat into the ledger and index3, reproduce",
+  "agentCount": 3,
+  "logs": [],
+  "result": {
+    "f": {
+      "id": "D66-fix",
+      "files": [
+        "/home/user/Claude-Method-Works/research/warp-drive/docket66/defects.py",
+        "/home/user/Claude-Method-Works/research/warp-drive/docket66/throatbits.py",
+        "/home/user/Claude-Method-Works/research/warp-drive/docket66/qet.py",
+        "/home/user/Claude-Method-Works/research/warp-drive/docket66/combine66.py",
+        "/home/user/Claude-Method-Works/research/warp-drive/docket66/A1-defects.md",
+        "/home/user/Claude-Method-Works/research/warp-drive/docket66/A2-throatbits.md",
+        "/home/user/Claude-Method-Works/research/warp-drive/docket66/A3-qet.md",
+        "/home/user/Claude-Method-Works/research/warp-drive/docket66/B-combine66.md",
+        "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d66/B-combine66-run-fix2.json",
+        "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d66/selftest66-fix2.txt",
+        "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d66/conservative-full-fix.txt",
+        "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d66/A1-defects-report-fix.json",
+        "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d66/A2-throatbits-report-fix.json"
+      ],
+      "done": [
+        "All 22 problems in the three verifier reports (V66-0: 7, V66-1: 8, V66-2: 7) are either applied or answered with a computed or READ reason. Each A-report .md now has a 'D66-fix' table giving every item's wave-1 wording, its corrected wording and the ground for the change. Each instrument has a HISTORY list (defects, throatbits, qet) or a RETIRED list (combine66) that keeps 'wave 1 first said ...'.",
+        "V66-0 #1 (moves a grade): R-TELEPORT O-HOLD is now LEFT-IF {H-GJW-COUNTERPART, H-ADS-TFD, H-COUPLED} for a hold on GJW alone. GJW was re-read at pp.12-15: the bridge is 'slightly traversable' (p.12), 'only open for a small proper time' (p.13), and the window is 'just enough to let the single qubit Q pass through' (p.15). The held throat comes from Maldacena & Qi 1804.00491, READ via alphaXiv: REMOVED-IF {H-GJW-COUNTERPART, H-MQ-NADS2, H-MQ-ETERNAL-COUPLING, H-MQ-LARGE-N} in nearly-AdS2, which is outside the board's setting.",
+        "V66-1 #2 (moves a grade): N_GJWAMB is replaced by what Maldacena-Milekhin-Popov 1807.04726 shows (READ via alphaXiv). It realises a held throat in one space: REMOVED-IF {H-GJW-COUNTERPART, H-MMP, H-SM-FIELDS}, but only at sub-electroweak scale. For a throat that admits the payload the grade is LEFT-IF {H-MMP, H-SM-FIELDS}. The new throatbits.mmp_scales computes why: MMP's binding energy equals the payload's rest energy only at r_e ~1e-46 to 1e-48 m, below l_P; at r_fit the throat would need N_f >= 1.4-1.8e14 massless charged species and mouths more than 1e7 x the electroweak length apart. Outside MMP's family the hold is OPEN via the new pathway N_GJW-PAYLOAD (N_GJWPAY in combine66).",
+        "V66-1 #1 (moves a grade): M's ruling M-S1A-P3 ('a singular throat is not disqualified'; 'the throat-creation classes stay OPEN') is now applied as a board ruling. A1's throat-support O-MAKE-TOPO is OPEN via N_WNCC, computed by a new z3 item with 2 mutation controls; the ledger text is read at run time. In combine66, DEF-TOPO now covers every D66 geometric throat (DTHR, TBHOLO, TBTSH, TBTEL). Wave 1's encoding is kept as the reading singok-a2, which the drift guard catches as a mutation. A2's R-TELEPORT O-MAKE-TOPO without ITE is now OPEN via W-create-ncc.",
+        "V66-1 #3 (moves a grade): the wall seat PASSES under H-VIS-MINKOWSKI and O-LOOP is none. New defects.vis_time_function (sympy) shows Minkowski T is a global time function: the pullback is exact on both sides, g^(mu nu) dT dT = -1, T is continuous at the wall, and kappa sigma = 4 beta follows from the Israel jump (CGS p.15 and Fig.4 READ). N_WALLLOOP is retired; no wall-defeasible seat or removal remains.",
+        "V66-1 #4 (moves a grade): the global monopole is a TURN under H-TURN-CONJUGATE as well. New defects.monopole_conjugate integrates the Jacobi equation; its first zero falls at the axis recrossing to 6e-12 relative. Controls: with the curvature halved the zero misses the crossing, and A = 1 gives no crossing at all.",
+        "V66-1 #5 (moves a grade): the gauge monopole's lensing seat is S-1 IF {H-MONOPOLE-MASS, H-WEAK-FIELD, H-S1-VACUUM}, computed through spec.focal_length (new defects.gauge_monopole_lens). At 1e17 GeV a 1 AU focus needs b = 2.81e-13 m, with b/r_core = 3.6e18, b/r_s = 1.1e24, and field energy beyond b equal to 1.2e-19 of Mc^2. The result holds across the scan 1e15 to 1e19 GeV, and the 1e-27 kg control fails as it should.",
+        "V66-2 #1: the global monopole deficit is Delta = 8 pi G eta^2 exactly outside the core. New hedgehog_curved and monopole_deficit compute the hedgehog's stress in the cone metric. Wave 1's inconsistent flat-space input is kept as a control and gives the other value.",
+        "V66-0 #2: N_DEFB's direction is now READ (HK pp.63-65 re-read): it is wash-out (eq. 4.33), so a supply only IF {CP-violating core couplings, departure from equilibrium} (p.65). It is READ for GUT strings and gauge monopoles; for walls and global monopoles it is OPEN as unchecked. No count moves.",
+        "V66-0 #3, #4, #5, #6 are wording fixes. Zero modes are now SUPPORTED-IF {H-YUKAWA, H-FORM-IS-MASS-AND-DIMENSION}. r_fit is now 'the radius at which the A/4 ceiling equals the count IF {...}; no encoding at that density is constructed or READ'. The thin-shell sentence is now 'under H-SINGULAR-IS-THINSHELL ... still needs sigma_0 < 0'. QET now gives 'a local negative energy density, offset (FMM p.3), QEI-bound, not an averaged violation'.",
+        "V66-0 #7: QET's hold route is now N_QETHAD only; N_XI and N_QEIC are the board's, tied to RQ (ground check: QET alone is OPEN via exactly [N_QETHAD]). H-QET-HADAMARD is recorded as a short check, stated but not run, so it stays OPEN. Wave 1's gating is kept as the reading qet-board-paths: it moves 8 variants' via lists and never a verdict.",
+        "V66-1 #6: MMP's SM-embedded throat now sits beside the board's 300 l_P throat. V66-1's estimate is reproduced: r_e <= 3.83e-26 m, 2.55e19 bits, payload 3.7e8 to 4.3e9 x. With MMP's normalisation and N_f = 54 carried explicitly: 9.2e18 to 1.1e19 bits, payload 0.85e9 to 1.2e10 x. Both are order-of-magnitude estimates under H-MMP-OOM.",
+        "V66-1 #7: R-LIT is relabelled as the question's parenthetical read as arrival alone; M's sentence read operationally is R-QET (TRUE-IF). V66-1 #8: setting_removals now shows H-GJW-COUNTERPART is load-bearing inside MQ's and MMP's settings, with none in the board's setting (F4, F4b, plus control F4c).",
+        "V66-2 #2, #3, #7 (wording): the Gott-pair claim now carries its qualifier (an open (2+1)-dimensional universe with timelike total momentum). The spinning-string CTC radius is now r < sqrt(S^2 - kappa^2)/alpha. The GV ring is now 'conical only at sigma = 0, power-law too at sigma != 0' (GV pp.20-22 re-read).",
+        "V66-2 #4: t* is now found by bisection: 0.144942/k and 0.185375/k (0.1449 and 0.1854 to four places). V66-2 #5: the 'h' unit labels are removed; values are raw model values at (h, k) = (1.5, 1). V66-2 #6: Hotta 1002.0200v2 is cited by printed pages, re-read (pp.2, 5, 8).",
+        "combine66 report_grades now asks the instruments at run time (defects.a1_grades(), throatbits.grades(), qet.grades()) instead of reading stored scratchpad JSON; wave 1's A1 JSON had been written by hand. Drift: 85 rows, all anchored, 83 agree, 2 explained, 0 unexplained. Seven mutation controls are each caught: wall-loop replaces wave 1's wall-clean, and singok-a2 is new.",
+        "B-combine66.md is rewritten from the new run, with a section 0 table of changes and wave 1's figures kept for the record. Headlines are unchanged: 0 D66 load-bearing removals or non-bindings at both cells, at most 1 member-attributed removal per account (always O-BITS by {W2, F1}), and O-SEAT and O-MAKE-DIST survive. What changed: N_WNCC new-OPEN counts, every defeasible seat now holds DTHR (320 of 2,492 at 1 ly), and pathway ties are now 6."
+      ],
+      "for_m": [
+        "Under M's ruling M-S1A-P3, the global and gauge monopoles now give conjugate points, so the TURN reading (H-TURN-CONJUGATE vs H-TURN-CROSSING) now matters only for the straight string, which is crossing-only. The string's grade under the board's 'TURN' is still M's to rule.",
+        "Finding for the D68 board, recorded and not repaired: read as a board ruling, M-S1A-P3 also reaches D68's own O-MAKE-TOPO in 20 context-only variants (the singok-board reading; RQ, ITJ, SHAPE, W2xF1 and the empty board), where docket68/combine.py grades LEFT. combine66 cannot change D68 rows under its conservative-extension rule.",
+        "H-QET-HADAMARD (N_QETHAD) is a short check: displaced vacua with smooth smearings. It is not run, so OPEN. If it were run and held, QET would carry no hold pathway of its own.",
+        "The gauge monopole's S-1 placement rests on H-MONOPOLE-MASS (1e17 GeV, scanned 1e15 to 1e19, alpha_GUT = 1/40). These are named values, not READ values."
+      ],
+      "selftests": [
+        "PYTHONDONTWRITEBYTECODE=1 python3 defects.py --selftest: 89 counted checks, 89 passed, 27 controls, 1 STRUCTURAL not counted, rc 0, about 33 s. Wave 1: 71 checks, 19 controls.",
+        "PYTHONDONTWRITEBYTECODE=1 python3 throatbits.py --selftest: 51 counted, 51 pass, 12 controls, 4 STRUCTURAL not counted, rc 0, about 43 s. Wave 1: 41 checks, 9 controls.",
+        "PYTHONDONTWRITEBYTECODE=1 python3 qet.py --selftest: 47 counted, 47 pass, 10 controls, 2 STRUCTURAL not counted, rc 0, about 48 s. Wave 1: 45 checks, 9 controls.",
+        "PYTHONDONTWRITEBYTECODE=1 python3 combine66.py --selftest --json <scratch>/d66/B-combine66-run-fix2.json: 68 counted, 68 passed, 0 failed, 24 controls, 6 STRUCTURAL not counted, 922 s, rc 0. Wave 1: 58 checks, 20 controls. The first D66-fix run (selftest66-fix-run1.txt) failed one check: the expectation written for the singok-board reading was wrong, and the screen was correct. The check was corrected and the full selftest re-run; the variant numbers are identical across the two runs.",
+        "The encoding changed, so python3 combine66.py --conservative-full was re-run: 8,192 compared, 0 differ, 1,760 s, rc 0."
+      ],
+      "problems": [
+        "defects.py and qet.py show as unmodified in git: commit ee4e8ae ('DOCKET 66 fix-and-seat pass in progress (snapshot 2, not yet reproduced)') already holds my edits to them. Someone or something else made that commit; I did not commit, push, stash, reset or check out anything. The other six files are uncommitted modifications.",
+        "Reading note on CGS gr-qc/9306005: eq.(3.48) prints the conformal factor as e^(-+beta z), but CGS's own transformation maps to Minkowski only with e^(-2 beta |z|). defects.vis_time_function uses 2 beta|z|, and a control shows the printed form failing the pullback. This is recorded as a reading note, not as a finding against CGS; text extraction may have dropped a 2.",
+        "t* by bisection is 0.144942 and 0.185375; V66-2's independent bisection printed 0.144941 and 0.185373. They agree to 5e-6, and both round to 0.1449 and 0.1854.",
+        "MMP figures are order-of-magnitude estimates under H-MMP-OOM, with O(1) factors in eqs.(6.51)-(6.52) taken as printed and Omega*l = 1 at the edge. The hypercharge coupling range 0.36 to 0.46 (H-MMP-G) is a named hypothesis, not a READ value.",
+        "MQ and MMP page citations are printed page numbers; alphaXiv returns PDF pages, and the conversion is recorded in throatbits.READ."
+      ]
+    },
+    "s": {
+      "id": "D66-seat",
+      "files": [
+        "/home/user/Claude-Method-Works/research/warp-drive/ledger.py",
+        "/home/user/Claude-Method-Works/research/warp-drive/LEDGER.md",
+        "/home/user/Claude-Method-Works/research/warp-drive/index3.py"
+      ],
+      "done": [
+        "DOCKET 66 wave 1 is seated in the ledger in DOCKET 68's form. ledger.py has a new docstring section 8, 'DOCKET 66, WAVE 1, AS SEATED'. Section 6's sentence 'Its literature is CITED, not READ -- nothing in this tree has read those papers' is kept as history, followed by the note that DOCKET 66 has since READ them.",
+        "How values are asked: docket66/ is imported after docket68/. Every verdict comes from combine66.D66Screen: 24 named variants at 1 ly (N = 7), 2 at 1 AU (N = 7), and 5 readings or history encodings (seat-routes, singok-board twice, singok-a2, qet-board-paths). The asks run inside combine66.vocabulary(True); the selftest checks that combine's vocabulary is restored afterwards, with a control showing it really is extended inside. Figures are asked of throatbits (capacity_table_base, mmp_scales), qet (minimal_values, post_alice, sup_ratio, board_figures, grades) and defects (a1_grades, monopole_conjugate, gauge_monopole_lens, HYPOTHESES, HISTORY). The figures from combine66's full screen are READ from B-combine66.md by regex: 3,496+32 and 1,748+16 variants; 0 load-bearing in 2,492 and 1,332; 68 checks with 24 controls; conservative extension 8,192 compared, 0 differ. If B-combine66.md stops stating them, the seat raises rather than printing stale figures.",
+        "O9: its cell is now o9_claim() followed by D66_O9_PART, and its answer is O9_ANSWERED_BY followed by D66_O9_ANSWER; DOCKET 68's text is kept exactly. The DOCKET 66 part goes in this order: (1) member-attributed first: no D66 literal is load-bearing anywhere, and the only member removal is still D68's O-BITS by W2 x F1. R-LIT is inconsistent alone (clash core {B-DCTC, B66-ARR, B66-LIN, C-QLIT}); with W2 it enters a support only by entailing W2. (2) The OPEN pathways the D66 readings add, none a removal: on O-SEAT, N_DEFB for DSTR, DWALL, DGMON and DMON. On O-HOLD, N_NEGT (DTHR), N_PINCH (TBHOLO, TBTSH), N_GJWPAY (TBTEL) and N_QETHAD (QET); N_XI and N_QEIC appear only with RQ. On O-MAKE-TOPO, N_WNCC for every D66 throat under M-S1A-P3. (3) Interference: with ITB, a throat makes {N_QTOPO} a premise clash and ITB's non-bindings fall. (4) Defeasibility occurs only with DTHR (FKZ). (5) The seat condition per reading; VIOLATED in none. (6) H-SEAT-ROUTES gives O-SEAT LEFT. (7) The singok-board finding for the D68 board, recorded and not repaired: the board alone and RQ give O-MAKE-TOPO OPEN via N_WNCC where combine.py gives LEFT. (8) D66 wave 1's words, kept: singok-a2 (DTHR O-MAKE-TOPO LEFT), qet-board-paths (via N_XI, N_QEIC, N_QETHAD), and the retired N_WALLLOOP and N_GJWAMB. O9's closing condition is now asked over D68's and D66's variants (o9_removed_outright).",
+        "Notes on two rows, no status moved (D66_NOTES, appended after each row's DOCKET 68 note). S5: what a defect seat or QET adds on O-SEAT. N_DEFB's text is READ from combine66 (wash-out, HK eq.(4.33); a supply only IF {CP violation, departure from equilibrium}), with D66 wave 1's 'direction and rate computed nowhere' kept. QET reads LEFT-IF {H-QET-BUDGET, H-MINIMAL for the ratio}, with sup E_B/E_A = 0.2500 and more than 2.517e19 J needed against a rest energy of 6.291e18 J. The four defect seats are SATISFIED. S13: the defect-core link, from A1's answer item 7 and asked of massform as combine66 asks it. TEMPLATE is REFUSED on C1 alone and STANDS with C1's link holding; the ground of the refusal moves from P-UNIFORM to topology, it forms no baryons, and O-SEAT does not move.",
+        "M-S1A-P3: the unblocks cell keeps its first wording ('...; DOCKET 66 opens') and adds 'DOCKET 66 has run: ' followed by d66_p3_ran(), which is asked. p3_unblocks_faults requires the cell to EQUAL this. Controls each catch: the old cell, a typed verdict planted in it, and the throat-creation clause dropped. The phrases the owners read at run time are intact ('a singular throat is not disqualified', 'the throat-creation classes stay OPEN', M's clarification and M's sentence), and defects, throatbits and qet re-pass.",
+        "M-D65-1: the ruling cell is now M_D65_1_RULING_T filled from M's answer, M's words, the literature and d66_m_d65_1_ran(). That text says every item named to M is READ by qet.py (route 'alphaXiv (answer_pdf_queries, open arXiv PDFs)', each matched to a heading in qet's own SOURCES); the parenthetical is INEXACT (arrival alone leaves 6e-17 local energy, below 1e-12); R-QET is TRUE-IF {H-GROUND, H-CORR, H-ACT, H-INSTANT}; R-LIT is FALSE-IF {H-MINIMAL or H-1+1, linear QM}; and QET is LEFT-IF as a hold and as a supply. The cell ends 'FIRST APPLIED (kept): QET is to be tested inside DOCKET 66 (NOT YET RUN)'. The unblocks cell is updated the same way with its history kept. The 'why' cell keeps 'CITED, not READ' and adds that this is how the question stood when M ruled. m_d65_1_faults is rewritten: it requires the cell to EQUAL the template, refuses NOT YET RUN outside the history clause, and refuses a source printed as READ that qet does not record as read. Seven controls are each caught: the old cell, 2506.19878 dropped, the parenthetical unattributed, the history dropped, the spin-chain 0803.0348 claimed READ, the old unblocks, and a typed verdict. The cell prints no new arXiv id, because specthm compares the row's ids with its own DOCKET 66 record.",
+        "M-D68-10: step (4) is now 'DOCKET 66 wave 1 is RUN, verified both ways, fixed and seated'. Step (3) says the comments are written and kept as drafts (docket67-raw/COMMENTS-INDEX.md present, asked; item 17 not seated). Both earlier NOT YET RUN versions are kept, wave 2's and wave 1's. Unblocks now says all four steps have run and the charter names Step 1b next; the wave-2 and wave-1 wordings are kept.",
+        "The charter's quotes of M are checked verbatim (d66_charter_quote_faults). All 13 quoted spans in docket66/CHARTER.md map to the ledger constants that hold them, the literature list included: the M-S1A-P3 question and ruling, M_D65_1_ANSWER, M_D65_1_WORDS and M_D65_1_LITERATURE, the M-D65-1 question, and D68_M_WORDS M-D68-1, M-D68-5, M-D68-7 and M-D68-10. All 13 match. Controls each catch an emended 'Fold into D66' and an unattributed quote. A separate check (d66_quote_faults) requires every quote in a DOCKET 66 cell to be either M's words as held or docket66/'s own words; a planted quote is caught.",
+        "index3: no row added (H-NO-D66-ROW). In the house reading DOCKET 66's answer is (0, 0, 0): it removes nothing, identifies no warp energy, and states no requirement in numbers of its own. The numeric prices its owners do state (A2's r_fit 7.40e-22 to 2.50e-21 m and M_sat, IF {H-CAP-AT-THROAT, H-NECK-DOGMA, H-COUNT-IS-ENTROPY}; A3's injection bound; MMP's N_f) price OPEN or LEFT routes. M kept the analogous vacuum figures on O9 (item 18), so these are carried on O9 and S5's note and the question is put to M. index3.py gains only a comment recording this; ledger.d66_index3_faults checks that no index3 row cites docket66/, with a planted-row control.",
+        "Widths raised, each with a comment: W_OPEN_CLAIM 10000 to 15000, W_OPEN_ANSWER 2400 to 4000, W_RULING 1600 to 2000. SEATED_QUALIFIERS S13 'H-RELEASE' re-pinned 3 to 4, which tightens the check: S13's new note names it once more, and the 'delete one qualifier' control caught the stale pin. The 'M-D65-1 opens no row' check now removes D66_O9_PART from O9's text before searching for QET.",
+        "Selftest section 4f has 35 checks, 9 of them controls; ledger --selftest totals 323 [ok]. Besides the checks above it asks: a fresh re-ask reproduces every D66 verdict; the planted defb-asserted removal is credited to DSTR (control); no asked D66 variant lifts anything its D68 context does not, and every added pathway is combine66's (control: a planted lift); the D66 screen with no D66 literal matches combine.py's board alone (control: the string seat differs on O-SEAT); the pathway owners, interference, DTHR-only defeasibility and seat verdicts; the history encodings; O9's closing condition; and qet.grades' fields are unchanged when re-asked with a different specthm placeholder."
+      ],
+      "for_m": [
+        "Spec.py's 'TURN': does it mean a conjugate point (H-TURN-CONJUGATE) or any crossing of two geodesics (H-TURN-CROSSING)? A1 has asked this since D66 wave 1; after D66-fix it decides only the straight string. The question is carried in O9's DOCKET 66 answer with its values asked of defects.py. It is not on PENDING_RULINGS, because specthm.py's selftest requires ledger.pending_rulings() to be empty and specthm is not mine unless a class verdict moves (none did). Seating it as a pending ruling would first need specthm's PENDING FOR M check updated.",
+        "Finding for the D68 board, recorded and not repaired: M-S1A-P3 read as a board ruling (combine66's singok-board reading) moves O-MAKE-TOPO from LEFT to OPEN via N_WNCC for the board alone and for RQ, where docket68/combine.py grades LEFT (20 context-only variants in combine66's census). O9 prints both readings. Whether combine.py re-grades is for M and the D68 owners.",
+        "Should any of DOCKET 66's numeric route prices get an index3 row (A2's throat at the A/4 ceiling, r_fit and M_sat 4.98e5 to 1.69e6 kg; A3's QET injection above 2.517e19 J; MMP's N_f of 1.4e14 to 1.8e14 at r_fit)? I followed your vacuum precedent (item 18, 'No, keep on O9') and added no row.",
+        "A paper/CLAIMS.md sentence DOCKET 66 contradicts (the paper is not edited): CLAIMS.md:1630-1631 reads 'Gott needs two passing with γδ₀ > 2, i.e. γ > 1.33e5 at the bound Gμ ≲ 6e−7'. A1 READ the Planck 2013 XXV bound, Gμ/c² < 1.5e-7 (Nambu-Goto, Planck+WP; 3.2e-7 for Abelian-Higgs), which gives γ > 5.3e5. The paper's 6e-7 is looser than the READ limit; the formula itself agrees (1/sin(4π·6e-7) = 1.33e5). On the next line the paper paraphrases Carroll, Farhi, Guth & Olum as 'infinite energy in 2+1; cannot evolve from strings at rest'. As V66-2 #2 READ it, their result is narrower: a Gott pair cannot be created in an open (2+1)-dimensional universe with timelike total momentum. Worth comparing; I found no other CLAIMS.md sentence that DOCKET 66 contradicts."
+      ],
+      "selftests": [
+        "PYTHONDONTWRITEBYTECODE=1 python3 ledger.py --md, then --selftest: SELFTEST OK, 323 [ok] (286 before this seating), rc 0, about 60 s. Ledger import went from about 24 s to about 32 s.",
+        "python3 ledger.py --check: LEDGER.md agrees with a fresh ask of every row, rc 0. LEDGER.md was regenerated last.",
+        "python3 index3.py --selftest: SELFTEST OK, rc 0.",
+        "python3 specthm.py --selftest: SELFTEST OK, 185 checks, rc 0. The first runs failed twice, both caused by my edits and both fixed on the ledger side: an arXiv id was added to M-D65-1 (specthm compares the row's ids with its DOCKET 66 record), and a pending ruling was added (specthm requires the pending list to be empty).",
+        "python3 pathmetric.py --selftest: SELFTEST OK. python3 triangulate.py --selftest: SELFTEST PASS.",
+        "The docket66 owners, which read the ledger's M-S1A-P3 and M-D65-1 rows at run time, re-run against the new ledger: defects 89/89 (27 controls), throatbits 51/51 (12 controls), qet 47/47 (10 controls), and combine66 --selftest 68/68 (24 controls, 778 s). All rc 0."
+      ],
+      "problems": [
+        "Stale wording outside my files, reported and not edited. specthm.py's DOCKETS_OPENED record still calls DOCKET 66 'untested' and DOCKET 67 'NOT YET RUN' (lines about 1759-1762 and 3244); specthm is mine only if a class verdict moves, and none did (A1's gauge monopole joins S-1, which is already NONEMPTY). Ledger M-D65-3's unblocks cell and docstring section 6 still say DOCKET 67 is 'NOT YET RUN'; these belong to DOCKET 67, and a ledger check requires that wording, so it needs a D67 pass.",
+        "The ledger asks qet.grades with a placeholder in place of specthm's verdicts, to avoid about 45 s of z3 per run. The fields it reads do not use them, and the selftest proves this by re-asking with a different placeholder. throatbits.grades needs specthm throughout, so it is not asked; its figures are asked directly. This limitation is named in the docstring as H-QET-SPEC-PLACEHOLDER.",
+        "The census over every variant is READ from B-combine66.md and not re-run here (H-LEDGER-ASKS-REPRESENTATIVES); the ledger asks 24 + 2 variants and 5 readings itself.",
+        "Nothing was committed, pushed, stashed, reset or checked out. HEAD is still d25f8fa (the snapshot commit made by someone else, before I started). The docket66/ modifications in the working tree are D66-fix's, not mine."
+      ]
+    },
+    "v": {
+      "unresolved": [
+        "V66-1 #7 not resolved at two sites in docket66/combine66.py. Docstring line 15 still reads 'QLIT (R-LIT, M's sentence alone)'. Constraint C-QLIT (line 388) still reads 'A3 R-LIT, M's sentence alone: the introduction of information ... is itself exotic matter'. Both are wave 1's words unchanged. D66_READINGS['QLIT'], the B-combine66.md table, qet.py, A3 and the ledger carry the corrected label.",
+        "V66-0 #3 residue: docket66/defects.py docstring line 25 still says 'the literature's precise sense of \"matter occurs there but not in its original form\": fermion zero modes'.",
+        "V66-0 #4/#5 residue ('drop precise'): docket66/throatbits.py docstring line 35 reads '(E) the precise counterparts ...', and docket66/A2-throatbits.md answer item 6 heading (line 91) reads '... also has a precise counterpart'.",
+        "V66-2 #6, partly: A3-qet.md line 34 cites Hotta 1002.0200v2 eq.(10) to p.10. READ via alphaXiv this pass, eq.(10) is on printed p.11 (PDF p.12), the same page as eq.(9). Line 257's '(9)-(10) pp.10-11' is loose.",
+        "Carried by their owners and not closable here: the straight string's TURN reading (M's to rule); the D68 board's O-MAKE-TOPO under singok-board (20 context-only variants, combine.py not re-graded); specthm.py's DOCKETS_OPENED and D66_T still say DOCKET 66 is 'untested' / 'NOT YET RUN' with its literature 'CITED, not READ' (the seat reports this; specthm's selftest passes); H-QET-HADAMARD not run (OPEN)."
+      ],
+      "problems": [
+        {
+          "site": "docket66/combine66.py line 15 (docstring) and line 388 (C-QLIT description)",
+          "wrong": "'QLIT (R-LIT, M's sentence alone)'; 'A3 R-LIT, M's sentence alone: the introduction of information ... is itself exotic matter'",
+          "correct": "R-LIT is the question's parenthetical read as arrival alone (no conditioned operation, no prior correlation). M's sentence read operationally is R-QET (V66-1 #7), as D66_READINGS['QLIT'] and B-combine66.md already say.",
+          "moves_grade": false
+        },
+        {
+          "site": "docket66/defects.py line 25 (docstring item 5)",
+          "wrong": "'the literature's precise sense of \"matter occurs there but not in its original form\": fermion zero modes'",
+          "correct": "'a counterpart under a named reading (H-YUKAWA, H-FORM-IS-MASS-AND-DIMENSION)'. HK pp.33-34 say only that the Yukawa mass vanishes at the core and the modes move at c (V66-0 #3).",
+          "moves_grade": false
+        },
+        {
+          "site": "docket66/throatbits.py line 35 (docstring (E)); docket66/A2-throatbits.md line 91 (answer item 6 heading)",
+          "wrong": "'the precise counterparts of compressed to binary information'; '\"Then push to the seat\" also has a precise counterpart'",
+          "correct": "'counterparts under named readings'; 'has a READ counterpart under H-GJW-COUNTERPART'. Drop 'precise', as V66-0 #4 required.",
+          "moves_grade": false
+        },
+        {
+          "site": "docket66/A3-qet.md line 34 (D66-fix table) and line 257 (sources)",
+          "wrong": "'(9) p.11, (10) p.10'; '(9)-(10) pp.10-11'",
+          "correct": "Hotta 1002.0200v2 eqs (9) and (10) are both on printed p.11 (PDF p.12); the Delta S_AB definition is on printed p.10. READ via alphaXiv (open arXiv PDF) by D66-repro. All other cited pages check: (1)-(3) p.3, (4)/(5) p.5, (8) p.8, (12) p.12, (15) p.14, 'even before the start' and E_B <= E_A on p.2.",
+          "moves_grade": false
+        },
+        {
+          "site": "Status lines of docket66/A1-defects.md, A2-throatbits.md, A3-qet.md, B-combine66.md",
+          "wrong": "'corrected at D66-fix the same day. Nothing (here) is seated. ledger.py, index3.py, specthm.py, LEDGER.md ... are untouched'",
+          "correct": "This is false in the present tense after D66-seat: ledger.py section 8 seats DOCKET 66 wave 1, LEDGER.md is regenerated, and index3.py carries a comment. Keep the sentence as history and add that the docket was seated at D66-seat (no index3 row).",
+          "moves_grade": false
+        },
+        {
+          "site": "ledger.py docstring section 8, 'RECORDED FOR THE D68 BOARD' paragraph",
+          "wrong": "'where a throat is merely possible (the board alone, RQ; 20 context-only variants in combine66's census)'. This reads as if the 20 were those two.",
+          "correct": "The owner (B-combine66.md section 4; fix2 JSON) has 174 moved, 20 context-only: the empty board, RQ, ITJ, SHAPE and W2 x F1, alone and combined (including ITB+RQ). The ledger asks only the board alone and RQ, and should say so, with the other 18 READ from B-combine66.md.",
+          "moves_grade": false
+        },
+        {
+          "site": "index3.py comment above FINDINGS_AS_OF_DOCKET67_CLOSE; ledger.py docstring H-NO-D66-ROW",
+          "wrong": "'state no requirement in numbers of their own (Z = 0)' is followed by 'The requirements its owners do state in numbers (r_fit, M_sat, QET injection bound, MMP's N_f)'",
+          "correct": "The two sentences contradict each other. Z = 0 is the reading H-NO-D66-ROW, not a fact: the owners state numeric requirements on OPEN or LEFT routes, these are kept on O9 by analogy with M-RULINGS item 18, and whether they earn a row is put to M. No cell moves unless M rules.",
+          "moves_grade": false
+        },
+        {
+          "site": "docket66/CHARTER.md 'M's words, verbatim' section (reading (ii)); ledger d66_charter_quote_faults",
+          "wrong": "'with M's throat-compression mechanism' is printed and counted as a verbatim quotation of M",
+          "correct": "It is the ledger's wording in the M-S1A-P3 ruling cell (it names M in the third person). It is verbatim to the ledger, but should be attributed to the ledger and not counted among M's quotes. Every M quote proper was checked verbatim (whitespace-normalised) against ledger.py and docket68/M-RULINGS-2026-10-03.md and matches.",
+          "moves_grade": false
+        },
+        {
+          "site": "docket66/defects.py vis_time_function docstring; D66-fix reading note on CGS eq.(3.48)",
+          "wrong": "the missing factor 2 in eq.(3.48) is left as 'text extraction may have dropped a 2'",
+          "correct": "CGS's own Appendix A, eqs.(A.12)-(A.13) (READ via alphaXiv, open arXiv PDF gr-qc/9306005v1, PDF p.21), gives the same transformation with conformal factor e^(+-2 beta z). The source itself settles the factor, and the note can cite (A.13). The code is correct as it stands.",
+          "moves_grade": false
+        }
+      ],
+      "reproduced": [
+        "Selftests re-run by D66-repro from the working tree (HEAD d25f8fa plus 9 modified files): defects 89/89 (27 controls, 1 STRUCTURAL) rc 0; throatbits 51/51 (12 controls, 4 STRUCTURAL) rc 0; qet 47/47 (10 controls, 2 STRUCTURAL) rc 0; combine66 --selftest 68/68, 0 failed (24 controls, 6 STRUCTURAL), 1,134 s, rc 0. Drift: 85 rows, 83 agree, 2 explained, 0 unexplained; all 7 mutation controls caught. Readings moved: seat-routes 356, singok-board 174 (20 context-only), singok-a2 48, fkz-generic 440, qet-board-paths 8.",
+        "combine66 --conservative-full re-run: compared 8192, differ [], 1,700 s, rc 0.",
+        "ledger.py --check rc 0. ledger.py --selftest: SELFTEST OK, 323 [ok], section 4f 35 checks, rc 0. index3 SELFTEST OK; specthm SELFTEST OK, 185 checks; pathmetric SELFTEST OK; triangulate SELFTEST PASS. All rc 0.",
+        "Headline 1, re-derived independently with my own code: r_fit = l_P sqrt(bits ln2/pi) gives 7.4033e-22 m and 2.5040e-21 m; M_sat = r_fit c^2/2G gives 4.985e5 and 1.686e6 kg. Matches A2.",
+        "Headline 2, re-derived independently: gauge monopole at 1e17 GeV gives b = 2.8146e-13 m for a 1 AU focus, b/r_s = 1.063e24, b/r_core = 3.566e18, field energy beyond b = 1.20e-19 Mc^2. Across 1e15 to 1e19 GeV the fraction runs 1.2e-16 to 1.2e-22, all below the gate. Matches A1.",
+        "QET t*, from my own minimal model (phi optimised numerically, brentq root): 0.1449416/k and 0.1853748/k. Matches the fix's 0.144942 and 0.185375. E_B = 0.142524, E_A = 1.248075; sup E_B/E_A = 0.25, approached as k/h -> inf, never attained.",
+        "Global monopole deficit, re-derived with my own sympy Einstein tensor and the hedgehog density in the cone metric: Delta = 8 pi G eta^2.",
+        "MMP: V66-1's estimate reproduced (r_e <= 3.8336e-26 m, 2.5499e19 bits, payload 3.7e8 to 4.3e9 x). The mmp_scales N_f = 54 rows (9.2e18 to 1.12e19 bits; N_f needed 1.42e14 to 1.81e14; d_min 6.4e-12 m = 3.2e7 x 1/TeV; binding = payload rest energy at r_e 8.1e-49 to 1.07e-46 m) agree with A2, B, the ledger O9 answer and the fix.",
+        "Outside sources READ via alphaXiv answer_pdf_queries (open arXiv PDFs, no paywall): MMP 1807.04726v3 eqs (2.3), (5.31), (6.50)-(6.52), (7.58), N_f = 54 (p.26), p.18, pi l > d (p.19); GJW 1608.05687v3 pp.2, 12, 13, 15 and eq.(5.1); CGS gr-qc/9306005v1 eq.(3.48), kappa sigma = 4 beta (p.10), Fig.4, (A.13); Hotta 1002.0200v2 pages. Every quote used by the grade-moving fixes checks.",
+        "Every grade-moving fix checked at its site and resolved: V66-0 #1; V66-1 #1, #2, #3, #4 (also checked analytically through the rotation Killing field), #5. The other 16 problems are resolved at their primary sites, except the residues listed as unresolved.",
+        "Seat versus owners: O9's D66 part, the S5/S13 notes and the M-S1A-P3, M-D65-1 and M-D68-10 cells in the regenerated LEDGER.md agree with the fix2 JSON (member_removed at most 1, in 1,332; d66_removed 0/0 at both cells; N_XI/N_QEIC only with RQ; defeasibility via DTHR only; seat VIOLATED nowhere) and with qet.grades, defects.a1_grades and throatbits.mmp_scales. The two wording exceptions are listed under problems.",
+        "Report written: /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d66/D66-repro.json. Nothing was committed, pushed, stashed, reset or checked out, and the git working tree is unchanged by this pass. Transient files were also written and deleted: the instruments' own selftest temp dirs in /tmp, plus four short-lived .repro_*.log files in the scratchpad and monitor marker files of mine."
+      ]
+    }
+  },
+  "workflowProgress": [
+    {
+      "type": "workflow_phase",
+      "index": 1,
+      "title": "Fix"
+    },
+    {
+      "type": "workflow_phase",
+      "index": 2,
+      "title": "Seat"
+    },
+    {
+      "type": "workflow_phase",
+      "index": 3,
+      "title": "Reproduce"
+    },
+    {
+      "type": "workflow_agent",
+      "index": 1,
+      "label": "D66-fix",
+      "phaseIndex": 1,
+      "phaseTitle": "Fix",
+      "agentId": "a3f1988c6c2619faa",
+      "model": "claude-opus-5-5",
+      "state": "done",
+      "startedAt": 1791142825083,
+      "queuedAt": 1791142825052,
+      "attempt": 1,
+      "lastToolName": "StructuredOutput",
+      "lastToolSummary": "D66-fix",
+      "promptPreview": "DOCKET 66, M's warp-drive research tree. Read /home/user/Claude-Method-Works/research/warp-drive/docket66/CHARTER.md, /home/user/Claude-Method-Works/research/warp-drive/docket68/M-RULINGS-2026-10-03.md, and /home/user/Claude-Method-Works/research/warp-drive/docket66/wave1/WAVE1-RESULT.json\n(result.alone, result.combine, result.verify: three verifier reports with 'problems'). M's rules: accurate, t…",
+      "promptFramed": true,
+      "lastProgressAt": 1791146687108,
+      "tokens": 684824,
+      "toolCalls": 103,
+      "durationMs": 3862024,
+      "resultPreview": "{\"id\":\"D66-fix\",\"files\":[\"/home/user/Claude-Method-Works/research/warp-drive/docket66/defects.py\",\"/home/user/Claude-Method-Works/research/warp-drive/docket66/throatbits.py\",\"/home/user/Claude-Method-Works/research/warp-drive/docket66/qet.py\",\"/home/user/Claude-Method-Works/research/warp-drive/docket66/combine66.py\",\"/home/user/Claude-Method-Works/research/warp-drive/docket66/A1-defects.md\",\"/home…"
+    },
+    {
+      "type": "workflow_agent",
+      "index": 2,
+      "label": "D66-seat",
+      "phaseIndex": 2,
+      "phaseTitle": "Seat",
+      "agentId": "a81909af0badfa20e",
+      "model": "claude-opus-5-5",
+      "state": "done",
+      "startedAt": 1791146692374,
+      "queuedAt": 1791146692367,
+      "attempt": 1,
+      "lastToolName": "StructuredOutput",
+      "lastToolSummary": "D66-seat",
+      "promptPreview": "DOCKET 66, M's warp-drive research tree. Read /home/user/Claude-Method-Works/research/warp-drive/docket66/CHARTER.md, /home/user/Claude-Method-Works/research/warp-drive/docket68/M-RULINGS-2026-10-03.md, and /home/user/Claude-Method-Works/research/warp-drive/docket66/wave1/WAVE1-RESULT.json\n(result.alone, result.combine, result.verify: three verifier reports with 'problems'). M's rules: accurate, t…",
+      "promptFramed": true,
+      "lastProgressAt": 1791150883518,
+      "tokens": 512478,
+      "toolCalls": 131,
+      "durationMs": 4191143,
+      "resultPreview": "{\"id\":\"D66-seat\",\"files\":[\"/home/user/Claude-Method-Works/research/warp-drive/ledger.py\",\"/home/user/Claude-Method-Works/research/warp-drive/LEDGER.md\",\"/home/user/Claude-Method-Works/research/warp-drive/index3.py\"],\"done\":[\"DOCKET 66 wave 1 is seated in the ledger in DOCKET 68's form. ledger.py has a new docstring section 8, 'DOCKET 66, WAVE 1, AS SEATED'. Section 6's sentence 'Its literature is …"
+    },
+    {
+      "type": "workflow_agent",
+      "index": 3,
+      "label": "D66-repro",
+      "phaseIndex": 3,
+      "phaseTitle": "Reproduce",
+      "agentId": "a120b0ac9203eadb4",
+      "model": "claude-opus-5-5",
+      "state": "done",
+      "startedAt": 1791150887346,
+      "queuedAt": 1791150887318,
+      "attempt": 1,
+      "lastToolName": "StructuredOutput",
+      "promptPreview": "DOCKET 66, M's warp-drive research tree. Read /home/user/Claude-Method-Works/research/warp-drive/docket66/CHARTER.md, /home/user/Claude-Method-Works/research/warp-drive/docket68/M-RULINGS-2026-10-03.md, and /home/user/Claude-Method-Works/research/warp-drive/docket66/wave1/WAVE1-RESULT.json\n(result.alone, result.combine, result.verify: three verifier reports with 'problems'). M's rules: accurate, t…",
+      "promptFramed": true,
+      "lastProgressAt": 1791153051622,
+      "tokens": 347263,
+      "toolCalls": 91,
+      "durationMs": 2164275,
+      "resultPreview": "{\"unresolved\":[\"V66-1 #7 not resolved at two sites in docket66/combine66.py. Docstring line 15 still reads 'QLIT (R-LIT, M's sentence alone)'. Constraint C-QLIT (line 388) still reads 'A3 R-LIT, M's sentence alone: the introduction of information ... is itself exotic matter'. Both are wave 1's words unchanged. D66_READINGS['QLIT'], the B-combine66.md table, qet.py, A3 and the ledger carry the corr…"
+    }
+  ],
+  "totalTokens": 1544565,
+  "totalToolCalls": 325
+}

@@ -165,7 +165,7 @@ READ = [
               "p.22-23: the protocol is teleportation; the teleportee feels nothing special",
               "p.47 eq (D.92): classical-information Hayden-Preskill needs slightly more than twice the qubits"]},
     {"key": "1804.00491v3", "who": "J. Maldacena & X.-L. Qi, 'Eternal traversable wormhole' (2018)",
-     "route": ROUTE + "; read at D66-fix", "status": "READ (pp.1-4, 6, 8, 19-20, 23-25, 27-28, 52-53 returned)",
+     "route": ROUTE + "; read at D66-fix", "status": "READ (PDF pp.1-4, 6, 8, 19-20, 23-25, 27-28, 52-53 returned; cited pages are PRINTED numbers)",
      "board": "new to the board (V66-0 read it first)",
      "used": ["abstract: a nearly-AdS2 solution describing an eternal traversable wormhole",
               "p.2: negative null energy from quantum fields under an external coupling of the two boundaries",
@@ -179,7 +179,7 @@ READ = [
               "conditions"]},
     {"key": "1807.04726v3", "who": "J. Maldacena, A. Milekhin & F. Popov, 'Traversable wormholes in four dimensions' "
                                    "(2018; v3 2020)",
-     "route": ROUTE + "; read at D66-fix", "status": "READ (pp.1-2, 4-7, 13, 16-29 returned)",
+     "route": ROUTE + "; read at D66-fix", "status": "READ (PDF pp.1-2, 4-7, 13, 16-29 returned; cited pages are PRINTED numbers)",
      "board": "READ by the board's D67 audits (_mk_1608.05687.py); re-read here (V66-1)",
      "used": ["abstract: a wormhole in four dimensions, Einstein-Maxwell plus charged massless fermions",
               "abstract: a long wormhole that does not lead to causality violations in the ambient space",
@@ -188,7 +188,7 @@ READ = [
               "eq.(2.3) r_e^2 = pi q^2 l_p^2/g^2; eq.(5.31), (7.58) throat length and binding energy",
               "eq.(6.50) Omega = 2 sqrt(r_e/d^3); (6.51) Omega l << 1; (6.52) lower bound on d; (5.49) upper",
               "p.18: too much energy sent in makes a near-extremal black hole; 'not safe for human travelers'",
-              "p.20: pi l > d -- longer through the wormhole than through the ambient space",
+              "p.19: pi l > d -- longer through the wormhole than through the ambient space",
               "p.26: SM effective N_f = 54; p.27: metastable, not completely stable"]},
     {"key": "2006.06872v1", "who": "A. Almheiri, T. Hartman, J. Maldacena, E. Shaghoulian & A. Tajdini, 'The entropy "
                                    "of Hawking radiation' (2020, review)",

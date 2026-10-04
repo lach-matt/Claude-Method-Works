@@ -1669,13 +1669,14 @@ def selftest(conservative_step=24, json_path=None):
        all(set().union(*[set(s["members"]) for s in C._sups_with(r["per"]["O-HOLD"], C.NBV)]) <= {"ITB"}
            for r in R["rows"] if r["consistent"] and r["per"]["O-HOLD"]["verdict"] in C.NBV))
     ck("RESULT readings: H-SEAT-ROUTES moves O-SEAT to LEFT in every consistent single-reading variant (DEFB excluded "
-       "with S5); singok-a2 (wave 1's encoding) moves only O-MAKE-TOPO, to LEFT; singok-board moves only O-MAKE-TOPO "
-       "in D68-throat variants with no D66 throat; fkz-generic only defeasibility; qet-board-paths (wave 1's QET "
+       "with S5); singok-a2 (wave 1's encoding) moves only O-MAKE-TOPO, to LEFT; singok-board moves only O-MAKE-TOPO, to "
+       "OPEN via N_WNCC, and only in variants holding no D66 throat (there a throat is merely possible, or D68's); "
+       "fkz-generic only defeasibility; qet-board-paths (wave 1's QET "
        "gating) only O-HOLD's via list, never its verdict",
        all(m[1] == "O-SEAT" and m[2] == "LEFT" for m in out["readings"]["seat-routes"]["moved"] if m[1] != "consistency")
        and all(m[1] in ("O-MAKE-TOPO",) for m in out["readings"]["singok-board"]["moved"])
        and all(m[1] in ("O-MAKE-TOPO",) and m[2] == "LEFT" for m in out["readings"]["singok-a2"]["moved"])
-       and all(set(m[0]) & {"RQ", "ITE", "ITJ"} and not set(m[0]) & set(D66_THROATS)
+       and all(m[2] == "OPEN" and m[3] == ["N_WNCC"] and not set(m[0]) & set(D66_THROATS)
                for m in out["readings"]["singok-board"]["moved"])
        and all(m[1] in ("O-LOOP-S", "SEAT") for m in out["readings"]["fkz-generic"]["moved"])
        and all(m[1] == "O-HOLD" and m[2] == m[4] for m in out["readings"]["qet-board-paths"]["moved"]))

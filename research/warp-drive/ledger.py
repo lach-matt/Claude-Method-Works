@@ -248,8 +248,9 @@ its rows during its own import, and two modules that each need the other at
 import find each other empty.
 
 M's QET ruling is on RULED_BY_M as M-D65-1: Quantum Energy Teleportation is not
-a docket of its own; it is FOLDED INTO DOCKET 66.  Its literature is CITED, not
-READ -- nothing in this tree has read those papers.  M's ruling on the finite
+a docket of its own; it is FOLDED INTO DOCKET 66.  Its literature was CITED, not
+READ, when M ruled -- nothing in this tree had read those papers; DOCKET 66 has
+since READ them (qet.py; section 8), and the first sentence is kept as history.  M's ruling on the finite
 Higgs share is M-D65-2: folded into S10's note, not a row.  M's ruling on
 DOCKET 67 is M-D65-3: the audit of the external results the board's refusals
 rest on is OPENED, to run after DOCKET 65 is seated and before DOCKET 66 (NOT
@@ -462,6 +463,117 @@ NAMED LIMITATIONS OF THIS SEATING (wave 2), beside section 7's.
     the element and leaves the figure to the row's claim (printed once).
   Not edited by this seating: paper/CLAIMS.md (M's rule for the paper) and
     the wave-2 owners themselves.
+
+===============================================================================
+8.  DOCKET 66, WAVE 1, AS SEATED
+===============================================================================
+
+M's order (M-D68-10, "1 then 2 then 3 then 4") put DOCKET 66 fourth: seating
+at topological defects, with Quantum Energy Teleportation folded in (M-D65-1).
+Its charter (docket66/CHARTER.md) carries three of M's hypotheses, AS
+HYPOTHESES and never as results: H-DEFECT-SEAT (M-S1A-P3 (ii)), H-THROAT-BITS
+(M-S1A-P3 (i) with M's clarification) and H-QET-EXOTIC (M-D65-1).  Wave 1 ran
+(A1 defects.py, A2 throatbits.py, A3 qet.py, B combine66.py), was verified
+three ways (V66-0 against M, V66-1 for M, V66-2 reproduce) and its fixes landed
+(D66-fix, every verifier problem applied or answered, each owner keeping D66
+wave 1's words as history).  This is its seating, in DOCKET 68's form.  Every
+value is ASKED of the docket66/ owners at run time: combine66.D66Screen for
+every verdict (inside combine66.vocabulary, which extends combine.py's
+vocabulary in process only and restores it on exit -- checked); defects.py,
+throatbits.py and qet.py for every figure; B-combine66.md READ for every
+figure of combine66's own runs, which this file does not repeat.
+
+  O9   still OPEN; no grade moved.  Its cell now carries a DOCKET 66 part
+       after DOCKET 68's (D66_O9_PART; DOCKET 68's cell, o9_claim(), is kept
+       exactly): member-attributed first -- no D66 literal is load-bearing in
+       any removal or non-binding (combine66.d66_attributed, on the variants
+       asked; B-combine66.md READ for the full screen); the only member
+       removal stays D68's O-BITS by W2 x F1; R-LIT (the question's
+       parenthetical read as arrival alone) inconsistent alone and, with W2,
+       inside a support only by entailing W2.  Then what the D66 readings ADD:
+       OPEN pathways, none a removal -- on O-SEAT N_DEFB (its READ direction
+       wash-out), on O-HOLD N_NEGT, N_PINCH, N_GJWPAY and N_QETHAD, on
+       O-MAKE-TOPO N_WNCC under M's ruling M-S1A-P3 applied; the interference
+       (a D66 throat beside ITB undoes ITB's non-bindings); the defeasibility
+       (only through a held string-supported throat, FKZ); the seat condition
+       M-S1A-P3 (i) per reading (VIOLATED in none).  O9's answer gains what
+       would answer the D66 pathways (D66_O9_ANSWER).  O9's closing is asked
+       over DOCKET 68's and DOCKET 66's variants (o9_removed_outright).
+  S5, S13  each carries a DOCKET 66 NOTE after its DOCKET 68 note, asked, NO
+       status change: S5 the O-SEAT pathways a defect seat or QET adds (N_DEFB
+       beside N_S5; QET no supply of substance; the defect seats pass
+       M-S1A-P3 (i)); S13 the defect-core link (A1's answer item 7; the ground
+       of TEMPLATE's refusal moves from P-UNIFORM to topology, the grade does
+       not, and O-SEAT does not move).
+  RULED_BY_M  no new ruling: M ruled nothing in DOCKET 66.  M-S1A-P3's
+       unblocks cell said "DOCKET 66 opens"; it now says what ran
+       (d66_p3_ran), the first wording kept before it, and the cell must EQUAL
+       that (p3_unblocks_faults).  M-D65-1's ruling cell said "QET is to be
+       tested inside DOCKET 66 (NOT YET RUN)"; it is now M_D65_1_RULING_T
+       filled from the constants and what DOCKET 66 ran (d66_m_d65_1_ran: the
+       literature READ by qet.py, item by item from its own sources; the
+       parenthetical INEXACT; R-QET and R-LIT as qet.grades reads them), the
+       first wording kept inside it as FIRST APPLIED, and m_d65_1_faults
+       requires EQUALITY, refuses NOT YET RUN outside the history, and refuses
+       any source printed as READ that qet.py does not head an entry with.
+       Its unblocks cell likewise; its `why` keeps the question as it stood.
+       M-D68-10's cell says step (4) ran (and step (3)'s comments are written,
+       kept as drafts), keeping the wave-2 seat's and wave 1's NOT YET RUN.
+  THE TURN QUESTION, FOR M: spec.py's 'TURN' -- a conjugate point
+       (H-TURN-CONJUGATE) or any crossing (H-TURN-CROSSING)?  A1's question
+       for M since D66 wave 1, still M's to rule after D66-fix, which leaves it
+       deciding the straight string alone; its values asked of defects.py
+       (d66_turn_question).  Carried in O9's DOCKET 66 answer and NOT on
+       PENDING_RULINGS: specthm.py's selftest pins ledger.pending_rulings()
+       empty, and specthm.py is not edited by this seating (no class verdict
+       moved) -- seating it as pending needs specthm's PENDING FOR M updated
+       first; reported.
+  QUOTATIONS  docket66/CHARTER.md says every quotation of M in it is taken
+       from this file: d66_charter_quote_faults checks each of its quoted spans
+       verbatim against the constant that holds it, and d66_quote_faults
+       requires every quotation in a DOCKET 66 cell here to be M's words held
+       or docket66/'s own words.
+  RECORDED FOR THE D68 BOARD, NOT REPAIRED: read as a board ruling reaching
+       D68's own throats (combine66's reading singok-board), M-S1A-P3 moves
+       combine.py's O-MAKE-TOPO from LEFT to OPEN via N_WNCC where a throat is
+       merely possible (the board alone, RQ; 20 context-only variants in
+       combine66's census).  combine66 cannot change D68 rows (its
+       conservative-extension rule) and combine.py is not edited here: O9
+       prints both, and the re-grade is for M and the D68 owners.
+
+NAMED LIMITATIONS OF THIS SEATING (DOCKET 66), beside sections 7's and 7b's.
+  H-LEDGER-ASKS-REPRESENTATIVES grows: combine66's full screen (3,528 + 1,764
+    variants, about 16 minutes with its selftest) and its --conservative-full run
+    (8,192 compared, about 29 minutes), and the A-instruments' selftests, are
+    their owners' runs, READ from B-combine66.md or cited, never re-run here.
+    The board asks D66_VARIANTS (24 at 1 ly) and D66_VARIANTS_AU (2 at 1 AU)
+    and five readings; the census (0 load-bearing D66 literals in 2,492 and
+    1,332 consistent variants) is READ.
+  H-QET-SPEC-PLACEHOLDER: qet.grades needs specthm's class verdicts (about
+    45 s of z3) only for its seat-class sentence; this file reads its
+    own-content verdicts and per-obstruction heads, passes a placeholder, and
+    the selftest re-asks with a second placeholder and requires those fields
+    unchanged.  throatbits.grades (which needs them throughout) is not asked;
+    its figures are (capacity_table_base, mmp_scales).
+  H-NO-D66-ROW: index3.py gains no row.  DOCKET 66's answer reads (0, 0, 0)
+    in the house reading -- it removes nothing (Y = 0), identifies no warp
+    energy (X = 0), and states no requirement in numbers of its own (Z = 0);
+    a null cell is not a finding.  The requirements its owners do state in
+    numbers -- A2's throat at the A/4 ceiling (r_fit and M_sat, IF
+    {H-CAP-AT-THROAT, H-NECK-DOGMA, H-COUNT-IS-ENTROPY}; no encoding at that
+    density constructed or READ), A3's QET injection bound, MMP's N_f -- are
+    route prices of OPEN or LEFT routes, which is what M kept on O9 for the
+    vacuum route (M-RULINGS-2026-10-03.md item 18, "No, keep on O9
+    (Recommended)"); they are carried on O9 and S5's note and the question
+    whether any earns a row is reported for M.  d66_index3_faults checks that
+    no index3.py row cites docket66/.
+  H-LEDGER-DEPS grows: docket66/'s owners need z3, numpy and scipy, and use
+    sympy at call time.  Without them the import fails; nothing is skipped
+    silently.
+  Not edited by this seating: paper/CLAIMS.md (M's rule for the paper:
+    what DOCKET 66 bears on there is reported for M), specthm.py (no class
+    verdict moved: A1's gauge monopole joins S-1, already NONEMPTY), the
+    docket66/ owners, docket68/combine.py.
 """
 
 import contextlib
@@ -523,6 +635,21 @@ with contextlib.redirect_stdout(io.StringIO()):
     # (re-checked when wave 2 was seated), so nothing is shadowed.
     import seat              # DOCKET 68 wave 2: W2C-seat
     import vacuum            # DOCKET 68 wave 2: W2B-vacuum
+
+# DOCKET 66's owners sit in docket66/ (docstring section 8), imported AFTER
+# docket68/'s because combine66.py runs docket68/combine.py's engine; no
+# docket66/ module (combine66, defects, qet, throatbits) shares a name with a
+# module here, in docket68/ or in tools/ (checked when this was seated).  They
+# import THIS file only at call time (their M-S1A-P3 / M-D65-1 reads), never
+# while it is being imported, so nothing below calls those functions.
+D66_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), "docket66")
+if D66_DIR not in sys.path:
+    sys.path.append(D66_DIR)
+with contextlib.redirect_stdout(io.StringIO()):
+    import combine66         # DOCKET 66: the three hypotheses in combination (B)
+    import defects           # DOCKET 66: H-DEFECT-SEAT (A1)
+    import qet               # DOCKET 66: H-QET-EXOTIC (A3)
+    import throatbits        # DOCKET 66: H-THROAT-BITS (A2)
 
 #: LEDGER.md sits beside this file, and is found there from ANY working
 #: directory.  It was first resolved against the cwd, so --check run from the
@@ -1408,6 +1535,387 @@ def _d68_feed():
                 for d in ("CI chondrite", "stellar photosphere"))
 
 
+# ----- DOCKET 66, WAVE 1 (docket66/), seated in DOCKET 68's form ------------
+# Docstring section 8; M's order (M-D68-10), step 4.  Every verdict is ASKED of
+# combine66.D66Screen -- docket68/combine.py's engine, run unchanged, with
+# DOCKET 66's commitments as tracked constraints and combine's vocabulary
+# extended IN PROCESS ONLY (combine66's E-EXTEND) inside combine66.vocabulary,
+# which restores it on exit, so no DOCKET 68 ask above or below sees a D66
+# literal (the selftest checks the restore).  Every figure is asked of
+# defects.py, throatbits.py or qet.py.  combine66's full screen (3,528 + 1,764
+# variants, about 16 minutes with its selftest) and its conservative-extension run
+# are ITS OWN, READ from B-combine66.md and not re-run here
+# (H-LEDGER-ASKS-REPRESENTATIVES).  Nothing here types a grade.
+
+#: The variants this board asks of combine66, by name -> literals.  NAMED, not
+#: exhaustive: one per D66 reading alone, the combinations B-combine66.md
+#: section 5 answers, and the D68 contexts each D66 finding needs.
+D66_VARIANTS = (
+    ("the board alone (D66Screen, no D66 literal)", ()),
+    ("H-DEFECT-SEAT: static string seat (DSTR)", ("DSTR",)),
+    ("H-DEFECT-SEAT: thin wall seat (DWALL)", ("DWALL",)),
+    ("H-DEFECT-SEAT: global monopole seat (DGMON)", ("DGMON",)),
+    ("H-DEFECT-SEAT: gauge monopole seat (DMON)", ("DMON",)),
+    ("H-DEFECT-SEAT: texture seat (DTEX)", ("DTEX",)),
+    ("H-DEFECT-SEAT: string-supported throat (DTHR)", ("DTHR",)),
+    ("H-THROAT-BITS: R-HOLO (TBHOLO)", ("TBHOLO",)),
+    ("H-THROAT-BITS: R-THINSHELL (TBTSH)", ("TBTSH",)),
+    ("H-THROAT-BITS: R-TELEPORT (TBTEL)", ("TBTEL",)),
+    ("H-THROAT-BITS: R-ISLAND (TBISL)", ("TBISL",)),
+    ("H-THROAT-BITS: R-ITB with ITB (TBITB)", ("TBITB", "ITB")),
+    ("H-QET-EXOTIC: R-QET (QET)", ("QET",)),
+    ("H-QET-EXOTIC: R-LIT (QLIT)", ("QLIT",)),
+    ("R-LIT with W2 x F1", ("QLIT", "W2", "F1")),
+    ("DSTR with W2 x F1", ("DSTR", "W2", "F1")),
+    ("QET with R-QUANTUM (RQ)", ("QET", "RQ")),
+    ("DTHR with ITB", ("DTHR", "ITB")),
+    ("TBHOLO with ITB", ("TBHOLO", "ITB")),
+    ("DTHR with TBHOLO", ("DTHR", "TBHOLO")),
+    ("DTHR with QET", ("DTHR", "QET")),
+    ("TBTEL with QET", ("TBTEL", "QET")),
+    ("QET with SHAPE", ("QET", "SHAPE")),
+    ("DSTR, TBHOLO and QET", ("DSTR", "TBHOLO", "QET")),
+)
+#: combine66's second screened cell (1 AU, N = 7): W2 x F1 variants only.
+D66_VARIANTS_AU = (("DSTR with W2 x F1", ("DSTR", "W2", "F1")),
+                   ("R-LIT with W2 x F1", ("QLIT", "W2", "F1")))
+#: combine66's named readings (alternatives on record) and its HISTORY
+#: encodings (D66 wave 1's own encodings, kept as readings by D66-fix), each
+#: asked on one variant: (name, combine66 mutation, literals).
+D66_READINGS_ASKED = (
+    ("H-SEAT-ROUTES on DSTR", ("seat-routes",), ("DSTR",)),
+    ("singok-board on the board alone", ("singok-board",), ()),
+    ("singok-board with RQ", ("singok-board",), ("RQ",)),
+    ("singok-a2 on DTHR (D66 wave 1's encoding)", ("singok-a2",), ("DTHR",)),
+    ("qet-board-paths on QET (D66 wave 1's encoding)", ("qet-board-paths",), ("QET",)),
+)
+
+
+def _d66_ask(variants=None, variants_au=None, readings=None):
+    """{'main', 'au', 'readings'}: combine66.D66Screen.screen per named
+    variant, asked inside combine66.vocabulary(True), which restores combine's
+    vocabulary on exit."""
+    variants = D66_VARIANTS if variants is None else variants
+    variants_au = D66_VARIANTS_AU if variants_au is None else variants_au
+    readings = D66_READINGS_ASKED if readings is None else readings
+    out = {"main": {}, "au": {}, "readings": {}}
+    with contextlib.redirect_stdout(io.StringIO()), combine66.vocabulary(True):
+        scr = combine66.D66Screen()
+        scr_au = combine66.D66Screen(cell=combine.CELL_AU)
+        for k, p in variants:
+            out["main"][k] = scr.screen(set(p))
+        for k, p in variants_au:
+            out["au"][k] = scr_au.screen(set(p))
+        for k, mut, p in readings:
+            out["readings"][k] = combine66.D66Screen(mutate=mut).screen(set(p))
+    return out
+
+
+_D66 = _d66_ask()
+D66_ASKED, D66_ASKED_AU, D66_READ_ASKED = _D66["main"], _D66["au"], _D66["readings"]
+
+
+def _d66_r(name, au=False, reading=False):
+    return (D66_READ_ASKED if reading else D66_ASKED_AU if au else D66_ASKED)[name]
+
+
+def d66_core(r):
+    """The tracked items of an inconsistent variant's first clash core, as
+    combine reports them (its '@' marker dropped)."""
+    return "{%s}" % ", ".join(x[1:] for x in r["clash_cores"][0] if x.startswith("@"))
+
+
+def d66_asked(name, o, au=False, reading=False):
+    """Obstruction o's verdict in a named D66 variant, exactly as combine66
+    returns it (d68_verdict's form), or the clash core of an inconsistent one."""
+    r = _d66_r(name, au, reading)
+    if not r["consistent"]:
+        return "INCONSISTENT (clash core %s)" % d66_core(r)
+    return d68_verdict(r["per"][o])
+
+
+def d66_seat(name, au=False, reading=False):
+    """The seat condition M-S1A-P3 (i) in a named D66 variant, as combine66
+    grades it: SATISFIED / SATISFIED-IF {named premises} / OPEN via /
+    VIOLATED, and the OPEN pathways under which it is defeasible."""
+    r = _d66_r(name, au, reading)
+    if not r["consistent"]:
+        return "INCONSISTENT"
+    s = r["seat"]
+    out = s["verdict"]
+    if s["verdict"] == "SATISFIED-IF":
+        out += " " + " | ".join("{%s}" % ", ".join(sp["named"]) for sp in s["supports"])
+    if s.get("via"):
+        out += " via " + ", ".join(s["via"])
+    if s.get("defeasible"):
+        out += ", defeasible via " + ", ".join(s["defeasible"])
+    return out
+
+
+def d66_defeasible(name):
+    """{obstruction: [OPEN pathways]} under which a removal's every support can
+    fail, in a named D66 variant (combine66's field)."""
+    return _d66_r(name)["defeasible"]
+
+
+def d66_load_bearing():
+    """[(variant, [obstructions])] where combine66 credits a D66 literal as
+    LOAD-BEARING in a removal or non-binding (combine66.d66_attributed), over
+    every asked variant at both cells -- [] is the headline, asked here on the
+    named variants; the census is combine66's (d66_census_read)."""
+    out = []
+    for lab, asked in (("", D66_ASKED), ("1 AU: ", D66_ASKED_AU)):
+        for k, r in asked.items():
+            got = combine66.d66_attributed(r)
+            if got:
+                out.append((lab + k, got))
+    return out
+
+
+def d66_in_support_only():
+    """[variant] where a D66 literal sits inside a support but is load-bearing
+    nowhere (combine66's d66_in_support minus its load-bearing lists)."""
+    out = []
+    for lab, asked in (("", D66_ASKED), ("1 AU: ", D66_ASKED_AU)):
+        for k, r in asked.items():
+            ld = r.get("d66_load", {})
+            if ld.get("d66_in_support") and not (ld.get("needed") or ld.get("alternative")):
+                out.append(lab + k)
+    return out
+
+
+def d66_d68_board_agrees():
+    """The D66 screen with no D66 literal against combine.py's own board alone
+    (D68_ASKED): [(obstruction, D66's, D68's)] where they DIFFER -- the
+    conservative extension asked on one variant here; combine66's full run
+    (every D68 variant) is READ from B-combine66.md."""
+    a = D66_ASKED["the board alone (D66Screen, no D66 literal)"]["per"]
+    b = D68_ASKED["the board alone"]["per"]
+    return [(o, d68_verdict(a[o]), d68_verdict(b[o])) for o in b if d68_verdict(a[o]) != d68_verdict(b[o])]
+
+
+def d66_group(names, field):
+    """'<value> for a, b, ...; <value> for c' over named D66 variants, each
+    named once -- field is an obstruction or 'SEAT'."""
+    groups = {}
+    for k in names:
+        v = d66_seat(k) if field == "SEAT" else d66_asked(k, field)
+        groups.setdefault(v, []).append(k.split(" (")[-1].rstrip(")"))
+    return "; ".join("%s for %s" % (v, ", ".join(ks)) for v, ks in groups.items())
+
+
+D66_DEFECT_SEATS = tuple(k for k, _p in D66_VARIANTS if k.startswith("H-DEFECT-SEAT: ")
+                         and "seat (" in k and "texture" not in k)
+
+
+#: A D66 variant's D68 context, by its D68 literals -> the D68_ASKED variant.
+D66_CONTEXT_OF = {frozenset(): "the board alone", frozenset({"W2", "F1"}): "W2 x F1",
+                  frozenset({"RQ"}): "R-QUANTUM alone (RQ)",
+                  frozenset({"ITB"}): "H-IT as an information layer (ITB)",
+                  frozenset({"SHAPE"}): "H-INFO-SHAPE (SHAPE)"}
+
+
+def _d66_context(r):
+    """combine.py's own variant (D68_ASKED) for a D66 variant's D68 literals."""
+    return D68_ASKED[D66_CONTEXT_OF[frozenset(set(r["present"]) - set(combine66.D66_LITS))]]
+
+
+def d66_added_lifts():
+    """[(variant, [obstructions])] where an asked D66 variant removes or makes
+    not-bound an obstruction its D68 context (combine.py) does not -- [] is
+    'none a removal', asked on the named variants at 1 ly."""
+    kinds = ("REMOVED", "REMOVED-IF", "NOT-BOUND-IF")
+    out = []
+    for k, r in D66_ASKED.items():
+        if r["consistent"]:
+            extra = sorted(set(combine.counts(r, kinds)) - set(combine.counts(_d66_context(r), kinds)))
+            if extra:
+                out.append((k, extra))
+    return out
+
+
+def d66_added_foreign_pathways():
+    """[(variant, obstruction, pathway)] -- an OPEN pathway an asked D66 variant
+    shows that neither its D68 context shows nor combine66 names (D66_OPEN)."""
+    out = []
+    for k, r in D66_ASKED.items():
+        if not r["consistent"]:
+            continue
+        ctx = _d66_context(r)["per"]
+        for o, v in r["per"].items():
+            for p_ in v.get("via") or []:
+                if p_ not in (ctx[o].get("via") or []) and p_ not in combine66.D66_OPEN:
+                    out.append((k, o, p_))
+    return out
+
+
+#: B-combine66.md, combine66's own report of its full screen, READ (never
+#: retyped): every figure the board cites from the runs it does not repeat.
+D66_B_FILE = os.path.join(D66_DIR, "B-combine66.md")
+D66_CENSUS_PATTERNS = (
+    ("variants", r"That is ([\d,]+) D66 variants at 1 ly plus (\d+) context-only references, "
+                 r"and ([\d,]+) \+ (\d+) at 1 AU"),
+    ("load-bearing", r"The count is (\d+) in ([\d,]+) consistent variants at 1 ly and (\d+) in "
+                     r"([\d,]+) at 1 AU"),
+    ("selftest", r"runs \*\*(\d+) counted checks and passes all (\d+)\*\*"),
+    ("controls", r"\*\*(\d+) of them are controls\.\*\*"),
+    ("conservative", r"\*\*`--conservative-full` was re-run: ([\d,]+) compared .{0,90}?, (\d+) differ\*\*"),
+    ("o-seat", r"\*\*O-SEAT\*\* is lifted in none"),
+    ("o-make-dist", r"\*\*O-MAKE-DIST\*\* is lifted in none"),
+    ("seat violated", r"It is VIOLATED in no consistent variant"),
+)
+
+
+def d66_census_read(path=None):
+    """{key: groups} READ from B-combine66.md; raises if the owner's report no
+    longer states a figure this board cites (a stale seat is a failure)."""
+    with open(D66_B_FILE if path is None else path, encoding="utf-8") as fh:
+        t = " ".join(fh.read().split())
+    out = {}
+    for key, pat in D66_CENSUS_PATTERNS:
+        m = re.search(pat, t)
+        if not m:
+            raise ValueError("B-combine66.md no longer states %r -- the DOCKET 66 seat is stale" % key)
+        out[key] = m.groups()
+    return out
+
+
+D66_CENSUS = d66_census_read()
+
+#: qet.grades needs specthm's class verdicts only for its seat-class sentence
+#: (about 45 s of z3); this board reads its own-content verdicts and its
+#: per-obstruction text, which do not use them, and passes this placeholder --
+#: the selftest re-asks with a second placeholder and requires the fields read
+#: here to be unchanged.
+D66_SPEC_NOT_ASKED = {"S-1": "not asked here", "S-2": "not asked here",
+                      "S-3": "not asked here", "Rec": "not asked here"}
+
+
+def _d66_figures(spec=None):
+    """The DOCKET 66 owners' figures this board prints, ASKED: throatbits'
+    capacity table and MMP scales, qet's minimal model, arrival-alone energy,
+    supremum and board figures and its grades' own-content verdicts,
+    defects' grades, gauge-monopole lens and global-monopole Jacobi zero."""
+    cb = throatbits.capacity_table_base()
+    rows = cb["rows"]
+    mm = throatbits.mmp_scales()
+    mmp_norm = [r for r in mm["by_coupling"] if r["N_f"] == throatbits.MMP_NF_SM]
+    bf = qet.board_figures()
+    sr = qet.sup_ratio()
+    mv = qet.minimal_values(1.5, 1.0)
+    m = qet.model(1.5, 1.0)
+    with contextlib.redirect_stdout(io.StringIO()):
+        qg = qet.grades(spec=D66_SPEC_NOT_ASKED if spec is None else spec, bf=bf, sr=sr)
+        a1 = defects.a1_grades()
+    sa, sj = defects.monopole_conjugate()
+    return {
+        "r_fit": (min(r["r_fit_m"] for r in rows), max(r["r_fit_m"] for r in rows)),
+        "M_sat": (min(r["M_sat_kg"] for r in rows), max(r["M_sat_kg"] for r in rows)),
+        "M_sat/payload": (min(r["M_sat_over_payload"] for r in rows),
+                          max(r["M_sat_over_payload"] for r in rows)),
+        "largest board throat (l_P), bits": (cb["largest_board_throat_over_lP"],
+                                             cb["capacity_of_largest_board_throat_bits"]),
+        "payload over it": (min(cb["payload_over_that_capacity"]),
+                            max(cb["payload_over_that_capacity"])),
+        "MMP binding = payload at r_e (max), l_P": (
+            max(r["r_e_where_binding_equals_payload_m"] for r in mm["by_coupling"]), mm["l_P_m"]),
+        "MMP N_f at r_fit (species count)": (
+            min(r["at_r_fit"][0]["N_f_needed_for_payload"] for r in mmp_norm),
+            max(r["at_r_fit"][0]["N_f_needed_for_payload"] for r in mmp_norm)),
+        "MMP payload over SM throat": (
+            min(min(r["payload_bits_over_capacity_at_r_e_SM"]) for r in mmp_norm),
+            max(max(r["payload_bits_over_capacity_at_r_e_SM"]) for r in mmp_norm)),
+        "QET arrival alone": qet.ev(qet.post_alice(m), m["HB"] + m["V"]),
+        "QET E_B, E_A (1.5, 1)": (mv["E_B"], mv["E_A"]),
+        "QET sup E_B/E_A": float(sr["sup"]),
+        "QET payload rest J, injection J": (bf["payload_rest_J"], bf["payload_rest_J"] / 0.25),
+        "QET r_quantum fraction": bf["r_quantum_fraction"],
+        "R-QET own content": qg[0]["verdict_on_own_content"],
+        "R-LIT own content": qg[1]["verdict_on_own_content"],
+        "R-QET O-HOLD head": qg[0]["per"]["O-HOLD"].split(":")[0],
+        "R-QET O-SEAT head": qg[0]["per"]["O-SEAT"].split(":")[0],
+        "A1 seat": [(g["hypothesis"], g["seat_conditions"].split(". ")[0]) for g in a1],
+        "gauge monopole lens": defects.gauge_monopole_lens(),
+        "global monopole Jacobi zero / axis recrossing": sj / sa if sj else None,
+    }
+
+
+D66_FIG = _d66_figures()
+
+
+def _d66_e(x, f=3):
+    """A float as the owners' reports print it: 7.40e-22, not 7.40e-022."""
+    m, e = ("%.*e" % (f - 1, x)).split("e")
+    return "%se%d" % (m, int(e))
+
+
+def d66_qet_literature():
+    """[(the item as named to M, the READ entry qet.py records for it or
+    None)] -- READ from qet.py's own SOURCES section (its docstring), whose
+    header records the route: an item counts as READ only where it heads an
+    entry there.  'Hotta 2008' is the entry whose head names Hotta and 2008."""
+    doc = qet.__doc__
+    i = doc.index("SOURCES, READ at source through alphaXiv")
+    block = doc[i:doc.index("WHAT IT COMPUTES", i)]
+    entries = [e for e in re.split(r"\n  (?=[A-Z])", block)[1:]]
+    heads = [e.split("\n")[0] for e in entries]
+    out = []
+    for item in [x.strip() for x in M_D65_1_LITERATURE_ITEMS]:
+        aid = re.search(r"arXiv:(\S+)", item)
+        if aid:
+            hit = [h for h in heads if "arXiv:" + aid.group(1) in h]
+        else:
+            name, year = item.split()
+            hit = [h for h in heads if h.startswith(name) and year in h]
+        out.append((item, hit[0].split(" (")[0].split(" = ")[0] if len(hit) == 1 else None))
+    return out
+
+
+#: The QET literature as it was named to M, item by item (M_D65_1_LITERATURE,
+#: split at its own separators, is checked equal to these by the selftest).
+M_D65_1_LITERATURE_ITEMS = ("Hotta 2008", "Funai & Martin-Martinez arXiv:1701.03805",
+                            "Ikeda arXiv:2301.02666", "review arXiv:2505.04689",
+                            "arXiv:2506.19878")
+#: qet.py's route, READ from its SOURCES header (the words after 'READ at
+#: source through ' up to the date).
+D66_QET_ROUTE = re.search(r"SOURCES, READ at source through (alphaXiv \([^)]*\))",
+                          qet.__doc__).group(1)
+
+
+def _d66_string_crossing_only():
+    """A1's own clause, READ from defects.HISTORY: 'only the string is
+    crossing-only'; raises if the owner no longer says it."""
+    hits = [h[2] for h in defects.HISTORY if "only the string is crossing-only" in h[2]]
+    if len(hits) != 1:
+        raise ValueError("defects.HISTORY no longer says 'only the string is crossing-only'")
+    return "only the string is crossing-only"
+
+
+#: DOCKET 66'S QUESTION FOR M (recorded, not applied): spec.py's 'TURN'.  The
+#: question is A1's (defects.HYPOTHESES H-TURN-CONJUGATE / H-TURN-CROSSING),
+#: carried as 'for M' since wave 1 and by D66-fix; the values are asked.
+def d66_turn_question():
+    """(question, why, proposed, waiting on it) for the TURN question, every value
+    asked of defects.py."""
+    h = defects.HYPOTHESES
+    gm = D66_FIG["gauge monopole lens"]
+    return (
+        "spec.py's PART 2 'TURN': H-TURN-CONJUGATE (%s) or H-TURN-CROSSING (%s)?  Since "
+        "D66-fix it decides one class only, the straight string"
+        % (h["H-TURN-CONJUGATE"].split(" read as ")[1], h["H-TURN-CROSSING"].split(" read as ")[1]),
+        "A1 (defects.py, asked): the global monopole's first Jacobi zero falls at the axis "
+        "recrossing (ratio %.12f; defects.monopole_conjugate) and the gauge monopole is an "
+        "S-1 point lens IF {H-MONOPOLE-MASS, H-WEAK-FIELD, H-S1-VACUUM} (a 1 AU focus at "
+        "b = %s m; S-1 conditions hold: %s; defects.gauge_monopole_lens), so both TURN "
+        "under either reading; and, in A1's words (defects.HISTORY), %s -- the straight "
+        "string TURNs under H-TURN-CROSSING only.  The board never fixed which"
+        % (D66_FIG["global monopole Jacobi zero / axis recrossing"], _d66_e(gm["b_m"]),
+           gm["S-1 conditions hold"], _d66_string_crossing_only()),
+        "none: the reading is M's; A1 grades the string under both, side by side",
+        "the straight string's TURN, and with it whether a string seat lenses (A1's seat "
+        "grade); no obstruction on this board moves either way")
+
+
 #: DOCKET 68 NOTES on the rows O-SEAT and the pair supply touch.  A note, not a
 #: status change: no owner's computed status moved.  Every figure asked.
 #: WAVE 1'S WORDS ON THE PAIR SUPPLY AND THE SEAT GATE, kept as history and
@@ -1571,6 +2079,10 @@ OPENED_FROM_WAITING = [
 #: the restatement proposed, and what waits on it.)
 #: DOCKET 65's one pending question (M-D65-2, the finite Higgs share) has been
 #: RULED by M and is on RULED_BY_M; nothing is pending.
+#: DOCKET 66's question for M (spec.py's 'TURN', d66_turn_question) is NOT
+#: seated here: specthm.py pins pending_rulings() empty and is not edited by
+#: DOCKET 66's seating (no class verdict moved), so the question is carried in
+#: O9's DOCKET 66 answer and reported for M (docstring section 8).
 PENDING_RULINGS = []
 
 #: M'S OWN WORDS FOR DOCKET 65's RULINGS, each held ONCE and interpolated into
@@ -1584,6 +2096,72 @@ M_D65_1_ANSWER = "Fold into D66"
 M_D65_1_LITERATURE = ("Hotta 2008; Funai & Martin-Martinez arXiv:1701.03805; "
                       "Ikeda arXiv:2301.02666; review arXiv:2505.04689; "
                       "arXiv:2506.19878")
+
+#: DOCKET 66 HAS RUN (docstring section 8): what M-S1A-P3's and M-D65-1's cells
+#: now say ran, every value asked of the docket66 owners (D66_ASKED, D66_FIG,
+#: D66_CENSUS, d66_qet_literature) -- the 'opens' / 'NOT YET RUN' wording each
+#: cell first carried is kept in it as history, and the selftest requires both.
+#: M-S1A-P3's unblocks cell as first written -- kept, and followed by what ran.
+M_S1A_P3_UNBLOCKS_AS_FIRST_WRITTEN = (
+    "the seat of every object must be free of a closed causal curve and a pathology; "
+    "the throat-creation classes stay OPEN; DOCKET 66 opens")
+
+
+def d66_p3_ran():
+    """What M-S1A-P3's unblocks cell says DOCKET 66 did, asked."""
+    lb = D66_CENSUS["load-bearing"]
+    return (
+        "wave 1, verified both ways, fixed (D66-fix) and seated (docstring section 8).  "
+        "(i): the throat-creation classes stay OPEN for every D66 throat (O-MAKE-TOPO %s); "
+        "the seat condition reads %s (combine66).  (ii) stays NOT applied, H-DEFECT-SEAT "
+        "carried as M's hypothesis: a defect seat supplies no matter (O-SEAT %s), and "
+        "load-bearing D66 removals number %s in %s consistent variants at 1 ly (READ, "
+        "B-combine66.md); O9 and the S5 and S13 notes carry it"
+        % (d66_group(("H-DEFECT-SEAT: string-supported throat (DTHR)", "H-THROAT-BITS: R-HOLO (TBHOLO)",
+                      "H-THROAT-BITS: R-THINSHELL (TBTSH)", "H-THROAT-BITS: R-TELEPORT (TBTEL)"),
+                     "O-MAKE-TOPO"),
+           d66_group(D66_DEFECT_SEATS, "SEAT"), d66_group(D66_DEFECT_SEATS, "O-SEAT"),
+           lb[0], lb[1]))
+
+
+def d66_m_d65_1_ran():
+    """What M-D65-1's ruling cell says DOCKET 66 did with QET, asked."""
+    lit = d66_qet_literature()
+    return (
+        "wave 1 run, verified both ways, fixed and seated (docstring section 8).  The "
+        "literature named to M is READ by qet.py (route: %s), each item heading an entry "
+        "of its sources: %s.  The question's "
+        "parenthetical, tested, is INEXACT: after the bit arrives and before the "
+        "conditioned operation the local energy at the seat is %s (qet.post_alice, |E| < "
+        "1e-12: %s); R-QET, the operational reading, is %s and R-LIT, the parenthetical "
+        "read as arrival alone, %s (qet.grades).  As a hold QET is %s, OPEN via N_QETHAD "
+        "alone; as a supply %s (O9; S5's note)"
+        % (D66_QET_ROUTE, "; ".join("%s: READ (%s)" % (i, e.split(",")[0]) for i, e in lit),
+           _d66_e(D66_FIG["QET arrival alone"], 1), abs(D66_FIG["QET arrival alone"]) < 1e-12,
+           D66_FIG["R-QET own content"].split(";")[0], D66_FIG["R-LIT own content"].split(":")[0],
+           D66_FIG["R-QET O-HOLD head"], D66_FIG["R-QET O-SEAT head"]))
+
+
+#: M-D65-1's ruling cell, a TEMPLATE filled from the asked constants (the
+#: selftest requires EQUALITY): M's answer, M's words, the literature as named
+#: to M, and what DOCKET 66 ran (d66_m_d65_1_ran).  FIRST APPLIED (kept): the
+#: cell as DOCKET 65's seating wrote it, ending 'QET is to be tested inside
+#: DOCKET 66 (NOT YET RUN)'.
+M_D65_1_RULING_T = (
+    "RULED BY M: FOLD INTO DOCKET 66 -- M's answer: '%s'.  M's words, verbatim: '%s'.  "
+    "The QET literature (%s) was CITED, not READ, when M ruled; the question's "
+    "parenthetical is the question's description as put to M, not READ.  APPLIED: no "
+    "separate docket and no row; QET IS TESTED inside DOCKET 66: %s.  FIRST APPLIED "
+    "(kept): QET is to be tested inside DOCKET 66 (NOT YET RUN)")
+#: The ruling cell as DOCKET 65's seating wrote it -- history, re-derived by the
+#: selftest's control (the old cell must now be caught).
+M_D65_1_RULING_AS_FIRST_WRITTEN_T = (
+    "RULED BY M: FOLD INTO DOCKET 66 -- M's answer: '%s'.  M's words, verbatim: '%s'.  "
+    "The QET literature (%s) is CITED, not READ; the question's parenthetical is the "
+    "question's description as put to M, not READ.  APPLIED: no separate docket and no "
+    "row; QET is to be tested inside DOCKET 66 (NOT YET RUN)")
+M_D65_1_UNBLOCKS_AS_FIRST_WRITTEN = ("DOCKET 66 (NOT YET RUN) is to test QET beside seating "
+                                     "at a topological defect")
 #: M-D65-3 (DOCKET 67): the question exactly as it was put to M, M's words
 #: verbatim -- they hold apostrophes, so every cell quotes them in double
 #: quotes -- and M's answer verbatim.  PROVENANCE: M_D65_3_WORDS is verbatim
@@ -2295,8 +2873,7 @@ RULED_BY_M = [
      "('Seating occurs in a place where matter can occur but not in its "
      "original geometric form'): NOT applied, opened as DOCKET 66, with M's "
      "throat-compression mechanism",
-     "the seat of every object must be free of a closed causal curve and a "
-     "pathology; the throat-creation classes stay OPEN; DOCKET 66 opens"),
+     M_S1A_P3_UNBLOCKS_AS_FIRST_WRITTEN + ".  DOCKET 66 has run: " + d66_p3_ran()),
 
     ("M-S1A-P4",
      "Is phase1's D3 read per R1 (pointwise invariant contraction)?",
@@ -2343,18 +2920,19 @@ RULED_BY_M = [
      "its own docket?",
      "M's words, verbatim: '" + M_D65_1_WORDS + "'.  The question's "
      "parenthetical is the question's description as put to M, not READ.  The "
-     "literature anchor, CITED, not READ: " + M_D65_1_LITERATURE,
+     "literature anchor, CITED, not READ: " + M_D65_1_LITERATURE + "  (As the "
+     "question stood when M ruled; DOCKET 66 has since READ the literature -- "
+     "the ruling cell.)",
      # The ruling cell is the one LEDGER.md and the report print, so M's words
      # and the literature's status are carried here too, not only in `why` --
-     # from the SAME constants, so the two copies cannot differ.
-     "RULED BY M: FOLD INTO DOCKET 66 -- M's answer: '" + M_D65_1_ANSWER + "'.  "
-     "M's words, verbatim: '" + M_D65_1_WORDS + "'.  The QET literature ("
-     + M_D65_1_LITERATURE + ") is CITED, not READ; the question's parenthetical "
-     "is the question's description as put to M, not READ.  APPLIED: no "
-     "separate docket and no row; QET is to be tested inside DOCKET 66 (NOT "
-     "YET RUN)",
-     "DOCKET 66 (NOT YET RUN) is to test QET beside seating at a topological "
-     "defect"),
+     # from the SAME constants, so the two copies cannot differ.  DOCKET 66's
+     # seating: the cell is M_D65_1_RULING_T filled from the constants and
+     # what DOCKET 66 ran (asked); its first wording is kept inside it.
+     M_D65_1_RULING_T % (M_D65_1_ANSWER, M_D65_1_WORDS, M_D65_1_LITERATURE,
+                         d66_m_d65_1_ran()),
+     "DOCKET 66 has tested QET beside seating at a topological defect (wave 1, "
+     "seated: O9's DOCKET 66 part and S5's note).  FIRST SAID (kept): "
+     + M_D65_1_UNBLOCKS_AS_FIRST_WRITTEN),
 
     # M's second ruling at DOCKET 65's seating.  The seating had opened the
     # finite share as its own row, O8; the question was put to M as below.
@@ -2657,6 +3235,12 @@ def d68_words_faults(held=None):
     return bad
 
 
+def d67_comments_present():
+    """Whether docket67-raw/COMMENTS-INDEX.md, the D67 per-source comments'
+    index, is in the tree (asked of the file system, M-D68-10 step 3)."""
+    return os.path.exists(os.path.join(HERE, "docket67-raw", "COMMENTS-INDEX.md"))
+
+
 def _d68_rule(option, rid, applied):
     """A DOCKET 68 ruling cell: the option taken, M's words, what was applied."""
     return "RULED BY M: %s -- %s.  APPLIED: %s" % (option, d68_words(rid), applied)
@@ -2856,11 +3440,19 @@ D68_RULED = [
                "and D25, and index3.py's DOCKET 68 rows; (2) D68 wave 2 is RUN, verified both "
                "ways and seated (docstring section 7b: O9's support-1 windows on the READ "
                "limits, O-MAKE-DIST from vacuum.py and O-SEAT from seat.py, the D23, D25 and "
-               "S5 notes, M-D68-15 and M-D68-16, index3.py's DOCKET 68 rows re-typed); (3) and "
-               "(4) are NOT YET RUN.  FIRST APPLIED (wave 1, kept): (2), (3) and (4) are NOT "
-               "YET RUN"),
-     "the D67 per-source comments next; then DOCKET 66 (wave 1 first said: D68 wave 2 next; "
-     "then the D67 per-source comments; then DOCKET 66)"),
+               "S5 notes, M-D68-15 and M-D68-16, index3.py's DOCKET 68 rows re-typed); (3) the "
+               "D67 per-source comments are written and kept as drafts "
+               "(docket67-raw/COMMENTS-INDEX.md present: %s; M's ruling on them, "
+               "M-RULINGS-2026-10-03.md item 17, is not seated on this board); (4) DOCKET 66 "
+               "wave 1 is RUN, verified both ways, fixed and seated (docstring section 8: O9's "
+               "DOCKET 66 part, the S5 and S13 notes, M-S1A-P3's and M-D65-1's cells, the "
+               "TURN question for M in O9's answer; no index3.py row).  SEATED AT D68 WAVE 2 (kept): (3) and (4) "
+               "are NOT YET RUN.  FIRST APPLIED (wave 1, kept): (2), (3) and (4) are NOT YET "
+               "RUN" % d67_comments_present()),
+     "nothing further in this order -- all four have run; the charter's order names Step 1b "
+     "next (M-D68-C1).  The wave-2 seat said: the D67 per-source comments next; then DOCKET "
+     "66 (wave 1 first said: D68 wave 2 next; then the D67 per-source comments; then DOCKET "
+     "66)"),
     ("M-D68-11",
      "The paper's priority (M-RULINGS-2026-10-03.md item 11, 2026-10-04, as the file heads it; "
      "it records M's words and no question put): the standing of the Q-1s paper of M-D68-9 "
@@ -3524,6 +4116,81 @@ D68_NOTES.update({
 })
 SUPPLY = [r[:4] + (r[4] + _d68_note(r[0]),) for r in SUPPLY]
 
+
+# DOCKET 66 NOTES (docstring section 8): appended AFTER each row's DOCKET 68
+# note, asked, with NO status change -- no owner's computed status moved.  S5
+# carries the O-SEAT pathways a defect seat or QET adds; S13 the defect-core
+# link (A1's answer item 7, combine66's ground).
+def _d66_defb_read():
+    """combine66's N_DEFB text, READ: its READ clause, and D66 wave 1's words
+    it keeps ('Wave 1 first said ...')."""
+    t = combine66.D66_OPEN["N_DEFB"]
+    read = t.split("READ (HK pp.63-65): ")[1].split(".  Wave 1 first said")[0]
+    first = re.search(r"Wave 1 first said '([^']+)'", t).group(1)
+    return read, first
+
+
+def _d66_massform_link():
+    """The defect-core link's massform values, asked of massform (the owner of
+    TEMPLATE and S13) exactly as combine66's grounds ask them: TEMPLATE on C1
+    alone, TEMPLATE with C1's link holding, TEMPLATE's C3 reason, whether the
+    held-seat route forms baryons, and its stable range."""
+    vals = massform.mechanism_values()
+    v1 = dict(vals)
+    v1["C1"] = True
+    return {"TEMPLATE": massform.derive_readings(vals)["TEMPLATE"][0],
+            "TEMPLATE, C1 holding": massform.derive_readings(v1)["TEMPLATE"][0],
+            "C3 reason": massform.READING_REASONS[("TEMPLATE", "C3")][1],
+            "forms baryons": massform.HELD_SEAT_ROUTE["forms baryons"],
+            "stable range": massform.STABLE_RANGE}
+
+
+D66_NOTES = {
+    "S5": (
+        "  DOCKET 66 (a note; no status change): a topological defect AT THE SEAT "
+        "(H-DEFECT-SEAT, M's hypothesis, M-S1A-P3 (ii)) supplies no matter.  O-SEAT reads "
+        "%s (combine66, asked) -- N_DEFB beside this row's N_S5, READ (HK pp.63-65): %s "
+        "(D66 wave 1 first said: %s) -- and %s; given H-SEAT-ROUTES, %s.  QET is no supply "
+        "of substance: qet.grades reads O-SEAT %s -- QET relocates at most E_A (supremum "
+        "E_B/E_A = %.4f in the minimal model, approached as k/h grows), and the 70 kg "
+        "payload's rest energy, %s J, would need more than %s J injected at the source "
+        "under H-MINIMAL.  The seat condition M-S1A-P3 (i): %s (combine66; the wall under "
+        "H-VIS-MINKOWSKI, defects.vis_time_function); under H-SM-ONLY no stable defect "
+        "seat exists (A1).  combine66's full screen lifts O-SEAT in no consistent variant "
+        "(B-combine66.md, READ)"
+        % ((d66_group(D66_DEFECT_SEATS, "O-SEAT"),) + _d66_defb_read()
+           + (d66_group(("H-THROAT-BITS: R-HOLO (TBHOLO)", "H-THROAT-BITS: R-TELEPORT (TBTEL)",
+                         "H-QET-EXOTIC: R-QET (QET)", "H-DEFECT-SEAT: string-supported throat (DTHR)"),
+                        "O-SEAT"),
+              d66_asked("H-SEAT-ROUTES on DSTR", "O-SEAT", reading=True),
+              D66_FIG["R-QET O-SEAT head"], D66_FIG["QET sup E_B/E_A"],
+              _d66_e(D66_FIG["QET payload rest J, injection J"][0], 4),
+              _d66_e(D66_FIG["QET payload rest J, injection J"][1], 4),
+              d66_group(D66_DEFECT_SEATS, "SEAT")))),
+    "S13": (
+        "  DOCKET 66 (a note; no status change): the defect-core link (A1-defects.md answer "
+        "item 7; combine66's ground, asked here of massform, the owner, as combine66 asks "
+        "it).  A defect core holds |phi| = 0 with no local source, by topology, below this "
+        "route's stable range (massform.STABLE_RANGE = %s); the same topology forbids a "
+        "local release -- only annihilating the defect ends the hold -- so this route's "
+        "H-RELEASE cannot apply there.  massform.derive_readings gives TEMPLATE %s on C1 "
+        "alone and %s with C1's link holding: at a defect core the GROUND of the refusal "
+        "moves from P-UNIFORM to topology, and the grade does not -- for TEMPLATE, %s, and "
+        "this route forms baryons: %s -- so a defect-core TEMPLATE is no supply of "
+        "substance, and O-SEAT does not move (combine66: %s)"
+        % (_d66_massform_link()["stable range"], _d66_massform_link()["TEMPLATE"],
+           _d66_massform_link()["TEMPLATE, C1 holding"], _d66_massform_link()["C3 reason"],
+           _d66_massform_link()["forms baryons"], d66_group(D66_DEFECT_SEATS, "O-SEAT"))),
+}
+
+
+def _d66_note(rid):
+    """The DOCKET 66 note a row carries, or ''."""
+    return D66_NOTES.get(rid, "")
+
+
+SUPPLY = [r[:4] + (r[4] + _d66_note(r[0]),) for r in SUPPLY]
+
 # ---------------------------------------------------------------------------
 # WHAT IS OPEN.  (row id, claim, what would answer it, owner)
 #
@@ -4027,7 +4694,144 @@ O9_ANSWERED_BY = (
     % ("N_WREAD" in combine.HISTORY_OPEN, "N_VAC" in combine.HISTORY_OPEN,
        ", ".join(d68_vac_grade()[1]), D68_SEAT["binder"][0], O9_ANSWERED_BY_AS_WAVE1))
 
-OPEN_ROWS += [("O9", o9_claim(), O9_ANSWERED_BY, ("combine", "counts"))]
+
+
+# ----- O9's DOCKET 66 part (docstring section 8) ----------------------------
+# Appended to O9's cell AFTER DOCKET 68's (o9_claim() and O9_ANSWERED_BY are
+# DOCKET 68's and are kept exactly; the row is their concatenation with the
+# two below).  Every verdict asked of combine66.D66Screen (D66_ASKED); every
+# census figure READ from B-combine66.md (D66_CENSUS).
+def d66_o9_part():
+    """O9's DOCKET 66 part: member-attributed first, then the OPEN pathways
+    the D66 readings add, the interference, the defeasibility, the seat
+    condition, the readings on record, the finding for the D68 board, and D66
+    wave 1's words kept."""
+    v, lb = D66_CENSUS["variants"], D66_CENSUS["load-bearing"]
+    cons = D66_CENSUS["conservative"]
+    retired = "; ".join("%s (%s)" % (k, combine66.RETIRED[k].split(".  D66-fix: ")[0].replace(
+        "wave 1: ", "wave 1 said ")) for k in sorted(combine66.RETIRED))
+    return (
+        "  DOCKET 66, WAVE 1 (seated in this form: docstring section 8; combine66.py runs "
+        "combine.py's engine with DOCKET 66's commitments as tracked constraints, z3, asked "
+        "here on %d named variants at %s and %d at %s -- its full screen of %s + %s variants "
+        "at 1 ly and %s + %s at 1 AU is its own, READ from B-combine66.md: "
+        "H-LEDGER-ASKS-REPRESENTATIVES).  M's hypotheses, carried as hypotheses: "
+        "H-DEFECT-SEAT (a topological defect as a seat, M-S1A-P3 (ii)), H-THROAT-BITS (the "
+        "throat compressed to binary information, M-S1A-P3 (i) with M's clarification), "
+        "H-QET-EXOTIC (M-D65-1).  MEMBER-ATTRIBUTED FIRST: a D66 literal is load-bearing in "
+        "a removal or non-binding in %s of the variants asked (combine66.d66_attributed); "
+        "the full screen reports %s in %s consistent variants at 1 ly and %s in %s at 1 AU "
+        "(READ).  The member removal stays D68's: a static string seat with W2 x F1 gives "
+        "O-BITS %s, and at 1 AU %s.  R-LIT (the question's parenthetical read as arrival "
+        "alone) is %s; with W2 x F1 it is consistent by the absence of a refutation and "
+        "sits in O-BITS supports only by entailing W2 (in a support and load-bearing "
+        "nowhere: %s).  WHAT THE D66 READINGS ADD IS OPEN PATHWAYS, NONE A REMOVAL.  "
+        "O-SEAT: %s; otherwise %s.  O-HOLD: %s; QET's pathway is N_QETHAD alone, N_XI and "
+        "N_QEIC being the board's (QET with RQ: %s); together, DTHR with TBHOLO %s, DTHR "
+        "with QET %s and TBTEL with QET %s -- a union of pathways, none closing another's "
+        "gap.  O-MAKE-TOPO: %s -- M's ruling M-S1A-P3 applied to every D66 geometric throat "
+        "(a singular throat is not disqualified; the throat-creation classes stay OPEN).  "
+        "INTERFERENCE: beside ITB a D66 throat makes N_QTOPO a premise clash, so ITB's "
+        "non-bindings fall: DTHR with ITB gives O-MAKE-TOPO %s and O-HOLD %s; TBHOLO with "
+        "ITB, O-HOLD %s; R-ITB carries ITB's own, O-HOLD %s.  DEFEASIBLE ONLY THROUGH A "
+        "HELD STRING-SUPPORTED THROAT (FKZ: unbalanced mouths in one space make a time "
+        "machine): DTHR's removals defeasible %s, its seat %s.  THE SEAT CONDITION M-S1A-P3 "
+        "(i): %s; the texture %s, with {%s} a premise clash -- under H-SEAT-PERSISTS a "
+        "texture is an event, not a seat (A1); VIOLATED in no variant asked, and in no "
+        "consistent variant of the full screen (READ).  READING ON RECORD: H-SEAT-ROUTES on a string seat, O-SEAT %s.  "
+        "RECORDED FOR THE D68 BOARD, NOT REPAIRED: M-S1A-P3 read as a board ruling reaching "
+        "D68's own throats (combine66's reading singok-board) gives the board alone "
+        "O-MAKE-TOPO %s and with RQ %s, where combine.py gives %s and %s; combine66 cannot "
+        "change D68 rows (its conservative-extension rule), and whether combine.py "
+        "re-grades is the D68 board's (B-combine66.md section 9, finding 8).  The extended "
+        "screen with no D66 literal against combine.py's board alone, obstructions that "
+        "differ: %s; combine66's full conservative-extension run: %s compared, %s differ "
+        "(READ).  D66 WAVE 1 FIRST SAID (kept; asked of combine66's history encodings): M's "
+        "singular-throat ruling credited to TBHOLO and TBTSH only (singok-a2: DTHR's "
+        "O-MAKE-TOPO %s); QET's hold gated through the board's pathways too "
+        "(qet-board-paths: QET's O-HOLD %s); and two pathways since retired "
+        "(combine66.RETIRED): %s"
+        % (len(D66_VARIANTS), combine.CELL_MAIN, len(D66_VARIANTS_AU), combine.CELL_AU,
+           v[0], v[1], v[2], v[3],
+           "none" if not d66_load_bearing() else d66_load_bearing(),
+           lb[0], lb[1], lb[2], lb[3],
+           d66_asked("DSTR with W2 x F1", "O-BITS"),
+           d66_asked("DSTR with W2 x F1", "O-BITS", au=True),
+           d66_asked("H-QET-EXOTIC: R-LIT (QLIT)", "O-BITS"),
+           ", ".join(d66_in_support_only()) or "none",
+           d66_group(D66_DEFECT_SEATS, "O-SEAT"),
+           d66_group([k for k, _p in D66_VARIANTS[6:13]], "O-SEAT"),
+           d66_group([k for k, _p in D66_VARIANTS[6:13]], "O-HOLD"),
+           d66_asked("QET with R-QUANTUM (RQ)", "O-HOLD"),
+           d66_asked("DTHR with TBHOLO", "O-HOLD"), d66_asked("DTHR with QET", "O-HOLD"),
+           d66_asked("TBTEL with QET", "O-HOLD"),
+           d66_group([k for k, _p in D66_VARIANTS[6:13]], "O-MAKE-TOPO"),
+           d66_asked("DTHR with ITB", "O-MAKE-TOPO"), d66_asked("DTHR with ITB", "O-HOLD"),
+           d66_asked("TBHOLO with ITB", "O-HOLD"),
+           d66_asked("H-THROAT-BITS: R-ITB with ITB (TBITB)", "O-HOLD"),
+           "; ".join("%s via %s" % (o, ", ".join(p)) for o, p in sorted(
+               d66_defeasible("H-DEFECT-SEAT: string-supported throat (DTHR)").items())) or "nowhere",
+           d66_seat("H-DEFECT-SEAT: string-supported throat (DTHR)"),
+           d66_group([k for k, _p in D66_VARIANTS[1:13] if "(DTEX)" not in k], "SEAT"),
+           d66_seat("H-DEFECT-SEAT: texture seat (DTEX)"),
+           "; ".join(", ".join(c) for c in
+                     D66_ASKED["H-DEFECT-SEAT: texture seat (DTEX)"]["premise_clash_named"]),
+           d66_asked("H-SEAT-ROUTES on DSTR", "O-SEAT", reading=True),
+           d66_asked("singok-board on the board alone", "O-MAKE-TOPO", reading=True),
+           d66_asked("singok-board with RQ", "O-MAKE-TOPO", reading=True),
+           d68_asked("the board alone", "O-MAKE-TOPO"), d68_asked("R-QUANTUM alone (RQ)", "O-MAKE-TOPO"),
+           d66_d68_board_agrees() or "none", cons[0], cons[1],
+           d66_asked("singok-a2 on DTHR (D66 wave 1's encoding)", "O-MAKE-TOPO", reading=True),
+           d66_asked("qet-board-paths on QET (D66 wave 1's encoding)", "O-HOLD", reading=True),
+           retired))
+
+
+def d66_o9_answer():
+    """O9's DOCKET 66 answer: what would answer the D66 OPEN pathways, asked."""
+    mm = D66_FIG
+    return (
+        "  DOCKET 66 (wave 1, seated) closes nothing on O9 and opens no route that removes "
+        "anything: what would answer its OPEN pathways, none shown realised -- %s "
+        "(combine66.D66_OPEN, asked).  For N_GJWPAY, Maldacena-Milekhin-Popov's held "
+        "one-space throat is computed and does not admit the payload (throatbits.mmp_scales, "
+        "H-MMP-OOM: its binding energy equals the payload's rest energy only at r_e <= %s m, "
+        "below l_P = %s m; at r_fit it needs N_f >= %s to %s massless charged species); for "
+        "N_QETHAD, H-QET-HADAMARD's short check, not run; N_QLITNL, arrival-alone energy "
+        "under a non-linear dynamics, a candidate computed nowhere.  FOR M (A1's question since "
+        "D66 wave 1, not seated as pending -- docstring section 8): %s.  Why: %s.  Proposed: %s.  "
+        "Waiting on it: %s.  O9 still CLOSES only on O-BITS with no named premise, in a D68 or "
+        "a D66 variant asked (OPEN_ROW_READINGS)"
+        % ((", ".join(sorted(combine66.D66_OPEN)),
+           _d66_e(mm["MMP binding = payload at r_e (max), l_P"][0]),
+           _d66_e(mm["MMP binding = payload at r_e (max), l_P"][1]),
+           _d66_e(mm["MMP N_f at r_fit (species count)"][0], 2),
+           _d66_e(mm["MMP N_f at r_fit (species count)"][1], 2)) + d66_turn_question()))
+
+
+D66_O9_PART = d66_o9_part()
+D66_O9_ANSWER = d66_o9_answer()
+
+
+def d66_o_bits_removed_outright():
+    """[variant] among the DOCKET 66 variants asked (both cells) where
+    combine66 says O-BITS is REMOVED with no named premise -- [] while every
+    removal is REMOVED-IF."""
+    out = []
+    for lab, asked in (("D66 ", D66_ASKED), ("D66 1 AU: ", D66_ASKED_AU)):
+        for k, r in asked.items():
+            if r["consistent"] and "O-BITS" in combine.counts(r, ("REMOVED",)):
+                out.append(lab + k)
+    return out
+
+
+def o9_removed_outright():
+    """What closing O9 would need, over DOCKET 68's and DOCKET 66's asked
+    variants (d68_o_bits_removed_outright + d66_o_bits_removed_outright)."""
+    return d68_o_bits_removed_outright() + d66_o_bits_removed_outright()
+
+
+OPEN_ROWS += [("O9", o9_claim() + D66_O9_PART, O9_ANSWERED_BY + D66_O9_ANSWER,
+               ("combine", "counts"))]
 
 #: WHAT AN O ROW'S OWNER SAYS ABOUT CLOSING, where no owner pins a flag.  O9's
 #: owner, combine.py, pins no O9_CLOSED; what would close O9 is ASKED of it:
@@ -4035,8 +4839,9 @@ OPEN_ROWS += [("O9", o9_claim(), O9_ANSWERED_BY, ("combine", "counts"))]
 #: (what is asked, the asking function)).  A row not named here is asked by
 #: its owner's flag, as before.
 OPEN_ROW_READINGS = {
-    "O9": ("combine.counts(<each asked variant>, ('REMOVED',)) holding O-BITS",
-           d68_o_bits_removed_outright),
+    "O9": ("combine.counts(<each asked variant>, ('REMOVED',)) holding O-BITS -- "
+           "DOCKET 68's variants and, since DOCKET 66's seating, combine66's",
+           o9_removed_outright),
 }
 
 
@@ -4394,7 +5199,8 @@ def statuses():
 
 def pending_rulings():
     """PENDING_RULINGS as printed (none since M ruled M-D65-2; DOCKET 68's
-    M-D68-P1 was converted to the ruling M-D68-C12)."""
+    M-D68-P1 was converted to the ruling M-D68-C12; DOCKET 66's question on
+    spec.py's 'TURN' is carried in O9's answer, not here)."""
     return list(PENDING_RULINGS)
 
 
@@ -4597,7 +5403,11 @@ W_DEMAND_CLAIM = 5200             # DOCKET 67: D24 names the dropped
 W_DEMAND_MOVES = 1200             # DOCKET 65: D27's movers run past 1000
 W_SUPPLY_NOTE = 5000              # DOCKET 65: S10's claim and movers, one note,
                                   # and the item S10 (open) (M-D65-2)
-W_OPEN_CLAIM = 10000              # DOCKET 67: as W_DEMAND_CLAIM (D24 is OPEN);
+W_OPEN_CLAIM = 15000              # DOCKET 66: 10000 -> 15000 -- O9 carries its
+                                  # DOCKET 66 part after DOCKET 68's, every verdict
+                                  # asked of combine66 and D66 wave 1's words kept
+                                  # (13765 chars as rendered at the seating).
+                                  # DOCKET 67: as W_DEMAND_CLAIM (D24 is OPEN);
                                   # follow-ups: O5 names FO/FFKP REFUSED on the
                                   # Hadamard clause, with its correction (4065
                                   # chars as rendered at the follow-ups).
@@ -4614,7 +5424,10 @@ W_OPEN_CLAIM = 10000              # DOCKET 67: as W_DEMAND_CLAIM (D24 is OPEN);
                                   # message count, with the wave-2 seat's words
                                   # kept (9170 chars as rendered; at 9000 the
                                   # cut-cell check caught it)
-W_OPEN_ANSWER = 2400              # DOCKET 67: O2's answer names its
+W_OPEN_ANSWER = 4000              # DOCKET 66: 2400 -> 4000 -- O9's answer gains
+                                  # DOCKET 66's pathways and the TURN question for M
+                                  # (measured at the seating; the cut-cell check guards).
+                                  # DOCKET 67: O2's answer names its
                                   # conditions (M ruled "Repair all").
                                   # DOCKET 68 wave 2: 1400 -> 2400 -- O9's
                                   # answer names what wave 2 left open and
@@ -4622,7 +5435,11 @@ W_OPEN_ANSWER = 2400              # DOCKET 67: O2's answer names its
 W_WAS = 1400
 W_WHY = 1000                      # DOCKET 67: superseded rows carry
                                   # the corrections M ruled ("Repair all")
-W_RULING = 1600                   # DOCKET 65: M-D65-4's ruling cell names M's
+W_RULING = 2000                   # DOCKET 66: 1600 -> 2000 -- M-D65-1's ruling
+                                  # cell says what DOCKET 66 ran, asked of qet.py,
+                                  # and keeps its first wording (1676 chars as
+                                  # rendered at the seating).
+                                  # DOCKET 65: M-D65-4's ruling cell names M's
                                   # rule for the paper and the DOCKET 63 marker
                                   # READ back from the paper; 600 would cut it.
                                   # DOCKET 67 follow-ups: it now carries the
@@ -4923,8 +5740,10 @@ SEATED_QUALIFIERS = {
     # S12's 'at least': the carrier supplies the pair floor or more.
     "S12": (("(not computed here)", 1), ("supplies at least the pair floor", 1),
             ("H-BRIDGE", 3), ("rests on H-BRIDGE through D29", 1)),
+    # RE-PINNED BY DOCKET 66's SEATING: H-RELEASE 3 -> 4 -- S13's DOCKET 66
+    # note names it once more (the defect core's hold cannot use it).
     "S13": (("Within excite's section-3 model", 2), ("not a bound", 1),
-            ("H-RELEASE", 3), ("H-UNSOURCED-SEAT", 2), ("H-TREE", 1),
+            ("H-RELEASE", 4), ("H-UNSOURCED-SEAT", 2), ("H-TREE", 1),
             ("(not computed here)", 1)),
 }
 
@@ -4977,23 +5796,184 @@ def verbatim_faults(qrow=None, md=None, rid="M-D65-1"):
 
 def m_d65_1_faults(qrow=None):
     """[fault] where M-D65-1 misdescribes QET's standing: the literature named
-    to M incomplete (arXiv:2506.19878 was named), QET said to be TESTED in
-    DOCKET 66 while that docket has not run, or the question's parenthetical
-    printed as READ rather than as the question's own description."""
+    to M incomplete (arXiv:2506.19878 was named); the ruling cell not EXACTLY
+    its template filled from the constants and what DOCKET 66 ran
+    (M_D65_1_RULING_T, d66_m_d65_1_ran -- so no verdict on QET can be typed
+    beside the required phrases); DOCKET 65's first wording ('QET is to be
+    tested inside DOCKET 66 (NOT YET RUN)') missing from the history clause, or
+    NOT YET RUN printed outside it; a literature item printed as READ that
+    qet.py's sources do not record as READ; the unblocks cell still saying
+    NOT YET RUN outside its history; or the question's parenthetical printed
+    as READ rather than as the question's own description.  CORRECTED
+    (DOCKET 66's seating): this first required 'QET is to be tested inside
+    DOCKET 66 (NOT YET RUN)' as the APPLIED clause and refused 'QET is tested
+    inside' -- true while DOCKET 66 had not run."""
     qrow = [r for r in RULED_BY_M if r[0] == "M-D65-1"][0] if qrow is None else qrow
-    why, ruling = " ".join(qrow[2].split()), " ".join(qrow[3].split())
+    why, ruling, unb = (" ".join(qrow[2].split()), " ".join(qrow[3].split()),
+                        " ".join(qrow[4].split()))
     bad = []
     for aid in ("1701.03805", "2301.02666", "2505.04689", "2506.19878"):
         if not ("arXiv:%s" % aid in why and "arXiv:%s" % aid in ruling):
             bad.append("arXiv:%s missing from why or the ruling cell" % aid)
-    if "QET is to be tested inside DOCKET 66 (NOT YET RUN)" not in ruling:
-        bad.append("the ruling cell does not say QET is TO BE tested (NOT YET RUN)")
-    if re.search(r"QET is tested inside", ruling):
-        bad.append("the ruling cell says QET IS tested, present tense")
+    want = " ".join((M_D65_1_RULING_T % (M_D65_1_ANSWER, M_D65_1_WORDS, M_D65_1_LITERATURE,
+                                         d66_m_d65_1_ran())).split())
+    if ruling != want:
+        bad.append("the ruling cell is not M_D65_1_RULING_T filled from the constants and "
+                   "what DOCKET 66 ran (d66_m_d65_1_ran)")
+    hist = "FIRST APPLIED (kept): QET is to be tested inside DOCKET 66 (NOT YET RUN)"
+    if hist not in ruling:
+        bad.append("the ruling cell drops DOCKET 65's first wording (history)")
+    if ruling.replace(hist, "").count("NOT YET RUN"):
+        bad.append("the ruling cell says NOT YET RUN outside its history clause")
+    read_ok = dict(d66_qet_literature())
+    for item, entry in read_ok.items():
+        if entry is None:
+            bad.append("%s: qet.py records no READ entry for it" % item)
+    # Only an arXiv id an item already carries is printed (specthm compares the
+    # row's ids with its DOCKET 66 record's), so a READ claim names the item.
+    for m in re.finditer(r"arXiv:(\d{4}\.\d{4,5})[^;:]*: READ", ruling):
+        if not any(m.group(1) in (e or "") for e in read_ok.values()):
+            bad.append("arXiv:%s printed as READ, and qet.py's sources head no entry with it"
+                       % m.group(1))
+    uhist = "FIRST SAID (kept): " + M_D65_1_UNBLOCKS_AS_FIRST_WRITTEN
+    if uhist not in unb or unb.replace(uhist, "").count("NOT YET RUN"):
+        bad.append("the unblocks cell: NOT YET RUN outside its history, or the history dropped")
     clause = "the question's description as put to M, not READ"
     if not (clause in why and clause in ruling):
         bad.append("the question's parenthetical is not attributed to the question")
     return bad
+
+
+def p3_unblocks_faults(text=None):
+    """[fault] where M-S1A-P3's unblocks cell does not say DOCKET 66 has run,
+    built from the docket66 owners (d66_p3_ran), after its first wording
+    ('DOCKET 66 opens', kept) -- or drops what the owners read in it ('the
+    throat-creation classes stay OPEN', which defects.py and combine66.py
+    check at run time)."""
+    text = ([r for r in RULED_BY_M if r[0] == "M-S1A-P3"][0][4]
+            if text is None else text)
+    want = M_S1A_P3_UNBLOCKS_AS_FIRST_WRITTEN + ".  DOCKET 66 has run: " + d66_p3_ran()
+    # EQUALITY, so no verdict can be typed beside the required phrases.
+    if " ".join(text.split()) != " ".join(want.split()):
+        return ["not its first wording followed by 'DOCKET 66 has run: ' and d66_p3_ran()"]
+    return []
+
+
+#: The DOCKET 66 charter's quotations, each with the ledger constant it must
+#: occur in verbatim (whitespace normalised): the charter says 'Every quotation
+#: of M below is taken from the ledger, which holds M's words as constants and
+#: checks them (ledger.py: M-S1A-P3, M-D65-1)', and this is that check.
+D66_CHARTER_FILE = os.path.join(D66_DIR, "CHARTER.md")
+
+
+def _d66_charter_holders():
+    """{charter quotation: (where the ledger holds it, the held text)}."""
+    p3 = [r for r in RULED_BY_M if r[0] == "M-S1A-P3"][0]
+    q1 = [r for r in RULED_BY_M if r[0] == "M-D65-1"][0]
+    return {
+        "1 then 2 then 3 then 4": ("D68_M_WORDS M-D68-10", D68_M_WORDS["M-D68-10"][0]),
+        "Is a closed causal curve, or a Borde pathology, disqualifying?": ("M-S1A-P3 question", p3[1]),
+        "My ruling refers to the seat/destination. Singular occurs in the throat where the "
+        "geometry is compressed to binary information, and then push to the seat":
+            ("M-S1A-P3 ruling cell", p3[3]),
+        "Seating occurs in a place where matter can occur but not in its original geometric "
+        "form": ("M-S1A-P3 ruling cell", p3[3]),
+        "with M's throat-compression mechanism": ("M-S1A-P3 ruling cell (the ledger's words)", p3[3]),
+        "these are defects": ("M-S1A-P3 ruling cell", p3[3]),
+        "Should Quantum Energy Teleportation (information arriving at the destination creates a "
+        "local negative-energy region there) be tested as its own docket?": ("M-D65-1 question", q1[1]),
+        "Fold into D66": ("M_D65_1_ANSWER", M_D65_1_ANSWER),
+        "consider the idea that the introduction of information into a space that never "
+        "previously contained it would be considered exotic matter": ("M_D65_1_WORDS", M_D65_1_WORDS),
+        "S5 counts": ("D68_M_WORDS M-D68-7", D68_M_WORDS["M-D68-7"][0]),
+        "non physical properties/bounds that give shape to the geometry at the seat":
+            ("D68_M_WORDS M-D68-1", D68_M_WORDS["M-D68-1"][0]),
+        "from the seat": ("D68_M_WORDS M-D68-5", D68_M_WORDS["M-D68-5"][0]),
+        "Hotta 2008; Funai & Martin-Martinez arXiv:1701.03805; Ikeda arXiv:2301.02666; review "
+        "arXiv:2505.04689; arXiv:2506.19878": ("M_D65_1_LITERATURE", M_D65_1_LITERATURE),
+    }
+
+
+def d66_charter_quote_faults(charter=None, holders=None):
+    """[(span, why)] -- a quotation in docket66/CHARTER.md (every double-quoted
+    span, every single-quoted span with a space, and the literature list as
+    the charter names it) that is not held verbatim in the ledger constant
+    _d66_charter_holders names, or that it names no holder for."""
+    if charter is None:
+        with open(D66_CHARTER_FILE, encoding="utf-8") as fh:
+            charter = fh.read()
+    holders = _d66_charter_holders() if holders is None else holders
+    t = " ".join(charter.split())
+    spans = re.findall(r'"([^"]+)"', t)
+    spans += re.findall(r"(?<![A-Za-z])'([^']+ [^']+)'(?![A-Za-z])", t)
+    lit = "Hotta 2008; Funai & Martin-Martinez arXiv:1701.03805"
+    spans += [x for x in holders if x.startswith(lit) and lit in t and x in t]
+    bad = []
+    for sp in spans:
+        if sp not in holders:
+            bad.append((sp, "no ledger constant is named for it"))
+        elif sp not in " ".join(holders[sp][1].split()):
+            bad.append((sp, "not verbatim in " + holders[sp][0]))
+    if not any(x.startswith(lit) for x in spans):
+        bad.append((lit, "the charter no longer names the literature as M_D65_1_LITERATURE holds it"))
+    return bad
+
+
+def _d66_tree_text():
+    """docket66/'s own words: the charter, the A- and B-reports and the four
+    instruments' source, whitespace normalised -- what a DOCKET 66 cell may
+    quote with a single quote."""
+    out = []
+    for f in ("CHARTER.md", "A1-defects.md", "A2-throatbits.md", "A3-qet.md", "B-combine66.md",
+              "defects.py", "throatbits.py", "qet.py", "combine66.py"):
+        with open(os.path.join(D66_DIR, f), encoding="utf-8") as fh:
+            out.append(" ".join(fh.read().split()))
+    return " ".join(out)
+
+
+def _d66_cells():
+    """{site: text} -- every DOCKET 66 cell this file prints: O9's DOCKET 66
+    part and answer, the S5 and S13 notes, M-S1A-P3's unblocks, M-D65-1's
+    ruling and unblocks, the TURN question for M."""
+    p3 = [r for r in RULED_BY_M if r[0] == "M-S1A-P3"][0]
+    q1 = [r for r in RULED_BY_M if r[0] == "M-D65-1"][0]
+    out = {"O9 D66 part": D66_O9_PART, "O9 D66 answer": D66_O9_ANSWER,
+           "M-S1A-P3 unblocks": p3[4], "M-D65-1 ruling": q1[3], "M-D65-1 unblocks": q1[4]}
+    out.update(("note " + k, v) for k, v in D66_NOTES.items())
+    out.update(("TURN question col %d" % i, c) for i, c in enumerate(d66_turn_question(), 1))
+    return out
+
+
+def d66_quote_faults(cells=None):
+    """[(site, span)] -- a quotation in a DOCKET 66 cell that is not the tree's
+    words: a double-quoted span that is not M's words as the ledger holds them
+    (_d66_charter_holders) or a single-quoted span with a space that occurs
+    neither in docket66/'s own files nor in the ledger's held texts (M's words
+    the M-S1A-P3 and M-D65-1 rows quote)."""
+    cells = _d66_cells() if cells is None else cells
+    held = " ".join(" ".join(v[1].split()) for v in _d66_charter_holders().values())
+    tree = _d66_tree_text()
+    dq = re.compile(r'"([^"]+)"')
+    sq = re.compile(r"(?<![A-Za-z])'([^']+ [^']+)'(?![A-Za-z])")
+    bad = []
+    for site, text in cells.items():
+        t = " ".join(text.split())
+        bad += [(site, m) for m in dq.findall(t) if m not in held]
+        bad += [(site, m) for m in sq.findall(t) if m not in tree and m not in held]
+    return bad
+
+
+def d66_index3_faults(findings=None):
+    """[(row, why)] -- the DOCKET 66 index3 decision (docstring section 8,
+    H-NO-D66-ROW): index3.py seats NO row citing docket66/, because DOCKET 66's
+    answer reads (0, 0, 0) in the house reading (it removes nothing and states
+    no requirement in numbers of its own) and the priced requirements its
+    owners state are carried on O9 and the S5 note, as M ruled the analogous
+    vacuum figures (M-RULINGS-2026-10-03.md item 18, 'No, keep on O9'),
+    pending M.  A row citing docket66/ without this decision moving is caught."""
+    import index3
+    rows = index3.FINDINGS if findings is None else findings
+    return [(f[0], "cites %s" % f[4]) for f in rows if str(f[4]).startswith("docket66/")]
 
 
 def p1_unblocks_faults(text=None):
@@ -5825,9 +6805,13 @@ def selftest():
          [p[0] for p in PENDING_RULINGS if not p[0].startswith("M-D68-")],
          "O8" not in [r[0] for r in OPEN_ROWS]),
         (1, True, True, True, True, True, True, [], True))
-    chk("  and M-D65-1 opens no row (QET is DOCKET 66's, not the board's)",
-        [r[0] for r in DEMAND + SUPPLY + OPEN_ROWS if "QET" in r[1]
-         or "Teleportation" in r[1]], [])
+    # DOCKET 66's seating carries QET in O9's DOCKET 66 part and S5's note, a
+    # note and no row: the part is taken out of O9's claim before the ask.
+    chk("  and M-D65-1 opens no row (QET is DOCKET 66's, not the board's; DOCKET "
+        "66's seating carries it in O9's DOCKET 66 part and S5's note, no row)",
+        [r[0] for r in DEMAND + SUPPLY + OPEN_ROWS
+         if "QET" in r[1].replace(D66_O9_PART, "")
+         or "Teleportation" in r[1].replace(D66_O9_PART, "")], [])
     chk("D27-D29's owners still SAY what the THEOREM rows say (values, asked)",
         theorem_owner_disagreements(), [])
     for _attr, _flip, _rid in (("CONSIDERATION_HOLDS", False, "D27"),
@@ -5974,22 +6958,57 @@ def selftest():
         "and S13 price", s10_name_faults(), [])
     chk("  CONTROL: 'atomic mass formed at the seat' as the label is caught",
         len(s10_name_faults("atomic mass formed at the seat")), 2)
+    # CORRECTED (DOCKET 66's seating): this check first required QET TO BE
+    # tested in DOCKET 66 (NOT YET RUN); DOCKET 66 has run, so the cell must now
+    # EQUAL its template filled with what ran (asked of qet.py) and keep the
+    # first wording as history -- the old cell is a control below.
     chk("M-D65-1 names the literature as it was named to M (arXiv:2506.19878 "
-        "included), QET TO BE tested in DOCKET 66 (NOT YET RUN), and the "
-        "question's parenthetical as the question's description, not READ",
+        "included), says QET IS TESTED in DOCKET 66 -- the cell EQUAL to its "
+        "template filled from what DOCKET 66 ran, asked of qet.py -- keeps "
+        "'(NOT YET RUN)' only as its first wording, prints as READ only what "
+        "qet.py's sources READ, and keeps the question's parenthetical as the "
+        "question's description, not READ",
         m_d65_1_faults(), [])
     _q1 = list(_qet[0])
-    _q1[3] = _q1[3].replace("QET is to be tested inside DOCKET 66 (NOT YET RUN)",
-                            "QET is tested inside DOCKET 66")
+    _q1[3] = M_D65_1_RULING_AS_FIRST_WRITTEN_T % (M_D65_1_ANSWER, M_D65_1_WORDS,
+                                                  M_D65_1_LITERATURE)
     _q2 = list(_qet[0])
     _q2[2] = _q2[2].replace("; arXiv:2506.19878", "")
     _q3 = list(_qet[0])
     _q3[3] = _q3[3].replace("; the question's parenthetical is the question's "
                             "description as put to M, not READ", "")
-    chk("  CONTROL: the old wording ('QET is tested inside DOCKET 66'), the "
-        "literature without 2506.19878, and the parenthetical unattributed are "
+    _q4 = list(_qet[0])
+    _q4[3] = _q4[3].split("  FIRST APPLIED (kept)")[0]
+    _q5 = list(_qet[0])
+    _q5[3] = _q5[3].replace("arXiv:2506.19878: READ",
+                            "arXiv:2506.19878: READ; spin-chain arXiv:0803.0348: READ")
+    _q6 = list(_qet[0])
+    _q6[4] = M_D65_1_UNBLOCKS_AS_FIRST_WRITTEN
+    _q7 = list(_qet[0])
+    _q7[3] = _q7[3].replace("QET IS TESTED inside DOCKET 66: ",
+                            "QET IS TESTED inside DOCKET 66: QET is exotic matter; ")
+    chk("  CONTROL: the cell as DOCKET 65's seating wrote it (NOT YET RUN), the "
+        "literature without 2506.19878, the parenthetical unattributed, the history "
+        "dropped, a source qet.py does not READ (its spin-chain 0803.0348) printed "
+        "as READ, the unblocks cell as it stood, and a typed verdict planted beside "
+        "what ran are each caught",
+        [len(m_d65_1_faults(tuple(q))) > 0 for q in (_q1, _q2, _q3, _q4, _q5, _q6, _q7)],
+        [True] * 7)
+    chk("M-S1A-P3's unblocks cell says DOCKET 66 has run, built from the docket66 "
+        "owners, after its first wording ('DOCKET 66 opens', kept), and keeps 'the "
+        "throat-creation classes stay OPEN' (which defects.py and combine66.py read)",
+        p3_unblocks_faults(), [])
+    chk("  CONTROL: the cell as it stood ('...; DOCKET 66 opens' alone), a typed "
+        "verdict in place of what ran, and the throat-creation clause dropped are "
         "each caught",
-        [len(m_d65_1_faults(tuple(q))) > 0 for q in (_q1, _q2, _q3)], [True] * 3)
+        [len(p3_unblocks_faults(t_)) > 0 for t_ in (
+            "the seat of every object must be free of a closed causal curve and a "
+            "pathology; the throat-creation classes stay OPEN; DOCKET 66 opens",
+            "the seat of every object must be free of a closed causal curve and a "
+            "pathology; the throat-creation classes stay OPEN; DOCKET 66 opens.  DOCKET "
+            "66 has run: a defect seat supplies the payload's matter",
+            [r for r in RULED_BY_M if r[0] == "M-S1A-P3"][0][4].replace(
+                "the throat-creation classes stay OPEN; ", ""))], [True] * 3)
     chk("M-S1A-P1's unblocks cell says DOCKET 65 has run and names its rows, "
         "built from massform's ids", p1_unblocks_faults(), [])
     chk("  CONTROL: the cell as it stood ('DOCKET 65 opens' alone) is caught",
@@ -6518,8 +7537,12 @@ def selftest():
 
     print("\n4e. DOCKET 68, WAVE 1 (docstring section 7): ASKED OF docket68/")
     _o9 = [r for r in OPEN_ROWS if r[0] == "O9"]
-    chk("O9 is seated once, OPEN, its cell exactly o9_claim() and its owner combine.py",
-        (len(_o9), _o9[0][1] == o9_claim(), _o9[0][2] == O9_ANSWERED_BY, _o9[0][3]),
+    # DOCKET 66's seating: the row is DOCKET 68's cell followed by DOCKET 66's
+    # part (D66_O9_PART, D66_O9_ANSWER); DOCKET 68's two are kept exactly.
+    chk("O9 is seated once, OPEN, its cell exactly o9_claim() then DOCKET 66's part, "
+        "its answer O9_ANSWERED_BY then DOCKET 66's, and its owner combine.py",
+        (len(_o9), _o9[0][1] == o9_claim() + D66_O9_PART,
+         _o9[0][2] == O9_ANSWERED_BY + D66_O9_ANSWER, _o9[0][3]),
         (1, True, True, ("combine", "counts")))
     _fresh = dict((k, D68_SCREEN.variant(set(p_))) for k, p_ in D68_VARIANTS)
     chk("  every verdict it prints reproduces on a FRESH ask of combine.Screen",
@@ -6941,6 +7964,234 @@ def selftest():
                                    "H-LEDGER-ASKS-REPRESENTATIVES", "H-LEDGER-DEPS",
                                    "CARRIED, NOT RULED", "WHAT IS CHECKED",
                                    "are cited from their owners, not checked")), True)
+
+    print("\n4f. DOCKET 66, WAVE 1 (docstring section 8): ASKED OF docket66/")
+    import os as _os66       # section 6 binds 'os' locally; this section must not use it
+    chk("combine's vocabulary is restored after every DOCKET 66 ask (combine66's "
+        "E-EXTEND is in-process only): combine.LIT_NAMES is combine's own and "
+        "combine66 reports it unextended",
+        (list(combine.LIT_NAMES) == combine66._ORIG["LIT_NAMES"],
+         combine66._STATE["extended"]), (True, False))
+    with combine66.vocabulary(True):
+        _ext = (len(combine.LIT_NAMES), combine66._STATE["extended"])
+    chk("  CONTROL: inside combine66.vocabulary(True) the vocabulary IS extended (so "
+        "the restore check can fail)",
+        (_ext[0] > len(combine66._ORIG["LIT_NAMES"]), _ext[1]), (True, True))
+    _f66 = _d66_ask()
+    chk("  every DOCKET 66 verdict this board prints reproduces on a FRESH ask of "
+        "combine66.D66Screen (both cells and the readings)",
+        [(c, k) for c in ("main", "au", "readings") for k in _f66[c]
+         if (_f66[c][k]["consistent"], _f66[c][k].get("per"), _f66[c][k].get("seat"))
+         != (_D66[c][k]["consistent"], _D66[c][k].get("per"), _D66[c][k].get("seat"))], [])
+    chk("MEMBER-ATTRIBUTED FIRST: no D66 literal is load-bearing in any removal or "
+        "non-binding in any variant asked (combine66.d66_attributed), and B-combine66.md "
+        "(READ) reports 0 in its full screen at both cells",
+        (d66_load_bearing(), D66_CENSUS["load-bearing"][0], D66_CENSUS["load-bearing"][2]),
+        ([], "0", "0"))
+    with contextlib.redirect_stdout(io.StringIO()), combine66.vocabulary(True):
+        _planted = combine66.D66Screen(mutate=("defb-asserted",)).screen({"DSTR"})
+    chk("  CONTROL: combine66's planted D66 removal (defb-asserted: a string seat "
+        "supplies the baryons) IS credited to DSTR (the load-bearing test can fail)",
+        combine66.d66_attributed(_planted), ["O-SEAT"])
+    chk("  R-LIT sits in an O-BITS support only by entailing W2 -- in a support, "
+        "load-bearing nowhere -- at both cells; alone it is inconsistent (its clash "
+        "core holds B66-ARR, B66-LIN and C-QLIT)",
+        (d66_in_support_only(), D66_ASKED["H-QET-EXOTIC: R-LIT (QLIT)"]["consistent"],
+         all(x in d66_core(D66_ASKED["H-QET-EXOTIC: R-LIT (QLIT)"])
+             for x in ("B66-ARR", "B66-LIN", "C-QLIT"))),
+        (["R-LIT with W2 x F1", "1 AU: R-LIT with W2 x F1"], False, True))
+    chk("  the only member removal stays D68's: with a string seat, O-BITS REMOVED-IF "
+        "by W2 x F1 (credited to members, DSTR in no support), its supports those of "
+        "combine.py's own W2 x F1",
+        (D66_ASKED["DSTR with W2 x F1"]["per"]["O-BITS"]["verdict"],
+         D66_ASKED["DSTR with W2 x F1"]["per"]["O-BITS"]["attribution"],
+         any("DSTR" in sp["members"] for sp in D66_ASKED["DSTR with W2 x F1"]["per"]["O-BITS"]["supports"]),
+         [(sp["members"], sp["named"]) for sp in D66_ASKED["DSTR with W2 x F1"]["per"]["O-BITS"]["supports"]]
+         == [(sp["members"], sp["named"]) for sp in D68_ASKED["W2 x F1"]["per"]["O-BITS"]["supports"]]),
+        ("REMOVED-IF", "member", False, True))
+    chk("  the extended screen with no D66 literal is combine.py's board alone on every "
+        "obstruction (conservative extension, one variant here; B-combine66.md READ: "
+        "its full run, 0 differ)",
+        (d66_d68_board_agrees(), D66_CENSUS["conservative"][1]), ([], "0"))
+    _cmp = [(o, d68_verdict(D66_ASKED["H-DEFECT-SEAT: static string seat (DSTR)"]["per"][o]))
+            for o in D68_ASKED["the board alone"]["per"]
+            if d68_verdict(D66_ASKED["H-DEFECT-SEAT: static string seat (DSTR)"]["per"][o])
+            != d68_verdict(D68_ASKED["the board alone"]["per"][o])]
+    chk("  CONTROL: the same comparison against a string seat differs (O-SEAT gains "
+        "N_DEFB), so the comparator can fail", [o for o, _v in _cmp], ["O-SEAT"])
+    chk("WHAT THE D66 READINGS ADD IS OPEN PATHWAYS, NONE A REMOVAL: against its D68 "
+        "context (combine.py's own variant, D68_ASKED), no asked D66 variant lifts an "
+        "obstruction its context does not, and every pathway it adds is combine66's "
+        "(D66_OPEN)", (d66_added_lifts(), d66_added_foreign_pathways()), ([], []))
+    _fake66 = dict(D66_ASKED["H-DEFECT-SEAT: static string seat (DSTR)"])
+    _fake66["per"] = dict(_fake66["per"], **{"O-SEAT": {"verdict": "REMOVED", "supports": [
+        {"members": ["DSTR"], "absent": [], "named": []}]}})
+    with _scratch("D66_ASKED", dict(D66_ASKED, **{"H-DEFECT-SEAT: static string seat (DSTR)": _fake66})):
+        _al = d66_added_lifts()
+    chk("  CONTROL: a string seat that removed O-SEAT would be caught as an added lift",
+        _al, [("H-DEFECT-SEAT: static string seat (DSTR)", ["O-SEAT"])])
+    chk("  per reading, the pathway each opens is its owner's (combine66.PATHWAY_OWNER): "
+        "O-SEAT N_DEFB for the four defect seats; O-HOLD N_NEGT (DTHR), N_PINCH (TBHOLO, "
+        "TBTSH), N_GJWPAY (TBTEL), N_QETHAD alone (QET); O-MAKE-TOPO N_WNCC for every D66 "
+        "throat",
+        ([D66_ASKED[k]["per"]["O-SEAT"].get("via") for k in D66_DEFECT_SEATS],
+         [D66_ASKED[k]["per"]["O-HOLD"].get("via") for k in (
+             "H-DEFECT-SEAT: string-supported throat (DTHR)", "H-THROAT-BITS: R-HOLO (TBHOLO)",
+             "H-THROAT-BITS: R-THINSHELL (TBTSH)", "H-THROAT-BITS: R-TELEPORT (TBTEL)",
+             "H-QET-EXOTIC: R-QET (QET)")],
+         [D66_ASKED[k]["per"]["O-MAKE-TOPO"].get("via") for k in (
+             "H-DEFECT-SEAT: string-supported throat (DTHR)", "H-THROAT-BITS: R-HOLO (TBHOLO)",
+             "H-THROAT-BITS: R-THINSHELL (TBTSH)", "H-THROAT-BITS: R-TELEPORT (TBTEL)")]),
+        ([["N_S5", "N_DEFB"]] * 4,
+         [["N_NEGT"], ["N_PINCH"], ["N_PINCH"], ["N_GJWPAY"], ["N_QETHAD"]],
+         [["N_WNCC"]] * 4))
+    chk("  INTERFERENCE: beside ITB a D66 throat makes {N_QTOPO} a premise clash and "
+        "ITB's two non-bindings fall (DTHR with ITB: O-MAKE-TOPO and O-HOLD OPEN, not "
+        "NOT-BOUND-IF); R-ITB keeps ITB's own",
+        (D66_ASKED["DTHR with ITB"]["premise_clash_named"],
+         [D66_ASKED["DTHR with ITB"]["per"][o]["verdict"] for o in ("O-MAKE-TOPO", "O-HOLD")],
+         D66_ASKED["H-THROAT-BITS: R-ITB with ITB (TBITB)"]["per"]["O-HOLD"]["verdict"]),
+        ([("N_QTOPO",)], ["OPEN", "OPEN"], "NOT-BOUND-IF"))
+    chk("  DEFEASIBLE ONLY THROUGH A HELD STRING-SUPPORTED THROAT: of the variants "
+        "asked, removals or the seat are defeasible only where DTHR is present",
+        sorted(k for k, r in D66_ASKED.items() if r["consistent"]
+               and (r["defeasible"] or r["seat"].get("defeasible"))
+               and "DTHR" not in r["present"]), [])
+    chk("  THE SEAT CONDITION M-S1A-P3 (i): VIOLATED in no variant asked; the four "
+        "defect seats SATISFIED (the wall under H-VIS-MINKOWSKI), and B-combine66.md "
+        "(READ) reports VIOLATED in no consistent variant",
+        ([k for k, r in list(D66_ASKED.items()) + list(D66_ASKED_AU.items())
+          if r["consistent"] and r["seat"]["verdict"] == "VIOLATED"],
+         [D66_ASKED[k]["seat"]["verdict"] for k in D66_DEFECT_SEATS],
+         D66_CENSUS["seat violated"]), ([], ["SATISFIED"] * 4, ()))
+    chk("  READINGS AND HISTORY, asked: H-SEAT-ROUTES leaves O-SEAT LEFT; singok-board "
+        "moves the board alone's O-MAKE-TOPO to OPEN via N_WNCC where combine.py gives "
+        "LEFT (the finding recorded for the D68 board); D66 wave 1's encodings "
+        "reproduce its words (singok-a2: DTHR's O-MAKE-TOPO LEFT; qet-board-paths: QET's "
+        "O-HOLD via N_XI, N_QEIC, N_QETHAD)",
+        (D66_READ_ASKED["H-SEAT-ROUTES on DSTR"]["per"]["O-SEAT"]["verdict"],
+         (D66_READ_ASKED["singok-board on the board alone"]["per"]["O-MAKE-TOPO"]["verdict"],
+          D66_READ_ASKED["singok-board on the board alone"]["per"]["O-MAKE-TOPO"].get("via"),
+          D68_ASKED["the board alone"]["per"]["O-MAKE-TOPO"]["verdict"]),
+         D66_READ_ASKED["singok-a2 on DTHR (D66 wave 1's encoding)"]["per"]["O-MAKE-TOPO"]["verdict"],
+         D66_READ_ASKED["qet-board-paths on QET (D66 wave 1's encoding)"]["per"]["O-HOLD"].get("via")),
+        ("LEFT", ("OPEN", ["N_WNCC"], "LEFT"), "LEFT", ["N_XI", "N_QEIC", "N_QETHAD"]))
+    chk("O9's closing over DOCKET 66's variants, asked: O-BITS REMOVED outright in none",
+        (d66_o_bits_removed_outright(),
+         sorted(set(r["per"]["O-BITS"]["verdict"] for r in list(D66_ASKED.values())
+                    + list(D66_ASKED_AU.values()) if r["consistent"]))),
+        ([], ["LEFT", "REMOVED-IF"]))
+    _row9 = [r for r in OPEN_ROWS if r[0] == "O9"][0]
+    chk("  and O9's DOCKET 66 part prints every verdict it names as asked",
+        [x for x in (d66_asked("DSTR with W2 x F1", "O-BITS"),
+                     d66_asked("DSTR with W2 x F1", "O-BITS", au=True),
+                     d66_asked("QET with R-QUANTUM (RQ)", "O-HOLD"),
+                     d66_asked("DTHR with ITB", "O-MAKE-TOPO"),
+                     d66_asked("singok-board on the board alone", "O-MAKE-TOPO", reading=True),
+                     d66_seat("H-DEFECT-SEAT: string-supported throat (DTHR)"),
+                     d66_group(D66_DEFECT_SEATS, "O-SEAT"))
+         if x not in _row9[1]], [])
+    chk("  B-combine66.md READ: the figures this board cites from combine66's runs "
+        "(variants, load-bearing census, selftest, controls, conservative extension)",
+        (D66_CENSUS["variants"], D66_CENSUS["load-bearing"], D66_CENSUS["selftest"],
+         D66_CENSUS["controls"], D66_CENSUS["conservative"]),
+        (("3,496", "32", "1,748", "16"), ("0", "2,492", "0", "1,332"), ("68", "68"),
+         ("24",), ("8,192", "0")))
+    import tempfile
+    _tdir = tempfile.mkdtemp()
+    _tb = _os66.path.join(_tdir, "B.md")
+    with open(D66_B_FILE, encoding="utf-8") as _fh, open(_tb, "w", encoding="utf-8") as _fo:
+        _fo.write(_fh.read().replace("The count is 0 in", "The count was 0 in"))
+    try:
+        d66_census_read(_tb)
+        _raised = False
+    except ValueError:
+        _raised = True
+    _os66.unlink(_tb)
+    _os66.rmdir(_tdir)
+    chk("  CONTROL: a B-combine66.md that no longer states the load-bearing census "
+        "makes the seat refuse (raises)", _raised, True)
+    _nr = dict((r[0], r) for r in SUPPLY)
+    chk("the DOCKET 66 notes on S5 and S13 are carried AFTER each DOCKET 68 note, and "
+        "NO status moved (S5 and S13 OPEN); S13 still carries 'It forms no baryons (C3' "
+        "(combine.board_flags reads it)",
+        [(k, _nr[k][2], "DOCKET 66 (a note; no status change)" in _nr[k][4],
+          _nr[k][4].index("DOCKET 68 (a note") < _nr[k][4].index("DOCKET 66 (a note"))
+         for k in ("S5", "S13")] + ["It forms no baryons (C3" in _nr["S13"][4]],
+        [("S5", OPEN, True, True), ("S13", OPEN, True, True), True])
+    chk("  the defect-core link is massform's, asked as combine66 asks it: TEMPLATE "
+        "REFUSED on C1 alone, STANDS with C1's link, no new baryon number, and the "
+        "held-seat route forms none",
+        (_d66_massform_link()["TEMPLATE"], _d66_massform_link()["TEMPLATE, C1 holding"],
+         "no new baryon number" in _d66_massform_link()["C3 reason"],
+         _d66_massform_link()["forms baryons"]), ("REFUSED", "STANDS", True, False))
+    _fig2 = _d66_figures(spec={"S-1": "other", "S-2": "other", "S-3": "other", "Rec": "other"})
+    chk("  qet.grades' fields read here do not use specthm's verdicts (re-asked with a "
+        "second placeholder: identical)",
+        [k for k in ("R-QET own content", "R-LIT own content", "R-QET O-HOLD head",
+                     "R-QET O-SEAT head") if _fig2[k] != D66_FIG[k]], [])
+    chk("  the owners' QET and MMP facts the notes print: arrival alone |E| < 1e-12; "
+        "supremum E_B/E_A below 1/4; the injection 4 x the rest energy; MMP's binding "
+        "equals the payload only below l_P",
+        (abs(D66_FIG["QET arrival alone"]) < 1e-12, D66_FIG["QET sup E_B/E_A"] < 0.25,
+         abs(D66_FIG["QET payload rest J, injection J"][1]
+             / D66_FIG["QET payload rest J, injection J"][0] - 4.0) < 1e-12,
+         D66_FIG["MMP binding = payload at r_e (max), l_P"][0]
+         < D66_FIG["MMP binding = payload at r_e (max), l_P"][1]),
+        (True, True, True, True))
+    chk("the literature named to M is READ by qet.py, item by item, from its own "
+        "sources; M_D65_1_LITERATURE is exactly those items",
+        ([i for i, e in d66_qet_literature() if e is None],
+         "; ".join(M_D65_1_LITERATURE_ITEMS) == M_D65_1_LITERATURE), ([], True))
+    with _scratch("M_D65_1_LITERATURE_ITEMS", M_D65_1_LITERATURE_ITEMS + ("Hotta 2009",)):
+        _lit = d66_qet_literature()
+    chk("  CONTROL: an item qet.py heads no entry for ('Hotta 2009') reads None",
+        _lit[-1], ("Hotta 2009", None))
+    chk("the DOCKET 66 charter's quotations of M are held verbatim in the ledger's "
+        "constants (M-S1A-P3, M-D65-1, D68_M_WORDS), each one named",
+        d66_charter_quote_faults(), [])
+    with open(D66_CHARTER_FILE, encoding="utf-8") as _fh:
+        _ch = _fh.read()
+    chk("  CONTROL: the charter with M's 'Fold into D66' emended, and with an "
+        "unattributed quotation added, is caught each time",
+        [len(d66_charter_quote_faults(c_)) > 0 for c_ in (
+            " ".join(_ch.split()).replace('"Fold into D66"', '"Fold into DOCKET 66"'),
+            _ch + '\nM said: "seat it now".\n')], [True, True])
+    chk("every quotation in a DOCKET 66 cell is the tree's words (M's words held, or "
+        "docket66/'s own files)", d66_quote_faults(), [])
+    chk("  CONTROL: a quotation docket66/ never wrote, planted in a DOCKET 66 cell, is caught",
+        d66_quote_faults({"planted": "A1 says 'a defect supplies the seat' here"}),
+        [("planted", "a defect supplies the seat")])
+    chk("index3.py seats no row citing docket66/ (H-NO-D66-ROW: DOCKET 66's answer reads "
+        "(0, 0, 0); its priced requirements stay on O9 and S5's note, pending M)",
+        d66_index3_faults(), [])
+    chk("  CONTROL: a planted index3 row citing docket66/ is caught",
+        d66_index3_faults([("D66-PLANTED", 0, 0, 1, "docket66/throatbits.py", "x")]),
+        [("D66-PLANTED", "cites docket66/throatbits.py")])
+    _tq = d66_turn_question()
+    chk("the TURN question for M is carried in O9's DOCKET 66 answer (not on PENDING_RULINGS, "
+        "which specthm.py pins empty), its values asked of defects.py: both TURN readings "
+        "named in defects.HYPOTHESES, the global monopole's Jacobi zero at the axis "
+        "recrossing (to 1e-6), the gauge monopole's S-1 conditions holding, and A1's clause "
+        "that only the string is crossing-only",
+        (all(" ".join(c_.split()) in " ".join(D66_O9_ANSWER.split()) for c_ in _tq),
+         PENDING_RULINGS,
+         all(h in defects.HYPOTHESES for h in ("H-TURN-CONJUGATE", "H-TURN-CROSSING")),
+         abs(D66_FIG["global monopole Jacobi zero / axis recrossing"] - 1) < 1e-6,
+         D66_FIG["gauge monopole lens"]["S-1 conditions hold"]),
+        (True, [], True, True, True))
+    _m10 = [r for r in D68_RULED if r[0] == "M-D68-10"][0]
+    chk("M-D68-10 says step (4), DOCKET 66, is RUN and seated and step (3)'s comments "
+        "are written (COMMENTS-INDEX.md present), keeping the wave-2 seat's and wave 1's "
+        "NOT YET RUN as history",
+        ("(4) DOCKET 66 wave 1 is RUN" in _m10[3], d67_comments_present(),
+         "SEATED AT D68 WAVE 2 (kept): (3) and (4) are NOT YET RUN" in _m10[3],
+         "FIRST APPLIED (wave 1, kept): (2), (3) and (4) are NOT YET RUN" in _m10[3]),
+        (True, True, True, True))
+    chk("the docstring states section 8 and names its limitations",
+        all(x in __doc__ for x in ("8.  DOCKET 66, WAVE 1, AS SEATED",
+                                   "H-NO-D66-ROW", "H-LEDGER-ASKS-REPRESENTATIVES grows",
+                                   "THE TURN QUESTION", "RECORDED FOR THE D68 BOARD")), True)
 
     print("\n5. THE BALANCE REFUSES TO INVENT A LADDER")
     chk("every balance row whose mechanism fails carries NO gap number",

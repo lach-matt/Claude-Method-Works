@@ -2298,6 +2298,16 @@ D68_ROW_REMOVED = ('D68-SIGNED-ENTROPY-IS-RE-H-PLUS-N-OVER-SEPARABLE-FUNCTIONALS
 D68_TEXT_AS_WAVE1 = {
     "D68-ONE-MEMBER-REMOVAL-AND-IT-IS-CONDITIONAL": ('{W2, F1; N_EPS}, admissible given W_W2 at 1 ly, N = 7 (flagged, not settled: the Weinberg-family value is NAMED-NOT-READ), and {W2, F1; N_W2ANC}, zero-error, its window UNEVALUATED;', 'and, at the unread limit, a midpoint-source first read at 0.50153'),
 }
+#: DOCKET 66, WAVE 1 (docket66/; ledger.py docstring section 8, H-NO-D66-ROW): NO ROW IS ADDED
+#: and no cell moves.  In the house reading DOCKET 66's answer reads (0, 0, 0): its hypotheses remove
+#: nothing (combine66.py: no D66 literal load-bearing in any removal or non-binding, so Y = 0), identify
+#: no warp energy (X = 0) and state no requirement in numbers of their own (Z = 0) -- a null cell is not
+#: a finding.  The requirements its owners do state in numbers (A2's throat at the A/4 ceiling, r_fit and
+#: M_sat, IF {H-CAP-AT-THROAT, H-NECK-DOGMA, H-COUNT-IS-ENTROPY}; A3's QET injection bound; MMP's N_f at
+#: r_fit) price OPEN or LEFT routes, which M kept on the ledger's O9 for the vacuum route
+#: (M-RULINGS-2026-10-03.md item 18, "No, keep on O9 (Recommended)"); they are carried on O9 and S5's
+#: note, and whether any earns a row here is reported for M.  ledger.d66_index3_faults checks that no
+#: row here cites docket66/ (with a planted-row control).
 FINDINGS_AS_OF_DOCKET67_CLOSE = 747
 FINDINGS_AS_OF_D68_WAVE1_SEATING = 751
 
