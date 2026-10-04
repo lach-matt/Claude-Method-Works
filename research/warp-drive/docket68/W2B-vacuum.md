@@ -2,8 +2,9 @@
 
 **Status: a docket work item, wave 2 (2026-10-04). Nothing here is seated.** This is step 2 of M's order (M-RULINGS item 10:
 *"1 then 2 then 3 then 4"*). The instrument is `vacuum.py`, beside this file. `PYTHONDONTWRITEBYTECODE=1 python3 vacuum.py
---selftest` runs **50 counted checks and passes all 50**, in about 110 s. **10 of them are controls** built to fail
-if the code is wrong. One counted check, B1, did fail during the build and exposed a fault in the draft (section B). **9 items cannot fail.** They are printed STRUCTURAL and not counted. `python3
+--selftest` runs **57 counted checks and passes all 57**. **12 of them are controls** built to fail
+if the code is wrong. One counted check, B1, did fail during the build and exposed a fault in the draft (section B). **9 items cannot fail.** They are printed STRUCTURAL and not counted. *Wave 2 first said* 50 counted, 10 controls; the
+W2-fix pass (section W, at the end) added G6-G8 and I3-I5. `python3
 vacuum.py` prints the report, and `--json PATH` writes it as JSON.
 
 `vacuum.py` imports what it uses and copies nothing. From `settle.py` it takes `first_transit_times`, which is LEDGER D23 as
@@ -29,14 +30,20 @@ computed: OPEN"*. This file computes it.
    against independent integrals. RRS show it at **any** separation.
 2. **Usable pairs do not arrive without something crossing at ≤ c first.** That is computed. The crossing moves:
    - The probes must be in place. D23, imported, prices this at L/2c from a midpoint and L/c from one end.
-   - The harvest window must itself last a fixed fraction of the light time: **T > 0.9097 L/c** for Reznik's window at any
-     gap in [2, 40], or **7T = L/c** for a Gaussian at β = 7.
+   - In the two window families computed, the harvest window must itself last a fixed fraction of the light time:
+     **T > 0.9097 L/c** for Reznik's cos²(πt) window at any gap ΩT in [2, 40], or **7T = L/c** for a Gaussian at β = 7.
+     This is a property of those families, not of harvesting: R2's windows harvest with cT ≪ L at every L, so
+     **T_window → 0 is admissible** (section W).
    - A near-maximal pair needs classical messages in **both** directions. The harvested state has a symmetric extension on
      each side, so by Chen et al.'s Theorem 1 no protocol with no messages, or with messages in one direction only, can
      distil it.
 
-   So the vacuum route's **floor**, for any protocol, is **2.41-3.00 L/c**. A midpoint pair source is ready at **0.50 L/c**.
-   The computed recurrence-and-hashing protocols take **43-204 L/c**.
+   So, **given those two window families**, the vacuum route's floor for any protocol is **2.41-3.00 L/c**. **With no
+   window assumption** the floor is t_hold + L/c, computed from D23 (`window_free_floor`): **≥ 1.50 L/c with probes from
+   the midpoint, ≥ 2.00 L/c from one end**, approached as T_window → 0 at a negativity R2 guarantees only down to
+   e^(−(L/cT)³) (e^−8 at cT = L/2, e^−64 at L/4). A midpoint pair source is ready at **0.50 L/c**. The computed
+   recurrence-and-hashing protocols take **43-204 L/c**. *Wave 2 first said* "the vacuum route's floor, for any
+   protocol, is 2.41-3.00 L/c", unscoped.
 3. **O-MAKE-DIST: OPEN → LEFT-IF {H-UDW, H-PERTURB, H-O4-FLOOR, H-MINK-VAC, H-SPACELIKE, H-LOCC, H-IID, H-NEARMAX,
    H-PROBE-OPERATED}.** Distribution is relocated, not removed: from the pairs to the probes and to two-way classical
    messages. Outside that set it is **OPEN** via N_NLDIST, N_W2WEAK and N_VACNP, and none of the three is computed. *Wave 1
@@ -49,7 +56,7 @@ computed: OPEN"*. This file computes it.
    - Neither figure is zero, and **O-BITS is untouched**. The two classical bits of teleportation remain.
 5. **Scaling with distance.** At a fixed window the harvested negativity falls faster than any power of L in both computed
    families. For the Gaussian, **N+_max ≈ (e/2π) e^(−β²/2) β⁻⁴** at the best gap α² ≈ β² − 2. That is DERIVED here and within
-   1% of the computed value at β = 14. Reznik's window harvests for no gap beyond **L/T = 1.0993**.
+   1% of the computed value at β = 14. Reznik's window harvests for no gap ΩT in [2, 40] beyond **L/T = 1.0993**.
 
    The massless model has no scale of its own. A fixed negativity at any L therefore needs **T ∝ L**: the harvest lasts a
    fixed fraction of the light time. No READ upper bound covers 3+1 detectors with every possible window, so that bound is
@@ -127,7 +134,8 @@ maximised over Ω ∈ [2, 40]:
 
 - N_max/λ² = 7.48e-5 at L = T (best Ω = 9.00);
 - 2.97e-5 at L/T = 1.05;
-- **0 for every gap from L/T = 1.0993**, found by bisection with best Ω = 9.35 just inside. That makes **T > 0.9097 L/c**.
+- **0 for every gap from L/T = 1.0993**, found by bisection with best Ω = 9.35 just inside. That makes **T > 0.9097 L/c
+  for this window and these gaps** -- not for every window (section W).
 
 Gaps above 40 were not scanned, which is a named limit. R2's superoscillating windows do harvest at any L, and are not
 recomputed here.
@@ -169,8 +177,17 @@ The formulas are checked against READ values first:
 - **0.81071** for the hashing threshold (R5: 0.8107);
 - R5 eq.(7) equals R6 eqs.(42)-(43) under the twirl, to below 1e-14;
 - R6's printed **0.00457** for W_5/8, reproduced as 0.0045701 using a fixed rotation after each step that swaps the 10 and
-  11 components. That component map was **identified by searching** the six maps that leave 00 fixed, and was not READ:
-  R6 names only "Macchiavello's B_x". With no rotation the yield is 3e-8 (control G4).
+  11 components. R6 p.29 (READ) **names** the rotation: Macchiavello's "deterministic bilateral B_x rotation" in place of
+  the twirl T′. **W2-fix, checked against R6 Table 1 p.24 (READ):** Table 1 lists B_x with Ψ⁻ as the standard state, and
+  in R6's eq.(40) labels (Φ⁺ = 00, Ψ⁺ = 01, Φ⁻ = 10, Ψ⁻ = 11) it is literally **00 ↔ 01** (Φ⁺ ↔ Ψ⁺). R6 item 5 makes T′
+  fix Φ⁺ by conjugating with a unilateral σ_y; **σ_y B_x σ_y is exactly 10 ↔ 11**, this instrument's map, and so is
+  σ_x B_x (R6 p.58 item 4: "flip the low bit iff the high bit is one"). Both readings give **0.0045700549**, identical,
+  because they differ by the relabelling (00 ↔ 01)(10 ↔ 11), a symmetry of eqs.(42)-(43) and of the hashing entropy
+  (G7). The transcription of Table 1 is checked against R6's prose (G6: B_y swaps the high and low bits). Control G8:
+  B_y, a READ rotation that is not B_x, gives 0.0029; the yield splits the 24 label maps into three classes, 8 of which
+  reproduce 0.00457. With no rotation the yield is 3e-8 (control G4). *Wave 2 first said* the map "was identified by
+  searching the six maps that leave 00 fixed, and was not READ: R6 names only 'Macchiavello's B_x'". Of those six, two
+  reproduce 0.00457 (10 ↔ 11 and a 3-cycle).
 
 Starting from the twirled harvested state, F = 1/2 + N, the recurrence needs this many rounds before hashing pays:
 
@@ -196,16 +213,21 @@ harvested pairs a usable W2 signal would need N_W2WEAK, which is not computed.
 Times are counted from launch: the probes move at c (`settle.first_transit_times`), the window follows, and then come the
 messages, one simultaneous exchange per round (H-SIMUL).
 
-| case | probes in place | window | **floor, any protocol** | recurrence + hashing | midpoint pair source |
+| case | probes in place | window | **floor, any protocol given this window** | recurrence + hashing | midpoint pair source |
 |---|---|---|---|---|---|
+| **no window assumption** (R2: T_window → 0), probes from the midpoint | 0.5 L/c | → 0 | **1.50 L/c** | — | 0.50 L/c |
+| **no window assumption**, probes from one end | 1.0 L/c | → 0 | **2.00 L/c** | — | 0.50 L/c |
 | Gaussian β = 7, λ = 0.1, probes from the midpoint | 0.5 L/c | 1.0 L/c | **2.50 L/c** | 203.5 L/c (twirl) / 108.5 L/c (rotation) | 0.50 L/c |
 | same, probes from one end | 1.0 L/c | 1.0 L/c | **3.00 L/c** | 204.0 / 109.0 L/c | 0.50 L/c |
 | Reznik window, L/T = 1.05, λ = 0.1, midpoint | 0.5 L/c | 0.952 L/c | **2.45 L/c** | 79.5 / 42.5 L/c | 0.50 L/c |
 | same, one end | 1.0 L/c | 0.952 L/c | **2.95 L/c** | 80.0 / 43.0 L/c | 0.50 L/c |
 
 Every entry scales with L, so the factors are the same at 1 AU and at 1 ly. At 1 ly, the floor for the midpoint Gaussian
-case is 7.89e7 s, or 2.5 yr. Every vacuum-route floor arrives **after the light time**, and the midpoint pair source arrives
-before it (I1, all four cases).
+case is 7.89e7 s, or 2.5 yr; the window-free midpoint floor is 4.73e7 s, or 1.5 yr. The Reznik boundary window
+(T = 0.9097 L/c) gives 2.41 L/c from the midpoint, the low end of the family range. Every vacuum-route floor arrives
+**after the light time**, and the midpoint pair source arrives before it (I1, all four cases; I3, the window-free case,
+at 1 AU and 1 ly). Control I4: each family's floor is the window-free floor plus its window exactly, so dropping the
+window moves the floor -- the 2.41-3.00 range is the families', not harvesting's.
 
 Probes placed in advance amortise their placement exactly as pairs stored in advance do. Neither changes O-BITS: the two
 classical bits per teleported qubit are still sent at c when the pair is used.
@@ -215,7 +237,7 @@ classical bits per teleported qubit are still sent at c when the pair is used.
 | item | grade | premises |
 |---|---|---|
 | N_VAC (i): vacuum entanglement reaches probes that cannot communicate, with no entangled carrier crossing | **TRUE-IF** | {H-UDW, H-PERTURB, H-MINK-VAC, H-SPACELIKE}; R1-R4 READ; R1 Figs.1-2 reproduced |
-| N_VAC (ii): usable as the channel's pairs with nothing crossing at ≤ c first | **FALSE-IF** | {H-LOCC, H-NEARMAX, H-PROBE-OPERATED}: probes cross (D23); messages each way (R9, computed); window ≥ 0.91 L/c (compact) or 7T (Gaussian) |
+| N_VAC (ii): usable as the channel's pairs with nothing crossing at ≤ c first | **FALSE-IF** | {H-LOCC, H-NEARMAX, H-PROBE-OPERATED}: probes cross (D23); at least one message after the window (R7 Prop.3, R8 Thm 1), each way for the computed states (R9); window ≥ 0.91 L/c for Reznik's cos²(πt) at ΩT in [2, 40] or 7T for the Gaussian at β = 7, → 0 admissible in R2's windows; floor ≥ 1.50 L/c (midpoint) / 2.00 L/c (one end) with no window assumption. *Wave 2 first said* "window ≥ 0.91 L/c (compact) or 7T (Gaussian)" |
 | **O-MAKE-DIST** | **LEFT-IF** {H-UDW, H-PERTURB, H-O4-FLOOR, H-MINK-VAC, H-SPACELIKE, H-LOCC, H-IID, H-NEARMAX, H-PROBE-OPERATED}; **OPEN** outside it via N_NLDIST, N_W2WEAK, N_VACNP | relocated, not removed. *Wave 1 said: OPEN via N_VAC only* |
 | O-BITS | **unchanged** (LEFT) | no part of the vacuum route touches the two classical bits (`transit.CLASSICAL_BITS_PER_QUBIT` = 2; `READING_CARRIES_NOTHING_ALONE` = True) |
 
@@ -255,19 +277,40 @@ read as (ii). Whether to do so is for the seating step and M.
 
 - **FOR M, kept.** The vacuum's entanglement does exist across spacelike separations. It is extracted without anything
   entangled crossing, at any L (RRS), and the negativity depends only on (ΩT, L/cT): distance alone does not destroy it.
+  The window is not bound to last about the light time: that is a property of the two families computed, and in R2's
+  windows T_window → 0 is admissible (W2-fix, section W).
   This file does not say "the vacuum is not entangled", nor that harvested pairs are worthless. One copy does beat classical
   teleportation, by 2N/3.
 - **AGAINST M, kept.** "Already exists everywhere" does not make the pairs **usable without transit**. The probes travel.
-  The harvest lasts about the light time. Distillation needs messages each way, so its floor is 2.4-3.0 L/c, against 0.5
-  L/c for a midpoint source. The amounts are exponentially small in (L/cT)². None of it reaches O-BITS.
-- **Not over-claimed.** The BBPSSW/BDSW round counts are one protocol's price, not a bound. The Macchiavello component map
-  was identified by search, not read. The asymptote is DERIVED, not READ. No upper bound covering every window in 3+1 is
-  read.
+  In the computed families the harvest lasts about the light time; with no window assumption it can be short, but a
+  near-maximal pair still needs at least one message after it, so the floor is ≥ 1.50 L/c (midpoint) / 2.00 L/c (one
+  end) -- 2.41-3.00 L/c in the computed families -- against 0.5 L/c for a midpoint source. The amounts are
+  exponentially small in (L/cT)² (computed families) or guaranteed only down to e^(−(L/cT)³) (R2). None of it reaches
+  O-BITS.
+- **Not over-claimed.** The BBPSSW/BDSW round counts are one protocol's price, not a bound. The Macchiavello rotation is
+  READ (R6 p.29) and its component map is DERIVED from R6 Table 1 (READ) under item 5's σ_y conjugation; the literal
+  Table 1 form gives the same yield, so the yield cannot tell the two apart. The asymptote is DERIVED, not READ. No upper
+  bound covering every window in 3+1 is read. The window-free floor uses no R9 for R2's states (not computed): only that
+  zero-way processing gives no near-maximal pair (R7, R8). *Wave 2 first said* "The Macchiavello component map was
+  identified by search, not read."
 
 ## Reproduce
 
 ```
 cd research/warp-drive/docket68
-PYTHONDONTWRITEBYTECODE=1 python3 vacuum.py --selftest     # 50/50 counted, 10 controls, 9 STRUCTURAL (~110 s)
+PYTHONDONTWRITEBYTECODE=1 python3 vacuum.py --selftest     # 57/57 counted, 12 controls, 9 STRUCTURAL (wave 2: 50/50, 10)
 python3 vacuum.py --json /tmp/vacuum.json                 # the report above
 ```
+
+## W. W2-fix (2026-10-04): the two re-verifications, every item resolved
+
+The two verifiers (W2V-0, AGAINST M; W2V-1, FOR M; `wave2/WAVE2-RESULT.json`, key `result.verify`) left two items sited
+here. Neither moves a grade. Wave 2's sentences are kept above, marked *wave 2 first said*.
+
+| verifier item | resolution |
+|---|---|
+| W2V-0 #1 / W2V-1 #1: T > 0.9097 L/c and the 2.41-3.00 L/c floor stated for any window or protocol, but computed only for Reznik's cos²(πt) window (ΩT in [2, 40]) and the Gaussian at β = 7; R2 (quant-ph/0310058v2, READ) harvests with cT ≪ L at every L, with N ≥ e^(−(L/cT)³) (eq.8 p.3) | **Applied, and computed.** Both figures are scoped to their families wherever stated (here, `vacuum.py` GRADES and `timeline` docstring, `combine.py`'s N_VAC history, B-LOCC and ground-check names, B-combine.md). `vacuum.window_free_floor` computes the floor with no window assumption from D23 (imported): **t_hold + L/c = 1.50 L/c (midpoint), 2.00 L/c (one end)**, checked at 1 AU and 1 ly (I3); with a window cT = xL the floor is (1.5 + x) L/c from the midpoint (2.5, 2.0, 1.75, 1.6 at x = 1, 1/2, 1/4, 1/10); R2's guarantee there is e^−1, e^−8, e^−64, e^−1000 (I5). Control I4 shows the family floors are the window-free floor plus their window exactly. The exchange the floor counts needs only that zero-way processing gives no near-maximal pair (R7 Prop.3, R8 Thm 1), which holds for every state; R9's two-way requirement is not computed for R2's states and is not used. Still after the light time and after the midpoint source (0.50 L/c): O-MAKE-DIST's LEFT-IF and O-BITS are unchanged. |
+| W2V-0 #4: "which rotation BDSW attribute to Macchiavello is not established" understates the source; BDSW p.29 names B_x (READ); check it against Table 1 for the 10 ↔ 11 labelling | **Applied, and computed** (`bdsw_bx_from_table1`, G6-G8). R6 p.29 and Table 1 p.24 READ via alphaXiv this pass. Table 1's B_x is 00 ↔ 01 in eq.(40) labels; σ_y-conjugated (R6 item 5) it is 10 ↔ 11, equal to `swap_post`; both give 0.0045700549. What stays a derivation, not a reading: which of the two equivalent forms Macchiavello meant -- R6 p.29 says "B_x" in a section where Φ⁺ is the standard state, and the yield cannot separate them. |
+
+Not in scope here, recorded for completeness: W2V-1 #5 (the verifier's own process note) needs no change in this file.
+

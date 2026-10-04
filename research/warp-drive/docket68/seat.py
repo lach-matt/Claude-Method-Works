@@ -19,10 +19,15 @@ WHAT IT COMPUTES
   A. What the destination must hold, element by element: 70 kg x stock.HUMAN's mass fractions (grams per element), the
      stock mass each element alone demands at each of the board's stocks (stockgate.DESTS), and the binder.  Beside it,
      what is MEASURED for each element anywhere in the Proxima system in the sources READ: nothing for any body; for
-     the stars, Proxima's iron only (a spread) and alpha Cen AB's 21 species (Morel 2018).  The binder P and the CI
-     runner-up N are measured in no star of the system and in no body.
-  B. D25's gate at Proxima, conjunct by conjunct (stockgate.GATE; formation.gate imported), with Proxima b's mass READ
-     at source (Faria 2022) and its composition range READ (Brugger 2016); and, element by element, which elements fail
+     the stars, Proxima's iron only (a spread), alpha Cen AB's 21 species (Morel 2018), and -- W2-fix -- N in alpha
+     Cen A, which the literature summarised by Porto de Mello, Lyra & Keller 2008 finds solar ([N/Fe] ~ 0; READ p.12,
+     Fig. 8 p.14; the primary studies NAMED-NOT-READ).  The binder P is measured in no star of the system and in no
+     body in the sources read; N is measured in no body.  Wave 2 first said: 'The binder P and the CI runner-up N are
+     measured in no star of the system and in no body' -- wrong for N in alpha Cen A.
+  B. D25's gate at Proxima, conjunct by conjunct (stockgate.GATE; formation.gate imported), with Proxima b's MINIMUM
+     mass m sin i READ at source (Faria 2022; the inclination is unknown, the planet does not transit, so every ratio
+     built on it is a floor) and Brugger 2016's interior range READ (water only: it models core, mantles and water, no
+     C, N or P, so it leaves the primitive conjunct unconstrained); and, element by element, which elements fail
      the CI mass threshold if the body is DEVOLATILISED rather than primitive (stockgate's crust as the board's only
      devolatilised stock).
   C. The fabricator, survey and receiver (D23): their earliest arrival (the light time), the survey's earliest report
@@ -47,7 +52,10 @@ NAMED HYPOTHESES (every limitation carried by name)
   H-STOCK-PROXY  a body at Proxima has the composition of one of the board's stocks (CI chondrite, the Sun's hybrid
                  photosphere, Earth's continental crust).  No composition of any Proxima-system body is measured.
   H-ACEN-RATIO   (only in the alpha-Cen-adjusted CI column) a primitive body at Proxima carries CI composition scaled by
-                 alpha Cen A's [X/Fe] where Morel 2018 measures it, and [X/Fe] = 0 where it does not.  Rests on
+                 alpha Cen A's [X/Fe] where Morel 2018 measures it; for N, [N/Fe] ~ 0 as MEASURED (literature, 'solar':
+                 Porto de Mello et al. 2008 p.12, READ; W2-fix); and [X/Fe] = 0 as an assumption where nothing is
+                 measured (P among them).  Wave 2 first said N was 'unmeasured, set 0'; the number is the same (0), its
+                 status is not.  Rests on
                  H-CONATAL (Proxima co-natal with alpha Cen AB: Kervella 2017 READ (abstract) shows the triple BOUND;
                  Morel 2018 p.16 says co-natal formation is 'still not completely settled').
   H-BODY-ACCESS  the 'accessible mass' of a planet is unmeasured; a planet's total mass is not its accessible mass.
@@ -90,6 +98,14 @@ READ THIS PASS (routes recorded; short phrases only, page given)
       bound 'prescribes the minimum energy cost for information transferred over a given time interval'.  The abstract
       prints no coefficient; the coefficient used here is LNM's (READ), not Bekenstein's.
 
+  W2-fix (2026-10-04; the re-verifications W2V-0 / W2V-1 of wave2/WAVE2-RESULT.json, key result.verify), READ via
+  alphaXiv: Porto de Mello, Lyra & Keller 2008, arXiv:0804.3712v2, p.12 ('C, N and O abundance ratios of alpha Cen A
+      are solar', a literature summary), Table 4 p.12 (their own species: no N, no P), Fig. 8 p.14 (N plotted for
+      alpha Cen A); Hinkel & Kane 2013, arXiv:1304.0450v1, p.2 (Laird 1985 measured C and N in A and B; [N/Fe] offset
+      -0.65 dex, excluded) and Table 1 p.4 (no N, no P); Brugger 2016 re-READ (p.1 the five layers -- no C, N, P;
+      Table 1 p.2 Earth's parameters; p.1 and p.3 masses 1.10-1.46 M_earth at sin i = 1); Faria 2022 Table 1 p.2
+      re-READ (parallax 768.50 +- 0.20 mas, 1.3012 +- 0.0003 pc, ref. Gaia Collaboration 2016).
+
 HISTORY KEPT.  Wave 5 (M-combine) graded O-SEAT 'LEFT' in every variant with the {S10, S13} restriction unnamed; wave 6
 (F-alone) named that restriction H-SEAT-ROUTES and graded O-SEAT OPEN via N_S5; M then ruled 'S5 counts' (item 7).
 measure.seat_route_s5 already priced the D25 mass conjunct for stockgate's 59-element payload (749.1 kg CI, 1.338e5 kg
@@ -129,7 +145,7 @@ C = foliation.C_LIGHT
 G = foliation.G_NEWTON
 M_SUN = foliation.M_SUN
 LY = foliation.LY
-D_PROXIMA = foliation.proxima_span_m()
+D_PROXIMA = settle.L_PROXIMA_PHASE1        # phase1.L_PROXIMA via settle (W2-fix); wave 2: foliation.proxima_span_m()
 YEAR_S = LY / C                      # the Julian year implied by the light-year the board uses
 HBAR = branelink.HBAR
 H = branelink.HPL
@@ -140,16 +156,52 @@ PAYLOAD_KG = massform.PAYLOAD_KG     # 70.0, asked of stock.feedstock_kg's defau
 # ============================================================================ READ data (routes above)
 FARIA_2022 = {
     "source": "arXiv:2202.05188v1", "route": "READ via alphaXiv, Table C.1 p.17, Table 1 p.2, p.9",
+    # 'b_msini_earth' is M_p sin i, the MINIMUM mass (Table C.1 p.17; p.9 'the minimum mass of this planet is estimated
+    # as 1.07 +- 0.06'); the inclination is unknown (no transit, p.9), so the true mass is >= it.
+    "b_mass_is_minimum": True,
+    "parallax_mas": (768.50, 0.20), "distance_pc": (1.3012, 0.0003),   # Table 1 p.2 (ref. Gaia Collaboration 2016)
     "b_msini_earth": (1.07, 0.06), "b_a_au": 0.04856, "b_P_days": 11.1868,
     "d_msini_earth": (0.26, 0.05), "d_a_au": 0.02885, "d_status": "candidate",
     "M_star_sun": (0.1221, 0.0022), "b_transits": False,
 }
 BRUGGER_2016 = {
-    "source": "arXiv:1609.09757v3", "route": "READ via alphaXiv, pp.1-5",
+    "source": "arXiv:1609.09757v3", "route": "READ via alphaXiv, pp.1-5 (re-READ W2-fix: p.1 layers, Table 1 p.2, p.3)",
     "radius_earth": (0.94, 1.40), "water_mass_fraction": (0.0, 0.50),
+    # W2-fix: the model's layers are a Fe/FeS core, two silicate mantles, high-pressure ice and liquid water (p.1-2),
+    # with Earth's compositional parameters (Table 1 p.2): it carries NO C, N or P, so it neither admits nor excludes
+    # the CI volatile budget the primitive conjunct tests.  Its radii are computed at m = 1.10-1.46 M_earth with
+    # sin i = 1 (p.1, p.3: Anglada 2016's minimum mass), not at Faria's 1.07.
+    "layers": ("core: Fe + FeS", "lower mantle: perovskite + magnesiowustite", "upper mantle: olivine + enstatite",
+               "high-pressure water ice", "liquid water"),
+    "models_C_N_P": False, "masses_modelled_earth": (1.10, 1.27, 1.46), "sin_i_set": 1.0,
     "host_abundances_used": False,     # 'Lacking detailed elementary abundances of the host star' (p.1)
     "dry_only_if": "in-situ pebble accretion (one of four formation scenarios, p.5)",
 }
+#: W2-fix: Proxima's distance is IMPORTED from the board's owner, phase1.L_PROXIMA (Gaia DR3 parallax 768.066539 mas,
+#: READ via restatement, DOCKET 67), through settle (one import, never typed).  Wave 2 first used foliation's 4.2465 ly
+#: (phase1's value rounded to four decimals).  Faria 2022 Table 1 p.2 prints 768.50 +- 0.20 mas (1.3012 pc, 4.2439 ly):
+#: both READ values are recorded in settle.PROXIMA_DISTANCES_READ, the discrepancy (0.056 %, 2.17 sigma on Faria's error
+#: alone) computed by settle.proxima_distances().
+#: Porto de Mello, Lyra & Keller 2008, arXiv:0804.3712v2 -- READ via alphaXiv (W2-fix, 2026-10-04): p.12 'The available
+#: literature data also suggests that the C, N and O abundance ratios of alpha Cen A are solar'; Fig. 8 p.14 (alpha Cen
+#: A, six studies, N plotted; caption: 'C, N, O ... are normal'); their own Table 4 p.12 carries no N and no P.
+#: Hinkel & Kane 2013, arXiv:1304.0450v1 -- READ via alphaXiv: p.2 Laird (1985) 'determined the carbon and nitrogen
+#: abundances' in both stars, with '[N/Fe] by -0.65 dex' offset 'as a result of their stellar atmospheres being too cool',
+#: and excluded it; their five-catalog Table 1 p.4 carries no N and no P.
+PORTO_DE_MELLO_2008 = {
+    "source": "arXiv:0804.3712v2", "route": "READ via alphaXiv (answer_pdf_queries), p.12, Table 4 p.12, Fig. 8 p.14",
+    "N_alphaCenA": "solar ([N/Fe] ~ 0) -- 'the available literature data also suggests' (a summary of others' "
+                   "measurements; the primary studies, e.g. Edvardsson 1988 in Fig. 8, NAMED-NOT-READ)",
+    "N_XFe_carried": 0.0, "N_status": "MEASURED in the literature (qualitative 'solar'; no number printed in the text)",
+    "own_table_has_N": False, "own_table_has_P": False}
+HINKEL_KANE_2013 = {
+    "source": "arXiv:1304.0450v1", "route": "READ via alphaXiv (answer_pdf_queries), p.2, Table 1 p.4",
+    "Laird_1985": "C and N in alpha Cen A and B (primary NAMED-NOT-READ); [N/Fe] offset -0.65 dex (atmospheres too "
+                  "cool), excluded by Hinkel & Kane", "table1_has_N": False, "table1_has_P": False}
+#: P in the Proxima system: absent from every source read (Morel 2018 Table 1; Porto de Mello 2008 Table 4; Hinkel &
+#: Kane 2013 Table 1).  The verifier W2V-1 also READ Maas 2017 (1704.08282, Table 1: no P) and a Hypatia P sample
+#: (2608.30484 p.3: 11-463 pc, so no alpha Cen); those two are cited as the verifier's reads, not re-read here.
+P_MEASURED_IN_PROXIMA_SYSTEM = False
 #: Morel 2018 Table 1 p.7, [X/Fe] BEFORE the GCE correction, and [Fe/H].  None = not measured for that star.
 MOREL_2018 = {
     "source": "arXiv:1805.00929v1", "route": "READ via alphaXiv, Table 1 p.7; p.8; p.16",
@@ -210,7 +262,12 @@ def proxima_measured():
         rows[e] = {"proxima_photosphere": "Fe (four studies, +0.16 to -0.07, restated)" if e == "Fe" else
                    ("'roughly solar' (restated, NAMED-NOT-READ)" if e == "Na" else "not measured in sources read"),
                    "alpha_Cen_AB": "measured (Morel 2018)" if acen else
-                   ("reference element (H)" if e == "H" else "NOT among Morel 2018's 21 species"),
+                   ("reference element (H)" if e == "H" else
+                    ("measured in alpha Cen A in the literature: solar, [N/Fe] ~ 0 (Porto de Mello et al. 2008 p.12, "
+                     "READ; primaries NAMED-NOT-READ); also A and B by Laird 1985, offset -0.65 dex per Hinkel & Kane "
+                     "2013 p.2 (READ). NOT among Morel 2018's 21 species" if e == "N" else
+                     "NOT measured in any source read (not among Morel 2018's 21 species, Porto de Mello 2008 "
+                     "Table 4 or Hinkel & Kane 2013 Table 1)")),
                    "any_body": "not measured (no composition of any Proxima-system body exists in the sources read)"}
     return rows
 
@@ -243,12 +300,16 @@ def gate_conjuncts():
                                                *FARIA_2022["b_msini_earth"], FARIA_2022["b_a_au"],
                                                FARIA_2022["d_msini_earth"][0], FARIA_2022["d_a_au"]),
         "primitive": None, "primitive (board)": formation.SURVEY_PRIMITIVE_MEASURED,
-        "primitive (READ)": "unmeasured; Brugger 2016 admits water mass fraction 0-50 %, dry only for in-situ pebble "
-                            "accretion -- both a primitive and a devolatilised body remain admitted",
+        "primitive (READ)": "unmeasured and UNCONSTRAINED by Brugger 2016: it admits a water mass fraction 0-50 % "
+                            "(dry only for in-situ pebble accretion) but models water only -- core, mantles, ice, "
+                            "liquid water, no C, N or P -- so it neither admits nor excludes the CI volatile budget "
+                            "the primitive conjunct tests (its radii are at 1.10-1.46 M_earth with sin i = 1, not "
+                            "Faria's 1.07).  Wave 2 first said 'both a primitive and a devolatilised body remain "
+                            "admitted'",
         "accessible": None, "accessible (board)": formation.SURVEY_ACCESSIBLE_MEASURED,
         "mass threshold kg (stock.HUMAN, CI / photosphere)": need,
-        "Proxima b total mass kg (min, READ)": b_kg,
-        "total over CI threshold (NOT accessible mass: H-BODY-ACCESS)": b_kg / need["CI chondrite"],
+        "Proxima b minimum mass m sin i kg (READ; true mass >= it)": b_kg,
+        "minimum mass over CI threshold, a floor (NOT accessible mass: H-BODY-ACCESS)": b_kg / need["CI chondrite"],
         "composition of any body": None,
         "formation.gate, synthetic aperture around b": formation.gate(
             (FARIA_2022["b_a_au"], 0.01), [(FARIA_2022["b_a_au"], True, None, b_kg)],
@@ -470,7 +531,8 @@ def board_state():
             "condensed": formation.SURVEY_CONDENSED_BODY_FOUND,
             "primitive": None, "accessible": None,
             "mass": None,                            # total mass is not accessible mass (H-BODY-ACCESS)
-            "composition": None}                     # no body composition measured; P, N measured in no star
+            "composition": None}                     # no body composition measured; P measured in no star of the
+                                                     # system (sources read); N only in alpha Cen A, as 'solar' 
 
 
 def collect():
@@ -498,7 +560,8 @@ def collect():
         "E_docket56_owed": DOCKET56_OWED,
         "F_grade": grade_o_seat(board_state()), "F_state": board_state(),
         "READ": [FARIA_2022, BRUGGER_2016, {k: v for k, v in MOREL_2018.items() if k != "XFe"}, KERVELLA_2017,
-                 LNM_1999, BEKENSTEIN_1981],
+                 LNM_1999, BEKENSTEIN_1981, PORTO_DE_MELLO_2008, HINKEL_KANE_2013],
+        "proxima_distances (settle, W2-fix)": settle.proxima_distances(),
     }
 
 
@@ -517,9 +580,10 @@ def report():
         print(f"   binder at {d:22s}: " + ", ".join(f"{e} {v:.4g} kg/kg" for e, v in top))
     print("   stockgate 'as-composed 59' at CI (D25's own payload): %s %.4f kg/kg" % R["A_binder_as_composed_59_CI"])
     adj, raw = R["A_acen_adjusted_CI_factors"]
-    print("   H-ACEN-RATIO (CI x alpha Cen A [X/Fe]): P %.4f (unadjusted %.4f; [P/Fe] UNMEASURED, set 0), N %.4f, C %.4f"
-          % (adj["P"], raw["P"], adj["N"], adj["C"]))
-    print("   -> the binder P and the CI runner-up N are measured in NO star of the Proxima system and in NO body.")
+    print("   H-ACEN-RATIO (CI x alpha Cen A [X/Fe]): P %.4f (unadjusted %.4f; [P/Fe] UNMEASURED, set 0), N %.4f "
+          "([N/Fe] ~ 0 MEASURED in the literature, Porto de Mello 2008), C %.4f" % (adj["P"], raw["P"], adj["N"], adj["C"]))
+    print("   -> the binder P is measured in NO star of the Proxima system in the sources read and in NO body; the CI "
+          "runner-up N is measured in alpha Cen A ('solar') and in no body.")
     print("\nB. D25's GATE AT PROXIMA (stockgate.GATE)")
     for k, v in R["B_gate"].items():
         print(f"   {k}: {v}")
@@ -637,14 +701,24 @@ def selftest():
         ", ".join(names))
     chk("  control: a CI body at its own budget fails on nothing", devolatilised_failures(body_dest="CI chondrite")[1]
         == [], "", "STRUCTURAL")
-    chk("Proxima b's total mass exceeds the CI threshold by > 1e21 (it is not the accessible mass)",
-        gc["total over CI threshold (NOT accessible mass: H-BODY-ACCESS)"] > 1e21,
-        f"{gc['total over CI threshold (NOT accessible mass: H-BODY-ACCESS)']:.3g}", "GROUND")
+    chk("Proxima b's MINIMUM mass (m sin i) exceeds the CI threshold by > 1e21, a floor (it is not the accessible mass)",
+        gc["minimum mass over CI threshold, a floor (NOT accessible mass: H-BODY-ACCESS)"] > 1e21
+        and FARIA_2022["b_mass_is_minimum"],
+        f"{gc['minimum mass over CI threshold, a floor (NOT accessible mass: H-BODY-ACCESS)']:.3g}", "GROUND")
+    chk("Brugger 2016 (READ) models no C, N or P: the primitive conjunct stays None (unconstrained), never True or False",
+        BRUGGER_2016["models_C_N_P"] is False and board_state()["primitive"] is None, "", "GROUND")
+    pm = proxima_measured()
+    chk("W2-fix: N is measured in alpha Cen A (Porto de Mello 2008, READ) and P is not, in the sources read -- the table "
+        "tells the two apart", pm["N"]["alpha_Cen_AB"].startswith("measured in alpha Cen A")
+        and pm["P"]["alpha_Cen_AB"].startswith("NOT") and P_MEASURED_IN_PROXIMA_SYSTEM is False, "", "GROUND")
 
     print("\nC. setup and amortisation")
     st = setup_times()
-    chk("earliest arrival equals the board's span in light years (D23's 4.247 yr)",
-        abs(st[0]["arrival_yr"] - foliation.PROXIMA_LY) < 1e-9, f"{st[0]['arrival_yr']:.4f}", "STRUCTURAL")
+    chk("earliest arrival equals phase1's span in light years (D23's 4.2465 yr)",
+        abs(st[0]["arrival_yr"] - settle.L_PROXIMA_PHASE1 / LY) < 1e-9, f"{st[0]['arrival_yr']:.5f}", "STRUCTURAL")
+    chk("W2-fix: foliation's 4.2465 ly is phase1.L_PROXIMA rounded (agree to 1e-5); Faria 2022's READ parallax gives a "
+        "distance 0.056 % shorter (settle.proxima_distances)", abs(foliation.PROXIMA_LY / (settle.L_PROXIMA_PHASE1 / LY) - 1)
+        < 1e-5 and abs(1000.0 / FARIA_2022["parallax_mas"][0] - FARIA_2022["distance_pc"][0]) < 5e-5, "", "GROUND")
     kstar, lim, ok = breakeven_symbolic()
     chk("sympy: k* -> m_set/m_pay as E_rec -> 0", ok, str(lim))
     K = (1 / math.sqrt(1 - 0.1 ** 2) - 1) * C ** 2
@@ -663,7 +737,7 @@ def selftest():
     chk("one-end distribution (S5's case) does not beat light launched at firing (settle.first_transit_times)",
         I["first_transit_one_end_zero_drift"]["beats_light_launched_at_firing"] is False, "", "GROUND")
     chk("a midpoint source shipped from the origin reads no earlier than the light time (S5's one-end case)",
-        abs(I["midpoint_source_shipped_from_origin_earliest_read_yr (+ T_drift)"] - foliation.PROXIMA_LY) < 1e-9, "",
+        abs(I["midpoint_source_shipped_from_origin_earliest_read_yr (+ T_drift)"] - settle.L_PROXIMA_PHASE1 / LY) < 1e-9, "",
         "STRUCTURAL")
     td = I["drift_time_at_READ_eps_max_s"]
     chk("drift time at the READ eps_max is finite and below 2 days for both H-MAP readings (settle, imported)",

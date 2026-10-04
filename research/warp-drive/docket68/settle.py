@@ -135,6 +135,13 @@ window_read(): the W2 x F1 window at 1 AU, 1 ly, 4.2465 ly x N = 7, 1e3, 1e6 on 
 {H-MAP, H-TRANSFER, H-SPIN, H-DILUTION}: 14 of 18 (cell, reading) windows OPEN, 4 EMPTY (1 AU, N = 7 and 1e3, both
 readings); one window (1 AU, N = 1e3, A) depends on H-SAME-EPS.  Checks G31-G39.
 
+W2-FIX (2026-10-04, the two re-verifications W2V-0 / W2V-1 of wave2/WAVE2-RESULT.json, key result.verify): the Proxima
+cell's distance is IMPORTED from phase1.L_PROXIMA (Gaia DR3, READ via restatement, DOCKET 67), never typed; Faria 2022
+Table 1 p.2's READ 768.50 +- 0.20 mas (4.2439 ly) is recorded beside it with the discrepancy computed
+(proxima_distances: 0.056 %, 2.17 sigma on Faria's error alone; no window moves).  Checks G40-G42.  Wave 2 first said
+"4.2465 ly is the figure the task gives (Proxima Centauri's distance is NAMED-NOT-READ here)".  H-MAP's wording: the
+full texts (login wall, not read) MAY carry each paper's eps convention -- what they contain is not known here.
+
 Run:  python3 settle.py            (report)
       python3 settle.py --selftest (fixtures computed or READ; controls that must fail do)
       python3 settle.py --json PATH
@@ -806,9 +813,58 @@ def window_given(L_list=None, N_list=(7, 1000, 1e6), bounds=None):
 
 #: the hypotheses a READ-value window still rests on: W_W2 with its unread values removed (D68 wave 2, W2A-limits).
 W_W2R = ("H-MAP", "H-TRANSFER", "H-SPIN", "H-DILUTION")
-#: the three distances of the D68 wave-2 task.  4.2465 ly is the figure the task gives (Proxima Centauri's distance is
-#: NAMED-NOT-READ here); the older rows at 4.24 ly '(illustrative)' are kept unchanged as history.
-WINDOW_READ_L = (("1 AU", AU_M), ("1 ly", LY_M), ("4.2465 ly", 4.2465 * LY_M))
+#: the three distances of the D68 wave-2 work item.  W2-fix (2026-10-04, verifier W2V-1 problem 3): the third distance is
+#: Proxima's, IMPORTED from the board's owner, phase1.L_PROXIMA (Gaia DR3 parallax 768.066539187357 mas, READ via
+#: restatement in DOCKET 67, key gaia-dr3-proxima-distance: Reyle et al. 2021 Table 1; 1/parallax = 4.24646 ly at
+#: J2016.0).  The label '4.2465 ly' is that value to four decimals, kept so every cell key stays comparable.  Wave 2
+#: first said: "4.2465 ly is the figure the task gives (Proxima Centauri's distance is NAMED-NOT-READ here)" and
+#: typed 4.2465 * LY_M -- both wrong: the distance is READ on the board (phase1) and READ again this pass in a second
+#: source (Faria 2022 Table 1 p.2, below), and the two READ values disagree by 0.06 % (PROXIMA_DISTANCES_READ).
+#: The older rows at 4.24 ly '(illustrative)' are kept unchanged as history.
+with contextlib.redirect_stdout(io.StringIO()):
+    import phase1 as _phase1
+L_PROXIMA_PHASE1 = _phase1.L_PROXIMA
+WINDOW_READ_L = (("1 AU", AU_M), ("1 ly", LY_M), ("4.2465 ly", L_PROXIMA_PHASE1))
+#: The two READ values of Proxima's distance (W2-fix).  Both are recorded; phase1's is the one imported for every
+#: computation (it is the board's owner and the later catalogue); Faria's is kept beside it so the discrepancy is shown.
+PROXIMA_DISTANCES_READ = {
+    "phase1.L_PROXIMA (board)": {
+        "parallax_mas": (_phase1.GAIA_DR3_PROXIMA_PARALLAX_MAS, 0.049872905),
+        "source": "Gaia EDR3 = DR3, source_id 5853498713190525696, epoch J2016.0",
+        "status": "READ-VIA-RESTATEMENT (DOCKET 67, key gaia-dr3-proxima-distance: Reyle et al. 2021, arXiv:2104.14972 "
+                  "Table 1; the parallax error 0.049872905 mas from audit physical-constants-and-proxima)"},
+    "Faria et al. 2022, Table 1 p.2": {
+        "parallax_mas": (768.50, 0.20), "distance_pc_printed": (1.3012, 0.0003),
+        "source": "arXiv:2202.05188v1 Table 1 p.2, 'compiled from the literature'; reference 1 for both rows is "
+                  "'Gaia Collaboration et al. (2016)' -- a Gaia DR1-era value, not DR3",
+        "status": "READ via alphaXiv (answer_pdf_queries on 2202.05188v1, Table 1 p.2), W2-fix 2026-10-04"},
+}
+
+
+def proxima_distances():
+    """Both READ values in ly (au and parsec as phase1 defines them), their difference, and the window verdicts at
+    Proxima recomputed at Faria's distance (does the discrepancy move any cell?).  Computed, never typed."""
+    pc_m = _phase1.AU_M * 648000.0 / math.pi
+    p_b, s_b = PROXIMA_DISTANCES_READ["phase1.L_PROXIMA (board)"]["parallax_mas"]
+    fa = PROXIMA_DISTANCES_READ["Faria et al. 2022, Table 1 p.2"]
+    p_f, s_f = fa["parallax_mas"]
+    d_b = pc_m / (p_b / 1000.0)
+    d_f = pc_m / (p_f / 1000.0)
+    d_fp = fa["distance_pc_printed"][0] * pc_m
+    wb = window_read(L_list=(("Proxima, phase1", d_b),))["rows"]
+    wf = window_read(L_list=(("Proxima, Faria", d_f),))["rows"]
+    return {"phase1 ly (1/parallax)": d_b / LY_M, "phase1 equals L_PROXIMA": abs(d_b / L_PROXIMA_PHASE1 - 1) < 1e-12,
+            "Faria ly (1/parallax 768.50)": d_f / LY_M, "Faria ly (printed 1.3012 pc)": d_fp / LY_M,
+            "Faria ly error (printed 0.0003 pc)": fa["distance_pc_printed"][1] * pc_m / LY_M,
+            "Faria pc from its own parallax": d_f / pc_m, "phase1 pc": d_b / pc_m,
+            "relative difference (phase1 - Faria) / Faria, distance": (d_b - d_f) / d_f,
+            "parallax difference mas": p_f - p_b, "sigma on Faria parallax error alone": (p_f - p_b) / s_f,
+            "sigma on both parallax errors": (p_f - p_b) / math.hypot(s_f, s_b),
+            # Faria's printed 1.3012 pc is rounded (its own parallax gives 1.30124 pc), so measured against the printed
+            # distance and its printed +-0.0003 pc the same discrepancy reads larger: this is the verifier's '2.6 sigma'
+            "sigma on Faria printed distance and its printed error": (d_b - d_fp) / (fa["distance_pc_printed"][1] * pc_m),
+            "windows at Proxima unchanged at Faria distance": [r["window"] for r in wb] == [r["window"] for r in wf],
+            "windows (phase1)": [(r["N"], r["reading"][0], r["window"]) for r in wb]}
 
 
 def window_read(L_list=WINDOW_READ_L, N_list=(7, 1000, 1e6), bounds=None, scale=1.0):
@@ -1112,6 +1168,7 @@ def build():
     R["window_read"] = window_read()
     R["window_read_control_tighter_1e7"] = window_read(scale=1e-7)
     R["window_read_control_looser_1e3"] = window_read(scale=1e3)
+    R["proxima_distances"] = proxima_distances()
     return R
 
 
@@ -1287,6 +1344,17 @@ def report(R):
     p("      An OPEN window is 'not excluded', never 'found': every limit is an upper limit measured consistent with zero.")
     p(f"   CONTROLS: bounds 1e7 tighter -> {sum(r['window'] == 'EMPTY' for r in R['window_read_control_tighter_1e7']['rows'])} EMPTY of 18; "
       f"1e3 looser -> {sum(r['window'] == 'OPEN' for r in R['window_read_control_looser_1e3']['rows'])} OPEN of 18")
+    PD = R["proxima_distances"]
+    p("   Proxima's distance (W2-fix): two READ values, both recorded; phase1's imported for every computation")
+    p(f"     phase1.L_PROXIMA (Gaia DR3 768.066539 mas, READ via restatement, DOCKET 67): {PD['phase1 ly (1/parallax)']:.5f} ly")
+    p(f"     Faria 2022 Table 1 p.2 (768.50 +- 0.20 mas, 1.3012 +- 0.0003 pc; ref. Gaia Collaboration 2016): "
+      f"{PD['Faria ly (printed 1.3012 pc)']:.4f} +- {PD['Faria ly error (printed 0.0003 pc)']:.4f} ly (printed pc), "
+      f"{PD['Faria ly (1/parallax 768.50)']:.4f} ly (1/parallax)")
+    p(f"     discrepancy {100 * PD['relative difference (phase1 - Faria) / Faria, distance']:.3f} %; parallaxes differ by "
+      f"{PD['parallax difference mas']:.3f} mas = {PD['sigma on Faria parallax error alone']:.2f} sigma on Faria's error alone "
+      f"({PD['sigma on both parallax errors']:.2f} on both; {PD['sigma on Faria printed distance and its printed error']:.2f} against "
+      f"Faria's printed, rounded 1.3012 +- 0.0003 pc); the Proxima windows are the same at either distance: "
+      f"{PD['windows at Proxima unchanged at Faria distance']}")
 
 
 # ======================================================================================= selftest
@@ -1507,6 +1575,20 @@ def selftest():
                "bound's status is READ (abstract) (label checks)",
                all("H-MAP" in r["verdict"] and "H-TRANSFER" in r["verdict"] and "W_W2" not in r["verdict"] for r in WR["rows"])
                and all(d["status"].startswith("READ (abstract)") for d in BOUNDS_WEINBERG.values()))
+    # ---- W2-fix (2026-10-04, verifier W2V-1 problem 3): Proxima's distance, two READ values, phase1's imported
+    PD = R["proxima_distances"]
+    ok("G40 (W2-fix) the Proxima cell is phase1.L_PROXIMA (imported, not typed) and Faria 2022's READ parallax reproduces its "
+       "own printed 1.3012 pc to the printed digit",
+       WINDOW_READ_L[2][1] is L_PROXIMA_PHASE1 and PD["phase1 equals L_PROXIMA"]
+       and abs(PD["Faria pc from its own parallax"] - 1.3012) < 0.00005,
+       f"phase1 {PD['phase1 ly (1/parallax)']:.5f} ly; Faria 1/768.50 = {PD['Faria pc from its own parallax']:.5f} pc")
+    ok("G41 CONTROL (must fail): the two READ values are NOT the same distance -- phase1's parallax does not reproduce Faria's "
+       "1.3012 pc within Faria's printed +-0.0003 pc; the parallaxes differ by > 2 sigma on Faria's error alone",
+       abs(PD["phase1 pc"] - 1.3012) > 0.0003 and PD['sigma on Faria parallax error alone'] > 2.0,
+       f"phase1 {PD['phase1 pc']:.5f} pc; {PD['sigma on Faria parallax error alone']:.2f} sigma; "
+       f"{100 * PD['relative difference (phase1 - Faria) / Faria, distance']:.3f} %")
+    ok("G42 (W2-fix) the discrepancy moves no window: all six (N, reading) windows at Proxima are the same at Faria's distance",
+       PD['windows at Proxima unchanged at Faria distance'], f"{PD['windows (phase1)']}")
     w = max(len(n) for n, _, _ in checks)
     for n, good, det in checks:
         print(f"  [{'PASS' if good else 'FAIL'}] {n:<{w}} {det}")

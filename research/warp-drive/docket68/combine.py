@@ -99,6 +99,21 @@ in B-combine.md section 0 as history, and every superseded encoding stays runnab
     accessible mass unmeasured; E_fab computed nowhere, m_set specified nowhere.  seat.grade_o_seat is compared by the
     drift guard and against z3 in three board states (grounds).
 
+W2-FIX (2026-10-04: the two re-verifications W2V-0 (AGAINST M) and W2V-1 (FOR M), wave2/WAVE2-RESULT.json key
+result.verify; every item resolved in B-combine.md section 0, wave 7's form kept there).  No grade, count or table row
+moves; what moves is scope and status:
+  - N_VAC's window and floors are SCOPED to the window families vacuum.py computed (Reznik's cos^2(pi t) with
+    Omega T in [2, 40]: T > 0.9097 L/c; the Gaussian at beta = 7): floors 2.41-3.00 L/c.  With no window assumption
+    (R2 harvests with cT << L at every L) the floor is t_hold + L/c = 1.50 L/c (midpoint) / 2.00 L/c (one end),
+    computed in the grounds from vacuum.window_free_floor, at a negativity R2 guarantees only down to exp(-(L/cT)^3).
+    Every floor is still after the light time and after a midpoint pair source (0.50 L/c).
+  - N_S5: Proxima b's 1.07 M_earth is the MINIMUM mass m sin i (Faria 2022), so the 8.5e21 ratio is a floor; Brugger
+    2016 models water only (no C, N, P), so it leaves the primitive conjunct unconstrained; N IS measured in alpha
+    Cen A ('solar', Porto de Mello et al. 2008 p.12, READ), P in no Proxima-system star in the sources read.
+  - H-MAP: the full texts (login wall, not read) MAY carry each paper's eps convention.
+  Wave 7's line just above ('measured in no star of the Proxima system') is kept as written; it was right for P and
+  wrong for N.
+
 WHAT THIS FILE DOES
   (1) builds the 127 non-empty combinations of the seven hypotheses.  Hypotheses with more than one reading are carried
       in EVERY reading: H-SETTLE W2 / W1 / KR; H-FRAME F1 / F2b / F1+F2b; H-IT ITB / ITE / ITJ (wave 3: the
@@ -356,7 +371,13 @@ OPEN_NAMED = {
             "M_earth (Faria 2022) but accessible mass unmeasured (H-BODY-ACCESS) and the aperture NOT EVALUABLE; a "
             "devolatilised body fails the CI budget on N, C, H and P, and Brugger 2016 admits both a primitive and a "
             "devolatilised Proxima b; E_fab computed nowhere, m_set specified nowhere, k* only an identity.  "
-            "seat.grade_o_seat: OPEN (no conjunct False, none True)",
+            "seat.grade_o_seat: OPEN (no conjunct False, none True).  W2-fix (the re-verifications W2V-0/W2V-1): "
+            "the 1.07 M_earth is the MINIMUM mass m sin i (Faria 2022 Table C.1 p.17, p.9; no transit, i unknown), so "
+            "the minimum mass is >= 8.53e21 x the CI threshold, a floor; Brugger 2016 models water only (core, mantles, "
+            "ice, liquid water; no C, N or P), so it leaves the primitive conjunct UNCONSTRAINED rather than 'admitting "
+            "both'; P is measured in no Proxima-system star in the sources read, while N IS measured in alpha Cen A "
+            "('solar', [N/Fe] ~ 0: Porto de Mello et al. 2008 p.12, READ; primaries NAMED-NOT-READ), so under "
+            "H-ACEN-RATIO N carries a measured 0 and P an assumed 0.  The binder stays unmeasured and O-SEAT OPEN",
 }
 # OPEN pathways RETIRED from the screen, kept as history and restored only by a named mutation (never assumed in the
 # adopted screen).  Each carries the wave-7 reason it was retired.
@@ -370,7 +391,9 @@ HISTORY_OPEN = {
              "only.  Whether any setup supplies the pairs a qubit needs faster than distribution is NOT computed: "
              "OPEN'.  Wave 7: computed (vacuum.py): part (i) TRUE-IF {H-UDW, H-PERTURB, H-MINK-VAC, H-SPACELIKE}, part "
              "(ii) FALSE-IF {H-LOCC, H-NEARMAX, H-PROBE-OPERATED}; the window is COMPUTED, T > 0.9097 L/c over every gap "
-             "in [2, 40]; what stays OPEN is N_NLDIST, N_W2WEAK, N_VACNP",
+             "in [2, 40] -- for Reznik's cos^2(pi t) window only (W2-fix: R2's windows harvest with cT << L at every L, "
+             "so with no window assumption the floor is t_hold + L/c, 1.50 / 2.00 L/c, vacuum.window_free_floor); what "
+             "stays OPEN is N_NLDIST, N_W2WEAK, N_VACNP",
     "N_WREAD": "wave 4-6 (retired wave 7: D68 wave 2, W2A-limits READ the values; mutation 'wave6-WREAD' restores it): "
                "'support 1's window rests on W_W2, which holds the NAMED-NOT-READ Weinberg-family values (Majumder+ 1990 "
                "PRL 65 2931 and kin: pre-arXiv; 2509.04320v1, 2511.15935v1 and 2411.09611v1 READ for a restatement, none "
@@ -688,7 +711,9 @@ def _board(A, win_open, mutate=()):
                    "reproduced) but is not usable as the channel's pairs with nothing crossing at <= c first (FALSE-IF "
                    "{H-LOCC, H-NEARMAX, H-PROBE-OPERATED}): the probes cross (D23), the harvested state is symmetric "
                    "extendible on both sides (Chen et al. 1310.3530v2 Thm 1), so near-maximal pairs need classical "
-                   "messages each way; the computed floor arrives at 2.50 / 3.00 L/c.  Distribution is RELOCATED, not "
+                   "messages each way; the computed floor arrives at 2.50 / 3.00 L/c for the Gaussian at beta = 7 "
+                   "(2.41-3.00 L/c over the two window families computed), and at >= 1.50 / 2.00 L/c with no window "
+                   "assumption (vacuum.window_free_floor; R2: T_window -> 0 admissible).  Distribution is RELOCATED, not "
                    "removed: LEFT-IF the nine hypotheses of vacuum.GRADES, OPEN outside them via N_NLDIST (with W2), "
                    "N_W2WEAK (with SIG), N_VACNP.  Wave 1-6: OPEN via N_VAC only",
          locc),
@@ -2172,6 +2197,12 @@ def ground_checks():
     t0 = time.time()
     vac["compact window boundary (vacuum.compact_boundary)"] = VA.compact_boundary()
     vac["compact window boundary seconds"] = time.time() - t0
+    # W2-fix: the floor with NO window-family assumption (R2: T_window -> 0 admissible), imported from vacuum.py
+    wf = VA.window_free_floor(ST.LY_M)
+    vac["window-free floor at 1 ly (in L/c): midpoint / one-end; light time; midpoint pair source"] = (
+        wf["midpoint"]["window-free floor t_hold + L/c"] / lt, wf["one-end"]["window-free floor t_hold + L/c"] / lt,
+        wf["midpoint"]["light time L/c"] / lt, wf["midpoint"]["midpoint pair source ready (D23)"] / lt)
+    vac["R2 guaranteed N at cT = L/2 (exp(-8))"] = wf["midpoint"]["R2 guaranteed N >= exp(-(L/cT)^3) at cT = x L"][0.5]
     out["vacuum"] = vac
     # wave 7 (D68 wave 2, W2C-seat): seat.py's grade of O-SEAT against z3's, in three board states, and the binder
     SE = _quiet("seat")
@@ -2215,7 +2246,8 @@ def support2_field_rows(members):
     BOTH-WAYS reporting only, the rate is set beside the tightest Weinberg-family figure (Majumder, READ (abstract) since
     wave 7, D68 wave 2; wave 5-6: NAMED-NOT-READ, the same number) under BOTH H-MAP readings, as if H-MAP-W2 (that
     precession bound read as a bound on ||H||) held -- a hypothesis NOT adopted anywhere; reading the value did not
-    establish H-MAP for support 2's field (the full texts, where the mapping lives, are behind a login wall: H-MAP OPEN).
+    establish H-MAP for support 2's field (the full texts, behind a login wall and not read, may carry each paper's eps
+    convention: H-MAP OPEN; wave 7 first said 'the full texts, where the mapping lives').
     Wave 5 (V3 residual 1): one row per MEMBER (members = {construction: hT}), each naming the construction whose hT it
     uses, and the range over the computed members."""
     ST = _quiet("settle")
@@ -2371,8 +2403,9 @@ def grounds_ok(g):
         "N_VAC split as encoded (wave 7, D68 wave 2; vacuum.py imported): the harvested pair at beta = 7, lambda = 0.1 has "
         "N = f - 1/2 > 0 (it saturates the one-copy LOCC ceiling) and is symmetric extendible on BOTH sides, rho_ee at its "
         "floor and at 10x (no zero-way or one-way distillation; near-maximal pairs need messages each way); the computed "
-        "floor at 1 ly arrives at 2.50 L/c (midpoint) and 3.00 L/c (one end), after the light time, while a midpoint pair "
-        "source is ready at 0.50 L/c; the hashing threshold is 0.8107":
+        "floor at 1 ly arrives at 2.50 L/c (midpoint) and 3.00 L/c (one end) for the Gaussian at beta = 7 -- a window "
+        "family's floor, not every protocol's (W2-fix) -- after the light time, while a midpoint pair source is ready at "
+        "0.50 L/c; the hashing threshold is 0.8107":
             0 < g["vacuum"]["beta=7, lambda=0.1: N"] < 1e-15 and
             abs(g["vacuum"]["beta=7, lambda=0.1: f - 1/2"] - g["vacuum"]["beta=7, lambda=0.1: N"]) <
             1e-9 * g["vacuum"]["beta=7, lambda=0.1: N"] and
@@ -2396,8 +2429,18 @@ def grounds_ok(g):
         "the encoding's vacuum pathways and LEFT-IF set equal vacuum.GRADES' own (parsed from the instrument's grade "
         "text; N_VAC named only as wave 1's history)":
             g["vacuum"]["vacuum.GRADES O-MAKE-DIST: LEFT-IF set parsed / pathways named"] == (VAC_LEFTIF, VAC_OPEN),
-        "N_VAC part (i)'s window COMPUTED (vacuum.compact_boundary, every gap in [2, 40]): T/(L/c) > 0.9097 at the "
-        "boundary, within 0.1% of the READ figure 1/1.1 that wave 1-6 carried as DERIVED-FROM-READ (0.91)":
+        "W2-fix: the vacuum route's floor with NO window assumption (vacuum.window_free_floor; R2 harvests with cT << L, "
+        "so T_window -> 0 is admissible): 1.50 L/c from a midpoint, 2.00 L/c from one end -- still after the light time "
+        "and after a midpoint pair source (0.50 L/c); R2's guarantee at cT = L/2 is exp(-8)":
+            abs(g["vacuum"]["window-free floor at 1 ly (in L/c): midpoint / one-end; light time; midpoint pair source"][0] - 1.5) < 1e-9
+            and abs(g["vacuum"]["window-free floor at 1 ly (in L/c): midpoint / one-end; light time; midpoint pair source"][1] - 2.0) < 1e-9
+            and g["vacuum"]["window-free floor at 1 ly (in L/c): midpoint / one-end; light time; midpoint pair source"][0] >
+            g["vacuum"]["window-free floor at 1 ly (in L/c): midpoint / one-end; light time; midpoint pair source"][2] >
+            g["vacuum"]["window-free floor at 1 ly (in L/c): midpoint / one-end; light time; midpoint pair source"][3]
+            and abs(g["vacuum"]["R2 guaranteed N at cT = L/2 (exp(-8))"] - math.exp(-8)) < 1e-18,
+        "N_VAC part (i)'s window COMPUTED (vacuum.compact_boundary, every gap in [2, 40]) for Reznik's cos^2(pi t) window "
+        "only: T/(L/c) > 0.9097 at the boundary, within 0.1% of the READ figure 1/1.1 that wave 1-6 carried as "
+        "DERIVED-FROM-READ (0.91)":
             0.905 < g["vacuum"]["compact window boundary (vacuum.compact_boundary)"]["T/(L/c) at the boundary"] < 0.915 and
             abs(g["vacuum"]["compact window boundary (vacuum.compact_boundary)"]["T/(L/c) at the boundary"] - 1 / 1.1) <
             1e-3 / 1.1,
@@ -2413,12 +2456,15 @@ def grounds_ok(g):
         "CONTROL seat.grade_o_seat can move: one gate conjunct False (composition) gives 'LEFT on the S5 pathway'":
             g["seat_grade"]["a conjunct False (composition)"] == "LEFT on the S5 pathway",
         "the D25 binder at Proxima (seat.py, stock.HUMAN payload): P at CI chondrite (runner-up N), and 70 kg x P's factor "
-        "agrees with measure.seat_route_s5's 749.1 kg (stockgate's 59-element payload) to 0.1 kg; P and N are among none of "
-        "Morel 2018's 21 alpha Cen species (the composition conjunct cannot be evaluated at its binder)":
+        "agrees with measure.seat_route_s5's 749.1 kg (stockgate's 59-element payload) to 0.1 kg; P is measured in no "
+        "Proxima-system star in the sources read (the composition conjunct cannot be evaluated at its binder) and N only "
+        "in alpha Cen A ('solar', Porto de Mello 2008: W2-fix; wave 7 said 'P and N are among none of Morel 2018's 21 "
+        "alpha Cen species', true of Morel and wrong as 'measured in no star' for N); neither in any body":
             g["seat_binders"]["CI chondrite"][0][0] == "P" and g["seat_binders"]["CI chondrite"][1][0] == "N" and
             abs(70.0 * g["seat_binders"]["CI chondrite"][0][1] - g["seat"]["S5_feedstock_kg_70kg"]["CI chondrite"]) < 0.1
-            and all(v["alpha_Cen_AB"].startswith("NOT") and v["any_body"].startswith("not measured")
-                    for v in g["seat_measured_P_N"].values()),
+            and g["seat_measured_P_N"]["P"]["alpha_Cen_AB"].startswith("NOT")
+            and g["seat_measured_P_N"]["N"]["alpha_Cen_AB"].startswith("measured in alpha Cen A")
+            and all(v["any_body"].startswith("not measured") for v in g["seat_measured_P_N"].values()),
     }
     return all(tests.values()), tests
 
@@ -2566,7 +2612,8 @@ def first_transit(L_ly=1.0, N_per_qubit=7, reading="A (eps = 2 pi f)"):
     out["body_rest_energy_J (massform, the READ-backed holder)"] = geo["O-MATTER: massform.rest_energy_j() (Mc^2, 70 kg)"]
     out["throat_J"] = geo["O-HOLD: wormhole.throat_mass(1 m) c^2"]
     # wave 1-6 carried Reznik's window as DERIVED-FROM-READ (1/1.1, 1); wave 7 (D68 wave 2) computes it in vacuum.py
-    # (vacuum.compact_boundary, in the grounds: T > 0.9097 L/c over every gap in [2, 40]) and keeps this as history
+    # (vacuum.compact_boundary, in the grounds: T > 0.9097 L/c over every gap in [2, 40], for Reznik's cos^2(pi t) window
+    # only; W2-fix: no window assumption gives the floor t_hold + L/c, vacuum.window_free_floor) and keeps this as history
     out["HISTORY vacuum_harvest_window_T_over_light_time (DERIVED-FROM-READ, Reznik p.10, p.12; wave 7: computed in "
         "the grounds)"] = (1.0 / 1.1, 1.0)
     out["pairs are near-maximal (H-NEARMAX, vacuum.py): every pair count above assumes Bell pairs"] = True

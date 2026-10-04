@@ -400,6 +400,68 @@ NAMED LIMITATIONS OF THIS SEATING.
     D23 carries -- is made under M's DOCKET 67 ruling "Repair all", with the
     paper's DOCKET 67 marker; it is DOCKET 67's, and the paper-marker census
     (paper_docket_markers) READs it like the others.
+
+===============================================================================
+7b.  DOCKET 68, WAVE 2, AS SEATED
+===============================================================================
+
+M's order (M-D68-10) put D68 wave 2 second: the Weinberg-family limits read
+at source, vacuum entanglement as pair supply, the S5 seat route.  Wave 2
+ran, was verified both ways (W2V-0 against overstatement, W2V-1 against
+understatement; no grade moved either way) and its fixes landed (W2-fix).
+This is its seating, in wave 1's form; section 7 is wave 1's record and is
+kept as written.  The owners are settle.py (W2A-limits), vacuum.py
+(W2B-vacuum), seat.py (W2C-seat) and combine.py (W2-combine); every value is
+ASKED of them at run time, and wave 1's words, where wave 2 replaced them,
+are kept in the same cell and re-derived as AS-OF CONTROLS.
+
+  O9   still OPEN; no grade moved.  Its cell now reports support 1 of W2 x F1
+       (N_EPS) on the READ (abstract) limits, cell by cell, from
+       settle.window_read: EXCLUDED given W_W2R at 1 AU, N = 7 and at 1 AU,
+       N = 1e3 (whose reading A also needs H-SAME-EPS -- one READ limit alone
+       opens it); ADMISSIBLE given W_W2R -- not excluded, not found -- at the
+       other seven.  combine's exact-rational window is checked against
+       settle's at its four screened cells, and combine's support-1 route
+       alone is asked at 1 AU.  The 1 AU headline does not move: support 2
+       (N_W2ANC, UNEVALUATED) carries it.  O-MAKE-DIST is vacuum.py's grade --
+       LEFT-IF its nine hypotheses, OPEN outside them via N_NLDIST, N_W2WEAK
+       and N_VACNP, none computed -- as combine screens it, with the named
+       reading H-VAC-LEFTIF beside it.  O-SEAT stays OPEN via N_S5;
+       seat.grade_o_seat agrees, and the gate's binder is measured in no
+       Proxima-system star or body in the sources read.  Wave 1's 1 AU and
+       O-MAKE-DIST words are re-derived from combine's history encodings
+       (wave6-WREAD, wave6-NVAC) and settle.window_given.  O9's answer names
+       what wave 2 left open and keeps wave 1's answer after it.
+  D23, D25, S5  their notes carry vacuum.py's (D23) and seat.py's (D25, S5)
+       asked values; D23 keeps wave 1's words after them.  No status moved.
+  RULED_BY_M  + M-D68-15 and M-D68-16 (items 15-16, the retrieval route).
+       Item 15 (corpus instruments) is SUPERSEDED by item 16 (the session's
+       web-retrieval connectors, Firecrawl beside alphaXiv, open content only,
+       route recorded) and kept as history; what 16 applied is the routes the
+       owners record, asked (d68_w2_routes).  M-D68-10's cell says wave 2 ran
+       and keeps wave 1's NOT YET RUN after it.
+  index3.py  no row added and no cell moved: wave 2 moved no grade a row
+       reads.  D68-ONE-MEMBER-REMOVAL-AND-IT-IS-CONDITIONAL's support-1
+       sentence is re-typed on the READ windows (its wave-1 text kept as
+       index3.D68_TEXT_AS_WAVE1); the O-SEAT row gains seat.py's binder; the
+       needles (d68_index3_needles) ask the new values.
+
+NAMED LIMITATIONS OF THIS SEATING (wave 2), beside section 7's.
+  H-LEDGER-ASKS-REPRESENTATIVES grows: vacuum.compact_boundary (about 44 s;
+    the family-specific window bound) and combine's full screen and selftest
+    (about 40 minutes) are their owners' runs, cited and not re-run here.  The
+    window-free floor, the harvested pair's figures, the windows and seat.py's
+    grade are cheap and asked.
+  H-NO-VACUUM-ROW: whether the vacuum route's computed floor and pair figures
+    earn an index3 row of their own (a requirement stated in numbers could
+    read Z = +1) is NOT decided here.  They are carried on O9 and the D23
+    note, and the question is reported for M.
+  RECORDED, NOT REPAIRED: seat.py's binder figure (on stock.HUMAN) and
+    stockgate's D25 figure (on the 'as-composed 59' payload) differ in the
+    fifth figure; element and four-figure value agree, so D25's note names
+    the element and leaves the figure to the row's claim (printed once).
+  Not edited by this seating: paper/CLAIMS.md (M's rule for the paper) and
+    the wave-2 owners themselves.
 """
 
 import contextlib
@@ -455,6 +517,12 @@ with contextlib.redirect_stdout(io.StringIO()):
     import measure           # DOCKET 68: Q-1 (A3)
     import settle            # DOCKET 68: H-SETTLE (A1)
     import signed            # DOCKET 68: Q-1s
+    # DOCKET 68 wave 2 (docstring section 7b): the vacuum route (W2B) and the
+    # S5 seat route (W2C).  Both insert docket68/ at the FRONT of sys.path;
+    # no docket68/ module shares a name with a module here or in tools/
+    # (re-checked when wave 2 was seated), so nothing is shadowed.
+    import seat              # DOCKET 68 wave 2: W2C-seat
+    import vacuum            # DOCKET 68 wave 2: W2B-vacuum
 
 #: LEDGER.md sits beside this file, and is found there from ANY working
 #: directory.  It was first resolved against the cwd, so --check run from the
@@ -1069,6 +1137,191 @@ D68_FIRST = combine.first_transit()
 #: How many variants combine builds (its screen covers every one; asked).
 D68_VARIANT_COUNT = sum(1 for _v in combine.variants())
 
+# ----- DOCKET 68 WAVE 2 (docstring section 7b), seated as wave 1 was. --------
+# Every value below is ASKED of its owner -- settle.window_read (W2A-limits),
+# vacuum.py (W2B-vacuum), seat.py (W2C-seat), combine.py (W2-combine) -- at
+# run time; nothing is retyped.  The expensive pieces the owners carry in
+# their own selftests (vacuum.compact_boundary, 44 s; combine's full screen)
+# are cited, not re-run (H-LEDGER-ASKS-REPRESENTATIVES, section 7b).
+
+#: settle's support-1 windows on the READ (abstract) Weinberg-family limits:
+#: every (L, N, H-MAP reading) row of settle.WINDOW_READ_L x (7, 1e3, 1e6).
+D68_WINDOW_READ = settle.window_read()
+#: combine's z3 support-1 route alone at 1 AU, N = 7 (support 2 dropped,
+#: combine's own mutation 'support1-only'), and the HISTORY encodings that
+#: reproduce wave 1's 1 AU and O-MAKE-DIST verdicts (combine's mutations
+#: 'wave6-WREAD' and 'wave6-NVAC'), and vacuum.py's nine-hypothesis reading
+#: H-VAC-LEFTIF (combine's 'vac-left-if').
+D68_AU_SUPPORT1_ONLY = combine.Screen(cell=combine.CELL_AU, mutate=("support1-only",)).variant(
+    {"W2", "F1"})["per"]["O-BITS"]
+D68_AU3_SUPPORT1_ONLY = combine.Screen(cell=combine.CELL_AU3, mutate=("support1-only",)).variant(
+    {"W2", "F1"})["per"]["O-BITS"]
+D68_AU_WAVE6_WREAD = combine.Screen(cell=combine.CELL_AU, mutate=("wave6-WREAD", "support1-only")
+                                    ).variant({"W2", "F1"})["per"]["O-BITS"]
+D68_SCREEN_NVAC = combine.Screen(mutate=("wave6-NVAC",))
+D68_SCREEN_VACLEFT = combine.Screen(mutate=("vac-left-if",))
+D68_NVAC_ASKED = dict((k, D68_SCREEN_NVAC.variant(set(p))) for k, p in D68_VARIANTS)
+D68_VACLEFT_ASKED = dict((k, D68_SCREEN_VACLEFT.variant(set(p))) for k, p in D68_VARIANTS)
+
+
+def _d68_e(x):
+    """1.338e5, not 1.338e+05: a float as index3.py types it."""
+    m, e = ("%.3e" % x).split("e")
+    return "%se%d" % (m, int(e))
+
+
+def _d68_x(f):
+    """A factor as the owners' reports print it: 96.5x, 1.43e4x (3 figures)."""
+    if f < 1000:
+        return "%.3gx" % f
+    m, e = ("%.2e" % f).split("e")
+    return "%se%dx" % (m, int(e))
+
+
+def _d68_n(n):
+    """7, 1e3, 1e6 -- N as the owners label their cells."""
+    return "%d" % n if n < 1000 else "1e%d" % round(math.log10(n))
+
+
+def d68_w2_window_cells(wr=None):
+    """[(L, N, word, phrase)] -- settle.window_read's rows grouped by (L, N),
+    in its order.  word is EXCLUDED (both H-MAP readings EMPTY), ADMISSIBLE
+    (both OPEN) or SPLIT (the readings disagree: printed per reading, never
+    one picked).  Where a reading's window is not robust across the four READ
+    limits, H-SAME-EPS joins that reading's premises and the limits that
+    open it alone are named (settle's own rows; asked)."""
+    wr = D68_WINDOW_READ if wr is None else wr
+    cells = []
+    for r in wr["rows"]:
+        key = (r["L"], r["N"])
+        if not cells or cells[-1][0] != key:
+            cells.append((key, []))
+        cells[-1][1].append(r)
+    out = []
+    for (L, N), rows in cells:
+        wins = set(r["window"] for r in rows)
+        rd = "/".join(r["reading"][:1] for r in rows)
+        fac = []
+        for r in rows:
+            pb = r["per_bound"][r["bound_used"]]
+            fac.append(pb["loosening to open (context)"] if r["window"] == "EMPTY"
+                       else pb["tightening to close (context)"])
+        same = ["reading %s also given H-SAME-EPS (%s alone opens it)"
+                % (r["reading"][:1], ", ".join(sorted(
+                    k for k, v in r["per_bound"].items() if v["window"] != r["window"])))
+                for r in rows if not r["robust_across_READ_bounds"]]
+        if wins == {"EMPTY"}:
+            word = "EXCLUDED"
+            ph = ("EXCLUDED given W_W2R%s (a READ limit %s looser, readings %s, would open it)"
+                  % ("; " + "; ".join(same) if same else "",
+                     " / ".join(_d68_x(f) for f in fac), rd))
+        elif wins == {"OPEN"}:
+            word = "ADMISSIBLE"
+            ph = ("ADMISSIBLE given W_W2R -- not excluded, not found%s (%s tighter, readings %s, "
+                  "would close it)" % ("; " + "; ".join(same) if same else "",
+                                       " / ".join(_d68_x(f) for f in fac), rd))
+        else:
+            word = "SPLIT"
+            ph = "SPLIT across the H-MAP readings: " + "; ".join(
+                "%s %s" % (r["reading"][:1], r["verdict"]) for r in rows)
+        out.append((L, N, word, "%s, N = %s %s" % (L, _d68_n(N), ph)))
+    return out
+
+
+def d68_w2_windows_agree():
+    """combine's exact-rational z3 window (combine.cell_window_open) against
+    settle.window_read at each of combine's four screened cells: [(cell,
+    combine's open?, settle's open?)] where they DISAGREE ([] = agree)."""
+    by = dict(((L, N), w) for L, N, w, _p in d68_w2_window_cells())
+    bad = []
+    for cell, (attr, mult, N) in combine.CELLS.items():
+        L = "1 AU" if attr == "AU_M" else ("1 ly" if mult == 1.0 else "%g ly" % mult)
+        if by.get((L, N)) not in ("EXCLUDED", "ADMISSIBLE"):
+            bad.append((cell, combine.cell_window_open(cell), by.get((L, N))))
+        elif combine.cell_window_open(cell) != (by[(L, N)] == "ADMISSIBLE"):
+            bad.append((cell, combine.cell_window_open(cell), by[(L, N)]))
+    return bad
+
+
+def d68_vac_grade():
+    """vacuum.GRADES['O-MAKE-DIST'], asked and parsed exactly as combine's
+    grounds parse it: (the LEFT-IF set, the OPEN pathways named before the
+    grade's history clause)."""
+    g = vacuum.GRADES["O-MAKE-DIST"]
+    left = tuple(x.strip() for x in re.search(r"LEFT-IF \{([^}]*)\}", g).group(1).split(","))
+    now = g.split("Wave 1 said")[0]
+    via = tuple(k for k in ("N_NLDIST", "N_W2WEAK", "N_VACNP", "N_VAC")
+                if re.search(r"\b" + k + r"\b", now))
+    return left, via
+
+
+def _d68_vac():
+    """vacuum.py's cheap figures, asked (the harvested pair at beta = 7,
+    lambda = 0.1, its symmetric-extension margins, the recurrence rounds, and
+    the window-free floor at 1 ly); compact_boundary (44 s) is NOT re-run."""
+    c7 = vacuum.build_cases()["gauss beta=7 (strong supports spacelike, R4)"]
+    r7 = vacuum.state_for(c7, 0.1)
+    n = vacuum.negativity_x(r7)
+    wf = vacuum.window_free_floor(settle.LY_M)
+    lt = settle.LY_M / settle.C_LIGHT
+    return {"N": n, "f - 1/2": vacuum.fef_minus_half_x(r7),
+            "margins B, A": (vacuum.sym_ext_margin_x(r7, "B"), vacuum.sym_ext_margin_x(r7, "A")),
+            "rounds (twirl, rotation)": (vacuum.rounds_from(n)["rounds"],
+                                         vacuum.rounds_from(n, post="swap")["rounds"]),
+            "floor midpoint, one end (L/c)": tuple(
+                wf[s]["window-free floor t_hold + L/c"] / lt for s in ("midpoint", "one-end")),
+            "midpoint pair source (L/c)": wf["midpoint"]["midpoint pair source ready (D23)"] / lt,
+            "R2 guaranteed N at cT = L/2": wf["midpoint"][
+                "R2 guaranteed N >= exp(-(L/cT)^3) at cT = x L"][0.5]}
+
+
+D68_VAC = _d68_vac()
+
+
+def _d68_seat():
+    """seat.py's W2C figures, asked: the grade of O-SEAT on today's board
+    state, the gate's binder and runner-up at a CI-like body, whether P and N
+    are measured in the Proxima system (seat.proxima_measured's own words),
+    and Proxima b's minimum-mass floor over the CI threshold."""
+    b = seat.binders()["CI chondrite"]
+    pm = seat.proxima_measured()
+    gc = seat.gate_conjuncts()
+    ratio = [v for k, v in gc.items() if k.startswith("minimum mass over CI threshold")]
+    return {"grade": seat.grade_o_seat(seat.board_state()),
+            "binder": b[0], "runner-up": b[1],
+            "P in the system": seat.P_MEASURED_IN_PROXIMA_SYSTEM,
+            "P alpha Cen": pm["P"]["alpha_Cen_AB"], "N alpha Cen": pm["N"]["alpha_Cen_AB"],
+            "P any body": pm["P"]["any_body"],
+            "min-mass floor": ratio[0] if len(ratio) == 1 else None}
+
+
+D68_SEAT = _d68_seat()
+
+
+def d68_s5_owed():
+    """seat.DOCKET56_OWED item by item: '<item>: <status head>' -- the item's
+    name before its colon and the status's leading capitals, both asked."""
+    out = []
+    for item, status in seat.DOCKET56_OWED:
+        m = re.match(r"[A-Z][A-Z -]*[A-Z]", status)
+        out.append("%s: %s" % (item.split(":")[0], m.group(0) if m else status))
+    return "; ".join(out)
+
+
+def d68_grouped(o, asked=None):
+    """o's verdict in every asked consistent variant at the main cell, the
+    variants GROUPED by verdict ('<verdict> under <n> variants: a, b, ...'),
+    each variant named once -- the same content as d68_uniform, compacted."""
+    asked = D68_ASKED if asked is None else asked
+    groups = {}
+    for k, _p in D68_VARIANTS:
+        if asked[k]["consistent"]:
+            groups.setdefault(d68_verdict(asked[k]["per"][o]), []).append(k)
+    if len(groups) == 1:
+        return list(groups)[0] + " in every variant asked"
+    return "; ".join("%s under %s" % (v, ", ".join(ks)) for v, ks in
+                     sorted(groups.items(), key=lambda kv: -len(kv[1])))
+
 
 def _d68_support(sp):
     """One support as combine states it: {members; named premises} [window]."""
@@ -1157,27 +1410,68 @@ def _d68_feed():
 
 #: DOCKET 68 NOTES on the rows O-SEAT and the pair supply touch.  A note, not a
 #: status change: no owner's computed status moved.  Every figure asked.
+#: WAVE 1'S WORDS ON THE PAIR SUPPLY AND THE SEAT GATE, kept as history and
+#: printed in the notes after wave 2's: the text wave 1 printed, with its one
+#: asked value -- O-MAKE-DIST, which wave 1 read OPEN via N_VAC -- re-asked of
+#: combine's HISTORY encoding 'wave6-NVAC' (the as-of value), never typed.
+D68_D23_AS_WAVE1 = (
+    "combine.py screens vacuum entanglement used as the channel's pairs with no "
+    "distribution as the OPEN pathway N_VAC, and O-MAKE in its distribution form reads "
+    "%s; whether any setup supplies the pairs a qubit needs faster than distribution "
+    "is not computed, and D68 wave 2 reads it (M-D68-10).  IF W2 x F1's first support "
+    "held (N_EPS at the NAMED-NOT-READ Weinberg-family limit, H-C2, F1, H-BLOCK -- none "
+    "shown), a midpoint source would give the first read %.5f of the light time after "
+    "firing at 1 ly"
+    % (d68_grouped("O-MAKE-DIST", D68_NVAC_ASKED),
+       D68_FIRST["first_transit_midpoint"]["t_read"] / D68_FIRST["light_time_s"]))
+
 D68_NOTES = {
     "D23": (
-        "  DOCKET 68 (a note; no status change): the pair supply.  combine.py "
-        "screens vacuum entanglement used as the channel's pairs with no "
-        "distribution -- combine's reading of M's \"because is already exists "
-        "everywhere\" (CHARTER.md, verbatim; combine.py's own gloss of it, "
-        "'it already exists everywhere', is an emended text and is not M's) -- "
-        "as the OPEN pathway N_VAC, and O-MAKE in its "
-        "distribution form reads %s; whether any setup supplies the pairs a "
-        "qubit needs faster than distribution is not computed, and D68 wave 2 "
-        "reads it (M-D68-10).  IF W2 x F1's first support held (N_EPS at the "
-        "NAMED-NOT-READ Weinberg-family limit, H-C2, F1, H-BLOCK -- none "
-        "shown), a midpoint source would give the first read %.5f of the "
-        "light time after firing at 1 ly (combine.first_transit), against "
-        "this row's zero advantage, which is exact in linear quantum "
-        "mechanics; with one-end distribution, S5's case, it beats light launched "
-        "at firing: %s.  This row also binds S5's CHANNEL under O9's O-SEAT "
-        "reading, not S5's substance"
-        % (d68_uniform("O-MAKE-DIST"),
+        "  DOCKET 68 (a note; no status change): the pair supply.  Wave 1 screened "
+        "vacuum entanglement used as the channel's pairs with no distribution -- "
+        "combine's reading of M's \"because is already exists everywhere\" "
+        "(CHARTER.md, verbatim; combine.py's own gloss of it, 'it already exists "
+        "everywhere', is an emended text and is not M's) -- as the OPEN pathway "
+        "N_VAC.  WAVE 2 COMPUTED IT (vacuum.py, W2B-vacuum; its sources READ via "
+        "alphaXiv and Firecrawl, each route recorded there, M-D68-16): N_VAC splits "
+        "-- the vacuum's entanglement reaches probes that cannot communicate, but "
+        "is not usable as the channel's pairs with nothing crossing at <= c first "
+        "-- and combine retires N_VAC to its history (in combine.HISTORY_OPEN: %s).  "
+        "vacuum.py grades O-MAKE-DIST LEFT-IF {%s}, and OPEN outside that set via "
+        "%s, none computed (vacuum.GRADES, asked); combine screens O-MAKE in its "
+        "distribution form as %s -- and LEFT in every asked variant given "
+        "H-VAC-LEFTIF, the nine taken together (%s).  Asked of vacuum.py: the "
+        "harvested pair at beta = 7, lambda = 0.1 has N = %s and f - 1/2 = %s "
+        "(the single-copy LOCC ceiling), symmetric-extendible on both sides "
+        "(margins %s, %s), so a near-maximal pair needs classical messages "
+        "each way; recurrence before hashing pays takes %d rounds (twirl) or %d "
+        "(rotation).  With no window family assumed (R2 harvests with cT << L at "
+        "every L, at a negativity R2 guarantees only down to exp(-(L/cT)^3): %.3g "
+        "at cT = L/2) the vacuum route's floor is t_hold + L/c, %.2f L/c from a "
+        "midpoint and %.2f L/c from one end (vacuum.window_free_floor), after the "
+        "light time and after a midpoint pair source (%.2f L/c): the distribution "
+        "is relocated to the probes and to two-way messages, not removed.  The "
+        "family-specific window bound (Reznik's window over gaps in [2, 40]) is "
+        "vacuum.compact_boundary's and is not re-run here.  IF W2 x F1's first "
+        "support held (N_EPS at the READ (abstract) Weinberg-family limit under "
+        "W_W2R, H-C2, F1, H-BLOCK -- none shown), a midpoint source would give the "
+        "first read %.5f of the light time after firing at 1 ly "
+        "(combine.first_transit), against this row's zero advantage, which is "
+        "exact in linear quantum mechanics; with one-end distribution, S5's case, "
+        "it beats light launched at firing: %s.  This row also binds S5's CHANNEL "
+        "under O9's O-SEAT reading, not S5's substance.  WAVE 1 FIRST SAID (kept): "
+        "%s"
+        % ("N_VAC" in combine.HISTORY_OPEN, ", ".join(d68_vac_grade()[0]),
+           ", ".join(d68_vac_grade()[1]), d68_grouped("O-MAKE-DIST"),
+           d68_grouped("O-MAKE-DIST", D68_VACLEFT_ASKED),
+           _d68_e(D68_VAC["N"]), _d68_e(D68_VAC["f - 1/2"]), _d68_e(D68_VAC["margins B, A"][0]),
+           _d68_e(D68_VAC["margins B, A"][1]), D68_VAC["rounds (twirl, rotation)"][0],
+           D68_VAC["rounds (twirl, rotation)"][1], D68_VAC["R2 guaranteed N at cT = L/2"],
+           D68_VAC["floor midpoint, one end (L/c)"][0], D68_VAC["floor midpoint, one end (L/c)"][1],
+           D68_VAC["midpoint pair source (L/c)"],
            D68_FIRST["first_transit_midpoint"]["t_read"] / D68_FIRST["light_time_s"],
-           D68_FIRST["first_transit_one_end"]["beats_light_launched_at_firing"])),
+           D68_FIRST["first_transit_one_end"]["beats_light_launched_at_firing"],
+           D68_D23_AS_WAVE1)),
     "D25": (
         "  DOCKET 68 (a note; no status change): this gate is half of O-SEAT's "
         "one open route.  Under H-SEAT-S5 (M-D68-7) O-SEAT, the supply at the "
@@ -1185,9 +1479,22 @@ D68_NOTES = {
         "(combine's OPEN pathway N_S5); for the 70 kg payload the mass "
         "conjunct is %.1f kg of CI chondrite or %.4g kg of stellar photosphere "
         "in the arrival aperture (stockgate.feedstock_kg, asked: this row's "
-        "per-kg figures for 70 kg).  Unchecked at every destination, so O-SEAT "
-        "stays OPEN"
-        % tuple(_d68_feed()[d] for d in ("CI chondrite", "stellar photosphere"))),
+        "per-kg figures for 70 kg).  WAVE 2 ASKED IT AT PROXIMA (seat.py, "
+        "W2C-seat; sources READ via alphaXiv and Firecrawl, routes recorded "
+        "there, M-D68-16): seat.grade_o_seat on today's board state = %s.  The "
+        "gate's binder at a CI-like body is %s, as this row's claim states "
+        "(seat.binders, asked, agrees on the element; runner-up %s, %.2f kg per "
+        "kg of payload).  P in alpha Cen A/B: %s; in any body: %s "
+        "(seat.P_MEASURED_IN_PROXIMA_SYSTEM = %s) -- so the composition conjunct "
+        "cannot be evaluated at its binder on READ data.  N, the runner-up: %s.  "
+        "Proxima b's minimum mass (m sin i, READ) is at least %s x the CI "
+        "threshold, a floor on total mass and NOT accessible mass (H-BODY-ACCESS); "
+        "the aperture is NOT EVALUABLE.  Unchecked at every destination, so "
+        "O-SEAT stays OPEN"
+        % (tuple(_d68_feed()[d] for d in ("CI chondrite", "stellar photosphere"))
+           + (D68_SEAT["grade"], D68_SEAT["binder"][0], D68_SEAT["runner-up"][0], D68_SEAT["runner-up"][1], D68_SEAT["P alpha Cen"],
+              D68_SEAT["P any body"], D68_SEAT["P in the system"], D68_SEAT["N alpha Cen"],
+              _d68_e(D68_SEAT["min-mass floor"])))),
 }
 
 
@@ -2167,6 +2474,12 @@ D68_M_WORDS = {
     # paper_d68_marker() READs back.
     "M-D68-12": ("Correct it (Recommended)", D68_RULINGS_FILE),
     "M-D68-13": ("Scope it (Recommended)", D68_RULINGS_FILE),
+    # ADDED (DOCKET 68 wave 2): items 15 and 16, M's words on the retrieval
+    # route; item 15 superseded by item 16, both held (history kept).
+    "M-D68-15": ("The methods own navigation and retrieval instruments are available for "
+                 "obtaining outside art in non-conventional ways", D68_RULINGS_FILE),
+    "M-D68-16": ("No. I mean their are instruments to assist navigating and retrieval of "
+                 "papers from the web", D68_RULINGS_FILE),
     "M-D68-C1": ("Open after D67", D68_CHARTER_FILE),
     "M-D68-C2": ("test the 12 fields in the 12 vertex trajectory model of the warp device idea",
                  D68_CHARTER_FILE),
@@ -2399,6 +2712,28 @@ D68_P1_AS_FIRST_RECORDED = (
 )
 
 
+def d68_w2_routes():
+    """Wave 2's recorded retrieval routes, ASKED of the owners: settle's four
+    Weinberg-family statuses (settle.window_read), vacuum.py's R-sources (its
+    docstring's 'R<n> ... -- READ ... via <route>' lines) and seat.py's source
+    records (its module dicts carrying a 'route').  Counted by route; a source
+    whose route names neither instrument is listed, never dropped."""
+    st = list(D68_WINDOW_READ["statuses"].values())
+    vac = re.findall(r"^\s+R(\d+) .*? -- (READ[^\n]*)", vacuum.__doc__, re.M)
+    sea = [v["route"] for k, v in sorted(vars(seat).items())
+           if isinstance(v, dict) and isinstance(v.get("route"), str)]
+    via = lambda t, w: sum(1 for x in t if ("via " + w) in x)
+    other = ([x for x in st + [r for _n, r in vac] + sea
+              if "via alphaXiv" not in x and "via Firecrawl" not in x])
+    return ("settle's four Weinberg-family limits, %d of %d via Firecrawl (scrape of the "
+            "publisher's public abstract page); vacuum.py's R1-R%s, %d via alphaXiv and %d via "
+            "Firecrawl; seat.py's %d recorded sources, %d via alphaXiv and %d via Firecrawl; "
+            "routes naming neither instrument: %s"
+            % (via(st, "Firecrawl"), len(st), vac[-1][0] if vac else "?",
+               via([r for _n, r in vac], "alphaXiv"), via([r for _n, r in vac], "Firecrawl"),
+               len(sea), via(sea, "alphaXiv"), via(sea, "Firecrawl"), other or "none"))
+
+
 _SEAT = d68_uniform("O-SEAT")
 
 D68_RULED = [
@@ -2502,9 +2837,15 @@ D68_RULED = [
      "(4) DOCKET 66",
      "four items were open after wave 1 closed",
      _d68_rule("IN THAT ORDER", "M-D68-10",
-               "(1) is this seating -- O9, these rows, the notes on S5, S10, S13, D23 and D25, "
-               "and index3.py's DOCKET 68 rows; (2), (3) and (4) are NOT YET RUN"),
-     "D68 wave 2 next; then the D67 per-source comments; then DOCKET 66"),
+               "(1) is the wave 1 seating -- O9, these rows, the notes on S5, S10, S13, D23 "
+               "and D25, and index3.py's DOCKET 68 rows; (2) D68 wave 2 is RUN, verified both "
+               "ways and seated (docstring section 7b: O9's support-1 windows on the READ "
+               "limits, O-MAKE-DIST from vacuum.py and O-SEAT from seat.py, the D23, D25 and "
+               "S5 notes, M-D68-15 and M-D68-16, index3.py's DOCKET 68 rows re-typed); (3) and "
+               "(4) are NOT YET RUN.  FIRST APPLIED (wave 1, kept): (2), (3) and (4) are NOT "
+               "YET RUN"),
+     "the D67 per-source comments next; then DOCKET 66 (wave 1 first said: D68 wave 2 next; "
+     "then the D67 per-source comments; then DOCKET 66)"),
     ("M-D68-11",
      "The paper's priority (M-RULINGS-2026-10-03.md item 11, 2026-10-04, as the file heads it; "
      "it records M's words and no question put): the standing of the Q-1s paper of M-D68-9 "
@@ -2542,6 +2883,38 @@ D68_RULED = [
                "statements scoped to linear quantum mechanics; O9's verdicts do not move"
                % paper_d68_marker(D68_M_WORDS["M-D68-13"][0])),
      "the paper's H62d scope; nothing on this board"),
+    # ADDED (DOCKET 68 wave 2): items 15 and 16, M's rulings on the retrieval
+    # route.  Item 15 is SUPERSEDED by item 16 and kept as history, as the
+    # rulings file keeps it; what 16 applied is ASKED of the owners' recorded
+    # routes (d68_w2_routes), never typed.
+    ("M-D68-15",
+     "Retrieval route for wave 2 (M-RULINGS-2026-10-03.md item 15, 2026-10-04, as the file "
+     "heads it): which instruments obtain outside art; asked which, M chose the option "
+     "'Corpus instruments'",
+     "wave 2 had to read the Weinberg-family limits at source, which the board held only as "
+     "NAMED-NOT-READ",
+     _d68_rule("CORPUS INSTRUMENTS -- SUPERSEDED BY M-D68-16", "M-D68-15",
+               "first read as the repository's own tools (tools/coverage.py, tools/recover.py, "
+               "the sharded chat export drive/chats with its INDEX.tsv, the Drive mirror's "
+               "MANIFEST.tsv, extracted/LEDGER.tsv and recovered/LEDGER.tsv), to find whether "
+               "outside papers or their numbers were already in the corpus, with no paywall or "
+               "host block circumvented.  SUPERSEDED the same day by item 16, M's correction "
+               "(M-D68-16); kept as history, as the rulings file keeps it"),
+     "nothing now: superseded by M-D68-16"),
+    ("M-D68-16",
+     "Correction to item 15 (M-RULINGS-2026-10-03.md item 16, 2026-10-04, as the file heads "
+     "it): which instruments M meant for outside art",
+     "M-D68-15 had been read as the corpus instruments only",
+     _d68_rule("WEB-RETRIEVAL INSTRUMENTS, OPEN CONTENT ONLY", "M-D68-16",
+               "item 15's reading is superseded: the instruments are the session's "
+               "web-retrieval connectors, Firecrawl beside alphaXiv, used for openly available "
+               "content only (public abstract pages, open-access copies, indexed full text), "
+               "never a paywalled full text or a login wall circumvented, the route recorded "
+               "with each reading.  Wave 2's recorded routes, asked of the owners: %s.  A full "
+               "text behind a login wall was not read and stays a named hypothesis (H-MAP); an "
+               "erratum page with no abstract stays NAMED-NOT-READ (H-ERRATUM)" % d68_w2_routes()),
+     "every wave-2 reading of outside art, each with its route; H-MAP and H-ERRATUM stay "
+     "named"),
     ("M-D68-C1",
      "When does DOCKET 68 open? (CHARTER.md: chartered 2026-10-02)",
      "DOCKET 67 was running when the docket was chartered",
@@ -2748,10 +3121,8 @@ D68_CARRIED = [
 # index3.py is stdlib-only, so it TYPES its owners' values; this file imports
 # the owners and checks every typed value against what they compute now.
 
-def _d68_e(x):
-    """1.338e5, not 1.338e+05: a float as index3.py types it."""
-    m, e = ("%.3e" % x).split("e")
-    return "%se%d" % (m, int(e))
+# _d68_e (a float as index3.py types it) is defined with the wave-2 helpers
+# above, which print with it before this point.
 
 
 def d68_index3_needles():
@@ -2776,6 +3147,18 @@ def d68_index3_needles():
             ("support 1", sup[0]), ("support 2", sup[1]),
             ("support 1's window", win[0].split(" (")[0].replace(
                 "ADMISSIBLE GIVEN", "admissible given")),
+            # ADDED (DOCKET 68 wave 2): support 1 on the READ limits, asked of
+            # settle.window_read (the cells' words) -- the 1 AU, N = 7 cell and
+            # the reading at 1 AU, N = 1e3 that also needs H-SAME-EPS.
+            ("support 1 at 1 AU, N = 7", "%s given W_W2R at 1 AU, N = 7"
+             % dict(((L, N), w) for L, N, w, _p in d68_w2_window_cells())[("1 AU", 7)]),
+            ("the H-SAME-EPS reading", "at 1 AU, N = 1e3 under reading %s also given H-SAME-EPS"
+             % "/".join(r["reading"][:1] for r in D68_WINDOW_READ["rows"]
+                        if (r["L"], r["N"]) == ("1 AU", 1000)
+                        and not r["robust_across_READ_bounds"])),
+            ("the limit's status", "at the READ limit" if all(
+                v.startswith("READ") for v in D68_WINDOW_READ["statuses"].values())
+             else "at the unread limit"),
             ("support 2's window", win[1]),
             ("W2 alone and F1 alone", "alone, each gives %s" % "/".join(alone)),
             ("the D-CTC support", "{%s; %s}" % (", ".join(dctc["members"]),
@@ -2802,7 +3185,14 @@ def d68_index3_needles():
             ("the first-order share", "about %.5f" % _d68_s13_share()),
             ("CI chondrite", "%.1f kg of CI chondrite" % feed["CI chondrite"]),
             ("stellar photosphere", "%s kg of stellar photosphere"
-             % _d68_e(feed["stellar photosphere"]))],
+             % _d68_e(feed["stellar photosphere"])),
+            # ADDED (DOCKET 68 wave 2): seat.py's binder and whether it is
+            # measured in the Proxima system, asked.
+            ("seat.py's binder", "binder at a CI-like body is %s, %.2f kg per kg of payload"
+             % D68_SEAT["binder"]),
+            ("the binder unmeasured", "measured in no Proxima-system star or body in the "
+             "sources read" if D68_SEAT["P in the system"] is False
+             else "measured in the Proxima system")],
     }
 
 
@@ -3092,8 +3482,12 @@ D68_NOTES.update({
         "Under H-SEAT-S5, which M adopted (M-D68-7), O-SEAT reads %s (combine, "
         "O9's variants); given H-SEAT-ROUTES, the alternative on "
         "record, it reads %s.  Removed only if this route's supply is shown and "
-        "D25 holds; neither is"
-        % (d68_uniform("O-SEAT"), d68_verdict(D68_SEAT_ROUTES))),
+        "D25 holds; neither is.  WAVE 2 (seat.py, W2C-seat) itemised DOCKET 56's "
+        "owed instrument for this route at Proxima (seat.DOCKET56_OWED, asked): %s; "
+        "and seat.grade_o_seat on today's board state is %s (D25's note carries "
+        "the gate's binder)"
+        % (d68_uniform("O-SEAT"), d68_verdict(D68_SEAT_ROUTES), d68_s5_owed(),
+           D68_SEAT["grade"])),
     "S10": (
         "  DOCKET 68 (a note; no status change): combine.py encodes this row "
         "as B-S10 in O-SEAT's screen -- on M's reading of what arrives "
@@ -3460,9 +3854,20 @@ def o9_claim():
         "screens them all in its own run, which this board does not repeat -- "
         "H-LEDGER-ASKS-REPRESENTATIVES).  MEMBER-ATTRIBUTED REMOVALS FIRST.  "
         "O-BITS under H-SETTLE W2 x H-FRAME F1: %s -- joint: alone, W2 gives %s "
-        "and F1 gives %s.  At %s: W2 x F1 gives %s (support 1's window is empty "
-        "from the NAMED-NOT-READ Weinberg-family value -- combine.cell_window_open "
-        "= %s -- so it is OPEN via N_WREAD there, not LEFT); with H-12, %s.  "
+        "and F1 gives %s.  At %s: W2 x F1 gives %s -- support 2 carries it; with "
+        "H-12, %s.  SUPPORT 1 (N_EPS) ON THE READ LIMITS (wave 2, W2A-limits: the "
+        "four Weinberg-family limits READ (abstract) at the publisher's public "
+        "pages, each route recorded in settle.BOUNDS_WEINBERG, M-D68-16; "
+        "settle.window_read, asked; window premises W_W2R = {%s}, named hypotheses "
+        "only): %s.  combine's z3 support-1 route alone (its mutation "
+        "support1-only) reads %s at 1 AU, N = 7 and %s at 1 AU, N = 1e3; its "
+        "exact-rational window against settle's, disagreements at its four "
+        "screened cells: %s.  An ADMISSIBLE window is not evidence of a drift: each limit "
+        "is an upper bound measured consistent with zero.  WAVE 1 FIRST SAID "
+        "(kept): support 1's window is empty from the NAMED-NOT-READ "
+        "Weinberg-family value -- combine.cell_window_open = %s -- so it is OPEN "
+        "via N_WREAD there, not LEFT; combine's HISTORY encoding wave6-WREAD "
+        "reproduces it (%s).  "
         "O-BITS under clause 2b's D-CTC: %s, and there O-LOOP is reintroduced -- "
         "corridor O-LOOP %s, signal O-LOOP %s, where the board alone gives %s and "
         "%s.  A CTC is not shown to exist.  NOT-BOUND-IF, NOT REMOVALS, under "
@@ -3481,8 +3886,20 @@ def o9_claim():
         "(O-MATTER relocated by M's ruling, M-D68-5): %s, under H-SEAT-S5, which "
         "M adopted (M-D68-7: \"S5 counts\"); given H-SEAT-ROUTES (S10 and S13 "
         "only, kept as the alternative on record) %s -- an obstruction until the "
-        "seat's supply is shown, never removed by assertion.  O-MAKE in its "
-        "distribution form: %s.  M's H-INFO-SHAPE removes nothing (O-SEAT %s "
+        "seat's supply is shown, never removed by assertion.  Wave 2 asked it at "
+        "Proxima (seat.py, W2C-seat): seat.grade_o_seat = %s; the D25 gate's binder "
+        "at a CI-like body is %s, measured in no Proxima-system star or body in the "
+        "sources read (seat.P_MEASURED_IN_PROXIMA_SYSTEM = %s), so the gate cannot "
+        "be evaluated at its binder; N, the runner-up: %s.  O-MAKE in its "
+        "distribution form (wave 2, vacuum.py, W2B-vacuum: N_VAC split, and retired "
+        "to combine's history): vacuum.GRADES grades it LEFT-IF {%s} and OPEN "
+        "outside that set via %s, none computed; combine screens it %s; given "
+        "H-VAC-LEFTIF (the nine taken together) %s.  The distribution is relocated "
+        "to the probes and to two-way messages, not removed: the vacuum route's "
+        "window-free floor is %.2f / %.2f L/c (midpoint / one end), against a "
+        "midpoint pair source at %.2f L/c (D23's note).  WAVE 1 FIRST SAID (kept): "
+        "%s (as-of: combine's HISTORY encoding wave6-NVAC).  M's H-INFO-SHAPE "
+        "removes nothing (O-SEAT %s "
         "under it: the board's pathway, not the hypothesis's).  THE MEASURE "
         "R-INDEX USES, computed.  Q-1 (measure.py): Baez-Fritz-Leinster's "
         "Theorem 2 verified on finite spaces; on The Method's closed index "
@@ -3513,8 +3930,11 @@ def o9_claim():
            d68_asked("W2 x F1", "O-BITS"), d68_asked("H-SETTLE alone (W2)", "O-BITS"),
            d68_asked("H-FRAME clause 1 alone (F1)", "O-BITS"), combine.CELL_AU,
            d68_asked("W2 x F1", "O-BITS", au=True),
-           combine.cell_window_open(combine.CELL_AU),
            d68_asked("W2 x F1 x H-12", "O-BITS", au=True),
+           ", ".join(settle.W_W2R), "; ".join(c[3] for c in d68_w2_window_cells()),
+           d68_verdict(D68_AU_SUPPORT1_ONLY), d68_verdict(D68_AU3_SUPPORT1_ONLY),
+           d68_w2_windows_agree() or "none",
+           combine.cell_window_open(combine.CELL_AU), d68_verdict(D68_AU_WAVE6_WREAD),
            d68_asked("clause 2b's D-CTC (F2b)", "O-BITS"),
            d68_asked("clause 2b's D-CTC (F2b)", "O-LOOP-C"),
            d68_asked("clause 2b's D-CTC (F2b)", "O-LOOP-S"),
@@ -3532,7 +3952,13 @@ def o9_claim():
            d68_asked("ITB with R-QUANTUM (ITB+RQ)", "O-HOLD"),
            d68_asked("the board alone", "O-LOOP-C"),
            d68_asked("H-FRAME clause 1 alone (F1)", "O-LOOP-C"),
-           d68_uniform("O-SEAT"), d68_verdict(D68_SEAT_ROUTES), d68_uniform("O-MAKE-DIST"),
+           d68_uniform("O-SEAT"), d68_verdict(D68_SEAT_ROUTES),
+           D68_SEAT["grade"], D68_SEAT["binder"][0], D68_SEAT["P in the system"],
+           D68_SEAT["N alpha Cen"].split(" (")[0],
+           ", ".join(d68_vac_grade()[0]), ", ".join(d68_vac_grade()[1]),
+           d68_grouped("O-MAKE-DIST"), d68_grouped("O-MAKE-DIST", D68_VACLEFT_ASKED),
+           D68_VAC["floor midpoint, one end (L/c)"][0], D68_VAC["floor midpoint, one end (L/c)"][1],
+           D68_VAC["midpoint pair source (L/c)"], d68_grouped("O-MAKE-DIST", D68_NVAC_ASKED),
            d68_asked("H-INFO-SHAPE (SHAPE)", "O-SEAT"),
            mb["cells"], mb["bits_per_cell"], measure.GRADES["Q-1"]["verdict"],
            D68_Q1S_P, reh, imh, nneg, mana,
@@ -3541,7 +3967,8 @@ def o9_claim():
            sep["null_dim"], len(sep["basis"]), sep["control_null_dim_without_CL_rows"]))
 
 
-O9_ANSWERED_BY = (
+#: O9's answer AS WAVE 1 SEATED IT, kept as history and printed after wave 2's.
+O9_ANSWERED_BY_AS_WAVE1 = (
     "D68 wave 2, in M's order (M-D68-10: \"1 then 2 then 3 then 4\"): the "
     "Weinberg-family limits READ at source (settles N_WREAD and the W_W2 flag on "
     "support 1); vacuum entanglement as pair supply (N_VAC); the S5 seat route "
@@ -3551,6 +3978,23 @@ O9_ANSWERED_BY = (
     "Bob shown (N_DCTC); a READ source for what a non-geometric corridor costs "
     "(N_QTOPO, N_ILFREE).  O9 CLOSES only if a member removes O-BITS with no "
     "named premise (OPEN_ROW_READINGS)")
+
+O9_ANSWERED_BY = (
+    "D68 wave 2 (step 2 of M-D68-10) is RUN and seated (docstring section 7b): it "
+    "READ the Weinberg-family limits (N_WREAD retired: %s), split N_VAC (retired: "
+    "%s) and asked the S5 seat route at Proxima -- and closed nothing.  What "
+    "would still answer: on support 1, H-MAP from the full texts of the papers "
+    "(login wall, not read), H-SAME-EPS, H-ERRATUM and H-BEFRAC; support 2's window "
+    "(N_W2ANC, UNEVALUATED); for O-MAKE-DIST, any of %s computed; for O-SEAT at "
+    "a destination, the gate's binder (%s) measured in a body of the arrival "
+    "aperture, accessible mass and the aperture, E_fab and m_set (S5's supply).  "
+    "Beyond: a measured state-dependent drift with a preferred slicing (W2 x F1's "
+    "premises shown or refuted); a CTC at Bob shown (N_DCTC); a READ source for "
+    "what a non-geometric corridor costs (N_QTOPO, N_ILFREE).  O9 CLOSES only if "
+    "a member removes O-BITS with no named premise (OPEN_ROW_READINGS).  WAVE 1 "
+    "FIRST SAID (kept): %s"
+    % ("N_WREAD" in combine.HISTORY_OPEN, "N_VAC" in combine.HISTORY_OPEN,
+       ", ".join(d68_vac_grade()[1]), D68_SEAT["binder"][0], O9_ANSWERED_BY_AS_WAVE1))
 
 OPEN_ROWS += [("O9", o9_claim(), O9_ANSWERED_BY, ("combine", "counts"))]
 
@@ -4113,21 +4557,32 @@ established and refuted so far, not a census of what is establishable.
 #: withdrawn tables are summaries and keep their shorter widths).  DOCKET 65
 #: added the supply note to that check: S10 carries its claim and its movers in
 #: one note, and the old fixed 2000 would have cut them.
-W_DEMAND_CLAIM = 4000             # DOCKET 67: D24 names the dropped
-                                  # hypotheses M ruled repaired ("Repair all")
+W_DEMAND_CLAIM = 5200             # DOCKET 67: D24 names the dropped
+                                  # hypotheses M ruled repaired ("Repair all").
+                                  # DOCKET 68 wave 2: 4000 -> 5200 -- the D23
+                                  # and D25 notes carry vacuum.py's and seat.py's
+                                  # asked values and D23 keeps wave 1's words
+                                  # (4734 and 4472 chars as rendered)
 W_DEMAND_MOVES = 1200             # DOCKET 65: D27's movers run past 1000
 W_SUPPLY_NOTE = 5000              # DOCKET 65: S10's claim and movers, one note,
                                   # and the item S10 (open) (M-D65-2)
-W_OPEN_CLAIM = 6000               # DOCKET 67: as W_DEMAND_CLAIM (D24 is OPEN);
+W_OPEN_CLAIM = 9000               # DOCKET 67: as W_DEMAND_CLAIM (D24 is OPEN);
                                   # follow-ups: O5 names FO/FFKP REFUSED on the
                                   # Hadamard clause, with its correction (4065
                                   # chars as rendered at the follow-ups).
                                   # DOCKET 68 residuals: 4400 -> 6000 -- O9 now
                                   # prints the readings first left unasked (KR,
                                   # ITJ, ITE, RQ, ITB+RQ) and signed.py (4b)'s
-                                  # steps with their statuses
-W_OPEN_ANSWER = 1400              # DOCKET 67: O2's answer names its
-                                  # conditions (M ruled "Repair all")
+                                  # steps with their statuses.  DOCKET 68 wave 2:
+                                  # 6000 -> 9000 -- O9 prints support 1's nine
+                                  # READ windows, the vacuum and seat grades,
+                                  # and wave 1's words kept (8474 chars as
+                                  # rendered)
+W_OPEN_ANSWER = 2400              # DOCKET 67: O2's answer names its
+                                  # conditions (M ruled "Repair all").
+                                  # DOCKET 68 wave 2: 1400 -> 2400 -- O9's
+                                  # answer names what wave 2 left open and
+                                  # keeps wave 1's answer after it
 W_WAS = 1400
 W_WHY = 1000                      # DOCKET 67: superseded rows carry
                                   # the corrections M ruled ("Repair all")
@@ -4913,10 +5368,13 @@ def selftest():
         # and the pending list empties -- nothing is pending M.
         # RE-PINNED WITH ITEMS 12 AND 13: + M-D68-12 and M-D68-13, M's rulings
         # on the paper ("Correct it", "Scope it"), seated after M-D68-11.
+        # RE-PINNED BY DOCKET 68 WAVE 2: + M-D68-15 and M-D68-16 (items 15-16,
+        # the retrieval route; 15 superseded by 16, kept as history), seated
+        # after M-D68-13.  Item 14 is M-D68-C12.
         (["M-D64-1", "M-S1A-P1", "M-S1A-P2", "M-S1A-P3", "M-S1A-P4",
           "M-S1A-P5", "M-D65-1", "M-D65-2", "M-D65-3", "M-D65-4", "M-D65-5",
           "M-D67-1", "M-D67-2"]
-         + ["M-D68-%d" % i for i in range(1, 14)]
+         + ["M-D68-%d" % i for i in list(range(1, 14)) + [15, 16]]
          + ["M-D68-C%d" % i for i in (1, 2, 3, 5, 8, 12)], [],
          True, False, False, True, False))
 
@@ -6114,19 +6572,107 @@ def selftest():
              "CORROBORATES it and does not prove it")),
          "(signed.separable_nullspace: a null space" in o9_claim()),
         (("unsat", "unsat", "unsat", "sat"), True, False))
-    chk("  O-SEAT OPEN via N_S5 and O-MAKE-DIST OPEN via N_VAC in every asked "
-        "variant; LEFT given H-SEAT-ROUTES; the geometry's corridor loop credited "
-        "to no hypothesis",
-        (d68_uniform("O-SEAT"), d68_uniform("O-MAKE-DIST"), D68_SEAT_ROUTES["verdict"],
+    # RE-PINNED BY DOCKET 68 WAVE 2 (docstring section 7b).  Wave 1 pinned
+    # O-MAKE-DIST 'OPEN via N_VAC in every variant asked' and the 1 AU cell
+    # 'OPEN via N_WREAD'; wave 2 split N_VAC (vacuum.py) and READ the limits,
+    # and combine retired both pathways to HISTORY_OPEN.  The wave-1 values
+    # are now AS-OF CONTROLS, re-derived from combine's history encodings.
+    _mk = dict((k, D68_ASKED[k]["per"]["O-MAKE-DIST"]) for k, _p_ in D68_VARIANTS
+               if D68_ASKED[k]["consistent"])
+    chk("  O-SEAT OPEN via N_S5 in every asked variant, LEFT given H-SEAT-ROUTES; "
+        "O-MAKE-DIST OPEN in every asked variant, only via vacuum.py's three pathways, "
+        "N_VACNP (the board's) in every one, removed by none; the geometry's corridor "
+        "loop credited to no hypothesis",
+        (d68_uniform("O-SEAT"), D68_SEAT_ROUTES["verdict"],
+         sorted(set(v["verdict"] for v in _mk.values())),
+         all(set(v.get("via", [])) <= set(combine.VAC_OPEN) and "N_VACNP" in v.get("via", [])
+             for v in _mk.values()),
          D68_ASKED["the board alone"]["per"]["O-LOOP-C"]["attribution"]),
-        ("OPEN via N_S5 in every variant asked", "OPEN via N_VAC in every variant asked",
-         "LEFT", "none"))
-    chk("  the 1 AU cell: support 1's window is empty there (OPEN via N_WREAD), "
-        "support 2 stands, and with H-12 support 1 returns",
+        ("OPEN via N_S5 in every variant asked", "LEFT", ["OPEN"], True, "none"))
+    chk("  vacuum.py's own grade, asked and parsed as combine parses it, is combine's "
+        "named reading: LEFT-IF its nine (combine.VAC_LEFTIF), OPEN via its three "
+        "(combine.VAC_OPEN); given H-VAC-LEFTIF O-MAKE-DIST is LEFT in every asked variant",
+        (d68_vac_grade() == (combine.VAC_LEFTIF, combine.VAC_OPEN),
+         d68_grouped("O-MAKE-DIST", D68_VACLEFT_ASKED)),
+        (True, "LEFT in every variant asked"))
+    _gk = vacuum.GRADES["O-MAKE-DIST"]
+    vacuum.GRADES["O-MAKE-DIST"] = _gk.replace("N_W2WEAK, N_VACNP", "N_W2WEAK")
+    try:
+        _gm = d68_vac_grade()[1]
+    finally:
+        vacuum.GRADES["O-MAKE-DIST"] = _gk
+    chk("  CONTROL: a vacuum grade with N_VACNP dropped is read as dropped (asked, "
+        "not typed)", _gm, ("N_NLDIST", "N_W2WEAK"))
+    chk("  AS-OF CONTROL (wave 1's pin): combine's HISTORY encoding wave6-NVAC gives "
+        "O-MAKE-DIST OPEN via N_VAC in every asked variant, and N_VAC is in "
+        "combine.HISTORY_OPEN, not OPEN_NAMED",
+        (d68_grouped("O-MAKE-DIST", D68_NVAC_ASKED), "N_VAC" in combine.HISTORY_OPEN,
+         "N_VAC" in combine.OPEN_NAMED),
+        ("OPEN via N_VAC in every variant asked", True, False))
+    _cells = d68_w2_window_cells()
+    chk("  the 1 AU cell: support 1's window is empty there, support 2 stands, and with "
+        "H-12 support 1 returns; combine's support-1 route alone reads LEFT at 1 AU, "
+        "N = 7 and N = 1e3",
         (combine.cell_window_open(combine.CELL_AU),
          [sp["named"] for sp in D68_ASKED_AU["W2 x F1"]["per"]["O-BITS"]["supports"]],
-         [sp["named"] for sp in D68_ASKED_AU["W2 x F1 x H-12"]["per"]["O-BITS"]["supports"]]),
-        (False, [["N_W2ANC"]], [["N_EPS", "N_H12W"], ["N_W2ANC"]]))
+         [sp["named"] for sp in D68_ASKED_AU["W2 x F1 x H-12"]["per"]["O-BITS"]["supports"]],
+         D68_AU_SUPPORT1_ONLY["verdict"], D68_AU3_SUPPORT1_ONLY["verdict"]),
+        (False, [["N_W2ANC"]], [["N_EPS", "N_H12W"], ["N_W2ANC"]], "LEFT", "LEFT"))
+    chk("  SUPPORT 1 ON THE READ LIMITS (settle.window_read, asked): EXCLUDED given "
+        "W_W2R at 1 AU, N = 7 and 1e3 (the latter's reading A also given H-SAME-EPS), "
+        "ADMISSIBLE at the other seven cells; all four statuses READ; combine's window "
+        "agrees at its four screened cells; O9 prints every cell",
+        (sorted((L, N) for L, N, w, _p_ in _cells if w == "EXCLUDED"),
+         sum(1 for c_ in _cells if c_[2] == "ADMISSIBLE"), len(_cells),
+         [(r["L"], r["N"], r["reading"][:1]) for r in D68_WINDOW_READ["rows"]
+          if not r["robust_across_READ_bounds"]],
+         all(v.startswith("READ (abstract)") for v in D68_WINDOW_READ["statuses"].values()),
+         d68_w2_windows_agree(), [c_[3] for c_ in _cells if c_[3] not in o9_claim()]),
+        ([("1 AU", 7), ("1 AU", 1000)], 7, 9, [("1 AU", 1000, "A")], True, [], []))
+    _wg = settle.window_given()
+    chk("  AS-OF CONTROL (wave 1): settle's wave-4 record (settle.window_given) has the "
+        "same two cells EMPTY, GIVEN W_W2 -- the unread values -- and combine's HISTORY "
+        "encoding wave6-WREAD gives the 1 AU support-1 route OPEN via N_WREAD, as O9 "
+        "first printed",
+        (sorted(set((r["L"], r["N"]) for r in _wg["rows"]
+                    if r["support 1"].startswith("EMPTY GIVEN"))),
+         d68_verdict(D68_AU_WAVE6_WREAD)),
+        ([("1 AU", 7), ("1 AU", 1000)], "OPEN via N_WREAD"))
+    chk("  CONTROL: every READ limit 1e3x looser (settle.window_read(scale=1e3), the "
+        "owner's own control) leaves no EXCLUDED cell -- the pattern is the limits'",
+        [c_[:2] for c_ in d68_w2_window_cells(settle.window_read(scale=1e3))
+         if c_[2] != "ADMISSIBLE"], [])
+    chk("  D23's note carries vacuum.py's values and D25's seat.py's, each asked; "
+        "O9 prints both grades",
+        ([x in D68_NOTES["D23"] for x in (
+            _d68_e(D68_VAC["N"]), ", ".join(d68_vac_grade()[0]),
+            "%.2f L/c from a midpoint and %.2f L/c from one end" % D68_VAC[
+                "floor midpoint, one end (L/c)"], "WAVE 1 FIRST SAID (kept)",
+            "at the NAMED-NOT-READ Weinberg-family limit")],
+         [x in D68_NOTES["D25"] for x in (
+            "seat.grade_o_seat on today's board state = %s" % D68_SEAT["grade"],
+            "binder at a CI-like body is %s, as this row's claim states" % D68_SEAT["binder"][0],
+            D68_SEAT["P alpha Cen"], _d68_e(D68_SEAT["min-mass floor"]))],
+         [x in o9_claim() for x in ("seat.grade_o_seat = %s" % D68_SEAT["grade"],
+                                    "LEFT-IF {%s}" % ", ".join(d68_vac_grade()[0]))]),
+        ([True] * 5, [True] * 4, [True, True]))
+    chk("  the wave-2 grades as their owners state them: seat.grade_o_seat OPEN, the "
+        "binder P and unmeasured in the system, seat.py's binder equal to stockgate's "
+        "(element, and figure to 4 places); the vacuum route's floors after the "
+        "light time and after a midpoint pair source",
+        (D68_SEAT["grade"], D68_SEAT["binder"][0], D68_SEAT["P in the system"],
+         D68_SEAT["binder"][0] == stockgate.binding_under("as-composed 59", "CI chondrite")[0]
+         and "%.4g" % D68_SEAT["binder"][1] == "%.4g" % stockgate.binding_under(
+             "as-composed 59", "CI chondrite")[1],
+         all(f_ > 1.0 for f_ in D68_VAC["floor midpoint, one end (L/c)"]),
+         D68_VAC["midpoint pair source (L/c)"] < min(D68_VAC["floor midpoint, one end (L/c)"])),
+        ("OPEN", "P", False, True, True, True))
+    _sb, _gb = D68_SEAT["binder"][1], stockgate.binding_under("as-composed 59", "CI chondrite")[1]
+    chk("  RECORDED, NOT REPAIRED (found seating wave 2): seat.py's binder figure is "
+        "computed on stock.HUMAN, stockgate's D25 figure on the 'as-composed 59' payload, "
+        "and the two differ in the fifth figure (relative difference > 0 and < 1e-4); "
+        "the element and the four-figure value agree, so no printed figure moves",
+        (abs(_sb - _gb) / _gb > 0, abs(_sb - _gb) / _gb < 1e-4), (True, True))
     _note_rows = dict((r[0], r) for r in DEMAND + SUPPLY)
     chk("the notes on S5, S10, S13, D23, D25 are carried, and NO status moved",
         [(k, _note_rows[k][2], "DOCKET 68 (a note; no status change)"
@@ -6301,6 +6847,33 @@ def selftest():
         "not READ as carrying M-D68-13's marker",
         (paper_d68_marker(D68_M_WORDS["M-D68-13"][0], _pl68)[0], paper_d68_words(_pl68)),
         (None, [D68_M_WORDS["M-D68-12"][0]]))
+    _r1516 = dict((r[0], [" ".join(c.split()) for c in r]) for r in D68_RULED
+                  if r[0] in ("M-D68-15", "M-D68-16"))
+    chk("M-D68-15 and M-D68-16 (items 15-16, the retrieval route) are seated after "
+        "M-D68-13: M's words verbatim; 15 marked SUPERSEDED by 16 and kept; 16's applied "
+        "routes asked of the owners, every one naming alphaXiv or Firecrawl",
+        ([r[0] for r in D68_RULED].index("M-D68-15")
+         == [r[0] for r in D68_RULED].index("M-D68-13") + 1,
+         [k for k in d68_words_faults() if k in ("M-D68-15", "M-D68-16")],
+         _r1516["M-D68-15"][3].startswith(
+             "RULED BY M: CORPUS INSTRUMENTS -- SUPERSEDED BY M-D68-16 -- "
+             + d68_words("M-D68-15")),
+         _r1516["M-D68-16"][3].startswith(
+             "RULED BY M: WEB-RETRIEVAL INSTRUMENTS, OPEN CONTENT ONLY -- "
+             + d68_words("M-D68-16")),
+         " ".join(d68_w2_routes().split()) in _r1516["M-D68-16"][3],
+         d68_w2_routes().endswith("routes naming neither instrument: none")),
+        (True, [], True, True, True, True))
+    _sk = dict(seat.KERVELLA_2017)
+    seat.KERVELLA_2017["route"] = "READ through a library copy"
+    try:
+        _rt = d68_w2_routes()
+    finally:
+        seat.KERVELLA_2017.clear()
+        seat.KERVELLA_2017.update(_sk)
+    chk("  CONTROL: a source whose recorded route names neither instrument is listed, "
+        "not dropped (a scratch route on seat.KERVELLA_2017)",
+        _rt.endswith("['READ through a library copy']"), True)
     chk("M-D68-9: the paper brief stays in the tree; M-D68-4: index3.py's held rows "
         "are named in the ruling, asked",
         (d68_paper_brief_present(),
@@ -6328,6 +6901,7 @@ def selftest():
          [k for k in d68_index3_needles() if "SIGNED-ENTROPY" in k]), ([], []))
     chk("the docstring states section 7 and names its limitations",
         all(x in __doc__ for x in ("7.  DOCKET 68, WAVE 1, AS M RULED IT",
+                                   "7b.  DOCKET 68, WAVE 2, AS SEATED",
                                    "H-LEDGER-ASKS-REPRESENTATIVES", "H-LEDGER-DEPS",
                                    "CARRIED, NOT RULED", "WHAT IS CHECKED",
                                    "are cited from their owners, not checked")), True)

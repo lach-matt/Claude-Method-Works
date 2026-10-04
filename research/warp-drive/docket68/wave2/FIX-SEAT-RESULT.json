@@ -1,0 +1,271 @@
+{
+  "summary": "DOCKET 68 wave 2: resolve the verifiers’ residuals, then seat wave 2 into the ledger and index3; reproduce",
+  "agentCount": 3,
+  "logs": [],
+  "result": {
+    "f": {
+      "id": "W2-fix",
+      "files": [
+        "/home/user/Claude-Method-Works/research/warp-drive/docket68/settle.py",
+        "/home/user/Claude-Method-Works/research/warp-drive/docket68/A1-settle.md",
+        "/home/user/Claude-Method-Works/research/warp-drive/docket68/vacuum.py",
+        "/home/user/Claude-Method-Works/research/warp-drive/docket68/W2B-vacuum.md",
+        "/home/user/Claude-Method-Works/research/warp-drive/docket68/seat.py",
+        "/home/user/Claude-Method-Works/research/warp-drive/docket68/W2C-seat.md",
+        "/home/user/Claude-Method-Works/research/warp-drive/docket68/combine.py",
+        "/home/user/Claude-Method-Works/research/warp-drive/docket68/B-combine.md",
+        "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d68w2/B-combine.variants.json",
+        "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d68w2/B-table.md",
+        "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d68w2/B-report.txt",
+        "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d68w2/B-selftest.txt",
+        "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d68w2/B-combine.json",
+        "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d68w2/W2-combine.json",
+        "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d68w2/W2A-limits.json",
+        "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d68w2/W2B-vacuum.json",
+        "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d68w2/W2C-seat.json",
+        "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d68w2/W2C-seat.selftest.txt",
+        "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/w2fix/"
+      ],
+      "done": [
+        "W2V-0 #1 and W2V-1 #1 (window bound and floor stated too generally): fixed and computed. T > 0.9097 L/c and the 2.41-3.00 L/c floors are now limited to the two window families actually computed, Reznik cos^2(pi t) with Omega T in [2,40] and the Gaussian at beta = 7. The limit is written in vacuum.py GRADES and the timeline docstring, combine.py (N_VAC history, B-LOCC, ground-check names), W2B-vacuum.md and B-combine.md. New function vacuum.window_free_floor computes the floor from the imported D23 timing (settle.first_transit_times) with no window assumed: t_hold + L/c = 1.50 L/c from the midpoint and 2.00 L/c from one end, with T_window -> 0 allowed. The cost is RRS eq.8's guarantee, which falls as e^-(L/cT)^3 (e^-8 at cT = L/2, e^-64 at L/4). The one required message rests only on R7 Prop.3 and R8 Thm 1 (with no message, local operations raise neither N nor f), so it holds for any state; R9 is not used for RRS windows. Each floor still arrives after light and after a midpoint source (0.50 L/c); no grade moves. New checks: vacuum I3 and I5, I4 (a control), and a combine GROUND check.",
+        "W2V-0 #2 and W2V-1 #4 (Proxima b's mass): every site now says minimum mass m sin i = 1.07 +- 0.06 M_earth (Faria 2022 Table C.1 p.17 and p.9, re-READ). The ratio is now a floor: the mass is at least 8.53e21 x the CI threshold. The seat.gate_conjuncts key was renamed, a GROUND check covers it, and W2C-seat.md, the N_S5 text, B-combine.md, W2C-seat.json and W2-combine.json are updated.",
+        "W2V-0 #3 (1 AU, N = 1e3 premises): the summary line in W2A-limits.json now reads EXCLUDED given W_W2R under reading B, and given W_W2R + H-SAME-EPS under reading A. A1, the combine header and B-combine already said this. The first wording is kept in the JSON.",
+        "W2V-0 #4 (B_x rotation): READ BDSW quant-ph/9604024v2 myself via alphaXiv: p.29 names it ('deterministic bilateral B_x rotation for the twirl T'), and Table 1 p.24 was typed in as BDSW_TABLE1. Computed with bdsw_bx_from_table1: in eq.(40) labels Table 1's B_x is literally 00<->01. Conjugated by the sigma_y of item 5 it is exactly 10<->11, which is swap_post's map, and so is sigma_x B_x (p.58 item 4). Both versions give 0.0045700549, because they differ by a symmetry of eqs.42-43. The typed table was checked against the prose (B_y swaps the high and low bits). Control: B_y gives 0.0029. Only 8 of the 24 possible label maps reproduce 0.00457. A side finding: wave 2's 'search over the six maps that fix 00' actually had two hits, 10<->11 and a 3-cycle. New checks G6, G7 and G8 (G8 a control).",
+        "W2V-0 #5 (Brugger 2016): re-READ 1609.09757v3 via alphaXiv. Its model has only a Fe/FeS core, two silicate mantles, high-pressure ice and liquid water, with Earth's parameters (Table 1 p.2), and no C, N or P. Its masses are 1.10-1.46 M_earth with sin i = 1 (p.1, p.3). Every site now reads 'leaves the primitive conjunct unconstrained'. BRUGGER_2016 gains models_C_N_P False, and a GROUND check keeps primitive at None.",
+        "W2V-0 #6 (H-MAP wording): now 'the full texts (login wall, not read) may carry each paper's eps convention' in A1, combine's support2 docstring, B-combine sections 8 and 12, the answer section, and W2A-limits.json / W2-combine.json.",
+        "W2V-1 #2 (nitrogen): re-READ Porto de Mello, Lyra & Keller 0804.3712v2 via alphaXiv. p.12 says 'The available literature data also suggests that the C, N and O abundance ratios of alpha Cen A are solar', and Fig. 8 p.14 plots N. Their own Table 4 has no N and no P. Also READ Hinkel & Kane 1304.0450v1: p.2 reports Laird 1985 measured C and N in both A and B, with [N/Fe] offset by -0.65 dex, and they excluded it; their Table 1 has no N and no P. seat.proxima_measured now separates N (measured in alpha Cen A, qualitative 'solar', primary studies NAMED-NOT-READ) from P (measured in no source read). Under H-ACEN-RATIO, N's [N/Fe] ~ 0 is now a measured value, while P's 0 is an assumption. The binder is still P and O-SEAT stays OPEN. combine's D25 ground check now asserts P unmeasured and N measured. Maas 2017 and the Hypatia sample are cited only as the verifier's reads.",
+        "W2V-1 #3 (Proxima distance): settle.WINDOW_READ_L now imports phase1.L_PROXIMA (4.24646 ly, Gaia DR3 parallax 768.066539187357 mas) instead of a typed 4.2465 * LY. The label '4.2465 ly' is kept as that value rounded to 4 decimals. seat.D_PROXIMA now uses the same import. settle.PROXIMA_DISTANCES_READ records both READ values: phase1's DR3 value, and Faria 2022 Table 1 p.2 (re-READ: 768.50 +- 0.20 mas, 1.3012 +- 0.0003 pc, cited to Gaia Collaboration 2016, i.e. DR1-era). proxima_distances() computes Faria = 4.2439 ly, a 0.056% discrepancy: 2.17 sigma on Faria's parallax error alone, 2.10 on both errors, and 2.57 against Faria's rounded printed pc (this is where the verifier's '2.6 sigma' comes from). No Proxima window moves at either distance. 4.2465 is not called the task's figure anywhere. New checks G40, G41 (a control that fails if the two values agree) and G42. D23 on Faria's distance: 4.244 yr arrival, 8.488 yr report home.",
+        "W2V-1 #5 (the verifier's own process note): recorded; no change needed.",
+        "History kept: every replaced sentence is preserved as 'wave 2 first said' or 'wave 7 first said' in the md files and docstrings, and each scratchpad report JSON has a w2fix.first_written block. Pre-fix combine outputs are copied to scratchpad/w2fix/wave7-outputs (the variants file is kept by md5 only). A new 'section 0 (W2-fix)' in B-combine.md and W-fix sections in W2B, W2C and A1 list each item with its resolution.",
+        "Regenerated combine outputs (variants JSON, table, report, selftest) into scratchpad/d68w2. B-table.md is byte-identical to wave 7's. The only report figures that changed are the 4.2465 ly window factors in the sixth digit (2782.15x vs 2782.18x). B-combine.json grounds and selftest fields were rebuilt from the new variants JSON."
+      ],
+      "for_m": [
+        "No grade moved. O-MAKE-DIST is still LEFT-IF vacuum.py's nine hypotheses and OPEN via N_NLDIST, N_W2WEAK and N_VACNP; O-SEAT is still OPEN via S5/D25; O-BITS is unchanged.",
+        "The vacuum route's floor with no window assumption is 1.50 L/c (probes from the midpoint) and 2.00 L/c (from one end), lower than the 2.41-3.00 L/c wave 2 called universal. It is still later than light and later than a midpoint pair source.",
+        "One wording question for M: B_x has two equivalent forms (Table 1 literal, or sigma_y-conjugated), and the 0.00457 yield cannot tell them apart. It is recorded as DERIVED, not READ.",
+        "Nitrogen in alpha Cen A is a qualitative literature summary ('suggests ... solar') with no printed number. It is carried as a measured [N/Fe] ~ 0 under H-ACEN-RATIO, and that is labelled as its status."
+      ],
+      "selftests": [
+        "settle.py --selftest: 79/79 pass, 8 STRUCTURAL, 15 controls; 71/71 counted; rc 0. Wave 2 was 76/76 and 68/68 counted; G40-G42 added.",
+        "vacuum.py --selftest: 57/57 counted pass, 12 controls, 9 STRUCTURAL not counted; rc 0. Wave 2 was 50/50 with 10 controls; G6-G8 and I3-I5 added.",
+        "seat.py --selftest: 47/47 pass (26 CONTROL, 16 GROUND, 5 STRUCTURAL not counted), so 42/42 counted; rc 0. Wave 2 was 44/44; three GROUND checks added.",
+        "combine.py --selftest, run once at the end: 124/124 counted pass, 26 controls, 14 STRUCTURAL not counted, 2480 s, rc 0. Diff against wave 7: one new GROUND check (window-free floor) and three GROUND names reworded.",
+        "combine.py --json --table run concurrently: rc 0, z3 screen 627 s, B-table.md byte-identical. The report runs for vacuum.py, settle.py and seat.py also finished with rc 0, and the new report lines were checked by eye."
+      ],
+      "problems": [
+        "combine.py's N_S5 string and the WAVE 7 header line still contain wave 7's wording ('Brugger admits both', 'measured in no star'), with the W2-fix correction written immediately after. This was done to keep history, but the N_S5 string now reads as two contradictory sentences unless the reader sees the 'W2-fix:' marker.",
+        "BDSW B_x: p.29 does not say whether Macchiavello's B_x is the literal Table 1 form or the sigma_y-conjugated one. They differ by a relabelling the yield cannot detect, so which one he meant stays a derivation, not a reading.",
+        "The window-free floor counts one required message (from R7 Prop.3 and R8 Thm 1). Whether RRS-window states also need messages in both directions (R9) is not computed. This does not change the floor because H-SIMUL counts one exchange round as L/c either way.",
+        "Maas 2017 (1704.08282) and the Hypatia P sample (2608.30484) were not re-read in this pass; they are cited only as verifier W2V-1's reads.",
+        "phase1's Gaia parallax status in the source code is READ-VIA-RESTATEMENT (through Reyle 2021 Table 1), not a direct read of the Gaia archive. It is recorded with exactly that wording rather than as plain READ.",
+        "The combine selftest took 2480 s against 1552 s in wave 2, because it shared the machine with the report run and other agents (load average around 12)."
+      ]
+    },
+    "s": {
+      "id": "W2-seat",
+      "files": [
+        "/home/user/Claude-Method-Works/research/warp-drive/ledger.py",
+        "/home/user/Claude-Method-Works/research/warp-drive/LEDGER.md",
+        "/home/user/Claude-Method-Works/research/warp-drive/index3.py",
+        "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/w2seat/"
+      ],
+      "done": [
+        "Wave 2 is seated in the same form as wave 1. ledger.py imports seat and vacuum quietly. No docket68 module shares a name with a module in warp-drive/ or tools/; I checked that again before adding the imports. Every new value is asked of its owner when the ledger runs: settle.window_read, vacuum.GRADES and its figures, seat.grade_o_seat/binders/proxima_measured/DOCKET56_OWED, and combine.Screen with the mutations support1-only, wave6-WREAD, wave6-NVAC and vac-left-if.",
+        "O9's cell lists W2 x F1's support 1 for all nine READ cells, from settle.window_read. EXCLUDED given W_W2R: 1 AU N=7 (a limit 96.5x / 193x looser would open it) and 1 AU N=1e3 (reading A also needs H-SAME-EPS, because the Chupp & Hoare limit alone opens it; 4.43x / 8.86x). ADMISSIBLE given W_W2R (not excluded, not found): 1 AU N=1e6 and every 1 ly and 4.2465 ly cell. The cell also shows combine's support-1 route on its own (LEFT at 1 AU for N=7 and N=1e3) and checks that combine's exact window agrees with settle's at its four screened cells (disagreements: none). The 1 AU headline is unchanged because support 2 carries it. Wave 1's words stay in the cell, re-derived from combine's wave6-WREAD encoding (OPEN via N_WREAD).",
+        "O-MAKE-DIST in O9 and in the D23 note: vacuum.py's grade, LEFT-IF its nine hypotheses and OPEN outside them via N_NLDIST, N_W2WEAK and N_VACNP. combine screens it OPEN in every asked variant; given H-VAC-LEFTIF it is LEFT in every one. The window-free floor is 1.50 / 2.00 L/c, against 0.50 L/c for a midpoint pair source. Wave 1's 'OPEN via N_VAC in every variant asked' is kept and re-derived from the wave6-NVAC encoding.",
+        "O-SEAT is still OPEN via N_S5, and seat.grade_o_seat agrees (OPEN). The binder is P, measured in no Proxima-system star or body in the sources read. N is measured in alpha Cen A (qualitative).",
+        "D23 note: vacuum.py's values (N = f - 1/2 = 4.004e-17; symmetric-extension margins 1.993e-15; 201 / 106 rounds; R2's guaranteed N, 3.35e-4 at cT = L/2; floors). The support-1 premise now reads READ (abstract) under W_W2R, and wave 1's words are kept. D25 note: seat.py's values (grade OPEN; binder P named, with the figure left to the row's claim so it is printed once; runner-up N 8.08; P and N status in seat's own words; minimum-mass floor 8.531e21 x the CI threshold). S5 note: seat.DOCKET56_OWED listed item by item, plus the grade.",
+        "O9's 'would be answered by' cell: wave 2 has run and closed nothing. It lists what is still open (H-MAP, H-SAME-EPS, H-ERRATUM and H-BEFRAC; support 2's window; the three vacuum pathways; the binder at a destination body, accessible mass and aperture, E_fab, m_set). The wave-1 answer is kept after it.",
+        "Rulings M-D68-15 and M-D68-16 are seated after M-D68-13, with M's words verbatim and checked against the rulings file. M-D68-15 is marked SUPERSEDED BY M-D68-16 and kept as history. M-D68-16's applied cell lists the recorded routes, asked of the owners: settle 4/4 via Firecrawl; vacuum R1-R11, 9 via alphaXiv and 2 via Firecrawl; seat 8 sources, 6 via alphaXiv and 2 via Firecrawl; none names a different route. M-D68-10 now says wave 2 ran and keeps 'NOT YET RUN' as history.",
+        "Docstring section 7b written, with named limitations: H-LEDGER-ASKS-REPRESENTATIVES grows, because vacuum.compact_boundary (44 s) and combine's full screen are cited, not re-run; H-NO-VACUUM-ROW; and the binder discrepancy, recorded but not repaired.",
+        "Widened the cells (W_OPEN_CLAIM 6000 -> 9000, W_DEMAND_CLAIM 4000 -> 5200, W_OPEN_ANSWER 1400 -> 2400), each with a comment giving the rendered lengths.",
+        "index3: no row added and no cell moved (still 750 rows, 16 cells, pins unchanged). In D68-ONE-MEMBER-REMOVAL, the stale support-1 sentence ('admissible given W_W2 ... NAMED-NOT-READ') and 'at the unread limit' are rewritten on the READ windows. The wave-1 text is kept in index3.D68_TEXT_AS_WAVE1, with a selftest check and a control. The D68-O-SEAT row gains seat.py's binder. The ledger's needles ask all the new values.",
+        "New ledger checks, each against a computed value with an as-of control: O-MAKE-DIST pathways are a subset of combine.VAC_OPEN; the parsed vacuum grade equals combine's (VAC_LEFTIF, VAC_OPEN); the windows pattern, with settle.window_given (the wave-4 record) as the as-of control; the wave6-NVAC and wave6-WREAD encodings reproduce wave 1. Controls that can fail: a vacuum grade with N_VACNP dropped is read as dropped; the limits 1e3x looser leave no EXCLUDED cell; a source route naming neither instrument is listed, not dropped.",
+        "combine.py's ground rows already use settle.window_read; window_given appears only in a comparison labelled HISTORY and in the docstring. The ledger reads no combine function that uses window_given.",
+        "LEDGER.md regenerated last with --md, then --selftest and --check run on it."
+      ],
+      "for_m": [
+        "paper/CLAIMS.md was not edited. I searched it for Weinberg/Majumder, NAMED-NOT-READ, harvesting/Reznik/vacuum entanglement, drift and non-linear, Proxima b mass, m sin i, alpha Cen, Brugger, 4.2465, and the H62d/H62e passages. No wave-2 finding contradicts an existing sentence. H62d is already scoped to linear QM (M-D68-13). H62e's 'traversal moved earlier' agrees with vacuum.py: probes sent at <= c, then two-way messages. 4648 already carries S5 open, not shown. 1183's 'Proxima (4.2465 ly)' is phase1's DR3 value rounded; Faria's 4.2439 ly differs by 0.06% and moves no window.",
+        "Decision for you (H-NO-VACUUM-ROW): should vacuum.py's computed price get an index3 row of its own? The price is the window-free floor (1.50 / 2.00 L/c) and the harvested-pair figures. A requirement stated in numbers could read Z = +1 at (0,0,+1). I did not add one: O-MAKE-DIST is still OPEN overall, and the figures depend on the case chosen (beta = 7, lambda = 0.1). They are on O9 and the D23 note instead.",
+        "Found while seating, recorded and not repaired: seat.py's binder figure (P, 10.70096 kg/kg, computed on stock.HUMAN) and stockgate's D25 figure (10.70115, on the 'as-composed 59' payload) differ in the fifth figure. The element and the four-figure value agree, so no printed figure moves. A ledger check pins the difference as between 0 and 1e-4 relative.",
+        "No grade moved: O9 OPEN, O-BITS REMOVED-IF only, O-SEAT OPEN, O-MAKE-DIST OPEN (LEFT-IF the nine), and every status in the census unchanged."
+      ],
+      "selftests": [
+        "ledger.py --selftest: SELFTEST OK, 286 [ok], 0 [XX], about 39 s. Baseline before this pass: 270 ok and 5 XX, because combine's wave-2 changes had made the wave-1 pins stale. The remaining 'XX' lines in the output come from the deliberate scratch copies the drift-check controls use.",
+        "ledger.py --md, then --check: rc 0, 'LEDGER.md agrees with a fresh ask of every row'.",
+        "index3.py --selftest: SELFTEST OK, including the new wave-2 history check and its control. Plain index3.py: rc 0.",
+        "specthm.py --selftest: SELFTEST OK, 185 checks (10 ask, 19 fig, 8 z3, 74 ctl, 6 pin, 68 chk). R11's rows now include M-D68-15 and 16 through ledger.D68_RULED, and specthm.py needed no edit.",
+        "pathmetric.py --selftest: SELFTEST OK. triangulate.py --selftest: SELFTEST PASS.",
+        "Owners re-run to confirm the state I seated, all rc 0: seat.py 47/47 (26 control, 16 ground, 5 structural); settle.py 79/79, 71/71 counted; vacuum.py 57/57 counted, 12 controls. combine.py's 40-minute selftest was not re-run; I cite W2-fix's 124/124."
+      ],
+      "problems": [
+        "state.py --check fails with 'STALE in: registry, figure, census'. These are master-index instruments that this pass did not touch, and STATE.json was last written on 2026-09-20, so this is very likely pre-existing. It is not my file, and I did not regenerate it.",
+        "The O9 cell is now about 8,500 characters, D23's claim 4,734 and D25's 4,472. I widened the cells rather than cut content. The O-MAKE-DIST listing is grouped by verdict to keep it shorter.",
+        "vacuum.compact_boundary (the family-specific T > 0.9097 L/c bound) takes 44 s, so the ledger does not re-run or print it. It cites the owner instead, as a named limitation.",
+        "O9's answer prints 'N_WREAD retired: True' and 'N_VAC retired: True' as asked booleans. That is accurate but reads stiffly.",
+        "The index3 control 'wave-1 sentence put back is detected' is weak: it fails only if the row loses its anchors or the detector breaks."
+      ]
+    },
+    "v": {
+      "problems": [
+        {
+          "site": "vacuum.py GRADES['O-MAKE-DIST'], inherited by LEDGER.md D23 note and O9 ('relocated to the probes and to two-way messages'); W2B-vacuum.md answer item 2, third bullet",
+          "wrong": "These sites say the pairs need 'two-way' messages, with no family scope. Two-way (R9) is computed only for the Gaussian and Reznik states. vacuum.window_free_floor's own docstring says R9 is not computed for R2's windows and uses only 'at least one message'. The D23 note attaches 'two-way messages' straight to the window-free floor sentence.",
+          "correct": "'At least one classical message; two-way (R9) in the two computed families; for R2's windows only >= 1 message is shown.' The floor of 1.50/2.00 L/c does not move.",
+          "moves_grade": false
+        },
+        {
+          "site": "settle.py line 839 (PROXIMA_DISTANCES_READ, Faria 'source')",
+          "wrong": "It says 'a Gaia DR1-era value, not DR3'. Faria's ref 1 is the DR1 summary paper (Brown et al. 2016, A&A 595 A2; re-READ via alphaXiv), but 768.50 +- 0.20 mas is DR2's published 768.5004 +- 0.2030 mas. That DR2 figure is from a secondary source only (a Firecrawl search excerpt; Gaia archive not read). 'DR1-era' is an inference stated as fact, and the numbers point against it.",
+          "correct": "'Cited to the Gaia DR1 summary paper; the figures agree with DR2's published parallax (secondary, NAMED-NOT-READ); which release: OPEN.' If it is DR2, the 2.17 sigma is the DR2->DR3 shift. No window moves.",
+          "moves_grade": false
+        },
+        {
+          "site": "LEDGER.md O9 cell (ledger.py ~3957, D68_SEAT['N alpha Cen'].split(' (')[0])",
+          "wrong": "O9 prints N as 'measured in alpha Cen A in the literature: solar, [N/Fe] ~ 0' and cuts off the owner's status: 'primaries NAMED-NOT-READ'. It also drops the conflicting Laird 1985 report (-0.65 dex, excluded by Hinkel & Kane) and the source's own hedge, 'suggests'. O9 alone says more than seat.proxima_measured. D25's note has the full text.",
+          "correct": "Keep 'qualitative literature summary; primaries NAMED-NOT-READ' in O9, or point to D25's note.",
+          "moves_grade": false
+        },
+        {
+          "site": "A1-settle.md line 119; B-combine.md section 0 (W2V-1 #3 row); W2A-limits.json open[7]",
+          "wrong": "Each pairs '4.2439 ly' with '0.056 %'. 4.2439 ly is Faria's printed 1.3012 pc; 0.056 % is computed from Faria's parallax, which gives 4.2441 ly. Against the printed value the gap is 0.059 %.",
+          "correct": "'4.2441 ly from Faria's parallax (4.2439 from its rounded printed pc); 0.056 %'.",
+          "moves_grade": false
+        },
+        {
+          "site": "combine.py N_S5 string (~lines 368-373) and the WAVE 7 header",
+          "wrong": "The wave-7 clauses 'measured in no star of the Proxima system' and 'Brugger 2016 admits both' stand unmarked, followed by the W2-fix correction in the same string, so the string contradicts itself. W2-fix flagged this itself; it is still open.",
+          "correct": "Mark the wave-7 clauses in-line as 'wave 7 first said', as the md files do.",
+          "moves_grade": false
+        },
+        {
+          "site": "LEDGER.md M-D68-16 applied cell, last column ('every wave-2 reading of outside art, each with its route')",
+          "wrong": "The route census (d68_w2_routes) counts settle's four Weinberg limits, vacuum R1-R11 and seat's 8 sources. It omits W2-fix's own reads: the Faria Table 1 route in settle.PROXIMA_DISTANCES_READ and the BDSW Table 1 re-read. 'Every' claims more than the census counts.",
+          "correct": "Add PROXIMA_DISTANCES_READ's route to the census, or limit the cell to the owners' source tables.",
+          "moves_grade": false
+        },
+        {
+          "site": "vacuum.py selftest I4 ('CONTROL (must change)')",
+          "wrong": "I4 checks that family floor = window-free floor + window. Both come from the same imported t_hold and the same t0 + tw + L/c formula, so it holds by construction: a drift guard, not a control that can fail on content.",
+          "correct": "Count it as STRUCTURAL, or make it independent.",
+          "moves_grade": false
+        },
+        {
+          "site": "scratchpad W2A-limits.json open[6]",
+          "wrong": "Still says combine.py imports settle.window_given and 'was not edited'. combine.py now uses window_read for every ground row; window_given remains only as a labelled HISTORY comparison.",
+          "correct": "Mark open[6] as superseded (history kept).",
+          "moves_grade": false
+        }
+      ],
+      "reproduced": [
+        "Each verifier item checked at its site. W2V-0 #1-#6 and W2V-1 #1-#4 are resolved: scoped wording is in place, and the old wording survives only as marked history ('wave 2/7 first said', w2fix.first_written). W2V-1 #5 needs no change.",
+        "M quotes checked character for character against M-RULINGS-2026-10-03.md: M-D68-15 and M-D68-16 (including 'their'), '1 then 2 then 3 then 4', 'S5 counts (Recommended)', 'Yes, from the seat'. M-D68-15 is kept as SUPERSEDED BY M-D68-16.",
+        "Window-free floor re-derived from first principles: hold at L/2c (midpoint) or L/c (one end), T_window -> 0, then one message of L/c, giving 1.50 and 2.00 L/c. With cT = xL the floor is (1.5 + x) L/c: 2.5, 2.0, 1.75, 1.6. R2 guarantee e^-1, e^-8 = 3.355e-4, e^-64, e^-1000. vacuum.window_free_floor returns exactly these at 1 AU and 1 ly.",
+        "READ-limit window cell re-derived without importing settle: own capacity gives CMAX = log2 1.25 = 0.321928 and D_7 = 0.9800996. At 1 AU, N = 7, Majumder 3.8 uHz: eps_any = 2.3047e-3 against eps_max 2.3876e-5 (A) / 1.1938e-5 (B), so the window is EMPTY and needs a limit 96.526x / 193.052x looser. settle gives 96.52616 / 193.05233. All 12 cells at 1 AU and 1 ly agree with settle, including 1 AU N=1e3 at 4.4287x / 8.8575x and Chupp-Hoare making reading A non-robust.",
+        "The index3 figure '0.50153 of light time at 1 ly at the READ limit' recomputes to 0.5015263.",
+        "proxima_distances recomputed: phase1 4.246460 ly; Faria 4.244065 ly (parallax) and 4.243947 ly (printed pc); 0.0564 %; 2.17 / 2.10 / 2.57 sigma. Windows at Proxima are unchanged at Faria's distance.",
+        "Re-READ via alphaXiv: Faria 2202.05188v1 Table 1 p.2 (768.50 +- 0.20 mas, 1.3012 +- 0.0003 pc, ref 1 = Gaia Collaboration, Brown et al. 2016, A&A 595 A2), Table C.1 p.17 (M_p sin i 1.07 +0.06 -0.06) and p.9 ('minimum mass ... 1.07 +- 0.06'); Porto de Mello 0804.3712v2 p.12 sentence verbatim, Table 4 with no N or P, Fig. 8 caption naming N as normal; Hinkel & Kane 1304.0450v1 p.2 (Laird [N/Fe] -0.65 dex, excluded) and Table 1 with no N or P.",
+        "settle.py --selftest: 79/79, 8 STRUCTURAL, 15 controls; counted 71/71; rc 0.",
+        "vacuum.py --selftest: 57/57 counted, 12 controls, 9 STRUCTURAL; rc 0. G6-G8 and I3-I5 pass.",
+        "seat.py --selftest: 47/47 (CONTROL 26, GROUND 16, STRUCTURAL 5); rc 0.",
+        "combine.py --selftest: 124/124, 26 controls, 14 STRUCTURAL not counted; rc 0.",
+        "ledger.py --check: rc 0, LEDGER.md agrees with a fresh ask of every row. index3.py --selftest: SELFTEST OK.",
+        "B-table.md is byte-identical to wave 7's (md5 e430777badcf64d7930c546ff9189f5d in both places).",
+        "No docket68 module name collides with a module in warp-drive/ or tools/.",
+        "Report written: /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d68w2/W2-repro.json"
+      ],
+      "unresolved": [
+        "Process: my first selftest launch wrote logs to scratchpad/d68w2/repro/, against my file rule. I killed it within a minute, deleted the directory unread, and re-ran with output only to the harness task files.",
+        "ledger.py --selftest was not re-run, because it writes temp copies. I cite W2-seat's 286 ok.",
+        "Gaia DR2's 768.5004 +- 0.2030 mas is from a secondary web excerpt (Firecrawl search), not the Gaia archive, so R2's 'agrees with DR2' is itself NAMED-NOT-READ.",
+        "BDSW p.29 / Table 1 and Brugger 1609.09757v3 were not re-read by me; both verifiers and W2-fix agree on them.",
+        "M-RULINGS items 15-16 are not yet carried into CHARTER.md. The rulings file says carrying is pending, and the ledger reads the rulings file. This is an observation, not a W2 defect.",
+        "W2-fix's own open items stay open: which form of B_x Macchiavello meant (DERIVED, not READ); R9 for R2-window states not computed; Maas 2017 and Hypatia not re-read."
+      ]
+    }
+  },
+  "workflowProgress": [
+    {
+      "type": "workflow_phase",
+      "index": 1,
+      "title": "Fix"
+    },
+    {
+      "type": "workflow_phase",
+      "index": 2,
+      "title": "Seat"
+    },
+    {
+      "type": "workflow_phase",
+      "index": 3,
+      "title": "Reproduce"
+    },
+    {
+      "type": "workflow_agent",
+      "index": 1,
+      "label": "W2-fix",
+      "phaseIndex": 1,
+      "phaseTitle": "Fix",
+      "agentId": "a82c7e6c9293f5415",
+      "model": "claude-opus-5-5",
+      "state": "done",
+      "startedAt": 1791108107722,
+      "queuedAt": 1791108107688,
+      "attempt": 1,
+      "lastToolName": "StructuredOutput",
+      "lastToolSummary": "W2-fix",
+      "promptPreview": "DOCKET 68 wave 2, M's warp-drive research tree. Read /home/user/Claude-Method-Works/research/warp-drive/docket68/CHARTER.md, /home/user/Claude-Method-Works/research/warp-drive/docket68/M-RULINGS-2026-10-03.md (items 15-16: web\ninstruments for outside papers -- Firecrawl and alphaXiv via ToolSearch -- open content only, route recorded, never a\npaywall or login wall circumvented) and /home/user/Clau…",
+      "promptFramed": true,
+      "lastProgressAt": 1791111795318,
+      "tokens": 457145,
+      "toolCalls": 109,
+      "durationMs": 3687595,
+      "resultPreview": "{\"id\":\"W2-fix\",\"files\":[\"/home/user/Claude-Method-Works/research/warp-drive/docket68/settle.py\",\"/home/user/Claude-Method-Works/research/warp-drive/docket68/A1-settle.md\",\"/home/user/Claude-Method-Works/research/warp-drive/docket68/vacuum.py\",\"/home/user/Claude-Method-Works/research/warp-drive/docket68/W2B-vacuum.md\",\"/home/user/Claude-Method-Works/research/warp-drive/docket68/seat.py\",\"/home/user…"
+    },
+    {
+      "type": "workflow_agent",
+      "index": 2,
+      "label": "W2-seat",
+      "phaseIndex": 2,
+      "phaseTitle": "Seat",
+      "agentId": "a5d5ce9bc050f671d",
+      "model": "claude-opus-5-5",
+      "state": "done",
+      "startedAt": 1791111799375,
+      "queuedAt": 1791111799363,
+      "attempt": 1,
+      "lastToolName": "StructuredOutput",
+      "lastToolSummary": "W2-seat",
+      "promptPreview": "DOCKET 68 wave 2, M's warp-drive research tree. Read /home/user/Claude-Method-Works/research/warp-drive/docket68/CHARTER.md, /home/user/Claude-Method-Works/research/warp-drive/docket68/M-RULINGS-2026-10-03.md (items 15-16: web\ninstruments for outside papers -- Firecrawl and alphaXiv via ToolSearch -- open content only, route recorded, never a\npaywall or login wall circumvented) and /home/user/Clau…",
+      "promptFramed": true,
+      "lastProgressAt": 1791113755533,
+      "tokens": 365166,
+      "toolCalls": 96,
+      "durationMs": 1956156,
+      "resultPreview": "{\"id\":\"W2-seat\",\"files\":[\"/home/user/Claude-Method-Works/research/warp-drive/ledger.py\",\"/home/user/Claude-Method-Works/research/warp-drive/LEDGER.md\",\"/home/user/Claude-Method-Works/research/warp-drive/index3.py\",\"/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/w2seat/\"],\"done\":[\"Wave 2 is seated in the same form as wave 1. ledger.py imports seat and v…"
+    },
+    {
+      "type": "workflow_agent",
+      "index": 3,
+      "label": "W2-repro",
+      "phaseIndex": 3,
+      "phaseTitle": "Reproduce",
+      "agentId": "af4848e7d33cb6466",
+      "model": "claude-opus-5-5",
+      "state": "done",
+      "startedAt": 1791113759636,
+      "queuedAt": 1791113759601,
+      "attempt": 1,
+      "lastToolName": "StructuredOutput",
+      "promptPreview": "DOCKET 68 wave 2, M's warp-drive research tree. Read /home/user/Claude-Method-Works/research/warp-drive/docket68/CHARTER.md, /home/user/Claude-Method-Works/research/warp-drive/docket68/M-RULINGS-2026-10-03.md (items 15-16: web\ninstruments for outside papers -- Firecrawl and alphaXiv via ToolSearch -- open content only, route recorded, never a\npaywall or login wall circumvented) and /home/user/Clau…",
+      "promptFramed": true,
+      "lastProgressAt": 1791114826581,
+      "tokens": 255492,
+      "toolCalls": 67,
+      "durationMs": 1066943,
+      "resultPreview": "{\"problems\":[{\"site\":\"vacuum.py GRADES['O-MAKE-DIST'], inherited by LEDGER.md D23 note and O9 ('relocated to the probes and to two-way messages'); W2B-vacuum.md answer item 2, third bullet\",\"wrong\":\"These sites say the pairs need 'two-way' messages, with no family scope. Two-way (R9) is computed only for the Gaussian and Reznik states. vacuum.window_free_floor's own docstring says R9 is not comput…"
+    }
+  ],
+  "totalTokens": 1077803,
+  "totalToolCalls": 272
+}

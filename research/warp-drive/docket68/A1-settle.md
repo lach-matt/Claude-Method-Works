@@ -1,8 +1,9 @@
 # DOCKET 68 / A1-settle: H-SETTLE alone, H-12's carriers, and the collapse control
 
-**Status: a work-item write-up, not seated.** Instrument: `settle.py` (`python3 settle.py --selftest`: 76/76 checks
-pass, about 1.5 min; eight of the 76 are printed STRUCTURAL -- they cannot fail by construction and are not counted -- so
-**68/68 counted**, fourteen of them controls built to fail; *D68 wave 2 (W2A-limits) first found* 67/67, seven
+**Status: a work-item write-up, not seated.** Instrument: `settle.py` (`python3 settle.py --selftest`: 79/79 checks
+pass, about 2 min; eight of the 79 are printed STRUCTURAL -- they cannot fail by construction and are not counted -- so
+**71/71 counted**, fifteen of them controls built to fail; *W2-fix first found* 76/76, 68/68 counted, fourteen controls
+-- G40-G42 added; *D68 wave 2 (W2A-limits) first found* 67/67, seven
 STRUCTURAL, 60/60 counted, eleven controls -- G31-G39 added; *M-apply first said* 62/62, six STRUCTURAL, 56/56 counted,
 ten controls -- `window_given` added G26-G30; *wave 3 first said* 57/57 with six STRUCTURAL and eight controls;
 *wave 2 first said* 47/47 with two STRUCTURAL). It imports
@@ -73,6 +74,12 @@ removed; every one is a named hypothesis.
 | 4.2465 ly | OPEN (2.78e3× / 1.39e3×) | OPEN (6.06e4× / 3.03e4×) | OPEN (1.92e6× / 9.61e5×) |
 
 So **14 of 18 (cell, reading) windows are OPEN and 4 EMPTY on READ values** (G35); the factors are context, not evidence.
+**The 4.2465 ly row is Proxima's distance, imported** from `phase1.L_PROXIMA` (Gaia DR3 parallax 768.066539 mas, READ via
+restatement in DOCKET 67: 4.24646 ly), and labelled to four decimals. A second READ value exists: Faria et al. 2022
+(2202.05188v1) Table 1 p.2 prints 768.50 ± 0.20 mas and 1.3012 ± 0.0003 pc (referenced to Gaia Collaboration 2016),
+4.2439 ly. The two differ by 0.056 % -- 2.17 σ on Faria's parallax error alone, 2.10 σ on both -- and no window moves at
+either distance (`settle.proxima_distances`, G40-G42). *Wave 2 first said* "4.2465 ly is the distance as the task gave
+it. Proxima Centauri's distance is NAMED-NOT-READ here", and typed 4.2465 × LY.
 Exactly one window depends on which READ bound applies (G36): at 1 AU, N = 1e3, reading A, Majumder, Walsworth and
 Bollinger empty it and Chupp-Hoare's weaker bound alone leaves it open -- **H-SAME-EPS** (the four experiments bound one
 common parameter) decides it. Controls (G37): every bound 1e7× tighter empties all 18; 1e3× looser opens all 18.
@@ -84,8 +91,10 @@ common parameter) decides it. Controls (G37): every bound 1e7× tighter empties 
   W_W2R, the N = 1e3 reading-A cell also given H-SAME-EPS) -- no longer OPEN pending a read. **The other seven cells are
   ADMISSIBLE given W_W2R**: not excluded, and never found. Each limit is an upper limit measured consistent with zero.
 - Not over-represented either way. EXCLUDED holds given four named hypotheses, each of which can fail: if H-TRANSFER
-  fails the window *widens* (§4b), and H-MAP, which converts each paper's ε into nlcontrol's, rests on full texts that
-  were not read. ADMISSIBLE is not evidence that a drift exists.
+  fails the window *widens* (§4b), and H-MAP, which converts each paper's ε into nlcontrol's, is not settled by the
+  abstracts -- the full texts (login wall, not read) may carry each paper's ε convention; what they contain is not known
+  here. ADMISSIBLE is not evidence that a drift exists. *Wave 2 first said* H-MAP "rests on full texts that were not
+  read".
 - The 1 ly, N = 7 tightening (655× / 328×) and 1 AU, N = 1e6 (7.16× / 3.58×) are unchanged (G38): the tightest bound is
   the same 3.8 μHz the waves used. Its *status* changed, not its value.
 - Support 2 (R_W2′, the ancilla member) still has no window (H-MAP not established for its field): unevaluated.
@@ -99,6 +108,17 @@ common parameter) decides it. Controls (G37): every bound 1e7× tighter empties 
 **H-ERRATUM** (Chupp & Hoare's erratum leaves the 1.6e-26 figure unchanged; NAMED-NOT-READ; no window rests on it
 except under not-H-SAME-EPS at 1 AU, N = 1e3, A). H-MAP and H-TRANSFER are kept as named hypotheses and are not
 resolved by an abstract.
+
+## W2-fix (2026-10-04): the two re-verifications of wave 2, items sited here
+
+The verifiers W2V-0 (AGAINST M) and W2V-1 (FOR M), `wave2/WAVE2-RESULT.json` key `result.verify`. No window and no
+grade moves. Wave 2's sentences are kept, marked *wave 2 first said*.
+
+| verifier item | resolution |
+|---|---|
+| W2V-1 #3: Proxima's distance labelled NAMED-NOT-READ though Faria 2022 Table 1 p.2 prints it; the board carries 4.2465 ly | **Applied, and computed.** The distance is READ on the board already (`phase1.L_PROXIMA`, Gaia DR3 768.066539 mas, READ via restatement, DOCKET 67), so it is not "the task's figure" -- the verifier's suggested label is not used. `settle.WINDOW_READ_L` now imports `phase1.L_PROXIMA` (was 4.2465 × LY typed). Faria's 768.50 ± 0.20 mas (READ via alphaXiv this pass) is recorded beside it in `PROXIMA_DISTANCES_READ`; `proxima_distances()` computes 4.24646 vs 4.2439 ly, 0.056 %, 2.17 σ on Faria's error alone. G40 (GROUND: phase1 imported; Faria's parallax reproduces its own printed pc), G41 (CONTROL: the two values are not the same distance -- it fails if they agree within Faria's error), G42 (GROUND: no Proxima window moves). |
+| W2V-0 #6: "the answer is in the full texts, which are behind a login wall" asserts what unread texts contain | **Applied.** Here, in `combine.py`'s support-2 docstring, B-combine.md and the wave-2 report: "the full texts (login wall, not read) may carry each paper's ε convention". H-MAP stays a named hypothesis. |
+| W2V-0 #3: 1 AU, N = 1e3 summarised as EXCLUDED given W_W2R alone | **Already carried here** (§ above: "the N = 1e3 reading-A cell also given H-SAME-EPS"); the summary line of the wave-2 report (scratchpad `W2A-limits.json`) now reads "EXCLUDED given W_W2R under reading B, and given W_W2R + H-SAME-EPS under reading A", its first form kept. |
 
 ## M-apply (2026-10-03): M's rulings, and V3's residuals sited here
 

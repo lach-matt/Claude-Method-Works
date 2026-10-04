@@ -77,8 +77,10 @@ NAMED HYPOTHESES (every limitation is one):
                sent): matter merely present at the far end is not a probe.  The probes therefore cross at <= c, priced
                as D23 prices a pair source (settle.first_transit_times, imported).
   H-PROTOCOL   BBPSSW's recurrence with hashing is ONE protocol; its round count prices that protocol, not the
-               minimum.  The floor that holds for every protocol is the symmetric-extension one (one exchange in each
-               direction, >= L/c) and Vidal-Werner's copies >= 1/E_N.
+               minimum.  The floor that holds for every protocol is at least one exchange (>= L/c) after the window
+               (R7 Prop.3 / R8 Thm 1: no message, no near-maximal pair), each way for the computed states (R9), and
+               Vidal-Werner's copies >= 1/E_N.  The window itself is family-specific; with none assumed the floor is
+               t_hold + L/c (W2-fix, window_free_floor).
   H-SIMUL      one round of a two-way protocol costs L/c: both parties broadcast at once.
   H-LAMBDA-ILLUSTRATIVE  where a total (not per lambda^2) is printed, lambda = 0.1 and 0.01 are illustrations, not
                values of any device.
@@ -89,6 +91,18 @@ OPEN PATHWAYS NAMED HERE (none assumed in any removal):
   N_W2WEAK   W2 drawing a usable signal from many weak pairs (beyond this file's per-pair bound).  Not computed.
   N_VACNP    harvesting outside H-UDW / H-PERTURB (other detectors, other fields, non-perturbative couplings) that
              breaks the Gaussian-in-distance decay.  No READ source found this pass.
+
+W2-FIX (2026-10-04; the two re-verifications W2V-0 / W2V-1, wave2/WAVE2-RESULT.json key result.verify):
+  * The window bound T > 0.9097 L/c and the floors 2.41-3.00 L/c are SCOPED to the window families computed: Reznik's
+    cos^2(pi t) with Omega T in [2, 40], and the Gaussian at beta = 7.  R2 harvests with cT << L at every L, so with
+    no window assumption the floor is t_hold + L/c (window_free_floor, computed from D23): >= 1.50 L/c from a
+    midpoint, >= 2.00 L/c from one end, at a negativity R2 guarantees only down to exp(-(L/cT)^3) (checks I3-I5).
+    Every floor is still after the light time and after a midpoint pair source (0.50 L/c); no grade moves.  Wave 2
+    first said 'the floor for ANY protocol is 2.41-3.00 L/c' and 'the window itself lasts >= 0.91 L/c (compact)'.
+  * R6 p.29 (READ) NAMES the rotation: Macchiavello's 'deterministic bilateral B_x rotation' for the twirl T'.  Checked
+    against R6 Table 1 p.24 (READ, BDSW_TABLE1): literally B_x is 00 <-> 01 in eq.(40) labels; conjugated by item 5's
+    sigma_y (the step that makes T' fix Phi+) it is exactly 10 <-> 11, swap_post's map; both reproduce 0.00457
+    (checks G6-G8; control: B_y gives 0.0029).  Wave 2 first said the map 'was IDENTIFIED by search ... not READ'.
 
 Run:  python3 vacuum.py            (report)
       python3 vacuum.py --json PATH (report also written as JSON)
@@ -553,9 +567,86 @@ def twirl_post(q):
 
 
 def swap_post(q):
-    """A fixed bilateral rotation applied after each step (BDSW name Macchiavello's B_x; the component map used here,
-    10 <-> 11, was IDENTIFIED by search over the six maps that fix 00 -- it reproduces R6's 0.00457; not READ)."""
+    """A fixed bilateral rotation applied after each step: R6 p.29 (READ) names it -- C. Macchiavello's 'deterministic
+    bilateral B_x rotation' substituted for the twirl T' (ref. [34]).  The component map used here is 10 <-> 11 (Phi- <->
+    Psi-) in R6's eq.(40) labels.  W2-fix: checked against R6 Table 1 p.24 (READ) in bdsw_bx_from_table1(): Table 1's
+    B_x row, written with Psi- as the standard state, is Phi+ <-> Psi+ (00 <-> 01); conjugated by the unilateral sigma_y
+    of R6 item 5 (the step that makes T' fix Phi+) it is exactly 10 <-> 11, and so is sigma_x B_x (R6 p.58 item 4: 'flip
+    the low bit iff the high bit is one').  Both forms give the same W_5/8 yield, 0.0045700549, because they differ by
+    the relabelling (00 <-> 01)(10 <-> 11), a symmetry of eqs.(42)-(43) and of the hashing entropy.  Wave 2 first said:
+    'the component map used here, 10 <-> 11, was IDENTIFIED by search over the six maps that fix 00 ... not READ'."""
     return (q[0], q[1], q[3], q[2])
+
+
+#: R6 (BDSW) Table 1 p.24, READ via alphaXiv (answer_pdf_queries on quant-ph/9604024v2): each row maps the source
+#: Bell states (Psi-, Phi-, Phi+, Psi+) to the states listed.  Phases are dropped, as Table 1 drops them (Table 4 p.73
+#: restores them; a density matrix diagonal in the Bell basis does not see them).
+BDSW_TABLE1_SOURCE = ("Psi-", "Phi-", "Phi+", "Psi+")
+BDSW_TABLE1 = {
+    "sigma_x": ("Phi-", "Psi-", "Psi+", "Phi+"),
+    "sigma_y": ("Phi+", "Psi+", "Psi-", "Phi-"),
+    "sigma_z": ("Psi+", "Phi+", "Phi-", "Psi-"),
+    "B_x": ("Psi-", "Phi-", "Psi+", "Phi+"),
+    "B_y": ("Psi-", "Psi+", "Phi+", "Phi-"),
+    "B_z": ("Psi-", "Phi+", "Phi-", "Psi+"),
+}
+#: R6 eq.(40) p.26 (READ): Phi+ = 00, Psi+ = 01, Phi- = 10, Psi- = 11 -- the index order of every p tuple here.
+BDSW_EQ40 = {"Phi+": 0, "Psi+": 1, "Phi-": 2, "Psi-": 3}
+
+
+def _bdsw_perm(op):
+    """Table 1's row as a permutation of eq.(40) indices: image[i] = index the state with index i is sent to."""
+    img = [None] * 4
+    for src, dst in zip(BDSW_TABLE1_SOURCE, BDSW_TABLE1[op]):
+        img[BDSW_EQ40[src]] = BDSW_EQ40[dst]
+    return tuple(img)
+
+
+def _compose(*ops):
+    """Apply ops left to right (first op first) as permutations of eq.(40) indices."""
+    img = list(range(4))
+    for op in ops:
+        P = _bdsw_perm(op)
+        img = [P[i] for i in img]
+    return tuple(img)
+
+
+def _post_from_perm(img):
+    """The probability map a state-permutation induces: the weight of state i moves to img[i]."""
+    def post(q):
+        out = [0.0] * 4
+        for i, j in enumerate(img):
+            out[j] = q[i]
+        return tuple(out)
+    return post
+
+
+def bdsw_bx_from_table1():
+    """W2-fix: which component map is R6's B_x in eq.(40) labels, computed from Table 1 (READ), and what yield each
+    reading gives for W_5/8 against R6's printed 0.00457.  Also checks the transcription of Table 1 against R6's prose:
+    B_y 'interchanges the high and low bits' (p.58 item 2; p.37), and sigma_x B_x flips the low bit iff the high bit is
+    one (p.58 item 4)."""
+    W58 = (5 / 8,) + ((1 - 5 / 8) / 3,) * 3
+    lit = _bdsw_perm("B_x")
+    conj = _compose("sigma_y", "B_x", "sigma_y")
+    sxbx = _compose("B_x", "sigma_x")
+    by = _bdsw_perm("B_y")
+    swap_img = (0, 1, 3, 2)
+    perms = list(__import__("itertools").permutations(range(4)))
+    ys = [recurrence_hashing_yield(W58, _post_from_perm(pm))[0] for pm in perms]
+    return {"B_x literal (Table 1, Psi- standard) as eq.40 permutation": lit,
+            "B_x literal fixes Phi+ (00)": lit[0] == 0,
+            "sigma_y B_x sigma_y (item 5 conjugation) as eq.40 permutation": conj,
+            "sigma_x B_x (p.58 item 4) as eq.40 permutation": sxbx,
+            "swap_post map (10 <-> 11)": swap_img,
+            "conjugated B_x equals swap_post map": conj == swap_img,
+            "sigma_x B_x equals swap_post map": sxbx == swap_img,
+            "B_y swaps the high and low bits (01 <-> 10; p.58 item 2) [transcription check]": by == (0, 2, 1, 3),
+            "W_5/8 yield, B_x literal": recurrence_hashing_yield(W58, _post_from_perm(lit)),
+            "W_5/8 yield, B_x conjugated (= swap_post)": recurrence_hashing_yield(W58, _post_from_perm(conj)),
+            "W_5/8 yield, B_y (CONTROL: a READ bilateral rotation that is not B_x)": recurrence_hashing_yield(W58, _post_from_perm(by)),
+            "permutations of the four Bell labels reproducing 0.00457 (of 24)": sum(abs(y - 0.00457) < 5e-6 for y in ys),
+            "distinct yields over all 24 permutations": sorted({round(y, 10) for y in ys})}
 
 
 def recurrence_hashing_yield(p, post, maxr=80):
@@ -634,7 +725,11 @@ def timeline(L_m, N0, window_frac):
     (settle.first_transit_times, LEDGER D23 as corrected in DOCKET 67).  Harvest window = window_frac x L/c: the
     Gaussian strong support 7T = 7 L/(beta c) (R4), or Reznik's compact window T (section C).  Then two-way rounds
     (H-SIMUL, L/c each),
-    then hashing (one-way, L/c).  The floor for ANY protocol is one exchange (>= L/c) after the window (R9)."""
+    then hashing (one-way, L/c).  The 'floor' key is one exchange (>= L/c) after THIS window: it is the floor for any
+    protocol GIVEN the window family and gap computed (Reznik's cos^2(pi t) with Omega T in [2, 40]; the Gaussian at
+    beta = 7).  The floor with no window assumption is window_free_floor() (W2-fix): t_hold + L/c, i.e. 1.50 L/c from a
+    midpoint and 2.00 L/c from one end.  Wave 2 first said: 'The floor for ANY protocol is one exchange (>= L/c) after
+    the window (R9)'."""
     ST = _owner("settle")
     c = ST.C_LIGHT
     tw = window_frac * L_m / c
@@ -651,6 +746,36 @@ def timeline(L_m, N0, window_frac):
                     "recurrence with the 10<->11 rotation + hashing (H-PROTOCOL)": t0 + tw + (Rs + 1) * L_m / c,
                     "rounds": R, "rounds (rotation)": Rs, "light time L/c": L_m / c,
                     "midpoint pair source ready (D23)": L_m / (2 * c)}
+    return out
+
+
+def rrs_lower_bound(L_over_cT):
+    """R2 eq.(8) (READ): N >= exp(-(L/cT)^3) for R2's superoscillating windows of duration T (cT << L).  A LOWER bound
+    on what R2's construction guarantees; no READ UPPER bound covers 3+1 detectors with every window (OPEN)."""
+    return math.exp(-L_over_cT ** 3)
+
+
+def window_free_floor(L_m, cT_over_L=(1.0, 0.5, 0.25, 0.1)):
+    """W2-fix (verifiers W2V-0 problem 1, W2V-1 problem 1): the vacuum route's floor with NO window-family assumption.
+    Times from launch, the same accounting as timeline(): probes move at c and hold from t_bob_holds
+    (settle.first_transit_times, imported: L/2c from a midpoint, L/c from one end), the harvest window T_window, then
+    at least one classical exchange (>= L/c).  T_window -> 0 is admissible: R2 harvests with cT << L at every L.  So the
+    floor is t_hold + L/c, approached as T_window -> 0, at a negativity R2 guarantees only down to exp(-(L/cT)^3).
+    The exchange is required for ANY state, whatever window made it: with no message, local operations raise neither
+    N (R7 Prop.3) nor f above 1/2 + N (R7 eq.39, R8 Thm 1), so a near-maximal pair (H-NEARMAX) needs at least one
+    message, which takes >= L/c (H-LOCC).  R9's two-way requirement is computed only for the Gaussian and Reznik states
+    (section D); for R2's windows it is not computed, and the floor here does not use it."""
+    ST = _owner("settle")
+    c = ST.C_LIGHT
+    out = {}
+    for src in ("midpoint", "one-end"):
+        t0 = ST.first_transit_times(L_m, 0.0, source=src)["t_bob_holds"]
+        out[src] = {"probes hold from (D23, imported)": t0, "harvest window (limit)": 0.0,
+                    "window-free floor t_hold + L/c": t0 + L_m / c, "light time L/c": L_m / c,
+                    "midpoint pair source ready (D23)": L_m / (2 * c),
+                    "floor with a window cT = x L (x: floor in L/c)": {x: (t0 + x * L_m / c + L_m / c) / (L_m / c)
+                                                                     for x in cT_over_L},
+                    "R2 guaranteed N >= exp(-(L/cT)^3) at cT = x L": {x: rrs_lower_bound(1.0 / x) for x in cT_over_L}}
     return out
 
 
@@ -686,11 +811,18 @@ GRADES = {
         "carrier crosses.  (ii) Usable as the channel's pairs with nothing crossing at <= c first: FALSE given "
         "{H-LOCC, H-NEARMAX, H-PROBE-OPERATED} -- the probes cross (D23), a near-maximal pair needs classical messages "
         "in BOTH directions (R9: the harvested state is symmetric extendible both ways, so zero-way and one-way "
-        "distillation are impossible), and the window itself lasts >= 0.91 L/c (compact) or 7T = 7L/(beta c).",
+        "distillation are impossible), and the window itself lasts >= 0.91 L/c for Reznik's cos^2(pi t) window with "
+        "Omega T in [2, 40], or 7T = 7L/(beta c) for the Gaussian at beta = 7 -- those two families only.  With no "
+        "window assumption (R2 harvests with cT << L at every L) the floor is t_hold + L/c: >= 1.50 L/c from a midpoint, "
+        ">= 2.00 L/c from one end (window_free_floor), still after the light time and after a midpoint pair source "
+        "(0.50 L/c), at a negativity R2 guarantees only down to exp(-(L/cT)^3).  Wave 2 first said 'the window itself "
+        "lasts >= 0.91 L/c (compact) or 7T = 7L/(beta c)', unscoped.",
     "O-MAKE-DIST":
         "LEFT-IF {H-UDW, H-PERTURB, H-O4-FLOOR, H-MINK-VAC, H-SPACELIKE, H-LOCC, H-IID, H-NEARMAX, H-PROBE-OPERATED}: "
         "the distribution is not removed but relocated -- from the pairs to the probes (<= c, D23) and to two-way "
-        "classical messages (>= L/c after a window ~ L/c).  OPEN outside that set via N_NLDIST, N_W2WEAK, N_VACNP, "
+        "classical messages (>= L/c after the window; the window is ~ L/c in the two families computed and -> 0 "
+        "admissible in R2's, so the floor is >= 1.50 L/c midpoint / 2.00 L/c one end).  OPEN outside that set via "
+        "N_NLDIST, N_W2WEAK, N_VACNP, "
         "none computed.  Wave 1 said: OPEN via N_VAC only.",
     "weak pairs consumed as they are (H-NEARMAX dropped)":
         "teleportation fidelity (2f + 1)/3 = 2/3 + 2N/3 (computed; f = 1/2 + N for the harvested state, the R8 "
@@ -776,6 +908,7 @@ def build():
                   "READ": "D2(W_5/8) > 0.00457 (R6 p.42, recurrence-hashing D_M)"}
     R["G_eq7_vs_eq42"] = max(abs(bbpssw_map(F) - bdsw_step((F,) + ((1 - F) / 3,) * 3)[0][0]) for F in np.linspace(0.3, 0.99, 50))
     R["G_rounds_vs_N0"] = {N0: rounds_from(N0) for N0 in (1e-2, 1e-4, 1e-8, 1e-12, 1e-17, 1e-20)}
+    R["G_bdsw_bx"] = bdsw_bx_from_table1()
     # H. W2 on harvested pairs
     ST = _owner("settle")
     bell = np.outer(_bell_phi_plus(), _bell_phi_plus().conj())
@@ -797,6 +930,7 @@ def build():
         R["I_timeline"][lab] = {k: timeline(Lm, v["N0"], v["window/(L/c)"]) for k, v in R["I_inputs"].items()
                                 if isinstance(v, dict)}
         R["I_timeline"][lab]["years per second"] = 1.0 / ST.YEAR_S
+    R["I_window_free"] = {lab: window_free_floor(Lm) for lab, Lm in (("1 AU", ST.AU_M), ("1 ly", ST.LY_M))}
     TR = _owner("transit")
     R["I_board"] = {"transit.TRAVERSAL_IS_REMOVED": TR.TRAVERSAL_IS_REMOVED,
                     "transit.CLASSICAL_BITS_PER_QUBIT": TR.CLASSICAL_BITS_PER_QUBIT,
@@ -866,6 +1000,22 @@ def _fmt(R):
                          f"BBPSSW {t['BBPSSW recurrence + hashing (H-PROTOCOL)'] / t['light time L/c']:.1f} L/c, rotation "
                          f"{t['recurrence with the 10<->11 rotation + hashing (H-PROTOCOL)'] / t['light time L/c']:.1f} L/c; midpoint pairs "
                          f"{t['midpoint pair source ready (D23)'] / t['light time L/c']:.2f} L/c")
+    gb = R["G_bdsw_bx"]
+    L.append(f"   B_x from R6 Table 1 (READ): literal {gb['B_x literal (Table 1, Psi- standard) as eq.40 permutation']} "
+             f"(fixes 00: {gb['B_x literal fixes Phi+ (00)']}); sigma_y-conjugated "
+             f"{gb['sigma_y B_x sigma_y (item 5 conjugation) as eq.40 permutation']} = swap_post: "
+             f"{gb['conjugated B_x equals swap_post map']}; "
+             f"W_5/8 yields: literal {gb['W_5/8 yield, B_x literal'][0]:.10f}, conjugated "
+             f"{gb['W_5/8 yield, B_x conjugated (= swap_post)'][0]:.10f}, B_y (control) "
+             f"{gb['W_5/8 yield, B_y (CONTROL: a READ bilateral rotation that is not B_x)'][0]:.10f}; "
+             f"{gb['permutations of the four Bell labels reproducing 0.00457 (of 24)']} of 24 label permutations reproduce 0.00457")
+    L.append("I'. window-free floor (W2-fix; R2: T_window -> 0 admissible): t_hold + L/c, in L/c")
+    for lab, d in R["I_window_free"].items():
+        for src, t in d.items():
+            L.append(f"   {lab} {src}: {t['window-free floor t_hold + L/c'] / t['light time L/c']:.3f} L/c (midpoint pair source "
+                     f"{t['midpoint pair source ready (D23)'] / t['light time L/c']:.2f}); with cT = xL: " +
+                     ", ".join(f"x={x}: {v:.3f} L/c, R2 N >= {t['R2 guaranteed N >= exp(-(L/cT)^3) at cT = x L'][x]:.3g}"
+                               for x, v in t["floor with a window cT = x L (x: floor in L/c)"].items()))
     L.append("GRADES:")
     for k, v in R["GRADES"].items():
         L.append(f"   {k}: {v}")
@@ -983,6 +1133,25 @@ def selftest():
     ok("G3 recurrence-hashing yield of W_5/8 with the 10<->11 rotation = R6's printed 0.00457",
        abs(gw["10<->11 rotation + hashing"][0] - 0.00457) < 5e-6, f"{gw['10<->11 rotation + hashing'][0]:.7f}")
     ok("G4 CONTROL: with no rotation the same procedure does not reproduce it", gw["no rotation (control)"][0] < 1e-4)
+    gb = R["G_bdsw_bx"]
+    ok("G6 (W2-fix) R6 Table 1 (READ) transcribed consistently with R6's prose: B_y swaps the high and low bits (p.58 item 2) "
+       "and sigma_x B_x flips the low bit iff the high bit is one (p.58 item 4) -- both in eq.(40) labels",
+       gb["B_y swaps the high and low bits (01 <-> 10; p.58 item 2) [transcription check]"]
+       and gb["sigma_x B_x (p.58 item 4) as eq.40 permutation"] == (0, 1, 3, 2))
+    ok("G7 (W2-fix) R6's B_x (p.29, READ) against Table 1 (READ): literally 00 <-> 01 (it moves Phi+); conjugated by item 5's "
+       "sigma_y it is exactly swap_post's 10 <-> 11; both reproduce 0.00457 (they differ by a symmetry of eqs.42-43)",
+       gb["B_x literal (Table 1, Psi- standard) as eq.40 permutation"] == (1, 0, 2, 3)
+       and gb["conjugated B_x equals swap_post map"]
+       and abs(gb["W_5/8 yield, B_x literal"][0] - 0.00457) < 5e-6
+       and abs(gb["W_5/8 yield, B_x conjugated (= swap_post)"][0] - gb["W_5/8 yield, B_x literal"][0]) < 1e-15,
+       f"literal {gb['W_5/8 yield, B_x literal'][0]:.10f}, conjugated {gb['W_5/8 yield, B_x conjugated (= swap_post)'][0]:.10f}")
+    ok("G8 CONTROL (must fail): B_y, a READ bilateral rotation that is not B_x, does NOT reproduce 0.00457; the yield "
+       "separates the 24 label maps into 3 classes, 8 of which reproduce",
+       abs(gb["W_5/8 yield, B_y (CONTROL: a READ bilateral rotation that is not B_x)"][0] - 0.00457) > 1e-3
+       and gb["permutations of the four Bell labels reproducing 0.00457 (of 24)"] == 8
+       and len(gb["distinct yields over all 24 permutations"]) == 3,
+       f"B_y {gb['W_5/8 yield, B_y (CONTROL: a READ bilateral rotation that is not B_x)'][0]:.6f}; "
+       f"{gb['distinct yields over all 24 permutations']}")
     rv = R["G_rounds_vs_N0"]
     mono = [rv[k]["rounds"] for k in (1e-2, 1e-4, 1e-8, 1e-12, 1e-17, 1e-20)]
     ok("G5 rounds before hashing pays grow as N0 falls (about log(1/N0)/log 1.2 near F = 1/2)",
@@ -1004,6 +1173,28 @@ def selftest():
             ok(f"I1 {lab} {w}: the vacuum route's floor arrives after the light time; the midpoint pair source before it",
                m["floor: one two-way exchange (R9)"] > m["light time L/c"] and m["midpoint pair source ready (D23)"] < m["light time L/c"]
                and abs(m["probes hold from (D23, imported)"] - m["light time L/c"] / 2) < 1e-9 * m["light time L/c"])
+    for lab, d in R["I_window_free"].items():
+        m, e1 = d["midpoint"], d["one-end"]
+        lt = m["light time L/c"]
+        ok(f"I3 (W2-fix) {lab}: the window-free floor (T_window -> 0, R2) is 1.50 L/c from a midpoint and 2.00 L/c from one "
+           f"end -- computed from D23 (imported) -- after the light time and after the midpoint pair source (0.50 L/c)",
+           abs(m["window-free floor t_hold + L/c"] / lt - 1.5) < 1e-12 and abs(e1["window-free floor t_hold + L/c"] / lt - 2.0) < 1e-12
+           and m["window-free floor t_hold + L/c"] > lt > m["midpoint pair source ready (D23)"],
+           f"{m['window-free floor t_hold + L/c'] / lt:.3f} / {e1['window-free floor t_hold + L/c'] / lt:.3f} L/c")
+    tlr = R["I_timeline"]["1 ly"]
+    wf = R["I_window_free"]["1 ly"]
+    ok("I4 CONTROL (must change): the computed families' floors are the window-free floor plus their window exactly -- "
+       "Gaussian beta = 7 (window L/c) 2.50 / 3.00, Reznik L/T = 1.05 (0.952 L/c) 2.45 / 2.95 -- so the 2.41-3.00 range "
+       "is the window families', and dropping the window moves it",
+       all(abs(tl[src]["floor: one two-way exchange (R9)"] - wf[src]["window-free floor t_hold + L/c"] - tl[src]["harvest window"])
+           < 1e-9 * tl[src]["light time L/c"] and tl[src]["floor: one two-way exchange (R9)"] - wf[src]["window-free floor t_hold + L/c"]
+           > 0.9 * tl[src]["light time L/c"]
+           for tl in (v for v in tlr.values() if isinstance(v, dict)) for src in ("midpoint", "one-end")))
+    rb = wf["midpoint"]["R2 guaranteed N >= exp(-(L/cT)^3) at cT = x L"]
+    ok("I5 (W2-fix) R2 eq.(8)'s guarantee falls faster than any power as T_window -> 0: e^-1 at cT = L, e^-8 at L/2, "
+       "e^-64 at L/4, e^-1000 (underflow to 0 in double) at L/10 -- the price of the window-free floor",
+       abs(rb[1.0] - math.exp(-1)) < 1e-15 and abs(rb[0.5] - math.exp(-8)) < 1e-18 and abs(rb[0.25] - math.exp(-64)) < 1e-40
+       and rb[0.1] < 1e-300, f"{rb}")
     structural("I2 transit.TRAVERSAL_IS_REMOVED is False (a declared board constant, read not tested)",
                R["I_board"]["transit.TRAVERSAL_IS_REMOVED"] is False)
     counted = [c for c in checks if not c[0].startswith("STRUCTURAL")]

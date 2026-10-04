@@ -8,6 +8,14 @@ the screen. Wave 6 (F-combine) is kept below as history: its status lines, its "
 **Nothing here is seated** (seating is a later step; `ledger.py`, `index3.py`, `LEDGER.md` and `paper/` are untouched).
 The instrument is `combine.py`, beside this file.
 
+**W2-fix (2026-10-04):** after the two re-verifications of wave 2 (section 0 (W2-fix)) the selftest runs **124 counted
+checks and passes all 124** in 2,480 s (rc 0, with the report run sharing the machine), **26 controls**, **14 STRUCTURAL**
+not counted: one GROUND is new (the vacuum route's window-free floor, 1.50 / 2.00 L/c) and three GROUND names are
+restated (the N_VAC split and the compact window scoped to their window families; the D25 binder check now asserts P
+unmeasured and N measured in α Cen A). The report run (`--json`, `--table`) regenerated B-table.md **byte-identical**;
+the only changed report figures are the 4.2465 ly window factors in their sixth digit (phase1's distance now imported:
+2,782.15× against 2,782.18×). *Wave 7 first said, as follows:*
+
 `PYTHONDONTWRITEBYTECODE=1 python3 combine.py --selftest` runs **123 counted checks and passes all 123** in 1,552 s,
 with the report run (`--json`, `--table`) sharing the machine (z3, numpy, scipy, sympy, mpmath; four worker processes).
 26 of the checks are controls. **14 items cannot fail and are printed STRUCTURAL, not counted:** wave 6's twelve
@@ -59,8 +67,9 @@ alone. It has **two supports**:
     retired** (kept as history and as the runnable mutation `wave6-WREAD`).
 - **Support 2: REMOVED-IF {W2, F1; N_W2ANC}**, the computed zero-error ancilla member: 2/(log₂d − 1) pairs per
   teleported qubit (1, 2/3, 1/2 at d = 8, 16, 32), no positive floor in the computed range. **Unchanged by wave 2.** Its
-  window is still **unevaluated**: reading the Weinberg values did not establish H-MAP for its field (the mapping lives
-  in the full texts, behind a login wall), so "not excluded" is still not evidence. This support is why the 1 AU
+  window is still **unevaluated**: reading the Weinberg values did not establish H-MAP for its field (the full texts,
+  behind a login wall and not read, may carry each paper's ε convention; *wave 7 first said* "the mapping lives in the
+  full texts"), so "not excluded" is still not evidence. This support is why the 1 AU
   headline did not move when support 1 became EXCLUDED there.
 
 **2. By H-FRAME clause 2b alone**, through a CTC at Bob: O-BITS **REMOVED-IF {F2b; N_DCTC}**, at every distance, with
@@ -74,14 +83,15 @@ either screened cell, and no member removes either.
 
 | survivor | wave 6 | wave 7 (D68 wave 2) | every consistent variant, 1 ly, N = 7 / 1 AU, N = 7 |
 |---|---|---|---|
-| **O-MAKE-DIST** (the pairs must be distributed at ≤ c) | OPEN via N_VAC only (M's "it already exists everywhere", not computed) | **N_VAC computed and split** (vacuum.py). (i) the vacuum's entanglement reaches probes that cannot communicate: **TRUE-IF {H-UDW, H-PERTURB, H-MINK-VAC, H-SPACELIKE}**; (ii) it is usable as the channel's pairs with nothing crossing at ≤ c first: **FALSE-IF {H-LOCC, H-NEARMAX, H-PROBE-OPERATED}** — the probes cross (D23), the harvested pair is symmetric extendible on both sides (no zero-way or one-way distillation), the computed floor at 1 ly arrives at 2.50 L/c (midpoint probes) or 3.00 L/c (one end), after the light time. The distribution is **relocated, not removed**: **LEFT-IF** the nine hypotheses of `vacuum.GRADES`, **OPEN outside them** via **N_NLDIST** (a W2-type non-linear local operation; encoded with W2), **N_W2WEAK** (W2 drawing a signal from many weak pairs; encoded with a drift signal, W2 × frame) and **N_VACNP** (harvesting outside H-UDW / H-PERTURB; the board's) — none computed | OPEN via N_VACNP: 4,607 / —; via N_NLDIST, N_VACNP: 288 / 288; via N_NLDIST, N_W2WEAK, N_VACNP: 864 / 864. **LEFT in 5,759 / 1,152 given H-VAC-LEFTIF** (the nine hypotheses) |
-| **O-SEAT** (supply at the seat) | OPEN via N_S5 (H-SEAT-S5); LEFT given H-SEAT-ROUTES | **No grade moved** (seat.py). O-SEAT stays OPEN via S5/D25: no part of the pathway became shown and none newly refused. What the pathway would need is now concrete at Proxima: the gate's binder at a CI-like body is **P** (10.70 kg/kg; runner-up N), measured in no star of the Proxima system and in no body in the sources read, so the composition conjunct cannot be evaluated at its binder; Proxima b's mass is READ (1.07 M⊕, Faria 2022; the board carried 1.3, second-hand) but its accessible mass is unmeasured and the aperture is NOT EVALUABLE; E_fab is computed nowhere and m_set specified nowhere; k* is only an identity. `seat.grade_o_seat` = OPEN, and it agrees with z3 in three board states | OPEN via N_S5: 5,759 / 1,152; LEFT given H-SEAT-ROUTES: 5,759 / 1,152 (unchanged) |
+| **O-MAKE-DIST** (the pairs must be distributed at ≤ c) | OPEN via N_VAC only (M's "it already exists everywhere", not computed) | **N_VAC computed and split** (vacuum.py). (i) the vacuum's entanglement reaches probes that cannot communicate: **TRUE-IF {H-UDW, H-PERTURB, H-MINK-VAC, H-SPACELIKE}**; (ii) it is usable as the channel's pairs with nothing crossing at ≤ c first: **FALSE-IF {H-LOCC, H-NEARMAX, H-PROBE-OPERATED}** — the probes cross (D23), the harvested pair is symmetric extendible on both sides (no zero-way or one-way distillation), the computed floor at 1 ly arrives at 2.50 L/c (midpoint probes) or 3.00 L/c (one end) for the Gaussian at β = 7 (2.41-3.00 L/c over the two window families computed), and **≥ 1.50 / 2.00 L/c with no window assumption** (W2-fix: R2 harvests with cT ≪ L, so T_window → 0 is admissible, at a negativity R2 guarantees only down to e^(−(L/cT)³)) — every floor after the light time. The distribution is **relocated, not removed**: **LEFT-IF** the nine hypotheses of `vacuum.GRADES`, **OPEN outside them** via **N_NLDIST** (a W2-type non-linear local operation; encoded with W2), **N_W2WEAK** (W2 drawing a signal from many weak pairs; encoded with a drift signal, W2 × frame) and **N_VACNP** (harvesting outside H-UDW / H-PERTURB; the board's) — none computed | OPEN via N_VACNP: 4,607 / —; via N_NLDIST, N_VACNP: 288 / 288; via N_NLDIST, N_W2WEAK, N_VACNP: 864 / 864. **LEFT in 5,759 / 1,152 given H-VAC-LEFTIF** (the nine hypotheses) |
+| **O-SEAT** (supply at the seat) | OPEN via N_S5 (H-SEAT-S5); LEFT given H-SEAT-ROUTES | **No grade moved** (seat.py). O-SEAT stays OPEN via S5/D25: no part of the pathway became shown and none newly refused. What the pathway would need is now concrete at Proxima: the gate's binder at a CI-like body is **P** (10.70 kg/kg; runner-up N), measured in no star of the Proxima system and in no body in the sources read, so the composition conjunct cannot be evaluated at its binder; Proxima b's minimum mass m sin i is READ (1.07 M⊕, Faria 2022; the board carried 1.3, second-hand), so its mass is ≥ 8.53e21 × the CI threshold, a floor, but its accessible mass is unmeasured and the aperture is NOT EVALUABLE; N, unlike P, is measured in α Cen A ("solar", Porto de Mello et al. 2008, READ); Brugger 2016 models water only and leaves the primitive conjunct unconstrained (W2-fix; *wave 7 first said* "measured in no star of the Proxima system" for both P and N, and "Proxima b's mass is READ (1.07 M⊕)"); E_fab is computed nowhere and m_set specified nowhere; k* is only an identity. `seat.grade_o_seat` = OPEN, and it agrees with z3 in three board states | OPEN via N_S5: 5,759 / 1,152; LEFT given H-SEAT-ROUTES: 5,759 / 1,152 (unchanged) |
 
 **What wave 2 moved, in one list:** support 1's window premises (W_W2 → W_W2R; N_WREAD retired; H-SAME-EPS named at
 1 AU, N = 10³); support 1's standing at the empty cells (OPEN → EXCLUDED given W_W2R) and at the open cells ("given
 W_W2, flagged" → "ADMISSIBLE given W_W2R, not excluded, not found"); O-MAKE-DIST's OPEN pathways (N_VAC → N_NLDIST,
 N_W2WEAK, N_VACNP, now tied to the members that could open them) and its named LEFT-IF set; N_VAC's window (0.91 L/c
-DERIVED-FROM-READ → T > 0.9097 L/c COMPUTED over every gap in [2, 40]); the content of N_S5. **What it did not move:**
+DERIVED-FROM-READ → T > 0.9097 L/c COMPUTED over every gap in [2, 40], **for Reznik's cos²(πt) window only**; with no
+window assumption the floor is 1.50 / 2.00 L/c — W2-fix); the content of N_S5. **What it did not move:**
 any count of member-attributed removals, not-bindings, clashes or premise clashes; support 2 (its window unevaluated);
 the D-CTC route; O-SEAT's grade; O-BITS itself — no wave-2 result touches the two classical bits, and every vacuum-route
 floor arrives after the light time.
@@ -90,6 +100,27 @@ floor arrives after the light time.
 wave 6's "The answer, first", below). H-INFO-SHAPE is consistent with B-RECV in every variant and removes nothing;
 H-INFO-S is kept as the alternative reading, its clash standing in all 2,048 of its variants. No wave-2 result names a
 weighting, a branch or a calibration, so none moves a screen grade.
+
+## 0 (W2-fix). The two re-verifications of wave 2, every item resolved
+
+The verifiers W2V-0 (AGAINST M) and W2V-1 (FOR M), `wave2/WAVE2-RESULT.json` key `result.verify`, found six and five
+problems; none moves a grade, and **none moves a count, a clash or a table row** (B-table.md regenerated; see the status
+lines). Each item is applied or answered with a computed or READ reason. Wave 7's sentences are kept, marked *wave 7
+first said*. Outside reads this pass, all via alphaXiv (open arXiv copies; no paywall or login wall met): BDSW
+quant-ph/9604024v2 p.29 and Table 1 p.24; Porto de Mello, Lyra & Keller 0804.3712v2 p.12, Table 4, Fig. 8; Hinkel &
+Kane 1304.0450v1 p.2, Table 1; Brugger 1609.09757v3 pp.1-5; Faria 2202.05188v1 Table 1 p.2, Table C.1 p.17, p.9.
+
+| verifier item | where | resolution |
+|---|---|---|
+| W2V-0 #1, W2V-1 #1: T > 0.9097 L/c and the 2.41-3.00 L/c floor stated for any window / protocol | W2B-vacuum.md, vacuum.py GRADES, combine.py N_VAC history, B-LOCC, ground names; here | **Applied, and computed.** Scoped to Reznik's cos²(πt) (ΩT in [2, 40]) and the Gaussian at β = 7 everywhere. `vacuum.window_free_floor` (new, imported in the grounds) computes the floor with no window assumption from D23: **1.50 L/c (midpoint), 2.00 L/c (one end)**; R2's guarantee e^(−(L/cT)³) (e^−8 at cT = L/2) is the price. New GROUND check here; vacuum.py I3-I5 (I4 a control). Every floor stays after the light time and the midpoint source: O-MAKE-DIST's LEFT-IF and O-BITS unchanged |
+| W2V-0 #2, W2V-1 #4: 1.07 M⊕ called "mass" / "total mass" | W2C report, W2C-seat.md, N_S5 text | **Applied.** Minimum mass m sin i (Faria Table C.1 p.17, p.9); the ratio is ≥ 8.53e21, a floor; seat.py's key renamed. H-BODY-ACCESS unchanged |
+| W2V-0 #3: 1 AU, N = 10³ EXCLUDED given W_W2R alone | the W2A report's summary line | **Applied there** (scratchpad `W2A-limits.json`, first form kept). This file, combine.py's header and A1 already said "given W_W2R + H-SAME-EPS" (reading A; B needs no H-SAME-EPS) |
+| W2V-0 #4: Macchiavello's rotation "not established" | W2B-vacuum.md, vacuum.py | **Applied, READ and computed.** BDSW p.29 names B_x; Table 1 p.24 gives it as 00 ↔ 01 in eq.(40) labels, and σ_y-conjugated (item 5) as 10 ↔ 11, the instrument's map; both reproduce 0.0045700549 (vacuum.py G6-G8, G8 a control) |
+| W2V-0 #5: Brugger read as admitting both kinds of body | W2C-seat.md, seat.py, N_S5 text | **Applied, re-READ.** Brugger models a Fe/FeS core, silicate mantles, ice and water only (no C, N, P), at 1.10-1.46 M⊕, sin i = 1: the primitive conjunct is unconstrained by it |
+| W2V-0 #6: "the answer is in the full texts" | W2A report, A1, combine.py support-2 docstring, sections 8 and 12 here | **Applied:** "may carry each paper's ε convention" |
+| W2V-1 #2: "P and N measured in no star of the system" | seat.py, W2C-seat.md, combine.py header, N_S5 text, ground check, here | **Applied, re-READ.** N is measured in α Cen A in the literature ("C, N and O ... solar", Porto de Mello 2008 p.12; Laird 1985 per Hinkel & Kane 2013 p.2, offset −0.65 dex); a qualitative, summarised measurement. P stays unmeasured in every source read; the binder and O-SEAT's OPEN are unchanged. The D25 ground check now asserts P unmeasured and N measured in α Cen A |
+| W2V-1 #3: Proxima's distance NAMED-NOT-READ; 4.2465 ly | settle.py, A1, W2C-seat.md, seat.py, here | **Applied; the verifier's suggested label is not used.** The board's distance is READ (`phase1.L_PROXIMA`, Gaia DR3 768.066539 mas, via restatement, DOCKET 67) and is now imported by settle and seat; Faria's 768.50 ± 0.20 mas (4.2439 ly) is recorded beside it; 0.056 %, 2.17 σ on Faria's error alone; no window moves (settle G40-G42). The cell label "4.2465 ly" is phase1's value to four decimals |
+| W2V-1 #5: the verifier's process note | — | Recorded; nothing to change |
 
 ## 0. Wave-7 work (D68 wave 2): the three wave-2 results carried into the screen
 
@@ -107,7 +138,7 @@ values is no longer "given W_W2"), N_VAC re-encoded from `vacuum.py` (O-MAKE-DIS
 | 1 AU, N = 7 and 10³: OPEN (N_WREAD) → EXCLUDED given W_W2R; O-BITS there LEFT-IF W_W2R (and, for 10³ reading A, given H-SAME-EPS) | **Applied.** N_WREAD leaves `OPEN_NAMED` for `HISTORY_OPEN`; B-EPSWIN holds N_EPS to the computed window. z3's support-1 route at 1 AU, N = 7 reads **LEFT** (settle: EXCLUDED). At 1 AU, N = 10³, H-SAME-EPS joins the window premises; refusing it, support 1 reads REMOVED-IF under reading A and LEFT under B (RESULT check). HISTORY CONTROL: the mutation `wave6-WREAD` restores wave 6's OPEN via N_WREAD, so the LEFT is carried by the READ and not by the engine. CONTROL: a 1e3× looser limit opens the cell in settle **and** makes z3's support 1 REMOVED-IF |
 | 1 AU, N = 10⁶ and every 1 ly and 4.2465 ly cell: ADMISSIBLE GIVEN W_W2 (flagged) → ADMISSIBLE given W_W2R (not excluded; not evidence of a drift) | **Applied.** The support flag is `WINDOW_READ_FLAG`; wave 5-6's flag is kept as `WINDOW_GIVEN_FLAG_WAVE6` and used only by the history mutation. No verdict moves on a flag |
 | combine still called `settle.window_given()` (the wave-4 record) | **Moved** to `settle.window_read()`. The old comparison is kept as a HISTORY ground: `window_given` (two unread, two OPEN) gives the same tightening factors as the READ values, because the tightest value did not change (settle's G38) |
-| 4.2465 ly is the task's distance, Proxima's not READ here; the 4.24 ly rows are history | `eps_window` uses `settle.WINDOW_READ_L` (1 AU, 1 ly, 4.2465 ly). The 4.2465 ly cells screen as 1 ly, N = 7 (the board takes a cell only through its window: STRUCTURAL); the 4.24 ly row of section 4's wave-6 table is kept as history |
+| 4.2465 ly is the task's distance, Proxima's not READ here; the 4.24 ly rows are history (*W2-fix: wrong -- the distance is phase1.L_PROXIMA, READ, now imported by settle; Faria 2022's 4.2439 ly recorded beside it*) | `eps_window` uses `settle.WINDOW_READ_L` (1 AU, 1 ly, 4.2465 ly). The 4.2465 ly cells screen as 1 ly, N = 7 (the board takes a cell only through its window: STRUCTURAL); the 4.24 ly row of section 4's wave-6 table is kept as history |
 | H-MAP, H-TRANSFER, H-SPIN, H-DILUTION unchanged; H-SAME-EPS, H-ERRATUM, H-BEFRAC new | Carried by name (section 8). H-ERRATUM and H-BEFRAC touch only Bollinger's and Chupp-Hoare's limits, which decide nothing except through H-SAME-EPS at (1 AU, 10³, A) |
 | Support 2 still has no window: UNEVALUATED | Unchanged; `support2_field_rows` now labels ε_max "READ (abstract)" and still reports H-MAP-W2 as adopted nowhere |
 
@@ -118,8 +149,8 @@ values is no longer "given W_W2"), N_VAC re-encoded from `vacuum.py` (O-MAKE-DIS
 | N_VAC splits: (i) TRUE-IF {H-UDW, H-PERTURB, H-MINK-VAC, H-SPACELIKE}; (ii) FALSE-IF {H-LOCC, H-NEARMAX, H-PROBE-OPERATED} | **Applied.** N_VAC leaves `OPEN_NAMED` for `HISTORY_OPEN` (mutation `wave6-NVAC` restores it). B-LOCC: distribution is forced unless **N_NLDIST ∧ W2**, **N_W2WEAK ∧ SIG** or **N_VACNP**; its ground text carries the split |
 | Suggested: replace N_VAC in combine's OPEN list with N_NLDIST, N_W2WEAK and N_VACNP | **Applied, with each pathway tied as vacuum.py states it** (encoding choice **E-NLDIST**: N_NLDIST is "W2-type", so it is encoded with W2; N_W2WEAK is a drift signal from weak pairs, so with SIG = W2 × frame; N_VACNP is the board's). CONTROL: N_NLDIST opens O-MAKE-DIST with W2 and not with W1 or alone; N_W2WEAK with {W2, F1} and not with {W2} alone; N_VACNP in the board-alone variant; with every pathway false the screen refuses the removal. The wider reading of N_NLDIST ("any state-dependent reading": W2, W1, KR or the D-CTC), adopted nowhere, is censused: it would add N_NLDIST in **3,648** consistent variants at 1 ly (smallest {F2b}, {KR}, {W1}), **0** at 1 AU — over-representation avoided both ways is reported, not chosen silently |
 | O-MAKE-DIST: OPEN via N_VAC only → LEFT-IF the nine, OPEN outside via N_NLDIST, N_W2WEAK, N_VACNP | **Computed in every consistent variant** (`dist_route_census`, RESULT check): OPEN via N_VACNP in all; + N_NLDIST exactly with W2; + N_W2WEAK exactly with W2 and a frame. **H-VAC-LEFTIF** (named reading, mutate `vac-left-if`) gives LEFT in 5,759 / 1,152. Drift rule **Z2′**: O-MAKE-DIST OPEN via the vacuum pathways only reads {N, OPEN}, as Z6 reads the seat route |
-| combine's window "0.91 L/c < T < L/c DERIVED-FROM-READ" is COMPUTED (T > 0.9097 L/c over every gap in [2, 40]) | GROUND: `vacuum.compact_boundary` re-run here (44 s): T/(L/c) = 0.90970 at the boundary, within 0.1% of the READ 1/1.1. `first_transit` keeps wave 1-6's (1/1.1, 1) labelled HISTORY |
-| Harvested state: N = f − 1/2; symmetric extension on both sides; teleportation 2/3 + 2N/3; timeline floors 2.50 / 3.00 L/c | GROUND (cheap pieces re-run, imported): at β = 7, λ = 0.1, N = 4.00e-17 = f − 1/2; margins 1.99e-15 on both sides with ρ_ee at its floor and at 10×; floors 2.50 / 3.00 L/c at 1 ly against the midpoint source's 0.50; hashing threshold 0.81071. CONTROL: a Bell state and a Werner state at F = 0.80 give negative margins, F = 0.70 positive |
+| combine's window "0.91 L/c < T < L/c DERIVED-FROM-READ" is COMPUTED (T > 0.9097 L/c over every gap in [2, 40]; *W2-fix: for Reznik's cos²(πt) window only*) | GROUND: `vacuum.compact_boundary` re-run here (44 s): T/(L/c) = 0.90970 at the boundary, within 0.1% of the READ 1/1.1. `first_transit` keeps wave 1-6's (1/1.1, 1) labelled HISTORY |
+| Harvested state: N = f − 1/2; symmetric extension on both sides; teleportation 2/3 + 2N/3; timeline floors 2.50 / 3.00 L/c (*W2-fix: the Gaussian β = 7 family's; with no window assumption 1.50 / 2.00 L/c*) | GROUND (cheap pieces re-run, imported): at β = 7, λ = 0.1, N = 4.00e-17 = f − 1/2; margins 1.99e-15 on both sides with ρ_ee at its floor and at 10×; floors 2.50 / 3.00 L/c at 1 ly against the midpoint source's 0.50; hashing threshold 0.81071. CONTROL: a Bell state and a Werner state at F = 0.80 give negative margins, F = 0.70 positive |
 | W2 on a harvested pair: 2 ε T ρ⊥² = 5.76e-30 at ε = 0.1, T = 3; a Bell pair reproduces 0.537050; "W2 × F1's pair counts assume Bell pairs" | **New test T-L** (`TEST_BEARS`: W2, F1 on O-BITS and O-MAKE-DIST): at three (ε, T) the Bell pair gives settle's tanh(2εT) and the harvested pair gives exactly 2εTρ⊥² (ratio 1.0000), below 1e-20. H-NEARMAX is named in N_EPS |
 | `vacuum.GRADES` is an instrument grade | **Compared by the drift guard** like an A-report (row "W2B-vacuum", the board-alone variant): agrees. A GROUND checks that the encoding's three pathways and nine-hypothesis set equal those parsed from `vacuum.GRADES` |
 | Whether to edit combine.py's N_VAC entry is left to seating and M | Done in the screen as the task asked; the ledger and `index3.py` are untouched (seating step) |
@@ -130,8 +161,8 @@ values is no longer "given W_W2"), N_VAC re-encoded from `vacuum.py` (O-MAKE-DIS
 |---|---|
 | O-SEAT stays OPEN via S5/D25; no grade moved | **Confirmed.** `seat.grade_o_seat(board_state())` = OPEN; the drift guard compares it (row "W2C-seat"): agrees with z3's OPEN via N_S5 under Z6 |
 | The grade's predicate can move (S5 refused, a conjunct False → LEFT; all True → REMOVABLE) | GROUND: seat's grade agrees with z3 in three board states — today OPEN / z3 OPEN via N_S5; S5 refused / z3 `S5-refused` LEFT; S5 shown and every conjunct True / z3 removable with N_S5. CONTROL: one conjunct False gives LEFT |
-| Binder P (10.70 kg/kg), runner-up N; neither measured in any Proxima-system star or body | GROUND: `seat.binders` P then N at CI chondrite; 70 kg × P's factor = 749.08 kg, agreeing with `measure.seat_route_s5`'s 749.1 kg (a different payload definition, stockgate's 59 elements) to 0.03 kg; P and N among none of Morel 2018's 21 α Cen species and measured in no body. N_S5's text carries it |
-| Proxima b 1.07 M⊕ READ; accessible mass unmeasured; formation NOT EVALUABLE; E_fab nowhere; m_set nowhere; k* an identity | Carried in N_S5's text and in "The answer, first"; no screen atom names them (O-SEAT's pathway is the board's, opened by no member) |
+| Binder P (10.70 kg/kg), runner-up N; neither measured in any Proxima-system star or body (*W2-fix: wrong for N, measured in α Cen A, "solar"; P unmeasured in the sources read*) | GROUND: `seat.binders` P then N at CI chondrite; 70 kg × P's factor = 749.08 kg, agreeing with `measure.seat_route_s5`'s 749.1 kg (a different payload definition, stockgate's 59 elements) to 0.03 kg; P and N among none of Morel 2018's 21 α Cen species and measured in no body. N_S5's text carries it |
+| Proxima b 1.07 M⊕ READ (*W2-fix: the minimum mass m sin i*); accessible mass unmeasured; formation NOT EVALUABLE; E_fab nowhere; m_set nowhere; k* an identity | Carried in N_S5's text and in "The answer, first"; no screen atom names them (O-SEAT's pathway is the board's, opened by no member) |
 | H-SEAT-ROUTES | The named reading now disagrees with **two** graded rows, exactly: (A3, H-INFO-SHAPE, O-SEAT) and (W2C-seat, board, O-SEAT) — both grade O-SEAT under H-SEAT-S5 (CONTENT check). *Wave 6 first said* one row |
 
 ### Guards, kept and extended
@@ -1515,7 +1546,8 @@ board's route, open in every variant, assumed in no removal).
 **Wave 7 (D68 wave 2; named, each carried as a hypothesis, none seated):**
 
 - **W_W2R** (`settle.W_W2R`): support 1's window premises once the values are READ — H-MAP (how each paper's ε maps onto
-  nlcontrol's; the full texts, where it lives, are behind a login wall: OPEN), H-TRANSFER, H-SPIN, H-DILUTION.
+  nlcontrol's; the full texts, behind a login wall and not read, may carry each paper's convention: OPEN), H-TRANSFER,
+  H-SPIN, H-DILUTION.
 - **H-SAME-EPS** (W2A-limits): the four experiments bound one common parameter. It decides only (1 AU, 10³, reading A).
 - **H-BEFRAC** (W2A-limits): a binding-energy-fraction limit converts to a frequency through B/A (AME2020 values, not
   the papers' own tables; checked on Majumder's own pair). **H-ERRATUM**: Chupp & Hoare's erratum (PRL 66, 120) is
@@ -1557,6 +1589,7 @@ member.
 | Majumder et al., PRL 65, 2931 (1990); Walsworth et al., PRL 64, 2599 (1990); Bollinger et al., PRL 63, 1031 (1989); Chupp & Hoare, PRL 64, 2261 (1990) | **READ (abstract)** by W2A-limits, via Firecrawl scrape of the publisher's public abstract pages (route recorded in `settle.BOUNDS_WEINBERG`); used here through settle, never retyped | support 1's window (W_W2R; the tightest, Majumder 3.8 µHz; H-SAME-EPS from the four) |
 | Reznik-Retzker-Silman quant-ph/0310058v2; Pozas-Kerstjens & Martín-Martínez 1506.03081v7; Tjoa & Martín-Martínez 2109.11561v3; BBPSSW quant-ph/9511027v2; BDSW quant-ph/9604024v2; Vidal & Werner quant-ph/0102117v1; Verstraete & Verschelde quant-ph/0203073v3; Chen et al. 1310.3530v2 | READ via alphaXiv by W2B-vacuum (pages in vacuum.py); Horodecki ×3 and Marcovitch et al. READ (abstract) | N_VAC's split, O-MAKE-DIST's LEFT-IF set and pathways, through `vacuum.py` |
 | Faria et al. 2202.05188v1; Brugger et al. 1609.09757v3; Morel 1805.00929v1; Kervella et al. 1611.03495 (abstract); Lachmann-Newman-Moore cond-mat/9907500v1; Bekenstein PRL 46, 623 (abstract) | READ by W2C-seat (routes in seat.py) | N_S5's content at Proxima, through `seat.py` |
+| Porto de Mello, Lyra & Keller 0804.3712v2; Hinkel & Kane 1304.0450v1; BDSW quant-ph/9604024v2 p.29 and Table 1 p.24; Faria 2202.05188v1 Table 1 p.2 (parallax) | READ via alphaXiv by W2-fix (routes in seat.py, vacuum.py, settle.py) | N in α Cen A (N_S5's text); the B_x component map (vacuum.py G6-G8); Proxima's second READ distance (settle.PROXIMA_DISTANCES_READ) |
 | Eling-Guedens-Jacobson, gr-qc/0602001v1; Jacobson gr-qc/9504004v2 | READ by A4 | N_EQUIL, ITJ |
 | Brun-Harrington-Wilde, arXiv:0811.1209v2 | READ by A2 (pp.1-4 re-READ in wave 3) | N_DCTC, via `frame.four_basis_c2_table` and `bb84_c2_table` |
 | Hsu, arXiv:2511.15935v1 | READ by A1 (wave 3; p.4 in wave 4) | N_FRAME3b withdrawn: H-FRAME3b presupposes F1; H-KR-TS beside C-KR |
@@ -1666,15 +1699,16 @@ finding 18.
 
 ## 12. Open
 
-- **H-MAP** for support 1 (how each paper's ε maps onto nlcontrol's): OPEN — the full texts are behind a login wall
-  and were not read. **H-SAME-EPS** (decides 1 AU, 10³, reading A), **H-ERRATUM** (Chupp & Hoare's erratum
+- **H-MAP** for support 1 (how each paper's ε maps onto nlcontrol's): OPEN — the full texts, behind a login wall and
+  not read, may carry each paper's ε convention. **H-SAME-EPS** (decides 1 AU, 10³, reading A), **H-ERRATUM** (Chupp & Hoare's erratum
   NAMED-NOT-READ) and **H-BEFRAC** (the papers' own binding-energy tables not read): OPEN (wave 7).
 - **O-MAKE-DIST outside vacuum.py's nine hypotheses** (wave 7): N_NLDIST (a non-linear local operation raising the
   pair's entanglement), N_W2WEAK (W2 on many weak pairs), N_VACNP (harvesting outside H-UDW / H-PERTURB) — none
   computed; no READ upper bound on harvestable negativity over every window; H-IID; gaps above ΩT = 40 not scanned; the
   minimum number of two-way rounds over all distillation protocols not known.
-- **N_S5 at Proxima** (wave 7, seat.py): P and N abundance of any body in the arrival aperture; Proxima b's primitive
-  status; accessible mass and the aperture; E_fab; m_set; H-CONATAL; which count is the specification (H-ALT).
+- **N_S5 at Proxima** (wave 7, seat.py): P and N abundance of any body in the arrival aperture (P in no Proxima-system
+  star either, in the sources read; N measured in α Cen A only, "solar" -- W2-fix); Proxima b's primitive status
+  (unconstrained by Brugger 2016, which models water only); its true mass (only m sin i is READ); accessible mass and the aperture; E_fab; m_set; H-CONATAL; which count is the specification (H-ALT).
 - *Closed in wave 7* (kept as history): "The Weinberg-family values (Majumder+ 1990 and kin): NAMED-NOT-READ; pre-arXiv;
   2509.04320v1, 2511.15935v1 and (this pass) 2411.09611v1 carry none. A READ would settle N_WREAD: support 1 at 1 AU,
   N ≤ 10³ stays OPEN until then." — READ (abstract) by W2A-limits at the publisher's public pages; the cell is EXCLUDED
