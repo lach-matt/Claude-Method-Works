@@ -1,6 +1,6 @@
 # DOCKET 67 per-source comments -- index
 
-**Drafts, kept in the repository. Nothing has been sent or posted.** Written under M's three rulings (COMMENTS-PLAN.md):
+**Drafts, kept in the repository. Nothing has been sent or posted.** M, 2026-10-04: "Keep as drafts (Recommended)"; the two left-outs below: "Leave both out (Recommended)". Written under M's three rulings (COMMENTS-PLAN.md):
 one comment per source; "Comment on each" (every source with a WRONG grade or a recorded discrepancy); "arXiv is the
 object" (each finding against the arXiv version read, no journal claim except Kuo & Ford, COMPARED-BY-M under M-D67-1).
 A discrepancy is never called a refutation; WRONG appears only where verified WRONG, and only in the graded part.
