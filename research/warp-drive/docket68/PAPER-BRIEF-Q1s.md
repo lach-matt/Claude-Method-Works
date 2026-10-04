@@ -4,6 +4,14 @@ M, 2026-10-03, verbatim: *"if this does prove useful, we should set up instructi
 a professional paper about the complex and negative entropy findings"*. This file is those instructions. It is
 self-contained: a fresh session should need nothing else to start.
 
+## Condition (M, 2026-10-04, verbatim)
+
+> The paper is not a priority, just an additional if the math concept is novel or introduces new theorems/proofs not
+> otherwise previously published art
+
+So the session's first task, section 3 step 1 (the prior-art search), is also the gate. If that search finds that every
+item in section 2 is already published, the session reports this to M and writes no paper.
+
 ## 0. Where everything is
 
 - Repository `lach-matt/claude-method-works`; the work is on branch `claude/warp-drive-theory-ditjk4`. Create a new
