@@ -19,8 +19,10 @@ never previously contained it would be considered exotic matter".  Carried as H-
 result.  The ledger records that the question's parenthetical ("information arriving at the destination creates a
 local negative-energy region there") was the question's description as put to M, NOT READ; it is tested here.
 
-SOURCES, READ at source through alphaXiv (answer_pdf_queries, open arXiv PDFs) on 2026-10-04; page numbers are the
-PDF's.  No paywall or login wall was met; no 403.
+SOURCES, READ at source through alphaXiv (answer_pdf_queries, open arXiv PDFs) on 2026-10-04.  No paywall or login wall
+was met; no 403.  PAGE CONVENTION (D66-fix, V66-2 #6): for Hotta 1002.0200v2 the pages below are the PRINTED page
+numbers (the PDF's page minus one), re-read at D66-fix; wave 1 cited 'even before the start' to p.3 and eq.(8) to p.7,
+off by one from the printed p.2 and p.8.  The other sources keep the pages A3 recorded.
   Hotta, arXiv:0803.2272v3 (16 Jul 2008) = PRD 78 045006, "Quantum Measurement Information as a key to Energy
       Extraction from Local Vacuums".  1+1 massless scalar; Alice measures, Bob acts after the classical message, "at
       t = T (>= t_o)" when Alice's wavepackets "have already passed by" (p.11); eq.(25) <H_B> = -eta^2/(2 xi) < 0 (p.14);
@@ -29,10 +31,10 @@ PDF's.  No paywall or login wall was met; no 403.
       excitations" (p.9); the classical channel's speed is bounded by light (p.2).  Hotta's spin-chain QET is
       arXiv:0803.0348 (cited there, ref [14]); NOT READ here.
   Hotta, arXiv:1002.0200v2 (25 Jun 2010) = PLA 374 3416, "Energy Entanglement Relation for QET": the MINIMAL MODEL
-      eqs (1)-(3) p.3; E_A eq.(4) p.4; no mu-independent operation on B extracts energy, eq.(5) p.5; max E_B eq.(8)
-      p.7; Delta S_AB eqs (9)-(10) p.10-11 (= the mutual information between pointer and B, p.10); inequalities (12)
+      eqs (1)-(3) p.3; E_A eq.(4) p.5; no mu-independent operation on B extracts energy, eq.(5) p.5; max E_B eq.(8)
+      p.8; Delta S_AB eqs (9)-(10) pp.10-11 (= the mutual information between pointer and B, p.10); inequalities (12)
       p.12 and (15) p.14; "The amount of output energy from B is upper bounded by the amount of input energy to A"
-      (p.2); the output energy "existed not at A but at B even before the start of the protocol" (p.3).
+      (p.2); the output energy "existed not at A but at B even before the start of the protocol" (p.2).
   Ikeda, arXiv:2301.02666v5 (22 Aug 2023): the minimal model eqs (1)-(5) p.2, protocol eqs (6)-(14) p.2-3, analytic
       values Table I p.6 and Table II p.11 (the fixtures below), eq.(A7) p.10 (no unitary after the measurement alone
       extracts), eq.(A9) p.10 (free evolution), eqs (A10)-(A12) p.10.
@@ -74,7 +76,8 @@ WHAT IT COMPUTES
       SILENT), and against the seat's own conditions (specthm's classes, the Sturm condition, M-S1A-P3 (i)).
 
 NAMED HYPOTHESES (every limitation carried by name; D68 names imported are used in D68's sense)
-  H-MINIMAL       the two-qubit model (Hotta 1002.0200 eqs (1)-(3)) stands for QET's structure; energies in units of h.
+  H-MINIMAL       the two-qubit model (Hotta 1002.0200 eqs (1)-(3)) stands for QET's structure; energies are the model's raw
+                  values at the stated (h, k) -- NOT in units of h (D66-fix, V66-2 #5: wave 1 labelled them 'h').
   H-PROJ          Alice's measurement is projective (q = +-p); the general POVM family is computed where named.
   H-INSTANT       local operations are instantaneous against 1/k (Hotta p.4-5; Ikeda p.2: t << 1/k).
   H-GROUND        the shared state is the ground state (strong local passivity: no local operation at B extracts).
@@ -86,12 +89,14 @@ NAMED HYPOTHESES (every limitation carried by name; D68 names imported are used 
   H-DELTA-SWITCH  delta switching (FMM eq.(1)-(2)); the detector gap plays no role.
   H-SAMPLER       Flanagan's bound is tested on Gaussian samplers only: a pass is necessary, not sufficient.
   H-QET-HADAMARD  the states QET makes (coherent superpositions of the vacuum) lie in the class the duration bound
-                  covers (Hadamard states of the free massless minimally coupled scalar).  Not proved here.
+                  covers (Hadamard states of the free massless minimally coupled scalar).  Not proved here; a short
+                  check by the standard argument (displaced vacua with smooth smearings), not run: OPEN (N_QETHAD).
   H_flat, H-PATH, H-MIN-SCALAR   geometry.r_quantum's (D68 R-QUANTUM), imported with the fraction.
   H-QET-BUDGET    E_B <= E_A (Hotta 1002.0200 p.2; review p.6; computed for the minimal model).
   H-1+1-TO-3+1    any comparison of a 1+1 energy with a 3+1 throat is dimensional, not a bound.  Context only.
-  N_QET-NMC       OPEN pathway: QET with a nonminimally coupled scalar (xi > 0), where no state-independent QEI holds
-                  (the board's R-QUANTUM OPEN branch).  Not computed, not READ.
+  N_QET-NMC       wave 1's name for QET with a nonminimally coupled scalar (xi > 0).  D66-fix (V66-0 #7): that branch,
+                  and the curved-space one, are the BOARD's R-QUANTUM pathways (N_XI, N_QEIC), present with or without
+                  QET; QET's own OPEN pathway on O-HOLD is N_QETHAD (H-QET-HADAMARD unchecked).
   N_QTOPO, ITB    D68's (an information layer beneath geometry), carried unchanged.
 
 stdlib + numpy + scipy (+ z3 via specthm).
@@ -134,6 +139,24 @@ transit = _quiet_import("transit")
 HBAR, C = achievable.HBAR, achievable.C_SI
 G = wormhole.G
 YEAR_S = 365.25 * 86400.0          # Julian year, a unit definition
+
+HISTORY = [
+    ("R-LIT's label", "M's words read alone",
+     "the question's parenthetical read as arrival alone; M's sentence read operationally is R-QET", "V66-1 #7"),
+    ("item 3 of the answer", "genuine negative energy density ... 'exotic matter' in the standard sense",
+     "a local negative energy density (pointwise WEC violation), which the review calls a pathway to exotic matter "
+     "(p.26); offset by positive energy (FMM p.3), obeying the QEIs (C6; FMM p.11), not the averaged violation a throat "
+     "needs", "V66-0 #6"),
+    ("O-HOLD's open branch", "OPEN on the xi > 0 branch via N_QET-NMC",
+     "N_XI and N_QEIC are the board's R-QUANTUM pathways, with or without QET; QET's own is N_QETHAD, a short check",
+     "V66-0 #7"),
+    ("duration", "t* = 0.1450/k at (1.5, 1) and 0.1855/k at (1, 1)",
+     "0.1449/k and 0.1854/k by bisection (the grid's first point >= 0 was printed)", "V66-2 #4"),
+    ("units", "E_B = 0.1425 h, E_A = 1.2481 h, 0.494 h per nat, 0.2036 h per bit, E_B = -0.079 h",
+     "raw model values at (h, k) = (1.5, 1): E_B = 0.14252 (E_B/h = 0.0950), E_A = 1.2481 (E_A/h = 0.832)", "V66-2 #5"),
+    ("Hotta 1002.0200v2 pages", "'even before the start' p.3; eq.(8) p.7",
+     "printed p.2 and p.8", "V66-2 #6"),
+]
 
 # ===================================================================================== (A) the minimal model
 I2 = np.eye(2, dtype=complex)
@@ -281,9 +304,21 @@ def duration(h, k, tmax_over_k=3.0, n=6001):
         U = vec @ np.diag(np.exp(-1j * w * t)) @ vec.conj().T
         vals.append(ev(U @ rho0 @ U.conj().T, m["HB"] + m["V"]))
     vals = np.array(vals)
-    idx = np.argmax(vals >= 0.0)
-    return {"t_star": float(ts[idx]), "t_star_k": float(ts[idx] * k), "E_local_at_0": float(vals[0]),
-            "min": float(vals.min())}
+    idx = int(np.argmax(vals >= 0.0))
+
+    def f(t):
+        U = vec @ np.diag(np.exp(-1j * w * t)) @ vec.conj().T
+        return ev(U @ rho0 @ U.conj().T, m["HB"] + m["V"])
+    lo, hi = float(ts[idx - 1]), float(ts[idx])          # D66-fix (V66-2 #4): bisect inside the grid bracket
+    for _ in range(200):
+        mid = 0.5 * (lo + hi)
+        if f(mid) >= 0.0:
+            hi = mid
+        else:
+            lo = mid
+    t_star = 0.5 * (lo + hi)
+    return {"t_star": t_star, "t_star_k": t_star * k, "t_grid_k": float(ts[idx] * k), "f_at_t_star": f(t_star),
+            "f_at_grid": float(vals[idx]), "E_local_at_0": float(vals[0]), "min": float(vals.min())}
 
 
 def alice_only_evolution(h, k, t):
@@ -589,16 +624,21 @@ def grades(spec=None, bf=None, ft=None, sr=None):
             "so the duration bound binds them exactly as it binds any state; QET can at most saturate it (FMM p.11, "
             "the review p.26: QET 'saturates' the quantum-interest scaling; computed here in 1+1: the QET flux sits at "
             "%.3f of Flanagan's bound). The fraction of the 1 m throat's deficit (%.4e J) the bound covers is %.3e "
-            "(geometry.r_quantum, imported), and QET does not move it. OPEN on the xi > 0 branch via N_QET-NMC (the "
-            "board's R-QUANTUM OPEN; QET with nonminimal coupling not computed, not READ). Under ITB the geometric "
-            "form is NOT-BOUND-IF {N_QTOPO} (the board's, D68); QET adds nothing to it"
+            "(geometry.r_quantum, imported), and QET does not move it. QET's own OPEN pathway is N_QETHAD: "
+            "H-QET-HADAMARD is unchecked -- a short check, not a hard open question: the post-protocol state is a finite "
+            "mixture of finite superpositions of Weyl-displaced vacua with smooth smearings, whose two-point function "
+            "is, by the standard argument, the vacuum's plus a finite sum of products of smooth classical solutions; "
+            "not run here, so OPEN. The xi > 0 and curved-space branches are the BOARD's R-QUANTUM pathways (N_XI, "
+            "N_QEIC), present with or without QET, not QET's (wave 1 first said 'OPEN on the xi > 0 branch via "
+            "N_QET-NMC'). Under ITB the geometric form is NOT-BOUND-IF {N_QTOPO} (the board's, D68); QET adds "
+            "nothing to it"
             % (ft["flanagan"]["max_ratio"], bf["throat_deficit_J_1m"], bf["r_quantum_fraction"]))
     seat_ob = ("LEFT-IF {H-QET-BUDGET, H-MINIMAL for the ratio}: as a supply route QET relocates energy that was "
                "injected at the source, at no more than E_A (READ, Hotta 1002.0200 p.2; review p.6) -- computed in "
                "the minimal model E_B/E_A < %.4f over k/h in [1e-3, 1e3] (supremum 1/4, approached as k/h -> inf) -- "
                "and gated by the bit at <= c; it forms no substance. A 70 kg payload's rest energy %.4e J would need "
                "an injection above %.4e J at the source under H-MINIMAL. The board's O-SEAT stays OPEN via N_S5 (D68): "
-               "QET moves no grade. Hotta p.3 places the extracted energy 'at B even before the start' -- in the "
+               "QET moves no grade. Hotta 1002.0200v2 p.2 places the extracted energy 'at B even before the start' -- in the "
                "seat's own zero-point fluctuation, read as 'from the seat' -- but it is borrowed: the local energy "
                "left at the seat is -E_B until A's positive energy arrives"
                % (sr["sup"] + 5e-5, bf["payload_rest_J"], bf["payload_rest_J"] / 0.25))
@@ -620,8 +660,11 @@ def grades(spec=None, bf=None, ft=None, sr=None):
         "seat_conditions": seat,
     }
     rl = {
-        "reading": "R-LIT: M's words read alone -- information introduced into a space that never contained it is "
-                   "exotic matter, with no conditioned operation and no prior correlation",
+        "reading": "R-LIT: the question's parenthetical read as arrival alone ('information arriving at the "
+                   "destination creates a local negative-energy region there'), with no conditioned operation and no "
+                   "prior correlation.  M's sentence ('the introduction of information into a space that never "
+                   "previously contained it') names an act, and read operationally it is R-QET.  Wave 1 first "
+                   "labelled R-LIT 'M's words read alone' (V66-1 #7)",
         "verdict_on_own_content": "FALSE-IF {H-MINIMAL or H-1+1 as the test models, linear QM}: three computed "
                                   "counterexamples -- the bit arrives and Bob does nothing: local energy 0; the bit "
                                   "arrives with no correlation (k = 0): max E_B = 0; a bit uncorrelated with B (eps = "
@@ -629,7 +672,7 @@ def grades(spec=None, bf=None, ft=None, sr=None):
                                   "E_B = s * E_B(h, k) under (h, k) -> (s h, s k): information fixes no amount of "
                                   "energy, so information is not itself an energy density of either sign. "
                                   "'Never previously contained': what B held before is the correlation; what is new "
-                                  "at B is the classical record (Hotta 1002.0200 p.3)",
+                                  "at B is the classical record (Hotta 1002.0200v2 p.2)",
         "per": {o: "SILENT (its operative content is R-QET's)" for o in OBSTRUCTIONS},
         "seat_conditions": seat,
     }
@@ -655,6 +698,7 @@ def compute_all(with_spec=True):
         "field": ft,
         "board": bf,
         "zachary": zachary_check(),
+        "history": HISTORY,
     }
     out["context_dimensional_ratio_1p1_well_over_throat"] = abs(ft["SI_at_d_1m"]["neg_energy_J"]) / bf["throat_deficit_J_1m"]
     if with_spec:
@@ -676,8 +720,8 @@ def report():
                                                                         d["sup_E_B_over_E_A"]["at_k_over_h"]))
     for key in ("duration_1.5_1", "duration_1_1"):
         r = d[key]
-        print("  %s: negative local energy at B lasts t* = %.4f / k (starts at %.4f)" % (key, r["t_star_k"],
-                                                                                          r["E_local_at_0"]))
+        print("  %s: negative local energy at B lasts t* = %.6f / k by bisection (grid value %.4f; starts at %.4f)"
+              % (key, r["t_star_k"], r["t_grid_k"], r["E_local_at_0"]))
     print("  no-signalling: max |rho_B(after Alice) - rho_B(ground)| = %.2e" % d["no_signalling_maxdiff"])
     print("\n  Entanglement consumed (POVM r) vs max E_B, Hotta (12) and (15):")
     for r in d["entanglement"]:
@@ -686,10 +730,11 @@ def report():
             r["rhs15"]))
     print("\n(B) the bit through a binary symmetric channel (h, k) = (1.5, 1):")
     for r in d["bsc"]:
-        print("   eps %.2f  I %.4f bit  E_B %.5f h (eq.8, q = 1-2eps: %.5f; phi not re-optimised: %.5f)" % (
+        print("   eps %.2f  I %.4f bit  E_B %.5f (model units at (h, k) = (1.5, 1); eq.8, q = 1-2eps: %.5f; phi not "
+              "re-optimised: %.5f)" % (
             r["eps"], r["I_bits"], r["E_B_numeric"], r["E_B_hotta8_q"], r["E_B_fixed_phi"]))
-    print("   dE_B/dI at I -> 0: %.5f h per bit; E_B per bit at I = 1: %.5f h" % (
-        d["slope_dEB_dI_bits_1.5_1"], d["bsc"][0]["E_B_numeric"]))
+    print("   dE_B/dI at I -> 0: %.5f per bit; E_B at I = 1 bit: %.5f (model units at (h, k) = (1.5, 1); divide by "
+          "h = 1.5 for units of h)" % (d["slope_dEB_dI_bits_1.5_1"], d["bsc"][0]["E_B_numeric"]))
     f = d["field"]
     print("\n(C) 1+1 field QET (hbar = c = 1, unit = Alice's width):", {k: round(v, 6) for k, v in f["well"].items()})
     print("   Flanagan right-moving bound: max achieved/allowed = %.4f (centre %.3f, width %.4f)" % (
@@ -727,7 +772,7 @@ def selftest():
     # ---------------------------------------------------------------- (A)
     m15 = model(1.5, 1.0)
     g = m15["g"]
-    chk("A1 zero-mean ground state: <H_A>, <H_B>, <V>, E_0 all |.| < 1e-12 (Hotta 1002.0200 p.3, Ikeda eq.(5))",
+    chk("A1 zero-mean ground state: <H_A>, <H_B>, <V>, E_0 all |.| < 1e-12 (Hotta 1002.0200v2 p.3, Ikeda eq.(5))",
         all(abs(float(np.real(g.conj() @ O @ g))) < 1e-12 for O in (m15["HA"], m15["HB"], m15["V"]))
         and abs(m15["E0"]) < 1e-12)
     ok = True
@@ -776,8 +821,14 @@ def selftest():
         ok &= abs(hb - 1.5 ** 2 * (1 - math.cos(4 * t)) / (2 * math.hypot(1.5, 1.0))) < 1e-12 and abs(vv) < 1e-12
     chk("A14 Ikeda eq.(A9): after Alice alone <H_1(t)> = h^2(1 - cos 4kt)/(2 sqrt(h^2+k^2)), <V(t)> = 0", ok)
     du = duration(1.5, 1.0)
-    chk("A15 the negative local energy at B ends under free evolution at t* k = %.4f (in (0, pi/4); starts at -E_B)"
-        % du["t_star_k"], 0 < du["t_star_k"] < math.pi / 4 and abs(du["E_local_at_0"] + r["E_B"]) < 1e-12)
+    chk("A15 the negative local energy at B ends under free evolution at t* k = %.6f, by bisection (in (0, pi/4); "
+        "starts at -E_B; V66-2: 0.144941)" % du["t_star_k"], 0 < du["t_star_k"] < math.pi / 4 and
+        abs(du["E_local_at_0"] + r["E_B"]) < 1e-12 and abs(du["t_star_k"] - 0.144941) < 5e-6 and abs(du["f_at_t_star"]) < 1e-12)
+    du1 = duration(1.0, 1.0)
+    chk("A15b at (h, k) = (1, 1), t* k = %.6f (V66-2: 0.185373); wave 1 printed the grid's first point >= 0, 0.1450 "
+        "and 0.1855" % du1["t_star_k"], abs(du1["t_star_k"] - 0.185373) < 5e-6)
+    chk("A15c CONTROL the grid value wave 1 printed is not the crossing: <H_B + V> there is %.2e, not 0" % du["f_at_grid"],
+        abs(du["f_at_grid"]) > 1e-6 and du["t_grid_k"] > du["t_star_k"], control=True)
     et = entanglement_table()
     chk("A16 numeric max E_B = Hotta eq.(8) on the POVM family r in {0.05..1}", all(
         abs(x["max_E_B_numeric"] - x["max_E_B_hotta8"]) < 1e-7 for x in et))
@@ -798,7 +849,7 @@ def selftest():
         bt[5]["E_B_fixed_phi"] < 0, control=True)
     e1 = bsc_row(1.5, 1.0, 0.4999)
     sl = slope_at_zero_info(1.5, 1.0)
-    chk("B4 dE_B/dI at I -> 0 = ln2 h^2k^2/((h^2+2k^2) sqrt(h^2+k^2)) = %.6f h/bit (numeric %.6f at eps = 0.4999)"
+    chk("B4 dE_B/dI at I -> 0 = ln2 h^2k^2/((h^2+2k^2) sqrt(h^2+k^2)) = %.6f per bit, model units (numeric %.6f at eps = 0.4999)"
         % (sl, e1["E_B_numeric"] / e1["I_bits"]), abs(e1["E_B_numeric"] / e1["I_bits"] / sl - 1) < 1e-3)
     s3 = minimal_values(4.5, 3.0)["E_B"] / minimal_values(1.5, 1.0)["E_B"]
     chk("B5 same one bit, (h, k) x 3: E_B x %.12f -- information fixes no joules" % s3, abs(s3 - 3.0) < 1e-10)

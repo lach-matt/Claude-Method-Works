@@ -68,12 +68,29 @@ NAMED HYPOTHESES (every limitation carried by name; the D68 names imported are u
                     (GJW sec. 5; MSY sec. 2, 4.1): prior entanglement (a TFD bridge) plus a coupling carrying a few
                     bits.  H-ADS-TFD: GJW's and MSY's setting (two AdS boundaries, the thermofield double).
                     H-COUPLED: the boundary coupling is on (GJW eq.(1.2)); it is a channel between the two sides.
-  N_GJW-AMBIENT     OPEN pathway: GJW p.14's same-space version (the coupling carried by the ambient spacetime, the
-                    negative null energy as a Casimir effect around the cycle) -- stated, not computed.
+  N_GJW-PAYLOAD     OPEN pathway (D66-fix): a one-space traversable throat that admits the payload, outside MMP's
+                    family with the SM's fields.  Wave 1 carried N_GJW-AMBIENT, GJW p.14's same-space version, 'stated,
+                    not computed'; MMP 1807.04726 (READ) realises that version at sub-electroweak scale, and mmp_scales
+                    computes why it does not admit the payload (binding energy below the payload's rest energy at every
+                    r_e above l_P with N_f = 54).
+  H-MQ-NADS2, H-MQ-ETERNAL-COUPLING, H-MQ-LARGE-N   Maldacena-Qi's premises (READ): nearly-AdS2 (JT) gravity; the
+                    two-boundary coupling on for all time; many bulk fields in the coupling (or Delta < 1/2 with
+                    alternate boundary conditions for a few, p.19).
+  H-MMP             MMP's construction: Einstein-Maxwell with massless charged fermions, a pair of near-extremal
+                    magnetically charged black holes (q >> 1), mouths held apart by rotation, d_min (6.52) << d <<
+                    q^(5/2) l_p (5.49).  H-SM-FIELDS: the SM's fields (N_f = 54, d << 1/TeV, MMP pp.25-26).
+                    H-MMP-G: the hypercharge coupling 0.36 .. 0.46 (MMP's normalisation g = g'/6).  H-MMP-OOM: the
+                    order-of-magnitude reading of (6.51)-(6.52) (O(1) factors as printed; Omega l = 1 at the edge).
   H-ISLAND-COUNTERPART 'compressed to binary information' read as the island formula's area term (2006.06872 eq.(8.2)).
   H-ITB             D68's ITB (H-IT as an information layer beneath geometry, no READ realisation) with N_QTOPO.
   H-SEAT-OFF-THROAT the seat is not on the throat: the throat's singular support and the seat are disjoint.
   H-INFO-SHAPE, N_S5, H-SEAT-S5   D68's (M's rulings items 1, 5, 7).
+
+D66-FIX (2026-10-04): every problem in the three wave-1 verifier reports is resolved here or answered with a reason:
+R-TELEPORT's O-HOLD re-graded (GJW alone gives an opening, not a hold; MQ and MMP READ for held throats, each with its
+premises); N_GJW-AMBIENT replaced by what MMP shows (mmp_scales); M's ruling applied to the bridge's creation; the
+'precise size' and 'costs GR nothing' sentences re-worded; the attribution inside a setting stated (setting_removals);
+MMP's SM-embedded throat added beside the board's 300 l_P one.  HISTORY keeps what wave 1 first said.
 
 stdlib + sympy (+ numpy, z3 via the imported owners).
 """
@@ -184,6 +201,30 @@ READ = [
               "p.33: reconstruction from radiation is 'exceedingly complex' (roughly exponential in S_BH)",
               "p.33-34: Wheeler's bag of gold -- a narrow neck; the exterior's fine-grained entropy is the neck's area",
               "p.37: replica wormholes are Euclidean saddles computing Tr rho^n"]},
+]
+
+HISTORY = [
+    ("R-TELEPORT O-HOLD", "REMOVED-IF {H-GJW-COUNTERPART, H-ADS-TFD, H-COUPLED} in GJW's setting",
+     "LEFT-IF {H-GJW-COUNTERPART, H-ADS-TFD, H-COUPLED} for a hold on GJW alone; held throats READ in MQ (nearly-AdS2) "
+     "and MMP (one space, sub-electroweak), each REMOVED-IF its own premises outside the board's setting", "V66-0 #1"),
+    ("N_GJW-AMBIENT", "GJW p.14's same-space version, stated, not computed",
+     "MMP realises it at sub-electroweak scale; for the payload LEFT-IF {H-MMP, H-SM-FIELDS}, OPEN via N_GJW-PAYLOAD "
+     "outside that family (mmp_scales)", "V66-1 #2"),
+    ("R-TELEPORT O-MAKE-TOPO", "NOT-BOUND-IF {H-ER=EPR} only",
+     "and without ITE OPEN via W-create-ncc, M's ruling M-S1A-P3 applied", "V66-1 #1, applied consistently"),
+    ("R-HOLO what it does", "gives M's mechanism a precise size",
+     "r_fit is where the A/4 ceiling equals the count, IF {H-CAP-AT-THROAT, H-NECK-DOGMA, H-COUNT-IS-ENTROPY}; no "
+     "encoding at that density is constructed or READ", "V66-0 #4"),
+    ("R-THINSHELL what it does", "M's ruling costs GR nothing",
+     "under H-SINGULAR-IS-THINSHELL it costs GR no new structure, and still needs sigma_0 < 0; under "
+     "H-SINGULAR-IS-PINCH not modelled", "V66-0 #5"),
+    ("R-ISLAND what it does", "a precise sense in which geometry is compressed to binary information",
+     "the area term counts fine-grained entropy, not a state or an encoding", "V66-0 #4"),
+    ("member-attributed removals", "none -- credited to the premise set, not to H-THROAT-BITS",
+     "none in the board's setting; inside MQ's and MMP's settings H-GJW-COUNTERPART, M's reading, is load-bearing",
+     "V66-1 #8"),
+    ("largest held throat", "the board's 300 l_P throat (4.08e5 bits): payload 2.3e22 .. 2.7e23 x",
+     "beside it MMP's SM-embedded throat (~2.5e19 bits on V66-1's estimate): payload ~4e8 .. 4e9 x", "V66-1 #6"),
 ]
 
 BOARD_READ = [  # readings this work item USES but did not make: the board's, with the owner that records them
@@ -730,7 +771,8 @@ def report_data(spec=None):
          "qnec": qnec_table(), "shape_checks": shape(), "pv_static": pv_static(),
          "pv_stability": {str(k): v for k, v in pv_stability_scan([0.25, 1.0, -1.0, 4.0]).items()},
          "pv_roots_b2_4": pv_roots(4.0), "thin_shell_at_r_fit": [thin_shell_at(r["r_fit_m"]) for r in cap["rows"]],
-         "specthm": spec, "grades": grades(spec), "read": READ, "board_read": BOARD_READ}
+         "specthm": spec, "grades": grades(spec), "read": READ, "board_read": BOARD_READ, "mmp": mmp_scales(),
+         "history": HISTORY}
     return d
 
 
@@ -779,7 +821,19 @@ def report():
         for o in OBSTRUCTIONS:
             print("    %-12s %s" % (o, g["per"][o]))
         print("    does:", g["what_it_does"])
-    print("\n  member-attributed removals by H-THROAT-BITS:", member_removals(d["grades"]) or "none")
+    print("\n  removals credited to H-THROAT-BITS in the board's setting:", member_removals(d["grades"]) or "none")
+    print("  setting-bound removals (M's reading load-bearing there):")
+    for x in setting_removals(d["grades"]):
+        print("    %s %s REMOVED-IF {%s} -- %s" % x)
+    print("\n(B') MMP 1807.04726 at the payload's scales (mmp_scales; H-MMP-OOM):")
+    for r in d["mmp"]["by_coupling"]:
+        print("  %s: SM bound r_e <= %.3g m (%.3g bits); binding = payload rest energy at r_e = %.3g m; at r_fit "
+              "d_min %.3g m, N_f needed %.3g" % (r["label"], r["r_e_SM_max_m"], r["capacity_bits_at_r_e_SM"],
+                                               r["r_e_where_binding_equals_payload_m"], r["at_r_fit"][0]["d_min_m"],
+                                               r["at_r_fit"][0]["N_f_needed_for_payload"]))
+    print("\nWhat wave 1 first said (HISTORY):")
+    for h in HISTORY:
+        print("  %s: wave 1 first said '%s'; now: %s (%s)" % h)
     print("\nREAD this work item:", ", ".join(r["key"] for r in READ), "--", ROUTE)
 
 
@@ -828,6 +882,35 @@ def selftest():
         all(r["r_bek_over_r_s_payload"] > 1e6 for r in cap["rows"]))
     chk("B9 the largest board throat (300 l_P) holds < 1e-20 of the smallest count",
         max(1 / x for x in cap["payload_over_that_capacity"]) < 1e-20)
+    # (B') MMP, D66-fix
+    mm = mmp_scales()
+    v1 = mm["by_coupling"][0]
+    chk("B10 MMP eq.(2.3) + (6.52) as printed, g = 0.36 (V66-1's estimate reproduced): the SM-embedded throat has "
+        "r_e <= %.3g m (V66-1: ~3.8e-26) holding %.3g bits (V66-1: ~2.5e19)" % (v1["r_e_SM_max_m"],
+                                                                             v1["capacity_bits_at_r_e_SM"]),
+        abs(v1["r_e_SM_max_m"] / 3.8e-26 - 1) < 0.02 and abs(v1["capacity_bits_at_r_e_SM"] / 2.5e19 - 1) < 0.05
+        and abs(v1["dmin_check_at_r_e_SM"] - 1) < 1e-9)
+    chk("B11 ... and at r_fit the mouths need d >> %.3g .. %.3g m (V66-1: 2.7e-12 .. 2.1e-11), far beyond 1/TeV"
+        % (v1["at_r_fit"][0]["d_min_m"], v1["at_r_fit"][2]["d_min_m"]),
+        abs(v1["at_r_fit"][0]["d_min_m"] / 2.7e-12 - 1) < 0.03 and abs(v1["at_r_fit"][2]["d_min_m"] / 2.1e-11 - 1) < 0.03
+        and all(a["d_min_over_L_TeV"] > 1e6 for r_ in mm["by_coupling"] for a in r_["at_r_fit"]))
+    chk("B12 MMP's two printed forms of the binding energy agree ((5.31) at N_f = 1 against (7.58) with (2.3)): ratio "
+        "%.12f" % mm["binding forms (5.31) vs (7.58), ratio"], abs(mm["binding forms (5.31) vs (7.58), ratio"] - 1) < 1e-12)
+    chk("B13 CONTROL: (5.31) with its pi^(3/2) dropped disagrees (ratio %.3f): the comparison can fail"
+        % mm["CONTROL (5.31) without its pi^(3/2), ratio"],
+        abs(mm["CONTROL (5.31) without its pi^(3/2), ratio"] - 1) > 0.5, control=True)
+    chk("B14 in every coupling choice the throat whose binding energy equals the payload's rest energy is below l_P "
+        "(MMP p.18: more energy than the binding makes a black hole), and r_fit needs N_f >= 1e13 massless charged species",
+        all(r_["r_e_where_binding_equals_payload_m"] < mm["l_P_m"] for r_ in mm["by_coupling"]) and
+        all(a["N_f_needed_for_payload"] > 1e13 for r_ in mm["by_coupling"] for a in r_["at_r_fit"]))
+    chk("B15 CONTROL: a 1 eV wave sent into the SM-bound throat is below its binding energy (the binding test can "
+        "pass as well as fail)", 1.602176634e-19 < HBAR * C * (mm["by_coupling"][1]["g"] ** 2) * 54 ** 2 /
+        (256 * math.pi * mm["by_coupling"][1]["r_e_SM_max_m"]), control=True)
+    sm_rows = cap["mmp_SM_throat"]
+    chk("B16 the payload exceeds MMP's SM-embedded throat capacity by %.2g .. %.2g (V66-1: ~4e8 .. 4e9), not by the "
+        "2.3e22 .. 2.7e23 of the board's 300 l_P throat" % (min(sm_rows[0]["payload_over_capacity"]),
+                                                          max(sm_rows[0]["payload_over_capacity"])),
+        3e8 < min(sm_rows[0]["payload_over_capacity"]) < 5e8 and 3e9 < max(sm_rows[0]["payload_over_capacity"]) < 5e9)
     # (C)
     q0 = qnec_table(0.0)
     q5 = qnec_table(0.5)
@@ -892,7 +975,18 @@ def selftest():
     planted2 = [dict(G[0], per=dict(G[0]["per"], **{"O-HOLD": "REMOVED-IF {H-THROAT-BITS}"}))]
     chk("F3 a planted member removal (REMOVED-IF {H-THROAT-BITS}) is caught as member-attributed",
         member_removals(planted2) != [], control=True)
-    chk("F4 no member-attributed removal by H-THROAT-BITS in any reading", member_removals(G) == [])
+    chk("F4 no removal credited to H-THROAT-BITS in the board's setting (no leading REMOVED-IF in any reading)",
+        member_removals(G) == [])
+    sr = setting_removals(G)
+    chk("F4b the setting-bound removals (MQ in nearly-AdS2, MMP at sub-electroweak scale) each hold H-GJW-COUNTERPART "
+        "-- M's reading load-bearing there -- and each names its setting (%d clauses)" % len(sr),
+        len(sr) == 2 and all(x[3] is not None for x in sr) and all(x[1] == "O-HOLD" for x in sr))
+    planted3 = [dict(G[2], per=dict(G[2]["per"], **{"O-HOLD": "LEFT-IF {X}; REMOVED-IF {H-GJW-COUNTERPART, Y} somewhere"}))]
+    chk("F4c CONTROL a planted REMOVED-IF clause holding M's reading but naming no setting is caught",
+        any(x[3] is None for x in setting_removals(planted3)), control=True)
+    chk("F4d R-TELEPORT's O-HOLD leads with LEFT-IF for a hold on GJW alone (V66-0 #1), and its one-space payload clause "
+        "names the OPEN pathway N_GJW-PAYLOAD", grade_word(G[2]["per"]["O-HOLD"]) == "LEFT-IF" and
+        "OPEN via N_GJW-PAYLOAD" in G[2]["per"]["O-HOLD"])
     structural("F5 O-BITS is LEFT or LEFT-IF in every reading (restates the authored grades)",
                all(grade_word(g["per"]["O-BITS"]) in ("LEFT", "LEFT-IF") for g in G))
     structural("F6 O-SEAT stays OPEN (via N_S5) in every reading (restates the authored grades)",

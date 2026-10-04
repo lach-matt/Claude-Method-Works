@@ -96,7 +96,7 @@ D66_HYPS = ["H-DEFECT-SEAT", "H-THROAT-BITS", "H-QET-EXOTIC"]
 D66_READINGS = {
     "H-DEFECT-SEAT": {
         "DSTR": "static, straight, positive-tension string at the seat (A1 row 1; H-STATIC-STRING)",
-        "DWALL": "thin vacuum domain wall at the seat (A1 row 2; H-THIN)",
+        "DWALL": "thin vacuum domain wall at the seat, VIS with Lambda = 0 both sides (A1 row 2; H-THIN, H-VIS-MINKOWSKI)",
         "DGMON": "global monopole at the seat (A1 row 3)",
         "DMON": "gauge monopole at the seat, exterior (A1 row 4)",
         "DTEX": "texture at the seat (A1 row 5): an event, not a place (DURRER Table 1); unstable (Derrick)",
@@ -114,8 +114,9 @@ D66_READINGS = {
     "H-QET-EXOTIC": {
         "QET": "R-QET: the bit arrives, a local operation conditioned on it in an entangled ground state leaves a local "
                "negative-energy region (A3; TRUE-IF {H-GROUND, H-CORR, H-ACT, H-INSTANT})",
-        "QLIT": "R-LIT: M's sentence alone -- information introduced into a space that never contained it is exotic "
-                "matter, no conditioned operation, no prior correlation (A3; FALSE-IF {H-MINIMAL|H-1+1, linear QM})",
+        "QLIT": "R-LIT: the question's parenthetical read as arrival alone ('information arriving ... creates'), no "
+                "conditioned operation, no prior correlation (A3; FALSE-IF {H-MINIMAL|H-1+1, linear QM}).  M's sentence "
+                "read operationally is R-QET; wave 1 first labelled R-LIT 'M's sentence alone' (V66-1 #7)",
     },
 }
 D66_LITS = [k for h in D66_HYPS for k in D66_READINGS[h]]
@@ -123,6 +124,7 @@ D66_OF = {k: h for h in D66_HYPS for k in D66_READINGS[h]}
 DS4 = ("DSTR", "DWALL", "DGMON", "DMON")              # the classes A1 grades 'OPEN via N_S5 | N_DEFB'
 TB_ALL = ("TBHOLO", "TBTSH", "TBTEL", "TBISL", "TBITB")
 TB_SING = ("TBHOLO", "TBTSH")                         # A2's readings with a singular geometric throat
+D66_THROATS = ("DTHR", "TBHOLO", "TBTSH", "TBTEL")     # every D66 reading that commits a geometric throat (C-* => THROAT)
 D66_PHYS = ["CTCW", "SEATLOOP", "DEFBSUP", "ARRNEG"]
 
 #: named premises (assumed only inside a support; every support listed) -- each is a named hypothesis of an A-report
@@ -141,27 +143,43 @@ D66_NAMED = {
 #: OPEN pathways (undecided by the sources; held FALSE whenever supports and accounts are computed).  Two polarities:
 #: OPENING (makes a removal possible) and DEFEATING (makes a removed obstruction or the seat condition fail).
 D66_OPEN = {
-    "N_DEFB": "OPENING, O-SEAT (A1, defects.HYPOTHESES): a baryon-number-violating defect core (HK p.63, READ) shown to "
-              "SUPPLY the payload's baryons at the seat -- direction and rate computed nowhere",
+    "N_DEFB": "OPENING, O-SEAT (A1, defects.HYPOTHESES): a baryon-number-violating defect core shown to SUPPLY the "
+              "payload's baryons at the seat.  READ (HK pp.63-65): for GUT string cores and gauge monopoles the "
+              "direction is WASH-OUT (eq.(4.33)); emission needs CP-violating couplings and a departure from thermal "
+              "equilibrium (p.65), so a supply only IF {CP violation, departure from equilibrium}; feedstock leptons, "
+              "rate computed nowhere; for walls and global monopoles not READ (OPEN as unchecked).  Wave 1 first said "
+              "'direction and rate computed nowhere' (V66-0 #2)",
     "N_NEGT": "OPENING, O-HOLD (A1): a negative-tension string (or loop) shown to exist -- no mechanism known (Visser "
               "1989 p.5, READ); outside H-CANONICAL (canonical fields satisfy the NEC pointwise, defects.canonical_nec)",
-    "N_GJWAMB": "OPENING, O-HOLD (A2): N_GJW-AMBIENT -- GJW's traversable throat realised for two places in ONE space "
-                "(GJW p.14, stated, not computed); GJW's own removal is in AdS with a TFD (H-ADS-TFD), outside the "
-                "board's one-space setting (encoding choice E-ADS)",
+    "N_GJWPAY": "OPENING, O-HOLD (A2): N_GJW-PAYLOAD -- a one-space traversable throat that admits the payload, outside "
+                "Maldacena-Milekhin-Popov's family with the SM's fields.  MMP 1807.04726 (READ) realises GJW's one-space "
+                "version, REMOVED-IF {H-GJW-COUNTERPART, H-MMP, H-SM-FIELDS} at sub-electroweak scale; its binding "
+                "energy equals the payload's rest energy only below l_P, and at r_fit it needs ~1e14 massless charged "
+                "species (throatbits.mmp_scales).  MQ 1804.00491's held throat is in nearly-AdS2 (E-ADS).  Wave 1 carried "
+                "N_GJWAMB, 'stated, not computed' (V66-1 #2); GJW alone gives an opening, not a hold (V66-0 #1)",
     "N_PINCH": "OPENING, O-HOLD (A2's LEFT-IF outside): the singular throat is outside {H-SINGULAR-IS-THINSHELL, "
                "H-PV-STATIC} -- a curvature-singular, geodesically incomplete pinch (H-SINGULAR-IS-PINCH: 'not modelled', "
                "A2) or a dynamic shell; unchecked, so OPEN",
     "N_QETHAD": "OPENING, O-HOLD (A3's LEFT-IF outside): QET states outside the class the QEI duration bound covers "
-                "(H-QET-HADAMARD not proved, A3 open)",
-    "N_WNCC": "OPENING, O-MAKE-TOPO (A2): specthm's throat class W-create-ncc shown nonempty -- a non-compact creation "
-              "whose only pathology (Tipler/Borde) is placed at the throat, which M-S1A-P3 (i) does not disqualify; "
-              "admitted by ruling, not shown realisable (specthm: OPEN, asked at run time in the grounds)",
-    "N_WALLLOOP": "DEFEATING, O-LOOP and the seat (A1): the thin wall's global (VIS) causal structure holds a closed "
-                  "causal curve or a Borde pathology at the seat -- not computed (A1 open)",
+                "(H-QET-HADAMARD unchecked -- a short check by the displaced-vacuum argument, not run: V66-0 #7).  QET's "
+                "ONLY pathway: N_XI and N_QEIC are the board's R-QUANTUM pathways (tied to RQ), with or without QET",
+    "N_WNCC": "OPENING, O-MAKE-TOPO (A1, A2): specthm's throat class W-create-ncc shown nonempty -- a creation whose "
+              "pathology (Tipler/Borde, Geroch) is placed at the throat, which M has ruled not disqualifying (ledger "
+              "M-S1A-P3: 'a singular throat is not disqualified', 'the throat-creation classes stay OPEN').  Applied to "
+              "EVERY D66 geometric throat (DTHR, TBHOLO, TBTSH, TBTEL); not shown realisable (specthm: OPEN, asked at run "
+              "time).  Wave 1 credited it to TBHOLO/TBTSH only and called the board reading 'for M' (V66-1 #1)",
+}
+#: wave 1's pathways no longer carried, with why (history kept)
+RETIRED = {
+    "N_WALLLOOP": "wave 1: 'the thin wall's global (VIS) causal structure ... not computed'.  D66-fix: computed -- "
+                  "Minkowski T is a global time function of the M4-M4 wall (defects.vis_time_function; CGS p.15, Fig.4 "
+                  "READ), so under H-VIS-MINKOWSKI no loop and no seat pathology; V66-1 #3",
+    "N_GJWAMB": "wave 1: GJW's one-space version 'stated, not computed'.  D66-fix: replaced by N_GJWPAY, what MMP "
+                "1807.04726 shows and does not show; V66-1 #2",
 }
 #: which D66 literal opens each D66 pathway (drift rule Z7; vacuity ties)
-PATHWAY_OWNER = {"N_DEFB": set(DS4), "N_NEGT": {"DTHR"}, "N_GJWAMB": {"TBTEL"}, "N_PINCH": set(TB_SING),
-                 "N_QETHAD": {"QET"}, "N_WNCC": set(TB_SING), "N_WALLLOOP": {"DWALL"}}
+PATHWAY_OWNER = {"N_DEFB": set(DS4), "N_NEGT": {"DTHR"}, "N_GJWPAY": {"TBTEL"}, "N_PINCH": set(TB_SING),
+                 "N_QETHAD": {"QET"}, "N_WNCC": set(D66_THROATS)}
 #: literals with no screen content of their own (recorded, measured by the difference census, never asserted)
 D66_INERT = {
     "TBISL": "R-ISLAND: replica wormholes are Euclidean saddles (2006.06872 p.37); no Lorentzian throat, no channel, no "
@@ -231,14 +249,19 @@ def widen_terms(A, win_open, mutate=()):
     assert z3.is_implies(e) and e.arg(0).eq(A["HELD"]), "B-HELD is not Implies(HELD, held)"
     held = e.arg(1)
     negt = A["DTHR"] if "negt-asserted" in mutate else An(A["DTHR"], A["N_NEGT"])
-    gjw = A["TBTEL"] if "gjw-ads" in mutate else An(A["TBTEL"], A["N_GJWAMB"])
-    qet = A["QET"] if "qet-holds" in mutate else An(A["QET"], Or(A["N_XI"], A["N_QEIC"], A["N_QETHAD"]))
+    gjw = A["TBTEL"] if "gjw-ads" in mutate else An(A["TBTEL"], A["N_GJWPAY"])
+    if "qet-holds" in mutate:
+        qet = A["QET"]
+    elif "qet-board-paths" in mutate:              # wave 1's encoding, kept as a reading on record (V66-0 #7)
+        qet = An(A["QET"], Or(A["N_XI"], A["N_QEIC"], A["N_QETHAD"]))
+    else:
+        qet = An(A["QET"], A["N_QETHAD"])
     routes = [negt, gjw, An(Or(A["TBHOLO"], A["TBTSH"]), A["N_PINCH"]), qet]
     out["B-HELD"] = (g, held, I(A["HELD"], Or(held, *routes)))
     g, e = _expr(board, "B-SIGLOOP")
     assert z3.is_implies(e) and e.arg(1).eq(N(A["LOOPS"])), "B-SIGLOOP is not Implies(ante, Not(LOOPS))"
     ante = e.arg(0)
-    wall = z3.BoolVal(False) if "wall-clean" in mutate else An(A["DWALL"], A["N_WALLLOOP"])
+    wall = A["DWALL"] if "wall-loop" in mutate else z3.BoolVal(False)       # CONTROL only: a loop asserted at the wall
     out["B-SIGLOOP"] = (g, ante, I(An(ante, N(A["CTCW"]), N(wall)), N(A["LOOPS"])))
     g, e = _expr(defs, "DEF-SEAT")
     assert z3.is_eq(e) and e.arg(0).eq(A[C.RM["O-SEAT"]]), "DEF-SEAT is not rm == rhs"
@@ -247,26 +270,35 @@ def widen_terms(A, win_open, mutate=()):
     g, e = _expr(defs, "DEF-TOPO")
     assert z3.is_eq(e) and e.arg(0).eq(A[C.RM["O-MAKE-TOPO"]]), "DEF-TOPO is not rm == rhs"
     rhs = e.arg(1)
-    who = A["THROAT"] if "singok-board" in mutate else Or(A["TBHOLO"], A["TBTSH"])
+    if "singok-board" in mutate:                   # reading: every geometric throat, D68's included (changes D68 rows)
+        who = A["THROAT"]
+    elif "singok-a2" in mutate:                    # wave 1's encoding (E-SINGOK), kept as a reading on record
+        who = Or(A["TBHOLO"], A["TBTSH"])
+    else:                                          # M's ruling applied to every D66 geometric throat (V66-1 #1)
+        who = Or(*[A[k] for k in D66_THROATS])
     out["DEF-TOPO"] = (g, rhs, A[C.RM["O-MAKE-TOPO"]] == Or(rhs, An(who, A["N_WNCC"])))
     return out
 
 
 WIDEN_TEXT = {
     "B-HELD": "D66 widening: a geometric throat may also be held through an OPEN pathway of a D66 reading -- DTHR with "
-              "N_NEGT (A1: FSW binds given H-CANONICAL; defects.grades 'OPEN via N_NEGT'); TBTEL with N_GJWAMB (A2: GJW's "
-              "removal is in AdS, one space OPEN); TBHOLO/TBTSH with N_PINCH (A2: LEFT-IF {H-SINGULAR-IS-THINSHELL, "
-              "H-PV-STATIC}; PV sigma_0 < 0 at every a_0 > 2M, throatbits.pv_static); QET with N_XI, N_QEIC (the board's "
-              "R-QUANTUM branches) or N_QETHAD (A3: LEFT-IF {H_flat, H-PATH, H-MIN-SCALAR, H-QET-HADAMARD}; 2.081e-68 of "
-              "the 1 m throat's deficit, geometry.r_quantum)",
-    "B-SIGLOOP": "D66 widening: no signal loop closes unless also a wormhole time machine (CTCW, FKZ) or the wall's "
-                 "uncomputed causal structure (DWALL with N_WALLLOOP) supplies one",
+              "N_NEGT (A1: FSW binds given H-CANONICAL; defects.grades 'OPEN via N_NEGT'); TBTEL with N_GJWPAY (A2: GJW "
+              "alone gives an opening, not a hold; MQ's held throat is in nearly-AdS2; MMP's one-space throat does not "
+              "admit the payload, throatbits.mmp_scales); TBHOLO/TBTSH with N_PINCH (A2: LEFT-IF "
+              "{H-SINGULAR-IS-THINSHELL, H-PV-STATIC}; PV sigma_0 < 0 at every a_0 > 2M, throatbits.pv_static); QET "
+              "with N_QETHAD only (A3: LEFT-IF {H_flat, H-PATH, H-MIN-SCALAR, H-QET-HADAMARD}; 2.081e-68 of the 1 m "
+              "throat's deficit, geometry.r_quantum).  N_XI and N_QEIC stay the board's, tied to RQ (V66-0 #7; wave 1 "
+              "gated them through QET too)",
+    "B-SIGLOOP": "D66 widening: no signal loop closes unless also a wormhole time machine (CTCW, FKZ) supplies one.  "
+                 "Wave 1 added the wall's uncomputed causal structure (DWALL with N_WALLLOOP); D66-fix computed it "
+                 "(defects.vis_time_function: Minkowski T a global time function), so the wall supplies none",
     "DEF-SEAT": "D66 widening (H-SEAT-S5 only; under H-SEAT-ROUTES unchanged): O-SEAT is also removed by DEFBSUP, a "
                 "baryon-number-violating defect core supplying the baryons (A1: 'OPEN via N_S5 | N_DEFB')",
-    "DEF-TOPO": "D66 widening: O-MAKE-TOPO is also removed if specthm's W-create-ncc class is shown nonempty for a "
-                "singular throat (N_WNCC) under A2's singular readings TBHOLO / TBTSH (A2: 'OPEN via specthm "
-                "W-create-ncc ... admitted by ruling, not shown realisable'); reading 'singok-board' credits it to any "
-                "geometric throat (M-S1A-P3 (i) read as a board ruling)",
+    "DEF-TOPO": "D66 widening: O-MAKE-TOPO is also removed if specthm's W-create-ncc class is shown nonempty (N_WNCC) "
+                "for any D66 geometric throat (DTHR, TBHOLO, TBTSH, TBTEL): M has ruled (ledger M-S1A-P3: 'a singular "
+                "throat is not disqualified', 'the throat-creation classes stay OPEN'), a board ruling applied, not a "
+                "question for M (V66-1 #1).  Reading 'singok-a2' is wave 1's encoding (TBHOLO / TBTSH only); reading "
+                "'singok-board' extends it to D68's throats too, which combine66 does not change (E-EXTEND)",
 }
 
 
@@ -276,12 +308,14 @@ def board66(A, mutate=()):
     ds4 = Or(*[A[k] for k in DS4])
     tb = Or(*[A[k] for k in TB_ALL])
     fkz_who = A["THROAT"] if "fkz-generic" in mutate else A["DTHR"]
-    wall = z3.BoolVal(False) if "wall-clean" in mutate else An(A["DWALL"], A["N_WALLLOOP"])
+    wall = A["DWALL"] if "wall-loop" in mutate else z3.BoolVal(False)
     rows = [
         ("B66-DEFB", "A1 (defects.grades: 'O-SEAT, defect at the seat: OPEN via N_S5 | N_DEFB'): a defect core supplies "
-                     "the payload's baryons only through N_DEFB (HK p.63 READ: B violation at GUT string / monopole "
-                     "cores; direction, rate and feedstock computed nowhere).  Classes: string, wall, global and gauge "
-                     "monopole (A1's four rows; the texture moves nothing, the throat-support row grades no supply)",
+                     "the payload's baryons only through N_DEFB (HK pp.63-65 READ: B violation at GUT string / monopole "
+                     "cores, whose READ direction is wash-out, eq.(4.33); a supply only IF {CP violation, departure "
+                     "from equilibrium}, p.65; rate computed nowhere).  Classes: string, wall, global and gauge monopole "
+                     "(A1's four rows; for walls and global monopoles not READ, OPEN as unchecked; the texture moves "
+                     "nothing, the throat-support row grades no supply)",
          (I(ds4, A["DEFBSUP"]) if "defb-asserted" in mutate else I(A["DEFBSUP"], An(ds4, A["N_DEFB"])))),
         ("B66-FKZ", "Frolov, Krtous & Zelnikov 2305.03887 (READ by A1, pp.1,5,17-18): a traversable wormhole whose two "
                     "mouths sit in one space at unequal surrounding mass becomes a time machine after T ~ R L c/(G M) "
@@ -290,14 +324,16 @@ def board66(A, mutate=()):
                     "N_MBAL",
          A["CTCW"] == An(fkz_who, A["HELD"], N(A["N_MBAL"]))),
         ("B66-CTCW", "a wormhole time machine is a closed causal curve (O-LOOP-S)", I(A["CTCW"], A["LOOPS"])),
-        ("B66-WALL", "A1: the VIS causal structure of the wall is not computed: a loop there only through N_WALLLOOP "
-                     "(OPEN, defeating)", I(wall, A["LOOPS"])),
+        ("B66-WALL", "A1 / defects.vis_time_function (D66-fix): the M4-M4 wall has a global time function, so no loop "
+                     "at a wall (encoded as no constraint; only the CONTROL mutation 'wall-loop' asserts one)",
+         I(wall, A["LOOPS"])),
         ("B66-SEAT", "M-S1A-P3 (i) at the seat: a closed causal curve or Borde pathology AT THE SEAT (SEATLOOP) needs a "
                      "source: a CTC at Bob (combine B-DCTC: the D-CTC is at the destination), the FKZ time machine "
-                     "(seat mouth on the loop), the wall's uncomputed causal structure, a throat-bits throat whose "
+                     "(seat mouth on the loop), a throat-bits throat whose "
                      "pathology sits at the seat (outside H-SEAT-OFF-THROAT, A2), or QET outside H-FLAT-QFT (A3).  Static "
-                     "string and monopole seats: g^tt < 0, stably causal (defects.static_is_stably_causal); the first "
-                     "three sources force it",
+                     "string and monopole seats: g^tt < 0, stably causal (defects.static_is_stably_causal); the wall "
+                     "seat: Minkowski T a global time function (defects.vis_time_function).  The first two sources "
+                     "force it",
          An(I(A["SEATLOOP"], Or(A["CTC"], A["CTCW"], wall, An(tb, N(A["N_SEATOFF"])),
                                 An(Or(A["QET"], A["QLIT"]), N(A["N_FLATQFT"])))),
             I(Or(A["CTC"], A["CTCW"], wall), A["SEATLOOP"]))),
