@@ -88,12 +88,72 @@ HYPOTHESES = {
     "H-TURN-CONJUGATE": "spec.py's PART 2 'TURN' read as a conjugate point (a caustic of a geodesic congruence)",
     "H-TURN-CROSSING": "spec.py's PART 2 'TURN' read as any second meeting of two geodesics from one event",
     "H-YUKAWA": "the matter in question gets its rest mass from a Yukawa coupling to the defect's order parameter",
-    "H-STATIC-STRING": "the string is straight and non-spinning (or its spin is below its dislocation, S < kappa)",
+    "H-STATIC-STRING": "the string is straight and non-spinning (or its spin is at most its dislocation, S <= kappa)",
+    "H-FORM-IS-MASS-AND-DIMENSION": "M's 'not in its original geometric form' read as: the matter's rest mass and its "
+                                    "dimensionality change (massless modes confined to the defect).  The sources say "
+                                    "only that the Yukawa mass 'vanishes at the core' and that the modes move at c "
+                                    "(HK pp.33-34); the mapping to 'geometric form' is this file's reading, not theirs "
+                                    "(D66-fix, V66-0 #3)",
+    "H-VIS-MINKOWSKI": "the thin wall is the non-extreme Vilenkin-Ipser-Sikivie wall with Lambda = 0 on both sides "
+                       "(both sides inside the bubble), each side extended uniquely onto Minkowski space (CGS Fig.4 "
+                       "caption, READ) and no identification made (CTCs in CGS arise only by identification across "
+                       "AdS Cauchy horizons, p.14, READ; an M4-M4 wall has none)",
+    "H-MONOPOLE-MASS": "a GUT gauge monopole of mass 1e17 GeV/c^2 (scanned 1e15 .. 1e19 GeV), core radius "
+                       "(1/alpha_GUT) hbar/(M c) with alpha_GUT = 1/40, and the Dirac magnetic charge h/e",
+    "H-WEAK-FIELD": "the lensing impact parameter b lies far outside the monopole's core and its gravitational "
+                    "radius, so spec.focal_length's weak-field point-lens formula applies (checked in "
+                    "gauge_monopole_lens: b / r_core and b / r_s)",
+    "H-S1-VACUUM": "specthm's S-1 literal 'wl' says lensing of positive mass 'through vacuum'; the gauge monopole's "
+                   "exterior carries its magnetic field, whose energy beyond b is computed (a fraction of Mc^2) and "
+                   "read as negligible when that fraction is below 1e-15",
     "N_NEGT": "OPEN PATHWAY: a negative-tension string (or loop) shown to exist -- no mechanism known (Visser 1989 "
               "p.5, READ)",
-    "N_DEFB": "OPEN PATHWAY: a baryon-number-violating defect core (HK p.63, READ) shown to SUPPLY the payload's "
-              "baryons at the seat (direction and rate computed nowhere)",
+    "N_DEFB": "OPEN PATHWAY: a baryon-number-violating defect core shown to SUPPLY the payload's baryons at the seat.  "
+              "READ for GUT string cores (HK p.63: a quark reaching the core 'can ... emerge a lepton, and vice versa') "
+              "and for gauge monopoles (Rubakov-Callan, as HK p.63 cites it); for walls and global monopoles not READ, "
+              "OPEN there as unchecked.  The READ direction is WASH-OUT: an existing asymmetry 'can relax to zero via "
+              "scattering off strings' (HK eq.(4.33) p.64) -- payload quarks become leptons, the opposite of a supply.  "
+              "Emission of baryon number needs CP-violating couplings and a departure from thermal equilibrium "
+              "(HK p.65, Sakharov).  So N_DEFB is OPEN only IF {CP-violating core couplings, departure from "
+              "equilibrium}; its feedstock would be leptons; its rate is computed nowhere.  Wave 1 first said "
+              "'direction and rate computed nowhere'; the direction is READ (D66-fix, V66-0 #2)",
 }
+
+#: What wave 1 first said, kept (M's rule: history kept).  Each entry: (site, wave 1's words, D66-fix's correction, why).
+HISTORY = [
+    ("monopole deficit", "Delta = 8 pi eta^2/(1 + 8 pi eta^2), labelled EXACT",
+     "Delta = 8 pi G eta^2 exactly outside the core (Barriola-Vilenkin)",
+     "wave 1 set the cone metric's rho equal to the FLAT-space hedgehog density eta^2/r^2; in the cone metric the "
+     "hedgehog's gradient energy is eta^2/(A r^2) (hedgehog_curved, V66-2 #1)"),
+    ("wall seat CTC/Borde", "OPEN: the VIS global causal structure is not computed",
+     "PASSES under H-VIS-MINKOWSKI: Minkowski T is a global time function (vis_time_function; CGS p.15, Fig.4 READ)",
+     "V66-1 #3"),
+    ("global monopole turn", "a focal LINE, no single focus; a turn under H-TURN-CROSSING, none under H-TURN-CONJUGATE",
+     "a TURN under both: every axis recrossing is a conjugate point (monopole_conjugate)",
+     "the rotation Killing field about the source-centre axis is a Jacobi field vanishing at the source and at each "
+     "axis recrossing (V66-1 #4)"),
+    ("gauge monopole lensing seat", "S-3 (or S-1 if its lensing seats; not computed): OPEN",
+     "S-1 IF {H-MONOPOLE-MASS, H-WEAK-FIELD, H-S1-VACUUM} (gauge_monopole_lens)", "V66-1 #5"),
+    ("throat support, O-MAKE-TOPO", "binds if made from flat space",
+     "OPEN via specthm W-create-ncc: M has ruled (ledger M-S1A-P3: 'a singular throat is not disqualified', 'the "
+     "throat-creation classes stay OPEN')", "V66-1 #1; the ruling is a board ruling, not a question for M"),
+    ("N_DEFB", "direction and rate computed nowhere", "direction READ (wash-out, HK eq.(4.33) p.64); a supply only "
+     "IF {CP violation, departure from equilibrium} (HK p.65)", "V66-0 #2"),
+    ("F1 zero modes", "an exact counterpart in the literature; SUPPORTED",
+     "a counterpart under a named reading: SUPPORTED-IF {H-YUKAWA, H-FORM-IS-MASS-AND-DIMENSION}", "V66-0 #3"),
+    ("Gott pair", "cannot form in an open universe",
+     "cannot be created in an open (2+1)-dimensional universe with timelike total momentum (CFG94)", "V66-2 #2"),
+    ("spinning string", "DISQUALIFIED inside r < S/alpha unless S < kappa",
+     "with dislocation kappa: CTCs iff S > kappa, in r < sqrt(S^2 - kappa^2)/alpha; r < S/alpha only for kappa = 0",
+     "V66-2 #3"),
+    ("GV ring", "the GV ring's curvature singularity is at the throat",
+     "a singular ring bounding the throat disc: conical only at sigma = 0 (the figures' tension T = -c^4/(4G)), "
+     "conical plus power-law at sigma != 0 (GV pp.20-22)", "V66-2 #7"),
+    ("F4 the wall's focus", "the only class that gives light a genuine focal point",
+     "the only class that focuses a whole planar congruence at one distance; the global monopole (a line caustic) "
+     "and the gauge monopole (an S-1 point lens) also give conjugate points; only the string is crossing-only",
+     "follows from V66-1 #4 and #5"),
+]
 
 # =============================================================================== 1. sources READ, with routes
 ALPHAXIV = "READ via alphaXiv answer_pdf_queries (arXiv full text, page-tagged)"
@@ -105,7 +165,10 @@ SOURCES = {
            "p.84 gravitational acceleration vanishes around a straight static string; p.90 inward deflection "
            "4 pi G mu 'independent of the impact parameter'; p.54 eq.(4.7) wiggly string attracts, global string "
            "repels; p.33-34 the fermion mass 'vanishes at the core', zero modes move at the speed of light; p.63 "
-           "baryon-number violation in GUT string cores (cf. Rubakov-Callan for monopoles); p.26 electroweak strings "
+           "baryon-number violation in GUT string cores (cf. Rubakov-Callan for monopoles); p.64 eq.(4.33) "
+           "dn_B/dt ~ -v sigma n_B / xi^2, an existing asymmetry 'can relax to zero via scattering off strings'; p.65 "
+           "emission of baryon number needs CP violation and a departure from thermal equilibrium (Sakharov) -- "
+           "pp.63-65 RE-READ at D66-fix 2026-10-04, same route; p.26 electroweak strings "
            "unstable for physical Weinberg angle; p.36 the electroweak gauge orbit space is S^3, simply connected, "
            "so no topologically stable string"),
     "DURRER": ("Durrer, Global field dynamics and cosmological structure formation, arXiv astro-ph/9411010", ALPHAXIV,
@@ -119,7 +182,12 @@ SOURCES = {
             "p.6 eqs.(2.18)-(2.19) sigma = tau (vacuum wall); p.10 the Vilenkin-Ipser-Sikivie wall with Lambda = 0 "
             "both sides, kappa sigma = 4 beta, 'spherically symmetric bubbles rather than planar walls'; p.12 "
             "Sigma_wall = sigma - 2 tau = -sigma < 0, repulsive; abstract: the forces are 'global effects not "
-            "caused by local curvature'; p.2 no static nonsingular planar solution"),
+            "caused by local curvature'; p.2 no static nonsingular planar solution.  READ at D66-fix (same route): "
+            "abstract 'singularity free space-times'; p.14 CTCs arise only by identification across the Cauchy "
+            "horizons of AdS4 sides; p.15 eq.(3.48) the M4 side of the non-extreme bubble, t_in = beta^-1 e^(-beta z) "
+            "sinh(beta t), r_in = beta^-1 e^(-beta z) cosh(beta t) bring it to dt^2 - dr^2 - r^2 dOmega^2, the wall on "
+            "r^2 - t^2 = beta^-2; Fig.4 caption: 'The unique extension of the comoving coordinates across the Rindler "
+            "horizons is onto pure Minkowski space-time'"),
     "VISSER89": ("Visser, Traversable wormholes: some simple examples, PRD 39 3182 (1989), arXiv 0809.0907", ALPHAXIV,
                  "p.3 eq.(2.4) convex throat -> negative surface energy and tension; p.4 WEC and AWEC violated; p.5 "
                  "cube edges rho = T = -1/(8G) = -1.52e43 J/m, 'identical to ... a negative tension classical "
@@ -128,7 +196,10 @@ SOURCES = {
     "GV17": ("Gibbons & Volkov, Weyl metrics and wormholes, arXiv 1701.05533v3", ALPHAXIV,
              "p.3 a static throat needs NEC violation (and FSW for no symmetry); p.21-22 eq.(5.42) the flat ring "
              "wormhole's ring tension T = -c^4/(4G), angle 'deficit' -2 pi; p.22 T = -3.0257e43 N, one-metre ring "
-             "~ Jupiter's mass, 2 pi R T / c^2"),
+             "~ Jupiter's mass, 2 pi R T / c^2.  RE-READ at D66-fix: p.20-21 eqs.(5.37)-(5.40) the ring of tension "
+             "T = -(1 + sigma^2) c^4/(4G) carries a conical (distributional) singularity AND a power-law curvature "
+             "singularity; p.21 at sigma = 0 'the geometry is locally exactly flat' and 'the ring supports only the "
+             "conical singularity'"),
     "FKZ23": ("Frolov, Krtous & Zelnikov, Ring wormholes and time machines, arXiv 2305.03887", ALPHAXIV,
               "p.1 the ring's matter violates the NEC; Gannon: non-simply-connected Cauchy surface + WEC -> singular; "
               "p.18 eq.(6.9) closed timelike curves form after T ~ R L c/(G M) when one mouth is surrounded by mass; "
@@ -345,6 +416,82 @@ def monopole_einstein():
     Rs = sp.simplify(sum(gi[a, b] * Ric[a, b] for a in range(4) for b in range(4)))
     Gm = [sp.simplify(sum(gi[i, a] * Ric[a, i] for a in range(4)) - Rs / 2) for i in range(3)]
     return tuple(Gm), A, r
+
+
+def hedgehog_curved():
+    """The sigma-model stress tensor of the hedgehog phi^a = eta n^a(theta, phi) IN the global-monopole metric
+    -dt^2 + dr^2 + A r^2 dOmega^2 (D66-fix, V66-2 #1): T_mu_nu = d_mu phi.d_nu phi - g_mu_nu (d phi)^2 / 2, mixed
+    components.  Returns (rho, p_r, p_t) with rho = -T^t_t, p_r = T^r_r, p_t = T^th_th, and A, eta, r."""
+    import sympy as sp
+    t, r, th, ph = sp.symbols("t r theta phi", positive=True)
+    A, eta = sp.symbols("A eta", positive=True)
+    X = (t, r, th, ph)
+    g = sp.diag(-1, 1, A * r ** 2, A * r ** 2 * sp.sin(th) ** 2)
+    gi = g.inv()
+    n = [sp.sin(th) * sp.cos(ph), sp.sin(th) * sp.sin(ph), sp.cos(th)]
+    fld = [eta * x for x in n]
+    d = [[sp.diff(f, x) for x in X] for f in fld]
+    dd = sp.simplify(sum(gi[m, m2] * d[a][m] * d[a][m2] for a in range(3) for m in range(4) for m2 in range(4)))
+    T = sp.Matrix(4, 4, lambda m, m2: sum(d[a][m] * d[a][m2] for a in range(3)) - g[m, m2] * dd / 2)
+    Tmix = sp.simplify(gi * T)
+    return sp.simplify(-Tmix[0, 0]), sp.simplify(Tmix[1, 1]), sp.simplify(Tmix[2, 2]), A, eta, r
+
+
+def monopole_deficit(consistent=True):
+    """Solve G^t_t = -8 pi rho for Delta = 1 - A (G = c = 1).  consistent=True uses hedgehog_curved()'s rho
+    (eta^2/(A r^2)); consistent=False is WAVE 1's input, the flat-space density eta^2/r^2, kept as the record of what
+    wave 1 did.  Returns the list of solutions for Delta."""
+    import sympy as sp
+    (Gtt, _Grr, _Gth), A, r = monopole_einstein()
+    rho_geom = sp.simplify(-Gtt / (8 * sp.pi))
+    D, eta = sp.symbols("Delta eta", positive=True)
+    if consistent:
+        rho_h, _pr, _pt, A2, eta2, r2 = hedgehog_curved()
+        rho_h = rho_h.subs({A2: A, eta2: eta, r2: r})
+    else:
+        rho_h = eta ** 2 / r ** 2
+    return sp.solve(sp.Eq(rho_geom.subs(A, 1 - D), rho_h.subs(A, 1 - D)), D)
+
+
+def monopole_conjugate(A=0.9, D=10.0, b=1.0, k_scale=1.0, n=200000):
+    """D66-fix (V66-1 #4): is the global monopole's axis recrossing a CONJUGATE point?  The spatial metric
+    dr^2 + A r^2 dOmega^2 (light rays of the static metric are its geodesics).  A ray from a source on the axis at
+    distance D from the centre, impact parameter b, lies in a plane through the axis; unrolled, that plane is a cone of
+    total angle 2 pi sqrt(A), on which the ray is straight (r^2 dpsi'/ds = b).  It meets the far axis (polar angle pi,
+    unrolled angle pi sqrt(A)) at arclength s_axis.  The out-of-plane Jacobi field obeys J'' + K J = 0 with the
+    sectional curvature K = sin^2(alpha) (1 - A)/(A r^2) = b^2 (1 - A)/(A r^4) (K_radial = 0, K_tangential =
+    (1 - A)/(A r^2) for dr^2 + f^2 dOmega^2 with f = sqrt(A) r).  J(0) = 0, J'(0) = 1, integrated (RK4); its first
+    zero s_J is a conjugate point.  Returns (s_axis or None, s_J or None).  k_scale != 1 is the CONTROL (a wrong
+    curvature must miss the axis crossing); A = 1 is the flat CONTROL (no recrossing, no zero)."""
+    sq = math.sqrt(A)
+    psi_c = math.acos(b / D)
+    s_axis = None
+    if math.pi * sq - psi_c < math.pi / 2:
+        r_far = b / math.cos(math.pi * sq - psi_c)
+        s_axis = math.sqrt(D * D - b * b) + math.sqrt(r_far * r_far - b * b)
+    s0 = math.sqrt(D * D - b * b)                       # arclength to the closest approach
+
+    def rad(s):
+        return math.sqrt(b * b + (s - s0) ** 2)
+
+    def K(s):
+        return k_scale * b * b * (1 - A) / (A * rad(s) ** 4)
+    smax = (s_axis * 1.5) if s_axis else 20 * D
+    h = smax / n
+    J, Jp, s = 0.0, 1.0, 0.0
+    for _ in range(n):
+        def f(ss, y, yp):
+            return yp, -K(ss) * y
+        k1 = f(s, J, Jp)
+        k2 = f(s + h / 2, J + h / 2 * k1[0], Jp + h / 2 * k1[1])
+        k3 = f(s + h / 2, J + h / 2 * k2[0], Jp + h / 2 * k2[1])
+        k4 = f(s + h, J + h * k3[0], Jp + h * k3[1])
+        Jn = J + h / 6 * (k1[0] + 2 * k2[0] + 2 * k3[0] + k4[0])
+        Jpn = Jp + h / 6 * (k1[1] + 2 * k2[1] + 2 * k3[1] + k4[1])
+        if J > 0 and Jn <= 0:
+            return s_axis, s + h * J / (J - Jn)
+        J, Jp, s = Jn, Jpn, s + h
+    return s_axis, None
 
 
 def monopole_deflection():
