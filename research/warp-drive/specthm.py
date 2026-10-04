@@ -1325,11 +1325,15 @@ def requirements(F):
         {"id": "R11", "applies_to": ["Rec"],
          "title": "FOR THE RECONSTRUCTION ROUTE: a destination stock, a receiver, a bit count",
          "status": "D23 %s; D25 %s; S5 %s; D13 %s; O3 %s, O6 %s, O7 %s; D21 %s; S9 %s; "
-                   "M-S1A-P5 %s"
+                   "M-S1A-P5 %s; O9 %s (DOCKET 68)"
                    % (tuple(st(r) for r in ("D23", "D25", "S5", "D13", "O3", "O6",
-                                            "O7", "D21", "S9")) + (st_ruling("M-S1A-P5"),)),
+                                            "O7", "D21", "S9")) + (st_ruling("M-S1A-P5"),
+                                                                   st("O9"))),
+         # DOCKET 68 (ledger O9 and M-D68-*): placed here, beside the bit count
+         # and the seat's supply they bear on.  No class or object verdict
+         # moves: no DOCKET 68 owner value is a fact in force in this file.
          "rows": ["D13", "D21", "D23", "D25", "S5", "S9", "O3", "O6", "O7",
-                  "M-S1A-P5"], "see": [],
+                  "M-S1A-P5", "O9"] + [r[0] for r in ledger.D68_RULED], "see": [],
          "owners": [("transit", "TRAVERSAL_IS_REMOVED"), ("transit", "READING_CARRIES_NOTHING_ALONE"),
                     ("stockgate", "GATE"), ("formation", "APERTURE_STATUS"),
                     ("branelink", "S5_FIGURES_MEASURED"), ("branelink", "S5_OWED"),
@@ -1394,7 +1398,16 @@ def requirements(F):
                transit.IT_IS_A_MOVE_NOT_A_COPY, transit.CHANNEL_IS_CONSUMED_BY_USE,
                transit.CARRIES_SUBSTANCE, transit.BEATS_LIGHT,
                F["S9_orders"],
-               warpfolder.HEATING_TO_EW_SCALE_RESTORES_SYMMETRY)},
+               warpfolder.HEATING_TO_EW_SCALE_RESTORES_SYMMETRY)
+            + "  DOCKET 68 (O9, %s; asked of combine.py on the board): outside "
+            "linear quantum mechanics M's hypotheses remove the two classical bits "
+            "only IF named premises hold -- O-BITS %s under H-SETTLE W2 x H-FRAME "
+            "F1 -- so no transit.py result moves here, each staying exact in the "
+            "linear, chronology-respecting quantum mechanics this requirement "
+            "names; the supply at the seat (O-SEAT, on M's rulings M-D68-5 and "
+            "M-D68-7) is %s."
+            % (st("O9"), ledger.d68_asked("W2 x F1", "O-BITS").split(" {")[0],
+               ledger.d68_uniform("O-SEAT"))},
 
         {"id": "R12", "applies_to": ["C"],
          "title": "THE ENGINEERING SIDE for the corridor: a supply that survives its arithmetic",
@@ -4891,7 +4904,10 @@ def selftest():
          "On the board, pending M and changing this file: none" in _flat,
          ruled("M-D65-1"), ruled("M-D65-2"),
          [p[0] for p in ledger.PENDING_RULINGS]),
-        ([], True, True, True, []))
+        # RE-PINNED BY DOCKET 68: the board holds one pending question,
+        # M-D68-P1 (emtension.py's citation); it names no specthm, so it is
+        # not PENDING FOR M here (pending_here() is still empty).
+        ([], True, True, True, ["M-D68-P1"]))
     _fake = ledger.PENDING_RULINGS + [("M-X-9", "a scratch question for M?", "why",
                                        "either way", "specthm's scratch placement")]
     with patched(ledger, "PENDING_RULINGS", _fake):

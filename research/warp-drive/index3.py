@@ -1995,7 +1995,29 @@ FINDINGS = [
  # and E(X) does not move.  The text QUOTES the file; every quotation and the
  # census are checked against LEDGER.md by the selftest, never typed as results.
  ("LEDGER-BALANCE-REFUSED", +1, -1, +1, "LEDGER.md",
-  "the board of the warp result, and its own verdict sits on all three axes. X: the demand is identified -- D1 and D2 THEOREM, contraction requires negative enclosed Misner-Sharp mass in every foliation -- and priced, D11 MEASURED at '1.348948e+26 kg per metre'. Y: every balance row reads '**REFUSED** -- no ladder, so no number', because 'no mechanism supplies negative enclosed mass at all'; S5, 'THE FIRST ROW ON THIS LEDGER WITH A PRICE RATHER THAN A REFUSAL, AND THE ONLY ONE UNTIL DOCKET 65 SEATED S11-S13', is OPEN and D23 makes it 'an AMORTISATION SCHEME, not a transport route'; DOCKET 65's priced rows price atomic mass formed or restored at a seat (S13 forms no baryons), not negative enclosed mass, and no balance row moves. Z: the demand column prints the specification the supply would have to meet, '5.4194e+42 kg (2.72551e+12 solar masses)' for the Proxima span. Status census: THEOREM 20, THEOREM-NARROWED 1, MEASURED 3, SURVEY 2, OPEN 13, WITHDRAWN 13, REFUSED 10. A bound on what is established so far and not a completeness claim: '`COMPLETE` is not claimed and is not claimable'"),
+  "the board of the warp result, and its own verdict sits on all three axes. X: the demand is identified -- D1 and D2 THEOREM, contraction requires negative enclosed Misner-Sharp mass in every foliation -- and priced, D11 MEASURED at '1.348948e+26 kg per metre'. Y: every balance row reads '**REFUSED** -- no ladder, so no number', because 'no mechanism supplies negative enclosed mass at all'; S5, 'THE FIRST ROW ON THIS LEDGER WITH A PRICE RATHER THAN A REFUSAL, AND THE ONLY ONE UNTIL DOCKET 65 SEATED S11-S13', is OPEN and D23 makes it 'an AMORTISATION SCHEME, not a transport route'; DOCKET 65's priced rows price atomic mass formed or restored at a seat (S13 forms no baryons), not negative enclosed mass, and no balance row moves. Z: the demand column prints the specification the supply would have to meet, '5.4194e+42 kg (2.72551e+12 solar masses)' for the Proxima span. Status census: THEOREM 20, THEOREM-NARROWED 1, MEASURED 3, SURVEY 2, OPEN 14, WITHDRAWN 13, REFUSED 10. A bound on what is established so far and not a completeness claim: '`COMPLETE` is not claimed and is not claimable'"),
+ # ----- DOCKET 68, wave 1 (docket68/), seated on M's ruling "1 then 2 then 3 then 4" -----
+ # Four rows, each a verified result of its instrument, each in an OCCUPIED cell, so the
+ # index gains findings and no cell: E(X), the closure counts and pathmetric.py's fixture do
+ # not move.  The house reading, applied to every one: an OPEN result reads 0 (M's "Unify to
+ # 0"); a NOT-BOUND is not a removal; a REMOVED-IF on named premises nothing has shown is
+ # OPEN, so Y reads 0; and a row never claims more than its owner.  Each text TYPES its
+ # owner's current computed values (this file is stdlib-only and cannot ask a z3/numpy
+ # instrument); ledger.py's selftest asks the owners and checks every typed value against
+ # them (ledger.D68_INDEX3).  The variant census in D68-ONE-MEMBER-REMOVAL... ("at most one
+ # ... in any consistent account") is combine.py's full screen (B-combine.md section 3),
+ # which no cross-check here re-runs.  Q-1 and Q-1s share one row, and O-SEAT's priced
+ # route one more: one question, one row.  O-MAKE-DIST (OPEN via N_VAC) and the NOT-BOUND-IF
+ # entries under ITB have no non-null reading on the three directives and are carried on
+ # the ledger (O9), not here: a null cell is not a finding.
+ ("D68-ONE-MEMBER-REMOVAL-AND-IT-IS-CONDITIONAL", 0, 0, +1, "docket68/combine.py",
+  "DOCKET 68 (combine.py, z3 over 8,191 variants: M's seven hypotheses in every combination and every reading): the hypotheses themselves remove AT MOST ONE obstruction in any consistent account, and it is O-BITS, the two classical bits -- and only REMOVED-IF. By H-SETTLE W2 x H-FRAME F1 jointly (alone, each gives LEFT), on two supports: {W2, F1; N_EPS}, admissible given W_W2 at 1 ly, N = 7 (flagged, not settled: the Weinberg-family value is NAMED-NOT-READ), and {W2, F1; N_W2ANC}, zero-error, its window UNEVALUATED; or by clause 2b's D-CTC, {F2b; N_DCTC}, with O-LOOP reintroduced and no CTC shown to exist. Y reads 0: every support rests on named premises nothing has shown, and an OPEN removal is not a removal. Z: the route states in numbers what a device would have to show -- 2/(log2 d - 1) pairs per teleported qubit for the zero-error member (1, 2/3, 1/2 at d = 8, 16, 32; no positive floor computed), the D-CTC route at most 1 with its minimum OPEN, and, at the unread limit, a midpoint-source first read at 0.50153 of the light time at 1 ly, conditional on N_EPS, H-C2, F1 and H-BLOCK. O-SEAT and O-MAKE-DIST are removed by no member in any consistent variant"),
+ ("D68-EXACT-FRW-ADMITS-ONLY-EQUAL-COSMIC-TIME-CORRIDORS", 0, 0, +1, "docket68/frame.py",
+  "in the spatially flat expanding universe ds^2 = -dt^2 + a(t)^2 |dx|^2 with a > 0, every nonzero causal vector has v_t != 0 (frame.py, z3: the claim unsat, the vacuity guard sat, the control a >= 0 sat): cosmic time is a global time function on the quotient by comoving translations, so no closed causal curve exists at any rank for any a(t) > 0. The corridor form of O-LOOP is therefore removed by the GEOMETRY, credited to no hypothesis -- REMOVED-IF {N_CORR, N_FRW} in combine.py -- and only in accounts that treat a corridor as a Lorentzian quotient (N_CORR clashes with H-IT's N_QTOPO), while clause 2b's message into the cosmic past undoes it. Y reads 0: exact FRW is an idealisation, and perturbations break even the translations. Z: the admissible identifications are specified -- equal cosmic time only, the expanding universe itself selecting the frame H-FRAME asks for"),
+ ("D68-SIGNED-ENTROPY-IS-RE-H-PLUS-N-OVER-SEPARABLE-FUNCTIONALS", 0, 0, +1, "docket68/signed.py",
+  "Q-1s, the entropy of a quasi-probability (sum p = 1, some p < 0), computed (signed.py): Re H = -sum p ln|p|, branch-free; Im H = pi N on the principal branch, N the total negative weight; M = ln sum|p|, product-additive and 0 exactly when no entry is negative. Re H can be NEGATIVE -- at p = (1.5, -0.5) it is -0.954771 nats, with Im H = 1.570796 and M = 0.693147 -- read, not explained away. Over every continuous SEPARABLE functional, Baez-Fritz-Leinster's functoriality, convex linearity and continuity carried to signed measures give X = c Re H + b N (a 14-function separable basis leaves a null space of dimension 2, span{Re H, N}; 13 without the convex-linearity rows); product additivity leaves Re H alone; BFL's codomain [0, inf) forces c = 0, so no separable functional extends Shannon and keeps it. Uniqueness over NON-separable functionals is OPEN (H-SEPARABLE names the gap). On The Method's closed index Q-1 counts log2 976 = 9.930737 bits per cell of Lambda (measure.py), and Q-1 removes no obstruction (LEAVES-ALL). M's two weightings both stay carried. X and Y read 0: a measure identifies no warp energy and builds nothing; Z: it is the substrate-free count the R-INDEX reading is priced in"),
+ ("D68-O-SEAT-OPEN-VIA-S5-AND-THE-D25-GATE", 0, 0, +1, "docket68/measure.py",
+  "M ruled that what arrives is information and the substance comes 'from the seat' (H-INFO-SHAPE), so O-MATTER is relocated to O-SEAT, the supply at the seat -- and nothing removes it by assertion. Under H-SEAT-S5, which M adopted ('S5 counts (Recommended)'), O-SEAT is OPEN via N_S5: removed only if S5's reconstruction from destination stock is shown and the D25 stock gate holds, and neither is (LEDGER S5 and D25 OPEN; measure.py, and combine.py in every consistent variant); given H-SEAT-ROUTES (S10 and S13 only, the alternative on record) it is LEFT. S13 forms no baryons (C3), so every baryon must already be at the seat; the share already there is about 0.99828 at first order (H-LINEAR), an estimate and not a bound. Y reads 0. Z: the seat's supply is priced in stock -- the 70 kg payload needs 749.1 kg of CI chondrite or 1.338e5 kg of stellar photosphere in the arrival aperture (stockgate.feedstock_kg); S5's price per reconstruction is not re-derivable (DOCKET 56's instrument owed)"),
 ]
 
 # The fragments of LEDGER-BALANCE-REFUSED's text that quote LEDGER.md.  The
@@ -2236,6 +2258,15 @@ AFFIRM_AS_OF_RESIDUE_PASS = (169, 'd20423b2a8c1')
 #: the identity pass's pins (7dc11f2), before the DOCKET 67 close's move; kept and re-derived
 TRIPLE_AS_OF_IDENTITY_PASS = (284, '4ed8f1a34c5d')
 AFFIRM_AS_OF_IDENTITY_PASS = (166, 'e4c831b58976')
+#: DOCKET 68 wave 1 (M: "1 then 2 then 3 then 4"): four rows, each in an occupied cell with a
+#: zero on X and Y, so NEITHER PIN MOVES -- 283/6748b1798e4c and 166/e4c831b58976 are re-read,
+#: not retyped.  The as-of control computes the pins on FINDINGS without these rows and finds
+#: them equal to the pins above, and the count 747 as the DOCKET 67 close left it.
+D68_ROWS = ("D68-ONE-MEMBER-REMOVAL-AND-IT-IS-CONDITIONAL",
+            "D68-EXACT-FRW-ADMITS-ONLY-EQUAL-COSMIC-TIME-CORRIDORS",
+            "D68-SIGNED-ENTROPY-IS-RE-H-PLUS-N-OVER-SEPARABLE-FUNCTIONALS",
+            "D68-O-SEAT-OPEN-VIA-S5-AND-THE-D25-GATE")
+FINDINGS_AS_OF_DOCKET67_CLOSE = 747
 
 #: CORRECTED (DOCKET 67 follow-up): cells and ids as first written, kept as history
 #: and checked.  A cell moved only where its owner's verdict moved.
@@ -2262,6 +2293,10 @@ TYPE_IV_CELL_AS_FIRST_WRITTEN = (+1, -1, -1)
 #: over index3's live cells), a file outside this pass.  They are HELD at their cells, each text
 #: marked OPEN with its -1 said not to be a bound; the selftest computes that the move lands on
 #: NULL for each, and that nothing else holds them.  {(id, source): why the row is OPEN}
+#: RULED BY M (DOCKET 68, M-RULINGS-2026-10-03.md item 4; ledger.py M-D68-4): "Keep held, noted
+#: (Recommended)" -- they stay as they are, each text saying its -1 is not a bound.  Their texts
+#: still read 'for M', as written before the ruling: M ruled they stay as they are, so they are
+#: not rewritten, and the ruling is recorded here and on the ledger.
 OPEN_AT_NULL_HELD = {
     ("NOT-CERTIFIED", "TARGET-1-RESULT.md"):
         "records the certification gap, not a refutation (its own comment)",
@@ -2318,6 +2353,11 @@ def _put_back(cells, ids):
         c = cells.get(f[0], coords(f))
         out.append((ids.get(f[0], f[0]),) + tuple(c) + tuple(f[4:]))
     return out
+
+def findings_before_d68():
+    """FINDINGS as the DOCKET 67 close left them: the DOCKET 68 rows taken out,
+    nothing else changed (the DOCKET 68 seating moved no cell and renamed no id)."""
+    return [f for f in FINDINGS if f[0] not in D68_ROWS]
 
 def findings_as_first_written():
     """FINDINGS with the DOCKET 67 follow-up's moved cells and renamed ids put
@@ -2433,7 +2473,9 @@ def selftest():
     bad = [f[0] for f in FINDINGS if any(v not in (-1,0,1) for v in coords(f))]
     chk("cells with an out-of-range coordinate", bad, [])
     # RE-PINNED 746 -> 747: LEDGER-BALANCE-REFUSED (LEDGER.md), counted here.
-    chk("number of findings indexed", len(FINDINGS), 747)
+    # RE-PINNED 747 -> 751 by DOCKET 68 wave 1: its four rows (D68_ROWS), each in an
+    # occupied cell; the as-of control in the DOCKET 68 block re-derives the 747.
+    chk("number of findings indexed", len(FINDINGS), 751)
     chk("distinct occupied cells", len({coords(f) for f in FINDINGS}), 16)
     # TYPE-IV opened (+1,-1,-1) -- identified, and unbuildable BECAUSE identified.
     # 130 findings had never occupied it; it is the cell for a positive answer on
@@ -2691,6 +2733,46 @@ def selftest():
         True)
     chk("  and the GATE 1 rows keep their cells",
         (coords(by_id["NO-BORE"]), coords(by_id["OPEN-GATE"])), ((0, -1, -1), (1, -1, 1)))
+
+    print("\nDOCKET 68 wave 1 -- four rows, no new cell, no pin moved")
+    _d68 = [f for f in FINDINGS if f[0] in D68_ROWS]
+    chk("each DOCKET 68 row is seated once, citing its docket68/ instrument",
+        sorted((f[0], f[4].split("/")[0]) for f in _d68),
+        sorted((k, "docket68") for k in D68_ROWS))
+    chk("  each reads (0,0,+1): an OPEN result reads 0 on Y, and a measure or a "
+        "conditional route identifies no warp energy",
+        sorted(set(coords(f) for f in _d68)), [(0, 0, 1)])
+    chk("  each text says its Y reads 0", [f[0] for f in _d68 if "Y read" not in f[5]], [])
+    import re as _re
+    _bare = _re.compile(r"\bREMOVED\b(?!-IF)")
+    chk("  no row claims more than its owner: no bare REMOVED (only REMOVED-IF), and "
+        "a NOT-BOUND is never a removal",
+        ([f[0] for f in _d68 if _bare.search(f[5])],
+         [f[0] for f in _d68 if "NOT-BOUND" in f[5] and "not a removal" not in f[5]]),
+        ([], []))
+    chk("  CONTROL: 'O-BITS is REMOVED by W2 x F1' planted in a row is caught",
+        bool(_bare.search(_d68[0][5] + " O-BITS is REMOVED by W2 x F1")), True)
+    chk("  CONTROL: a row moved to (0,+1,+1) leaves the (0,0,+1) reading",
+        sorted(set([coords(f) for f in _d68[1:]] + [(0, 1, 1)])) == [(0, 0, 1)], False)
+    chk("  O-SEAT's row shows both seat-route readings (OPEN via N_S5; LEFT given "
+        "H-SEAT-ROUTES), and the O-BITS row both supports",
+        ([("OPEN via N_S5" in f[5], "H-SEAT-ROUTES" in f[5] and "it is LEFT" in f[5])
+          for f in _d68 if f[0] == "D68-O-SEAT-OPEN-VIA-S5-AND-THE-D25-GATE"],
+         [("{W2, F1; N_EPS}" in f[5], "{W2, F1; N_W2ANC}" in f[5])
+          for f in _d68 if f[0] == "D68-ONE-MEMBER-REMOVAL-AND-IT-IS-CONDITIONAL"]),
+        ([(True, True)], [(True, True)]))
+    _b = findings_before_d68()
+    chk("AS-OF CONTROL: without the DOCKET 68 rows the index is the DOCKET 67 close's -- "
+        "747 findings, the same 16 cells, and the SAME pins",
+        (len(_b), len({coords(f) for f in _b}),
+         (len([f[0] for f in _b if on_all_three(f)]),
+          roster_digest([f[0] for f in _b if on_all_three(f)])),
+         (len([f[0] for f in _b if coords(f) == (1, 1, 1)]),
+          roster_digest([f[0] for f in _b if coords(f) == (1, 1, 1)]))),
+        (FINDINGS_AS_OF_DOCKET67_CLOSE, len({coords(f) for f in FINDINGS}),
+         (TRIPLE_COUNT, TRIPLE_DIGEST), (AFFIRM_COUNT, AFFIRM_DIGEST)))
+    chk("  and no DOCKET 68 row sits on all three axes or on (+1,+1,+1)",
+        [f[0] for f in _d68 if on_all_three(f) or coords(f) == (1, 1, 1)], [])
 
     print("\nThe corpus's own Law 3 prediction, tested on this index")
     print("  K_3 needs strong 3-consistency; the closure operator delivers 2, so")

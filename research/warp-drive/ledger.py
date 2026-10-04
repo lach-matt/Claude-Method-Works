@@ -272,6 +272,73 @@ each name a ruling, and the paper's DOCKET markers are asked of the paper by
 paper_docket_markers() and printed in M-D65-5's cell, a census the reader
 counts; paper_caveat_b_faults() READs the clause back.  Nothing from
 DOCKET 65 is pending M.
+
+===============================================================================
+7.  DOCKET 68, WAVE 1, AS M RULED IT
+===============================================================================
+
+DOCKET 68 asked M's question -- information without transit -- and M ruled
+the order of what follows it: "1 then 2 then 3 then 4" (M-D68-10); step 1 is
+this seating.  Its instruments sit in docket68/ and are the owners here:
+combine.py (the seven hypotheses in combination, z3), settle.py, frame.py,
+measure.py (Q-1) and signed.py (Q-1s); geometry.py's grades reach this file
+only through combine.py.  NOTHING IS RETYPED.  Every D68 verdict below is
+asked of combine.Screen at run time, for the variants D68_VARIANTS names.
+
+  O9   OPEN, NEW: THE TWO CLASSICAL BITS, AND WHAT ELSE STANDS.  Its cell is
+       the obstruction table, ASKED: member-attributed removals first (O-BITS
+       REMOVED-IF by W2 x F1 on two supports, or by clause 2b's D-CTC with
+       O-LOOP reintroduced); then the NOT-BOUND-IF entries under H-IT as an
+       information layer (not removals); the geometry's corridor O-LOOP,
+       credited to no hypothesis; O-SEAT OPEN via S5/D25 under H-SEAT-S5 (M:
+       "S5 counts (Recommended)"), LEFT given H-SEAT-ROUTES; O-MAKE in its
+       distribution form OPEN via N_VAC.  Q-1 and Q-1s are carried in the same
+       cell as the computed measures R-INDEX uses (Re H, Im H = pi N,
+       M = ln sum|p|; X = c Re H + b N over every continuous separable
+       functional; uniqueness OPEN for non-separable ones).  They get no row
+       of their own: a measure counts and moves no requirement or price
+       (measure.GRADES['Q-1'] LEAVES-ALL, asked), so a row would
+       over-represent it -- section 4's principle.
+  O9's closing is ASKED, not flagged: no docket68 owner pins an O9_CLOSED,
+       so OPEN_ROW_READINGS holds what would close it -- O-BITS REMOVED with
+       no named premise (combine.counts(<variant>, ('REMOVED',))) in any asked
+       variant -- and the selftest asks it in place of a flag.
+  S5, S10, S13, D23, D25  each carries a DOCKET 68 NOTE, asked, and NO status
+       change: no owner's computed status moved (S5 and D25 OPEN, S10 and S13
+       as massform states them, D23 OPEN).  O-SEAT touches S5 (the route),
+       D25 (the gate), S13 (it forms no baryons), S10 (its row) and D23 (S5's
+       channel, and N_VAC, the pair supply wave 2 reads).
+  RULED_BY_M  M-D68-1..10 (M-RULINGS-2026-10-03.md, items 1-10) and the
+       charter's rulings M-D68-C1..C8 (open after D67; the 12-vector;
+       deterministic drift; test in combination; consider both 1 and 2;
+       redefine 0; null containment; negative probabilities and Q-1s), each
+       with M's words verbatim, held once in D68_M_WORDS and checked by the
+       selftest against the tree's own copy (M-RULINGS-2026-10-03.md or
+       CHARTER.md), the question as the tree records it, the option taken
+       and what was applied.  Where the tree holds M's answer only as the
+       charter's carrying (the 12-vector, deterministic drift), the cell says
+       so: no paraphrase is printed as M's words.  M's hypotheses (H-IT,
+       H-SETTLE, H-FRAME, H-12, H-INFO, H-ZERO, H-NULL) are carried AS
+       HYPOTHESES, in combine.py, never as results; a ruling to carry one
+       applies the carrying, not the claim.
+  PENDING  M-D68-P1: whether to record emtension.py's
+       ENTANGLED_BRIDGE_IS_TRAVERSABLE = False against Maldacena-Susskind
+       (CHARTER.md: "asked of M and unanswered").  RECORDED, NOT APPLIED.
+
+NAMED LIMITATIONS OF THIS SEATING.
+  H-LEDGER-ASKS-REPRESENTATIVES: the board asks the variants D68_VARIANTS
+    names, at combine's 1 ly, N = 7 and 1 AU, N = 7 cells.  The census over
+    every variant (at most one member-attributed removal per account, always
+    O-BITS; O-SEAT and O-MAKE-DIST removed by no member anywhere) is
+    combine.py's full screen (B-combine.md section 3), which this file does
+    not re-run; it is cited there and not printed here as asked.
+  H-LEDGER-DEPS: the docket68 owners bring z3-solver (pip, not vendored),
+    numpy and scipy into this file's import, which until DOCKET 68 needed
+    only the stdlib and its stdlib peers.  Without them the import fails;
+    nothing is skipped silently.
+  The paper (paper/CLAIMS.md) is NOT edited: M's rule for the paper is that
+    a finding must change existing paper text, and what DOCKET 68 bears on
+    is reported for M, not applied.
 """
 
 import contextlib
@@ -312,6 +379,21 @@ import throatmass
 import tolman
 import transit
 import warpfolder
+
+# DOCKET 68's owners sit in docket68/ and import their own peers; they are
+# imported here with their printing swallowed, AFTER every peer above, so the
+# paths they add cannot shadow one (no docket68/ or tools/ module shares a
+# name with a module here -- checked when this was seated).  They bring z3,
+# numpy and scipy (H-LEDGER-DEPS, docstring section 7).
+D68_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), "docket68")
+if D68_DIR not in sys.path:
+    sys.path.append(D68_DIR)
+with contextlib.redirect_stdout(io.StringIO()):
+    import combine           # DOCKET 68: the seven hypotheses in combination
+    import frame             # DOCKET 68: H-FRAME (A2)
+    import measure           # DOCKET 68: Q-1 (A3)
+    import settle            # DOCKET 68: H-SETTLE (A1)
+    import signed            # DOCKET 68: Q-1s
 
 #: LEDGER.md sits beside this file, and is found there from ANY working
 #: directory.  It was first resolved against the cwd, so --check run from the
@@ -883,6 +965,152 @@ def _proposed_status(rid):
 
 DEMAND += [(rid, PROPOSED[rid][2], _proposed_status(rid), PROPOSED[rid][4],
             PROPOSED[rid][5]) for rid in ("D27", "D28", "D29")]
+
+# ----- DOCKET 68 (docket68/), seated on M's ruling "1 then 2 then 3 then 4". --
+# Docstring section 7.  Every verdict is ASKED of combine.Screen, per variant;
+# nothing below types a grade.  The census over all of combine's variants is
+# its own full screen and is NOT re-run here (H-LEDGER-ASKS-REPRESENTATIVES).
+
+#: The variants this board asks, by name -> combine literals.  NAMED, not
+#: exhaustive: a variant not named here is not asked here.
+D68_VARIANTS = (
+    ("the board alone", ()),
+    ("H-SETTLE alone (W2)", ("W2",)),
+    ("H-FRAME clause 1 alone (F1)", ("F1",)),
+    ("W2 x F1", ("W2", "F1")),
+    ("clause 2b's D-CTC (F2b)", ("F2b",)),
+    ("H-IT as an information layer (ITB)", ("ITB",)),
+    ("ITB with R-INDEX", ("ITB", "RI")),
+    ("H-INFO-SHAPE (SHAPE)", ("SHAPE",)),
+)
+#: The variants asked at combine's second screened cell (1 AU, N = 7).
+D68_VARIANTS_AU = (("W2 x F1", ("W2", "F1")), ("W2 x F1 x H-12", ("W2", "F1", "H12")))
+D68_SCREEN = combine.Screen()                                # combine.CELL_MAIN
+D68_SCREEN_AU = combine.Screen(cell=combine.CELL_AU)
+D68_SCREEN_ROUTES = combine.Screen(mutate=("seat-routes",))  # H-SEAT-ROUTES
+D68_ASKED = dict((k, D68_SCREEN.variant(set(p))) for k, p in D68_VARIANTS)
+D68_ASKED_AU = dict((k, D68_SCREEN_AU.variant(set(p))) for k, p in D68_VARIANTS_AU)
+#: O-SEAT on the board alone given H-SEAT-ROUTES ({S10, S13} only).
+D68_SEAT_ROUTES = D68_SCREEN_ROUTES.variant(set())["per"]["O-SEAT"]
+#: combine's end-to-end pricing of the drift route (figures imported there).
+D68_FIRST = combine.first_transit()
+#: How many variants combine builds (its screen covers every one; asked).
+D68_VARIANT_COUNT = sum(1 for _v in combine.variants())
+
+
+def _d68_support(sp):
+    """One support as combine states it: {members; named premises} [window]."""
+    inside = "; ".join(x for x in (", ".join(sp["members"]), ", ".join(sp["named"])) if x)
+    s = "{%s}" % (inside or "no member, no named premise")
+    if sp.get("window"):
+        s += " [%s]" % sp["window"].split(":")[0]
+    return s
+
+
+def d68_verdict(v):
+    """One obstruction's verdict exactly as combine.Screen returns it -- the
+    verdict word, its OPEN pathways, every minimal support, a NOT-BOUND's own
+    removal status, a non-binding beside a removal, and the attribution."""
+    out = v["verdict"]
+    if v.get("via"):
+        out += " via " + ", ".join(v["via"])
+    if v.get("supports"):
+        out += " " + " | ".join(_d68_support(s) for s in v["supports"])
+    if v.get("removal"):
+        out += ", its removal " + d68_verdict(v["removal"])
+    if v.get("attribution") and v["verdict"] not in ("NOT-BOUND-IF", "NOT-BOUND"):
+        out += " (credited: %s)" % v["attribution"]
+    if v.get("nb"):
+        out += "; beside it " + d68_verdict(v["nb"])
+    return out
+
+
+def d68_asked(name, o, au=False):
+    """Obstruction o's verdict in the named asked variant, as combine says."""
+    r = (D68_ASKED_AU if au else D68_ASKED)[name]
+    if not r["consistent"]:
+        return "INCONSISTENT (combine: a named clash)"
+    return d68_verdict(r["per"][o])
+
+
+def d68_uniform(o):
+    """o's verdict if it is the same in every asked consistent variant at the
+    main cell; otherwise each variant's, named -- never one picked."""
+    got = dict((k, d68_asked(k, o)) for k, _p in D68_VARIANTS
+               if D68_ASKED[k]["consistent"])
+    vals = sorted(set(got.values()))
+    if len(vals) == 1:
+        return vals[0] + " in every variant asked"
+    return "; ".join("%s under %s" % (v, k) for k, v in got.items())
+
+
+def d68_o_bits_removed_outright():
+    """[variant] among those asked (both cells) where combine says O-BITS is
+    REMOVED with NO named premise (combine.counts(r, ('REMOVED',))) -- what
+    closing O9 would need.  [] while every removal is REMOVED-IF."""
+    out = []
+    for lab, asked in (("", D68_ASKED), ("1 AU: ", D68_ASKED_AU)):
+        for k, r in asked.items():
+            if r["consistent"] and "O-BITS" in combine.counts(r, ("REMOVED",)):
+                out.append(lab + k)
+    return out
+
+
+def _d68_s13_share():
+    """massform's first-order share of the payload's mass already at the seat
+    under S13 (1 - electrons regained - nucleons first order), as measure.py
+    computes it -- an estimate on H-LINEAR, not a bound."""
+    r = massform.HELD_SEAT_ROUTE
+    return 1.0 - r["electrons regained"] - r["nucleons first order"]
+
+
+def _d68_feed():
+    """D25's mass conjunct for the 70 kg payload, asked of stockgate (the
+    figures measure.seat_route_s5 imports)."""
+    return dict((d, stockgate.feedstock_kg(70.0, "as-composed 59", d))
+                for d in ("CI chondrite", "stellar photosphere"))
+
+
+#: DOCKET 68 NOTES on the rows O-SEAT and the pair supply touch.  A note, not a
+#: status change: no owner's computed status moved.  Every figure asked.
+D68_NOTES = {
+    "D23": (
+        "  DOCKET 68 (a note; no status change): the pair supply.  combine.py "
+        "screens vacuum entanglement used as the channel's pairs with no "
+        "distribution -- the closest reading of M's 'it already exists "
+        "everywhere' -- as the OPEN pathway N_VAC, and O-MAKE in its "
+        "distribution form reads %s; whether any setup supplies the pairs a "
+        "qubit needs faster than distribution is not computed, and D68 wave 2 "
+        "reads it (M-D68-10).  IF W2 x F1's first support held (N_EPS at the "
+        "NAMED-NOT-READ Weinberg-family limit, H-C2, F1, H-BLOCK -- none "
+        "shown), a midpoint source would give the first read %.5f of the "
+        "light time after firing at 1 ly (combine.first_transit), against "
+        "this row's zero advantage, which is exact in linear quantum "
+        "mechanics; with one-end distribution, S5's case, it beats light launched "
+        "at firing: %s.  This row also binds S5's CHANNEL under O9's O-SEAT "
+        "reading, not S5's substance"
+        % (d68_uniform("O-MAKE-DIST"),
+           D68_FIRST["first_transit_midpoint"]["t_read"] / D68_FIRST["light_time_s"],
+           D68_FIRST["first_transit_one_end"]["beats_light_launched_at_firing"])),
+    "D25": (
+        "  DOCKET 68 (a note; no status change): this gate is half of O-SEAT's "
+        "one open route.  Under H-SEAT-S5 (M-D68-7) O-SEAT, the supply at the "
+        "seat, is removed only if S5's supply is shown AND this gate holds "
+        "(combine's OPEN pathway N_S5); for the 70 kg payload the mass "
+        "conjunct is %.1f kg of CI chondrite or %.4g kg of stellar photosphere "
+        "in the arrival aperture (stockgate.feedstock_kg, asked: this row's "
+        "per-kg figures for 70 kg).  Unchecked at every destination, so O-SEAT "
+        "stays OPEN"
+        % tuple(_d68_feed()[d] for d in ("CI chondrite", "stellar photosphere"))),
+}
+
+
+def _d68_note(rid):
+    """The DOCKET 68 note a row carries, or ''."""
+    return D68_NOTES.get(rid, "")
+
+
+DEMAND = [(r[0], r[1] + _d68_note(r[0])) + tuple(r[2:]) for r in DEMAND]
 
 #: THE WORDING DOCKET 64 REPLACED ON DEMAND ROWS, kept for SUPERSEDED_WORDING.
 #: Typed here because it is HISTORY -- what the board said -- and not a result;
@@ -1776,6 +2004,395 @@ RULED_BY_M = [
     m_d67_2_row(),
 ]
 
+# ----- DOCKET 68's rulings (docstring section 7) ----------------------------
+# Kept OUTSIDE the list above on purpose: the selftest reads the source region
+# from the M-D65-4 constants to that list's end for counts of the paper's
+# edits, and nothing here belongs to it.
+
+#: The tree's own copies of M's words for DOCKET 68: the selftest checks every
+#: constant in D68_M_WORDS against the file it names, whitespace and the
+#: Markdown quote marks normalised -- not against memory.
+D68_RULINGS_FILE = os.path.join(D68_DIR, "M-RULINGS-2026-10-03.md")
+D68_CHARTER_FILE = os.path.join(D68_DIR, "CHARTER.md")
+D68_PAPER_BRIEF = os.path.join(D68_DIR, "PAPER-BRIEF-Q1s.md")
+
+#: M'S OWN WORDS FOR DOCKET 68's RULINGS, each held ONCE: id -> (words, file).
+#: Every ruling cell interpolates them, quoted in double quotes (some hold
+#: apostrophes).  Where the tree holds M's answer only as the charter's
+#: carrying of it, the words held are M's words the carrying answers, and the
+#: cell names the carrying as the charter's (M-D68-C2, M-D68-C3).
+D68_M_WORDS = {
+    "M-D68-1": ("Teleportation carries no physical substance, but does carry information "
+                "(non physical properties/bounds that give shape to the geometry at the seat)",
+                D68_RULINGS_FILE),
+    "M-D68-2": ("Carry both (Recommended)", D68_RULINGS_FILE),
+    "M-D68-3": ("All of the above. Remember that the center begins at the ground state values "
+                "given in real numbers from the periodic table. That is the calibration",
+                D68_RULINGS_FILE),
+    "M-D68-4": ("Keep held, noted (Recommended)", D68_RULINGS_FILE),
+    "M-D68-5": ("Yes, from the seat", D68_RULINGS_FILE),
+    "M-D68-6": ("Mass/ binding. But could work for any of the other options depending on the "
+                "question being asks or the object of study", D68_RULINGS_FILE),
+    "M-D68-7": ("S5 counts (Recommended)", D68_RULINGS_FILE),
+    "M-D68-8": ("Keep both (Recommended)", D68_RULINGS_FILE),
+    "M-D68-9": ("Wait", D68_RULINGS_FILE),
+    "M-D68-10": ("1 then 2 then 3 then 4", D68_RULINGS_FILE),
+    "M-D68-C1": ("Open after D67", D68_CHARTER_FILE),
+    "M-D68-C2": ("test the 12 fields in the 12 vertex trajectory model of the warp device idea",
+                 D68_CHARTER_FILE),
+    "M-D68-C3": ("Quantum mechanics is slightly non-linear. - quantum easing/quantum settling",
+                 D68_CHARTER_FILE),
+    "M-D68-C4": ("Remember that some of the hypothesies lined up for docket 68 may turn out, "
+                 "after initial testing, to work better in combination.", D68_CHARTER_FILE),
+    "M-D68-C5": ("Consider both 1 and 2", D68_CHARTER_FILE),
+    "M-D68-C6": ("What if we redefine 0. Consider 0 to me a point of ground state, and anything "
+                 "less that 0 is not negative, just less than the ground state", D68_CHARTER_FILE),
+    "M-D68-C7": ("Null (NEC) is a containment. This is where information lives, and is "
+                 "quantifiable", D68_CHARTER_FILE),
+    "M-D68-C8": ("we can define this. We plot it. With all its inverses, and reflections on the "
+                 "same multi-axis graph and the positive values will triangulate the negative "
+                 "values", D68_CHARTER_FILE),
+    "M-D68-C8b": ("Yes. When docket 68 workflow is finished. Let's create the instrument and "
+                  "implement its use. Incidently, if this does prove useful, we should set up "
+                  "instructions for a new separate session to write a professional paper about "
+                  "the complex and negative entropy findings", D68_CHARTER_FILE),
+}
+
+
+def d68_paper_brief_present():
+    """PAPER-BRIEF-Q1s.md is in the tree (M-D68-9: 'Wait')."""
+    return os.path.exists(D68_PAPER_BRIEF)
+
+
+def d68_words(rid):
+    """M's words for a DOCKET 68 ruling, quoted as every cell prints them."""
+    return 'M\'s words, verbatim: "%s" (%s)' % (D68_M_WORDS[rid][0],
+                                               os.path.basename(D68_M_WORDS[rid][1]))
+
+
+def _d68_norm(text):
+    """A Markdown source as prose: quote marks ('> ') and line breaks gone."""
+    return " ".join(re.sub(r"(?m)^\s*>\s?", "", text).split())
+
+
+def d68_words_faults():
+    """[ruling id] whose held words do not occur verbatim in the tree's copy."""
+    bad = []
+    cache = {}
+    for rid, (w, path) in D68_M_WORDS.items():
+        if path not in cache:
+            with open(path, encoding="utf-8") as fh:
+                cache[path] = _d68_norm(fh.read())
+        if " ".join(w.split()) not in cache[path]:
+            bad.append(rid)
+    return bad
+
+
+def _d68_rule(option, rid, applied):
+    """A DOCKET 68 ruling cell: the option taken, M's words, what was applied."""
+    return "RULED BY M: %s -- %s.  APPLIED: %s" % (option, d68_words(rid), applied)
+
+
+def _d68_index3_held():
+    """index3.py's OPEN-AT-NULL-HELD rows (asked: index3 is stdlib-only)."""
+    import index3
+    return sorted(k[0] for k in index3.OPEN_AT_NULL_HELD)
+
+
+def _emtension_flag():
+    """emtension.ENTANGLED_BRIDGE_IS_TRAVERSABLE, asked (combine.board_flags
+    reads the same module)."""
+    with contextlib.redirect_stdout(io.StringIO()):
+        import emtension
+    return emtension.ENTANGLED_BRIDGE_IS_TRAVERSABLE
+
+
+_SEAT = d68_uniform("O-SEAT")
+
+D68_RULED = [
+    ("M-D68-1",
+     "Clash (d), H-INFO-S against B-RECV (the question as M-RULINGS-2026-10-03.md item 1 "
+     "heads it): does information at the destination suffice to constitute the matter, "
+     "against the board's holding that the arriving state needs a receiver already there?",
+     "measure.py graded H-INFO-S a CLASH with B-RECV; transit.CARRIES_SUBSTANCE = %s"
+     % transit.CARRIES_SUBSTANCE,
+     _d68_rule("THE READING H-INFO-SHAPE", "M-D68-1",
+               "carried as H-INFO-SHAPE (combine's SHAPE; measure.GRADES grades it %s): what "
+               "arrives is the defining information, not substance (transit.CARRIES_SUBSTANCE "
+               "= %s).  The clash is dissolved by relocation, not removed by assertion: M's "
+               "ruling, encoded, and z3 shows only that the encoding is consistent.  H-INFO-S "
+               "is kept as the alternative reading and as history"
+               % (measure.GRADES[combine.SHAPE_GRADE_KEY]["verdict"], transit.CARRIES_SUBSTANCE)),
+     "O-MATTER's relocation (M-D68-5) and O9's O-SEAT reading"),
+    ("M-D68-2",
+     "Weighting in the mean-value axiom (M-RULINGS-2026-10-03.md item 2): signed w, which "
+     "selects Re H, or |w|, which selects signed Renyi?",
+     "signed.py computes both and the axioms each satisfies",
+     _d68_rule("CARRY BOTH", "M-D68-2",
+               "both are carried, each with the axioms it satisfies (signed.py section (8), "
+               "Q1s-signed.md section 9; the |w| family at orders %s, signed.WEIGHTING_ALPHAS); "
+               "they are separated only conditionally, under the named H-BFL-BINDS (M-D68-8)"
+               % (signed.WEIGHTING_ALPHAS,)),
+     "Q-1s carries both until a computation or M separates them"),
+    ("M-D68-3",
+     "'All its inverses and reflections' (M-RULINGS-2026-10-03.md item 3): which of the log "
+     "branches, the conjugate and reciprocal, the fold to |p|, and the Radon inverse?",
+     "M's own words on Q-1s (CHARTER.md, M-D68-C8) name inverses and reflections",
+     _d68_rule("ALL FOUR, CENTRED AT THE GROUND STATE", "M-D68-3",
+               "all four on one multi-axis table centred at the ground state (signed.py "
+               "section (9), Q1s-signed.md section 10); a signed weight reads as a deviation "
+               "from the ground state (H-ZERO's reading).  Which ground-state quantities was "
+               "asked of M and is M-D68-6"),
+     "Q-1s's reflections table; the calibration question, answered by M-D68-6"),
+    ("M-D68-4",
+     "DOCKET 67's held OPEN rows at (0,-1,0) in index3.py (M-RULINGS-2026-10-03.md item 4): "
+     "move them to the null cell, or keep them held?",
+     "index3.py holds them under OPEN-AT-NULL-HELD, for M: the move would seat them on the "
+     "null cell its own rule says is not a finding",
+     _d68_rule("KEEP HELD, NOTED", "M-D68-4",
+               "they stay as they are, each text saying its -1 is not a bound: %s "
+               "(index3.OPEN_AT_NULL_HELD, asked)" % ", ".join(_d68_index3_held())),
+     "nothing moves; index3.py's pins stand"),
+    ("M-D68-5",
+     "Is what arrives the defining information that shapes the geometry at the seat, with "
+     "the physical substance supplied by the seat itself? (asked as "
+     "M-RULINGS-2026-10-03.md item 5 records it)",
+     "M-D68-1's reading left open where the substance comes from",
+     _d68_rule("YES -- THE SUBSTANCE FROM THE SEAT", "M-D68-5",
+               "O-MATTER is relocated to O-SEAT, the supply at the seat, in every variant "
+               "combine screens; O-SEAT reads %s (O9) -- an obstruction until the seat's "
+               "supply is shown, graded against S13, S10 and, on M-D68-7, S5 with its D25 "
+               "gate" % _SEAT),
+     "O9's O-SEAT reading; the notes on S5, S10, S13, D23 and D25"),
+    ("M-D68-6",
+     "Calibration of the origin (M-RULINGS-2026-10-03.md item 6): which ground-state "
+     "quantities?",
+     "M-D68-3 calibrated the graph's origin at ground-state values and left which ones open",
+     _d68_rule("MASS/BINDING BY DEFAULT, PER QUESTION OTHERWISE", "M-D68-6",
+               "the default calibration is %s (signed.CAL_DEFAULT); %s are selectable "
+               "(signed.CALIBRATIONS), every use naming its calibration (signed.calibrate); "
+               "POPULATE-AXES is %s (signed.CALIBRATIONS_OPEN: not implemented); an element "
+               "is centred on one nuclide (H-NUCLIDE-GROUND), the periodic table's isotope "
+               "mean carried as PT-AVERAGE (H-PT-WEIGHT); no verdict moves on the choice"
+               % (signed.CAL_DEFAULT, ", ".join(signed.CALIBRATIONS),
+                  signed.CALIBRATIONS_OPEN["POPULATE-AXES"].split(":")[0])),
+     "every signed use names its calibration"),
+    ("M-D68-7",
+     "Seat-route reading (M-RULINGS-2026-10-03.md item 7): does S5, reconstruction from "
+     "destination stock with its D25 gate, count as the seat's supply (H-SEAT-S5), or is the "
+     "supply restricted to S10 and S13 (H-SEAT-ROUTES)?",
+     "combine.py computes O-SEAT under both readings",
+     _d68_rule("S5 COUNTS: H-SEAT-S5", "M-D68-7",
+               "H-SEAT-S5 adopted: O-SEAT reads %s; H-SEAT-ROUTES kept as the alternative on "
+               "record (O-SEAT %s under it)" % (_SEAT, d68_verdict(D68_SEAT_ROUTES))),
+     "O9's O-SEAT reading; D68 wave 2's S5 seat route"),
+    ("M-D68-8",
+     "Does Baez-Fritz-Leinster convex linearity bind The Method (M-RULINGS-2026-10-03.md "
+     "item 8)?  If it does, only signed w survives",
+     "signed.py separates the weightings conditionally, under H-BFL-BINDS",
+     _d68_rule("KEEP BOTH", "M-D68-8",
+               "both weightings stay carried; the conditional separation H-BFL-BINDS stays "
+               "named and unruled"),
+     "Q-1s keeps both weightings"),
+    ("M-D68-9",
+     "The paper session on the complex and negative entropy findings "
+     "(M-RULINGS-2026-10-03.md item 9; brief: PAPER-BRIEF-Q1s.md): start it?",
+     "M asked for such instructions if Q-1s proved useful (M-D68-C8)",
+     _d68_rule("WAIT", "M-D68-9",
+               "PAPER-BRIEF-Q1s.md stays in the tree (present: %s); no session is started; "
+               "paper/CLAIMS.md is not edited" % d68_paper_brief_present()),
+     "nothing until M starts the session"),
+    ("M-D68-10",
+     "Order of work after wave 1 (M-RULINGS-2026-10-03.md item 10): (1) seat D68 wave 1 into "
+     "the ledger and index3; (2) D68 wave 2 -- the Weinberg-family limits read at source, "
+     "vacuum entanglement as pair supply, the S5 seat route; (3) the D67 per-source comments; "
+     "(4) DOCKET 66",
+     "four items were open after wave 1 closed",
+     _d68_rule("IN THAT ORDER", "M-D68-10",
+               "(1) is this seating -- O9, these rows, the notes on S5, S10, S13, D23 and D25, "
+               "and index3.py's DOCKET 68 rows; (2), (3) and (4) are NOT YET RUN"),
+     "D68 wave 2 next; then the D67 per-source comments; then DOCKET 66"),
+    ("M-D68-C1",
+     "When does DOCKET 68 open? (CHARTER.md: chartered 2026-10-02)",
+     "DOCKET 67 was running when the docket was chartered",
+     _d68_rule("AFTER DOCKET 67", "M-D68-C1",
+               "DOCKET 68 opened after DOCKET 67 closed (M-D67-1 and M-D67-2 on this board: "
+               "%s); the order D67, D68, D66, Step 1b, Step 1c is the charter's"
+               % all(any(r[0] == k for r in RULED_BY_M) for k in ("M-D67-1", "M-D67-2"))),
+     "DOCKET 68"),
+    ("M-D68-C2",
+     "Which is the '12 vertex trajectory model' M named? (CHARTER.md, M's answers to the "
+     "follow-up questions, 2026-10-02)",
+     "M named the model in replying to the three routes put to M",
+     _d68_rule("THE 12-VECTOR", "M-D68-C2",
+               "as CHARTER.md carries M's answer (the charter's words, not M's): the "
+               "12-vector of multiverse_12_vector_taxonomy_v2.pdf.  Carried as the "
+               "hypothesis H-12, its parameters as carriers (settle.H12: %d rows, asked; %s "
+               "carry no READ bound of any kind, settle.H12_UNBOUNDED); load-bearing on the "
+               "drift's window only (N_H12W)" % (len(settle.H12), ", ".join(settle.H12_UNBOUNDED))),
+     "H-12 in every combination"),
+    ("M-D68-C3",
+     "What is 'quantum easing / quantum settling'? (CHARTER.md, M's answers to the "
+     "follow-up questions, 2026-10-02)",
+     "the term appears nowhere in the tree, corpus or chat export (CHARTER.md, searched)",
+     _d68_rule("DETERMINISTIC DRIFT", "M-D68-C3",
+               "as CHARTER.md carries M's answer (the charter's words, not M's): the state's "
+               "own value steers its evolution, smoothly and the same every time.  Carried as "
+               "the hypothesis H-SETTLE in readings %s; alone it gives O-BITS %s, and with "
+               "H-FRAME clause 1 it removes O-BITS, REMOVED-IF -- one of the two member "
+               "routes O9 shows, clause 2b's D-CTC the other"
+               % (", ".join(combine.SUBREADINGS["H-SETTLE"]),
+                  d68_asked("H-SETTLE alone (W2)", "O-BITS"))),
+     "H-SETTLE in every combination"),
+    ("M-D68-C4",
+     "(No question was put: M's standing instruction for the docket, CHARTER.md "
+     "2026-10-02.)",
+     "seven hypotheses were lined up, each to be tested",
+     _d68_rule("TEST IN COMBINATION", "M-D68-C4",
+               "each hypothesis tested alone first, a failure alone retiring nothing; every "
+               "combination in every reading screened (combine.py builds %s variants); joint "
+               "results tested by instrument" % format(D68_VARIANT_COUNT, ",")),
+     "combine.py and O9"),
+    ("M-D68-C5",
+     "What does 'supplied by probability in the citation/seating' mean: (1) the probability "
+     "of a cell in The Method's closed index, or (2) probability in the quantum sense? "
+     "(CHARTER.md, the two readings put to M)",
+     "M's reply on holding the corridor open named a probability supply",
+     _d68_rule("CONSIDER BOTH", "M-D68-C5",
+               "both carried as readings in every combination: %s (combine.READINGS)"
+               % ", ".join(v.split(":")[0] for v in combine.READINGS.values())),
+     "R-INDEX and R-QUANTUM in every combination"),
+    ("M-D68-C6",
+     "(No question was put: M's proposal, CHARTER.md 2026-10-02.)",
+     "what the board calls negative energy is measured from a ground state",
+     _d68_rule("M'S PROPOSAL, CARRIED AS A HYPOTHESIS (the charter's carrying of it; M "
+               "worded no ruling)", "M-D68-C6",
+               "carried as H-ZERO, not as a result: moving the zero changes the NEC "
+               "combination by exactly 0 (zero.py), so it relabels a WEC violation and not a "
+               "throat's NEC violation; in the screen it is inert (in combine.INERT: %s)"
+               % ("ZERO" in combine.INERT)),
+     "H-ZERO in every combination"),
+    ("M-D68-C7",
+     "(No question was put: M on the null condition, CHARTER.md 2026-10-02.)",
+     "the board audited two results tying null surfaces to information (D67)",
+     _d68_rule("M'S STATEMENT, CARRIED AS A HYPOTHESIS (the charter's carrying of it; M "
+               "worded no ruling)", "M-D68-C7",
+               "carried as H-NULL: the QNEC prices a throat's null deficit in bits only outside "
+               "its proven scope (nullinfo.py: a hypothesis, not a result); in the screen it is "
+               "inert (in combine.INERT: %s)" % ("NULL" in combine.INERT)),
+     "H-NULL in every combination"),
+    ("M-D68-C8",
+     "Negative probabilities strain Q-1: Shannon's term p log p is undefined at p < 0 "
+     "(CHARTER.md, 2026-10-03).  Define it, and build it?",
+     "Q-1 is defined on probability measures only",
+     _d68_rule("DEFINE IT, PLOT IT, BUILD IT", "M-D68-C8",
+               "and, when asked to build it, %s.  Q-1s is built (signed.py) and wired into "
+               "Q-1 (measure.py); the triangulation is computed as an inverse Radon "
+               "reconstruction with a control (Q1s-signed.md section 5); the paper "
+               "instructions are written (PAPER-BRIEF-Q1s.md) and the session waits (M-D68-9)"
+               % d68_words("M-D68-C8b")),
+     "Q-1s; the paper brief"),
+]
+
+RULED_BY_M += D68_RULED
+
+#: DOCKET 68's one question pending M: asked and unanswered in CHARTER.md.
+#: RECORDED, NOT APPLIED -- no grade moves either way (the flag's value is not
+#: in question, only its citation).
+PENDING_RULINGS += [
+    ("M-D68-P1",
+     "Whether to record emtension.py's ENTANGLED_BRIDGE_IS_TRAVERSABLE = False, which cites "
+     "no source, against Maldacena & Susskind arXiv:1306.0533v2 (CHARTER.md records the "
+     "question as asked of M and unanswered)",
+     "emtension.ENTANGLED_BRIDGE_IS_TRAVERSABLE = %s (asked) cites no source; combine.py "
+     "reads it as a board flag; DOCKET 68 READ 1306.0533v2 at source, whose footnote 1 makes "
+     "non-traversability an assumption of the conjecture" % _emtension_flag(),
+     "none: the record is M's to rule.  Either way the flag's value stands and no grade "
+     "moves; only its citation would change",
+     "emtension.py's citation; nothing on this board"),
+]
+
+
+# ----- index3.py's DOCKET 68 rows, checked against their owners -------------
+# index3.py is stdlib-only, so it TYPES its owners' values; this file imports
+# the owners and checks every typed value against what they compute now.
+
+def _d68_e(x):
+    """1.338e5, not 1.338e+05: a float as index3.py types it."""
+    m, e = ("%.3e" % x).split("e")
+    return "%se%d" % (m, int(e))
+
+
+def d68_index3_needles():
+    """{index3 row id: [(what, the owner's value as the row must type it)]},
+    built NOW from the owners -- never typed here."""
+    from fractions import Fraction
+    w2f1 = D68_ASKED["W2 x F1"]["per"]["O-BITS"]
+    sup = ["{%s; %s}" % (", ".join(sp["members"]), ", ".join(sp["named"]))
+           for sp in w2f1["supports"]]
+    win = [sp.get("window", "").split(":")[0] for sp in w2f1["supports"]]
+    alone = sorted(set(D68_ASKED[k]["per"]["O-BITS"]["verdict"]
+                       for k in ("H-SETTLE alone (W2)", "H-FRAME clause 1 alone (F1)")))
+    dctc = D68_ASKED["clause 2b's D-CTC (F2b)"]["per"]["O-BITS"]["supports"][0]
+    pairs = [v for k, v in D68_FIRST["pairs_per_qubit"].items() if "W2 class without" in k][0]
+    board_c = D68_ASKED["the board alone"]["per"]["O-LOOP-C"]
+    lem = frame.frw_time_function_lemma()
+    mb, (reh, imh, _n, mana), sep = D68_Q1
+    feed = _d68_feed()
+    return {
+        "D68-ONE-MEMBER-REMOVAL-AND-IT-IS-CONDITIONAL": [
+            ("the variant count", "%s variants" % format(D68_VARIANT_COUNT, ",")),
+            ("W2 x F1's verdict word", "only %s" % w2f1["verdict"]),
+            ("support 1", sup[0]), ("support 2", sup[1]),
+            ("support 1's window", win[0].split(" (")[0].replace(
+                "ADMISSIBLE GIVEN", "admissible given")),
+            ("support 2's window", win[1]),
+            ("W2 alone and F1 alone", "alone, each gives %s" % "/".join(alone)),
+            ("the D-CTC support", "{%s; %s}" % (", ".join(dctc["members"]),
+                                               ", ".join(dctc["named"]))),
+            ("the class's pairs per qubit", ", ".join(
+                str(Fraction(x).limit_denominator(64)) for x in pairs)),
+            ("the midpoint first read", "%.5f of the light time"
+             % (D68_FIRST["first_transit_midpoint"]["t_read"] / D68_FIRST["light_time_s"]))],
+        "D68-EXACT-FRW-ADMITS-ONLY-EQUAL-COSMIC-TIME-CORRIDORS": [
+            ("the lemma", "the claim %s" % lem["claim"]),
+            ("its vacuity guard", "the vacuity guard %s" % lem["vacuity"]),
+            ("its control", "the control a >= 0 %s" % lem["control_a_ge_0"]),
+            ("the board's corridor O-LOOP", "%s {%s}" % (
+                board_c["verdict"], ", ".join(board_c["supports"][0]["named"])))],
+        "D68-SIGNED-ENTROPY-IS-RE-H-PLUS-N-OVER-SEPARABLE-FUNCTIONALS": [
+            ("Re H at (1.5, -0.5)", "%.6f nats" % reh), ("Im H", "Im H = %.6f" % imh),
+            ("M", "M = %.6f" % mana), ("the null space", "dimension %d" % sep["null_dim"]),
+            ("the basis", "%d-function" % len(sep["basis"])),
+            ("the control", "%d without" % sep["control_null_dim_without_CL_rows"]),
+            ("Q-1 on the index", "log2 %d = %.6f" % (mb["cells"], mb["bits_per_cell"])),
+            ("Q-1's grade", "(%s)" % measure.GRADES["Q-1"]["verdict"])],
+        "D68-O-SEAT-OPEN-VIA-S5-AND-THE-D25-GATE": [
+            ("O-SEAT under H-SEAT-S5", "O-SEAT is %s" % d68_asked("the board alone", "O-SEAT")),
+            ("O-SEAT given H-SEAT-ROUTES", "it is %s" % d68_verdict(D68_SEAT_ROUTES)),
+            ("the first-order share", "about %.5f" % _d68_s13_share()),
+            ("CI chondrite", "%.1f kg of CI chondrite" % feed["CI chondrite"]),
+            ("stellar photosphere", "%s kg of stellar photosphere"
+             % _d68_e(feed["stellar photosphere"]))],
+    }
+
+
+def d68_index3_faults(findings=None):
+    """[(row, what)] where index3.py's DOCKET 68 row does not type its owner's
+    current value (or the row is missing, or off (0,0,+1))."""
+    import index3
+    rows = dict((f[0], f) for f in (index3.FINDINGS if findings is None else findings))
+    bad = []
+    for rid, needles in d68_index3_needles().items():
+        f = rows.get(rid)
+        if f is None:
+            bad.append((rid, "missing"))
+            continue
+        if tuple(f[1:4]) != (0, 0, 1):
+            bad.append((rid, "cell %s" % (tuple(f[1:4]),)))
+        bad += [(rid, what) for what, v in needles if v not in f[5]]
+    return bad
+
 # ---------------------------------------------------------------------------
 # RIGHT SIDE -- THE SUPPLY.  What is actually available, and its ceiling.
 #
@@ -2036,6 +2653,36 @@ SUPPLY = [
     _proposed_supply("S13", _survives_name("held-seat")),
 ]
 
+# DOCKET 68 NOTES on the supply rows O-SEAT touches (docstring section 7): a
+# note appended to each, asked, with NO status change.
+D68_NOTES.update({
+    "S5": (
+        "  DOCKET 68 (a note; no status change): this is the board's "
+        "supply-from-the-seat route by which O-SEAT -- O-MATTER relocated to "
+        "the supply at the seat on M's ruling M-D68-5 -- could be removed.  "
+        "Under H-SEAT-S5, which M adopted (M-D68-7), O-SEAT reads %s (combine, "
+        "O9's variants); given H-SEAT-ROUTES, the alternative on "
+        "record, it reads %s.  Removed only if this route's supply is shown and "
+        "D25 holds; neither is"
+        % (d68_uniform("O-SEAT"), d68_verdict(D68_SEAT_ROUTES))),
+    "S10": (
+        "  DOCKET 68 (a note; no status change): combine.py encodes this row "
+        "as B-S10 in O-SEAT's screen -- on M's reading of what arrives "
+        "(M-D68-1, M-D68-5) the substance is supplied at the seat, and this row "
+        "gives no such supply -- so no "
+        "variant O9 asks removes O-SEAT through it (O-SEAT: %s)"
+        % d68_uniform("O-SEAT")),
+    "S13": (
+        "  DOCKET 68 (a note; no status change): on M's reading of what "
+        "arrives (M-D68-1, M-D68-5) the substance is supplied at the seat, and this "
+        "route is not that supply because it forms no baryons (C3, under H-C3), "
+        "so every baryon must already be at the seat; the share of the "
+        "payload's mass already there is about %.5f at first order (H-LINEAR: "
+        "an estimate, and as a bound OPEN), as measure.py computes it from "
+        "massform's figures" % _d68_s13_share()),
+})
+SUPPLY = [r[:4] + (r[4] + _d68_note(r[0]),) for r in SUPPLY]
+
 # ---------------------------------------------------------------------------
 # WHAT IS OPEN.  (row id, claim, what would answer it, owner)
 #
@@ -2267,6 +2914,128 @@ OPEN_ROWS = [
     # DOCKET 65 opens no O row: the finite Higgs share, first seated here as
     # O8, is an OPEN item inside S10's note on M's ruling M-D65-2.
 ]
+
+#: M's thesis, verbatim from CHARTER.md (the selftest checks the tree's copy).
+D68_THESIS = ("My idea is that warp travel costs little because we are only relying on "
+              "the communication of information between two entangled locations in "
+              "spacetime")
+#: The docket's question, as one sentence, verbatim from CHARTER.md.
+D68_QUESTION = ("Is there a channel, beyond linear quantum mechanics or beneath geometry, "
+                "in which Bob's statistics depend on Alice's choice?")
+#: Q-1s's worked example, the charter's own: p = (1.5, -0.5).
+D68_Q1S_P = (1.5, -0.5)
+
+
+def _d68_q1():
+    """Q-1 and Q-1s as the instruments compute them: (measure.method_bits(),
+    signed values at D68_Q1S_P, signed.separable_nullspace)."""
+    import random
+    return (measure.method_bits(),
+            (signed.re_h(D68_Q1S_P), signed.im_h(D68_Q1S_P), signed.neg(D68_Q1S_P),
+             signed.mana(D68_Q1S_P)),
+            signed.separable_nullspace(random.Random(5)))
+
+
+D68_Q1 = _d68_q1()
+
+
+def o9_claim():
+    """O9's cell: the obstruction table, every verdict asked of combine.Screen;
+    member-attributed removals first."""
+    mb, (reh, imh, nneg, mana), sep = D68_Q1
+    return (
+        "THE TWO CLASSICAL BITS, AND WHAT ELSE STANDS (DOCKET 68: information "
+        "without transit; combine.py, asked).  M's thesis, verbatim: \"%s\".  The "
+        "question: %s  THE OBSTRUCTION TABLE, asked of combine.Screen at %s (z3; "
+        "combine builds %s variants of M's seven hypotheses in every reading and "
+        "screens them all in its own run, which this board does not repeat -- "
+        "H-LEDGER-ASKS-REPRESENTATIVES).  MEMBER-ATTRIBUTED REMOVALS FIRST.  "
+        "O-BITS under H-SETTLE W2 x H-FRAME F1: %s -- joint: alone, W2 gives %s "
+        "and F1 gives %s.  At %s: W2 x F1 gives %s (support 1's window is empty "
+        "from the NAMED-NOT-READ Weinberg-family value -- combine.cell_window_open "
+        "= %s -- so it is OPEN via N_WREAD there, not LEFT); with H-12, %s.  "
+        "O-BITS under clause 2b's D-CTC: %s, and there O-LOOP is reintroduced -- "
+        "corridor O-LOOP %s, signal O-LOOP %s, where the board alone gives %s and "
+        "%s.  A CTC is not shown to exist.  NOT-BOUND-IF, NOT REMOVALS, under "
+        "H-IT as an information layer (ITB): O-MAKE-TOPO %s; O-HOLD %s; corridor "
+        "O-LOOP %s; with R-INDEX, O-HOLD %s.  THE GEOMETRY'S O-LOOP, credited to "
+        "no hypothesis: corridor O-LOOP %s on the board alone (exact FRW: "
+        "frame.frw_time_function_lemma).  O-SEAT, the supply at the seat "
+        "(O-MATTER relocated by M's ruling, M-D68-5): %s, under H-SEAT-S5, which "
+        "M adopted (M-D68-7: \"S5 counts\"); given H-SEAT-ROUTES (S10 and S13 "
+        "only, kept as the alternative on record) %s -- an obstruction until the "
+        "seat's supply is shown, never removed by assertion.  O-MAKE in its "
+        "distribution form: %s.  M's H-INFO-SHAPE removes nothing (O-SEAT %s "
+        "under it: the board's pathway, not the hypothesis's).  THE MEASURE "
+        "R-INDEX USES, computed.  Q-1 (measure.py): Baez-Fritz-Leinster's "
+        "Theorem 2 verified on finite spaces; on The Method's closed index "
+        "log2 %d = %.6f bits per cell of Lambda; measure.GRADES['Q-1'] = %s -- a "
+        "measure counts and removes nothing.  Q-1s (signed.py), for a "
+        "quasi-probability (sum p = 1, some p < 0): Re H = -sum p ln|p| "
+        "(branch-free), Im H = pi N on the principal branch (N the total "
+        "negative weight), M = ln sum|p| (product-additive, 0 exactly when no "
+        "entry is negative); at p = %s, Re H = %.6f nats (negative, read and not "
+        "explained away), Im H = %.6f = pi x %.1f, M = %.6f.  Over every "
+        "continuous SEPARABLE functional, BFL's functoriality, convex linearity "
+        "and continuity carried to signed measures give X = c Re H + b N "
+        "(signed.separable_nullspace: a null space of dimension %d in a "
+        "%d-function basis, %d without the convex-linearity rows, the control); "
+        "uniqueness over NON-separable functionals is OPEN (H-SEPARABLE names "
+        "the gap); both weightings stay carried (M-D68-2, M-D68-8)"
+        % (D68_THESIS, D68_QUESTION, combine.CELL_MAIN,
+           format(D68_VARIANT_COUNT, ","),
+           d68_asked("W2 x F1", "O-BITS"), d68_asked("H-SETTLE alone (W2)", "O-BITS"),
+           d68_asked("H-FRAME clause 1 alone (F1)", "O-BITS"), combine.CELL_AU,
+           d68_asked("W2 x F1", "O-BITS", au=True),
+           combine.cell_window_open(combine.CELL_AU),
+           d68_asked("W2 x F1 x H-12", "O-BITS", au=True),
+           d68_asked("clause 2b's D-CTC (F2b)", "O-BITS"),
+           d68_asked("clause 2b's D-CTC (F2b)", "O-LOOP-C"),
+           d68_asked("clause 2b's D-CTC (F2b)", "O-LOOP-S"),
+           d68_asked("the board alone", "O-LOOP-C"), d68_asked("the board alone", "O-LOOP-S"),
+           d68_asked("H-IT as an information layer (ITB)", "O-MAKE-TOPO"),
+           d68_asked("H-IT as an information layer (ITB)", "O-HOLD"),
+           d68_asked("H-IT as an information layer (ITB)", "O-LOOP-C"),
+           d68_asked("ITB with R-INDEX", "O-HOLD"),
+           d68_asked("the board alone", "O-LOOP-C"),
+           d68_uniform("O-SEAT"), d68_verdict(D68_SEAT_ROUTES), d68_uniform("O-MAKE-DIST"),
+           d68_asked("H-INFO-SHAPE (SHAPE)", "O-SEAT"),
+           mb["cells"], mb["bits_per_cell"], measure.GRADES["Q-1"]["verdict"],
+           D68_Q1S_P, reh, imh, nneg, mana,
+           sep["null_dim"], len(sep["basis"]), sep["control_null_dim_without_CL_rows"]))
+
+
+O9_ANSWERED_BY = (
+    "D68 wave 2, in M's order (M-D68-10: \"1 then 2 then 3 then 4\"): the "
+    "Weinberg-family limits READ at source (settles N_WREAD and the W_W2 flag on "
+    "support 1); vacuum entanglement as pair supply (N_VAC); the S5 seat route "
+    "(N_S5: S5's supply shown and the D25 gate holding at a destination).  "
+    "Beyond wave 2: a measured state-dependent drift with a preferred slicing "
+    "(W2 x F1's premises shown or refuted, support 2's field included); a CTC at "
+    "Bob shown (N_DCTC); a READ source for what a non-geometric corridor costs "
+    "(N_QTOPO, N_ILFREE).  O9 CLOSES only if a member removes O-BITS with no "
+    "named premise (OPEN_ROW_READINGS)")
+
+OPEN_ROWS += [("O9", o9_claim(), O9_ANSWERED_BY, ("combine", "counts"))]
+
+#: WHAT AN O ROW'S OWNER SAYS ABOUT CLOSING, where no owner pins a flag.  O9's
+#: owner, combine.py, pins no O9_CLOSED; what would close O9 is ASKED of it:
+#: O-BITS REMOVED with no named premise in an asked variant.  (row id ->
+#: (what is asked, the asking function)).  A row not named here is asked by
+#: its owner's flag, as before.
+OPEN_ROW_READINGS = {
+    "O9": ("combine.counts(<each asked variant>, ('REMOVED',)) holding O-BITS",
+           d68_o_bits_removed_outright),
+}
+
+
+def open_row_answer(r):
+    """(what was asked, its value) for an O row's closing: its owner's flag,
+    or for a row in OPEN_ROW_READINGS the owner's computed reading."""
+    if r[0] in OPEN_ROW_READINGS:
+        lab, fn = OPEN_ROW_READINGS[r[0]]
+        return lab, fn()
+    return "%s.%s" % (r[3][0], r[3][1]), ask(r[3])
 
 #: THE WORDING DOCKETS 62 AND 64 REPLACED.  (row id, the docket that replaced
 #: it, the wording as it stood -- claim, then what would answer it -- and why it
@@ -2712,10 +3481,13 @@ def report():
                                      if gap is None else "%.3f orders" % gap))
 
     print("\nOPEN, AND WHAT WOULD ANSWER EACH")
-    for rid, claim, answer, owner in OPEN_ROWS:
+    for r in OPEN_ROWS:
+        rid, claim, answer, owner = r
         print("  %-4s %s" % (rid, _one_line(claim, 100)))
         print("       would be answered by: %s" % _one_line(answer, 96))
-        print("       asked: %s.%s = %s" % (owner[0], owner[1], ask(owner)))
+        # DOCKET 68: a row with no closing flag on its owner prints the
+        # owner's computed reading (OPEN_ROW_READINGS) in its place.
+        print("       asked: %s = %s" % open_row_answer(r))
     for rid, claim, _st, owner, moves in open_demand():
         print("  %-4s (a DEMAND row) %s" % (rid, _one_line(claim, 86)))
         print("       would be answered by: %s" % _one_line(moves, 96))
@@ -2859,11 +3631,12 @@ def to_markdown():
                  % (rid, _cell(what, 200), _cell(dem, 200), _cell(sup, 200), g))
 
     L += ["", "## Open, and what would answer each", ""]
-    for rid, claim, answer, owner in OPEN_ROWS:
+    for r in OPEN_ROWS:
+        rid, claim, answer, owner = r
         L += ["### %s" % rid, "", _one_line(claim, W_OPEN_CLAIM), "",
               "**Would be answered by:** %s"
               % _one_line(answer, W_OPEN_ANSWER), "",
-              "*Asked:* `%s.%s = %s`" % (owner[0], owner[1], ask(owner)), ""]
+              "*Asked:* `%s = %s`" % open_row_answer(r), ""]
     for rid, claim, _st, owner, moves in open_demand():
         L += ["### %s (a demand row)" % rid, "",
               _one_line(claim, W_OPEN_CLAIM), "",
@@ -3567,9 +4340,14 @@ def selftest():
          phase1.is_transition(False, True, True, True, True, net_momentum=True),
          phase1.is_transition(False, True, True, True, True, passage_flux=True),
          formation.PHASE1_D4_POINTWISE_DURING_PASSAGE),
+        # RE-PINNED BY DOCKET 68 (M: "1 then 2 then 3 then 4"): + M-D68-1..10
+        # and M-D68-C1..C8 (D68_RULED), and the one pending question,
+        # M-D68-P1 (asked of M and unanswered in CHARTER.md).
         (["M-D64-1", "M-S1A-P1", "M-S1A-P2", "M-S1A-P3", "M-S1A-P4",
           "M-S1A-P5", "M-D65-1", "M-D65-2", "M-D65-3", "M-D65-4", "M-D65-5",
-          "M-D67-1", "M-D67-2"], [],
+          "M-D67-1", "M-D67-2"]
+         + ["M-D68-%d" % i for i in range(1, 11)]
+         + ["M-D68-C%d" % i for i in range(1, 9)], ["M-D68-P1"],
          True, False, False, True, False))
 
     print("\n3. THE EXCHANGE RATE, RE-DERIVED FROM ASKED CONSTANTS")
@@ -3592,8 +4370,12 @@ def selftest():
     #   WITHDRAWN 6 -> 8: W7 and W8, both of them DOCKET 61's own passes.
     #   REFUSED 3 -> 4: the closed row counts here, not as an opening.
     chk("the status census", c,
-        {THEOREM: 20, NARROWED: 1, MEASURED: 3, SURVEY: 2, OPEN: 13,
+        {THEOREM: 20, NARROWED: 1, MEASURED: 3, SURVEY: 2, OPEN: 14,
          WITHDRAWN: 13, REFUSED: 10})
+    # RE-PINNED BY DOCKET 68 (M: "1 then 2 then 3 then 4") to what statuses()
+    # returned after the seating: OPEN 13 -> 14, O9 (the two classical bits,
+    # asked of combine.py).  The notes on S5, S10, S13, D23 and D25 move no
+    # status; M-D68-* are rulings and M-D68-P1 is pending, neither a status.
     # RE-PINNED BY DOCKET 65 to what statuses() returned after the seating
     # (M: "Seat as proposed"), every status asked of massform.PROPOSED_ROWS:
     #   THEOREM 17 -> 20: D27, D28, D29.
@@ -3671,15 +4453,19 @@ def selftest():
         ("D5", "D6", "D12", "D13"))
 
     print("\n4b. DOCKET 62 CLOSED NOTHING, AND WHAT IT REFUSED IS NOT HERE")
+    # DOCKET 68: O9's owner pins no closing flag, so its closing is the
+    # owner's computed reading (OPEN_ROW_READINGS); every other row's flag.
     chk("no O row's owner says it closed",
-        [r[0] for r in OPEN_ROWS if ask(r[3])], [])
+        [r[0] for r in OPEN_ROWS if open_row_answer(r)[1]], [])
     chk("the five narrowed rows are all still open",
         [r for r in DOCKET62_NARROWED if r not in [x[0] for x in OPEN_ROWS]], [])
     # DOCKET 65 opens no O row: the finite Higgs share, first seated as O8, is
     # an OPEN item in S10's note on M's ruling M-D65-2.  The five are asked for
     # by name (DOCKET62_NARROWED), and no other O row stands beside them.
-    chk("  and there is no O row beside them (O8 folded into S10's note, M-D65-2)",
-        sorted(r[0] for r in OPEN_ROWS if r[0] not in DOCKET62_NARROWED), [])
+    # RE-PINNED BY DOCKET 68: O9 stands beside them (docstring section 7).
+    chk("  and the only O row beside them is DOCKET 68's O9 (O8 folded into "
+        "S10's note, M-D65-2)",
+        sorted(r[0] for r in OPEN_ROWS if r[0] not in DOCKET62_NARROWED), ["O9"])
     # RE-KEYED BY DOCKET 64 (ruling C, O5).  This compared sorted ids with the
     # OPEN ids, and O5's second entry (DOCKET 64 replacing DOCKET 62's
     # wording) would have turned it red for a correct reason.  Entries are
@@ -3969,7 +4755,10 @@ def selftest():
          "M's answer: '%s'" % M_D65_2_ANSWER in _ms2[0][3],
          all("'%s'" % f in _ms2[0][2] for f in M_D65_2_OPTION),
          M_D65_2_QUESTION in _md, "'%s'" % M_D65_2_ANSWER in _md,
-         PENDING_RULINGS, "O8" not in [r[0] for r in OPEN_ROWS]),
+         # DOCKET 68 added a pending question of its own (M-D68-P1); none is
+         # DOCKET 65's.
+         [p[0] for p in PENDING_RULINGS if not p[0].startswith("M-D68-")],
+         "O8" not in [r[0] for r in OPEN_ROWS]),
         (1, True, True, True, True, True, True, [], True))
     chk("  and M-D65-1 opens no row (QET is DOCKET 66's, not the board's)",
         [r[0] for r in DEMAND + SUPPLY + OPEN_ROWS if "QET" in r[1]
@@ -4640,6 +5429,109 @@ def selftest():
          "or gating\nnothing" in __doc__,
          "M's ruling on\nDOCKET 67 is M-D65-3" in __doc__),
         (True, False, True, True))
+
+    print("\n4e. DOCKET 68, WAVE 1 (docstring section 7): ASKED OF docket68/")
+    _o9 = [r for r in OPEN_ROWS if r[0] == "O9"]
+    chk("O9 is seated once, OPEN, its cell exactly o9_claim() and its owner combine.py",
+        (len(_o9), _o9[0][1] == o9_claim(), _o9[0][2] == O9_ANSWERED_BY, _o9[0][3]),
+        (1, True, True, ("combine", "counts")))
+    _fresh = dict((k, D68_SCREEN.variant(set(p_))) for k, p_ in D68_VARIANTS)
+    chk("  every verdict it prints reproduces on a FRESH ask of combine.Screen",
+        [k for k in _fresh if _fresh[k]["per"] != D68_ASKED[k]["per"]
+         or _fresh[k]["consistent"] != D68_ASKED[k]["consistent"]], [])
+    chk("  O9's closing, asked (O-BITS REMOVED with no named premise in any asked "
+        "variant): none -- every removal is REMOVED-IF",
+        (d68_o_bits_removed_outright(),
+         sorted(set(r["per"]["O-BITS"]["verdict"] for r in D68_ASKED.values()))),
+        ([], ["LEFT", "REMOVED-IF"]))
+    _fake = dict(D68_ASKED["W2 x F1"])
+    _fake["per"] = dict(_fake["per"], **{"O-BITS": {"verdict": "REMOVED", "supports": [
+        {"members": ["W2", "F1"], "absent": [], "named": []}]}})
+    with _scratch("D68_ASKED", dict(D68_ASKED, **{"W2 x F1": _fake})):
+        _closed = d68_o_bits_removed_outright()
+        _row9 = [r for r in OPEN_ROWS if r[0] == "O9"][0]
+        _says = open_row_answer(_row9)[1]
+    chk("  CONTROL: a variant where combine said O-BITS REMOVED outright closes O9 "
+        "(and 'no O row's owner says it closed' would fire)", (_closed, bool(_says)),
+        (["W2 x F1"], True))
+    chk("  member-attributed first: W2 x F1 is joint (each alone LEFT), two supports, "
+        "credited to members; the D-CTC brings the loop back",
+        ([D68_ASKED[k]["per"]["O-BITS"]["verdict"] for k in
+          ("H-SETTLE alone (W2)", "H-FRAME clause 1 alone (F1)")],
+         len(D68_ASKED["W2 x F1"]["per"]["O-BITS"]["supports"]),
+         D68_ASKED["W2 x F1"]["per"]["O-BITS"]["attribution"],
+         [D68_ASKED["clause 2b's D-CTC (F2b)"]["per"][o]["verdict"]
+          for o in ("O-LOOP-C", "O-LOOP-S")]),
+        (["LEFT", "LEFT"], 2, "member", ["SILENT", "SILENT"]))
+    chk("  under ITB the geometric obstructions are NOT-BOUND-IF, never removed, "
+        "their removal OPEN via N_ILFREE",
+        [(D68_ASKED["H-IT as an information layer (ITB)"]["per"][o]["verdict"],
+          D68_ASKED["H-IT as an information layer (ITB)"]["per"][o].get(
+              "removal", {}).get("via")) for o in ("O-MAKE-TOPO", "O-HOLD")],
+        [("NOT-BOUND-IF", ["N_ILFREE"])] * 2)
+    chk("  O-SEAT OPEN via N_S5 and O-MAKE-DIST OPEN via N_VAC in every asked "
+        "variant; LEFT given H-SEAT-ROUTES; the geometry's corridor loop credited "
+        "to no hypothesis",
+        (d68_uniform("O-SEAT"), d68_uniform("O-MAKE-DIST"), D68_SEAT_ROUTES["verdict"],
+         D68_ASKED["the board alone"]["per"]["O-LOOP-C"]["attribution"]),
+        ("OPEN via N_S5 in every variant asked", "OPEN via N_VAC in every variant asked",
+         "LEFT", "none"))
+    chk("  the 1 AU cell: support 1's window is empty there (OPEN via N_WREAD), "
+        "support 2 stands, and with H-12 support 1 returns",
+        (combine.cell_window_open(combine.CELL_AU),
+         [sp["named"] for sp in D68_ASKED_AU["W2 x F1"]["per"]["O-BITS"]["supports"]],
+         [sp["named"] for sp in D68_ASKED_AU["W2 x F1 x H-12"]["per"]["O-BITS"]["supports"]]),
+        (False, [["N_W2ANC"]], [["N_EPS", "N_H12W"], ["N_W2ANC"]]))
+    _note_rows = dict((r[0], r) for r in DEMAND + SUPPLY)
+    chk("the notes on S5, S10, S13, D23, D25 are carried, and NO status moved",
+        [(k, _note_rows[k][2], "DOCKET 68 (a note; no status change)"
+          in (_note_rows[k][1] if k[0] == "D" else _note_rows[k][4]))
+         for k in ("D23", "D25", "S5", "S10", "S13")],
+        [("D23", OPEN, True), ("D25", OPEN, True), ("S5", OPEN, True),
+         ("S10", REFUSED, True), ("S13", OPEN, True)])
+    chk("  and the readers of LEDGER.md still find S13's 'It forms no baryons (C3' "
+        "on its row (combine.board_flags reads it)",
+        "It forms no baryons (C3" in _note_rows["S13"][4], True)
+    chk("M's words for every DOCKET 68 ruling occur verbatim in the tree's own copy "
+        "(M-RULINGS-2026-10-03.md or CHARTER.md)", d68_words_faults(), [])
+    _w = dict(D68_M_WORDS)
+    _w["M-D68-5"] = ("Yes, from the seat itself", _w["M-D68-5"][1])
+    with _scratch("D68_M_WORDS", _w):
+        _wf = d68_words_faults()
+    chk("  CONTROL: a word added to M's ('Yes, from the seat itself') is caught", _wf,
+        ["M-D68-5"])
+    _dq = re.compile(r'verbatim: "([^"]+)"')
+    chk("  each ruling cell quotes exactly its held words (M-D68-C8 also M's answer "
+        "on building it), and nothing else as verbatim",
+        [r[0] for r in D68_RULED
+         if _dq.findall(" ".join(r[3].split())) != [D68_M_WORDS[r[0]][0]]
+         + ([D68_M_WORDS["M-D68-C8b"][0]] if r[0] == "M-D68-C8" else [])], [])
+    chk("  every DOCKET 68 ruling is on the board with question, ruling and "
+        "unblocks, uncut", ([r[0] for r in D68_RULED if not all(r[1:])],
+                            [t for t in _truncated_cells() if t[0] == "ruled"
+                             and t[1].startswith("M-D68")]), ([], []))
+    chk("M-D68-P1 is PENDING, recorded and not applied; the flag it concerns, "
+        "asked, is unchanged",
+        ([p_[0] for p_ in PENDING_RULINGS], _emtension_flag(),
+         "= %s (asked)" % _emtension_flag() in PENDING_RULINGS[0][2]),
+        (["M-D68-P1"], False, True))
+    chk("M-D68-9: the paper brief stays in the tree; M-D68-4: index3.py's held rows "
+        "are named in the ruling, asked",
+        (d68_paper_brief_present(),
+         all(k in [r for r in D68_RULED if r[0] == "M-D68-4"][0][3]
+             for k in _d68_index3_held())), (True, True))
+    chk("index3.py's DOCKET 68 rows type their owners' CURRENT values (each needle "
+        "asked of combine, frame, signed, measure, stockgate, massform)",
+        d68_index3_faults(), [])
+    import index3 as _i3
+    _planted = [f if f[0] != "D68-ONE-MEMBER-REMOVAL-AND-IT-IS-CONDITIONAL"
+                else f[:5] + (f[5].replace("0.50153", "0.50200"),) for f in _i3.FINDINGS]
+    chk("  CONTROL: a drifted figure planted in index3's row (0.50153 -> 0.50200) is "
+        "caught", d68_index3_faults(_planted),
+        [("D68-ONE-MEMBER-REMOVAL-AND-IT-IS-CONDITIONAL", "the midpoint first read")])
+    chk("the docstring states section 7 and names its limitations",
+        all(x in __doc__ for x in ("7.  DOCKET 68, WAVE 1, AS M RULED IT",
+                                   "H-LEDGER-ASKS-REPRESENTATIVES", "H-LEDGER-DEPS")), True)
 
     print("\n5. THE BALANCE REFUSES TO INVENT A LADDER")
     chk("every balance row whose mechanism fails carries NO gap number",
