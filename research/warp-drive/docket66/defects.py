@@ -25,7 +25,12 @@ WHAT THIS FILE DOES ITSELF (each item computed here, stdlib + sympy + z3):
   5. the literature's precise sense of "matter occurs there but not in its original form": fermion zero modes
      (a Yukawa mass that vanishes where the order parameter vanishes) -- the Jackiw-Rebbi profile computed and its
      normalisability tested both ways;
-  6. a z3 bookkeeping of the D68 grades this hypothesis can carry, with a vacuity guard and mutation controls.
+  6. a z3 bookkeeping of the D68 grades this hypothesis can carry, with a vacuity guard and mutation controls;
+  7. (D66-fix, 2026-10-04, answering the three wave-1 verifier reports) the hedgehog's stress in the cone metric and
+     the exact deficit 8 pi G eta^2; the thin M4-M4 wall's global time function (CGS p.15, Fig.4); the global
+     monopole's conjugate points (Jacobi equation); the gauge monopole's S-1 lens through spec.focal_length; the
+     creation of a defect-supported throat under M's ruling M-S1A-P3; and a1_grades(), the A-report grade table built
+     from all of the above (combine66.py reads it).  HISTORY keeps what wave 1 first said.
 
 IT IMPORTS, NEVER COPIES: spec (G, c, AU, the focal formula, the lens table), specthm (sturm_ratio, classes, its
 Sturm sentence), massform (the S13 held-seat route, its stable range, the Higgs share, D23 asked of the ledger),
@@ -45,7 +50,8 @@ REMOVED.  For seat classes, specthm's words: EMPTY, EMPTY IF, OPEN, NONEMPTY.  T
 
 NAMED HYPOTHESES (every limitation is one of these; see HYPOTHESES):
   H-CANONICAL, H-THIN, H-LINEAR-GRAV, H-UNIFORM-CORE, H-SM-ONLY, H-SEAT-PERSISTS, H-TURN-CONJUGATE,
-  H-TURN-CROSSING, H-YUKAWA, H-STATIC-STRING; OPEN pathways N_NEGT, N_DEFB (and the board's N_S5).
+  H-TURN-CROSSING, H-YUKAWA, H-STATIC-STRING, H-FORM-IS-MASS-AND-DIMENSION, H-VIS-MINKOWSKI, H-MONOPOLE-MASS,
+  H-WEAK-FIELD, H-S1-VACUUM; OPEN pathways N_NEGT, N_DEFB, N_WNCC (specthm's W-create-ncc), and the board's N_S5.
 """
 
 import json
@@ -545,6 +551,59 @@ def vis_beta():
     return sp.simplify(8 * sp.pi * G / c ** 4 * s / 4)
 
 
+def vis_time_function(beta_sign=1, exponent=2):
+    """D66-fix (V66-1 #3): the thin non-extreme M4-M4 wall's global causal structure, from CGS p.15 eq.(3.48) and
+    Fig.4 (READ).  Comoving metric on each side, (-+++), G = c = 1:  g = e^(-2 b |z|) (-dt^2 + dz^2 + b^-2 cosh^2(b t)
+    dOmega^2).  [CGS print the conformal factor e^(-+ b z); their own transformation t_in = b^-1 e^(-b z) sinh(b t),
+    r_in = b^-1 e^(-b z) cosh(b t) maps to Minkowski only with e^(-2 b |z|) -- checked below as the pullback; recorded
+    as a reading note, not a finding against CGS.]  Per side s = sign(z):
+      (1) the pullback of -dT^2 + dR^2 + R^2 dOmega^2 under T = b^-1 e^(-b s z) sinh(b t), R = b^-1 e^(-b s z)
+          cosh(b t) equals g (each side is Minkowski, T its inertial time);
+      (2) g^(mu nu) dT dT = -1 (T a time function on each side) and dT/dt > 0 at z = 0 (time orientations agree);
+      (3) T is continuous across z = 0 (the same function of (t, angles) on the wall from both sides);
+      (4) Israel: S_ij = -(1/kappa)([K_ij] - h_ij [K]) = -sigma h_ij with kappa sigma = 4 b (CGS p.10's relation).
+    A continuous function strictly increasing along every future causal curve on each side increases along every
+    future causal curve of the glued spacetime: no closed causal curve (H-VIS-MINKOWSKI: no identification).
+    CONTROL R: g^(mu nu) dR dR = +1 (spacelike gradient: the test can fail).  beta_sign = -1: kappa sigma < 0.
+    CONTROL exponent = 1 (the conformal factor as printed, e^(-b|z|)): the pullback is NOT g."""
+    import sympy as sp
+    t, z, th, ph = sp.symbols("t z theta phi", real=True)
+    b = sp.Symbol("beta", positive=True) * beta_sign
+    out = {}
+    for s in (1, -1):
+        conf = sp.exp(-exponent * b * s * z)
+        g = sp.diag(-conf, conf, conf * sp.cosh(b * t) ** 2 / b ** 2, conf * sp.cosh(b * t) ** 2 * sp.sin(th) ** 2 / b ** 2)
+        X = (t, z, th, ph)
+        T = sp.exp(-b * s * z) * sp.sinh(b * t) / b
+        R = sp.exp(-b * s * z) * sp.cosh(b * t) / b
+        mink = sp.diag(-1, 1, R ** 2, R ** 2 * sp.sin(th) ** 2)
+        Y = [T, R, th, ph]
+        Jac = sp.Matrix(4, 4, lambda i, j: sp.diff(Y[i], X[j]))
+        pull = sp.simplify(Jac.T * mink * Jac - g)
+        gi = g.inv()
+        dT = [sp.diff(T, x) for x in X]
+        dR = [sp.diff(R, x) for x in X]
+        nT = sp.simplify(sum(gi[i, j] * dT[i] * dT[j] for i in range(4) for j in range(4)))
+        nR = sp.simplify(sum(gi[i, j] * dR[i] * dR[j] for i in range(4) for j in range(4)))
+        h = g.extract([0, 2, 3], [0, 2, 3])
+        nz = 1 / sp.sqrt(g[1, 1])
+        Kij = sp.simplify((nz * sp.diff(h, z) / 2).subs(z, 0))
+        out[s] = {"pullback_is_g": pull == sp.zeros(4), "gTT": nT, "gRR": nR,
+                  "dT/dt at z=0": sp.simplify(sp.diff(T, t).subs(z, 0)), "T at z=0": sp.simplify(T.subs(z, 0)),
+                  "K_ij": Kij, "h0": sp.simplify(h.subs(z, 0))}
+    h0 = out[1]["h0"]
+    jump = sp.simplify(out[1]["K_ij"] - out[-1]["K_ij"])
+    hinv = h0.inv()
+    trj = sp.simplify(sum(hinv[i, j] * jump[i, j] for i in range(3) for j in range(3)))
+    kap = sp.Symbol("kappa", positive=True)
+    S = sp.simplify(-(jump - h0 * trj) / kap)
+    sigma = sp.simplify(-S[0, 0] / h0[0, 0])
+    out["continuous at z=0"] = sp.simplify(out[1]["T at z=0"] - out[-1]["T at z=0"]) == 0
+    out["S_ij = -sigma h_ij"] = sp.simplify(S + sigma * h0) == sp.zeros(3)
+    out["kappa sigma"] = sp.simplify(kap * sigma)
+    return out
+
+
 def derrick(d):
     """E(lambda) = lambda^(d-2) I1 + lambda^d I2 for phi(x/lambda) in d space dimensions (DURRER p.9 for d = 3).
     Returns dE/dlambda at 1, and whether a static stationary point can exist with I1 > 0, I2 >= 0."""
@@ -616,6 +675,35 @@ def string_crossing(gmu, b):
     (HK p.90, independent of b): they cross at L = b / tan(4 pi G mu).  L is linear in b: no caustic, no single
     focus (contrast spec.py's S-1 lens, f = b^2 c^2 / (4 G M), quadratic in b)."""
     return b / math.tan(4 * math.pi * gmu)
+
+
+E_CHARGE_SI = 1.602176634e-19      # C, the SI 2019 DEFINITION of the coulomb (a unit definition, exact)
+ALPHA_GUT = 1.0 / 40.0            # H-MONOPOLE-MASS (a named hypothesis, not a READ value)
+
+
+def gauge_monopole_lens(m_gev=1e17, focus_m=None, ratio_gate=1e-15):
+    """D66-fix (V66-1 #5): the gauge monopole's lensing seat through the OWNER's formula spec.focal_length
+    (f = b^2 c^2 / (4 G M)).  For a monopole of mass m_gev GeV/c^2 (H-MONOPOLE-MASS): the impact parameter b whose
+    focus lies at focus_m (default 1 AU, spec.AU), found by inverting the owner's function and checked by calling it;
+    r_s = 2GM/c^2; core radius (1/alpha_GUT) hbar/(M c); the magnetic field energy beyond b for the Dirac charge
+    g_D = h/e, E_out = g_D^2/(8 pi mu0 b) (spec.MU0), as a fraction of Mc^2.  S-1 placement needs b >> r_core
+    (H_seat: b >= the lens radius), b >> r_s (H-WEAK-FIELD) and the field energy beyond b negligible (H-S1-VACUUM)."""
+    spec = own("spec")
+    ach = own("achievable")
+    G, c = spec.G_SI, spec.C_SI
+    f = focus_m if focus_m is not None else spec.AU
+    M = m_gev * 1e9 * E_CHARGE_SI / c ** 2
+    b = math.sqrt(4 * G * M * f) / c
+    f_back = spec.focal_length(M, b)
+    r_s = 2 * G * M / c ** 2
+    r_core = (1 / ALPHA_GUT) * ach.HBAR / (M * c)
+    g_dirac = ach.H_PLANCK / E_CHARGE_SI
+    e_out = g_dirac ** 2 / (8 * math.pi * spec.MU0 * b)
+    frac = e_out / (M * c * c)
+    ok = (b / r_core > 1e3) and (b / r_s > 1e3) and frac < ratio_gate
+    return {"m_gev": m_gev, "M_kg": M, "focus_m": f, "b_m": b, "focal_check": f_back / f, "r_s_m": r_s,
+            "r_core_m": r_core, "b_over_core": b / r_core, "b_over_rs": b / r_s,
+            "field_energy_beyond_b_over_Mc2": frac, "S-1 conditions hold": ok}
 
 
 def cone_shortcut(gmu):
@@ -695,7 +783,8 @@ def screen(mutate=None):
     string's CTC ignored) -- each must change a verdict, and the checks say which."""
     import z3
     B = {n: z3.Bool(n) for n in ("CANON", "NEGT", "N_NEGT", "NECVIOL", "THROAT_HELD", "S5SUP", "N_S5", "DEFSUP",
-                                 "N_DEFB", "SEAT_OK", "CTC", "TOPOCHG", "SPIN_INSIDE", "STATIC")}
+                                 "N_DEFB", "SEAT_OK", "CTC", "TOPOCHG", "SPIN_INSIDE", "STATIC", "MADE_THROAT",
+                                 "TOPOCHG_THR", "PATH_THR", "N_WNCC")}
     cons = []
     # O-HOLD: a held traversable throat in a globally hyperbolic asymptotically flat spacetime needs ANEC/NEC
     # violation (FSW93 Thm 1; GV17 p.3; VISSER89 p.4); canonical fields satisfy the NEC (canonical_nec()).
@@ -712,6 +801,16 @@ def screen(mutate=None):
     cons.append(z3.Implies(B["STATIC"], z3.Not(B["CTC"])))                # static_is_stably_causal()
     if mutate != "spin-ok":
         cons.append(z3.Implies(B["SPIN_INSIDE"], B["CTC"]))               # spinning_ctc(), DLM04
+    # O-MAKE-TOPO for a string-supported throat MADE from flat space (D66-fix, V66-1 #1): a topology change
+    # (create.is_topology_change(False, True)); Geroch / Borde force a pathology with no matter assumption
+    # (create.GEROCH_NEEDS_MATTER_ASSUMPTION False), placed AT THE THROAT.  M's ruling (ledger M-S1A-P3): 'a singular
+    # throat is not disqualified' and 'the throat-creation classes stay OPEN' -- so the pathology at the throat does not
+    # disqualify, and a made throat is realised only through specthm's OPEN class W-create-ncc (N_WNCC).
+    cons.append(z3.Implies(B["MADE_THROAT"], B["TOPOCHG_THR"]))
+    cons.append(z3.Implies(B["TOPOCHG_THR"], B["PATH_THR"]))
+    if mutate == "ruling-dropped":                                        # CONTROL: the ruling ignored
+        cons.append(z3.Not(B["PATH_THR"]))
+    cons.append(z3.Implies(B["MADE_THROAT"], B["N_WNCC"] if mutate != "wncc-asserted" else True))
     return z3, B, cons
 
 
@@ -727,7 +826,7 @@ def grades(mutate=None):
     (b) with them free.  REMOVED-IF needs (a) unsat and (b) sat; LEFT needs (b) unsat; OPEN = possible only via
     an OPEN pathway."""
     z3, B, cons = screen(mutate)
-    held_false = [z3.Not(B["N_NEGT"]), z3.Not(B["N_S5"]), z3.Not(B["N_DEFB"])]
+    held_false = [z3.Not(B["N_NEGT"]), z3.Not(B["N_S5"]), z3.Not(B["N_DEFB"]), z3.Not(B["N_WNCC"])]
     out = {"vacuity: board SAT": ask(z3, B, cons, []),
            "vacuity: canonical + no throat SAT": ask(z3, B, cons, [B["CANON"], z3.Not(B["THROAT_HELD"])])}
     # O-HOLD with a defect as the throat's support
@@ -743,6 +842,11 @@ def grades(mutate=None):
     seat_fixed = ask(z3, B, cons, [z3.Or(B["S5SUP"], B["DEFSUP"])] + held_false)
     out["O-SEAT, defect at the seat"] = ("OPEN via N_S5 | N_DEFB" if seat_free and not seat_fixed else
                                          ("REMOVABLE with no pathway" if seat_fixed else "LEFT"))
+    # O-MAKE-TOPO for a made string-supported throat (M-S1A-P3 applied: the pathology sits at the throat)
+    mk_free = ask(z3, B, cons, [B["MADE_THROAT"]])
+    mk_fixed = ask(z3, B, cons, [B["MADE_THROAT"]] + held_false)
+    out["O-MAKE-TOPO, defect-supported throat made from flat space"] = (
+        "OPEN via N_WNCC" if mk_free and not mk_fixed else ("REMOVABLE with no pathway" if mk_fixed else "LEFT"))
     # the seat condition
     out["seat condition, static straight string / monopole"] = (
         "PASSES (CTC-free)" if not ask(z3, B, cons, [B["STATIC"], B["CTC"]]) else "CTC possible")
@@ -786,6 +890,12 @@ def figures():
     earth = [x for x in spec.LENSES if x[0] == "Earth"][0]
     F["FKZ T ~ R L c/(G M) yr, Earth shell, L = 1 ly"] = (earth[2] * spec.LIGHT_YEAR * c / (G * earth[1])
                                                          / (spec.LIGHT_YEAR / c))
+    # D66-fix: the global monopole's conjugate point, and the gauge monopole's S-1 lens
+    s_ax, s_j = monopole_conjugate()
+    F["global monopole conjugate point: |s_J/s_axis - 1|"] = abs(s_j / s_ax - 1)
+    gl = gauge_monopole_lens()
+    F["gauge monopole 1e17 GeV: b for a 1 AU focus, m"] = gl["b_m"]
+    F["gauge monopole 1e17 GeV: field energy beyond b / Mc^2"] = gl["field_energy_beyond_b_over_Mc2"]
     return F
 
 
@@ -801,7 +911,8 @@ def report(write_json=None):
     massform = own("massform")
     seat = own("seat")
     grade_rows = SEAT_GRADES()
-    out = {"id": "A1-defects", "hypothesis": "H-DEFECT-SEAT", "energy_conditions": ec, "sturm_bounds": sb,
+    out = {"id": "A1-defects", "hypothesis": "H-DEFECT-SEAT", "grades": a1_grades(), "history": HISTORY,
+           "energy_conditions": ec, "sturm_bounds": sb,
            "sturm_limits": lim, "wall_thin_lens_focal_over_sigma^-1": str(focal), "z3_grades": gr,
            "figures": F, "seat_grades": grade_rows, "board_O_SEAT": seat.grade_o_seat(seat.board_state()),
            "massform": {"STABLE_RANGE": massform.STABLE_RANGE,
@@ -830,6 +941,14 @@ def report(write_json=None):
     for k, v in F.items():
         print("  %-55s %.6g" % (k, v))
     print("\nBoard O-SEAT (docket68/seat.grade_o_seat): %s" % out["board_O_SEAT"])
+    print("\nA1 grade table (a1_grades, built from the computations; combine66 reads this):")
+    for g in out["grades"]:
+        print("  " + g["hypothesis"])
+        print("      per_obstruction: " + g["per_obstruction"])
+        print("      seat_conditions: " + g["seat_conditions"])
+    print("\nWhat wave 1 first said (HISTORY):")
+    for h in HISTORY:
+        print("  %s: wave 1 first said '%s'; now: %s (%s)" % h)
     if write_json:
         with open(write_json, "w", encoding="utf-8") as fh:
             json.dump(out, fh, indent=1, default=str)
@@ -838,10 +957,11 @@ def report(write_json=None):
 
 
 def SEAT_GRADES():
-    """The per-class grades, derived from the functions above (each entry names the computation it rests on)."""
+    """The per-class grades, derived from the functions above (each entry names the computation it rests on).
+    D66-fix: the wall, global-monopole, gauge-monopole and string rows corrected (HISTORY records wave 1's words)."""
     massform = own("massform")
     F = figures()
-    lim = sturm_limits()
+    gl = gauge_monopole_lens()
     rows = []
     rows.append({
         "class": "string (gauge, straight, static, positive tension)",
@@ -852,69 +972,83 @@ def SEAT_GRADES():
                     % F["deficit rad at Planck NG bound"],
         "stability": "topological (pi_1) where the vacuum manifold has non-contractible loops; NONE in the Standard "
                      "Model (HK p.36, S^3 simply connected; Z-strings unstable at physical theta_W, HK p.26)",
-        "seat: CTC/Borde": "PASSES for the static straight string (static_is_stably_causal); a spinning string is "
-                           "DISQUALIFIED inside r < S/alpha (spinning_ctc, DLM04) unless S < kappa; a Gott pair "
-                           "needs gamma > %.3g at the Planck bound and cannot form in an open universe (CFG94); no "
-                           "topology change (create.is_topology_change(False, False) = False)"
-                           % F["Gott gamma needed at Planck NG bound"],
+        "seat: CTC/Borde": "PASSES for the static straight string (static_is_stably_causal); a spinning string with "
+                           "dislocation kappa is DISQUALIFIED where S > kappa, inside r < sqrt(S^2 - kappa^2)/alpha "
+                           "(r < S/alpha when kappa = 0; spinning_ctc, DLM04 eqs.(2)-(3)); a Gott pair needs "
+                           "gamma > %.3g at the Planck bound and cannot be created in an open (2+1)-dimensional "
+                           "universe with timelike total momentum (CFG94); no topology change "
+                           "(create.is_topology_change(False, False) = False)" % F["Gott gamma needed at Planck NG bound"],
         "seat: Sturm": "NEVER certifies: 0 outside the core; inside, 16 mu (32 mu) needs mu >= pi^2/16 (pi^2/32) "
                        "against the cone closing at mu = 1/4 (H-UNIFORM-CORE)",
-        "seat: turn": "no caustic: rays cross at L = b/tan(4 pi G mu), linear in b (HK p.90) -- a TURN under "
+        "seat: turn": "crossing only: rays on opposite sides cross at L = b/tan(4 pi G mu), linear in b (HK p.90); "
+                      "neighbouring rays on one side see a flat cone (J'' = 0), so no conjugate point -- a TURN under "
                       "H-TURN-CROSSING, none under H-TURN-CONJUGATE; at b = R_sun, L = %.4g AU against the Sun's "
                       "%.4g AU" % (F["string crossing at b = R_sun, Planck NG bound, AU"],
                                    F["Sun focal (spec.focal_length) AU"]),
-        "matter not in original form": "YES in the literature's precise sense, on H-YUKAWA: the Yukawa mass "
+        "matter not in original form": "SUPPORTED-IF {H-YUKAWA, H-FORM-IS-MASS-AND-DIMENSION}: the Yukawa mass "
                                        "vanishes at the core and fermions occur there as massless chiral modes "
                                        "confined to the 1+1 worldsheet, moving at c (HK p.33-34; ETO25 p.22; "
                                        "zero_mode_speed = 1)",
         "specthm class": "S-3 (specthm's own placement; neither S-1's focal formula nor S-2's ball)",
-        "H-DEFECT-SEAT": "the phrase holds in the literature's precise sense (zero modes, H-YUKAWA); a CTC-free S-3 "
-                         "candidate seat (static); Sturm never certifies; O-SEAT OPEN (no supply shown); under "
-                         "H-SM-ONLY no stable instance exists, and at an electroweak core only the Higgs share "
-                         "(massform: <= %.3f, first order) of the payload's mass would change form"
-                         % massform.HIGGS_SHARE_LARGEST_READ,
+        "H-DEFECT-SEAT": "the phrase has a counterpart under a named reading (zero modes; H-YUKAWA, "
+                         "H-FORM-IS-MASS-AND-DIMENSION); a CTC-free S-3 candidate seat (static); Sturm never certifies; "
+                         "O-SEAT OPEN (no supply shown); under H-SM-ONLY no stable instance exists, and at an "
+                         "electroweak core only the Higgs share (massform: <= %.3f, first order) of the payload's mass "
+                         "would change form" % massform.HIGGS_SHARE_LARGEST_READ,
     })
     rows.append({
-        "class": "domain wall (thin vacuum wall)",
+        "class": "domain wall (thin vacuum wall, VIS, Lambda = 0 both sides)",
         "stress/EC": "NEC, WEC hold (NEC SATURATED along the wall), DEC at its BOUNDARY; SEC VIOLATED "
                      "(rho + sum p = -sigma)",
         "geometry": "repulsive (Tolman Sigma = sigma - 2 tau = -sigma, CGS p.12; R_uu = -4 pi sigma delta) yet "
                     "FOCUSING for null rays that cross it (R_kk = +8 pi sigma delta) -- wall_split; no static planar "
                     "solution (CGS p.2), the VIS wall is a bubble with de Sitter radius 1/beta, beta = 2 pi G "
-                    "sigma/c^4 (vis_beta)",
+                    "sigma/c^4 (vis_beta); each side is Minkowski, the wall on R^2 - T^2 = beta^-2 (vis_time_function, "
+                    "CGS p.15)",
         "stability": "topological (pi_0) where the vacuum is disconnected; NONE in the Standard Model "
                      "(S^3 connected)",
-        "seat: CTC/Borde": "OPEN: the VIS global causal structure is not computed here; no topology change at a "
-                           "wall seat",
+        "seat: CTC/Borde": "PASSES under H-VIS-MINKOWSKI: Minkowski T is a global time function -- on each side "
+                           "g^(mu nu) dT dT = -1, T continuous across the wall, kappa sigma = 4 beta from the Israel "
+                           "jump (vis_time_function; CGS p.15, Fig.4 READ); no topology change at a wall seat.  Wave 1 "
+                           "first said OPEN (the VIS causal structure not computed)",
         "seat: Sturm": "thin wall: never (K = 0 off the sheet); thick uniform wall: needs beta w >= pi^2/2 = 4.93 -- "
                        "a wall thicker than 4.93 of its own de Sitter radii (sturm_limits); the abstract of "
                        "gr-qc/9903059 reports only de Sitter solutions for 'large' epsilon",
         "seat: turn": "a genuine caustic for normally crossing null rays at f = 1/(4 pi G sigma/c^4) = 1/(2 beta) "
                       "(wall_thin_lens, Raychaudhuri), i.e. at half the wall's de Sitter radius; a 1 AU focus needs "
                       "sigma = %.3g J/m^2" % F["wall sigma J/m^2 for thin-lens focus 1 AU"],
-        "matter not in original form": "YES on H-YUKAWA: Jackiw-Rebbi zero mode cosh(x/w)^(-g v w), normalisable "
-                                       "(jackiw_rebbi), massless at the core, a 2+1-dimensional fermion (ETO25 p.15)",
+        "matter not in original form": "SUPPORTED-IF {H-YUKAWA, H-FORM-IS-MASS-AND-DIMENSION}: Jackiw-Rebbi zero mode "
+                                       "cosh(x/w)^(-g v w), normalisable (jackiw_rebbi), massless at the core, a "
+                                       "2+1-dimensional fermion (ETO25 p.15)",
         "specthm class": "S-3",
-        "H-DEFECT-SEAT": "the phrase holds (zero modes, H-YUKAWA); an S-3 candidate whose causal structure is OPEN; "
-                         "repulsive to matter at rest yet a thin lens for crossing light; no stable SM instance",
+        "H-DEFECT-SEAT": "a counterpart under a named reading (zero modes); a CTC-free S-3 candidate under "
+                         "H-VIS-MINKOWSKI; repulsive to matter at rest yet a thin lens for crossing light; no stable "
+                         "SM instance",
     })
     rows.append({
         "class": "global monopole",
         "stress/EC": "NEC, WEC, DEC hold; NEC radial and SEC SATURATED (rho + sum p = 0), DEC at its BOUNDARY -- "
-                     "hedgehog_stress",
-        "geometry": "solid-angle deficit; exact Einstein tensor gives rho = Delta/(8 pi (1-Delta) r^2), p_r = -rho, "
-                    "p_t = 0 (monopole_einstein), so Delta = 8 pi eta^2/(1 + 8 pi eta^2), = 8 pi G eta^2 at first "
-                    "order; no force on slow particles (DURRER p.12); total energy grows linearly with R (p.8)",
+                     "hedgehog_stress, hedgehog_curved",
+        "geometry": "solid-angle deficit; with the hedgehog's stress taken IN the cone metric (rho = eta^2/(A r^2), "
+                    "hedgehog_curved) the exact Einstein tensor (monopole_einstein) gives Delta = 8 pi G eta^2 exactly "
+                    "outside the core (Barriola-Vilenkin; monopole_deficit).  Wave 1 first said Delta = 8 pi eta^2/"
+                    "(1 + 8 pi eta^2), EXACT -- from the flat-space density, an inconsistent input; no force on slow "
+                    "particles (DURRER p.12); total energy grows linearly with R (p.8)",
         "stability": "pi_2; numerically stable static solutions with infinite energy (DURRER p.9 discussion)",
         "seat: CTC/Borde": "PASSES (static_is_stably_causal); no topology change",
         "seat: Sturm": "NEVER: sup K s^2 = 2 eps needs eps >= pi^2/2 = 4.93 against eps < 1 (sturm_limits)",
-        "seat: turn": "deflection eps*pi independent of b (monopole_deflection): an axicon -- a focal LINE on the "
-                      "axis, no single focus; a turn under H-TURN-CROSSING, none under H-TURN-CONJUGATE",
-        "matter not in original form": "YES on H-YUKAWA: a normalisable zero mode exp(-(h/2) INT F) at the core "
-                                       "(ETO25 App. A)",
-        "specthm class": "S-3",
-        "H-DEFECT-SEAT": "the phrase holds (zero modes); a CTC-free S-3 candidate; an isolated global monopole "
-                         "carries energy growing with R (DURRER p.8)",
+        "seat: turn": "a TURN under BOTH readings: deflection eps*pi independent of b (monopole_deflection), and every "
+                      "recrossing of the source-centre axis is a CONJUGATE point -- the rotation Killing field about "
+                      "that axis is a Jacobi field vanishing at the source and on the axis (monopole_conjugate: the "
+                      "out-of-plane Jacobi field's first zero lies at the axis crossing to %.1e relative; a curvature "
+                      "halved misses it, A = 1 has none).  A line caustic on the axis (an axicon).  Wave 1 first said "
+                      "'none under H-TURN-CONJUGATE'" % F["global monopole conjugate point: |s_J/s_axis - 1|"],
+        "matter not in original form": "SUPPORTED-IF {H-YUKAWA, H-FORM-IS-MASS-AND-DIMENSION}: a normalisable zero "
+                                       "mode exp(-(h/2) INT F) at the core (ETO25 App. A)",
+        "specthm class": "S-3 (its lensing is a solid-angle deficit with no Newtonian mass, DURRER p.12: not S-1's "
+                         "positive-mass formula)",
+        "H-DEFECT-SEAT": "a counterpart under a named reading (zero modes); a CTC-free S-3 candidate whose turn is a "
+                         "genuine line caustic; an isolated global monopole carries energy growing with R (DURRER p.8)",
     })
     rows.append({
         "class": "gauge monopole (exterior)",
@@ -926,13 +1060,17 @@ def SEAT_GRADES():
         "seat: CTC/Borde": "PASSES outside r_+ (static_is_stably_causal)",
         "seat: Sturm": "needs Q/b >= pi, i.e. 2 M_out / b >= pi^2 > 1 -- inside its own gravitational radius "
                        "(sturm_limits): never for a regular monopole",
-        "seat: turn": "ordinary attractive lensing; as S-1's focal formula with the monopole's mass (not computed "
-                      "for a specific monopole: OPEN)",
-        "matter not in original form": "YES on H-YUKAWA (zero modes on monopoles, ETO25 p.15); baryon-number "
-                                       "violation at the core (Rubakov-Callan, as cited by HK p.63)",
-        "specthm class": "S-3 (or S-1 if its lensing seats; not computed)",
-        "H-DEFECT-SEAT": "the phrase holds (zero modes; B violation at the core); a CTC-free candidate; no stable SM "
-                         "instance (pi_2(S^3) = 0)",
+        "seat: turn": "an S-1 point lens: spec.focal_length puts a 1 AU focus at b = %.3g m for M = 1e17 GeV/c^2 "
+                      "(r_s = %.2g m, core ~ %.2g m, field energy beyond b %.1e of Mc^2; gauge_monopole_lens, the "
+                      "scan 1e15 .. 1e19 GeV holds too); conjugate points on the axis as for the Sun"
+                      % (gl["b_m"], gl["r_s_m"], gl["r_core_m"], gl["field_energy_beyond_b_over_Mc2"]),
+        "matter not in original form": "SUPPORTED-IF {H-YUKAWA, H-FORM-IS-MASS-AND-DIMENSION} (zero modes on monopoles, "
+                                       "ETO25 p.15); baryon-number violation at the core (Rubakov-Callan, as cited by "
+                                       "HK p.63), whose READ direction is wash-out (HK eq.(4.33))",
+        "specthm class": "S-1 IF {H-MONOPOLE-MASS, H-WEAK-FIELD, H-S1-VACUUM} (gauge_monopole_lens).  Wave 1 first "
+                         "said 'S-3 (or S-1 if its lensing seats; not computed)'",
+        "H-DEFECT-SEAT": "a counterpart under a named reading (zero modes; B violation at the core); a CTC-free S-1 "
+                         "lensing seat under named hypotheses; no stable SM instance (pi_2(S^3) = 0)",
     })
     rows.append({
         "class": "texture",
@@ -947,6 +1085,110 @@ def SEAT_GRADES():
         "specthm class": "EMPTY IF {H-SEAT-PERSISTS}: an event is not a place that persists over the arrival",
         "H-DEFECT-SEAT": "not a seat on H-SEAT-PERSISTS; OPEN without it (an event-seat is defined nowhere on the board)",
     })
+    return rows
+
+
+N_DEFB_CLAUSE = ("N_DEFB a supply only IF {CP-violating core couplings, departure from equilibrium}, HK p.65; "
+                 "the READ direction otherwise is wash-out, HK eq.(4.33) p.64")
+
+
+def a1_grades():
+    """A1's grade table in the A-report shape (hypothesis, per_obstruction, seat_conditions, ground, named_hypotheses),
+    BUILT here from the computations and the z3 screen, so the drift guard of combine66.py reads the instrument and not a
+    stored copy (D66-fix: wave 1's A1-defects.json was written by hand beside the instrument)."""
+    F = figures()
+    gr = grades()
+    gl = gauge_monopole_lens()
+    hold = gr["O-HOLD, defect as throat support, outside H-CANONICAL"]
+    topo = gr["O-MAKE-TOPO, defect-supported throat made from flat space"]
+    seat = gr["O-SEAT, defect at the seat"]
+    rows = [
+        {"hypothesis": "H-DEFECT-SEAT (defect at the seat), string (static, straight, positive tension)",
+         "per_obstruction": "O-SEAT %s (the board's grade is not moved; %s); O-HOLD LEAVES; O-LOOP none (static); "
+                            "O-MAKE-TOPO LEAVES (no topology change); O-MAKE-DIST LEAVES; O-BITS LEAVES (zero modes move "
+                            "at exactly c; the cone shortens paths by %.2g, and only relative to flat space)"
+                            % (seat, N_DEFB_CLAUSE, F["cone shortcut 1 - cos(Delta/4) at Planck NG bound"]),
+         "seat_conditions": "M-S1A-P3 (i) PASSES (static, g^tt = -1). A spinning string with dislocation kappa is "
+                            "DISQUALIFIED where S > kappa, inside r < sqrt(S^2 - kappa^2)/alpha (r < S/alpha when "
+                            "kappa = 0). A Gott pair needs gamma > %.2g at the Planck bound and cannot be created in an "
+                            "open (2+1)-dimensional universe with timelike total momentum (CFG94). specthm class S-3. "
+                            "Sturm never certifies (16 mu or 32 mu, against the cone closing at mu = 1/4). Its turn is a "
+                            "crossing at L = b/tan(4 pi G mu), with no conjugate point"
+                            % F["Gott gamma needed at Planck NG bound"],
+         "ground": "defects.py energy_conditions, string_deficit_linear, static_is_stably_causal, spinning_ctc, "
+                   "sturm_bounds/limits, string_crossing, grades(); HK pp.53,84,90; DLM04 eqs.(2)-(3); CFG94 eq.(32)",
+         "named_hypotheses": ["H-THIN", "H-LINEAR-GRAV", "H-UNIFORM-CORE", "H-STATIC-STRING", "H-YUKAWA",
+                              "H-FORM-IS-MASS-AND-DIMENSION", "H-TURN-CONJUGATE", "H-TURN-CROSSING", "H-SM-ONLY",
+                              "N_DEFB", "N_S5"]},
+        {"hypothesis": "H-DEFECT-SEAT, domain wall (thin vacuum wall, VIS, Lambda = 0 both sides)",
+         "per_obstruction": "O-SEAT %s (N_DEFB not READ for walls: OPEN as unchecked); O-HOLD LEAVES; O-LOOP none "
+                            "(Minkowski T is a global time function under H-VIS-MINKOWSKI); O-MAKE-TOPO LEAVES; "
+                            "O-MAKE-DIST LEAVES; O-BITS LEAVES" % seat,
+         "seat_conditions": "M-S1A-P3 (i) PASSES under H-VIS-MINKOWSKI (vis_time_function: each side Minkowski, "
+                            "g^(mu nu) dT dT = -1, T continuous at the wall, kappa sigma = 4 beta; CGS p.15, Fig.4 READ). "
+                            "The SEC is VIOLATED (repulsive, R_uu = -4 pi G sigma) but the NEC holds and light crossing "
+                            "the wall is focused (R_kk = +8 pi G sigma): a genuine caustic at f = c^4/(4 pi G sigma) = "
+                            "1/(2 beta). Sturm: a thin wall never certifies; a thick wall needs w >= (pi^2/2)/beta. "
+                            "specthm class S-3",
+         "ground": "defects.py wall_split, wall_thin_lens, vis_beta, vis_time_function, sturm_limits; CGS pp.2,6,10,12,"
+                   "14-15, Fig.4; gr-qc/9903059 abstract",
+         "named_hypotheses": ["H-THIN", "H-VIS-MINKOWSKI", "H-YUKAWA", "H-FORM-IS-MASS-AND-DIMENSION", "H-SM-ONLY",
+                              "H-TURN-CONJUGATE", "N_DEFB", "N_S5"]},
+        {"hypothesis": "H-DEFECT-SEAT, global monopole",
+         "per_obstruction": "O-SEAT %s (N_DEFB not READ for global monopoles: OPEN as unchecked); O-HOLD LEAVES; "
+                            "O-LOOP none (static); the others LEAVES" % seat,
+         "seat_conditions": "PASSES (static). Deficit Delta = 8 pi G eta^2 exactly outside the core (hedgehog_curved, "
+                            "monopole_deficit). Sturm never certifies (sup K s^2 = 2 eps needs eps >= pi^2/2, against "
+                            "eps < 1). Deflection eps*pi for every b, and every axis recrossing is a conjugate point "
+                            "(monopole_conjugate): a TURN under H-TURN-CONJUGATE and H-TURN-CROSSING, a line caustic. "
+                            "specthm class S-3",
+         "ground": "defects.py hedgehog_stress, hedgehog_curved, monopole_einstein, monopole_deficit, "
+                   "monopole_deflection, monopole_conjugate, sturm_bounds; DURRER pp.8-12; ETO25 App. A",
+         "named_hypotheses": ["H-YUKAWA", "H-FORM-IS-MASS-AND-DIMENSION", "H-TURN-CONJUGATE", "H-TURN-CROSSING",
+                              "N_DEFB", "N_S5"]},
+        {"hypothesis": "H-DEFECT-SEAT, gauge monopole (exterior)",
+         "per_obstruction": "O-SEAT %s (%s); O-HOLD LEAVES; O-LOOP none outside r_+; the others LEAVES"
+                            % (seat, N_DEFB_CLAUSE),
+         "seat_conditions": "PASSES outside r_+ (static). All energy conditions hold; SEC SAT (attractive). Sturm needs "
+                            "Q/b >= pi, i.e. 2 M_out/b >= pi^2 > 1 (trapped), so never for a regular monopole. Lensing "
+                            "seat: specthm class S-1 IF {H-MONOPOLE-MASS, H-WEAK-FIELD, H-S1-VACUUM} -- a 1 AU focus at "
+                            "b = %.3g m for M = 1e17 GeV/c^2 by spec.focal_length, b / r_core = %.1e, b / r_s = %.1e, "
+                            "field energy beyond b %.1e of Mc^2. None exists in the SM (pi_2(S^3) = 0)"
+                            % (gl["b_m"], gl["b_over_core"], gl["b_over_rs"], gl["field_energy_beyond_b_over_Mc2"]),
+         "ground": "defects.py maxwell_radial, sturm_bounds/limits, static_is_stably_causal, gauge_monopole_lens "
+                   "(spec.focal_length); DURRER pp.4,18; HK pp.63-65; gr-qc/9506068 abstract",
+         "named_hypotheses": ["H-YUKAWA", "H-FORM-IS-MASS-AND-DIMENSION", "H-SM-ONLY", "H-MONOPOLE-MASS",
+                              "H-WEAK-FIELD", "H-S1-VACUUM", "N_DEFB", "N_S5"]},
+        {"hypothesis": "H-DEFECT-SEAT, texture",
+         "per_obstruction": "no obstruction moved (a texture is an event, not a place)",
+         "seat_conditions": "EMPTY IF {H-SEAT-PERSISTS}. A texture is unstable: Derrick gives dE/dlambda = I1 + 3 I2 > 0 "
+                            "in d = 3 and z3 finds no stationary point (the d = 1 control does admit one). Textures are "
+                            "d = 0 events in spacetime (DURRER Table 1)",
+         "ground": "defects.py derrick, canonical_nec; DURRER pp.4,9,13",
+         "named_hypotheses": ["H-SEAT-PERSISTS", "H-CANONICAL"]},
+        {"hypothesis": "a defect as the THROAT's support (string-supported wormholes: Visser polyhedral, GV ring, FGM "
+                       "quantum)",
+         "per_obstruction": "O-HOLD is LEFT given H-CANONICAL: canonical fields satisfy the NEC pointwise, so FSW "
+                            "binds. Outside it, %s: the throat needs tension -c^4/(4G), and no mechanism is known "
+                            "(Visser p.5). Quantum string fluctuations (FGM) give an opening that is brief and "
+                            "exponentially fragile, with transit d + logs; that is not a hold. Never REMOVED. O-LOOP "
+                            "reintroduced for mouths in one space with unequal surrounding mass (FKZ: T ~ R L c/(G M)). "
+                            "O-MAKE-TOPO %s: a ring wormhole made from flat space is a topology change "
+                            "(create.is_topology_change(False, True)) and Geroch/Borde force a pathology, which sits at "
+                            "the throat; M's ruling (ledger M-S1A-P3: 'a singular throat is not disqualified', 'the "
+                            "throat-creation classes stay OPEN') admits it, specthm W-create-ncc is OPEN at its owner, "
+                            "not shown realisable. O-BITS LEAVES" % (hold, topo),
+         "seat_conditions": "The seat mouth lies on the FKZ loop, so M-S1A-P3 (i) disqualifies it unless the masses "
+                            "balance. The GV ring at the figures' tension (T = -c^4/(4G), sigma = 0) is a singular ring "
+                            "bounding the throat disc with only a conical singularity; at sigma != 0 it also carries a "
+                            "power-law curvature singularity (GV pp.20-22). Either way it is at the throat, which "
+                            "M-S1A-P3 (i) does not disqualify",
+         "ground": "defects.py canonical_nec, grades() (z3, vacuity guard, 6 mutation controls), figures (GV %.4e N, "
+                   "Visser %.4g J/m, %.3g Jupiter masses); FSW93, GV17, VISSER89, FKZ23, FGM19; ledger M-S1A-P3"
+                   % (F["GV ring |T| = c^4/(4G) N"], F["Visser cube edge c^4/(8G) J/m"],
+                      F["GV 1 m ring / Jupiter (spec.LENSES)"]),
+         "named_hypotheses": ["H-CANONICAL", "N_NEGT", "N_WNCC (specthm W-create-ncc)"]},
+    ]
     return rows
 
 
@@ -1021,11 +1263,29 @@ def selftest():
     chk("global monopole metric: p_r = -rho (G^r_r = G^t_t) and p_t = 0 (G^th_th = 0)",
         sp.simplify(Grr - Gtt) == 0 and sp.simplify(Gthth) == 0, "rho = %s" % rho)
     D, eta = sp.symbols("Delta eta", positive=True)
-    sol = sp.solve(sp.Eq(rho.subs(A, 1 - D), eta ** 2 / r ** 2), D)
-    chk("exact: Delta = 8 pi eta^2/(1 + 8 pi eta^2); first order 8 pi eta^2 (Barriola-Vilenkin)",
-        len(sol) == 1 and sp.simplify(sol[0] - 8 * sp.pi * eta ** 2 / (1 + 8 * sp.pi * eta ** 2)) == 0
-        and sp.simplify(sp.series(sol[0], eta, 0, 3).removeO() - 8 * sp.pi * eta ** 2) == 0, str(sol))
+    hr, hp, ht, A2, eta2, r2 = hedgehog_curved()
+    chk("D66-fix: the hedgehog's stress IN the cone metric is (rho, p_r, p_t) = (1, -1, 0) eta^2/(A r^2) "
+        "(hedgehog_curved), the form the Einstein tensor has",
+        sp.simplify(hr - eta2 ** 2 / (A2 * r2 ** 2)) == 0 and sp.simplify(hp + hr) == 0 and ht == 0, str((hr, hp, ht)))
+    sol = monopole_deficit(True)
+    chk("D66-fix: with the consistent stress, Delta = 8 pi G eta^2 EXACTLY outside the core (Barriola-Vilenkin)",
+        len(sol) == 1 and sp.simplify(sol[0] - 8 * sp.pi * eta ** 2) == 0, str(sol))
+    sol1 = monopole_deficit(False)
+    chk("CONTROL (wave 1's input, the flat-space density eta^2/r^2) gives a DIFFERENT Delta, 8 pi eta^2/(1 + 8 pi "
+        "eta^2): the check distinguishes the consistent input from the inconsistent one",
+        len(sol1) == 1 and sp.simplify(sol1[0] - 8 * sp.pi * eta ** 2) != 0, str(sol1), "CONTROL")
     chk("CONTROL: A = 1 (no deficit) gives rho = 0", sp.simplify(rho.subs(A, 1)) == 0, "", "CONTROL")
+    s_ax, s_j = monopole_conjugate()
+    chk("D66-fix: global monopole (A = 0.9, D = 10, b = 1): the out-of-plane Jacobi field's first zero is the axis "
+        "recrossing (s_J %.6f vs s_axis %.6f): a CONJUGATE point" % (s_j, s_ax),
+        s_j is not None and abs(s_j / s_ax - 1) < 1e-6)
+    s_ax2, s_j2 = monopole_conjugate(A=0.999, D=1e3, b=1.0)
+    chk("D66-fix: the same at A = 0.999, D = 1e3 (s_J %.4f vs s_axis %.4f)" % (s_j2, s_ax2),
+        s_j2 is not None and abs(s_j2 / s_ax2 - 1) < 1e-6)
+    chk("CONTROL: with the curvature halved the Jacobi field does not vanish at the axis crossing (none before "
+        "1.5 s_axis) -- the coincidence is not built in", monopole_conjugate(k_scale=0.5)[1] is None, "", "CONTROL")
+    chk("CONTROL: A = 1 (flat, no monopole): no axis recrossing and no conjugate point",
+        monopole_conjugate(A=1.0) == (None, None), "", "CONTROL")
     defl = monopole_deflection()
     chk("DURRER eq.(38): deflection = eps pi, independent of b", sp.simplify(defl - sp.Symbol(
         "epsilon", positive=True) * sp.pi) == 0, str(defl))
@@ -1037,6 +1297,19 @@ def selftest():
     chk("vis_beta: beta = 2 pi G sigma / c^4 (CGS kappa sigma = 4 beta)", sp.simplify(
         vis_beta() - 2 * sp.pi * sp.Symbol("G", positive=True) * sp.Symbol("sigma", positive=True)
         / sp.Symbol("c", positive=True) ** 4) == 0)
+    vt = vis_time_function()
+    chk("D66-fix, CGS p.15: each side of the M4-M4 wall is Minkowski (pullback of -dT^2 + dR^2 + R^2 dOmega^2 is the "
+        "comoving metric), g^(mu nu) dT dT = -1 on both sides, T continuous at the wall, dT/dt > 0 there: Minkowski T "
+        "is a global time function, no closed causal curve (H-VIS-MINKOWSKI)",
+        all(vt[s_]["pullback_is_g"] and vt[s_]["gTT"] == -1 for s_ in (1, -1)) and vt["continuous at z=0"])
+    chk("D66-fix: the Israel jump of that metric gives S_ij = -sigma h_ij with kappa sigma = 4 beta (CGS p.10)",
+        vt["S_ij = -sigma h_ij"] and sp.simplify(vt["kappa sigma"] - 4 * sp.Symbol("beta", positive=True)) == 0,
+        str(vt["kappa sigma"]))
+    chk("CONTROL: R (the radial coordinate) has g^(mu nu) dR dR = +1: the time-function test can fail",
+        vt[1]["gRR"] == 1, "", "CONTROL")
+    chk("CONTROL: the conformal factor as printed in CGS (3.48), e^(-beta|z|), is NOT pulled back from Minkowski by "
+        "CGS's own transformation (the pullback test can fail; reading note)",
+        not vis_time_function(exponent=1)[1]["pullback_is_g"], "", "CONTROL")
     f, th = wall_thin_lens(+1)
     sg = sp.Symbol("sigma", positive=True)
     chk("wall thin lens: caustic at 1/(4 pi sigma) = 1/(2 beta) (G = c = 1)", f is not None and
@@ -1098,6 +1371,16 @@ def selftest():
     Ms, Qs, rs = sp.symbols("M Q r", positive=True)
     chk("RN exterior: g^tt = -1/N^2 < 0 at r = 3M, Q = M/2", sc["RN exterior"].subs({rs: 3, Ms: 1, Qs: sp.Rational(1, 2)}) < 0)
     gam = gott_gamma_needed(PLANCK_NG_GMU)
+    gl = gauge_monopole_lens()
+    chk("D66-fix: gauge monopole 1e17 GeV, spec.focal_length: a 1 AU focus at b = %.3g m (V66-1: 2.81e-13), r_s = "
+        "%.2g m, b / r_core = %.1e, field energy beyond b %.1e of Mc^2: S-1's conditions hold"
+        % (gl["b_m"], gl["r_s_m"], gl["b_over_core"], gl["field_energy_beyond_b_over_Mc2"]),
+        abs(gl["b_m"] / 2.81e-13 - 1) < 0.01 and abs(gl["focal_check"] - 1) < 1e-12 and gl["S-1 conditions hold"])
+    chk("D66-fix: the scan 1e15 .. 1e19 GeV keeps S-1's conditions (H-MONOPOLE-MASS is not knife-edge)",
+        all(gauge_monopole_lens(m)["S-1 conditions hold"] for m in (1e15, 1e16, 1e18, 1e19)))
+    chk("CONTROL: a 'monopole' of 1e-27 kg would need b inside its own core, and its field beyond b would exceed its "
+        "mass: the S-1 placement test can fail", not gauge_monopole_lens(1e-27 * spec.C_SI ** 2 / (1e9 * E_CHARGE_SI))[
+            "S-1 conditions hold"], "", "CONTROL")
     chk("CFG94 eq.(32): Gott pair at the Planck NG bound needs gamma > 1/sin(4 pi G mu) = %.4g" % gam,
         gam > 5e5 and abs(gam * math.sin(4 * math.pi * PLANCK_NG_GMU) - 1) < 1e-12)
     create = own("create")
@@ -1152,6 +1435,25 @@ def selftest():
     gm = grades("spin-ok")
     chk("CONTROL mutation spin-ok: the spinning string's CTC is no longer disqualifying (caught)",
         gm["seat condition, inside a spinning string's CTC radius"] != "DISQUALIFIED (M-S1A-P3 (i))", "", "CONTROL")
+    chk("D66-fix: O-MAKE-TOPO for a string-supported throat made from flat space: OPEN via N_WNCC (M-S1A-P3 "
+        "applied: the pathology sits at the throat)",
+        g["O-MAKE-TOPO, defect-supported throat made from flat space"] == "OPEN via N_WNCC")
+    gm = grades("ruling-dropped")
+    chk("CONTROL mutation ruling-dropped (a pathology at the throat disqualifies): O-MAKE-TOPO reads LEFT (caught)",
+        gm["O-MAKE-TOPO, defect-supported throat made from flat space"] == "LEFT", "", "CONTROL")
+    gm = grades("wncc-asserted")
+    chk("CONTROL mutation wncc-asserted: the made throat removable with no pathway (caught)",
+        gm["O-MAKE-TOPO, defect-supported throat made from flat space"] != "OPEN via N_WNCC", "", "CONTROL")
+    m_row = [r_ for r_ in own("ledger").RULED_BY_M if r_[0] == "M-S1A-P3"][0]
+    m_txt = " ".join(str(x) for x in m_row)
+    chk("ledger M-S1A-P3 carries the ruling this encoding applies: 'a singular throat is not disqualified' and 'the "
+        "throat-creation classes stay OPEN' (read at run time)",
+        "a singular throat is not" in m_txt and "disqualified" in m_txt and "the throat-creation classes stay OPEN" in m_txt)
+    a1 = a1_grades()
+    chk("a1_grades: six rows, each with per_obstruction and seat_conditions; the throat row carries the run-time z3 "
+        "verdicts (OPEN via N_NEGT, OPEN via N_WNCC)", len(a1) == 6 and all(x["per_obstruction"] and x["seat_conditions"]
+                                                                             for x in a1)
+        and "OPEN via N_NEGT" in a1[5]["per_obstruction"] and "O-MAKE-TOPO OPEN via N_WNCC" in a1[5]["per_obstruction"])
     seat = own("seat")
     chk("docket68/seat.grade_o_seat(board_state()) is OPEN, the board's grade this file adds to and does not move",
         seat.grade_o_seat(seat.board_state()) == "OPEN")

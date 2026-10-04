@@ -132,6 +132,8 @@ READ = [
               "p.2: ANEC violation is 'a prerequisite for all traversable wormholes'",
               "p.4: with decoupled Hamiltonians 'no signal can be transmitted between the boundaries through the bulk'",
               "p.12 eq (5.1): the opening Delta V ~ h G_N / R^(D-2); p.13: open 'only ... for a small proper time'",
+              "p.12: the bridge becomes 'slightly traversable' (re-read at D66-fix)",
+              "p.15: the traversable window is 'just enough to let the single qubit Q pass through'",
               "p.13: the coupling 'fixes the relative time coordinate', excluding closed timelike curves",
               "p.13 fn.8: a limit on the information through the wormhole is presumed, not determined",
               "p.14: such wormholes 'do not enable one to travel faster than light over long distances'",
@@ -145,6 +147,32 @@ READ = [
               "p.13: parametric only -- 'one would like to reproduce' that one qubit needs two classical bits",
               "p.22-23: the protocol is teleportation; the teleportee feels nothing special",
               "p.47 eq (D.92): classical-information Hayden-Preskill needs slightly more than twice the qubits"]},
+    {"key": "1804.00491v3", "who": "J. Maldacena & X.-L. Qi, 'Eternal traversable wormhole' (2018)",
+     "route": ROUTE + "; read at D66-fix", "status": "READ (pp.1-4, 6, 8, 19-20, 23-25, 27-28, 52-53 returned)",
+     "board": "new to the board (V66-0 read it first)",
+     "used": ["abstract: a nearly-AdS2 solution describing an eternal traversable wormhole",
+              "p.2: negative null energy from quantum fields under an external coupling of the two boundaries",
+              "p.2: a large number of quantum fields is needed; the wormhole is static and time independent",
+              "p.19: with few fields in the coupling a classical wormhole needs Delta < 1/2, alternate boundary "
+              "conditions",
+              "p.18: at Delta = 1/2 no bound state for eta N < 1/2",
+              "p.52: no causality violation, since direct interactions between the two sides are added",
+              "p.52 Fig.23: two near-extremal black holes in one ambient space, a sketch",
+              "p.52: challenges -- mutual attraction, gravitational-wave emission, large N, alternate boundary "
+              "conditions"]},
+    {"key": "1807.04726v3", "who": "J. Maldacena, A. Milekhin & F. Popov, 'Traversable wormholes in four dimensions' "
+                                   "(2018; v3 2020)",
+     "route": ROUTE + "; read at D66-fix", "status": "READ (pp.1-2, 4-7, 13, 16-29 returned)",
+     "board": "READ by the board's D67 audits (_mk_1608.05687.py); re-read here (V66-1)",
+     "used": ["abstract: a wormhole in four dimensions, Einstein-Maxwell plus charged massless fermions",
+              "abstract: a long wormhole that does not lead to causality violations in the ambient space",
+              "abstract: embeddable in the Standard Model with size small against the electroweak scale",
+              "p.4: the mouth interaction is generated automatically by exchange of massless bulk fields",
+              "eq.(2.3) r_e^2 = pi q^2 l_p^2/g^2; eq.(5.31), (7.58) throat length and binding energy",
+              "eq.(6.50) Omega = 2 sqrt(r_e/d^3); (6.51) Omega l << 1; (6.52) lower bound on d; (5.49) upper",
+              "p.18: too much energy sent in makes a near-extremal black hole; 'not safe for human travelers'",
+              "p.20: pi l > d -- longer through the wormhole than through the ambient space",
+              "p.26: SM effective N_f = 54; p.27: metastable, not completely stable"]},
     {"key": "2006.06872v1", "who": "A. Almheiri, T. Hartman, J. Maldacena, E. Shaghoulian & A. Tajdini, 'The entropy "
                                    "of Hawking radiation' (2020, review)",
      "route": ROUTE, "status": "READ (pp.1-5, 9, 13-14, 16-17, 19, 21-22, 24, 26-31, 33-34, 37-39, 41-42 returned)",
@@ -227,6 +255,17 @@ def saturation_identity_symbolic(drop_ln2=False):
 
 
 def capacity_table():
+    """capacity_table_base() plus the comparison V66-1 #6 asked for: MMP's SM-embedded throat (mmp_scales)."""
+    base = capacity_table_base()
+    m = mmp_scales()
+    base["mmp_SM_throat"] = [{"label": r["label"], "r_e_SM_max_m": r["r_e_SM_max_m"],
+                              "capacity_bits": r["capacity_bits_at_r_e_SM"],
+                              "payload_over_capacity": r["payload_bits_over_capacity_at_r_e_SM"]}
+                             for r in m["by_coupling"]]
+    return base
+
+
+def capacity_table_base():
     pc = payload_counts()
     M = pc["payload_kg"]
     rs_payload = 2 * G * M / C ** 2
@@ -252,6 +291,78 @@ def capacity_table():
             "payload_over_that_capacity": [r["bits"] / big_cap for r in rows],
             "capacity_1m_bits": nopath.holographic_bits(1.0), "payload_schwarzschild_radius_m": rs_payload,
             "hypotheses": ["H-CAP-AT-THROAT", "H-NECK-DOGMA", "H-COUNT-IS-ENTROPY", "H-BEK-SCOPE (Bekenstein rows)"]}
+
+
+# ================================================ (B') MMP's one-space traversable throat (D66-fix, V66-1 #2 and #6)
+#: MMP 1807.04726v3, READ at D66-fix (alphaXiv answer_pdf_queries): eq.(2.3) r_e^2 = pi q^2 l_p^2 / g^2; eq.(7.58)
+#: l = 16 r_e^3/(G_N q N_f), E_min = -G_N q^2 N_f^2/(256 r_e^3); eq.(6.50) Omega = 2 sqrt(r_e/d^3); (6.51) Omega l << 1;
+#: (6.52) d >> (r_e^7/(l_p^4 q^2))^(1/3); (5.49) d << q^(5/2) l_p; p.26 the SM's effective N_f = 54 (hypercharge
+#: normalised so the lowest charge is one); p.25 'r_e ... much smaller than the electroweak scale (say 1/TeV)'; p.18
+#: an energy above the binding energy (5.31) makes a near-extremal black hole: 'not safe for human travelers'.
+MMP_NF_SM = 54                     # MMP p.26 (H-SM-FIELDS)
+#: H-MMP-G: the hypercharge coupling g' at the throat's scale, 0.36 .. 0.46 (a named range, not READ); MMP's
+#: normalisation multiplies every hypercharge by 6, so their g = g'/6.  V66-1 used g = 0.36 in eq.(6.52) as printed.
+MMP_GPRIME = (0.36, 0.46)
+
+
+def mmp_scales(payload_J=None):
+    """MMP's construction at the payload's scales, as order-of-magnitude estimates (H-MMP-OOM: O(1) factors in (6.51)
+    and (6.52) as printed; Omega l = 1 taken at the edge of '<<').  Per coupling choice:
+      q(r_e) = g r_e/(sqrt(pi) l_P) (2.3);  d_min parametric (6.52) = (r_e^7/(l_P^4 q^2))^(1/3);
+      d_min explicit from (6.50), (6.51), (7.58): d^3 = 1024 r_e^7/(l_P^4 q^2 N_f^2);  d_max = q^(5/2) l_P (5.49);
+      binding energy |E_min| = hbar c g^2 N_f^2 / (256 pi r_e) (7.58 with 2.3; (5.31) at N_f = 1 is the same -- checked);
+      the SM bound: d_min(r_e) = 1/TeV solved for r_e, and its A/4 capacity (nopath.holographic_bits, H-CAP-AT-THROAT);
+      the radius at which |E_min| equals the payload's rest energy, against l_P; and the N_f a throat of radius r_fit
+      would need for |E_min| >= the payload's rest energy."""
+    lP = lp()
+    hbar_c = HBAR * C
+    L_tev = hbar_c / (1e12 * 1.602176634e-19)          # hbar c / 1 TeV (the SI eV is a unit definition)
+    E_pay = payload_J if payload_J is not None else massform.rest_energy_j()
+    rfits = [r["r_fit_m"] for r in capacity_table_base()["rows"]]
+    out = {"l_P_m": lP, "L_TeV_m": L_tev, "payload_rest_J": E_pay, "N_f_SM": MMP_NF_SM, "by_coupling": []}
+    choices = [("V66-1: g = 0.36, eq.(6.52) as printed, N_f = 1", 0.36, 1, "param")]
+    for gp in MMP_GPRIME:
+        choices.append(("g' = %.2f, MMP normalisation g = g'/6, N_f = 54, explicit (6.50)-(6.51)-(7.58)" % gp,
+                        gp / 6.0, MMP_NF_SM, "explicit"))
+    for lab, g, nf, form in choices:
+        def q_of(r):
+            return g * r / (math.sqrt(math.pi) * lP)
+
+        def dmin(r):
+            q = q_of(r)
+            if form == "param":
+                return (r ** 7 / (lP ** 4 * q * q)) ** (1.0 / 3.0)
+            return (1024.0 * r ** 7 / (lP ** 4 * q * q * nf * nf)) ** (1.0 / 3.0)
+
+        def ebind(r):
+            return hbar_c * g * g * nf * nf / (256.0 * math.pi * r)
+        # the SM bound: dmin(r_e) = L_TeV  (dmin ~ r_e^(5/3))
+        if form == "param":
+            r_sm = (L_tev ** 3 * g * g * lP * lP / math.pi) ** 0.2
+        else:
+            r_sm = (L_tev ** 3 * lP * lP * g * g * nf * nf / (1024.0 * math.pi)) ** 0.2
+        row = {"label": lab, "g": g, "N_f": nf,
+               "r_e_SM_max_m": r_sm, "r_e_SM_max_over_lP": r_sm / lP, "dmin_check_at_r_e_SM": dmin(r_sm) / L_tev,
+               "capacity_bits_at_r_e_SM": nopath.holographic_bits(r_sm),
+               "r_e_where_binding_equals_payload_m": hbar_c * g * g * nf * nf / (256.0 * math.pi * E_pay),
+               "at_r_fit": []}
+        row["payload_bits_over_capacity_at_r_e_SM"] = [c["bits"] / row["capacity_bits_at_r_e_SM"]
+                                                       for c in capacity_table_base()["rows"]]
+        for r in rfits:
+            q = q_of(r)
+            row["at_r_fit"].append({"r_fit_m": r, "q": q, "d_min_m": dmin(r), "d_max_m": q ** 2.5 * lP,
+                                    "d_min_over_L_TeV": dmin(r) / L_tev, "binding_J": ebind(r),
+                                    "payload_over_binding": E_pay / ebind(r),
+                                    "N_f_needed_for_payload": math.sqrt(256.0 * math.pi * r * E_pay / (hbar_c * g * g))})
+        out["by_coupling"].append(row)
+    # the two printed forms of the binding energy agree: (5.31) at N_f = 1 vs (7.58) with (2.3)
+    g, r = 0.06, 1e-25
+    q = g * r / (math.sqrt(math.pi) * lP)
+    e531 = g ** 3 / (256.0 * math.pi ** 1.5 * q * lP) * hbar_c        # (5.31): g^3/(256 pi^(3/2) q l_p), hbar = c = 1
+    e758 = (lP * lP) * q * q * 1 / (256.0 * r ** 3) * hbar_c            # (7.58): G_N q^2 N_f^2/(256 r_e^3), G_N = l_p^2
+    out["binding forms (5.31) vs (7.58), ratio"] = e531 / e758
+    out["CONTROL (5.31) without its pi^(3/2), ratio"] = (e531 * math.pi ** 1.5) / e758
+    return out
 
 
 # ============================================================================================ (C) the QNEC price
@@ -410,6 +521,8 @@ def grades(spec=None):
     q = qnec_table()
     r0 = cap["rows"][0]
     ite, itb = d68_row("H-IT read as ER=EPR"), d68_row("H-IT read as an information layer")
+    mm = mmp_scales()
+    mm_sm = mm["by_coupling"][1]          # g' = 0.36 in MMP's normalisation, N_f = 54 (the SM row); the others reported
     wncc = spec["W-create-ncc"]
     seat_cls = "S-1 %s, S-2 %s, S-3 %s, Rec %s" % (spec["S-1"], spec["S-2"], spec["S-3"], spec["Rec"])
     seat_common = ("specthm's seating classes are not moved (%s; derived by z3 at run time): H-THROAT-BITS supplies no "
@@ -440,8 +553,10 @@ def grades(spec=None):
                       % (q["rows"][0]["qnec_dS_over_payload_bits"], q["rows"][0]["rquantum_fraction_covered"]),
             "O-SEAT": o_seat,
             "O-LOOP": "SILENT (no loop asserted; a loop AT THE THROAT would not disqualify, M-S1A-P3 (i))"},
-        "what_it_does": "Gives M's 'compressed to binary information' a precise size: the payload's count fits a "
-                        "throat sphere of radius %.3g-%.3g m (%.3g-%.3g l_P) by A/4 capacity.  At the payload's own "
+        "what_it_does": "r_fit is the radius at which the A/4 ceiling equals the payload's count, IF {H-CAP-AT-THROAT, "
+                        "H-NECK-DOGMA, H-COUNT-IS-ENTROPY}; no mechanism that compresses or encodes at that density is "
+                        "constructed or READ (a capacity is a ceiling, not an encoding).  Wave 1 first said 'a precise "
+                        "size' for M's mechanism (V66-0 #4).  That radius is %.3g-%.3g m (%.3g-%.3g l_P).  At the payload's own "
                         "Mc^2, Bekenstein (in scope: R_Bek >> r_s) admits the count only at R >= %.3g-%.3g m; held at "
                         "r_fit the count needs at least the Schwarzschild energy of r_fit, M_sat = %.3g-%.3g kg "
                         "(%.3g-%.3g x the payload), where the two bounds meet.  Removes nothing."
@@ -465,9 +580,11 @@ def grades(spec=None):
                       "PV's own caveat, as PV state it",
             "O-SEAT": o_seat,
             "O-LOOP": "SILENT (PV's manifold has two asymptotic regions and no loop)"},
-        "what_it_does": "Shows the singular throat is a standard GR object (PV p.1: geodesically complete; the "
-                        "Einstein tensor a Dirac distribution), so M's ruling has a precise GR counterpart and costs "
-                        "GR nothing.  Its shell mass at M = 0 is -2a c^2/G = -16 pi x wormhole.throat_mass(a) "
+        "what_it_does": "Under H-SINGULAR-IS-THINSHELL a singular throat is a standard distributional object (PV p.1: "
+                        "geodesically complete; the Einstein tensor a Dirac distribution), so admitting it costs GR no "
+                        "new structure; it still needs sigma_0 < 0 (computed), so the deficit is concentrated, not "
+                        "removed.  Under H-SINGULAR-IS-PINCH: not modelled.  Wave 1 first said the ruling 'costs GR "
+                        "nothing' (V66-0 #5).  Its shell mass at M = 0 is -2a c^2/G = -16 pi x wormhole.throat_mass(a) "
                         "(computed); at r_fit, %.3g kg." % thin_shell_at(cap["rows"][0]["r_fit_m"])["m_shell_kg"]})
     G.append({
         "reading": "R-TELEPORT: 'compressed to binary information, then pushed to the seat' = traversable-wormhole "
@@ -478,15 +595,34 @@ def grades(spec=None):
                       "distances); MSY (2.21), (2.25): N_send <~ g <~ N_bits, parametric.  The binary information "
                       "is the coupling's, carried outside at <= c",
             "O-MAKE-TOPO": "NOT-BOUND-IF {H-ER=EPR} -- D68's ITE grade carried in (geometry.GRADES: '%s'), not added "
-                           "by H-THROAT-BITS: GJW's bridge is the TFD's, present before the coupling"
-                           % ite["per"]["O-MAKE-TOPO"],
+                           "by H-THROAT-BITS: GJW's bridge is the TFD's, present before the coupling.  Without ITE the "
+                           "bridge's creation is OPEN via specthm W-create-ncc (%s): M's ruling (ledger M-S1A-P3) "
+                           "places the pathology at the throat and keeps the throat-creation classes OPEN"
+                           % (ite["per"]["O-MAKE-TOPO"], wncc),
             "O-MAKE-DIST": "LEFT-IF {H-GJW-COUNTERPART, MS sec.3.2 (board READ)}: the bridge is a prior shared "
                            "entanglement; D68 geometry.GRADES ITE: '%s'; D68's vacuum route stays LEFT-IF its nine "
                            "hypotheses (vacuum.GRADES)" % ite["per"]["O-MAKE-DIST"],
-            "O-HOLD": "REMOVED-IF {H-GJW-COUNTERPART, H-ADS-TFD, H-COUPLED} in GJW's setting (1-loop ANEC < 0, GJW "
-                      "p.10; open only briefly, p.13; opening Delta V ~ h G_N/R^(D-2), eq.(5.1)) -- credited to the "
-                      "premise set, not to H-THROAT-BITS, and resting on H-COUPLED, which is O-BITS's channel.  For "
-                      "two places in one space: OPEN via N_GJW-AMBIENT (GJW p.14, stated, not computed)",
+            "O-HOLD": "LEFT-IF {H-GJW-COUNTERPART, H-ADS-TFD, H-COUPLED} for a hold on GJW alone: GJW's bridge "
+                      "becomes 'slightly traversable' (p.12), 'only open for a small proper time' (p.13), opening "
+                      "Delta V ~ h G_N/R^(D-2) (eq.(5.1)); in the teleportation reading the window is 'just enough to "
+                      "let the single qubit Q pass through' (p.15) -- an opening, not a hold, as A1 grades FGM's brief "
+                      "opening.  Wave 1 first said REMOVED-IF on GJW alone (V66-0 #1).  A HELD throat, READ: (a) "
+                      "Maldacena & Qi 1804.00491: REMOVED-IF {H-GJW-COUNTERPART, H-MQ-NADS2, H-MQ-ETERNAL-COUPLING, "
+                      "H-MQ-LARGE-N} in nearly-AdS2, outside the board's one-space setting (E-ADS); (b) Maldacena, "
+                      "Milekhin & Popov 1807.04726 in one asymptotically flat space: REMOVED-IF {H-GJW-COUNTERPART, "
+                      "H-MMP, H-SM-FIELDS} at sub-electroweak scale (r_e <= %.2g m, holding <= %.2g bits), outside the "
+                      "board's setting by scale.  In both, H-GJW-COUNTERPART (M's reading) is load-bearing in that "
+                      "setting, and the hold rests on the coupling (MQ: added by hand; MMP: generated by massless bulk "
+                      "fields), O-BITS's channel at <= c.  For a throat that admits the payload in one space: LEFT-IF "
+                      "{H-MMP, H-SM-FIELDS}: MMP's binding energy (eqs.(5.31), (7.58)) equals the payload's rest energy "
+                      "only at r_e = %.2g m, below l_P, and at r_fit a throat needs N_f >= %.2g massless charged species "
+                      "(the SM has 54) with mouths d >= %.2g m apart, %.2g x 1/TeV (mmp_scales, H-MMP-OOM, H-MMP-G); "
+                      "outside that family OPEN via N_GJW-PAYLOAD.  Wave 1 carried N_GJW-AMBIENT, 'stated, not "
+                      "computed' (V66-1 #2)" % (mm_sm["r_e_SM_max_m"], mm_sm["capacity_bits_at_r_e_SM"],
+                                                 mm_sm["r_e_where_binding_equals_payload_m"],
+                                                 mm_sm["at_r_fit"][0]["N_f_needed_for_payload"],
+                                                 mm_sm["at_r_fit"][0]["d_min_m"],
+                                                 mm_sm["at_r_fit"][0]["d_min_over_L_TeV"]),
             "O-SEAT": o_seat + ".  Teleportation needs the receiving half at the seat (B-RECV), as H-INFO-SHAPE has",
             "O-LOOP": "SILENT (GJW p.13: the coupling fixes the relative time, excluding closed timelike curves in "
                       "their setting; no loop reintroduced)"},
@@ -506,8 +642,9 @@ def grades(spec=None):
             "O-MAKE-TOPO": "SILENT (replica wormholes are Euclidean saddles computing Tr rho^n, p.37; nothing is made)",
             "O-MAKE-DIST": "SILENT", "O-HOLD": "SILENT (no traversable throat in this reading)",
             "O-SEAT": o_seat, "O-LOOP": "SILENT"},
-        "what_it_does": "A precise sense in which geometry is 'compressed to binary information' (Area/4G_N counts it) "
-                        "and in which a wormhole carries information (into the entanglement wedge).  Nothing is sent."})
+        "what_it_does": "The area term counts fine-grained entropy, not a state or an encoding (2006.06872 p.38); a "
+                        "wormhole here carries information into the entanglement wedge.  Nothing is sent.  Wave 1 first "
+                        "said 'a precise sense in which geometry is compressed to binary information' (V66-0 #4)."})
     G.append({
         "reading": "R-ITB: M's words taken literally under D68's ITB -- the geometry ceases at the throat and the "
                    "information continues beneath it",
@@ -559,9 +696,30 @@ def grade_audit(G):
 
 
 def member_removals(G):
-    """Removals credited to H-THROAT-BITS itself (a REMOVED-IF whose cell does not disclaim the member)."""
+    """Removals credited to H-THROAT-BITS itself IN THE BOARD'S SETTING: a cell whose leading word is REMOVED-IF and
+    which does not disclaim the member.  (D66-fix: no leading REMOVED-IF remains; the setting-bound removals are listed
+    by setting_removals.)"""
     return [(g["reading"][:12], o) for g in G for o in OBSTRUCTIONS
             if grade_word(g["per"][o]) == "REMOVED-IF" and "not to H-THROAT-BITS" not in g["per"][o]]
+
+
+SETTING_TAGS = ("outside the board's one-space setting", "outside the board's setting by scale")
+
+
+def setting_removals(G):
+    """D66-fix (V66-1 #8): every REMOVED-IF clause anywhere in a cell whose premise set holds H-GJW-COUNTERPART (M's
+    reading, so load-bearing there): (reading, obstruction, premises, the setting it names or None).  A clause naming no
+    setting would be a member removal in the board's setting; the audit refuses it."""
+    out = []
+    for g in G:
+        for o in OBSTRUCTIONS:
+            cell = g["per"][o]
+            for m in re.finditer(r"REMOVED-IF \{([^}]*)\}([^;(]*)", cell):
+                if "H-GJW-COUNTERPART" in m.group(1):
+                    tail = cell[m.end(1):m.end(1) + 200]
+                    tag = next((t for t in SETTING_TAGS if t in tail), None)
+                    out.append((g["reading"][:12], o, m.group(1), tag))
+    return out
 
 
 # ================================================================================================ report and checks
