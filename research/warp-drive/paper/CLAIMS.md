@@ -1628,7 +1628,7 @@ cylinder of anything ordinary. And the static background is **its own non-detect
 
 **If nature is to supply the cylinder, the candidate is a cosmic string — closed four times.** A straight
 string's exterior is a locally flat **conical deficit**: no dragging, no CTCs. Gott needs two passing
-with `γδ₀ > 2`, i.e. `γ > 1.33e5` at the bound `Gμ ≲ 6e−7`. Then: **Deser–Jackiw–'t Hooft** (holonomy is
+with `γδ₀ > 2`, i.e. `γ > 5.3e5` at the bound `Gμ/c² < 1.5e−7` (Planck 2013 XXV, Nambu–Goto; `γ > 2.5e5` at its Abelian–Higgs `3.2e−7`). *(Corrected on M's "Correct it (Recommended)", DOCKET 66: first written "`γ > 1.33e5` at the bound `Gμ ≲ 6e−7`", a looser bound than the one read at source, arXiv 1303.5085; `γδ₀ > 2` with `δ₀ = 8πGμ`, docket66/defects.py.)* Then: **Deser–Jackiw–'t Hooft** (holonomy is
 boost-like, matching a **tachyon**); **Carroll–Farhi–Guth–Olum** (infinite energy in 2+1; *cannot evolve
 from strings at rest*); **'t Hooft** (closed universe collapses first); **Shlaer–Tye** (3+1: reachable,
 and destroyed by one particle).
