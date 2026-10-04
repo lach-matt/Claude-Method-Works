@@ -18,10 +18,13 @@ WHAT THIS FILE COMPUTES (every number below is computed here, or READ at the loc
          factorises (2106.10576v2 sec. 2.3, pp.7-8): Bob's statistics move only through retarded Green's functions.
          => the largest SUPERLUMINAL signal this family permits at Bob is 0 for every eps.  O-BITS untouched.
        Weinberg family (deterministic, local on pure states -- the family Gisin's theorem covers and nlcontrol's
-         drift belongs to): Majumder et al. 1990 (201Hg) |eps|/2pi <= 3.8 uHz, Walsworth et al. 1990 (H maser)
-         3.7e-20 eV (8.9 uHz).  NAMED-NOT-READ: PRLs not on arXiv; the figures are from abstract metadata seen
-         through a search index (pmid 10042736, 10041761); no READ arXiv paper restates the numbers.  Bollinger
-         1989 (9Be+) and Chupp-Hoare 1990 (21Ne): value OPEN.  Every number derived from them is CONDITIONAL.
+         drift belongs to): Majumder et al. 1990 (201Hg) ||eps||/2 pi hbar < 3.8 uHz (= 2.0e-27 B/A), Walsworth et
+         al. 1990 (H maser) 3.7e-20 eV (8.9 uHz), Bollinger et al. 1989 (9Be+) 4e-27 B/A, Chupp & Hoare 1990 (21Ne)
+         1.6e-26 B/A.  D68 WAVE 2 (W2A-limits): all four READ (abstract) via Firecrawl scrapes of the publisher's
+         public abstract pages; Bollinger's and Chupp-Hoare's frequencies (6.25, 30.8 uHz) DERIVED-FROM-READ under
+         H-BEFRAC, checked on Majumder's own pair.  Waves 1-4 said: 'NAMED-NOT-READ: PRLs not on arXiv; the figures
+         are from abstract metadata seen through a search index (pmid 10042736, 10041761) ... Bollinger 1989 (9Be+)
+         and Chupp-Hoare 1990 (21Ne): value OPEN'.  Every number derived from them is CONDITIONAL on H-MAP etc.
   D. The collapse-model control: a stochastic norm-preserving nonlinear equation (QMUPL form, 1204.4325v3
      eq. 23, READ) whose ensemble obeys the LINEAR Lindblad equation (1204.4325v3 p.89, READ) -- must NOT signal,
      while each trajectory changes nonlinearly (vacuity guard).  Must-signal controls: deterministic drift, and
@@ -71,6 +74,16 @@ NAMED HYPOTHESES (every limitation is one):
   H-12-CARRIER / H-12-W  (wave 2) Bob's carrier is one of the twelve with no state-dependent bound of any kind
              (alpha_s, G, v), and that carrier drifts in Weinberg (per-branch, non-causal) form rather than KR form.
              No READ source gives a model of either; both are named so the case can be computed.
+  H-BEFRAC   (D68 wave 2) a limit printed as a fraction of the binding energy per nucleon is the frequency
+             frac x (B/A)/h, with B/A from AME2020 (gravity.nuclides, imported).  CHECKED on Majumder's pair (G31: 3.819
+             vs 3.8 uHz) -- which confirms the NORMALISATION (B/A, not B or m_u c^2: control G32), not the nuclide (B/A
+             is flat to ~1% for A ~ 20-200, so 21Ne's would also pass); the papers' own B/A tables (1989-90) are not read -- an AME2020-vs-then difference is assumed
+             negligible against the one or two printed digits.
+  H-SAME-EPS (D68 wave 2) the four experiments bound one common parameter, so the tightest applies to every carrier.
+             Without it each bound covers its own system; it moves exactly one window (G36).
+  H-ERRATUM  (D68 wave 2) Chupp & Hoare's Erratum (PRL 66, 120, 1991; public page has no abstract) does not change
+             the 1.6e-26 figure.  NAMED-NOT-READ; the figure is not the tightest, so no window rests on it alone except
+             under not-H-SAME-EPS at 1 AU, N = 1e3, reading A.
   The bound is an UPPER LIMIT measured consistent with ZERO: "not excluded" is never "found".
 
 WAVE 2 (repair after three adversarial verifications, 2026-10-03).  Wave 1 first said: '>= 6.21 pairs per teleported
@@ -115,6 +128,13 @@ WAVE 4 (R3-alone, repair after the second pair of re-verifications V2-0 AGAINST 
     that any such drift exists.
   * The summary line now prints the count with STRUCTURAL checks excluded.
 
+D68 WAVE 2 (W2A-limits, 2026-10-04; M's order "1 then 2 then 3 then 4", step 2): the Weinberg-family limits READ at
+source (publisher's public abstract pages, Firecrawl; abstract only) -- BOUNDS_WEINBERG; the wave-4 dict is kept as
+BOUNDS_WEINBERG_WAVE4 and window_given() still defaults to it (history; combine.py's wave-5 grounds import it).
+window_read(): the W2 x F1 window at 1 AU, 1 ly, 4.2465 ly x N = 7, 1e3, 1e6 on the READ values, given W_W2R =
+{H-MAP, H-TRANSFER, H-SPIN, H-DILUTION}: 14 of 18 (cell, reading) windows OPEN, 4 EMPTY (1 AU, N = 7 and 1e3, both
+readings); one window (1 AU, N = 1e3, A) depends on H-SAME-EPS.  Checks G31-G39.
+
 Run:  python3 settle.py            (report)
       python3 settle.py --selftest (fixtures computed or READ; controls that must fail do)
       python3 settle.py --json PATH
@@ -134,6 +154,7 @@ sys.path.insert(0, os.path.join(HERE, ".."))
 with contextlib.redirect_stdout(io.StringIO()):      # the pre-docket scripts print at import; keep the report clean
     import nlcontrol as NL                           # H = eps <X> Z, its integrator and ensembles
     import corridors as CO                           # latticectc's THEOREM applied to corridors
+    import gravity as GR                             # AME2020 Table I capture (nuclides), for B/A (wave 2, W2A)
 
 X, Y, Z = NL.X, NL.Y, NL.Z
 LN2 = math.log(2.0)
@@ -161,13 +182,86 @@ BOUNDS_KR = {   # dimensionless eps_gamma, causal (KR) family -- all READ
     "KR 2022 Lamb-shift estimate (as printed in KR v2)": (1e-4, "2106.10576v2 p.14 '|eps_gamma| <~ 1e-4'"),
     "KR Lamb-shift estimate (as restated by Brož)": (1e-2, "2206.12976v1 p.2 'modest bound of |gamma| <~ 1e-2'; p.5"),
 }
-BOUNDS_WEINBERG = {  # state-dependent precession frequency f (Hz) -- NAMED-NOT-READ, abstract metadata only
+# HISTORY (waves 1-4, kept verbatim as the record; window_given() still defaults to it so combine.py's wave-5 grounds
+# stay comparable).  Waves 1-4 said: NAMED-NOT-READ (Majumder, Walsworth), OPEN (Bollinger, Chupp-Hoare).
+BOUNDS_WEINBERG_WAVE4 = {  # state-dependent precession frequency f (Hz) -- NAMED-NOT-READ, abstract metadata only
     "Majumder+ 1990, 201Hg, PRL 65 2931": {"f_Hz": 3.8e-6, "status": "NAMED-NOT-READ (abstract metadata, pmid 10042736; '|eps|/2pi <= 3.8 uHz')"},
     "Walsworth+ 1990, H maser, PRL 64 2599": {"f_Hz": 8.9e-6, "eV": 3.7e-20,
                                               "status": "NAMED-NOT-READ (abstract metadata, pmid 10041761; '3.7x10^{20} eV (8.9 uHz)' -- exponent sign lost in the text layer)"},
     "Bollinger+ 1989, 9Be+, PRL 63 1031": {"f_Hz": None, "status": "OPEN (abstract truncated before the value; not on arXiv; no READ restatement with the number)"},
     "Chupp & Hoare 1990, 21Ne, PRL 64 2261": {"f_Hz": None, "status": "OPEN (abstract carries no value; not on arXiv)"},
 }
+
+# D68 WAVE 2 (W2A-limits, 2026-10-04; M rulings items 15-16): the four Weinberg-family limits READ at source, each from
+# the publisher's PUBLIC abstract page (journals.aps.org/prl/abstract/<doi>) via a Firecrawl scrape -- abstract only, no
+# full text (paywalled; not circumvented), so every entry is READ (abstract).  Short phrases only, as printed.
+#   'frac_BA' = the abstract's limit as a fraction of the binding energy per nucleon (B/A) of the named nuclide;
+#   'f_Hz'    = the limit as a state-dependent precession frequency ||eps||/2 pi hbar.  Where the abstract prints only
+#               frac_BA, f_Hz is DERIVED-FROM-READ under H-BEFRAC (f = frac_BA x B/A / h with B/A from the AME2020
+#               capture, gravity.nuclides(), imported) -- a conversion CHECKED on Majumder's own pair (G31, control G32).
+_APS = "https://journals.aps.org/prl/abstract/10.1103/PhysRevLett."
+WEINBERG_ROUTE = "READ (abstract) via Firecrawl scrape of the publisher's public abstract page"
+BOUNDS_WEINBERG = {
+    "Majumder+ 1990, 201Hg, PRL 65 2931": {
+        "f_Hz": 3.8e-6, "frac_BA": 2.0e-27, "nuclide": (80, 201), "url": _APS + "65.2931",
+        "printed": "'||eps||/2 pi hbar < 3.8 uHz, which corresponds to 2.0 x 10^-27 of the binding energy per nucleon'",
+        "f_status": "READ (abstract): printed in Hz",
+        "status": WEINBERG_ROUTE + " (" + _APS + "65.2931); re-confirmed this pass, as M item 16 recorded"},
+    "Walsworth+ 1990, H maser, PRL 64 2599": {
+        "f_Hz": 8.9e-6, "eV": 3.7e-20, "frac_BA": None, "nuclide": None, "url": _APS + "64.2599",
+        "printed": "'a limit of 3.7x10^{20} eV (8.9 uHz) on the magnitude of a nonlinear correction to the quantum "
+                   "mechanics of atomic spins' -- the exponent's minus sign is ABSENT AT SOURCE (the page's own "
+                   "description metadata prints 10^{20}; the rendered abstract drops the power entirely)",
+        "f_status": "READ (abstract): printed in Hz; the eV exponent -20 is DERIVED from the printed 8.9 uHz (G33)",
+        "status": WEINBERG_ROUTE + " (" + _APS + "64.2599)"},
+    "Bollinger+ 1989, 9Be+, PRL 63 1031": {
+        "f_Hz": None, "frac_BA": 4e-27, "nuclide": (4, 9), "url": _APS + "63.1031",
+        "printed": "'a limit of 4 x 10^-27 on the fraction of binding energy per nucleon of the 9Be+ nucleus that could "
+                   "be due to nonlinear corrections'",
+        "f_status": "DERIVED-FROM-READ under H-BEFRAC (one significant figure printed)",
+        "status": WEINBERG_ROUTE + " (" + _APS + "63.1031)"},
+    "Chupp & Hoare 1990, 21Ne, PRL 64 2261": {
+        "f_Hz": None, "frac_BA": 1.6e-26, "nuclide": (10, 21), "url": _APS + "64.2261",
+        "printed": "'less than 1.6 x 10^-26 of the binding energy per nucleon of 21Ne'; an Erratum exists, PRL 66, 120 "
+                   "(1991), whose public page carries no abstract -- its content is NAMED-NOT-READ (H-ERRATUM)",
+        "f_status": "DERIVED-FROM-READ under H-BEFRAC; H-ERRATUM",
+        "status": WEINBERG_ROUTE + " (" + _APS + "64.2261)"},
+}
+# Context, READ (abstract) the same way, NOT a bound used below: Weinberg, PRL 62, 485 (1989), public abstract page:
+# NBS measurements 'already set limits of order 10^-21 on the fraction of the energy of the 9Be nucleus' -- a different
+# normalisation (the nucleus's energy, not B/A), superseded by Bollinger 1989.
+WEINBERG_1989_CONTEXT = {"url": _APS + "62.485", "printed": "'limits of order 10^-21 on the fraction of the energy of "
+                         "the 9Be nucleus'", "status": WEINBERG_ROUTE}
+# Later literature searched for a restatement carrying the numbers (none found): READ via alphaXiv quant-ph/9801041v1
+# p.2 (Abrams-Lloyd: cites all four as refs [13]-[16], 'all known experiments confirm the linearity of quantum mechanics
+# to a high degree of accuracy', no numbers); 2206.12976v1 pp.1-2 (Brož et al.: refs [9]-[12], 'stringent bounds', and
+# that they do not carry over to causal (KR) nonlinearity -- no numbers); 2506.04298v1 (does not cite them);
+# 2203.10269v3 (Raizen-Gilbert-Budker: Weinberg's 2016 Lindblad extension, a different model; does not restate them).
+# Firecrawl research search (two framings) and alphaXiv discovery returned no other restatement.
+WEINBERG_LATER = ("quant-ph/9801041v1 p.2", "2206.12976v1 pp.1-2", "2506.04298v1", "2203.10269v3")
+
+
+def binding_per_nucleon_eV(Z, A):
+    """B/A in eV from the AME2020 Table I capture (gravity.nuclides(), imported, never copied): atomic mass excesses,
+    B = Z Delta(1H) + N Delta(n) - Delta(Z, A).  DERIVED-FROM-READ."""
+    n = {(r[0], r[2]): r[4] for r in GR.nuclides()}
+    return (Z * n[(1, 1)] + (A - Z) * n[(0, 1)] - n[(Z, A)]) * 1e3 / A
+
+
+def befrac_to_hz(frac, Z, A, norm="B/A"):
+    """H-BEFRAC: a limit stated as a fraction of a nuclear energy, as a frequency f = frac x E / h.  norm 'B/A' is the
+    abstracts' wording; 'B' (whole-nucleus binding) and 'm_u c^2' (nucleon rest energy) exist only as CONTROLS (G32)."""
+    E = binding_per_nucleon_eV(Z, A)
+    if norm == "B":
+        E *= A
+    elif norm == "m_u c^2":
+        E = 931.49410242e6
+    return frac * E * E_CHARGE / H_PLANCK
+
+
+for _k, _d in BOUNDS_WEINBERG.items():                 # fill the DERIVED-FROM-READ frequencies (H-BEFRAC)
+    if _d["f_Hz"] is None:
+        _d["f_Hz"] = befrac_to_hz(_d["frac_BA"], *_d["nuclide"])
 
 
 # ======================================================================================= A. the drift signal
@@ -683,8 +777,8 @@ def window_given(L_list=None, N_list=(7, 1000, 1e6), bounds=None):
                                             CONTEXT, not evidence);
     a bound whose status is READ would drop the GIVEN flag (the control passes such a bound).  Support 2 (R_W2', the
     ancilla member) has no window at all: H-MAP is not established for its field, so it reads UNEVALUATED."""
-    bounds = BOUNDS_WEINBERG if bounds is None else bounds
-    L_list = L_list or (("1 AU", AU_M), ("1 ly", LY_M))
+    bounds = BOUNDS_WEINBERG_WAVE4 if bounds is None else bounds     # D68 wave 2: the default is the wave-4 RECORD
+    L_list = L_list or (("1 AU", AU_M), ("1 ly", LY_M))              # (unread statuses); READ values: window_read()
     key = "Majumder+ 1990, 201Hg, PRL 65 2931"
     f = bounds[key]["f_Hz"]
     used_read = bounds[key]["status"].startswith("READ")
@@ -708,6 +802,50 @@ def window_given(L_list=None, N_list=(7, 1000, 1e6), bounds=None):
                              "support 2": "UNEVALUATED (H-MAP not established for its field)"})
     return {"rows": rows, "unread_bounds": unread, "open_bounds": open_, "bound_used": key,
             "bound_used_status": bounds[key]["status"]}
+
+
+#: the hypotheses a READ-value window still rests on: W_W2 with its unread values removed (D68 wave 2, W2A-limits).
+W_W2R = ("H-MAP", "H-TRANSFER", "H-SPIN", "H-DILUTION")
+#: the three distances of the D68 wave-2 task.  4.2465 ly is the figure the task gives (Proxima Centauri's distance is
+#: NAMED-NOT-READ here); the older rows at 4.24 ly '(illustrative)' are kept unchanged as history.
+WINDOW_READ_L = (("1 AU", AU_M), ("1 ly", LY_M), ("4.2465 ly", 4.2465 * LY_M))
+
+
+def window_read(L_list=WINDOW_READ_L, N_list=(7, 1000, 1e6), bounds=None, scale=1.0):
+    """The W2 x F1 support-1 eps window at every (L, N) cell on the READ (abstract) Weinberg-family values (D68 wave 2).
+    For each cell, H-MAP reading (A: eps = 2 pi f; B: eps = pi f) and bound: OPEN window if eps_any(L, N) < eps_max,
+    else EMPTY.  A verdict names W_W2R (H-MAP, H-TRANSFER, H-SPIN, H-DILUTION) -- every one a named hypothesis -- and no
+    longer an unread value.  The cell verdict uses the TIGHTEST READ bound; 'robust' says whether all four READ bounds
+    give the same verdict (where they do not, H-SAME-EPS -- that the four experiments bound one common parameter --
+    decides which applies; where they do, it does not matter).  An OPEN window is 'not excluded', never 'found': each
+    limit is an upper limit measured consistent with zero.  scale multiplies every f (CONTROL G37 only)."""
+    bounds = BOUNDS_WEINBERG if bounds is None else bounds
+    fs = {k: d["f_Hz"] * scale for k, d in bounds.items()}
+    tight = min(fs, key=fs.get)
+    rows, cells = [], []
+    for Ln, L in L_list:
+        for N in N_list:
+            e_any = eps_any_advantage(L, N)
+            for lab in ("A (eps = 2 pi f)", "B (eps = pi f)"):
+                per = {}
+                for k, f in fs.items():
+                    emax = eps_readings(f)[lab]
+                    per[k] = {"eps_max": emax, "window": ("IMPOSSIBLE (N x CMAX < 2)" if e_any is None else
+                                                          "OPEN" if e_any < emax else "EMPTY"),
+                              "tightening to close (context)": (emax / e_any) if (e_any is not None and e_any < emax) else None,
+                              "loosening to open (context)": (e_any / emax) if (e_any is not None and e_any >= emax) else None}
+                w = per[tight]["window"]
+                robust = len({v["window"] for v in per.values()}) == 1
+                verdict = (("ADMISSIBLE (window OPEN; not excluded, not found)" if w == "OPEN" else
+                            "EXCLUDED (window EMPTY)" if w == "EMPTY" else w) +
+                           " given " + ", ".join(W_W2R) + f" (H-MAP reading {lab[0]}), on the READ (abstract) value"
+                           + ("" if robust else "; NOT robust across the four READ bounds -- H-SAME-EPS decides"))
+                rows.append({"L": Ln, "N": N, "reading": lab, "eps_any": e_any, "bound_used": tight,
+                             "eps_max": per[tight]["eps_max"], "window": w, "robust_across_READ_bounds": robust,
+                             "verdict": verdict, "per_bound": per})
+            cells.append((Ln, N))
+    return {"rows": rows, "tightest": tight, "f_Hz": fs, "hypotheses": W_W2R,
+            "statuses": {k: bounds[k]["status"] for k in bounds}}
 
 
 # ======================================================================================= D. collapse control
@@ -963,6 +1101,17 @@ def build():
     R["window_given_control_read"] = window_given(bounds={  # CONTROL: the same value marked READ, nothing OPEN
         "Majumder+ 1990, 201Hg, PRL 65 2931": {"f_Hz": BOUNDS_WEINBERG["Majumder+ 1990, 201Hg, PRL 65 2931"]["f_Hz"],
                                                "status": "READ (control fixture, not a claim)"}})
+    # D68 wave 2 (W2A-limits): the Weinberg-family limits READ (abstract) at source, and the window on the READ values
+    R["weinberg_read"] = {k: {kk: vv for kk, vv in d.items()} for k, d in BOUNDS_WEINBERG.items()}
+    R["befrac_majumder_check"] = {"B/A_201Hg_eV": binding_per_nucleon_eV(80, 201),
+                                  "f_from_frac_Hz": befrac_to_hz(2.0e-27, 80, 201), "f_printed_Hz": 3.8e-6,
+                                  "CONTROL f with whole-nucleus B": befrac_to_hz(2.0e-27, 80, 201, "B"),
+                                  "CONTROL f with nucleon rest energy": befrac_to_hz(2.0e-27, 80, 201, "m_u c^2")}
+    R["bollinger_range_Hz"] = (befrac_to_hz(3.5e-27, 4, 9), befrac_to_hz(4.5e-27, 4, 9))   # one printed digit: 3.5..4.5
+    R["walsworth_plus20_Hz"] = 3.7e20 * E_CHARGE / H_PLANCK          # the exponent as printed at source (CONTROL)
+    R["window_read"] = window_read()
+    R["window_read_control_tighter_1e7"] = window_read(scale=1e-7)
+    R["window_read_control_looser_1e3"] = window_read(scale=1e3)
     return R
 
 
@@ -1000,9 +1149,9 @@ def report(R):
     p(f"     2411.09611 says 'nearly a factor of 50' over 4.7e-11; computed ratio {R['kr_ratio_quoted_nearly_50']:.2f}  (wording discrepancy, not a refutation)")
     p("     KR's Lamb-shift estimate: printed 1e-4 in KR v2 p.14, restated as 1e-2 by Brož p.2 -- DISCREPANCY between the two READ texts, recorded.")
     p("     => superluminal signal at Bob permitted by this family: 0 for every eps (KR sec. 2.3: evolution of separated systems factorises).")
-    p("   Weinberg family -- NAMED-NOT-READ (abstract metadata):")
+    p("   Weinberg family -- READ (abstract) at source in D68 wave 2 (waves 1-4 said NAMED-NOT-READ / OPEN; see the last section):")
     for k, d in BOUNDS_WEINBERG.items():
-        p(f"     {k:<40} f = {d['f_Hz']}   {d['status']}")
+        p(f"     {k:<40} f = {d['f_Hz']:.4e} Hz  [{d['f_status']}]")
     p(f"     consistency: h x 8.9 uHz = {R['walsworth_check_eV']:.3e} eV (abstract: 3.7e-20 eV)")
     for lab, c in R["conditional"].items():
         p(f"   CONDITIONAL on H-MAP reading {lab}, H-TRANSFER, H-SPIN, H-COHERE, H-FRAME3b, H-C2, H-NLCONTROL-FORM, eps AT the Majumder upper limit:")
@@ -1016,7 +1165,7 @@ def report(R):
                 p(f"     O-BITS at {Ln:<24} with N = {N:<8g}: IMPOSSIBLE at any eps (N x {CMAX:.4f} < 2 bits)")
             else:
                 p(f"     O-BITS at {Ln:<24} with N = {N:<8g}: needs eps >= {em:.4e} /s at T = L/2c (wave-1 table; T = L/2c is a DECLARED choice,"
-                  f" any advantage needs only half: see WAVE 2)  -> {'NOT EXCLUDED' if ok else 'EXCLUDED'} by the (unread) bound")
+                  f" any advantage needs only half: see WAVE 2)  -> {'NOT EXCLUDED' if ok else 'EXCLUDED'} by the Majumder bound (READ (abstract) in D68 wave 2; unread in waves 1-4)")
     p("\nD. COLLAPSE-TYPE (STOCHASTIC) DRIFT -- the control that must NOT signal")
     C = R["collapse"]
     for k, r in C["per_state"].items():
@@ -1061,7 +1210,7 @@ def report(R):
     for k, v in R["pairs_per_qubit"].items():
         p(f"     pairs per teleported qubit, {k}: {v if isinstance(v, int) else round(v, 4)}")
     p(f"     two-axis drift at 1 ly with N = 3: eps for any advantage {R['two_axis_eps_any_1ly_N3']:.4e} /s (H-MAP not established for this H)")
-    p("   timing (drift time does not depend on distance; reading A/B at the NAMED-NOT-READ Majumder limit):")
+    p("   timing (drift time does not depend on distance; reading A/B at the Majumder limit -- NAMED-NOT-READ in waves 1-4, READ (abstract) in D68 wave 2):")
     for (lab, N), t in R["timing"].items():
         mp, oe = t["first_transit_midpoint_1ly"], t["first_transit_one_end_1ly"]
         p(f"     {lab}, N = {N}: T = {t['T_h']:.2f} h; later transits at 1 ly read {t['early_fraction_1ly']:.5f} of L/c early;"
@@ -1076,7 +1225,8 @@ def report(R):
         p(f"     {r['L']:<24} N = {r['N']:<8g}: eps > {r['eps_any_advantage']:.3e}  {r['H-TRANSFER']:<13} | {r['H-12-CARRIER']}")
     p(f"     cells that flip EXCLUDED -> NOT EXCLUDED: {flips}  (not evidence: an absent bound is not a measurement)")
     wg = R["window_given"]
-    p("   M's rule BOTH ways (M-apply, V3 residual 3): support 1's window per cell and reading; support 2 UNEVALUATED")
+    p("   M's rule BOTH ways (M-apply, V3 residual 3) -- the WAVE-4 RECORD on the unread statuses, kept as history (combine.py imports it);")
+    p("   the same window on the READ (abstract) values is the last section (D68 wave 2).  Support 2 UNEVALUATED")
     p(f"     bound used: {wg['bound_used']} [{wg['bound_used_status'][:16]}]; OPEN, never checked: {wg['open_bounds']}")
     for r in wg["rows"]:
         t = r["tightening to close (context)"]
@@ -1109,6 +1259,34 @@ def report(R):
     p("     => 2 bits per pair with ZERO error at finite T: 1 pair per teleported qubit for this member (smooth global field:")
     p("        H-EXTEND, derived, not computed).  The qubit-only floor (> 2, >= 3) is H-QUBIT-DRIFT's, not the class's.")
     p("        This shows what the CLASS admits; it is not evidence that such a drift exists.")
+    p("\nD68 WAVE 2 (W2A-limits) -- THE WEINBERG-FAMILY LIMITS READ AT SOURCE, AND THE W2 x F1 WINDOW ON THE READ VALUES")
+    p("   route: " + WEINBERG_ROUTE + " (journals.aps.org/prl/abstract/<doi>); abstract only, full text not read (paywall, not circumvented)")
+    for k, d in R["weinberg_read"].items():
+        p(f"   {k}: f = {d['f_Hz']:.4e} Hz ({d['f_status']})")
+        p(f"       printed: {d['printed']}")
+    bc = R["befrac_majumder_check"]
+    p(f"   H-BEFRAC checked on Majumder's own pair: 2.0e-27 x B/A(201Hg) = 2.0e-27 x {bc['B/A_201Hg_eV']/1e6:.6f} MeV -> "
+      f"{bc['f_from_frac_Hz']*1e6:.4f} uHz vs printed 3.8 uHz;  CONTROLS: whole-nucleus B -> {bc['CONTROL f with whole-nucleus B']:.3e} Hz, "
+      f"nucleon rest energy -> {bc['CONTROL f with nucleon rest energy']:.3e} Hz")
+    lo, hi = R["bollinger_range_Hz"]
+    p(f"   Bollinger's one printed digit (3.5..4.5e-27) -> {lo*1e6:.2f}..{hi*1e6:.2f} uHz; Walsworth's exponent as printed at source (+20) "
+      f"-> {R['walsworth_plus20_Hz']:.2e} Hz, contradicting its own 8.9 uHz (so -20)")
+    p("   context only: Weinberg PRL 62 485 (1989) public abstract, 'limits of order 10^-21 on the fraction of the energy of the 9Be nucleus' (other normalisation)")
+    p("   later restatements searched (none carries the numbers): " + "; ".join(WEINBERG_LATER))
+    W = R["window_read"]
+    p(f"   window per (L, N, H-MAP reading), tightest READ bound = {W['tightest']}; verdicts given {', '.join(W['hypotheses'])}:")
+    for r in W["rows"]:
+        t = r["per_bound"][r["bound_used"]]
+        ctx = (f"closing needs a bound {t['tightening to close (context)']:.4g}x tighter" if t["tightening to close (context)"] else
+               f"opening needs a bound {t['loosening to open (context)']:.4g}x looser")
+        other = "" if r["robust_across_READ_bounds"] else ("  per bound: " + ", ".join(f"{k.split(',')[0]} {v['window']}" for k, v in r["per_bound"].items()))
+        p(f"     {r['L']:<9} N = {r['N']:<8g} {r['reading'][0]}: eps_any {r['eps_any']:.4e} vs eps_max {r['eps_max']:.4e} -> window {r['window']:<5}"
+          f" (robust over the four READ bounds: {r['robust_across_READ_bounds']}; {ctx}, context){other}")
+    nopen = sum(r["window"] == "OPEN" for r in W["rows"])
+    p(f"   => {nopen} of {len(W['rows'])} (cell, reading) windows OPEN, {len(W['rows']) - nopen} EMPTY, on READ values; no longer 'given W_W2'.")
+    p("      An OPEN window is 'not excluded', never 'found': every limit is an upper limit measured consistent with zero.")
+    p(f"   CONTROLS: bounds 1e7 tighter -> {sum(r['window'] == 'EMPTY' for r in R['window_read_control_tighter_1e7']['rows'])} EMPTY of 18; "
+      f"1e3 looser -> {sum(r['window'] == 'OPEN' for r in R['window_read_control_looser_1e3']['rows'])} OPEN of 18")
 
 
 # ======================================================================================= selftest
@@ -1221,7 +1399,7 @@ def selftest():
     # Wave 3 (RV-0 #10): wave 2 first printed G12 as one check.  Its 'NOT EXCLUDED with an unbounded carrier' half is
     # carrier_ok = (N x CMAX >= 2), true by construction for N = 7; it is STRUCTURAL.  The H-TRANSFER half compares
     # eps_any with the (NAMED-NOT-READ) Majumder figure and carries content.
-    ok("G12a H-TRANSFER: 1 AU, N = 7 is EXCLUDED by the (unread) Majumder figure; 1 ly, N = 7 is not",
+    ok("G12a H-TRANSFER: 1 AU, N = 7 is EXCLUDED by the Majumder figure (unread in waves 1-4; READ (abstract) in D68 wave 2); 1 ly, N = 7 is not",
        au7["H-TRANSFER"] == "EXCLUDED" and [r for r in rows if r["L"] == "1 ly" and r["N"] == 7][0]["H-TRANSFER"] == "NOT EXCLUDED")
     structural("G12b with an unbounded carrier the 1 AU, N = 7 cell is NOT EXCLUDED (carrier_ok = N x CMAX >= 2)",
                au7["H-12-CARRIER"].startswith("NOT EXCLUDED") and flips >= 1, f"flips {flips}")
@@ -1292,6 +1470,43 @@ def selftest():
            for r in R["window_given_control_read"]["rows"]))
     structural("G30 support 2 carries no window: UNEVALUATED on every row", all(r["support 2"].startswith("UNEVALUATED")
                                                                             for r in wg["rows"]))
+    # ---- D68 wave 2 (W2A-limits): the Weinberg-family limits READ (abstract) at source
+    bc = R["befrac_majumder_check"]
+    ok("G31 (W2A) H-BEFRAC on Majumder's own pair: 2.0e-27 x B/A(201Hg, AME2020) / h reproduces the printed 3.8 uHz within "
+       "the 2.0's rounding (2.5%)", abs(bc["f_from_frac_Hz"] / 3.8e-6 - 1) < 0.025, f"{bc['f_from_frac_Hz']*1e6:.4f} uHz")
+    ok("G32 CONTROL (must fail): the same fraction of the whole-nucleus binding, or of the nucleon rest energy, misses 3.8 uHz "
+       "by > 50x", bc["CONTROL f with whole-nucleus B"] / 3.8e-6 > 50 and bc["CONTROL f with nucleon rest energy"] / 3.8e-6 > 50,
+       f"{bc['CONTROL f with whole-nucleus B']/3.8e-6:.0f}x, {bc['CONTROL f with nucleon rest energy']/3.8e-6:.0f}x")
+    ok("G33 CONTROL (must fail): Walsworth's eV exponent as printed AT SOURCE (+20) contradicts its own 8.9 uHz (> 1e30 x); "
+       "the -20 reading agrees (C1)", R["walsworth_plus20_Hz"] / 8.9e-6 > 1e30 and abs(R["walsworth_check_eV"] / 3.7e-20 - 1) < 0.02,
+       f"{R['walsworth_plus20_Hz']:.2e} Hz")
+    fW = {k: d["f_Hz"] for k, d in BOUNDS_WEINBERG.items()}
+    lo, hi = R["bollinger_range_Hz"]
+    ok("G34 (W2A) Majumder is the tightest of the four READ bounds, and stays so over Bollinger's printed digit (3.5..4.5e-27)",
+       min(fW, key=fW.get).startswith("Majumder") and lo > 3.8e-6,
+       "; ".join(f"{k.split(',')[0]} {v*1e6:.2f}" for k, v in fW.items()) + f" uHz; Bollinger {lo*1e6:.2f}..{hi*1e6:.2f}")
+    WR = R["window_read"]
+    rw = lambda L, N, rd: [r for r in WR["rows"] if r["L"] == L and r["N"] == N and r["reading"].startswith(rd)][0]
+    empty = {(r["L"], r["N"]) for r in WR["rows"] if r["window"] == "EMPTY"}
+    ok("G35 (W2A) window on READ values: EMPTY exactly at 1 AU, N = 7 and 1 AU, N = 1e3 (both readings); OPEN at the other 7 cells "
+       "(1 AU N = 1e6; every 1 ly and 4.2465 ly cell)",
+       empty == {("1 AU", 7), ("1 AU", 1000)} and all(rw(L, N, rd)["window"] == "EMPTY" for L, N in empty for rd in "AB")
+       and sum(r["window"] == "OPEN" for r in WR["rows"]) == 14,
+       f"{sum(r['window'] == 'OPEN' for r in WR['rows'])} OPEN of {len(WR['rows'])}")
+    nr = [(r["L"], r["N"], r["reading"][0]) for r in WR["rows"] if not r["robust_across_READ_bounds"]]
+    ok("G36 (W2A) exactly one window depends on WHICH READ bound applies (H-SAME-EPS): 1 AU, N = 1e3, reading A -- EMPTY on "
+       "Majumder, OPEN on Chupp-Hoare alone", nr == [("1 AU", 1000, "A")] and
+       rw("1 AU", 1000, "A")["per_bound"]["Chupp & Hoare 1990, 21Ne, PRL 64 2261"]["window"] == "OPEN", f"{nr}")
+    ok("G37 CONTROL (must change): every bound 1e7x tighter empties all 18 windows; 1e3x looser opens all 18",
+       all(r["window"] == "EMPTY" for r in R["window_read_control_tighter_1e7"]["rows"]) and
+       all(r["window"] == "OPEN" for r in R["window_read_control_looser_1e3"]["rows"]))
+    ok("G38 (W2A) G28's context factors reproduced on READ values (1 ly N = 7: 655x / 328x; 1 AU N = 1e6: 7.16x / 3.58x)",
+       abs(rw("1 ly", 7, "A")["per_bound"][WR["tightest"]]["tightening to close (context)"] - 655) < 2 and
+       abs(rw("1 AU", 1e6, "B")["per_bound"][WR["tightest"]]["tightening to close (context)"] - 3.58) < 0.05)
+    structural("G39 every READ-value verdict names H-MAP and H-TRANSFER and none says 'GIVEN W_W2' or 'NAMED-NOT-READ'; every "
+               "bound's status is READ (abstract) (label checks)",
+               all("H-MAP" in r["verdict"] and "H-TRANSFER" in r["verdict"] and "W_W2" not in r["verdict"] for r in WR["rows"])
+               and all(d["status"].startswith("READ (abstract)") for d in BOUNDS_WEINBERG.values()))
     w = max(len(n) for n, _, _ in checks)
     for n, good, det in checks:
         print(f"  [{'PASS' if good else 'FAIL'}] {n:<{w}} {det}")

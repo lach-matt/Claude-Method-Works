@@ -1,11 +1,13 @@
 # DOCKET 68 / A1-settle: H-SETTLE alone, H-12's carriers, and the collapse control
 
-**Status: a work-item write-up, not seated.** Instrument: `settle.py` (`python3 settle.py --selftest`: 67/67 checks
-pass, about 2 min; seven of the 67 are printed STRUCTURAL -- they cannot fail by construction and are not counted -- so
-**60/60 counted**, eleven of them controls built to fail; *M-apply first said* 62/62, six STRUCTURAL, 56/56 counted,
+**Status: a work-item write-up, not seated.** Instrument: `settle.py` (`python3 settle.py --selftest`: 76/76 checks
+pass, about 1.5 min; eight of the 76 are printed STRUCTURAL -- they cannot fail by construction and are not counted -- so
+**68/68 counted**, fourteen of them controls built to fail; *D68 wave 2 (W2A-limits) first found* 67/67, seven
+STRUCTURAL, 60/60 counted, eleven controls -- G31-G39 added; *M-apply first said* 62/62, six STRUCTURAL, 56/56 counted,
 ten controls -- `window_given` added G26-G30; *wave 3 first said* 57/57 with six STRUCTURAL and eight controls;
 *wave 2 first said* 47/47 with two STRUCTURAL). It imports
-`nlcontrol.py`, `corridors.py` and (wave 2) `frame.py`, and copies none of them. Every number here is computed in
+`nlcontrol.py`, `corridors.py`, (wave 2) `frame.py` and (D68 wave 2) `gravity.py` (the AME2020 capture), and copies none
+of them. Every number here is computed in
 `settle.py`, READ at the locator given, DERIVED-FROM-READ, or labelled NAMED-NOT-READ or OPEN. Short quotations only,
 each with its page.
 
@@ -15,11 +17,88 @@ preferred slicing, which is H-FRAME clause 1's substance. The one member-attribu
 H-COHERE, H-NLCONTROL-FORM, H-BORN-AT-BOB, H-BLOCK} -- nlcontrol's form, block-coded, every pair count a floor; or
 (2) REMOVED-IF {H-C2, H-FRAME3b ⇐ F1, H-COHERE, H-BORN-AT-BOB, H-EXTEND, H-FIELD-W2} -- the computed zero-error ancilla
 member, with neither H-BLOCK nor H-NLCONTROL-FORM. For support (1), whether ε lies in the window is a separate
-question, settled by window premises (H-MAP, H-TRANSFER, H-SPIN, H-DILUTION and the NAMED-NOT-READ bound values). For
+question, settled by window premises (H-MAP, H-TRANSFER, H-SPIN, H-DILUTION and the NAMED-NOT-READ bound values --
+READ (abstract) in D68 wave 2, see the next section: 14 of 18 windows OPEN, 4 EMPTY, given W_W2R). For
 support (2) no window is computed: H-MAP is not established for its field, so the window is **unevaluated** -- neither
 open nor excluded, and "not excluded" is not evidence. No NOT-BOUND-IF arises here. *Wave 3 first said* the removal
 had the single support (1), which read as if block coding were necessary (V2-1 problem 2). In a separate geometry
 column, corridor O-LOOP is REMOVED-IF {H-FRW-EXACT, H-NOT-DE-SITTER, H-CORRIDOR-MODEL}, credited to no hypothesis.
+
+## D68 wave 2 (W2A-limits, 2026-10-04): the Weinberg-family limits READ at source
+
+M ruled the order "1 then 2 then 3 then 4" (M-RULINGS item 10); this is step 2's limits item. Route (items 15-16): the
+session's web instruments, openly available content only. **All four 1989-90 limits were READ (abstract) via Firecrawl
+scrapes of the publisher's public abstract pages** (`journals.aps.org/prl/abstract/10.1103/PhysRevLett.<vol>.<page>`).
+The full texts sit behind a login wall and were not read; nothing was circumvented. Short phrases only, as printed:
+
+| paper | READ (abstract), as printed | as a frequency f = ‖ε‖/2πħ | status of f |
+|---|---|---|---|
+| Majumder et al., PRL 65, 2931 (1990), ²⁰¹Hg | "‖ε‖/2πħ < 3.8 μHz, which corresponds to 2.0 × 10⁻²⁷ of the binding energy per nucleon" -- re-confirms M item 16 | 3.8 μHz | READ (abstract) |
+| Walsworth et al., PRL 64, 2599 (1990), H maser | "a limit of 3.7 × 10^{20} eV (8.9 μHz) on the magnitude of a nonlinear correction to the quantum mechanics of atomic spins" | 8.9 μHz | READ (abstract); the eV exponent's minus sign is **absent at source** (the page's own description metadata prints 10^{20}; the rendered abstract drops the power). −20 is DERIVED from the printed 8.9 μHz (G33: +20 would be 8.95e34 Hz) |
+| Bollinger et al., PRL 63, 1031 (1989), ⁹Be⁺ | "a limit of 4 × 10⁻²⁷ on the fraction of binding energy per nucleon of the ⁹Be⁺ nucleus" | 6.25 μHz (5.47-7.03 over the one printed digit) | DERIVED-FROM-READ under H-BEFRAC |
+| Chupp & Hoare, PRL 64, 2261 (1990), ²¹Ne | "less than 1.6 × 10⁻²⁶ of the binding energy per nucleon of ²¹Ne" | 30.8 μHz | DERIVED-FROM-READ under H-BEFRAC; an Erratum, PRL 66, 120 (1991), exists and its public page carries no abstract: H-ERRATUM, NAMED-NOT-READ |
+
+Context only, not a bound used: Weinberg, PRL 62, 485 (1989), READ (abstract) the same way -- NBS measurements "already
+set limits of order 10⁻²¹ on the fraction of the energy of the ⁹Be nucleus" (another normalisation; superseded by
+Bollinger 1989).
+
+**H-BEFRAC, checked rather than declared.** A limit printed as a fraction of B/A becomes f = frac × (B/A)/h, with B/A
+from the AME2020 Table I capture through `gravity.nuclides()` (mass excesses: B = ZΔ(¹H) + NΔ(n) − Δ). Majumder prints
+both forms, so the conversion is tested on his own pair: 2.0e-27 × 7.897561 MeV / h = **3.819 μHz against the printed
+3.8** (G31, within the 2.0's rounding). The controls fail as they must (G32): the same fraction of the whole-nucleus
+binding gives 202× too much, of the nucleon rest energy 119× too much. **Limitation, named:** B/A is flat to about 1 %
+from A ≈ 20 to 200, so G31 confirms the *normalisation* (per-nucleon binding), not the nuclide -- ²¹Ne's B/A would also
+pass. The papers' own 1989-90 B/A tables are not read; their difference from AME2020 is assumed negligible against one or
+two printed digits (part of H-BEFRAC).
+
+**Later literature that restates them (searched; none carries the numbers).** READ via alphaXiv: quant-ph/9801041v1 p.2
+(Abrams & Lloyd cite all four as refs [13]-[16]: "all known experiments confirm the linearity of quantum mechanics to a
+high degree of accuracy", no numbers); 2206.12976v1 pp.1-2 (Brož et al., refs [9]-[12]: "stringent bounds", and that they
+do not carry over to causal KR nonlinearity -- no numbers); 2506.04298v1 (does not cite them). 2203.10269v3 (READ in wave
+1) treats Weinberg's 2016 Lindblad extension, another model. Firecrawl research search (two framings) and alphaXiv
+discovery returned no review restating the values. *Waves 1-4 said* the four were NAMED-NOT-READ (Majumder, Walsworth:
+"abstract metadata seen through a search index") or OPEN (Bollinger, Chupp-Hoare: "abstract truncated before the value";
+"abstract carries no value"). Read at the publisher's page, both abstracts carry a value -- as a fraction of B/A, not in Hz.
+
+**The W2 × F1 ε window on the READ values** (`settle.window_read`; support 1, nlcontrol's ε mapping). ε_any(L, N) is the
+floor above which N pairs carry one teleported qubit's 2 bits before light (unchanged); ε_max = 2πf (reading A) or πf
+(reading B) at the **tightest READ bound, Majumder's 3.8 μHz** (G34: tightest, and still so over Bollinger's printed
+digit). The window premises are now **W_W2R = {H-MAP, H-TRANSFER, H-SPIN, H-DILUTION}** -- W_W2 with its unread values
+removed; every one is a named hypothesis.
+
+| distance | N = 7 | N = 1e3 | N = 1e6 |
+|---|---|---|---|
+| 1 AU | **EMPTY**, A and B (opening needs a bound 96.5× / 193× looser) | **EMPTY**, A and B (4.43× / 8.86× looser); reading A **not robust**: OPEN on Chupp-Hoare's bound alone (H-SAME-EPS) | OPEN, A and B (closing needs 7.16× / 3.58× tighter) |
+| 1 ly | OPEN (655× / 328×) | OPEN (1.43e4× / 7.14e3×) | OPEN (4.53e5× / 2.26e5×) |
+| 4.2465 ly | OPEN (2.78e3× / 1.39e3×) | OPEN (6.06e4× / 3.03e4×) | OPEN (1.92e6× / 9.61e5×) |
+
+So **14 of 18 (cell, reading) windows are OPEN and 4 EMPTY on READ values** (G35); the factors are context, not evidence.
+Exactly one window depends on which READ bound applies (G36): at 1 AU, N = 1e3, reading A, Majumder, Walsworth and
+Bollinger empty it and Chupp-Hoare's weaker bound alone leaves it open -- **H-SAME-EPS** (the four experiments bound one
+common parameter) decides it. Controls (G37): every bound 1e7× tighter empties all 18; 1e3× looser opens all 18.
+
+**What moves, and what does not.**
+- *Wave 4 / M-apply said* "EMPTY GIVEN W_W2 -> cell OPEN (N_WREAD)" at 1 AU, N = 7 and N = 1e3, and "ADMISSIBLE GIVEN
+  W_W2 (flagged, not settled)" at the open cells, because the value was unread and two bounds were never checked. On the
+  READ values neither flag applies. **1 AU, N = 7 and 1 AU, N = 1e3 are EXCLUDED given W_W2R** (O-BITS there is LEFT-IF
+  W_W2R, the N = 1e3 reading-A cell also given H-SAME-EPS) -- no longer OPEN pending a read. **The other seven cells are
+  ADMISSIBLE given W_W2R**: not excluded, and never found. Each limit is an upper limit measured consistent with zero.
+- Not over-represented either way. EXCLUDED holds given four named hypotheses, each of which can fail: if H-TRANSFER
+  fails the window *widens* (§4b), and H-MAP, which converts each paper's ε into nlcontrol's, rests on full texts that
+  were not read. ADMISSIBLE is not evidence that a drift exists.
+- The 1 ly, N = 7 tightening (655× / 328×) and 1 AU, N = 1e6 (7.16× / 3.58×) are unchanged (G38): the tightest bound is
+  the same 3.8 μHz the waves used. Its *status* changed, not its value.
+- Support 2 (R_W2′, the ancilla member) still has no window (H-MAP not established for its field): unevaluated.
+- H-12 (§4b): with an unbounded carrier, 1 AU, N = 7 and N = 1e3 still flip to NOT EXCLUDED. The two cells the flip
+  frees are now EXCLUDED given W_W2R without H-12, rather than OPEN.
+- `settle.window_given()` still defaults to the wave-4 dict, kept as `BOUNDS_WEINBERG_WAVE4`, so `combine.py`'s wave-5
+  grounds (which import it) reproduce unchanged. Moving combine's ground rows to `window_read` is for the seating step;
+  `combine.py` was not edited here.
+
+**Named hypotheses added in this pass:** H-BEFRAC (above); **H-SAME-EPS** (above; moves exactly one window);
+**H-ERRATUM** (Chupp & Hoare's erratum leaves the 1.6e-26 figure unchanged; NAMED-NOT-READ; no window rests on it
+except under not-H-SAME-EPS at 1 AU, N = 1e3, A). H-MAP and H-TRANSFER are kept as named hypotheses and are not
+resolved by an abstract.
 
 ## M-apply (2026-10-03): M's rulings, and V3's residuals sited here
 
@@ -220,6 +299,9 @@ READ arXiv restatement that carries the numbers, so both are **NAMED-NOT-READ**.
 Chupp & Hoare 1990 (²¹Ne): **the values are OPEN**. Two further arXiv papers were READ in wave 3 for a restatement:
 2509.04320v1 pp.1-2, 12, 16 and 2511.15935v1 pp.1-3, 5. Neither carries the numbers. Everything below therefore rests on
 the Majumder figure and on two separate sets of named hypotheses (wave 3, RV-1 #3).
+*D68 wave 2 note (kept above as history):* all four are now READ (abstract) at the publisher's public abstract pages,
+Bollinger's and Chupp-Hoare's values as fractions of B/A (6.25 and 30.8 μHz under H-BEFRAC); see the D68 wave 2 section
+at the top. The Walsworth exponent's missing minus sign is at source, not only in a search index's text layer.
 
 **Removal premises** (if these hold and ε exceeds ε_any(L, N), O-BITS is removed):
 * N_EPS: ε > ε_any(L, N).
@@ -240,7 +322,9 @@ the Majumder figure and on two separate sets of named hypotheses (wave 3, RV-1 #
 * H-SPIN: Weinberg's experiments used spins above ½. nlcontrol's term is not rotation-invariant; it belongs to the
   torsion class (2112.09005v3 eq. 99, and p.23: "frequency 2J₁x").
 * H-DILUTION: KR p.13 says nonlinear effects can be diluted by cosmic history.
-* **The bound values are NAMED-NOT-READ, and the bound is an upper limit measured consistent with zero.**
+* **The bound values are NAMED-NOT-READ, and the bound is an upper limit measured consistent with zero.** *D68 wave 2:*
+  READ (abstract); the window premises are W_W2R = {H-MAP, H-TRANSFER, H-SPIN, H-DILUTION}. The bound is still an upper
+  limit measured consistent with zero.
 
 Conditional numbers. The table uses reading A, ε_max = 2.39e-5 s⁻¹; reading B halves ε.
 
@@ -274,7 +358,9 @@ Conditional numbers. The table uses reading A, ε_max = 2.39e-5 s⁻¹; reading 
   *M-apply (V3 problem 3):* every entry in the last column is computed from the unread Majumder value, so "excluded"
   reads **EMPTY GIVEN W_W2 -> cell OPEN** and "not excluded" reads **ADMISSIBLE GIVEN W_W2**, flagged and not settled
   (Bollinger 1989 and Chupp-Hoare 1990 never checked). *Wave 4 first said* "excluded" / "not excluded" unqualified.
-* **Timing at the NAMED-NOT-READ limit.** The drift times are:
+  *D68 wave 2:* on the READ values the entries read **EXCLUDED given W_W2R** (1 AU, N = 7 and 1e3) and **ADMISSIBLE
+  given W_W2R** (the rest); the 4.2465 ly row is in the top section (the 4.24 ly row here is kept as history).
+* **Timing at the NAMED-NOT-READ limit** (*D68 wave 2:* READ (abstract); the value, and so the times, are unchanged). The drift times are:
 
 | reading | N = 7 | N = 1000 |
 |---|---|---|
@@ -380,6 +466,8 @@ H-TRANSFER. Both are right, under different hypotheses:
   Majumder value, so the two 1 AU cells (N = 7, N = 1000) **without** H-12 are **OPEN** pending a READ, not settled
   LEFT. Read the next bullet as: H-12-CARRIER + H-12-W replaces H-TRANSFER in an exclusion that rests on an unread
   value. The exclusion is also nlcontrol's ε mapping only; for the ancilla member (support 2) no window is computed.
+  *D68 wave 2:* the value is READ (abstract), so these two cells are **EXCLUDED given W_W2R** (LEFT-IF W_W2R; the
+  N = 1000 cell under reading A also given H-SAME-EPS), no longer OPEN pending a read.
 - **So W2 × F1 × H-12 removes O-BITS in strictly more cells than W2 × F1 under H-TRANSFER.** The removal premises are
   W2 × F1's. H-12-CARRIER + H-12-W replaces H-TRANSFER among the *window* premises. H-12 is load-bearing on the
   window, not on the removal. An absent bound is not a measurement, so this is not evidence that such a drift exists.
@@ -406,7 +494,8 @@ premise clash. Removal premises and window premises are kept apart. The canonica
 
 - **R_W2** (removal) = {N_EPS, H-C2 (with its no-branch rule), H-FRAME3b ⇐ F1, H-COHERE, H-NLCONTROL-FORM,
   H-BORN-AT-BOB, H-BLOCK}.
-- **W_W2** (window) = {H-MAP, H-TRANSFER, H-SPIN, H-DILUTION, the NAMED-NOT-READ bound values}.
+- **W_W2** (window) = {H-MAP, H-TRANSFER, H-SPIN, H-DILUTION, the NAMED-NOT-READ bound values}. *D68 wave 2:* the values
+  are READ (abstract), leaving **W_W2R** = {H-MAP, H-TRANSFER, H-SPIN, H-DILUTION} (H-SAME-EPS at one window).
 - **R_W2′** (removal, support 2; wave 4) = {H-C2 (with its no-branch rule), H-FRAME3b ⇐ F1, H-COHERE, H-BORN-AT-BOB,
   H-EXTEND, H-FIELD-W2}. Zero-error; no H-BLOCK, no H-NLCONTROL-FORM; H-FIELD-W2 (max‖H‖T ≈ 1.43-1.56 within the
   drift time) replaces N_EPS. Its window is **unevaluated** (H-MAP not established for its field).
@@ -418,9 +507,9 @@ premise clash. Removal premises and window premises are kept apart. The canonica
 | H-SETTLE-KR (causal field-expectation form), alone | OPEN | none (H-KR-TS, wave 4: KR fails Tomonaga-Schwinger integrability, 2511.15935v1 p.4 READ; no signal shown, so O-BITS stays left) | **O-HOLD OPEN** via ε_G (KR p.13, speculation in the source) | corridor O-LOOP | O-BITS, O-MAKE, O-MATTER |
 | Collapse-type stochastic drift | LEAVES-ALL | none (control: no signal) | — | corridor O-LOOP | O-BITS, O-MAKE, O-HOLD, O-MATTER |
 | H-12 alone, linear QM | LEAVES-ALL | none (fields12.py: 1.44e-15) | — | corridor O-LOOP | O-BITS, O-MAKE, O-HOLD, O-MATTER |
-| **H-SETTLE-W × H-FRAME (clause 1)**: both load-bearing (W2 supplies the channel; F1 the slicing and the signal keying) | **PARTIAL** | **O-BITS REMOVED-IF R_W2** (window W_W2; ε_any(1 ly, N = 7) = 3.64e-8 /s, a floor; the window there is **admissible given W_W2** -- one unread bound used, two OPEN -- flagged, not settled; M-apply) **or REMOVED-IF R_W2′** (zero-error; window unevaluated); **signal O-LOOP REMOVED-IF {N_SIGKEY}** under H-SIG-COR | — | corridor O-LOOP | O-MAKE, O-HOLD, O-MATTER (read as O-SEAT) |
+| **H-SETTLE-W × H-FRAME (clause 1)**: both load-bearing (W2 supplies the channel; F1 the slicing and the signal keying) | **PARTIAL** | **O-BITS REMOVED-IF R_W2** (window W_W2; ε_any(1 ly, N = 7) = 3.64e-8 /s, a floor; the window there is **admissible given W_W2** -- one unread bound used, two OPEN -- flagged, not settled; M-apply; *D68 wave 2:* **admissible given W_W2R** on the READ value, no longer flagged) **or REMOVED-IF R_W2′** (zero-error; window unevaluated); **signal O-LOOP REMOVED-IF {N_SIGKEY}** under H-SIG-COR | — | corridor O-LOOP | O-MAKE, O-HOLD, O-MATTER (read as O-SEAT) |
 | H-SETTLE-W × H-12 under H-TRANSFER | adds nothing (to W2 alone or to W2 × F1) | as without H-12 | — | corridor O-LOOP | as without H-12 |
-| H-SETTLE-W × H-FRAME × H-12 under H-12-CARRIER + H-12-W | PARTIAL; H-12 load-bearing **on the window only** | O-BITS REMOVED-IF R_W2, with H-12-CARRIER + H-12-W replacing H-TRANSFER in the window: 2 more of 9 cells (**1 AU, N = 7 and N = 1000**; at 1 AU, N = 1e6 H-12 adds nothing). Wave 4: without H-12 those two cells are LEFT-IF W_W2, hence **OPEN** (W_W2 holds the unread Majumder value) | — | corridor O-LOOP | O-MAKE, **O-HOLD LEFT** (H-12-W is Weinberg form), O-MATTER |
+| H-SETTLE-W × H-FRAME × H-12 under H-12-CARRIER + H-12-W | PARTIAL; H-12 load-bearing **on the window only** | O-BITS REMOVED-IF R_W2, with H-12-CARRIER + H-12-W replacing H-TRANSFER in the window: 2 more of 9 cells (**1 AU, N = 7 and N = 1000**; at 1 AU, N = 1e6 H-12 adds nothing). Wave 4: without H-12 those two cells are LEFT-IF W_W2, hence **OPEN** (W_W2 holds the unread Majumder value). *D68 wave 2:* the value is READ (abstract): without H-12 they are **LEFT-IF W_W2R** | — | corridor O-LOOP | O-MAKE, **O-HOLD LEFT** (H-12-W is Weinberg form), O-MATTER |
 | H-SETTLE-KR × H-12, with G as the carrier | **adds nothing to H-SETTLE-KR alone** (wave 4) | none (KR is causal: O-BITS untouched) | O-HOLD OPEN via ε_G -- **H-SETTLE-KR's alone**; naming G adds no premise the pathway uses | corridor O-LOOP | O-BITS, O-MAKE, O-MATTER |
 | any row above × H-IT read as ITB, under N_QTOPO | as the row | as the row | corridor O-LOOP **NOT-BOUND-IF {N_QTOPO}**; premise clash {N_QTOPO, N_CORR} | does not bind an ITB corridor | signal loops unchanged |
 
@@ -501,8 +590,14 @@ READ means read at source through alphaXiv.
 | 2509.04320v1 (Chodos & Cooper) | READ, pp.1–2, 12, 16 (wave 3) | searched for the 1989-90 bound values; none present |
 | Weinberg 1989 | READ-VIA-RESTATEMENT | qualitative structure only |
 | Gisin 1989, 1990; Polchinski 1991; Simon–Bužek–Gisin 2001 | READ-VIA-RESTATEMENT | |
-| Bollinger 1989; Chupp & Hoare 1990; Walsworth 1990; Majumder 1990 | NAMED-NOT-READ | PRLs that predate arXiv; no READ arXiv restatement carries the numbers (searched again in wave 3) |
+| Bollinger 1989; Chupp & Hoare 1990; Walsworth 1990; Majumder 1990 | **READ (abstract)** (D68 wave 2), via Firecrawl scrapes of the publisher's public abstract pages; *waves 1-4:* NAMED-NOT-READ | the four limits (top section); full texts not read (login wall, not circumvented) |
+| Chupp & Hoare, Erratum, PRL 66, 120 (1991) | NAMED-NOT-READ (public page carries no abstract) | H-ERRATUM |
+| Weinberg, PRL 62, 485 (1989) | READ (abstract), same route | context only ("limits of order 10⁻²¹ on the fraction of the energy of the ⁹Be nucleus") |
+| quant-ph/9801041v1 (Abrams & Lloyd) | READ via alphaXiv, pp.1-10 | cites the four as refs [13]-[16]; no numbers |
+| 2506.04298v1 (Campos Delgado & Plávala) | READ via alphaXiv, pp.1-5, 8 | does not cite the four |
+| 2206.12976v1 | pp.1-2 re-READ via alphaXiv (D68 wave 2) | refs [9]-[12] are the four; "stringent bounds", no numbers |
 | Shannon 1956 (zero-error capacity) | NAMED-NOT-READ | the zero-error step is DERIVED in `zero_error_words` (two words are confusable iff every coordinate pair is equal or confusable) |
 
-No host refused (no 403), in wave 4 either. The D67 audit `fermion-mass-constancy` named 2010.06620 and 1009.5514 "for a future read"; the
+No host refused (no 403), in wave 4 either; nor in D68 wave 2 (journals.aps.org served every public abstract page; the
+full texts sit behind a login wall and were not read). The D67 audit `fermion-mass-constancy` named 2010.06620 and 1009.5514 "for a future read"; the
 pages cited here are now READ. That note is for the board; nothing outside docket68/ was edited.

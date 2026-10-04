@@ -74,6 +74,31 @@ B-combine.md section 0 as history.
   - V4-0 #3: S13 forms no baryons (C3, under H-C3: exact) -- that is what makes S13 not a supply; the ~0.998 mass share
     already at the seat is a first-order estimate (H-LINEAR), not a bound (as a bound: OPEN).
 
+WAVE 7 = D68 WAVE 2 (W2-combine, 2026-10-04: M ruled the order "1 then 2 then 3 then 4"; this is step 2, the open
+pathways pushed by three wave-2 instruments, carried into the screen here).  Wave 6's form of each changed line is kept
+in B-combine.md section 0 as history, and every superseded encoding stays runnable as a named mutation.
+  - W2A-limits (settle.py): the four Weinberg-family limits are READ (abstract) at the publisher's public pages
+    (settle.BOUNDS_WEINBERG; Bollinger and Chupp-Hoare as DERIVED-FROM-READ frequencies under H-BEFRAC).  The window
+    is now computed on READ values under W_W2R = settle.W_W2R = {H-MAP, H-TRANSFER, H-SPIN, H-DILUTION} -- named
+    hypotheses only -- so a cell is no longer 'given W_W2'.  N_WREAD ('a READ could open the window') is RETIRED: the
+    READ was done and the tightest value (Majumder, 3.8 uHz, printed in Hz) is unchanged.  1 AU, N = 7 is EXCLUDED given
+    W_W2R; 1 AU, N = 1e3 is EXCLUDED given W_W2R + H-SAME-EPS (its reading-A window opens on Chupp-Hoare's limit alone,
+    settle.window_read 'robust' False, re-derived here in exact rationals).  The open cells are ADMISSIBLE given W_W2R:
+    not excluded, not found (each limit is an upper bound measured consistent with zero).  Mutation 'wave6-WREAD'
+    restores the wave-6 encoding.
+  - W2B-vacuum (vacuum.py): N_VAC is SPLIT.  (i) the vacuum's entanglement reaches non-communicating probes: TRUE-IF
+    {H-UDW, H-PERTURB, H-MINK-VAC, H-SPACELIKE}; (ii) usable as the channel's pairs with nothing crossing at <= c
+    first: FALSE-IF {H-LOCC, H-NEARMAX, H-PROBE-OPERATED}.  O-MAKE-DIST is LEFT-IF the nine hypotheses of
+    vacuum.GRADES and OPEN outside them via N_NLDIST (a W2-type non-linear local operation: encoded with W2, choice
+    E-NLDIST), N_W2WEAK (W2 drawing a signal from many weak pairs: encoded with SIG = W2 x frame) and N_VACNP (outside
+    H-UDW / H-PERTURB: the board's, no member).  N_VAC is RETIRED from the OPEN list (mutation 'wave6-NVAC' restores
+    it); the nine-hypothesis reading is computed as H-VAC-LEFTIF (mutate 'vac-left-if').  vacuum.GRADES is compared
+    by the drift guard like an A-report.
+  - W2C-seat (seat.py): O-SEAT stays OPEN via N_S5 -- no grade moved.  N_S5's text now carries what seat.py found:
+    the gate's binder at a CI-like body is P (runner-up N), measured in no star of the Proxima system and in no body;
+    accessible mass unmeasured; E_fab computed nowhere, m_set specified nowhere.  seat.grade_o_seat is compared by the
+    drift guard and against z3 in three board states (grounds).
+
 WHAT THIS FILE DOES
   (1) builds the 127 non-empty combinations of the seven hypotheses.  Hypotheses with more than one reading are carried
       in EVERY reading: H-SETTLE W2 / W1 / KR; H-FRAME F1 / F2b / F1+F2b; H-IT ITB / ITE / ITJ (wave 3: the
@@ -82,9 +107,9 @@ WHAT THIS FILE DOES
       slots {none, R-INDEX, R-QUANTUM, both}: (4*4*4*4*2*2*2 - 1)*4 + 3 = 8,191 variants, all screened.  (Wave 4:
       6,143, without SHAPE; wave 2: 4,607, without ITJ.)
   (2) SCREENS each variant in z3 against the board holdings the four A-reports cite, at DISTANCE CELLS (N_EPS is tied
-      to L and N through settle.eps_any_advantage and the NAMED-NOT-READ Weinberg-family limit, under the WINDOW
-      premises, which are held fixed and reported in their own column).  Every holding and commitment is a TRACKED
-      constraint carrying its ground.  An inconsistent variant is named by EVERY minimal unsat core; a set of named
+      to L and N through settle.eps_any_advantage and the READ (abstract) Weinberg-family limits -- wave 6: the
+      NAMED-NOT-READ value -- under the WINDOW premises W_W2R, which are held fixed and reported in their own
+      column).  Every holding and commitment is a TRACKED constraint carrying its ground.  An inconsistent variant is named by EVERY minimal unsat core; a set of named
       premises inconsistent with a variant is a PREMISE CLASH, enumerated the same way.
   (3) per obstruction, the verdict, with EVERY minimal support (members, closed-world absences, named premises):
         REMOVED        forced by the variant's commitments with no named premise
@@ -233,9 +258,14 @@ NAMED = {
              "(A1/A2/A3 wave 3: H-COHERE, H-NLCONTROL-FORM, H-BORN-AT-BOB, H-BLOCK; H-C2 is W2 itself and H-FRAME3b "
              "<= F1 is FRAME from H-FRAME).  N is a FLOOR (N x C >= 2 is Shannon's converse; zero-error capacity 0 at "
              "D < 1, settle.zero_error_table); transfer is block-coded (H-BLOCK).  Tied to the distance cell by "
-             "B-EPSWIN under the WINDOW premises W_W2 = {H-MAP, H-TRANSFER, H-SPIN, H-DILUTION, the NAMED-NOT-READ "
-             "values}, which are not removal premises, are held fixed by B-EPSWIN and are reported in their own "
-             "column (refusing H-TRANSFER widens the window, A1 s.4b: not screened, encoding choice E-WIN)",
+             "B-EPSWIN under the WINDOW premises W_W2R = settle.W_W2R = {H-MAP, H-TRANSFER, H-SPIN, H-DILUTION} -- "
+             "wave 7 (D68 wave 2, W2A-limits): the Weinberg-family values are READ (abstract), so the unread values "
+             "are no longer among them; at 1 AU, N = 1e3 also H-SAME-EPS (the four experiments bound one common "
+             "parameter: reading A opens there on Chupp-Hoare's limit alone).  Wave 6: W_W2 = {..., the "
+             "NAMED-NOT-READ values}.  The window premises are not removal premises, are held fixed by B-EPSWIN and "
+             "are reported in their own column (refusing H-TRANSFER widens the window, A1 s.4b: not screened, "
+             "encoding choice E-WIN).  Every pair count assumes near-maximal (Bell) pairs -- vacuum.py's H-NEARMAX: on "
+             "a harvested vacuum pair the drift signal is 2 eps T rho_perp^2 (T-L)",
     "N_SIGKEY": "the superluminal signal is keyed to the preferred slicing (A1 H-SIG-COR; A2 antitelephone)",
     "N_CORR": "H-CORRIDOR-MODEL: a corridor is an identification of positions by a translation (latticectc H1-H3; "
               "comoving translations in FRW) -- a Lorentzian quotient; clashes with N_QTOPO / N_MEASPHYS (B-QCORR)",
@@ -292,13 +322,21 @@ OPEN_NAMED = {
               "-- R-QUANTUM's refusal is LEFT only IF those three hold",
     "N_EPSG": "a gravitational KR nonlinearity supplies an NEC-violating effective source (KR p.13; eps_G "
               "unconstrained, KR p.14) -- H-SETTLE-KR's open branch",
-    "N_VAC": "pre-existing entanglement (of the vacuum) usable as the channel's pairs with no distribution -- the "
-             "closest reading of M's 'it already exists everywhere'.  READ, Reznik quant-ph/0212044v2: causally "
-             "disconnected probes can end entangled (p.1); it 'vanishes once the regions become sufficiently "
-             "separated' (p.1); p.10: the probes are switched on for T < L/c (causally disconnected); p.12 Fig.2 "
-             "(T = 1, Omega = 9.5, one window function): entangled for L/T < 1.1.  DERIVED-FROM-READ: "
-             "0.91 L/c < T < L/c, for that window and that gap only.  Whether any setup supplies the pairs a qubit "
-             "needs faster than distribution is NOT computed: OPEN",
+    # wave 7 (D68 wave 2, W2B-vacuum; vacuum.GRADES): N_VAC split, its O-MAKE-DIST part OPEN only outside the nine
+    # hypotheses, through three pathways vacuum.py names and does not compute.  N_VAC itself is in HISTORY_OPEN.
+    "N_NLDIST": "vacuum.py OPEN pathway: a state-dependent (W2-type, non-linear) local operation that raises the pair's "
+                "entanglement without messages -- outside H-LOCC (R5-R9 are theorems of linear QM).  Not computed; "
+                "under H-C2 the drift needs a branch, i.e. a measurement that consumes the pair.  Encoded with W2 "
+                "(choice E-NLDIST: vacuum.py's 'W2-type'; the wider reading 'any state-dependent reading', W1 / KR / "
+                "the D-CTC too, is censused beside the screen and adopted nowhere)",
+    "N_W2WEAK": "vacuum.py OPEN pathway: W2 drawing a usable signal from MANY weak harvested pairs (outside H-NEARMAX).  "
+                "The per-pair figure is computed (second order: 2 eps T rho_perp^2, 5.76e-30 at eps = 0.1, T = 3, beta "
+                "= 7, lambda = 0.1; T-L); the many-pair case is not.  Encoded with SIG (a drift signal needs W2 and a "
+                "frame, B-GISIN / B-C2-SLICE)",
+    "N_VACNP": "vacuum.py OPEN pathway: harvesting outside H-UDW or H-PERTURB (atoms and the EM field, non-perturbative "
+               "couplings) that escapes the computed fall with distance (Gaussian N+_max ~ (e/2pi) e^-beta^2/2 beta^-4; "
+               "Reznik's compact window harvests for no gap in [2, 40] beyond L/T = 1.0993).  No READ source found.  "
+               "The board's pathway: no member opens it",
     "N_EQUIL": "H-EQUIL relaxed: Eling-Guedens-Jacobson gr-qc/0602001v1 eq.(21) p.3 (READ) out of local equilibrium; "
                "geometry.egj_fR_throat: T_kk(r0) >= 0 iff beta <= -r0^2/2 (1.9e69 l_P^2 at 1 m vs EGJ's beta ~ "
                "l_P^2), and r^4 T_kk -> -2 r0^2 for every beta (b = r0^2/r, f = 1 + beta R): for the computed shape "
@@ -306,18 +344,47 @@ OPEN_NAMED = {
                "first said 'H-IT with H-ZERO or H-NULL'",
     "N_ILFREE": "whatever carries a non-geometric corridor charges nothing to make or hold it -- the charter: 'its "
                 "cost is then whatever the information layer charges -- this docket's question'.  No source",
-    "N_WREAD": "wave 4 (V2-1 #3, E-WIN): support 1's window rests on W_W2, which holds the NAMED-NOT-READ Weinberg-family "
-               "values (Majumder+ 1990 PRL 65 2931 and kin: pre-arXiv; 2509.04320v1, 2511.15935v1 and 2411.09611v1 "
-               "READ for a restatement, none carries the 1989-90 numbers).  Where the window computed from the unread "
-               "value is EMPTY (1 AU, N <= 1e3), a READ could move eps_max: the exclusion is LEFT-IF W_W2, and by M's "
-               "rule an unread value makes the cell OPEN, never LEFT",
     "N_S5": "wave 6 (V4-0 #4, V4-1 #1; H-SEAT-S5, F-alone's grade, measure.seat_route_s5): the D25 destination stock gate "
             "holds at the destination (a condensed, primitive body holding >= M(p,s) x m_payload of accessible mass in "
             "the arrival aperture -- unchecked at every destination, LEDGER D25 OPEN) AND S5's supply, reconstruction "
             "from that stock, is shown (LEDGER S5 OPEN; its price per reconstruction is not re-derivable, DOCKET 56's "
             "instrument owed).  massform.RECONSTRUCTION_SURVIVES True says only that S5 is NOT REFUSED by M's "
-            "mechanism.  The board's route: no member opens it",
+            "mechanism.  The board's route: no member opens it.  Wave 7 (D68 wave 2, W2C-seat; seat.py, imported in "
+            "the grounds): at Proxima the gate's binder at a CI-like body is P (10.70 kg/kg; runner-up N), measured in "
+            "no star of the Proxima system and in no body in the sources read (not among Morel 2018's 21 alpha Cen "
+            "species), so the composition conjunct cannot be evaluated at its binder; Proxima b's mass READ 1.07 "
+            "M_earth (Faria 2022) but accessible mass unmeasured (H-BODY-ACCESS) and the aperture NOT EVALUABLE; a "
+            "devolatilised body fails the CI budget on N, C, H and P, and Brugger 2016 admits both a primitive and a "
+            "devolatilised Proxima b; E_fab computed nowhere, m_set specified nowhere, k* only an identity.  "
+            "seat.grade_o_seat: OPEN (no conjunct False, none True)",
 }
+# OPEN pathways RETIRED from the screen, kept as history and restored only by a named mutation (never assumed in the
+# adopted screen).  Each carries the wave-7 reason it was retired.
+HISTORY_OPEN = {
+    "N_VAC": "wave 1-6 (retired wave 7: D68 wave 2, vacuum.py split it; mutation 'wave6-NVAC' restores it): 'pre-existing "
+             "entanglement (of the vacuum) usable as the channel's pairs with no distribution -- the closest reading of "
+             "M's \"it already exists everywhere\".  READ, Reznik quant-ph/0212044v2: causally disconnected probes can "
+             "end entangled (p.1); it \"vanishes once the regions become sufficiently separated\" (p.1); p.10: the probes "
+             "are switched on for T < L/c (causally disconnected); p.12 Fig.2 (T = 1, Omega = 9.5, one window "
+             "function): entangled for L/T < 1.1.  DERIVED-FROM-READ: 0.91 L/c < T < L/c, for that window and that gap "
+             "only.  Whether any setup supplies the pairs a qubit needs faster than distribution is NOT computed: "
+             "OPEN'.  Wave 7: computed (vacuum.py): part (i) TRUE-IF {H-UDW, H-PERTURB, H-MINK-VAC, H-SPACELIKE}, part "
+             "(ii) FALSE-IF {H-LOCC, H-NEARMAX, H-PROBE-OPERATED}; the window is COMPUTED, T > 0.9097 L/c over every gap "
+             "in [2, 40]; what stays OPEN is N_NLDIST, N_W2WEAK, N_VACNP",
+    "N_WREAD": "wave 4-6 (retired wave 7: D68 wave 2, W2A-limits READ the values; mutation 'wave6-WREAD' restores it): "
+               "'support 1's window rests on W_W2, which holds the NAMED-NOT-READ Weinberg-family values (Majumder+ 1990 "
+               "PRL 65 2931 and kin: pre-arXiv; 2509.04320v1, 2511.15935v1 and 2411.09611v1 READ for a restatement, none "
+               "carries the 1989-90 numbers).  Where the window computed from the unread value is EMPTY (1 AU, N <= "
+               "1e3), a READ could move eps_max: the exclusion is LEFT-IF W_W2, and by M's rule an unread value makes "
+               "the cell OPEN, never LEFT'.  Wave 7: all four READ (abstract) at the publisher's public pages; the "
+               "tightest (Majumder 3.8 uHz, printed in Hz) is unchanged, so the window premises are W_W2R, named "
+               "hypotheses only, and the empty cells are EXCLUDED given W_W2R (1 AU, N = 1e3 also given H-SAME-EPS)",
+}
+# the vacuum route's OPEN pathways (drift rule Z2', wave 7)
+VAC_OPEN = ("N_NLDIST", "N_W2WEAK", "N_VACNP")
+#: the nine hypotheses vacuum.GRADES names for O-MAKE-DIST's LEFT-IF (the named reading H-VAC-LEFTIF)
+VAC_LEFTIF = ("H-UDW", "H-PERTURB", "H-O4-FLOOR", "H-MINK-VAC", "H-SPACELIKE", "H-LOCC", "H-IID", "H-NEARMAX",
+              "H-PROBE-OPERATED")
 
 LIT_NAMES = ["W2", "W1", "KR", "F1", "F2b", "ITB", "ITE", "ITJ", "H12", "INFO", "INFOS", "SHAPE", "ZERO", "NULL", "RI",
              "RQ"]
@@ -358,7 +425,7 @@ ALT_OPEN = {"N_S12": "H-SEAT-S12 (adopted nowhere): the pair route S12 supplies 
 
 
 def atoms():
-    A = {n: z3.Bool(n) for n in LIT_NAMES + PHYS + list(NAMED) + list(OPEN_NAMED) + list(ALT_OPEN)}
+    A = {n: z3.Bool(n) for n in LIT_NAMES + PHYS + list(NAMED) + list(OPEN_NAMED) + list(ALT_OPEN) + list(HISTORY_OPEN)}
     A.update({RM[o]: z3.Bool(RM[o]) for o in OBST})
     A.update({NB[o]: z3.Bool(NB[o]) for o in NB_OBST})
     return A
@@ -367,58 +434,117 @@ def atoms():
 # =====================================================================================================================
 # THE eps WINDOW PER CELL (z3 over the reals) -- feeds B-EPSWIN
 # =====================================================================================================================
+def _tightest(ST):
+    """The tightest READ (abstract) Weinberg-family limit, by settle's own table (imported, never copied)."""
+    fs = {k: d["f_Hz"] for k, d in ST.BOUNDS_WEINBERG.items()}
+    return min(fs, key=fs.get), fs
+
+
 def eps_window(L_list=None, N_list=(7, 1000, 1e6)):
     """Is eps_any(L, N) < eps <= eps_max(reading) satisfiable?  eps_any from settle.eps_any_advantage (the infimum eps at
     which N pairs carry 2 bits with drift time T < L/c; wave 1 used settle.eps_to_remove at the DECLARED T = L/2c, which
-    is exactly twice it); eps_max from settle's Majumder figure (NAMED-NOT-READ) under both H-MAP readings.  The wave-1
-    figure is reported beside it, labelled DECLARED-FRAC.  Exact rationals of the doubles: no parse drift.  Returns
-    rows and the vacuity check (eps > 0 alone satisfiable)."""
+    is exactly twice it); eps_max from the TIGHTEST READ (abstract) Weinberg-family limit (wave 7, D68 wave 2: settle.
+    BOUNDS_WEINBERG, all four READ at the publisher's public abstract pages; wave 6: the NAMED-NOT-READ Majumder figure,
+    the same number) under both H-MAP readings.  Wave 7 also computes the window on EACH of the four READ limits
+    ('per_bound'), so 'robust' says whether H-SAME-EPS (the four experiments bound one common parameter) decides the
+    cell.  The wave-1 figure is reported beside it, labelled DECLARED-FRAC.  Exact rationals of the doubles: no parse
+    drift.  Returns rows and the vacuity check (eps > 0 alone satisfiable)."""
     ST = _quiet("settle")
-    f = ST.BOUNDS_WEINBERG["Majumder+ 1990, 201Hg, PRL 65 2931"]["f_Hz"]
-    L_list = L_list or (("1 AU", ST.AU_M), ("1 ly", ST.LY_M), ("4.24 ly", 4.24 * ST.LY_M))
+    tight, fs = _tightest(ST)
+    L_list = L_list or tuple(ST.WINDOW_READ_L)
     out = []
-    for lab, emax in ST.eps_readings(f).items():
+
+    def sat_window(lo, hi, strict=True):
+        e = z3.Real("eps")
+        s = z3.Solver()
+        s.add(e > z3.RealVal(str(Fr(lo))) if strict else e >= z3.RealVal(str(Fr(lo))), e <= z3.RealVal(str(Fr(hi))))
+        return s.check() == z3.sat
+
+    for lab in ST.eps_readings(fs[tight]):
         for Ln, L in L_list:
             for N in N_list:
                 eany = ST.eps_any_advantage(L, N)
                 ehalf = ST.eps_to_remove(L, N)
-                e = z3.Real("eps")
-                s = z3.Solver()
-                s.add(e > z3.RealVal(str(Fr(eany))), e <= z3.RealVal(str(Fr(emax))))
-                s2 = z3.Solver()
-                s2.add(e >= z3.RealVal(str(Fr(ehalf))), e <= z3.RealVal(str(Fr(emax))))
+                per = {}
+                for k, f in fs.items():
+                    emax_k = ST.eps_readings(f)[lab]
+                    per[k] = (eany is not None) and sat_window(eany, emax_k)
+                emax = ST.eps_readings(fs[tight])[lab]
                 out.append({"reading": lab, "L": Ln, "N": N, "eps_any_advantage": eany, "eps_max": emax,
-                            "consistent": s.check() == z3.sat, "eps_at_T=L/2c (DECLARED-FRAC, wave 1)": ehalf,
-                            "consistent_at_T=L/2c (wave 1)": s2.check() == z3.sat})
+                            "bound_used": tight, "consistent": per[tight], "per_bound": per,
+                            "robust": len(set(per.values())) == 1,
+                            "eps_at_T=L/2c (DECLARED-FRAC, wave 1)": ehalf,
+                            "consistent_at_T=L/2c (wave 1)": (ehalf is not None) and sat_window(ehalf, emax, False)})
     s = z3.Solver(); e = z3.Real("eps"); s.add(e > 0)
     return out, s.check() == z3.sat
 
 
 _WIN_CACHE = {}
 
-# V3 residual 3 (wave 5): an OPEN window computed from the unread value is admissible GIVEN that value, flagged, not
-# settled (settle.window_given, imported in the grounds: Majumder and Walsworth NAMED-NOT-READ, Bollinger 1989 and
-# Chupp-Hoare 1990 OPEN -- never checked at all).  Wave 4 applied the rule one way only (empty -> OPEN via N_WREAD).
-WINDOW_GIVEN_FLAG = ("ADMISSIBLE GIVEN W_W2 (flagged, not settled): the window is open from the NAMED-NOT-READ "
-                     "Majumder figure; Walsworth NAMED-NOT-READ; Bollinger 1989 and Chupp-Hoare 1990 OPEN, never "
-                     "checked")
+# V3 residual 3 (wave 5): an OPEN window computed from an unread value is admissible GIVEN that value, flagged, not
+# settled.  Wave 7 (D68 wave 2): the values are READ (abstract), so the flag names W_W2R -- named hypotheses only -- and
+# says what an open window is: not excluded, not found.  Wave 5-6's flag is kept as history.
+WINDOW_GIVEN_FLAG_WAVE6 = ("ADMISSIBLE GIVEN W_W2 (flagged, not settled): the window is open from the NAMED-NOT-READ "
+                           "Majumder figure; Walsworth NAMED-NOT-READ; Bollinger 1989 and Chupp-Hoare 1990 OPEN, never "
+                           "checked")
+WINDOW_READ_FLAG = ("ADMISSIBLE given W_W2R = {H-MAP, H-TRANSFER, H-SPIN, H-DILUTION}: the window is open on the READ "
+                    "(abstract) Weinberg-family limits (tightest Majumder 3.8 uHz) -- not excluded, not found: each limit "
+                    "is an upper bound measured consistent with zero")
+WINDOW_EMPTY_FLAG = "EXCLUDED given W_W2R (window EMPTY on the READ (abstract) limits)"
+
+
+def cell_window_detail(cell, attr_mult_N=None):
+    """Per cell: the window on the tightest READ limit under each H-MAP reading, the window on each READ limit, whether
+    the four agree ('robust'), and the WINDOW premises the verdict rests on: settle.W_W2R, plus H-SAME-EPS wherever the
+    four limits disagree (wave 7)."""
+    ST = _quiet("settle")
+    attr, mult, N = attr_mult_N or CELLS[cell]
+    L = getattr(ST, attr) * mult
+    lab = ("1 ly" if mult == 1.0 else f"{mult:g} ly") if attr == "LY_M" else "1 AU"
+    rows, _ = eps_window(L_list=((lab, L),), N_list=(N,))
+    prem = list(ST.W_W2R) + ([] if all(r["robust"] for r in rows) else ["H-SAME-EPS"])
+    return {"cell": cell, "L": lab, "N": N,
+            "by_reading": {r["reading"]: {"tightest": r["consistent"], "per_bound": r["per_bound"],
+                                          "robust": r["robust"]} for r in rows},
+            "window_premises": prem,
+            "non_robust_readings": [r["reading"] for r in rows if not r["robust"]],
+            "opens_without_H-SAME-EPS_on": sorted({k for r in rows if not r["robust"] for k, v in r["per_bound"].items()
+                                                  if v != r["consistent"]})}
 
 
 def cell_window_open(cell):
-    """True iff the transferred-bound window is non-empty at this cell under BOTH H-MAP readings; False iff empty under
-    both.  A cell where the readings disagree is refused (it would make B-EPSWIN depend on H-MAP)."""
+    """True iff the transferred-bound window is non-empty at this cell under BOTH H-MAP readings, on the tightest READ
+    limit; False iff empty under both.  A cell where the readings disagree is refused (it would make B-EPSWIN depend on
+    H-MAP).  Where the four READ limits disagree, the tightest is used and H-SAME-EPS joins the window premises
+    (cell_window_detail)."""
     if cell in _WIN_CACHE:
         return _WIN_CACHE[cell]
-    ST = _quiet("settle")
-    attr, mult, N = CELLS[cell]
-    L = getattr(ST, attr) * mult
-    lab = "1 ly" if attr == "LY_M" else "1 AU"
-    rows, _ = eps_window(L_list=((lab, L),), N_list=(N,))
-    vals = {r["consistent"] for r in rows}
+    d = cell_window_detail(cell)
+    vals = {v["tightest"] for v in d["by_reading"].values()}
     if len(vals) != 1:
         raise ValueError(f"cell {cell}: the H-MAP readings disagree -- refused")
     _WIN_CACHE[cell] = vals.pop()
     return _WIN_CACHE[cell]
+
+
+def cells_read_table():
+    """Wave 7: every (L, N) cell of settle.WINDOW_READ_L x (7, 1e3, 1e6) -- the 9 cells W2A-limits computed -- with
+    combine's exact-rational window, its premises, and the screened board it equals.  The board takes a cell only
+    through B-EPSWIN's boolean, so a cell with an open window screens as 1 ly, N = 7 and an empty one as 1 AU, N = 7
+    (STRUCTURAL); the content is the computed window."""
+    ST = _quiet("settle")
+    out = []
+    for Ln, L in ST.WINDOW_READ_L:
+        attr, mult = ("AU_M", L / ST.AU_M) if Ln == "1 AU" else ("LY_M", L / ST.LY_M)
+        for N in (7, 1000, 1e6):
+            d = cell_window_detail(f"{Ln}, N = {N:g}", (attr, mult, N))
+            vals = {v["tightest"] for v in d["by_reading"].values()}
+            w = vals.pop() if len(vals) == 1 else None
+            out.append({"L": Ln, "N": N, "window_open": w, "window_premises": d["window_premises"],
+                        "non_robust_readings": d["non_robust_readings"],
+                        "opens_without_H-SAME-EPS_on": d["opens_without_H-SAME-EPS_on"],
+                        "same_board_as": CELL_MAIN if w else CELL_AU if w is False else "REFUSED (H-MAP readings disagree)"})
+    return out
 
 
 # =====================================================================================================================
@@ -438,8 +564,23 @@ def _board(A, win_open, mutate=()):
     slice_mut = z3.BoolVal(True)
     # wave 4: support 2 of W2 x F1 (N_W2ANC); CONTROL 'support1-only' drops it, to read support 1's own status per cell
     cap_prem = A["N_EPS"] if "support1-only" in mutate else Or(A["N_EPS"], A["N_W2ANC"])
-    # wave 4: an unread window value keeps N_EPS possible through N_WREAD; CONTROL 'wave3-WINDOW-SETTLED' removes it
-    wread = z3.BoolVal(False) if "wave3-WINDOW-SETTLED" in mutate else A["N_WREAD"]
+    # wave 4-6: an unread window value kept N_EPS possible through N_WREAD.  Wave 7 (D68 wave 2): the values are READ
+    # (abstract), N_WREAD is retired (HISTORY_OPEN); mutation 'wave6-WREAD' restores wave 6's encoding.  ('wave3-WINDOW-
+    # SETTLED', wave 4's control, is now the adopted form, on READ values.)
+    wread = A["N_WREAD"] if "wave6-WREAD" in mutate else z3.BoolVal(False)
+    # wave 7 (D68 wave 2, W2B-vacuum, vacuum.GRADES): distribution is forced unless one of vacuum.py's three OPEN pathways
+    # holds -- N_NLDIST with W2 (E-NLDIST), N_W2WEAK with a drift signal (SIG), N_VACNP the board's.  Mutations: 'wave6-NVAC'
+    # (history: wave 6's single pathway N_VAC); 'vac-left-if' (the named reading H-VAC-LEFTIF: the nine hypotheses of
+    # vacuum.GRADES assumed, DIST bare); 'nldist-any-nonlinear' (the wider reading of N_NLDIST, adopted nowhere);
+    # 'vac-asserted' (CONTROL: M's 'it already exists everywhere' asserted -- no distribution, by assertion)
+    if "wave6-NVAC" in mutate:
+        vac_open = A["N_VAC"]
+    elif "vac-left-if" in mutate:
+        vac_open = z3.BoolVal(False)
+    else:
+        nl_who = Or(A["W2"], A["W1"], A["KR"], A["CAPD"]) if "nldist-any-nonlinear" in mutate else A["W2"]
+        vac_open = Or(An(nl_who, A["N_NLDIST"]), An(A["SIG"], A["N_W2WEAK"]), A["N_VACNP"])
+    locc = z3.Not(A["DIST"]) if "vac-asserted" in mutate else I(N(vac_open), A["DIST"])
     if "wave2-SLICE-INTRINSIC" in mutate:  # CONTROL: wave 2's free N_FRAME3b, i.e. the drift selects its own slicing
         frame_src = Or(frame_src, A["W2"])
         slice_mut = I(A["W2"], A["FRAME"])
@@ -517,12 +658,15 @@ def _board(A, win_open, mutate=()):
                   "(wave 4): N_EPS (R_W2, block-coded floors, window B-EPSWIN) or N_W2ANC (R_W2', zero-error, window "
                   "unevaluated)",
          Eq(A["CAP"], An(A["SIG"], cap_prem))),
-        ("B-EPSWIN", f"combine.eps_window (z3 reals) at this cell, under the WINDOW premises W_W2 (held fixed; not "
-                     f"removal premises): the transferred-bound window is "
+        ("B-EPSWIN", f"combine.eps_window (z3 reals) at this cell, on the TIGHTEST READ (abstract) Weinberg-family "
+                     f"limit (settle.BOUNDS_WEINBERG; wave 7, D68 wave 2), under the WINDOW premises W_W2R = "
+                     f"settle.W_W2R, plus H-SAME-EPS where the four READ limits disagree (held fixed; not removal "
+                     f"premises): the transferred-bound window is "
                      f"{'NON-EMPTY' if win_open else 'EMPTY'} under both H-MAP readings; an unbounded H-12 carrier "
                      f"(N_H12W, replacing H-TRANSFER) frees N_EPS from it (settle.h12_carrier_case: 2 of 9 cells flip).  "
-                     f"Wave 4: W_W2 holds NAMED-NOT-READ values, so where the computed window is empty N_EPS stays "
-                     f"possible through the OPEN pathway N_WREAD (a READ could open it): the cell is OPEN, not LEFT",
+                     f"Wave 4-6: W_W2 held NAMED-NOT-READ values, so where the computed window was empty N_EPS stayed "
+                     f"possible through the OPEN pathway N_WREAD; wave 7: READ, so an empty window EXCLUDES support 1 "
+                     f"given W_W2R (N_WREAD retired)",
          I(A["N_EPS"], Or(z3.BoolVal(bool(win_open)), An(A["H12"], A["N_H12W"]), wread))),
         ("B-TOPO", "Geroch 1967 (board D67 NARROWED, kinematic theorem stands) / Tipler 1977 (NARROWED) bind a "
                    "corridor made by a classical Lorentzian topology change (GTOPO).  It fails to be one only under a "
@@ -538,8 +682,16 @@ def _board(A, win_open, mutate=()):
          Eq(N(A["THROAT"]), A["NONGEO"])),
         ("B-LOCC", "MS 1306.0533v2 sec.3.2 pp.16-17 (READ): LOCC cannot create entanglement, no bridge "
                    "'without preexisting bridges'; geometry.locc_entropy_change 8.9e-16; transit."
-                   "TRAVERSAL_IS_REMOVED False; combine.product_drift: the drift on a product state gives exactly 0",
-         I(N(A["N_VAC"]), A["DIST"])),
+                   "TRAVERSAL_IS_REMOVED False; combine.product_drift: the drift on a product state gives exactly 0.  "
+                   "Wave 7 (D68 wave 2, vacuum.py, imported in the grounds): the vacuum's entanglement reaches "
+                   "non-communicating probes (TRUE-IF {H-UDW, H-PERTURB, H-MINK-VAC, H-SPACELIKE}; Reznik Figs.1-2 "
+                   "reproduced) but is not usable as the channel's pairs with nothing crossing at <= c first (FALSE-IF "
+                   "{H-LOCC, H-NEARMAX, H-PROBE-OPERATED}): the probes cross (D23), the harvested state is symmetric "
+                   "extendible on both sides (Chen et al. 1310.3530v2 Thm 1), so near-maximal pairs need classical "
+                   "messages each way; the computed floor arrives at 2.50 / 3.00 L/c.  Distribution is RELOCATED, not "
+                   "removed: LEFT-IF the nine hypotheses of vacuum.GRADES, OPEN outside them via N_NLDIST (with W2), "
+                   "N_W2WEAK (with SIG), N_VACNP.  Wave 1-6: OPEN via N_VAC only",
+         locc),
         ("B-HELD", "geometry.r_quantum: the QEI duration bound covers 2.08e-68 of the 1 m throat's deficit, LEFT only IF "
                    "{H_flat, H-PATH, H-MIN-SCALAR} (A4 wave 3; wave 2 first said 'minimal scalar, in scope'); "
                    "zero.py and geometry.nec_shift_z3: a zero shift moves the NEC by exactly 0; geometry.qnec_price: "
@@ -681,10 +833,17 @@ def _commitments(A):
 # THE ENGINE
 # =====================================================================================================================
 class Screen:
-    def __init__(self, cell=CELL_MAIN, mutate=(), drop=()):
+    def __init__(self, cell=CELL_MAIN, mutate=(), drop=(), win_open=None):
+        """win_open (wave 7): an explicit window boolean, used ONLY by the controls that move the READ limit (a loosened
+        or tightened bound, settle.window_read(scale=...)) or refuse H-SAME-EPS; the screen always computes it."""
         self.cell = cell
-        self.win_open = cell_window_open(cell)
+        self.win_open = cell_window_open(cell) if win_open is None else bool(win_open)
         self.mutate = tuple(mutate)
+        # wave 7: the OPEN pathways of THIS encoding -- a history mutation restores a retired one
+        self.open_named = list(OPEN_NAMED) + [k for k, m in (("N_VAC", "wave6-NVAC"), ("N_WREAD", "wave6-WREAD"))
+                                              if m in self.mutate]
+        if "wave6-NVAC" in self.mutate:
+            self.open_named = [k for k in self.open_named if k not in VAC_OPEN]
         self.A = atoms()
         self.s = z3.Solver()
         self.ind = {}            # indicator name -> (constraint name, ground)
@@ -698,9 +857,9 @@ class Screen:
         self.base = [self.byname[n] for n in self.ind]
         # wave 4: OPEN pathways are never assumed in a removal -- held FALSE whenever premise sets, supports and accounts
         # are computed (only _open_status sets them, one at a time)
-        self.noopen = [z3.Not(self.A[k]) for k in OPEN_NAMED]
+        self.noopen = [z3.Not(self.A[k]) for k in self.open_named]
         self.constraints = {n: e for n, _, e in board}
-        for n in LIT_NAMES + list(NAMED) + list(OPEN_NAMED):
+        for n in LIT_NAMES + list(NAMED) + list(self.open_named):
             self.byname[n] = self.A[n]
             self.byname[str(z3.Not(self.A[n]))] = z3.Not(self.A[n])
 
@@ -876,12 +1035,12 @@ class Screen:
 
     def _open_status(self, L, rm):
         A = self.A
-        closed = L + [z3.Not(A[k]) for k in OPEN_NAMED] + [rm]
+        closed = L + [z3.Not(A[k]) for k in self.open_named] + [rm]
         if self.sat(closed):
             return {"verdict": "SILENT"}
         opens = []
-        for k in OPEN_NAMED:
-            trial = L + [A[k] if j == k else z3.Not(A[j]) for j in OPEN_NAMED] + [rm]
+        for k in self.open_named:
+            trial = L + [A[k] if j == k else z3.Not(A[j]) for j in self.open_named] + [rm]
             if self.sat(trial):
                 opens.append(k)
         return {"verdict": "OPEN", "via": opens} if opens else {"verdict": "LEFT"}
@@ -899,8 +1058,10 @@ class Screen:
         signature() does not read it, so no verdict can move by it."""
         if "N_EPS" in sp["named"]:
             if "N_H12W" in sp["named"]:
-                return "N_EPS through N_H12W: H-12 replaces H-TRANSFER; the unread window is not used"
-            return WINDOW_GIVEN_FLAG if self.win_open else "EMPTY GIVEN W_W2 -> OPEN (N_WREAD)"
+                return "N_EPS through N_H12W: H-12 replaces H-TRANSFER; the READ window is not used"
+            if "wave6-WREAD" in self.mutate:          # history encoding only
+                return WINDOW_GIVEN_FLAG_WAVE6 if self.win_open else "EMPTY GIVEN W_W2 -> OPEN (N_WREAD)"
+            return WINDOW_READ_FLAG if self.win_open else WINDOW_EMPTY_FLAG
         if "N_W2ANC" in sp["named"]:
             return "UNEVALUATED: H-MAP not established for support 2's field (no READ bound reaches it)"
         return None
@@ -1295,11 +1456,17 @@ def guard_vacuity(scr, scr_au):
     out["named_jointly_sat_with_board (1 ly)"] = scr.sat(none + scr.noopen + [A[n] for n in NAMED])
     out["named_jointly_UNSAT_with_board (1 AU: N_EPS excluded)"] = not scr_au.sat(scr_au.lits(set()) + scr_au.noopen +
                                                                                   [scr_au.A[n] for n in NAMED])
-    # wave 4 (V2-1 #3): the exclusion at 1 AU, N <= 1e3 rests on an unread value -- N_EPS stays possible there only
-    # through the OPEN pathway N_WREAD, and the support-1 route is then OPEN, not LEFT (control: wave 3's settled window)
-    out["CONTENT at 1 AU N_EPS admissible only through N_WREAD (OPEN pathway)"] = (
-        scr_au.sat(scr_au.lits({"W2", "F1"}) + [scr_au.A["N_EPS"], scr_au.A["N_WREAD"]]) and
-        not scr_au.sat(scr_au.lits({"W2", "F1"}) + [scr_au.A["N_EPS"], z3.Not(scr_au.A["N_WREAD"])]))
+    # wave 4-6 (V2-1 #3): the exclusion at 1 AU, N <= 1e3 rested on an unread value -- N_EPS stayed possible there only
+    # through the OPEN pathway N_WREAD.  Wave 7 (D68 wave 2): the value is READ, so at 1 AU N_EPS is inadmissible without
+    # H12 (EXCLUDED given W_W2R), admissible with H12 + N_H12W; the HISTORY encoding 'wave6-WREAD' reproduces wave 6
+    au_w6 = Screen(cell=CELL_AU, mutate=("wave6-WREAD",))
+    out["CONTENT at 1 AU N_EPS inadmissible without H12 on the READ value, admissible with H12 + N_H12W"] = (
+        not scr_au.sat(scr_au.lits({"W2", "F1"}) + scr_au.noopen + [scr_au.A["N_EPS"]]) and
+        not scr_au.sat(scr_au.lits({"W2", "F1"}) + [scr_au.A["N_EPS"]]) and
+        scr_au.sat(scr_au.lits({"W2", "F1", "H12"}) + scr_au.noopen + [scr_au.A["N_EPS"], scr_au.A["N_H12W"]]))
+    out["HISTORY wave 6's encoding (N_WREAD restored): N_EPS admissible at 1 AU only through N_WREAD"] = (
+        au_w6.sat(au_w6.lits({"W2", "F1"}) + [au_w6.A["N_EPS"], au_w6.A["N_WREAD"]]) and
+        not au_w6.sat(au_w6.lits({"W2", "F1"}) + [au_w6.A["N_EPS"], z3.Not(au_w6.A["N_WREAD"])]))
     out["all_named_and_open_sat_with_board"] = scr.sat(none + [A[n] for n in list(NAMED) + list(OPEN_NAMED)])
     caught = {
         "ITE & W2 (MS assumptions vs per-branch drift)": not scr.sat(scr.lits({"ITE", "W2"})),
@@ -1325,6 +1492,22 @@ def guard_vacuity(scr, scr_au):
         "planted D-CTC channel without clause 2b": not scr.sat(none + [A["CAPD"]]),
     }
     out["known_contradictions_caught"] = caught
+    # wave 7 (D68 wave 2, W2B-vacuum): O-MAKE-DIST's three OPEN pathways, each tied as vacuum.py states it.  Every query
+    # holds the OTHER pathways false, so each is carried by its own disjunct of B-LOCC
+    def only(sc, k):
+        return [sc.A[k]] + [z3.Not(sc.A[j]) for j in sc.open_named if j != k]
+    rmd = A["rm:O-MAKE-DIST"]
+    out["CONTROL vacuum pathways tied as encoded: N_NLDIST opens O-MAKE-DIST only with W2, N_W2WEAK only with a drift "
+        "signal (W2 and a frame), N_VACNP in the board-alone variant"] = (
+        scr.sat(scr.lits({"W2"}) + only(scr, "N_NLDIST") + [rmd]) and not scr.sat(scr.lits({"W1"}) + only(scr, "N_NLDIST") + [rmd])
+        and not scr.sat(none + only(scr, "N_NLDIST") + [rmd])
+        and scr.sat(scr.lits({"W2", "F1"}) + only(scr, "N_W2WEAK") + [rmd])
+        and not scr.sat(scr.lits({"W2"}) + only(scr, "N_W2WEAK") + [rmd])
+        and scr.sat(none + only(scr, "N_VACNP") + [rmd]) and not scr.sat(nb0_v := none + scr.noopen + [rmd]))
+    va = Screen(mutate=("vac-asserted",))
+    out["CONTROL vac-asserted (no distribution by assertion): O-MAKE-DIST removable with every OPEN pathway false, and "
+        "the adopted screen refuses it"] = (va.sat(va.lits(set()) + va.noopen + [va.A["rm:O-MAKE-DIST"]]) and
+                                            not scr.sat(nb0_v))
     out["F1 & F2b consistent as commitments (wave 1 called this M's sentence contradicting itself)"] = scr.sat(
         scr.lits({"F1", "F2b"}))
     out["ITB & RI & RQ consistent as commitments (wave 1's clash b was B-THROAT's slip)"] = scr.sat(
@@ -1405,6 +1588,21 @@ def guard_vacuity(scr, scr_au):
         f"{seat_routes_left} -- STRUCTURAL: with S5 excluded from DEF-SEAT the two named tests are bare refusals, so "
         f"O-SEAT stands in every model; that the restriction is a CHOICE (M named two tests, not the only routes) is "
         f"what the name records")
+    # wave 7 (D68 wave 2): the vacuum route's two STRUCTURAL faces -- N_VACNP is untied (the board's), so O-MAKE-DIST is
+    # OPEN via N_VACNP in every model; and the named reading H-VAC-LEFTIF (DIST bare) makes it LEFT in every model
+    vl = Screen(mutate=("vac-left-if",))
+    vac_struct_open = scr.variant(set())["per"]["O-MAKE-DIST"] == {"verdict": "OPEN", "via": ["N_VACNP"]}
+    vac_leftif = (vl.variant(set())["per"]["O-MAKE-DIST"] == {"verdict": "LEFT"} and
+                  vl.variant({"W2", "F1"})["per"]["O-MAKE-DIST"] == {"verdict": "LEFT"})
+    structural["O-MAKE-DIST OPEN via N_VACNP in the board-alone variant (wave 7, vacuum.py)"] = (
+        f"{vac_struct_open} -- STRUCTURAL: N_VACNP is the board's pathway (no member), so B-LOCC admits no distribution "
+        f"through it in every model; the content is the tied pathways (CONTROL: N_NLDIST only with W2, N_W2WEAK only with a "
+        f"drift signal) and the vacuum.py grounds (symmetric extension both sides, the timeline floor)")
+    structural["H-VAC-LEFTIF (named reading: the nine hypotheses of vacuum.GRADES assumed): O-MAKE-DIST LEFT, board "
+               "alone and under W2 x F1"] = (
+        f"{vac_leftif} -- STRUCTURAL: with the three pathways closed DIST is bare; that the nine are HYPOTHESES (and the "
+        f"three pathways their complement) is what the name records; the drift guard tells this reading from the adopted "
+        f"one on exactly the W2B-vacuum row (CONTENT)")
     structural["ALTERNATIVE H-SEAT-S12 (adopted nowhere): O-SEAT would read OPEN via N_S12"] = (
         f"{alt12} -- STRUCTURAL: by construction of the alternative (S12SUP => N_S12); its content is which LEDGER "
         f"route it reads as a supply (S12, OPEN, priced 1.2567e19 J for 70 kg; its energy must be at the seat, D23)")
@@ -1413,7 +1611,12 @@ def guard_vacuity(scr, scr_au):
     ok = (out["board_alone_sat"] and all(out["each_single_reading_sat"].values())
           and out["INFOS_alone_unsat (a clash with B-RECV, A3)"] and out["named_jointly_sat_with_board (1 ly)"]
           and out["named_jointly_UNSAT_with_board (1 AU: N_EPS excluded)"] and out["all_named_and_open_sat_with_board"]
-          and out["CONTENT at 1 AU N_EPS admissible only through N_WREAD (OPEN pathway)"]
+          and out["CONTENT at 1 AU N_EPS inadmissible without H12 on the READ value, admissible with H12 + N_H12W"]
+          and out["HISTORY wave 6's encoding (N_WREAD restored): N_EPS admissible at 1 AU only through N_WREAD"]
+          and out["CONTROL vac-asserted (no distribution by assertion): O-MAKE-DIST removable with every OPEN pathway "
+                  "false, and the adopted screen refuses it"]
+          and out["CONTROL vacuum pathways tied as encoded: N_NLDIST opens O-MAKE-DIST only with W2, N_W2WEAK only with "
+                  "a drift signal (W2 and a frame), N_VACNP in the board-alone variant"]
           and all(caught.values()) and out["board_admits_loop"] and out["board_admits_no_loop"]
           and out["board_alone_forces_recv"]
           and out["CONTROL without B-RECV, INFOS becomes consistent (the clash is carried by B-RECV)"]
@@ -1451,7 +1654,40 @@ def _report_grades():
             G["A3-measure"] = list(G["A3-measure"]) + [{"hypothesis": SHAPE_GRADE_KEY, "verdict": gs["verdict"],
                                                          "per_obstruction": dict(gs["per"]),
                                                          "source": "measure.GRADES (A3 JSON has no such row)"}]
+    G.update(_w2_grades())
     return G
+
+
+SEAT_GRADE_TEXT = {"OPEN": "OPEN via S5/D25 (seat.grade_o_seat(seat.board_state()))",
+                   "LEFT on the S5 pathway": "LEFT on the S5 pathway",
+                   "REMOVABLE (pending seating and M)": "REMOVED-IF {S5 shown, D25 holds} (pending seating and M)"}
+
+
+def _w2_grades():
+    """Wave 7 (D68 wave 2): the wave-2 instruments' OWN grades, read from the instruments (imported, never retyped) and
+    compared by the drift guard like an A-report: vacuum.GRADES['O-MAKE-DIST'] (W2B-vacuum, the board-alone variant: the
+    vacuum route is the board's) and seat.grade_o_seat(seat.board_state()) (W2C-seat, O-SEAT under H-SEAT-S5).  W2A-limits
+    moves a window, not a per-obstruction grade; it is compared in the grounds (settle.window_read) and in the drift
+    ground rows."""
+    out = {}
+    try:
+        VA = _quiet("vacuum")
+        out["W2B-vacuum"] = [{"hypothesis": "N_VAC re-graded, the board's vacuum route (vacuum.GRADES)",
+                              "verdict": "SPLIT", "per_obstruction": {"O-MAKE-DIST": VA.GRADES["O-MAKE-DIST"]},
+                              "source": "vacuum.GRADES (the instrument's own grade table)"}]
+    except Exception as e:                     # recorded as 'grade not found' by the guard, never masked
+        out["W2B-vacuum"] = None
+        _IMPORT_LOG["vacuum error"] = repr(e)
+    try:
+        SE = _quiet("seat")
+        g = SE.grade_o_seat(SE.board_state())
+        out["W2C-seat"] = [{"hypothesis": "O-SEAT under H-SEAT-S5 at Proxima (seat.grade_o_seat)", "verdict": g,
+                            "per_obstruction": {"O-SEAT": SEAT_GRADE_TEXT.get(g, g)},
+                            "source": "seat.grade_o_seat(seat.board_state())"}]
+    except Exception as e:
+        out["W2C-seat"] = None
+        _IMPORT_LOG["seat error"] = repr(e)
+    return out
 
 
 def _grade(G, rid, key):
@@ -1523,7 +1759,12 @@ def parse_report_class(text, present, grade=None, G=None, rid=None):
 
 def _form_class(res, o, graded):
     """One form's z3 verdict -> (raw kind, attributed classes).  Raw kind ignores attribution: R / NB / OPEN / N.
-    Attributed classes (Z1): R or NB only when some support contains a GRADED literal; Z2 OPEN via N_VAC only is N;
+    Attributed classes (Z1): R or NB only when some support contains a GRADED literal; Z2 OPEN via N_VAC only is N
+    (wave 1-6; kept for the history encoding 'wave6-NVAC'); Z2' (wave 7) O-MAKE-DIST OPEN via vacuum.py's pathways only
+    (N_NLDIST, N_W2WEAK, N_VACNP) reads {N, OPEN}, as Z6 reads the seat route: an A-report grading O-MAKE / O-MAKE-DIST
+    'LEAVES' says the graded hypothesis does not remove it (N), and vacuum.GRADES grades the route's own status (LEFT-IF
+    the nine hypotheses, OPEN outside them, P9); a report reading R or NB still disagrees, and so does an OPEN against
+    H-VAC-LEFTIF's LEFT;
     Z3 an NB returns its removal's OPEN beside it; wave 3: a not-bound beside a removal ('nb') is used when the
     removal itself has no graded literal (the two rest on clashing premises, B-QCORR)."""
     v = res["per"][o]
@@ -1539,6 +1780,8 @@ def _form_class(res, o, graded):
         if rem and rem["verdict"] == "OPEN" and rem["via"] != ["N_VAC"]:
             out.add("OPEN")
         return raw, out
+    if v["verdict"] == "OPEN" and o == "O-MAKE-DIST" and set(v["via"]) <= set(VAC_OPEN):
+        return raw, {"N", "OPEN"}               # Z2' (wave 7)
     if v["verdict"] == "OPEN" and o == "O-SEAT" and v["via"] == ["N_S5"]:
         # Z6 (wave 6): O-SEAT OPEN via N_S5 only -- the BOARD's S5/D25 route, open with no member present -- reads
         # {N, OPEN}: an A-report grading O-MATTER 'LEAVES' (P10) says the graded hypothesis does not remove it (N), and
@@ -1610,6 +1853,9 @@ EXPECT = [
     ({"NULL", "ITJ"}, CELL_MAIN, "A4-geometry", "H-IT with H-NULL", {"NULL", "ITJ"}, "6"),
     ({"NULL"}, CELL_MAIN, "A4-geometry", "H-NULL (null", {"NULL"}, "6"),
     ({"RQ"}, CELL_MAIN, "A4-geometry", "R-QUANTUM", {"RQ"}, "6"),
+    # wave 7 (D68 wave 2): the wave-2 instruments' own grades, the board-alone variant (both routes are the board's)
+    (set(), CELL_MAIN, "W2B-vacuum", "N_VAC re-graded", set(), "6"),
+    (set(), CELL_MAIN, "W2C-seat", "O-SEAT under H-SEAT-S5", set(), "6"),
 ]
 
 # Every disagreement z3 has with an A-report, with its reason.  The guard passes only if each disagreement found is
@@ -1623,7 +1869,8 @@ EXPLAINED = {
         "(wave 4: re-read in A2's wave-4 JSON, unchanged).  A2 grades clause 2b 'NOT-BOUND-IF {2b's CTC; Geroch-compact "
         "case only}; Tipler's non-compact case still binds'.  The screen's NOT-BOUND requires every theorem of the "
         "obstruction to fail to bind (B-TOPO), so with Tipler binding O-MAKE-TOPO stays bound, and the five-way O-MAKE "
-        "also needs O-MAKE-DIST, OPEN via N_VAC only.  A2's own D-CTC row grades the same world's O-MAKE LEAVES.  Both "
+        "also needs O-MAKE-DIST, OPEN via N_VAC only (wave 7: OPEN via vacuum.py's pathways, read {N, OPEN} by Z2'; "
+        "the five-way O-MAKE is still the weaker form, N).  A2's own D-CTC row grades the same world's O-MAKE LEAVES.  Both "
         "sides say O-MAKE is not lifted; a parse rule that read A2's partial non-binding as N would only rename the "
         "difference, so it is kept visible here instead",
 }
@@ -1646,7 +1893,7 @@ def guard_drift(scrs, G=None):
         if g is None:
             unexplained.append((rid, key, "grade not found"))
             continue
-        tag = "+".join(sorted(present, key=LIT_NAMES.index))
+        tag = "+".join(sorted(present, key=LIT_NAMES.index)) or "(board)"
         if not r["consistent"]:            # an inconsistent variant is compared once, on the grade's verdict
             agree = g["verdict"] == "CLASH"
             n_cmp += 1
@@ -1707,15 +1954,18 @@ def guard_drift(scrs, G=None):
                         "row_claims_R_or_NB": claims, "agree": ok_row})
         if ok_row is False:
             lb_bad.append((rid, tag))
-    # ground rows tied to an instrument rather than to report text: settle.h12_carrier_case at 1 AU, N = 7.  Wave 4:
-    # settle's 'EXCLUDED' is the computation GIVEN W_W2 (A1 wave 4 keeps the label for this comparison); W_W2 holds
-    # unread values, so z3's support-1 route (support 2 dropped: mutate 'support1-only') must read OPEN via N_WREAD, not
-    # LEFT, without H12, and REMOVED-IF with it.  The full encoding (both supports) gives REMOVED-IF {W2, F1; N_W2ANC}
-    # there: support 2's window is unevaluated (A1: 'for support 2 no window is computed').
+    # ground rows tied to an instrument rather than to report text: settle.h12_carrier_case at 1 AU, N = 7.  Wave 4-6:
+    # settle's 'EXCLUDED' was the computation GIVEN W_W2, which held unread values, so z3's support-1 route read OPEN via
+    # N_WREAD.  Wave 7 (D68 wave 2): settle.window_read gives the verdict on the READ (abstract) values, 'EXCLUDED given
+    # W_W2R', and z3's support-1 route (support 2 dropped: mutate 'support1-only') must read LEFT without H12 and
+    # REMOVED-IF with it.  The full encoding (both supports) gives REMOVED-IF {W2, F1; N_W2ANC} there: support 2's window is
+    # unevaluated (A1: 'for support 2 no window is computed').
     ST = _quiet("settle")
     hc, flips = ST.h12_carrier_case()
     cellrow = next(x for x in hc if x["L"] == "1 AU" and x["N"] == 7)
-    s1 = Screen(cell=CELL_AU, mutate=tuple(getattr(scrs[CELL_AU], "mutate", ())) + ("support1-only",))
+    wr = ST.window_read(L_list=(("1 AU", ST.AU_M),), N_list=(7,))["rows"]
+    m0 = tuple(getattr(scrs[CELL_AU], "mutate", ()))
+    s1 = Screen(cell=CELL_AU, mutate=m0 + ("support1-only",))
     r1 = s1.variant({"W2", "F1"})["per"]["O-BITS"]
     r1h = s1.variant({"W2", "F1", "H12"})["per"]["O-BITS"]
     full = scrs[CELL_AU].variant({"W2", "F1"})["per"]["O-BITS"]
@@ -1723,20 +1973,33 @@ def guard_drift(scrs, G=None):
     for gg in (G.get("A1-settle") or []):
         if "wave4_cells_without_H12_at_1AU" in gg:
             a1 = gg["wave4_cells_without_H12_at_1AU"]
-    ground = {"settle.h12_carrier_case 1 AU N=7 (H-TRANSFER, given W_W2)": cellrow["H-TRANSFER"],
+    ground = {"settle.h12_carrier_case 1 AU N=7 (H-TRANSFER)": cellrow["H-TRANSFER"],
+              "settle.window_read 1 AU N=7 (READ values, both readings)": [x["verdict"][:40] for x in wr],
               "z3 support 1 only, {W2,F1} O-BITS at 1 AU": (r1["verdict"], r1.get("via")),
               "settle (H-12-CARRIER)": cellrow["H-12-CARRIER"],
               "z3 support 1 only, {W2,F1,H12} O-BITS at 1 AU": r1h["verdict"],
               "z3 both supports, {W2,F1} O-BITS at 1 AU": (full["verdict"], [(x["members"], x["named"])
                                                                                for x in full.get("supports", [])]),
-              "A1 wave 4 (cells without H12 at 1 AU)": a1, "flips": flips}
-    # CONTROL (wave 4): wave 3's encoding, the window settled by the unread value (no N_WREAD), gives LEFT -- so the
-    # OPEN above is carried by N_WREAD, not by the engine
-    s3 = Screen(cell=CELL_AU, mutate=("support1-only", "wave3-WINDOW-SETTLED"))
-    ground["CONTROL wave-3 settled window, support 1 only, {W2,F1} at 1 AU"] = s3.variant({"W2", "F1"})["per"]["O-BITS"]["verdict"]
-    ground_ok = (cellrow["H-TRANSFER"] == "EXCLUDED" and r1["verdict"] == "OPEN" and r1.get("via") == ["N_WREAD"]
+              "HISTORY A1 wave 4 (cells without H12 at 1 AU; superseded by W2A-limits)": a1, "flips": flips}
+    # HISTORY CONTROL (wave 7): wave 6's encoding (N_WREAD restored) reproduces wave 6's ground row, OPEN via N_WREAD --
+    # so the LEFT above is carried by the READ, not by the engine
+    s6 = Screen(cell=CELL_AU, mutate=("support1-only", "wave6-WREAD"))
+    r6 = s6.variant({"W2", "F1"})["per"]["O-BITS"]
+    ground["HISTORY CONTROL wave 6's encoding (N_WREAD), support 1 only, {W2,F1} at 1 AU"] = (r6["verdict"], r6.get("via"))
+    # CONTROL (wave 7): a READ limit 1e3x looser (settle.window_read(scale=1e3), the instrument's own control G37) opens
+    # the 1 AU, N = 7 window, and z3 with that window reads support 1 REMOVED-IF -- both instruments move together
+    wl = ST.window_read(L_list=(("1 AU", ST.AU_M),), N_list=(7,), scale=1e3)["rows"]
+    loose_open = all(x["window"] == "OPEN" for x in wl)
+    sl = Screen(cell=CELL_AU, mutate=m0 + ("support1-only",), win_open=loose_open)
+    rl = sl.variant({"W2", "F1"})["per"]["O-BITS"]
+    ground["CONTROL READ limit 1e3x looser: settle window / z3 support 1 only at 1 AU"] = (
+        [x["window"] for x in wl], rl["verdict"])
+    ground_ok = (cellrow["H-TRANSFER"] == "EXCLUDED" and all(x["window"] == "EMPTY" and x["robust_across_READ_bounds"]
+                                                             and x["verdict"].startswith("EXCLUDED") for x in wr)
+                 and r1["verdict"] == "LEFT"
                  and cellrow["H-12-CARRIER"].startswith("NOT") and r1h["verdict"] == "REMOVED-IF" and flips == 2
-                 and (a1 is None or "OPEN" in a1))
+                 and r6["verdict"] == "OPEN" and r6.get("via") == ["N_WREAD"]
+                 and loose_open and rl["verdict"] == "REMOVED-IF")
     ok = not unexplained and ground_ok and not lb_bad
     return ok, {"rows": rows, "compared": n_cmp, "agree": n_agree, "unexplained": unexplained,
                 "load_bearing_rows": lb_rows, "load_bearing_disagreements": lb_bad,
@@ -1747,26 +2010,40 @@ def guard_drift(scrs, G=None):
                 "reports_loaded": {k: v is not None for k, v in G.items()}}
 
 
-MUTATIONS = ("KR-unconditional", "wave1-THROAT", "wave2-SLICE-INTRINSIC", "seat-S5-asserted")   # wave 6: the fourth
-# removes O-SEAT by assertion (SHAPE supplies S5 with no pathway) and must be caught against A3's OPEN
+MUTATIONS = ("KR-unconditional", "wave1-THROAT", "wave2-SLICE-INTRINSIC", "seat-S5-asserted", "vac-asserted")
+# wave 6: the fourth removes O-SEAT by assertion (SHAPE supplies S5 with no pathway) and must be caught against A3's OPEN.
+# Wave 7: the fifth removes the distribution by assertion (M's 'it already exists everywhere' read as a removal) and must
+# be caught against vacuum.GRADES (the W2B-vacuum row)
+
+# the named READINGS run under the drift guard (not mutations: each is a reading, and its disagreement set is stated)
+READINGS_UNDER_GUARD = {
+    "seat-routes": ("ALTERNATIVE H-SEAT-ROUTES (reading, not mutation)",
+                    [("A3-measure", "SHAPE", "O-SEAT"), ("W2C-seat", "(board)", "O-SEAT")]),
+    "vac-left-if": ("ALTERNATIVE H-VAC-LEFTIF (reading, not mutation)", [("W2B-vacuum", "(board)", "O-MAKE-DIST")]),
+    "wave6-NVAC": ("HISTORY wave 6's N_VAC encoding (superseded by vacuum.py)", [("W2B-vacuum", "(board)", "O-MAKE-DIST")]),
+}
 
 
 def drift_controls(G=None):
-    """Each mutated encoding must produce at least one UNEXPLAINED disagreement with the A-reports.  Wave 6: the named
-    alternative H-SEAT-ROUTES ('seat-routes') is run the same way and REPORTED (not a mutation -- it is a reading): its
-    disagreement with A3 must be exactly the (H-INFO-SHAPE, O-SEAT) row, where A3 grades under H-SEAT-S5."""
+    """Each mutated encoding must produce at least one UNEXPLAINED disagreement with the A-reports (and, wave 7, the
+    wave-2 instruments' own grades).  The named readings (H-SEAT-ROUTES, H-VAC-LEFTIF) and the history encoding wave 6's
+    N_VAC are run the same way and REPORTED: each must disagree on exactly its stated rows.  Wave 6: H-SEAT-ROUTES
+    disagreed on (A3, H-INFO-SHAPE, O-SEAT) alone; wave 7 adds the W2C-seat row, which grades the same O-SEAT under
+    H-SEAT-S5."""
     out = {}
     for mut in MUTATIONS:
         scrs = {CELL_MAIN: Screen(mutate=(mut,)), CELL_AU: Screen(cell=CELL_AU, mutate=(mut,))}
         ok, d = guard_drift(scrs, G)
         out[mut] = {"caught": bool(d["unexplained"] or d["load_bearing_disagreements"]), "unexplained": d["unexplained"],
                     "agree": f"{d['agree']}/{d['compared']}"}
-    scrs = {CELL_MAIN: Screen(mutate=("seat-routes",)), CELL_AU: Screen(cell=CELL_AU, mutate=("seat-routes",))}
-    ok, d = guard_drift(scrs, G)
-    alt = {"unexplained": d["unexplained"], "agree": f"{d['agree']}/{d['compared']}",
-           "exactly the SHAPE/O-SEAT row": [tuple(u[:3]) for u in d["unexplained"]] == [("A3-measure", "SHAPE", "O-SEAT")]
-           and not d["load_bearing_disagreements"]}
-    return all(v["caught"] for v in out.values()), dict(out, **{"ALTERNATIVE H-SEAT-ROUTES (reading, not mutation)": alt})
+    for mut, (label, expect_rows) in READINGS_UNDER_GUARD.items():
+        scrs = {CELL_MAIN: Screen(mutate=(mut,)), CELL_AU: Screen(cell=CELL_AU, mutate=(mut,))}
+        ok, d = guard_drift(scrs, G)
+        out[label] = {"unexplained": d["unexplained"], "agree": f"{d['agree']}/{d['compared']}",
+                      "expected rows": expect_rows,
+                      "exactly the expected rows": sorted(tuple(u[:3]) for u in d["unexplained"]) == sorted(expect_rows)
+                      and not d["load_bearing_disagreements"]}
+    return all(v["caught"] for v in out.values() if "caught" in v), out
 
 
 # =====================================================================================================================
@@ -1820,21 +2097,97 @@ def ground_checks():
     out["B-CAP w2_ancilla_flow_k CONTROL linear k=16"] = ST.w2_ancilla_flow_k(16, 4, linear_control=True)["chi_bits_per_pair"]
     out["B-CAP w2_ancilla_flow_k CONTROL antipodal k=8"] = ST.w2_ancilla_flow_k(8, 3, antipodal=True)
     out["N_W2ANC field figure"] = support2_field_rows(support2_members())
-    # wave 5 (V3 residual 3): settle's per-cell support-1 verdicts, M's rule both ways (imported, never copied)
-    out["window_given"] = ST.window_given()
-    zrows, _ = eps_window(L_list=(("1 AU", ST.AU_M), ("1 ly", ST.LY_M)))
+    # wave 7 (D68 wave 2, W2A-limits): settle's per-cell support-1 verdicts on the READ (abstract) values (settle.
+    # window_read, imported, never copied) against combine's exact-rational z3 window, every (L, N, reading) of the nine
+    # cells, the tightest limit AND each of the four (H-SAME-EPS).  Wave 5-6 compared settle.window_given (the unread
+    # record); that comparison is kept below as HISTORY.
+    out["window_read"] = ST.window_read()
+    zr_all, _ = eps_window()
     agree, cmp = True, []
-    for wr in out["window_given"]["rows"]:
-        zr = next(z for z in zrows if z["L"] == wr["L"] and z["N"] == wr["N"] and z["reading"] == wr["reading"])
-        flag_open = wr["support 1"].startswith("ADMISSIBLE")
-        tight_ok = (wr["tightening to close (context)"] is None) == (not zr["consistent"]) and (
-            not zr["consistent"] or abs(wr["tightening to close (context)"] - zr["eps_max"] / zr["eps_any_advantage"])
-            < 1e-9 * wr["tightening to close (context)"])
-        ok1 = (flag_open == zr["consistent"]) and tight_ok and (
-            wr["support 1"].startswith("ADMISSIBLE GIVEN") or wr["support 1"].startswith("EMPTY GIVEN"))
+    for wr in out["window_read"]["rows"]:
+        zr = next(z for z in zr_all if z["L"] == wr["L"] and z["N"] == wr["N"] and z["reading"] == wr["reading"])
+        per_ok = all((wr["per_bound"][k]["window"] == "OPEN") == zr["per_bound"][k] for k in zr["per_bound"])
+        tf = wr["per_bound"][wr["bound_used"]]["tightening to close (context)"]
+        lf = wr["per_bound"][wr["bound_used"]]["loosening to open (context)"]
+        fac_ok = ((tf is None) == (not zr["consistent"]) and
+                  (not zr["consistent"] or abs(tf - zr["eps_max"] / zr["eps_any_advantage"]) < 1e-9 * tf) and
+                  (zr["consistent"] or abs(lf - zr["eps_any_advantage"] / zr["eps_max"]) < 1e-9 * lf))
+        ok1 = ((wr["window"] == "OPEN") == zr["consistent"] and wr["robust_across_READ_bounds"] == zr["robust"] and
+               per_ok and fac_ok and wr["bound_used"] == zr["bound_used"] and
+               wr["verdict"].startswith("ADMISSIBLE" if zr["consistent"] else "EXCLUDED"))
         agree &= ok1
-        cmp.append((wr["L"], wr["N"], wr["reading"][:1], wr["support 1"][:24], wr["tightening to close (context)"], ok1))
-    out["window_given_agrees"] = {"agree": agree, "rows": cmp}
+        cmp.append((wr["L"], wr["N"], wr["reading"][:1], wr["window"], wr["robust_across_READ_bounds"], tf or lf, ok1))
+    out["window_read_agrees"] = {"agree": agree, "rows": cmp,
+                                 "open": sum(1 for r in zr_all if r["consistent"]),
+                                 "empty": sum(1 for r in zr_all if not r["consistent"]),
+                                 "non_robust": [(r["L"], r["N"], r["reading"][:1],
+                                                 sorted(k for k, v in r["per_bound"].items() if v != r["consistent"]))
+                                                for r in zr_all if not r["robust"]]}
+    out["cells (READ windows, the nine)"] = cells_read_table()
+    # CONTROL (settle's own G37, re-derived here): every READ limit 1e7x tighter empties all 18 windows, 1e3x looser
+    # opens all 18 -- so the pattern is the limits', not the engine's
+    t7 = ST.window_read(scale=1e-7)["rows"]
+    l3 = ST.window_read(scale=1e3)["rows"]
+    out["window_read CONTROL scale"] = {"1e7x tighter: open": sum(r["window"] == "OPEN" for r in t7),
+                                        "1e3x looser: open": sum(r["window"] == "OPEN" for r in l3), "of": len(t7)}
+    # HISTORY (wave 5-6's comparison): settle.window_given() still defaults to the wave-4 record (two unread, two OPEN);
+    # its tightening factors equal window_read's, because the tightest value (3.8 uHz) did not change (settle G38)
+    wg = ST.window_given()
+    hist_ok = len(wg["unread_bounds"]) == 2 and len(wg["open_bounds"]) == 2
+    for g0 in wg["rows"]:
+        w0 = next(w for w in out["window_read"]["rows"] if w["L"] == g0["L"] and w["N"] == g0["N"] and
+                  w["reading"] == g0["reading"])
+        t0, t1 = g0["tightening to close (context)"], w0["per_bound"][w0["bound_used"]]["tightening to close (context)"]
+        hist_ok &= (t0 is None) == (t1 is None) and (t0 is None or abs(t0 - t1) < 1e-12 * t0)
+        hist_ok &= g0["support 1"].startswith("ADMISSIBLE GIVEN" if t0 is not None else "EMPTY GIVEN")
+    out["HISTORY window_given (wave-4 record) reproduced on the READ values"] = hist_ok
+    # wave 7 (D68 wave 2, W2B-vacuum): the vacuum route, imported from vacuum.py (never copied), cheap pieces only (the
+    # instrument's own selftest carries the expensive ones: Reznik's figures, 3000 random local channels)
+    VA = _quiet("vacuum")
+    vac = {}
+    cs = VA.build_cases()
+    c7 = cs["gauss beta=7 (strong supports spacelike, R4)"]
+    r7 = VA.state_for(c7, 0.1)
+    vac["beta=7, lambda=0.1: N"] = VA.negativity_x(r7)
+    vac["beta=7, lambda=0.1: f - 1/2"] = VA.fef_minus_half_x(r7)
+    vac["sym-ext margin B / A (floor rho_ee)"] = (VA.sym_ext_margin_x(r7, "B"), VA.sym_ext_margin_x(r7, "A"))
+    r10 = VA.harvested_state(float(r7[1, 1].real), complex(r7[3, 0]), complex(r7[2, 1]), 10.0)
+    vac["sym-ext margin B / A (10x floor rho_ee)"] = (VA.sym_ext_margin_x(r10, "B"), VA.sym_ext_margin_x(r10, "A"))
+    vac["CONTROL sym-ext margin: Bell, Werner 0.70, Werner 0.80"] = (VA.sym_ext_margin(VA.werner(1.0)),
+                                                                    VA.sym_ext_margin(VA.werner(0.70)),
+                                                                    VA.sym_ext_margin(VA.werner(0.80)))
+    vac["hashing threshold"] = VA.hashing_threshold()
+    tl = VA.timeline(ST.LY_M, vac["beta=7, lambda=0.1: N"], 1.0)
+    lt = ST.LY_M / ST.C_LIGHT
+    vac["timeline at 1 ly (in L/c): floor midpoint / one-end; midpoint pair source"] = (
+        tl["midpoint"]["floor: one two-way exchange (R9)"] / lt, tl["one-end"]["floor: one two-way exchange (R9)"] / lt,
+        tl["midpoint"]["midpoint pair source ready (D23)"] / lt)
+    sb, _ = VA.w2_signal(_np().outer(VA._bell_phi_plus(), VA._bell_phi_plus().conj()), 0.1, 3.0)
+    sh, rp = VA.w2_signal(r7, 0.1, 3.0)
+    vac["W2 on a pair (eps 0.1, T 3): Bell / harvested / harvested over 2 eps T rho_perp^2"] = (sb, sh, sh / (0.6 * rp * rp))
+    gtxt = VA.GRADES["O-MAKE-DIST"]
+    vac["vacuum.GRADES O-MAKE-DIST: LEFT-IF set parsed / pathways named"] = (
+        tuple(x.strip() for x in re.search(r"LEFT-IF \{([^}]*)\}", gtxt).group(1).split(",")),
+        tuple(k for k in ("N_NLDIST", "N_W2WEAK", "N_VACNP", "N_VAC") if re.search(r"\b" + k + r"\b", gtxt.split("Wave 1 said")[0])))
+    t0 = time.time()
+    vac["compact window boundary (vacuum.compact_boundary)"] = VA.compact_boundary()
+    vac["compact window boundary seconds"] = time.time() - t0
+    out["vacuum"] = vac
+    # wave 7 (D68 wave 2, W2C-seat): seat.py's grade of O-SEAT against z3's, in three board states, and the binder
+    SE = _quiet("seat")
+    st0 = SE.board_state()
+    out["seat_grade"] = {
+        "board state (today)": SE.grade_o_seat(st0),
+        "S5 refused (S5 shown False)": SE.grade_o_seat(dict(st0, **{"S5 shown": False})),
+        "a conjunct False (composition)": SE.grade_o_seat(dict(st0, composition=False)),
+        "S5 shown and every conjunct True": SE.grade_o_seat({k: True for k in st0})}
+    sc0, s5r = Screen(), Screen(mutate=("S5-refused",))
+    out["seat_grade_z3"] = {
+        "board state (today)": sc0.variant({"SHAPE"})["per"]["O-SEAT"],
+        "S5 refused": s5r.variant({"SHAPE"})["per"]["O-SEAT"],
+        "N_S5 asserted (S5 shown, D25 holds)": sc0.sat(sc0.lits({"SHAPE"}) + [sc0.A["N_S5"], sc0.A["rm:O-SEAT"]])}
+    out["seat_binders"] = SE.binders()
+    out["seat_measured_P_N"] = {e: SE.proxima_measured()[e] for e in ("P", "N")}
     seat = dict(ME.seat_supply())
     seat["info_shape_screen"] = ME.info_shape_screen()
     mf = _quiet("massform")
@@ -1859,13 +2212,15 @@ def support2_members():
 def support2_field_rows(members):
     """Support 2 (N_W2ANC) needs max||H|| x T ~ hT within T < L/c, i.e. a drift rate ||H|| >= hT c / L.  No READ bound
     maps onto that field (H-MAP not established): the screen leaves N_W2ANC unconstrained (window UNEVALUATED).  For
-    BOTH-WAYS reporting only, the rate is set beside the NAMED-NOT-READ Majumder figure under BOTH H-MAP readings, as if
-    H-MAP-W2 (that unread precession bound read as a bound on ||H||) held -- a hypothesis NOT adopted anywhere.
+    BOTH-WAYS reporting only, the rate is set beside the tightest Weinberg-family figure (Majumder, READ (abstract) since
+    wave 7, D68 wave 2; wave 5-6: NAMED-NOT-READ, the same number) under BOTH H-MAP readings, as if H-MAP-W2 (that
+    precession bound read as a bound on ||H||) held -- a hypothesis NOT adopted anywhere; reading the value did not
+    establish H-MAP for support 2's field (the full texts, where the mapping lives, are behind a login wall: H-MAP OPEN).
     Wave 5 (V3 residual 1): one row per MEMBER (members = {construction: hT}), each naming the construction whose hT it
     uses, and the range over the computed members."""
     ST = _quiet("settle")
-    f = ST.BOUNDS_WEINBERG["Majumder+ 1990, 201Hg, PRL 65 2931"]["f_Hz"]
-    em = ST.eps_readings(f)
+    tight, fs = _tightest(ST)
+    em = ST.eps_readings(fs[tight])
     rows = []
     for name, hT in members.items():
         for lab, L in (("1 ly", ST.LY_M), ("1 AU", ST.AU_M)):
@@ -1874,7 +2229,7 @@ def support2_field_rows(members):
                          "needed ||H|| (1/s)": need,
                          "IF H-MAP-W2 (not adopted): needed / eps_max": {k: need / v for k, v in em.items()},
                          "IF H-MAP-W2 (not adopted): within eps_max": {k: need < v for k, v in em.items()},
-                         "eps_max (NAMED-NOT-READ)": em})
+                         "eps_max (READ (abstract), tightest: " + tight + ")": em})
     rng = {}
     for lab in ("1 ly", "1 AU"):
         rr = [r for r in rows if r["cell"] == lab]
@@ -1931,7 +2286,8 @@ def grounds_ok(g):
                 for i in range(4) for j in range(4)) and
             g["B-CAP w2_ancilla_flow"]["min_curve_separation_rad"] > 10 * g["B-CAP w2_ancilla_flow"]["grid_step_rad"],
         "windows: 1 ly N = 7 open, 1 AU N = 7 and N = 1e3 empty, 1 AU N = 1e6 open (both H-MAP readings agree in every "
-        "cell; computed from the NAMED-NOT-READ value, so an empty window is LEFT-IF W_W2 -> OPEN via N_WREAD)":
+        "cell; wave 7: computed on the tightest READ (abstract) limit, so an empty window is EXCLUDED given W_W2R -- "
+        "wave 6: from the NAMED-NOT-READ value, LEFT-IF W_W2 -> OPEN via N_WREAD)":
             g["windows by cell"] == {CELL_MAIN: True, CELL_AU: False, CELL_AU3: False, CELL_AU6: True},
         "W2 class without H-QUBIT-DRIFT: chi = log2 d - 1 (2, 3, 4 at d = 8, 16, 32), zero error, curves disjoint -> "
         "1, 2/3, 1/2 pairs per teleported qubit (no positive floor in the computed range)":
@@ -1988,12 +2344,81 @@ def grounds_ok(g):
                     abs(r["needed ||H|| (1/s)"] - 2.937e-3) < 1e-6 for r in g["N_W2ANC field figure"]["rows"])
             and 1.42 < g["N_W2ANC field figure"]["max||H||T range"][0] < 1.44
             and 1.55 < g["N_W2ANC field figure"]["max||H||T range"][1] < 1.57,
-        "support-1 window both ways (wave 5, V3 residual 3): settle.window_given (float) agrees with combine's z3 window "
-        "(exact rationals) in every cell and reading -- ADMISSIBLE GIVEN W_W2 where open (1 ly N = 7, 1 AU N = 1e6), "
-        "EMPTY GIVEN W_W2 -> OPEN where empty; the tightening to close equals eps_max / eps_any; two bounds unread, two "
-        "OPEN":
-            g["window_given_agrees"]["agree"] and g["window_given"]["open_bounds"] and
-            len(g["window_given"]["unread_bounds"]) == 2 and len(g["window_given"]["open_bounds"]) == 2,
+        "support-1 window on the READ values (wave 7, D68 wave 2, W2A-limits): settle.window_read (float) agrees with "
+        "combine's z3 window (exact rationals) in all 18 (cell, reading) rows -- the window on the tightest limit, the "
+        "window on EACH of the four READ limits, the robustness flag, the tightening / loosening factor and the verdict "
+        "word (ADMISSIBLE / EXCLUDED given W_W2R); 14 OPEN, 4 EMPTY; the one non-robust row is 1 AU, N = 1e3, reading A, "
+        "opened by Chupp-Hoare's limit alone (H-SAME-EPS decides it)":
+            g["window_read_agrees"]["agree"] and len(g["window_read_agrees"]["rows"]) == 18 and
+            g["window_read_agrees"]["open"] == 14 and g["window_read_agrees"]["empty"] == 4 and
+            g["window_read_agrees"]["non_robust"] == [("1 AU", 1000, "A", ["Chupp & Hoare 1990, 21Ne, PRL 64 2261"])] and
+            g["window_read"]["tightest"].startswith("Majumder") and
+            all(v.startswith("READ (abstract)") for v in g["window_read"]["statuses"].values()),
+        "CONTROL the READ-window pattern is the limits' (settle's G37 re-run): every limit 1e7x tighter opens 0 of 18, "
+        "1e3x looser opens 18 of 18":
+            g["window_read CONTROL scale"]["1e7x tighter: open"] == 0 and
+            g["window_read CONTROL scale"]["1e3x looser: open"] == g["window_read CONTROL scale"]["of"] == 18,
+        "the nine READ-window cells: every 1 ly and 4.2465 ly cell and 1 AU N = 1e6 open (screens as 1 ly, N = 7), 1 AU "
+        "N = 7 and 1e3 empty (screen as 1 AU, N = 7); premises W_W2R everywhere, + H-SAME-EPS at 1 AU N = 1e3 only":
+            sum(1 for c in g["cells (READ windows, the nine)"] if c["window_open"]) == 7 and
+            all((c["window_open"] is False) == (c["L"] == "1 AU" and c["N"] in (7, 1000))
+                for c in g["cells (READ windows, the nine)"]) and
+            all(("H-SAME-EPS" in c["window_premises"]) == (c["L"] == "1 AU" and c["N"] == 1000)
+                for c in g["cells (READ windows, the nine)"]),
+        "HISTORY wave 5-6's comparison reproduced: settle.window_given (the wave-4 record, two unread, two OPEN) gives the "
+        "same tightening factors as the READ values (the tightest value, 3.8 uHz, did not change; settle G38)":
+            g["HISTORY window_given (wave-4 record) reproduced on the READ values"],
+        "N_VAC split as encoded (wave 7, D68 wave 2; vacuum.py imported): the harvested pair at beta = 7, lambda = 0.1 has "
+        "N = f - 1/2 > 0 (it saturates the one-copy LOCC ceiling) and is symmetric extendible on BOTH sides, rho_ee at its "
+        "floor and at 10x (no zero-way or one-way distillation; near-maximal pairs need messages each way); the computed "
+        "floor at 1 ly arrives at 2.50 L/c (midpoint) and 3.00 L/c (one end), after the light time, while a midpoint pair "
+        "source is ready at 0.50 L/c; the hashing threshold is 0.8107":
+            0 < g["vacuum"]["beta=7, lambda=0.1: N"] < 1e-15 and
+            abs(g["vacuum"]["beta=7, lambda=0.1: f - 1/2"] - g["vacuum"]["beta=7, lambda=0.1: N"]) <
+            1e-9 * g["vacuum"]["beta=7, lambda=0.1: N"] and
+            min(g["vacuum"]["sym-ext margin B / A (floor rho_ee)"] + g["vacuum"]["sym-ext margin B / A (10x floor rho_ee)"]) > 0
+            and abs(g["vacuum"]["timeline at 1 ly (in L/c): floor midpoint / one-end; midpoint pair source"][0] - 2.5) < 1e-9
+            and abs(g["vacuum"]["timeline at 1 ly (in L/c): floor midpoint / one-end; midpoint pair source"][1] - 3.0) < 1e-9
+            and abs(g["vacuum"]["timeline at 1 ly (in L/c): floor midpoint / one-end; midpoint pair source"][2] - 0.5) < 1e-9
+            and abs(g["vacuum"]["hashing threshold"] - 0.8107) < 1e-4,
+        "CONTROL the symmetric-extension criterion can fail: a Bell state and a Werner state at F = 0.80 give a NEGATIVE "
+        "margin, Werner F = 0.70 a positive one (the boundary at 3/4)":
+            g["vacuum"]["CONTROL sym-ext margin: Bell, Werner 0.70, Werner 0.80"][0] < 0 and
+            g["vacuum"]["CONTROL sym-ext margin: Bell, Werner 0.70, Werner 0.80"][1] > 0 and
+            g["vacuum"]["CONTROL sym-ext margin: Bell, Werner 0.70, Werner 0.80"][2] < 0,
+        "W2 on a harvested pair (vacuum.w2_signal over settle.bloch_exact): Bell pair = tanh(0.6) (independent: math.tanh); "
+        "harvested pair second order, signal = 2 eps T rho_perp^2 to 1%, below 1e-25 -- W2 x F1's pair counts assume Bell "
+        "pairs (H-NEARMAX)":
+            abs(g["vacuum"]["W2 on a pair (eps 0.1, T 3): Bell / harvested / harvested over 2 eps T rho_perp^2"][0] -
+                math.tanh(0.6)) < 1e-9 and
+            g["vacuum"]["W2 on a pair (eps 0.1, T 3): Bell / harvested / harvested over 2 eps T rho_perp^2"][1] < 1e-25 and
+            abs(g["vacuum"]["W2 on a pair (eps 0.1, T 3): Bell / harvested / harvested over 2 eps T rho_perp^2"][2] - 1) < 1e-2,
+        "the encoding's vacuum pathways and LEFT-IF set equal vacuum.GRADES' own (parsed from the instrument's grade "
+        "text; N_VAC named only as wave 1's history)":
+            g["vacuum"]["vacuum.GRADES O-MAKE-DIST: LEFT-IF set parsed / pathways named"] == (VAC_LEFTIF, VAC_OPEN),
+        "N_VAC part (i)'s window COMPUTED (vacuum.compact_boundary, every gap in [2, 40]): T/(L/c) > 0.9097 at the "
+        "boundary, within 0.1% of the READ figure 1/1.1 that wave 1-6 carried as DERIVED-FROM-READ (0.91)":
+            0.905 < g["vacuum"]["compact window boundary (vacuum.compact_boundary)"]["T/(L/c) at the boundary"] < 0.915 and
+            abs(g["vacuum"]["compact window boundary (vacuum.compact_boundary)"]["T/(L/c) at the boundary"] - 1 / 1.1) <
+            1e-3 / 1.1,
+        "O-SEAT: seat.grade_o_seat agrees with z3 in three board states (wave 7, D68 wave 2, W2C-seat): today OPEN "
+        "(z3 OPEN via N_S5 under SHAPE); S5 refused -> 'LEFT on the S5 pathway' (z3 'S5-refused' LEFT); S5 shown and every "
+        "conjunct True -> REMOVABLE (z3 removable with N_S5)":
+            g["seat_grade"]["board state (today)"] == "OPEN" and
+            g["seat_grade_z3"]["board state (today)"] == {"verdict": "OPEN", "via": ["N_S5"]} and
+            g["seat_grade"]["S5 refused (S5 shown False)"] == "LEFT on the S5 pathway" and
+            g["seat_grade_z3"]["S5 refused"] == {"verdict": "LEFT"} and
+            g["seat_grade"]["S5 shown and every conjunct True"].startswith("REMOVABLE") and
+            g["seat_grade_z3"]["N_S5 asserted (S5 shown, D25 holds)"],
+        "CONTROL seat.grade_o_seat can move: one gate conjunct False (composition) gives 'LEFT on the S5 pathway'":
+            g["seat_grade"]["a conjunct False (composition)"] == "LEFT on the S5 pathway",
+        "the D25 binder at Proxima (seat.py, stock.HUMAN payload): P at CI chondrite (runner-up N), and 70 kg x P's factor "
+        "agrees with measure.seat_route_s5's 749.1 kg (stockgate's 59-element payload) to 0.1 kg; P and N are among none of "
+        "Morel 2018's 21 alpha Cen species (the composition conjunct cannot be evaluated at its binder)":
+            g["seat_binders"]["CI chondrite"][0][0] == "P" and g["seat_binders"]["CI chondrite"][1][0] == "N" and
+            abs(70.0 * g["seat_binders"]["CI chondrite"][0][1] - g["seat"]["S5_feedstock_kg_70kg"]["CI chondrite"]) < 0.1
+            and all(v["alpha_Cen_AB"].startswith("NOT") and v["any_body"].startswith("not measured")
+                    for v in g["seat_measured_P_N"].values()),
     }
     return all(tests.values()), tests
 
@@ -2085,8 +2510,9 @@ def first_transit(L_ly=1.0, N_per_qubit=7, reading="A (eps = 2 pi f)"):
     """The member-attributed O-BITS removal by the drift (W2 x F1), priced end to end with imported numbers.
       timing  -- the drift time T = atanh(D_N)/(2 eps) is DISTANCE-INDEPENDENT (settle.drift_time_needed).  D_N is the
                  smallest D with N x C(D) >= 2 -- Shannon's converse, necessary only -- so T is a FLOOR on the drift
-                 time at that eps; evaluated at the Weinberg-family limit (NAMED-NOT-READ, reading A) it is a floor at
-                 that limit, not a measured time.  The read precedes light by 1 - T/(L/c) of the light time once pairs
+                 time at that eps; evaluated at the tightest Weinberg-family limit (READ (abstract) since wave 7, D68
+                 wave 2 -- wave 1-6: NAMED-NOT-READ, the same 3.8 uHz; reading A) it is a floor at that limit, not a
+                 measured time.  The read precedes light by 1 - T/(L/c) of the light time once pairs
                  are in place.  wave 1's eps at T = L/2c (DECLARED-FRAC) is exactly twice eps_any.
       first   -- settle.first_transit_times, for the MIDPOINT source (LEDGER D23 as corrected in DOCKET 67) and for
                  one-end distribution.
@@ -2103,16 +2529,16 @@ def first_transit(L_ly=1.0, N_per_qubit=7, reading="A (eps = 2 pi f)"):
     rows, geo, ceil, ob = ME.price_table()
     L = L_ly * ST.LY_M
     c = ST.C_LIGHT
-    f = ST.BOUNDS_WEINBERG["Majumder+ 1990, 201Hg, PRL 65 2931"]["f_Hz"]
-    eps_lim = ST.eps_readings(f)[reading]
+    tight, fs = _tightest(ST)
+    eps_lim = ST.eps_readings(fs[tight])[reading]
     T = ST.drift_time_needed(N_per_qubit, eps_lim)
     e_any = ST.eps_any_advantage(L, N_per_qubit)
     e_half = ST.eps_to_remove(L, N_per_qubit)
     mid = ST.first_transit_times(L, T, "midpoint")
     one = ST.first_transit_times(L, T, "one-end")
     sub = ST.W2_CLASS_CEILING_BITS_PER_PAIR          # the qubit-only subclass's ceiling (settle wave 3)
-    out = {"L_m": L, "light_time_s": L / c, "reading": reading, "eps_at_limit (NAMED-NOT-READ)": eps_lim,
-           "drift_time_T_s (distance-independent; a floor; at the unread limit)": T,
+    out = {"L_m": L, "light_time_s": L / c, "reading": reading, "eps_at_limit (READ (abstract), " + tight + ")": eps_lim,
+           "drift_time_T_s (distance-independent; a floor; at the READ limit)": T,
            "drift_time_T_h": T / 3600.0, "early_fraction_once_pairs_in_place": ST.arrival_early_fraction(L, N_per_qubit, eps_lim),
            "eps_any_advantage": e_any, "eps_at_T=L/2c (DECLARED-FRAC, wave 1)": e_half, "ratio": e_half / e_any,
            "first_transit_midpoint": mid, "first_transit_one_end": one,
@@ -2139,7 +2565,11 @@ def first_transit(L_ly=1.0, N_per_qubit=7, reading="A (eps = 2 pi f)"):
                               "holder_FLOOR_J_R1m": r["bekenstein_floor_J_R1m"], "holder_floor_crosscheck_J": indep})
     out["body_rest_energy_J (massform, the READ-backed holder)"] = geo["O-MATTER: massform.rest_energy_j() (Mc^2, 70 kg)"]
     out["throat_J"] = geo["O-HOLD: wormhole.throat_mass(1 m) c^2"]
-    out["vacuum_harvest_window_T_over_light_time (DERIVED-FROM-READ, Reznik p.10, p.12)"] = (1.0 / 1.1, 1.0)
+    # wave 1-6 carried Reznik's window as DERIVED-FROM-READ (1/1.1, 1); wave 7 (D68 wave 2) computes it in vacuum.py
+    # (vacuum.compact_boundary, in the grounds: T > 0.9097 L/c over every gap in [2, 40]) and keeps this as history
+    out["HISTORY vacuum_harvest_window_T_over_light_time (DERIVED-FROM-READ, Reznik p.10, p.12; wave 7: computed in "
+        "the grounds)"] = (1.0 / 1.1, 1.0)
+    out["pairs are near-maximal (H-NEARMAX, vacuum.py): every pair count above assumes Bell pairs"] = True
     return out
 
 
@@ -2155,6 +2585,7 @@ TEST_BEARS = {
     "T-G W2xF1xH12 at 1 AU (h12_carrier_case)": ({"W2", "F1", "H12"}, {"O-BITS"}),
     "T-J F2b D-CTC (four_basis_c2_table)": ({"F2b"}, {"O-BITS", "O-LOOP-S"}),
     "T-K W2xF1 support 2 (w2_ancilla_flow_k)": ({"W2", "F1"}, {"O-BITS"}),
+    "T-L W2xF1 on a harvested vacuum pair (vacuum.w2_signal)": ({"W2", "F1"}, {"O-BITS", "O-MAKE-DIST"}),
 }
 RECORDS = ("T-D holder FLOOR record", "T-F RQxKR (O-HOLD OPEN)", "T-H ITJ (egj_fR_throat)",
            "T-I INFOS vs B-RECV (info_s_clash)")
@@ -2214,7 +2645,7 @@ def complementary_tests(S, S_au):
     one_au = [w for w in win if w["L"] == "1 AU" and w["N"] in (7, 1000)]
     au6 = [w for w in win if w["L"] == "1 AU" and w["N"] == 1e6]
     flips = sum(1 for w in win if w["consistent"] != w["consistent_at_T=L/2c (wave 1)"])
-    au_T = ST.first_transit_times(ST.AU_M, ft["drift_time_T_s (distance-independent; a floor; at the unread limit)"], "midpoint")
+    au_T = ST.first_transit_times(ST.AU_M, ft["drift_time_T_s (distance-independent; a floor; at the READ limit)"], "midpoint")
     T["T-E W2xF1 end to end"] = {"first_transit": ft, "eps_window": win, "eps_vacuity": vac,
                                  "window flips from wave 1's T = L/2c": flips,
                                  "STRUCTURAL": "ratio eps(T = L/2c) / eps_any = %.6f: an identity of T = "
@@ -2236,8 +2667,9 @@ def complementary_tests(S, S_au):
     T["T-F RQxKR (O-HOLD OPEN)"]["pass"] = T["T-F RQxKR (O-HOLD OPEN)"]["fraction_under_H_flat_H-PATH_H-MIN-SCALAR"] < 1e-60
     # T-G  W2 x F1 x H12 at 1 AU, N <= 1e3: the window H-12 supplies (settle.h12_carrier_case)
     hc, fl = ST.h12_carrier_case()
-    # wave 4: per SUPPORT.  Support 1 (N_EPS) at 1 AU, N <= 1e3 without H12 is OPEN via N_WREAD (the window value is
-    # unread), REMOVED-IF with H12; support 2 (N_W2ANC) does not use the window (unevaluated) and holds at both cells.
+    # wave 4: per SUPPORT.  Support 1 (N_EPS) at 1 AU, N <= 1e3 without H12 was OPEN via N_WREAD (the window value was
+    # unread); wave 7 (D68 wave 2): on the READ value it is EXCLUDED given W_W2R (z3 LEFT), REMOVED-IF with H12; support 2
+    # (N_W2ANC) does not use the window (unevaluated) and holds at both cells.
     sups = lambda r: sorted((tuple(x["members"]), tuple(x["named"])) for x in r["per"]["O-BITS"].get("supports", []))
     s1 = Screen(cell=CELL_AU, mutate=("support1-only",))
     r1 = s1.variant({"W2", "F1"})["per"]["O-BITS"]
@@ -2246,8 +2678,11 @@ def complementary_tests(S, S_au):
          "z3 {W2,F1,H12} at 1 AU, N = 7 (both supports)": sups(S_au["by"][frozenset({"W2", "F1", "H12"})]),
          "z3 {W2,F1} at 1 AU, N = 7, support 1 only": (r1["verdict"], r1.get("via")),
          "z3 {W2,F1} at 1 ly, N = 7": sups(S["by"][frozenset({"W2", "F1"})]),
-         "wave 3 first said": "{W2,F1} at 1 AU, N = 7: LEFT (support 1 only, window taken as settled)"}
-    g["pass"] = (fl == 2 and r1["verdict"] == "OPEN" and r1.get("via") == ["N_WREAD"]
+         "wave 3 first said": "{W2,F1} at 1 AU, N = 7: LEFT (support 1 only, window taken as settled)",
+         "wave 4-6 said": "{W2,F1} at 1 AU, N = 7, support 1 only: OPEN via N_WREAD (the value unread)",
+         "wave 7": "LEFT again, now on the READ (abstract) value: EXCLUDED given W_W2R (wave 3 settled it on an unread "
+                   "value; the verdict is the same, its ground is not)"}
+    g["pass"] = (fl == 2 and r1["verdict"] == "LEFT"
                  and g["z3 {W2,F1} at 1 AU, N = 7 (both supports)"] == [(("W2", "F1"), ("N_W2ANC",))]
                  and (("W2", "F1", "H12"), ("N_EPS", "N_H12W")) in g["z3 {W2,F1,H12} at 1 AU, N = 7 (both supports)"]
                  and g["z3 {W2,F1} at 1 ly, N = 7"] == [(("W2", "F1"), ("N_EPS",)), (("W2", "F1"), ("N_W2ANC",))])
@@ -2301,6 +2736,30 @@ def complementary_tests(S, S_au):
     T["T-K W2xF1 support 2 (w2_ancilla_flow_k)"]["pass"] = (
         all(abs(v["chi"] - (math.log2(int(k.split("d=")[1])) - 1)) < 1e-6 and v["p_error"] < 1e-9 for k, v in kt.items())
         and lin < 1e-9 and (["W2", "F1"], ["N_W2ANC"]) in T["T-K W2xF1 support 2 (w2_ancilla_flow_k)"]["z3 {W2,F1} supports at 1 ly"])
+    # T-L  W2 x F1 on a harvested vacuum pair (wave 7, D68 wave 2, W2B-vacuum): the drift consumes what the vacuum route
+    # would supply.  vacuum.w2_signal over settle.bloch_exact (both imported), at three (eps, T); CONTROL a Bell pair
+    # reproduces settle's law tanh(2 eps T)
+    VA = _quiet("vacuum")
+    c7 = VA.build_cases()["gauss beta=7 (strong supports spacelike, R4)"]
+    r7 = VA.state_for(c7, 0.1)
+    bell = np.outer(VA._bell_phi_plus(), VA._bell_phi_plus().conj())
+    tl_rows = []
+    for eps, Tt in ((0.1, 3.0), (0.3, 3.0), (1.0, 30.0)):
+        sb, _ = VA.w2_signal(bell, eps, Tt)
+        sh, rp = VA.w2_signal(r7, eps, Tt)
+        tl_rows.append({"eps": eps, "T": Tt, "Bell signal": sb, "settle.bob_y_exact": ST.bob_y_exact(eps, Tt),
+                        "harvested signal (beta=7, lambda=0.1)": sh, "rho_perp": rp,
+                        "harvested / (2 eps T rho_perp^2)": sh / (2 * eps * Tt * rp * rp)})
+    T["T-L W2xF1 on a harvested vacuum pair (vacuum.w2_signal)"] = {
+        "rows": tl_rows, "N (beta=7, lambda=0.1)": VA.negativity_x(r7),
+        "what it is": "the pair counts of W2 x F1 assume near-maximal (Bell) pairs (H-NEARMAX).  On the harvested vacuum "
+                      "pair -- the only pair no distribution supplies -- the drift signal is second order in Bob's branch "
+                      "length, 2 eps T rho_perp^2, so the vacuum route does not supply W2's pairs at this order; the "
+                      "many-pair case is N_W2WEAK, OPEN.  Bears on O-BITS (support counts) and O-MAKE-DIST (the route)"}
+    T["T-L W2xF1 on a harvested vacuum pair (vacuum.w2_signal)"]["pass"] = (
+        all(abs(r["Bell signal"] - r["settle.bob_y_exact"]) < 1e-9 for r in tl_rows) and
+        all(r["harvested signal (beta=7, lambda=0.1)"] < 1e-20 and abs(r["harvested / (2 eps T rho_perp^2)"] - 1) < 2e-2
+            for r in tl_rows))
     # class table: JOINT and INDEPENDENT variants grouped by (cell, attributed set, contributors)
     cover = {}
     for SS in (S, S_au):
@@ -2413,6 +2872,36 @@ def seat_route_census(S, S_au):
         out[lab] = {"consistent variants": len(cons), "H-SEAT-S5 (adopted grade, F-alone)": s5,
                     "H-SEAT-ROUTES (named alternative): LEFT in": left,
                     "H-SEAT-ROUTES: removable in": len(cons) - left}
+    return out
+
+
+def dist_route_census(S, S_au):
+    """Wave 7 (D68 wave 2, W2B-vacuum): O-MAKE-DIST's grade in EVERY consistent variant, both cells -- the verdict and the
+    OPEN pathways read off each row of the adopted screen -- and, beside it, under the named reading H-VAC-LEFTIF (the
+    nine hypotheses of vacuum.GRADES assumed: is O-MAKE-DIST removable in the variant with every OPEN pathway free?  If
+    not, LEFT), and under the wider reading of N_NLDIST adopted nowhere ('nldist-any-nonlinear': in how many variants
+    does N_NLDIST open O-MAKE-DIST that the adopted encoding (W2 only) does not open through it?).  Each variant checked."""
+    out = {}
+    for lab, SS, cell in (("1 ly, N = 7", S, CELL_MAIN), ("1 AU, N = 7 (W2 variants)", S_au, CELL_AU)):
+        cons = [r for r in SS["rows"] if r["consistent"]]
+        adopted = {}
+        for r in cons:
+            v = r["per"]["O-MAKE-DIST"]
+            k = v["verdict"] + (" via " + ",".join(v["via"]) if v.get("via") else "")
+            adopted[k] = adopted.get(k, 0) + 1
+        vl = Screen(cell=cell, mutate=("vac-left-if",))
+        left = sum(1 for r in cons if not vl.sat(vl.lits(set(r["present"])) + [vl.A["rm:O-MAKE-DIST"]]))
+        wide = Screen(cell=cell, mutate=("nldist-any-nonlinear",))
+        only_nl = [wide.A["N_NLDIST"]] + [z3.Not(wide.A[j]) for j in wide.open_named if j != "N_NLDIST"]
+        widened = sorted({tuple(r["present"]) for r in cons
+                          if "N_NLDIST" not in (r["per"]["O-MAKE-DIST"].get("via") or [])
+                          and wide.sat(wide.lits(set(r["present"])) + only_nl + [wide.A["rm:O-MAKE-DIST"]])},
+                         key=lambda t: (len(t), t))
+        out[lab] = {"consistent variants": len(cons), "adopted (vacuum.py's three pathways)": adopted,
+                    "H-VAC-LEFTIF (named reading): LEFT in": left,
+                    "H-VAC-LEFTIF: removable in": len(cons) - left,
+                    "wider N_NLDIST (adopted nowhere): variants it would add N_NLDIST to": len(widened),
+                    "wider N_NLDIST: smallest such variants": [list(t) for t in widened[:4]]}
     return out
 
 
@@ -2551,6 +3040,7 @@ def run_all(with_tests=True):
     out["survivors"] = survivors(S["rows"])
     out["survivors_au"] = survivors(S_au["rows"])
     out["seat_routes"] = seat_route_census(S, S_au)
+    out["dist_routes"] = dist_route_census(S, S_au)
     out["headline"] = headline(S["rows"])
     out["headline_au"] = headline(S_au["rows"])
     out["load_bearing"] = load_bearing(S["rows"])
@@ -2566,10 +3056,22 @@ def run_all(with_tests=True):
                             "STRUCTURAL": "_board takes the cell only through win_open, so equal windows give equal "
                                           "boards (cannot fail); the content is the computed window"}
     w3 = cell_window_open(CELL_AU3)
+    d3 = cell_window_detail(CELL_AU3)
+    # wave 7 (D68 wave 2): refusing H-SAME-EPS at this cell (Chupp-Hoare's limit alone governing the carrier's eps) opens
+    # reading A only; the cell would then depend on H-MAP's reading, and under reading A support 1 reads as at 1 ly
+    sA = Screen(cell=CELL_AU3, mutate=("support1-only",), win_open=True).variant({"W2", "F1"})["per"]["O-BITS"]
+    sB = Screen(cell=CELL_AU3, mutate=("support1-only",), win_open=False).variant({"W2", "F1"})["per"]["O-BITS"]
     out["cell_1AU_N1e3"] = {"window_open": w3, "same_board_as": CELL_MAIN if w3 else CELL_AU,
+                            "window_premises": d3["window_premises"],
+                            "non_robust_readings": d3["non_robust_readings"],
+                            "opens_without_H-SAME-EPS_on": d3["opens_without_H-SAME-EPS_on"],
+                            "without H-SAME-EPS: support 1 only, {W2,F1} O-BITS under reading A / B":
+                                (sA["verdict"], sB["verdict"]),
                             "STRUCTURAL": "as for N = 1e6: equal windows give equal boards; the content is the computed "
-                                          "window (empty under both H-MAP readings, from the NAMED-NOT-READ value: "
-                                          "support 1 OPEN via N_WREAD there, wave 4)"}
+                                          "window -- empty under both H-MAP readings on the tightest READ (abstract) "
+                                          "limit: support 1 EXCLUDED given W_W2R + H-SAME-EPS (wave 7; wave 4-6: OPEN via "
+                                          "N_WREAD, from the NAMED-NOT-READ value)"}
+    out["cells_read"] = cells_read_table()
     ex = exercised(S)
     ex_au = exercised_cells(S_au, S)
     for h in LIT_NAMES:
@@ -2615,7 +3117,7 @@ def report(R):
         return
     rows = R["rows"]
     cons = [r for r in rows if r["consistent"]]
-    print(f"DOCKET 68 / B-combine (wave 6).  {len(rows)} variants over {len(R['table'])} combinations (127 + "
+    print(f"DOCKET 68 / B-combine (wave 7 = D68 wave 2).  {len(rows)} variants over {len(R['table'])} combinations (127 + "
           f"readings-only) at {CELL_MAIN}; consistent {len(cons)}, inconsistent {len(rows) - len(cons)}; "
           f"z3 {R['screen']['seconds']:.1f} s.  At {CELL_AU}: {len(R['rows_au'])} W2 variants re-screened.  "
           f"{CELL_AU6}: {_fmt(R['cell_1AU_N1e6'])}  {CELL_AU3}: {_fmt(R['cell_1AU_N1e3'])}")
@@ -2629,8 +3131,8 @@ def report(R):
     print("DRIFT GROUND ROWS (per support at 1 AU):", _fmt(d["ground_rows"]))
     print("CONTROLS (mutated encodings caught):", _fmt({k: (v["caught"], v["agree"]) for k, v in R["drift_controls"].items()
                                                         if "caught" in v}))
-    print("ALTERNATIVE H-SEAT-ROUTES under the drift guard (a reading, not a mutation):",
-          _fmt(R["drift_controls"]["ALTERNATIVE H-SEAT-ROUTES (reading, not mutation)"]))
+    for lab, _ in READINGS_UNDER_GUARD.values():
+        print(lab + " under the drift guard:", _fmt(R["drift_controls"][lab]))
     print("VACUITY:", _fmt(R["vacuity"]["known_contradictions_caught"]))
     print("STRUCTURAL (cannot fail, not evidence):", _fmt(R["vacuity"]["STRUCTURAL"]))
     cc = R["clash_census"]
@@ -2642,6 +3144,14 @@ def report(R):
     print("\nSURVIVORS", CELL_MAIN, _fmt(R["survivors"]))
     print("SURVIVORS", CELL_AU, _fmt(R["survivors_au"]))
     print("O-SEAT UNDER EACH SEAT-ROUTE READING (wave 6, every consistent variant checked):", _fmt(R["seat_routes"]))
+    print("O-MAKE-DIST UNDER THE VACUUM ROUTE (wave 7, D68 wave 2; every consistent variant checked):",
+          _fmt(R["dist_routes"]))
+    print("THE NINE READ-WINDOW CELLS (wave 7; the board takes a cell only through its window):")
+    for c in R["cells_read"]:
+        print(f"     {c['L']:10s} N = {c['N']:<8g} window {'OPEN ' if c['window_open'] else 'EMPTY'}  premises "
+              f"{', '.join(c['window_premises'])}  screens as {c['same_board_as']}"
+              + (f"  [non-robust {c['non_robust_readings']}: opens on {c['opens_without_H-SAME-EPS_on']}]"
+                 if c["non_robust_readings"] else ""))
     print("LOAD-BEARING", R["load_bearing"], "| at 1 AU", R["load_bearing_au"])
     print("\nEXERCISED (difference census):")
     for h, v in R["exercised"].items():
@@ -2687,8 +3197,14 @@ def report(R):
                   f"  x eps_max: " + ", ".join(f"{k[:1]} {v:.1f}" for k, v in
                                                r["IF H-MAP-W2 (not adopted): needed / eps_max"].items()))
         print("     range:", _fmt(g["N_W2ANC field figure"]["range"]))
-        print("WAVE 5 -- support 1 per cell, M's rule both ways (V3 residual 3; settle.window_given vs combine's z3 "
-              "window):", _fmt(g["window_given_agrees"]))
+        print("WAVE 7 -- support 1 per cell on the READ (abstract) limits (settle.window_read vs combine's z3 window, "
+              "every limit):", _fmt(g["window_read_agrees"]))
+        print("WAVE 7 -- READ-window CONTROL (every limit scaled):", _fmt(g["window_read CONTROL scale"]),
+              "| HISTORY window_given reproduced:", g["HISTORY window_given (wave-4 record) reproduced on the READ values"])
+        print("WAVE 7 -- the vacuum route (vacuum.py, imported):", _fmt(g["vacuum"]))
+        print("WAVE 7 -- O-SEAT, seat.grade_o_seat vs z3:", _fmt(g["seat_grade"]), _fmt(g["seat_grade_z3"]))
+        print("WAVE 7 -- the D25 binder at Proxima (seat.binders, top 3):", _fmt(g["seat_binders"]),
+              "| P, N measured:", _fmt(g["seat_measured_P_N"]))
         print("\nGROUNDS:", R["grounds_ok"])
         print("GROUNDS STRUCTURAL (not counted):", _fmt(R["grounds_structural"]))
         print("\nCOMPLEMENTARY CLASSES -> content-bearing tests (JOINT only; INDEPENDENT listed, not tested as pairs):")
@@ -2802,6 +3318,16 @@ def selftest():
        V["CONTROL S5 refused (RECONSTRUCTION_SURVIVES read False): O-SEAT LEFT, the S5/D25 pathway closes"])
     ck("CONTROL D25 gate failing (N_S5 held false), S10 and S13 refused: O-SEAT not removable under SHAPE",
        V["CONTROL D25 gate failing (N_S5 false): O-SEAT not removable under SHAPE"])
+    # wave 7 (D68 wave 2, W2B-vacuum)
+    ck("CONTROL vacuum pathways tied as encoded (wave 7): N_NLDIST opens O-MAKE-DIST with W2 and not with W1 or alone; "
+       "N_W2WEAK with W2 x F1 and not with W2 alone (no signal without a frame); N_VACNP in the board-alone variant; with "
+       "every pathway false the adopted screen refuses the removal",
+       V["CONTROL vacuum pathways tied as encoded: N_NLDIST opens O-MAKE-DIST only with W2, N_W2WEAK only with a drift "
+         "signal (W2 and a frame), N_VACNP in the board-alone variant"])
+    ck("CONTROL vac-asserted (M's 'it already exists everywhere' read as a removal by assertion): O-MAKE-DIST becomes "
+       "removable with every OPEN pathway false, which the adopted screen refuses",
+       V["CONTROL vac-asserted (no distribution by assertion): O-MAKE-DIST removable with every OPEN pathway false, and "
+         "the adopted screen refuses it"])
     ck("PROOF N_EPS occurs only in B-CAP and B-EPSWIN, and no CAP without W2 (so the 1 AU re-screen of W2 variants "
        "covers every variant N_EPS can reach)", V["N_EPS occurs only in"] == ["B-CAP", "B-EPSWIN"] and
        V["no CAP without W2 (z3)"])
@@ -2818,10 +3344,18 @@ def selftest():
     for k, v in R["drift_controls"].items():
         if "caught" in v:
             ck(f"CONTROL mutated encoding '{k}' caught as an unexplained disagreement", v["caught"])
-    ck("CONTENT the named alternative H-SEAT-ROUTES disagrees with the A-reports on exactly one row, (A3, H-INFO-SHAPE, "
-       "O-SEAT): A3 grades O-SEAT OPEN under H-SEAT-S5 and H-SEAT-ROUTES gives LEFT (the drift guard tells the two seat "
-       "readings apart)", R["drift_controls"]["ALTERNATIVE H-SEAT-ROUTES (reading, not mutation)"]["exactly the SHAPE/O-SEAT row"],
-       R["drift_controls"]["ALTERNATIVE H-SEAT-ROUTES (reading, not mutation)"])
+    # wave 6: H-SEAT-ROUTES disagreed on exactly (A3, H-INFO-SHAPE, O-SEAT); wave 7 adds W2C-seat's own row, and the
+    # vacuum reading H-VAC-LEFTIF and wave 6's N_VAC encoding are told apart from the adopted one on W2B-vacuum's row
+    for lab, rows_exp in READINGS_UNDER_GUARD.values():
+        kind = "HISTORY" if lab.startswith("HISTORY") else "CONTENT"
+        ck(f"{kind} {lab} disagrees with the graded rows on exactly {rows_exp} (the drift guard tells the readings apart)",
+           R["drift_controls"][lab]["exactly the expected rows"], R["drift_controls"][lab])
+    ck("DRIFT the wave-2 instruments' own grades were loaded and compared (vacuum.GRADES, seat.grade_o_seat)",
+       D["reports_loaded"].get("W2B-vacuum") and D["reports_loaded"].get("W2C-seat") and
+       sum(1 for r in D["rows"] if r["report"] in ("W2B-vacuum", "W2C-seat")) == 2 and
+       all(r["agree"] for r in D["rows"] if r["report"] in ("W2B-vacuum", "W2C-seat")),
+       [(r["report"], r["obstruction"], r["report_class"], r["z3_class"]) for r in D["rows"]
+        if r["report"] in ("W2B-vacuum", "W2C-seat")])
     rows = R["rows"]
     cons = [r for r in rows if r["consistent"]]
     ck("COVERAGE 8,191 variants screened ((4*4*4*4*8 - 1) * 4 + 3; wave 4: 6,143, before SHAPE)", len(rows) == 8191,
@@ -2867,8 +3401,21 @@ def selftest():
        cons and len(cons) == 5759 and len(rows) - len(cons) == 2432 and cc["present"].get("INFOS") == 2048 and
        cc["present"].get("W2 + ITE") == 512 and not any("SHAPE" in k for k in cc["present"]),
        (len(cons), cc["present"]))
-    ck("RESULT O-MAKE-DIST removed or not-bound in no consistent variant; OPEN via N_VAC",
-       "O-MAKE-DIST" in sv["removed_or_not_bound_in_no_consistent_variant"] and "O-MAKE-DIST" in sv["open_somewhere"])
+    # wave 7 (D68 wave 2): wave 6 checked 'OPEN via N_VAC'.  Now every consistent variant is read off: OPEN via N_VACNP
+    # always; + N_NLDIST exactly where W2 is present; + N_W2WEAK exactly where W2 has a frame (F1 or F2b); and LEFT in
+    # every one under H-VAC-LEFTIF
+    DR = R["dist_routes"]
+
+    def _dist_expect(r):
+        via = (["N_NLDIST"] if "W2" in r["present"] else []) + (
+            ["N_W2WEAK"] if "W2" in r["present"] and ({"F1", "F2b"} & set(r["present"])) else []) + ["N_VACNP"]
+        return r["per"]["O-MAKE-DIST"] == {"verdict": "OPEN", "via": via}
+    dist_ok = all(_dist_expect(r) for SS in (R["_S"], R["_S_au"]) for r in SS["rows"] if r["consistent"])
+    ck("RESULT O-MAKE-DIST in every consistent variant, both cells (wave 7, vacuum.py): removed or not-bound in none; "
+       "OPEN via N_VACNP in all, + N_NLDIST exactly with W2, + N_W2WEAK exactly with W2 and a frame; H-VAC-LEFTIF (the "
+       "nine hypotheses) LEFT in all (wave 6: 'OPEN via N_VAC')",
+       "O-MAKE-DIST" in sv["removed_or_not_bound_in_no_consistent_variant"] and dist_ok and
+       all(x["H-VAC-LEFTIF (named reading): LEFT in"] == x["consistent variants"] for x in DR.values()), DR)
     ck("RESULT O-HOLD and O-MAKE-TOPO are never REMOVED at 1 ly (only NOT-BOUND-IF)",
        {"O-HOLD", "O-MAKE-TOPO"} <= set(sv["removed_in_no_consistent_variant"]))
     by = R["_S"]["by"]
@@ -2884,19 +3431,34 @@ def selftest():
        w2f.get("joint") and "O-BITS" in w2f["synergy"])
     sw = {tuple(s["named"]): s.get("window") for s in w2f["per"]["O-BITS"]["supports"]}
     sau6 = Screen(cell=CELL_AU6).variant({"W2", "F1"})["per"]["O-BITS"]["supports"]
-    ck("RESULT M's rule both ways (V3 residual 3): {W2, F1} support 1 at 1 ly N = 7 AND at 1 AU N = 1e6 is flagged "
-       "ADMISSIBLE GIVEN W_W2, support 2 UNEVALUATED; the verdict REMOVED-IF does not move",
-       sw.get(("N_EPS",)) == WINDOW_GIVEN_FLAG and str(sw.get(("N_W2ANC",))).startswith("UNEVALUATED") and
-       any(s["named"] == ["N_EPS"] and s.get("window") == WINDOW_GIVEN_FLAG for s in sau6) and
+    ck("RESULT the window flag on READ values (wave 7; wave 5-6: 'ADMISSIBLE GIVEN W_W2'): {W2, F1} support 1 at 1 ly "
+       "N = 7 AND at 1 AU N = 1e6 is flagged ADMISSIBLE given W_W2R (not excluded, not found), support 2 UNEVALUATED; the "
+       "verdict REMOVED-IF does not move",
+       sw.get(("N_EPS",)) == WINDOW_READ_FLAG and str(sw.get(("N_W2ANC",))).startswith("UNEVALUATED") and
+       any(s["named"] == ["N_EPS"] and s.get("window") == WINDOW_READ_FLAG for s in sau6) and
        w2f["per"]["O-BITS"]["verdict"] == "REMOVED-IF", (sw, [(s["named"], s.get("window")) for s in sau6]))
     gr = D["ground_rows"]
-    ck("RESULT 1 AU, N = 7 (and N = 1e3, same window): support 1 without H12 is OPEN via N_WREAD, not LEFT -- the "
-       "exclusion rests on an unread value", gr["z3 support 1 only, {W2,F1} O-BITS at 1 AU"] == ("OPEN", ["N_WREAD"]),
-       gr["z3 support 1 only, {W2,F1} O-BITS at 1 AU"])
-    ck("CONTROL wave 3's settled window (no N_WREAD) gives LEFT for support 1 at 1 AU (so the OPEN is carried by the "
-       "named pathway, not by the engine)", gr["CONTROL wave-3 settled window, support 1 only, {W2,F1} at 1 AU"] == "LEFT")
-    ck("CONTENT at 1 AU N_EPS is admissible only through the OPEN pathway N_WREAD",
-       V["CONTENT at 1 AU N_EPS admissible only through N_WREAD (OPEN pathway)"])
+    ck("RESULT 1 AU, N = 7 (and N = 1e3, same window): support 1 without H12 is EXCLUDED given W_W2R on the READ "
+       "(abstract) value -- z3 LEFT, settle.window_read 'EXCLUDED' (wave 4-6: OPEN via N_WREAD, the value unread)",
+       gr["z3 support 1 only, {W2,F1} O-BITS at 1 AU"] == ("LEFT", None), gr["z3 support 1 only, {W2,F1} O-BITS at 1 AU"])
+    ck("HISTORY CONTROL wave 6's encoding (N_WREAD restored) reproduces wave 6's ground row, OPEN via N_WREAD -- so the "
+       "LEFT is carried by the READ, not by the engine",
+       gr["HISTORY CONTROL wave 6's encoding (N_WREAD), support 1 only, {W2,F1} at 1 AU"] == ("OPEN", ["N_WREAD"]))
+    ck("CONTROL a READ limit 1e3x looser opens the 1 AU, N = 7 window in settle AND makes z3's support 1 REMOVED-IF (the "
+       "two instruments move together)",
+       gr["CONTROL READ limit 1e3x looser: settle window / z3 support 1 only at 1 AU"] == (["OPEN", "OPEN"], "REMOVED-IF"))
+    ck("CONTENT at 1 AU N_EPS is inadmissible without H12 on the READ value, admissible with H12 + N_H12W",
+       V["CONTENT at 1 AU N_EPS inadmissible without H12 on the READ value, admissible with H12 + N_H12W"])
+    ck("HISTORY wave 6's encoding: N_EPS admissible at 1 AU only through N_WREAD",
+       V["HISTORY wave 6's encoding (N_WREAD restored): N_EPS admissible at 1 AU only through N_WREAD"])
+    c3 = R["cell_1AU_N1e3"]
+    ck("RESULT 1 AU, N = 1e3 rests on H-SAME-EPS (wave 7, W2A-limits): the window is empty under both readings on the "
+       "tightest READ limit; reading A alone is not robust -- it opens on Chupp-Hoare's limit -- so H-SAME-EPS joins the "
+       "window premises there; refusing it, support 1 reads REMOVED-IF under reading A and LEFT under B",
+       c3["window_open"] is False and c3["non_robust_readings"] == ["A (eps = 2 pi f)"] and
+       c3["opens_without_H-SAME-EPS_on"] == ["Chupp & Hoare 1990, 21Ne, PRL 64 2261"] and
+       c3["window_premises"] == ["H-MAP", "H-TRANSFER", "H-SPIN", "H-DILUTION", "H-SAME-EPS"] and
+       c3["without H-SAME-EPS: support 1 only, {W2,F1} O-BITS under reading A / B"] == ("REMOVED-IF", "LEFT"), c3)
     f2b = by[frozenset({"F2b"})]
     ck("RESULT {F2b}: O-BITS REMOVED-IF {F2b; N_DCTC} (the D-CTC), with the {N_DCTC, N_FRW} premise clash",
        f2b["per"]["O-BITS"]["verdict"] == "REMOVED-IF" and
@@ -2965,7 +3527,8 @@ def selftest():
           f"{nstruct} STRUCTURAL items reported, not counted (engine premise-consistency; "
           f"{len(R['grounds_structural'])} ground values; INDEPENDENT classes carry no test by definition; the COVERAGE "
           f"partition identity; O-SEAT's survival and the O-SEAT encodings -- H-SEAT-S5, H-SEAT-ROUTES, H-SEAT-S12, "
-          f"wave 4's DEF-MATTER; clash (d) under M's ruling); "
+          f"wave 4's DEF-MATTER; clash (d) under M's ruling; wave 7: O-MAKE-DIST OPEN via the untied N_VACNP and "
+          f"H-VAC-LEFTIF's LEFT); "
           f"{time.time() - t0:.0f} s")
     return 0 if npass == len(checks) else 1
 
