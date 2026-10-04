@@ -2,9 +2,13 @@
 
 Instrument: `signed.py` (stdlib + numpy + sympy; z3-solver for § 4b, pip-installed and not vendored -- without it
 the six z3 obligations are printed SKIPPED and not counted). `python3 signed.py` prints every table below as data;
-`--selftest` runs **125 checks: 113 counted, all pass, 24 of them controls (cases built to fail, which do fail); 12
+`--selftest` runs **135 checks: 120 counted, all pass, 26 of them controls (cases built to fail, which do fail); 15
 more are printed STRUCTURAL** (they cannot fail, so they are neither counted nor cited as evidence); `--json` gives the
-numbers. *M-apply first-said record:* "86 checks: 77 counted ... 18 ... controls ...; 9 more ... STRUCTURAL"; M-apply
+numbers. *F-alone first-said record:* "125 checks: 113 counted ... 24 ... controls ...; 12 more ... STRUCTURAL";
+F-alone (V4-0, V4-1) printed two counted identities STRUCTURAL (Fe-56's B against AME's; the proton's zero binding),
+replaced the 2 eV u check by four counted checks, one control and one STRUCTURAL budget line (H-U-EDITION, CODATA 2022
+READ), and added six checks (AME's convention, sign sources, PT-AVERAGE twice, the Fe II sensitivity, POPULATE-AXES
+refused -- the last a control). *M-apply first-said record:* "86 checks: 77 counted ... 18 ... controls ...; 9 more ... STRUCTURAL"; M-apply
 added §§ 9-10 (39 checks: 6 controls, 3 STRUCTURAL). *Wave 4 first-said record:* "66 checks, 0 failed: 13 controls ... 2 STRUCTURAL"; wave 4 (R3-alone) added 20
 checks for § 4b-4c and relabelled five STRUCTURAL (V2-0 problem 5 and the same test applied to the rest). Nothing here edits `measure.py`
 (A3) or the board. `measure.py` and `tools/cypher.py` are **imported, never copied**.
@@ -462,7 +466,11 @@ What this settles and what it does not:
   On probability measures the two branches part company already: under signed w Q-1's Shannon case (BFL's Theorem 2)
   is recovered; under |w| it is not, since signed Rényi fails BFL convex linearity there.
 - Both carry H-RD (the Rényi–Daróczy step is NAMED-NOT-READ). **Which is lawful for The Method stays M's** (OPEN 3);
-  M has ruled that both are carried until a computation or M separates them, and nothing computed here separates them.
+  M has ruled that both are carried until a computation or M separates them. **They are separated conditionally**
+  (**H-BFL-BINDS**): *if* BFL convex linearity on FinProb binds The Method -- Q-1's delivered Shannon measure (§ 8)
+  rests on it -- only signed w (Re H) survives, since signed Rényi fails it on probability measures (0.264 at α = 0.5,
+  0.403 at α = 2). Whether it binds is M's; **both stay carried, as M ruled.** *M-apply first said* "nothing computed
+  here separates them" (V4-0 #8: an understatement; F-alone).
 - Values on the applications (§ 10): for Fe-56's ground under MASS/BINDING, Re H = 0.931580, H₀.₅ = 1.232607,
   H₂ = 0.965861 bits; for the Möbius weighting of Λ, Re H = 0, H₀.₅ = 16.617, H₂ = −8.308 bits.
 
@@ -475,21 +483,43 @@ on the question being asks or the object of study". **H-READING-M is answered**:
 **The default calibration, MASS/BINDING** (`signed.calibrate`; named hypothesis **H-MASS-CELLS**). A state of an atom or
 ion (Z, A, charge q) is written over four cells, protons Z m_p, electrons (Z − q) m_e, neutrons N m_n, and the binding
 −B, each divided by the state's mass M. B is the shortfall, so the weights total 1 exactly (STRUCTURAL), and **the
-binding is a negative weight**: the periodic table's real numbers give a quasi-probability with no further choice. The
-**ground** is the neutral atom in its ground state; a state's signed weight is its deviation from it, d = p − p₀, and
-in log space ln(p/p₀), which is 0 at the ground. Every number is READ on the board or derived from READ numbers:
+binding is a negative weight**: a quasi-probability **from READ nuclide masses (AME2020), PDG masses and NIST IEs, under
+H-MASS-CELLS** -- a choice, named. *M-apply first said* "the periodic table's real numbers give a quasi-probability with
+no further choice" (V4-0 #5: granted by assertion; it contradicted its own H-MASS-CELLS). **H-NUCLIDE-GROUND**: one
+nuclide stands for the element (its most abundant -- Fe-56 for iron); the periodic table's real number for an element is
+its **standard atomic weight**, an isotope mean, which MASS/BINDING does not use; it is carried as the alternative
+**PT-AVERAGE** (below). The **ground** is the neutral atom in its ground state. **Two sign sources, named apart**
+(SIGN SOURCES): **S-1**, the ground itself is signed (its binding cell, under H-MASS-CELLS); **S-2**, a state's
+deviation d = p − p₀ is signed cell by cell (H-ZERO's reading, M item 3: "less than the ground state"); in log space
+ln(p/p₀), which is 0 at the ground. Every number is READ on the board or derived from READ numbers:
 
 | quantity | source | status |
 |---|---|---|
 | mass excesses Δ | AME2020 Table I, the board's capture (`gravity.nuclides`, imported) from the published table M supplied | READ (board capture). **No arXiv copy of AME2020 was found** (alphaXiv discovery search, 2026-10-03), so the arXiv route is closed and reported |
 | m_p, m_n, m_e | PDG-2026 capture via `massform.MASS_MEV` (imported) | READ |
 | ionisation energies | NIST ASD captures `IE-neutral-all.tsv` (first IE, Z = 1-108) and `LADDER-K-Kr.tsv` (every charge, Z = 19-36), read as data | READ |
-| u c² | m_p + m_e − I(H) − Δ(¹H) = 931494.1033 keV | DERIVED-FROM-READ; CODATA 2018's 931494.1024 (typed in `gravity.py`, NAMED-NOT-READ) agrees to +0.875 eV, within PDG's 1 eV rounding of m_p |
-| cross-checks | m_n by AME (u + Δ(n)) vs PDG: −0.607 eV; Fe I's IE in both NIST captures: equal; Fe-56's B by this route vs AME's own Z Δ(¹H) + N Δ(n) − Δ: equal up to Z·I(H) within N × 2 eV | COMPUTED |
+| u c² | m_p + m_e − I(H) − Δ(¹H) = 931494.1033 keV | DERIVED-FROM-READ. **H-U-EDITION** (F-alone): the rounding budget of the READ inputs is **0.5055 eV** (m_p quoted to 1 eV: ≤ 0.5 eV; m_e, Δ(¹H), I(H) about 0.0055 eV). Against CODATA 2018's 931494.1024 (typed in `gravity.py`, NAMED-NOT-READ) the difference is **+0.875 eV, 0.37 eV outside the budget**: rounding does not explain it. **CODATA 2022, READ** (arXiv:2409.03787v1, Table XXXIII): m_u c² = 931.494 103 72(29) MeV, m_p c² = 938.272 089 43(29) MeV, m_e c² = 0.510 998 950 69(16) MeV. Against it the derived u differs by **−0.427 eV, inside the budget**, and with CODATA 2022's unrounded m_p and m_e in place of PDG's the residual is **+0.002 eV**. PDG-2026's m_p is CODATA 2022's rounded to 1 eV (−0.430 eV, control). **The 0.37 eV is an edition difference (CODATA 2022 − 2018 in u: +1.303 eV), computed; no longer OPEN.** *M-apply first said* "agrees to +0.875 eV, within PDG's 1 eV rounding of m_p", checked at a 2 eV tolerance (V4-0 #6) |
+| cross-checks | m_n by AME (u + Δ(n)) vs PDG: −0.607 eV; Fe I's IE in both NIST captures: equal | COMPUTED |
+| **B, labelled** (V4-1 #3) | Fe-56: **B = 492260.3223 keV, the H-MASS-CELLS shortfall** Z m_p + Z m_e + N m_n(PDG) − M (nuclear + electronic binding), DERIVED-FROM-READ. Beside it, **AME2020's own convention** Z Δ(¹H) + N Δ(n) − Δ = **492259.9506 keV** (B/A 8790.3563 keV). They differ by **+371.8 eV = Z·I(H) (353.6 eV) + 30 × 0.6074 eV (18.2 eV)** -- an identity once u is defined through M(¹H), so that line is printed STRUCTURAL (V4-0 #7). *M-apply first said* "Fe-56 B = 492260.32 keV" with "READ ... binding energies", and counted the identity "within N × 2 eV" | COMPUTED; identity STRUCTURAL |
 
-Hypotheses carried: H-MASS-CELLS, **H-AME-ATOMIC** (AME's masses are neutral-atom ground states), **H-IE-GROUND**
-(NIST's IEs are ground-to-ground, so M_ion = M_atom − q m_e + Σ first q IEs). A value the captures do not hold is
-**not filled in**: C's full ladder and C II's IE are NOT READ, and the calls refuse (control).
+Hypotheses carried: H-MASS-CELLS, **H-NUCLIDE-GROUND**, **H-AME-ATOMIC** (AME's masses are neutral-atom ground
+states), **H-IE-GROUND** (NIST's IEs are ground-to-ground, so M_ion = M_atom − q m_e + Σ first q IEs). A value the
+captures do not hold is **not filled in**: C's full ladder and C II's IE are NOT READ, and the calls refuse (control).
+
+**The periodic-table reading, carried as the alternative: PT-AVERAGE (H-PT-WEIGHT; F-alone, V4-1 #2).** The element as
+its isotope mixture: each nuclide's H-MASS-CELLS budget weighted by its abundance x_i, so the mean nucleon number is
+non-integer. For iron (CIAAW 2024 representative composition ⁵⁴Fe 0.05845, ⁵⁶Fe 0.91754, ⁵⁷Fe 0.02119, ⁵⁸Fe 0.00282):
+**Ā = 55.90993, N̄ = 29.90993**; the mixture's atomic weight computed from AME2020 is **A_r = 55.84514**, inside CIAAW
+2024's standard atomic weight **55.845(2)**; B̄ = 491274.2886 keV. Status of those inputs: **as DOCKET 67's raw audit
+READ them** (`docket67-raw/rederive/standard-atomic-weights.py`, imported, which is UNVERIFIED and NOT SEATED) --
+**D67-RAW-READ**. READ at source this pass: **not** -- ciaaw.org and iupac.qmul.ac.uk are refused by the egress proxy
+(403, reported, not routed around) and alphaXiv holds no IUPAC/CIAAW copy, so the standard weights are
+**NAMED-NOT-READ** here. The board's `stock.ATOMIC_MASS` (Fe 55.845, which `measure.atom_counts` uses for the 70 kg
+body) is, by `stock.py`'s own DOCKET 67 note, "the terrestrial standard atomic weights, uncited": NAMED-NOT-READ. So
+docket 68 uses two "element" masses, the nuclide's here and the standard weight in `measure.py`, and says so.
+Computed: the two grounds differ (D_s(Fe-56 ground ‖ Fe-mixture ground) = 1.134e-6 nats), but Fe +1's centred Re D_s is
+1.9133e-7 under PT-AVERAGE against 1.9102e-7 under H-NUCLIDE-GROUND (+0.16 %); Fe +26: 2.5544e-4 against 2.5503e-4.
+**No verdict moves on the choice.**
 
 **Selectable alternatives** (M: "depending on the question"). Every use names its calibration.
 - **GROUND-CONFIG** -- LW1-ground.py's observed ground configuration, through `tools/populate.py` (imported): weights =
@@ -498,6 +528,15 @@ Hypotheses carried: H-MASS-CELLS, **H-AME-ATOMIC** (AME's masses are neutral-ato
 - **IONISATION** -- the electrons in removal order, each weighted by its ionisation energy (NIST ladder, READ;
   **H-LADDER-CELLS**). `populate.series_limit` (populate's 26th axis, READ or FITTED) is consulted for every stage; it
   **banks no stage of Fe**, which is reported, not filled in. Non-negative.
+- **PT-AVERAGE** -- above (H-PT-WEIGHT). Signed, like MASS/BINDING.
+- **POPULATE-AXES -- OPEN, not implemented** (V4-1 #4; M item 6 lists populate.py's axes). Reason: populate.py's 26
+  axes are per-index coordinates, not a mass budget or a distribution over cells, and no member or ruling states how
+  an axis becomes a ground p₀; choosing one would be a declaration. `calibrate(..., "POPULATE-AXES")` refuses with that
+  reason (control). *M-apply first said* nothing of it: CHARTER's item-6 line dropped it silently.
+- **H-FEII-CONFIG** (V4-1 unresolved 1): GROUND-CONFIG's Fe +1 rests on H-ISOELECTRONIC (Mn's 3d⁵4s²): 2.756e-3 nats.
+  If the NIST Fe II ground 3d⁶4s held (NAMED-NOT-READ: physics.nist.gov refused, 403, this pass; the board's NIST
+  captures carry energies and qualities only), it would be 0.96 ln(26/25) + 0.04 ln(0.52) = **1.149e-2, ×4.17**.
+  Sensitivity, computed; not adopted.
 
 **One multi-axis table, centred at the ground** (`centred_table`). Per cell: p, p₀, d = p − p₀, and the four
 "inverses and reflections" M ruled carried -- **(1)** the log branches of r = p/p₀ (ln|r|, arg r, and the Im D step
@@ -550,17 +589,21 @@ functors FinStat → [0, ∞] vanishing on FP) is proved over probability distri
 
 **Applied** (COMPUTED; default calibration unless named):
 
-| state, calibration | case | N (ground N) | Re D_s(p‖p₀) nats | ΔRe H nats | X | D(p₀‖p) |
+| state, calibration | case (state / ground) | N (ground N) | Re D_s(p‖p₀) nats | ΔRe H nats | X | D(p₀‖p) |
 |---|---|---|---|---|---|---|
-| Fe-56 ground, MASS/BINDING (the centre) | SIGNED | 0.009447819 | 0 | 0 | 0 | 0 |
-| **Fe-56 +1** (ion), MASS/BINDING | SIGNED | 0.009447912 (0.009447819) | 1.910e-7 | −7.501e-5 | +7.482e-5 | 1.935e-7 |
-| Fe-56 +26 (bare nucleus), MASS/BINDING | SIGNED | 0.009449558 | 2.550e-4 | −2.198e-3 | +1.943e-3 | ∞ (electrons absent) |
-| C-12 +1, MASS/BINDING | SIGNED | 0.008245357 (0.008244982) | 4.040e-6 | −3.491e-4 | +3.451e-4 | 4.293e-6 |
-| H-1 +1 (the proton), MASS/BINDING | SHANNON (no binding) | 0 (1.45e-8) | 5.445e-4 | −4.635e-3 | +4.091e-3 | ∞ |
+| nuclide Fe-56 ground, MASS/BINDING (the centre; H-NUCLIDE-GROUND) | SIGNED / SIGNED | 0.009447819 | 0 | 0 | 0 | 0 |
+| **nuclide Fe-56 +1** (ion), MASS/BINDING | SIGNED / SIGNED | 0.009447912 (0.009447819) | 1.910e-7 | −7.501e-5 | +7.482e-5 | 1.935e-7 |
+| nuclide Fe-56 +26 (bare nucleus), MASS/BINDING | SIGNED / SIGNED | 0.009449558 | 2.550e-4 | −2.198e-3 | +1.943e-3 | ∞ (electrons absent) |
+| nuclide C-12 +1, MASS/BINDING | SIGNED / SIGNED | 0.008245357 (0.008244982) | 4.040e-6 | −3.491e-4 | +3.451e-4 | 4.293e-6 |
+| H-1 +1 (the proton), MASS/BINDING | **SHANNON state (no binding cell) / SIGNED ground** (the H atom's −13.6 eV) | 0 (1.45e-8) | 5.445e-4 | −4.635e-3 | +4.091e-3 | ∞ |
+| element Fe +1, PT-AVERAGE (H-PT-WEIGHT, the alternative) | SIGNED / SIGNED | -- | 1.913e-7 | −7.511e-5 | +7.492e-5 | -- |
 | Fe +1, GROUND-CONFIG (H-ISOELECTRONIC) | SHANNON | 0 | 2.756e-3 | +1.076e-2 | −1.352e-2 | 2.853e-3 |
 | Fe +1, IONISATION (H-LADDER-CELLS) | SHANNON | 0 | 2.283e-4 | −1.613e-3 | +1.385e-3 | ∞ |
 
 Under MASS/BINDING the binding falls by exactly Σ IE (Fe +1: 7.902 eV); the cells keep their signs, so Im D_s = 0.
+*M-apply first said* "the element Fe-56" and labelled the proton "(the Shannon case)" (V4-0 #5, V4-1 unresolved 3): the
+proton's state is Shannon but its reference is signed (S-1 without a signed state), so its 5.4445e-4 = ln(M(¹H)/m_p) is
+a Shannon state measured against a signed ground.
 
 **The Method's index, under a NAMED ground** (Λ has no periodic-table numbers; `index_centred`):
 - **H-INDEX-GROUND-LAMBDA** (the uniform measure on Λ's 976 cells, A3's H-UNIFORM): D_s of the Möbius weighting is
@@ -572,6 +615,17 @@ Under MASS/BINDING the binding falls by exactly Σ IE (Fe +1: 7.902 eV); the cel
 - D(uniform Λ ‖ uniform box) = **2.824150 bits = log₂(6912/976)**, A3's "closure supplies" figure (`measure.method_bits`).
 
 ## Discrepancies and history (first said … now)
+
+- **F-alone (2026-10-03), the third pair of re-verifications (V4-0 AGAINST M, V4-1 FOR M;
+  `wave1/MRULINGS-RESULT.json` `result.verify`), every item sited here applied:** the calibration's "no further
+  choice" (V4-0 #5) → H-NUCLIDE-GROUND named, the periodic-table reading carried (PT-AVERAGE), both sign sources named;
+  "+0.875 eV within PDG's 1 eV rounding" at a 2 eV tolerance (V4-0 #6) → the budget computed (0.5055 eV), CODATA 2022
+  READ, the residual shown to be an edition difference; two counted identities (V4-0 #7) → STRUCTURAL; "nothing
+  computed here separates them" (V4-0 #8) → separated conditionally under H-BFL-BINDS, both carried; B unlabelled
+  (V4-1 #3) → the H-MASS-CELLS shortfall with AME's own convention beside it; POPULATE-AXES dropped silently (V4-1 #4)
+  → listed OPEN and refused; the Fe II configuration (V4-1 unresolved 1) → a computed sensitivity; "H+ (the Shannon
+  case)" (V4-1 unresolved 3) → "state Shannon, ground signed". The labels' first forms are kept in
+  `signed.LABELS_FIRST_SAID`. Items on O-SEAT and the z3 screen are A3's (A3-measure.md "F-alone").
 
 - **Numbering (V3 problem 2, M-apply).** The re-verification item numbers in this file are **1-based**; `V2-0.json` and
   `V2-1.json` store 0-based arrays, so "V2-0 problem 8" here is `V2-0.json` `problems[7]`. Each citation also names its
@@ -595,7 +649,13 @@ Under MASS/BINDING the binding falls by exactly Σ IE (Fe +1: 7.902 eV); the cel
 |---|---|
 | H-PRINCIPAL | the branch convention |
 | H-READING-M | the reading of "inverses and reflections" -- **answered by M (M-apply): "All of the above"**; all four carried (§ 10) |
-| H-CAL | which calibration a use takes (default MASS/BINDING; GROUND-CONFIG, IONISATION selectable), named at every use |
+| H-CAL | which calibration a use takes (default MASS/BINDING; GROUND-CONFIG, IONISATION, PT-AVERAGE selectable; POPULATE-AXES OPEN), named at every use |
+| H-NUCLIDE-GROUND | (F-alone) MASS/BINDING centres an element on one nuclide (its most abundant), not on its standard atomic weight |
+| H-PT-WEIGHT | (F-alone) the alternative: the element as its isotope mixture, non-integer N̄ (CIAAW 2024 compositions, D67-RAW-READ) |
+| SIGN SOURCES | (F-alone) S-1 a signed ground (the binding cell); S-2 a signed deviation d = p − p₀ (H-ZERO) |
+| H-U-EDITION | (F-alone) u derived from PDG-2026's m_p, which is CODATA 2022's rounded; checked against CODATA 2022 (READ) |
+| H-BFL-BINDS | (F-alone) if BFL convex linearity on FinProb binds The Method, only signed w survives; M's to rule |
+| H-FEII-CONFIG | (F-alone) the sensitivity of GROUND-CONFIG's Fe +1 to Fe II's NIST ground (NAMED-NOT-READ); not adopted |
 | H-MASS-CELLS | a state's mass budget over (Z m_p, (Z−q) m_e, N m_n, −B), B the shortfall |
 | H-AME-ATOMIC / H-IE-GROUND | AME masses are neutral ground-state atoms; NIST IEs are ground-to-ground |
 | H-ISOELECTRONIC | (GROUND-CONFIG) an ion's configuration is its isoelectronic neutral's (RECONSTRUCTED) |
@@ -626,15 +686,21 @@ Under MASS/BINDING the binding falls by exactly Σ IE (Fe +1: 7.902 eV); the cel
 2. A machine-checked version of the signed-weight Brandenburger–La Mura derivation (H-RD is still NAMED-NOT-READ).
 3. Which mean-value weighting (|w| or w) is *lawful* for The Method. That is a ruling for M, not a computation.
    *M-apply:* M ruled "Carry both (Recommended)" -- both are carried with their axioms (§ 9) until a computation or M
-   separates them; nothing computed so far separates them.
+   separates them. *F-alone:* separated **conditionally** -- if BFL convex linearity on FinProb binds (H-BFL-BINDS),
+   only signed w survives; whether it binds is M's. (*M-apply first said* "nothing computed so far separates them".)
 4. A fuller prior-art search on finite-set signed entropy (wave 4 found Kontsevich and Leinster through the verifier;
    the polylogarithm and information-cohomology literature -- Cathelineau, Baudot–Bennequin, Vigneaux -- is
    NAMED-NOT-READ).
 5. The meaning of M's "inverses and reflections" (H-READING-M). *M-apply:* **answered** ("All of the above"); carried,
    centred at the ground (§ 10). Still OPEN: which ground-state quantity a given question should take beyond M's
-   default MASS/BINDING -- M: "depending on the question being asks or the object of study".
+   default MASS/BINDING -- M: "depending on the question being asks or the object of study". *F-alone:* POPULATE-AXES
+   (populate.py's axes as a calibration) is **not implemented, OPEN**: no rule turns an axis into a ground p₀; and which
+   of H-NUCLIDE-GROUND and H-PT-WEIGHT a question takes is named at each use (no verdict here moves on it).
 7. (M-apply) Lower semicontinuity of D_s, and any characterisation of a signed relative entropy: Baez–Fritz's is proved
    for probability distributions only.
+8. (F-alone) Fe II's observed ground configuration (NIST, NAMED-NOT-READ: 403 this pass) -- GROUND-CONFIG's Fe +1 moves
+   ×4.17 if it is 3d⁶4s rather than H-ISOELECTRONIC's 3d⁵4s². CIAAW 2024's standard weights and compositions READ at
+   source (here D67-RAW-READ, from an unverified, unseated tree).
 6. Whether any operational meaning attaches to Re H once p has negative entries. 2310.19296v1 p.13 says this is
    missing for the continuous case as well.
 

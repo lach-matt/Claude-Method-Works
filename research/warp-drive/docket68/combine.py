@@ -53,6 +53,27 @@ the n-th entry, JSON index n - 1), the convention M-apply stated in A1, A2, A3 a
     value (1 ly N = 7; 1 AU N = 1e6) carries the flag "admissible given W_W2" (settle.window_given, imported: Majumder
     and Walsworth NAMED-NOT-READ, Bollinger and Chupp-Hoare OPEN).  A flag, not a premise: no verdict moves.
 
+WAVE 6 (F-combine, 2026-10-03: the third pair of re-verifications, V4-0 and V4-1 in wave1/MRULINGS-RESULT.json key
+result.verify; every item resolved in B-combine.md section 0).  Wave 5's form of each changed line is kept in
+B-combine.md section 0 as history.
+  - H-SEAT-ROUTES is NAMED: grading O-SEAT against S10 and S13 only is the record's carrying, not M's words ("Yes, from
+    the seat").  The board's own supply-from-the-seat route S5 -- reconstruction from DESTINATION STOCK (LEDGER S5
+    OPEN; massform.RECONSTRUCTION_SURVIVES True: NOT REFUSED by M's mechanism, the flag reducing to
+    transit.CARRIES_SUBSTANCE False because stockgate.GATE is condition text), gated by D25 (OPEN, unchecked at every
+    destination) -- is encoded as F-alone graded it (measure.seat_route_s5, measure.info_shape_screen's H-SEAT-S5):
+    the atom S5SUP enters DEF-SEAT and B-S5 makes it possible only through the OPEN pathway N_S5 ("the D25 gate holds
+    at the destination and S5's supply is shown").  O-SEAT therefore reads OPEN via N_S5 in every consistent variant
+    (removed only if S5's supply is shown; never removed by assertion) and LEFT given H-SEAT-ROUTES (mutate
+    'seat-routes', computed over every consistent variant, both cells).  The route is the BOARD's (no member opens
+    it), so no member is credited; drift rule Z6 reads it {N, OPEN} (see z3_class).  Wave 5 first said 'O-SEAT LEFT
+    in all 5,759' with the restriction unnamed.  E-SEAT's citation is corrected D23 -> D25 (D23 binds S5's channel,
+    O-BITS, not its substance).
+  - V4-0 #2: 'CONTENT clash (d) under M's ruling' repeated two queries already counted (the SHAPE vacuity and INFOS's
+    clash): printed STRUCTURAL, not counted.  The dissolution is M's ruling encoded as C-SHAPE (SHAPE => RECV), with
+    RECV already forced by the board; z3 shows only that the encoding is consistent.
+  - V4-0 #3: S13 forms no baryons (C3, under H-C3: exact) -- that is what makes S13 not a supply; the ~0.998 mass share
+    already at the seat is a first-order estimate (H-LINEAR), not a bound (as a bound: OPEN).
+
 WHAT THIS FILE DOES
   (1) builds the 127 non-empty combinations of the seven hypotheses.  Hypotheses with more than one reading are carried
       in EVERY reading: H-SETTLE W2 / W1 / KR; H-FRAME F1 / F2b / F1+F2b; H-IT ITB / ITE / ITJ (wave 3: the
@@ -290,12 +311,18 @@ OPEN_NAMED = {
                "READ for a restatement, none carries the 1989-90 numbers).  Where the window computed from the unread "
                "value is EMPTY (1 AU, N <= 1e3), a READ could move eps_max: the exclusion is LEFT-IF W_W2, and by M's "
                "rule an unread value makes the cell OPEN, never LEFT",
+    "N_S5": "wave 6 (V4-0 #4, V4-1 #1; H-SEAT-S5, F-alone's grade, measure.seat_route_s5): the D25 destination stock gate "
+            "holds at the destination (a condensed, primitive body holding >= M(p,s) x m_payload of accessible mass in "
+            "the arrival aperture -- unchecked at every destination, LEDGER D25 OPEN) AND S5's supply, reconstruction "
+            "from that stock, is shown (LEDGER S5 OPEN; its price per reconstruction is not re-derivable, DOCKET 56's "
+            "instrument owed).  massform.RECONSTRUCTION_SURVIVES True says only that S5 is NOT REFUSED by M's "
+            "mechanism.  The board's route: no member opens it",
 }
 
 LIT_NAMES = ["W2", "W1", "KR", "F1", "F2b", "ITB", "ITE", "ITJ", "H12", "INFO", "INFOS", "SHAPE", "ZERO", "NULL", "RI",
              "RQ"]
 PHYS = ["SIG", "LIN", "FRAME", "SIGKEY", "KEYED", "PAST", "LOOPC", "LOOPS", "LOOP", "CTC", "NONGEO", "GTOPO", "DIST",
-        "THROAT", "HELD", "ILFREE", "RECV", "CAP", "CAPD", "S10SUP", "S13SUP", "S12SUP"]
+        "THROAT", "HELD", "ILFREE", "RECV", "CAP", "CAPD", "S10SUP", "S13SUP", "S12SUP", "S5SUP"]
 RM = {o: "rm:" + o for o in OBST}
 NB = {o: "nb:" + o for o in NB_OBST}
 LIT_OF = {lit: h for h, rd in SUBREADINGS.items() for k in rd for lit in k.split("+")}
@@ -314,7 +341,9 @@ INERT = {
     "SHAPE": "wave 5, M's ruling: its one commitment (the substance is supplied at the seat, so a holder is there) is "
              "already the board holding B-RECV, so it touches no obstruction atom; its effect is the RELOCATION of "
              "O-MATTER to O-SEAT, which M ruled about the obstruction itself and which is therefore applied in every "
-             "variant (H-SEAT-GLOBAL), not credited to the literal.  A3 grades it LEAVES-ALL",
+             "variant (H-SEAT-GLOBAL), not credited to the literal.  A3 grades it OPEN (wave 6, F-alone: O-SEAT OPEN "
+             "via the board's S5/D25 route, LEFT given H-SEAT-ROUTES; M-apply first said LEAVES-ALL) -- the OPEN is the "
+             "board's pathway, not SHAPE's, so SHAPE stays inert",
 }
 
 # Distance cells: (label, L in metres, N pairs per qubit -- a FLOOR).  The transferred-bound window is COMPUTED per cell.
@@ -522,8 +551,10 @@ def _board(A, win_open, mutate=()):
          I(A["ILFREE"], A["N_ILFREE"])),
         ("B-RECV", "transit.CARRIES_SUBSTANCE False (a receiver must be there); Bekenstein quant-ph/0404042v1 pp.2, 8 "
                    "(READ, A3): a complete system with E > 0 holds the bits (a FLOOR on the holder: measure."
-                   "bekenstein_floor_j 33-379 J at R = 1 m); LEDGER.md S10 REFUSED, S13 and S5 OPEN, both needing a "
-                   "prior arrival at <= c (D23); measure.info_s_clash: phi(1) = 0 bits, Bekenstein 0 bits at E = 0.  "
+                   "bekenstein_floor_j 33-379 J at R = 1 m); LEDGER.md S10 REFUSED, S13 and S5 OPEN -- S13's seat "
+                   "prepared in advance by a prior arrival at <= c (D23); S5's CHANNEL bound by D23 (its resources "
+                   "start at one end), its substance gated by D25 (wave 5 first said 'both needing a prior arrival at "
+                   "<= c (D23)'); measure.info_s_clash: phi(1) = 0 bits, Bekenstein 0 bits at E = 0.  "
                    "Encoded bare (no premise) so that INFOS cannot remove the matter obstruction by assertion.  Wave 5: "
                    "M ruled clash (d) 2026-10-03 for H-INFO-SHAPE, under which B-RECV holds (the substance is at the "
                    "seat) and the clash is dissolved by relocation; INFOS, kept as the alternative, still clashes with "
@@ -546,13 +577,29 @@ def _board(A, win_open, mutate=()):
         ("B-S13", "wave 5, O-SEAT: LEDGER S13 OPEN and PRICED (READ) -- the held-seat release route RESTORES Higgs-given "
                   "mass to templates already at the seat and 'forms no baryons (C3: the elements were already there)' "
                   "(LEDGER S13, READ; massform.HELD_SEAT_ROUTE['forms baryons'] False): electrons 3.010e-6 of the "
-                  "payload (exact, H-TREE), nucleons ~1.716e-3 (first order, an estimate, not a bound), so >= 0.998 of "
-                  "the payload must already be at the seat; seat prepared in advance, a prior arrival at <= c (D23).  "
+                  "payload (exact, H-TREE), nucleons ~1.716e-3 (first order, H-LINEAR: an estimate, not a bound).  EXACT: "
+                  "S13 forms no baryons (C3, under H-C3), so every baryon must already be at the seat; the mass share "
+                  "already there is about 0.998 AT FIRST ORDER (H-LINEAR, an estimate; as a bound it is OPEN -- wave 5 "
+                  "first wrote '>= 0.998 must already be at the seat', a bound from an estimate, V4-0 #3); seat "
+                  "prepared in advance, a prior arrival at <= c (D23).  "
                   "So S13 is not a supply of the SUBSTANCE (M-apply: 'So S13 is not a supply of substance').  What "
                   "S13 leaves OPEN on the board -- its finite nucleon response up to the stability edge and the "
                   "source's fate (H-RELEASE) -- bears on how much mass returns to templates already there, not on "
                   "baryon number; the refusal of S13 as a supply rests on H-C3, as S10's does",
          z3.Not(A["S13SUP"])),
+        ("B-S5", "wave 6, O-SEAT (V4-0 #4, V4-1 #1; H-SEAT-S5, F-alone's grade: measure.seat_route_s5, "
+                 "info_shape_screen): LEDGER S5 OPEN (READ) -- the reconstruction route, specification not mass, from "
+                 "DESTINATION STOCK: the board's supply-from-the-seat route, the fair reading of M's 'Yes, from the "
+                 "seat'.  massform.RECONSTRUCTION_SURVIVES True (NOT REFUSED by M's mechanism; it reduces to "
+                 "transit.CARRIES_SUBSTANCE False, stockgate.GATE being condition text).  Its supply is SHOWN only if "
+                 "the D25 stock gate holds at the destination (LEDGER D25 OPEN, unchecked everywhere; the 70 kg payload "
+                 "needs 749.1 kg of CI chondrite or 1.338e5 kg of stellar photosphere, P binding, "
+                 "stockgate.feedstock_kg) and the reconstruction is shown (price not re-derivable, LEDGER S5): the OPEN "
+                 "pathway N_S5.  D23 binds its channel (O-BITS), not its substance.  Mutations: 'S5-refused' (CONTROL: "
+                 "RECONSTRUCTION_SURVIVES read False) closes it; 'seat-S5-asserted' (CONTROL: removal by assertion) "
+                 "makes SHAPE supply it with no pathway",
+         (z3.Not(A["S5SUP"]) if "S5-refused" in mutate else
+          I(A["SHAPE"], A["S5SUP"]) if "seat-S5-asserted" in mutate else I(A["S5SUP"], A["N_S5"]))),
     ] + ([("B-S12-ALT", "ALTERNATIVE (mutate 'seat-S12'; H-SEAT-S12, adopted nowhere): LEDGER S12 (the pair route, "
                         "OPEN, priced at the floor 1.2567e19 J for 70 kg, antibaryons held apart -- not computed) read "
                         "as a supply at the seat; the energy it converts must itself be at the seat (D23: prior "
@@ -581,10 +628,14 @@ def _defs(A, mutate=()):
         ("DEF-NB-HOLD", "Morris-Thorne does not bind iff there is no geometric throat",
          E(A[NB["O-HOLD"]], N(A["THROAT"]))),
         ("DEF-SEAT", "wave 5 (M's ruling item 5; O-MATTER relocated): O-SEAT removed iff the seat's supply of the "
-                     "payload's substance is shown -- by S10 (M's mechanism) or S13 (the held-seat release), the two "
-                     "routes M-apply grades it against" + (" or, in the ALTERNATIVE H-SEAT-S12, by S12" if
-                                                            "seat-S12" in mutate else ""),
-         E(A[RM["O-SEAT"]], Or(A["S10SUP"], A["S13SUP"], *([A["S12SUP"]] if "seat-S12" in mutate else [])))
+                     "payload's substance is shown -- by S10 (M's mechanism) or S13 (the held-seat release), M's two "
+                     "named tests" + ("" if "seat-routes" in mutate else
+                                      ", or (wave 6, H-SEAT-S5) by S5, reconstruction from destination stock") +
+                     (" -- H-SEAT-ROUTES: supply restricted to M's two named tests (the record's carrying, named)"
+                      if "seat-routes" in mutate else "") +
+                     (" or, in the ALTERNATIVE H-SEAT-S12, by S12" if "seat-S12" in mutate else ""),
+         E(A[RM["O-SEAT"]], Or(A["S10SUP"], A["S13SUP"], *([] if "seat-routes" in mutate else [A["S5SUP"]]),
+                               *([A["S12SUP"]] if "seat-S12" in mutate else [])))
          if "wave4-DEF-MATTER" not in mutate else E(A[RM["O-SEAT"]], N(A["RECV"]))),
         ("DEF-LOOP-C", "corridor O-LOOP removed iff the corridor network closes no causal curve",
          E(A[RM["O-LOOP-C"]], N(A["LOOPC"]))),
@@ -1281,22 +1332,50 @@ def guard_vacuity(scr, scr_au):
     out["board_admits_loop"] = scr.sat(none + [A["LOOP"]])
     out["board_admits_no_loop"] = scr.sat(none + [z3.Not(A["LOOP"])])
     out["board_alone_forces_recv"] = not scr.sat(none + [z3.Not(A["RECV"])])
-    # wave 5 (M's rulings items 1 and 5): clash (d) under the ruled reading, and O-SEAT
-    out["CONTENT clash (d) dissolved: SHAPE & B-RECV SAT, INFOS & B-RECV UNSAT"] = (
-        scr.sat(scr.lits({"SHAPE"})) and not scr.sat(scr.lits({"INFOS"})))
+    # wave 5 (M's rulings items 1 and 5): clash (d) under the ruled reading, and O-SEAT.  Wave 6 (V4-0 #2): the clash
+    # (d) conjunction repeats two queries already counted -- 'SHAPE' in each_single_reading_sat (VACUITY) and
+    # INFOS_alone_unsat (RESULT census) -- and a vacuity query is not content: printed STRUCTURAL, not counted (wave 5
+    # counted it as 'CONTENT clash (d) under M's ruling').  The dissolution is M's ruling encoded as C-SHAPE
+    # (SHAPE => RECV), with RECV already forced by the board (board_alone_forces_recv); the informative half is the
+    # INFOS-without-B-RECV CONTROL below.
+    clash_d = scr.sat(scr.lits({"SHAPE"})) and not scr.sat(scr.lits({"INFOS"}))
     scr2 = Screen(drop=("B-RECV",))
     out["CONTROL without B-RECV, INFOS becomes consistent (the clash is carried by B-RECV)"] = scr2.sat(
         scr2.lits({"INFOS"}))
-    # STRUCTURAL (cannot fail, reported, never counted): B-S10 and B-S13 are bare refusals and no commitment names
-    # S10SUP / S13SUP, so O-SEAT is LEFT in every model; the content is in the two CONTROLS below (each refusal carries it)
-    o_seat_left = not scr.sat(none + [A["rm:O-SEAT"]]) and not scr.sat(scr.lits({"SHAPE"}) + [A["rm:O-SEAT"]])
+    # STRUCTURAL (cannot fail, reported, never counted): B-S10 and B-S13 are bare refusals and B-S5 makes S5SUP possible
+    # only through the OPEN pathway N_S5, and no commitment names a supply atom, so (wave 6, H-SEAT-S5) O-SEAT is OPEN
+    # via N_S5 in every model -- removed only with N_S5, standing without it; the content is in the CONTROLS below
+    # (each refusal carries its part; refusing S5 closes the pathway) and in H-SEAT-ROUTES (computed, LEFT)
+    nb0 = none + scr.noopen
+    o_seat_open = (not scr.sat(nb0 + [A["rm:O-SEAT"]]) and scr.sat(none + [A["N_S5"], A["rm:O-SEAT"]]) and
+                   not scr.sat(scr.lits({"SHAPE"}) + scr.noopen + [A["rm:O-SEAT"]]) and
+                   scr.sat(scr.lits({"SHAPE"}) + [A["N_S5"], A["rm:O-SEAT"]]) and
+                   scr.variant(set())["per"]["O-SEAT"] == {"verdict": "OPEN", "via": ["N_S5"]})
+    # H-SEAT-ROUTES (named, wave 6): DEF-SEAT without S5SUP -- O-SEAT LEFT (with every OPEN pathway free)
+    sr = Screen(mutate=("seat-routes",))
+    seat_routes_left = (not sr.sat(sr.lits(set()) + [sr.A["rm:O-SEAT"]]) and
+                        not sr.sat(sr.lits({"SHAPE"}) + [sr.A["rm:O-SEAT"]]) and
+                        sr.variant({"SHAPE"})["per"]["O-SEAT"] == {"verdict": "LEFT"})
+    # CONTROL (wave 6): S5 refused (massform.RECONSTRUCTION_SURVIVES read False) -- the pathway closes, O-SEAT LEFT;
+    # so the OPEN is carried by B-S5's pathway, not by the engine
+    s5r = Screen(mutate=("S5-refused",))
+    out["CONTROL S5 refused (RECONSTRUCTION_SURVIVES read False): O-SEAT LEFT, the S5/D25 pathway closes"] = (
+        not s5r.sat(s5r.lits({"SHAPE"}) + [s5r.A["N_S5"], s5r.A["rm:O-SEAT"]]) and
+        s5r.variant({"SHAPE"})["per"]["O-SEAT"] == {"verdict": "LEFT"})
+    # CONTROL (wave 6): the D25 gate failing (N_S5 held false) with S10 and S13 refused leaves no route
+    out["CONTROL D25 gate failing (N_S5 false): O-SEAT not removable under SHAPE"] = not scr.sat(
+        scr.lits({"SHAPE"}) + [z3.Not(A["N_S5"]), A["rm:O-SEAT"]])
+    # wave 6: the two refusal controls hold the OPEN pathways FALSE (N_S5 among them), so each is carried by its own
+    # refusal and not by the S5/D25 pathway, and the base screen is checked to refuse the same query
     s10 = Screen(drop=("B-S10",))
-    out["CONTROL S10 un-refused (B-S10 dropped): O-SEAT removable"] = s10.sat(s10.lits(set()) + [s10.A["rm:O-SEAT"]])
+    out["CONTROL S10 un-refused (B-S10 dropped): O-SEAT removable"] = (
+        s10.sat(s10.lits(set()) + s10.noopen + [s10.A["rm:O-SEAT"]]) and not scr.sat(nb0 + [A["rm:O-SEAT"]]))
     s13 = Screen(drop=("B-S13",))
-    out["CONTROL S13 credited as a supply (B-S13 dropped): O-SEAT removable"] = s13.sat(
-        s13.lits(set()) + [s13.A["rm:O-SEAT"]])
+    out["CONTROL S13 credited as a supply (B-S13 dropped): O-SEAT removable"] = (
+        s13.sat(s13.lits(set()) + s13.noopen + [s13.A["rm:O-SEAT"]]) and not scr.sat(nb0 + [A["rm:O-SEAT"]]))
     # ALTERNATIVE (H-SEAT-S12, adopted nowhere): the pair route read as a supply makes O-SEAT OPEN via N_S12, not LEFT
-    s12 = Screen(mutate=("seat-S12",))
+    # (wave 6: computed beside H-SEAT-ROUTES, i.e. with S5 excluded, so that N_S12 is the only route)
+    s12 = Screen(mutate=("seat-S12", "seat-routes"))
     b12 = s12.lits(set()) + s12.noopen
     alt12 = (not s12.sat(b12 + [z3.Not(s12.A["N_S12"]), s12.A["rm:O-SEAT"]]) and
              s12.sat(b12 + [s12.A["N_S12"], s12.A["rm:O-SEAT"]]))
@@ -1313,10 +1392,19 @@ def guard_vacuity(scr, scr_au):
         1 for p in w1 if p["verdict"] == "REMOVED-IF" and not p["premises_sat"])
     structural["every REMOVED-IF / NOT-BOUND-IF support is drawn from a premise set consistent with the variant"] = (
         "STRUCTURAL: true by construction of the engine (cannot fail); its content is the control above")
-    structural["O-SEAT LEFT in the board-alone variant and under SHAPE"] = (
-        f"{o_seat_left} -- STRUCTURAL: B-S10 and B-S13 are bare refusals and no commitment names a supply, so O-SEAT "
-        f"stands in every model (wave 4 COUNTED the same check on O-MATTER, which B-RECV, bare, made equally "
-        f"unfailable); the content is the two CONTROLS (dropping either refusal frees it)")
+    structural["clash (d) under M's ruling: SHAPE & B-RECV SAT, INFOS & B-RECV UNSAT (wave 5 counted it as CONTENT)"] = (
+        f"{clash_d} -- STRUCTURAL (V4-0 #2): the conjunction of the SHAPE vacuity query (counted under VACUITY) and "
+        f"INFOS's clash (counted in the RESULT census); the dissolution is M's ruling encoded as C-SHAPE, RECV already "
+        f"forced by the board; the informative half is the INFOS-without-B-RECV CONTROL")
+    structural["O-SEAT OPEN via N_S5 in the board-alone variant and under SHAPE (H-SEAT-S5)"] = (
+        f"{o_seat_open} -- STRUCTURAL: B-S10 and B-S13 are bare refusals, B-S5 admits S5SUP only through N_S5 and no "
+        f"commitment names a supply, so O-SEAT is removed only with N_S5 in every model (wave 5 printed 'O-SEAT LEFT' "
+        f"here, with H-SEAT-ROUTES unnamed); the content is the CONTROLS (dropping S10's or S13's refusal frees it; "
+        f"refusing S5 closes the pathway) and the census over every variant")
+    structural["H-SEAT-ROUTES (named): O-SEAT LEFT in the board-alone variant and under SHAPE"] = (
+        f"{seat_routes_left} -- STRUCTURAL: with S5 excluded from DEF-SEAT the two named tests are bare refusals, so "
+        f"O-SEAT stands in every model; that the restriction is a CHOICE (M named two tests, not the only routes) is "
+        f"what the name records")
     structural["ALTERNATIVE H-SEAT-S12 (adopted nowhere): O-SEAT would read OPEN via N_S12"] = (
         f"{alt12} -- STRUCTURAL: by construction of the alternative (S12SUP => N_S12); its content is which LEDGER "
         f"route it reads as a supply (S12, OPEN, priced 1.2567e19 J for 70 kg; its energy must be at the seat, D23)")
@@ -1328,10 +1416,11 @@ def guard_vacuity(scr, scr_au):
           and out["CONTENT at 1 AU N_EPS admissible only through N_WREAD (OPEN pathway)"]
           and all(caught.values()) and out["board_admits_loop"] and out["board_admits_no_loop"]
           and out["board_alone_forces_recv"]
-          and out["CONTENT clash (d) dissolved: SHAPE & B-RECV SAT, INFOS & B-RECV UNSAT"]
           and out["CONTROL without B-RECV, INFOS becomes consistent (the clash is carried by B-RECV)"]
           and out["CONTROL S10 un-refused (B-S10 dropped): O-SEAT removable"]
           and out["CONTROL S13 credited as a supply (B-S13 dropped): O-SEAT removable"]
+          and out["CONTROL S5 refused (RECONSTRUCTION_SURVIVES read False): O-SEAT LEFT, the S5/D25 pathway closes"]
+          and out["CONTROL D25 gate failing (N_S5 false): O-SEAT not removable under SHAPE"]
 
           and out["N_EPS occurs only in"] == ["B-CAP", "B-EPSWIN"] and out["no CAP without W2 (z3)"]
           and out["CONTROL wave-1 engine at 1 AU: vacuous REMOVED-IF on O-BITS caught"] == 3
@@ -1450,6 +1539,12 @@ def _form_class(res, o, graded):
         if rem and rem["verdict"] == "OPEN" and rem["via"] != ["N_VAC"]:
             out.add("OPEN")
         return raw, out
+    if v["verdict"] == "OPEN" and o == "O-SEAT" and v["via"] == ["N_S5"]:
+        # Z6 (wave 6): O-SEAT OPEN via N_S5 only -- the BOARD's S5/D25 route, open with no member present -- reads
+        # {N, OPEN}: an A-report grading O-MATTER 'LEAVES' (P10) says the graded hypothesis does not remove it (N), and
+        # A3's H-INFO-SHAPE row grades O-SEAT's own status (OPEN, F-alone); both describe this z3 state.  A report
+        # reading R or NB still disagrees, and so does an OPEN against H-SEAT-ROUTES' LEFT ({N}).  Z2 (N_VAC) unchanged
+        return raw, {"N", "OPEN"}
     if v["verdict"] == "OPEN":
         return raw, ({"N"} if v["via"] == ["N_VAC"] else {"OPEN"})
     return raw, {"N"}
@@ -1566,7 +1661,7 @@ def guard_drift(scrs, G=None):
         for o, text in g.get("per_obstruction", {}).items():
             # P10 (wave 5): M's ruling item 5 relocates O-MATTER to O-SEAT; an A-report's 'O-MATTER' text is compared
             # with z3's O-SEAT (A1, A2 and A4 record the relocation as a relabel, all LEAVES; A3's SHAPE row reads
-            # 'RELOCATED to O-SEAT, LEFT there')
+            # 'RELOCATED to O-SEAT, OPEN there' since F-alone -- M-apply's 'LEFT there' -- compared under rule Z6)
             o = "O-SEAT" if o == "O-MATTER" else o
             if o not in FIVE + OBST:
                 continue
@@ -1652,18 +1747,26 @@ def guard_drift(scrs, G=None):
                 "reports_loaded": {k: v is not None for k, v in G.items()}}
 
 
-MUTATIONS = ("KR-unconditional", "wave1-THROAT", "wave2-SLICE-INTRINSIC")
+MUTATIONS = ("KR-unconditional", "wave1-THROAT", "wave2-SLICE-INTRINSIC", "seat-S5-asserted")   # wave 6: the fourth
+# removes O-SEAT by assertion (SHAPE supplies S5 with no pathway) and must be caught against A3's OPEN
 
 
 def drift_controls(G=None):
-    """Each mutated encoding must produce at least one UNEXPLAINED disagreement with the A-reports."""
+    """Each mutated encoding must produce at least one UNEXPLAINED disagreement with the A-reports.  Wave 6: the named
+    alternative H-SEAT-ROUTES ('seat-routes') is run the same way and REPORTED (not a mutation -- it is a reading): its
+    disagreement with A3 must be exactly the (H-INFO-SHAPE, O-SEAT) row, where A3 grades under H-SEAT-S5."""
     out = {}
     for mut in MUTATIONS:
         scrs = {CELL_MAIN: Screen(mutate=(mut,)), CELL_AU: Screen(cell=CELL_AU, mutate=(mut,))}
         ok, d = guard_drift(scrs, G)
         out[mut] = {"caught": bool(d["unexplained"] or d["load_bearing_disagreements"]), "unexplained": d["unexplained"],
                     "agree": f"{d['agree']}/{d['compared']}"}
-    return all(v["caught"] for v in out.values()), out
+    scrs = {CELL_MAIN: Screen(mutate=("seat-routes",)), CELL_AU: Screen(cell=CELL_AU, mutate=("seat-routes",))}
+    ok, d = guard_drift(scrs, G)
+    alt = {"unexplained": d["unexplained"], "agree": f"{d['agree']}/{d['compared']}",
+           "exactly the SHAPE/O-SEAT row": [tuple(u[:3]) for u in d["unexplained"]] == [("A3-measure", "SHAPE", "O-SEAT")]
+           and not d["load_bearing_disagreements"]}
+    return all(v["caught"] for v in out.values()), dict(out, **{"ALTERNATIVE H-SEAT-ROUTES (reading, not mutation)": alt})
 
 
 # =====================================================================================================================
@@ -1675,7 +1778,7 @@ def board_flags():
     led = {}
     with open(os.path.join(WD, "LEDGER.md")) as f:
         for line in f:
-            m = re.match(r"^\| (S5|S10|S12|S13) \| \*\*([A-Z]+)\*\*", line)
+            m = re.match(r"^\| (S5|S10|S12|S13|D23|D25) \| \*\*([A-Z]+)\*\*", line)   # wave 6: D23, D25 read
             if m:
                 led[m.group(1)] = m.group(2)
                 if m.group(1) == "S13":
@@ -1844,7 +1947,28 @@ def grounds_ok(g):
                                    and f["transit.CARRIES_SUBSTANCE"] is False
                                    and f["emtension.ENTANGLED_BRIDGE_IS_TRAVERSABLE"] is False
                                    and f["LEDGER"] == {"S5": "OPEN", "S10": "REFUSED", "S12": "OPEN", "S13": "OPEN",
-                                                       "S13 forms no baryons (READ)": True}),
+                                                       "S13 forms no baryons (READ)": True, "D23": "OPEN",
+                                                       "D25": "OPEN"}),
+        "S5/D25 as encoded (wave 6, H-SEAT-S5; V4-0 #4, V4-1 #1): LEDGER S5 and D25 OPEN (READ); "
+        "massform.RECONSTRUCTION_SURVIVES True and it reduces to transit.CARRIES_SUBSTANCE False (stockgate.GATE is "
+        "condition text: NOT REFUSED, not shown); D25 feedstock for the 70 kg payload = 70 x the binder's kg per kg "
+        "(749.1 kg CI chondrite, 1.338e5 kg stellar photosphere, P binding); measure.info_shape_screen's H-SEAT-S5: "
+        "removal with the D25 gate failing UNSAT and refusing reconstruction closes it; S13's first-order share "
+        "1 - 3.010e-6 - 1.716e-3 = 0.99828 (an ESTIMATE, H-LINEAR)":
+            g["seat"]["ledger_S5"][0] == "OPEN" and g["seat"]["ledger_D25"][0] == "OPEN"
+            and g["seat"]["S5_reconstruction_survives"] is True and g["seat"]["transit_CARRIES_SUBSTANCE"] is False
+            and g["seat"]["S5_gate_is_condition_text"] is True
+            and all(abs(g["seat"]["S5_feedstock_kg_70kg"][d] - 70.0 * g["seat"]["S5_binder_and_kg_per_kg"][d][1]) <
+                    1e-9 * g["seat"]["S5_feedstock_kg_70kg"][d] and g["seat"]["S5_binder_and_kg_per_kg"][d][0] == "P"
+                    for d in ("CI chondrite", "stellar photosphere"))
+            and abs(g["seat"]["S5_feedstock_kg_70kg"]["CI chondrite"] - 749.1) < 0.05
+            and abs(g["seat"]["S5_feedstock_kg_70kg"]["stellar photosphere"] - 1.338e5) < 50
+            and not g["seat"]["info_shape_screen"]["H-SEAT-S5: O-SEAT removed without S13 and with the D25 gate failing sat"]
+            and not g["seat"]["info_shape_screen"]["H-SEAT-S5 CONTROL: refuse reconstruction (RECON False) and removal "
+                                                   "without S13 sat"]
+            and g["seat"]["info_shape_screen"]["H-SEAT-S5: SHAPE & O-SEAT removed & S13 not shown sat (OPEN via S5 if True)"]
+            and abs(1 - g["seat"]["S13_electrons_regained_of_payload"] - g["seat"]["S13_nucleons_first_order_of_payload"]
+                    - 0.99828) < 5e-6,
         "O-SEAT as encoded (wave 5): massform.MECHANISM_VERDICT REFUSED on six readings; S13 forms no baryons and the "
         "Higgs coupling carries no B or L (H-C3); measure.info_shape_screen reproduces clash (d) for INFOS and "
         "dissolves it for SHAPE; S13's imported price figures":
@@ -2270,6 +2394,28 @@ def survivors(rows):
             "open_somewhere": sorted(open_any, key=OBST.index)}
 
 
+def seat_route_census(S, S_au):
+    """Wave 6 (V4-0 #4, V4-1 #1; V4-1 unresolved 2: 'Combine's z3 screen was not re-run with an S5 supply atom, so the
+    variant counts under that reading are OPEN').  O-SEAT's grade in EVERY consistent variant, both cells, under each
+    seat-route reading: H-SEAT-S5 (the screen's own encoding: read off each row's verdict) and H-SEAT-ROUTES (mutate
+    'seat-routes': O-SEAT removable in the variant with every OPEN pathway free?  If not, LEFT).  Nothing is assumed:
+    each variant is checked."""
+    out = {}
+    for lab, SS, cell in (("1 ly, N = 7", S, CELL_MAIN), ("1 AU, N = 7 (W2 variants)", S_au, CELL_AU)):
+        cons = [r for r in SS["rows"] if r["consistent"]]
+        s5 = {}
+        for r in cons:
+            v = r["per"]["O-SEAT"]
+            k = v["verdict"] + (" via " + ",".join(v["via"]) if v.get("via") else "")
+            s5[k] = s5.get(k, 0) + 1
+        sr = Screen(cell=cell, mutate=("seat-routes",))
+        left = sum(1 for r in cons if not sr.sat(sr.lits(set(r["present"])) + [sr.A["rm:O-SEAT"]]))
+        out[lab] = {"consistent variants": len(cons), "H-SEAT-S5 (adopted grade, F-alone)": s5,
+                    "H-SEAT-ROUTES (named alternative): LEFT in": left,
+                    "H-SEAT-ROUTES: removable in": len(cons) - left}
+    return out
+
+
 def headline(rows):
     """The answer, per account (never mixing clashing premises), led by member-attributed removals.  Returns the
     maxima and the variants attaining each, the smallest first."""
@@ -2364,8 +2510,10 @@ def rule2(S, S_au, ex):
                        "stands under it (history: wave 4 said 'M's to rule'); not a retirement")
         elif h == "SHAPE" and st.startswith("UNTESTED-BY-SCREEN"):
             verdict = ("UNTESTED-BY-SCREEN (inert encoding): M's ruled reading; consistent with B-RECV (clash (d) "
-                       "dissolved by relocation); removes nothing (A3 LEAVES-ALL); O-MATTER relocated to O-SEAT, which "
-                       "stays LEFT until the seat's supply is shown; retirement neither established nor refuted")
+                       "dissolved by relocation, M's ruling encoded as C-SHAPE); removes nothing; O-MATTER relocated to "
+                       "O-SEAT, which is OPEN via the board's S5/D25 route (H-SEAT-S5; A3 OPEN, F-alone) and LEFT given "
+                       "H-SEAT-ROUTES -- an obstruction until the seat's supply is shown, either way (wave 5 first said "
+                       "'stays LEFT', A3 'LEAVES-ALL'); retirement neither established nor refuted")
         elif att:
             verdict = "kept: contributes " + ", ".join(sorted({f"{o} {v}" for _, o, v in att}))
         else:
@@ -2402,6 +2550,7 @@ def run_all(with_tests=True):
     out["table"] = aggregate(S["rows"])
     out["survivors"] = survivors(S["rows"])
     out["survivors_au"] = survivors(S_au["rows"])
+    out["seat_routes"] = seat_route_census(S, S_au)
     out["headline"] = headline(S["rows"])
     out["headline_au"] = headline(S_au["rows"])
     out["load_bearing"] = load_bearing(S["rows"])
@@ -2466,7 +2615,7 @@ def report(R):
         return
     rows = R["rows"]
     cons = [r for r in rows if r["consistent"]]
-    print(f"DOCKET 68 / B-combine (wave 5).  {len(rows)} variants over {len(R['table'])} combinations (127 + "
+    print(f"DOCKET 68 / B-combine (wave 6).  {len(rows)} variants over {len(R['table'])} combinations (127 + "
           f"readings-only) at {CELL_MAIN}; consistent {len(cons)}, inconsistent {len(rows) - len(cons)}; "
           f"z3 {R['screen']['seconds']:.1f} s.  At {CELL_AU}: {len(R['rows_au'])} W2 variants re-screened.  "
           f"{CELL_AU6}: {_fmt(R['cell_1AU_N1e6'])}  {CELL_AU3}: {_fmt(R['cell_1AU_N1e3'])}")
@@ -2478,7 +2627,10 @@ def report(R):
     for k in d["explained_used"]:
         print("   ", k, "--", EXPLAINED[k][:150])
     print("DRIFT GROUND ROWS (per support at 1 AU):", _fmt(d["ground_rows"]))
-    print("CONTROLS (mutated encodings caught):", _fmt({k: (v["caught"], v["agree"]) for k, v in R["drift_controls"].items()}))
+    print("CONTROLS (mutated encodings caught):", _fmt({k: (v["caught"], v["agree"]) for k, v in R["drift_controls"].items()
+                                                        if "caught" in v}))
+    print("ALTERNATIVE H-SEAT-ROUTES under the drift guard (a reading, not a mutation):",
+          _fmt(R["drift_controls"]["ALTERNATIVE H-SEAT-ROUTES (reading, not mutation)"]))
     print("VACUITY:", _fmt(R["vacuity"]["known_contradictions_caught"]))
     print("STRUCTURAL (cannot fail, not evidence):", _fmt(R["vacuity"]["STRUCTURAL"]))
     cc = R["clash_census"]
@@ -2489,6 +2641,7 @@ def report(R):
     print("WAVE 1 clash census, recomputed:", _fmt(R["wave1_clash_census"]))
     print("\nSURVIVORS", CELL_MAIN, _fmt(R["survivors"]))
     print("SURVIVORS", CELL_AU, _fmt(R["survivors_au"]))
+    print("O-SEAT UNDER EACH SEAT-ROUTE READING (wave 6, every consistent variant checked):", _fmt(R["seat_routes"]))
     print("LOAD-BEARING", R["load_bearing"], "| at 1 AU", R["load_bearing_au"])
     print("\nEXERCISED (difference census):")
     for h, v in R["exercised"].items():
@@ -2522,7 +2675,11 @@ def report(R):
                                                "S13_forms_baryons", "C3 HIGGS_COUPLING_CARRIES_B_OR_L",
                                                "S13_electrons_regained_of_payload", "S13_nucleons_first_order_of_payload",
                                                "S13_source_J_m3", "S13_field_J_m3", "S13_source_per_J_field_exact",
-                                               "S13_stability_edge_eps", "S12_pair_floor_J_70kg")}))
+                                               "S13_stability_edge_eps", "S12_pair_floor_J_70kg", "ledger_S5",
+                                               "S5_reconstruction_survives", "S5_flag_meaning", "S5_feedstock_kg_70kg",
+                                               "S5_binder_and_kg_per_kg", "S5_price_per_reconstruction")}))
+        print("WAVE 6 -- S5/D25 (H-SEAT-S5, measure.seat_route_s5): D25", _fmt(g["seat"]["ledger_D25"][0]),
+              "| D23 (binds S5's channel, O-BITS)", _fmt(g["seat"]["ledger_D23"][0]))
         print("WAVE 5 -- clash (d) under H-SHAPE-ENCODING (measure.info_shape_screen):", _fmt(g["seat"]["info_shape_screen"]))
         print("WAVE 5 -- support-2 field figure per member (V3 residual 1; H-MAP-W2 adopted nowhere):")
         for r in g["N_W2ANC field figure"]["rows"]:
@@ -2632,15 +2789,19 @@ def selftest():
     ck("NON-TRIVIAL board admits a loop and no loop", V["board_admits_loop"] and V["board_admits_no_loop"])
     # wave 5 (M's rulings items 1 and 5).  Wave 4's "CONTROL without B-RECV, O-MATTER becomes removable" is gone with
     # DEF-MATTER; its role (showing what carries the clash) passes to the INFOS control below
-    ck("CONTENT clash (d) under M's ruling: H-INFO-SHAPE & B-RECV SAT (dissolved by relocation), H-INFO-S & B-RECV "
-       "UNSAT (the alternative reading's clash stands)", V["CONTENT clash (d) dissolved: SHAPE & B-RECV SAT, INFOS & "
-                                                           "B-RECV UNSAT"])
+    # wave 6 (V4-0 #2): wave 5's counted "CONTENT clash (d) under M's ruling" repeated two counted queries; it is now
+    # in V["STRUCTURAL"], printed, not counted
     ck("CONTROL without B-RECV, INFOS becomes consistent (the clash is carried by B-RECV)",
        V["CONTROL without B-RECV, INFOS becomes consistent (the clash is carried by B-RECV)"])
     ck("CONTROL S10 un-refused (B-S10 dropped): O-SEAT becomes removable",
        V["CONTROL S10 un-refused (B-S10 dropped): O-SEAT removable"])
     ck("CONTROL S13 credited as a supply (B-S13 dropped): O-SEAT becomes removable",
        V["CONTROL S13 credited as a supply (B-S13 dropped): O-SEAT removable"])
+    ck("CONTROL S5 refused (massform.RECONSTRUCTION_SURVIVES read False): O-SEAT LEFT -- the OPEN is carried by the "
+       "S5/D25 pathway, not by the engine",
+       V["CONTROL S5 refused (RECONSTRUCTION_SURVIVES read False): O-SEAT LEFT, the S5/D25 pathway closes"])
+    ck("CONTROL D25 gate failing (N_S5 held false), S10 and S13 refused: O-SEAT not removable under SHAPE",
+       V["CONTROL D25 gate failing (N_S5 false): O-SEAT not removable under SHAPE"])
     ck("PROOF N_EPS occurs only in B-CAP and B-EPSWIN, and no CAP without W2 (so the 1 AU re-screen of W2 variants "
        "covers every variant N_EPS can reach)", V["N_EPS occurs only in"] == ["B-CAP", "B-EPSWIN"] and
        V["no CAP without W2 (z3)"])
@@ -2655,7 +2816,12 @@ def selftest():
     ck(f"LOAD-BEARING every combination row's graded members are load-bearing, or the row says one adds nothing "
        f"({nlb} rows checked)", not D["load_bearing_disagreements"] and nlb >= 5, D["load_bearing_disagreements"])
     for k, v in R["drift_controls"].items():
-        ck(f"CONTROL mutated encoding '{k}' caught as an unexplained disagreement", v["caught"])
+        if "caught" in v:
+            ck(f"CONTROL mutated encoding '{k}' caught as an unexplained disagreement", v["caught"])
+    ck("CONTENT the named alternative H-SEAT-ROUTES disagrees with the A-reports on exactly one row, (A3, H-INFO-SHAPE, "
+       "O-SEAT): A3 grades O-SEAT OPEN under H-SEAT-S5 and H-SEAT-ROUTES gives LEFT (the drift guard tells the two seat "
+       "readings apart)", R["drift_controls"]["ALTERNATIVE H-SEAT-ROUTES (reading, not mutation)"]["exactly the SHAPE/O-SEAT row"],
+       R["drift_controls"]["ALTERNATIVE H-SEAT-ROUTES (reading, not mutation)"])
     rows = R["rows"]
     cons = [r for r in rows if r["consistent"]]
     ck("COVERAGE 8,191 variants screened ((4*4*4*4*8 - 1) * 4 + 3; wave 4: 6,143, before SHAPE)", len(rows) == 8191,
@@ -2681,9 +2847,21 @@ def selftest():
     sv = R["survivors"]
     # wave 5: O-SEAT survives every consistent variant -- STRUCTURAL (bare refusals B-S10, B-S13), printed, not counted.
     # Wave 4 COUNTED the same check on O-MATTER, which the bare B-RECV made equally unfailable
+    # wave 6: O-SEAT removed or not-bound in no consistent variant (both cells), OPEN via N_S5 in every one -- also
+    # STRUCTURAL (B-S5 admits S5SUP only through N_S5; no commitment names a supply).  Wave 5 printed 'removed,
+    # not-bound or OPEN in none' with H-SEAT-ROUTES unnamed.
+    SR = R["seat_routes"]
     seat_surv = ("O-SEAT" in sv["removed_or_not_bound_in_no_consistent_variant"] and
                  "O-SEAT" in R["survivors_au"]["removed_or_not_bound_in_no_consistent_variant"] and
-                 "O-SEAT" not in sv["open_somewhere"])
+                 "O-SEAT" in sv["open_somewhere"] and
+                 all(x["H-SEAT-S5 (adopted grade, F-alone)"] == {"OPEN via N_S5": x["consistent variants"]}
+                     for x in SR.values()))
+    ck("RESULT O-SEAT under each seat-route reading, every consistent variant checked (V4-1 unresolved 2): H-SEAT-S5 "
+       "OPEN via N_S5 in all 5,759 at 1 ly and all 1,152 W2 variants at 1 AU; H-SEAT-ROUTES LEFT in the same counts",
+       SR["1 ly, N = 7"]["consistent variants"] == 5759 and SR["1 AU, N = 7 (W2 variants)"]["consistent variants"] == 1152
+       and all(x["H-SEAT-ROUTES (named alternative): LEFT in"] == x["consistent variants"] and
+               x["H-SEAT-S5 (adopted grade, F-alone)"] == {"OPEN via N_S5": x["consistent variants"]} for x in SR.values()),
+       SR)
     ck("RESULT clash census under SHAPE: 8,191 = 5,759 consistent + 2,432 inconsistent; INFOS 2,048 (unchanged), "
        "W2+ITE 512 (wave 4: 384), intersection 128; SHAPE enters no core",
        cons and len(cons) == 5759 and len(rows) - len(cons) == 2432 and cc["present"].get("INFOS") == 2048 and
@@ -2771,8 +2949,10 @@ def selftest():
     part = (sum(R["untested"][CELL_MAIN].values()), n_joint, len(rows))
     print(f"STRUCTURAL (not counted): COVERAGE untested {part[0]} + joint {part[1]} = {part[0] + part[1]} of "
           f"{part[2]} variants -- a partition identity of untested(); wave 3 counted it")
-    print(f"STRUCTURAL (not counted): O-SEAT removed, not-bound or OPEN in no consistent variant (both cells): {seat_surv} "
-          f"-- B-S10 and B-S13 are bare refusals; wave 4 counted the same check on O-MATTER (B-RECV bare)")
+    print(f"STRUCTURAL (not counted): O-SEAT removed or not-bound in no consistent variant and OPEN via N_S5 in every one "
+          f"(both cells; H-SEAT-S5): {seat_surv} -- B-S10 and B-S13 are bare refusals and B-S5 admits S5 only through "
+          f"N_S5; wave 5 printed 'removed, not-bound or OPEN in none' (H-SEAT-ROUTES unnamed); wave 4 counted the same "
+          f"check on O-MATTER (B-RECV bare)")
     print("STRUCTURAL (not counted): Q-1s (signed.py) moves no screen verdict -- every bit count the screen uses is a "
           "capacity, a Holevo chi or log2 976 over NON-NEGATIVE probabilities, where Re H = H by definition, and no "
           "board holding or commitment names the measure's functional form (INFO is inert)")
@@ -2784,7 +2964,8 @@ def selftest():
           f"{sum(1 for n, _, _ in checks if n.startswith('CONTROL'))} of them controls; "
           f"{nstruct} STRUCTURAL items reported, not counted (engine premise-consistency; "
           f"{len(R['grounds_structural'])} ground values; INDEPENDENT classes carry no test by definition; the COVERAGE "
-          f"partition identity; O-SEAT's survival and two O-SEAT encodings, bare refusals); "
+          f"partition identity; O-SEAT's survival and the O-SEAT encodings -- H-SEAT-S5, H-SEAT-ROUTES, H-SEAT-S12, "
+          f"wave 4's DEF-MATTER; clash (d) under M's ruling); "
           f"{time.time() - t0:.0f} s")
     return 0 if npass == len(checks) else 1
 

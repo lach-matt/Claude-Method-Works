@@ -59,8 +59,9 @@ WHAT IS COMPUTED (each item is a function below; every number in Q1s-signed.md i
       READ; A5'(w) fails; on probabilities it is Renyi, not BFL's Shannon).  Neither is preferred here.
   (9) (M-apply; M items 3 and 6) the GROUND-STATE CALIBRATION.  Default MASS/BINDING: a state's mass budget over
       protons, electrons, neutrons and the (negative) binding, from READ AME2020 / PDG / NIST values; the ground is the
-      neutral atom.  Selectable: GROUND-CONFIG (LW1-ground.py via populate) and IONISATION (NIST ladder; populate's
-      banked limits reported).  ONE multi-axis table centred at the ground carries all four inverses and reflections
+      neutral atom of one nuclide (H-NUCLIDE-GROUND).  Selectable: GROUND-CONFIG (LW1-ground.py via populate),
+      IONISATION (NIST ladder; populate's banked limits reported) and PT-AVERAGE (the periodic-table reading, the
+      isotope mixture, H-PT-WEIGHT; F-alone); POPULATE-AXES is OPEN, not implemented.  ONE multi-axis table centred at the ground carries all four inverses and reflections
       (log branches of p/p0; conjugate and reciprocal; fold to |p|; Radon inverse).  TESTED, not assumed: the signed
       relative entropy D_s(p||p0) = sum p Log(p/p0) is 0 at the ground (STRUCTURAL) and meets product additivity (Re),
       convex linearity and the chain rule, and FAILS Gibbs non-negativity and data processing; the entropy deviation
@@ -101,6 +102,51 @@ NAMED HYPOTHESES (every limitation is one)
   H-RADON-PAD    the Radon column lays cells row-major on Z_d^2 (d prime) and pads with zeros.
   H-INDEX-GROUND-BOX / H-INDEX-GROUND-LAMBDA  The Method's index has no periodic-table ground: the uniform measure on
                  the 6,912-cell box, or on Lambda's 976 cells, is named as its ground.
+  (F-alone, 2026-10-03; the two verification reports V4-0 / V4-1 on M-apply, every item applied or answered)
+  H-NUCLIDE-GROUND  MASS/BINDING centres an element on ONE NUCLIDE (its most abundant: Fe-56 for iron), from AME2020
+                 Table I.  The periodic table's real number for an element is its STANDARD ATOMIC WEIGHT, a mean over
+                 an isotope mixture (Fe 55.845(2)), which MASS/BINDING does not use.  M-apply first wrote 'the element
+                 Fe-56' and 'read straight off the periodic table'; both are now 'nuclide Fe-56', 'from READ nuclide
+                 masses (AME2020), PDG masses and NIST IEs, under H-MASS-CELLS'.
+  H-PT-WEIGHT    the ALTERNATIVE, carried beside it (calibration PT-AVERAGE): the element as its isotope mixture -- mean
+                 nucleon number A-bar = sum x_i A_i (non-integer; mean N-bar = A-bar - Z), mass M-bar = sum x_i M_i
+                 (AME2020), cells (Z m_p, Z m_e, N-bar m_n, -B-bar).  Its weights are a mixture of the nuclides'
+                 (p-bar = sum x_i M_i p_i / M-bar).  Inputs: CIAAW 2024 representative isotopic compositions and standard
+                 atomic weights as DOCKET 67's raw audit READ them (docket67-raw/rederive/standard-atomic-weights.py,
+                 imported; that tree is UNVERIFIED and NOT SEATED, so the status carried is D67-RAW-READ).  READ at source
+                 this pass: NOT -- ciaaw.org and iupac.qmul.ac.uk are refused by the egress proxy (403, reported, not
+                 routed around) and alphaXiv holds no IUPAC/CIAAW copy (search 2026-10-03); NAMED-NOT-READ here.  The
+                 board's stock.ATOMIC_MASS / stockgate.ATOMIC_MASS (Fe 55.845, used by measure.atom_counts for the 70 kg
+                 body) are 'terrestrial standard atomic weights, uncited' (stock.py's own D67 note): NAMED-NOT-READ.
+                 Docket 68 therefore uses two 'element' masses -- the nuclide's (here) and the standard weight (measure.py)
+                 -- and says so.
+  SIGN SOURCES   two, named apart: (S-1) a SIGNED GROUND -- under H-MASS-CELLS the ground p0 itself has a negative cell
+                 (the binding), whatever the deviation; (S-2) a SIGNED DEVIATION d = p - p0 (H-ZERO's reading, M item 3:
+                 'less than the ground state').  A Shannon state can sit on a signed ground (the proton against the H
+                 atom) and a signed state on a signed ground can deviate by d of either sign cell by cell.
+  B LABEL        'B' is the H-MASS-CELLS SHORTFALL Z m_p + (Z-q) m_e + N m_n(PDG) - M: nuclear + electronic binding,
+                 DERIVED-FROM-READ.  It is NOT AME2020's binding energy, whose convention is Z Delta(1H) + N Delta(n) -
+                 Delta (neutral hydrogen atoms and AME's own m_n).  Both are printed; they differ by Z I(H) + N (m_n(PDG)
+                 - m_n(AME)) (an identity, given u is defined through M(1H)).
+  H-U-EDITION    u is DERIVED-FROM-READ from PDG-2026's m_p (938.272089 MeV, quoted to 1 eV, rounding <= 0.5 eV) with
+                 m_e, I(H), Delta(1H): rounding budget about 0.51 eV.  Against CODATA 2018 (gravity.U_KG, NAMED-NOT-READ)
+                 it differs by +0.875 eV, 0.37 eV OUTSIDE that budget.  CODATA 2022 (arXiv:2409.03787v1, Table XXXIII,
+                 READ this pass): m_u c^2 = 931.494 103 72(29) MeV, m_p c^2 = 938.272 089 43(29) MeV, m_e c^2 =
+                 0.510 998 950 69(16) MeV.  Against CODATA 2022 the derived u differs by -0.43 eV, INSIDE the budget, and
+                 with CODATA 2022's unrounded m_p and m_e in place of PDG's the residual is +0.002 eV (checked within 0.01 eV): the 0.37 eV is an
+                 EDITION difference (PDG-2026's m_p is CODATA 2022's, rounded), computed, no longer OPEN.
+  H-BFL-BINDS    the two weightings (M item 2, both carried) are SEPARATED CONDITIONALLY: if BFL convex linearity on
+                 FinProb binds The Method, only signed w (Re H) survives -- signed Renyi fails it on probability
+                 measures (0.264 at alpha 0.5, 0.403 at alpha 2).  Whether it binds is M's; both stay carried.  M-apply
+                 first wrote 'nothing computed here separates them', an understatement.
+  POPULATE-AXES  M item 6 lists populate.py's axes among the selectable calibrations.  NOT IMPLEMENTED: OPEN.  Reason:
+                 populate.py's 26 axes are per-index coordinates, not a mass budget or a distribution over cells, and no
+                 rule turning an axis into a ground p0 is stated in any member or ruling; choosing one would be a
+                 declaration.  calibrate(..., 'POPULATE-AXES') refuses with that reason (selftested), and
+                 populate.series_limit stays consulted inside IONISATION.
+  H-FEII-CONFIG  GROUND-CONFIG for Fe +1 rests on H-ISOELECTRONIC (Mn's 3d5 4s2): 2.756e-3 nats.  If the NIST Fe II
+                 ground 3d6 4s held (NAMED-NOT-READ: physics.nist.gov refused, 403, this pass; the board's NIST captures
+                 carry no configurations), the value would be 1.149e-2 (sensitivity, computed, x4.2); not adopted.
 
 stdlib + numpy + sympy.
 """
@@ -1331,8 +1377,12 @@ def both_on(p):
 # THE OBJECT (named: H-MASS-CELLS).  A state of an atom or ion is written as its mass-energy budget over four cells --
 # protons Z m_p, electrons (Z - q) m_e, neutrons N m_n, and the binding -B -- divided by the state's mass M.  The four
 # weights total 1 EXACTLY (B is defined as the shortfall), and the binding is a NEGATIVE weight: a quasi-probability
-# read straight off the periodic table's real numbers.  The GROUND is the neutral atom in its ground state (AME2020's
-# atomic mass); a state's signed deviation from it is d = p - p0, and in log space ln(p/p0), which is 0 at the ground.
+# from READ nuclide masses (AME2020), PDG masses and NIST IEs, under H-MASS-CELLS and H-NUCLIDE-GROUND (one nuclide
+# stands for the element; the periodic table's standard atomic weight is the ALTERNATIVE, PT-AVERAGE, H-PT-WEIGHT).
+# M-apply first wrote 'read straight off the periodic table's real numbers' (V4-0: granted by assertion; history kept).
+# The GROUND is the neutral atom in its ground state (AME2020's atomic mass); a state's signed deviation from it is
+# d = p - p0, and in log space ln(p/p0), which is 0 at the ground.  Two sign sources, named apart (SIGN SOURCES): the
+# ground itself is signed (S-1, the binding cell), and the deviation d is signed (S-2, H-ZERO's reading).
 #
 # DATA (each READ on the board; none typed here):
 #   AME2020 Table I mass excesses -- gravity.nuclides() (imported), the board's capture of the published table
@@ -1343,12 +1393,25 @@ def both_on(p):
 #   ionisation energies -- NIST ASD captures IE-neutral-all.tsv (first IE, Z = 1-108) and LADDER-K-Kr.tsv (every
 #     charge, Z = 19-36), read here as data (no board instrument reads them yet).
 #   u c^2 -- DERIVED-FROM-READ: M(1H) = m_p + m_e - I(H) and M(1H) = u + Delta(1H) give u = m_p + m_e - I(H) - Delta(1H).
-#     CODATA 2018's u (gravity.U_KG, typed there; NAMED-NOT-READ) is a cross-check only.
+#     CODATA 2018's u (gravity.U_KG, typed there; NAMED-NOT-READ) is a cross-check only.  CODATA 2022 (READ, below) is
+#     the edition PDG-2026's m_p is rounded from (H-U-EDITION).
+#   isotope mixtures (PT-AVERAGE only) -- CIAAW 2024, as DOCKET 67's raw audit READ it (D67-RAW-READ; imported).
 
 CAPTURES = os.path.abspath(os.path.join(HERE, "..", "..", "..", "extracted", "archives", "restore-point-2-13",
                                         "captures"))
 CAL_DEFAULT = "MASS/BINDING"
-CALIBRATIONS = ("MASS/BINDING", "GROUND-CONFIG", "IONISATION")
+CALIBRATIONS = ("MASS/BINDING", "GROUND-CONFIG", "IONISATION", "PT-AVERAGE")
+#: M item 6's other listed option, NOT IMPLEMENTED (OPEN); calibrate() refuses it with this reason.
+CALIBRATIONS_OPEN = {"POPULATE-AXES": "OPEN: populate.py's 26 axes are per-index coordinates, not a mass budget or a "
+                                      "distribution over cells, and no member or ruling states how an axis becomes a "
+                                      "ground p0; choosing one would be a declaration (not implemented)"}
+# CODATA 2022, READ at source this pass: Mohr, Newell, Taylor & Tiesinga, arXiv:2409.03787v1 (dated 9 Sep 2024),
+# Table XXXIII: energy equivalents in MeV.  Values transcribed with their printed standard uncertainties.
+CODATA2022_MEV = {"m_u c^2": (931.49410372, 0.00000029), "m_p c^2": (938.27208943, 0.00000029),
+                  "m_e c^2": (0.51099895069, 0.00000000016)}
+#: rounding budget of the derived u, eV: half the last quoted digit of each READ input (PDG m_p 1e-6 MeV, m_e 1e-9 MeV;
+#: AME Delta(1H) 1e-5 keV; NIST I(H) 1e-12 eV).  Computed in u_budget_ev().
+D67_SAW = os.path.abspath(os.path.join(HERE, "..", "docket67-raw", "rederive", "standard-atomic-weights.py"))
 MASS_CELLS = ("protons", "electrons", "neutrons", "binding")
 _CAL_CACHE = {}
 
@@ -1407,8 +1470,70 @@ def read_constants():
                            "status": {"m_p, m_n, m_e": "READ (PDG-2026 capture via massform.MASS_MEV)",
                                       "Delta": "READ (AME2020 Table I capture via gravity.nuclides)",
                                       "I": "READ (NIST ASD captures)", "u": "DERIVED-FROM-READ",
-                                      "u_CODATA2018": "NAMED-NOT-READ (gravity.U_KG), cross-check only"}}
+                                      "u_CODATA2018": "NAMED-NOT-READ (gravity.U_KG), cross-check only",
+                                      "CODATA2022": "READ (arXiv:2409.03787v1 Table XXXIII, this pass)"}}
+        k = _CAL_CACHE["k"]
+        c22 = {kk: v[0] * 1000.0 for kk, v in CODATA2022_MEV.items()}                 # keV
+        k["u_keV_CODATA2022"] = c22["m_u c^2"]
+        # H-U-EDITION: the same derivation with CODATA 2022's unrounded m_p and m_e in place of PDG-2026's rounded ones
+        k["u_keV_rederived_CODATA2022_inputs"] = c22["m_p c^2"] + c22["m_e c^2"] - first[1][0] / 1000.0 - dH
+        k["u_budget_eV"] = u_budget_ev()
     return _CAL_CACHE["k"]
+
+
+def u_budget_ev():
+    """Rounding budget of the derived u, eV: half the last quoted digit of each READ input, summed (worst case).
+    PDG-2026 m_p 938.272089 MeV (1e-6 MeV), m_e 0.510998951 MeV (1e-9 MeV); AME2020 Delta(1H) 7288.97106 keV
+    (1e-5 keV); NIST I(H) 13.598434599702 eV (1e-12 eV)."""
+    return 0.5 * (1e-6 * 1e6 + 1e-9 * 1e6 + 1e-5 * 1e3 + 1e-12)
+
+
+def ame_binding_keV(Z, A):
+    """AME2020's OWN binding-energy convention (neutral hydrogen atoms, AME's m_n): Z Delta(1H) + N Delta(n) - Delta.
+    Printed beside the H-MASS-CELLS shortfall, never in its place."""
+    k = read_constants()
+    return Z * k["Delta_1H_keV"] + (A - Z) * k["Delta_n_keV"] - mass_excess_keV(Z, A)[0]
+
+
+def _d67_saw():
+    """DOCKET 67's raw audit of standard atomic weights (UNVERIFIED, NOT SEATED), imported by path, never copied."""
+    if "saw" not in _CAL_CACHE:
+        import importlib.util
+        spec = importlib.util.spec_from_file_location("d67_standard_atomic_weights", D67_SAW)
+        mod = importlib.util.module_from_spec(spec)
+        dwb = sys.dont_write_bytecode
+        sys.dont_write_bytecode = True
+        try:
+            spec.loader.exec_module(mod)
+        finally:
+            sys.dont_write_bytecode = dwb
+        _CAL_CACHE["saw"] = mod
+    return _CAL_CACHE["saw"]
+
+
+ELEMENT_SYMBOL = {1: "H", 6: "C", 26: "Fe"}       # only the elements this file applies PT-AVERAGE to
+
+
+def pt_average_cells(Z, q=0):
+    """H-PT-WEIGHT: the element as its isotope mixture (CIAAW 2024 representative composition, D67-RAW-READ), each
+    nuclide's H-MASS-CELLS budget weighted by its abundance x_i.  Returns (cells, M_bar, info) in keV, with the mean
+    nucleon number A-bar, the mean N-bar and the computed atomic weight A_r = M_bar / u beside CIAAW's standard value."""
+    saw = _d67_saw()
+    el = ELEMENT_SYMBOL[Z]
+    x = saw.comp(saw.ISO24[el])
+    tot, M = [0.0, 0.0, 0.0, 0.0], 0.0
+    for A, xi in x.items():
+        c, Mi, _ = mass_cells(Z, A, q)
+        tot = [t + xi * v for t, v in zip(tot, c)]
+        M += xi * Mi
+    k = read_constants()
+    Abar = sum(xi * A for A, xi in x.items())
+    Mbar_atom = sum(xi * (A * k["u_keV"] + mass_excess_keV(Z, A)[0]) for A, xi in x.items())
+    kind, a, b, abr = saw.C24[el]
+    return tot, M, {"composition": {A: round(v, 6) for A, v in x.items()}, "A_bar": Abar, "N_bar": Abar - Z,
+                    "A_r_computed": Mbar_atom / k["u_keV"], "A_r_CIAAW2024": (kind, a, b),
+                    "status": "D67-RAW-READ (docket67-raw, UNVERIFIED, NOT SEATED); NAMED-NOT-READ at source this pass "
+                              "(ciaaw.org 403; no arXiv/alphaXiv copy)"}
 
 
 def mass_excess_keV(Z, A):
@@ -1440,7 +1565,7 @@ def mass_cells(Z, A, q=0):
 
 
 def calibrate(Z, A=None, q=0, calibration=CAL_DEFAULT):
-    """(p, p0, cells, info) for the state (Z, A, q) against its element's ground, under the NAMED calibration.
+    """(p, p0, cells, info) for the state (Z, A, q) against its ground (the nuclide under MASS/BINDING, the element mixture under PT-AVERAGE), under the NAMED calibration.
       MASS/BINDING  (default)  H-MASS-CELLS: p = cells / M_state, p0 = the neutral atom's (READ masses / binding).
       GROUND-CONFIG            LW1-ground.py's observed ground configuration (through tools/populate.py, imported):
                                p = subshell occupancies / electrons.  The ion's configuration is the isoelectronic
@@ -1448,18 +1573,37 @@ def calibrate(Z, A=None, q=0, calibration=CAL_DEFAULT):
       IONISATION               cells = the Z electrons in removal order, weight = each one's ionisation energy (NIST
                                ladder, READ); the ion's first q cells are empty.  populate.series_limit is consulted
                                for every stage and what it banks is reported (it banks very few stages).
-    Only MASS/BINDING carries a negative weight; the other two are non-negative, so their measures are Shannon's."""
+      PT-AVERAGE               (H-PT-WEIGHT, the periodic-table reading carried as the ALTERNATIVE to H-NUCLIDE-GROUND):
+                               the element as its isotope mixture, A ignored; CIAAW 2024 compositions, D67-RAW-READ.
+      POPULATE-AXES            OPEN, not implemented (CALIBRATIONS_OPEN gives the reason); refused, never filled in.
+    MASS/BINDING and PT-AVERAGE carry a negative weight (the binding: sign source S-1); GROUND-CONFIG and IONISATION
+    are non-negative, so their measures are Shannon's."""
+    if calibration in CALIBRATIONS_OPEN:
+        raise NotImplementedError(f"{calibration}: {CALIBRATIONS_OPEN[calibration]}")
     if calibration not in CALIBRATIONS:
         raise ValueError(f"calibration must be one of {CALIBRATIONS}")
     if calibration == "MASS/BINDING":
         if A is None:
-            raise ValueError("MASS/BINDING needs a nuclide (Z, A)")
+            raise ValueError("MASS/BINDING needs a nuclide (Z, A) (H-NUCLIDE-GROUND; PT-AVERAGE is the element reading)")
         x, M, inf = mass_cells(Z, A, q)
         x0, M0, inf0 = mass_cells(Z, A, 0)
+        b_ame = ame_binding_keV(Z, A)
         return ([v / M for v in x], [v / M0 for v in x0], list(MASS_CELLS),
                 {"calibration": calibration, "unit": "keV", "x": x, "x0": x0, "M_state_keV": M, "M_ground_keV": M0,
                  "B_ground_keV": -x0[3], "B_state_keV": -x[3], **inf,
-                 "hypotheses": ["H-MASS-CELLS", "H-IE-GROUND", "H-AME-ATOMIC"]})
+                 "B_label": "H-MASS-CELLS shortfall (nuclear + electronic, PDG m_n), DERIVED-FROM-READ",
+                 "B_ground_AME_convention_keV": b_ame, "B_ground_minus_AME_keV": -x0[3] - b_ame,
+                 "ground": f"nuclide Z={Z}, A={A} (H-NUCLIDE-GROUND)",
+                 "hypotheses": ["H-MASS-CELLS", "H-IE-GROUND", "H-AME-ATOMIC", "H-NUCLIDE-GROUND"]})
+    if calibration == "PT-AVERAGE":
+        x, M, inf = pt_average_cells(Z, q)
+        x0, M0, inf0 = pt_average_cells(Z, 0)
+        return ([v / M for v in x], [v / M0 for v in x0], list(MASS_CELLS),
+                {"calibration": calibration, "unit": "keV", "x": x, "x0": x0, "M_state_keV": M, "M_ground_keV": M0,
+                 "B_ground_keV": -x0[3], "B_state_keV": -x[3], **inf0,
+                 "B_label": "H-MASS-CELLS shortfall of the isotope mixture (non-integer N-bar), DERIVED-FROM-READ",
+                 "ground": f"element Z={Z} as its isotope mixture (H-PT-WEIGHT)",
+                 "hypotheses": ["H-MASS-CELLS", "H-IE-GROUND", "H-AME-ATOMIC", "H-PT-WEIGHT"]})
     if calibration == "GROUND-CONFIG":
         pop = _board_mod("populate")
         Ne = Z - q
@@ -1681,25 +1825,73 @@ def index_centred():
     return out
 
 
+LAB_FE0 = "nuclide Fe-56 ground (centre; H-NUCLIDE-GROUND)"
+LAB_FE1 = "nuclide Fe-56 +1 (ion)"
+LAB_FE26 = "nuclide Fe-56 +26 (bare nucleus)"
+LAB_C1 = "nuclide C-12 +1 (ion)"
+LAB_H1 = "H-1 +1 (the proton: state Shannon, ground signed)"
+#: M-apply's labels, kept as history (V4-0 #5: 'the element Fe-56'; V4-1 unresolved: 'H+ (the Shannon case)').
+LABELS_FIRST_SAID = {LAB_FE0: "Fe-56 ground (element; centre)", LAB_FE1: "Fe-56 +1 (ion)",
+                     LAB_FE26: "Fe-56 +26 (bare nucleus)", LAB_C1: "C-12 +1 (ion)", LAB_H1: "H-1 +1 (the proton)"}
+
+
+def sign_sources(p, p0):
+    """SIGN SOURCES, named apart: S-1 the ground is signed (a negative cell in p0); S-2 the deviation d = p - p0 has
+    negative cells (H-ZERO's 'less than the ground state'); and whether the state itself is signed."""
+    d = [a - b for a, b in zip(p, p0)]
+    return {"S-1 signed ground (p0 has a negative cell)": min(p0) < 0,
+            "S-2 signed deviation (some d = p - p0 < 0)": min(d) < 0,
+            "state signed (p has a negative cell)": min(p) < 0}
+
+
 def centred_applications():
-    """The calibration applied: one element and its ions under the DEFAULT calibration, the alternatives offered on
-    the same ion, and two controls.  Every entry names its calibration."""
+    """The calibration applied: one nuclide and its ions under the DEFAULT calibration (H-NUCLIDE-GROUND), the
+    periodic-table reading (PT-AVERAGE, H-PT-WEIGHT) on the same element, the alternatives offered on the same ion, and
+    two controls.  Every entry names its calibration."""
     out = {}
-    for lab, (Z, A, q) in {"Fe-56 ground (element; centre)": (26, 56, 0), "Fe-56 +1 (ion)": (26, 56, 1),
-                           "Fe-56 +26 (bare nucleus)": (26, 56, 26), "C-12 +1 (ion)": (6, 12, 1),
-                           "H-1 +1 (the proton)": (1, 1, 1)}.items():
+    for lab, (Z, A, q) in {LAB_FE0: (26, 56, 0), LAB_FE1: (26, 56, 1), LAB_FE26: (26, 56, 26), LAB_C1: (6, 12, 1),
+                           LAB_H1: (1, 1, 1)}.items():
         p, p0, cells, info = calibrate(Z, A, q, CAL_DEFAULT)
         c = centred(p, p0)
-        out[lab] = {"calibration": info["calibration"], "p": p, "p0": p0, "N_p": neg(p), "N_p0": neg(p0),
-                    "case": "SIGNED" if min(p) < 0 else "SHANNON", "B_ground_keV": info["B_ground_keV"],
+        out[lab] = {"calibration": info["calibration"], "ground": info["ground"], "p": p, "p0": p0, "N_p": neg(p),
+                    "N_p0": neg(p0), "case": "SIGNED" if min(p) < 0 else "SHANNON",
+                    "case_ground": "SIGNED" if min(p0) < 0 else "SHANNON", "sign_sources": sign_sources(p, p0),
+                    "B_label": info["B_label"], "B_ground_keV": info["B_ground_keV"],
+                    "B_ground_AME_convention_keV": info["B_ground_AME_convention_keV"],
+                    "B_ground_minus_AME_keV": info["B_ground_minus_AME_keV"],
                     "B_state_keV": info["B_state_keV"], "sum_IE_keV": info["sum_IE_keV"],
                     "re_h_p_nats": re_h(p), "re_h_p0_nats": re_h(p0), **{k: c[k] for k in c},
-                    "table": centred_table(p, p0, cells), "both_weightings": both_on(p)}
+                    "table": centred_table(p, p0, cells), "both_weightings": both_on(p),
+                    "label_first_said": LABELS_FIRST_SAID[lab]}
+    pt = {}
+    for lab, q in (("element Fe ground (PT-AVERAGE)", 0), ("element Fe +1 (PT-AVERAGE)", 1),
+                   ("element Fe +26 (PT-AVERAGE)", 26)):
+        p, p0, cells, info = calibrate(26, None, q, "PT-AVERAGE")
+        pt[lab] = {"calibration": info["calibration"], "ground": info["ground"], "p": p, "p0": p0, "N_p0": neg(p0),
+                   "B_ground_keV": info["B_ground_keV"], "A_bar": info["A_bar"], "N_bar": info["N_bar"],
+                   "A_r_computed": info["A_r_computed"], "A_r_CIAAW2024": info["A_r_CIAAW2024"],
+                   "composition": info["composition"], "status": info["status"], **centred(p, p0),
+                   "sign_sources": sign_sources(p, p0)}
+    out["periodic-table reading (H-PT-WEIGHT), the alternative"] = pt
     alt = {}
     for cal in ("GROUND-CONFIG", "IONISATION"):
         p, p0, cells, info = calibrate(26, 56, 1, cal)
         alt[cal] = {"calibration": cal, "cells": cells, "N_p": neg(p), **centred(p, p0),
                     "info": {k: v for k, v in info.items() if k not in ("x", "x0")}}
+    # H-FEII-CONFIG sensitivity: Fe II's NIST ground 3d6 4s (NAMED-NOT-READ) in place of Mn's 3d5 4s2 (H-ISOELECTRONIC)
+    p, p0, cells, info = calibrate(26, 56, 1, "GROUND-CONFIG")
+    occ = dict(zip(cells, info["x"]))
+    occ_alt = dict(occ, **{"3d": 6, "4s": 1})
+    p_alt = [occ_alt[c] / 25 for c in cells]
+    alt["GROUND-CONFIG sensitivity, Fe II 3d6 4s (NAMED-NOT-READ; not adopted)"] = {
+        "re_D": rel_entropy(p_alt, p0).real, "ratio_to_adopted": rel_entropy(p_alt, p0).real / alt["GROUND-CONFIG"]["re_D"],
+        "status": "sensitivity only: physics.nist.gov refused (403) this pass; the board's NIST captures carry no "
+                  "configurations"}
+    try:
+        calibrate(26, 56, 1, "POPULATE-AXES")
+        alt["POPULATE-AXES"] = "IMPLEMENTED (unexpected)"
+    except NotImplementedError as e:
+        alt["POPULATE-AXES"] = str(e)
     out["alternatives, Fe +1"] = alt
     p, p0, _, _ = calibrate(26, 54, 0)
     q, q0, _, _ = calibrate(26, 56, 0)
@@ -1793,6 +1985,16 @@ LITERATURE = [
      "restated in 2410.15976v5 p.3; carries H-RD."),
     ("Lvovsky et al., PRL 87, 050402 (2001)", "single-photon OHT with negative W", "NAMED-NOT-READ",
      "READ only through quant-ph/0511044v2 p.17-18."),
+    # F-alone, 2026-10-03 (V4-0 #6 / unresolved 2; V4-1 #2)
+    ("2409.03787v1", "Mohr, Newell, Taylor, Tiesinga, CODATA Recommended Values of the Fundamental Physical Constants: "
+     "2022", "READ", "Table XXXIII: m_u c^2 = 931.494 103 72(29) MeV, m_p c^2 = 938.272 089 43(29) MeV, m_e c^2 = "
+     "0.510 998 950 69(16) MeV (H-U-EDITION: settles the 0.37 eV as an edition difference)."),
+    ("CIAAW/IUPAC Standard Atomic Weights 2024; representative isotopic compositions", "the periodic table's real "
+     "numbers (H-PT-WEIGHT)", "NAMED-NOT-READ", "at source this pass: ciaaw.org and iupac.qmul.ac.uk refused (403, "
+     "reported, not routed around); no arXiv/alphaXiv copy.  Used as DOCKET 67's raw audit READ them "
+     "(docket67-raw/rederive/standard-atomic-weights.py: UNVERIFIED, NOT SEATED), imported."),
+    ("NIST ASD Fe II ground configuration (3d6 4s)", "H-FEII-CONFIG sensitivity", "NAMED-NOT-READ",
+     "physics.nist.gov refused (403) this pass; the board's NIST captures carry energies and qualities only."),
 ]
 
 
@@ -1975,15 +2177,24 @@ def report(R):
               f"  A5'(w) {a['A5_signed_weights_worst']:.2e} ({a['A5_signed_weights_undefined']} undefined)")
         print(f"        BFL convex linearity on FinProb, worst {v['BFL_convex_linearity_on_FinProb_worst']:.2e}; "
               f"crush (1.5,-0.5) loss {v['crush_loss_(1.5,-0.5)_bits']:+.6f} bits")
-    print("\n(9) the ground-state calibration (M items 3, 6): default MASS/BINDING; GROUND-CONFIG and IONISATION selectable")
+    print("\n(9) the ground-state calibration (M items 3, 6): default MASS/BINDING (H-NUCLIDE-GROUND); GROUND-CONFIG, "
+          "IONISATION and PT-AVERAGE (H-PT-WEIGHT) selectable; POPULATE-AXES OPEN")
     k = R["constants"]
     print(f"    u = m_p + m_e - I(H) - Delta(1H) = {k['u_keV']:.4f} keV (DERIVED-FROM-READ); CODATA 2018 "
           f"{k['u_keV_CODATA2018']:.4f} (NAMED-NOT-READ); m_n via AME {k['m_n_via_AME_keV']:.4f} vs PDG {k['m_n_keV']:.4f}")
+    print(f"    H-U-EDITION: rounding budget {k['u_budget_eV']:.3f} eV; u - CODATA 2018 "
+          f"{(k['u_keV'] - k['u_keV_CODATA2018']) * 1e3:+.3f} eV (outside by "
+          f"{abs(k['u_keV'] - k['u_keV_CODATA2018']) * 1e3 - k['u_budget_eV']:.3f}); u - CODATA 2022 (READ, 2409.03787v1) "
+          f"{(k['u_keV'] - k['u_keV_CODATA2022']) * 1e3:+.3f} eV (inside); with CODATA 2022's unrounded m_p, m_e: "
+          f"{(k['u_keV_rederived_CODATA2022_inputs'] - k['u_keV_CODATA2022']) * 1e3:+.4f} eV")
     for lab, v in R["centred_apps"].items():
         if "table" not in v:
             continue
-        print(f"    [{v['calibration']}] {lab}: case {v['case']}, N {v['N_p']:.9f} (ground {v['N_p0']:.9f}); "
-              f"B {v['B_state_keV']:.4f} keV (ground {v['B_ground_keV']:.4f})")
+        print(f"    [{v['calibration']}] {lab} (M-apply first said '{v['label_first_said']}'): state {v['case']}, ground "
+              f"{v['case_ground']}, N {v['N_p']:.9f} (ground {v['N_p0']:.9f}); sign sources {v['sign_sources']}")
+        print(f"        B ({v['B_label']}) {v['B_state_keV']:.4f} keV (ground {v['B_ground_keV']:.4f}); AME's own convention "
+              f"ground {v['B_ground_AME_convention_keV']:.4f} keV, difference {v['B_ground_minus_AME_keV'] * 1e3:+.1f} eV "
+              f"(= Z I(H) + N (m_n(PDG) - m_n(AME)), identity)")
         print(f"        Re D(p||p0) {v['re_D']:.6e} nats, Im D {v['im_D']:.3e}; dRe H {v['dReH']:+.6e}; cross X "
               f"{v['cross_X']:+.6e}; identity residual {v['identity_residual']:.1e}; D(p0||p) "
               f"{'inf' if v['D_reverse'] is None else '%.6e' % v['D_reverse'].real}")
@@ -1993,9 +2204,18 @@ def report(R):
         print(f"        both weightings: {v['both_weightings']}")
         for r in t["rows"]:
             print("          " + "  ".join(f"{kk}={('%.6g' % vv) if isinstance(vv, float) else vv}" for kk, vv in r.items()))
+    for lab, v in R["centred_apps"]["periodic-table reading (H-PT-WEIGHT), the alternative"].items():
+        print(f"    [{v['calibration']}] {lab}: A-bar {v['A_bar']:.5f}, N-bar {v['N_bar']:.5f}, A_r computed "
+              f"{v['A_r_computed']:.5f} vs CIAAW 2024 {v['A_r_CIAAW2024']}; B-bar ground {v['B_ground_keV']:.4f} keV; "
+              f"Re D {v['re_D']:.6e}, dRe H {v['dReH']:+.6e}; {v['status']}")
     for cal, v in R["centred_apps"]["alternatives, Fe +1"].items():
-        print(f"    [{cal}] Fe +1: N {v['N_p']}, Re D {v['re_D']:.6e}, dRe H {v['dReH']:+.6e}, X {v['cross_X']:+.6e}; "
-              f"{v['info']}")
+        if isinstance(v, str):
+            print(f"    [{cal}] {v}")
+        elif "info" not in v:
+            print(f"    [{cal}] Fe +1: Re D {v['re_D']:.6e} (x{v['ratio_to_adopted']:.2f} the adopted); {v['status']}")
+        else:
+            print(f"    [{cal}] Fe +1: N {v['N_p']}, Re D {v['re_D']:.6e}, dRe H {v['dReH']:+.6e}, X {v['cross_X']:+.6e}; "
+                  f"{v['info']}")
     print(f"    CONTROL another ground (Fe-54 vs Fe-56): {R['centred_apps']['CONTROL another ground: Fe-54 ground vs Fe-56 ground']}")
     print(f"    The Method's index (H-INDEX-GROUND-BOX / -LAMBDA): {R['index_centred']}")
     print(f"    is the centred measure a relative entropy? Re D_s against R0-R5: {R['re_axioms']}")
@@ -2245,35 +2465,81 @@ def selftest():
         chk(f"on probability measures H_{a} is not BFL's Shannon: it fails BFL convex linearity",
             W[f"|w|, alpha = {a}"]["BFL_convex_linearity_on_FinProb_worst"] > 1e-2,
             f"{W[f'|w|, alpha = {a}']['BFL_convex_linearity_on_FinProb_worst']:.3f}")
-    chk("Re H (BLM-normalised) keeps BFL convex linearity on FinProb", W["signed w"]["BFL_convex_linearity_on_FinProb_worst"]
+    chk("Re H (BLM-normalised) keeps BFL convex linearity on FinProb -- so the weightings are SEPARATED CONDITIONALLY "
+        "(H-BFL-BINDS: if BFL convex linearity binds, only signed w survives; whether it binds is M's)",
+        W["signed w"]["BFL_convex_linearity_on_FinProb_worst"]
         < 1e-12, f"{W['signed w']['BFL_convex_linearity_on_FinProb_worst']:.1e}")
     chk("signed Hartley (alpha = 0): A3 = 1 and A4 on (2,-1)x(2,-1) = 0", abs(W["hartley_alpha0"]["A3"] - 1) < 1e-12 and
         abs(W["hartley_alpha0"]["A4_on_(2,-1)x(2,-1)"]) < 1e-12)
 
     print("(9) the ground-state calibration (M items 3, 6)")
     k = R["constants"]
-    chk("u derived from READ values (m_p + m_e - I(H) - Delta(1H)) agrees with CODATA 2018 within 2 eV (PDG rounds m_p to 1 eV)",
-        abs(k["u_keV"] - k["u_keV_CODATA2018"]) < 2e-3, f"{(k['u_keV'] - k['u_keV_CODATA2018']) * 1e3:+.3f} eV")
+    # V4-0 #6: M-apply's check here was 'agrees with CODATA 2018 within 2 eV (PDG rounds m_p to 1 eV)' -- a tolerance
+    # four times the 0.5 eV rounding its label cited.  Replaced (history kept): the budget is computed, the 2018
+    # residual is measured against it, and the edition reading is tested against CODATA 2022, READ.
+    bud = k["u_budget_eV"]
+    d18, d22 = (k["u_keV"] - k["u_keV_CODATA2018"]) * 1e3, (k["u_keV"] - k["u_keV_CODATA2022"]) * 1e3
+    d22r = (k["u_keV_rederived_CODATA2022_inputs"] - k["u_keV_CODATA2022"]) * 1e3
+    chk("H-U-EDITION: the rounding budget of the derived u is 0.5055 eV (half the last quoted digit of each READ input)",
+        abs(bud - 0.5055) < 1e-9, f"{bud:.4f} eV (arithmetic on the quoted digits)", structural=True)
+    chk("u - CODATA 2018 (NAMED-NOT-READ) EXCEEDS that budget: rounding of m_p does not explain it (M-apply's label did)",
+        abs(d18) > bud, f"{d18:+.4f} eV, outside by {abs(d18) - bud:.3f} eV")
+    chk("u - CODATA 2022 (READ, arXiv:2409.03787v1 Table XXXIII) lies INSIDE the budget", abs(d22) <= bud,
+        f"{d22:+.4f} eV")
+    chk("with CODATA 2022's unrounded m_p and m_e in place of PDG's, the derivation reproduces CODATA 2022's u to 0.01 eV: "
+        "the 2018 residual is an EDITION difference", abs(d22r) < 0.01, f"{d22r:+.4f} eV")
+    chk("CONTROL: PDG-2026's m_p is CODATA 2022's rounded to 1 eV (|difference| <= 0.5 eV); CODATA 2018's u is not "
+        "CODATA 2022's (they differ by more than the budget)",
+        abs(k["m_p_keV"] - CODATA2022_MEV["m_p c^2"][0] * 1000) * 1e3 <= 0.5
+        and abs(k["u_keV_CODATA2018"] - k["u_keV_CODATA2022"]) * 1e3 > bud,
+        f"m_p {(k['m_p_keV'] - CODATA2022_MEV['m_p c^2'][0] * 1000) * 1e3:+.3f} eV; u 2022-2018 "
+        f"{(k['u_keV_CODATA2022'] - k['u_keV_CODATA2018']) * 1e3:+.3f} eV", control=True)
     chk("m_n by two READ routes (PDG; u + Delta(n) from AME) agrees within 2 eV", abs(k["m_n_via_AME_keV"] - k["m_n_keV"]) < 2e-3,
         f"{(k['m_n_via_AME_keV'] - k['m_n_keV']) * 1e3:+.3f} eV")
     ie, first = ionisation_ev()
     chk("NIST: Fe I's IE in the ladder capture equals the neutral-row capture", abs(ie[(26, 0)][0] - first[26][0]) < 1e-6,
         f"{ie[(26, 0)][0]} vs {first[26][0]} eV")
     A = R["centred_apps"]
-    fe0, fe1, fe26 = A["Fe-56 ground (element; centre)"], A["Fe-56 +1 (ion)"], A["Fe-56 +26 (bare nucleus)"]
-    gr = _board_mod("gravity")
-    b_ame = 26 * k["Delta_1H_keV"] + 30 * k["Delta_n_keV"] - mass_excess_keV(26, 56)[0]
-    chk("Fe-56: B by the four-cell route = AME's B (Z Delta_H + N Delta_n - Delta) + Z I(H), within N x 2 eV",
-        abs(fe0["B_ground_keV"] - b_ame - 26 * k["I_H_eV"] / 1000) < 30 * 2e-3,
-        f"{fe0['B_ground_keV']:.4f} vs {b_ame + 26 * k['I_H_eV'] / 1000:.4f} keV")
+    fe0, fe1, fe26 = A[LAB_FE0], A[LAB_FE1], A[LAB_FE26]
+    b_ame = ame_binding_keV(26, 56)
+    # V4-0 #7: printed STRUCTURAL (it was counted): given u defined through M(1H), B_4cell - B_AME - Z I(H) is exactly
+    # N x (m_n(PDG) - m_n(AME)) -- the m_n check above times 30, an identity.
+    chk("nuclide Fe-56: B (H-MASS-CELLS shortfall) - AME's own B = Z I(H) + 30 x (m_n(PDG) - m_n(AME)) (identity)",
+        abs(fe0["B_ground_keV"] - b_ame - 26 * k["I_H_eV"] / 1000 + 30 * (k["m_n_via_AME_keV"] - k["m_n_keV"])) < 1e-6,
+        f"B {fe0['B_ground_keV']:.4f} vs AME's {b_ame:.4f} keV: {(fe0['B_ground_keV'] - b_ame) * 1e3:+.1f} eV", structural=True)
+    chk("V4-1 #3: AME2020's own-convention binding of Fe-56 is printed beside the shortfall: 492259.95 keV, B/A 8790.356 keV",
+        abs(b_ame - 492259.9506) < 1e-3 and abs(b_ame / 56 - 8790.3563) < 1e-3 and
+        abs(fe0["B_ground_AME_convention_keV"] - b_ame) < 1e-9, f"{b_ame:.4f} keV; {b_ame / 56:.4f} per nucleon")
     chk("each weighting totals 1 (B is defined as the shortfall)", all(abs(sum(v["p"]) - 1) < 1e-12 and abs(sum(v["p0"]) - 1)
         < 1e-12 for v in A.values() if "p" in v), structural=True)
-    chk("H-1 ground: B = I(H) exactly (u was defined through M(1H))", abs(A["H-1 +1 (the proton)"]["B_ground_keV"] -
+    chk("H-1 ground: B = I(H) exactly (u was defined through M(1H))", abs(A[LAB_H1]["B_ground_keV"] -
         k["I_H_eV"] / 1000) < 1e-9, structural=True)
-    chk("the element's ground is a quasi-probability: exactly one negative cell, the binding (Fe-56, C-12)",
+    chk("the nuclide's ground is a quasi-probability: exactly one negative cell, the binding (Fe-56, C-12) -- sign source S-1",
         fe0["case"] == "SIGNED" and sum(1 for x in fe0["p0"] if x < 0) == 1 and fe0["p0"][3] < 0
-        and A["C-12 +1 (ion)"]["p0"][3] < 0, f"N(Fe-56) = {fe0['N_p0']:.9f}")
-    chk("the proton (H-1 +1) carries no binding: case SHANNON, N = 0", A["H-1 +1 (the proton)"]["case"] == "SHANNON")
+        and A[LAB_C1]["p0"][3] < 0 and fe0["sign_sources"]["S-1 signed ground (p0 has a negative cell)"],
+        f"N(Fe-56) = {fe0['N_p0']:.9f}")
+    # V4-0 #7 / V4-1 (H+ label): the proton's binding is 0 by definition (printed STRUCTURAL, it was counted), and its
+    # state is Shannon while its ground (the H atom) is signed -- M-apply's 'H+ (the Shannon case)' was loose.
+    chk("the proton (H-1 +1): state SHANNON (no binding cell, by definition), ground SIGNED (the H atom's -13.6 eV)",
+        A[LAB_H1]["case"] == "SHANNON" and A[LAB_H1]["case_ground"] == "SIGNED", structural=True)
+    chk("SIGN SOURCES are separate: Fe +1 has a signed ground (S-1) and a signed deviation (S-2) while the proton's "
+        "deviation is signed on a signed ground with an unsigned state",
+        fe1["sign_sources"]["S-1 signed ground (p0 has a negative cell)"] and
+        fe1["sign_sources"]["S-2 signed deviation (some d = p - p0 < 0)"] and
+        not A[LAB_H1]["sign_sources"]["state signed (p has a negative cell)"] and
+        A[LAB_H1]["sign_sources"]["S-1 signed ground (p0 has a negative cell)"],
+        f"Fe+1 {fe1['sign_sources']}")
+    ptr = A["periodic-table reading (H-PT-WEIGHT), the alternative"]
+    pt0, pt1 = ptr["element Fe ground (PT-AVERAGE)"], ptr["element Fe +1 (PT-AVERAGE)"]
+    chk("H-PT-WEIGHT (the periodic-table reading, carried): the isotope mixture's computed A_r agrees with CIAAW 2024's "
+        "standard atomic weight 55.845(2) (D67-RAW-READ), with non-integer mean N",
+        abs(pt0["A_r_computed"] - 55.845) <= 0.002 and abs(pt0["N_bar"] - round(pt0["N_bar"])) > 0.01,
+        f"A_r {pt0['A_r_computed']:.5f}, N-bar {pt0['N_bar']:.5f}")
+    chk("H-PT-WEIGHT vs H-NUCLIDE-GROUND: the two grounds differ (D(nuclide ground || element ground) > 0) but Fe +1's "
+        "centred Re D agrees within 0.5 %: no verdict moves on the choice",
+        rel_entropy(fe0["p0"], pt0["p0"]).real > 1e-9 and abs(pt1["re_D"] / fe1["re_D"] - 1) < 5e-3,
+        f"D(Fe-56 || Fe-mix) {rel_entropy(fe0['p0'], pt0['p0']).real:.3e}; Re D +1 {pt1['re_D']:.6e} vs "
+        f"{fe1['re_D']:.6e}")
     chk("at the ground, D(p0||p0) = 0, dRe H = 0, every deviation 0 (the required value at p = p0)",
         fe0["re_D"] == 0 and fe0["im_D"] == 0 and fe0["dReH"] == 0 and all(r["d=p-p0"] == 0 for r in fe0["table"]["rows"]),
         "ln(x/x) = 0 by definition", structural=True)
@@ -2296,10 +2562,17 @@ def selftest():
         fe0["table"]["radon_min_line_p"] < 0, f"min {fe0['table']['radon_min_line_p']:+.6f}")
     alt = A["alternatives, Fe +1"]
     chk("alternatives selectable: GROUND-CONFIG and IONISATION give non-negative weights (Shannon case), finite D",
-        all(v["N_p"] == 0 and v["re_D"] is not None and v["re_D"] > 0 for v in alt.values()),
-        f"{ {c: round(v['re_D'], 6) for c, v in alt.items()} }")
+        all(alt[c]["N_p"] == 0 and alt[c]["re_D"] is not None and alt[c]["re_D"] > 0 for c in ("GROUND-CONFIG", "IONISATION")),
+        f"{ {c: round(alt[c]['re_D'], 6) for c in ('GROUND-CONFIG', 'IONISATION')} }")
     chk("populate.series_limit banks no stage of Fe (reported, not filled in)", alt["IONISATION"]["info"]
         ["populate_series_limit_banked"] == {})
+    chk("V4-1 #4: POPULATE-AXES is listed OPEN and refused with its reason (not implemented, not filled in)",
+        alt["POPULATE-AXES"].startswith("POPULATE-AXES: OPEN"), alt["POPULATE-AXES"][:60], control=True)
+    sens = alt["GROUND-CONFIG sensitivity, Fe II 3d6 4s (NAMED-NOT-READ; not adopted)"]
+    chk("H-FEII-CONFIG sensitivity: Fe II 3d6 4s (NAMED-NOT-READ) would give 0.96 ln(26/25) + 0.04 ln(0.52) = 1.149e-2, "
+        "x4.2 the adopted H-ISOELECTRONIC value",
+        abs(sens["re_D"] - (0.96 * math.log(26 / 25) + 0.04 * math.log(0.52))) < 1e-12 and 4.0 < sens["ratio_to_adopted"] < 4.4,
+        f"{sens['re_D']:.4e}, x{sens['ratio_to_adopted']:.2f}")
     refused = []
     for args in ((6, 12, 0, "IONISATION"), (6, 12, 2, "MASS/BINDING")):
         try:

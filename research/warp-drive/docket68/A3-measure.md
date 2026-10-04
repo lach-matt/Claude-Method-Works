@@ -1,10 +1,14 @@
 # DOCKET 68 · A3-measure: Q-1 (the substrate-free measure), H-INFO and R-INDEX
 
 **Status: a docket work item. Nothing here is seated.** The instrument is `measure.py`, which sits beside this file.
-`python3 measure.py --selftest` runs 99 checks. Fourteen are printed **STRUCTURAL**: they cannot fail by construction
-(a literal, a comparison of typed values, or two runs of one expression), so they are **not counted** and are not cited
-as evidence. **The 85 counted checks all pass** (about 35 s); twenty-one of them are **controls**: cases built to fail,
-and every one of them fails. *M-apply first-said record:* "86 checks ... Thirteen ... STRUCTURAL ... The 73 counted
+`python3 measure.py --selftest` runs 108 checks. Twenty-one are printed **STRUCTURAL**: they cannot fail by construction
+(a literal, a comparison of typed values, two runs of one expression, or a z3 verdict the encoding fixes), so they are
+**not counted** and are not cited as evidence. **The 87 counted checks all pass** (about 35 s); twenty-two of them are
+**controls**: cases built to fail, and every one of them fails. *F-alone first-said record:* "99 checks. Fourteen ...
+STRUCTURAL ... The 85 counted ... twenty-one ... controls"; F-alone (V4-0 #1) relabels four z3 checks of § (viii)
+STRUCTURAL (85 to 81 counted), replaces the '< 1%' check (V4-0 #3) with 'forms no baryons' plus one STRUCTURAL
+first-order line, and adds the S5/D25 route: four counted board checks, one vacuity guard, one control, two STRUCTURAL.
+*M-apply first-said record:* "86 checks ... Thirteen ... STRUCTURAL ... The 73 counted
 ... nineteen ... controls"; M-apply added § (viii), 13 checks (2 controls, 1 STRUCTURAL). *Wave 4 first-said record:* the summary printed "85/85 pass" with six STRUCTURAL inside
 the 85; wave 4 relabels six checks of § (vii) STRUCTURAL (V2-0 problem 5), adds one STRUCTURAL guard for the
 symmetric rule, and prints the counted total.
@@ -27,15 +31,35 @@ It writes nothing outside `docket68/`.
 - **H-SETTLE × H-INFO adds nothing to H-SETTLE-W.** The drift's O-BITS removal is H-SETTLE-W × H-FRAME's (A1, A2).
 - **M has ruled clash (d) (M-apply, 2026-10-03; § (viii)).** The reading is **H-INFO-SHAPE**: what arrives is the
   information that shapes the geometry at the seat, and the substance comes "from the seat". Under it the clash with
-  B-RECV is **dissolved by relocation** (z3: H-INFO-SHAPE & B-RECV satisfiable; H-INFO-S & B-RECV not), and
-  **O-MATTER is relocated to O-SEAT, "supply at the seat"**, which stays an obstruction: LEFT, with the board's S13
-  (OPEN, priced, restoring at most ~1.7e-3 of the payload and forming no baryons) and S10 (REFUSED) stated exactly.
-  H-INFO-SHAPE is LEAVES-ALL. *Wave 4 first said* "H-INFO-S is a **CLASH** with B-RECV, and it stays M's to rule";
+  B-RECV is **dissolved by relocation** -- M's ruling, encoded as SHAPE ⇒ RECV (H-SHAPE-ENCODING); z3 shows only that
+  the encoding is consistent, and those verdicts are printed STRUCTURAL -- and **O-MATTER is relocated to O-SEAT,
+  "supply at the seat"**, which is **OPEN** (F-alone, 2026-10-03): the board's supply-from-the-seat route **S5**
+  (reconstruction from destination stock, NOT REFUSED by M's mechanism) and its **D25** stock gate are OPEN and
+  unchecked (**H-SEAT-S5**, the fair reading of M's "Yes, from the seat"); it is **LEFT given H-SEAT-ROUTES** (the
+  supply restricted to M's two named tests: S10 REFUSED; S13 OPEN, priced, forming no baryons). H-INFO-SHAPE's verdict
+  is **OPEN**. *F-alone first-said record (M-apply):* "LEFT, with the board's S13 (OPEN, priced, restoring at most
+  ~1.7e-3 of the payload and forming no baryons) and S10 (REFUSED) stated exactly. H-INFO-SHAPE is LEAVES-ALL" -- the
+  "at most" made a first-order estimate a bound (V4-0 #3). *Wave 4 first said* "H-INFO-S is a **CLASH** with B-RECV, and it stays M's to rule";
   H-INFO-S is kept as history and as the alternative reading.
 - R-INDEX's NOT-BOUND-IF {H-IT, H-MEASURE-PHYSICAL} is in a column of its own -- on O-MAKE, O-HOLD **and (wave 4)
   corridor O-LOOP** -- and so is the geometry's corridor O-LOOP removal, which is credited to no hypothesis.
 - **Q-1s is now in use (§ (vii)).** Q-1 takes signed cell weights under H-SIGNED-CELLS, and returns Shannon exactly
   when no weight is negative. **No grade moves**; each was re-examined, and the reason it does not move is recorded.
+
+## F-alone (2026-10-03): the third pair of re-verifications (V4-0 AGAINST M, V4-1 FOR M)
+
+`wave1/MRULINGS-RESULT.json` key `result.verify`. Every item sited in A3 / `measure.py` is applied or answered with a
+computed or READ reason. Items sited only in `combine.py` / `B-combine.md` are named, not edited here (not this stage's
+files). Earlier forms are kept, marked *M-apply first said*. Numbering is 1-based.
+
+| re-verification item | resolution |
+|---|---|
+| V4-0 problem 1: four counted z3 checks of § (viii) cannot fail once the encoding is fixed; the dissolution presented as z3's | **Applied.** The four (H-INFO-S & B-RECV unsat; H-INFO-SHAPE & B-RECV sat; O-SEAT removed/left both sat; removal without S13 unsat) are printed **STRUCTURAL**, not counted (85 → 81, before the S5 additions). The dissolution is credited to **M's ruling under H-SHAPE-ENCODING**; z3 shows the encoding consistent. The controls (drop DEF-MATTER; un-refuse S10) carry the content and stay counted. `GRADES` and § (viii) say so. |
+| V4-0 problem 2: combine.py:1285 'CONTENT clash (d)' double-counted | Sited in `combine.py`, not this stage's file. `measure.info_shape_screen` keeps every key combine reads, unchanged in value. |
+| V4-0 problem 3 / unresolved 3: 'at least 0.998 ... must already be at the seat' is a bound from a first-order estimate; check ':1390 restores under 1%' treats it as an upper bound | **Applied.** Exact: S13 **forms no baryons** (C3 under H-C3), so every baryon must already be at the seat; that alone makes S13 no supply, and is the counted check now. The mass share already there is **about 0.998 at first order (H-LINEAR)** -- an estimate; **as a bound it is OPEN** (S13's finite response OPEN on the board). The '< 1%' check is removed (history kept in the code comment). No grade moves on it. |
+| V4-0 problem 4 / unresolved 1; V4-1 problem 1 / unresolved 2 (moves_grade): S5 left out; the {S10, S13} restriction unnamed; 'LEFT exactly as M's ruling states' | **Applied; the grade moves.** **H-SEAT-ROUTES** names the restriction (M named S10 and S13 as the tests, not as the only routes). **H-SEAT-S5** computes the board's supply-from-the-seat route: LEDGER S5 and D25 READ, both OPEN; `massform.RECONSTRUCTION_SURVIVES` True -- and it reduces to `transit.CARRIES_SUBSTANCE` False, because `stockgate.GATE` is the gate's condition **text** (bool of any text is True): S5 is **NOT REFUSED**, not **SHOWN**; the gate's mass conjunct, imported from `stockgate.feedstock_kg`: the 70 kg payload binds on P at **10.70 kg/kg** (749.1 kg) against a CI chondrite and **1911 kg/kg** (1.338e5 kg) against a stellar photosphere; S5's price per reconstruction is not re-derivable (LEDGER S5, DOCKET 56 owed); D23 binds S5's channel (O-BITS), not its substance. z3 (`info_shape_screen`, H-SEAT-S5 encoding, vacuity-guarded): without S13, "O-SEAT removed" and "left" are both sat (**OPEN via S5**), a removal with the D25 gate failing is unsat, and the control (refuse reconstruction) closes the pathway. **O-SEAT: OPEN** (removed only if S5's supply is shown and D25 holds -- neither is); **LEFT given H-SEAT-ROUTES**, which agrees with M's "stays an obstruction until the seat's supply is shown". H-INFO-SHAPE's verdict: **OPEN** (*M-apply first said* LEAVES-ALL, O-SEAT LEFT). For combine's stage (this stage does not edit `combine.py`): its DEF-SEAT encodes H-SEAT-ROUTES only, so its P10 drift guard now meets A3's OPEN and **refuses** -- `python3 combine.py --selftest` exits 1 on exactly one unexplained row, (A3-measure, SHAPE, O-SEAT): A3 OPEN, z3 N. Run with that one row explained in memory (a probe; the file unedited) it passes 97/97, 20 controls, 10 STRUCTURAL. The repair is combine's: encode H-SEAT-S5 (S5 ⇒ D25 gate ∧ reconstruction survives, gate free) so z3 reads O-SEAT OPEN, or explain the row by the two named hypotheses. B-combine's E-SEAT cites D23 where the stock condition is D25, and calls S5 'not a supply' where it is excluded by choice (V4-1). |
+| V4-0 unresolved 2 (0.37 eV), unresolved 4 (BFL), V4-0 problems 5-8, V4-1 problems 2-4 and unresolved 1, 3 | Sited in `signed.py` / Q1s-signed.md (§§ 9-10, and "F-alone" there): CODATA 2022 READ (the 0.37 eV is an edition difference, computed); H-BFL-BINDS; H-NUCLIDE-GROUND with the periodic-table reading carried (PT-AVERAGE); B labelled as the H-MASS-CELLS shortfall beside AME's own convention; two identities STRUCTURAL; POPULATE-AXES listed OPEN; the H+ label corrected; the Fe II configuration sensitivity computed. In Q-1's grades nothing moves on any of them. |
+| V4-0 unresolved 5 / V4-1 unresolved 4 (no READ, no 403 in those passes) | This pass READ CODATA 2022 (arXiv:2409.03787v1) and met three 403s (ciaaw.org, iupac.qmul.ac.uk, physics.nist.gov), reported, not routed around. Nothing committed, pushed, stashed, reset or checked out. |
 
 ## M-apply (2026-10-03): M's rulings, and V3's residuals sited here
 
@@ -322,7 +346,7 @@ The figures match Q1s-build's (N = 158, Re H = 0, M = 8.308 bits; Re H = −3.03
 | Q-1 | LEAVES-ALL | The signed measure counts, as Q-1 does. It sends no bit, holds no throat, forms no matter, closes no loop. Only its scope changes: Theorem 2's uniqueness covers the SHANNON case only; for signed weights uniqueness holds over separable functionals (Re H with product additivity), is CLAIMED-IN-LITERATURE under signed recursivity (Kontsevich), and is OPEN otherwise. |
 | H-INFO | LEAVES-ALL | Clause (a) was already scoped to probability measures (BFL's hypotheses, READ pp.3-4). For signed weights (wave 4): **SUPPORTED-IF {H-SEPARABLE, BFL's codomain dropped, product additivity}** -- Re H is then the unique measure, and those hypotheses name only finite sets, signed measures and functions; **impossible** inside H-SEPARABLE (and inside H-DICTIONARY) if the codomain is kept; OPEN over non-separable functionals. *Wave 3 first said* "SUPPORTED for probability weights and OPEN for signed ones". One clause status moves; the verdict does not. Clause (b) is untouched: Re H gives no lower bound per unit matter either. |
 | H-INFO-S | CLASH | φ(1) = 0 survives signed weights (n = 1 above). The 2^I leg is Shannon's (n = 3 above), and Re H's meaning is OPEN. The clash stays M's to rule. |
-| H-INFO-SHAPE (M-apply) | LEAVES-ALL | Graded after Q-1s (§ (viii)): a signed weighting supplies no substance at the seat; the holder leg φ(1) = 0 is unchanged by signed weights. *M has ruled clash (d); the row above is kept as history.* |
+| H-INFO-SHAPE (M-apply) | OPEN | Graded after Q-1s (§ (viii)): a signed weighting supplies no substance at the seat; the holder leg φ(1) = 0 is unchanged by signed weights. *M has ruled clash (d); the row above is kept as history.* Q-1s does not move it; the grade itself moved from LEAVES-ALL to OPEN on the S5/D25 route (F-alone, V4-1 #1). |
 | R-INDEX | LEAVES-ALL | Its values are (Re H, Im H, N, M). None is an energy density: a negative weight is not a negative T_ab k^a k^b. So O-HOLD stays SILENT within the measure, and NOT-BOUND-IF {H-IT, H-MEASURE-PHYSICAL} for a corridor. To read a negative weight as the throat's null deficit (one reading of M's "supplied by probability in the citation/seating") is **H-NEGWEIGHT-NEC**: named, with no instrument and no source, and not credited. O-BITS: a signed weighting sends nothing. O-MATTER: unchanged. O-LOOP: SILENT within the measure; for a physical corridor O-LOOP-C NOT-BOUND-IF {H-IT, H-MEASURE-PHYSICAL}, as O-MAKE and O-HOLD (wave 4; *wave 3 first said* "O-LOOP: SILENT"). |
 | H-SETTLE × H-INFO | LEAVES-ALL | Its χ is a Holevo quantity of density matrices, whose spectra are non-negative. No signed weight enters it. |
 
@@ -341,13 +365,20 @@ named choice.
 | query | result |
 |---|---|
 | vacuity: the base, and INFOS, SHAPE, RECV each alone | sat |
-| H-INFO-S & B-RECV | **unsat** -- clash (d) reproduced |
-| H-INFO-SHAPE & B-RECV | **sat** -- dissolved by relocation |
-| H-INFO-SHAPE & B-RECV & O-SEAT removed / & O-SEAT left | sat / sat -- the screen decides nothing about the seat |
-| H-INFO-SHAPE & O-SEAT removed & S13 not shown | unsat -- with S10 refused, a removal needs S13's supply shown |
-| H-INFO-SHAPE & O-MATTER removed | unsat |
+| H-INFO-S & B-RECV | **unsat** -- clash (d) reproduced (STRUCTURAL: INFOS ⇒ O-MATTER removed ⇔ ¬RECV, two constraints chained) |
+| H-INFO-SHAPE & B-RECV | **sat** -- the encoding of M's ruling is consistent (STRUCTURAL: SHAPE ⇒ RECV makes this the vacuity check "SHAPE alone") |
+| H-INFO-SHAPE & B-RECV & O-SEAT removed / & O-SEAT left (H-SEAT-ROUTES) | sat / sat (STRUCTURAL: O-SEAT removed is S13 in every model) |
+| H-INFO-SHAPE & O-SEAT removed & S13 not shown (H-SEAT-ROUTES) | unsat (STRUCTURAL: the bare refusal of S10) |
+| H-INFO-SHAPE & O-MATTER removed | unsat (STRUCTURAL) |
 | CONTROL: drop DEF-MATTER, then H-INFO-S & B-RECV | sat -- the clash is DEF-MATTER's |
 | CONTROL: un-refuse S10, then O-SEAT removed without S13 | sat |
+| **H-SEAT-S5** (F-alone): O-SEAT removed ⇔ S10 ∨ S13 ∨ S5; S5 ⇒ (D25 gate ∧ reconstruction survives); reconstruction survives = True (massform); gate FREE (D25 OPEN). Vacuity: the base, and SHAPE & S5 | sat |
+| H-SEAT-S5: SHAPE & O-SEAT removed & S13 not shown / SHAPE & O-SEAT left | sat / sat -- **OPEN via S5** (STRUCTURAL) |
+| H-SEAT-S5: removed without S13 with the D25 gate failing | unsat (STRUCTURAL) |
+| CONTROL (H-SEAT-S5): refuse reconstruction, then removed without S13 | unsat -- the S5 pathway closes |
+
+*M-apply first said* the clash was "dissolved by relocation" as a screen result, and counted the four STRUCTURAL rows
+above (V4-0 #1). The dissolution is M's ruling; z3 shows only that its encoding is consistent.
 
 **What the seat must supply** (COMPUTED from imports; `seat_supply`, `O_SEAT_TEXT`, a drift guard checks the prose
 against the instruments). Under H-INFO-SHAPE the information arrives and the substance does not
@@ -362,13 +393,23 @@ as elements** -- in a holder with at least 2^I distinguishable states (φ(1) = 0
 | S10, M's mechanism (mass formed by the triggered Higgs field) | **REFUSED** (`massform.MECHANISM_VERDICT`: REFUSED on all six readings) | nothing: refused as a supply |
 | S13, the held-seat release route | **OPEN, priced** (`HELD_SEAT_ROUTE_PRICED` True) | it **restores** Higgs-given mass to templates already at the seat and **forms no baryons** (C3): the electrons regain **3.010e-6** of the payload (exact on H-TREE), the nucleons about **1.716e-3** (first order; an estimate, not a bound). Price at ε = 1/100: a prepared source of **1.930e44 J/m³** holding **9.80e41 J/m³** of field, **197.0 J** of φ-coupled rest energy per J of field (exactly 39204/199), **2.148e27 kg/m³** of Higgs-derived mass where the templates sit; a static hold is stable only below ε = **0.4226**; regained/released at ε₀ = 1e-12, 1e-6, 1/1000, 1/200: 2.02e-10, 2.02e-4, 0.1834, 0.6695; the seat is prepared in advance, so something arrived at ≤ c first (D23, `preparation_needs_prior_arrival` True) |
 | S12, the pair route | OPEN, priced | mass as matter with antimatter: the floor **1.2567e19 J** for 70 kg (B units of antibaryon held apart) |
-| S5, reconstruction from stock at the seat | OPEN; survives (`massform.RECONSTRUCTION_SURVIVES`) | the elements are already at the seat as stock; S5's own price figures are not re-derivable (LEDGER S5, downgraded) |
+| S5, reconstruction from stock at the seat -- **the board's supply-from-the-seat route** (H-SEAT-S5) | **OPEN** (LEDGER S5, READ); NOT REFUSED by M's mechanism (`massform.RECONSTRUCTION_SURVIVES` True, which reduces to `transit.CARRIES_SUBSTANCE` False: `stockgate.GATE` is a condition text); gated by **D25, OPEN** (READ) | the seat's own stock, reassembled to the arriving specification: the elements are supplied by the seat. The gate, unchecked at every destination: a condensed, primitive body in the arrival aperture holding the feedstock -- **749.1 kg** of CI chondrite (P binds, 10.70 kg/kg) or **1.338e5 kg** of stellar photosphere (P binds, 1911 kg/kg) for the 70 kg payload (`stockgate.feedstock_kg`, imported). S5's own price per reconstruction is not re-derivable (LEDGER S5, downgraded; DOCKET 56's instrument owed). D23 binds its channel (the fabricator, survey and receiver arrive at ≤ c first; O-BITS), not its substance |
 
-So **S13 is not a supply of substance**: at least 0.998 of the payload must already be at the seat for it to act on.
-**O-SEAT is LEFT** -- an obstruction until the seat's supply is shown, exactly as M's ruling states. Nothing is credited
-to H-INFO-SHAPE: it relocates the question and supplies nothing. Its grade, per obstruction: O-BITS LEAVES (two
-classical bits per qubit still cross at ≤ c); O-MAKE, O-HOLD LEAVES; O-MATTER **RELOCATED to O-SEAT, LEFT there**;
-O-LOOP SILENT. **Verdict: LEAVES-ALL.**
+So **S13 is not a supply of substance**: it forms no baryons (C3, exact), so every baryon must already be at the seat;
+the mass share already there is **about 0.998 at first order** (H-LINEAR, an estimate; as a bound it is OPEN). **O-SEAT
+is OPEN**: its pathway S5/D25 is open -- removed only if S5's supply is shown and the D25 gate holds, and neither is --
+and it is **LEFT given H-SEAT-ROUTES** (the supply restricted to M's two named tests, S10 and S13), which agrees with
+M's "stays an obstruction until the seat's supply is shown". The restriction is the record's carrying, a named
+hypothesis, not M's quoted words. Nothing is credited to H-INFO-SHAPE: it relocates the question and supplies nothing;
+the open pathway is S5's and D25's. Its grade, per obstruction: O-BITS LEAVES (two classical bits per qubit still cross
+at ≤ c); O-MAKE, O-HOLD LEAVES; O-MATTER **RELOCATED to O-SEAT, OPEN there** (LEFT given H-SEAT-ROUTES); O-LOOP SILENT.
+**Verdict: OPEN.**
+
+*M-apply first said* (F-alone, history kept): "So **S13 is not a supply of substance**: at least 0.998 of the payload
+must already be at the seat for it to act on. **O-SEAT is LEFT** -- an obstruction until the seat's supply is shown,
+exactly as M's ruling states. ... O-MATTER **RELOCATED to O-SEAT, LEFT there**; O-LOOP SILENT. **Verdict:
+LEAVES-ALL.**" Three faults: a first-order estimate stated as a bound (V4-0 #3); the {S10, S13} restriction unnamed and
+attributed to M's words (V4-0 #4, V4-1 #1); S5, the route nearest "Yes, from the seat", printed and never computed.
 
 *Wave 4 first said*, of H-INFO-S, "The clash stays a CLASH, for M to rule." M has ruled; the H-INFO-S section below is
 kept unchanged as history and as the alternative reading.
@@ -556,5 +597,10 @@ obstructions.
   of Re H when some weight is negative. Which signed weighting of Λ, if any, The Method means (H-MOBIUS-WEIGHT is one
   choice among many). H-NEGWEIGHT-NEC has no source. None of `signed.py`'s literature was re-read in this pass; it is
   cited as Q1s-build READ it (Q1s-signed.md § 6).
+- **O-SEAT's open pathway (F-alone).** Whether S5's supply can be shown at any destination: the D25 gate is unchecked
+  everywhere, S5's price per reconstruction needs DOCKET 56's owed instrument, and S13's finite (non-first-order)
+  nucleon response is OPEN, so the ~0.998 first-order share is not a bound. Whether S12 counts as a supply at the seat
+  (H-SEAT-S12) is not ruled. Which of H-SEAT-ROUTES and H-SEAT-S5 The Method takes is M's; the adopted grade is OPEN
+  under the fair reading, LEFT under the restriction, and both are printed.
 - **The task's file list named `docket68/undefined`.** That is a script fault in the computed task text. The
   instrument is named `measure.py`, as the body of the task asked.

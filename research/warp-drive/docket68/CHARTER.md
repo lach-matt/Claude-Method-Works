@@ -373,3 +373,20 @@ applied. These are rulings and are applied as worded.
    question being asks or the object of study". The default calibration is MASS/BINDING (READ AME2020 / PDG / NIST
    values); GROUND-CONFIG (LW1-ground.py) and IONISATION are selectable, and every use names its calibration
    (`signed.calibrate`).
+
+**Note (2026-10-03, F-alone; the third pair of re-verifications, V4-0 and V4-1 in `wave1/MRULINGS-RESULT.json`).**
+Appended; nothing above this note was changed. Two application lines in the section above are made exact here:
+- **Item 5.** M's words are "Yes, from the seat". Grading O-SEAT against S13 and S10 only is the record's carrying, not
+  M's words: it is now the named hypothesis **H-SEAT-ROUTES**. The board's own supply-from-the-seat route, **S5**
+  (reconstruction from destination stock; NOT REFUSED by M's mechanism, `massform.RECONSTRUCTION_SURVIVES`) with its
+  **D25** stock gate, is computed as **H-SEAT-S5** (`measure.seat_route_s5`, `measure.info_shape_screen`): LEDGER S5 and
+  D25 are OPEN, the gate is unchecked at every destination, S5's price is not re-derivable. **O-SEAT is graded OPEN**
+  (its pathway S5/D25 is open; removed only if S5's supply is shown and D25 holds) and **LEFT given H-SEAT-ROUTES**; it
+  stays an obstruction until the seat's supply is shown, and nothing removes it by assertion (A3-measure.md § (viii)).
+  The ~0.998 mass share already at the seat is a first-order estimate (H-LINEAR), not a bound.
+- **Item 6.** M lists "ground configurations, ionisation energies, or populate.py's axes". **POPULATE-AXES is not
+  implemented: OPEN** (no rule turns an axis into a ground p0), and `signed.calibrate` refuses it with that reason.
+  Item 3's "real numbers from the periodic table": MASS/BINDING centres an element on one nuclide (**H-NUCLIDE-GROUND**,
+  AME2020); the periodic table's standard atomic weight, an isotope mean, is carried as the alternative **PT-AVERAGE**
+  (**H-PT-WEIGHT**; CIAAW 2024 as DOCKET 67's raw audit read it, NAMED-NOT-READ at source this pass -- ciaaw.org 403).
+  No verdict moves on the choice (Q1s-signed.md § 10).
