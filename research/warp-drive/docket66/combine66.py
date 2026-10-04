@@ -40,8 +40,19 @@ GUARDS (PROOF-ASSISTANT.md: vacuity and encoding drift; the screen refuses to re
   * encoding drift: z3's per-obstruction class against the D66 A-reports' own grade text (scratchpad JSON, parsed by
     combine.parse_report_class on fragments anchored VERBATIM in the JSON) and against defects.grades() (A1's own z3);
     every disagreement listed with its reason; five mutated encodings must each be caught;
-  * pathway ties: each D66 OPEN pathway opens (or defeats) only where encoded -- controls.
+  * pathway ties: each D66 OPEN pathway opens only where encoded -- controls.
   STRUCTURAL items (cannot fail by construction) are printed and NOT counted.
+
+D66-FIX (2026-10-04; the three wave-1 verifier reports, every problem resolved or answered -- B-combine66.md section 0):
+  * M's ruling M-S1A-P3 ('a singular throat is not disqualified'; 'the throat-creation classes stay OPEN') is APPLIED
+    to every D66 geometric throat (DEF-TOPO/66, N_WNCC owners DTHR, TBHOLO, TBTSH, TBTEL); wave 1's E-SINGOK (A2's two
+    singular readings only, the board reading 'for M') is kept as the reading 'singok-a2' and refused by the drift guard.
+  * N_GJWAMB (GJW's one-space version, 'stated, not computed') is replaced by N_GJWPAY: what Maldacena-Milekhin-Popov
+    1807.04726 (READ) shows and does not show (throatbits.mmp_scales); R-TELEPORT's O-HOLD on GJW alone is LEFT-IF.
+  * N_WALLLOOP is retired: the M4-M4 wall's global time function is computed (defects.vis_time_function, CGS p.15).
+  * QET's hold route is N_QETHAD only; N_XI and N_QEIC stay the board's, tied to RQ (wave 1's gating kept as the
+    reading 'qet-board-paths').
+  * The A-reports' grades are asked of the instruments at run time (report_grades), not of stored scratchpad JSON.
 
 VERDICT WORDS (docket68/B-combine.md section 1): REMOVED, REMOVED-IF, NOT-BOUND-IF (a theorem that does not bind; never
 a removal), OPEN, SILENT, LEFT.  Added here, and only as a field beside a removal: "defeasible via X" -- an OPEN pathway
@@ -76,7 +87,6 @@ for _p in (HERE, D68, WD):
 import z3                                    # noqa: E402
 import combine as C                          # noqa: E402  -- docket68's engine, imported, run unchanged
 
-SCRATCH = ("/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d66")
 _OWN = {}
 
 
@@ -140,8 +150,8 @@ D66_NAMED = {
     "N_SEATPERSIST": "H-SEAT-PERSISTS (A1): a seat is a place that persists over the arrival (so a spacetime EVENT is not "
                      "a seat)",
 }
-#: OPEN pathways (undecided by the sources; held FALSE whenever supports and accounts are computed).  Two polarities:
-#: OPENING (makes a removal possible) and DEFEATING (makes a removed obstruction or the seat condition fail).
+#: OPEN pathways (undecided by the sources; held FALSE whenever supports and accounts are computed).  All OPENING (make a
+#: removal possible); wave 1's one DEFEATING pathway, N_WALLLOOP, is retired (RETIRED below).
 D66_OPEN = {
     "N_DEFB": "OPENING, O-SEAT (A1, defects.HYPOTHESES): a baryon-number-violating defect core shown to SUPPLY the "
               "payload's baryons at the seat.  READ (HK pp.63-65): for GUT string cores and gauge monopoles the "
@@ -884,42 +894,47 @@ def vacuity(scr):
 def pathway_ties(scr):
     """CONTROLS: each D66 pathway opens (or defeats) only where encoded.  For an OPENING pathway k on obstruction o:
     with k alone true the removal of o is possible with the owner present and impossible with a non-owner present.
-    For N_WALLLOOP: a loop possible with DWALL, impossible with DSTR."""
+    (D66-fix: N_WALLLOOP retired -- the wall's causal structure is computed; N_WNCC's owner test now uses DTHR, the
+    reading M's ruling newly covers.)"""
     A = scr.A
     spec = {"N_DEFB": ("O-SEAT", "DSTR", "QET"), "N_NEGT": ("O-HOLD", "DTHR", "DSTR"),
-            "N_GJWAMB": ("O-HOLD", "TBTEL", "TBISL"), "N_PINCH": ("O-HOLD", "TBTSH", "TBTEL"),
-            "N_QETHAD": ("O-HOLD", "QET", "TBISL"), "N_WNCC": ("O-MAKE-TOPO", "TBHOLO", "TBTEL")}
+            "N_GJWPAY": ("O-HOLD", "TBTEL", "TBISL"), "N_PINCH": ("O-HOLD", "TBTSH", "TBTEL"),
+            "N_QETHAD": ("O-HOLD", "QET", "TBISL"), "N_WNCC": ("O-MAKE-TOPO", "DTHR", "QET")}
     out = {}
     for k, (o, yes, no) in spec.items():
         a = scr.sat(scr.lits({yes}) + scr._only_open(k) + [A[C.RM[o]]])
         b = scr.sat(scr.lits({no}) + scr._only_open(k) + [A[C.RM[o]]])
         out[k] = {"opens with " + yes: a, "opens with " + no: b, "ok": a and not b}
-    a = scr.sat(scr.lits({"DWALL"}) + scr._only_open("N_WALLLOOP") + [A["LOOPS"]])
-    b = scr.sat(scr.lits({"DSTR"}) + scr._only_open("N_WALLLOOP") + [A["LOOPS"]])
-    out["N_WALLLOOP"] = {"loop with DWALL": a, "loop with DSTR": b, "ok": a and not b}
     return out
 
 
 # ------------------------------------------------------------------------------------------------ encoding drift
+_RG = {}
+
+
 def report_grades():
-    """The DOCKET 66 A-reports' own grades as stored, never retyped, normalised to {key, per, seat, own}: A1 from its
-    JSON report (A1-defects.json: per_obstruction is one string); A2 from throatbits.py's own report JSON
-    (A2-throatbits-report.json, written by 'throatbits.py --json': the instrument's grade table, per obstruction); A3
-    from its JSON (A3-qet.json: qet.grades(), per obstruction, with its verdict on its own content).  A2-throatbits.json
-    (the work-item summary) carries no grade table."""
+    """The DOCKET 66 A-reports' own grades, never retyped, normalised to {key, per, seat, own} -- D66-fix: asked of the
+    INSTRUMENTS at run time (defects.a1_grades(), throatbits.grades(), qet.grades()), so a corrected instrument is what
+    the drift guard reads.  Wave 1 read stored scratchpad JSON (A1-defects.json written by hand beside defects.py,
+    A2-throatbits-report.json, A3-qet.json), which went stale the moment an instrument changed."""
+    if _RG:
+        return dict(_RG)
     G = {}
-    srcs = (("A1-defects", "A1-defects.json", "hypothesis", "per_obstruction", None),
-            ("A2-throatbits", "A2-throatbits-report.json", "reading", "per", None),
-            ("A3-qet", "A3-qet.json", "reading", "per", "verdict_on_own_content"))
-    for rid, fn, kk, pk, ok in srcs:
+    D, TB, Q = own("defects"), own("throatbits"), own("qet")
+    spec = TB.specthm_verdicts()
+    srcs = (("A1-defects", lambda: D.a1_grades(), "hypothesis", "per_obstruction", None, "defects.a1_grades()"),
+            ("A2-throatbits", lambda: TB.grades(spec), "reading", "per", None, "throatbits.grades()"),
+            ("A3-qet", lambda: Q.grades(spec), "reading", "per", "verdict_on_own_content", "qet.grades()"))
+    for rid, fn, kk, pk, ok, lab in srcs:
         try:
-            with open(os.path.join(SCRATCH, fn)) as f:
-                gs = json.load(f)["grades"]
+            with contextlib.redirect_stdout(io.StringIO()):
+                gs = fn()
             G[rid] = [{"key": g[kk], "per": g[pk], "seat": g.get("seat_conditions", ""),
-                       "own": g.get(ok, "") if ok else "", "source": fn} for g in gs]
+                       "own": g.get(ok, "") if ok else "", "source": lab} for g in gs]
         except Exception as e:
             G[rid] = None
             G[rid + " error"] = repr(e)
+    _RG.update(G)
     return G
 
 
@@ -948,12 +963,13 @@ DRIFT_ROWS = [
     ("A1-defects", "), string (static", "seat", "M-S1A-P3 (i) PASSES", "SEAT", {"DSTR"}, {"DSTR"}, ""),
     ("A1-defects", "domain wall", "per", "O-SEAT OPEN via N_S5 | N_DEFB", "O-SEAT", {"DWALL"}, {"DWALL"}, ""),
     ("A1-defects", "domain wall", "per", "O-HOLD LEAVES", "O-HOLD", {"DWALL"}, {"DWALL"}, ""),
-    ("A1-defects", "domain wall", "per", "O-LOOP OPEN", "O-LOOP", {"DWALL"}, {"DWALL"},
-     "Z7: a removal defeasible via the graded literal's own pathway reads {N, OPEN}"),
+    ("A1-defects", "domain wall", "per", "O-LOOP none", "O-LOOP", {"DWALL"}, {"DWALL"},
+     "D66-fix: wave 1 graded 'O-LOOP OPEN' (N_WALLLOOP, Z7); the wall's time function is computed"),
     ("A1-defects", "domain wall", "per", "O-MAKE-TOPO LEAVES", "O-MAKE-TOPO", {"DWALL"}, {"DWALL"}, ""),
     ("A1-defects", "domain wall", "per", "O-MAKE-DIST LEAVES", "O-MAKE-DIST", {"DWALL"}, {"DWALL"}, "Z2'"),
     ("A1-defects", "domain wall", "per", "O-BITS LEAVES", "O-BITS", {"DWALL"}, {"DWALL"}, ""),
-    ("A1-defects", "domain wall", "seat", "CTC/Borde at a wall seat OPEN", "SEAT", {"DWALL"}, {"DWALL"}, "Z7 (seat)"),
+    ("A1-defects", "domain wall", "seat", "M-S1A-P3 (i) PASSES under H-VIS-MINKOWSKI", "SEAT", {"DWALL"}, {"DWALL"},
+     "D66-fix: wave 1 graded 'CTC/Borde at a wall seat OPEN'"),
     ("A1-defects", "global monopole", "per", "O-SEAT OPEN via N_S5 | N_DEFB", "O-SEAT", {"DGMON"}, {"DGMON"}, ""),
     ("A1-defects", "global monopole", "per", "O-HOLD LEAVES", "O-HOLD", {"DGMON"}, {"DGMON"}, ""),
     ("A1-defects", "global monopole", "per", "O-LOOP none (static)", "O-LOOP", {"DGMON"}, {"DGMON"}, ""),
@@ -972,15 +988,15 @@ DRIFT_ROWS = [
     ("A1-defects", "texture", "per", "no obstruction moved", "O-LOOP", {"DTEX"}, {"DTEX"}, ""),
     ("A1-defects", "texture", "per", "no obstruction moved", "O-BITS", {"DTEX"}, {"DTEX"}, ""),
     ("A1-defects", "texture", "seat", "EMPTY IF {H-SEAT-PERSISTS}", "SEAT", {"DTEX"}, {"DTEX"}, ""),
-    ("A1-defects", "THROAT's support", "per", "OPEN via N_NEGT outside it", "O-HOLD", {"DTHR"}, {"DTHR"},
-     "'LEFT given H-CANONICAL; OPEN via N_NEGT outside it' is LEFT-IF {H-CANONICAL}: P9 reads OPEN, so the OPEN "
+    ("A1-defects", "THROAT's support", "per", "Outside it, OPEN via N_NEGT", "O-HOLD", {"DTHR"}, {"DTHR"},
+     "'LEFT given H-CANONICAL ... Outside it, OPEN via N_NEGT' is LEFT-IF {H-CANONICAL}: P9 reads OPEN, so the OPEN "
      "clause is compared (P8 alone would read the leading LEFT)"),
     ("A1-defects", "THROAT's support", "per", "O-LOOP reintroduced for mouths in one space", "O-LOOP", {"DTHR"},
      {"DTHR"}, "combine reads REINTRODUCED as N; Z7 gives {N, OPEN}"),
-    ("A1-defects", "THROAT's support", "per", "O-MAKE-TOPO binds if made from flat space", "O-MAKE-TOPO", {"DTHR"},
-     {"DTHR"}, ""),
+    ("A1-defects", "THROAT's support", "per", "O-MAKE-TOPO OPEN via N_WNCC", "O-MAKE-TOPO", {"DTHR"},
+     {"DTHR"}, "D66-fix: wave 1 graded 'O-MAKE-TOPO binds if made from flat space'; M's ruling M-S1A-P3 applied"),
     ("A1-defects", "THROAT's support", "per", "O-BITS LEAVES", "O-BITS", {"DTHR"}, {"DTHR"}, ""),
-    ("A1-defects", "THROAT's support", "seat", "disqualified by M-S1A-P3 (i) unless masses balance", "SEAT", {"DTHR"},
+    ("A1-defects", "THROAT's support", "seat", "M-S1A-P3 (i) disqualifies it unless the masses balance", "SEAT", {"DTHR"},
      {"DTHR"}, "EXPLAINED (presupposes the held throat); CONTENT check fkz_conditional"),
     # A2 -- H-THROAT-BITS (throatbits.py's own grade table)
     ("A2-throatbits", "R-HOLO:", "per", "LEFT: a capacity is a ceiling on entropy, not a channel", "O-BITS",
@@ -1012,9 +1028,13 @@ DRIFT_ROWS = [
      {"TBTEL", "ITE"}, {"ITE"}, "carried in from D68's ITE, not added: compared with ITE present, credited to ITE"),
     ("A2-throatbits", "R-TELEPORT:", "per", "LEFT-IF {H-GJW-COUNTERPART, MS sec.3.2 (board READ)}", "O-MAKE-DIST",
      {"TBTEL"}, {"TBTEL"}, "P9; Z2'"),
-    ("A2-throatbits", "R-TELEPORT:", "per", "For two places in one space: OPEN via N_GJW-AMBIENT", "O-HOLD", {"TBTEL"},
-     {"TBTEL"}, "E-ADS: the screen's setting is one space; GJW's AdS removal (the leading clause, credited by A2 to "
-                "the premise set, not to H-THROAT-BITS) is outside it"),
+    ("A2-throatbits", "R-TELEPORT:", "per", "LEFT-IF {H-GJW-COUNTERPART, H-ADS-TFD, H-COUPLED} for a hold on GJW alone",
+     "O-HOLD", {"TBTEL"}, {"TBTEL"}, "P9.  D66-fix: wave 1's leading clause was 'REMOVED-IF {...} in GJW's setting'"),
+    ("A2-throatbits", "R-TELEPORT:", "per", "For a throat that admits the payload in one space: LEFT-IF {H-MMP, "
+     "H-SM-FIELDS}", "O-HOLD", {"TBTEL"}, {"TBTEL"},
+     "P9: the outside is N_GJWPAY.  MQ's and MMP's REMOVED-IF clauses lie outside the board's setting (E-ADS; scale)"),
+    ("A2-throatbits", "R-TELEPORT:", "per", "Without ITE the bridge's creation is OPEN via specthm W-create-ncc",
+     "O-MAKE-TOPO", {"TBTEL"}, {"TBTEL"}, "D66-fix: M's ruling M-S1A-P3 applied to the bridge's creation"),
     ("A2-throatbits", "R-TELEPORT:", "per", "OPEN via N_S5", "O-SEAT", {"TBTEL"}, {"TBTEL"}, "Z6"),
     ("A2-throatbits", "R-TELEPORT:", "per", "SILENT (GJW p.13", "O-LOOP", {"TBTEL"}, {"TBTEL"}, ""),
     ("A2-throatbits", "R-TELEPORT:", "seat", "R-TELEPORT adds GJW p.13 (no CTC)", "SEAT", {"TBTEL"}, {"TBTEL"},
@@ -1178,7 +1198,10 @@ def drift_summary(rows):
                             for r in rows if not r["agree"] and not r["explained"]]}
 
 
-MUTATIONS = ("defb-asserted", "negt-asserted", "gjw-ads", "qet-holds", "wall-clean", "qlit-free")
+MUTATIONS = ("defb-asserted", "negt-asserted", "gjw-ads", "qet-holds", "wall-loop", "qlit-free", "singok-a2")
+#: wave 1's six were these with 'wall-clean' (the wall's pathway struck out); D66-fix replaced it by 'wall-loop' (a loop
+#: asserted at the wall, against the computed time function) and added 'singok-a2' (wave 1's E-SINGOK against the
+#: corrected reports: the drift guard must refuse it)
 
 
 def drift_mutations(G=None):
@@ -1278,6 +1301,26 @@ def grounds(with_specthm=True):
     SE = own("seat")
     g["seat.grade_o_seat(board)"] = SE.grade_o_seat(SE.board_state())
     g["defects FKZ figure (yr, Earth shell, L = 1 ly)"] = D.figures()["FKZ T ~ R L c/(G M) yr, Earth shell, L = 1 ly"]
+    # D66-fix grounds
+    vt = D.vis_time_function()
+    g["wall: T a global time function (both sides, continuous) / R control"] = (
+        all(vt[x]["pullback_is_g"] and vt[x]["gTT"] == -1 for x in (1, -1)) and vt["continuous at z=0"],
+        vt[1]["gRR"] == 1)
+    sa, sj = D.monopole_conjugate()
+    g["global monopole: Jacobi zero at the axis crossing / halved-curvature control"] = (
+        sj is not None and abs(sj / sa - 1) < 1e-6, D.monopole_conjugate(k_scale=0.5)[1] is None)
+    g["gauge monopole S-1 conditions (1e17 GeV) / 1e-27 kg control"] = (
+        D.gauge_monopole_lens()["S-1 conditions hold"],
+        D.gauge_monopole_lens(1e-27 * 2.99792458e8 ** 2 / 1.602176634e-10)["S-1 conditions hold"])
+    mrow = [r for r in own("ledger").RULED_BY_M if r[0] == "M-S1A-P3"][0]
+    mt = " ".join(str(x) for x in mrow)
+    g["ledger M-S1A-P3: singular throat not disqualified, throat-creation classes stay OPEN"] = (
+        "a singular throat is not" in mt and "the throat-creation classes stay OPEN" in mt)
+    mm = TB.mmp_scales()
+    g["MMP: binding = payload rest energy below l_P in every coupling / (5.31) without pi^(3/2)"] = (
+        all(r["r_e_where_binding_equals_payload_m"] < mm["l_P_m"] for r in mm["by_coupling"]),
+        abs(mm["CONTROL (5.31) without its pi^(3/2), ratio"] - 1) > 0.5,
+        abs(mm["binding forms (5.31) vs (7.58), ratio"] - 1) < 1e-12)
     return g
 
 
@@ -1336,6 +1379,40 @@ def grounds_checks(g, scr):
                 and g["massform held-seat route forms baryons"] is False, False))
     out.append(("GROUND seat.grade_o_seat(board) = OPEN (the board's S5 route, unchanged)",
                 g["seat.grade_o_seat(board)"] == "OPEN", False))
+    # D66-fix
+    r_wall = scr.screen({"DWALL"})
+    out.append(("GROUND (D66-fix) the M4-M4 wall: Minkowski T is a global time function (defects.vis_time_function, CGS "
+                "p.15 Fig.4) -- and the screen's DWALL seat is SATISFIED with no defeat, O-LOOP removed by the board "
+                "with no defeat (N_WALLLOOP retired)",
+                g["wall: T a global time function (both sides, continuous) / R control"][0] and
+                r_wall["seat"]["verdict"] == "SATISFIED" and not r_wall["seat"].get("defeasible") and
+                not r_wall.get("defeasible"), False))
+    out.append(("GROUND CONTROL the radial coordinate R is not a time function (the wall test can fail)",
+                g["wall: T a global time function (both sides, continuous) / R control"][1], True))
+    out.append(("GROUND (D66-fix) the global monopole's axis recrossing is a conjugate point (defects.monopole_conjugate)",
+                g["global monopole: Jacobi zero at the axis crossing / halved-curvature control"][0], False))
+    out.append(("GROUND CONTROL a halved curvature misses the axis crossing (the conjugate-point test can fail)",
+                g["global monopole: Jacobi zero at the axis crossing / halved-curvature control"][1], True))
+    out.append(("GROUND (D66-fix) the gauge monopole at 1e17 GeV meets S-1's conditions through spec.focal_length "
+                "(defects.gauge_monopole_lens)", g["gauge monopole S-1 conditions (1e17 GeV) / 1e-27 kg control"][0],
+                False))
+    out.append(("GROUND CONTROL a 1e-27 kg monopole fails them (the S-1 placement test can fail)",
+                not g["gauge monopole S-1 conditions (1e17 GeV) / 1e-27 kg control"][1], True))
+    out.append(("GROUND (D66-fix) ledger M-S1A-P3 carries M's ruling ('a singular throat is not disqualified'; 'the "
+                "throat-creation classes stay OPEN'), and defects.grades gives a made string-supported throat 'OPEN via "
+                "N_WNCC' -- the screen's DTHR O-MAKE-TOPO is OPEN via exactly [N_WNCC]",
+                g["ledger M-S1A-P3: singular throat not disqualified, throat-creation classes stay OPEN"] and
+                zg["O-MAKE-TOPO, defect-supported throat made from flat space"] == "OPEN via N_WNCC" and
+                r_thr["per"]["O-MAKE-TOPO"]["verdict"] == "OPEN" and r_thr["per"]["O-MAKE-TOPO"]["via"] == ["N_WNCC"],
+                False))
+    mmg = g["MMP: binding = payload rest energy below l_P in every coupling / (5.31) without pi^(3/2)"]
+    out.append(("GROUND (D66-fix) MMP 1807.04726: the binding energy equals the payload's rest energy only below l_P "
+                "(throatbits.mmp_scales), and its two printed forms agree -- N_GJWPAY's ground", mmg[0] and mmg[2], False))
+    out.append(("GROUND CONTROL (5.31) without its pi^(3/2) disagrees with (7.58) (the comparison can fail)", mmg[1], True))
+    r_q = scr.screen({"QET"})
+    out.append(("GROUND (D66-fix, V66-0 #7) QET alone: O-HOLD OPEN via exactly [N_QETHAD]; N_XI / N_QEIC appear only "
+                "with RQ (the board's R-QUANTUM)", r_q["per"]["O-HOLD"]["verdict"] == "OPEN" and
+                r_q["per"]["O-HOLD"]["via"] == ["N_QETHAD"], False))
     return out
 
 
@@ -1347,7 +1424,7 @@ def guard_readings(items_small):
     contexts and the context-only variants: which rows each moves."""
     out = {}
     base = run(C.CELL_MAIN, (), items_small)
-    for m in ("seat-routes", "singok-board", "fkz-generic"):
+    for m in ("seat-routes", "singok-board", "singok-a2", "fkz-generic", "qet-board-paths"):
         R = run(C.CELL_MAIN, (m,), items_small)
         moved = []
         for r in R["rows"]:
@@ -1437,6 +1514,8 @@ def structural(scr):
         "under a non-linear dynamics",
         "STRUCTURAL OPEN pathways are held false in supports and accounts (combine's engine); every D66 OPEN pathway "
         "is tied to its owner literal, so no D66 literal can be credited a removal through one",
+        "STRUCTURAL D66-fix: the wall supplies no loop by encoding (B66-WALL is empty outside the 'wall-loop' control); "
+        "its CONTENT is defects.vis_time_function, re-run in the grounds",
         "STRUCTURAL the 1 AU, N = 1e3 / 1e6 and 4.2465 ly cells are board equalities (combine.cells_read_table); no D66 "
         "commitment names N_EPS or B-EPSWIN, so those cells add no D66 content",
     ]
@@ -1590,10 +1669,16 @@ def selftest(conservative_step=24, json_path=None):
        all(set().union(*[set(s["members"]) for s in C._sups_with(r["per"]["O-HOLD"], C.NBV)]) <= {"ITB"}
            for r in R["rows"] if r["consistent"] and r["per"]["O-HOLD"]["verdict"] in C.NBV))
     ck("RESULT readings: H-SEAT-ROUTES moves O-SEAT to LEFT in every consistent single-reading variant (DEFB excluded "
-       "with S5); singok-board and fkz-generic move only what they name",
+       "with S5); singok-a2 (wave 1's encoding) moves only O-MAKE-TOPO, to LEFT; singok-board moves only O-MAKE-TOPO "
+       "in D68-throat variants with no D66 throat; fkz-generic only defeasibility; qet-board-paths (wave 1's QET "
+       "gating) only O-HOLD's via list, never its verdict",
        all(m[1] == "O-SEAT" and m[2] == "LEFT" for m in out["readings"]["seat-routes"]["moved"] if m[1] != "consistency")
        and all(m[1] in ("O-MAKE-TOPO",) for m in out["readings"]["singok-board"]["moved"])
-       and all(m[1] in ("O-LOOP-S", "SEAT") for m in out["readings"]["fkz-generic"]["moved"]))
+       and all(m[1] in ("O-MAKE-TOPO",) and m[2] == "LEFT" for m in out["readings"]["singok-a2"]["moved"])
+       and all(set(m[0]) & {"RQ", "ITE", "ITJ"} and not set(m[0]) & set(D66_THROATS)
+               for m in out["readings"]["singok-board"]["moved"])
+       and all(m[1] in ("O-LOOP-S", "SEAT") for m in out["readings"]["fkz-generic"]["moved"])
+       and all(m[1] == "O-HOLD" and m[2] == m[4] for m in out["readings"]["qet-board-paths"]["moved"]))
     sm = out["sm_only"]
     ck("RESULT H-SM-ONLY: every variant with a string, wall, monopole or string-supported throat is inconsistent (%d)"
        % sm["inconsistent under H-SM-ONLY"],
