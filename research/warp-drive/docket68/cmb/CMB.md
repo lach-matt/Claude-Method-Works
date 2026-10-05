@@ -1,4 +1,6 @@
-# H-CMB-CORRIDOR, reading 1: the cosmic background as the corridor's frame (verified once and corrected; not seated; 2026-10-05)
+# H-CMB-CORRIDOR, reading 1: the cosmic background as the corridor's frame (verified once and corrected; SEATED in ledger.py section 8f on M's "Seat it, then medium", item 45; 2026-10-05)
+
+*First headed* "(verified once and corrected; not seated)".
 
 ## M's question and how it is carried
 

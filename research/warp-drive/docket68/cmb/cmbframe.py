@@ -2,8 +2,8 @@
 """
 cmbframe.py -- H-CMB-CORRIDOR, reading 1: the cosmic background as the corridor's FRAME.
 
-Not seated.  Verified once in both directions (2026-10-05); the findings are applied and the first-written claims kept
-under HISTORY.  M (rulings item 41, a question after DOCKET 68's close): "Have we considered the universe's own
+SEATED in ledger.py section 8f (M-RULINGS item 45, "Seat it, then medium"); first written "Not seated".  Verified once in
+both directions (2026-10-05); the findings are applied and the first-written claims kept under HISTORY.  M (rulings item 41, a question after DOCKET 68's close): "Have we considered the universe's own
 background radiation as the means by which the corridor is constructed? As it is likely that background only
 multi-spacetime/multiversal constant?"  Carried as M's hypotheses H-CMB-CORRIDOR and H-CMB-UNIVERSAL, never as results.
 M (item 42): "3, then 1" -- the Q-1s gate first, then the CMB as the frame.  M, after the first build: "The physics as
@@ -470,7 +470,7 @@ def report():
     d = collect()
     ph, g, ld, of, lp, es, lf, mf, un = (d[k] for k in ("physics", "geometry", "lead", "one_frame", "loops",
                                                          "earth_cmb_speed", "lab_frame", "matter_frames", "universal"))
-    print("H-CMB-CORRIDOR, reading 1: the cosmic background as H-FRAME's frame (verified once; not seated)\n")
+    print("H-CMB-CORRIDOR, reading 1: the cosmic background as H-FRAME's frame (verified once; seated, ledger.py section 8f)\n")
     print("(1) THE FRAME, READ AT SOURCE (Planck 2018 I, 1807.06205v2 Table 2 p.6) -- upgrades frame.py's D67 "
           "READ-VIA-RESTATEMENT")
     print("  barycentre velocity %.2f +- %.2f km/s, beta = %.5e, toward (l, b) = (%.3f, %.3f), RA/Dec (%.3f, %.3f)"

@@ -803,6 +803,31 @@ headings are READ by d68_close_sections(), never typed.
   The paper  not edited.  The Q-1s prior-art gate (M-D68-11's condition,
        M-D68-C8b's instruction) runs next; no paper session starts before M
        sees its result.
+
+===============================================================================
+8f.  THE Q-1s GATE, AND H-CMB-CORRIDOR READING 1 (M-RULINGS items 41-45), AS
+     SEATED
+===============================================================================
+
+After DOCKET 68's close M asked whether the universe's background radiation
+could construct the corridor (item 41, carried as H-CMB-CORRIDOR and
+H-CMB-UNIVERSAL), and ordered the Q-1s gate first, then the CMB as the frame
+(item 42, "3, then 1").  The gate (docket68/Q1s-PRIORART.md, its section
+headings READ by q1s_gate_sections()) found not every item of the brief
+published; M ruled no paper (item 43).  M's instruction that the physics of
+the frame is what matters (item 44) is carried.  Reading 1
+(docket68/cmb/cmbframe.py, CMB.md), verified once in both directions and
+corrected, takes the background's rest frame as H-FRAME's frame; M ruled it
+seated, then the medium reading (item 45).
+
+  THE OWNER  loaded BY PATH as 'cmb_cmbframe' (_cmb_load), with section 8d's
+       lending and setting-aside; every 's1c_*' and 'cmb_frame' key it adds is
+       removed after.
+  RULED_BY_M  + M-D68-42, 43 and 45.  D68_FILE_CARRIED + M-D68-41 (a question
+       carrying two hypotheses) and M-D68-44 (an instruction).
+  CMB_OPEN  four items, each with what would answer it.
+  The board  no status moves; O9 stays OPEN.  H-NO-CMB-ROW: no index3 row.
+  The paper  not edited; no Q-1s paper is written (M-D68-43).
 """
 
 import contextlib
@@ -3452,6 +3477,10 @@ D68_M_WORDS = {
     "M-D68-39": ("3, then 2. Then 1 last please", D68_RULINGS_FILE),
     # ADDED (D68-close, docstring section 8e): item 40.
     "M-D68-40": ("2 then 1 please", D68_RULINGS_FILE),
+    # ADDED (CMB-seat, docstring section 8f): items 42, 43 and 45.
+    "M-D68-42": ("3, then 1", D68_RULINGS_FILE),
+    "M-D68-43": ("No paper", D68_RULINGS_FILE),
+    "M-D68-45": ("Seat it, then medium", D68_RULINGS_FILE),
 }
 
 #: THE QUESTIONS PUT TO M FOR M'S DOCKET 66 RULINGS (items 26-28), as the
@@ -3557,6 +3586,12 @@ D68_CARRIED_WORDS = {
     "M-D68-35": ("Question... If information is what is being sent, how big does the corridor "
                  "actually have to be? We assumed 1 meter, but that was for moving matter instead "
                  "of information", D68_RULINGS_FILE),
+    # ADDED (CMB-seat, docstring section 8f): M's question after DOCKET 68's
+    # close (41, carrying two hypotheses) and M's instruction (44).
+    "M-D68-41": ("Have we considered the universe's own background radiation as the means by which "
+                 "the corridor is constructed? As it is likely that background only "
+                 "multi-spacetime/multiversal constant?", D68_RULINGS_FILE),
+    "M-D68-44": ("No. The physics as it applies to the frame is what matters", D68_RULINGS_FILE),
 }
 
 #: THE ROUTES PUT TO M, as CHARTER.md records them -- the charter's words, not
@@ -4218,6 +4253,96 @@ W4_OPEN = [
 ]
 
 
+# ----- THE Q-1s GATE AND H-CMB-CORRIDOR READING 1 (docstring section 8f) ----
+# Reading 1's owner sits in docket68/cmb/ and reaches frame.py and
+# step1c/nonlocal.py by path (it registers 'cmb_frame' and 's1c_*' keys);
+# loaded here BY PATH as 'cmb_cmbframe', with the same lending and
+# setting-aside as _w4_load, and every such key it adds removed afterwards.
+CMB_DIR = os.path.join(D68_DIR, "cmb")
+CMB_OWNERS = ("cmbframe",)
+Q1S_GATE_FILE = os.path.join(D68_DIR, "Q1s-PRIORART.md")
+
+
+def _cmb_load():
+    """{name: module} for reading 1's owner, loaded by path as 'cmb_<name>'; and the load facts."""
+    import importlib.util
+    saved = list(sys.path)
+    added = ["s1c_" + n for n in S1C_OWNERS] + ["cmb_frame"]
+    keys = added + list(W3S1B_OWNERS)
+    stashed = dict((k, sys.modules.pop(k)) for k in keys if k in sys.modules)
+    lent = "ledger" not in sys.modules
+    if lent:
+        sys.modules["ledger"] = sys.modules[__name__]
+    mods = {}
+    try:
+        with contextlib.redirect_stdout(io.StringIO()):
+            for n in CMB_OWNERS:
+                spec = importlib.util.spec_from_file_location("cmb_" + n, os.path.join(CMB_DIR, n + ".py"))
+                m = importlib.util.module_from_spec(spec)
+                spec.loader.exec_module(m)
+                mods[n] = m
+    finally:
+        sys.path[:] = saved
+        if lent:
+            del sys.modules["ledger"]
+        for k in added:
+            sys.modules.pop(k, None)
+        sys.modules.update(stashed)
+    return mods, {"path_restored": sys.path == saved,
+                  "from_cmb": [n for n, m in mods.items() if os.path.dirname(os.path.abspath(m.__file__)) != CMB_DIR]}
+
+
+CMB, CMB_LOAD = _cmb_load()
+
+
+def cmb_asked():
+    """Every reading-1 value a cell below prints, ASKED of its owner at call time."""
+    cf = CMB["cmbframe"]
+    with contextlib.redirect_stdout(io.StringIO()):
+        d = cf.collect()
+    ld, lf, mf, un = d["lead"], d["lab_frame"], d["matter_frames"], d["universal"]
+    q = mf["quasar dipole read kinematically (WISE 2022)"]
+    return {"beta_amp": d["physics"]["beta_from_amp_over_T0"], "T": d["physics"]["T_ahead_across_behind"],
+            "theta": d["geometry"]["theta_deg"], "lead_h": ld["lead_h"], "annual_s": ld["annual_mod_earth_frame_s"],
+            "sigma_s": ld["sigma_dipole_s"], "lab_all": all(v["holds"] for v in lf["tests"].values()),
+            "n_tests": len(lf["tests"]), "J_tight": min(v["J_bound_cmb_A_or_B"] for v in lf["tests"].values()),
+            "J_factor_max": max(v["J_factor"] for v in lf["tests"].values()),
+            "q_max_h": max(abs(x) for x in q["signed_shift_range_h"]), "lg_shift_h": mf["Local Group"]["shift_h"],
+            "gap_orders": un["slicing_gap_orders"], "dTT_lead": un["dT_over_T_to_resolve_lead"],
+            "tz_max_sigma": max(v["n_sigma"] for v in un["T_of_z"].values()),
+            "scarani": [v["v_min_over_c"] for v in cf.CMB_FRAME_SPEED_BOUNDS.values() if v["v_min_over_c"]][0]}
+
+
+CMB_ASKED = cmb_asked()
+
+
+def _cmb_fig(f, s=1.0):
+    """The reading-1 figures M-D68-45's cell prints, formatted once (the selftest's needles use the same)."""
+    return {"theta": "%.2f" % (s * f["theta"]), "lead_h": "%.2f" % (s * f["lead_h"]),
+            "sigma": "%.1f" % (s * f["sigma_s"]), "J": _g(s * f["J_tight"]), "qmax": "%.1f" % (s * f["q_max_h"])}
+
+
+def q1s_gate_sections():
+    """docket68/Q1s-PRIORART.md's section headings, READ (the '## ' stripped); [] if absent."""
+    if not os.path.exists(Q1S_GATE_FILE):
+        return []
+    with open(Q1S_GATE_FILE, encoding="utf-8") as fh:
+        return [ln[3:].strip() for ln in fh if ln.startswith("## ")]
+
+
+#: WHAT H-CMB-CORRIDOR READING 1 LEAVES OPEN (docstring section 8f), as
+#: docket68/cmb/CMB.md states it.  Named, not ranked.
+CMB_OPEN = [
+    ("CMB-O1", "which frame H-FRAME means if the matter dipole is kinematic (reading b): the CMB rest frame or the "
+     "frame matter defines", "a resolution of the cosmic dipole anomaly, READ", "docket68/cmb/cmbframe.py"),
+    ("CMB-O2", "H-CMB-UNIVERSAL's multi-spacetime clause", "any measurement bearing on it", "docket68/cmb/cmbframe.py"),
+    ("CMB-O3", "the other readings of H-CMB-CORRIDOR: the background as the medium, as the register, as the coupling's "
+     "carrier (M-D68-45: the medium next)", "each priced against READ figures, computed", "docket68/cmb/CMB.md"),
+    ("CMB-O4", "a CMB-frame speed-of-influence figure from Salart 2008 or Yin 2013 at the CMB's own beta (none is "
+     "printed)", "a printed figure, READ", "docket68/cmb/cmbframe.py"),
+]
+
+
 #: WHAT DOCKET 68 WAVE 3 AND STEP 1b LEAVE OPEN (docstring section 8c), as
 #: their owners' records state it (step1b/BALANCE.md, docket68/wave3/WAVE3.md):
 #: (id, what is open, what would answer it, owner).  Named, not ranked (section
@@ -4862,6 +4987,54 @@ D68_RULED = [
                   _g(W4_ASKED["landauer_J"], 2), _g(W4_ASKED["failures_at_floor"], 2),
                   len(d68_close_sections()), "; ".join(d68_close_sections()))),
      "DOCKET 68 closed; the Q-1s prior-art gate (M-D68-11, M-D68-C8b) next; the OPEN items W4-O1..O6"),
+    # ----- ADDED (CMB-seat, docstring section 8f): M's answers after the close,
+    # items 42, 43 and 45 (2026-10-05).  Reading 1's figures ASKED (CMB_ASKED).
+    ("M-D68-42",
+     "After M's question on the background radiation (item 41), with the Q-1s prior-art gate mid-search "
+     "(M-RULINGS-2026-10-03.md item 42, 2026-10-05, as the file records it): 1 CMB as the frame first; 2 all four "
+     "readings; 3 finish the gate first; or 4 carry only?",
+     "M asked item 41 after DOCKET 68's close; the gate (M-D68-11's condition, M-D68-C8b) had not reported",
+     _d68_rule("THE GATE FIRST, THEN THE CMB AS THE FRAME", "M-D68-42",
+               "(3) docket68/Q1s-PRIORART.md, READ (%d sections: %s): not every item of the brief is published -- "
+               "candidates survive in items 1 to 5, item 6 is published, and Im-Khovanov (2409.08462v2) narrows item "
+               "2.  (1) docket68/cmb/cmbframe.py, the background's rest frame as H-FRAME's frame, seated with "
+               "M-D68-45" % (len(q1s_gate_sections()), "; ".join(q1s_gate_sections()))),
+     "the gate reported (M-D68-43); H-CMB-CORRIDOR reading 1 (M-D68-45)"),
+    ("M-D68-43",
+     "Shown the Q-1s prior-art gate (M-RULINGS-2026-10-03.md item 43, 2026-10-05, as the file records it): should a "
+     "paper be written, and in what form -- not now, CMB next; a short mathematical note; a longer paper with D_s; "
+     "or no paper?",
+     "M-D68-11's condition: a paper only if the concept is novel; the gate found candidates in items 1 to 5",
+     _d68_rule("NO PAPER", "M-D68-43",
+               "no paper is written and no paper session starts; docket68/PAPER-BRIEF-Q1s.md is kept as a record "
+               "(its section 7 closes it) and Q1s-PRIORART.md's grades stand (its section 6 records this ruling); "
+               "signed.py and Q1s-signed.md are unchanged; paper/CLAIMS.md is not edited"),
+     "the Q-1s paper question closed"),
+    ("M-D68-45",
+     "After H-CMB-CORRIDOR reading 1 was verified and corrected (M-RULINGS-2026-10-03.md item 45, 2026-10-05, as the "
+     "file records it): seat it, then the background as medium; seat it only; medium and register first; or not "
+     "yet?",
+     "reading 1 (docket68/cmb/) stood, verified once in both directions",
+     _d68_rule("SEAT READING 1, THEN THE BACKGROUND AS MEDIUM", "M-D68-45",
+               "docket68/cmb/cmbframe.py, seated here (docstring section 8f): the CMB rest frame as H-FRAME's frame. "
+               " The dipole READ at source (Planck 2018 I, 1807.06205v2); beta = amplitude / T0 = %s across two READ "
+               "papers.  Proxima lies %s deg from the apex; a CMB-simultaneous link reaches it at barycentre "
+               "coordinate time %s h (clause 2a: spacelike, no loop), moving by +- %s s over a year in Earth's "
+               "momentary rest frame; the dipole-precision term alone is %s s.  With the frame named, H-LAB-FRAME "
+               "holds for all %d of nonlocal.py's tests (%s): their J bounds apply to within a factor %s, the "
+               "tightest %s rad/s.  The one CMB-frame speed bound printed (Scarani 2000) is %s c, a lower bound.  "
+               "The matter dipole leaves two readings: intrinsic anisotropy (the CMB frame stands) or kinematic (the "
+               "quasar frame shifts the Proxima lead by 0 to %s h, the Local Group's by %s h).  The background cools "
+               "as 1/a (T(z) beta within %s sigma of 0 in every READ fit): equal temperature is equal cosmic time, but "
+               "T0 is %s orders short of a one-second slicing and resolving the lead by temperature would need dT/T "
+               "of %s; the dipole with light signals synchronises the ends.  The multi-spacetime clause stays OPEN"
+               % (_g(CMB_ASKED["beta_amp"], 7), _cmb_fig(CMB_ASKED)["theta"], _cmb_fig(CMB_ASKED)["lead_h"],
+                  "%.0f" % CMB_ASKED["annual_s"], _cmb_fig(CMB_ASKED)["sigma"], CMB_ASKED["n_tests"],
+                  CMB_ASKED["lab_all"], "%.5f" % CMB_ASKED["J_factor_max"], _cmb_fig(CMB_ASKED)["J"],
+                  _g(CMB_ASKED["scarani"], 2), _cmb_fig(CMB_ASKED)["qmax"], "%.1f" % CMB_ASKED["lg_shift_h"],
+                  "%.2f" % CMB_ASKED["tz_max_sigma"], "%.1f" % CMB_ASKED["gap_orders"],
+                  _g(CMB_ASKED["dTT_lead"], 2))),
+     "H-CMB-CORRIDOR's medium reading next; the OPEN items CMB-O1..O4"),
 ]
 
 RULED_BY_M += D68_RULED
@@ -5118,6 +5291,28 @@ D68_FILE_CARRIED = [
                                   ["hbarJ_eV"] / 1e3),
                         _g(w3_throat_factors()[0], 2), _g(w3_throat_factors()[1], 2))),
      "the corridor's size on each reading; nothing on this board moves"),
+    # ----- ADDED (CMB-seat, docstring section 8f): items 41 and 44.
+    ("M-D68-41",
+     "M's question on the background radiation (M-RULINGS-2026-10-03.md item 41, 2026-10-05, after DOCKET 68's "
+     "close); no question was put",
+     _d68_carry_file("QUESTION, CARRYING TWO HYPOTHESES", "M-D68-41",
+                     "as H-CMB-CORRIDOR (the background builds the corridor) and H-CMB-UNIVERSAL (a "
+                     "multi-spacetime constant), never as results.  Reading 1, the background's rest frame as "
+                     "H-FRAME's frame, is answered in docket68/cmb/cmbframe.py (seated, M-D68-45): a lawful, "
+                     "physical, measurable frame, read by each end locally and loop-free.  The background is "
+                     "constant in frame and spectral form, not in temperature: T(z) beta lies within %s sigma of 0 "
+                     "in every READ fit.  The multi-spacetime clause has no measurement and stays OPEN (CMB-O2); "
+                     "the medium, register and carrier readings stay OPEN (CMB-O3)" % ("%.2f" % CMB_ASKED["tz_max_sigma"])),
+     "H-FRAME (M-D68-C10), O9; the OPEN items CMB-O1..O4"),
+    ("M-D68-44",
+     "M's instruction on the background (M-RULINGS-2026-10-03.md item 44, 2026-10-05), answering an offer to READ the "
+     "etymology of the word",
+     _d68_carry_file("INSTRUCTION", "M-D68-44",
+                     "in docket68/cmb/cmbframe.py's physics(): the photon gas has one rest frame; the dipole "
+                     "amplitude over T0 is the observer's beta (%s), so an observer at that beta reads %s K ahead and "
+                     "%s K behind; in FRW equal temperature is equal cosmic time"
+                     % (_g(CMB_ASKED["beta_amp"], 7), "%.5f" % CMB_ASKED["T"][0], "%.5f" % CMB_ASKED["T"][180])),
+     "H-CMB-CORRIDOR reading 1"),
 ]
 
 #: DOCKET 68's one pending question, M-D68-P1 (emtension.py's ER = EPR
@@ -5916,6 +6111,7 @@ def _d68_cells():
     # ADDED (S1C-seat): the OPEN list of section 8d.
     out.update(("S1C-OPEN %s col %d" % (r[0], i), c) for r in S1C_OPEN for i, c in enumerate(r[1:], 1))
     out.update(("W4-OPEN %s col %d" % (r[0], i), c) for r in W4_OPEN for i, c in enumerate(r[1:], 1))
+    out.update(("CMB-OPEN %s col %d" % (r[0], i), c) for r in CMB_OPEN for i, c in enumerate(r[1:], 1))
     return out
 
 
@@ -6831,6 +7027,11 @@ def report():
         print(textwrap.fill("%s %s -- answered by: %s (%s)" % (oid.ljust(8), " ".join(what.split()),
                                                               " ".join(answers.split()), owner),
                             96, initial_indent="  ", subsequent_indent="           "))
+    print("\nH-CMB-CORRIDOR READING 1 -- WHAT STAYS OPEN (section 8f; the CMB as H-FRAME's frame)")
+    for oid, what, answers, owner in CMB_OPEN:
+        print(textwrap.fill("%s %s -- answered by: %s (%s)" % (oid.ljust(8), " ".join(what.split()),
+                                                              " ".join(answers.split()), owner),
+                            96, initial_indent="  ", subsequent_indent="           "))
     print("\nPENDING M'S RULING -- RECORDED, NOT APPLIED%s"
           % ("" if PENDING_RULINGS else ": none"))
     for pid, q, why, proposal, waits in pending_rulings():
@@ -7069,6 +7270,15 @@ def to_markdown():
         L.append("| %s | %s | %s | %s |" % (oid, _cell(what, W_WHY), _cell(answers, W_WHY),
                                             _cell(owner, W_WHY)))
     L.append("")
+    # ADDED (CMB-seat, docstring section 8f).
+    L += ["## H-CMB-CORRIDOR reading 1 -- what stays open", "",
+          "Seated on M's \"Seat it, then medium\" (item 45; docstring section 8f): the background's rest",
+          "frame as H-FRAME's frame (docket68/cmb/). No board status moves; O9 stays OPEN.", "",
+          "| id | open | what would answer it | owner |", "|---|---|---|---|"]
+    for oid, what, answers, owner in CMB_OPEN:
+        L.append("| %s | %s | %s | %s |" % (oid, _cell(what, W_WHY), _cell(answers, W_WHY),
+                                            _cell(owner, W_WHY)))
+    L.append("")
     L += ["## Pending M's ruling -- recorded, not applied", "",
           "This file edits no peer and changes no requirement. A question",
           "that needs M's ruling is recorded here so the board shows it.", "",
@@ -7225,6 +7435,9 @@ def _truncated_cells(demand_claim=None, demand_moves=None, open_claim=None,
     for r in W4_OPEN:
         if any(cut(c, wh) for c in r[1:]):
             out.append(("w4-open", r[0]))
+    for r in CMB_OPEN:
+        if any(cut(c, wh) for c in r[1:]):
+            out.append(("cmb-open", r[0]))
     return out
 
 
@@ -7987,6 +8200,8 @@ def selftest():
         # RE-PINNED WITH STEP 1c (S1C-seat, item 39's step 1): + M-D68-37,
         # 38 and 39, M's answers on Step 1c.
         # RE-PINNED WITH THE D68 CLOSE (D68-close): + M-D68-40.
+        # RE-PINNED WITH THE CMB SEATING (CMB-seat, M: "Seat it, then medium",
+        # item 45): + M-D68-42, 43 and 45; items 41 and 44 are D68_FILE_CARRIED.
         (["M-D64-1", "M-S1A-P1", "M-S1A-P2", "M-S1A-P3", "M-S1A-P4",
           "M-S1A-P5", "M-D65-1", "M-D65-2", "M-D65-3", "M-D65-4", "M-D65-5",
           "M-D67-1", "M-D67-2"]
@@ -7994,7 +8209,8 @@ def selftest():
          + ["M-D68-C%d" % i for i in (1, 2, 3, 5, 8, 12)]
          + ["M-D68-%d" % i for i in (26, 27, 28)]
          + ["M-D68-%d" % i for i in (22, 24, 29, 30, 33, 34, 36)]
-         + ["M-D68-%d" % i for i in (37, 38, 39, 40)], [],
+         + ["M-D68-%d" % i for i in (37, 38, 39, 40)]
+         + ["M-D68-%d" % i for i in (42, 43, 45)], [],
          True, False, False, True, False))
 
     print("\n3. THE EXCHANGE RATE, RE-DERIVED FROM ASKED CONSTANTS")
@@ -9505,7 +9721,8 @@ def selftest():
         _wcf = [x[:2] for x in w3s1b_owner_words() if not x[2]]
     chk("  CONTROL: the held item-25 words with one word dropped no longer hold seatrank.py's",
         _wcf, [("seatrank.M_WORDS_25", "M-D68-25")])
-    chk("M's words the RULINGS FILE carries (items 21, 23, 25, 31, 32, 35) are in "
+    # RE-PINNED WITH THE CMB SEATING (CMB-seat): + items 41 and 44.
+    chk("M's words the RULINGS FILE carries (items 21, 23, 25, 31, 32, 35, 41, 44) are in "
         "D68_FILE_CARRIED, NOT on RULED_BY_M; each cell says so, quotes exactly its held "
         "words, and none reads 'RULED BY M'; none is cut",
         ([r[0] for r in D68_FILE_CARRIED],
@@ -9515,7 +9732,7 @@ def selftest():
           or _cw.findall(" ".join(r[2].split())) != [D68_CARRIED_WORDS[r[0]][0]]
           or _cw.findall(" ".join(r[1].split()))],
          [t for t in _truncated_cells() if t[0] in ("carried", "w3s1b-open")]),
-        (["M-D68-%d" % i for i in (21, 23, 25, 31, 32, 35)], [], [], []))
+        (["M-D68-%d" % i for i in (21, 23, 25, 31, 32, 35, 41, 44)], [], [], []))
     chk("  and LEDGER.md prints them, then the OPEN list, after the charter's carried items "
         "and before the pending rulings",
         (_md.index("## Carried by the charter from M")
@@ -9597,6 +9814,23 @@ def selftest():
          _md.index("## Step 1c -- what stays open") < _md.index("## DOCKET 68 wave 4 -- what stays open")
          < _md.index("## Pending M's ruling"), "8e.  DOCKET 68 WAVE 4 AND ITS CLOSE" in __doc__),
         (6, [], True, True))
+    # ADDED (CMB-seat, docstring section 8f): the gate and H-CMB-CORRIDOR reading 1.
+    chk("CMB READING 1: cmbframe.py loads from docket68/cmb/ by path; sys.path restored; the Q-1s gate record is READ "
+        "(its sections: %d)" % len(q1s_gate_sections()),
+        (CMB_LOAD["from_cmb"], CMB_LOAD["path_restored"], len(CMB), len(q1s_gate_sections()) >= 6,
+         "1. The verdict, item by item" in q1s_gate_sections()), ([], True, 1, True, True))
+    _fc = cmb_asked()
+    _c45 = " ".join([r for r in D68_RULED if r[0] == "M-D68-45"][0][3].split())
+    chk("  M-D68-45's cell prints reading 1's figures, asked afresh (five needles)",
+        [n for n in _cmb_fig(_fc).values() if n not in _c45], [])
+    chk("  CONTROL: the same figures at 1.5 times are not found",
+        len([n for n in _cmb_fig(_fc, 1.5).values() if n not in _c45]), 5)
+    chk("  CMB_OPEN names %d items with owner files; LEDGER.md prints them after wave 4's and before the pending "
+        "rulings; section 8f is in the docstring" % len(CMB_OPEN),
+        (len(CMB_OPEN), [r[0] for r in CMB_OPEN if not _os.path.exists(_os.path.join(HERE, r[3]))],
+         _md.index("## DOCKET 68 wave 4 -- what stays open") < _md.index("## H-CMB-CORRIDOR reading 1 -- what stays open")
+         < _md.index("## Pending M's ruling"), "8f.  THE Q-1s GATE, AND H-CMB-CORRIDOR READING 1" in __doc__),
+        (4, [], True, True))
     chk("EVERY QUOTATION in a DOCKET 68 cell (here, and index3.py's DOCKET 68 rows) is the "
         "tree's words, or declared otherwise: M's thesis and the question included, the "
         "D23 note's quotation exact ('because is already exists everywhere')",
