@@ -131,7 +131,9 @@ def report():
     print("    eps = 0 (the publication-bias reading, and reading (a)): %.1e bits/pair -- no channel" %
           d["control_eps0_bits"])
     print("trials to measure eps at 3 sigma (binomial, sigma_eps = 1/sqrt(N)): " + ", ".join(
-        "eps %s: %.1e" % (k, v) for k, v in d["trials_for_3sigma"].items()))
+        "eps %s: %.1e" % (k, v) for k, v in d["trials_for_3sigma"].items()) +
+          "; Maier et al. at ~%.0f trials each: ~%.1e" % (mi["trials_per_participant_if_binomial"],
+                                                         MAIER["N"] * mi["trials_per_participant_if_binomial"]))
 
 
 def selftest():
