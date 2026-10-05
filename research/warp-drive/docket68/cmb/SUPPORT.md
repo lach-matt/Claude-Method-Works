@@ -1,4 +1,6 @@
-# How observation extends the clock's support (M-SUPPORT's dynamics; verified once; not seated; 2026-10-05)
+# How observation extends the clock's support (M-SUPPORT's dynamics; verified once; SEATED in ledger.py section 8h on M's "Seat both", item 55; 2026-10-05)
+
+*First headed* "(M-SUPPORT's dynamics; verified once; not seated; 2026-10-05)".
 
 ## What M asked, and how it is carried
 

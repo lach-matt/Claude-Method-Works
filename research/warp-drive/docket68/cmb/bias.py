@@ -2,7 +2,7 @@
 """
 bias.py -- H-CONSCIOUS-SELECTS reading (b) priced at the READ outcome-bias sizes (O9).
 
-Not seated; verified once (2026-10-05), its findings applied; first-written claims kept under HISTORY.  M (rulings item
+Seated in ledger.py section 8h (M-RULINGS item 55; first written "Not seated"); verified once (2026-10-05), its findings applied; first-written claims kept under HISTORY.  M (rulings item
 54): "3, then 2, then 1 please" -- step 2: READ Bosch-Steinkamp-Boller 2006's effect size and price reading (b)'s channel
 at it.  Reading (b) (unobserved.py section 6): a conscious selection that moves Alice's outcome probability from 1/2 to
 (1 +- eps)/2 while keeping the correlations shifts Bob's marginal by (eps/2) E(a,b) -- a channel of 1 - H((1 - eps)/2)
@@ -167,7 +167,7 @@ def compute():
 def report():
     d = compute()
     mi, mp = d["maier"], d["maier_paper"]
-    print("H-CONSCIOUS-SELECTS reading (b) at the READ bias sizes (verified once; not seated)\n")
+    print("H-CONSCIOUS-SELECTS reading (b) at the READ bias sizes (verified once; seated, ledger.py 8h)\n")
     print("Reading (a), Born selection: Bob's marginal spread over Alice's settings %.1e -- no channel; every null below "
           "is what it predicts" % d["reading_a_marginal_spread"])
     print("Bosch et al. 2006, all 380 studies (SECONDARY): random-effects pi %.6f -> eps %+.1e; fixed-effect pi %.6f -> "

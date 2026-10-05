@@ -859,6 +859,25 @@ LOCALCLOCK.md, verified once) are seated on M's "3, then 2, then 1 please"
   CMB2_OPEN  six items, each with what would answer it.
   The board  no status moves; O9 stays OPEN.  H-NO-CMB-ROW: no index3 row.
   The paper  not edited.
+
+===============================================================================
+8h.  M-SUPPORT'S DYNAMICS AND READING (b)'S PRICE (M-RULINGS item 55), AS
+     SEATED
+===============================================================================
+
+Item 54's steps 3 and 2 built docket68/cmb/support.py (SUPPORT.md: on
+H-SUPPORT-IS-RECORDS, the clock's support as matter's Thomson records of the
+light) and docket68/cmb/bias.py (BIAS.md: H-CONSCIOUS-SELECTS reading (b) at
+the READ intention-bias sizes), each verified once and corrected.  M ruled
+both seated (item 55, "Seat both").
+
+  THE OWNERS  loaded BY PATH as 'cmb_support' and 'cmb_bias' (_cmb3_load),
+       with the same lending and key restoration as _cmb2_load.
+  RULED_BY_M  + M-D68-55.
+  CMB3_OPEN  five items, each with what would answer it; CMB2-O2 and CMB2-O4
+       now point at the seated owners.
+  The board  no status moves; O9 stays OPEN.  H-NO-CMB-ROW: no index3 row.
+  The paper  not edited.
 """
 
 import contextlib
@@ -3521,6 +3540,8 @@ D68_M_WORDS = {
                  "inhomogeneous when compared to the others", D68_RULINGS_FILE),
     "M-D68-53": ("READ, then model", D68_RULINGS_FILE),
     "M-D68-54": ("3, then 2, then 1 please", D68_RULINGS_FILE),
+    # ADDED (CMB3-seat, docstring section 8h): item 55.
+    "M-D68-55": ("Seat both", D68_RULINGS_FILE),
 }
 
 #: THE QUESTIONS PUT TO M FOR M'S DOCKET 66 RULINGS (items 26-28), as the
@@ -4485,19 +4506,108 @@ CMB2_OPEN = [
     ("CMB2-O1", "whether the universe will contract, and what the background does through a bounce (H-CONTRACT)",
      "a measurement of future contraction, or of evolving dark energy at high significance, READ",
      "docket68/cmb/medium.py"),
+    # CMB2-O2 and CMB2-O4 first said support.py and bias.py were 'built and verified, not seated' (CMB2-seat); both
+    # are seated in section 8h (M-D68-55), and the items now say what stays open there.
     ("CMB2-O2", "how observation extends the clock's support (H-M-SUPPORT's dynamics); support.py's record reading "
-     "is built and verified, not seated", "a ruling on support.py, or a dynamics that is not by construction",
+     "(seated, section 8h) agrees with M-SUPPORT largely by construction", "a dynamics that is not by construction",
      "docket68/cmb/support.py"),
     ("CMB2-O3", "which clock weighting, if any, is physical (H-CLOCK-WEIGHT)", "a physical principle fixing it, READ",
      "docket68/cmb/unobserved.py"),
     ("CMB2-O4", "any experiment separating sentient from physical observation, or measuring an outcome bias with "
-     "conscious intention on an entangled pair (H-CONSCIOUS-SELECTS reading b); bias.py prices it, not seated",
+     "conscious intention on an entangled pair (H-CONSCIOUS-SELECTS reading b); bias.py prices it (seated, section 8h)",
      "an interference/Zeno test of a consciousness-collapse model, or a bias with its sign, READ",
      "docket68/cmb/bias.py"),
     ("CMB2-O5", "a clock that interacts with the system it times (the relational-time equivalence is not shown "
      "there)", "a result for interacting clocks, READ", "docket68/cmb/localclock.py"),
     ("CMB2-O6", "Page & Wootters 1983, the Feynman-Kitaev originals and the full Hartle & Hawking 1983",
      "each READ at source", "docket68/cmb/UNOBSERVED.md"),
+]
+
+
+# ----- M-SUPPORT'S DYNAMICS AND READING (b)'S PRICE (docstring section 8h) --
+CMB3_OWNERS = ("support", "bias")
+
+
+def _cmb3_load():
+    """{name: module} for support.py and bias.py, loaded by path as 'cmb_<name>' with _cmb2_load's lending and key
+    restoration; and the load facts."""
+    import importlib.util
+    saved = list(sys.path)
+    before = set(sys.modules)
+    collide = (["cmb_" + n for n in ("cmbframe",) + CMB2_OWNERS + CMB3_OWNERS]
+               + ["d68_nosig", "s1c_demand", "cmb_frame", "wd_arrival"]
+               + ["s1c_" + n for n in S1C_OWNERS] + list(W3S1B_OWNERS))
+    stashed = dict((k, sys.modules.pop(k)) for k in collide if k in sys.modules)
+    lent = "ledger" not in sys.modules
+    if lent:
+        sys.modules["ledger"] = sys.modules[__name__]
+    mods = {}
+    try:
+        with contextlib.redirect_stdout(io.StringIO()):
+            for n in CMB3_OWNERS:
+                key = "cmb_" + n
+                spec = importlib.util.spec_from_file_location(key, os.path.join(CMB_DIR, n + ".py"))
+                m = importlib.util.module_from_spec(spec)
+                sys.modules[key] = m
+                spec.loader.exec_module(m)
+                mods[n] = m
+    finally:
+        sys.path[:] = saved
+        if lent:
+            del sys.modules["ledger"]
+        added = [k for k in sys.modules if k not in before]
+        for k in added:
+            sys.modules.pop(k, None)
+        sys.modules.update(stashed)
+    return mods, {"path_restored": sys.path == saved, "keys_left": [k for k in added if k in sys.modules],
+                  "from_cmb": [n for n, m in mods.items() if os.path.dirname(os.path.abspath(m.__file__)) != CMB_DIR]}
+
+
+CMB3, CMB3_LOAD = _cmb3_load()
+
+
+def cmb3_asked():
+    """Every support.py and bias.py value M-D68-55's cell prints, ASKED of its owner at call time."""
+    with contextlib.redirect_stdout(io.StringIO()):
+        ds = CMB3["support"].compute()
+        db = CMB3["bias"].compute()
+    r, t = ds["records"], ds["toy"]
+    rows = dict((x["case"], x) for x in db["rows"])
+    re_ = [x for x in db["rows"] if x["case"].startswith("Bosch 2006 random")][0]
+    fe = [x for x in db["rows"] if x["case"].startswith("Bosch 2006 fixed")][0]
+    return {"z_star": r["z_tau1"], "z_gamma_H": r["z_gamma_eq_H"], "z_peak": r["z_peak"],
+            "reion_share": r["last_record_reion"], "toy_rec": t["ALL-RECORDS"]["TD_vs_static_M_SUPPORT"],
+            "toy_free": t["record_free_T8_TD"], "toy_amb": t["M_SUPPORT_reweighting_ambiguity"],
+            "toy_norec": t["no_recombination_thomson_TD"], "sw_rms_yr": ds["local"]["decoupling_time_offset_rms_yr"],
+            "eps_re": re_["eps"], "bits_re": re_["bits_per_pair"], "eps_fe": fe["eps"], "bits_fe": fe["bits_per_pair"],
+            "bf_r01": db["bayes"]["r=0.1"], "bf_point": db["bayes"]["point at Bosch's size (raw)"],
+            "reading_a": db["reading_a_marginal_spread"], "n_rows": len(rows)}
+
+
+CMB3_ASKED = cmb3_asked()
+
+
+def _cmb3_fig(f, s=1.0):
+    """The figures M-D68-55's cell prints, formatted once (the selftest's needles use the same)."""
+    return {"z_star": "%.2f" % (s * f["z_star"]), "z_gH": "%.0f" % (s * f["z_gamma_H"]),
+            "norec": "%.3f" % (s * f["toy_norec"]), "bf": "%.2f" % (s * f["bf_r01"]),
+            "bits_re": _g(s * f["bits_re"], 2)}
+
+
+#: WHAT SUPPORT.PY AND BIAS.PY LEAVE OPEN (docstring section 8h), as SUPPORT.md
+#: and BIAS.md state them.  Named, not ranked.
+CMB3_OPEN = [
+    ("CMB3-O1", "whether photon (Thomson) records are the right records for M-SUPPORT, and where a record lasts "
+     "(H-SUPPORT-IS-RECORDS, H-RECORD-DURABLE)", "decoherence sources READ (Joos-Zeh, Zurek; relational QM)",
+     "docket68/cmb/support.py"),
+    ("CMB3-O2", "whether LAST-RECORD or ALL-RECORDS is M's support", "M's ruling, or a principle READ",
+     "docket68/cmb/SUPPORT.md"),
+    ("CMB3-O3", "Bosch et al.'s primary, with both estimates and their intervals, and the MegaREG primary",
+     "each READ by a route whose permission is established", "docket68/cmb/bias.py"),
+    ("CMB3-O4", "a channel model under H-Z-PER-SESSION (a fixed z per act of intention, not per pair)",
+     "a computed pricing", "docket68/cmb/BIAS.md"),
+    ("CMB3-O5", "z* beyond its agreement and the low-ell anisotropy with the integrated Sachs-Wolfe term",
+     "helium recombination, the matter temperature equation and an ISW term, computed", "docket68/cmb/support.py"),
 ]
 
 
@@ -5267,6 +5377,29 @@ D68_RULED = [
                % (_cmb2_fig(CMB2_ASKED)["mfp"], _cmb2_fig(CMB2_ASKED)["cs"], _cmb2_fig(CMB2_ASKED)["td"],
                   _cmb2_fig(CMB2_ASKED)["clock"], _cmb2_fig(CMB2_ASKED)["cmbf"])),
      "the OPEN items CMB2-O1..O6; support.py and bias.py await M's ruling"),
+    # ----- ADDED (CMB3-seat, docstring section 8h): item 55 (2026-10-05).
+    ("M-D68-55",
+     "After item 54's three steps (M-RULINGS-2026-10-03.md item 55, 2026-10-05, as the file records it): seat both "
+     "support.py and bias.py; seat support.py only; model H-Z-PER-SESSION first; or hold both?",
+     "support.py and bias.py stood verified once and corrected, not seated",
+     _d68_rule("SEAT BOTH", "M-D68-55",
+               "docket68/cmb/support.py and bias.py, seated here (docstring section 8h).  support.py: recombination "
+               "and reionisation computed from READ sources put z* at %s (Planck 1089.92); on H-SUPPORT-IS-RECORDS "
+               "the support grows at Gamma/H records per photon per e-fold, below the expansion rate from z %s, the "
+               "last record peaking at z %s; %s of today's light was last recorded after reionisation; in the toy "
+               "the record weighting matches M-SUPPORT to %s, but a record-free weighting does too (%s, inside the "
+               "%s ambiguity) -- consistency, not proof -- while without recombination the records miss by %s; the "
+               "Sachs-Wolfe rms offset of local decoupling is %s yr in the Newtonian frame.  bias.py: Bosch 2006 "
+               "(secondary) gives eps %s (random effects, %s bits per pair) or %s (fixed effect, %s bits per pair); "
+               "Maier 2018's Bayes factor recomputes to %s at their prior and %s at Bosch's size; under Born "
+               "selection Bob's marginal spread is %s"
+               % (_cmb3_fig(CMB3_ASKED)["z_star"], _cmb3_fig(CMB3_ASKED)["z_gH"], "%.0f" % CMB3_ASKED["z_peak"],
+                  "%.4f" % CMB3_ASKED["reion_share"], _g(CMB3_ASKED["toy_rec"], 2), _g(CMB3_ASKED["toy_free"], 2),
+                  _g(CMB3_ASKED["toy_amb"], 2), _cmb3_fig(CMB3_ASKED)["norec"], "%.1f" % CMB3_ASKED["sw_rms_yr"],
+                  _g(CMB3_ASKED["eps_re"], 2), _cmb3_fig(CMB3_ASKED)["bits_re"], _g(CMB3_ASKED["eps_fe"], 2),
+                  _g(CMB3_ASKED["bits_fe"], 2), _cmb3_fig(CMB3_ASKED)["bf"], "%.2f" % CMB3_ASKED["bf_point"],
+                  _g(CMB3_ASKED["reading_a"], 2))),
+     "the OPEN items CMB3-O1..O5; O9 stays OPEN"),
 ]
 
 RULED_BY_M += D68_RULED
@@ -6375,6 +6508,7 @@ def _d68_cells():
     out.update(("W4-OPEN %s col %d" % (r[0], i), c) for r in W4_OPEN for i, c in enumerate(r[1:], 1))
     out.update(("CMB-OPEN %s col %d" % (r[0], i), c) for r in CMB_OPEN for i, c in enumerate(r[1:], 1))
     out.update(("CMB2-OPEN %s col %d" % (r[0], i), c) for r in CMB2_OPEN for i, c in enumerate(r[1:], 1))
+    out.update(("CMB3-OPEN %s col %d" % (r[0], i), c) for r in CMB3_OPEN for i, c in enumerate(r[1:], 1))
     return out
 
 
@@ -7300,6 +7434,11 @@ def report():
         print(textwrap.fill("%s %s -- answered by: %s (%s)" % (oid.ljust(8), " ".join(what.split()),
                                                               " ".join(answers.split()), owner),
                             96, initial_indent="  ", subsequent_indent="           "))
+    print("\nM-SUPPORT'S DYNAMICS AND READING (b)'S PRICE -- WHAT STAYS OPEN (section 8h)")
+    for oid, what, answers, owner in CMB3_OPEN:
+        print(textwrap.fill("%s %s -- answered by: %s (%s)" % (oid.ljust(8), " ".join(what.split()),
+                                                              " ".join(answers.split()), owner),
+                            96, initial_indent="  ", subsequent_indent="           "))
     print("\nPENDING M'S RULING -- RECORDED, NOT APPLIED%s"
           % ("" if PENDING_RULINGS else ": none"))
     for pid, q, why, proposal, waits in pending_rulings():
@@ -7557,6 +7696,15 @@ def to_markdown():
         L.append("| %s | %s | %s | %s |" % (oid, _cell(what, W_WHY), _cell(answers, W_WHY),
                                             _cell(owner, W_WHY)))
     L.append("")
+    # ADDED (CMB3-seat, docstring section 8h).
+    L += ["## M-SUPPORT's dynamics and reading (b)'s price -- what stays open", "",
+          "Seated on M's \"Seat both\" (item 55; docstring section 8h): support.py and bias.py",
+          "(docket68/cmb/). No board status moves; O9 stays OPEN.", "",
+          "| id | open | what would answer it | owner |", "|---|---|---|---|"]
+    for oid, what, answers, owner in CMB3_OPEN:
+        L.append("| %s | %s | %s | %s |" % (oid, _cell(what, W_WHY), _cell(answers, W_WHY),
+                                            _cell(owner, W_WHY)))
+    L.append("")
     L += ["## Pending M's ruling -- recorded, not applied", "",
           "This file edits no peer and changes no requirement. A question",
           "that needs M's ruling is recorded here so the board shows it.", "",
@@ -7719,6 +7867,9 @@ def _truncated_cells(demand_claim=None, demand_moves=None, open_claim=None,
     for r in CMB2_OPEN:
         if any(cut(c, wh) for c in r[1:]):
             out.append(("cmb2-open", r[0]))
+    for r in CMB3_OPEN:
+        if any(cut(c, wh) for c in r[1:]):
+            out.append(("cmb3-open", r[0]))
     return out
 
 
@@ -8486,6 +8637,8 @@ def selftest():
         # RE-PINNED WITH READINGS 2 AND 3 AND THE LOCAL CLOCKS (CMB2-seat, M:
         # "3, then 2, then 1 please", item 54): + M-D68-47, 49, 51, 53 and 54;
         # items 46, 48, 50 and 52 are D68_FILE_CARRIED.
+        # RE-PINNED WITH SUPPORT.PY AND BIAS.PY (CMB3-seat, M: "Seat both",
+        # item 55): + M-D68-55.
         (["M-D64-1", "M-S1A-P1", "M-S1A-P2", "M-S1A-P3", "M-S1A-P4",
           "M-S1A-P5", "M-D65-1", "M-D65-2", "M-D65-3", "M-D65-4", "M-D65-5",
           "M-D67-1", "M-D67-2"]
@@ -8495,7 +8648,7 @@ def selftest():
          + ["M-D68-%d" % i for i in (22, 24, 29, 30, 33, 34, 36)]
          + ["M-D68-%d" % i for i in (37, 38, 39, 40)]
          + ["M-D68-%d" % i for i in (42, 43, 45)]
-         + ["M-D68-%d" % i for i in (47, 49, 51, 53, 54)], [],
+         + ["M-D68-%d" % i for i in (47, 49, 51, 53, 54, 55)], [],
          True, False, False, True, False))
 
     print("\n3. THE EXCHANGE RATE, RE-DERIVED FROM ASKED CONSTANTS")
@@ -10140,6 +10293,28 @@ def selftest():
          < _md.index("## H-CMB-CORRIDOR readings 2 and 3, and the local clocks -- what stays open")
          < _md.index("## Pending M's ruling"), "8g.  H-CMB-CORRIDOR READINGS 2 AND 3, AND THE LOCAL CLOCKS" in __doc__),
         (6, [], True, True))
+    # ADDED (CMB3-seat, docstring section 8h): support.py and bias.py.
+    chk("M-SUPPORT'S DYNAMICS AND READING (b)'S PRICE: support.py and bias.py load from docket68/cmb/ by path; "
+        "sys.path restored; no module key the load added is left behind",
+        (CMB3_LOAD["from_cmb"], CMB3_LOAD["path_restored"], CMB3_LOAD["keys_left"], sorted(CMB3)),
+        ([], True, [], ["bias", "support"]))
+    _fc3 = cmb3_asked()
+    _c55 = " ".join([r for r in D68_RULED if r[0] == "M-D68-55"][0][3].split())
+    chk("  M-D68-55's cell prints the two owners' figures, asked afresh (five needles)",
+        [n for n in _cmb3_fig(_fc3).values() if n not in _c55], [])
+    chk("  CONTROL: the same figures at 1.5 times are not found",
+        len([n for n in _cmb3_fig(_fc3, 1.5).values() if n not in _c55]), 5)
+    chk("  the toy's record agreement is printed as consistency: the record-free weighting is inside the same "
+        "ambiguity, and the no-recombination weight is outside it",
+        (_fc3["toy_free"] < _fc3["toy_amb"], _fc3["toy_rec"] < _fc3["toy_amb"], _fc3["toy_norec"] > _fc3["toy_amb"],
+         "consistency, not proof" in _c55), (True, True, True, True))
+    chk("  CMB3_OPEN names %d items with owner files; LEDGER.md prints them after section 8g's and before the pending "
+        "rulings; section 8h is in the docstring" % len(CMB3_OPEN),
+        (len(CMB3_OPEN), [r[0] for r in CMB3_OPEN if not _os.path.exists(_os.path.join(HERE, r[3]))],
+         _md.index("## H-CMB-CORRIDOR readings 2 and 3, and the local clocks -- what stays open")
+         < _md.index("## M-SUPPORT's dynamics and reading (b)'s price -- what stays open")
+         < _md.index("## Pending M's ruling"), "8h.  M-SUPPORT'S DYNAMICS AND READING (b)'S PRICE" in __doc__),
+        (5, [], True, True))
     chk("EVERY QUOTATION in a DOCKET 68 cell (here, and index3.py's DOCKET 68 rows) is the "
         "tree's words, or declared otherwise: M's thesis and the question included, the "
         "D23 note's quotation exact ('because is already exists everywhere')",

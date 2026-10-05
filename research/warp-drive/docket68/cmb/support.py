@@ -2,7 +2,7 @@
 """
 support.py -- H-M-SUPPORT's dynamics: how observation extends the clock's support, read with H-LOCAL-CLOCK.
 
-Not seated; verified once (2026-10-05), its findings applied; first-written claims kept under HISTORY.  M (rulings item 54): "3, then 2, then 1 please" -- M-SUPPORT's dynamics first.  M-SUPPORT
+Seated in ledger.py section 8h (M-RULINGS item 55; first written "Not seated"); verified once (2026-10-05), its findings applied; first-written claims kept under HISTORY.  M (rulings item 54): "3, then 2, then 1 please" -- M-SUPPORT's dynamics first.  M-SUPPORT
 (unobserved.py) is M's stronger reading of item 48 as a computable rule: the clock's support is the coupled epochs, and
 observation extends it through records.  Item 52 (H-LOCAL-CLOCK) is carried as M's answer to its open dynamics: "The
 clock is relative to the matter-based observation".  Carried as M's hypotheses, never as results.
@@ -493,7 +493,7 @@ def compute():
 def report():
     d = compute()
     r, t, lc = d["records"], d["toy"], d["local"]
-    print("H-M-SUPPORT's dynamics: the support as matter's records of the light (verified once; not seated)\n")
+    print("H-M-SUPPORT's dynamics: the support as matter's records of the light (verified once; seated, ledger.py 8h)\n")
     print("(1) ionisation history (RECFAST hydrogen, Saha He I, Planck tanh reionisation): sigma_T %.5e m^2, chi_H %.3f "
           "eV, n_H0 %.4f m^-3, f_He %.4f" % (d["inputs"]["sigma_T"], d["inputs"]["chi_H_eV"], d["inputs"]["n_H0"],
                                               d["inputs"]["f_He"]))

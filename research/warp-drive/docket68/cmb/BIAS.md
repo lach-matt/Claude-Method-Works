@@ -1,4 +1,6 @@
-# Reading (b) priced at the measured bias sizes (H-CONSCIOUS-SELECTS; verified once; not seated; 2026-10-05)
+# Reading (b) priced at the measured bias sizes (H-CONSCIOUS-SELECTS; verified once; SEATED in ledger.py section 8h on M's "Seat both", item 55; 2026-10-05)
+
+*First headed* "(H-CONSCIOUS-SELECTS; verified once; not seated; 2026-10-05)".
 
 ## What M asked
 
