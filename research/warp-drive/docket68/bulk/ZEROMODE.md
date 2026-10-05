@@ -1,6 +1,6 @@
-# A lasting stasis in the massless graviton mode (BULK3-O2; by deduction; verified once; not seated; 2026-10-05)
+# A lasting stasis in the massless graviton mode (BULK3-O2; by deduction; verified once; SEATED 8l; 2026-10-05)
 
-*First headed* "(BULK3-O2; by deduction; not verified; not seated; 2026-10-05)".
+*First headed* "(BULK3-O2; by deduction; not verified; not seated; 2026-10-05)"; then "(BULK3-O2; by deduction; verified once; not seated; 2026-10-05)".
 
 ## What M asked
 
@@ -20,6 +20,7 @@ O9 stays OPEN.
 Every number is printed by `zeromode.py`.
 - **Selftest:** 5/5 checks, 2 of them controls, with 3 STRUCTURAL lines printed and not counted.
 - **Verification:** verified once, with its findings applied (History).
+- **Seated:** in `ledger.py` section 8l on M's "Seat all three, then the bulk" (item 79).
 
 ## The premises
 

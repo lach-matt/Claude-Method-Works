@@ -1,6 +1,6 @@
-# The sign of energy by dimension (M-RULINGS items 74–78; READ, then modelled by deduction; verified once; not seated; 2026-10-05)
+# The sign of energy by dimension (M-RULINGS items 74–78; READ, then modelled by deduction; verified once; SEATED 8l; 2026-10-05)
 
-*First headed* "(M-RULINGS items 74–76; READ, then modelled by deduction; not verified; not seated; 2026-10-05)".
+*First headed* "(M-RULINGS items 74–76; READ, then modelled by deduction; not verified; not seated; 2026-10-05)"; then "(M-RULINGS items 74–78; READ, then modelled by deduction; verified once; not seated; 2026-10-05)".
 
 ## What M asked
 
@@ -20,6 +20,7 @@ null energy condition? *First written* "the energy conditions": the AdS bulk its
 Every number is printed by `signdim.py`.
 - **Selftest:** 26/26 checks, 11 of them controls, with 8 STRUCTURAL lines printed and not counted.
 - **Verification:** verified once, with its findings applied (History).
+- **Seated:** in `ledger.py` section 8l on M's "Seat all three, then the bulk" (item 79).
 
 ## What was READ (alphaXiv, open arXiv copies, printed pages)
 

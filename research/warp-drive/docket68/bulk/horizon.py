@@ -6,7 +6,7 @@ same observation mechanism (H-EXIT-BY-OBSERVATION), the mechanism is expansion (
 view what it draws in because it INCORPORATES it -- an object cannot view itself as a whole without the help of mirrors
 (H-INCORPORATION, item 72; folded in on item 73).  READ at source, then modelled by deduction (M-DEDUCE).
 
-Not seated; verified once (2026-10-05), findings applied (HISTORY below).  M's words are carried as hypotheses, never
+Seated in ledger.py section 8l (M: "Seat all three, then the bulk", item 79); first written "Not seated".  Verified once (2026-10-05), findings applied (HISTORY below).  M's words are carried as hypotheses, never
 as results.  O9 stays OPEN.
 
     python3 horizon.py              report
@@ -264,7 +264,7 @@ def compute():
 def report():
     d = compute()
     w = d["warp"]
-    print("horizon.py -- the corridor as horizons that observe (M items 70-73), by deduction (verified once; not seated)\n")
+    print("horizon.py -- the corridor as horizons that observe (M items 70-73), by deduction (verified once; seated 8l)\n")
     print("E1 a horizon takes all that crosses: %.3e bits/m^2 (Bousso 1.4e69); %.1e-%.1e bits need %.1e-%.1e m^2" % (
         d["bits_per_m2"], d["I_lo"], d["I_hi"], d["area_lo_m2"], d["area_hi_m2"]))
     print("E2 observation defines a horizon (Jacobson, Bousso, CHM)")

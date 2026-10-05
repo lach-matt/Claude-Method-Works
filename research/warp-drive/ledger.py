@@ -964,6 +964,43 @@ corrected.
        comments).
   The board  no status moves; O9 stays OPEN.  H-NO-BULK-ROW: no index3 row.
   The paper  not edited.
+
+===============================================================================
+8l.  THE ZERO MODE, THE CORRIDOR AS HORIZONS, AND THE SIGN OF ENERGY BY
+     DIMENSION (M-RULINGS items 70-79), AS SEATED
+===============================================================================
+
+BULK3-O2 was worked by deduction: docket68/bulk/zeromode.py (ZEROMODE.md) finds
+the massless graviton mode never decays, never comes to rest and makes no
+transit across the corridor -- three candidate counterparts of M's stasis --
+while loading it from our plane is slow.  M replaced loading with observation
+(items 70-71: H-OBSERVED-NOT-LOADED, H-CORRIDOR-TAKES, H-EXIT-BY-OBSERVATION,
+H-EXPANSION) and incorporation (items 72-73: H-INCORPORATION):
+docket68/bulk/horizon.py (HORIZON.md) gives each a READ counterpart with
+positive energy -- a horizon takes all that crosses, observation defines it,
+position 2 incorporates, self-view needs Hayden-Preskill's mirror -- and none
+beats light; the negative energy belongs to faster-than-light transport, not to
+drawing in.  M then offered H-SIGN-BY-DIMENSION and H-ALCUBIERRE-PARTIAL (items
+74-77): docket68/bulk/signdim.py (SIGNDIM.md) READ the brane-world effective
+equations and deduced that a bulk keeping the null energy condition can be read
+on the plane as violating it; that on a negative-tension plane (ours under
+H-RS1) the plane's own term reads positive matter as repulsive and the
+attraction is the bulk's reading -- the connection M ordered searched (item 78)
+found in Shiromizu & Koyama, who withdraw SMS's anti-gravity conclusion; and
+that Alcubierre was right about the reading and silent about the source.  M
+ruled all three seated, then the bulk (item 79).  All three verified once and
+corrected.
+
+  THE OWNERS  loaded BY PATH as 'bulk_zeromode', 'bulk_horizon' and
+       'bulk_signdim' (_bulk4_load), with _bulk_load's lending and key
+       restoration.
+  RULED_BY_M  + M-D68-71, 73, 76 and 79.  D68_FILE_CARRIED + M-D68-70, 72,
+       74, 75 (statements carrying hypotheses), 77 (item 75 restated) and 78
+       (an instruction, and M's reading of item 75).
+  BULK4_OPEN  ten items, each with what would answer it.  BULK3-O2
+       repointed to the owner that answers it (first text kept as a comment).
+  The board  no status moves; O9 stays OPEN.  H-NO-BULK-ROW: no index3 row.
+  The paper  not edited.
 """
 
 import contextlib
@@ -3640,6 +3677,13 @@ D68_M_WORDS = {
     "M-D68-68": ("the first. The latter would be impossible but to the very definition of the transition... There is "
                  "no in-between...", D68_RULINGS_FILE),
     "M-D68-69": ("Seat both, then zero mode (Recommended)", D68_RULINGS_FILE),
+    # ADDED (BULK4-seat, docstring section 8l): items 71, 73, 76 and 79.
+    "M-D68-71": ("1, and - but it still lacks an exit mechanism - it is the same observation mechanism. The "
+                 "destination/position 2 observes the information and thus its horizon draws it in passively... "
+                 "Expansion", D68_RULINGS_FILE),
+    "M-D68-73": ("Fold into horizon.py (Recommended)", D68_RULINGS_FILE),
+    "M-D68-76": ("READ, then model (Recommended)", D68_RULINGS_FILE),
+    "M-D68-79": ("Seat all three, then the bulk", D68_RULINGS_FILE),
 }
 
 #: THE QUESTIONS PUT TO M FOR M'S DOCKET 66 RULINGS (items 26-28), as the
@@ -3788,6 +3832,20 @@ D68_CARRIED_WORDS = {
                  "think it is. This is where speed becomes relative not to the information traveling but to the two "
                  "positions observing from two perspectives at the same time creating an inhomogeneous "
                  "tension/interaction", D68_RULINGS_FILE),
+    # ADDED (BULK4-seat, docstring section 8l): statements 70, 72, 74, 75, 77 and instruction 78.
+    "M-D68-70": ("Perhaps we aren't loading, but we are being observed for the first time. We do not feed the "
+                 "corridor, it takes the information it requires as a natural condition of its opening...such as with "
+                 "a horizon", D68_RULINGS_FILE),
+    "M-D68-72": ("correct, because it is incorporating that information into itself. An object cannot view itself as "
+                 "a whole without the help of mirrors...", D68_RULINGS_FILE),
+    "M-D68-74": ("Perhaps positive energy is negative energy in the dimension it's corridor moves through, and what",
+                 D68_RULINGS_FILE),
+    "M-D68-75": ("- Alcubierre was measuring was partially right", D68_RULINGS_FILE),
+    "M-D68-77": ("Alcubierre was measuring was partially right", D68_RULINGS_FILE),
+    "M-D68-78": ("I had no specific part in mind, however, you took the principle and derived the conclusion, which "
+                 "is what my statement required. / This needs one named assumption: that the two papers involved "
+                 "describe the same two-plane setup. - search for art referring to such a connection. If none is "
+                 "found, it is ours to hypothesis using deduction from first principles", D68_RULINGS_FILE),
 }
 
 #: THE ROUTES PUT TO M, as CHARTER.md records them -- the charter's words, not
@@ -4995,9 +5053,14 @@ BULK3_OPEN = [
     ("BULK3-O1", "whether the defining information is classical or quantum: a classical pattern is copied unless the "
      "original is erased, an unknown quantum pattern is moved (related to S1B-O1)",
      "a ruling or a measurement that settles it", "docket68/bulk/crossing.py"),
-    ("BULK3-O2", "the lasting stasis through the massless graviton mode (M-D68-68): its zero proper time, where it lives "
-     "in the bulk, and the price of loading the defining information at gravitational strength (M-D68-69: next)",
-     "a computed loading rate and residence", "docket68/bulk/CROSSING.md"),
+    # REPOINTED (BULK4-seat, section 8l).  First text: "the lasting stasis through the massless graviton mode
+    # (M-D68-68): its zero proper time, where it lives in the bulk, and the price of loading the defining information
+    # at gravitational strength (M-D68-69: next)", answered by "a computed loading rate and residence"; owner
+    # docket68/bulk/CROSSING.md.
+    ("BULK3-O2", "the lasting stasis through the massless graviton mode (M-D68-68): deduced in docket68/bulk/zeromode.py "
+     "(section 8l) -- it never decays, never comes to rest and makes no transit across the corridor; loading it from "
+     "our plane is slow, and M replaced loading with observation (M-D68-70, 71); what stays open is BULK4-O1..O2",
+     "a computed loading rate and residence", "docket68/bulk/zeromode.py"),
     ("BULK3-O3", "the bulk scalar that radius stabilisation adds, as a further carrier",
      "its modes and couplings computed or READ", "docket68/bulk/crossing.py"),
     ("BULK3-O4", "whether the two planes' tension pair, equal and opposite in each plane's own units and 1e60 apart "
@@ -5009,6 +5072,107 @@ BULK3_OPEN = [
      "light bending (the PPN gamma)", "both computed", "docket68/bulk/cfgravity.py"),
     ("BULK3-O7", "a full fit of the power-law deviation to Lee et al.'s data in place of H-PERCENT",
      "their data READ and fitted", "docket68/bulk/CFGRAVITY.md"),
+]
+
+
+# ----- THE ZERO MODE, THE CORRIDOR AS HORIZONS, AND THE SIGN OF ENERGY BY DIMENSION (docstring 8l) -----
+BULK4_OWNERS = ("zeromode", "horizon", "signdim")
+
+
+def _bulk4_load():
+    """{'zeromode': module, 'horizon': module, 'signdim': module}, loaded by path as 'bulk_<name>' with _bulk_load's
+    lending and key restoration; and the facts."""
+    import importlib.util
+    saved = list(sys.path)
+    before = set(sys.modules)
+    collide = ["bulk_bulk", "bulk_pairing", "bulk_searches", "bulk_crossing", "bulk_cfgravity", "bulk_zeromode",
+               "bulk_horizon", "bulk_signdim", "wd_branelink", "wd_cosmo", "wd_transit", "wd_slingshot",
+               "wd_warpdrive", "d68_measure"]
+    stashed = dict((k, sys.modules.pop(k)) for k in collide if k in sys.modules)
+    lent = "ledger" not in sys.modules
+    if lent:
+        sys.modules["ledger"] = sys.modules[__name__]
+    mods = {}
+    try:
+        with contextlib.redirect_stdout(io.StringIO()):
+            for name in BULK4_OWNERS:
+                key = "bulk_" + name
+                spec = importlib.util.spec_from_file_location(key, os.path.join(BULK_DIR, name + ".py"))
+                m = importlib.util.module_from_spec(spec)
+                sys.modules[key] = m
+                spec.loader.exec_module(m)
+                mods[name] = m
+    finally:
+        sys.path[:] = saved
+        if lent:
+            del sys.modules["ledger"]
+        added = [k for k in sys.modules if k not in before]
+        for k in added:
+            sys.modules.pop(k, None)
+        sys.modules.update(stashed)
+    return mods, {"path_restored": sys.path == saved, "keys_left": [k for k in added if k in sys.modules],
+                  "from_bulk": [n for n, m in mods.items() if os.path.dirname(os.path.abspath(m.__file__)) != BULK_DIR]}
+
+
+BULK4, BULK4_LOAD = _bulk4_load()
+
+
+def bulk4_asked():
+    """Every zeromode.py, horizon.py and signdim.py value M-D68-79's cell prints, ASKED of the owners at call time
+    (signdim's without its sympy curvature, which its own selftest checks)."""
+    with contextlib.redirect_stdout(io.StringIO()):
+        z = BULK4["zeromode"].compute()
+        h = BULK4["horizon"].compute()
+        sd = BULK4["signdim"]
+        d_l = sd.bulk.rs_geometry()["k_pi_rc"]
+        ours = sd.linear_static(sd.gt_source_a(-1, d_l), sd.gt_G(-1, d_l))
+        tv = sd.crossing.tensions(True)[1]
+    return {"density": z["density_ours_over_hidden"], "gravitons": z["gravitons_per_s"],
+            "load_hubble": z["load_time_hubble"], "km_hubble": z["rotor_load_hubble_by_arm_m"][1000.0],
+            "bits_m2": h["bits_per_m2"], "incorp_J": h["incorporation_energy_J"],
+            "mirror_hubble": h["mirror_return_hubble"], "pf_floor_J": h["alc_energy_floor_J"],
+            "u_D": h["u_for_horizon_D_J_m3"], "crossover_J_m3": abs(tv) * sd.crossing.GEV4_TO_J_M3,
+            "gamma_plus_1": ours["gamma_plus_1"], "light": ours["light_ratio"], "G_eff": ours["G_eff"]}
+
+
+BULK4_ASKED = bulk4_asked()
+
+
+def _bulk4_fig(f, s=1.0):
+    """The figures M-D68-79's cell prints, formatted once (the selftest's needles use the same)."""
+    return {"density": "%.1e" % (s * f["density"]), "gravitons": "%.1f" % (s * f["gravitons"]),
+            "load": "%.1e" % (s * f["load_hubble"]), "km": "%.1e" % (s * f["km_hubble"]),
+            "bits": "%.3e" % (s * f["bits_m2"]), "incorp": "%.1f" % (s * f["incorp_J"]),
+            "mirror": "%.0f" % (s * f["mirror_hubble"]), "pf": "%.1e" % (s * f["pf_floor_J"]),
+            "uD": "%.2e" % (s * f["u_D"]), "cross": "%.2e" % (s * f["crossover_J_m3"]),
+            "gamma": "%.1e" % (s * f["gamma_plus_1"]), "light": "%.1e" % (s * f["light"]),
+            "Geff": "%.3f" % (s * f["G_eff"])}
+
+
+#: WHAT THE ZERO MODE, THE CORRIDOR AS HORIZONS AND THE SIGN OF ENERGY BY
+#: DIMENSION LEAVE OPEN (docstring section 8l), as ZEROMODE.md, HORIZON.md and
+#: SIGNDIM.md state it.  Named, not ranked.
+BULK4_OPEN = [
+    ("BULK4-O1", "confining a massless carrier, for a stasis with rest (the zero mode never comes to rest)",
+     "a computed confinement", "docket68/bulk/zeromode.py"),
+    ("BULK4-O2", "hidden-plane matter at the same physics: what it can build before it collapses (H-CHANDRA-SCALING)",
+     "a computed collapse limit", "docket68/bulk/ZEROMODE.md"),
+    ("BULK4-O3", "an enclosure of position 2 that draws in without capturing permanently (M-D68-71, 72)",
+     "a READ or computed geometry", "docket68/bulk/horizon.py"),
+    ("BULK4-O4", "a mirror returning a whole body's information faster than Hayden-Preskill's O(k r_S)",
+     "a READ or computed mechanism", "docket68/bulk/HORIZON.md"),
+    ("BULK4-O5", "the horizon picture joined to the two-plane corridor: what a horizon in the bulk takes from each plane",
+     "a computed bulk horizon", "docket68/bulk/HORIZON.md"),
+    ("BULK4-O6", "a five-dimensional bulk keeping the null energy condition whose Weyl reading induces a warp on the "
+     "plane (M-D68-79: next)", "a constructed bulk, or a READ one", "docket68/bulk/signdim.py"),
+    ("BULK4-O7", "conserved brane matter of the right trace that also keeps the energy conditions, for a moving bubble",
+     "a computed matter source", "docket68/bulk/SIGNDIM.md"),
+    ("BULK4-O8", "what sustains the bulk Weyl curvature: gravitational waves or black strings (Vollick unread)",
+     "the sources READ; a computed bulk field", "docket68/bulk/SIGNDIM.md"),
+    ("BULK4-O9", "the time-delay theorems against such a bulk, beside the READ 5D graviton short-cuts",
+     "the theorems' premises checked against the bulk", "docket68/bulk/SIGNDIM.md"),
+    ("BULK4-O10", "gravity on our plane with the radion stabilised: E's and F's shares (Csaki et al., Goldberger-Wise "
+     "unread)", "the stabilisation papers READ; the shares computed", "docket68/bulk/SIGNDIM.md"),
 ]
 
 
@@ -5895,6 +6059,54 @@ D68_RULED = [
                   _bulk3_fig(BULK3_ASKED)["d52s"], _bulk3_fig(BULK3_ASKED)["d52y"], _bulk3_fig(BULK3_ASKED)["Lmin"],
                   _bulk3_fig(BULK3_ASKED)["Lmax"])),
      "the OPEN items BULK3-O1..O7; BULK3-O2 next; O9 stays OPEN"),
+    # ----- ADDED (BULK4-seat, docstring section 8l): items 71, 73, 76 and 79 (2026-10-05).
+    ("M-D68-71",
+     "Asked how to take up item 70 (M-RULINGS-2026-10-03.md item 71, 2026-10-05, as the file records it): 1 READ, then "
+     "model; 2 model it now; 3 fold into the zero mode; or 4 carry only?",
+     "M carried H-OBSERVED-NOT-LOADED and H-CORRIDOR-TAKES (item 70)",
+     _d68_rule("READ, THEN MODEL; THE EXIT BY OBSERVATION", "M-D68-71",
+               "horizons READ at source and the corridor modelled by deduction as horizons that observe "
+               "(docket68/bulk/horizon.py); M's addition carried as H-EXIT-BY-OBSERVATION and H-EXPANSION"),
+     "H-OBSERVED-NOT-LOADED, H-CORRIDOR-TAKES (M-D68-70); BULK4-O3"),
+    ("M-D68-73",
+     "Asked how to take up item 72 (M-RULINGS-2026-10-03.md item 73, 2026-10-05, as the file records it): 1 fold into "
+     "horizon.py; 2 model it separately; 3 READ more first; or 4 carry only?",
+     "M carried H-INCORPORATION (item 72)",
+     _d68_rule("FOLD INTO HORIZON.PY", "M-D68-73",
+               "horizon.py's E3 rewritten by deduction: one horizon, two sides -- position 2 incorporates what its "
+               "horizon takes (the area theorem, S = A/4), and self-view needs Hayden-Preskill's mirror"),
+     "H-INCORPORATION (M-D68-72); BULK4-O4"),
+    ("M-D68-76",
+     "Asked how to take up items 74-75 (M-RULINGS-2026-10-03.md item 76, 2026-10-05, as the file records it): 1 READ, "
+     "then model; 2 model it now; 3 seat first, then this; or 4 carry only?",
+     "M carried H-SIGN-BY-DIMENSION and H-ALCUBIERRE-PARTIAL (items 74, 75)",
+     _d68_rule("READ, THEN MODEL", "M-D68-76",
+               "the brane-world effective equations READ (Shiromizu-Maeda-Sasaki, Bronnikov-Kim, Maartens, "
+               "Garriga-Tanaka) and the question deduced in docket68/bulk/signdim.py"),
+     "H-SIGN-BY-DIMENSION (M-D68-74), H-ALCUBIERRE-PARTIAL (M-D68-75); BULK4-O6"),
+    ("M-D68-79",
+     "After signdim.py's S6 was rebuilt on the prior art item 78 asked for and its verifier's findings applied "
+     "(M-RULINGS-2026-10-03.md item 79, 2026-10-05, as the file records it): 1 seat all three; 2 seat all three, then "
+     "the bulk; 3 the bulk first, seat later; or 4 look further first?",
+     "zeromode.py, horizon.py and signdim.py stood verified once and corrected, not seated",
+     _d68_rule("SEAT ALL THREE, THEN THE BULK", "M-D68-79",
+               "docket68/bulk/zeromode.py, horizon.py and signdim.py seated here (docstring section 8l).  The zero "
+               "mode: never decays, never at rest, no transit across the corridor; its density at our plane is %s of "
+               "the hidden plane's; a 1 m rotor loads %s gravitons a second, %s Hubble times for a body (a 1 km arm "
+               "%s).  The horizons: %s bits per square metre; position 2 incorporates a body for at least %s J; the "
+               "mirror returns the whole in about %s Hubble times; the negative energy belongs to faster-than-light "
+               "transport (Pfenning-Ford floor %s J), not to drawing in; a horizon at Proxima needs %s J/m^3.  The "
+               "sign by dimension: a bulk keeping the null energy condition can be read on the plane as violating it; "
+               "on a negative-tension plane the plane's own term reads matter that keeps it as violating it below "
+               "%s J/m^3, and the attraction is the bulk's reading (Shiromizu-Koyama withdraw the anti-gravity "
+               "conclusion); unstabilised, gamma_PPN = -1 + %s and light bends at %s of Einstein's, with G_eff = %s "
+               "G_5/l.  Alcubierre: right about the reading, silent about the source.  Next: the bulk"
+               % (_bulk4_fig(BULK4_ASKED)["density"], _bulk4_fig(BULK4_ASKED)["gravitons"],
+                  _bulk4_fig(BULK4_ASKED)["load"], _bulk4_fig(BULK4_ASKED)["km"], _bulk4_fig(BULK4_ASKED)["bits"],
+                  _bulk4_fig(BULK4_ASKED)["incorp"], _bulk4_fig(BULK4_ASKED)["mirror"], _bulk4_fig(BULK4_ASKED)["pf"],
+                  _bulk4_fig(BULK4_ASKED)["uD"], _bulk4_fig(BULK4_ASKED)["cross"], _bulk4_fig(BULK4_ASKED)["gamma"],
+                  _bulk4_fig(BULK4_ASKED)["light"], _bulk4_fig(BULK4_ASKED)["Geff"])),
+     "the OPEN items BULK4-O1..O10; BULK4-O6 next; O9 stays OPEN"),
 ]
 
 RULED_BY_M += D68_RULED
@@ -6254,6 +6466,44 @@ D68_FILE_CARRIED = [
                      "H-POSITION-RELATIVE-SPEED -- relative to the two positions observing, not to the information -- "
                      "and crossing.py's rate deduction carries it"),
      "BULK2-O6; BULK-O2"),
+    # ----- ADDED (BULK4-seat, docstring section 8l): items 70, 72, 74, 75, 77 and 78.
+    ("M-D68-70",
+     "M's statement on the zero mode's loading price (M-RULINGS-2026-10-03.md item 70, 2026-10-05)",
+     _d68_carry_file("STATEMENT, CARRYING TWO HYPOTHESES", "M-D68-70",
+                     "as H-OBSERVED-NOT-LOADED and H-CORRIDOR-TAKES, never as results; taken up on M-D68-71 in "
+                     "docket68/bulk/horizon.py (E1, E2)"),
+     "BULK3-O2; M-D68-71"),
+    ("M-D68-72",
+     "M's statement on horizon.py's E3 (M-RULINGS-2026-10-03.md item 72, 2026-10-05)",
+     _d68_carry_file("STATEMENT, CARRYING A HYPOTHESIS", "M-D68-72",
+                     "as H-INCORPORATION, never as a result; folded into horizon.py's E3 on M-D68-73"),
+     "M-D68-73; BULK4-O4"),
+    ("M-D68-74",
+     "M's statement, unfinished, after zeromode.py and horizon.py were verified (M-RULINGS-2026-10-03.md item 74, "
+     "2026-10-05)",
+     _d68_carry_file("STATEMENT, CARRYING A HYPOTHESIS", "M-D68-74",
+                     "as H-SIGN-BY-DIMENSION, never as a result; its completion asked (M-D68-75); taken up on M-D68-76 "
+                     "in docket68/bulk/signdim.py"),
+     "M-D68-75, 76; BULK4-O6"),
+    ("M-D68-75",
+     "M's completion of item 74 (M-RULINGS-2026-10-03.md item 75, 2026-10-05)",
+     _d68_carry_file("STATEMENT, CARRYING A HYPOTHESIS", "M-D68-75",
+                     "as H-ALCUBIERRE-PARTIAL, never as a result; signdim.py's S7 derives its form: right about the "
+                     "reading, silent about the source"),
+     "M-D68-76"),
+    ("M-D68-77",
+     "M's restatement of item 75 while signdim.py was verified (M-RULINGS-2026-10-03.md item 77, 2026-10-05)",
+     _d68_carry_file("RESTATEMENT", "M-D68-77",
+                     "as H-ALCUBIERRE-PARTIAL restated, not a new hypothesis or a ruling; nothing in signdim.py "
+                     "changed"),
+     "M-D68-75"),
+    ("M-D68-78",
+     "M's reading of item 75 and M's instruction on signdim.py's named assumption (M-RULINGS-2026-10-03.md item 78, "
+     "2026-10-05)",
+     _d68_carry_file("INSTRUCTION", "M-D68-78",
+                     "the prior art searched: Shiromizu & Koyama, Kanno & Soda and Chiba READ; H-SAME-CONFIGURATION "
+                     "retired and replaced by READ in signdim.py's S6"),
+     "BULK4-O10"),
 ]
 
 #: DOCKET 68's one pending question, M-D68-P1 (emtension.py's ER = EPR
@@ -7058,6 +7308,7 @@ def _d68_cells():
     out.update(("BULK-OPEN %s col %d" % (r[0], i), c) for r in BULK_OPEN for i, c in enumerate(r[1:], 1))
     out.update(("BULK2-OPEN %s col %d" % (r[0], i), c) for r in BULK2_OPEN for i, c in enumerate(r[1:], 1))
     out.update(("BULK3-OPEN %s col %d" % (r[0], i), c) for r in BULK3_OPEN for i, c in enumerate(r[1:], 1))
+    out.update(("BULK4-OPEN %s col %d" % (r[0], i), c) for r in BULK4_OPEN for i, c in enumerate(r[1:], 1))
     return out
 
 
@@ -8003,6 +8254,11 @@ def report():
         print(textwrap.fill("%s %s -- answered by: %s (%s)" % (oid.ljust(8), " ".join(what.split()),
                                                               " ".join(answers.split()), owner),
                             96, initial_indent="  ", subsequent_indent="           "))
+    print("\nTHE ZERO MODE, THE CORRIDOR AS HORIZONS, THE SIGN BY DIMENSION -- WHAT STAYS OPEN (section 8l)")
+    for oid, what, answers, owner in BULK4_OPEN:
+        print(textwrap.fill("%s %s -- answered by: %s (%s)" % (oid.ljust(9), " ".join(what.split()),
+                                                              " ".join(answers.split()), owner),
+                            96, initial_indent="  ", subsequent_indent="           "))
     print("\nPENDING M'S RULING -- RECORDED, NOT APPLIED%s"
           % ("" if PENDING_RULINGS else ": none"))
     for pid, q, why, proposal, waits in pending_rulings():
@@ -8302,6 +8558,18 @@ def to_markdown():
         L.append("| %s | %s | %s | %s |" % (oid, _cell(what, W_WHY), _cell(answers, W_WHY),
                                             _cell(owner, W_WHY)))
     L.append("")
+    # ADDED (BULK4-seat, docstring section 8l).
+    L += ["## The zero mode, the corridor as horizons, and the sign by dimension -- what stays open", "",
+          "Seated on M's \"Seat all three, then the bulk\" (item 79; docstring section 8l): zeromode.py, horizon.py "
+          "and signdim.py (docket68/bulk/).",
+          "The massless mode's stasis; the corridor as horizons that observe; the sign of energy as the plane reads the "
+          "bulk.",
+          "No board status moves; O9 stays OPEN.", "",
+          "| id | open | what would answer it | owner |", "|---|---|---|---|"]
+    for oid, what, answers, owner in BULK4_OPEN:
+        L.append("| %s | %s | %s | %s |" % (oid, _cell(what, W_WHY), _cell(answers, W_WHY),
+                                            _cell(owner, W_WHY)))
+    L.append("")
     L += ["## Pending M's ruling -- recorded, not applied", "",
           "This file edits no peer and changes no requirement. A question",
           "that needs M's ruling is recorded here so the board shows it.", "",
@@ -8476,6 +8744,9 @@ def _truncated_cells(demand_claim=None, demand_moves=None, open_claim=None,
     for r in BULK3_OPEN:
         if any(cut(c, wh) for c in r[1:]):
             out.append(("bulk3-open", r[0]))
+    for r in BULK4_OPEN:
+        if any(cut(c, wh) for c in r[1:]):
+            out.append(("bulk4-open", r[0]))
     return out
 
 
@@ -9254,6 +9525,10 @@ def selftest():
         # RE-PINNED WITH O6 AND THE CF GRAVITY (BULK3-seat, M: "Seat both,
         # then zero mode (Recommended)", item 69): + M-D68-66, 68 and 69;
         # items 65 and 67 are D68_FILE_CARRIED.
+        # RE-PINNED WITH THE ZERO MODE, HORIZONS AND SIGN BY DIMENSION
+        # (BULK4-seat, M: "Seat all three, then the bulk", item 79): +
+        # M-D68-71, 73, 76 and 79; items 70, 72, 74, 75, 77 and 78 are
+        # D68_FILE_CARRIED.
         (["M-D64-1", "M-S1A-P1", "M-S1A-P2", "M-S1A-P3", "M-S1A-P4",
           "M-S1A-P5", "M-D65-1", "M-D65-2", "M-D65-3", "M-D65-4", "M-D65-5",
           "M-D67-1", "M-D67-2"]
@@ -9266,7 +9541,8 @@ def selftest():
          + ["M-D68-%d" % i for i in (47, 49, 51, 53, 54, 55)]
          + ["M-D68-%d" % i for i in (58, 59)]
          + ["M-D68-%d" % i for i in (61, 64)]
-         + ["M-D68-%d" % i for i in (66, 68, 69)], [],
+         + ["M-D68-%d" % i for i in (66, 68, 69)]
+         + ["M-D68-%d" % i for i in (71, 73, 76, 79)], [],
          True, False, False, True, False))
 
     print("\n3. THE EXCHANGE RATE, RE-DERIVED FROM ASKED CONSTANTS")
@@ -10782,8 +11058,9 @@ def selftest():
     # RE-PINNED WITH THE BULK SEATING (BULK-seat): + items 56 and 57.
     # RE-PINNED WITH THE BULK2 SEATING (BULK2-seat): + items 60, 62 and 63.
     # RE-PINNED WITH THE BULK3 SEATING (BULK3-seat): + items 65 and 67.
+    # RE-PINNED WITH THE BULK4 SEATING (BULK4-seat): + items 70, 72, 74, 75, 77 and 78.
     chk("M's words the RULINGS FILE carries (items 21, 23, 25, 31, 32, 35, 41, 44, 46, 48, 50, 52, 56, 57, 60, 62, 63, "
-        "65, 67) are in "
+        "65, 67, 70, 72, 74, 75, 77, 78) are in "
         "D68_FILE_CARRIED, NOT on RULED_BY_M; each cell says so, quotes exactly its held "
         "words, and none reads 'RULED BY M'; none is cut",
         ([r[0] for r in D68_FILE_CARRIED],
@@ -10793,7 +11070,8 @@ def selftest():
           or _cw.findall(" ".join(r[2].split())) != [D68_CARRIED_WORDS[r[0]][0]]
           or _cw.findall(" ".join(r[1].split()))],
          [t for t in _truncated_cells() if t[0] in ("carried", "w3s1b-open")]),
-        (["M-D68-%d" % i for i in (21, 23, 25, 31, 32, 35, 41, 44, 46, 48, 50, 52, 56, 57, 60, 62, 63, 65, 67)],
+        (["M-D68-%d" % i for i in (21, 23, 25, 31, 32, 35, 41, 44, 46, 48, 50, 52, 56, 57, 60, 62, 63, 65, 67, 70, 72,
+                                   74, 75, 77, 78)],
          [], [], []))
     chk("  and LEDGER.md prints them, then the OPEN list, after the charter's carried items "
         "and before the pending rulings",
@@ -10992,6 +11270,24 @@ def selftest():
          < _md.index("## Entering and leaving, and gravity on our plane -- what stays open")
          < _md.index("## Pending M's ruling"), "8k.  ENTERING AND LEAVING THE CORRIDOR" in __doc__),
         (7, [], True, True))
+    # ADDED (BULK4-seat, docstring section 8l): the zero mode, the corridor as horizons, the sign by dimension.
+    chk("THE ZERO MODE, THE HORIZONS, THE SIGN BY DIMENSION: zeromode.py, horizon.py and signdim.py load from "
+        "docket68/bulk/ by path; sys.path restored; no module key the load added is left behind",
+        (BULK4_LOAD["from_bulk"], BULK4_LOAD["path_restored"], BULK4_LOAD["keys_left"], sorted(BULK4)),
+        ([], True, [], ["horizon", "signdim", "zeromode"]))
+    _fb4 = bulk4_asked()
+    _c79 = " ".join([r for r in D68_RULED if r[0] == "M-D68-79"][0][3].split())
+    chk("  M-D68-79's cell prints zeromode.py's, horizon.py's and signdim.py's figures, asked afresh (thirteen needles)",
+        [n for n in _bulk4_fig(_fb4).values() if n not in _c79], [])
+    chk("  CONTROL: the same figures at 1.5 times are not found",
+        len([n for n in _bulk4_fig(_fb4, 1.5).values() if n not in _c79]), 13)
+    chk("  BULK4_OPEN names %d items with owner files; LEDGER.md prints them after section 8k's and before the pending "
+        "rulings; section 8l is in the docstring" % len(BULK4_OPEN),
+        (len(BULK4_OPEN), [r[0] for r in BULK4_OPEN if not _os.path.exists(_os.path.join(HERE, r[3]))],
+         _md.index("## Entering and leaving, and gravity on our plane -- what stays open")
+         < _md.index("## The zero mode, the corridor as horizons, and the sign by dimension -- what stays open")
+         < _md.index("## Pending M's ruling"), "8l.  THE ZERO MODE, THE CORRIDOR AS HORIZONS" in __doc__),
+        (10, [], True, True))
     chk("EVERY QUOTATION in a DOCKET 68 cell (here, and index3.py's DOCKET 68 rows) is the "
         "tree's words, or declared otherwise: M's thesis and the question included, the "
         "D23 note's quotation exact ('because is already exists everywhere')",

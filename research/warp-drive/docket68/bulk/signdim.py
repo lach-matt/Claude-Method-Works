@@ -7,7 +7,7 @@ source, then deduced (M-DEDUCE) whether a warp's negative energy on our plane ca
 satisfies the null energy condition.  Item 78: the one assumption S6 named (H-SAME-CONFIGURATION) was searched for in
 the literature; it is found, READ, and replaced (HISTORY).
 
-Not seated; verified once (2026-10-05), findings applied (HISTORY).  M's words are carried as hypotheses, never as
+Seated in ledger.py section 8l (M: "Seat all three, then the bulk", item 79); first written "Not seated".  Verified once (2026-10-05), findings applied (HISTORY).  M's words are carried as hypotheses, never as
 results.  O9 stays OPEN.
 
     python3 signdim.py              report
@@ -481,7 +481,7 @@ def compute():
 
 def report():
     d = compute()
-    print("signdim.py -- the sign of energy by dimension (M items 74-78), by deduction (verified once; not seated)\n")
+    print("signdim.py -- the sign of energy by dimension (M items 74-78), by deduction (verified once; seated 8l)\n")
     print("S1 E is traceless; Alcubierre's R = %s ranges %.2f to %.2f across the bubble (%.1f on the wall ahead): not E "
           "alone" % (d["alc_R_expr"], d["alc_R_min"], d["alc_R_max"], d["alc_R_wall"]))
     print("S2 E carries 9 of G's 10 components, every null projection among them; Alcubierre's G_kk at the equator: %s "

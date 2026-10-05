@@ -1,6 +1,6 @@
-# The corridor as horizons that observe (M-RULINGS items 70–73; READ, then modelled by deduction; verified once; not seated; 2026-10-05)
+# The corridor as horizons that observe (M-RULINGS items 70–73; READ, then modelled by deduction; verified once; SEATED 8l; 2026-10-05)
 
-*First headed* "(M-RULINGS items 70–71; READ, then modelled by deduction; not verified; not seated; 2026-10-05)".
+*First headed* "(M-RULINGS items 70–71; READ, then modelled by deduction; not verified; not seated; 2026-10-05)"; then "(M-RULINGS items 70–73; READ, then modelled by deduction; verified once; not seated; 2026-10-05)".
 
 ## What M asked
 
@@ -18,6 +18,7 @@ H-INCORPORATION, never as results. O9 stays OPEN.
 Every number is printed by `horizon.py`.
 - **Selftest:** 9/9 checks, 4 of them controls, with 4 STRUCTURAL lines printed and not counted.
 - **Verification:** verified once, with its findings applied (History).
+- **Seated:** in `ledger.py` section 8l on M's "Seat all three, then the bulk" (item 79).
 
 ## What was READ (alphaXiv, open arXiv copies, printed pages)
 

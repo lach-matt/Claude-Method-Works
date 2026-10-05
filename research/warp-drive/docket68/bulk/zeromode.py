@@ -4,7 +4,7 @@ zeromode.py -- BULK3-O2: the lasting stasis through the massless (zero) graviton
 principles: where it lives in the bulk, how each plane couples to it, its own clock, and the price of loading the
 defining information into it.
 
-Not seated; verified once (2026-10-05), findings applied (HISTORY below).  M's orders: item 68 ("the first. The latter would be impossible but to the very
+Seated in ledger.py section 8l (M: "Seat all three, then the bulk", item 79); first written "Not seated".  Verified once (2026-10-05), findings applied (HISTORY below).  M's orders: item 68 ("the first. The latter would be impossible but to the very
 definition of the transition... There is no in-between...": the massless mode; the switched coupling set aside on M's
 ruling); item 69 ("Seat both, then zero mode (Recommended)"); method M-DEDUCE (item 64).  Carried beside M's
 H-CORRIDOR-STASIS, H-DETACH, H-POSITION-RELATIVE-SPEED, H-TWO-PERSPECTIVE-TENSION, H-NO-SPEED, H-HIGHER-CORRIDOR and
@@ -233,7 +233,7 @@ def compute():
 
 def report():
     d = compute()
-    print("zeromode.py -- BULK3-O2: a lasting stasis in the massless graviton mode, by deduction (verified once; not seated)\n")
+    print("zeromode.py -- BULK3-O2: a lasting stasis in the massless graviton mode, by deduction (verified once; seated 8l)\n")
     print("Z1 no spontaneous decay (a lightest state, massless)")
     print("Z2 its weight: density per proper length at our plane / at the hidden plane = %.1e; ~63%% within %.1e m of the "
           "hidden plane -- the mode's weight, not a store" % (d["density_ours_over_hidden"], d["residence_m"]))
