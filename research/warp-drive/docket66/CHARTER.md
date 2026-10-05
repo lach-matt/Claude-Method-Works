@@ -57,3 +57,14 @@ Funai & Martin-Martinez arXiv:1701.03805; Ikeda arXiv:2301.02666; review arXiv:2
 3. Combinations screened with D68's hypotheses, where one member removes an obstruction another leaves (M's standing
    instruction: hypotheses may work better in combination).
 4. Adversarial verification, both directions, before anything is reported or seated.
+
+## Close (2026-10-05)
+
+DOCKET 66 wave 1 is run, verified both ways, fixed (D66-fix), seated (ledger.py section 8; O9's DOCKET 66 answer;
+no index3 row), and M's three rulings on it are applied (M-RULINGS items 26-28; see the notes under the status line
+above). No D66 hypothesis removes an obstruction; it adds OPEN pathways (B-combine66.md). Full selftest sweep over
+research/warp-drive and docket68/ on fbdd24d: **287 of 289 pass**. The four that first timed out under load (rindex,
+subpop, preserve, docket68/combine) were re-run with less contention, beside docket66/combine66: rindex, combine
+(134/134) and combine66 (70/70) pass. The same two fail as at DOCKET 67's close, identically at 68d7ac7:
+`preserve.py` (bosonqp/phonondex replacements unadjudicated) and `subpop.py` (23 ≠ 20, 5 ≠ 4, chain depths). Neither
+is a DOCKET 66 file; both are recorded, not repaired. `ledger.py --check` ok; `tools/docfigures.py` 59/59.
