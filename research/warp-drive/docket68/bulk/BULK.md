@@ -1,4 +1,6 @@
-# Two planes joined through a higher dimension (H-HIGHER-CORRIDOR, H-NO-SPEED; verified once; not seated; 2026-10-05)
+# Two planes joined through a higher dimension (H-HIGHER-CORRIDOR, H-NO-SPEED; verified once; SEATED in ledger.py section 8i on M's "4, then 3 please.", item 59; 2026-10-05)
+
+*First headed* "(H-HIGHER-CORRIDOR, H-NO-SPEED; verified once; not seated; 2026-10-05)".
 
 ## M's words and how they are carried
 

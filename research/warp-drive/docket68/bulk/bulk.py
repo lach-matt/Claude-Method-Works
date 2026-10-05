@@ -2,7 +2,7 @@
 """
 bulk.py -- H-HIGHER-CORRIDOR and H-NO-SPEED: two planes joined through a higher dimension, with no speed anywhere.
 
-Not seated; verified once (2026-10-05), its findings applied; first-written claims kept under HISTORY.  M (rulings item
+Seated in ledger.py section 8i (M-RULINGS item 59; first written "Not seated"); verified once (2026-10-05), its findings applied; first-written claims kept under HISTORY.  M (rulings item
 57): "If two points, each on a different spacetime plane, are connected by a corridor through a higher dimension, then
 speed cannot exist in the dimension below the corridor as you are at position 1 then position 2, with no in between,
 which means no travel, no speed".  M (item 58): "3, then 2, then 1 please" -- the case fixed as two separate planes,
@@ -186,7 +186,7 @@ def compute():
 def report():
     d = compute()
     g, j, cf, cl = d["rs"], d["rs_jump"], d["cf"], d["cl"]
-    print("H-HIGHER-CORRIDOR: two planes joined through a fifth dimension (verified once; not seated)\n")
+    print("H-HIGHER-CORRIDOR: two planes joined through a fifth dimension (verified once; seated, ledger.py 8i)\n")
     print("(1) Randall-Sundrum: k r_c = %.2f from e^{k pi r_c} = %.0e; KK scale k e^{-k pi r_c} = %.0f GeV" % (
         g["k_rc"], RS["warp"], g["k_vis_GeV"]))
     print("    jump between bulk-paired points (no path in either plane): OUR clock %.3e s (= hbar/KK scale %.3e s); a "

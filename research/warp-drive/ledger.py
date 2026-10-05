@@ -878,6 +878,29 @@ both seated (item 55, "Seat both").
        now point at the seated owners.
   The board  no status moves; O9 stays OPEN.  H-NO-CMB-ROW: no index3 row.
   The paper  not edited.
+
+===============================================================================
+8i.  THE TRAVEL EQUATION'S STATE, NO SPEED, AND TWO PLANES JOINED THROUGH A
+     HIGHER DIMENSION (M-RULINGS items 56-59), AS SEATED
+===============================================================================
+
+M asked where the warp travel equation stands (item 56) and, shown it, said
+speed does not enter the process, carrying H-NO-SPEED and H-HIGHER-CORRIDOR
+(item 57): two points on different spacetime planes joined by a corridor
+through a higher dimension, with no in-between.  M ordered two planes first,
+then READ, then a model (item 58, "3, then 2, then 1 please").  The model
+(docket68/bulk/bulk.py, BULK.md), verified once and corrected, carries three
+published two-plane geometries -- Randall-Sundrum, Chung-Freese and the
+Manyfold, none observed.  M ruled it seated, then the pairing shape, then
+entering and leaving (item 59, "4, then 3 please.").
+
+  THE OWNER  loaded BY PATH as 'bulk_bulk' (_bulk_load), with _cmb2_load's
+       lending and key restoration.
+  RULED_BY_M  + M-D68-58 and 59.  D68_FILE_CARRIED + M-D68-56 (an
+       instruction) and 57 (a statement carrying two hypotheses).
+  BULK_OPEN  five items, each with what would answer it.
+  The board  no status moves; O9 stays OPEN.  H-NO-BULK-ROW: no index3 row.
+  The paper  not edited.
 """
 
 import contextlib
@@ -3542,6 +3565,9 @@ D68_M_WORDS = {
     "M-D68-54": ("3, then 2, then 1 please", D68_RULINGS_FILE),
     # ADDED (CMB3-seat, docstring section 8h): item 55.
     "M-D68-55": ("Seat both", D68_RULINGS_FILE),
+    # ADDED (BULK-seat, docstring section 8i): items 58 and 59.
+    "M-D68-58": ("3, then 2, then 1 please", D68_RULINGS_FILE),
+    "M-D68-59": ("4, then 3 please.", D68_RULINGS_FILE),
 }
 
 #: THE QUESTIONS PUT TO M FOR M'S DOCKET 66 RULINGS (items 26-28), as the
@@ -3667,6 +3693,12 @@ D68_CARRIED_WORDS = {
                  "always present relative to the position of measurement within its plane/dimension The "
                  "clock is relative to the matter-based observation. Consciousness observation is a "
                  "perception of matter-observed time.", D68_RULINGS_FILE),
+    # ADDED (BULK-seat, docstring section 8i): M's instruction (56) and statement (57).
+    "M-D68-56": ("How about we take a different approach... Tell me where we are with the current warp travel "
+                 "equation", D68_RULINGS_FILE),
+    "M-D68-57": ("If two points, each on a different spacetime plane, are connected by a corridor through a higher "
+                 "dimension, then speed cannot exist in the dimension below the corridor as you are at position 1 then "
+                 "position 2, with no in between, which means no travel, no speed", D68_RULINGS_FILE),
 }
 
 #: THE ROUTES PUT TO M, as CHARTER.md records them -- the charter's words, not
@@ -4611,6 +4643,79 @@ CMB3_OPEN = [
 ]
 
 
+# ----- THE TRAVEL EQUATION'S STATE, NO SPEED, TWO PLANES (docstring 8i) -----
+BULK_DIR = os.path.join(D68_DIR, "bulk")
+
+
+def _bulk_load():
+    """{'bulk': module}, loaded by path as 'bulk_bulk' with _cmb2_load's lending and key restoration; and the facts."""
+    import importlib.util
+    saved = list(sys.path)
+    before = set(sys.modules)
+    collide = ["bulk_bulk", "wd_branelink", "wd_cosmo"]
+    stashed = dict((k, sys.modules.pop(k)) for k in collide if k in sys.modules)
+    lent = "ledger" not in sys.modules
+    if lent:
+        sys.modules["ledger"] = sys.modules[__name__]
+    mods = {}
+    try:
+        with contextlib.redirect_stdout(io.StringIO()):
+            spec = importlib.util.spec_from_file_location("bulk_bulk", os.path.join(BULK_DIR, "bulk.py"))
+            m = importlib.util.module_from_spec(spec)
+            sys.modules["bulk_bulk"] = m
+            spec.loader.exec_module(m)
+            mods["bulk"] = m
+    finally:
+        sys.path[:] = saved
+        if lent:
+            del sys.modules["ledger"]
+        added = [k for k in sys.modules if k not in before]
+        for k in added:
+            sys.modules.pop(k, None)
+        sys.modules.update(stashed)
+    return mods, {"path_restored": sys.path == saved, "keys_left": [k for k in added if k in sys.modules],
+                  "from_bulk": [n for n, m in mods.items() if os.path.dirname(os.path.abspath(m.__file__)) != BULK_DIR]}
+
+
+BULK, BULK_LOAD = _bulk_load()
+
+
+def bulk_asked():
+    """Every bulk.py value M-D68-58's and M-D68-59's cells print, ASKED of the owner at call time."""
+    with contextlib.redirect_stdout(io.StringIO()):
+        d = BULK["bulk"].compute()
+    return {"ours_s": d["rs_jump"]["ours_s"], "round_s": d["rs_jump"]["round_trip_ours_s"],
+            "hidden_own_s": d["rs_jump"]["hidden_own_s"], "floor_yr": d["rs_proxima_floor_yr"],
+            "cf_min": d["cf"]["proxima_term_s"] / 60, "fold_s": d["manyfold_gap_s"], "o7_ns": d["o7_max_ns"]}
+
+
+BULK_ASKED = bulk_asked()
+
+
+def _bulk_fig(f, s=1.0):
+    """The figures M-D68-59's cell prints, formatted once (the selftest's needles use the same)."""
+    return {"ours": "%.2e" % (s * f["ours_s"]), "floor": "%.4f" % (s * f["floor_yr"]), "cf": "%.1f" % (s * f["cf_min"]),
+            "fold": "%.2e" % (s * f["fold_s"]), "o7": "%.1f" % (s * f["o7_ns"])}
+
+
+#: WHAT THE TWO-PLANE MODEL LEAVES OPEN (docstring section 8i), as BULK.md
+#: states it.  Named, not ranked.
+BULK_OPEN = [
+    ("BULK-O1", "a bulk geometry in which a chosen destination is close through the higher dimension (H-BULK-PAIRING), "
+     "beyond Chung-Freese's patched, fine-tuned example and the Manyfold's folds (M-D68-59: next)",
+     "a computed geometry with its stress-energy and junction conditions", "docket68/bulk/bulk.py"),
+    ("BULK-O2", "entering and leaving the corridor (O6): what carries the defining information in and out, and at what "
+     "rate (M-D68-59: after BULK-O1)", "a computed or READ rate", "docket68/bulk/BULK.md"),
+    ("BULK-O3", "whether any second plane exists; none of the three geometries is observed, and LHC searches constrain "
+     "Randall-Sundrum", "the collider limits READ at source", "docket68/bulk/BULK.md"),
+    ("BULK-O4", "Randall-Sundrum's published k r_c against the v1 text, whose k r_c line prints 50 with its relation "
+     "symbol lost", "the published text READ",
+     "docket68/bulk/bulk.py"),
+    ("BULK-O5", "Gao and Wald's time-delay theorem under the null energy condition, against the two-plane shortcuts",
+     "gr-qc/0007021 READ at source", "docket68/bulk/bulk.py"),
+]
+
+
 #: WHAT DOCKET 68 WAVE 3 AND STEP 1b LEAVE OPEN (docstring section 8c), as
 #: their owners' records state it (step1b/BALANCE.md, docket68/wave3/WAVE3.md):
 #: (id, what is open, what would answer it, owner).  Named, not ranked (section
@@ -5400,6 +5505,33 @@ D68_RULED = [
                   _g(CMB3_ASKED["bits_fe"], 2), _cmb3_fig(CMB3_ASKED)["bf"], "%.2f" % CMB3_ASKED["bf_point"],
                   _g(CMB3_ASKED["reading_a"], 2))),
      "the OPEN items CMB3-O1..O5; O9 stays OPEN"),
+    # ----- ADDED (BULK-seat, docstring section 8i): items 58 and 59 (2026-10-05).
+    ("M-D68-58",
+     "Asked how to take up item 57 (M-RULINGS-2026-10-03.md item 58, 2026-10-05, as the file records it): 1 model it; "
+     "2 READ, then model; 3 two planes, not one; or 4 carry only?",
+     "M carried H-NO-SPEED and H-HIGHER-CORRIDOR (item 57)",
+     _d68_rule("TWO PLANES, THEN READ, THEN MODEL", "M-D68-58",
+               "the case fixed as two separate planes joined through a fifth dimension; Randall-Sundrum, Chung-Freese, "
+               "the Manyfold and Caldwell-Langlois READ at source; docket68/bulk/bulk.py, verified once: between bulk-"
+               "paired points there is no curve in either plane, so a speed is undefined there, and in Randall-Sundrum "
+               "our clock reads %s s for the jump (%s s round trip; a hidden clock of the same physics %s s of its own)"
+               % ("%.2e" % BULK_ASKED["ours_s"], "%.2e" % BULK_ASKED["round_s"], "%.2e" % BULK_ASKED["hidden_own_s"])),
+     "H-NO-SPEED and H-HIGHER-CORRIDOR (M-D68-57); the OPEN items BULK-O1..O5"),
+    ("M-D68-59",
+     "After the two-plane model was verified and corrected (M-RULINGS-2026-10-03.md item 59, 2026-10-05, as the file "
+     "records it): 1 seat bulk.py; 2 design the pairing shape; 3 entering and leaving (O6); or 4 seat, then design the "
+     "shape?",
+     "bulk.py stood verified once and corrected, not seated",
+     _d68_rule("SEAT THE CORRIDOR MODEL, THEN THE PAIRING SHAPE, THEN ENTERING AND LEAVING", "M-D68-59",
+               "docket68/bulk/bulk.py seated here (docstring section 8i): our clock reads %s s for the jump between "
+               "bulk-paired points; whether the corridor lands far away depends on the bulk's shape -- in static "
+               "Randall-Sundrum every causal curve reads at least the light time (%s yr for the Proxima span), in "
+               "Chung-Freese's two planes the Proxima span's term is %s min along a patched, fine-tuned path, a "
+               "Manyfold fold 1 mm away reads %s s, and the board's moving brane saves at most %s ns.  Next: the "
+               "pairing shape (BULK-O1), then entering and leaving (BULK-O2)"
+               % (_bulk_fig(BULK_ASKED)["ours"], _bulk_fig(BULK_ASKED)["floor"], _bulk_fig(BULK_ASKED)["cf"],
+                  _bulk_fig(BULK_ASKED)["fold"], _bulk_fig(BULK_ASKED)["o7"])),
+     "the OPEN items BULK-O1..O5; O9 stays OPEN"),
 ]
 
 RULED_BY_M += D68_RULED
@@ -5708,6 +5840,22 @@ D68_FILE_CARRIED = [
                      "Earth's); in Page's sensible quantum mechanics a conscious perception is a perception of a "
                      "present matter record" % ("%.3f" % CMB2_ASKED["clock_s"])),
      "H-M-SUPPORT; the OPEN items CMB2-O2, CMB2-O5"),
+    # ----- ADDED (BULK-seat, docstring section 8i): items 56 and 57.
+    ("M-D68-56",
+     "M's instruction after item 55 (M-RULINGS-2026-10-03.md item 56, 2026-10-05), answering a question put",
+     _d68_carry_file("INSTRUCTION", "M-D68-56",
+                     "no build: the board's state on the travel equation was reported from its owners -- the design "
+                     "equation and TARGET 1 for the subluminal shell, the demand and its refused supply for contraction, "
+                     "Steps 1a-1c for the information route, DOCKET 68's close and the CMB readings"),
+     "the travel equation's state; M-D68-57"),
+    ("M-D68-57",
+     "M's statement on speed and a higher-dimensional corridor (M-RULINGS-2026-10-03.md item 57, 2026-10-05), answering a "
+     "question put",
+     _d68_carry_file("STATEMENT, CARRYING TWO HYPOTHESES", "M-D68-57",
+                     "as H-NO-SPEED and H-HIGHER-CORRIDOR, never as results: modelled in docket68/bulk/bulk.py on "
+                     "M-D68-58 -- no speed exists between bulk-paired points, and whether the corridor lands far away "
+                     "depends on the shape of the higher dimension (BULK-O1)"),
+     "D13, O6, O7; the OPEN items BULK-O1, BULK-O2"),
 ]
 
 #: DOCKET 68's one pending question, M-D68-P1 (emtension.py's ER = EPR
@@ -6509,6 +6657,7 @@ def _d68_cells():
     out.update(("CMB-OPEN %s col %d" % (r[0], i), c) for r in CMB_OPEN for i, c in enumerate(r[1:], 1))
     out.update(("CMB2-OPEN %s col %d" % (r[0], i), c) for r in CMB2_OPEN for i, c in enumerate(r[1:], 1))
     out.update(("CMB3-OPEN %s col %d" % (r[0], i), c) for r in CMB3_OPEN for i, c in enumerate(r[1:], 1))
+    out.update(("BULK-OPEN %s col %d" % (r[0], i), c) for r in BULK_OPEN for i, c in enumerate(r[1:], 1))
     return out
 
 
@@ -7439,6 +7588,11 @@ def report():
         print(textwrap.fill("%s %s -- answered by: %s (%s)" % (oid.ljust(8), " ".join(what.split()),
                                                               " ".join(answers.split()), owner),
                             96, initial_indent="  ", subsequent_indent="           "))
+    print("\nTWO PLANES JOINED THROUGH A HIGHER DIMENSION -- WHAT STAYS OPEN (section 8i)")
+    for oid, what, answers, owner in BULK_OPEN:
+        print(textwrap.fill("%s %s -- answered by: %s (%s)" % (oid.ljust(8), " ".join(what.split()),
+                                                              " ".join(answers.split()), owner),
+                            96, initial_indent="  ", subsequent_indent="           "))
     print("\nPENDING M'S RULING -- RECORDED, NOT APPLIED%s"
           % ("" if PENDING_RULINGS else ": none"))
     for pid, q, why, proposal, waits in pending_rulings():
@@ -7705,6 +7859,16 @@ def to_markdown():
         L.append("| %s | %s | %s | %s |" % (oid, _cell(what, W_WHY), _cell(answers, W_WHY),
                                             _cell(owner, W_WHY)))
     L.append("")
+    # ADDED (BULK-seat, docstring section 8i).
+    L += ["## Two planes joined through a higher dimension -- what stays open", "",
+          "Seated on M's \"4, then 3 please.\" (item 59; docstring section 8i): bulk.py (docket68/bulk/).",
+          "No speed exists between bulk-paired points; where the corridor lands depends on the bulk's",
+          "shape. No board status moves; O9 stays OPEN.", "",
+          "| id | open | what would answer it | owner |", "|---|---|---|---|"]
+    for oid, what, answers, owner in BULK_OPEN:
+        L.append("| %s | %s | %s | %s |" % (oid, _cell(what, W_WHY), _cell(answers, W_WHY),
+                                            _cell(owner, W_WHY)))
+    L.append("")
     L += ["## Pending M's ruling -- recorded, not applied", "",
           "This file edits no peer and changes no requirement. A question",
           "that needs M's ruling is recorded here so the board shows it.", "",
@@ -7870,6 +8034,9 @@ def _truncated_cells(demand_claim=None, demand_moves=None, open_claim=None,
     for r in CMB3_OPEN:
         if any(cut(c, wh) for c in r[1:]):
             out.append(("cmb3-open", r[0]))
+    for r in BULK_OPEN:
+        if any(cut(c, wh) for c in r[1:]):
+            out.append(("bulk-open", r[0]))
     return out
 
 
@@ -8639,6 +8806,9 @@ def selftest():
         # items 46, 48, 50 and 52 are D68_FILE_CARRIED.
         # RE-PINNED WITH SUPPORT.PY AND BIAS.PY (CMB3-seat, M: "Seat both",
         # item 55): + M-D68-55.
+        # RE-PINNED WITH THE TWO-PLANE MODEL (BULK-seat, M: "4, then 3
+        # please.", item 59): + M-D68-58 and 59; items 56 and 57 are
+        # D68_FILE_CARRIED.
         (["M-D64-1", "M-S1A-P1", "M-S1A-P2", "M-S1A-P3", "M-S1A-P4",
           "M-S1A-P5", "M-D65-1", "M-D65-2", "M-D65-3", "M-D65-4", "M-D65-5",
           "M-D67-1", "M-D67-2"]
@@ -8648,7 +8818,8 @@ def selftest():
          + ["M-D68-%d" % i for i in (22, 24, 29, 30, 33, 34, 36)]
          + ["M-D68-%d" % i for i in (37, 38, 39, 40)]
          + ["M-D68-%d" % i for i in (42, 43, 45)]
-         + ["M-D68-%d" % i for i in (47, 49, 51, 53, 54, 55)], [],
+         + ["M-D68-%d" % i for i in (47, 49, 51, 53, 54, 55)]
+         + ["M-D68-%d" % i for i in (58, 59)], [],
          True, False, False, True, False))
 
     print("\n3. THE EXCHANGE RATE, RE-DERIVED FROM ASKED CONSTANTS")
@@ -10161,7 +10332,8 @@ def selftest():
         _wcf, [("seatrank.M_WORDS_25", "M-D68-25")])
     # RE-PINNED WITH THE CMB SEATING (CMB-seat): + items 41 and 44.
     # RE-PINNED WITH THE CMB2 SEATING (CMB2-seat): + items 46, 48, 50 and 52.
-    chk("M's words the RULINGS FILE carries (items 21, 23, 25, 31, 32, 35, 41, 44, 46, 48, 50, 52) are in "
+    # RE-PINNED WITH THE BULK SEATING (BULK-seat): + items 56 and 57.
+    chk("M's words the RULINGS FILE carries (items 21, 23, 25, 31, 32, 35, 41, 44, 46, 48, 50, 52, 56, 57) are in "
         "D68_FILE_CARRIED, NOT on RULED_BY_M; each cell says so, quotes exactly its held "
         "words, and none reads 'RULED BY M'; none is cut",
         ([r[0] for r in D68_FILE_CARRIED],
@@ -10171,7 +10343,7 @@ def selftest():
           or _cw.findall(" ".join(r[2].split())) != [D68_CARRIED_WORDS[r[0]][0]]
           or _cw.findall(" ".join(r[1].split()))],
          [t for t in _truncated_cells() if t[0] in ("carried", "w3s1b-open")]),
-        (["M-D68-%d" % i for i in (21, 23, 25, 31, 32, 35, 41, 44, 46, 48, 50, 52)], [], [], []))
+        (["M-D68-%d" % i for i in (21, 23, 25, 31, 32, 35, 41, 44, 46, 48, 50, 52, 56, 57)], [], [], []))
     chk("  and LEDGER.md prints them, then the OPEN list, after the charter's carried items "
         "and before the pending rulings",
         (_md.index("## Carried by the charter from M")
@@ -10314,6 +10486,23 @@ def selftest():
          _md.index("## H-CMB-CORRIDOR readings 2 and 3, and the local clocks -- what stays open")
          < _md.index("## M-SUPPORT's dynamics and reading (b)'s price -- what stays open")
          < _md.index("## Pending M's ruling"), "8h.  M-SUPPORT'S DYNAMICS AND READING (b)'S PRICE" in __doc__),
+        (5, [], True, True))
+    # ADDED (BULK-seat, docstring section 8i): the two-plane model.
+    chk("TWO PLANES: bulk.py loads from docket68/bulk/ by path; sys.path restored; no module key the load added is left "
+        "behind", (BULK_LOAD["from_bulk"], BULK_LOAD["path_restored"], BULK_LOAD["keys_left"], sorted(BULK)),
+        ([], True, [], ["bulk"]))
+    _fb = bulk_asked()
+    _c59 = " ".join([r for r in D68_RULED if r[0] == "M-D68-59"][0][3].split())
+    chk("  M-D68-59's cell prints bulk.py's figures, asked afresh (five needles)",
+        [n for n in _bulk_fig(_fb).values() if n not in _c59], [])
+    chk("  CONTROL: the same figures at 1.5 times are not found",
+        len([n for n in _bulk_fig(_fb, 1.5).values() if n not in _c59]), 5)
+    chk("  BULK_OPEN names %d items with owner files; LEDGER.md prints them after section 8h's and before the pending "
+        "rulings; section 8i is in the docstring" % len(BULK_OPEN),
+        (len(BULK_OPEN), [r[0] for r in BULK_OPEN if not _os.path.exists(_os.path.join(HERE, r[3]))],
+         _md.index("## M-SUPPORT's dynamics and reading (b)'s price -- what stays open")
+         < _md.index("## Two planes joined through a higher dimension -- what stays open")
+         < _md.index("## Pending M's ruling"), "8i.  THE TRAVEL EQUATION'S STATE, NO SPEED" in __doc__),
         (5, [], True, True))
     chk("EVERY QUOTATION in a DOCKET 68 cell (here, and index3.py's DOCKET 68 rows) is the "
         "tree's words, or declared otherwise: M's thesis and the question included, the "
