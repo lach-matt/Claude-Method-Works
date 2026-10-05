@@ -107,3 +107,21 @@ four places where the physics itself compensates, and the rule that limits them.
   bits for bits. Energy cannot dissolve a baryon, lepton or charge defect. Making baryons from energy makes antibaryons
   too (`massform.pair_floor_j` = 1.99748 Mc²), so it creates an equal and opposite defect rather than dissolving one.
   At B such a defect is dissolved only by stock that carries that charge, which is D25's gate again.
+
+## Retiring the original at A (M, item 32)
+
+Asked whether the original at A is taken apart into stock, so the object exists only at B, M answered: "I suspect so,
+to satisfy the no-cloning clause." This is carried as M's hypothesis **H-RETIRE-A** ("I suspect", so a hypothesis and
+not a result). Its term is OUT-A-RESIDUE. The energy to retire the original is OPEN.
+
+What `balance.py` computes beside it (`no_cloning`; 35/35 pass):
+- **No-cloning binds the quantum part.** Over 400 random pairs of states, the overlap gap |⟨ψ|φ⟩| − |⟨ψ|φ⟩|² stays
+  above 0, with least value 0.00208. So no single unitary can clone both states of a pair. Teleportation already
+  satisfies this: A's outcomes are equiprobable, so no copy of the state is left at A.
+- **No-cloning does not bind the classical part.** CNOT onto a blank copies both basis states exactly. A classical
+  description, such as the species sequence, copies freely.
+
+So no-cloning accounts for the quantum state, and teleportation already meets it. The classical description is a
+different matter: what keeps it at one position is retiring A's matter, which is M's condition "either at the beginning
+or end position, never in between". No-cloning does not require it. M's reason is right for the quantum part and does
+not reach the classical part. The retirement is needed either way.

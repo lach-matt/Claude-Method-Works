@@ -65,6 +65,10 @@ NAMED HYPOTHESES (every limitation carried by name)
                     per-cent level); the column's closure does not depend on the approximation (it is site-local).
   H-RESET           B's fabricator register is reset before writing; only then is its erasure an output (Landauer).
   H-ERASE-RECORD    the measurement record (R-QUANTUM, 2 bits per qubit) is erased; otherwise it is kept, as an output.
+  H-RETIRE-A        (M, item 32: "I suspect so, to satisfy the no-cloning clause.") A's instance is retired into stock
+                    at A (OUT-A-RESIDUE).  Computed beside it (no_cloning): no-cloning binds the QUANTUM state, which
+                    teleportation already leaves nowhere at A; it does not bind the CLASSICAL description, which copies
+                    freely -- so retiring A's matter is what keeps the classical part at one position.
   H-ONE-POSITION    (M) "The two positions technically exist as one" -- carried as M's hypothesis.  The board's own
                     reading of the channel (transit.BEATS_LIGHT = False: the classical bits arrive no earlier than D/c)
                     is recorded beside it, not graded: M, "speed is not a question in my work".
@@ -95,6 +99,7 @@ LN2 = math.log(2.0)
 M_WORDS_29 = ("Balanced means that the value of the object at first position must equal the value of the object at "
               "the second position. And any variable input must be accounted for in output")
 M_WORDS_30 = "Information only"
+M_WORDS_32 = "I suspect so, to satisfy the no-cloning clause."
 RULINGS_FILE = os.path.join(WD, "docket68", "M-RULINGS-2026-10-03.md")
 T_A = measure.T_BODY            # H-TBODY, measure.py's: the object's own temperature at A
 T_FLOOR = nopath.T_CMB          # the coldest bath the board holds: a floor on any erasure at B
@@ -197,7 +202,8 @@ def equation(bits, reading):
          + (("IN-EBITS",) if reading == "R-QUANTUM" else ())),
         ("OUT-A-RESIDUE", "OUTPUT", "A", "A's matter, retired as stock at A (%.4g kg): the instance at A leaves only "
          "through this term, on both readings" % o["kg"], o["kg"], "kg",
-         "COMPUTED mass; energy to retire it OPEN", ("IN-A-OBJECT", "IN-A-READ")),
+         "COMPUTED mass; energy to retire it OPEN; carried under H-RETIRE-A (M, item 32)",
+         ("IN-A-OBJECT", "IN-A-READ")),
         ("OUT-B-RESIDUE", "OUTPUT", "B", "stock processed and not incorporated", s["ci_residue_kg"], "kg",
          "COMPUTED (stock.feedstock_kg - payload)", ("IN-B-STOCK",)),
         ("OUT-B-HEAT", "OUTPUT", "B", "heat from resetting B's register before writing I (H-RESET): >= %.3g J at %.4g "
@@ -238,15 +244,36 @@ def energy_total(terms):
     return sum(x[4] for x in e if x[1] == "INPUT") - sum(x[4] for x in e if x[1] == "OUTPUT")
 
 
+def no_cloning(trials=400, seed=3):
+    """What no-cloning binds, and what it does not.
+      quantum: a unitary preserves inner products, so cloning |psi> and |phi> needs <psi|phi> = <psi|phi>^2, true only
+               when |<psi|phi>| is 0 or 1 (Wootters-Zurek).  Over random pairs: the least gap ||<psi|phi>| -
+               |<psi|phi>|^2| (> 0: no single unitary clones both) -- and teleportation already leaves A with no
+               information about psi (quantum_value_balance: outcomes equiprobable).
+      classical: CNOT onto a blank |0> copies each basis state exactly (fidelity 1): a classical record copies freely,
+               so no-cloning does not bind the species sequence."""
+    rng = random.Random(seed)
+    gap = 1.0
+    for _ in range(trials):
+        a, b = _rand_state(rng), _rand_state(rng)
+        ov = abs(a[0].conjugate() * b[0] + a[1].conjugate() * b[1])
+        gap = min(gap, abs(ov - ov * ov))
+    # CNOT |x>|0> = |x>|x> for x in {0, 1}: on basis vectors of C^4 ordered |00>,|01>,|10>,|11>
+    cnot = {0: 0, 1: 1, 2: 3, 3: 2}
+    copies = [cnot[2 * x + 0] == 2 * x + x for x in (0, 1)]
+    return {"trials": trials, "least_overlap_gap": gap, "cnot_copies_basis_states": copies}
+
+
 def m_words_present():
     with open(RULINGS_FILE, encoding="utf-8") as fh:
         text = " ".join(fh.read().split())
-    return M_WORDS_29 in text, ('M: "%s"' % M_WORDS_30) in text
+    return M_WORDS_29 in text, ('M: "%s"' % M_WORDS_30) in text, M_WORDS_32 in text
 
 
 def collect():
     qv = quantum_value_balance()
-    out = {"m_words": {"29": M_WORDS_29, "30": M_WORDS_30, "present": m_words_present()},
+    out = {"m_words": {"29": M_WORDS_29, "30": M_WORDS_30, "32": M_WORDS_32, "present": m_words_present()},
+           "no_cloning": no_cloning(),
            "value_counts": counts(), "quantum_value_balance": qv,
            "conserved": object_conserved(), "closure": conserved_closure(), "stock": stock_terms(),
            "board_channel_reading": {"BEATS_LIGHT": transit.BEATS_LIGHT, "CARRIES_SUBSTANCE": transit.CARRIES_SUBSTANCE,
@@ -280,6 +307,13 @@ def report():
     print("    R-CLASSICAL: a classical record copies, so I(A) does not fall by sending; on both readings A's instance")
     print("    leaves only through an output term (teleportation moves state, not species: CARRIES_SUBSTANCE = %s)"
           % d["board_channel_reading"]["CARRIES_SUBSTANCE"])
+    nc = d["no_cloning"]
+    print('    M, item 32: "%s"  (H-RETIRE-A)' % M_WORDS_32)
+    print("    no-cloning binds the QUANTUM part: least overlap gap over %d random pairs %.3g > 0, and teleportation"
+          % (nc["trials"], nc["least_overlap_gap"]))
+    print("    already leaves A no information about the state; it does NOT bind the CLASSICAL part (CNOT copies basis")
+    print("    states: %s) -- retiring A's matter is what keeps the classical description at one position"
+          % nc["cnot_copies_basis_states"])
     c = d["conserved"]
     print("\n(4) Conserved quantities -- a consistency column, not the value:")
     print("    object: %.4g kg, %.4g atoms, mass number ~ %.4g (H-BARYON-BY-MASS), %.4g electrons, charge 0, %.4g J"
@@ -318,7 +352,13 @@ def selftest():
         print("  [%s]%s %-92s %r" % ("ok" if ok else "XX", " CTL" if ctl else "", label[:92], got))
 
     print("balance.py selftest")
-    chk("M's words, items 29 and 30, are found verbatim in the rulings file", m_words_present(), (True, True))
+    chk("M's words, items 29, 30 and 32, are found verbatim in the rulings file", m_words_present(),
+        (True, True, True))
+    nc = no_cloning()
+    chk("no-cloning (quantum): over random pairs the overlap gap |<psi|phi>| - |<psi|phi>|^2 stays > 0 -- no unitary "
+        "clones both", nc["least_overlap_gap"] > 0, True)
+    chk("CONTROL: classical copying is not forbidden -- CNOT onto a blank copies both basis states",
+        nc["cnot_copies_basis_states"], [True, True], ctl=True)
     chk("CONTROL: a one-word change to item 29's words is not found",
         (M_WORDS_29.replace("must equal", "should equal") in
          " ".join(open(RULINGS_FILE, encoding="utf-8").read().split())), False, ctl=True)
