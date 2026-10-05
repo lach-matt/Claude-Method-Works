@@ -739,6 +739,48 @@ NAMED LIMITATIONS OF THIS SEATING (wave 3 and Step 1b).
   Not edited by this seating: paper/CLAIMS.md (M's rule for the paper),
     docket68/combine.py (the O-BITS grade stays proposed), index3.py,
     specthm.py, and the wave-3 and Step 1b owners.
+
+===============================================================================
+8d.  STEP 1c, AS SEATED (M-RULINGS items 37-39)
+===============================================================================
+
+M ruled the order 1a, 1b, 1c (specthm.py section 0).  Step 1c -- the device --
+ran in step1c/: demand.py (what each subsystem must deliver, read off the
+balanced equation), supply.py (present supply READ at source, item 37: "All
+three (Recommended)"), coupling.py (the wave-3 coupling as the link, item 38:
+"Take the coupling route"), nonlocal.py and coherence.py (item 39: "3, then 2.
+Then 1 last please" -- the non-local branch as M's hypothesis, then
+H-COHERENCE, then this seating).  Each was verified adversarially in both
+directions and corrected; first-written claims are kept in each file's
+HISTORY and in step1c/DEVICE.md.  Every value is ASKED of its owner at run
+time (S1C_ASKED).
+
+  THE OWNERS  step1c's demand.py, supply.py and coupling.py share their names
+       with modules in this directory, so all five are loaded BY PATH under
+       private names (_s1c_load), never by the bare name, with the same lending
+       and setting-aside as section 8c's load.  The selftest checks the bare
+       names still answer to this directory's modules.
+  RULED_BY_M  + M-D68-37, 38, 39, appended to D68_RULED.
+  S1C_OPEN  eight items, each with what would answer it.  Named, not ranked.
+  O9 and the board  no status moves.  WITHDRAWN on verification and kept as
+       history in the owners: 'J <= pi c/2L' as a locality ceiling (locality
+       bounds time, not J); 'a century is not excluded' for an instantaneous
+       coupling; the formal 1/R^3 carry as the best direct coupling (the far
+       field is (kL)^2 larger); 'H-MIDPOINT-SOURCE minimises the hold' (2x/c, 0
+       at Alice).  Wave 3's proposed O-BITS grade is unchanged: its J > pi c/2L
+       is the before-light condition of the instantaneous coupling it names.
+       H-NONLOCAL-COUPLING is M's hypothesis, carried, neither shown nor
+       dismissed.
+
+NAMED LIMITATIONS OF THIS SEATING (Step 1c).
+  H-NO-S1C-ROW: no index3 row is added; nothing seated here moves a
+    requirement or a grade a row reads (wave 2's precedent, section 7b).
+  The supply figures were read by this session's readers; the ones the gaps
+    rest on were re-read by the lead (Sturm, the DSOC release, Barredo,
+    Vienna's geometry, Saeedi).  The rest carry the reader's or the
+    verifier's route.
+  Not edited by this seating: paper/CLAIMS.md, docket68/combine.py,
+    index3.py, specthm.py, and the step1c, wave-3 and Step 1b owners.
 """
 
 import contextlib
@@ -3381,6 +3423,11 @@ D68_M_WORDS = {
     "M-D68-34": ("Corridor (D68 wave 3)", D68_RULINGS_FILE),
     # ADDED (W3S1B-seat): item 36, M's ruling to seat wave 3 and Step 1b.
     "M-D68-36": ("Seat both (Recommended)", D68_RULINGS_FILE),
+    # ADDED (S1C-seat, docstring section 8d): items 37-39, M's answers on
+    # Step 1c.
+    "M-D68-37": ("All three (Recommended)", D68_RULINGS_FILE),
+    "M-D68-38": ("Take the coupling route", D68_RULINGS_FILE),
+    "M-D68-39": ("3, then 2. Then 1 last please", D68_RULINGS_FILE),
 }
 
 #: THE QUESTIONS PUT TO M FOR M'S DOCKET 66 RULINGS (items 26-28), as the
@@ -3952,6 +3999,114 @@ def w3_throat_factors():
     return m1 / max(ms), m1 / min(ms)
 
 
+# ----- STEP 1c (docstring section 8d) --------------------------------------
+# Its owners sit in step1c/ and SHARE THEIR NAMES with modules in this
+# directory (demand.py, supply.py, coupling.py), so each is loaded by PATH
+# under a private name ('s1c_demand', ...), never by its bare name; the selftest
+# checks the bare names still answer to this directory's modules.  step1c's
+# demand.py reaches step1b's openterms, which imports THIS file: the same
+# lending and setting-aside as _w3s1b_load (section 8c), so a run of a step1c
+# owner as __main__ that reaches this file part-way through its own load still
+# finds a whole set of owners.
+S1C_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), "step1c")
+S1C_OWNERS = ("demand", "supply", "coupling", "nonlocal", "coherence")
+
+
+def _s1c_load():
+    """{name: module} for step1c's five owners, each loaded by path as 's1c_<name>'; and the facts the selftest checks
+    about the load."""
+    import importlib.util
+    saved = list(sys.path)
+    keys = ["s1c_" + n for n in S1C_OWNERS] + list(W3S1B_OWNERS)
+    stashed = dict((k, sys.modules.pop(k)) for k in keys if k in sys.modules)
+    lent = "ledger" not in sys.modules
+    if lent:
+        sys.modules["ledger"] = sys.modules[__name__]
+    mods = {}
+    try:
+        with contextlib.redirect_stdout(io.StringIO()):
+            for n in S1C_OWNERS:
+                key = "s1c_" + n
+                if key in sys.modules:          # loaded already as a sibling of an earlier owner
+                    mods[n] = sys.modules[key]
+                    continue
+                spec = importlib.util.spec_from_file_location(key, os.path.join(S1C_DIR, n + ".py"))
+                m = importlib.util.module_from_spec(spec)
+                sys.modules[key] = m
+                spec.loader.exec_module(m)
+                mods[n] = m
+    finally:
+        sys.path[:] = saved
+        if lent:
+            del sys.modules["ledger"]
+        for k in ["s1c_" + n for n in S1C_OWNERS]:
+            sys.modules.pop(k, None)
+        sys.modules.update(stashed)
+    facts = {"path_restored": sys.path == saved, "set_aside": sorted(stashed),
+             "bare_names_not_step1c": [n for n in ("demand", "supply", "coupling")
+                                       if os.path.dirname(os.path.abspath(
+                                           getattr(sys.modules.get(n), "__file__", "") or "x")) == S1C_DIR],
+             "from_step1c": [n for n, m in mods.items() if os.path.dirname(os.path.abspath(m.__file__)) != S1C_DIR]}
+    return mods, facts
+
+
+S1C, S1C_LOAD = _s1c_load()
+
+
+def s1c_asked():
+    """Every Step 1c value a cell below prints, ASKED of its owner at call time."""
+    de, su, co, nl, ch = (S1C[n] for n in S1C_OWNERS)
+    with contextlib.redirect_stdout(io.StringIO()):
+        g = su.gaps()
+        yr = [r for r in g["rows"] if r["schedule"] == "1 yr"][0]
+        cs = co.supply_rows()
+        cen = [r for r in co.demand_rows() if r["schedule"] == "1 century"][0]
+        nd = nl.collect()
+        cd = ch.collect()
+        out = {
+            "crossover_yr": de.collect()["crossover_yr"],
+            "gap_1yr": yr, "best": g["best"],
+            "link_power_rise_1yr": su.link_at_proxima()["power_rise_needed"]["1 yr"],
+            "dsoc_law": su.dsoc_law_test()["measured_over_predicted"],
+            "dsoc_long": su.dsoc_long_range_test()["measured_over_predicted"],
+            "errors": su.placement_errors(),
+            "inst_signal_century": co.instantaneous_signal(cen["J_pair_rad_s"]),
+            "near_field_m": (cs["rydberg_near_field_limit_m"], cs["kotler_near_field_limit_m"]),
+            "J_far": cs["rydberg_J_far_at_L_rad_s"], "J_century": cen["J_pair_rad_s"],
+            "dipole_over_L": co.dipole_needed(cen["J_pair_rad_s"])["separation_over_L"],
+            "frame": nd["frame"], "tightest": nd["tightest"], "tightest_C": nd["tightest_C"],
+            "falloff_alpha": nd["falloff_alpha"], "day_J": nd["demand_J"]["1 day"],
+            "hold_by_source": cd["demand"]["hold_by_source"],
+            "shortfall_by_overhead": cd["shortfall_by_overhead"],
+            "best_T2_s": ch.best_measured(),
+        }
+    return out
+
+
+S1C_ASKED = s1c_asked()
+
+#: WHAT STEP 1c LEAVES OPEN (docstring section 8d), as step1c/DEVICE.md states
+#: it: (id, what is open, what would answer it, owner).  Named, not ranked.
+S1C_OPEN = [
+    ("S1C-O1", "an atom-resolving read of a bulk object that reads every atom it removes, or removes none, at any "
+     "rate", "a demonstrated method, READ at source", "step1c/supply.py"),
+    ("S1C-O2", "placement into a bonded solid at any demonstrated rate", "a demonstrated rate, READ at source",
+     "step1c/supply.py"),
+    ("S1C-O3", "an optical link rate measured beyond 400e6 km (DSOC's 494e6 km contact states no rate)",
+     "a measured rate at a larger distance", "step1c/supply.py"),
+    ("S1C-O4", "whether the speed-free routes make a non-local J distance-free (H-J-DISTANCE-FREE)", "a model or a "
+     "measurement of J against separation", "step1c/nonlocal.py"),
+    ("S1C-O5", "which NIST aggregate Table S-II is (1-pulse or 5-pulse margin); whether Munich's runs are the per-run "
+     "maximum", "the supplements, READ", "step1c/nonlocal.py"),
+    ("S1C-O6", "a fault-tolerant memory holding a quantum payload for years (H-FT-MEMORY), and its operations and energy "
+     "on 9.5e27 x k physical qubits", "a demonstrated memory, and the demand priced", "step1c/coherence.py"),
+    ("S1C-O7", "the spins per ensemble-stored qubit (H-ENSEMBLE-PER-QUBIT)", "the count, READ or computed",
+     "step1c/coherence.py"),
+    ("S1C-O8", "the transmitted power at the device's apertures (seat.channel_floor establishes received power only)",
+     "the link budget with diffraction loss, computed", "step1c/supply.py"),
+]
+
+
 #: WHAT DOCKET 68 WAVE 3 AND STEP 1b LEAVE OPEN (docstring section 8c), as
 #: their owners' records state it (step1b/BALANCE.md, docket68/wave3/WAVE3.md):
 #: (id, what is open, what would answer it, owner).  Named, not ranked (section
@@ -4512,6 +4667,68 @@ D68_RULED = [
                "added (H-NO-W3S1B-ROW), and paper/CLAIMS.md is not edited"
                % (len(W3S1B_OPEN), len(W3S1B))),
      "the board's record of wave 3 and Step 1b; Step 1c next"),
+    # ----- ADDED (S1C-seat, docstring section 8d): M's answers on Step 1c,
+    # items 37-39 (2026-10-05).  Every figure ASKED of step1c's owners
+    # (S1C_ASKED).  No board status moves.
+    ("M-D68-37",
+     "Step 1c, the supply side (M-RULINGS-2026-10-03.md item 37, 2026-10-05, as the file records it): which device "
+     "subsystem's present-day supply to read at source first -- all three, assembly at B first, reading at A first, "
+     "or the channel first?",
+     "step1c/demand.py had priced each subsystem's demand from the balanced equation; no supply was read",
+     _d68_rule("ALL THREE", "M-D68-37",
+               "step1c/supply.py, every supply figure READ at source with its route (open content only; paywalls and "
+               "a reCAPTCHA reported, not routed around).  Asked, at a 1 yr transfer, for one instrument: reading at "
+               "A falls short by %s (atom probe tomography, %s atoms read per s, which removes 60%% of atoms unread); "
+               "assembly at B by %s (optical tweezers, %s atoms per s at most, into vacuum, not a bonded solid); the "
+               "channel by %s (DSOC's farthest measured rate carried to L under 1/d^2 at fixed hardware, %s bits per "
+               "s -- the measured pair departs from 1/d^2 by %sx near and holds to %sx far).  Linear closure of the "
+               "channel is excluded: received power must rise by at least %s (seat.channel_floor, any carrier).  "
+               "The gaps are on different quantities and are not ranked or added"
+               % (_g(S1C_ASKED["gap_1yr"]["READ-A"], 2), _g(S1C_ASKED["best"]["READ-A atoms/s"]),
+                  _g(S1C_ASKED["gap_1yr"]["ASSEMBLE-B"], 2), _g(S1C_ASKED["best"]["ASSEMBLE-B atoms/s"]),
+                  _g(S1C_ASKED["gap_1yr"]["CHANNEL"], 2), _g(S1C_ASKED["best"]["CHANNEL bits/s at Proxima"], 2),
+                  "%.2f" % S1C_ASKED["dsoc_law"], "%.2f" % S1C_ASKED["dsoc_long"],
+                  _g(S1C_ASKED["link_power_rise_1yr"], 2))),
+     "Step 1c's supply side; the OPEN items S1C-O1..O3, O8"),
+    ("M-D68-38",
+     "Step 1c after its verification (M-RULINGS-2026-10-03.md item 38, 2026-10-05, as the file records it): seat Step "
+     "1c, pursue one gap further, take the coupling route, or not yet?",
+     "Step 1c's demand and supply were verified both ways and corrected",
+     _d68_rule("THE COUPLING ROUTE", "M-D68-38",
+               "step1c/coupling.py prices the wave-3 coupling as the device's link.  Locality bounds TIME, not J: an "
+               "instantaneous coupling at the century J already gives B %s by L/c, so H-LOCALITY excludes it at every "
+               "J; a retarded coupling completes at L/c or later and is photon exchange, the channel.  The direct "
+               "couplings measured are near-field 1/R^3, valid only below lambda/2pi -- %s m (Rydberg, 9.131 GHz) and "
+               "%s m (Kotler's ions) -- beyond which the retarded far-field term at L is %s rad/s, %s short of the "
+               "century demand per pair; a near-field coupling at L would need a dipole of charge e separated by %s L.  "
+               "corridor.before_light's threshold is where an instantaneous coupling would complete before light, "
+               "not a ceiling on J (FIRST SAID as a ceiling, withdrawn on verification)"
+               % (_g(S1C_ASKED["inst_signal_century"], 2), _g(S1C_ASKED["near_field_m"][0], 2),
+                  _g(S1C_ASKED["near_field_m"][1], 2), _g(S1C_ASKED["J_far"], 2),
+                  _g(S1C_ASKED["J_century"] / S1C_ASKED["J_far"], 2), "%.1f" % S1C_ASKED["dipole_over_L"])),
+     "the coupling route, priced; wave 3's proposed O-BITS grade unchanged (its J > pi c/2L is the before-light "
+     "condition of the instantaneous coupling that grade names)"),
+    ("M-D68-39",
+     "Order after the coupling route (M-RULINGS-2026-10-03.md item 39, 2026-10-05, as the file records it): 1 seat "
+     "Step 1c, 2 price coherence, 3 revisit H-LOCALITY, or 4 not yet?",
+     "the coupling route was priced and verified; H-COHERENCE was named and priced nowhere",
+     _d68_rule("H-LOCALITY, THEN COHERENCE, THEN SEAT STEP 1c", "M-D68-39",
+               "(3) step1c/nonlocal.py carries H-NONLOCAL-COUPLING as M's hypothesis, never dismissed: loops close iff "
+               "no common simultaneity frame (latticectc, asked: witnesses %s, spacelike-span pair %s), so it needs "
+               "H-FRAME; present spacelike no-signalling checks (READ) allow J up to %s rad/s (%s) -- %s x the day "
+               "demand (reading C: %s x) -- so they do not exclude it under H-J-DISTANCE-FREE, H-SETTING-DEPENDENCE "
+               "and H-UNIVERSAL-COUPLING; if J falls as r^-alpha they do for alpha > %s (day) / %s (century).  "
+               "(2) step1c/coherence.py: Bob's stored hold is 2x/c -- %s s at the midpoint, 0 with the source at "
+               "Alice or for a bit payload; at the midpoint the best measured T2 (%s s) falls short by %s at overhead "
+               "2 and %s at 1e27.  (1) this seating (docstring section 8d)"
+               % (S1C_ASKED["frame"]["witness_loop"], S1C_ASKED["frame"]["pair_loop"],
+                  _g(S1C_ASKED["tightest"][1], 2), S1C_ASKED["tightest"][0],
+                  _g(S1C_ASKED["tightest"][1] / S1C_ASKED["day_J"], 2),
+                  _g(S1C_ASKED["tightest_C"] / S1C_ASKED["day_J"], 2),
+                  "%.2f" % S1C_ASKED["falloff_alpha"]["1 day"], "%.2f" % S1C_ASKED["falloff_alpha"]["1 century"],
+                  _g(S1C_ASKED["hold_by_source"]["x = L/2 (midpoint)"]), _g(S1C_ASKED["best_T2_s"]),
+                  _g(S1C_ASKED["shortfall_by_overhead"][2.0], 2), _g(S1C_ASKED["shortfall_by_overhead"][1e27], 2))),
+     "the non-local branch and coherence, priced; the OPEN items S1C-O4..O7"),
 ]
 
 RULED_BY_M += D68_RULED
@@ -5563,6 +5780,8 @@ def _d68_cells():
     # ADDED (W3S1B-seat): the OPEN list of section 8c.
     out.update(("W3S1B-OPEN %s col %d" % (r[0], i), c) for r in W3S1B_OPEN
                for i, c in enumerate(r[1:], 1))
+    # ADDED (S1C-seat): the OPEN list of section 8d.
+    out.update(("S1C-OPEN %s col %d" % (r[0], i), c) for r in S1C_OPEN for i, c in enumerate(r[1:], 1))
     return out
 
 
@@ -6468,6 +6687,11 @@ def report():
         print(textwrap.fill("%s %s -- answered by: %s (%s)" % (oid.ljust(8), " ".join(what.split()),
                                                               " ".join(answers.split()), owner),
                             96, initial_indent="  ", subsequent_indent="           "))
+    print("\nSTEP 1c -- WHAT STAYS OPEN (section 8d; no board status moves)")
+    for oid, what, answers, owner in S1C_OPEN:
+        print(textwrap.fill("%s %s -- answered by: %s (%s)" % (oid.ljust(8), " ".join(what.split()),
+                                                              " ".join(answers.split()), owner),
+                            96, initial_indent="  ", subsequent_indent="           "))
     print("\nPENDING M'S RULING -- RECORDED, NOT APPLIED%s"
           % ("" if PENDING_RULINGS else ": none"))
     for pid, q, why, proposal, waits in pending_rulings():
@@ -6688,6 +6912,15 @@ def to_markdown():
         L.append("| %s | %s | %s | %s |" % (oid, _cell(what, W_WHY), _cell(answers, W_WHY),
                                             _cell(owner, W_WHY)))
     L.append("")
+    # ADDED (S1C-seat, docstring section 8d).
+    L += ["## Step 1c -- what stays open", "",
+          "Seated on M's \"3, then 2. Then 1 last please\" (item 39; docstring section 8d). No board",
+          "status moves. Each item names what would answer it.", "",
+          "| id | open | what would answer it | owner |", "|---|---|---|---|"]
+    for oid, what, answers, owner in S1C_OPEN:
+        L.append("| %s | %s | %s | %s |" % (oid, _cell(what, W_WHY), _cell(answers, W_WHY),
+                                            _cell(owner, W_WHY)))
+    L.append("")
     L += ["## Pending M's ruling -- recorded, not applied", "",
           "This file edits no peer and changes no requirement. A question",
           "that needs M's ruling is recorded here so the board shows it.", "",
@@ -6838,6 +7071,9 @@ def _truncated_cells(demand_claim=None, demand_moves=None, open_claim=None,
     for r in W3S1B_OPEN:
         if any(cut(c, wh) for c in r[1:]):
             out.append(("w3s1b-open", r[0]))
+    for r in S1C_OPEN:
+        if any(cut(c, wh) for c in r[1:]):
+            out.append(("s1c-open", r[0]))
     return out
 
 
@@ -7597,13 +7833,16 @@ def selftest():
         # M's answers to questions put (items 22-24 of 2026-10-04 first seated
         # here); items 21, 23, 25, 31, 32 and 35 are D68_FILE_CARRIED, not
         # counted.
+        # RE-PINNED WITH STEP 1c (S1C-seat, item 39's step 1): + M-D68-37,
+        # 38 and 39, M's answers on Step 1c.
         (["M-D64-1", "M-S1A-P1", "M-S1A-P2", "M-S1A-P3", "M-S1A-P4",
           "M-S1A-P5", "M-D65-1", "M-D65-2", "M-D65-3", "M-D65-4", "M-D65-5",
           "M-D67-1", "M-D67-2"]
          + ["M-D68-%d" % i for i in list(range(1, 14)) + [15, 16]]
          + ["M-D68-C%d" % i for i in (1, 2, 3, 5, 8, 12)]
          + ["M-D68-%d" % i for i in (26, 27, 28)]
-         + ["M-D68-%d" % i for i in (22, 24, 29, 30, 33, 34, 36)], [],
+         + ["M-D68-%d" % i for i in (22, 24, 29, 30, 33, 34, 36)]
+         + ["M-D68-%d" % i for i in (37, 38, 39)], [],
          True, False, False, True, False))
 
     print("\n3. THE EXCHANGE RATE, RE-DERIVED FROM ASKED CONSTANTS")
@@ -9159,6 +9398,32 @@ def selftest():
                                       for d in (S1B_DIR, W3_DIR, D68_DIR))],
          "8c.  DOCKET 68 WAVE 3 AND STEP 1b" in __doc__),
         (13, [], True))
+    # ADDED (S1C-seat, docstring section 8d): Step 1c.
+    chk("STEP 1c: the five owners load from step1c/ by path, and the bare names demand, supply and coupling still "
+        "answer to this directory's modules; sys.path is restored",
+        (S1C_LOAD["from_step1c"], S1C_LOAD["bare_names_not_step1c"], S1C_LOAD["path_restored"], len(S1C)),
+        ([], [], True, 5))
+    _f1 = s1c_asked()
+    _cell1 = dict((r[0], r[3]) for r in D68_RULED if r[0] in ("M-D68-37", "M-D68-38", "M-D68-39"))
+
+    def _s1c_needles(f, scale=1.0):
+        return [("M-D68-37", _g(scale * f["gap_1yr"]["READ-A"], 2)),
+                ("M-D68-37", _g(scale * f["gap_1yr"]["CHANNEL"], 2)),
+                ("M-D68-37", _g(scale * f["link_power_rise_1yr"], 2)),
+                ("M-D68-38", _g(scale * f["inst_signal_century"], 2)),
+                ("M-D68-38", _g(scale * f["J_far"], 2)),
+                ("M-D68-39", _g(scale * f["tightest"][1], 2)),
+                ("M-D68-39", _g(scale * f["shortfall_by_overhead"][2.0], 2))]
+    chk("  every Step 1c ruling cell prints its owner's figure, asked afresh (seven needles)",
+        [n for n in _s1c_needles(_f1) if n[1] not in " ".join(_cell1[n[0]].split())], [])
+    chk("  CONTROL: the same needles at 1.5 times the owners' figures are not found",
+        len([n for n in _s1c_needles(_f1, 1.5) if n[1] not in " ".join(_cell1[n[0]].split())]), 7)
+    chk("  S1C_OPEN names %d items, each with an owner file in step1c/; LEDGER.md prints them after wave 3's and "
+        "before the pending rulings; section 8d is in the docstring" % len(S1C_OPEN),
+        (len(S1C_OPEN), [r[0] for r in S1C_OPEN if not _os.path.exists(_os.path.join(HERE, r[3]))],
+         _md.index("## DOCKET 68 wave 3 and Step 1b -- what stays open") < _md.index("## Step 1c -- what stays open")
+         < _md.index("## Pending M's ruling"), "8d.  STEP 1c, AS SEATED" in __doc__),
+        (8, [], True, True))
     chk("EVERY QUOTATION in a DOCKET 68 cell (here, and index3.py's DOCKET 68 rows) is the "
         "tree's words, or declared otherwise: M's thesis and the question included, the "
         "D23 note's quotation exact ('because is already exists everywhere')",

@@ -1,4 +1,6 @@
-# Step 1c — the device: demand, and present supply read at source (verified once, corrected; not seated; 2026-10-05)
+# Step 1c — the device: demand, present supply, the coupling route, the non-local branch and coherence (verified, corrected; seated 2026-10-05)
+
+*Seated on M's "3, then 2. Then 1 last please" (rulings item 39): `ledger.py` docstring section 8d, M-D68-37/38/39 on RULED_BY_M, the OPEN list as S1C_OPEN. No board status moves. (First titled "not seated".)*
 
 M ruled the order: 1a the specification theorem, 1b the balanced equation, 1c the device (`specthm.py` section 0).
 M's original framing was "balancing an equation with the theory and math on one side, and the device engineering and
