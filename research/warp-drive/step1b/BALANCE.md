@@ -77,3 +77,33 @@ graded, because M has said "speed is not a question in my work".
 
 - First written expecting B's fidelity with the bits withheld to be 2/3. That is the best measure-and-prepare fidelity,
   a different quantity. The check failed, and the value is 1/2 for every state, since B holds I/2.
+
+## Compensation (M, item 31) — `step1b/compensate.py`, 18/18 pass, 3 controls
+
+M: "Be sure to account for compensation in the physics.... Let's say mass energy density is different at the seat, but
+some other discrepancy makes up of that and dissolves the defect...". This is carried as H-COMPENSATION. The file tests
+four places where the physics itself compensates, and the rule that limits them.
+
+- **(C1) Frame: dissolved by B's stock.** The object's rest mass is the same at both ends, but its energy in the Sun's
+  frame is not, so a defect appears between the two positions.
+  - A, Earth's surface: ε_A = −5.061e8 J/kg.
+  - B, Proxima b: ε_B ranges from −2.19e9 to +9.01e8 J/kg. The inputs are Proxima's space velocity of 32.51 km/s
+    (Kervella et al. 2017, arXiv:1611.03495v3, Table B.1, READ), b's orbital speed of 47.2 km/s, and the potentials
+    of Proxima, the Sun and α Cen AB. b's orbital phase is unknown, and its mass is a minimum.
+  - The defect for 70 kg runs from −1.18e11 to +9.85e10 J.
+  - When the object is built from B's stock, the defect is **dissolved**: the stock already moves with B and sits in
+    B's potential, so the residual is 0. The control: the same object shipped from A leaves the whole defect standing.
+- **(C2) Negative energy at the seat: quantum interest** (Ford & Roman, gr-qc/9901074v1, READ). Here the physics does
+  what M describes, but never exactly. A negative-energy defect must be repaid by positive energy that overcompensates
+  it by a fraction ε > 0. Exact compensation (ε = 0) admits no non-trivial pulse.
+  - The repayment must arrive within T_max = 0.338 (A/|E|)^(1/3). For 1 J over 1 m², that is 3.56e-18 s.
+  - At a separation of 1e-19 s, ε ≥ 6.0e-8, and ε grows as T⁶.
+  - Eq. 39's limit is re-derived numerically from F(α).
+  - This is proved for a massless scalar field in flat spacetime (H-QI-SCOPE). At the seat it is a hypothesis.
+- **(C3) The value: redundancy.** A noisy channel's bit errors are a defect in I(B). Redundancy dissolves it, at
+  I/(1 − h₂(p)) channel bits (Shannon's binary symmetric channel). The redundant bits are an input, and they are
+  discarded at B as an output. At p = 0.11 the channel needs about 2× the bits. At p = ½ nothing compensates.
+- **(C4) What cannot compensate what.** Compensation works only within one conserved currency: energy for energy,
+  bits for bits. Energy cannot dissolve a baryon, lepton or charge defect. Making baryons from energy makes antibaryons
+  too (`massform.pair_floor_j` = 1.99748 Mc²), so it creates an equal and opposite defect rather than dissolving one.
+  At B such a defect is dissolved only by stock that carries that charge, which is D25's gate again.
