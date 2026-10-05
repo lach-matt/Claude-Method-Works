@@ -56,10 +56,24 @@ import os
 import sys
 
 HERE = os.path.dirname(os.path.abspath(__file__))
-if HERE not in sys.path:
-    sys.path.insert(0, HERE)
+
+
+def _sibling(name, fname):
+    """A step1c owner, loaded by PATH under a private name: the board's root holds its own demand.py, supply.py and
+    coupling.py, so a sibling is never imported by its bare name."""
+    import importlib.util as _ilu
+    key = "s1c_" + name
+    if key in sys.modules:
+        return sys.modules[key]
+    spec = _ilu.spec_from_file_location(key, os.path.join(HERE, fname))
+    mod = _ilu.module_from_spec(spec)
+    sys.modules[key] = mod
+    spec.loader.exec_module(mod)
+    return mod
+
+
 with contextlib.redirect_stdout(io.StringIO()):
-    import demand
+    demand = _sibling("demand", "demand.py")
 
 # ============================================================================ READ: READ-A
 READ_A = {

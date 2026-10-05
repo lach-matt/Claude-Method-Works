@@ -175,6 +175,50 @@ time π/(2J) (`corridor.py`).
   - A guessed threshold failed.
   - Two ids in the reader's brief were wrong.
 
+## The non-local branch, as M's hypothesis (`nonlocal.py`, 5/5 checks, 1 control, 4 STRUCTURAL; M item 39: "3, then 2. Then 1 last please"; not yet verified)
+
+**H-NONLOCAL-COUPLING:** an instantaneous term J(|A⟩⟨B| + |B⟩⟨A|) across spacelike L. It is wave 3's H-DIRECT-COUPLING
+with H-LOCALITY dropped. It is linear quantum mechanics with a non-local Hamiltonian. It is *not* H-SETTLE
+(`docket68/settle.py`), which is nonlinear and local: that is the board's other signalling branch, with its own bounds
+read at source in wave 2.
+
+- **What it would have to be.**
+  - **A channel, at any J.** B gets sin²(Jt).
+  - **Keyed to one frame.** latticectc's theorem, asked with its own witnesses: two instantaneous couplings keyed to
+    different frames close a causal loop; one alone, or two keyed to one frame, do not. So the branch needs M's
+    H-FRAME (M-D68-C10, carried on the board).
+  - **For the device:** 9.5e27 couplings each spanning L, at 4.98e-10 rad/s per pair for a century or 1.82e-5 for a
+    day.
+- **What it contradicts, and what it does not.** It contradicts relativistic microcausality (H-LOCALITY). It does
+  **not** contradict:
+  - non-relativistic linear quantum mechanics. Eldredge et al. (read by wave 3) find L-independent transfer for
+    α < d, and Nachtergaele & Sims call the non-relativistic light-cone structure approximate.
+  - `nosig.py`, which concerns entanglement without a coupling term.
+- **What measurement would test it.**
+  - While A and B stay spacelike, Bob's marginal moves by δ = sin²(Jr/c), and resolving δ near ½ takes about
+    1/(4δ²) trials (H-SHOT-NOISE).
+  - At the century J the reach is δ = 4.4e-3 at L itself (about 1.3e4 trials), but 4.1e-19 at Earth–Moon (1.5e36
+    trials) and 4.7e-30 at 1.3 km (1.2e58 trials).
+  - **The coupling the device needs is testable only at separations comparable to L.**
+- **What present tests allow, read at source.** These are the measured no-signalling checks of spacelike Bell tests:
+  Vienna 2015 (58 m), NIST 2015 (185 m) and Munich 2017 (398 m). Delft reports no statistic in its main text. Each
+  test's largest marginal difference plus 2σ bounds an instantaneous J at its separation:
+  - The bounds run from **J ≤ 6.9e3 rad/s** (NIST) to 6.95e5 rad/s (Vienna under reading B, with the shift scaled by
+    detection).
+  - The tightest is 3.8e8 times the day demand per pair and 1.4e13 times the century's. **Present tests do not
+    exclude H-NONLOCAL-COUPLING at the strength the device needs**, provided J does not depend on distance
+    (H-J-DISTANCE-FREE).
+  - A test at the device's own span, resolving 1e-3, would exclude the century coupling.
+  - Munich's Apr 7 run shows a 2.5σ marginal difference (p = 0.014). The authors read it as no evidence of signalling,
+    and it is recorded here as such.
+- **What does not bear on it.** The speed-of-influence bounds (Salart 2008, ≥ 5.4e4 c; Yin 2013, ≥ 1.38e4 c) bound an
+  influence carrying correlations. By the papers' own account that is not signalling, so they do not bound a
+  coupling that signals.
+- **Hypotheses:** H-NONLOCAL-COUPLING (M's branch), H-FRAME, H-SHOT-NOISE, H-SPACELIKE-WINDOW, H-J-DISTANCE-FREE and
+  H-COUPLING-MAP (reading A unscaled, reading B scaled by detection; both printed, neither favoured).
+- **This is a hypothesis carried, not a result.** It is neither shown nor dismissed. What it needs is H-FRAME and a
+  coupling of the strength above spanning L. What would test it is a no-signalling check at separations near L.
+
 ## Named hypotheses (supply)
 
 H-ONE-INSTRUMENT, H-PARALLEL-INSTRUMENTS, H-INVERSE-SQUARE, H-FIXED-HARDWARE, H-FIXED-CARRIER, H-FRIIS-IDEAL, H-NO-PREP
