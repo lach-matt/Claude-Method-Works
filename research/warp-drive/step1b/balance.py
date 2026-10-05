@@ -179,13 +179,15 @@ def equation(bits, reading):
     t = [
         ("IN-A-OBJECT", "INPUT", "A", "the object at A: value I(A) and its matter (%.4g kg, %.4g J rest energy)"
          % (o["kg"], o["rest_energy_J"]), bits, "bits", "COMPUTED (measure.price_table)", ()),
-        ("IN-A-READ", "INPUT", "A", "energy to read I at A", None, "J", "OPEN (no instrument)", ()),
+        ("IN-A-READ", "INPUT", "A", "energy to read I at A", None, "J",
+         "OPEN: theorem floor 0, probe floors by carrier under H-PROBE (terms.py T1); no single value", ()),
         ("IN-B-STOCK", "INPUT", "B", "stock consumed at B: CI-chondrite feedstock for the object (binder %s)"
          % s["ci_binder"][0], s["ci_feedstock_kg"], "kg",
          "COMPUTED (stock.feedstock_kg); the gate at Proxima OPEN (P measured: %s)" % s["P_measured_in_proxima_system"],
          ()),
         ("IN-B-ASSEMBLE", "INPUT", "B", "energy to assemble the object at B (E_rec)", None, "J",
-         "OPEN (seat.py: E_rec OPEN; its payback ceiling is seat.erec_ceiling)", ()),
+         "OPEN (seat.py: E_rec OPEN; its payback ceiling is seat.erec_ceiling); chemistry bounded and placement "
+         "OPEN in terms.py T3", ()),
         ("IN-CHANNEL", "INPUT", "channel", "bits sent (%s)" % ("I" if reading == "R-CLASSICAL" else "2 per qubit"),
          sent, "bits", "COMPUTED", ()),
         ("IN-CHANNEL-E", "INPUT", "A->B", "channel energy, emitted at A; the floor is on what B receives, per "
@@ -202,7 +204,8 @@ def equation(bits, reading):
          + (("IN-EBITS",) if reading == "R-QUANTUM" else ())),
         ("OUT-A-RESIDUE", "OUTPUT", "A", "A's matter, retired as stock at A (%.4g kg): the instance at A leaves only "
          "through this term, on both readings" % o["kg"], o["kg"], "kg",
-         "COMPUTED mass; energy to retire it OPEN; carried under H-RETIRE-A (M, item 32)",
+         "COMPUTED mass; energy to retire it OPEN (bounded, and dissolved by a photon or electron read under "
+         "H-PROBE/H-ABSORB: terms.py T2); carried under H-RETIRE-A (M, item 32)",
          ("IN-A-OBJECT", "IN-A-READ")),
         ("OUT-B-RESIDUE", "OUTPUT", "B", "stock processed and not incorporated", s["ci_residue_kg"], "kg",
          "COMPUTED (stock.feedstock_kg - payload)", ("IN-B-STOCK",)),

@@ -125,3 +125,43 @@ So no-cloning accounts for the quantum state, and teleportation already meets it
 different matter: what keeps it at one position is retiring A's matter, which is M's condition "either at the beginning
 or end position, never in between". No-cloning does not require it. M's reason is right for the quantum part and does
 not reach the classical part. The retirement is needed either way.
+
+## Pricing the three OPEN energy terms — `step1b/terms.py`, 13/13 pass, 2 controls
+
+M: "Continue by necessity to the current place of work". The current place is Step 1b, and its energy column was
+refused because three terms were OPEN. They are now bounded. None of them is a single value, so the total is still
+refused.
+
+- **(T1) Reading at A.**
+  - Theorem floor: **0 J**. Measurement can be reversible; only erasing the record has a Landauer price, and that is
+    already in the equation (Bennett, physics/0210005v2, READ by `measure.py`).
+  - Probe floor, under H-PROBE and H-ONE-QUANTUM: one quantum per atom, at a wavelength no longer than the pitch,
+    over 6.712e27 atoms. In the table, "> D_max" means each quantum carries more energy than the strongest chemical
+    bond (11.16 eV).
+
+| carrier | at 1 Å | at 0.1 Å | > D_max |
+|---|---|---|---|
+| photon | 12.4 keV per quantum, 1.33e13 J | 1.33e14 J | yes |
+| electron | 150 eV per quantum, 1.62e11 J | 1.62e13 J | yes |
+| neutron | 82 meV per quantum, 8.8e7 J | 8.8e9 J | no |
+
+- **(T2) Retiring A (H-RETIRE-A).**
+  - Chemistry is bounded by ±3.60e10 J. That is (v_max N/2) × D_max, where v_max = 6 is a hypothesis (H-VALENCE)
+    and D_max is the CO bond (READ: 1077 kJ/mol and 1072 kJ/mol; the larger is used).
+  - The sign depends on the stock's chemical form (H-STOCK-FORM).
+  - **Compensation (M, item 31):** a photon or electron read at atomic pitch carries more than D_max per quantum. Its
+    total is 4.5× to 3,700× the whole chemical ceiling. So, if those quanta are absorbed in the object (H-ABSORB),
+    **the read itself supplies the energy to take A apart**, and the retire term is dissolved by the read term.
+  - Control: a neutron read at 1 Å carries 82 meV per quantum, below D_max, so it does not dissolve the term.
+- **(T3) Assembling at B (E_rec).**
+  - Chemistry is bounded by ±3.60e10 J. B's register reset costs at least 2.48e5 J (H-RESET). Placement is OPEN:
+    no floor is established.
+  - The chemical ceiling lies below the payback ceiling from `seat.py` at every speed it lists. The ratio is 2.8e-7
+    at β = 0.2 and 1.1e-4 at β = 0.01. The payback ceiling is the E_rec below which building from B's stock ever beats
+    shipping the payload at that speed.
+  - **Global compensation:** if A's residue and B's stock are in the same chemical form, the chemistry at A and at B
+    is one rearrangement run in reverse. It cancels in the global column. Locally, though, B is left a deficit of up
+    to 3.60e10 J, which B's surroundings must supply (OPEN).
+
+History: the first selftest asserted that ratio was below 1e-4 at every speed. At β = 0.01 it is 1.14e-4, so the
+guessed threshold failed while the finding held. The check now asserts what is shown: below 1 at every speed.
