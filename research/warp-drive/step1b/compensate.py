@@ -67,7 +67,7 @@ import sys
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 WD = os.path.abspath(os.path.join(HERE, ".."))
-for _p in (HERE, WD, os.path.join(WD, "docket68")):
+for _p in (os.path.join(WD, "docket68"), WD, HERE):
     if _p not in sys.path:
         sys.path.insert(0, _p)
 

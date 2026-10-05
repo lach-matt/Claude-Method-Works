@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-terms.py -- Step 1b: pricing the balanced equation's three OPEN energy terms, as far as physics and the board allow.
+openterms.py -- Step 1b: pricing the balanced equation's three OPEN energy terms, as far as physics and the board allow.
 
 Not seated.  Nothing here edits the board: figures are IMPORTED from their owners (balance, measure, massform, seat,
 gravity, ledger); outside numbers are READ, with the route recorded.  M (2026-10-05): "Continue by necessity to the
@@ -8,9 +8,9 @@ current place of work" -- the current place is Step 1b, whose energy column bala
 terms are OPEN: reading I at A (IN-A-READ), retiring A's instance (OUT-A-RESIDUE, H-RETIRE-A, M item 32) and
 assembling at B (IN-B-ASSEMBLE, E_rec).
 
-    python3 terms.py              report
-    python3 terms.py --selftest   checks, with CONTROLS; STRUCTURAL items printed, never counted
-    python3 terms.py --json       the numbers as JSON
+    python3 openterms.py              report
+    python3 openterms.py --selftest   checks, with CONTROLS; STRUCTURAL items printed, never counted
+    python3 openterms.py --json       the numbers as JSON
 
 WHAT IT COMPUTES
   (T1) READING AT A.
@@ -42,6 +42,9 @@ WHAT IT COMPUTES
        are the same rearrangement in opposite directions, and they cancel in the global column; LOCALLY A is left a
        surplus and B a deficit, which B's surroundings must supply (OPEN: the board holds no supply at B).
 
+HISTORY: first written as step1b/terms.py (d79aa3b); renamed 2026-10-05 because the board already holds a terms.py,
+which shadowed this file when bsupply.py imported it.  Nothing in it changed with the rename.
+
 NAMED HYPOTHESES
   H-PROBE        locating an atom to delta needs a probe of wavelength <= delta (the diffraction scale).
   H-ONE-QUANTUM  one probe quantum per atom: a floor; scattering cross-sections make the real count larger.
@@ -59,7 +62,7 @@ import sys
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 WD = os.path.abspath(os.path.join(HERE, ".."))
-for _p in (HERE, WD, os.path.join(WD, "docket68")):
+for _p in (os.path.join(WD, "docket68"), WD, HERE):
     if _p not in sys.path:
         sys.path.insert(0, _p)
 
@@ -202,7 +205,7 @@ def selftest():
         n_ctl += ctl
         print("  [%s]%s %-92s %r" % ("ok" if ok else "XX", " CTL" if ctl else "", label[:92], got))
 
-    print("terms.py selftest")
+    print("openterms.py selftest")
     chk("D_max from 1077 kJ/mol reproduces Wikipedia's printed 11.16 eV to 0.01 eV",
         abs(1077e3 / N_AVOGADRO / EV - CO_BOND["value_eV_printed"]) < 0.01, True)
     chk("the ceiling uses the larger of the two READ values", d_max_j() == 1077e3 / N_AVOGADRO, True)

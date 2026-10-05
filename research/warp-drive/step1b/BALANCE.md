@@ -126,7 +126,7 @@ different matter: what keeps it at one position is retiring A's matter, which is
 or end position, never in between". No-cloning does not require it. M's reason is right for the quantum part and does
 not reach the classical part. The retirement is needed either way.
 
-## Pricing the three OPEN energy terms — `step1b/terms.py`, 13/13 pass, 2 controls
+## Pricing the three OPEN energy terms — `step1b/openterms.py`, 13/13 pass, 2 controls
 
 M: "Continue by necessity to the current place of work". The current place is Step 1b, and its energy column was
 refused because three terms were OPEN. They are now bounded. None of them is a single value, so the total is still
@@ -165,3 +165,31 @@ refused.
 
 History: the first selftest asserted that ratio was below 1e-4 at every speed. At β = 0.01 it is 1.14e-4, so the
 guessed threshold failed while the finding held. The check now asserts what is shown: below 1 at every speed.
+
+## B's local supply against Proxima's light — `step1b/bsupply.py`, 8/8 pass, 2 controls
+
+M: "I agree, continue". `openterms.py` leaves B a local deficit: the chemistry, up to its ceiling, when A's residue and
+B's stock share a form. Here it is set against Proxima's own light.
+
+- **Flux at b's orbit:** 924 W/m², with a range of 577–1270 W/m². The inputs are L* = 0.0016 ± 0.0006 L☉ (READ: Faria
+  et al. 2022, arXiv:2202.05188v1, Table 1 p.2, citing Boyajian et al. 2012) and a = 0.04856 au. The control: the
+  same expression at 1 au gives the solar constant, 1361 W/m². b sits inside the READ habitable-zone range.
+- **Time to gather each local term at B** (central L*, efficiency 1, so these are the shortest times; H-COLLECT):
+
+| term | energy | 1 m² | 100 m² | 10⁴ m² |
+|---|---|---|---|---|
+| chemical deficit ceiling | 3.60e10 J | 1.24 yr | 4.5 days | 65 min |
+| register reset floor | 2.48e5 J | 269 s | 2.7 s | 0.03 s |
+| *scale only:* payload rest energy | 6.29e18 J | 2.2e8 yr | 2.2e6 yr | 2.2e4 yr |
+| *scale only:* E_rec payback ceiling at β = 0.01 | 3.15e14 J | 1.1e4 yr | 108 yr | 1.08 yr |
+
+- **The chemical deficit at B can be met by Proxima's light.** A 100 m² collector gathers it in under a week. The
+  low and high L* cases scale every time by 1.60 and 0.73.
+- **Not established here:** the energy of placement (still OPEN), and any collector at B. The fabricator, survey and
+  receiver of D23 all arrive no earlier than light (seat.py).
+
+History:
+- `openterms.py` was first written as `step1b/terms.py` (d79aa3b). It was renamed because the board already holds a
+  `terms.py`, which shadowed it when `bsupply.py` imported it. Its content did not change.
+- `bsupply.py`'s first selftest asserted the reset floor is gathered "in under a minute". It takes 269 s, so the
+  guessed threshold failed while the finding held. The check now compares the reset floor with the chemical term.
