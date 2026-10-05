@@ -3,7 +3,7 @@
 searches.py -- the other routes to observing a second plane, READ at source and set against the board's two-plane
 parameters (bulk.py, pairing.py).
 
-Not seated; verified once (2026-10-05), findings applied (HISTORY below).  M (rulings item 63): "read those now please. They are relevant" -- the collider and
+SEATED in ledger.py section 8j (M-RULINGS item 64); verified once (2026-10-05), findings applied (HISTORY below).  M (rulings item 63): "read those now please. They are relevant" -- the collider and
 short-range gravity searches that item 62 had left NAMED-NOT-READ.  Carried BESIDE M's H-UNOBSERVED-UNBUILT (item 62:
 no two-plane geometry is observed because no device that allows the travel has been designed), never against it:
 these searches look for a bulk WITHOUT travelling through it, and a null result in a searched range says nothing
@@ -236,7 +236,8 @@ def compute():
     ssum = rayleigh_sum()
     board["ci_ms_eff_GeV"] = ci_estimate(board["k_vis_GeV"], board["Lambda_pi_GeV"], ssum)
     gap_max = {n: math.pi * TORSION[n] for n in ("lee_R_m", "kapner_R_m")}
-    designs = [{"T_s": d["T_s"], "kL": d["kL_needed"], "inv_k_m": 1.0 / d["k_per_m"]} for d in pairing.compute()["designs"]]
+    designs = [{"T_s": d["T_s"], "kL": d["kL_needed"], "inv_k_m": 1.0 / d["k_per_m"]}
+               for d in (pairing.design(T) for T in (pairing.YEAR_S, 86400.0, 3600.0, 1.0))]   # pairing.compute()'s rows
     span = TORSION["lee_span_m"]
     for d in designs:
         d["inside_lee_span"] = span[0] <= d["inv_k_m"] <= span[1]

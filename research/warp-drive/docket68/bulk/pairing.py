@@ -3,7 +3,7 @@
 pairing.py -- BULK-O1: what shape of the higher dimension would make a chosen destination close through it
 (H-BULK-PAIRING), and what each shape needs.
 
-Not seated; verified once (2026-10-05), findings applied (HISTORY below).  M (rulings item 59): "4, then 3 please." -- bulk.py seated, then the pairing shape, then
+SEATED in ledger.py section 8j (M-RULINGS item 64); verified once (2026-10-05), findings applied (HISTORY below).  M (rulings item 59): "4, then 3 please." -- bulk.py seated, then the pairing shape, then
 entering and leaving (O6, with H-DETACH and H-CORRIDOR-STASIS folded in: item 61).  Carried as M's hypotheses
 H-HIGHER-CORRIDOR and H-NO-SPEED, never as results.  O9 stays OPEN.
 

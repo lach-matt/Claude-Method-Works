@@ -1,6 +1,6 @@
-# What shape of the higher dimension makes a destination close (BULK-O1; verified once; not seated; 2026-10-05)
+# What shape of the higher dimension makes a destination close (BULK-O1; verified once; SEATED in ledger.py section 8j on M's item 64; 2026-10-05)
 
-*First headed* "(BULK-O1; not verified; not seated; 2026-10-05)".
+*Headed before seating* "(BULK-O1; verified once; not seated; 2026-10-05)". *First headed* "(BULK-O1; not verified; not seated; 2026-10-05)".
 
 ## What M asked
 

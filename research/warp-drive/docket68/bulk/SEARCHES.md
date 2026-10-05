@@ -1,6 +1,6 @@
-# The other routes to observing a second plane (READ on M's order, item 63; verified once; not seated; 2026-10-05)
+# The other routes to observing a second plane (READ on M's order, item 63; verified once; SEATED in ledger.py section 8j on M's item 64; 2026-10-05)
 
-*First headed* "(READ on M's order, item 63; not verified; not seated; 2026-10-05)".
+*Headed before seating* "(READ on M's order, item 63; verified once; not seated; 2026-10-05)". *First headed* "(READ on M's order, item 63; not verified; not seated; 2026-10-05)".
 
 ## What M asked
 
