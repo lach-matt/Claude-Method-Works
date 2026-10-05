@@ -932,6 +932,38 @@ M-DEDUCE).
        as comments).
   The board  no status moves; O9 stays OPEN.  H-NO-BULK-ROW: no index3 row.
   The paper  not edited.
+
+===============================================================================
+8k.  ENTERING AND LEAVING THE CORRIDOR, AND GRAVITY ON OUR PLANE (M-RULINGS
+     items 65-69), AS SEATED
+===============================================================================
+
+O6 was worked by deduction from first principles (M-DEDUCE, item 64) with M's
+H-TWO-PERSPECTIVE-TENSION and speed premise as premises (items 65, 66; the
+speed premise corrected by M to H-POSITION-RELATIVE-SPEED, item 67):
+docket68/bulk/crossing.py (CROSSING.md) deduces leaving, stasis in the corridor
+and arriving -- the information crosses and the matter stays (H-CONFINED); the
+massive carriers return within a few jump times; both ends share the count and
+their clocks differ by 1e15; the two planes' tensions are equal and opposite in
+each plane's own units and 1e60 apart across perspectives (a candidate for
+H-TWO-PERSPECTIVE-TENSION).  On M's order (item 67) BULK2-O6 was computed:
+docket68/bulk/cfgravity.py (CFGRAVITY.md) finds Newton's law on our plane
+survives Chung-Freese's bulk only for a fluid with c_s^2 = -1/2, and then a
+corridor thinner than about 6-19 um survives the torsion balances.  M chose the
+massless mode for a lasting stasis and set a switched coupling aside (item 68),
+and ruled both seated, then the zero mode (item 69).  Both verified once and
+corrected.
+
+  THE OWNERS  loaded BY PATH as 'bulk_crossing' and 'bulk_cfgravity'
+       (_bulk3_load), with _bulk_load's lending and key restoration.
+  RULED_BY_M  + M-D68-66, 68 and 69.  D68_FILE_CARRIED + M-D68-65 (a
+       statement carrying two hypotheses) and 67 (an instruction and M's
+       correction of item 65's carrying).
+  BULK3_OPEN  seven items, each with what would answer it.  BULK-O2 and
+       BULK2-O6 repointed to the owners that answer them (first texts kept as
+       comments).
+  The board  no status moves; O9 stays OPEN.  H-NO-BULK-ROW: no index3 row.
+  The paper  not edited.
 """
 
 import contextlib
@@ -3603,6 +3635,11 @@ D68_M_WORDS = {
     "M-D68-61": ("Fold into O6 (Recommended)", D68_RULINGS_FILE),
     "M-D68-64": ("1, but I want you to consider using deduction and first principle as we continue forward in to the "
                  "unobserved. Such will be the best method to both determine and fill our gaps", D68_RULINGS_FILE),
+    # ADDED (BULK3-seat, docstring section 8k): items 66, 68 and 69.
+    "M-D68-66": ("Premises of O6 (Recommended)", D68_RULINGS_FILE),
+    "M-D68-68": ("the first. The latter would be impossible but to the very definition of the transition... There is "
+                 "no in-between...", D68_RULINGS_FILE),
+    "M-D68-69": ("Seat both, then zero mode (Recommended)", D68_RULINGS_FILE),
 }
 
 #: THE QUESTIONS PUT TO M FOR M'S DOCKET 66 RULINGS (items 26-28), as the
@@ -3742,6 +3779,15 @@ D68_CARRIED_WORDS = {
     "M-D68-62": ("this is because no one has designed the device to allow for the travel, which will allow for the "
                  "observation. We are working on this.", D68_RULINGS_FILE),
     "M-D68-63": ("read those now please. They are relevant", D68_RULINGS_FILE),
+    # ADDED (BULK3-seat, docstring section 8k): M's statement (65) and correction (67).
+    "M-D68-65": ("I won't say speed doesn't exist here, but I will say it is not what we and physicists conventionally "
+                 "think it is. This is where speed becomes relative to to the information traveling but the two "
+                 "positions observing from two perspectives at the same time creating an inhomogeneous "
+                 "tension/interaction", D68_RULINGS_FILE),
+    "M-D68-67": ("I won't say speed doesn't exist here, but I will say it is not what we and physicists conventionally "
+                 "think it is. This is where speed becomes relative not to the information traveling but to the two "
+                 "positions observing from two perspectives at the same time creating an inhomogeneous "
+                 "tension/interaction", D68_RULINGS_FILE),
 }
 
 #: THE ROUTES PUT TO M, as CHARTER.md records them -- the charter's words, not
@@ -4751,8 +4797,13 @@ BULK_OPEN = [
      "three published shapes surveyed in docket68/bulk/pairing.py (section 8j) with what each needs -- what stays open "
      "is BULK2-O1..O4",
      "a computed geometry with its stress-energy and junction conditions", "docket68/bulk/pairing.py"),
-    ("BULK-O2", "entering and leaving the corridor (O6): what carries the defining information in and out, and at what "
-     "rate (M-D68-59: after BULK-O1)", "a computed or READ rate", "docket68/bulk/BULK.md"),
+    # REPOINTED (BULK3-seat, section 8k).  First text: "entering and leaving the corridor (O6): what carries the
+    # defining information in and out, and at what rate (M-D68-59: after BULK-O1)", answered by "a computed or READ
+    # rate"; owner docket68/bulk/BULK.md.
+    ("BULK-O2", "entering and leaving the corridor (O6): deduced in docket68/bulk/crossing.py (section 8k) as three "
+     "states -- the information crosses and the matter stays, the massive carriers return within a few jump times, "
+     "arriving needs matter at B -- with the rate relative to the two positions; what stays open is BULK3-O1..O4",
+     "a computed or READ rate", "docket68/bulk/crossing.py"),
     # REPOINTED (BULK2-seat, section 8j).  First text: "whether any second plane exists; none of the three geometries is
     # observed, and LHC searches constrain Randall-Sundrum", answered by "the collider limits READ at source"; owner
     # docket68/bulk/BULK.md.
@@ -4858,12 +4909,106 @@ BULK2_OPEN = [
     ("BULK2-O5", "whether CMS's non-resonant search reaches bulk.py's Randall-Sundrum point (coupling 0.82, a 7.66 TeV "
      "graviton); a first estimate sits at the edge of CMS's limit (H-CI-ESTIMATE)",
      "the Randall-Sundrum tower's contact signal computed in CMS's convention", "docket68/bulk/searches.py"),
-    ("BULK2-O6", "whether Chung-Freese's bulk alters gravity on our plane at its 1/k (53-691 um at the illustrative "
-     "L = 1 mm), where the torsion balances looked",
-     "brane gravity in Chung-Freese's bulk, computed", "docket68/bulk/searches.py"),
+    # REPOINTED (BULK3-seat, section 8k).  First text: "whether Chung-Freese's bulk alters gravity on our plane at its
+    # 1/k (53-691 um at the illustrative L = 1 mm), where the torsion balances looked"; owner searches.py.
+    ("BULK2-O6", "whether Chung-Freese's bulk alters gravity on our plane at its 1/k: computed in "
+     "docket68/bulk/cfgravity.py (section 8k) -- only for a bulk fluid with c_s^2 = -1/2 does Newton survive, and then "
+     "the illustrative L = 1 mm is excluded and L below about 6-19 um survives; what stays open is BULK3-O5..O7",
+     "brane gravity in Chung-Freese's bulk, computed", "docket68/bulk/cfgravity.py"),
     ("BULK2-O7", "lighter gravitons and couplings below the searched range against earlier colliders; the torsion "
      "bound for more than one flat dimension", "the earlier searches READ; the N-dimension bound READ",
      "docket68/bulk/SEARCHES.md"),
+]
+
+
+# ----- ENTERING AND LEAVING, AND GRAVITY ON OUR PLANE (docstring 8k) -----
+BULK3_OWNERS = ("crossing", "cfgravity")
+
+
+def _bulk3_load():
+    """{'crossing': module, 'cfgravity': module}, loaded by path as 'bulk_<name>' with _bulk_load's lending and key
+    restoration; and the facts."""
+    import importlib.util
+    saved = list(sys.path)
+    before = set(sys.modules)
+    collide = ["bulk_bulk", "bulk_pairing", "bulk_searches", "bulk_crossing", "bulk_cfgravity", "wd_branelink",
+               "wd_cosmo", "wd_transit", "d68_measure"]
+    stashed = dict((k, sys.modules.pop(k)) for k in collide if k in sys.modules)
+    lent = "ledger" not in sys.modules
+    if lent:
+        sys.modules["ledger"] = sys.modules[__name__]
+    mods = {}
+    try:
+        with contextlib.redirect_stdout(io.StringIO()):
+            for name in BULK3_OWNERS:
+                key = "bulk_" + name
+                spec = importlib.util.spec_from_file_location(key, os.path.join(BULK_DIR, name + ".py"))
+                m = importlib.util.module_from_spec(spec)
+                sys.modules[key] = m
+                spec.loader.exec_module(m)
+                mods[name] = m
+    finally:
+        sys.path[:] = saved
+        if lent:
+            del sys.modules["ledger"]
+        added = [k for k in sys.modules if k not in before]
+        for k in added:
+            sys.modules.pop(k, None)
+        sys.modules.update(stashed)
+    return mods, {"path_restored": sys.path == saved, "keys_left": [k for k in added if k in sys.modules],
+                  "from_bulk": [n for n, m in mods.items() if os.path.dirname(os.path.abspath(m.__file__)) != BULK_DIR]}
+
+
+BULK3, BULK3_LOAD = _bulk3_load()
+
+
+def bulk3_asked():
+    """Every crossing.py and cfgravity.py value M-D68-69's cell prints, ASKED of the owners at call time."""
+    with contextlib.redirect_stdout(io.StringIO()):
+        c = BULK3["crossing"].compute()
+        g = BULK3["cfgravity"].compute()
+    st = dict((r["point"].split(" (")[0], r) for r in c["stasis"])
+    rows = g["rows"]
+    return {"hidden_ratio": c["hidden_coupling_ratio"], "tj_cms": st["CMS edge"]["tau_over_jump"],
+            "tj_narrow": st["narrow-width limit"]["tau_over_jump"], "E_par_J": c["E_min_at_our_jump_parallel_J"],
+            "clock": c["clock_ratio_two_ends"], "tension_tev": c["V_own_fourth_root_TeV"],
+            "cross": c["cross_perspective_ratio"], "d52_second": rows[-1]["delta_52um"],
+            "d52_year": rows[0]["delta_52um"], "Lmin_um": min(r["L_max_um"] for r in rows),
+            "Lmax_um": max(r["L_max_um"] for r in rows)}
+
+
+BULK3_ASKED = bulk3_asked()
+
+
+def _bulk3_fig(f, s=1.0):
+    """The figures M-D68-69's cell prints, formatted once (the selftest's needles use the same)."""
+    return {"hidden": "%.1e" % (s * f["hidden_ratio"]), "tj_cms": "%.1f" % (s * f["tj_cms"]),
+            "tj_narrow": "%.2f" % (s * f["tj_narrow"]), "E": "%.2e" % (s * f["E_par_J"]),
+            "tension": "%.2f" % (s * f["tension_tev"]), "d52s": "%.3f" % (s * f["d52_second"]),
+            "d52y": "%.2f" % (s * f["d52_year"]), "Lmin": "%.1f" % (s * f["Lmin_um"]),
+            "Lmax": "%.1f" % (s * f["Lmax_um"])}
+
+
+#: WHAT ENTERING AND LEAVING, AND GRAVITY ON OUR PLANE, LEAVE OPEN (docstring
+#: section 8k), as CROSSING.md and CFGRAVITY.md state it.  Named, not ranked.
+BULK3_OPEN = [
+    ("BULK3-O1", "whether the defining information is classical or quantum: a classical pattern is copied unless the "
+     "original is erased, an unknown quantum pattern is moved (related to S1B-O1)",
+     "a ruling or a measurement that settles it", "docket68/bulk/crossing.py"),
+    ("BULK3-O2", "the lasting stasis through the massless graviton mode (M-D68-68): its zero proper time, where it lives "
+     "in the bulk, and the price of loading the defining information at gravitational strength (M-D68-69: next)",
+     "a computed loading rate and residence", "docket68/bulk/CROSSING.md"),
+    ("BULK3-O3", "the bulk scalar that radius stabilisation adds, as a further carrier",
+     "its modes and couplings computed or READ", "docket68/bulk/crossing.py"),
+    ("BULK3-O4", "whether the two planes' tension pair, equal and opposite in each plane's own units and 1e60 apart "
+     "across perspectives, is M's tension (H-TWO-PERSPECTIVE-TENSION), and what observable would tell",
+     "an observable that distinguishes it", "docket68/bulk/crossing.py"),
+    ("BULK3-O5", "a stable fluid or field that realises Chung-Freese's bulk with c_s^2 = -1/2; without one their warped "
+     "corridor does not keep Newton's law on our plane", "a computed stable realisation", "docket68/bulk/cfgravity.py"),
+    ("BULK3-O6", "the planes' junction conditions re-run (H-PLANE-EOS), and the zero mode's spatial part, which sets "
+     "light bending (the PPN gamma)", "both computed", "docket68/bulk/cfgravity.py"),
+    ("BULK3-O7", "a full fit of the power-law deviation to Lee et al.'s data in place of H-PERCENT",
+     "their data READ and fitted", "docket68/bulk/CFGRAVITY.md"),
 ]
 
 
@@ -5712,6 +5857,44 @@ D68_RULED = [
                   _bulk2_fig(BULK2_ASKED)["ms"], _bulk2_fig(BULK2_ASKED)["win_lo"], _bulk2_fig(BULK2_ASKED)["win_hi"],
                   _bulk2_fig(BULK2_ASKED)["gap"])),
      "H-UNOBSERVED-UNBUILT (M-D68-62); the OPEN items BULK2-O1..O7; BULK-O2 next; O9 stays OPEN"),
+    # ----- ADDED (BULK3-seat, docstring section 8k): items 66, 68 and 69 (2026-10-05).
+    ("M-D68-66",
+     "Asked how to take up item 65 (M-RULINGS-2026-10-03.md item 66, 2026-10-05, as the file records it): 1 premises of "
+     "O6; 2 model it first; 3 READ first; or 4 carry only?",
+     "M carried the speed premise and H-TWO-PERSPECTIVE-TENSION (item 65)",
+     _d68_rule("PREMISES OF O6", "M-D68-66",
+               "O6 worked by deduction with both as named premises: the crossing's rate read from each end at once, and "
+               "the test of whether the two planes' tensions are M's inhomogeneous tension (docket68/bulk/crossing.py)"),
+     "the speed premise (M-D68-65, corrected by M-D68-67) and H-TWO-PERSPECTIVE-TENSION; BULK-O2"),
+    ("M-D68-68",
+     "On the report that two routes to a lasting stasis remain open, the massless graviton mode and a coupling switched "
+     "after loading (M-RULINGS-2026-10-03.md item 68, 2026-10-05, as the file records it)",
+     "crossing.py found the massive carriers return within a few jump times",
+     _d68_rule("THE MASSLESS MODE; THE SWITCHED COUPLING SET ASIDE", "M-D68-68",
+               "the lasting stasis is pursued through the massless (zero) graviton mode; the switched coupling is set "
+               "aside on M's ruling under H-HIGHER-CORRIDOR (no in-between), recorded as M's ruling, not a computed "
+               "refutation"),
+     "H-HIGHER-CORRIDOR (M-D68-57); BULK3-O2"),
+    ("M-D68-69",
+     "After crossing.py and cfgravity.py were verified and corrected (M-RULINGS-2026-10-03.md item 69, 2026-10-05, as "
+     "the file records it): 1 seat both, then the zero mode; 2 zero mode first, seat later; 3 seat crossing.py only; or "
+     "4 look further first?",
+     "crossing.py and cfgravity.py stood verified once and corrected, not seated",
+     _d68_rule("SEAT BOTH, THEN THE ZERO MODE", "M-D68-69",
+               "docket68/bulk/crossing.py and cfgravity.py seated here (docstring section 8k).  Leaving: the "
+               "information crosses and the matter stays (H-CONFINED).  Stasis: the massive carriers couple %s as "
+               "strongly at the hidden plane and return within %s jump times at the narrow-width limit (%s at CMS's "
+               "edge).  The rate: both ends share the count, their clocks differ by 1e15 -- relative to the two "
+               "positions (H-POSITION-RELATIVE-SPEED); writing every bit within one jump time holds %s J.  The "
+               "tensions: equal and opposite in each plane's own units, (%s TeV)^4, and 1e60 apart across perspectives "
+               "-- a candidate for H-TWO-PERSPECTIVE-TENSION.  Gravity on our plane: Newton survives Chung-Freese's "
+               "bulk only for c_s^2 = -1/2; then the deviation at 52 um is %s (one-second design) to %s (one-year) at "
+               "L = 1 mm, and the corridor survives below %s-%s um.  Next: the zero mode"
+               % (_bulk3_fig(BULK3_ASKED)["hidden"], _bulk3_fig(BULK3_ASKED)["tj_narrow"],
+                  _bulk3_fig(BULK3_ASKED)["tj_cms"], _bulk3_fig(BULK3_ASKED)["E"], _bulk3_fig(BULK3_ASKED)["tension"],
+                  _bulk3_fig(BULK3_ASKED)["d52s"], _bulk3_fig(BULK3_ASKED)["d52y"], _bulk3_fig(BULK3_ASKED)["Lmin"],
+                  _bulk3_fig(BULK3_ASKED)["Lmax"])),
+     "the OPEN items BULK3-O1..O7; BULK3-O2 next; O9 stays OPEN"),
 ]
 
 RULED_BY_M += D68_RULED
@@ -6055,6 +6238,22 @@ D68_FILE_CARRIED = [
                      "ATLAS, CMS, Davoudiasl-Hewett-Rizzo, Kapner et al. and Lee et al. READ at source and set against "
                      "the board's two-plane parameters in docket68/bulk/searches.py (SEARCHES.md)"),
      "BULK-O3; BULK2-O5..O7"),
+    # ----- ADDED (BULK3-seat, docstring section 8k): items 65 and 67.
+    ("M-D68-65",
+     "M's statement on the corridor's rate (M-RULINGS-2026-10-03.md item 65, 2026-10-05)",
+     _d68_carry_file("STATEMENT, CARRYING TWO HYPOTHESES", "M-D68-65",
+                     "as a speed premise (first carried as relative to the information travelling) and "
+                     "H-TWO-PERSPECTIVE-TENSION, never as results; taken up as premises of O6 on M-D68-66; the first "
+                     "carrying corrected by M on M-D68-67"),
+     "BULK-O2; M-D68-67"),
+    ("M-D68-67",
+     "M's instruction to run the Chung-Freese gravity computation, and M's restatement of item 65 "
+     "(M-RULINGS-2026-10-03.md item 67, 2026-10-05)",
+     _d68_carry_file("INSTRUCTION AND CORRECTION", "M-D68-67",
+                     "BULK2-O6 computed in docket68/bulk/cfgravity.py; item 65's carrying corrected to "
+                     "H-POSITION-RELATIVE-SPEED -- relative to the two positions observing, not to the information -- "
+                     "and crossing.py's rate deduction carries it"),
+     "BULK2-O6; BULK-O2"),
 ]
 
 #: DOCKET 68's one pending question, M-D68-P1 (emtension.py's ER = EPR
@@ -6858,6 +7057,7 @@ def _d68_cells():
     out.update(("CMB3-OPEN %s col %d" % (r[0], i), c) for r in CMB3_OPEN for i, c in enumerate(r[1:], 1))
     out.update(("BULK-OPEN %s col %d" % (r[0], i), c) for r in BULK_OPEN for i, c in enumerate(r[1:], 1))
     out.update(("BULK2-OPEN %s col %d" % (r[0], i), c) for r in BULK2_OPEN for i, c in enumerate(r[1:], 1))
+    out.update(("BULK3-OPEN %s col %d" % (r[0], i), c) for r in BULK3_OPEN for i, c in enumerate(r[1:], 1))
     return out
 
 
@@ -7798,6 +7998,11 @@ def report():
         print(textwrap.fill("%s %s -- answered by: %s (%s)" % (oid.ljust(8), " ".join(what.split()),
                                                               " ".join(answers.split()), owner),
                             96, initial_indent="  ", subsequent_indent="           "))
+    print("\nENTERING AND LEAVING, AND GRAVITY ON OUR PLANE -- WHAT STAYS OPEN (section 8k)")
+    for oid, what, answers, owner in BULK3_OPEN:
+        print(textwrap.fill("%s %s -- answered by: %s (%s)" % (oid.ljust(8), " ".join(what.split()),
+                                                              " ".join(answers.split()), owner),
+                            96, initial_indent="  ", subsequent_indent="           "))
     print("\nPENDING M'S RULING -- RECORDED, NOT APPLIED%s"
           % ("" if PENDING_RULINGS else ": none"))
     for pid, q, why, proposal, waits in pending_rulings():
@@ -8086,6 +8291,17 @@ def to_markdown():
         L.append("| %s | %s | %s | %s |" % (oid, _cell(what, W_WHY), _cell(answers, W_WHY),
                                             _cell(owner, W_WHY)))
     L.append("")
+    # ADDED (BULK3-seat, docstring section 8k).
+    L += ["## Entering and leaving, and gravity on our plane -- what stays open", "",
+          "Seated on M's \"Seat both, then zero mode (Recommended)\" (item 69; docstring section 8k): crossing.py and "
+          "cfgravity.py (docket68/bulk/).",
+          "O6 by deduction -- leaving, stasis, arriving, and the two perspectives; Chung-Freese's bulk and Newton's law.",
+          "No board status moves; O9 stays OPEN.", "",
+          "| id | open | what would answer it | owner |", "|---|---|---|---|"]
+    for oid, what, answers, owner in BULK3_OPEN:
+        L.append("| %s | %s | %s | %s |" % (oid, _cell(what, W_WHY), _cell(answers, W_WHY),
+                                            _cell(owner, W_WHY)))
+    L.append("")
     L += ["## Pending M's ruling -- recorded, not applied", "",
           "This file edits no peer and changes no requirement. A question",
           "that needs M's ruling is recorded here so the board shows it.", "",
@@ -8257,6 +8473,9 @@ def _truncated_cells(demand_claim=None, demand_moves=None, open_claim=None,
     for r in BULK2_OPEN:
         if any(cut(c, wh) for c in r[1:]):
             out.append(("bulk2-open", r[0]))
+    for r in BULK3_OPEN:
+        if any(cut(c, wh) for c in r[1:]):
+            out.append(("bulk3-open", r[0]))
     return out
 
 
@@ -9032,6 +9251,9 @@ def selftest():
         # RE-PINNED WITH THE PAIRING SHAPE AND THE SEARCHES (BULK2-seat, M:
         # "1, but I want you to consider using deduction...", item 64): +
         # M-D68-61 and 64; items 60, 62 and 63 are D68_FILE_CARRIED.
+        # RE-PINNED WITH O6 AND THE CF GRAVITY (BULK3-seat, M: "Seat both,
+        # then zero mode (Recommended)", item 69): + M-D68-66, 68 and 69;
+        # items 65 and 67 are D68_FILE_CARRIED.
         (["M-D64-1", "M-S1A-P1", "M-S1A-P2", "M-S1A-P3", "M-S1A-P4",
           "M-S1A-P5", "M-D65-1", "M-D65-2", "M-D65-3", "M-D65-4", "M-D65-5",
           "M-D67-1", "M-D67-2"]
@@ -9043,7 +9265,8 @@ def selftest():
          + ["M-D68-%d" % i for i in (42, 43, 45)]
          + ["M-D68-%d" % i for i in (47, 49, 51, 53, 54, 55)]
          + ["M-D68-%d" % i for i in (58, 59)]
-         + ["M-D68-%d" % i for i in (61, 64)], [],
+         + ["M-D68-%d" % i for i in (61, 64)]
+         + ["M-D68-%d" % i for i in (66, 68, 69)], [],
          True, False, False, True, False))
 
     print("\n3. THE EXCHANGE RATE, RE-DERIVED FROM ASKED CONSTANTS")
@@ -10558,8 +10781,9 @@ def selftest():
     # RE-PINNED WITH THE CMB2 SEATING (CMB2-seat): + items 46, 48, 50 and 52.
     # RE-PINNED WITH THE BULK SEATING (BULK-seat): + items 56 and 57.
     # RE-PINNED WITH THE BULK2 SEATING (BULK2-seat): + items 60, 62 and 63.
-    chk("M's words the RULINGS FILE carries (items 21, 23, 25, 31, 32, 35, 41, 44, 46, 48, 50, 52, 56, 57, 60, 62, 63) "
-        "are in "
+    # RE-PINNED WITH THE BULK3 SEATING (BULK3-seat): + items 65 and 67.
+    chk("M's words the RULINGS FILE carries (items 21, 23, 25, 31, 32, 35, 41, 44, 46, 48, 50, 52, 56, 57, 60, 62, 63, "
+        "65, 67) are in "
         "D68_FILE_CARRIED, NOT on RULED_BY_M; each cell says so, quotes exactly its held "
         "words, and none reads 'RULED BY M'; none is cut",
         ([r[0] for r in D68_FILE_CARRIED],
@@ -10569,7 +10793,8 @@ def selftest():
           or _cw.findall(" ".join(r[2].split())) != [D68_CARRIED_WORDS[r[0]][0]]
           or _cw.findall(" ".join(r[1].split()))],
          [t for t in _truncated_cells() if t[0] in ("carried", "w3s1b-open")]),
-        (["M-D68-%d" % i for i in (21, 23, 25, 31, 32, 35, 41, 44, 46, 48, 50, 52, 56, 57, 60, 62, 63)], [], [], []))
+        (["M-D68-%d" % i for i in (21, 23, 25, 31, 32, 35, 41, 44, 46, 48, 50, 52, 56, 57, 60, 62, 63, 65, 67)],
+         [], [], []))
     chk("  and LEDGER.md prints them, then the OPEN list, after the charter's carried items "
         "and before the pending rulings",
         (_md.index("## Carried by the charter from M")
@@ -10748,6 +10973,24 @@ def selftest():
          _md.index("## Two planes joined through a higher dimension -- what stays open")
          < _md.index("## The pairing shape and the searches -- what stays open")
          < _md.index("## Pending M's ruling"), "8j.  THE PAIRING SHAPE AND THE OTHER ROUTES" in __doc__),
+        (7, [], True, True))
+    # ADDED (BULK3-seat, docstring section 8k): entering and leaving, and gravity on our plane.
+    chk("ENTERING AND LEAVING, AND GRAVITY ON OUR PLANE: crossing.py and cfgravity.py load from docket68/bulk/ by path; "
+        "sys.path restored; no module key the load added is left behind",
+        (BULK3_LOAD["from_bulk"], BULK3_LOAD["path_restored"], BULK3_LOAD["keys_left"], sorted(BULK3)),
+        ([], True, [], ["cfgravity", "crossing"]))
+    _fb3 = bulk3_asked()
+    _c69 = " ".join([r for r in D68_RULED if r[0] == "M-D68-69"][0][3].split())
+    chk("  M-D68-69's cell prints crossing.py's and cfgravity.py's figures, asked afresh (nine needles)",
+        [n for n in _bulk3_fig(_fb3).values() if n not in _c69], [])
+    chk("  CONTROL: the same figures at 1.5 times are not found",
+        len([n for n in _bulk3_fig(_fb3, 1.5).values() if n not in _c69]), 9)
+    chk("  BULK3_OPEN names %d items with owner files; LEDGER.md prints them after section 8j's and before the pending "
+        "rulings; section 8k is in the docstring" % len(BULK3_OPEN),
+        (len(BULK3_OPEN), [r[0] for r in BULK3_OPEN if not _os.path.exists(_os.path.join(HERE, r[3]))],
+         _md.index("## The pairing shape and the searches -- what stays open")
+         < _md.index("## Entering and leaving, and gravity on our plane -- what stays open")
+         < _md.index("## Pending M's ruling"), "8k.  ENTERING AND LEAVING THE CORRIDOR" in __doc__),
         (7, [], True, True))
     chk("EVERY QUOTATION in a DOCKET 68 cell (here, and index3.py's DOCKET 68 rows) is the "
         "tree's words, or declared otherwise: M's thesis and the question included, the "

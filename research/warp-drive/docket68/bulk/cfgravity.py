@@ -3,7 +3,7 @@
 cfgravity.py -- BULK2-O6: does Chung-Freese's warped higher dimension change gravity on our plane at the lengths the
 torsion balances test?  Computed on M's order (rulings item 67: "run this computation please").
 
-Not seated; verified once (2026-10-05), findings applied (HISTORY below).  Carried beside M's H-HIGHER-CORRIDOR, H-BULK-PAIRING and H-UNOBSERVED-UNBUILT, never as
+SEATED in ledger.py section 8k (M-RULINGS item 69); verified once (2026-10-05), findings applied (HISTORY below).  Carried beside M's H-HIGHER-CORRIDOR, H-BULK-PAIRING and H-UNOBSERVED-UNBUILT, never as
 results.  O9 stays OPEN.  Worked by deduction from named premises (M-DEDUCE, item 64).
 
     python3 cfgravity.py              report
@@ -299,7 +299,7 @@ def compute():
 
 def report():
     d = compute()
-    print("cfgravity.py -- BULK2-O6: Chung-Freese's bulk and gravity on our plane (verified once; not seated)\n")
+    print("cfgravity.py -- BULK2-O6: Chung-Freese's bulk and gravity on our plane (verified once; seated 8k)\n")
     print("the lapse obeys (Delta - m^2) Phi = source with m^2/k^2 = 4 + 2/c_s^2:  " + ", ".join(
         "c_s^2 = %+.2f -> %+.1f" % (c, m) for c, m in d["lapse_mass2_over_k2"].items())
           + "\n  -> 4D Newton survives only for c_s^2 = -1/2 (H-CF-FLUID, sharpened; itself gradient-unstable)\n")

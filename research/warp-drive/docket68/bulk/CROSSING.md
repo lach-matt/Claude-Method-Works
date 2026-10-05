@@ -1,6 +1,6 @@
-# Leaving, stasis in the corridor, arriving (O6, BULK-O2; by deduction; verified once; not seated; 2026-10-05)
+# Leaving, stasis in the corridor, arriving (O6, BULK-O2; by deduction; verified once; SEATED in ledger.py section 8k on M's item 69; 2026-10-05)
 
-*First headed* "(O6, BULK-O2; by deduction; not verified; not seated; 2026-10-05)".
+*Headed before seating* "(O6, BULK-O2; by deduction; verified once; not seated; 2026-10-05)". *First headed* "(O6, BULK-O2; by deduction; not verified; not seated; 2026-10-05)".
 
 ## What M asked
 

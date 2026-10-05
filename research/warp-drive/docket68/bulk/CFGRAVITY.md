@@ -1,6 +1,6 @@
-# Does Chung–Freese's higher dimension change gravity on our plane? (BULK2-O6; computed on M's order, item 67; verified once; not seated; 2026-10-05)
+# Does Chung–Freese's higher dimension change gravity on our plane? (BULK2-O6; computed on M's order, item 67; verified once; SEATED in ledger.py section 8k on M's item 69; 2026-10-05)
 
-*First headed* "(BULK2-O6; computed on M's order, item 67; not verified; not seated; 2026-10-05)".
+*Headed before seating* "(BULK2-O6; computed on M's order, item 67; verified once; not seated; 2026-10-05)". *First headed* "(BULK2-O6; computed on M's order, item 67; not verified; not seated; 2026-10-05)".
 
 ## What M asked
 

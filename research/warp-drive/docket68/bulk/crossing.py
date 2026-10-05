@@ -3,7 +3,7 @@
 crossing.py -- O6 (BULK-O2): entering and leaving the corridor, as three states -- LEAVING, STASIS IN THE CORRIDOR,
 ARRIVING -- with what must cross at each, and at what rate; worked BY DEDUCTION FROM FIRST PRINCIPLES.
 
-Not seated; verified once (2026-10-05), findings applied (HISTORY below).  M's orders: item 59 ("4, then 3 please.");
+SEATED in ledger.py section 8k (M-RULINGS item 69); verified once (2026-10-05), findings applied (HISTORY below).  M's orders: item 59 ("4, then 3 please.");
 item 61 ("Fold into O6 (Recommended)": H-DETACH and H-CORRIDOR-STASIS as three states); item 64 ("1, but I want you to
 consider using deduction and first principle as we continue forward in to the unobserved. Such will be the best method
 to both determine and fill our gaps": M-DEDUCE); item 66 ("Premises of O6 (Recommended)"); item 67 (speed "relative not
@@ -301,7 +301,7 @@ def compute():
 
 def report():
     d = compute()
-    print("crossing.py -- O6: leaving, stasis in the corridor, arriving -- by deduction (verified once; not seated)\n")
+    print("crossing.py -- O6: leaving, stasis in the corridor, arriving -- by deduction (verified once; seated 8k)\n")
     m = d["move"]
     print("LEAVING (D1-D3): the information crosses, the matter stays (H-CONFINED); carriers in RS1: the KK tower, the "
           "stable zero mode, the radion; a classical pattern is copied unless erased, an unknown quantum pattern is "
