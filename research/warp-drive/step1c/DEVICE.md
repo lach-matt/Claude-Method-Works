@@ -118,42 +118,62 @@ year. That overstated the read by 2.5×.)*
 - **Blocked and reported, not routed around:** Gault et al. 2021, *Nature Reviews Methods Primers* (paywall); PubMed
   (reCAPTCHA); the full text of Biswas & Srinivasan, IEEE JSTQE 32(1) (sign-in; only the open abstract was read).
 
-## The coupling route (`coupling.py`, 10/10 checks, 2 controls, 2 STRUCTURAL; M item 38: "Take the coupling route"; not yet verified)
+## The coupling route (`coupling.py`, 9/9 checks, 2 controls, 3 STRUCTURAL; M item 38: "Take the coupling route"; verified once, corrected)
 
 This sets the channel aside and prices the wave-3 coupling as the device's link: H = J(|A⟩⟨B| + |B⟩⟨A|), with transfer
 time π/(2J) (`corridor.py`).
 
-- **The locality ceiling.** A coupling is a channel (wave 3), so under H-LOCALITY it cannot complete across L in less
-  than L/c. That gives **J ≤ πc/(2L) = 1.17e-8 rad/s (ħJ = 7.7e-24 eV)** per coupling. This is `corridor.before_light`'s
-  threshold read the other way, checked against the owner: the coupling route beats light iff it exceeds the ceiling.
-- **The demand against that ceiling.**
-  - **Parallel:** I couplings, one per qubit, each spanning L, at J = π/(2T). A 1-year schedule needs 4.25× the
-    ceiling, so it is excluded under H-LOCALITY. A century needs 0.0425× and is not excluded. The threshold is
-    T = L/c = 4.25 years.
-  - **Serial:** one coupling carrying all I qubits exceeds the ceiling at every schedule, by I·L/(cT): 4.0e28 at a year.
+- **What locality bounds is time, not J.** Wave 3 showed the coupling is a channel: under a fixed J, A's starting
+  state changes B's statistics.
+  - An **instantaneous** coupling across L gives B the probability sin²(Jt) > 0 before L/c, at every J > 0. At the
+    century J (4.98e-10 rad/s per pair), B holds 4.4e-3 by L/c: a signal outside the light cone.
+  - So under H-LOCALITY an instantaneous coupling across 4.24 ly is excluded **at every J**. That includes one set up in
+    advance, because A's state alone signals; H-PREESTABLISHED does not rescue it.
+  - A **retarded** coupling is allowed at any J and completes no sooner than L/c = 4.25 years. Schedules shorter than
+    that are excluded whatever J is.
+  - The 4.25-year threshold is the light time, not an engineering limit. `corridor.before_light`'s πc/(2L)
+    (ħJ = 7.7e-24 eV) is where an instantaneous coupling would *complete* before light. It is not a ceiling on J.
+- **The demand.**
+  - **Parallel:** I couplings, one per qubit, each spanning L, at J = π/(2T) per pair.
+  - **Serial:** one coupling carrying all I qubits at J = I·π/(2T): 312 keV at a year, 3.12 keV at a century (species
+    count).
 - **The supply, read at source.** The only direct couplings measured, with no carrier between the qubits, are
-  near-field dipolar couplings that fall as 1/R³:
-  - Rydberg exchange: C3 = 7950 ± 130 MHz·µm³, measured out to 50 µm (Barredo et al. 1408.1055v2, re-read by the lead).
+  near-field dipolar exchange falling as 1/R³, measured out to **50 µm or less**:
+  - Rydberg atoms: C3 = 7950 ± 130 MHz·µm³ (Barredo et al. 1408.1055v2, re-read by the lead). It reproduces their
+    measured 0.52 MHz swap at 30 µm within the paper's 5 % calibration of R.
   - Magnetic dipole between two ions: J/2π ≈ 1.8 mHz at 2.4 µm (Kotler et al. 1312.4881v1).
-- **The finding that decides the supply.** The 1/R³ law holds only for R small compared with the transition's
-  wavelength: the electrostatic limit, as Barredo's supplement states. At their 9.131 GHz transition that limit
-  (λ/2π) is **5.2 mm**, and L is 7.7e18 times it. Beyond it the coupling is carried by a photon, which is the channel
-  M set aside, bounded by L/c. Carried formally to L anyway, outside its own validity, the best direct coupling gives
-  7.7e-58 rad/s. That is **6.5e47** short of the century demand per pair, which is itself the only demand locality
-  admits.
+- **Where the direct law stops.** The 1/R³ law holds only at distances small compared with the transition's wavelength.
+  The boundary is λ/2π: **5.2 mm** for Barredo's 9.131 GHz transition and **3.9 m** for Kotler's 12.34 MHz splitting.
+  - Beyond it, the coupling is the retarded far-field term. At L that is J_far = 2πC3k²/L = **4.6e-20 rad/s** for
+    Barredo's parameters (H-FAR-FIELD-ORIENTATION): **1.1e10 short** of the century demand per pair.
+  - It acts only after L/c: it is photon exchange, which is the channel M set aside.
+  - **Over years it is void (H-COHERENCE).** The Rydberg state decays at about 1e4 per second, 2.2e23 times J_far,
+    so the log of the survival probability over a century is −3.1e13. No coherence time is priced anywhere else on
+    the board, and leaving it unpriced would have flattered the century schedule.
+- **What a near-field coupling at L would take, computed.**
+  - For λ/2π to equal L, the transition would have to be at 1.19 nHz or below (a period of 27 years).
+  - For near-field exchange to give the century J at L, the dipole would have to be 0.0195 C·m. For charge e, that is
+    a separation of 1.2e17 m, which is **3.0 times L itself**.
 - **Mediated couplings are not direct.**
   - Phonon-mediated ion couplings (α 0.63–1.19 measured; 0–3 claimed, Richerme et al. 1401.5088v1) need the crystal
     to span L (H-MEDIATOR-SPANS). No ion spacing was read, so they are not carried.
-  - Photon-mediated remote transfer crossed 5.7 m in 28 ns, which is 0.68c (Magnard et al. 2008.01642v1). It is a
-    channel.
-- **So the coupling route, priced:** under H-LOCALITY it can at best match the light time, and only with 9.5e27
-  direct couplings each spanning 4.02e16 m. No present mechanism couples two qubits directly beyond millimetres. Each
-  speed-free route wave 3 named (H-DIRECT-COUPLING, H-LONG-RANGE with α < d, unbounded J) still clashes with
-  H-LOCALITY, as wave 3 found.
-- **Hypotheses:** H-LOCALITY, H-PREESTABLISHED, H-POWER-LAW-CARRY, H-NEAR-FIELD, H-MEDIATOR-SPANS, H-DIRECT-COUPLING
-  and H-STATE-AS-BITS.
-- **History:** a guessed threshold ("L is 1e19 times the limit or more") failed at 7.7e18. That was a guess, not a
-  finding, and is kept in the file. Two ids in the reader's brief were wrong and are recorded.
+  - Photon-mediated remote transfer over 5 m (Magnard et al. 2008.01642v1) is a channel. Its 28 ns propagation is
+    estimated from group velocities, not measured.
+- **So the coupling route, priced.** Under H-LOCALITY it reduces to the channel: retarded, at the light time or
+  later, with the far-field coupling strength above. Without locality, through an instantaneous coupling
+  (H-DIRECT-COUPLING), any J serves, which is the clash wave 3 named.
+- **Hypotheses:** H-LOCALITY, H-PREESTABLISHED (shown not to rescue an instantaneous coupling), H-NEAR-FIELD,
+  H-FAR-FIELD-ORIENTATION, H-COHERENCE, H-MEDIATOR-SPANS, H-DIRECT-COUPLING and H-STATE-AS-BITS.
+- **History (first written, kept):**
+  - "J ≤ πc/(2L)" was stated as a locality ceiling on J, with "a century is not excluded". That is **withdrawn** for an
+    instantaneous coupling: the verifier showed it signals at that J.
+  - The best direct coupling was carried to L by 1/R³ as 7.7e-58 rad/s, "6.5e47 short". That carry is outside the
+    law's validity, and it understated the coupling by (kL)² = 5.9e37.
+  - "No present mechanism couples two qubits directly beyond millimetres" was replaced by the measured range and the
+    dipole argument.
+  - Four counted checks were identities or duplicates.
+  - A guessed threshold failed.
+  - Two ids in the reader's brief were wrong.
 
 ## Named hypotheses (supply)
 
