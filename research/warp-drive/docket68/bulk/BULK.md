@@ -1,4 +1,4 @@
-# Two planes joined through a higher dimension (H-HIGHER-CORRIDOR, H-NO-SPEED; not verified; not seated; 2026-10-05)
+# Two planes joined through a higher dimension (H-HIGHER-CORRIDOR, H-NO-SPEED; verified once; not seated; 2026-10-05)
 
 ## M's words and how they are carried
 
@@ -10,110 +10,163 @@
 
 These are carried as M's hypotheses **H-NO-SPEED** and **H-HIGHER-CORRIDOR**, never as results. O9 stays OPEN.
 
-Every number below is printed by `bulk.py`. Its selftest runs 6/6 checks, 1 of them a control, with 3 STRUCTURAL lines
-printed and not counted. It asks `branelink.py` for its constants and for the board's moving-brane figure (O7).
+Every number below is printed by `bulk.py`.
+- **Selftest:** 4/4 checks, 2 of them controls, with 4 STRUCTURAL lines printed and not counted.
+- **Inputs:** it asks `branelink.py` and `cosmo.py` for its inputs.
+- **Verification:** it was verified once, and its findings are applied (see History).
 
 ## Step 3: the case is two planes
 
-**The case.** Two separate 4D worlds, each its own spacetime plane, joined only through a fifth dimension.
+Two separate 4D worlds ("branes") joined only through a fifth dimension (the "bulk"). Three published geometries with
+this shape are carried. **None is observed: all three are models.**
 
-**The published model that is exactly this** is Randall & Sundrum's two-brane set-up (hep-ph/9905221v1, READ):
-- **The geometry.** The metric is ds² = e^(−2kr_c|φ|) η dx dx + r_c² dφ² (eq. 12, p.4). It has two branes, "hidden" at
-  φ = 0 and "visible" at φ = π, and the space between them is "a slice of an AdS5 geometry".
-- **What lives where.** Ordinary fields live on a brane; gravity lives in the bulk between them. The bulk's gravitational
-  modes couple to visible-brane matter at "Energy/TeV" (p.6), far more strongly than ordinary gravity.
-- **The warp factor.** RS take e^(kπr_c) "of order 10^15" (p.6), which gives kr_c = 10.99.
-  - **Discrepancy:** the same page, as extracted, reads "kr_c [symbol lost] 50". The board uses the warp factor the
-    paper states (H-RS1-WARP).
+| geometry | what it is | source (READ) |
+|---|---|---|
+| **Randall–Sundrum** | Two branes, ours and a "hidden" one, with a warped slice of AdS5 between them. Ordinary matter stays on a brane; gravity lives in the bulk. | hep-ph/9905221v1 |
+| **Chung–Freese** | Two branes, *"one is our observable universe and the other is the hidden sector"*. The warp stretches distance along the hidden brane but not time. | hep-ph/9910235v2 |
+| **Manyfold** | Our own brane, folded in the bulk. Its folds are *"nearby in the bulk, at sub-millimeter distances"*, so an object seen far away *"may in fact be just a millimeter away through the bulk!"* | hep-ph/9911386v1 (Arkani-Hamed, Dimopoulos, Dvali & Kaloper) |
 
-## Step 2: what the sources say (READ via alphaXiv, 2026-10-05)
+## Step 2: what the sources say (READ via alphaXiv, 2026-10-05; printed pages)
 
-- **Chung & Freese (hep-ph/9906542v2 p.13).** Regions that seem causally disconnected "might in fact have talked to each
-  other because of a geodesic between them that went off our brane, into the bulk, and then back onto our brane".
-- **Caldwell & Langlois (gr-qc/0103070v1).**
-  - A bulk graviton between two brane points can "appear quicker than a photon" (abstract).
-  - For a static brane (strict Randall–Sundrum) or de Sitter, "the photon horizon and the bulk gravitational horizon
-    would be exactly identical" (p.5).
+- **Randall–Sundrum.**
+  - The metric is eq. 12 (p.4), and the bulk is "a slice of an AdS5 geometry" (p.3).
+  - A visible-brane mass is e^(−kr_cπ)m₀ "when measured with the metric ḡ" (eq. 21, p.5). So **our atoms' observed
+    masses are ḡ masses, and our clocks count ḡ time** (H-OBSERVED-FRAME).
+  - The warp factor is "of order 10^15" (p.6). Gravity's bulk modes couple to our matter at "Energy/TeV" (p.6).
+  - **Discrepancy (a misprint or ambiguity in the paper, not a refutation):** p.6 prints "kr_c [symbol lost] 50", where
+    the 50 is genuine text. A warp of 10¹⁵ gives kr_c = 11.0, and Goldberger & Wise read "kr_c around 12"
+    (verifier-READ).
+- **Chung–Freese.**
+  - The metric is eq. 3, ds² = dt² − [e^(−2ku)a²dh² + du²], with ours at u = 0 and the hidden brane at u = L.
+  - A signal crosses (A), runs along the hidden brane (B) and returns (C). It covers h(1,2) = e^(kL)∫dt/a, against our
+    brane's h(1,3) = ∫dt/a (eqs. 7–8, p.4). "kL ∼ ln(10^5)" solves the horizon problem (p.4).
+  - **Their caveats.**
+    - The path is **patched**: its corners need interactions between the bulk and the branes (p.4).
+    - "we have not found continuous paths which return to our brane at a point more distant than our naive 'horizon'"
+      (p.4).
+    - "we have a fine tuned solution" (p.8).
+- **Manyfold.**
+  - Folds "can communicate at rates which appear superluminal to a brane-localized clock".
+  - "these effects do not violate causality of the theory" (p.15).
+- **Caldwell & Langlois** (gr-qc/0103070v1).
+  - In static Randall–Sundrum the bulk and brane horizons are "exactly identical" (p.5).
   - "there is no shortcut for compact, flat extra dimensions" (p.8).
-  - Today the advance is r_g/r_γ ≈ 1 + (1/10)(ℓH₀)²(1+z)^(5/2), with ℓH₀ ≲ 10⁻²⁹ (eq. 22).
-- **The board's own one-plane case** (D13, O7, `branelink.py`). Bulk paths join brane points that the brane itself calls
-  causally disconnected.
+  - Eq. 22 (p.6) is for a single brane in an infinite bulk, valid for a_B ≫ a_A.
 
 ## Step 1: the model, computed, with no speed anywhere
 
-### 1. The jump between the planes
+Only each end's own clock is computed (H-LOCAL-CLOCK). One-way readings use the static slicing (H-STATIC-SLICING); the
+round trip is convention-free.
 
-- **The geometry makes it simple.** In conformal coordinates the bulk is conformal to flat 5D space, so null paths are
-  straight lines.
-- **The checks.** Integrating the null path numerically in the original coordinate reproduces the closed form to
-  1.6×10⁻¹⁵, and to 2.8×10⁻¹⁵ with sideways motion.
-- **What each end's own clock reads** (H-LOCAL-CLOCK) for the jump between bulk-paired points, at k = 2×10¹⁸ GeV
-  (H-K-PLANCK):
+### 1. Randall–Sundrum: the jump between the two planes
+
+- **No speed exists between bulk-paired points.** There is no curve *in either plane* between them, so a speed is
+  undefined there, as M said (STRUCTURAL).
+- **What each clock reads,** at k = 2×10¹⁸ GeV (H-K-PLANCK, at the edge of RS's own k < M):
 
   | clock | reads |
   |---|---|
-  | the hidden plane's | 3.29×10⁻²⁸ s |
-  | **the visible plane's (ours)** | **3.29×10⁻⁴³ s** |
+  | **ours**, one way | **3.29×10⁻²⁸ s**, which equals ħ divided by the model's 2 TeV scale |
+  | ours, round trip | 6.58×10⁻²⁸ s |
+  | a hidden clock built to the same physics | 3.29×10⁻¹³ s of its own |
 
-  - The two readings differ by exactly the warp factor, 10¹⁵.
-  - **Control:** with the warping nearly removed, the same functions give the two clocks equal (ratio 1.000000001). So
-    the split is the warping's.
-- **Speed is undefined here, as M said.** There is no path *in either plane* between the two events, so a speed (a
-  length over a time along a path in the plane) is undefined there, not merely large (STRUCTURAL). What remains is each
-  end's own clock reading, and on our side that reading is about the Planck time.
+- **The checks.** Integrating the null path numerically reproduces the closed form to 1.6×10⁻¹⁵.
+  - **Control:** removing the warping (k → 0 with r_c fixed) gives both clocks πr_c/c.
+- **This is "position 1, then position 2".** Our clock registers about 3×10⁻²⁸ s, and there is nothing in between in
+  either plane.
 
-### 2. A jump that also lands somewhere else
+### 2. Randall–Sundrum: landing somewhere else
 
-- **What "the same place" means.** Which point on one plane counts as "the same place" as a point on the other is fixed
-  by the bulk's shared coordinates, not by either plane (H-BULK-PAIRING).
-- **Landing elsewhere costs the light time.** To land a lateral distance D away, the visible clock reads at least D's
-  light time. For the Proxima span that is 4.246500 yr, equal to the light time.
+In this geometry **every** causal path reads at least the light time to a place a distance D away. That holds for static,
+flat branes (H-RS1, STRUCTURAL); for the Proxima span it is 4.2465 yr. **This floor belongs to this geometry, not to
+brane-worlds in general.**
 
-### 3. One plane, two places (the board's present case)
+### 3. Chung–Freese: landing somewhere else, through the other plane
 
-- **Static case: no shortcut.** In static Randall–Sundrum, going into the bulk and back is never shorter than the brane
-  path. The detour costs between +1.2×10⁻²⁰ and +3.1×10⁻³⁷ in coordinate units, at offsets from 1 m to the Proxima span.
-  This agrees with Caldwell–Langlois p.5.
-- **Expanding brane:** the advance is 1.0×10⁻⁵⁹ today, or 3.9×10⁻⁵² for signals from z = 1090.
-- **Moving brane** (`branelink`, O7): **93.8 ns** saved over 4.2465 yr. This is conditional on the graviton being a bulk
-  degree of freedom and on B = 0, as O7 records.
+- **The route:** cross to the hidden plane, run along it, and come back (patched, static: H-CF-STATIC, H-CF-PATCHED).
+- **Our clock reads 2L/c + e^(−kL)·D/c.** That is shorter than D's light time once D exceeds 2L/(1 − e^(−kL)).
+- **At their kL = ln(10⁵):**
+  - the Proxima span's term is **1340 s, about 22 minutes**;
+  - the crossing term 2L/c is 6.7×10⁻¹² s at an illustrative L = 1 mm (H-L-ILLUSTRATIVE).
+- **The checks.**
+  - The static reading reproduces their factor of 10⁵.
+  - **Positive control:** no shortcut below the threshold, and one above it.
 
-### 4. Loops (STRUCTURAL)
+### 4. Manyfold: places that look far but are near
 
-The static two-brane metric has a global time, so it has no closed causal loop. The board's theorem D21 covers the
-moving-brane case.
+- **The gap.** A 1 mm bulk gap reads 3.3×10⁻¹² s on our clock.
+- **Proxima is not on another fold.** We see it at its light time, so it lies on our own fold, and the Manyfold pairs
+  only places that *look* electromagnetically far.
 
-### 5. Entering and leaving (STRUCTURAL; O6, OPEN)
+### 5. One plane (the board's present case)
 
-In Randall–Sundrum ordinary matter is confined to its plane, and what crosses the bulk is gravitational. On M's ruling
-(M-D68-1), what crosses is the defining information. No one has computed a rate for entering or leaving the corridor
-(O6).
+- **Static Randall–Sundrum:** no shortcut.
+- **Caldwell–Langlois's expanding single brane,** at z = 1090:
+  - at ℓ = 1/k (ℓH₀ = 7.2×10⁻⁶¹), the advance is 2.0×10⁻¹¹⁴;
+  - at their bound, it is at most 3.9×10⁻⁵².
+- **The board's moving brane (O7):** **at most** 93.8 ns over 4.2465 yr.
+  - This is conditional on the graviton being in the bulk, on an untilted brane, and on GW170817's simultaneous-emission
+    edge. Under GW170817's −100 s emission window the figure is 5.09 μs.
+  - Caldwell–Langlois's "no shortcut for compact, flat" dimensions is the static case; O7's saving comes from the brane's
+    motion.
+
+### 6. Loops, and entering and leaving (STRUCTURAL)
+
+- **Loops.** Static Randall–Sundrum has a global time, so it has no closed causal loop. Chung–Freese hide their apparent
+  causality violation today, and the Manyfold "do[es] not violate causality". Gao & Wald's time-delay theorem under the
+  null energy condition is NAMED-NOT-READ.
+- **What crosses.**
+  - In Randall–Sundrum it is gravitational: bulk modes produced and detected through their decay products. Collider rates
+    exist (Davoudiasl–Hewett–Rizzo, NAMED-NOT-READ).
+  - In Chung–Freese it is bulk-brane interactions at the corners.
+  - The board has not computed or READ a rate for a carrier of the defining information (O6).
 
 ## For M
 
-- **Your two-plane corridor exists as published physics** (Randall–Sundrum's two branes). Between bulk-paired points
-  there is no path in either plane, so **speed does not exist there**, as you said.
-- **Each end's own clock still reads something.** Ours reads about the Planck time (3.3×10⁻⁴³ s); the other plane's reads
-  10¹⁵ times longer, from the warping. That is your local clock, with no speed involved.
-- **The catch is where the corridor lands.** It joins a point of one plane to its bulk partner on the other. Landing
-  somewhere *else* on our plane (Proxima, say) costs at least that place's light time on our clock. And on one plane
-  alone, the published geometries give no shortcut (static), a negligible one (expanding), or 93.8 ns over 4.2 years
-  (the board's moving brane).
-- **So on this model the question becomes one of pairing.** Is the destination the bulk partner of the origin? That is,
-  are Earth here and the arrival point there "the same place" through the higher dimension? That is H-BULK-PAIRING, and
-  no source says what fixes it for two chosen places.
+- **Your two-plane corridor matches published models.** None of them is observed.
+- **Between bulk-paired points there is no path in either plane, so no speed exists there,** as you said. In
+  Randall–Sundrum our own clock reads about 3×10⁻²⁸ s for the jump.
+- **Whether the corridor can land somewhere far away depends on the higher dimension's shape.**
+  - Flat, static Randall–Sundrum: no. Landing D away costs at least D's light time.
+  - **Chung–Freese's two planes: yes.** Through the other plane the Proxima span reads about **22 minutes** on our
+    clock, against 4.25 years for light along our plane. Their path needs interactions where it meets each plane, they
+    found no smooth path that does this, and the solution is fine-tuned.
+  - **The Manyfold: yes, for places on another fold.** They look billions of light-years away but are a millimetre away
+    through the bulk. Proxima, though, is on our own fold.
+- **So the open question is the shape of the higher dimension between here and the destination.** That is what fixes
+  which places are close through it (H-BULK-PAIRING), and published shapes exist that do it.
 
 ## Named hypotheses
 
 - H-RS1, H-RS1-WARP and H-K-PLANCK.
+- H-OBSERVED-FRAME, H-SAME-LAGRANGIAN and H-STATIC-SLICING.
 - H-BULK-PAIRING.
+- H-CF-STATIC, H-CF-PATCHED and H-L-ILLUSTRATIVE.
+- H-MM-FOLD.
 - H-GRAVITATIONAL-CARRIER.
 - M's H-NO-SPEED, H-HIGHER-CORRIDOR and H-LOCAL-CLOCK.
 
 ## OPEN
 
-1. What makes two chosen places bulk partners (H-BULK-PAIRING): a geometry in which the origin and the destination are
-   bulk-paired.
-2. Entering and leaving the corridor (O6): a rate for coupling a carrier into the bulk and back out.
-3. Whether the other plane exists and holds matter: Randall–Sundrum's hidden brane is a model, not an observation.
-4. The extracted "kr_c ≈ 50" against e^(kπr_c) = 10¹⁵: a page reading at source.
+1. A bulk geometry in which a chosen destination is close through the higher dimension, beyond Chung–Freese's patched,
+   fine-tuned example and the Manyfold's folds.
+2. Entering and leaving the corridor (O6): a rate for a carrier of the defining information.
+3. Whether any second plane exists. None of the three geometries is observed, and LHC searches constrain
+   Randall–Sundrum (NAMED-NOT-READ).
+4. Randall–Sundrum's published kr_c (PRL, NAMED-NOT-READ) against the v1 text.
+
+## History (verifier, 2026-10-05; first-written claims kept)
+
+- **Our clock was in the wrong frame.** The first version said our clock reads *"3.29×10⁻⁴³ s … about the Planck
+  time"*. Our atoms keep their observed masses in ḡ, so our clock reads 3.29×10⁻²⁸ s; the hidden clock's figure was
+  likewise mis-stated.
+- **The floor was overstated.** It said *"landing somewhere else on our plane costs at least that place's light time"*
+  as if general, and that *"no source says what fixes"* the pairing. Both are wrong: the floor is specific to static,
+  flat Randall–Sundrum, and Chung–Freese and the Manyfold are published counterexamples, now carried with their caveats.
+- **The checks.** Four of the six checks could not fail, and the control was an identity. They were replaced by a real
+  control (k → 0) and a positive control (Chung–Freese).
+- **The detour figures** were hand-picked depths, not bounds.
+- **Caldwell–Langlois** was applied at z = 0, outside its validity, and to the wrong model.
+- **O7's 93.8 ns** is a maximum, under conditions now listed.
+- **Two phrases were too strong.** *"Exists as published physics"* overstated a model, and *"no one has computed a
+  rate"* was wrong.
