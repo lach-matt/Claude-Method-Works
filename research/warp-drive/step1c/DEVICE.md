@@ -232,18 +232,33 @@ nonlinear and local: that is the board's other signalling branch, with its own b
   - The speed bounds were first set aside for the wrong reason.
   - Three counted checks were identities.
 
-## H-COHERENCE, priced (`coherence.py`, 7/7 checks, 1 control, 2 STRUCTURAL; M item 39, part 2; not yet verified)
+## H-COHERENCE, priced (`coherence.py`, 8/8 checks, 1 control, 3 STRUCTURAL; M item 39, part 2; verified once, corrected)
 
-- **Where coherence is a demand.**
-  - **Under R-QUANTUM**, Bob holds his half of each pair until Alice's two bits arrive. With the pair source at the
-    midpoint (H-MIDPOINT-SOURCE, the arrangement that minimises the hold), that is **L/c = 4.25 years whatever the
-    schedule**.
-  - The retarded coupling route has the same hold.
-  - **Under R-CLASSICAL** only bits cross, and a classical record does not dephase, so H-COHERENCE sets no demand there.
-- **The demand.** Phase-flip probability is p = (1 − e^(−t/T2))/2 (H-PURE-DEPHASING, H-EXP-DECAY).
-  - **With correction:** at p = 0.11, where the dephasing capacity 1 − h₂(p) is 0.500, the hold needs **T2 ≥ 4.03 L/c =
-    5.4e8 s (17 years)**. The capacity formula is H-DEPHASING-CAPACITY, NAMED-NOT-READ.
-  - **Without correction:** keeping all 9.5e27 qubits intact needs T2 ≥ 6.4e35 s.
+- **Where coherence is a demand: it depends on the arrangement and the payload.**
+  - **Under R-QUANTUM**, put the pair source a distance x from Alice. Bob's stored hold is **2x/c**:
+    - **0** with the source at Alice. Bob's half is then in flight for L/c, and flight in vacuum does not dephase
+      (H-VACUUM-FLIGHT), so the burden moves to loss, which is the link budget's.
+    - **L/c** at the midpoint (H-MIDPOINT-SOURCE).
+    - **2L/c** with the source at Bob.
+  - **Under H-STATE-AS-BITS**, Bob measures in the computational basis on arrival and corrects the recorded outcome
+    later, so his hold is 0 at any x.
+  - So **a stored hold is a demand only for a quantum payload with the source away from Alice.**
+  - The retarded coupling route must stay coherent for the whole interaction, π/(2J_far) = 3.5e19 s, far beyond L/c.
+  - **Under R-CLASSICAL**, dephasing sets no demand. Storing bits carries classical retention costs, correctable
+    without a capacity cliff (H-CLASSICAL-RETENTION).
+- **The demand at the midpoint hold, by overhead k** (encoded qubits per logical qubit, so k also multiplies the
+  memories). The capacity is 1 − h₂(p). The dephasing channel is degradable (Devetak & Shor quant-ph/0311131v3, read
+  by the verifier); the closed form is computed here.
+
+| overhead k | T2 needed | × the best measured (180 min) |
+|---|---|---|
+| 2 | 5.4e8 s (17 yr) | 5.0e4 |
+| 1e6 | 2.0e7 s | 1.8e3 |
+| 1e12 | 9.8e6 s | 909 |
+| 1e27 | 4.3e6 s | 401 |
+| 1e100 | 1.2e6 s | 108 |
+
+  Without correction, keeping all 9.5e27 qubits intact needs T2 ≥ 6.4e35 s.
 - **The supply, read at source.**
 
 | memory | T2 | how obtained | qubits |
@@ -251,19 +266,30 @@ nonlinear and local: that is the board's other signalling branch, with its own b
 | ³¹P⁺ in ²⁸Si, 1.2 K (Saeedi et al. 2303.17734v1, re-read by the lead) | 180 min | measured single exponential; a lower bound (pulse errors) | ensemble, one stored state |
 | ³¹P⁺ in ²⁸Si, 298 K | 39 min | measured; a lower bound | ensemble |
 | ¹⁵¹Eu³⁺:Y₂SiO₅ spin (Ma et al. 2012.14605v3) | 2.68 h | measured (CPMG) | ensemble, one mode |
-| ¹⁵¹Eu³⁺:Y₂SiO₅ (Zhong et al. 2015) | 370 min | abstract only (Nature paywalled; method not established) | ensemble |
+| ¹⁵¹Eu³⁺:Y₂SiO₅ (Zhong et al. 2015) | 370 min | abstract only (Nature paywalled) | ensemble |
 | one ¹⁷¹Yb⁺ ion (Wang et al. 2008.00251v1) | 5487 s | **extrapolated** from data out to ~16 min | 1 |
-| 6139 Cs atoms at once (Manetsch et al. 2403.12021v4) | 12.6 s | measured, array-averaged | 6139 |
+| 6139 Cs atoms (Manetsch et al. 2403.12021v4) | 12.6 s | measured, under XY16 at reduced depth (3.19 s at full depth) | 6139 |
 
-- **The gap.**
-  - Held for 4.25 years, every memory above reaches p = ½ and capacity 0. The best measured T2 is 1.24e4 e-folds short
-    of the hold.
-  - The best measured T2 is **5.0e4 short** of the corrected demand, and the largest array is over 1e7 short.
-  - Under H-NO-REFRESH, no measured memory carries a qubit through the hold. Whether a fault-tolerant memory can hold
-    for years is **OPEN**.
-- **Hypotheses:** H-MIDPOINT-SOURCE, H-PURE-DEPHASING, H-EXP-DECAY, H-NO-CORRECTION, H-DEPHASING-CAPACITY
-  (NAMED-NOT-READ), H-NO-REFRESH and H-STATE-AS-BITS.
-- **Recorded:** the reader's brief carried a wrong id. 1301.6567 is Wolfowicz et al.; Saeedi et al. is 2303.17734v1.
+- **The gap.** The midpoint hold spans 1.24e4 e-folds of the best measured T2. Every memory reaches capacity 0, and the
+  best falls short by 108 to 5e4 across overheads from 2 to 1e100.
+- **Bias, stated.**
+  - The pure exponential is lenient to the memory: a stretched decay falls faster.
+  - The spins per ensemble-stored qubit are unpriced (H-ENSEMBLE-PER-QUBIT), which favours the device.
+  - Every T2 above is measured under active dynamical decoupling, which is control, not correction.
+- **H-NO-REFRESH and what it hides.** Active fault-tolerant correction below threshold gives logical lifetimes that grow
+  exponentially with code distance, so years are not excluded in principle. The open question is an operations and
+  energy demand on 9.5e27 × k physical qubits (H-FT-MEMORY, OPEN, unpriced).
+- **Hypotheses:** H-STORED-HOLD, H-MIDPOINT-SOURCE (a choice, not the minimum), H-VACUUM-FLIGHT, H-PURE-DEPHASING,
+  H-EXP-DECAY, H-DEPHASING-CAPACITY, H-NO-REFRESH, H-FT-MEMORY, H-ENSEMBLE-PER-QUBIT, H-CLASSICAL-RETENTION and
+  H-STATE-AS-BITS.
+- **History (first written, kept):**
+  - "H-MIDPOINT-SOURCE, the arrangement that minimises the hold" was wrong: a source at Alice gives 0.
+  - "The retarded coupling route has the same hold" understated it.
+  - "5.0e4 short" rested on overhead 2 alone.
+  - The capacity was first marked named-not-read.
+  - Two identities were counted, and a control did not exercise its check.
+  - "1.24e4 e-folds short of the hold" was mis-worded.
+  - The reader's brief carried a wrong id: 1301.6567 is Wolfowicz et al.; Saeedi et al. is 2303.17734v1.
 
 ## Named hypotheses (supply)
 

@@ -1,40 +1,69 @@
 #!/usr/bin/env python3
 """
-coherence.py -- Step 1c: H-COHERENCE priced -- how long each stored qubit must hold, against measured coherence times
-READ at source.
+coherence.py -- Step 1c: H-COHERENCE priced -- how long a stored qubit must hold, in which arrangement, against measured
+coherence times READ at source.
 
-Not seated.  M (rulings item 39): "3, then 2. Then 1 last please" -- 2 is this file.  coupling.py named H-COHERENCE
-("no coherence time is priced anywhere else on the board"); here it is priced.
+Not seated.  M (rulings item 39): "3, then 2. Then 1 last please" -- 2 is this file.  coupling.py named H-COHERENCE;
+here it is priced.  Verified in both directions on 2026-10-05; the findings are applied and the first-written claims
+kept under HISTORY.
 
     python3 coherence.py              report
     python3 coherence.py --selftest   checks, with CONTROLS
     python3 coherence.py --json       the numbers as JSON
 
-WHERE COHERENCE IS A DEMAND
-  R-QUANTUM (balance.py's teleportation reading): Bob holds his half of each pair until Alice's two classical bits
-  arrive.  With the pair source at the midpoint and Alice measuring on arrival (H-MIDPOINT-SOURCE, the arrangement that
-  minimises the hold), Bob holds for L/c = 4.25 yr whatever the schedule.  The coupling route under H-LOCALITY is
-  retarded and completes no sooner than L/c, so the same hold applies (coupling.py).
-  R-CLASSICAL: only bits cross; a classical record does not dephase, so H-COHERENCE sets no demand there.
+WHERE COHERENCE IS A DEMAND -- IT DEPENDS ON THE ARRANGEMENT AND THE PAYLOAD
+  R-QUANTUM (balance.py's teleportation reading), source of pairs a distance x from Alice along the A-B line: Bob's half
+  arrives at (L - x)/c; Alice measures on arrival of hers at x/c; her two bits reach Bob at (x + L)/c.  Bob's STORED
+  hold is 2x/c (H-STORED-HOLD: the hold is on a stored memory).  x = 0 (source at Alice): 0 -- Bob's half is in FLIGHT
+  for L/c instead, and a photon in vacuum has no dephasing environment (H-VACUUM-FLIGHT: dispersion and Faraday
+  rotation are unitary and calibratable), so the burden moves to LOSS, which is the link budget's (supply.py's
+  link_at_proxima).  x = L/2 (H-MIDPOINT-SOURCE): L/c.  x = L: 2L/c.
+  And under H-STATE-AS-BITS (the payload is the object's bits) Bob measures in the computational basis only: he can
+  measure on arrival and apply the X correction to the recorded outcome when Alice's bits come (Z does not change a
+  computational-basis result) -- a hold of 0 at any x.  So a stored hold is a demand only for a QUANTUM payload with
+  the source away from Alice.
+  The retarded coupling route: the state must stay coherent for the whole interaction, about pi/(2J); at the far-field
+  J (coupling.py) that is far beyond L/c -- L/c is only its floor.
+  R-CLASSICAL: only bits cross; dephasing sets no demand.  If bits are stored, retention errors are classical error-rate
+  costs, correctable without a capacity cliff (H-CLASSICAL-RETENTION).
 THE MODEL (named)
-  H-PURE-DEPHASING with H-EXP-DECAY: a stored qubit's phase-flip probability after time t is p(t) = (1 - e^(-t/T2))/2.
-  Without correction, all I qubits intact needs I p <= epsilon (H-NO-CORRECTION).  With correction at the dephasing
-  channel's quantum capacity 1 - h2(p) (H-DEPHASING-CAPACITY, NAMED-NOT-READ: the standard degradable-channel result is
-  not read at source here), the overhead is 1/(1 - h2(p)) and is finite only for p < 1/2.  H-NO-REFRESH: no active
-  error correction or repeater refreshes the memory during the hold -- a fault-tolerant memory would change this, and
-  whether one holds for years is OPEN.
+  H-PURE-DEPHASING with H-EXP-DECAY: phase-flip probability after t is p(t) = (1 - e^(-t/T2))/2.  Bias: for t >> T2 a
+  stretched exponential (n > 1, spectral diffusion) decays faster, so the pure exponential is LENIENT to the memory;
+  T1 is ignored.  At 6e3 e-folds or more p saturates under any of these.
+  Correction: the dephasing channel is degradable, so its quantum capacity is its single-letter coherent information
+  (Devetak & Shor, quant-ph/0311131v3 p.13 App. B, READ by the coherence verifier); the closed form 1 - h2(p) for
+  phase-flip probability p is COMPUTED here (H-DEPHASING-CAPACITY), for an asymptotic block code with ideal encode and
+  decode, compatible with H-NO-REFRESH.  An overhead k (encoded qubits per logical qubit) needs capacity 1/k.  The
+  demand is printed as a function of k, which multiplies the number of memories too.
+  H-NO-REFRESH: no active error correction refreshes the memory during the hold.  Active fault-tolerant correction
+  below threshold gives logical lifetimes growing exponentially with code distance, so years are not excluded in
+  principle; the open question is an operations and energy demand on 9.5e27 x k physical qubits (H-FT-MEMORY, OPEN,
+  unpriced).  Every supply T2 below is already measured under active dynamical decoupling, which is control, not
+  correction.
 THE SUPPLY (READ; see SUPPLY)
-  The longest coherence times found, each with how it was obtained: an ensemble of 31P+ nuclear spins in 28Si, T2 = 180
-  min at 1.2 K, measured single exponential, a lower bound limited by pulse errors (Saeedi et al. 2303.17734v1,
-  re-read by the lead); an ensemble 151Eu3+ spin T2 = 2.68 h (Ma et al. 2012.14605v3); one 171Yb+ ion, 5487 s,
-  EXTRAPOLATED from data to ~1000 s (Wang et al. 2008.00251v1); 151Eu3+ nuclear spins 370 min (Zhong et al. 2015,
-  abstract only: Nature paywalled, method unknown); and the largest array, 6139 atoms held at once with T2 = 12.6 s
-  (Manetsch et al. 2403.12021v4).  The reader's brief carried a wrong id (1301.6567 is Wolfowicz et al.; Saeedi et al.
-  is 2303.17734v1), recorded.
+  31P+ ensemble in 28Si, T2 = 180 min at 1.2 K, measured single exponential, a lower bound (pulse errors) -- Saeedi et
+  al. 2303.17734v1, re-read by the lead; 151Eu3+ spin T2 = 2.68 h (Ma et al. 2012.14605v3); one 171Yb+ ion 5487 s,
+  EXTRAPOLATED (Wang et al. 2008.00251v1); 151Eu3+ 370 min, abstract only (Zhong et al. 2015, paywalled); 6139 atoms at
+  once, T2 = 12.6 s under XY16 at reduced trap depth (3.19 s at full depth; Manetsch et al. 2403.12021v4, spot-checked
+  by the verifier).  An ensemble stores ONE state in many spins: the spins per stored qubit are unpriced
+  (H-ENSEMBLE-PER-QUBIT), which favours the device.
 
 NAMED HYPOTHESES
-  H-MIDPOINT-SOURCE, H-PURE-DEPHASING, H-EXP-DECAY, H-NO-CORRECTION, H-DEPHASING-CAPACITY (NAMED-NOT-READ),
-  H-NO-REFRESH, H-STATE-AS-BITS (one qubit per bit of the count), and demand.py's.
+  H-STORED-HOLD, H-MIDPOINT-SOURCE (a modelling choice, not the minimum), H-VACUUM-FLIGHT, H-PURE-DEPHASING,
+  H-EXP-DECAY, H-DEPHASING-CAPACITY (degradability READ, closed form COMPUTED), H-NO-REFRESH, H-FT-MEMORY (OPEN),
+  H-ENSEMBLE-PER-QUBIT, H-CLASSICAL-RETENTION, H-STATE-AS-BITS, and demand.py's.
+
+HISTORY (coherence verifier, 2026-10-05; first-written claims kept):
+  * 'H-MIDPOINT-SOURCE, the arrangement that minimises the hold' -- wrong: the hold is 2x/c, 0 with the source at
+    Alice; and 0 at any x for a bit payload.  The midpoint hold L/c is a modelling choice, not the minimum (it was
+    printed STRUCTURAL as 'the light time'; demoted).
+  * 'The retarded coupling route has the same hold' -- understated: L/c is its floor; the interaction time is longer.
+  * '5.0e4 short' rested on p = 0.11 (overhead 2) alone; now a function of the overhead (1.8e3 at 1e6, ~4e2 at 1e27).
+  * H-DEPHASING-CAPACITY was NAMED-NOT-READ; degradability is now READ (Devetak & Shor), the closed form COMPUTED.
+  * Counted as checks: 'T2 between 4 and 4.1 L/c' and 'capacity about 1/2' -- functions of the constant 0.11 only;
+    moved to STRUCTURAL.  The control recomputed p analytically and never exercised check 1's predicate; it now injects
+    a supply row.
+  * '1.24e4 e-folds short of the hold' -- mis-worded: the hold spans 1.24e4 e-folds of T2.
 """
 import contextlib
 import io
@@ -65,13 +94,13 @@ with contextlib.redirect_stdout(io.StringIO()):
     demand = coupling.demand
 
 L, C, YEAR_S = coupling.L, coupling.C, coupling.YEAR_S
-T_HOLD = L / C
+OVERHEADS = (2.0, 1e6, 1e12, 1e27, 1e100)
 
 SUPPLY = {
     "P_in_28Si_Saeedi": {
         "source": "arXiv:2303.17734v1 (Saeedi et al.; Science 2013)", "route": "READ via alphaXiv answer_pdf_queries, "
         "p.3, Fig. 3 (coherence reader; re-read by the lead)", "kind": "measured single exponential; a lower bound "
-        "(pulse errors)", "T2_s": 180 * 60.0, "qubits": "ensemble (~5e11 cm^-3), one stored state",
+        "(pulse errors)", "T2_s": 180 * 60.0, "qubits": "ensemble (density ~5e11 cm^-3), one stored state",
         "phrase": "follows a single exponential with a T2 of 180 min", "T_K": 1.2},
     "P_in_28Si_room": {
         "source": "arXiv:2303.17734v1", "route": "as above", "kind": "measured; a lower bound", "T2_s": 39 * 60.0,
@@ -91,9 +120,19 @@ SUPPLY = {
         "phrase": "a coherence time of 370 +- 60 minutes was achieved at 2 kelvin", "T_K": 2.0},
     "Cs_array_Manetsch": {
         "source": "arXiv:2403.12021v4 (Manetsch et al.)", "route": "READ via alphaXiv answer_pdf_queries, p.5, "
-        "Fig. 4c (coherence reader)", "kind": "measured, array-averaged", "T2_s": 12.6, "qubits": 6139,
+        "Fig. 4c (coherence reader; spot-checked by the verifier)", "kind": "measured, array-averaged, under XY16 "
+        "dynamical decoupling at reduced trap depth (3.19 s at full depth)", "T2_s": 12.6, "qubits": 6139,
         "phrase": "the measured dephasing time is T2 = 12.6(1) s", "T_K": None},
 }
+
+
+def stored_hold(x):
+    """Bob's stored hold, source at distance x from Alice (H-STORED-HOLD): 2x/c."""
+    return 2.0 * x / C
+
+
+def T_HOLD_MIDPOINT():
+    return stored_hold(L / 2.0)
 
 
 def h2(p):
@@ -106,7 +145,7 @@ def p_dephase(t, T2):
 
 
 def capacity(p):
-    """H-DEPHASING-CAPACITY (NAMED-NOT-READ): 1 - h2(p), floored at 0."""
+    """H-DEPHASING-CAPACITY: 1 - h2(p) (computed; degradability READ), floored at 0."""
     return max(0.0, 1.0 - h2(p))
 
 
@@ -115,56 +154,96 @@ def T2_for_p(t, p):
     return t / -math.log1p(-2.0 * p)       # log1p: 1 - 2p rounds to 1 at p ~ 1e-28
 
 
+def p_for_overhead(k):
+    """The phase-flip probability at which capacity is 1/k: bisection on 1 - h2(p) = 1/k over (0, 1/2); for large k
+    the analytic form near p = 1/2, 1 - h2(1/2 - eps) ~ (2/ln 2) eps^2, so eps = sqrt(ln 2 / (2 k))."""
+    eps = math.sqrt(math.log(2.0) / (2.0 * k))
+    if eps < 1e-6:
+        return 0.5 - eps, eps
+    lo, hi = 0.0, 0.5
+    for _ in range(200):
+        mid = 0.5 * (lo + hi)
+        if 1.0 - h2(mid) > 1.0 / k:
+            lo = mid
+        else:
+            hi = mid
+    return lo, 0.5 - lo
+
+
+def T2_for_overhead(t, k):
+    """T2 needed for a hold t at overhead k: e^(-t/T2) = 1 - 2p = 2 eps."""
+    _p, eps = p_for_overhead(k)
+    return t / math.log(1.0 / (2.0 * eps))
+
+
 def qubits():
     return dict((n, b) for n, b in demand.counts())
 
 
 def demand_T2():
-    """T2 needed for the hold: with correction at p = 0.11 (capacity ~1/2, overhead ~2x), and with none for I qubits
-    (expected one flip over all I: I p = 1)."""
-    out = {"with_correction_p": 0.11, "with_correction_T2_s": T2_for_p(T_HOLD, 0.11),
-           "with_correction_capacity": capacity(0.11)}
-    out["no_correction_T2_s"] = dict((n, T2_for_p(T_HOLD, 1.0 / b)) for n, b in qubits().items())
+    t = T_HOLD_MIDPOINT()
+    out = {"hold_by_source": {"x = 0 (source at Alice)": stored_hold(0.0), "x = L/2 (midpoint)": stored_hold(L / 2),
+                              "x = L (source at Bob)": stored_hold(L)},
+           "coupling_interaction_s": math.pi / (2.0 * coupling.supply_rows()["rydberg_J_far_at_L_rad_s"]),
+           "by_overhead_T2_s": dict((k, T2_for_overhead(t, k)) for k in OVERHEADS)}
+    out["no_correction_T2_s"] = dict((n, T2_for_p(t, 1.0 / b)) for n, b in qubits().items())
     return out
 
 
-def supply_rows():
+def supply_rows(supply=None):
+    t = T_HOLD_MIDPOINT()
     out = {}
-    for k, v in SUPPLY.items():
-        p = p_dephase(T_HOLD, v["T2_s"])
-        out[k] = {"T2_s": v["T2_s"], "e_folds_in_hold": T_HOLD / v["T2_s"], "p_after_hold": p,
+    for k, v in (SUPPLY if supply is None else supply).items():
+        p = p_dephase(t, v["T2_s"])
+        out[k] = {"T2_s": v["T2_s"], "hold_in_T2_e_folds": t / v["T2_s"], "p_after_hold": p,
                   "capacity_after_hold": capacity(p), "kind": v["kind"]}
     return out
 
 
+def saturated(rows):
+    """[memory] that reaches p = 1/2 and capacity 0 over the midpoint hold (check 1's predicate)."""
+    return [k for k, v in rows.items() if abs(v["p_after_hold"] - 0.5) <= 1e-12 and v["capacity_after_hold"] == 0]
+
+
+def best_measured():
+    return max(v["T2_s"] for v in SUPPLY.values() if not v["kind"].startswith(("EXTRAP", "abstract")))
+
+
 def collect():
-    return {"T_hold_s": T_HOLD, "T_hold_yr": T_HOLD / YEAR_S, "demand": demand_T2(), "supply": supply_rows(),
-            "READ": SUPPLY}
+    return {"T_hold_midpoint_s": T_HOLD_MIDPOINT(), "demand": demand_T2(), "supply": supply_rows(), "READ": SUPPLY,
+            "shortfall_by_overhead": dict((k, v / best_measured())
+                                          for k, v in demand_T2()["by_overhead_T2_s"].items())}
 
 
 def report():
     d = collect()
     dm = d["demand"]
-    print("Step 1c -- H-COHERENCE priced (R-QUANTUM and the retarded coupling; R-CLASSICAL sets no coherence demand)")
-    print("  hold: L/c = %.4g s = %.4g yr (H-MIDPOINT-SOURCE)" % (d["T_hold_s"], d["T_hold_yr"]))
-    print("  demand: with correction at p = 0.11 (capacity %.3f): T2 >= %.3g s = %.3g yr; with none, T2 >= %s"
-          % (dm["with_correction_capacity"], dm["with_correction_T2_s"], dm["with_correction_T2_s"] / YEAR_S,
-             "; ".join("%.3g s (%s)" % (v, n[:16]) for n, v in dm["no_correction_T2_s"].items())))
+    print("Step 1c -- H-COHERENCE priced (a QUANTUM payload with the source away from Alice; see the docstring)")
+    print("  Bob's stored hold, source at x from Alice (2x/c): %s"
+          % "; ".join("%s %.3g s" % kv for kv in dm["hold_by_source"].items()))
+    print("  zero-hold routes: source at Alice (flight in vacuum, H-VACUUM-FLIGHT; loss is the link budget's), or a bit "
+          "payload (H-STATE-AS-BITS: measure on arrival)")
+    print("  the retarded coupling route: coherent for the interaction, pi/(2 J_far) = %.3g s (>> L/c)"
+          % dm["coupling_interaction_s"])
+    print("  demand at the midpoint hold (%.4g s) by overhead k (capacity 1/k; k also multiplies the memories):"
+          % d["T_hold_midpoint_s"])
+    for k, v in dm["by_overhead_T2_s"].items():
+        print("    k = %-8.3g T2 >= %.3g s (%.3g yr): %.3g x the best measured" % (k, v, v / YEAR_S,
+                                                                             d["shortfall_by_overhead"][k]))
+    print("  with no correction, all I qubits intact: T2 >= %s" % "; ".join(
+        "%.3g s (%s)" % (v, n[:16]) for n, v in dm["no_correction_T2_s"].items()))
     print("  supply (READ):")
-    best = max(v["T2_s"] for k, v in d["supply"].items() if not SUPPLY[k]["kind"].startswith(("EXTRAP", "abstract")))
     for k, v in d["supply"].items():
-        print("    %-20s T2 %.4g s (%s): %.3g e-folds in the hold; p -> %.6f; capacity %.3g"
-              % (k, v["T2_s"], SUPPLY[k]["kind"][:40], v["e_folds_in_hold"], v["p_after_hold"],
+        print("    %-20s T2 %.4g s (%s): the hold spans %.3g e-folds of it; p -> %.6f; capacity %.3g"
+              % (k, v["T2_s"], SUPPLY[k]["kind"][:44], v["hold_in_T2_e_folds"], v["p_after_hold"],
                  v["capacity_after_hold"]))
-    print("  best measured (not extrapolated, not abstract-only): %.4g s -- %.3g short of the corrected demand; %.3g "
-          "short of the uncorrected one (species)" % (best, dm["with_correction_T2_s"] / best,
-                                                    list(dm["no_correction_T2_s"].values())[0] / best))
-    print("  under H-NO-REFRESH no measured memory holds a qubit through the hold: every capacity above is 0.  A "
-          "fault-tolerant memory that holds for years is OPEN.")
+    print("  under H-NO-REFRESH no measured memory carries a quantum payload through a midpoint hold; a fault-tolerant "
+          "memory (H-FT-MEMORY) is OPEN and unpriced")
 
 
 def selftest():
     n_ok = n_bad = n_ctl = 0
+    n_struct = 0
 
     def chk(label, got, want, ctl=False):
         nonlocal n_ok, n_bad, n_ctl
@@ -174,36 +253,47 @@ def selftest():
         n_ctl += ctl
         print("  [%s]%s %-96s %r" % ("ok" if ok else "XX", " CTL" if ctl else "", label[:96], got))
 
+    def structural(text):
+        nonlocal n_struct
+        n_struct += 1
+        print("  [STRUCTURAL] " + text)
+
     print("coherence.py selftest")
     d = collect()
-    sp = d["supply"]
-    chk("every READ memory, held for L/c, reaches p = 1/2 to within 1e-12 and capacity 0 (H-NO-REFRESH)",
-        [k for k, v in sp.items() if abs(v["p_after_hold"] - 0.5) > 1e-12 or v["capacity_after_hold"] > 0], [])
-    chk("  CONTROL: a memory with T2 = 10 L/c keeps p under 0.05 and capacity over 0.7",
-        (p_dephase(T_HOLD, 10 * T_HOLD) < 0.05, capacity(p_dephase(T_HOLD, 10 * T_HOLD)) > 0.7), (True, True),
-        ctl=True)
-    dm = d["demand"]
-    chk("with correction at p = 0.11 the hold needs T2 between 4 and 4.1 L/c (%.4g L/c), capacity about 1/2 (%.3f)"
-        % (dm["with_correction_T2_s"] / T_HOLD, dm["with_correction_capacity"]),
-        (4.0 < dm["with_correction_T2_s"] / T_HOLD < 4.1, 0.45 < dm["with_correction_capacity"] < 0.55),
-        (True, True))
-    best = SUPPLY["P_in_28Si_Saeedi"]["T2_s"]
-    chk("the best measured T2 (180 min, a lower bound) is over 1e4 short of the corrected demand (%.3g)"
-        % (dm["with_correction_T2_s"] / best), dm["with_correction_T2_s"] / best > 1e4, True)
-    nc = list(dm["no_correction_T2_s"].values())[0]
+    chk("every READ memory, over the midpoint hold, reaches p = 1/2 and capacity 0 (H-NO-REFRESH)",
+        sorted(saturated(d["supply"])), sorted(SUPPLY))
+    _fake = dict(SUPPLY)
+    _fake["fake_long"] = dict(SUPPLY["P_in_28Si_Saeedi"], T2_s=10 * T_HOLD_MIDPOINT())
+    chk("  CONTROL: a supply row with T2 = 10 x the hold is NOT flagged by the same predicate",
+        "fake_long" in saturated(supply_rows(_fake)), False, ctl=True)
+    sh = d["shortfall_by_overhead"]
+    chk("the best measured T2 falls short at every overhead up to 1e27 by over 1e2 (k=2: %.3g; 1e6: %.3g; 1e12: %.3g; "
+        "1e27: %.3g), and the shortfall falls as the overhead grows" % (sh[2.0], sh[1e6], sh[1e12], sh[1e27]),
+        (all(sh[k] > 1e2 for k in (2.0, 1e6, 1e12, 1e27)), sh[2.0] > sh[1e6] > sh[1e12] > sh[1e27]), (True, True))
+    chk("  at an overhead of 1e100 the shortfall is still over 1e1 (%.3g) -- not 'at any overhead'" % sh[1e100],
+        sh[1e100] > 1e1, True)
+    nc = list(d["demand"]["no_correction_T2_s"].values())[0]
     chk("without correction, all 9.5e27 qubits intact needs T2 over 1e35 s (%.3g s)" % nc, nc > 1e35, True)
-    chk("the largest simultaneous array (6139 atoms, T2 = 12.6 s) is short of the corrected demand by over 1e7 (%.3g)"
-        % (dm["with_correction_T2_s"] / SUPPLY["Cs_array_Manetsch"]["T2_s"]),
-        dm["with_correction_T2_s"] / SUPPLY["Cs_array_Manetsch"]["T2_s"] > 1e7, True)
+    hb = d["demand"]["hold_by_source"]
+    chk("the stored hold depends on the source: 0 at Alice, L/c at the midpoint, 2L/c at Bob",
+        (hb["x = 0 (source at Alice)"], round(hb["x = L/2 (midpoint)"] / (L / C), 12),
+         round(hb["x = L (source at Bob)"] / (L / C), 12)), (0.0, 1.0, 2.0))
+    chk("the retarded coupling route's interaction time exceeds L/c by over 1e10 (%.3g)"
+        % (d["demand"]["coupling_interaction_s"] / (L / C)), d["demand"]["coupling_interaction_s"] / (L / C) > 1e10,
+        True)
     chk("every READ record names a source, route and kind; phrases under 15 words; extrapolated and abstract-only "
-        "figures are marked as such",
+        "figures are marked and excluded from the best measured",
         ([k for k, v in SUPPLY.items() if not all(v.get(f) for f in ("source", "route", "kind"))],
          [k for k, v in SUPPLY.items() if len(v["phrase"].split()) >= 15],
          SUPPLY["Yb_ion_Wang"]["kind"].startswith("EXTRAPOLATED"),
-         SUPPLY["Eu_YSO_Zhong"]["kind"].startswith("abstract only")), ([], [], True, True))
-    print("  [STRUCTURAL] p(t) = (1 - e^(-t/T2))/2 and T2_for_p are inverses (H-PURE-DEPHASING, H-EXP-DECAY)")
-    print("  [STRUCTURAL] the hold L/c is the light time: R-QUANTUM's two bits travel at c (H-MIDPOINT-SOURCE)")
-    print("\n%d/%d checks pass, %d of them controls; 2 STRUCTURAL printed, not counted" % (n_ok, n_ok + n_bad, n_ctl))
+         SUPPLY["Eu_YSO_Zhong"]["kind"].startswith("abstract only"), best_measured() == 180 * 60.0),
+        ([], [], True, True, True))
+    structural("p(t) = (1 - e^(-t/T2))/2 and T2_for_p are inverses (H-PURE-DEPHASING, H-EXP-DECAY)")
+    structural("at k = 2 (p = 0.11) T2 = t / -ln(0.78) = 4.025 t and capacity ~1/2: functions of the constant alone "
+               "(first counted)")
+    structural("the stored hold 2x/c follows from the arrival times (L - x)/c and (x + L)/c")
+    print("\n%d/%d checks pass, %d of them controls; %d STRUCTURAL printed, not counted"
+          % (n_ok, n_ok + n_bad, n_ctl, n_struct))
     return n_bad == 0
 
 
