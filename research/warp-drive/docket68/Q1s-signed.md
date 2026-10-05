@@ -690,7 +690,12 @@ a Shannon state measured against a signed ground.
    only signed w survives; whether it binds is M's. (*M-apply first said* "nothing computed so far separates them".)
 4. A fuller prior-art search on finite-set signed entropy (wave 4 found Kontsevich and Leinster through the verifier;
    the polylogarithm and information-cohomology literature -- Cathelineau, Baudot–Bennequin, Vigneaux -- is
-   NAMED-NOT-READ).
+   NAMED-NOT-READ). *Q-1s gate (2026-10-05):* **answered for the search as run** in `Q1s-PRIORART.md`
+   -- Cathelineau 1996, Baudot–Bennequin and Vigneaux now READ (positive simplex or existence only); Im–Khovanov
+   2409.08462v2 found, which defines H(a) on real sequences and extends BFL's category to signed weights with Re H
+   functorial on it (no characterisation); Cathelineau 1988, Lee 1964, Aczél–Dhombres stay NAMED-NOT-READ. Not every
+   brief §2 item is published; candidates survive in items 1-5. *First said* "the polylogarithm and
+   information-cohomology literature ... is NAMED-NOT-READ".
 5. The meaning of M's "inverses and reflections" (H-READING-M). *M-apply:* **answered** ("All of the above"); carried,
    centred at the ground (§ 10). Still OPEN: which ground-state quantity a given question should take beyond M's
    default MASS/BINDING -- M: "depending on the question being asks or the object of study". *F-alone:* POPULATE-AXES
