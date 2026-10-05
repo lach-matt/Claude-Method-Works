@@ -219,6 +219,39 @@ read at source in wave 2.
 - **This is a hypothesis carried, not a result.** It is neither shown nor dismissed. What it needs is H-FRAME and a
   coupling of the strength above spanning L. What would test it is a no-signalling check at separations near L.
 
+## H-COHERENCE, priced (`coherence.py`, 7/7 checks, 1 control, 2 STRUCTURAL; M item 39, part 2; not yet verified)
+
+- **Where coherence is a demand.**
+  - **Under R-QUANTUM**, Bob holds his half of each pair until Alice's two bits arrive. With the pair source at the
+    midpoint (H-MIDPOINT-SOURCE, the arrangement that minimises the hold), that is **L/c = 4.25 years whatever the
+    schedule**.
+  - The retarded coupling route has the same hold.
+  - **Under R-CLASSICAL** only bits cross, and a classical record does not dephase, so H-COHERENCE sets no demand there.
+- **The demand.** Phase-flip probability is p = (1 − e^(−t/T2))/2 (H-PURE-DEPHASING, H-EXP-DECAY).
+  - **With correction:** at p = 0.11, where the dephasing capacity 1 − h₂(p) is 0.500, the hold needs **T2 ≥ 4.03 L/c =
+    5.4e8 s (17 years)**. The capacity formula is H-DEPHASING-CAPACITY, NAMED-NOT-READ.
+  - **Without correction:** keeping all 9.5e27 qubits intact needs T2 ≥ 6.4e35 s.
+- **The supply, read at source.**
+
+| memory | T2 | how obtained | qubits |
+|---|---|---|---|
+| ³¹P⁺ in ²⁸Si, 1.2 K (Saeedi et al. 2303.17734v1, re-read by the lead) | 180 min | measured single exponential; a lower bound (pulse errors) | ensemble, one stored state |
+| ³¹P⁺ in ²⁸Si, 298 K | 39 min | measured; a lower bound | ensemble |
+| ¹⁵¹Eu³⁺:Y₂SiO₅ spin (Ma et al. 2012.14605v3) | 2.68 h | measured (CPMG) | ensemble, one mode |
+| ¹⁵¹Eu³⁺:Y₂SiO₅ (Zhong et al. 2015) | 370 min | abstract only (Nature paywalled; method not established) | ensemble |
+| one ¹⁷¹Yb⁺ ion (Wang et al. 2008.00251v1) | 5487 s | **extrapolated** from data out to ~16 min | 1 |
+| 6139 Cs atoms at once (Manetsch et al. 2403.12021v4) | 12.6 s | measured, array-averaged | 6139 |
+
+- **The gap.**
+  - Held for 4.25 years, every memory above reaches p = ½ and capacity 0. The best measured T2 is 1.24e4 e-folds short
+    of the hold.
+  - The best measured T2 is **5.0e4 short** of the corrected demand, and the largest array is over 1e7 short.
+  - Under H-NO-REFRESH, no measured memory carries a qubit through the hold. Whether a fault-tolerant memory can hold
+    for years is **OPEN**.
+- **Hypotheses:** H-MIDPOINT-SOURCE, H-PURE-DEPHASING, H-EXP-DECAY, H-NO-CORRECTION, H-DEPHASING-CAPACITY
+  (NAMED-NOT-READ), H-NO-REFRESH and H-STATE-AS-BITS.
+- **Recorded:** the reader's brief carried a wrong id. 1301.6567 is Wolfowicz et al.; Saeedi et al. is 2303.17734v1.
+
 ## Named hypotheses (supply)
 
 H-ONE-INSTRUMENT, H-PARALLEL-INSTRUMENTS, H-INVERSE-SQUARE, H-FIXED-HARDWARE, H-FIXED-CARRIER, H-FRIIS-IDEAL, H-NO-PREP
