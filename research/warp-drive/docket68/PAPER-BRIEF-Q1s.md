@@ -103,3 +103,8 @@ sketch). What the repository adds, as a floor rather than a priority claim (Q1s-
 
 The session reports to M: the draft's location, the prior-art findings and how they re-graded items 1–4, every
 selftest it ran, every source READ (id, version, pages), every 403 met, and every question M must rule on.
+
+## 7. Closed (2026-10-05)
+
+The gate ran (Q1s-PRIORART.md), and M ruled **"No paper"** (M-RULINGS item 43). This brief is kept as a record. It is no
+longer an instruction for a session.

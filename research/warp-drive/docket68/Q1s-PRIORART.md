@@ -109,3 +109,9 @@ No paywall was met on any arXiv source. No 403 was met this pass.
   That means Im–Khovanov for the signed category and for H(a) on real sequences; Kontsevich, Elbaz-Vincent–Gangl and
   Cathelineau for two-entry uniqueness; Cerf–Hertz–Van Herstraeten for the definition. The brief's §5 ("what the paper
   must not say") gains one line: the signed-weight extension of BFL's category, with Re H functorial on it, is not new.
+
+## 6. M's ruling on the gate
+
+M-RULINGS item 43 (2026-10-05): shown this gate and asked whether to write a paper and in what form, M ruled **"No
+paper"**. The Q-1s paper question is closed. The grades above stand as a record. `signed.py` and Q1s-signed.md are
+unchanged, and PAPER-BRIEF-Q1s.md is kept as a record of the brief, not as an open instruction.
