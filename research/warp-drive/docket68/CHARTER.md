@@ -487,3 +487,10 @@ Work items (each an instrument in docket68/wave3/, stdlib + numpy, imports its o
 
 Grading as in waves 1-2: verdicts per obstruction (O-BITS, O-MAKE-TOPO, O-MAKE-DIST, O-HOLD, O-SEAT, O-LOOP) only where
 an item bears on one; M's hypotheses carried as hypotheses; every limitation named; nothing seated before verification.
+
+**Wave 3 ran, was verified and is seated (2026-10-05; appended, nothing above edited).** The three work items, and M's
+question on the corridor's size (rulings item 35, aperture.py), ran in docket68/wave3/ and were verified in both
+directions; every finding was applied (WAVE3.md). M ruled the seating (rulings item 36: "Seat both (Recommended)",
+with Step 1b). ledger.py docstring section 8c seats it: items 22, 24, 34 and 36 on RULED_BY_M; items 21, 23, 25 and 35
+carried by the rulings file, not rulings (D68_FILE_CARRIED); the OPEN items in W3S1B_OPEN. No obstruction grade moved:
+W3A's O-BITS grade is the owner's proposal, not screened by combine.py, which was not edited.

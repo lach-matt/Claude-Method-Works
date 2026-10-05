@@ -1,8 +1,9 @@
-# Step 1b — the balanced equation (verified once, corrected; 2026-10-05)
+# Step 1b — the balanced equation (verified once, corrected; seated 2026-10-05)
 
 Five instruments, each importing its owners and READing outside results at source with the route recorded. They were
 verified adversarially in both directions on 2026-10-05 and every finding was applied; first-written claims are kept
-in each file's HISTORY block.
+in each file's HISTORY block. Seated on M's "Seat both (Recommended)" (rulings item 36): `ledger.py` docstring
+section 8c, M-D68-29/30/33 on RULED_BY_M, items 31 and 32 in D68_FILE_CARRIED, the OPEN list below in W3S1B_OPEN.
 
 | file | selftest |
 |---|---|

@@ -675,6 +675,70 @@ owner at run time.
        first wording kept), as section 8 now does.
   Not edited by this seating: paper/CLAIMS.md (the lead applied item 26),
     specthm.py (no class verdict moved), the docket66/ and docket68/ owners.
+
+===============================================================================
+8c.  DOCKET 68 WAVE 3 AND STEP 1b, AS SEATED (M-RULINGS items 21-25, 29-36)
+===============================================================================
+
+M chose the corridor after Step 1b's first pass (item 34, "Corridor (D68
+wave 3)"); wave 3 ran in docket68/wave3/ (corridor.py, criteria12.py,
+seatrank.py, aperture.py; WAVE3.md) and Step 1b went on by necessity in
+step1b/ (balance.py, compensate.py, openterms.py, bsupply.py, placement.py;
+BALANCE.md).  Both were verified adversarially in both directions and
+corrected, and M ruled the seating (item 36, "Seat both (Recommended)").  This
+is that seating, in DOCKET 68's form; every value is ASKED of its owner at run
+time (W3S1B_ASKED, about a second).
+
+  THE OWNERS  loaded after M_NEUTRON_KG is defined, by _w3s1b_load():
+       openterms.py imports this file, so when this file is __main__ it is
+       lent to that import under its own name for the duration (no second
+       load); wave 3's corridor.py shares its name with this directory's
+       corridor.py, so it is loaded by path as 'w3corridor' and never
+       registered as 'corridor'; sys.path is restored after the load.  The
+       selftest checks all three.  Each owner's own copy of M's words is
+       checked against the words held here (w3s1b_owner_words).
+  RULED_BY_M  + M-D68-22, 24, 29, 30, 33, 34 and 36, appended to D68_RULED (the
+       ids follow the item number).  Items 22 and 24 are M's answers of
+       2026-10-04 on the corridor, held in the rulings file since then and
+       first seated here, when wave 3 did their work: 22 carries the corridor
+       as the A-B coupling (corridor.py); 24 is H-12Q (criteria12.py), with
+       the sentence M added held as M-D68-24b and printed with the question.
+       Items 29, 30 and 33 define Step 1b (balance.py); 34 opened wave 3; 36
+       is this seating.
+  D68_FILE_CARRIED  items 21, 23 and 25 (M's statements on speed and
+       position, the twelve trajectories, and the ranking of seats, carried
+       as tested readings and as H-SEATRANK), 31 (M's instruction on
+       compensation, H-COMPENSATION), 32 (M's answer with "I suspect", carried
+       as the hypothesis H-RETIRE-A, never a result) and 35 (M's question on
+       the corridor's size, answered by aperture.py).  NOT on RULED_BY_M and
+       not counted as rulings; kept apart from D68_CARRIED because the
+       carrier is the rulings file, not the charter, and printed in their own
+       LEDGER.md section.
+  W3S1B_OPEN  thirteen items, seven from Step 1b and six from wave 3, as the
+       owners' records state them, each with what would answer it.  Named,
+       not ranked.
+  O9 and the board  no status moves.  Wave 3's grade for O-BITS (REMOVED-IF
+       one of H-DIRECT-COUPLING, H-LONG-RANGE with alpha < d, or unbounded J,
+       with J > pi c/2L and H-STATE-AS-BITS, each speed-free route clashing
+       with H-LOCALITY) is the owner's PROPOSAL and is not screened by
+       combine.py, which this seating does not edit; it is printed in
+       M-D68-22's cell as PROPOSED.  W3B, W3C, the corridor's size and
+       Step 1b move no obstruction grade.
+
+NAMED LIMITATIONS OF THIS SEATING (wave 3 and Step 1b).
+  H-NO-W3S1B-ROW: no index3 row is added.  Nothing seated here moves a
+    requirement or a grade a row reads, which is wave 2's precedent (section
+    7b); whether Step 1b's equation or the corridor's size earns a row of its
+    own is NOT decided here and is reported for M.
+  H-LEDGER-ASKS-REPRESENTATIVES grows: the owners' selftests (balance 17,
+    compensate 15, openterms 11, bsupply 8, placement 9, corridor 17,
+    criteria12 14, seatrank 14, aperture 9) are their own runs, cited and not
+    re-run here; the values the cells print are asked.
+  The owners bring numpy (corridor, seatrank, criteria12), as wave 1's did
+    (H-LEDGER-DEPS).
+  Not edited by this seating: paper/CLAIMS.md (M's rule for the paper),
+    docket68/combine.py (the O-BITS grade stays proposed), index3.py,
+    specthm.py, and the wave-3 and Step 1b owners.
 """
 
 import contextlib
@@ -3300,6 +3364,23 @@ D68_M_WORDS = {
     "M-D68-26": ("Correct it (Recommended)", D68_RULINGS_FILE),
     "M-D68-27": ("Any crossing", D68_RULINGS_FILE),
     "M-D68-28": ("Re-grade D68 (Recommended)", D68_RULINGS_FILE),
+    # ADDED (W3S1B-seat, docstring section 8c): M's answers to questions put,
+    # items 22 and 24 (the corridor, 2026-10-04, held since then in the
+    # rulings file and first seated here, when wave 3 did their work) and
+    # items 29, 30, 33 and 34 (Step 1b, 2026-10-05).  Items 21, 23, 25, 31, 32
+    # and 35 are M's statements, hypothesis and question, carried by the
+    # rulings file and not rulings: D68_CARRIED_WORDS, D68_FILE_CARRIED.
+    "M-D68-22": ("Yes. Exactly.", D68_RULINGS_FILE),
+    "M-D68-24": ("Or you may mean the twelve conditions are literally quantum-correlated between "
+                 "the positions. - this.", D68_RULINGS_FILE),
+    "M-D68-29": ("Balanced means that the value of the object at first position must equal the "
+                 "value of the object at the second position. And any variable input must be "
+                 "accounted for in output", D68_RULINGS_FILE),
+    "M-D68-30": ("Information only", D68_RULINGS_FILE),
+    "M-D68-33": ("Keep all four", D68_RULINGS_FILE),
+    "M-D68-34": ("Corridor (D68 wave 3)", D68_RULINGS_FILE),
+    # ADDED (W3S1B-seat): item 36, M's ruling to seat wave 3 and Step 1b.
+    "M-D68-36": ("Seat both (Recommended)", D68_RULINGS_FILE),
 }
 
 #: THE QUESTIONS PUT TO M FOR M'S DOCKET 66 RULINGS (items 26-28), as the
@@ -3376,6 +3457,35 @@ D68_CARRIED_WORDS = {
                   "multi-universal currency. Without it, matter cannot exist, let alone form "
                   "structural mass. We need to quantify information, unambiguously and "
                   "independently of all cosmic/quantum physicalities", D68_CHARTER_FILE),
+    # ADDED (W3S1B-seat, docstring section 8c): M's words the RULINGS FILE
+    # carries without a ruling -- statements (21, 23, 25), an instruction (31),
+    # a hypothesis given in answer to a question (32: "I suspect") and a
+    # question (35).  Each is checked against M-RULINGS-2026-10-03.md, not the
+    # charter.  M-D68-24b is the sentence M added to item 24's answer, held
+    # beside the answer as M-D68-C10b is beside C10.
+    "M-D68-21": ("speed is not a question in my work. The two positions technically exist as one. "
+                 "So the corridor allows for the the entanglement of two positions at once. The "
+                 "object in transit requires no speed. It is either at the beginning or end "
+                 "position, never in between them", D68_RULINGS_FILE),
+    "M-D68-23": ("the math for the corridor is formed by the 12 trajectories of navigation. Each "
+                 "one is a physics condition that governs an aspect of the reconstruction at "
+                 "seating. These 12 allow for the predetermination of seat compatibility based on "
+                 "the starting state - entanglement at 12 criteria.", D68_RULINGS_FILE),
+    "M-D68-24b": ("The 12 conditions only need to supply enough for the object to reconstruct in "
+                  "the new environment, based on the stock of available matter, whether or not "
+                  "the environment is habitable/hospitable by the object, is not a factor.",
+                  D68_RULINGS_FILE),
+    "M-D68-25": ("this is where the magnitude of probabilities (negative and positive), and "
+                 "complex binary come into play. The stronger negative magnitudes will "
+                 "automatically triangulate the stronger positive magnitudes which rank the "
+                 "probability of seating", D68_RULINGS_FILE),
+    "M-D68-31": ("Be sure to account for compensation in the physics.... Let's say mass energy "
+                 "density is different at the seat, but some other discrepancy makes up of that "
+                 "and dissolves the defect...", D68_RULINGS_FILE),
+    "M-D68-32": ("I suspect so, to satisfy the no-cloning clause.", D68_RULINGS_FILE),
+    "M-D68-35": ("Question... If information is what is being sent, how big does the corridor "
+                 "actually have to be? We assumed 1 meter, but that was for moving matter instead "
+                 "of information", D68_RULINGS_FILE),
 }
 
 #: THE ROUTES PUT TO M, as CHARTER.md records them -- the charter's words, not
@@ -3704,6 +3814,184 @@ def d66_paper_gott_figures(lines=None):
     figs = ["\u03b3 > %s" % _d68_g2(D66_GOTT["NG"][1]), _paper_e(D66_GOTT["NG"][0]),
             "\u03b3 > %s" % _d68_g2(D66_GOTT["AH"][1]), _paper_e(D66_GOTT["AH"][0])]
     return [(f, f in line) for f in figs]
+
+
+# ----- DOCKET 68 WAVE 3 AND STEP 1b (docstring section 8c) -----------------
+# Their owners sit in docket68/wave3/ and step1b/ and are loaded HERE, not with
+# the peers at the top, for two reasons, both checked by the selftest:
+#   * openterms.py imports THIS file (for M_NEUTRON_KG, defined above).  When
+#     this file runs as __main__ it is lent to that import under its own name
+#     for the duration, so ledger.py is never loaded twice; when it is being
+#     imported as 'ledger', that import finds it, already past M_NEUTRON_KG.
+#   * docket68/wave3/corridor.py shares its NAME with this directory's
+#     corridor.py.  It is loaded by path as 'w3corridor' and never registered
+#     as 'corridor'; no other wave-3 or Step 1b owner has a namesake here, in
+#     docket68/, docket66/ or tools/ (checked when this was seated), and none
+#     imports corridor.
+#   * this file can itself be reached FROM an owner part-way through its load
+#     (bsupply.py and placement.py, run as __main__, import openterms, which
+#     imports this file before it has finished).  Any owner already in
+#     sys.modules is therefore set aside for the duration, this file loads its
+#     own copies, and the originals are put back -- the outer chain resumes
+#     with its own modules.  First written without this: bsupply.py's and
+#     placement.py's selftests then failed on a partially initialised
+#     openterms (W3S1B-seat's own run, 2026-10-05).
+# The owners insert their own directories at the front of sys.path; sys.path
+# is restored after the load, so nothing imported later is shadowed.
+W3_DIR = os.path.join(D68_DIR, "wave3")
+S1B_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), "step1b")
+W3S1B_OWNERS = ("balance", "compensate", "openterms", "bsupply", "placement",
+                "criteria12", "seatrank", "aperture")
+
+
+def _w3s1b_load():
+    """{name: module} for the nine owners, corridor.py as 'w3corridor'; and
+    the facts the selftest checks about the load itself."""
+    import importlib
+    import importlib.util
+    saved = list(sys.path)
+    stashed = dict((n, sys.modules.pop(n)) for n in W3S1B_OWNERS if n in sys.modules)
+    lent = "ledger" not in sys.modules
+    if lent:
+        sys.modules["ledger"] = sys.modules[__name__]
+    try:
+        sys.path.append(S1B_DIR)
+        sys.path.append(W3_DIR)
+        with contextlib.redirect_stdout(io.StringIO()):
+            mods = dict((n, importlib.import_module(n)) for n in W3S1B_OWNERS)
+            spec = importlib.util.spec_from_file_location(
+                "w3corridor", os.path.join(W3_DIR, "corridor.py"))
+            cor = importlib.util.module_from_spec(spec)
+            spec.loader.exec_module(cor)
+        mods["w3corridor"] = cor
+    finally:
+        sys.path[:] = saved
+        if lent:
+            del sys.modules["ledger"]
+        sys.modules.update(stashed)
+    facts = {"lent": lent, "path_restored": sys.path == saved, "set_aside": sorted(stashed),
+             "put_back": all(sys.modules.get(n) is m for n, m in stashed.items()),
+             "openterms_ledger": getattr(mods["openterms"], "ledger", None) is sys.modules[__name__],
+             "corridor_registered": "w3corridor" in sys.modules
+             or getattr(sys.modules.get("corridor"), "__file__", "") == cor.__file__}
+    return mods, facts
+
+
+W3S1B, W3S1B_LOAD = _w3s1b_load()
+
+
+def _g(x, n=3):
+    """A figure as the owners print it: n significant figures."""
+    return "%.*g" % (n, x)
+
+
+def w3s1b_asked():
+    """Every wave-3 and Step 1b value a cell below prints, ASKED of its owner
+    at call time (all cheap: about a second in total)."""
+    b, cm, ot = W3S1B["balance"], W3S1B["compensate"], W3S1B["openterms"]
+    bs, pl = W3S1B["bsupply"], W3S1B["placement"]
+    c12, sr, ap, co = W3S1B["criteria12"], W3S1B["seatrank"], W3S1B["aperture"], W3S1B["w3corridor"]
+    with contextlib.redirect_stdout(io.StringIO()):
+        counts = b.counts()
+        bits = counts[0][1]
+        eq = b.equation(bits, "R-QUANTUM")
+        out = {
+            "counts": counts, "eq_ids": [r[0] for r in eq], "eq_open": b.open_terms(eq),
+            "eq_unaccounted": b.unaccounted(eq), "eq_energy_total": b.energy_total(eq),
+            "qvb": b.quantum_value_balance(), "nc": b.no_cloning(), "stock": b.stock_terms(),
+            "closure": b.conserved_closure(),
+            "frame": cm.frame_defect(), "ebb": cm.energy_buys_bits(),
+            "bbf": cm.baryon_from_energy_floor(),
+            "read": ot.read_terms(), "chem": ot.chem_ceiling_j(), "retire": ot.retire_term(),
+            "flux": bs.flux_b(), "flux_boy": bs.flux_b_boyajian(),
+            "days": bs.collect()["chem_100m2_days"],
+            "floor": pl.floor_total(bits, "R-CLASSICAL"), "sei": pl.stock_entropy_illustration(),
+            "conc": co.mid_transfer_concurrence()[0], "sig": co.signalling_coupled(),
+            "interior": co.interior_occupation(), "bl": co.before_light(),
+            "kinds": c12.kinds(), "alpha": c12.alpha_ab_bound(), "dvb": c12.definite_vs_bell(),
+            "rrs": c12.rrs_lower_bound(seat.YEAR_S), "carrier": c12.carrier_route(),
+            "pred": c12.predetermination(),
+            "family": sr.family_prediction(), "tri": sr.triangulation(), "cost": sr.cost_table(),
+            "ap": ap.collect(),
+        }
+    return out
+
+
+W3S1B_ASKED = w3s1b_asked()
+
+
+def w3s1b_owner_words():
+    """[(owner constant, held id, the owner's text occurs in the held words)]
+    -- each owner's own copy of M's words against the ledger's (D68_M_WORDS /
+    D68_CARRIED_WORDS), so neither can drift alone."""
+    pairs = (("balance.M_WORDS_29", W3S1B["balance"].M_WORDS_29, "M-D68-29"),
+             ("balance.M_WORDS_30", W3S1B["balance"].M_WORDS_30, "M-D68-30"),
+             ("balance.M_WORDS_32", W3S1B["balance"].M_WORDS_32, "M-D68-32"),
+             ("compensate.M_WORDS_31", W3S1B["compensate"].M_WORDS_31, "M-D68-31"),
+             ("w3corridor.M_WORDS_21", W3S1B["w3corridor"].M_WORDS_21, "M-D68-21"),
+             ("criteria12.M_WORDS_23", W3S1B["criteria12"].M_WORDS_23, "M-D68-23"),
+             ("seatrank.M_WORDS_25", W3S1B["seatrank"].M_WORDS_25, "M-D68-25"),
+             ("aperture.M_WORDS", W3S1B["aperture"].M_WORDS, "M-D68-35"))
+    return [(name, rid, " ".join(w.split()) in " ".join(_d68_held(rid)[0].split()))
+            for name, w, rid in pairs]
+
+
+def _w3_streamed(count_prefix, T):
+    a = W3S1B_ASKED["ap"]
+    return [r for r in a["streamed"] if r["count"].startswith(count_prefix) and r["T_s"] == T][0]
+
+
+def w3_throat_factors():
+    """(smallest, largest) factor by which an information-sized throat
+    (aperture.py's all-at-once radii, and its streamed openings over the
+    three schedules, every count) lowers the throat mass against the 1 m
+    throat's -- asked of aperture.collect."""
+    a = W3S1B_ASKED["ap"]
+    m1 = a["one_metre_throat_mass_kg"]
+    ms = [r["throat_mass_kg"] for r in a["all_at_once"]] + [r["throat_mass_kg"] for r in a["streamed"]]
+    return m1 / max(ms), m1 / min(ms)
+
+
+#: WHAT DOCKET 68 WAVE 3 AND STEP 1b LEAVE OPEN (docstring section 8c), as
+#: their owners' records state it (step1b/BALANCE.md, docket68/wave3/WAVE3.md):
+#: (id, what is open, what would answer it, owner).  Named, not ranked (section
+#: 3: this file does not rank the open questions).  No board row is opened for
+#: them: none moves a requirement or a grade a row reads (H-NO-W3S1B-ROW).
+W3S1B_OPEN = [
+    ("S1B-O1", "H-WHICH-COUNT: which of the four counts is the object's information (M-D68-33: "
+     "keep all four)", "a ruling or a measurement that singles one out", "balance.py"),
+    ("S1B-O2", "H-STOCK-FORM: whether A's residue and B's stock share a form, which fixes the "
+     "retire energy's sign and the chemical deficit at B", "the residue's and the stock's "
+     "composition, stated", "openterms.py, balance.py"),
+    ("S1B-O3", "H-STOCK-ENTROPY: B's stock is not a blank; ordering it exports T_B dS, local to B",
+     "the stock's entropy before and after assembly, measured or bounded", "placement.py"),
+    ("S1B-O4", "any ceiling on placement at B", "a bound on the work to place each atom, beyond "
+     "the returned loan of the trap's zero-point energy", "placement.py"),
+    ("S1B-O5", "the collector at B (H-COLLECT, H-AT-ORBIT, H-STEADY)", "a collector's area and "
+     "efficiency at Proxima b, with its flares and atmosphere", "bsupply.py"),
+    ("S1B-O6", "the Faria-Boyajian luminosity discrepancy (0.0016 +- 0.0006 against 0.00155 +- "
+     "0.00002 L_sun)", "recorded, not adjudicated: a primary-source reading of Faria's spread",
+     "bsupply.py"),
+    ("S1B-O7", "H-READ-BEFORE-DAMAGE: an absorbed read destroys the object while reading it",
+     "a read that completes before the damage it causes, or a near-field read (H-NEAR-FIELD)",
+     "openterms.py"),
+    ("W3-O1", "the speed-free coupling: each route (direct, long-range with alpha < d, "
+     "unbounded J) clashes with H-LOCALITY", "a coupling that is speed-free and microcausal, "
+     "shown", "corridor.py"),
+    ("W3-O2", "H-12-CARRIER for alpha_s, G and v: no READ bound excludes a state-dependent "
+     "constant", "a READ bound, or a measurement, on each", "criteria12.py"),
+    ("W3-O3", "the stock gate at Proxima: P, the binder, is unmeasured there", "a measurement of "
+     "P in a Proxima-system star or body", "criteria12.py, seat.py"),
+    ("W3-O4", "whether the seat quasi-distribution is a Wigner function (H-WIGNER-SEATS) or "
+     "belongs to a known family (H-CONSTRAINED-FAMILY)", "the seat distribution, defined",
+     "seatrank.py"),
+    ("W3-O5", "complex binary (M-D68-25): not addressed in W3C; the board's reading of complex "
+     "values is signed.py's Im H = pi N", "M's meaning, asked, or a computation on it",
+     "seatrank.py, signed.py"),
+    ("W3-O6", "spatial bounds on the seven constants with none READ here", "READ bounds at "
+     "source", "criteria12.py"),
+]
+
 
 D68_RULED = [
     ("M-D68-1",
@@ -4085,6 +4373,145 @@ D68_RULED = [
      "O9's O-MAKE-TOPO in D68's variants: what would answer it is N_WNCC, specthm's throat-"
      "creation class W-create-ncc shown nonempty (combine.OPEN_NAMED); nothing else on this "
      "board"),
+    # ----- ADDED (W3S1B-seat, docstring section 8c): M's answers to questions
+    # put on the corridor (items 22, 24; 2026-10-04) and on Step 1b (items 29,
+    # 30, 33, 34; 2026-10-05).  Every figure ASKED of its owner
+    # (W3S1B_ASKED); the questions are the file's, paraphrased as put, never
+    # quoted.  No board status moves.
+    ("M-D68-22",
+     "The corridor on the board (M-RULINGS-2026-10-03.md item 22, 2026-10-04, as the file "
+     "records it): when the work opens, carry the corridor as the A-B coupling -- a "
+     "two-position system |A>, |B> rotated by a coupling term?",
+     "M-D68-21 (carried below) says the object is at the beginning or the end, never in "
+     "between; the file recorded the answer and built nothing until wave 3 (M-D68-34)",
+     _d68_rule("CARRY THE CORRIDOR AS THE A-B COUPLING", "M-D68-22",
+               "docket68/wave3/corridor.py, H = J(|A><B| + |B><A|), Christandl et al.'s N = 2 "
+               "chain (quant-ph/0309131v2, READ).  Asked: the mid-transfer state's mode "
+               "concurrence %s (under H-MODE-ENTANGLEMENT, a contested reading of one "
+               "excitation); on/off keying through the coupling moves the far side's "
+               "statistics by %s -- a coupling is a channel; never-in-between holds for two "
+               "sites only (H-DIRECT-COUPLING, STRUCTURAL in the owner): on relayed engineered "
+               "chains the object is found strictly between A and B at half the transfer time "
+               "with probability %s at N = 3, %s at N = 4, %s at N = 8 and %s at N = 16.  It "
+               "beats light across L = %s m iff hbar J > %s eV per qubit in parallel (serially "
+               "%s to %s keV over the four counts).  The owner's grade is PROPOSED, NOT "
+               "screened by combine.py (not edited): O-BITS REMOVED-IF one of H-DIRECT-COUPLING, "
+               "H-LONG-RANGE (alpha < d) or unbounded J, with J > pi c/2L and H-STATE-AS-BITS, "
+               "each speed-free route clashing with H-LOCALITY.  O9 does not move"
+               % (_g(W3S1B_ASKED["conc"], 4), _g(W3S1B_ASKED["sig"], 3),
+                  _g(W3S1B_ASKED["interior"]["engineered N=3"], 2),
+                  _g(W3S1B_ASKED["interior"]["engineered N=4"], 2),
+                  _g(W3S1B_ASKED["interior"]["engineered N=8"], 2),
+                  _g(W3S1B_ASKED["interior"]["engineered N=16"], 4),
+                  _g(W3S1B_ASKED["bl"]["L_m"], 4), _g(W3S1B_ASKED["bl"]["hbarJ_min_eV_per_qubit"], 2),
+                  _g(min(W3S1B_ASKED["bl"]["serial_hbarJ_min_eV"].values()) / 1e3, 2),
+                  _g(max(W3S1B_ASKED["bl"]["serial_hbarJ_min_eV"].values()) / 1e3, 3))),
+     "wave 3's W3A and its proposed O-BITS grade, for combine.py if M rules it screened; "
+     "nothing on this board moves"),
+    ("M-D68-24",
+     "What entanglement at 12 criteria means (M-RULINGS-2026-10-03.md item 24, 2026-10-04, as "
+     "the file records it): are the twelve matched as shared values, or literally "
+     "quantum-correlated between the two positions?  M added: \"%s\""
+     % D68_CARRIED_WORDS["M-D68-24b"][0],
+     "M-D68-23 (carried below) names the twelve as settle.H12 holds them; the file carries "
+     "the answer as the hypothesis H-12Q",
+     _d68_rule("LITERALLY QUANTUM-CORRELATED: H-12Q", "M-D68-24",
+               "carried as H-12Q, a hypothesis and never a result, in docket68/wave3/"
+               "criteria12.py.  Three cases asked: definite values at both seats carry %s bits "
+               "of mutual information; a shared but uncertain value %s bit and no entanglement "
+               "(the reading M set aside); a Bell pair quantum mutual information %s and "
+               "entanglement %s -- so H-12Q needs criteria that are quantum observables.  Of "
+               "settle.H12's twelve, %s are marked field carriers and %s conditional; settle's "
+               "H-12-CARRIER (a constant whose value depends on the state) has no READ bound for "
+               "%s and is NOT excluded.  Compatibility is reconstructibility from the seat's "
+               "stock, not habitability (M's added sentence): with H-12-CARRIER false and four "
+               "named hypotheses the predetermination reduces to the stock gate, %s kg of CI "
+               "stock, binder %s, OPEN at Proxima (P unmeasured there); with it true the branch "
+               "is OPEN"
+               % (_g(W3S1B_ASKED["dvb"]["definite_classical_MI"]),
+                  _g(W3S1B_ASKED["dvb"]["shared_classical_MI"]),
+                  _g(W3S1B_ASKED["dvb"]["bell_QMI_ent"][0]), _g(W3S1B_ASKED["dvb"]["bell_QMI_ent"][1]),
+                  ", ".join(W3S1B_ASKED["carrier"]["field_carriers_yes"]),
+                  ", ".join(W3S1B_ASKED["carrier"]["conditional"]),
+                  ", ".join(W3S1B_ASKED["carrier"]["unbounded"]),
+                  "%.1f" % W3S1B_ASKED["pred"]["ci_stock_needed_kg"],
+                  max(W3S1B_ASKED["pred"]["ci_stock_by_element_kg"].items(),
+                      key=lambda kv: kv[1])[0])),
+     "wave 3's W3B; H-12-CARRIER for alpha_s, G and v, OPEN; the stock gate at Proxima, OPEN"),
+    ("M-D68-29",
+     "The balanced equation (M-RULINGS-2026-10-03.md item 29, 2026-10-05, as the file records "
+     "it): which two sides does Step 1b's balanced equation set against each other -- demand "
+     "against supply, theory against measurement, both nested, or the corridor first?",
+     "Step 1b's first pass needed its two sides; M answered in M's own words, not an option",
+     _d68_rule("THE DEFINITION OF STEP 1b", "M-D68-29",
+               "step1b/balance.py sets I(A, before) = I(B, after) and makes every matter and "
+               "energy term an input or an output row.  Asked of balance.equation on R-QUANTUM: "
+               "%d rows, none unaccounted (balance.unaccounted: %s); OPEN rows %s; the energy total "
+               "refused (balance.energy_total: %s).  "
+               "The accounting is a bookkeeping of declared links, NOT a balance of quantities "
+               "(STRUCTURAL in the owner).  The value balances on the teleportation reading: "
+               "B's fidelity with the two bits is 1 to within %s over %d random states, and with them "
+               "withheld %s, a blind guess's -- B then holds no information about the state"
+               % (len(W3S1B_ASKED["eq_ids"]), W3S1B_ASKED["eq_unaccounted"],
+                  ", ".join(W3S1B_ASKED["eq_open"]), W3S1B_ASKED["eq_energy_total"],
+                  _g(1.0 - W3S1B_ASKED["qvb"]["fid_min_with_bits"], 2), W3S1B_ASKED["qvb"]["trials"],
+                  _g(W3S1B_ASKED["qvb"]["fid_mean_bits_withheld"]))),
+     "Step 1b's equation; M-D68-30 fixes what the value is"),
+    ("M-D68-30",
+     "What the value of the object is (M-RULINGS-2026-10-03.md item 30, 2026-10-05, as the file "
+     "records it): the 12-vector and the conserved quantities; the conserved quantities with "
+     "Q-1 / Q-1s; the 12 trajectories; or information only?",
+     "M-D68-29 left open which quantities make up the value that must be equal at the two "
+     "positions",
+     _d68_rule("INFORMATION ONLY", "M-D68-30",
+               "the equated value is the object's definable condition information; matter and "
+               "energy sit in the input and output rows.  The conserved quantities close site by "
+               "site with zero transfer from A to B (balance.conserved_closure, asked: A to B "
+               "%s for each of %s; STRUCTURAL in the owner); at B the closure is D25's stock "
+               "gate, %s kg of CI feedstock, binder %s, measured in the Proxima system: %s"
+               % (sorted(set(r["A_to_B"] for r in W3S1B_ASKED["closure"].values())),
+                  ", ".join(W3S1B_ASKED["closure"]),
+                  "%.1f" % W3S1B_ASKED["stock"]["ci_feedstock_kg"], W3S1B_ASKED["stock"]["ci_binder"][0],
+                  W3S1B_ASKED["stock"]["P_measured_in_proxima_system"])),
+     "Step 1b's value column (information) and its matter and energy columns"),
+    ("M-D68-33",
+     "Which of the board's four counts -- species sequence, 1 A grid, 0.1 A grid, thermal "
+     "entropy -- is the object's definable condition information (M-RULINGS-2026-10-03.md "
+     "item 33, 2026-10-05, as the file records it)?",
+     "M-D68-30 fixed the value as information; the board holds four counts of it",
+     _d68_rule("KEEP ALL FOUR", "M-D68-33",
+               "H-WHICH-COUNT stays OPEN and every Step 1b and wave-3 figure is printed for each "
+               "count (balance.counts, asked): %s"
+               % "; ".join("%s %s bits" % (n, _g(v, 4)) for n, v in W3S1B_ASKED["counts"])),
+     "every Step 1b and wave-3 table, four columns"),
+    ("M-D68-34",
+     "What next after Step 1b's first pass -- close 1b and go to 1c, more on 1b, or the "
+     "corridor (M-RULINGS-2026-10-03.md item 34, 2026-10-05, as the file records it)?",
+     "Step 1b's first pass stood with its OPEN list (step1b/BALANCE.md)",
+     _d68_rule("THE CORRIDOR, D68 WAVE 3", "M-D68-34",
+               "wave 3 opened on the corridor as the A-B coupling, the twelve criteria, H-12Q and "
+               "H-SEATRANK (items 22-25): docket68/wave3/ corridor.py, criteria12.py, "
+               "seatrank.py and aperture.py (M's question, M-D68-35), WAVE3.md.  Step 1b went "
+               "on by necessity to its open terms, B's supply and placement (openterms.py, "
+               "bsupply.py, placement.py, compensate.py on M-D68-31).  Both were verified "
+               "adversarially in both directions and corrected, and both are seated here "
+               "(docstring section 8c) -- %d owners loaded, all asked.  Step 1c is not begun"
+               % (len(W3S1B))),
+     "wave 3 and Step 1b, seated; Step 1c next"),
+    ("M-D68-36",
+     "Seating wave 3 and Step 1b, both verified and corrected (M-RULINGS-2026-10-03.md item "
+     "36, 2026-10-05, as the file records it): seat both, wave 3 only, Step 1b only, or not "
+     "yet?",
+     "wave 3 and Step 1b had run, been verified both ways and corrected, and were not seated",
+     _d68_rule("SEAT BOTH", "M-D68-36",
+               "this seating (docstring section 8c): M's words for items 21-25 and 29-36 held in "
+               "D68_M_WORDS and D68_CARRIED_WORDS and checked against the rulings file; items "
+               "22, 24, 29, 30, 33, 34 and 36 on RULED_BY_M; items 21, 23, 25, 31, 32 and 35 in "
+               "D68_FILE_CARRIED, not rulings; %d OPEN items named (W3S1B_OPEN); every figure "
+               "asked of the %d owners (W3S1B_ASKED).  No board status moves, no index3 row is "
+               "added (H-NO-W3S1B-ROW), and paper/CLAIMS.md is not edited"
+               % (len(W3S1B_OPEN), len(W3S1B))),
+     "the board's record of wave 3 and Step 1b; Step 1c next"),
 ]
 
 RULED_BY_M += D68_RULED
@@ -4190,6 +4617,157 @@ D68_CARRIED = [
                    measure.method_bits()["cells"], measure.method_bits()["bits_per_cell"],
                    measure.GRADES["Q-1"]["verdict"])),
      "H-INFO in every combination; Q-1 and Q-1s on O9"),
+]
+
+
+def _d68_carry_file(kind, rid, carried):
+    """A carried-item cell for M's words the RULINGS FILE carries without a
+    ruling (docstring section 8c): what they are, M's words verbatim, and how
+    the file and the owners carry them -- never 'RULED BY M'."""
+    return "M'S %s, CARRIED BY THE RULINGS FILE (not a ruling) -- %s.  CARRIED: %s" % (
+        kind, d68_words(rid), carried)
+
+
+#: WHAT M-RULINGS-2026-10-03.md CARRIES FROM M WITHOUT A RULING (W3S1B-seat,
+#: docstring section 8c): statements, an instruction, a hypothesis given in
+#: answer to a question ("I suspect") and a question -- each carried as a named
+#: hypothesis or answered by computation, with the wave-3 or Step 1b owner
+#: that does it.  (id, M's words in context, the carrying, what it feeds).
+#: NOT ON RULED_BY_M, NOT COUNTED AS RULINGS, and kept apart from D68_CARRIED
+#: because the carrier is the rulings file, not the charter.
+D68_FILE_CARRIED = [
+    ("M-D68-21",
+     "M on speed and position (M-RULINGS-2026-10-03.md item 21, 2026-10-04); no question was put",
+     _d68_carry_file("STATEMENT", "M-D68-21",
+                     "as the reading docket68/wave3/corridor.py tests (with M-D68-22's coupling).  "
+                     "Never in between holds in the two-site model only, which is H-DIRECT-COUPLING "
+                     "(by construction, STRUCTURAL in the owner); relayed, it fails -- found between "
+                     "A and B at half the transfer time with probability up to %s (engineered, "
+                     "N = 16) -- and distance returns: a uniform chain's arrival time is linear in "
+                     "N, an engineered chain's bounded-coupling time doubles as N doubles, and the "
+                     "short-range Lieb-Robinson bound holds (Nachtergaele and Sims "
+                     "arXiv:1004.2086v1, READ).  No speed holds iff one of H-DIRECT-COUPLING, "
+                     "H-LONG-RANGE with alpha < d (Eldredge et al. arXiv:1612.02442v2, READ; its "
+                     "fn. 45 volume prefactor named) or unbounded J holds; each clashes with "
+                     "H-LOCALITY at the fundamental level.  The mean position passes between A and "
+                     "B even in the two-site model.  A hypothesis tested, not a result"
+                     % _g(W3S1B_ASKED["interior"]["engineered N=16"], 4)),
+     "wave 3's W3A; the speed-free set, OPEN (each route clashes with H-LOCALITY)"),
+    ("M-D68-23",
+     "M on the twelve trajectories (M-RULINGS-2026-10-03.md item 23, 2026-10-04); no question "
+     "was put",
+     _d68_carry_file("STATEMENT", "M-D68-23",
+                     "as the twelve settle.H12 holds, by kind (criteria12.kinds, asked): emergent "
+                     "%s; material %s; the other %d %s, not independent.  The only READ spatial "
+                     "bound between Earth and Proxima b is alpha's coupling to the potential: under "
+                     "H-LINEAR-PHI (about %s times the measured lever arm) |dalpha/alpha| <= %s at "
+                     "the 1 sigma upper end, %s at 2 sigma; the other seven are equal under "
+                     "H-UNIFORM-CONSTANTS, with no READ bound.  The predetermination is M-D68-24's "
+                     "stock gate"
+                     % (", ".join(W3S1B_ASKED["kinds"]["emergent"]),
+                        ", ".join(W3S1B_ASKED["kinds"]["material"]),
+                        len(W3S1B_ASKED["kinds"]["constant"]),
+                        ", ".join(W3S1B_ASKED["kinds"]["constant"]),
+                        "%.0f" % (abs(W3S1B_ASKED["alpha"]["dPhi_over_c2"][0]) / 1.65e-10),
+                        _g(W3S1B_ASKED["alpha"]["max_abs_dalpha_over_alpha"], 2),
+                        _g(W3S1B_ASKED["alpha"]["max_abs_2sigma"], 2))),
+     "wave 3's W3B; spatial bounds on seven constants, OPEN"),
+    ("M-D68-25",
+     "M on weak correlations and the ranking of seats (M-RULINGS-2026-10-03.md item 25, "
+     "2026-10-04); no question was put",
+     _d68_carry_file("STATEMENT", "M-D68-25",
+                     "as the hypothesis H-SEATRANK, in docket68/wave3/seatrank.py.  P = 1 + N "
+                     "holds by normalisation of every signed measure (STRUCTURAL; it neither tests "
+                     "nor supports the per-seat claim).  Unconstrained, the negatives fix only the "
+                     "total: %s and %s share their negatives and rank opposite seats first.  In a "
+                     "physical family (H-CONSTRAINED-FAMILY, %d qubit states) the negative minimum "
+                     "locates the positive peak to a median %s against a random pairing's %s -- a "
+                     "literal triangulation given knowledge of the family, not the negatives "
+                     "deciding alone.  Projections recover peak and negatives together (argmin "
+                     "error %s at K = 4, argmax error %s at K = 8): tomography, not M's mechanism.  "
+                     "Resolving seats 0.30 against 0.25 by sampling the quasi-distribution "
+                     "(H-QUASI-SAMPLING) costs typically %s samples at M = 1 and %s at M = 21, "
+                     "about linear in M; measured seats carry no M factor.  Complex binary is not "
+                     "addressed (OPEN).  No obstruction grade moves"
+                     % (W3S1B["seatrank"].COUNTEREXAMPLE[0], W3S1B["seatrank"].COUNTEREXAMPLE[1],
+                        W3S1B_ASKED["family"]["n_states"],
+                        _g(W3S1B_ASKED["family"]["median_err"], 2),
+                        _g(W3S1B_ASKED["family"]["median_ctrl"], 3),
+                        _g([t for t in W3S1B_ASKED["tri"] if t["K"] == 4][0]["min_err"]),
+                        _g([t for t in W3S1B_ASKED["tri"] if t["K"] == 8][0]["max_err"]),
+                        "%.0f" % [c for c in W3S1B_ASKED["cost"] if c["M"] == 1][0]["typical"],
+                        "%.0f" % [c for c in W3S1B_ASKED["cost"] if c["M"] == 21][0]["typical"])),
+     "wave 3's W3C; the seat family and complex binary, OPEN"),
+    ("M-D68-31",
+     "M after Step 1b's first pass (M-RULINGS-2026-10-03.md item 31, 2026-10-05); no question "
+     "was put",
+     _d68_carry_file("INSTRUCTION", "M-D68-31",
+                     "as H-COMPENSATION in step1b/compensate.py, each clause computed.  (C1) the "
+                     "frame defect of the 70 kg body between Earth and Proxima b, %s to %s J "
+                     "(H-SUN-FRAME), is AVOIDED when the object is built from B's stock (transfer "
+                     "%s J) -- avoidance, not an opposite discrepancy.  (C2) a negative-energy "
+                     "defect is compensated by quantum interest (Ford and Roman gr-qc/9901074v1, "
+                     "READ), which always overcompensates.  (C3) bit errors are dissolved by "
+                     "redundancy, I/(1 - h2(p)).  (C4) energy and bits compensate each other (%s "
+                     "bits/s at 1 kW, %s at 4 kW; a bit buys up to kT ln 2), but baryon number, "
+                     "lepton number and charge only themselves: baryons from energy cost %s times "
+                     "the payload's rest energy (the antibaryons too)"
+                     % (_g(W3S1B_ASKED["frame"]["defect_J_range"][0]),
+                        _g(W3S1B_ASKED["frame"]["defect_J_range"][1]),
+                        _g(W3S1B_ASKED["frame"]["built_from_B_stock_transfer_J"]),
+                        _g(W3S1B_ASKED["ebb"][0], 2), _g(W3S1B_ASKED["ebb"][1], 2),
+                        "%.3f" % (W3S1B_ASKED["bbf"][0] / W3S1B_ASKED["bbf"][1]))),
+     "Step 1b's compensation column; nothing on this board"),
+    ("M-D68-32",
+     "M answered whether the original at A is retired into stock, so the object exists only at "
+     "B (M-RULINGS-2026-10-03.md item 32, 2026-10-05) -- with a suspicion, which the file "
+     "carries as M's hypothesis",
+     _d68_carry_file("HYPOTHESIS", "M-D68-32",
+                     "as H-RETIRE-A, a hypothesis and not a result: A's instance retired into stock "
+                     "at A, the output row OUT-A-RESIDUE (balance.equation, asked: present %s).  "
+                     "No-cloning computed both ways: the Buzek-Hillery cloner gives each copy "
+                     "fidelity %s < 1 for every input (its optimality NAMED-NOT-READ), and CNOT "
+                     "copies basis states perfectly (%s).  So H-RETIRE-A reaches the classical "
+                     "description only: the Bell measurement already leaves no state at A without "
+                     "taking the matter apart; retiring A's matter keeps the description at one "
+                     "position.  The retire energy is OPEN (IN-A-RETIRE-E, within the chemical "
+                     "ceiling +-%s J, openterms.py); an absorbed photon read at 1 A deposits about "
+                     "%s Gy, which needs H-READ-BEFORE-DAMAGE"
+                     % ("OUT-A-RESIDUE" in W3S1B_ASKED["eq_ids"],
+                        "%.4f" % W3S1B_ASKED["nc"]["cloner_fid_max"],
+                        all(W3S1B_ASKED["nc"]["cnot_copies_basis_states"]),
+                        _g(W3S1B_ASKED["chem"]),
+                        _g([r for r in W3S1B_ASKED["retire"]["compensation_by_read"]
+                            if r["delta_m"] == 1e-10 and r["carrier"] == "photon"][0]
+                           ["dose_Gy_if_absorbed"], 2))),
+     "Step 1b's OUT-A-RESIDUE; H-STOCK-FORM and H-READ-BEFORE-DAMAGE, OPEN"),
+    ("M-D68-35",
+     "M's question on the corridor's size (M-RULINGS-2026-10-03.md item 35, 2026-10-05), "
+     "answered by computation",
+     _d68_carry_file("QUESTION", "M-D68-35",
+                     "answered in docket68/wave3/aperture.py with the smallest opening each "
+                     "reading permits (the 1 m throat, sized for a body, costs %s kg).  (A) the "
+                     "whole description held at once: r = %s to %s m over the four counts "
+                     "(throatbits.r_fit, a capacity ceiling, not an encoding).  (B) streamed over "
+                     "one mode at the board's energy floor: about half the channel quantum's "
+                     "wavelength, %s m in a year and %s m in a century for the species count; at "
+                     "that width %s of the entropy flux lies below the cutoff (more width or power "
+                     "needed), a TEM line has no cutoff, a circular guide's radius is about 0.59 "
+                     "of it (H-HALF-WAVE, H-TEM-LINE, H-TE11).  (C) as a coupling: no "
+                     "cross-section, hbar J = hbar I pi/2T, %s keV at one year.  As a geometric "
+                     "throat these sizes lower the throat mass %s to %s times; the board's other "
+                     "limits on small throats stand as graded"
+                     % (_g(W3S1B_ASKED["ap"]["one_metre_throat_mass_kg"]),
+                        _g(min(r["r_m"] for r in W3S1B_ASKED["ap"]["all_at_once"]), 2),
+                        _g(max(r["r_m"] for r in W3S1B_ASKED["ap"]["all_at_once"]), 2),
+                        _g(_w3_streamed("species", 3.15576e7)["width_m"], 2),
+                        _g(_w3_streamed("species", 3.15576e9)["width_m"], 2),
+                        "%.0f%%" % (100 * W3S1B["aperture"].below_cutoff_fractions()[0]),
+                        "%.0f" % ([r for r in W3S1B_ASKED["ap"]["coupling"]
+                                   if r["count"].startswith("species") and r["T_s"] == 3.15576e7][0]
+                                  ["hbarJ_eV"] / 1e3),
+                        _g(w3_throat_factors()[0], 2), _g(w3_throat_factors()[1], 2))),
+     "the corridor's size on each reading; nothing on this board moves"),
 ]
 
 #: DOCKET 68's one pending question, M-D68-P1 (emtension.py's ER = EPR
@@ -4979,8 +5557,12 @@ def _d68_cells():
     the rulings, the carried items and the pending question."""
     out = {"O9 claim": o9_claim(), "O9 answer": O9_ANSWERED_BY}
     out.update(("note " + k, v) for k, v in D68_NOTES.items())
-    for r in D68_RULED + D68_CARRIED + [p for p in PENDING_RULINGS if p[0].startswith("M-D68")]:
+    for r in (D68_RULED + D68_CARRIED + D68_FILE_CARRIED
+              + [p for p in PENDING_RULINGS if p[0].startswith("M-D68")]):
         out.update(("%s col %d" % (r[0], i), c) for i, c in enumerate(r[1:], 1))
+    # ADDED (W3S1B-seat): the OPEN list of section 8c.
+    out.update(("W3S1B-OPEN %s col %d" % (r[0], i), c) for r in W3S1B_OPEN
+               for i, c in enumerate(r[1:], 1))
     return out
 
 
@@ -5872,6 +6454,20 @@ def report():
                             initial_indent="       ", subsequent_indent="         "))
         print(textwrap.fill("feeds: " + " ".join(feeds.split()), 96,
                             initial_indent="       ", subsequent_indent="         "))
+    print("\nCARRIED BY THE RULINGS FILE FROM M -- STATEMENTS, AN INSTRUCTION, A HYPOTHESIS AND "
+          "A QUESTION, NOT RULINGS")
+    for cid, ctx, carried, feeds in D68_FILE_CARRIED:
+        print(textwrap.fill(cid.ljust(8) + " " + " ".join(ctx.split()), 96,
+                            initial_indent="  ", subsequent_indent="           "))
+        print(textwrap.fill("carried: " + " ".join(carried.split()), 96,
+                            initial_indent="       ", subsequent_indent="         "))
+        print(textwrap.fill("feeds: " + " ".join(feeds.split()), 96,
+                            initial_indent="       ", subsequent_indent="         "))
+    print("\nDOCKET 68 WAVE 3 AND STEP 1b -- WHAT STAYS OPEN (section 8c; no board status moves)")
+    for oid, what, answers, owner in W3S1B_OPEN:
+        print(textwrap.fill("%s %s -- answered by: %s (%s)" % (oid.ljust(8), " ".join(what.split()),
+                                                              " ".join(answers.split()), owner),
+                            96, initial_indent="  ", subsequent_indent="           "))
     print("\nPENDING M'S RULING -- RECORDED, NOT APPLIED%s"
           % ("" if PENDING_RULINGS else ": none"))
     for pid, q, why, proposal, waits in pending_rulings():
@@ -6072,6 +6668,26 @@ def to_markdown():
         L.append("| %s | %s | %s | %s |"
                  % (cid, _cell(ctx, W_RULING), _cell(carried, W_RULING), _cell(feeds, W_WHY)))
     L.append("")
+    # ADDED (W3S1B-seat, docstring section 8c).
+    L += ["## Carried by the rulings file from M -- statements, an instruction, a hypothesis and "
+          "a question, not rulings", "",
+          "M's words, verbatim, that M-RULINGS-2026-10-03.md carries without a ruling, each",
+          "carried as a named hypothesis or answered by computation in a DOCKET 68 wave-3 or",
+          "Step 1b owner. They are not counted as rulings.", "",
+          "| id | M's words in context | carried | feeds |", "|---|---|---|---|"]
+    for cid, ctx, carried, feeds in D68_FILE_CARRIED:
+        L.append("| %s | %s | %s | %s |"
+                 % (cid, _cell(ctx, W_RULING), _cell(carried, W_RULING), _cell(feeds, W_WHY)))
+    L.append("")
+    L += ["## DOCKET 68 wave 3 and Step 1b -- what stays open", "",
+          "Seated on M's \"Seat both (Recommended)\" (item 36; docstring section 8c). No board",
+          "status moves: wave 3's O-BITS grade is its owner's PROPOSAL, not screened by",
+          "combine.py. Each item names what would answer it.", "",
+          "| id | open | what would answer it | owner |", "|---|---|---|---|"]
+    for oid, what, answers, owner in W3S1B_OPEN:
+        L.append("| %s | %s | %s | %s |" % (oid, _cell(what, W_WHY), _cell(answers, W_WHY),
+                                            _cell(owner, W_WHY)))
+    L.append("")
     L += ["## Pending M's ruling -- recorded, not applied", "",
           "This file edits no peer and changes no requirement. A question",
           "that needs M's ruling is recorded here so the board shows it.", "",
@@ -6216,9 +6832,12 @@ def _truncated_cells(demand_claim=None, demand_moves=None, open_claim=None,
         if cut(r[1], wh) or cut(r[3], W_RULING) or cut(r[4], wh):
             out.append(("ruled", r[0]))
     # A carried item carries M's words too: never cut.
-    for r in D68_CARRIED:
+    for r in D68_CARRIED + D68_FILE_CARRIED:
         if cut(r[1], W_RULING) or cut(r[2], W_RULING) or cut(r[3], wh):
             out.append(("carried", r[0]))
+    for r in W3S1B_OPEN:
+        if any(cut(c, wh) for c in r[1:]):
+            out.append(("w3s1b-open", r[0]))
     return out
 
 
@@ -6973,12 +7592,18 @@ def selftest():
         # RE-PINNED WITH M'S DOCKET 66 RULINGS (R-seat): + M-D68-26, M-D68-27
         # and M-D68-28 (items 26-28: the paper's Gott bound, spec.py's TURN,
         # re-grading D68), appended to D68_RULED after M-D68-C12.
+        # RE-PINNED WITH WAVE 3 AND STEP 1b (W3S1B-seat, M: "Seat both
+        # (Recommended)", item 36): + M-D68-22, 24, 29, 30, 33, 34 and 36,
+        # M's answers to questions put (items 22-24 of 2026-10-04 first seated
+        # here); items 21, 23, 25, 31, 32 and 35 are D68_FILE_CARRIED, not
+        # counted.
         (["M-D64-1", "M-S1A-P1", "M-S1A-P2", "M-S1A-P3", "M-S1A-P4",
           "M-S1A-P5", "M-D65-1", "M-D65-2", "M-D65-3", "M-D65-4", "M-D65-5",
           "M-D67-1", "M-D67-2"]
          + ["M-D68-%d" % i for i in list(range(1, 14)) + [15, 16]]
          + ["M-D68-C%d" % i for i in (1, 2, 3, 5, 8, 12)]
-         + ["M-D68-%d" % i for i in (26, 27, 28)], [],
+         + ["M-D68-%d" % i for i in (26, 27, 28)]
+         + ["M-D68-%d" % i for i in (22, 24, 29, 30, 33, 34, 36)], [],
          True, False, False, True, False))
 
     print("\n3. THE EXCHANGE RATE, RE-DERIVED FROM ASKED CONSTANTS")
@@ -8448,6 +9073,92 @@ def selftest():
          in _md, _md.index("## Ruled by M -- applied")
          < _md.index("## Carried by the charter from M") < _md.index("## Pending M's ruling")),
         (True, True))
+    # ADDED (W3S1B-seat, docstring section 8c): DOCKET 68 wave 3 and Step 1b.
+    _s1b = ("balance", "compensate", "openterms", "bsupply", "placement")
+    chk("WAVE 3 AND STEP 1b: the nine owners load from their own directories, wave 3's "
+        "corridor.py as w3corridor and never as 'corridor'; sys.path is restored; "
+        "openterms.py's import of this file finds this module, not a second load",
+        (sorted(W3S1B),
+         [n for n, m in W3S1B.items() if _os.path.dirname(_os.path.abspath(m.__file__))
+          != (S1B_DIR if n in _s1b else W3_DIR)],
+         W3S1B_LOAD["path_restored"], W3S1B_LOAD["corridor_registered"],
+         W3S1B_LOAD["openterms_ledger"], [p for p in (S1B_DIR, W3_DIR) if p in sys.path],
+         W3S1B_LOAD["set_aside"], W3S1B_LOAD["put_back"]),
+        (sorted(W3S1B_OWNERS + ("w3corridor",)), [], True, False, True, [], [], True))
+    import types as _types
+    _stub = _types.ModuleType("openterms")
+    _keep = sys.modules.get("openterms")
+    sys.modules["openterms"] = _stub
+    try:
+        _m2, _f2 = _w3s1b_load()
+        _stubres = (_m2["openterms"] is not _stub, hasattr(_m2["openterms"], "EV"),
+                    sys.modules.get("openterms") is _stub, _f2["set_aside"], _f2["put_back"],
+                    all(sys.modules.get(n) is not _m2[n] for n in _f2["set_aside"]))
+    finally:
+        if _keep is None:
+            sys.modules.pop("openterms", None)
+        else:
+            sys.modules["openterms"] = _keep
+    chk("  reached part-way through an owner's load (a bare, partially initialised openterms "
+        "in sys.modules, as bsupply.py run as __main__ leaves it), the load sets it aside, "
+        "uses its own copy, and puts it back -- every owner already registered is set aside "
+        "(the first load leaves all eight registered; this check first expected openterms "
+        "alone, a wrong expectation, not a finding)", _stubres,
+        (True, True, True, sorted(W3S1B_OWNERS), True, True))
+    chk("  each owner's own copy of M's words (balance, compensate, corridor, criteria12, "
+        "seatrank, aperture) occurs in the words this file holds -- neither drifts alone",
+        (len(w3s1b_owner_words()), [x for x in w3s1b_owner_words() if not x[2]]), (8, []))
+    _wc = dict(D68_CARRIED_WORDS)
+    _wc["M-D68-25"] = (_wc["M-D68-25"][0].replace("stronger negative", "negative"), _wc["M-D68-25"][1])
+    with _scratch("D68_CARRIED_WORDS", _wc):
+        _wcf = [x[:2] for x in w3s1b_owner_words() if not x[2]]
+    chk("  CONTROL: the held item-25 words with one word dropped no longer hold seatrank.py's",
+        _wcf, [("seatrank.M_WORDS_25", "M-D68-25")])
+    chk("M's words the RULINGS FILE carries (items 21, 23, 25, 31, 32, 35) are in "
+        "D68_FILE_CARRIED, NOT on RULED_BY_M; each cell says so, quotes exactly its held "
+        "words, and none reads 'RULED BY M'; none is cut",
+        ([r[0] for r in D68_FILE_CARRIED],
+         [r[0] for r in RULED_BY_M if r[0] in [c[0] for c in D68_FILE_CARRIED]],
+         [r[0] for r in D68_FILE_CARRIED
+          if "CARRIED BY THE RULINGS FILE (not a ruling)" not in r[2] or "RULED BY M" in r[2]
+          or _cw.findall(" ".join(r[2].split())) != [D68_CARRIED_WORDS[r[0]][0]]
+          or _cw.findall(" ".join(r[1].split()))],
+         [t for t in _truncated_cells() if t[0] in ("carried", "w3s1b-open")]),
+        (["M-D68-%d" % i for i in (21, 23, 25, 31, 32, 35)], [], [], []))
+    chk("  and LEDGER.md prints them, then the OPEN list, after the charter's carried items "
+        "and before the pending rulings",
+        (_md.index("## Carried by the charter from M")
+         < _md.index("## Carried by the rulings file from M")
+         < _md.index("## DOCKET 68 wave 3 and Step 1b -- what stays open")
+         < _md.index("## Pending M's ruling")), True)
+    _f = w3s1b_asked()
+    _cellof = dict((r[0], r[3]) for r in D68_RULED)
+    _cellof.update((r[0], r[2]) for r in D68_FILE_CARRIED)
+
+    def _w3needles(f, scale=1.0):
+        return [("M-D68-22", _g(scale * f["bl"]["hbarJ_min_eV_per_qubit"], 2)),
+                ("M-D68-22", _g(scale * f["interior"]["engineered N=16"], 4)),
+                ("M-D68-24", "%.1f" % (scale * f["pred"]["ci_stock_needed_kg"])),
+                ("M-D68-29", "%s over %d" % (_g(1.0 - f["qvb"]["fid_min_with_bits"], 2),
+                                             scale * f["qvb"]["trials"])),
+                ("M-D68-33", _g(scale * f["counts"][2][1], 4)),
+                ("M-D68-23", _g(scale * f["alpha"]["max_abs_dalpha_over_alpha"], 2)),
+                ("M-D68-25", _g(scale * f["family"]["median_err"], 2)),
+                ("M-D68-31", _g(scale * f["frame"]["defect_J_range"][0])),
+                ("M-D68-32", "%.4f" % (scale * f["nc"]["cloner_fid_max"])),
+                ("M-D68-35", _g(scale * f["ap"]["one_metre_throat_mass_kg"]))]
+    chk("  every wave-3 and Step 1b cell prints its owner's figure, asked afresh (ten needles "
+        "across the rulings and the carried items)",
+        [n for n in _w3needles(_f) if n[1] not in " ".join(_cellof[n[0]].split())], [])
+    chk("  CONTROL: the same needles at 1.5 times the owners' figures are not found",
+        len([n for n in _w3needles(_f, 1.5) if n[1] not in " ".join(_cellof[n[0]].split())]), 10)
+    chk("  the OPEN list names %d items, each with an owner file that exists, and section 8c "
+        "is in the docstring" % len(W3S1B_OPEN),
+        (len(W3S1B_OPEN), [r[0] for r in W3S1B_OPEN for o in r[3].split(", ")
+                           if not any(_os.path.exists(_os.path.join(d, o))
+                                      for d in (S1B_DIR, W3_DIR, D68_DIR))],
+         "8c.  DOCKET 68 WAVE 3 AND STEP 1b" in __doc__),
+        (13, [], True))
     chk("EVERY QUOTATION in a DOCKET 68 cell (here, and index3.py's DOCKET 68 rows) is the "
         "tree's words, or declared otherwise: M's thesis and the question included, the "
         "D23 note's quotation exact ('because is already exists everywhere')",
@@ -8835,7 +9546,10 @@ def selftest():
         "verbatim in the rulings file under its 'DOCKET 66 rulings' heading, the question and "
         "the file's own applied sentence as the file records them, the ruling cell opening "
         "with the option taken and M's words",
-        ([r[0] for r in D68_RULED][-3:],
+        # RE-PINNED (W3S1B-seat): first pinned as D68_RULED's LAST three; the
+        # wave-3 and Step 1b rulings now follow them, so the three are pinned
+        # as the ones directly after M-D68-C12, as the label says.
+        ([r[0] for r in D68_RULED][[r[0] for r in D68_RULED].index("M-D68-C12") + 1:][:3],
          [[r[0] for r in RULED_BY_M].count(k) for k in sorted(_r66)],
          [k for k in d68_words_faults() if k.startswith("M-D68-2") or "item 2" in k],
          _rf.index("DOCKET 66 rulings (2026-10-04), M's answers verbatim")

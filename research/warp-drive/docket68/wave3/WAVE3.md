@@ -1,9 +1,12 @@
-# DOCKET 68 wave 3 — the corridor (verified once, corrected; not seated)
+# DOCKET 68 wave 3 — the corridor (verified once, corrected; seated 2026-10-05)
 
 Opened on M-RULINGS item 34 ("Corridor (D68 wave 3)"). The charter section is in `docket68/CHARTER.md` (wave 3).
 There are four instruments, all stdlib + numpy; each imports its owners and READs outside results at source, with the
 route recorded. Each instrument was verified adversarially in both directions on 2026-10-05, and every finding was
-applied; the history is kept in each file's docstring. **Not seated** until M has seen it.
+applied; the history is kept in each file's docstring. **Seated** on M's "Seat both (Recommended)" (rulings item 36):
+`ledger.py` docstring section 8c, M-D68-22/24/34/36 on RULED_BY_M, items 21, 23, 25 and 35 in D68_FILE_CARRIED, the
+OPEN list in W3S1B_OPEN. The O-BITS grade below stays a **proposal**: `combine.py` does not screen it. *(First said:
+"**Not seated** until M has seen it.")*
 
 | item | file | selftest |
 |---|---|---|
