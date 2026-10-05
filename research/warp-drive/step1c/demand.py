@@ -179,7 +179,8 @@ def report():
               "floor: %.3g m^2" % (p["central"]["area_chem_ceiling_m2"], p["low"]["area_chem_ceiling_m2"],
                                    p["central"]["area_reset_floor_m2"]))
     print("\n  READ-A against CHANNEL (species count, H-PROBE at 1 A, H-ONE-POL): the channel's power floor falls as 1/T^2, "
-          "the read floor as 1/T; they cross at T* = %s years -- shorter than T*, the channel floor is the larger"
+          "the read floor as 1/T; the FLOORS cross at T* = %s years -- shorter than T*, the channel floor is the larger "
+          "(floors only: the transmitted power is not established, seat.channel_floor)"
           % ", ".join("%.3g (%s)" % (v, k) for k, v in d["crossover_yr"].items()))
     st = d["stock_b"]
     print("\n  STOCK-B     %.1f kg CI feedstock, binder %s, measured in the Proxima system: %s (OPEN)"
@@ -206,39 +207,33 @@ def selftest():
     chk("CONTROL: the collector expression gives 1 m^2 for 1361 W at the 1 au flux (to 1e-3)",
         abs(1361.0 / bsupply.flux(bsupply.L_SUN, bsupply.AU) - 1.0) < 1e-3, True, ctl=True)
     s = dict((x["schedule"], x) for x in d["schedules"])
-    E_chem = openterms.chem_ceiling_j()
-    F = bsupply.flux_b()
-    chk("POWER-B agrees with bsupply.py's own gathering time: the 1 yr collector area for the chemical ceiling equals "
-        "bsupply's 1 m^2 time in years (to 1e-12)",
-        abs(s["1 yr"]["power_b"]["central"]["area_chem_ceiling_m2"]
-            - bsupply.gather_time_s(E_chem, F["central"], 1.0) / YEAR_S) < 1e-12, True)
-    chk("  CONTROL: the same comparison against Faria's LOW L* fails (the check can see the flux case)",
-        abs(s["1 yr"]["power_b"]["central"]["area_chem_ceiling_m2"]
-            - bsupply.gather_time_s(E_chem, F["low"], 1.0) / YEAR_S) < 1e-12, False, ctl=True)
-    _r = (s["1 day"]["channel"][counts()[0][0]]["floor_W_one_pol"] /
-          s["1 yr"]["channel"][counts()[0][0]]["floor_W_one_pol"]) / (SCHEDULES_S[1] / SCHEDULES_S[0]) ** 2
-    chk("the composed channel power floor scales as 1/T^2 between a day and a year (seat.channel_floor's E ~ 1/T, "
-        "over T; to 1e-9)", abs(_r - 1.0) < 1e-9, True)
-    tx = crossover_T("photon")
-    ch = seat.channel_floor(counts()[0][1], tx)["E_1d_one_pol_J"] / tx
-    rd = [r["total_J"] for r in openterms.read_terms()["probe_floor"]
-          if r["delta_m"] == 1e-10 and r["carrier"] == "photon"][0] / tx
-    chk("at the photon crossover T* = %.3g yr the two powers are equal, asked afresh of both owners (to 1e-9)"
-        % (tx / YEAR_S), abs(ch / rd - 1.0) < 1e-9, True)
-    chk("  CONTROL: at twice T* they are not (the read floor is then the larger, by 2x)",
-        round((rd / 2) / (seat.channel_floor(counts()[0][1], 2 * tx)["E_1d_one_pol_J"] / (2 * tx)), 9), 2.0, ctl=True)
+    sp = counts()[0][0]
     cy = d["crossover_yr"]
-    chk("the crossovers, computed: photon between 10 and 11 yr, electron between 800 and 900 yr, neutron over 1e6 yr "
-        "(printed: %.4g, %.4g, %.3g)" % (cy["photon"], cy["electron"], cy["neutron"]),
+    chk("the crossovers of the FLOORS, computed: photon between 10 and 11 yr, electron between 800 and 900 yr, "
+        "neutron over 1e6 yr (printed: %.4g, %.4g, %.3g)" % (cy["photon"], cy["electron"], cy["neutron"]),
         (10 < cy["photon"] < 11, 800 < cy["electron"] < 900, cy["neutron"] > 1e6), (True, True, True))
+    _cmp = [(nm, s[nm]["channel"][sp]["floor_W_one_pol"] > s[nm]["read_a"]["probe_floor_W_1A"]["photon"])
+            for nm in SCHEDULE_NAMES]
+    chk("  read off the table independently of T*: the channel floor exceeds the 1 A photon read floor at 1 day and "
+        "1 yr, and not at 1 century", _cmp, [("1 day", True), ("1 yr", True), ("1 century", False)])
     chk("POWER-B: at 1 yr a collector of under 2 m^2 covers the chemical ceiling at both Faria cases (central %.3g, "
         "low %.3g m^2); at 1 day it takes over 400 m^2" % (s["1 yr"]["power_b"]["central"]["area_chem_ceiling_m2"],
                                                          s["1 yr"]["power_b"]["low"]["area_chem_ceiling_m2"]),
         (s["1 yr"]["power_b"]["low"]["area_chem_ceiling_m2"] < 2.0,
          s["1 day"]["power_b"]["central"]["area_chem_ceiling_m2"] > 400), (True, True))
-    print("  [STRUCTURAL] every rate is the owner's quantity over T, so rate x T returns it (H-SCHEDULE); READ-A's and "
-          "ASSEMBLE-B's atoms/s are the same object's atoms over the same T")
-    print("\n%d/%d checks pass, %d of them controls; 2 STRUCTURAL printed, not counted" % (n_ok, n_ok + n_bad, n_ctl))
+    _cmp_bad = [(nm, s[nm]["channel"][sp]["floor_W_one_pol"] > 1e3 * s[nm]["read_a"]["probe_floor_W_1A"]["photon"])
+                for nm in SCHEDULE_NAMES]
+    chk("  CONTROL: the same comparison with the read floor raised 1000x no longer gives that pattern",
+        _cmp_bad == [("1 day", True), ("1 yr", True), ("1 century", False)], False, ctl=True)
+    print("  [STRUCTURAL] every rate is the owner's quantity over T, so rate x T returns it (H-SCHEDULE)")
+    print("  [STRUCTURAL] READ-A's and ASSEMBLE-B's atoms/s are the same object's atoms over the same T")
+    print("  [STRUCTURAL] POWER-B's 1 yr area equals bsupply.gather_time_s(E, F, 1 m^2) in years: both are E/(F T)")
+    print("  [STRUCTURAL] the channel power floor scales as 1/T^2 (LNM eq. 8, closed form); at T* the two floors are "
+          "equal and at 2T* their ratio is 2, by T*'s definition")
+    print("\nHISTORY (Step 1c verifier, applied): the bsupply agreement and its LOW-L* control, the 1/T^2 scaling, "
+          "and the equality at T* and its 2T* control were first COUNTED (9 checks, 3 controls); each is an identity "
+          "or restates another check, and is now STRUCTURAL.  The STRUCTURAL count printed 2 over one line.")
+    print("\n%d/%d checks pass, %d of them controls; 4 STRUCTURAL printed, not counted" % (n_ok, n_ok + n_bad, n_ctl))
     return n_bad == 0
 
 
