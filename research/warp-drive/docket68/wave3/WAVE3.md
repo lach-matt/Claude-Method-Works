@@ -1,128 +1,172 @@
-# DOCKET 68 wave 3 — the corridor (first pass, 2026-10-05; not seated)
+# DOCKET 68 wave 3 — the corridor (verified once, corrected; not seated)
 
-Opened on M-RULINGS item 34 ("Corridor (D68 wave 3)"). The charter section is in `docket68/CHARTER.md` (wave 3). There
-are three instruments, all stdlib + numpy; each imports its owners and READs outside results at source, with the route
-recorded. Nothing here is seated until it has been verified.
+Opened on M-RULINGS item 34 ("Corridor (D68 wave 3)"). The charter section is in `docket68/CHARTER.md` (wave 3).
+There are four instruments, all stdlib + numpy; each imports its owners and READs outside results at source, with the
+route recorded. Each instrument was verified adversarially in both directions on 2026-10-05, and every finding was
+applied; the history is kept in each file's docstring. **Not seated** until M has seen it.
 
 | item | file | selftest |
 |---|---|---|
-| W3A the A–B coupling | `corridor.py` | 14/14, 2 controls, 1 STRUCTURAL |
-| W3B the twelve criteria | `criteria12.py` | 12/12, 2 controls, 1 STRUCTURAL |
-| W3C ranking seats | `seatrank.py` | 10/10, 2 controls, 1 STRUCTURAL |
+| W3A the A–B coupling | `corridor.py` | 17/17, 4 controls, 3 STRUCTURAL |
+| W3B the twelve criteria | `criteria12.py` | 14/14, 3 controls, 3 STRUCTURAL |
+| W3C ranking seats | `seatrank.py` | 14/14, 3 controls, 2 STRUCTURAL |
+| corridor size (M's question, item 35) | `aperture.py` | 9/9, 2 controls, 1 STRUCTURAL |
 
 ## W3A — the corridor as the A–B coupling (M items 21–22)
 
 The model is one excitation on two positions, H = J(|A⟩⟨B| + |B⟩⟨A|). That is Christandl et al.'s N = 2 chain
 (quant-ph/0309131v2, READ).
 
-- **Never in between holds.** The position observable has exactly two eigenvalues, so every measurement finds A or B.
-  The transfer is complete at t* = π/2J, reproducing Christandl's F(π/2) = −i. Nuance: the *mean* position passes
-  between A and B (399 of 401 sampled times); no single outcome does.
-- **"The entanglement of two positions at once" is the mid-transfer state.** Its mode concurrence is 1, which is
-  maximal.
-- **A coupling is a channel.** B's occupation depends on what A prepared, with a deviation of 0.5. The control,
-  entanglement alone (a Bell pair with J = 0), does not signal. So the coupling carries the state with no classical
-  bits.
-- **Where distance enters.** The two-site time contains no distance. Relayed through local physics, distance comes back:
-  - In a uniform chain, first arrival grows linearly with N, at slope 0.5 per site (speed 2J).
-  - Christandl's engineered chain transfers perfectly at π/λ, but with bounded coupling the time doubles each time N
+- **Never in between holds in the two-site model, which is H-DIRECT-COUPLING.** Only A or B is ever found; this is
+  true by construction and printed STRUCTURAL. On any **relayed** chain it fails. At half the transfer time the object
+  is found between A and B with probability 0.50 (N = 3), 0.75 (N = 4), 0.98 (N = 8) and 0.9999 (N = 16), all
+  computed. The *mean* position passes between A and B even in the two-site model.
+- **"The entanglement of two positions at once" is the mid-transfer state.** Its mode concurrence is 1, under
+  H-MODE-ENTANGLEMENT, which is a contested reading of a single excitation.
+- **A coupling is a channel.** On/off keying gets through, with a deviation of 0.5. Two controls give none: the same
+  protocol with J = 0, and a Bell pair (entanglement alone). The state itself moves with the fixed phase F(t*) = −i,
+  so no classical bits are needed.
+- **Where distance enters.** The two-site time π/2J has no distance in it. Relayed, distance returns:
+  - In a uniform chain, arrival time is linear in N, at speed 2J.
+  - Christandl's engineered chain transfers perfectly at π/λ. With bounded coupling its time doubles each time N
     doubles.
-  - The amplitude outside the light cone falls about 100× per 10 sites. This is Lieb-Robinson, Nachtergaele & Sims
-    arXiv:1004.2086v1 Thm 2.3 (READ): "the same kind of locality structure provided in a field theory by the
-    finiteness of the speed of light".
-- **Grade (proposed):** O-BITS REMOVED-IF {H-DIRECT-COUPLING}, and H-DIRECT-COUPLING clashes with H-LOCALITY. O-SEAT
-  is untouched, since the coupling moves state, not substance. O-LOOP is governed by corridors.py's H-FRAME, recorded
-  and not re-derived.
+  - At half the light-cone time the amplitude falls about 90× per 10 sites. Near the cone the decay is weak.
+  - This is the short-range Lieb-Robinson bound (Nachtergaele & Sims arXiv:1004.2086v1 Thm 2.3, READ): "non-relativistic
+    quantum dynamics has, **at least approximately**, the same kind of locality structure provided in a field theory by
+    the finiteness of the speed of light".
+- **The speed-free set, stated fairly.** "No speed" holds iff any one of these holds:
+  - H-DIRECT-COUPLING.
+  - **H-LONG-RANGE with α < d.** Eldredge et al., arXiv:1612.02442v2 (READ): "If α < d, the state transfer time is
+    asymptotically independent of L". This is realised in polar molecules, Rydberg atoms and ions, as quasi-static
+    interactions. Their fn. 45 caveat: for α ≤ d a volume prefactor 1/L^(d−α) multiplies the time.
+  - **Unbounded J.**
+
+  Each of these clashes with relativistic microcausality at the fundamental level (H-LOCALITY). A quasi-static
+  interaction is the non-retarded limit of a field that travels at c. An effective direct term (H-EFFECTIVE-COUPLING)
+  needs a mediator already spanning A to B.
+- **Before light** (the board's DEF-BITS). The coupling beats light across the Proxima span iff J > πc/(2L). That means
+  **ħJ > 7.7e-24 eV per qubit** in parallel. Serially, the whole object needs ħJ > 73 keV (species count) to 839 keV
+  (0.1 Å count).
+- **Grade (proposed):** O-BITS REMOVED-IF all three of:
+  - one of H-DIRECT-COUPLING, H-LONG-RANGE (α < d), or unbounded J;
+  - J > πc/2L;
+  - H-STATE-AS-BITS.
+
+  Each speed-free option clashes with H-LOCALITY. O-SEAT is untouched (H-INFO-SHAPE). O-LOOP goes through corridors.py's
+  H-FRAME, under H-CORRIDOR-AS-IDENTIFICATION.
 
 ## W3B — the twelve criteria at A and B (M items 23–24)
 
-- **By kind** (settle.H12's own class column): 8 constants (CP, α_s, Z0, Λ, G, G_F, θ, v), 2 emergent (M, R), and 2
-  material (K, T).
-- **Can they differ between Earth and Proxima b?** The two seats are joined at one moment, so what matters is a
-  *spatial* bound. The only READ one is α's coupling to the gravitational potential, 14(11)e-9. Applied to the computed
-  ΔΦ/c² = −1.5e-8, it gives **|Δα/α| ≤ 3.8e-16**. M and R inherit that bound. The other constants have no READ spatial
-  bound and are equal under H-UNIFORM-CONSTANTS.
-- **H-12Q.** A criterion with a definite value at both seats carries no mutual information and no entanglement. The
-  seats *agree*, which is classical equality. The control is a Bell pair, with quantum MI 2 and entanglement 1.
-  "Literally quantum-correlated" is therefore non-trivial only if the constants are fields (H-CONSTANTS-ARE-FIELDS).
-  Field vacua are entangled between separated regions, but the entanglement can be extracted only for L/T < 1.1
-  (Reznik quant-ph/0212044v2, READ). At the Proxima span that means probes switched on for **≥ 3.86 yr**, against a
-  light time of 4.25 yr.
-- **Predetermination (M item 23).** Ten criteria decide nothing between seats. The two material ones are properties of
-  the object's own materials. The test therefore **reduces to the stock gate**, computed from the starting state, and
-  it is **OPEN at Proxima** because the binder P is measured nowhere in the system.
+- **By kind** (settle.H12's class column):
+  - 2 emergent: M, R.
+  - 2 material: K, T.
+  - 8 others: CP, α_s, θ (Lagrangian parameters), Z0 (derived), Λ, G (coupling), G_F (Lagrangian-derived) and v (a
+    field's expectation value). These are not independent: Z0, M and R reduce to α, and G_F is tied to v.
+- **Earth against Proxima b.** The only READ spatial bound is α's coupling to the potential, 14(11)e-9. It was measured
+  on the annual variation of the Sun's potential, ΔΦ/c² ≈ 1.65e-10. Applying it to the computed ΔΦ/c² = −1.5e-8, about
+  91× that lever arm, needs **H-LINEAR-PHI**. Under it, **|Δα/α| ≤ 3.8e-16** at the 1σ upper end, or 5.4e-16 at 2σ;
+  the central value is −2.1e-16. The other seven criteria have no READ spatial bound; they are equal under
+  H-UNIFORM-CONSTANTS.
+- **H-12Q (M chose "literally quantum-correlated").** Three cases, each computed:
+  - A definite value at both seats carries no mutual information and no entanglement.
+  - A shared but uncertain value carries MI of 1 bit and no entanglement. This is the reading M set aside.
+  - A Bell pair carries quantum MI 2 and entanglement 1.
+
+  So H-12Q needs criteria that are quantum observables. H12 marks α_s, Z0, G, G_F and v as field carriers and CP, Λ,
+  θ as conditional. **settle.py's H-12-CARRIER** is a constant whose value depends on the quantum state. For α_s, G and
+  v it has **no READ bound and is NOT excluded**. It is the nearest thing on the board to M's "predetermination ...
+  based on the starting state".
+- **Vacuum entanglement between the seats** is extractable **at any separation**. Reznik, Retzker & Silman
+  quant-ph/0310058v2 (READ) find negativity ≥ e^−(L/cT)³, numerically ≥ e^−(L/T)². After filtering, CHSH is violated
+  "for every separation distance, L". At the Proxima span with T = 1 yr the bound is ≥ 10^−7.8: tiny, not zero. What
+  decays is the *extracted* amount, which is a lower bound on the vacuum entanglement. Reznik 2003's L/T < 1.1 belongs
+  to his cos² window only; at this span that window gives 3.86 ≤ T < 4.25 yr.
+- **Predetermination (M item 23).** The test reduces to the stock gate under four hypotheses (H-UNIFORM-CONSTANTS,
+  H-LINEAR-PHI, H-SAME-COMPOSITION, H-SAME-ISOTOPES) and with H-12-CARRIER false. This is assigned from those
+  hypotheses, so it is printed STRUCTURAL.
+  - The gate needs 749.1 kg of CI-chondrite stock, with P as the binder (H-CI-PROXY).
+  - It is **OPEN at Proxima**, because P is unmeasured there.
+  - With H-12-CARRIER true, a state-dependent criterion could distinguish seats. That branch is OPEN.
 
 ## W3C — ranking seats by signed magnitudes (M item 25, H-SEATRANK)
 
-- **Exact in aggregate.** For any normalised quasi-distribution, P = 1 + N, so stronger negative magnitudes force
-  stronger positive magnitudes "automatically". This is printed STRUCTURAL; the control is an unnormalised weighting,
-  which breaks it.
-- **Not per seat from the negatives alone.** (0.7, 0.5, −0.2) and (0.5, 0.7, −0.2) share their negatives but rank
-  opposite seats first. With the negatives fixed and the positives permuted, the top seat moves in 0.665 of cases
-  (1 − 1/n_pos predicts 0.671).
-- **Triangulation from projections recovers the ranking** (signed.fbp, imported). With K = 4 projections the top seat
-  is located to one grid step; from K = 16 it is located exactly, together with the negative minimum. With K = 2 it is
-  off by 0.81.
-- **Weak correlations cost more with more negativity.** By Pashayan et al. (arXiv:1503.07525v2 eq. 12, READ),
-  separating two seats whose weights differ by Δ takes 8M² ln(2/δ)/Δ² samples, with M = 1 + 2N.
+- **The aggregate.** P = 1 + N is true by normalisation of every signed measure, so it is printed STRUCTURAL. It
+  neither tests nor supports the per-seat claim.
+- **Unconstrained, the negatives fix only the total.** (0.7, 0.5, −0.2) and (0.5, 0.7, −0.2) share their negatives but
+  rank opposite seats first.
+- **In a physical family the negatives do locate the positive peak** (H-CONSTRAINED-FAMILY). Over 2,836 qubit states
+  cosθ|0⟩ + e^{iφ} sinθ|1⟩, the location and depth of the negative minimum predict the peak's location to a median of
+  0.071, about 1.4 grid steps. A random pairing gives 1.08, and the error falls as the family is sampled more densely.
+  The peak lies opposite the minimum. **This supports a literal "triangulate" given knowledge of the family.** It does
+  not show the negatives decide alone.
+- **Projections recover peak and negatives together** (signed.fbp, sup01, H-WIGNER-SEATS). The argmin is exact at
+  K = 4 and the argmax exact from K = 8. Here the projections are the input and the negatives an output, so this is
+  tomographic triangulation, not M's mechanism.
+- **Cost of resolving a weak difference** (H-WEAK-AS-DELTA). This matters only if seats are *estimated by sampling* the
+  quasi-distribution (H-QUASI-SAMPLING). Pashayan et al.'s eq. 12 (READ) gives a Hoeffding **sufficient** count
+  2M² ln(2/δ)/Δ². The **typical** (CLT) cost grows about **linearly** in M at fixed seat weights. For seats 0.30 vs
+  0.25:
 
-| N | M | Δ = 0.01 | Δ = 0.001 |
-|---|---|---|---|
-| 0 | 1 | 2.95e5 samples | 2.95e7 samples |
-| 2 | 5 | 7.38e6 samples | 7.38e8 samples |
+| M | typical (CLT) samples |
+|---|---|
+| 1 | 593 |
+| 5 | 2,970 |
+| 21 | 12,500 |
 
-  The estimator check on w = (0.6, 0.55, −0.15) gives a mean of 0.547 against a true 0.55, and a variance of 0.412
-  against a predicted 0.4125. So stronger negativity *raises* the cost of resolving a weak difference, by M².
-- **Grade (proposed):** H-SEATRANK holds in aggregate (an identity); it is not fixed per seat by the negatives alone;
-  the ranking is recovered with the negatives from projections; and negativity raises the sampling cost. It moves no
-  obstruction grade, because it ranks seats and supplies none.
+  Empirically at M = 5, 2e4 samples ordered the seats correctly in every trial, while the sufficient bound asks for
+  7.4e4. **Measured** seats carry no M factor (Pashayan eq. 1): negativity "bounds the efficiency of a classical
+  estimation".
+- **Grade (proposed):** these findings move no obstruction grade. H-SEATRANK ranks seats and supplies none.
+
+## How big must the corridor be if only information passes? (M item 35)
+
+M: "If information is what is being sent, how big does the corridor actually have to be? We assumed 1 meter, but that
+was for moving matter instead of information". The 1 m throat was sized for a body, and costs 5.36e25 kg. The
+**smallest opening consistent with each reading** is:
+
+- **(A) Hold the whole description at once.** r = 7.4e-22 to 2.5e-21 m (`throatbits.r_fit`; a capacity ceiling, not an
+  encoding).
+- **(B) Stream it over one mode at the floor energy.** The minimum opening is about half the channel quantum's
+  wavelength, so it scales as T/I. For the species count it is 6.5e-15 m in a day, 2.4e-12 m in a year and 2.4e-10 m
+  in a century; a faster schedule *permits* a narrower one. Caveats:
+  - At width λ/2, 61 % of the floor channel's entropy flux lies below the cutoff, so it needs more width or more power.
+  - A TEM line has no cutoff at all.
+  - A circular guide's radius is about 0.59 × (λ/2).
+- **(C) As a coupling, no cross-section at all.** ħJ = ħIπ/(2T): 312 keV at 1 yr.
+
+As a geometric throat, these sizes lower the throat mass by 4e9 to 1.4e21 relative to 1 m. The board's other limits
+on small throats stand as graded.
 
 ## Named hypotheses
 
-H-DIRECT-COUPLING, H-LOCALITY, H-ONE-EXCITATION, H-BOUNDED-J (W3A); H-12Q, H-UNIFORM-CONSTANTS,
-H-CONSTANTS-ARE-FIELDS, H-REZNIK-WINDOW, H-SAME-COMPOSITION, H-SAME-ISOTOPES (W3B); H-SEATRANK, H-SEAT-QUASI,
-H-WIGNER-SEATS, H-NOISELESS (W3C).
+- **W3A:** H-DIRECT-COUPLING, H-LOCALITY, H-LONG-RANGE, H-QUASI-STATIC, H-EFFECTIVE-COUPLING, H-BOUNDED-J,
+  H-ONE-EXCITATION, H-MODE-ENTANGLEMENT, H-STATE-AS-BITS, H-CORRIDOR-AS-IDENTIFICATION, H-INFO-SHAPE.
+- **W3B:** H-12Q, H-UNIFORM-CONSTANTS, H-LINEAR-PHI, H-CONSTANTS-ARE-FIELDS, H-12-CARRIER, H-REZNIK-WINDOW,
+  H-CI-PROXY, H-SAME-COMPOSITION, H-SAME-ISOTOPES.
+- **W3C:** H-SEATRANK, H-SEAT-QUASI, H-CONSTRAINED-FAMILY, H-WIGNER-SEATS, H-QUASI-SAMPLING, H-WEAK-AS-DELTA,
+  H-NOISELESS.
+- **Corridor size:** H-HALF-WAVE, H-TEM-LINE, H-TE11, H-THERMAL-1D, H-CAP-AT-THROAT.
 
 ## OPEN
 
-1. A direct A–B coupling: no local interaction supplies one (H-DIRECT-COUPLING against H-LOCALITY).
-2. Spatial bounds on the seven constants with none READ here.
+1. Speed-free coupling: each route (direct, long-range α < d, unbounded) clashes with H-LOCALITY.
+2. H-12-CARRIER for α_s, G and v: no READ bound excludes a state-dependent constant.
 3. The stock gate at Proxima: P is unmeasured.
-4. Whether the seat quasi-distribution is a Wigner function, so that its projections are measurable (H-WIGNER-SEATS).
+4. Whether the seat quasi-distribution is a Wigner function (H-WIGNER-SEATS) or belongs to a known family
+   (H-CONSTRAINED-FAMILY).
+5. "Complex binary" (M item 25): not addressed in W3C. The board's reading of complex values is signed.py's Im H = πN.
+6. Spatial bounds on the seven constants with none READ here.
 
 ## History
 
-- `criteria12.py`'s last control was first written vacuous: it compared against a branch that could never be taken.
-  It was rewritten to pass the measurement in as a parameter, so it now tests the logic.
-- `seatrank.py` first counted the identity P = 1 + N as a check. It cannot fail for a normalised weighting, so it is
-  now printed STRUCTURAL; a control shows it failing when the sum is not 1.
-
-## How big must the corridor be if only information passes? — `aperture.py`, 9/9 pass, 2 controls
-
-M: "If information is what is being sent, how big does the corridor actually have to be? We assumed 1 meter, but that
-was for moving matter instead of information". The 1 m throat was sized for a body; as a throat it costs 5.36e25 kg.
-Information sets the size three ways, computed for all four counts:
-
-- **(A) All at once.** The smallest throat whose holographic capacity A/4 holds the whole description
-  (`throatbits.r_fit`, DOCKET 66) has **r = 7.4e-22 to 2.5e-21 m**, which is about 1e14 Planck lengths. Its throat
-  mass is 4e4 to 1.3e5 kg. This is a ceiling on what a throat that size can hold, not an encoding anyone has built.
-- **(B) Streamed over one mode.** One mode carries any amount of information, given time. At the board's energy floor
-  for a 1D thermal channel, the channel's quantum is kT = 2 E_bit / ln 2. That relation is derived from LNM's 1D law
-  and checked against `seat.channel_floor`'s own rate. The opening must be at least about half the quantum's
-  wavelength (H-HALF-WAVE). For the species count:
-
-| schedule | quantum | opening | throat mass |
-|---|---|---|---|
-| 1 day | 96 MeV | ≥ 6.5e-15 m (nuclear scale) | 3.5e11 kg |
-| 1 yr | 263 keV | ≥ 2.4e-12 m | 1.3e14 kg |
-| 100 yr | 2.6 keV | ≥ 2.4e-10 m (atomic scale) | 1.3e16 kg |
-
-  The schedule sets the width: a faster schedule needs harder quanta and a narrower opening.
-- **(C) The coupling view** (W3A). The corridor as a coupling term has no cross-section at all; size is replaced by
-  count and time. One coupling run at the schedule's pace needs ħJ = ħIπ/(2T): 312 keV at 1 yr and 3.1 keV at 100 yr.
-  That is the same scale as (B)'s quanta. Both are set by ħ × the bit rate.
-
-Across all three, **the information corridor is between about 1e-21 m and 1e-10 m wide, not 1 m.** As a geometric
-throat that lowers the throat mass by 1e9 to 1e21 relative to 1 m, since throat mass is linear in r. The board's other
-limits on small throats stand as graded: DOCKET 66's held throats, DOCKET 67's quantum inequalities, and the Ford-Roman
-crossover at 0.307933 and 5.625229 l_P, carried both ways on M's "Carry both".
+The first-pass figures and claims that verification corrected are kept in each file's HISTORY block. In short:
+- Reznik's L/T < 1.1 had been generalised beyond its window.
+- H-12-CARRIER was omitted.
+- The α extrapolation was unnamed.
+- A worst-case sampling bound was read as a requirement.
+- Projections were credited to M's negatives.
+- "Never in between" was stated without its two-site condition.
+- The O-BITS grade lacked "before light".
+- Long-range relays were omitted.
+- Corridor widths were stated as required widths rather than minima.
+- Several counted checks could not fail.
