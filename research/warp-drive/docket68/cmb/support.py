@@ -2,7 +2,7 @@
 """
 support.py -- H-M-SUPPORT's dynamics: how observation extends the clock's support, read with H-LOCAL-CLOCK.
 
-Not seated; not yet verified.  M (rulings item 54): "3, then 2, then 1 please" -- M-SUPPORT's dynamics first.  M-SUPPORT
+Not seated; verified once (2026-10-05), its findings applied; first-written claims kept under HISTORY.  M (rulings item 54): "3, then 2, then 1 please" -- M-SUPPORT's dynamics first.  M-SUPPORT
 (unobserved.py) is M's stronger reading of item 48 as a computable rule: the clock's support is the coupled epochs, and
 observation extends it through records.  Item 52 (H-LOCAL-CLOCK) is carried as M's answer to its open dynamics: "The
 clock is relative to the matter-based observation".  Carried as M's hypotheses, never as results.
@@ -12,7 +12,8 @@ clock is relative to the matter-based observation".  Carried as M's hypotheses, 
     python3 support.py --json       the numbers as JSON
 
 THE READING (H-SUPPORT-IS-RECORDS)
-  Matter observes the photons by scattering them: every Thomson scattering leaves a record in an electron's momentum.
+  On this hypothesis, matter observes the photons by scattering them (M's H-TWO-OBSERVERS, item 49: 'matter itself is
+  capable of observation'), each Thomson scattering a record (H-RECORD-DURABLE).
   The rate at which matter records a given photon is Gamma = n_e sigma_T c; per e-fold of expansion it is Gamma/H.  So
   the support's growth law is
         d(support)/d ln a = Gamma / H = n_e sigma_T c / H        (records per photon per e-fold)
@@ -42,21 +43,38 @@ WHAT IS COMPUTED
   (4) Into the toy (unobserved.py): the clock weighting GLM leave 'completely arbitrary' (H-CLOCK-WEIGHT) replaced by the
       record weightings, binned onto the toy's ticks; the medium's state under each against static M-SUPPORT and TRACED.
   (5) Local clocks at last scattering (H-LOCAL-CLOCK at cosmic scale): in the Newtonian frame a potential Psi is a
-      clock-rate offset, a temporal shift delta t/t = Psi (Hu & Dodelson astro-ph/0110414v1 p.7; White & Hu
+      clock-rate offset, a temporal shift delta t/t = Psi (Hu & Dodelson astro-ph/0110414v1 printed p.14; White & Hu
       astro-ph/9609105v1 p.1 eq. 3 'in a gravitational potential clocks run slow'); each place decouples at the same
-      LOCAL reading, at a shifted time; that gives an intrinsic Theta = -2 Psi/3 (matter era, eq. 13 p.8), the climb out
+      LOCAL reading, at a shifted time; that gives an intrinsic Theta = -2 Psi/3 (matter era, eq. 13 printed p.15), the climb out
       gives Psi, the observed sum is Psi/3 (Sachs-Wolfe).  COBE's 28 microK (Hu & Dodelson p.30, citing Smoot et al.
       1992) sets the size; the time spread of local decoupling is computed.  The time-shift picture is a FRAME choice:
-      in the fluid's rest frame 'proper time coincides with coordinate time' and the intrinsic term vanishes (White & Hu
-      p.1); the observed Psi/3 is the same in both.  STRUCTURAL on that point.
+      in the fluid's rest frame 'proper time coincides with coordinate time' and 'The intrinsic term is negligible' (White
+      & Hu p.1; their Phi has the opposite sign to Hu & Dodelson's Psi); the observed Psi/3 is the same in both.  STRUCTURAL on that point.
   (6) Today's observation: a telescope's detection is one more matter record, at clock reading T0 = 2.7255 K; its
       content is the photon's state since its last record.  A conscious reading of it is a perception of that record
       (Page; localclock.py).  STRUCTURAL.
 
 NAMED HYPOTHESES
-  H-SUPPORT-IS-RECORDS, H-RECFAST-H, H-HEI-SAHA, H-TM-EQUALS-TR, H-REION-TANH, H-HE-MASS-4, H-MASSLESS-NU, H-BOHR-LEVELS,
-  H-TOY-BINNING; with H-TOY-MEDIUM, H-CLOCK-WEIGHT (unobserved.py) and M's H-UNOBSERVED-MEDIUM, H-M-SUPPORT (as M's rule)
+  H-SUPPORT-IS-RECORDS (its warrant for matter as an observer is M's own H-TWO-OBSERVERS, item 49), H-RECORD-DURABLE
+  (an electron's momentum is re-thermalised at once by Coulomb collisions and ~1e9 photons per baryon; in decoherence
+  physics the durable record of a scattering sits in the outgoing photon -- NAMED-NOT-READ), H-RECFAST-H, H-HEI-SAHA,
+  H-TM-EQUALS-TR, H-REION-TANH, H-HE-MASS-4, H-MASSLESS-NU (Planck's Omega_m includes one 0.06 eV neutrino, Table 1
+  caption p.15), H-BOHR-LEVELS, H-TOY-BINNING, H-MATTER-ERA (w_eff = 0.081 at z*, printed), H-SW-ONLY (no integrated
+  Sachs-Wolfe term); with H-TOY-MEDIUM, H-CLOCK-WEIGHT (unobserved.py) and M's H-UNOBSERVED-MEDIUM, H-M-SUPPORT (as M's rule)
   and H-LOCAL-CLOCK.
+
+
+HISTORY (verifier, 2026-10-05; first-written claims kept)
+  * z* was first taken as tau = 1 WITH reionisation (1085.6, '-0.40 % ... about 17 sigma ... the named
+    simplifications'); Planck/CAMB leave reionisation out: 1090.28, +0.03 %, 1.4 sigma.  The check is now 0.1 %.
+  * 'ALL-RECORDS reproduces static M-SUPPORT to 5e-4 ... a dynamical origin' -- mostly by construction: the toy's T_dec
+    is the tau = 1 temperature, and a record-free T^8 weighting does as well (3.9e-4); M-SUPPORT's own reweighting
+    ambiguity is 2.3e-3.  What it shows: records stop where the coupling stops (without recombination: 0.111).
+  * the LAST-RECORD 'recombination' share counted the dark ages twice (shares summed to 100.15 %); '5.28 % at
+    reionisation, at t = 672 Myr' -- 672 Myr is the midpoint; the last records spread to today (median z 4.57).
+  * 'local decoupling spread over 11.4 yr' -- an rms offset, in the Newtonian frame only; 'literally ... measured on the
+    sky' withdrawn: only Psi/3 is measured.  White & Hu say 'negligible', not 'vanishes'.
+  * the tau check allowed 1 sigma for a 0.0002 match; now 0.001.
 """
 
 import contextlib
@@ -118,7 +136,11 @@ REION = {"delta_z": 0.5, "z_He2": 3.5, "delta_z_He2": 0.5,
          "source": "Planck XLVII, arXiv:1605.03507v3 eq. 2 p.5 (tanh in y = (1+z)^1.5, delta y = 1.5 (1+z)^0.5 delta "
                    "z), delta z = 0.5 and He II at z = 3.5 p.5; READ via alphaXiv 2026-10-05.  DISCREPANCY: the "
                    "extracted text reads tanh((y - y_re)/delta y), which would ionise the EARLY universe; the sign "
-                   "that gives x_e -> f at low z, (y_re - y), is used"}
+                   "that gives x_e -> f at low z, (y_re - y), is used -- the same page describes the transition as "
+                   "'from an essentially vanishing ionized fraction x_e at early times, to a value of unity at low "
+                   "redshifts', and CAMB's reionization.f90 uses (WindowVarMid - (1+z)**Tanh_zexp) (verifier-READ): a "
+                   "misprint or extraction artefact in the paper.  A second deviation: the paper evaluates delta y at "
+                   "z, the code (as CAMB) at z_re; tau moves 0.05414 -> 0.05426 (verifier-computed)"}
 COBE_DT_K = 28e-6           # Hu & Dodelson astro-ph/0110414v1 p.30 eq. 25, 'The observed COBE fluctuation of dT ~ 28
                             # microK (Smoot et al 1992)'; READ via alphaXiv 2026-10-05
 
@@ -256,12 +278,15 @@ def reion_xe(z, z_re=None, delta_z=None):
     return h1, he2
 
 
-def history(saha_only=False, with_he=True, z_re=None):
+def history(saha_only=False, with_he=True, z_re=None, reion=True):
     zs, xp = recombination(saha_only=saha_only)
     xe = []
     for z, x in zip(zs, xp):
-        h1, he2 = reion_xe(z, z_re=z_re)
         rec = x + (saha_he(z) if with_he else 0.0)
+        if not reion:
+            xe.append(rec)
+            continue
+        h1, he2 = reion_xe(z, z_re=z_re)
         xe.append(max(rec, h1) + he2)                  # reionisation matched to the relic fraction (1605.03507 fn 3)
     return zs, xp, np.array(xe)
 
@@ -314,7 +339,12 @@ def records(saha_only=False, with_he=True):
     zs, xp, xe = history(saha_only=saha_only, with_he=with_he)
     za, xa, dtdz, tau = optical_depth(zs, xe)
     g = np.exp(-tau) * dtdz
-    z_tau1 = _interp_cross(za, tau, 1.0)
+    # z* as Planck/CAMB define it: tau = 1 with reionisation LEFT OUT (CAMB results.f90 'noreion_optdepth', verifier-
+    # READ).  First written with reionisation in tau -- 1085.6, -0.40 %, wrongly put down to the simplifications.
+    _, xe_nr = history(saha_only=saha_only, with_he=with_he, reion=False)[1:]
+    za_nr, _, _, tau_nr = optical_depth(zs, xe_nr)
+    z_tau1 = _interp_cross(za_nr, tau_nr, 1.0)
+    z_tau1_total = _interp_cross(za, tau, 1.0)
     i_pk = int(np.argmax(np.where(za > 100, g, 0)))
     half = g[i_pk] / 2
     i100 = int(np.searchsorted(za, 100.0))
@@ -324,11 +354,25 @@ def records(saha_only=False, with_he=True):
     i30 = int(np.searchsorted(za, 30.0))
     i200 = int(np.searchsorted(za, 200.0))
     tau_re = float(tau[i30])
-    out = {"z_tau1": z_tau1, "z_peak": float(za[i_pk]), "fwhm": hi - lo,
+    reion_total = 1 - math.exp(-tau_re)
+    zq = {}
+    for q in (0.1, 0.5, 0.9):
+        cum = [(1 - math.exp(-t)) / reion_total for t in tau[:i30 + 1]]
+        zq[q] = _interp_cross(za[:i30 + 1], cum, q)
+    obs = {}
+    for zn in (0.0, 30.0, 200.0, 600.0, 900.0):
+        j = int(np.searchsorted(za, zn))
+        g_o = np.exp(-(tau[j:] - tau[j])) * dtdz[j:]
+        obs[str(zn)] = float(za[j:][int(np.argmax(np.where(za[j:] > max(zn, 100), g_o, 0)))])
+    out = {"z_tau1": z_tau1, "z_tau1_with_reion": z_tau1_total, "z_peak": float(za[i_pk]), "fwhm": hi - lo,
+           "reion_last_record_z_10_50_90": (zq[0.1], zq[0.5], zq[0.9]),
+           "reion_last_record_t_myr_10_50_90": tuple(age_at(zq[q]) / YEAR_S / 1e6 for q in (0.1, 0.5, 0.9)),
+           "observer_relative_peak_z": obs,
            "z_gamma_eq_H": _interp_cross(za[za > 100], [gam_h(z, x) for z, x in zip(za[za > 100], xa[za > 100])], 1.0),
            "x_e_200": float(xa[i200]), "tau_reion": tau_re,
            "last_record_reion": 1 - math.exp(-tau_re),
-           "last_record_recomb": math.exp(-tau_re) - math.exp(-float(tau[-1])),
+           "last_record_recomb": math.exp(-float(tau[i200])) - math.exp(-float(tau[-1])),
+           # first written e^-tau(30) - e^-tau_max, which counted the dark ages twice (shares summed to 100.15 %)
            "last_record_dark_ages": math.exp(-tau_re) - math.exp(-float(tau[i200])),
            "records_dark_ages": float(tau[i200] - tau[i30]),
            "tau_max": float(tau[-1])}
@@ -389,6 +433,23 @@ def toy(rec):
     rows["control_full_coupling_TD"] = unobserved.trace_distance(unobserved.rho_of(psis, uneven),
                                                                  unobserved.rho_of(psis, flat))
     rows["full_coupling_ticks"] = sum(full)
+    # what the agreement does and does not show: M-SUPPORT's own reweighting ambiguity (flat vs cubic over every tick
+    # above T_dec); a record-free weighting concentrated above T_dec (T^8); and the Thomson weight WITHOUT recombination
+    # (x_e = 1), which shows that what matters is that records stop where the coupling stops
+    above = [T > unobserved.T_DEC for T in ts]
+    rows["M_SUPPORT_reweighting_ambiguity"] = unobserved.trace_distance(
+        unobserved.rho_of(psis, [(k + 1) ** 3 if a else 0.0 for k, a in enumerate(above)]), r_static)
+    rows["record_free_T8_TD"] = unobserved.trace_distance(unobserved.rho_of(psis, [T ** 8 for T in ts]), r_static)
+    za, xa, dtdz, tau, g = rec["_grid"]
+    full = dtdz / xa
+    tau_full = np.concatenate([[0.0], np.cumsum(0.5 * (full[1:] + full[:-1]) * np.diff(za))])
+    zk = [T / T0 - 1 for T in ts]
+    lz = np.log1p(zk)
+    edges = np.expm1(np.concatenate([[lz[0] + 0.5 * (lz[0] - lz[1])], 0.5 * (lz[1:] + lz[:-1]),
+                                     [lz[-1] - 0.5 * (lz[-2] - lz[-1])]]))
+    tf = np.interp(edges, za, tau_full)
+    rows["no_recombination_thomson_TD"] = unobserved.trace_distance(
+        unobserved.rho_of(psis, [abs(tf[i] - tf[i + 1]) for i in range(len(ts))]), r_static)
     rows["tick_z_range"] = (ts[0] / T0 - 1, ts[-1] / T0 - 1)
     assert ts[0] / T0 - 1 < Z_START, "the record grid must cover the toy's ticks"
     return rows
@@ -400,10 +461,14 @@ def toy(rec):
 def local_clocks_at_decoupling(z_star):
     t_star = age_at(z_star)
     dt_over_t = COBE_DT_K / T0              # observed Delta T / T on COBE's scales
-    psi = 3 * dt_over_t                     # observed = Psi/3 (Sachs-Wolfe), so |Psi| = 3 Delta T/T
+    psi = 3 * dt_over_t                     # observed = Psi/3 (Sachs-Wolfe, H-SW-ONLY), so |Psi| = 3 Delta T/T
+    zp = 1 + z_star
+    rm, rr = DEN["Om"] * zp ** 3, DEN["Om_r"] * zp ** 4
+    w = (rr / 3) / (rm + rr)                # the effective equation of state at z* (radiation still 1/4 of matter)
     return {"t_star_yr": t_star / YEAR_S, "dT_over_T": dt_over_t, "Psi": psi,
             "intrinsic_Theta": 2 * psi / 3, "climb_out": psi, "observed": psi / 3,
-            "decoupling_time_spread_yr": psi * t_star / YEAR_S}
+            "w_eff_z_star": w, "intrinsic_factor_at_w": 2 / (3 * (1 + w)),
+            "decoupling_time_offset_rms_yr": psi * t_star / YEAR_S}
 
 
 def compute():
@@ -428,13 +493,16 @@ def compute():
 def report():
     d = compute()
     r, t, lc = d["records"], d["toy"], d["local"]
-    print("H-M-SUPPORT's dynamics: the support as matter's records of the light (not verified; not seated)\n")
+    print("H-M-SUPPORT's dynamics: the support as matter's records of the light (verified once; not seated)\n")
     print("(1) ionisation history (RECFAST hydrogen, Saha He I, Planck tanh reionisation): sigma_T %.5e m^2, chi_H %.3f "
           "eV, n_H0 %.4f m^-3, f_He %.4f" % (d["inputs"]["sigma_T"], d["inputs"]["chi_H_eV"], d["inputs"]["n_H0"],
                                               d["inputs"]["f_He"]))
-    print("    tau = 1 at z %.1f (Planck z* %.2f); Saha-only control %.1f; without helium %.1f" % (
-        r["z_tau1"], PLANCK18["z_star"][0], d["control_saha_z_tau1"], d["no_helium_z_tau1"]))
-    print("    age %.3f Gyr (Planck %.3f; no-Lambda control %.2f); sound horizon r* %.2f Mpc (Planck %.2f)" % (
+    print("    z* (tau = 1, reionisation left out, as Planck/CAMB define it) %.2f (Planck %.2f +- %.2f: %+.2f %%, %.1f "
+          "sigma); with reionisation in tau %.1f; Saha-only control %.1f; without helium %.2f" % (
+              r["z_tau1"], PLANCK18["z_star"][0], PLANCK18["z_star"][1],
+              100 * (r["z_tau1"] / PLANCK18["z_star"][0] - 1), abs(r["z_tau1"] - PLANCK18["z_star"][0]) /
+              PLANCK18["z_star"][1], r["z_tau1_with_reion"], d["control_saha_z_tau1"], d["no_helium_z_tau1"]))
+    print("    age %.3f Gyr (Planck %.3f; no-Lambda control %.2f); sound horizon at Planck's z*: r* %.2f Mpc (Planck %.2f)" % (
         d["age_gyr"], PLANCK18["age_gyr"][0], d["control_age_no_lambda_gyr"], d["r_star_mpc"],
         PLANCK18["r_star_mpc"][0]))
     print("(2) matter's observation of the light: last record peaks at z %.1f, FWHM %.1f; Gamma/H = 1 at z %.1f; "
@@ -443,9 +511,13 @@ def report():
         "z %s: %.3g" % (k, v) for k, v in r["gamma_over_H"].items()))
     print("    reionisation tau %.4f (Planck %.4f +- %.4f; z_re = 11 control %.4f)" % (
         r["tau_reion"], PLANCK18["tau"][0], PLANCK18["tau"][1], d["control_tau_reion_z11"]))
-    print("    LAST-RECORD: of today's photons, %.4f last recorded at recombination, %.4f at reionisation (t = %.0f Myr), %.2e in "
-          "the dark ages (30 < z < 200)" % (r["last_record_recomb"], r["last_record_reion"], d["t_reion_myr"],
-                                            r["last_record_dark_ages"]))
+    zq, tq = r["reion_last_record_z_10_50_90"], r["reion_last_record_t_myr_10_50_90"]
+    print("    LAST-RECORD: of today's photons, %.4f last recorded at z > 200, %.2e at 30 < z < 200, %.4f at z < 30 -- "
+          "since reionisation (midpoint t = %.0f Myr), median z %.2f (t %.0f Myr), 10-90 %% z %.2f-%.2f (t %.0f-%.0f "
+          "Myr)" % (r["last_record_recomb"], r["last_record_dark_ages"], r["last_record_reion"], d["t_reion_myr"],
+                    zq[1], tq[1], zq[2], zq[0], tq[2], tq[0]))
+    print("    observer-relative: the last record's peak for an observer at z_now " + ", ".join(
+        "%s: z %.1f" % (k, v) for k, v in r["observer_relative_peak_z"].items()))
     print("    ALL-RECORDS: %.3g records per photon since z = 2500; %.3g in the dark ages" % (r["tau_max"], r["records_dark_ages"]))
     print("(3) the support as it stands at a present z_now (records per photon laid down since z = 2500 | growth per "
           "e-fold):")
@@ -459,10 +531,14 @@ def report():
             ", ".join("%s %.3f" % (k, v) for k, v in row["TD_vs_traced"].items())))
     print("    control: on the %d fully coupled ticks, flat and cubic weightings give the same state (TD %.1e)" % (
           t["full_coupling_ticks"], t["control_full_coupling_TD"]))
-    print("(5) local clocks at last scattering: t* %.0f yr; COBE dT/T %.2e -> |Psi| %.2e; intrinsic %.2e, climb-out "
-          "%.2e, observed %.2e; local decoupling spread over %.1f yr" % (
+    print("    what the agreement shows: M-SUPPORT's own reweighting ambiguity (flat vs cubic above T_dec) %.1e; a "
+          "record-free T^8 weighting %.1e; the Thomson weight WITHOUT recombination (x_e = 1) %.3f" % (
+              t["M_SUPPORT_reweighting_ambiguity"], t["record_free_T8_TD"], t["no_recombination_thomson_TD"]))
+    print("(5) local clocks at last scattering (Newtonian frame; H-MATTER-ERA, H-SW-ONLY): t* %.0f yr; COBE dT/T %.2e "
+          "(an rms amplitude) -> |Psi| %.2e; intrinsic %.2e, climb-out %.2e, observed %.2e; rms offset of local "
+          "decoupling %.1f yr; at z* w_eff = %.3f, so the intrinsic factor is %.3f, not 2/3" % (
               lc["t_star_yr"], lc["dT_over_T"], lc["Psi"], lc["intrinsic_Theta"], lc["climb_out"], lc["observed"],
-              lc["decoupling_time_spread_yr"]))
+              lc["decoupling_time_offset_rms_yr"], lc["w_eff_z_star"], lc["intrinsic_factor_at_w"]))
     print("(6) today's telescope: a matter record at clock reading T0 = %.4f K -- STRUCTURAL" % T0)
 
 
@@ -480,8 +556,8 @@ def selftest():
     d = compute()
     r, t = d["records"], d["toy"]
     zs = PLANCK18["z_star"][0]
-    chk("the recombination history puts tau = 1 at z %.1f, within 0.5 %% of Planck's z* %.2f" % (r["z_tau1"], zs),
-        abs(r["z_tau1"] - zs) / zs < 0.005)
+    chk("the recombination history puts z* (tau = 1, reionisation left out) at %.2f, within 0.1 %% of Planck's %.2f "
+        "(first written with reionisation in tau and 0.5 %%)" % (r["z_tau1"], zs), abs(r["z_tau1"] - zs) / zs < 0.001)
     chk("Saha equilibrium (no n = 2 bottleneck) misses z* by more than 10 %% (%.1f)" % d["control_saha_z_tau1"],
         abs(d["control_saha_z_tau1"] - zs) / zs > 0.10, ctl=True)
     chk("the background reproduces Planck's age (%.3f vs %.3f Gyr, within 0.3 %%) and r* (%.2f vs %.2f Mpc, within 1 %%)"
@@ -490,17 +566,25 @@ def selftest():
         < 0.01)
     chk("without Lambda the age misses by more than 20 %% (%.2f Gyr)" % d["control_age_no_lambda_gyr"],
         abs(d["control_age_no_lambda_gyr"] / PLANCK18["age_gyr"][0] - 1) > 0.2, ctl=True)
-    chk("Planck's tanh model at z_re 7.67 reproduces Planck's tau within 1 sigma (%.4f vs %.4f +- %.4f)" % (
-        r["tau_reion"], PLANCK18["tau"][0], PLANCK18["tau"][1]),
-        abs(r["tau_reion"] - PLANCK18["tau"][0]) < PLANCK18["tau"][1])
+    chk("Planck's tanh model at z_re 7.67 reproduces Planck's tau to 0.001 (%.4f vs %.4f; first written 1 sigma)" % (
+        r["tau_reion"], PLANCK18["tau"][0]), abs(r["tau_reion"] - PLANCK18["tau"][0]) < 0.001)
     chk("reionisation at z_re = 11 misses Planck's tau by more than 3 sigma (%.4f)" % d["control_tau_reion_z11"],
         abs(d["control_tau_reion_z11"] - PLANCK18["tau"][0]) > 3 * PLANCK18["tau"][1], ctl=True)
     chk("stationarity: on the fully coupled ticks the weighting does not matter (flat vs cubic, TD %.1e < 1e-6)" %
         t["control_full_coupling_TD"], t["control_full_coupling_TD"] < 1e-6, ctl=True)
+    chk("ALL-RECORDS (%.1e) and a record-free T^8 weighting (%.1e) both lie within M-SUPPORT's own reweighting "
+        "ambiguity (%.1e): the agreement is not specific to records" % (
+            t["ALL-RECORDS"]["TD_vs_static_M_SUPPORT"], t["record_free_T8_TD"], t["M_SUPPORT_reweighting_ambiguity"]),
+        max(t["ALL-RECORDS"]["TD_vs_static_M_SUPPORT"], t["record_free_T8_TD"]) < t["M_SUPPORT_reweighting_ambiguity"])
+    chk("the Thomson weight WITHOUT recombination (x_e = 1) departs by more than 10x that ambiguity (%.3f): what the "
+        "agreement shows is that records stop where the coupling stops" % t["no_recombination_thomson_TD"],
+        t["no_recombination_thomson_TD"] > 10 * t["M_SUPPORT_reweighting_ambiguity"], ctl=True)
     structural.append("the growth law d(support)/d ln a = Gamma/H is the Thomson rate per e-fold BY DEFINITION; that "
                       "it is M-SUPPORT's dynamics is H-SUPPORT-IS-RECORDS")
     structural.append("the local-clock reading of the Sachs-Wolfe effect is the Newtonian frame's; in the fluid's rest "
-                      "frame the intrinsic term vanishes and the observed Psi/3 is unchanged (White & Hu p.1)")
+                      "frame 'The intrinsic term is negligible' and proper time coincides with coordinate time (White & Hu p.1); "
+                      "decoupling is a surface of constant local temperature in every frame; the observed Psi/3 is the "
+                      "same in both")
     structural.append("a telescope's detection is a matter record; its conscious reading is a perception of it "
                       "(Page, gr-qc/9507024v1 pp.1-4, localclock.py)")
     for s in structural:
