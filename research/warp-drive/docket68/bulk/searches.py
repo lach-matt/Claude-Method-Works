@@ -3,7 +3,7 @@
 searches.py -- the other routes to observing a second plane, READ at source and set against the board's two-plane
 parameters (bulk.py, pairing.py).
 
-Not seated; not yet verified.  M (rulings item 63): "read those now please. They are relevant" -- the collider and
+Not seated; verified once (2026-10-05), findings applied (HISTORY below).  M (rulings item 63): "read those now please. They are relevant" -- the collider and
 short-range gravity searches that item 62 had left NAMED-NOT-READ.  Carried BESIDE M's H-UNOBSERVED-UNBUILT (item 62:
 no two-plane geometry is observed because no device that allows the travel has been designed), never against it:
 these searches look for a bulk WITHOUT travelling through it, and a null result in a searched range says nothing
@@ -41,19 +41,41 @@ WHAT IS COMPUTED
   (A) bulk.py's Randall-Sundrum point (k = 2e18 GeV, warp 1e15, asked of bulk.py) in the searches' own variables:
       k/M_Pl-bar (M_Pl-bar from G and hbar, asked of the board's constants), m_1 = x_1 k e^{-k pi r_c}, the width by
       ATLAS's law.  Whether a search covers that point is decided from the READ ranges, never assumed.
-  (B) What the limits bound: at each searched coupling, m_1 >= m_lim gives k e^{-k pi r_c} >= m_lim / x_1, hence an
-      UPPER bound on bulk.py's jump on our clock (hbar / (k e^{-k pi r_c}) = x_1 hbar / m_1) and on the warp.
-  (C) The torsion-balance bound against the board's 1 mm gaps (bulk.MANYFOLD_GAP_M, bulk.CF['L_illustrative_m']): in a
-      FLAT toroidal bulk of radius R the farthest two points are pi R apart (H-TORUS-BULK), so R < 30 um caps a gap at
-      94 um.  A WARPED bulk is not bounded this way: RS1's 1/k is ~1e-34 m; pairing.py's Chung-Freese design 1/k values
-      fall inside the 52 um - 3 mm span the balances tested, and whether CF's bulk alters brane gravity there is OPEN.
+  (B) What the limits EXCLUDE: at each searched coupling, m_1 in [m_lo, m_lim] (m_lo the search's lowest mass), hence a
+      WINDOW on bulk.py's jump on our clock (hbar / (k e^{-k pi r_c}) ~= x_1 hbar / m_1) and on the warp.  Lighter
+      gravitons (longer jumps, larger warps) and heavier ones (shorter jumps) are UNTESTED, not excluded.
+      The non-resonant reach at bulk.py's point is ESTIMATED (H-CI-ESTIMATE) by DHR eq. 13 in the contact limit,
+      lambda / M_S^4 -> (1 / 8 Lambda_pi^2) sum 1/m_n^2, with Rayleigh's sum over the J_1 zeros computed, against CMS's
+      Hewett lambda = +1 limit (Table 7 p.28, verifier-READ).
+  (C) The torsion-balance bound against the board's 1 mm gaps (bulk.MANYFOLD_GAP_M, bulk.CF['L_illustrative_m']): if
+      the bulk is ONE flat circle of gravity-filled radius R (H-TORUS-BULK: N = 1, Kapner's alpha = 8/3; an N-torus's
+      farthest points are pi R sqrt N apart), R < 30 um caps a gap at 94 um.  ADDK's Manyfold 'do[es] not depend on
+      having very large new dimensions ~ mm' (p.24, verifier-READ), so it is not constrained beyond the board's
+      illustration.  A WARPED bulk is not bounded this way: RS1's 1/k is ~1e-34 m; pairing.py's Chung-Freese designs
+      at the illustrative L = 1 mm have 1/k = L/kL = 53-691 um, inside the 52 um - 3 mm span the balances tested --
+      1/k moves with L, and whether CF's bulk alters brane gravity there is OPEN.
+
+  Context (verifier-READ, raised no further than 'no significant deviation'): CMS's largest local excess, 3.0 sigma at
+  710 GeV, global 0.9 sigma (p.21), beside ATLAS's 684 GeV; DHR close: 'We hope that future experiment will eventually
+  reveal the existence of higher dimensional spacetime' (p.11).
 
 NAMED HYPOTHESES
-  H-TORUS-BULK (the flat bulk is a torus, as Lee's bound is stated), H-CMS-RANGE (CMS's searched masses taken from its
-  lowest generated sample, 250 GeV, to its highest READ limit, 4.78 TeV -- the search range is not printed as such),
-  H-WIDTH-LAW (ATLAS's width law used outside the
-  searched couplings, where DHR say the narrow-width approximation fails), with bulk.py's H-RS1, H-K-PLANCK, H-L-ILLUSTRATIVE,
-  pairing.py's H-CF-STATIC, and M's H-UNOBSERVED-UNBUILT, H-HIGHER-CORRIDOR.
+  H-TORUS-BULK (one flat circular dimension, as Kapner's alpha = 8/3 assumes); H-CMS-RANGE (CMS's searched masses from
+  its lowest generated sample, 250 GeV (p.7; limits computed from 200 GeV for narrow widths, p.20, and spin-2 differs
+  only in acceptance, p.22, verifier-READ) to its p-value scan's 5500 GeV (p.21)); H-WIDTH-LAW (ATLAS's width law used
+  outside the searched couplings: the (k/M)^2 form is DHR's own, p.7; what fails at 0.82 is the narrow-resonance
+  reading); H-CI-ESTIMATE (above); with bulk.py's H-RS1, H-K-PLANCK, H-L-ILLUSTRATIVE, pairing.py's H-CF-STATIC, and M's
+  H-UNOBSERVED-UNBUILT, H-HIGHER-CORRIDOR.
+
+HISTORY (verifier, 2026-10-05; first-written claims kept)
+  * (B) first read 'm_1 >= m_lim ... hence an UPPER bound on bulk.py's jump', printed as a cap ('jump on our clock <=
+    ...'); the searches exclude only a mass WINDOW, and the file's own 93 GeV row (jump 2.7e-26 s, untested) contradicted
+    the cap.  Now a window, with a check that the windows agree with the verdicts.
+  * (C) first said a 'FLAT toroidal bulk' caps a gap at 94 um and that the CF design 1/k 'fall inside' the tested span
+    without saying 1/k = L/kL rides on the illustrative L.
+  * check 1 said 'within their rounding' (1.44 against 1.42 is 1.4 %, not rounding); a decimal-point control added.
+  * the M_Pl-bar comparison was counted as a CONTROL against an unsourced 2.435e18; now a STRUCTURAL calibration.
+  * the non-resonant reach was left bare OPEN; now an estimate, still OPEN.
 """
 import contextlib
 import importlib.util
@@ -88,7 +110,11 @@ HBARC_GEV_M = bulk.HBARC_GEV_M
 ATLAS = {"limits": {0.01: 2200.0, 0.05: 3900.0, 0.1: 4500.0}, "width_coeff": 1.44,
          "k_range": (0.01, 0.1), "m_range": (500.0, 5000.0)}
 CMS = {"limits": {0.01: 2470.0, 0.05: 4160.0, 0.1: 4780.0}, "widths_pct": {0.01: 0.01, 0.05: 0.36, 0.1: 1.42},
-       "k_range": (0.01, 0.1), "m_range": (250.0, 4780.0)}   # H-CMS-RANGE: lowest generated sample to highest limit
+       "k_range": (0.01, 0.1), "m_range": (250.0, 5500.0)}   # H-CMS-RANGE: lowest generated sample (p.7) to the p-value
+                                                              # scan's top (p.21, verifier-READ)
+# DHR eq. 13 (p.10): the tower in the contact limit maps onto Hewett's lambda / M_S^4; CMS's Hewett lambda = +1 combined
+# limit, Table 7 p.28 (verifier-READ): 6.5 TeV at LO, 6.7 TeV at LO x 1.3
+CMS_HEWETT_MS_GEV = (6500.0, 6700.0)
 DHR = {"narrow_width_max": 0.3}
 TORSION = {"kapner_R_m": 44e-6, "lee_R_m": 30e-6, "lee_lambda_m": 38.6e-6, "lee_span_m": (52e-6, 3.0e-3),
            "kapner_span_m": (55e-6, 9.53e-3)}
@@ -153,31 +179,70 @@ def point(k_gev, warp):
             "width_frac_atlas_law": ATLAS["width_coeff"] * kr ** 2, "jump_ours_s": HBARC_GEV_M / kvis / C}
 
 
+def excluded_window(search, kr):
+    """At a searched coupling the limit excludes m_1 in [m_lo, m_lim]: a jump on our clock in [x1 hbar/m_lim,
+    x1 hbar/m_lo] and a warp in [kr M / (m_lim/x1), kr M / (m_lo/x1)].  Lighter gravitons (longer jumps, larger warps)
+    and heavier ones (shorter jumps) are UNTESTED, not excluded."""
+    mpl = m_pl_bar_gev()
+    m_lo, m_lim = search["m_range"][0], search["limits"][kr]
+    j = lambda m: X1 * HBARC_GEV_M / m / C
+    w = lambda m: kr * mpl / (m / X1)
+    return {"m_GeV": (m_lo, m_lim), "jump_s": (j(m_lim), j(m_lo)), "warp": (w(m_lim), w(m_lo))}
+
+
+def j1_zeros(n):
+    zs, lo = [], 3.0
+    for s_ in range(1, n + 1):
+        guess = (s_ + 0.25) * math.pi
+        a, b = guess - 0.6, guess + 0.6
+        fa = bessel_j_integral(1, a, 800)
+        for _ in range(45):
+            mid = 0.5 * (a + b)
+            fm = bessel_j_integral(1, mid, 800)
+            if fa * fm <= 0:
+                b = mid
+            else:
+                a, fa = mid, fm
+        zs.append(0.5 * (a + b))
+    return zs
+
+
+def rayleigh_sum(n=25):
+    """sum 1/x_n^2 over the J_1 zeros: n zeros found by Bessel's integral, the tail by the leading McMahon term."""
+    zs = j1_zeros(n)
+    tail = sum(1.0 / ((s_ + 0.25) * math.pi) ** 2 for s_ in range(n + 1, 200000))
+    return sum(1 / z ** 2 for z in zs) + tail
+
+
+def ci_estimate(kvis_gev, lam_pi_gev, ssum):
+    """DHR eq. 13 with m_n^2 >> s: lambda / M_S^4 -> (1 / 8 Lambda_pi^2) sum 1/m_n^2 = ssum / (8 Lambda_pi^2 kvis^2);
+    lambda = +1 gives M_S,eff = (8 Lambda_pi^2 kvis^2 / ssum)^{1/4}.  An ESTIMATE (H-CI-ESTIMATE): CMS's ADD signal
+    model differs, 7.66 TeV is not >> the highest dilepton masses, the sign convention is unchecked."""
+    return (8 * lam_pi_gev ** 2 * kvis_gev ** 2 / ssum) ** 0.25
+
+
 def compute():
     mpl = m_pl_bar_gev()
     board = point(bulk.RS["k_GeV"], bulk.RS["warp"])
     board["atlas"] = covered(ATLAS, board["k_over_mpl"], board["m1_GeV"])
     board["cms"] = covered(CMS, board["k_over_mpl"], board["m1_GeV"])
-    bounds = []
-    for kr in sorted(CMS["limits"]):
-        for name, s in (("ATLAS", ATLAS), ("CMS", CMS)):
-            mlim = s["limits"][kr]
-            kvis_min = mlim / X1
-            bounds.append({"search": name, "k_over_mpl": kr, "m1_min_GeV": mlim, "k_vis_min_GeV": kvis_min,
-                           "jump_ours_max_s": HBARC_GEV_M / kvis_min / C, "warp_max": kr * mpl / kvis_min,
-                           "Lambda_pi_min_GeV": kvis_min / kr})
     at_warp15 = []
     for kr in sorted(CMS["limits"]):
         p = point(kr * mpl, 1e15)
         at_warp15.append({"k_over_mpl": kr, "m1_GeV": p["m1_GeV"], "ATLAS": verdict(ATLAS, kr, p["m1_GeV"]),
                           "CMS": verdict(CMS, kr, p["m1_GeV"])})
+    windows = [dict(search=name, k_over_mpl=kr, **excluded_window(sv, kr))
+               for kr in sorted(CMS["limits"]) for name, sv in (("ATLAS", ATLAS), ("CMS", CMS))]
+    ssum = rayleigh_sum()
+    board["ci_ms_eff_GeV"] = ci_estimate(board["k_vis_GeV"], board["Lambda_pi_GeV"], ssum)
     gap_max = {n: math.pi * TORSION[n] for n in ("lee_R_m", "kapner_R_m")}
     designs = [{"T_s": d["T_s"], "kL": d["kL_needed"], "inv_k_m": 1.0 / d["k_per_m"]} for d in pairing.compute()["designs"]]
     span = TORSION["lee_span_m"]
     for d in designs:
         d["inside_lee_span"] = span[0] <= d["inv_k_m"] <= span[1]
     rs_inv_k = HBARC_GEV_M / bulk.RS["k_GeV"]
-    return {"M_pl_bar_GeV": mpl, "x1": X1, "board_rs": board, "bounds": bounds, "at_warp_1e15": at_warp15,
+    return {"M_pl_bar_GeV": mpl, "x1": X1, "board_rs": board, "windows": windows, "rayleigh_sum": ssum,
+            "at_warp_1e15": at_warp15,
             "flat_gap_max_m": gap_max, "board_gaps_m": {"manyfold": bulk.MANYFOLD_GAP_M,
                                                         "cf_L": bulk.CF["L_illustrative_m"]},
             "flat_gap_crossing_max_s": gap_max["lee_R_m"] / C, "cf_designs": designs, "rs_inv_k_m": rs_inv_k}
@@ -193,20 +258,26 @@ def report():
                                                               100 * b["width_frac_atlas_law"]))
     print("    ATLAS: %s\n    CMS:   %s" % (b["atlas"], b["cms"]))
     print("    -> NOT TESTED by either resonance search; at this coupling DHR say the tower is no longer resonances")
-    print("\n(B) what the limits bound, at the searched couplings:")
-    for r in d["bounds"]:
-        print("    %-5s k/M = %.2f: m_1 >= %.2f TeV -> Lambda_pi >= %5.1f TeV, warp <= %.2e, jump on our clock <= %.2e s"
-              % (r["search"], r["k_over_mpl"], r["m1_min_GeV"] / 1e3, r["Lambda_pi_min_GeV"] / 1e3, r["warp_max"],
-                 r["jump_ours_max_s"]))
+    print("    non-resonant estimate (DHR eq. 13, H-CI-ESTIMATE): M_S,eff = %.2f TeV against CMS's Hewett lambda=+1 limit "
+          "%.1f-%.1f TeV (verifier-READ) -- may sit at the edge of CMS's own non-resonant exclusion; OPEN" % (
+              b["ci_ms_eff_GeV"] / 1e3, CMS_HEWETT_MS_GEV[0] / 1e3, CMS_HEWETT_MS_GEV[1] / 1e3))
+    print("\n(B) what the limits exclude, at the searched couplings (a WINDOW, not a cap):")
+    for r in d["windows"]:
+        print("    %-5s k/M = %.2f: m_1 in [%.0f, %.0f] GeV excluded -> jump on our clock NOT in [%.2e, %.2e] s, warp NOT in "
+              "[%.2e, %.2e]" % (r["search"], r["k_over_mpl"], r["m_GeV"][0], r["m_GeV"][1], r["jump_s"][0], r["jump_s"][1],
+                               r["warp"][0], r["warp"][1]))
+    print("    lighter gravitons (longer jumps) and heavier ones (shorter jumps) are untested by these two searches")
     print("    with the warp held at 1e15 (RS's own TeV hierarchy):")
     for r in d["at_warp_1e15"]:
         print("      k/M = %.2f: m_1 = %7.1f GeV  ATLAS %s; CMS %s" % (r["k_over_mpl"], r["m1_GeV"], r["ATLAS"], r["CMS"]))
-    print("\n(C) torsion balances: a flat toroidal bulk (H-TORUS-BULK) caps a gap at pi R = %.1f um (Lee, R < 30 um), "
-          "%.1f um (Kapner, R <= 44 um); the board's illustrative gaps are %.0f um" % (
+    print("\n(C) torsion balances: ONE flat circular extra dimension (H-TORUS-BULK, N = 1) caps a gap at pi R = %.1f um "
+          "(Lee, R < 30 um), %.1f um (Kapner, R <= 44 um); the board's illustrative gaps are %.0f um; ADDK's Manyfold does "
+          "not need mm-size dimensions (p.24, verifier-READ)" % (
               1e6 * d["flat_gap_max_m"]["lee_R_m"], 1e6 * d["flat_gap_max_m"]["kapner_R_m"],
               1e6 * d["board_gaps_m"]["manyfold"]))
     print("    a capped gap reads at most %.2e s on our clock" % d["flat_gap_crossing_max_s"])
-    print("    RS1's 1/k = %.2e m: far below any balance.  pairing.py's Chung-Freese designs:" % d["rs_inv_k_m"])
+    print("    RS1's 1/k = %.2e m: far below any balance.  pairing.py's Chung-Freese designs at the illustrative L = 1 mm "
+          "(1/k = L/kL moves with L):" % d["rs_inv_k_m"])
     for r in d["cf_designs"]:
         print("      T = %9.0f s: kL = %5.2f, 1/k = %6.1f um  (inside the 52 um - 3 mm span tested: %s)" % (
             r["T_s"], r["kL"], 1e6 * r["inv_k_m"], r["inside_lee_span"]))
@@ -224,11 +295,16 @@ def selftest():
         print("  %s %s%s" % ("ok  " if ok else "FAIL", "CONTROL: " if ctl else "", label))
 
     d = compute()
-    # 1. two collaborations, one law: ATLAS's printed width coefficient reproduces CMS's printed widths
-    pred = {k: 100 * ATLAS["width_coeff"] * k * k for k in CMS["widths_pct"]}
-    chk("ATLAS's width law 1.44 (k/M)^2 reproduces CMS's printed widths %s %% within their rounding: %s" % (
-        CMS["widths_pct"], {k: round(v, 3) for k, v in pred.items()}),
-        all(abs(pred[k] - CMS["widths_pct"][k]) <= max(0.005, 0.02 * CMS["widths_pct"][k]) for k in pred))
+    # 1. two collaborations, one law: ATLAS's printed width coefficient reproduces CMS's printed widths; a coefficient
+    #    read with the decimal point in the wrong place (14.4 or 0.144) does not -- the check guards that reading
+    def width_ok(coeff):
+        pred = {k: 100 * coeff * k * k for k in CMS["widths_pct"]}
+        return all(abs(pred[k] - CMS["widths_pct"][k]) <= max(0.005, 0.02 * CMS["widths_pct"][k]) for k in pred), pred
+    ok, pred = width_ok(ATLAS["width_coeff"])
+    chk("ATLAS's width law 1.44 (k/M)^2 reproduces CMS's printed widths %s %% within 2 %% (0.01 to CMS's printed "
+        "precision): %s" % (CMS["widths_pct"], {k: round(v, 4) for k, v in pred.items()}), ok)
+    chk("the same comparison rejects the decimal point misplaced (14.4 and 0.144)",
+        not width_ok(14.4)[0] and not width_ok(0.144)[0], ctl=True)
     # 2. the first J_1 zero by the series root-finder, confirmed by Bessel's integral (an independent representation)
     j_at = bessel_j_integral(1, X1)
     chk("x_1 = %.6f found from the series is a zero of J_1 by Bessel's integral too (J_1(x_1) = %.1e)" % (X1, j_at),
@@ -236,8 +312,7 @@ def selftest():
     j_off = bessel_j_integral(1, X1 + 0.05)
     chk("Bessel's integral is not zero 0.05 away from x_1 (J_1 = %.2e), so the check above can fail" % j_off,
         abs(j_off) > 1e-3, ctl=True)
-    # 3. the coverage verdicts reach every outcome: bulk.py's point is untested, a warp-1e15 point at 0.1 is excluded,
-    #    a point above the limit inside the range is allowed
+    # 3. the coverage verdicts reach every outcome
     b = d["board_rs"]
     v_board = verdict(CMS, b["k_over_mpl"], b["m1_GeV"])
     v_ex = verdict(ATLAS, 0.1, point(0.1 * d["M_pl_bar_GeV"], 1e15)["m1_GeV"])
@@ -245,12 +320,26 @@ def selftest():
     chk("the coverage verdict reaches all three outcomes: bulk.py's point %s; warp 1e15 at k/M = 0.1 %s; m_1 = 4.9 TeV at "
         "0.1 %s" % (v_board, v_ex, v_ok),
         v_board.startswith("NOT-TESTED") and v_ex == "EXCLUDED" and v_ok == "ALLOWED")
-    chk("M_Pl-bar from the board's G and hbar is 2.435e18 GeV to 0.1 %% (%.4e)" % d["M_pl_bar_GeV"],
-        abs(d["M_pl_bar_GeV"] / 2.435e18 - 1) < 1e-3, ctl=True)
-    structural.append("the jump bound in (B) is bulk.py's jump read through the KK spectrum (hbar / k e^{-k pi r_c} = "
-                      "x_1 hbar / m_1): arithmetic on READ limits, not a measurement of a jump")
-    structural.append("a flat toroidal bulk's farthest points are pi R apart (H-TORUS-BULK), so R < 30 um caps a gap at "
-                      "94 um; the board's 1 mm gaps are illustrative (H-L-ILLUSTRATIVE) and sit outside that cap")
+    # 4. the excluded windows agree with the verdicts: every EXCLUDED warp-1e15 point's jump lies inside its window,
+    #    every NOT-TESTED one outside (the one-sided 'cap' of the first build failed this at 93 GeV)
+    agree = []
+    for r in d["at_warp_1e15"]:
+        jmp = X1 * HBARC_GEV_M / r["m1_GeV"] / C
+        for name, sv in (("ATLAS", ATLAS), ("CMS", CMS)):
+            w = excluded_window(sv, r["k_over_mpl"])["jump_s"]
+            inside = w[0] <= jmp <= w[1]
+            agree.append(inside == (r[name] == "EXCLUDED"))
+    chk("every warp-1e15 verdict agrees with its excluded jump window (%d/%d)" % (sum(agree), len(agree)), all(agree))
+    # 5. Rayleigh's sum over the J_1 zeros, used by the non-resonant estimate, against its closed form 1/(4(nu+1)) = 1/8
+    chk("sum 1/x_n^2 over the J_1 zeros (25 by Bessel's integral + McMahon tail) = %.6f, Rayleigh's 1/8 to 1e-4" %
+        d["rayleigh_sum"], abs(d["rayleigh_sum"] - 0.125) < 1e-4)
+    structural.append("calibration: M_Pl-bar from the board's G and hbar = %.4e GeV (the commonly quoted 2.435e18 is not "
+                      "READ here)" % d["M_pl_bar_GeV"])
+    structural.append("the jump window in (B) is bulk.py's jump read through the KK spectrum (hbar / k e^{-k pi r_c} ~= "
+                      "x_1 hbar / m_1, to ~1e-15): arithmetic on READ limits, not a measurement of a jump")
+    structural.append("one flat circular dimension's farthest points are pi R apart (an N-torus's pi R sqrt N; "
+                      "H-TORUS-BULK takes N = 1, Kapner's alpha = 8/3), so R < 30 um caps a gap at 94 um; the board's 1 mm "
+                      "gaps are illustrative (H-L-ILLUSTRATIVE), and ADDK do not need mm-size dimensions (p.24)")
     structural.append("every search READ here looks for a bulk without travelling through it; each reports no "
                       "significant deviation inside its searched range, which neither tests nor refutes "
                       "H-UNOBSERVED-UNBUILT")

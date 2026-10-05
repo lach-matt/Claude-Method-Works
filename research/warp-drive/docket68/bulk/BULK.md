@@ -130,8 +130,9 @@ brane-worlds in general.**
   observation"*. Other routes to the same observation exist beside it: collider and short-range gravity searches
   look for a bulk without travelling through it. READ on M's order (item 63, `SEARCHES.md`): none saw a deviation
   inside its searched range. The colliders did not search this file's Randall–Sundrum point (coupling 0.82, a 7.66 TeV
-  graviton). Where they did search, they cap the jump at about 10⁻²⁷ s on our clock. The torsion balances cap a flat
-  bulk's gap at about 94 μm, against the illustrative 1 mm used here.
+  graviton). Where they did search, they exclude a band of jump times, roughly 10⁻²⁷ to 10⁻²⁶ s on our clock; longer
+  and shorter jumps are untested. The torsion balances cap a gap through one flat circular dimension at about 94 μm,
+  against the illustrative 1 mm used here; the Manyfold does not need 1 mm.
 - **Between bulk-paired points there is no path in either plane, so no speed exists there,** as you said. In
   Randall–Sundrum our own clock reads about 3×10⁻²⁸ s for the jump.
 - **Whether the corridor can land somewhere far away depends on the higher dimension's shape.**
@@ -161,7 +162,7 @@ brane-worlds in general.**
 2. Entering and leaving the corridor (O6): a rate for a carrier of the defining information.
 3. Whether any second plane exists. None of the three geometries is observed (M's reason: H-UNOBSERVED-UNBUILT,
    item 62). The LHC searches constrain Randall–Sundrum only within the couplings they searched, which do not include this
-   file's point; the torsion balances cap a flat bulk (READ, `SEARCHES.md`).
+   file's point; the torsion balances cap one flat circular dimension (READ, `SEARCHES.md`).
 4. Randall–Sundrum's published kr_c (PRL, NAMED-NOT-READ) against the v1 text.
 
 ## History (verifier, 2026-10-05; first-written claims kept)
@@ -184,3 +185,6 @@ brane-worlds in general.**
 - **The searches READ (item 63, 2026-10-05).** The For-M line first said what they report was *"NAMED-NOT-READ here"*,
   and OPEN 3 first read *"LHC searches constrain Randall–Sundrum (NAMED-NOT-READ)"*. Both are now READ in
   `SEARCHES.md`.
+- **The searches' verifier (2026-10-05).** The For-M line first said the colliders *"cap the jump at about 10⁻²⁷ s"*
+  and the balances *"cap a flat bulk's gap at about 94 μm"*. The first is a window, not a cap. The second holds for one
+  flat circular dimension.
