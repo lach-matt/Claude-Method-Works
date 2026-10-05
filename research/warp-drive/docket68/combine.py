@@ -133,6 +133,18 @@ kept.").  Applied as a BOARD ruling, exactly as combine66's reading 'singok-boar
     {N, OPEN}, as Z6 reads the board's S5 route: an A-report grading O-MAKE 'LEAVES' or 'LEFT' says the graded member does
     not make the corridor (N); the five-way O-MAKE (Z4) is then taken under each of the two readings and the classes
     united.  The A-reports' own texts were written before M ruled and are not edited here (they are their owners').
+  - D66-RULINGS verifier (2026-10-05, result.v): Z8 carries load.  24 of the 174 agreeing drift rows agree only through
+    it (150/175 agree with Z8 dropped): A1-A3's five-way O-MAKE 'LEAVES' rows and A4's O-MAKE-TOPO 'LEAVES' rows on
+    variants reading OPEN via [N_WNCC] -- so 174/175 now depends on Z8 for those rows (the section-0 table first said
+    'as before').  z8_control shows Z8 can fail: each such row's report mutated to read R or NB is caught as an
+    unexplained disagreement; the one row under a whitelisted key (A2, F2b, O-MAKE) is excluded and named, since the
+    whitelist is keyed on (report, variant, obstruction) and would hide any class there.
+  - The bullet above says 'wherever a geometric throat is possible' (first wording, kept).  Read against the census
+    (topo_route_census; verifier 2026-10-05): with no D66 throat literal the board FORCES a geometric throat
+    (B-THROAT: Not(THROAT) == NONGEO, and NONGEO needs ITB), and the 3,840 / 960 verdict moves are exactly the variants
+    where Geroch/Tipler bind -- neither ITE nor ITB-without-RQ.  ITE variants also hold a geometric throat but read
+    NOT-BOUND-IF {ITE; N_MS17}, and ITB-without-RQ variants NOT-BOUND-IF {ITB; N_QTOPO}; in both (1,920 / 192) only the
+    removal's via list moves (N_ILFREE -> N_ILFREE, N_WNCC).
 
 WHAT THIS FILE DOES
   (1) builds the 127 non-empty combinations of the seven hypotheses.  Hypotheses with more than one reading are carried
@@ -180,6 +192,7 @@ docket68/ except output paths the caller names.
     python3 combine.py --table PATH          the 127-combination markdown table (B-combine.md section 6)
 """
 import contextlib
+import copy
 import io
 import itertools
 import json
@@ -1850,7 +1863,7 @@ def parse_report_class(text, present, grade=None, G=None, rid=None):
     return "N"
 
 
-def _form_class(res, o, graded):
+def _form_class(res, o, graded, z8=True):
     """One form's z3 verdict -> (raw kind, attributed classes).  Raw kind ignores attribution: R / NB / OPEN / N.
     Attributed classes (Z1): R or NB only when some support contains a GRADED literal; Z2 OPEN via N_VAC only is N
     (wave 1-6; kept for the history encoding 'wave6-NVAC'); Z2' (wave 7) O-MAKE-DIST OPEN via vacuum.py's pathways only
@@ -1881,7 +1894,8 @@ def _form_class(res, o, graded):
         # A3's H-INFO-SHAPE row grades O-SEAT's own status (OPEN, F-alone); both describe this z3 state.  A report
         # reading R or NB still disagrees, and so does an OPEN against H-SEAT-ROUTES' LEFT ({N}).  Z2 (N_VAC) unchanged
         return raw, {"N", "OPEN"}
-    if v["verdict"] == "OPEN" and o == "O-MAKE-TOPO" and v["via"] == ["N_WNCC"]:
+    if z8 and v["verdict"] == "OPEN" and o == "O-MAKE-TOPO" and v["via"] == ["N_WNCC"]:
+        # (z8=False only in z8_control, which measures the rows this rule carries)
         # Z8 (D66-RULINGS, M-RULINGS item 28): O-MAKE-TOPO OPEN via N_WNCC only -- the BOARD's route under M-S1A-P3
         # (every geometric throat; no member opens it) -- reads {N, OPEN}, as Z6 reads the board's S5 route: a report
         # grading O-MAKE 'LEAVES' / 'LEFT' says the graded member does not make the corridor (N); a report grading the
@@ -1892,7 +1906,7 @@ def _form_class(res, o, graded):
     return raw, {"N"}
 
 
-def z3_class(res, o, graded, form):
+def z3_class(res, o, graded, form, z8=True):
     """z3's verdict -> the same classes.  Rules: Z1-Z3 in _form_class; Z4 the five-way O-MAKE is the weaker of
     O-MAKE-TOPO and O-MAKE-DIST ('form' TOPO compares O-MAKE-TOPO alone); Z5 (wave 3) the five-way O-LOOP counts only if
     both O-LOOP-C and O-LOOP-S are removed or not-bound (raw), and then takes the attributed classes of either form
@@ -1900,9 +1914,9 @@ def z3_class(res, o, graded, form):
     if not res["consistent"]:
         return {"CLASH"}
     if o == "O-MAKE" and form == "5":
-        a, b = _form_class(res, "O-MAKE-TOPO", graded)[1], _form_class(res, "O-MAKE-DIST", graded)[1]
+        a, b = _form_class(res, "O-MAKE-TOPO", graded, z8)[1], _form_class(res, "O-MAKE-DIST", graded, z8)[1]
         vt = res["per"]["O-MAKE-TOPO"]
-        if vt["verdict"] == "OPEN" and vt.get("via") == ["N_WNCC"]:
+        if z8 and vt["verdict"] == "OPEN" and vt.get("via") == ["N_WNCC"]:
             # Z8 inside Z4 (D66-RULINGS): the board's N_WNCC route is read either way, N or OPEN, and the five-way O-MAKE
             # is the weaker form under EACH reading; the classes are united.  With N_WNCC absent this branch is never
             # taken, so every other row reads exactly as before
@@ -1914,16 +1928,16 @@ def z3_class(res, o, graded, form):
         lo = min(max(ORDER[x] for x in a), max(ORDER[x] for x in b))
         return {k for k, v in ORDER.items() if v == lo}
     if o in ("O-MAKE", "O-MAKE-TOPO"):
-        return _form_class(res, "O-MAKE-TOPO", graded)[1]
+        return _form_class(res, "O-MAKE-TOPO", graded, z8)[1]
     if o == "O-LOOP":
-        (rc, cc), (rs, cs) = _form_class(res, "O-LOOP-C", graded), _form_class(res, "O-LOOP-S", graded)
+        (rc, cc), (rs, cs) = _form_class(res, "O-LOOP-C", graded, z8), _form_class(res, "O-LOOP-S", graded, z8)
         if rc in ("R", "NB") and rs in ("R", "NB"):
             u = (cc | cs) - {"N"}
             return u or {"N"}
         if "OPEN" in (cc | cs):
             return {"OPEN"}
         return {"N"}
-    return _form_class(res, o, graded)[1]
+    return _form_class(res, o, graded, z8)[1]
 
 
 # (variant, cell, report id, grade key, graded literals, O-MAKE form).  Wave 3: rows follow the repaired grades.
@@ -1979,7 +1993,8 @@ EXPLAINED = {
         "case only}; Tipler's non-compact case still binds'.  The screen's NOT-BOUND requires every theorem of the "
         "obstruction to fail to bind (B-TOPO), so with Tipler binding O-MAKE-TOPO stays bound, and the five-way O-MAKE "
         "also needs O-MAKE-DIST, OPEN via N_VAC only (wave 7: OPEN via vacuum.py's pathways, read {N, OPEN} by Z2'; "
-        "the five-way O-MAKE is still the weaker form, N).  A2's own D-CTC row grades the same world's O-MAKE LEAVES.  Both "
+        "the five-way O-MAKE is still the weaker form, N; D66-RULINGS: with O-MAKE-TOPO now OPEN via N_WNCC, read {N, OPEN} "
+        "by Z8, the five-way O-MAKE reads {N, OPEN} -- still not NB).  A2's own D-CTC row grades the same world's O-MAKE LEAVES.  Both "
         "sides say O-MAKE is not lifted; a parse rule that read A2's partial non-binding as N would only rename the "
         "difference, so it is kept visible here instead",
 }
@@ -1991,8 +2006,9 @@ EXPLAINED_HISTORY = {
 }
 
 
-def guard_drift(scrs, G=None):
-    """Compare z3 with the A-reports' own grade text, row by row and obstruction by obstruction."""
+def guard_drift(scrs, G=None, z8=True):
+    """Compare z3 with the A-reports' own grade text, row by row and obstruction by obstruction.  z8=False (z8_control
+    only) drops drift rule Z8, to measure which rows it carries."""
     G = G if G is not None else _report_grades()
     rows, n_cmp, n_agree, unexplained = [], 0, 0, []
     for present, cell, rid, key, graded, form in EXPECT:
@@ -2024,7 +2040,7 @@ def guard_drift(scrs, G=None):
             rep = parse_report_class(text, present, g, G, rid)
             if isinstance(rep, tuple):
                 rep = parse_report_class(rep[1]["per_obstruction"][o], present)
-            zc = z3_class(r, o, graded, form)
+            zc = z3_class(r, o, graded, form, z8)
             agree = rep in zc
             n_cmp += 1
             n_agree += agree
@@ -2157,6 +2173,66 @@ def drift_controls(G=None):
                       "exactly the expected rows": sorted(tuple(u[:3]) for u in d["unexplained"]) == sorted(expect_rows)
                       and not d["load_bearing_disagreements"]}
     return all(v["caught"] for v in out.values() if "caught" in v), out
+
+
+Z8_MUTANT_TEXT = {"R": "REMOVED-IF {Z8 CONTROL: a mutated report text}",
+                  "NB": "NOT-BOUND-IF {Z8 CONTROL: a mutated report text}"}
+
+
+def z8_control(scrs, G=None):
+    """D66-RULINGS verifier item (result.v): drift rule Z8 carries load, so it must be shown able to fail.
+    The Z8 ROWS are the graded drift rows whose variant reads O-MAKE-TOPO OPEN via exactly [N_WNCC] (the board's route
+    under M-RULINGS item 28) and whose obstruction is O-MAKE or O-MAKE-TOPO.  Three things are measured:
+      LOAD    the drift guard re-run with Z8 dropped (z8=False): the rows whose agreement flips are the rows the
+              174/175 figure now rests on Z8 for -- expected to be exactly the Z8 rows (measured at seating: 24 rows,
+              174/175 with Z8 against 150/175 without; 23 keys outside the whitelist plus A2's F2b D-CTC row, whose
+              key the whitelist already holds);
+      CONTROL each Z8 row's report text replaced, in a copy of the grades, by a text reading R (REMOVED-IF) and then
+              NB (NOT-BOUND-IF): under Z8 every such row must be an UNEXPLAINED disagreement -- so Z8 reads {N, OPEN}
+              and nothing wider;
+      LIMIT   a row whose (report, variant, obstruction) key is in EXPLAINED cannot be caught by any mutation, since the
+              whitelist is keyed on that triple and not on the grade: (A2-frame, F2b, O-MAKE) covers both of A2's F2b
+              grades (clause 2b and the D-CTC row).  Such rows are excluded from the control and listed, not hidden."""
+    G = G if G is not None else _report_grades()
+    targets, excluded = [], []
+    for present, cell, rid, key, graded, form in EXPECT:
+        r = scrs[cell].variant(set(present))
+        if not r["consistent"]:
+            continue
+        vt = r["per"]["O-MAKE-TOPO"]
+        if not (vt["verdict"] == "OPEN" and vt.get("via") == ["N_WNCC"]):
+            continue
+        g = _grade(G, rid, key)
+        if g is None:
+            continue
+        tag = "+".join(sorted(present, key=LIT_NAMES.index)) or "(board)"
+        for ok_ in g.get("per_obstruction", {}):
+            if ok_ not in ("O-MAKE", "O-MAKE-TOPO"):
+                continue
+            (excluded if (rid, tag, ok_) in EXPLAINED else targets).append((rid, key, ok_, tag, cell))
+    tkeys = sorted({(rid, tag, o) for rid, _, o, tag, _ in targets})
+    _, d_on = guard_drift(scrs, G)
+    _, d_off = guard_drift(scrs, G, z8=False)
+    on = {(x["report"], x["variant"], x["obstruction"], x["cell"]): x["agree"] for x in d_on["rows"]}
+    off = {(x["report"], x["variant"], x["obstruction"], x["cell"]): x["agree"] for x in d_off["rows"]}
+    flipped = sorted({k[:3] for k in on if on[k] and not off.get(k, False)})
+    caught = {}
+    for cls, text in Z8_MUTANT_TEXT.items():
+        G2 = copy.deepcopy(G)
+        for rid, key, o, tag, cell in targets:
+            _grade(G2, rid, key)["per_obstruction"][o] = text
+        _, d2 = guard_drift(scrs, G2)
+        un = {tuple(u[:3]): u[3] for u in d2["unexplained"] if len(u) >= 4}
+        missed = [k for k in tkeys if un.get(k) != cls]
+        caught[cls] = {"caught": not missed and bool(tkeys), "missed": missed,
+                       "unexplained": len(d2["unexplained"]), "agree": f"{d2['agree']}/{d2['compared']}"}
+    xkeys = sorted({(rid, tag, o) for rid, _, o, tag, _ in excluded})
+    return {"z8_rows": tkeys, "excluded (EXPLAINED key)": xkeys,
+            "agree with Z8": f"{d_on['agree']}/{d_on['compared']}",
+            "agree without Z8": f"{d_off['agree']}/{d_off['compared']}",
+            "rows carried by Z8 (agree with it, disagree without)": flipped,
+            "carried rows are exactly the Z8 rows (whitelisted key included)": flipped == sorted(set(tkeys) | set(xkeys)),
+            "mutated report caught": caught}
 
 
 # =====================================================================================================================
@@ -3258,6 +3334,7 @@ def run_all(with_tests=True):
     drift_ok, drift = guard_drift({CELL_MAIN: scr, CELL_AU: scr_au}, G)
     ctl_ok, ctl = drift_controls(G)
     out = {"refused": not (vac_ok and drift_ok and ctl_ok), "vacuity": vac, "drift": drift, "drift_controls": ctl}
+    out["z8_control"] = z8_control({CELL_MAIN: scr, CELL_AU: scr_au}, G)        # D66-RULINGS verifier item (result.v)
     if out["refused"]:
         return out
     S = run_screen(scr)
@@ -3363,6 +3440,12 @@ def report(R):
                                                         if "caught" in v}))
     for lab, _ in READINGS_UNDER_GUARD.values():
         print(lab + " under the drift guard:", _fmt(R["drift_controls"][lab]))
+    if "z8_control" in R:
+        Z = R["z8_control"]
+        print("DRIFT RULE Z8 (D66-RULINGS): agree with Z8 %s, without %s; %d rows carried by Z8; mutated reports caught "
+              "(R, NB): %s; excluded (EXPLAINED key): %s" % (
+                  Z["agree with Z8"], Z["agree without Z8"], len(Z["rows carried by Z8 (agree with it, disagree without)"]),
+                  _fmt({k: v["caught"] for k, v in Z["mutated report caught"].items()}), Z["excluded (EXPLAINED key)"]))
     print("VACUITY:", _fmt(R["vacuity"]["known_contradictions_caught"]))
     print("STRUCTURAL (cannot fail, not evidence):", _fmt(R["vacuity"]["STRUCTURAL"]))
     cc = R["clash_census"]
@@ -3584,6 +3667,20 @@ def selftest():
     for k, v in R["drift_controls"].items():
         if "caught" in v:
             ck(f"CONTROL mutated encoding '{k}' caught as an unexplained disagreement", v["caught"])
+    # D66-RULINGS verifier item (result.v): Z8 carries load, so a control shows it can fail, and the load is measured
+    Z = R["z8_control"]
+    for cls, word in (("R", "REMOVED-IF"), ("NB", "NOT-BOUND-IF")):
+        ck(f"CONTROL drift rule Z8 can fail: each of the {len(Z['z8_rows'])} graded rows on an O-MAKE-TOPO OPEN via "
+           f"[N_WNCC] variant, its report text mutated to read {word} ({cls}), is caught as an unexplained disagreement "
+           f"(Z8 reads N or OPEN, never wider)", Z["mutated report caught"][cls]["caught"] and len(Z["z8_rows"]) >= 1,
+           Z["mutated report caught"][cls])
+    ck(f"RESULT the drift figure rests on Z8 for exactly the N_WNCC-only rows: {Z['agree with Z8']} agree with Z8, "
+       f"{Z['agree without Z8']} without it; the 24 rows that flip are the Z8 rows (23 caught by the control above, plus "
+       f"A2's F2b D-CTC row under the whitelisted key {Z['excluded (EXPLAINED key)']})",
+       Z["carried rows are exactly the Z8 rows (whitelisted key included)"] and
+       Z["agree with Z8"] == f"{D['agree']}/{D['compared']}" and
+       len(Z["rows carried by Z8 (agree with it, disagree without)"]) == 24 and len(Z["z8_rows"]) == 23,
+       {k: Z[k] for k in ("agree with Z8", "agree without Z8", "excluded (EXPLAINED key)")})
     # wave 6: H-SEAT-ROUTES disagreed on exactly (A3, H-INFO-SHAPE, O-SEAT); wave 7 adds W2C-seat's own row, and the
     # vacuum reading H-VAC-LEFTIF and wave 6's N_VAC encoding are told apart from the adopted one on W2B-vacuum's row
     for lab, rows_exp in READINGS_UNDER_GUARD.values():

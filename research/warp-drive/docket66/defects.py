@@ -32,7 +32,8 @@ WHAT THIS FILE DOES ITSELF (each item computed here, stdlib + sympy + z3):
      the exact deficit 8 pi G eta^2; the thin M4-M4 wall's global time function (CGS p.15, Fig.4); the global
      monopole's conjugate points (Jacobi equation); the gauge monopole's S-1 lens through spec.focal_length; the
      creation of a defect-supported throat under M's ruling M-S1A-P3; and a1_grades(), the A-report grade table built
-     from all of the above (combine66.py reads it).  HISTORY keeps what wave 1 first said.
+     from all of the above (combine66.py reads it).  HISTORY keeps what wave 1 first said (HISTORY_STAGE names
+     the stage where an entry's words or correction are another stage's).
 
 IT IMPORTS, NEVER COPIES: spec (G, c, AU, the focal formula, the lens table), specthm (sturm_ratio, classes, its
 Sturm sentence), massform (the S13 held-seat route, its stable range, the Higgs share, D23 asked of the ledger),
@@ -127,7 +128,10 @@ HYPOTHESES = {
               "'direction and rate computed nowhere'; the direction is READ (D66-fix, V66-0 #2)",
 }
 
-#: What wave 1 first said, kept (M's rule: history kept).  Each entry: (site, wave 1's words, D66-fix's correction, why).
+#: What wave 1 first said, kept (M's rule: history kept).  Each entry: (site, wave 1's words, D66-fix's correction, why)
+#: -- except where HISTORY_STAGE names other stages (D66-RULINGS verifier, 2026-10-05: report() printed every entry under
+#: a fixed 'wave 1 first said', which misattributed the string-turn entry's correction, R-apply's, and its parenthetical,
+#: D66-fix's).
 HISTORY = [
     ("monopole deficit", "Delta = 8 pi eta^2/(1 + 8 pi eta^2), labelled EXACT",
      "Delta = 8 pi G eta^2 exactly outside the core (Barriola-Vilenkin)",
@@ -166,6 +170,12 @@ HISTORY = [
      "and the gauge monopole (an S-1 point lens) also give conjugate points; only the string is crossing-only",
      "follows from V66-1 #4 and #5"),
 ]
+
+#: (stage that first said it, stage that corrected it), per HISTORY site; report() prints these, never a fixed label.
+HISTORY_STAGE_DEFAULT = ("wave 1", "D66-fix")
+HISTORY_STAGE = {
+    "string turn": ("wave 1 (kept by D66-fix, whose parenthetical it is)", "R-apply (M-RULINGS item 27)"),
+}
 
 # =============================================================================== 1. sources READ, with routes
 ALPHAXIV = "READ via alphaXiv answer_pdf_queries (arXiv full text, page-tagged)"
@@ -694,6 +704,10 @@ def string_crossing(gmu, b):
 #: cosmic string TURNs (rays cross without focusing).").  The two readings stay defined in HYPOTHESES as they were;
 #: H-TURN-CONJUGATE is kept as the alternative on record.  D66-fix first said 'the string's grade under the board's
 #: TURN is still M's to rule'.
+#: Note (2026-10-05, D66-RULINGS verifier): M's words are "Any crossing" (of light paths).  Mapping them onto
+#: H-TURN-CROSSING's definition ('any second meeting of two geodesics from one event', HYPOTHESES) is this file's reading,
+#: not M's; string_turn's parallel rays are the source-at-infinity case of 'from one event'.  The verdict is the same
+#: under both (M-RULINGS-2026-10-03.md, note to item 27).
 TURN_RULING = {"M": "Any crossing", "source": "docket68/M-RULINGS-2026-10-03.md item 27 (2026-10-04)",
                "adopted": "H-TURN-CROSSING", "alternative on record": "H-TURN-CONJUGATE",
                "first said": "D66-fix: a TURN under H-TURN-CROSSING, none under H-TURN-CONJUGATE; the reading M's to rule"}
@@ -713,19 +727,57 @@ def turn_under(reading, crossing_at, conjugate_at):
     raise ValueError(reading)
 
 
+def string_crossing_wedge(gmu, b, deficit=None):
+    """INDEPENDENT route to the string's crossing (D66-RULINGS verifier, 2026-10-05; the verifier's own derivation gave
+    2,467.15 AU at the Planck NG bound, b = R_sun).  No deflection angle and no line formula: the cone (HK eq.(4.3)-(4.4),
+    Delta = 8 pi G mu, Vilenkin 1981 restated) is built by removing a wedge of angle Delta downstream (+x, symmetric
+    about the axis) and identifying its two edges by the rotation through -Delta.  Each ray (y = +b and y = -b,
+    travelling +x) is marched to the edge it meets by bisection on its polar angle (atan2 only); the rays meet where
+    the two edge points are one point of the cone, at L = the hit's x.  deficit: override Delta (the CONTROL passes
+    the deflection 4 pi G mu in its place, a factor-2 slip)."""
+    D = 8 * math.pi * gmu if deficit is None else deficit
+    h = D / 2.0
+
+    def hit(sign):
+        lo, hi = 0.0, 1.0
+        while math.atan2(b, hi) > h:
+            hi *= 2.0
+        for _ in range(400):
+            mid = 0.5 * (lo + hi)
+            if mid in (lo, hi):
+                break
+            if math.atan2(b, mid) > h:
+                lo = mid
+            else:
+                hi = mid
+        x = 0.5 * (lo + hi)
+        return (x, sign * b)
+    pu, pl = hit(+1), hit(-1)
+    c, sn = math.cos(-D), math.sin(-D)
+    ru = (c * pu[0] - sn * pu[1], sn * pu[0] + c * pu[1])          # the upper edge point carried onto the lower edge
+    gap = math.hypot(ru[0] - pl[0], ru[1] - pl[1])
+    return {"deficit": D, "L": pu[0], "upper hit": pu, "lower hit": pl, "identification gap": gap,
+            "identified": gap <= 1e-9 * math.hypot(*pu)}
+
+
 def string_turn(gmu, b):
     """The straight static string under both readings (M ruled 'Any crossing').  Crossing: string_crossing (HK p.90:
     each ray turned inward by 4 pi G mu, independent of b), computed here and cross-checked by intersecting the two
-    deflected rays as lines (y = b - x tan d, y = -b + x tan d) by Cramer's rule; for G mu = 0 no deflection and no
-    crossing.  Conjugate point: none -- neighbouring rays on one side are deflected by the same angle (d(deflection)/db
+    deflected rays as lines (y = b - x tan d, y = -b + x tan d) by Cramer's rule -- a CONSISTENCY check on the same
+    formula, not an independent one: the intersection is 2b / (2 tan d) = b / tan d, so its agreement cannot fail
+    (STRUCTURAL; D66-RULINGS verifier 2026-10-05; R-apply first said '# independent: the two deflected rays as lines').
+    The independent route is string_crossing_wedge (the cone's wedge identification, deficit 8 pi G mu, no deflection
+    formula), carried as "crossing L (wedge identification)".  For G mu = 0 no deflection and no crossing.  Conjugate point: none -- neighbouring rays on one side are deflected by the same angle (d(deflection)/db
     = 0, a flat cone: J'' = 0), so a one-sided congruence stays parallel (checked as string_crossing linear in b)."""
     d = 4 * math.pi * gmu
     L = string_crossing(gmu, b) if gmu > 0 else None
-    # independent: the two deflected rays as lines a1 x + b1 y = c1, a2 x + b2 y = c2
+    # CONSISTENCY, not independent (STRUCTURAL): the two deflected rays as lines a1 x + b1 y = c1, a2 x + b2 y = c2
+    # give x = 2b / (2 tan d) = b / tan d, the same formula as string_crossing (R-apply first said "independent")
     t = math.tan(d)
     det = t * 1.0 - (-t) * 1.0                     # rows (tan d, 1 | b) and (-tan d, 1 | -b)
     x_int = ((b * 1.0 - 1.0 * (-b)) / det) if det != 0 else None
     out = {"G mu": gmu, "b": b, "deflection rad": d, "crossing L": L, "crossing L (line intersection)": x_int,
+           "crossing L (wedge identification)": string_crossing_wedge(gmu, b)["L"] if gmu > 0 else None,
            "conjugate point": None}
     for rd in ("H-TURN-CROSSING", "H-TURN-CONJUGATE"):
         out[rd] = turn_under(rd, L, None)
@@ -1007,9 +1059,10 @@ def report(write_json=None):
         print("      seat_conditions: " + g["seat_conditions"])
     print("\nTURN (M-RULINGS item 27, M: 'Any crossing'):", out["turn_ruling"])
     print("  the straight string:", out["string_turn (Planck NG bound, b = R_sun)"])
-    print("\nWhat wave 1 first said (HISTORY):")
+    print("\nWhat was first said (HISTORY; each line names the stage that said it and the stage that corrected it):")
     for h in HISTORY:
-        print("  %s: wave 1 first said '%s'; now: %s (%s)" % h)
+        said, now = HISTORY_STAGE.get(h[0], HISTORY_STAGE_DEFAULT)
+        print("  %s: %s first said '%s'; %s now: %s (%s)" % (h[0], said, h[1], now, h[2], h[3]))
     if write_json:
         with open(write_json, "w", encoding="utf-8") as fh:
             json.dump(out, fh, indent=1, default=str)
@@ -1395,8 +1448,13 @@ def selftest():
     soc = [spec.seat_over_collapse(l) for l in (1.0, 1.0e5, 1.0e8, 1.0e11)]
     Fmin = {"soc": soc, "soc_const": max(abs(x / soc[0] - 1.0) for x in soc)}
     s3 = [c for c in specthm.classes(Fmin) if c["id"] == "S-3"][0]
-    chk("specthm.classes: S-3's note places defect seats there 'until tested'",
-        "topological defect" in s3["note"] and "S-3's until tested" in s3["note"])
+    # D66-RULINGS verifier (2026-10-05): specthm's S-3 note first said defect seats are "S-3's until tested"; DOCKET 66
+    # has run, so the note now keeps that wording quoted as first said and says it ran.  This check first read
+    # "S-3's until tested" in the note
+    chk("specthm.classes: S-3's note places defect seats there (first said 'until tested'; DOCKET 66 HAS RUN and adds no "
+        "literal to S)",
+        "topological defect" in s3["note"] and "is S-3's" in s3["note"] and "first said 'until tested'" in s3["note"]
+        and "DOCKET 66 HAS RUN" in s3["note"] and "S-3's until tested" not in s3["note"])
     chk("specthm.sturm_ratio(2 pi^2/3) at T_kk = u, s = l equals spec's 2 pi^2/3 (owner agreement)",
         abs(specthm.sturm_ratio(soc[0]) - 2 * math.pi ** 2 / 3) < 1e-12, "%.6f" % specthm.sturm_ratio(soc[0]))
     sb = sturm_bounds()
@@ -1433,12 +1491,40 @@ def selftest():
         and TURN_RULING["adopted"] == "H-TURN-CROSSING" and TURN_RULING["alternative on record"] == "H-TURN-CONJUGATE"
         and TURN_RULING["M"] == "Any crossing", t27[:90])
     st_ = string_turn(PLANCK_NG_GMU, sun[2])
+    # D66-RULINGS verifier (2026-10-05): R-apply's check carried 'equal to the two deflected rays' line intersection to
+    # 1e-12' inside this counted check.  The intersection is 2b / (2 tan d) = b / tan d, the same formula, so that
+    # clause cannot fail: it is moved to a STRUCTURAL line, and the independent route (the cone's wedge
+    # identification, string_crossing_wedge) is checked in its place, with a CONTROL that can fail
     chk("item 27: the straight string at the Planck NG bound, b = R_sun, TURNs under the adopted H-TURN-CROSSING: the "
-        "rays cross at L = %.4g AU (string_crossing), equal to the two deflected rays' line intersection to 1e-12; no "
-        "conjugate point, so NO TURN under H-TURN-CONJUGATE (the alternative on record)" % (st_["crossing L"] / spec.AU),
+        "rays cross at L = %.4g AU (string_crossing); no conjugate point, so NO TURN under H-TURN-CONJUGATE (the "
+        "alternative on record).  R-apply first said 'equal to the two deflected rays' line intersection to 1e-12' "
+        "here (now STRUCTURAL, below)" % (st_["crossing L"] / spec.AU),
         st_["verdict under the ruling (H-TURN-CROSSING adopted)"] == "TURN" and
-        abs(st_["crossing L (line intersection)"] / st_["crossing L"] - 1) < 1e-12 and
         st_["H-TURN-CONJUGATE"] == ("NO TURN", None) and st_["conjugate point"] is None)
+    wg_ = string_crossing_wedge(PLANCK_NG_GMU, sun[2])
+    chk("item 27, INDEPENDENT route: the cone built by removing a wedge of Delta = 8 pi G mu (HK eq.(4.3)-(4.4)) and "
+        "identifying its edges, each ray marched to its edge by bisection (no deflection or line formula), gives "
+        "L = %.6g AU, equal to string_crossing's b / tan(4 pi G mu) to 1e-9 (the verifier's own wedge derivation: "
+        "2,467.15 AU)" % (wg_["L"] / spec.AU),
+        abs(wg_["L"] / st_["crossing L"] - 1) < 1e-9 and abs(wg_["L"] / spec.AU - 2467.15) < 0.01
+        and st_["crossing L (wedge identification)"] == wg_["L"], "%.9g m" % wg_["L"])
+    wc_ = string_crossing_wedge(PLANCK_NG_GMU, sun[2], deficit=4 * math.pi * PLANCK_NG_GMU)
+    chk("CONTROL item 27: the wedge built with the deflection 4 pi G mu as its deficit (a factor-2 slip) gives L off by "
+        "a factor %.4f, so the independent agreement above can fail" % (wc_["L"] / st_["crossing L"]),
+        abs(wc_["L"] / st_["crossing L"] - 1) > 0.5, "", "CONTROL")
+    chk("item 27 consistency (not independent): the two deflected rays' line intersection equals string_crossing to "
+        "1e-12 -- 2b / (2 tan d) is b / tan d, the same formula; and the two wedge-edge hits are one point under the "
+        "identifying rotation (gap %.3g m), which a ray pair symmetric about a symmetric wedge gives by construction"
+        % wg_["identification gap"],
+        abs(st_["crossing L (line intersection)"] / st_["crossing L"] - 1) < 1e-12 and wg_["identified"], "",
+        "STRUCTURAL")
+    hsites = [h[0] for h in HISTORY]
+    chk("HISTORY labels name their stage (D66-RULINGS verifier: report() printed a fixed 'wave 1 first said'): every "
+        "HISTORY_STAGE key is a HISTORY site, and the string-turn entry -- whose first words carry D66-fix's "
+        "parenthetical and whose correction is R-apply's -- is labelled so",
+        set(HISTORY_STAGE) <= set(hsites) and "D66-fix" in HISTORY_STAGE["string turn"][0]
+        and "R-apply" in HISTORY_STAGE["string turn"][1] and "(D66-fix:" in dict((h[0], h[1]) for h in HISTORY)[
+            "string turn"], str(HISTORY_STAGE))
     chk("CONTROL item 27: with G mu = 0 (no string) the rays never cross, so NO TURN under H-TURN-CROSSING -- the TURN "
         "verdict is carried by the deficit, not by the reading", string_turn(0.0, sun[2])["H-TURN-CROSSING"] ==
         ("NO TURN", None), "", "CONTROL")

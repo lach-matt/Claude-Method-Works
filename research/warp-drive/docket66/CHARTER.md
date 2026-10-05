@@ -6,7 +6,11 @@ constants and checks them (ledger.py: M-S1A-P3, M-D65-1). *[R-apply, 2026-10-04:
 this charter was written; DOCKET 66 wave 1 has since been seated (D66-seat: ledger.py section 8, O9's DOCKET 66 answer,
 LEDGER.md regenerated; no index3 row). M's three DOCKET 66 rulings -- the paper's Gott bound, spec.py's TURN, and
 re-grading D68 on the singular-throat ruling -- are held verbatim in docket68/M-RULINGS-2026-10-03.md items 26 to 28,
-and applied in A1-defects.md, defects.py, combine66.py and docket68/combine.py.]*
+and applied in A1-defects.md, defects.py, combine66.py and docket68/combine.py.]* *[D66-RULINGS verifier, 2026-10-05: the
+list just above, kept as written, is incomplete. Item 26 was applied in paper/CLAIMS.md (by the lead, under a marked
+note), and item 27 also in spec.py (a RULED note under PART 2, the old line kept). The sites are therefore
+paper/CLAIMS.md (item 26), spec.py's PART 2 note, A1-defects.md and defects.py (item 27), and combine66.py and
+docket68/combine.py (item 28), with the ledger seating all three (M-D68-26/27/28).]*
 
 ## M's words, verbatim
 

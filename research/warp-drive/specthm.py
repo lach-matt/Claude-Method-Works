@@ -1940,7 +1940,9 @@ def classes(F):
                  "SM self-coupling: H-TREE-V); the candidacy "
                  "rests %s.  Seating at a "
                  "topological defect (DOCKET 66, M-S1A-P3 (ii), with QET folded in "
-                 "by M-D65-1) is S-3's until tested"
+                 "by M-D65-1) is S-3's: first said 'until tested'; DOCKET 66 "
+                 "HAS RUN since (wave 1, seated: ledger section 8) and adds no "
+                 "literal to S"
                  % (massform.mechanism_label(), massform.HELD_SEAT_ROUTE_PRICED,
                     massform.H_RELEASE_STATUS,
                     priced65(massform.HELD_SEAT_ROUTE_PRICED),
@@ -2837,6 +2839,21 @@ def m_d65_1():
     return ans.group(1), words.group(1), lit.group(1), par.group(1)
 
 
+def d66_rulings_clause():
+    """M's DOCKET 66 rulings (M-D68-26..28), M's words ASKED of ledger.D68_M_WORDS."""
+    w = ledger.D68_M_WORDS
+    return "; ".join("%s, M: '%s'" % (k, w[k][0]) for k in ("M-D68-26", "M-D68-27", "M-D68-28"))
+
+
+def d66_fill():
+    """The fragments D66_T is filled with, every one ASKED: what DOCKET 66 ran
+    (ledger.d66_p3_ran), M-D65-1's four fragments and QET_PROTOCOL, what it ran
+    on QET (ledger.d66_m_d65_1_ran), and M's DOCKET 66 rulings."""
+    a = m_d65_1()
+    return (ledger.d66_p3_ran(), a[0], a[3], QET_PROTOCOL, a[1], a[2],
+            ledger.d66_m_d65_1_ran(), d66_rulings_clause())
+
+
 #: The one description of the QET protocol this board prints, naming whose
 #: record it is -- this board's, of M's fold in the lead's paraphrase, not
 #: this tree's reading -- never 'information creates'.
@@ -2874,11 +2891,19 @@ def m_d65_3():
 #: 66 has not run, and nothing in this file rests on it; DOCKET 67 (M-D65-3)
 #: is opened, NOT YET RUN, before DOCKET 66 -- it audits the external results
 #: every refusal here rests on, so nothing here is yet graded by it.
+#: [D66-RULINGS verifier, 2026-10-05; the paragraph above is kept as first
+#: written: DOCKET 66 HAS RUN since -- wave 1 run, verified, fixed (D66-fix)
+#: and seated (ledger.py section 8), and M ruled on it (M-RULINGS items 26-28,
+#: seated as M-D68-26..28, ledger section 8b).  Nothing in this file rests on
+#: it still: its S classes take only the literals wl and ball, which DOCKET 66
+#: adds to none (a selftest check).  What ran is ASKED of the ledger
+#: (d66_fill), never typed here; D66_T_AS_FIRST_WRITTEN keeps the record's
+#: first template.]
 #:
 #: The DOCKET 66 and 67 records are TEMPLATES filled from asked fragments; the
 #: selftest checks each printed record EQUALS its template so filled, so no
 #: verdict on a docket that has not run can be typed beside them, either way.
-D66_T = (
+D66_T_AS_FIRST_WRITTEN = (
      "seating at a topological defect, with M's throat-compression mechanism "
      "('Singular occurs in the throat where the geometry is compressed to binary "
      "information, and then push to the seat').  A TENSION TO SETTLE THERE, not "
@@ -2891,6 +2916,29 @@ D66_T = (
      "tested HERE, beside seating at a topological defect, not as a docket of "
      "its own; nothing here decides it.  M's words: '%s'.  Its literature (%s) "
      "is CITED, not READ.")
+#: DOCKET 66's record since it ran (D66-RULINGS verifier, 2026-10-05): the first
+#: template with 'NOT YET RUN' replaced by what ran, ASKED of ledger.d66_p3_ran()
+#: (M-S1A-P3's cell) and ledger.d66_m_d65_1_ran() (M-D65-1's cell), and M's
+#: DOCKET 66 rulings asked of ledger.D68_M_WORDS; the first words kept in a
+#: FIRST SAID clause.  It carries no result word of its own (selftest).
+D66_T = (
+     "seating at a topological defect, with M's throat-compression mechanism "
+     "('Singular occurs in the throat where the geometry is compressed to binary "
+     "information, and then push to the seat').  A TENSION TO SETTLE THERE, not "
+     "in code: P3 (i) disqualifies a pathology at the seat and P3 (ii) makes "
+     "topological defects seating sites, and a SINGULAR defect (an idealised "
+     "conical string) falls under both.  HAS RUN (asked of the ledger's M-S1A-P3 "
+     "cell, never typed here): %s.  M'S ADDITION (M-D65-1, "
+     "RULED BY M: FOLD INTO DOCKET 66 -- M: '%s'): Quantum Energy "
+     "Teleportation -- as the question put to M described it, '%s' (the "
+     "QUESTION's description, not READ; the protocol, %s) -- is to be "
+     "tested HERE, beside seating at a topological defect, not as a docket of "
+     "its own; nothing here decides it.  M's words: '%s'.  Its literature (%s) "
+     "was CITED, not READ, when M ruled; what DOCKET 66 has since done with QET "
+     "(asked of the ledger's M-D65-1 cell): %s.  M's DOCKET 66 rulings since "
+     "(the rulings file's items 26-28, asked of ledger.D68_M_WORDS): %s.  First "
+     "said (kept): 'NOT YET RUN' where the run now stands, and 'is CITED, not "
+     "READ' of the literature.")
 D67_T = (
      "the audit of the external results the board's refusals rest on -- the "
      "question put to M: \"%s\".  RULED BY M: OPEN IT -- M: '%s'; M's words: "
@@ -3116,7 +3164,10 @@ def dockets_opened():
      # M's answer, the question's parenthetical, M's words and the literature
      # are asked of ledger.RULED_BY_M's M-D65-1, never retyped here; the
      # protocol clause is QET_PROTOCOL, the one wording the board allows.
-     D66_T % (m_d65_1()[0], m_d65_1()[3], QET_PROTOCOL, m_d65_1()[1], m_d65_1()[2])),
+     # D66-RULINGS verifier (2026-10-05): DOCKET 66 has run; d66_fill() asks
+     # what ran of the ledger.  First filled as D66_T_AS_FIRST_WRITTEN % (M's
+     # answer, the parenthetical, QET_PROTOCOL, M's words, the literature).
+     D66_T % d66_fill()),
     ("DOCKET 67", "M-D65-3",
      # The four fragments asked of ledger.RULED_BY_M's M-D65-3; the facts in
      # force, the outside result each declares and the outside results the
@@ -3241,7 +3292,10 @@ def what_it_does_not_say():
     "It uses aimability, chronology and pathology only as M ruled them "
     "(M-S1A-P2, M-S1A-P3), and never treats aimability as sufficient.",
     "It does not include seating at a topological defect in S, nor Quantum Energy "
-    "Teleportation (folded in by M-D65-1): both are DOCKET 66's, untested.",
+    "Teleportation (folded in by M-D65-1): both are DOCKET 66's, which HAS RUN "
+    "(wave 1, seated: ledger section 8; M's rulings M-D68-26..28) and adds neither "
+    "to S -- S's classes take only the literals wl and ball.  First said: \"both "
+    "are DOCKET 66's, untested.\"",
     "It does not say atomic mass cannot appear at a seat: DOCKET 65 refuses M's "
     "mechanism AS STATED as a supply (S10: %s), and its remainders S11-S13 (%s) "
     "are OPEN, not refused; the held-seat release route S13, on H-RELEASE, "
@@ -3761,6 +3815,24 @@ def stale_docket65(text):
     t = " ".join(text.split())
     return ([p for p in STALE_DOCKET65 if p.casefold() in t.casefold()]
             + [m.group(0) for m in _STALE65.finditer(t)])
+
+
+#: Wording that calls DOCKET 66 untested or not run after it ran (D66-RULINGS
+#: verifier, 2026-10-05).  A first wording kept as history is quoted after
+#: 'first said' / 'First said (kept):' and is removed before the scan, so only
+#: the board's current words are read.
+STALE_DOCKET66 = ("DOCKET 66's, untested", "DOCKET 66 still untested", "S-3's until tested")
+_STALE66 = re.compile(r"(?i)DOCKET 66(?:'s)?,? (?:is |remains |stays |still )?"
+                      r"(?:untested|not yet run|NOT YET RUN|to test|still to run)")
+_FIRST_SAID_QUOTE = re.compile(r"""(?i)first said(?: \(kept\))?:? (?:(?:'[^']*'|"[^"]*")(?:,? and )?)+""")
+
+
+def stale_docket66(text):
+    """[phrase] of `text` that still calls DOCKET 66 untested or not run,
+    outside a quoted first wording."""
+    t = _FIRST_SAID_QUOTE.sub("", " ".join(text.split()))
+    return ([p for p in STALE_DOCKET66 if p.casefold() in t.casefold()]
+            + [m.group(0) for m in _STALE66.finditer(t)])
 
 
 def _sentences65(text):
@@ -4476,9 +4548,32 @@ def selftest():
          sorted(_fake) == sorted(r for r in sr5["rows"] if r[0] in "DSO")),
         (["S14"], False))
     chk("chk", "DOCKET 66 carries M-D65-1 (on the board) with M's words and the "
-        "literature CITED, not READ",
+        "literature CITED, not READ when M ruled; it HAS RUN, and 'NOT YET RUN' "
+        "stands only as its quoted first wording (D66-RULINGS verifier: this "
+        "check first required 'NOT YET RUN' in the record)",
         (ruled("M-D65-1"), "M-D65-1" in d66, "FOLD INTO DOCKET 66" in d66,
-         "CITED, not READ" in d66, "NOT YET RUN" in d66), (True,) * 5)
+         "CITED, not READ" in d66, "HAS RUN" in d66, d66.count("NOT YET RUN"),
+         "First said (kept): 'NOT YET RUN'" in d66, stale_docket66(d66)),
+        (True,) * 5 + (1, True, []))
+    _d66_old = D66_T_AS_FIRST_WRITTEN % (m_d65_1()[0], m_d65_1()[3], QET_PROTOCOL,
+                                         m_d65_1()[1], m_d65_1()[2])
+    chk("ctl", "the record as first written ('NOT YET RUN' unquoted, no run asked) "
+        "fails the check above (no HAS RUN; its 'NOT YET RUN' is not the quoted first "
+        "wording) and the equality",
+        ("HAS RUN" in _d66_old, _d66_old == D66_T % d66_fill(),
+         _d66_old.count("NOT YET RUN") == 1 and "First said (kept): 'NOT YET RUN'" in _d66_old),
+        (False, False, False))
+    chk("chk", "what ran is ASKED, not typed: the record carries ledger.d66_p3_ran(), "
+        "ledger.d66_m_d65_1_ran() and M's words for M-D68-26..28 as ledger."
+        "D68_M_WORDS holds them; a moved ledger fragment moves the record",
+        (ledger.d66_p3_ran() in d66, ledger.d66_m_d65_1_ran() in d66,
+         all("%s, M: '%s'" % (k, ledger.D68_M_WORDS[k][0]) in d66
+             for k in ("M-D68-26", "M-D68-27", "M-D68-28"))), (True, True, True))
+    with patched(ledger, "d66_p3_ran", lambda: "a moved fragment"):
+        _d66_moved = dockets_opened()[1][2]
+    chk("ctl", "the ledger's M-S1A-P3 fragment patched: the printed record moves "
+        "with it (it is asked, not a copy)",
+        ("a moved fragment" in _d66_moved, _d66_moved == d66), (True, False))
     chk("chk", "DOCKET 66 describes QET as the question put to M described it "
         "(attributed, not READ) and the protocol only as the CITED literature is "
         "described; it asserts no result", d66_qet_faults(d66), [])
@@ -4510,15 +4605,13 @@ def selftest():
     chk("chk", "DOCKET 66's record EQUALS D66_T filled from the asked fragments "
         "(M's answer, the question's description, QET_PROTOCOL, M's words, the "
         "literature): nothing is added in the board's own words, either way",
-        d66 == D66_T % (m_d65_1()[0], m_d65_1()[3], QET_PROTOCOL, m_d65_1()[1],
-                        m_d65_1()[2]), True)
+        d66 == D66_T % d66_fill(), True)
     chk("ctl", "the pre-judgement AGAINST M planted after 'nothing here decides "
         "it' fails the equality",
         d66.replace("nothing here decides it.", "nothing here decides it.  QET "
                     "cannot meet the corridor's demand, and information arriving "
                     "is not exotic matter in M's sense.")
-        == D66_T % (m_d65_1()[0], m_d65_1()[3], QET_PROTOCOL, m_d65_1()[1],
-                    m_d65_1()[2]), False)
+        == D66_T % d66_fill(), False)
     chk("chk", "QET_PROTOCOL names whose record it is (this board's: M's fold, the "
         "lead's paraphrase; not READ into this tree -- the tree holds no abstract "
         "to witness 'the cited abstracts') and the record prints it as 'the "
@@ -4758,8 +4851,10 @@ def selftest():
         (d67 == D67_T % (m_d65_3() + d67_clauses()),
          _RESULT_WORDS.findall(D67_T), _RESULT_WORDS.findall(D66_T),
          re.findall(r"\b(has run|HAS RUN|STANDS|WRONG|NARROWED|expected to)\b",
-                    D67_T + D66_T)),
-        (True, [], [], []))
+                    D67_T + D66_T_AS_FIRST_WRITTEN),
+         re.findall(r"\b(STANDS|WRONG|NARROWED|expected to)\b", D66_T),
+         D66_T.count("HAS RUN")),
+        (True, [], [], [], [], 1))
     chk("ctl", "'HAS RUN' planted in the record, and 'Every result it audits is "
         "expected to STAND' appended, each fail the equality",
         (d67.replace("NOT YET RUN", "HAS RUN", 1)
@@ -4849,12 +4944,20 @@ def selftest():
         "quote check reads the printed cell)", [q[1][:24] for q in _mq3],
         ["some of the previously e"])
     chk("chk", "the S-3 note: DOCKET 65 has run, S13 a priced S-3 candidate that "
-        "forms no baryons, on H-RELEASE (asked), DOCKET 66 still untested",
+        "forms no baryons, on H-RELEASE (asked); DOCKET 66 HAS RUN and adds no "
+        "literal to S, its first wording ('until tested') kept quoted (D66-RULINGS "
+        "verifier: this check first required 'DOCKET 66 still untested')",
         [("DOCKET 65 HAS RUN" in K["note"], "PRICED S-3 candidate" in K["note"],
           "forms no baryons" in K["note"], "H-RELEASE" in K["note"],
-          massform.H_RELEASE_STATUS in K["note"], "until tested" in K["note"])
+          massform.H_RELEASE_STATUS in K["note"], "first said 'until tested'" in K["note"],
+          "DOCKET 66 HAS RUN" in K["note"])
          for K in model["classes"] if K["id"] == "S-3"],
-        [(True,) * 6])
+        [(True,) * 7])
+    chk("chk", "S's classes take only the literals wl and ball (so DOCKET 66, which "
+        "names neither, adds no literal to S -- the claim the S-3 note, WHAT IT DOES "
+        "NOT SAY and DOCKET 66's comment make)",
+        sorted({k for K in model["classes"] if K["object"] == "S" for k in K["lits"]}),
+        ["ball", "wl"])
     _Snote = [K["note"] for K in model["classes"] if K["id"] == "S-3"][0]
     _Sdef = [o["definition"] for o in model["objects"] if o["id"] == "S"][0]
     _Swids = [t for t in what_it_does_not_say() if "S-3 candidate" in t]
@@ -4947,6 +5050,17 @@ def selftest():
     chk("chk", "nothing still calls DOCKET 65 untested or pending (whole report, "
         "every object definition)",
         [stale_docket65(t) for t in [_out] + _defs if stale_docket65(t)], [])
+    chk("chk", "nothing still calls DOCKET 66 untested or not run outside a quoted "
+        "first wording (whole report, every object definition; D66-RULINGS verifier)",
+        [stale_docket66(t) for t in [_out] + _defs if stale_docket66(t)], [])
+    chk("ctl", "the D66 wordings as first written, planted back, are each caught "
+        "(and the same words quoted after 'first said' are not)",
+        [bool(stale_docket66(x)) for x in (
+            "both are DOCKET 66's, untested.", "DOCKET 66 still untested",
+            "Seating at a topological defect is S-3's until tested",
+            "DOCKET 66 is NOT YET RUN",
+            "First said: \"both are DOCKET 66's, untested.\"")],
+        [True, True, True, True, False])
     chk("ctl", "the old object-S sentence, planted back, is caught",
         [p in stale_docket65("M's mechanism is DOCKET 65's to test and is NOT part "
                              "of S until it lands") for p in STALE_DOCKET65[:2]]

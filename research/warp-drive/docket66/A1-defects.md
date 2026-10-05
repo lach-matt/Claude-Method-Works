@@ -19,7 +19,7 @@ TURNs (rays cross without focusing)."* Applied in `defects.py` exactly as worded
 
 | site | D66-fix said | now | ground |
 |---|---|---|---|
-| the straight string's turn (`SEAT_GRADES`, `a1_grades`) | a TURN under H-TURN-CROSSING, none under H-TURN-CONJUGATE; the reading M's to rule | **a TURN** (H-TURN-CROSSING adopted): rays on opposite sides cross at L = b/tan(4 pi G mu), **2,467 AU at b = R_sun** and the Planck NG bound (the Sun's own focus: 548 AU); no conjugate point, so none under H-TURN-CONJUGATE, **kept as the alternative on record** | `string_turn` (new): the crossing from `string_crossing`, cross-checked as the two deflected rays' line intersection (agree to 1e-12); `turn_under` (new) grades either reading; `TURN_RULING` (new) records the ruling; `HISTORY` keeps D66-fix's words |
+| the straight string's turn (`SEAT_GRADES`, `a1_grades`) | a TURN under H-TURN-CROSSING, none under H-TURN-CONJUGATE; the reading M's to rule | **a TURN** (H-TURN-CROSSING adopted): rays on opposite sides cross at L = b/tan(4 pi G mu), **2,467 AU at b = R_sun** and the Planck NG bound (the Sun's own focus: 548 AU); no conjugate point, so none under H-TURN-CONJUGATE, **kept as the alternative on record** | `string_turn` (new): the crossing from `string_crossing`, cross-checked as the two deflected rays' line intersection (agree to 1e-12) -- *a consistency check on the same formula, not independent: the intersection is 2b/(2 tan d) = b/tan d, so it cannot fail; STRUCTURAL since the D66-RULINGS verifier (2026-10-05)*; the **independent route** is `string_crossing_wedge` (the cone built by removing a wedge of 8 pi G mu and identifying its edges, each ray marched to its edge by bisection, no deflection or line formula): **L = 2,467.15 AU**, equal to b/tan(4 pi G mu) to 1e-9 and to the verifier's own wedge derivation, with a CONTROL (the deflection 4 pi G mu used as the deficit gives L off by 2); `turn_under` (new) grades either reading; `TURN_RULING` (new) records the ruling; `HISTORY` keeps D66-fix's words |
 | the global monopole | a TURN under both | unchanged: a TURN under both (its axis recrossings are conjugate points) | `monopole_conjugate` |
 | H-TURN-CONJUGATE, H-TURN-CROSSING (`HYPOTHESES`) | the two readings, named | unchanged as definitions; the ruling is recorded beside them (`TURN_RULING`), not by rewriting either | — |
 
@@ -31,10 +31,18 @@ check asks this of specthm's source at run time, with a planted-literal control.
 string's PART 2: under M's reading a string seat has a TURN at a computed range (L linear in b) -- a candidate S-3 seat's
 second part, not a class verdict. `spec.py`'s PART 2 still reads "a conjugate point"; it is not this docket's file to
 edit unless TURN were a constant there (it is docstring text, no constant or check reads it), and the line is reported
-for its owner.
+for its owner. *(First written so at R-apply and kept. Correction, D66-RULINGS verifier 2026-10-05: R-apply **did** edit
+`spec.py` -- a `RULED (M, 2026-10-04; docket68/M-RULINGS-2026-10-03.md item 27)` note under PART 2, the old line "a
+conjugate point" kept above it as written, no constant or check changed. ledger section 8b and LEDGER M-D68-27 READ that
+note.)*
 
 **Selftest:** `PYTHONDONTWRITEBYTECODE=1 python3 defects.py --selftest` now runs **95 counted checks and passes all 95**,
-**30 of them controls**, 1 STRUCTURAL not counted (D66-fix: 89, 27 controls). The six new: M-RULINGS item 27 read at run
+**30 of them controls**, 1 STRUCTURAL not counted (D66-fix: 89, 27 controls). *D66-RULINGS verifier (2026-10-05): now
+**98 counted checks, all pass, 31 controls, 2 STRUCTURAL** -- the string-TURN check's "equal to the line intersection to
+1e-12" clause moved to a STRUCTURAL line (it cannot fail), the independent wedge route and its CONTROL added, and a check
+that report()'s HISTORY lines name their stage (it printed a fixed "wave 1 first said", which misattributed the string-turn
+entry: its parenthetical is D66-fix's, its correction R-apply's); and the owner check on specthm's S-3 note restated, since
+that note now keeps "until tested" quoted as first said and says DOCKET 66 has run (it first read "S-3's until tested").* The six new at R-apply: M-RULINGS item 27 read at run
 time and `TURN_RULING` matching it; the string TURNs under the adopted reading (and not under the alternative); CONTROL
 G mu = 0 gives no crossing, so no TURN; CONTROL a class with a conjugate point TURNs under H-TURN-CONJUGATE too; no
 specthm class literal names a turn and only S-1 can be NONEMPTY; CONTROL a planted S literal 'turn' is caught.

@@ -551,7 +551,12 @@ figure of combine66's own runs, which this file does not repeat.
        combine66's census)', which read as if the 20 were those two.
        combine66 cannot change D68 rows (its conservative-extension rule) and
        combine.py was not edited by this seating: O9 printed both, and the
-       re-grade was for M and the D68 owners.
+       re-grade was for M and the D68 owners.  CORRECTED (D66-RULINGS
+       verifier, 2026-10-05; the paragraph above is kept as first written):
+       'where a throat is merely possible' is wrong for combine.py.  In those
+       20 context variants a geometric throat is FORCED by the board --
+       B-THROAT: Not(THROAT) == NONGEO, and NONGEO needs ITB's premise -- so
+       read 'a throat forced by the board (no D66 throat literal present)'.
 
 NAMED LIMITATIONS OF THIS SEATING (DOCKET 66), beside sections 7's and 7b's.
   H-LEDGER-ASKS-REPRESENTATIVES grows: combine66's full screen (3,528 + 1,764
@@ -631,7 +636,17 @@ owner at run time.
        2's LEFT kept as combine's history mutation d68w2-topo, asked; the
        census over every variant READ from docket68/B-combine.md section 0
        (D68_TOPO_CENSUS), combine66's side READ from B-combine66.md
-       (D66_TOPO_READ).
+       (D66_TOPO_READ).  STATED EXACTLY (D66-RULINGS verifier, 2026-10-05;
+       'where a geometric throat is possible' kept as first written): the
+       3,840 / 960 verdict moves (LEFT -> OPEN via N_WNCC) are exactly the
+       variants where Geroch/Tipler bind -- the predicate is NEITHER ITE NOR
+       ITB-WITHOUT-RQ (3,840 + 1,920 at 1 ly with the board alone, 960 + 192
+       at 1 AU, no exception).  ITE variants also hold a forced geometric
+       throat but read NOT-BOUND-IF {ITE; N_MS17}, and ITB-without-RQ
+       variants NOT-BOUND-IF {ITB; N_QTOPO}; in both the removal moves OPEN
+       via N_ILFREE -> OPEN via N_ILFREE, N_WNCC, a via-list move.  Of the
+       five variants this board asks, ITB is such a via-list move; the board
+       alone, RQ, ITJ and ITB with RQ are verdict moves.
   O9   still OPEN; no grade moved.  DOCKET 68's answer gains the re-graded
        O-MAKE-TOPO and the adopted TURN reading (asked); DOCKET 66's part
        says the D68 board is re-graded, with section 8's 'RECORDED FOR THE

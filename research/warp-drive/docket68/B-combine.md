@@ -8,7 +8,7 @@ the screen. Wave 6 (F-combine) is kept below as history: its status lines, its "
 **Nothing here is seated** (seating is a later step; `ledger.py`, `index3.py`, `LEDGER.md` and `paper/` are untouched).
 The instrument is `combine.py`, beside this file.
 
-**D66-RULINGS (R-apply, 2026-10-04):** M ruled DOCKET 66 item 28, "Re-grade D68 (Recommended)": O-MAKE-TOPO now reads OPEN via N_WNCC in D68's board-context variants (section 0 (D66-RULINGS)); D68 wave 2's encoding is kept as the history mutation `d68w2-topo`. The selftest runs **131 counted checks and passes all 131** (480 s, rc 0; 28 controls; 14 STRUCTURAL not counted). The W2-fix status line below is kept as history.
+**D66-RULINGS (R-apply, 2026-10-04):** M ruled DOCKET 66 item 28, "Re-grade D68 (Recommended)": O-MAKE-TOPO now reads OPEN via N_WNCC in D68's board-context variants (section 0 (D66-RULINGS)); D68 wave 2's encoding is kept as the history mutation `d68w2-topo`. The selftest runs **131 counted checks and passes all 131** (480 s, rc 0; 28 controls; 14 STRUCTURAL not counted). The W2-fix status line below is kept as history. *D66-RULINGS verifier (2026-10-05): drift rule Z8 carries load and now has a CONTROL; the selftest runs **134 counted checks and passes all 134** (809 s, rc 0; 30 controls; 14 STRUCTURAL not counted). See the Z8 row of section 0 (D66-RULINGS).*
 
 **W2-fix (2026-10-04):** after the two re-verifications of wave 2 (section 0 (W2-fix)) the selftest runs **124 counted
 checks and passes all 124** in 2,480 s (rc 0, with the report run sharing the machine), **26 controls**, **14 STRUCTURAL**
@@ -53,13 +53,15 @@ kept."* Applied as worded, as a board ruling, by the encoding DOCKET 66's `combi
 | {ITJ} | O-MAKE-TOPO LEFT (Geroch binds) | **OPEN via exactly [N_WNCC]** -- Geroch binds the Lorentzian topology change and M's ruling leaves the throat's creation OPEN | RESULT check (its D68 wave 2 wording kept in the check name) |
 | history | -- | wave 2's encoding kept as the mutation **`d68w2-topo`**: board alone and ITJ LEFT even with N_WNCC true (HISTORY check); under the drift guard it disagrees with the A-reports on exactly [] rows -- they grade O-MAKE "LEAVES", written before M ruled, which both encodings satisfy | VACUITY / READING checks |
 | controls | -- | **N_WNCC tied to a geometric throat** (removable with N_WNCC alone on the board, not under ITB with N_QTOPO; refused with every OPEN pathway false) and **`wncc-asserted`** (a throat's creation removed by assertion) refused by the adopted screen | CONTROL checks |
-| drift rule **Z8** | -- | O-MAKE-TOPO OPEN via N_WNCC only -- the board's route, no member's -- reads {N, OPEN}, as Z6 reads the board's S5 route; the five-way O-MAKE (Z4) is taken under each reading and the classes united. Drift: **174 of 175 agree**, the one A2 F2b vocabulary row explained, as before; every mutation still caught | DRIFT checks |
+| drift rule **Z8** | -- | O-MAKE-TOPO OPEN via N_WNCC only -- the board's route, no member's -- reads {N, OPEN}, as Z6 reads the board's S5 route; the five-way O-MAKE (Z4) is taken under each reading and the classes united. Drift: **174 of 175 agree**, the one A2 F2b vocabulary row explained, as before; every mutation still caught. *"As before" is first wording, kept (D66-RULINGS verifier, 2026-10-05): the figure is the same but **now depends on Z8 for 24 rows** -- with Z8 dropped 150 of 175 agree. They are A1's eight, A2's five and A3's five five-way O-MAKE "LEAVES" rows and A4's six O-MAKE-TOPO "LEAVES" rows on variants reading OPEN via [N_WNCC]; the reports were written before M ruled and cannot tell the two encodings apart. **CONTROL (`z8_control`): Z8 can fail** -- each of the 23 such rows outside the whitelist, its report text mutated to read REMOVED-IF (R) and then NOT-BOUND-IF (NB), is caught as an unexplained disagreement; the 24th, A2's F2b D-CTC row, shares the whitelisted key (A2-frame, F2b, O-MAKE) -- the whitelist is keyed on report, variant and obstruction, not on the grade, so it would hide any class there; excluded and named, not hidden* | DRIFT checks; CONTROL x2 and RESULT (Z8's load, measured with and without it) |
 
 **Selftest:** `PYTHONDONTWRITEBYTECODE=1 python3 combine.py --selftest` runs **131 counted checks and passes all 131** in
 480 s (rc 0), **28 controls**, **14 STRUCTURAL** not counted. New: three VACUITY (the N_WNCC tie CONTROL, the
 `wncc-asserted` CONTROL, the `d68w2-topo` HISTORY), two RESULT (the census over every variant; combine66's 20 contexts),
 one GROUND (N_WNCC's grounds), one READING (`d68w2-topo` under the guard); the {ITJ} RESULT check restated. *W2-fix first
-said:* 124 checks, 26 controls. The report run (`--json`, `--table`, scratchpad `d66r/`) regenerated section 6: 64 rows
+said:* 124 checks, 26 controls. *D66-RULINGS verifier (2026-10-05): 134 checks, all pass, 30 controls, 14 STRUCTURAL,
+809 s, rc 0 -- new: two Z8 CONTROLs (a report reading R, then NB, on each N_WNCC-only row is caught) and one RESULT (the
+24 rows the drift figure rests on Z8 for, 174/175 with it against 150/175 without, are exactly those rows).* The report run (`--json`, `--table`, scratchpad `d66r/`) regenerated section 6: 64 rows
 change in the TOPO code only (L -> OPEN). **No headline, clash, premise clash, support, account or survivor figure of
 this file moved**; what moved is O-MAKE-TOPO's OPEN status. The A-reports A1-A4 and the wave-2 instruments are not
 edited (their owners'); `ledger.py`, which asks combine.py and prints the singok-board finding as "where combine.py gives
@@ -1679,7 +1681,12 @@ finding 18.
    ITB's non-geometric premise -- O-MAKE-TOPO's own status is OPEN via N_WNCC (specthm's W-create-ncc, OPEN at its
    owner; M-S1A-P3 as a board ruling), not LEFT: 3,840 of 5,760 at 1 ly (the board alone included) and 960 of 1,152 at
    1 AU move LEFT -> OPEN, and N_WNCC joins the removal's via list beside the remaining 1,920 / 192 NOT-BOUND-IF rows.
-   Still never removed. *D68 wave 2 graded those 3,840 / 960 LEFT.*
+   Still never removed. *D68 wave 2 graded those 3,840 / 960 LEFT.* *Stated exactly (D66-RULINGS verifier, 2026-10-05;
+   "where a geometric throat is possible -- every consistent variant without ITB's non-geometric premise" kept as first
+   written): the 3,840 / 960 verdict moves are exactly the variants where Geroch/Tipler bind, **neither ITE nor
+   ITB-without-RQ**. ITE variants also hold a forced geometric throat but read NOT-BOUND-IF {ITE; N_MS17}, and
+   ITB-without-RQ variants NOT-BOUND-IF {ITB; N_QTOPO}; those 1,920 / 192 move only their removal's via list
+   (N_ILFREE -> N_ILFREE, N_WNCC).*
 4. **O-LOOP's corridor removal is the geometry's** (exact FRW, N_CORR) and holds only in accounts without N_QTOPO; the
    two corridor accounts clash. Signal loops are removed by N_SIGKEY; the D-CTC reintroduces a loop.
 5. **O-SEAT ("supply at the seat", which replaces O-MATTER by M's ruling) is removed or not-bound in no consistent

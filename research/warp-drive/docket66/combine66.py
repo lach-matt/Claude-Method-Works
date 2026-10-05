@@ -1453,28 +1453,39 @@ def grounds_checks(g, scr):
 # =====================================================================================================================
 # RUN ALL
 # =====================================================================================================================
+def _moved_rows(R, base):
+    """Rows of run R whose verdict, via list, defeasibility, seat or consistency differ from run base."""
+    moved = []
+    for r in R["rows"]:
+        b = base["by"][frozenset(r["present"])]
+        if not r["consistent"] or not b["consistent"]:
+            if r["consistent"] != b["consistent"]:
+                moved.append((sorted(r["present"]), "consistency"))
+            continue
+        for o in C.OBST:
+            x, y = r["per"][o], b["per"][o]
+            if (x["verdict"], x.get("via"), r.get("defeasible", {}).get(o)) != \
+                    (y["verdict"], y.get("via"), b.get("defeasible", {}).get(o)):
+                moved.append((sorted(r["present"]), o, x["verdict"], x.get("via"), y["verdict"], y.get("via")))
+        if r["seat"] != b["seat"]:
+            moved.append((sorted(r["present"]), "SEAT", r["seat"]["verdict"], b["seat"]["verdict"]))
+    return moved
+
+
 def guard_readings(items_small):
     """Named readings run through the screen (not mutations: alternatives on record), on the D66 single readings x
-    contexts and the context-only variants: which rows each moves."""
+    contexts and the context-only variants: which rows each moves.  D66-RULINGS verifier (2026-10-05): D66-fix's
+    'singok-board' -- the reading on D68 wave 2's DEF-TOPO -- is re-run as 'singok-board over d68w2-topo' (against a
+    d68w2-topo base), so the selftest compares its moved variant SET with the set d68w2-topo moves back, not only the
+    counts."""
     out = {}
     base = run(C.CELL_MAIN, (), items_small)
     for m in ("seat-routes", "singok-board", "singok-a2", "fkz-generic", "qet-board-paths", "d68w2-topo"):
         R = run(C.CELL_MAIN, (m,), items_small)
-        moved = []
-        for r in R["rows"]:
-            b = base["by"][frozenset(r["present"])]
-            if not r["consistent"] or not b["consistent"]:
-                if r["consistent"] != b["consistent"]:
-                    moved.append((sorted(r["present"]), "consistency"))
-                continue
-            for o in C.OBST:
-                x, y = r["per"][o], b["per"][o]
-                if (x["verdict"], x.get("via"), r.get("defeasible", {}).get(o)) != \
-                        (y["verdict"], y.get("via"), b.get("defeasible", {}).get(o)):
-                    moved.append((sorted(r["present"]), o, x["verdict"], x.get("via"), y["verdict"], y.get("via")))
-            if r["seat"] != b["seat"]:
-                moved.append((sorted(r["present"]), "SEAT", r["seat"]["verdict"], b["seat"]["verdict"]))
-        out[m] = {"variants": len(R["rows"]), "moved": moved}
+        out[m] = {"variants": len(R["rows"]), "moved": _moved_rows(R, base)}
+    b2 = run(C.CELL_MAIN, ("d68w2-topo",), items_small)
+    s2 = run(C.CELL_MAIN, ("d68w2-topo", "singok-board"), items_small)
+    out["singok-board over d68w2-topo"] = {"variants": len(s2["rows"]), "moved": _moved_rows(s2, b2)}
     return out
 
 
@@ -1716,14 +1727,23 @@ def selftest(conservative_step=24, json_path=None):
     # D68 wave 2's encoding ('d68w2-topo', combine's history mutation) moves back exactly what 'singok-board' moved at
     # D66-fix: 174 single-reading/context variants, 20 of them context-only, each O-MAKE-TOPO OPEN via N_WNCC -> LEFT
     hw = out["readings"]["d68w2-topo"]["moved"]
+    sb = out["readings"]["singok-board over d68w2-topo"]["moved"]
+    # D66-RULINGS verifier (2026-10-05): the check below first said 'in exactly the 174 variants ... singok-board moved
+    # at D66-fix' but compared only the counts (174, 20 context-only) and the no-D66-throat predicate.  D66-fix's
+    # singok-board is now re-run on D68 wave 2's DEF-TOPO (guard_readings), and the two variant SETS are compared
     ck("RESULT readings (D66-RULINGS, M-RULINGS item 28: 'Re-grade D68 (Recommended)'): singok-board moves NOTHING (it is "
        "now docket68/combine.py's own DEF-TOPO); the history encoding d68w2-topo (D68 wave 2) moves only O-MAKE-TOPO, "
-       "OPEN via [N_WNCC] -> LEFT, never in a variant holding a D66 throat, in exactly the 174 variants (20 context-only) "
-       "singok-board moved at D66-fix",
+       "OPEN via [N_WNCC] -> LEFT, never in a variant holding a D66 throat, in 174 variants (20 context-only) -- the SAME "
+       "variant set D66-fix's singok-board moves when re-run on D68 wave 2's DEF-TOPO (LEFT -> OPEN via [N_WNCC]), sets "
+       "compared, not counts (the check first compared only the counts)",
        out["readings"]["singok-board"]["moved"] == [] and
        all(m[1] == "O-MAKE-TOPO" and m[2] == "LEFT" and m[4] == "OPEN" and m[5] == ["N_WNCC"] and
            not set(m[0]) & set(D66_THROATS) for m in hw) and
-       len(hw) == 174 and sum(1 for m in hw if not set(m[0]) & set(D66_LITS)) == 20)
+       len(hw) == 174 and sum(1 for m in hw if not set(m[0]) & set(D66_LITS)) == 20 and
+       all(m[1] == "O-MAKE-TOPO" and m[2] == "OPEN" and m[3] == ["N_WNCC"] and m[4] == "LEFT" for m in sb) and
+       len(sb) == len(hw) and {tuple(m[0]) for m in sb} == {tuple(m[0]) for m in hw})
+    print("     sets: d68w2-topo %d, singok-board over d68w2-topo %d, symmetric difference %d" % (
+        len(hw), len(sb), len({tuple(m[0]) for m in sb} ^ {tuple(m[0]) for m in hw})))
     ck("CONTROL the readings census can fail: singok-a2 (wave 1's encoding) moves O-MAKE-TOPO in variants holding DTHR "
        "or TBTEL, which d68w2-topo never moves",
        any(set(m[0]) & {"DTHR", "TBTEL"} for m in out["readings"]["singok-a2"]["moved"]), control=True)
