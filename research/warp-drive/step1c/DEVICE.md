@@ -6,9 +6,11 @@ materials on the other side" (`ledger.py` section 0). Step 1b fixed the equation
 every matter and energy term an input or an output (`step1b/BALANCE.md`, seated). A device is whatever performs those
 terms.
 
-`demand.py` (6/6 checks, 2 of them controls, 4 STRUCTURAL; first 9/9 with 3 controls, see below) reads the device's subsystems off the equation's rows and
-prices what each must deliver, per schedule. **Every figure is imported from its owner. No supply is read here.** What
-present engineering delivers for each subsystem is the next step, and which subsystem comes first is M's choice.
+`demand.py` (6/6 checks, 2 of them controls, 4 STRUCTURAL; first 9/9 with 3 controls, see below) reads the
+device's subsystems off the equation's rows and prices what each must deliver, per schedule. **Every figure is imported
+from its owner.** Supply is read separately, in `supply.py` (below). M chose to read all three subsystems' supply
+(rulings item 37: "All three (Recommended)"). *(First said "which subsystem comes first is M's choice", written
+before M answered.)*
 
 ## The subsystems, from the equation's rows
 
