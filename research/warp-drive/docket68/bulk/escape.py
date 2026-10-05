@@ -1,0 +1,491 @@
+#!/usr/bin/env python3
+"""
+escape.py -- the four routes past bulkwarp.py's test, tested exhaustively (M-RULINGS item 80: 'a field in the bulk (the
+field that would stabilise the distance between our planes is one), a faster-than-light bubble, matter that radiates,
+and a thick brane ... - exhaustively test these').  READ where sources exist, deduced (M-DEDUCE), and -- where the
+plane's matter problem cannot be settled by hand -- posed exactly and solved numerically.
+
+Not seated; not verified.  M's words are carried as hypotheses, never as results.  O9 stays OPEN.
+
+    python3 escape.py              report (coarse grid)
+    python3 escape.py --selftest   checks, with CONTROLS (coarse grid, about 1-2 min)
+    python3 escape.py --full       the resolution study and the speed sweep (several minutes)
+    python3 escape.py --json       the numbers as JSON
+
+THE EXACT PROBLEM (THE ENGINE).  On a Z2 plane in a bulk whose stress near the plane is T5 (SMS eqs. 1, 2, 8, 10, 16 --
+READ in signdim.py; bulkwarp.py W2), the plane's matter tau must satisfy, exactly in the warp speed v and to first order
+in tau/lambda:
+    conservation   nabla^nu tau_{mu nu} = -2 T5_{n mu}            (Codazzi; zero for a vacuum bulk)
+    trace          tau^mu_mu = -(R + 2 kappa^2 delta T5_nn)/(8 pi G_N)   (the scalar Gauss equation)
+    NEC            tau_{mu nu} k^mu k^nu >= 0 for every null k      (P-NEC-BRANE)
+    localised      tau = 0 on the edge of the box                    (H-LOCALISED)
+with R the 4D Ricci scalar of Alcubierre's metric in the bubble's frame (X = x - v t, cylindrical s about the axis):
+ds^2 = -dt^2 + (dX + beta dt)^2 + ds^2 + s^2 dphi^2, beta = v (1 - f(r)), stationary and axisymmetric.  These are linear
+in tau, so the existence of such matter is a LINEAR PROGRAM: finite volumes for the conservation law on an (X, s) grid,
+the trace in every cell, the NEC on a sphere of sampled null directions, and the minimum total NEC violation
+V = min sum_cells,directions w * max(0, -tau_kk) as the measure (V = 0: such matter exists on the grid; V > 0: it does
+not).  Sampling the NEC is weaker than the full NEC, so V > 0 is conservative (a lower bound on the true violation).
+bulkwarp.py's W3 predicts, for a negative-tension plane at small v, V -> N_dir * int R / |8 pi G_N| (the Laue deficit
+spread over the sampled directions); for a positive-tension plane V -> 0 with resolution.
+
+SOURCES READ (2026-10-05; route: alphaXiv answer_pdf_queries on open arXiv copies, printed pages)
+  Goldberger & Wise hep-ph/9907447v2: the stabilising field is a bulk scalar with 'interaction terms that are localized
+    to the two 3-branes' lambda (Phi^2 - v^2)^2 (eqs. 3-5, p.3); its boundary conditions at the planes (eqs. 9, 10) are
+    not d_n Phi = 0; 'As long as v_h^2/M^3 and v_v^2/M^3 are small, T_s^AB can be neglected in comparison to the stress
+    tensor induced by the bulk cosmological constant. It is therefore safe to ignore the influence of the scalar field on
+    the background geometry' (p.5); 'It may be worthwile to work out ... the back reaction of the scalar field' (p.7).
+  DeWolfe, Freedman, Gubser & Karch hep-th/9909134v4: A'' = -(2/3) phi'^2 - (2/3) sum sigma delta (eq. 6, p.5); 'Only
+    positive tension brane configurations can be smoothed in this way. A negative tension brane effectively has negative
+    energy which cannot be modeled in a conventional gravitational theory' (p.3); 'it is possible to demonstrate
+    A'' <= 0 using only the weakest of positive energy conditions' (p.23); brane tensions depending on the scalar, with
+    jump conditions A'|jump = -(2/3) sigma(phi), phi'|jump = d sigma/d phi (eq. 7).
+  Maartens gr-qc/0312059v2 (READ in signdim.py): a bulk scalar 'The junction conditions on the field imply that
+    d_y phi(x, 0) = 0' and then 'matter conservation continues to hold on the brane in this simple case' (eqs. 5.60,
+    5.61, pp.33-34); with null radiation in the bulk, nabla^nu T_mu nu = -2 psi u_mu, 'the brane loses (psi > 0) or gains
+    (psi < 0) energy in exchange with the bulk black hole' (eqs. 5.54, 5.55, p.33).
+  Seahra & Wesson gr-qc/0302015v4 (READ in bulkwarp.py): the thick Z2 brane has K = 0 on its central surface and 'cannot
+    embed arbitrary spacetimes if the bulk contains only vacuum energy' (p.11).
+
+ROUTE A -- A FIELD IN THE BULK.
+  A1 [P-GC; computed]  A bulk field enters the plane's matter problem only through T5_nn (the trace) and T5_n mu
+     (conservation).  The NEC does not fix T5_nn's sign: a scalar with a gradient along the plane has T5_kk >= 0 for every
+     null k (computed) and T5_nn < 0.
+  A2 [Maartens 5.60-5.61; A1; bulkwarp W3]  A GRADIENT-ONLY bulk scalar (delta V = 0, Psi >= 0) uncoupled to the plane (d_n phi = 0) keeps the plane's matter
+     conserved and adds psi = -delta T5_nn = (1/2)(d_par phi)^2 + delta V to the trace.  On a negative-tension plane the
+     Laue deficit becomes E = int(Psi - R)/|8 pi G_N| with Psi = 2 l psi, so matter keeping the NEC needs int Psi >= int R:
+     the field must hold, within about one bulk curvature length l of the plane, positive gradient-plus-potential energy
+     at least |E_Alc| (computed in the engine: the least Psi the linear program needs, about twice the bound at
+     v = 0.1); above light speed a gradient-only field does not rescue the negative plane (engine: infeasible at v = 1.5).
+     A static gradient along the plane supplies it with positive energy.  [H-SIGN-BY-DIMENSION, under its named reading: positive field energy
+     in the bulk is what lets matter keeping the NEC carry the warp on the negative plane.]
+  A2' [P-GC; Maartens 5.60-5.61]  A bulk scalar WITH A POTENTIAL needs no plane matter at all.  Since psi =
+     (1/2)(d_par phi)^2 + delta V takes either sign, the choice tau = 0 (K = -a q exactly) with -2 kappa^2 delta T5_nn =
+     R, i.e. Psi = R pointwise, meets the Gauss trace, conservation (d_n phi = 0) and -- trivially -- the plane's NEC, at
+     every speed: the warp is carried by the bulk field (through F) and the Weyl term.  The field's net excess is
+     int Psi = int R > 0: positive in total, negative where R < 0 (delta V below the background there); the bulk's NEC
+     holds for any potential (A1).  In both A2 and A2' the field holds net positive energy of order |E_Alc| (in units of
+     the bulk curvature length): the warp's demand is relocated into positive field energy in the bulk, not reduced.
+  A3 [Goldberger-Wise eqs. 4-5, 9-10; DFGK eq. 7]  The stabilising field itself couples to the planes (d_n Phi != 0):
+     then T5_n mu = d_n Phi d_mu Phi exchanges energy with the plane and the plane's tension depends on Phi -- both are
+     further freedom, not obstruction.  Whether Goldberger-Wise's own profile, with its back-reaction (neglected by its
+     authors), can supply A2's amount is OPEN; its stress is of order v^2/M^3 against the bulk's (p.5).
+  A4 [deduced]  Realisability: a static Psi >= 0 is (1/2)|grad phi|^2 for some phi (an eikonal, solvable locally), and
+     the bulk field then exists locally by the same analytic theorems as bulkwarp's W1 (Anderson's objection carries).
+
+ROUTE B -- A FASTER-THAN-LIGHT BUBBLE.
+  B1 [computed, exact]  int R d^3x = (v^2/2) int (f_y^2 + f_z^2) > 0 at every v: the remaining terms of R are total
+     derivatives (bulkwarp.py).  The trace target's sign is the same at every speed.
+  B2 [flat-space identity, exact in flat space; bulkwarp W3]  For comoving localised matter int tau^mu_mu = (v^2 - 1) E:
+     above light speed the integrated trace and the energy have the SAME sign, so the deficit moves: if the flat
+     identity governed, a negative-tension plane would pass above light speed and a positive-tension plane would fail.
+     But the warp metric is not a small perturbation of flat space when v >= 1 (its shift reaches v), so this is not a
+     result -- the engine settles it on the exact metric.
+  B3 [engine, exact metric]  The linear program at v = 0.1 ... 3 for both tensions (--full).
+
+ROUTE C -- MATTER THAT RADIATES.
+  C1 [bulkwarp W2, pointwise]  tau^mu_mu = -R/(8 pi G_N) holds at every point, and R = 0 away from the wall: anything
+     that leaves the wall must be traceless.  Massive ejecta (trace -rho) are excluded; only massless radiation can
+     escape.
+  C2 [computed]  For radiation emitted from the wall with any history P(t), its second moment obeys
+     d^2/dt^2 I_r = 2 E_r and its spatial trace int tau_ii,r = E_r; so the massive part obeys the ordinary virial,
+     int tau_ii,m = (1/2) d^2 I_m/dt^2, exactly as if nothing radiated.  The trace identity of bulkwarp's W3 holds for
+     the massive part on time average.
+  C3 [energy conservation; C2]  Radiation carries positive energy away for as long as it flows; the plane's matter is
+     conserved (vacuum bulk), so sustained radiation must be paid from the massive part, whose energy then falls without
+     bound -- contradicting C2's fixed time average.  Radiation that stops leaves the long-time average unchanged.  So
+     radiation does not evade the test unless something supplies energy without limit: on the plane nothing does; from
+     the bulk only T5_n mu does (route A).  Route C reduces to route A.
+  C4 [verifier's note in bulkwarp.py]  Stresses with an r^-3 tail break Laue's identity, but keeping the NEC then needs
+     rho >~ r^-3, and the energy diverges (logarithmically): not finite matter.
+
+ROUTE D -- A THICK BRANE.
+  D1 [computed]  For ds^2 = e^{2A(y)} eta + dy^2, G_ab k^a k^b = -3 A'' for the null k = e^{-A} d_t + d_y: the bulk keeps
+     the NEC only where A'' <= 0 -- DFGK's 'A'' <= 0 using only the weakest of positive energy conditions' (p.23).  A
+     negative-tension plane is a minimum of the warp factor, A'' > 0: its thick version breaks the bulk's NEC.  'Only
+     positive tension brane configurations can be smoothed' (DFGK p.3).
+  D2 [D1; H-RS1]  So a thick version of our plane cannot keep the NEC: a thick brane does not rescue the negative-tension
+     plane -- it moves the NEC violation from the plane's matter into the bulk.
+  D3 [Seahra-Wesson p.11; P-GC]  A thick positive-tension plane has K = 0 at its centre, where the Gauss equation gives
+     R = -2 kappa^2 T5_nn pointwise: its 'matter' is the bulk field's T5_nn, which the NEC leaves free (A1).  It returns
+     the question to the positive-tension plane (bulkwarp W6), which the engine tests.
+
+NAMED HYPOTHESES AND PREMISES
+  P-VACUUM-BULK and its relaxations (routes A, D), P-LEADING (tau/lambda small; the speed is exact in the engine),
+  H-LOCALISED, H-BOUNDED, H-ESC-ILLUSTRATIVE (sigma = 4, R = 1: a smoother wall than signdim.py's sigma = 8, for the grid),
+  H-GRID (the finite-volume discretisation; the resolution study is its control), P-SCIPY (scipy's HiGHS solver),
+  H-RS1 (carried); and M's H-SIGN-BY-DIMENSION (under the named reading of the plane's tension sign),
+  H-ALCUBIERRE-PARTIAL, H-HIGHER-CORRIDOR.
+"""
+import json
+import math
+import sys
+import time
+
+SIGMA, RB = 4, 1                      # H-ESC-ILLUSTRATIVE
+COARSE = (20, 10, 14)                 # (NX, NS, directions) for the selftest
+FULL_GRIDS = [(20, 10), (28, 14), (40, 20)]
+SPEEDS = [0.1, 0.5, 0.9, 1.5, 3.0]
+BOX = 3.0
+COMPS = [(0, 0), (0, 1), (0, 2), (1, 1), (1, 2), (2, 2), (3, 3)]
+
+
+# ------------------------------------------------------------------ the warp metric in the bubble's frame
+_SYM = {}
+
+
+def _symbols():
+    """Metric, inverse, Christoffels and Ricci scalar of the comoving Alcubierre metric, symbolic in v (cached)."""
+    if _SYM:
+        return _SYM
+    import sympy as sp
+    T, X, S, P = sp.symbols("t X s phi", real=True)
+    v = sp.Symbol("v", positive=True)
+    r = sp.sqrt(X ** 2 + S ** 2)
+    f = (sp.tanh(SIGMA * (r + RB)) - sp.tanh(SIGMA * (r - RB))) / (2 * sp.tanh(SIGMA * RB))
+    beta = v * (1 - f)
+    crd = [T, X, S, P]
+    g = sp.Matrix([[-1 + beta ** 2, beta, 0, 0], [beta, 1, 0, 0], [0, 0, 1, 0], [0, 0, 0, S ** 2]])
+    gi = sp.simplify(g.inv())
+    Gam = [[[sp.simplify(sum(gi[a, d] * (sp.diff(g[d, b], crd[c]) + sp.diff(g[d, c], crd[b])
+                                         - sp.diff(g[b, c], crd[d])) for d in range(4)) / 2)
+             for c in range(4)] for b in range(4)] for a in range(4)]
+    Ric = sp.Matrix(4, 4, lambda b, c: sum(
+        sp.diff(Gam[a][b][c], crd[a]) - sp.diff(Gam[a][b][a], crd[c])
+        + sum(Gam[a][a][d] * Gam[d][b][c] - Gam[a][c][d] * Gam[d][b][a] for d in range(4)) for a in range(4)))
+    R = sum(gi[a, b] * Ric[a, b] for a in range(4) for b in range(4))
+    _SYM.update(dict(X=X, S=S, v=v, beta=beta, g=g, gi=gi, Gam=Gam, R=R))
+    return _SYM
+
+
+def _numeric(vv):
+    import sympy as sp
+    sy = _symbols()
+    L = lambda e: sp.lambdify((sy["X"], sy["S"]), e.subs(sy["v"], vv), "numpy")
+    return {"g": [[L(sy["g"][a, b]) for b in range(4)] for a in range(4)],
+            "gi": [[L(sy["gi"][a, b]) for b in range(4)] for a in range(4)],
+            "Gam": [[[L(sy["Gam"][a][b][c]) for c in range(4)] for b in range(4)] for a in range(4)],
+            "R": L(sy["R"]), "beta": L(sy["beta"])}
+
+
+def int_R(vv, NX=400, NS=200):
+    """int R d^3x on the comoving t = const slice (axisymmetric Simpson, box [-BOX, BOX] x [0, BOX])."""
+    import numpy as np
+    R = _numeric(vv)["R"]
+    xs = np.linspace(-BOX, BOX, NX + 1)
+    ss = np.linspace(1e-7, BOX, NS + 1)
+    XX, SS = np.meshgrid(xs, ss, indexing="ij")
+    w = lambda n: np.array([1 if i in (0, n) else (4 if i % 2 else 2) for i in range(n + 1)])
+    W = np.outer(w(NX), w(NS))
+    val = R(XX, SS) * np.ones_like(XX)
+    return float((W * val * 2 * math.pi * SS).sum() * (xs[1] - xs[0]) * (ss[1] - ss[0]) / 9)
+
+
+# ------------------------------------------------------------------ the engine: a linear program for the plane's matter
+def engine(vv, sign, NX=COARSE[0], NS=COARSE[1], ndir=COARSE[2], field=False, minimise_field=False):
+    """Minimum total NEC violation V of conserved, localised plane matter with the Gauss trace, on the exact comoving
+    warp metric at speed vv; sign = sign of 8 pi G_N (the tension), |8 pi G_N| = 1.  field: a bulk scalar uncoupled to
+    the plane adds Psi >= 0 to the trace (route A).  minimise_field: require V = 0 and minimise int Psi instead.
+    Returns dict(V, V_theory, int_R, int_Psi, status)."""
+    import numpy as np
+    from scipy.optimize import linprog
+    from scipy.sparse import coo_matrix
+    nm = _numeric(vv)
+    Xe = np.linspace(-BOX, BOX, NX + 1)
+    Se = np.linspace(0, BOX, NS + 1)
+    xs, ss = (Xe[:-1] + Xe[1:]) / 2, (Se[:-1] + Se[1:]) / 2
+    dX, dS = Xe[1] - Xe[0], Se[1] - Se[0]
+    XX, SS = np.meshgrid(xs, ss, indexing="ij")
+    one = np.ones_like(XX)
+    gi = [[nm["gi"][a][b](XX, SS) * one for b in range(4)] for a in range(4)]
+    Gm = [[[nm["Gam"][a][b][c](XX, SS) * one for c in range(4)] for b in range(4)] for a in range(4)]
+    Rn = nm["R"](XX, SS) * one
+    bet = nm["beta"](XX, SS) * one
+    nc = NX * NS
+    cell = lambda i, j: i * NS + j
+    edge = np.zeros((NX, NS), bool)
+    edge[0, :] = edge[-1, :] = True
+    edge[:, -1] = True
+    k_ = np.arange(ndir) + 0.5
+    th = np.arccos(1 - 2 * k_ / ndir)
+    ph = math.pi * (1 + 5 ** 0.5) * k_
+    dirs = np.stack([np.cos(th), np.sin(th) * np.cos(ph), np.abs(np.sin(th) * np.sin(ph))], 1)
+    nt = 7 * nc
+    npsi = nc if field else 0
+    nu = ndir * nc
+    nv = nt + npsi + nu
+    tid = lambda c, i, j: c * nc + cell(i, j)
+    pid = lambda i, j: nt + cell(i, j)
+    uid = lambda d, i, j: nt + npsi + d * nc + cell(i, j)
+
+    def tcomp(a, b):
+        key = (min(a, b), max(a, b))
+        return COMPS.index(key) if key in COMPS else None
+
+    def mixed(m, n):
+        out = {}
+        for a in range(4):
+            c = tcomp(a, n)
+            if c is not None:
+                out[c] = out.get(c, 0) + gi[m][a]
+        return out
+
+    rows, cols, vals = [], [], []
+    beq = np.zeros(4 * nc)
+    for n in range(3):
+        mX, mS = mixed(1, n), mixed(2, n)
+        gm = {}
+        for l in range(4):
+            for m in range(4):
+                for a in range(4):
+                    c = tcomp(a, l)
+                    if c is not None:
+                        gm[c] = gm.get(c, 0) + Gm[l][m][n] * gi[m][a]
+        for i in range(NX):
+            for j in range(NS):
+                r_ = n * nc + cell(i, j)
+                s = ss[j]
+                sp_, sm_ = s + dS / 2, s - dS / 2
+                for c, co in mX.items():
+                    if i + 1 < NX:
+                        rows.append(r_), cols.append(tid(c, i + 1, j)), vals.append(0.5 * s * co[i + 1, j] * dS)
+                    if i - 1 >= 0:
+                        rows.append(r_), cols.append(tid(c, i - 1, j)), vals.append(-0.5 * s * co[i - 1, j] * dS)
+                for c, co in mS.items():
+                    rows.append(r_), cols.append(tid(c, i, j)), vals.append(0.5 * (sp_ - max(sm_, 0.0)) * co[i, j] * dX)
+                    if j + 1 < NS:
+                        rows.append(r_), cols.append(tid(c, i, j + 1)), vals.append(0.5 * sp_ * co[i, j + 1] * dX)
+                    if j - 1 >= 0:
+                        rows.append(r_), cols.append(tid(c, i, j - 1)), vals.append(-0.5 * sm_ * co[i, j - 1] * dX)
+                for c, co in gm.items():
+                    rows.append(r_), cols.append(tid(c, i, j)), vals.append(-s * co[i, j] * dX * dS)
+    target = -sign * Rn                                       # tau_tr = -R/(8 pi G_N)
+    for i in range(NX):
+        for j in range(NS):
+            r_ = 3 * nc + cell(i, j)
+            for c, (a, b) in enumerate(COMPS):
+                rows.append(r_), cols.append(tid(c, i, j)), vals.append(gi[a][b][i, j] * (1 if a == b else 2))
+            if field:                                         # tau_tr = -(R - Psi)/(8 pi G_N)
+                rows.append(r_), cols.append(pid(i, j)), vals.append(-sign)
+            beq[r_] = 0.0 if edge[i, j] else target[i, j]
+    Aeq = coo_matrix((vals, (rows, cols)), shape=(4 * nc, nv)).tocsr()
+    rows, cols, vals = [], [], []
+    for d, (eX, eS, eP) in enumerate(dirs):
+        for i in range(NX):
+            for j in range(NS):
+                kk = (1.0, -bet[i, j] + eX, eS, eP / ss[j])
+                r_ = d * nc + cell(i, j)
+                for c, (a, b) in enumerate(COMPS):
+                    rows.append(r_), cols.append(tid(c, i, j)), vals.append(-kk[a] * kk[b] * (1 if a == b else 2))
+                rows.append(r_), cols.append(uid(d, i, j)), vals.append(-1.0)
+    Aub = coo_matrix((vals, (rows, cols)), shape=(nu, nv)).tocsr()
+    bub = np.zeros(nu)
+    wcell = 2 * math.pi * SS * dX * dS
+    cobj = np.zeros(nv)
+    M = 200 * max(np.abs(target).max(), 1e-12)
+    bounds = [(-M, M)] * nt + [(0, None)] * npsi + [(0, None)] * nu
+    for i in range(NX):
+        for j in range(NS):
+            if edge[i, j]:
+                for c in range(7):
+                    bounds[tid(c, i, j)] = (0, 0)
+                if field:
+                    bounds[pid(i, j)] = (0, 0)
+    if minimise_field:
+        for i in range(NX):
+            for j in range(NS):
+                cobj[pid(i, j)] = wcell[i, j]
+        for q in range(nu):
+            bounds[nt + npsi + q] = (0, 0)
+    else:
+        for d in range(ndir):
+            for i in range(NX):
+                for j in range(NS):
+                    cobj[uid(d, i, j)] = wcell[i, j]
+    res = linprog(cobj, A_ub=Aub, b_ub=bub, A_eq=Aeq, b_eq=beq, bounds=bounds, method="highs")
+    IR = float((Rn * wcell).sum())
+    out = {"status": int(res.status), "int_R": IR, "V_theory_neg": ndir * IR, "grid": (NX, NS, ndir), "v": vv,
+           "sign": sign}
+    if res.status == 0:
+        x = res.x
+        out["V"] = float((x[nt + npsi:] * np.tile(wcell.ravel(), ndir)).sum())
+        if field:
+            out["int_Psi"] = float((x[nt:nt + npsi] * wcell.ravel()).sum())
+    return out
+
+
+# ------------------------------------------------------------------ routes A, C, D by hand (sympy)
+def scalar_nec_tnn(n=2000, seed=11):
+    """5D Minkowski: a scalar with gradient (dphi) and T_ab = d_a phi d_b phi - g_ab ((1/2)(dphi)^2 + V).  Returns
+    (min over random null k of T_kk, T_nn for a gradient along the plane only, with V = 0)."""
+    import random
+    rng = random.Random(seed)
+    eta = [-1, 1, 1, 1, 1]
+    worst = float("inf")
+    for _ in range(n):
+        e = [rng.gauss(0, 1) for _ in range(4)]
+        nrm = math.sqrt(sum(c * c for c in e))
+        k = [1.0] + [c / nrm for c in e]
+        dphi = [rng.gauss(0, 1) for _ in range(5)]
+        worst = min(worst, sum(k[a] * dphi[a] for a in range(5)) ** 2)    # the g_kk term is zero
+    dphi = [0.0, 0.7, 0.2, 0.0, 0.0]                                       # gradient along the plane; index 4 = n
+    sq = sum(eta[a] * dphi[a] ** 2 for a in range(5))
+    tnn = dphi[4] ** 2 - 0.5 * sq
+    return worst, tnn
+
+
+def radiation_moment():
+    """Radiation emitted from the origin with arbitrary power P(t') moves out at r = t - t'.  I_r(t) = int P(t') (t - t')^2
+    dt'; returns I_r'' - 2 E_r (zero) and, for a control, the same with massive ejecta at speed u = 1/2 (r = u (t - t'):
+    I'' - 2 u^2 E, the ordinary virial with kinetic part, not 2 E)."""
+    import sympy as sp
+    t, tp, t0 = sp.symbols("t t' t_0", real=True)
+    P = sp.Function("P")
+    I = sp.Integral(P(tp) * (t - tp) ** 2, (tp, t0, t))
+    E = sp.Integral(P(tp), (tp, t0, t))
+    rad = sp.simplify(sp.diff(I, t, 2).doit() - 2 * E.doit())
+    u = sp.Rational(1, 2)
+    Iu = sp.Integral(P(tp) * (u * (t - tp)) ** 2, (tp, t0, t))
+    mass = sp.simplify(sp.diff(Iu, t, 2).doit() - 2 * E.doit())
+    return rad, mass
+
+
+def thick_nec(minimum=False):
+    """ds^2 = e^{2A(y)}(-dt^2 + dx^2 + ...) + dy^2: G_ab k^a k^b for k = e^{-A} d_t + d_y, symbolic, and its value at a
+    warp maximum (A = -|y| smoothed: A = -log cosh y) or a minimum (A = +log cosh y)."""
+    import sympy as sp
+    t, x1, x2, x3, y = sp.symbols("t x1 x2 x3 y", real=True)
+    A = sp.Function("A")(y)
+    X = [t, x1, x2, x3, y]
+    g = sp.diag(-sp.exp(2 * A), sp.exp(2 * A), sp.exp(2 * A), sp.exp(2 * A), 1)
+    gi = g.inv()
+    n = 5
+    Gam = [[[sum(gi[a, d] * (sp.diff(g[d, b], X[c]) + sp.diff(g[d, c], X[b]) - sp.diff(g[b, c], X[d]))
+                 for d in range(n)) / 2 for c in range(n)] for b in range(n)] for a in range(n)]
+    Ric = sp.Matrix(n, n, lambda b, c: sum(
+        sp.diff(Gam[a][b][c], X[a]) - sp.diff(Gam[a][b][a], X[c])
+        + sum(Gam[a][a][d] * Gam[d][b][c] - Gam[a][c][d] * Gam[d][b][a] for d in range(n)) for a in range(n)))
+    k = [sp.exp(-A), 0, 0, 0, 1]
+    Gkk = sp.simplify(sum(Ric[a, b] * k[a] * k[b] for a in range(n) for b in range(n)))   # g_kk = 0
+    ratio = sp.simplify(Gkk / sp.diff(A, y, 2))
+    prof = (1 if minimum else -1) * sp.log(sp.cosh(y))
+    at0 = sp.simplify(Gkk.subs(A, prof).doit().subs(y, 0))
+    return ratio, float(at0)
+
+
+def compute(full=False):
+    import sympy as sp
+    t0 = time.time()
+    d = {}
+    d["int_R_by_v"] = dict((vv, int_R(vv)) for vv in (0.1, 1.0, 3.0))
+    worst, tnn = scalar_nec_tnn()
+    d["scalar_min_Tkk"], d["scalar_Tnn"] = worst, tnn
+    rad, mass = radiation_moment()
+    d["radiation_residual"], d["ejecta_residual"] = str(rad), str(mass)
+    ratio, at_max = thick_nec()
+    _, at_min = thick_nec(minimum=True)
+    d["thick_Gkk_over_App"], d["thick_Gkk_at_max"], d["thick_Gkk_at_min"] = str(ratio), at_max, at_min
+    grids = FULL_GRIDS if full else [COARSE[:2]]
+    d["resolution"] = []
+    for NX, NS in grids:
+        for sign in (1, -1):
+            d["resolution"].append(engine(0.1, sign, NX, NS))
+    speeds = SPEEDS if full else [0.1, 1.5]
+    d["speeds"] = []
+    for vv in speeds:
+        for sign in (1, -1):
+            d["speeds"].append(engine(vv, sign))
+    d["field_neg"] = engine(0.1, -1, field=True, minimise_field=True)
+    d["field_neg_fast"] = engine(1.5, -1, field=True, minimise_field=True)
+    d["seconds"] = time.time() - t0
+    return d
+
+
+def _row(e):
+    return "v = %.1f, %s tension, grid %s: V = %s (Laue deficit N_dir int R = %.3e)" % (
+        e["v"], "positive" if e["sign"] > 0 else "negative", "x".join(map(str, e["grid"][:2])),
+        ("%.3e" % e["V"]) if "V" in e else "status %d" % e["status"], e["V_theory_neg"])
+
+
+def report(full=False):
+    d = compute(full)
+    print("escape.py -- the four routes past bulkwarp.py's test (M item 80), by deduction and computation "
+          "(not verified; not seated)\n")
+    print("THE ENGINE (exact warp metric, linear program for the plane's matter):")
+    for e in d["resolution"]:
+        print("  " + _row(e))
+    print("B (speed):")
+    for e in d["speeds"]:
+        print("  " + _row(e))
+    print("A (bulk scalar, negative plane): least int Psi = %.3e against int R = %.3e (v = 0.1); at v = 1.5: %.3e "
+          "against %.3e" % (d["field_neg"].get("int_Psi", float("nan")), d["field_neg"]["int_R"],
+                            d["field_neg_fast"].get("int_Psi", float("nan")), d["field_neg_fast"]["int_R"]))
+    print("A1 a scalar keeps the bulk NEC (min T_kk = %.2e) with T_nn = %.3f < 0" % (d["scalar_min_Tkk"], d["scalar_Tnn"]))
+    print("C2 radiation: I'' - 2E = %s for any emission history (massive ejecta at u = 1/2: %s)" % (
+        d["radiation_residual"], d["ejecta_residual"]))
+    print("D1 thick plane: G_kk/A'' = %s; at a warp maximum %.2f (keeps the NEC), at a minimum %.2f (breaks it)" % (
+        d["thick_Gkk_over_App"], d["thick_Gkk_at_max"], d["thick_Gkk_at_min"]))
+    print("B1 int R by v: %s" % ", ".join("v = %.1f: %.4e" % kv for kv in d["int_R_by_v"].items()))
+    print("(%.0f s)" % d["seconds"])
+
+
+def selftest():
+    n_pass = n_fail = n_ctl = 0
+    structural = []
+
+    def chk(label, ok, ctl=False):
+        nonlocal n_pass, n_fail, n_ctl
+        n_ctl += ctl
+        n_pass += bool(ok)
+        n_fail += (not ok)
+        print("  %s %s%s" % ("ok  " if ok else "FAIL", "CONTROL: " if ctl else "", label))
+
+    d = compute(False)
+    pos = [e for e in d["resolution"] if e["sign"] > 0][0]
+    neg = [e for e in d["resolution"] if e["sign"] < 0][0]
+    chk("ENGINE: at v = 0.1 on the coarse grid the negative-tension plane's least NEC violation (%.3e) is at least the "
+        "Laue deficit bulkwarp.py's W3 predicts, N_dir int R = %.3e (ratio %.2f)" % (
+            neg["V"], neg["V_theory_neg"], neg["V"] / neg["V_theory_neg"]), neg["V"] >= 0.95 * neg["V_theory_neg"])
+    chk("ENGINE CONTROL: the positive plane's violation (%.3e) is below half that deficit (%.2f of it): no Laue deficit, "
+        "a discretisation residue (the resolution study is its test)" % (pos["V"], pos["V"] / neg["V_theory_neg"]),
+        pos["V"] < 0.5 * neg["V_theory_neg"], ctl=True)
+    chk("ENGINE: the negative plane violates more than three times as much as the positive (%.1f x)" % (
+        neg["V"] / pos["V"]), neg["V"] > 3 * pos["V"])
+    fn = d["field_neg"]
+    chk("A2: with a bulk scalar the negative plane's matter keeps the NEC (V forced to 0, solved: status %d) with "
+        "int Psi = %.3e >= int R = %.3e" % (fn["status"], fn.get("int_Psi", float("nan")), fn["int_R"]),
+        fn["status"] == 0 and fn["int_Psi"] >= 0.999 * fn["int_R"])
+    chk("A1: a bulk scalar keeps the NEC (min T_kk over 2000 random null vectors and gradients = %.2e) while T_nn = %.3f "
+        "< 0 for a gradient along the plane" % (d["scalar_min_Tkk"], d["scalar_Tnn"]),
+        d["scalar_min_Tkk"] >= 0 and d["scalar_Tnn"] < 0)
+    chk("C2: radiation emitted with ANY history P(t) has I_r'' = 2 E_r (residual %s)" % d["radiation_residual"],
+        d["radiation_residual"] == "0")
+    chk("massive ejecta at u = 1/2 do not (residual %s)" % d["ejecta_residual"], d["ejecta_residual"] != "0", ctl=True)
+    chk("D1: G_kk = %s x A'' for the thick plane's null vector; a warp maximum keeps the NEC (%.2f >= 0)" % (
+        d["thick_Gkk_over_App"], d["thick_Gkk_at_max"]), d["thick_Gkk_over_App"] == "-3" and d["thick_Gkk_at_max"] > 0)
+    chk("a warp minimum (a negative-tension plane, thickened) breaks it (%.2f < 0)" % d["thick_Gkk_at_min"],
+        d["thick_Gkk_at_min"] < 0, ctl=True)
+    chk("B1: int R d^3x > 0 at v = 0.1, 1 and 3 (%s), and scales as v^2 (ratio v=3 to v=1: %.4f)" % (
+        ", ".join("%.3e" % x for x in d["int_R_by_v"].values()), d["int_R_by_v"][3.0] / d["int_R_by_v"][1.0]),
+        all(x > 0 for x in d["int_R_by_v"].values()) and abs(d["int_R_by_v"][3.0] / d["int_R_by_v"][1.0] - 9) < 1e-6)
+    for e in d["speeds"]:
+        structural.append("ENGINE (coarse): " + _row(e))
+    structural.append("A2 (coarse) at v = 1.5, negative plane: least int Psi = %.3e against int R = %.3e" % (
+        d["field_neg_fast"].get("int_Psi", float("nan")), d["field_neg_fast"]["int_R"]))
+    structural.append("the NEC is sampled on %d directions: a violation found is a lower bound on the true one; the "
+                      "resolution study (--full) is H-GRID's control" % COARSE[2])
+    structural.append("C3: sustained radiation needs an unbounded energy supply; on a vacuum-bulk plane nothing supplies "
+                      "it, so route C reduces to route A (T5_n mu)")
+    for s_ in structural:
+        print("  STRUCTURAL: " + s_)
+    print("escape.py: %d/%d checks pass, %d of them controls; %d STRUCTURAL printed, not counted (%.0f s)" % (
+        n_pass, n_pass + n_fail, n_ctl, len(structural), d["seconds"]))
+    return n_fail == 0
+
+
+if __name__ == "__main__":
+    if "--selftest" in sys.argv:
+        sys.exit(0 if selftest() else 1)
+    elif "--json" in sys.argv:
+        print(json.dumps(compute("--full" in sys.argv), indent=1, default=str))
+    else:
+        report("--full" in sys.argv)
