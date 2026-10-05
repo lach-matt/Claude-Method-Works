@@ -125,7 +125,10 @@ brane-worlds in general.**
 
 ## For M
 
-- **Your two-plane corridor matches published models.** None of them is observed.
+- **Your two-plane corridor matches published models.** None of them is observed. Your reason (item 62, carried as
+  H-UNOBSERVED-UNBUILT): *"no one has designed the device to allow for the travel, which will allow for the
+  observation"*. Other routes to the same observation exist beside it: collider and short-range gravity searches
+  look for a bulk without travelling through it; what they report is NAMED-NOT-READ here.
 - **Between bulk-paired points there is no path in either plane, so no speed exists there,** as you said. In
   Randall–Sundrum our own clock reads about 3×10⁻²⁸ s for the jump.
 - **Whether the corridor can land somewhere far away depends on the higher dimension's shape.**
@@ -146,7 +149,7 @@ brane-worlds in general.**
 - H-CF-STATIC, H-CF-PATCHED and H-L-ILLUSTRATIVE.
 - H-MM-FOLD.
 - H-GRAVITATIONAL-CARRIER.
-- M's H-NO-SPEED, H-HIGHER-CORRIDOR and H-LOCAL-CLOCK.
+- M's H-NO-SPEED, H-HIGHER-CORRIDOR, H-LOCAL-CLOCK and H-UNOBSERVED-UNBUILT (item 62).
 
 ## OPEN
 
@@ -172,3 +175,5 @@ brane-worlds in general.**
 - **O7's 93.8 ns** is a maximum, under conditions now listed.
 - **Two phrases were too strong.** *"Exists as published physics"* overstated a model, and *"no one has computed a
   rate"* was wrong.
+- **M's reason for "none is observed" (item 62, 2026-10-05).** The For-M line first read only *"Your two-plane
+  corridor matches published models. None of them is observed."* M's reason is now carried beside it as a hypothesis.
