@@ -460,3 +460,30 @@ carried into this charter by it, and whether they are to be is not decided here.
     ER_EPR_PARTICLE_PAIR_FORM_IS_SPECULATION, each checked by its selftest; ENTANGLED_BRIDGE_IS_TRAVERSABLE = False is
     unchanged. CHARTER.md, written that day before the answer, still records the question as asked of M and
     unanswered; the ledger, reading the charter, first carried it as pending (M-D68-P1).
+
+## Wave 3 -- the corridor (opened 2026-10-05 on M-RULINGS item 34: "Corridor (D68 wave 3)"; append-only)
+
+M's words this wave carries, verbatim from M-RULINGS-2026-10-03.md: item 21 ("The two positions technically exist as
+one. So the corridor allows for the the entanglement of two positions at once. The object in transit requires no speed.
+It is either at the beginning or end position, never in between them"); item 22 (the corridor as the A-B coupling, M:
+"Yes. Exactly." and "yes please"); item 23 (the 12 trajectories: "Each one is a physics condition that governs an aspect
+of the reconstruction at seating. These 12 allow for the predetermination of seat compatibility based on the starting
+state - entanglement at 12 criteria."); item 24 (H-12Q: "literally quantum-correlated between the positions"; "The 12
+conditions only need to supply enough for the object to reconstruct in the new environment, based on the stock of
+available matter"); item 25 (H-SEATRANK: "The stronger negative magnitudes will automatically triangulate the stronger
+positive magnitudes which rank the probability of seating").
+
+Work items (each an instrument in docket68/wave3/, stdlib + numpy, imports its owners, never copies them):
+- **W3A corridor.py -- the A-B coupling.** The two-position system |A>, |B> with coupling J: does 'never in between'
+  hold (the position observable's spectrum), when is the transfer complete, and what in the model depends on distance.
+  Then where distance enters physics: a coupling MEDIATED through intervening sites (a chain) against a DIRECT A-B term
+  (H-DIRECT-COUPLING, M's reading). Outside results READ at source with the route recorded.
+- **W3B criteria12.py -- the twelve at A and B.** From settle.H12's own classes: which criteria can differ between the
+  two seats at all, within READ bounds; which depend on the seat's stock (the predetermination test); what 'literally
+  quantum-correlated' (H-12Q) can mean for a criterion with a definite value, and for a field-carried one.
+- **W3C seatrank.py -- ranking seats by signed magnitudes.** H-SEATRANK against signed.py (imported): what the negative
+  magnitudes fix exactly, what they do not fix alone, and what projections (signed.py's triangulation) add; the sample
+  cost of ranking under weak correlations.
+
+Grading as in waves 1-2: verdicts per obstruction (O-BITS, O-MAKE-TOPO, O-MAKE-DIST, O-HOLD, O-SEAT, O-LOOP) only where
+an item bears on one; M's hypotheses carried as hypotheses; every limitation named; nothing seated before verification.
