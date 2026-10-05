@@ -1,5 +1,7 @@
 # DOCKET 66 · B-combine66: the three D66 hypotheses in combination, with D68's members that bear
 
+**Seated since (R-apply note, 2026-10-04).** DOCKET 66 wave 1 has been seated at D66-seat: `ledger.py` section 8 and O9's DOCKET 66 answer, `LEDGER.md` regenerated, a comment in `index3.py` and no index3 row. The status line below was written at D66-fix, when nothing here was seated and `ledger.py`, `index3.py`, `specthm.py`, `LEDGER.md`, `paper/` and `docket68/` were untouched; it is kept as written, as history. M's ruling to re-grade D68 on the singular-throat ruling (M-RULINGS item 28) has since been applied in `docket68/combine.py` itself (R-apply), so `docket68/` is no longer untouched by DOCKET 66's rulings; this instrument still edits nothing there. See section 0 (R-apply) below.
+
 **Status: a docket work item, step 3 of the DOCKET 66 charter's order of work (2026-10-04), corrected at D66-fix the
 same day.** Nothing here is seated. `ledger.py`, `index3.py`, `specthm.py`, `LEDGER.md`, `paper/` and `docket68/` are
 untouched. The instrument is `combine66.py`, beside this file.
@@ -37,6 +39,39 @@ each with its own table). The ones that touch this screen:
 | V66-1 #7: R-LIT is not "M's sentence alone" | QLIT labelled "R-LIT: M's sentence alone" | **R-LIT is the question's parenthetical read as arrival alone**; M's sentence read operationally is R-QET | labels only; no verdict changes |
 | A1's corrections (V66-0 #2, #3; V66-1 #4, #5; V66-2 #1-#3, #7) | — | N_DEFB's READ direction (wash-out, HK eq.(4.33); a supply only IF {CP violation, departure from equilibrium}, HK p.65) carried in its text; the global monopole's TURN, the gauge monopole's S-1 seat and the exact deficit are A1's (outside the screen's atoms) | B66-DEFB text; grounds re-run from defects.py |
 | (robustness) | the drift guard read stored scratchpad JSON (A1's written by hand) | **`report_grades()` asks the instruments at run time** (`defects.a1_grades()`, `throatbits.grades()`, `qet.grades()`) | a corrected instrument is what the guard reads; 85 rows, all anchored |
+
+## 0 (R-apply, 2026-10-04). M's DOCKET 66 rulings items 27 and 28, and the D66-repro residuals
+
+**Item 28, M's words verbatim** (docket68/M-RULINGS-2026-10-03.md): *"Asked whether to apply M-S1A-P3 ('a singular throat
+is not disqualified'; throat creation stays OPEN) in D68's combine.py too, M: "Re-grade D68 (Recommended)". O-MAKE-TOPO
+reads OPEN via N_WNCC in D68's board-context variants as in D66's; history kept."* Applied in `docket68/combine.py`
+(its section 0 (D66-RULINGS)) with the encoding this file's reading `singok-board` used: DEF-TOPO gains THROAT ∧ N_WNCC.
+What that does here:
+
+| item | D66-fix | now | check |
+|---|---|---|---|
+| `singok-board` | moved 174 single-reading/context variants (20 context-only), LEFT → OPEN via N_WNCC; "recorded for the D68 board" | **moves nothing**: it is now combine's own DEF-TOPO | RESULT (readings, D66-RULINGS) |
+| D68 wave 2's encoding | -- | combine's history mutation **`d68w2-topo`**, run here as a reading: it moves back **exactly 174 variants, 20 context-only**, each O-MAKE-TOPO OPEN via [N_WNCC] → LEFT, never in a variant holding a D66 throat -- D66-fix's `singok-board` census, reproduced from the other side | same RESULT check |
+| `singok-a2` (wave 1's E-SINGOK) | 48 moves; a drift mutation | built on combine's `d68w2-topo` DEF-TOPO (it sat on D68 wave 2's board; without that, combine's own N_WNCC disjunct would cover DTHR and TBTEL and the mutation would change nothing). Now **222 moves** (the 48 plus the 174), all O-MAKE-TOPO → LEFT; still caught by the drift guard (2 unexplained rows) | RESULT, CONTROL (it moves DTHR / TBTEL rows, which `d68w2-topo` never moves) |
+| N_WNCC tie | opens with DTHR, not with QET | opens with DTHR, **not with ITB + N_QTOPO** (no geometric throat). QET is no longer a non-owner: every variant without ITB's premise has a geometric throat on the board, and the board now carries N_WNCC for it | CONTROL (pathway tie) |
+| N_WNCC pathway census | O-MAKE-TOPO in 1,584 of 2,492 consistent variants at 1 ly (840 of 1,332 at 1 AU) | **2,492 / 1,332** -- every consistent D66 variant; and N_WNCC is a "new OPEN" pathway of no D66 combination any more (D66-fix: 28 / 84 / 540 / 40 / 120 / 772 by combination), because each variant's context-only reference now carries it too | census (JSON `1 ly.pathways`, `1 ly.by_combo`) |
+| everything else | -- | **unchanged**: clashes, survivors (O-SEAT, O-MAKE-DIST), removals by what, headline (0 D66 load-bearing; at most 1 member-attributed removal per account, O-BITS by {W2, F1}), seat census, D66 pathways other than N_WNCC; drift 83 of 85 agree, 2 explained, 0 unexplained | compared field by field with the D66-fix run JSON (`d66/B-combine66-run-fix2.json` against `d66r/B-combine66-run.json`) |
+
+Drift rule Z8 (combine's): O-MAKE-TOPO OPEN via N_WNCC only reads {N, OPEN}, so A1's and A2's "LEAVES" / "SILENT" rows on
+O-MAKE-TOPO agree with the board's new OPEN, and A1's DTHR row ("OPEN via N_WNCC") still agrees.
+
+**Item 27** (M: "Any crossing"; H-TURN-CROSSING adopted) is A1's: TURN lies outside this screen's atoms, so no row moves
+here (A1-defects.md section 0 (R-apply)).
+
+**D66-repro residuals here** (`wave1/FIX-SEAT-RESULT.json`, `result.v`): combine66.py's docstring (line 15) and C-QLIT's
+ground still carried wave 1's label "R-LIT, M's sentence alone"; both now read R-LIT as the question's parenthetical read
+as arrival alone, with M's sentence read operationally as R-QET (V66-1 #7), wave 1's words kept in place. The status
+line's "nothing here is seated" is marked as history (see the top).
+
+**Selftest:** **70 counted checks, 70 passed, 25 controls**, 6 STRUCTURAL not counted, 781 s, rc 0 (D66-fix: 68, 24
+controls). New: the item-28 readings RESULT and its CONTROL; the D66-fix readings check narrowed to the readings it still
+describes (its `singok-board` clause moved into the new check). Combine's encoding changed, so **`--conservative-full` was re-run: 8,192
+compared, 0 differ, 1,661 s, rc 0** -- with every D66 literal absent, the extended screen is still combine's screen.
 
 ## The answer, first
 
@@ -198,7 +233,9 @@ N_WALLLOOP (computed) and N_GJWAMB (replaced by N_GJWPAY).
 - **Pathway ties (6 controls).** Each D66 pathway opens only with its owner. N_DEFB opens O-SEAT with DSTR and not with
   QET. N_NEGT opens O-HOLD with DTHR, not DSTR. N_GJWPAY opens it with TBTEL, not TBISL. N_PINCH opens it with TBTSH,
   not TBTEL. N_QETHAD opens it with QET, not TBISL. N_WNCC opens O-MAKE-TOPO with DTHR (the reading M's ruling newly
-  covers), not QET. *Wave 1 had a seventh tie, N_WALLLOOP; that pathway is retired.*
+  covers), not with ITB + N_QTOPO (no geometric throat). *D66-fix first said "not QET"; after M-RULINGS item 28 the board
+  carries N_WNCC for every geometric throat, QET's variants included (section 0 (R-apply)). Wave 1 had a seventh tie,
+  N_WALLLOOP; that pathway is retired.*
 - **Load-bearing.** A D66 literal counts only if the goal fails when the D66 members of the support are freed. CONTROL:
   under `defb-asserted`, DSTR's O-SEAT reads REMOVED and is credited to DSTR.
 - **GROUNDS, re-run from their owners:**
@@ -292,6 +329,10 @@ RQ (the board's R-QUANTUM) is in the context, beside DTHR; they are not new OPEN
 row has no defeasible removal because the FKZ loop is encoded for DTHR only (E-FKZ); reading `fkz-generic` adds them
 (section 4).
 
+*R-apply (M-RULINGS item 28):* the table's "new OPEN" entries for **N_WNCC** (28, 84, 540, 40, 120, 772 down the rows)
+are D66-fix's figures, kept as history; N_WNCC is now a new OPEN pathway in **no** row, because each variant's
+context-only reference carries it on the board too. Every other cell is unchanged (compared with the run JSON).
+
 *Wave 1's figures, for the record:* new OPEN N_WNCC 56 / 336 / 80 / 480 in the TB / DS × TB / TB × QE / triple rows
 (TBHOLO, TBTSH only); N_XI / N_QEIC counted among the D66 pathways (12 / 72 / 52 / 312); seats defeasible 52 / 224 / 76
 / 328 in the DS / DS × TB / DS × QE / triple rows, the wall's N_WALLLOOP included.
@@ -303,7 +344,8 @@ the throat (N_NEGT, N_GJWPAY, N_PINCH, N_QETHAD, and the board's N_XI, N_QEIC, N
 (FKZ, E-FKZ; checked over the run JSON: 0 defeasible seats without DTHR). No wall seat is defeasible. The full census
 is in the JSON (key `1 ly.seat`).
 
-**Pathway census** (consistent variants at 1 ly, on which form): N_DEFB on O-SEAT 1,440; N_WNCC on O-MAKE-TOPO 1,584;
+**Pathway census** (consistent variants at 1 ly, on which form): N_DEFB on O-SEAT 1,440; N_WNCC on O-MAKE-TOPO 2,492
+(R-apply, M-RULINGS item 28: every consistent variant; *D66-fix: 1,584, and 840 at 1 AU, now 1,332*);
 on O-HOLD N_QETHAD 896, N_PINCH 840, N_GJWPAY 420, N_NEGT 320, each defeating O-LOOP-S and the seat only beside DTHR
 (N_NEGT 320, N_QETHAD 128, N_PINCH 120, N_GJWPAY 60). At 1 AU: 768; 840; 448, 504, 252, 192.
 
@@ -314,8 +356,9 @@ Each was run on the 424 single-reading and context-only variants.
 | reading | rows moved | what it moves |
 |---|---|---|
 | **H-SEAT-ROUTES** (supply restricted to S10 and S13) | 356 consistent variants: 28 context-only and 328 with a D66 reading | O-SEAT OPEN → **LEFT** in every one, the N_DEFB route included (DEF-SEAT unwidened). A defect seat does not reopen S10 or S13 (see section 5) |
-| **singok-a2** (wave 1's E-SINGOK: the creation route for TBHOLO / TBTSH only) | 48, none context-only | O-MAKE-TOPO OPEN via N_WNCC → **LEFT** for DTHR and TBTEL variants: what the ruling, now applied, changed. Also a drift mutation, caught |
-| **singok-board** (M's ruling reaching every geometric throat, D68's included) | 174, of which 20 context-only | O-MAKE-TOPO LEFT → OPEN via N_WNCC, only in variants holding **no** D66 throat (where a throat is merely possible, or is D68's RQ / ITJ). combine66 does not adopt it: it would change D68's own rows (E-EXTEND). Recorded for the D68 board. *Wave 1: 222, of which 20 context-only; the other 48 are now the adopted encoding* |
+| **singok-a2** (wave 1's E-SINGOK: the creation route for TBHOLO / TBTSH only, on D68 wave 2's DEF-TOPO) | **222** (R-apply; *D66-fix: 48, none context-only*) | O-MAKE-TOPO OPEN via N_WNCC → **LEFT** for DTHR and TBTEL variants (the 48), and for the 174 that `d68w2-topo` moves. Also a drift mutation, caught |
+| **d68w2-topo** (R-apply: D68 wave 2's O-MAKE-TOPO encoding, combine's history mutation) | 174, of which 20 context-only | O-MAKE-TOPO OPEN via [N_WNCC] → **LEFT**, only in variants holding no D66 throat: exactly the rows `singok-board` moved at D66-fix |
+| **singok-board** (M's ruling reaching every geometric throat, D68's included) | **0** (R-apply: M ruled item 28, "Re-grade D68 (Recommended)", and combine.py now carries this encoding itself) | nothing. *D66-fix: 174, of which 20 context-only -- O-MAKE-TOPO LEFT → OPEN via N_WNCC, only in variants holding no D66 throat; "combine66 does not adopt it: it would change D68's own rows (E-EXTEND). Recorded for the D68 board." Wave 1: 222, of which 20 context-only; the other 48 are now the adopted encoding* |
 | **fkz-generic** (FKZ for every held throat) | 440 moves in 220 distinct variants, of which 16 context-only (RQ, ITJ) | only defeasibility: O-LOOP-S and the seat become defeasible via the hold's pathways. No verdict word moves |
 | **qet-board-paths** (wave 1's gating of N_XI / N_QEIC through QET) | 8 | O-HOLD's via list gains N_XI, N_QEIC in QET variants without RQ; the verdict (OPEN) never moves |
 | **H-SM-ONLY** | all 2,520 variants holding a string, wall, monopole or string-supported throat become inconsistent | A1: S^3 has π0 = π1 = π2 = 0 (HK p.36, DURRER p.4, as READ by A1) |
@@ -402,7 +445,10 @@ No host refused a request, no paywall or login wall was met, and no copyrighted 
    stated.
 8. (D66-fix) **For the D68 board:** M's ruling M-S1A-P3, read as a board ruling, reaches D68's own O-MAKE-TOPO in 20
    context-only variants (`singok-board`), where D68's combine.py grades LEFT. combine66 applies the ruling to every
-   D66 throat and leaves D68's encoding alone (E-EXTEND); whether D68 re-grades is the D68 board's.
+   D66 throat and leaves D68's encoding alone (E-EXTEND); whether D68 re-grades is the D68 board's. **Resolved by M
+   (M-RULINGS item 28, "Re-grade D68 (Recommended)"): combine.py now reads O-MAKE-TOPO OPEN via N_WNCC in those 20 and in
+   every D68 variant with a geometric throat (3,840 verdict moves at 1 ly, 960 at 1 AU; docket68/B-combine.md section 0
+   (D66-RULINGS)); the finding is kept as written.**
 
 ## 10. Open
 

@@ -2299,15 +2299,22 @@ D68_TEXT_AS_WAVE1 = {
     "D68-ONE-MEMBER-REMOVAL-AND-IT-IS-CONDITIONAL": ('{W2, F1; N_EPS}, admissible given W_W2 at 1 ly, N = 7 (flagged, not settled: the Weinberg-family value is NAMED-NOT-READ), and {W2, F1; N_W2ANC}, zero-error, its window UNEVALUATED;', 'and, at the unread limit, a midpoint-source first read at 0.50153'),
 }
 #: DOCKET 66, WAVE 1 (docket66/; ledger.py docstring section 8, H-NO-D66-ROW): NO ROW IS ADDED
-#: and no cell moves.  In the house reading DOCKET 66's answer reads (0, 0, 0): its hypotheses remove
-#: nothing (combine66.py: no D66 literal load-bearing in any removal or non-binding, so Y = 0), identify
-#: no warp energy (X = 0) and state no requirement in numbers of their own (Z = 0) -- a null cell is not
-#: a finding.  The requirements its owners do state in numbers (A2's throat at the A/4 ceiling, r_fit and
-#: M_sat, IF {H-CAP-AT-THROAT, H-NECK-DOGMA, H-COUNT-IS-ENTROPY}; A3's QET injection bound; MMP's N_f at
-#: r_fit) price OPEN or LEFT routes, which M kept on the ledger's O9 for the vacuum route
-#: (M-RULINGS-2026-10-03.md item 18, "No, keep on O9 (Recommended)"); they are carried on O9 and S5's
-#: note, and whether any earns a row here is reported for M.  ledger.d66_index3_faults checks that no
-#: row here cites docket66/ (with a planted-row control).
+#: and no cell moves.  H-NO-D66-ROW is a named READING, not a fact: under it DOCKET 66's answer reads
+#: (0, 0, 0) in the house reading -- its hypotheses remove nothing (combine66.py: no D66 literal
+#: load-bearing in any removal or non-binding, so Y = 0) and identify no warp energy (X = 0), and
+#: Z = 0 is the reading itself, which counts as the docket's own only a requirement on a route the
+#: docket shows; a null cell is not a finding.  Its owners DO state requirements in numbers (A2's
+#: throat at the A/4 ceiling, r_fit and M_sat, IF {H-CAP-AT-THROAT, H-NECK-DOGMA, H-COUNT-IS-ENTROPY};
+#: A3's QET injection bound; MMP's N_f at r_fit), each a price of an OPEN or LEFT route.  They are kept
+#: on the ledger's O9 and S5's note by M's precedent for the vacuum route (M-RULINGS-2026-10-03.md item
+#: 18, "No, keep on O9 (Recommended)") -- a precedent, not a ruling on DOCKET 66 -- and whether any
+#: earns a row here (which could read Z = +1) is put to M; no cell moves unless M rules.
+#: ledger.d66_index3_faults checks that no row here cites docket66/ (with a planted-row control).
+#: CORRECTED (R-seat, from D66-repro's FIX-SEAT-RESULT result.v): first written 'state no requirement
+#: in numbers of their own (Z = 0)' as a fact, followed by 'The requirements its owners do state in
+#: numbers' -- the two sentences contradicted each other.  M's DOCKET 66 rulings (M-RULINGS items
+#: 26-28; ledger M-D68-26..28) move no row or cell here either: the paper's Gott bound, spec.py's TURN
+#: and the D68 re-grade of O-MAKE-TOPO (OPEN via N_WNCC, never removed) touch nothing a row reads.
 FINDINGS_AS_OF_DOCKET67_CLOSE = 747
 FINDINGS_AS_OF_D68_WAVE1_SEATING = 751
 

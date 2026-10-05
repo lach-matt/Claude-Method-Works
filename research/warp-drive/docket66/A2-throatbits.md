@@ -1,5 +1,7 @@
 # DOCKET 66 · A2-throatbits: H-THROAT-BITS made quantitative
 
+**Seated since (R-apply note, 2026-10-04).** DOCKET 66 wave 1 has been seated at D66-seat: `ledger.py` section 8 and O9's DOCKET 66 answer, `LEDGER.md` regenerated, a comment in `index3.py` and no index3 row. The status line below was written at D66-fix, when nothing here was seated and `ledger.py`, `index3.py`, `specthm.py`, `LEDGER.md`, `paper/` and `docket68/` were untouched; it is kept as written, as history.
+
 **Status: a docket work item, wave 1, step 1 (one hypothesis on its own) and step 2 (the literature read at source),
 2026-10-04, corrected at D66-fix the same day. Nothing is seated.** `ledger.py`, `index3.py`, `specthm.py`, `LEDGER.md`, `paper/` and `docket68/` are
 untouched. The instrument is `throatbits.py`, beside this file.
@@ -88,7 +90,8 @@ ledger carries the sentence (E1), that the charter carries the hypothesis (E2), 
    r_fit**, independent of the radius. This holds under H-QNEC-OUT-OF-SCOPE and H-CONST, and it is a requirement, not a
    supply. R-QUANTUM covers **3.8e-26 to 3.3e-27** of the deficit at r_fit, under {H_flat, H-PATH, H-MIN-SCALAR}.
 
-6. **"Then push to the seat" also has a precise counterpart, and in it O-BITS stands.** The counterpart is
+6. **"Then push to the seat" also has a READ counterpart under H-GJW-COUNTERPART, and in it O-BITS stands.** *(D66-repro
+   residual of V66-0 #4: this heading first read "also has a precise counterpart"; "precise" dropped.)* The counterpart is
    traversable-wormhole teleportation:
    - Gao-Jafferis-Wall: a boundary coupling makes the Einstein-Rosen bridge traversable, and the qubit is sent "via the
      entanglement".

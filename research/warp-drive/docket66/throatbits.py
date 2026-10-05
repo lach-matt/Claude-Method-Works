@@ -32,7 +32,9 @@ WHAT IT COMPUTES
       their eqs (11)-(12), (18)-(19), (29), (33)-(34): energy conservation (13) re-derived; sigma_0 < 0 for every
       a_0 > 2M; the shell's NEC sign; the shell mass; the stability region and PV's 'always unstable' for
       0 < beta_0^2 <= 1, reproduced on a grid;
-  (E) the precise counterparts of 'compressed to binary information' READ at source: Bekenstein-Hawking / generalized
+  (E) counterparts, under named readings (H-CAP-AT-THROAT, H-NECK-DOGMA, H-COUNT-IS-ENTROPY, H-GJW-COUNTERPART,
+      H-ISLAND-COUNTERPART), of 'compressed to binary information' READ at source [D66-repro residual of V66-0 #4: this
+      item first read 'the precise counterparts'; kept as history]: Bekenstein-Hawking / generalized
       entropy and the central dogma, the bag-of-gold neck and the island formula (Almheiri-Hartman-Maldacena-
       Shaghoulian-Tajdini 2006.06872v1); traversable-wormhole teleportation (Gao-Jafferis-Wall 1608.05687v3;
       Maldacena-Stanford-Yang 1704.05333v1);

@@ -1,0 +1,262 @@
+{
+  "summary": "DOCKET 66: apply M's rulings 26-28 (TURN = any crossing; D68 re-graded on the singular-throat ruling), finish the reproduction residuals, re-seat; verify",
+  "agentCount": 3,
+  "logs": [],
+  "result": {
+    "a": {
+      "id": "R-apply",
+      "files": [
+        "/home/user/Claude-Method-Works/research/warp-drive/docket66/defects.py",
+        "/home/user/Claude-Method-Works/research/warp-drive/docket66/A1-defects.md",
+        "/home/user/Claude-Method-Works/research/warp-drive/docket66/combine66.py",
+        "/home/user/Claude-Method-Works/research/warp-drive/docket66/B-combine66.md",
+        "/home/user/Claude-Method-Works/research/warp-drive/docket66/throatbits.py",
+        "/home/user/Claude-Method-Works/research/warp-drive/docket66/A2-throatbits.md",
+        "/home/user/Claude-Method-Works/research/warp-drive/docket66/qet.py",
+        "/home/user/Claude-Method-Works/research/warp-drive/docket66/A3-qet.md",
+        "/home/user/Claude-Method-Works/research/warp-drive/docket66/CHARTER.md",
+        "/home/user/Claude-Method-Works/research/warp-drive/docket68/combine.py",
+        "/home/user/Claude-Method-Works/research/warp-drive/docket68/B-combine.md",
+        "/home/user/Claude-Method-Works/research/warp-drive/spec.py",
+        "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d66r/R-apply.json",
+        "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d66r/B-table.md",
+        "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d66r/B-combine.json",
+        "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d66r/B-report.txt",
+        "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d66r/B-combine66-run.json",
+        "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d66r/ledger-selftest.txt"
+      ],
+      "done": [
+        "Item 27 (M: 'Any crossing'), applied in defects.py. TURN_RULING records the ruling: H-TURN-CROSSING adopted, H-TURN-CONJUGATE kept as the alternative on record. The HYPOTHESES definitions are unchanged. New turn_under(reading, crossing_at, conjugate_at) and string_turn(gmu, b): the straight string TURNs, with crossing at L = b/tan(4 pi G mu) = 2,467 AU at b = R_sun and the Planck NG bound. A line-intersection cross-check agrees to 1e-12. There is no conjugate point, so the string gets NO TURN under H-TURN-CONJUGATE. SEAT_GRADES and a1_grades for the string now say TURN, with D66-fix's wording kept. A HISTORY entry was added. A1-defects.md has a new section 0 (R-apply); F5, item 4 and the Open list were updated, each keeping 'first said'.",
+        "Specthm / spec class verdicts: none moves. This is checked at run time, not declared. Every specthm S class is defined by the literals wl and ball only, and no literal or FEATURE_TEXT names a turn, crossing or conjugate point. derive() makes NONEMPTY only for S-1. So the string stays S-3 (OPEN), S-1 stays NONEMPTY and S-2 stays OPEN. A planted-literal control is caught. spec.py states TURN only in its docstring (PART 2, 'a conjugate point'), not as a constant. I added a RULED note beside it, with the old line kept and no constant or check changed. spec selftest OK; specthm selftest OK (185 checks).",
+        "Item 28, applied in docket68/combine.py. DEF-TOPO gains THROAT & N_WNCC; N_WNCC is a new OPEN_NAMED entry, never assumed in a removal. This is the encoding combine66's 'singok-board' reading used. D68 wave 2's encoding is kept as the history mutation 'd68w2-topo'. CONTROL 'wncc-asserted' (removal by assertion) is refused, and N_WNCC is tied to a geometric throat (CONTROL). New drift rule Z8: O-MAKE-TOPO OPEN via N_WNCC only reads {N, OPEN}, like Z6, and Z4 takes the five-way O-MAKE under each reading. New grounds: ledger M-S1A-P3 text, M-RULINGS item 28 text, and specthm's own z3 verdict W-create-ncc = OPEN. topo_route_census re-asks every consistent variant under both encodings. At 1 ly, 3,840 of 5,760 variants (board alone included) move LEFT -> OPEN via N_WNCC and 1,920 NOT-BOUND-IF rows gain N_WNCC in their removal via list. At 1 AU the figures are 960 / 192. 0 rows move in any other way. Exactly combine66's 20 context-only variants move. {ITJ} O-MAKE-TOPO now reads OPEN via [N_WNCC], with D68 wave 2's 'LEFT (Geroch binds)' kept as history. No headline, clash, support, account or survivor moved. Drift is 174/175 under both encodings.",
+        "combine.py report re-run (--json, --table to scratchpad d66r/). 64 of the 128 table rows change, and only the TOPO code changes (L -> OPEN), checked cell by cell against the wave-2 table, which is kept in d68/. B-combine.md: section 6 table replaced with a note listing the rows that changed; a new section 0 (D66-RULINGS); a status line; the account table and finding 3 updated, history kept.",
+        "combine66 updated for item 28. 'singok-board' now moves 0 rows. The new reading 'd68w2-topo' moves back exactly 174 variants (20 context-only), O-MAKE-TOPO OPEN via [N_WNCC] -> LEFT. 'singok-a2' is built on combine's d68w2-topo DEF-TOPO, so it remains a mutation the drift guard catches (222 rows, 2 unexplained). The N_WNCC tie now uses ITB + N_QTOPO as the non-owner. The N_WNCC pathway census is now 2,492 / 1,332 (was 1,584 / 840), and N_WNCC is no longer a 'new OPEN' pathway in any combination. Every other census figure was compared field by field with the fix2 JSON and is unchanged. B-combine66.md has a new section 0 (R-apply), and its tie, census, readings table and finding 8 are marked with history.",
+        "FIX-SEAT-RESULT result.v residuals in docket66, all applied with the first wording kept: combine66.py docstring line 15 and C-QLIT ground (R-LIT label, V66-1 #7); defects.py docstring item 5 ('precise sense', V66-0 #3); throatbits.py (E) and A2-throatbits.md item 6 heading ('precise', V66-0 #4); A3-qet.md lines 34 and 257, plus qet.py docstring: Hotta 1002.0200v2 eqs (9) and (10) are both on printed p.11 and Delta S_AB is defined on p.10. I re-READ this myself via alphaXiv. Status lines of A1, A2, A3 and B-combine66 now carry a 'seated since' note, with the D66-fix line kept as history. CHARTER.md: 'with M's throat-compression mechanism' is attributed to the ledger, not to M; quote spans are unchanged (11 double, 1 single), so ledger's d66_charter_quote_faults still maps them. CGS reading note: Appendix A eqs (A.12)-(A.13) on printed p.21 and p.8 (A = e^(+2 beta z)) settle the factor 2. I READ this myself via alphaXiv; defects.py docstring, SOURCES and A1 are updated."
+      ],
+      "for_m": [
+        "Item 27 applied: the straight string TURNs, at L = 2,467 AU for b = R_sun. No specthm class verdict moves, because S classes are defined by wl and ball only. Under your reading a string seat has a TURN at a computed range; it is a candidate S-3 seat's second part, not a new class verdict.",
+        "Item 28 applied in D68: O-MAKE-TOPO is OPEN via N_WNCC in 3,840 of 5,760 variants at 1 ly and 960 of 1,152 at 1 AU. It is never REMOVED. The A-reports grade O-MAKE 'LEAVES', and they were written before your ruling. They are consistent with both encodings, so the drift guard cannot tell the two apart; the move rests on your ruling and on the census, not on report text."
+      ],
+      "selftests": [
+        "PYTHONDONTWRITEBYTECODE=1 python3 defects.py --selftest: 95/95 counted, 30 controls, 1 STRUCTURAL, rc 0 (D66-fix: 89, 27 controls)",
+        "python3 throatbits.py --selftest: 51/51, 12 controls, 4 STRUCTURAL, rc 0",
+        "python3 qet.py --selftest: 47/47, 10 controls, 2 STRUCTURAL, rc 0",
+        "python3 combine66.py --selftest --json d66r/B-combine66-run.json: 70/70, 0 failed, 25 controls, 6 STRUCTURAL, 781 s, rc 0 (D66-fix: 68, 24 controls)",
+        "python3 combine66.py --conservative-full: 8,192 compared, 0 differ, 1,661 s, rc 0",
+        "python3 docket68/combine.py --selftest: 131/131, 28 controls, 14 STRUCTURAL, 480 s, rc 0 (W2-fix: 124, 26 controls); report run (--json/--table) completed",
+        "python3 spec.py --selftest: SELFTEST OK; python3 specthm.py --selftest: SELFTEST OK, 185 checks",
+        "python3 ledger.py --selftest (run only to measure impact; ledger is not my file): SELFTEST FAILED, see problems"
+      ],
+      "problems": [
+        "ledger.py now fails 4 checks because combine.py changed. These are for the ledger owner's re-seat; I did not edit ledger. (1) 'under ITB the geometric obstructions are NOT-BOUND-IF ... removal OPEN via N_ILFREE': the expected via list is ['N_ILFREE'] and the screen now gives ['N_ILFREE','N_WNCC'] for O-MAKE-TOPO. (2) 'ITB+RQ ... O-MAKE-TOPO LEFT': it is now OPEN. (3) The READINGS check pins singok-board as moving the board alone 'where combine.py gives LEFT': combine.py now gives OPEN via N_WNCC. (4) ledger --check from another cwd: LEDGER.md is stale against a fresh ask. A fifth failure is unrelated to this pass: paper_docket_markers now finds a DOCKET 66 marker, from the lead's CLAIMS.md item-26 correction. Full log: scratchpad d66r/ledger-selftest.txt, lines 222, 245, 247, 308, 355.",
+        "Not in my files and not edited: (a) ledger.py section 8 still calls the D68 O-MAKE-TOPO finding unrepaired and lists 20 context-only variants as if they were only board-alone and RQ (the residual from result.v). (b) ledger's TURN question for M (d66_turn_question, lines ~1894-1915, plus selftest 8172) is now answered by item 27. (c) index3.py comment / H-NO-D66-ROW Z = 0 contradiction. (d) specthm DOCKETS_OPENED / D66_T still say DOCKET 66 'untested' / 'NOT YET RUN'. No specthm class verdict moved, so specthm is not mine. (e) The D68 A-report texts and grade JSON (A4-geometry's ITJ 'Geroch binds' etc.) predate item 28. Z8 makes them agree; their owners may want to restate them.",
+        "defects.py: the string_turn line-intersection cross-check uses the same deflection geometry as string_crossing, so it is a consistency check, not an independent derivation. The independent content is the G mu = 0 control and the linear-in-b check.",
+        "combine66 member_removals 'what' key at 1 ly lists the same supports in a different order than the fix2 JSON (content identical: 954 + 484).",
+        "Nothing was committed, pushed, stashed, reset or checked out. The paper was not edited."
+      ]
+    },
+    "s": {
+      "id": "R-seat",
+      "files": [
+        "/home/user/Claude-Method-Works/research/warp-drive/ledger.py",
+        "/home/user/Claude-Method-Works/research/warp-drive/index3.py",
+        "/home/user/Claude-Method-Works/research/warp-drive/LEDGER.md",
+        "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d66r/R-seat.json",
+        "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d66r/ledger-rseat.txt"
+      ],
+      "done": [
+        "RULED_BY_M: added M-D68-26, M-D68-27 and M-D68-28 (items 26-28), appended to D68_RULED after M-D68-C12. The ids follow the item number, as M-D68-12..16 do. specthm already places every D68_RULED row (R11), so specthm.py was not edited. M's words are held in D68_M_WORDS and checked against M-RULINGS-2026-10-03.md: 'Correct it (Recommended)', 'Any crossing', 'Re-grade D68 (Recommended)'. Each question, and the file's own 'applied' sentence for it (the file's words, not M's), is held in D66_RULING_QUESTIONS / D66_RULING_CARRIED and checked against the file through D68_INLINE_QUOTES.",
+        "M-D68-26: the applied text is READ back from paper/CLAIMS.md, as M-D68-12/13 do, by a new paper_d66_marker() from M's words in a DOCKET 66 head (PAPER_D66_MARKER_HEAD_RE). The marker token is on line 1631. Each of defects.py's Gott figures is looked for in that line: gamma > 5.3e5 at 1.5e-7 and gamma > 2.5e5 at 3.2e-7. All 4 are found. The paper's first wording (held as printed and checked against CLAIMS.md) carries item 26's numbers. No board status moves.",
+        "M-D68-27: TURN_RULING is asked of defects.py (H-TURN-CROSSING adopted, H-TURN-CONJUGATE kept as the alternative on record). The straight string crosses at L = 2467 AU for b = R_sun at the Planck NG bound. It has NO TURN under H-TURN-CONJUGATE, because there is no conjugate point. spec.py's RULED note is READ from its docstring. specthm's seat-class literals are READ from its source, not imported: wl and ball only. None names a turn, so no class verdict moves. The old question is kept as FIRST RECORDED, both in the row and in O9's D66 answer.",
+        "M-D68-28 is asked of combine.Screen. O-MAKE-TOPO is OPEN via exactly [N_WNCC] on the board alone, RQ, ITJ and ITB+RQ. Under ITB the removal is via N_ILFREE, N_WNCC. It is never removed. History is kept: D68_SCREEN_TOPO_W2 (combine's mutation d68w2-topo) gives LEFT on those four, and under ITB the removal is via N_ILFREE alone. The census is READ from docket68/B-combine.md section 0: 3,840/5,760 at 1 ly, 960/1,152 at 1 AU, the same 20 of 32 contexts, drift 174/175. B-combine66.md is also READ: d68w2-topo moves back 174 (20 context-only), and singok-board now moves 0.",
+        "O9's D68 answer gains an 'ON M'S DOCKET 66 RULINGS' clause: the re-graded O-MAKE-TOPO as asked, N_WNCC as what would answer it, d68w2-topo's LEFT as history, and the adopted TURN reading. O9's D66 answer now opens with 'THE TURN READING, RULED BY M (M-D68-27 ...)', with the question kept after it as first carried. O9's D66 part says 'THE D68 BOARD, RE-GRADED ON M'S RULING (M-D68-28 ...)', followed by 'RECORDED FOR THE D68 BOARD, NOT REPAIRED' as FIRST SAID. W_OPEN_ANSWER went from 4000 to 5000 (the answer is 4572 chars; the cut-cell check caught it).",
+        "result.v residuals placed. (1) The 174/20 statement is corrected in the section 8 docstring, O9's D66 part and M-D68-28's why cell. The 20 contexts are READ from B-combine.md; the ledger asks only the board alone and RQ, and the other 18 are READ. The first wording is kept. (2) H-NO-D66-ROW is now a named reading, not a fact, in the ledger docstring and the index3.py comment. The numeric requirements stay on O9 by M's item-18 precedent (a precedent, not a ruling), whether any earns a row is put to M, and no cell moves. First wording kept. (3) 'with M's throat-compression mechanism' is attributed to the ledger (D66_CHARTER_LEDGER_WORDS). It is still checked verbatim but excluded from M's quotations. d66_charter_attribution_faults READs the charter's attribution. d66_quote_faults now accepts only M's quotation spans plus items 26-28.",
+        "Paper-marker census: the pin moved from [63, 65, 68] to [63, 65, 66, 68], with the history comment kept. A new check ties the DOCKET 66 token to PAPER_D66_MARKER_HEAD_RE, as for DOCKET 67/68. A CONTROL strips M's words from the head in a private copy: the token then names no ruling, 66 leaves the all-named set, and no marker is READ for M-D68-26.",
+        "The 4 R-apply failures are re-pinned, each with a history comment: the ITB via list, ITB+RQ TOPO now OPEN, READINGS (singok-board and combine.py now agree; d68w2-topo gives LEFT), and --check (fixed by regenerating LEDGER.md). A new HISTORY check shows d68w2-topo differs from the adopted screen, so the re-pins can fail.",
+        "Docstring: section 8 is amended with the first wordings kept, and a new section 8b covers the rulings as seated. Comments on d66_turn_question and PENDING_RULINGS now mark the question RULED. index3.py: comment only. No row or cell moved.",
+        "LEDGER.md was regenerated last and passes ledger --check from /tmp (rc 0)."
+      ],
+      "for_m": [
+        "Items 26-28 are seated on the board as M-D68-26, M-D68-27 and M-D68-28. Your words are quoted verbatim, and every applied value is asked of its owner. The paper's correction is READ back from paper/CLAIMS.md:1631. No board status moved.",
+        "H-NO-D66-ROW is now stated as a reading, not a fact. DOCKET 66's owners do state requirements in numbers: r_fit/M_sat, the QET injection bound and MMP's N_f. They stay on O9 by analogy with your item 18. Whether any earns an index3 row is still yours to rule, and no cell moves until you do."
+      ],
+      "selftests": [
+        "python3 ledger.py --selftest: SELFTEST OK, 338 [ok], 0 [XX], rc 0, ~64 s (D66-repro: 323). 15 new checks: 7 CONTROLs, 1 HISTORY and 7 result checks. 5 re-pinned with history and 1 relabelled. The ledger does not tag STRUCTURAL checks; the 'seated after C12, each once' part of the first new check is structural.",
+        "python3 ledger.py --md (last): wrote LEDGER.md; python3 ledger.py --check (from /tmp): ok, rc 0",
+        "python3 index3.py --selftest: SELFTEST OK, rc 0",
+        "python3 specthm.py --selftest: SELFTEST OK, 185 checks, rc 0",
+        "python3 pathmetric.py --selftest: SELFTEST OK, rc 0",
+        "python3 triangulate.py --selftest: SELFTEST PASS, rc 0"
+      ],
+      "problems": [
+        "The task named line 1630 for the paper marker. The DOCKET 66 token and marker head are on CLAIMS.md line 1631; the corrected sentence spans 1629-1631. The ledger READs the line and does not pin it.",
+        "specthm.py is not edited because no class verdict moved. Two items are for specthm's owner: (a) M-D68-27 (TURN) is placed under specthm's R11 (DOCKET 68), because specthm places all of ledger.D68_RULED there; (b) DOCKETS_OPENED / D66_T still say DOCKET 66 is 'untested' / 'NOT YET RUN' (result.v residual).",
+        "M-D68-27's 'no class verdict moves' rests on reading specthm's source (S classes use wl and ball only). The ledger cannot import specthm, which imports it. specthm's selftest passes.",
+        "The string's line-intersection cross-check uses the same geometry as string_crossing. It is labelled as a consistency check, not an independent derivation.",
+        "B-combine66.md's selftest line ('68 counted checks') is D66-fix's text, kept as history by R-apply; its section 0 reports 70/25. The ledger still READs and pins the 68 line. It was not re-pinned, because the owner's text matching that pattern is unchanged.",
+        "The ledger's section 7 docstring list (M-D68-1..13 ...) was not extended; section 8b records items 26-28.",
+        "Nothing was committed, pushed, stashed, reset or checked out. paper/CLAIMS.md was not edited."
+      ]
+    },
+    "v": {
+      "unresolved": [
+        "result.v residual (owner specthm.py, carried by both R-apply and R-seat, not closed): specthm.py still calls DOCKET 66 'untested' (line 3244) and NOT YET RUN in DOCKETS_OPENED / D66_T. specthm's selftest passes. No class verdict moved, so this is a wording residual and not a grade.",
+        "H-QET-HADAMARD has not been run. It stays OPEN, correctly carried as OPEN.",
+        "D68 A-report texts (e.g. A4-geometry's ITJ 'LEAVES ... Geroch binds') were written before item 28 and are not restated. Drift rule Z8 is what makes them agree (see problems)."
+      ],
+      "problems": [
+        {
+          "site": "docket68/combine.py _form_class / z3_class (drift rule Z8, lines ~1884-1913); docket68/B-combine.md section 0 'Drift: 174 of 175 agree ... as before'",
+          "wrong": "The drift figure is presented as unchanged ('as before'), and no selftest check covers Z8. Z8 carries load: in at least 6 drift rows, an A-report grading O-MAKE-TOPO 'LEAVES' (class N) now meets the re-graded OPEN via [N_WNCC] (ITJ, ZERO, NULL, RQ, ITJ+ZERO, ITJ+NULL). Those rows agree only because Z8 reads that state as {N, OPEN}. I counted this from R-apply's d66r/B-combine.json drift rows.",
+          "correct": "Say that 174/175 now depends on the new tolerance rule Z8 for those rows (R-apply's for_m says the guard 'cannot tell the two apart', but B-combine.md does not). Add a CONTROL showing Z8 can fail: a report reading R or NB on an N_WNCC-only row must still disagree.",
+          "moves_grade": false
+        },
+        {
+          "site": "docket68/M-RULINGS-2026-10-03.md item 27 (the file's gloss 'H-TURN-CROSSING is adopted'); docket66/defects.py HYPOTHESES line 97; ledger M-D68-27 cell",
+          "wrong": "M's words are 'Any crossing', answering 'any crossing of light paths'. They are recorded as adopting H-TURN-CROSSING, whose unchanged definition is narrower: 'any second meeting of two geodesics from one event'.",
+          "correct": "Record that mapping M's 'Any crossing' onto H-TURN-CROSSING's 'from one event' definition is the file's reading, not M's words. Or state M's wording beside the definition. The verdict does not move: the straight string TURNs under both. string_turn's parallel rays (y = +-b) are the source-at-infinity case of geodesics from one event, which is an unstated assumption of L = b/tan(4 pi G mu).",
+          "moves_grade": false
+        },
+        {
+          "site": "docket66/defects.py line 724 (string_turn comment); docket66/A1-defects.md section 0 table; defects.py selftest item-27 check (line ~1437)",
+          "wrong": "'# independent: the two deflected rays as lines'. A1 says only 'cross-checked as the two deflected rays' line intersection (agree to 1e-12)'. The intersection computes 2b/(2 tan d), which is algebraically b/tan d, so the 1e-12 sub-check cannot fail. Only the ledger labels it 'a consistency check on the same geometry'. R-seat's 'It is labelled as a consistency check' is true of the ledger only.",
+          "correct": "In defects.py and A1, label it a consistency check on the same formula, not independent. Treat the 1e-12 sub-clause as STRUCTURAL. The value itself is right: I re-derived it independently from the cone's wedge identification (L = 3.6908e14 m = 2,467.15 AU).",
+          "moves_grade": false
+        },
+        {
+          "site": "ledger.py docstring line ~544 (section 8 'RECORDED FOR THE D68 BOARD', kept as first written); docket66/B-combine66.md lines 13 and 34",
+          "wrong": "'where a throat is merely possible' describes the 20 context variants (board alone, RQ, ITJ, ITB+RQ, ...).",
+          "correct": "In combine.py a geometric throat is FORCED in those variants: B-THROAT has Not(THROAT) == NONGEO. I checked this with z3, with OPEN and named pathways free. combine.py's own new CONTROL says so ('the board-alone variant (a throat is forced)'). Mark the phrase as first wording and correct it to 'a throat forced by the board (no D66 throat literal present)'.",
+          "moves_grade": false
+        },
+        {
+          "site": "docket66/A1-defects.md section 0, lines 32-34",
+          "wrong": "'spec.py's PART 2 still reads \"a conjugate point\"; it is not this docket's file to edit ... and the line is reported for its owner'",
+          "correct": "R-apply did edit spec.py. It added a RULED note under PART 2, citing item 27, with the old line kept and no constant or check changed. ledger section 8b and LEDGER M-D68-27 READ that note. A1 should say so.",
+          "moves_grade": false
+        },
+        {
+          "site": "docket66/CHARTER.md line 9 (R-apply bracket)",
+          "wrong": "'M's three DOCKET 66 rulings -- the paper's Gott bound, spec.py's TURN, and re-grading D68 ... are ... applied in A1-defects.md, defects.py, combine66.py and docket68/combine.py'",
+          "correct": "Item 26 was applied in paper/CLAIMS.md (by the lead), and item 27 also in spec.py's PART 2 note. Both sites are missing from the list.",
+          "moves_grade": false
+        },
+        {
+          "site": "docket66/B-combine66.md finding 8 (resolution sentence); ledger section 8b 'reads OPEN via N_WNCC where a geometric throat is possible'",
+          "wrong": "'combine.py now reads O-MAKE-TOPO OPEN via N_WNCC in those 20 and in every D68 variant with a geometric throat (3,840 verdict moves ...)'",
+          "correct": "The 3,840 verdict moves are exactly the variants where Geroch/Tipler bind. My predicate reproduces them: neither ITE nor ITB-without-RQ, 3,840 / 1,920 with no exceptions. ITE variants have a forced geometric throat yet read NOT-BOUND-IF {ITE; N_MS17}, with removal OPEN via N_ILFREE, N_WNCC. They are via-list moves, not 'OPEN via N_WNCC'.",
+          "moves_grade": false
+        },
+        {
+          "site": "docket66/combine66.py selftest, item-28 readings RESULT ('in exactly the 174 variants ... singok-board moved at D66-fix')",
+          "wrong": "The check asserts set identity but tests only the counts (174, 20 context-only) and the no-D66-throat predicate.",
+          "correct": "The claim is true. I compared the variant sets of d66/B-combine66-run-fix2.json singok-board and d66r/B-combine66-run.json d68w2-topo: identical, 174 = 174. The check is weaker than its label. Compare the sets, or word it as a count.",
+          "moves_grade": false
+        },
+        {
+          "site": "docket66/defects.py HISTORY entry 'string turn' (printed by report() as \"wave 1 first said '...'\")",
+          "wrong": "The first-said text is D66-fix's wording, printed under report()'s fixed label 'wave 1 first said'.",
+          "correct": "The entry's text does carry '(D66-fix: ...)'. The report label misattributes the stage, though only slightly.",
+          "moves_grade": false
+        }
+      ],
+      "reproduced": [
+        "Item 26, paper/CLAIMS.md 1629-1631 (lead's correction, not edited by me): M's words 'Correct it (Recommended)' are verbatim. I computed gamma > 2/(8 pi G mu): 5.305e5 at 1.5e-7, 2.487e5 at 3.2e-7, 1.326e5 at the first-written 6e-7. All match. I READ arXiv 1303.5085v1 myself via alphaXiv: abstract p.1, Table 2 p.9 and eqs (22)-(23) p.17 give G mu/c^2 < 1.5e-7 (Nambu-Goto, Planck+WP, 95%) and G mu_AH/c^2 < 3.2e-7. The first wording is kept under the marker. The AH figure goes beyond the question put to M but is READ and true. The marker token is on line 1631, as R-seat says, not on 1630.",
+        "Item 27, the string's TURN crossing, re-derived independently. I built the cone by removing a wedge of 8 pi G mu downstream and identifying its edges by rotation, with no line formula. Rays at +-b reach the identified edge point at r = b/sin(4 pi G mu), giving L = r cos(4 pi G mu) = 3.690803e14 m = 2,467.15 AU at G mu = 1.5e-7, b = R_sun = 6.957e8 m. This equals b/tan(4 pi G mu). L(2b)/L(b) = 2 (no caustic). The Sun's focal length is 547.6 AU. Matches defects.py, A1, spec.py's note and LEDGER M-D68-27.",
+        "Item 27 class verdicts: specthm S classes use literals {wl}, {ball} and neither. derive makes only S-1 NONEMPTY. specthm selftest OK, 185 checks. No class verdict moves, and nothing claims one.",
+        "Item 28, one re-graded D68 variant re-derived by my own z3 queries on combine.Screen, not through Screen.variant. For {ITJ}, and also for the board alone, {RQ} and {ITB,RQ}, with every OPEN pathway false: GTOPO and THROAT are both forced, removal is UNSAT, and the only single OPEN pathway that admits removal is N_WNCC, so the verdict is OPEN via [N_WNCC]. Under the history screen d68w2-topo no pathway admits removal, so LEFT. For {ITB} and {ITE}: NOT-BOUND-IF, removal admitted by N_ILFREE and N_WNCC; under d68w2-topo by N_ILFREE alone. All of these agree with Screen.variant and the ledger.",
+        "Item 28 census: on R-apply's d66r/B-combine.json, my predicate 'NOT-BOUND-IF iff ITE or (ITB and not RQ)' partitions the 5,760 variants (5,759 consistent plus the board) exactly: 3,840 OPEN via [N_WNCC] and 1,920 NOT-BOUND-IF via N_ILFREE,N_WNCC. The 1 AU figures are 960 / 192.",
+        "B-combine.md section 6: compared the regenerated table with HEAD's wave-2 table, row by row. Exactly 64 rows changed (2-7, 14-28, 44-63, 84-98, 114-119, 126, 128, as the note says), and each changed only the TOPO code L -> OPEN. The scratchpad d66r/B-table.md equals the file for all 128 rows.",
+        "combine66: d68w2-topo's 174 moved variants are set-identical to D66-fix's singok-board 174. seat-routes 356, fkz-generic 440 and qet-board-paths 8 are unchanged. singok-a2 goes 48 -> 222, as B-combine66.md states.",
+        "result.v residuals checked at each site, first wording kept in each: combine66.py docstring line 15 and C-QLIT; defects.py item 5; throatbits.py (E), whose named readings H-GJW-COUNTERPART and H-ISLAND-COUNTERPART exist in its HYPOTHESES; A2 item 6 heading; A3 line 34 (10) p.11 and the sources row (Delta S_AB p.10, (9) and (10) p.11), also in qet.py; the status-line 'seated since' notes in A1, A2, A3 and B-combine66; CHARTER's attribution of 'with M's throat-compression mechanism' to the ledger; the CGS (A.12)-(A.13) note; ledger section 8's 174/20 correction; H-NO-D66-ROW restated as a reading in ledger and index3. The CHARTER claim 'every item has since been READ' checks: A3's source table carries Hotta 0803.2272v3 and 1002.0200v2, 1701.03805, 2301.02666, 2505.04689 and 2506.19878.",
+        "M quotes verbatim: 'Correct it (Recommended)', 'Any crossing' and 'Re-grade D68 (Recommended)' match the rulings file at every site I read (CLAIMS.md, defects.py TURN_RULING, spec.py, A1, B-combine, B-combine66, combine.py, combine66.py, ledger D68_M_WORDS, LEDGER.md rows 214-216). The ledger selftest also checks them.",
+        "Selftests, re-run by me from the working tree with PYTHONDONTWRITEBYTECODE=1: defects 95/95 (30 controls, 1 STRUCTURAL) rc 0; throatbits 51/51 (12 controls, 4 STRUCTURAL) rc 0; qet 47/47 (10 controls, 2 STRUCTURAL) rc 0; combine66 --selftest 70/70 (25 controls, 6 STRUCTURAL) 1,455 s rc 0; docket68/combine.py --selftest 131/131 (28 controls, 14 STRUCTURAL) 1,460 s rc 0; spec SELFTEST OK; specthm SELFTEST OK, 185 checks; index3 SELFTEST OK; ledger --selftest SELFTEST OK, 338 [ok], rc 0; ledger --check from /tmp ok, rc 0. I did not re-run combine66 --conservative-full (R-apply: 8,192 compared, 0 differ).",
+        "Report written to /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d66r/R-verify.json. I wrote no other files. The selftests' own temp dirs (ledger mkdtemp) are transient. git status shows only the 15 files modified by R-apply and R-seat; nothing new, nothing committed, pushed, stashed, reset or checked out. The paper was not edited."
+      ]
+    }
+  },
+  "workflowProgress": [
+    {
+      "type": "workflow_phase",
+      "index": 1,
+      "title": "Apply"
+    },
+    {
+      "type": "workflow_phase",
+      "index": 2,
+      "title": "Seat"
+    },
+    {
+      "type": "workflow_phase",
+      "index": 3,
+      "title": "Verify"
+    },
+    {
+      "type": "workflow_agent",
+      "index": 1,
+      "label": "R-apply",
+      "phaseIndex": 1,
+      "phaseTitle": "Apply",
+      "agentId": "a468b23313703a78f",
+      "model": "claude-opus-5-5",
+      "state": "done",
+      "startedAt": 1791153727185,
+      "queuedAt": 1791153727153,
+      "attempt": 1,
+      "lastToolName": "StructuredOutput",
+      "lastToolSummary": "R-apply",
+      "promptPreview": "M's warp-drive research tree (/home/user/Claude-Method-Works/research/warp-drive). Read /home/user/Claude-Method-Works/research/warp-drive/docket68/M-RULINGS-2026-10-03.md items 26-28 (M's DOCKET 66 rulings,\nverbatim) and /home/user/Claude-Method-Works/research/warp-drive/docket66/wave1/FIX-SEAT-RESULT.json (result.v: a reproduction's residuals). M's rules: accurate, true,\nshown; nothing declared;…",
+      "promptFramed": true,
+      "lastProgressAt": 1791158468037,
+      "tokens": 515852,
+      "toolCalls": 134,
+      "durationMs": 4740851,
+      "resultPreview": "{\"id\":\"R-apply\",\"files\":[\"/home/user/Claude-Method-Works/research/warp-drive/docket66/defects.py\",\"/home/user/Claude-Method-Works/research/warp-drive/docket66/A1-defects.md\",\"/home/user/Claude-Method-Works/research/warp-drive/docket66/combine66.py\",\"/home/user/Claude-Method-Works/research/warp-drive/docket66/B-combine66.md\",\"/home/user/Claude-Method-Works/research/warp-drive/docket66/throatbits.py…"
+    },
+    {
+      "type": "workflow_agent",
+      "index": 2,
+      "label": "R-seat",
+      "phaseIndex": 2,
+      "phaseTitle": "Seat",
+      "agentId": "ac724cf9df901e6b6",
+      "model": "claude-opus-5-5",
+      "state": "done",
+      "startedAt": 1791158475876,
+      "queuedAt": 1791158475868,
+      "attempt": 1,
+      "lastToolName": "StructuredOutput",
+      "lastToolSummary": "R-seat",
+      "promptPreview": "M's warp-drive research tree (/home/user/Claude-Method-Works/research/warp-drive). Read /home/user/Claude-Method-Works/research/warp-drive/docket68/M-RULINGS-2026-10-03.md items 26-28 (M's DOCKET 66 rulings,\nverbatim) and /home/user/Claude-Method-Works/research/warp-drive/docket66/wave1/FIX-SEAT-RESULT.json (result.v: a reproduction's residuals). M's rules: accurate, true,\nshown; nothing declared;…",
+      "promptFramed": true,
+      "lastProgressAt": 1791160354428,
+      "tokens": 337055,
+      "toolCalls": 93,
+      "durationMs": 1878552,
+      "resultPreview": "{\"id\":\"R-seat\",\"files\":[\"/home/user/Claude-Method-Works/research/warp-drive/ledger.py\",\"/home/user/Claude-Method-Works/research/warp-drive/index3.py\",\"/home/user/Claude-Method-Works/research/warp-drive/LEDGER.md\",\"/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d66r/R-seat.json\",\"/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc…"
+    },
+    {
+      "type": "workflow_agent",
+      "index": 3,
+      "label": "R-verify",
+      "phaseIndex": 3,
+      "phaseTitle": "Verify",
+      "agentId": "ab603d65fc8ed7682",
+      "model": "claude-opus-5-5",
+      "state": "done",
+      "startedAt": 1791160357495,
+      "queuedAt": 1791160357457,
+      "attempt": 1,
+      "lastToolName": "StructuredOutput",
+      "promptPreview": "M's warp-drive research tree (/home/user/Claude-Method-Works/research/warp-drive). Read /home/user/Claude-Method-Works/research/warp-drive/docket68/M-RULINGS-2026-10-03.md items 26-28 (M's DOCKET 66 rulings,\nverbatim) and /home/user/Claude-Method-Works/research/warp-drive/docket66/wave1/FIX-SEAT-RESULT.json (result.v: a reproduction's residuals). M's rules: accurate, true,\nshown; nothing declared;…",
+      "promptFramed": true,
+      "lastProgressAt": 1791161983707,
+      "tokens": 249067,
+      "toolCalls": 61,
+      "durationMs": 1626212,
+      "resultPreview": "{\"unresolved\":[\"result.v residual (owner specthm.py, carried by both R-apply and R-seat, not closed): specthm.py still calls DOCKET 66 'untested' (line 3244) and NOT YET RUN in DOCKETS_OPENED / D66_T. specthm's selftest passes. No class verdict moved, so this is a wording residual and not a grade.\",\"H-QET-HADAMARD has not been run. It stays OPEN, correctly carried as OPEN.\",\"D68 A-report texts (e.…"
+    }
+  ],
+  "totalTokens": 1101974,
+  "totalToolCalls": 288
+}

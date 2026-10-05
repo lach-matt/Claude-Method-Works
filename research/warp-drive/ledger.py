@@ -505,7 +505,9 @@ figure of combine66's own runs, which this file does not repeat.
        M-S1A-P3 (i)); S13 the defect-core link (A1's answer item 7; the ground
        of TEMPLATE's refusal moves from P-UNIFORM to topology, the grade does
        not, and O-SEAT does not move).
-  RULED_BY_M  no new ruling: M ruled nothing in DOCKET 66.  M-S1A-P3's
+  RULED_BY_M  no new ruling at this seating: M had ruled nothing in DOCKET 66
+       (as first written; M has since ruled items 26-28 of the rulings file,
+       seated as M-D68-26..28 -- section 8b).  M-S1A-P3's
        unblocks cell said "DOCKET 66 opens"; it now says what ran
        (d66_p3_ran), the first wording kept before it, and the cell must EQUAL
        that (p3_unblocks_faults).  M-D65-1's ruling cell said "QET is to be
@@ -519,7 +521,9 @@ figure of combine66's own runs, which this file does not repeat.
        Its unblocks cell likewise; its `why` keeps the question as it stood.
        M-D68-10's cell says step (4) ran (and step (3)'s comments are written,
        kept as drafts), keeping the wave-2 seat's and wave 1's NOT YET RUN.
-  THE TURN QUESTION, FOR M: spec.py's 'TURN' -- a conjugate point
+  THE TURN QUESTION, FOR M (as this seating carried it; RULED since -- M:
+       "Any crossing", M-D68-27, section 8b; the paragraph is kept as
+       written): spec.py's 'TURN' -- a conjugate point
        (H-TURN-CONJUGATE) or any crossing (H-TURN-CROSSING)?  A1's question
        for M since D66 wave 1, still M's to rule after D66-fix, which leaves it
        deciding the straight string alone; its values asked of defects.py
@@ -533,13 +537,21 @@ figure of combine66's own runs, which this file does not repeat.
        verbatim against the constant that holds it, and d66_quote_faults
        requires every quotation in a DOCKET 66 cell here to be M's words held
        or docket66/'s own words.
-  RECORDED FOR THE D68 BOARD, NOT REPAIRED: read as a board ruling reaching
-       D68's own throats (combine66's reading singok-board), M-S1A-P3 moves
-       combine.py's O-MAKE-TOPO from LEFT to OPEN via N_WNCC where a throat is
-       merely possible (the board alone, RQ; 20 context-only variants in
-       combine66's census).  combine66 cannot change D68 rows (its
-       conservative-extension rule) and combine.py is not edited here: O9
-       prints both, and the re-grade is for M and the D68 owners.
+  RECORDED FOR THE D68 BOARD, NOT REPAIRED (as this seating first wrote it;
+       REPAIRED since on M's ruling, M-D68-28, section 8b): read as a board
+       ruling reaching D68's own throats (combine66's reading singok-board),
+       M-S1A-P3 moves combine.py's O-MAKE-TOPO from LEFT to OPEN via N_WNCC
+       where a throat is merely possible -- in combine66's census 174
+       variants, 20 of them context-only (B-combine66.md; the contexts, READ
+       from docket68/B-combine.md section 0: the board alone, RQ, ITJ, SHAPE
+       and W2 x F1, alone and combined, and ITB with RQ).  This board asks
+       two of the 20, the board alone and RQ; the other 18 are READ, not
+       asked.  CORRECTED (R-seat, from D66-repro's FIX-SEAT-RESULT result.v):
+       first written '(the board alone, RQ; 20 context-only variants in
+       combine66's census)', which read as if the 20 were those two.
+       combine66 cannot change D68 rows (its conservative-extension rule) and
+       combine.py was not edited by this seating: O9 printed both, and the
+       re-grade was for M and the D68 owners.
 
 NAMED LIMITATIONS OF THIS SEATING (DOCKET 66), beside sections 7's and 7b's.
   H-LEDGER-ASKS-REPRESENTATIVES grows: combine66's full screen (3,528 + 1,764
@@ -555,18 +567,24 @@ NAMED LIMITATIONS OF THIS SEATING (DOCKET 66), beside sections 7's and 7b's.
     the selftest re-asks with a second placeholder and requires those fields
     unchanged.  throatbits.grades (which needs them throughout) is not asked;
     its figures are (capacity_table_base, mmp_scales).
-  H-NO-D66-ROW: index3.py gains no row.  DOCKET 66's answer reads (0, 0, 0)
-    in the house reading -- it removes nothing (Y = 0), identifies no warp
-    energy (X = 0), and states no requirement in numbers of its own (Z = 0);
-    a null cell is not a finding.  The requirements its owners do state in
-    numbers -- A2's throat at the A/4 ceiling (r_fit and M_sat, IF
-    {H-CAP-AT-THROAT, H-NECK-DOGMA, H-COUNT-IS-ENTROPY}; no encoding at that
-    density constructed or READ), A3's QET injection bound, MMP's N_f -- are
-    route prices of OPEN or LEFT routes, which is what M kept on O9 for the
-    vacuum route (M-RULINGS-2026-10-03.md item 18, "No, keep on O9
-    (Recommended)"); they are carried on O9 and S5's note and the question
-    whether any earns a row is reported for M.  d66_index3_faults checks that
-    no index3.py row cites docket66/.
+  H-NO-D66-ROW (a named reading, not a fact): index3.py gains no row.  Read
+    this way, DOCKET 66's answer is (0, 0, 0) in the house reading -- it
+    removes nothing (Y = 0, asked: no D66 literal load-bearing in any removal
+    or non-binding) and identifies no warp energy (X = 0); Z = 0 is the
+    reading itself, which counts as "its own" only a requirement on a route
+    the docket shows, and a null cell is not a finding.  Its owners DO state
+    requirements in numbers -- A2's throat at the A/4 ceiling (r_fit and
+    M_sat, IF {H-CAP-AT-THROAT, H-NECK-DOGMA, H-COUNT-IS-ENTROPY}; no encoding
+    at that density constructed or READ), A3's QET injection bound, MMP's N_f
+    -- each a price of an OPEN or LEFT route.  They are kept on O9 and S5's
+    note by M's precedent for the vacuum route (M-RULINGS-2026-10-03.md item
+    18, "No, keep on O9 (Recommended)") -- a precedent, not a ruling on DOCKET
+    66 -- and whether any earns a row (which could read Z = +1) is put to M;
+    no cell moves unless M rules.  d66_index3_faults checks that no index3.py
+    row cites docket66/.  CORRECTED (R-seat, from D66-repro's FIX-SEAT-RESULT
+    result.v): first written 'states no requirement in numbers of its own
+    (Z = 0)' as a fact, followed by the requirements its owners state in
+    numbers -- two sentences that contradicted each other.
   H-LEDGER-DEPS grows: docket66/'s owners need z3, numpy and scipy, and use
     sympy at call time.  Without them the import fails; nothing is skipped
     silently.
@@ -574,6 +592,69 @@ NAMED LIMITATIONS OF THIS SEATING (DOCKET 66), beside sections 7's and 7b's.
     what DOCKET 66 bears on there is reported for M), specthm.py (no class
     verdict moved: A1's gauge monopole joins S-1, already NONEMPTY), the
     docket66/ owners, docket68/combine.py.
+
+===============================================================================
+8b.  M'S DOCKET 66 RULINGS (M-RULINGS-2026-10-03.md items 26-28), AS SEATED
+===============================================================================
+
+M ruled three DOCKET 66 questions on 2026-10-04; the rulings file holds them
+verbatim (items 26-28).  The paper's correction was applied by the lead
+(paper/CLAIMS.md, under a DOCKET 66 head); items 27 and 28 by R-apply, in
+docket66/defects.py and spec.py's PART 2 note (27) and docket68/combine.py
+(28).  This is their seating, in DOCKET 68's form; every value is ASKED of its
+owner at run time.
+
+  RULED_BY_M  + M-D68-26, M-D68-27, M-D68-28, appended to D68_RULED (the ids
+       follow the item number, as M-D68-12..16 do; specthm places D68_RULED's
+       rows, so no specthm edit is needed to place them).  M's words held in
+       D68_M_WORDS and checked against the rulings file;
+       the question and the file's own 'applied' sentence held in
+       D66_RULING_QUESTIONS and D66_RULING_CARRIED (the file's words, NOT
+       M's) and checked the same way (D68_INLINE_QUOTES).
+       M-D68-26 ("Correct it (Recommended)"): what was applied is the paper's
+       marked line, READ back by paper_d66_marker() from M's words in its
+       DOCKET 66 head (PAPER_D66_MARKER_HEAD_RE, read as DOCKET 67's and 68's
+       are), never typed; the paper's figures are compared with defects.py's
+       (gott_gamma_needed at the Planck bounds) and its first wording with
+       item 26's, number by number.  No board status moves.
+       M-D68-27 ("Any crossing"): H-TURN-CROSSING adopted, H-TURN-CONJUGATE
+       kept as the alternative on record (defects.TURN_RULING, asked); the
+       straight string TURNs at a computed range (defects.string_turn).  The
+       question O9's DOCKET 66 answer carried for M since D66 wave 1 is kept
+       there and in the row as FIRST RECORDED (d66_turn_question, history).
+       No specthm class verdict moves: its seat classes are defined by the
+       literals wl and ball (specthm_seat_class_literals, READ from source:
+       specthm imports this file), so specthm.py is not edited.
+       M-D68-28 ("Re-grade D68 (Recommended)"): combine.py's O-MAKE-TOPO reads
+       OPEN via N_WNCC where a geometric throat is possible -- asked on the
+       board alone, RQ, ITJ, ITB and ITB with RQ -- never removed; D68 wave
+       2's LEFT kept as combine's history mutation d68w2-topo, asked; the
+       census over every variant READ from docket68/B-combine.md section 0
+       (D68_TOPO_CENSUS), combine66's side READ from B-combine66.md
+       (D66_TOPO_READ).
+  O9   still OPEN; no grade moved.  DOCKET 68's answer gains the re-graded
+       O-MAKE-TOPO and the adopted TURN reading (asked); DOCKET 66's part
+       says the D68 board is re-graded, with section 8's 'RECORDED FOR THE
+       D68 BOARD, NOT REPAIRED' kept after it as FIRST SAID (its combine.py
+       verdicts re-asked of d68w2-topo); DOCKET 66's answer says the TURN
+       reading is ruled, the question kept after it.
+  THE PAPER-MARKER CENSUS  paper_docket_markers() READs the DOCKET 66 token at
+       the corrected line as naming M's ruling (M's quoted words before the
+       token); the selftest ties that to PAPER_D66_MARKER_HEAD_RE, as for
+       DOCKET 67 and 68, with a control that strips M's words in a private
+       copy of the paper.
+  QUOTATIONS  CORRECTED (R-seat, from D66-repro's FIX-SEAT-RESULT result.v):
+       'with M's throat-compression mechanism' is the ledger's wording in the
+       M-S1A-P3 cell; the charter now attributes it to the ledger
+       (d66_charter_attribution_faults READs that), d66_charter_quote_faults
+       still checks it verbatim, and d66_quote_faults no longer accepts it as
+       M's words (D66_CHARTER_LEDGER_WORDS).  First held among M's
+       quotations, labelled '(the ledger's words)'.
+  index3.py  no row added and no cell moved; the comment above
+       FINDINGS_AS_OF_DOCKET67_CLOSE states H-NO-D66-ROW as a reading (its
+       first wording kept), as section 8 now does.
+  Not edited by this seating: paper/CLAIMS.md (the lead applied item 26),
+    specthm.py (no class verdict moved), the docket66/ and docket68/ owners.
 """
 
 import contextlib
@@ -1894,6 +1975,9 @@ def _d66_string_crossing_only():
 #: DOCKET 66'S QUESTION FOR M (recorded, not applied): spec.py's 'TURN'.  The
 #: question is A1's (defects.HYPOTHESES H-TURN-CONJUGATE / H-TURN-CROSSING),
 #: carried as 'for M' since wave 1 and by D66-fix; the values are asked.
+#: RULED since (M-RULINGS item 27, M: "Any crossing"; the row M-D68-27): kept
+#: as HISTORY, printed as FIRST RECORDED in M-D68-27's row and after the
+#: ruling in O9's DOCKET 66 answer; its values are still asked.
 def d66_turn_question():
     """(question, why, proposed, waiting on it) for the TURN question, every value
     asked of defects.py."""
@@ -2082,7 +2166,8 @@ OPENED_FROM_WAITING = [
 #: DOCKET 66's question for M (spec.py's 'TURN', d66_turn_question) is NOT
 #: seated here: specthm.py pins pending_rulings() empty and is not edited by
 #: DOCKET 66's seating (no class verdict moved), so the question is carried in
-#: O9's DOCKET 66 answer and reported for M (docstring section 8).
+#: O9's DOCKET 66 answer and reported for M (docstring section 8).  M has since
+#: ruled it (M-D68-27, "Any crossing"); it was never pending here.
 PENDING_RULINGS = []
 
 #: M'S OWN WORDS FOR DOCKET 65's RULINGS, each held ONCE and interpolated into
@@ -2655,6 +2740,52 @@ def paper_d68_marker(words, lines=None):
     return None, "MARKER NOT FOUND -- no DOCKET 68 marker head carries M's words %s" % words
 
 
+#: The head of the paper's DOCKET 66 markers, read as DOCKET 67's and 68's are
+#: (group 1 is M's quoted words).  ADDED with M-D68-26 (M-RULINGS-2026-10-03.md
+#: item 26, one of M's DOCKET 66 rulings: "Correct it (Recommended)" on the
+#: paper's Gott pair bound), whose correction the lead applied in
+#: paper/CLAIMS.md under this head.  The census (paper_docket_markers) already
+#: READs the token as naming a ruling by M's quoted words before it
+#: (PAPER_M_QUOTED_RULING_RE); this head ties that reading to the marker, as
+#: PAPER_D68_MARKER_HEAD_RE does for DOCKET 68, and the selftest's control
+#: strips M's words from it in a private copy.
+PAPER_D66_MARKER_HEAD_RE = re.compile(r"\(Corrected on M's \"([^\"]+)\", DOCKET 66:")
+
+
+def paper_d66_words(lines=None):
+    """M's quoted words in the paper's DOCKET 66 marker heads, in order of
+    first appearance, READ by PAPER_D66_MARKER_HEAD_RE."""
+    lines = _paper_lines() if lines is None else lines
+    out = []
+    for line in lines:
+        for m in PAPER_D66_MARKER_HEAD_RE.finditer(line):
+            if m.group(1) not in out:
+                out.append(m.group(1))
+    return out
+
+
+def paper_d66_marker(words, lines=None):
+    """(line, marker text) of the paper's DOCKET 66 marker whose head carries
+    M's `words`, READ from paper/CLAIMS.md exactly as paper_d68_marker() reads
+    DOCKET 68's.  (None, 'MARKER NOT FOUND ...') if no head carries them."""
+    lines = _paper_lines() if lines is None else lines
+    for i, line in enumerate(lines, 1):
+        for m in PAPER_D66_MARKER_HEAD_RE.finditer(line):
+            if m.group(1) == words:
+                pos = line.index("DOCKET 66", m.start())
+                return i, " ".join(_marker_text(lines, i, pos).split())
+    return None, "MARKER NOT FOUND -- no DOCKET 66 marker head carries M's words %s" % words
+
+
+def paper_d66_first_wording(words, lines=None):
+    """The paper's own first wording inside its DOCKET 66 marker ('first
+    written "..."'), READ from the marker paper_d66_marker() returns; None if
+    the marker or the phrase is not there."""
+    _line, text = paper_d66_marker(words, lines)
+    m = re.search(r'first written "([^"]+)"', text)
+    return m.group(1) if m and _line is not None else None
+
+
 def m_d65_4_ruling():
     """M-D65-4's ruling cell: M_D65_4_RULING_T filled from M's answer, the
     caveat's line and clause, M's rule for the paper and the DOCKET 63 marker
@@ -3085,7 +3216,44 @@ D68_M_WORDS = {
     # item 14, which records the question and answer verbatim.  C12, not C9:
     # M-D68-C9 is the charter's carried H-IT instruction (D68_CARRIED_WORDS).
     "M-D68-C12": ("Record it (Recommended)", D68_RULINGS_FILE),
+    # ADDED (D66-seat of M's DOCKET 66 rulings, R-seat): items 26-28 of the
+    # same rulings file, under its heading 'DOCKET 66 rulings (2026-10-04)'.
+    # The ids follow the item number, as M-D68-12..16 do: the file is
+    # DOCKET 68's rulings file and items 26-28 are held there.  Item 26's words
+    # are the same as item 12's ("Correct it (Recommended)"); each is held
+    # under its own id and each paper marker is READ by its own docket head.
+    "M-D68-26": ("Correct it (Recommended)", D68_RULINGS_FILE),
+    "M-D68-27": ("Any crossing", D68_RULINGS_FILE),
+    "M-D68-28": ("Re-grade D68 (Recommended)", D68_RULINGS_FILE),
 }
+
+#: THE QUESTIONS PUT TO M FOR M'S DOCKET 66 RULINGS (items 26-28), as the
+#: rulings file records them (the file's words, held once, checked against it
+#: through D68_INLINE_QUOTES), and what the file records as applied for each --
+#: the file's words, NOT M's (M's are D68_M_WORDS only).
+D66_RULING_QUESTIONS = {
+    "M-D68-26": ("Asked whether to replace 'gamma > 1.33e5 at the bound G mu <~ 6e-7' with the "
+                 "Planck 2013 bound READ at source (G mu/c^2 < 1.5e-7, giving gamma > 5.3e5)"),
+    "M-D68-27": "Asked whether TURN means a genuine conjugate point or any crossing of light paths",
+    "M-D68-28": ("Asked whether to apply M-S1A-P3 ('a singular throat is not disqualified'; throat "
+                 "creation stays OPEN) in D68's combine.py too"),
+}
+D66_RULING_CARRIED = {
+    "M-D68-26": "Applied under a marked note.",
+    "M-D68-27": ("H-TURN-CROSSING is adopted; the straight cosmic string TURNs (rays cross "
+                 "without focusing)."),
+    "M-D68-28": ("O-MAKE-TOPO reads OPEN via N_WNCC in D68's board-context variants as in D66's; "
+                 "history kept."),
+}
+#: The paper's first wording as item 26 quotes it (ASCII); the paper's own
+#: marker quotes the same first wording in its own typography, READ back by
+#: paper_d66_first_wording() and compared number by number in the selftest.
+D66_PAPER_FIRST_WORDING = "gamma > 1.33e5 at the bound G mu <~ 6e-7"
+#: The same first wording as the paper's DOCKET 66 marker prints it, held and
+#: checked against paper/CLAIMS.md (D68_INLINE_QUOTES): the paper's words, not
+#: M's and not the rulings file's, so it is declared in D68_NOT_QUOTES too.
+D66_PAPER_FIRST_WORDING_AS_PRINTED = "`γ > 1.33e5` at the bound `Gμ ≲ 6e−7`"
+PAPER_FILE = os.path.join(HERE, "paper", "CLAIMS.md")
 
 #: THE QUESTION PUT TO M FOR M-D68-C12, verbatim, as M-RULINGS-2026-10-03.md
 #: item 14 records it -- held once, checked against that file like M's words
@@ -3334,6 +3502,151 @@ def d68_w2_routes():
 
 
 _SEAT = d68_uniform("O-SEAT")
+
+
+# ----- M's DOCKET 66 rulings (M-RULINGS-2026-10-03.md items 26-28) ----------
+# Seated as rows of D68_RULED (the rulings file is DOCKET 68's, and specthm
+# places D68_RULED's rows), every value ASKED of its owner: the paper's marked
+# line READ back (item 26), defects.py and spec.py (item 27), combine.py and
+# its history mutation 'd68w2-topo' (item 28).  Docstring section 8b.
+
+#: D68 wave 2's O-MAKE-TOPO encoding, kept by combine.py as the history
+#: mutation 'd68w2-topo' (M-RULINGS item 28: 'history kept'), asked on the
+#: variants M-D68-28's cell prints beside the adopted screen's.
+D68_SCREEN_TOPO_W2 = combine.Screen(mutate=("d68w2-topo",))
+D68_TOPO_W2_ASKED = dict((k, D68_SCREEN_TOPO_W2.variant(set(p))) for k, p in D68_VARIANTS
+                         if k in ("the board alone", "R-QUANTUM alone (RQ)",
+                                  "H-IT as Jacobson emergent gravity (ITJ)",
+                                  "ITB with R-QUANTUM (ITB+RQ)",
+                                  "H-IT as an information layer (ITB)"))
+#: docket68/B-combine.md, combine.py's own report of its full screen, READ for
+#: the census of M-D68-28's re-grade (never retyped): its section 0
+#: (D66-RULINGS) table.
+D68_B_FILE = os.path.join(D68_DIR, "B-combine.md")
+D68_TOPO_CENSUS_PATTERNS = (
+    ("moved", r"LEFT in ([\d,]+) of ([\d,]+) at 1 ly \(board alone included\) and ([\d,]+) of "
+              r"([\d,]+) at 1 AU; NOT-BOUND-IF with removal OPEN via N_ILFREE in ([\d,]+) / ([\d,]+)"),
+    ("contexts", r"\*\*the same (\d+)\*\* of its (\d+) contexts move LEFT -> OPEN via N_WNCC here: "
+                 r"([^|;]+?)(?:;| \|)"),
+    ("drift", r"Drift: \*\*(\d+) of (\d+) agree\*\*"),
+)
+
+
+def d68_topo_census_read(path=None):
+    """{key: groups} READ from docket68/B-combine.md's section 0 (D66-RULINGS);
+    raises if the owner's report no longer states a figure M-D68-28's cell
+    cites (a stale seat is a failure)."""
+    with open(D68_B_FILE if path is None else path, encoding="utf-8") as fh:
+        t = " ".join(fh.read().split())
+    out = {}
+    for key, pat in D68_TOPO_CENSUS_PATTERNS:
+        m = re.search(pat, t)
+        if not m:
+            raise ValueError("B-combine.md no longer states %r -- the M-D68-28 seat is stale" % key)
+        out[key] = m.groups()
+    return out
+
+
+D68_TOPO_CENSUS = d68_topo_census_read()
+
+#: docket66/B-combine66.md READ for the same re-grade from combine66's side:
+#: how many rows combine's history encoding d68w2-topo moves back (and how many
+#: of them context-only), and how many singok-board now moves.
+D66_TOPO_PATTERNS = (
+    ("d68w2-topo", r"\| \*\*d68w2-topo\*\* \(R-apply: D68 wave 2's O-MAKE-TOPO encoding, "
+                   r"combine's history mutation\) \| (\d+), of which (\d+) context-only \|"),
+    ("singok-board", r"\| \*\*singok-board\*\* \(M's ruling reaching every geometric throat, "
+                     r"D68's included\) \| \*\*(\d+)\*\*"),
+)
+
+
+def d66_topo_read(path=None):
+    """{key: groups} READ from B-combine66.md's readings table; raises if the
+    owner's report no longer states them."""
+    with open(D66_B_FILE if path is None else path, encoding="utf-8") as fh:
+        t = " ".join(fh.read().split())
+    out = {}
+    for key, pat in D66_TOPO_PATTERNS:
+        m = re.search(pat, t)
+        if not m:
+            raise ValueError("B-combine66.md no longer states %r -- the M-D68-28 seat is stale" % key)
+        out[key] = m.groups()
+    return out
+
+
+D66_TOPO_READ = d66_topo_read()
+
+
+def specthm_seat_class_literals(path=None):
+    """{S class id: [literal names]} READ from specthm.py's source (the class
+    table's '"id": "S-n", "object": "S", "space": "S", "lits": {...}'
+    entries) -- read, not imported: specthm imports this file."""
+    path = os.path.join(HERE, "specthm.py") if path is None else path
+    with open(path, encoding="utf-8") as fh:
+        src = fh.read()
+    out = {}
+    for m in re.finditer(r'\{"id": "(S-\d+)", "object": "S", "space": "S", "lits": \{([^}]*)\}', src):
+        out[m.group(1)] = sorted(re.findall(r'"(\w+)":', m.group(2)))
+    return out
+
+
+def spec_turn_note():
+    """spec.py's PART 2 RULED note on item 27, READ from its docstring: the
+    sentence that opens 'RULED (M, 2026-10-04; ...item 27)' up to its first
+    full stop after the citation; None if spec.py no longer carries it."""
+    import spec
+    d = " ".join(spec.__doc__.split())
+    m = re.search(r"(RULED \(M, 2026-10-04; docket68/M-RULINGS-2026-10-03\.md item 27\)\.)", d)
+    return m.group(1) if m else None
+
+
+def d66_turn_figures():
+    """M-D68-27's figures, asked of defects.py: the ruling it records
+    (TURN_RULING), and the straight string at the Planck Nambu-Goto bound with
+    b = R_sun under both readings (string_turn)."""
+    import spec
+    sun = [x for x in spec.LENSES if x[0] == "Sun"][0]
+    st = defects.string_turn(defects.PLANCK_NG_GMU, sun[2])
+    return {"ruling": defects.TURN_RULING, "string": st, "AU": spec.AU,
+            "L AU": st["crossing L"] / spec.AU,
+            "L AU (line intersection)": st["crossing L (line intersection)"] / spec.AU}
+
+
+D66_TURN = d66_turn_figures()
+
+
+def _d68_g2(x):
+    """5.3e5, as the paper prints Gott's gamma: two significant figures."""
+    m, e = ("%.1e" % x).split("e")
+    return "%se%d" % (m, int(e))
+
+
+#: The owners' Gott figures item 26 bears on, asked of defects.py: the Lorentz
+#: factor Gott's pair needs at the Planck 2013 Nambu-Goto and Abelian-Higgs
+#: bounds (gott_gamma_needed, CFG94 eq.(32)).
+D66_GOTT = {"NG": (defects.PLANCK_NG_GMU, defects.gott_gamma_needed(defects.PLANCK_NG_GMU)),
+            "AH": (defects.PLANCK_AH_GMU, defects.gott_gamma_needed(defects.PLANCK_AH_GMU))}
+
+
+def _paper_e(x):
+    """1.5e−7, as the paper prints a bound (two figures, a true minus)."""
+    m, e = ("%.1e" % x).split("e")
+    return "%se%s%d" % (m, "\u2212" if int(e) < 0 else "", abs(int(e)))
+
+
+def d66_paper_gott_figures(lines=None):
+    """[(figure, found)] -- defects.py's Gott figures (gamma at the Planck
+    Nambu-Goto and Abelian-Higgs bounds, and the bounds themselves) as the
+    paper prints them, each looked for in the paper's line that carries the
+    DOCKET 66 marker (READ); [] if the marker is not found."""
+    lines = _paper_lines() if lines is None else lines
+    ln, _t = paper_d66_marker(D68_M_WORDS["M-D68-26"][0], lines)
+    if ln is None:
+        return []
+    line = lines[ln - 1]
+    figs = ["\u03b3 > %s" % _d68_g2(D66_GOTT["NG"][1]), _paper_e(D66_GOTT["NG"][0]),
+            "\u03b3 > %s" % _d68_g2(D66_GOTT["AH"][1]), _paper_e(D66_GOTT["AH"][0])]
+    return [(f, f in line) for f in figs]
 
 D68_RULED = [
     ("M-D68-1",
@@ -3613,6 +3926,108 @@ D68_RULED = [
                    "ER_EPR_FOOTNOTE_1 whole", "ER_EPR_PARTICLE_PAIR_FORM_IS_SPECULATION",
                    "ENTANGLED_BRIDGE_IS_TRAVERSABLE")) + D68_P1_AS_FIRST_RECORDED)),
      "emtension.py's citation; combine.py's board flag reads the same value, unchanged"),
+    # ADDED (R-seat): M's DOCKET 66 rulings, items 26-28 of the rulings file,
+    # each with M's words verbatim (D68_M_WORDS), the question as the file
+    # records it (D66_RULING_QUESTIONS) and what was applied ASKED of the
+    # owner -- item 26 the paper's marked line READ back from M's words in
+    # its DOCKET 66 head, as M-D68-12 and M-D68-13 read theirs.
+    ("M-D68-26",
+     "Paper, CLAIMS.md 1630-1631, the Gott pair bound (M-RULINGS-2026-10-03.md item 26, one of "
+     "M's DOCKET 66 rulings, 2026-10-04, as the file records it): \"%s\""
+     % D66_RULING_QUESTIONS["M-D68-26"],
+     "DOCKET 66's A1 READ the Planck 2013 bound at source (defects.SOURCES['PLANCK13'], %s; "
+     "route: %s): G mu/c^2 < %s for Nambu-Goto strings and %s for Abelian-Higgs, where Gott's "
+     "pair needs gamma > 1/sin(4 pi G mu) = %s and %s (defects.gott_gamma_needed, CFG94 "
+     "eq.(32), asked); the paper printed a looser bound than the one read and a lower gamma"
+     % (defects.SOURCES["PLANCK13"][0], defects.SOURCES["PLANCK13"][1],
+        D66_GOTT["NG"][0], D66_GOTT["AH"][0], _d68_g2(D66_GOTT["NG"][1]),
+        _d68_g2(D66_GOTT["AH"][1])),
+     _d68_rule("CORRECT IT", "M-D68-26",
+               "the paper's marked line, READ back: paper/CLAIMS.md:%s carries %s -- the "
+               "line prints defects.py's figures, each looked for (%s), its first figures kept "
+               "under the marker; the rulings file records it as \"%s\"  No board status moves"
+               % (paper_d66_marker(D68_M_WORDS["M-D68-26"][0])
+                  + ("; ".join("%s: %s" % fx for fx in d66_paper_gott_figures()),
+                     D66_RULING_CARRIED["M-D68-26"]))),
+     "the paper's Gott pair bound; nothing on this board"),
+    ("M-D68-27",
+     "spec.py's TURN (M-RULINGS-2026-10-03.md item 27, one of M's DOCKET 66 rulings, "
+     "2026-10-04, as the file records it): \"%s\".  FIRST RECORDED AS A QUESTION FOR M, kept "
+     "(O9's DOCKET 66 answer since D66 wave 1, as A1 put it): %s"
+     % (D66_RULING_QUESTIONS["M-D68-27"], d66_turn_question()[0]),
+     d66_turn_question()[1],
+     _d68_rule("ANY CROSSING: H-TURN-CROSSING", "M-D68-27",
+               "applied in docket66/defects.py (defects.TURN_RULING, asked: adopted %s, %s kept "
+               "as the alternative on record; the two readings' definitions unchanged).  The "
+               "straight string TURNs: two rays at b = R_sun on opposite sides of a string at "
+               "the Planck Nambu-Goto bound cross at L = b/tan(4 pi G mu) = %.0f AU "
+               "(defects.string_turn, asked; under %s the string has %s -- no conjugate point); "
+               "the global and gauge monopoles TURN under either reading, as before.  spec.py "
+               "carries the ruling as a note in its PART 2 (READ: %s), no constant or check "
+               "changed.  No specthm class verdict moves: its seat classes are defined by the "
+               "literals %s only (READ from specthm.py's source), none naming a turn, so a "
+               "string seat stays a candidate of the class it was, now with a TURN at a "
+               "computed range; specthm.py is not edited.  The rulings file records: \"%s\"  "
+               "No board status moves"
+               % (D66_TURN["ruling"]["adopted"], D66_TURN["ruling"]["alternative on record"],
+                  D66_TURN["L AU"], D66_TURN["ruling"]["alternative on record"],
+                  D66_TURN["string"][D66_TURN["ruling"]["alternative on record"]][0],
+                  spec_turn_note(),
+                  ", ".join(sorted(set(x for v in specthm_seat_class_literals().values()
+                                       for x in v))),
+                  D66_RULING_CARRIED["M-D68-27"])),
+     "A1's string grade (a TURN at a computed range); nothing on this board.  FIRST SAID, as "
+     "the question stood: %s" % d66_turn_question()[3]),
+    ("M-D68-28",
+     "Re-grading D68 on the singular-throat ruling (M-RULINGS-2026-10-03.md item 28, one of "
+     "M's DOCKET 66 rulings, 2026-10-04, as the file records it): \"%s\""
+     % D66_RULING_QUESTIONS["M-D68-28"],
+     "DOCKET 66's combine66 applied M-S1A-P3 to every D66 geometric throat; read as a board "
+     "ruling (its reading singok-board) it moved D68's O-MAKE-TOPO LEFT -> OPEN via N_WNCC in "
+     "%s variants, %s of them context-only (B-combine66.md, READ: combine's history encoding "
+     "d68w2-topo now moves back exactly those) -- the contexts D68's own census names as %s "
+     "(B-combine.md, READ); combine66 could not change D68's rows (its conservative-extension "
+     "rule), so the board printed both"
+     % (D66_TOPO_READ["d68w2-topo"][0], D66_TOPO_READ["d68w2-topo"][1],
+        D68_TOPO_CENSUS["contexts"][2]),
+     _d68_rule("RE-GRADE D68", "M-D68-28",
+               "applied in docket68/combine.py (R-apply): DEF-TOPO gains THROAT & N_WNCC, "
+               "N_WNCC an OPEN pathway never assumed in a removal (in combine.OPEN_NAMED: %s).  "
+               "Asked of combine.Screen: O-MAKE-TOPO on the board alone %s; with RQ %s; under "
+               "ITJ %s; ITB with RQ %s; under ITB %s -- never removed.  The census over every "
+               "consistent variant is combine's own run (B-combine.md section 0, READ): %s of %s "
+               "at 1 ly and %s of %s at 1 AU move LEFT -> OPEN via N_WNCC, and N_WNCC joins the "
+               "removal's via list in the %s / %s NOT-BOUND-IF rows; of combine66's 32 "
+               "contexts the same %s move (%s); drift %s of %s agree.  combine66's singok-board "
+               "now moves %s rows (B-combine66.md, READ) and agrees with combine.py on the board "
+               "alone (%s) and with RQ (%s), asked.  "
+               "HISTORY KEPT: D68 wave 2's encoding is combine's history mutation d68w2-topo, "
+               "asked: the board alone %s, RQ %s, ITJ %s (wave 2 printed ITJ's as LEFT, "
+               "Geroch binding).  "
+               "The rulings file records: \"%s\"  No headline, clash, support, account or "
+               "survivor moves"
+               % ("N_WNCC" in combine.OPEN_NAMED,
+                  d68_asked("the board alone", "O-MAKE-TOPO"),
+                  d68_asked("R-QUANTUM alone (RQ)", "O-MAKE-TOPO"),
+                  d68_asked("H-IT as Jacobson emergent gravity (ITJ)", "O-MAKE-TOPO"),
+                  d68_asked("ITB with R-QUANTUM (ITB+RQ)", "O-MAKE-TOPO"),
+                  d68_asked("H-IT as an information layer (ITB)", "O-MAKE-TOPO"),
+                  D68_TOPO_CENSUS["moved"][0], D68_TOPO_CENSUS["moved"][1],
+                  D68_TOPO_CENSUS["moved"][2], D68_TOPO_CENSUS["moved"][3],
+                  D68_TOPO_CENSUS["moved"][4], D68_TOPO_CENSUS["moved"][5],
+                  D68_TOPO_CENSUS["contexts"][0], D68_TOPO_CENSUS["contexts"][2],
+                  D68_TOPO_CENSUS["drift"][0], D68_TOPO_CENSUS["drift"][1],
+                  D66_TOPO_READ["singok-board"][0],
+                  d66_asked("singok-board on the board alone", "O-MAKE-TOPO", reading=True),
+                  d66_asked("singok-board with RQ", "O-MAKE-TOPO", reading=True),
+                  d68_verdict(D68_TOPO_W2_ASKED["the board alone"]["per"]["O-MAKE-TOPO"]),
+                  d68_verdict(D68_TOPO_W2_ASKED["R-QUANTUM alone (RQ)"]["per"]["O-MAKE-TOPO"]),
+                  d68_verdict(D68_TOPO_W2_ASKED["H-IT as Jacobson emergent gravity (ITJ)"]
+                              ["per"]["O-MAKE-TOPO"]),
+                  D66_RULING_CARRIED["M-D68-28"])),
+     "O9's O-MAKE-TOPO in D68's variants: what would answer it is N_WNCC, specthm's throat-"
+     "creation class W-create-ncc shown nonempty (combine.OPEN_NAMED); nothing else on this "
+     "board"),
 ]
 
 RULED_BY_M += D68_RULED
@@ -4460,6 +4875,25 @@ D68_INLINE_QUOTES = {
                                                       D68_RULINGS_FILE),
     "M-D68-12: the paper's first wording, as item 12 quotes it": (D68_PAPER_FIRST_WORDING,
                                                                   D68_RULINGS_FILE),
+    # ADDED (R-seat): M's DOCKET 66 rulings, items 26-28 -- the questions and
+    # what the file records as applied (the file's words, not M's), and the
+    # paper's first wording, as item 26 quotes it and as the paper prints it.
+    "M-D68-26: the question, as item 26 records it": (D66_RULING_QUESTIONS["M-D68-26"],
+                                                      D68_RULINGS_FILE),
+    "M-D68-27: the question, as item 27 records it": (D66_RULING_QUESTIONS["M-D68-27"],
+                                                      D68_RULINGS_FILE),
+    "M-D68-28: the question, as item 28 records it": (D66_RULING_QUESTIONS["M-D68-28"],
+                                                      D68_RULINGS_FILE),
+    "M-D68-26: what the file records as applied": (D66_RULING_CARRIED["M-D68-26"],
+                                                   D68_RULINGS_FILE),
+    "M-D68-27: what the file records as applied": (D66_RULING_CARRIED["M-D68-27"],
+                                                   D68_RULINGS_FILE),
+    "M-D68-28: what the file records as applied": (D66_RULING_CARRIED["M-D68-28"],
+                                                   D68_RULINGS_FILE),
+    "M-D68-26: the paper's first wording, as item 26 quotes it": (D66_PAPER_FIRST_WORDING,
+                                                                  D68_RULINGS_FILE),
+    "M-D68-26: the paper's first wording, as its DOCKET 66 marker prints it": (
+        D66_PAPER_FIRST_WORDING_AS_PRINTED, PAPER_FILE),
 }
 
 
@@ -4475,6 +4909,11 @@ D68_NOT_QUOTES = {
     "every wave-2 reading of outside art, each with its route": "the wave-2 seat's own "
                                                                 "wording (M-D68-16), "
                                                                 "printed as history",
+    # ADDED (R-seat): the paper's first wording inside its DOCKET 66 marker,
+    # which M-D68-26's cell prints READ back -- the paper's words (held and
+    # checked against paper/CLAIMS.md), not the charter's or the rulings file's.
+    D66_PAPER_FIRST_WORDING_AS_PRINTED: "the paper's own first wording inside its DOCKET 66 "
+                                        "marker (M-D68-26), READ back from paper/CLAIMS.md",
 }
 
 
@@ -4688,11 +5127,24 @@ O9_ANSWERED_BY = (
     "aperture, accessible mass and the aperture, E_fab and m_set (S5's supply).  "
     "Beyond: a measured state-dependent drift with a preferred slicing (W2 x F1's "
     "premises shown or refuted); a CTC at Bob shown (N_DCTC); a READ source for "
-    "what a non-geometric corridor costs (N_QTOPO, N_ILFREE).  O9 CLOSES only if "
+    "what a non-geometric corridor costs (N_QTOPO, N_ILFREE).  ON M'S DOCKET 66 "
+    "RULINGS: O-MAKE-TOPO is re-graded on M-D68-28 (%s) -- on the board alone %s, "
+    "with RQ %s, under ITJ %s, and under ITB %s, never removed (combine.py, asked); "
+    "what would answer it is N_WNCC, specthm's throat-creation class W-create-ncc "
+    "shown nonempty (combine.OPEN_NAMED), and D68 wave 2's LEFT is combine's history "
+    "encoding d68w2-topo (the board alone %s, asked).  spec.py's TURN reads any "
+    "crossing on M-D68-27 (%s: %s adopted, defects.TURN_RULING, asked); it moves no "
+    "D68 obstruction.  O9 CLOSES only if "
     "a member removes O-BITS with no named premise (OPEN_ROW_READINGS).  WAVE 1 "
     "FIRST SAID (kept): %s"
     % ("N_WREAD" in combine.HISTORY_OPEN, "N_VAC" in combine.HISTORY_OPEN,
-       ", ".join(d68_vac_grade()[1]), D68_SEAT["binder"][0], O9_ANSWERED_BY_AS_WAVE1))
+       ", ".join(d68_vac_grade()[1]), D68_SEAT["binder"][0],
+       d68_words("M-D68-28"), d68_asked("the board alone", "O-MAKE-TOPO"),
+       d68_asked("R-QUANTUM alone (RQ)", "O-MAKE-TOPO"),
+       d68_asked("H-IT as Jacobson emergent gravity (ITJ)", "O-MAKE-TOPO"),
+       d68_asked("H-IT as an information layer (ITB)", "O-MAKE-TOPO"),
+       d68_verdict(D68_TOPO_W2_ASKED["the board alone"]["per"]["O-MAKE-TOPO"]),
+       d68_words("M-D68-27"), D66_TURN["ruling"]["adopted"], O9_ANSWERED_BY_AS_WAVE1))
 
 
 
@@ -4739,7 +5191,15 @@ def d66_o9_part():
         "(i): %s; the texture %s, with {%s} a premise clash -- under H-SEAT-PERSISTS a "
         "texture is an event, not a seat (A1); VIOLATED in no variant asked, and in no "
         "consistent variant of the full screen (READ).  READING ON RECORD: H-SEAT-ROUTES on a string seat, O-SEAT %s.  "
-        "RECORDED FOR THE D68 BOARD, NOT REPAIRED: M-S1A-P3 read as a board ruling reaching "
+        "THE D68 BOARD, RE-GRADED ON M'S RULING (M-D68-28, %s): M-S1A-P3 now reaches D68's "
+        "own throats in combine.py itself -- the board alone O-MAKE-TOPO %s and with RQ %s "
+        "(combine.py, asked), as combine66's reading singok-board gives (%s; %s), and D68 wave "
+        "2's LEFT is combine's history encoding d68w2-topo (the board alone %s, RQ %s, asked).  "
+        "The moved variants are combine66's census, READ and not asked here: %s moved, %s of "
+        "them context-only (B-combine66.md), the contexts D68's own census names as %s "
+        "(B-combine.md section 0); this board asks the board alone and RQ only.  FIRST SAID "
+        "(D66-seat, kept; its verdicts re-asked of the history encoding): RECORDED FOR THE "
+        "D68 BOARD, NOT REPAIRED: M-S1A-P3 read as a board ruling reaching "
         "D68's own throats (combine66's reading singok-board) gives the board alone "
         "O-MAKE-TOPO %s and with RQ %s, where combine.py gives %s and %s; combine66 cannot "
         "change D68 rows (its conservative-extension rule), and whether combine.py "
@@ -4777,9 +5237,18 @@ def d66_o9_part():
            "; ".join(", ".join(c) for c in
                      D66_ASKED["H-DEFECT-SEAT: texture seat (DTEX)"]["premise_clash_named"]),
            d66_asked("H-SEAT-ROUTES on DSTR", "O-SEAT", reading=True),
+           d68_words("M-D68-28"),
+           d68_asked("the board alone", "O-MAKE-TOPO"), d68_asked("R-QUANTUM alone (RQ)", "O-MAKE-TOPO"),
            d66_asked("singok-board on the board alone", "O-MAKE-TOPO", reading=True),
            d66_asked("singok-board with RQ", "O-MAKE-TOPO", reading=True),
-           d68_asked("the board alone", "O-MAKE-TOPO"), d68_asked("R-QUANTUM alone (RQ)", "O-MAKE-TOPO"),
+           d68_verdict(D68_TOPO_W2_ASKED["the board alone"]["per"]["O-MAKE-TOPO"]),
+           d68_verdict(D68_TOPO_W2_ASKED["R-QUANTUM alone (RQ)"]["per"]["O-MAKE-TOPO"]),
+           D66_TOPO_READ["d68w2-topo"][0], D66_TOPO_READ["d68w2-topo"][1],
+           D68_TOPO_CENSUS["contexts"][2],
+           d66_asked("singok-board on the board alone", "O-MAKE-TOPO", reading=True),
+           d66_asked("singok-board with RQ", "O-MAKE-TOPO", reading=True),
+           d68_verdict(D68_TOPO_W2_ASKED["the board alone"]["per"]["O-MAKE-TOPO"]),
+           d68_verdict(D68_TOPO_W2_ASKED["R-QUANTUM alone (RQ)"]["per"]["O-MAKE-TOPO"]),
            d66_d68_board_agrees() or "none", cons[0], cons[1],
            d66_asked("singok-a2 on DTHR (D66 wave 1's encoding)", "O-MAKE-TOPO", reading=True),
            d66_asked("qet-board-paths on QET (D66 wave 1's encoding)", "O-HOLD", reading=True),
@@ -4797,15 +5266,22 @@ def d66_o9_answer():
         "H-MMP-OOM: its binding energy equals the payload's rest energy only at r_e <= %s m, "
         "below l_P = %s m; at r_fit it needs N_f >= %s to %s massless charged species); for "
         "N_QETHAD, H-QET-HADAMARD's short check, not run; N_QLITNL, arrival-alone energy "
-        "under a non-linear dynamics, a candidate computed nowhere.  FOR M (A1's question since "
-        "D66 wave 1, not seated as pending -- docstring section 8): %s.  Why: %s.  Proposed: %s.  "
-        "Waiting on it: %s.  O9 still CLOSES only on O-BITS with no named premise, in a D68 or "
-        "a D66 variant asked (OPEN_ROW_READINGS)"
+        "under a non-linear dynamics, a candidate computed nowhere.  THE TURN READING, RULED BY "
+        "M (M-D68-27, %s): %s adopted, %s kept as the alternative on record "
+        "(defects.TURN_RULING, asked); the straight string TURNs, its rays crossing at L = %.0f "
+        "AU for b = R_sun at the Planck Nambu-Goto bound (defects.string_turn, asked), and no "
+        "obstruction on this board moves.  FIRST CARRIED HERE AS A QUESTION FOR M (A1's since "
+        "D66 wave 1, not seated as pending; kept): %s.  Why: %s.  Proposed: %s.  Waiting on it: "
+        "%s.  O9 still CLOSES only on O-BITS with no named premise, in a D68 or a D66 variant "
+        "asked (OPEN_ROW_READINGS)"
         % ((", ".join(sorted(combine66.D66_OPEN)),
            _d66_e(mm["MMP binding = payload at r_e (max), l_P"][0]),
            _d66_e(mm["MMP binding = payload at r_e (max), l_P"][1]),
            _d66_e(mm["MMP N_f at r_fit (species count)"][0], 2),
-           _d66_e(mm["MMP N_f at r_fit (species count)"][1], 2)) + d66_turn_question()))
+           _d66_e(mm["MMP N_f at r_fit (species count)"][1], 2),
+           d68_words("M-D68-27"), D66_TURN["ruling"]["adopted"],
+           D66_TURN["ruling"]["alternative on record"], D66_TURN["L AU"])
+           + d66_turn_question()))
 
 
 D66_O9_PART = d66_o9_part()
@@ -5424,14 +5900,20 @@ W_OPEN_CLAIM = 15000              # DOCKET 66: 10000 -> 15000 -- O9 carries its
                                   # message count, with the wave-2 seat's words
                                   # kept (9170 chars as rendered; at 9000 the
                                   # cut-cell check caught it)
-W_OPEN_ANSWER = 4000              # DOCKET 66: 2400 -> 4000 -- O9's answer gains
+W_OPEN_ANSWER = 5000              # DOCKET 66: 2400 -> 4000 -- O9's answer gains
                                   # DOCKET 66's pathways and the TURN question for M
                                   # (measured at the seating; the cut-cell check guards).
                                   # DOCKET 67: O2's answer names its
                                   # conditions (M ruled "Repair all").
                                   # DOCKET 68 wave 2: 1400 -> 2400 -- O9's
                                   # answer names what wave 2 left open and
-                                  # keeps wave 1's answer after it
+                                  # keeps wave 1's answer after it.
+                                  # R-seat (M's DOCKET 66 rulings): 4000 -> 5000
+                                  # -- O9's answer gains the re-graded
+                                  # O-MAKE-TOPO, the adopted TURN reading and the
+                                  # TURN question kept as first carried (4572
+                                  # chars as rendered; at 4000 the cut-cell
+                                  # check caught it)
 W_WAS = 1400
 W_WHY = 1000                      # DOCKET 67: superseded rows carry
                                   # the corrections M ruled ("Repair all")
@@ -5894,6 +6376,43 @@ def _d66_charter_holders():
     }
 
 
+#: CHARTER QUOTATIONS THAT ARE THE LEDGER'S WORDS, NOT M'S (D66-repro,
+#: FIX-SEAT-RESULT result.v): 'with M's throat-compression mechanism' is the
+#: ledger's wording in its M-S1A-P3 ruling cell (it names M in the third
+#: person).  The charter quotes it verbatim from the ledger and, since
+#: R-apply, attributes it to the ledger; it is checked verbatim like the rest
+#: (d66_charter_quote_faults) but is NOT counted among M's quotations, so
+#: d66_quote_faults does not accept it as M's words in a DOCKET 66 cell.  The
+#: seat first held it among M's quotations, labelled '(the ledger's words)'.
+D66_CHARTER_LEDGER_WORDS = ("with M's throat-compression mechanism",)
+#: The charter's attribution of it, READ (R-apply's words in CHARTER.md).
+D66_CHARTER_LEDGER_ATTRIBUTION = ("is attributed to the ledger here and is not one of M's "
+                                  "quotations")
+
+
+def d66_charter_m_quotes(holders=None):
+    """{charter quotation: holder} for M's quotations proper -- the charter's
+    holders less the ledger's own words (D66_CHARTER_LEDGER_WORDS)."""
+    holders = _d66_charter_holders() if holders is None else holders
+    return dict((k, v) for k, v in holders.items() if k not in D66_CHARTER_LEDGER_WORDS)
+
+
+def d66_charter_attribution_faults(charter=None):
+    """[span] of D66_CHARTER_LEDGER_WORDS that docket66/CHARTER.md quotes
+    without attributing it to the ledger (D66_CHARTER_LEDGER_ATTRIBUTION READ
+    in the 400 characters after the quotation)."""
+    if charter is None:
+        with open(D66_CHARTER_FILE, encoding="utf-8") as fh:
+            charter = fh.read()
+    t = " ".join(charter.split())
+    bad = []
+    for sp in D66_CHARTER_LEDGER_WORDS:
+        i = t.find('"%s"' % sp)
+        if i < 0 or D66_CHARTER_LEDGER_ATTRIBUTION not in t[i:i + 400]:
+            bad.append(sp)
+    return bad
+
+
 def d66_charter_quote_faults(charter=None, holders=None):
     """[(span, why)] -- a quotation in docket66/CHARTER.md (every double-quoted
     span, every single-quoted span with a space, and the literature list as
@@ -5951,7 +6470,14 @@ def d66_quote_faults(cells=None):
     neither in docket66/'s own files nor in the ledger's held texts (M's words
     the M-S1A-P3 and M-D65-1 rows quote)."""
     cells = _d66_cells() if cells is None else cells
-    held = " ".join(" ".join(v[1].split()) for v in _d66_charter_holders().values())
+    # M's quotations proper (the ledger's own words excluded -- R-seat), and
+    # M's words for the DOCKET 66 rulings, items 26-28 (D68_M_WORDS).  The
+    # seat first joined every holder's text, the ledger's words included.
+    # Each key is a charter quotation checked verbatim against its holder
+    # (d66_charter_quote_faults); a holder's whole text (a ruling cell) is not
+    # M's words, so the keys, not the holders' texts, are what is accepted.
+    held = " || ".join(list(d66_charter_m_quotes())
+                       + [D68_M_WORDS[k][0] for k in ("M-D68-26", "M-D68-27", "M-D68-28")])
     tree = _d66_tree_text()
     dq = re.compile(r'"([^"]+)"')
     sq = re.compile(r"(?<![A-Za-z])'([^']+ [^']+)'(?![A-Za-z])")
@@ -6387,11 +6913,15 @@ def selftest():
         # RE-PINNED BY DOCKET 68 WAVE 2: + M-D68-15 and M-D68-16 (items 15-16,
         # the retrieval route; 15 superseded by 16, kept as history), seated
         # after M-D68-13.  Item 14 is M-D68-C12.
+        # RE-PINNED WITH M'S DOCKET 66 RULINGS (R-seat): + M-D68-26, M-D68-27
+        # and M-D68-28 (items 26-28: the paper's Gott bound, spec.py's TURN,
+        # re-grading D68), appended to D68_RULED after M-D68-C12.
         (["M-D64-1", "M-S1A-P1", "M-S1A-P2", "M-S1A-P3", "M-S1A-P4",
           "M-S1A-P5", "M-D65-1", "M-D65-2", "M-D65-3", "M-D65-4", "M-D65-5",
           "M-D67-1", "M-D67-2"]
          + ["M-D68-%d" % i for i in list(range(1, 14)) + [15, 16]]
-         + ["M-D68-C%d" % i for i in (1, 2, 3, 5, 8, 12)], [],
+         + ["M-D68-C%d" % i for i in (1, 2, 3, 5, 8, 12)]
+         + ["M-D68-%d" % i for i in (26, 27, 28)], [],
          True, False, False, True, False))
 
     print("\n3. THE EXCHANGE RATE, RE-DERIVED FROM ASKED CONSTANTS")
@@ -7370,7 +7900,29 @@ def selftest():
         # It was first kept out only by a body mention ('DOCKET 68 computed
         # routes') inside the H62d marker, which the lead reworded.  The
         # reading is tied to the heads by the check and control below.
-        (True, [(PAPER_CAVEAT_B_LINE, True)], [True], [True], [63, 65, 68], True, []))
+        # RE-PINNED [63, 65, 68] -> [63, 65, 66, 68] when M-D68-26 was seated
+        # (R-seat): the lead's correction of the Gott bound on M's DOCKET 66
+        # ruling "Correct it (Recommended)" opens a DOCKET 66 marker head
+        # carrying M's words (PAPER_D66_MARKER_HEAD_RE), its token the paper's
+        # only DOCKET 66 token; tied to the head by the check and control below.
+        (True, [(PAPER_CAVEAT_B_LINE, True)], [True], [True], [63, 65, 66, 68], True, []))
+    _d66heads = [i for i, l in enumerate(_paper_lines(), 1) if PAPER_D66_MARKER_HEAD_RE.search(l)]
+    chk("  the paper's DOCKET 66 markers ('(Corrected on M's \"<M's words>\", DOCKET 66: "
+        "...)') are READ as naming M's ruling, exactly those tokens, as DOCKET 67's and 68's "
+        "are; every DOCKET 66 token is such a head, and the head carries M-D68-26's words",
+        (_d66heads, sorted(l for l, r in _pdm.get(66, []) if r),
+         sorted(l for l, _r in _pdm.get(66, [])), paper_d66_words()),
+        (_d66heads, _d66heads, _d66heads, [D68_M_WORDS["M-D68-26"][0]]))
+    _pl66c = [l.replace('M\'s "Correct it (Recommended)", DOCKET 66:', "DOCKET 66:")
+              for l in _paper_lines()]
+    _pdm66c = paper_docket_markers(_pl66c)
+    chk("  CONTROL: M's words stripped from the DOCKET 66 head in a private copy -- that "
+        "token reads as naming no ruling, DOCKET 66 leaves the all-named set, and no "
+        "DOCKET 66 marker is READ for M-D68-26",
+        (sorted(l for l, r in _pdm66c.get(66, []) if not r),
+         66 in [d for d, s_ in _pdm66c.items() if all(r for _l, r in s_)],
+         paper_d66_marker(D68_M_WORDS["M-D68-26"][0], _pl66c)[0]),
+        (_d66heads, False, None))
     _d68heads = [i for i, l in enumerate(_paper_lines(), 1) if PAPER_D68_MARKER_HEAD_RE.search(l)]
     chk("  the paper's DOCKET 68 markers ('(Corrected on M's \"<M's words>\", DOCKET 68: "
         "...)') are READ as naming M's ruling, exactly those tokens, as DOCKET 67's are; "
@@ -7572,12 +8124,28 @@ def selftest():
          [D68_ASKED["clause 2b's D-CTC (F2b)"]["per"][o]["verdict"]
           for o in ("O-LOOP-C", "O-LOOP-S")]),
         (["LEFT", "LEFT"], 2, "member", ["SILENT", "SILENT"]))
+    # RE-PINNED ON M-D68-28 (R-seat; M: "Re-grade D68 (Recommended)"): O-MAKE-TOPO's
+    # removal under ITB is OPEN via N_ILFREE and N_WNCC (combine.py re-graded by
+    # R-apply); first pinned via N_ILFREE alone for both, which combine's history
+    # encoding d68w2-topo still gives (asked in the HISTORY check that follows).
     chk("  under ITB the geometric obstructions are NOT-BOUND-IF, never removed, "
-        "their removal OPEN via N_ILFREE",
+        "their removal OPEN via N_ILFREE -- O-MAKE-TOPO's also via N_WNCC on M-D68-28",
         [(D68_ASKED["H-IT as an information layer (ITB)"]["per"][o]["verdict"],
           D68_ASKED["H-IT as an information layer (ITB)"]["per"][o].get(
               "removal", {}).get("via")) for o in ("O-MAKE-TOPO", "O-HOLD")],
-        [("NOT-BOUND-IF", ["N_ILFREE"])] * 2)
+        [("NOT-BOUND-IF", ["N_ILFREE", "N_WNCC"]), ("NOT-BOUND-IF", ["N_ILFREE"])])
+    _hw = lambda k: D68_TOPO_W2_ASKED[k]["per"]["O-MAKE-TOPO"]
+    chk("  HISTORY (D68 wave 2's encoding, combine's d68w2-topo, asked): under ITB "
+        "O-MAKE-TOPO's removal via N_ILFREE alone; the board alone, RQ, ITJ and ITB+RQ "
+        "LEFT -- what the checks here pinned before M-D68-28, and different from the "
+        "adopted screen's, so the re-pins can fail",
+        (_hw("H-IT as an information layer (ITB)").get("removal", {}).get("via"),
+         [_hw(k)["verdict"] for k in ("the board alone", "R-QUANTUM alone (RQ)",
+                                      "H-IT as Jacobson emergent gravity (ITJ)",
+                                      "ITB with R-QUANTUM (ITB+RQ)")],
+         [D68_ASKED[k]["per"]["O-MAKE-TOPO"] == _hw(k)
+          for k in ("the board alone", "H-IT as Jacobson emergent gravity (ITJ)")]),
+        (["N_ILFREE"], ["LEFT"] * 4, [False, False]))
     _gv = lambda k, o: D68_ASKED[k]["per"][o]
     chk("  the readings O9 first left unasked, ASKED (B-combine.md section 5): KR, ITJ "
         "and RQ give O-HOLD OPEN pathways (N_EPSG; N_EQUIL; N_XI, N_QEIC), ITE gives "
@@ -7599,16 +8167,18 @@ def selftest():
                                          ("REMOVED", "REMOVED-IF")))))),
         ([("OPEN", ["N_EPSG"]), ("OPEN", ["N_EQUIL"]), ("OPEN", ["N_XI", "N_QEIC"])],
          ("NOT-BOUND-IF", [(["ITE"], ["N_MS17"])]), ["LEFT", "LEFT"], []))
+    # RE-PINNED ON M-D68-28 (R-seat): ITB+RQ's O-MAKE-TOPO is OPEN via N_WNCC
+    # (first pinned LEFT, D68 wave 2's, still given by d68w2-topo above).
     chk("  R-QUANTUM beside ITB undoes ITB's non-binding: ITB alone O-HOLD NOT-BOUND-IF, "
-        "ITB+RQ O-HOLD OPEN via N_XI, N_QEIC and O-MAKE-TOPO LEFT; and F1 alone gives "
-        "corridor O-LOOP an alternative member support",
+        "ITB+RQ O-HOLD OPEN via N_XI, N_QEIC and O-MAKE-TOPO OPEN (via N_WNCC, M-D68-28; "
+        "first LEFT); and F1 alone gives corridor O-LOOP an alternative member support",
         (_gv("H-IT as an information layer (ITB)", "O-HOLD")["verdict"],
          (_gv("ITB with R-QUANTUM (ITB+RQ)", "O-HOLD")["verdict"],
           _gv("ITB with R-QUANTUM (ITB+RQ)", "O-HOLD").get("via"),
           _gv("ITB with R-QUANTUM (ITB+RQ)", "O-MAKE-TOPO")["verdict"]),
          (_gv("H-FRAME clause 1 alone (F1)", "O-LOOP-C").get("attribution"),
           [sp["members"] for sp in _gv("H-FRAME clause 1 alone (F1)", "O-LOOP-C")["supports"]])),
-        ("NOT-BOUND-IF", ("OPEN", ["N_XI", "N_QEIC"], "LEFT"),
+        ("NOT-BOUND-IF", ("OPEN", ["N_XI", "N_QEIC"], "OPEN"),
          ("alternative", [[], ["F1"]])))
     chk("  and O9 prints every one of them as asked",
         [k for k, o in (("H-SETTLE-KR alone (KR)", "O-HOLD"), ("W1 x F1", "O-BITS"),
@@ -8064,18 +8634,24 @@ def selftest():
           if r["consistent"] and r["seat"]["verdict"] == "VIOLATED"],
          [D66_ASKED[k]["seat"]["verdict"] for k in D66_DEFECT_SEATS],
          D66_CENSUS["seat violated"]), ([], ["SATISFIED"] * 4, ()))
+    # RE-PINNED ON M-D68-28 (R-seat): singok-board and combine.py now AGREE on
+    # the board alone (OPEN via N_WNCC); the finding first recorded for the D68
+    # board (combine.py LEFT there) is D68 wave 2's, re-asked of combine's
+    # history encoding d68w2-topo, which must still give LEFT.
     chk("  READINGS AND HISTORY, asked: H-SEAT-ROUTES leaves O-SEAT LEFT; singok-board "
-        "moves the board alone's O-MAKE-TOPO to OPEN via N_WNCC where combine.py gives "
-        "LEFT (the finding recorded for the D68 board); D66 wave 1's encodings "
+        "gives the board alone's O-MAKE-TOPO OPEN via N_WNCC and combine.py now gives the "
+        "same (M-D68-28), where D68 wave 2's encoding (d68w2-topo) gives LEFT -- the "
+        "finding first recorded for the D68 board; D66 wave 1's encodings "
         "reproduce its words (singok-a2: DTHR's O-MAKE-TOPO LEFT; qet-board-paths: QET's "
         "O-HOLD via N_XI, N_QEIC, N_QETHAD)",
         (D66_READ_ASKED["H-SEAT-ROUTES on DSTR"]["per"]["O-SEAT"]["verdict"],
          (D66_READ_ASKED["singok-board on the board alone"]["per"]["O-MAKE-TOPO"]["verdict"],
           D66_READ_ASKED["singok-board on the board alone"]["per"]["O-MAKE-TOPO"].get("via"),
-          D68_ASKED["the board alone"]["per"]["O-MAKE-TOPO"]["verdict"]),
+          D68_ASKED["the board alone"]["per"]["O-MAKE-TOPO"]["verdict"],
+          D68_TOPO_W2_ASKED["the board alone"]["per"]["O-MAKE-TOPO"]["verdict"]),
          D66_READ_ASKED["singok-a2 on DTHR (D66 wave 1's encoding)"]["per"]["O-MAKE-TOPO"]["verdict"],
          D66_READ_ASKED["qet-board-paths on QET (D66 wave 1's encoding)"]["per"]["O-HOLD"].get("via")),
-        ("LEFT", ("OPEN", ["N_WNCC"], "LEFT"), "LEFT", ["N_XI", "N_QEIC", "N_QETHAD"]))
+        ("LEFT", ("OPEN", ["N_WNCC"], "OPEN", "LEFT"), "LEFT", ["N_XI", "N_QEIC", "N_QETHAD"]))
     chk("O9's closing over DOCKET 66's variants, asked: O-BITS REMOVED outright in none",
         (d66_o_bits_removed_outright(),
          sorted(set(r["per"]["O-BITS"]["verdict"] for r in list(D66_ASKED.values())
@@ -8169,8 +8745,12 @@ def selftest():
         d66_index3_faults([("D66-PLANTED", 0, 0, 1, "docket66/throatbits.py", "x")]),
         [("D66-PLANTED", "cites docket66/throatbits.py")])
     _tq = d66_turn_question()
-    chk("the TURN question for M is carried in O9's DOCKET 66 answer (not on PENDING_RULINGS, "
-        "which specthm.py pins empty), its values asked of defects.py: both TURN readings "
+    # KEPT AS HISTORY (R-seat): M has ruled the TURN question (M-D68-27, "Any
+    # crossing"); the question stays in O9's DOCKET 66 answer and in M-D68-27's
+    # row as FIRST RECORDED, and this check still asks its values.
+    chk("the TURN question for M (RULED since: M-D68-27) is kept in O9's DOCKET 66 answer as "
+        "first carried (never on PENDING_RULINGS, which specthm.py pins empty), its values "
+        "asked of defects.py: both TURN readings "
         "named in defects.HYPOTHESES, the global monopole's Jacobi zero at the axis "
         "recrossing (to 1e-6), the gauge monopole's S-1 conditions holding, and A1's clause "
         "that only the string is crossing-only",
@@ -8180,6 +8760,154 @@ def selftest():
          abs(D66_FIG["global monopole Jacobi zero / axis recrossing"] - 1) < 1e-6,
          D66_FIG["gauge monopole lens"]["S-1 conditions hold"]),
         (True, [], True, True, True))
+    # ----- M's DOCKET 66 rulings (docstring section 8b), seated by R-seat -----
+    import os as _osr        # section 6 binds 'os' locally; this block must not use it
+    _r66 = dict((r[0], [" ".join(c.split()) for c in r]) for r in D68_RULED
+                if r[0] in ("M-D68-26", "M-D68-27", "M-D68-28"))
+    _rf = _d68_norm(open(D68_RULINGS_FILE, encoding="utf-8").read())
+    chk("M's DOCKET 66 rulings (items 26-28) are seated after M-D68-C12, each once: M's words "
+        "verbatim in the rulings file under its 'DOCKET 66 rulings' heading, the question and "
+        "the file's own applied sentence as the file records them, the ruling cell opening "
+        "with the option taken and M's words",
+        ([r[0] for r in D68_RULED][-3:],
+         [[r[0] for r in RULED_BY_M].count(k) for k in sorted(_r66)],
+         [k for k in d68_words_faults() if k.startswith("M-D68-2") or "item 2" in k],
+         _rf.index("DOCKET 66 rulings (2026-10-04), M's answers verbatim")
+         < min(_rf.index(D68_M_WORDS[k][0]) if k != "M-D68-26"
+               else _rf.rindex(D68_M_WORDS[k][0]) for k in sorted(_r66)),
+         [('"%s"' % D66_RULING_QUESTIONS[k]) in _r66[k][1] for k in sorted(_r66)],
+         [('"%s"' % D66_RULING_CARRIED[k]) in _r66[k][3] for k in sorted(_r66)],
+         [_r66[k][3].startswith("RULED BY M: %s -- %s" % (o, d68_words(k))) for k, o in (
+             ("M-D68-26", "CORRECT IT"), ("M-D68-27", "ANY CROSSING: H-TURN-CROSSING"),
+             ("M-D68-28", "RE-GRADE D68"))]),
+        (["M-D68-26", "M-D68-27", "M-D68-28"], [1, 1, 1], [], True, [True] * 3, [True] * 3,
+         [True] * 3))
+    _w66 = dict(D68_M_WORDS)
+    _w66["M-D68-27"] = ("Any crossing of light paths", _w66["M-D68-27"][1])
+    with _scratch("D68_M_WORDS", _w66):
+        _wf66 = d68_words_faults()
+    chk("  CONTROL: M's 'Any crossing' lengthened by the question's words is caught",
+        [k for k in _wf66 if k == "M-D68-27"], ["M-D68-27"])
+    _mk26 = paper_d66_marker(D68_M_WORDS["M-D68-26"][0])
+    _nums = lambda t: re.findall(r"\d+(?:\.\d+)?e[-\u2212]?\d+", t)
+    chk("M-D68-26: what was applied is the paper's marked line, READ back from M's words in "
+        "its DOCKET 66 head (never typed); the line prints defects.py's Gott figures (gamma "
+        "at the Planck Nambu-Goto and Abelian-Higgs bounds, and the bounds); the paper's own "
+        "first wording carries item 26's numbers, in its typography",
+        (_mk26[0] is not None, ("paper/CLAIMS.md:%s carries %s" % _mk26) in _r66["M-D68-26"][3],
+         [f for f, ok_ in d66_paper_gott_figures() if not ok_], len(d66_paper_gott_figures()),
+         paper_d66_first_wording(D68_M_WORDS["M-D68-26"][0])
+         == D66_PAPER_FIRST_WORDING_AS_PRINTED,
+         [x.replace("\u2212", "-") for x in _nums(D66_PAPER_FIRST_WORDING_AS_PRINTED)]
+         == _nums(D66_PAPER_FIRST_WORDING)),
+        (True, True, [], 4, True, True))
+    _pl26 = [l.replace("1.5e\u22127", "1.6e\u22127") for l in _paper_lines()]
+    chk("  CONTROL: a private copy of the paper whose line prints another bound is caught "
+        "(the figure check can fail)", [f for f, ok_ in d66_paper_gott_figures(_pl26) if not ok_],
+        [_paper_e(D66_GOTT["NG"][0])])
+    _st = D66_TURN["string"]
+    _lit = specthm_seat_class_literals()
+    import tempfile as _tf66
+    with open(_osr.path.join(HERE, "specthm.py"), encoding="utf-8") as _fh:
+        _sth = _fh.read()
+    _tdir66 = _tf66.mkdtemp()
+    _tsp = _osr.path.join(_tdir66, "specthm.py")
+    with open(_tsp, "w", encoding="utf-8") as _fh:
+        _fh.write(_sth.replace('"lits": {"wl": False, "ball": False}',
+                               '"lits": {"wl": False, "ball": False, "turn": True}'))
+    _lit_c = specthm_seat_class_literals(_tsp)
+    _osr.unlink(_tsp)
+    _osr.rmdir(_tdir66)
+    chk("M-D68-27: H-TURN-CROSSING adopted, H-TURN-CONJUGATE kept on record, M's words in "
+        "defects.TURN_RULING; the straight string TURNs at a finite computed range under the "
+        "ruling and not under the alternative (no conjugate point); the line-intersection "
+        "cross-check agrees (a consistency check on the same geometry, not an independent "
+        "derivation); spec.py carries the ruling's note; specthm's seat classes are defined by "
+        "wl and ball only (READ), so no class verdict moves; the cell prints them as asked",
+        (D66_TURN["ruling"]["M"] == D68_M_WORDS["M-D68-27"][0],
+         (D66_TURN["ruling"]["adopted"], D66_TURN["ruling"]["alternative on record"]),
+         (_st["H-TURN-CROSSING"][0], _st["H-TURN-CONJUGATE"][0], _st["conjugate point"]),
+         D66_TURN["L AU"] > 0 and math.isfinite(D66_TURN["L AU"]),
+         abs(D66_TURN["L AU (line intersection)"] / D66_TURN["L AU"] - 1) < 1e-9,
+         spec_turn_note() is not None, sorted(_lit), sorted(set(x for v in _lit.values() for x in v)),
+         ("%.0f AU" % D66_TURN["L AU"]) in _r66["M-D68-27"][3],
+         " ".join(d66_turn_question()[0].split()) in _r66["M-D68-27"][1]),
+        (True, ("H-TURN-CROSSING", "H-TURN-CONJUGATE"), ("TURN", "NO TURN", None), True, True,
+         True, ["S-1", "S-2", "S-3"], ["ball", "wl"], True, True))
+    chk("  CONTROL: a 'turn' literal planted in a private copy of specthm.py's S-3 class is "
+        "READ (the class-literal check can fail)", _lit_c.get("S-3"), ["ball", "turn", "wl"])
+    _g0 = defects.string_turn(0.0, 1.0)
+    chk("  CONTROL: with no deficit (G mu = 0) the string does not TURN under either reading "
+        "(the verdict is carried by the deficit, not by the reading)",
+        (_g0["H-TURN-CROSSING"][0], _g0["H-TURN-CONJUGATE"][0]), ("NO TURN", "NO TURN"))
+    _k28 = ("the board alone", "R-QUANTUM alone (RQ)", "H-IT as Jacobson emergent gravity (ITJ)",
+            "ITB with R-QUANTUM (ITB+RQ)")
+    chk("M-D68-28: combine.py's O-MAKE-TOPO reads OPEN via exactly N_WNCC on the board alone, "
+        "RQ, ITJ and ITB+RQ, and under ITB its removal gains N_WNCC -- never removed; D68 wave "
+        "2's encoding (d68w2-topo) gives LEFT there; the census is READ from B-combine.md "
+        "(3,840 of 5,760 and 960 of 1,152, the same 20 contexts) and B-combine66.md (174 moved "
+        "back, 20 context-only; singok-board now 0); the cell prints every value as asked",
+        ([D68_ASKED[k]["per"]["O-MAKE-TOPO"] for k in _k28],
+         [D68_TOPO_W2_ASKED[k]["per"]["O-MAKE-TOPO"]["verdict"] for k in _k28],
+         [k for k in D68_ASKED if "REMOVED" in D68_ASKED[k]["per"]["O-MAKE-TOPO"]["verdict"]],
+         D68_TOPO_CENSUS["moved"][:4], D68_TOPO_CENSUS["contexts"][:2],
+         D66_TOPO_READ["d68w2-topo"], D66_TOPO_READ["singok-board"],
+         [x for x in [d68_asked(k, "O-MAKE-TOPO") for k in _k28]
+          + [d68_verdict(D68_TOPO_W2_ASKED["the board alone"]["per"]["O-MAKE-TOPO"])]
+          if x not in _r66["M-D68-28"][3]]),
+        ([{"verdict": "OPEN", "via": ["N_WNCC"]}] * 4, ["LEFT"] * 4, [],
+         ("3,840", "5,760", "960", "1,152"), ("20", "32"), ("174", "20"), ("0",), []))
+    import tempfile as _tf68
+    _tdir68 = _tf68.mkdtemp()
+    _tb68 = _osr.path.join(_tdir68, "B.md")
+    with open(D68_B_FILE, encoding="utf-8") as _fh, open(_tb68, "w", encoding="utf-8") as _fo:
+        _fo.write(_fh.read().replace("(board alone included)", "(board alone excluded)"))
+    try:
+        d68_topo_census_read(_tb68)
+        _raised68 = False
+    except ValueError:
+        _raised68 = True
+    _osr.unlink(_tb68)
+    _osr.rmdir(_tdir68)
+    chk("  CONTROL: a B-combine.md that no longer states the re-grade census makes the seat "
+        "refuse (raises)", _raised68, True)
+    _ans = " ".join(O9_ANSWERED_BY.split())
+    _ans66 = " ".join(D66_O9_ANSWER.split())
+    _part66 = " ".join(D66_O9_PART.split())
+    chk("O9's answers carry M's DOCKET 66 rulings, asked: DOCKET 68's names the re-graded "
+        "O-MAKE-TOPO (board alone, RQ, ITJ, ITB) and its history verdict, and the adopted TURN "
+        "reading; DOCKET 66's says the TURN reading is RULED (string L as asked) with the "
+        "question kept after it; DOCKET 66's part says the D68 board is re-graded, keeping "
+        "'RECORDED FOR THE D68 BOARD, NOT REPAIRED' after it as first said",
+        ([x for x in [d68_asked(k, "O-MAKE-TOPO") for k in (
+            "the board alone", "R-QUANTUM alone (RQ)", "H-IT as Jacobson emergent gravity (ITJ)",
+            "H-IT as an information layer (ITB)")] if x not in _ans],
+         "d68w2-topo (the board alone %s, asked)" % d68_verdict(
+             D68_TOPO_W2_ASKED["the board alone"]["per"]["O-MAKE-TOPO"]) in _ans,
+         d68_words("M-D68-27") in _ans and D66_TURN["ruling"]["adopted"] in _ans,
+         ("THE TURN READING, RULED BY M (M-D68-27, %s)" % d68_words("M-D68-27")) in _ans66,
+         ("L = %.0f AU" % D66_TURN["L AU"]) in _ans66,
+         _ans66.index("THE TURN READING, RULED BY M") < _ans66.index(
+             "FIRST CARRIED HERE AS A QUESTION FOR M"),
+         _part66.index("THE D68 BOARD, RE-GRADED ON M'S RULING (M-D68-28")
+         < _part66.index("RECORDED FOR THE D68 BOARD, NOT REPAIRED")),
+        ([], True, True, True, True, True, True))
+    chk("the charter's 'with M's throat-compression mechanism' is the ledger's words: the "
+        "charter attributes it to the ledger (READ), it is still checked verbatim, and it is "
+        "not among M's quotations (d66_charter_m_quotes)",
+        (d66_charter_attribution_faults(),
+         [k for k in D66_CHARTER_LEDGER_WORDS if k in d66_charter_m_quotes()],
+         all(k in _d66_charter_holders() for k in D66_CHARTER_LEDGER_WORDS)),
+        ([], [], True))
+    with open(D66_CHARTER_FILE, encoding="utf-8") as _fh:
+        _ch66 = _fh.read()
+    chk("  CONTROL: the charter without its attribution is caught, and a DOCKET 66 cell "
+        "double-quoting the ledger's words as M's is caught",
+        (d66_charter_attribution_faults(" ".join(_ch66.split()).replace(
+            D66_CHARTER_LEDGER_ATTRIBUTION, "is M's")),
+         d66_quote_faults({"planted": 'M said "with M\'s throat-compression mechanism" here'})),
+        (list(D66_CHARTER_LEDGER_WORDS),
+         [("planted", "with M's throat-compression mechanism")]))
     _m10 = [r for r in D68_RULED if r[0] == "M-D68-10"][0]
     chk("M-D68-10 says step (4), DOCKET 66, is RUN and seated and step (3)'s comments "
         "are written (COMMENTS-INDEX.md present), keeping the wave-2 seat's and wave 1's "
@@ -8191,7 +8919,8 @@ def selftest():
     chk("the docstring states section 8 and names its limitations",
         all(x in __doc__ for x in ("8.  DOCKET 66, WAVE 1, AS SEATED",
                                    "H-NO-D66-ROW", "H-LEDGER-ASKS-REPRESENTATIVES grows",
-                                   "THE TURN QUESTION", "RECORDED FOR THE D68 BOARD")), True)
+                                   "THE TURN QUESTION", "RECORDED FOR THE D68 BOARD",
+                                   "8b.  M'S DOCKET 66 RULINGS")), True)
 
     print("\n5. THE BALANCE REFUSES TO INVENT A LADDER")
     chk("every balance row whose mechanism fails carries NO gap number",

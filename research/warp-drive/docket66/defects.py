@@ -22,9 +22,11 @@ WHAT THIS FILE DOES ITSELF (each item computed here, stdlib + sympy + z3):
      4 pi G T_kk s^2 / c^4 >= pi^2, checked in specthm's source at run time), the lensing analogue of spec.py's
      S-1 focal formula, M-S1A-P3 (i) at the seat (closed causal curves; the topology change Geroch/Borde need,
      asked of create.py), and specthm's own placement of defect seats in class S-3;
-  5. the literature's precise sense of "matter occurs there but not in its original form": fermion zero modes
-     (a Yukawa mass that vanishes where the order parameter vanishes) -- the Jackiw-Rebbi profile computed and its
-     normalisability tested both ways;
+  5. a counterpart of "matter occurs there but not in its original form" under a named reading (H-YUKAWA,
+     H-FORM-IS-MASS-AND-DIMENSION): fermion zero modes (a Yukawa mass that vanishes where the order parameter vanishes;
+     HK pp.33-34 say only that the mass vanishes at the core and the modes move at c) -- the Jackiw-Rebbi profile
+     computed and its normalisability tested both ways.  [D66-repro residual of V66-0 #3: this item first read "the
+     literature's precise sense of ..."; kept as history];
   6. a z3 bookkeeping of the D68 grades this hypothesis can carry, with a vacuity guard and mutation controls;
   7. (D66-fix, 2026-10-04, answering the three wave-1 verifier reports) the hedgehog's stress in the cone metric and
      the exact deficit 8 pi G eta^2; the thin M4-M4 wall's global time function (CGS p.15, Fig.4); the global
@@ -155,6 +157,10 @@ HISTORY = [
     ("GV ring", "the GV ring's curvature singularity is at the throat",
      "a singular ring bounding the throat disc: conical only at sigma = 0 (the figures' tension T = -c^4/(4G)), "
      "conical plus power-law at sigma != 0 (GV pp.20-22)", "V66-2 #7"),
+    ("string turn", "a TURN under H-TURN-CROSSING, none under H-TURN-CONJUGATE (D66-fix: 'the string's grade under the "
+     "board's TURN is still M's to rule')",
+     "a TURN: M ruled TURN = 'Any crossing' (H-TURN-CROSSING adopted; H-TURN-CONJUGATE kept as the alternative on "
+     "record); rays on opposite sides cross at L = b/tan(4 pi G mu) (string_turn)", "M-RULINGS item 27, 2026-10-04"),
     ("F4 the wall's focus", "the only class that gives light a genuine focal point",
      "the only class that focuses a whole planar congruence at one distance; the global monopole (a line caustic) "
      "and the gauge monopole (an S-1 point lens) also give conjugate points; only the string is crossing-only",
@@ -193,7 +199,9 @@ SOURCES = {
             "horizons of AdS4 sides; p.15 eq.(3.48) the M4 side of the non-extreme bubble, t_in = beta^-1 e^(-beta z) "
             "sinh(beta t), r_in = beta^-1 e^(-beta z) cosh(beta t) bring it to dt^2 - dr^2 - r^2 dOmega^2, the wall on "
             "r^2 - t^2 = beta^-2; Fig.4 caption: 'The unique extension of the comoving coordinates across the Rindler "
-            "horizons is onto pure Minkowski space-time'"),
+            "horizons is onto pure Minkowski space-time'.  READ at R-apply 2026-10-04 (same route): p.8 'if we choose A = "
+            "e^(+2 beta z) for z > 0 (the M4 side of a wall)'; Appendix A eqs.(A.12)-(A.13) p.21, the same Rindler "
+            "transformation with conformal factor e^(+-2 beta z) -- the factor 2 that (3.48) omits"),
     "VISSER89": ("Visser, Traversable wormholes: some simple examples, PRD 39 3182 (1989), arXiv 0809.0907", ALPHAXIV,
                  "p.3 eq.(2.4) convex throat -> negative surface energy and tension; p.4 WEC and AWEC violated; p.5 "
                  "cube edges rho = T = -1/(8G) = -1.52e43 J/m, 'identical to ... a negative tension classical "
@@ -554,9 +562,13 @@ def vis_beta():
 def vis_time_function(beta_sign=1, exponent=2):
     """D66-fix (V66-1 #3): the thin non-extreme M4-M4 wall's global causal structure, from CGS p.15 eq.(3.48) and
     Fig.4 (READ).  Comoving metric on each side, (-+++), G = c = 1:  g = e^(-2 b |z|) (-dt^2 + dz^2 + b^-2 cosh^2(b t)
-    dOmega^2).  [CGS print the conformal factor e^(-+ b z); their own transformation t_in = b^-1 e^(-b z) sinh(b t),
-    r_in = b^-1 e^(-b z) cosh(b t) maps to Minkowski only with e^(-2 b |z|) -- checked below as the pullback; recorded
-    as a reading note, not a finding against CGS.]  Per side s = sign(z):
+    dOmega^2).  [CGS print the conformal factor of eq.(3.48) (p.15) as e^(-+ b z); their own transformation t_in =
+    b^-1 e^(-b z) sinh(b t), r_in = b^-1 e^(-b z) cosh(b t) maps to Minkowski only with e^(-2 b |z|) -- checked below as
+    the pullback.  CGS's own Appendix A settles the factor: eqs.(A.12)-(A.13) (printed p.21) give the same transformation
+    with e^(+-2 b z), and p.8 writes the M4 side as A = e^(+2 b z): the 2 is the source's, and (3.48)'s printed exponent
+    is a misprint there (READ via alphaXiv answer_pdf_queries, open arXiv PDF gr-qc/9306005v1, by D66-repro and again
+    at R-apply 2026-10-04).  D66-fix first recorded this as 'a reading note, not a finding against CGS' (text
+    extraction may have dropped a 2).]  Per side s = sign(z):
       (1) the pullback of -dT^2 + dR^2 + R^2 dOmega^2 under T = b^-1 e^(-b s z) sinh(b t), R = b^-1 e^(-b s z)
           cosh(b t) equals g (each side is Minkowski, T its inertial time);
       (2) g^(mu nu) dT dT = -1 (T a time function on each side) and dT/dt > 0 at z = 0 (time orientations agree);
@@ -675,6 +687,50 @@ def string_crossing(gmu, b):
     (HK p.90, independent of b): they cross at L = b / tan(4 pi G mu).  L is linear in b: no caustic, no single
     focus (contrast spec.py's S-1 lens, f = b^2 c^2 / (4 G M), quadratic in b)."""
     return b / math.tan(4 * math.pi * gmu)
+
+
+#: M's ruling on spec.py's PART 2 'TURN' (docket68/M-RULINGS-2026-10-03.md item 27, verbatim: "Asked whether TURN means
+#: a genuine conjugate point or any crossing of light paths, M: "Any crossing". H-TURN-CROSSING is adopted; the straight
+#: cosmic string TURNs (rays cross without focusing).").  The two readings stay defined in HYPOTHESES as they were;
+#: H-TURN-CONJUGATE is kept as the alternative on record.  D66-fix first said 'the string's grade under the board's
+#: TURN is still M's to rule'.
+TURN_RULING = {"M": "Any crossing", "source": "docket68/M-RULINGS-2026-10-03.md item 27 (2026-10-04)",
+               "adopted": "H-TURN-CROSSING", "alternative on record": "H-TURN-CONJUGATE",
+               "first said": "D66-fix: a TURN under H-TURN-CROSSING, none under H-TURN-CONJUGATE; the reading M's to rule"}
+
+
+def turn_under(reading, crossing_at, conjugate_at):
+    """Does a class TURN under a reading of spec.py's PART 2?  crossing_at: the distance at which two rays from one
+    side-pair meet again (None if they never do); conjugate_at: the distance of a conjugate point (None if there is
+    none).  H-TURN-CROSSING (adopted, M-RULINGS item 27): a TURN iff the rays meet again at a finite distance.
+    H-TURN-CONJUGATE (the alternative on record): a TURN iff a conjugate point exists.  Returns (verdict, at)."""
+    if reading == "H-TURN-CROSSING":
+        ok = crossing_at is not None and math.isfinite(crossing_at) and crossing_at > 0
+        return ("TURN" if ok else "NO TURN"), (crossing_at if ok else None)
+    if reading == "H-TURN-CONJUGATE":
+        ok = conjugate_at is not None
+        return ("TURN" if ok else "NO TURN"), (conjugate_at if ok else None)
+    raise ValueError(reading)
+
+
+def string_turn(gmu, b):
+    """The straight static string under both readings (M ruled 'Any crossing').  Crossing: string_crossing (HK p.90:
+    each ray turned inward by 4 pi G mu, independent of b), computed here and cross-checked by intersecting the two
+    deflected rays as lines (y = b - x tan d, y = -b + x tan d) by Cramer's rule; for G mu = 0 no deflection and no
+    crossing.  Conjugate point: none -- neighbouring rays on one side are deflected by the same angle (d(deflection)/db
+    = 0, a flat cone: J'' = 0), so a one-sided congruence stays parallel (checked as string_crossing linear in b)."""
+    d = 4 * math.pi * gmu
+    L = string_crossing(gmu, b) if gmu > 0 else None
+    # independent: the two deflected rays as lines a1 x + b1 y = c1, a2 x + b2 y = c2
+    t = math.tan(d)
+    det = t * 1.0 - (-t) * 1.0                     # rows (tan d, 1 | b) and (-tan d, 1 | -b)
+    x_int = ((b * 1.0 - 1.0 * (-b)) / det) if det != 0 else None
+    out = {"G mu": gmu, "b": b, "deflection rad": d, "crossing L": L, "crossing L (line intersection)": x_int,
+           "conjugate point": None}
+    for rd in ("H-TURN-CROSSING", "H-TURN-CONJUGATE"):
+        out[rd] = turn_under(rd, L, None)
+    out["verdict under the ruling (H-TURN-CROSSING adopted)"] = out["H-TURN-CROSSING"][0]
+    return out
 
 
 E_CHARGE_SI = 1.602176634e-19      # C, the SI 2019 DEFINITION of the coulomb (a unit definition, exact)
@@ -918,7 +974,10 @@ def report(write_json=None):
            "massform": {"STABLE_RANGE": massform.STABLE_RANGE,
                         "HELD_SEAT_ROUTE_PRICED": massform.HELD_SEAT_ROUTE_PRICED,
                         "HIGGS_SHARE_LARGEST_READ": massform.HIGGS_SHARE_LARGEST_READ},
-           "hypotheses": HYPOTHESES, "sources": {k: list(v) for k, v in SOURCES.items()}}
+           "hypotheses": HYPOTHESES, "sources": {k: list(v) for k, v in SOURCES.items()},
+           "turn_ruling": TURN_RULING,
+           "string_turn (Planck NG bound, b = R_sun)": string_turn(PLANCK_NG_GMU,
+                                                                   [x for x in own("spec").LENSES if x[0] == "Sun"][0][2])}
     print("DOCKET 66 / A1 -- H-DEFECT-SEAT alone\n")
     print("Energy conditions (orthonormal frame, outside the core, H-THIN):")
     for k, v in ec.items():
@@ -946,6 +1005,8 @@ def report(write_json=None):
         print("  " + g["hypothesis"])
         print("      per_obstruction: " + g["per_obstruction"])
         print("      seat_conditions: " + g["seat_conditions"])
+    print("\nTURN (M-RULINGS item 27, M: 'Any crossing'):", out["turn_ruling"])
+    print("  the straight string:", out["string_turn (Planck NG bound, b = R_sun)"])
     print("\nWhat wave 1 first said (HISTORY):")
     for h in HISTORY:
         print("  %s: wave 1 first said '%s'; now: %s (%s)" % h)
@@ -980,11 +1041,12 @@ def SEAT_GRADES():
                            "(create.is_topology_change(False, False) = False)" % F["Gott gamma needed at Planck NG bound"],
         "seat: Sturm": "NEVER certifies: 0 outside the core; inside, 16 mu (32 mu) needs mu >= pi^2/16 (pi^2/32) "
                        "against the cone closing at mu = 1/4 (H-UNIFORM-CORE)",
-        "seat: turn": "crossing only: rays on opposite sides cross at L = b/tan(4 pi G mu), linear in b (HK p.90); "
-                      "neighbouring rays on one side see a flat cone (J'' = 0), so no conjugate point -- a TURN under "
-                      "H-TURN-CROSSING, none under H-TURN-CONJUGATE; at b = R_sun, L = %.4g AU against the Sun's "
-                      "%.4g AU" % (F["string crossing at b = R_sun, Planck NG bound, AU"],
-                                   F["Sun focal (spec.focal_length) AU"]),
+        "seat: turn": "a TURN (M ruled TURN = 'Any crossing', M-RULINGS item 27: H-TURN-CROSSING adopted): rays on "
+                      "opposite sides cross at L = b/tan(4 pi G mu), linear in b (HK p.90; string_turn); at b = R_sun, "
+                      "L = %.4g AU against the Sun's %.4g AU.  Neighbouring rays on one side see a flat cone (J'' = 0), "
+                      "so no conjugate point: none under H-TURN-CONJUGATE, the alternative kept on record.  D66-fix "
+                      "first said 'a TURN under H-TURN-CROSSING, none under H-TURN-CONJUGATE', the reading M's to rule"
+                      % (F["string crossing at b = R_sun, Planck NG bound, AU"], F["Sun focal (spec.focal_length) AU"]),
         "matter not in original form": "SUPPORTED-IF {H-YUKAWA, H-FORM-IS-MASS-AND-DIMENSION}: the Yukawa mass "
                                        "vanishes at the core and fermions occur there as massless chiral modes "
                                        "confined to the 1+1 worldsheet, moving at c (HK p.33-34; ETO25 p.22; "
@@ -1112,9 +1174,13 @@ def a1_grades():
                             "DISQUALIFIED where S > kappa, inside r < sqrt(S^2 - kappa^2)/alpha (r < S/alpha when "
                             "kappa = 0). A Gott pair needs gamma > %.2g at the Planck bound and cannot be created in an "
                             "open (2+1)-dimensional universe with timelike total momentum (CFG94). specthm class S-3. "
-                            "Sturm never certifies (16 mu or 32 mu, against the cone closing at mu = 1/4). Its turn is a "
-                            "crossing at L = b/tan(4 pi G mu), with no conjugate point"
-                            % F["Gott gamma needed at Planck NG bound"],
+                            "Sturm never certifies (16 mu or 32 mu, against the cone closing at mu = 1/4). It TURNs (M "
+                            "ruled TURN = 'Any crossing', M-RULINGS item 27: H-TURN-CROSSING adopted): rays on opposite "
+                            "sides cross at L = b/tan(4 pi G mu) (%.4g AU at b = R_sun), with no conjugate point, so "
+                            "none under H-TURN-CONJUGATE, the alternative on record (D66-fix first said 'Its turn is a "
+                            "crossing ..., with no conjugate point', the reading M's to rule)"
+                            % (F["Gott gamma needed at Planck NG bound"],
+                               F["string crossing at b = R_sun, Planck NG bound, AU"]),
          "ground": "defects.py energy_conditions, string_deficit_linear, static_is_stably_causal, spinning_ctc, "
                    "sturm_bounds/limits, string_crossing, grades(); HK pp.53,84,90; DLM04 eqs.(2)-(3); CFG94 eq.(32)",
          "named_hypotheses": ["H-THIN", "H-LINEAR-GRAV", "H-UNIFORM-CORE", "H-STATIC-STRING", "H-YUKAWA",
@@ -1356,6 +1422,44 @@ def selftest():
     L2 = string_crossing(PLANCK_NG_GMU, 2.0)
     chk("string crossing is linear in b (no caustic): L(2b) = 2 L(b)", abs(L2 / L1 - 2) < 1e-12, "%.4g m" % L1)
     sun = [x for x in spec.LENSES if x[0] == "Sun"][0]
+    # item 27 (R-apply, 2026-10-04): M ruled TURN = 'Any crossing'; the ruling is read from M-RULINGS at run time
+    with open(os.path.join(WD, "docket68", "M-RULINGS-2026-10-03.md"), encoding="utf-8") as fh:
+        mr = fh.read()
+    m27 = re.search(r"^27\. (.*?)(?=^\d+\. |\Z)", mr, re.S | re.M)
+    t27 = " ".join(m27.group(1).split()) if m27 else ""
+    chk("M-RULINGS item 27 read at run time: M: \"Any crossing\"; H-TURN-CROSSING is adopted; the straight string "
+        "TURNs -- and TURN_RULING records it (adopted H-TURN-CROSSING, H-TURN-CONJUGATE the alternative on record)",
+        'M: "Any crossing"' in t27 and "H-TURN-CROSSING is adopted" in t27 and "the straight cosmic string TURNs" in t27
+        and TURN_RULING["adopted"] == "H-TURN-CROSSING" and TURN_RULING["alternative on record"] == "H-TURN-CONJUGATE"
+        and TURN_RULING["M"] == "Any crossing", t27[:90])
+    st_ = string_turn(PLANCK_NG_GMU, sun[2])
+    chk("item 27: the straight string at the Planck NG bound, b = R_sun, TURNs under the adopted H-TURN-CROSSING: the "
+        "rays cross at L = %.4g AU (string_crossing), equal to the two deflected rays' line intersection to 1e-12; no "
+        "conjugate point, so NO TURN under H-TURN-CONJUGATE (the alternative on record)" % (st_["crossing L"] / spec.AU),
+        st_["verdict under the ruling (H-TURN-CROSSING adopted)"] == "TURN" and
+        abs(st_["crossing L (line intersection)"] / st_["crossing L"] - 1) < 1e-12 and
+        st_["H-TURN-CONJUGATE"] == ("NO TURN", None) and st_["conjugate point"] is None)
+    chk("CONTROL item 27: with G mu = 0 (no string) the rays never cross, so NO TURN under H-TURN-CROSSING -- the TURN "
+        "verdict is carried by the deficit, not by the reading", string_turn(0.0, sun[2])["H-TURN-CROSSING"] ==
+        ("NO TURN", None), "", "CONTROL")
+    sa_, sj_ = monopole_conjugate()
+    chk("CONTROL item 27: a class WITH a conjugate point (the global monopole, monopole_conjugate) TURNs under "
+        "H-TURN-CONJUGATE too -- turn_under can return TURN for the alternative reading",
+        turn_under("H-TURN-CONJUGATE", sa_, sj_) [0] == "TURN" and turn_under("H-TURN-CROSSING", sa_, sj_)[0] == "TURN",
+        "", "CONTROL")
+    specthm_ = own("specthm")
+    import inspect
+    lits_S = [set(c["lits"]) for c in specthm_.classes(Fmin) if c["space"] == "S"]
+    feat = " ".join(str(v) for v in specthm_.FEATURE_TEXT.values()).lower()
+    der = inspect.getsource(specthm_.derive)
+    chk("item 27 moves no specthm class verdict: every S class is defined by the literals wl and ball alone (no literal "
+        "names a turn, a crossing or a conjugate point), and only S-1 can be NONEMPTY (derive's witness rule); the "
+        "string stays in S-3, whose verdict is OPEN with or without a crossing TURN",
+        all(l_ <= {"wl", "ball"} for l_ in lits_S) and len(lits_S) == 3 and
+        not any(w_ in feat for w_ in ("turn", "crossing", "conjugate")) and
+        'K["id"] == "S-1" and verdict == OPEN_V' in der and der.count("NONEMPTY") == 1)
+    chk("CONTROL item 27: the class-literal test can fail -- a planted S literal 'turn' is caught",
+        not all(l_ <= {"wl", "ball"} for l_ in lits_S + [{"wl", "turn"}]), "", "CONTROL")
     fs1, fs2 = spec.focal_length(sun[1], sun[2]), spec.focal_length(sun[1], 2 * sun[2])
     chk("CONTROL: spec.py's S-1 lens is quadratic in b: f(2b) = 4 f(b)", abs(fs2 / fs1 - 4) < 1e-12, "", "CONTROL")
     g3, r0, r1 = spinning_ctc()

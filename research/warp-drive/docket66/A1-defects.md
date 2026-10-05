@@ -1,5 +1,7 @@
 # DOCKET 66 · A1-defects: H-DEFECT-SEAT tested alone
 
+**Seated since (R-apply note, 2026-10-04).** DOCKET 66 wave 1 has been seated at D66-seat: `ledger.py` section 8 and O9's DOCKET 66 answer, `LEDGER.md` regenerated, a comment in `index3.py` and no index3 row. The status line below was written at D66-fix, when nothing here was seated and `ledger.py`, `index3.py`, `specthm.py`, `LEDGER.md`, `paper/` and `docket68/` were untouched; it is kept as written, as history. M's ruling on spec.py's TURN (M-RULINGS item 27, "Any crossing") is applied here at R-apply: section 0 (R-apply) below.
+
 **Status: a docket work item, wave 1, step 1 (2026-10-04), corrected at D66-fix the same day.** Nothing here is
 seated. `ledger.py`, `index3.py`, `specthm.py`, `LEDGER.md`, `paper/` and `docket68/` are untouched. The instrument
 is `defects.py`, beside this file. `PYTHONDONTWRITEBYTECODE=1 python3 defects.py --selftest` runs **89 counted checks
@@ -8,6 +10,41 @@ wrong coefficient, a wrong sign or a non-defect source, each of which must turn 
 STRUCTURAL** (cannot fail by construction) and is printed, not counted. `python3 defects.py --json PATH` writes the
 report, including `a1_grades()` (the grade table below, built from the computations) and `HISTORY` (what wave 1 first
 said). Wave 1 ran 71 checks with 19 controls.
+
+## 0 (R-apply, 2026-10-04): M's ruling on TURN, and the D66-repro residuals
+
+**M-RULINGS item 27, verbatim** (docket68/M-RULINGS-2026-10-03.md): *"spec.py's TURN. Asked whether TURN means a genuine
+conjugate point or any crossing of light paths, M: "Any crossing". H-TURN-CROSSING is adopted; the straight cosmic string
+TURNs (rays cross without focusing)."* Applied in `defects.py` exactly as worded:
+
+| site | D66-fix said | now | ground |
+|---|---|---|---|
+| the straight string's turn (`SEAT_GRADES`, `a1_grades`) | a TURN under H-TURN-CROSSING, none under H-TURN-CONJUGATE; the reading M's to rule | **a TURN** (H-TURN-CROSSING adopted): rays on opposite sides cross at L = b/tan(4 pi G mu), **2,467 AU at b = R_sun** and the Planck NG bound (the Sun's own focus: 548 AU); no conjugate point, so none under H-TURN-CONJUGATE, **kept as the alternative on record** | `string_turn` (new): the crossing from `string_crossing`, cross-checked as the two deflected rays' line intersection (agree to 1e-12); `turn_under` (new) grades either reading; `TURN_RULING` (new) records the ruling; `HISTORY` keeps D66-fix's words |
+| the global monopole | a TURN under both | unchanged: a TURN under both (its axis recrossings are conjugate points) | `monopole_conjugate` |
+| H-TURN-CONJUGATE, H-TURN-CROSSING (`HYPOTHESES`) | the two readings, named | unchanged as definitions; the ruling is recorded beside them (`TURN_RULING`), not by rewriting either | — |
+
+**Does any specthm / spec class verdict move? No, and the reason is computed, not declared.** specthm's seat classes are
+defined by the literals `wl` and `ball` alone (S-1 `wl`; S-2 `ball`; S-3 neither); no literal, and no feature text, names a
+turn, a crossing or a conjugate point; and specthm's `derive` makes NONEMPTY only for S-1 (its witness rule). The string
+stays in S-3, whose verdict is OPEN with or without a crossing TURN; S-1 stays NONEMPTY (the Sun), S-2 OPEN. A selftest
+check asks this of specthm's source at run time, with a planted-literal control. What the ruling does change is the
+string's PART 2: under M's reading a string seat has a TURN at a computed range (L linear in b) -- a candidate S-3 seat's
+second part, not a class verdict. `spec.py`'s PART 2 still reads "a conjugate point"; it is not this docket's file to
+edit unless TURN were a constant there (it is docstring text, no constant or check reads it), and the line is reported
+for its owner.
+
+**Selftest:** `PYTHONDONTWRITEBYTECODE=1 python3 defects.py --selftest` now runs **95 counted checks and passes all 95**,
+**30 of them controls**, 1 STRUCTURAL not counted (D66-fix: 89, 27 controls). The six new: M-RULINGS item 27 read at run
+time and `TURN_RULING` matching it; the string TURNs under the adopted reading (and not under the alternative); CONTROL
+G mu = 0 gives no crossing, so no TURN; CONTROL a class with a conjugate point TURNs under H-TURN-CONJUGATE too; no
+specthm class literal names a turn and only S-1 can be NONEMPTY; CONTROL a planted S literal 'turn' is caught.
+
+**D66-repro residuals here** (`wave1/FIX-SEAT-RESULT.json`, `result.v`), each applied: the docstring's item 5 said "the
+literature's precise sense of ..." -- now "a counterpart ... under a named reading (H-YUKAWA, H-FORM-IS-MASS-AND-DIMENSION)"
+(V66-0 #3), first wording kept in place; the CGS reading note now cites the source itself -- CGS Appendix A, eqs.(A.12)-(A.13)
+(printed p.21), gives the transformation with conformal factor e^(+-2 beta z), and p.8 writes the M4 side as A = e^(+2 beta z)
+(READ via alphaXiv, open arXiv PDF gr-qc/9306005v1, by D66-repro and again here): the 2 is the source's, so eq.(3.48)'s
+printed exponent is the source's slip, not an extraction loss. The code was right and is unchanged.
 
 ## D66-fix: what the three verifier reports found here, and what was done
 
@@ -71,7 +108,9 @@ applied below: the seat condition at the seat only, and the singular-throat admi
    - **String:** turns every ray by 4 pi G mu *independently of impact parameter* (HK p.90): two rays on opposite
      sides cross at L = b/tan(4 pi G mu), linear in b. Neighbouring rays on one side see a flat cone (J'' = 0), so there
      is no conjugate point (at b = R_sun and the Planck bound, L = 2,467 AU against the Sun's 548 AU from
-     `spec.focal_length`). A TURN under **H-TURN-CROSSING**, none under **H-TURN-CONJUGATE**.
+     `spec.focal_length`). **A TURN: M ruled TURN = "Any crossing" (M-RULINGS item 27), so H-TURN-CROSSING is
+     adopted**; none under H-TURN-CONJUGATE, kept as the alternative on record (`string_turn`). *D66-fix first said "A
+     TURN under H-TURN-CROSSING, none under H-TURN-CONJUGATE", the reading M's to rule.*
    - **Global monopole:** deflects by eps*pi for every b (Durrer eq.38), and every recrossing of the source-centre
      axis is a **conjugate point**: the rotation Killing field about that axis is a Jacobi field vanishing at the source
      and on the axis (`monopole_conjugate`). A line caustic (an axicon). A TURN under **both** readings. *Wave 1 first
@@ -165,8 +204,10 @@ are outside it (that is where FGM's negative null energy lives).
   with kappa sigma = 4 beta, CGS p.10's relation. A continuous function strictly increasing along every future causal
   curve on each side increases along every future causal curve of the glued spacetime, so there is no closed causal
   curve. *Reading note:* CGS print the conformal factor of eq.(3.48) as e^(-+ beta z), while their own transformation
-  maps to Minkowski only with e^(-2 beta |z|); the selftest shows the printed form failing the pullback. Recorded as a
-  reading note, not a finding against CGS (an extraction may have dropped a 2).
+  maps to Minkowski only with e^(-2 beta |z|); the selftest shows the printed form failing the pullback. CGS's own
+  Appendix A settles it: eqs.(A.12)-(A.13) (printed p.21) give the same transformation with e^(+-2 beta z), and p.8 writes
+  the M4 side as A = e^(+2 beta z) (READ via alphaXiv, open arXiv PDF, by D66-repro and again at R-apply). *D66-fix first
+  said: "Recorded as a reading note, not a finding against CGS (an extraction may have dropped a 2)."*
 - Texture: Derrick's dE/dlambda = I1 + 3 I2 > 0 in d = 3 (z3: no stationary point), while d = 1 admits one (the
   control: walls exist).
 - Gauge monopole lens (`gauge_monopole_lens`): spec.focal_length inverted for a 1 AU focus and checked by calling it.
@@ -215,8 +256,10 @@ physics, and only as good as its encoding.
   points; only the string is crossing-only. *Wave 1 first said the wall was "the only class that gives light a genuine
   focal point" and that its causal structure was OPEN.*
 - **F5.** The board's PART 2 "TURN" was never fixed as conjugate point versus crossing. After D66-fix the readings
-  split only on the string (crossing, no conjugate point); the global monopole turns under both. Named both ways
-  (H-TURN-CONJUGATE, H-TURN-CROSSING); M's to rule if it matters for the string.
+  split only on the string (crossing, no conjugate point); the global monopole turns under both. **M has ruled "Any
+  crossing" (M-RULINGS item 27): H-TURN-CROSSING is adopted and the straight string TURNs, at L = b/tan(4 pi G mu);
+  H-TURN-CONJUGATE is kept as the alternative on record. No specthm class verdict moves (section 0 (R-apply)).** *D66-fix
+  first said: "Named both ways (H-TURN-CONJUGATE, H-TURN-CROSSING); M's to rule if it matters for the string."*
 - **F6.** Every string-supported traversable throat in the sources read needs a negative tension (or a quantum,
   transient, fragile opening). With both mouths in one space and unequal surrounding mass it becomes a time machine
   (FKZ), so the seat mouth would carry a CTC -- excluded at the seat by M-S1A-P3 (i) unless the masses balance. Under
@@ -243,7 +286,8 @@ W-create-ncc), and the board's N_S5. Each is stated in `defects.HYPOTHESES`.
 - N_NEGT: a negative-tension string -- no mechanism known.
 - N_WNCC: specthm's W-create-ncc, admitted by M's ruling, not shown realisable.
 - Whether a texture "event-seat" means anything on the board (no definition exists): OPEN without H-SEAT-PERSISTS.
-- The reading of TURN, now material for the string only (H-TURN-CONJUGATE vs H-TURN-CROSSING): for M.
+- *Closed at R-apply:* the reading of TURN -- M ruled "Any crossing" (item 27); H-TURN-CROSSING adopted, the string
+  TURNs. *D66-fix listed it here as "now material for the string only (H-TURN-CONJUGATE vs H-TURN-CROSSING): for M".*
 - Walls with an AdS side (CGS's CTCs by identification, p.14) are outside H-VIS-MINKOWSKI and not graded here.
 - Combinations (step 3): screened in B-combine66.md.
 - Observational bounds on walls and monopoles (Zel'dovich-Kobzarev-Okun; Parker): NAMED, NOT READ.

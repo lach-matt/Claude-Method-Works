@@ -32,7 +32,8 @@ off by one from the printed p.2 and p.8.  The other sources keep the pages A3 re
       arXiv:0803.0348 (cited there, ref [14]); NOT READ here.
   Hotta, arXiv:1002.0200v2 (25 Jun 2010) = PLA 374 3416, "Energy Entanglement Relation for QET": the MINIMAL MODEL
       eqs (1)-(3) p.3; E_A eq.(4) p.5; no mu-independent operation on B extracts energy, eq.(5) p.5; max E_B eq.(8)
-      p.8; Delta S_AB eqs (9)-(10) pp.10-11 (= the mutual information between pointer and B, p.10); inequalities (12)
+      p.8; Delta S_AB defined p.10, eqs (9) and (10) p.11 (D66-repro residual: first 'eqs (9)-(10) pp.10-11') (= the
+      mutual information between pointer and B, p.10); inequalities (12)
       p.12 and (15) p.14; "The amount of output energy from B is upper bounded by the amount of input energy to A"
       (p.2); the output energy "existed not at A but at B even before the start of the protocol" (p.2).
   Ikeda, arXiv:2301.02666v5 (22 Aug 2023): the minimal model eqs (1)-(5) p.2, protocol eqs (6)-(14) p.2-3, analytic

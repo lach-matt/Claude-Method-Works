@@ -116,6 +116,24 @@ moves; what moves is scope and status:
   first said'; it was right for P and wrong for N.  (The W2 reproduction, wave2/FIX-SEAT-RESULT.json: the in-line
   mark and N_S5's three in-line marks were added there, so the text no longer contradicts itself.)
 
+D66-RULINGS (R-apply, 2026-10-04: M's DOCKET 66 ruling item 28, docket68/M-RULINGS-2026-10-03.md, verbatim: "Asked
+whether to apply M-S1A-P3 ('a singular throat is not disqualified'; throat creation stays OPEN) in D68's combine.py too,
+M: "Re-grade D68 (Recommended)". O-MAKE-TOPO reads OPEN via N_WNCC in D68's board-context variants as in D66's; history
+kept.").  Applied as a BOARD ruling, exactly as combine66's reading 'singok-board' encoded it:
+  - DEF-TOPO gains the disjunct THROAT & N_WNCC: a geometric throat's creation is removable only if specthm's throat class
+    W-create-ncc is shown nonempty -- an OPEN pathway (N_WNCC, OPEN_NAMED; specthm's own z3 verdict OPEN, asked in the
+    grounds), never assumed in a removal, so no support, no NOT-BOUND-IF, no clash and no account moves; what moves is
+    O-MAKE-TOPO's OPEN status: LEFT -> OPEN via N_WNCC wherever a geometric throat is possible and nothing else opened it,
+    and N_WNCC joins the via list beside a NOT-BOUND-IF's removal status where a throat is possible.
+  - D68 wave 2's encoding (O-MAKE-TOPO LEFT wherever Geroch/Tipler bind: 'D68 wave 2 first said LEFT') is KEPT as the
+    history mutation 'd68w2-topo'; the census over every consistent variant re-asks it (topo_route_census), so each moved
+    row is computed both ways.  Mutation 'wncc-asserted' (CONTROL: a throat's creation removed by assertion, with no
+    pathway) must be refused by the adopted screen.
+  - Drift rule Z8: O-MAKE-TOPO OPEN via N_WNCC only (the board's route under M's ruling: no member opens it) reads
+    {N, OPEN}, as Z6 reads the board's S5 route: an A-report grading O-MAKE 'LEAVES' or 'LEFT' says the graded member does
+    not make the corridor (N); the five-way O-MAKE (Z4) is then taken under each of the two readings and the classes
+    united.  The A-reports' own texts were written before M ruled and are not edited here (they are their owners').
+
 WHAT THIS FILE DOES
   (1) builds the 127 non-empty combinations of the seven hypotheses.  Hypotheses with more than one reading are carried
       in EVERY reading: H-SETTLE W2 / W1 / KR; H-FRAME F1 / F2b / F1+F2b; H-IT ITB / ITE / ITJ (wave 3: the
@@ -382,6 +400,15 @@ OPEN_NAMED = {
             "both'; P is measured in no Proxima-system star in the sources read, while N IS measured in alpha Cen A "
             "('solar', [N/Fe] ~ 0: Porto de Mello et al. 2008 p.12, READ; primaries NAMED-NOT-READ), so under "
             "H-ACEN-RATIO N carries a measured 0 and P an assumed 0.  The binder stays unmeasured and O-SEAT OPEN",
+    # D66-RULINGS (M-RULINGS item 28, 'Re-grade D68 (Recommended)'): M-S1A-P3 applied to D68's own board
+    "N_WNCC": "M-RULINGS item 28 (2026-10-04, M: 'Re-grade D68 (Recommended)'): specthm's throat-creation class "
+              "W-create-ncc shown nonempty -- a creation of a geometric throat (THROAT) whose pathology (Geroch/Tipler, "
+              "Borde) is placed at the throat, which M has ruled not disqualifying (ledger M-S1A-P3: 'a singular throat "
+              "is not disqualified'; 'the throat-creation classes stay OPEN').  The board's pathway (no member opens it; "
+              "every variant without ITB's non-geometric premise has a geometric throat, B-THROAT), encoded as DOCKET "
+              "66's combine66 encoded it in its reading 'singok-board'.  OPEN at its owner (specthm's own z3, asked in the "
+              "grounds), not shown realisable.  D68 wave 2 first said O-MAKE-TOPO LEFT wherever Geroch/Tipler bind "
+              "(history mutation 'd68w2-topo')",
 }
 # OPEN pathways RETIRED from the screen, kept as history and restored only by a named mutation (never assumed in the
 # adopted screen).  Each carries the wave-7 reason it was retired.
@@ -799,8 +826,16 @@ def _defs(A, mutate=()):
         ("DEF-BITS", "O-BITS removed iff a channel carries >= 2 bits per teleported qubit before light: the drift (CAP) "
                      "or clause 2b's D-CTC (CAPD)",
          E(A[RM["O-BITS"]], Or(A["CAP"], A["CAPD"]))),
-        ("DEF-TOPO", "O-MAKE-TOPO removed iff the corridor is not a classical topology change AND making it is free",
-         E(A[RM["O-MAKE-TOPO"]], An(N(A["GTOPO"]), A["ILFREE"]))),
+        ("DEF-TOPO", "O-MAKE-TOPO removed iff the corridor is not a classical topology change AND making it is free" +
+         ("" if "d68w2-topo" in mutate else
+          ", or (M-RULINGS item 28, M-S1A-P3 as a board ruling) a geometric throat's creation is shown possible: "
+          "specthm's W-create-ncc nonempty (N_WNCC, OPEN), its pathology at the throat not disqualifying") +
+         (" -- HISTORY: D68 wave 2's encoding (no N_WNCC disjunct; O-MAKE-TOPO LEFT wherever Geroch/Tipler bind)"
+          if "d68w2-topo" in mutate else "") +
+         (" -- CONTROL 'wncc-asserted': a throat's creation removed by assertion" if "wncc-asserted" in mutate else ""),
+         E(A[RM["O-MAKE-TOPO"]], An(N(A["GTOPO"]), A["ILFREE"])) if "d68w2-topo" in mutate else
+         E(A[RM["O-MAKE-TOPO"]], Or(An(N(A["GTOPO"]), A["ILFREE"]),
+                                    A["THROAT"] if "wncc-asserted" in mutate else An(A["THROAT"], A["N_WNCC"])))),
         ("DEF-NB-TOPO", "Geroch/Tipler do not bind iff the corridor is not a classical topology change",
          E(A[NB["O-MAKE-TOPO"]], N(A["GTOPO"]))),
         ("DEF-DIST", "O-MAKE-DIST removed iff no entanglement distribution at <= c is needed",
@@ -1538,6 +1573,27 @@ def guard_vacuity(scr, scr_au):
     out["CONTROL vac-asserted (no distribution by assertion): O-MAKE-DIST removable with every OPEN pathway false, and "
         "the adopted screen refuses it"] = (va.sat(va.lits(set()) + va.noopen + [va.A["rm:O-MAKE-DIST"]]) and
                                             not scr.sat(nb0_v))
+    # D66-RULINGS (M-RULINGS item 28): N_WNCC tied to a geometric throat, a removal by assertion refused, and D68 wave 2's
+    # encoding reproduced as history
+    rmt = A["rm:O-MAKE-TOPO"]
+    out["CONTROL N_WNCC tied to a geometric throat: with N_WNCC alone O-MAKE-TOPO is removable in the board-alone "
+        "variant (a throat is forced) and not under ITB with N_QTOPO (no geometric throat); with every OPEN pathway "
+        "false the adopted screen refuses the removal"] = (
+        scr.sat(none + only(scr, "N_WNCC") + [rmt]) and
+        not scr.sat(scr.lits({"ITB"}) + only(scr, "N_WNCC") + [A["N_QTOPO"], rmt]) and
+        not scr.sat(nb0_t := none + scr.noopen + [rmt]))
+    wa = Screen(mutate=("wncc-asserted",))
+    out["CONTROL wncc-asserted (a throat's creation removed by assertion): O-MAKE-TOPO removable with every OPEN pathway "
+        "false, and the adopted screen refuses it"] = (wa.sat(wa.lits(set()) + wa.noopen + [wa.A["rm:O-MAKE-TOPO"]])
+                                                      and not scr.sat(nb0_t))
+    hw = Screen(mutate=("d68w2-topo",))
+    out["HISTORY D68 wave 2's encoding ('d68w2-topo'): O-MAKE-TOPO LEFT in the board-alone variant and under ITJ, even "
+        "with N_WNCC true; the adopted encoding reads OPEN via exactly [N_WNCC] in both"] = (
+        hw.variant(set())["per"]["O-MAKE-TOPO"] == {"verdict": "LEFT"} and
+        hw.variant({"ITJ"})["per"]["O-MAKE-TOPO"] == {"verdict": "LEFT"} and
+        not hw.sat(hw.lits(set()) + [hw.A["N_WNCC"], hw.A["rm:O-MAKE-TOPO"]]) and
+        scr.variant(set())["per"]["O-MAKE-TOPO"] == {"verdict": "OPEN", "via": ["N_WNCC"]} and
+        scr.variant({"ITJ"})["per"]["O-MAKE-TOPO"] == {"verdict": "OPEN", "via": ["N_WNCC"]})
     out["F1 & F2b consistent as commitments (wave 1 called this M's sentence contradicting itself)"] = scr.sat(
         scr.lits({"F1", "F2b"}))
     out["ITB & RI & RQ consistent as commitments (wave 1's clash b was B-THROAT's slip)"] = scr.sat(
@@ -1647,6 +1703,13 @@ def guard_vacuity(scr, scr_au):
                   "false, and the adopted screen refuses it"]
           and out["CONTROL vacuum pathways tied as encoded: N_NLDIST opens O-MAKE-DIST only with W2, N_W2WEAK only with "
                   "a drift signal (W2 and a frame), N_VACNP in the board-alone variant"]
+          and out["CONTROL N_WNCC tied to a geometric throat: with N_WNCC alone O-MAKE-TOPO is removable in the "
+                  "board-alone variant (a throat is forced) and not under ITB with N_QTOPO (no geometric throat); with "
+                  "every OPEN pathway false the adopted screen refuses the removal"]
+          and out["CONTROL wncc-asserted (a throat's creation removed by assertion): O-MAKE-TOPO removable with every "
+                  "OPEN pathway false, and the adopted screen refuses it"]
+          and out["HISTORY D68 wave 2's encoding ('d68w2-topo'): O-MAKE-TOPO LEFT in the board-alone variant and under "
+                  "ITJ, even with N_WNCC true; the adopted encoding reads OPEN via exactly [N_WNCC] in both"]
           and all(caught.values()) and out["board_admits_loop"] and out["board_admits_no_loop"]
           and out["board_alone_forces_recv"]
           and out["CONTROL without B-RECV, INFOS becomes consistent (the clash is carried by B-RECV)"]
@@ -1818,6 +1881,12 @@ def _form_class(res, o, graded):
         # A3's H-INFO-SHAPE row grades O-SEAT's own status (OPEN, F-alone); both describe this z3 state.  A report
         # reading R or NB still disagrees, and so does an OPEN against H-SEAT-ROUTES' LEFT ({N}).  Z2 (N_VAC) unchanged
         return raw, {"N", "OPEN"}
+    if v["verdict"] == "OPEN" and o == "O-MAKE-TOPO" and v["via"] == ["N_WNCC"]:
+        # Z8 (D66-RULINGS, M-RULINGS item 28): O-MAKE-TOPO OPEN via N_WNCC only -- the BOARD's route under M-S1A-P3
+        # (every geometric throat; no member opens it) -- reads {N, OPEN}, as Z6 reads the board's S5 route: a report
+        # grading O-MAKE 'LEAVES' / 'LEFT' says the graded member does not make the corridor (N); a report grading the
+        # route's own status reads OPEN.  A report reading R or NB still disagrees
+        return raw, {"N", "OPEN"}
     if v["verdict"] == "OPEN":
         return raw, ({"N"} if v["via"] == ["N_VAC"] else {"OPEN"})
     return raw, {"N"}
@@ -1832,6 +1901,16 @@ def z3_class(res, o, graded, form):
         return {"CLASH"}
     if o == "O-MAKE" and form == "5":
         a, b = _form_class(res, "O-MAKE-TOPO", graded)[1], _form_class(res, "O-MAKE-DIST", graded)[1]
+        vt = res["per"]["O-MAKE-TOPO"]
+        if vt["verdict"] == "OPEN" and vt.get("via") == ["N_WNCC"]:
+            # Z8 inside Z4 (D66-RULINGS): the board's N_WNCC route is read either way, N or OPEN, and the five-way O-MAKE
+            # is the weaker form under EACH reading; the classes are united.  With N_WNCC absent this branch is never
+            # taken, so every other row reads exactly as before
+            out = set()
+            for aa in ({"N"}, {"OPEN"}):
+                lo = min(max(ORDER[x] for x in aa), max(ORDER[x] for x in b))
+                out |= {k for k, v in ORDER.items() if v == lo}
+            return out
         lo = min(max(ORDER[x] for x in a), max(ORDER[x] for x in b))
         return {k for k, v in ORDER.items() if v == lo}
     if o in ("O-MAKE", "O-MAKE-TOPO"):
@@ -2051,6 +2130,10 @@ READINGS_UNDER_GUARD = {
                     [("A3-measure", "SHAPE", "O-SEAT"), ("W2C-seat", "(board)", "O-SEAT")]),
     "vac-left-if": ("ALTERNATIVE H-VAC-LEFTIF (reading, not mutation)", [("W2B-vacuum", "(board)", "O-MAKE-DIST")]),
     "wave6-NVAC": ("HISTORY wave 6's N_VAC encoding (superseded by vacuum.py)", [("W2B-vacuum", "(board)", "O-MAKE-DIST")]),
+    # D66-RULINGS (M-RULINGS item 28): D68 wave 2's O-MAKE-TOPO encoding.  The A-reports grade O-MAKE 'LEAVES' / 'LEFT'
+    # (written before M ruled), which Z8 reads as agreeing with both encodings, so the expected set is EMPTY: the reports
+    # do not tell the two apart, and the move is carried by M's ruling, computed in topo_route_census
+    "d68w2-topo": ("HISTORY D68 wave 2's O-MAKE-TOPO encoding (before M-RULINGS item 28)", []),
 }
 
 
@@ -2231,6 +2314,25 @@ def ground_checks():
     seat["S13_forms_baryons"] = mf.HELD_SEAT_ROUTE["forms baryons"]
     out["seat"] = seat
     out["flags"] = board_flags()
+    # D66-RULINGS (M-RULINGS item 28): N_WNCC's grounds, each asked of its owner at run time -- M's ruling as the ledger
+    # holds it (RULED_BY_M M-S1A-P3), M's item 28 as M-RULINGS holds it, and specthm's own z3 verdict on W-create-ncc
+    # (OPEN: not shown realisable, so N_WNCC is an OPEN pathway and never a removal)
+    led = _quiet("ledger")
+    mrow = [x for x in led.RULED_BY_M if x[0] == "M-S1A-P3"]
+    mtxt = " ".join(str(x) for x in mrow[0]) if mrow else ""
+    with open(os.path.join(HERE, "M-RULINGS-2026-10-03.md")) as f:
+        mr = f.read()
+    m28 = re.search(r"^28\. (.*?)(?=^\d+\. |\Z)", mr, re.S | re.M)
+    sp_ = _quiet("specthm")
+    with contextlib.redirect_stdout(io.StringIO()):
+        smodel = sp_.build()
+        sver = sp_.derive(smodel)
+    out["N_WNCC grounds"] = {
+        "ledger M-S1A-P3 holds 'a singular throat is not disqualified' and 'the throat-creation classes stay OPEN'":
+            "a singular throat is not" in mtxt and "disqualified" in mtxt and "the throat-creation classes stay OPEN" in mtxt,
+        "M-RULINGS item 28 (text)": " ".join(m28.group(1).split()) if m28 else None,
+        "specthm W-create-ncc verdict (z3 at run time)": sver["W-create-ncc"]["verdict"],
+        "specthm W-create-cc verdict (z3 at run time)": sver["W-create-cc"]["verdict"]}
     return out
 
 
@@ -2458,6 +2560,16 @@ def grounds_ok(g):
             g["seat_grade_z3"]["S5 refused"] == {"verdict": "LEFT"} and
             g["seat_grade"]["S5 shown and every conjunct True"].startswith("REMOVABLE") and
             g["seat_grade_z3"]["N_S5 asserted (S5 shown, D25 holds)"],
+        "N_WNCC as encoded (D66-RULINGS): ledger M-S1A-P3 holds M's ruling ('a singular throat is not disqualified'; 'the "
+        "throat-creation classes stay OPEN'), M-RULINGS item 28 reads 'Re-grade D68 (Recommended)' and 'O-MAKE-TOPO reads "
+        "OPEN via N_WNCC in D68's board-context variants as in D66's; history kept', and specthm's own z3 gives "
+        "W-create-ncc OPEN (not shown realisable: an OPEN pathway, never a removal)":
+            g["N_WNCC grounds"]["ledger M-S1A-P3 holds 'a singular throat is not disqualified' and 'the throat-creation "
+                                "classes stay OPEN'"] and
+            "Re-grade D68 (Recommended)" in (g["N_WNCC grounds"]["M-RULINGS item 28 (text)"] or "") and
+            "O-MAKE-TOPO reads OPEN via N_WNCC in D68's board-context variants as in D66's; history kept" in
+            (g["N_WNCC grounds"]["M-RULINGS item 28 (text)"] or "") and
+            g["N_WNCC grounds"]["specthm W-create-ncc verdict (z3 at run time)"] == "OPEN",
         "CONTROL seat.grade_o_seat can move: one gate conjunct False (composition) gives 'LEFT on the S5 pathway'":
             g["seat_grade"]["a conjunct False (composition)"] == "LEFT on the S5 pathway",
         "the D25 binder at Proxima (seat.py, stock.HUMAN payload): P at CI chondrite (runner-up N), and 70 kg x P's factor "
@@ -2957,6 +3069,71 @@ def dist_route_census(S, S_au):
     return out
 
 
+#: DOCKET 66's combine66 contexts (the D68 members that bear on its readings): H-IT none / ITB / ITE / ITJ x SHAPE x
+#: W2 x F1 x RQ -- 32 variants, the empty one being the board alone.  Restated here (combine.py imports nothing from
+#: docket66/) only to compare this census with combine66's figure '174 moved, 20 context-only' (singok-board)
+D66_CONTEXTS = [frozenset(x for part in c for x in part) for c in itertools.product(
+    [(), ("ITB",), ("ITE",), ("ITJ",)], [(), ("SHAPE",)], [(), ("W2", "F1")], [(), ("RQ",)])]
+
+
+def _status(v):
+    """O-MAKE-TOPO's OPEN status in a screened row: the verdict itself (OPEN / SILENT / LEFT) or, beside a NOT-BOUND-IF,
+    its removal's status; None beside a removal (REMOVED / REMOVED-IF: supports, which an OPEN pathway never enters)."""
+    if v["verdict"] in ("OPEN", "SILENT", "LEFT"):
+        return v
+    return v.get("removal")
+
+
+def topo_route_census(S, S_au):
+    """D66-RULINGS (M-RULINGS item 28): O-MAKE-TOPO in EVERY consistent variant, both cells, under the adopted encoding
+    (read off each row) and under D68 wave 2's (history mutation 'd68w2-topo', RE-ASKED of a history screen in each
+    variant: the OPEN status, the only field an OPEN pathway can move).  Each row is computed both ways; nothing is
+    inferred.  Reports the verdict moves (wave 2 LEFT -> OPEN via N_WNCC), the via-only moves (N_WNCC joins an OPEN
+    status, beside a NOT-BOUND-IF or an existing OPEN), the rows that do not move, and combine66's 32 contexts."""
+    out = {}
+    for lab, SS, cell in (("1 ly, N = 7", S, CELL_MAIN), ("1 AU, N = 7 (W2 variants)", S_au, CELL_AU)):
+        hist = Screen(cell=cell, mutate=("d68w2-topo",))
+        rows = [r for r in SS["rows"] if r["consistent"]] + ([SS["base"]] if lab.startswith("1 ly") else [])
+        verdict_moves, via_moves, same, removal_rows, bad = [], [], 0, 0, []
+        adopted_cen, hist_cen = {}, {}
+        for r in rows:
+            v = r["per"]["O-MAKE-TOPO"]
+            st = _status(v)
+            if st is None:
+                removal_rows += 1
+                continue
+            hs = hist._open_status(hist.lits(set(r["present"])), hist.A["rm:O-MAKE-TOPO"])
+            ka = st["verdict"] + (" via " + ",".join(st["via"]) if st.get("via") else "")
+            kh = hs["verdict"] + (" via " + ",".join(hs["via"]) if hs.get("via") else "")
+            outer = v["verdict"] if v["verdict"] in NBV else ""
+            adopted_cen[(outer + " / " if outer else "") + ka] = adopted_cen.get((outer + " / " if outer else "") + ka, 0) + 1
+            hist_cen[(outer + " / " if outer else "") + kh] = hist_cen.get((outer + " / " if outer else "") + kh, 0) + 1
+            va, vh = list(st.get("via") or []), list(hs.get("via") or [])
+            if ka == kh:
+                same += 1
+                if "N_WNCC" in va:
+                    bad.append((r["present"], "N_WNCC in an unmoved row"))
+                continue
+            # every move must be exactly N_WNCC joining: the history status is the adopted one with N_WNCC struck out
+            if not ("N_WNCC" in va and [k for k in va if k != "N_WNCC"] == vh and
+                    (hs["verdict"] == "LEFT") == (va == ["N_WNCC"])):
+                bad.append((r["present"], ka, kh))
+            (verdict_moves if hs["verdict"] != st["verdict"] else via_moves).append(
+                (tuple(r["present"]), outer, kh, ka))
+        ctx = {p for p in D66_CONTEXTS}
+        ctx_moved = sorted({p for p, o, kh, ka in verdict_moves if frozenset(p) in ctx}, key=lambda t: (len(t), t))
+        out[lab] = {"consistent variants" + (" (+ the board alone)" if lab.startswith("1 ly") else ""): len(rows),
+                    "beside a removal (supports only; not re-asked)": removal_rows,
+                    "adopted (M-RULINGS item 28)": adopted_cen, "HISTORY d68w2-topo (D68 wave 2, re-asked)": hist_cen,
+                    "verdict moved (LEFT -> OPEN via N_WNCC)": len(verdict_moves),
+                    "via list moved only (N_WNCC joins)": len(via_moves), "unmoved": same,
+                    "moves that are not exactly N_WNCC joining": bad,
+                    "combine66 contexts with a verdict move": [list(p) or ["(board alone)"] for p in ctx_moved],
+                    "smallest verdict moves": [list(p) for p, _o, _h, _a in sorted(verdict_moves,
+                                                                                  key=lambda t: (len(t[0]), t[0]))[:6]]}
+    return out
+
+
 def headline(rows):
     """The answer, per account (never mixing clashing premises), led by member-attributed removals.  Returns the
     maxima and the variants attaining each, the smallest first."""
@@ -3093,6 +3270,7 @@ def run_all(with_tests=True):
     out["survivors_au"] = survivors(S_au["rows"])
     out["seat_routes"] = seat_route_census(S, S_au)
     out["dist_routes"] = dist_route_census(S, S_au)
+    out["topo_routes"] = topo_route_census(S, S_au)          # D66-RULINGS (M-RULINGS item 28)
     out["headline"] = headline(S["rows"])
     out["headline_au"] = headline(S_au["rows"])
     out["load_bearing"] = load_bearing(S["rows"])
@@ -3198,6 +3376,8 @@ def report(R):
     print("O-SEAT UNDER EACH SEAT-ROUTE READING (wave 6, every consistent variant checked):", _fmt(R["seat_routes"]))
     print("O-MAKE-DIST UNDER THE VACUUM ROUTE (wave 7, D68 wave 2; every consistent variant checked):",
           _fmt(R["dist_routes"]))
+    print("O-MAKE-TOPO UNDER M-RULINGS ITEM 28 (D66-RULINGS: M-S1A-P3 as a board ruling; every consistent variant, "
+          "adopted and D68 wave 2's encoding each asked):", _fmt(R["topo_routes"]))
     print("THE NINE READ-WINDOW CELLS (wave 7; the board takes a cell only through its window):")
     for c in R["cells_read"]:
         print(f"     {c['L']:10s} N = {c['N']:<8g} window {'OPEN ' if c['window_open'] else 'EMPTY'}  premises "
@@ -3376,6 +3556,14 @@ def selftest():
        "every pathway false the adopted screen refuses the removal",
        V["CONTROL vacuum pathways tied as encoded: N_NLDIST opens O-MAKE-DIST only with W2, N_W2WEAK only with a drift "
          "signal (W2 and a frame), N_VACNP in the board-alone variant"])
+    for k in ("CONTROL N_WNCC tied to a geometric throat: with N_WNCC alone O-MAKE-TOPO is removable in the board-alone "
+              "variant (a throat is forced) and not under ITB with N_QTOPO (no geometric throat); with every OPEN pathway "
+              "false the adopted screen refuses the removal",
+              "CONTROL wncc-asserted (a throat's creation removed by assertion): O-MAKE-TOPO removable with every OPEN "
+              "pathway false, and the adopted screen refuses it",
+              "HISTORY D68 wave 2's encoding ('d68w2-topo'): O-MAKE-TOPO LEFT in the board-alone variant and under ITJ, "
+              "even with N_WNCC true; the adopted encoding reads OPEN via exactly [N_WNCC] in both"):
+        ck(k + " (D66-RULINGS, M-RULINGS item 28)", V[k])
     ck("CONTROL vac-asserted (M's 'it already exists everywhere' read as a removal by assertion): O-MAKE-DIST becomes "
        "removable with every OPEN pathway false, which the adopted screen refuses",
        V["CONTROL vac-asserted (no distribution by assertion): O-MAKE-DIST removable with every OPEN pathway false, and "
@@ -3530,9 +3718,31 @@ def selftest():
        itbri["per"]["O-HOLD"]["verdict"] == "NOT-BOUND-IF" and
        sorted(tuple(s["named"]) for s in itbri["per"]["O-HOLD"]["supports"]) == [("N_MEASPHYS",), ("N_QTOPO",)])
     itj = by[frozenset({"ITJ"})]
-    ck("RESULT {ITJ}: O-HOLD OPEN via N_EQUIL only; O-MAKE-TOPO LEFT (Geroch binds)",
+    ck("RESULT {ITJ}: O-HOLD OPEN via N_EQUIL only; O-MAKE-TOPO OPEN via exactly [N_WNCC] -- Geroch binds the "
+       "Lorentzian topology change and M-S1A-P3 leaves the throat's creation OPEN (M-RULINGS item 28; D68 wave 2 first "
+       "said 'O-MAKE-TOPO LEFT (Geroch binds)', reproduced by the history encoding 'd68w2-topo' under VACUITY)",
        itj["per"]["O-HOLD"]["verdict"] == "OPEN" and itj["per"]["O-HOLD"]["via"] == ["N_EQUIL"] and
-       itj["per"]["O-MAKE-TOPO"]["verdict"] == "LEFT")
+       itj["per"]["O-MAKE-TOPO"] == {"verdict": "OPEN", "via": ["N_WNCC"]})
+    TR = R["topo_routes"]
+    t1, ta = TR["1 ly, N = 7"], TR["1 AU, N = 7 (W2 variants)"]
+    ck("RESULT O-MAKE-TOPO under M-RULINGS item 28, every consistent variant at both cells asked under the adopted "
+       "encoding AND re-asked under D68 wave 2's ('d68w2-topo'): every row that moves moves by N_WNCC joining its OPEN "
+       "status and nothing else; %d verdicts move LEFT -> OPEN via N_WNCC at 1 ly (%d at 1 AU), %d via lists gain "
+       "N_WNCC (%d at 1 AU); no removal, NOT-BOUND-IF, clash or account moves (an OPEN pathway enters no support)"
+       % (t1["verdict moved (LEFT -> OPEN via N_WNCC)"], ta["verdict moved (LEFT -> OPEN via N_WNCC)"],
+          t1["via list moved only (N_WNCC joins)"], ta["via list moved only (N_WNCC joins)"]),
+       not t1["moves that are not exactly N_WNCC joining"] and not ta["moves that are not exactly N_WNCC joining"]
+       and t1["verdict moved (LEFT -> OPEN via N_WNCC)"] > 0 and ta["verdict moved (LEFT -> OPEN via N_WNCC)"] > 0
+       and {"O-HOLD", "O-MAKE-TOPO"} <= set(sv["removed_in_no_consistent_variant"]),
+       {k: (t1[k], ta[k]) for k in ("verdict moved (LEFT -> OPEN via N_WNCC)", "via list moved only (N_WNCC joins)",
+                                    "moves that are not exactly N_WNCC joining")})
+    ck("RESULT the board-context variants combine66 identified: of its 32 contexts (H-IT none / ITB / ITE / ITJ x SHAPE "
+       "x W2 x F1 x RQ, the empty one the board alone) exactly the 20 combine66's singok-board census reported "
+       "context-only move LEFT -> OPEN via N_WNCC here -- the empty board, RQ, ITJ, SHAPE and W2 x F1, alone and combined, "
+       "and ITB with RQ (a throat forced, N_QTOPO inadmissible); ITE and ITB without RQ move only their via lists",
+       len(t1["combine66 contexts with a verdict move"]) == 20 and
+       all(not ({"ITE"} & set(p)) and ("ITB" not in p or "RQ" in p) for p in t1["combine66 contexts with a verdict move"]),
+       t1["combine66 contexts with a verdict move"])
     rq = by[frozenset({"RQ"})]
     ck("RESULT {RQ}: O-HOLD OPEN via N_XI and N_QEIC (LEFT only IF {H_flat, H-PATH, H-MIN-SCALAR})",
        rq["per"]["O-HOLD"]["verdict"] == "OPEN" and set(rq["per"]["O-HOLD"]["via"]) == {"N_XI", "N_QEIC"})

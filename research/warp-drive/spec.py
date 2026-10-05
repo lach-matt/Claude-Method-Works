@@ -34,6 +34,19 @@ From transit.py's three parts, with the lead no longer required:
     and there only as T_kk > 0 somewhere on the segment; an exact GR plane wave
     with R_kk < 0 (so T_kk < 0) has a conjugate point (computed in DOCKET 67).
     ACHIEVABLE needs only sufficiency, so it stands.
+
+    RULED (M, 2026-10-04; docket68/M-RULINGS-2026-10-03.md item 27).  Asked
+    whether TURN means a genuine conjugate point or any crossing of light
+    paths, M: "Any crossing".  H-TURN-CROSSING is adopted: PART 2's TURN is
+    any crossing of light paths, and the straight cosmic string TURNs (rays
+    on opposite sides cross at L = b/tan(4 pi G mu) without focusing;
+    docket66/defects.py string_turn).  This line first read "TURN  a
+    conjugate point" and is kept above as written; a conjugate point is the
+    reading H-TURN-CONJUGATE, kept as the alternative on record.  Nothing in
+    this file's constants or checks changes: the lensing route below gives
+    rays that cross at the focus, so ACHIEVABLE stands under either reading,
+    and no specthm class verdict moves (its seat classes are defined by the
+    literals wl and ball, which name no turn).
     PART 3  SEAT     the turn lands on the declared arrival.  Unchanged.
 
 and every blocked item was attached to a requirement that is no longer made.

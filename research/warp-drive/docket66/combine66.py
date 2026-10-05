@@ -12,7 +12,9 @@ WHAT IT SCREENS
                       exterior), DTEX (texture), DTHR (a defect as the THROAT's support: string-supported wormholes)
       H-THROAT-BITS   TBHOLO (R-HOLO), TBTSH (R-THINSHELL), TBTEL (R-TELEPORT), TBISL (R-ISLAND), TBITB (R-ITB: D68's
                       ITB located at the throat -- always screened WITH the D68 literal ITB, A2: "adds the location only")
-      H-QET-EXOTIC    QET (R-QET, the operational reading), QLIT (R-LIT, M's sentence alone)
+      H-QET-EXOTIC    QET (R-QET, M's sentence read operationally), QLIT (R-LIT, the question's parenthetical read as
+                      arrival alone; D66-repro residual: wave 1's words here, 'M's sentence alone', kept as history --
+                      V66-1 #7)
   = 125 reading-combinations, each with every context of D68's members that BEAR (the task's list): H-IT in none / ITB /
   ITE / ITJ; H-INFO-SHAPE absent / present; H-SETTLE W2 x H-FRAME F1 absent / present; R-QUANTUM (RQ) absent / present
   (A3: QET's only OPEN branch on O-HOLD is the board's R-QUANTUM branch); the S5 seat route is the board's OPEN pathway
@@ -53,6 +55,19 @@ D66-FIX (2026-10-04; the three wave-1 verifier reports, every problem resolved o
   * QET's hold route is N_QETHAD only; N_XI and N_QEIC stay the board's, tied to RQ (wave 1's gating kept as the
     reading 'qet-board-paths').
   * The A-reports' grades are asked of the instruments at run time (report_grades), not of stored scratchpad JSON.
+
+D66-RULINGS (R-apply, 2026-10-04; docket68/M-RULINGS-2026-10-03.md items 27 and 28, M's words verbatim):
+  * Item 28, M: "Re-grade D68 (Recommended)" -- "O-MAKE-TOPO reads OPEN via N_WNCC in D68's board-context variants as in
+    D66's; history kept".  docket68/combine.py now carries the ruling on its own board (DEF-TOPO: THROAT & N_WNCC), so
+    the reading 'singok-board' -- which first showed it here -- IS combine's encoding and moves nothing; D68 wave 2's
+    encoding is combine's history mutation 'd68w2-topo', run here as a reading: it moves back exactly the rows
+    'singok-board' moved at D66-fix (174 single-reading/context variants, 20 of them context-only), each O-MAKE-TOPO
+    OPEN via N_WNCC -> LEFT.  'singok-a2' (wave 1's E-SINGOK) sat on D68 wave 2's board, so it is now built on
+    combine's 'd68w2-topo' DEF-TOPO and stays a mutation the drift guard refuses.  N_WNCC is now the board's pathway as
+    well as the D66 throats': its tie control is a variant with NO geometric throat (ITB with N_QTOPO), not a D66
+    reading without one (every variant without ITB's premise has a throat, combine's B-THROAT).
+  * Item 27, M: "Any crossing" -- spec.py's TURN is H-TURN-CROSSING (A1's grades, defects.py); nothing here encodes TURN
+    (it lies outside the screen's atoms), so no screen row moves.
 
 VERDICT WORDS (docket68/B-combine.md section 1): REMOVED, REMOVED-IF, NOT-BOUND-IF (a theorem that does not bind; never
 a removal), OPEN, SILENT, LEFT.  Added here, and only as a field beside a removal: "defeasible via X" -- an OPEN pathway
@@ -177,7 +192,10 @@ D66_OPEN = {
               "pathology (Tipler/Borde, Geroch) is placed at the throat, which M has ruled not disqualifying (ledger "
               "M-S1A-P3: 'a singular throat is not disqualified', 'the throat-creation classes stay OPEN').  Applied to "
               "EVERY D66 geometric throat (DTHR, TBHOLO, TBTSH, TBTEL); not shown realisable (specthm: OPEN, asked at run "
-              "time).  Wave 1 credited it to TBHOLO/TBTSH only and called the board reading 'for M' (V66-1 #1)",
+              "time).  Wave 1 credited it to TBHOLO/TBTSH only and called the board reading 'for M' (V66-1 #1).  "
+              "D66-RULINGS (M-RULINGS item 28, 'Re-grade D68 (Recommended)'): docket68/combine.py now carries it for "
+              "EVERY geometric throat (THROAT), D68's included -- the reading 'singok-board' became the board's encoding; "
+              "D68 wave 2's is combine's history mutation 'd68w2-topo'",
 }
 #: wave 1's pathways no longer carried, with why (history kept)
 RETIRED = {
@@ -247,13 +265,20 @@ def _expr(items, name):
     raise KeyError(name)
 
 
+def _c_mut(mutate):
+    """combine's mutations for a D66 mutation set: 'singok-a2' (wave 1's E-SINGOK) was encoded on D68 wave 2's DEF-TOPO,
+    so it reads combine's history encoding 'd68w2-topo' (D66-RULINGS; without it, combine's own N_WNCC disjunct would
+    already cover DTHR and TBTEL and the mutation would change nothing)."""
+    return tuple(mutate) + (("d68w2-topo",) if "singok-a2" in mutate and "d68w2-topo" not in mutate else ())
+
+
 def widen_terms(A, win_open, mutate=()):
     """Returns {name: (combine's ground, combine's term, the widened expression)} for B-HELD, B-SIGLOOP, DEF-SEAT and
     DEF-TOPO.  Each term is read from combine's own expression (Implies(HELD, held): held; Implies(ante, Not(LOOPS)):
     ante; rm == rhs: rhs) and checked to be of that shape (GROUND, STRUCTURAL)."""
     I, An, Or, N = z3.Implies, z3.And, z3.Or, z3.Not
     board = C._board(A, win_open, mutate)
-    defs = C._defs(A, mutate)
+    defs = C._defs(A, _c_mut(mutate))
     out = {}
     g, e = _expr(board, "B-HELD")
     assert z3.is_implies(e) and e.arg(0).eq(A["HELD"]), "B-HELD is not Implies(HELD, held)"
@@ -280,10 +305,10 @@ def widen_terms(A, win_open, mutate=()):
     g, e = _expr(defs, "DEF-TOPO")
     assert z3.is_eq(e) and e.arg(0).eq(A[C.RM["O-MAKE-TOPO"]]), "DEF-TOPO is not rm == rhs"
     rhs = e.arg(1)
-    if "singok-board" in mutate:                   # reading: every geometric throat, D68's included (changes D68 rows)
-        who = A["THROAT"]
-    elif "singok-a2" in mutate:                    # wave 1's encoding (E-SINGOK), kept as a reading on record
-        who = Or(A["TBHOLO"], A["TBTSH"])
+    if "singok-board" in mutate:                   # reading: every geometric throat, D68's included.  D66-RULINGS: this is
+        who = A["THROAT"]                          # now combine's own DEF-TOPO (M-RULINGS item 28), so it moves nothing
+    elif "singok-a2" in mutate:                    # wave 1's encoding (E-SINGOK), kept as a reading on record; it sat on D68
+        who = Or(A["TBHOLO"], A["TBTSH"])          # wave 2's board, so combine's 'd68w2-topo' DEF-TOPO is read (_c_mut)
     else:                                          # M's ruling applied to every D66 geometric throat (V66-1 #1)
         who = Or(*[A[k] for k in D66_THROATS])
     out["DEF-TOPO"] = (g, rhs, A[C.RM["O-MAKE-TOPO"]] == Or(rhs, An(who, A["N_WNCC"])))
@@ -307,8 +332,11 @@ WIDEN_TEXT = {
     "DEF-TOPO": "D66 widening: O-MAKE-TOPO is also removed if specthm's W-create-ncc class is shown nonempty (N_WNCC) "
                 "for any D66 geometric throat (DTHR, TBHOLO, TBTSH, TBTEL): M has ruled (ledger M-S1A-P3: 'a singular "
                 "throat is not disqualified', 'the throat-creation classes stay OPEN'), a board ruling applied, not a "
-                "question for M (V66-1 #1).  Reading 'singok-a2' is wave 1's encoding (TBHOLO / TBTSH only); reading "
-                "'singok-board' extends it to D68's throats too, which combine66 does not change (E-EXTEND)",
+                "question for M (V66-1 #1).  Reading 'singok-a2' is wave 1's encoding (TBHOLO / TBTSH only, on D68 wave "
+                "2's DEF-TOPO); reading 'singok-board' extends it to D68's throats too -- D66-RULINGS: M ruled 'Re-grade "
+                "D68 (Recommended)' (M-RULINGS item 28), so combine's own DEF-TOPO now carries THROAT & N_WNCC and "
+                "'singok-board' moves nothing; D68 wave 2's encoding is the reading 'd68w2-topo' (combine's history "
+                "mutation)",
 }
 
 
@@ -385,8 +413,11 @@ def commitments66(A):
         ("C-DTEX", "A1 (defects.derrick(3): dE/dlambda = I1 + 3 I2 > 0, no stationary point; DURRER Table 1 p.4 READ: "
                    "textures 'form d = 0 events in spacetime'): a texture seat is an event, so it cannot persist",
          A["DTEX"], N(A["N_SEATPERSIST"])),
-        ("C-QLIT", "A3 R-LIT, M's sentence alone: the introduction of information, with no conditioned operation and no "
-                   "prior correlation, is itself exotic matter (arrival-alone negative energy)", A["QLIT"], A["ARRNEG"]),
+        ("C-QLIT", "A3 R-LIT, the question's parenthetical read as arrival alone ('information arriving ... creates'): "
+                   "the bit's arrival, with no conditioned operation and no prior correlation, is itself exotic matter "
+                   "(arrival-alone negative energy).  M's sentence read operationally is R-QET (V66-1 #7); wave 1's "
+                   "words here, 'R-LIT, M's sentence alone: the introduction of information ...', are kept as history",
+         A["QLIT"], A["ARRNEG"]),
     ]
 
 
@@ -897,14 +928,17 @@ def pathway_ties(scr):
     (D66-fix: N_WALLLOOP retired -- the wall's causal structure is computed; N_WNCC's owner test now uses DTHR, the
     reading M's ruling newly covers.)"""
     A = scr.A
-    spec = {"N_DEFB": ("O-SEAT", "DSTR", "QET"), "N_NEGT": ("O-HOLD", "DTHR", "DSTR"),
-            "N_GJWPAY": ("O-HOLD", "TBTEL", "TBISL"), "N_PINCH": ("O-HOLD", "TBTSH", "TBTEL"),
-            "N_QETHAD": ("O-HOLD", "QET", "TBISL"), "N_WNCC": ("O-MAKE-TOPO", "DTHR", "QET")}
+    # D66-RULINGS (M-RULINGS item 28): N_WNCC is now also the D68 board's pathway for every geometric throat, and every
+    # variant without ITB's non-geometric premise has one (combine's B-THROAT), so its non-owner is ITB WITH N_QTOPO (no
+    # geometric throat) -- D66-fix used QET, which a throat now accompanies on the board
+    spec = {"N_DEFB": ("O-SEAT", "DSTR", "QET", ()), "N_NEGT": ("O-HOLD", "DTHR", "DSTR", ()),
+            "N_GJWPAY": ("O-HOLD", "TBTEL", "TBISL", ()), "N_PINCH": ("O-HOLD", "TBTSH", "TBTEL", ()),
+            "N_QETHAD": ("O-HOLD", "QET", "TBISL", ()), "N_WNCC": ("O-MAKE-TOPO", "DTHR", "ITB", ("N_QTOPO",))}
     out = {}
-    for k, (o, yes, no) in spec.items():
+    for k, (o, yes, no, extra) in spec.items():
         a = scr.sat(scr.lits({yes}) + scr._only_open(k) + [A[C.RM[o]]])
-        b = scr.sat(scr.lits({no}) + scr._only_open(k) + [A[C.RM[o]]])
-        out[k] = {"opens with " + yes: a, "opens with " + no: b, "ok": a and not b}
+        b = scr.sat(scr.lits({no}) + scr._only_open(k) + [A[x] for x in extra] + [A[C.RM[o]]])
+        out[k] = {"opens with " + yes: a, "opens with " + no + "".join(" + " + x for x in extra): b, "ok": a and not b}
     return out
 
 
@@ -1424,7 +1458,7 @@ def guard_readings(items_small):
     contexts and the context-only variants: which rows each moves."""
     out = {}
     base = run(C.CELL_MAIN, (), items_small)
-    for m in ("seat-routes", "singok-board", "singok-a2", "fkz-generic", "qet-board-paths"):
+    for m in ("seat-routes", "singok-board", "singok-a2", "fkz-generic", "qet-board-paths", "d68w2-topo"):
         R = run(C.CELL_MAIN, (m,), items_small)
         moved = []
         for r in R["rows"]:
@@ -1669,17 +1703,30 @@ def selftest(conservative_step=24, json_path=None):
        all(set().union(*[set(s["members"]) for s in C._sups_with(r["per"]["O-HOLD"], C.NBV)]) <= {"ITB"}
            for r in R["rows"] if r["consistent"] and r["per"]["O-HOLD"]["verdict"] in C.NBV))
     ck("RESULT readings: H-SEAT-ROUTES moves O-SEAT to LEFT in every consistent single-reading variant (DEFB excluded "
-       "with S5); singok-a2 (wave 1's encoding) moves only O-MAKE-TOPO, to LEFT; singok-board moves only O-MAKE-TOPO, to "
-       "OPEN via N_WNCC, and only in variants holding no D66 throat (there a throat is merely possible, or D68's); "
+       "with S5); singok-a2 (wave 1's encoding, on D68 wave 2's DEF-TOPO) moves only O-MAKE-TOPO, to LEFT; "
        "fkz-generic only defeasibility; qet-board-paths (wave 1's QET "
-       "gating) only O-HOLD's via list, never its verdict",
+       "gating) only O-HOLD's via list, never its verdict.  (D66-fix also required singok-board to move only "
+       "O-MAKE-TOPO, to OPEN via N_WNCC, in variants holding no D66 throat; it is now D68's own encoding and is checked "
+       "below with d68w2-topo)",
        all(m[1] == "O-SEAT" and m[2] == "LEFT" for m in out["readings"]["seat-routes"]["moved"] if m[1] != "consistency")
-       and all(m[1] in ("O-MAKE-TOPO",) for m in out["readings"]["singok-board"]["moved"])
        and all(m[1] in ("O-MAKE-TOPO",) and m[2] == "LEFT" for m in out["readings"]["singok-a2"]["moved"])
-       and all(m[2] == "OPEN" and m[3] == ["N_WNCC"] and not set(m[0]) & set(D66_THROATS)
-               for m in out["readings"]["singok-board"]["moved"])
        and all(m[1] in ("O-LOOP-S", "SEAT") for m in out["readings"]["fkz-generic"]["moved"])
        and all(m[1] == "O-HOLD" and m[2] == m[4] for m in out["readings"]["qet-board-paths"]["moved"]))
+    # D66-RULINGS (M-RULINGS item 28): combine.py carries the ruling, so 'singok-board' is the board's own encoding, and
+    # D68 wave 2's encoding ('d68w2-topo', combine's history mutation) moves back exactly what 'singok-board' moved at
+    # D66-fix: 174 single-reading/context variants, 20 of them context-only, each O-MAKE-TOPO OPEN via N_WNCC -> LEFT
+    hw = out["readings"]["d68w2-topo"]["moved"]
+    ck("RESULT readings (D66-RULINGS, M-RULINGS item 28: 'Re-grade D68 (Recommended)'): singok-board moves NOTHING (it is "
+       "now docket68/combine.py's own DEF-TOPO); the history encoding d68w2-topo (D68 wave 2) moves only O-MAKE-TOPO, "
+       "OPEN via [N_WNCC] -> LEFT, never in a variant holding a D66 throat, in exactly the 174 variants (20 context-only) "
+       "singok-board moved at D66-fix",
+       out["readings"]["singok-board"]["moved"] == [] and
+       all(m[1] == "O-MAKE-TOPO" and m[2] == "LEFT" and m[4] == "OPEN" and m[5] == ["N_WNCC"] and
+           not set(m[0]) & set(D66_THROATS) for m in hw) and
+       len(hw) == 174 and sum(1 for m in hw if not set(m[0]) & set(D66_LITS)) == 20)
+    ck("CONTROL the readings census can fail: singok-a2 (wave 1's encoding) moves O-MAKE-TOPO in variants holding DTHR "
+       "or TBTEL, which d68w2-topo never moves",
+       any(set(m[0]) & {"DTHR", "TBTEL"} for m in out["readings"]["singok-a2"]["moved"]), control=True)
     sm = out["sm_only"]
     ck("RESULT H-SM-ONLY: every variant with a string, wall, monopole or string-supported throat is inconsistent (%d)"
        % sm["inconsistent under H-SM-ONLY"],

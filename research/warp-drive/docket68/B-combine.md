@@ -8,6 +8,8 @@ the screen. Wave 6 (F-combine) is kept below as history: its status lines, its "
 **Nothing here is seated** (seating is a later step; `ledger.py`, `index3.py`, `LEDGER.md` and `paper/` are untouched).
 The instrument is `combine.py`, beside this file.
 
+**D66-RULINGS (R-apply, 2026-10-04):** M ruled DOCKET 66 item 28, "Re-grade D68 (Recommended)": O-MAKE-TOPO now reads OPEN via N_WNCC in D68's board-context variants (section 0 (D66-RULINGS)); D68 wave 2's encoding is kept as the history mutation `d68w2-topo`. The selftest runs **131 counted checks and passes all 131** (480 s, rc 0; 28 controls; 14 STRUCTURAL not counted). The W2-fix status line below is kept as history.
+
 **W2-fix (2026-10-04):** after the two re-verifications of wave 2 (section 0 (W2-fix)) the selftest runs **124 counted
 checks and passes all 124** in 2,480 s (rc 0, with the report run sharing the machine), **26 controls**, **14 STRUCTURAL**
 not counted: one GROUND is new (the vacuum route's window-free floor, 1.50 / 2.00 L/c) and three GROUND names are
@@ -34,6 +36,35 @@ instruments' own grades (`vacuum.GRADES`, `seat.grade_o_seat`), read from the in
 M's standing instruction, verbatim from the charter: *"Remember that some of the hypothesies lined up for docket 68
 may turn out, after initial testing, to work better in combination."* M's hypotheses are carried as hypotheses. Each
 grade says what a combination does, not whether it is true.
+
+## 0 (D66-RULINGS). M's DOCKET 66 ruling item 28, applied here (R-apply, 2026-10-04)
+
+**M's words, verbatim** (M-RULINGS-2026-10-03.md item 28): *"Re-grading D68 on the singular-throat ruling. Asked whether
+to apply M-S1A-P3 ('a singular throat is not disqualified'; throat creation stays OPEN) in D68's combine.py too, M:
+"Re-grade D68 (Recommended)". O-MAKE-TOPO reads OPEN via N_WNCC in D68's board-context variants as in D66's; history
+kept."* Applied as worded, as a board ruling, by the encoding DOCKET 66's `combine66.py` used for its reading
+`singok-board`:
+
+| item | D68 wave 2 | now | ground / check |
+|---|---|---|---|
+| DEF-TOPO | O-MAKE-TOPO removed iff not a classical topology change and making it free | **+ THROAT ∧ N_WNCC**: a geometric throat's creation removable only if specthm's W-create-ncc is shown nonempty -- an OPEN pathway (OPEN_NAMED), never assumed in a removal | ledger M-S1A-P3 ("a singular throat is not disqualified", "the throat-creation classes stay OPEN"), M-RULINGS item 28 and specthm's own z3 verdict (W-create-ncc OPEN) asked at run time (new GROUND) |
+| O-MAKE-TOPO, every consistent variant (`topo_route_census`: each row asked under the adopted encoding and RE-ASKED under wave 2's) | LEFT in 3,840 of 5,760 at 1 ly (board alone included) and 960 of 1,152 at 1 AU; NOT-BOUND-IF with removal OPEN via N_ILFREE in 1,920 / 192 | **OPEN via N_WNCC in the 3,840 / 960; the NOT-BOUND-IF rows' removal OPEN via N_ILFREE, N_WNCC**; 0 rows unmoved, 0 rows beside a removal, 0 moves other than N_WNCC joining | RESULT check; no support, NOT-BOUND-IF, clash, account, headline or survivor moves (an OPEN pathway enters no support) |
+| combine66's board-context variants | combine66 found 174 moved, 20 context-only (singok-board) | **the same 20** of its 32 contexts move LEFT -> OPEN via N_WNCC here: the board alone, RQ, ITJ, SHAPE and W2 x F1, alone and combined, and ITB with RQ; ITE and ITB without RQ move only their via lists | RESULT check (computed against the census, not copied) |
+| {ITJ} | O-MAKE-TOPO LEFT (Geroch binds) | **OPEN via exactly [N_WNCC]** -- Geroch binds the Lorentzian topology change and M's ruling leaves the throat's creation OPEN | RESULT check (its D68 wave 2 wording kept in the check name) |
+| history | -- | wave 2's encoding kept as the mutation **`d68w2-topo`**: board alone and ITJ LEFT even with N_WNCC true (HISTORY check); under the drift guard it disagrees with the A-reports on exactly [] rows -- they grade O-MAKE "LEAVES", written before M ruled, which both encodings satisfy | VACUITY / READING checks |
+| controls | -- | **N_WNCC tied to a geometric throat** (removable with N_WNCC alone on the board, not under ITB with N_QTOPO; refused with every OPEN pathway false) and **`wncc-asserted`** (a throat's creation removed by assertion) refused by the adopted screen | CONTROL checks |
+| drift rule **Z8** | -- | O-MAKE-TOPO OPEN via N_WNCC only -- the board's route, no member's -- reads {N, OPEN}, as Z6 reads the board's S5 route; the five-way O-MAKE (Z4) is taken under each reading and the classes united. Drift: **174 of 175 agree**, the one A2 F2b vocabulary row explained, as before; every mutation still caught | DRIFT checks |
+
+**Selftest:** `PYTHONDONTWRITEBYTECODE=1 python3 combine.py --selftest` runs **131 counted checks and passes all 131** in
+480 s (rc 0), **28 controls**, **14 STRUCTURAL** not counted. New: three VACUITY (the N_WNCC tie CONTROL, the
+`wncc-asserted` CONTROL, the `d68w2-topo` HISTORY), two RESULT (the census over every variant; combine66's 20 contexts),
+one GROUND (N_WNCC's grounds), one READING (`d68w2-topo` under the guard); the {ITJ} RESULT check restated. *W2-fix first
+said:* 124 checks, 26 controls. The report run (`--json`, `--table`, scratchpad `d66r/`) regenerated section 6: 64 rows
+change in the TOPO code only (L -> OPEN). **No headline, clash, premise clash, support, account or survivor figure of
+this file moved**; what moved is O-MAKE-TOPO's OPEN status. The A-reports A1-A4 and the wave-2 instruments are not
+edited (their owners'); `ledger.py`, which asks combine.py and prints the singok-board finding as "where combine.py gives
+LEFT", now fails four of its own checks against this screen and needs its owner's re-seat (recorded in the R-apply
+report, not repaired here).
 
 ## The answer, first (section 3 has the detail)
 
@@ -1081,7 +1112,7 @@ other route. *Wave 4 first said* 576 there; *wave 3* 480.
 | form | account A (N_CORR dropped; N_QTOPO assumed) | account B (N_QTOPO dropped; N_CORR assumed) | supports (all accounts) |
 |---|---|---|---|
 | O-BITS | **Rm** | **Rm** | {W2, F1; N_EPS} [ADMISSIBLE given W_W2R; *wave 5-6:* admissible given W_W2] \| {W2, F1; N_W2ANC} [unevaluated] (wave 4: two supports; wave 5: flags) |
-| O-MAKE-TOPO | **NBm** | — (LEFT) | NOT-BOUND-IF {ITB; N_QTOPO}; removal OPEN via N_ILFREE |
+| O-MAKE-TOPO | **NBm** | — (OPEN via N_WNCC; *D68 wave 2 printed* LEFT) | NOT-BOUND-IF {ITB; N_QTOPO}; removal OPEN via N_ILFREE, N_WNCC (M-RULINGS item 28: a geometric throat's creation is OPEN under M-S1A-P3; *wave 2:* via N_ILFREE) |
 | O-MAKE-DIST | — | — | OPEN via N_NLDIST, N_W2WEAK, N_VACNP (wave 7, vacuum.py); LEFT given H-VAC-LEFTIF. *Wave 6:* OPEN via N_VAC only |
 | O-HOLD | **NBm** | — (LEFT) | NOT-BOUND-IF {ITB; N_QTOPO}; removal OPEN via N_ILFREE |
 | O-SEAT (wave 4: O-MATTER) | — | — | OPEN via N_S5 (S5 from destination stock, D25 unchecked; S10 refused, S13 forms no baryons); LEFT given H-SEAT-ROUTES (*wave 5 first said* LEFT) |
@@ -1339,37 +1370,38 @@ so every combination containing H-INFO has 4/3 as many variants; the obstruction
 (O-SEAT, LEFT in every row); and no best variant, account or code changed. **Wave 6:** regenerated from the
 re-screen with S5/D25 encoded; the SEAT code reads **OPEN** in every row (OPEN via N_S5, the board's route; LEFT given
 H-SEAT-ROUTES), where wave 5 printed L. No other code, best variant, account or count changed.
+**D66-RULINGS (M-RULINGS item 28, 2026-10-04):** regenerated from the re-screen with N_WNCC encoded; **64 of the 128 rows change, each in one code only: TOPO reads OPEN where D68 wave 2 printed L** (rows 2-7, 14-28, 44-63, 84-98, 114-119, 126 and 128 -- every row whose best variant holds a geometric throat and no non-geometric premise). No other code, best variant, account, count, clash or load-bearing entry changed (checked cell by cell against the wave-2 table, scratchpad `d68/B-table.md`, kept). The wave-2 table is reproduced by the history encoding `d68w2-topo`.
 
 | # | combination | variants | consistent | clash (literals in core) | premise clashes | best variant (one account) | BITS/TOPO/DIST/HOLD/SEAT/LOOP-C/LOOP-S | member-attributed removals | NOT-BOUND-IF | removed with no member (geometry / board / premise) | load-bearing members; adds nothing | joint / independent variants | 1 AU, N = 7: W2 variants with O-BITS member-removed |
 |---|---|---|---|---|---|---|---|---|---|---|---|---|---|
 | 1 | IT | 12 | 12 | - | {N_CORR,N_MEASPHYS}; {N_CORR,N_QTOPO}; {N_MEASPHYS}; {N_QTOPO} | ITB (dropped N_CORR) | L/NBm/OPEN/NBm/OPEN/NBm/Rg | none | HOLD,LOOP | - | ITB | 0 / 0 | - |
-| 2 | SET | 12 | 12 | - | - | W2 | L/L/OPEN/L/OPEN/Rg/Rg | none | - | LOOP | none; adds nothing: W2 | 0 / 0 | 0/4 |
-| 3 | FR | 12 | 12 | - | {N_2BVIA,N_FRW}; {N_2BVIA,N_KEYING}; {N_DCTC,N_FRW} | F2b (dropped N_FRW) | Rm/L/OPEN/L/OPEN/S/S | BITS | - | - | F2b | 0 / 0 | - |
-| 4 | 12 | 4 | 4 | - | - | H12 | L/L/OPEN/L/OPEN/Rg/Rg | none | - | LOOP | none; adds nothing: H12 | 0 / 0 | - |
-| 5 | INF | 12 | 8 | INFOS | - | INFO | L/L/OPEN/L/OPEN/Rg/Rg | none | - | LOOP | none; adds nothing: INFO | 0 / 0 | - |
-| 6 | ZER | 4 | 4 | - | - | ZERO | L/L/OPEN/L/OPEN/Rg/Rg | none | - | LOOP | none; adds nothing: ZERO | 0 / 0 | - |
-| 7 | NUL | 4 | 4 | - | - | NULL | L/L/OPEN/L/OPEN/Rg/Rg | none | - | LOOP | none; adds nothing: NULL | 0 / 0 | - |
+| 2 | SET | 12 | 12 | - | - | W2 | L/OPEN/OPEN/L/OPEN/Rg/Rg | none | - | LOOP | none; adds nothing: W2 | 0 / 0 | 0/4 |
+| 3 | FR | 12 | 12 | - | {N_2BVIA,N_FRW}; {N_2BVIA,N_KEYING}; {N_DCTC,N_FRW} | F2b (dropped N_FRW) | Rm/OPEN/OPEN/L/OPEN/S/S | BITS | - | - | F2b | 0 / 0 | - |
+| 4 | 12 | 4 | 4 | - | - | H12 | L/OPEN/OPEN/L/OPEN/Rg/Rg | none | - | LOOP | none; adds nothing: H12 | 0 / 0 | - |
+| 5 | INF | 12 | 8 | INFOS | - | INFO | L/OPEN/OPEN/L/OPEN/Rg/Rg | none | - | LOOP | none; adds nothing: INFO | 0 / 0 | - |
+| 6 | ZER | 4 | 4 | - | - | ZERO | L/OPEN/OPEN/L/OPEN/Rg/Rg | none | - | LOOP | none; adds nothing: ZERO | 0 / 0 | - |
+| 7 | NUL | 4 | 4 | - | - | NULL | L/OPEN/OPEN/L/OPEN/Rg/Rg | none | - | LOOP | none; adds nothing: NULL | 0 / 0 | - |
 | 8 | IT+SET | 36 | 32 | W2+ITE | {N_CORR,N_MEASPHYS}; {N_CORR,N_QTOPO}; {N_MEASPHYS}; {N_QTOPO} | W2,ITB (dropped N_CORR) | L/NBm/OPEN/NBm/OPEN/NBm/Rg | none | HOLD,LOOP | - | ITB; adds nothing: W2 | 0 / 0 | 0/12 |
 | 9 | IT+FR | 36 | 36 | - | {N_2BVIA,N_FRW}; {N_2BVIA,N_KEYING}; {N_CORR,N_MEASPHYS}; {N_CORR,N_QTOPO}; {N_DCTC,N_FRW}; {N_DCTC}; {N_MEASPHYS}; {N_QTOPO} | F2b,ITB (dropped N_CORR, N_FRW) | Rm/NBm/OPEN/NBm/OPEN/NBm/S | BITS | HOLD | - | F2b,ITB | 0 / 8 | - |
 | 10 | IT+12 | 12 | 12 | - | {N_CORR,N_MEASPHYS}; {N_CORR,N_QTOPO}; {N_MEASPHYS}; {N_QTOPO} | ITB,H12 (dropped N_CORR) | L/NBm/OPEN/NBm/OPEN/NBm/Rg | none | HOLD,LOOP | - | ITB; adds nothing: H12 | 0 / 0 | - |
 | 11 | IT+INF | 36 | 24 | INFOS | {N_CORR,N_MEASPHYS}; {N_CORR,N_QTOPO}; {N_MEASPHYS}; {N_QTOPO} | ITB,INFO (dropped N_CORR) | L/NBm/OPEN/NBm/OPEN/NBm/Rg | none | HOLD,LOOP | - | ITB; adds nothing: INFO | 0 / 0 | - |
 | 12 | IT+ZER | 12 | 12 | - | {N_CORR,N_MEASPHYS}; {N_CORR,N_QTOPO}; {N_MEASPHYS}; {N_QTOPO} | ITB,ZERO (dropped N_CORR) | L/NBm/OPEN/NBm/OPEN/NBm/Rg | none | HOLD,LOOP | - | ITB; adds nothing: ZERO | 0 / 0 | - |
 | 13 | IT+NUL | 12 | 12 | - | {N_CORR,N_MEASPHYS}; {N_CORR,N_QTOPO}; {N_MEASPHYS}; {N_QTOPO} | ITB,NULL (dropped N_CORR) | L/NBm/OPEN/NBm/OPEN/NBm/Rg | none | HOLD,LOOP | - | ITB; adds nothing: NULL | 0 / 0 | - |
-| 14 | SET+FR | 36 | 36 | - | {N_2BVIA,N_FRW}; {N_2BVIA,N_KEYING}; {N_DCTC,N_FRW} | W2,F1 | Rm/L/OPEN/L/OPEN/Rg/Rg | BITS | - | LOOP | W2,F1 | 4 / 0 | 12/12 |
-| 15 | SET+12 | 12 | 12 | - | - | W2,H12 | L/L/OPEN/L/OPEN/Rg/Rg | none | - | LOOP | none; adds nothing: W2,H12 | 0 / 0 | 0/4 |
-| 16 | SET+INF | 36 | 24 | INFOS | - | W2,INFO | L/L/OPEN/L/OPEN/Rg/Rg | none | - | LOOP | none; adds nothing: W2,INFO | 0 / 0 | 0/12 |
-| 17 | SET+ZER | 12 | 12 | - | - | W2,ZERO | L/L/OPEN/L/OPEN/Rg/Rg | none | - | LOOP | none; adds nothing: W2,ZERO | 0 / 0 | 0/4 |
-| 18 | SET+NUL | 12 | 12 | - | - | W2,NULL | L/L/OPEN/L/OPEN/Rg/Rg | none | - | LOOP | none; adds nothing: W2,NULL | 0 / 0 | 0/4 |
-| 19 | FR+12 | 12 | 12 | - | {N_2BVIA,N_FRW}; {N_2BVIA,N_KEYING}; {N_DCTC,N_FRW} | F2b,H12 (dropped N_FRW) | Rm/L/OPEN/L/OPEN/S/S | BITS | - | - | F2b; adds nothing: H12 | 0 / 0 | - |
-| 20 | FR+INF | 36 | 24 | INFOS | {N_2BVIA,N_FRW}; {N_2BVIA,N_KEYING}; {N_DCTC,N_FRW} | F2b,INFO (dropped N_FRW) | Rm/L/OPEN/L/OPEN/S/S | BITS | - | - | F2b; adds nothing: INFO | 0 / 0 | - |
-| 21 | FR+ZER | 12 | 12 | - | {N_2BVIA,N_FRW}; {N_2BVIA,N_KEYING}; {N_DCTC,N_FRW} | F2b,ZERO (dropped N_FRW) | Rm/L/OPEN/L/OPEN/S/S | BITS | - | - | F2b; adds nothing: ZERO | 0 / 0 | - |
-| 22 | FR+NUL | 12 | 12 | - | {N_2BVIA,N_FRW}; {N_2BVIA,N_KEYING}; {N_DCTC,N_FRW} | F2b,NULL (dropped N_FRW) | Rm/L/OPEN/L/OPEN/S/S | BITS | - | - | F2b; adds nothing: NULL | 0 / 0 | - |
-| 23 | 12+INF | 12 | 8 | INFOS | - | H12,INFO | L/L/OPEN/L/OPEN/Rg/Rg | none | - | LOOP | none; adds nothing: H12,INFO | 0 / 0 | - |
-| 24 | 12+ZER | 4 | 4 | - | - | H12,ZERO | L/L/OPEN/L/OPEN/Rg/Rg | none | - | LOOP | none; adds nothing: H12,ZERO | 0 / 0 | - |
-| 25 | 12+NUL | 4 | 4 | - | - | H12,NULL | L/L/OPEN/L/OPEN/Rg/Rg | none | - | LOOP | none; adds nothing: H12,NULL | 0 / 0 | - |
-| 26 | INF+ZER | 12 | 8 | INFOS | - | INFO,ZERO | L/L/OPEN/L/OPEN/Rg/Rg | none | - | LOOP | none; adds nothing: INFO,ZERO | 0 / 0 | - |
-| 27 | INF+NUL | 12 | 8 | INFOS | - | INFO,NULL | L/L/OPEN/L/OPEN/Rg/Rg | none | - | LOOP | none; adds nothing: INFO,NULL | 0 / 0 | - |
-| 28 | ZER+NUL | 4 | 4 | - | - | ZERO,NULL | L/L/OPEN/L/OPEN/Rg/Rg | none | - | LOOP | none; adds nothing: ZERO,NULL | 0 / 0 | - |
+| 14 | SET+FR | 36 | 36 | - | {N_2BVIA,N_FRW}; {N_2BVIA,N_KEYING}; {N_DCTC,N_FRW} | W2,F1 | Rm/OPEN/OPEN/L/OPEN/Rg/Rg | BITS | - | LOOP | W2,F1 | 4 / 0 | 12/12 |
+| 15 | SET+12 | 12 | 12 | - | - | W2,H12 | L/OPEN/OPEN/L/OPEN/Rg/Rg | none | - | LOOP | none; adds nothing: W2,H12 | 0 / 0 | 0/4 |
+| 16 | SET+INF | 36 | 24 | INFOS | - | W2,INFO | L/OPEN/OPEN/L/OPEN/Rg/Rg | none | - | LOOP | none; adds nothing: W2,INFO | 0 / 0 | 0/12 |
+| 17 | SET+ZER | 12 | 12 | - | - | W2,ZERO | L/OPEN/OPEN/L/OPEN/Rg/Rg | none | - | LOOP | none; adds nothing: W2,ZERO | 0 / 0 | 0/4 |
+| 18 | SET+NUL | 12 | 12 | - | - | W2,NULL | L/OPEN/OPEN/L/OPEN/Rg/Rg | none | - | LOOP | none; adds nothing: W2,NULL | 0 / 0 | 0/4 |
+| 19 | FR+12 | 12 | 12 | - | {N_2BVIA,N_FRW}; {N_2BVIA,N_KEYING}; {N_DCTC,N_FRW} | F2b,H12 (dropped N_FRW) | Rm/OPEN/OPEN/L/OPEN/S/S | BITS | - | - | F2b; adds nothing: H12 | 0 / 0 | - |
+| 20 | FR+INF | 36 | 24 | INFOS | {N_2BVIA,N_FRW}; {N_2BVIA,N_KEYING}; {N_DCTC,N_FRW} | F2b,INFO (dropped N_FRW) | Rm/OPEN/OPEN/L/OPEN/S/S | BITS | - | - | F2b; adds nothing: INFO | 0 / 0 | - |
+| 21 | FR+ZER | 12 | 12 | - | {N_2BVIA,N_FRW}; {N_2BVIA,N_KEYING}; {N_DCTC,N_FRW} | F2b,ZERO (dropped N_FRW) | Rm/OPEN/OPEN/L/OPEN/S/S | BITS | - | - | F2b; adds nothing: ZERO | 0 / 0 | - |
+| 22 | FR+NUL | 12 | 12 | - | {N_2BVIA,N_FRW}; {N_2BVIA,N_KEYING}; {N_DCTC,N_FRW} | F2b,NULL (dropped N_FRW) | Rm/OPEN/OPEN/L/OPEN/S/S | BITS | - | - | F2b; adds nothing: NULL | 0 / 0 | - |
+| 23 | 12+INF | 12 | 8 | INFOS | - | H12,INFO | L/OPEN/OPEN/L/OPEN/Rg/Rg | none | - | LOOP | none; adds nothing: H12,INFO | 0 / 0 | - |
+| 24 | 12+ZER | 4 | 4 | - | - | H12,ZERO | L/OPEN/OPEN/L/OPEN/Rg/Rg | none | - | LOOP | none; adds nothing: H12,ZERO | 0 / 0 | - |
+| 25 | 12+NUL | 4 | 4 | - | - | H12,NULL | L/OPEN/OPEN/L/OPEN/Rg/Rg | none | - | LOOP | none; adds nothing: H12,NULL | 0 / 0 | - |
+| 26 | INF+ZER | 12 | 8 | INFOS | - | INFO,ZERO | L/OPEN/OPEN/L/OPEN/Rg/Rg | none | - | LOOP | none; adds nothing: INFO,ZERO | 0 / 0 | - |
+| 27 | INF+NUL | 12 | 8 | INFOS | - | INFO,NULL | L/OPEN/OPEN/L/OPEN/Rg/Rg | none | - | LOOP | none; adds nothing: INFO,NULL | 0 / 0 | - |
+| 28 | ZER+NUL | 4 | 4 | - | - | ZERO,NULL | L/OPEN/OPEN/L/OPEN/Rg/Rg | none | - | LOOP | none; adds nothing: ZERO,NULL | 0 / 0 | - |
 | 29 | IT+SET+FR | 108 | 96 | W2+F1+F2b+ITE; W2+F1+ITE; W2+F2b+ITE | {N_2BVIA,N_FRW}; {N_2BVIA,N_KEYING}; {N_CORR,N_MEASPHYS}; {N_CORR,N_QTOPO}; {N_DCTC,N_FRW}; {N_DCTC}; {N_MEASPHYS}; {N_QTOPO} | W2,F1,ITB (dropped N_CORR) | Rm/NBm/OPEN/NBm/OPEN/NBm/Rg | BITS | HOLD,LOOP | - | W2,F1,ITB | 8 / 20 | 24/36 |
 | 30 | IT+SET+12 | 36 | 32 | W2+ITE | {N_CORR,N_MEASPHYS}; {N_CORR,N_QTOPO}; {N_MEASPHYS}; {N_QTOPO} | W2,ITB,H12 (dropped N_CORR) | L/NBm/OPEN/NBm/OPEN/NBm/Rg | none | HOLD,LOOP | - | ITB; adds nothing: W2,H12 | 0 / 0 | 0/12 |
 | 31 | IT+SET+INF | 108 | 64 | INFOS; W2+ITE; W2+ITE+INFOS | {N_CORR,N_MEASPHYS}; {N_CORR,N_QTOPO}; {N_MEASPHYS}; {N_QTOPO} | W2,ITB,INFO (dropped N_CORR) | L/NBm/OPEN/NBm/OPEN/NBm/Rg | none | HOLD,LOOP | - | ITB; adds nothing: W2,INFO | 0 / 0 | 0/36 |
@@ -1385,26 +1417,26 @@ H-SEAT-ROUTES), where wave 5 printed L. No other code, best variant, account or 
 | 41 | IT+INF+ZER | 36 | 24 | INFOS | {N_CORR,N_MEASPHYS}; {N_CORR,N_QTOPO}; {N_MEASPHYS}; {N_QTOPO} | ITB,INFO,ZERO (dropped N_CORR) | L/NBm/OPEN/NBm/OPEN/NBm/Rg | none | HOLD,LOOP | - | ITB; adds nothing: INFO,ZERO | 0 / 0 | - |
 | 42 | IT+INF+NUL | 36 | 24 | INFOS | {N_CORR,N_MEASPHYS}; {N_CORR,N_QTOPO}; {N_MEASPHYS}; {N_QTOPO} | ITB,INFO,NULL (dropped N_CORR) | L/NBm/OPEN/NBm/OPEN/NBm/Rg | none | HOLD,LOOP | - | ITB; adds nothing: INFO,NULL | 0 / 0 | - |
 | 43 | IT+ZER+NUL | 12 | 12 | - | {N_CORR,N_MEASPHYS}; {N_CORR,N_QTOPO}; {N_MEASPHYS}; {N_QTOPO} | ITB,ZERO,NULL (dropped N_CORR) | L/NBm/OPEN/NBm/OPEN/NBm/Rg | none | HOLD,LOOP | - | ITB; adds nothing: ZERO,NULL | 0 / 0 | - |
-| 44 | SET+FR+12 | 36 | 36 | - | {N_2BVIA,N_FRW}; {N_2BVIA,N_KEYING}; {N_DCTC,N_FRW} | W2,F1,H12 | Rm/L/OPEN/L/OPEN/Rg/Rg | BITS | - | LOOP | W2,F1; adds nothing: H12 | 4 / 0 | 12/12 |
-| 45 | SET+FR+INF | 108 | 72 | INFOS | {N_2BVIA,N_FRW}; {N_2BVIA,N_KEYING}; {N_DCTC,N_FRW} | W2,F1,INFO | Rm/L/OPEN/L/OPEN/Rg/Rg | BITS | - | LOOP | W2,F1; adds nothing: INFO | 8 / 0 | 24/36 |
-| 46 | SET+FR+ZER | 36 | 36 | - | {N_2BVIA,N_FRW}; {N_2BVIA,N_KEYING}; {N_DCTC,N_FRW} | W2,F1,ZERO | Rm/L/OPEN/L/OPEN/Rg/Rg | BITS | - | LOOP | W2,F1; adds nothing: ZERO | 4 / 0 | 12/12 |
-| 47 | SET+FR+NUL | 36 | 36 | - | {N_2BVIA,N_FRW}; {N_2BVIA,N_KEYING}; {N_DCTC,N_FRW} | W2,F1,NULL | Rm/L/OPEN/L/OPEN/Rg/Rg | BITS | - | LOOP | W2,F1; adds nothing: NULL | 4 / 0 | 12/12 |
-| 48 | SET+12+INF | 36 | 24 | INFOS | - | W2,H12,INFO | L/L/OPEN/L/OPEN/Rg/Rg | none | - | LOOP | none; adds nothing: W2,H12,INFO | 0 / 0 | 0/12 |
-| 49 | SET+12+ZER | 12 | 12 | - | - | W2,H12,ZERO | L/L/OPEN/L/OPEN/Rg/Rg | none | - | LOOP | none; adds nothing: W2,H12,ZERO | 0 / 0 | 0/4 |
-| 50 | SET+12+NUL | 12 | 12 | - | - | W2,H12,NULL | L/L/OPEN/L/OPEN/Rg/Rg | none | - | LOOP | none; adds nothing: W2,H12,NULL | 0 / 0 | 0/4 |
-| 51 | SET+INF+ZER | 36 | 24 | INFOS | - | W2,INFO,ZERO | L/L/OPEN/L/OPEN/Rg/Rg | none | - | LOOP | none; adds nothing: W2,INFO,ZERO | 0 / 0 | 0/12 |
-| 52 | SET+INF+NUL | 36 | 24 | INFOS | - | W2,INFO,NULL | L/L/OPEN/L/OPEN/Rg/Rg | none | - | LOOP | none; adds nothing: W2,INFO,NULL | 0 / 0 | 0/12 |
-| 53 | SET+ZER+NUL | 12 | 12 | - | - | W2,ZERO,NULL | L/L/OPEN/L/OPEN/Rg/Rg | none | - | LOOP | none; adds nothing: W2,ZERO,NULL | 0 / 0 | 0/4 |
-| 54 | FR+12+INF | 36 | 24 | INFOS | {N_2BVIA,N_FRW}; {N_2BVIA,N_KEYING}; {N_DCTC,N_FRW} | F2b,H12,INFO (dropped N_FRW) | Rm/L/OPEN/L/OPEN/S/S | BITS | - | - | F2b; adds nothing: H12,INFO | 0 / 0 | - |
-| 55 | FR+12+ZER | 12 | 12 | - | {N_2BVIA,N_FRW}; {N_2BVIA,N_KEYING}; {N_DCTC,N_FRW} | F2b,H12,ZERO (dropped N_FRW) | Rm/L/OPEN/L/OPEN/S/S | BITS | - | - | F2b; adds nothing: H12,ZERO | 0 / 0 | - |
-| 56 | FR+12+NUL | 12 | 12 | - | {N_2BVIA,N_FRW}; {N_2BVIA,N_KEYING}; {N_DCTC,N_FRW} | F2b,H12,NULL (dropped N_FRW) | Rm/L/OPEN/L/OPEN/S/S | BITS | - | - | F2b; adds nothing: H12,NULL | 0 / 0 | - |
-| 57 | FR+INF+ZER | 36 | 24 | INFOS | {N_2BVIA,N_FRW}; {N_2BVIA,N_KEYING}; {N_DCTC,N_FRW} | F2b,INFO,ZERO (dropped N_FRW) | Rm/L/OPEN/L/OPEN/S/S | BITS | - | - | F2b; adds nothing: INFO,ZERO | 0 / 0 | - |
-| 58 | FR+INF+NUL | 36 | 24 | INFOS | {N_2BVIA,N_FRW}; {N_2BVIA,N_KEYING}; {N_DCTC,N_FRW} | F2b,INFO,NULL (dropped N_FRW) | Rm/L/OPEN/L/OPEN/S/S | BITS | - | - | F2b; adds nothing: INFO,NULL | 0 / 0 | - |
-| 59 | FR+ZER+NUL | 12 | 12 | - | {N_2BVIA,N_FRW}; {N_2BVIA,N_KEYING}; {N_DCTC,N_FRW} | F2b,ZERO,NULL (dropped N_FRW) | Rm/L/OPEN/L/OPEN/S/S | BITS | - | - | F2b; adds nothing: ZERO,NULL | 0 / 0 | - |
-| 60 | 12+INF+ZER | 12 | 8 | INFOS | - | H12,INFO,ZERO | L/L/OPEN/L/OPEN/Rg/Rg | none | - | LOOP | none; adds nothing: H12,INFO,ZERO | 0 / 0 | - |
-| 61 | 12+INF+NUL | 12 | 8 | INFOS | - | H12,INFO,NULL | L/L/OPEN/L/OPEN/Rg/Rg | none | - | LOOP | none; adds nothing: H12,INFO,NULL | 0 / 0 | - |
-| 62 | 12+ZER+NUL | 4 | 4 | - | - | H12,ZERO,NULL | L/L/OPEN/L/OPEN/Rg/Rg | none | - | LOOP | none; adds nothing: H12,ZERO,NULL | 0 / 0 | - |
-| 63 | INF+ZER+NUL | 12 | 8 | INFOS | - | INFO,ZERO,NULL | L/L/OPEN/L/OPEN/Rg/Rg | none | - | LOOP | none; adds nothing: INFO,ZERO,NULL | 0 / 0 | - |
+| 44 | SET+FR+12 | 36 | 36 | - | {N_2BVIA,N_FRW}; {N_2BVIA,N_KEYING}; {N_DCTC,N_FRW} | W2,F1,H12 | Rm/OPEN/OPEN/L/OPEN/Rg/Rg | BITS | - | LOOP | W2,F1; adds nothing: H12 | 4 / 0 | 12/12 |
+| 45 | SET+FR+INF | 108 | 72 | INFOS | {N_2BVIA,N_FRW}; {N_2BVIA,N_KEYING}; {N_DCTC,N_FRW} | W2,F1,INFO | Rm/OPEN/OPEN/L/OPEN/Rg/Rg | BITS | - | LOOP | W2,F1; adds nothing: INFO | 8 / 0 | 24/36 |
+| 46 | SET+FR+ZER | 36 | 36 | - | {N_2BVIA,N_FRW}; {N_2BVIA,N_KEYING}; {N_DCTC,N_FRW} | W2,F1,ZERO | Rm/OPEN/OPEN/L/OPEN/Rg/Rg | BITS | - | LOOP | W2,F1; adds nothing: ZERO | 4 / 0 | 12/12 |
+| 47 | SET+FR+NUL | 36 | 36 | - | {N_2BVIA,N_FRW}; {N_2BVIA,N_KEYING}; {N_DCTC,N_FRW} | W2,F1,NULL | Rm/OPEN/OPEN/L/OPEN/Rg/Rg | BITS | - | LOOP | W2,F1; adds nothing: NULL | 4 / 0 | 12/12 |
+| 48 | SET+12+INF | 36 | 24 | INFOS | - | W2,H12,INFO | L/OPEN/OPEN/L/OPEN/Rg/Rg | none | - | LOOP | none; adds nothing: W2,H12,INFO | 0 / 0 | 0/12 |
+| 49 | SET+12+ZER | 12 | 12 | - | - | W2,H12,ZERO | L/OPEN/OPEN/L/OPEN/Rg/Rg | none | - | LOOP | none; adds nothing: W2,H12,ZERO | 0 / 0 | 0/4 |
+| 50 | SET+12+NUL | 12 | 12 | - | - | W2,H12,NULL | L/OPEN/OPEN/L/OPEN/Rg/Rg | none | - | LOOP | none; adds nothing: W2,H12,NULL | 0 / 0 | 0/4 |
+| 51 | SET+INF+ZER | 36 | 24 | INFOS | - | W2,INFO,ZERO | L/OPEN/OPEN/L/OPEN/Rg/Rg | none | - | LOOP | none; adds nothing: W2,INFO,ZERO | 0 / 0 | 0/12 |
+| 52 | SET+INF+NUL | 36 | 24 | INFOS | - | W2,INFO,NULL | L/OPEN/OPEN/L/OPEN/Rg/Rg | none | - | LOOP | none; adds nothing: W2,INFO,NULL | 0 / 0 | 0/12 |
+| 53 | SET+ZER+NUL | 12 | 12 | - | - | W2,ZERO,NULL | L/OPEN/OPEN/L/OPEN/Rg/Rg | none | - | LOOP | none; adds nothing: W2,ZERO,NULL | 0 / 0 | 0/4 |
+| 54 | FR+12+INF | 36 | 24 | INFOS | {N_2BVIA,N_FRW}; {N_2BVIA,N_KEYING}; {N_DCTC,N_FRW} | F2b,H12,INFO (dropped N_FRW) | Rm/OPEN/OPEN/L/OPEN/S/S | BITS | - | - | F2b; adds nothing: H12,INFO | 0 / 0 | - |
+| 55 | FR+12+ZER | 12 | 12 | - | {N_2BVIA,N_FRW}; {N_2BVIA,N_KEYING}; {N_DCTC,N_FRW} | F2b,H12,ZERO (dropped N_FRW) | Rm/OPEN/OPEN/L/OPEN/S/S | BITS | - | - | F2b; adds nothing: H12,ZERO | 0 / 0 | - |
+| 56 | FR+12+NUL | 12 | 12 | - | {N_2BVIA,N_FRW}; {N_2BVIA,N_KEYING}; {N_DCTC,N_FRW} | F2b,H12,NULL (dropped N_FRW) | Rm/OPEN/OPEN/L/OPEN/S/S | BITS | - | - | F2b; adds nothing: H12,NULL | 0 / 0 | - |
+| 57 | FR+INF+ZER | 36 | 24 | INFOS | {N_2BVIA,N_FRW}; {N_2BVIA,N_KEYING}; {N_DCTC,N_FRW} | F2b,INFO,ZERO (dropped N_FRW) | Rm/OPEN/OPEN/L/OPEN/S/S | BITS | - | - | F2b; adds nothing: INFO,ZERO | 0 / 0 | - |
+| 58 | FR+INF+NUL | 36 | 24 | INFOS | {N_2BVIA,N_FRW}; {N_2BVIA,N_KEYING}; {N_DCTC,N_FRW} | F2b,INFO,NULL (dropped N_FRW) | Rm/OPEN/OPEN/L/OPEN/S/S | BITS | - | - | F2b; adds nothing: INFO,NULL | 0 / 0 | - |
+| 59 | FR+ZER+NUL | 12 | 12 | - | {N_2BVIA,N_FRW}; {N_2BVIA,N_KEYING}; {N_DCTC,N_FRW} | F2b,ZERO,NULL (dropped N_FRW) | Rm/OPEN/OPEN/L/OPEN/S/S | BITS | - | - | F2b; adds nothing: ZERO,NULL | 0 / 0 | - |
+| 60 | 12+INF+ZER | 12 | 8 | INFOS | - | H12,INFO,ZERO | L/OPEN/OPEN/L/OPEN/Rg/Rg | none | - | LOOP | none; adds nothing: H12,INFO,ZERO | 0 / 0 | - |
+| 61 | 12+INF+NUL | 12 | 8 | INFOS | - | H12,INFO,NULL | L/OPEN/OPEN/L/OPEN/Rg/Rg | none | - | LOOP | none; adds nothing: H12,INFO,NULL | 0 / 0 | - |
+| 62 | 12+ZER+NUL | 4 | 4 | - | - | H12,ZERO,NULL | L/OPEN/OPEN/L/OPEN/Rg/Rg | none | - | LOOP | none; adds nothing: H12,ZERO,NULL | 0 / 0 | - |
+| 63 | INF+ZER+NUL | 12 | 8 | INFOS | - | INFO,ZERO,NULL | L/OPEN/OPEN/L/OPEN/Rg/Rg | none | - | LOOP | none; adds nothing: INFO,ZERO,NULL | 0 / 0 | - |
 | 64 | IT+SET+FR+12 | 108 | 96 | W2+F1+F2b+ITE; W2+F1+ITE; W2+F2b+ITE | {N_2BVIA,N_FRW}; {N_2BVIA,N_KEYING}; {N_CORR,N_MEASPHYS}; {N_CORR,N_QTOPO}; {N_DCTC,N_FRW}; {N_DCTC}; {N_MEASPHYS}; {N_QTOPO} | W2,F1,ITB,H12 (dropped N_CORR) | Rm/NBm/OPEN/NBm/OPEN/NBm/Rg | BITS | HOLD,LOOP | - | W2,F1,ITB; adds nothing: H12 | 8 / 20 | 24/36 |
 | 65 | IT+SET+FR+INF | 324 | 192 | INFOS; W2+F1+F2b+ITE; W2+F1+F2b+ITE+INFOS; W2+F1+ITE; W2+F1+ITE+INFOS; W2+F2b+ITE; W2+F2b+ITE+INFOS | {N_2BVIA,N_FRW}; {N_2BVIA,N_KEYING}; {N_CORR,N_MEASPHYS}; {N_CORR,N_QTOPO}; {N_DCTC,N_FRW}; {N_DCTC}; {N_MEASPHYS}; {N_QTOPO} | W2,F1,ITB,INFO (dropped N_CORR) | Rm/NBm/OPEN/NBm/OPEN/NBm/Rg | BITS | HOLD,LOOP | - | W2,F1,ITB; adds nothing: INFO | 16 / 40 | 48/108 |
 | 66 | IT+SET+FR+ZER | 108 | 96 | W2+F1+F2b+ITE; W2+F1+ITE; W2+F2b+ITE | {N_2BVIA,N_FRW}; {N_2BVIA,N_KEYING}; {N_CORR,N_MEASPHYS}; {N_CORR,N_QTOPO}; {N_DCTC,N_FRW}; {N_DCTC}; {N_MEASPHYS}; {N_QTOPO} | W2,F1,ITB,ZERO (dropped N_CORR) | Rm/NBm/OPEN/NBm/OPEN/NBm/Rg | BITS | HOLD,LOOP | - | W2,F1,ITB; adds nothing: ZERO | 8 / 20 | 24/36 |
@@ -1425,21 +1457,21 @@ H-SEAT-ROUTES), where wave 5 printed L. No other code, best variant, account or 
 | 81 | IT+12+INF+NUL | 36 | 24 | INFOS | {N_CORR,N_MEASPHYS}; {N_CORR,N_QTOPO}; {N_MEASPHYS}; {N_QTOPO} | ITB,H12,INFO,NULL (dropped N_CORR) | L/NBm/OPEN/NBm/OPEN/NBm/Rg | none | HOLD,LOOP | - | ITB; adds nothing: H12,INFO,NULL | 0 / 0 | - |
 | 82 | IT+12+ZER+NUL | 12 | 12 | - | {N_CORR,N_MEASPHYS}; {N_CORR,N_QTOPO}; {N_MEASPHYS}; {N_QTOPO} | ITB,H12,ZERO,NULL (dropped N_CORR) | L/NBm/OPEN/NBm/OPEN/NBm/Rg | none | HOLD,LOOP | - | ITB; adds nothing: H12,ZERO,NULL | 0 / 0 | - |
 | 83 | IT+INF+ZER+NUL | 36 | 24 | INFOS | {N_CORR,N_MEASPHYS}; {N_CORR,N_QTOPO}; {N_MEASPHYS}; {N_QTOPO} | ITB,INFO,ZERO,NULL (dropped N_CORR) | L/NBm/OPEN/NBm/OPEN/NBm/Rg | none | HOLD,LOOP | - | ITB; adds nothing: INFO,ZERO,NULL | 0 / 0 | - |
-| 84 | SET+FR+12+INF | 108 | 72 | INFOS | {N_2BVIA,N_FRW}; {N_2BVIA,N_KEYING}; {N_DCTC,N_FRW} | W2,F1,H12,INFO | Rm/L/OPEN/L/OPEN/Rg/Rg | BITS | - | LOOP | W2,F1; adds nothing: H12,INFO | 8 / 0 | 24/36 |
-| 85 | SET+FR+12+ZER | 36 | 36 | - | {N_2BVIA,N_FRW}; {N_2BVIA,N_KEYING}; {N_DCTC,N_FRW} | W2,F1,H12,ZERO | Rm/L/OPEN/L/OPEN/Rg/Rg | BITS | - | LOOP | W2,F1; adds nothing: H12,ZERO | 4 / 0 | 12/12 |
-| 86 | SET+FR+12+NUL | 36 | 36 | - | {N_2BVIA,N_FRW}; {N_2BVIA,N_KEYING}; {N_DCTC,N_FRW} | W2,F1,H12,NULL | Rm/L/OPEN/L/OPEN/Rg/Rg | BITS | - | LOOP | W2,F1; adds nothing: H12,NULL | 4 / 0 | 12/12 |
-| 87 | SET+FR+INF+ZER | 108 | 72 | INFOS | {N_2BVIA,N_FRW}; {N_2BVIA,N_KEYING}; {N_DCTC,N_FRW} | W2,F1,INFO,ZERO | Rm/L/OPEN/L/OPEN/Rg/Rg | BITS | - | LOOP | W2,F1; adds nothing: INFO,ZERO | 8 / 0 | 24/36 |
-| 88 | SET+FR+INF+NUL | 108 | 72 | INFOS | {N_2BVIA,N_FRW}; {N_2BVIA,N_KEYING}; {N_DCTC,N_FRW} | W2,F1,INFO,NULL | Rm/L/OPEN/L/OPEN/Rg/Rg | BITS | - | LOOP | W2,F1; adds nothing: INFO,NULL | 8 / 0 | 24/36 |
-| 89 | SET+FR+ZER+NUL | 36 | 36 | - | {N_2BVIA,N_FRW}; {N_2BVIA,N_KEYING}; {N_DCTC,N_FRW} | W2,F1,ZERO,NULL | Rm/L/OPEN/L/OPEN/Rg/Rg | BITS | - | LOOP | W2,F1; adds nothing: ZERO,NULL | 4 / 0 | 12/12 |
-| 90 | SET+12+INF+ZER | 36 | 24 | INFOS | - | W2,H12,INFO,ZERO | L/L/OPEN/L/OPEN/Rg/Rg | none | - | LOOP | none; adds nothing: W2,H12,INFO,ZERO | 0 / 0 | 0/12 |
-| 91 | SET+12+INF+NUL | 36 | 24 | INFOS | - | W2,H12,INFO,NULL | L/L/OPEN/L/OPEN/Rg/Rg | none | - | LOOP | none; adds nothing: W2,H12,INFO,NULL | 0 / 0 | 0/12 |
-| 92 | SET+12+ZER+NUL | 12 | 12 | - | - | W2,H12,ZERO,NULL | L/L/OPEN/L/OPEN/Rg/Rg | none | - | LOOP | none; adds nothing: W2,H12,ZERO,NULL | 0 / 0 | 0/4 |
-| 93 | SET+INF+ZER+NUL | 36 | 24 | INFOS | - | W2,INFO,ZERO,NULL | L/L/OPEN/L/OPEN/Rg/Rg | none | - | LOOP | none; adds nothing: W2,INFO,ZERO,NULL | 0 / 0 | 0/12 |
-| 94 | FR+12+INF+ZER | 36 | 24 | INFOS | {N_2BVIA,N_FRW}; {N_2BVIA,N_KEYING}; {N_DCTC,N_FRW} | F2b,H12,INFO,ZERO (dropped N_FRW) | Rm/L/OPEN/L/OPEN/S/S | BITS | - | - | F2b; adds nothing: H12,INFO,ZERO | 0 / 0 | - |
-| 95 | FR+12+INF+NUL | 36 | 24 | INFOS | {N_2BVIA,N_FRW}; {N_2BVIA,N_KEYING}; {N_DCTC,N_FRW} | F2b,H12,INFO,NULL (dropped N_FRW) | Rm/L/OPEN/L/OPEN/S/S | BITS | - | - | F2b; adds nothing: H12,INFO,NULL | 0 / 0 | - |
-| 96 | FR+12+ZER+NUL | 12 | 12 | - | {N_2BVIA,N_FRW}; {N_2BVIA,N_KEYING}; {N_DCTC,N_FRW} | F2b,H12,ZERO,NULL (dropped N_FRW) | Rm/L/OPEN/L/OPEN/S/S | BITS | - | - | F2b; adds nothing: H12,ZERO,NULL | 0 / 0 | - |
-| 97 | FR+INF+ZER+NUL | 36 | 24 | INFOS | {N_2BVIA,N_FRW}; {N_2BVIA,N_KEYING}; {N_DCTC,N_FRW} | F2b,INFO,ZERO,NULL (dropped N_FRW) | Rm/L/OPEN/L/OPEN/S/S | BITS | - | - | F2b; adds nothing: INFO,ZERO,NULL | 0 / 0 | - |
-| 98 | 12+INF+ZER+NUL | 12 | 8 | INFOS | - | H12,INFO,ZERO,NULL | L/L/OPEN/L/OPEN/Rg/Rg | none | - | LOOP | none; adds nothing: H12,INFO,ZERO,NULL | 0 / 0 | - |
+| 84 | SET+FR+12+INF | 108 | 72 | INFOS | {N_2BVIA,N_FRW}; {N_2BVIA,N_KEYING}; {N_DCTC,N_FRW} | W2,F1,H12,INFO | Rm/OPEN/OPEN/L/OPEN/Rg/Rg | BITS | - | LOOP | W2,F1; adds nothing: H12,INFO | 8 / 0 | 24/36 |
+| 85 | SET+FR+12+ZER | 36 | 36 | - | {N_2BVIA,N_FRW}; {N_2BVIA,N_KEYING}; {N_DCTC,N_FRW} | W2,F1,H12,ZERO | Rm/OPEN/OPEN/L/OPEN/Rg/Rg | BITS | - | LOOP | W2,F1; adds nothing: H12,ZERO | 4 / 0 | 12/12 |
+| 86 | SET+FR+12+NUL | 36 | 36 | - | {N_2BVIA,N_FRW}; {N_2BVIA,N_KEYING}; {N_DCTC,N_FRW} | W2,F1,H12,NULL | Rm/OPEN/OPEN/L/OPEN/Rg/Rg | BITS | - | LOOP | W2,F1; adds nothing: H12,NULL | 4 / 0 | 12/12 |
+| 87 | SET+FR+INF+ZER | 108 | 72 | INFOS | {N_2BVIA,N_FRW}; {N_2BVIA,N_KEYING}; {N_DCTC,N_FRW} | W2,F1,INFO,ZERO | Rm/OPEN/OPEN/L/OPEN/Rg/Rg | BITS | - | LOOP | W2,F1; adds nothing: INFO,ZERO | 8 / 0 | 24/36 |
+| 88 | SET+FR+INF+NUL | 108 | 72 | INFOS | {N_2BVIA,N_FRW}; {N_2BVIA,N_KEYING}; {N_DCTC,N_FRW} | W2,F1,INFO,NULL | Rm/OPEN/OPEN/L/OPEN/Rg/Rg | BITS | - | LOOP | W2,F1; adds nothing: INFO,NULL | 8 / 0 | 24/36 |
+| 89 | SET+FR+ZER+NUL | 36 | 36 | - | {N_2BVIA,N_FRW}; {N_2BVIA,N_KEYING}; {N_DCTC,N_FRW} | W2,F1,ZERO,NULL | Rm/OPEN/OPEN/L/OPEN/Rg/Rg | BITS | - | LOOP | W2,F1; adds nothing: ZERO,NULL | 4 / 0 | 12/12 |
+| 90 | SET+12+INF+ZER | 36 | 24 | INFOS | - | W2,H12,INFO,ZERO | L/OPEN/OPEN/L/OPEN/Rg/Rg | none | - | LOOP | none; adds nothing: W2,H12,INFO,ZERO | 0 / 0 | 0/12 |
+| 91 | SET+12+INF+NUL | 36 | 24 | INFOS | - | W2,H12,INFO,NULL | L/OPEN/OPEN/L/OPEN/Rg/Rg | none | - | LOOP | none; adds nothing: W2,H12,INFO,NULL | 0 / 0 | 0/12 |
+| 92 | SET+12+ZER+NUL | 12 | 12 | - | - | W2,H12,ZERO,NULL | L/OPEN/OPEN/L/OPEN/Rg/Rg | none | - | LOOP | none; adds nothing: W2,H12,ZERO,NULL | 0 / 0 | 0/4 |
+| 93 | SET+INF+ZER+NUL | 36 | 24 | INFOS | - | W2,INFO,ZERO,NULL | L/OPEN/OPEN/L/OPEN/Rg/Rg | none | - | LOOP | none; adds nothing: W2,INFO,ZERO,NULL | 0 / 0 | 0/12 |
+| 94 | FR+12+INF+ZER | 36 | 24 | INFOS | {N_2BVIA,N_FRW}; {N_2BVIA,N_KEYING}; {N_DCTC,N_FRW} | F2b,H12,INFO,ZERO (dropped N_FRW) | Rm/OPEN/OPEN/L/OPEN/S/S | BITS | - | - | F2b; adds nothing: H12,INFO,ZERO | 0 / 0 | - |
+| 95 | FR+12+INF+NUL | 36 | 24 | INFOS | {N_2BVIA,N_FRW}; {N_2BVIA,N_KEYING}; {N_DCTC,N_FRW} | F2b,H12,INFO,NULL (dropped N_FRW) | Rm/OPEN/OPEN/L/OPEN/S/S | BITS | - | - | F2b; adds nothing: H12,INFO,NULL | 0 / 0 | - |
+| 96 | FR+12+ZER+NUL | 12 | 12 | - | {N_2BVIA,N_FRW}; {N_2BVIA,N_KEYING}; {N_DCTC,N_FRW} | F2b,H12,ZERO,NULL (dropped N_FRW) | Rm/OPEN/OPEN/L/OPEN/S/S | BITS | - | - | F2b; adds nothing: H12,ZERO,NULL | 0 / 0 | - |
+| 97 | FR+INF+ZER+NUL | 36 | 24 | INFOS | {N_2BVIA,N_FRW}; {N_2BVIA,N_KEYING}; {N_DCTC,N_FRW} | F2b,INFO,ZERO,NULL (dropped N_FRW) | Rm/OPEN/OPEN/L/OPEN/S/S | BITS | - | - | F2b; adds nothing: INFO,ZERO,NULL | 0 / 0 | - |
+| 98 | 12+INF+ZER+NUL | 12 | 8 | INFOS | - | H12,INFO,ZERO,NULL | L/OPEN/OPEN/L/OPEN/Rg/Rg | none | - | LOOP | none; adds nothing: H12,INFO,ZERO,NULL | 0 / 0 | - |
 | 99 | IT+SET+FR+12+INF | 324 | 192 | INFOS; W2+F1+F2b+ITE; W2+F1+F2b+ITE+INFOS; W2+F1+ITE; W2+F1+ITE+INFOS; W2+F2b+ITE; W2+F2b+ITE+INFOS | {N_2BVIA,N_FRW}; {N_2BVIA,N_KEYING}; {N_CORR,N_MEASPHYS}; {N_CORR,N_QTOPO}; {N_DCTC,N_FRW}; {N_DCTC}; {N_MEASPHYS}; {N_QTOPO} | W2,F1,ITB,H12,INFO (dropped N_CORR) | Rm/NBm/OPEN/NBm/OPEN/NBm/Rg | BITS | HOLD,LOOP | - | W2,F1,ITB; adds nothing: H12,INFO | 16 / 40 | 48/108 |
 | 100 | IT+SET+FR+12+ZER | 108 | 96 | W2+F1+F2b+ITE; W2+F1+ITE; W2+F2b+ITE | {N_2BVIA,N_FRW}; {N_2BVIA,N_KEYING}; {N_CORR,N_MEASPHYS}; {N_CORR,N_QTOPO}; {N_DCTC,N_FRW}; {N_DCTC}; {N_MEASPHYS}; {N_QTOPO} | W2,F1,ITB,H12,ZERO (dropped N_CORR) | Rm/NBm/OPEN/NBm/OPEN/NBm/Rg | BITS | HOLD,LOOP | - | W2,F1,ITB; adds nothing: H12,ZERO | 8 / 20 | 24/36 |
 | 101 | IT+SET+FR+12+NUL | 108 | 96 | W2+F1+F2b+ITE; W2+F1+ITE; W2+F2b+ITE | {N_2BVIA,N_FRW}; {N_2BVIA,N_KEYING}; {N_CORR,N_MEASPHYS}; {N_CORR,N_QTOPO}; {N_DCTC,N_FRW}; {N_DCTC}; {N_MEASPHYS}; {N_QTOPO} | W2,F1,ITB,H12,NULL (dropped N_CORR) | Rm/NBm/OPEN/NBm/OPEN/NBm/Rg | BITS | HOLD,LOOP | - | W2,F1,ITB; adds nothing: H12,NULL | 8 / 20 | 24/36 |
@@ -1455,21 +1487,21 @@ H-SEAT-ROUTES), where wave 5 printed L. No other code, best variant, account or 
 | 111 | IT+FR+12+ZER+NUL | 36 | 36 | - | {N_2BVIA,N_FRW}; {N_2BVIA,N_KEYING}; {N_CORR,N_MEASPHYS}; {N_CORR,N_QTOPO}; {N_DCTC,N_FRW}; {N_DCTC}; {N_MEASPHYS}; {N_QTOPO} | F2b,ITB,H12,ZERO,NULL (dropped N_CORR, N_FRW) | Rm/NBm/OPEN/NBm/OPEN/NBm/S | BITS | HOLD | - | F2b,ITB; adds nothing: H12,ZERO,NULL | 0 / 8 | - |
 | 112 | IT+FR+INF+ZER+NUL | 108 | 72 | INFOS | {N_2BVIA,N_FRW}; {N_2BVIA,N_KEYING}; {N_CORR,N_MEASPHYS}; {N_CORR,N_QTOPO}; {N_DCTC,N_FRW}; {N_DCTC}; {N_MEASPHYS}; {N_QTOPO} | F2b,ITB,INFO,ZERO,NULL (dropped N_CORR, N_FRW) | Rm/NBm/OPEN/NBm/OPEN/NBm/S | BITS | HOLD | - | F2b,ITB; adds nothing: INFO,ZERO,NULL | 0 / 16 | - |
 | 113 | IT+12+INF+ZER+NUL | 36 | 24 | INFOS | {N_CORR,N_MEASPHYS}; {N_CORR,N_QTOPO}; {N_MEASPHYS}; {N_QTOPO} | ITB,H12,INFO,ZERO,NULL (dropped N_CORR) | L/NBm/OPEN/NBm/OPEN/NBm/Rg | none | HOLD,LOOP | - | ITB; adds nothing: H12,INFO,ZERO,NULL | 0 / 0 | - |
-| 114 | SET+FR+12+INF+ZER | 108 | 72 | INFOS | {N_2BVIA,N_FRW}; {N_2BVIA,N_KEYING}; {N_DCTC,N_FRW} | W2,F1,H12,INFO,ZERO | Rm/L/OPEN/L/OPEN/Rg/Rg | BITS | - | LOOP | W2,F1; adds nothing: H12,INFO,ZERO | 8 / 0 | 24/36 |
-| 115 | SET+FR+12+INF+NUL | 108 | 72 | INFOS | {N_2BVIA,N_FRW}; {N_2BVIA,N_KEYING}; {N_DCTC,N_FRW} | W2,F1,H12,INFO,NULL | Rm/L/OPEN/L/OPEN/Rg/Rg | BITS | - | LOOP | W2,F1; adds nothing: H12,INFO,NULL | 8 / 0 | 24/36 |
-| 116 | SET+FR+12+ZER+NUL | 36 | 36 | - | {N_2BVIA,N_FRW}; {N_2BVIA,N_KEYING}; {N_DCTC,N_FRW} | W2,F1,H12,ZERO,NULL | Rm/L/OPEN/L/OPEN/Rg/Rg | BITS | - | LOOP | W2,F1; adds nothing: H12,ZERO,NULL | 4 / 0 | 12/12 |
-| 117 | SET+FR+INF+ZER+NUL | 108 | 72 | INFOS | {N_2BVIA,N_FRW}; {N_2BVIA,N_KEYING}; {N_DCTC,N_FRW} | W2,F1,INFO,ZERO,NULL | Rm/L/OPEN/L/OPEN/Rg/Rg | BITS | - | LOOP | W2,F1; adds nothing: INFO,ZERO,NULL | 8 / 0 | 24/36 |
-| 118 | SET+12+INF+ZER+NUL | 36 | 24 | INFOS | - | W2,H12,INFO,ZERO,NULL | L/L/OPEN/L/OPEN/Rg/Rg | none | - | LOOP | none; adds nothing: W2,H12,INFO,ZERO,NULL | 0 / 0 | 0/12 |
-| 119 | FR+12+INF+ZER+NUL | 36 | 24 | INFOS | {N_2BVIA,N_FRW}; {N_2BVIA,N_KEYING}; {N_DCTC,N_FRW} | F2b,H12,INFO,ZERO,NULL (dropped N_FRW) | Rm/L/OPEN/L/OPEN/S/S | BITS | - | - | F2b; adds nothing: H12,INFO,ZERO,NULL | 0 / 0 | - |
+| 114 | SET+FR+12+INF+ZER | 108 | 72 | INFOS | {N_2BVIA,N_FRW}; {N_2BVIA,N_KEYING}; {N_DCTC,N_FRW} | W2,F1,H12,INFO,ZERO | Rm/OPEN/OPEN/L/OPEN/Rg/Rg | BITS | - | LOOP | W2,F1; adds nothing: H12,INFO,ZERO | 8 / 0 | 24/36 |
+| 115 | SET+FR+12+INF+NUL | 108 | 72 | INFOS | {N_2BVIA,N_FRW}; {N_2BVIA,N_KEYING}; {N_DCTC,N_FRW} | W2,F1,H12,INFO,NULL | Rm/OPEN/OPEN/L/OPEN/Rg/Rg | BITS | - | LOOP | W2,F1; adds nothing: H12,INFO,NULL | 8 / 0 | 24/36 |
+| 116 | SET+FR+12+ZER+NUL | 36 | 36 | - | {N_2BVIA,N_FRW}; {N_2BVIA,N_KEYING}; {N_DCTC,N_FRW} | W2,F1,H12,ZERO,NULL | Rm/OPEN/OPEN/L/OPEN/Rg/Rg | BITS | - | LOOP | W2,F1; adds nothing: H12,ZERO,NULL | 4 / 0 | 12/12 |
+| 117 | SET+FR+INF+ZER+NUL | 108 | 72 | INFOS | {N_2BVIA,N_FRW}; {N_2BVIA,N_KEYING}; {N_DCTC,N_FRW} | W2,F1,INFO,ZERO,NULL | Rm/OPEN/OPEN/L/OPEN/Rg/Rg | BITS | - | LOOP | W2,F1; adds nothing: INFO,ZERO,NULL | 8 / 0 | 24/36 |
+| 118 | SET+12+INF+ZER+NUL | 36 | 24 | INFOS | - | W2,H12,INFO,ZERO,NULL | L/OPEN/OPEN/L/OPEN/Rg/Rg | none | - | LOOP | none; adds nothing: W2,H12,INFO,ZERO,NULL | 0 / 0 | 0/12 |
+| 119 | FR+12+INF+ZER+NUL | 36 | 24 | INFOS | {N_2BVIA,N_FRW}; {N_2BVIA,N_KEYING}; {N_DCTC,N_FRW} | F2b,H12,INFO,ZERO,NULL (dropped N_FRW) | Rm/OPEN/OPEN/L/OPEN/S/S | BITS | - | - | F2b; adds nothing: H12,INFO,ZERO,NULL | 0 / 0 | - |
 | 120 | IT+SET+FR+12+INF+ZER | 324 | 192 | INFOS; W2+F1+F2b+ITE; W2+F1+F2b+ITE+INFOS; W2+F1+ITE; W2+F1+ITE+INFOS; W2+F2b+ITE; W2+F2b+ITE+INFOS | {N_2BVIA,N_FRW}; {N_2BVIA,N_KEYING}; {N_CORR,N_MEASPHYS}; {N_CORR,N_QTOPO}; {N_DCTC,N_FRW}; {N_DCTC}; {N_MEASPHYS}; {N_QTOPO} | W2,F1,ITB,H12,INFO,ZERO (dropped N_CORR) | Rm/NBm/OPEN/NBm/OPEN/NBm/Rg | BITS | HOLD,LOOP | - | W2,F1,ITB; adds nothing: H12,INFO,ZERO | 16 / 40 | 48/108 |
 | 121 | IT+SET+FR+12+INF+NUL | 324 | 192 | INFOS; W2+F1+F2b+ITE; W2+F1+F2b+ITE+INFOS; W2+F1+ITE; W2+F1+ITE+INFOS; W2+F2b+ITE; W2+F2b+ITE+INFOS | {N_2BVIA,N_FRW}; {N_2BVIA,N_KEYING}; {N_CORR,N_MEASPHYS}; {N_CORR,N_QTOPO}; {N_DCTC,N_FRW}; {N_DCTC}; {N_MEASPHYS}; {N_QTOPO} | W2,F1,ITB,H12,INFO,NULL (dropped N_CORR) | Rm/NBm/OPEN/NBm/OPEN/NBm/Rg | BITS | HOLD,LOOP | - | W2,F1,ITB; adds nothing: H12,INFO,NULL | 16 / 40 | 48/108 |
 | 122 | IT+SET+FR+12+ZER+NUL | 108 | 96 | W2+F1+F2b+ITE; W2+F1+ITE; W2+F2b+ITE | {N_2BVIA,N_FRW}; {N_2BVIA,N_KEYING}; {N_CORR,N_MEASPHYS}; {N_CORR,N_QTOPO}; {N_DCTC,N_FRW}; {N_DCTC}; {N_MEASPHYS}; {N_QTOPO} | W2,F1,ITB,H12,ZERO,NULL (dropped N_CORR) | Rm/NBm/OPEN/NBm/OPEN/NBm/Rg | BITS | HOLD,LOOP | - | W2,F1,ITB; adds nothing: H12,ZERO,NULL | 8 / 20 | 24/36 |
 | 123 | IT+SET+FR+INF+ZER+NUL | 324 | 192 | INFOS; W2+F1+F2b+ITE; W2+F1+F2b+ITE+INFOS; W2+F1+ITE; W2+F1+ITE+INFOS; W2+F2b+ITE; W2+F2b+ITE+INFOS | {N_2BVIA,N_FRW}; {N_2BVIA,N_KEYING}; {N_CORR,N_MEASPHYS}; {N_CORR,N_QTOPO}; {N_DCTC,N_FRW}; {N_DCTC}; {N_MEASPHYS}; {N_QTOPO} | W2,F1,ITB,INFO,ZERO,NULL (dropped N_CORR) | Rm/NBm/OPEN/NBm/OPEN/NBm/Rg | BITS | HOLD,LOOP | - | W2,F1,ITB; adds nothing: INFO,ZERO,NULL | 16 / 40 | 48/108 |
 | 124 | IT+SET+12+INF+ZER+NUL | 108 | 64 | INFOS; W2+ITE; W2+ITE+INFOS | {N_CORR,N_MEASPHYS}; {N_CORR,N_QTOPO}; {N_MEASPHYS}; {N_QTOPO} | W2,ITB,H12,INFO,ZERO,NULL (dropped N_CORR) | L/NBm/OPEN/NBm/OPEN/NBm/Rg | none | HOLD,LOOP | - | ITB; adds nothing: W2,H12,INFO,ZERO,NULL | 0 / 0 | 0/36 |
 | 125 | IT+FR+12+INF+ZER+NUL | 108 | 72 | INFOS | {N_2BVIA,N_FRW}; {N_2BVIA,N_KEYING}; {N_CORR,N_MEASPHYS}; {N_CORR,N_QTOPO}; {N_DCTC,N_FRW}; {N_DCTC}; {N_MEASPHYS}; {N_QTOPO} | F2b,ITB,H12,INFO,ZERO,NULL (dropped N_CORR, N_FRW) | Rm/NBm/OPEN/NBm/OPEN/NBm/S | BITS | HOLD | - | F2b,ITB; adds nothing: H12,INFO,ZERO,NULL | 0 / 16 | - |
-| 126 | SET+FR+12+INF+ZER+NUL | 108 | 72 | INFOS | {N_2BVIA,N_FRW}; {N_2BVIA,N_KEYING}; {N_DCTC,N_FRW} | W2,F1,H12,INFO,ZERO,NULL | Rm/L/OPEN/L/OPEN/Rg/Rg | BITS | - | LOOP | W2,F1; adds nothing: H12,INFO,ZERO,NULL | 8 / 0 | 24/36 |
+| 126 | SET+FR+12+INF+ZER+NUL | 108 | 72 | INFOS | {N_2BVIA,N_FRW}; {N_2BVIA,N_KEYING}; {N_DCTC,N_FRW} | W2,F1,H12,INFO,ZERO,NULL | Rm/OPEN/OPEN/L/OPEN/Rg/Rg | BITS | - | LOOP | W2,F1; adds nothing: H12,INFO,ZERO,NULL | 8 / 0 | 24/36 |
 | 127 | IT+SET+FR+12+INF+ZER+NUL | 324 | 192 | INFOS; W2+F1+F2b+ITE; W2+F1+F2b+ITE+INFOS; W2+F1+ITE; W2+F1+ITE+INFOS; W2+F2b+ITE; W2+F2b+ITE+INFOS | {N_2BVIA,N_FRW}; {N_2BVIA,N_KEYING}; {N_CORR,N_MEASPHYS}; {N_CORR,N_QTOPO}; {N_DCTC,N_FRW}; {N_DCTC}; {N_MEASPHYS}; {N_QTOPO} | W2,F1,ITB,H12,INFO,ZERO,NULL (dropped N_CORR) | Rm/NBm/OPEN/NBm/OPEN/NBm/Rg | BITS | HOLD,LOOP | - | W2,F1,ITB; adds nothing: H12,INFO,ZERO,NULL | 16 / 40 | 48/108 |
-| 128 | (readings only) | 3 | 3 | - | - | RI | L/L/OPEN/L/OPEN/Rg/Rg | none | - | LOOP | none; adds nothing: RI | 0 / 0 | - |
+| 128 | (readings only) | 3 | 3 | - | - | RI | L/OPEN/OPEN/L/OPEN/Rg/Rg | none | - | LOOP | none; adds nothing: RI | 0 / 0 | - |
 
 ## 7. Not tested by instrument, with the reason (no silent caps)
 
@@ -1643,6 +1675,11 @@ finding 18.
    REMOVED-IF {W2; N_EPS, N_FRAME3b}.
 3. **O-HOLD, O-MAKE-TOPO and the corridor form of O-LOOP are at most NOT-BOUND-IF**, under ITB + N_QTOPO (no READ
    source); what the non-geometric corridor costs is OPEN (N_ILFREE).
+   **D66-RULINGS (M-RULINGS item 28):** where a geometric throat is possible -- every consistent variant without
+   ITB's non-geometric premise -- O-MAKE-TOPO's own status is OPEN via N_WNCC (specthm's W-create-ncc, OPEN at its
+   owner; M-S1A-P3 as a board ruling), not LEFT: 3,840 of 5,760 at 1 ly (the board alone included) and 960 of 1,152 at
+   1 AU move LEFT -> OPEN, and N_WNCC joins the removal's via list beside the remaining 1,920 / 192 NOT-BOUND-IF rows.
+   Still never removed. *D68 wave 2 graded those 3,840 / 960 LEFT.*
 4. **O-LOOP's corridor removal is the geometry's** (exact FRW, N_CORR) and holds only in accounts without N_QTOPO; the
    two corridor accounts clash. Signal loops are removed by N_SIGKEY; the D-CTC reintroduces a loop.
 5. **O-SEAT ("supply at the seat", which replaces O-MATTER by M's ruling) is removed or not-bound in no consistent
