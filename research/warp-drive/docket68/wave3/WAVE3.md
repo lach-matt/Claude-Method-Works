@@ -96,3 +96,33 @@ H-WIGNER-SEATS, H-NOISELESS (W3C).
   It was rewritten to pass the measurement in as a parameter, so it now tests the logic.
 - `seatrank.py` first counted the identity P = 1 + N as a check. It cannot fail for a normalised weighting, so it is
   now printed STRUCTURAL; a control shows it failing when the sum is not 1.
+
+## How big must the corridor be if only information passes? — `aperture.py`, 9/9 pass, 2 controls
+
+M: "If information is what is being sent, how big does the corridor actually have to be? We assumed 1 meter, but that
+was for moving matter instead of information". The 1 m throat was sized for a body; as a throat it costs 5.36e25 kg.
+Information sets the size three ways, computed for all four counts:
+
+- **(A) All at once.** The smallest throat whose holographic capacity A/4 holds the whole description
+  (`throatbits.r_fit`, DOCKET 66) has **r = 7.4e-22 to 2.5e-21 m**, which is about 1e14 Planck lengths. Its throat
+  mass is 4e4 to 1.3e5 kg. This is a ceiling on what a throat that size can hold, not an encoding anyone has built.
+- **(B) Streamed over one mode.** One mode carries any amount of information, given time. At the board's energy floor
+  for a 1D thermal channel, the channel's quantum is kT = 2 E_bit / ln 2. That relation is derived from LNM's 1D law
+  and checked against `seat.channel_floor`'s own rate. The opening must be at least about half the quantum's
+  wavelength (H-HALF-WAVE). For the species count:
+
+| schedule | quantum | opening | throat mass |
+|---|---|---|---|
+| 1 day | 96 MeV | ≥ 6.5e-15 m (nuclear scale) | 3.5e11 kg |
+| 1 yr | 263 keV | ≥ 2.4e-12 m | 1.3e14 kg |
+| 100 yr | 2.6 keV | ≥ 2.4e-10 m (atomic scale) | 1.3e16 kg |
+
+  The schedule sets the width: a faster schedule needs harder quanta and a narrower opening.
+- **(C) The coupling view** (W3A). The corridor as a coupling term has no cross-section at all; size is replaced by
+  count and time. One coupling run at the schedule's pace needs ħJ = ħIπ/(2T): 312 keV at 1 yr and 3.1 keV at 100 yr.
+  That is the same scale as (B)'s quanta. Both are set by ħ × the bit rate.
+
+Across all three, **the information corridor is between about 1e-21 m and 1e-10 m wide, not 1 m.** As a geometric
+throat that lowers the throat mass by 1e9 to 1e21 relative to 1 m, since throat mass is linear in r. The board's other
+limits on small throats stand as graded: DOCKET 66's held throats, DOCKET 67's quantum inequalities, and the Ford-Roman
+crossover at 0.307933 and 5.625229 l_P, carried both ways on M's "Carry both".
