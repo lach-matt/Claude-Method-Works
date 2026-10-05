@@ -1759,8 +1759,11 @@ def requirements(F):
             "Teleportation FOLDED INTO DOCKET 66 (M-D65-1, on the board: %s); it "
             "is not tested here.  M ruled DOCKET 67 OPENED (M-D65-3, on the "
             "board: %s): the audit of the external results the board's refusals "
-            "rest on, NOT YET RUN, after DOCKET 65 and before DOCKET 66, so "
-            "nothing here is yet graded by it; what it audits lies BENEATH what "
+            "rest on, after DOCKET 65 and before DOCKET 66; CORRECTED (DOCKET 67 "
+            "closed, docket67-raw/CLOSE.md): it HAS RUN, and which of the facts "
+            "in force here it moved is not computed in this file -- first said "
+            "'NOT YET RUN, after DOCKET 65 and before DOCKET 66, so nothing here "
+            "is yet graded by it'; what it audits lies BENEATH what "
             "every refusal here rests on -- the %d facts in force, %s -- namely "
             "the outside results each declares: %s; and, %s.  M ruled the paper's "
             "caveat (b) QUALIFIED on "
@@ -2898,7 +2901,9 @@ def m_d65_3():
 #: it still: its S classes take only the literals wl and ball, which DOCKET 66
 #: adds to none (a selftest check).  What ran is ASKED of the ledger
 #: (d66_fill), never typed here; D66_T_AS_FIRST_WRITTEN keeps the record's
-#: first template.]
+#: first template.]  [2026-10-05: and DOCKET 67 HAS RUN and closed on
+#: 2026-10-03 (docket67-raw/CLOSE.md); D67_T now says so, asked of the ledger
+#: (ledger.d67_ran), and D67_T_AS_FIRST_WRITTEN keeps the first template.]
 #:
 #: The DOCKET 66 and 67 records are TEMPLATES filled from asked fragments; the
 #: selftest checks each printed record EQUALS its template so filled, so no
@@ -2939,13 +2944,35 @@ D66_T = (
      "(the rulings file's items 26-28, asked of ledger.D68_M_WORDS): %s.  First "
      "said (kept): 'NOT YET RUN' where the run now stands, and 'is CITED, not "
      "READ' of the literature.")
-D67_T = (
+D67_T_AS_FIRST_WRITTEN = (
      "the audit of the external results the board's refusals rest on -- the "
      "question put to M: \"%s\".  RULED BY M: OPEN IT -- M: '%s'; M's words: "
      "\"%s\".  NOT YET RUN, so nothing here is yet graded by it; on the board it "
      "unblocks: '%s'.  What it audits lies BENEATH what every refusal here rests "
      "on -- the facts in force, %s -- namely the outside results each declares: "
      "%s; and, %s.")
+#: DOCKET 67's record since it closed (2026-10-05; DOCKET 67 closed 2026-10-03,
+#: docket67-raw/CLOSE.md): the first template with 'NOT YET RUN, so nothing here
+#: is yet graded by it' replaced by HAS RUN, what ran asked of the ledger's
+#: M-D65-3 unblocks cell (ledger.d67_ran(), READ from CLOSE.md), and the first
+#: words kept in a FIRST SAID clause.  Which of the facts in force here it moved
+#: is not computed in this file.
+D67_T = (
+     "the audit of the external results the board's refusals rest on -- the "
+     "question put to M: \"%s\".  RULED BY M: OPEN IT -- M: '%s'; M's words: "
+     "\"%s\".  HAS RUN (asked of the ledger's M-D65-3 cell, never typed here): "
+     "%s; which of the facts in force here it moved is not computed in this "
+     "file.  On the board it unblocks: '%s'.  What it audits lies BENEATH what "
+     "every refusal here rests on -- the facts in force, %s -- namely the outside "
+     "results each declares: %s; and, %s.  First said (kept): 'NOT YET RUN, so "
+     "nothing here is yet graded by it'.")
+
+
+def d67_fill():
+    """D67_T's fragments: M-D65-3's question, answer and words, what ran
+    (ledger.d67_ran()), the unblocks cell, and d67_clauses()."""
+    q, ans, words, unb = m_d65_3()
+    return (q, ans, words, ledger.d67_ran(), unb) + d67_clauses()
 
 _FACTS_IN_FORCE = []
 
@@ -3172,7 +3199,9 @@ def dockets_opened():
      # The four fragments asked of ledger.RULED_BY_M's M-D65-3; the facts in
      # force, the outside result each declares and the outside results the
      # escapes name asked of facts() and escape_texts(); never retyped here.
-     D67_T % (m_d65_3() + d67_clauses())),
+     # 2026-10-05: DOCKET 67 has closed; first filled as
+     # D67_T_AS_FIRST_WRITTEN % (m_d65_3() + d67_clauses()).
+     D67_T % d67_fill()),
     ]
 
 
@@ -3303,8 +3332,11 @@ def what_it_does_not_say():
     "S-3 candidate, not a member of S-1 (the candidacy rests %s)."
     % (massform.mechanism_label(), priced65(),
        priced65(massform.HELD_SEAT_ROUTE_PRICED), S13_CANDIDACY),
-    "It does not say the external results its refusals rest on have been "
-    "audited: DOCKET 67 (M-D65-3) is NOT YET RUN.",
+    "It does not say the external results its refusals rest on all stand: "
+    "DOCKET 67 (M-D65-3) HAS RUN and closed (docket67-raw/CLOSE.md lists what "
+    "it moved), and which of the facts in force here it moved is not computed "
+    "in this file.  First said: 'It does not say the external results its "
+    "refusals rest on have been audited: DOCKET 67 (M-D65-3) is NOT YET RUN.'",
     "It does not decide whether a transition can lead; a lead is not required.",
     "It does not quote O1's two figures as MEASURED, nor any SI formation price.",
     "It does not rank the open classes or total any gaps.",
@@ -4623,9 +4655,12 @@ def selftest():
         (True, False, False, True))
     d67 = dockets_opened()[2][2]
     chk("chk", "DOCKET 67 is on the record, opened by M-D65-3 (on the board), "
-        "NOT YET RUN, with the question as put to M and M's words asked of the "
+        "HAS RUN (asked of the ledger, READ from CLOSE.md) with 'NOT YET RUN' kept "
+        "as first said, with the question as put to M and M's words asked of the "
         "board",
-        (dockets_opened()[2][:2], ruled("M-D65-3"), "NOT YET RUN" in d67,
+        (dockets_opened()[2][:2], ruled("M-D65-3"),
+         "HAS RUN (asked of the ledger's M-D65-3 cell, never typed here): %s"
+         % ledger.d67_ran() in d67 and "First said (kept): 'NOT YET RUN" in d67,
          m_d65_3()[0] in d67, m_d65_3()[2] in d67,
          "after DOCKET 65 is seated and before DOCKET 66" in d67),
         (("DOCKET 67", "M-D65-3"), True, True, True, True, True))
@@ -4787,7 +4822,7 @@ def selftest():
         "name: ...') planted in the record fails the equality",
         d67.replace("and, " + d67_clauses()[2],
                     "and the outside results the escapes name: " + escapes_outside_clause())
-        == D67_T % (m_d65_3() + d67_clauses()), False)
+        == D67_T % d67_fill(), False)
     # facts_outside()'s counts are the owners': BORDE-ESCAPES prints
     # len(create.ESCAPES) beside create.py's own 'ALL THREE'; O4 prints the
     # ledger O4 row's own words; D4 names charge.py's closure, no ordinal.
@@ -4840,38 +4875,42 @@ def selftest():
         (_regex_only, "D7" in _regex_only, _regex_only == _rests,
          d67.replace(facts_in_force_clause(),
                      "of these, READ or CITED outside results: " + ", ".join(_regex_only))
-         == D67_T % (m_d65_3() + d67_clauses()),
+         == D67_T % d67_fill(),
          d67.replace("; D7: %s" % [f for f in _facts_plain(model)
                                    if f["name"] == "D7"][0]["outside"], "")
-         == D67_T % (m_d65_3() + d67_clauses())),
+         == D67_T % d67_fill()),
         (["GEROCH-BORDE", "BORDE-ESCAPES"], False, False, False, False))
     chk("chk", "DOCKET 67's record EQUALS D67_T filled from the asked fragments and "
         "the three asked clauses; D67_T and D66_T carry no result word in the "
         "board's own words (either direction)",
-        (d67 == D67_T % (m_d65_3() + d67_clauses()),
+        (d67 == D67_T % d67_fill(),
          _RESULT_WORDS.findall(D67_T), _RESULT_WORDS.findall(D66_T),
          re.findall(r"\b(has run|HAS RUN|STANDS|WRONG|NARROWED|expected to)\b",
-                    D67_T + D66_T_AS_FIRST_WRITTEN),
-         re.findall(r"\b(STANDS|WRONG|NARROWED|expected to)\b", D66_T),
-         D66_T.count("HAS RUN")),
-        (True, [], [], [], [], 1))
+                    D67_T_AS_FIRST_WRITTEN + D66_T_AS_FIRST_WRITTEN),
+         re.findall(r"\b(STANDS|WRONG|NARROWED|expected to)\b", D66_T + D67_T),
+         D66_T.count("HAS RUN"), D67_T.count("HAS RUN"),
+         _RESULT_WORDS.findall(ledger.d67_ran()),
+         re.findall(r"\b(STANDS|WRONG|NARROWED|expected to)\b", ledger.d67_ran())),
+        (True, [], [], [], [], 1, 1, [], []))
     chk("ctl", "'HAS RUN' planted in the record, and 'Every result it audits is "
         "expected to STAND' appended, each fail the equality",
-        (d67.replace("NOT YET RUN", "HAS RUN", 1)
-         == D67_T % (m_d65_3() + d67_clauses()),
+        (d67.replace("NOT YET RUN", "HAS RUN", 1) == D67_T % d67_fill(),
          d67 + "  Every result it audits is expected to STAND."
-         == D67_T % (m_d65_3() + d67_clauses())), (False, False))
+         == D67_T % d67_fill()), (False, False))
     _old_clause = "the one paper edit since M " + "finalis" + "ed it"
-    chk("chk", "SR5 says DOCKET 67 is OPENED, NOT YET RUN, so nothing here is yet "
-        "graded by it, and carries the same asked clause as the record (the facts "
+    chk("chk", "SR5 says DOCKET 67 was OPENED and HAS RUN (CORRECTED; 'NOT YET RUN, "
+        "so nothing here is yet graded by it' kept as first said), and carries the same asked clause as the record (the facts "
         "in force by count and name, the outside result each declares, the "
         "outside results the escapes name); and M-D65-4, the paper's caveat (b), "
         "on the board, with M's rule for the paper verbatim and the DOCKET 63 "
         "marker's lines READ back -- the paper's edits named, not counted",
         ("M ruled DOCKET 67 OPENED (M-D65-3, on the board: %s)"
          % ruled("M-D65-3") in sr5["statement"],
-         "NOT YET RUN, after DOCKET 65 and before DOCKET 66, so nothing here is "
-         "yet graded by it; what it audits lies BENEATH what every refusal here "
+         "after DOCKET 65 and before DOCKET 66; CORRECTED (DOCKET 67 closed, "
+         "docket67-raw/CLOSE.md): it HAS RUN, and which of the facts in force here "
+         "it moved is not computed in this file -- first said 'NOT YET RUN, after "
+         "DOCKET 65 and before DOCKET 66, so nothing here is yet graded by it'; "
+         "what it audits lies BENEATH what every refusal here "
          "rests on -- the %d facts in force, %s -- namely the outside results each "
          "declares: %s; and, %s."
          % ((len(_fif),) + d67_clauses()) in sr5["statement"],
@@ -4931,8 +4970,11 @@ def selftest():
         "planted in SR5's statement is caught by the check above",
         _old_clause[16:] in sr5["statement"].replace(
             "a paper edit on M's ruling under M's rule for the paper", _old_clause), True)
-    chk("chk", "WHAT IT DOES NOT SAY carries the DOCKET 67 line (NOT YET RUN)",
-        any("DOCKET 67 (M-D65-3) is NOT YET RUN" in t and "have been audited" in t
+    chk("chk", "WHAT IT DOES NOT SAY carries the DOCKET 67 line (HAS RUN and "
+        "closed; NOT YET RUN kept as first said)",
+        any("DOCKET 67 (M-D65-3) HAS RUN and closed" in t
+            and "First said: 'It does not say the external results its refusals "
+            "rest on have been audited: DOCKET 67 (M-D65-3) is NOT YET RUN.'" in t
             for t in what_it_does_not_say()), True)
     _q3 = [r for r in ledger.RULED_BY_M if r[0] == "M-D65-3"][0]
     _mis3 = (_q3[0], _q3[1], _q3[2],

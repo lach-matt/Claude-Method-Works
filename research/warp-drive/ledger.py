@@ -518,6 +518,11 @@ figure of combine66's own runs, which this file does not repeat.
        first wording kept inside it as FIRST APPLIED, and m_d65_1_faults
        requires EQUALITY, refuses NOT YET RUN outside the history, and refuses
        any source printed as READ that qet.py does not head an entry with.
+       [2026-10-05: M-D65-3's unblocks cell still said "DOCKET 67, NOT YET
+       RUN", though DOCKET 67 closed on 2026-10-03.  It now keeps that wording
+       and follows it with what ran, READ from docket67-raw/CLOSE.md (d67_ran:
+       its head and section headings, nothing typed), and must EQUAL that
+       (m_d65_3_unblocks_faults).]
        Its unblocks cell likewise; its `why` keeps the question as it stood.
        M-D68-10's cell says step (4) ran (and step (3)'s comments are written,
        kept as drafts), keeping the wave-2 seat's and wave 1's NOT YET RUN.
@@ -2946,6 +2951,62 @@ def m_d67_2_row():
             "against the arXiv versions read, without waiting on pair confirmations")
 
 
+#: DOCKET 67's close record (M-D68-C1: "Open after D67").
+D67_CLOSE_FILE = os.path.join(os.path.dirname(os.path.abspath(__file__)),
+                              "docket67-raw", "CLOSE.md")
+
+
+def d67_close_present():
+    """docket67-raw/CLOSE.md is in the tree and is DOCKET 67's close-out."""
+    return os.path.exists(D67_CLOSE_FILE) and d67_close_head().startswith("DOCKET 67")
+
+
+def d67_close_head():
+    """CLOSE.md's first heading, READ (the '# ' stripped), or '' if absent."""
+    if not os.path.exists(D67_CLOSE_FILE):
+        return ""
+    with open(D67_CLOSE_FILE, encoding="utf-8") as fh:
+        return fh.readline().lstrip("#").strip()
+
+
+#: M-D65-3's unblocks cell as first written -- kept, and followed by what ran
+#: (2026-10-05: DOCKET 67 closed on 2026-10-03; the cell still said NOT YET RUN).
+M_D65_3_UNBLOCKS_AS_FIRST_WRITTEN = (
+    "DOCKET 67, NOT YET RUN, runs after DOCKET 65 is seated and before DOCKET 66")
+
+
+def d67_close_sections():
+    """CLOSE.md's numbered section headings, READ (the '## ' stripped)."""
+    if not os.path.exists(D67_CLOSE_FILE):
+        return []
+    with open(D67_CLOSE_FILE, encoding="utf-8") as fh:
+        return [ln[3:].strip() for ln in fh if ln.startswith("## ")]
+
+
+def d67_ran():
+    """What M-D65-3's unblocks cell says DOCKET 67 did, READ from its close
+    record: nothing typed here beyond the pointer to it."""
+    secs = d67_close_sections()
+    return ("closed; its close record is in the tree (docket67-raw/CLOSE.md present, its "
+            "head '%s': %s), and its sections, READ, are: %s.  Which values it moved is "
+            "that record's, not this cell's" % (d67_close_head(), d67_close_present(),
+                                                 "; ".join("'%s'" % h for h in secs)))
+
+
+def m_d65_3_unblocks_faults(text=None):
+    """[fault] where M-D65-3's unblocks cell is not its first wording ('NOT YET
+    RUN', kept) followed by 'DOCKET 67 has run: ' and d67_ran() -- EQUALITY, so
+    no verdict can be typed beside it."""
+    text = ([r for r in RULED_BY_M if r[0] == "M-D65-3"][0][4]
+            if text is None else text)
+    want = M_D65_3_UNBLOCKS_AS_FIRST_WRITTEN + ".  DOCKET 67 has run: " + d67_ran()
+    if " ".join(text.split()) != " ".join(want.split()):
+        return ["not its first wording followed by 'DOCKET 67 has run: ' and d67_ran()"]
+    if not d67_close_present():
+        return ["docket67-raw/CLOSE.md is absent or not DOCKET 67's close-out"]
+    return []
+
+
 RULED_BY_M = [
     ("M-D64-1",
      "phase1.py's D4 (not this board's D4): restate '%s' for the process?"
@@ -3114,8 +3175,7 @@ RULED_BY_M = [
      M_D65_3_QUESTION,
      m_d65_3_why(),
      M_D65_3_RULING_T % (M_D65_3_ANSWER, M_D65_3_WORDS),
-     "DOCKET 67, NOT YET RUN, runs after DOCKET 65 is seated and before "
-     "DOCKET 66"),
+     M_D65_3_UNBLOCKS_AS_FIRST_WRITTEN + ".  DOCKET 67 has run: " + d67_ran()),
 
     # M's fourth ruling at DOCKET 65's seating: the paper.  The completeness
     # lens found paper/CLAIMS.md's caveat (b) stating the Higgs vacuum's
@@ -3345,24 +3405,6 @@ def d68_brief_has_gate(path=None):
         text = _d68_norm(fh.read())
     return (" ".join(D68_M_WORDS["M-D68-11"][0].split()) in text
             and "prior-art search" in text and "is also the gate" in text)
-
-
-#: DOCKET 67's close record (M-D68-C1: "Open after D67").
-D67_CLOSE_FILE = os.path.join(os.path.dirname(os.path.abspath(__file__)),
-                              "docket67-raw", "CLOSE.md")
-
-
-def d67_close_present():
-    """docket67-raw/CLOSE.md is in the tree and is DOCKET 67's close-out."""
-    return os.path.exists(D67_CLOSE_FILE) and d67_close_head().startswith("DOCKET 67")
-
-
-def d67_close_head():
-    """CLOSE.md's first heading, READ (the '# ' stripped), or '' if absent."""
-    if not os.path.exists(D67_CLOSE_FILE):
-        return ""
-    with open(D67_CLOSE_FILE, encoding="utf-8") as fh:
-        return fh.readline().lstrip("#").strip()
 
 
 def _d68_held(rid):
@@ -7571,6 +7613,15 @@ def selftest():
          "after DOCKET 65 is seated and before DOCKET 66" in _d67[0][4],
          M_D65_3_QUESTION in _md, "'%s'" % M_D65_3_ANSWER in _md),
         (1, True, True, [], True, True, True, True))
+    chk("  M-D65-3's unblocks cell EQUALS its first wording (NOT YET RUN, kept) "
+        "followed by what ran, READ from docket67-raw/CLOSE.md (d67_ran); "
+        "CONTROLS: the first wording alone, and 'every audited result STANDS' "
+        "appended, are each caught",
+        (m_d65_3_unblocks_faults(), len(d67_close_sections()) >= 5,
+         "M's closing rulings" in d67_ran(),
+         len(m_d65_3_unblocks_faults(M_D65_3_UNBLOCKS_AS_FIRST_WRITTEN)) > 0,
+         len(m_d65_3_unblocks_faults(_d67[0][4] + "  Every audited result STANDS.")) > 0),
+        ([], True, True, True, True))
     # EQUALITY, not substring presence: the seated cells must EQUAL their
     # templates filled from the asked constants, so no verdict on a docket
     # that has not run can be typed beside the required phrases (a planted
