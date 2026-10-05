@@ -23,9 +23,14 @@ counts (M, item 33: "Keep all four"):
       seat.channel_floor (LNM eq. 8, one polarisation).  For that 1D thermal channel the energy per nat is kT/2
       (computed here from LNM's own law -- P = pi^2 (kT)^2 / (6h) and dS/dt = (pi^2/3) kT / h per polarisation -- and
       checked against seat.channel_floor), so the channel's characteristic quantum is kT = 2 E_bit / ln 2 and its
-      wavelength lambda = h c / kT.  A mode of wavelength lambda passes an opening no narrower than about lambda/2
-      (H-HALF-WAVE).  So the streamed corridor's width is set by the SCHEDULE: a faster schedule needs harder quanta and
-      a narrower, but not a larger, opening.
+      wavelength lambda = h c / kT.  A hollow single-conductor guide passes a mode only if it is at least about lambda/2
+      wide (H-HALF-WAVE, order of magnitude).  So at the floor energy the MINIMUM opening scales as T/I: a faster
+      schedule PERMITS a narrower one (any wider opening also passes).  Two caveats, both computed or named:
+      (i) at width lambda/2 the cutoff sits exactly at hbar omega = kT, and 61 % of the floor channel's entropy flux
+      (47 % of its energy flux) lies below that cutoff -- so a lambda/2 guide cannot carry the floor rate; it needs
+      more width or more power (computed here from the 1D Bose integrals); (ii) a two-conductor (TEM) line has no
+      cutoff at all (H-TEM-LINE, against the half-wave floor); and the throat-mass column uses the width as a radius --
+      a circular guide's TE11 cutoff gives r ~ lambda/3.41 = 0.59 x (lambda/2) (H-TE11, NAMED-NOT-READ).
   (C) THE COUPLING VIEW (W3A, M items 21-22) -- the corridor as a coupling term has no cross-section at all.  Size is
       replaced by count and time: I couplings in parallel, or one used I times.  One coupling run at the schedule's
       pace needs a coupling energy hbar J = hbar I pi / (2 T) (two-site transfer time pi/2J per qubit, corridor.py).
@@ -34,8 +39,17 @@ counts (M, item 33: "Keep all four"):
   linear in r, against the 1 m figure.  The board's other limits on small throats stand as graded (DOCKET 66: held
   throats; DOCKET 67: the quantum inequalities; Ford-Roman crossover 0.307933 / 5.625229 l_P, M: "Carry both").
 
+HISTORY (corrected after the W3A verifier, 2026-10-05): 'a faster schedule needs harder quanta and a narrower, but not
+a larger, opening' (it permits a narrower minimum, at the floor energy only); H-HALF-WAVE without its scope or its two
+caveats; WAVE3.md's 'the information corridor is between about 1e-21 m and 1e-10 m wide' (these are smallest openings
+consistent with each reading, not widths it must have); identities counted as checks; a loop that never compared a year
+with a century; a 3D-vs-1D 'control' that did not test the kT/2 identity; M's question not banked for a verbatim check.
+
 NAMED HYPOTHESES
-  H-HALF-WAVE     an opening passes a mode of wavelength lambda only if it is at least about lambda/2 wide.
+  H-HALF-WAVE     a hollow single-conductor opening passes a mode of wavelength lambda only if at least ~lambda/2 wide
+                  (order of magnitude; a lambda/2 guide carries only part of the floor rate -- caveat (i)).
+  H-TEM-LINE      a two-conductor line carries a TEM mode with no cutoff: no half-wave floor on its width.
+  H-TE11          circular-guide TE11 cutoff lambda_c = 3.41 r (standard waveguide result, NAMED-NOT-READ).
   H-THERMAL-1D    the streamed channel is LNM's 1D thermal channel at the board's floor (seat.channel_floor); its
                   characteristic quantum is kT.  A coded channel could use other quanta at higher energy cost.
   H-CAP-AT-THROAT, H-NECK-DOGMA, H-COUNT-IS-ENTROPY (throatbits.py) for (A).
@@ -68,6 +82,50 @@ H = seat.H
 C = seat.C
 HBAR = nopath.HBAR
 SCHEDULES_S = (86400.0, 3.15576e7, 3.15576e9)     # a day, a year, a century (Julian)
+RULINGS = os.path.join(D68, "M-RULINGS-2026-10-03.md")
+
+
+def _simpson(f, a, b, n=20000):
+    h = (b - a) / n
+    tot = f(a) + f(b)
+    for i in range(1, n):
+        tot += (4 if i % 2 else 2) * f(a + i * h)
+    return tot * h / 3.0
+
+
+def _integral(f, a, b):
+    """int_a^b f, with the region below 1e-2 taken on a log scale (x = e^u) for the log singularity at 0."""
+    lo = max(a, 1e-14)
+    mid = min(b, 1e-2)
+    tot = 0.0
+    if mid > lo:
+        tot += _simpson(lambda u: f(math.exp(u)) * math.exp(u), math.log(lo), math.log(mid), 4000)
+    if b > mid:
+        tot += _simpson(f, mid, b)
+    return tot
+
+
+def _bose_e(x):
+    return x / math.expm1(x)
+
+
+def _bose_s(x):
+    return x / math.expm1(x) - math.log(-math.expm1(-x))
+
+
+def energy_per_nat(dim):
+    """Energy per nat of a thermal photon gas, in units of kT: 1D (one mode family) and 3D (density of states x^2)."""
+    w = (lambda x: 1.0) if dim == 1 else (lambda x: x * x)
+    E = _integral(lambda x: w(x) * _bose_e(x), 0.0, 60.0)
+    S = _integral(lambda x: w(x) * _bose_s(x), 0.0, 60.0)
+    return E / S
+
+
+def below_cutoff_fractions(xc=1.0):
+    """1D thermal channel: fractions of entropy and energy flux below hbar omega = xc kT (the lambda/2 guide's cutoff)."""
+    s_lo, s_all = _integral(_bose_s, 0.0, xc), _integral(_bose_s, 0.0, 60.0)
+    e_lo, e_all = _integral(_bose_e, 0.0, xc), _integral(_bose_e, 0.0, 60.0)
+    return s_lo / s_all, e_lo / e_all
 
 
 def counts():
@@ -120,14 +178,17 @@ def collect():
 
 def report():
     d = collect()
-    print("How big must the corridor be if only information passes?")
+    print("How big must the corridor be if only information passes?  (smallest opening consistent with each reading)")
     print('  M: "%s"' % M_WORDS)
     print("\n  the 1 m throat (for a body): wormhole.throat_mass(1 m) = %.3g kg" % d["one_metre_throat_mass_kg"])
     print("\n(A) all at once -- the smallest throat whose A/4 holds the whole description (throatbits.r_fit):")
     for r in d["all_at_once"]:
         print("    %-42s %.3g bits: r = %.3g m (%.3g l_P); throat mass %.3g kg"
               % (r["count"], r["bits"], r["r_m"], r["r_m"] / d["l_P_m"], r["throat_mass_kg"]))
-    print("\n(B) streamed over one mode at the board's energy floor (H-THERMAL-1D, H-HALF-WAVE):")
+    fs, fe = below_cutoff_fractions()
+    print("\n(B) streamed over one mode at the board's energy floor (H-THERMAL-1D, H-HALF-WAVE; smallest openings):")
+    print("    caveat: at width lambda/2 the cutoff is hbar omega = kT; %.0f%% of the entropy flux and %.0f%% of the "
+          "energy flux lie below it" % (100 * fs, 100 * fe))
     for r in d["streamed"]:
         if not r["count"].startswith("species") and not r["count"].startswith("grid 0.1"):
             continue
@@ -152,6 +213,9 @@ def selftest():
         print("  [%s]%s %-92s %r" % ("ok" if ok else "XX", " CTL" if ctl else "", label[:92], got))
 
     print("aperture.py selftest")
+    structural = []
+    txt = " ".join(open(RULINGS, encoding="utf-8").read().split())
+    chk("M's question (rulings item 35) found verbatim in the rulings file", M_WORDS in txt, True)
     a = all_at_once()
     chk("(A) r_fit by bisection matches the closed form l_P sqrt(I ln2/pi) for every count (to 1e-6)",
         all(abs(r["r_m"] / r["r_closed_m"] - 1) < 1e-6 for r in a), True)
@@ -160,20 +224,23 @@ def selftest():
     s = streamed()
     chk("(B) LNM's 1D law reproduces the floor's own rate: (pi^2/3) kT/h equals N/T (to 1e-3) in every row",
         all(abs(r["rate_check"] - 1) < 1e-3 for r in s), True)
-    chk("(B) a slower schedule means softer quanta and a wider (never narrower) opening",
-        all(s[i]["width_m"] < s[i + 1]["width_m"] for i in range(0, len(s), 3)), True)
-    chk("(B) every streamed opening is below 1 m at every schedule here",
-        all(r["width_m"] < 1.0 for r in s), True)
-    chk("CONTROL: LNM's 3D law (eq. 6) gives a different rate at the same power -- the kT/2 identity is the 1D law's",
-        abs(seat.lnm_rate_3d(1.0, 1.0, 1.0, 1.0) - seat.lnm_rate_1d(1.0, pol=1)) < 1e-9, False, ctl=True)
-    chk("throat mass is linear in r: the 1 m figure over a 1e-11 m opening is 1e11 (to 1e-9)",
-        abs(wormhole.throat_mass(1.0) / wormhole.throat_mass(1e-11) / 1e11 - 1) < 1e-9, True)
-    cv = coupling_view()
-    chk("(C) hbar J scales with I/T: a century schedule needs 1/100 of a year's coupling energy (to 1e-9)",
-        abs(cv[2]["hbarJ_J"] * 100 / cv[1]["hbarJ_J"] - 1) < 1e-9, True)
-    chk("CONTROL: (A)'s radius grows as sqrt(I): 4x the bits, 2x the radius (to 1e-6)",
-        abs(throatbits.r_fit(4e28) / throatbits.r_fit(1e28) - 2) < 1e-6, True, ctl=True)
-    print("\n%d/%d checks pass, %d of them controls" % (n_ok, n_ok + n_bad, n_ctl))
+    chk("(B) every streamed opening is below 1 m at every schedule here", all(r["width_m"] < 1.0 for r in s), True)
+    e1, e3 = energy_per_nat(1), energy_per_nat(3)
+    chk("(B) the 1D thermal channel's energy per nat is kT/2 (to 1e-4), from the Bose integrals", abs(e1 - 0.5) < 1e-4,
+        True)
+    chk("CONTROL: the 3D photon gas's energy per nat is 3kT/4, not kT/2 -- the identity is the 1D law's (to 1e-4)",
+        (abs(e3 - 0.75) < 1e-4, abs(e3 - 0.5) < 1e-4), (True, False), ctl=True)
+    fs, fe = below_cutoff_fractions()
+    chk("(B) caveat (i): at width lambda/2 a substantial share of the floor channel lies below cutoff (entropy %.2f, "
+        "energy %.2f)" % (fs, fe), (0.5 < fs < 0.7, 0.4 < fe < 0.55), (True, True))
+    chk("CONTROL: with the cutoff at 10 kT (a much narrower guide) almost all of the channel is below cutoff",
+        below_cutoff_fractions(10.0)[0] > 0.99, True, ctl=True)
+    structural.append("slower schedule -> wider minimum opening, throat mass linear in r, hbar J ~ I/T, r_fit ~ sqrt(I): "
+                      "algebraic identities of the formulas as written")
+    for x in structural:
+        print("  [STRUCTURAL] " + x)
+    print("\n%d/%d checks pass, %d of them controls; %d STRUCTURAL printed, not counted"
+          % (n_ok, n_ok + n_bad, n_ctl, len(structural)))
     return n_bad == 0
 
 

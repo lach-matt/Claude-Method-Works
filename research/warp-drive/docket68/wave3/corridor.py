@@ -20,17 +20,22 @@ THE MODEL.  One excitation (the object's state) on two positions, H = J (|A><B| 
 Christandl, Datta, Ekert & Landahl's N = 2 chain (quant-ph/0309131v2 p.2, READ via alphaXiv: 'F(t) = -i sin(t)').
 
 WHAT IT COMPUTES
-  (1) NEVER IN BETWEEN.  The position observable X = x_A |A><A| + x_B |B><B| has exactly two eigenvalues: every
-      measurement finds the object at A or at B.  P_B(t) = sin^2(J t); the transfer is complete at t* = pi / (2J)
+  (1) NEVER IN BETWEEN -- IN THE TWO-SITE MODEL (H-DIRECT-COUPLING).  The position observable X = x_A |A><A| +
+      x_B |B><B| has exactly two eigenvalues, so every measurement finds the object at A or at B (true by construction
+      of a two-site model: printed STRUCTURAL).  On any RELAYED chain this fails: at half the transfer time the object is
+      found on interior sites with probability 0.50 (engineered N = 3), 0.75 (N = 4), 0.98 (N = 8) (computed).  P_B(t) = sin^2(J t); the transfer is complete at t* = pi / (2J)
       (reproducing Christandl's F(pi/2) = -i).  NUANCE, computed: the MEAN <X>(t) passes through every value between
       x_A and x_B -- no single outcome is in between, the average is.
   (2) THE ENTANGLEMENT OF TWO POSITIONS AT ONCE.  At t*/2 the state is (|A> - i|B>)/sqrt2.  Read as two modes (occupied
-      / empty at A, at B), its concurrence is 2 |c_A c_B| = 1: maximal mode entanglement between the two positions.
-      M's item-21 phrase is, in this model, literally the mid-transfer state.
-  (3) A COUPLING IS A CHANNEL.  With J > 0, B's local occupation at time t depends on what was prepared at A (signalling
-      deviation > 0).  CONTROL: with J = 0 and a shared Bell pair, B's reduced state is the same whatever local unitary
-      A applies (no signalling).  So the A-B coupling, unlike entanglement alone, carries the state by itself: no
-      classical bits are needed (contrast transit.py's 2 bits per qubit).
+      / empty at A, at B), its concurrence is 2 |c_A c_B| = 1: maximal mode entanglement between the two positions
+      (H-MODE-ENTANGLEMENT: reading a single excitation as entanglement between modes is a contested reading).  Under
+      it, M's item-21 phrase is the mid-transfer state.
+  (3) A COUPLING IS A CHANNEL.  With J > 0, B's local occupation at time t depends on whether A was prepared excited or
+      empty (on/off keying: a classical bit gets through; the empty start is the zero-excitation sector, which the
+      hopping term does not move -- Christandl p.2, carried).  MATCHED CONTROL: the same protocol with J = 0 gives no
+      deviation.  Second CONTROL: entanglement alone (a Bell pair, J = 0) does not signal.  The transfer of the STATE
+      itself rests on F(t*) = -i, a fixed phase (Christandl eqs. 3, 5): no classical bits are needed (contrast
+      transit.py's 2 bits per qubit).
   (4) WHERE DISTANCE ENTERS.  The two-site model has no distance in it: t* does not depend on how far apart A and B are
       (STRUCTURAL).  Physics puts distance back through how the coupling is MEDIATED:
         (a) uniform nearest-neighbour chain of N sites, coupling J: the excitation's first arrival at the far end grows
@@ -38,19 +43,43 @@ WHAT IT COMPUTES
         (b) Christandl's engineered chain, J_n = (lambda/2) sqrt(n (N - n)): perfect transfer at the fixed time pi/lambda
             (p.3, eq. 15) -- but its largest coupling grows with N, so with the coupling strength bounded by J_max the
             time is pi max_n sqrt(n(N-n)) / (2 J_max), which grows linearly with N;
-        (c) the light cone: on the uniform chain the amplitude at distance d before the time d/(2J) is exponentially
-            small (computed), as Nachtergaele & Sims's Lieb-Robinson bound requires (arXiv:1004.2086v1, Thm 2.3,
-            eqs. 2.11, 2.15-2.16, READ via alphaXiv): ||[tau_t(A), B]|| decays as e^(-mu (d - v t)) for local
-            interactions, 'the same kind of locality structure provided in a field theory by the finiteness of the
-            speed of light' (p.1).
-      So 'no speed' holds exactly when the coupling is DIRECT -- one term joining A and B with nothing between
-      (H-DIRECT-COUPLING, M's reading).  Any coupling relayed through local physics with bounded strength has a speed.
-  GRADE (for wave 3's verification, not seated): the corridor-as-coupling removes O-BITS -- the state moves with no
-  classical channel -- IF H-DIRECT-COUPLING, and H-DIRECT-COUPLING is not supplied by any local interaction: it clashes
-  with locality (H-LOCALITY) as the board's other speed-free routes do.  It moves state, not substance: O-SEAT is
-  untouched (H-INFO-SHAPE).  O-LOOP: a direct coupling between separated positions is an identification of the kind
-  corridors.py grades; it closes no causal loop only if every such coupling is keyed to one frame (corridors.py's
-  H-FRAME) -- recorded, not re-derived here.
+        (c) the light cone: on the uniform chain the amplitude at distance d at HALF the time d/(2J) falls by about 90x
+            per 10 sites (asymptotic rate acosh 2 - sqrt3/2 per site; computed); near the cone the decay is weak.  This
+            is what Nachtergaele & Sims's Lieb-Robinson bound requires for short-range interactions (arXiv:1004.2086v1,
+            Thm 2.3, eqs. 2.11, 2.15-2.16, READ via alphaXiv; eq. 2.15 needs an exponentially decaying interaction,
+            p.5): 'Lieb-Robinson bounds imply that non-relativistic quantum dynamics has, at least approximately, the
+            same kind of locality structure provided in a field theory by the finiteness of the speed of light' (p.1).
+        (d) LONG-RANGE relays (H-LONG-RANGE): with pairwise strength bounded by 1/r^alpha, Eldredge et al.,
+            arXiv:1612.02442v2 (READ via alphaXiv, abstract p.1): 'If alpha < d, the state transfer time is
+            asymptotically independent of L; if alpha = d, the time scales logarithmically with the distance L';
+            L^(alpha-d) for d < alpha < d + 1; L for alpha >= d + 1.  Caveat (p.6 fn. 45): for alpha <= d a volume
+            prefactor 1/L^(d-alpha) is needed for a thermodynamic limit, whose inverse multiplies the transfer time.
+            Realised in polar molecules, Rydberg atoms, trapped ions (p.1) -- as quasi-static (non-retarded)
+            interactions (H-QUASI-STATIC).
+        (e) UNBOUNDED relays: dropping H-BOUNDED-J, Christandl's engineered chain is speed-free too (pi/lambda for every
+            N, 4b).
+      So 'no speed' holds iff H-DIRECT-COUPLING, or H-LONG-RANGE with alpha < d, or not H-BOUNDED-J.  Each of these
+      clashes with relativistic microcausality at the fundamental level (H-LOCALITY): a quasi-static long-range
+      interaction is the non-retarded limit of a field that propagates at c, and an effective direct A-B term from a
+      mediator integrated out (a cavity or bus mode spanning A to B; H-EFFECTIVE-COUPLING) needs that mediator in
+      place first, itself causal at c.
+  (5) BEFORE LIGHT (the board's DEF-BITS, combine.py: 'O-BITS removed iff a channel carries >= 2 bits per teleported
+      qubit before light').  A coupling beats light across L iff its transfer time pi/2J < L/c, i.e. J > pi c/(2L): at
+      the Proxima span, hbar J > 7.7e-24 eV per qubit in parallel; sent serially down one coupling, the whole object
+      needs hbar J > hbar I pi c/(2L) (computed per count).  Moving the qubit itself counts as delivering a teleported
+      qubit's 2 bits only under H-STATE-AS-BITS (a named mapping onto DEF-BITS).
+  GRADE (proposed, for verification; not seated): O-BITS REMOVED-IF {one of H-DIRECT-COUPLING / H-LONG-RANGE
+  (alpha < d) / not H-BOUNDED-J; J > pi c/(2L) (computed); H-STATE-AS-BITS}, and each speed-free option clashes with
+  H-LOCALITY (relativistic microcausality).  It moves state, not substance: O-SEAT is untouched (H-INFO-SHAPE).
+  O-LOOP: carried as an identification of the kind corridors.py grades (H-CORRIDOR-AS-IDENTIFICATION, a named
+  mapping): it closes no causal loop only if every such coupling is keyed to one frame (corridors.py's H-FRAME) --
+  recorded, not re-derived here.
+
+HISTORY (first said, corrected after the W3A verifier, 2026-10-05): 'never in between' stated without its two-site
+condition, and its eigenvalue check counted (it cannot fail); the O-BITS grade without DEF-BITS's 'before light'
+condition; 'no speed iff DIRECT' omitting long-range (alpha < d) and unbounded relays; 'exponentially small before the
+time d/(2J)' (computed only at half that time); the Nachtergaele-Sims quote without its 'at least approximately';
+the signalling control in a different protocol (and signalling_coupled(J=0) divided by zero).
 
 NAMED HYPOTHESES
   H-DIRECT-COUPLING  (M's reading of items 21-22) a single coupling term joins the degrees of freedom at A and at B with
@@ -60,6 +89,13 @@ NAMED HYPOTHESES
   H-ONE-EXCITATION   the object's state is carried as one excitation (Christandl's single-spin-up subspace, p.2); a
                      many-body state is not modelled.
   H-BOUNDED-J        the local coupling strength is bounded by J_max (for 4b).
+  H-LONG-RANGE       pairwise couplings 1/r^alpha with alpha < d (Eldredge et al., READ; fn. 45 caveat).
+  H-QUASI-STATIC     a long-range interaction treated as instantaneous (its non-retarded limit).
+  H-EFFECTIVE-COUPLING a direct A-B term obtained by integrating out a mediator that already spans A to B.
+  H-MODE-ENTANGLEMENT a single excitation over two sites read as entanglement between the two modes.
+  H-STATE-AS-BITS    moving a qubit counts, for DEF-BITS, as delivering a teleported qubit's 2 classical bits.
+  H-CORRIDOR-AS-IDENTIFICATION a direct coupling between separated positions is graded as corridors.py's identification.
+  H-INFO-SHAPE       (M, rulings items 1, 5) teleportation carries the shape; the substance comes from the seat.
 """
 import json
 import math
@@ -124,12 +160,46 @@ def mid_transfer_concurrence(J=1.0):
 
 
 # ============================================================================ (3) a coupling is a channel
-def signalling_coupled(J=1.0, t=None):
-    """B's occupation at time t when A starts excited vs empty (one-excitation sector plus the vacuum)."""
-    t = math.pi / (4 * J) if t is None else t
+def signalling_coupled(J=1.0, t=math.pi / 4):
+    """B's occupation at time t when A starts excited vs empty.  The empty start is the zero-excitation sector, which the
+    hopping term conserves (Christandl p.2): B's occupation from it is 0 at every t (carried, not computed)."""
     excited = abs(evolve(chain(2, J), basis(2, 0), t)[1]) ** 2
-    empty = 0.0                                          # the vacuum does not evolve under the hopping term
+    empty = 0.0
     return abs(excited - empty)
+
+
+def interior_occupation():
+    """Probability on interior sites at half the perfect-transfer time: engineered chains (J_max = 1) and uniform N = 3."""
+    out = {}
+    for N in (3, 4, 8, 16):
+        e = engineered_time(N)
+        peak = max(math.sqrt(n * (N - n)) for n in range(1, N))
+        lam = 2.0 / peak
+        cpl = [lam / 2.0 * math.sqrt(n * (N - n)) for n in range(1, N)]
+        psi = evolve(chain(N, couplings=cpl), basis(N, 0), e["t_pst"] / 2.0)
+        out["engineered N=%d" % N] = float(1 - abs(psi[0]) ** 2 - abs(psi[-1]) ** 2)
+    psi = evolve(chain(3), basis(3, 0), math.pi / (2 * math.sqrt(2)))
+    out["uniform N=3"] = float(1 - abs(psi[0]) ** 2 - abs(psi[-1]) ** 2)
+    return out
+
+
+def before_light():
+    """J > pi c/(2L) per qubit; serially for the whole object, J > I pi c/(2L).  hbar J in eV, at the Proxima span."""
+    import contextlib
+    import io
+    for _p in (D68, os.path.join(D68, "..")):
+        if _p not in sys.path:
+            sys.path.insert(0, _p)
+    with contextlib.redirect_stdout(io.StringIO()):
+        import seat
+        import measure
+    hbar = 1.054571817e-34
+    ev = 1.602176634e-19
+    L, c = seat.D_PROXIMA, seat.C
+    per = hbar * math.pi * c / (2 * L) / ev
+    rows, _, _, _ = measure.price_table()
+    return {"L_m": L, "hbarJ_min_eV_per_qubit": per,
+            "serial_hbarJ_min_eV": {r["count"]: per * r["bits"] for r in rows}}
 
 
 def no_signalling_bell(trials=50, seed=7):
@@ -175,6 +245,9 @@ def engineered_time(N, J_max=1.0):
     return {"N": N, "t_pst": t, "fidelity": abs(F) ** 2, "max_coupling": max(couplings)}
 
 
+LC_RATE_PER_SITE = math.acosh(2.0) - math.sqrt(3.0) / 2.0      # asymptotic |J_d(d/2)| decay rate per site
+
+
 def light_cone(d, J=1.0, frac=0.5):
     """Amplitude at distance d at time frac x d/(2J), on a uniform chain long enough to have no reflection."""
     N = 2 * d + 41
@@ -189,7 +262,8 @@ def collect():
             "no_signalling_bell_worst": no_signalling_bell(),
             "uniform": [uniform_arrival(N) for N in (4, 8, 16, 32, 48)],
             "engineered": [engineered_time(N) for N in (2, 4, 8, 16, 32)],
-            "light_cone": {d: light_cone(d) for d in (5, 10, 20, 30)}, "READ": READ}
+            "light_cone": {d: light_cone(d) for d in (5, 10, 20, 30)}, "interior": interior_occupation(),
+            "before_light": before_light(), "READ": READ}
 
 
 def report():
@@ -197,14 +271,16 @@ def report():
     t = d["two_site"]
     print("W3A -- the corridor as the A-B coupling (M-RULINGS items 21-22)")
     print('  M: "%s"' % M_WORDS_21)
-    print("\n(1) never in between: X's eigenvalues %s; P_B(t*) = %.12f at t* = pi/2J = %.4f; F(t*) = %s"
-          % (t["X_eigenvalues"], t["P_B_at_t_star"], t["t_star"], t["F_at_t_star"]))
+    print("\n(1) never in between, in the two-site model (H-DIRECT-COUPLING): X's eigenvalues %s; P_B(t*) = %.12f at "
+          "t* = pi/2J = %.4f; F(t*) = %s" % (t["X_eigenvalues"], t["P_B_at_t_star"], t["t_star"], t["F_at_t_star"]))
+    print("    on relayed chains, probability between A and B at half the transfer time: %s"
+          % {k: round(v, 4) for k, v in d["interior"].items()})
     print("    nuance: the mean <X> takes %d of 401 sampled values strictly between x_A and x_B (no outcome does)"
           % t["meanX_takes_values_strictly_between"])
     print("(2) the entanglement of two positions at once: mid-transfer mode concurrence %.12f (maximal = 1)"
           % d["mid_concurrence"])
-    print("(3) a coupling is a channel: signalling deviation %.4f with J > 0; CONTROL J = 0, Bell pair: %.2e"
-          % (d["signalling_coupled"], d["no_signalling_bell_worst"]))
+    print("(3) a coupling is a channel: on/off deviation %.4f with J > 0; matched CONTROL J = 0: %.4f; Bell pair: %.2e"
+          % (d["signalling_coupled"], signalling_coupled(J=0.0), d["no_signalling_bell_worst"]))
     print("(4) where distance enters (the two-site t* has no distance in it):")
     for u in d["uniform"]:
         print("    uniform chain N = %2d: first arrival (P >= 0.05) at t = %.3f; best fidelity in window %.4f"
@@ -214,8 +290,13 @@ def report():
               % (e["N"], e["t_pst"], e["fidelity"]))
     for k, v in d["light_cone"].items():
         print("    light cone: amplitude at distance %2d at half the time d/2J: %.3e" % (k, v))
-    print("\n  'No speed' holds exactly when the coupling is direct (H-DIRECT-COUPLING); relayed through local physics")
-    print("  with bounded strength, a speed appears (Lieb-Robinson, READ; computed above).")
+    print("    asymptotic decay at half the cone time: x %.4f per 10 sites" % math.exp(-10 * LC_RATE_PER_SITE))
+    b = d["before_light"]
+    print("(5) before light at the Proxima span: hbar J > %.3g eV per qubit in parallel; serially, the whole object:"
+          % b["hbarJ_min_eV_per_qubit"])
+    for k, v in b["serial_hbarJ_min_eV"].items():
+        print("    %-42s hbar J > %.3g eV" % (k, v))
+    print("\n  'No speed' iff H-DIRECT-COUPLING, H-LONG-RANGE (alpha < d), or unbounded J; each clashes with H-LOCALITY.")
 
 
 def selftest():
@@ -234,8 +315,9 @@ def selftest():
     txt = " ".join(open(RULINGS, encoding="utf-8").read().split())
     chk("M's item-21 words found verbatim in the rulings file", M_WORDS_21 in txt, True)
     t = two_site()
-    chk("the position observable has exactly two eigenvalues, x_A and x_B (never in between)",
-        t["X_eigenvalues"], [0.0, 1.0])
+    io_ = interior_occupation()
+    chk("on a relayed chain the object IS found between A and B at half the transfer time (engineered N = 8 > 0.9)",
+        io_["engineered N=8"] > 0.9, True)
     chk("P_B(t) = sin^2(J t) throughout (to 1e-12), complete at t* = pi/2J",
         (t["sin2_max_err"] < 1e-12, abs(t["P_B_at_t_star"] - 1) < 1e-12), (True, True))
     chk("Christandl N = 2: F(pi/2) = -i (to 1e-12)", abs(t["F_at_t_star"] - (-1j)) < 1e-12, True)
@@ -245,6 +327,8 @@ def selftest():
     chk("mid-transfer mode concurrence is 1 (maximal entanglement of the two positions)", abs(c - 1) < 1e-12, True)
     chk("a coupling signals: B's occupation depends on A's preparation (deviation 0.5 at t*/2)",
         abs(signalling_coupled() - 0.5) < 1e-12, True)
+    chk("CONTROL (matched): the same on/off protocol with J = 0 gives no deviation", signalling_coupled(J=0.0), 0.0,
+        ctl=True)
     chk("CONTROL: entanglement alone (J = 0, Bell pair) does not signal (worst change < 1e-12)",
         no_signalling_bell() < 1e-12, True, ctl=True)
     u = [uniform_arrival(N) for N in (8, 16, 32, 48)]
@@ -262,10 +346,19 @@ def selftest():
     chk("engineered chain with J_max bounded: the transfer time grows with N (doubling N roughly doubles it)",
         all(1.8 < e[i + 1]["t_pst"] / e[i]["t_pst"] < 2.2 for i in range(len(e) - 1)), True)
     lc = [light_cone(dd) for dd in (10, 20, 30)]
-    chk("light cone: at half the time d/2J the amplitude at distance d falls off fast (each 10 sites, x < 1e-2)",
-        all(lc[i + 1] < 1e-2 * lc[i] for i in range(len(lc) - 1)), True)
+    chk("light cone: at half the time d/2J the amplitude at distance d falls by > 50x per 10 sites (asymptotic x %.4f)"
+        % math.exp(-10 * LC_RATE_PER_SITE), all(lc[i + 1] < 2e-2 * lc[i] for i in range(len(lc) - 1)), True)
+    chk("CONTROL: near the cone (0.95 d/2J) the decay is weak -- d = 40 keeps more than 1% of d = 20's amplitude",
+        light_cone(40, frac=0.95) > 0.01 * light_cone(20, frac=0.95), True, ctl=True)
+    bl = before_light()
+    chk("before light: hbar J per qubit = hbar pi c/(2L) at the Proxima span is 7.7e-24 eV (to 2%)",
+        abs(bl["hbarJ_min_eV_per_qubit"] / 7.7e-24 - 1) < 0.02, True)
     structural.append("the two-site transfer time pi/2J contains no distance: built so (the model has no distance in "
-                      "it); what is computed is where distance re-enters (4a-4c)")
+                      "it); what is computed is where distance re-enters (4a-4e)")
+    structural.append("the position observable of a two-site model has exactly two eigenvalues %s: true by construction"
+                      % t["X_eigenvalues"])
+    structural.append("a two-site chain has no interior sites, so nothing is found between A and B there: true by "
+                      "construction (normalisation); relayed chains are the computed case above")
     for x in structural:
         print("  [STRUCTURAL] " + x)
     print("\n%d/%d checks pass, %d of them controls; %d STRUCTURAL printed, not counted"
