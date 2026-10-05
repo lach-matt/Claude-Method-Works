@@ -22,8 +22,23 @@ WHAT IT COMPUTES (every input imported: seat, aperture, light via step1c/demand.
 
 NAMED HYPOTHESES
   H-FRIIS-IDEAL, H-EQUAL-APERTURES (for the single-mode diameter), H-AT-FLOOR-QUANTUM (the link runs at the floor's own
-  quantum, which minimises received energy -- seat.py's law), H-FOCUS-AT-QUANTUM (an aperture of that size focuses at
-  that quantum: see OPTICS), and seat.py's (H-EM-CARRIER, H-FEW-MODES, H-ONE-POL).
+  quantum, which minimises RECEIVED energy -- seat.py's law; it does NOT minimise TRANSMITTED power at fixed apertures
+  under diffraction: higher quanta raise the received power slowly while the mode number rises as E^2, so the
+  diffraction-limited transmitted power falls roughly as 1/E toward the single-mode point -- the Step 1c/wave 4
+  verifier's band-limited Holevo stand-in, H-HOLEVO-STANDIN, at 1 yr with DSOC apertures: 1.2e18 W at 263 keV, 1.1e13 W
+  at 1 GeV.  seat's 1D floor cannot be evaluated off its optimum (kT is fixed by the rate), so the minimum over quanta
+  is OPEN; figure-limited, the beam fraction does not depend on the quantum and the floor quantum is about optimal),
+  H-FOCUS-AT-QUANTUM (an aperture of that size focuses at that quantum: see OPTICS), H-BEAM-FIGURE (the beam's full
+  width is the optic's half-power diameter; the profile factor -- 1.44x lower for a Gaussian peak, ~2x higher for
+  NuSTAR's 18" core -- is H-BEAM-PROFILE, OPEN, order unity), H-TX-OPTIC (the transmitter's optic achieves the receiving
+  optic's figure; NuSTAR's 58" is measured AFTER ground reconstruction of its mast motion, ~1' per orbit, so it is a
+  best case for a transmitted beam), H-NO-COHERENT-SOURCE (no coherent source at the floor quantum: X-ray free-electron
+  lasers reach ~10-25 keV with ~1 urad divergence, from the verifier's memory, NOT READ -- OPEN; laser-Compton gamma
+  sources diverge ~1 mrad), and seat.py's (H-EM-CARRIER, H-FEW-MODES, H-ONE-POL).
+HISTORY (wave 4 verifier, 2026-10-05): the floor quantum was said to be the premise without saying it minimises
+  received, not transmitted, power; 'with every optic read the channel needs more than the Sun' was printed without the
+  beam width that would make it less (0.14" onto 7 m^2); a CONTROL (P_t = P_r above single mode) was a coding
+  tautology.
 """
 import contextlib
 import io
@@ -140,8 +155,20 @@ def figure_limited_budget():
             "design figure, design area": figure_limited(yr["P_r_W"], at["HPD_arcsec"], at["geom_area_m2"])}
 
 
+def threshold_width_arcsec(P_r, A_r, P_t=None):
+    """The full beam width at which a figure-limited link onto A_r needs P_t (the Sun's luminosity by default)."""
+    P_t = L_SUN if P_t is None else P_t
+    spot_r = math.sqrt(A_r * P_t / (math.pi * P_r))
+    return 2.0 * spot_r / L / ARCSEC
+
+
 def collect():
-    return {"budget": budget(), "figure_limited_1yr": figure_limited_budget(), "L_sun_W": L_SUN, "OPTICS": OPTICS}
+    fl = figure_limited_budget()
+    cl = OPTICS["CLAIRE Laue lens (Frontera & von Ballmoos review 1007.4308v3)"]
+    return {"budget": budget(), "figure_limited_1yr": fl, "L_sun_W": L_SUN, "OPTICS": OPTICS,
+            "sun_threshold_width_arcsec": {"7 m^2 (design)": threshold_width_arcsec(fl["P_r_W"], 7.0),
+                                           "46 cm^2 (flown)": threshold_width_arcsec(
+                                               fl["P_r_W"], cl["geom_area_m2"] * cl["efficiency"])}}
 
 
 def report():
@@ -161,6 +188,11 @@ def report():
         v = fl[k]
         print("    %-30s spot radius %.3g m; fraction %.3g -> transmitted %.3g W = %.3g L_sun"
               % (k, v["spot_radius_m"], v["fraction"], v["P_t_W"], v["P_t_over_L_sun"]))
+    th = d["sun_threshold_width_arcsec"]
+    print("    a beam narrower than %.3g\" (onto 7 m^2) or %.3g\" (onto 46 cm^2) would need under one solar luminosity; "
+          "no coherent source at the floor quantum is READ (H-NO-COHERENT-SOURCE, OPEN)" % (th["7 m^2 (design)"],
+                                                                                          th["46 cm^2 (flown)"]))
+    print("  (the diffraction-limited rows are at the floor quantum, not a minimum over quanta: H-AT-FLOOR-QUANTUM)")
 
 
 def selftest():
@@ -178,10 +210,6 @@ def selftest():
     d = collect()
     b = dict((x["schedule"], x) for x in d["budget"])
     dsoc = [dict((r["apertures"], r) for r in x["rows"])["DSOC (0.22 m, 5 m)"]["P_t_W"] for x in d["budget"]]
-    chk("  CONTROL: above single mode (1 km apertures at 1 yr, %.3g modes) it is the received floor itself"
-        % dict((r["apertures"], r) for r in b["1 yr"]["rows"])["1 km, 1 km"]["modes"],
-        dict((r["apertures"], r) for r in b["1 yr"]["rows"])["1 km, 1 km"]["P_t_W"] == b["1 yr"]["P_r_W"], True,
-        ctl=True)
     chk("the single-mode equal aperture at 1 yr is between 100 m and 1 km (%.3g m); the floor quantum is over 100 keV "
         "(%.3g keV)" % (b["1 yr"]["single_mode_D_m"], b["1 yr"]["kT_eV"] / 1e3),
         (100 < b["1 yr"]["single_mode_D_m"] < 1e3, b["1 yr"]["kT_eV"] > 1e5), (True, True))
@@ -195,6 +223,10 @@ def selftest():
                                                  "design figure, design area")), True)
     chk("  CONTROL: a beam of 1e-6 arcsec onto 7 m^2 would need under one solar luminosity",
         figure_limited(fl["P_r_W"], 1e-6, 7.0)["P_t_over_L_sun"] < 1, True, ctl=True)
+    th = d["sun_threshold_width_arcsec"]
+    chk("the beam width below which the Sun's output suffices onto 7 m^2 is under 1\" (%.3g\"), over 100 times finer "
+        "than NuSTAR's measured 58\"" % th["7 m^2 (design)"],
+        (th["7 m^2 (design)"] < 1.0, 58.0 / th["7 m^2 (design)"] > 100), (True, True))
     chk("every OPTICS record names a route and a kind; phrases under 15 words; ASTENA marked DESIGN",
         ([k for k, v in OPTICS.items() if not (v.get("route") and v.get("kind"))],
          [k for k, v in OPTICS.items() if len(v["phrase"].split()) >= 15],
@@ -202,7 +234,8 @@ def selftest():
          .startswith("DESIGN")), ([], [], True))
     print("  [STRUCTURAL] below single mode the transmitted power at fixed apertures is schedule-independent (P_r and m both "
           "go as 1/T^2; DSOC's: %.3g W) -- an identity of the two laws, printed" % dsoc[0])
-    print("  [STRUCTURAL] P_t = P_r / m for m < 1 (Friis far field); the single-mode D solves m = 1")
+    print("  [STRUCTURAL] P_t = P_r / m for m < 1 (Friis far field), P_t = P_r above (first counted as a CONTROL); the "
+          "single-mode D solves m = 1")
     print("  [STRUCTURAL] the figure-limited fraction is A_r over the beam's disc at L")
     print("\n%d/%d checks pass, %d of them controls; 3 STRUCTURAL printed, not counted" % (n_ok, n_ok + n_bad, n_ctl))
     return n_bad == 0

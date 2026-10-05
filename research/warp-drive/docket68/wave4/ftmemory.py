@@ -12,8 +12,10 @@ excluded in principle; the open question was the operations and energy.  This fi
     python3 ftmemory.py --json       the numbers as JSON
 
 WHERE IT APPLIES
-  Only to a QUANTUM payload with the pair source away from Alice (coherence.py: the stored hold is 2x/c; 0 with the
-  source at Alice, 0 for a bit payload).  At the midpoint the hold is L/c.
+  To a QUANTUM payload that must be stored: with the pair source away from Alice (coherence.py: the stored hold is 2x/c,
+  L/c at the midpoint), or streamed over a schedule T -- Bob holds the earliest qubits until the last arrive, Alice the
+  unsent ones, even with the source at Alice, unless reassembly is itself progressive and coherent (H-INSTANT-ASSEMBLY,
+  OPEN; the streamed hold is printed for T = 1 yr).  Not to a bit payload.
 THE MODEL (each input READ or imported)
   Surface-code memory, Google Quantum AI 2408.13687v1 (READ by the QEC reader, re-read by the lead): logical error per
   cycle eps_7 = 1.43e-3 at distance 7; suppression Lambda = eps_d / eps_{d+2} = 2.14; cycle time 1.1 us; 2 d^2 - 1
@@ -23,13 +25,22 @@ THE MODEL (each input READ or imported)
   eps_d = eps_7 / Lambda^((d - 7)/2) (H-LAMBDA-HOLDS: the measured suppression continues to the distance needed --
   extrapolated far beyond d = 7).  The distance is the least odd d with N_logical x cycles x eps_d <= 1
   (H-ONE-FAILURE: at most one expected logical failure over the whole payload and hold).
-  Energy: a LANDAUER FLOOR on resetting the measure qubits, (d^2 - 1) kT ln 2 per logical qubit per cycle at the
-  coldest bath on the board, T_CMB (H-LANDAUER-FLOOR: real dissipation, and the Carnot cost of refrigeration, are
-  larger and excluded).  Mass: at least one atom of 1 u per physical qubit (H-ONE-ATOM-PER-QUBIT), against the
-  object's own mass.
+  Energy: (d^2 - 1) kT ln 2 per logical qubit per cycle at T_CMB, the coldest bath on the board -- one erasure per
+  syndrome bit (H-LANDAUER-PER-SYNDROME-BIT).  This OVERSTATES the floor in one respect: an erasure costs the record's
+  entropy, and sparse syndromes carry less than a bit each.  Carnot-efficient pumping of heat from a ~10 mK stage to
+  T_CMB rejects exactly kT_CMB ln 2 per bit, so ideal refrigeration is already inside this figure; real dissipation is
+  larger and excluded.  Scale: the physical qubits against the object's atoms (no hypothesis); mass at one atom of 1 u
+  per qubit (H-ONE-ATOM-PER-QUBIT, conditional -- electron-spin qubits weigh 1/1823 u, and a many-level atom can carry
+  more than one qubit).
 NAMED HYPOTHESES
-  H-LAMBDA-HOLDS, H-ONE-FAILURE, H-LANDAUER-FLOOR, H-ONE-ATOM-PER-QUBIT, H-NO-BURST-FLOOR (the measured 1e-10 floor is
-  removed -- without it the memory fails), and coherence.py's (H-MIDPOINT-SOURCE, H-STATE-AS-BITS) and demand.py's.
+  H-LAMBDA-HOLDS, H-ONE-FAILURE (the tolerance table shows d grows only logarithmically with it), H-LANDAUER-PER-
+  SYNDROME-BIT, H-ONE-ATOM-PER-QUBIT, H-NO-BURST-FLOOR (the 1e-10 floor measured on one device's repetition codes is
+  removed -- with it the memory fails; the surface-code floor is unmeasured), H-INSTANT-ASSEMBLY, and coherence.py's
+  (H-MIDPOINT-SOURCE, H-STATE-AS-BITS) and demand.py's.
+HISTORY (wave 4 verifier, 2026-10-05): the CONTROL passed through the clamp max(0, steps) and never exercised the
+  suppression law (now a larger Lambda); the mass at one atom per qubit was led with as a floor (it is conditional; the
+  qubit count against the object's atoms leads); the Landauer figure was said to exclude refrigeration (ideal
+  refrigeration is inside it); the streamed hold was not addressed.
 """
 import contextlib
 import io
@@ -71,25 +82,28 @@ QEC = {"source": "arXiv:2408.13687v1 (Google Quantum AI)",
        "phrase_floor": "set a current error floor of 10^-10"}
 
 
-def eps(d):
+def eps(d, Lam=None):
     """H-LAMBDA-HOLDS."""
-    return QEC["eps7"] / QEC["Lambda"] ** ((d - 7) / 2.0)
+    Lam = QEC["Lambda"] if Lam is None else Lam
+    return QEC["eps7"] / Lam ** ((d - 7) / 2.0)
 
 
-def distance_needed(n_logical, cycles):
-    """Least odd d with n_logical x cycles x eps_d <= 1 (H-ONE-FAILURE)."""
-    need = 1.0 / (n_logical * cycles)
-    steps = math.ceil(math.log(QEC["eps7"] / need) / math.log(QEC["Lambda"]))
+def distance_needed(n_logical, cycles, failures=1.0, Lam=None):
+    """Least odd d with n_logical x cycles x eps_d <= failures (H-ONE-FAILURE at failures = 1)."""
+    Lam = QEC["Lambda"] if Lam is None else Lam
+    need = failures / (n_logical * cycles)
+    steps = math.ceil(math.log(QEC["eps7"] / need) / math.log(Lam))
     return 7 + 2 * max(0, steps)
 
 
-def memory(n_logical, hold_s):
+def memory(n_logical, hold_s, failures=1.0):
     cycles = hold_s / QEC["cycle_s"]
-    d = distance_needed(n_logical, cycles)
+    d = distance_needed(n_logical, cycles, failures)
     phys = n_logical * (2 * d * d - 1)
     resets = n_logical * (d * d - 1) * cycles
     E = resets * KB * T_BATH * math.log(2.0)
     return {"hold_s": hold_s, "cycles": cycles, "d": d, "eps_d": eps(d), "physical_qubits": phys,
+            "qubits_per_object_atom": phys / demand.atoms(), "mass_electron_spin_kg": phys * U_KG / 1822.888,
             "landauer_J": E, "landauer_W": E / hold_s, "mass_kg_min": phys * U_KG,
             "failures_at_floor": n_logical * cycles * QEC["floor_per_cycle"]}
 
@@ -99,6 +113,11 @@ def collect():
     out = {"hold_s": hold, "object_kg": massform.PAYLOAD_KG, "by_count": {}}
     for n, b in demand.counts():
         out["by_count"][n] = memory(b, hold)
+    sp = demand.counts()[0][1]
+    out["tolerance"] = dict((lbl, memory(sp, hold, f)) for lbl, f in (("1", 1.0), ("1e9", 1e9),
+                                                                       ("0.1% of the payload", 1e-3 * sp),
+                                                                       ("50% of the payload", 0.5 * sp)))
+    out["streamed_1yr"] = memory(sp, demand.YEAR_S)
     out["QEC"] = QEC
     return out
 
@@ -109,13 +128,23 @@ def report():
           % d["hold_s"])
     print("  measured: eps_7 = %.3g, Lambda = %.3g, cycle %.3g s, floor %.0e per cycle (2408.13687v1)"
           % (QEC["eps7"], QEC["Lambda"], QEC["cycle_s"], QEC["floor_per_cycle"]))
+    print("  (midpoint source only; a bit payload needs none of this)")
     for n, m in d["by_count"].items():
-        print("  %-40s cycles %.3g; distance %d (eps_d %.3g); physical qubits %.3g; Landauer floor %.3g J = %.3g W; "
-              "mass >= %.3g kg (%.3g x the object)" % (n, m["cycles"], m["d"], m["eps_d"], m["physical_qubits"],
-                                                       m["landauer_J"], m["landauer_W"], m["mass_kg_min"],
-                                                       m["mass_kg_min"] / d["object_kg"]))
-        print("    with the measured 1e-10 floor: %.3g expected logical failures (H-NO-BURST-FLOOR needed)"
-              % m["failures_at_floor"])
+        print("  %-40s cycles %.3g; distance %d (eps_d %.3g); physical qubits %.3g = %.3g per atom of the object; "
+              "Landauer (one erasure per syndrome bit) %.3g J = %.3g W; mass %.3g kg at 1 u per qubit (%.3g x the "
+              "object; %.3g x with electron spins)"
+              % (n, m["cycles"], m["d"], m["eps_d"], m["physical_qubits"], m["qubits_per_object_atom"],
+                 m["landauer_J"], m["landauer_W"], m["mass_kg_min"], m["mass_kg_min"] / d["object_kg"],
+                 m["mass_electron_spin_kg"] / d["object_kg"]))
+        print("    with the 1e-10 floor measured on one device's repetition codes: %.3g expected logical failures "
+              "(H-NO-BURST-FLOOR needed)" % m["failures_at_floor"])
+    print("  tolerance (allowed expected failures; species count):")
+    for lbl, m in d["tolerance"].items():
+        print("    %-22s d %d; physical qubits %.3g; mass at 1 u %.3g x the object" % (lbl, m["d"], m["physical_qubits"],
+                                                                                   m["mass_kg_min"] / d["object_kg"]))
+    m = d["streamed_1yr"]
+    print("  a quantum payload streamed over 1 yr (H-INSTANT-ASSEMBLY dropped): d %d; physical qubits %.3g"
+          % (m["d"], m["physical_qubits"]))
 
 
 def selftest():
@@ -136,14 +165,20 @@ def selftest():
         "distance does not (d = %d)" % sp["d"],
         (list(demand.counts())[0][1] * sp["cycles"] * eps(sp["d"]) <= 1,
          list(demand.counts())[0][1] * sp["cycles"] * eps(sp["d"] - 2) > 1), (True, True))
-    chk("  CONTROL: one logical qubit held for one cycle needs no more than distance 7",
-        distance_needed(1.0, 1.0), 7, ctl=True)
+    _d4 = distance_needed(list(demand.counts())[0][1], sp["cycles"], Lam=4.0)
+    chk("  CONTROL: with a suppression factor of 4 instead of 2.14 the same payload needs a smaller distance (%d < %d)"
+        % (_d4, sp["d"]), _d4 < sp["d"], True, ctl=True)
     chk("the distance is over 200 (%d) and the physical qubits over 1e32 (%.3g)" % (sp["d"], sp["physical_qubits"]),
         (sp["d"] > 200, sp["physical_qubits"] > 1e32), (True, True))
     chk("with the MEASURED 1e-10 burst floor the memory fails: over 1e30 expected logical failures (%.3g)"
         % sp["failures_at_floor"], sp["failures_at_floor"] > 1e30, True)
-    chk("the memory's minimum mass (one 1 u atom per physical qubit) exceeds the object's by over 1e4 (%.3g x)"
-        % (sp["mass_kg_min"] / d["object_kg"]), sp["mass_kg_min"] / d["object_kg"] > 1e4, True)
+    chk("the physical qubits exceed the object's atoms by over 1e5 (%.3g per atom) -- no hypothesis on qubit mass"
+        % sp["qubits_per_object_atom"], sp["qubits_per_object_atom"] > 1e5, True)
+    tol = d["tolerance"]
+    chk("d falls only logarithmically with the tolerance: from %d (one failure) to %d (half the payload), still over 50"
+        % (tol["1"]["d"], tol["50% of the payload"]["d"]),
+        (tol["1"]["d"] > tol["1e9"]["d"] > tol["0.1% of the payload"]["d"] > tol["50% of the payload"]["d"] > 50),
+        True)
     chk("the Landauer floor at T_CMB over the hold is over 1e23 J (%.3g J; %.3g W)" % (sp["landauer_J"],
                                                                                     sp["landauer_W"]),
         sp["landauer_J"] > 1e23, True)
