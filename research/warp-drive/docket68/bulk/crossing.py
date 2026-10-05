@@ -77,7 +77,10 @@ DEDUCTIONS
      law's validity, H-WIDTH-LAW).  The KK modes couple ~1e-30 as strongly at the hidden plane (DEDUCED from P-KKPROF,
      with alpha_n from the Neumann condition at phi = 0), so they return to ours.  A lasting stasis needs a
      kinematically stable carrier -- the zero mode, loaded only at gravitational strength -- or a coupling switched
-     after loading (OPEN; a device question beside H-UNOBSERVED-UNBUILT).
+     after loading.  M RULED (item 68) "the first" -- the zero mode -- and set the switched coupling aside as
+     "impossible but to the very definition of the transition... There is no in-between..." (M's ruling under
+     H-HIGHER-CORRIDOR, not a board refutation; first written as 'OPEN; a device question beside
+     H-UNOBSERVED-UNBUILT').
   D6 ARRIVING.  [P-CONF at B, P-BITS, H-NO-MATERIALISATION]  A bulk mode that decays at B makes particle pairs there
      (RS p.2, DHR: seen via decay products); delivering the PATTERN into a body needs matter at B (Step 1b's B stock)
      unless materialisation supplies >= mc^2 and the conserved numbers (H-NO-MATERIALISATION).  A holder of radius R

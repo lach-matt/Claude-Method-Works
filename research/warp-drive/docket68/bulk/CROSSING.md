@@ -162,7 +162,10 @@ Every number is printed by `crossing.py`.
 ## OPEN
 
 1. Whether the defining information is classical or quantum (related to S1B-O1). It decides between a copy and a move.
-2. A carrier for a lasting stasis: the zero mode, loaded at gravitational strength, or a coupling switched after loading.
+2. A carrier for a lasting stasis. M ruled (item 68) *"the first"*: the massless zero mode, which is loaded at
+   gravitational strength. M set aside the switched coupling as *"impossible but to the very definition of the
+   transition... There is no in-between..."*. That is M's ruling under H-HIGHER-CORRIDOR, not a refutation computed by
+   the board.
 3. The bulk scalar that stabilisation adds, as a further carrier.
 4. Whether the inhomogeneous pair of tensions is M's tension (H-TWO-PERSPECTIVE-TENSION), and what observable would tell.
 5. D1–D8 in a geometry whose bulk carries matter fields.
@@ -193,3 +196,5 @@ Every number is printed by `crossing.py`.
   H-DETACH includes consciousness. These are physical counterparts that follow from H-CONFINED.
 - **P-MOVE was printed from a declared flag.** It now shows transit.py's computed fidelity.
 - **Check 1's control was near-tautological.** It is now the orbifold doubling dropped.
+- **Item 68 (M's ruling).** OPEN 2 first read *"A carrier for a lasting stasis: the zero mode, loaded at gravitational
+  strength, or a coupling switched after loading."* M chose the zero mode and set the switched coupling aside.
