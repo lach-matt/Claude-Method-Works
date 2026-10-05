@@ -781,6 +781,28 @@ NAMED LIMITATIONS OF THIS SEATING (Step 1c).
     verifier's route.
   Not edited by this seating: paper/CLAIMS.md, docket68/combine.py,
     index3.py, specthm.py, and the step1c, wave-3 and Step 1b owners.
+
+===============================================================================
+8e.  DOCKET 68 WAVE 4 AND ITS CLOSE (M-RULINGS item 40), AS SEATED
+===============================================================================
+
+M chose a wave 4 first, then the close and the Q-1s gate (item 40, "2 then 1
+please").  Wave 4 priced what Step 1c left OPEN: the transmitted power at the
+floor quantum (docket68/wave4/linkbudget.py, S1C-O8) and a fault-tolerant
+memory on measured surface-code figures (docket68/wave4/ftmemory.py,
+H-FT-MEMORY); both were verified in both directions and corrected
+(docket68/wave4/WAVE4.md).  DOCKET 68's close record is docket68/CLOSE.md:
+its answer is NOT FOUND, NOT EXCLUDED -- O9 stays OPEN -- and its section
+headings are READ by d68_close_sections(), never typed.
+
+  THE OWNERS  loaded BY PATH as 'w4_<name>' (_w4_load), with section 8d's
+       lending and setting-aside; every 's1c_*' key they add is removed after.
+  RULED_BY_M  + M-D68-40.
+  W4_OPEN  six items, each with what would answer it.
+  The board  no status moves; O9 stays OPEN.  H-NO-W4-ROW: no index3 row.
+  The paper  not edited.  The Q-1s prior-art gate (M-D68-11's condition,
+       M-D68-C8b's instruction) runs next; no paper session starts before M
+       sees its result.
 """
 
 import contextlib
@@ -3428,6 +3450,8 @@ D68_M_WORDS = {
     "M-D68-37": ("All three (Recommended)", D68_RULINGS_FILE),
     "M-D68-38": ("Take the coupling route", D68_RULINGS_FILE),
     "M-D68-39": ("3, then 2. Then 1 last please", D68_RULINGS_FILE),
+    # ADDED (D68-close, docstring section 8e): item 40.
+    "M-D68-40": ("2 then 1 please", D68_RULINGS_FILE),
 }
 
 #: THE QUESTIONS PUT TO M FOR M'S DOCKET 66 RULINGS (items 26-28), as the
@@ -4107,6 +4131,93 @@ S1C_OPEN = [
 ]
 
 
+# ----- DOCKET 68 WAVE 4 AND THE CLOSE (docstring section 8e) ---------------
+# Wave 4's owners sit in docket68/wave4/ and reach step1c's owners by path
+# (they register 's1c_*' keys); loaded here BY PATH as 'w4_<name>', with the
+# same lending and setting-aside as _s1c_load, and every 's1c_*' key they add
+# removed afterwards.
+W4_DIR = os.path.join(D68_DIR, "wave4")
+W4_OWNERS = ("linkbudget", "ftmemory")
+D68_CLOSE_FILE = os.path.join(D68_DIR, "CLOSE.md")
+
+
+def _w4_load():
+    """{name: module} for wave 4's two owners, loaded by path as 'w4_<name>'; and the load facts."""
+    import importlib.util
+    saved = list(sys.path)
+    keys = ["s1c_" + n for n in S1C_OWNERS] + list(W3S1B_OWNERS)
+    stashed = dict((k, sys.modules.pop(k)) for k in keys if k in sys.modules)
+    lent = "ledger" not in sys.modules
+    if lent:
+        sys.modules["ledger"] = sys.modules[__name__]
+    mods = {}
+    try:
+        with contextlib.redirect_stdout(io.StringIO()):
+            for n in W4_OWNERS:
+                spec = importlib.util.spec_from_file_location("w4_" + n, os.path.join(W4_DIR, n + ".py"))
+                m = importlib.util.module_from_spec(spec)
+                spec.loader.exec_module(m)
+                mods[n] = m
+    finally:
+        sys.path[:] = saved
+        if lent:
+            del sys.modules["ledger"]
+        for k in ["s1c_" + n for n in S1C_OWNERS]:
+            sys.modules.pop(k, None)
+        sys.modules.update(stashed)
+    return mods, {"path_restored": sys.path == saved,
+                  "from_wave4": [n for n, m in mods.items() if os.path.dirname(os.path.abspath(m.__file__)) != W4_DIR]}
+
+
+W4, W4_LOAD = _w4_load()
+
+
+def w4_asked():
+    """Every wave-4 value a cell below prints, ASKED of its owner at call time."""
+    with contextlib.redirect_stdout(io.StringIO()):
+        lb = W4["linkbudget"].collect()
+        fm = W4["ftmemory"].collect()
+    yr = [b for b in lb["budget"] if b["schedule"] == "1 yr"][0]
+    fl = lb["figure_limited_1yr"]
+    sp = list(fm["by_count"].values())[0]
+    return {"kT_keV": yr["kT_eV"] / 1e3, "single_mode_D_m": yr["single_mode_D_m"],
+            "fig_min_Lsun": min(v["P_t_over_L_sun"] for k, v in fl.items() if isinstance(v, dict)),
+            "fig_max_Lsun": max(v["P_t_over_L_sun"] for k, v in fl.items() if isinstance(v, dict)),
+            "sun_width_arcsec": lb["sun_threshold_width_arcsec"]["7 m^2 (design)"],
+            "d": sp["d"], "phys": sp["physical_qubits"], "per_atom": sp["qubits_per_object_atom"],
+            "landauer_J": sp["landauer_J"], "failures_at_floor": sp["failures_at_floor"],
+            "d_half": fm["tolerance"]["50% of the payload"]["d"]}
+
+
+W4_ASKED = w4_asked()
+
+
+def d68_close_sections():
+    """docket68/CLOSE.md's numbered section headings, READ (the '## ' stripped); [] if absent."""
+    if not os.path.exists(D68_CLOSE_FILE):
+        return []
+    with open(D68_CLOSE_FILE, encoding="utf-8") as fh:
+        return [ln[3:].strip() for ln in fh if ln.startswith("## ")]
+
+
+#: WHAT WAVE 4 LEAVES OPEN (docstring section 8e), as docket68/wave4/WAVE4.md
+#: states it.  Named, not ranked.
+W4_OPEN = [
+    ("W4-O1", "a focusing optic at the floor quantum (263 keV at a year; 96 MeV at a day) with a measured figure",
+     "a demonstrated optic, READ at source", "docket68/wave4/linkbudget.py"),
+    ("W4-O2", "a coherent source at the floor quantum (H-NO-COHERENT-SOURCE)", "a demonstrated source, READ",
+     "docket68/wave4/linkbudget.py"),
+    ("W4-O3", "the minimum transmitted power over quanta (seat's floor cannot be evaluated off its optimum)",
+     "a floor evaluated at any quantum, computed", "docket68/wave4/linkbudget.py"),
+    ("W4-O4", "the origin and removal of the 1e-10 burst floor; whether Lambda holds to distance 245",
+     "a measured memory at that distance, READ", "docket68/wave4/ftmemory.py"),
+    ("W4-O5", "the streamed hold of a quantum payload (H-INSTANT-ASSEMBLY)", "a progressive coherent assembly, "
+     "computed or READ", "docket68/wave4/ftmemory.py"),
+    ("W4-O6", "the real dissipation of either subsystem", "a measured dissipation, READ",
+     "docket68/wave4/ftmemory.py"),
+]
+
+
 #: WHAT DOCKET 68 WAVE 3 AND STEP 1b LEAVE OPEN (docstring section 8c), as
 #: their owners' records state it (step1b/BALANCE.md, docket68/wave3/WAVE3.md):
 #: (id, what is open, what would answer it, owner).  Named, not ranked (section
@@ -4729,6 +4840,28 @@ D68_RULED = [
                   _g(S1C_ASKED["hold_by_source"]["x = L/2 (midpoint)"]), _g(S1C_ASKED["best_T2_s"]),
                   _g(S1C_ASKED["shortfall_by_overhead"][2.0], 2), _g(S1C_ASKED["shortfall_by_overhead"][1e27], 2))),
      "the non-local branch and coherence, priced; the OPEN items S1C-O4..O7"),
+    # ----- ADDED (D68-close, docstring section 8e): M's answer after Step 1c,
+    # item 40 (2026-10-05).  Every figure ASKED of wave 4's owners (W4_ASKED).
+    ("M-D68-40",
+     "After Step 1c (M-RULINGS-2026-10-03.md item 40, 2026-10-05, as the file records it): 1 close D68, then the Q-1s "
+     "prior-art gate; 2 a D68 wave 4 first, pricing what Step 1c left OPEN; 3 close D68 only; or 4 pause?",
+     "every item in the charter's order had run and been seated; Step 1c left S1C-O8 and H-FT-MEMORY OPEN",
+     _d68_rule("WAVE 4, THEN THE CLOSE AND THE GATE", "M-D68-40",
+               "(2) docket68/wave4/linkbudget.py: at the 1 yr floor quantum (%s keV) a single-mode link needs equal "
+               "apertures of %s m; figure-limited with the optics READ at source (no mirror optic reaches that "
+               "quantum) the transmitted power is %s to %s solar luminosities -- fragile: a beam under %s arcsec onto "
+               "7 m^2 would need less, and no coherent source there is READ.  docket68/wave4/ftmemory.py: a "
+               "fault-tolerant memory for a stored quantum payload on measured surface-code figures needs distance %s "
+               "(%s at half the payload lost), %s physical qubits -- %s per atom of the object -- and %s J at one "
+               "erasure per syndrome bit; with the burst floor measured on one device it fails (%s expected logical "
+               "failures).  (1) docket68/CLOSE.md, READ (%d sections: %s); the Q-1s prior-art gate runs next and no "
+               "paper is written before M sees it"
+               % (_g(W4_ASKED["kT_keV"]), _g(W4_ASKED["single_mode_D_m"]), _g(W4_ASKED["fig_min_Lsun"], 2),
+                  _g(W4_ASKED["fig_max_Lsun"], 2), _g(W4_ASKED["sun_width_arcsec"], 2), W4_ASKED["d"],
+                  W4_ASKED["d_half"], _g(W4_ASKED["phys"], 2), _g(W4_ASKED["per_atom"], 2),
+                  _g(W4_ASKED["landauer_J"], 2), _g(W4_ASKED["failures_at_floor"], 2),
+                  len(d68_close_sections()), "; ".join(d68_close_sections()))),
+     "DOCKET 68 closed; the Q-1s prior-art gate (M-D68-11, M-D68-C8b) next; the OPEN items W4-O1..O6"),
 ]
 
 RULED_BY_M += D68_RULED
@@ -5782,6 +5915,7 @@ def _d68_cells():
                for i, c in enumerate(r[1:], 1))
     # ADDED (S1C-seat): the OPEN list of section 8d.
     out.update(("S1C-OPEN %s col %d" % (r[0], i), c) for r in S1C_OPEN for i, c in enumerate(r[1:], 1))
+    out.update(("W4-OPEN %s col %d" % (r[0], i), c) for r in W4_OPEN for i, c in enumerate(r[1:], 1))
     return out
 
 
@@ -6692,6 +6826,11 @@ def report():
         print(textwrap.fill("%s %s -- answered by: %s (%s)" % (oid.ljust(8), " ".join(what.split()),
                                                               " ".join(answers.split()), owner),
                             96, initial_indent="  ", subsequent_indent="           "))
+    print("\nDOCKET 68 WAVE 4 -- WHAT STAYS OPEN (section 8e; DOCKET 68 closed: docket68/CLOSE.md)")
+    for oid, what, answers, owner in W4_OPEN:
+        print(textwrap.fill("%s %s -- answered by: %s (%s)" % (oid.ljust(8), " ".join(what.split()),
+                                                              " ".join(answers.split()), owner),
+                            96, initial_indent="  ", subsequent_indent="           "))
     print("\nPENDING M'S RULING -- RECORDED, NOT APPLIED%s"
           % ("" if PENDING_RULINGS else ": none"))
     for pid, q, why, proposal, waits in pending_rulings():
@@ -6921,6 +7060,15 @@ def to_markdown():
         L.append("| %s | %s | %s | %s |" % (oid, _cell(what, W_WHY), _cell(answers, W_WHY),
                                             _cell(owner, W_WHY)))
     L.append("")
+    # ADDED (D68-close, docstring section 8e).
+    L += ["## DOCKET 68 wave 4 -- what stays open (DOCKET 68 closed)", "",
+          "Seated on M's \"2 then 1 please\" (item 40; docstring section 8e). DOCKET 68's close",
+          "record is docket68/CLOSE.md: not found, not excluded; O9 stays OPEN.", "",
+          "| id | open | what would answer it | owner |", "|---|---|---|---|"]
+    for oid, what, answers, owner in W4_OPEN:
+        L.append("| %s | %s | %s | %s |" % (oid, _cell(what, W_WHY), _cell(answers, W_WHY),
+                                            _cell(owner, W_WHY)))
+    L.append("")
     L += ["## Pending M's ruling -- recorded, not applied", "",
           "This file edits no peer and changes no requirement. A question",
           "that needs M's ruling is recorded here so the board shows it.", "",
@@ -7074,6 +7222,9 @@ def _truncated_cells(demand_claim=None, demand_moves=None, open_claim=None,
     for r in S1C_OPEN:
         if any(cut(c, wh) for c in r[1:]):
             out.append(("s1c-open", r[0]))
+    for r in W4_OPEN:
+        if any(cut(c, wh) for c in r[1:]):
+            out.append(("w4-open", r[0]))
     return out
 
 
@@ -7835,6 +7986,7 @@ def selftest():
         # counted.
         # RE-PINNED WITH STEP 1c (S1C-seat, item 39's step 1): + M-D68-37,
         # 38 and 39, M's answers on Step 1c.
+        # RE-PINNED WITH THE D68 CLOSE (D68-close): + M-D68-40.
         (["M-D64-1", "M-S1A-P1", "M-S1A-P2", "M-S1A-P3", "M-S1A-P4",
           "M-S1A-P5", "M-D65-1", "M-D65-2", "M-D65-3", "M-D65-4", "M-D65-5",
           "M-D67-1", "M-D67-2"]
@@ -7842,7 +7994,7 @@ def selftest():
          + ["M-D68-C%d" % i for i in (1, 2, 3, 5, 8, 12)]
          + ["M-D68-%d" % i for i in (26, 27, 28)]
          + ["M-D68-%d" % i for i in (22, 24, 29, 30, 33, 34, 36)]
-         + ["M-D68-%d" % i for i in (37, 38, 39)], [],
+         + ["M-D68-%d" % i for i in (37, 38, 39, 40)], [],
          True, False, False, True, False))
 
     print("\n3. THE EXCHANGE RATE, RE-DERIVED FROM ASKED CONSTANTS")
@@ -9424,6 +9576,27 @@ def selftest():
          _md.index("## DOCKET 68 wave 3 and Step 1b -- what stays open") < _md.index("## Step 1c -- what stays open")
          < _md.index("## Pending M's ruling"), "8d.  STEP 1c, AS SEATED" in __doc__),
         (8, [], True, True))
+    # ADDED (D68-close, docstring section 8e): wave 4 and the close.
+    chk("WAVE 4: both owners load from docket68/wave4/ by path; sys.path restored; DOCKET 68's close record is READ "
+        "(its sections: %d)" % len(d68_close_sections()),
+        (W4_LOAD["from_wave4"], W4_LOAD["path_restored"], len(W4), len(d68_close_sections()) >= 8,
+         "1. The answer, as the board holds it" in d68_close_sections()), ([], True, 2, True, True))
+    _f4 = w4_asked()
+    _c40 = " ".join([r for r in D68_RULED if r[0] == "M-D68-40"][0][3].split())
+    _w4n = [_g(_f4["single_mode_D_m"]), _g(_f4["fig_min_Lsun"], 2), _g(_f4["phys"], 2), str(_f4["d"]),
+            _g(_f4["failures_at_floor"], 2)]
+    chk("  M-D68-40's cell prints wave 4's figures, asked afresh (five needles)", [n for n in _w4n if n not in _c40],
+        [])
+    chk("  CONTROL: the same figures at 1.5 times are not found",
+        len([n for n in [_g(1.5 * _f4["single_mode_D_m"]), _g(1.5 * _f4["fig_min_Lsun"], 2),
+                         _g(1.5 * _f4["phys"], 2), str(_f4["d"] + 2), _g(1.5 * _f4["failures_at_floor"], 2)]
+             if n not in _c40]), 5)
+    chk("  W4_OPEN names %d items with owner files; LEDGER.md prints them after Step 1c's and before the pending "
+        "rulings; section 8e is in the docstring" % len(W4_OPEN),
+        (len(W4_OPEN), [r[0] for r in W4_OPEN if not _os.path.exists(_os.path.join(HERE, r[3]))],
+         _md.index("## Step 1c -- what stays open") < _md.index("## DOCKET 68 wave 4 -- what stays open")
+         < _md.index("## Pending M's ruling"), "8e.  DOCKET 68 WAVE 4 AND ITS CLOSE" in __doc__),
+        (6, [], True, True))
     chk("EVERY QUOTATION in a DOCKET 68 cell (here, and index3.py's DOCKET 68 rows) is the "
         "tree's words, or declared otherwise: M's thesis and the question included, the "
         "D23 note's quotation exact ('because is already exists everywhere')",

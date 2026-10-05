@@ -494,3 +494,10 @@ directions; every finding was applied (WAVE3.md). M ruled the seating (rulings i
 with Step 1b). ledger.py docstring section 8c seats it: items 22, 24, 34 and 36 on RULED_BY_M; items 21, 23, 25 and 35
 carried by the rulings file, not rulings (D68_FILE_CARRIED); the OPEN items in W3S1B_OPEN. No obstruction grade moved:
 W3A's O-BITS grade is the owner's proposal, not screened by combine.py, which was not edited.
+
+**DOCKET 68 closed (2026-10-05; appended, nothing above edited).** On M-RULINGS item 40 ("2 then 1 please"), wave 4
+ran in docket68/wave4/: the transmitted power at the floor quantum (linkbudget.py) and a fault-tolerant memory on
+measured surface-code figures (ftmemory.py). Both were verified and corrected (WAVE4.md). The close record is
+docket68/CLOSE.md. The question stands NOT FOUND, NOT EXCLUDED, and O9 stays OPEN. M's hypotheses are carried, none
+dismissed. ledger.py section 8e seats wave 4, item 40 and the close. The Q-1s prior-art gate (M-D68-11, M-D68-C8b) runs
+next, and no paper is written before M sees its result. (This charter's header still reads as first written.)
