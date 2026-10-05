@@ -828,6 +828,37 @@ seated, then the medium reading (item 45).
   CMB_OPEN  four items, each with what would answer it.
   The board  no status moves; O9 stays OPEN.  H-NO-CMB-ROW: no index3 row.
   The paper  not edited; no Q-1s paper is written (M-D68-43).
+
+===============================================================================
+8g.  H-CMB-CORRIDOR READINGS 2 AND 3, AND THE LOCAL CLOCKS (M-RULINGS items
+     46-54), AS SEATED
+===============================================================================
+
+During reading 2 M asked what a contracting universe would do (item 46,
+carried as H-CONTRACT) and ordered its status READ, then folded into the
+medium reading (item 47, "2, then 1").  M then carried the coupled medium as
+the unobserved ground state (item 48, H-UNOBSERVED-MEDIUM), two kinds of
+observer (item 49, H-TWO-OBSERVERS, with "1": READ, then model), conscious
+selection (item 50, H-CONSCIOUS-SELECTS), many perspectives (item 51,
+H-MANY-PERSPECTIVES, with "3": READ, then model) and a local clock (item 52,
+H-LOCAL-CLOCK; item 53, "READ, then model").  Reading 2
+(docket68/cmb/medium.py, MEDIUM.md), the observation model
+(docket68/cmb/unobserved.py, UNOBSERVED.md, rebuilt twice against two
+verifications) and the local clocks (docket68/cmb/localclock.py,
+LOCALCLOCK.md, verified once) are seated on M's "3, then 2, then 1 please"
+(item 54), after M-SUPPORT's dynamics (support.py) and reading (b)'s pricing
+(bias.py) were built and verified -- those two are NOT seated here.
+
+  THE OWNERS  loaded BY PATH as 'cmb_medium', 'cmb_unobserved' and
+       'cmb_localclock' (_cmb2_load), with section 8d's lending; every module
+       key the load adds is removed after, and any it would displace is
+       restored.
+  RULED_BY_M  + M-D68-47, 49, 51, 53 and 54.  D68_FILE_CARRIED + M-D68-46 (a
+       question carrying a hypothesis), 48, 50 and 52 (statements carrying
+       hypotheses).
+  CMB2_OPEN  six items, each with what would answer it.
+  The board  no status moves; O9 stays OPEN.  H-NO-CMB-ROW: no index3 row.
+  The paper  not edited.
 """
 
 import contextlib
@@ -3481,6 +3512,15 @@ D68_M_WORDS = {
     "M-D68-42": ("3, then 1", D68_RULINGS_FILE),
     "M-D68-43": ("No paper", D68_RULINGS_FILE),
     "M-D68-45": ("Seat it, then medium", D68_RULINGS_FILE),
+    # ADDED (CMB2-seat, docstring section 8g): items 47, 49, 51, 53 and 54.
+    "M-D68-47": ("2, then 1", D68_RULINGS_FILE),
+    "M-D68-49": ("1. Also, yes, matter itself is capable of observation, however, it is not conscious "
+                 "conversation, which requires sentience . A different type of observation...", D68_RULINGS_FILE),
+    "M-D68-51": ("3. But I also want you to consider multiple sentient/conscious observers. Each observation "
+                 "is a different and relative perspective of the same object, thus each observation is "
+                 "inhomogeneous when compared to the others", D68_RULINGS_FILE),
+    "M-D68-53": ("READ, then model", D68_RULINGS_FILE),
+    "M-D68-54": ("3, then 2, then 1 please", D68_RULINGS_FILE),
 }
 
 #: THE QUESTIONS PUT TO M FOR M'S DOCKET 66 RULINGS (items 26-28), as the
@@ -3592,6 +3632,20 @@ D68_CARRIED_WORDS = {
                  "the corridor is constructed? As it is likely that background only "
                  "multi-spacetime/multiversal constant?", D68_RULINGS_FILE),
     "M-D68-44": ("No. The physics as it applies to the frame is what matters", D68_RULINGS_FILE),
+    # ADDED (CMB2-seat, docstring section 8g): M's question (46) and statements (48, 50, 52).
+    "M-D68-46": ("Now what happens if we consider that the universe not only expands, but it contracts as "
+                 "well?", D68_RULINGS_FILE),
+    "M-D68-48": ("what if this is the ground state without first principles/without observation? The "
+                 "decoupling only exists upon observation of a universe? And this would be why it is a "
+                 "constant", D68_RULINGS_FILE),
+    "M-D68-50": ("I just had a thought.... Matter based observation is natural and always occurring, with all "
+                 "probabilities available, until conscious observation occurs. Consciousness observation "
+                 "forces a specific and measurable behavior from the object being observed", D68_RULINGS_FILE),
+    "M-D68-52": ("time is always relative, so the clock of the observer doesn't matter in the second position, "
+                 "as time may move differently in the second position compared to the first. The clock is "
+                 "always present relative to the position of measurement within its plane/dimension The "
+                 "clock is relative to the matter-based observation. Consciousness observation is a "
+                 "perception of matter-observed time.", D68_RULINGS_FILE),
 }
 
 #: THE ROUTES PUT TO M, as CHARTER.md records them -- the charter's words, not
@@ -4343,6 +4397,110 @@ CMB_OPEN = [
 ]
 
 
+# ----- H-CMB-CORRIDOR READINGS 2 AND 3, AND THE LOCAL CLOCKS (docstring 8g) --
+# The owners sit in docket68/cmb/ and reach cmbframe.py, nosig.py and
+# step1c/demand.py by path (keys 'cmb_*', 'd68_nosig', 's1c_demand',
+# 'cmb_frame', 's1c_nonlocal').  Loaded here BY PATH with the ledger lent; every
+# module key the load adds is removed after, and any key it would displace is
+# stashed first and restored.
+CMB2_OWNERS = ("medium", "unobserved", "localclock")
+
+
+def _cmb2_load():
+    """{name: module} for readings 2 and 3 and the local clocks, loaded by path as 'cmb_<name>'; and the load facts."""
+    import importlib.util
+    saved = list(sys.path)
+    before = set(sys.modules)
+    collide = (["cmb_" + n for n in ("cmbframe",) + CMB2_OWNERS] + ["d68_nosig", "s1c_demand", "cmb_frame"]
+               + ["s1c_" + n for n in S1C_OWNERS] + list(W3S1B_OWNERS))
+    stashed = dict((k, sys.modules.pop(k)) for k in collide if k in sys.modules)
+    lent = "ledger" not in sys.modules
+    if lent:
+        sys.modules["ledger"] = sys.modules[__name__]
+    mods = {}
+    try:
+        with contextlib.redirect_stdout(io.StringIO()):
+            for n in CMB2_OWNERS:
+                key = "cmb_" + n
+                if key in sys.modules:
+                    mods[n] = sys.modules[key]
+                    continue
+                spec = importlib.util.spec_from_file_location(key, os.path.join(CMB_DIR, n + ".py"))
+                m = importlib.util.module_from_spec(spec)
+                sys.modules[key] = m
+                spec.loader.exec_module(m)
+                mods[n] = m
+    finally:
+        sys.path[:] = saved
+        if lent:
+            del sys.modules["ledger"]
+        added = [k for k in sys.modules if k not in before]
+        for k in added:
+            sys.modules.pop(k, None)
+        sys.modules.update(stashed)
+    return mods, {"path_restored": sys.path == saved, "keys_left": [k for k in added if k in sys.modules],
+                  "from_cmb": [n for n, m in mods.items() if os.path.dirname(os.path.abspath(m.__file__)) != CMB_DIR]}
+
+
+CMB2, CMB2_LOAD = _cmb2_load()
+
+
+def cmb2_asked():
+    """Every reading-2, reading-3 and local-clock value a cell below prints, ASKED of its owner at call time."""
+    with contextlib.redirect_stdout(io.StringIO()):
+        dm = CMB2["medium"].collect()
+        du = CMB2["unobserved"].compute()
+        dl = CMB2["localclock"].compute()
+    co, ap, ns, ct = dm["collisionless"], dm["acoustic_past"], dm["noise_and_sink"], dm["contraction"]
+    lcl, cf, dq = dl["local_clocks"], dl["cmb_frame"], dl["delocalised_qubit"]
+    return {"mfp_orders": co["orders_mean"], "cs": ap["cs_over_c_at_R_star"], "T_dec": ap["T_decoupling_K"],
+            "landauer_J": ns["landauer_J"], "trace_L": dm["coherence"]["L"]["trace"],
+            "lqc_ratio": ct["T_max_over_T_pl"], "slow_T": ct["slow_T_reached_K"],
+            "lemma": ct["lemma"]["claim"],
+            "td_ground": [du["readings_ground"][k]["TD"] for k in ("uniform ticks", "conformal time", "cosmic time")],
+            "td_control": max(du["readings_ground_constant_g"][k]["TD"]
+                              for k in ("uniform ticks", "conformal time", "cosmic time")),
+            "sel_diff": du["selection"]["difference_before_vs_coherent"],
+            "agree_link": du["perspectives"]["P_agree_cross_perspective_link"],
+            "sky_mK": 1e3 * du["skies"]["dipole_difference_K"], "o9_a": du["o9"]["max_marginal_shift_a"],
+            "clock_s": lcl["seconds_per_year"], "clock_sigma": lcl["sigma_seconds_per_year"],
+            "lc_vs_iau": lcl["A_vs_IAU_LC"], "cmb_frame_s": cf["prox_minus_sun_seconds_per_year"],
+            "sun_frame_s": lcl["sun_frame_motion_term_seconds_per_year"], "f_1rad": dq["f_max_sigma_1rad_Hz"]}
+
+
+CMB2_ASKED = cmb2_asked()
+
+
+def _cmb2_fig(f, s=1.0):
+    """The figures M-D68-54's cell prints, formatted once (the selftest's needles use the same)."""
+    return {"mfp": "%.1f" % (s * f["mfp_orders"]), "cs": "%.3f" % (s * f["cs"]),
+            "td": "%.3f" % (s * f["td_ground"][0]), "clock": "%.3f" % (s * f["clock_s"]),
+            "cmbf": "%.3f" % (s * f["cmb_frame_s"])}
+
+
+#: WHAT READINGS 2 AND 3 AND THE LOCAL CLOCKS LEAVE OPEN (docstring section
+#: 8g), as MEDIUM.md, UNOBSERVED.md and LOCALCLOCK.md state them.  Named, not
+#: ranked.
+CMB2_OPEN = [
+    ("CMB2-O1", "whether the universe will contract, and what the background does through a bounce (H-CONTRACT)",
+     "a measurement of future contraction, or of evolving dark energy at high significance, READ",
+     "docket68/cmb/medium.py"),
+    ("CMB2-O2", "how observation extends the clock's support (H-M-SUPPORT's dynamics); support.py's record reading "
+     "is built and verified, not seated", "a ruling on support.py, or a dynamics that is not by construction",
+     "docket68/cmb/support.py"),
+    ("CMB2-O3", "which clock weighting, if any, is physical (H-CLOCK-WEIGHT)", "a physical principle fixing it, READ",
+     "docket68/cmb/unobserved.py"),
+    ("CMB2-O4", "any experiment separating sentient from physical observation, or measuring an outcome bias with "
+     "conscious intention on an entangled pair (H-CONSCIOUS-SELECTS reading b); bias.py prices it, not seated",
+     "an interference/Zeno test of a consciousness-collapse model, or a bias with its sign, READ",
+     "docket68/cmb/bias.py"),
+    ("CMB2-O5", "a clock that interacts with the system it times (the relational-time equivalence is not shown "
+     "there)", "a result for interacting clocks, READ", "docket68/cmb/localclock.py"),
+    ("CMB2-O6", "Page & Wootters 1983, the Feynman-Kitaev originals and the full Hartle & Hawking 1983",
+     "each READ at source", "docket68/cmb/UNOBSERVED.md"),
+]
+
+
 #: WHAT DOCKET 68 WAVE 3 AND STEP 1b LEAVE OPEN (docstring section 8c), as
 #: their owners' records state it (step1b/BALANCE.md, docket68/wave3/WAVE3.md):
 #: (id, what is open, what would answer it, owner).  Named, not ranked (section
@@ -5035,6 +5193,80 @@ D68_RULED = [
                   "%.2f" % CMB_ASKED["tz_max_sigma"], "%.1f" % CMB_ASKED["gap_orders"],
                   _g(CMB_ASKED["dTT_lead"], 2))),
      "H-CMB-CORRIDOR's medium reading next; the OPEN items CMB-O1..O4"),
+    # ----- ADDED (CMB2-seat, docstring section 8g): M's answers on readings 2
+    # and 3 and the local clocks, items 47, 49, 51, 53 and 54 (2026-10-05).
+    # Their figures ASKED (CMB2_ASKED).
+    ("M-D68-47",
+     "Asked how to take up item 46 while the medium reading was in progress (M-RULINGS-2026-10-03.md item 47, "
+     "2026-10-05, as the file records it): 1 fold into the medium reading; 2 READ the status first; 3 separate, after "
+     "the medium reading; or 4 carry only?",
+     "M asked item 46 (H-CONTRACT) during H-CMB-CORRIDOR reading 2",
+     _d68_rule("READ THE STATUS, THEN FOLD INTO THE MEDIUM READING", "M-D68-47",
+               "the status of future contraction READ at source first (docket68/cmb/MEDIUM.md), then "
+               "docket68/cmb/medium.py's contraction(): frame.py's lemma needs only a(t) > 0 (z3: its negation "
+               "%s), so a nonsingular bounce keeps H-FRAME's frame; in loop quantum cosmology the background peaks "
+               "at %s of the Planck temperature and recouples at %s K on the way down; slow contraction reaches "
+               "only %s K" % (CMB2_ASKED["lemma"], "%.3f" % CMB2_ASKED["lqc_ratio"], "%.0f" % CMB2_ASKED["T_dec"],
+                              "%.0f" % CMB2_ASKED["slow_T"])),
+     "H-CONTRACT carried (M-D68-46); the OPEN item CMB2-O1"),
+    ("M-D68-49",
+     "Asked how to take up item 48 (M-RULINGS-2026-10-03.md item 49, 2026-10-05, as the file records it): 1 READ, "
+     "then a model; 2 READ only; 3 fold into the medium reading; or 4 carry only?",
+     "M carried item 48 (H-UNOBSERVED-MEDIUM) on reading 2",
+     _d68_rule("READ, THEN A MODEL; MATTER OBSERVES, A DIFFERENT TYPE", "M-D68-49",
+               "the relational-time, quantum-cosmology and observation literature READ; docket68/cmb/unobserved.py, "
+               "rebuilt against two verifications, gives the whole a history-state Hamiltonian whose medium starts "
+               "in the coupled ground state, stationary while coupled: from it the traced history and M-SUPPORT "
+               "differ by trace distance %s with decoupling (uniform ticks) and %s without; matter's records leave "
+               "the medium's own state unchanged, every probability kept; H-TWO-OBSERVERS carried, and which type "
+               "of observation decoupling needs is not assumed"
+               % ("%.3f" % CMB2_ASKED["td_ground"][0], _g(CMB2_ASKED["td_control"], 2))),
+     "H-UNOBSERVED-MEDIUM (M-D68-48); the OPEN items CMB2-O2, CMB2-O3, CMB2-O6"),
+    ("M-D68-51",
+     "Asked how to take up item 50 (M-RULINGS-2026-10-03.md item 51, 2026-10-05, as the file records it): 1 into the "
+     "model and O9; 2 READ first; 3 both, READ, then model; or 4 carry only?",
+     "M carried item 50 (H-CONSCIOUS-SELECTS)",
+     _d68_rule("READ, THEN MODEL; MANY OBSERVERS", "M-D68-51",
+               "the eraser, consciousness-collapse and relative-facts sources READ; in docket68/cmb/unobserved.py "
+               "Born selection after records changes no later statistic, while selection before them moves an "
+               "interference statistic by %s; two observers disagree by sin^2(theta/2) and agree again through a "
+               "record (computed, %s); Earth and Proxima see skies differing by a %s mK dipole, the one rebuilt from "
+               "the other by a Lorentz boost; under Born selection Bob's marginal spread is %s, no channel; "
+               "H-MANY-PERSPECTIVES carried"
+               % ("%.4f" % CMB2_ASKED["sel_diff"], "%.6f" % CMB2_ASKED["agree_link"], "%.3f" % CMB2_ASKED["sky_mK"],
+                  _g(CMB2_ASKED["o9_a"], 2))),
+     "H-CONSCIOUS-SELECTS (M-D68-50), O9; the OPEN item CMB2-O4"),
+    ("M-D68-53",
+     "Asked how to take up item 52 (M-RULINGS-2026-10-03.md item 53, 2026-10-05, as the file records it): READ, then "
+     "model; model now; READ only; or carry only?",
+     "M stated item 52 (H-LOCAL-CLOCK) as an answer to what introduces the clock",
+     _d68_rule("READ, THEN MODEL", "M-D68-53",
+               "the quantum-clock literature and Page's sensible quantum mechanics READ; docket68/cmb/localclock.py, "
+               "verified once: Proxima b's orbital clock runs %s +- %s s per year slower than Earth's orbital clock, "
+               "each against its own star (the law matches IAU L_C to %s); the CMB frame reckons Proxima's clock %s "
+               "s per year slower than the Sun's and the Sun's frame adds %s s per year -- each frame lawful, none "
+               "privileged; a qubit shared across both carries a fixed, calibratable phase, coherent uncalibrated "
+               "only below %s Hz"
+               % ("%.3f" % CMB2_ASKED["clock_s"], "%.3f" % CMB2_ASKED["clock_sigma"], _g(abs(CMB2_ASKED["lc_vs_iau"]), 2),
+                  "%.3f" % CMB2_ASKED["cmb_frame_s"], "%.3f" % CMB2_ASKED["sun_frame_s"],
+                  "%.1f" % CMB2_ASKED["f_1rad"])),
+     "H-LOCAL-CLOCK (M-D68-52); the OPEN item CMB2-O5"),
+    ("M-D68-54",
+     "After localclock.py's verification and unobserved.py's third build (M-RULINGS-2026-10-03.md item 54, "
+     "2026-10-05, as the file records it): 1 seat all three; 2 READ the RNG effect size and price reading (b) first; "
+     "3 model M-SUPPORT's dynamics first; or 4 seat, then price?",
+     "medium.py, unobserved.py and localclock.py stood verified, none seated",
+     _d68_rule("M-SUPPORT'S DYNAMICS, THEN THE BIAS PRICED, THEN SEAT", "M-D68-54",
+               "(3) docket68/cmb/support.py, verified once, NOT seated: on H-SUPPORT-IS-RECORDS the support grows at "
+               "Gamma/H records per photon per e-fold, and its edge is where the coupling ends.  (2) "
+               "docket68/cmb/bias.py, verified once, NOT seated: reading (b) priced at the READ bias sizes, none "
+               "established.  (1) medium.py, unobserved.py and localclock.py seated here (docstring section 8g): "
+               "the background is collisionless today (mean free path 10^%s Hubble lengths) and was a true medium "
+               "before decoupling (sound at %s c); the observation model's decoupling distance is %s; the local "
+               "clocks differ by %s s per year; the CMB frame reckons %s s per year"
+               % (_cmb2_fig(CMB2_ASKED)["mfp"], _cmb2_fig(CMB2_ASKED)["cs"], _cmb2_fig(CMB2_ASKED)["td"],
+                  _cmb2_fig(CMB2_ASKED)["clock"], _cmb2_fig(CMB2_ASKED)["cmbf"])),
+     "the OPEN items CMB2-O1..O6; support.py and bias.py await M's ruling"),
 ]
 
 RULED_BY_M += D68_RULED
@@ -5313,6 +5545,36 @@ D68_FILE_CARRIED = [
                      "%s K behind; in FRW equal temperature is equal cosmic time"
                      % (_g(CMB_ASKED["beta_amp"], 7), "%.5f" % CMB_ASKED["T"][0], "%.5f" % CMB_ASKED["T"][180])),
      "H-CMB-CORRIDOR reading 1"),
+    # ----- ADDED (CMB2-seat, docstring section 8g): items 46, 48, 50 and 52.
+    ("M-D68-46",
+     "M's question during H-CMB-CORRIDOR reading 2 (M-RULINGS-2026-10-03.md item 46, 2026-10-05); no question was put",
+     _d68_carry_file("QUESTION, CARRYING A HYPOTHESIS", "M-D68-46",
+                     "as H-CONTRACT (the universe contracts as well as expands), never as a result; answered in "
+                     "docket68/cmb/medium.py's contraction() on M-D68-47: a nonsingular bounce keeps H-FRAME's frame, "
+                     "since frame.py's lemma needs only a(t) > 0; whether the universe contracts stays OPEN (CMB2-O1)"),
+     "H-FRAME (M-D68-C10); the OPEN item CMB2-O1"),
+    ("M-D68-48",
+     "M's statement on reading 2 (M-RULINGS-2026-10-03.md item 48, 2026-10-05); no question was put",
+     _d68_carry_file("STATEMENT, CARRYING A HYPOTHESIS", "M-D68-48",
+                     "as H-UNOBSERVED-MEDIUM, never as a result: modelled in docket68/cmb/unobserved.py on M-D68-49, "
+                     "where the static global state is constant and, from the coupled ground state, M-SUPPORT is pure "
+                     "and stationary while coupled"),
+     "H-CMB-UNIVERSAL (M-D68-41); the OPEN items CMB2-O2, CMB2-O3"),
+    ("M-D68-50",
+     "M's statement after item 49 (M-RULINGS-2026-10-03.md item 50, 2026-10-05); no question was put",
+     _d68_carry_file("STATEMENT, CARRYING A HYPOTHESIS", "M-D68-50",
+                     "as H-CONSCIOUS-SELECTS, never as a result, in two readings: Born selection, under which Bob's "
+                     "marginal spread is %s and there is no channel, and biased selection, priced in "
+                     "docket68/cmb/bias.py (not seated)" % _g(CMB2_ASKED["o9_a"], 2)),
+     "O9; the OPEN item CMB2-O4"),
+    ("M-D68-52",
+     "M's statement on what introduces the clock (M-RULINGS-2026-10-03.md item 52, 2026-10-05); no question was put",
+     _d68_carry_file("STATEMENT, CARRYING A HYPOTHESIS", "M-D68-52",
+                     "as H-LOCAL-CLOCK, never as a result, and as M's answer to H-M-SUPPORT's open dynamics: modelled "
+                     "in docket68/cmb/localclock.py on M-D68-53 (Proxima b's orbital clock %s s per year slower than "
+                     "Earth's); in Page's sensible quantum mechanics a conscious perception is a perception of a "
+                     "present matter record" % ("%.3f" % CMB2_ASKED["clock_s"])),
+     "H-M-SUPPORT; the OPEN items CMB2-O2, CMB2-O5"),
 ]
 
 #: DOCKET 68's one pending question, M-D68-P1 (emtension.py's ER = EPR
@@ -6112,6 +6374,7 @@ def _d68_cells():
     out.update(("S1C-OPEN %s col %d" % (r[0], i), c) for r in S1C_OPEN for i, c in enumerate(r[1:], 1))
     out.update(("W4-OPEN %s col %d" % (r[0], i), c) for r in W4_OPEN for i, c in enumerate(r[1:], 1))
     out.update(("CMB-OPEN %s col %d" % (r[0], i), c) for r in CMB_OPEN for i, c in enumerate(r[1:], 1))
+    out.update(("CMB2-OPEN %s col %d" % (r[0], i), c) for r in CMB2_OPEN for i, c in enumerate(r[1:], 1))
     return out
 
 
@@ -7032,6 +7295,11 @@ def report():
         print(textwrap.fill("%s %s -- answered by: %s (%s)" % (oid.ljust(8), " ".join(what.split()),
                                                               " ".join(answers.split()), owner),
                             96, initial_indent="  ", subsequent_indent="           "))
+    print("\nH-CMB-CORRIDOR READINGS 2 AND 3, AND THE LOCAL CLOCKS -- WHAT STAYS OPEN (section 8g)")
+    for oid, what, answers, owner in CMB2_OPEN:
+        print(textwrap.fill("%s %s -- answered by: %s (%s)" % (oid.ljust(8), " ".join(what.split()),
+                                                              " ".join(answers.split()), owner),
+                            96, initial_indent="  ", subsequent_indent="           "))
     print("\nPENDING M'S RULING -- RECORDED, NOT APPLIED%s"
           % ("" if PENDING_RULINGS else ": none"))
     for pid, q, why, proposal, waits in pending_rulings():
@@ -7279,6 +7547,16 @@ def to_markdown():
         L.append("| %s | %s | %s | %s |" % (oid, _cell(what, W_WHY), _cell(answers, W_WHY),
                                             _cell(owner, W_WHY)))
     L.append("")
+    # ADDED (CMB2-seat, docstring section 8g).
+    L += ["## H-CMB-CORRIDOR readings 2 and 3, and the local clocks -- what stays open", "",
+          "Seated on M's \"3, then 2, then 1 please\" (item 54; docstring section 8g): the background as a",
+          "medium, the observation model and the local clocks (docket68/cmb/). support.py and bias.py",
+          "are built and verified, not seated. No board status moves; O9 stays OPEN.", "",
+          "| id | open | what would answer it | owner |", "|---|---|---|---|"]
+    for oid, what, answers, owner in CMB2_OPEN:
+        L.append("| %s | %s | %s | %s |" % (oid, _cell(what, W_WHY), _cell(answers, W_WHY),
+                                            _cell(owner, W_WHY)))
+    L.append("")
     L += ["## Pending M's ruling -- recorded, not applied", "",
           "This file edits no peer and changes no requirement. A question",
           "that needs M's ruling is recorded here so the board shows it.", "",
@@ -7438,6 +7716,9 @@ def _truncated_cells(demand_claim=None, demand_moves=None, open_claim=None,
     for r in CMB_OPEN:
         if any(cut(c, wh) for c in r[1:]):
             out.append(("cmb-open", r[0]))
+    for r in CMB2_OPEN:
+        if any(cut(c, wh) for c in r[1:]):
+            out.append(("cmb2-open", r[0]))
     return out
 
 
@@ -8202,6 +8483,9 @@ def selftest():
         # RE-PINNED WITH THE D68 CLOSE (D68-close): + M-D68-40.
         # RE-PINNED WITH THE CMB SEATING (CMB-seat, M: "Seat it, then medium",
         # item 45): + M-D68-42, 43 and 45; items 41 and 44 are D68_FILE_CARRIED.
+        # RE-PINNED WITH READINGS 2 AND 3 AND THE LOCAL CLOCKS (CMB2-seat, M:
+        # "3, then 2, then 1 please", item 54): + M-D68-47, 49, 51, 53 and 54;
+        # items 46, 48, 50 and 52 are D68_FILE_CARRIED.
         (["M-D64-1", "M-S1A-P1", "M-S1A-P2", "M-S1A-P3", "M-S1A-P4",
           "M-S1A-P5", "M-D65-1", "M-D65-2", "M-D65-3", "M-D65-4", "M-D65-5",
           "M-D67-1", "M-D67-2"]
@@ -8210,7 +8494,8 @@ def selftest():
          + ["M-D68-%d" % i for i in (26, 27, 28)]
          + ["M-D68-%d" % i for i in (22, 24, 29, 30, 33, 34, 36)]
          + ["M-D68-%d" % i for i in (37, 38, 39, 40)]
-         + ["M-D68-%d" % i for i in (42, 43, 45)], [],
+         + ["M-D68-%d" % i for i in (42, 43, 45)]
+         + ["M-D68-%d" % i for i in (47, 49, 51, 53, 54)], [],
          True, False, False, True, False))
 
     print("\n3. THE EXCHANGE RATE, RE-DERIVED FROM ASKED CONSTANTS")
@@ -9722,7 +10007,8 @@ def selftest():
     chk("  CONTROL: the held item-25 words with one word dropped no longer hold seatrank.py's",
         _wcf, [("seatrank.M_WORDS_25", "M-D68-25")])
     # RE-PINNED WITH THE CMB SEATING (CMB-seat): + items 41 and 44.
-    chk("M's words the RULINGS FILE carries (items 21, 23, 25, 31, 32, 35, 41, 44) are in "
+    # RE-PINNED WITH THE CMB2 SEATING (CMB2-seat): + items 46, 48, 50 and 52.
+    chk("M's words the RULINGS FILE carries (items 21, 23, 25, 31, 32, 35, 41, 44, 46, 48, 50, 52) are in "
         "D68_FILE_CARRIED, NOT on RULED_BY_M; each cell says so, quotes exactly its held "
         "words, and none reads 'RULED BY M'; none is cut",
         ([r[0] for r in D68_FILE_CARRIED],
@@ -9732,7 +10018,7 @@ def selftest():
           or _cw.findall(" ".join(r[2].split())) != [D68_CARRIED_WORDS[r[0]][0]]
           or _cw.findall(" ".join(r[1].split()))],
          [t for t in _truncated_cells() if t[0] in ("carried", "w3s1b-open")]),
-        (["M-D68-%d" % i for i in (21, 23, 25, 31, 32, 35, 41, 44)], [], [], []))
+        (["M-D68-%d" % i for i in (21, 23, 25, 31, 32, 35, 41, 44, 46, 48, 50, 52)], [], [], []))
     chk("  and LEDGER.md prints them, then the OPEN list, after the charter's carried items "
         "and before the pending rulings",
         (_md.index("## Carried by the charter from M")
@@ -9831,6 +10117,29 @@ def selftest():
          _md.index("## DOCKET 68 wave 4 -- what stays open") < _md.index("## H-CMB-CORRIDOR reading 1 -- what stays open")
          < _md.index("## Pending M's ruling"), "8f.  THE Q-1s GATE, AND H-CMB-CORRIDOR READING 1" in __doc__),
         (4, [], True, True))
+    # ADDED (CMB2-seat, docstring section 8g): readings 2 and 3 and the local clocks.
+    chk("CMB READINGS 2 AND 3, LOCAL CLOCKS: medium.py, unobserved.py and localclock.py load from docket68/cmb/ by "
+        "path; sys.path restored; no module key the load added is left behind",
+        (CMB2_LOAD["from_cmb"], CMB2_LOAD["path_restored"], CMB2_LOAD["keys_left"], sorted(CMB2)),
+        ([], True, [], ["localclock", "medium", "unobserved"]))
+    _fc2 = cmb2_asked()
+    _c54 = " ".join([r for r in D68_RULED if r[0] == "M-D68-54"][0][3].split())
+    chk("  M-D68-54's cell prints the three owners' figures, asked afresh (five needles)",
+        [n for n in _cmb2_fig(_fc2).values() if n not in _c54], [])
+    chk("  CONTROL: the same figures at 1.5 times are not found",
+        len([n for n in _cmb2_fig(_fc2, 1.5).values() if n not in _c54]), 5)
+    _c53 = " ".join([r for r in D68_RULED if r[0] == "M-D68-53"][0][3].split())
+    chk("  M-D68-53's cell prints the local clocks' 0.708 +- 0.014 s per year and the CMB frame's 1.640, asked",
+        ("%.3f +- %.3f s per year" % (_fc2["clock_s"], _fc2["clock_sigma"]) in _c53,
+         "%.3f" % _fc2["cmb_frame_s"] in _c53, "%.3f" % _fc2["clock_s"], "%.3f" % _fc2["clock_sigma"]),
+        (True, True, "0.708", "0.014"))
+    chk("  CMB2_OPEN names %d items with owner files; LEDGER.md prints them after reading 1's and before the pending "
+        "rulings; section 8g is in the docstring" % len(CMB2_OPEN),
+        (len(CMB2_OPEN), [r[0] for r in CMB2_OPEN if not _os.path.exists(_os.path.join(HERE, r[3]))],
+         _md.index("## H-CMB-CORRIDOR reading 1 -- what stays open")
+         < _md.index("## H-CMB-CORRIDOR readings 2 and 3, and the local clocks -- what stays open")
+         < _md.index("## Pending M's ruling"), "8g.  H-CMB-CORRIDOR READINGS 2 AND 3, AND THE LOCAL CLOCKS" in __doc__),
+        (6, [], True, True))
     chk("EVERY QUOTATION in a DOCKET 68 cell (here, and index3.py's DOCKET 68 rows) is the "
         "tree's words, or declared otherwise: M's thesis and the question included, the "
         "D23 note's quotation exact ('because is already exists everywhere')",

@@ -2,7 +2,7 @@
 """
 medium.py -- H-CMB-CORRIDOR, reading 2: the cosmic background as the corridor's MEDIUM or CARRIER.
 
-Not seated.  Verified once in both directions (2026-10-05); the findings are applied and the first-written claims kept
+Seated in ledger.py section 8g (M-RULINGS item 54; first written "Not seated").  Verified once in both directions (2026-10-05); the findings are applied and the first-written claims kept
 under HISTORY.  M (rulings item 45): "Seat it, then medium".  M (item 47, on H-CONTRACT, item 46): "2, then 1" -- the
 status of a contracting universe READ first, then folded in (section (H)).  M's hypotheses H-CMB-CORRIDOR,
 H-CMB-UNIVERSAL (item 41) and H-CONTRACT (item 46) are carried, never results.  H-UNOBSERVED-MEDIUM (item 48) and
@@ -371,7 +371,7 @@ def report():
     d = collect()
     g, cl, ap, ca, ns, co, sk, ct = (d[k] for k in ("gas", "collisionless", "acoustic_past", "carrier",
                                                      "noise_and_sink", "coherence", "shared_sky", "contraction"))
-    print("H-CMB-CORRIDOR, reading 2: the cosmic background as MEDIUM or CARRIER (verified once; not seated)\n")
+    print("H-CMB-CORRIDOR, reading 2: the cosmic background as MEDIUM or CARRIER (verified once; seated, ledger.py 8g)\n")
     print("(A) THE PHOTON GAS at T0 = %.5f K (Fixsen, READ)" % T0)
     print("  %.1f photons/cm^3; %.3e J/m^3; entropy %.3e bits/m^3 (%.2f bits per photon); mean photon %.3f meV; "
           "thermal length %.3f mm" % (g["n_per_cm3"], g["u_J_m3"], g["s_bits_m3"], g["bits_per_photon"],

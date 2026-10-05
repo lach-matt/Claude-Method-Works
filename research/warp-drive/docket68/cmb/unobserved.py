@@ -3,7 +3,7 @@
 unobserved.py -- H-UNOBSERVED-MEDIUM, H-TWO-OBSERVERS, H-CONSCIOUS-SELECTS and H-MANY-PERSPECTIVES: a computable model of
 a universe whose history appears relative to a clock, recorded by matter and selected by consciousness.
 
-Not seated; verified twice (2026-10-05), the second verification's findings applied here; first-written claims kept
+Seated in ledger.py section 8g (M-RULINGS item 54; first written "Not seated"); verified twice (2026-10-05), the second verification's findings applied here; first-written claims kept
 under HISTORY.  M (rulings item 48): "what if this is the ground state without first principles/without observation?
 The decoupling only exists upon observation of a universe? And this would be why it is a constant".  M (item 49):
 "matter itself is capable of observation, however, it is not conscious conversation, which requires sentience . A
@@ -478,7 +478,7 @@ def compute():
 
 def report():
     d = compute()
-    print("H-UNOBSERVED-MEDIUM, H-TWO-OBSERVERS, H-CONSCIOUS-SELECTS, H-MANY-PERSPECTIVES (verified twice; not seated)\n")
+    print("H-UNOBSERVED-MEDIUM, H-TWO-OBSERVERS, H-CONSCIOUS-SELECTS, H-MANY-PERSPECTIVES (verified twice; seated, ledger.py 8g)\n")
     print("(1) global state: eigh ground state = history (overlap %.12f, E %.1e); gap %.4e = 1 - cos(pi/2N); conditioned "
           "on the clock it gives ordinary evolution (%.1e), uniform clock weights (%.1e).  Detuned: ||[H_hot,H_cold]|| %.3f"
           % (d["overlap"], d["E0"], d["gap"], d["conditional_infidelity_from_ground"], d["clock_weight_spread"],

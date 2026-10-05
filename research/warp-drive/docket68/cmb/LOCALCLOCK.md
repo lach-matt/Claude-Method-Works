@@ -1,4 +1,6 @@
-# A clock at each position (H-LOCAL-CLOCK; verified once; not seated; 2026-10-05)
+# A clock at each position (H-LOCAL-CLOCK; verified once; SEATED in ledger.py section 8g on M's "3, then 2, then 1 please", item 54; 2026-10-05)
+
+*First headed* "(H-LOCAL-CLOCK; verified once; not seated; 2026-10-05)".
 
 ## M's words and how they are carried
 

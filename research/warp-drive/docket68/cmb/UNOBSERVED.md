@@ -1,4 +1,6 @@
-# The unobserved universe, two kinds of observer, conscious selection, many perspectives (third build; verified twice; not seated; 2026-10-05)
+# The unobserved universe, two kinds of observer, conscious selection, many perspectives (third build; verified twice; SEATED in ledger.py section 8g on M's "3, then 2, then 1 please", item 54; 2026-10-05)
+
+*First headed* "(third build; verified twice; not seated; 2026-10-05)".
 
 ## M's words and how they are carried
 

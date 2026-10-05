@@ -3,7 +3,7 @@
 localclock.py -- H-LOCAL-CLOCK: a clock at each position, relative to the matter-based observation there; conscious
 observation as a perception of matter-observed time.
 
-Not seated; verified once (2026-10-05), its findings applied; first-written claims kept under HISTORY.  M (rulings item 52): "time is always relative, so the clock of the observer doesn't matter
+Seated in ledger.py section 8g (M-RULINGS item 54; first written "Not seated"); verified once (2026-10-05), its findings applied; first-written claims kept under HISTORY.  M (rulings item 52): "time is always relative, so the clock of the observer doesn't matter
 in the second position, as time may move differently in the second position compared to the first. The clock is always
 present relative to the position of measurement within its plane/dimension The clock is relative to the matter-based
 observation. Consciousness observation is a perception of matter-observed time."  Carried as M's hypothesis
@@ -255,7 +255,7 @@ def compute():
 def report():
     d = compute()
     lc, lb, ck, dq, tc = (d[k] for k in ("local_clocks", "lab", "cmb_frame", "delocalised_qubit", "two_clocks"))
-    print("H-LOCAL-CLOCK: a clock at each position (verified once; not seated)\n")
+    print("H-LOCAL-CLOCK: a clock at each position (verified once; seated, ledger.py 8g)\n")
     print("(1) the two local clocks, each against a distant observer at rest with its own star (weak field; the secular "
           "rate is exact for any Keplerian orbit): A on Earth's orbit runs slow by %.3e (Phi %.3e, v %.2f km/s); B on "
           "Proxima b's orbit by %.3e (Phi %.3e, v %.2f km/s)" % (
