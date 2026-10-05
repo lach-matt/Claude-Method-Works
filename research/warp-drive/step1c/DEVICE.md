@@ -118,6 +118,43 @@ year. That overstated the read by 2.5×.)*
 - **Blocked and reported, not routed around:** Gault et al. 2021, *Nature Reviews Methods Primers* (paywall); PubMed
   (reCAPTCHA); the full text of Biswas & Srinivasan, IEEE JSTQE 32(1) (sign-in; only the open abstract was read).
 
+## The coupling route (`coupling.py`, 10/10 checks, 2 controls, 2 STRUCTURAL; M item 38: "Take the coupling route"; not yet verified)
+
+This sets the channel aside and prices the wave-3 coupling as the device's link: H = J(|A⟩⟨B| + |B⟩⟨A|), with transfer
+time π/(2J) (`corridor.py`).
+
+- **The locality ceiling.** A coupling is a channel (wave 3), so under H-LOCALITY it cannot complete across L in less
+  than L/c. That gives **J ≤ πc/(2L) = 1.17e-8 rad/s (ħJ = 7.7e-24 eV)** per coupling. This is `corridor.before_light`'s
+  threshold read the other way, checked against the owner: the coupling route beats light iff it exceeds the ceiling.
+- **The demand against that ceiling.**
+  - **Parallel:** I couplings, one per qubit, each spanning L, at J = π/(2T). A 1-year schedule needs 4.25× the
+    ceiling, so it is excluded under H-LOCALITY. A century needs 0.0425× and is not excluded. The threshold is
+    T = L/c = 4.25 years.
+  - **Serial:** one coupling carrying all I qubits exceeds the ceiling at every schedule, by I·L/(cT): 4.0e28 at a year.
+- **The supply, read at source.** The only direct couplings measured, with no carrier between the qubits, are
+  near-field dipolar couplings that fall as 1/R³:
+  - Rydberg exchange: C3 = 7950 ± 130 MHz·µm³, measured out to 50 µm (Barredo et al. 1408.1055v2, re-read by the lead).
+  - Magnetic dipole between two ions: J/2π ≈ 1.8 mHz at 2.4 µm (Kotler et al. 1312.4881v1).
+- **The finding that decides the supply.** The 1/R³ law holds only for R small compared with the transition's
+  wavelength: the electrostatic limit, as Barredo's supplement states. At their 9.131 GHz transition that limit
+  (λ/2π) is **5.2 mm**, and L is 7.7e18 times it. Beyond it the coupling is carried by a photon, which is the channel
+  M set aside, bounded by L/c. Carried formally to L anyway, outside its own validity, the best direct coupling gives
+  7.7e-58 rad/s. That is **6.5e47** short of the century demand per pair, which is itself the only demand locality
+  admits.
+- **Mediated couplings are not direct.**
+  - Phonon-mediated ion couplings (α 0.63–1.19 measured; 0–3 claimed, Richerme et al. 1401.5088v1) need the crystal
+    to span L (H-MEDIATOR-SPANS). No ion spacing was read, so they are not carried.
+  - Photon-mediated remote transfer crossed 5.7 m in 28 ns, which is 0.68c (Magnard et al. 2008.01642v1). It is a
+    channel.
+- **So the coupling route, priced:** under H-LOCALITY it can at best match the light time, and only with 9.5e27
+  direct couplings each spanning 4.02e16 m. No present mechanism couples two qubits directly beyond millimetres. Each
+  speed-free route wave 3 named (H-DIRECT-COUPLING, H-LONG-RANGE with α < d, unbounded J) still clashes with
+  H-LOCALITY, as wave 3 found.
+- **Hypotheses:** H-LOCALITY, H-PREESTABLISHED, H-POWER-LAW-CARRY, H-NEAR-FIELD, H-MEDIATOR-SPANS, H-DIRECT-COUPLING
+  and H-STATE-AS-BITS.
+- **History:** a guessed threshold ("L is 1e19 times the limit or more") failed at 7.7e18. That was a guess, not a
+  finding, and is kept in the file. Two ids in the reader's brief were wrong and are recorded.
+
 ## Named hypotheses (supply)
 
 H-ONE-INSTRUMENT, H-PARALLEL-INSTRUMENTS, H-INVERSE-SQUARE, H-FIXED-HARDWARE, H-FIXED-CARRIER, H-FRIIS-IDEAL, H-NO-PREP
