@@ -23,17 +23,28 @@ WHAT IT COMPUTES
        object's atoms (measure.atom_counts).
   (T2) RETIRING A'S INSTANCE (H-RETIRE-A).  A chemical rearrangement into stock.  Its SIGN depends on the stock's form
        (H-STOCK-FORM): retiring into oxidised stock releases energy, into free elements costs it.  Its SIZE is bounded:
-       |E_chem| <= N_bonds D_max, with N_bonds <= v_max N_atoms / 2 (H-VALENCE: no atom of the object forms more than
-       v_max = 6 bonds; NAMED-NOT-READ) and D_max the strongest bond in a neutral molecule, carbon monoxide's (READ,
+       |E_chem| <= (v_max/2) D_max per atom (H-VALENCE, restated per atom: the atomisation energy per atom is at most
+       v_max/2 x D_max = 33.5 eV; NAMED-NOT-READ -- literal bond counts exceed 6 for Ca in apatite or metals, but real
+       atomisation and cohesive energies stay far below 33.5 eV per atom, so the per-atom ceiling holds; a difference
+       between two neutral forms is bounded by the larger atomisation energy) and D_max the strongest bond in a neutral molecule, carbon monoxide's (READ,
        two values: 1077 kJ/mol = 11.16 eV, Wikipedia 'Bond dissociation energy', and 1072 kJ/mol, PMC4635358; both
        via Firecrawl search excerpts; the larger is used, so the bound is a ceiling either way).
-       COMPENSATION (M, item 31), under H-PROBE and H-ABSORB: a photon or electron probe at atomic pitch carries more
-       energy per quantum than D_max, and the read's total exceeds the whole chemical ceiling -- so if the read's quanta
-       are absorbed in the object, reading at that resolution supplies the energy to retire A: the retire term is
-       dissolved by the read term, at the same site, in the same currency.  A neutron probe at 1 A carries less than
-       D_max per quantum: no such compensation (CONTROL).
+       SUBSUMED (M, item 31), under H-PROBE and H-ABSORB: a photon or electron probe at atomic pitch carries more
+       energy per quantum than D_max, and the read's total exceeds the whole chemical ceiling (4.5x to 3,700x) -- so if
+       the read's quanta are absorbed in the object, the read supplies more than the energy to retire A: the retire
+       cost is subsumed by a larger cost, not cancelled (the total is the larger of the two, and the excess leaves A as
+       heat, balance.py OUT-A-HEAT).  CONSEQUENCE, computed: absorbed, the photon read at 1 A deposits ~1.9e11 Gy in
+       70 kg -- the object is destroyed while it is being read, so the absorption that 'supplies' the retire also
+       scrambles what is being read (H-READ-BEFORE-DAMAGE: the read completes before the damage scrambles it), and the
+       plasma left is stock in neither H-STOCK-FORM form.  A neutron probe at 1 A carries less than D_max per quantum:
+       not subsumed (CONTROL).  Near-field reads (scanning-probe microscopy, ~eV per quantum) evade H-PROBE's
+       wavelength floor altogether (H-NEAR-FIELD).
   HISTORY: the first selftest asserted the ratio below 1e-4 at every beta; at beta 0.01 it is 1.14e-4 -- the guessed
   threshold failed, the finding did not; the check now asserts what is shown (below 1 at every beta) and prints it.
+  HISTORY (Step 1b verifier, 2026-10-05): 'the retire term is dissolved by the read term' (subsumed, not cancelled;
+  absorption destroys the object -- now computed and named); H-VALENCE stated per bond count (now per atom); the global
+  cancellation counted as a check and printed STRUCTURAL (double count); the theorem floor and the None 'control' are
+  literals (now STRUCTURAL).
   (T3) ASSEMBLING AT B (E_rec).  Its parts: (a) chemistry, inside [-ceiling, +ceiling] by H-STOCK-FORM at B; (b) B's
        register reset, already OUT-B-HEAT (H-RESET); (c) placement: no floor is established here (placement can in
        principle be reversible), so it stays OPEN.  The chemical ceiling is compared with seat.erec_ceiling -- the
@@ -49,7 +60,9 @@ NAMED HYPOTHESES
   H-PROBE        locating an atom to delta needs a probe of wavelength <= delta (the diffraction scale).
   H-ONE-QUANTUM  one probe quantum per atom: a floor; scattering cross-sections make the real count larger.
   H-ABSORB       the probe's quanta are absorbed in the object (otherwise they pass, and deposit nothing).
-  H-VALENCE      v_max = 6 bonds per atom across the object's elements; NAMED-NOT-READ.
+  H-VALENCE      atomisation energy per atom <= (v_max/2) D_max, v_max = 6; NAMED-NOT-READ (per atom, not per bond).
+  H-READ-BEFORE-DAMAGE the read completes before an absorbed probe's damage scrambles the configuration being read.
+  H-NEAR-FIELD   scanning-probe reads at ~eV per quantum evade H-PROBE's wavelength floor.
   H-STOCK-FORM   the chemical form of A's residue and of B's stock; it sets the sign of T2 and T3(a).
   H-RETIRE-A     (M, item 32) carried as M's hypothesis.
 """
@@ -138,7 +151,8 @@ def retire_term():
     c = chem_ceiling_j()
     rt = read_terms()["probe_floor"]
     comp = [{"delta_m": r["delta_m"], "carrier": r["carrier"], "read_over_ceiling": r["total_J"] / c,
-             "dissolves_retire": r["exceeds_D_max"] and r["total_J"] >= c} for r in rt]
+             "dissolves_retire": r["exceeds_D_max"] and r["total_J"] >= c,
+             "dose_Gy_if_absorbed": r["total_J"] / measure.atom_counts()[1]} for r in rt]
     return {"range_J": (-c, c), "ceiling_J": c, "compensation_by_read": comp}
 
 
@@ -180,8 +194,9 @@ def report():
     t = d["retire"]
     print("\n(T2) RETIRING A (H-RETIRE-A): chemistry within +-%.4g J (sign by H-STOCK-FORM)" % t["ceiling_J"])
     for x in t["compensation_by_read"]:
-        print("       pitch %.0e m  %-8s read / chemical ceiling = %.4g  -> retire dissolved by the read (H-ABSORB): %s"
-              % (x["delta_m"], x["carrier"], x["read_over_ceiling"], x["dissolves_retire"]))
+        print("       pitch %.0e m  %-8s read / chemical ceiling = %.4g  -> retire subsumed by the read (H-ABSORB): %-5s"
+              " dose if absorbed %.3g Gy" % (x["delta_m"], x["carrier"], x["read_over_ceiling"], x["dissolves_retire"],
+                                             x["dose_Gy_if_absorbed"]))
     a = d["assemble"]
     print("\n(T3) ASSEMBLING AT B (E_rec): chemistry within +-%.4g J; reset floor %.4g J (H-RESET); placement %s"
           % (a["chem_range_J"][1], a["reset_floor_J"], a["placement"]))
@@ -221,19 +236,19 @@ def selftest():
          if (x["carrier"], x["delta_m"]) in (("photon", 1e-10), ("electron", 1e-10), ("neutron", 1e-10))],
         [("photon", 1e-10, True), ("electron", 1e-10, True), ("neutron", 1e-10, False)])
     comp = {(x["carrier"], x["delta_m"]): x["dissolves_retire"] for x in retire_term()["compensation_by_read"]}
-    chk("COMPENSATION: a photon read at 1 A dissolves the retire term (read >= chemical ceiling, quantum > D_max)",
+    chk("SUBSUMED: a photon read at 1 A exceeds the whole retire ceiling (read >= chemical ceiling, quantum > D_max)",
         comp[("photon", 1e-10)], True)
     chk("CONTROL: a neutron read at 1 A does not (quantum below D_max)", comp[("neutron", 1e-10)], False, ctl=True)
     _r = assemble_term()["chem_ceiling_over_payback"]
     chk("the chemical ceiling lies below the E_rec payback ceiling at every beta seat.py lists (largest ratio "
         "%.3g, at beta %.2f)" % (max(_r.values()), min(_r)), all(v < 1.0 for v in _r.values()), True)
+    dose = {(x["carrier"], x["delta_m"]): x["dose_Gy_if_absorbed"] for x in retire_term()["compensation_by_read"]}
+    chk("absorbed, the photon read at 1 A deposits ~1.9e11 Gy in the object (to 5%) -- the object is destroyed",
+        abs(dose[("photon", 1e-10)] / 1.9e11 - 1) < 0.05, True)
     g = global_chem(-chem_ceiling_j())
-    chk("same stock form: chemistry cancels globally, and B is left a local deficit equal to the ceiling",
-        (g["global_J"], abs(g["local_deficit_at_B_J"] - chem_ceiling_j()) < 1e-6), (0.0, True))
-    chk("CONTROL: different stock forms -- the global cancellation is not asserted (None)",
-        global_chem(-1.0, same_form=False)["global_J"], None, ctl=True)
-    chk("the theorem floor on reading stays 0 (no theorem prices measurement itself)", read_terms()["theorem_floor_J"],
-        0.0)
+    structural.append("theorem floor on reading %.0f J and the None returned for different stock forms are literals "
+                      "of the code; B's local deficit equals the ceiling by construction (%s)"
+                      % (read_terms()["theorem_floor_J"], abs(g["local_deficit_at_B_J"] - chem_ceiling_j()) < 1e-6))
     structural.append("the global cancellation for matching stock forms is built in (B's term is defined as A's "
                       "reversed): printed, not counted; what is computed is the ceiling and B's local deficit")
     for x in structural:

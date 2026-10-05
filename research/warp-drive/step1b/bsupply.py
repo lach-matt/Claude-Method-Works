@@ -2,7 +2,7 @@
 """
 bsupply.py -- Step 1b: the energy B must supply locally, against Proxima's own light.
 
-Not seated.  Nothing here edits the board: figures are IMPORTED (terms, balance, seat, settle, light); the stellar
+Not seated.  Nothing here edits the board: figures are IMPORTED (openterms, balance, seat, settle, light); the stellar
 luminosity is READ at source.  M (2026-10-05): "I agree, continue" -- on the lead's next step: openterms.py leaves B a local
 deficit (chemistry, up to its ceiling, when A's residue and B's stock share a form; openterms.global_chem), which B's
 surroundings must supply.  The obvious supply is Proxima's light.
@@ -22,11 +22,15 @@ WHAT IT COMPUTES
   scale, not as a term of the equation -- the payload's rest energy and seat.erec_ceiling at beta 0.01.
   All three L* values (low, central, high) are carried; the spread is the READ uncertainty.
 
-HISTORY: the first selftest asserted the reset floor is gathered 'in under a minute' on 1 m^2; it takes 268 s.  The
+HISTORY (Step 1b verifier, 2026-10-05): 'a 100 m^2 collector gathers it in under a week' fails at Faria's low L*
+(7.22 days); Faria's +-0.0006 is not in the primary source it cites (Boyajian 2012, READ: +-0.00002) -- both carried;
+'shortest times' was wrong for the ceiling row; the area and eta checks were identities (now STRUCTURAL).
+HISTORY: the first selftest asserted the reset floor is gathered 'in under a minute' on 1 m^2; it takes 268.6 s.  The
 guessed threshold failed, not a finding; the check now compares it with the chemical term and prints the time.
 
 NAMED HYPOTHESES
-  H-COLLECT    a collector of area A and efficiency eta <= 1 (eta = 1 gives the shortest time; it is a floor on t).
+  H-COLLECT    a collector of area A and efficiency eta <= 1 (eta = 1 gives the shortest time FOR A GIVEN E; for the
+               chemical row E is itself a ceiling, so its t is neither a floor nor a ceiling).
   H-AT-ORBIT   flux taken at b's orbit, above any atmosphere (b's atmosphere and albedo are unknown).
   H-STEADY     Proxima's mean luminosity; its flares and the planet's day side are not modelled.
   H-STOCK-FORM (openterms.py) the deficit is the chemical ceiling only when A's residue and B's stock share a form; it is
@@ -59,6 +63,10 @@ YEAR_S = seat.YEAR_S
 FARIA_2022_TABLE1 = {"source": "arXiv:2202.05188v1", "route": "READ via alphaXiv (answer_pdf_queries), Table 1 p.2",
                      "L_over_Lsun": (0.0016, 0.0006), "L_ref": "Boyajian et al. (2012)",
                      "Teff_K": (2900, 100), "R_over_Rsun": (0.141, 0.021), "HZ_au": (0.0423, 0.0816)}
+BOYAJIAN_2012 = {"source": "arXiv:1208.2431v2", "route": "READ via alphaXiv (answer_pdf_queries), Table 6 p.46",
+                 "GJ551_L_over_Lsun": (0.00155, 0.00002), "GJ551_R_over_Rsun": (0.1410, 0.0070), "GJ551_Teff_K": (3054, 79),
+                 "note": "the primary source Faria 2022 cites for L*; its uncertainty is 30x smaller than Faria's 0.0006 "
+                         "-- a DISCREPANCY between the two READ sources, recorded, not adjudicated"}
 AREAS_M2 = (1.0, 100.0, 1.0e4)
 
 
@@ -68,6 +76,12 @@ def flux(L, a):
 
 def flux_b():
     l, s = FARIA_2022_TABLE1["L_over_Lsun"]
+    a = seat.FARIA_2022["b_a_au"] * AU
+    return {k: flux(v * L_SUN, a) for k, v in (("low", l - s), ("central", l), ("high", l + s))}
+
+
+def flux_b_boyajian():
+    l, s = BOYAJIAN_2012["GJ551_L_over_Lsun"]
     a = seat.FARIA_2022["b_a_au"] * AU
     return {k: flux(v * L_SUN, a) for k, v in (("low", l - s), ("central", l), ("high", l + s))}
 
@@ -95,13 +109,17 @@ def collect():
             for A in AREAS_M2:
                 rows.append({"term": name, "E_J": E, "L_case": k, "A_m2": A,
                              "t_s": gather_time_s(E, F[k], A), "t_yr": gather_time_s(E, F[k], A) / YEAR_S})
-    return {"flux_W_m2": F, "earth_control_W_m2": flux(L_SUN, AU), "rows": rows, "READ": FARIA_2022_TABLE1}
+    E = openterms.chem_ceiling_j()
+    week = {"Faria " + k: gather_time_s(E, v, 100.0) / 86400.0 for k, v in F.items()}
+    week.update({"Boyajian " + k: gather_time_s(E, v, 100.0) / 86400.0 for k, v in flux_b_boyajian().items()})
+    return {"flux_W_m2": F, "flux_boyajian_W_m2": flux_b_boyajian(), "earth_control_W_m2": flux(L_SUN, AU),
+            "rows": rows, "chem_100m2_days": week, "READ": [FARIA_2022_TABLE1, BOYAJIAN_2012]}
 
 
 def report():
     d = collect()
     F = d["flux_W_m2"]
-    print("Step 1b -- B's local supply against Proxima's light (H-AT-ORBIT, H-STEADY, H-COLLECT eta = 1: shortest time)")
+    print("Step 1b -- B's local supply against Proxima's light (H-AT-ORBIT, H-STEADY, H-COLLECT eta = 1)")
     print("  flux at b's orbit: low %.0f, central %.0f, high %.0f W/m^2 (L* = 0.0016 +- 0.0006 L_sun, READ); at 1 au "
           "from the Sun %.0f W/m^2 (control)" % (F["low"], F["central"], F["high"], d["earth_control_W_m2"]))
     last = None
@@ -114,6 +132,10 @@ def report():
         print("    collector %8.0f m^2: %.4g s = %.4g yr" % (r["A_m2"], r["t_s"], r["t_yr"]))
     print("\n  (central L*; the low and high cases scale the times by %.2f and %.2f)"
           % (F["central"] / F["low"], F["central"] / F["high"]))
+    B = d["flux_boyajian_W_m2"]
+    print("  Boyajian 2012 (the primary source, READ): L* = 0.00155 +- 0.00002 L_sun -> %.0f W/m^2 (%.0f-%.0f); "
+          "DISCREPANCY with Faria's +-0.0006, recorded, not adjudicated" % (B["central"], B["low"], B["high"]))
+    print("  chemical ceiling on 100 m^2, days: %s" % {k: round(v, 2) for k, v in d["chem_100m2_days"].items()})
 
 
 def selftest():
@@ -142,14 +164,19 @@ def selftest():
     t = gather_time_s(E, F["central"], 1.0)
     chk("chemical deficit ceiling over 1 m^2, central L*: between 1 and 2 years (a computed range, printed)",
         1.0 < t / YEAR_S < 2.0, True)
-    chk("time scales inversely with area: 100x the area, 1/100 the time (to 1e-12)",
-        abs(gather_time_s(E, F["central"], 100.0) * 100.0 / t - 1.0) < 1e-12, True)
-    chk("CONTROL: eta below 1 lengthens the time (eta = 0.2: 5x)",
-        abs(gather_time_s(E, F["central"], 1.0, 0.2) / t - 5.0) < 1e-12, True, ctl=True)
+    wk = collect()["chem_100m2_days"]
+    chk("on 100 m^2 the chemical ceiling is gathered within a week at Faria's central L* and every Boyajian case, but "
+        "NOT at Faria's low L* (%.2f days)" % wk["Faria low"],
+        (wk["Faria central"] < 7, all(wk["Boyajian " + k] < 7 for k in ("low", "central", "high")), wk["Faria low"] < 7),
+        (True, True, False))
+    bf = flux_b_boyajian()
+    chk("Boyajian's L* gives a flux within Faria's range and its spread is ~1.3% (READ, computed)",
+        (F["low"] < bf["central"] < F["high"], abs(bf["high"] / bf["central"] - 1 - 0.0129) < 0.001), (True, True))
     _tr = gather_time_s(tb["register reset floor (balance OUT-B-HEAT, H-RESET)"], F["central"], 1.0)
     chk("the register reset floor (%.0f s on 1 m^2, central L*) is gathered over 1e4 times faster than the chemical "
         "deficit ceiling" % _tr, _tr * 1e4 < t, True)
-    print("\n%d/%d checks pass, %d of them controls" % (n_ok, n_ok + n_bad, n_ctl))
+    print("  [STRUCTURAL] t = E/(F A eta): inverse in area, flux and efficiency -- identities of the formula")
+    print("\n%d/%d checks pass, %d of them controls; 1 STRUCTURAL printed, not counted" % (n_ok, n_ok + n_bad, n_ctl))
     return n_bad == 0
 
 

@@ -32,15 +32,19 @@ WHAT IT COMPUTES
         R-QUANTUM    I is carried as quantum state (teleportation; transit.py, imported): 2 classical bits per qubit
                      and 1 pre-shared ebit per qubit.  COMPUTED here over random states with transit.teleport: B's
                      fidelity is 1 with the bits, A's four outcomes are equiprobable whatever the state (so the record
-                     alone holds no I about it), and with the bits withheld B's fidelity is 1/2 for every state (B
-                     holds I/2; a CONTROL: the value does not balance without the channel).  What teleportation moves is STATE; the atoms at A
+                     alone holds no I about it), and with the bits withheld B's fidelity is 1/2 for every state (B's
+                     state is the maximally mixed 1/2: no information about the state at all; 1/2 is the blind-guess
+                     fidelity; a CONTROL: the value does not balance without the channel).  What teleportation moves is STATE; the atoms at A
                      stay atoms of the same species (transit.CARRIES_SUBSTANCE = False), so the CLASSICAL part of I
                      (the species sequence) is not retired at A by teleporting -- on this reading too, A's instance
                      leaves only through an output term.
   (3) The equation's terms, each with its side (INPUT / OUTPUT), site (A, B, channel), what it is, its value where an
       instrument computes one, its status (COMPUTED, READ via its owner, OPEN), and -- for every input -- the output
-      term(s) that account for it.  Every input must be accounted for in output (M, item 29): checked, with a CONTROL
-      that drops an output and must fail.
+      term(s) declared to account for it.  Every input must be accounted for in output (M, item 29).  This is a
+      bookkeeping of DECLARED links (each input named by an output), not a balance of quantities: the check that every
+      input is named is printed STRUCTURAL; the CONTROL that drops the ebit output and catches IN-EBITS tests the
+      bookkeeping function.  The energy at A is carried by two OPEN rows: IN-A-RETIRE-E (the energy to retire A's
+      instance; sign by H-STOCK-FORM) and OUT-A-HEAT (the read energy, less any retire energy, leaving A as heat).
   (4) The conserved quantities as a CONSISTENCY column, not as the value (M: "Information only"): the object's mass
       number (approximated by M/u, H-BARYON-BY-MASS), its electrons (sum of N_e Z_e, Z READ via massform.Z_OF) and its
       charge (0, neutral atoms).  The column closes SITE BY SITE with zero transfer between A and B: A's matter stays at
@@ -53,6 +57,12 @@ WHAT IT COMPUTES
       energy is priced per schedule only (seat.channel_floor: it falls as the schedule lengthens; S5's transfer has no
       energy floor independent of T), and the erasure terms are floors that apply only if a record is erased (a kept
       record is the output instead).
+
+HISTORY (corrected after the Step 1b verifier, 2026-10-05): 'B holds I/2' (B holds no information; 1/2 is the
+blind-guess fidelity); 'every input accounted for ... checked' (declared links, now STRUCTURAL; the read's excess heat
+and the retire energy had no rows -- OUT-A-HEAT and IN-A-RETIRE-E added, both OPEN); the no-cloning check was an
+overlap gap that fails only with probability zero and a hard-coded CNOT table (now the Buzek-Hillery cloner computed,
+5/6, and CNOT as a matrix); '2.0 * bits' retyped (now transit.CLASSICAL_BITS_PER_QUBIT).
 
 NAMED HYPOTHESES (every limitation carried by name)
   H-WHICH-COUNT     which of measure.py's four counts is the object's information is not fixed; all four carried.
@@ -124,7 +134,8 @@ def quantum_value_balance(trials=400, seed=1):
     """Over random qubit states, with transit.teleport (imported):
        fid_min       B's least fidelity WITH the two bits (the value balances iff this is 1);
        p_dev_max     the largest deviation of any outcome probability from 1/4 (0 -> the record alone holds no I);
-       fid_nobits    B's fidelity with the bits WITHHELD: 1/2 for every state, since B then holds I/2 (the value
+       fid_nobits    B's fidelity with the bits WITHHELD: 1/2 for every state, since B's state is then the
+                     maximally mixed 1/2 -- no information about psi; 1/2 is a blind guess's fidelity (the value
                      does not balance without the channel).  First written expecting 2/3 -- that is the best
                      measure-and-prepare fidelity, a different quantity; the check caught it."""
     rng = random.Random(seed)
@@ -174,13 +185,15 @@ def equation(bits, reading):
     (id, side, site, what, value, unit, status, accounts_for)."""
     o = object_conserved()
     s = stock_terms()
-    sent = bits if reading == "R-CLASSICAL" else 2.0 * bits
+    sent = bits if reading == "R-CLASSICAL" else transit.CLASSICAL_BITS_PER_QUBIT * bits
     ch = [seat.channel_floor(sent, T) for T in SCHEDULES_S]
     t = [
         ("IN-A-OBJECT", "INPUT", "A", "the object at A: value I(A) and its matter (%.4g kg, %.4g J rest energy)"
          % (o["kg"], o["rest_energy_J"]), bits, "bits", "COMPUTED (measure.price_table)", ()),
         ("IN-A-READ", "INPUT", "A", "energy to read I at A", None, "J",
          "OPEN: theorem floor 0, probe floors by carrier under H-PROBE (openterms.py T1); no single value", ()),
+        ("IN-A-RETIRE-E", "INPUT", "A", "energy to retire A's instance into stock (chemistry; sign by H-STOCK-FORM)",
+         None, "J", "OPEN: within +-chemical ceiling (openterms.py T2)", ()),
         ("IN-B-STOCK", "INPUT", "B", "stock consumed at B: CI-chondrite feedstock for the object (binder %s)"
          % s["ci_binder"][0], s["ci_feedstock_kg"], "kg",
          "COMPUTED (stock.feedstock_kg); the gate at Proxima OPEN (P measured: %s)" % s["P_measured_in_proxima_system"],
@@ -204,9 +217,12 @@ def equation(bits, reading):
          + (("IN-EBITS",) if reading == "R-QUANTUM" else ())),
         ("OUT-A-RESIDUE", "OUTPUT", "A", "A's matter, retired as stock at A (%.4g kg): the instance at A leaves only "
          "through this term, on both readings" % o["kg"], o["kg"], "kg",
-         "COMPUTED mass; energy to retire it OPEN (bounded, and dissolved by a photon or electron read under "
-         "H-PROBE/H-ABSORB: openterms.py T2); carried under H-RETIRE-A (M, item 32)",
+         "COMPUTED mass; energy to retire it in IN-A-RETIRE-E (OPEN; subsumed by a photon or electron read under "
+         "H-PROBE/H-ABSORB, openterms.py T2); carried under H-RETIRE-A (M, item 32)",
          ("IN-A-OBJECT", "IN-A-READ")),
+        ("OUT-A-HEAT", "OUTPUT", "A", "heat leaving A: the read energy, less any retire energy", None, "J",
+         "OPEN: the read is carrier-dependent (openterms.py T1); its excess over the retire term leaves A as heat",
+         ("IN-A-READ", "IN-A-RETIRE-E")),
         ("OUT-B-RESIDUE", "OUTPUT", "B", "stock processed and not incorporated", s["ci_residue_kg"], "kg",
          "COMPUTED (stock.feedstock_kg - payload)", ("IN-B-STOCK",)),
         ("OUT-B-HEAT", "OUTPUT", "B", "heat from resetting B's register before writing I (H-RESET): >= %.3g J at %.4g "
@@ -247,24 +263,48 @@ def energy_total(terms):
     return sum(x[4] for x in e if x[1] == "INPUT") - sum(x[4] for x in e if x[1] == "OUTPUT")
 
 
-def no_cloning(trials=400, seed=3):
-    """What no-cloning binds, and what it does not.
-      quantum: a unitary preserves inner products, so cloning |psi> and |phi> needs <psi|phi> = <psi|phi>^2, true only
-               when |<psi|phi>| is 0 or 1 (Wootters-Zurek).  Over random pairs: the least gap ||<psi|phi>| -
-               |<psi|phi>|^2| (> 0: no single unitary clones both) -- and teleportation already leaves A with no
-               information about psi (quantum_value_balance: outcomes equiprobable).
-      classical: CNOT onto a blank |0> copies each basis state exactly (fidelity 1): a classical record copies freely,
-               so no-cloning does not bind the species sequence."""
+def no_cloning(trials=200, seed=3):
+    """What no-cloning binds, and what it does not -- each computed.
+      quantum: the Buzek-Hillery universal cloning transformation (Buzek & Hillery 1996, NAMED-NOT-READ; its
+               optimality is not claimed here), built explicitly on input, blank and ancilla, gives each copy fidelity
+               5/6 < 1 for every input state (computed over random states) -- a quantum state cannot be copied
+               perfectly; teleportation meets the theorem by leaving A with no information about psi
+               (quantum_value_balance: outcomes equiprobable).
+      classical: CNOT (an explicit 4 x 4 matrix) onto a blank |0> maps |x>|0> to |x>|x> for x = 0, 1: a classical
+               record copies perfectly, so no-cloning does not bind the species sequence."""
+    s23, s16 = math.sqrt(2.0 / 3.0), math.sqrt(1.0 / 6.0)
+
+    def k(a, b, c):
+        v = [0j] * 8
+        v[4 * a + 2 * b + c] = 1.0
+        return v
+
+    def add(*terms):
+        out = [0j] * 8
+        for coef, vec in terms:
+            out = [o + coef * x for o, x in zip(out, vec)]
+        return out
+    img0 = add((s23, k(0, 0, 0)), (s16, k(0, 1, 1)), (s16, k(1, 0, 1)))
+    img1 = add((s23, k(1, 1, 1)), (s16, k(0, 1, 0)), (s16, k(1, 0, 0)))
     rng = random.Random(seed)
-    gap = 1.0
+    fids = []
     for _ in range(trials):
-        a, b = _rand_state(rng), _rand_state(rng)
-        ov = abs(a[0].conjugate() * b[0] + a[1].conjugate() * b[1])
-        gap = min(gap, abs(ov - ov * ov))
-    # CNOT |x>|0> = |x>|x> for x in {0, 1}: on basis vectors of C^4 ordered |00>,|01>,|10>,|11>
-    cnot = {0: 0, 1: 1, 2: 3, 3: 2}
-    copies = [cnot[2 * x + 0] == 2 * x + x for x in (0, 1)]
-    return {"trials": trials, "least_overlap_gap": gap, "cnot_copies_basis_states": copies}
+        al, be = _rand_state(rng)
+        out = [al * x + be * y for x, y in zip(img0, img1)]
+        # reduced state of the first qubit
+        r = [[sum(out[4 * i + j] * out[4 * i2 + j].conjugate()
+                  for j in range(4)) for i2 in range(2)] for i in range(2)]
+        fids.append(((al.conjugate() * (r[0][0] * al + r[0][1] * be)
+                      + be.conjugate() * (r[1][0] * al + r[1][1] * be))).real)
+    cnot = [[1, 0, 0, 0], [0, 1, 0, 0], [0, 0, 0, 1], [0, 0, 1, 0]]
+    copies = []
+    for x in (0, 1):
+        v = [0, 0, 0, 0]
+        v[2 * x] = 1
+        w = [sum(cnot[i][j] * v[j] for j in range(4)) for i in range(4)]
+        copies.append(w[3 * x] == 1 and sum(w) == 1)
+    return {"trials": trials, "cloner_fid_min": min(fids), "cloner_fid_max": max(fids),
+            "cnot_copies_basis_states": copies}
 
 
 def m_words_present():
@@ -358,10 +398,10 @@ def selftest():
     chk("M's words, items 29, 30 and 32, are found verbatim in the rulings file", m_words_present(),
         (True, True, True))
     nc = no_cloning()
-    chk("no-cloning (quantum): over random pairs the overlap gap |<psi|phi>| - |<psi|phi>|^2 stays > 0 -- no unitary "
-        "clones both", nc["least_overlap_gap"] > 0, True)
-    chk("CONTROL: classical copying is not forbidden -- CNOT onto a blank copies both basis states",
-        nc["cnot_copies_basis_states"], [True, True], ctl=True)
+    chk("no-cloning (quantum): the Buzek-Hillery cloner's copies have fidelity 5/6 < 1 for every random input (to 1e-9)",
+        (abs(nc["cloner_fid_min"] - 5 / 6) < 1e-9, abs(nc["cloner_fid_max"] - 5 / 6) < 1e-9), (True, True))
+    chk("classical copying is not forbidden: CNOT (explicit matrix) onto a blank copies both basis states",
+        nc["cnot_copies_basis_states"], [True, True])
     chk("CONTROL: a one-word change to item 29's words is not found",
         (M_WORDS_29.replace("must equal", "should equal") in
          " ".join(open(RULINGS_FILE, encoding="utf-8").read().split())), False, ctl=True)
@@ -374,11 +414,11 @@ def selftest():
     chk("R-QUANTUM: B's least fidelity with the bits is 1 (to 1e-12)", abs(q["fid_min_with_bits"] - 1.0) < 1e-12, True)
     chk("R-QUANTUM: the four outcomes are equiprobable for every state (record alone holds no I)",
         q["p_dev_max_from_quarter"] < 1e-12, True)
-    chk("CONTROL: bits withheld, B's fidelity is 1/2 for every state (B holds I/2), not 1: no balance without the bits",
+    chk("CONTROL: bits withheld, B's fidelity is 1/2 for every state (B's state 1/2: no information), not 1",
         (q["fid_bits_withheld_dev_max_from_half"] < 1e-12, q["fid_mean_bits_withheld"] < 0.99), (True, True),
         ctl=True)
-    chk("the board's readings this file rests on: CARRIES_SUBSTANCE False, IT_IS_A_MOVE_NOT_A_COPY True",
-        (transit.CARRIES_SUBSTANCE, transit.IT_IS_A_MOVE_NOT_A_COPY), (False, True))
+    structural.append("pins of transit.py's declared constants this file rests on: CARRIES_SUBSTANCE = %s, "
+                      "IT_IS_A_MOVE_NOT_A_COPY = %s" % (transit.CARRIES_SUBSTANCE, transit.IT_IS_A_MOVE_NOT_A_COPY))
     o = object_conserved()
     chk("electrons = protons, recomputed from measure.atom_counts and massform.Z_OF; O carries Z = 8",
         (abs(o["electrons"] - sum(n * massform.Z_OF[e] for e, n in measure.atom_counts()[0].items())) < 1,
@@ -391,17 +431,22 @@ def selftest():
     for name, bits in cs:
         for r in ("R-CLASSICAL", "R-QUANTUM"):
             t = equation(bits, r)
-            chk("%s | %s: every input is accounted for in an output" % (name[:24], r), unaccounted(t), [])
-            chk("%s | %s: the energy total is REFUSED (OPEN terms present)" % (name[:24], r), energy_total(t), None)
+            if unaccounted(t) or energy_total(t) is not None:
+                n_bad += 1
+                print("  [XX] %s | %s: an input is not named by any output, or the total was not refused" % (name, r))
+    structural.append("every input is named by some output, and the energy total is refused, for all four counts and both "
+                      "readings: declared links and OPEN rows, so true by construction (a failure is still reported)")
     t = equation(cs[0][1], "R-QUANTUM")
-    chk("CONTROL: the B-residue term dropped, IN-B-STOCK is still accounted (by OUT-B-OBJECT) -- the check is per input",
-        unaccounted([x for x in t if x[0] != "OUT-B-RESIDUE"]), [], ctl=True)
+    structural.append("demonstration: dropping OUT-B-RESIDUE (679 kg) goes unnoticed (IN-B-STOCK is still named by "
+                      "OUT-B-OBJECT) -- the bookkeeping is per input, not a balance of kilograms: %s"
+                      % unaccounted([x for x in t if x[0] != "OUT-B-RESIDUE"]))
     chk("CONTROL: the record and ebits outputs dropped, IN-EBITS goes unaccounted and is caught",
         unaccounted([x for x in t if x[0] not in ("OUT-EBITS", "OUT-B-OBJECT")]), ["IN-EBITS"], ctl=True)
     chk("CONTROL: every OPEN energy term filled with 0, the total is no longer refused",
         energy_total([x[:4] + ((0.0,) if (x[5] == "J" and x[4] is None) else (x[4],)) + x[5:] for x in t]) is None,
         False, ctl=True)
-    chk("OPEN terms named: reading at A and assembly at B", open_terms(t), ["IN-A-READ", "IN-B-ASSEMBLE"])
+    chk("OPEN terms named: reading, retiring and heat at A; assembly at B", open_terms(t),
+        ["IN-A-READ", "IN-A-RETIRE-E", "IN-B-ASSEMBLE", "OUT-A-HEAT"])
     chk("R-CLASSICAL sends I bits; R-QUANTUM sends 2I (transit.CLASSICAL_BITS_PER_QUBIT = 2)",
         ([x[4] for x in equation(10.0, "R-CLASSICAL") if x[0] == "IN-CHANNEL"],
          [x[4] for x in equation(10.0, "R-QUANTUM") if x[0] == "IN-CHANNEL"], transit.CLASSICAL_BITS_PER_QUBIT),

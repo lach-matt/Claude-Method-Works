@@ -18,9 +18,12 @@ opposite discrepancy in another term, so the balance holds without each term mat
 WHAT IT COMPUTES -- four places where the physics itself compensates, each tested, and the rule that bounds them
   (C1) FRAME.  The object's rest mass is the same at A and B (an invariant), but its energy in one common frame (the
        Sun's) is not: the specific energy  eps = v^2/2 + Phi  differs between Earth's surface and Proxima b's.  The
-       defect m (eps_B - eps_A) is COMPUTED, as a range.  It is DISSOLVED by B's stock: the stock already moves with B
+       defect m (eps_B - eps_A) is COMPUTED, as a range, in the Sun's frame (H-SUN-FRAME; Earth's rotation, about
+       +-1.4e7 J/kg, under 1 % of the range, omitted: H-NO-ROTATION).  It is AVOIDED by B's stock -- nothing crosses,
+       so there is no defect to compensate in any frame (avoidance, not an opposite discrepancy): the stock already moves with B
        and sits in B's potential, so an object built from it carries eps_B with no transfer term, and the frame column
-       closes at zero.  CONTROL: the same object SHIPPED from A must be supplied m (eps_B - eps_A) -- not dissolved.
+       closes at zero (printed STRUCTURAL).  Illustration (not a control: it cannot fail): the same object SHIPPED from A
+       must be supplied m (eps_B - eps_A).
        READ: Kervella, Thevenin & Lovis 2017 (arXiv:1611.03495v3, via alphaXiv): Proxima's heliocentric Galactic
        velocity (U, V, W) = (-29.390, +1.883, +13.777) km/s (Table B.1, p.6); alpha Cen A+B 2.0429 M_sun (Table 1,
        p.3) at 12 947 au from Proxima (p.3).  Proxima's mass and b's orbit and minimum mass: seat.FARIA_2022 (READ by
@@ -39,8 +42,11 @@ WHAT IT COMPUTES -- four places where the physics itself compensates, each teste
        probability p makes a defect in I(B); redundancy compensates it: Shannon's binary symmetric channel needs at
        least I / (1 - h2(p)) channel bits (capacity 1 - h2(p); h2 from measure.H).  The redundant bits are an input,
        discarded at B -- an output (kept, or erased with a Landauer floor, measure.landauer_j).
-  (C4) WHAT CANNOT COMPENSATE WHAT.  Compensation runs only within one conserved currency: energy for energy, bits for
-       bits.  A defect in baryon number, lepton number or charge at B cannot be dissolved by any energy term while those
+  (C4) WHAT CAN AND CANNOT COMPENSATE WHAT (computed, not declared).  Energy and bits DO compensate each other -- bits
+       are not conserved: more power buys more bits through the channel (the board's LNM 1D law, seat.lnm_rate_1d:
+       rate grows as sqrt(P)), so a bit-rate defect is dissolved by energy; and a bit of information about a system buys
+       up to kT ln 2 of work (Szilard; Bennett and del Rio et al. READ by measure.py; measure.landauer_j).  A defect in
+       baryon number, lepton number or charge at B cannot be dissolved by any energy term while those
        are conserved -- making baryons from energy makes antibaryons too (massform.pair_floor_j, a THEOREM on B and L
        conservation, imported).  At B such a defect is dissolved only by stock carrying that charge: D25's gate again.
 
@@ -57,6 +63,15 @@ NAMED HYPOTHESES
                    spacetime (gr-qc/9901074v1 p.14); the seat is neither, so (C2) is the physics' compensation in that
                    scope, carried to the seat as a hypothesis.
   H-BSC            the channel's errors are independent bit flips at rate p.
+  H-SUN-FRAME      (C1)'s energies are taken in the Sun's frame; the defect's size is frame-dependent.
+  H-NO-ROTATION    Earth's rotation omitted from eps_A (under 1 % of the range).
+
+HISTORY (corrected after the Step 1b verifier, 2026-10-05): C1 'DISSOLVED by B's stock' (avoided: nothing crosses) and
+its shipped 'CONTROL' (cannot fail); C4 'compensation runs only within one conserved currency' (declared, and false for
+bits and energy -- now computed); the from-stock residual counted as a check and printed STRUCTURAL (double count);
+the T^6 and |E|^(-1/3) checks test the code's own formula (now STRUCTURAL); the 1 J over 1 m^2 quantum-interest example
+lies far outside Ford-Roman's causal-contact condition A < T^2 (fn. 34, which the paper notes is sometimes imposed and
+otherwise leaves A arbitrary) -- now printed beside it.
 """
 import contextlib
 import io
@@ -204,10 +219,25 @@ def redundancy(bits, p):
 CURRENCIES = ("energy", "bits", "baryon", "lepton", "charge")
 
 
+def energy_buys_bits(P1=1e3, P2=4e3):
+    """seat.lnm_rate_1d (LNM eq. 8, one polarisation): bits/s at two powers -- more energy, more bits."""
+    return seat.lnm_rate_1d(P1, pol=1), seat.lnm_rate_1d(P2, pol=1)
+
+
+def bits_buy_energy(bits=1.0, T=300.0):
+    """Szilard: up to kT ln 2 of work per bit about the system (measure.landauer_j)."""
+    return measure.landauer_j(bits, T)
+
+
 def can_compensate(defect, by):
-    """Compensation runs within one conserved currency.  Energy cannot dissolve a baryon, lepton or charge defect while
-    those are conserved (massform.pair_floor_j: energy makes particle-antiparticle pairs)."""
-    return defect == by
+    """Within a currency, always.  Energy <-> bits: yes, computed (energy_buys_bits, bits_buy_energy).  Baryon, lepton
+    or charge: only by itself while conserved -- energy makes particle-antiparticle pairs (massform.pair_floor_j)."""
+    if defect == by:
+        return True
+    if {defect, by} == {"energy", "bits"}:
+        e1, e2 = energy_buys_bits()
+        return e2 > e1 and bits_buy_energy() > 0
+    return False
 
 
 def baryon_from_energy_floor():
@@ -240,10 +270,10 @@ def report():
           "%.6g to %.6g J/kg (H-ORBIT-PHASE, H-MSINI)" % (f["eps_B"]["v_proxima_ms"], f["eps_B"]["v_orb_b_ms"],
                                                       *f["eps_B"]["eps_range"]))
     print("    defect for %.0f kg: %.4g to %.4g J" % (PAYLOAD, *f["defect_J_range"]))
-    print("    built from B's stock: residual %s J -- DISSOLVED (the stock already carries eps_B)"
+    print("    built from B's stock: residual %s J -- AVOIDED (nothing crosses; the stock already carries eps_B)"
           % [c["residual_J"] for c in d["frame_columns"]["from_B_stock"]])
-    print("    CONTROL, shipped from A: residual %s J -- NOT dissolved" % ["%.4g" % c["residual_J"]
-                                                                       for c in d["frame_columns"]["shipped"]])
+    print("    illustration, shipped from A: residual %s J" % ["%.4g" % c["residual_J"]
+                                                           for c in d["frame_columns"]["shipped"]])
     q = d["quantum_interest"]
     print("\n(C2) NEGATIVE ENERGY AT THE SEAT: quantum interest (Ford & Roman gr-qc/9901074v1; H-QI-SCOPE)")
     print("    eq. 39 re-derived: min F at eps = 1e-4 is %.6f; (3 sqrt3 / 2) sqrt(eps) = %.6f"
@@ -253,6 +283,9 @@ def report():
         if "eps_min_small_T" in e:
             s += "; at T = %.3g s it overcompensates by at least eps = %.3g" % (e["T_s"], e["eps_min_small_T"])
         print(s)
+    ex = q["examples"][0]
+    print("    the 1 J over 1 m^2 example: c T_max = %.3g m against sqrt(A) = 1 m -- far outside the causal-contact "
+          "condition A < T^2 (fn. 34; the paper otherwise leaves A arbitrary)" % (C * ex["T_max_s"]))
     print("    exact compensation (eps = 0) admits no non-trivial pulse (pp.9-10): the defect is dissolved only by MORE")
     print("    positive energy -- an input, accounted for in output (item 29)")
     print("\n(C3) THE VALUE: redundancy over a noisy channel (species-sequence count; H-BSC)")
@@ -262,7 +295,10 @@ def report():
         else:
             print("    p = %-6g capacity %.6f: send %.4g bits, %.4g redundant, erasure floor %.3g J at 310 K"
                   % (r["p"], r["capacity"], r["sent"], r["redundant"], r["erase_redundant_J_310K"]))
-    print("\n(C4) WHAT CANNOT COMPENSATE WHAT: within one currency only")
+    e1, e2 = energy_buys_bits()
+    print("\n(C4) WHAT CAN AND CANNOT COMPENSATE WHAT (computed):")
+    print("    energy -> bits: LNM 1D rate %.3g bits/s at 1 kW, %.3g at 4 kW; bits -> energy: %.3g J per bit at 300 K"
+          % (e1, e2, bits_buy_energy()))
     for k, v in d["currency_matrix"].items():
         print("    %-7s defect dissolved by: %s" % (k, [b for b, ok in v.items() if ok]))
     pf, rest = d["pair_floor_J_vs_rest_J"]
@@ -294,10 +330,6 @@ def selftest():
         40e3 < b["v_orb_b_ms"] < 55e3, True)
     fd = frame_defect()
     chk("the frame defect is nonzero at both ends of its range", all(abs(x) > 0 for x in fd["defect_J_range"]), True)
-    chk("built from B's stock, the frame column's residual is 0 at both ends (DISSOLVED)",
-        [frame_column(x, True)["residual_J"] for x in fd["defect_J_range"]], [0.0, 0.0])
-    chk("CONTROL: shipped from A, the residual equals the defect (NOT dissolved)",
-        [frame_column(x, False)["residual_J"] == x for x in fd["defect_J_range"]], [True, True], ctl=True)
     chk("Ford-Roman eq. 29's coefficient (pi/16)^(2/3) reproduces the printed 0.338; eq. 28's pi/24 the printed 0.131",
         (round(FORD_ROMAN_1999["Tmax_coef_4d"], 3), round(FORD_ROMAN_1999["Tmax_coef_2d"], 3)), (0.338, 0.131))
     chk("Fewster-Eveson's C is 9/64 of Ford-Roman's (p.9: 'the resulting bound is 9/64 of that in Eq.(1)')",
@@ -308,23 +340,22 @@ def selftest():
             abs(y / (1.5 * math.sqrt(3.0 * e)) - 1.0) < 0.01, True)
     chk("CONTROL: at eps -> 0 (exact compensation) F has no positive minimum -- F(alpha) -> 0 as alpha grows",
         F_alpha(1e4, 0.0) < 1e-3, True, ctl=True)
-    q1, q2 = qi_si(1.0, 1.0, 1e-19), qi_si(1.0, 1.0, 2e-19)
-    chk("the least overcompensation grows with separation (T^6 at small T): ratio 2^6 within 1e-9",
-        abs(q2["eps_min_small_T"] / q1["eps_min_small_T"] - 64.0) < 1e-9, True)
-    chk("T_max shrinks as |E| grows (|E|^(-1/3)): 8x the energy, half the time",
-        abs(qi_si(8.0, 1.0)["T_max_s"] / qi_si(1.0, 1.0)["T_max_s"] - 0.5) < 1e-12, True)
+    structural.append("the quantum-interest scalings (eps ~ T^6 at small T; T_max ~ |E|^(-1/3)) are the formulas as "
+                      "written, evaluated")
     sp = balance.counts()[0][1]
     r = redundancy(sp, 0.11)
     chk("redundancy at p = 0.11: capacity 1 - h2(0.11) ~ 0.5 (within 0.001), sent ~ 2x", (abs(r["capacity"] - 0.5) < 1e-3,
         abs(r["sent"] / sp - 1 / r["capacity"]) < 1e-12), (True, True))
     chk("CONTROL: at p = 1/2 no redundancy compensates (capacity 0)", redundancy(sp, 0.5), None, ctl=True)
-    chk("compensation only within a currency: energy cannot dissolve baryon, lepton or charge defects",
+    chk("energy and bits compensate each other (computed: more power, more bits; a bit buys kT ln 2 of work)",
+        (can_compensate("bits", "energy"), can_compensate("energy", "bits")), (True, True))
+    chk("energy cannot dissolve baryon, lepton or charge defects while those are conserved",
         [can_compensate(x, "energy") for x in ("baryon", "lepton", "charge")], [False, False, False])
     pf, rest = baryon_from_energy_floor()
     chk("making the payload's baryons from energy costs > 1.99 Mc^2 (massform.pair_floor_j: antibaryons too)",
         pf / rest > 1.99, True)
-    structural.append("the from-stock frame residual is 0 by construction (the compensation is defined as the stock's "
-                      "own eps_B); what is computed is the defect's size, and that shipping leaves it standing")
+    structural.append("the from-stock frame residual is 0 by construction (nothing crosses); the shipped residual equals "
+                      "the defect by construction; what is computed is the defect's size")
     for x in structural:
         print("  [STRUCTURAL] " + x)
     print("\n%d/%d checks pass, %d of them controls; %d STRUCTURAL printed, not counted"
