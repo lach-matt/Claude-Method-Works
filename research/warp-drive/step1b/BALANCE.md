@@ -193,3 +193,39 @@ History:
   `terms.py`, which shadowed it when `bsupply.py` imported it. Its content did not change.
 - `bsupply.py`'s first selftest asserted the reset floor is gathered "in under a minute". It takes 269 s, so the
   guessed threshold failed while the finding held. The check now compares the reset floor with the chemical term.
+
+## Placement, and the energy column's floor — `step1b/placement.py`, 12/12 pass, 2 controls
+
+M: "Continue". Placement was the last energy term left OPEN.
+
+- **(P1) Making the order costs heat once, not twice.** Per Bennett, only a logically irreversible step costs heat.
+  With the description in hand, the stock can be ordered reversibly; the irreversible step is discarding the
+  description, or resetting the register it was written into. Either way the floor is I k T ln 2, counted **once**,
+  and `balance.py` already carries it as OUT-B-HEAT.
+  - The check confirms it appears exactly once. A planted second placement-heat term is caught.
+  - Species-sequence count: 2.48e5 J at 2.725 K, or 2.82e7 J at 310 K.
+- **(P2) Holding an atom in place is a loan, not a cost.** Holding an atom within a spread σ costs at least
+  E0 = 3ħ²/(4mσ²), the ground energy of a harmonic trap; the identity is checked. That energy is returned on release
+  (H-REVERSIBLE-TRAP).
+  - For hydrogen at 1 Å, E0 is 0.0031 eV, below kT at 310 K.
+  - At 0.1 Å it is 0.31 eV, 11.6 × kT.
+  - Holding all atoms at once would take 2.2e6 J at 1 Å, or 2.2e8 J at 0.1 Å.
+- **(P3) The floor of the energy column.** It is stated under named conditions, with every part computed. The total
+  itself stays refused in `balance.py`.
+
+| reading | schedule | floor (record kept) | channel's share |
+|---|---|---|---|
+| R-CLASSICAL | 1 yr | 1.39e14 J | ~100 % |
+| R-CLASSICAL | 100 yr | 1.39e12 J | ~100 % |
+| R-QUANTUM | 1 yr | 5.55e14 J | ~100 % |
+| R-QUANTUM | 100 yr | 5.55e12 J | ~100 % |
+
+  The parts are: reading 0 (theorem floor); chemistry 0 in the global column (matching forms); placement and reset
+  2.48e5 J, once; the channel per schedule; and the record, 0 if kept or 2.8e7–5.6e7 J if erased. **The channel
+  dominates every floor and falls as the schedule lengthens**, so the column has no floor independent of the schedule
+  beyond about 1e5–1e7 J of dissipation. The probe floors for reading (`openterms.py` T1, up to 1.3e13 J with photons)
+  are carrier-dependent hypotheses, not part of the floor.
+
+**State of Step 1b's energy column.** Every term is now computed, bounded or shown to be a returned loan, and its floor
+is stated. The total stays refused: the read depends on the carrier, the chemistry's sign on the stock's form, and
+placement has no ceiling. **OPEN:** H-WHICH-COUNT, H-STOCK-FORM, any ceiling on placement, and the collector at B.
