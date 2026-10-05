@@ -4,7 +4,7 @@ bulkwarp.py -- the bulk (BULK4-O6; M-RULINGS item 79, 'Seat all three, then the 
 energy condition, read through our plane's Weyl term, supply a warp's negative energy?  READ at source, then deduced
 from first principles (M-DEDUCE).
 
-Not seated; not verified.  M's words are carried as hypotheses, never as results.  O9 stays OPEN.
+Not seated; verified once (2026-10-05), findings applied (HISTORY).  M's words are carried as hypotheses, never as results.  O9 stays OPEN.
 
     python3 bulkwarp.py              report
     python3 bulkwarp.py --selftest   checks, with CONTROLS
@@ -30,8 +30,8 @@ SOURCES READ (2026-10-05; route: alphaXiv answer_pdf_queries on open arXiv copie
   Alias & Jalar 2203.05989v2, a 'braneworld hyperdrive': the energy density 'acquires exotic matter property of
     negative energy at the slope of the transition region' (p.14) and 'the hyperdrive requires much more energy than
     that of a warp drive' (p.14); no bulk is constructed.
-  Carried from signdim.py (READ there): Shiromizu-Maeda-Sasaki eqs. 2, 10, 16, 17, 19, 21 (the Gauss and Codazzi
-    equations, the Z2 junction, the brane equations, G_N, the conservation of tau); Alcubierre eq. 19 and Natario's
+  Carried from signdim.py (READ there): Shiromizu-Maeda-Sasaki eqs. 1 (Gauss), 2 and 10 (Codazzi), 8, 9, 16, 17, 19,
+    21 (the effective equations, E traceless, the Z2 junction, the brane equations, G_N, the conservation of tau); Alcubierre eq. 19 and Natario's
     rho (p.4).
 
 PREMISES
@@ -39,53 +39,87 @@ PREMISES
   P-VACUUM-BULK  the bulk's only stress near the plane is its vacuum energy, T = -Lambda g (SMS eq. 13): the NEC holds,
                  saturated; its Weyl curvature is free.  This is BULK4-O6's 'bulk keeping the NEC read through the Weyl
                  term'.  Named.
-  P-GC           the scalar Gauss equation R = K^2 - K.K - 2 G5_nn and the Codazzi equation D^nu(K_mn - q K) = kappa^2
-                 T5_n mu (SMS eqs. 2, 10): both involve the bulk's Ricci tensor only -- E_mn appears in neither.  READ.
-  P-LEADING      leading order in the warp speed v (v << 1) and in R l^2 << 1 (the plane's curvature against the bulk's).
-                 Named.
-  H-COMOVING     the plane's matter moves with the bubble (depends on x - v t).  Named.
+  P-GC           the scalar Gauss equation R = K^2 - K.K - 2 G5_nn (the trace of SMS eq. 8, from the Gauss equation,
+                 eq. 1; E is absent because 'E_mn is traceless', eq. 9) and the Codazzi equation D^nu(K_mn - q K) =
+                 kappa^2 T5_n mu (SMS eqs. 2, 10): both involve the bulk's Ricci tensor only.  READ.
+  P-LEADING      leading order in the warp speed v (v << 1), the plane's matter continuous in v, and |tau| << |lambda|
+                 (R l^2 << 1).  Named.
+  H-BOUNDED      the plane's matter keeps bounded second moments in time (first written H-COMOVING: it moves with the
+                 bubble; a comoving localised matter is bounded).  Named.
   H-LOCALISED    the plane's matter falls off faster than r^-3.  Named.
-  P-NEC-BRANE    the plane's matter keeps the null energy condition (the tension is null-blind).  The question's demand.
+  P-NEC-BRANE    the plane's matter keeps the null energy condition (the tension is null-blind); SMS p.4: normal matter
+                 'should satisfy the local energy condition'.  The question's demand.
 
 DEDUCTIONS (each from the premises named)
   W1 A BULK KEEPING THE NEC EXISTS LOCALLY FOR ANY ANALYTIC WARP METRIC.  [Dahia-Romero Thm 3; Seahra-Wesson p.7;
      computed: Alcubierre's form function is even in r_s, so analytic]  A patch of Alcubierre's metric can be realised
      as a Z2 brane in a vacuum Einstein bulk.  The price is stated by the source: the plane's matter is then
      'determined dynamically'.  The protection is weak (Anderson): local, analytic only, no continuous dependence, no
-     causality.
+     causality -- and local patches 'generally each belong to different possible global data sets' (p.7), so W1 supplies
+     no global plane; W4-W6 are global integral conditions.
   W2 THE PLANE'S MATTER IS FIXED BY THE PLANE'S METRIC ALONE, WHATEVER THE BULK'S WEYL CURVATURE.  [P-Z2, P-VACUUM-BULK,
      P-GC, P-LEADING; computed]  Write K = -a q + k with a = kappa^2 lambda/6 (the Randall-Sundrum value, sign of the
      tension).  Then the matter is tau = -(2/kappa^2)(k - q k), the scalar Gauss equation gives R = -6 a k to leading
-     order, and Codazzi makes tau conserved.  So tau's trace is -6R/(kappa^4 lambda) = -R/(8 pi G_N) -- the same as SMS
-     eq. 17's trace (check 3) -- and E drops out.  No choice of bulk Weyl curvature changes the plane's matter's trace or
-     its conservation.
-  W3 A CONSERVED, LOCALISED, COMOVING MATTER THAT KEEPS THE NEC HAS NON-NEGATIVE TOTAL ENERGY, AND ITS INTEGRATED TRACE
-     IS (v^2 - 1) TIMES THAT ENERGY.  [H-COMOVING, H-LOCALISED, P-NEC-BRANE, P-LEADING; the flat-space conservation
-     identities, checked on a boosted self-stressed body]  With fields depending on x - v t, conservation gives
-     int tau_{mu i} = -v delta_ix int tau_{mu 0}; hence int tau_kk = E (1 - v n_x)^2 for every null k = (1, n), so the NEC
-     makes E = int tau_00 >= 0; and int tau^mu_mu = (v^2 - 1) E.
+     order, and Codazzi makes tau conserved.  So tau's trace is -6R/(kappa^4 lambda) = -R/(8 pi G_N) -- consistent with
+     SMS eq. 17's trace (check 3) -- and E drops out.  The matter must be O(v^2): at O(v^0) and O(v^1) it would be static,
+     traceless (R = O(v^2) exactly), conserved, localised and NEC-keeping, and such a tensor vanishes (Laue gives
+     int tau_00 = 0, so tau_kk = 0 for every null k, so tau is proportional to q and, traceless, zero).  Alcubierre's
+     O(v) curvature G_0i (pointwise nonzero, integral zero) is therefore carried by E, traceless and divergence-free.
+     G_N here is SMS eq. 19's coefficient, not the measured Newton constant; the trace relation needs |tau| << |lambda|,
+     not E small, so Shiromizu-Koyama's non-negligible E on the negative plane does not touch it.
+  W3 MATTER THAT IS CONSERVED, LOCALISED, BOUNDED AND KEEPS THE NEC HAS NON-NEGATIVE TOTAL ENERGY, AND ITS INTEGRATED
+     TRACE IS MINUS THAT ENERGY.  [H-BOUNDED, H-LOCALISED, P-NEC-BRANE, P-LEADING; the conservation identities, checked
+     on a boosted self-stressed body]  At the working order the matter is static in the bubble's frame and Laue's
+     identities apply: int tau_ij = 0, int tau_kk = E, int tau^mu_mu = -E, so the NEC makes E >= 0.  With bounded but
+     not comoving matter the same holds on time average (the virial <int tau_ij> = <(1/2) d^2/dt^2 int x^i x^j tau_00>
+     = 0).  In flat space the comoving identities are exact at any v -- int tau_kk = E (1 - v n_x)^2, int tau^mu_mu =
+     (v^2 - 1) E -- but the v-dependent factors exceed the working order's accuracy.
   W4 ALCUBIERRE'S METRIC FIXES THE PLANE'S MATTER'S TOTAL ENERGY: E = int R d^3x / (8 pi G_N), WITH THE SIGN OF THE
-     TENSION.  [W2, W3; computed: int R d^3x = (v^2/2) int (f_y^2 + f_z^2) = -16 pi int rho_Alc > 0]  At leading order
-     int tau^mu_mu = -E, and W2 makes it -int R/(8 pi G_N).  Since int R > 0, E has the sign of G_N, which is the sign of
-     lambda (SMS eq. 19).  On a positive-tension plane E = 2|E_Alc|: positive, twice the magnitude of Alcubierre's
-     negative energy, and the bulk's reading carries the rest (-3|E_Alc| in the plane's reading).
+     TENSION.  [W2, W3; computed: int R d^3x = (v^2/2) int (f_y^2 + f_z^2) = -16 pi int rho_Alc > 0]  Since int R > 0, E
+     has the sign of G_N, which is the sign of lambda (SMS eq. 19).  With E_Alc defined as int G_00/(8 pi G_N) (SMS's
+     coefficient), on a positive-tension plane E = 2|E_Alc|: positive, and the Weyl term carries -3|E_Alc|.
   W5 ON A NEGATIVE-TENSION PLANE THE TEST FAILS.  [W4, P-NEC-BRANE; H-RS1 for 'ours']  There E < 0, contradicting W3:
      a slow warp on a negative-tension Z2 plane cannot be carried by matter that keeps the NEC, conserved, localised and
-     comoving, in a bulk whose only stress is its vacuum energy -- whatever the bulk's Weyl curvature.  Under H-RS1 that
-     plane is ours.  This is H-SIGN-BY-DIMENSION's question answered one way at leading order: the sign of the plane's
-     tension -- its position in the fifth dimension -- decides whether the bulk can supply the warp's negative energy.
+     bounded, in a bulk whose only stress is its vacuum energy -- whatever the bulk's Weyl curvature.  Under H-RS1 that
+     plane is ours -- in the two-plane model without a stabilising field, the configuration signdim.py S6c found excluded
+     by observation; with the stabilising field P-VACUUM-BULK fails and W7's first door applies.  Under the reading of
+     H-SIGN-BY-DIMENSION as the plane's position (the tension's sign), this answers it one way at leading order: the
+     sign of the plane's tension decides whether the bulk's Weyl term can supply the warp's negative energy.  The
+     reading is named, and the hypothesis stays a hypothesis.
   W6 ON A POSITIVE-TENSION PLANE THE TEST PASSES, AND SUFFICIENCY IS OPEN.  [W4; computed]  The integral condition is
-     met.  Pointwise it is not trivial: R takes both signs across the wall (computed), so dust alone would need negative
-     density where R < 0; stresses are needed, and whether a conserved stress keeping the NEC pointwise exists is OPEN.
+     met, as a necessary condition only.  Pointwise it is not trivial: R takes both signs across the wall (computed at
+     v_s = 1; R is exactly proportional to v^2, so the sign pattern does not depend on v), so dust alone would need
+     negative density where R < 0; stresses are needed, and whether a conserved stress keeping the NEC pointwise
+     exists is OPEN.
   W7 WHAT EVADES THE TEST.  [P-GC; named]  A bulk field (Maartens' F_mn): its T5_nn enters the Gauss equation and its
      flux T5_n mu enters Codazzi, and the NEC does not fix T5_nn's sign.  Randall-Sundrum's radion stabilisation is such
-     a field (Goldberger-Wise, NAMED-NOT-READ).  Also: a superluminal bubble (outside P-LEADING), matter that radiates
-     or is not localised, a thick brane.  Each is OPEN, not a result.
+     a field (Goldberger-Wise, NAMED-NOT-READ).  Also: a superluminal bubble (outside P-LEADING), matter whose moments
+     grow without bound (radiation, escaping matter), a thick brane; and, NAMED-NOT-READ, an induced-gravity brane term
+     M^2 G_mn (which makes the trace relation tau_tr = -R (1/(8 pi G_N) + M^2) and can flip its sign), a Gauss-Bonnet
+     bulk, an asymmetric (non-Z2) embedding, and a plane density near |lambda| (the pi term).  Each is OPEN, not a
+     result.  NOT doors: the hidden plane's matter and bulk gravitational waves reach our plane only through E
+     (Shiromizu-Koyama eq. 33) and drop out of the trace; bounded time-dependent matter (W3).
 
 NAMED HYPOTHESES
-  P-VACUUM-BULK, P-LEADING, H-COMOVING, H-LOCALISED, H-ALCUBIERRE-ILLUSTRATIVE (sigma = 8, R = 1, v_s = 1, geometric
-  units, carried from signdim.py), H-RS1 (carried from bulk.py); and M's H-SIGN-BY-DIMENSION, H-ALCUBIERRE-PARTIAL,
-  H-HIGHER-CORRIDOR.
+  P-VACUUM-BULK, P-LEADING, H-BOUNDED, H-LOCALISED, H-ALCUBIERRE-ILLUSTRATIVE (sigma = 8, R = 1, v_s = 1, geometric
+  units, carried from signdim.py), H-RS1 (carried from bulk.py), and the reading of H-SIGN-BY-DIMENSION as the plane's
+  tension sign; and M's H-SIGN-BY-DIMENSION, H-ALCUBIERRE-PARTIAL, H-HIGHER-CORRIDOR.
+
+HISTORY (verifier, 2026-10-05; first-written claims kept)
+  * W2 first said 'the plane's matter can be chosen O(v^2)' -- a no-go must cover all matter: it MUST be O(v^2) (the
+    O(v^0), O(v^1) parts vanish).  And 'Alcubierre's total G_ty is O(v)': only the pointwise value is; its integral is
+    zero.
+  * W3 printed the factors (1 - v n_x)^2 and (v^2 - 1) as the working identities -- they exceed the order's accuracy; the
+    static Laue identities are what is used.  H-COMOVING is replaced by the weaker H-BOUNDED.
+  * W4/W5 did not say that G_N is SMS's coefficient, not the measured constant, nor that E_Alc is defined with it.
+  * W5 said 'Under H-RS1 that plane is ours' without noting that the vacuum-bulk two-plane model is the unstabilised one.
+  * W6 and 'For M' said the warp's negative energy 'is entirely the bulk's reading' on a positive plane -- it would be,
+    if such a configuration exists (W6 OPEN); and called H-SIGN-BY-DIMENSION 'made concrete and computed' -- the mapping
+    to the tension's sign is a named reading.
+  * The citations 'SMS eqs. 2, 10 (the Gauss and Codazzi equations)': eq. 1 is Gauss; eqs. 2, 10 Codazzi.
+  * W7 lacked the induced-gravity, Gauss-Bonnet, non-Z2 and high-density doors, and the record of what is not a door.
+  * The untuned control did not exercise the trace residual (a wrong-sign a now does); 'G_yy is O(v^2)' was a contrast,
+    not a control on G_ty.
 """
 import contextlib
 import importlib.util
@@ -163,7 +197,7 @@ def nec_integrated():
 
 
 # ------------------------------------------------------------------ W2: the plane's matter from Gauss-Codazzi
-def gauss_trace(tuned=True):
+def gauss_trace(tuned=True, sign_a=1):
     """K = -a q + e k (k symmetric, generic); R = K^2 - K.K + 2 kappa^2 Lambda (SMS eq. 2 contracted twice, spacelike
     normal); a = kappa^2 lambda/6, Lambda = -kappa^2 lambda^2/6 (Lambda_4 = 0) or, untuned, -kappa^2 lambda^2/3.  Returns
     (the e^0 part of R, the trace of tau = -(2/kappa^2)(k - q k) + R/(8 pi G_N) at first order, with 8 pi G_N =
@@ -177,7 +211,7 @@ def gauss_trace(tuned=True):
     k = sp.zeros(4)
     for s_, (i, j) in zip(ks, idx):
         k[i, j] = k[j, i] = s_
-    a = kap ** 2 * lam / 6
+    a = sign_a * kap ** 2 * lam / 6
     K = -a * q + e * k
     Kmix = qi * K
     trK = Kmix.trace()
@@ -206,8 +240,8 @@ def analytic_profile(one_sided=False):
 
 
 def momentum_order():
-    """Alcubierre's G_ty / v and G_yy / v at a wall point as v -> 0: the first is finite (the plane's total momentum is
-    O(v)), the second vanishes (O(v^2))."""
+    """Alcubierre's G_ty / v and G_yy / v at a wall point as v -> 0: the first is finite (pointwise O(v); its integral
+    is zero), the second vanishes (O(v^2))."""
     import sympy as sp
     t, x, y, z, v = sp.symbols("t x y z v", real=True)
     F = sp.Function("F")
@@ -258,6 +292,7 @@ def compute():
     nec, tr = nec_integrated()
     R0, gauss_res = gauss_trace()
     R0u, _ = gauss_trace(tuned=False)
+    _, gauss_res_wrong = gauss_trace(sign_a=-1)
     gty, gyy = momentum_order()
     return {"int_R": IR, "int_rho_alc": Irho, "int_R_over_minus16pi_int_rho": IR / (-16 * math.pi * Irho),
             "R_min": rmin, "R_max": rmax,
@@ -265,13 +300,14 @@ def compute():
             "laue_residual": str(laue_boosted()), "laue_residual_pressure": str(laue_boosted(False)),
             "nec_integrated": str(nec), "trace_integrated": str(tr),
             "gauss_R0": str(R0), "gauss_trace_residual": str(gauss_res), "gauss_R0_untuned": str(R0u),
+            "gauss_trace_residual_wrong_a": str(gauss_res_wrong),
             "even_residual": str(analytic_profile()), "even_residual_one_sided": str(analytic_profile(True)),
             "G_ty_over_v": gty, "G_yy_over_v": gyy}
 
 
 def report():
     d = compute()
-    print("bulkwarp.py -- the bulk (BULK4-O6, M item 79), by deduction (not verified; not seated)\n")
+    print("bulkwarp.py -- the bulk (BULK4-O6, M item 79), by deduction (verified once; not seated)\n")
     print("W1 Alcubierre's profile is even in r_s (residual %s): analytic, so Dahia-Romero embed a patch in a vacuum "
           "Einstein bulk; the plane's matter is then fixed by the embedding" % d["even_residual"])
     print("W2 Gauss-Codazzi: R's zeroth order %s (Randall-Sundrum tuning); the plane's matter's trace = -R/(8 pi G_N) "
@@ -305,17 +341,17 @@ def selftest():
     chk("W2: with the Randall-Sundrum tuning R has no zeroth-order part (%s), and the Gauss-Codazzi trace of the plane's "
         "matter equals SMS eq. 17's -R/(8 pi G_N) (residual %s)" % (d["gauss_R0"], d["gauss_trace_residual"]),
         d["gauss_R0"] == "0" and d["gauss_trace_residual"] == "0")
-    chk("untuned (Lambda = -kappa^2 lambda^2/3) a zeroth-order curvature %s remains" % d["gauss_R0_untuned"],
-        d["gauss_R0_untuned"] != "0", ctl=True)
+    chk("with the junction's sign reversed (a = -kappa^2 lambda/6) the trace residual is %s, not zero" %
+        d["gauss_trace_residual_wrong_a"], d["gauss_trace_residual_wrong_a"] != "0", ctl=True)
     chk("W4: int R d^3x = %.4f > 0 and equals -16 pi int rho_Alc (ratio %.8f), rho_Alc being Natario's printed form" % (
         d["int_R"], d["int_R_over_minus16pi_int_rho"]),
         d["int_R"] > 0 and abs(d["int_R_over_minus16pi_int_rho"] - 1) < 1e-6)
     chk("W1: Alcubierre's form function is even in r_s (residual %s), so analytic in r_s^2" % d["even_residual"],
         d["even_residual"] == "0")
     chk("a one-sided tanh profile is not (residual nonzero)", d["even_residual_one_sided"] != "0", ctl=True)
-    chk("W2: Alcubierre's total G_ty is O(v) (G_ty/v -> %.3f as v -> 0): the plane's momentum must be carried by E, so "
-        "the plane's matter can be chosen O(v^2)" % d["G_ty_over_v"], abs(d["G_ty_over_v"]) > 1e-3)
-    chk("while G_yy is O(v^2) (G_yy/v -> %.1e)" % d["G_yy_over_v"], abs(d["G_yy_over_v"]) < 1e-12, ctl=True)
+    chk("W2: Alcubierre's G_ty at a wall point is O(v) (G_ty/v -> %.3f as v -> 0; its integral is zero, a total "
+        "derivative): the plane's matter must be O(v^2), so E carries it" % d["G_ty_over_v"],
+        abs(d["G_ty_over_v"]) > 1e-3 and abs(d["G_yy_over_v"]) < 1e-12)
     chk("W6: R takes both signs across the wall (%.2f to %.2f): dust alone would need negative density where R < 0" % (
         d["R_min"], d["R_max"]), d["R_min"] < 0 < d["R_max"])
     structural.append("W3's integrated null projection int tau_kk = %s and trace %s: algebra on the conservation "
@@ -324,6 +360,8 @@ def selftest():
                       "flips -- the test fails on a negative-tension plane" % d["E_brane_plus_over_abs_E_alc"])
     structural.append("int R = (v^2/2) int (f_y^2 + f_z^2) because the remaining terms of R are total x-derivatives; "
                       "this is why int R = -16 pi int rho_Alc")
+    structural.append("the untuned Randall-Sundrum constant (Lambda = -kappa^2 lambda^2/3) leaves a zeroth-order "
+                      "curvature %s: the tuning Lambda_4 = 0 is what the test assumes" % d["gauss_R0_untuned"])
     structural.append("W7: P-VACUUM-BULK is the whole content of the test's scope -- bulk fields enter the scalar Gauss "
                       "and Codazzi equations and are not covered")
     for s_ in structural:
