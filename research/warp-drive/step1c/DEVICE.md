@@ -1,4 +1,4 @@
-# Step 1c — the device: what each part must deliver (demand only; not seated; 2026-10-05)
+# Step 1c — the device: demand, and present supply read at source (not seated; 2026-10-05)
 
 M ruled the order: 1a the specification theorem, 1b the balanced equation, 1c the device (`specthm.py` section 0).
 M's original framing was "balancing an equation with the theory and math on one side, and the device engineering and
@@ -59,10 +59,47 @@ reset-floor collector is under 0.04 m² at every schedule.
 - **The owners':** H-PROBE, H-EM-CARRIER, H-FEW-MODES, H-ONE-POL, H-HALF-WAVE, H-RESET, H-VALENCE, H-STOCK-FORM,
   H-COLLECT, H-AT-ORBIT, H-STEADY, H-CI-PROXY, H-RETIRE-A, H-LOCALITY.
 
-## OPEN (the supply side, none read yet)
+## The supply side, read at source (`supply.py`, 10/10 checks, 2 controls, 3 STRUCTURAL; M item 37: "All three (Recommended)")
 
-1. READ-A: the throughput of present atom-resolving reads (bits per second, atoms per second, and damage per atom).
-2. ASSEMBLE-B: the throughput of present atom-placing methods (atoms per second, with error rates).
-3. CHANNEL: the rate of present deep-space links over 4.24 ly.
+Every supply figure is READ, with its source, place, route and a short phrase containing the number. Every rate is
+computed from the read inputs. Each gap is demand ÷ best demonstrated supply for **one instrument**, which is also the
+number of such instruments that would have to run in parallel. That count is printed, not claimed buildable.
+
+| subsystem | best demonstrated (READ) | what it actually is |
+|---|---|---|
+| READ-A | atom probe tomography: over 50 M ions/h at about 40 % detection, so 1.39e4 detected ions/s and 3.47e4 atoms/s removed (PNNL EMSL LEAP 4000 XHR page). A measured brittle-oxide run: 150–300 ions/s (2501.11089v1) | **destroys the specimen it reads** (field evaporation, 2603.10276v1). That is H-RETIRE-A performed by the read, with H-READ-BEFORE-DAMAGE answered in the negative for this method |
+| ASSEMBLE-B | optical tweezers: 1024 atoms in a median 9.6 ms of transport, so **1.07e5 atoms/s** as an upper bound, or 1.16e4/s with the 78.6 ms detection phase (Sturm et al. 2608.12021v1, re-read by the lead). 2024 atoms in 60 ms is 3.37e4/s (2412.14647v1; its time breakdown is labelled Simulated). STM: 64 vacancies per ~10 min, so 0.107/s (1604.02265v1) | atoms held in vacuum micrometres apart, **not a bonded solid**. The STM figure moves vacancies in a Cl layer at 1.5 K and adds no atom |
+| CHANNEL | DSOC: 267 Mbps at 55e6 km and **8.3 Mbps at 400e6 km** (IEEE Photonics release, re-read by the lead); 25 Mbps at 226e6 km (nasa.gov). Voyager 1: 160 bps at 2.58e13 m | carried to 4.02e16 m under H-INVERSE-SQUARE at fixed hardware (Karmous et al. 2212.04933v4 eq. 2, READ): **8.2e-4 bits/s** from DSOC's farthest point, 6.6e-5 from Voyager |
+
+| gap (one instrument) | 1 day | 1 year | 1 century |
+|---|---|---|---|
+| READ-A | 2.2e18 | **6.1e15** | 6.1e13 |
+| ASSEMBLE-B | 7.3e17 | **2.0e15** | 2.0e13 |
+| CHANNEL | 1.3e26 | **3.7e23** | 3.7e21 |
+
+- **The 1/d² law, tested on the measured pair.** From 55e6 km to 400e6 km DSOC's rate fell less than 1/d² predicts:
+  8.3 Mbps measured against 5.05 Mbps predicted, 1.64× the law. The near point is not photon-starved, so the farthest
+  point is the anchor. A synthetic pair that obeys the law reads 1.00×, so the test does not manufacture the
+  departure. Under H-INVERSE-SQUARE the channel closes only if the product of transmit power and the two aperture
+  areas rises by the gap (Karmous eq. 2). That is a requirement on hardware, not a design.
+- **Errors at scale.** At the demonstrated per-move error of 0.4–0.7 %, assembling 6.71e27 atoms misplaces 2.5e25 to
+  4.7e25 of them (H-INDEPENDENT-ERRORS). An error-free assembly would have to find and correct those.
+- **Which gap is largest is a reading, not a ranking.** The three are on different quantities and are not added
+  (`ledger.py` section 3). The channel gap is carried under a scaling law at fixed hardware. The read and placement
+  gaps are for operations that are not the device's: destructive reading, and placement into vacuum.
+- **Blocked and reported, not routed around:** Gault et al. 2021, *Nature Reviews Methods Primers* (paywall); PubMed
+  (reCAPTCHA); the full text of Biswas & Srinivasan, IEEE JSTQE 32(1) (sign-in; only the open abstract was read).
+
+## Named hypotheses (supply)
+
+H-ONE-INSTRUMENT, H-PARALLEL-INSTRUMENTS, H-INVERSE-SQUARE, H-FIXED-HARDWARE and H-INDEPENDENT-ERRORS.
+
+## OPEN
+
+1. A non-destructive atom-resolving read of a bulk object at any rate. None was found; AET reads about 1e4 atoms per
+   particle at doses of 1e5 e⁻/Å² or more, with no acquisition time stated.
+2. Placement into a bonded solid at any demonstrated rate. Phosphorus in silicon: 12 of 12 sites, with no rate given
+   (2112.12200v2).
+3. A link rate measured beyond 400e6 km on optical hardware. DSOC's 494e6 km contact states no rate.
 4. STOCK-B: phosphorus at Proxima (carried from W3-O3).
 5. Every Step 1b and wave-3 OPEN item, carried in `ledger.py` as W3S1B_OPEN.
