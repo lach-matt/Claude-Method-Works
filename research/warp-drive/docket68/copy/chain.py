@@ -424,7 +424,9 @@ WALLS = [
      "names no dynamics", "a Lagrangian for the device's input, or the stabilisation scalar (BULK3-O3)"),
     ("W10 ADDRESS PRECISION", "the radial error at Proxima against Proxima b's orbit (computed); under R1 it is "
      "subordinate to W3, since a found throat's far mouth is where it is", "micro-arcsecond astrometry or a longer "
-     "baseline; the address carries its frame (the CMB slice)"),
+     "baseline; the address carries its frame (the CMB slice).  RECAST by M's item 119: the address is exact to the "
+     "input; position 2's precision is the input's clarity and specificity (H-ADDRESS-EXACT-TO-INPUT); the Gaia figure "
+     "is what an input in today's astrometric coordinates can specify"),
     ("W11 THE READ", "the only read at synapse resolution destroys the tissue (COPY-O3)", "a non-destructive read; or "
      "H-RETIRE-A (left open by M) admits a destructive one"),
     ("W12 IDENTITY COMPLETENESS", "H-WIRING-SUFFICES unproved (COPY-O1); no fidelity criterion", "a READ whole-brain "

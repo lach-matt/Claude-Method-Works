@@ -163,7 +163,7 @@ stock) → COPY → REPEAT.
 | 7 | **The destination's composition**: Proxima b and d unmeasured (COPY-O4); what a site adds to the README (COPY-O5) | a transit, a spectrum, direct imaging |
 | 8 | **The global bulk** for the zero-curvature throats, with both mouths in one universe (BULK5-O1) | construct it, or READ Vollick and Bronnikov–Kim's references |
 | 9 | **The coupling**: what at position 1 widens or makes the corridor (O6) | a Lagrangian for the device's input |
-| 10 | **Address precision**: the radial error at Proxima is 2.6101×10¹² m, 359 times Proxima b's orbit (under the found route this sits below wall 3) | micro-arcsecond astrometry; the address carries its frame |
+| 10 | **Address precision**: the radial error at Proxima is 2.6101×10¹² m, 359 times Proxima b's orbit (under the found route this sits below wall 3) | micro-arcsecond astrometry; the address carries its frame. *Recast by your item 119:* precision is never the device's question; the address is exact to the input, and position 2's precision is the clarity and specificity of the user's input (H-ADDRESS-EXACT-TO-INPUT). The Gaia figure is what an input in today's astrometric coordinates can specify |
 | 11 | **The read**: non-destructive at synapse resolution (COPY-O3) | a non-destructive read, or H-RETIRE-A (left open) |
 | 12 | **Identity completeness** (COPY-O1) | a whole-brain synapse total; a tolerance |
 | 13 | **The split**: on which side the README's record ends (H-SPLIT-RULE) | a rule, derived or yours |
