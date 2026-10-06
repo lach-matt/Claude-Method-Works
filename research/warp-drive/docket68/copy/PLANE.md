@@ -175,6 +175,7 @@ Every number is printed by `plane.py`.
 | 7 composition | position 2's stock fills the README's deficit (item 108) |
 | 8 the global bulk | the one-universe clause is dropped; the 5D completion is OPEN |
 | 9 the coupling | the passage is one-way 1 → 2 (computed). How the device opens it is OPEN |
+| 10 address precision | *Your item 119:* the address is exact to the input; position 2's precision is the clarity and specificity of the user's input (H-ADDRESS-EXACT-TO-INPUT). No separation enters eq. (17) |
 | 13 the split | answered by your rule, H-SPLIT-AT-P2: the record ends at position 2. *The board's reading:* it is read during the closing hold while the horizon shrinks, its capacity (1 − φ)² N (opening.py O7). Nothing else is computed |
 
 *First written* with wall 4 "zero by your measure" (the ADM reading), then "at least the floor, or 1 to 4/3 of it"; and

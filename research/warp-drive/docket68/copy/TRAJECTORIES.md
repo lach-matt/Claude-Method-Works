@@ -67,7 +67,10 @@ Every number is printed by `trajectories.py`.
 ## Your answers (item 116)
 
 - **Location:** *"No, separate"* (H-ADDRESS-SEPARATE). The address is the device's input (item 86 answer 4), not a
-  trajectory. Its bits are not the trajectories' share; their precision is wall 10's question.
+  trajectory, so its bits are not the trajectories' share.
+  - Your item 119: *"precision is never a question. The address is always precise to the input"*
+    (H-ADDRESS-EXACT-TO-INPUT). Position 2's precision is the clarity and specificity of the user's input.
+  - *First written:* "their precision is wall 10's question".
 - **Ranking:** *"Think of it like navigation through a closed index. Some trajectories are confined within specific
   dimensions, some pass through dimensions. The length of the corridor is dependent on the trajectories needed to reach
   position 2. The trajectory between two positions in the same direction are different and likely smaller than
