@@ -17,6 +17,19 @@ Every number is printed by `stockdest.py`.
   corridor's arrival aperture there is a CONDENSED body, PRIMITIVE rather than devolatilised, holding at least M(p,s) ×
   m_payload of accessible mass."*
 
+## Your ruling (item 89)
+
+*"No costlier. Stock is stock. The cost is in how much information is transferred as a README (how big the file is)."*
+
+- Carried as **H-STOCK-IS-STOCK**: any condensed body's accessible stock admits. The gate's PRIMITIVE clause is set
+  aside on the faithful-copy path; `stockgate.py`'s text is not edited.
+- Carried as **H-COST-IN-README**: the trip's cost is the size of the README.
+- **Under your ruling, Proxima admits on quantity**, at b (confirmed) and d (candidate). The feedstock figures below are
+  mass throughput, not cost.
+- What a site's composition changes is what the README must instruct the builder to do with it. That is unpriced
+  (OPEN 5).
+- H-PRIMITIVE-AS-PRICE was offered and not adopted; it is kept as history.
+
 ## What follows the work
 
 - **1. Quantity is not the obstacle at any accessible scale.** For the 70 kg reference adult:
@@ -47,7 +60,7 @@ Every number is printed by `stockdest.py`.
 
 *First headed* "What is ruled out, as the boundary".
 
-- **By the gate's letter, Proxima is not shown admissible.**
+- **By the gate's letter (unedited), Proxima is not shown admissible. Under your ruling it admits.**
   - The quantity clause passes by orders of magnitude.
   - The PRIMITIVE clause is unshown: no primitive body is shown there, and an Earth-like crust is the board's case of a
     devolatilised body.
@@ -75,7 +88,9 @@ Every number is printed by `stockdest.py`.
 - **"With what it has" holds at Proxima for quantity, at any accessible scale.** The open questions are what the planets
   are made of (measurable: a transit, an emission spectrum, direct imaging) and how strictly to read the gate's
   "primitive".
-- **One ruling is needed: H-PRIMITIVE-AS-PRICE.** Should a devolatilised body count as a costlier stock, or as no stock?
+- **Your ruling moves the cost into the README.** A dry or devolatilised site costs nothing extra in stock. It may cost
+  more in instructions, and how much is the open question this leaves. *First written* "One ruling is needed:
+  H-PRIMITIVE-AS-PRICE"; now ruled.
 - **Your answer 4 changes the gate's question.** The device at position 2 must be placed on a body that passes. Combined
   with `faithful.py`, every copy's matter is local and only the specification crosses. The one non-local cost is
   getting the first device to position 2.
@@ -87,7 +102,7 @@ Every number is printed by `stockdest.py`.
 - **H-ADDRESS-INPUT** (M's, item 86); **B-RECV** (the board's); **H-COLOCATED-BUILD**; **H-SITE**.
 - **H-ROCKY**; **H-EARTHLIKE-CRUST** (one reservoir of one planet, not evidence about Proxima); **H-VOLATILE-RICH**
   (*first named* H-VOLATILES-ELSEWHERE, and labelled the dry branch); **H-CRUST-DENSITY** (NAMED-NOT-READ).
-- **H-PRIMITIVE-AS-PRICE** (for M); **M_EARTH** = 5.9722×10²⁴ kg (a standard value, GM⊕/G, not READ this pass).
+- **H-PRIMITIVE-AS-PRICE** (offered, not adopted); **H-STOCK-IS-STOCK** and **H-COST-IN-README** (M's, item 89); **M_EARTH** = 5.9722×10²⁴ kg (a standard value, GM⊕/G, not READ this pass).
 
 ## Sources READ (alphaXiv, open arXiv copies, printed pages; verifier-READ again)
 
@@ -104,7 +119,8 @@ Every number is printed by `stockdest.py`.
 2. A primitive small-body reservoir at Proxima (the 30 au belt, marginal).
 3. Phosphorus, the binder, in Proxima's own photosphere (W3-O3).
 4. Separation energy, and the volatile reservoir's mass.
-5. H-PRIMITIVE-AS-PRICE: your ruling.
+5. Under H-COST-IN-README: how much a site's composition adds to the README. *First listed* as "H-PRIMITIVE-AS-PRICE:
+   your ruling"; now ruled (item 89).
 
 ## History (verifier, 2026-10-06; first-written claims kept above, each where it stood)
 

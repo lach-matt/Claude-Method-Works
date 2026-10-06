@@ -10,6 +10,14 @@ there.  The board's gate (stockgate.GATE, imported, never retyped): "B admissibl
 aperture there is a CONDENSED body, PRIMITIVE rather than devolatilised, holding at least M(p,s) * m_payload of
 accessible mass", with M(p, s) = max_e p_e / s_e (one element binds).
 
+M'S RULING (item 89): "No costlier. Stock is stock. The cost is in how much information is transferred as a README
+(how big the file is)."  Carried: H-STOCK-IS-STOCK -- any condensed body's accessible stock admits; the gate's
+PRIMITIVE clause is set aside on the faithful-copy path (stockgate.py's text is not edited); and H-COST-IN-README --
+the trip's cost is the README's size.  H-PRIMITIVE-AS-PRICE (offered) is not adopted; kept as history.  Under the
+ruling, Proxima ADMITS ON QUANTITY at b (confirmed) and d (candidate), and the feedstock figures below are mass
+throughput, not cost.  What a site's composition changes is what the README must instruct the builder to do with
+it -- unpriced (OPEN 5).
+
 WHAT FOLLOWS THE WORK
   * QUANTITY IS NOT THE OBSTACLE AT ANY ACCESSIBLE SCALE.  A 70 kg copy needs 749 kg of CI-chondrite-like feedstock
     (phosphorus binds at 10.7 kg per kg), or 32 t of an Earth-like crust if the rock must supply everything (nitrogen
@@ -27,7 +35,7 @@ WHAT FOLLOWS THE WORK
   * EVEN THE DRY BRANCH PASSES ON QUANTITY.  Composition decides the cost per copy (17 or 459 kg per kg), not whether a
     copy is possible -- unless the gate's PRIMITIVE clause is held strictly (next).
   * Boundary (item 82):
-    - BY THE GATE'S LETTER, PROXIMA IS NOT SHOWN ADMISSIBLE.  The quantity clause passes by orders; the PRIMITIVE clause
+    - BY THE GATE'S LETTER (stockgate.GATE, unedited), PROXIMA IS NOT SHOWN ADMISSIBLE; under M's ruling it admits.  The quantity clause passes by orders; the PRIMITIVE clause
       is unshown: no primitive body is shown there, and an Earth-like crust is the board's devolatilised case.  A reading
       that would admit planets is carried for M to rule on, not assumed: H-PRIMITIVE-AS-PRICE (the primitive clause is
       absorbed into M(p, s), so a devolatilised body costs 459 kg per kg instead of 10.7 but is not excluded) --
@@ -69,7 +77,7 @@ NAMED HYPOTHESES AND PREMISES
   H-VOLATILE-RICH: N, C and H available on the site from an atmosphere, ocean or ices; the rock then supplies the rest.
     First named H-VOLATILES-ELSEWHERE and labelled 'the dry branch' -- it is the volatile-rich one.
   H-CRUST-DENSITY: 2,700 kg/m^3 (NAMED-NOT-READ; for the accessibility scale only).
-  H-PRIMITIVE-AS-PRICE: for M to rule on (above).
+  H-PRIMITIVE-AS-PRICE: offered, not adopted (item 89).  M's: H-STOCK-IS-STOCK, H-COST-IN-README (item 89).
   M_EARTH = 5.9722e24 kg (a standard value, GM_earth / G; not READ this pass).  The payload: stockgate.py's
     "as-composed 59" reference adult (imported).  The photosphere row is the Sun's (A09), not Proxima's.
 
@@ -78,7 +86,8 @@ OPEN
   2. A primitive small-body reservoir at Proxima (the 30 au belt, marginal).
   3. Phosphorus, the binder, in Proxima's own photosphere (W3-O3).
   4. Separation energy: stockgate.py prices mass, not the energy to extract it; the volatile reservoir's mass.
-  5. H-PRIMITIVE-AS-PRICE: M's ruling.
+  5. Under H-COST-IN-README: how much a site's composition adds to the README (the instructions for processing a
+     devolatilised or dry site).  First listed as 'H-PRIMITIVE-AS-PRICE: M's ruling', since ruled (item 89).
 
 HISTORY (verifier, 2026-10-06; first-written claims kept above where they stood)
   The gate's PRIMITIVE clause had been dropped (verdict now stated); the volatile-rich and dry branches were swapped
@@ -169,7 +178,8 @@ def report():
     print("  the largest rock need is %.1f m^3 at %.0f kg/m^3 (H-CRUST-DENSITY)" % (d["rock_need_m3"], CRUST_DENSITY))
     for k, v in d["bodies_kg"].items():
         print("  %s: %.3e kg = %.2e x the largest need" % (k, v, d["orders_over_need"][k]))
-    print("  verdict by the gate's letter: quantity passes; PRIMITIVE unshown at Proxima (H-PRIMITIVE-AS-PRICE for M)")
+    print("  verdict by the gate's letter: quantity passes; PRIMITIVE unshown at Proxima.  Under M's ruling (item 89, "
+          "H-STOCK-IS-STOCK): admits on quantity; composition bears on the README (H-COST-IN-README), unpriced")
     print("  contrast: diffuse interstellar gas, %.2e m^3 per copy (radius %.2e m)" % (
         d["ism_sweep_m3"], d["ism_sweep_radius_m"]))
 

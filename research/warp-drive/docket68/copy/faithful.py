@@ -27,11 +27,12 @@ WHAT FOLLOWS THE WORK (each from the sections below)
   * NO-CLONING DOES NOT BIND A CLASSICAL COPY (F1): a classical encoding replicates perfectly ("if and only if a basis
     to which psi belongs is known" -- which a README meets), so the no-cloning theorem does not require destroying the
     original.  H-RETIRE-A's stated reason (item 32: "to satisfy the no-cloning clause") does not apply to a classical
-    README, under H-IDENTITY-IN-DYNAMICS; other grounds are not examined -- a question for M, not a result.  First
+    README, under H-IDENTITY-IN-DYNAMICS; other grounds are not examined.  M (item 89): "Leave it open" -- H-RETIRE-A
+    stays carried with both readings.  First
     written 'physics no longer requires the original to be retired'.
   * IT BEARS ON TWO OPEN ITEMS.  H-WHICH-COUNT (S1B-O1): the README size is a fifth quantity, not one of the four
-    counts; it singles none out, and M's ruling at item 33 ("Keep all four") stands.  Whether "the object's
-    information" should be read, for a faithful copy, as the identity core is a question for M.  BULK3-O1 and
+    counts; it singles none out, and M's ruling at item 33 ("Keep all four") stands.  M ruled (item 89): "Add as fifth
+    reading" -- the identity core is H-WHICH-COUNT's fifth reading, beside the four.  First written 'a question for M'.  BULK3-O1 and
     crossing.py's D3 (classical or quantum?): F2 answers 'classical' for the identity layer, conditionally.
   * Boundary (item 82): a classical README cannot carry an unknown quantum state; the README shrinks only by what the
     builder already knows (F4); the body outside the cortex's wiring (cerebellum, subcortex, morphology, acquired body

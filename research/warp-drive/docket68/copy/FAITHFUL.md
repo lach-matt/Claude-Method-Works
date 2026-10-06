@@ -87,7 +87,8 @@ Every number is printed by `faithful.py`.
   - *First written* "physics no longer requires the original to be retired".
 - **8. It bears on two open items.**
   - **H-WHICH-COUNT (S1B-O1).** The README size is a fifth quantity, not one of the four counts. It singles none of
-    them out, and your ruling at item 33 ("Keep all four") stands.
+    them out, and your ruling at item 33 ("Keep all four") stands. You ruled (item 89): *"Add as fifth reading"*. The
+    identity core is now H-WHICH-COUNT's fifth reading.
   - **BULK3-O1 and crossing.py's D3** asked whether the defining information is classical or quantum. Point 2 answers
     "classical" for the identity layer, conditionally.
 
@@ -109,10 +110,10 @@ Every number is printed by `faithful.py`.
   - The core is relative wiring with no coordinates. The README says *what*; the device's input (answer 4) says
     *where*.
   - A classical README can wait, so on this path the hold need not be brief (answer 5).
-- **A question your ruling opens.** With a classical copy, the no-cloning theorem no longer requires the original to be
-  retired, and that was H-RETIRE-A's reason. Whether the original stays is yours to decide.
-- **A question for you on H-WHICH-COUNT.** For a faithful copy, should "the object's information" be read as this
-  identity core?
+- **The original.** With a classical copy, the no-cloning theorem no longer requires the original to be retired, and
+  that was H-RETIRE-A's reason. You ruled (item 89): *"Leave it open"*. H-RETIRE-A stays carried with both readings.
+- **H-WHICH-COUNT.** You ruled (item 89): *"Add as fifth reading"*.
+- *First written* as two questions for you; both are now ruled.
 
 ## Named hypotheses
 
