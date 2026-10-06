@@ -1062,7 +1062,7 @@ a bulk-wide asymmetry, and the port at the g(N) capacity ceiling.  uses.py
 (USES.md): under M's ruling the break-even is at least the device's mass over
 the payload's, conditional on the link's loss; one declared optical link
 computed; the snapshot ruled out on short schedules; a route-level floor from
-the time budget.  Each verified, and corrected; carrier.py and uses.py twice.
+the time budget.  Each verified, and corrected; carrier.py twice.
 
   THE OWNERS  loaded BY PATH as 'copy_<name>' (_copy_load), with
        _bulk5_load's lending and key restoration.  uses.py loads seat.py
