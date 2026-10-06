@@ -48,7 +48,19 @@ Every number is printed by `coin.py`.
   - H-PLANE-READING: the four-dimensional reading of the brane's projected stress;
   - H-RS1: the scope of the bulk statement.
 
+## Your item 120
+
+- *"it was an methaphor to describe that the NEC only ever appears to break, but never does"*. So there is no flip to
+  compute. What the board can show is exactly that appearance: broken in our plane's reading along the whole passage,
+  kept in the bulk (point 3).
+- On the bulk: *"yes. Science has already taught us that matter is neither created nor destroyed, it only changes
+  geometric state."* (H-COMPLETE-BULK, H-CONSERVATION-AS-GEOMETRY).
+  - On your path a complete bulk exists, so point 3's local statement extends to it.
+  - The board reads "matter" as mass-energy, which general relativity conserves locally (H-MATTER-IS-MASS-ENERGY). Rest
+    mass alone is not conserved, for example in pair creation (standard, NOT READ here).
+  - Constructing the bulk is still a computation no one has done (BULK5-O1).
+
 ## OPEN
 
-1. The flip: what in the geometry or the state is the coin turning over.
-2. The bulk statement beyond the local one: a global bulk (BULK5-O1).
+1. The flip. *Closed by your item 120: a metaphor; the NEC only appears to break.*
+2. Constructing the complete bulk (BULK5-O1). Its existence is carried on your path (item 120).
