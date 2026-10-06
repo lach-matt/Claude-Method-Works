@@ -21,6 +21,8 @@ Every number is printed by `escape.py`:
 - `--study table | controls | field | all`, which prints every number in the table and in §3, one JSON line per run.
   *First written* "(`--selftest` coarse grid; `--full` resolution study)". `--full` did not print the finer-grid,
   direction, box or field numbers; they had been run outside the file.
+- `--study all` was run on 2026-10-06: all 38 runs (20 table, 2 controls, 16 field) print the numbers below, and the box
+  bound is reached in none.
 
 Status:
 - **Selftest:** 14/14 checks: 3 genuine controls, 3 contrasts, and 8 STRUCTURAL lines printed and not counted. *First
