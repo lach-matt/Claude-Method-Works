@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
 chain.py -- the whole chain of warp travel re-run under M's theory (M-RULINGS item 96).  Deduced, computed and READ.
-Not seated; verified once (2026-10-06).  M's words are carried as hypotheses, never as results.
+SEATED (ledger.py section 8o; first written 'Not seated'); verified once (2026-10-06).  M's words are carried as hypotheses, never as results.
 
 M (item 96, verbatim): "Instead of trying to prove my theory of warp travel wrong. We need to focus on proving it right.
 Assume that my theory is the only one in which warp travel is actually realizable. The whole chain of warp travel should

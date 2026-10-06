@@ -1,4 +1,6 @@
-# How the corridor opens and closes (M-RULINGS item 113, second of three; deduced, computed and READ; verified once; not seated; 2026-10-06)
+# How the corridor opens and closes (M-RULINGS item 113, second of three; deduced, computed and READ; verified once; SEATED (ledger.py section 8o); 2026-10-06)
+
+*Seated in ledger.py section 8o on M's order of work (item 113); until then headed "… not seated …".*
 
 *First headed* "(…; not verified; not seated; 2026-10-06)".
 
@@ -13,7 +15,7 @@
   immeasurable but not zero. And this answer is also a relative one."*
 
 Every number is printed by `opening.py`.
-- **Selftest:** 6/6 checks, 2 genuine controls, with 6 STRUCTURAL lines printed and not counted.
+- **Selftest:** 6/6 checks, 2 genuine controls, with 7 STRUCTURAL lines printed and not counted.
 - *First written* "7/7 checks, 2 genuine controls". Four of those checks restated two others, and their controls could
   not fail.
 
@@ -94,11 +96,24 @@ So the black hole left at position 1 and position 2's white-hole past are set as
 boundary. Your one-entangled-state accounting (item 111) is the accounting.
 
 **What follows: the README, sent as the inflow, must be back-loaded.**
-- With H-INFLOW-IS-README and H-HORIZON-HOLDS, the bits delivered cannot run ahead of the growing horizon's capacity.
-  When a fraction e of the energy has arrived, that capacity is N × e². So the first half of the energy can carry at most
-  a quarter of the README.
-- The inflow has at most about 4.8×10¹³ quanta for the core, each far above hc/r_min. So **each quantum must carry at
-  least 57 bits**. That needs many-level modes, not single qubits (Holevo's bound, NOT READ).
+- **The capacity schedule.** The premises are H-INFLOW-IS-README, H-HORIZON-HOLDS, R-VAIDYA-HOLDS, H-STRONG-BOUND and
+  H-DEVICE-SIZES. Under them, the bits delivered cannot run ahead of the growing horizon's capacity.
+  - When a fraction φ of the energy has arrived, that capacity is N × φ². So the first half of the energy can carry at
+    most a quarter of the README.
+  - The closing mirrors it: when half the energy has left, at least three quarters of the README must already have been
+    read or have left.
+  - A corridor wider than the floor would relax this.
+- **Bits per quantum.** Each quantum carries more than hc/r_min, because its wavelength must be shorter than r_min
+  (H-EIKONAL). So there are at most N ln2/(4π²) quanta, and **each must carry at least 4π²/ln2 = 56.955 bits, for any
+  README size**. That holds by construction: it is Bekenstein's bound, saturated.
+  - With wavelengths below the growing horizon's radius (H-EIKONAL-GROWING), the bound is at least 8π²/ln2 = 113.91
+    bits each.
+- **What that needs of each mode** rests on Holevo's bound (NOT READ), so it is OPEN. With the prior entanglement your
+  path assumes, superdense coding doubles the bits per mode (also NOT READ).
+- **A consistency check:** with the README as the inflow, its carried mass E_min/c² (item 108) is the inflow's own
+  energy.
+- *First written:* "When a fraction e …"; "each quantum must carry at least 57 bits. That needs many-level modes, not
+  single qubits".
 
 ## Tensions, and what is ruled out
 
@@ -115,7 +130,7 @@ boundary. Your one-entangled-state accounting (item 111) is the accounting.
   - Its wavelengths must be much shorter than r_min (3.976×10⁻²⁸ m for the core). So each quantum carries far more than
     hc/r_min = 499.6 J, and there are at most about 4.8×10¹³ of them.
   - The device must be a spherically converging emitter around position 1 (wall 9).
-  - Whether the inflow is the README itself is unnamed. OPEN.
+  - It is the README (your item 115).
 - **The joins** (H-JUNCTION). OPEN.
 
 ## The walls, as this changes them
@@ -127,9 +142,10 @@ boundary. Your one-entangled-state accounting (item 111) is the accounting.
 
 ## Named hypotheses
 
-- **Yours:** H-THREE-HOLDS (106), H-HORIZON-NEEDS-OBJECT (109), H-ENERGY-INTO-P2 (110), H-ONE-ENERGY-TWO-SIDES (111),
+- **Yours:** H-P1-HORIZON-ENDS, H-P2-HORIZON-AT-REALIZATION, H-INFLOW-IS-README (115); H-THREE-HOLDS (106), H-HORIZON-NEEDS-OBJECT (109), H-ENERGY-INTO-P2 (110), H-ONE-ENERGY-TWO-SIDES (111),
   H-BRIEF-HOLD (86.5).
-- **The board's:** R-VAIDYA-HOLDS; H-MAX-POWER-INFLOW; H-HOLD-FRAME; H-MF-IS-AREA-MASS; H-HORIZON-HOLDS (the apparent
+- **The board's:** R-VAIDYA-HOLDS; H-EIKONAL, H-EIKONAL-GROWING; H-DEVICE-SIZES (the final horizon at the floor);
+  H-MAX-POWER-INFLOW; H-HOLD-FRAME; H-MF-IS-AREA-MASS; H-HORIZON-HOLDS (the apparent
   horizon); H-STRONG-BOUND; H-JUNCTION; H-QUASISTATIC; H-ASYMPTOTIC-FLAT-ENDS (set against H-ONE-ENERGY-TWO-SIDES).
 
 ## Sources READ

@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """entangle.py -- DOCKET 68, M-RULINGS item 100: "Consider that until refuted everything is entangled to everything,
 however, the entanglements can range/differ in characterization."  What follows from it along the chain (chain.py,
-item 96).  Deduced, computed and READ; verified once (findings applied, History); not seated.  Write-up: ENTANGLE.md.
+item 96).  Deduced, computed and READ; verified once (findings applied, History); SEATED (ledger.py section 8o).  Write-up: ENTANGLE.md.
 First headed "...; not verified; not seated."
 
 M's hypothesis, carried as given, never as a result:

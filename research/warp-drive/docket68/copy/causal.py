@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
 causal.py -- the causality thread (M-RULINGS item 94: "Do you want to take up the causality thread next? - yes").
-Deduced, computed, READ.  Not seated; verified once (2026-10-06); M's answer (item 95) carried after verification.  M's words are
+Deduced, computed, READ.  SEATED (ledger.py section 8o; first written 'Not seated'); verified once (2026-10-06); M's answer (item 95) carried after verification.  M's words are
 carried as hypotheses, never as results.
 
 M (item 94, verbatim): "their is no movement in warp travel, it is a teleportation that happens instantaneously

@@ -1,4 +1,6 @@
-# The causality thread (M-RULINGS item 94; deduced, computed and READ; verified once; your answer, item 95, carried after verification; not seated; 2026-10-06)
+# The causality thread (M-RULINGS item 94; deduced, computed and READ; verified once; your answer, item 95, carried after verification; SEATED (ledger.py section 8o); 2026-10-06)
+
+*Seated in ledger.py section 8o on M's order of work (item 113); until then headed "… not seated …".*
 
 *First headed* "(M-RULINGS item 94; deduced, computed and READ; not verified; not seated; 2026-10-06)".
 

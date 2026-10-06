@@ -1,4 +1,6 @@
-# The trajectories' share of the corridor (M-RULINGS item 113, first of three; deduced and computed; verified once; not seated; 2026-10-06)
+# The trajectories' share of the corridor (M-RULINGS item 113, first of three; deduced and computed; verified once; SEATED (ledger.py section 8o); 2026-10-06)
+
+*Seated in ledger.py section 8o on M's order of work (item 113); until then headed "… not seated …".*
 
 *First headed* "(…; not verified; not seated; 2026-10-06)".
 
@@ -19,7 +21,7 @@
   comes from the taxonomy; its class and carrier columns are the board's.
 
 Every number is printed by `trajectories.py`.
-- **Selftest:** 8/8 checks, 3 genuine controls, with 6 STRUCTURAL lines printed and not counted.
+- **Selftest:** 8/8 checks, 3 genuine controls, with 7 STRUCTURAL lines printed and not counted.
 - *First written* "6/6 checks, 2 genuine controls". One of those checks was an identity, and one control used a
   hand-made row.
 
@@ -33,20 +35,34 @@ Every number is printed by `trajectories.py`.
 - On the ranking, *"Read my last input"*. The board reads that as your trajectory-as-difference answer.
 
 **What follows (the board's reading, ungraded):**
-- **A trajectory's bits are the information in the difference:** what position 2's specification adds given position
-  1's.
-- **A destination with the same laws as the start differs in none of the twelve.** Proxima, in our universe, is one.
-  Its trajectories add 0 bits, and the corridor is the README's alone. That agrees with your item 101.7, distance
-  irrelevant.
+- **A trajectory's bits are the information in the difference between position 1 and position 2 that the object's
+  definition depends on.** You tie the trajectory to *"the initial definition of the object transporting"*.
+  - Counting it as H(P2 | P1) would need a probability distribution over destinations. None is named.
+  - For a single destination it is the conditional description length (H-CLASSICAL-SHANNON, or its single-case form).
+  - *First written:* "what position 2's specification adds given position 1's, H(P2 | P1)".
+- **A destination with the same laws as the start differs in none of the twelve.** Proxima, in our universe, is one,
+  so the twelve add 0 bits for it.
+  - Position 2 still has to be specified. chain.py's wall 10 measures the address error at Proxima as more than 100
+    times Proxima b's orbit.
+  - Your item 101.7 says the device never sees the distance. It does not say the address carries no bits.
+  - The address's bits are OPEN, and whether location counts as a trajectory is asked.
+  - *First written:* "Its trajectories add 0 bits, and the corridor is the README's alone".
 - **A counterfactual destination adds the information in your requirements,** given the starting state.
 - **The ranking orders the differences,** and a difference fixed by higher-ranked ones adds nothing (points 1 and 3
   below).
 - **K and T:** the trajectory is the mechanism (the Kondo exchange mechanism; the phonon anharmonicity), not the
-  material's value. So they are laws, and universe-level after all. They make a difference only where the mechanism
-  differs.
-  - *First written:* "trajectories of the object or the site".
-- **Both limits:** a corridor's horizon must fit under both ends' cosmological ceilings, 1/√Λ at each. Ours is
-  0.698 c/H0 (Ω_Λ NOT READ). The core's horizon, 4.0×10⁻²⁸ m, sits about 53 orders of magnitude below it.
+  material's value.
+  - Those mechanisms follow from quantum mechanics and electromagnetism (α, mₑ) applied to a material. So, like M and
+    R, they are readouts of other laws.
+  - Under H-TRAJECTORY-IS-MECHANISM they join the dependent class: they add at most H(mechanism | α, mₑ, …), which is
+    OPEN.
+  - Point 3's count (taken from H12's own text) is unchanged. Point 4's illustration would count 7 trajectories, not 9.
+  - *First written:* "trajectories of the object or the site", then "So they are laws, and universe-level after all".
+- **Both limits:** a corridor's horizon must fit under both ends' cosmological ceilings, 1/√Λ at each.
+  - Ours is 0.698 c/H0, conditional on Ω_Λ (NOT READ).
+  - The core's horizon, 4.0×10⁻²⁸ m, sits 2.4×10⁵³ times below it (printed by trajectories.py). The order of
+    magnitude is robust to Ω_Λ.
+  - The README's N must also fit under both ends' holographic counts.
 
 ## The board's reading, and where it differs from your sentence
 
@@ -62,7 +78,9 @@ your own words would make it depend:
 - Ranking by signed or complex magnitudes (item 25, H-SEATRANK).
 - A stopping rule: trajectories taken in rank order until there is "only … enough" (item 24, H-STOP-WHEN-ENOUGH).
 
-This is asked.
+This was asked. Item 114's answer, read as "the difference between position 1 and position 2", still leaves the total
+independent of the ranking, classically and for quantum states. So the tension with your item 101.6 persists, and it
+is asked again.
 
 ## What follows the work
 
@@ -82,8 +100,8 @@ This is asked.
   - R adds 0: it is a readout of α, and Z0 is α (*"Z0 = 2 alpha h/e^2"*).
   - G_F adds 0: it is 1/(√2 v²) at tree level (H-TREE-LEVEL).
   - M adds at most H(mₑ | α, v), and mₑ is not one of the twelve. How much is OPEN.
-  - K and T are material properties, so they are trajectories of the object or the site. That is what you say the
-    trajectories are: *"help define the geometric shape of any object"*. Their bits are OPEN.
+  - K and T are material properties in H12's text. Under item 114 (H-TRAJECTORY-IS-MECHANISM) they are mechanisms that
+    follow from other laws (see above). Their bits are OPEN.
   - Seven have no dependence recorded in H12 (H-NO-RECORDED-DEPENDENCE): CP, α_s, Z0, Λ, G, G_θ and v.
     - That does not show they are independent. H12 ties CP to the Higgs–Yukawa sector, which is v's field.
     - Under your H-UNIVERSAL-ENTANGLEMENT, the information they share is presumed non-zero until refuted.

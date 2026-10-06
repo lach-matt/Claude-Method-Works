@@ -1074,6 +1074,45 @@ the time budget.  Each verified, and corrected; carrier.py twice.
        comments).
   The board  no status moves; O9 stays OPEN.  H-NO-COPY-ROW: no index3 row.
   The paper  not edited.
+  RE-SEATED (8o-seat, M: "3 then 1 then 2", item 113): uses.py, carrier.py
+       and STOCKDEST.md carry items 90-94 (single-use corridors, the README
+       inside the hold, one channel that grows, no movement); the four owners'
+       figures are re-asked at load and unchanged; COPY_OPEN unchanged.
+
+===============================================================================
+8o.  THE WHOLE CHAIN UNDER M'S THEORY (M-RULINGS items 90-115), AS SEATED
+===============================================================================
+
+M ruled that the board prove the theory right (item 96: M's theory the only
+one in which warp travel is realizable) and answered the chain's walls (items
+90-115).  docket68/copy/ holds six instruments.  chain.py (CHAIN.md): the chain
+re-run with z3; formation passes by a found-and-widened throat or a made one
+whose making begins beforehand; the corridor floor sqrt(N h c^5 ln2 / (8 pi^2
+G)) per README of N bits, every coefficient evaluated (item 98).  causal.py
+(CAUSAL.md): two places made one, keyed to the cosmic beat, closes no loop.
+entangle.py (ENTANGLE.md): everything entangled until refuted (item 100);
+monogamy makes the entanglements range; the neck has the area of N ebits.
+plane.py (PLANE.md): the corridor is Bronnikov-Kim's horizon case, crossed one
+way from position 1 to position 2; the pull is the floor; one energy carried
+from the device to the build (items 104-111).  trajectories.py
+(TRAJECTORIES.md): a trajectory is the difference between the positions (item
+114); two of the twelve add nothing once their parents rank above them.
+opening.py (OPENING.md): opening and closing as null dust need only positive
+energy; the corridor's own null-energy violation enters at the joins; the
+README is the inflow (item 115).  Each verified, and corrected.  The board's
+own corrections to the rulings file are items 103, 105 and 112.
+
+  THE OWNERS  loaded BY PATH as 'chain8o_<name>' (_chain8o_load), with
+       _copy_load's lending and key restoration.  Only cheap values are asked
+       at load (the floor, its coefficients, the twelve's counts, the area per
+       ebit, the corridor's masses, the opening's floor); the instruments'
+       own selftests run minutes and are their own.
+  RULED_BY_M  + M-D68-91, 95, 97, 104, 106, 108, 110, 113, 114 and 115.
+       D68_FILE_CARRIED + M-D68-90, 92, 93, 94, 96, 98, 99, 100, 101, 102,
+       107, 109 and 111 (statements, questions and instructions).
+  CHAIN8O_OPEN  nine items, each with what would answer it.
+  The board  no status moves; O9 stays OPEN.  H-NO-CHAIN8O-ROW: no index3 row.
+  The paper  not edited.
 """
 
 import contextlib
@@ -3765,6 +3804,18 @@ D68_M_WORDS = {
     "M-D68-87": ("A faithful copy", D68_RULINGS_FILE),
     "M-D68-88": ("3 then 4 then 2 then 1 please,", D68_RULINGS_FILE),
     "M-D68-89": ("Seat all four at end", D68_RULINGS_FILE),
+    # ADDED (8o-seat, docstring section 8o): M's answers to questions put, items 91-115.
+    "M-D68-91": ("Inside, during the hold", D68_RULINGS_FILE),
+    "M-D68-95": ("Two places made one", D68_RULINGS_FILE),
+    "M-D68-97": ("Clock synchronizing doesn't need the relative time to match at both positions", D68_RULINGS_FILE),
+    "M-D68-104": ("2, but this is because observers at position 1 can only see the mouth at position 1",
+                  D68_RULINGS_FILE),
+    "M-D68-106": ("Horizon; reciprocal", D68_RULINGS_FILE),
+    "M-D68-108": ("Yes, that's it", D68_RULINGS_FILE),
+    "M-D68-110": ("Into position 2", D68_RULINGS_FILE),
+    "M-D68-113": ("3 then 1 then 2", D68_RULINGS_FILE),
+    "M-D68-114": ("The trajectory is the difference between position 1 and position 2", D68_RULINGS_FILE),
+    "M-D68-115": ("It ends; energy moved", D68_RULINGS_FILE),
 }
 
 #: THE QUESTIONS PUT TO M FOR M'S DOCKET 66 RULINGS (items 26-28), as the
@@ -3939,6 +3990,25 @@ D68_CARRIED_WORDS = {
                  "apply to the whole process", D68_RULINGS_FILE),
     "M-D68-86": ("6 - information 7 - information... Consider it a to be like a software update patch presented as a "
                  "README file telling position to what to construct with what it has.", D68_RULINGS_FILE),
+    # ADDED (8o-seat, docstring section 8o): statements, questions and instructions, items 90-111.
+    "M-D68-90": ("Each corridor is single use, but the device that makes a corridor is not", D68_RULINGS_FILE),
+    "M-D68-92": ("We need to talk about the speed of light when it comes to warp travel.", D68_RULINGS_FILE),
+    "M-D68-93": ("Light speed is relative to each dimension.", D68_RULINGS_FILE),
+    "M-D68-94": ("Size does not mean more channels.", D68_RULINGS_FILE),
+    "M-D68-96": ("Assume that my theory is the only one in which warp travel is actually realizable.",
+                 D68_RULINGS_FILE),
+    "M-D68-98": ("Remember that all coefficients must be completely evaluated, replacing the coefficients with exact "
+                 "values.", D68_RULINGS_FILE),
+    "M-D68-99": ("Read my answers first, then ask any questions left open.", D68_RULINGS_FILE),
+    "M-D68-100": ("Consider that until refuted everything is entangled to everything", D68_RULINGS_FILE),
+    "M-D68-101": ("11 - total our plane can read", D68_RULINGS_FILE),
+    "M-D68-102": ("What if a information definition of a physical/geometric object is negative mass, because it is the "
+                  "inverse definition of a positive mass?", D68_RULINGS_FILE),
+    "M-D68-107": ("is still the definition of the geometric object, just absent the actual physical mass, which makes "
+                  "it appear to be negative mass", D68_RULINGS_FILE),
+    "M-D68-109": ("A horizon cannot exist without the object of which it needs to exist", D68_RULINGS_FILE),
+    "M-D68-111": ("one energy read from two sides because both positions are currently entangled as a singular state",
+                  D68_RULINGS_FILE),
 }
 
 #: THE ROUTES PUT TO M, as CHARTER.md records them -- the charter's words, not
@@ -5475,6 +5545,110 @@ COPY_OPEN = [
 ]
 
 
+# ----- THE WHOLE CHAIN UNDER M'S THEORY (docstring 8o) -----
+CHAIN8O_OWNERS = ("chain", "causal", "entangle", "plane", "trajectories", "opening")
+
+
+def _chain8o_load():
+    """{'chain': module, ...}, loaded by path as 'chain8o_<name>' with _copy_load's lending and key restoration; and the
+    facts."""
+    import importlib.util
+    saved = list(sys.path)
+    before = set(sys.modules)
+    collide = ["chain8o_" + n for n in CHAIN8O_OWNERS]
+    stashed = dict((k, sys.modules.pop(k)) for k in collide if k in sys.modules)
+    lent = "ledger" not in sys.modules
+    if lent:
+        sys.modules["ledger"] = sys.modules[__name__]
+    mods = {}
+    try:
+        with contextlib.redirect_stdout(io.StringIO()):
+            for name in CHAIN8O_OWNERS:
+                key = "chain8o_" + name
+                spec = importlib.util.spec_from_file_location(key, os.path.join(COPY_DIR, name + ".py"))
+                m = importlib.util.module_from_spec(spec)
+                sys.modules[key] = m
+                spec.loader.exec_module(m)
+                mods[name] = m
+    finally:
+        sys.path[:] = saved
+        if lent:
+            del sys.modules["ledger"]
+        added = [k for k in sys.modules if k not in before]
+        for k in added:
+            sys.modules.pop(k, None)
+        sys.modules.update(stashed)
+    return mods, {"path_restored": sys.path == saved, "keys_left": [k for k in added if k in sys.modules],
+                  "from_copy": [n for n, m in mods.items() if os.path.dirname(os.path.abspath(m.__file__)) != COPY_DIR]}
+
+
+CHAIN8O, CHAIN8O_LOAD = _chain8o_load()
+
+
+def chain8o_asked():
+    """The cheap values M-D68-113's cell prints, ASKED of the six owners at call time: chain.py's floor and coefficients,
+    trajectories.py's counts of the twelve, entangle.py's area per ebit, plane.py's corridor masses, opening.py's floor
+    on the opening's duration.  The owners' own selftests (minutes) are not run here."""
+    saved = list(sys.path)
+    before = set(sys.modules)
+    try:
+        with contextlib.redirect_stdout(io.StringIO()):
+            ch = CHAIN8O["chain"]
+            co = ch.coefficients()
+            core = ch.owners()["uses"].owners()[1].identity_core()["total_bits"]
+            fl = ch.corridor_floor(core)
+            tr = CHAIN8O["trajectories"]
+            cts = tr.counts(tr.twelve())
+            ebit = CHAIN8O["entangle"].rt_area_per_ebit()["value"]
+            bk = CHAIN8O["plane"].bk_masses()
+            tau = CHAIN8O["opening"].tau_floor_per_sqrt_bit()
+    finally:
+        sys.path[:] = saved
+        for k in [k for k in sys.modules if k not in before]:
+            sys.modules.pop(k, None)
+    return {"emin": co["E_min_J_per_sqrt_bit"]["value"], "rmin": co["r_min_m_per_sqrt_bit"]["value"],
+            "area": co["neck_area_m2_per_bit"]["value"], "floor_core": fl["E_J"], "core": core,
+            "dependent": cts["DEPENDENT"], "ebit": ebit, "m_adm": str(bk["M_adm"]), "ms_horizon": str(bk["MS_horizon"]),
+            "tau": tau}
+
+
+CHAIN8O_ASKED = chain8o_asked()
+
+
+def _chain8o_fig(f, s=1.0):
+    """The scaled figures M-D68-113's cell prints, formatted once (the selftest's needles use the same)."""
+    return {"emin": "%.6e" % (s * f["emin"]), "rmin": "%.6e" % (s * f["rmin"]), "area": "%.6e" % (s * f["area"]),
+            "floor_core": "%.4e" % (s * f["floor_core"]), "ebit": "%.6e" % (s * f["ebit"]),
+            "tau": "%.4e" % (s * f["tau"])}
+
+
+#: WHAT THE WHOLE CHAIN UNDER M'S THEORY LEAVES OPEN (docstring section 8o), as
+#: CHAIN.md, CAUSAL.md, ENTANGLE.md, PLANE.md, TRAJECTORIES.md and OPENING.md
+#: state it.  Named, not ranked.
+CHAIN8O_OPEN = [
+    ("C8O-O1", "the joins through the throat: how the opening's inflow and the closing's outflow join the corridor's "
+     "interior, where the corridor's own null-energy violation enters (H-JUNCTION)", "a junction computed, with its "
+     "surface stress", "docket68/copy/OPENING.md"),
+    ("C8O-O2", "a dynamical model in which position 1's horizon ends and position 2's arises at realization (items "
+     "115, 109)", "the time-dependent geometry, constructed or READ", "docket68/copy/opening.py"),
+    ("C8O-O3", "how many ebits, and of which kind, already join two places, and whether weak entanglement gives "
+     "classical geometry", "a count or a bound computed, or READ", "docket68/copy/ENTANGLE.md"),
+    ("C8O-O4", "the step from a non-traversable bridge to M's corridor (wall 9; the coupling)", "a traversable-bridge "
+     "construction READ (Gao-Jafferis-Wall, Maldacena-Stanford-Yang named) and applied", "docket68/copy/ENTANGLE.md"),
+    ("C8O-O5", "Bronnikov-Kim's 5D completion, and its restriction on the throat's size (BULK5-O1 without its "
+     "one-universe clause)", "the bulk constructed, or READ", "docket68/copy/PLANE.md"),
+    ("C8O-O6", "which accounting holds across two universes: one entangled state (M, item 111) or per-universe "
+     "conserved masses", "a derivation that settles it", "docket68/copy/plane.py"),
+    ("C8O-O7", "the bits a destination's trajectories carry: the difference between the positions for a "
+     "counterfactual destination, and each trajectory's precision and range", "the bits computed for a stated "
+     "destination", "docket68/copy/TRAJECTORIES.md"),
+    ("C8O-O8", "whether a maximum power holds, and its factor (the opening's floor under H-MAX-POWER-INFLOW)",
+     "a proof, or a READ bound on inflow", "docket68/copy/OPENING.md"),
+    ("C8O-O9", "geodesic completeness of the one-way passage, and the stability of position 2's white-hole horizon",
+     "computed, or READ", "docket68/copy/PLANE.md"),
+]
+
+
 #: WHAT DOCKET 68 WAVE 3 AND STEP 1b LEAVE OPEN (docstring section 8c), as
 #: their owners' records state it (step1b/BALANCE.md, docket68/wave3/WAVE3.md):
 #: (id, what is open, what would answer it, owner).  Named, not ranked (section
@@ -6489,6 +6663,99 @@ D68_RULED = [
                   _copy_fig(COPY_ASKED)["optical"], _copy_fig(COPY_ASKED)["port_beta"],
                   _copy_fig(COPY_ASKED)["route_beta"])),
      "the OPEN items COPY-O1..O9; O9 stays OPEN"),
+    # ----- ADDED (8o-seat, docstring section 8o): items 91-115 (2026-10-06).
+    ("M-D68-91",
+     "After item 90 was re-read, three questions (M-RULINGS-2026-10-03.md item 91, 2026-10-06, as the file records it): "
+     "whether the README crosses inside the hold or loads beforehand; what builds at position 2; whether to re-seat 8n",
+     "the README's crossing and the builder at position 2 unnamed; section 8n seated",
+     _d68_rule("INSIDE, DURING THE HOLD", "M-D68-91",
+               "H-README-IN-HOLD; on the builder, position 2 itself (H-POSITION-BUILDS); 8n not re-seated then (it is "
+               "re-seated with section 8o)"),
+     "M-D68-93; uses.py U9"),
+    ("M-D68-95",
+     "After causal.py was verified, which reading of instantaneous is the teleport (M-RULINGS-2026-10-03.md item 95, "
+     "2026-10-06, as the file records it): two places made one, a shared now, each object's own now, or relativity "
+     "differing there",
+     "four readings put (R-IDENTIFY, R-SHARED, R-OBJECT, R-PROPER)",
+     _d68_rule("TWO PLACES MADE ONE", "M-D68-95",
+               "H-IDENTIFY: the corridor makes the two places one point; R-OBJECT and the others kept as the boundary "
+               "(docket68/copy/causal.py, section 8o)"),
+     "M-D68-97"),
+    ("M-D68-97",
+     "Whether the two ends are joined at the same instant of one shared clock (M-RULINGS-2026-10-03.md item 97, "
+     "2026-10-06, as the file records it)",
+     "the keying of H-IDENTIFY's joinings unasked",
+     _d68_rule("JOINED ON THE COSMIC BEAT", "M-D68-97",
+               "H-COSMIC-BEAT: what must agree is the cosmic beat, not the observers' readings; the CMB temperature "
+               "fixes cosmic time locally to about 9.58e13 s (chain.py)"),
+     "M-D68-99"),
+    ("M-D68-104",
+     "Three questions after plane.py's first report (M-RULINGS-2026-10-03.md item 104, 2026-10-06, as the file records "
+     "it): which inverse in item 102; whether the plane's total is the total energy or the pull; what the twelve "
+     "trajectories are",
+     "the cost read as the ADM total, zero at m = -2 r0",
+     _d68_rule("THE PULL", "M-D68-104",
+               "H-PULL-IS-COST, H-ONE-MOUTH-SEEN, H-CORRIDOR-HORIZON, H-TWO-SIDED-HORIZON; the inverse leaning to the "
+               "negative; the trajectories the 12-vector with more allowed (H-TRAJECTORIES-OPEN)"),
+     "M-D68-106; plane.py"),
+    ("M-D68-106",
+     "Three questions after plane.py's rework (M-RULINGS-2026-10-03.md item 106, 2026-10-06, as the file records it): "
+     "which member of the family is the corridor; where the README's bits are held; whether read-then-execute is the "
+     "split rule",
+     "the two readings of item 102 exact in different members; where the bits sit unasked",
+     _d68_rule("HORIZON; RECIPROCAL", "M-D68-106",
+               "H-RECIPROCAL (the board's gloss as a product, R-RECIPROCAL-AS-PRODUCT, item 112); H-THREE-HOLDS; "
+               "H-SPLIT-AT-P2 (wall 13 answered by M's rule)"),
+     "M-D68-109; plane.py P6"),
+    ("M-D68-108",
+     "Whether the README's apparent negative mass is measured against the object it defines, and which README crosses "
+     "(M-RULINGS-2026-10-03.md item 108, 2026-10-06, as the file records it)",
+     "item 107 carried as H-DEFINITION-MINUS-MASS, its form unasked",
+     _d68_rule("THE DEFICIT FORM", "M-D68-108",
+               "H-DEFINITION-MINUS-MASS in the deficit form; H-README-AS-NEEDED (whatever is needed); the crossover "
+               "N* = 8 pi^2 G M^2/(h c ln2) (plane.py P7)"),
+     "M-D68-110"),
+    ("M-D68-110",
+     "Where the closing hold's energy goes when position 2's horizon ends (M-RULINGS-2026-10-03.md item 110, "
+     "2026-10-06, as the file records it): back to the device, into position 2, split, or undecided",
+     "the closing energy's destination unasked",
+     _d68_rule("INTO POSITION 2", "M-D68-110",
+               "H-ENERGY-INTO-P2: the closing energy, the floor, is delivered into position 2 (wall 6)"),
+     "M-D68-111"),
+    ("M-D68-113",
+     "What the board takes up next (M-RULINGS-2026-10-03.md item 113, 2026-10-06, as the file records it): 1 the "
+     "opening and closing; 2 verify, then seat chain, causal, entangle and plane and re-seat 8n; 3 the trajectories' "
+     "bits",
+     "chain.py, causal.py, entangle.py and plane.py verified, not seated; 8n not re-seated",
+     _d68_rule("THE ORDER OF WORK, THEN SEAT", "M-D68-113",
+               "trajectories.py and opening.py built and verified, then docket68/copy/chain.py, causal.py, "
+               "entangle.py, plane.py, trajectories.py and opening.py seated here (docstring section 8o) and 8n "
+               "re-seated.  The floor: %s J and %s m per sqrt(bit), the neck's area %s m^2 per bit (the area of one "
+               "ebit, %s m^2, by entangle.py), the core README's floor %s J.  The corridor: ADM total %s, pull and "
+               "horizon area-mass %s (Bronnikov-Kim, plane.py).  The twelve: %d readouts once their parents rank "
+               "above.  The opening's floor: %s s per sqrt(bit) under the maximum-power conjecture"
+               % (_chain8o_fig(CHAIN8O_ASKED)["emin"], _chain8o_fig(CHAIN8O_ASKED)["rmin"],
+                  _chain8o_fig(CHAIN8O_ASKED)["area"], _chain8o_fig(CHAIN8O_ASKED)["ebit"],
+                  _chain8o_fig(CHAIN8O_ASKED)["floor_core"], CHAIN8O_ASKED["m_adm"], CHAIN8O_ASKED["ms_horizon"],
+                  CHAIN8O_ASKED["dependent"], _chain8o_fig(CHAIN8O_ASKED)["tau"])),
+     "the OPEN items C8O-O1..O9; O9 stays OPEN"),
+    ("M-D68-114",
+     "Four questions after trajectories.py was verified (M-RULINGS-2026-10-03.md item 114, 2026-10-06, as the file "
+     "records it): which ranking; whether K and T count; whether the trajectory bits cross with the README; whose "
+     "cosmology sets a counterfactual destination's limits",
+     "R-CHAIN-RULE's ranking-independence flagged against M's sentence",
+     _d68_rule("THE DIFFERENCE BETWEEN THE POSITIONS", "M-D68-114",
+               "H-TRAJECTORY-IS-DIFFERENCE, H-TRAJECTORY-IS-MECHANISM, H-BOTH-LIMITS; a destination with the start's "
+               "laws adds no trajectory bits (trajectories.py)"),
+     "C8O-O7"),
+    ("M-D68-115",
+     "Three tensions the null-dust model leaves (M-RULINGS-2026-10-03.md item 115, 2026-10-06, as the file records it): "
+     "position 1's horizon at the closing; when position 2's horizon arises; whether the inflow is the README",
+     "position 1's kept mass and position 2's white-hole past named as tensions",
+     _d68_rule("IT ENDS; ENERGY MOVED", "M-D68-115",
+               "H-P1-HORIZON-ENDS, H-P2-HORIZON-AT-REALIZATION, H-INFLOW-IS-README; the README sent back-loaded, at "
+               "least 57 bits per quantum for the core (opening.py O8)"),
+     "C8O-O2"),
 ]
 
 RULED_BY_M += D68_RULED
@@ -6921,6 +7188,79 @@ D68_FILE_CARRIED = [
                      "H-READING-ONLY, H-SEEN-BY-INTERACTION, H-MADE, H-COMMON-THROATS, H-ADDRESS-INPUT, "
                      "H-TRIANGULATED-ACTION, H-BRIEF-HOLD and H-SAME-NEEDS-MATTER; never results"),
      "M-D68-87; COPY-O1, O2"),
+    # ----- ADDED (8o-seat, docstring section 8o): statements, questions and instructions, items 90-111.
+    ("M-D68-90",
+     "M after section 8n was seated and reported (M-RULINGS-2026-10-03.md item 90, 2026-10-06)",
+     _d68_carry_file("STATEMENTS", "M-D68-90",
+                     "H-CORRIDOR-SINGLE-USE, H-DEVICE-REUSABLE, H-CORRIDOR-REPEATABLE, H-CORRIDOR-CONTAINS-P2, "
+                     "H-UNIDENTIFIED-CARRIER; never results"),
+     "M-D68-91"),
+    ("M-D68-92",
+     "M's question after item 91 was applied (M-RULINGS-2026-10-03.md item 92, 2026-10-06)",
+     _d68_carry_file("QUESTION", "M-D68-92", "answered from the board as it stands; nothing claimed"),
+     "M-D68-93"),
+    ("M-D68-93",
+     "M after the board's answer to item 92 (M-RULINGS-2026-10-03.md item 93, 2026-10-06)",
+     _d68_carry_file("STATEMENTS", "M-D68-93",
+                     "H-CORRIDOR-SCALES-WITH-README, H-LIGHT-SPEED-PER-DIMENSION, H-APPEARANCE-ONLY"),
+     "M-D68-94"),
+    ("M-D68-94",
+     "M after uses.py read the corridor's size as channels (M-RULINGS-2026-10-03.md item 94, 2026-10-06)",
+     _d68_carry_file("STATEMENTS", "M-D68-94",
+                     "H-SINGLE-CHANNEL-GROWS (withdrawing H-SIZE-AS-CHANNELS), H-NO-MOVEMENT, H-INSTANTANEOUS; the "
+                     "causality thread taken up (causal.py)"),
+     "M-D68-95"),
+    ("M-D68-96",
+     "M's instruction after item 95 (M-RULINGS-2026-10-03.md item 96, 2026-10-06)",
+     _d68_carry_file("INSTRUCTION", "M-D68-96",
+                     "H-M-THEORY and H-CMB-FRAME; the whole chain re-run with every derivable link proved from named "
+                     "premises (chain.py)"),
+     "M-D68-97"),
+    ("M-D68-98",
+     "M's standing instruction after chain.py was reported (M-RULINGS-2026-10-03.md item 98, 2026-10-06)",
+     _d68_carry_file("INSTRUCTION", "M-D68-98",
+                     "M-COEFF: every coefficient a closed form in the constants and its value, h, c and k_B exact"),
+     "M-D68-99"),
+    ("M-D68-99",
+     "M's reply to four questions after chain.py was corrected (M-RULINGS-2026-10-03.md item 99, 2026-10-06)",
+     _d68_carry_file("INSTRUCTION", "M-D68-99",
+                     "the questions re-read against items 86-97; the board's readings recorded, two later corrected "
+                     "(items 101, 103)"),
+     "M-D68-100"),
+    ("M-D68-100",
+     "M in answer to which walls first (M-RULINGS-2026-10-03.md item 100, 2026-10-06)",
+     _d68_carry_file("STATEMENT", "M-D68-100",
+                     "H-UNIVERSAL-ENTANGLEMENT (entangle.py): monogamy makes the entanglements range"),
+     "M-D68-101"),
+    ("M-D68-101",
+     "M's answers to the walls, numbered 1-11, and a plain definition (M-RULINGS-2026-10-03.md item 101, 2026-10-06)",
+     _d68_carry_file("STATEMENTS", "M-D68-101",
+                     "H-PLANE-TOTAL-COST, H-MADE-AS-WIDENED, H-SEPARATE-UNIVERSES, H-DEVICE-SIZES, H-TWELVE-TRAJECTORIES, "
+                     "H-DISTANCE-IRRELEVANT, H-CLOSED-INDEX, H-READ-THEN-EXECUTE, H-PROMPT-ANALOGY and the rest; the "
+                     "numbering mapped to chain.py's walls for M to correct (plane.py)"),
+     "M-D68-104"),
+    ("M-D68-102",
+     "M's question while item 101 was computed (M-RULINGS-2026-10-03.md item 102, 2026-10-06)",
+     _d68_carry_file("QUESTION", "M-D68-102",
+                     "H-INFORMATION-IS-INVERSE-MASS; which inverse asked (items 104, 106)"),
+     "M-D68-104"),
+    ("M-D68-107",
+     "M repeating item 102 and adding (M-RULINGS-2026-10-03.md item 107, 2026-10-06)",
+     _d68_carry_file("STATEMENT", "M-D68-107",
+                     "H-DEFINITION-MINUS-MASS: the README read against the object it defines appears negative "
+                     "(plane.py P7)"),
+     "M-D68-108"),
+    ("M-D68-109",
+     "M's correction of the board's persisting closing hold (M-RULINGS-2026-10-03.md item 109, 2026-10-06)",
+     _d68_carry_file("STATEMENT", "M-D68-109",
+                     "H-HORIZON-NEEDS-OBJECT; the board's H-HOLD-PERSISTS withdrawn on M's path, kept as the boundary"),
+     "M-D68-110"),
+    ("M-D68-111",
+     "M on the two items item 110's report left open (M-RULINGS-2026-10-03.md item 111, 2026-10-06)",
+     _d68_carry_file("STATEMENTS", "M-D68-111",
+                     "H-BUILD-IS-CLOSING-ENERGY and H-ONE-ENERGY-TWO-SIDES: one energy from the device to the build "
+                     "(plane.py P6, modelled by the thermofield double)"),
+     "M-D68-113; C8O-O6"),
 ]
 
 #: DOCKET 68's one pending question, M-D68-P1 (emtension.py's ER = EPR
@@ -7733,6 +8073,7 @@ def _d68_cells():
     out.update(("BULK4-OPEN %s col %d" % (r[0], i), c) for r in BULK4_OPEN for i, c in enumerate(r[1:], 1))
     out.update(("BULK5-OPEN %s col %d" % (r[0], i), c) for r in BULK5_OPEN for i, c in enumerate(r[1:], 1))
     out.update(("COPY-OPEN %s col %d" % (r[0], i), c) for r in COPY_OPEN for i, c in enumerate(r[1:], 1))
+    out.update(("CHAIN8O-OPEN %s col %d" % (r[0], i), c) for r in CHAIN8O_OPEN for i, c in enumerate(r[1:], 1))
     return out
 
 
@@ -8693,6 +9034,11 @@ def report():
         print(textwrap.fill("%s %s -- answered by: %s (%s)" % (oid.ljust(9), " ".join(what.split()),
                                                               " ".join(answers.split()), owner),
                             96, initial_indent="  ", subsequent_indent="           "))
+    print("\nTHE WHOLE CHAIN UNDER M'S THEORY -- WHAT STAYS OPEN (section 8o)")
+    for oid, what, answers, owner in CHAIN8O_OPEN:
+        print(textwrap.fill("%s %s -- answered by: %s (%s)" % (oid.ljust(9), " ".join(what.split()),
+                                                              " ".join(answers.split()), owner),
+                            96, initial_indent="  ", subsequent_indent="           "))
     print("\nPENDING M'S RULING -- RECORDED, NOT APPLIED%s"
           % ("" if PENDING_RULINGS else ": none"))
     for pid, q, why, proposal, waits in pending_rulings():
@@ -9028,6 +9374,17 @@ def to_markdown():
         L.append("| %s | %s | %s | %s |" % (oid, _cell(what, W_WHY), _cell(answers, W_WHY),
                                             _cell(owner, W_WHY)))
     L.append("")
+    L += ["## The whole chain under M's theory -- what stays open", "",
+          "Seated on M's answer to the order of work (item 113; docstring section 8o): chain.py, causal.py, "
+          "entangle.py, plane.py, trajectories.py and opening.py (docket68/copy/); section 8n re-seated.",
+          "The chain re-run under M's theory, causality, universal entanglement, the corridor as Bronnikov-Kim's "
+          "horizon case, the trajectories, and the opening and closing.",
+          "No board status moves; O9 stays OPEN.", "",
+          "| id | open | what would answer it | owner |", "|---|---|---|---|"]
+    for oid, what, answers, owner in CHAIN8O_OPEN:
+        L.append("| %s | %s | %s | %s |" % (oid, _cell(what, W_WHY), _cell(answers, W_WHY),
+                                            _cell(owner, W_WHY)))
+    L.append("")
     L += ["## Pending M's ruling -- recorded, not applied", "",
           "This file edits no peer and changes no requirement. A question",
           "that needs M's ruling is recorded here so the board shows it.", "",
@@ -9211,6 +9568,9 @@ def _truncated_cells(demand_claim=None, demand_moves=None, open_claim=None,
     for r in COPY_OPEN:
         if any(cut(c, wh) for c in r[1:]):
             out.append(("copy-open", r[0]))
+    for r in CHAIN8O_OPEN:
+        if any(cut(c, wh) for c in r[1:]):
+            out.append(("chain8o-open", r[0]))
     return out
 
 
@@ -9999,6 +10359,10 @@ def selftest():
         # RE-PINNED WITH THE FAITHFUL COPY'S INFORMATION ROUTE (COPY-seat, M:
         # "Seat all four at end", item 89): + M-D68-87, 88 and 89; items 84,
         # 85 and 86 are D68_FILE_CARRIED.
+        # RE-PINNED WITH THE WHOLE CHAIN UNDER M'S THEORY (8o-seat, M: "3 then
+        # 1 then 2", item 113): + M-D68-91, 95, 97, 104, 106, 108, 110, 113,
+        # 114 and 115; items 90, 92-94, 96, 98-102, 107, 109 and 111 are
+        # D68_FILE_CARRIED.
         (["M-D64-1", "M-S1A-P1", "M-S1A-P2", "M-S1A-P3", "M-S1A-P4",
           "M-S1A-P5", "M-D65-1", "M-D65-2", "M-D65-3", "M-D65-4", "M-D65-5",
           "M-D67-1", "M-D67-2"]
@@ -10014,7 +10378,8 @@ def selftest():
          + ["M-D68-%d" % i for i in (66, 68, 69)]
          + ["M-D68-%d" % i for i in (71, 73, 76, 79)]
          + ["M-D68-%d" % i for i in (82, 83)]
-         + ["M-D68-%d" % i for i in (87, 88, 89)], [],
+         + ["M-D68-%d" % i for i in (87, 88, 89)]
+         + ["M-D68-%d" % i for i in (91, 95, 97, 104, 106, 108, 110, 113, 114, 115)], [],
          True, False, False, True, False))
 
     print("\n3. THE EXCHANGE RATE, RE-DERIVED FROM ASKED CONSTANTS")
@@ -11533,8 +11898,10 @@ def selftest():
     # RE-PINNED WITH THE BULK4 SEATING (BULK4-seat): + items 70, 72, 74, 75, 77 and 78.
     # RE-PINNED WITH THE BULK5 SEATING (BULK5-seat): + items 80 and 81.
     # RE-PINNED WITH THE COPY SEATING (COPY-seat): + items 84, 85 and 86.
+    # RE-PINNED WITH THE 8o SEATING (8o-seat): + items 90, 92, 93, 94, 96, 98, 99, 100, 101, 102, 107, 109 and 111.
     chk("M's words the RULINGS FILE carries (items 21, 23, 25, 31, 32, 35, 41, 44, 46, 48, 50, 52, 56, 57, 60, 62, 63, "
-        "65, 67, 70, 72, 74, 75, 77, 78, 80, 81, 84, 85, 86) are in "
+        "65, 67, 70, 72, 74, 75, 77, 78, 80, 81, 84, 85, 86, 90, 92, 93, 94, 96, 98, 99, 100, 101, 102, 107, 109, 111) "
+        "are in "
         "D68_FILE_CARRIED, NOT on RULED_BY_M; each cell says so, quotes exactly its held "
         "words, and none reads 'RULED BY M'; none is cut",
         ([r[0] for r in D68_FILE_CARRIED],
@@ -11545,7 +11912,8 @@ def selftest():
           or _cw.findall(" ".join(r[1].split()))],
          [t for t in _truncated_cells() if t[0] in ("carried", "w3s1b-open")]),
         (["M-D68-%d" % i for i in (21, 23, 25, 31, 32, 35, 41, 44, 46, 48, 50, 52, 56, 57, 60, 62, 63, 65, 67, 70, 72,
-                                   74, 75, 77, 78, 80, 81, 84, 85, 86)],
+                                   74, 75, 77, 78, 80, 81, 84, 85, 86, 90, 92, 93, 94, 96, 98, 99, 100, 101, 102,
+                                   107, 109, 111)],
          [], [], []))
     chk("  and LEDGER.md prints them, then the OPEN list, after the charter's carried items "
         "and before the pending rulings",
@@ -11805,6 +12173,29 @@ def selftest():
          < _md.index("## The faithful copy's information route -- what stays open")
          < _md.index("## Pending M's ruling"), "8n.  THE FAITHFUL COPY'S INFORMATION ROUTE" in __doc__),
         (9, [], True, True))
+    # ADDED (8o-seat, docstring section 8o): the whole chain under M's theory.
+    chk("THE WHOLE CHAIN UNDER M'S THEORY: chain.py, causal.py, entangle.py, plane.py, trajectories.py and opening.py "
+        "load from docket68/copy/ by path; sys.path restored; no module key the load added is left behind",
+        (CHAIN8O_LOAD["from_copy"], CHAIN8O_LOAD["path_restored"], CHAIN8O_LOAD["keys_left"], sorted(CHAIN8O)),
+        ([], True, [], ["causal", "chain", "entangle", "opening", "plane", "trajectories"]))
+    _f8o = CHAIN8O_ASKED
+    _c113 = " ".join([r for r in D68_RULED if r[0] == "M-D68-113"][0][3].split())
+    chk("  M-D68-113's cell prints the six owners' figures, asked at load (six needles); the masses and the count it "
+        "names are the owners' (ADM %s, pull %s, %d readouts); the area per bit is the area of one ebit" % (
+            _f8o["m_adm"], _f8o["ms_horizon"], _f8o["dependent"]),
+        ([n for n in _chain8o_fig(_f8o).values() if n not in _c113], _f8o["m_adm"], _f8o["ms_horizon"],
+         _f8o["dependent"], abs(_f8o["area"] / _f8o["ebit"] - 1) < 1e-12),
+        ([], "m/4 + r0/2", "m", 3, True))
+    chk("  CONTROL: the same figures at 1.5 times are not found",
+        len([n for n in _chain8o_fig(_f8o, 1.5).values() if n not in _c113]), 6)
+    chk("  CHAIN8O_OPEN names %d items with owner files; LEDGER.md prints them after section 8n's and before the "
+        "pending rulings; section 8o is in the docstring, and 8n carries its re-seating" % len(CHAIN8O_OPEN),
+        (len(CHAIN8O_OPEN), [r[0] for r in CHAIN8O_OPEN if not _os.path.exists(_os.path.join(HERE, r[3]))],
+         _md.index("## The faithful copy's information route -- what stays open")
+         < _md.index("## The whole chain under M's theory -- what stays open")
+         < _md.index("## Pending M's ruling"), "8o.  THE WHOLE CHAIN UNDER M'S THEORY" in __doc__,
+         "RE-SEATED (8o-seat" in __doc__),
+        (9, [], True, True, True))
     chk("EVERY QUOTATION in a DOCKET 68 cell (here, and index3.py's DOCKET 68 rows) is the "
         "tree's words, or declared otherwise: M's thesis and the question included, the "
         "D23 note's quotation exact ('because is already exists everywhere')",

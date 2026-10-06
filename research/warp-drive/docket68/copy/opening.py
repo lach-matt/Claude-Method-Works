@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """opening.py -- DOCKET 68, M-RULINGS item 113 (second of three): how the corridor opens and closes -- the two holds of
 item 106 that no static Bronnikov-Kim member has.  Deduced, computed and READ; verified once (findings applied,
-History); not seated.  Write-up: OPENING.md.  First headed "...; not verified; not seated."
+History); SEATED (ledger.py section 8o).  Write-up: OPENING.md.  First headed "...; not verified; not seated."
 
 M's words (verbatim in the rulings file): item 106 "Three distinct holds in one fluid wave motion, horizon position 1
 only as the corridor opens, ... upon the corridor closing the bits are then held only at the horizon of position 2";
@@ -57,11 +57,18 @@ YOUR ANSWERS (ITEM 115)
   2); "When fully realized" (position 2's horizon arises from the corridor then, not before); "The README itself" (the
   opening's inflow is the README).  So the black hole left at position 1 and position 2's white-hole past are set aside
   on your path (kept below as the boundary); your one-entangled-state accounting (item 111) is the accounting.
-  O8 THE README AS THE INFLOW MUST BE SENT BACK-LOADED.  With H-INFLOW-IS-README and H-HORIZON-HOLDS, the bits delivered
-     by the time a fraction e of the energy has arrived cannot exceed the growing horizon's capacity, N e^2 (O7): the first
-     half of the energy can carry at most a quarter of the README.  And since the inflow has at most about 4.8e13 quanta
-     for the core (each >> h c / r_min), each quantum must carry at least N / 4.815e13 = 57 bits -- many-level modes, not
-     single qubits (Holevo's bound, log2 of a mode's dimension, NOT READ).
+  O8 THE README AS THE INFLOW MUST BE SENT BACK-LOADED.  With H-INFLOW-IS-README, H-HORIZON-HOLDS, R-VAIDYA-HOLDS (m
+     grows with the energy arrived), H-STRONG-BOUND and H-DEVICE-SIZES (the final horizon is exactly the floor), the bits
+     delivered when a fraction phi of the energy has arrived cannot exceed the growing horizon's capacity, N phi^2 (O7):
+     the first half of the energy carries at most a quarter of the README; mirrored at the closing, when half the energy
+     has left, at least three quarters of the README must already have been read or left.  A wider corridor relaxes it.
+     The quanta: each carries more than h c / r_min (H-EIKONAL: wavelengths below r_min), so there are at most
+     E r_min / (h c) = N ln2 / (4 pi^2) of them (Bekenstein saturated, P5) -- each must carry at least 4 pi^2 / ln2 =
+     56.955 bits, for every N, by construction; with wavelengths below the growing horizon's radius (H-EIKONAL-GROWING)
+     at most half as many quanta, and at least 8 pi^2 / ln2 = 113.91 bits each.  What that needs of a mode's dimension
+     rests on Holevo's bound (NOT READ: OPEN); with the prior entanglement your path assumes, superdense coding doubles
+     the bits per mode (NOT READ).  Consistency: with H-INFLOW-IS-README the README's carried mass E_min/c^2 (item 108)
+     is the inflow's own energy.  First written "at least N / 4.815e13 = 57 bits ... many-level modes, not single qubits".
 
 WHAT IS RULED OUT, AS THE BOUNDARY (and the tensions)
   * (Set aside on your path by item 115; the null-dust model's own reading.)  Position 1 keeps its mass: in this model nothing lowers position 1's m after the opening, so a classical event
@@ -71,9 +78,9 @@ WHAT IS RULED OUT, AS THE BOUNDARY (and the tensions)
     with its past horizon; under per-universe bookkeeping (H-ASYMPTOTIC-FLAT-ENDS) position 2 carried m_f before the
     opening -- against item 109 and item 106.  OPEN.
   * Classical white holes are unstable to infalling matter (Eardley 1974, NOT READ): OPEN.
-  * The inflow is the eikonal limit: wavelengths << r_min (3.976e-28 m, core) means quanta >> h c / r_min = 499.6 J each,
-    at most about 4.8e13 of them -- a spherically converging emitter around position 1 (wall 9); whether the inflow is
-    the README or carries none is unnamed (OPEN).
+  * The inflow is the eikonal limit (H-EIKONAL): wavelengths << r_min (3.976e-28 m, core) means quanta >> h c / r_min =
+    499.6 J each, at most about 4.8e13 of them -- a spherically converging emitter around position 1 (wall 9); it is
+    the README (item 115).
   * The joins (H-JUNCTION): OPEN.
 
 NAMED HYPOTHESES
@@ -193,6 +200,14 @@ def bk_radial_nec():
     return {"comb": str(comb), "matches": sp.simplify(comb - target) == 0, "outside_r3": out_val, "inside_r1p9": in_val}
 
 
+def tau_floor_per_sqrt_bit():
+    """O5's coefficient, cheaply: 2 r_min / c per sqrt(bit) (chain.py's r_min coefficient), for ledger.py's cell."""
+    ch = owners()["chain"]
+    co = ch.coefficients()
+    seat = ch.owners()["uses"].owners()[0]
+    return 2 * co["r_min_m_per_sqrt_bit"]["value"] / seat.C
+
+
 def compute():
     o = owners()
     ch = o["chain"]
@@ -269,8 +284,11 @@ def selftest(d):
     structural.append("O6: the closing is unbounded by the conjecture (a past horizon; Cardoso et al. App. B)")
     structural.append("boundary: inflow quanta >> h c/r_min = %.4f J, at most %.3e (core)" % (
         d["quantum_energy_J"], d["max_quanta"]))
-    structural.append("O8 (item 115): bits per inflow quantum >= N / max quanta = %.2f; the capacity schedule N e^2 lets "
-                      "half the energy carry a quarter of the README" % (d["core_bits"] / d["max_quanta"]))
+    structural.append("O8 (item 115): bits per inflow quantum >= N / max quanta = %.3f = 4 pi^2/ln2 = %.3f for every N, by "
+                      "construction (8 pi^2/ln2 = %.2f under H-EIKONAL-GROWING); the capacity schedule N phi^2 lets half "
+                      "the energy carry a quarter of the README" % (d["core_bits"] / d["max_quanta"],
+                                                                    4 * math.pi ** 2 / math.log(2),
+                                                                    8 * math.pi ** 2 / math.log(2)))
     structural.append("H-JUNCTION: OPEN; position 1's kept mass and position 2's white-hole past are set aside on M's path "
                       "(item 115), kept as the boundary")
     for s_ in structural:

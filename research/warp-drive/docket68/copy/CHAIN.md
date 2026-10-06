@@ -1,4 +1,6 @@
-# The whole chain under M's theory (M-RULINGS items 96, 99 and 101; deduced, computed and READ; verified twice; not seated; 2026-10-06)
+# The whole chain under M's theory (M-RULINGS items 96, 99 and 101; deduced, computed and READ; verified twice; SEATED (ledger.py section 8o); 2026-10-06)
+
+*Seated in ledger.py section 8o on M's order of work (item 113); until then headed "… not seated …".*
 
 *First headed* "(M-RULINGS item 96; deduced, computed and READ; not verified; not seated; 2026-10-06)", then "(M-RULINGS
 item 96; deduced, computed and READ; verified once; not seated; 2026-10-06)", then "(… items 96 and 99 …; verified

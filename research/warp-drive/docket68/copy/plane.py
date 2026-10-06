@@ -2,7 +2,7 @@
 """plane.py -- DOCKET 68, M-RULINGS items 101-111: the corridor as M describes it, in Bronnikov-Kim's family -- the pull
 as its cost, its two-sided horizon and one-way passage, the three holds, one energy from device to build, and the
 README read against the object it defines.  Deduced, computed and READ; verified twice (findings applied, History);
-the item-107-111 parts not yet verified; not seated.  Write-up: PLANE.md.
+the item-107-111 parts not yet verified; SEATED (ledger.py section 8o).  Write-up: PLANE.md.
 First headed "...items 101 and 102 ...; not verified", then "...items 101, 102 and 104 ...; verified once".
 
 M'S WORDS (verbatim in the rulings file)
@@ -59,16 +59,17 @@ WHAT FOLLOWS THE WORK (item 82: lead with what passes)
   P6 THE THREE HOLDS AND ONE ENERGY (106, 109-111).  Opening: position 1's horizon only; realized: both horizons, one
      entangled state, one energy read from two sides; closing: position 2's horizon, which ends with the corridor (109),
      its energy delivered into position 2 (110) and used, exactly, by the build (111).  The trip carries one E_min(N)
-     from the device to the build.  "One energy read from two sides" has a computed counterpart: in the thermofield
-     double (geometry.tfd, imported), the state ER=EPR pairs with a two-sided black hole, H_left - H_right has zero
-     variance -- the two readings are one -- while in a product state with the same marginals they are independent
-     (control).  The opening and closing holds have no static member: they need dynamics, and a Komar "pull" needs a
+     to the build (the device as its source is the board's step; one energy, not two, is your accounting, carried as
+     given).  The thermofield double (geometry.tfd; Van Raamsdonk eq. 1 p.2, READ in geometry.py; asymptotically AdS)
+     shows the two readings agree -- by construction, and a separable mixture agrees too -- so it shows correlation,
+     not one energy (STRUCTURAL).  The opening and closing holds have no static member: they need dynamics, and a Komar "pull" needs a
      Killing vector (H-QUASISTATIC): OPEN.
   P7 THE README AGAINST THE OBJECT IT DEFINES (107, 108).  Apparent mass = carried - defined.  The core README carries
      0.2676901 kg against the 70 kg it defines: -69.7323 kg, negative, as you said.  It appears negative while
      N < N* = 8 pi^2 G M^2 / (h c ln2) = 3.827306673e16 bits/kg^2 x M^2 = 1.875380270e20 bits for 70 kg; the largest
      snapshot (1.088e29 bits) would carry more than it defines.  At N* the closing energy equals Mc^2 (by construction).
-     With item 111 the README and the build are one number: a build needing energy E needs N = 8 pi^2 G E^2/(h c^5 ln2).
+     With item 111 a README of N bits delivers E_min(N) to the build; equivalently N = 8 pi^2 G E^2/(h c^5 ln2) (u_r of
+     N* 2.2e-5 from G).  First written "a build needing energy E needs N = ...".
 
 WHAT IS RULED OUT, AS THE BOUNDARY
   * H-HOLD-PERSISTS (withdrawn by item 109; kept): a closing hold that stayed would be a hole of 0.2677 kg for the core,
@@ -368,11 +369,11 @@ def selftest(d):
         d["cxx_x0_m0p4_r1"] > 0, ctl=True)
     chk("eqs. (13) and (17) have R = 0 (escape.bk_throats, imported: %s)" % d["bk_R"], d["bk_R"] == ["0", "0"])
     t = d["tfd"]
-    chk("P6: one energy read from two sides -- in the thermofield double var(H_L - H_R) = %.2e while each side varies "
-        "(%.4f)" % (t["var_diff_tfd"], t["var_one_side"]), t["var_diff_tfd"] < 1e-12 and t["var_one_side"] > 0.1)
-    chk("in the product state with the same marginals the two readings are independent: var(H_L - H_R) = %.4f = 2 x one "
-        "side" % t["var_diff_product"], abs(t["var_diff_product"] - 2 * t["var_one_side"]) < 1e-9 and
-        t["var_diff_product"] > 0.1, ctl=True)
+    structural.append("P6: in the thermofield double the two sides' readings agree (var(H_L - H_R) = %.2e, each side "
+                      "%.4f) -- by construction, and a separable mixture of matched levels agrees too; the product "
+                      "state's readings are independent (%.4f = 2 x one side).  It shows correlation, not one energy "
+                      "(first counted as a check and a control)" % (t["var_diff_tfd"], t["var_one_side"],
+                                                                  t["var_diff_product"]))
     chk("P7: the core README appears negative against its %.0f kg object (%.4f kg) and the largest snapshot positive "
         "(%.4e kg)" % (d["payload_kg"], d["apparent_core_kg"], d["apparent_snap_kg"]),
         d["apparent_core_kg"] < 0 < d["apparent_snap_kg"])

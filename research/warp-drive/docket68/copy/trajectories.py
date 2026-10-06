@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """trajectories.py -- DOCKET 68, M-RULINGS item 113 (first of three): how much a destination's trajectories add to the
-corridor.  Deduced and computed; verified once (findings applied, History); not seated.  Write-up: TRAJECTORIES.md.
+corridor.  Deduced and computed; verified once (findings applied, History); SEATED (ledger.py section 8o).  Write-up: TRAJECTORIES.md.
 First headed "...; not verified; not seated."
 
 M'S WORDS (verbatim in the rulings file)
@@ -31,17 +31,22 @@ YOUR ANSWERS (ITEM 114) AND WHAT THEY SETTLE
   "The trajectory is the difference between position 1 and position 2", fixed by the object's initial definition and
   the user's counterfactual requirements for position 2 (H-TRAJECTORY-IS-DIFFERENCE); "The principle or mechanism that
   determines such properties is the trajectory" (H-TRAJECTORY-IS-MECHANISM); limits from "Both" ends (H-BOTH-LIMITS).
-  * The board's reading (ungraded): a trajectory's bits are the information in the difference -- what position 2's
-    specification adds given position 1's, H(P2 | P1).  A destination with the same laws as the start (Proxima in our
-    universe) differs in none of the twelve: its trajectories add 0 bits and the corridor is the README's alone (your
-    item 101.7, distance irrelevant).  A counterfactual destination adds the information in the user's requirements,
+  * The board's reading (ungraded): a trajectory's bits are the information in the P1 -> P2 difference that the
+    object's definition depends on (H(P2 | P1) would need a distribution over destinations, none named; for one
+    destination, its conditional description length).  A destination with the start's laws (Proxima in our universe)
+    differs in none of the twelve, so they add 0 bits; the address still has to be specified (chain.py W10: the error
+    at Proxima exceeds 100 x Proxima b's orbit) -- its bits are OPEN, and whether location is a trajectory is asked.
+    First written "H(P2 | P1) ... the corridor is the README's alone".  A counterfactual destination adds the information in the user's requirements,
     given the starting state.  Ranking (item 101.6) then orders the differences, and a difference fixed by higher-ranked
     ones adds nothing (T1, T2).
   * K and T: the trajectory is the mechanism (the Kondo exchange mechanism; the phonon anharmonicity), not the material's
-    value -- a law, so universe-level after all, and a difference only where the mechanism differs.
+    value.  Those mechanisms are readouts of quantum mechanics and electromagnetism (alpha, m_e) applied to a material,
+    so under H-TRAJECTORY-IS-MECHANISM they join the dependent class, adding at most H(mechanism | alpha, m_e, ...):
+    OPEN.  H12's text-based count below is unchanged.  First written "a law, so universe-level after all".
   * Both limits: with Lambda > 0 at each end, a corridor's horizon must fit under both ends' Schwarzschild-de Sitter
-    ceiling, 1/sqrt(Lambda) at each (0.698 c/H0 for ours, Omega_Lambda NOT READ); the core's horizon, 4.0e-28 m, sits
-    some 53 orders below.
+    ceiling, 1/sqrt(Lambda) at each (0.698 c/H0 for ours, conditional on Omega_Lambda, NOT READ); the core's horizon
+    sits that far below by the printed ratio (orders of magnitude robust to Omega_Lambda); N must also fit under both
+    ends' holographic counts.
   First written (T2): "K and T are material properties: trajectories of the object or the site".
 
 WHAT FOLLOWS THE WORK (item 82)
@@ -256,6 +261,8 @@ def compute():
         "hubble_energy_J": c ** 5 / (2 * G * H0), "hubble_critical_mass_energy_J": hub_mass_energy,
         "de_sitter_bits_NOT_READ": NH / OMEGA_LAMBDA_NOT_READ,
         "max_bh_horizon_over_c_over_H0": (1 / math.sqrt(lam)) / (c / H0),
+        "sds_ceiling_over_core_horizon": (1 / math.sqrt(lam)) / (2 * co["r_min_m_per_sqrt_bit"]["value"] / 2 *
+                                                                 math.sqrt(core)),
         "H0_u_r": co["H0_per_s"]["u_r"],
     }
 
@@ -330,6 +337,8 @@ def selftest(d):
     structural.append("closed forms: area per bit 2 h G ln2/(pi c^3) = %.9e m^2; E_min per sqrt(bit) sqrt(hbar c^5 ln2/"
                       "(4 pi G)) = %.9e J" % (d["area_per_bit_m2"], d["E_min_per_sqrt_bit_J"]))
     structural.append("the per-trajectory bits need a precision and a range each (H-UNIFORM-RANGE): OPEN")
+    structural.append("both limits: our Schwarzschild-de Sitter ceiling over the core's horizon = %.3e (Omega_Lambda NOT "
+                      "READ)" % d["sds_ceiling_over_core_horizon"])
     for s_ in structural:
         print("  STRUCTURAL: " + s_)
     print("trajectories.py: %d/%d checks pass, %d of them controls and %d contrasts; %d STRUCTURAL printed, not counted"

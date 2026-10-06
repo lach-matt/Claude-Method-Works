@@ -1,4 +1,6 @@
-# Your corridor in Bronnikov–Kim's family (M-RULINGS items 101–111; deduced, computed and READ; verified twice, the item-107–111 parts not yet; not seated; 2026-10-06)
+# Your corridor in Bronnikov–Kim's family (M-RULINGS items 101–111; deduced, computed and READ; verified three times; SEATED (ledger.py section 8o); 2026-10-06)
+
+*Seated in ledger.py section 8o on M's order of work (item 113); until then headed "… not seated …".*
 
 *First headed* "(M-RULINGS items 101 and 102; … not verified …)", then "(… items 101, 102 and 104 …; verified once …)",
 then "(… 101, 102, 104 and 106; first form verified once, the item-104 rework not yet …)".
@@ -25,8 +27,9 @@ then "(… 101, 102, 104 and 106; first form verified once, the item-104 rework 
   because both positions are currently entangled as a singular state"*.
 
 Every number is printed by `plane.py`.
-- **Selftest:** 15/15 checks, 3 genuine controls and 1 contrast, with 8 STRUCTURAL lines printed and not counted.
-  *First written* "11/11", then "12/12"; restatements had been counted (History).
+- **Selftest:** 13/13 checks, 2 genuine controls and 1 contrast, with 9 STRUCTURAL lines printed and not counted.
+  *First written* "11/11", then "12/12", then "15/15"; restatements had been counted, and the thermofield check
+  held by construction (History).
 - **Imported, not rebuilt:**
   - `chain.py`: the floor and constants;
   - `bulk/escape.py`: R = 0;
@@ -102,36 +105,52 @@ Every number is printed by `plane.py`.
 
   | hold | where the bits are | what the planes read |
   |---|---|---|
-  | opening | position 1's horizon | plane 1 reads the floor |
+  | opening | position 1's horizon | plane 1's reading rises to the floor (H-QUASISTATIC; opening.py O4) |
   | fully realized | both horizons: one entangled state | **one energy, read from two sides** |
   | closing | position 2's horizon, which ends with the corridor (109) | the energy goes into position 2 (110) and the build uses exactly it (111) |
 
-  - **The trip carries one E_min(N), from the device to the build.** For the core README that is 2.406×10¹⁶ J.
-  - **"One energy read from two sides" has a computed counterpart: the thermofield double.**
-    - This is the state ER=EPR pairs with a two-sided black hole (`geometry.tfd`, imported).
-    - In it, the difference between the two sides' energies has zero variance: each side's energy varies (1.40), but
-      the two readings always agree.
-    - Control: in an unentangled state with the same one-sided statistics, the two readings are independent. The
-      variance of their difference is then 2.81, twice one side's.
+  - **The trip carries one E_min(N)**, with N including the trajectory bits (TRAJECTORIES.md point 6). For the core
+    README that is 2.406×10¹⁶ J.
+    - That the energy comes from the device is the board's step.
+    - That it is one energy and not two is your accounting (H-ONE-ENERGY-TWO-SIDES), carried as given, not computed.
+  - **What the thermofield double shows: the two readings agree, perfectly correlated.**
+    - The thermofield double is the entangled state of two copies of a system that Van Raamsdonk's eq. (1), p.2, uses
+      (READ in geometry.py; asymptotically AdS: H-TFD-MODEL). It is imported as `geometry.tfd`.
+    - In it, the two sides' energies always agree: each side's varies (1.40), but their difference has zero variance.
+    - **That holds by construction, and it does not need entanglement.** A mixture with no entanglement, with the same
+      matched levels, also gives zero.
+    - **It does not give one energy in the budget sense.** In this state the two sides' energies add to twice one
+      side's.
+    - So "one energy" stays your hypothesis.
+    - An unentangled state with the same one-sided statistics gives independent readings (variance 2.81).
+    - Both lines are STRUCTURAL.
+    - *First written:* "In it, the difference … has zero variance" (counted as a check), and "the state ER=EPR pairs
+      with a two-sided black hole".
   - The opening and closing holds have no static member. They need dynamics, and a Komar "pull" needs a static
     geometry to be defined (H-QUASISTATIC): OPEN.
 - **7. The README against the object it defines (items 107, 108).**
   - **Apparent mass = carried − defined.** The core README carries 0.2676901 kg against the 70 kg it defines, so it
     appears as **−69.7323 kg**: negative, as you said. Position 2's stock fills the deficit.
   - It appears negative while N < **N\* = 8π² G M²/(h c ln2) = 3.827306673×10¹⁶ bits/kg² × M²**, which is
-    **1.875380270×10²⁰ bits** for 70 kg.
+    **1.875380270×10²⁰ bits** for 70 kg. Both carry a relative uncertainty of 2.2×10⁻⁵, from G; the floor's
+    coefficient 4.59404002×10⁸ J carries 1.1×10⁻⁵.
     - Checked: the bisected floor at N\* equals Mc² = 6.291286×10¹⁸ J.
   - The largest snapshot (1.088×10²⁹ bits) would carry 1.6858×10⁶ kg, more than it defines.
-  - With item 111, the README and the build are one number. A build needing energy E needs a README of
-    N = 8π² G E²/(h c⁵ ln2) bits.
+  - **With item 111, the README and the build are one number.** A README of N bits delivers E_min(N) to the build, the
+    direction you gave. Equivalently, N = 8π² G E²/(h c⁵ ln2).
+    - Sizing a README by an energy the build needs would be the board's reading, not yours.
+    - How E_min for the core (2.4×10¹⁶ J) compares with any energy needed to assemble 70 kg from stock is not computed
+      anywhere on the board: OPEN.
+  - *First written:* "A build needing energy E needs a README of N = …".
 
 ## What is ruled out, as the boundary
 
 - **A closing hold that persists** (H-HOLD-PERSISTS, withdrawn by your item 109 and kept as the boundary). It would be
   a hole of 0.2677 kg for the core.
   - Its temperature would be at most 4.583×10²³ K. That is the Schwarzschild value; for a Bronnikov–Kim member it is
-    smaller by 2√(1 − r₀/2m) (Simpson–Visser p.11 eq. 6.5, READ by a verifier).
-  - It would be gone in about **7.8×10⁻²¹ s**, radiating all Standard Model species (Carr–Kohri–Sendouda–Yokoyama,
+    smaller by 2√(1 − r₀/2m), computed from eq. (17)'s surface gravity. Simpson–Visser p.11 eq. 6.5 is the analogue.
+  - It would be gone in **at most about 7.8×10⁻²¹ s** (H-SM-ONLY: any further species would shorten it), radiating all
+    Standard Model species (Carr–Kohri–Sendouda–Yokoyama,
     2002.12778v2, p.10 eq. 14, READ by a verifier).
   - The photon-only 1.6×10⁻¹⁸ s overestimates that by about 200.
   - *First written* as "What the closing hold implies", the main line, with the lifetime NOT READ.
@@ -150,13 +169,13 @@ Every number is printed by `plane.py`.
 
 | wall | under your answers |
 |---|---|
-| 1 formation | the corridor is a member of a known family. How it opens and closes needs dynamics (OPEN) |
-| 4 the corridor's energy | **one E_min(N) = 4.59404002×10⁸ J × √N per trip** (H-HORIZON-HOLDS, H-STRONG-BOUND; items 106, 110, 111) |
+| 1 formation | the corridor is a member of a known family (H-BK-CORRIDOR). Opening and closing are modelled in opening.py; the joins are OPEN (opening.py O3) |
+| 4 the corridor's energy | **one E_min(N) = 4.59404002×10⁸ J × √N per trip**, N including the trajectory bits (H-PULL-IS-COST, H-ONE-ENERGY-TWO-SIDES, H-DEVICE-SIZES, H-HORIZON-HOLDS, H-STRONG-BOUND; items 106, 110, 111). The cost of the opening and closing dynamics is OPEN |
 | 6 energy at position 2 | **the closing energy, delivered into position 2 and used exactly by the build** (items 110, 111: yours, carried) |
 | 7 composition | position 2's stock fills the README's deficit (item 108) |
 | 8 the global bulk | the one-universe clause is dropped; the 5D completion is OPEN |
 | 9 the coupling | the passage is one-way 1 → 2 (computed). How the device opens it is OPEN |
-| 13 the split | answered by your rule, H-SPLIT-AT-P2: the record ends at position 2, read during the closing hold, before that horizon ends. Nothing is computed |
+| 13 the split | answered by your rule, H-SPLIT-AT-P2: the record ends at position 2. *The board's reading:* it is read during the closing hold while the horizon shrinks, its capacity (1 − φ)² N (opening.py O7). Nothing else is computed |
 
 *First written* with wall 4 "zero by your measure" (the ADM reading), then "at least the floor, or 1 to 4/3 of it"; and
 wall 13 "closed by your rule".
@@ -188,7 +207,10 @@ wall 13 "closed by your rule".
 ## OPEN
 
 1. The opening and closing holds' dynamics: how the corridor opens and closes (walls 1 and 9).
-2. Which accounting applies across your two universes: one entangled state (yours), or per-universe conserved masses.
+2. The accounting across your two universes. On your path the one-entangled-state accounting is carried (items 111,
+   115). Per-universe conserved masses are the boundary.
+7. What becomes of the closing hold's bits when position 2's horizon ends (item 109).
+8. How the floor's energy compares with any energy needed to assemble 70 kg from position 2's stock.
 3. Whether every path through the corridor is complete.
 4. The 5D completion, and its restriction on the throat's size.
 5. If the bits are quantum (H-ENTANGLEMENT-IS-IT), whether holding them on both horizons at once is a copy. It is one
@@ -226,3 +248,15 @@ wall 13 "closed by your rule".
   - wall 13 overstated;
   - the bookkeeping omitted;
   - one digit.
+- **Third pass (items 107–115):**
+  - The thermofield check held by construction, and showed correlation rather than one energy. It is now STRUCTURAL.
+  - Its source is Van Raamsdonk eq. 1, asymptotically AdS.
+  - The build's direction runs from N to E.
+  - Uncertainties added.
+  - The opening row now rises to the floor.
+  - The device as the source is the board's step; N includes the trajectory bits.
+  - The premises for wall 4 are named.
+  - Wall 13's reading is the board's.
+  - The accounting on your path is yours.
+  - The Bronnikov–Kim temperature factor is computed.
+  - The lifetime is at most 7.8×10⁻²¹ s.
