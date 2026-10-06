@@ -1,7 +1,8 @@
-# The whole chain under M's theory (M-RULINGS items 96 and 99; deduced, computed and READ; verified once, the item-99 section not yet; not seated; 2026-10-06)
+# The whole chain under M's theory (M-RULINGS items 96, 99 and 101; deduced, computed and READ; verified twice; not seated; 2026-10-06)
 
 *First headed* "(M-RULINGS item 96; deduced, computed and READ; not verified; not seated; 2026-10-06)", then "(M-RULINGS
-item 96; deduced, computed and READ; verified once; not seated; 2026-10-06)".
+item 96; deduced, computed and READ; verified once; not seated; 2026-10-06)", then "(… items 96 and 99 …; verified
+once, the item-99 section not yet …)".
 
 ## What M asked
 
@@ -15,7 +16,7 @@ item 96; deduced, computed and READ; verified once; not seated; 2026-10-06)".
 **How it was done.**
 - Four readers re-ran every station over the board's owners. `chain.py` assembles them and machine-checks the chain's
   logic with z3.
-- **Selftest:** 18/18 checks, 5 genuine controls and 2 contrasts, with 6 STRUCTURAL lines printed and not counted.
+- **Selftest:** 18/18 checks, 5 genuine controls and 2 contrasts, with 8 STRUCTURAL lines printed and not counted.
   *First written* "13/13 checks, 2 genuine controls and 2 contrasts"; the verifier found clauses stronger than their
   sources (History). Then 17/17; item 99 added the area check.
 - **Every coefficient** is printed as an exact closed form in the constants, then as its value. h, c and k_B enter
@@ -30,26 +31,35 @@ keys found throats; which walls first), you answered: *"Read my answers first, t
 again, items 86–97 settle the first three. Each reading below is the board's, ungraded, from your words and named
 premises. Correct any that misreads you.
 
-- **Which energy: the neck's.** By your item 89, *"The cost is in how much information is transferred as a README (how
-  big the file is)"* (H-COST-IN-README). Of the two candidates, only the neck's energy is set by the file's size. The
-  plane's total can be zero at any N, so it cannot carry a cost that grows with the file.
-  - **The floor then says something you already said.** At the floor the neck's area is
-    **A_min = N × 2 h G ln2/(π c³) = 7.24277891×10⁻⁷⁰ m² × N** (relative uncertainty 2.2×10⁻⁵, from G). That is
-    exactly proportional to N, checked in the selftest against the bisected necks of the core and the largest snapshot.
-  - Your items 93 and 94: *"the corridor doesn't stay open longer to compensate for the size of the README, it
-    compensates in size in stead"*; *"The corridor is a single channel that grows in size to accommodate the size of
-    the README."*
-  - First principles (Misner–Sharp at a throat, with Bekenstein's bound at the Schwarzschild scale) give that law
-    exactly: one channel whose cross-section grows in direct proportion to the README, and whose least energy grows as
-    its square root. This rests on H-NECK-HOLDS, H-NECK-ENERGY and H-STRONG-BOUND.
+- **Which energy: you answered it directly in item 101, *"total our plane can read"*.** The cost is the plane's total
+  (H-PLANE-TOTAL-COST). PLANE.md computes that it can be zero at any README size.
+  - *First written* here: "Which energy: the neck's. By your item 89 … The plane's total can be zero at any N, so it
+    cannot carry a cost that grows with the file." That over-read item 89, which answered a question about stock and
+    names no energy. The zero total also came from a reader's unseated computation. Your item 101 overrules the reading.
+- **What survives is the size law, which you already stated.** At the floor the neck's least area is
+  **A_min = N × 2 h G ln2/(π c³) = 7.24277891×10⁻⁷⁰ m² × N** (relative uncertainty 2.2×10⁻⁵, from G).
+  - The selftest checks the coefficient against the bisected neck. Proportionality to N then follows from the algebra.
+  - Your item 93: *"The size of the corridor is relative to the size of the README, the corridor doesn't stay open
+    longer to compensate for the size of the README, it compensates in size in stead."* Item 94: *"The corridor is a
+    single channel that grows in size to accommodate the size of the README."*
+  - First principles (Misner–Sharp at a throat, with Bekenstein's bound at the Schwarzschild scale) give that law at the
+    floor: one channel whose least cross-section grows in direct proportion to the README, and whose least energy grows
+    as its square root. This rests on H-NECK-HOLDS, H-NECK-ENERGY and H-STRONG-BOUND.
+  - **The floor also derives your "single channel".** Splitting the README over k corridors keeps the total least area
+    but raises the total least energy to √k × 4.59404002×10⁸ J × √N: twice as much at k = 4 (bisected). One channel is
+    the least-energy way to carry a README.
 - **Whether the making may begin beforehand: yes, on your own answer 4.** Item 86: *"entanglement plus trajectory
   triangulation gives us the action."* Entanglement shared by the two places has to be shared before the joining.
   - The premise, READ: local operations and classical communication *"cannot bring in entanglement for free"*, and
     entangled states *"appear usually as a result of direct physical interactions. However, the entanglement can be also
     generated indirectly by application of the projection postulate (entanglement swapping)"*. Source: Horodecki,
-    Horodecki, Horodecki and Horodecki, *Quantum entanglement*, quant-ph/0702225, the first in §I and the second in §II,
-    whose contents list starts it on p.8. Route: the arXiv PDF, read through Firecrawl.
-  - Swapping consumes entanglement that is already shared. So with H-LOCAL-INTERACTION (an interaction acts only where
+    Horodecki, Horodecki and Horodecki, *Quantum entanglement*, quant-ph/0702225v2: the first is §I, p.6; the second is
+    §II, p.9 (the section begins on p.8). Routes: Firecrawl and alphaXiv. A stronger §I sentence, p.4: entanglement
+    *"can not be increased on average when systems are not in direct contact but distributed in spatially separated
+    regions"*. *First written* "the first in §I and the second in §II, whose contents list starts it on p.8".
+  - Swapping consumes entanglement that is already shared. Even delayed-choice swapping (Peres 2000, NOT READ) uses
+    resources distributed through the common past, and is usable only after a record has arrived at or below c
+    (verifier). So with H-LOCAL-INTERACTION (an interaction acts only where
     the systems are, and nothing carries them faster than light), the entanglement your answer 4 uses was set up in the
     two places' common past, before the joining. That is H-PRIOR-SETUP, the premise under which a made corridor passes
     (routes R7a and R7b).
@@ -62,7 +72,8 @@ premises. Correct any that misreads you.
   - For a found throat, frame.py's z3 lemma supplies the keying. In exact FRW, only identifications at equal cosmic time
     preserve the geometry, so a throat that belongs to the geometry is already keyed (H-FRW-EXACT, H-NOT-DE-SITTER).
   - H-FOUND-KEYED is therefore your item 97 together with that lemma, and no longer the board's assumption alone.
-- **Left open: which walls first.** Your item 96 makes the walls the focus but names no order.
+- **Left open: which walls first.** Your item 96 makes the walls the focus but names no order. *(Item 100 answered with
+  H-UNIVERSAL-ENTANGLEMENT, ENTANGLE.md; item 101 answered the walls one by one, PLANE.md.)*
 
 ## The chain under your theory
 
@@ -144,7 +155,7 @@ stock) → COPY → REPEAT.
 | 1 | **Formation**: a smooth compact making is topology change, and Geroch–Borde then force a closed loop, which the CMB clock excludes (D24) | found and widened; or made with a light-time setup and a degenerate (READ Horowitz 1991) or non-compact joining |
 | 2 | **Reaching position 2**: finite propagation (the board's reading, ungraded) bars a corridor made at the joining instant with no prior connection | a throat that already reaches position 2; or a making begun beforehand (H-PRIOR-SETUP) |
 | 3 | **Throat existence** (found route): throats keyed at the cosmic beat, common enough that one joins the two places | READ the searches and the throat literature; compute the abundance needed (a foam origin would be quantum and need its own safety proof) |
-| 4 | **The corridor's energy**: point 3's floor at position 1 | where the floor's energy comes from: under H-STRONG-BOUND it cannot be lowered (item 99 read the cost as the neck's). *First written* "the plane-total reading (OPEN: which energy you mean)" |
+| 4 | **The corridor's energy**: point 3's floor at position 1 | **your item 101: the cost is the total our plane can read.** PLANE.md: Bronnikov–Kim's throat at m = −2r₀ reads a zero total at any README size, with the neck still at the floor. *First written* "the plane-total reading (OPEN: which energy you mean)", then "where the floor's energy comes from … (item 99 read the cost as the neck's)" |
 | 5 | **The builder at position 2**: no READ or computed mechanism makes a position execute a specification (STOCKDEST OPEN 6, COPY-O2) | READ constructor theory (Deutsch–Marletto) as the frame for your H-POSITION-BUILDS; or the README carries the recipe |
 | 6 | **Energy at position 2**: the build's energy is computed nowhere; the README's information buys at most 2.96667818×10⁻²¹ J × N at 310 K (8.14×10⁻⁶ J for the core) | the stock's own free energy, or energy through the corridor |
 | 7 | **The destination's composition**: Proxima b and d unmeasured (COPY-O4); what a site adds to the README (COPY-O5) | a transit, a spectrum, direct imaging |
@@ -190,7 +201,8 @@ wall 6 carried "3.6×10¹⁰ J of chemistry", a figure with no owner.
 ## OPEN
 
 1. Each wall above.
-2. Which energy a corridor costs. *Read from your item 89 (item 99): the neck's.*
+2. Which energy a corridor costs. *Answered by you, item 101: the total our plane can read (PLANE.md). First read from
+   item 89 (item 99) as the neck's, which was an over-reading.*
 3. Whether a corridor's making may begin before its joining instant (H-PRIOR-SETUP). *Read from your item 86 answer 4
    (item 99): yes, R-ENTANGLED-SETUP.*
 4. Whether the cosmic beat keys found throats too (H-FOUND-KEYED). *Read from your item 97 with frame.py's lemma (item

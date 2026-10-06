@@ -32,6 +32,10 @@ WHAT FOLLOWS THE WORK (item 82: lead with what passes)
      met with equality.  How the twelve trajectories set the size (H-TWELVE-TRAJECTORIES) is not modelled: OPEN.
   P6 DISTANCE IS IRRELEVANT (YOUR ANSWER 7) -- IN EVERY FORMULA HERE.  The floor, the neck, the plane's total and the
      Komar reading depend on N alone: no separation enters any of them (each is computed with no distance argument).
+  P8 THE NEGATIVE PART IS THE NECK'S EXACT INVERSE (ITEM 102).  At m = -2 r0 the energy outside the neck (the ADM
+     total minus the throat's Misner-Sharp energy) is -r0 c^4 / (2G) = -4.59404002e8 J x sqrt(N): the additive inverse
+     of the neck's, and set by the same README size N.  Read with H-INFORMATION-IS-INVERSE-MASS (additive reading):
+     the corridor that holds an N-bit README is a positive neck and its negative inverse, both defined by N.
   P7 THE MOUTHS MAY BE IN SEPARATE UNIVERSES (YOUR ANSWER 5).  Eq. (17) is symmetric and joins two asymptotic regions
      (escape.py S4): it does not make them one universe, which BULK5-O1 asked for and your answer drops.
 
@@ -176,6 +180,8 @@ def compute():
         "E_neck_core_J": float(bk["MS_throat"].subs(r0, r0c)) * c4G,
         "E_total_core_J": float(bk["M_adm"].subs({m: m_zero, r0: r0c})) * c4G,
         "E_komar_core_J": float(bk["M_komar"].subs({m: m_zero, r0: r0c})) * c4G,
+        "outside_neck_geom": str(sp.simplify((bk["M_adm"] - bk["MS_throat"]).subs(m, bk["m_zero_adm"][0]))),
+        "E_outside_core_J": float((bk["M_adm"] - bk["MS_throat"]).subs({m: m_zero, r0: r0c})) * c4G,
         "floor_core_J": fl["E_J"], "komar_per_sqrt_bit_J": komar_per_sqrt_bit,
         "komar_exact": "-2 r_min c^4 / G = -sqrt(2 N h c^5 ln2 / (pi^2 G)) = -4 x sqrt(N h c^5 ln2 / (8 pi^2 G))",
         "E_min_per_sqrt_bit_J": co["E_min_J_per_sqrt_bit"]["value"], "u_r_G": co["E_min_J_per_sqrt_bit"]["u_r"],
@@ -235,6 +241,10 @@ def selftest(d):
     chk("P2: the Komar reading at m = -2 r0 is negative and equals -4 x the floor (%.9e J vs %.9e J)" % (
         d["E_komar_core_J"], -4 * d["floor_core_J"]),
         d["E_komar_core_J"] < 0 and abs(d["E_komar_core_J"] / (-4 * d["floor_core_J"]) - 1) < 1e-9)
+    chk("P8 (item 102): at m = -2 r0 the energy outside the neck (ADM total minus the throat's Misner-Sharp) is %s, "
+        "the exact negative of the neck's: %.9e J against %.9e J" % (d["outside_neck_geom"], d["E_outside_core_J"],
+                                                                      d["E_neck_core_J"]),
+        d["outside_neck_geom"] == "-r0/2" and abs(d["E_outside_core_J"] / d["E_neck_core_J"] + 1) < 1e-9)
     chk("M-COEFF: the Komar coefficient %.9e J per sqrt(bit) reproduces the core's reading" % d["komar_per_sqrt_bit_J"],
         abs(d["komar_per_sqrt_bit_J"] * math.sqrt(d["core_bits"]) / d["E_komar_core_J"] - 1) < 1e-9)
     chk("P3: eqs. (13) and (17) have R = 0 (escape.bk_throats, imported: %s)" % d["bk_R"], d["bk_R"] == ["0", "0"])

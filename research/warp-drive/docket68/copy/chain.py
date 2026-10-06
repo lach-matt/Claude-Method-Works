@@ -306,7 +306,7 @@ def coefficients():
     }
     out = {}
     for k, (expr, ur, form) in defs.items():
-        out[k] = {"form": form, "exact": str(sp.nsimplify(expr)), "value": float(sp.N(expr, 20)),
+        out[k] = {"form": form, "exact": str(sp.simplify(expr)), "value": float(sp.N(expr, 20)),
                   "value_15": str(sp.N(expr, 15)), "u_r": ur}
     out["H0_per_s"] = {"form": "H0 = 67.36 km/s/Mpc / Mpc", "exact": "measured (Planck 2018, +- 0.54 km/s/Mpc)",
                        "value": cosmo.H0(), "value_15": "%.6e" % cosmo.H0(), "u_r": 0.54 / 67.36}
@@ -368,6 +368,7 @@ def compute():
             snap = fa._measure()
             fl_core, fl_snap = corridor_floor(core), corridor_floor(snap["grid_0p1A"])
             fl_4 = corridor_floor(4 * core)
+            fl_q = corridor_floor(core / 4.0)
             ms = neck_misner_sharp_symbolic()
             tested, bad = frame.cosmic_keyed_rank_n_is_safe(3, 100)
             lemma = frame.frw_time_function_lemma()
@@ -384,7 +385,7 @@ def compute():
     finally:
         sys.path[:] = saved
     return {"coefficients": co, "z1": z1, "controls": controls, "core_bits": core, "snap_bits": snap["grid_0p1A"],
-            "floor_core": fl_core, "floor_snap": fl_snap, "floor_4core": fl_4, "misner_sharp": ms,
+            "floor_core": fl_core, "floor_snap": fl_snap, "floor_4core": fl_4, "floor_quarter": fl_q, "misner_sharp": ms,
             "networks": (tested, bad), "frw_lemma": lemma, "ceilings": ceilings, "kstar_nothing_shipped": kstar0,
             "widen_is_topo": widen, "stock_ci": (sdc["binder"], sdc["factor"]), "address_sigma_r_m": sig_r,
             "proxima_b_a_m": b_a, "address_ratio": sig_r / b_a, "T0": (t0, st0), "beat_dt_s": beat_dt,
@@ -405,8 +406,9 @@ WALLS = [
      "READ the searches and the throat literature (Visser, Lorentzian Wormholes); compute the abundance needed; a foam "
      "origin is quantum and would need its own safety proof"),
     ("W4 THE CORRIDOR'S ENERGY", "Z3's floor at P1: one corridor needs at least the printed energy under H-NECK-ENERGY "
-     "and H-STRONG-BOUND", "the plane-total reading (the matter outside the neck can integrate to the opposite sign; "
-     "H-NECK-ENERGY OPEN -- which energy M means)"),
+     "and H-STRONG-BOUND", "M's item 101: the cost is the total our plane can read (H-PLANE-TOTAL-COST); plane.py: "
+     "Bronnikov-Kim's eq. (17) at m = -2 r0 reads a zero total at any N, the neck still at the floor.  First written "
+     "'the plane-total reading (... H-NECK-ENERGY OPEN -- which energy M means)'"),
     ("W5 THE BUILDER AT POSITION 2", "no READ or computed mechanism makes a position execute a specification "
      "(STOCKDEST OPEN 6, COPY-O2, S1C-O2); the core-sized README needs a builder that knows the recipe (H-REGENERABLE)",
      "READ constructor theory (Deutsch-Marletto) as the frame for M's H-POSITION-BUILDS; or the README carries the "
@@ -531,11 +533,15 @@ def selftest():
         co["r_min_m_per_sqrt_bit"]["value"], fc["r_m"]),
         abs(co["r_min_m_per_sqrt_bit"]["value"] * math.sqrt(d["core_bits"]) / fc["r_m"] - 1) < 1e-9)
     chk("M-COEFF, item 99: the evaluated area coefficient %.12e m^2 per bit reproduces the bisected neck's area for the "
-        "core, and the snapshot's area over the core's equals its bits over the core's (%.9e vs %.9e): the one "
-        "channel's area grows in direct proportion to the README (H-SINGLE-CHANNEL-GROWS)" % (
-            co["neck_area_m2_per_bit"]["value"], (fs["r_m"] / fc["r_m"]) ** 2, d["snap_bits"] / d["core_bits"]),
+        "core (exact form %s)" % (co["neck_area_m2_per_bit"]["value"], co["neck_area_m2_per_bit"]["exact"]),
         abs(co["neck_area_m2_per_bit"]["value"] * d["core_bits"] / (4 * math.pi * fc["r_m"] ** 2) - 1) < 1e-9 and
-        abs((fs["r_m"] / fc["r_m"]) ** 2 / (d["snap_bits"] / d["core_bits"]) - 1) < 1e-9)
+        co["neck_area_m2_per_bit"]["exact"] != "0")
+    structural.append("the least area grows in direct proportion to the README: the snapshot's over the core's is %.9e "
+                      "against its bits over the core's %.9e -- the algebra of the sqrt(N) scaling (first counted)" % (
+                          (fs["r_m"] / fc["r_m"]) ** 2, d["snap_bits"] / d["core_bits"]))
+    structural.append("one channel (item 94): splitting the README over k corridors keeps the total least area and "
+                      "raises the total least energy to sqrt(k) x E_min(N): k = 4 gives %.6f (bisected)" % (
+                          4 * d["floor_quarter"]["E_J"] / fc["E_J"]))
     chk("Z3: the core's floor (%.6e J) lies below the 0.1 c trip (%.6e J); the largest snapshot's (%.4e J) above every "
         "trip" % (fc["E_J"], d["ceilings"][0.1], fs["E_J"]),
         fc["E_J"] < d["ceilings"][0.1] and all(fs["E_J"] > e for e in d["ceilings"].values()), contrast=True)
@@ -549,10 +555,10 @@ def selftest():
                       "sources; WELL-POSED is ungraded and NOT READ; QTOPO-ESCAPES is the charter's reading")
     structural.append("k* with nothing shipped = %s (uses U8)" % d["kstar_nothing_shipped"])
     structural.append("the cosmic beat: T0's measured precision fixes cosmic time locally to %.3e s" % d["beat_dt_s"])
-    structural.append("Z3 rests on H-NECK-HOLDS, H-NECK-ENERGY and H-STRONG-BOUND; the neck's energy is the one read as "
-                      "the cost from M's own answers (item 99: H-COST-IN-README -- the plane's total can be zero at "
-                      "any N); first written 'with the plane's total as the cost the floor is removed -- OPEN, which energy "
-                      "M means'")
+    structural.append("Z3 rests on H-NECK-HOLDS, H-NECK-ENERGY and H-STRONG-BOUND.  The cost is the total our plane can "
+                      "read (M, item 101; plane.py); the floor is the neck's, not the cost.  First written 'with the "
+                      "plane's total as the cost the floor is removed -- OPEN, which energy M means', then (item 99) "
+                      "'the neck's energy is the one read as the cost', overruled by item 101")
     for s_ in structural:
         print("  STRUCTURAL: " + s_)
     print("chain.py: %d/%d checks pass, %d of them controls and %d contrasts; %d STRUCTURAL printed, not counted" % (
