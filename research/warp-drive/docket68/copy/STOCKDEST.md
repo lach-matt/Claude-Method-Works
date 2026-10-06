@@ -1,80 +1,120 @@
-# The stock gate at Proxima (M-RULINGS item 88, link 4; READ, deduced and computed; not verified; not seated; 2026-10-06)
+# The stock gate at Proxima (M-RULINGS item 88, link 4; READ, deduced and computed; verified once; not seated; 2026-10-06)
+
+*First headed* "(M-RULINGS item 88, link 4; READ, deduced and computed; not verified; not seated; 2026-10-06)".
 
 ## What M asked
 
-- **Item 86, answer 7:** the README tells position 2 *"what to construct with what it has"*.
+- **Item 5:** asked whether the substance is supplied by the seat itself, *"Yes, from the seat"*.
+- **Item 86, answer 7:** the README tells position 2 *"what to construct with what it has"*. Answer 4 (H-ADDRESS-INPUT):
+  *"an input required as in input for the second position required by the device"*.
 - **Item 88:** the order of work is *"3 then 4 then 2 then 1"*. This is link 4: the stock gate (D25, W3-O3) at a real
   destination.
 
-`faithful.py` sized what crosses; this file asks whether what the copy is built *from* is at Proxima.
-
 Every number is printed by `stockdest.py`.
-- **Selftest:** 6/6 checks, 1 genuine control and 1 contrast, with 2 STRUCTURAL lines printed and not counted.
-- **The gate:** `stock.py` and `stockgate.py`, imported, never retyped.
+- **Selftest:** 5/5 checks, 1 genuine control and 1 contrast, with 6 STRUCTURAL lines printed and not counted. *First
+  written* "6/6 checks, 1 genuine control". That "control" could not fail (History).
+- **The gate:** `stock.py` and `stockgate.py`, imported, never retyped. In the gate's words: *"B admissible ⇔ within the
+  corridor's arrival aperture there is a CONDENSED body, PRIMITIVE rather than devolatilised, holding at least M(p,s) ×
+  m_payload of accessible mass."*
 
 ## What follows the work
 
-- **1. Quantity is never the obstacle.** For the 70 kg reference adult (stockgate's 59-element payload):
+- **1. Quantity is not the obstacle at any accessible scale.** For the 70 kg reference adult:
 
-  | reservoir | binding element | kg per kg | feedstock for one copy |
+  | site | binding element | kg per kg | feedstock for one copy |
   |---|---|---|---|
   | CI chondrite (primitive) | P | 10.7 | 749 kg |
-  | Earth-like crust, volatiles from elsewhere | P | 17.0 | 1.2 t |
-  | Earth-like crust, atmosphere excluded | N | 459 | 32 t |
-  | stellar photosphere | P | 1,911 | 134 t |
+  | volatile-rich site: rock, with N, C, H from an atmosphere, ocean or ices | P | 17.0 | 1.2 t of rock (+ 25 kg of volatiles, not priced) |
+  | dry site: Earth-like crust alone | N | 459 | 32 t |
+  | solar-composition photosphere (the Sun's; Proxima's not read) | P | 1,911 | 134 t |
 
-  Proxima b (at least 1.07 Earth masses) and Proxima d (at least 0.26) each hold about 10¹⁹ times the largest of these.
-  The masses are minimums, so the margins are floors.
-- **2. Under your answer 4, the gate becomes a siting condition.**
-  - If the second position is an input the device requires (H-ADDRESS-INPUT), and a builder must be at the destination
-    (the board's B-RECV), then the arrival aperture is where that builder stands.
-  - The gate then asks only that the builder stand on a body with the feedstock.
-  - The aperture D25 left without a value gets one: the device's site.
-- **3. What is not known is composition.**
-  - Neither planet's composition is measured; no transit has been found.
-  - The discovery paper names both possibilities: bodies that migrated in "would be volatile rich", while pebble
-    migration "would produce much drier worlds" (Anglada-Escudé et al., pp.5–6).
-  - That is the gate's own fork. On a volatile-rich world the copy binds on phosphorus near 17 kg per kg. On a dry one,
-    nitrogen, carbon and hydrogen must come from somewhere else on the site.
+  - The largest rock need is about 12 m³ at 2,700 kg/m³ (H-CRUST-DENSITY): the top metre of a 3.4 m square.
+  - Whole-planet masses (at least 10¹⁹ times the need) only confirm that the supply does not run out.
+  - *First written* "each exceeds the largest of these needs by about nineteen orders", given as the point.
+    Accessibility was not addressed.
+- **2. Even the dry branch passes on quantity.** Composition decides the cost per copy (17 or 459 kg per kg), not
+  whether a copy is possible, unless the gate's PRIMITIVE clause is held strictly (see the boundary below).
+- **3. Under your answer 4, the arrival aperture becomes a siting choice.**
+  - This takes H-ADDRESS-INPUT, B-RECV (a holder at the destination) and H-COLOCATED-BUILD (the holder is the builder,
+    and the aperture is its site).
+  - Then the device must be placed on a body that passes the gate. The aperture D25 left without a value becomes a
+    design choice.
+  - *First written* "gets one: the device's site" and "the gate asks only that the builder stand on a body with the
+    feedstock".
+  - The device itself must reach position 2 first. That is a one-time cost and it is not local.
 
-## What is ruled out, as the boundary
+## What is not shown, as the boundary
 
-- **A primitive small-body reservoir at Proxima, the best feedstock, is not shown.**
-  - The belt reported at 1–4 au (about 0.01 Earth masses with bodies up to 50 km) was reanalysed as a stellar flare:
-    "no need to invoke the presence of a dust belt at 1−4 AU" (MacGregor et al.).
-  - An outer belt at about 30 au stays marginal.
-  - Even if the belt existed it would hold 10¹⁷ times the need. Its withdrawal bears on whether primitive feedstock is
-    available, not on quantity.
-- **The condensed-body clause is real.** Diffuse interstellar gas would need 8×10²⁵ m³ swept per copy (contrast).
-- **Control:** a chondrite with its phosphorus removed fails the gate outright, so the gate can refuse a body and its
-  passes carry content.
+*First headed* "What is ruled out, as the boundary".
+
+- **By the gate's letter, Proxima is not shown admissible.**
+  - The quantity clause passes by orders of magnitude.
+  - The PRIMITIVE clause is unshown: no primitive body is shown there, and an Earth-like crust is the board's case of a
+    devolatilised body.
+  - A reading that would admit planets is carried for you to rule on, not assumed. **H-PRIMITIVE-AS-PRICE:** the
+    primitive clause is absorbed into M(p, s), so a devolatilised body costs 459 kg per kg instead of 10.7 but is not
+    excluded. `stockgate.py` itself calls "primitive" its own causal reading of a concentration.
+  - *First written* without the PRIMITIVE clause.
+- **Composition is not measured.**
+  - There is one confirmed planet (b) and one candidate (d), both presumed rocky from minimum mass alone (H-ROCKY).
+  - No transit has been found for b, and for d "a transit is unlikely" (Faria p.9).
+  - The discovery paper names b's fork: bodies that migrated in "would be volatile rich", while pebble migration
+    "would produce much drier worlds".
+  - *First written* "two confirmed condensed bodies", with the volatile-rich and dry branches swapped.
+- **A primitive small-body reservoir is not shown.**
+  - The 1–4 au belt (about 0.01 Earth masses) is unsupported after a reanalysis attributed its emission to a flare
+    ("no need to invoke the presence of a dust belt at 1−4 AU"). The 30 au belt stays marginal.
+  - *First written* "withdrawn". A reanalysis removes the need for the belt; it does not prove the belt absent.
+- **The condensed-body clause is real.** Diffuse interstellar gas would need 8×10²⁵ m³ swept per copy (contrast; this
+  uses `stock.py`'s 14-element payload).
+- **Control:** the Sun's photospheric-only column cannot price the payload. It fails on iodine, which A09 did not
+  measure, so the gate refuses a reservoir for what was actually not measured.
 
 ## For M
 
-- **"With what it has" holds at Proxima for quantity, with nineteen orders to spare.** The open question is what the
-  planets are made of, and that is measurable: a transit, an emission spectrum, or direct imaging.
-- **Your answer 4 changes the gate's question.** It is no longer whether the arrival point happens to hold stock. It
-  is that the device at position 2 must be placed on a body that does.
+- **"With what it has" holds at Proxima for quantity, at any accessible scale.** The open questions are what the planets
+  are made of (measurable: a transit, an emission spectrum, direct imaging) and how strictly to read the gate's
+  "primitive".
+- **One ruling is needed: H-PRIMITIVE-AS-PRICE.** Should a devolatilised body count as a costlier stock, or as no stock?
+- **Your answer 4 changes the gate's question.** The device at position 2 must be placed on a body that passes. Combined
+  with `faithful.py`, every copy's matter is local and only the specification crosses. The one non-local cost is
+  getting the first device to position 2.
+- **Your answer 3** ("common and regular"): if throats are common, the destination becomes a choice among sites that
+  pass the gate.
 
 ## Named hypotheses
 
-- **H-ADDRESS-INPUT** (M's, item 86); **B-RECV** (the board's); **H-SITE** (the builder reaches the accessible layer of
-  its body).
-- **H-EARTHLIKE-CRUST** (Rudnick & Gao's crust, one reservoir of one planet); **H-VOLATILES-ELSEWHERE** (the dry branch).
-- **M_EARTH** = 5.9722×10²⁴ kg (a standard constant, not READ this pass).
+- **H-ADDRESS-INPUT** (M's, item 86); **B-RECV** (the board's); **H-COLOCATED-BUILD**; **H-SITE**.
+- **H-ROCKY**; **H-EARTHLIKE-CRUST** (one reservoir of one planet, not evidence about Proxima); **H-VOLATILE-RICH**
+  (*first named* H-VOLATILES-ELSEWHERE, and labelled the dry branch); **H-CRUST-DENSITY** (NAMED-NOT-READ).
+- **H-PRIMITIVE-AS-PRICE** (for M); **M_EARTH** = 5.9722×10²⁴ kg (a standard value, GM⊕/G, not READ this pass).
 
-## Sources READ (alphaXiv, open arXiv copies, printed pages)
+## Sources READ (alphaXiv, open arXiv copies, printed pages; verifier-READ again)
 
 | source | used |
 |---|---|
-| Anglada-Escudé et al., 1609.03449v1 | Proxima b: P, a, m sin i 1.27 (Table 1, p.10); no transit (p.5); the volatile-rich or dry fork (pp.5–6) |
-| Faria et al., 2202.05188v1 | Proxima d 0.26 ± 0.05 M⊕ at 0.02885 au; b 1.07 ± 0.06 M⊕ (Table C.1, p.17); c undetected by imaging or astrometry (p.1) |
+| Anglada-Escudé et al., 1609.03449v1 | Proxima b: Table 1, p.10; no transit (p.5); the volatile-rich or dry fork (pp.5–6) |
+| Faria et al., 2202.05188v1 | d is "a candidate"; 0.26 ± 0.05 M⊕ at 0.02885 au; radius modelled and transit unlikely (p.9); b 1.07 ± 0.06 (p.9, Table C.1); c undetected (p.1) |
 | Anglada et al., 1711.00578v1 | the 1–4 au belt, about 0.01 M⊕ (abstract) |
-| MacGregor et al., 1802.08257v1 | the emission is a flare; no need for the belt (pp.1, 7) |
+| MacGregor et al., 1802.08257v1 | the emission is a flare; no need for the belt (pp.1, 7); caution on 30 au (p.7) |
 
 ## OPEN
 
 1. The composition of Proxima b or d.
 2. A primitive small-body reservoir at Proxima (the 30 au belt, marginal).
-3. Phosphorus, the binding element, in Proxima's photosphere (W3-O3).
-4. Separation energy: the gate prices mass, not the energy to extract it.
+3. Phosphorus, the binder, in Proxima's own photosphere (W3-O3).
+4. Separation energy, and the volatile reservoir's mass.
+5. H-PRIMITIVE-AS-PRICE: your ruling.
+
+## History (verifier, 2026-10-06; first-written claims kept above, each where it stood)
+
+- **The gate's PRIMITIVE clause** had been dropped; the verdict by the letter is now stated.
+- **The volatile-rich and dry branches** were swapped, and the dry branch's claim that N, C and H "must come from
+  somewhere else" was false: rock alone supplies N at 459 kg per kg.
+- **The 1.2 t figure** is the rock fraction only.
+- **"Two confirmed condensed bodies"** is corrected.
+- **The phosphorus-removed "control"** could not fail. It is now STRUCTURAL, replaced by the photospheric-only control.
+- **Accessibility** is now addressed.
+- **"Withdrawn"** is corrected to "unsupported after reanalysis".
+- **The photosphere row** is now named as solar.
+- **Your answer 4** is quoted verbatim.
