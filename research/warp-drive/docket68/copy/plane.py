@@ -1,59 +1,78 @@
 #!/usr/bin/env python3
-"""plane.py -- DOCKET 68, M-RULINGS item 101: the walls under M's answers, and the corridor's cost as "total our plane
-can read" (answer 11).  Deduced, computed and READ; not verified; not seated.  Write-up: PLANE.md.
+"""plane.py -- DOCKET 68, M-RULINGS items 101, 102 and 104: the corridor's cost as the pull our plane reads, with the
+corridor's two-sided horizon, and the inverse of a mass.  Deduced, computed and READ; its first form verified once
+(findings applied, History), the item-104 rework not yet verified; not seated.  Write-up: PLANE.md.  First headed "...items 101 and 102 ...; not verified".
 
-M's words, item 101 (verbatim in the rulings file): "11 - total our plane can read"; "1 - I suspect that a corridor can
-be made under the same conditions used to make one larger"; "6 - ... assess the README size and widen the corridor to
-the necessary size, no more and no less"; "7 - distance is irrelevant. The device only sees the two positions as one";
-"5 - no. The mouths can be in separate universes".  Item 86 answer 1: the warp must "appear to contain" negative
-energy (H-READING-ONLY).
+M's words (verbatim in the rulings file): item 101 "11 - total our plane can read"; item 104(b), choosing the pull:
+"observers at position 1 can only see the mouth at position 1. The corridor interior and position 2 are not observable
+until the horizon of the corridor is crossed, at which point position is no longer observable... Horizons have 2
+sides"; item 102 "a information definition of a physical/geometric object is negative mass, because it is the inverse
+definition of a positive mass", item 104(a) "leaning towards 1 [the negative], but it could be 2 [the reciprocal]".
+
+THE GEOMETRY (H-BK-CORRIDOR).  Bronnikov-Kim's eq. (17), gr-qc/0212112v1 p.4 (READ): ds^2 = (1 - 2m/r) dt^2 -
+(1 - 3m/2r) dr^2 / ((1 - 2m/r)(1 - r0/r)) - r^2 dOmega^2, "a symmetric wormhole geometry for any r0 > 2m >= 0, or for any
+r0 > 0 in case m < 0"; and, citing Casadio-Fabbri-Mazzacurati [33], for 3m/2 < r0 < 2m "a nonsingular black hole with
+a wormhole throat at r = r0 inside the horizon, in other words, a non-traversable wormhole" (p.4).  It is symmetric: a
+horizon at r = 2m on each side.  Eq. (18) p.4: rho = m (r0 - 3m/2) / (2 r^2 (r - 3m/2)^2).
 
 WHAT FOLLOWS THE WORK (item 82: lead with what passes)
-  P1 BY YOUR MEASURE, A CORRIDOR CAN COST ZERO, AT ANY README SIZE.  Bronnikov-Kim's static throat, eq. (17) (READ here:
-     "a symmetric wormhole geometry for any r0 > 2m >= 0, or for any r0 > 0 in case m < 0", p.6 per escape.py), has
-     total energy as our plane reads it (ADM, from the spatial metric at infinity) E_total = (m/4 + r0/2) c^4 / G
-     (sympy, derived here).  At m = -2 r0 -- a wormhole by BK's own condition, m < 0 -- E_total = 0 exactly, whatever
-     r0.  With r0 set by the README (r0 = r_min(N), chain.py) the plane's total is zero for every N.
-  P2 THE NECK STILL HOLDS THE README, AND THE PLANE READS NEGATIVE ENERGY AROUND IT -- YOUR ITEM 86.1.  The Misner-Sharp
-     energy at the throat is r0 c^4 / (2G) for every m (sympy): the neck carries chain.py's floor, 4.59404002e8 J x
-     sqrt(N), unchanged.  The surroundings carry the opposite: the pull our plane reads (Komar, from g_tt) is
-     m c^4 / G = -2 r0 c^4 / G = -1.83761601e9 J x sqrt(N), a negative reading.  The corridor contains positive energy
-     at its neck, totals zero, and appears to contain negative energy: "must appear to contain" (item 86 answer 1).
-  P3 IT NEEDS NO MATTER ON EITHER PLANE.  Eq. (17) has R = 0 for every m (escape.bk_throats, imported; section 8m):
-     the plane's reading is carried by the bulk term E = -G, not by matter.
-  P4 MAKING IS ENLARGING (YOUR ANSWER 1).  The zero-total family m = -2 r0 runs continuously in r0: a larger corridor
-     is the same corridor with r0 raised, at zero total throughout.  As r0 -> 0 it tends to flat space, and a throat
-     opening from r0 = 0 is a pinch, topology change (chain.py PINCH-IS-TOPO).  Under item 100 with ER=EPR every pair
-     already has a bridge (ENTANGLE.md), so making starts from r0 > 0 and is enlargement throughout -- chain.py's route
-     R1, consistent and safe.  Whether a Planckian, quantum bridge enlarges into this classical family is OPEN
-     (Maldacena-Susskind p.17: pair bridges "probably" not classical geometry).
-  P5 NO MORE AND NO LESS (YOUR ANSWER 6): THE DEVICE SIZES THE NECK TO THE FLOOR.  A neck of area
-     7.24277891e-70 m^2 x N is the least that holds N bits (chain.py, ENTANGLE.md); "no more, no less" is that bound
-     met with equality.  How the twelve trajectories set the size (H-TWELVE-TRAJECTORIES) is not modelled: OPEN.
-  P6 DISTANCE IS IRRELEVANT (YOUR ANSWER 7) -- IN EVERY FORMULA HERE.  The floor, the neck, the plane's total and the
-     Komar reading depend on N alone: no separation enters any of them (each is computed with no distance argument).
-  P8 THE NEGATIVE PART IS THE NECK'S EXACT INVERSE (ITEM 102).  At m = -2 r0 the energy outside the neck (the ADM
-     total minus the throat's Misner-Sharp energy) is -r0 c^4 / (2G) = -4.59404002e8 J x sqrt(N): the additive inverse
-     of the neck's, and set by the same README size N.  Read with H-INFORMATION-IS-INVERSE-MASS (additive reading):
-     the corridor that holds an N-bit README is a positive neck and its negative inverse, both defined by N.
-  P7 THE MOUTHS MAY BE IN SEPARATE UNIVERSES (YOUR ANSWER 5).  Eq. (17) is symmetric and joins two asymptotic regions
-     (escape.py S4): it does not make them one universe, which BULK5-O1 asked for and your answer drops.
+  P1 YOUR CORRIDOR, AS YOU DESCRIBE IT, IS IN THE FAMILY.  The members with a horizon outside the throat and no
+     singularity are exactly r0/2 < m < 2 r0/3 (horizon 2m > r0; singular radius 3m/2 < r0; checked numerically, with a
+     control and a contrast).  Each has a horizon on each side (eq. 17 is symmetric): an observer at position 1 sees
+     only the mouth on that side, the interior lies behind the horizon, and the wormhole is non-traversable (BK p.4)
+     -- your H-ONE-MOUTH-SEEN, H-CORRIDOR-HORIZON and H-TWO-SIDED-HORIZON.
+  P2 THE PULL IS THE HORIZON'S OWN MASS, AND ITS FLOOR IS THE SQRT(N) FLOOR.  The pull our plane reads (Komar, the 1/r
+     coefficient of g_tt) is m; the Misner-Sharp mass at the horizon r = 2m is also m (sympy).  If the README is held at
+     the horizon -- the surface position 1 sees (H-HORIZON-HOLDS) -- the least horizon has radius r_min(N), so the least
+     pull is m = r_min/2: E_pull = r_min c^4 / (2G) = sqrt(N h c^5 ln2 / (8 pi^2 G)) = 4.59404002e8 J x sqrt(N), exactly
+     chain.py's floor (the floor was always a horizon: the neck "at its own Schwarzschild radius").  Bekenstein's bound
+     with E = the pull and R = the horizon is then met with equality (H-STRONG-BOUND; the BH form, STRUCTURAL).
+  P3 IF THE THROAT HOLDS IT INSTEAD, THE PULL IS PINNED BETWEEN THE FLOOR AND 4/3 OF IT.  With r0 = r_min (H-NECK-HOLDS)
+     the window r0/2 < m < 2 r0/3 gives 4.59404002e8 J x sqrt(N) < E_pull < 6.12538669e8 J x sqrt(N), exact form
+     (1 to 4/3) x sqrt(N h c^5 ln2 / (8 pi^2 G)).  Core README: 2.405878326e16 J to 3.207837768e16 J -- the 0.1 c trip
+     (3.169e16 J) lies inside the window.
+  P4 THE PENROSE INEQUALITY IS THE FAMILY'S REGULARITY CONDITION.  The plane's ADM total exceeds the horizon's mass,
+     m/4 + r0/2 > m, exactly when r0 > 3m/2 (sympy) -- BK's (Casadio's) condition for no singularity.  The Riemannian
+     Penrose inequality, ADM >= sqrt(A/16 pi) for non-negative density, equality only for Schwarzschild (Bray,
+     math/9911173v1, eq. 6 p.4 and Thm 1 p.8, READ by the verifier via alphaXiv), holds with room: rho > 0 here.
+  P5 ITEM 102, BOTH READINGS, AND WHICH MEMBER EACH SELECTS.
+     * The reciprocal (your option 2) holds EXACTLY in your horizon corridor: at the floor the energy and the size are
+       reciprocal with the README's size as the constant, E_pull x r_horizon = N h c ln2 / (4 pi^2) =
+       3.48772679e-27 J m x N (Bekenstein's product, saturated).
+     * The negative (your option 1, the one you lean to) holds exactly only in the member with NO horizon, m = -2 r0:
+       there the ADM total is zero and, with the Misner-Sharp split (H-MS-SPLIT, the board's choice of quasi-local
+       mass), the integrated energy outside the throat is -r0 c^4 / (2G), the negative of the throat's area-mass -- a
+       restatement of the zero total, not a second result.  Its pull reads -2 r0 c^4/G and light reads -r0 c^4/G:
+       every direct reading is negative ("must appear to contain", item 86.1).  But it has no horizon, so it is not
+       the corridor your item 104(b) describes.  Which member you mean is asked.
 
 WHAT IS RULED OUT, AS THE BOUNDARY
-  * Inside BK's other range (r0 > 2m >= 0) the plane's total is at least r0 c^4 / (2G) -- the neck's floor; zero needs
-    m < 0 (contrast).
-  * If "total our plane can read" meant the pull (Komar) rather than the total energy (ADM), zero needs m = 0, BK's
-    eq. (13), and the energy total is then the floor r0 c^4/(2G).  No member of the family reads zero in both (z3 over
-    the two linear forms: m = 0 and m/4 + r0/2 = 0 force r0 = 0, no throat).
+  * A positive-density member with a total below the throat's area-mass (the Riemannian positive-mass and Penrose
+    inequalities, Bray pp.2-4, 8, READ by the verifier): a zero total needs rho < 0 everywhere (eq. 18 at m < 0).
+  * A horizon member with m >= 2 r0/3: the singular radius 3m/2 lies outside the throat (contrast).
+  * Crossing to position 2's exterior: the horizon members are non-traversable (BK p.4).  The README's presence at
+    position 2 needs the step from bridge to your corridor -- wall 9, OPEN.
+  * BK p.2: "a restriction can quite probably appear from 5-dimensional geometry" on the throat's size; r_min for the
+    core is 4.0e-28 m.  BULK5-O1, OPEN.
 
 NAMED HYPOTHESES
-  M's: H-PLANE-TOTAL-COST (11), H-MADE-AS-WIDENED (1), H-DEVICE-SIZES (6), H-TWELVE-TRAJECTORIES (6),
-    H-DISTANCE-IRRELEVANT (7), H-SEPARATE-UNIVERSES (5), H-READING-ONLY (86.1), H-UNIVERSAL-ENTANGLEMENT (100).
-  The board's: H-TOTAL-IS-ADM (the plane's "total" is the ADM energy; its alternative, the Komar pull, is the boundary);
-    H-BK-CORRIDOR (the corridor is Bronnikov-Kim's eq. (17) throat, static, at its throat radius r0); H-NECK-HOLDS (the
-    bits sit at the neck, bounded by the neck's energy -- chain.py); H-STRONG-BOUND (chain.py); H-RS1 (the brane
-    reading behind E = -G, section 8m); BULK5-O1's global bulk, OPEN (BK p.6: "a complete model requires knowledge of
-    the full 5-dimensional space-time").
+  M's: H-PULL-IS-COST (104b), H-ONE-MOUTH-SEEN, H-CORRIDOR-HORIZON, H-TWO-SIDED-HORIZON (104b),
+    H-INFORMATION-IS-INVERSE-MASS (102, 104a), H-READING-ONLY (86.1), H-DEVICE-SIZES, H-TWELVE-TRAJECTORIES (101.6),
+    H-TRAJECTORIES-OPEN (104c), H-DISTANCE-IRRELEVANT (101.7), H-SEPARATE-UNIVERSES (101.5).
+  The board's: H-BK-CORRIDOR (the corridor is eq. 17, a static 4D brane metric -- your answer 5's "transit phase through
+    a dimension" is a bulk throat, which eq. 17 is not); H-HORIZON-HOLDS / H-NECK-HOLDS (where the README's bits sit --
+    the two readings of P2, P3); H-STRONG-BOUND; H-NECK-ENERGY; H-MS-SPLIT; H-TOTAL-IS-ADM (now the boundary: you chose
+    the pull); H-RS1 and H-QUASISTATIC (a static family is not a widening process; no dynamics computed).
+
+HISTORY (verifier, 2026-10-06; first-written claims kept in PLANE.md)
+  * BK pages were "p.6" for eqs. 13 and 17 (escape.py's citation): eq. 13 is p.3, eq. 17 and its range p.4 (rulings
+    item 105).  "The corridor contains positive energy at its neck": eq. 18 gives rho < 0 everywhere at m = -2 r0; r0/2
+    is the throat's area-mass.  P8's "exact additive inverse" restated the zero total and depended on H-MS-SPLIT.
+    "A corridor can cost nothing" lacked H-TOTAL-IS-ADM (and M then chose the pull).  The z3 checks were one line of
+    algebra each (STRUCTURAL now; the Penrose inequality cited).  Restatement checks were counted.  The control's
+    m = 0.6 r0 was "inside the range": it is BK's horizon case.  "No matter on either plane" lacked BK p.2's 5D caveat;
+    "making is enlarging ... safe" lacked H-QUASISTATIC; "no more, no less" dropped the trajectories' share; the
+    two-sided picture needs traversability; the Higgs wording was a corrected one (ledger D17).
 
 USAGE
     python3 plane.py | --selftest | --json
@@ -74,11 +93,17 @@ _CACHE = {}
 
 BK_READ = {
     "source": "Bronnikov & Kim, 'Possible wormholes in a brane world', gr-qc/0212112v1",
-    "route": "arXiv PDF via Firecrawl (query, direct quote), 2026-10-06",
-    "eq_17": "ds^2 = (1 - 2m/r) dt^2 - (1 - 3m/(2r)) dr^2 / ((1 - 2m/r)(1 - r0/r)) - r^2 dOmega^2",
-    "range": "'This is evidently a symmetric wormhole geometry for any r0 > 2m >= 0, or for any r0 > 0 in case m < 0. "
-             "The Schwarzschild metric is restored from (17) in the special case r0 = 3m/2.'",
-    "page": "p.6 (eqs. 13 and 17 as escape.py cites them)",
+    "route": "arXiv PDF via Firecrawl (query, direct quote) and alphaXiv (verifier), 2026-10-06",
+    "eq_13": "p.3",
+    "eq_17": "p.4: ds^2 = (1 - 2m/r) dt^2 - (1 - 3m/(2r)) dr^2 / ((1 - 2m/r)(1 - r0/r)) - r^2 dOmega^2",
+    "range": "p.4: 'This is evidently a symmetric wormhole geometry for any r0 > 2m >= 0, or for any r0 > 0 in case "
+             "m < 0. The Schwarzschild metric is restored from (17) in the special case r0 = 3m/2.'",
+    "horizon_case": "p.4: 'If eta > 0, the solution describes a nonsingular black hole with a wormhole throat at r = r0 "
+                    "inside the horizon, in other words, a non-traversable wormhole [33]' (eta = r0 - 3m/2; r = 2m the "
+                    "event horizon)",
+    "eq_18": "p.4: rho = m (r0 - 3m/2) / (2 r^2 (r - 3m/2)^2)",
+    "p2": "'a restriction can quite probably appear from 5-dimensional geometry'",
+    "p6": "'a complete model requires knowledge of the full 5-dimensional space-time'",
 }
 
 
@@ -96,7 +121,7 @@ def _load(path, key):
 
 
 def owners():
-    """Imported, never copied: chain.py (the floor and its constants), escape.py (Bronnikov-Kim's R = 0)."""
+    """Imported, never copied: chain.py (the floor, its constants, the trip energies via uses), escape.py (R = 0)."""
     if not _CACHE:
         _CACHE["chain"] = _load(os.path.join(HERE, "chain.py"), "copy_chain_plane")
         _CACHE["escape"] = _load(os.path.join(D68, "bulk", "escape.py"), "d68_escape_plane")
@@ -104,54 +129,48 @@ def owners():
 
 
 def bk_masses():
-    """Eq. (17) in geometric units: the ADM mass (coefficient of 1/r in g_rr = 1 + 2 M_ADM / r + ...), the Komar mass
-    (coefficient in -g_tt = 1 - 2 M_K / r), and the Misner-Sharp mass at the throat, (r/2)(1 - g^rr) at r = r0."""
+    """Eq. (17), geometric units: ADM (1/r coefficient of g_rr = 1 + 2M/r), Komar (of -g_tt = 1 - 2M/r), the Misner-Sharp
+    mass MS(r) = (r/2)(1 - g^rr) at the throat and at the horizon r = 2m, eq. (18)'s rho and dMS/dr - r^2 rho / 2, the
+    Penrose comparison ADM - MS(2m), and the light-bending mass (Komar + ADM)/2 (PPN: alpha b = 2(A + B))."""
     import sympy as sp
     r, r0 = sp.symbols("r r0", positive=True)
     m = sp.symbols("m", real=True)
-    u = sp.symbols("u", positive=True)                       # u = 1/r
+    u = sp.symbols("u", positive=True)
     grr = (1 - sp.Rational(3, 2) * m / r) / ((1 - 2 * m / r) * (1 - r0 / r))
     gtt = 1 - 2 * m / r
-    grr_u = sp.series(grr.subs(r, 1 / u), u, 0, 2).removeO()
-    M_adm = sp.simplify(sp.expand(grr_u).coeff(u, 1) / 2)
+    M_adm = sp.simplify(sp.expand(sp.series(grr.subs(r, 1 / u), u, 0, 2).removeO()).coeff(u, 1) / 2)
     M_k = sp.simplify(-sp.expand(gtt.subs(r, 1 / u)).coeff(u, 1) / 2)
     ms = sp.simplify((r / 2) * (1 - 1 / grr))
-    ms_throat = sp.simplify(sp.limit(ms, r, r0))
-    zero = sp.solve(sp.Eq(M_adm, 0), m)
-    return {"M_adm": M_adm, "M_komar": M_k, "MS_throat": ms_throat, "m_zero_adm": zero,
-            "syms": (r, r0, m), "grr": grr, "gtt": gtt}
+    rho = m * (r0 - sp.Rational(3, 2) * m) / (2 * r ** 2 * (r - sp.Rational(3, 2) * m) ** 2)
+    return {
+        "M_adm": M_adm, "M_komar": M_k, "MS": ms,
+        "MS_throat": sp.simplify(ms.subs(r, r0)), "MS_horizon": sp.simplify(ms.subs(r, 2 * m)),
+        "dMS_minus_rho": sp.simplify(sp.diff(ms, r) - r ** 2 * rho / 2),
+        "penrose_gap": sp.simplify(M_adm - ms.subs(r, 2 * m)),
+        "M_light": sp.simplify((M_k + M_adm) / 2),
+        "m_zero_adm": sp.solve(sp.Eq(M_adm, 0), m),
+        "rho_at_minus2r0": sp.simplify(rho.subs(m, -2 * r0)),
+        "rho_negative_form": sp.simplify(rho.subs(m, -2 * r0) + 4 * r0 ** 2 / (r ** 2 * (r + 3 * r0) ** 2)) == 0,
+        "syms": (r, r0, m),
+    }
 
 
-def wormhole_ok(m_over_r0, n=2000):
-    """Numerically on r in (r0, 50 r0]: g_tt > 0 (no horizon) and g_rr > 0, with g_rr -> infinity at r0 (the throat)."""
+def horizon_member(m_over_r0):
+    """For r0 = 1: is there a horizon outside the throat (2m > r0), and is the singular radius 3m/2 inside the throat
+    (3m/2 < r0)?  Scanned numerically on r in (r0, 3 r0]: g_tt changes sign at r = 2m, and 1 - 3m/2r stays > 0."""
     r0 = 1.0
-    m = m_over_r0 * r0
-    ok = True
-    for i in range(1, n + 1):
-        r = r0 * (1 + 49.0 * i / n)
+    m = m_over_r0
+    sign_change = False
+    num_ok = True
+    prev = None
+    for i in range(1, 30001):
+        r = r0 + 2.0 * i / 30000
         gtt = 1 - 2 * m / r
-        grr = (1 - 1.5 * m / r) / ((1 - 2 * m / r) * (1 - r0 / r))
-        ok &= gtt > 0 and grr > 0
-    r = r0 * (1 + 1e-9)
-    near = (1 - 1.5 * m / r) / ((1 - 2 * m / r) * (1 - r0 / r))
-    return ok and near > 1e8
-
-
-def z3_both_zero():
-    """Can one member read zero in both the ADM total and the Komar pull?  M_K = m = 0 and m/4 + r0/2 = 0, r0 > 0."""
-    import z3
-    m, r0 = z3.Reals("m r0")
-    s = z3.Solver()
-    s.add(r0 > 0, m == 0, m / 4 + r0 / 2 == 0)
-    both = s.check() == z3.sat
-    s2 = z3.Solver()
-    s2.add(r0 > 0, m / 4 + r0 / 2 == 0, m < 0)
-    adm_zero_m_negative = s2.check() == z3.sat
-    s3 = z3.Solver()
-    s3.add(r0 > 2 * m, m >= 0, m / 4 + r0 / 2 <= r0 / 2 - 1e-30 * r0)
-    below_floor_nonneg = s3.check() == z3.sat
-    return {"both_zero_sat": both, "adm_zero_with_m_negative_sat": adm_zero_m_negative,
-            "adm_below_floor_with_m_nonneg_sat": below_floor_nonneg}
+        if prev is not None and (gtt > 0) != (prev > 0):
+            sign_change = True
+        prev = gtt
+        num_ok &= (1 - 1.5 * m / r) > 0
+    return {"horizon_outside_throat": sign_change, "no_singularity_outside": num_ok}
 
 
 def compute():
@@ -161,52 +180,59 @@ def compute():
     bk = bk_masses()
     r, r0, m = bk["syms"]
     co = ch.coefficients()
-    seat = ch.owners()["uses"].owners()[0]
-    fa = ch.owners()["uses"].owners()[1]
+    uses = ch.owners()["uses"]
+    seat, fa = uses.owners()[0], uses.owners()[1]
     core = fa.identity_core()["total_bits"]
     fl = ch.corridor_floor(core)
     c4G = seat.C ** 4 / seat.G
-    r0c = fl["r_m"]
-    m_zero = float(bk["m_zero_adm"][0].subs(r0, r0c))
+    rmin = fl["r_m"]
     with contextlib.redirect_stdout(io.StringIO()):
         throats = esc.bk_throats()
-    # M-COEFF: the Komar reading per sqrt(bit) at m = -2 r0, exact: -2 r_min c^4/G = -4 x E_min
-    komar_per_sqrt_bit = -4 * co["E_min_J_per_sqrt_bit"]["value"]
+        trip01 = uses.trip_energy(0.1)
+    emin = co["E_min_J_per_sqrt_bit"]["value"]
+    m_zero = float(bk["m_zero_adm"][0].subs(r0, rmin))
     return {
-        "bk_read": BK_READ, "M_adm": str(bk["M_adm"]), "M_komar": str(bk["M_komar"]),
-        "MS_throat": str(bk["MS_throat"]), "m_zero_adm": [str(z) for z in bk["m_zero_adm"]],
-        "M_adm_at_m0": str(sp.simplify(bk["M_adm"].subs(m, 0))),
-        "core_bits": core, "r0_core_m": r0c, "m_zero_core_m": m_zero,
-        "E_neck_core_J": float(bk["MS_throat"].subs(r0, r0c)) * c4G,
-        "E_total_core_J": float(bk["M_adm"].subs({m: m_zero, r0: r0c})) * c4G,
-        "E_komar_core_J": float(bk["M_komar"].subs({m: m_zero, r0: r0c})) * c4G,
-        "outside_neck_geom": str(sp.simplify((bk["M_adm"] - bk["MS_throat"]).subs(m, bk["m_zero_adm"][0]))),
-        "E_outside_core_J": float((bk["M_adm"] - bk["MS_throat"]).subs({m: m_zero, r0: r0c})) * c4G,
-        "floor_core_J": fl["E_J"], "komar_per_sqrt_bit_J": komar_per_sqrt_bit,
-        "komar_exact": "-2 r_min c^4 / G = -sqrt(2 N h c^5 ln2 / (pi^2 G)) = -4 x sqrt(N h c^5 ln2 / (8 pi^2 G))",
-        "E_min_per_sqrt_bit_J": co["E_min_J_per_sqrt_bit"]["value"], "u_r_G": co["E_min_J_per_sqrt_bit"]["u_r"],
+        "bk_read": BK_READ,
+        "M_adm": str(bk["M_adm"]), "M_komar": str(bk["M_komar"]), "MS_throat": str(bk["MS_throat"]),
+        "MS_horizon": str(bk["MS_horizon"]), "dMS_minus_rho": str(bk["dMS_minus_rho"]),
+        "penrose_gap": str(bk["penrose_gap"]), "M_light": str(bk["M_light"]),
+        "m_zero_adm": [str(z) for z in bk["m_zero_adm"]], "rho_at_minus2r0": str(bk["rho_at_minus2r0"]),
+        "rho_negative_form": bool(bk["rho_negative_form"]),
+        "member_0p6": horizon_member(0.6), "member_0p4": horizon_member(0.4), "member_0p7": horizon_member(0.7),
         "bk_R": [str(t[0]) for t in throats],
-        "wormhole_m_minus_2r0": wormhole_ok(-2.0), "wormhole_m_0": wormhole_ok(0.0),
-        "wormhole_control_m_0p6r0": wormhole_ok(0.6),
-        "z3": z3_both_zero(),
-        "floor_takes_distance": "distance" in ch.corridor_floor.__code__.co_varnames
-                                or "L" in ch.corridor_floor.__code__.co_varnames,
+        "core_bits": core, "r_min_core_m": rmin, "floor_core_J": fl["E_J"],
+        "E_min_per_sqrt_bit_J": emin, "u_r_G": co["E_min_J_per_sqrt_bit"]["u_r"],
+        "pull_window_per_sqrt_bit_J": (emin, 4.0 / 3.0 * emin),
+        "pull_window_core_J": (float(bk["M_komar"].subs(m, rmin / 2)) * c4G,
+                               float(bk["M_komar"].subs(m, 2 * rmin / 3)) * c4G),
+        "pull_horizon_holds_core_J": float(bk["M_komar"].subs(m, rmin / 2)) * c4G,
+        "bekenstein_product_per_bit_Jm": co["bekenstein_J_m_per_bit"]["value"],
+        "E_times_r_core_Jm": fl["E_J"] * fl["r_m"],
+        "trip_0p1c_J": trip01,
+        "zero_member": {"m_over_r0": -2, "adm_J": float(bk["M_adm"].subs({m: m_zero, r0: rmin})) * c4G,
+                        "pull_J": m_zero * c4G, "light_J": float(bk["M_light"].subs({m: m_zero, r0: rmin})) * c4G,
+                        "throat_area_mass_J": float(bk["MS_throat"].subs(r0, rmin)) * c4G},
+        "c4_over_G_J_per_m": c4G,
     }
 
 
 def report(d):
-    print("plane.py -- M-RULINGS item 101: the corridor's cost as 'total our plane can read'")
-    print("Bronnikov-Kim eq. (17), READ: %s" % d["bk_read"]["range"])
-    print("  ADM (the plane's total) M = %s;  Komar (the pull) M = %s;  Misner-Sharp at the throat = %s (geometric)" % (
-        d["M_adm"], d["M_komar"], d["MS_throat"]))
-    print("  the total is zero at m = %s; at m = 0 it is %s" % (d["m_zero_adm"], d["M_adm_at_m0"]))
-    print("  core README (%.6e bits), r0 = %.9e m, m = %.9e m:" % (d["core_bits"], d["r0_core_m"], d["m_zero_core_m"]))
-    print("    neck %.9e J (chain's floor %.9e J); plane's total %.3e J; Komar reading %.9e J" % (
-        d["E_neck_core_J"], d["floor_core_J"], d["E_total_core_J"], d["E_komar_core_J"]))
-    print("  M-COEFF: Komar reading = %s = %.9e J x sqrt(N) (u_r %.1e)" % (d["komar_exact"],
-                                                                         d["komar_per_sqrt_bit_J"], d["u_r_G"]))
-    print("  R for eqs. (13), (17) (escape.bk_throats, imported): %s" % d["bk_R"])
-    print("  z3: %s" % d["z3"])
+    print("plane.py -- items 101, 102, 104: the pull as the cost, the two-sided horizon, the inverse of a mass")
+    print("Bronnikov-Kim eq. (17) (READ, p.4): %s" % d["bk_read"]["range"])
+    print("  %s" % d["bk_read"]["horizon_case"])
+    print("  pull (Komar) = %s; Misner-Sharp at the horizon r = 2m = %s; at the throat = %s; ADM = %s" % (
+        d["M_komar"], d["MS_horizon"], d["MS_throat"], d["M_adm"]))
+    print("  Penrose gap ADM - MS(2m) = %s  (> 0 iff r0 > 3m/2, BK's no-singularity condition)" % d["penrose_gap"])
+    lo, hi = d["pull_window_per_sqrt_bit_J"]
+    print("  horizon members r0/2 < m < 2r0/3; with r0 = r_min(N): %.9e < E_pull / sqrt(N) < %.9e J" % (lo, hi))
+    print("  core README (%.6e bits): pull %.9e J (horizon holds) ... window %.9e to %.9e J (throat holds); 0.1 c trip "
+          "%.4e J" % (d["core_bits"], d["pull_horizon_holds_core_J"], d["pull_window_core_J"][0],
+                      d["pull_window_core_J"][1], d["trip_0p1c_J"]))
+    print("  item 102 reciprocal: E x r at the floor = %.9e J m = %.9e J m/bit x N" % (
+        d["E_times_r_core_Jm"], d["bekenstein_product_per_bit_Jm"]))
+    z = d["zero_member"]
+    print("  item 102 negative (boundary, no horizon): m = -2 r0: ADM %.3e J, pull %.6e J, light %.6e J, throat "
+          "area-mass %.6e J" % (z["adm_J"], z["pull_J"], z["light_J"], z["throat_area_mass_J"]))
 
 
 def selftest(d):
@@ -223,41 +249,51 @@ def selftest(d):
         n_con += bool(contrast)
 
     import sympy as sp
-    r0s = sp.Symbol("r0", positive=True)
-    ms = sp.Symbol("m", real=True)
-    chk("P1: eq. (17)'s ADM total is m/4 + r0/2 (sympy: %s) and vanishes at m = -2 r0 (%s)" % (
-        d["M_adm"], d["m_zero_adm"]),
-        sp.simplify(sp.sympify(d["M_adm"], locals={"m": ms, "r0": r0s}) - (ms / 4 + r0s / 2)) == 0 and
-        d["m_zero_adm"] == ["-2*r0"])
-    chk("P1: at m = -2 r0 the geometry is a wormhole on r in (r0, 50 r0] (no horizon, g_rr > 0, throat at r0) -- BK's "
-        "'any r0 > 0 in case m < 0'", d["wormhole_m_minus_2r0"])
-    chk("a horizon inside the range (m = 0.6 r0 > r0/2: g_tt changes sign at r = 1.2 r0) fails the same test",
-        not d["wormhole_control_m_0p6r0"], ctl=True)
-    chk("P1: for the core README the plane's total is zero (%.3e J against a neck of %.6e J)" % (
-        d["E_total_core_J"], d["E_neck_core_J"]), abs(d["E_total_core_J"]) < 1e-6 * d["E_neck_core_J"])
-    chk("P2: the Misner-Sharp energy at the throat is r0/2 for every m (sympy: %s), so the neck carries chain.py's "
-        "floor (%.9e J vs %.9e J)" % (d["MS_throat"], d["E_neck_core_J"], d["floor_core_J"]),
-        d["MS_throat"] == "r0/2" and abs(d["E_neck_core_J"] / d["floor_core_J"] - 1) < 1e-9)
-    chk("P2: the Komar reading at m = -2 r0 is negative and equals -4 x the floor (%.9e J vs %.9e J)" % (
-        d["E_komar_core_J"], -4 * d["floor_core_J"]),
-        d["E_komar_core_J"] < 0 and abs(d["E_komar_core_J"] / (-4 * d["floor_core_J"]) - 1) < 1e-9)
-    chk("P8 (item 102): at m = -2 r0 the energy outside the neck (ADM total minus the throat's Misner-Sharp) is %s, "
-        "the exact negative of the neck's: %.9e J against %.9e J" % (d["outside_neck_geom"], d["E_outside_core_J"],
-                                                                      d["E_neck_core_J"]),
-        d["outside_neck_geom"] == "-r0/2" and abs(d["E_outside_core_J"] / d["E_neck_core_J"] + 1) < 1e-9)
-    chk("M-COEFF: the Komar coefficient %.9e J per sqrt(bit) reproduces the core's reading" % d["komar_per_sqrt_bit_J"],
-        abs(d["komar_per_sqrt_bit_J"] * math.sqrt(d["core_bits"]) / d["E_komar_core_J"] - 1) < 1e-9)
-    chk("P3: eqs. (13) and (17) have R = 0 (escape.bk_throats, imported: %s)" % d["bk_R"], d["bk_R"] == ["0", "0"])
-    chk("boundary: inside BK's range r0 > 2m >= 0 no member reads a total below the neck's floor r0/2 (z3 unsat)",
-        not d["z3"]["adm_below_floor_with_m_nonneg_sat"], contrast=True)
-    chk("boundary: no member reads zero in both the ADM total and the Komar pull (z3 unsat); with m < 0 the ADM total "
-        "alone can be zero (z3 sat)", (not d["z3"]["both_zero_sat"]) and d["z3"]["adm_zero_with_m_negative_sat"])
-    structural.append("P6: chain.corridor_floor takes no distance argument (%s) and none of eq. (17)'s masses has one "
-                      "-- distance enters no formula here, by construction" % (not d["floor_takes_distance"]))
-    structural.append("H-TOTAL-IS-ADM: 'total our plane can read' read as the ADM energy; the Komar pull is the boundary")
-    structural.append("P4: the zero-total family m = -2 r0 is continuous in r0 and tends to flat space at r0 = 0 (read off "
-                      "eq. 17); opening from r0 = 0 is a pinch (chain.py PINCH-IS-TOPO)")
-    structural.append("BK's global bulk is OPEN (BULK5-O1; BK p.6); M's answer 5 drops only its one-universe clause")
+    r0s, ms = sp.Symbol("r0", positive=True), sp.Symbol("m", real=True)
+    S = lambda e: sp.sympify(e, locals={"m": ms, "r0": r0s})
+    chk("eq. (17)'s pull (Komar) is m and the Misner-Sharp mass at the horizon r = 2m is m (sympy: %s, %s): the pull is "
+        "the horizon's mass" % (d["M_komar"], d["MS_horizon"]),
+        sp.simplify(S(d["M_komar"]) - ms) == 0 and sp.simplify(S(d["MS_horizon"]) - ms) == 0)
+    chk("eq. (17)'s ADM total is m/4 + r0/2 and the throat's Misner-Sharp mass is r0/2 (sympy: %s, %s)" % (
+        d["M_adm"], d["MS_throat"]),
+        sp.simplify(S(d["M_adm"]) - (ms / 4 + r0s / 2)) == 0 and sp.simplify(S(d["MS_throat"]) - r0s / 2) == 0)
+    chk("dMS/dr = r^2 rho / 2 with BK's eq. (18) rho (READ p.4): the derived masses agree with the printed density "
+        "(residual %s)" % d["dMS_minus_rho"], d["dMS_minus_rho"] == "0")
+    gap = S(d["penrose_gap"])
+    chk("P4: ADM exceeds the horizon's mass exactly when r0 > 3m/2 (gap %s; sign at m = 0.6 r0: +, at m = 0.7 r0: -) -- "
+        "the Penrose inequality is BK's no-singularity condition" % d["penrose_gap"],
+        sp.simplify(gap - (r0s / 2 - 3 * ms / 4)) == 0 and gap.subs({ms: 0.6, r0s: 1}) > 0 and
+        gap.subs({ms: 0.7, r0s: 1}) < 0)
+    m6, m4, m7 = d["member_0p6"], d["member_0p4"], d["member_0p7"]
+    chk("P1: m = 0.6 r0 has a horizon outside the throat and no singular radius outside it (your corridor's kind)",
+        m6["horizon_outside_throat"] and m6["no_singularity_outside"])
+    chk("m = 0.4 r0 (2m < r0) has no horizon outside the throat", not m4["horizon_outside_throat"], ctl=True)
+    chk("m = 0.7 r0 (> 2r0/3) puts the singular radius 3m/2 outside the throat", not m7["no_singularity_outside"],
+        contrast=True)
+    chk("eqs. (13) and (17) have R = 0 (escape.bk_throats, imported: %s)" % d["bk_R"], d["bk_R"] == ["0", "0"])
+    lo, hi = d["pull_window_core_J"]
+    chk("P3: with the throat holding the core README the pull lies in (%.9e, %.9e) J, and the 0.1 c trip (%.6e J) falls "
+        "inside that window" % (lo, hi, d["trip_0p1c_J"]), lo < d["trip_0p1c_J"] < hi)
+    chk("P2: with the horizon holding it the least pull equals chain.py's bisected floor (%.9e J vs %.9e J)" % (
+        d["pull_horizon_holds_core_J"], d["floor_core_J"]),
+        abs(d["pull_horizon_holds_core_J"] / d["floor_core_J"] - 1) < 1e-9)
+    chk("P5 (boundary): the ADM total vanishes only at m = -2 r0 (%s), where BK's eq. (18) density is negative "
+        "everywhere (%s)" % (d["m_zero_adm"], d["rho_at_minus2r0"]),
+        d["m_zero_adm"] == ["-2*r0"] and d["rho_negative_form"])
+    z = d["zero_member"]
+    structural.append("P5: at m = -2 r0 the pull reads %.6e J, light %.6e J, the ADM total %.1e J; with H-MS-SPLIT the "
+                      "energy outside the throat is %.6e J, the negative of the throat's area-mass -- a restatement of "
+                      "the zero total (first counted as P8)" % (z["pull_J"], z["light_J"], z["adm_J"],
+                                                                 -z["throat_area_mass_J"]))
+    structural.append("P5 reciprocal: E x r at the floor = %.9e J m = N x %.9e J m/bit -- the floor's definition, "
+                      "Bekenstein saturated (first written nowhere)" % (d["E_times_r_core_Jm"],
+                                                                      d["bekenstein_product_per_bit_Jm"]))
+    structural.append("the pull window's ends are r_min/2 and 2 r_min/3 times c^4/G = %.9e J/m (M-COEFF: c^4/G, u_r "
+                      "2.2e-5); an error dm off m = -2 r0 costs dm c^4/(4G) = %.9e J per metre" % (
+                          d["c4_over_G_J_per_m"], d["c4_over_G_J_per_m"] / 4))
+    structural.append("Penrose and positive-mass inequalities: Bray math/9911173v1 eq. 5-6 p.4, Thm 1 p.8 (READ by the "
+                      "verifier); the old z3 forms were one line of algebra each (first counted)")
+    structural.append("H-QUASISTATIC: a static family in r0 is not a widening process; no dynamics computed")
     for s_ in structural:
         print("  STRUCTURAL: " + s_)
     print("plane.py: %d/%d checks pass, %d of them controls and %d contrasts; %d STRUCTURAL printed, not counted" % (
