@@ -27,6 +27,23 @@ THE BOARD'S READING (R-CHAIN-RULE, ungraded, under H-CLASSICAL-SHANNON) AND ITS 
   it depend: ranking by signed or complex magnitudes (item 25, H-SEATRANK), or a stopping rule, taking trajectories in
   rank order "only ... enough" (item 24, H-STOP-WHEN-ENOUGH).  Asked.
 
+YOUR ANSWERS (ITEM 114) AND WHAT THEY SETTLE
+  "The trajectory is the difference between position 1 and position 2", fixed by the object's initial definition and
+  the user's counterfactual requirements for position 2 (H-TRAJECTORY-IS-DIFFERENCE); "The principle or mechanism that
+  determines such properties is the trajectory" (H-TRAJECTORY-IS-MECHANISM); limits from "Both" ends (H-BOTH-LIMITS).
+  * The board's reading (ungraded): a trajectory's bits are the information in the difference -- what position 2's
+    specification adds given position 1's, H(P2 | P1).  A destination with the same laws as the start (Proxima in our
+    universe) differs in none of the twelve: its trajectories add 0 bits and the corridor is the README's alone (your
+    item 101.7, distance irrelevant).  A counterfactual destination adds the information in the user's requirements,
+    given the starting state.  Ranking (item 101.6) then orders the differences, and a difference fixed by higher-ranked
+    ones adds nothing (T1, T2).
+  * K and T: the trajectory is the mechanism (the Kondo exchange mechanism; the phonon anharmonicity), not the material's
+    value -- a law, so universe-level after all, and a difference only where the mechanism differs.
+  * Both limits: with Lambda > 0 at each end, a corridor's horizon must fit under both ends' Schwarzschild-de Sitter
+    ceiling, 1/sqrt(Lambda) at each (0.698 c/H0 for ours, Omega_Lambda NOT READ); the core's horizon, 4.0e-28 m, sits
+    some 53 orders below.
+  First written (T2): "K and T are material properties: trajectories of the object or the site".
+
 WHAT FOLLOWS THE WORK (item 82)
   T1 CLASSICALLY, RANKING MOVES WHO CARRIES THE INFORMATION.  On a toy joint (H-TOY): readouts ranked after their parents
      add 0; ranked first, they carry information and their parents carry less (computed); the total is the same in every
@@ -66,7 +83,7 @@ WHAT FOLLOWS THE WORK (item 82)
      cannot also carry the twelve criteria's correlations, so n adds to N rather than sharing it.
 
 NAMED HYPOTHESES
-  M's: H-TWELVE-TRAJECTORIES (101.6), H-TRAJECTORIES-OPEN (104c), H-12Q (24), H-SEATRANK (25), H-UNIVERSAL-ENTANGLEMENT
+  M's: H-TRAJECTORY-IS-DIFFERENCE, H-TRAJECTORY-IS-MECHANISM, H-BOTH-LIMITS (114); H-TWELVE-TRAJECTORIES (101.6), H-TRAJECTORIES-OPEN (104c), H-12Q (24), H-SEATRANK (25), H-UNIVERSAL-ENTANGLEMENT
     (100), H-REFERENCE-UNIVERSE (23, "based on the starting state").
   The board's: R-CHAIN-RULE, H-CLASSICAL-SHANNON, H-STOP-WHEN-ENOUGH (a reading of 24); H-TOY; H-TREE-LEVEL;
     H-NO-RECORDED-DEPENDENCE; H-ILLUSTRATIVE; H-TRAJECTORIES-IN-README; H-FLAT-FRW-APPARENT-HORIZON; H-BOUSSO-CONJECTURE;

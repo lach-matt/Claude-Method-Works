@@ -23,6 +23,31 @@ Every number is printed by `trajectories.py`.
 - *First written* "6/6 checks, 2 genuine controls". One of those checks was an identity, and one control used a
   hand-made row.
 
+## Your answers (item 114), and what they settle
+
+- *"The trajectory is determined by the initial definition of the object transporting, and its input as a user
+  defining the counterfactual requirements as position 2. The trajectory is the difference between position 1 and
+  position 2"* (H-TRAJECTORY-IS-DIFFERENCE).
+- *"The principle or mechanism that determines such properties is the trajectory"* (H-TRAJECTORY-IS-MECHANISM).
+- Whose limits: *"Both"* (H-BOTH-LIMITS).
+- On the ranking, *"Read my last input"*. The board reads that as your trajectory-as-difference answer.
+
+**What follows (the board's reading, ungraded):**
+- **A trajectory's bits are the information in the difference:** what position 2's specification adds given position
+  1's.
+- **A destination with the same laws as the start differs in none of the twelve.** Proxima, in our universe, is one.
+  Its trajectories add 0 bits, and the corridor is the README's alone. That agrees with your item 101.7, distance
+  irrelevant.
+- **A counterfactual destination adds the information in your requirements,** given the starting state.
+- **The ranking orders the differences,** and a difference fixed by higher-ranked ones adds nothing (points 1 and 3
+  below).
+- **K and T:** the trajectory is the mechanism (the Kondo exchange mechanism; the phonon anharmonicity), not the
+  material's value. So they are laws, and universe-level after all. They make a difference only where the mechanism
+  differs.
+  - *First written:* "trajectories of the object or the site".
+- **Both limits:** a corridor's horizon must fit under both ends' cosmological ceilings, 1/√Λ at each. Ours is
+  0.698 c/H0 (Ω_Λ NOT READ). The core's horizon, 4.0×10⁻²⁸ m, sits about 53 orders of magnitude below it.
+
 ## The board's reading, and where it differs from your sentence
 
 **R-CHAIN-RULE, ungraded, under ordinary (classical) information counting.**
@@ -108,8 +133,7 @@ This is asked.
 
 ## OPEN
 
-1. Which ranking you mean (asked): information added beyond the trajectories ranked above, signed or complex
-   magnitudes, or "only enough".
+1. Which ranking you mean. *Read, item 114: the ranking orders the differences between position 1 and position 2.*
 2. The precision and range each trajectory needs, and so its bits; and K's and T's bits per object and site.
 3. How much a destination defined by one observable feature adds, given your universe.
 4. Whether the seven trajectories with no recorded dependence share information (presumed yes under item 100).
