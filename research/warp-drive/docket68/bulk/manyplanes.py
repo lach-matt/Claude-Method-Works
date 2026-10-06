@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""manyplanes.py -- DOCKET 68, M-RULINGS items 123-127: infinitely many spacetime planes in a closed dimension, as the
+"""manyplanes.py -- DOCKET 68, M-RULINGS items 123-128: infinitely many spacetime planes in a closed dimension, as the
 bulk's layers (A) and as separate sheets (B), both.  Deduced, computed and READ; verified once; not seated.  Write-up:
 MANYPLANES.md.  First headed "items 123-124 ... not verified".
 
@@ -32,29 +32,27 @@ WHAT THE WORK FINDS
        drawn toward our plane.
   (B) THE SHEETS.  The junction at a sheet: Maartens eq. 3.17 p.9, "K+ - K- = -kappa5^2(T^brane - (1/3) T^brane g)"
      (READ by the verifier; first cited as "standard, NOT READ").  For a fixed coordinate vector k, the identity gives
-     d_y(K_kk) = R4_kk - R5_kk + 2 (KK)_kk - K K_kk between sheets.  IF the extra dimension is a loop on which h and K
-     return single-valued, covered by one Gaussian-normal chart (H-CLOSED-AS-LOOP, H-GN-GLOBAL -- the board's readings,
-     the compact sense GKL hep-th/0011225v2 p.4 calls "closed, i.e. compact without boundary", not M's item 123), then
-         kappa^2 SUM_sheets (tau - (tau/3) h)_kk = CLOSED-INTEGRAL d_y(K_kk) dy (smooth part)
-     (STRUCTURAL); on an infinite line a boundary term K_kk(+inf) - K_kk(-inf) survives.  The integrand is d_y K_kk for
-     the fixed k; it equals G_kk only at our plane (off it h_kk = G_kk y^2 != 0 and R5_kk = -4 a^2 h_kk).  Our plane's
-     null jump is zero (q_kk = 0), tension included; another sheet's tension enters through h_kk(y_i).  With no sheet
-     carrying anything along k, the smooth part integrates to zero: d_y K_kk, negative near our plane, must be positive
-     somewhere so K_kk returns.  A sheet keeping the NEC (tau_kk >= 0) makes K_kk jump DOWN, adding to the rise the rest
-     of the loop must supply; only tau_kk < 0 lowers it (closedbulk.py B3) -- GKL eqs. 2.14, 2.26-2.28 pp.4-6 (READ by
-     the verifier) are the literature's trace and tension sum rules on a compact space; this null-null form is the
-     board's.  H-Z2 is dropped for (B): on a loop it would force a second fixed point (closedbulk.py B3 again).
+     d_y(K_kk) = R4_kk - R5_kk + 2 (KK)_kk - K K_kk between sheets.  On an open dimension -- M's item 128: no loop,
+     "A genuine loop would me creating a paradox of transition from position 1 to position 1" -- the ledger keeps its
+     ends: kappa^2 SUM_sheets (tau - (tau/3) h)_kk = INTEGRAL d_y(K_kk) dy (smooth part) - [K_kk(far) - K_kk(near)]
+     (STRUCTURAL).  Nothing forces the bending to turn positive anywhere; the ends can carry it.  The integrand is
+     d_y K_kk for a fixed k; it equals G_kk only at our plane.  Our plane's null jump is zero, tension included; another
+     sheet's tension enters through h_kk(y_i).  A sheet keeping the NEC makes K_kk jump down.  First written with a loop
+     (H-CLOSED-AS-LOOP, H-GN-GLOBAL -- the board's, put in so the integral would close; GKL hep-th/0011225v2 p.4's
+     compact "closed") and "d_y K_kk ... must be positive somewhere": withdrawn by item 128.  H-Z2 is dropped for (B).
      First written: "every sheet's matter ... is fixed by every layer's reading" and "the layers around the closed
      dimension integrate to exactly zero against our corridor's contribution" -- our plane is one layer, of zero measure.
-  WITH ITEM 127 (the planes coincide).  The second plane occupies our plane's place: its null matter is zero (current.py
-     X4), and the corridor's readings on our plane need no k.
+  WITH ITEM 127 (the planes coincide).  The second plane occupies our plane's place.  What that does is not computed:
+     two sheets at one place have no bulk gap, so their junction is not closedbulk.py's B3, and the board's
+     opposite-tension sheets at one place fail the bulk's yy constraint unless k = 0 (current.py X4).  First written
+     "its null matter is zero ... and the corridor's readings on our plane need no k" -- withdrawn.
 
 NAMED HYPOTHESES
   M's: H-CLOSED-AS-TOTALITY, H-SECOND-PLANE-EXISTS, H-INFINITE-PLANES, H-NEC-NEVER-VIOLATED (123); H-PLANES-AS-LAYERS,
     H-PLANES-AS-SHEETS (124); M-EXACT-VALUES (125); H-SHORTEST-DISTANCE, H-COLOCATED-REALIZATION (126);
     H-PLANES-COINCIDE, H-COEFF-FROM-CURRENT (127); H-COMPLETE-BULK, H-CONSERVATION-AS-GEOMETRY (120).
   The board's: closedbulk.py's H-VACUUM-BULK, H-NEAR-PLANE, H-OUR-TENSION, H-Z2 (for (A) only); H-BK-CORRIDOR;
-    H-CLOSED-AS-LOOP, H-GN-GLOBAL (for (B)); current.py's H-CURRENT-IS-SCHWARZSCHILD.
+    H-CLOSED-AS-LOOP, H-GN-GLOBAL (withdrawn, item 128); current.py's H-CURRENT-IS-SCHWARZSCHILD.
 
 USAGE
     python3 manyplanes.py | --selftest | --json      (sympy, mpmath; about three minutes)
@@ -216,7 +214,7 @@ def compute():
         fr = float(sp.Rational(f))
         I = layer_passage(L, s, m, r0, a, x, vals=(1, 1.5 + fr, 0))           # a = 0: I0 and J2 (geometric, m = 1)
         rows.append({"frac": f, "I0_SI": I[0] / mS, "J2_SI": I[2] / mS ** 3, "I0_geo": I[0], "J2_geo": I[2],
-                     "I0_current_py": 2 * float(sp.N(cur.leg_exact(X["m"], sp.Rational(f)), 15))})
+                     "I0_current_py": 2 * cur.leg(mS, fr)})
     ident = identity_check(1)
     ident_flip = identity_check(-1)
     return {"poles": sorted(poles), "L0_minus_gkk": str(sp.simplify(L[0] - gkk)),
@@ -281,11 +279,9 @@ def selftest(d):
     structural.append("A2: I1 = 2a I0 follows from L1 = 4a G_kk and the layer's affine rescaling -- not counted again")
     structural.append("A3: on layer y, K_kk = y G_kk + ...: a ray along a nearby layer is drawn toward our plane "
                       "(first order, G_kk < 0, H-NEAR-PLANE)")
-    structural.append("(B) IF the dimension is a loop with h, K single-valued in one Gaussian-normal chart (H-CLOSED-AS-"
-                      "LOOP, H-GN-GLOBAL; the board's, the compact sense): kappa^2 SUM (tau - tau h/3)_kk = closed "
-                      "integral of d_y K_kk (fixed k); on a line a boundary term survives")
-    structural.append("(B) with no sheet carrying anything along k, d_y K_kk (G_kk < 0 at our plane) must be positive "
-                      "somewhere; a sheet keeping the NEC lowers K_kk and adds to that rise; only tau_kk < 0 lowers it")
+    structural.append("(B) no loop (M's item 128): kappa^2 SUM (tau - tau h/3)_kk = integral of d_y K_kk (fixed k) - "
+                      "[K_kk(far) - K_kk(near)] -- the ends kept; nothing forces d_y K_kk positive anywhere (first "
+                      "written with a loop, H-CLOSED-AS-LOOP, withdrawn)")
     for s_ in structural:
         print("  STRUCTURAL: " + s_)
     print("manyplanes.py: %d/%d checks pass, %d of them controls and %d contrasts; %d STRUCTURAL printed, not counted" % (

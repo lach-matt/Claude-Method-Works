@@ -1,4 +1,4 @@
-# Infinitely many planes, as layers and as sheets (M-RULINGS items 123–127; deduced, computed and READ; verified once; not seated; 2026-10-06)
+# Infinitely many planes, as layers and as sheets (M-RULINGS items 123–128; deduced, computed and READ; verified once; not seated; 2026-10-06)
 
 *First headed* "(M-RULINGS items 123–124; deduced and computed; not verified; not seated; 2026-10-06)".
 
@@ -21,7 +21,8 @@
     universe, added to the value of our current universe"*
 
 Every number is printed by `manyplanes.py`.
-- **Selftest:** 6/6 checks, 2 genuine controls and 1 contrast, with 6 STRUCTURAL lines printed and not counted. It takes
+- **Selftest:** 6/6 checks, 2 genuine controls and 1 contrast, with 5 STRUCTURAL lines printed and not counted (6
+  before item 128 removed the loop's two lines and added one). It takes
   about three minutes.
   - *First written:* "6/6 checks, 1 genuine control and 1 contrast, with 4 STRUCTURAL", at an illustrative member.
 - **Imported, not rebuilt:**
@@ -88,25 +89,26 @@ Every number is printed by `manyplanes.py`.
   - *First written:* "Israel; standard, NOT READ here".
 - **For a fixed coordinate direction k, the identity gives how K_kk changes between sheets:** ∂_y(K_kk) = R⁽⁴⁾_kk −
   R⁽⁵⁾_kk + 2(KK)_kk − K K_kk.
-- **The sum rule holds only if the extra dimension is a loop.** That means h and K return single-valued and one
-  coordinate system covers the whole loop (H-CLOSED-AS-LOOP, H-GN-GLOBAL). Then (STRUCTURAL):
+- **There is no loop (your item 128).** *"A genuine loop would me creating a paradox of transition from position 1 to
+  position 1."* The nearest thing to one is a transit to a position right next to you in your current spacetime.
+- **So the ledger is the open dimension's, with its two ends kept** (STRUCTURAL, from the identity and the junction):
 
-  **κ² Σ_sheets (τ − (τ/3)h)_kk = ∮ ∂_y(K_kk) dy** (the smooth part)
+  **κ² Σ_sheets (τ − (τ/3)h)_kk = ∫ ∂_y(K_kk) dy (the smooth part) − [K_kk(far end) − K_kk(near end)]**
 
-  - **This loop is the board's reading, and it is the compact sense.** GKL (hep-th/0011225v2 p.4) calls that *"closed,
-    i.e. compact without boundary"*. It is not your item 123's "every position".
-  - On an infinite line, a boundary term K_kk(+∞) − K_kk(−∞) survives instead.
-- **What the rule says, and what it does not.**
-  - The integrand is ∂_yK_kk for the fixed k. It equals the corridor's G_kk only at our plane. Off our plane, the
-    fixed k is no longer light-like.
+  - **The sheets' total, the layers' smooth change and the two end values must agree.** Nothing forces the bending to
+    turn positive anywhere: the ends can carry it.
+  - The integrand is ∂_yK_kk for a fixed direction k. It equals the corridor's G_kk only at our plane; off our plane
+    the fixed k is no longer light-like.
   - Our plane's null jump is zero, tension included. Another sheet's tension enters, through h_kk at that sheet.
-  - **With no sheet carrying anything along k, ∂_yK_kk is negative at our plane and must be positive somewhere** for
-    K_kk to return. Nothing more follows.
-  - **A sheet keeping the NEC (τ_kk ≥ 0) makes K_kk jump down.** That adds to the rise the rest of the loop must
-    supply. Only τ_kk < 0 lowers it (closedbulk.py B3).
-  - GKL eqs. 2.14, 2.26–2.28 pp.4–6 (READ by the verifier) are the literature's trace and tension sum rules on a
-    compact space. This null-null form is the board's.
-- **The mirror H-Z2 is dropped for (B).** On a loop it forces a second fixed point, which is closedbulk.py's B3 again.
+  - **A sheet keeping the NEC (τ_kk ≥ 0) still makes K_kk jump down.** Where that change goes, the open ledger leaves
+    to the ends.
+- *First written* (withdrawn by item 128):
+  - The sum rule held "only if the extra dimension is a loop … (H-CLOSED-AS-LOOP, H-GN-GLOBAL)".
+  - With no sheet along k, "∂_yK_kk is negative at our plane and must be positive somewhere".
+  - **Why there was a loop:** it was the board's own assumption, put in so that the integral would close. That is
+    GKL's compact sense of "closed" (hep-th/0011225v2 p.4, *"closed, i.e. compact without boundary"*). No ruling of
+    yours asked for it.
+- **The mirror H-Z2 is dropped for (B).** *First written* with a reason that needed a loop.
 - *First written:*
   - "every sheet's matter … is fixed by every layer's reading";
   - "what our plane reads as negative, the rest of the closed dimension reads as positive, in total exactly".
@@ -131,18 +133,19 @@ Every number is printed by `manyplanes.py`.
   - M-EXACT-VALUES (125);
   - H-SHORTEST-DISTANCE, H-COLOCATED-REALIZATION (126);
   - H-PLANES-COINCIDE, H-COEFF-FROM-CURRENT (127);
+  - H-NO-LOOP (128);
   - H-COMPLETE-BULK, H-CONSERVATION-AS-GEOMETRY (120).
 - **The board's:**
   - closedbulk.py's H-VACUUM-BULK, H-NEAR-PLANE, H-OUR-TENSION, and H-Z2 for (A) only;
   - H-BK-CORRIDOR;
-  - H-CLOSED-AS-LOOP and H-GN-GLOBAL, for (B);
+  - H-CLOSED-AS-LOOP and H-GN-GLOBAL: withdrawn by item 128;
   - current.py's H-CURRENT-IS-SCHWARZSCHILD.
 
 ## OPEN
 
 1. The current-state value of the bulk's scale k, which the layers off our plane need.
 2. Every layer beyond the near-plane series.
-3. Whether your closed dimension is a loop (B's sum rule) or not (a boundary term instead).
+3. The open ledger's two end values. Your item 128 rules out a loop.
 
 ## History (verifier, 2026-10-06)
 
