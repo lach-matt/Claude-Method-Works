@@ -1,4 +1,4 @@
-# The causality thread (M-RULINGS item 94; deduced, computed and READ; verified once; not seated; 2026-10-06)
+# The causality thread (M-RULINGS item 94; deduced, computed and READ; verified once; your answer, item 95, carried after verification; not seated; 2026-10-06)
 
 *First headed* "(M-RULINGS item 94; deduced, computed and READ; not verified; not seated; 2026-10-06)".
 
@@ -21,7 +21,31 @@ Every number is printed by `causal.py`.
 - **Imported, not rebuilt:** the board's own `frame.py` (docket 68, agent A2-frame), which already held this test,
   and `cmb/cmbframe.py` (the dipole and Proxima's Gaia DR3 direction, both READ there).
 
-## What follows the work
+## Your answer (item 95) — read first
+
+*"Two places made one"*. Carried as H-IDENTIFY: the corridor makes the two places one point. Nothing moves, there is
+no duration to measure, and only the labels of the two ends depend on the observer.
+
+- **Two places made one is causally safe if every corridor joins the same instant of one shared clock.**
+  - Making two places one joins an instant at position 1 to an instant at position 2. *Which* instants are joined is
+    what frame.py calls the keying (H-KEYING).
+  - If every corridor joins equal instants of one frame, no network of them ever closes a loop (point 1 below),
+    however often corridors are made.
+  - If any corridor joined instants offset in that frame, a loop returns (the contrast below).
+  - In an exactly uniform expanding universe, only joinings at equal cosmic time preserve the geometry (frame.py's
+    lemma). There the geometry itself picks the joining.
+- **Nothing elapses; only the labels differ.** Observers moving relative to the shared clock give the two joined ends
+  different clock readings: for the Sun's frame and Proxima, 6.7×10⁴ s (point 4). These are labels of one point, not
+  a duration.
+- **The board already holds a shape of this kind.**
+  - A smooth joining of two places is a throat.
+  - Section 8m (escape.py) found that static throats with zero curvature scalar (Bronnikov–Kim) need no matter on
+    either plane: the demand removed, not relocated.
+  - A global bulk for them is BULK5-O1, still OPEN.
+  - This is a link to your answer, not a result about it.
+- The readings below stay as the boundary, and the question they ended with is answered.
+
+## What follows the work (before item 95)
 
 - **1. One shared "now" makes your teleportation causally safe, however often it is repeated.**
   - Suppose every teleport is instantaneous in *one* frame for the whole dimension (the board's reading R-SHARED).
@@ -92,12 +116,12 @@ separated events at all:
 *First written* "these agree only if one frame serves the whole dimension". R-SHARED does not deliver "all
 observers" either.
 
-**Question (pause for your answer):** which of these is your teleport, or is it something else? R-IDENTIFY may be the
+**Question (answered, item 95: *"Two places made one"*):** which of these is your teleport, or is it something else? R-IDENTIFY may be the
 closest to your words: no movement, and nothing elapses for anyone.
 
 ## Named hypotheses
 
-- **M's:** H-NO-MOVEMENT, H-INSTANTANEOUS (item 94); H-CORRIDOR-REPEATABLE, H-CORRIDOR-CONTAINS-P2 (item 90); H-FRAME
+- **M's:** H-IDENTIFY (item 95); H-NO-MOVEMENT, H-INSTANTANEOUS (item 94); H-CORRIDOR-REPEATABLE, H-CORRIDOR-CONTAINS-P2 (item 90); H-FRAME
   (the charter's, tested in frame.py).
 - **The board's readings of H-INSTANTANEOUS:** R-SHARED, R-OBJECT, R-PROPER, R-IDENTIFY (named, for you to choose).
 - **frame.py's:** H-CMB-IS-COSMIC, H-CORRIDOR-MODEL, H-KEYING, H-FRW-EXACT, H-NOT-DE-SITTER.
@@ -113,7 +137,7 @@ closest to your words: no movement, and nothing elapses for anyone.
 
 ## OPEN
 
-1. Your choice of reading, or another.
+1. Your choice of reading: answered, R-IDENTIFY (item 95).
 2. Which frame is shared, if R-SHARED. The cosmic rest frame is the board's candidate (H-CMB-IS-COSMIC).
 3. Chronology protection, if R-OBJECT.
 

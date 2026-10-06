@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 """
 causal.py -- the causality thread (M-RULINGS item 94: "Do you want to take up the causality thread next? - yes").
-Deduced, computed, READ.  Not seated; verified once (2026-10-06).  M's words are carried as hypotheses, never as
-results.
+Deduced, computed, READ.  Not seated; verified once (2026-10-06); M's answer (item 95) carried after verification.  M's words are
+carried as hypotheses, never as results.
 
 M (item 94, verbatim): "their is no movement in warp travel, it is a teleportation that happens instantaneously
 relative to the object teleporting, AND all observers of the same dimension of that objects existence".  Carried as
@@ -12,7 +12,21 @@ question asked is the one M said yes to -- what "instantaneous" does to "before"
 board's own frame.py (docket 68, agent A2-frame) and cmb/cmbframe.py, IMPORTED, never rebuilt.
 First written: "NOTHING HERE PRICES A SPEED" and M's words retyped "there is no movement" (verifier).
 
-WHAT FOLLOWS THE WORK
+M'S ANSWER (item 95, verbatim): "Two places made one" -- carried as H-IDENTIFY (R-IDENTIFY, M's).  What follows:
+  * TWO PLACES MADE ONE IS CAUSALLY SAFE IF EVERY CORRIDOR JOINS THE SAME INSTANT OF ONE SHARED CLOCK (K2).  Making two
+    places one joins an instant at position 1 to an instant at position 2; WHICH instants are joined is frame.py's
+    keying (H-KEYING).  If every corridor joins equal instants of one frame, no network of them closes a loop (K2,
+    Sylvester), however often corridors are made (H-CORRIDOR-REPEATABLE).  If any corridor joined instants offset in
+    that frame, the loop returns (K2's contrast).  In exactly uniform expansion (H-FRW-EXACT, H-NOT-DE-SITTER) only
+    equal-cosmic-time joinings preserve the geometry (frame.py's lemma): there the geometry itself picks the joining.
+  * NOTHING ELAPSES; ONLY THE LABELS DIFFER.  Observers moving relative to the shared clock give the two joined ends
+    different clock readings -- for the Sun's frame and Proxima, 6.7e4 s (K3) -- labels of one point, not a duration.
+  * THE BOARD HOLDS A SHAPE OF THIS KIND.  A smooth joining of two places is a throat; section 8m (escape.py) found
+    that static throats with zero curvature scalar (Bronnikov-Kim) need no matter on either plane -- the demand
+    removed, not relocated; a global bulk for them is BULK5-O1 (OPEN).  A link to M's answer, not a result about it.
+  * The readings below stay as the boundary (item 82); the question they ended with is answered.
+
+WHAT FOLLOWS THE WORK (before item 95)
   * ONE SHARED "NOW" MAKES M'S TELEPORTATION CAUSALLY SAFE, HOWEVER OFTEN IT IS REPEATED (K1, K2).  If every teleport is
     instantaneous in ONE frame for the whole dimension (R-SHARED), no chain of teleports returns before it left:
     frame.antitelephone's reply keyed to that frame arrives at t = 0, never earlier; and every network of corridors
@@ -49,7 +63,7 @@ WHAT FOLLOWS THE WORK
     First written: "the reply keyed to the sender's frame" (the first sender is at rest in the shared frame; it is the
     replier's frame) and "the reply arrives 1.65e5 s before it was sent".
 
-THE READINGS, AND THE QUESTION FOR M (pause for the answer).  Under the relativity of simultaneity (H-LORENZ-OBSERVERS),
+THE READINGS, AND THE QUESTION PUT TO M (answered, item 95: "Two places made one").  Under the relativity of simultaneity (H-LORENZ-OBSERVERS),
 "instantaneous" for two separated places cannot hold for observers moving relative to one another.  It can hold in
 one shared frame (R-SHARED: other observers read a separation, K3, never a loop) or in each object's own frame
 (R-OBJECT: loops).  Neither honours "all observers" literally; that needs H-LORENZ-OBSERVERS to fail, or a reading in
@@ -81,7 +95,7 @@ READ this pass: Liberati, Sonego, Visser, gr-qc/0107091v2, alphaXiv (verifier-RE
    p.16 (stable causality excludes closed timelike and null curves).
 
 NAMED HYPOTHESES
-  M's: H-NO-MOVEMENT, H-INSTANTANEOUS (item 94); H-CORRIDOR-REPEATABLE, H-CORRIDOR-CONTAINS-P2 (item 90); H-FRAME (the
+  M's: H-IDENTIFY (item 95); H-NO-MOVEMENT, H-INSTANTANEOUS (item 94); H-CORRIDOR-REPEATABLE, H-CORRIDOR-CONTAINS-P2 (item 90); H-FRAME (the
   charter's, tested in frame.py).  The board's readings of H-INSTANTANEOUS: R-SHARED, R-OBJECT, R-PROPER, R-IDENTIFY
   (named, M to choose).  frame.py's: H-CMB-IS-COSMIC, H-CORRIDOR-MODEL (latticectc H1-H3), H-KEYING, H-FRW-EXACT,
   H-NOT-DE-SITTER.  cmbframe.py's: H-AT-REST-ENDPOINT.  This file's: H-LORENZ-OBSERVERS, H-ALONG-DIPOLE (for the
