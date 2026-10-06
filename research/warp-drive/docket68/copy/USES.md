@@ -91,6 +91,16 @@ position 2."* Carried as H-CORRIDOR-SINGLE-USE, H-DEVICE-REUSABLE, H-CORRIDOR-RE
     corridor is a bulk feature.
   - *First written* "By the board's D13 every carrier is bounded in its own metric. Inside a corridor that contains
     position 2, that bound is the corridor's own optical length (carrier.py's test), whatever the carrier."
+- **Item 94 re-scopes the two points that follow.** *"there is no movement in warp travel, it is a teleportation that
+  happens instantaneously relative to the object teleporting, AND all observers of the same dimension of that objects
+  existence"*, and *"The corridor is a single channel that grows in size to accommodate the size of the README."*
+  Carried as H-NO-MOVEMENT, H-INSTANTANEOUS and H-SINGLE-CHANNEL-GROWS.
+  - The two points below price a README that crosses over a time, on a carrier of LNM's kind. That premise was the
+    board's, not yours. Under item 94 they do not describe your mechanism; they stay as the boundary for any carrier
+    that takes time.
+  - The board's reading of size as parallel channels (H-SIZE-AS-CHANNELS) is withdrawn on your word: *"Size does not
+    mean more channels."* It is kept below as history.
+  - The causality you asked for is `causal.py` (CAUSAL.md).
 - **The hold has a floor (item 91).** You answered that the README crosses *"Inside, during the hold"*
   (H-README-IN-HOLD). So all N bits cross within the hold t. On one transverse mode (H-ONE-MODE) and for a carrier in
   LNM's class (H-CARRIER-LNM), the README's received energy is at least E_1d(N, t), which grows as N²/t. A use pays
@@ -124,7 +134,7 @@ position 2."* Carried as H-CORRIDOR-SINGLE-USE, H-DEVICE-REUSABLE, H-CORRIDOR-RE
       fails there and is printed as a finding.
     - H-HOLD-FRAME: t is the hold in the frame where it is measured.
     - *First written* with "one transverse mode" folded into H-CARRIER-LNM.
-- **The corridor grows with the README, not the hold (item 93).** *"the corridor doesn't stay open longer to compensate
+- **The corridor grows with the README, not the hold (item 93) — the channel reading below is withdrawn (item 94).** *"the corridor doesn't stay open longer to compensate
   for the size of the README, it compensates in size in stead"* — carried as H-CORRIDOR-SCALES-WITH-README.
   - The board reads "size" as the number of parallel channels the corridor carries (H-SIZE-AS-CHANNELS).
   - Spreading N bits over M_modes channels in a hold t costs E_1d(N, t)/M_modes. So a hold of fixed length needs at

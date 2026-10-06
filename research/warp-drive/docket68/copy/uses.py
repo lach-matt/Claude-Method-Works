@@ -59,6 +59,13 @@ H-DEVICE-REUSABLE, H-CORRIDOR-REPEATABLE and H-CORRIDOR-CONTAINS-P2.
     would follow, if the corridor is a bulk feature.
     First written: "By the board's D13 every carrier is bounded in its own metric; inside a corridor that contains
     position 2 that bound is the corridor's own optical length (carrier.py's test), whatever the carrier".
+  * ITEM 94 RE-SCOPES WHAT FOLLOWS (read before U9 and U10).  M: "there is no movement in warp travel, it is a
+    teleportation that happens instantaneously" (H-NO-MOVEMENT, H-INSTANTANEOUS), and "The corridor is a single
+    channel that grows in size" (H-SINGLE-CHANNEL-GROWS).  U9 and U10 price a README that crosses over a time t, on a
+    carrier in LNM's class: that premise is the board's, not M's.  Under items 94 they do not describe M's mechanism;
+    they stay as the boundary for any carrier that takes time.  U10's reading of size as parallel channels
+    (H-SIZE-AS-CHANNELS) is WITHDRAWN by M ("Size does not mean more channels"), kept as history.  The causality M
+    asked for is causal.py.
   * THE HOLD HAS A FLOOR (item 91; U9).  M: the README crosses "Inside, during the hold" (H-README-IN-HOLD), so its
     whole N bits cross in the hold t.  On LNM's one-dimensional floor (seat.channel_floor, two polarisations) the
     README's received energy, on ONE channel (H-ONE-MODE) and a carrier in LNM's class (H-CARRIER-LNM: massless
