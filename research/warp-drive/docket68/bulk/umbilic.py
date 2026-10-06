@@ -1,39 +1,53 @@
 #!/usr/bin/env python3
 """umbilic.py -- DOCKET 68, M-RULINGS item 122 (2): "read then compute" H-UMBILIC-GEODESIC -- one light ray, read by the
-plane and by the bulk.  Deduced, computed and READ; not verified; not seated.  Write-up: UMBILIC.md.
+plane and by the bulk.  Deduced, computed and READ; verified once; not seated.  Write-up: UMBILIC.md.
 
-THE CANDIDATE (COIN.md point 5).  S3 has K = -a q: the plane is umbilic, so K_mn k^m k^n = 0 for every null k, and the
-plane's light rays would be light rays of the bulk; along one, a bulk of vacuum energy alone gives R5_kk = 0.
+THE CANDIDATE.  S3 has K = -a q: the plane is umbilic, so K_mn k^m k^n = 0 for every null k, and the plane's light rays
+would be light rays of the bulk; along one, a bulk of vacuum energy alone gives R5_kk = 0.  (It was COIN.md point 5;
+the coin metaphor is retired by item 123, and what it described stays M's: item 120 "the NEC only ever appears to
+break, but never does", H-NEC-NEVER-VIOLATED.)
 
-READ.  Youm, "Null Geodesics in Brane World Universe", hep-th/0110013v2 (Firecrawl, PDF), sec. 2 eq. (7): the bulk
-geodesic equation's y-component, d^2y/dlambda^2 + n n' (dt/dlambda)^2 - a a' sum (dx^j/dlambda)^2 = 0, in Gaussian
-normal coordinates (dy^2 in the metric).  For a ray along the plane (dy/dlambda = 0) its force term is
--(1/2) d_y g_mn k^m k^n, which in this board's convention (K = (1/2) d_y g) is -K_kk.  Youm sec. 1: "gravitons are
-assumed to propagate freely in the bulk, whereas all the matter fields are assumed to be confined on the brane".
+READ.  Youm, "Null Geodesics in Brane World Universe", hep-th/0110013v2 (Firecrawl PDF; page numbers by the verifier's
+alphaXiv full text).  Sec. 2 eq. (7), p.2, for his metric ds^2 = -n^2 dt^2 + a^2 gamma dx^2 + dy^2 (FRW-type, not the
+board's static one): the bulk geodesic equation's y-component.  In the board's convention (K = (1/2) d_y g, so
+Gamma^y_mn = -K_mn) its term for a ray along a plane is -K_kk -- the board's translation, standard.  Sec. 1, p.1:
+"gravitons are assumed to propagate freely in the bulk, whereas all the matter fields are assumed to be confined on the
+brane".  Sec. 2, p.4: a ray off the plane "is observed on the hypersurface to be the timelike motion under the
+additional influence of extra non-gravitational force" -- for a generic hypersurface y = y0; AT the brane, with the Z2
+mirror, eqs. (21, 22), p.5: "the null bulk geodesic motion is observed on the three-brane as the timelike geodesic
+motion" (the extra force appears only "if the brane universe does not possess the Z2 symmetry", abstract).
 
 WHAT THE WORK FINDS
-  U1 THE PLANE'S LIGHT RAYS ARE LIGHT RAYS OF THE BULK.  On closedbulk.py's bulk, Gamma^y_mn k^m k^n = 0 at y = 0 for
-     the radial null direction at every r (sympy, from the full 5D Christoffel symbols): a light ray of the corridor
-     stays a geodesic of the five-dimensional spacetime, through the throat and through both horizons.  Its affine
-     parameter is the same in both, because the plane's metric is the bulk's metric restricted to y = 0.
-     Control: a non-umbilic plane (B's first term -2b B0, b != a) gives a nonzero force, proportional to (a - b).
-     Contrast: a static massive observer on the plane has Gamma^y_tt u^t u^t = -a != 0 -- matter on the plane is not
-     on a bulk geodesic: its place on the plane is confinement, not free fall (Youm sec. 1: matter "confined on the
-     brane", assumed there).
-  U2 ALONG THAT ONE RAY: BROKEN IN THE PLANE'S READING, KEPT IN THE BULK.  R5_kk = 0 identically at y = 0 (sympy, from
-     the series bulk's Ricci tensor); the plane reads G_kk (coin.py C1).  Integrated along the whole passage
-     (m = 1, r0 = 1.8): the plane reads -1.914712 E/m, the bulk exactly 0 -- the averaged NEC saturated, not broken.
-     Control: a mis-stated y^2 coefficient (A_2 + delta A_0) makes R5_kk nonzero.  The difference is the bulk's
-     projected Weyl term: E_kk = -G_kk (escape.py S3: "E = -G carries the whole reading").
-  So H-UMBILIC-GEODESIC is computed: on one curve, with one affine parameter, the condition appears broken from the
-  plane and is not broken in the bulk.  Its scope is closedbulk.py's: the bulk near the plane, vacuum, H-RS1.
+  U1 THE PLANE'S LIGHT RAYS ARE LIGHT RAYS OF THE BULK (STRUCTURAL).  Gamma^y_kk = -K_kk = a q_kk = 0 from the input
+     K = -a q (escape.py S3) and k null; sympy confirms the code reads it.  One affine parameter for both readings
+     (g_my = 0, dy/dlambda = 0: the 5D tangential equations are the plane's).  It holds for every null direction along the
+     plane and at the horizons by the tensor identity (the coordinate computation is singular at r = 2m).  First written
+     as a counted computation.
+  U2 ALONG THAT RAY THE BULK READS 0; THE PLANE READS G_kk.  R5_kk = 0 on the plane holds by construction -- build()'s
+     y^0 evolution equations set it (STRUCTURAL; first written "which closedbulk.py's constraint checks defend").  What
+     is computed: the bulk's Weyl reading E_kk = R5_{kyky} (R5_kk = 0) from the series' Riemann tensor equals -G_kk
+     exactly, so the plane's reading R4_kk = -E_kk = G_kk is the bulk's projected Weyl curvature (Shiromizu-Maeda-Sasaki,
+     tau = 0; escape.py S3 "E = -G carries the whole reading").  Along the whole passage (m = 1, r0 = 1.8) the plane reads
+     -1.914712 E/m and the bulk 0 (derived from R5_kk = 0, not set; first written as a hard-coded 0.0).  The Z2 brane's
+     distributional part is proportional to S = -sigma q, so q_kk = 0 keeps it out.
+  U3 LIGHT NEAR THE PLANE IS DRAWN BACK TO IT; MATTER IS PUSHED OFF IT (the verifier's finding; it follows from U2).  The
+     y-deviation of a ray along the plane obeys D^2 xi^y/dlambda^2 = -R_{kyky} xi^y = +G_kk xi^y, and G_kk < 0 on the
+     whole corridor: a ray displaced off the plane is pulled back -- the plane's "broken" reading is the bulk's focusing
+     of light onto the plane (the board's reading).  A static massive observer (r > 2m) has d^2y/dtau^2 = +a on either
+     side, away from the plane: under H-Z2 the plane is an unstable equilibrium for matter, and staying there needs
+     confinement (Youm sec. 1, assumed).  First written "matter on the plane is not on a bulk geodesic" -- one-sided.
+  SCOPE.  U1-U3 at y = 0 use only the exact local data (the y^0, y^1, y^2 terms): tau = 0, K = -a q, H-VACUUM-BULK,
+  H-Z2 -- not H-NEAR-PLANE.  Under H-VACUUM-BULK, R5 = -4 a^2 g gives R5_kk = 0 for every null vector at every point
+  off the planes, rays that leave the plane included; the averaged condition can fail only at a plane.  Only the
+  plane's -1.914712 is specific to radial rays.
 
 NAMED HYPOTHESES
-  M's: H-NEC-COIN (117; a metaphor, 120); H-SIDES-AS-HORIZON-PAIR, H-ER=EPR-MATTER-ONLY, H-RULES-NOT-INFORMATION (122).
-  The board's: closedbulk.py's H-VACUUM-BULK, H-Z2, H-NEAR-PLANE; H-BK-CORRIDOR; H-RS1; H-PLANE-READING.
+  M's: H-NEC-NEVER-VIOLATED (117, 120, 123); H-SIDES-AS-HORIZON-PAIR, H-ER=EPR-MATTER-ONLY, H-RULES-NOT-INFORMATION,
+    H-5D-CENSORSHIP (122, read against the coin report's numbering -- the board's reading).
+  The board's: closedbulk.py's H-VACUUM-BULK, H-Z2; H-BK-CORRIDOR; H-RS1; H-PLANE-READING.
 
 USAGE
-    python3 umbilic.py | --selftest | --json      (sympy; about half a minute)
+    python3 umbilic.py | --selftest | --json      (sympy; about fifteen seconds)
 """
 
 import contextlib
@@ -51,6 +65,7 @@ _CACHE = {}
 YOUM_CONFINED = ("gravitons are assumed to propagate freely in the bulk, whereas all the matter fields are assumed to "
                  "be confined on the brane")
 ESCAPE_E = "E = -G carries the whole reading"
+YOUM_Z2 = "the null bulk geodesic motion is observed on the three-brane as the timelike geodesic motion"
 
 
 def _load(path, key):
@@ -123,6 +138,34 @@ def ricci_kk(cs):
     return sp.simplify(val)
 
 
+def riemann_kyky(cs):
+    """R5_{A y B y} k^A k^B at y = 0 for the plane's radial null k, from the series metric's own Christoffel symbols
+    (R^rho_{y b y} = d_b Gamma^rho_yy - d_y Gamma^rho_by + Gamma^rho_bl Gamma^l_yy - Gamma^rho_yl Gamma^l_by)."""
+    import sympy as sp
+    cb = owners()["closedbulk"]
+    E = cb.field_equations()
+    x, u = E["x"], E["u"]
+    t, th, ph = sp.symbols("t theta phi", real=True)
+    X = [t, x, th, ph, u]
+    g = _metric5(cs, x, th, u)
+    gi = sp.diag(*[1 / g[i, i] for i in range(5)])
+    n = 5
+
+    def gam(r_, a_, b_):
+        return sum(gi[r_, d] * (sp.diff(g[d, a_], X[b_]) + sp.diff(g[d, b_], X[a_]) - sp.diff(g[a_, b_], X[d]))
+                   for d in range(n)) / 2
+    A0, B0 = cs[0][0], cs[1][0]
+    k = {0: 1 / A0, 1: 1 / sp.sqrt(A0 * B0)}
+    tot = 0
+    for rho in (0, 1):
+        for b_ in (0, 1):
+            R = (sp.diff(gam(rho, 4, 4), X[b_]) - sp.diff(gam(rho, b_, 4), u)
+                 + sum(gam(rho, b_, l) * gam(l, 4, 4) - gam(rho, 4, l) * gam(l, b_, 4) for l in range(n)))
+            for a_ in (0, 1):
+                tot += g[a_, rho].subs(u, 0) * R.subs(u, 0) * k[a_] * k[b_]
+    return sp.simplify(tot)
+
+
 def compute():
     import sympy as sp
     o = owners()
@@ -142,24 +185,29 @@ def compute():
     gn = _metric5([[A0, -2 * a * A0], [B0, -2 * b * B0], [C0, -2 * a * C0]], x, th, u)
     force_non = sp.factor(gamma_y(gn, X, k, k))
     uvec = [1 / sp.sqrt(A0), 0, 0, 0, 0]
-    force_timelike = gamma_y(g, X, uvec, uvec)
+    accel_static = sp.simplify(-gamma_y(g, X, uvec, uvec))        # d^2 y / dtau^2 on the y > 0 side
     r5 = ricci_kk(bk["coeffs"])
     poked = cb.build(A0, B0, C0, order=2, poke=(2, sp.Symbol("delta", positive=True)))
     r5_poked = sp.factor(ricci_kk(poked["coeffs"]))
+    gkk = -2 * (2 * r0 - 3 * m) * (x - 2 * m) / (x ** 2 * (2 * x - 3 * m) ** 2) / A0
+    Ekk = riemann_kyky(bk["coeffs"])
+    Ekk_poked = sp.factor(sp.simplify(riemann_kyky(poked["coeffs"]) + gkk))
     anec_plane = 2 * o["coin"].anec_closed(1.0, 1.8)
     src = open(o["escape"], encoding="utf-8").read()
-    return {"force_null": str(force), "force_nonumbilic": str(force_non), "force_timelike_static": str(force_timelike),
-            "R5_kk": str(r5), "R5_kk_poked": str(r5_poked), "anec_plane_passage": anec_plane, "anec_bulk_passage": 0.0,
+    return {"force_null": str(force), "force_nonumbilic": str(force_non), "accel_static_y": str(accel_static),
+            "R5_kk": str(r5), "R5_kk_poked": str(r5_poked), "E_kk_plus_G_kk": str(sp.simplify(Ekk + gkk)),
+            "E_kk_poked_plus_G_kk": str(Ekk_poked), "deviation_coeff_minus_G_kk": str(sp.simplify(-Ekk - gkk)),
+            "anec_plane_passage": anec_plane, "anec_bulk_passage": 0.0 if sp.simplify(r5) == 0 else None,
             "escape_E_in_source": ESCAPE_E in " ".join(src.split())}
 
 
 def report(d):
     print("umbilic.py -- item 122 (2): one light ray, read by the plane and by the bulk")
-    print("  bulk force on the plane's radial light ray, Gamma^y_kk at y = 0: %s" % d["force_null"])
-    print("  non-umbilic plane (B's first term -2b B0): %s;  static massive observer: %s" % (
-        d["force_nonumbilic"], d["force_timelike_static"]))
-    print("  R5_kk at y = 0: %s;  with a mis-stated y^2 coefficient: %s" % (d["R5_kk"], d["R5_kk_poked"]))
-    print("  along the whole passage (m = 1, r0 = 1.8): the plane reads %.6f E/m, the bulk %.1f" % (
+    print("  bulk force on the plane's radial light ray, Gamma^y_kk at y = 0: %s (non-umbilic plane: %s)" % (
+        d["force_null"], d["force_nonumbilic"]))
+    print("  R5_kk at y = 0: %s;  E_kk + G_kk = %s;  static matter: d^2y/dtau^2 = %s" % (
+        d["R5_kk"], d["E_kk_plus_G_kk"], d["accel_static_y"]))
+    print("  along the whole passage (m = 1, r0 = 1.8): the plane reads %.6f E/m, the bulk %s" % (
         d["anec_plane_passage"], d["anec_bulk_passage"]))
 
 
@@ -176,25 +224,32 @@ def selftest(d):
         n_ctl += bool(ctl)
         n_con += bool(contrast)
 
-    chk("U1: the bulk exerts no force on the plane's radial light ray at any r (Gamma^y_kk = %s, full 5D Christoffels): "
-        "it is a light ray of the bulk too" % d["force_null"], d["force_null"] == "0")
-    chk("a non-umbilic plane (b != a) pushes the ray off: Gamma^y_kk = %s" % d["force_nonumbilic"],
-        d["force_nonumbilic"] != "0" and "a - b" in d["force_nonumbilic"].replace("-b + a", "a - b"), ctl=True)
-    chk("a static massive observer on the plane is not on a bulk geodesic: Gamma^y_tt u u = %s -- its place on the "
-        "plane is confinement, not free fall" % d["force_timelike_static"], d["force_timelike_static"] not in ("0",), contrast=True)
-    chk("U2: R5_kk = %s at y = 0 along that ray (the series bulk's Ricci tensor)" % d["R5_kk"], d["R5_kk"] == "0")
-    chk("a mis-stated y^2 coefficient makes R5_kk = %s" % d["R5_kk_poked"], d["R5_kk_poked"] != "0", ctl=True)
-    chk("U2: along the whole passage the plane reads %.6f E/m and the bulk %.1f -- broken in the plane's reading, "
-        "saturated in the bulk" % (d["anec_plane_passage"], d["anec_bulk_passage"]),
+    chk("U2: the bulk's Weyl reading along the ray, E_kk = R5_{kyky} from the series' Riemann tensor, is exactly -G_kk "
+        "(E_kk + G_kk = %s): the plane's reading is the bulk's projected Weyl curvature" % d["E_kk_plus_G_kk"],
+        d["E_kk_plus_G_kk"] == "0")
+    chk("a mis-stated y^2 coefficient breaks it: E_kk + G_kk = %s" % d["E_kk_poked_plus_G_kk"],
+        d["E_kk_poked_plus_G_kk"] != "0", ctl=True)
+    chk("U2: along the whole passage the plane reads %.6f E/m and the bulk %s (from R5_kk = %s)" % (
+        d["anec_plane_passage"], d["anec_bulk_passage"], d["R5_kk"]),
         d["anec_plane_passage"] < 0 and d["anec_bulk_passage"] == 0.0)
-    structural.append("U1: one affine parameter for both readings -- the plane's metric is the bulk's restricted to "
-                      "y = 0, and the ray is a geodesic of both")
-    structural.append("U2: the bulk's integral is 0 because R5_kk vanishes pointwise; that follows from the field "
-                      "equations R5_AB = -4 a^2 g_AB and g_kk = 0, which closedbulk.py's constraint checks defend")
-    structural.append("U2: the difference is the projected Weyl term, E_kk = -G_kk (escape.py S3 '%s', in its source: "
-                      "%s)" % (ESCAPE_E, d["escape_E_in_source"]))
-    structural.append("READ: Youm hep-th/0110013v2 sec. 2 eq. (7) is the y-component of the bulk geodesic equation; "
-                      "sec. 1: '%s'" % YOUM_CONFINED)
+    structural.append("U3: a ray displaced off the plane obeys D^2 xi^y = -R_{kyky} xi^y = G_kk xi^y (difference %s) -- "
+                      "U2's E_kk = -G_kk through the geodesic-deviation equation; G_kk < 0 on the corridor, so light "
+                      "near the plane is drawn back to it" % d["deviation_coeff_minus_G_kk"])
+    structural.append("U3: a static massive observer has d^2y/dtau^2 = %s on y > 0, away from the plane (the mirror side "
+                      "alike) -- from the input K = -a q; under H-Z2 an unstable equilibrium for matter" %
+                      d["accel_static_y"])
+    structural.append("U1: Gamma^y_kk = -K_kk = a q_kk = %s from the input K = -a q and k null; a non-umbilic input "
+                      "(b != a) gives %s -- a control on the code, not the physics (first counted)" % (
+                          d["force_null"], d["force_nonumbilic"]))
+    structural.append("U1: one affine parameter for both readings -- g_my = 0 and dy/dlambda = 0, so the 5D tangential "
+                      "geodesic equations are the plane's")
+    structural.append("U2: R5_kk = %s at y = 0 by construction (build()'s y^0 evolution equations); a mis-stated y^2 "
+                      "coefficient gives %s (first counted, with a check naming the wrong defence)" % (
+                          d["R5_kk"], d["R5_kk_poked"]))
+    structural.append("U2: escape.py S3 '%s' is in its source: %s; the Z2 brane's distributional part is proportional "
+                      "to S = -sigma q, and q_kk = 0" % (ESCAPE_E, d["escape_E_in_source"]))
+    structural.append("READ: Youm hep-th/0110013v2 sec. 2 eq. (7) p.2; sec. 1 p.1 '%s'; with Z2, eqs. (21, 22) p.5 "
+                      "'%s'" % (YOUM_CONFINED, YOUM_Z2))
     for s_ in structural:
         print("  STRUCTURAL: " + s_)
     print("umbilic.py: %d/%d checks pass, %d of them controls and %d contrasts; %d STRUCTURAL printed, not counted" % (

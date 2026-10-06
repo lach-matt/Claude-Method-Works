@@ -1,5 +1,9 @@
 # The coin test (M-RULINGS items 117–118, 120; deduced, computed and READ; verified once; not seated; 2026-10-06)
 
+*Retired by your item 123: "forget the coin metaphor. It served its intended purpose already." What it described
+stays yours (H-NEC-NEVER-VIOLATED). Nothing below is pursued further. Item 122's four answers are read against this
+file's four open points; that numbering is the board's reading.*
+
 *First headed* "(M-RULINGS items 117–118; deduced and computed; not verified; not seated; 2026-10-06)".
 
 ## What M said
@@ -96,8 +100,9 @@ along the whole passage too."*
   - Along it, a bulk of vacuum energy alone gives R⁽⁵⁾_kk = 0. The same curve would then read −1.914712 E/m in the
     plane and exactly 0 in the bulk.
   - Carried as **H-UMBILIC-GEODESIC**, the board's candidate. *First written:* "OPEN until it is computed and READ".
-  - **Computed on your item 122 ("read then compute"; bulk/UMBILIC.md).** Youm (hep-th/0110013v2 §2 eq. 7, READ) gives
-    the bulk's force on a ray along the plane as −K_kk, zero for an umbilic plane. On closedbulk.py's bulk the force is
+  - **Computed on your item 122 ("read then compute"; bulk/UMBILIC.md).** Youm's eq. (7) (hep-th/0110013v2 §2 p.2,
+    READ) is the y-component of the bulk geodesic equation. In the board's convention its term for a ray along the plane
+    is −K_kk, which is zero for an umbilic plane. *First written:* "Youm … gives the bulk's force … as −K_kk". On closedbulk.py's bulk the force is
     0 at every radius, and R⁽⁵⁾_kk = 0 along the ray. The same ray reads −1.914712 E/m in the plane and 0 in the bulk.
 - **6. What the board already holds.**
   - **Maldacena–Susskind fn.1 p.2** (READ in geometry.py): non-traversability *"can be shown using the integrated null
