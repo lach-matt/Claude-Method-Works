@@ -46,6 +46,15 @@ WHAT FOLLOWS THE WORK (item 82: lead with what passes)
        every direct reading is negative ("must appear to contain", item 86.1).  But it has no horizon, so it is not
        the corridor your item 104(b) describes.  Which member you mean is asked.
 
+  P6 YOUR THREE HOLDS (ITEM 106), UNDER H-HORIZON-HOLDS.  Each hold is a horizon at the floor: opening, position 1's
+     horizon only (plane 1 reads E_min, plane 2 nothing); realized, both at once -- eq. 17 is symmetric, so both mouths
+     carry the same m, and each plane reads E_min; closing, position 2's only.  If the closing hold persists at position
+     2 as a horizon of that mass (H-HOLD-PERSISTS), it is a black hole of E_min/c^2 = 0.2677 kg for the core, at a
+     Hawking temperature of 4.583e23 K (pair.py): k_B T = 3.95e10 GeV, 3.2e8 times the Higgs mass (higgs.py).  Its
+     energy, 2.406e16 J, is then released at position 2 hotter than every Standard Model mass -- a computed bearing on
+     your answers 3 & 4 ("newly introduced energy ... triggers a field reaction, such as a higgs field"), not a showing
+     of matter assembly.  The photon-only evaporation time, 1.6e-18 s, has no READ owner: NOT READ.
+
 WHAT IS RULED OUT, AS THE BOUNDARY
   * A positive-density member with a total below the throat's area-mass (the Riemannian positive-mass and Penrose
     inequalities, Bray pp.2-4, 8, READ by the verifier): a zero total needs rho < 0 everywhere (eq. 18 at m < 0).
@@ -56,13 +65,14 @@ WHAT IS RULED OUT, AS THE BOUNDARY
     core is 4.0e-28 m.  BULK5-O1, OPEN.
 
 NAMED HYPOTHESES
-  M's: H-PULL-IS-COST (104b), H-ONE-MOUTH-SEEN, H-CORRIDOR-HORIZON, H-TWO-SIDED-HORIZON (104b),
+  M's: H-RECIPROCAL, H-THREE-HOLDS, H-SPLIT-AT-P2 (106); H-PULL-IS-COST (104b), H-ONE-MOUTH-SEEN, H-CORRIDOR-HORIZON, H-TWO-SIDED-HORIZON (104b),
     H-INFORMATION-IS-INVERSE-MASS (102, 104a), H-READING-ONLY (86.1), H-DEVICE-SIZES, H-TWELVE-TRAJECTORIES (101.6),
     H-TRAJECTORIES-OPEN (104c), H-DISTANCE-IRRELEVANT (101.7), H-SEPARATE-UNIVERSES (101.5).
   The board's: H-BK-CORRIDOR (the corridor is eq. 17, a static 4D brane metric -- your answer 5's "transit phase through
     a dimension" is a bulk throat, which eq. 17 is not); H-HORIZON-HOLDS / H-NECK-HOLDS (where the README's bits sit --
     the two readings of P2, P3); H-STRONG-BOUND; H-NECK-ENERGY; H-MS-SPLIT; H-TOTAL-IS-ADM (now the boundary: you chose
-    the pull); H-RS1 and H-QUASISTATIC (a static family is not a widening process; no dynamics computed).
+    the pull); H-RS1 and H-QUASISTATIC (a static family is not a widening process; no dynamics computed); H-HOLD-PERSISTS (the
+    closing hold stays a horizon of the same mass at position 2).
 
 HISTORY (verifier, 2026-10-06; first-written claims kept in PLANE.md)
   * BK pages were "p.6" for eqs. 13 and 17 (escape.py's citation): eq. 13 is p.3, eq. 17 and its range p.4 (rulings
@@ -125,6 +135,8 @@ def owners():
     if not _CACHE:
         _CACHE["chain"] = _load(os.path.join(HERE, "chain.py"), "copy_chain_plane")
         _CACHE["escape"] = _load(os.path.join(D68, "bulk", "escape.py"), "d68_escape_plane")
+        _CACHE["pair"] = _load(os.path.join(WD, "pair.py"), "wd_pair_plane")
+        _CACHE["higgs"] = _load(os.path.join(WD, "higgs.py"), "wd_higgs_plane")
     return _CACHE
 
 
@@ -173,6 +185,28 @@ def horizon_member(m_over_r0):
     return {"horizon_outside_throat": sign_change, "no_singularity_outside": num_ok}
 
 
+def three_holds(E_hold_J):
+    """Item 106 (H-THREE-HOLDS) under H-HORIZON-HOLDS and H-PULL-IS-COST: the pull each plane reads at each hold, each
+    holding horizon at the floor.  Opening: position 1's horizon only; realized: both (eq. 17 is symmetric, so both
+    mouths carry the same m); closing: position 2's only."""
+    return {"opening": {"P1": E_hold_J, "P2": 0.0}, "realized": {"P1": E_hold_J, "P2": E_hold_J},
+            "closing": {"P1": 0.0, "P2": E_hold_J}}
+
+
+def closing_horizon(E_hold_J):
+    """If the closing hold persists at position 2 as a horizon of the same mass (H-HOLD-PERSISTS): its mass, Hawking
+    temperature (pair.hawking_temperature, imported) and k_B T against the Higgs mass (higgs.M_HIGGS, imported).  The
+    photon-only evaporation time 5120 pi G^2 M^3 / (hbar c^4) is printed as NOT READ, not counted."""
+    o = owners()
+    pr, hg = o["pair"], o["higgs"]
+    M = E_hold_J / pr.C ** 2
+    T = pr.hawking_temperature(M)
+    kT_GeV = pr.KB * T / (pr.E_CHARGE * 1e9)
+    t_evap = 5120 * math.pi * pr.G ** 2 * M ** 3 / (pr.HBAR * pr.C ** 4)
+    return {"M_kg": M, "T_K": T, "kT_GeV": kT_GeV, "m_higgs_GeV": hg.M_HIGGS, "kT_over_mh": kT_GeV / hg.M_HIGGS,
+            "t_evap_s_NOT_READ": t_evap, "E_released_J": E_hold_J}
+
+
 def compute():
     import sympy as sp
     o = owners()
@@ -213,6 +247,8 @@ def compute():
                         "pull_J": m_zero * c4G, "light_J": float(bk["M_light"].subs({m: m_zero, r0: rmin})) * c4G,
                         "throat_area_mass_J": float(bk["MS_throat"].subs(r0, rmin)) * c4G},
         "c4_over_G_J_per_m": c4G,
+        "three_holds_core_J": three_holds(fl["E_J"]),
+        "closing_core": closing_horizon(fl["E_J"]),
     }
 
 
@@ -280,6 +316,17 @@ def selftest(d):
     chk("P5 (boundary): the ADM total vanishes only at m = -2 r0 (%s), where BK's eq. (18) density is negative "
         "everywhere (%s)" % (d["m_zero_adm"], d["rho_at_minus2r0"]),
         d["m_zero_adm"] == ["-2*r0"] and d["rho_negative_form"])
+    ch_ = d["closing_core"]
+    chk("P6 (item 106): if the closing hold persists at position 2 as a horizon of the core's floor mass (%.6e kg), its "
+        "Hawking temperature (%.6e K, pair.py) gives k_B T = %.4e GeV, %.3e times the Higgs mass (%.2f GeV, higgs.py)" % (
+            ch_["M_kg"], ch_["T_K"], ch_["kT_GeV"], ch_["kT_over_mh"], ch_["m_higgs_GeV"]), ch_["kT_over_mh"] > 1e6)
+    h3 = d["three_holds_core_J"]
+    structural.append("P6: the three holds' pulls (P1, P2) in J: opening (%.4e, %.0f), realized (%.4e, %.4e), closing "
+                      "(%.0f, %.4e) -- the realized hold's equal pair is eq. 17's symmetry (by construction)" % (
+                          h3["opening"]["P1"], h3["opening"]["P2"], h3["realized"]["P1"], h3["realized"]["P2"],
+                          h3["closing"]["P1"], h3["closing"]["P2"]))
+    structural.append("P6: the photon-only evaporation time 5120 pi G^2 M^3/(hbar c^4) = %.3e s -- NOT READ (no owner on "
+                      "the board), not counted" % ch_["t_evap_s_NOT_READ"])
     z = d["zero_member"]
     structural.append("P5: at m = -2 r0 the pull reads %.6e J, light %.6e J, the ADM total %.1e J; with H-MS-SPLIT the "
                       "energy outside the throat is %.6e J, the negative of the throat's area-mass -- a restatement of "

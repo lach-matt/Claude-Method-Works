@@ -1,4 +1,4 @@
-# The cost as the pull, the corridor's two-sided horizon, the inverse of a mass (M-RULINGS items 101, 102 and 104; deduced, computed and READ; first form verified once, the item-104 rework not yet; not seated; 2026-10-06)
+# The cost as the pull, the corridor's two-sided horizon, the inverse of a mass (M-RULINGS items 101, 102, 104 and 106; deduced, computed and READ; first form verified once, the item-104 rework not yet; not seated; 2026-10-06)
 
 *First headed* "(M-RULINGS items 101 and 102; deduced, computed and READ; not verified; not seated; 2026-10-06)".
 
@@ -15,7 +15,7 @@
   - (c) The twelve trajectories (below).
 
 Every number is printed by `plane.py`.
-- **Selftest:** 11/11 checks, 1 genuine control and 1 contrast, with 5 STRUCTURAL lines printed and not counted.
+- **Selftest:** 12/12 checks, 1 genuine control and 1 contrast, with 7 STRUCTURAL lines printed and not counted.
 - *First written* "11/11 checks", of which four restated others and two were one-line algebra (History).
 - **Imported, not rebuilt:** `chain.py` (the floor, its constants, the trip energies) and `bulk/escape.py`
   (Bronnikov–Kim's R = 0).
@@ -121,6 +121,35 @@ Every number is printed by `plane.py`.
   - **Answer 10:** read first, then execute, at position 2. *The board's reading:* this is the split rule wall 13 asked
     for, which is on which side the record ends. Please confirm it.
 
+## Your answers to the last three questions (item 106)
+
+- **Item 102 is settled: the horizon member, and the reciprocal** (H-RECIPROCAL). The information definition is the
+  inverse of the mass: energy × size = N × 3.48772679×10⁻²⁷ J·m. The members with a horizon, r₀/2 < m < 2r₀/3, are your
+  corridor. The negative-mass members stay as the boundary.
+- **Wall 13 is closed by your rule** (H-SPLIT-AT-P2): the README's record ends at position 2.
+- **Your three holds, computed** (H-THREE-HOLDS, under H-HORIZON-HOLDS; `plane.py` P6). You described *"Three distinct
+  holds in one fluid wave motion"*. Each hold is a horizon at the floor:
+
+  | hold | where the bits are | pull plane 1 reads | pull plane 2 reads |
+  |---|---|---|---|
+  | opening | position 1's horizon | 4.59404002×10⁸ J × √N (core 2.4059×10¹⁶ J) | 0 |
+  | fully realized | both horizons at once | 4.59404002×10⁸ J × √N | 4.59404002×10⁸ J × √N |
+  | closing | position 2's horizon | 0 | 4.59404002×10⁸ J × √N |
+
+  - The realized hold's equal pair is built into the geometry: eq. (17) is symmetric, so both mouths carry the same
+    mass. This is by construction.
+  - The opening and closing holds are asymmetric, and no static member of the family has them. They need a dynamical
+    geometry, which is OPEN.
+- **What the closing hold implies, if it persists** (H-HOLD-PERSISTS: the closing hold stays a horizon of the same mass
+  at position 2):
+  - It is a black hole of E_min/c² = **0.2677 kg** for the core README.
+  - Its Hawking temperature is **4.583×10²³ K** (pair.py), so k_B·T = 3.95×10¹⁰ GeV. That is 3.2×10⁸ times the Higgs
+    mass (125.13 GeV, higgs.py).
+  - Its energy, 2.406×10¹⁶ J, would then be released at position 2 hotter than every Standard Model mass.
+  - That bears on your answers 3 & 4 (*"newly introduced energy to a position triggers a field reaction, such as a
+    higgs field"*). It does not show matter assembly: thermal radiation is not a build (walls 5 and 6).
+  - The photon-only evaporation time, 5120πG²M³/(ħc⁴) = 1.6×10⁻¹⁸ s, has no READ owner on the board: NOT READ.
+
 ## What is ruled out, as the boundary
 
 - **A positive-density member with a total below the horizon's or throat's area-mass.** The Riemannian positive-mass
@@ -137,20 +166,20 @@ Every number is printed by `plane.py`.
 
 | wall | under your answers |
 |---|---|
-| 4 the corridor's energy | **the pull: at least the floor, 4.59404002×10⁸ J × √N (horizon holds), or between 1 and 4/3 of it (throat holds)** |
+| 4 the corridor's energy | **the pull: the floor, 4.59404002×10⁸ J × √N, read by each plane while its horizon holds (item 106)**. *First written* "at least the floor (horizon holds), or between 1 and 4/3 of it (throat holds)" |
 | 6 energy at position 2 | the README triggers, and the energy is the position's own. Bounded by D15, D16 and D20, not computed: OPEN |
 | 8 the global bulk | the one-universe clause is dropped. The 5D completion is OPEN, and may restrict the throat's size (BK p.2) |
 | 9 the coupling | the README's share of the size is the floor; the trajectories' share is OPEN. Traversability is OPEN |
 | 10 address precision | no separation enters eq. (17) |
 | 11 the read | position 2 autodetects and verifies. The scan at position 1 is unchanged |
 | 12 identity completeness | relative, and defined by the README |
-| 13 the split | read first, then execute, at position 2 (to confirm) |
+| 13 the split | **closed by your rule**: read first, then execute; the record ends at position 2 (item 106) |
 
 *First written* with wall 4 "zero by your measure", under the ADM reading. You then chose the pull.
 
 ## Named hypotheses
 
-- **Yours:** H-PULL-IS-COST, H-ONE-MOUTH-SEEN, H-CORRIDOR-HORIZON, H-TWO-SIDED-HORIZON (104b);
+- **Yours:** H-RECIPROCAL, H-THREE-HOLDS, H-SPLIT-AT-P2 (106); H-PULL-IS-COST, H-ONE-MOUTH-SEEN, H-CORRIDOR-HORIZON, H-TWO-SIDED-HORIZON (104b);
   H-INFORMATION-IS-INVERSE-MASS (102, 104a); H-TRAJECTORIES-OPEN (104c); H-READING-ONLY (86.1); and from item 101:
   H-MADE-AS-WIDENED, H-ENTANGLEMENT-IS-IT, H-INFORMATION-IS-ENERGY, H-FIELD-REACTION, H-SEPARATE-UNIVERSES,
   H-DEVICE-SIZES, H-TWELVE-TRAJECTORIES, H-DISTANCE-IRRELEVANT, H-CLOSED-INDEX, H-AUTODETECT, H-COMPLETENESS-IN-README,
@@ -160,7 +189,7 @@ Every number is printed by `plane.py`.
   - H-HORIZON-HOLDS / H-NECK-HOLDS: where the README's bits sit.
   - H-STRONG-BOUND; H-NECK-ENERGY.
   - H-MS-SPLIT; H-TOTAL-IS-ADM (now the boundary); R-CHAIN-RULE.
-  - H-QUASISTATIC; H-RS1; H-ERASE.
+  - H-QUASISTATIC; H-RS1; H-ERASE; H-HOLD-PERSISTS.
 
 ## Sources READ
 
@@ -173,13 +202,14 @@ Every number is printed by `plane.py`.
 
 ## OPEN
 
-1. Item 102: which member is your corridor. The horizon member makes the reciprocal exact; the negative is exact only
-   without a horizon.
-2. Where the README's bits sit: at the horizon (cost = the floor) or at the throat (cost between 1 and 4/3 of it).
+1. Item 102: which member is your corridor. *Answered, item 106: the horizon member; the reciprocal.*
+2. Where the README's bits sit. *Answered, item 106: three holds, horizon to both horizons to position 2's horizon.*
+   The opening and closing holds need a dynamical geometry: OPEN. Whether the closing hold persists as a black hole
+   (H-HOLD-PERSISTS), and the evaporation time (NOT READ): OPEN.
 3. The bits a destination's trajectories carry (R-CHAIN-RULE).
 4. The step from a non-traversable bridge to your corridor (wall 9).
 5. The 5D completion, and its restriction on the throat's size.
-6. Wall 13: is "read first, then execute" the split rule?
+6. Wall 13: is "read first, then execute" the split rule? *Answered, item 106: yes, the record ends at position 2.*
 
 ## History (verifier, 2026-10-06; first-written claims kept above, each where it stood)
 
