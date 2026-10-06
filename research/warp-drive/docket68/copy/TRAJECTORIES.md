@@ -94,7 +94,8 @@ Every number is printed by `trajectories.py`.
     - **History trajectories:** contingent states and events, under the same laws.
   - A universe where religion was never invented would differ from ours in history, not in law. Under the same laws
     its law trajectories add nothing, and its length would be set by history trajectories alone.
-  - Asked.
+  - *Answered, item 118: "Yes: law and history"* (H-LAW-AND-HISTORY). How many bits a history trajectory carries is
+    OPEN.
 
 ## The board's reading, and where it differs from your sentence
 
