@@ -46,7 +46,8 @@ Every number is printed by `stockdest.py`.
 - *First written* (point 3 and For M): "the device must be placed on a body that passes the gate" and "The one
   non-local cost is getting the first device to position 2." Under H-CORRIDOR-CONTAINS-P2 there is no such cost.
 - **What builds at position 2 with no device there:** you answered (item 91) *"Position 2 itself"*
-  (H-POSITION-BUILDS). The position builds when it receives the README, with what it has. What that asks of the
+  (H-POSITION-BUILDS). The position builds when it receives the README, "with what it has" (item 86). Item 91's
+  gloss "its matter and fields" is the board's reading of your three words. What that asks of the
   position is OPEN (OPEN 6). On the board's reading, H-COLOCATED-BUILD supplied the builder. *First written* "What
   builds at position 2 with no device there is OPEN (OPEN 6)."
 

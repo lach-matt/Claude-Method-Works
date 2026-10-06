@@ -45,6 +45,13 @@ with H-CORRIDOR-CONTAINS-P2 (one corridor, made at position 1, also contains pos
 - **Loading still binds.** The rotor failed on loading rate, not speed (point 3), and a corridor shortens transit, not
   loading. uses.py prints the rate your carrier's port would need: 2×10⁶ bits/s or more to beat a 0.1 c trip.
 - What would identify such a carrier, and its rate, is OPEN (OPEN 6).
+- **Item 93.** *"Light speed is relative to each dimension. We only need appear to move faster than the speed of light,
+  since traversal doesn't occur."* Carried as H-LIGHT-SPEED-PER-DIMENSION and H-APPEARANCE-ONLY.
+  - Csáki–Erlich–Grojean is the READ precedent for the first: "the speed of light along flat 4D sections varies over the
+    extra dimensions" (abstract p.1), with c(r) as their eq. 3.1 (p.16). Point 1's Fermat test is exactly how a light
+    speed that varies by dimension gives a route that arrives before light along the plane.
+  - The second matches D13 as narrowed. With no traversal, no carrier outruns light where it is; "faster than light" is
+    a comparison of arrival times between two routes.
 
 ## What follows the work
 
@@ -138,7 +145,7 @@ with H-CORRIDOR-CONTAINS-P2 (one corridor, made at position 1, also contains pos
   **H-BOUND-TRANSFERS**; **H-SIMULTANEOUS-EMISSION** (LIGO's).
 - **H-BIT-PER-GRAVITON** (zeromode's; valid only up to one graviton per mode); **H-BANDWIDTH-F**; **H-GW-ANALOGY**.
 - **M's:** H-COST-IN-README, H-ADDRESS-INPUT, H-INFORMATION-CROSSES; H-UNIDENTIFIED-CARRIER and
-  H-CORRIDOR-CONTAINS-P2 (item 90).
+  H-CORRIDOR-CONTAINS-P2 (item 90); H-LIGHT-SPEED-PER-DIMENSION and H-APPEARANCE-ONLY (item 93).
 - **The board's, for item 90:** H-CARRIER-HAS-METRIC, H-CORRIDOR-STATIC.
 
 ## Sources READ (alphaXiv, open arXiv copies; read this pass, after the verifier read them too)

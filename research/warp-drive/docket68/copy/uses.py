@@ -61,13 +61,39 @@ H-DEVICE-REUSABLE, H-CORRIDOR-REPEATABLE and H-CORRIDOR-CONTAINS-P2.
     position 2 that bound is the corridor's own optical length (carrier.py's test), whatever the carrier".
   * THE HOLD HAS A FLOOR (item 91; U9).  M: the README crosses "Inside, during the hold" (H-README-IN-HOLD), so its
     whole N bits cross in the hold t.  On LNM's one-dimensional floor (seat.channel_floor, two polarisations) the
-    README's received energy is at least E_1d(N, t), which grows as N^2 / t, and a use pays only while E_corr +
-    E_README is below the trip.  So, even with E_corr = 0, the hold cannot be shorter than t_min(N, beta), where the
-    floor reaches the trip: about 6e-21 s for the core at 0.1 c, but 0.8 to 105 days for the snapshot counts --
-    M's "very short, maybe even immeasurable but not zero" (H-BRIEF-HOLD) holds for the core and fails for a
-    snapshot.  With M_modes parallel channels the floor and t_min fall as 1/M_modes (the same law, per channel).
-    Valid only for a carrier in LNM's class (massless bosons in one transverse mode, ideally coded: H-CARRIER-LNM, an
-    assumption about a carrier not yet identified); t is the hold in the frame where it is measured (H-HOLD-FRAME).
+    README's received energy, on ONE channel (H-ONE-MODE) and a carrier in LNM's class (H-CARRIER-LNM: massless
+    bosons, ideally coded, no pre-shared entanglement -- M's item 86 names entanglement, so this is a named
+    restriction), is at least E_1d(N, t), which grows as N^2 / t; a use pays only while E_corr + E_README is below
+    the trip.  So on those hypotheses, even with E_corr = 0, the hold cannot be shorter than t_min(N, beta): about
+    6e-21 s for the core at 0.1 c, but 0.8 to 105 days for the snapshot counts.  On one channel M's "incredibly
+    short, maybe even immeasurable but not zero" (H-BRIEF-HOLD) holds for the core and fails for a snapshot.  The
+    core's half survives more channels (the floor only falls); the snapshot's does not: with M_modes channels t_min
+    falls as 1/M_modes -- which is M's item 93 (U10).  As M_modes grows without bound the 1D floor vanishes and only a
+    geometric (many-mode) floor remains, which needs the corridor's apertures and length (OPEN).  seat's H-FEW-MODES
+    does NOT hold at these holds at seat's free-space dishes (printed, STRUCTURAL): U9 rests on H-ONE-MODE, not on
+    seat's check.  t is the hold in the frame where it is measured (H-HOLD-FRAME).  Brief means intense: at the
+    core's t_min the README arrives at about 5.5e36 W.  And with item 90's H-CARRIER-HAS-METRIC, the whole README
+    crossing in t needs the corridor's optical length (in its own light speed, item 93) below c t: about 1.7 pm at
+    the core's t_min, 3e8 m for a 1 s hold.
+    First written: "the README's received energy is at least E_1d(N, t)" without H-ONE-MODE; "M's 'very short, maybe
+    even immeasurable but not zero'" (a misquote: M wrote "incredibly short"); "holds for the core and fails for a
+    snapshot" unscoped; "massless bosons in one transverse mode" folded into H-CARRIER-LNM.
+  * THE CORRIDOR GROWS WITH THE README, NOT THE HOLD (item 93; U10).  M: "the corridor doesn't stay open longer to
+    compensate for the size of the README, it compensates in size in stead" (H-CORRIDOR-SCALES-WITH-README).  Read as
+    the corridor's size counted in parallel channels (H-SIZE-AS-CHANNELS): spreading N bits over M channels in a hold
+    t costs M x E_1d(N/M, t) = E_1d(N, t) / M, so a hold of fixed length needs at least M_min = t_min(N) / t channels
+    for the README to stay under the trip.  M_min grows as N^2 (computed: doubling the file multiplies it by 4).  At
+    a DECLARED hold of one Planck time (5.39e-44 s, an illustration of "immeasurable"), the core needs about 1e23
+    channels at 0.1 c and the largest snapshot about 2e50; at 1 s, the core needs one and the snapshot 9e6.  The
+    README's energy can be made as small as wanted by a large enough corridor; what a channel of the corridor costs
+    is E_corr's, NOT COMPUTED.  The channel count is a size in modes; a size in metres needs the carrier's wavelength
+    (OPEN, H-UNIDENTIFIED-CARRIER).
+  * LIGHT SPEED PER DIMENSION; APPEARANCE ONLY (item 93).  M: "Light speed is relative to each dimension. We only need
+    appear to move faster than the speed of light, since traversal doesn't occur." (H-LIGHT-SPEED-PER-DIMENSION,
+    H-APPEARANCE-ONLY.)  Unequal warping is the READ precedent for the first (CEG: "the speed of light along flat 4D
+    sections varies over the extra dimensions"), and carrier.py's Fermat test is how such a variation yields a route
+    that arrives before light along the plane; the second matches D13 as narrowed -- nothing traverses, so no carrier
+    outruns light where it is; the appearance is an arrival-time comparison between routes.
   * POSITION 2 BUILDS (item 91).  M: "Position 2 itself" (H-POSITION-BUILDS): the position builds when it receives
     the README; H-FAB-LOCAL's "drawn at position 2" now names its holder.  What that requires of the position is OPEN.
   * The board's reading below (a device must reach position 2: B-RECV, H-COLOCATED-BUILD, H-SAME-SPEED) is kept as the
@@ -147,6 +173,8 @@ U7 [computed; DECLARED link]  An optical link (H-OPTICAL-LINK: lambda = 1 um, ba
    transmitted energy is B T n_r h nu / D.
 U9 [computed; M's item 91]  t_min(N, beta) = t such that seat.channel_floor(N, t)["E_1d_two_pol_J"] = m_pay K (E_corr
    = 0, the most generous), from the 1/t law U3 measures, then re-asked at t_min; for the core and both snapshot ends.
+U10 [computed; M's item 93]  M_min(N, t, beta) = t_min(N, beta) / t, re-asked as M x seat.channel_floor(N/M, t) at
+   M_min; DECLARED holds 1 s, 1 ns and one Planck time (5.391247e-44 s, CODATA, as an illustration).
 U8 [computed; M's item 90]  seat.breakeven(0, beta, E_rec) (nothing shipped); seat.breakeven_symbolic()'s k* with
    m_set K -> E_dev (sympy); the corridor's per-use ceiling m_pay K - E_README at each speed.
 
@@ -155,10 +183,12 @@ NAMED HYPOTHESES
   reading of M's ruling, not M's words), H-LOSSLESS (the tables' transmitted = received), H-README-IS-CORE,
   H-SAME-SPEED (the device travels at the payload's speed, as seat's identity assumes), H-OPTICAL-LINK (U7's DECLARED
   parameters), M_SET_ILLUSTRATIVE (values of m_set DECLARED, not designs).  seat's: H-KINETIC, H-EM-CARRIER, H-ONE-POL,
-  H-FEW-MODES (checked here).  measure's: H-ERASE.  faithful's: H-WIRING-SUFFICES and the core's inputs (an estimate:
+  H-FEW-MODES (checked for U2's schedules; at U9's t_min it fails at seat's dish geometry -- U9 rests on H-ONE-MODE).
+  First written "H-FEW-MODES (checked here)".  measure's: H-ERASE.  faithful's: H-WIRING-SUFFICES and the core's inputs (an estimate:
   every energy is "floor given N").  carrier's: H-BANDWIDTH-F.  The board's, for item 90: H-CARRIER-HAS-METRIC,
   H-CORRIDOR-STATIC, T_HOLD_DECLARED; for item 91, H-CARRIER-LNM, H-HOLD-FRAME, H-ONE-MODE (M_modes = 1).  M's (item
-  91): H-README-IN-HOLD, H-POSITION-BUILDS.  M's (item 90): H-CORRIDOR-SINGLE-USE, H-DEVICE-REUSABLE,
+  91): H-README-IN-HOLD, H-POSITION-BUILDS.  M's (item 93): H-CORRIDOR-SCALES-WITH-README, H-LIGHT-SPEED-PER-DIMENSION,
+  H-APPEARANCE-ONLY; the board's reading of the first, H-SIZE-AS-CHANNELS.  M's (item 90): H-CORRIDOR-SINGLE-USE, H-DEVICE-REUSABLE,
   H-CORRIDOR-REPEATABLE, H-CORRIDOR-CONTAINS-P2, H-UNIDENTIFIED-CARRIER; and H-BRIEF-HOLD (item 86).
 
 HISTORY (verifier, 2026-10-06; first-written claims kept above, each where it stood)
@@ -194,6 +224,7 @@ T_DECLARED_YR = (1.0, 100.0)                           # seat.collect's own sche
 F_BUDGET = 0.01                                        # "moves k* by 1 %"
 OPT_LAMBDA_M = 1e-6                                    # H-OPTICAL-LINK, DECLARED
 OPT_BAND_HZ = 1e13                                     # H-OPTICAL-LINK, DECLARED
+HOLDS_DECLARED_S = (1.0, 1e-9, 5.391247e-44)          # 1 s, 1 ns, one Planck time (CODATA), DECLARED
 T_HOLD_DECLARED_S = 1.0                                # a "very short" hold, DECLARED (H-BRIEF-HOLD gives no value)
 OPT_SANE_BITS_PER_USE = 20.0                           # the minimum-schedule figure's bits per mode-use, DECLARED
 HPL = 6.62607015e-34                                   # J s (SI, exact)
@@ -391,8 +422,20 @@ def compute():
         hold[lab] = {}
         for b in BETAS:
             tmin = e1 / trip_energy(b)
-            hold[lab][b] = {"t_min_s": tmin, "E_at_tmin_J": seat.channel_floor(n, tmin)["E_1d_two_pol_J"],
+            fl = seat.channel_floor(n, tmin)
+            hold[lab][b] = {"t_min_s": tmin, "E_at_tmin_J": fl["E_1d_two_pol_J"],
+                            "modes_at_tmin": fl["transverse_modes_at_kT"], "power_W": trip_energy(b) / tmin,
+                            "L_opt_max_m": seat.C * tmin,
                             "E_at_half_J": seat.channel_floor(n, tmin / 2)["E_1d_two_pol_J"]}
+    channels = {}
+    for lab, n in (("core", core), ("snap_lo", snap_lo), ("snap_hi", snap_hi)):
+        channels[lab] = {}
+        for th in HOLDS_DECLARED_S:
+            mmin = max(1.0, hold[lab][0.1]["t_min_s"] / th)
+            channels[lab][th] = {"M_min": mmin,
+                                 "E_at_M_J": mmin * seat.channel_floor(n / mmin, th)["E_1d_two_pol_J"],
+                                 "E_at_half_M_J": (mmin / 2) * seat.channel_floor(n / (mmin / 2), th)["E_1d_two_pol_J"]}
+    m2 = seat.channel_floor(2 * core, 1e-9)["E_1d_two_pol_J"] / seat.channel_floor(core, 1e-9)["E_1d_two_pol_J"]
     opt_snap = {lab: optical_link(n, seat.YEAR_S) for lab, n in (("lo", snap_lo), ("hi", snap_hi))}
     return {"kstar_symbolic": str(kstar_sym), "kstar_limit": str(lim), "limit_is_mass_ratio": lim_ok,
             "core_bits": core, "snap_lo_bits": snap_lo, "snap_hi_bits": snap_hi,
@@ -401,7 +444,7 @@ def compute():
             "year_s": seat.YEAR_S, "port_best_arm_m": arm, "port_best_load_s": port_best,
             "port_crossover_beta": port_crossover_beta(port_best),
             "route_crossover_snap_hi": route_crossover_beta(snap_hi),
-            "hold": hold,
+            "hold": hold, "channels": channels, "channels_N2": m2,
             "kstar_device_energy": str(kdev), "corridor": corridor, "rate_hold_bps": core / T_HOLD_DECLARED_S,
             "route_crossover_snap_lo": route_crossover_beta(snap_lo),
             "optical_snap_1yr": opt_snap,
@@ -467,10 +510,16 @@ def report():
               "payload's); the core must load at %.2e bits/s or more to beat the ship time" % (
                   b, c["ceiling_J"], c["ceiling_kg"], c["ceiling_over_rest"], c["rate_to_beat_ship_bps"]))
     print("   to cross within a DECLARED %g s hold the core needs %.2e bits/s" % (T_HOLD_DECLARED_S, d["rate_hold_bps"]))
-    print("U9 the shortest hold (item 91, H-README-IN-HOLD; LNM 1D two pol., one mode, E_corr = 0):")
+    print("U9 the shortest hold (item 91, H-README-IN-HOLD; LNM 1D two pol., one mode, E_corr = 0); core at 0.1 c: %.2e W, "
+          "corridor optical length at most %.2e m" % (d["hold"]["core"][0.1]["power_W"],
+                                                     d["hold"]["core"][0.1]["L_opt_max_m"]))
     for lab, h in d["hold"].items():
         print("   %s: %s" % (lab, ", ".join("%g c: %.3g s (%.3g d)" % (b, v["t_min_s"], v["t_min_s"] / 86400.0)
                                          for b, v in h.items())))
+    print("U10 channels the corridor needs at a fixed hold (item 93, H-SIZE-AS-CHANNELS; 0.1 c trip; LNM 1D two pol.):")
+    for lab, ch in d["channels"].items():
+        print("   %s: %s" % (lab, ", ".join("hold %.3g s: %.3g" % (th, v["M_min"]) for th, v in ch.items())))
+    print("   doubling the README multiplies the channels needed by %.6f" % d["channels_N2"])
     print("Erasure (H-ERASE, 310 K): core %.2e J, largest snapshot %.2e J" % (d["erase_core_J"], d["erase_snap_hi_J"]))
 
 
@@ -543,16 +592,27 @@ def selftest():
         os_["E_tx_J"] is None and os_["log10_E_tx"] > 100, contrast=True)
     cor = d["corridor"]
     hc, hh = d["hold"]["core"][0.1], d["hold"]["snap_hi"][0.1]
-    chk("U9: at t_min the README's floor equals the 0.1 c trip (core: t_min = %.3g s, re-asked energy / trip = %.6f)"
-        % (hc["t_min_s"], hc["E_at_tmin_J"] / r1["trip_J"]), abs(hc["E_at_tmin_J"] / r1["trip_J"] - 1) < 1e-6)
-    chk("at half that hold the floor exceeds the trip (%.3f x), so no use pays there" % (
-        hc["E_at_half_J"] / r1["trip_J"]), hc["E_at_half_J"] > r1["trip_J"], ctl=True)
+    chk("U9: at t_min the README's floor equals the 0.1 c trip (core: t_min = %.3g s, re-asked energy / trip = %.6f; "
+        "would catch seat.power_for_rate saturating at its 1e60 W limit)" % (hc["t_min_s"], hc["E_at_tmin_J"] /
+                                                                             r1["trip_J"]), abs(hc["E_at_tmin_J"] / r1["trip_J"] - 1) < 1e-6)
     chk("U9: the core's shortest hold is below 1e-15 s at every speed computed; the largest snapshot's is %.3g days at "
-        "0.1 c -- the brief hold fits the core, not the snapshot" % (hh["t_min_s"] / 86400.0),
+        "0.1 c -- on one channel the brief hold fits the core, not the snapshot" % (hh["t_min_s"] / 86400.0),
         all(v["t_min_s"] < 1e-15 for v in d["hold"]["core"].values()) and hh["t_min_s"] > 86400.0, contrast=True)
-    structural.append("U9 with M_modes parallel channels the floor is M_modes x (N/M_modes)^2 law, so t_min falls as "
-                      "1/M_modes (the same law per channel); H-CARRIER-LNM is an assumption about a carrier not yet "
-                      "identified")
+    cp = d["channels"]["core"][HOLDS_DECLARED_S[-1]]
+    chk("U10: at a Planck-time hold the core needs %.3g channels; M_min x the floor of N/M_min bits, re-asked, equals the "
+        "0.1 c trip (%.6f)" % (cp["M_min"], cp["E_at_M_J"] / r1["trip_J"]), abs(cp["E_at_M_J"] / r1["trip_J"] - 1) < 1e-6)
+    chk("U10: the channels needed grow as the README squared, at a 1 ns hold (rates far beyond U3's; doubling it "
+        "multiplies the floor, so the channels, by %.6f)" % d["channels_N2"], abs(d["channels_N2"] - 4) < 1e-6)
+    structural.append("U9 the 1/t law: at half t_min the floor is %.3f x the trip (first counted as a CONTROL; it follows "
+                      "from the t_min check and U3)" % (hc["E_at_half_J"] / r1["trip_J"]))
+    structural.append("U10 the 1/M law: with half the channels the README is %.3f x the trip (first counted as a CONTROL)"
+                      % (cp["E_at_half_M_J"] / r1["trip_J"]))
+    structural.append("U9 with M_modes parallel channels the floor is M_modes x E_1d(N/M_modes, t) = E_1d(N, t) / "
+                      "M_modes (equal split optimal by convexity), so t_min falls as 1/M_modes; H-CARRIER-LNM is an "
+                      "assumption about a carrier not yet identified")
+    structural.append("U9 seat's H-FEW-MODES at t_min, seat's 100 m dishes (a FINDING: it fails where > 1): %s" % "; ".join(
+        "%s %s" % (lab, ", ".join("%g c: %.2g" % (b, v["modes_at_tmin"]) for b, v in h.items()))
+        for lab, h in d["hold"].items()))
     structural.append("U8 with m_set = 0 seat's identity gives k* = 0 wherever E_rec < trip (the algebra of m_set = 0; "
                       "U2 checks E_rec < trip).  First counted as a check, with a control that duplicated U5's branch")
     chk("with the device shipped (m_set = 70 kg) the same E_rec gives k* > 0 at every speed (%s), so the U8 "

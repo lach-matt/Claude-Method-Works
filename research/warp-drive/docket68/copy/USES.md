@@ -17,7 +17,9 @@
   device".
 
 Every number is printed by `uses.py`.
-- **Selftest:** 22/22 checks, 4 genuine controls and 3 contrasts, with 11 STRUCTURAL lines printed and not counted.
+- **Selftest:** 23/23 checks, 3 genuine controls and 3 contrasts, with 14 STRUCTURAL lines printed and not counted.
+  *After item 91* "22/22 checks, 4 genuine controls and 3 contrasts, with 11 STRUCTURAL lines"; the U9 control and
+  the U10 control (added for item 93) followed from the 1/t and 1/M laws and are now STRUCTURAL (verifier).
   *Before item 91* "19/19 checks, 3 genuine controls and 2 contrasts, with 10 STRUCTURAL lines".
   *Until item 90* "16/16 checks, 2 genuine controls and 2 contrasts, with 7 STRUCTURAL lines"; *first after item 90*
   "19/19 checks, 3 genuine controls and 2 contrasts, with 9 STRUCTURAL lines", when U8's k\* = 0 check could not fail
@@ -90,9 +92,10 @@ position 2."* Carried as H-CORRIDOR-SINGLE-USE, H-DEVICE-REUSABLE, H-CORRIDOR-RE
   - *First written* "By the board's D13 every carrier is bounded in its own metric. Inside a corridor that contains
     position 2, that bound is the corridor's own optical length (carrier.py's test), whatever the carrier."
 - **The hold has a floor (item 91).** You answered that the README crosses *"Inside, during the hold"*
-  (H-README-IN-HOLD). So all N bits cross within the hold t, and the README's received energy is at least E_1d(N, t),
-  which grows as N²/t. A use pays only while the corridor plus the README stays under the trip, so even a free corridor
-  cannot hold for less than t_min.
+  (H-README-IN-HOLD). So all N bits cross within the hold t. On one transverse mode (H-ONE-MODE) and for a carrier in
+  LNM's class (H-CARRIER-LNM), the README's received energy is at least E_1d(N, t), which grows as N²/t. A use pays
+  only while the corridor plus the README stays under the trip, so on those hypotheses even a free corridor (E_corr = 0)
+  cannot hold for less than t_min. *First written* without the two hypotheses.
 
   | README | shortest hold, 0.1 c trip | shortest hold, 0.01 c trip | shortest hold, 0.8 c trip |
   |---|---|---|---|
@@ -100,12 +103,53 @@ position 2."* Carried as H-CORRIDOR-SINGLE-USE, H-DEVICE-REUSABLE, H-CORRIDOR-RE
   | smallest snapshot (9.5×10²⁷ bits) | 0.8 days | 80 days | 9 minutes |
   | largest snapshot (1.1×10²⁹ bits) | 105 days | 29 years | 0.8 days |
 
-  - **Your "very short, maybe even immeasurable but not zero" holds for the core and fails for a snapshot.** A small
-    README is what makes a brief hold possible.
-  - With M parallel channels, the floor and t_min fall as 1/M, by the same law per channel.
-  - This holds only for a carrier in LNM's class: massless bosons in one transverse mode, ideally coded
-    (H-CARRIER-LNM). That is an assumption about a carrier not yet identified; outside that class it is OPEN. t is the
-    hold in the frame where it is measured (H-HOLD-FRAME).
+  - **On one channel, your "incredibly short, maybe even immeasurable but not zero" holds for the core and fails for a
+    snapshot.** On one channel, a small README is what makes a brief hold possible.
+    - The core's half survives more channels: the floor only falls.
+    - The snapshot's half does not. With M_modes channels its hold falls as 1/M_modes, to 1 s at about 9×10⁶ channels
+      (largest snapshot, 0.1 c). That is your item 93: the corridor grows instead of the hold.
+    - As M_modes grows without bound the one-channel floor vanishes. Only a geometric (many-mode) floor remains, which
+      needs the corridor's apertures and length (OPEN).
+    - *First written* "Your 'very short, maybe even immeasurable but not zero' holds for the core and fails for a
+      snapshot." That misquoted you (you wrote "incredibly short") and left the one-channel scope out.
+  - **Brief means intense.** At the core's t_min (0.1 c) the README arrives at about 5.5×10³⁶ W. A 1 s hold costs the
+    core about 1.8×10⁻⁴ J, so for the core the README never binds.
+  - **The hold also bounds the corridor's length.** With item 90's H-CARRIER-HAS-METRIC, the whole README crossing in
+    t needs the corridor's optical length, measured in its own light speed (your item 93), below c·t. That is about
+    1.7 pm at the core's t_min, and 3×10⁸ m for a 1 s hold.
+  - **The hypotheses behind this:**
+    - H-CARRIER-LNM: massless bosons, ideally coded, and no pre-shared entanglement. Your item 86 names entanglement,
+      so this is a named restriction; entanglement could lower the floor by a small factor (OPEN).
+    - H-ONE-MODE: one channel. At seat's own free-space dishes these holds would use many modes. seat's H-FEW-MODES
+      fails there and is printed as a finding.
+    - H-HOLD-FRAME: t is the hold in the frame where it is measured.
+    - *First written* with "one transverse mode" folded into H-CARRIER-LNM.
+- **The corridor grows with the README, not the hold (item 93).** *"the corridor doesn't stay open longer to compensate
+  for the size of the README, it compensates in size in stead"* — carried as H-CORRIDOR-SCALES-WITH-README.
+  - The board reads "size" as the number of parallel channels the corridor carries (H-SIZE-AS-CHANNELS).
+  - Spreading N bits over M_modes channels in a hold t costs E_1d(N, t)/M_modes. So a hold of fixed length needs at
+    least M_min = t_min(N)/t channels for the README to stay under the trip.
+  - **M_min grows as the README squared** (computed: doubling the file multiplies it by 4.000000).
+
+  | README (0.1 c trip) | hold 1 s | hold 1 ns | hold of one Planck time (5.4×10⁻⁴⁴ s, DECLARED as "immeasurable") |
+  |---|---|---|---|
+  | identity core | 1 channel | 1 | 1.1×10²³ |
+  | smallest snapshot | 6.9×10⁴ | 6.9×10¹³ | 1.3×10⁴⁸ |
+  | largest snapshot | 9.0×10⁶ | 9.0×10¹⁵ | 1.7×10⁵⁰ |
+
+  - A large enough corridor makes the README's energy as small as wanted. What a channel of the corridor costs is
+    E_corr's, and it is not computed.
+  - The channel count is a size in modes. A size in metres needs the carrier's wavelength (OPEN,
+    H-UNIDENTIFIED-CARRIER).
+- **Light speed per dimension; appearance only (item 93).** *"Light speed is relative to each dimension. We only need
+  appear to move faster than the speed of light, since traversal doesn't occur."* Carried as
+  H-LIGHT-SPEED-PER-DIMENSION and H-APPEARANCE-ONLY.
+  - Unequal warping is the READ precedent for the first. Csáki–Erlich–Grojean: "the speed of light along flat 4D sections
+    varies over the extra dimensions" (abstract p.1). carrier.py's Fermat test is how such a variation gives a route
+    that arrives before light along the plane.
+  - The second matches D13 as narrowed. Nothing traverses, so no carrier outruns light where it is; the appearance is a
+    comparison of arrival times between routes. It sits beside your item 86, H-READING-ONLY ("must appear to
+    contain").
 - **Position 2 builds (item 91).** You answered *"Position 2 itself"* (H-POSITION-BUILDS): the position builds when it
   receives the README, with no builder as such. H-FAB-LOCAL's "drawn at position 2" now names its holder. What that
   asks of the position is OPEN.
@@ -241,7 +285,8 @@ position 2."* Carried as H-CORRIDOR-SINGLE-USE, H-DEVICE-REUSABLE, H-CORRIDOR-RE
 - **M's:** H-STOCK-IS-STOCK, H-COST-IN-README (item 89); H-ADDRESS-INPUT, H-BRIEF-HOLD (item 86);
   H-CORRIDOR-SINGLE-USE, H-DEVICE-REUSABLE, H-CORRIDOR-REPEATABLE, H-CORRIDOR-CONTAINS-P2, H-UNIDENTIFIED-CARRIER
   (item 90). Carried, not decided.
-- **M's (item 91):** H-README-IN-HOLD, H-POSITION-BUILDS.
+- **M's (item 91):** H-README-IN-HOLD, H-POSITION-BUILDS. **M's (item 93):** H-CORRIDOR-SCALES-WITH-README,
+  H-LIGHT-SPEED-PER-DIMENSION, H-APPEARANCE-ONLY; the board's reading of the first is H-SIZE-AS-CHANNELS.
 - **The board's, for item 90:** H-CARRIER-HAS-METRIC, H-CORRIDOR-STATIC; the 1 s hold is DECLARED. **For item 91:**
   H-CARRIER-LNM, H-HOLD-FRAME, H-ONE-MODE.
 - **This file's:**
@@ -251,7 +296,8 @@ position 2."* Carried as H-CORRIDOR-SINGLE-USE, H-DEVICE-REUSABLE, H-CORRIDOR-RE
   - H-SAME-SPEED;
   - H-OPTICAL-LINK (1 µm, 10¹³ Hz, 100 m dishes, ideal receiver: DECLARED);
   - M_SET_ILLUSTRATIVE.
-- **seat's:** H-KINETIC, H-EM-CARRIER, H-ONE-POL, H-FEW-MODES (checked). **measure's:** H-ERASE.
+- **seat's:** H-KINETIC, H-EM-CARRIER, H-ONE-POL, H-FEW-MODES (checked for the tables' schedules; it fails at the shortest
+  holds, where H-ONE-MODE carries instead; *first written* "(checked)"). **measure's:** H-ERASE.
 - **faithful's:** H-WIRING-SUFFICES and the core's inputs. The core is an estimate, so every energy here is "floor given
   N".
 - **carrier's:** H-BANDWIDTH-F.
