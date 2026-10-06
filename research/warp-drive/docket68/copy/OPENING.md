@@ -115,6 +115,26 @@ boundary. Your one-entangled-state accounting (item 111) is the accounting.
 - *First written:* "When a fraction e …"; "each quantum must carry at least 57 bits. That needs many-level modes, not
   single qubits".
 
+## Your coin (item 117): the NEC appears broken, but is not
+
+*"An NEC is never violated, between two entangled positions the NEC is like a coin, each position sits on a separate
+side. That action is that the coin flips. The NEC appears broken, but is not"* (H-NEC-COIN).
+
+- **The board already holds a computation that agrees: the bulk keeps the NEC.**
+  - `escape.py` (section 8m, seated, S3) found that for Bronnikov–Kim's static throats the scalar Gauss equation and the
+    Codazzi equation hold, and *"the NEC holds -- on either sign of the tension. The bulk keeps only its vacuum energy
+    (the NEC, saturated); E = -G carries the whole reading"*.
+  - So the violation computed in point 3 is what our plane reads. It comes from the bulk's projected tidal term, not
+    from anything that breaks the condition in the full spacetime.
+  - The scope: locally, under H-RS1. A global bulk is BULK5-O1, OPEN.
+- **A computed feature that may be your coin.**
+  - The corridor's radial null combination changes sign exactly at the horizon: negative outside it (−0.0148) and
+    positive inside it (+0.0519) (point 3).
+  - Whether that sign change is the coin flipping is a candidate reading, OPEN.
+- **A test the board could run.** The averaged null energy condition along a complete path through the one-way passage,
+  from position 1's exterior to position 2's. If it holds, the pointwise violation is an appearance along the whole
+  passage too. Not yet computed.
+
 ## Tensions, and what is ruled out
 
 *Set aside on your path by item 115, and kept as the null-dust model's own reading:*

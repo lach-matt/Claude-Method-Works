@@ -83,6 +83,19 @@ Every number is printed by `trajectories.py`.
 - **K and T:** *"Yes"*. As mechanisms they follow from α and mₑ, and join the dependent trajectories. So five of the
   twelve (M, R, G_F, K, T) add nothing, or almost nothing, once their parents rank above them.
 
+## Item 117
+
+- *"Trajectory does not change size in width, but rather length"* (H-LENGTH-NOT-WIDTH). The width, the neck's area, is
+  the README's alone. The trajectories set the length.
+- *"this is where we may need to define a new type of trajectory(s)"* (H-NEW-TRAJECTORY-TYPE), for a destination like a
+  universe where religion was never invented.
+  - **A candidate distinction (the board's, for you to name):**
+    - **Law trajectories:** the 12-vector and their mechanisms. They differ between universes with different physics.
+    - **History trajectories:** contingent states and events, under the same laws.
+  - A universe where religion was never invented would differ from ours in history, not in law. Under the same laws
+    its law trajectories add nothing, and its length would be set by history trajectories alone.
+  - Asked.
+
 ## The board's reading, and where it differs from your sentence
 
 **R-CHAIN-RULE, ungraded, under ordinary (classical) information counting.**
