@@ -59,10 +59,10 @@ H-DEVICE-REUSABLE, H-CORRIDOR-REPEATABLE and H-CORRIDOR-CONTAINS-P2.
     would follow, if the corridor is a bulk feature.
     First written: "By the board's D13 every carrier is bounded in its own metric; inside a corridor that contains
     position 2 that bound is the corridor's own optical length (carrier.py's test), whatever the carrier".
-  * ITEM 94 RE-SCOPES WHAT FOLLOWS (read before U9 and U10).  M: "there is no movement in warp travel, it is a
+  * ITEM 94 RE-SCOPES WHAT FOLLOWS (read before U9 and U10).  M: "their is no movement in warp travel, it is a
     teleportation that happens instantaneously" (H-NO-MOVEMENT, H-INSTANTANEOUS), and "The corridor is a single
     channel that grows in size" (H-SINGLE-CHANNEL-GROWS).  U9 and U10 price a README that crosses over a time t, on a
-    carrier in LNM's class: that premise is the board's, not M's.  Under items 94 they do not describe M's mechanism;
+    carrier in LNM's class: that premise is the board's, not M's.  Under item 94 they do not describe M's mechanism;
     they stay as the boundary for any carrier that takes time.  U10's reading of size as parallel channels
     (H-SIZE-AS-CHANNELS) is WITHDRAWN by M ("Size does not mean more channels"), kept as history.  The causality M
     asked for is causal.py.
@@ -517,6 +517,8 @@ def report():
               "payload's); the core must load at %.2e bits/s or more to beat the ship time" % (
                   b, c["ceiling_J"], c["ceiling_kg"], c["ceiling_over_rest"], c["rate_to_beat_ship_bps"]))
     print("   to cross within a DECLARED %g s hold the core needs %.2e bits/s" % (T_HOLD_DECLARED_S, d["rate_hold_bps"]))
+    print("U9, U10 re-scoped by item 94 (H-NO-MOVEMENT, H-INSTANTANEOUS): the boundary for a carrier that takes time, "
+          "not M's mechanism; H-SIZE-AS-CHANNELS withdrawn by M, printed as history")
     print("U9 the shortest hold (item 91, H-README-IN-HOLD; LNM 1D two pol., one mode, E_corr = 0); core at 0.1 c: %.2e W, "
           "corridor optical length at most %.2e m" % (d["hold"]["core"][0.1]["power_W"],
                                                      d["hold"]["core"][0.1]["L_opt_max_m"]))

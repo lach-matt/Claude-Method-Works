@@ -91,7 +91,7 @@ position 2."* Carried as H-CORRIDOR-SINGLE-USE, H-DEVICE-REUSABLE, H-CORRIDOR-RE
     corridor is a bulk feature.
   - *First written* "By the board's D13 every carrier is bounded in its own metric. Inside a corridor that contains
     position 2, that bound is the corridor's own optical length (carrier.py's test), whatever the carrier."
-- **Item 94 re-scopes the two points that follow.** *"there is no movement in warp travel, it is a teleportation that
+- **Item 94 re-scopes the two points that follow.** *"their is no movement in warp travel, it is a teleportation that
   happens instantaneously relative to the object teleporting, AND all observers of the same dimension of that objects
   existence"*, and *"The corridor is a single channel that grows in size to accommodate the size of the README."*
   Carried as H-NO-MOVEMENT, H-INSTANTANEOUS and H-SINGLE-CHANNEL-GROWS.
