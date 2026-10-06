@@ -1,4 +1,6 @@
-# Infinitely many planes, as layers and as sheets (M-RULINGS items 123–124; deduced and computed; not verified; not seated; 2026-10-06)
+# Infinitely many planes, as layers and as sheets (M-RULINGS items 123–127; deduced, computed and READ; verified once; not seated; 2026-10-06)
+
+*First headed* "(M-RULINGS items 123–124; deduced and computed; not verified; not seated; 2026-10-06)".
 
 ## What M said
 
@@ -6,107 +8,153 @@
   - *"by closed I mean every plausibility, possibility, eventuality, every position infinitely possible as a closed
     dimension."*
   - *"A second plane exists. In a closed infinite multiverse dimension, there are infinite spacetime planes"*
-- **Item 124:** *"Both A and B"*.
-  - (A) Every position of the extra dimension is a spacetime plane: the planes are the bulk's own layers.
-  - (B) There are also separate sheets at distinct positions, each with its own matter.
+- **Item 124:** *"Both A and B"*. (A) is the planes as the bulk's own layers; (B) is the planes as separate sheets with
+  their own matter.
+- **Item 125:** no general coefficients. Every value is evaluated with the exact values the device would use.
+- **Item 126:**
+  - *"The corridor will always entangle separate plane position using the shortest distance needed."*
+  - *"The second position isn't built far away, it is realized in the same place the position 1 occupies while the
+    corridor exists"*
+- **Item 127:**
+  - *"1 - yes"*: the planes coincide, the extra dimension included.
+  - *"The coefficient value is the difference of that value in a counterfactual universe and its value in our current
+    universe, added to the value of our current universe"*
 
 Every number is printed by `manyplanes.py`.
-- **Selftest:** 6/6 checks, 1 genuine control and 1 contrast, with 4 STRUCTURAL lines printed and not counted. It takes
-  about two minutes.
+- **Selftest:** 6/6 checks, 2 genuine controls and 1 contrast, with 6 STRUCTURAL lines printed and not counted. It takes
+  about three minutes.
+  - *First written:* "6/6 checks, 1 genuine control and 1 contrast, with 4 STRUCTURAL", at an illustrative member.
 - **Imported, not rebuilt:**
-  - `closedbulk.py`, for the bulk, built through y⁴;
-  - `pairing.py`, for the five-dimensional Ricci tensor;
-  - `coin.py`, for the passage integral.
+  - `closedbulk.py`;
+  - `pairing.py`;
+  - `coin.py`;
+  - `current.py`, for the README's exact m.
 
 ## The tool: one exact identity
 
-- In coordinates running straight out from any layer (K = ½∂_y g):
+- **R⁽⁵⁾_μν = R⁽⁴⁾_μν − ∂_yK_μν + 2K_μαK^α_ν − K K_μν**, in coordinates running straight out from a layer
+  (K = ½∂_y g, lower indices).
+- It is checked exactly for any metric −A dt² + B dr² + C dΩ² + dy². The control: with the quadratic sign flipped, it
+  fails.
+- It is Maartens' eq. 3.9 (gr-qc/0312059v2 p.9, READ by the verifiers).
+- **In a bulk of vacuum energy, R⁽⁵⁾_kk = 0 along each layer's own light rays.** So each layer reads its own spacetime as
+  R⁽⁴⁾_kk = ∂_yK_kk − 2(KK)_kk + K K_kk.
 
-  **R⁽⁵⁾_μν = R⁽⁴⁾_μν − ∂_yK_μν + 2K_μαK^α_ν − K K_μν**
+## (A) The layers
 
-- **This is checked exactly here,** for any metric −A dt² + B dr² + C dΩ² + dy² with A, B and C arbitrary functions of
-  r and y. The control: with the quadratic sign flipped, it fails.
-- It is Maartens' eq. 3.9 (gr-qc/0312059v2 p.9, READ by closedbulk.py's verifier).
-- **In a bulk of vacuum energy, R⁽⁵⁾_kk = 0 along each layer's own light rays.** So the layer at y reads its own
-  spacetime as R⁽⁴⁾_kk = ∂_yK_kk − 2(KK)_kk + K K_kk, computed from the bulk alone.
+- **A1. Throat and horizon on nearby layers (STRUCTURAL).**
+  - Every coefficient of A/A₀, B/B₀ and C/C₀ through y⁴ has poles only at r = 0 and r = 3m/2.
+  - So on each nearby layer the horizon stays where A vanishes, at 2m. The throat also stays, at r₀: B keeps its
+    1/(r − r₀) pole while C stays regular, which puts the minimum areal radius there.
+  - The check cannot fail for any r₀ ≠ 3m/2, and it has no control.
+  - *First written* as a counted check, on A and B only.
+- **A2. What each nearby layer reads, exactly.**
+  - Along its own radial light ray, each layer reads
 
-## (A) The layers: what passes
+    **L(y) = G_kk·(1 + 4a y) + [8a²·G_kk + R₂]·y² + …**
 
-- **A1. The corridor is on every nearby layer.**
-  - Every coefficient of A/A₀ and B/B₀ through y⁴ is finite at the throat r = r₀ and at the horizon r = 2m.
-  - So each layer near ours has its own throat at r₀ and its own horizon at 2m, to this order.
-- **A2. Every nearby layer reads its own passage negative.**
-  - Each layer's own reading along its own radial light ray is L(y) = G_kk·(1 + 4a y) + O(y²). The 4a is the warp's
-    rescaling of the layer's light cone.
-  - Integrated along each layer's whole passage (m = 1, r₀ = 1.8, a = 1, in units of E/m):
+    - The 4a and 8a² are the warp rescaling each layer's light cone.
+    - **R₂ is free of a and zero for a Schwarzschild plane.** It is the layers' own departure from the warp: Maartens'
+      −E y², the bulk responding to the plane's Weyl curvature.
+  - **Integrated along each layer's whole passage:** I₀ + I₁y + I₂y², with I₁ = 2a·I₀ and I₂ = 2a²·I₀ + J₂.
+  - **At the README's exact m** (m = 1.98790932853678×10⁻²⁸ m, current.py), with r₀ = 3m/2 + Δ, from the current state
+    outward:
 
-    | | y⁰ | y¹ | y² |
-    |---|---|---|---|
-    | the layer at distance y | **−1.914712** | −3.829424 | −3.467761 |
-    | the warp alone would give | −1.914712 | −3.829424 | −3.829424 |
+    | Δ/m | I₀ (E per metre) | J₂ (E per metre³) |
+    |---|---|---|
+    | 1/1000 | −1.3376×10²⁸ | **+2.0082×10⁸⁵** |
+    | 1/100 | −1.3129×10²⁸ | +1.9794×10⁸⁴ |
+    | 1/10 | −1.1628×10²⁸ | +1.7444×10⁸³ |
+    | 1/4 | −1.0044×10²⁸ | +5.8345×10⁸² |
+    | 1/2 | −8.3146×10²⁷ | +2.2585×10⁸² |
 
-    - Every term is negative.
-    - The y⁰ term is our plane's own −1.914712.
-    - The difference at y² is the plane's curvature.
-  - **Contrast:** a Schwarzschild plane's layers read 0 at every order computed.
-- **A3. Only our layer bends evenly in every direction (STRUCTURAL).** This is from closedbulk.py B1 and umbilic.py U3.
-  - On the layer at y, K_kk = y G_kk + …
-  - So a light ray running along a nearby layer is drawn toward our plane, from either side under the mirror (H-Z2).
+    - I₀ matches current.py's exact closed form at all five Δ. That is the control.
+    - **J₂ is positive at every Δ.** It is the first computed sign of the layers turning toward positive.
+    - J₂ grows about tenfold per decade as Δ shrinks toward the current state. So the series reaches less far the closer
+      the corridor is to the no-corridor state (H-NEAR-PLANE).
+    - **The bulk's scale a = k stays a coefficient off our plane.** Its current-state value is asked.
+  - *First written* at the illustrative member m = 1, r₀ = 1.8, a = 1: −1.914712 − 3.829424y − 3.467761y² E/m, "each
+    term negative".
+    - Those were general coefficients, which item 125 rules out.
+    - "Each term negative" held only for a·m > 0.3073.
+  - **Contrast:** a Schwarzschild plane's layers read 0. That is exact at every order, because the black string is an
+    exact solution (Maartens p.19, after eq. 4.3).
+- **A3. Light along a nearby layer is drawn toward our plane** (STRUCTURAL; first order, G_kk < 0, near the plane).
 
-**So in picture (A), the corridor is not alone on our plane.** Every layer near ours carries a corridor with the same
-throat and horizon, and reads the same kind of passage. Our plane is the one that light along the neighbouring layers
-is drawn toward.
+## (B) The sheets
 
-## (B) The sheets: the totality's one ledger
+- **The junction at a sheet:** Maartens eq. 3.17 p.9, *"K+ − K− = −κ5²(T^brane − (1/3) T^brane g)"* (READ by the
+  verifier).
+  - *First written:* "Israel; standard, NOT READ here".
+- **For a fixed coordinate direction k, the identity gives how K_kk changes between sheets:** ∂_y(K_kk) = R⁽⁴⁾_kk −
+  R⁽⁵⁾_kk + 2(KK)_kk − K K_kk.
+- **The sum rule holds only if the extra dimension is a loop.** That means h and K return single-valued and one
+  coordinate system covers the whole loop (H-CLOSED-AS-LOOP, H-GN-GLOBAL). Then (STRUCTURAL):
 
-- **At a sheet, the bulk's K jumps by the sheet's own matter.** This is the standard Israel junction (H-ISRAEL; NOT READ
-  here), with no mirror at a generic sheet:
+  **κ² Σ_sheets (τ − (τ/3)h)_kk = ∮ ∂_y(K_kk) dy** (the smooth part)
 
-  [K_μν] = −κ²(τ_μν − (τ/3)h_μν)
+  - **This loop is the board's reading, and it is the compact sense.** GKL (hep-th/0011225v2 p.4) calls that *"closed,
+    i.e. compact without boundary"*. It is not your item 123's "every position".
+  - On an infinite line, a boundary term K_kk(+∞) − K_kk(−∞) survives instead.
+- **What the rule says, and what it does not.**
+  - The integrand is ∂_yK_kk for the fixed k. It equals the corridor's G_kk only at our plane. Off our plane, the
+    fixed k is no longer light-like.
+  - Our plane's null jump is zero, tension included. Another sheet's tension enters, through h_kk at that sheet.
+  - **With no sheet carrying anything along k, ∂_yK_kk is negative at our plane and must be positive somewhere** for
+    K_kk to return. Nothing more follows.
+  - **A sheet keeping the NEC (τ_kk ≥ 0) makes K_kk jump down.** That adds to the rise the rest of the loop must
+    supply. Only τ_kk < 0 lowers it (closedbulk.py B3).
+  - GKL eqs. 2.14, 2.26–2.28 pp.4–6 (READ by the verifier) are the literature's trace and tension sum rules on a
+    compact space. This null-null form is the board's.
+- **The mirror H-Z2 is dropped for (B).** On a loop it forces a second fixed point, which is closedbulk.py's B3 again.
+- *First written:*
+  - "every sheet's matter … is fixed by every layer's reading";
+  - "what our plane reads as negative, the rest of the closed dimension reads as positive, in total exactly".
+  - Our plane is one layer, of zero width in the integral.
 
-- **Around a closed dimension, the jumps and the smooth change of K add up to zero.** So for any fixed direction k the
-  identity gives an exact sum rule (STRUCTURAL; H-CONVERGES if the closed dimension is infinite):
+## With your items 126–127
 
-  **κ² Σ_sheets (τ − (τ/3)h)_kk = ∮ dy [R⁽⁴⁾_kk − R⁽⁵⁾_kk + 2(KK)_kk − K K_kk]**
-
-  - **Left side:** every sheet's matter, summed over all of them.
-  - **Right side:** every layer's own reading, plus terms from how each layer bends, summed over the whole closed
-    dimension.
-  - **At our plane the right side's integrand is the corridor's reading, G_kk** (R⁽⁵⁾_kk = 0 by construction; K = −a q
-    and q_kk = 0 there).
-- **If our plane is the only sheet with anything along k, the right side integrates to exactly zero.** Our plane's
-  tension drops out, because k is light-like there.
-  - So what our plane reads as negative, the rest of the closed dimension must read as positive, in total, exactly
-    (derived).
-  - This is the board's reading of your item 120 (*"matter is neither created nor destroyed, it only changes geometric
-    state"*) in this setting, not your words.
-- **If other sheets carry matter along k,** the ledger fixes their total and not where it sits.
-
-## The boundary (item 82)
-
-- **A1 and A2 are the near-plane series** (closedbulk.py's H-NEAR-PLANE: y ≪ r₀ and e^{2ay} ≪ 2a r₀). Whether every
-  layer, out to every position, carries the corridor is not computed.
-- **The sum rule is exact** given the identity, the junction and a closed dimension. It does not say which sheets exist,
-  where they are, or what each carries.
-- **On a closed dimension with only our plane, the balance needs layers that read positive somewhere.** Those layers are
-  not computed: they lie beyond the series.
-- **The layers' readings are geometry, not matter.** In a vacuum bulk no layer except a sheet carries matter, and R⁽⁵⁾_kk
-  = 0 off the sheets (umbilic.py). So the averaged condition can fail only at a sheet.
+- **The planes coincide, so the second plane occupies our plane's place.** Its matter along light rays is exactly zero
+  (current.py X4). The corridor's readings on our plane need no k.
+- The layers off our plane still exist in picture (A), and what they read depends on k.
 
 ## Named hypotheses
 
 - **Yours:**
   - H-CLOSED-AS-TOTALITY, H-SECOND-PLANE-EXISTS, H-INFINITE-PLANES, H-NEC-NEVER-VIOLATED (123);
   - H-PLANES-AS-LAYERS, H-PLANES-AS-SHEETS (124);
+  - M-EXACT-VALUES (125);
+  - H-SHORTEST-DISTANCE, H-COLOCATED-REALIZATION (126);
+  - H-PLANES-COINCIDE, H-COEFF-FROM-CURRENT (127);
   - H-COMPLETE-BULK, H-CONSERVATION-AS-GEOMETRY (120).
 - **The board's:**
-  - closedbulk.py's H-VACUUM-BULK, H-Z2, H-NEAR-PLANE, H-OUR-TENSION;
+  - closedbulk.py's H-VACUUM-BULK, H-NEAR-PLANE, H-OUR-TENSION, and H-Z2 for (A) only;
   - H-BK-CORRIDOR;
-  - H-ISRAEL: the junction at a sheet;
-  - H-CONVERGES: the closed integral exists in an infinite dimension.
+  - H-CLOSED-AS-LOOP and H-GN-GLOBAL, for (B);
+  - current.py's H-CURRENT-IS-SCHWARZSCHILD.
 
 ## OPEN
 
-1. Every layer beyond the near-plane series: whether the corridor persists, and where the layers read positive.
-2. The sheets: which exist, where, and what they carry. The ledger fixes only their total.
-3. Whether a sheet is position 2's plane. It is not asked; your item 123 says a second plane exists.
+1. The current-state value of the bulk's scale k, which the layers off our plane need.
+2. Every layer beyond the near-plane series.
+3. Whether your closed dimension is a loop (B's sum rule) or not (a boundary term instead).
+
+## History (verifier, 2026-10-06)
+
+Thirteen findings were applied:
+
+- "Closed" had turned back into "compact". The loop is now named as the board's.
+- Our plane cannot be one side of a zero-sum.
+- The integrand is ∂_yK_kk, not "every layer's reading".
+- Other sheets' tensions enter.
+- The mirror forces a second fixed point.
+- The NEC-sign consequence was added.
+- "Each term negative" needed a·m > 0.3073.
+- The remainder is positive and free of a.
+- A1 was weak (C added, no control).
+- One check repeated another.
+- The junction is READ.
+- The Schwarzschild contrast is exact at every order.
+- Over-claims were scoped.
+
+With your item 125 applied, the illustrative member was replaced by the README's exact m.

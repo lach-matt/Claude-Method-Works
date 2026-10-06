@@ -1,55 +1,63 @@
 #!/usr/bin/env python3
-"""manyplanes.py -- DOCKET 68, M-RULINGS items 123-124: infinitely many spacetime planes in a closed dimension, as the
-bulk's layers (A) and as separate sheets (B), both.  Deduced and computed; not verified; not seated.  Write-up:
-MANYPLANES.md.
+"""manyplanes.py -- DOCKET 68, M-RULINGS items 123-127: infinitely many spacetime planes in a closed dimension, as the
+bulk's layers (A) and as separate sheets (B), both.  Deduced, computed and READ; verified once; not seated.  Write-up:
+MANYPLANES.md.  First headed "items 123-124 ... not verified".
 
 M's words (verbatim in the rulings file): item 123 "by closed I mean every plausibility, possibility, eventuality,
 every position infinitely possible as a closed dimension." and "A second plane exists. In a closed infinite multiverse
-dimension, there are infinite spacetime planes"; item 124 "Both A and B" -- (A) every position of the extra dimension
-is a spacetime plane, the bulk's own layers; (B) separate sheets at distinct positions, each with its own matter.
+dimension, there are infinite spacetime planes"; item 124 "Both A and B"; item 125 M-EXACT-VALUES (no general
+coefficients); item 126 the corridor uses "the shortest distance needed"; item 127 "1 - yes" (the planes coincide) and
+H-COEFF-FROM-CURRENT (a coefficient = its current value + the counterfactual difference).
 
-THE TOOL.  The null-contracted Gauss-Codazzi-Ricci identity in Gaussian normal coordinates (K = (1/2) d_y g),
-    R5_mn = R4_mn - d_y K_mn + 2 K_ma K^a_n - K K_mn,
-checked here exactly for any metric -A dt^2 + B dr^2 + C dOmega^2 + dy^2 with A, B, C arbitrary functions of (r, y)
-(sympy; the flipped quadratic sign fails -- control).  It is Maartens gr-qc/0312059v2 eq. 3.9 p.9 (READ by
-closedbulk.py's verifier).  In a bulk of vacuum energy R5_mn = -4 a^2 g_mn, so for each layer's own light-like k,
-R5_kk = 0 and the layer's reading of its spacetime is R4_kk = d_y K_kk - 2 (K K)_kk + K K_kk.
+THE TOOL.  R5_mn = R4_mn - d_y K_mn + 2 K_ma K^a_n - K K_mn (K = (1/2) d_y g, lower indices), checked exactly for any
+metric -A dt^2 + B dr^2 + C dOmega^2 + dy^2, A, B, C arbitrary functions of (r, y) (sympy; the flipped quadratic sign
+fails -- control).  Maartens gr-qc/0312059v2 eq. 3.9 p.9 (READ by the verifiers).  In a vacuum bulk R5_kk = 0 along each
+layer's own light rays, so a layer reads R4_kk = d_y K_kk - 2 (K K)_kk + K K_kk.
 
 WHAT THE WORK FINDS
-  (A) THE LAYERS.  On closedbulk.py's bulk (series through y^4):
-    A1 THE CORRIDOR IS ON EVERY NEARBY LAYER.  Every coefficient of A/A0 and B/B0 through y^4 is finite and its
-       denominator nonzero at the throat r = r0 and at the horizon r = 2m: each layer has the throat at r0 and the
-       horizon at 2m, to this order.
-    A2 EVERY NEARBY LAYER READS THE PASSAGE NEGATIVE.  Each layer's own reading along its own radial light ray is
-       L(y) = G_kk (1 + 4a y) + L_2 y^2 + ... (the 4a is the warp's rescaling of the layer's light-cone normalization);
-       integrated along the layer's whole passage (m = 1, r0 = 1.8, a = 1): -1.914712 - 3.829424 y - 3.467761 y^2 E/m --
-       each term negative; the warp alone would give -1.914712 (1 + 2y + 2y^2), the rest is the plane's curvature.
-       Contrast: a Schwarzschild plane's layers read 0 at every order.
-    A3 (STRUCTURAL, from closedbulk.py B1 and umbilic.py U3) only our layer is umbilic: on layer y, K_kk = y G_kk + ...,
-       so a ray along a nearby layer feels d^2y/dlambda^2 = K_kk < 0 for y > 0 (and > 0 for y < 0 under H-Z2): drawn
-       toward our plane.
-  (B) THE SHEETS.  At a sheet the bulk's K jumps by the sheet's matter (Israel; standard, NOT READ here):
-       [K_mn] = -kappa^2 (tau_mn - (tau/3) h_mn).  Around a closed dimension the jumps and the smooth change of K add to
-       zero, so for any fixed vector k (exact, from the identity; H-CONVERGES for an infinite closed dimension):
-           kappa^2 SUM_sheets (tau - (tau/3) h)_kk  =  CLOSED-INTEGRAL dy [ R4_kk - R5_kk + 2 (K K)_kk - K K_kk ].
-       At our plane the integrand is the corridor's reading, G_kk (STRUCTURAL: R5_kk = 0 and K = -a q there).  So every
-       sheet's matter, summed over all of them, is fixed by every layer's reading, summed over the whole closed
-       dimension -- the totality's one ledger.  If our plane is the only sheet with anything in the light-like direction
-       (its tension drops out: h_kk = 0 for its k), the layers around the closed dimension integrate to exactly zero
-       against our corridor's contribution: what our plane reads as negative, the rest of the closed dimension reads as
-       positive, in total exactly (derived).  This is the board's reading of M's item 120 ("matter is neither created
-       nor destroyed, it only changes geometric state") in this setting, not M's words.
-  SCOPE.  A1-A2 are closedbulk.py's near-plane series (H-NEAR-PLANE).  The sum rule is exact given the identity and a
-  closed dimension; which sheets exist, where, and what they carry is not computed.
+  (A) THE LAYERS (closedbulk.py's bulk through y^4; H-NEAR-PLANE).
+    A1 Every coefficient of A/A0, B/B0 and C/C0 through y^4 has poles only at r = 0 and r = 3m/2 (STRUCTURAL: it cannot
+       fail for r0 != 3m/2, no control): on each nearby layer A vanishes at 2m (the horizon) and B keeps its 1/(r - r0)
+       pole with C regular (the areal-radius minimum, the throat, at r0), to O(y^4).  First counted, A and B only.
+    A2 Each layer's own reading along its own radial light ray, exactly: L(y) = G_kk (1 + 4a y) + [8 a^2 G_kk + R2] y^2
+       + ..., the 4a and 8a^2 the warp's rescaling of each layer's light cone, R2 independent of a and carrying
+       (2 r0 - 3m) -- the layers' own departure from the warp (Maartens' -E y^2, the bulk's response to the plane's Weyl
+       curvature).  Integrated along each layer's passage: I0 + I1 y + I2 y^2 with I1 = 2a I0 and I2 = 2 a^2 I0 + J2,
+       J2 = the integral of R2, POSITIVE -- the first computed sign of the layers turning toward positive.
+       At the README's exact m (current.py) with r0 = 3m/2 + Delta, I0 and J2 are printed across Delta from the current
+       state outward; the bulk scale a = k stays a coefficient off our plane (asked of M).  First written at the
+       illustrative member m = 1, r0 = 1.8, a = 1 (-1.914712 - 3.829424 y - 3.467761 y^2 E/m, "each term negative") --
+       general coefficients (item 125), and "each term negative" held only for a m > 0.3073.
+    A3 (STRUCTURAL, H-NEAR-PLANE, first order, G_kk < 0) on layer y, K_kk = y G_kk + ...: a ray along a nearby layer is
+       drawn toward our plane.
+  (B) THE SHEETS.  The junction at a sheet: Maartens eq. 3.17 p.9, "K+ - K- = -kappa5^2(T^brane - (1/3) T^brane g)"
+     (READ by the verifier; first cited as "standard, NOT READ").  For a fixed coordinate vector k, the identity gives
+     d_y(K_kk) = R4_kk - R5_kk + 2 (KK)_kk - K K_kk between sheets.  IF the extra dimension is a loop on which h and K
+     return single-valued, covered by one Gaussian-normal chart (H-CLOSED-AS-LOOP, H-GN-GLOBAL -- the board's readings,
+     the compact sense GKL hep-th/0011225v2 p.4 calls "closed, i.e. compact without boundary", not M's item 123), then
+         kappa^2 SUM_sheets (tau - (tau/3) h)_kk = CLOSED-INTEGRAL d_y(K_kk) dy (smooth part)
+     (STRUCTURAL); on an infinite line a boundary term K_kk(+inf) - K_kk(-inf) survives.  The integrand is d_y K_kk for
+     the fixed k; it equals G_kk only at our plane (off it h_kk = G_kk y^2 != 0 and R5_kk = -4 a^2 h_kk).  Our plane's
+     null jump is zero (q_kk = 0), tension included; another sheet's tension enters through h_kk(y_i).  With no sheet
+     carrying anything along k, the smooth part integrates to zero: d_y K_kk, negative near our plane, must be positive
+     somewhere so K_kk returns.  A sheet keeping the NEC (tau_kk >= 0) makes K_kk jump DOWN, adding to the rise the rest
+     of the loop must supply; only tau_kk < 0 lowers it (closedbulk.py B3) -- GKL eqs. 2.14, 2.26-2.28 pp.4-6 (READ by
+     the verifier) are the literature's trace and tension sum rules on a compact space; this null-null form is the
+     board's.  H-Z2 is dropped for (B): on a loop it would force a second fixed point (closedbulk.py B3 again).
+     First written: "every sheet's matter ... is fixed by every layer's reading" and "the layers around the closed
+     dimension integrate to exactly zero against our corridor's contribution" -- our plane is one layer, of zero measure.
+  WITH ITEM 127 (the planes coincide).  The second plane occupies our plane's place: its null matter is zero (current.py
+     X4), and the corridor's readings on our plane need no k.
 
 NAMED HYPOTHESES
   M's: H-CLOSED-AS-TOTALITY, H-SECOND-PLANE-EXISTS, H-INFINITE-PLANES, H-NEC-NEVER-VIOLATED (123); H-PLANES-AS-LAYERS,
-    H-PLANES-AS-SHEETS (124); H-COMPLETE-BULK, H-CONSERVATION-AS-GEOMETRY (120).
-  The board's: closedbulk.py's H-VACUUM-BULK, H-Z2, H-NEAR-PLANE, H-OUR-TENSION; H-BK-CORRIDOR; H-ISRAEL (the junction
-    at a sheet, no mirror at a generic sheet); H-CONVERGES (the closed integral exists in an infinite dimension).
+    H-PLANES-AS-SHEETS (124); M-EXACT-VALUES (125); H-SHORTEST-DISTANCE, H-COLOCATED-REALIZATION (126);
+    H-PLANES-COINCIDE, H-COEFF-FROM-CURRENT (127); H-COMPLETE-BULK, H-CONSERVATION-AS-GEOMETRY (120).
+  The board's: closedbulk.py's H-VACUUM-BULK, H-NEAR-PLANE, H-OUR-TENSION, H-Z2 (for (A) only); H-BK-CORRIDOR;
+    H-CLOSED-AS-LOOP, H-GN-GLOBAL (for (B)); current.py's H-CURRENT-IS-SCHWARZSCHILD.
 
 USAGE
-    python3 manyplanes.py | --selftest | --json      (sympy, mpmath; about two minutes)
+    python3 manyplanes.py | --selftest | --json      (sympy, mpmath; about three minutes)
 """
 
 import contextlib
@@ -178,6 +186,9 @@ def layer_passage(L, s, m, r0, a, x, vals=(1, 1.8, 1)):
     return out
 
 
+FRACTIONS = ("1/1000", "1/100", "1/10", "1/4", "1/2")       # Delta/m, r0 = 3m/2 + Delta (current.py)
+
+
 def compute():
     import sympy as sp
     o = owners()
@@ -187,30 +198,47 @@ def compute():
     P, (m, r0, L_) = cb.planes()
     bk = cb.build(*P["bk"], order=4)
     sch = cb.build(*P["schwarzschild"], order=4)
-    ratios = [sp.together(sp.cancel(c / cl[0])) for cl in bk["coeffs"][:2] for c in cl[1:]]
-    persist = all(sp.simplify(sp.denom(rt).subs(x, pt)) != 0 for rt in ratios for pt in (r0, 2 * m))
+    ratios = [sp.together(sp.cancel(c / cl[0])) for cl in bk["coeffs"] for c in cl[1:]]
+    poles = set()
+    for rt in ratios:
+        for fac, _ in sp.factor_list(sp.denom(rt))[1]:
+            poles |= {str(z) for z in sp.solve(fac, x)}
     L, s = layer_reading(bk["coeffs"], 3)
     Ls, _ = layer_reading(sch["coeffs"], 3)
     gkk = -2 * (2 * r0 - 3 * m) / (x * (2 * x - 3 * m) ** 2)
-    passage = layer_passage(L, s, m, r0, a, x)
+    R2 = sp.simplify(L[2] - 8 * a ** 2 * gkk)
+    illus = layer_passage(L, s, m, r0, a, x, vals=(1, 1.8, 1))                 # first written, general coefficients
+    cur = _load(os.path.join(D68, "copy", "current.py"), "copy_current_manyplanes")
+    X = cur.exact_pull()
+    mS = float(sp.N(X["m"], 20))
+    rows = []
+    for f in FRACTIONS:
+        fr = float(sp.Rational(f))
+        I = layer_passage(L, s, m, r0, a, x, vals=(1, 1.5 + fr, 0))           # a = 0: I0 and J2 (geometric, m = 1)
+        rows.append({"frac": f, "I0_SI": I[0] / mS, "J2_SI": I[2] / mS ** 3, "I0_geo": I[0], "J2_geo": I[2],
+                     "I0_current_py": 2 * float(sp.N(cur.leg_exact(X["m"], sp.Rational(f)), 15))})
     ident = identity_check(1)
     ident_flip = identity_check(-1)
-    return {"throat_horizon_persist": persist, "L0_minus_gkk": str(sp.simplify(L[0] - gkk)),
-            "L1_over_gkk": str(sp.simplify(L[1] / gkk)), "L2": str(sp.factor(L[2])),
-            "schwarzschild_layers": [str(c) for c in Ls], "layer_passage_coeffs": passage,
-            "anec_plane": 2 * o["coin"].anec_closed(1.0, 1.8),
-            "identity": ident, "identity_flipped": ident_flip}
+    return {"poles": sorted(poles), "L0_minus_gkk": str(sp.simplify(L[0] - gkk)),
+            "L1_over_gkk": str(sp.simplify(L[1] / gkk)), "R2": str(sp.factor(R2)),
+            "R2_free_of_a": a not in R2.free_symbols, "R2_vanishes_at_schwarzschild": sp.simplify(
+                R2.subs(r0, sp.Rational(3, 2) * m)) == 0,
+            "schwarzschild_layers": [str(c) for c in Ls], "illustrative_passage": illus, "m_SI": mS, "rows": rows,
+            "anec_plane": 2 * o["coin"].anec_closed(1.0, 1.8), "identity": ident, "identity_flipped": ident_flip}
 
 
 def report(d):
-    print("manyplanes.py -- items 123-124: the planes as layers (A) and as sheets (B)")
-    print("  (A) throat at r0 and horizon at 2m on every nearby layer (through y^4): %s" % d["throat_horizon_persist"])
-    print("      each layer's reading: L0 - G_kk = %s;  L1 / G_kk = %s" % (d["L0_minus_gkk"], d["L1_over_gkk"]))
-    c = d["layer_passage_coeffs"]
-    print("      each layer's passage (m = 1, r0 = 1.8, a = 1): %.6f + %.6f y + %.6f y^2 E/m" % tuple(c))
-    for y in (0.05, 0.1, 0.2):
-        print("        y = %.2f: %.6f" % (y, c[0] + c[1] * y + c[2] * y * y))
-    print("  (B) the identity R5 = R4 - d_y K + 2KK - K K, every diagonal component: %s (flipped sign: %s)" % (
+    print("manyplanes.py -- items 123-127: the planes as layers (A) and as sheets (B)")
+    print("  (A) poles of every A, B, C coefficient through y^4: r = %s" % d["poles"])
+    print("      each layer's reading: L0 - G_kk = %s;  L1 / G_kk = %s;  L2 = 8a^2 G_kk + R2, R2 = %s" % (
+        d["L0_minus_gkk"], d["L1_over_gkk"], d["R2"]))
+    print("      README corridor, m = %.14e m, r0 = 3m/2 + Delta (a = k a coefficient off our plane):" % d["m_SI"])
+    for row in d["rows"]:
+        print("        Delta/m = %-6s I0 = %.10e E/m   J2 = %.10e E/m^3  (I1 = 2k I0, I2 = 2k^2 I0 + J2)" % (
+            row["frac"], row["I0_SI"], row["J2_SI"]))
+    c = d["illustrative_passage"]
+    print("      first written at m = 1, r0 = 1.8, a = 1: %.6f %+.6f y %+.6f y^2" % tuple(c))
+    print("  (B) the identity, every diagonal component: %s (flipped sign: %s)" % (
         d["identity"], ["nonzero" if v != "0" else "0" for v in d["identity_flipped"]]))
 
 
@@ -227,28 +255,37 @@ def selftest(d):
         n_ctl += bool(ctl)
         n_con += bool(contrast)
 
-    c = d["layer_passage_coeffs"]
-    chk("A1: every coefficient of A/A0 and B/B0 through y^4 is finite at the throat r0 and the horizon 2m -- the "
-        "corridor is on every nearby layer, to this order", d["throat_horizon_persist"])
-    chk("A2: each layer's own reading is L(y) = G_kk (1 + 4a y) + O(y^2) (L0 - G_kk = %s, L1/G_kk = %s)" % (
-        d["L0_minus_gkk"], d["L1_over_gkk"]), d["L0_minus_gkk"] == "0" and d["L1_over_gkk"] == "4*a")
-    chk("A2: integrated along each layer's whole passage: %.6f + %.6f y + %.6f y^2 E/m -- every term negative, the y^0 "
-        "term our plane's %.6f, the y^1 term the warp's 2a" % (c[0], c[1], c[2], d["anec_plane"]),
-        all(v < 0 for v in c) and abs(c[0] - d["anec_plane"]) < 1e-9 and abs(c[1] / c[0] - 2) < 1e-9)
-    chk("a Schwarzschild plane's layers read 0 at every order computed (%s)" % d["schwarzschild_layers"],
+    rows = d["rows"]
+    chk("A2: each layer's own reading is L(y) = G_kk (1 + 4a y) + [8a^2 G_kk + R2] y^2 (L0 - G_kk = %s, L1/G_kk = %s), "
+        "R2 free of a (%s) and zero for a Schwarzschild plane (%s)" % (
+            d["L0_minus_gkk"], d["L1_over_gkk"], d["R2_free_of_a"], d["R2_vanishes_at_schwarzschild"]),
+        d["L0_minus_gkk"] == "0" and d["L1_over_gkk"] == "4*a" and d["R2_free_of_a"]
+        and d["R2_vanishes_at_schwarzschild"])
+    worst = max(abs(row["I0_SI"] / row["I0_current_py"] - 1) for row in rows)
+    chk("A2 at the README's exact m: each layer's y^0 passage I0 agrees with current.py's exact closed form at all five "
+        "Delta (worst relative %.1e)" % worst, worst < 1e-9, ctl=True)
+    chk("A2: J2, the layers' own departure from the warp integrated along the passage, is POSITIVE at every Delta "
+        "(%s E/m^3) -- the layers turn toward positive" % [("%.4e" % row["J2_SI"]) for row in rows],
+        all(row["J2_SI"] > 0 for row in rows))
+    chk("a Schwarzschild plane's layers read 0 at every order computed (%s; exact at every order: the black string, "
+        "Maartens p.19 after eq. 4.3)" % d["schwarzschild_layers"],
         all(v == "0" for v in d["schwarzschild_layers"]), contrast=True)
     chk("(B) the identity R5_mn = R4_mn - d_y K_mn + 2 K_ma K^a_n - K K_mn holds exactly for arbitrary A, B, C (%s)" %
         d["identity"], all(v == "0" for v in d["identity"]))
     chk("the identity with the quadratic sign flipped fails", any(v != "0" for v in d["identity_flipped"]), ctl=True)
-    structural.append("A2: y^2 of the layer passage over y^0 = %.4f; the warp alone gives 2 -- the rest is the plane's "
-                      "curvature (a = 1, m = 1 units)" % (c[2] / c[0]))
-    structural.append("A3: only our layer is umbilic; on layer y, K_kk = y G_kk + ..., so a ray along a nearby layer is "
-                      "drawn toward our plane (closedbulk.py B1, umbilic.py U3)")
-    structural.append("(B) the sum rule: kappa^2 SUM_sheets (tau - (tau/3) h)_kk = closed integral of [R4_kk - R5_kk + "
-                      "2 (KK)_kk - K K_kk] dy, for any fixed k -- the identity plus a closed dimension (H-ISRAEL, "
-                      "H-CONVERGES)")
-    structural.append("(B) at our plane the integrand is G_kk (R5_kk = 0 by construction, K = -a q, q_kk = 0); with no "
-                      "other sheet carrying anything along k, the closed integral is exactly zero against it")
+    structural.append("A1: every A, B, C coefficient through y^4 has poles only at r = %s -- the horizon at 2m and the "
+                      "throat (areal minimum, g_rr -> oo) at r0 persist on nearby layers; cannot fail for r0 != 3m/2, "
+                      "no control" % d["poles"])
+    structural.append("A2 first written at m = 1, r0 = 1.8, a = 1: %.6f %+.6f y %+.6f y^2 E/m (general coefficients, item "
+                      "125); 'each term negative' held only for a m > 0.3073" % tuple(d["illustrative_passage"]))
+    structural.append("A2: I1 = 2a I0 follows from L1 = 4a G_kk and the layer's affine rescaling -- not counted again")
+    structural.append("A3: on layer y, K_kk = y G_kk + ...: a ray along a nearby layer is drawn toward our plane "
+                      "(first order, G_kk < 0, H-NEAR-PLANE)")
+    structural.append("(B) IF the dimension is a loop with h, K single-valued in one Gaussian-normal chart (H-CLOSED-AS-"
+                      "LOOP, H-GN-GLOBAL; the board's, the compact sense): kappa^2 SUM (tau - tau h/3)_kk = closed "
+                      "integral of d_y K_kk (fixed k); on a line a boundary term survives")
+    structural.append("(B) with no sheet carrying anything along k, d_y K_kk (G_kk < 0 at our plane) must be positive "
+                      "somewhere; a sheet keeping the NEC lowers K_kk and adds to that rise; only tau_kk < 0 lowers it")
     for s_ in structural:
         print("  STRUCTURAL: " + s_)
     print("manyplanes.py: %d/%d checks pass, %d of them controls and %d contrasts; %d STRUCTURAL printed, not counted" % (
