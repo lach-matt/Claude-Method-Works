@@ -1,4 +1,4 @@
-# The README corridor from a current state (M-RULINGS items 125–127; deduced and computed; verified once; not seated; 2026-10-06)
+# The README corridor from a current state (M-RULINGS items 125–129; deduced and computed; verified once; not seated; 2026-10-06)
 
 *First headed* "(… not verified; not seated; 2026-10-06)".
 
@@ -15,7 +15,7 @@
   - That is item 114's form: *"The trajectory is the difference between position 1 and position 2"*.
 
 Every number is printed by `current.py`.
-- **Selftest:** 6/6 checks, 1 control, with 6 STRUCTURAL lines printed and not counted. It takes about a minute and a
+- **Selftest:** 7/7 checks, 1 control, with 7 STRUCTURAL lines printed and not counted. It takes about a minute and a
   half.
   - *First written:* "6/6 checks, 1 genuine control, 4 STRUCTURAL". Two counted checks were identities or held by
     construction (History).
@@ -79,6 +79,25 @@ Every number is printed by `current.py`.
   - The plane's tension, and the strength of gravity that sets m, depend on k and κ.
   - *First written:* "a second plane coinciding with ours carries no matter along light rays … the device needs no k and
     no κ". Withdrawn.
+
+## Your item 129: matter, no corridor; the bridge adds nothing
+
+- *"no. It contains matter, you, me, this current universe, just not a corridor for transit because the corridor is a
+  bridge, so it adds nothing to either position."* (H-CURRENT-HAS-MATTER, H-BRIDGE-ADDS-NOTHING)
+- **Both of the board's current states are ruled out.**
+  - The candidate r₀ = 3m/2 was a 0.2677 kg black hole that is not there.
+  - Alternative (a), empty space, contradicts "it contains matter".
+- **X5. What the corridor adds, computed exactly** (plane.py's masses).
+  - The plane's total is ADM = m/4 + r₀/2, and the pull is Komar = m.
+  - So at r₀ = 3m/2 + Δ, **the plane's total exceeds the pull by exactly Δ/2.**
+  - At the board's m that is 1.34×10⁻⁴ kg at Δ/m = 1/1000, rising to 6.69×10⁻² kg at the window's end.
+- **Two readings of "adds nothing":**
+  - **(i) No matter.** Every member of eq. 17 has τ = 0 on the plane (escape.py S3), so this already holds.
+  - **(ii) No mass beyond what is already there.** If the pull is the carried energy, which belongs to the matter
+    already present, the corridor adds Δ/2.
+    - "Nothing" then forces Δ = 0, and there eq. 17 has no throat.
+    - So in reading (ii), Bronnikov–Kim's family hosts your bridge only at its edge (item 82: the boundary).
+    - A family with a throat whose total equals its pull is not on the board. OPEN.
 
 ## What stays a coefficient
 

@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""current.py -- DOCKET 68, M-RULINGS items 125-127: the README corridor's coefficients evaluated with exact values,
+"""current.py -- DOCKET 68, M-RULINGS items 125-129: the README corridor's coefficients evaluated with exact values,
 from our current state outward.  Deduced and computed; verified once; not seated.  Write-up: CURRENT.md.
 
 M's words (verbatim in the rulings file): item 125 "We cannot use general coefficients for this work. We must always
@@ -45,6 +45,14 @@ WHAT THE WORK FINDS
      place -- opposite tensions, so K = 0 -- fails the bulk's own yy constraint unless a = 0 (computed).  The plane's
      tension, and the 4D G that sets m, depend on k and kappa.  First written "the device needs no k and no kappa" --
      withdrawn.
+  X5 WHAT THE CORRIDOR ADDS (item 129: "the corridor is a bridge, so it adds nothing to either position").  In
+     plane.py's own masses, ADM = m/4 + r0/2 and the pull (Komar) = m, so at r0 = 3m/2 + Delta the plane's total exceeds
+     the pull by exactly Delta/2 (computed).  Two readings of "adds nothing": (i) no matter -- every member of eq. (17)
+     has tau = 0 on the plane (escape.py S3), so this holds already; (ii) no mass beyond what is already there -- if the
+     pull is the carried energy, which belongs to the matter already present (H-CURRENT-HAS-MATTER), the corridor adds
+     Delta/2 and "nothing" forces Delta = 0, where eq. (17) has no throat: in reading (ii) Bronnikov-Kim's family hosts
+     the bridge only at its edge (item 82: the boundary).  Both of the board's current states are ruled out by item 129
+     (a 0.2677 kg hole that is not there; empty space).
   WHAT STAYS A COEFFICIENT.  N (item 108); m's current value; Delta and its side; E and its normalization; the tension's
   sign (H-OUR-TENSION; RS1 puts our atoms on the negative-tension sheet, BULK.md); k and kappa (through the tension and
   the 4D G); the coinciding junction.
@@ -97,6 +105,7 @@ def owners():
         _CACHE["coin"] = _load(os.path.join(HERE, "coin.py"), "copy_coin_current")
         _CACHE["closedbulk"] = _load(os.path.join(D68, "bulk", "closedbulk.py"), "d68_closedbulk_current")
         _CACHE["plane_src"] = open(os.path.join(HERE, "plane.py"), encoding="utf-8").read()
+        _CACHE["plane"] = _load(os.path.join(HERE, "plane.py"), "copy_plane_current")
     return _CACHE
 
 
@@ -157,6 +166,10 @@ def compute():
     P, _ = cb.planes()
     kk = cb.kkk_series(cb.build(*P["bk"], order=2), 2)
     together = cb.build(*P["bk"], order=2, a1=0)
+    # item 129: what the corridor adds beyond its pull, in plane.py's own masses
+    bm = o["plane"].bk_masses()
+    pr, pr0, pm, _ = bm["syms"]
+    added = sp.simplify((bm["M_adm"] - bm["M_komar"]).subs(pr0, sp.Rational(3, 2) * pm + D))
     return {"N": int(N), "m_exact": str(m), "m": float(sp.N(m, 15)), "m_over_floor_half": mv / (X["floor_r"] / 2),
             "E_min": float(sp.N(X["E_min"], 15)), "u_r_G_share": X["u_r"], "r0_current": 1.5 * mv,
             "window_end_Delta": mv / 2, "hole_kg": hole_kg, "gkk_Delta": str(gkk_D), "gkk_Delta_exact_m": gkk_D_exact,
@@ -165,6 +178,8 @@ def compute():
             "series_wrong_constant": wrong, "E_per_bit": E_bit, "E_per_bit_geo_m": E_geo,
             "leg_current_dimensionless_at_E_bit": leg0 * E_geo, "K_kk_on_plane": str(kk[0]),
             "together_yy": [str(v) for v in together["constraints"]["yy"]],
+            "M_adm": str(bm["M_adm"]), "M_komar": str(bm["M_komar"]), "adm_minus_pull": str(added),
+            "adm_minus_pull_kg_per_Delta_frac": [float(sp.Rational(f)) * mv / 2 * C_SI ** 2 / G_SI for f in FRACTIONS],
             "bk_quote_in_plane": BK_SCHWARZSCHILD.replace(".", "") in owners()["plane_src"].replace(".", "")}
 
 
@@ -215,6 +230,9 @@ def selftest(d):
         "(remainder/(delta ln delta) %.2e); with ln(delta/3) it fails (%.2e)" % (
             d["series_remainder_over_dlogd_at_1e-8"], d["series_wrong_constant"]),
         abs(d["series_remainder_over_dlogd_at_1e-8"]) < 1e-6 < abs(d["series_wrong_constant"]))
+    chk("X5 (item 129): the plane's total minus the corridor's pull is ADM - Komar = (%s) - (%s) = %s at r0 = 3m/2 + "
+        "Delta (plane.py's masses) -- what the corridor adds beyond its pull is exactly Delta/2, zero only at Delta = 0 "
+        "where there is no throat" % (d["M_adm"], d["M_komar"], d["adm_minus_pull"]), d["adm_minus_pull"] == "Delta/2")
     chk("X4: the board's two sheets of opposite tension put at one place (K = 0) fail the bulk's yy constraint: %s -- "
         "the coinciding junction is not B3's" % d["together_yy"], d["together_yy"][0] != "0")
     structural.append("X1: m = %.14e m; chain.py's bisected floor (same equation, second implementation) agrees to "
@@ -230,6 +248,8 @@ def selftest(d):
                                                          d["leg_current_dimensionless_at_E_bit"]))
     structural.append("X4: K_kk on an empty umbilic plane = %s (from the input K = -a q and k null) -- the null stress "
                       "there totals zero; first counted with 'needs no k', withdrawn" % d["K_kk_on_plane"])
+    structural.append("X5 at the board's m: Delta/2 in mass for Delta/m = %s is %s kg" % (
+        list(FRACTIONS), ["%.4e" % v for v in d["adm_minus_pull_kg_per_Delta_frac"]]))
     structural.append("the last row (Delta = m/2, r0 = 2m) is the window's boundary, not a horizon member")
     for s_ in structural:
         print("  STRUCTURAL: " + s_)
