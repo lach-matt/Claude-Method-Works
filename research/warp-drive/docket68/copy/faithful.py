@@ -3,8 +3,8 @@
 faithful.py -- what a faithful copy's specification must carry (M-RULINGS items 86-88: the goal is a faithful copy;
 the README -- "a software update patch presented as a README file telling position to what to construct with what it
 has" -- is what crosses; M's order of work puts this link first).  READ where sources exist, deduced (M-DEDUCE),
-computed where it can be.  Not seated; verified once, findings applied (HISTORY at the end; first written 'not
-verified').  M's words are carried as hypotheses, never as results.
+computed where it can be.  SEATED (ledger section 8n, M-D68-89; first written 'Not seated'); verified once, findings
+applied (HISTORY at the end; first written 'not verified').  M's words are carried as hypotheses, never as results.
 
 WHAT FOLLOWS THE WORK (each from the sections below)
   * A FAITHFUL CLASSICAL COPY NEEDS FAR LESS THAN ANY SNAPSHOT OF THE BODY.  The board's four counts (measure.py,
@@ -303,7 +303,7 @@ def compute():
 def report():
     d = compute()
     ic, m = d["identity"], d["snapshot"]
-    print("faithful.py -- what a faithful copy's specification must carry (M items 86-88; not verified; not seated)\n")
+    print("faithful.py -- what a faithful copy's specification must carry (M items 86-89; verified once; seated, ledger 8n)\n")
     print("F1 copier fidelities (each output with the input): |0> %s, |1> %s, |+> %s" % tuple(
         "(%.2f, %.2f)" % d["copier"][k] for k in ("0", "1", "+")))
     print("F2 decoherence margin (Tegmark): dynamics / decoherence >= %.0e" % d["decoherence_margin"])

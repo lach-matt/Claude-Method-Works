@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
 """
 uses.py -- uses priced against the first trip (M-RULINGS item 88, link 1: S5 against D23; DOCKET 56's owed instrument,
-on the faithful-copy path).  Deduced and computed.  Not seated; verified once (2026-10-06).  M's words are carried as
+on the faithful-copy path).  Deduced and computed.  SEATED (ledger section 8n, M-D68-89; first
+written 'Not seated'); verified once (2026-10-06).  M's words are carried as
 hypotheses, never as results.
 
 S5 (reconstruction from stock at the destination) pays a setup once -- the device at position 2 must itself travel at
@@ -327,7 +328,7 @@ def _fmt_k(k):
 def report():
     d = compute()
     yr = d["year_s"]
-    print("uses.py -- uses priced against the first trip (M item 88, link 1; verified once; not seated)\n")
+    print("uses.py -- uses priced against the first trip (M item 88, link 1; verified once; seated, ledger 8n)\n")
     print("U1 k* = %s ; as E_rec -> 0, k* -> %s (mass ratio: %s)" % (d["kstar_symbolic"], d["kstar_limit"],
                                                                     d["limit_is_mass_ratio"]))
     print("U2 README = identity core, %.3e bits; snapshot counts %.3e to %.3e bits; every k* is a LOWER bound" % (

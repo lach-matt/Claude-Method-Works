@@ -1,4 +1,6 @@
-# Uses priced against the first trip (M-RULINGS item 88, link 1; deduced and computed; verified once; not seated; 2026-10-06)
+# Uses priced against the first trip (M-RULINGS item 88, link 1; deduced and computed; verified once; SEATED, ledger section 8n, M-D68-89; 2026-10-06)
+
+*Headed before seating* "(M-RULINGS item 88, link 1; deduced and computed; verified once; not seated; 2026-10-06)".
 
 *First headed* "(M-RULINGS item 88, link 1; deduced and computed; not verified; not seated; 2026-10-06)".
 
@@ -123,12 +125,13 @@ Every number is printed by `uses.py`.
 - **"How big the file is" bites in two ways.**
   - On the received floor the energy goes as the square of the file's size over the time allowed.
   - Through a real optical link it grows exponentially once the file needs many bits per mode-use. That is why the
-    core is cheap (6.3×10⁸ J) while a full snapshot cannot be sent in a year at any energy. Over ten million years
-    it can.
+    core is cheap (6.3×10⁸ J) while a full snapshot cannot be sent in a year at any energy. At 20 bits per use it
+    takes 1.5 to 17 million years.
   - The README budget of that link is 2.4×10²⁰ bits, about five orders above the core. That is the room the recipe and
     the rest of the body have to fit into.
 - **The time budget gives a route-level price.** A use has to win on time as well, so its README cannot be stretched
-  over an arbitrarily long schedule. For a snapshot this rules out every use below about 7×10⁻⁴ c. For the core it is
+  over an arbitrarily long schedule. For the largest snapshot this rules out every use below about 7×10⁻⁴ c (5×10⁻⁶ c for the
+  smallest). For the core it is
   never binding.
 - **The README should go by light.** Through zeromode's rotors it takes at least about 2×10⁵ years per copy, which
   fits the per-use budget only for trips slower than 6 km/s.

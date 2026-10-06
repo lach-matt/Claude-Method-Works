@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
-carrier.py -- a carrier through the bulk (M-RULINGS item 88, link 2: O6, against D13).  Deduced, computed, READ.  Not
-seated; verified once (2026-10-06).  M's words are carried as hypotheses, never as results.
+carrier.py -- a carrier through the bulk (M-RULINGS item 88, link 2: O6, against D13).  Deduced, computed, READ.
+SEATED (ledger section 8n, M-D68-89; first written 'Not seated'); verified twice (2026-10-06).  M's words are carried as hypotheses, never as results.
 
 The faithful copy's README (faithful.py: an identity core of order 1e15 bits) must cross from position 1 to position 2.
 D13: classical information travels at or below c IN THE METRIC ITS CARRIER PROPAGATES IN.  A carrier through the bulk
@@ -343,7 +343,7 @@ def compute():
 
 def report():
     d = compute()
-    print("carrier.py -- a carrier through the bulk (M item 88, link 2; verified once; not seated)\n")
+    print("carrier.py -- a carrier through the bulk (M item 88, link 2; verified twice; seated, ledger 8n)\n")
     print("C1 Fermat, shortest returning dive / light along the plane: RS1 %.6f, g_yy bulk %.6f; CONTROL (unequal) %.4f "
           "(dive %s)" % (d["fermat_rs1"][0], d["fermat_gyy"][0], d["fermat_unequal"][0], d["fermat_unequal"][1]))
     print("   STRUCTURAL the identity, evaluated: %.6f, %.6f ; null curve (dx/dt)^2 = %s" % (

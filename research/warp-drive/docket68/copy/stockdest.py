@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 """
 stockdest.py -- the stock gate at a real destination (M-RULINGS item 88, link 4: D25 / W3-O3 at Proxima).  READ where
-sources exist, deduced, computed.  Not seated; verified once, findings applied (HISTORY at the end; first written 'not
-verified').  M's words are carried as hypotheses, never as results.
+sources exist, deduced, computed.  SEATED (ledger section 8n, M-D68-89; first written 'Not seated'); verified once,
+findings applied (HISTORY at the end; first written 'not verified').  M's words are carried as hypotheses, never as results.
 
 The faithful copy (item 87) is built at position 2 "with what it has" (item 86, answer 7); item 5 put the substance
 "from the seat" (M: "Yes, from the seat").  faithful.py sized what crosses; this asks whether what it is built FROM is
@@ -169,7 +169,7 @@ def compute():
 
 def report():
     d = compute()
-    print("stockdest.py -- the stock gate at Proxima (M item 88, link 4; verified once; not seated)\n")
+    print("stockdest.py -- the stock gate at Proxima (M item 88, link 4; verified once; seated, ledger 8n)\n")
     print("  the gate (stockgate.GATE): " + d["gate"])
     for k, v in d["reservoirs"].items():
         print("  %-44s binder %-2s %8.2f kg per kg   feedstock for 70 kg: %.4g kg" % (

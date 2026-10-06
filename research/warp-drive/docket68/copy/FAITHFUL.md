@@ -1,4 +1,6 @@
-# What a faithful copy must carry (M-RULINGS items 86–88; READ, deduced and computed; verified once; not seated; 2026-10-06)
+# What a faithful copy must carry (M-RULINGS items 86–89; READ, deduced and computed; verified once; SEATED, ledger section 8n, M-D68-89; 2026-10-06)
+
+*Headed before seating* "(M-RULINGS items 86–88; READ, deduced and computed; verified once; not seated; 2026-10-06)".
 
 *First headed* "(M-RULINGS items 86–88; READ, deduced and computed; not verified; not seated; 2026-10-06)".
 

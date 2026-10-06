@@ -1039,6 +1039,41 @@ seated (item 83).
        comments).
   The board  no status moves; O9 stays OPEN.  H-NO-BULK-ROW: no index3 row.
   The paper  not edited.
+
+===============================================================================
+8n.  THE FAITHFUL COPY'S INFORMATION ROUTE (M-RULINGS items 84-89), AS SEATED
+===============================================================================
+
+M asked for the whole chain (item 84), turned its walls into questions (item
+85), answered them (item 86), named the goal "A faithful copy" (item 87) and
+set the order of work "3 then 4 then 2 then 1" (item 88); after links 3 and 4
+M ruled stock is stock and the cost the README's size, left the original open,
+added the identity core as H-WHICH-COUNT's fifth reading, and ruled the four
+links seated together (item 89).  docket68/copy/ holds them.  faithful.py
+(FAITHFUL.md): a classical README loses none of what carries identity under
+Tegmark's premise; the cortical wiring core is of order 1e15 bits against 1e28
+for a snapshot; no-cloning does not bind a classical copy.  stockdest.py
+(STOCKDEST.md): at Proxima the stock gate passes on quantity at every
+accessible scale; by the gate's letter the PRIMITIVE clause is unshown, and
+under M's H-STOCK-IS-STOCK the site admits.  carrier.py (CARRIER.md): Fermat's
+test for a bulk shortcut, the standard result that a symmetric bulk with
+planes at fixed y has none, the escape classes in full, GW170817 bounding only
+a bulk-wide asymmetry, and the port at the g(N) capacity ceiling.  uses.py
+(USES.md): under M's ruling the break-even is at least the device's mass over
+the payload's, conditional on the link's loss; one declared optical link
+computed; the snapshot ruled out on short schedules; a route-level floor from
+the time budget.  Each verified, and corrected; carrier.py and uses.py twice.
+
+  THE OWNERS  loaded BY PATH as 'copy_<name>' (_copy_load), with
+       _bulk5_load's lending and key restoration.  uses.py loads seat.py
+       itself (its own key), so asking it costs seat's import.
+  RULED_BY_M  + M-D68-87, 88 and 89.  D68_FILE_CARRIED + M-D68-84 (a
+       question), 85 (an instruction) and 86 (statements carrying hypotheses).
+  COPY_OPEN  nine items, each with what would answer it.  S1B-O1 and W3-O3
+       repointed to the owners that answer them (first texts kept as
+       comments).
+  The board  no status moves; O9 stays OPEN.  H-NO-COPY-ROW: no index3 row.
+  The paper  not edited.
 """
 
 import contextlib
@@ -3726,6 +3761,10 @@ D68_M_WORDS = {
     "M-D68-82": ("Yes. We need to be pursuing that which follows our work. That which is ruled out or ruled against "
                  "only exists to shape the current argument's strength", D68_RULINGS_FILE),
     "M-D68-83": ("Seat both (8m)", D68_RULINGS_FILE),
+    # ADDED (COPY-seat, docstring section 8n): items 87, 88 and 89.
+    "M-D68-87": ("A faithful copy", D68_RULINGS_FILE),
+    "M-D68-88": ("3 then 4 then 2 then 1 please,", D68_RULINGS_FILE),
+    "M-D68-89": ("Seat all four at end", D68_RULINGS_FILE),
 }
 
 #: THE QUESTIONS PUT TO M FOR M'S DOCKET 66 RULINGS (items 26-28), as the
@@ -3893,6 +3932,13 @@ D68_CARRIED_WORDS = {
                  "between our planes is one), a faster-than-light bubble, matter that radiates, and a thick brane. Each "
                  "stays OPEN. - exhaustively test these", D68_RULINGS_FILE),
     "M-D68-81": ("Why does light speed matter if speed is not part of the warp process?", D68_RULINGS_FILE),
+    # ADDED (COPY-seat, docstring section 8n): question 84, instruction 85, statements 86 (answers 6 and 7).
+    "M-D68-84": ("So looking at the whole chain that is warp travel, start to finish, where/what are the "
+                 "obstacles/gaps?", D68_RULINGS_FILE),
+    "M-D68-85": ("Let's turn each of these into a conceptual question that I can think about in context of how they "
+                 "apply to the whole process", D68_RULINGS_FILE),
+    "M-D68-86": ("6 - information 7 - information... Consider it a to be like a software update patch presented as a "
+                 "README file telling position to what to construct with what it has.", D68_RULINGS_FILE),
 }
 
 #: THE ROUTES PUT TO M, as CHARTER.md records them -- the charter's words, not
@@ -5326,14 +5372,121 @@ BULK5_OPEN = [
 ]
 
 
+# ----- THE FAITHFUL COPY'S INFORMATION ROUTE (docstring 8n) -----
+COPY_DIR = os.path.join(D68_DIR, "copy")
+COPY_OWNERS = ("faithful", "stockdest", "carrier", "uses")
+
+
+def _copy_load():
+    """{'faithful': module, ...}, loaded by path as 'copy_<name>' with _bulk5_load's lending and key restoration; and
+    the facts."""
+    import importlib.util
+    saved = list(sys.path)
+    before = set(sys.modules)
+    collide = ["copy_" + n for n in COPY_OWNERS]
+    stashed = dict((k, sys.modules.pop(k)) for k in collide if k in sys.modules)
+    lent = "ledger" not in sys.modules
+    if lent:
+        sys.modules["ledger"] = sys.modules[__name__]
+    mods = {}
+    try:
+        with contextlib.redirect_stdout(io.StringIO()):
+            for name in COPY_OWNERS:
+                key = "copy_" + name
+                spec = importlib.util.spec_from_file_location(key, os.path.join(COPY_DIR, name + ".py"))
+                m = importlib.util.module_from_spec(spec)
+                sys.modules[key] = m
+                spec.loader.exec_module(m)
+                mods[name] = m
+    finally:
+        sys.path[:] = saved
+        if lent:
+            del sys.modules["ledger"]
+        added = [k for k in sys.modules if k not in before]
+        for k in added:
+            sys.modules.pop(k, None)
+        sys.modules.update(stashed)
+    return mods, {"path_restored": sys.path == saved, "keys_left": [k for k in added if k in sys.modules],
+                  "from_copy": [n for n, m in mods.items() if os.path.dirname(os.path.abspath(m.__file__)) != COPY_DIR]}
+
+
+COPY, COPY_LOAD = _copy_load()
+
+
+def copy_asked():
+    """Every faithful.py, stockdest.py, carrier.py and uses.py value M-D68-89's cell prints, ASKED of the owners at call
+    time (uses.py loads seat.py under its own key)."""
+    saved = list(sys.path)
+    before = set(sys.modules)
+    try:
+        with contextlib.redirect_stdout(io.StringIO()):
+            f = COPY["faithful"].compute()
+            sd = COPY["stockdest"].compute()
+            ca = COPY["carrier"].compute()
+            u = COPY["uses"].compute()
+    finally:
+        sys.path[:] = saved
+        for k in [k for k in sys.modules if k not in before]:
+            sys.modules.pop(k, None)
+    r = sd["reservoirs"]
+    return {"core": f["identity"]["total_bits"], "snap_over_core": f["snapshot_over_core"],
+            "ci": r["CI chondrite (primitive)"]["factor"], "ci_binder": r["CI chondrite (primitive)"]["binder"],
+            "crust": r["crust, rock only (dry)"]["factor"], "crust_binder": r["crust, rock only (dry)"]["binder"],
+            "fermat": ca["fermat_unequal"][0], "port": ca["best_load_s"], "floor": u["rows"][(1.0, 0.1)]["E_core_J"],
+            "optical": u["rows"][(1.0, 0.1)]["optical_core"]["E_tx_J"], "port_beta": u["port_crossover_beta"],
+            "route_beta": u["route_crossover_snap_hi"]}
+
+
+COPY_ASKED = copy_asked()
+
+
+def _copy_fig(f, s=1.0):
+    """The figures M-D68-89's cell prints, formatted once (the selftest's needles use the same)."""
+    return {"core": "%.2e" % (s * f["core"]), "snap": "%.2e" % (s * f["snap_over_core"]), "ci": "%.1f" % (s * f["ci"]),
+            "crust": "%.0f" % (s * f["crust"]), "fermat": "%.2f" % (s * f["fermat"]), "port": "%.2e" % (s * f["port"]),
+            "floor": "%.2e" % (s * f["floor"]), "optical": "%.2e" % (s * f["optical"]),
+            "port_beta": "%.1e" % (s * f["port_beta"]), "route_beta": "%.1e" % (s * f["route_beta"])}
+
+
+#: WHAT THE FAITHFUL COPY'S INFORMATION ROUTE LEAVES OPEN (docstring section
+#: 8n), as FAITHFUL.md, STOCKDEST.md, CARRIER.md and USES.md state it.  Named,
+#: not ranked.
+COPY_OPEN = [
+    ("COPY-O1", "what identity needs beyond the cortical wiring (H-WIRING-SUFFICES): the brain outside the cortex and "
+     "acquired body state", "a READ whole-brain synapse total, human strength levels, and what else of the brain's "
+     "state identity needs", "docket68/copy/FAITHFUL.md"),
+    ("COPY-O2", "a builder that rebuilds a body from a recipe, and the recipe's size (H-REGENERABLE, H-README-IS-CORE)",
+     "a recipe's size computed, or a builder demonstrated", "docket68/copy/faithful.py"),
+    ("COPY-O3", "a non-destructive read at synapse resolution (the only read demonstrated destroys the tissue)",
+     "a demonstrated non-destructive read, READ at source", "docket68/copy/FAITHFUL.md"),
+    ("COPY-O4", "the composition of Proxima b or d, a primitive small-body reservoir there, and P in Proxima's "
+     "photosphere", "a transit, an emission spectrum, direct imaging, or a stellar abundance", "docket68/copy/stockdest.py"),
+    ("COPY-O5", "under H-COST-IN-README, how much a site's composition adds to the README",
+     "the instruction content per site, computed", "docket68/copy/STOCKDEST.md"),
+    ("COPY-O6", "a corridor geometry whose optical metric is shorter than the plane's along a route near a device, "
+     "with its energy conditions (Gao-Wald suggestive, not applicable as stated)", "a constructed local corridor and "
+     "its matter, or a READ one", "docket68/copy/carrier.py"),
+    ("COPY-O7", "a port faster than gravitational emission, and reception of single gravitons",
+     "a port through the stabilisation scalar or the planes' fields, priced; a detector READ", "docket68/copy/CARRIER.md"),
+    ("COPY-O8", "m_set, the mass of the device at position 2 (DOCKET 56 owed; NOT SPECIFIED ANYWHERE): it sets k*",
+     "a device specified", "docket68/copy/uses.py"),
+    ("COPY-O9", "E_fab under H-FAB-LOCAL; a link actually designed (carrier, band, apertures, loss); t_read and t_build",
+     "each computed, or READ", "docket68/copy/USES.md"),
+]
+
+
 #: WHAT DOCKET 68 WAVE 3 AND STEP 1b LEAVE OPEN (docstring section 8c), as
 #: their owners' records state it (step1b/BALANCE.md, docket68/wave3/WAVE3.md):
 #: (id, what is open, what would answer it, owner).  Named, not ranked (section
 #: 3: this file does not rank the open questions).  No board row is opened for
 #: them: none moves a requirement or a grade a row reads (H-NO-W3S1B-ROW).
 W3S1B_OPEN = [
-    ("S1B-O1", "H-WHICH-COUNT: which of the four counts is the object's information (M-D68-33: "
-     "keep all four)", "a ruling or a measurement that singles one out", "balance.py"),
+    # REPOINTED (COPY-seat, section 8n).  First text: "H-WHICH-COUNT: which of the four counts is the object's
+    # information (M-D68-33: keep all four)", answered by "a ruling or a measurement that singles one out", owner
+    # "balance.py".
+    ("S1B-O1", "H-WHICH-COUNT: which count is the object's information -- the four (M-D68-33: keep all four) and, by "
+     "M-D68-89, the identity core as a fifth reading (docket68/copy/faithful.py, section 8n)",
+     "a ruling or a measurement that singles one out", "balance.py, copy/faithful.py"),
     ("S1B-O2", "H-STOCK-FORM: whether A's residue and B's stock share a form, which fixes the "
      "retire energy's sign and the chemical deficit at B", "the residue's and the stock's "
      "composition, stated", "openterms.py, balance.py"),
@@ -5354,8 +5507,11 @@ W3S1B_OPEN = [
      "shown", "corridor.py"),
     ("W3-O2", "H-12-CARRIER for alpha_s, G and v: no READ bound excludes a state-dependent "
      "constant", "a READ bound, or a measurement, on each", "criteria12.py"),
-    ("W3-O3", "the stock gate at Proxima: P, the binder, is unmeasured there", "a measurement of "
-     "P in a Proxima-system star or body", "criteria12.py, seat.py"),
+    # REPOINTED (COPY-seat, section 8n).  First text: "the stock gate at Proxima: P, the binder, is unmeasured there",
+    # answered by "a measurement of P in a Proxima-system star or body", owner "criteria12.py, seat.py".
+    ("W3-O3", "the stock gate at Proxima: P, the binder, is unmeasured there; the quantity clause passes at every "
+     "accessible scale and the PRIMITIVE clause is unshown (docket68/copy/stockdest.py, section 8n)", "a measurement of "
+     "P in a Proxima-system star or body, and a body's composition", "criteria12.py, seat.py, copy/stockdest.py"),
     ("W3-O4", "whether the seat quasi-distribution is a Wigner function (H-WIGNER-SEATS) or "
      "belongs to a known family (H-CONSTRAINED-FAMILY)", "the seat distribution, defined",
      "seatrank.py"),
@@ -6288,6 +6444,51 @@ D68_RULED = [
                % (_bulk5_fig(BULK5_ASKED)["int_R"], _bulk5_fig(BULK5_ASKED)["E_plus"], _bulk5_fig(BULK5_ASKED)["R_min"],
                   _bulk5_fig(BULK5_ASKED)["R_max"], _bulk5_fig(BULK5_ASKED)["T_nn"])),
      "the OPEN items BULK5-O1..O8; O9 stays OPEN"),
+    # ----- ADDED (COPY-seat, docstring section 8n): items 87, 88 and 89 (2026-10-06).
+    ("M-D68-87",
+     "Asked, after item 86, which is the goal of the trip given answers 7 and 8 together (M-RULINGS-2026-10-03.md item "
+     "87, 2026-10-06, as the file records it): 1 a faithful copy; 2 the same traveller by moved state; 3 the same "
+     "traveller needs the matter to cross",
+     "M's answers 7 and 8 (item 86) carried as H-README and H-SAME-NEEDS-MATTER, no goal set",
+     _d68_rule("A FAITHFUL COPY", "M-D68-87",
+               "the board's main path is the information route as it stands -- S5 with D25's stock gate -- and what "
+               "crosses is a classical specification (H-README); by S5's own row D1-D4 and D7 are not instantiated on "
+               "that path and go silent, kept as the boundary with the quantum-payload items; H-SAME-NEEDS-MATTER stands "
+               "as M's hypothesis"),
+     "M-D68-88; COPY-O1..O3"),
+    ("M-D68-88",
+     "Asked which link the board should take up next with the faithful copy as the goal (M-RULINGS-2026-10-03.md item "
+     "88, 2026-10-06, as the file records it): 1 uses against the first trip; 2 a bulk carrier; 3 what 'faithful' "
+     "needs; 4 stock at a destination",
+     "the four links named on the chain map, none worked",
+     _d68_rule("THE ORDER OF WORK", "M-D68-88",
+               "faithful.py, stockdest.py, carrier.py and uses.py built in that order (docket68/copy/), each by the "
+               "board pattern"),
+     "M-D68-89"),
+    ("M-D68-89",
+     "After links 3 and 4 were verified once and corrected, four questions (M-RULINGS-2026-10-03.md item 89, "
+     "2026-10-06, as the file records it): a devolatilised body as costlier stock or none; the original stays or is "
+     "retired; the identity core as the object's information; seat links 3 and 4 now or all four together",
+     "faithful.py and stockdest.py verified once, not seated; carrier.py and uses.py not built",
+     _d68_rule("SEAT ALL FOUR AT END", "M-D68-89",
+               "on (a), \"No costlier. Stock is stock. The cost is in how much information is transferred as a README "
+               "(how big the file is).\" -- carried as H-STOCK-IS-STOCK and H-COST-IN-README, stockgate.py's text "
+               "unedited; on (b), \"Leave it open\" -- H-RETIRE-A carried with both readings; on (c), \"Add as fifth "
+               "reading\" -- the identity core joins H-WHICH-COUNT (S1B-O1 repointed).  docket68/copy/faithful.py, "
+               "stockdest.py, carrier.py and uses.py seated here (docstring section 8n).  The README: the cortical "
+               "wiring core is %s bits, the snapshot counts %s times that.  The stock: at a CI body %s binds at %s kg "
+               "per kg, at a dry crust %s at %s.  The carrier: a returning path in an unequally warped bulk arrives at "
+               "%s of the plane's light time (Fermat), a symmetric bulk with planes at fixed y allows none, and the "
+               "fastest rotor port loads the core in %s s at the g(N) ceiling.  The uses: the core's received floor "
+               "over a year is %s J, so k* is at least the device's mass over the payload's; the declared optical "
+               "link transmits it for %s J; no rotor port fits a use's time budget above %s c, and the largest "
+               "snapshot's route floor reaches the trip below %s c"
+               % (_copy_fig(COPY_ASKED)["core"], _copy_fig(COPY_ASKED)["snap"], COPY_ASKED["ci_binder"],
+                  _copy_fig(COPY_ASKED)["ci"], COPY_ASKED["crust_binder"], _copy_fig(COPY_ASKED)["crust"],
+                  _copy_fig(COPY_ASKED)["fermat"], _copy_fig(COPY_ASKED)["port"], _copy_fig(COPY_ASKED)["floor"],
+                  _copy_fig(COPY_ASKED)["optical"], _copy_fig(COPY_ASKED)["port_beta"],
+                  _copy_fig(COPY_ASKED)["route_beta"])),
+     "the OPEN items COPY-O1..O9; O9 stays OPEN"),
 ]
 
 RULED_BY_M += D68_RULED
@@ -6700,6 +6901,26 @@ D68_FILE_CARRIED = [
                      "the level of totals (the vorticity identity) and, above light strength, with a candidate place "
                      "where it enters (the relaxed field); H-NO-SPEED stays M's hypothesis"),
      "M-D68-82; BULK5-O4"),
+    # ----- ADDED (COPY-seat, docstring section 8n): question 84, instruction 85, statements 86.
+    ("M-D68-84",
+     "M's question after section 8m was seated (M-RULINGS-2026-10-03.md item 84, 2026-10-06)",
+     _d68_carry_file("QUESTION", "M-D68-84",
+                     "answered from the ledger as generated, link by link, leading with what passes (M-D68-82); no "
+                     "row, status or claim moved"),
+     "M-D68-85"),
+    ("M-D68-85",
+     "M's instruction after the chain was mapped (M-RULINGS-2026-10-03.md item 85, 2026-10-06)",
+     _d68_carry_file("INSTRUCTION", "M-D68-85",
+                     "every wall, gap and station restated as an open conceptual question beside its link; questions "
+                     "only, nothing claimed"),
+     "M-D68-86"),
+    ("M-D68-86",
+     "M's answers to the eight station questions, answers 6 and 7 (M-RULINGS-2026-10-03.md item 86, 2026-10-06)",
+     _d68_carry_file("STATEMENTS", "M-D68-86",
+                     "carried as M's hypotheses under proposed names -- H-INFORMATION-CROSSES and H-README here, with "
+                     "H-READING-ONLY, H-SEEN-BY-INTERACTION, H-MADE, H-COMMON-THROATS, H-ADDRESS-INPUT, "
+                     "H-TRIANGULATED-ACTION, H-BRIEF-HOLD and H-SAME-NEEDS-MATTER; never results"),
+     "M-D68-87; COPY-O1, O2"),
 ]
 
 #: DOCKET 68's one pending question, M-D68-P1 (emtension.py's ER = EPR
@@ -7429,6 +7650,11 @@ D68_INLINE_QUOTES = {
     "D23 note: M's words on information": ("because is already exists everywhere",
                                            D68_CHARTER_FILE),
     "O9: M-D68-7, shortened": ("S5 counts", D68_RULINGS_FILE),
+    # ADDED (COPY-seat, section 8n): item 89's answers (a)-(c), quoted in M-D68-89's cell.
+    "M-D68-89 (a)": ("No costlier. Stock is stock. The cost is in how much information is transferred as a README "
+                     "(how big the file is).", D68_RULINGS_FILE),
+    "M-D68-89 (b)": ("Leave it open", D68_RULINGS_FILE),
+    "M-D68-89 (c)": ("Add as fifth reading", D68_RULINGS_FILE),
     "index3 O-SEAT row: M-D68-5": ("from the seat", D68_RULINGS_FILE),
     "index3 O-SEAT row: M-D68-7": ("S5 counts (Recommended)", D68_RULINGS_FILE),
     "M-D68-3's question, as the file heads it": ("All its inverses and reflections",
@@ -7506,6 +7732,7 @@ def _d68_cells():
     out.update(("BULK3-OPEN %s col %d" % (r[0], i), c) for r in BULK3_OPEN for i, c in enumerate(r[1:], 1))
     out.update(("BULK4-OPEN %s col %d" % (r[0], i), c) for r in BULK4_OPEN for i, c in enumerate(r[1:], 1))
     out.update(("BULK5-OPEN %s col %d" % (r[0], i), c) for r in BULK5_OPEN for i, c in enumerate(r[1:], 1))
+    out.update(("COPY-OPEN %s col %d" % (r[0], i), c) for r in COPY_OPEN for i, c in enumerate(r[1:], 1))
     return out
 
 
@@ -8461,6 +8688,11 @@ def report():
         print(textwrap.fill("%s %s -- answered by: %s (%s)" % (oid.ljust(9), " ".join(what.split()),
                                                               " ".join(answers.split()), owner),
                             96, initial_indent="  ", subsequent_indent="           "))
+    print("\nTHE FAITHFUL COPY'S INFORMATION ROUTE -- WHAT STAYS OPEN (section 8n)")
+    for oid, what, answers, owner in COPY_OPEN:
+        print(textwrap.fill("%s %s -- answered by: %s (%s)" % (oid.ljust(9), " ".join(what.split()),
+                                                              " ".join(answers.split()), owner),
+                            96, initial_indent="  ", subsequent_indent="           "))
     print("\nPENDING M'S RULING -- RECORDED, NOT APPLIED%s"
           % ("" if PENDING_RULINGS else ": none"))
     for pid, q, why, proposal, waits in pending_rulings():
@@ -8784,6 +9016,18 @@ def to_markdown():
         L.append("| %s | %s | %s | %s |" % (oid, _cell(what, W_WHY), _cell(answers, W_WHY),
                                             _cell(owner, W_WHY)))
     L.append("")
+    # ADDED (COPY-seat, docstring section 8n).
+    L += ["## The faithful copy's information route -- what stays open", "",
+          "Seated on M's \"Seat all four at end\" (item 89; docstring section 8n): faithful.py, stockdest.py, "
+          "carrier.py and uses.py (docket68/copy/).",
+          "What a faithful copy's README must carry, the stock gate at Proxima, a carrier through the bulk, and uses "
+          "priced against the first trip.",
+          "No board status moves; O9 stays OPEN.", "",
+          "| id | open | what would answer it | owner |", "|---|---|---|---|"]
+    for oid, what, answers, owner in COPY_OPEN:
+        L.append("| %s | %s | %s | %s |" % (oid, _cell(what, W_WHY), _cell(answers, W_WHY),
+                                            _cell(owner, W_WHY)))
+    L.append("")
     L += ["## Pending M's ruling -- recorded, not applied", "",
           "This file edits no peer and changes no requirement. A question",
           "that needs M's ruling is recorded here so the board shows it.", "",
@@ -8964,6 +9208,9 @@ def _truncated_cells(demand_claim=None, demand_moves=None, open_claim=None,
     for r in BULK5_OPEN:
         if any(cut(c, wh) for c in r[1:]):
             out.append(("bulk5-open", r[0]))
+    for r in COPY_OPEN:
+        if any(cut(c, wh) for c in r[1:]):
+            out.append(("copy-open", r[0]))
     return out
 
 
@@ -9749,6 +9996,9 @@ def selftest():
         # RE-PINNED WITH THE BULK AND THE ROUTES PAST ITS TEST (BULK5-seat,
         # M: "Seat both (8m)", item 83): + M-D68-82 and 83; items 80 and 81
         # are D68_FILE_CARRIED.
+        # RE-PINNED WITH THE FAITHFUL COPY'S INFORMATION ROUTE (COPY-seat, M:
+        # "Seat all four at end", item 89): + M-D68-87, 88 and 89; items 84,
+        # 85 and 86 are D68_FILE_CARRIED.
         (["M-D64-1", "M-S1A-P1", "M-S1A-P2", "M-S1A-P3", "M-S1A-P4",
           "M-S1A-P5", "M-D65-1", "M-D65-2", "M-D65-3", "M-D65-4", "M-D65-5",
           "M-D67-1", "M-D67-2"]
@@ -9763,7 +10013,8 @@ def selftest():
          + ["M-D68-%d" % i for i in (61, 64)]
          + ["M-D68-%d" % i for i in (66, 68, 69)]
          + ["M-D68-%d" % i for i in (71, 73, 76, 79)]
-         + ["M-D68-%d" % i for i in (82, 83)], [],
+         + ["M-D68-%d" % i for i in (82, 83)]
+         + ["M-D68-%d" % i for i in (87, 88, 89)], [],
          True, False, False, True, False))
 
     print("\n3. THE EXCHANGE RATE, RE-DERIVED FROM ASKED CONSTANTS")
@@ -11281,8 +11532,9 @@ def selftest():
     # RE-PINNED WITH THE BULK3 SEATING (BULK3-seat): + items 65 and 67.
     # RE-PINNED WITH THE BULK4 SEATING (BULK4-seat): + items 70, 72, 74, 75, 77 and 78.
     # RE-PINNED WITH THE BULK5 SEATING (BULK5-seat): + items 80 and 81.
+    # RE-PINNED WITH THE COPY SEATING (COPY-seat): + items 84, 85 and 86.
     chk("M's words the RULINGS FILE carries (items 21, 23, 25, 31, 32, 35, 41, 44, 46, 48, 50, 52, 56, 57, 60, 62, 63, "
-        "65, 67, 70, 72, 74, 75, 77, 78, 80, 81) are in "
+        "65, 67, 70, 72, 74, 75, 77, 78, 80, 81, 84, 85, 86) are in "
         "D68_FILE_CARRIED, NOT on RULED_BY_M; each cell says so, quotes exactly its held "
         "words, and none reads 'RULED BY M'; none is cut",
         ([r[0] for r in D68_FILE_CARRIED],
@@ -11293,7 +11545,7 @@ def selftest():
           or _cw.findall(" ".join(r[1].split()))],
          [t for t in _truncated_cells() if t[0] in ("carried", "w3s1b-open")]),
         (["M-D68-%d" % i for i in (21, 23, 25, 31, 32, 35, 41, 44, 46, 48, 50, 52, 56, 57, 60, 62, 63, 65, 67, 70, 72,
-                                   74, 75, 77, 78, 80, 81)],
+                                   74, 75, 77, 78, 80, 81, 84, 85, 86)],
          [], [], []))
     chk("  and LEDGER.md prints them, then the OPEN list, after the charter's carried items "
         "and before the pending rulings",
@@ -11533,6 +11785,26 @@ def selftest():
          < _md.index("## The bulk, and the routes past its test -- what stays open")
          < _md.index("## Pending M's ruling"), "8m.  THE BULK, AND THE ROUTES PAST ITS TEST" in __doc__),
         (8, [], True, True))
+    # ADDED (COPY-seat, docstring section 8n): the faithful copy's information route.
+    chk("THE FAITHFUL COPY'S INFORMATION ROUTE: faithful.py, stockdest.py, carrier.py and uses.py load from "
+        "docket68/copy/ by path; sys.path restored; no module key the load added is left behind",
+        (COPY_LOAD["from_copy"], COPY_LOAD["path_restored"], COPY_LOAD["keys_left"], sorted(COPY)),
+        ([], True, [], ["carrier", "faithful", "stockdest", "uses"]))
+    _fc = COPY_ASKED
+    _c89 = " ".join([r for r in D68_RULED if r[0] == "M-D68-89"][0][3].split())
+    chk("  M-D68-89's cell prints the four owners' figures, asked at load (ten needles); the binders it names are the "
+        "owners' (%s at CI, %s at a dry crust)" % (_fc["ci_binder"], _fc["crust_binder"]),
+        ([n for n in _copy_fig(_fc).values() if n not in _c89], _fc["ci_binder"], _fc["crust_binder"]),
+        ([], "P", "N"))
+    chk("  CONTROL: the same figures at 1.5 times are not found",
+        len([n for n in _copy_fig(_fc, 1.5).values() if n not in _c89]), 10)
+    chk("  COPY_OPEN names %d items with owner files; LEDGER.md prints them after section 8m's and before the pending "
+        "rulings; section 8n is in the docstring" % len(COPY_OPEN),
+        (len(COPY_OPEN), [r[0] for r in COPY_OPEN if not _os.path.exists(_os.path.join(HERE, r[3]))],
+         _md.index("## The bulk, and the routes past its test -- what stays open")
+         < _md.index("## The faithful copy's information route -- what stays open")
+         < _md.index("## Pending M's ruling"), "8n.  THE FAITHFUL COPY'S INFORMATION ROUTE" in __doc__),
+        (9, [], True, True))
     chk("EVERY QUOTATION in a DOCKET 68 cell (here, and index3.py's DOCKET 68 rows) is the "
         "tree's words, or declared otherwise: M's thesis and the question included, the "
         "D23 note's quotation exact ('because is already exists everywhere')",

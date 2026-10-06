@@ -1,4 +1,6 @@
-# A carrier through the bulk (M-RULINGS item 88, link 2; deduced, computed and READ; verified once; not seated; 2026-10-06)
+# A carrier through the bulk (M-RULINGS item 88, link 2; deduced, computed and READ; verified twice; SEATED, ledger section 8n, M-D68-89; 2026-10-06)
+
+*Headed before seating* "(M-RULINGS item 88, link 2; deduced, computed and READ; verified once; not seated; 2026-10-06)".
 
 *First headed* "(M-RULINGS item 88, link 2; deduced, computed and READ; not verified; not seated; 2026-10-06)".
 
