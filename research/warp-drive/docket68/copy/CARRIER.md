@@ -22,6 +22,19 @@ Every number is printed by `carrier.py`.
 - **Imported:** the rotor from `zeromode.py`, the identity core from `faithful.py`, and the Proxima span from
   `phase1.py` (seat's own, via settle). *First written* with 4.24 ly retyped.
 
+## Your corridor and carrier (item 90)
+
+*"not by light. If not gravity, something else not yet identified or considered"* — carried as H-UNIDENTIFIED-CARRIER,
+with H-CORRIDOR-CONTAINS-P2 (one corridor, made at position 1, also contains position 2).
+
+- **The carriers computed here are gravitational (the rotor) and, in uses.py, electromagnetic.** They are not the
+  carriers there are. That light fits the time budget and the rotor does not is a statement about those two only.
+- **Fermat's test still applies to your carrier, in its own metric.** By D13 every carrier is bounded at light speed
+  *in the metric it propagates in*. Inside a corridor that contains position 2, the bound is the corridor's own optical
+  length between the two positions. So a carrier of your kind need not outrun anything in the corridor's own metric to
+  cross quickly. It needs the corridor to be optically short, which is point 1's condition.
+- What would identify such a carrier, and its rate, is OPEN (OPEN 6).
+
 ## What follows the work
 
 - **1. There is an exact test for a faster-than-light corridor, and it is Fermat's.**
@@ -135,6 +148,7 @@ Every number is printed by `carrier.py`.
 4. Reception: detecting single gravitons. A 0.2 Hz graviton carries 1.3×10⁻³⁴ J, against kT = 4.1×10⁻²¹ J at 300 K.
    *First listed* as "One bit per graviton, at sending and at receiving".
 5. In a bulk that keeps C1's premises, the trip takes the port time plus at least the light time.
+6. A carrier that is neither light nor gravity (your H-UNIDENTIFIED-CARRIER, item 90): what it is, and its rate.
 
 ## History (verifier, 2026-10-06; first-written claims kept above, each where it stood)
 
