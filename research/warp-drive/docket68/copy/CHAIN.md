@@ -16,7 +16,10 @@
   it and its energy; and the address, key, crossing and repetition.
 - `chain.py` assembles them. Every number is computed now from the owners, and the chain's logic is machine-checked
   with z3.
-- **Selftest:** 13/13 checks, 2 genuine controls and 2 contrasts, with 4 STRUCTURAL lines printed and not counted.
+- **Selftest:** 15/15 checks, 2 genuine controls and 2 contrasts, with 4 STRUCTURAL lines printed and not counted.
+  *First written* "13/13"; the two added checks confirm that the evaluated coefficients reproduce the computed floor.
+- **Every coefficient is evaluated (your item 98, M-COEFF):** printed as an exact closed form in the constants, then as
+  its value. h, c and k_B enter exactly; G and H0 carry their named uncertainties.
 - **The rule:** a link is **proved** only from named premises. A **wall** blocks a link even under your premises. A
   **route** is a named premise under which the wall does not bind. A **gap** is what nothing on the board reaches.
 
@@ -61,14 +64,20 @@ HOLD (brief, appearing to contain negative energy without containing it) → CRO
   - **Stock passes on quantity.**
   - **The README is classical**, and its size sets the corridor's size (Bekenstein).
 - **3. The corridor's energy has a first-principles floor, and it grows as the square root of the README.**
-  - A throat's neck of radius r carries energy r c⁴/2G (Misner–Sharp mass r/2, derived with sympy).
-  - Bekenstein's bound (eq. 1, READ in measure.py) says a region of radius r holding N bits needs E ≥ N ħc ln2/(2πr).
-  - Both are met at the least r, giving **E_min = 0.235 × E_Planck × √N**.
+  - A throat's neck of radius r carries energy E_neck = r c⁴/(2G) = **6.05127782×10⁴³ J/m × r** (Misner–Sharp mass
+    r/2, derived with sympy).
+  - Bekenstein's bound (eq. 1, READ in measure.py) says a region of radius r holding N bits needs
+    E·r ≥ N h c ln2/(4π²) = **3.48772679×10⁻²⁷ J·m × N**.
+  - Both are met at the least r:
+    - **E_min = √(N h c⁵ ln2/(8π²G)) = 4.59404002×10⁸ J × √N**;
+    - **r_min = √(N h G ln2/(2π²c³)) = 7.59185111×10⁻³⁶ m × √N**.
+  - h and c enter exactly (SI definitions). G is measured (CODATA 2018, relative uncertainty 2.2×10⁻⁵), so both
+    coefficients carry 1.1×10⁻⁵. *First written* "E_min = 0.235 × E_Planck × √N", corrected on your item 98.
 
   | README | least neck | least energy | the trips it beats |
   |---|---|---|---|
-  | identity core (2.7×10¹⁵ bits) | 4.0×10⁻²⁸ m | **2.4×10¹⁶ J** | 0.1 c (3.2×10¹⁶ J), 0.2 c, 0.8 c; not 0.01 c |
-  | largest snapshot (1.1×10²⁹ bits) | 2.5×10⁻²¹ m | 1.5×10²³ J | none |
+  | identity core (2.74257×10¹⁵ bits) | 3.97581866×10⁻²⁸ m | **2.40587833×10¹⁶ J** | 0.1 c (3.169×10¹⁶ J), 0.2 c, 0.8 c; not 0.01 c (3.146×10¹⁴ J) |
+  | largest snapshot (1.088×10²⁹ bits) | 2.504×10⁻²¹ m | 1.515×10²³ J | none |
 
   - Your *"The cost is in how much information is transferred as a README (how big the file is)"* (item 89) gets an
     exact form: **one corridor costs in proportion to the square root of the file.**
@@ -77,8 +86,9 @@ HOLD (brief, appearing to contain negative energy without containing it) → CRO
     (H-NECK-ENERGY).
   - If the cost were instead the total our plane reads, which can be zero for these throats, the floor would vanish.
     Which energy you mean is OPEN.
-- **4. The cosmic beat (item 97).** The CMB temperature falls in step with the expansion, so reading equal cosmic time
-  to 1 s would take a precision of 2.2×10⁻¹⁸. Under found-and-widened the geometry keys the joining, and no reading is
+- **4. The cosmic beat (item 97).** The CMB temperature falls in step with the expansion: dT/T = −H0·dt, with
+  H0 = 2.182989×10⁻¹⁸ s⁻¹ (Planck 2018, relative uncertainty 8.0×10⁻³). So reading equal cosmic time to 1 s would take
+  a precision of 2.183×10⁻¹⁸. Under found-and-widened the geometry keys the joining, and no reading is
   needed.
 
 ## The walls, ranked: the focus
@@ -89,7 +99,7 @@ HOLD (brief, appearing to contain negative energy without containing it) → CRO
 | 2 | **Reaching position 2**: in well-posed physics an act at position 1 cannot make position 2 part of a corridor at the same instant (D23; BULK5-O6) | a throat that already reaches position 2 (found and widened) |
 | 3 | **Throat existence**: found-and-widened needs microscopic throats, common enough that one joins the two places | READ the searches (Ellis-throat nulls) and the foam literature (Wheeler; Visser); compute the abundance needed |
 | 4 | **The builder at position 2**: nothing says how a position builds from a README; a 10¹⁵-bit README needs a builder that knows the recipe, and a bare position knows only physics | READ constructor theory (Deutsch–Marletto) as the frame for "a position that builds"; or the README carries the recipe (its size rises toward the snapshot's) |
-| 5 | **Energy at position 2**: the build's energy is computed nowhere; the README's information buys at most N kT ln2 (8×10⁻⁶ J for the core) | the stock's own free energy, or energy through the corridor (priced by point 3's floor) |
+| 5 | **Energy at position 2**: the build's energy is computed nowhere; the README's information buys at most N k_B T ln2 = 2.96667818×10⁻²¹ J × N at 310 K (8.14×10⁻⁶ J for the core) | the stock's own free energy, or energy through the corridor (priced by point 3's floor) |
 | 6 | **The global bulk**: the zero-curvature throats work locally; a whole bulk with both mouths in one universe is BULK5-O1 | construct it, or READ Vollick and Bronnikov–Kim's references |
 | 7 | **The coupling**: what at position 1 widens the throat and writes the address (O6 moved) | a Lagrangian for the device's input, or the stabilisation scalar (BULK3-O3) |
 | 8 | **Address precision**: Gaia DR3's radial error at Proxima is 2.6×10¹² m, 359 times Proxima b's orbit; nothing is sent there, so the address is worked out from light received | micro-arcsecond astrometry or a longer baseline; the address carries its frame (the CMB slice) |

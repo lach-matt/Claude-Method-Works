@@ -44,7 +44,8 @@ WHAT FOLLOWS THE WORK
   * THE CORRIDOR'S ENERGY HAS A FIRST-PRINCIPLES FLOOR, AND IT GOES AS THE SQUARE ROOT OF THE README (Z3).  A neck of
     radius r carries Misner-Sharp energy r c^4 / 2G (derived, sympy); Bekenstein's eq. (1) (READ in measure.py) says a
     region of radius r holding N bits needs E >= N hbar c ln2 / (2 pi r).  Both met at the least r: E_min =
-    sqrt(N hbar c^5 ln2 / (4 pi G)) = 0.235 E_Planck sqrt(N).  For the identity core, 2.4e16 J at a neck of 4.0e-28 m --
+    sqrt(N h c^5 ln2 / (8 pi^2 G)) = 4.59404002e8 J x sqrt(N) (u_r 1.1e-5 from G; M-COEFF, item 98).  For the
+    identity core, 2.40587833e16 J at a neck of 3.97581866e-28 m (= 7.59185111e-36 m x sqrt(N)) --
     under the 0.1 c trip's 3.2e16 J; for the largest snapshot, 1.5e23 J -- over every trip.  M's "the cost is in ...
     how big the file is" (item 89) gets an exact form: the cost of one corridor grows as the square root of the file.
     Premises: H-NECK-HOLDS (the README sits in the neck region) and H-NECK-ENERGY (the corridor's cost is the neck's
@@ -248,6 +249,43 @@ def corridor_floor(N):
     return {"r_m": hi, "E_J": hi * e_per_m, "E_planck_J": math.sqrt(1.054571817e-34 * seat.C ** 5 / seat.G)}
 
 
+# ============================================================================================ M-COEFF (item 98)
+U_R_G = 2.2e-5          # foliation.py's comment on G_NEWTON (CODATA 2018 u_r, "not typed" there): named, not READ here
+
+
+def coefficients():
+    """Every coefficient of the chain's formulas as an exact closed form in the constants and its value (M-COEFF).
+    h, c and k_B enter EXACTLY (SI 2019 definitions, read off the owners cosmo.py and seat.py); G (CODATA 2018, seat via
+    foliation) and H0 (Planck 2018, cosmo.py, +- 0.54) are measured, entered at their values, uncertainties named."""
+    import sympy as sp
+    o = owners()
+    seat = o["uses"].owners()[0]
+    cosmo = o["cosmo"]
+    h = sp.Rational("%.8e" % (cosmo._HBAR * 2 * math.pi))        # 6.62607015e-34, exact by definition
+    kB = sp.Rational(repr(cosmo._KB))                            # 1.380649e-23, exact by definition
+    c = sp.Integer(int(seat.C))                                  # 299792458, exact by definition
+    G = sp.Rational(repr(seat.G))                                # 6.6743e-11, measured
+    hbar = h / (2 * sp.pi)
+    T = sp.Integer(310)                                          # measure's H-ERASE temperature
+    defs = {
+        "bekenstein_J_m_per_bit": (hbar * c * sp.log(2) / (2 * sp.pi), 0.0,
+                                   "E r >= N hbar c ln2 / (2 pi) = N h c ln2 / (4 pi^2)"),
+        "neck_J_per_m": (c ** 4 / (2 * G), U_R_G, "E_neck = r c^4 / (2 G)"),
+        "E_min_J_per_sqrt_bit": (sp.sqrt(hbar * c ** 5 * sp.log(2) / (4 * sp.pi * G)), U_R_G / 2,
+                                 "E_min = sqrt(N h c^5 ln2 / (8 pi^2 G))"),
+        "r_min_m_per_sqrt_bit": (sp.sqrt(hbar * G * sp.log(2) / (sp.pi * c ** 3)), U_R_G / 2,
+                                 "r_min = sqrt(N h G ln2 / (2 pi^2 c^3))"),
+        "szilard_J_per_bit_310K": (kB * T * sp.log(2), 0.0, "W <= N k_B T ln2 at T = 310 K"),
+    }
+    out = {}
+    for k, (expr, ur, form) in defs.items():
+        out[k] = {"form": form, "exact": str(sp.nsimplify(expr)), "value": float(sp.N(expr, 20)),
+                  "value_15": str(sp.N(expr, 15)), "u_r": ur}
+    out["H0_per_s"] = {"form": "H0 = 67.36 km/s/Mpc / Mpc", "exact": "measured (Planck 2018, +- 0.54 km/s/Mpc)",
+                       "value": cosmo.H0(), "value_15": "%.6e" % cosmo.H0(), "u_r": 0.54 / 67.36}
+    return out
+
+
 # ============================================================================================ compute
 def compute():
     o = owners()
@@ -277,7 +315,8 @@ def compute():
             h0 = cosmo.H0()
     finally:
         sys.path[:] = saved
-    return {"z1": z1, "core_bits": core, "snap_bits": snap["grid_0p1A"], "floor_core": fl_core, "floor_snap": fl_snap,
+    co = coefficients()
+    return {"coefficients": co, "z1": z1, "core_bits": core, "snap_bits": snap["grid_0p1A"], "floor_core": fl_core, "floor_snap": fl_snap,
             "floor_4core": fl_4, "misner_sharp": ms, "networks": (tested, bad), "frw_lemma": lemma,
             "ceilings": ceilings, "kstar_nothing_shipped": kstar0, "widen_is_topo": widen,
             "stock_ci": (sdc["binder"], sdc["factor"]), "address_sigma_r_m": sig_r, "proxima_b_a_m": b_a,
@@ -337,10 +376,18 @@ def report():
     fc, fs = d["floor_core"], d["floor_snap"]
     print("Z3 Misner-Sharp: m = %s, at a throat m = %s" % d["misner_sharp"])
     print("   one corridor's least energy (H-NECK-HOLDS, H-NECK-ENERGY): core %.3e J at a neck of %.3e m; largest "
-          "snapshot %.3e J at %.3e m; E / (E_Planck sqrt N) = %.4f" % (
+          "snapshot %.3e J at %.3e m; E / (sqrt(hbar c^5/G) sqrt N) = %.9f" % (
               fc["E_J"], fc["r_m"], fs["E_J"], fs["r_m"], fc["E_J"] / (fc["E_planck_J"] * math.sqrt(d["core_bits"]))))
     print("   against the trips: %s" % ", ".join("%g c: %.3e J (core %s, snapshot %s)" % (
         b, e, "fits" if fc["E_J"] < e else "over", "fits" if fs["E_J"] < e else "over") for b, e in d["ceilings"].items()))
+    print("M-COEFF (item 98): every coefficient, exact form and value (h, c, k_B exact; G u_r %.1e; H0 u_r %.1e):" % (
+        U_R_G, d["coefficients"]["H0_per_s"]["u_r"]))
+    for k, v in d["coefficients"].items():
+        print("   %-24s %-46s = %s%s" % (k, v["form"], v["value_15"],
+                                       "" if not v["u_r"] else "  (u_r %.1e)" % v["u_r"]))
+    print("   core: E_min = %.10e J (= coefficient x sqrt(%.6e)); r_min = %.10e m" % (
+        d["coefficients"]["E_min_J_per_sqrt_bit"]["value"] * math.sqrt(d["core_bits"]), d["core_bits"],
+        d["coefficients"]["r_min_m_per_sqrt_bit"]["value"] * math.sqrt(d["core_bits"])))
     print("Cosmic beat (item 97): dT/T per cosmic second = H0 = %.3e /s (reading equal cosmic time to 1 s needs that "
           "precision; under R1 the geometry keys the joining, no reading needed)" % d["H0"])
     print("Address (W8): Gaia DR3 radial error %.3e m = %.0f x Proxima b's orbit (%.3e m)" % (
@@ -388,10 +435,18 @@ def selftest():
     fc, fs, f4 = d["floor_core"], d["floor_snap"], d["floor_4core"]
     chk("Z3: the corridor's least energy goes as the square root of the README: 4 x the bits gives %.6f x the energy" % (
         f4["E_J"] / fc["E_J"]), abs(f4["E_J"] / fc["E_J"] - 2) < 1e-6)
-    chk("Z3: E_min = 0.235 E_Planck sqrt(N): measured %.6f, sqrt(ln2 / 4 pi) = %.6f" % (
+    chk("Z3: E_min / sqrt(hbar c^5 / G) / sqrt(N) = sqrt(ln2 / (4 pi)): measured %.9f, exact %.9f" % (
         fc["E_J"] / (fc["E_planck_J"] * math.sqrt(d["core_bits"])), math.sqrt(math.log(2) / (4 * math.pi))),
         abs(fc["E_J"] / (fc["E_planck_J"] * math.sqrt(d["core_bits"])) / math.sqrt(math.log(2) / (4 * math.pi)) - 1)
         < 1e-6)
+    co = d["coefficients"]
+    chk("M-COEFF: the evaluated coefficient %.12e J per sqrt(bit) x sqrt(N) reproduces the bisected floor for the core "
+        "(%.12e J) and the snapshot" % (co["E_min_J_per_sqrt_bit"]["value"], fc["E_J"]),
+        abs(co["E_min_J_per_sqrt_bit"]["value"] * math.sqrt(d["core_bits"]) / fc["E_J"] - 1) < 1e-9 and
+        abs(co["E_min_J_per_sqrt_bit"]["value"] * math.sqrt(d["snap_bits"]) / fs["E_J"] - 1) < 1e-9)
+    chk("M-COEFF: the evaluated radius coefficient %.12e m per sqrt(bit) reproduces the bisected neck (%.12e m)" % (
+        co["r_min_m_per_sqrt_bit"]["value"], fc["r_m"]),
+        abs(co["r_min_m_per_sqrt_bit"]["value"] * math.sqrt(d["core_bits"]) / fc["r_m"] - 1) < 1e-9)
     chk("Z3: the core's corridor (%.3e J) fits under the 0.1 c trip (%.3e J); the largest snapshot's (%.3e J) fits under "
         "none" % (fc["E_J"], d["ceilings"][0.1], fs["E_J"]),
         fc["E_J"] < d["ceilings"][0.1] and all(fs["E_J"] > e for e in d["ceilings"].values()), contrast=True)
