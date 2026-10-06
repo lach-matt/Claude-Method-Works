@@ -127,13 +127,14 @@ side. That action is that the coin flips. The NEC appears broken, but is not"* (
   - So the violation computed in point 3 is what our plane reads. It comes from the bulk's projected tidal term, not
     from anything that breaks the condition in the full spacetime.
   - The scope: locally, under H-RS1. A global bulk is BULK5-O1, OPEN.
-- **A computed feature that may be your coin.**
-  - The corridor's radial null combination changes sign exactly at the horizon: negative outside it (−0.0148) and
-    positive inside it (+0.0519) (point 3).
-  - Whether that sign change is the coin flipping is a candidate reading, OPEN.
-- **A test the board could run.** The averaged null energy condition along a complete path through the one-way passage,
-  from position 1's exterior to position 2's. If it holds, the pointwise violation is an appearance along the whole
-  passage too. Not yet computed.
+- **Withdrawn: the candidate coin flip.** I had offered the sign change at the horizon (−0.0148 outside, +0.0519
+  inside) as a possible coin. It is an artifact: the static frame's factor 1/(1 − 2m/r) changes sign at the horizon,
+  while the energy a light-like path meets keeps one sign (COIN.md point 1).
+  - *First written:* "A computed feature that may be your coin … Whether that sign change is the coin flipping is a
+    candidate reading, OPEN."
+- **The test, run on your item 118 (COIN.md).** The average along the whole passage is negative in the plane's reading:
+  −1.914712 E for m = 1, r₀ = 1.8. The bulk keeps the condition (escape.py S3, locally).
+  - *First written:* "A test the board could run … Not yet computed."
 
 ## Tensions, and what is ruled out
 
