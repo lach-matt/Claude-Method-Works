@@ -4,7 +4,7 @@ bulkwarp.py -- the bulk (BULK4-O6; M-RULINGS item 79, 'Seat all three, then the 
 energy condition, read through our plane's Weyl term, supply a warp's negative energy?  READ at source, then deduced
 from first principles (M-DEDUCE).
 
-Not seated; verified once (2026-10-05), findings applied (HISTORY).  M's words are carried as hypotheses, never as results.  O9 stays OPEN.
+Seated in ledger.py section 8m (M-RULINGS item 83, 2026-10-06; first written 'Not seated'); verified once (2026-10-05), findings applied (HISTORY).  M's words are carried as hypotheses, never as results.  O9 stays OPEN.
 
     python3 bulkwarp.py              report
     python3 bulkwarp.py --selftest   checks, with CONTROLS
@@ -307,7 +307,7 @@ def compute():
 
 def report():
     d = compute()
-    print("bulkwarp.py -- the bulk (BULK4-O6, M item 79), by deduction (verified once; not seated)\n")
+    print("bulkwarp.py -- the bulk (BULK4-O6, M item 79), by deduction (verified once; seated 8m)\n")
     print("W1 Alcubierre's profile is even in r_s (residual %s): analytic, so Dahia-Romero embed a patch in a vacuum "
           "Einstein bulk; the plane's matter is then fixed by the embedding" % d["even_residual"])
     print("W2 Gauss-Codazzi: R's zeroth order %s (Randall-Sundrum tuning); the plane's matter's trace = -R/(8 pi G_N) "

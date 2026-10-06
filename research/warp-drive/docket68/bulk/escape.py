@@ -5,7 +5,8 @@ field that would stabilise the distance between our planes is one), a faster-tha
 and a thick brane ... - exhaustively test these').  READ where sources exist, deduced (M-DEDUCE), and -- where the
 plane's matter problem cannot be settled by hand -- posed exactly and solved numerically.
 
-Not seated; verified once, findings applied (HISTORY at the end; first written 'not verified').  M's words are carried
+Seated in ledger.py section 8m (M-RULINGS item 83, 2026-10-06; first written 'Not seated'); verified once, findings
+applied (HISTORY at the end; first written 'not verified').  M's words are carried
 as hypotheses, never as results.  O9 stays OPEN.  Item 82: the board leads with what follows its work; what is ruled out
 is kept as the boundary that gives it strength.  Items 81-82: the warp's v is read as the shape's STRENGTH (Alcubierre's
 v_s sets its curvature, R proportional to v_s^2) -- first written 'speed'.
@@ -608,7 +609,7 @@ def _row(e):
 def report(full=False):
     d = compute(full)
     print("escape.py -- the four routes past bulkwarp.py's test (M item 80), by deduction and computation "
-          "(verified once; not seated)\n")
+          "(verified once; seated 8m)\n")
     print("THE ENGINE (exact warp metric, linear program for the plane's matter):")
     for e in d["resolution"]:
         print("  " + _row(e))

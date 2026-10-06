@@ -1001,6 +1001,44 @@ corrected.
        repointed to the owner that answers it (first text kept as a comment).
   The board  no status moves; O9 stays OPEN.  H-NO-BULK-ROW: no index3 row.
   The paper  not edited.
+
+===============================================================================
+8m.  THE BULK, AND THE ROUTES PAST ITS TEST (M-RULINGS items 79-83), AS SEATED
+===============================================================================
+
+BULK4-O6 was worked by READ and deduction: docket68/bulk/bulkwarp.py
+(BULKWARP.md) finds that a bulk keeping the null energy condition can carry a
+warp on a plane locally (Dahia-Romero, Seahra-Wesson; Anderson's objection
+carries), but fixes the plane's matter, whose total energy must be
+int R/(8 pi G_N): positive on a positive-tension plane (twice Alcubierre's in
+size), negative -- ruled out for matter keeping the condition -- on a
+negative-tension plane (ours under H-RS1, unstabilised), at leading order.  M
+ordered the four routes past that test tested exhaustively (item 80) and asked
+why light speed matters (item 81), then ruled that the board pursue what
+follows its work, what is ruled out only shaping the argument (item 82).
+docket68/bulk/escape.py (ESCAPE.md) finds: a shape with R = 0 everywhere --
+Bronnikov-Kim's static throats -- needs no plane matter on either plane, the
+demand removed, not relocated; a moving shape's total is set by its vorticity,
+int R = (1/2) int |curl N|^2 (Santiago-Schuster-Visser eq. 7.17 the prior art);
+a bulk field carries a shape locally, with positive energy located in the bulk
+below light strength (item 74's form) and a stress of either sign above it (a
+relaxation, OPEN); a thick plane must be positive; sustained radiation reduces
+to a bulk field; and, on the exact metric by a linear program, matter keeping
+the condition cannot carry a vortical shape on a vacuum-bulk negative-tension
+plane at any strength tried.  Both verified once and corrected; M ruled both
+seated (item 83).
+
+  THE OWNERS  loaded BY PATH as 'bulk_bulkwarp' and 'bulk_escape'
+       (_bulk5_load), with _bulk_load's lending and key restoration.
+       escape.py's linear-program figures take minutes and are its own
+       (--study); they are not asked here.
+  RULED_BY_M  + M-D68-82 and 83.  D68_FILE_CARRIED + M-D68-80 (an
+       instruction) and 81 (a question).
+  BULK5_OPEN  eight items, each with what would answer it.  BULK4-O6 and
+       BULK4-O7 repointed to the owners that answer them (first texts kept as
+       comments).
+  The board  no status moves; O9 stays OPEN.  H-NO-BULK-ROW: no index3 row.
+  The paper  not edited.
 """
 
 import contextlib
@@ -3684,6 +3722,10 @@ D68_M_WORDS = {
     "M-D68-73": ("Fold into horizon.py (Recommended)", D68_RULINGS_FILE),
     "M-D68-76": ("READ, then model (Recommended)", D68_RULINGS_FILE),
     "M-D68-79": ("Seat all three, then the bulk", D68_RULINGS_FILE),
+    # ADDED (BULK5-seat, docstring section 8m): items 82 and 83.
+    "M-D68-82": ("Yes. We need to be pursuing that which follows our work. That which is ruled out or ruled against "
+                 "only exists to shape the current argument's strength", D68_RULINGS_FILE),
+    "M-D68-83": ("Seat both (8m)", D68_RULINGS_FILE),
 }
 
 #: THE QUESTIONS PUT TO M FOR M'S DOCKET 66 RULINGS (items 26-28), as the
@@ -3846,6 +3888,11 @@ D68_CARRIED_WORDS = {
                  "is what my statement required. / This needs one named assumption: that the two papers involved "
                  "describe the same two-plane setup. - search for art referring to such a connection. If none is "
                  "found, it is ours to hypothesis using deduction from first principles", D68_RULINGS_FILE),
+    # ADDED (BULK5-seat, docstring section 8m): instruction 80 and question 81.
+    "M-D68-80": ("What the test does not cover: a field in the bulk (the field that would stabilise the distance "
+                 "between our planes is one), a faster-than-light bubble, matter that radiates, and a thick brane. Each "
+                 "stays OPEN. - exhaustively test these", D68_RULINGS_FILE),
+    "M-D68-81": ("Why does light speed matter if speed is not part of the warp process?", D68_RULINGS_FILE),
 }
 
 #: THE ROUTES PUT TO M, as CHARTER.md records them -- the charter's words, not
@@ -5163,16 +5210,119 @@ BULK4_OPEN = [
      "a READ or computed mechanism", "docket68/bulk/HORIZON.md"),
     ("BULK4-O5", "the horizon picture joined to the two-plane corridor: what a horizon in the bulk takes from each plane",
      "a computed bulk horizon", "docket68/bulk/HORIZON.md"),
+    # REPOINTED (BULK5-seat, section 8m).  First text: "a five-dimensional bulk keeping the null energy condition whose
+    # Weyl reading induces a warp on the plane (M-D68-79: next)", answered by "a constructed bulk, or a READ one";
+    # owner docket68/bulk/signdim.py.
     ("BULK4-O6", "a five-dimensional bulk keeping the null energy condition whose Weyl reading induces a warp on the "
-     "plane (M-D68-79: next)", "a constructed bulk, or a READ one", "docket68/bulk/signdim.py"),
-    ("BULK4-O7", "conserved brane matter of the right trace that also keeps the energy conditions, for a moving bubble",
-     "a computed matter source", "docket68/bulk/SIGNDIM.md"),
+     "plane: READ and deduced in docket68/bulk/bulkwarp.py (section 8m) -- locally it exists and fixes the plane's "
+     "matter, whose total energy int R/(8 pi G_N) is negative on a negative-tension plane; what stays open is "
+     "BULK5-O6..O8", "a constructed bulk, or a READ one", "docket68/bulk/bulkwarp.py"),
+    # REPOINTED (BULK5-seat, section 8m).  First text: "conserved brane matter of the right trace that also keeps the
+    # energy conditions, for a moving bubble", answered by "a computed matter source"; owner docket68/bulk/SIGNDIM.md.
+    ("BULK4-O7", "conserved brane matter of the right trace that also keeps the energy conditions, for a moving bubble: "
+     "computed in docket68/bulk/escape.py (section 8m) as a linear program on the exact metric -- none on a vacuum-bulk "
+     "negative-tension plane at any strength tried; what stays open is BULK5-O5", "a computed matter source",
+     "docket68/bulk/escape.py"),
     ("BULK4-O8", "what sustains the bulk Weyl curvature: gravitational waves or black strings (Vollick unread)",
      "the sources READ; a computed bulk field", "docket68/bulk/SIGNDIM.md"),
     ("BULK4-O9", "the time-delay theorems against such a bulk, beside the READ 5D graviton short-cuts",
      "the theorems' premises checked against the bulk", "docket68/bulk/SIGNDIM.md"),
     ("BULK4-O10", "gravity on our plane with the radion stabilised: E's and F's shares (Csaki et al., Goldberger-Wise "
      "unread)", "the stabilisation papers READ; the shares computed", "docket68/bulk/SIGNDIM.md"),
+]
+
+
+# ----- THE BULK, AND THE ROUTES PAST ITS TEST (docstring 8m) -----
+BULK5_OWNERS = ("bulkwarp", "escape")
+
+
+def _bulk5_load():
+    """{'bulkwarp': module, 'escape': module}, loaded by path as 'bulk_<name>' with _bulk_load's lending and key
+    restoration; and the facts."""
+    import importlib.util
+    saved = list(sys.path)
+    before = set(sys.modules)
+    collide = ["bulk_bulk", "bulk_pairing", "bulk_searches", "bulk_crossing", "bulk_cfgravity", "bulk_zeromode",
+               "bulk_horizon", "bulk_signdim", "bulk_bulkwarp", "bulk_escape", "bulk_signdim_esc", "wd_branelink",
+               "wd_cosmo", "wd_transit", "wd_slingshot", "wd_warpdrive", "d68_measure"]
+    stashed = dict((k, sys.modules.pop(k)) for k in collide if k in sys.modules)
+    lent = "ledger" not in sys.modules
+    if lent:
+        sys.modules["ledger"] = sys.modules[__name__]
+    mods = {}
+    try:
+        with contextlib.redirect_stdout(io.StringIO()):
+            for name in BULK5_OWNERS:
+                key = "bulk_" + name
+                spec = importlib.util.spec_from_file_location(key, os.path.join(BULK_DIR, name + ".py"))
+                m = importlib.util.module_from_spec(spec)
+                sys.modules[key] = m
+                spec.loader.exec_module(m)
+                mods[name] = m
+    finally:
+        sys.path[:] = saved
+        if lent:
+            del sys.modules["ledger"]
+        added = [k for k in sys.modules if k not in before]
+        for k in added:
+            sys.modules.pop(k, None)
+        sys.modules.update(stashed)
+    return mods, {"path_restored": sys.path == saved, "keys_left": [k for k in added if k in sys.modules],
+                  "from_bulk": [n for n, m in mods.items() if os.path.dirname(os.path.abspath(m.__file__)) != BULK_DIR]}
+
+
+BULK5, BULK5_LOAD = _bulk5_load()
+
+
+def bulk5_asked():
+    """Every bulkwarp.py and escape.py value M-D68-83's cell prints, ASKED of the owners at call time (escape.py's
+    sympy and closed-form routes; its linear-program figures take minutes, are printed by its own --study and checked
+    on the coarse grid by its own selftest, and are not asked here)."""
+    with contextlib.redirect_stdout(io.StringIO()):
+        b = BULK5["bulkwarp"].compute()
+        e = BULK5["escape"]
+        bk = e.bk_throats()
+        ratio, at_max = e.thick_nec()
+        _, at_min = e.thick_nec(minimum=True)
+        worst, tnn = e.scalar_nec_tnn()
+        rad, wall, _ = e.radiation_moment()
+    return {"int_R": b["int_R"], "E_plus": b["E_brane_plus_over_abs_E_alc"], "R_min": b["R_min"], "R_max": b["R_max"],
+            "T_nn": tnn, "min_T_kk": worst, "bk_R": [str(r) for r, _ in bk], "bk_nec": str(bk[0][1]),
+            "thick_ratio": str(ratio), "thick_max": at_max, "thick_min": at_min, "rad": str(rad), "rad_wall": str(wall)}
+
+
+BULK5_ASKED = bulk5_asked()
+
+
+def _bulk5_fig(f, s=1.0):
+    """The figures M-D68-83's cell prints, formatted once (the selftest's needles use the same)."""
+    return {"int_R": "%.3f" % (s * f["int_R"]), "E_plus": "%.3f" % (s * f["E_plus"]), "R_min": "%.1f" % (s * f["R_min"]),
+            "R_max": "%.1f" % (s * f["R_max"]), "T_nn": "%.3f" % (s * f["T_nn"])}
+
+
+#: WHAT THE BULK AND THE ROUTES PAST ITS TEST LEAVE OPEN (docstring section
+#: 8m), as BULKWARP.md and ESCAPE.md state it.  Named, not ranked.
+BULK5_OPEN = [
+    ("BULK5-O1", "a global bulk for the static throat (Bronnikov-Kim p.6), and whether its two asymptotic regions are "
+     "one universe", "a constructed global bulk, or a READ one", "docket68/bulk/escape.py"),
+    ("BULK5-O2", "a localised moving irrotational shape with R = 0 everywhere (irrotational warps exist: Lentz, "
+     "Fell-Heisenberg; none shown to have R = 0)", "a constructed shift with curl N = 0 and R = 0",
+     "docket68/bulk/ESCAPE.md"),
+    ("BULK5-O3", "a bulk field realising the needed normal stress globally: the stabilising field's own profile and "
+     "back-reaction (Goldberger-Wise set it aside for the computation of V(r_c))",
+     "the profile with back-reaction computed against Psi", "docket68/bulk/ESCAPE.md"),
+    ("BULK5-O4", "above light strength, a gradient-only field realising the relaxed Psi (a stress of either sign where "
+     "beta > 1)", "a field phi solving (1 - beta^2) phi_X^2 + phi_s^2 = Psi/l", "docket68/bulk/escape.py"),
+    ("BULK5-O5", "the positive-tension plane's residue below light strength, and whether conserved matter keeping the "
+     "null condition carries the warp there point by point (H-GRID)", "finer grids, or a continuum bound",
+     "docket68/bulk/escape.py"),
+    ("BULK5-O6", "well-posedness: Anderson's objection to the embedding theorems (local, analytic, no causality)",
+     "a well-posed embedding READ, or a constructed bulk", "docket68/bulk/bulkwarp.py"),
+    ("BULK5-O7", "the ratio in measured units under H-RS1: how much of the 4D-inferred negative energy the plane's "
+     "matter would carry (G_obs against SMS's G_N)", "the ratio computed under H-STABILISED and H-UNSTABILISED",
+     "docket68/bulk/BULKWARP.md"),
+    ("BULK5-O8", "not yet READ: induced gravity on the plane, a Gauss-Bonnet bulk, an asymmetric embedding, a plane "
+     "density near the tension", "the sources READ", "docket68/bulk/BULKWARP.md"),
 ]
 
 
@@ -6107,6 +6257,37 @@ D68_RULED = [
                   _bulk4_fig(BULK4_ASKED)["uD"], _bulk4_fig(BULK4_ASKED)["cross"], _bulk4_fig(BULK4_ASKED)["gamma"],
                   _bulk4_fig(BULK4_ASKED)["light"], _bulk4_fig(BULK4_ASKED)["Geff"])),
      "the OPEN items BULK4-O1..O10; BULK4-O6 next; O9 stays OPEN"),
+    # ----- ADDED (BULK5-seat, docstring section 8m): items 82 and 83 (2026-10-06).
+    ("M-D68-82",
+     "Offered to recast the bubble's speed as the geometry's strength and to add a warp shape that does not move along "
+     "the plane (M-RULINGS-2026-10-03.md item 82, 2026-10-06, as the file records it)",
+     "escape.py's route B read Alcubierre's v_s as a speed; M asked why light speed matters (item 81)",
+     _d68_rule("PURSUE WHAT FOLLOWS; WHAT IS RULED OUT SHAPES THE ARGUMENT", "M-D68-82",
+               "in escape.py and its notes v is read as the shape's strength (R proportional to v^2), first wording "
+               "kept; a shape that does not move tested by the same plane-matter problem; the board leads with what "
+               "follows its work and keeps what is ruled out as the boundary -- a standing instruction on emphasis, "
+               "changing no rule of evidence"),
+     "M-D68-81; BULK5-O1, O2"),
+    ("M-D68-83",
+     "After escape.py's verifier findings were applied (M-RULINGS-2026-10-03.md item 83, 2026-10-06, as the file records "
+     "it): 1 seat bulkwarp.py and escape.py as section 8m; 2 seat bulkwarp only; or 3 not yet?",
+     "bulkwarp.py and escape.py stood verified once and corrected, not seated",
+     _d68_rule("SEAT BOTH (8m)", "M-D68-83",
+               "docket68/bulk/bulkwarp.py and escape.py seated here (docstring section 8m).  The bulk: a bulk keeping "
+               "the null energy condition carries a warp locally but fixes the plane's matter; int R d^3x = %s for "
+               "Alcubierre's metric (sigma = 8, v = 1), so on a positive-tension plane the matter's energy is %s times "
+               "|E_Alc| and on a negative-tension plane it is negative -- ruled out for matter keeping the condition, at "
+               "leading order; R runs from %s to %s, so the matter needs stresses.  The routes: a shape with R = 0 "
+               "everywhere (Bronnikov-Kim's static throats) needs no plane matter on either plane; a moving shape's "
+               "total is its vorticity, int R = (1/2) int |curl N|^2 (Santiago-Schuster-Visser eq. 7.17); a bulk "
+               "scalar keeps the bulk's condition with T_nn = %s, so a bulk field carries a shape locally, with "
+               "positive energy in the bulk below light strength and a stress of either sign above it (a relaxation); "
+               "a thick plane must be positive; sustained radiation reduces to a bulk field.  On the exact metric "
+               "(escape.py's linear program, its own figures) matter keeping the condition cannot carry a vortical "
+               "shape on a vacuum-bulk negative-tension plane at any strength tried"
+               % (_bulk5_fig(BULK5_ASKED)["int_R"], _bulk5_fig(BULK5_ASKED)["E_plus"], _bulk5_fig(BULK5_ASKED)["R_min"],
+                  _bulk5_fig(BULK5_ASKED)["R_max"], _bulk5_fig(BULK5_ASKED)["T_nn"])),
+     "the OPEN items BULK5-O1..O8; O9 stays OPEN"),
 ]
 
 RULED_BY_M += D68_RULED
@@ -6504,6 +6685,21 @@ D68_FILE_CARRIED = [
                      "the prior art searched: Shiromizu & Koyama, Kanno & Soda and Chiba READ; H-SAME-CONFIGURATION "
                      "retired and replaced by READ in signdim.py's S6"),
      "BULK4-O10"),
+    # ----- ADDED (BULK5-seat, docstring section 8m): instruction 80 and question 81.
+    ("M-D68-80",
+     "M's instruction on the four routes past bulkwarp.py's test (M-RULINGS-2026-10-03.md item 80, 2026-10-05)",
+     _d68_carry_file("INSTRUCTION", "M-D68-80",
+                     "each route -- a bulk field, a superluminal bubble, radiating matter, a thick brane -- READ and "
+                     "tested by deduction and computation in docket68/bulk/escape.py (routes A-D), what no test reaches "
+                     "kept OPEN"),
+     "BULK5-O3..O5"),
+    ("M-D68-81",
+     "M's question while escape.py's speed sweep ran (M-RULINGS-2026-10-03.md item 81, 2026-10-06)",
+     _d68_carry_file("QUESTION", "M-D68-81",
+                     "a restatement of H-NO-SPEED against the board's bubble speed; answered in escape.py's route S at "
+                     "the level of totals (the vorticity identity) and, above light strength, with a candidate place "
+                     "where it enters (the relaxed field); H-NO-SPEED stays M's hypothesis"),
+     "M-D68-82; BULK5-O4"),
 ]
 
 #: DOCKET 68's one pending question, M-D68-P1 (emtension.py's ER = EPR
@@ -7309,6 +7505,7 @@ def _d68_cells():
     out.update(("BULK2-OPEN %s col %d" % (r[0], i), c) for r in BULK2_OPEN for i, c in enumerate(r[1:], 1))
     out.update(("BULK3-OPEN %s col %d" % (r[0], i), c) for r in BULK3_OPEN for i, c in enumerate(r[1:], 1))
     out.update(("BULK4-OPEN %s col %d" % (r[0], i), c) for r in BULK4_OPEN for i, c in enumerate(r[1:], 1))
+    out.update(("BULK5-OPEN %s col %d" % (r[0], i), c) for r in BULK5_OPEN for i, c in enumerate(r[1:], 1))
     return out
 
 
@@ -8259,6 +8456,11 @@ def report():
         print(textwrap.fill("%s %s -- answered by: %s (%s)" % (oid.ljust(9), " ".join(what.split()),
                                                               " ".join(answers.split()), owner),
                             96, initial_indent="  ", subsequent_indent="           "))
+    print("\nTHE BULK, AND THE ROUTES PAST ITS TEST -- WHAT STAYS OPEN (section 8m)")
+    for oid, what, answers, owner in BULK5_OPEN:
+        print(textwrap.fill("%s %s -- answered by: %s (%s)" % (oid.ljust(9), " ".join(what.split()),
+                                                              " ".join(answers.split()), owner),
+                            96, initial_indent="  ", subsequent_indent="           "))
     print("\nPENDING M'S RULING -- RECORDED, NOT APPLIED%s"
           % ("" if PENDING_RULINGS else ": none"))
     for pid, q, why, proposal, waits in pending_rulings():
@@ -8570,6 +8772,18 @@ def to_markdown():
         L.append("| %s | %s | %s | %s |" % (oid, _cell(what, W_WHY), _cell(answers, W_WHY),
                                             _cell(owner, W_WHY)))
     L.append("")
+    # ADDED (BULK5-seat, docstring section 8m).
+    L += ["## The bulk, and the routes past its test -- what stays open", "",
+          "Seated on M's \"Seat both (8m)\" (item 83; docstring section 8m): bulkwarp.py and escape.py "
+          "(docket68/bulk/).",
+          "A bulk keeping the null energy condition, read on the plane; the four routes past its test, and the shapes "
+          "with zero curvature scalar.",
+          "No board status moves; O9 stays OPEN.", "",
+          "| id | open | what would answer it | owner |", "|---|---|---|---|"]
+    for oid, what, answers, owner in BULK5_OPEN:
+        L.append("| %s | %s | %s | %s |" % (oid, _cell(what, W_WHY), _cell(answers, W_WHY),
+                                            _cell(owner, W_WHY)))
+    L.append("")
     L += ["## Pending M's ruling -- recorded, not applied", "",
           "This file edits no peer and changes no requirement. A question",
           "that needs M's ruling is recorded here so the board shows it.", "",
@@ -8747,6 +8961,9 @@ def _truncated_cells(demand_claim=None, demand_moves=None, open_claim=None,
     for r in BULK4_OPEN:
         if any(cut(c, wh) for c in r[1:]):
             out.append(("bulk4-open", r[0]))
+    for r in BULK5_OPEN:
+        if any(cut(c, wh) for c in r[1:]):
+            out.append(("bulk5-open", r[0]))
     return out
 
 
@@ -9529,6 +9746,9 @@ def selftest():
         # (BULK4-seat, M: "Seat all three, then the bulk", item 79): +
         # M-D68-71, 73, 76 and 79; items 70, 72, 74, 75, 77 and 78 are
         # D68_FILE_CARRIED.
+        # RE-PINNED WITH THE BULK AND THE ROUTES PAST ITS TEST (BULK5-seat,
+        # M: "Seat both (8m)", item 83): + M-D68-82 and 83; items 80 and 81
+        # are D68_FILE_CARRIED.
         (["M-D64-1", "M-S1A-P1", "M-S1A-P2", "M-S1A-P3", "M-S1A-P4",
           "M-S1A-P5", "M-D65-1", "M-D65-2", "M-D65-3", "M-D65-4", "M-D65-5",
           "M-D67-1", "M-D67-2"]
@@ -9542,7 +9762,8 @@ def selftest():
          + ["M-D68-%d" % i for i in (58, 59)]
          + ["M-D68-%d" % i for i in (61, 64)]
          + ["M-D68-%d" % i for i in (66, 68, 69)]
-         + ["M-D68-%d" % i for i in (71, 73, 76, 79)], [],
+         + ["M-D68-%d" % i for i in (71, 73, 76, 79)]
+         + ["M-D68-%d" % i for i in (82, 83)], [],
          True, False, False, True, False))
 
     print("\n3. THE EXCHANGE RATE, RE-DERIVED FROM ASKED CONSTANTS")
@@ -11059,8 +11280,9 @@ def selftest():
     # RE-PINNED WITH THE BULK2 SEATING (BULK2-seat): + items 60, 62 and 63.
     # RE-PINNED WITH THE BULK3 SEATING (BULK3-seat): + items 65 and 67.
     # RE-PINNED WITH THE BULK4 SEATING (BULK4-seat): + items 70, 72, 74, 75, 77 and 78.
+    # RE-PINNED WITH THE BULK5 SEATING (BULK5-seat): + items 80 and 81.
     chk("M's words the RULINGS FILE carries (items 21, 23, 25, 31, 32, 35, 41, 44, 46, 48, 50, 52, 56, 57, 60, 62, 63, "
-        "65, 67, 70, 72, 74, 75, 77, 78) are in "
+        "65, 67, 70, 72, 74, 75, 77, 78, 80, 81) are in "
         "D68_FILE_CARRIED, NOT on RULED_BY_M; each cell says so, quotes exactly its held "
         "words, and none reads 'RULED BY M'; none is cut",
         ([r[0] for r in D68_FILE_CARRIED],
@@ -11071,7 +11293,7 @@ def selftest():
           or _cw.findall(" ".join(r[1].split()))],
          [t for t in _truncated_cells() if t[0] in ("carried", "w3s1b-open")]),
         (["M-D68-%d" % i for i in (21, 23, 25, 31, 32, 35, 41, 44, 46, 48, 50, 52, 56, 57, 60, 62, 63, 65, 67, 70, 72,
-                                   74, 75, 77, 78)],
+                                   74, 75, 77, 78, 80, 81)],
          [], [], []))
     chk("  and LEDGER.md prints them, then the OPEN list, after the charter's carried items "
         "and before the pending rulings",
@@ -11288,6 +11510,29 @@ def selftest():
          < _md.index("## The zero mode, the corridor as horizons, and the sign by dimension -- what stays open")
          < _md.index("## Pending M's ruling"), "8l.  THE ZERO MODE, THE CORRIDOR AS HORIZONS" in __doc__),
         (10, [], True, True))
+    # ADDED (BULK5-seat, docstring section 8m): the bulk, and the routes past its test.
+    chk("THE BULK AND THE ROUTES PAST ITS TEST: bulkwarp.py and escape.py load from docket68/bulk/ by path; sys.path "
+        "restored; no module key the load added is left behind",
+        (BULK5_LOAD["from_bulk"], BULK5_LOAD["path_restored"], BULK5_LOAD["keys_left"], sorted(BULK5)),
+        ([], True, [], ["bulkwarp", "escape"]))
+    _fb5 = bulk5_asked()
+    _c83 = " ".join([r for r in D68_RULED if r[0] == "M-D68-83"][0][3].split())
+    chk("  M-D68-83's cell prints bulkwarp.py's and escape.py's figures, asked afresh (five needles); the routes it "
+        "names stand in the owners (the throats' R = %s and %s, the thick plane's G_kk/A'' = %s, the bulk scalar's "
+        "least T_kk = %.1e >= 0, radiation's residuals %s and %s)" % (
+            _fb5["bk_R"][0], _fb5["bk_R"][1], _fb5["thick_ratio"], _fb5["min_T_kk"], _fb5["rad"], _fb5["rad_wall"]),
+        ([n for n in _bulk5_fig(_fb5).values() if n not in _c83], _fb5["bk_R"], _fb5["thick_ratio"],
+         _fb5["min_T_kk"] >= 0, _fb5["rad"], _fb5["rad_wall"]),
+        ([], ["0", "0"], "-3", True, "0", "0"))
+    chk("  CONTROL: the same figures at 1.5 times are not found",
+        len([n for n in _bulk5_fig(_fb5, 1.5).values() if n not in _c83]), 5)
+    chk("  BULK5_OPEN names %d items with owner files; LEDGER.md prints them after section 8l's and before the pending "
+        "rulings; section 8m is in the docstring" % len(BULK5_OPEN),
+        (len(BULK5_OPEN), [r[0] for r in BULK5_OPEN if not _os.path.exists(_os.path.join(HERE, r[3]))],
+         _md.index("## The zero mode, the corridor as horizons, and the sign by dimension -- what stays open")
+         < _md.index("## The bulk, and the routes past its test -- what stays open")
+         < _md.index("## Pending M's ruling"), "8m.  THE BULK, AND THE ROUTES PAST ITS TEST" in __doc__),
+        (8, [], True, True))
     chk("EVERY QUOTATION in a DOCKET 68 cell (here, and index3.py's DOCKET 68 rows) is the "
         "tree's words, or declared otherwise: M's thesis and the question included, the "
         "D23 note's quotation exact ('because is already exists everywhere')",

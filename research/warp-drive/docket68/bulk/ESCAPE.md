@@ -1,7 +1,8 @@
-# The four routes, and the shapes with zero curvature scalar (M-RULINGS items 80–82; READ, deduced and computed; verified once; not seated; 2026-10-06)
+# The four routes, and the shapes with zero curvature scalar (M-RULINGS items 80–83; READ, deduced and computed; verified once; SEATED 8m; 2026-10-06)
 
 *First headed* "The four routes, and the shape that does not move (M-RULINGS items 80–82; READ, deduced and computed;
-not verified; not seated; 2026-10-06)".
+not verified; not seated; 2026-10-06)"; then "The four routes, and the shapes with zero curvature scalar (M-RULINGS items
+80–82; READ, deduced and computed; verified once; not seated; 2026-10-06)".
 
 ## What M asked
 
@@ -28,6 +29,7 @@ Status:
 - **Selftest:** 14/14 checks: 3 genuine controls, 3 contrasts, and 8 STRUCTURAL lines printed and not counted. *First
   written* "13/13 checks, 4 of them controls". Two of those "controls" were contrasts (History).
 - **Verification:** verified once, with its findings applied (History).
+- **Seated:** ledger.py section 8m, on M's "Seat both (8m)" (item 83). Its OPEN items are BULK5-O1..O5.
 
 ## How it was tested
 

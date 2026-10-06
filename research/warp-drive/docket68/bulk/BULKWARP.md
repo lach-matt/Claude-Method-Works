@@ -1,6 +1,6 @@
-# The bulk: can a well-behaved bulk carry a warp on our plane? (BULK4-O6; M-RULINGS item 79; READ, then deduced; verified once; not seated; 2026-10-05)
+# The bulk: can a well-behaved bulk carry a warp on our plane? (BULK4-O6; M-RULINGS item 79; READ, then deduced; verified once; SEATED 8m; 2026-10-05)
 
-*First headed* "(BULK4-O6; M-RULINGS item 79; READ, then deduced; not verified; not seated; 2026-10-05)".
+*First headed* "(BULK4-O6; M-RULINGS item 79; READ, then deduced; not verified; not seated; 2026-10-05)"; then "(BULK4-O6; M-RULINGS item 79; READ, then deduced; verified once; not seated; 2026-10-05)".
 
 ## What M asked
 
@@ -13,6 +13,9 @@ H-ALCUBIERRE-PARTIAL) are carried as hypotheses, never as results. O9 stays OPEN
 Every number is printed by `bulkwarp.py`.
 - **Selftest:** 9/9 checks, 3 of them controls, with 5 STRUCTURAL lines printed and not counted.
 - **Verification:** verified once, with its findings applied (History).
+- **Seated:** ledger.py section 8m, on M's "Seat both (8m)" (item 83, 2026-10-06). Its OPEN items 1, 2 and 4 (a bulk field,
+  a superluminal bubble, radiating matter and a thick brane) were taken up in `escape.py` (ESCAPE.md, item 80); the rest
+  are BULK5-O5..O8.
 
 ## What was READ (alphaXiv, open arXiv copies, printed pages)
 
