@@ -5,7 +5,26 @@ field that would stabilise the distance between our planes is one), a faster-tha
 and a thick brane ... - exhaustively test these').  READ where sources exist, deduced (M-DEDUCE), and -- where the
 plane's matter problem cannot be settled by hand -- posed exactly and solved numerically.
 
-Not seated; not verified.  M's words are carried as hypotheses, never as results.  O9 stays OPEN.
+Not seated; not verified.  M's words are carried as hypotheses, never as results.  O9 stays OPEN.  Item 82: the board
+leads with what follows its work; what is ruled out is kept as the boundary that gives it strength.  Item 81-82: the
+warp's v is read as the shape's STRENGTH (Alcubierre's v_s sets its curvature, R proportional to v_s^2) -- first written
+'speed'.
+
+WHAT FOLLOWS THE WORK (each from the sections below)
+  * A SHAPE THAT DOES NOT MOVE PASSES ON BOTH PLANES, OURS INCLUDED (route S).  Bronnikov-Kim's static throats have
+    R = 0 (computed) and read on the plane as NEC-violating (computed); the plane's matter tau = 0 meets the Gauss
+    trace, conservation and the NEC exactly, for either sign of the tension: the connection between two positions is
+    carried by the bulk's Weyl term alone, the bulk holding only its vacuum energy.  No speed enters.
+  * WHAT DECIDES A MOVING SHAPE IS ITS VORTICITY, NOT ITS SPEED (route S).  For every warp of Alcubierre's and
+    Natario's kind (unit lapse, flat slices, any shift N, any time dependence), R = (1/2)|curl N|^2 + total derivatives
+    (computed, exact), so int R d^3x = (1/2) int |curl N|^2 >= 0.  Such a shape passes the integral test on a
+    positive-tension plane and is ruled out on a negative one (vacuum bulk, matter keeping the NEC); a shape with R = 0
+    throughout passes on both.
+  * A FIELD IN THE BULK CARRIES ANY SHAPE ON ANY PLANE (route A2'), with net positive field energy at least the warp's
+    negative energy: the demand is relocated into positive energy in the bulk.
+  * A THICK PLANE MUST BE POSITIVE (route D): the bulk keeps the NEC only where the warp factor is maximal.
+  * Ruled out, as boundary: matter keeping the NEC carrying a vortical shape on a vacuum-bulk negative-tension plane
+    (bulkwarp W5), at every strength tried on the exact metric (route B); radiation as a way round it (route C).
 
     python3 escape.py              report (coarse grid)
     python3 escape.py --selftest   checks, with CONTROLS (coarse grid, about 1-2 min)
@@ -72,7 +91,7 @@ ROUTE A -- A FIELD IN THE BULK.
   A4 [deduced]  Realisability: a static Psi >= 0 is (1/2)|grad phi|^2 for some phi (an eikonal, solvable locally), and
      the bulk field then exists locally by the same analytic theorems as bulkwarp's W1 (Anderson's objection carries).
 
-ROUTE B -- A FASTER-THAN-LIGHT BUBBLE.
+ROUTE B -- A SHAPE STRONGER THAN LIGHT SPEED (first headed 'A FASTER-THAN-LIGHT BUBBLE'; v is the shape's strength).
   B1 [computed, exact]  int R d^3x = (v^2/2) int (f_y^2 + f_z^2) > 0 at every v: the remaining terms of R are total
      derivatives (bulkwarp.py).  The trace target's sign is the same at every speed.
   B2 [flat-space identity, exact in flat space; bulkwarp W3]  For comoving localised matter int tau^mu_mu = (v^2 - 1) E:
@@ -97,6 +116,27 @@ ROUTE C -- MATTER THAT RADIATES.
      the bulk only T5_n mu does (route A).  Route C reduces to route A.
   C4 [verifier's note in bulkwarp.py]  Stresses with an r^-3 tail break Laue's identity, but keeping the NEC then needs
      rho >~ r^-3, and the energy diverges (logarithmically): not finite matter.
+
+ROUTE S -- A SHAPE THAT DOES NOT MOVE, AND WHAT DECIDES A MOVING ONE (item 82).
+  S1 [computed, exact]  For ds^2 = -dt^2 + (dx^i + N^i dt)^2 with any N(t, x): R = (1/2)|curl N|^2 + d_i(N_i K +
+     N_j d_j N_i) - 2 d_t K, K = d_i N_i.  Hence int R d^3x = (1/2) int |curl N|^2 d^3x >= 0 at every instant, for every
+     strength and every time dependence (int K d^3x is a surface term).  Alcubierre: |curl N|^2 = v^2 (f_y^2 + f_z^2), the
+     integral bulkwarp.py found.  With bulkwarp's W2-W4: the plane's matter needs total energy int |curl N|^2/(16 pi G_N)
+     -- positive on a positive-tension plane, negative (ruled out) on a negative one; speed does not enter.
+  S2 [S1; bulkwarp W3]  An irrotational shape (curl N = 0) has int R = 0: the plane's matter then has zero total
+     energy, and matter keeping the NEC with zero total energy vanishes (the static Laue argument), so it needs R = 0
+     at every point.  Whether a localised moving irrotational shape with R = 0 exists is OPEN (irrotational warps in
+     the literature, NAMED-NOT-READ).
+  S3 [Bronnikov-Kim eqs. 13, 17, p.6; computed]  The static throats: R = 0, and the plane reads them as violating the
+     NEC (example 1: rho + p_r = -r_0/(8 pi r^3)).  With tau = 0: K = -a q exactly, the scalar Gauss equation reads
+     R = 0 (met), Codazzi holds, the NEC holds -- on either sign of the tension.  The bulk keeps only its vacuum energy
+     (the NEC, saturated); E = -G carries the whole reading.  Locally the bulk exists by the analytic theorems
+     (bulkwarp W1; Anderson's objection carries); globally 'a complete model requires knowledge of the full
+     5-dimensional space-time' (BK p.6) -- OPEN.
+  S4 [named; M's hypotheses]  In the board's terms: a throat joins two positions with no motion of the shape (a
+     candidate counterpart of H-HIGHER-CORRIDOR's 'position 1, then position 2' and of H-NO-SPEED: nothing travels the
+     shape); its NEC-violating reading on our plane is the bulk's (H-SIGN-BY-DIMENSION, under the named reading);
+     signals still cross it at light speed locally.  Candidates, not results.
 
 ROUTE D -- A THICK BRANE.
   D1 [computed]  For ds^2 = e^{2A(y)} eta + dy^2, G_ab k^a k^b = -3 A'' for the null k = e^{-A} d_t + d_y: the bulk keeps
@@ -372,6 +412,60 @@ def thick_nec(minimum=False):
     return ratio, float(at0)
 
 
+def vorticity_identity():
+    """R - (1/2)|curl N|^2 - d_i(N_i K + N_j d_j N_i) + 2 d_t K for a general shift N(t, x) (zero), and the same without
+    the -2 d_t K term (a control)."""
+    import importlib.util, os
+    import sympy as sp
+    here = os.path.dirname(os.path.abspath(__file__))
+    spec = importlib.util.spec_from_file_location("bulk_signdim_esc", os.path.join(here, "signdim.py"))
+    sd = importlib.util.module_from_spec(spec)
+    import contextlib, io
+    with contextlib.redirect_stdout(io.StringIO()):
+        spec.loader.exec_module(sd)
+    t, x, y, z = sp.symbols("t x y z", real=True)
+    X = [t, x, y, z]
+    N = [sp.Function("N%d" % i)(t, x, y, z) for i in range(3)]
+    g = sp.zeros(4)
+    g[0, 0] = -1 + sum(n ** 2 for n in N)
+    for i in range(3):
+        g[0, i + 1] = g[i + 1, 0] = N[i]
+        g[i + 1, i + 1] = 1
+    _, R, _, _ = sd.curvature(g, X)
+    sx = [x, y, z]
+    K = sum(sp.diff(N[i], sx[i]) for i in range(3))
+    curl = [sp.diff(N[2], y) - sp.diff(N[1], z), sp.diff(N[0], z) - sp.diff(N[2], x), sp.diff(N[1], x) - sp.diff(N[0], y)]
+    div = sum(sp.diff(N[i] * K + sum(N[j] * sp.diff(N[i], sx[j]) for j in range(3)), sx[i]) for i in range(3))
+    base = sp.expand(R - sum(c ** 2 for c in curl) / 2 - div)
+    return sp.simplify(base + 2 * sp.diff(K, t)), sp.simplify(base)
+
+
+def bk_throats():
+    """Bronnikov-Kim's static throats (eqs. 13 and 17): (R, rho + p_r) for each, symbolic."""
+    import sympy as sp
+    t, r, th, ph = sp.symbols("t r theta phi", positive=True)
+    r0, m = sp.symbols("r_0 m", positive=True)
+    out = []
+    for gtt, grr in ((-1, 1 / (1 - r0 / r)),
+                     (-(1 - 2 * m / r), (1 - sp.Rational(3, 2) * m / r) / ((1 - 2 * m / r) * (1 - r0 / r)))):
+        g = sp.diag(gtt, grr, r ** 2, r ** 2 * sp.sin(th) ** 2)
+        X = [t, r, th, ph]
+        gi = g.inv()
+        n = 4
+        Gam = [[[sum(gi[a, d] * (sp.diff(g[d, b], X[c]) + sp.diff(g[d, c], X[b]) - sp.diff(g[b, c], X[d]))
+                     for d in range(n)) / 2 for c in range(n)] for b in range(n)] for a in range(n)]
+        Ric = sp.Matrix(n, n, lambda b, c: sum(
+            sp.diff(Gam[a][b][c], X[a]) - sp.diff(Gam[a][b][a], X[c])
+            + sum(Gam[a][a][d] * Gam[d][b][c] - Gam[a][c][d] * Gam[d][b][a] for d in range(n)) for a in range(n)))
+        R = sp.simplify(sum(gi[a, b] * Ric[a, b] for a in range(n) for b in range(n)))
+        G = Ric - R * g / 2
+        mixed = gi * G
+        rho = -mixed[0, 0] / (8 * sp.pi)
+        pr = mixed[1, 1] / (8 * sp.pi)
+        out.append((sp.simplify(R), sp.simplify(rho + pr)))
+    return out
+
+
 def compute(full=False):
     import sympy as sp
     t0 = time.time()
@@ -396,6 +490,11 @@ def compute(full=False):
             d["speeds"].append(engine(vv, sign))
     d["field_neg"] = engine(0.1, -1, field=True, minimise_field=True)
     d["field_neg_fast"] = engine(1.5, -1, field=True, minimise_field=True)
+    vi, vi_ctl = vorticity_identity()
+    d["vorticity_residual"], d["vorticity_residual_no_dt"] = str(vi), ("0" if vi_ctl == 0 else "nonzero")
+    bk = bk_throats()
+    d["bk_R"] = [str(a) for a, _ in bk]
+    d["bk_nec_ex1"] = str(bk[0][1])
     d["seconds"] = time.time() - t0
     return d
 
@@ -467,6 +566,14 @@ def selftest():
     chk("B1: int R d^3x > 0 at v = 0.1, 1 and 3 (%s), and scales as v^2 (ratio v=3 to v=1: %.4f)" % (
         ", ".join("%.3e" % x for x in d["int_R_by_v"].values()), d["int_R_by_v"][3.0] / d["int_R_by_v"][1.0]),
         all(x > 0 for x in d["int_R_by_v"].values()) and abs(d["int_R_by_v"][3.0] / d["int_R_by_v"][1.0] - 9) < 1e-6)
+    chk("S1: for ANY shift N(t, x), R = (1/2)|curl N|^2 + d_i(N_i K + N_j d_j N_i) - 2 d_t K (residual %s): int R = "
+        "(1/2) int |curl N|^2 >= 0, with no speed in it" % d["vorticity_residual"], d["vorticity_residual"] == "0")
+    chk("without the -2 d_t K term the identity fails (%s)" % d["vorticity_residual_no_dt"],
+        d["vorticity_residual_no_dt"] != "0", ctl=True)
+    chk("S3: Bronnikov-Kim's static throats have R = %s and %s; example 1 reads rho + p_r = %s < 0 on the plane -- "
+        "tau = 0 then meets the Gauss trace, conservation and the NEC on either tension" % (
+            d["bk_R"][0], d["bk_R"][1], d["bk_nec_ex1"]),
+        d["bk_R"] == ["0", "0"] and d["bk_nec_ex1"].startswith("-"))
     for e in d["speeds"]:
         structural.append("ENGINE (coarse): " + _row(e))
     structural.append("A2 (coarse) at v = 1.5, negative plane: least int Psi = %.3e against int R = %.3e" % (
