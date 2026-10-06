@@ -1,6 +1,7 @@
-# The whole chain under M's theory (M-RULINGS item 96; deduced, computed and READ; verified once; not seated; 2026-10-06)
+# The whole chain under M's theory (M-RULINGS items 96 and 99; deduced, computed and READ; verified once, the item-99 section not yet; not seated; 2026-10-06)
 
-*First headed* "(M-RULINGS item 96; deduced, computed and READ; not verified; not seated; 2026-10-06)".
+*First headed* "(M-RULINGS item 96; deduced, computed and READ; not verified; not seated; 2026-10-06)", then "(M-RULINGS
+item 96; deduced, computed and READ; verified once; not seated; 2026-10-06)".
 
 ## What M asked
 
@@ -14,13 +15,54 @@
 **How it was done.**
 - Four readers re-ran every station over the board's owners. `chain.py` assembles them and machine-checks the chain's
   logic with z3.
-- **Selftest:** 17/17 checks, 5 genuine controls and 2 contrasts, with 6 STRUCTURAL lines printed and not counted.
+- **Selftest:** 18/18 checks, 5 genuine controls and 2 contrasts, with 6 STRUCTURAL lines printed and not counted.
   *First written* "13/13 checks, 2 genuine controls and 2 contrasts"; the verifier found clauses stronger than their
-  sources (History).
+  sources (History). Then 17/17; item 99 added the area check.
 - **Every coefficient** is printed as an exact closed form in the constants, then as its value. h, c and k_B enter
   exactly; G and H0 carry their named uncertainties.
 - **The rule:** a link is **proved** only from named premises. A **wall** blocks a link even under your premises. A
   **route** is a named premise under which the wall does not bind.
+
+## Your earlier answers, read against the four questions (item 99) — read first
+
+Asked four questions (which energy a corridor costs; whether its making may begin before its joining; whether the beat
+keys found throats; which walls first), you answered: *"Read my answers first, then ask any questions left open."* Read
+again, items 86–97 settle the first three. Each reading below is the board's, ungraded, from your words and named
+premises. Correct any that misreads you.
+
+- **Which energy: the neck's.** By your item 89, *"The cost is in how much information is transferred as a README (how
+  big the file is)"* (H-COST-IN-README). Of the two candidates, only the neck's energy is set by the file's size. The
+  plane's total can be zero at any N, so it cannot carry a cost that grows with the file.
+  - **The floor then says something you already said.** At the floor the neck's area is
+    **A_min = N × 2 h G ln2/(π c³) = 7.24277891×10⁻⁷⁰ m² × N** (relative uncertainty 2.2×10⁻⁵, from G). That is
+    exactly proportional to N, checked in the selftest against the bisected necks of the core and the largest snapshot.
+  - Your items 93 and 94: *"the corridor doesn't stay open longer to compensate for the size of the README, it
+    compensates in size in stead"*; *"The corridor is a single channel that grows in size to accommodate the size of
+    the README."*
+  - First principles (Misner–Sharp at a throat, with Bekenstein's bound at the Schwarzschild scale) give that law
+    exactly: one channel whose cross-section grows in direct proportion to the README, and whose least energy grows as
+    its square root. This rests on H-NECK-HOLDS, H-NECK-ENERGY and H-STRONG-BOUND.
+- **Whether the making may begin beforehand: yes, on your own answer 4.** Item 86: *"entanglement plus trajectory
+  triangulation gives us the action."* Entanglement shared by the two places has to be shared before the joining.
+  - The premise, READ: local operations and classical communication *"cannot bring in entanglement for free"*, and
+    entangled states *"appear usually as a result of direct physical interactions. However, the entanglement can be also
+    generated indirectly by application of the projection postulate (entanglement swapping)"*. Source: Horodecki,
+    Horodecki, Horodecki and Horodecki, *Quantum entanglement*, quant-ph/0702225, the first in §I and the second in §II,
+    whose contents list starts it on p.8. Route: the arXiv PDF, read through Firecrawl.
+  - Swapping consumes entanglement that is already shared. So with H-LOCAL-INTERACTION (an interaction acts only where
+    the systems are, and nothing carries them faster than light), the entanglement your answer 4 uses was set up in the
+    two places' common past, before the joining. That is H-PRIOR-SETUP, the premise under which a made corridor passes
+    (routes R7a and R7b).
+  - **Named: R-ENTANGLED-SETUP**, the board's reading.
+  - This shows only that your answer 4 supplies the prior connection the chain needs. It does not show that entanglement
+    can make or widen a corridor. That is wall 9, the coupling.
+- **Whether the beat keys found throats: yes, by item 97 and the geometry.**
+  - Item 97 answered for every corridor that makes two places one: *"yes ... just the a synchronization of the cosmic
+    "tik tok/beat"."*
+  - For a found throat, frame.py's z3 lemma supplies the keying. In exact FRW, only identifications at equal cosmic time
+    preserve the geometry, so a throat that belongs to the geometry is already keyed (H-FRW-EXACT, H-NOT-DE-SITTER).
+  - H-FOUND-KEYED is therefore your item 97 together with that lemma, and no longer the board's assumption alone.
+- **Left open: which walls first.** Your item 96 makes the walls the focus but names no order.
 
 ## The chain under your theory
 
@@ -84,7 +126,8 @@ stock) → COPY → REPEAT.
 
   - **One corridor's least energy grows as the square root of the file.** This is a floor, not the cost, and it rests
     on H-NECK-HOLDS, H-NECK-ENERGY and H-STRONG-BOUND.
-  - If the cost were the total our plane reads, the floor would vanish. Which energy you mean is OPEN.
+  - If the cost were the total our plane reads, the floor would vanish. Which energy you mean is OPEN. *(Read from your
+    own item 89, item 99: the neck's. See the section above.)*
   - *First written:* "one corridor costs in proportion to the square root of the file", a floor stated as a cost, and
     "0.235 × E_Planck × √N", corrected on your item 98.
 - **4. The cosmic beat (item 97).**
@@ -101,7 +144,7 @@ stock) → COPY → REPEAT.
 | 1 | **Formation**: a smooth compact making is topology change, and Geroch–Borde then force a closed loop, which the CMB clock excludes (D24) | found and widened; or made with a light-time setup and a degenerate (READ Horowitz 1991) or non-compact joining |
 | 2 | **Reaching position 2**: finite propagation (the board's reading, ungraded) bars a corridor made at the joining instant with no prior connection | a throat that already reaches position 2; or a making begun beforehand (H-PRIOR-SETUP) |
 | 3 | **Throat existence** (found route): throats keyed at the cosmic beat, common enough that one joins the two places | READ the searches and the throat literature; compute the abundance needed (a foam origin would be quantum and need its own safety proof) |
-| 4 | **The corridor's energy**: point 3's floor at position 1 | the plane-total reading (OPEN: which energy you mean) |
+| 4 | **The corridor's energy**: point 3's floor at position 1 | where the floor's energy comes from: under H-STRONG-BOUND it cannot be lowered (item 99 read the cost as the neck's). *First written* "the plane-total reading (OPEN: which energy you mean)" |
 | 5 | **The builder at position 2**: no READ or computed mechanism makes a position execute a specification (STOCKDEST OPEN 6, COPY-O2) | READ constructor theory (Deutsch–Marletto) as the frame for your H-POSITION-BUILDS; or the README carries the recipe |
 | 6 | **Energy at position 2**: the build's energy is computed nowhere; the README's information buys at most 2.96667818×10⁻²¹ J × N at 310 K (8.14×10⁻⁶ J for the core) | the stock's own free energy, or energy through the corridor |
 | 7 | **The destination's composition**: Proxima b and d unmeasured (COPY-O4); what a site adds to the README (COPY-O5) | a transit, a spectrum, direct imaging |
@@ -122,6 +165,7 @@ wall 6 carried "3.6×10¹⁰ J of chemistry", a figure with no owner.
   H-COSMIC-BEAT, H-BRIEF-HOLD, H-READING-ONLY, H-SEEN-BY-INTERACTION, H-CORRIDOR-SINGLE-USE, H-DEVICE-REUSABLE,
   H-CORRIDOR-REPEATABLE, H-SINGLE-CHANNEL-GROWS, H-README-IN-HOLD, H-NO-MOVEMENT, H-INSTANTANEOUS,
   H-UNIDENTIFIED-CARRIER, H-RETIRE-A (open); M-COEFF.
+- **The board's, from item 99:** R-ENTANGLED-SETUP, H-LOCAL-INTERACTION.
 - **The board's:**
   - H-ENCODING, with the z3 clauses printed beside their sources and grades;
   - H-WELL-POSED: finite propagation, ungraded, NOT READ;
@@ -131,7 +175,8 @@ wall 6 carried "3.6×10¹⁰ J of chemistry", a figure with no owner.
 
 ## Sources
 
-- **Nothing new READ in this file.** Every theorem comes through an owner with its grade:
+- **READ in this file (item 99):** Horodecki et al., quant-ph/0702225, §I and §II (route above).
+- *First written* "Nothing new READ in this file." Every other theorem comes through an owner with its grade:
   - Geroch–Borde and topology change: GRADES.tsv (NARROWED, READ-VIA-RESTATEMENT).
   - Tipler: GRADES.tsv, NOT READ at source.
   - Bekenstein eq. 1: measure.py (READ).
@@ -145,9 +190,12 @@ wall 6 carried "3.6×10¹⁰ J of chemistry", a figure with no owner.
 ## OPEN
 
 1. Each wall above.
-2. Which energy a corridor costs.
-3. Whether a corridor's making may begin before its joining instant (H-PRIOR-SETUP).
-4. Whether the cosmic beat keys found throats too (H-FOUND-KEYED).
+2. Which energy a corridor costs. *Read from your item 89 (item 99): the neck's.*
+3. Whether a corridor's making may begin before its joining instant (H-PRIOR-SETUP). *Read from your item 86 answer 4
+   (item 99): yes, R-ENTANGLED-SETUP.*
+4. Whether the cosmic beat keys found throats too (H-FOUND-KEYED). *Read from your item 97 with frame.py's lemma (item
+   99): yes.*
+5. Which walls first (asked, item 99).
 
 ## History (verifier, 2026-10-06)
 

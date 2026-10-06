@@ -104,6 +104,13 @@ HISTORY (verifier, 2026-10-06)
   * Z3 applied Bekenstein at Schwarzschild saturation unnamed (H-STRONG-BOUND added; holographic check added); a floor
     was called a cost; the Z2 list claimed computation for carried results; W5's "3.6e10 J of chemistry" had no owner
     (removed); the Misner-Sharp and sqrt(N) checks were definitional (now STRUCTURAL).
+
+ITEM 99 (M: "Read my answers first, then ask any questions left open."; not yet verified)
+  * The neck's area at the floor, A_min = N 2 h G ln2 / (pi c^3) = 7.24277891e-70 m^2 x N, is added to the M-COEFF
+    table and checked against the bisected necks: one channel growing in direct proportion to the README (items 93-94).
+  * The cost is read as the neck's energy from M's item 89 (H-COST-IN-README); first written "OPEN, which energy M
+    means".  H-PRIOR-SETUP read from item 86 answer 4 (R-ENTANGLED-SETUP, CHAIN.md); H-FOUND-KEYED from item 97 with
+    frame.py's lemma.  No clause or route changes.
 """
 
 import contextlib
@@ -293,6 +300,8 @@ def coefficients():
                                  "E_min = sqrt(N h c^5 ln2 / (8 pi^2 G))"),
         "r_min_m_per_sqrt_bit": (sp.sqrt(hbar * G * sp.log(2) / (sp.pi * c ** 3)), U_R_G / 2,
                                  "r_min = sqrt(N h G ln2 / (2 pi^2 c^3))"),
+        "neck_area_m2_per_bit": (2 * h * G * sp.log(2) / (sp.pi * c ** 3), U_R_G,
+                                 "A_min = 4 pi r_min^2 = N 2 h G ln2 / (pi c^3) (item 99: the one channel's size per bit)"),
         "szilard_J_per_bit_310K": (kB * T * sp.log(2), 0.0, "W <= N k_B T ln2 at T = 310 K"),
     }
     out = {}
@@ -521,6 +530,12 @@ def selftest():
     chk("M-COEFF: the evaluated radius coefficient %.12e m per sqrt(bit) reproduces the bisected neck (%.12e m)" % (
         co["r_min_m_per_sqrt_bit"]["value"], fc["r_m"]),
         abs(co["r_min_m_per_sqrt_bit"]["value"] * math.sqrt(d["core_bits"]) / fc["r_m"] - 1) < 1e-9)
+    chk("M-COEFF, item 99: the evaluated area coefficient %.12e m^2 per bit reproduces the bisected neck's area for the "
+        "core, and the snapshot's area over the core's equals its bits over the core's (%.9e vs %.9e): the one "
+        "channel's area grows in direct proportion to the README (H-SINGLE-CHANNEL-GROWS)" % (
+            co["neck_area_m2_per_bit"]["value"], (fs["r_m"] / fc["r_m"]) ** 2, d["snap_bits"] / d["core_bits"]),
+        abs(co["neck_area_m2_per_bit"]["value"] * d["core_bits"] / (4 * math.pi * fc["r_m"] ** 2) - 1) < 1e-9 and
+        abs((fs["r_m"] / fc["r_m"]) ** 2 / (d["snap_bits"] / d["core_bits"]) - 1) < 1e-9)
     chk("Z3: the core's floor (%.6e J) lies below the 0.1 c trip (%.6e J); the largest snapshot's (%.4e J) above every "
         "trip" % (fc["E_J"], d["ceilings"][0.1], fs["E_J"]),
         fc["E_J"] < d["ceilings"][0.1] and all(fs["E_J"] > e for e in d["ceilings"].values()), contrast=True)
@@ -534,8 +549,10 @@ def selftest():
                       "sources; WELL-POSED is ungraded and NOT READ; QTOPO-ESCAPES is the charter's reading")
     structural.append("k* with nothing shipped = %s (uses U8)" % d["kstar_nothing_shipped"])
     structural.append("the cosmic beat: T0's measured precision fixes cosmic time locally to %.3e s" % d["beat_dt_s"])
-    structural.append("Z3 rests on H-NECK-HOLDS, H-NECK-ENERGY and H-STRONG-BOUND; with the plane's total as the cost "
-                      "the floor is removed -- OPEN, which energy M means")
+    structural.append("Z3 rests on H-NECK-HOLDS, H-NECK-ENERGY and H-STRONG-BOUND; the neck's energy is the one read as "
+                      "the cost from M's own answers (item 99: H-COST-IN-README -- the plane's total can be zero at "
+                      "any N); first written 'with the plane's total as the cost the floor is removed -- OPEN, which energy "
+                      "M means'")
     for s_ in structural:
         print("  STRUCTURAL: " + s_)
     print("chain.py: %d/%d checks pass, %d of them controls and %d contrasts; %d STRUCTURAL printed, not counted" % (
