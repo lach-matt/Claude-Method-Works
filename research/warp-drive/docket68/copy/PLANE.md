@@ -1,236 +1,228 @@
-# The cost as the pull, the corridor's two-sided horizon, the inverse of a mass (M-RULINGS items 101, 102, 104 and 106; deduced, computed and READ; first form verified once, the item-104 rework not yet; not seated; 2026-10-06)
+# Your corridor in Bronnikov–Kim's family (M-RULINGS items 101–111; deduced, computed and READ; verified twice, the item-107–111 parts not yet; not seated; 2026-10-06)
 
-*First headed* "(M-RULINGS items 101 and 102; deduced, computed and READ; not verified; not seated; 2026-10-06)".
+*First headed* "(M-RULINGS items 101 and 102; … not verified …)", then "(… items 101, 102 and 104 …; verified once …)",
+then "(… 101, 102, 104 and 106; first form verified once, the item-104 rework not yet …)".
 
-## What M said
+## What M said (verbatim in the rulings file)
 
-- **Item 101:** your answers 1–11 to the walls, and the plain definition, carried verbatim in the rulings file.
-- **Item 102:** *"What if a information definition of a physical/geometric object is negative mass, because it is the
-  inverse definition of a positive mass?"*
-- **Item 104:**
-  - (a) *"I and leaning towards 1, but it could be 2"*: the negative, but possibly the reciprocal.
-  - (b) You chose the pull: *"observers at position 1 can only see the mouth at position 1. The corridor interior and
-    position 2 are not observable until the horizon of the corridor is crossed, at which point position is no longer
-    observable... Horizons have 2 sides"*.
-  - (c) The twelve trajectories (below).
+- **101.11:** *"total our plane can read"*.
+- **104(b)**, choosing the pull: *"observers at position 1 can only see the mouth at position 1. The corridor interior and
+  position 2 are not observable until the horizon of the corridor is crossed, at which point position is no longer
+  observable... Horizons have 2 sides"*.
+- **106:**
+  - *"Horizon; reciprocal"*.
+  - *"Three distinct holds in one fluid wave motion, horizon position 1 only as the corridor opens, when the corridor is
+    fully realized the bits are held on both horizons simultaneously because the corridor builds position 2 with the
+    bits in mind, upon the corridor closing the bits are then held only at the horizon of position 2."*
+  - *"Yes, it ends at P2"*.
+- **107:** *"The information in transit is still the definition of the geometric object, just absent the actual physical
+  mass, which makes it appear to be negative mass"*.
+- **108:** *"Yes, that's it"*; *"Whatever is needed"*.
+- **109:** *"The horizon of position ends as well. A horizon cannot exist without the object of which it needs to
+  exist"*.
+- **110:** *"Into position 2"*.
+- **111:** *"that and only that which is provided by the closing of the horizon."*; *"one energy read from two sides
+  because both positions are currently entangled as a singular state"*.
 
 Every number is printed by `plane.py`.
-- **Selftest:** 12/12 checks, 1 genuine control and 1 contrast, with 7 STRUCTURAL lines printed and not counted.
-- *First written* "11/11 checks", of which four restated others and two were one-line algebra (History).
-- **Imported, not rebuilt:** `chain.py` (the floor, its constants, the trip energies) and `bulk/escape.py`
-  (Bronnikov–Kim's R = 0).
+- **Selftest:** 15/15 checks, 3 genuine controls and 1 contrast, with 8 STRUCTURAL lines printed and not counted.
+  *First written* "11/11", then "12/12"; restatements had been counted (History).
+- **Imported, not rebuilt:**
+  - `chain.py`: the floor and constants;
+  - `bulk/escape.py`: R = 0;
+  - `pair.py`: the Hawking temperature;
+  - `higgs.py`: the Higgs mass;
+  - `geometry.py`: the thermofield double;
+  - `stockdest.py`: the 70 kg payload.
 
 **The geometry, READ.** Bronnikov & Kim, gr-qc/0212112v1, eq. (17), p.4.
 - *"a symmetric wormhole geometry for any r0 > 2m ≥ 0, or for any r0 > 0 in case m < 0"*.
-- For 3m/2 < r₀ < 2m, citing Casadio and others, it is *"a nonsingular black hole with a wormhole throat at r = r0
-  inside the horizon, in other words, a non-traversable wormhole"* (p.4).
-- Eq. (18), p.4, gives the density.
-- *First written* "p.6", following escape.py. That is corrected in rulings item 105.
+- For η = r₀ − 3m/2 > 0, framed near Schwarzschild after Casadio and others, *"a nonsingular black hole with a wormhole
+  throat at r = r0 inside the horizon, in other words, a non-traversable wormhole"*.
+- Eq. (18) gives the density.
+- The full window r₀/2 < m < 2r₀/3 is the board's extension, computed.
+- *First written* "citing Casadio … for 3m/2 < r₀ < 2m", which attributed the window to them; and "p.6" (rulings item
+  105).
 
 ## What follows the work
 
-- **1. Your corridor, as you describe it, is in this family.**
-  - The members with a horizon outside the throat and no singularity are exactly **r₀/2 < m < 2r₀/3**. The horizon is
-    at 2m > r₀; the singular radius 3m/2 lies inside the throat.
-  - Checked numerically at m = 0.6 r₀. Control: m = 0.4 r₀ has no horizon. Contrast: m = 0.7 r₀ brings the
-    singularity outside the throat.
-  - The geometry is symmetric, so there is **a horizon on each side**. An observer at position 1 sees only the mouth on
-    that side, and the interior lies behind the horizon.
-  - Bronnikov and Kim call it non-traversable. Crossing in leaves position 1 unobservable from inside.
-  - That is your H-ONE-MOUTH-SEEN, H-CORRIDOR-HORIZON and H-TWO-SIDED-HORIZON: *"Horizons have 2 sides"*.
-- **2. The pull is the horizon's own mass, and its floor is the √N floor.**
-  - The pull our plane reads (Komar, from the clock rate far away) is m. The mass at the horizon r = 2m (Misner–Sharp)
-    is also m (sympy). Both agree with Bronnikov–Kim's printed density: dMS/dr = r²ρ/2, residual 0.
-  - Suppose the README is held at the horizon, the surface position 1 sees (H-HORIZON-HOLDS). The least horizon then
-    has radius r_min(N), so the least pull is
-    **E_pull = r_min c⁴/(2G) = √(N h c⁵ ln2/(8π² G)) = 4.59404002×10⁸ J × √N**, exactly chain.py's floor.
-  - The floor was always a horizon: the neck sat *"at its own Schwarzschild radius"*. For the core README this is
-    2.405878326×10¹⁶ J.
-  - Bekenstein's bound, with E = the pull and R = the horizon, is then met with equality (H-STRONG-BOUND).
-- **3. If the throat holds the README instead, the pull is pinned between the floor and 4/3 of it.**
-  - With r₀ = r_min (H-NECK-HOLDS), the window gives
-    **4.59404002×10⁸ J × √N < E_pull < 6.12538669×10⁸ J × √N**. Exact form: between 1 and 4/3 times
-    √(N h c⁵ ln2/(8π² G)).
-  - For the core: 2.405878326×10¹⁶ J to 3.207837767×10¹⁶ J. **The 0.1c trip (3.169434×10¹⁶ J) lies inside that
-    window.**
-  - The ends are r_min/2 and 2r_min/3 times c⁴/G = 1.21025556×10⁴⁴ J/m (relative uncertainty 2.2×10⁻⁵, from G).
-- **4. The Penrose inequality is the family's own regularity condition.**
-  - The plane's total energy (ADM, m/4 + r₀/2) exceeds the horizon's mass exactly when r₀ > 3m/2 (sympy). That is
-    Bronnikov–Kim's condition for no singularity.
-  - The Riemannian Penrose inequality says the total is at least the horizon's area-mass when the density is
-    non-negative, with equality only for Schwarzschild (Bray, math/9911173v1, eq. 6 p.4 and Thm 1 p.8, READ by the
-    verifier). It holds here with room to spare.
-- **5. Item 102: both readings are exact, but in different members of the family.**
-  - **The reciprocal (your option 2) holds exactly in your horizon corridor.**
-    - At the floor, energy and size are reciprocal, with the README's size as the constant:
-      **E_pull × r_horizon = N h c ln2/(4π²) = 3.48772679×10⁻²⁷ J·m × N**. This is Bekenstein's product, saturated.
-    - The information definition fixes the product, so the mass is the inverse of the size.
-  - **The negative (your option 1, the one you lean to) holds exactly only in the member with no horizon,
-    m = −2r₀.**
-    - There the total energy is zero.
-    - With the Misner–Sharp split (H-MS-SPLIT, the board's choice of quasi-local mass), the energy outside the throat
-      is −r₀c⁴/(2G), the negative of the throat's area-mass. That restates the zero total; it is not a second result.
-    - Every direct reading is negative there:
-      - the pull, −2r₀c⁴/G (−9.623513×10¹⁶ J for the core);
-      - light bending, −r₀c⁴/G (−4.811757×10¹⁶ J).
-      That is your *"must appear to contain"* (item 86.1).
-    - But that member has no horizon, and the density is negative everywhere (eq. 18). So it is not the corridor your
-      item 104(b) describes.
-  - **Your two answers point at different members.** Which you mean is asked.
-- **6. The twelve trajectories (item 104c).**
-  - They are the 12-vector of multiverse_12_vector_taxonomy_v2.pdf, which the board already carries (CHARTER, item 23;
-    settle.H12): V = [M, R, K, T, CP, α_s, Z0, Λ, G, G_F, G_θ, v].
-  - You add that there can be more, and that anything observable can serve as a trajectory (H-TRAJECTORIES-OPEN). A
-    destination universe can be chosen by any observable feature: *"a universe where religion was never invented"*.
-  - **The board's reading of "ranked dependency" (R-CHAIN-RULE, ungraded):**
-    - Each trajectory adds the information it carries given the ones ranked above it.
-    - Under the floor's own rule, that is 7.24277891×10⁻⁷⁰ m² per bit added to the corridor's least area.
-    - settle.H12 already records dependencies: R and Z0 are readouts of α, M of α, mₑ and v, and G_F is 1/(√2 v²) at
-      tree level.
-    - On this reading, a trajectory fixed by those ranked above it adds nothing.
-  - How many bits a destination's trajectories carry is not computed: OPEN.
-  - *First written:* "the device sizes the neck to the floor … 'No more, no less' is that bound met with equality".
-    That dropped your trajectories' share: the floor is the README's share of the necessary size.
-- **7. Your other answers (item 101), carried and placed.**
-  - **Distance (answer 7):** eq. (17) has no separation parameter, and the floor takes none. That is consistent with
-    H-DISTANCE-IRRELEVANT, not evidence for it.
-  - **Separate universes (answer 5):** eq. (17) joins two asymptotic regions and does not make them one universe;
-    BULK5-O1's one-universe clause is dropped.
-    - Your *"transit phase through a dimension"* is a bulk throat, and eq. (17) is a 4D throat in the plane. That
-      mismatch is named under H-BK-CORRIDOR.
-  - **Your plain definition** (two universes, entangled, with the corridor as their Internet) is close to the two-sided
-    picture READ by the board: an AdS black hole that *"can be dual to an entanglement of two different CFTs"*
-    (Ryu–Takayanagi p.4).
-    - But those bridges are non-traversable (Maldacena–Susskind fn.1), and an Internet needs traffic. The step from
-      bridge to your corridor is wall 9, OPEN.
-  - **Answers 3 & 4:** information is a form of energy, and newly introduced energy triggers a field reaction that
-    allows matter assembly.
-    - *The board's reading:* the README is the trigger, and the build's energy is the position's own (H-STOCK-IS-STOCK,
-      H-FIELD-REACTION).
-    - The README's own information is worth at most k_B · 310 K · ln2 = 2.96667818×10⁻²¹ J per bit, 8.14×10⁻⁶ J for the
-      core. That rests on H-ERASE, chain.py.
-    - The Higgs field was tested on the board as a source of energy-condition violation and closed for a classical,
-      minimally coupled, canonical scalar (ledger D17). Any static Higgs displacement is ultralocal and returns at the
-      rate m_h (D15, D16), and holding one costs energy (D20). These bound any "however slightly" reaction.
-    - No assembly energy is computed: OPEN.
-    - *First written:* "tested … as a supply of negative energy, and failed", the wording D17 corrects; and "untested".
-  - **Answer 8:** position 2's read is an autodetection. The closed index takes the README, **verifies it**, and
-    incorporates it (H-CLOSED-INDEX, H-AUTODETECT). The verification bears on completeness (answer 9). The scan at
-    position 1 (COPY-O3) is unchanged.
-  - **Answer 9:** completeness is relative, and position 2 knows only what the README holds (H-COMPLETENESS-IN-README).
-  - **Answer 10:** read first, then execute, at position 2. *The board's reading:* this is the split rule wall 13 asked
-    for, which is on which side the record ends. Please confirm it.
+- **1. Your corridor is in the family, and its horizon is crossed one way, from position 1 to position 2.**
+  - The members with a horizon outside the throat and no singularity are exactly **r₀/2 < m < 2r₀/3**. This is checked
+    numerically, with a control (no horizon) and a contrast (a singularity outside the throat).
+  - Rewrite eq. (17) in Bronnikov–Kim's coordinate x, with r = r₀ + x² (computed). The clock-rate factor
+    g_tt = (x² + r₀ − 2m)/(r₀ + x²) vanishes at x = ±√(2m − r₀): **a horizon on each side**.
+  - Between the two horizons, the dx² coefficient changes sign: −10.8 at x = 0, for m = 1, r₀ = 1.8. **x is a time
+    direction there.**
+    - The throat is a moment, not a place.
+    - Every forward-in-time path that enters position 1's horizon crosses the throat and leaves through position 2's
+      horizon, which is a white-hole horizon on that side.
+    - Control: an ordinary throat (r₀ > 2m) keeps x as a space direction, coefficient +8.0.
+  - **That is your description, computed.** Position 2 is unseen until position 1's horizon is crossed, and then
+    position 1 is unseen (H-CORRIDOR-HORIZON, H-ONE-MOUTH-SEEN, H-TWO-SIDED-HORIZON).
+  - Bronnikov–Kim's "non-traversable" means not two-way. One-way passage is what the geometry gives.
+  - **A published analogue** (Simpson & Visser, 1812.07114v3, READ by a verifier):
+    - p.3: for a < 2m, *"a one-way spacelike throat … a bounce into a future incarnation of the universe"*.
+    - pp.4–5: *"a bounce into a separate copy of our own universe"*. That sits beside your H-SEPARATE-UNIVERSES.
+  - Whether every path through the geometry is complete is not computed: OPEN.
+  - *First written* (as the boundary): "Crossing to position 2's exterior: the horizon members are non-traversable".
+    That was wrong.
+- **2. The pull, and the floor.**
+  - The pull our plane reads is m. That is the Komar mass at infinity, read from the static region outside r = 2m, which
+    reaches flat space.
+  - It equals the horizon's area-mass, √(A/16π) = m (sympy).
+  - The horizon's own Komar charge is smaller: κA/4π = 2m√(1 − r₀/2m), which is 0.63 m at r₀ = 1.8 m. The rest of the
+    pull comes from the tidal stress outside the horizon.
+  - Under H-HORIZON-HOLDS and H-STRONG-BOUND, the least horizon that holds N bits has radius r_min(N). So the least pull
+    is **√(N h c⁵ ln2/(8π² G)) = 4.59404002×10⁸ J × √N**, or 2.405878326×10¹⁶ J for the core.
+  - This is the floor's number, unchanged. chain.py's floor was a throat's area-mass, reread here as a horizon's; both
+    are r/2.
+  - At that m the throat lies behind the horizon, at r₀ between 0.75 and 1 times r_min. The plane's total (ADM) reads
+    between 1 and 5/4 of the floor.
+  - *First written:* "The pull is the horizon's own mass" (it is the area-mass), and "the floor was always a horizon"
+    (it was a throat, reread).
+- **3. Superseded.** "If the throat holds it instead, the pull lies between the floor and 4/3 of it." Item 106 puts the
+  bits on horizons, and in a horizon member the throat is a moment (point 1). Kept as history.
+- **4. The Penrose inequality coincides, in this family, with the regularity condition.**
+  - The total exceeds the horizon's area-mass exactly when r₀ > 3m/2. That is the same as positive density, and the
+    same as no singularity.
+  - The premises:
+    - the constant-time slice of the static exterior is time-symmetric;
+    - its curvature is 16πρ, with ρ from eq. (18);
+    - r = 2m is its outermost minimal surface.
+  - Source: Bray, math/9911173v1, eq. 6 p.4 and Thm 1 p.8, READ by a verifier.
+  - *First written:* "is the family's regularity condition", with its premises unnamed.
+- **5. Item 102: your answer, "Horizon; reciprocal".**
+  - The board's reading (R-RECIPROCAL-AS-PRODUCT, ungraded): at the floor,
+    **E × r = N h c ln2/(4π²) = 3.48772679×10⁻²⁷ J·m × N**. This holds by construction: Bekenstein's bound saturated.
+  - Along horizons, mass grows with size. The two relations meet only at the floor.
+  - The negative-mass member (m = −2r₀, total zero, density negative everywhere, no horizon) is the boundary.
+  - *First written:* "The reciprocal holds exactly … the mass is the inverse of the size". That was the board's gloss,
+    stated as yours (rulings item 112).
+- **6. The three holds and one energy (items 106, 109–111).**
 
-## Your answers to the last three questions (item 106)
+  | hold | where the bits are | what the planes read |
+  |---|---|---|
+  | opening | position 1's horizon | plane 1 reads the floor |
+  | fully realized | both horizons: one entangled state | **one energy, read from two sides** |
+  | closing | position 2's horizon, which ends with the corridor (109) | the energy goes into position 2 (110) and the build uses exactly it (111) |
 
-- **Item 102 is settled: the horizon member, and the reciprocal** (H-RECIPROCAL). The information definition is the
-  inverse of the mass: energy × size = N × 3.48772679×10⁻²⁷ J·m. The members with a horizon, r₀/2 < m < 2r₀/3, are your
-  corridor. The negative-mass members stay as the boundary.
-- **Wall 13 is closed by your rule** (H-SPLIT-AT-P2): the README's record ends at position 2.
-- **Your three holds, computed** (H-THREE-HOLDS, under H-HORIZON-HOLDS; `plane.py` P6). You described *"Three distinct
-  holds in one fluid wave motion"*. Each hold is a horizon at the floor:
-
-  | hold | where the bits are | pull plane 1 reads | pull plane 2 reads |
-  |---|---|---|---|
-  | opening | position 1's horizon | 4.59404002×10⁸ J × √N (core 2.4059×10¹⁶ J) | 0 |
-  | fully realized | both horizons at once | 4.59404002×10⁸ J × √N | 4.59404002×10⁸ J × √N |
-  | closing | position 2's horizon | 0 | 4.59404002×10⁸ J × √N |
-
-  - The realized hold's equal pair is built into the geometry: eq. (17) is symmetric, so both mouths carry the same
-    mass. This is by construction.
-  - The opening and closing holds are asymmetric, and no static member of the family has them. They need a dynamical
-    geometry, which is OPEN.
-- **What the closing hold implies, if it persists** (H-HOLD-PERSISTS: the closing hold stays a horizon of the same mass
-  at position 2):
-  - It is a black hole of E_min/c² = **0.2677 kg** for the core README.
-  - Its Hawking temperature is **4.583×10²³ K** (pair.py), so k_B·T = 3.95×10¹⁰ GeV. That is 3.2×10⁸ times the Higgs
-    mass (125.13 GeV, higgs.py).
-  - Its energy, 2.406×10¹⁶ J, would then be released at position 2 hotter than every Standard Model mass.
-  - That bears on your answers 3 & 4 (*"newly introduced energy to a position triggers a field reaction, such as a
-    higgs field"*). It does not show matter assembly: thermal radiation is not a build (walls 5 and 6).
-  - The photon-only evaporation time, 5120πG²M³/(ħc⁴) = 1.6×10⁻¹⁸ s, has no READ owner on the board: NOT READ.
+  - **The trip carries one E_min(N), from the device to the build.** For the core README that is 2.406×10¹⁶ J.
+  - **"One energy read from two sides" has a computed counterpart: the thermofield double.**
+    - This is the state ER=EPR pairs with a two-sided black hole (`geometry.tfd`, imported).
+    - In it, the difference between the two sides' energies has zero variance: each side's energy varies (1.40), but
+      the two readings always agree.
+    - Control: in an unentangled state with the same one-sided statistics, the two readings are independent. The
+      variance of their difference is then 2.81, twice one side's.
+  - The opening and closing holds have no static member. They need dynamics, and a Komar "pull" needs a static
+    geometry to be defined (H-QUASISTATIC): OPEN.
+- **7. The README against the object it defines (items 107, 108).**
+  - **Apparent mass = carried − defined.** The core README carries 0.2676901 kg against the 70 kg it defines, so it
+    appears as **−69.7323 kg**: negative, as you said. Position 2's stock fills the deficit.
+  - It appears negative while N < **N\* = 8π² G M²/(h c ln2) = 3.827306673×10¹⁶ bits/kg² × M²**, which is
+    **1.875380270×10²⁰ bits** for 70 kg.
+    - Checked: the bisected floor at N\* equals Mc² = 6.291286×10¹⁸ J.
+  - The largest snapshot (1.088×10²⁹ bits) would carry 1.6858×10⁶ kg, more than it defines.
+  - With item 111, the README and the build are one number. A build needing energy E needs a README of
+    N = 8π² G E²/(h c⁵ ln2) bits.
 
 ## What is ruled out, as the boundary
 
-- **A positive-density member with a total below the horizon's or throat's area-mass.** The Riemannian positive-mass
-  and Penrose inequalities rule it out (Bray, pp.2–4 and 8). A zero total needs negative density everywhere.
-- **A horizon member with m ≥ 2r₀/3**, which brings the singularity outside the throat (the contrast).
-- **Crossing to position 2's exterior.** The horizon members are non-traversable (Bronnikov–Kim p.4). The README's
-  presence at position 2 needs the step from bridge to your corridor, which is OPEN.
-- **The throat's size.** Bronnikov and Kim warn that *"a restriction can quite probably appear from 5-dimensional
+- **A closing hold that persists** (H-HOLD-PERSISTS, withdrawn by your item 109 and kept as the boundary). It would be
+  a hole of 0.2677 kg for the core.
+  - Its temperature would be at most 4.583×10²³ K. That is the Schwarzschild value; for a Bronnikov–Kim member it is
+    smaller by 2√(1 − r₀/2m) (Simpson–Visser p.11 eq. 6.5, READ by a verifier).
+  - It would be gone in about **7.8×10⁻²¹ s**, radiating all Standard Model species (Carr–Kohri–Sendouda–Yokoyama,
+    2002.12778v2, p.10 eq. 14, READ by a verifier).
+  - The photon-only 1.6×10⁻¹⁸ s overestimates that by about 200.
+  - *First written* as "What the closing hold implies", the main line, with the lifetime NOT READ.
+- **Two-way traversal** (Bronnikov–Kim p.4).
+- **A positive-density member with a total below its horizon's area-mass** (Bray).
+- **A horizon member with m ≥ 2r₀/3** (the contrast).
+- **Per-universe bookkeeping, if each universe is flat far away with its own conserved mass** (H-ASYMPTOTIC-FLAT-ENDS).
+  - Plane 2's rise from 0 to the floor would then need an energy flux that only the tidal stress could carry, by
+    violating the energy conditions. Bronnikov–Kim p.1: *"E_μν does not necessarily satisfy the energy conditions"*.
+  - Source for the conserved mass: Mädler–Winicour 1609.01731v3 p.16 eq. 61, READ by a verifier.
+  - Your H-ONE-ENERGY-TWO-SIDES (one entangled state) is a different accounting. Which applies is OPEN.
+- **The throat's size.** Bronnikov and Kim warn *"a restriction can quite probably appear from 5-dimensional
   geometry"* (p.2). r_min for the core is 4.0×10⁻²⁸ m. BULK5-O1, OPEN.
-- **Widening as a process.** A static family in r₀ is not a widening process; no dynamics are computed
-  (H-QUASISTATIC).
 
 ## The walls, now
 
 | wall | under your answers |
 |---|---|
-| 4 the corridor's energy | **the pull: the floor, 4.59404002×10⁸ J × √N, read by each plane while its horizon holds (item 106)**. *First written* "at least the floor (horizon holds), or between 1 and 4/3 of it (throat holds)" |
-| 6 energy at position 2 | the README triggers, and the energy is the position's own. Bounded by D15, D16 and D20, not computed: OPEN |
-| 8 the global bulk | the one-universe clause is dropped. The 5D completion is OPEN, and may restrict the throat's size (BK p.2) |
-| 9 the coupling | the README's share of the size is the floor; the trajectories' share is OPEN. Traversability is OPEN |
-| 10 address precision | no separation enters eq. (17) |
-| 11 the read | position 2 autodetects and verifies. The scan at position 1 is unchanged |
-| 12 identity completeness | relative, and defined by the README |
-| 13 the split | **closed by your rule**: read first, then execute; the record ends at position 2 (item 106) |
+| 1 formation | the corridor is a member of a known family. How it opens and closes needs dynamics (OPEN) |
+| 4 the corridor's energy | **one E_min(N) = 4.59404002×10⁸ J × √N per trip** (H-HORIZON-HOLDS, H-STRONG-BOUND; items 106, 110, 111) |
+| 6 energy at position 2 | **the closing energy, delivered into position 2 and used exactly by the build** (items 110, 111: yours, carried) |
+| 7 composition | position 2's stock fills the README's deficit (item 108) |
+| 8 the global bulk | the one-universe clause is dropped; the 5D completion is OPEN |
+| 9 the coupling | the passage is one-way 1 → 2 (computed). How the device opens it is OPEN |
+| 13 the split | answered by your rule, H-SPLIT-AT-P2: the record ends at position 2, read during the closing hold, before that horizon ends. Nothing is computed |
 
-*First written* with wall 4 "zero by your measure", under the ADM reading. You then chose the pull.
+*First written* with wall 4 "zero by your measure" (the ADM reading), then "at least the floor, or 1 to 4/3 of it"; and
+wall 13 "closed by your rule".
 
 ## Named hypotheses
 
-- **Yours:** H-RECIPROCAL, H-THREE-HOLDS, H-SPLIT-AT-P2 (106); H-PULL-IS-COST, H-ONE-MOUTH-SEEN, H-CORRIDOR-HORIZON, H-TWO-SIDED-HORIZON (104b);
-  H-INFORMATION-IS-INVERSE-MASS (102, 104a); H-TRAJECTORIES-OPEN (104c); H-READING-ONLY (86.1); and from item 101:
-  H-MADE-AS-WIDENED, H-ENTANGLEMENT-IS-IT, H-INFORMATION-IS-ENERGY, H-FIELD-REACTION, H-SEPARATE-UNIVERSES,
-  H-DEVICE-SIZES, H-TWELVE-TRAJECTORIES, H-DISTANCE-IRRELEVANT, H-CLOSED-INDEX, H-AUTODETECT, H-COMPLETENESS-IN-README,
-  H-READ-THEN-EXECUTE, H-PROMPT-ANALOGY.
+- **Yours:** H-PULL-IS-COST, H-ONE-MOUTH-SEEN, H-CORRIDOR-HORIZON, H-TWO-SIDED-HORIZON (104); H-RECIPROCAL,
+  H-THREE-HOLDS, H-SPLIT-AT-P2 (106); H-DEFINITION-MINUS-MASS (107, 108); H-README-AS-NEEDED (108);
+  H-HORIZON-NEEDS-OBJECT (109); H-ENERGY-INTO-P2 (110); H-BUILD-IS-CLOSING-ENERGY, H-ONE-ENERGY-TWO-SIDES (111);
+  H-SEPARATE-UNIVERSES and the rest of item 101; H-READING-ONLY (86.1).
 - **The board's:**
-  - H-BK-CORRIDOR: eq. (17), a static 4D metric in the plane.
-  - H-HORIZON-HOLDS / H-NECK-HOLDS: where the README's bits sit.
-  - H-STRONG-BOUND; H-NECK-ENERGY.
-  - H-MS-SPLIT; H-TOTAL-IS-ADM (now the boundary); R-CHAIN-RULE.
-  - H-QUASISTATIC; H-RS1; H-ERASE; H-HOLD-PERSISTS.
+  - H-BK-CORRIDOR: a static 4D brane metric. Your "transit phase through a dimension" is a bulk throat, which this is
+    not.
+  - H-HORIZON-HOLDS, H-STRONG-BOUND; R-RECIPROCAL-AS-PRODUCT; H-QUASISTATIC; H-TFD-MODEL.
+  - H-ASYMPTOTIC-FLAT-ENDS, H-SCHWARZSCHILD-REMNANT, H-SM-ONLY (the boundary).
+  - H-RS1.
 
 ## Sources READ
 
 | source | route | used |
 |---|---|---|
-| Bronnikov & Kim, gr-qc/0212112v1 | Firecrawl; alphaXiv (verifier) | eq. 13 p.3; eq. 17, its range, the horizon case and eq. 18, p.4; p.2 the 5D restriction; p.6 *"a complete model …"* |
-| Bray, math/9911173v1 | alphaXiv (verifier) | the Riemannian positive-mass theorem and Penrose inequality, eq. 5–6 p.4, Thm 1 p.8; ADM mass definition, Def. 21 p.54 |
-| Ryu & Takayanagi, hep-th/0603001v2 | ENTANGLE.md | p.4 two CFTs |
-| NOT READ | — | Bondi 1957 (negative mass); Schoen–Yau 1979, Witten 1981 (positive mass); Huisken–Ilmanen; Casadio–Fabbri–Mazzacurati (BK's [33]) |
+| Bronnikov & Kim, gr-qc/0212112v1 | Firecrawl; alphaXiv (verifiers) | eq. 13 p.3; eq. 17, its range, the horizon case and eq. 18, p.4; p.1 energy conditions; p.2 the 5D restriction; p.6 |
+| Simpson & Visser, 1812.07114v3 | alphaXiv (a verifier) | p.3 one-way spacelike throat; pp.4–5 separate copy; p.11 eq. 6.5 |
+| Carr, Kohri, Sendouda, Yokoyama, 2002.12778v2 | a verifier | p.9 eqs. 11–12; p.10 f = 15.35, eq. 14 |
+| Mädler & Winicour, 1609.01731v3 | a verifier | p.16 eq. 61 |
+| Bray, math/9911173v1 | a verifier | eqs. 5–6 p.4; Thm 1 p.8; Def. 21 p.54 |
+| NOT READ | — | Bondi 1957; Schoen–Yau; Witten; Huisken–Ilmanen; Casadio–Fabbri–Mazzacurati; the area theorem; the Page curve |
 
 ## OPEN
 
-1. Item 102: which member is your corridor. *Answered, item 106: the horizon member; the reciprocal.*
-2. Where the README's bits sit. *Answered, item 106: three holds, horizon to both horizons to position 2's horizon.*
-   The opening and closing holds need a dynamical geometry: OPEN. Whether the closing hold persists as a black hole
-   (H-HOLD-PERSISTS), and the evaporation time (NOT READ): OPEN.
-3. The bits a destination's trajectories carry (R-CHAIN-RULE).
-4. The step from a non-traversable bridge to your corridor (wall 9).
-5. The 5D completion, and its restriction on the throat's size.
-6. Wall 13: is "read first, then execute" the split rule? *Answered, item 106: yes, the record ends at position 2.*
+1. The opening and closing holds' dynamics: how the corridor opens and closes (walls 1 and 9).
+2. Which accounting applies across your two universes: one entangled state (yours), or per-universe conserved masses.
+3. Whether every path through the corridor is complete.
+4. The 5D completion, and its restriction on the throat's size.
+5. If the bits are quantum (H-ENTANGLEMENT-IS-IT), whether holding them on both horizons at once is a copy. It is one
+   entangled state on your reading (item 111), and no-cloning bears on it.
+6. The bits a destination's trajectories carry (R-CHAIN-RULE).
 
-## History (verifier, 2026-10-06; first-written claims kept above, each where it stood)
+## History (verifiers, 2026-10-06)
 
-- **The headline** was "By your measure, a corridor can cost nothing, at any README size". That was the ADM reading,
-  unnamed; every direct reading (the pull, light bending) is negative there. You then chose the pull.
-- **"The corridor contains positive energy at its neck":** eq. (18) gives negative density everywhere at m = −2r₀.
-  The throat's r₀/2 is its area-mass.
-- **"Your item 102 has an exact counterpart: the negative part is the neck's inverse":** it restated the zero total,
-  depended on the Misner–Sharp split, and put the bits on the positive member while you called the information
-  definition the negative one.
-- **The Bekenstein tension** at zero total was unstated (H-NECK-ENERGY). Under your pull answer it dissolves: the pull
-  is positive and saturates the bound at the horizon.
-- **The z3 checks** were one line of algebra each, and four checks restated others.
-- **The control's m = 0.6 r₀** was called "inside the range". It is Bronnikov–Kim's horizon case, which is now your
-  corridor.
-- **Pages:** eq. 17 is p.4, not p.6.
-- **Also corrected:**
-  - "No matter on either plane" lacked the 5D caveat.
-  - "Making is enlarging … safe" lacked H-QUASISTATIC.
-  - "Distance … holds in every formula" over-read.
-  - The two-sided picture needs traversability.
-  - The Higgs wording.
-  - "Verify it" was dropped from answer 8.
-  - Answer 10's reading is the board's.
+- **First pass:**
+  - Bronnikov–Kim pages;
+  - "positive energy at its neck";
+  - an exact-inverse claim that restated the zero total;
+  - the ADM reading unnamed;
+  - the z3 checks were one line of algebra each;
+  - restatements counted;
+  - a mislabelled control;
+  - the 5D caveat;
+  - H-QUASISTATIC;
+  - the trajectories' share;
+  - traversability;
+  - the Higgs wording.
+- **Second pass:**
+  - two tautological checks;
+  - "the horizon's own mass";
+  - the throat's range and the ADM range omitted;
+  - "the floor was always a horizon";
+  - the Penrose premises;
+  - **the one-way passage, which had been listed as ruled out**;
+  - the window's attribution;
+  - the Schwarzschild temperature assumed;
+  - the lifetime, now READ;
+  - P3 superseded;
+  - the reciprocal gloss;
+  - item 106 not quoted in full;
+  - wall 13 overstated;
+  - the bookkeeping omitted;
+  - one digit.

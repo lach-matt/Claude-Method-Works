@@ -1,88 +1,108 @@
 #!/usr/bin/env python3
-"""plane.py -- DOCKET 68, M-RULINGS items 101, 102 and 104: the corridor's cost as the pull our plane reads, with the
-corridor's two-sided horizon, and the inverse of a mass.  Deduced, computed and READ; its first form verified once
-(findings applied, History), the item-104 rework not yet verified; not seated.  Write-up: PLANE.md.  First headed "...items 101 and 102 ...; not verified".
+"""plane.py -- DOCKET 68, M-RULINGS items 101-111: the corridor as M describes it, in Bronnikov-Kim's family -- the pull
+as its cost, its two-sided horizon and one-way passage, the three holds, one energy from device to build, and the
+README read against the object it defines.  Deduced, computed and READ; verified twice (findings applied, History);
+the item-107-111 parts not yet verified; not seated.  Write-up: PLANE.md.
+First headed "...items 101 and 102 ...; not verified", then "...items 101, 102 and 104 ...; verified once".
 
-M's words (verbatim in the rulings file): item 101 "11 - total our plane can read"; item 104(b), choosing the pull:
-"observers at position 1 can only see the mouth at position 1. The corridor interior and position 2 are not observable
-until the horizon of the corridor is crossed, at which point position is no longer observable... Horizons have 2
-sides"; item 102 "a information definition of a physical/geometric object is negative mass, because it is the inverse
-definition of a positive mass", item 104(a) "leaning towards 1 [the negative], but it could be 2 [the reciprocal]".
+M'S WORDS (verbatim in the rulings file)
+  101.11 "total our plane can read".  104(b), choosing the pull: "observers at position 1 can only see the mouth at
+  position 1. The corridor interior and position 2 are not observable until the horizon of the corridor is crossed, at
+  which point position is no longer observable... Horizons have 2 sides".  106: "Horizon; reciprocal"; "Three distinct
+  holds in one fluid wave motion, horizon position 1 only as the corridor opens, when the corridor is fully realized the
+  bits are held on both horizons simultaneously because the corridor builds position 2 with the bits in mind, upon the
+  corridor closing the bits are then held only at the horizon of position 2."; "Yes, it ends at P2".  107: "The
+  information in transit is still the definition of the geometric object, just absent the actual physical mass, which
+  makes it appear to be negative mass".  108: "Yes, that's it"; "Whatever is needed".  109: "The horizon of position
+  ends as well. A horizon cannot exist without the object of which it needs to exist".  110: "Into position 2".  111:
+  "that and only that which is provided by the closing of the horizon."; "one energy read from two sides because both
+  positions are currently entangled as a singular state".
 
-THE GEOMETRY (H-BK-CORRIDOR).  Bronnikov-Kim's eq. (17), gr-qc/0212112v1 p.4 (READ): ds^2 = (1 - 2m/r) dt^2 -
-(1 - 3m/2r) dr^2 / ((1 - 2m/r)(1 - r0/r)) - r^2 dOmega^2, "a symmetric wormhole geometry for any r0 > 2m >= 0, or for any
-r0 > 0 in case m < 0"; and, citing Casadio-Fabbri-Mazzacurati [33], for 3m/2 < r0 < 2m "a nonsingular black hole with
-a wormhole throat at r = r0 inside the horizon, in other words, a non-traversable wormhole" (p.4).  It is symmetric: a
-horizon at r = 2m on each side.  Eq. (18) p.4: rho = m (r0 - 3m/2) / (2 r^2 (r - 3m/2)^2).
+THE GEOMETRY (H-BK-CORRIDOR).  Bronnikov-Kim, gr-qc/0212112v1, eq. (17) p.4 (READ): ds^2 = (1 - 2m/r) dt^2 -
+(1 - 3m/2r) dr^2 / ((1 - 2m/r)(1 - r0/r)) - r^2 dOmega^2; "a symmetric wormhole geometry for any r0 > 2m >= 0, or for any
+r0 > 0 in case m < 0"; for eta = r0 - 3m/2 > 0 near Schwarzschild (BK's framing, after Casadio et al. [33]) "a
+nonsingular black hole with a wormhole throat at r = r0 inside the horizon, in other words, a non-traversable wormhole";
+eq. (18) rho = m (r0 - 3m/2) / (2 r^2 (r - 3m/2)^2).  The whole window r0/2 < m < 2r0/3 is the board's extension,
+computed (BK give neither bound as such).
 
 WHAT FOLLOWS THE WORK (item 82: lead with what passes)
-  P1 YOUR CORRIDOR, AS YOU DESCRIBE IT, IS IN THE FAMILY.  The members with a horizon outside the throat and no
-     singularity are exactly r0/2 < m < 2 r0/3 (horizon 2m > r0; singular radius 3m/2 < r0; checked numerically, with a
-     control and a contrast).  Each has a horizon on each side (eq. 17 is symmetric): an observer at position 1 sees
-     only the mouth on that side, the interior lies behind the horizon, and the wormhole is non-traversable (BK p.4)
-     -- your H-ONE-MOUTH-SEEN, H-CORRIDOR-HORIZON and H-TWO-SIDED-HORIZON.
-  P2 THE PULL IS THE HORIZON'S OWN MASS, AND ITS FLOOR IS THE SQRT(N) FLOOR.  The pull our plane reads (Komar, the 1/r
-     coefficient of g_tt) is m; the Misner-Sharp mass at the horizon r = 2m is also m (sympy).  If the README is held at
-     the horizon -- the surface position 1 sees (H-HORIZON-HOLDS) -- the least horizon has radius r_min(N), so the least
-     pull is m = r_min/2: E_pull = r_min c^4 / (2G) = sqrt(N h c^5 ln2 / (8 pi^2 G)) = 4.59404002e8 J x sqrt(N), exactly
-     chain.py's floor (the floor was always a horizon: the neck "at its own Schwarzschild radius").  Bekenstein's bound
-     with E = the pull and R = the horizon is then met with equality (H-STRONG-BOUND; the BH form, STRUCTURAL).
-  P3 IF THE THROAT HOLDS IT INSTEAD, THE PULL IS PINNED BETWEEN THE FLOOR AND 4/3 OF IT.  With r0 = r_min (H-NECK-HOLDS)
-     the window r0/2 < m < 2 r0/3 gives 4.59404002e8 J x sqrt(N) < E_pull < 6.12538669e8 J x sqrt(N), exact form
-     (1 to 4/3) x sqrt(N h c^5 ln2 / (8 pi^2 G)).  Core README: 2.405878326e16 J to 3.207837768e16 J -- the 0.1 c trip
-     (3.169e16 J) lies inside the window.
-  P4 THE PENROSE INEQUALITY IS THE FAMILY'S REGULARITY CONDITION.  The plane's ADM total exceeds the horizon's mass,
-     m/4 + r0/2 > m, exactly when r0 > 3m/2 (sympy) -- BK's (Casadio's) condition for no singularity.  The Riemannian
-     Penrose inequality, ADM >= sqrt(A/16 pi) for non-negative density, equality only for Schwarzschild (Bray,
-     math/9911173v1, eq. 6 p.4 and Thm 1 p.8, READ by the verifier via alphaXiv), holds with room: rho > 0 here.
-  P5 ITEM 102, BOTH READINGS, AND WHICH MEMBER EACH SELECTS.
-     * The reciprocal (your option 2) holds EXACTLY in your horizon corridor: at the floor the energy and the size are
-       reciprocal with the README's size as the constant, E_pull x r_horizon = N h c ln2 / (4 pi^2) =
-       3.48772679e-27 J m x N (Bekenstein's product, saturated).
-     * The negative (your option 1, the one you lean to) holds exactly only in the member with NO horizon, m = -2 r0:
-       there the ADM total is zero and, with the Misner-Sharp split (H-MS-SPLIT, the board's choice of quasi-local
-       mass), the integrated energy outside the throat is -r0 c^4 / (2G), the negative of the throat's area-mass -- a
-       restatement of the zero total, not a second result.  Its pull reads -2 r0 c^4/G and light reads -r0 c^4/G:
-       every direct reading is negative ("must appear to contain", item 86.1).  But it has no horizon, so it is not
-       the corridor your item 104(b) describes.  Which member you mean is asked.
-
-  P6 YOUR THREE HOLDS (ITEM 106), UNDER H-HORIZON-HOLDS.  Each hold is a horizon at the floor: opening, position 1's
-     horizon only (plane 1 reads E_min, plane 2 nothing); realized, both at once -- eq. 17 is symmetric, so both mouths
-     carry the same m, and each plane reads E_min; closing, position 2's only.  If the closing hold persists at position
-     2 as a horizon of that mass (H-HOLD-PERSISTS), it is a black hole of E_min/c^2 = 0.2677 kg for the core, at a
-     Hawking temperature of 4.583e23 K (pair.py): k_B T = 3.95e10 GeV, 3.2e8 times the Higgs mass (higgs.py).  Its
-     energy, 2.406e16 J, is then released at position 2 hotter than every Standard Model mass -- a computed bearing on
-     your answers 3 & 4 ("newly introduced energy ... triggers a field reaction, such as a higgs field"), not a showing
-     of matter assembly.  The photon-only evaporation time, 1.6e-18 s, has no READ owner: NOT READ.
+  P1 YOUR CORRIDOR IS IN THE FAMILY, AND ITS HORIZON IS CROSSED ONE WAY, 1 -> 2.  The members with a horizon outside the
+     throat and no singularity are exactly r0/2 < m < 2r0/3 (numerical, with a control and a contrast).  In BK's x-form
+     (r = r0 + x^2, computed from eq. 17) g_tt = (x^2 + r0 - 2m)/(r0 + x^2) vanishes at x = +-sqrt(2m - r0): a horizon on
+     each side.  Between them the dx^2 coefficient changes sign (-10.8 at x = 0 for m = 1, r0 = 1.8): x is TIMELIKE, so
+     the throat is a moment, not a place, and every future-directed path that enters position 1's horizon crosses it and
+     leaves through position 2's (a white-hole horizon on that side).  Control: for r0 > 2m the coefficient stays
+     positive (an ordinary two-way throat).  Position 2 is unseen until position 1's horizon is crossed, then position 1
+     is unseen: your H-CORRIDOR-HORIZON, H-ONE-MOUTH-SEEN, H-TWO-SIDED-HORIZON, computed.  BK's "non-traversable" is
+     two-way traversal; one-way passage is what the geometry gives.  READ analogue (the verifier, alphaXiv): Simpson &
+     Visser 1812.07114v3 p.3, for a < 2m "a one-way spacelike throat ... a bounce into a future incarnation of the
+     universe"; pp.4-5, "a bounce into a separate copy of our own universe" -- beside your H-SEPARATE-UNIVERSES.
+     Geodesic completeness is not computed: OPEN.
+  P2 THE PULL AND THE FLOOR.  The pull our plane reads (Komar at infinity, the static region r > 2m reaching an
+     asymptotically flat end) is m, equal to the horizon's area-mass sqrt(A/16 pi) = m (Misner-Sharp at r = 2m; sympy).
+     The horizon's own Komar charge, kappa A / 4 pi = 2m sqrt(1 - r0/2m), is smaller (sympy; 0.63 m at r0 = 1.8 m); the
+     rest is the tidal stress outside it.  Under H-HORIZON-HOLDS and H-STRONG-BOUND the least horizon has radius
+     r_min(N), so the least pull is m = r_min/2: sqrt(N h c^5 ln2 / (8 pi^2 G)) = 4.59404002e8 J x sqrt(N) -- the floor's
+     number, unchanged: chain.py's floor was a throat's area-mass, reread here as a horizon's (both r/2).  At that m the
+     throat lies behind the horizon, r0 in (0.75, 1) r_min, and the plane's ADM total reads between 1 and 5/4 of the
+     floor.
+  P3 SUPERSEDED: "if the throat holds it instead, the pull lies between the floor and 4/3 of it" -- item 106 puts the
+     bits on horizons, and in a horizon member the throat is a spacelike moment (P1).  Kept as history.
+  P4 THE PENROSE INEQUALITY COINCIDES, IN THIS FAMILY, WITH THE REGULARITY CONDITION.  ADM > horizon area-mass iff
+     r0 > 3m/2 (sympy) iff rho > 0 iff no singularity.  Premises (verifier): the t = const slice of the static exterior is
+     time-symmetric; its scalar curvature is 16 pi rho_eff (eq. 18); r = 2m is its outermost minimal surface.  Bray
+     math/9911173v1 eq. 6 p.4, Thm 1 p.8 (READ by a verifier).
+  P5 ITEM 102: YOUR ANSWER "Horizon; reciprocal".  The board's reading (R-RECIPROCAL-AS-PRODUCT, ungraded): at the floor
+     E x r = N h c ln2 / (4 pi^2) = 3.48772679e-27 J m x N -- by construction (Bekenstein saturated).  Along horizons mass
+     grows with size; the two meet only at the floor.  The negative-mass member (m = -2 r0: ADM zero, rho < 0 everywhere,
+     no horizon) is the boundary.
+  P6 THE THREE HOLDS AND ONE ENERGY (106, 109-111).  Opening: position 1's horizon only; realized: both horizons, one
+     entangled state, one energy read from two sides; closing: position 2's horizon, which ends with the corridor (109),
+     its energy delivered into position 2 (110) and used, exactly, by the build (111).  The trip carries one E_min(N)
+     from the device to the build.  "One energy read from two sides" has a computed counterpart: in the thermofield
+     double (geometry.tfd, imported), the state ER=EPR pairs with a two-sided black hole, H_left - H_right has zero
+     variance -- the two readings are one -- while in a product state with the same marginals they are independent
+     (control).  The opening and closing holds have no static member: they need dynamics, and a Komar "pull" needs a
+     Killing vector (H-QUASISTATIC): OPEN.
+  P7 THE README AGAINST THE OBJECT IT DEFINES (107, 108).  Apparent mass = carried - defined.  The core README carries
+     0.2676901 kg against the 70 kg it defines: -69.7323 kg, negative, as you said.  It appears negative while
+     N < N* = 8 pi^2 G M^2 / (h c ln2) = 3.827306673e16 bits/kg^2 x M^2 = 1.875380270e20 bits for 70 kg; the largest
+     snapshot (1.088e29 bits) would carry more than it defines.  At N* the closing energy equals Mc^2 (by construction).
+     With item 111 the README and the build are one number: a build needing energy E needs N = 8 pi^2 G E^2/(h c^5 ln2).
 
 WHAT IS RULED OUT, AS THE BOUNDARY
-  * A positive-density member with a total below the throat's area-mass (the Riemannian positive-mass and Penrose
-    inequalities, Bray pp.2-4, 8, READ by the verifier): a zero total needs rho < 0 everywhere (eq. 18 at m < 0).
-  * A horizon member with m >= 2 r0/3: the singular radius 3m/2 lies outside the throat (contrast).
-  * Crossing to position 2's exterior: the horizon members are non-traversable (BK p.4).  The README's presence at
-    position 2 needs the step from bridge to your corridor -- wall 9, OPEN.
-  * BK p.2: "a restriction can quite probably appear from 5-dimensional geometry" on the throat's size; r_min for the
-    core is 4.0e-28 m.  BULK5-O1, OPEN.
+  * H-HOLD-PERSISTS (withdrawn by item 109; kept): a closing hold that stayed would be a hole of 0.2677 kg for the core,
+    at most 4.583e23 K (Schwarzschild, H-SCHWARZSCHILD-REMNANT; for a BK member T = T_Sch x 2 sqrt(1 - r0/2m)), gone in
+    about 7.8e-21 s (Carr-Kohri-Sendouda-Yokoyama 2002.12778v2 p.10 eq. 14, tau ~ 407 (f/15.35)^-1 M10^3 s, all
+    Standard Model species, READ by a verifier; the photon-only 1.6e-18 s overestimates by ~200).
+  * Two-way traversal (BK p.4); a positive-density member with a total below its horizon's area-mass (Bray); a horizon
+    member with m >= 2r0/3 (contrast).
+  * If each universe is asymptotically flat with its own Bondi mass (H-ASYMPTOTIC-FLAT-ENDS), plane 2's rise from 0 to
+    E_min would need an energy flux the tidal stress could carry only by violating the energy conditions, which BK p.1
+    allow ("E_mu nu does not necessarily satisfy the energy conditions"); Madler-Winicour 1609.01731v3 p.16 eq. 61 (READ
+    by a verifier).  Your H-ONE-ENERGY-TWO-SIDES (one entangled state) is a different accounting: OPEN which applies.
+  * BK p.2: "a restriction can quite probably appear from 5-dimensional geometry" on the throat's size (r_min, core,
+    4.0e-28 m): BULK5-O1, OPEN.
 
 NAMED HYPOTHESES
-  M's: H-RECIPROCAL, H-THREE-HOLDS, H-SPLIT-AT-P2 (106); H-PULL-IS-COST (104b), H-ONE-MOUTH-SEEN, H-CORRIDOR-HORIZON, H-TWO-SIDED-HORIZON (104b),
-    H-INFORMATION-IS-INVERSE-MASS (102, 104a), H-READING-ONLY (86.1), H-DEVICE-SIZES, H-TWELVE-TRAJECTORIES (101.6),
-    H-TRAJECTORIES-OPEN (104c), H-DISTANCE-IRRELEVANT (101.7), H-SEPARATE-UNIVERSES (101.5).
-  The board's: H-BK-CORRIDOR (the corridor is eq. 17, a static 4D brane metric -- your answer 5's "transit phase through
-    a dimension" is a bulk throat, which eq. 17 is not); H-HORIZON-HOLDS / H-NECK-HOLDS (where the README's bits sit --
-    the two readings of P2, P3); H-STRONG-BOUND; H-NECK-ENERGY; H-MS-SPLIT; H-TOTAL-IS-ADM (now the boundary: you chose
-    the pull); H-RS1 and H-QUASISTATIC (a static family is not a widening process; no dynamics computed); H-HOLD-PERSISTS (the
-    closing hold stays a horizon of the same mass at position 2).
+  M's: H-PULL-IS-COST, H-ONE-MOUTH-SEEN, H-CORRIDOR-HORIZON, H-TWO-SIDED-HORIZON (104); H-RECIPROCAL, H-THREE-HOLDS,
+    H-SPLIT-AT-P2 (106); H-DEFINITION-MINUS-MASS (107, 108); H-README-AS-NEEDED (108); H-HORIZON-NEEDS-OBJECT (109);
+    H-ENERGY-INTO-P2 (110); H-BUILD-IS-CLOSING-ENERGY, H-ONE-ENERGY-TWO-SIDES (111); H-SEPARATE-UNIVERSES (101.5);
+    H-READING-ONLY (86.1).
+  The board's: H-BK-CORRIDOR (a static 4D brane metric; your "transit phase through a dimension" is a bulk throat);
+    H-HORIZON-HOLDS, H-STRONG-BOUND; R-RECIPROCAL-AS-PRODUCT; H-QUASISTATIC; H-TFD-MODEL (one energy modelled by the
+    thermofield double); H-ASYMPTOTIC-FLAT-ENDS (boundary); H-SCHWARZSCHILD-REMNANT, H-SM-ONLY (the withdrawn hold's
+    figures); H-RS1.
 
-HISTORY (verifier, 2026-10-06; first-written claims kept in PLANE.md)
-  * BK pages were "p.6" for eqs. 13 and 17 (escape.py's citation): eq. 13 is p.3, eq. 17 and its range p.4 (rulings
-    item 105).  "The corridor contains positive energy at its neck": eq. 18 gives rho < 0 everywhere at m = -2 r0; r0/2
-    is the throat's area-mass.  P8's "exact additive inverse" restated the zero total and depended on H-MS-SPLIT.
-    "A corridor can cost nothing" lacked H-TOTAL-IS-ADM (and M then chose the pull).  The z3 checks were one line of
-    algebra each (STRUCTURAL now; the Penrose inequality cited).  Restatement checks were counted.  The control's
-    m = 0.6 r0 was "inside the range": it is BK's horizon case.  "No matter on either plane" lacked BK p.2's 5D caveat;
-    "making is enlarging ... safe" lacked H-QUASISTATIC; "no more, no less" dropped the trajectories' share; the
-    two-sided picture needs traversability; the Higgs wording was a corrected one (ledger D17).
+HISTORY (verifiers, 2026-10-06; first-written claims kept in PLANE.md)
+  First pass: BK pages; "positive energy at its neck"; P8 a restatement; ADM unnamed; z3 one-line algebra; restatement
+  checks; the control mislabelled; the 5D caveat; H-QUASISTATIC; the trajectories' share; traversability; Higgs wording.
+  Second pass: the P2 and P4 checks were tautological (now STRUCTURAL); "the pull is the horizon's own mass" -- it is the
+  area-mass, the horizon's Komar charge is less; P2 omitted r0 in (0.75, 1) r_min and the ADM range; "the floor was
+  always a horizon" over-read; the Penrose premises were unnamed; "crossing ruled out" was wrong -- the passage is
+  one-way 1 -> 2; the window's extension was attributed to BK; T assumed Schwarzschild; the evaporation time is now READ
+  (~7.8e-21 s, not 1.6e-18 s); P3 superseded by item 106; the reciprocal as a product is the board's gloss; item 106 was
+  not quoted in full; wall 13 "closed" was too strong; the energy bookkeeping was omitted; one digit (3.207837767e16).
 
 USAGE
     python3 plane.py | --selftest | --json
@@ -103,17 +123,28 @@ _CACHE = {}
 
 BK_READ = {
     "source": "Bronnikov & Kim, 'Possible wormholes in a brane world', gr-qc/0212112v1",
-    "route": "arXiv PDF via Firecrawl (query, direct quote) and alphaXiv (verifier), 2026-10-06",
+    "route": "arXiv PDF via Firecrawl and alphaXiv (verifiers), 2026-10-06",
     "eq_13": "p.3",
     "eq_17": "p.4: ds^2 = (1 - 2m/r) dt^2 - (1 - 3m/(2r)) dr^2 / ((1 - 2m/r)(1 - r0/r)) - r^2 dOmega^2",
     "range": "p.4: 'This is evidently a symmetric wormhole geometry for any r0 > 2m >= 0, or for any r0 > 0 in case "
              "m < 0. The Schwarzschild metric is restored from (17) in the special case r0 = 3m/2.'",
     "horizon_case": "p.4: 'If eta > 0, the solution describes a nonsingular black hole with a wormhole throat at r = r0 "
-                    "inside the horizon, in other words, a non-traversable wormhole [33]' (eta = r0 - 3m/2; r = 2m the "
-                    "event horizon)",
+                    "inside the horizon, in other words, a non-traversable wormhole [33]' (eta = r0 - 3m/2, framed for "
+                    "r0 close to 3m/2)",
     "eq_18": "p.4: rho = m (r0 - 3m/2) / (2 r^2 (r - 3m/2)^2)",
+    "p1": "'E_mu nu does not necessarily satisfy the energy conditions'",
     "p2": "'a restriction can quite probably appear from 5-dimensional geometry'",
     "p6": "'a complete model requires knowledge of the full 5-dimensional space-time'",
+}
+VERIFIER_READ = {
+    "simpson_visser": "1812.07114v3 p.3 'A regular black hole geometry with a one-way spacelike throat ... a bounce into "
+                      "a future incarnation of the universe'; pp.4-5 'a bounce into a separate copy of our own universe'; "
+                      "p.11 eq. 6.5 T_H = T_H,Sch sqrt(1 - a^2/(2m)^2)",
+    "carr_et_al": "2002.12778v2 p.9 eq. 12 dM10/dt = -5.34e-5 f(M) M10^-2 s^-1; p.10 f = 15.35 for the Standard Model up "
+                  "to 1 TeV, eq. 14 tau ~ 407 (f(M)/15.35)^-1 M10^3 s",
+    "madler_winicour": "1609.01731v3 p.16 eq. 61: 'if there is news, then its Bondi mass must decrease. If there is no "
+                       "news ... the Bondi mass is constant.'",
+    "bray": "math/9911173v1: Riemannian positive mass eq. 5 p.4; Penrose inequality eq. 6 p.4, Thm 1 p.8; ADM Def. 21 p.54",
 }
 
 
@@ -131,29 +162,37 @@ def _load(path, key):
 
 
 def owners():
-    """Imported, never copied: chain.py (the floor, its constants, the trip energies via uses), escape.py (R = 0)."""
+    """Imported, never copied: chain.py (floor, constants, trips), escape.py (R = 0), pair.py (Hawking T), higgs.py
+    (m_h), geometry.py (the thermofield double), stockdest.py (the 70 kg payload)."""
     if not _CACHE:
         _CACHE["chain"] = _load(os.path.join(HERE, "chain.py"), "copy_chain_plane")
         _CACHE["escape"] = _load(os.path.join(D68, "bulk", "escape.py"), "d68_escape_plane")
         _CACHE["pair"] = _load(os.path.join(WD, "pair.py"), "wd_pair_plane")
         _CACHE["higgs"] = _load(os.path.join(WD, "higgs.py"), "wd_higgs_plane")
+        _CACHE["geometry"] = _load(os.path.join(D68, "geometry.py"), "d68_geometry_plane")
+        _CACHE["stockdest"] = _load(os.path.join(HERE, "stockdest.py"), "copy_stockdest_plane")
     return _CACHE
 
 
 def bk_masses():
-    """Eq. (17), geometric units: ADM (1/r coefficient of g_rr = 1 + 2M/r), Komar (of -g_tt = 1 - 2M/r), the Misner-Sharp
-    mass MS(r) = (r/2)(1 - g^rr) at the throat and at the horizon r = 2m, eq. (18)'s rho and dMS/dr - r^2 rho / 2, the
-    Penrose comparison ADM - MS(2m), and the light-bending mass (Komar + ADM)/2 (PPN: alpha b = 2(A + B))."""
+    """Eq. (17), geometric units: ADM, Komar at infinity, Misner-Sharp at the throat and horizon, eq. (18)'s rho check,
+    the Penrose gap, the light-bending mass, the horizon's own Komar charge kappa A/4pi, and the x-form dx^2 coefficient."""
     import sympy as sp
     r, r0 = sp.symbols("r r0", positive=True)
     m = sp.symbols("m", real=True)
-    u = sp.symbols("u", positive=True)
+    u, x = sp.symbols("u x", real=True)
     grr = (1 - sp.Rational(3, 2) * m / r) / ((1 - 2 * m / r) * (1 - r0 / r))
     gtt = 1 - 2 * m / r
     M_adm = sp.simplify(sp.expand(sp.series(grr.subs(r, 1 / u), u, 0, 2).removeO()).coeff(u, 1) / 2)
     M_k = sp.simplify(-sp.expand(gtt.subs(r, 1 / u)).coeff(u, 1) / 2)
     ms = sp.simplify((r / 2) * (1 - 1 / grr))
     rho = m * (r0 - sp.Rational(3, 2) * m) / (2 * r ** 2 * (r - sp.Rational(3, 2) * m) ** 2)
+    # surface gravity at r = 2m for ds^2 = f dt^2 - g dr^2: kappa = f' / (2 sqrt(f g)) at the horizon
+    fg = sp.simplify(gtt * grr)
+    kappa = sp.simplify((sp.diff(gtt, r) / (2 * sp.sqrt(fg))).subs(r, 2 * m))
+    komar_h = sp.simplify(kappa * (2 * m) ** 2)
+    # x-form: r = r0 + x^2, dr^2 = 4 x^2 dx^2 = 4 (r - r0) dx^2
+    cxx = sp.simplify((grr * 4 * (r - r0)).subs(r, r0 + x ** 2))
     return {
         "M_adm": M_adm, "M_komar": M_k, "MS": ms,
         "MS_throat": sp.simplify(ms.subs(r, r0)), "MS_horizon": sp.simplify(ms.subs(r, 2 * m)),
@@ -163,18 +202,15 @@ def bk_masses():
         "m_zero_adm": sp.solve(sp.Eq(M_adm, 0), m),
         "rho_at_minus2r0": sp.simplify(rho.subs(m, -2 * r0)),
         "rho_negative_form": sp.simplify(rho.subs(m, -2 * r0) + 4 * r0 ** 2 / (r ** 2 * (r + 3 * r0) ** 2)) == 0,
-        "syms": (r, r0, m),
+        "kappa": kappa, "komar_horizon": komar_h, "cxx": cxx,
+        "syms": (r, r0, m, x),
     }
 
 
 def horizon_member(m_over_r0):
-    """For r0 = 1: is there a horizon outside the throat (2m > r0), and is the singular radius 3m/2 inside the throat
-    (3m/2 < r0)?  Scanned numerically on r in (r0, 3 r0]: g_tt changes sign at r = 2m, and 1 - 3m/2r stays > 0."""
-    r0 = 1.0
-    m = m_over_r0
-    sign_change = False
-    num_ok = True
-    prev = None
+    """For r0 = 1: a horizon outside the throat (g_tt changes sign on (r0, 3 r0]) and no singular radius outside it."""
+    r0, m = 1.0, m_over_r0
+    sign_change, num_ok, prev = False, True, None
     for i in range(1, 30001):
         r = r0 + 2.0 * i / 30000
         gtt = 1 - 2 * m / r
@@ -185,90 +221,116 @@ def horizon_member(m_over_r0):
     return {"horizon_outside_throat": sign_change, "no_singularity_outside": num_ok}
 
 
-def three_holds(E_hold_J):
-    """Item 106 (H-THREE-HOLDS) under H-HORIZON-HOLDS and H-PULL-IS-COST: the pull each plane reads at each hold, each
-    holding horizon at the floor.  Opening: position 1's horizon only; realized: both (eq. 17 is symmetric, so both
-    mouths carry the same m); closing: position 2's only."""
-    return {"opening": {"P1": E_hold_J, "P2": 0.0}, "realized": {"P1": E_hold_J, "P2": E_hold_J},
-            "closing": {"P1": 0.0, "P2": E_hold_J}}
+def one_energy_tfd(d=6, beta=0.7):
+    """H-TFD-MODEL: in geometry.tfd (|psi> = sum_i e^{-beta E_i/2} |i>|i>, E_i = i) the variance of H_left - H_right, and
+    in the product state rho_L x rho_R with the same marginals (the control)."""
+    import numpy as np
+    geo = owners()["geometry"]
+    psi = geo.tfd(d, beta)
+    H = np.diag(np.arange(d, dtype=float))
+    I = np.eye(d)
+    D = np.kron(H, I) - np.kron(I, H)
+    rho = np.outer(psi, psi.conj())
+    var_tfd = float(np.real(np.trace(rho @ D @ D)) - np.real(np.trace(rho @ D)) ** 2)
+    p = np.abs(psi.reshape(d, d).diagonal()) ** 2
+    rl = np.diag(p)
+    rho_prod = np.kron(rl, rl)
+    var_prod = float(np.real(np.trace(rho_prod @ D @ D)) - np.real(np.trace(rho_prod @ D)) ** 2)
+    var_side = float(np.sum(p * np.arange(d) ** 2) - np.sum(p * np.arange(d)) ** 2)
+    return {"var_diff_tfd": var_tfd, "var_diff_product": var_prod, "var_one_side": var_side}
 
 
-def closing_horizon(E_hold_J):
-    """If the closing hold persists at position 2 as a horizon of the same mass (H-HOLD-PERSISTS): its mass, Hawking
-    temperature (pair.hawking_temperature, imported) and k_B T against the Higgs mass (higgs.M_HIGGS, imported).  The
-    photon-only evaporation time 5120 pi G^2 M^3 / (hbar c^4) is printed as NOT READ, not counted."""
+def closing_remnant(E_J):
+    """The withdrawn H-HOLD-PERSISTS's figures (boundary): mass, Schwarzschild Hawking T (pair.py, an upper bound for a
+    BK member), k_B T against m_h (higgs.py), and Carr et al.'s Standard Model lifetime (READ by a verifier)."""
     o = owners()
     pr, hg = o["pair"], o["higgs"]
-    M = E_hold_J / pr.C ** 2
+    M = E_J / pr.C ** 2
     T = pr.hawking_temperature(M)
     kT_GeV = pr.KB * T / (pr.E_CHARGE * 1e9)
-    t_evap = 5120 * math.pi * pr.G ** 2 * M ** 3 / (pr.HBAR * pr.C ** 4)
-    return {"M_kg": M, "T_K": T, "kT_GeV": kT_GeV, "m_higgs_GeV": hg.M_HIGGS, "kT_over_mh": kT_GeV / hg.M_HIGGS,
-            "t_evap_s_NOT_READ": t_evap, "E_released_J": E_hold_J}
+    M10 = M * 1e3 / 1e10
+    return {"M_kg": M, "T_Sch_K": T, "kT_GeV": kT_GeV, "kT_over_mh": kT_GeV / hg.M_HIGGS, "m_h_GeV": hg.M_HIGGS,
+            "tau_SM_s": 407.0 * M10 ** 3, "tau_photon_only_s": 5120 * math.pi * pr.G ** 2 * M ** 3 / (pr.HBAR * pr.C ** 4)}
 
 
 def compute():
     import sympy as sp
     o = owners()
-    ch, esc = o["chain"], o["escape"]
+    ch, esc, sd = o["chain"], o["escape"], o["stockdest"]
     bk = bk_masses()
-    r, r0, m = bk["syms"]
+    r, r0, m, x = bk["syms"]
     co = ch.coefficients()
     uses = ch.owners()["uses"]
     seat, fa = uses.owners()[0], uses.owners()[1]
     core = fa.identity_core()["total_bits"]
-    fl = ch.corridor_floor(core)
+    snap = fa._measure()["grid_0p1A"]
+    fl, fs = ch.corridor_floor(core), ch.corridor_floor(snap)
+    c2 = seat.C ** 2
     c4G = seat.C ** 4 / seat.G
     rmin = fl["r_m"]
+    M_obj = sd.PAYLOAD_KG
+    # N* = 8 pi^2 G M^2 / (h c ln2), from the owners' constants (M-COEFF: h, c exact; G measured)
+    h = ch.owners()["cosmo"]._HBAR * 2 * math.pi
+    nstar_per_kg2 = 8 * math.pi ** 2 * seat.G / (h * seat.C * math.log(2))
+    nstar = nstar_per_kg2 * M_obj ** 2
+    fl_star = ch.corridor_floor(nstar)
     with contextlib.redirect_stdout(io.StringIO()):
         throats = esc.bk_throats()
         trip01 = uses.trip_energy(0.1)
     emin = co["E_min_J_per_sqrt_bit"]["value"]
     m_zero = float(bk["m_zero_adm"][0].subs(r0, rmin))
+    cxx = bk["cxx"]
     return {
-        "bk_read": BK_READ,
+        "bk_read": BK_READ, "verifier_read": VERIFIER_READ,
         "M_adm": str(bk["M_adm"]), "M_komar": str(bk["M_komar"]), "MS_throat": str(bk["MS_throat"]),
         "MS_horizon": str(bk["MS_horizon"]), "dMS_minus_rho": str(bk["dMS_minus_rho"]),
         "penrose_gap": str(bk["penrose_gap"]), "M_light": str(bk["M_light"]),
         "m_zero_adm": [str(z) for z in bk["m_zero_adm"]], "rho_at_minus2r0": str(bk["rho_at_minus2r0"]),
         "rho_negative_form": bool(bk["rho_negative_form"]),
+        "komar_horizon": str(bk["komar_horizon"]),
+        "komar_horizon_at_1p8": float(bk["komar_horizon"].subs({m: 1, r0: 1.8})),
+        "cxx_x0_m1_r1p8": float(cxx.subs({x: 0, m: 1, r0: 1.8})),
+        "cxx_x0_m0p4_r1": float(cxx.subs({x: 0, m: 0.4, r0: 1.0})),
         "member_0p6": horizon_member(0.6), "member_0p4": horizon_member(0.4), "member_0p7": horizon_member(0.7),
         "bk_R": [str(t[0]) for t in throats],
-        "core_bits": core, "r_min_core_m": rmin, "floor_core_J": fl["E_J"],
+        "tfd": one_energy_tfd(),
+        "core_bits": core, "snap_bits": snap, "r_min_core_m": rmin, "floor_core_J": fl["E_J"],
         "E_min_per_sqrt_bit_J": emin, "u_r_G": co["E_min_J_per_sqrt_bit"]["u_r"],
-        "pull_window_per_sqrt_bit_J": (emin, 4.0 / 3.0 * emin),
-        "pull_window_core_J": (float(bk["M_komar"].subs(m, rmin / 2)) * c4G,
-                               float(bk["M_komar"].subs(m, 2 * rmin / 3)) * c4G),
         "pull_horizon_holds_core_J": float(bk["M_komar"].subs(m, rmin / 2)) * c4G,
+        "adm_range_at_floor": (float(bk["M_adm"].subs({m: rmin / 2, r0: 0.75 * rmin})) * c4G / fl["E_J"],
+                               float(bk["M_adm"].subs({m: rmin / 2, r0: rmin})) * c4G / fl["E_J"]),
         "bekenstein_product_per_bit_Jm": co["bekenstein_J_m_per_bit"]["value"],
         "E_times_r_core_Jm": fl["E_J"] * fl["r_m"],
         "trip_0p1c_J": trip01,
-        "zero_member": {"m_over_r0": -2, "adm_J": float(bk["M_adm"].subs({m: m_zero, r0: rmin})) * c4G,
-                        "pull_J": m_zero * c4G, "light_J": float(bk["M_light"].subs({m: m_zero, r0: rmin})) * c4G,
-                        "throat_area_mass_J": float(bk["MS_throat"].subs(r0, rmin)) * c4G},
+        "zero_member": {"adm_J": float(bk["M_adm"].subs({m: m_zero, r0: rmin})) * c4G, "pull_J": m_zero * c4G,
+                        "light_J": float(bk["M_light"].subs({m: m_zero, r0: rmin})) * c4G},
+        "payload_kg": M_obj, "carried_core_kg": fl["E_J"] / c2, "carried_snap_kg": fs["E_J"] / c2,
+        "apparent_core_kg": fl["E_J"] / c2 - M_obj, "apparent_snap_kg": fs["E_J"] / c2 - M_obj,
+        "nstar_per_kg2": nstar_per_kg2, "nstar": nstar, "floor_at_nstar_J": fl_star["E_J"], "Mc2_J": M_obj * c2,
+        "remnant": closing_remnant(fl["E_J"]),
         "c4_over_G_J_per_m": c4G,
-        "three_holds_core_J": three_holds(fl["E_J"]),
-        "closing_core": closing_horizon(fl["E_J"]),
     }
 
 
 def report(d):
-    print("plane.py -- items 101, 102, 104: the pull as the cost, the two-sided horizon, the inverse of a mass")
-    print("Bronnikov-Kim eq. (17) (READ, p.4): %s" % d["bk_read"]["range"])
-    print("  %s" % d["bk_read"]["horizon_case"])
-    print("  pull (Komar) = %s; Misner-Sharp at the horizon r = 2m = %s; at the throat = %s; ADM = %s" % (
-        d["M_komar"], d["MS_horizon"], d["MS_throat"], d["M_adm"]))
-    print("  Penrose gap ADM - MS(2m) = %s  (> 0 iff r0 > 3m/2, BK's no-singularity condition)" % d["penrose_gap"])
-    lo, hi = d["pull_window_per_sqrt_bit_J"]
-    print("  horizon members r0/2 < m < 2r0/3; with r0 = r_min(N): %.9e < E_pull / sqrt(N) < %.9e J" % (lo, hi))
-    print("  core README (%.6e bits): pull %.9e J (horizon holds) ... window %.9e to %.9e J (throat holds); 0.1 c trip "
-          "%.4e J" % (d["core_bits"], d["pull_horizon_holds_core_J"], d["pull_window_core_J"][0],
-                      d["pull_window_core_J"][1], d["trip_0p1c_J"]))
-    print("  item 102 reciprocal: E x r at the floor = %.9e J m = %.9e J m/bit x N" % (
-        d["E_times_r_core_Jm"], d["bekenstein_product_per_bit_Jm"]))
-    z = d["zero_member"]
-    print("  item 102 negative (boundary, no horizon): m = -2 r0: ADM %.3e J, pull %.6e J, light %.6e J, throat "
-          "area-mass %.6e J" % (z["adm_J"], z["pull_J"], z["light_J"], z["throat_area_mass_J"]))
+    print("plane.py -- items 101-111: the corridor in Bronnikov-Kim's family")
+    print("BK eq. (17) (READ, p.4): %s" % d["bk_read"]["range"])
+    print("  pull (Komar, infinity) = %s = MS at the horizon (%s); the horizon's own Komar charge = %s; ADM = %s" % (
+        d["M_komar"], d["MS_horizon"], d["komar_horizon"], d["M_adm"]))
+    print("  one-way: x-form dx^2 coefficient at x = 0: %.4f (m = 1, r0 = 1.8: x timelike); %.4f (m = 0.4, r0 = 1)" % (
+        d["cxx_x0_m1_r1p8"], d["cxx_x0_m0p4_r1"]))
+    print("  least pull (horizon holds, core): %.9e J; ADM at that m between %.4f and %.4f of it" % (
+        d["pull_horizon_holds_core_J"], d["adm_range_at_floor"][0], d["adm_range_at_floor"][1]))
+    t = d["tfd"]
+    print("  one energy (thermofield double): var(H_L - H_R) = %.3e; product state %.4f; one side %.4f" % (
+        t["var_diff_tfd"], t["var_diff_product"], t["var_one_side"]))
+    print("  README against its object (%.0f kg): core carries %.7f kg -> apparent %.4f kg; snapshot carries %.4e kg" % (
+        d["payload_kg"], d["carried_core_kg"], d["apparent_core_kg"], d["carried_snap_kg"]))
+    print("  N* = 8 pi^2 G M^2/(h c ln2) = %.9e bits/kg^2 x M^2 = %.9e bits; floor there %.9e J vs Mc^2 %.9e J" % (
+        d["nstar_per_kg2"], d["nstar"], d["floor_at_nstar_J"], d["Mc2_J"]))
+    rm = d["remnant"]
+    print("  boundary (withdrawn H-HOLD-PERSISTS): %.4e kg, T <= %.4e K, tau ~ %.2e s (SM, READ) vs %.2e s photon-only" %
+          (rm["M_kg"], rm["T_Sch_K"], rm["tau_SM_s"], rm["tau_photon_only_s"]))
 
 
 def selftest(d):
@@ -287,60 +349,57 @@ def selftest(d):
     import sympy as sp
     r0s, ms = sp.Symbol("r0", positive=True), sp.Symbol("m", real=True)
     S = lambda e: sp.sympify(e, locals={"m": ms, "r0": r0s})
-    chk("eq. (17)'s pull (Komar) is m and the Misner-Sharp mass at the horizon r = 2m is m (sympy: %s, %s): the pull is "
-        "the horizon's mass" % (d["M_komar"], d["MS_horizon"]),
+    chk("the pull (Komar at infinity) is m and equals the horizon's area-mass, Misner-Sharp at r = 2m (sympy: %s, %s)" % (
+        d["M_komar"], d["MS_horizon"]),
         sp.simplify(S(d["M_komar"]) - ms) == 0 and sp.simplify(S(d["MS_horizon"]) - ms) == 0)
-    chk("eq. (17)'s ADM total is m/4 + r0/2 and the throat's Misner-Sharp mass is r0/2 (sympy: %s, %s)" % (
-        d["M_adm"], d["MS_throat"]),
+    chk("ADM = m/4 + r0/2 and the throat's area-mass r0/2 (sympy: %s, %s)" % (d["M_adm"], d["MS_throat"]),
         sp.simplify(S(d["M_adm"]) - (ms / 4 + r0s / 2)) == 0 and sp.simplify(S(d["MS_throat"]) - r0s / 2) == 0)
-    chk("dMS/dr = r^2 rho / 2 with BK's eq. (18) rho (READ p.4): the derived masses agree with the printed density "
-        "(residual %s)" % d["dMS_minus_rho"], d["dMS_minus_rho"] == "0")
-    gap = S(d["penrose_gap"])
-    chk("P4: ADM exceeds the horizon's mass exactly when r0 > 3m/2 (gap %s; sign at m = 0.6 r0: +, at m = 0.7 r0: -) -- "
-        "the Penrose inequality is BK's no-singularity condition" % d["penrose_gap"],
-        sp.simplify(gap - (r0s / 2 - 3 * ms / 4)) == 0 and gap.subs({ms: 0.6, r0s: 1}) > 0 and
-        gap.subs({ms: 0.7, r0s: 1}) < 0)
+    chk("dMS/dr = r^2 rho / 2 with BK's eq. (18) (READ): residual %s" % d["dMS_minus_rho"], d["dMS_minus_rho"] == "0")
+    chk("P2: the horizon's own Komar charge kappa A/4pi = %s is below the pull m (0.63 m at r0 = 1.8 m: %.4f)" % (
+        d["komar_horizon"], d["komar_horizon_at_1p8"]), 0 < d["komar_horizon_at_1p8"] < 1)
     m6, m4, m7 = d["member_0p6"], d["member_0p4"], d["member_0p7"]
-    chk("P1: m = 0.6 r0 has a horizon outside the throat and no singular radius outside it (your corridor's kind)",
+    chk("P1: m = 0.6 r0 has a horizon outside the throat and no singular radius outside it",
         m6["horizon_outside_throat"] and m6["no_singularity_outside"])
-    chk("m = 0.4 r0 (2m < r0) has no horizon outside the throat", not m4["horizon_outside_throat"], ctl=True)
-    chk("m = 0.7 r0 (> 2r0/3) puts the singular radius 3m/2 outside the throat", not m7["no_singularity_outside"],
-        contrast=True)
+    chk("m = 0.4 r0 has no horizon outside the throat", not m4["horizon_outside_throat"], ctl=True)
+    chk("m = 0.7 r0 puts the singular radius outside the throat", not m7["no_singularity_outside"], contrast=True)
+    chk("P1: between the horizons x is timelike (dx^2 coefficient %.4f < 0 at x = 0, m = 1, r0 = 1.8): one-way passage" %
+        d["cxx_x0_m1_r1p8"], d["cxx_x0_m1_r1p8"] < 0)
+    chk("an ordinary throat (r0 > 2m: m = 0.4, r0 = 1) keeps x spacelike (coefficient %.4f > 0)" % d["cxx_x0_m0p4_r1"],
+        d["cxx_x0_m0p4_r1"] > 0, ctl=True)
     chk("eqs. (13) and (17) have R = 0 (escape.bk_throats, imported: %s)" % d["bk_R"], d["bk_R"] == ["0", "0"])
-    lo, hi = d["pull_window_core_J"]
-    chk("P3: with the throat holding the core README the pull lies in (%.9e, %.9e) J, and the 0.1 c trip (%.6e J) falls "
-        "inside that window" % (lo, hi, d["trip_0p1c_J"]), lo < d["trip_0p1c_J"] < hi)
-    chk("P2: with the horizon holding it the least pull equals chain.py's bisected floor (%.9e J vs %.9e J)" % (
-        d["pull_horizon_holds_core_J"], d["floor_core_J"]),
-        abs(d["pull_horizon_holds_core_J"] / d["floor_core_J"] - 1) < 1e-9)
-    chk("P5 (boundary): the ADM total vanishes only at m = -2 r0 (%s), where BK's eq. (18) density is negative "
-        "everywhere (%s)" % (d["m_zero_adm"], d["rho_at_minus2r0"]),
-        d["m_zero_adm"] == ["-2*r0"] and d["rho_negative_form"])
-    ch_ = d["closing_core"]
-    chk("P6 (item 106): if the closing hold persists at position 2 as a horizon of the core's floor mass (%.6e kg), its "
-        "Hawking temperature (%.6e K, pair.py) gives k_B T = %.4e GeV, %.3e times the Higgs mass (%.2f GeV, higgs.py)" % (
-            ch_["M_kg"], ch_["T_K"], ch_["kT_GeV"], ch_["kT_over_mh"], ch_["m_higgs_GeV"]), ch_["kT_over_mh"] > 1e6)
-    h3 = d["three_holds_core_J"]
-    structural.append("P6: the three holds' pulls (P1, P2) in J: opening (%.4e, %.0f), realized (%.4e, %.4e), closing "
-                      "(%.0f, %.4e) -- the realized hold's equal pair is eq. 17's symmetry (by construction)" % (
-                          h3["opening"]["P1"], h3["opening"]["P2"], h3["realized"]["P1"], h3["realized"]["P2"],
-                          h3["closing"]["P1"], h3["closing"]["P2"]))
-    structural.append("P6: the photon-only evaporation time 5120 pi G^2 M^3/(hbar c^4) = %.3e s -- NOT READ (no owner on "
-                      "the board), not counted" % ch_["t_evap_s_NOT_READ"])
+    t = d["tfd"]
+    chk("P6: one energy read from two sides -- in the thermofield double var(H_L - H_R) = %.2e while each side varies "
+        "(%.4f)" % (t["var_diff_tfd"], t["var_one_side"]), t["var_diff_tfd"] < 1e-12 and t["var_one_side"] > 0.1)
+    chk("in the product state with the same marginals the two readings are independent: var(H_L - H_R) = %.4f = 2 x one "
+        "side" % t["var_diff_product"], abs(t["var_diff_product"] - 2 * t["var_one_side"]) < 1e-9 and
+        t["var_diff_product"] > 0.1, ctl=True)
+    chk("P7: the core README appears negative against its %.0f kg object (%.4f kg) and the largest snapshot positive "
+        "(%.4e kg)" % (d["payload_kg"], d["apparent_core_kg"], d["apparent_snap_kg"]),
+        d["apparent_core_kg"] < 0 < d["apparent_snap_kg"])
+    chk("P7: the bisected floor at N* = %.9e bits equals Mc^2 (%.9e J vs %.9e J): the closed form N* = 8 pi^2 G M^2/"
+        "(h c ln2) holds" % (d["nstar"], d["floor_at_nstar_J"], d["Mc2_J"]),
+        abs(d["floor_at_nstar_J"] / d["Mc2_J"] - 1) < 1e-9)
+    chk("P5 (boundary): the ADM total vanishes only at m = -2 r0 (%s), where eq. (18)'s density is negative everywhere" % (
+        d["m_zero_adm"]), d["m_zero_adm"] == ["-2*r0"] and d["rho_negative_form"])
+    structural.append("P2: with the horizon holding, the least pull equals the floor (%.9e J vs %.9e J) -- by "
+                      "construction, 2m = r_min (first counted)" % (d["pull_horizon_holds_core_J"], d["floor_core_J"]))
+    structural.append("P2: at m = r_min/2 the throat lies in (0.75, 1) r_min and the ADM total reads %.4f to %.4f of the "
+                      "floor" % d["adm_range_at_floor"])
+    structural.append("P4: ADM - MS(2m) = %s > 0 iff r0 > 3m/2 -- one line of algebra (first counted)" % d["penrose_gap"])
+    structural.append("P5: E x r at the floor = %.9e J m = N x %.9e J m/bit -- by construction (Bekenstein saturated)" % (
+        d["E_times_r_core_Jm"], d["bekenstein_product_per_bit_Jm"]))
     z = d["zero_member"]
-    structural.append("P5: at m = -2 r0 the pull reads %.6e J, light %.6e J, the ADM total %.1e J; with H-MS-SPLIT the "
-                      "energy outside the throat is %.6e J, the negative of the throat's area-mass -- a restatement of "
-                      "the zero total (first counted as P8)" % (z["pull_J"], z["light_J"], z["adm_J"],
-                                                                 -z["throat_area_mass_J"]))
-    structural.append("P5 reciprocal: E x r at the floor = %.9e J m = N x %.9e J m/bit -- the floor's definition, "
-                      "Bekenstein saturated (first written nowhere)" % (d["E_times_r_core_Jm"],
-                                                                      d["bekenstein_product_per_bit_Jm"]))
-    structural.append("the pull window's ends are r_min/2 and 2 r_min/3 times c^4/G = %.9e J/m (M-COEFF: c^4/G, u_r "
-                      "2.2e-5); an error dm off m = -2 r0 costs dm c^4/(4G) = %.9e J per metre" % (
-                          d["c4_over_G_J_per_m"], d["c4_over_G_J_per_m"] / 4))
-    structural.append("Penrose and positive-mass inequalities: Bray math/9911173v1 eq. 5-6 p.4, Thm 1 p.8 (READ by the "
-                      "verifier); the old z3 forms were one line of algebra each (first counted)")
-    structural.append("H-QUASISTATIC: a static family in r0 is not a widening process; no dynamics computed")
+    structural.append("P5 boundary: at m = -2 r0 pull %.6e J, light %.6e J, ADM %.1e J" % (z["pull_J"], z["light_J"],
+                                                                                         z["adm_J"]))
+    rm = d["remnant"]
+    structural.append("withdrawn H-HOLD-PERSISTS (item 109): %.6e kg, T_Sch %.6e K (upper bound for a BK member), k_B T = "
+                      "%.4e GeV = %.3e m_h; tau ~ %.2e s (Carr et al., SM, READ by a verifier) vs %.2e s photon-only" % (
+                          rm["M_kg"], rm["T_Sch_K"], rm["kT_GeV"], rm["kT_over_mh"], rm["tau_SM_s"],
+                          rm["tau_photon_only_s"]))
+    structural.append("P3 superseded by item 106 (the bits on horizons); its window was (1, 4/3) x the floor; the 0.1 c "
+                      "trip %.6e J" % d["trip_0p1c_J"])
+    structural.append("H-QUASISTATIC: the opening and closing holds have no static member; a Komar pull needs a Killing "
+                      "vector")
     for s_ in structural:
         print("  STRUCTURAL: " + s_)
     print("plane.py: %d/%d checks pass, %d of them controls and %d contrasts; %d STRUCTURAL printed, not counted" % (
