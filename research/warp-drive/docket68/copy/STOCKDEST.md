@@ -45,8 +45,10 @@ Every number is printed by `stockdest.py`.
   kept as the boundary.
 - *First written* (point 3 and For M): "the device must be placed on a body that passes the gate" and "The one
   non-local cost is getting the first device to position 2." Under H-CORRIDOR-CONTAINS-P2 there is no such cost.
-- **What builds at position 2 with no device there is OPEN (OPEN 6).** On the board's reading, H-COLOCATED-BUILD
-  supplied the builder.
+- **What builds at position 2 with no device there:** you answered (item 91) *"Position 2 itself"*
+  (H-POSITION-BUILDS). The position builds when it receives the README, with what it has. What that asks of the
+  position is OPEN (OPEN 6). On the board's reading, H-COLOCATED-BUILD supplied the builder. *First written* "What
+  builds at position 2 with no device there is OPEN (OPEN 6)."
 
 ## What follows the work
 
@@ -121,7 +123,7 @@ Every number is printed by `stockdest.py`.
 - **H-ADDRESS-INPUT** (M's, item 86); **B-RECV** (the board's); **H-COLOCATED-BUILD**; **H-SITE**.
 - **H-ROCKY**; **H-EARTHLIKE-CRUST** (one reservoir of one planet, not evidence about Proxima); **H-VOLATILE-RICH**
   (*first named* H-VOLATILES-ELSEWHERE, and labelled the dry branch); **H-CRUST-DENSITY** (NAMED-NOT-READ).
-- **H-CORRIDOR-CONTAINS-P2** (M's, item 90).
+- **H-CORRIDOR-CONTAINS-P2** (M's, item 90); **H-POSITION-BUILDS** (M's, item 91).
 - **H-PRIMITIVE-AS-PRICE** (offered, not adopted); **H-STOCK-IS-STOCK** and **H-COST-IN-README** (M's, item 89); **M_EARTH** = 5.9722×10²⁴ kg (a standard value, GM⊕/G, not READ this pass).
 
 ## Sources READ (alphaXiv, open arXiv copies, printed pages; verifier-READ again)
@@ -141,7 +143,8 @@ Every number is printed by `stockdest.py`.
 4. Separation energy, and the volatile reservoir's mass.
 5. Under H-COST-IN-README: how much a site's composition adds to the README. *First listed* as "H-PRIMITIVE-AS-PRICE:
    your ruling"; now ruled (item 89).
-6. Under H-CORRIDOR-CONTAINS-P2 (item 90): what reads the README and builds at position 2 when no device is there.
+6. Under H-CORRIDOR-CONTAINS-P2 (item 90) and H-POSITION-BUILDS (item 91): what the position must be, or hold, to read
+   the README and build. *First listed* as "what reads the README and builds at position 2 when no device is there".
 
 ## History (verifier, 2026-10-06; first-written claims kept above, each where it stood)
 

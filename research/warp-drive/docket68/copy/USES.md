@@ -17,7 +17,8 @@
   device".
 
 Every number is printed by `uses.py`.
-- **Selftest:** 19/19 checks, 3 genuine controls and 2 contrasts, with 10 STRUCTURAL lines printed and not counted.
+- **Selftest:** 22/22 checks, 4 genuine controls and 3 contrasts, with 11 STRUCTURAL lines printed and not counted.
+  *Before item 91* "19/19 checks, 3 genuine controls and 2 contrasts, with 10 STRUCTURAL lines".
   *Until item 90* "16/16 checks, 2 genuine controls and 2 contrasts, with 7 STRUCTURAL lines"; *first after item 90*
   "19/19 checks, 3 genuine controls and 2 contrasts, with 9 STRUCTURAL lines", when U8's k\* = 0 check could not fail
   and its control duplicated U5's (verifier).
@@ -88,6 +89,26 @@ position 2."* Carried as H-CORRIDOR-SINGLE-USE, H-DEVICE-REUSABLE, H-CORRIDOR-RE
     corridor is a bulk feature.
   - *First written* "By the board's D13 every carrier is bounded in its own metric. Inside a corridor that contains
     position 2, that bound is the corridor's own optical length (carrier.py's test), whatever the carrier."
+- **The hold has a floor (item 91).** You answered that the README crosses *"Inside, during the hold"*
+  (H-README-IN-HOLD). So all N bits cross within the hold t, and the README's received energy is at least E_1d(N, t),
+  which grows as N²/t. A use pays only while the corridor plus the README stays under the trip, so even a free corridor
+  cannot hold for less than t_min.
+
+  | README | shortest hold, 0.1 c trip | shortest hold, 0.01 c trip | shortest hold, 0.8 c trip |
+  |---|---|---|---|
+  | identity core (2.7×10¹⁵ bits) | 5.7×10⁻²¹ s | 5.8×10⁻¹⁹ s | 4.3×10⁻²³ s |
+  | smallest snapshot (9.5×10²⁷ bits) | 0.8 days | 80 days | 9 minutes |
+  | largest snapshot (1.1×10²⁹ bits) | 105 days | 29 years | 0.8 days |
+
+  - **Your "very short, maybe even immeasurable but not zero" holds for the core and fails for a snapshot.** A small
+    README is what makes a brief hold possible.
+  - With M parallel channels, the floor and t_min fall as 1/M, by the same law per channel.
+  - This holds only for a carrier in LNM's class: massless bosons in one transverse mode, ideally coded
+    (H-CARRIER-LNM). That is an assumption about a carrier not yet identified; outside that class it is OPEN. t is the
+    hold in the frame where it is measured (H-HOLD-FRAME).
+- **Position 2 builds (item 91).** You answered *"Position 2 itself"* (H-POSITION-BUILDS): the position builds when it
+  receives the README, with no builder as such. H-FAB-LOCAL's "drawn at position 2" now names its holder. What that
+  asks of the position is OPEN.
 - **The board's reading below** (a device must reach position 2: B-RECV, H-COLOCATED-BUILD, H-SAME-SPEED) is kept as
   the boundary, with every figure unchanged.
 
@@ -220,7 +241,9 @@ position 2."* Carried as H-CORRIDOR-SINGLE-USE, H-DEVICE-REUSABLE, H-CORRIDOR-RE
 - **M's:** H-STOCK-IS-STOCK, H-COST-IN-README (item 89); H-ADDRESS-INPUT, H-BRIEF-HOLD (item 86);
   H-CORRIDOR-SINGLE-USE, H-DEVICE-REUSABLE, H-CORRIDOR-REPEATABLE, H-CORRIDOR-CONTAINS-P2, H-UNIDENTIFIED-CARRIER
   (item 90). Carried, not decided.
-- **The board's, for item 90:** H-CARRIER-HAS-METRIC, H-CORRIDOR-STATIC; the 1 s hold is DECLARED.
+- **M's (item 91):** H-README-IN-HOLD, H-POSITION-BUILDS.
+- **The board's, for item 90:** H-CARRIER-HAS-METRIC, H-CORRIDOR-STATIC; the 1 s hold is DECLARED. **For item 91:**
+  H-CARRIER-LNM, H-HOLD-FRAME, H-ONE-MODE.
 - **This file's:**
   - H-FAB-LOCAL (a reading of your ruling);
   - H-LOSSLESS (the tables' transmitted = received);
@@ -248,7 +271,9 @@ position 2."* Carried as H-CORRIDOR-SINGLE-USE, H-DEVICE-REUSABLE, H-CORRIDOR-RE
    - t_corr;
    - the carrier (H-UNIDENTIFIED-CARRIER), with E_README and the port's rate on it;
    - the builder at position 2, and where E_fab is drawn with no device there (H-FAB-LOCAL's "drawn at position 2"
-     names no holder).
+     names no holder). You answered (item 91): "Position 2 itself" (H-POSITION-BUILDS). What that asks of the
+     position stays OPEN;
+   - the length of the hold, and the carrier's class (H-CARRIER-LNM is an assumption).
 1. m_set: the mass of the device at position 2, on the board's reading (DOCKET 56 owed; NOT SPECIFIED ANYWHERE).
    *First written* without "on the board's reading".
 2. E_fab, and whether it is drawn locally (H-FAB-LOCAL).
