@@ -87,12 +87,18 @@ along the whole passage too."*
     fields in generic spacetimes"*.
   - **Whether a five-dimensional censorship theorem binds the bulk is NOT READ, OPEN.** This is your coin's sharpest
     open question. If one did bind it, with the bulk keeping the condition, the passage itself would be forbidden.
+  - **Your item 122 (1): "likely yes"** (H-5D-CENSORSHIP, your expectation; no such theorem READ). Then the averaged
+    condition must fail somewhere in the five-dimensional spacetime. Along the plane's rays in the bulk it does not
+    (UMBILIC.md U2). Under the compact reading, closedbulk.py's B3 puts the failure on the second plane.
 - **5. One curve, both faces: a candidate, OPEN.**
   - S3 has K = −a q. If that makes the plane umbilic, then K_μν k^μ k^ν = 0, and the passage's light ray is also a light
     ray of the bulk (standard, NOT READ here).
   - Along it, a bulk of vacuum energy alone gives R⁽⁵⁾_kk = 0. The same curve would then read −1.914712 E/m in the
     plane and exactly 0 in the bulk.
-  - Carried as **H-UMBILIC-GEODESIC**, the board's candidate. OPEN until it is computed and READ.
+  - Carried as **H-UMBILIC-GEODESIC**, the board's candidate. *First written:* "OPEN until it is computed and READ".
+  - **Computed on your item 122 ("read then compute"; bulk/UMBILIC.md).** Youm (hep-th/0110013v2 §2 eq. 7, READ) gives
+    the bulk's force on a ray along the plane as −K_kk, zero for an umbilic plane. On closedbulk.py's bulk the force is
+    0 at every radius, and R⁽⁵⁾_kk = 0 along the ray. The same ray reads −1.914712 E/m in the plane and 0 in the bulk.
 - **6. What the board already holds.**
   - **Maldacena–Susskind fn.1 p.2** (READ in geometry.py): non-traversability *"can be shown using the integrated null
     energy condition"*; *"If this were not true, the ER=EPR connection would be wrong"*.
@@ -100,6 +106,9 @@ along the whole passage too."*
     - So under H-ER=EPR, the corridor between two entangled positions lies outside Maldacena–Susskind's ER=EPR in that
       reading.
     - This bears on geometry.py's O-HOLD grading, which is not re-graded here.
+    - **Your item 122 (4): "yes. The er=epr only apply to physical matter. The rules apply, but do not restrict
+      information"** (H-ER=EPR-MATTER-ONLY, H-RULES-NOT-INFORMATION). On your path, fn.1's restriction binds physical
+      matter, not the README's information.
   - **Gao–Wald fn.3 p.12** (READ in geometry.py): Borde's averaged condition may replace the NEC. Its premise fails on
     the plane, and holds, saturated, in the bulk.
 - **7. Your two sides.**
@@ -109,7 +118,9 @@ along the whole passage too."*
     - In the plane both read alike: G_kk depends on r only, and the two legs are equal.
     - The asymmetry that exists is causal. P1 has a future (black-hole) horizon and P2 a past (white-hole) one
       (PLANE point 1). They are time-reversed images.
-  - That pair is the board's candidate for your two sides, with the passage as the coin turning. OPEN.
+  - That pair is the board's candidate for your two sides, with the passage as the coin turning. *First written:*
+    "OPEN".
+  - **Your item 122 (3): "your candidate is correct"** (H-SIDES-AS-HORIZON-PAIR).
     - Each side of the maximal extension has two exteriors. Which one a given ray reaches is not computed; the integral
       is the same either way.
   - *First written:* "That is the part of your coin the board can show."
@@ -152,10 +163,10 @@ along the whole passage too."*
 
 1. The flip. *Closed by your item 120: a metaphor; the NEC only appears to break.*
 2. Constructing the complete bulk (BULK5-O1). Its existence is carried on your path (item 120).
-3. Whether a five-dimensional censorship theorem binds the bulk (point 4). NOT READ.
-4. H-UMBILIC-GEODESIC: one curve reading −1.914712 E/m in the plane and 0 in the bulk (point 5).
+3. Whether a five-dimensional censorship theorem binds the bulk (point 4). NOT READ; "likely yes" on your path (122).
+4. H-UMBILIC-GEODESIC. *Computed on your item 122 (UMBILIC.md), within closedbulk.py's scope.*
 5. Whether the corridor's spacetime is globally hyperbolic (point 4's escape clause).
-6. Your two sides as the time-reversed horizon pair (point 7).
+6. Your two sides as the time-reversed horizon pair (point 7). *Ruled correct by your item 122.*
 
 ## History (verifier, 2026-10-06)
 
