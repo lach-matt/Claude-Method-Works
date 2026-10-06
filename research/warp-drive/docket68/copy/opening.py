@@ -25,8 +25,9 @@ WHAT FOLLOWS THE WORK (item 82)
      stress is traceless (H-JUNCTION, OPEN).
   O3 THE CORRIDOR ITSELF BREAKS THE NULL ENERGY CONDITION ON BOTH SIDES OF ITS HORIZON -- SO THE JOINS ARE WHERE THAT
      ENTERS.  For eq. (17), G^r_r - G^t_t = -2 (2 r0 - 3m)(r - 2m) / (r^2 (2r - 3m)^2) (sympy): for horizon members
-     (2 r0 > 3m) the radial null condition fails at every r != 2m, outside the horizon and inside it (where the
-     inequality reverses), though rho > 0.  The Vaidya pieces end in Schwarzschild of mass m_f, not in the corridor, whose
+     (2 r0 > 3m) the radial null condition fails at every r, the horizon included (G_kk = (E^2/f) times this
+     combination is -2 E^2 (2 r0 - 3m)/(r (2r - 3m)^2) < 0, coin.py C1; the zero at r = 2m is the frame's 1/f), outside
+     the horizon and inside it (where the inequality reverses), though rho > 0.  First written "fails at every r != 2m".  The Vaidya pieces end in Schwarzschild of mass m_f, not in the corridor, whose
      exterior carries the violating stress out to infinity; reaching the corridor from the opening still needs it.  D7
      (a quantum inequality on negative energy held for a duration) is met trivially by the Vaidya pieces, and is silent
      on your main path anyway (LEDGER M-D68-87).

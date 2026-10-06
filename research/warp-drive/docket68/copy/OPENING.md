@@ -43,8 +43,11 @@ speed, your "fluid wave". The metric is Vaidya's form, written here and computed
 - **3. The corridor itself breaks the null energy condition on both sides of its horizon, so the joins are where that
   violation enters.**
   - For eq. (17), G^r_r − G^t_t = −2(2r₀ − 3m)(r − 2m)/(r²(2r − 3m)²) (sympy).
-  - For the horizon members, the radial null condition fails at every radius except the horizon itself: outside it, and
-    inside it, where the roles of time and radius swap. The density is still positive.
+  - For the horizon members, the radial null condition fails at every radius, the horizon included: G_kk =
+    −2E²(2r₀ − 3m)/(r(2r − 3m)²) is negative everywhere (COIN.md point 1). The static combination above vanishes at
+    r = 2m only through the frame's factor 1/(1 − 2m/r). The density is still positive.
+    - *First written:* "the radial null condition fails at every radius except the horizon itself: outside it, and
+      inside it, where the roles of time and radius swap".
   - The radiation pieces end in an ordinary black hole of the same mass, not in the corridor. The corridor's exterior
     carries the violating stress out to infinity. So getting from the opening to the corridor still needs that
     violation.
@@ -121,19 +124,27 @@ boundary. Your one-entangled-state accounting (item 111) is the accounting.
 side. That action is that the coin flips. The NEC appears broken, but is not"* (H-NEC-COIN).
 
 - **The board already holds a computation that agrees: the bulk keeps the NEC.**
-  - `escape.py` (section 8m, seated, S3) found that for Bronnikov–Kim's static throats the scalar Gauss equation and the
-    Codazzi equation hold, and *"the NEC holds -- on either sign of the tension. The bulk keeps only its vacuum energy
-    (the NEC, saturated); E = -G carries the whole reading"*.
+  - `escape.py` (section 8m, seated, S3) found for Bronnikov–Kim's static throats: *"With tau = 0: K = -a q exactly,
+    the scalar Gauss equation reads R = 0 (met), Codazzi holds, the NEC holds -- on either sign of the tension. The bulk
+    keeps only its vacuum energy (the NEC, saturated); E = -G carries the whole reading"*. The plane carries no matter
+    (τ = 0), and the bulk carries only vacuum (the NEC, saturated).
   - So the violation computed in point 3 is what our plane reads. It comes from the bulk's projected tidal term, not
-    from anything that breaks the condition in the full spacetime.
-  - The scope: locally, under H-RS1. A global bulk is BULK5-O1, OPEN.
+    from anything that breaks the condition in the bulk near the plane.
+  - The scope: locally, under H-RS1, with Anderson's objection carrying. A global bulk is BULK5-O1; its existence is
+    carried on M's path (item 120), and building it is OPEN.
+  - *First written:* the quote began at *"the NEC holds"*, a clause about the plane's matter; and "in the full
+    spacetime", which dropped "locally" (COIN.md History).
 - **Withdrawn: the candidate coin flip.** I had offered the sign change at the horizon (−0.0148 outside, +0.0519
   inside) as a possible coin. It is an artifact: the static frame's factor 1/(1 − 2m/r) changes sign at the horizon,
-  while the energy a light-like path meets keeps one sign (COIN.md point 1).
+  while the energy a light-like path meets keeps one sign (COIN.md point 1). Point 3 already held the clue when the
+  candidate was offered: opening.py's O3 says *"inside it (where the inequality reverses)"*.
   - *First written:* "A computed feature that may be your coin … Whether that sign change is the coin flipping is a
     candidate reading, OPEN."
-- **The test, run on your item 118 (COIN.md).** The average along the whole passage is negative in the plane's reading:
-  −1.914712 E for m = 1, r₀ = 1.8. The bulk keeps the condition (escape.py S3, locally).
+- **The test, run on your item 118 (COIN.md).** The ANEC integral along the whole passage is negative in the plane's reading:
+  −1.914712 E/m (the integral of G_kk, G = c = 1) for m = 1, r₀ = 1.8, and negative for every member of the family,
+  two-way ones included. Friedman–Schleich–Witt's theorem (READ, COIN.md point 4) forces it in any 4D reading. The bulk
+  near the plane keeps the condition (escape.py S3, locally).
+  - *First written:* "−1.914712 E for m = 1, r₀ = 1.8. The bulk keeps the condition (escape.py S3, locally)."
   - *First written:* "A test the board could run … Not yet computed."
 
 ## Tensions, and what is ruled out
