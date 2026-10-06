@@ -44,6 +44,14 @@ no duration to measure, and only the labels of the two ends depend on the observ
   - A global bulk for them is BULK5-O1, still OPEN.
   - This is a link to your answer, not a result about it.
 - The readings below stay as the boundary, and the question they ended with is answered.
+- **Item 97: the shared clock is the cosmic beat.** *"yes. But the "clock" is relative to each observer. Clock
+  synchronizing doesn't need the relative time to match at both positions, just the a synchronization of the cosmic
+  "tik tok/beat"."* Carried as H-COSMIC-BEAT.
+  - The two ends are joined at the same instant of cosmic time. Observers' own clock readings at either end may differ;
+    that is the labels point above.
+  - In exact FRW the geometry fixes that beat for every joining (frame.py's lemma).
+  - Cosmic time can be read locally at each end with no signal between them: the CMB temperature falls as the universe
+    expands. How finely that beat can be read is to be computed in the chain rerun (item 96).
 
 ## What follows the work (before item 95)
 
