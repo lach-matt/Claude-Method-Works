@@ -64,6 +64,25 @@ Every number is printed by `trajectories.py`.
     magnitude is robust to Ω_Λ.
   - The README's N must also fit under both ends' holographic counts.
 
+## Your answers (item 116)
+
+- **Location:** *"No, separate"* (H-ADDRESS-SEPARATE). The address is the device's input (item 86 answer 4), not a
+  trajectory. Its bits are not the trajectories' share; their precision is wall 10's question.
+- **Ranking:** *"Think of it like navigation through a closed index. Some trajectories are confined within specific
+  dimensions, some pass through dimensions. The length of the corridor is dependent on the trajectories needed to reach
+  position 2. The trajectory between two positions in the same direction are different and likely smaller than
+  trajectories between positions in separate universes"* (H-LENGTH-BY-TRAJECTORIES).
+  - **So what the ranking sets is the corridor's length, which is a quantity beside the neck's area.** The board had
+    read "size" as area. That is why its total came out independent of the ranking.
+  - Which trajectories are needed decides the length:
+    - trajectories confined within dimensions, between positions in one universe, are likely smaller;
+    - trajectories passing through dimensions, between separate universes, are likely larger.
+  - **What "length" is in the geometry is OPEN.** In the horizon corridor (PLANE.md point 1), the throat is a moment
+    between the horizons. A candidate the board could compute is the interior's proper time from horizon to horizon.
+    That is unnamed in your words, and it is the board's to propose.
+- **K and T:** *"Yes"*. As mechanisms they follow from α and mₑ, and join the dependent trajectories. So five of the
+  twelve (M, R, G_F, K, T) add nothing, or almost nothing, once their parents rank above them.
+
 ## The board's reading, and where it differs from your sentence
 
 **R-CHAIN-RULE, ungraded, under ordinary (classical) information counting.**
@@ -151,7 +170,8 @@ is asked again.
 
 ## OPEN
 
-1. Which ranking you mean. *Read, item 114: the ranking orders the differences between position 1 and position 2.*
+1. Which ranking you mean. *Answered, item 116: the ranking sets the corridor's length, through the trajectories needed
+   (confined or crossing dimensions). The geometric meaning of length is OPEN.*
 2. The precision and range each trajectory needs, and so its bits; and K's and T's bits per object and site.
 3. How much a destination defined by one observable feature adds, given your universe.
 4. Whether the seven trajectories with no recorded dependence share information (presumed yes under item 100).

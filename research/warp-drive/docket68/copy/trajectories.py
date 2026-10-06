@@ -49,6 +49,15 @@ YOUR ANSWERS (ITEM 114) AND WHAT THEY SETTLE
     ends' holographic counts.
   First written (T2): "K and T are material properties: trajectories of the object or the site".
 
+YOUR ANSWERS (ITEM 116)
+  "No, separate": the address is the device's input, not a trajectory (H-ADDRESS-SEPARATE).  On the ranking: "The length
+  of the corridor is dependent on the trajectories  needed to reach position 2", some trajectories confined within
+  dimensions, some passing through them, those within one universe likely smaller than those between separate
+  universes (H-LENGTH-BY-TRAJECTORIES): what the ranking sets is the corridor's LENGTH, beside the neck's area -- the
+  board had read "size" as area, which is why its total was ranking-independent.  The geometric meaning of length is
+  OPEN (a candidate: the horizon member's interior proper time, horizon to horizon -- the board's).  K and T: "Yes" --
+  dependent, so five of the twelve add nothing or almost nothing once their parents rank above them.
+
 WHAT FOLLOWS THE WORK (item 82)
   T1 CLASSICALLY, RANKING MOVES WHO CARRIES THE INFORMATION.  On a toy joint (H-TOY): readouts ranked after their parents
      add 0; ranked first, they carry information and their parents carry less (computed); the total is the same in every
@@ -88,7 +97,7 @@ WHAT FOLLOWS THE WORK (item 82)
      cannot also carry the twelve criteria's correlations, so n adds to N rather than sharing it.
 
 NAMED HYPOTHESES
-  M's: H-TRAJECTORY-IS-DIFFERENCE, H-TRAJECTORY-IS-MECHANISM, H-BOTH-LIMITS (114); H-TWELVE-TRAJECTORIES (101.6), H-TRAJECTORIES-OPEN (104c), H-12Q (24), H-SEATRANK (25), H-UNIVERSAL-ENTANGLEMENT
+  M's: H-ADDRESS-SEPARATE, H-LENGTH-BY-TRAJECTORIES (116); H-TRAJECTORY-IS-DIFFERENCE, H-TRAJECTORY-IS-MECHANISM, H-BOTH-LIMITS (114); H-TWELVE-TRAJECTORIES (101.6), H-TRAJECTORIES-OPEN (104c), H-12Q (24), H-SEATRANK (25), H-UNIVERSAL-ENTANGLEMENT
     (100), H-REFERENCE-UNIVERSE (23, "based on the starting state").
   The board's: R-CHAIN-RULE, H-CLASSICAL-SHANNON, H-STOP-WHEN-ENOUGH (a reading of 24); H-TOY; H-TREE-LEVEL;
     H-NO-RECORDED-DEPENDENCE; H-ILLUSTRATIVE; H-TRAJECTORIES-IN-README; H-FLAT-FRW-APPARENT-HORIZON; H-BOUSSO-CONJECTURE;
