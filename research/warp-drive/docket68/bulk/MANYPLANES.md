@@ -114,8 +114,13 @@ Every number is printed by `manyplanes.py`.
 
 ## With your items 126–127
 
-- **The planes coincide, so the second plane occupies our plane's place.** Its matter along light rays is exactly zero
-  (current.py X4). The corridor's readings on our plane need no k.
+- **The planes coincide, so the second plane occupies our plane's place.** What that does is **not computed**
+  (current.py X4).
+  - Two sheets at one place have no bulk gap between them, so their junction is not closedbulk.py's B3.
+  - The board's two sheets of opposite tension put at one place fail the bulk's own equations unless k = 0.
+  - The plane's tension, and the strength of gravity that sets m, depend on k.
+  - *First written:* "Its matter along light rays is exactly zero (current.py X4). The corridor's readings on our plane
+    need no k." Withdrawn.
 - The layers off our plane still exist in picture (A), and what they read depends on k.
 
 ## Named hypotheses
