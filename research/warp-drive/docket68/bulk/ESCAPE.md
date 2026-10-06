@@ -78,7 +78,7 @@ bound on the true violation.
   | 0.1 (grids 20, 28, 40) | 0.169 → 0.092 → 0.083 | 0.917 → 0.894 → 0.879 | 0.80 |
   | 0.5 (grids 20, 28, 40) | 6.47 → 4.11 → 3.66 | 19.6 → 17.9 | 18.8–20.1 |
   | 0.9 | 19.8 | 40.1 | 60.9 |
-  | 1.5 (grids 20, 28) | 1.11 → 0.36 | 82.8 → (running) | 169–181 |
+  | 1.5 (grids 20, 28) | 1.11 → 0.36 | 82.8 → 76.9 | 169–181 |
   | 3.0 | 4.15 | 535 | 676 |
 
   - At v = 0.1 the negative plane's violation sits at or above the deficit bulkwarp.py's Laue argument predicts. Above
