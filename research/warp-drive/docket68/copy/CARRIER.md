@@ -1,4 +1,4 @@
-# A carrier through the bulk (M-RULINGS item 88, link 2; deduced, computed and READ; verified twice; SEATED, ledger section 8n, M-D68-89; 2026-10-06)
+# A carrier through the bulk (M-RULINGS item 88, link 2; deduced, computed and READ; verified twice; SEATED, ledger section 8n, M-D68-89; re-read under item 90 after seating and verified, 8n stands as seated until M rules; 2026-10-06)
 
 *Headed before seating* "(M-RULINGS item 88, link 2; deduced, computed and READ; verified once; not seated; 2026-10-06)".
 
@@ -29,10 +29,21 @@ with H-CORRIDOR-CONTAINS-P2 (one corridor, made at position 1, also contains pos
 
 - **The carriers computed here are gravitational (the rotor) and, in uses.py, electromagnetic.** They are not the
   carriers there are. That light fits the time budget and the rotor does not is a statement about those two only.
-- **Fermat's test still applies to your carrier, in its own metric.** By D13 every carrier is bounded at light speed
-  *in the metric it propagates in*. Inside a corridor that contains position 2, the bound is the corridor's own optical
-  length between the two positions. So a carrier of your kind need not outrun anything in the corridor's own metric to
-  cross quickly. It needs the corridor to be optically short, which is point 1's condition.
+- **Fermat's test applies to your carrier if it has a metric.**
+  - Suppose your carrier propagates within the light cone of some metric (H-CARRIER-HAS-METRIC, the board's). D13's
+    first part is stated for such carriers, and the row covers only the brane-confined case.
+  - Then, inside a corridor containing position 2, its earliest arrival is set by the corridor's causal structure. If
+    the corridor is static over the crossing, that is the corridor's optical length (point 1). Staying static is
+    H-CORRIDOR-STATIC: your H-BRIEF-HOLD makes the corridor time-dependent, so it is a hypothesis.
+  - So a carrier of your kind need not outrun light in the corridor's own metric to cross quickly, provided the
+    corridor is optically short there (point 1's condition).
+  - *First written* "By D13 every carrier is bounded at light speed *in the metric it propagates in*. Inside a corridor
+    that contains position 2, the bound is the corridor's own optical length between the two positions."
+- **A reading, not a result: why "not by light" fits a bulk corridor.** D13, as narrowed, binds a brane-confined
+  carrier such as light to the plane's own metric, so a corridor in the bulk cannot shorten light's route. Only a
+  carrier that propagates where the corridor is can use it, and that is where your "not by light" would follow.
+- **Loading still binds.** The rotor failed on loading rate, not speed (point 3), and a corridor shortens transit, not
+  loading. uses.py prints the rate your carrier's port would need: 2×10⁶ bits/s or more to beat a 0.1 c trip.
 - What would identify such a carrier, and its rate, is OPEN (OPEN 6).
 
 ## What follows the work
@@ -126,7 +137,9 @@ with H-CORRIDOR-CONTAINS-P2 (one corridor, made at position 1, also contains pos
 - **H-STATIC-WARP** (now: Poincaré-invariant slices, g_ab positive definite, planes at fixed y); **H-RS1** (carried);
   **H-BOUND-TRANSFERS**; **H-SIMULTANEOUS-EMISSION** (LIGO's).
 - **H-BIT-PER-GRAVITON** (zeromode's; valid only up to one graviton per mode); **H-BANDWIDTH-F**; **H-GW-ANALOGY**.
-- **M's:** H-COST-IN-README, H-ADDRESS-INPUT, H-INFORMATION-CROSSES.
+- **M's:** H-COST-IN-README, H-ADDRESS-INPUT, H-INFORMATION-CROSSES; H-UNIDENTIFIED-CARRIER and
+  H-CORRIDOR-CONTAINS-P2 (item 90).
+- **The board's, for item 90:** H-CARRIER-HAS-METRIC, H-CORRIDOR-STATIC.
 
 ## Sources READ (alphaXiv, open arXiv copies; read this pass, after the verifier read them too)
 

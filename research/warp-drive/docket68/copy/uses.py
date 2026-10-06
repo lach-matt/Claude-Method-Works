@@ -2,11 +2,13 @@
 """
 uses.py -- uses priced against the first trip (M-RULINGS item 88, link 1: S5 against D23; DOCKET 56's owed instrument,
 on the faithful-copy path).  Deduced and computed.  SEATED (ledger section 8n, M-D68-89; first
-written 'Not seated'); verified once (2026-10-06).  M's words are carried as
+written 'Not seated'); verified once (2026-10-06); re-read under item 90 after seating and verified -- section 8n
+stands as seated until M rules.  M's words are carried as
 hypotheses, never as results.
 
-S5 (reconstruction from stock at the destination) pays a setup once -- the device at position 2 must itself travel at
-or below c (D23; M's answer 4, H-ADDRESS-INPUT) -- and then a price per use.  Sending the thing itself pays the full
+S5 (reconstruction from stock at the destination) pays a setup once -- on the board's reading of M's answer 4
+(B-RECV), a device at position 2 must itself travel at or below c (D23); item 90 replaces that reading on M's path
+(H-CORRIDOR-CONTAINS-P2) -- and then a price per use.  Sending the thing itself pays the full
 trip every time.  seat.py (imported, never retyped) holds the identity: with K = (gamma-1) c^2 (H-KINETIC),
     k* = m_set K / (m_pay K - E_rec),   -> m_set / m_pay as E_rec -> 0,   and no k* once E_rec >= m_pay K.
 M ruled (item 89, verbatim): "No costlier. Stock is stock. The cost is in how much information is transferred as a
@@ -23,19 +25,40 @@ H-DEVICE-REUSABLE, H-CORRIDOR-REPEATABLE and H-CORRIDOR-CONTAINS-P2.
     k* = 0 whenever E_rec is below the trip: EVERY use, the first included, beats sending the payload on energy,
     whatever the device weighs.  The device stays at position 1 (H-DEVICE-REUSABLE); if its making is counted, it
     enters as a one-time energy E_dev and k* = E_dev / (m_pay K - E_rec) -- seat's identity with m_set K -> E_dev
-    (sympy).  The device's MASS no longer enters at all.
-  * THE CORRIDOR'S BUDGET PER USE IS THE TRIP IT REPLACES.  Each use makes a corridor (H-CORRIDOR-SINGLE-USE), so
-    E_rec = E_corr + E_README (+ E_fab, not counted under H-FAB-LOCAL).  The README's share is negligible on every
-    link computed, so a use pays if one corridor costs less than m_pay (gamma-1) c^2: 3.17e16 J at 0.1 c (0.35 kg of
-    rest energy, 0.5 % of the payload's), 3.15e14 J at 0.01 c, 4.19e18 J at 0.8 c.  E_corr is NOT COMPUTED ANYWHERE
-    for a corridor that carries no mass; this ceiling is the number it would have to come in under.
-  * TIME.  No device has to arrive, so the first use is not limited to the light time: each use takes t_read + t_corr
-    + t_build, with t_corr M's H-BRIEF-HOLD (very short, not zero, relative) and all three OPEN.
+    (sympy).  The device's MASS no longer enters through shipping; it enters only through E_dev, if at all.  (The
+    board's reading never counted making the device either: like for like, k* >= m_set/m_pay there against k* = 0
+    here, with E_dev an extra term on both.)  First written "The device's MASS no longer enters at all".
+  * ONE CORRIDOR'S BUDGET IS THE TRIP IT REPLACES.  Each use makes a corridor (H-CORRIDOR-SINGLE-USE), so E_rec =
+    E_corr + E_README (+ E_fab, not counted under H-FAB-LOCAL).  A use pays exactly when E_corr + E_README <
+    m_pay (gamma-1) c^2 (H-KINETIC).  E_README on M's carrier is not computed; the floors computed are
+    electromagnetic, negligible for the core (H-README-IS-CORE; at most 2e-6 of the trip) but not for the largest
+    snapshot over one year (57.7 x the 0.01 c trip, U5).  So one corridor can pay only if it costs less than
+    3.17e16 J at 0.1 c (0.35 kg of rest energy, 0.5 % of the payload's), 3.15e14 J at 0.01 c, 4.19e18 J at 0.8 c --
+    a necessary condition.  On M's path nothing is shipped, so a rocket equation raises only the payload side
+    (H-KINETIC now favours shipping): every ceiling is the lowest it could be.  E_corr is NOT COMPUTED ANYWHERE for a
+    corridor that carries no mass; the ceiling is the number it would have to come in under.
+    First written: "The README's share is negligible on every link computed, so a use pays if one corridor costs
+    less than".
+  * TIME.  No device has to arrive, so the first use waits on no trip.  Whether it beats the light time depends on the
+    README crossing inside the corridor (H-CORRIDOR-CONTAINS-P2, H-UNIDENTIFIED-CARRIER, OPEN).  Each use takes
+    t_read + t_README (the port's loading time on M's carrier) + t_corr + t_build, with t_corr M's H-BRIEF-HOLD (very
+    short, not zero, relative); all OPEN.  The rotor failed on LOADING RATE, not speed, and a corridor shortens
+    transit, not loading: to beat the 0.1 c ship time the core needs at least 2.0e6 bits/s through M's port, and to
+    cross within a DECLARED 1 s hold, 2.7e15 bits/s (printed).
+    First written: "No device has to arrive, so the first use is not limited to the light time".
   * THE CARRIER.  M: "not by light. If not gravity, something else not yet identified or considered" -- carried as
     H-UNIDENTIFIED-CARRIER.  The electromagnetic link and the rotor below are the carriers COMPUTED, not the carriers
-    there are.  By the board's D13 every carrier is bounded in its own metric; inside a corridor that contains
-    position 2 that bound is the corridor's own optical length (carrier.py's test), whatever the carrier -- so a
-    carrier of M's kind need not outrun light in the corridor's own metric to cross quickly.
+    there are.  If M's carrier propagates within the light cone of some metric (H-CARRIER-HAS-METRIC, the board's;
+    D13's first limb is stated for such carriers, and the row covers only the brane-confined case), then inside a
+    corridor containing position 2 its earliest arrival is set by the corridor's causal structure; if the corridor is
+    static over the crossing (H-CORRIDOR-STATIC -- M's H-BRIEF-HOLD makes it time-dependent, so this is a
+    hypothesis), that is the corridor's optical length (carrier.py point 1).  So a carrier of M's kind need not
+    outrun light in the corridor's own metric to cross quickly, provided the corridor is optically short there
+    (COPY-O6, OPEN).  A reading, not a result: a brane-confined carrier such as light sees only the plane's induced
+    metric (D13 as narrowed), so a bulk corridor cannot shorten light's route -- which is where M's "not by light"
+    would follow, if the corridor is a bulk feature.
+    First written: "By the board's D13 every carrier is bounded in its own metric; inside a corridor that contains
+    position 2 that bound is the corridor's own optical length (carrier.py's test), whatever the carrier".
   * The board's reading below (a device must reach position 2: B-RECV, H-COLOCATED-BUILD, H-SAME-SPEED) is kept as the
     boundary, every figure unchanged.
 
@@ -120,7 +143,8 @@ NAMED HYPOTHESES
   H-SAME-SPEED (the device travels at the payload's speed, as seat's identity assumes), H-OPTICAL-LINK (U7's DECLARED
   parameters), M_SET_ILLUSTRATIVE (values of m_set DECLARED, not designs).  seat's: H-KINETIC, H-EM-CARRIER, H-ONE-POL,
   H-FEW-MODES (checked here).  measure's: H-ERASE.  faithful's: H-WIRING-SUFFICES and the core's inputs (an estimate:
-  every energy is "floor given N").  carrier's: H-BANDWIDTH-F.  M's (item 90): H-CORRIDOR-SINGLE-USE, H-DEVICE-REUSABLE,
+  every energy is "floor given N").  carrier's: H-BANDWIDTH-F.  The board's, for item 90: H-CARRIER-HAS-METRIC,
+  H-CORRIDOR-STATIC, T_HOLD_DECLARED.  M's (item 90): H-CORRIDOR-SINGLE-USE, H-DEVICE-REUSABLE,
   H-CORRIDOR-REPEATABLE, H-CORRIDOR-CONTAINS-P2, H-UNIDENTIFIED-CARRIER; and H-BRIEF-HOLD (item 86).
 
 HISTORY (verifier, 2026-10-06; first-written claims kept above, each where it stood)
@@ -156,6 +180,7 @@ T_DECLARED_YR = (1.0, 100.0)                           # seat.collect's own sche
 F_BUDGET = 0.01                                        # "moves k* by 1 %"
 OPT_LAMBDA_M = 1e-6                                    # H-OPTICAL-LINK, DECLARED
 OPT_BAND_HZ = 1e13                                     # H-OPTICAL-LINK, DECLARED
+T_HOLD_DECLARED_S = 1.0                                # a "very short" hold, DECLARED (H-BRIEF-HOLD gives no value)
 OPT_SANE_BITS_PER_USE = 20.0                           # the minimum-schedule figure's bits per mode-use, DECLARED
 HPL = 6.62607015e-34                                   # J s (SI, exact)
 KB = 1.380649e-23                                      # J/K (SI, exact)
@@ -343,7 +368,9 @@ def compute():
         Ec = e_tx(core, 1.0)["E_1d_one_pol_J"]
         corridor[b] = {"ceiling_J": trip_energy(b) - Ec, "ceiling_kg": (trip_energy(b) - Ec) / seat.C ** 2,
                        "ceiling_over_rest": (trip_energy(b) - Ec) / (seat.PAYLOAD_KG * seat.C ** 2),
-                       "kstar_nothing_shipped": seat.breakeven(0.0, b, Ec)}
+                       "kstar_nothing_shipped": seat.breakeven(0.0, b, Ec),
+                       "kstar_device_shipped": seat.breakeven(70.0, b, Ec),
+                       "rate_to_beat_ship_bps": core / (seat.D_PROXIMA / (b * seat.C))}
     opt_snap = {lab: optical_link(n, seat.YEAR_S) for lab, n in (("lo", snap_lo), ("hi", snap_hi))}
     return {"kstar_symbolic": str(kstar_sym), "kstar_limit": str(lim), "limit_is_mass_ratio": lim_ok,
             "core_bits": core, "snap_lo_bits": snap_lo, "snap_hi_bits": snap_hi,
@@ -352,7 +379,7 @@ def compute():
             "year_s": seat.YEAR_S, "port_best_arm_m": arm, "port_best_load_s": port_best,
             "port_crossover_beta": port_crossover_beta(port_best),
             "route_crossover_snap_hi": route_crossover_beta(snap_hi),
-            "kstar_device_energy": str(kdev), "corridor": corridor,
+            "kstar_device_energy": str(kdev), "corridor": corridor, "rate_hold_bps": core / T_HOLD_DECLARED_S,
             "route_crossover_snap_lo": route_crossover_beta(snap_lo),
             "optical_snap_1yr": opt_snap,
             "optical_budget_0p1_1yr": optical_budget_bits(F_BUDGET, 0.1, seat.YEAR_S, core),
@@ -413,8 +440,10 @@ def report():
           % (", ".join("%g c: %s" % (b, _fmt_k(c["kstar_nothing_shipped"])) for b, c in d["corridor"].items()),
              d["kstar_device_energy"]))
     for b, c in d["corridor"].items():
-        print("   beta %g: one corridor must cost less than %.3e J (%.3g kg of rest energy, %.2e of the payload's)" % (
-            b, c["ceiling_J"], c["ceiling_kg"], c["ceiling_over_rest"]))
+        print("   beta %g: one corridor (plus its README) can pay only below %.3e J (%.3g kg of rest energy, %.2e of the "
+              "payload's); the core must load at %.2e bits/s or more to beat the ship time" % (
+                  b, c["ceiling_J"], c["ceiling_kg"], c["ceiling_over_rest"], c["rate_to_beat_ship_bps"]))
+    print("   to cross within a DECLARED %g s hold the core needs %.2e bits/s" % (T_HOLD_DECLARED_S, d["rate_hold_bps"]))
     print("Erasure (H-ERASE, 310 K): core %.2e J, largest snapshot %.2e J" % (d["erase_core_J"], d["erase_snap_hi_J"]))
 
 
@@ -486,11 +515,15 @@ def selftest():
         "solver's 1000, log10 E_tx ~ %.3g" % (os_["bits_per_use"], os_["log10_E_tx"]),
         os_["E_tx_J"] is None and os_["log10_E_tx"] > 100, contrast=True)
     cor = d["corridor"]
-    chk("U8 (M's item 90): with nothing shipped, seat.breakeven gives k* = 0 at every speed computed -- every use, the "
-        "first included, beats sending the payload while E_rec is below the trip",
-        all(c["kstar_nothing_shipped"] == 0.0 for c in cor.values()))
-    chk("with nothing shipped but E_rec at 1.5 x the 0.1 c trip, there is still no k*",
-        seat.breakeven(0.0, 0.1, 1.5 * r1["trip_J"]) is None, ctl=True)
+    structural.append("U8 with m_set = 0 seat's identity gives k* = 0 wherever E_rec < trip (the algebra of m_set = 0; "
+                      "U2 checks E_rec < trip).  First counted as a check, with a control that duplicated U5's branch")
+    chk("with the device shipped (m_set = 70 kg) the same E_rec gives k* > 0 at every speed (%s), so the U8 "
+        "difference is the shipping term" % ", ".join(_fmt_k(c["kstar_device_shipped"]) for c in cor.values()),
+        all(c["kstar_device_shipped"] is not None and c["kstar_device_shipped"] > 0 for c in cor.values()), ctl=True)
+    chk("U8: the core must load at %.2e bits/s or more through M's port to beat the 0.1 c ship time (N over D/(beta c))"
+        % cor[0.1]["rate_to_beat_ship_bps"],
+        abs(cor[0.1]["rate_to_beat_ship_bps"] * t[0.1]["ship_s"] / d["core_bits"] - 1) < 1e-12 and
+        cor[0.1]["rate_to_beat_ship_bps"] > 1e6)
     import sympy as sp
     _E, _mp, _K, _Er = sp.symbols("E_dev m_pay K E_rec", positive=True)
     chk("U8: seat's identity with m_set K -> E_dev is E_dev / (m_pay K - E_rec) (sympy: %s)" % d["kstar_device_energy"],

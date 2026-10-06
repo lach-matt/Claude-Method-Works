@@ -1,4 +1,4 @@
-# Uses priced against the first trip (M-RULINGS item 88, link 1; deduced and computed; verified once; SEATED, ledger section 8n, M-D68-89; 2026-10-06)
+# Uses priced against the first trip (M-RULINGS item 88, link 1; deduced and computed; verified once; SEATED, ledger section 8n, M-D68-89; re-read under item 90 after seating and verified, 8n stands as seated until M rules; 2026-10-06)
 
 *Headed before seating* "(M-RULINGS item 88, link 1; deduced and computed; verified once; not seated; 2026-10-06)".
 
@@ -11,12 +11,16 @@
   DOCKET 56's owed instrument, on the faithful-copy path.
 - **Item 89:** *"No costlier. Stock is stock. The cost is in how much information is transferred as a README (how big
   the file is)."* Carried as H-STOCK-IS-STOCK and H-COST-IN-README.
-- **Item 86, answer 4** (H-ADDRESS-INPUT): the device at position 2 is required. It must itself travel there, at or
-  below c (D23).
+- **Item 86, answer 4** (H-ADDRESS-INPUT): *the board's reading* (B-RECV) was that a device at position 2 is required
+  and must itself travel there, at or below c (D23). Item 90 replaces that reading on your path
+  (H-CORRIDOR-CONTAINS-P2). Your words were "an input required as in input for the second position required by the
+  device".
 
 Every number is printed by `uses.py`.
-- **Selftest:** 19/19 checks, 3 genuine controls and 2 contrasts, with 9 STRUCTURAL lines printed and not counted.
-  *Until item 90* "16/16 checks, 2 genuine controls and 2 contrasts, with 7 STRUCTURAL lines".
+- **Selftest:** 19/19 checks, 3 genuine controls and 2 contrasts, with 10 STRUCTURAL lines printed and not counted.
+  *Until item 90* "16/16 checks, 2 genuine controls and 2 contrasts, with 7 STRUCTURAL lines"; *first after item 90*
+  "19/19 checks, 3 genuine controls and 2 contrasts, with 9 STRUCTURAL lines", when U8's k\* = 0 check could not fail
+  and its control duplicated U5's (verifier).
   *First written* "13/13 checks, 2 genuine controls and 1 contrast". Four of those checks could not fail, including
   one "control" (History).
 - **Imported, never retyped:** the break-even identity, the trip energy, the channel floor, the dishes and the Proxima
@@ -36,10 +40,20 @@ position 2."* Carried as H-CORRIDOR-SINGLE-USE, H-DEVICE-REUSABLE, H-CORRIDOR-RE
     energy, whatever the device weighs** (computed at 0.01–0.8 c; control: no k\* at 1.5 × the trip).
   - The device stays at position 1 (H-DEVICE-REUSABLE). If its making is counted, it enters as a one-time energy
     E_dev, and k\* = E_dev / (m_pay K − E_rec): seat's identity with m_set K → E_dev (sympy). **The device's mass no
-    longer enters at all.**
+    longer enters through shipping; it enters only through E_dev, if at all.** The board's reading never counted
+    making the device either. Like for like, it is k\* ≥ m_set/m_pay there against k\* = 0 here, with E_dev an extra
+    term on both. *First written* "The device's mass no longer enters at all."
 - **One corridor's budget is the trip it replaces.** Each use makes a corridor (H-CORRIDOR-SINGLE-USE), so E_rec =
-  E_corr + E_README (+ E_fab, not counted under H-FAB-LOCAL). The README's share is negligible on every link computed,
-  so a use pays when one corridor costs less than:
+  E_corr + E_README (+ E_fab, not counted under H-FAB-LOCAL). A use pays exactly when E_corr + E_README < m_pay (γ−1)c²
+  (H-KINETIC).
+  - E_README on your carrier is not computed. The floors computed are electromagnetic: negligible for the core (at most
+    2×10⁻⁶ of the trip), but not for the largest snapshot over one year (57.7× the 0.01 c trip).
+  - So one corridor can pay only if it costs less than the figures below. That is a necessary condition, not a
+    sufficient one.
+  - On your path nothing is shipped, so a rocket equation would raise only the payload side: H-KINETIC now favours
+    shipping, and every ceiling here is the lowest it could be.
+  - *First written* "The README's share is negligible on every link computed, so a use pays when one corridor costs
+    less than:".
 
   | speed of the trip it replaces | one corridor must cost less than | as rest energy | share of the payload's rest energy |
   |---|---|---|---|
@@ -50,14 +64,30 @@ position 2."* Carried as H-CORRIDOR-SINGLE-USE, H-DEVICE-REUSABLE, H-CORRIDOR-RE
 
   E_corr is not computed anywhere for a corridor that carries no mass. This table is the number it would have to come
   in under.
-- **Time.** No device has to arrive, so the first use is not limited to the light time. Each use takes t_read +
-  t_corr + t_build, with t_corr your H-BRIEF-HOLD (very short, not zero, relative). All three are OPEN.
+- **Time.**
+  - No device has to arrive, so the first use waits on no trip. Whether it beats the light time depends on the README
+    crossing inside the corridor (H-CORRIDOR-CONTAINS-P2, H-UNIDENTIFIED-CARRIER; OPEN).
+  - Each use takes t_read + t_README (the port's loading time on your carrier) + t_corr + t_build, with t_corr your
+    H-BRIEF-HOLD (very short, not zero, relative). All four are OPEN.
+  - **The rotor failed on loading rate, not speed, and a corridor shortens transit, not loading.** To beat the ship
+    time, the core must load through your port at 2.0×10⁶ bits/s or more at 0.1 c (2.0×10⁵ at 0.01 c, 1.6×10⁷ at
+    0.8 c). To cross within a declared 1 s hold it needs 2.7×10¹⁵ bits/s.
+  - *First written* "No device has to arrive, so the first use is not limited to the light time."
 - **The carrier.** *"not by light. If not gravity, something else not yet identified or considered"* — carried as
   H-UNIDENTIFIED-CARRIER.
   - The electromagnetic link and the rotor below are the carriers *computed*, not the carriers there are.
-  - By the board's D13 every carrier is bounded in its own metric. Inside a corridor that contains position 2, that
-    bound is the corridor's own optical length (carrier.py's test), whatever the carrier. So a carrier of your kind
-    need not outrun light in the corridor's own metric to cross quickly.
+  - Suppose your carrier propagates within the light cone of some metric (H-CARRIER-HAS-METRIC, the board's). D13's
+    first part is stated for such carriers, and the row covers only the brane-confined case.
+  - Then, inside a corridor containing position 2, its earliest arrival is set by the corridor's causal structure. If
+    the corridor is static over the crossing, that is the corridor's optical length (carrier.py point 1). Staying
+    static is H-CORRIDOR-STATIC: your H-BRIEF-HOLD makes the corridor time-dependent, so it is a hypothesis.
+  - So a carrier of your kind need not outrun light in the corridor's own metric to cross quickly, provided the
+    corridor is optically short there (COPY-O6, OPEN).
+  - **A reading, not a result:** a brane-confined carrier such as light sees only the plane's own metric (D13 as
+    narrowed), so a bulk corridor cannot shorten light's route. That is where your "not by light" would follow, if the
+    corridor is a bulk feature.
+  - *First written* "By the board's D13 every carrier is bounded in its own metric. Inside a corridor that contains
+    position 2, that bound is the corridor's own optical length (carrier.py's test), whatever the carrier."
 - **The board's reading below** (a device must reach position 2: B-RECV, H-COLOCATED-BUILD, H-SAME-SPEED) is kept as
   the boundary, with every figure unchanged.
 
@@ -155,11 +185,14 @@ position 2."* Carried as H-CORRIDOR-SINGLE-USE, H-DEVICE-REUSABLE, H-CORRIDOR-RE
 - **The transmitted energy** is computed for one declared optical link only. Other carriers, pointing and loss beyond
   diffraction are not priced.
 - **t_read and t_build** are OPEN. They sit inside point 5's time budget.
-- **The comparator ignores deceleration** (H-KINETIC). A rocket equation would raise both sides and favours neither.
+- **The comparator ignores deceleration** (H-KINETIC). On the board's reading, a rocket equation would raise both sides
+  and favour neither. On your item-90 path nothing is shipped, so it raises only the payload side, and every corridor
+  ceiling is then the lowest it could be.
 
 ## For M
 
-- **Your ruling makes the route's economics turn on one number: how heavy the device at position 2 must be.** With
+- **On the board's reading (a device shipped to position 2), your ruling makes the route's economics turn on one
+  number: how heavy the device at position 2 must be.** *First written* without the scope. With
   stock as stock and the cost in the README, the README is cheap on every link computed. The break-even is then at
   least the device's mass over the payload's (k\* ≥ m_set/70 kg). Through the declared optical link it is within
   2×10⁻⁶ of that. No instrument yet says what m_set is.
@@ -177,14 +210,17 @@ position 2."* Carried as H-CORRIDOR-SINGLE-USE, H-DEVICE-REUSABLE, H-CORRIDOR-RE
 - **Of the carriers computed, light fits and a gravitational rotor does not.** Through zeromode's rotors the README
   takes at least about 2×10⁵ years per copy, which fits the per-use budget only for trips slower than 6 km/s. You carry
   a carrier that is neither (item 90, H-UNIDENTIFIED-CARRIER). *First written* "The README should go by light."
-- **Under your item 90 the question changes from the device's mass to one corridor's energy:** below 3.17×10¹⁶ J at
-  0.1 c, every use pays, the first included.
+- **Under your item 90 the question changes from the device's mass to one corridor's energy.** Under
+  H-CORRIDOR-CONTAINS-P2 and H-KINETIC, a use can pay only if one corridor plus its README costs less than
+  3.17×10¹⁶ J at 0.1 c. If it does, every use pays, the first included. Your carrier also needs a port that loads the
+  core at 2×10⁶ bits/s or more.
 
 ## Named hypotheses
 
 - **M's:** H-STOCK-IS-STOCK, H-COST-IN-README (item 89); H-ADDRESS-INPUT, H-BRIEF-HOLD (item 86);
   H-CORRIDOR-SINGLE-USE, H-DEVICE-REUSABLE, H-CORRIDOR-REPEATABLE, H-CORRIDOR-CONTAINS-P2, H-UNIDENTIFIED-CARRIER
   (item 90). Carried, not decided.
+- **The board's, for item 90:** H-CARRIER-HAS-METRIC, H-CORRIDOR-STATIC; the 1 s hold is DECLARED.
 - **This file's:**
   - H-FAB-LOCAL (a reading of your ruling);
   - H-LOSSLESS (the tables' transmitted = received);
@@ -206,9 +242,15 @@ position 2."* Carried as H-CORRIDOR-SINGLE-USE, H-DEVICE-REUSABLE, H-CORRIDOR-RE
 
 ## OPEN
 
-0. Under your item 90: E_corr, the energy of one corridor that carries no mass; E_dev, the device's one-time energy;
-   t_corr; and the carrier (H-UNIDENTIFIED-CARRIER).
+0. Under your item 90:
+   - E_corr, the energy of one corridor that carries no mass;
+   - E_dev, the device's one-time energy;
+   - t_corr;
+   - the carrier (H-UNIDENTIFIED-CARRIER), with E_README and the port's rate on it;
+   - the builder at position 2, and where E_fab is drawn with no device there (H-FAB-LOCAL's "drawn at position 2"
+     names no holder).
 1. m_set: the mass of the device at position 2, on the board's reading (DOCKET 56 owed; NOT SPECIFIED ANYWHERE).
+   *First written* without "on the board's reading".
 2. E_fab, and whether it is drawn locally (H-FAB-LOCAL).
 3. A link actually designed: carrier frequency, bandwidth, apertures, pointing and loss. The optical figures are one
    DECLARED case.
