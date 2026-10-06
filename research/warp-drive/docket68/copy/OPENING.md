@@ -83,7 +83,26 @@ speed, your "fluid wave". The metric is Vaidya's form, written here and computed
   - At the closing it shrinks as (1 − f)² N, where f is the fraction of the energy already emitted. That forces position
     2 to read the README before its horizon ends (your H-SPLIT-AT-P2).
 
+## Your answers (item 115)
+
+- *"It ends; energy moved"*: position 1's horizon ends at the closing, and its energy is the one energy that travels to
+  position 2.
+- *"When fully realized"*: position 2's horizon arises from the corridor then, and not before.
+- *"The README itself"*: the opening's inflow is the README.
+
+So the black hole left at position 1 and position 2's white-hole past are set aside on your path. They stay below as the
+boundary. Your one-entangled-state accounting (item 111) is the accounting.
+
+**What follows: the README, sent as the inflow, must be back-loaded.**
+- With H-INFLOW-IS-README and H-HORIZON-HOLDS, the bits delivered cannot run ahead of the growing horizon's capacity.
+  When a fraction e of the energy has arrived, that capacity is N × e². So the first half of the energy can carry at most
+  a quarter of the README.
+- The inflow has at most about 4.8×10¹³ quanta for the core, each far above hc/r_min. So **each quantum must carry at
+  least 57 bits**. That needs many-level modes, not single qubits (Holevo's bound, NOT READ).
+
 ## Tensions, and what is ruled out
+
+*Set aside on your path by item 115, and kept as the null-dust model's own reading:*
 
 - **Position 1 keeps its mass.** In this model nothing lowers position 1's mass after the opening, so a black hole forms
   there and stays. That conflicts with item 106 (at the closing, the bits are on position 2's horizon only) and with
@@ -125,6 +144,8 @@ speed, your "fluid wave". The metric is Vaidya's form, written here and computed
 ## OPEN
 
 1. The joins through the throat, where the corridor's energy-condition violation enters.
-2. Position 1's kept mass, and position 2's white-hole past, against items 106, 109 and 111.
-3. Whether the inflow carries the README.
+2. Position 1's kept mass and position 2's white-hole past. *Answered, item 115: position 1's horizon ends with the
+   energy moved; position 2's arises at realization. A dynamical model in which both happen is OPEN.*
+3. Whether the inflow carries the README. *Answered, item 115: it is the README. It must be back-loaded, at 57 bits or
+   more per quantum.*
 4. Whether a maximum power holds, and its factor.

@@ -52,8 +52,19 @@ WHAT FOLLOWS THE WORK (item 82)
      README sits on position 1's horizon only at the end of the opening, and at the closing it shrinks as (1 - f)^2 N --
      which forces the reading before it ends (H-SPLIT-AT-P2).
 
+YOUR ANSWERS (ITEM 115)
+  "It ends; energy moved" (position 1's horizon ends at the closing, its energy the one energy that travels to position
+  2); "When fully realized" (position 2's horizon arises from the corridor then, not before); "The README itself" (the
+  opening's inflow is the README).  So the black hole left at position 1 and position 2's white-hole past are set aside
+  on your path (kept below as the boundary); your one-entangled-state accounting (item 111) is the accounting.
+  O8 THE README AS THE INFLOW MUST BE SENT BACK-LOADED.  With H-INFLOW-IS-README and H-HORIZON-HOLDS, the bits delivered
+     by the time a fraction e of the energy has arrived cannot exceed the growing horizon's capacity, N e^2 (O7): the first
+     half of the energy can carry at most a quarter of the README.  And since the inflow has at most about 4.8e13 quanta
+     for the core (each >> h c / r_min), each quantum must carry at least N / 4.815e13 = 57 bits -- many-level modes, not
+     single qubits (Holevo's bound, log2 of a mode's dimension, NOT READ).
+
 WHAT IS RULED OUT, AS THE BOUNDARY (and the tensions)
-  * Position 1 keeps its mass: in this model nothing lowers position 1's m after the opening, so a classical event
+  * (Set aside on your path by item 115; the null-dust model's own reading.)  Position 1 keeps its mass: in this model nothing lowers position 1's m after the opening, so a classical event
     horizon forms there and persists -- against item 106 (at closing, bits on position 2's horizon only) and item 109's
     principle applied to position 1, unless your one-entangled-state accounting (item 111) applies.  OPEN.
   * Position 2 has a white-hole past: outgoing Vaidya with m falling from m_f is, read back, Schwarzschild of mass m_f
@@ -66,7 +77,7 @@ WHAT IS RULED OUT, AS THE BOUNDARY (and the tensions)
   * The joins (H-JUNCTION): OPEN.
 
 NAMED HYPOTHESES
-  M's: H-THREE-HOLDS (106), H-HORIZON-NEEDS-OBJECT (109), H-ENERGY-INTO-P2 (110), H-ONE-ENERGY-TWO-SIDES (111),
+  M's: H-P1-HORIZON-ENDS, H-P2-HORIZON-AT-REALIZATION, H-INFLOW-IS-README (115); H-THREE-HOLDS (106), H-HORIZON-NEEDS-OBJECT (109), H-ENERGY-INTO-P2 (110), H-ONE-ENERGY-TWO-SIDES (111),
     H-BRIEF-HOLD (86.5).
   The board's: R-VAIDYA-HOLDS; H-MAX-POWER-INFLOW; H-HOLD-FRAME; H-MF-IS-AREA-MASS; H-HORIZON-HOLDS (the apparent horizon),
     H-STRONG-BOUND; H-JUNCTION; H-QUASISTATIC (a Komar pull needs a static geometry); H-ASYMPTOTIC-FLAT-ENDS (against
@@ -258,7 +269,10 @@ def selftest(d):
     structural.append("O6: the closing is unbounded by the conjecture (a past horizon; Cardoso et al. App. B)")
     structural.append("boundary: inflow quanta >> h c/r_min = %.4f J, at most %.3e (core)" % (
         d["quantum_energy_J"], d["max_quanta"]))
-    structural.append("H-JUNCTION, position 1's kept mass, position 2's white-hole past: OPEN")
+    structural.append("O8 (item 115): bits per inflow quantum >= N / max quanta = %.2f; the capacity schedule N e^2 lets "
+                      "half the energy carry a quarter of the README" % (d["core_bits"] / d["max_quanta"]))
+    structural.append("H-JUNCTION: OPEN; position 1's kept mass and position 2's white-hole past are set aside on M's path "
+                      "(item 115), kept as the boundary")
     for s_ in structural:
         print("  STRUCTURAL: " + s_)
     print("opening.py: %d/%d checks pass, %d of them controls and %d contrasts; %d STRUCTURAL printed, not counted" % (
