@@ -13,7 +13,8 @@ WHAT FOLLOWS THE WORK
   * THE TEST FOR A FASTER-THAN-LIGHT CORRIDOR (C1, C2).  For a static bulk the exact test is Fermat's: a path through
     the bulk beats light along the plane iff its OPTICAL length (the metric h_ij / N^2) is shorter than the plane's.
     Computed on paths that leave the plane and return: in RS1's warp, and in a bulk with a non-trivial g_yy, no path
-    is shorter; the CONTROL (time and space warped differently) finds one shorter.  In a bulk with 4D Poincare
+    is shorter (the theorem, evaluated: with equal warps the integrand is >= 1 pointwise); the CONTROL (time and space
+    warped differently) finds one shorter.  In a bulk with 4D Poincare
     symmetry, g_ab positive definite and both planes at fixed y, no causal curve beats the plane's light time -- the
     standard result (Csaki-Erlich-Grojean, READ), generalising bulk.py (2)'s own RS statement.  A shortcut needs at
     least one of these broken: the bulk's symmetry (unequal warping; a bulk that varies along the plane, which is what
@@ -33,9 +34,10 @@ WHAT FOLLOWS THE WORK
   * THE PORT IS WHERE M'S COST LANDS, AND IT DOES NOT COLLAPSE (C4).  Through zeromode's rotor family the identity core
     loads no faster than the printed best arm allows (of order 1e5 years), on the classical capacity of a bosonic mode
     (Giovannetti et al., READ) with an ideal lossless receiver and a bandwidth of order the wave frequency
-    (H-BANDWIDTH-F).  Larger rotors are SLOWER: at fixed tip speed the frequency falls as 1/a while the gravitons
-    pile into fewer modes.  The cost scales with the README: the faithful copy's 3.5e12-fold reduction is the factor
-    between loading the snapshot and loading the core wherever one bit per graviton holds.
+    (H-BANDWIDTH-F).  Above the best arm (about 4 m) larger rotors are SLOWER: at fixed tip speed the frequency falls
+    as 1/a while the gravitons pile into fewer modes.  The README's size sets the port time: at every arm the time is
+    proportional to it, so the faithful copy's 3.5e12-fold reduction is the factor between loading the snapshot and
+    loading the core.  First written "Larger rotors are SLOWER" and "wherever one bit per graviton holds".
     First written: "a 1 km rotor of the same tip speed and density in 0.53 s" -- zeromode's H-BIT-PER-GRAVITON
     ladder, which fails where more than one graviton falls in a mode (History).
   * Boundary (item 82): in RS1 as the board seats it (bulk.py), the bulk keeps 4D Poincare symmetry by construction
@@ -126,6 +128,9 @@ HISTORY (verifier, 2026-10-06; first-written claims kept above, each where it st
   * The escape list was not exhaustive (the bent and folded planes, a bulk varying along the plane, a second time).
   * C4's 0.536 s at 1 km is zeromode's ladder under H-BIT-PER-GRAVITON, which fails there (of order 1e16 gravitons per
     mode); the ceiling is g(N).  At 1 m the assumption UNDERCOUNTS.
+  * Second pass (verifier of uses.py, 2026-10-06): the two equal-warp Fermat checks cannot fail for any equal-warp
+    input (the integrand is >= 1 pointwise) and are STRUCTURAL ("the theorem, evaluated"); the C3 Proxima line and
+    the C4 linearity CONTRAST recompute their own formulas and are STRUCTURAL.  11/11 became 7/7.
   * The Proxima span is imported (phase1.L_PROXIMA, seat's own via settle); first retyped as 4.24 ly.
   * C3 now names H-SIMULTANEOUS-EMISSION and the exotic window, and its check pins LIGO's rounding rather than a 1 s
     tolerance.
@@ -374,10 +379,6 @@ def selftest():
         print("  %s %s%s" % ("ok  " if ok else "FAIL", "CONTROL: " if ctl else ("CONTRAST: " if contrast else ""), label))
 
     d = compute()
-    chk("C1 Fermat: in RS1's warp no returning dive beats light along the plane (shortest / L = %.6f)" %
-        d["fermat_rs1"][0], d["fermat_rs1"][0] > 1)
-    chk("C1 Fermat: nor in a bulk with a non-trivial g_yy (shortest / L = %.6f)" % d["fermat_gyy"][0],
-        d["fermat_gyy"][0] > 1)
     chk("C1 Fermat: with time and space warped differently, a returning dive arrives at %.4f of the plane's light time"
         % d["fermat_unequal"][0], d["fermat_unequal"][0] < 0.95, ctl=True)
     chk("C3: LIGO's +7e-16 is the 1.74 s delay over the 26 Mpc light time (%.3e) rounded to one figure" %
@@ -385,8 +386,6 @@ def selftest():
     chk("C3: the exotic window (-100 s, 1000 s) broadens each side by about two orders (+%.2e against +7e-16, -%.2e "
         "against -3e-15), as LIGO print" % (d["exotic_fast"], d["exotic_slow"]),
         1.5 < math.log10(d["exotic_fast"] / GW_DV_MAX) < 2.5 and 1.5 < math.log10(d["exotic_slow"] / -GW_DV_MIN) < 2.5)
-    chk("C3: on phase1's Proxima span a global asymmetry saves at most %.3e s" % d["proxima_max_saving_s"],
-        abs(d["proxima_max_saving_s"] - GW_DV_MAX * d["proxima_m"] / C) < 1e-20 and d["proxima_max_saving_s"] < 1e-6)
     p1, pk = d["ports"][1.0], d["ports"][1000.0]
     lo_r = g_bits(1e-6) / (1e-6 * math.log2(math.e / 1e-6))
     hi_r = g_bits(1e6) / math.log2(math.e * 1e6)
@@ -401,11 +400,14 @@ def selftest():
     chk("C4: the fastest rotor is interior (arm %.2f m, %.3g s); smaller and larger arms are slower (1 m: %.3g s; "
         "1 km: %.3g s)" % (d["best_arm_m"], d["best_load_s"], p1["load_ceiling_s"], pk["load_ceiling_s"]),
         1.0 < d["best_arm_m"] < 100.0 and pk["load_ceiling_s"] > d["best_load_s"] < p1["load_ceiling_s"])
-    chk("C4: where one bit per graviton holds, the port time scales with the README: snapshot / core = %.3e, the bit "
-        "ratio %.3e" % (d["port_snapshot_1m_bit_s"] / p1["load_bit_per_graviton_s"], d["snapshot_bits"] /
-                        d["core_bits"]),
-        abs(d["port_snapshot_1m_bit_s"] / p1["load_bit_per_graviton_s"] / (d["snapshot_bits"] / d["core_bits"]) - 1)
-        < 1e-9, contrast=True)
+    structural.append("C1 Fermat, the theorem evaluated: with gxx = gtt the integrand sqrt(1 + gyy/gtt y'^2) is >= 1 "
+                      "pointwise, so no equal-warp dive can beat light (RS1 %.6f, g_yy bulk %.6f); the CONTROL is the "
+                      "live test.  First counted as two checks (History)" % (d["fermat_rs1"][0], d["fermat_gyy"][0]))
+    structural.append("C3 the Proxima saving, 7e-16 x D/c = %.3e s (its own formula; first counted)" %
+                      d["proxima_max_saving_s"])
+    structural.append("C4 the port time is linear in the README at every arm, in both columns (snapshot / core = %.3e, "
+                      "the bit ratio; first counted as a CONTRAST)" % (d["port_snapshot_1m_bit_s"] /
+                                                                      p1["load_bit_per_graviton_s"]))
     structural.append("C1 the identity, evaluated on random curves: RS1 %.6f, g_yy bulk %.6f -- equal by construction "
                       "(History)" % (d["identity_rs1"], d["identity_gyy"]))
     structural.append("C1 the derivation (sympy): (dx/dt)^2 = %s" % d["symbolic"])

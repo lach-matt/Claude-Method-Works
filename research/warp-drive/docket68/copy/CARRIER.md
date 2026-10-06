@@ -13,9 +13,10 @@ The faithful copy's README (`faithful.py`: an identity core of order 10¹⁵ bit
 position 2. A carrier through the bulk moves in the bulk's metric, so D13 alone does not bound it on our plane.
 
 Every number is printed by `carrier.py`.
-- **Selftest:** 11/11 checks, 1 genuine control and 1 contrast, with 4 STRUCTURAL lines printed and not counted.
-  *First written* "7/7 checks, 1 genuine control and 1 contrast, with 2 STRUCTURAL lines". Three of those checks could
-  not fail (History).
+- **Selftest:** 7/7 checks, 1 genuine control, with 7 STRUCTURAL lines printed and not counted. *First written* "7/7
+  checks, 1 genuine control and 1 contrast, with 2 STRUCTURAL lines"; after the first verifier, "11/11 checks, 1
+  genuine control and 1 contrast, with 4 STRUCTURAL lines". Each time, checks that could not fail were found and moved
+  to STRUCTURAL (History).
 - **Imported:** the rotor from `zeromode.py`, the identity core from `faithful.py`, and the Proxima span from
   `phase1.py` (seat's own, via settle). *First written* with 4.24 ly retyped.
 
@@ -24,8 +25,9 @@ Every number is printed by `carrier.py`.
 - **1. There is an exact test for a faster-than-light corridor, and it is Fermat's.**
   - For a static bulk, a path through the bulk beats light along the plane exactly when its optical length (the
     metric h_ij/N²) is shorter than the plane's.
-  - **Computed on paths that leave the plane and come back:** in RS1's warp, and in a bulk with a non-trivial g_yy, no
-    path is shorter (the shortest is 1.000002 of the plane's light time).
+  - **Evaluated on paths that leave the plane and come back:** in RS1's warp, and in a bulk with a non-trivial g_yy, no
+    path is shorter (the shortest is 1.000002 of the plane's light time). With equal warps that is the theorem itself,
+    since the integrand is at least 1 at every point, so it is printed as STRUCTURAL.
   - **Control:** with time and space warped differently, a returning path arrives at 0.61 of the plane's light time.
   - **The standard result, generalised from the board's own:** in a bulk with 4D Poincaré symmetry, g_ab positive
     definite and both planes at fixed y, no causal curve beats the plane's light time. `bulk.py` (2) states this for
@@ -65,12 +67,13 @@ Every number is printed by `carrier.py`.
     al., READ). It is taken with an ideal lossless receiver and a bandwidth of order the wave frequency
     (H-BANDWIDTH-F).
   - One bit per graviton holds only up to one graviton per mode, which is reached at an arm of 1.8 m. Below that the
-    assumption undercounts (34.5 bits/s against 5.1 at 1 m). Above it, it overcounts by up to 14 orders.
-  - **Larger rotors are slower.** At fixed tip speed the frequency falls as 1/a, while the gravitons pile into fewer
-    modes.
-  - Under H-COST-IN-README the trip's cost is this port time, and it scales with the README. Where one bit per graviton
-    holds, the faithful copy's 3.5×10¹²-fold reduction is exactly the factor between loading the snapshot and loading
-    the core.
+    assumption undercounts (34.5 bits/s against 5.1 at 1 m). Above it, it overcounts: by 14.7 orders at 1 km, and more
+    beyond.
+  - **Above 4.2 m, larger rotors are slower.** At fixed tip speed the frequency falls as 1/a, while the gravitons pile
+    into fewer modes. *First written* "Larger rotors are slower."
+  - Under H-COST-IN-README, the README's size sets the port time. At any arm the time is proportional to the README
+    (both columns), so the faithful copy's 3.5×10¹²-fold reduction is exactly the factor between loading the snapshot
+    and loading the core. *First written* "the trip's cost is this port time" and "Where one bit per graviton holds".
   - *First written* with only the one-bit-per-graviton column, and "about half a second through a kilometre-scale one".
 
 ## What is ruled out, as the boundary
@@ -87,8 +90,8 @@ Every number is printed by `carrier.py`.
     violation. It is not directly applicable, because an RS plane is not AdS's conformal boundary (H-GW-ANALOGY).
   - A compact bulk with moving planes needs our boost relative to the preferred frame, which is unmeasured (O7).
   - A time-dependent bulk is not modelled.
-- **A gravitational port is slow at any size in zeromode's rotor family.** The fastest loads the core in about
-  2×10⁵ years.
+- **A gravitational port is slow at every arm computed (0.1 m to 10 km) in zeromode's rotor family.** The fastest loads
+  the core in about 2×10⁵ years. *First written* "slow at any size".
 
 ## For M
 
@@ -147,3 +150,7 @@ Every number is printed by `carrier.py`.
   pins LIGO's rounding (1.74 s over the light time is 6.5×10⁻¹⁶, printed as 7×10⁻¹⁶) instead of a 1 s tolerance.
 - **The Proxima span** is imported, not retyped.
 - **Gao–Wald** is cited at BULK2-O2 and OPEN 1.
+- **Second pass (uses.py's verifier):** the two equal-warp Fermat checks could not fail for any equal-warp input; the C3
+  Proxima line and the C4 linearity contrast recomputed their own formulas. All four are now STRUCTURAL. "Larger
+  rotors are slower" now starts at 4.2 m; "up to 14 orders" is 14.7 at 1 km; "slow at any size" is scoped to the arms
+  computed; the port time is said to be set by the README's size rather than to be M's cost.

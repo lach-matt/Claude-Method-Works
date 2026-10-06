@@ -1,46 +1,66 @@
 #!/usr/bin/env python3
 """
 uses.py -- uses priced against the first trip (M-RULINGS item 88, link 1: S5 against D23; DOCKET 56's owed instrument,
-on the faithful-copy path).  Deduced and computed.  Not seated; not verified.  M's words are carried as hypotheses,
-never as results.
+on the faithful-copy path).  Deduced and computed.  Not seated; verified once (2026-10-06).  M's words are carried as
+hypotheses, never as results.
 
 S5 (reconstruction from stock at the destination) pays a setup once -- the device at position 2 must itself travel at
 or below c (D23; M's answer 4, H-ADDRESS-INPUT) -- and then a price per use.  Sending the thing itself pays the full
 trip every time.  seat.py (imported, never retyped) holds the identity: with K = (gamma-1) c^2 (H-KINETIC),
     k* = m_set K / (m_pay K - E_rec),   -> m_set / m_pay as E_rec -> 0,   and no k* once E_rec >= m_pay K.
 M ruled (item 89, verbatim): "No costlier. Stock is stock. The cost is in how much information is transferred as a
-README (how big the file is)."  Carried as H-STOCK-IS-STOCK and H-COST-IN-README.  This file prices E_rec under that
-ruling, with the README sized by faithful.py (imported) and the channel by seat.channel_floor (LNM, READ there).
+README (how big the file is)."  Carried as H-STOCK-IS-STOCK and H-COST-IN-README.  This file prices E_rec's README part,
+with the README sized by faithful.py (imported), the received floor by seat.channel_floor (LNM, READ there), and one
+DECLARED optical link by Giovannetti et al.'s capacity and far-field transmissivity (READ; g(x) imported from carrier).
 
 WHAT FOLLOWS THE WORK
-  * UNDER M'S RULING THE BREAK-EVEN IS A MASS RATIO (U1, U2).  The README's received-energy floor for the identity core
-    (2.74e15 bits) over one year is 1.15e-11 J (seat.channel_floor, 1D, one polarisation), 27 orders below the trip it
-    replaces (3.17e16 J for 70 kg at 0.1 c).  So k* = m_set / m_pay to better than one part in 10^27: the route beats
-    sending the thing itself after m_set / 70 kg uses, whatever the speed, while E_rec counts only the README.  What
-    moves k* is the device's mass, which no instrument specifies (seat: m_set "NOT SPECIFIED ANYWHERE").
-  * M'S "HOW BIG THE FILE IS" HAS AN EXACT FORM (U3).  On the 1D floor the energy goes as N^2 / T: double the file and
-    the cost quadruples; double the time and it halves.  Distance does not enter the 1D floor; it enters only the time.
-  * THE README HAS A BUDGET, AND THE CORE IS FAR INSIDE IT (U4).  The file can grow to 1.4e28 bits (at 0.1 c, over one
-    year) before its cost moves k* by 1 %; at 0.01 c, to 1.4e27.  The unpriced recipe and the brain outside the cortex
-    (faithful.py OPEN 1-2) fit inside that budget unless they exceed the core by more than twelve orders (at 0.1 c).
-  * THE SNAPSHOT IS THE CONTRAST (U5).  The board's largest snapshot count (1.09e29 bits) over one year costs 1.8e16 J
-    on the same floor: at 0.01 c that exceeds the trip it replaces, so on that schedule S5 never pays back; at 0.1 c
-    it multiplies k* by 2.3.  Over 100 years it pays back again (k* 2.4 x the mass ratio at 0.01 c), since the floor
-    falls as 1/T.  The identity core pays back at every speed and schedule computed, at the mass ratio.  On a given
-    schedule the README's size decides whether the route can pay at all; the device's mass decides when.
-  * EACH USE HAS A TIME BUDGET (U6).  After the first, a use beats shipping in time when transmission + build is less
-    than (D/c)(1/beta - 1): 38.2 years at 0.1 c, 1.06 years at 0.8 c, none at c.  Through a gravitational port it never
-    is: carrier.py's fastest rotor loads the core in 6.7e12 s at the capacity ceiling, past even the 0.01 c budget
-    (420 years).  An electromagnetic README fits, since its transmission time is a schedule chosen against U3's 1/T.
-    First written: "fits that budget at 0.1 c only for a rotor arm of 13.5 m or more (one bit per graviton)" --
-    zeromode's H-BIT-PER-GRAVITON ladder, which fails above an arm of 1.8 m (carrier.py, verified).
-  * The first use is no faster than the first trip: the device must arrive first, at the same speeds (D23).
+  * UNDER M'S RULING THE BREAK-EVEN IS SET BY THE DEVICE'S MASS (U1, U2).  The README's received-energy floor for the
+    identity core (2.74e15 bits) over one year is 1.15e-11 J (seat.channel_floor, 1D, one polarisation), 27 orders
+    below the trip it replaces (3.17e16 J for 70 kg at 0.1 c).  A floor is a LOWER bound on E_rec, so it gives
+    k* >= m_set / m_pay: the floor raises k* above the mass ratio by at most 4e-26 at the speeds computed (0.01-0.8 c).
+    Whether k* stays near the mass ratio is the link's loss: within 1 % while transmitted/received stays below 2.7e25
+    (0.1 c, one year).  Through one DECLARED optical link (1 um, 10 THz, seat's 100 m dishes; U7) the core costs
+    6.3e8 J to TRANSMIT, 2e-8 of the 0.1 c trip (2e-6 at 0.01 c), so there k* sits within 2e-6 of the mass ratio at
+    every speed computed.  So the route beats sending the
+    thing itself after about m_set / 70 kg uses, if the link loses no more than that budget allows; what sets the
+    number is the device's mass, which no instrument specifies (seat: m_set "NOT SPECIFIED ANYWHERE").
+    First written: "k* = m_set / m_pay to better than one part in 10^27 ... whatever the speed" -- the floor read as
+    E_rec's value.
+  * M'S "HOW BIG THE FILE IS", ON THE RECEIVED FLOOR (U3).  On LNM's 1D floor the energy goes as N^2 / T: double the file
+    and the cost quadruples; double the time and it halves.  A real link at fixed apertures need not follow that law
+    (U7 is exponential in bits per mode-use).  First written "HAS AN EXACT FORM".
+  * THE README HAS A BUDGET, AND THE CORE IS FAR INSIDE IT (U4, U7).  On the received floor the file can grow to 1.4e28
+    bits (0.1 c, one year) before it moves k* by 1 %; through the declared optical link, to the printed optical budget
+    -- far smaller, still orders above the core.  The unpriced recipe and the brain outside the cortex (faithful.py
+    OPEN 1-2) must fit inside the budget of whatever link is built.
+  * THE SNAPSHOT IS THE CONTRAST (U5, U7).  The board's largest snapshot count (1.09e29 bits) over one year floors at
+    1.8e16 J at one polarisation, 9.1e15 J at two (LNM as printed): at 0.01 c either exceeds the trip it replaces, so
+    the floor alone RULES S5 OUT on that schedule.  At 0.1 c it raises k* to at least 1.40 x the mass ratio (2.34 at
+    one polarisation).  Over 100 years the floor no longer forbids payback.  Through the declared optical link the
+    snapshot needs millions of bits per mode-use in a year -- an energy beyond any budget -- and fits the link only
+    over the printed minimum schedule.  For the core the floor forbids payback at no speed or schedule computed.  On a
+    given schedule the README's size can rule the route out; whether it pays also needs the link's loss and, without
+    H-FAB-LOCAL, E_fab; when it pays is set by the device's mass.
+    First written: "Over 100 years it pays back again", "The identity core pays back at every speed and schedule
+    computed", "the README's size decides whether the route can pay at all; the device's mass decides when".
+  * EACH USE HAS A TIME BUDGET, AND IT FLOORS THE ROUTE (U6).  After the first, a use beats shipping in time only when
+    t_read + T_tx + t_build < (D/c)(1/beta - 1): 38.2 years at 0.1 c, 1.06 at 0.8 c, none at c.  That caps T_tx, so a
+    use that wins on time costs at least E_1d(N, budget): the board's "prices a schedule, not the route" is lifted for
+    such uses.  For the snapshot that route floor reaches the trip below the printed crossover speed: there no use
+    wins on both time and energy.  Through zeromode's rotor family at the g(N) ceiling (carrier.py) no port fits the
+    budget above 2.0e-5 c (6 km/s) -- every speed computed here.  An electromagnetic README fits.
+    First written: "Through a gravitational port it never is" (false below 2.0e-5 c); and before that "fits that budget
+    at 0.1 c only for a rotor arm of 13.5 m or more (one bit per graviton)" -- zeromode's H-BIT-PER-GRAVITON ladder,
+    which fails above an arm of 1.8 m (carrier.py, verified).
+  * The first use is no faster than the first trip under H-SAME-SPEED (D23 gives only <= c), and later by t_build.
+    First written "at the same speeds (D23)".
 
-Boundary (item 82): what this does not price.  E_rec here counts the README only.  The fabrication energy E_fab is
-NOT COMPUTED ANYWHERE on the board (seat.DOCKET56_OWED); under M's ruling it is borne at position 2 from local supply
-(H-FAB-LOCAL).  If it had to be shipped it would enter E_rec, and seat.erec_ceiling is the line it would have to stay
-under.  The 1D figure floors RECEIVED energy only (seat's H-FEW-MODES); transmitted energy, with diffraction loss, is
-not floored -- U4 states how large the loss factor may be before k* moves by 1 %.
+Boundary (item 82): what this does not price.  E_rec here counts the README only.  This file reads M's ruling as: the
+fabrication energy E_fab is drawn at position 2 and not counted against the trip (H-FAB-LOCAL -- this file's reading,
+not M's words; not counted, not zero).  E_fab is NOT COMPUTED ANYWHERE (seat.DOCKET56_OWED); if it had to be shipped it
+would enter E_rec under seat.erec_ceiling.  seat's "(+ erasure)" term is named and printed (H-ERASE, measure's: about
+8e-6 J for the core at 310 K) and is negligible.  The 1D figure floors RECEIVED energy only (seat's H-FEW-MODES, checked
+here); the transmitted energy is computed for one DECLARED optical link only (U7).
 
     python3 uses.py              report
     python3 uses.py --selftest   checks, CONTROLS and CONTRASTS marked, STRUCTURAL printed and not counted
@@ -48,22 +68,43 @@ not floored -- U4 states how large the loss factor may be before k* moves by 1 %
 
 U1 [imported]  seat.breakeven(m_set, beta, E_rec), seat.breakeven_symbolic(), seat.erec_ceiling(): the identity and the
    ceiling, on seat's 70 kg payload (massform.PAYLOAD_KG) and Proxima span (D_PROXIMA = 4.0175e16 m).
-U2 [computed]  E_rec := E_tx, the README's received-energy floor seat.channel_floor(N, T)["E_1d_one_pol_J"]
-   (H-COST-IN-README, H-FAB-LOCAL, H-EM-CARRIER, H-ONE-POL, H-FEW-MODES; seat's), with N = faithful.identity_core()
-   (H-README-IS-CORE: the README's size is the cortical wiring core; the recipe is not priced) and a DECLARED T.
+U2 [computed]  E_rec >= E_tx >= E_received >= seat.channel_floor(N, T)["E_1d_two_pol_J"]; the board's law is one
+   polarisation (H-ONE-POL, twice that).  The tables set E_rec to the one-polarisation figure (H-LOSSLESS: transmitted =
+   received), so every k* printed is a LOWER bound.  N = faithful.identity_core() (H-README-IS-CORE) and a DECLARED T.
 U3 [computed]  The scaling of E_1d in N and T, measured on the imported function, not assumed.
 U4 [computed]  N_budget(f, beta, T): the README size at which E_1d = f x m_pay K, so that k* = (m_set/m_pay)/(1 - f).
    Loss budget: the transmitted/received factor at which the transmitted energy reaches 1 % of m_pay K.
 U5 [computed]  The same with N = the board's snapshot counts (measure.object_bits via faithful._measure, imported).
-U6 [computed]  Time per use after the first: D/c + T_tx + t_build against D/(beta c); t_build OPEN.  Port time from
-   carrier.port / carrier.best_arm / carrier.min_arm_within (imported): zeromode's rotors at the g(N) ceiling
-   (Giovannetti et al., READ there; H-BANDWIDTH-F).
+U6 [computed]  Time per use after the first: t_read + D/c + T_tx + t_build against D/(beta c); t_read and t_build OPEN,
+   set to 0 here (the most generous budget).  The route floor: E_1d_two_pol(N, T = budget).  Port time from
+   carrier.best_arm / carrier.min_arm_within (imported): zeromode's rotors at the g(N) ceiling (H-BANDWIDTH-F).
+U7 [computed; DECLARED link]  An optical link (H-OPTICAL-LINK: lambda = 1 um, bandwidth B = 1e13 Hz, seat's dishes
+   branelink.DISH_D = 100 m at both ends, ideal receiver).  Transmissivity of the best spatial mode in the far field,
+   D(omega) = A_t A_r (omega / 2 pi c L)^2 (Giovannetti et al., quant-ph/0308012v2, p.3, READ); capacity g(eta N) per
+   use (eq. 4 p.1, eq. 14 p.3); B T uses in time T.  The received photons per use n_r solve g(n_r) = N/(B T); the
+   transmitted energy is B T n_r h nu / D.
 
 NAMED HYPOTHESES
-  M's: H-STOCK-IS-STOCK, H-COST-IN-README (item 89); H-ADDRESS-INPUT (item 86).  The file's own: H-FAB-LOCAL,
-  H-README-IS-CORE, H-SAME-SPEED (the device travels at the payload's speed, as seat's identity assumes),
-  M_SET_ILLUSTRATIVE (values of m_set DECLARED for illustration, not designs).  seat's: H-KINETIC, H-EM-CARRIER, H-ONE-POL,
-  H-FEW-MODES.  faithful's: H-WIRING-SUFFICES and the inputs of the identity core.  carrier's: H-BANDWIDTH-F.
+  M's: H-STOCK-IS-STOCK, H-COST-IN-README (item 89); H-ADDRESS-INPUT (item 86).  The file's own: H-FAB-LOCAL (a
+  reading of M's ruling, not M's words), H-LOSSLESS (the tables' transmitted = received), H-README-IS-CORE,
+  H-SAME-SPEED (the device travels at the payload's speed, as seat's identity assumes), H-OPTICAL-LINK (U7's DECLARED
+  parameters), M_SET_ILLUSTRATIVE (values of m_set DECLARED, not designs).  seat's: H-KINETIC, H-EM-CARRIER, H-ONE-POL,
+  H-FEW-MODES (checked here).  measure's: H-ERASE.  faithful's: H-WIRING-SUFFICES and the core's inputs (an estimate:
+  every energy is "floor given N").  carrier's: H-BANDWIDTH-F.
+
+HISTORY (verifier, 2026-10-06; first-written claims kept above, each where it stood)
+  * The received floor was used as E_rec's value; it is a lower bound, so every k* is a lower bound and the claims that
+    the route PAYS are now conditional on the link's loss (H-LOSSLESS, the loss budget, U7).
+  * Four "checks" could not fail -- the trip energy against seat.erec_ceiling (the same function), the 9 x light-time
+    budget and the beta = 1 "CONTROL" (both the algebra of (1/beta - 1)), and the distance half of U3 (the 1D branch
+    never reads d).  They are STRUCTURAL.  The U6 CONTROL is now a speed at which a rotor DOES fit; CONTROL 1 uses
+    1.5 x the trip (exact float equality held only by rounding).
+  * "A gravitational port never fits" was false below 2.0e-5 c; now scoped.
+  * H-FAB-LOCAL was written as M's ruling; it is this file's reading.  seat's erasure term was dropped silently.
+  * The snapshot multiplier depended on H-ONE-POL (now both); H-FEW-MODES is now checked, not inherited; t_read added;
+    "pays back on the first use" was wrong (k* = 1 + 4e-28 breaks even at the first, beats from the second); point 6
+    cited D23 for H-SAME-SPEED.
+  * Added on the verifier's estimates, now computed: the optical link's transmitted energy (U7) and the route floor (U6).
 """
 
 import contextlib
@@ -82,6 +123,12 @@ M_SET_ILLUSTRATIVE = (70.0, 700.0, 7.0e3, 7.0e4)       # kg, DECLARED: device ma
 BETAS = (0.8, 0.2, 0.1, 0.01)                          # DECLARED speeds; 0.2, 0.1, 0.01 are seat.erec_ceiling's own
 T_DECLARED_YR = (1.0, 100.0)                           # seat.collect's own schedules
 F_BUDGET = 0.01                                        # "moves k* by 1 %"
+OPT_LAMBDA_M = 1e-6                                    # H-OPTICAL-LINK, DECLARED
+OPT_BAND_HZ = 1e13                                     # H-OPTICAL-LINK, DECLARED
+OPT_SANE_BITS_PER_USE = 20.0                           # the minimum-schedule figure's bits per mode-use, DECLARED
+HPL = 6.62607015e-34                                   # J s (SI, exact)
+KB = 1.380649e-23                                      # J/K (SI, exact)
+T_ERASE_K = 310.0                                      # measure's H-ERASE temperature
 
 
 def _load(name, path, key):
@@ -121,8 +168,8 @@ def e_tx(N, T_yr):
 
 
 def n_budget(f, beta, T_yr, N_ref):
-    """README size at which the 1D received floor equals f x the trip energy.  Found by bisection on the imported
-    floor, so the N^2/T law is used only as U3 measures it, never assumed."""
+    """README size at which the 1D received floor (one polarisation) equals f x the trip energy.  Found by bisection on
+    the imported floor, so the N^2/T law is used only as U3 measures it, never assumed."""
     target = f * trip_energy(beta)
     lo, hi = N_ref * 1e-6, N_ref * 1e30
     for _ in range(200):
@@ -135,9 +182,86 @@ def n_budget(f, beta, T_yr, N_ref):
 
 
 def time_budget_s(beta):
-    """After the first use, a use beats shipping in time iff T_tx + t_build < D/(beta c) - D/c."""
+    """After the first use, a use beats shipping in time iff t_read + T_tx + t_build < D/(beta c) - D/c."""
     seat, _, _ = owners()
     return seat.D_PROXIMA / seat.C * (1.0 / beta - 1.0)
+
+
+def route_floor_ratio(N, beta):
+    """The least received energy of a use that also wins on time (T_tx <= the budget; t_read = t_build = 0), two
+    polarisations, over the trip it replaces."""
+    seat, _, _ = owners()
+    return seat.channel_floor(N, time_budget_s(beta))["E_1d_two_pol_J"] / trip_energy(beta)
+
+
+def route_crossover_beta(N, lo=1e-7, hi=0.99):
+    """The speed below which the route floor exceeds the trip (route_floor_ratio falls as beta rises)."""
+    for _ in range(200):
+        mid = math.sqrt(lo * hi)
+        if route_floor_ratio(N, mid) >= 1.0:
+            lo = mid
+        else:
+            hi = mid
+    return hi
+
+
+def port_crossover_beta(port_s):
+    """The speed below which a port of load time port_s fits the time budget: (D/c)(1/beta - 1) = port_s."""
+    seat, _, _ = owners()
+    return 1.0 / (1.0 + port_s * seat.C / seat.D_PROXIMA)
+
+
+def _g_inv(bits):
+    """n with g(n) = bits (carrier.g_bits, Giovannetti eq. 4), or None when bits > 1000 (n ~ 2^bits / e)."""
+    _, _, ca = owners()
+    if bits > 1000:
+        return None
+    lo, hi = 1e-300, 1e305
+    for _ in range(4000):
+        mid = math.sqrt(lo * hi)
+        if ca.g_bits(mid) >= bits:
+            hi = mid
+        else:
+            lo = mid
+        if hi / lo < 1 + 1e-13:
+            break
+    return hi
+
+
+def optical_link(N, T_s, lam=OPT_LAMBDA_M, band=OPT_BAND_HZ):
+    """U7 (H-OPTICAL-LINK).  Returns the far-field transmissivity, bits per mode-use, received photons per use, the
+    received and transmitted energies (J; None beyond 1000 bits per use, with log10 of the transmitted energy from
+    n ~ 2^bits / e), and the schedule at OPT_SANE_BITS_PER_USE."""
+    seat, _, _ = owners()
+    C = seat.C
+    nu = C / lam
+    A = math.pi * (seat.branelink.DISH_D / 2.0) ** 2
+    eta = A * A * (nu / (C * seat.D_PROXIMA)) ** 2          # A_t A_r (omega / 2 pi c L)^2
+    uses = band * T_s
+    b = N / uses
+    nr = _g_inv(b)
+    if nr is None:
+        log10_tx = b * math.log10(2.0) - math.log10(math.e) + math.log10(uses * HPL * nu / eta)
+        E_rx = E_tx = None
+    else:
+        E_rx = uses * nr * HPL * nu
+        E_tx = E_rx / eta
+        log10_tx = math.log10(E_tx)
+    return {"eta": eta, "bits_per_use": b, "n_r": nr, "E_rx_J": E_rx, "E_tx_J": E_tx, "log10_E_tx": log10_tx,
+            "T_sane_s": N / (band * OPT_SANE_BITS_PER_USE)}
+
+
+def optical_budget_bits(f, beta, T_s, N_ref):
+    """README size at which the optical link's transmitted energy equals f x the trip."""
+    target = math.log10(f * trip_energy(beta))
+    lo, hi = N_ref * 1e-6, N_ref * 1e20
+    for _ in range(300):
+        mid = math.sqrt(lo * hi)
+        if optical_link(mid, T_s)["log10_E_tx"] >= target:
+            hi = mid
+        else:
+            lo = mid
+    return hi
 
 
 def compute():
@@ -148,36 +272,51 @@ def compute():
     snap_lo, snap_hi = snap["species"], snap["grid_0p1A"]
     rows = {}
     for T in T_DECLARED_YR:
-        Ec = e_tx(core, T)["E_1d_one_pol_J"]
-        El = e_tx(snap_lo, T)["E_1d_one_pol_J"]
-        Eh = e_tx(snap_hi, T)["E_1d_one_pol_J"]
+        fc, fl, fh = e_tx(core, T), e_tx(snap_lo, T), e_tx(snap_hi, T)
+        Ec, El, Eh = fc["E_1d_one_pol_J"], fl["E_1d_one_pol_J"], fh["E_1d_one_pol_J"]
+        Eh2 = fh["E_1d_two_pol_J"]
         for b in BETAS:
             Et = trip_energy(b)
+            nb = n_budget(F_BUDGET, b, T, core)
             rows[(T, b)] = {
-                "trip_J": Et, "E_core_J": Ec, "E_snap_lo_J": El, "E_snap_hi_J": Eh,
+                "trip_J": Et, "E_core_J": Ec, "E_snap_lo_J": El, "E_snap_hi_J": Eh, "E_snap_hi_2pol_J": Eh2,
                 "core_over_trip": Ec / Et, "snap_lo_over_trip": El / Et, "snap_hi_over_trip": Eh / Et,
+                "snap_hi_2pol_over_trip": Eh2 / Et,
                 "kstar_core": {m: seat.breakeven(m, b, Ec) for m in M_SET_ILLUSTRATIVE},
                 "kstar_snap_lo": {m: seat.breakeven(m, b, El) for m in M_SET_ILLUSTRATIVE},
                 "kstar_snap_hi": {m: seat.breakeven(m, b, Eh) for m in M_SET_ILLUSTRATIVE},
-                "N_budget_1pct": n_budget(F_BUDGET, b, T, core),
-                "loss_budget_1pct": F_BUDGET * Et / Ec,
+                "kstar_snap_hi_2pol": {m: seat.breakeven(m, b, Eh2) for m in M_SET_ILLUSTRATIVE},
+                "N_budget_1pct": nb, "loss_budget_1pct": F_BUDGET * Et / Ec,
+                "modes_core": fc["transverse_modes_at_kT"],
+                "modes_budget": e_tx(nb, T)["transverse_modes_at_kT"],
+                "optical_core": optical_link(core, T * seat.YEAR_S),
             }
-    # U3: the scaling measured on the imported floor
     E0 = e_tx(core, 1.0)["E_1d_one_pol_J"]
     scale_N = e_tx(2 * core, 1.0)["E_1d_one_pol_J"] / E0
     scale_T = e_tx(core, 2.0)["E_1d_one_pol_J"] / E0
     scale_d = (seat.channel_floor(core, seat.YEAR_S, d=seat.D_PROXIMA * 10)["E_1d_one_pol_J"] / E0)
     times = {}
-    for b in BETAS + (1.0,):
+    for b in BETAS + (1e-5, 1.0):
         tb = time_budget_s(b)
         times[b] = {"ship_s": seat.D_PROXIMA / (b * seat.C), "light_s": seat.D_PROXIMA / seat.C, "budget_s": tb,
-                    "min_arm_core_m": ca.min_arm_within(tb, core) if tb > 0 else None}
+                    "min_arm_core_m": ca.min_arm_within(tb, core) if tb > 0 else None,
+                    "route_core": route_floor_ratio(core, b) if tb > 0 else None,
+                    "route_snap_lo": route_floor_ratio(snap_lo, b) if tb > 0 else None,
+                    "route_snap_hi": route_floor_ratio(snap_hi, b) if tb > 0 else None}
     arm, port_best = ca.best_arm(core)
+    opt_snap = {lab: optical_link(n, seat.YEAR_S) for lab, n in (("lo", snap_lo), ("hi", snap_hi))}
     return {"kstar_symbolic": str(kstar_sym), "kstar_limit": str(lim), "limit_is_mass_ratio": lim_ok,
             "core_bits": core, "snap_lo_bits": snap_lo, "snap_hi_bits": snap_hi,
             "rows": rows, "scale_N2": scale_N, "scale_T2": scale_T, "scale_d10": scale_d, "times": times,
             "erec_ceiling": seat.erec_ceiling(), "payload_kg": seat.PAYLOAD_KG, "D_m": seat.D_PROXIMA,
             "year_s": seat.YEAR_S, "port_best_arm_m": arm, "port_best_load_s": port_best,
+            "port_crossover_beta": port_crossover_beta(port_best),
+            "route_crossover_snap_hi": route_crossover_beta(snap_hi),
+            "route_crossover_snap_lo": route_crossover_beta(snap_lo),
+            "optical_snap_1yr": opt_snap,
+            "optical_budget_0p1_1yr": optical_budget_bits(F_BUDGET, 0.1, seat.YEAR_S, core),
+            "erase_core_J": core * KB * T_ERASE_K * math.log(2.0),
+            "erase_snap_hi_J": snap_hi * KB * T_ERASE_K * math.log(2.0),
             "rest_energy_J": seat.PAYLOAD_KG * seat.C ** 2}
 
 
@@ -187,29 +326,49 @@ def _fmt_k(k):
 
 def report():
     d = compute()
-    print("uses.py -- uses priced against the first trip (M item 88, link 1; not verified; not seated)\n")
+    yr = d["year_s"]
+    print("uses.py -- uses priced against the first trip (M item 88, link 1; verified once; not seated)\n")
     print("U1 k* = %s ; as E_rec -> 0, k* -> %s (mass ratio: %s)" % (d["kstar_symbolic"], d["kstar_limit"],
                                                                     d["limit_is_mass_ratio"]))
-    print("U2 README = identity core, %.3e bits; snapshot counts %.3e to %.3e bits" % (
+    print("U2 README = identity core, %.3e bits; snapshot counts %.3e to %.3e bits; every k* is a LOWER bound" % (
         d["core_bits"], d["snap_lo_bits"], d["snap_hi_bits"]))
     for (T, b), r in d["rows"].items():
-        print("   T = %g yr, beta = %g: trip %.3e J; README floor core %.3e J (%.1e of trip), snapshot %.3e to %.3e J" % (
-            T, b, r["trip_J"], r["E_core_J"], r["core_over_trip"], r["E_snap_lo_J"], r["E_snap_hi_J"]))
-        print("      k* (core) by m_set %s ; k* (largest snapshot) %s" % (
+        o = r["optical_core"]
+        print("   T = %g yr, beta = %g: trip %.3e J; core floor %.3e J (%.1e of trip); snapshot %.3e to %.3e J "
+              "(largest, two pol.: %.3e J)" % (T, b, r["trip_J"], r["E_core_J"], r["core_over_trip"], r["E_snap_lo_J"],
+                                              r["E_snap_hi_J"], r["E_snap_hi_2pol_J"]))
+        print("      k* >= (core) %s ; (largest snapshot, one pol.) %s ; (two pol.) %s" % (
             ", ".join("%g kg: %s" % (m, _fmt_k(k)) for m, k in r["kstar_core"].items()),
-            ", ".join("%g kg: %s" % (m, _fmt_k(k)) for m, k in r["kstar_snap_hi"].items())))
-        print("      README budget (k* moves 1 %%): %.3e bits; loss budget %.2e" % (r["N_budget_1pct"],
-                                                                                r["loss_budget_1pct"]))
+            ", ".join(_fmt_k(k) for k in r["kstar_snap_hi"].values()),
+            ", ".join(_fmt_k(k) for k in r["kstar_snap_hi_2pol"].values())))
+        print("      README budget (k* moves 1 %%): %.3e bits; loss budget %.2e; modes at kT: core %.1e, budget %.3f; "
+              "optical core: transmits %.3e J (%.1e of trip)" % (r["N_budget_1pct"], r["loss_budget_1pct"],
+                                                                r["modes_core"], r["modes_budget"], o["E_tx_J"],
+                                                                o["E_tx_J"] / r["trip_J"]))
     print("U3 scaling on the imported floor: 2N -> x%.6f ; 2T -> x%.6f ; 10 d -> x%.6f" % (
         d["scale_N2"], d["scale_T2"], d["scale_d10"]))
-    print("U6 time per use after the first: budget = (D/c)(1/beta - 1); carrier's fastest gravitational port loads the "
-          "core in %.3g s (%.3g yr, arm %.2f m, at the g(N) ceiling)" % (d["port_best_load_s"],
-                                                                         d["port_best_load_s"] / d["year_s"],
-                                                                         d["port_best_arm_m"]))
+    print("U6 time per use after the first: budget = (D/c)(1/beta - 1); the fastest gravitational port loads the core in "
+          "%.3g s (%.3g yr, arm %.2f m); it fits only below %.3e c (%.2f km/s)" % (
+              d["port_best_load_s"], d["port_best_load_s"] / yr, d["port_best_arm_m"], d["port_crossover_beta"],
+              d["port_crossover_beta"] * 299792.458))
     for b, t in d["times"].items():
-        print("   beta %g: ship %.3f yr, budget %.3f yr, smallest rotor arm for the core %s" % (
-            b, t["ship_s"] / d["year_s"], t["budget_s"] / d["year_s"],
-            "-" if t["min_arm_core_m"] is None else "%.2f m" % t["min_arm_core_m"]))
+        print("   beta %g: ship %.3f yr, budget %.3f yr, rotor arm for the core %s; route floor / trip: core %s, "
+              "snapshot %s to %s" % (
+                  b, t["ship_s"] / yr, t["budget_s"] / yr,
+                  "-" if t["min_arm_core_m"] is None else "%.2f m" % t["min_arm_core_m"],
+                  "-" if t["route_core"] is None else "%.1e" % t["route_core"],
+                  "-" if t["route_snap_lo"] is None else "%.2e" % t["route_snap_lo"],
+                  "-" if t["route_snap_hi"] is None else "%.2e" % t["route_snap_hi"]))
+    print("   the route floor reaches the trip below beta %.3e (largest snapshot) and %.3e (smallest)" % (
+        d["route_crossover_snap_hi"], d["route_crossover_snap_lo"]))
+    o = d["optical_snap_1yr"]
+    print("U7 optical link (1 um, 1e13 Hz, 100 m dishes): transmissivity %.3e; the snapshot in one year needs %.3g to "
+          "%.3g bits per mode-use (log10 E_tx ~ %.3g); at %g bits per use it needs %.3g to %.3g yr" % (
+              o["lo"]["eta"], o["lo"]["bits_per_use"], o["hi"]["bits_per_use"], o["lo"]["log10_E_tx"],
+              OPT_SANE_BITS_PER_USE, o["lo"]["T_sane_s"] / yr, o["hi"]["T_sane_s"] / yr))
+    print("   optical README budget (0.1 c, one year, 1 %% of the trip): %.3e bits (%.1f orders above the core)" % (
+        d["optical_budget_0p1_1yr"], math.log10(d["optical_budget_0p1_1yr"] / d["core_bits"])))
+    print("Erasure (H-ERASE, 310 K): core %.2e J, largest snapshot %.2e J" % (d["erase_core_J"], d["erase_snap_hi_J"]))
 
 
 def selftest():
@@ -228,40 +387,64 @@ def selftest():
     d = compute()
     r1 = d["rows"][(1.0, 0.1)]
     r01 = d["rows"][(1.0, 0.01)]
+    t = d["times"]
     chk("U1: seat's identity tends to the mass ratio m_set/m_pay as E_rec -> 0 (sympy: %s)" % d["kstar_limit"],
         d["limit_is_mass_ratio"] is True)
-    chk("U1: the trip energy reproduces seat.erec_ceiling at 0.1 c (%.4e J)" % r1["trip_J"],
-        abs(r1["trip_J"] / seat.erec_ceiling()[0.1] - 1) < 1e-12)
     chk("U2: the core's README floor over one year (%.3e J) is below 1e-25 of the 0.1 c trip (%.1e)" % (
         r1["E_core_J"], r1["core_over_trip"]), r1["core_over_trip"] < 1e-25)
-    ok = all(abs(k / (m / d["payload_kg"]) - 1) < 1e-12 for m, k in r1["kstar_core"].items())
-    chk("U2: so k* = m_set / 70 kg at 0.1 c for every illustrative m_set (%s)" % ", ".join(
-        _fmt_k(k) for k in r1["kstar_core"].values()), ok)
+    worst = max(r["core_over_trip"] / (1 - r["core_over_trip"]) for r in d["rows"].values())
+    chk("U2: so the floor raises k* above m_set / 70 kg by at most %.1e at any speed and schedule computed (k* equals "
+        "the mass ratio to float precision)" % worst,
+        0 < worst < 1e-25 and all(abs(k / (m / d["payload_kg"]) - 1) < 1e-12 for r in d["rows"].values()
+                                  for m, k in r["kstar_core"].items()))
+    chk("U2: H-FEW-MODES holds -- fewer than one transverse mode at kT for the core (largest %.1e) and at every README "
+        "budget (largest %.3f)" % (max(r["modes_core"] for r in d["rows"].values()),
+                                   max(r["modes_budget"] for r in d["rows"].values())),
+        all(r["modes_core"] < 1 and r["modes_budget"] < 1 for r in d["rows"].values()))
     chk("U3: on the imported 1D floor, doubling N multiplies the energy by %.6f (N^2)" % d["scale_N2"],
         abs(d["scale_N2"] - 4) < 1e-6)
-    chk("U3: doubling T multiplies it by %.6f (1/T); ten times the distance by %.6f (none)" % (
-        d["scale_T2"], d["scale_d10"]), abs(d["scale_T2"] - 0.5) < 1e-6 and abs(d["scale_d10"] - 1) < 1e-9)
+    chk("U3: doubling T multiplies it by %.6f (1/T)" % d["scale_T2"], abs(d["scale_T2"] - 0.5) < 1e-6)
     nb = r1["N_budget_1pct"]
     chk("U4: at the README budget (%.3e bits) the floor is 1 %% of the trip, so k* = 1.0101 x the mass ratio" % nb,
         abs(seat.breakeven(70.0, 0.1, e_tx(nb, 1.0)["E_1d_one_pol_J"]) / (1 / (1 - F_BUDGET)) - 1) < 1e-6)
-    chk("U5: the largest snapshot over one year (%.3e J) exceeds the 0.01 c trip (%.3e J): no k* at any m_set" % (
-        r01["E_snap_hi_J"], r01["trip_J"]), all(k is None for k in r01["kstar_snap_hi"].values()), contrast=True)
-    chk("U5: the identity core pays back at every speed and schedule computed",
+    chk("U5: the largest snapshot over one year exceeds the 0.01 c trip at both polarisations (%.1f x and %.1f x): the "
+        "floor alone rules S5 out on that schedule" % (r01["snap_hi_over_trip"], r01["snap_hi_2pol_over_trip"]),
+        all(k is None for k in r01["kstar_snap_hi_2pol"].values()) and r01["snap_hi_2pol_over_trip"] > 1,
+        contrast=True)
+    chk("U5: for the core the floor leaves a finite k* at every speed and schedule computed",
         all(all(k is not None for k in r["kstar_core"].values()) for r in d["rows"].values()))
-    chk("with E_rec set at the trip energy (0.1 c), seat.breakeven returns no k* -- the test can fail",
-        seat.breakeven(70.0, 0.1, r1["trip_J"]) is None, ctl=True)
-    t = d["times"]
-    chk("U6: after the first use the time budget at 0.1 c is %.2f yr = 9 x the light time" % (
-        t[0.1]["budget_s"] / d["year_s"]), abs(t[0.1]["budget_s"] / t[0.1]["light_s"] - 9) < 1e-12)
-    chk("at beta = 1 the time budget is zero -- no use can beat shipping at c on time",
-        t[1.0]["budget_s"] == 0.0, ctl=True)
-    chk("U6: no rotor of zeromode's family loads the core inside the time budget at any speed computed (fastest %.3g s "
-        "against the 0.01 c budget %.3g s)" % (d["port_best_load_s"], t[0.01]["budget_s"]),
-        all(t[b]["min_arm_core_m"] is None for b in BETAS) and d["port_best_load_s"] > t[0.01]["budget_s"])
-    structural.append("E_fab (fabrication energy) is NOT COMPUTED ANYWHERE (seat.DOCKET56_OWED); under H-FAB-LOCAL it "
-                      "is not in E_rec")
+    chk("with E_rec at 1.5 x the 0.1 c trip, seat.breakeven returns no k*",
+        seat.breakeven(70.0, 0.1, 1.5 * r1["trip_J"]) is None, ctl=True)
+    chk("U6: no rotor of zeromode's family fits the time budget at any speed computed (fastest %.3g s against the "
+        "0.01 c budget %.3g s)" % (d["port_best_load_s"], t[0.01]["budget_s"]),
+        all(t[b]["min_arm_core_m"] is None for b in BETAS))
+    chk("at 1e-5 c (budget %.3g yr, below the %.2e c crossover) a rotor of arm %s m does fit" % (
+        t[1e-5]["budget_s"] / d["year_s"], d["port_crossover_beta"],
+        "none" if t[1e-5]["min_arm_core_m"] is None else "%.2f" % t[1e-5]["min_arm_core_m"]),
+        t[1e-5]["min_arm_core_m"] is not None, ctl=True)
+    chk("U6: the route floor for the largest snapshot reaches the trip at beta = %.3e; above it the floor permits a use "
+        "that wins on both time and energy, below it none" % d["route_crossover_snap_hi"],
+        route_floor_ratio(d["snap_hi_bits"], d["route_crossover_snap_hi"] * 1.01) < 1 <
+        route_floor_ratio(d["snap_hi_bits"], d["route_crossover_snap_hi"] * 0.99))
+    o = r1["optical_core"]
+    opt_worst = max(r["optical_core"]["E_tx_J"] / r["trip_J"] for r in d["rows"].values())
+    chk("U7: the optical link is in the far field (transmissivity %.2e << 1; transmitted = received / transmissivity) "
+        "and transmits %.2e J for the core in one year -- at most %.1e of the trip at any speed and schedule computed, "
+        "so k* moves by less than 1 %%" % (o["eta"], o["E_tx_J"], opt_worst),
+        o["eta"] < 1e-6 and abs(o["E_tx_J"] * o["eta"] / o["E_rx_J"] - 1) < 1e-9 and opt_worst < F_BUDGET)
+    chk("U7: g(n_r) returns the bits per use the core needs (%.4g, inverse found to 1e-9)" % o["bits_per_use"],
+        abs(ca.g_bits(o["n_r"]) / o["bits_per_use"] - 1) < 1e-9)
+    os_ = d["optical_snap_1yr"]["lo"]
+    chk("U7: the smallest snapshot in one year needs %.3g bits per mode-use through the optical link -- beyond the "
+        "solver's 1000, log10 E_tx ~ %.3g" % (os_["bits_per_use"], os_["log10_E_tx"]),
+        os_["E_tx_J"] is None and os_["log10_E_tx"] > 100, contrast=True)
+    structural.append("U1 trip energy = seat.erec_ceiling at 0.1 c (%.4e J): the same function (History)" % r1["trip_J"])
+    structural.append("U3 the 1D branch of channel_floor never reads d (x%.6f at 10 d)" % d["scale_d10"])
+    structural.append("U6 the time budget is (D/c)(1/beta - 1): 9 x the light time at 0.1 c, 0 at c")
+    structural.append("E_fab is NOT COMPUTED ANYWHERE (seat.DOCKET56_OWED); under H-FAB-LOCAL it is not counted")
     structural.append("m_set is NOT SPECIFIED ANYWHERE (seat.DOCKET56_OWED); the m_set values are DECLARED")
-    structural.append("the 1D floor bounds RECEIVED energy (seat's H-FEW-MODES); transmitted energy is not floored")
+    structural.append("the erasure term (H-ERASE, 310 K): core %.1e J, largest snapshot %.1e J" % (
+        d["erase_core_J"], d["erase_snap_hi_J"]))
     structural.append("the README is the cortical core (H-README-IS-CORE); the recipe is unpriced (faithful OPEN 2)")
     for s_ in structural:
         print("  STRUCTURAL: " + s_)
