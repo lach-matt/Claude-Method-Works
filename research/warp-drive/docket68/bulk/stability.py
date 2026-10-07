@@ -24,12 +24,18 @@ derivatives of psi do not decay and H[psi] = 0").  Theorem 3 p.15 ("asympoticall
       with an exact coefficient, no unknown constant.  Over one clock (v = m) the linear part is H0/(4m), a quarter of
       the second derivative's natural size H0/m
   S5  the white-hole half of the wall.  READ: Bianchi, Christodoulou, D'Ambrosio, Haggard & Rovelli, arXiv:1802.04264v2
-      p.7: "Generically, white holes are known to be unstable under perturbations ... The instability arises because
-      modes of short-wavelength are exponentially blue-shifted along the white hole horizon."  The exponential rate is
-      the surface gravity kappa = D'(rho_H)/2.  The corridor's is zero (S1), so the exponential blueshift is absent:
-      e^(kappa v) = 1 for every v.  Control: the r0 = 1.8m member, kappa = sqrt(10)/(20m), e-folds every 2 sqrt(10) m
-      ~ 6.3 m.  What remains at kappa = 0 is power-law (an outgoing ray near the horizon obeys d(rho)/dv = D/2 =
-      rho~^2/(8m^2), reaching the throat's scale in a finite advanced time set by its start, not exponentially)
+      p.7 (a secondary citation; the primary sources are Eardley 1974 and Barrabes-Brady-Poisson 1993, both about
+      non-extremal white holes): "Generically, white holes are known to be unstable under perturbations ... The
+      instability arises because modes of short-wavelength are exponentially blue-shifted along the white hole
+      horizon."  The exponential rate is the surface gravity kappa = D'(rho_H)/2.  The corridor's is zero (S1), so the
+      exponential blueshift is absent.  Control: the r0 = 1.8m member, kappa = sqrt(10)/(20m), e-folds every
+      2 sqrt(10) m ~ 6.3 m.  At r0 = 2m the entry's future horizon and the exit's past horizon are ONE null surface
+      (P1's two horizons merge), so S4's identities hold on the exit too
+  S5b what remains at kappa = 0 is a power law, and it is unbounded.  Rays hugging the white-hole surface (side 2,
+      rho~ < 0) obey d rho~/dv = D/2 = rho~^2/(8m^2): rho~(v) = rho~0/(1 - rho~0 v/(8m^2)) -> -8m^2/v, approaching the
+      surface without reaching it; their spacing shrinks as (1 - rho~0 v/(8m^2))^-2 ~ v^-2, a blueshift growing as v^2.
+      Control: the non-extremal near-horizon law d rho~/dv = kappa rho~ gives spacing e^(kappa v).  So the exponential
+      mechanism is absent and a v^2 blueshift remains; whether it destabilises the exit is OPEN
 Imports copy/chain.py's exact throat coefficient by path.  Stdlib + sympy.  python3 stability.py [--selftest]
 """
 import contextlib
@@ -95,6 +101,21 @@ def r_second(rH):
     return sp.limit(sp.Rational(1, 2) * sp.diff(sp.simplify(H / F), r).subs(r, rH + s), s, 0, "+")
 
 
+def white_hole():
+    """S5b: the side-2 rays hugging the white-hole surface, at kappa = 0 and (control) at kappa > 0."""
+    v, kap = sp.symbols("v kappa", positive=True)
+    a = sp.Symbol("a", positive=True)
+    x0 = -a                                                         # rho~0 < 0: side 2
+    xv = x0 / (1 - x0 * v / (8 * m**2))
+    ode_ok = sp.simplify(sp.diff(xv, v) - xv**2 / (8 * m**2)) == 0 and sp.simplify(xv.subs(v, 0) - x0) == 0
+    spacing = sp.simplify(-sp.diff(xv, a))                          # d rho~ / d rho~0, rho~0 = -a
+    blue = sp.limit(1 / (spacing * v**2), v, sp.oo)                 # blueshift / v^2 -> constant
+    xc = x0 * sp.exp(kap * v)                                       # control: d rho~/dv = kappa rho~
+    ctl_ok = sp.simplify(sp.diff(xc, v) - kap * xc) == 0
+    return {"ode_ok": ode_ok, "limit": sp.limit(xv * v, v, sp.oo), "spacing": spacing, "blue_over_v2": blue,
+            "spacing_control": sp.simplify(-sp.diff(xc, a)), "control_ok": ctl_ok}
+
+
 def compute():
     d1, d2 = D_derivatives(2 * m, 2 * m)                            # the corridor
     K = 1 / (2 * m) ** 2
@@ -114,7 +135,7 @@ def compute():
     return {"D1": d1, "D2": d2, "K": K, "cond10": sp.simplify(d2 - 2 * K) == 0, "control_D1": c1, "rn_ok": rn_ok,
             "rN": rN, "t_m": t_m, "t_m_per_sqrt_bit": r1 / (2 * C), "first": tr["first"], "rpp": rpp,
             "coeff_H0": coeff_H0, "coeff_dv": coeff_dv,
-            "kappa": sp.simplify(d1 / 2), "kappa_control": sp.simplify(c1 / 2)}
+            "kappa": sp.simplify(d1 / 2), "kappa_control": sp.simplify(c1 / 2), "wh": white_hole()}
 
 
 def report(d):
@@ -129,6 +150,9 @@ def report(d):
     print("   over one clock (v = m) the linear part of the change is H0/(4m): a quarter of the natural size H0/m")
     print("S5 white-hole blueshift rate kappa: corridor %s (exponential blueshift absent); control r0 = 1.8m: %s, "
           "e-folding %s" % (d["kappa"], d["kappa_control"], sp.simplify(1 / d["kappa_control"])))
+    w = d["wh"]
+    print("S5b side-2 rays at kappa = 0: rho~ v -> %s; spacing %s (blueshift ~ v^2 x %s); control kappa > 0: spacing %s"
+          % (w["limit"], w["spacing"], w["blue_over_v2"], w["spacing_control"]))
 
 
 def selftest():
@@ -153,6 +177,12 @@ def selftest():
     chk("S5: the corridor's surface gravity is zero, so the white hole's exponential blueshift is absent; control: "
         "the r0 = 1.8m member e-folds every 2 sqrt(10) m", d["kappa"] == 0
         and sp.simplify(1 / d["kappa_control"] - 2 * sp.sqrt(10) * m) == 0)
+    w = d["wh"]
+    a, kap, v = sp.Symbol("a", positive=True), sp.Symbol("kappa", positive=True), sp.Symbol("v", positive=True)
+    chk("S5b: side-2 rays approach the white-hole surface as -8m^2/v and their spacing shrinks as v^-2 (blueshift ~ v^2, "
+        "unbounded); control: at kappa > 0 the spacing grows as e^(kappa v)",
+        w["ode_ok"] and sp.simplify(w["limit"] + 8 * m**2) == 0 and w["blue_over_v2"].is_positive
+        and w["blue_over_v2"] != sp.oo and w["control_ok"] and sp.simplify(w["spacing_control"] - sp.exp(kap * v)) == 0)
     print("selftest: %d/%d" % (ok, n))
     return ok == n
 
