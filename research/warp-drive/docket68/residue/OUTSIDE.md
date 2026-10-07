@@ -155,6 +155,17 @@
   - H-RULES-NOT-INFORMATION: GJW p.14 and MSY p.4 bound the information itself.
   - These go to the walls as questions.
 
+### Formation (added after step 3)
+
+- **An exactly extremal horizon forms from ordinary collapse.** Kehle–Unger, arXiv:2211.15742v2 p.3, Theorem 1 (READ by
+  the board, alphaXiv): *"there exist regular one-ended Cauchy data for the Einstein–Maxwell-charged scalar field system
+  which undergo gravitational collapse and form an exactly Schwarzschild apparent horizon, only for the spacetime to
+  form an exactly extremal Reissner–Nordström event horizon at a later advanced time."*
+- **The matter is ordinary.** The model *"satisfies the dominant energy condition"* (p.3).
+- **No change of topology.** The data are *"one-ended"*, with *"a regular center"* (p.6, Corollary 1).
+- **What it means here.** The corridor's mouth, an extremal horizon, needs no change of topology to form (LOOSE.md L6).
+  What lies behind it is the open part.
+
 ### C8O-O9 and C8P-O5: stability
 
 - **Extremal horizons carry the Aretakis instability for test fields.**

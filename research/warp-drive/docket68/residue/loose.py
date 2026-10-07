@@ -133,8 +133,9 @@ def l3():
     m_ex = G * e * sp.sqrt(sp.Integer(o["exactE"].N_EXAMPLE)) / C**4
     t_coeff = (H / (2 * sp.pi)) * C / (2 * sp.pi * KB) / (2 * m_ex)  # T = (hbar c / 2 pi k_B) kappa, kappa = sqrt(-d)/2m
     V0 = potential(2 * m, 0)
+    dVl = sp.simplify(potential(2 * m, l) - V0)                     # the l-part, A l(l+1)/r^2
     V0s = potential(sp.Rational(3, 2) * m, 0)                       # Schwarzschild member, the control
-    return {"kappa_delta": kap, "kappa_floor": kappa(2 * m), "kappa_schw": kappa(sp.Rational(3, 2) * m),
+    return {"dVl": dVl, "kappa_delta": kap, "kappa_floor": kappa(2 * m), "kappa_schw": kappa(sp.Rational(3, 2) * m),
             "T_coeff_ex": t_coeff, "m_ex": m_ex, "V0": V0, "V0_schw": V0s,
             "V0_order_at_throat": sp.limit(V0 / (r - 2 * m) ** 2, r, 2 * m),
             "V0s_order_at_horizon": sp.limit(V0s / (r - 2 * m), r, 2 * m)}
@@ -150,6 +151,9 @@ def l4():
     def K(sign):                                                    # K_mn = (1/2) d_y g at y = 0 on one side
         return sign * (-k) * g4
     out = {}
+    jz2 = K(1) - K(-1)
+    lam = sp.symbols("lam")
+    out["no_trace_control"] = sp.solve(sp.Eq(jz2[1, 1], -kap5**2 * (-lam) * g4[1, 1]), lam)[0]   # Israel without -g[K]
     for name, jump in (("Z2", K(1) - K(-1)), ("smooth", K(1) - K(1))):
         trK = sum(jump[i, i] * g4[i, i] for i in range(4))
         lhs = jump - g4 * trK
@@ -162,30 +166,41 @@ def l4():
 # ------------------------------------------------------------------------------------------------ L5
 def l5():
     """Vacuum AdS5, ds^2 = e^{-2ky} eta + dy^2 off our plane (y >= 0, K = -k g as closedbulk.py's K = -a q).
-    z = e^{ky}/k makes it (1/(kz)^2)(eta + dz^2): null rays are straight lines in (t, x, z)."""
-    th, ys = sp.symbols("theta y_s", positive=True)
+    z = e^{ky}/k makes it (1/(kz)^2)(eta + dz^2): null rays are straight lines in (t, x, z).  The ray's own energy is
+    eps = Omega^2 dt/dlambda (not E(N))."""
+    th, ys, eps = sp.symbols("theta y_s epsilon", positive=True)
+    z = sp.Symbol("z", positive=True)
     z0 = 1 / k
     zs = sp.exp(k * ys) / k
-    dt_cross = (zs - z0) / sp.sin(th)                               # conformal-time to reach layer y_s
-    lam_horizon = sp.integrate(1 / (k * sp.Symbol("z", positive=True)) ** 2, (sp.Symbol("z", positive=True), z0, sp.oo))
-    # control: the other sign (warp growing away), z = e^{-ky}/k falls to the boundary z = 0
-    dt_boundary = z0 / sp.sin(th)
-    return {"dt_cross": sp.simplify(dt_cross), "affine_to_horizon_per_unit": lam_horizon,
-            "dt_boundary_other_sign": dt_boundary}
+    dt_cross = sp.integrate(1 / sp.sin(th), (z, z0, zs))            # dt = dz / sin(theta) along the ray
+    lam_horizon = sp.integrate((1 / (k * z)) ** 2 / (eps * sp.sin(th)), (z, z0, sp.oo))   # dlambda = Omega^2 dt / eps
+    # control: the other sign (warp growing away), z = e^{-ky}/k falls to the boundary z = 0, computed the same way
+    dt_boundary = sp.integrate(1 / sp.sin(th), (z, 0, z0))
+    return {"dt_cross": sp.simplify(dt_cross), "affine_to_horizon": sp.simplify(lam_horizon),
+            "dt_boundary_other_sign": sp.simplify(dt_boundary)}
 
 
 # ------------------------------------------------------------------------------------------------ L6
 def l6():
-    """A spherical null shell at v = v1 between a region with no corridor and the corridor (Barrabes-Israel; with
-    lambda = -r on both sides the surface energy density is mu = [m_MS]/(4 pi r^2), m_MS = (r/2)(1 - 1/g_rr))."""
+    """A spherical null shell at v = v1 between a region with no corridor (flat, H-LOCAL-FLAT) and the corridor
+    (Barrabes-Israel; Poisson's Toolkit 3.11).  Metric -e^{2psi} f dv^2 + 2 e^psi dv dr + r^2 dOmega, f = 1/g_rr,
+    e^{2psi} = g_tt g_rr.  Common parameter lambda = -r, k = -d_r: surface energy mu = [m_MS]/(4 pi r^2),
+    m_MS = (r/2)(1 - f); surface pressure p = -[kappa]/(8 pi), kappa = -psi' the inaffinity of lambda = -r, so with
+    the corridor to the future p = psi'/(8 pi).  The null condition on the shell needs mu >= 0 AND p >= 0."""
     gtt, grr = corridor(2 * m)
     mms = sp.factor(sp.simplify(r / 2 * (1 - 1 / grr)))
-    # the generator's areal radius: corridor r = 2m + x^2 (a minimum), no-corridor side r falls to 0
-    gen_corr = 2 * m + x**2
+    psi_r = sp.factor(sp.simplify(sp.diff(sp.log(gtt * grr) / 2, r)))
+    p_shell = sp.factor(psi_r / (8 * sp.pi))
+    # the generator, derived: in r = 2m + x^2 a radial null ray has dx/dlambda = eps / h, h = sqrt(g_tt g_xx)
+    gxx = sp.simplify(grr.subs(r, 2 * m + x**2) * (2 * x) ** 2)
+    h2 = sp.factor(sp.simplify(gtt.subs(r, 2 * m + x**2) * gxx))
     gtt_s, grr_s = corridor(sp.Rational(3, 2) * m)                  # control: Schwarzschild exterior
     mms_s = sp.simplify(r / 2 * (1 - 1 / grr_s))
+    h2_s = sp.simplify(gtt_s * grr_s)                               # dr/dlambda = eps / sqrt(h2_s): monotone in r
     return {"mMS": mms, "mMS_throat": sp.simplify(mms.subs(r, 2 * m)), "mMS_inf": sp.limit(mms, r, sp.oo),
-            "dmMS": sp.factor(sp.diff(mms, r)), "gen_min": sp.solve(sp.diff(gen_corr, x), x), "mMS_schw": mms_s}
+            "dmMS": sp.factor(sp.diff(mms, r)), "psi_r": psi_r, "p_shell": p_shell,
+            "p_near_throat": sp.limit(p_shell * (r - 2 * m), r, 2 * m), "h2": h2, "h2_at_throat": h2.subs(x, 0),
+            "mMS_schw": mms_s, "h2_schw": h2_s}
 
 
 # ------------------------------------------------------------------------------------------------ report
@@ -218,22 +233,25 @@ def report():
     print("  surface gravity at r0 = 2m(1+delta): %s; at delta = 0: %s; Schwarzschild member: %s"
           % (c3["kappa_delta"], c3["kappa_floor"], c3["kappa_schw"]))
     print("  T = %s K x sqrt(-delta) at the example N (m = %s m)" % (_f(c3["T_coeff_ex"]), _f(c3["m_ex"])))
-    print("  V(l=0) at r0 = 2m: %s" % c3["V0"])
+    print("  V(l=0) at r0 = 2m: %s; V(l) - V(0) = %s >= 0" % (c3["V0"], c3["dVl"]))
     print("    double zero at the throat (V/(r-2m)^2 -> %s); Schwarzschild's simple zero (V/(r-2m) -> %s)"
           % (c3["V0_order_at_throat"], c3["V0s_order_at_horizon"]))
     print("\nL4 C8P-O2: two sheets at one place")
-    print("  total tension the junction needs: with Z2 %s; through a smooth bulk %s" % (d4["Z2"], d4["smooth"]))
+    print("  flat pure-tension sheets (H-FLAT-SHEET): total tension with Z2 %s; through a smooth bulk %s" % (d4["Z2"], d4["smooth"]))
+    print("  control, Israel without its trace term: %s (not the Randall-Sundrum value)" % d4["no_trace_control"])
     print("\nL5 C8P-O7: rays leaving the plane (vacuum AdS5, y >= 0)")
-    print("  conformal time to reach layer y_s: %s; never returns; affine parameter to the horizon %s per unit E"
-          % (e5["dt_cross"], e5["affine_to_horizon_per_unit"]))
+    print("  conformal time to reach layer y_s: %s; never returns; affine parameter to the horizon %s"
+          % (e5["dt_cross"], e5["affine_to_horizon"]))
     print("  control, warp growing away: the boundary in time %s" % e5["dt_boundary_other_sign"])
     print("\nL6 C8O-O1/2: the opening as a null shell")
     print("  m_MS(r) = %s; at the throat %s; at infinity %s; dm_MS/dr = %s"
           % (f6["mMS"], f6["mMS_throat"], f6["mMS_inf"], f6["dmMS"]))
-    print("  the corridor's generator r = 2m + x^2 has its minimum at x = %s; the side without a corridor falls to "
-          "r = 0: no single shell joins whole generators" % f6["gen_min"])
-    print("  control, Schwarzschild exterior: m_MS = %s (constant), r monotone on both sides: the shell joins"
-          % f6["mMS_schw"])
+    print("  surface pressure (corridor to the future): p = %s; (r - 2m) p -> %s at the throat: negative, divergent"
+          % (f6["p_shell"], f6["p_near_throat"]))
+    print("  the generator: h^2 = g_tt g_xx = %s, %s at x = 0 -- x is affine up to a smooth factor, so r = 2m + x^2 "
+          "has a minimum along it; flat space's generator falls to r = 0" % (f6["h2"], f6["h2_at_throat"]))
+    print("  control, Schwarzschild exterior: m_MS = %s, g_tt g_rr = %s: r is affine and monotone on both sides"
+          % (f6["mMS_schw"], f6["h2_schw"]))
 
 
 def selftest():
@@ -267,17 +285,27 @@ def selftest():
         all(Vn(s) >= 0 for s in samples) and c3["V0"].has(3 * r - 4 * m) and c3["V0"].has((r - 2 * m) ** 2))
     chk("L3: the throat is a double zero of V (power-law tails), against Schwarzschild's simple zero",
         c3["V0_order_at_throat"] not in (0, sp.oo) and c3["V0s_order_at_horizon"] not in (0, sp.oo))
-    chk("L4: coinciding sheets need total tension 6k/kappa5^2 with Z2, 0 through a smooth bulk",
-        sp.simplify(d4["Z2"] - 6 * k / sp.Symbol("kappa5", positive=True) ** 2) == 0 and d4["smooth"] == 0)
-    chk("L5: a ray leaving the plane reaches the horizon at finite affine parameter 1/k and never returns",
-        sp.simplify(e5["affine_to_horizon_per_unit"] - 1 / k) == 0)
+    K5 = sp.Symbol("kappa5", positive=True)
+    chk("L4: flat coinciding sheets need total tension 6k/kappa5^2 with Z2, 0 through a smooth bulk",
+        sp.simplify(d4["Z2"] - 6 * k / K5 ** 2) == 0 and d4["smooth"] == 0)
+    chk("L4 control: Israel without its trace term gives another value (-2k/kappa5^2)",
+        sp.simplify(d4["no_trace_control"] - 6 * k / K5 ** 2) != 0)
+    th_, ep_ = sp.Symbol("theta", positive=True), sp.Symbol("epsilon", positive=True)
+    chk("L5: a ray leaving the plane reaches the horizon at finite affine parameter 1/(k eps sin theta)",
+        sp.simplify(e5["affine_to_horizon"] - 1 / (k * ep_ * sp.sin(th_))) == 0)
     chk("L5 control: with the warp growing away the ray reaches the boundary in finite time 1/(k sin theta)",
-        e5["dt_boundary_other_sign"].has(sp.sin(sp.Symbol("theta", positive=True))))
+        sp.simplify(e5["dt_boundary_other_sign"] - 1 / (k * sp.sin(th_))) == 0)
     chk("L6: the opening shell's energy is positive and rises from m at the throat to 5m/4 at infinity",
         sp.simplify(f6["mMS_throat"] - m) == 0 and sp.simplify(f6["mMS_inf"] - sp.Rational(5, 4) * m) == 0 and
         sp.simplify(f6["dmMS"] - m**2 / (2 * (2 * r - 3 * m) ** 2)) == 0)
-    chk("L6: the corridor's generators have a minimum radius (x = 0); control: Schwarzschild's m_MS is constant m",
-        f6["gen_min"] == [0] and sp.simplify(f6["mMS_schw"] - m) == 0)
+    chk("L6: the shell's surface pressure is negative and diverges at the throat: the null condition fails on the shell",
+        sp.simplify(f6["p_near_throat"] + 1 / (16 * sp.pi)) == 0)
+    chk("L6: h = sqrt(g_tt g_xx) is finite and nonzero at x = 0, so r = 2m + x^2 has a minimum along the generator",
+        sp.simplify(f6["h2_at_throat"] - 2 * m) == 0)
+    chk("L6 control: Schwarzschild's m_MS is constant m and g_tt g_rr = 1 (r affine, monotone)",
+        sp.simplify(f6["mMS_schw"] - m) == 0 and sp.simplify(f6["h2_schw"] - 1) == 0)
+    chk("L3: the l-part of the potential is A l(l+1)/r^2 >= 0 for r >= 2m",
+        sp.simplify(c3["dVl"] - (1 - 2 * m / r) * l * (l + 1) / r**2) == 0)
     print("selftest: %d/%d" % (ok, n))
     return ok == n
 
