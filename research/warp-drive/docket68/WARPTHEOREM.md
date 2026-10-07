@@ -144,7 +144,8 @@ The theorem is proved exactly when no lemma below is OPEN.
 - **Caveats the board can clear:** I1's extremal step, READ for a class only; the duration quantum inequality (old wall
   D7), not yet re-run against Z3.
 - **A measurement, by your ruling:** B6′, k's scale.
-- **Verification:** none of the nine lemma instruments, axioms.py or warptheorem.py has had a verifier.
+- **Verification:** b4_global.py, b4_regular.py and b4_static.py (with o3_hold.py's window) have had one verifier
+  each; the other nine lemma instruments, axioms.py and warptheorem.py have not.
 - The chain map (chainmap.html, published as the Warp Chain Map) shows which station each lemma decides.
 
 ## Named hypotheses
@@ -152,7 +153,8 @@ The theorem is proved exactly when no lemma below is OPEN.
 - **Yours:** M-ONE-THEOREM (150), M-PROVE-EVERY-LEMMA (151), and the rulings each derived lemma is derived from.
 - **The board's:**
   - reading your item 152 (1) as CENSOR5D's escape (a), encoded as one end (B4a);
-  - H-FAR-MODEL, H-WEAK-RADIATION, H-NEAR-ZONE (B4c); H-GLUING (B4b's sufficiency);
+  - H-FAR-MODEL (B4c); the locally analytic class near the hold and Padé continuation (B4b); H-HOLD-IN-WINDOW (O3);
+    H-EVOLUTION and H-GLUING (B4d);
   - reading (a) for E3;
   - H-SHARED-PROFILE, H-PIN-IS-COINCIDENCE (B5); H-BRIDGE-PREEXISTS (B7);
     H-LENGTH-AS-DIFFERENCE (R4); H-EXTREMAL-ENTROPY (I1);

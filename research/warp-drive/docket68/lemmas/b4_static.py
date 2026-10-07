@@ -12,38 +12,51 @@ the series and decides that condition.
       point, against 30 min for order 12 symbolically.  Checks: equal to bulkseries.solve through y^6, flat and at
       ell = r0, coefficient by coefficient and in its r-derivatives; control: Schwarzschild data give the black string,
       e^{-y} exactly through y^20
-  S2 THE STATIC BULK HAS A CURVATURE SINGULARITY ABOVE THE THROAT (computed).  In the flat limit (ell >> r0 -- the
-      regime measurement leaves above r0), at r = 2.15m: the Padé approximants of A, B, C in s = y^2, at orders 60 and
-      80, put a cut of alternating poles and zeros on the real axis starting at y_b = 2.507m (order 60) and 2.5025m
-      (order 80) -- a branch point; A, B, C stay finite and positive there, and K, agreeing between Padé orders to 1%
-      up to 2.46m, rises 224 (2.30m), 1,480 (2.40m), 3,892 (2.43m), 1.9e4 (2.46m): K ~ (y_b - y)^-3.  The metric is
-      finite, the curvature diverges: a curvature singularity at finite proper depth.  (Order 80 is recorded; the
+  S2 THE STATIC BULK HAS A CURVATURE SINGULARITY ABOVE THE THROAT (computed; numerical evidence, not a bound).  In the
+      flat limit (ell >> r0 -- the regime measurement leaves above r0), at r = 2.15m: the Padé approximants of A, B, C
+      in s = y^2, at seven orders up to order 80, put an interlacing cut of poles and zeros on the real axis starting at
+      the same point -- y_b = 2.507m (order 60), 2.5025m (order 80); Domb-Sykes and a D-log Padé, independent, give
+      2.48-2.49m: a branch point at y_b = 2.49-2.50m.  A, B, C stay finite and positive there, and K -- agreeing between
+      Padé orders to 1% up to 2.43m at order 60 and 2.46m at order 80 -- rises 224 (2.30m), 1,480 (2.40m), 3,892
+      (2.43m), 1.9e4 (2.46m): K ~ (y_b - y)^-p with p ~ 2.5-3, divergent either way.  The metric is finite, the
+      curvature diverges: a curvature singularity at finite proper depth.  (Order 80 is recorded; the
       selftest re-runs order 60, about a minute.)  Near the throat (r = 2.02-2.2m) every column shows K in the thousands
-      to tens of thousands at 2.4-2.5m; from r = 2.35m out, K stays below 2 to the grid's verified depth
-  S3 HOW LONG A HOLD THE BULK CARRIES (computed from the banked grid, b4_static.json).  The static bulk on 25 radii
-      (2.02m to 8m), y to 12m, by Padé [15/15] in y^2; a point counts only where [14/15] and [15/15] agree (A, B, C to
-      1e-4, K to 1%).  The hold's double cone is computed in full -- light from the plane at any r, by Dijkstra in the
-      optical metric (B dr^2 + dy^2)/A of the static bulk, far time -- not along y alone.
-        * Any hold shorter than 13.00 clocks keeps its whole double cone inside the verified region; K there is at most
-          3.93, against 1.29 on the plane at the throat.  CERTIFIED REGULAR (the binding column, r = 2.5m, is limited
-          by Padé reach, not by curvature: K ~ 0.4 there)
-        * Longer holds reach the curved layer above the throat: K >= 100 from 15.93 clocks, >= 1,000 from 17.76, >= 1e4
-          from 23.78, and the singular surface itself (r = 2.15m, y = 2.50m, light time ~11.2 clocks) from ~22.4
-        * O3's 28.48 clocks (H-ONE-STEP-PER-BIT, H-HOLD-AT-BOUND -- the board's readings) puts K = 2.3e4 inside its cone
-          in the verified region alone, and reaches the singular surface.  The bulk REFUTES that hold
+      to tens of thousands at 2.4-2.5m; from r = 2.35m out, K stays below 2 to the grid's verified depth.  At r = 2.02m
+      A and B alternate in sign in y^2 through order 60 (singularities at imaginary y); at r = 2.15m only through s^7
+      and s^12, the tails then of one sign (Pringsheim-consistent with the real branch point)
+  S3 HOW LONG A HOLD THE BULK CARRIES (computed from the banked grid, b4_static.json).  The static bulk on 32 radii
+      (2.005m to 32m), y to 12-16m, by Padé [15/15] in y^2; a point counts only where [14/15] and [15/15] agree (A, B, C
+      to 1e-4, K to 1%) -- a convergence heuristic, not a bound.  The hold's double cone is computed in full -- light
+      from the plane at any r, by Dijkstra in the optical metric (B dr^2 + dy^2)/A of the static bulk, far time -- on a
+      refined graph (the columns interpolated linearly in r, long stencils), checked converged between two refinements;
+      between two columns a point counts as verified only below the lower of their tops.  (First written on the 25 bare
+      columns with a 16-move stencil, which cannot follow oblique paths and overstated the times: 13.0 clocks; the
+      verifier's converged figure was 11.9 by column tops and 11.3 counting the strips.)
+        * Holds below T_CERT clocks keep their whole computed double cone inside the verified region -- REGULAR and
+          Padé-stable there (not a certificate: a heuristic agreement of orders).  The strip r < 2.005m (the cone only
+          ~0.3m deep there, the static chart degenerating at the throat) and r > 32m (K ~ m^2/r^6) are not computed
+        * Between T_CERT and the singular surface the bulk is undecided; the singular surface itself (y_b = 2.49-2.50m
+          at r = 2.15m) is reached by about T_SING clocks along oblique paths.  K >= 100, finite, is reached from
+          T_K2 clocks: a large curvature, not a failure
+        * O3's per-bit 28.48 clocks reaches the singular surface
       Control: away from the throat, at r = 4m, the column is verified to 10.1m with K <= 0.014 throughout
-  S4 WHAT THIS DOES TO THE THEOREM (deduced).  Clause (B) needs the bulk; with eq. (17) held exactly on the plane, the
-      bulk caps the hold below 13 clocks (certified) and somewhere in 16-24 clocks (failing).  So the board's per-bit
-      reading of the write -- N independent holders each flipped to an orthogonal state on E/N, which forces 28.48
-      clocks -- is withdrawn, as O3b's own text requires when the mathematics refutes it.  The READ bounds that remain
-      leave a window: Margolus-Levitin on the whole register, h/(4E) = (2 pi^2/ln2)/N clocks; Bremermann's bound as
-      Bekenstein gives it (quant-ph/0311049 eq. (26), p.10, xi of order a few), N bits need >= 1/(2 xi) clocks.  Both
-      are far below 13.  M's 136 E, "instantaneous or near instantaneous", fits the window (o3_hold.py)
+  S4 WHAT THIS DOES TO THE THEOREM (deduced).  The bulk refutes a conjunction: H-ONE-STEP-PER-BIT (the per-bit write,
+      which forces 28.48 clocks), eq. (17) held exactly and statically through the hold, the flat limit, the board's
+      locally analytic class near the hold, and Padé continuation.  Of these the board withdraws H-ONE-STEP-PER-BIT, its
+      own reading of the write; the others carry the rest of the theorem.  H-HOLD-AT-BOUND is not refuted by itself: kept
+      against the bounds that remain, it would set the hold at about 1/(2 xi) clocks (below); the board withdraws it by
+      choice, and O3 asks only that the hold lie in the window.  The READ bounds that remain: Margolus-Levitin on the
+      whole register, h/(4E) = (2 pi^2/ln2)/N clocks; Bremermann's bound as Bekenstein gives it (quant-ph/0311049 eq.
+      (26), p.10: "we shall take xi = 10 for illustration", "at some large value"), N bits need >= 1/(2 xi) clocks --
+      0.05 clocks at xi = 10 -- applying a channel-rate bound to the register write being the board's mapping.  The
+      window is [max(h/(4E), 1/(2 xi)), T_CERT).  M's 136 E, "instantaneous or near instantaneous", is consistent with it
+      and does not choose between it and the per-bit figure
   NOT DECIDED HERE: whether the opening and closing themselves -- non-static, and so non-analytic somewhere -- evolve
       regularly in five dimensions (H-EVOLUTION), and whether data beyond the cone join the untouched exterior
       (H-GLUING).  At linear order around the static bulk, Holmgren's theorem (analytic coefficients, solutions of any
-      regularity; standard, not READ) closes the non-analytic escape inside the cone; the evolution itself is a
-      nonlinear five-dimensional initial-boundary problem the board's tools do not solve
+      regularity; standard, not READ) closes the non-analytic escape inside the cone -- uniqueness only, not existence
+      or stability: the static y-problem is elliptic in (r, y) and Hadamard-ill-posed; the evolution itself is a
+      nonlinear five-dimensional initial-boundary problem (B4d)
 Needs python-flint (pip install python-flint), sympy, numpy, mpmath.  Imports bulk/bulkseries.py by path.
 python3 b4_static.py [--selftest] [--regenerate]   (selftest ~4 min; regenerate ~40 min)
 """
@@ -66,8 +79,8 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 D68 = os.path.dirname(HERE)
 BANK = os.path.join(HERE, "b4_static.json")
 HOLD_PER_BIT = 2 * math.pi**2 / math.log(2)          # O3's per-bit figure, 28.4777 clocks
-RADII = ["101/50", "51/25", "103/50", "52/25", "21/10", "53/25", "107/50", "54/25", "109/50", "11/5", "111/50", "9/4",
-         "23/10", "47/20", "12/5", "5/2", "13/5", "14/5", "3", "33/10", "18/5", "4", "5", "6", "8"]
+RADII = ["401/200", "201/100", "101/50", "51/25", "103/50", "52/25", "21/10", "53/25", "107/50", "54/25", "109/50", "11/5", "111/50", "9/4",
+         "23/10", "47/20", "12/5", "5/2", "13/5", "14/5", "3", "33/10", "18/5", "4", "5", "6", "8", "10", "12", "16", "24", "32"]
 
 
 def _flint():
@@ -263,48 +276,86 @@ def branch_and_K(rc, N, ys, K=None):
 
 
 # ------------------------------------------------------------------------------------------------ S3 the hold's cone
-def cone(bank):
-    rs = bank["r"]
-    rv = np.array([float(Fr(k)) for k in rs])
-    dy = bank["dy"]
-    ny = max(len(bank["cols"][k]["A"]) for k in rs)
-    nr = len(rs)
-    A = np.full((nr, ny), np.nan)
-    B = np.full((nr, ny), np.nan)
-    Kk = np.full((nr, ny), np.nan)
-    top = np.zeros(nr, int)
-    for i, k in enumerate(rs):
-        c = bank["cols"][k]
-        n = len(c["A"])
-        A[i, :n], B[i, :n], Kk[i, :n] = c["A"], c["B"], c["K"]
-        top[i] = n
-    ok = ~np.isnan(A)
-    T = np.full((nr, ny), np.inf)
-    pq = []
+def _fine(bank, nsub, ystep):
+    """Columns interpolated linearly in r; between two columns a point is verified only below the lower top."""
+    rs = sorted(bank["r"], key=lambda k: float(Fr(k)))
+    rv = [float(Fr(k)) for k in rs]
+    cols = [bank["cols"][k] for k in rs]
+    dy = bank["dy"] * ystep
+    R, A, B, K, top = [], [], [], [], []
+    for i in range(len(rs)):
+        last = i == len(rs) - 1
+        for k in range(1 if last else nsub):
+            if last:
+                k = 0
+            c0 = cols[i]
+            c1 = cols[i] if last else cols[i + 1]
+            t = 0.0 if (last or k == 0) else k / nsub
+            n = len(c0["A"]) if t == 0.0 else min(len(c0["A"]), len(c1["A"]))
+            n = (n - 1) // ystep + 1
+            if t == 0.0:
+                c1 = c0
+            a0, a1 = np.array(c0["A"])[::ystep][:n], np.array(c1["A"])[::ystep][:n]
+            b0, b1 = np.array(c0["B"])[::ystep][:n], np.array(c1["B"])[::ystep][:n]
+            k0, k1 = np.array(c0["K"])[::ystep][:n], np.array(c1["K"])[::ystep][:n]
+            R.append(rv[i] + (0 if last else (rv[i + 1] - rv[i]) * t))
+            A.append((1 - t) * a0 + t * a1)
+            B.append((1 - t) * b0 + t * b1)
+            K.append((1 - t) * k0 + t * k1)
+            top.append(n)
+    return np.array(R), A, B, K, np.array(top), dy
+
+
+def cone(bank, nsub=12, ystep=2, M=4):
+    """Least far-time T from the plane (any r) to every verified point, by Dijkstra (scipy) on the refined graph."""
+    from math import gcd
+    from scipy.sparse import coo_matrix
+    from scipy.sparse.csgraph import dijkstra
+    R, A, B, K, top, dy = _fine(bank, nsub, ystep)
+    nr = len(R)
+    off = np.concatenate([[0], np.cumsum(top)])
+    nn = int(off[-1]) + 1                                   # + one source node
+    src = nn - 1
+    rows, colsx, w = [], [], []
+    moves = [(di, dj) for di in range(0, M + 1) for dj in range(-M, M + 1)
+             if (di, dj) != (0, 0) and gcd(di, abs(dj)) == 1 and (di > 0 or dj > 0)]
     for i in range(nr):
-        T[i, 0] = 0.0
-        heapq.heappush(pq, (0.0, i, 0))
-    moves = [(0, 1), (0, -1), (1, 0), (-1, 0), (1, 1), (1, -1), (-1, 1), (-1, -1), (1, 2), (1, -2), (-1, 2), (-1, -2),
-             (2, 1), (2, -1), (-2, 1), (-2, -1)]
-    while pq:
-        t, i, j = heapq.heappop(pq)
-        if t > T[i, j]:
-            continue
         for di, dj in moves:
-            a, b = i + di, j + dj
-            if 0 <= a < nr and 0 <= b < ny and ok[a, b]:
-                drr, dyy = rv[a] - rv[i], (b - j) * dy
-                L = math.sqrt((0.5 * (B[i, j] + B[a, b]) * drr * drr + dyy * dyy) / (0.5 * (A[i, j] + A[a, b])))
-                if t + L < T[a, b]:
-                    T[a, b] = t + L
-                    heapq.heappush(pq, (t + L, a, b))
-    edge = [(T[i, top[i] - 1], i) for i in range(nr) if top[i] < int(round(12 / dy)) + 1]
+            a = i + di
+            if a >= nr:
+                continue
+            na, ni = top[a], top[i]
+            j = np.arange(ni)
+            b = j + dj
+            okm = (b >= 0) & (b < na)
+            j, b = j[okm], b[okm]
+            if len(j) == 0:
+                continue
+            Am = 0.5 * (A[i][j] + A[a][b])
+            Bm = 0.5 * (B[i][j] + B[a][b])
+            L = np.sqrt((Bm * (R[a] - R[i]) ** 2 + (dj * dy) ** 2) / Am)
+            rows.append(off[i] + j)
+            colsx.append(off[a] + b)
+            w.append(L)
+    rows = np.concatenate(rows + [np.full(nr, src)])
+    colsx = np.concatenate(colsx + [off[:-1]])
+    w = np.concatenate(w + [np.full(nr, 1e-300)])
+    G = coo_matrix((w, (rows, colsx)), shape=(nn, nn)).tocsr()
+    dist = dijkstra(G, directed=False, indices=src)
+    T = [dist[off[i]:off[i + 1]] for i in range(nr)]
+    ymax_idx = max(top)
+    edge = [(T[i][top[i] - 1], i) for i in range(1, nr - 1) if top[i] < ymax_idx]
     tc, ic = min(edge)
-    out = {"t_cert": 2 * tc, "cert_col": rv[ic], "T": T, "rv": rv, "top": top, "K": Kk, "dy": dy}
-    out["Kmax_in"] = lambda hold: float(np.nanmax(np.where(T <= hold / 2, Kk, np.nan)))
+    out = {"t_cert": 2 * tc, "cert_r": R[ic], "cert_y": (top[ic] - 1) * dy, "T": T, "R": R, "top": top, "K": K,
+           "dy": dy}
+    out["Kmax_in"] = lambda hold: max(float(np.max(np.where(T[i] <= hold / 2, K[i], -np.inf))) for i in range(nr))
     for Kc in (1e2, 1e3, 1e4):
-        msk = ok & (np.nan_to_num(Kk) >= Kc)
-        out["t_fail_%d" % int(math.log10(Kc))] = 2 * float(np.min(np.where(msk, T, np.inf)))
+        cand = [T[i][K[i] >= Kc].min() for i in range(nr) if (K[i] >= Kc).any()]
+        out["t_fail_%d" % int(math.log10(Kc))] = 2 * min(cand) if cand else float("inf")
+    near = [i for i in range(nr) if 2.13 <= R[i] <= 2.17]
+    out["t_sing_est"] = 2 * min(T[i][top[i] - 1] for i in near) if near else float("nan")
+    out["inner_depth"] = lambda hold: (np.sum(T[0] <= hold / 2) - 1) * dy
+    out["outer_depth"] = lambda hold: (np.sum(T[-1] <= hold / 2) - 1) * dy
     return out
 
 
@@ -312,7 +363,7 @@ def regenerate():
     K = kretschmann()
     names = sorted(K.free_symbols, key=str)
     Kn = sp.lambdify(names, K, "numpy")
-    ys = np.round(np.arange(0, 12.0001, 0.02), 4)
+    ys = np.round(np.arange(0, 16.0001, 0.02), 4)
     y2 = np.poly1d([1, 0, 0])
     cols = {}
     for rc in RADII:
@@ -344,17 +395,18 @@ def regenerate():
                "cols": cols}, open(BANK, "w"), separators=(",", ":"))
 
 
-def compute(live=True):
+def compute(live=True, nsub=12, ystep=2):
     bank = json.load(open(BANK))
-    cn = cone(bank)
-    d = {"cone": cn, "Kmax_cert": cn["Kmax_in"](cn["t_cert"] - 1e-9), "Kmax_o3": cn["Kmax_in"](HOLD_PER_BIT),
-         "K_plane_throat": bank["cols"]["101/50"]["K"][0]}
-    i4 = list(bank["r"]).index("4")
+    cn = cone(bank, nsub=nsub, ystep=ystep)
+    tc = cn["t_cert"]
+    d = {"cone": cn, "Kmax_cert": cn["Kmax_in"](tc - 1e-9), "Kmax_o3": cn["Kmax_in"](HOLD_PER_BIT),
+         "K_plane_throat": bank["cols"]["101/50"]["K"][0], "inner_depth": cn["inner_depth"](tc),
+         "outer_depth": cn["outer_depth"](tc)}
+    i4 = int(np.argmin(np.abs(cn["R"] - 4.0)))
     d["r4_top_y"] = (cn["top"][i4] - 1) * cn["dy"]
-    d["r4_cone_depth"] = float(np.max(np.where(cn["T"][i4] <= HOLD_PER_BIT / 2, np.arange(len(cn["T"][i4])) * cn["dy"],
-                                               0)))
-    d["r4_Kmax"] = float(np.nanmax(cn["K"][i4]))
+    d["r4_Kmax"] = float(np.max(cn["K"][i4]))
     if live:
+        d["converged"] = compute(live=False, nsub=2 * nsub, ystep=1)["cone"]["t_cert"]
         d["owner_mismatches"] = check_against_owner(6)
         bs = series("3", 20, Fr(1, 2), data=_schwarzschild)
         d["black_string"] = all(abs(float(bs["A"][0][j]) - (1 / 3) * (-1) ** j / math.factorial(j)) < 1e-15
@@ -374,12 +426,17 @@ def report(d):
         print("S2 r = 2.15m, order 60: real-axis Padé cut starts at y = %.4f (%s); K at 2.30/2.40/2.43/2.46: %s / %s"
               % (s["cut_start"], ", ".join("%.4f" % v for v in s["starts"]),
                  ", ".join("%.5g" % v for v in s["K"][0]), ", ".join("%.5g" % v for v in s["K"][1])))
-    print("S3 certified-regular: any hold < %.2f clocks (binding column r = %.2f m); max K in that cone %.3f (plane at "
-          "the throat %.3f)" % (cn["t_cert"], cn["cert_col"], d["Kmax_cert"], d["K_plane_throat"]))
-    print("   K >= 1e2 from %.2f clocks, >= 1e3 from %.2f, >= 1e4 from %.2f; O3's per-bit hold %.2f clocks: max K in its "
-          "cone (verified region) %.4g" % (cn["t_fail_2"], cn["t_fail_3"], cn["t_fail_4"], HOLD_PER_BIT, d["Kmax_o3"]))
-    print("   control r = 4m: verified to %.2f m, cone depth %.2f m, max K %.4f" % (d["r4_top_y"], d["r4_cone_depth"],
-                                                                                 d["r4_Kmax"]))
+        print("S3 refinement check: t_cert %.2f (nsub 12, dy 0.04) against %.2f (nsub 24, dy 0.02)"
+              % (cn["t_cert"], d["converged"]))
+    print("S3 regular (Padé-stable): any hold < %.2f clocks (binding point r = %.3f m, y = %.2f m); max K in that cone "
+          "%.3f (plane at the throat %.3f)" % (cn["t_cert"], cn["cert_r"], cn["cert_y"], d["Kmax_cert"],
+                                              d["K_plane_throat"]))
+    print("   K >= 1e2 from %.2f clocks, >= 1e3 from %.2f, >= 1e4 from %.2f; singular surface reached by ~%.1f; the "
+          "per-bit 28.48: max K in its cone (verified region) %.4g" % (cn["t_fail_2"], cn["t_fail_3"], cn["t_fail_4"],
+                                                                    cn["t_sing_est"], d["Kmax_o3"]))
+    print("   uncomputed strips at t_cert: r < 2.005 (cone %.2f m deep at r = 2.005), r > 32 (%.2f m deep at r = 32)"
+          % (d["inner_depth"], d["outer_depth"]))
+    print("   control r = 4m: verified to %.2f m, max K %.4f" % (d["r4_top_y"], d["r4_Kmax"]))
 
 
 def selftest():
@@ -400,15 +457,18 @@ def selftest():
     k60a, k60b = s["K"]
     chk("S2: at r = 2.15m the Padé cut starts on the real axis at y_b ~ 2.50m (order 60; order 80 gives 2.5025m)",
         s["cut_start"] is not None and abs(s["cut_start"] - 2.505) < 0.01)
-    fit = math.log(k60b[3] / k60b[0]) / math.log((s["cut_start"] - 2.30) / (s["cut_start"] - 2.46))
-    chk("S2: K rises 224 -> 1,480 -> 3,892 -> 1.9e4 (two orders within 2%), K ~ (y_b - y)^-p with p ~ 3",
-        all(abs(a - b) < 0.02 * abs(b) for a, b in zip(k60a[:3], k60b[:3])) and abs(k60b[0] - 224.1) < 1
-        and abs(k60b[1] - 1480.1) < 5 and 2.5 < fit < 3.5)
-    chk("S3: any hold < 13.0 clocks keeps its whole cone in the verified region, K <= 4 there",
-        abs(cn["t_cert"] - 13.0) < 0.1 and d["Kmax_cert"] < 4)
-    chk("S3: longer holds reach the curved layer -- K >= 1e2 from 15.9 clocks, >= 1e4 from 23.8",
-        abs(cn["t_fail_2"] - 15.93) < 0.1 and abs(cn["t_fail_4"] - 23.78) < 0.1)
-    chk("S3: O3's per-bit hold (28.48 clocks) puts K >= 2e4 in its cone: refuted by the bulk", d["Kmax_o3"] > 2e4)
+    fit = math.log(k60b[2] / k60b[0]) / math.log((s["cut_start"] - 2.30) / (s["cut_start"] - 2.43))
+    chk("S2: K rises 224 -> 1,480 -> 3,892 (two orders within 1% to 2.43m at order 60), K ~ (y_b - y)^-p, p ~ 2.5-3.5",
+        all(abs(a - b) < 0.01 * abs(b) for a, b in zip(k60a[:3], k60b[:3])) and abs(k60b[0] - 224.1) < 1
+        and abs(k60b[1] - 1480.1) < 5 and 2.3 < fit < 3.6)
+    chk("S3: the refined cone is converged -- t_cert within 3% between two refinements",
+        abs(cn["t_cert"] - d["converged"]) < 0.03 * d["converged"])
+    chk("S3: holds below t_cert keep their computed cone in the verified region, K <= 5 there; t_cert between 10 and 12",
+        10 < cn["t_cert"] < 12 and d["Kmax_cert"] < 5)
+    chk("S3: the per-bit hold (28.48 clocks) reaches K >= 1e4 inside the verified region and the singular surface",
+        d["Kmax_o3"] > 1e4 and cn["t_sing_est"] < HOLD_PER_BIT)
+    chk("S3: the uncomputed strips are shallow at t_cert -- under 0.5m at r = 2.005; at r = 32 within its verified column",
+        d["inner_depth"] < 0.5 and d["outer_depth"] < (cn["top"][-1] - 1) * cn["dy"])
     chk("S3 control: away from the throat (r = 4m) the column is verified to 10.1m with K <= 0.014 throughout",
         d["r4_top_y"] > 10 and d["r4_Kmax"] < 0.015)
     print("selftest: %d/%d" % (ok, n))

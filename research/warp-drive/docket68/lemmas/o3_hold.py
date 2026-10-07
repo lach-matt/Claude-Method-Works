@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""o3_hold.py -- Warp Theorem lemma O3: the hold's window in the corridor's clocks, and that the corridor survives it.
+"""o3_hold.py -- Warp Theorem lemma O3: the hold's window in the corridor's clocks, and that the corridor survives any hold in it.
 
 READ (through bulk/crossing.py, P-ML): Margolus & Levitin, quant-ph/9710043v2 -- at least h/(4E) to reach one orthogonal
 state (eq. 4, p.4); energies of non-interacting subsystems add, and so do their rates (p.8); the bound is on orthogonal
@@ -8,27 +8,29 @@ states, NOT bits (p.2).
   O3a  THE HOLD'S LOWER BOUNDS (READ + computed).  Margolus-Levitin's eq. 4 applied to the whole register -- the README
        written onto the throat and horizons (H1, H2) as one system holding the one exact energy E (items 111 (b), 133)
        -- gives hold >= h/(4E) = (2 pi^2/ln2)/N clocks.  Bremermann's bound as Bekenstein states it (quant-ph/0311049,
-       eq. (26), p.10: I-dot < 8 pi xi E/hbar log2 e, xi "of order a few"; READ) gives, for the N bits with the same E,
-       hold >= 1/(2 xi) clocks (computed: E^2 is proportional to N, so the clocks are the same for every N).  Neither is
-       an exact value: the first falls with N, the second carries xi
-  O3a' THE PER-BIT FIGURE, WITHDRAWN AS THE HOLD.  First derived here: each of N holders flipped to an orthogonal state on
-       its own share E/N (H-ONE-STEP-PER-BIT), eq. 4 per holder, hold >= hN/(4E) = 2 pi^2/ln2 = 28.4777 clocks for every
-       N, and the hold equal to it (H-HOLD-AT-BOUND).  b4_static.py shows the bulk cannot carry that hold: with eq. (17)
-       held on the plane, the hold's double cone reaches K = 2.3e4 and the static bulk's curvature singularity above the
-       throat.  Both readings were the board's and were labelled "withdrawn if the mathematics refutes it"; they are
-       withdrawn.  The figure is kept as a control (still computed exactly, and refuted).  What the refutation says of
-       the write: the README's bits are not written as independent orthogonal flips each powered by E/N
-  O3b  THE HOLD'S WINDOW (computed).  From below the READ bounds of O3a; from above the bulk -- b4_static.py certifies
-       every hold shorter than 13.0 clocks regular (its whole double cone in the verified static bulk) and finds the
-       curved layer reached from 15.9 clocks on.  The window [h/(4E), 13.0 clocks) is not empty: at the example README
-       it runs from ~1e-14 clocks to 13.0 clocks = 8.6e-36 s, "instantaneous or near instantaneous" (136 E),
-       "immeasurable but not zero" (86 answer 5).  The theorem needs no exact value of the hold, only that it lies there
-  O3c  the corridor survives any hold in the window, in linear theory: at the window's top, v = 13.0 m of the horizon's
-       advanced time, stability.py S4's exact rate changes the second derivative by v/(4m) = 3.25 times its natural
-       size, and S5b's power-law blueshift is at most (1 + v/(8m))^2 = 6.89 for rays starting within m of the surface.
-       Control: the non-extremal r0 = 1.8m member's exponential over the same v, e^(kappa v)
-  O3d  the window's top, 13.0 clocks, still exceeds GLOBALBULK G1's local span (1.3-3.2 clocks): the hold is decided by
-       the bulk beyond the local data, which is what b4_static.py computes
+       eq. (26), p.10: I-dot < 8 pi xi E/hbar log2 e, with xi fixed "at some large value (we shall take xi = 10 for
+       illustration)"; READ) gives, for the N bits with the same E, hold >= 1/(2 xi) clocks -- 0.05 clocks at xi = 10
+       (computed: E^2 is proportional to N, so the clocks are the same for every N).  Applying a channel-rate bound to
+       the register write is the board's mapping.  The tighter is 1/(2 xi); neither is an exact value
+  O3a' THE PER-BIT FIGURE, WITHDRAWN.  First derived here: each of N holders flipped to an orthogonal state on its own
+       share E/N (H-ONE-STEP-PER-BIT), eq. 4 per holder, hold >= hN/(4E) = 2 pi^2/ln2 = 28.4777 clocks for every N, and
+       the hold equal to it (H-HOLD-AT-BOUND).  b4_static.py shows the static bulk carried through that hold reaches
+       K = 2.3e4 in its cone and its curvature singularity above the throat.  What the bulk refutes is a conjunction --
+       the per-bit write, eq. (17) held exactly and statically, the flat limit, the board's locally analytic class,
+       Padé continuation -- and the board withdraws its own reading of the write, H-ONE-STEP-PER-BIT.  H-HOLD-AT-BOUND is
+       not refuted by itself: kept against the bounds that remain it would set the hold at about 1/(2 xi) clocks; it is
+       withdrawn by choice.  The figure is kept as a control (computed exactly, refuted)
+  O3b  THE HOLD'S WINDOW (computed bounds; a requirement on the write).  From below max(h/(4E), 1/(2 xi)); from above
+       the bulk -- b4_static.py finds every hold shorter than about 11.3 clocks keeps its computed double cone in
+       regular, Padé-stable static bulk.  So the theorem now REQUIRES the hold to lie in the window (H-HOLD-IN-WINDOW,
+       the board's): no write mechanism achieving it is shown.  At the example README the top is ~7.5e-36 s.  M's
+       136 E, "instantaneous or near instantaneous", is consistent with the window and does not choose it
+  O3c  the corridor survives any hold in the window, in linear theory (PROVED for every hold in it): at the window's top,
+       v ~ 11.3 m of the horizon's advanced time, stability.py S4's exact rate changes the second derivative by v/(4m)
+       times its natural size, and S5b's power-law blueshift is at most (1 + v/(8m))^2 for rays starting within m of the
+       surface.  Control: the non-extremal r0 = 1.8m member's exponential over the same v, e^(kappa v)
+  O3d  the window's top still exceeds GLOBALBULK G1's local span (1.3-3.2 clocks): the hold is decided by the bulk
+       beyond the local data, which is what b4_static.py computes
 Imports copy/exactE.py, bulk/stability.py and lemmas/b4_static.py by path.  Stdlib + sympy.  python3 o3_hold.py [--selftest]
 """
 import contextlib
@@ -72,7 +74,7 @@ def compute():
     par, seq = hold_in_clocks()
     v_bit = float(par)                                               # the per-bit figure, in units of m
     b4 = _load(os.path.join(HERE, "b4_static.py"), "o3_b4static").compute(live=False)
-    v = round(b4["cone"]["t_cert"], 2)                               # the window's top
+    v = round(b4["cone"]["t_cert"], 2)                               # the window's top, ~11.3
     st = _load(os.path.join(D68, "bulk", "stability.py"), "o3_stability")
     m = sp.Symbol("m", positive=True)
     c1, _ = st.D_derivatives(sp.Rational(9, 5) * m, 2 * m)            # control member's D'
@@ -86,8 +88,9 @@ def compute():
     clock = G_ * E / c_**5
     whole = sp.simplify((h_ / (4 * E)) / clock)
     transfer = sp.simplify((N_ * sp.log(2) * h_ / (2 * sp.pi) / (8 * sp.pi * xi * E)) / clock)   # N bits at eq. (26)
+    transfer_xi10 = float(transfer.subs(xi, 10))
     return {"parallel": par, "sequential": seq, "v_bit": v_bit, "v": v, "whole": whole, "transfer": transfer,
-            "t_fail_2": b4["cone"]["t_fail_2"], "Kmax_bit": b4["Kmax_o3"], "clock_s": clock_s,
+            "t_fail_2": b4["cone"]["t_fail_2"], "Kmax_bit": b4["Kmax_o3"], "clock_s": clock_s, "transfer_xi10": transfer_xi10,
             "hold_top_s": v * clock_s, "whole_example": float(whole.subs(N_, EXAMPLE_N)),
             "s4_growth": v / 4, "s5b_blueshift": (1 + v / 8) ** 2, "control_exp": math.exp(kappa_ctl * v),
             "kappa_ctl": kappa_ctl, "g1_span": (1.29, 3.16)}
@@ -123,11 +126,13 @@ def selftest():
     chk("O3a' control: the per-bit figure is h N/(4E) = 2 pi^2/ln2 = 28.48 clocks exactly (sequential: twice)",
         sp.simplify(d["parallel"] - 2 * sp.pi**2 / sp.log(2)) == 0 and sp.simplify(d["sequential"] - 2 * d["parallel"]) == 0)
     chk("O3a': the bulk refutes the per-bit hold -- its cone reaches K > 2e4 (b4_static.py)", d["Kmax_bit"] > 2e4)
-    chk("O3b: the window is not empty -- READ lower bounds far below the bulk's certified 13.0 clocks; at the example "
-        "README the top is ~8.6e-36 s, immeasurable, not zero", d["whole_example"] < 1e-10 and abs(d["v"] - 13.0) < 0.1
-        and 1e-36 < d["hold_top_s"] < 1e-34 and d["v"] < d["t_fail_2"])
-    chk("O3c: at the window's top S4 changes the second derivative by 3.25 natural sizes; S5b at most 6.89",
-        abs(d["s4_growth"] - 3.25) < 1e-2 and abs(d["s5b_blueshift"] - 6.891) < 0.01)
+    chk("O3b: the window is not empty -- its bottom max(h/(4E), 1/(2 xi)) is 0.05 clocks at xi = 10, its top the bulk's "
+        "~11.3 clocks (~7.5e-36 s at the example README), below the curved layer", d["whole_example"] < 1e-10
+        and abs(d["transfer_xi10"] - 0.05) < 1e-12 and 10.5 < d["v"] < 12 and 1e-36 < d["hold_top_s"] < 1e-34
+        and d["v"] < d["t_fail_2"])
+    chk("O3c: at the window's top S4 changes the second derivative by v/4 natural sizes; S5b at most (1 + v/8)^2",
+        abs(d["s4_growth"] - d["v"] / 4) < 1e-9 and abs(d["s5b_blueshift"] - (1 + d["v"] / 8) ** 2) < 1e-9
+        and d["s5b_blueshift"] < 6.5)
     chk("O3c control: the non-extremal member's exponential over the same v exceeds the corridor's power law",
         d["control_exp"] > d["s5b_blueshift"])
     chk("O3d (STRUCTURAL): the window's top exceeds the local bulk's span, so the global bulk bears on it",

@@ -16,7 +16,8 @@ of B4 is W2: the bulk stays regular -- globally hyperbolic -- through the hold. 
       double cone (Cauchy-Kovalevskaya; Holmgren-John uniqueness is for linear analytic problems, and outside the
       analytic class unique continuation across a timelike surface can fail, Alinhac-Baouendi), and there it is the
       static local bulk.  The class can only be local: a bulk analytic everywhere and static over a slab would be static
-      for ever, with no opening or closing.  The hold is 28.4777 clocks of far (Killing) time (O3), and the depth the
+      for ever, with no opening or closing.  The hold was taken as 28.4777 clocks of far (Killing) time -- O3's per-bit
+      figure, since withdrawn (b4_static.py S4); the figures below are at that withdrawn hold -- and the depth the
       double cone reaches is set by the bulk's lapse sqrt(A), which at the plane is sqrt(F) -- 0.156 at r = 2.05m and 0
       at the throat: the depth D(r) solves  integral_0^D dy / sqrt(A(r, y)) = t_h / 2.  With the black-string lapse
       sqrt(F) e^{-y/ell}, D = ell ln(1 + sqrt(F) t_h/(2 ell)) (sqrt(F) t_h/2 as ell >> r0); with the series' own A it is
@@ -57,7 +58,7 @@ import sympy as sp
 HERE = os.path.dirname(os.path.abspath(__file__))
 D68 = os.path.dirname(HERE)
 BANK = os.path.join(HERE, "b4_series.json")
-HOLD = 2 * math.pi**2 / math.log(2)                      # O3's 28.4777 clocks, exact form
+HOLD = 2 * math.pi**2 / math.log(2)                      # the withdrawn per-bit hold, 28.4777 clocks (b4_static.py S4)
 
 
 def kretschmann():
