@@ -102,6 +102,9 @@
   - global hyperbolicity of the five-dimensional spacetime;
   - the plane's two ends being distinct ends of it.
 - **Those are wall C's global questions** (GLOBALBULK.md). Wall D now reduces to them, and to nothing else.
+- *Since:* CENSOR5D.md supplies such a theorem: Chruściel–Galloway–Solis Theorem 3.1 (READ), applied with far
+  spheres centred on the plane (±θ± = 3/R, computed). It binds the corridor unless its two ends are one end of the bulk,
+  a far end fails to be untrapped, or global hyperbolicity fails.
 
 ## Your rulings this bears on
 

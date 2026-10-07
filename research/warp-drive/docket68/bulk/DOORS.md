@@ -104,6 +104,9 @@ global premises remained. All three are withdrawn (History).
    - *Since:* PASSAGE5D.md proves Theorem D. Along the passage the bulk's null energy is zero, the generic condition
      holds, and the bulk joins the two ends by timelike curves. So a five-dimensional censorship theorem could turn only
      on global hyperbolicity, and on whether the two ends are distinct ends of the bulk: wall C's global premises.
+   - *Since:* CENSOR5D.md applies Chruściel–Galloway–Solis Theorem 3.1 (READ). In a globally hyperbolic bulk with your
+     positive tension, the plane's two ends cannot be two distinct ends of the bulk with untrapped far spheres. They
+     must be one end of the bulk (joined through the deep bulk), or a far end must fail to be untrapped.
 2. **Wall C:** the corridor's bulk on one RS II plane.
 
 ## History (verifier, 2026-10-07)
