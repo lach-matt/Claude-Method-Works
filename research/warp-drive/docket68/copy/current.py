@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""current.py -- DOCKET 68, M-RULINGS items 125-132 (X5-X6 verified 2026-10-07; X7 not verified): the README corridor's coefficients evaluated with exact values,
+"""current.py -- DOCKET 68, M-RULINGS items 125-132 (X5-X6 verified 2026-10-07; X7 verified 2026-10-07): the README corridor's coefficients evaluated with exact values,
 from our current state outward.  Deduced and computed; verified once; not seated.  Write-up: CURRENT.md.
 
 M's words (verbatim in the rulings file): item 125 "We cannot use general coefficients for this work. We must always
@@ -83,27 +83,46 @@ WHAT THE WORK FINDS
        horizon is that surface.  BK pp.3-4 (READ by the verifier): eq. 17 is a wormhole "for any r0 > 2m >= 0"; r0 = 2m
        is excluded and is not a BK throat (a double zero); BK's own example 3, "r0 = 2m leads to the extreme
        Reissner-Nordstrom black hole metric".  Simpson-Visser 1812.07114v3 (READ by the verifier): a = 2m is "a one-way
-       wormhole with an extremal null throat" (p.3), "only one-way traversable" (p.4) -- an analogue; eq. 17's own causal
-       structure is OPEN, as are stability and fine-tuning (a measure-zero member).  The total 5m/4 is PLANE point 2's
+       wormhole with an extremal null throat" (p.3), "only one-way traversable" (p.4) -- an analogue.  Stability and
+       fine-tuning (a measure-zero member) are OPEN.  First written "eq. 17's own causal structure is OPEN" --
+       superseded by X7 for the throat.  The total 5m/4 is PLANE point 2's
        upper endpoint; Delta/2 = m/4 is eq. 18's tidal energy outside the horizon.
        ABOVE THE FLOOR (floor < m < 4/3 floor) r0 = r_min lies inside the horizon: a horizon member of PLANE point 1's
        kind, the horizon holding more than N (PLANE point 3's interval, restored by item 131).
      First written "With the horizon also holding N ..., r0 = 2m EXACTLY" and "Delta: fixed at m/2" -- an over-claim.
   X7 ONE WAY BY NATURE (item 132: "the passage is one way by nature, a black hole in and a white hole out ... different
-     views of the same object").  At the floor member g_tt g_xx = 2(m + 2x^2) > 0, so ingoing Eddington-Finkelstein
-     coordinates (v = t + x*) give ds^2 = -g_tt dv^2 + 2 h dv dx + r^2 dOmega, regular through the throat.  A
-     future-directed causal curve has xdot <= (g_tt/2h) vdot, and g_tt = 0 at the throat: nothing future-directed crosses
-     from position 2's side (x < 0) to position 1's (x > 0) -- computed, in eq. 17 itself (first left OPEN; the verifier
-     cited Simpson-Visser's analogue).  The throat is one null surface: a future (black-hole) horizon seen from P1, a
-     past (white-hole) horizon seen from P2 -- item 132's two views of one object, literally one surface.  Contrast: a
-     two-way member (r0 > 2m) has g_tt > 0 at its throat.  The ingoing chart is the extension with a black hole at P1
-     ("a black hole in"); its time reverse is the other extension.
+     views of the same object").  Eq. 17's formula at the value r0 = 2m that BK exclude (X6).  With h = sqrt(g_tt g_xx)
+     (not Planck's h) and the x-tortoise x* = integral sqrt(g_xx/g_tt) dx, the ingoing chart v = t + x* gives
+     ds^2 = -g_tt dv^2 + 2 h dv dx + r^2 dOmega; h^2 = 2(m + 2x^2) > 0, so it is regular through the throat, and g^xx =
+     g_tt/h^2 = 0 there: the throat is a null surface (computed).  Against the future reference -d_x the future causal
+     cone is vdot >= 0, xdot <= (g_tt/2h) vdot (xdot < 0 when vdot = 0); at the throat xdot <= 0 (the cone sampled,
+     computed): nothing future-directed crosses this surface from P2's side (x < 0) to P1's (x > 0).  Control: the
+     outgoing chart u = t - x* allows the opposite (xdot >= 0) at the same throat -- that surface is P1's past horizon.
+     The board's reading of H-ONE-OBJECT-TWO-VIEWS: the black-hole horizon seen from P1 and the white-hole horizon seen
+     from P2 are one null surface.  Globally the ingoing and outgoing charts are patches of one maximal extension: at
+     the floor an infinite one-way chain of copies (Simpson-Visser 1812.07114v3 Fig. 2 p.5, READ by the verifier;
+     extreme Reissner-Nordstrom, NOT READ) -- one way per surface, no return to the copy left; P1 also has a past
+     (white-hole) horizon from an earlier copy, so the direction comes from which surface is crossed, not from P1;
+     whether the copies are identified (Simpson-Visser Fig. 3's loop; M's item 128 rules out a loop) is OPEN.  An
+     infalling observer reaches the throat in finite proper time and affine parameter, though X6's constant-t slice
+     puts it infinitely far; a P2 observer receives P1's whole history across this surface and P1 receives nothing
+     back.  For horizon members (0 < Delta < m/2) h^2 = 4(Delta + x^2) > 0 and one ingoing chart covers P1's exterior,
+     the future horizon, the interior and P2's past horizon; in the interior the cone forces xdot < 0 -- PLANE point
+     1's mechanism, the same direction: the one-wayness survives at the floor by a single extremal null surface.  At
+     Delta <= 0 h vanishes and the chart fails.  First written "computed, in eq. 17 itself" (the cone argument was by
+     hand) and "The ingoing chart is the extension with a black hole at P1 ...; its time reverse is the other
+     extension" -- both one extension's patches.
+  ITEM 133.  "there is no minimum or maximum energy needed. There is only one exact energy needed for any given
+     README" (H-ONE-EXACT-ENERGY).  The board identifies that energy with E(N) = sqrt(N h c^5 ln2/(8 pi^2 G)) -- no
+     longer a floor but the one exact energy (H-EXACT-ENERGY-AT-BOUND, the board's); so the corridor is the r0 = 2m
+     member and the ABOVE-THE-FLOOR members of X6 are ruled out on M's path.
   WHAT STAYS A COEFFICIENT.  N, now the input (item 130); m's current value; Delta and its side; E and its normalization; the tension's
   sign (H-OUR-TENSION; RS1 puts our atoms on the negative-tension sheet, BULK.md); k and kappa (through the tension and
   the 4D G); the coinciding junction.
 
 NAMED HYPOTHESES
-  M's: M-EXACT-VALUES (125); H-PLANES-COINCIDE, H-COEFF-FROM-CURRENT (127); H-COLOCATED-REALIZATION,
+  M's: M-EXACT-VALUES (125); H-PLANES-COINCIDE, H-COEFF-FROM-CURRENT (127); H-HORIZON-AND-THROAT-HOLD,
+    H-ONE-WAY-BY-NATURE, H-ONE-OBJECT-TWO-VIEWS (132); H-ONE-EXACT-ENERGY (133); H-COLOCATED-REALIZATION,
     H-SHORTEST-DISTANCE (126); H-HORIZON-NEEDS-OBJECT (109); H-README-AS-NEEDED (108); the horizon members' window.
   M's, items 129-131: H-CURRENT-HAS-MATTER, H-BRIDGE-ADDS-NOTHING, H-BRIDGE-ADDS-NO-MATTER, H-MOUTH-AS-BLACK-HOLE,
     H-N-IS-INPUT, H-THROAT-CARRIES-README, H-README-MINIMAL-EXACT; H-NEGATIVE-FROM-OUTSIDE (struck, item 131).
@@ -236,6 +255,24 @@ def compute():
     h2_two = sp.simplify(f_two * bm6["cxx"].subs({q_r0: 1, q_m: sp.Rational(2, 5)}))
     slope0_two = sp.simplify((f_two / (2 * sp.sqrt(h2_two))).subs(q_x, 0))
     h2_general = sp.factor(sp.simplify(((q_x ** 2 + q_r0 - 2 * q_m) / (q_r0 + q_x ** 2)) * bm6["cxx"]))
+    gxx_inv_throat = sp.simplify((f_e / h2_e).subs(q_x, 0))             # g^xx at the throat, ingoing chart
+    # the cone at the throat in each chart, sampled: (vdot, xdot) future-causal against the chart's reference
+    def cone(sign):
+        hv = float(sp.N(sp.sqrt(h2_e).subs({q_x: 0, q_m: 1})))
+        allowed = []
+        for i in range(-20, 21):
+            for j in range(0, 21):
+                vd, xd = j / 10.0, i / 10.0
+                norm = 2 * sign * hv * vd * xd       # g(V, V) at x = 0: g_vv = 0, g_vx = sign h (in: +h, out: -h)
+                ref = -hv * vd if vd > 0 else sign * hv * xd   # g(V, R), R = -sign d_x; future iff g(V, R) < 0
+                if (vd > 0 or xd != 0) and norm <= 0 and ref < 0:
+                    allowed.append(xd)
+        return min(allowed), max(allowed)
+    cone_in, cone_out = cone(1), cone(-1)
+    # horizon members: the ingoing chart's interior forces xdot < 0 (x is time there)
+    f_hm = ((q_x ** 2 + q_r0 - 2 * q_m) / (q_r0 + q_x ** 2)).subs({q_r0: sp.Rational(9, 5), q_m: 1})
+    h2_hm = sp.simplify(f_hm * bm6["cxx"].subs({q_r0: sp.Rational(9, 5), q_m: 1}))
+    slope_hm = float(sp.N((f_hm / (2 * sp.sqrt(h2_hm))).subs(q_x, 0)))
     # item 129: what the corridor adds beyond its pull, in plane.py's own masses
     bm = o["plane"].bk_masses()
     pr, pr0, pm, _ = bm["syms"]
@@ -249,7 +286,8 @@ def compute():
             "leg_current_dimensionless_at_E_bit": leg0 * E_geo, "K_kk_on_plane": str(kk[0]),
             "together_yy": [str(v) for v in together["constraints"]["yy"]],
             "ef_h2": str(h2_e), "ef_slope_throat": str(slope0), "ef_slope_throat_twoway": str(slope0_two), "ef_slope_twoway_value": float(sp.N(slope0_two)),
-            "ef_h2_general": str(h2_general),
+            "ef_h2_general": str(h2_general), "gxx_inv_throat": str(gxx_inv_throat), "cone_in": cone_in,
+            "cone_out": cone_out, "slope_horizon_member": slope_hm,
             "r0_throat": float(sp.N(r0_throat, 15)), "throat_over_2m": str(throat_over_2m), "gtt_edge": str(gtt_x),
             "gxx_edge": str(gxx_x), "komar_h_edge": str(komar_h_edge), "bracket_edge": float(sp.N(bracket_edge, 15)),
             "leg_edge_closed": leg_edge_closed, "leg_edge_coin": leg_edge_coin,
@@ -314,11 +352,14 @@ def selftest(d):
     chk("X6: each leg's null integral there is -(4E/3m)[1 - (sqrt3/6) ln(2 + sqrt3)] = %.11e per metre of E, coin.py's "
         "closed form %.11e" % (d["leg_edge_closed"], d["leg_edge_coin"]),
         abs(d["leg_edge_closed"] / d["leg_edge_coin"] - 1) < 1e-12)
-    chk("X7 (item 132): at the floor member g_tt g_xx = %s > 0, so ingoing Eddington-Finkelstein coordinates carry the "
-        "metric regularly through the throat; every future-directed causal curve has xdot <= (g_tt/2h) vdot, and at the "
-        "throat g_tt/2h = %s -- nothing future-directed crosses from position 2's side to position 1's: one way, in "
-        "eq. 17 itself" % (d["ef_h2"], d["ef_slope_throat"]),
-        d["ef_h2"] == "2*(m + 2*x**2)" and d["ef_slope_throat"] == "0")
+    chk("X7 (item 132): at r0 = 2m, h^2 = g_tt g_xx = %s > 0 (the ingoing chart regular through the throat) and g^xx = "
+        "%s at the throat (a null surface); the future cone sampled there allows xdot in [%.1f, %.1f] -- nothing "
+        "future-directed crosses this surface from P2's side to P1's" % (
+            d["ef_h2"], d["gxx_inv_throat"], d["cone_in"][0], d["cone_in"][1]),
+        d["ef_h2"] == "2*(m + 2*x**2)" and d["gxx_inv_throat"] == "0" and d["cone_in"][1] <= 0 < -d["cone_in"][0])
+    chk("the outgoing chart (u = t - x*) at the same throat allows xdot in [%.1f, %.1f] -- the opposite direction: a "
+        "'P1 to P2 only' assertion fails there (that surface is P1's past horizon)" % d["cone_out"],
+        d["cone_out"][0] >= 0 < d["cone_out"][1], ctl=True)
     chk("a two-way member (r0 = 1, m = 2/5, r0 > 2m) has g_tt/2h = %s > 0 at its throat: crossing either way" %
         d["ef_slope_throat_twoway"], d["ef_slope_twoway_value"] > 0, contrast=True)
     chk("X4: the board's two sheets of opposite tension put at one place (K = 0) fail the bulk's yy constraint: %s -- "
@@ -344,10 +385,13 @@ def selftest(d):
                       "4/3 floor, r0 lies inside the horizon -- a horizon member" % (d["r0_throat"], d["throat_over_2m"]))
     structural.append("X5 at the board's m: Delta/2 in mass for Delta/m = %s is %s kg" % (
         list(FRACTIONS), ["%.4e" % v for v in d["adm_minus_pull_kg_per_Delta_frac"]]))
-    structural.append("X7: across the family g_tt g_xx = %s = 2(2 Delta + 2x^2) -- the chart is regular through every "
-                      "horizon member's horizons too; the throat at the floor is one null surface, a future (black-hole) "
-                      "horizon seen from P1 and a past (white-hole) horizon seen from P2 (item 132's two views)" %
-                      d["ef_h2_general"])
+    structural.append("X7: across the family h^2 = %s = 4(Delta + x^2): regular for Delta > 0 only; in a horizon "
+                      "member's interior the cone forces xdot < 0 (g_tt/2h = %.4f at the throat, m = 1, r0 = 1.8) -- "
+                      "PLANE point 1's mechanism, the same direction as at the floor" % (
+                          d["ef_h2_general"], d["slope_horizon_member"]))
+    structural.append("X7: the board's reading of H-ONE-OBJECT-TWO-VIEWS -- the black-hole horizon seen from P1 and the "
+                      "white-hole horizon seen from P2 are one null surface; globally one infinite one-way chain "
+                      "(Simpson-Visser Fig. 2, READ by the verifier), no return; identification of the copies OPEN")
     structural.append("the last row (Delta = m/2, r0 = 2m) is the window's boundary, not a horizon member")
     for s_ in structural:
         print("  STRUCTURAL: " + s_)

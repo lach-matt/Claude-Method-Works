@@ -1,4 +1,4 @@
-# The README corridor from a current state (M-RULINGS items 125–132; deduced and computed; verified once; not seated; 2026-10-06)
+# The README corridor from a current state (M-RULINGS items 125–133; deduced and computed; verified once; not seated; 2026-10-06)
 
 *First headed* "(… not verified; not seated; 2026-10-06)".
 
@@ -15,7 +15,8 @@
   - That is item 114's form: *"The trajectory is the difference between position 1 and position 2"*.
 
 Every number is printed by `current.py`.
-- **Selftest:** 10/10 checks, 1 control and 1 contrast, with 10 STRUCTURAL lines printed and not counted. X5 and X6 were
+- **Selftest:** 11/11 checks, 2 controls and 1 contrast, with 11 STRUCTURAL lines printed and not counted. X7 was
+  verified on 2026-10-07. X5 and X6 were
   verified on 2026-10-07; two of their checks were restatements, now STRUCTURAL. It takes about a minute and a
   half.
   - *First written:* "6/6 checks, 1 genuine control, 4 STRUCTURAL". Two counted checks were identities or held by
@@ -157,7 +158,8 @@ Every number is printed by `current.py`.
     - BK pp.3–4: eq. 17 is a wormhole *"for any r0 > 2m ≥ 0"*. r₀ = 2m is excluded and is not a BK throat.
     - BK's own example 3: *"r0 = 2m leads to the extreme Reissner-Nordström black hole metric"*.
     - Simpson–Visser 1812.07114v3 calls their a = 2m *"a one-way wormhole with an extremal null throat"* (p.3), *"only
-      one-way traversable"* (p.4). That is an analogue. Eq. 17's own causal structure is OPEN.
+      one-way traversable"* (p.4). That is an analogue.
+    - *First written:* "Eq. 17's own causal structure is OPEN." X7 supersedes this for the throat.
   - The total 5m/4 is PLANE point 2's upper endpoint. Δ/2 = m/4 is eq. 18's tidal energy outside the horizon.
   - Stability and fine-tuning (a single point of the family) are OPEN.
 - **Above the floor** (floor < m < 4/3 floor): r₀ = r_min lies inside the horizon. That is a horizon member of PLANE
@@ -172,18 +174,47 @@ Every number is printed by `current.py`.
   same object"* (H-HORIZON-AND-THROAT-HOLD, H-ONE-WAY-BY-NATURE, H-ONE-OBJECT-TWO-VIEWS)
 - **Both holds at the least size give the floor member, r₀ = 2m.** That uses the board's carried accounting of one
   E_min(N) per trip (PLANE.md point 6). Whether the device may spend more is still asked.
-- **X7. One way, computed in eq. 17 itself** (not verified yet).
-  - At the floor member, g_tt·g_xx = 2(m + 2x²) > 0. So ingoing Eddington–Finkelstein coordinates (v = t + x\*) carry
-    the metric regularly through the throat: ds² = −g_tt dv² + 2h dv dx + r²dΩ.
-  - Every future-directed curve obeys ẋ ≤ (g_tt/2h)·v̇, and g_tt = 0 at the throat.
-  - **So nothing future-directed crosses from position 2's side to position 1's.**
-  - **The throat is one null surface:** a black-hole horizon seen from P1, and a white-hole horizon seen from P2. That
-    is your two views of one object, literally one surface.
-  - **Contrast:** a two-way member (r₀ > 2m) has g_tt > 0 at its throat, so crossing either way is possible there.
-  - The ingoing chart is the extension with the black hole at P1 (*"a black hole in"*). Its time reverse is the other
-    extension.
-  - Across the family, g_tt·g_xx = 2(2Δ + 2x²), so the same chart is regular through every horizon member's horizons.
-- *First written* (X6): "eq. 17's own causal structure is OPEN". Now computed.
+- **X7. One way, through the throat** (verified 2026-10-07).
+  - This uses eq. 17's formula at the value r₀ = 2m that BK exclude (X6).
+  - Take h = √(g_tt·g_xx), not Planck's h, and the x-tortoise x\* = ∫√(g_xx/g_tt) dx. The ingoing chart v = t + x\*
+    then gives ds² = −g_tt dv² + 2h dv dx + r²dΩ.
+  - h² = 2(m + 2x²) > 0, so the chart is regular through the throat. g^xx = g_tt/h² = 0 there, so **the throat is a
+    null surface** (computed).
+  - **The future cone at the throat, sampled, allows only ẋ ≤ 0** (computed). So nothing future-directed crosses this
+    surface from position 2's side to position 1's.
+  - **Control:** the outgoing chart (u = t − x\*) allows the opposite, ẋ ≥ 0, at the same throat. That surface is P1's
+    past horizon.
+  - **The board's reading of your two views of one object:** the black-hole horizon seen from P1 and the white-hole
+    horizon seen from P2 are one null surface.
+  - **Globally the two charts are patches of one extension.** At the floor that extension is an infinite one-way chain of
+    copies: Simpson–Visser Fig. 2, p.5 (READ by the verifier); extreme Reissner–Nordström (NOT READ).
+    - It is one way at each surface, with no return to the copy left.
+    - P1 also has a past (white-hole) horizon from an earlier copy. So the direction comes from which surface is crossed,
+      not from P1 itself.
+    - Whether the copies are one place (Simpson–Visser's looped Fig. 3) is OPEN. Your item 128 rules out a loop.
+  - **What a traveller and an observer see:**
+    - An infalling traveller reaches the throat in finite time, although X6's constant-time slice puts it infinitely far.
+    - A P2 observer receives P1's whole history across this surface. P1 receives nothing back.
+  - **Horizon members** (0 < Δ < m/2) have h² = 4(Δ + x²) > 0, and one chart covers everything.
+    - In the interior the cone forces ẋ < 0. That is PLANE point 1's mechanism, in the same direction.
+    - So the one-way passage survives at the floor, by a single extremal null surface instead.
+  - At Δ ≤ 0 the chart fails.
+  - Contrast: a two-way member (r₀ > 2m) has g_tt > 0 at its throat.
+  - *First written:*
+    - "computed, in eq. 17 itself". The cone argument was by hand.
+    - "The ingoing chart is the extension with the black hole at P1 … Its time reverse is the other extension." Both are
+      patches of one extension.
+
+## Your item 133: one exact energy
+
+- *"did you mean the observed mass is simply the pull (positive here), with "appears negative" struck? - yes"*
+- *"there is no minimum or maximum energy needed. There is only one exact energy needed for any given README"*
+  (H-ONE-EXACT-ENERGY)
+- **The board identifies that energy with E(N) = √(N·h·c⁵·ln2/(8π²G)).** That is the energy at which the horizon holds
+  exactly the README's N bits. It is no longer a floor: it is the one exact energy. The identification is the board's
+  (H-EXACT-ENERGY-AT-BOUND).
+- **So the corridor is the r₀ = 2m member, and every quantity is fixed by the input N.** X6's above-the-floor members are
+  ruled out on your path.
 
 ## What stays a coefficient
 
@@ -200,6 +231,7 @@ Every number is printed by `current.py`.
 
 - **Yours:** M-EXACT-VALUES (125); H-CURRENT-HAS-MATTER, H-BRIDGE-ADDS-NOTHING (129); H-BRIDGE-ADDS-NO-MATTER,
   H-MOUTH-AS-BLACK-HOLE, H-N-IS-INPUT (130); H-THROAT-CARRIES-README, H-README-MINIMAL-EXACT (131);
+  H-HORIZON-AND-THROAT-HOLD, H-ONE-WAY-BY-NATURE, H-ONE-OBJECT-TWO-VIEWS (132); H-ONE-EXACT-ENERGY (133);
   H-NEGATIVE-FROM-OUTSIDE (struck, 131); H-PLANES-COINCIDE, H-COEFF-FROM-CURRENT (127); H-COLOCATED-REALIZATION,
   H-SHORTEST-DISTANCE (126); H-HORIZON-NEEDS-OBJECT (109); H-README-AS-NEEDED (108); the horizon members' window.
 - **The board's:**
@@ -213,8 +245,9 @@ Every number is printed by `current.py`.
 
 1. What our current state is: empty space (alternative a), the candidate, or another.
 2. *Superseded:* N is the input (item 130).
-6. At the floor: the boundary member's stability and fine-tuning. *Its causal structure is computed (X7): one way.*
-7. Whether the device spends exactly the minimum (the floor), or more.
+6. At the floor: the boundary member's stability and fine-tuning. *Its causal structure through the throat is
+   computed (X7): one way, no return.* Whether the chain's copies are one place is OPEN.
+7. *Answered by item 133:* one exact energy, with no minimum or maximum.
 3. E's current value, and its normalization.
 4. What fixes Δ for a trip, and on which side.
 5. The junction of two sheets at one place; k and κ through the tension and the strength of gravity.
