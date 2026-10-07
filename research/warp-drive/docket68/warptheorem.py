@@ -76,24 +76,29 @@ LEMMAS = [
     ("Z", "Z3 NEC never violated", "DERIVED", "lemmas/axioms.py: bulk R(k,k) = 0; composite >= 0 at every depth (B5a, the board's reading); passage 0 (Z1)"),
     ("B", "B1 the plane is matter-free (R = 0) and meets Gauss and Codazzi", "PROVED", "bulk/localbulk.py L1-L2 (verified)"),
     ("B", "B2 a local vacuum bulk exists, unique among analytic ones", "PROVED", "bulk/localbulk.py L4 (verified)"),
-    ("B", "B3 a complete bulk exists, built under closed-index criteria", "OPEN", "equivalent to B4: the local bulk is proved (B2), the complete one is B4a with B4b"),
-    ("B", "B4a the global bulk's shape, given global hyperbolicity: the plane's two ends are one end of the bulk -- two "
-          "separate positions reached through a dimension (152 (1)) -- so CGS Thm 3.1 is escaped (a) and Thm 3.5's "
-          "deformation holds; the topology is fixed before the opening (B7's bridge); the far boundary lies in untouched "
-          "Randall-Sundrum II, strictly untrapped (3/R)", "PROVED",
-     "lemmas/b4_global.py, 6/6: item 152 encoded (STRUCTURAL), controls two-ended; Ake Hau-Flores-Sanchez READ; "
-     "CENSOR5D C1"),
+    ("B", "B3 a complete bulk exists, built under closed-index criteria", "OPEN", "equivalent to B4: the local bulk is proved (B2), the complete one is B4a with B4b and B4c"),
+    ("B", "B4a the global bulk's shape, given W2 inside the far boundary T: the plane's two ends are one end of the "
+          "bulk -- two separate positions reached through a dimension (152 (1), encoded as H-SEPARATE-JOINED-THROUGH-"
+          "DIMENSION) -- so CGS Thm 3.1 is escaped (a) and Thm 3.5's deformation holds; the topology is fixed before "
+          "the opening (B7's bridge)", "PROVED",
+     "lemmas/b4_global.py, 6/6: STRUCTURAL encoding; controls two-ended, and excised regions block the deformation; "
+     "Ake Hau-Flores-Sanchez READ"),
+    ("B", "B4c the far boundary T strictly untrapped, uniformly in time: in the board's model theta+- has the sign of "
+          "ell - 2R over the throat, so T exists beyond the hold's reach iff ell > 2 R_reach (~57 m in corridor units); "
+          "after the closing, outgoing radiation leaves T untrapped", "READING",
+     "lemmas/b4_global.py: H-FAR-MODEL, H-WEAK-RADIATION, H-NEAR-ZONE (the board's); a -> 0 gives CENSOR5D C1's 3/R"),
     ("B", "B4b the bulk regular (globally hyperbolic) through the hold, as a brief evolution (152 (2), an option): "
-          "necessary, the static local bulk of eq. (17) regular to depth ell ln(1 + t_h/(2 ell)) at the throat -- "
-          "14.24 m as ell >> r0, 4.19 m at ell = r0; sufficient with H-GLUING", "OPEN",
-     "lemmas/b4_regular.py, 7/7: shown 1.5 m of 14.24 m (ell >> r0); at ell = r0 shown 0.65 m, leaning singular; "
-     "depends on ell"),
+          "necessary, the static local bulk of eq. (17) regular within the hold's double cone, depth D(r) set by the "
+          "bulk lapse -- ~1.9-2.2 m at r = 2.05m and ~8.2 m at r = 3m (ell >> r0), ~1.2-1.5 m at r = 2.05m (ell = r0)",
+     "OPEN",
+     "lemmas/b4_regular.py, 8/8: series-stable 1.5 m of ~1.9 m at r = 2.05m and 2.25 m of ~8.2 m at r = 3m (ell >> "
+     "r0); 0.65 m of ~1.2 m (ell = r0), singularity and bulk horizon not distinguished; depends on ell"),
     ("B", "B5 positivity for the entangled pin (140): met for the sum only under the board's H-COMPOSITE-SURFACE; at "
           "every point and the pin's own energy", "READING",
      "lemmas/b5_positive.py: one shared profile (127) keeps NEC at every depth; a real scalar wall tends to the RS "
      "plane; the pin is the coincidence, no radion (H-SHARED-PROFILE, H-PIN-IS-COINCIDENCE, the board's)"),
-    ("B", "B6 k's ratio fixed by the work, k_R = 3 k_L/4; every clause b6_k.py checks free of k's scale (not B4b: "
-          "b4_regular.py R4)", "PROVED",
+    ("B", "B6 k's ratio fixed by the work, k_R = 3 k_L/4; every clause b6_k.py checks free of k's scale (not B4: "
+          "b4_regular.py R4, b4_global.py B4c)", "PROVED",
      "lemmas/b6_k.py; kderive.py K3 -- narrowed from 'k fixed by the work'"),
     ("B", "B6' k's scale, by measurement", "NATURE", "item 136 answer 8; b6_k.py B6c"),
     ("B", "B7 formation: the opening and closing between static planes -- a widening of a preexisting bridge, no "

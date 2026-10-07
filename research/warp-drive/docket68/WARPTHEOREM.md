@@ -74,10 +74,12 @@ The theorem is proved exactly when no lemma below is OPEN.
 | Z | Z3 null energy never violated | **derived**, axioms.py: bulk R(k,k) = 0, passage 0 (Z1), composite ≥ 0 (B5a, so it inherits B5's reading) |
 | B | B1 plane matter-free; Gauss and Codazzi met | **proved**, localbulk.py |
 | B | B2 a local vacuum bulk exists, unique among analytic ones | **proved**, localbulk.py |
-| B | **B3 a complete bulk exists, under closed-index criteria** | **OPEN**, equivalent to B4 |
-| B | **B4 the global bulk: two ends one end of the bulk, CGS Thm 3.5's deformation; with separate universes, no loop, infinitely many planes** | **OPEN**: the curvature test of the static bulk, to order 11, is not decided (History) |
+| B | **B3 a complete bulk exists, under closed-index criteria** | **OPEN**, equivalent to B4a with B4b and B4c |
+| B | B4a the global bulk's shape: two separate positions reached through a dimension (152 (1)) are one end of the bulk; CGS Thm 3.5's deformation; topology fixed before the opening | **proved** (STRUCTURAL), given W2 inside T, b4_global.py |
+| B | B4c the far boundary untrapped, uniformly in time | **reading**, b4_global.py: in the board's model T exists beyond the hold's reach iff ℓ > 2R_reach (≈ 57 m, corridor units); H-WEAK-RADIATION, H-NEAR-ZONE |
+| B | **B4b the bulk regular through the hold (152 (2), a brief evolution)** | **OPEN**, b4_regular.py: necessary, the static local bulk regular within the hold's double cone, ~1.9–2.2 m deep at r = 2.05m and ~8.2 m at r = 3m (ℓ ≫ r₀); series-stable to 1.5 m and 2.25 m |
 | B | B5 positivity for the entangled pin, at every point | **reading**, b5_positive.py: H-SHARED-PROFILE, H-PIN-IS-COINCIDENCE |
-| B | B6 k's ratio fixed by the work, k_R = 3k_L/4; every clause free of k's scale | **proved**, b6_k.py, kderive.py K3 — narrowed from "k fixed by the work" |
+| B | B6 k's ratio fixed by the work, k_R = 3k_L/4; every clause b6_k.py checks free of k's scale — **not B4**, whose depth and far boundary depend on ℓ | **proved**, b6_k.py, kderive.py K3 — narrowed twice |
 | B | B6′ k's scale | **nature**, item 136 answer 8 |
 | B | B7 formation: the widening of a preexisting bridge, consistent and safe; 5D evolution with B4 | **reading**, b7_formation.py: H-BRIDGE-PREEXISTS; Maldacena–Susskind p.17 READ |
 | I | I1 the passage is N bits of entanglement | **derived**, axioms.py: Maldacena–Susskind p.5 READ; extremal case H-EXTREMAL-ENTROPY, READ for a class (Strominger–Vafa) and carried to the corridor by the board |
@@ -93,8 +95,8 @@ The theorem is proved exactly when no lemma below is OPEN.
 | R | R4 the corridor's length as the trajectory difference, given a measure (not a distance) | **reading**, r4_length.py: H-LENGTH-AS-DIFFERENCE |
 | R | R5 the build's mechanism | **reading**, r5_build.py: the mechanism yours; the fields the board's reading of 148 under 149 |
 
-- **The count:** 31 lemmas. **13 proved, 6 derived, 3 definitions, 6 on the board's readings, 1 a measurement, 2 OPEN**
-  (B3, B4, one lemma in effect). warptheorem.py prints it from its list; selftest 8/8.
+- **The count:** 33 lemmas. **14 proved, 6 derived, 3 definitions, 7 on the board's readings, 1 a measurement, 2 OPEN**
+  (B3 and B4b, one lemma in effect). warptheorem.py prints it from its list; selftest 8/8.
 - **T2 (STRUCTURAL)** confirms that the theorem follows from all its lemmas, and that dropping any OPEN lemma loses it.
 
 ## The energy ledger: the one place your rulings pull against each other (T3)
@@ -134,8 +136,10 @@ The theorem is proved exactly when no lemma below is OPEN.
 
 ## The work left, as the theorem's lemmas
 
-- **Open:** B4, which carries B3, closes formation and the address, and bears on the hold (O3d).
-- **On the board's readings, each labelled and withdrawn if you correct it:** O3, B5 (and Z3 through it), B7, E3, R4, R5.
+- **Open:** B4b, the bulk regular through the hold. It carries B3, closes formation and the address with B4a and B4c,
+  and bears on the hold (O3d). See lemmas/B4.md.
+- **On the board's readings, each labelled and withdrawn if you correct it:** O3, B5 (and Z3 through it), B7, B4c, E3,
+  R4, R5.
 - **Caveats the board can clear:** I1's extremal step, READ for a class only; the duration quantum inequality (old wall
   D7), not yet re-run against Z3.
 - **A measurement, by your ruling:** B6′, k's scale.
@@ -146,7 +150,8 @@ The theorem is proved exactly when no lemma below is OPEN.
 
 - **Yours:** M-ONE-THEOREM (150), M-PROVE-EVERY-LEMMA (151), and the rulings each derived lemma is derived from.
 - **The board's:**
-  - reading B4 as your items 126–127;
+  - reading your item 152 (1) as CENSOR5D's escape (a), encoded as one end (B4a);
+  - H-FAR-MODEL, H-WEAK-RADIATION, H-NEAR-ZONE (B4c); H-GLUING (B4b's sufficiency);
   - reading (a) for E3;
   - H-ONE-STEP-PER-BIT, H-HOLD-AT-BOUND (O3); H-SHARED-PROFILE, H-PIN-IS-COINCIDENCE (B5); H-BRIDGE-PREEXISTS (B7);
     H-LENGTH-AS-DIFFERENCE (R4); H-EXTREMAL-ENTROPY (I1);
@@ -179,10 +184,20 @@ The theorem is proved exactly when no lemma below is OPEN.
 - **B6 is narrowed, not proved as first written.** The work fixes k's ratio, and no clause depends on k's scale, so the
   scale cannot be read back off the theorem: it is B6′, by measurement (136 answer 8).
 - **I1's extremal step is READ for a class.** Strominger–Vafa (hep-th/9601029, abstract) derive S = A/4 for a class of
-  five-dimensional extremal black holes by counting ground states. The corridor is not shown to be in that class.- **B4's curvature test, to order 11 in y, does not decide.** At ℓ = r₀ the Kretschmann series near the throat has
+  five-dimensional extremal black holes by counting ground states. The corridor is not shown to be in that class.
+- **B4's curvature test, to order 11 in y, does not decide.** At ℓ = r₀ the Kretschmann series near the throat has
   every coefficient positive and a radius of about 0.9m (r = 2.05m) to 1.07m (r = 2.25m), with a real Padé pole there;
   at r = 3m there is none within 1.7m, and the flat limit shows none within 1.6m. Evaluated from the metric itself, K
   is finite but rising steeply (235 at y = 1.0m, about 2×10⁴ at 1.2m, r = 2.05m), and orders 7, 9 and 11 disagree past
   y ≈ 0.8m, where g_tt and g_rr fall toward zero together (y ≈ 1.28m). The series cannot tell a curvature singularity
   from the bulk's horizon. B4 stays OPEN; the next step is a method beyond the Taylor series. Scratch runs, not seated.
+- **B4 worked in order, after item 152 (lemmas/B4.md, verified once).** B4 is now three lemmas.
+  - **B4a, PROVED (STRUCTURAL), given W2 inside T.** Your "two separate positions connected by/reached through a
+    dimension" is one end of the bulk, and the passage deforms through it.
+  - **B4c, READING.** The far boundary is untrapped only if ℓ > 2R_reach in the board's model.
+  - **B4b, OPEN.** The bulk must be regular within the hold's double cone: about 2m deep near the throat, about 8m at
+    r = 3m. The series is stable to 1.5m and 2.25m there.
+  - **The entry above** "orders 7, 9 and 11 disagree past y ≈ 0.8m" was a visual reading. By the 1% criterion they part
+    at 0.65m.
+  - **B6 is narrowed again:** B4 depends on k's scale.
 
