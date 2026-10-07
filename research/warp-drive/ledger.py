@@ -1135,13 +1135,17 @@ ledger with its ends (item 128: no loop).  docket68/copy/current.py
 (CURRENT.md): the README corridor fixed by its input N (items 125-133) -- the
 throat sized by the README and both holds at the one exact energy put the
 throat on the horizon, r0 = 2m, and the passage is one way through it (X7).
+docket68/copy/exactE.py (EXACTE.md, item 134): E = sqrt(N h c^5 ln2/(8 pi^2
+G)) computed, and E and every value derived from the coefficients machine-
+checked by Z3 (identities universal over the reals; each value's enclosure
+around its owner's closed form proved over interval bounds on pi and ln2).
 Each verified, and corrected.
 
   THE OWNERS  loaded BY PATH as 'chain8p_<name>' (_chain8p_load) from copy/
        and bulk/, with _copy_load's lending and key restoration.  Only cheap
        values are asked at load (coin.py's closed form at the illustrative
-       member and at r0 = 2m); the instruments' own selftests run minutes and
-       are their own.
+       member and at r0 = 2m; exactE.py's E per sqrt(bit), without its Z3
+       run); the instruments' own selftests run minutes and are their own.
   RULED_BY_M  + M-D68-116, 118, 122, 123, 124, 127, 129, 130, 131, 132 and
        133.  D68_FILE_CARRIED + M-D68-117, 119, 120, 121, 125, 126, 128 and
        134 (statements, corrections and instructions).
@@ -5716,7 +5720,7 @@ CHAIN8O_OPEN = [
 
 # ----- THE BULK AND THE CORRIDOR FIXED BY ITS INPUT (docstring 8p) -----
 CHAIN8P_OWNERS = (("coin", COPY_DIR), ("current", COPY_DIR), ("closedbulk", BULK_DIR), ("umbilic", BULK_DIR),
-                  ("manyplanes", BULK_DIR))
+                  ("manyplanes", BULK_DIR), ("exactE", COPY_DIR))
 
 
 def _chain8p_load():
@@ -5758,8 +5762,9 @@ CHAIN8P, CHAIN8P_LOAD = _chain8p_load()
 
 
 def chain8p_asked():
-    """The cheap values M-D68-134's cell prints, ASKED of coin.py at call time: the passage's closed form per leg (per
-    unit E, geometric, m = 1) at the illustrative member r0 = 1.8 and at the corridor's member r0 = 2m (current.py X6).
+    """The cheap values M-D68-134's cell prints, ASKED at call time: coin.py's closed form per leg (per unit E,
+    geometric, m = 1) at the illustrative member r0 = 1.8 and at the corridor's member r0 = 2m (current.py X6); and
+    exactE.py's E per sqrt(bit) (its exact coefficient, without the Z3 run).
     The owners' own selftests (minutes) are not run here."""
     saved = list(sys.path)
     before = set(sys.modules)
@@ -5768,11 +5773,12 @@ def chain8p_asked():
             coin = CHAIN8P["coin"]
             illus = coin.anec_closed(1.0, 1.8)
             edge = coin.anec_closed(1.0, 2.0)
+            e_bit = CHAIN8P["exactE"].e_per_sqrt_bit()
     finally:
         sys.path[:] = saved
         for k in [k for k in sys.modules if k not in before]:
             sys.modules.pop(k, None)
-    return {"leg_illus": illus, "leg_edge": edge, "m_per_sqrt_bit": CHAIN8O_ASKED["rmin"] / 2}
+    return {"leg_illus": illus, "leg_edge": edge, "m_per_sqrt_bit": CHAIN8O_ASKED["rmin"] / 2, "e_bit": e_bit}
 
 
 CHAIN8P_ASKED = chain8p_asked()
@@ -5781,7 +5787,7 @@ CHAIN8P_ASKED = chain8p_asked()
 def _chain8p_fig(f, s=1.0):
     """The scaled figures M-D68-134's cell prints, formatted once (the selftest's needles use the same)."""
     return {"leg_illus": "%.6f" % (s * f["leg_illus"]), "leg_edge": "%.6f" % (s * f["leg_edge"]),
-            "m": "%.6e" % (s * f["m_per_sqrt_bit"])}
+            "m": "%.6e" % (s * f["m_per_sqrt_bit"]), "e_bit": "%.11e" % (s * f["e_bit"])}
 
 
 #: WHAT THE BULK AND THE CORRIDOR FIXED BY ITS INPUT LEAVE OPEN (docstring
@@ -7553,12 +7559,13 @@ D68_FILE_CARRIED = [
     ("M-D68-134",
      "M's order after the corridor was fixed by its input (M-RULINGS-2026-10-03.md item 134, 2026-10-07)",
      _d68_carry_file("INSTRUCTION", "M-D68-134",
-                     "docket68/copy/coin.py, current.py and docket68/bulk/closedbulk.py, umbilic.py, manyplanes.py "
-                     "seated here (docstring section 8p), items 116-133 carried.  The passage per leg, per unit E "
-                     "(coin.py's closed form, m = 1): %s at the illustrative member, %s at the corridor's member r0 = "
-                     "2m; the pull %s m per sqrt(bit).  E computed and machine-checked next"
+                     "docket68/copy/coin.py, current.py, exactE.py and docket68/bulk/closedbulk.py, umbilic.py, "
+                     "manyplanes.py seated here (docstring section 8p), items 116-133 carried.  The passage per leg, "
+                     "per unit E (coin.py's closed form, m = 1): %s at the illustrative member, %s at the corridor's "
+                     "member r0 = 2m; the pull %s m per sqrt(bit).  E, the one exact energy (the board's "
+                     "identification, item 133): %s J per sqrt(bit), computed and machine-checked by Z3 (exactE.py)"
                      % (_chain8p_fig(CHAIN8P_ASKED)["leg_illus"], _chain8p_fig(CHAIN8P_ASKED)["leg_edge"],
-                        _chain8p_fig(CHAIN8P_ASKED)["m"])),
+                        _chain8p_fig(CHAIN8P_ASKED)["m"], _chain8p_fig(CHAIN8P_ASKED)["e_bit"])),
      "the OPEN items C8P-O1..O9; O9 stays OPEN"),
 ]
 
@@ -9691,10 +9698,11 @@ def to_markdown():
                                             _cell(owner, W_WHY)))
     L.append("")
     L += ["## The bulk and the corridor fixed by its input -- what stays open", "",
-          "Seated on M's order (item 134; docstring section 8p): coin.py and current.py (docket68/copy/), "
+          "Seated on M's order (item 134; docstring section 8p): coin.py, current.py and exactE.py (docket68/copy/), "
           "closedbulk.py, umbilic.py and manyplanes.py (docket68/bulk/); items 116-133 carried.",
           "The coin test, the bulk built under closed-index criteria, one light ray read twice, the planes as layers "
-          "and sheets, and the README corridor fixed by its input N: the throat on the horizon, one way.",
+          "and sheets, the README corridor fixed by its input N (the throat on the horizon, one way), and E computed "
+          "and machine-checked by Z3.",
           "No board status moves; O9 stays OPEN.", "",
           "| id | open | what would answer it | owner |", "|---|---|---|---|"]
     for oid, what, answers, owner in CHAIN8P_OPEN:
@@ -12523,19 +12531,19 @@ def selftest():
          "RE-SEATED (8o-seat" in __doc__),
         (9, [], True, True, True))
     # ADDED (8p-seat, docstring section 8p): the bulk and the corridor fixed by its input.
-    chk("THE BULK AND THE CORRIDOR FIXED BY ITS INPUT: coin.py, current.py (copy/) and closedbulk.py, umbilic.py, "
-        "manyplanes.py (bulk/) load by path; sys.path restored; no module key the load added is left behind",
+    chk("THE BULK AND THE CORRIDOR FIXED BY ITS INPUT: coin.py, current.py, exactE.py (copy/) and closedbulk.py, "
+        "umbilic.py, manyplanes.py (bulk/) load by path; sys.path restored; no module key the load added is left behind",
         (CHAIN8P_LOAD["misplaced"], CHAIN8P_LOAD["path_restored"], CHAIN8P_LOAD["keys_left"], sorted(CHAIN8P)),
-        ([], True, [], ["closedbulk", "coin", "current", "manyplanes", "umbilic"]))
+        ([], True, [], ["closedbulk", "coin", "current", "exactE", "manyplanes", "umbilic"]))
     _f8p = CHAIN8P_ASKED
     _c134 = " ".join([r for r in D68_FILE_CARRIED if r[0] == "M-D68-134"][0][2].split())
-    chk("  M-D68-134's cell prints coin.py's closed form at both members and the pull per sqrt(bit), asked at load (three "
-        "needles); the corridor's leg is -(4/3)[1 - (sqrt3/6) ln(2 + sqrt3)]",
+    chk("  M-D68-134's cell prints coin.py's closed form at both members, the pull per sqrt(bit) and exactE.py's E per "
+        "sqrt(bit), asked at load (four needles); the corridor's leg is -(4/3)[1 - (sqrt3/6) ln(2 + sqrt3)]",
         ([n for n in _chain8p_fig(_f8p).values() if n not in _c134],
          abs(_f8p["leg_edge"] + 4.0 / 3 * (1 - math.sqrt(3) / 6 * math.log(2 + math.sqrt(3)))) < 1e-12),
         ([], True))
     chk("  CONTROL: the same figures at 1.5 times are not found",
-        len([n for n in _chain8p_fig(_f8p, 1.5).values() if n not in _c134]), 3)
+        len([n for n in _chain8p_fig(_f8p, 1.5).values() if n not in _c134]), 4)
     chk("  CHAIN8P_OPEN names %d items with owner files; LEDGER.md prints them after section 8o's and before the "
         "pending rulings; section 8p is in the docstring" % len(CHAIN8P_OPEN),
         (len(CHAIN8P_OPEN), [r[0] for r in CHAIN8P_OPEN if not _os.path.exists(_os.path.join(HERE, r[3]))],
