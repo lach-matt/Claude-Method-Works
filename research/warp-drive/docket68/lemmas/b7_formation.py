@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""b7_formation.py -- Warp Theorem lemma B7: the corridor's opening and closing between static planes.
+"""b7_formation.py -- Warp Theorem lemma B7: the corridor's opening and closing between static planes (derived).
 
 Your rulings: "likely made" (86 answer 3); "a corridor can be made under the same conditions used to make one larger"
 (101 answer 1, H-MADE-AS-WIDENED); everything everywhere always entangled (100, 140); the ER = EPR restriction applies to
@@ -8,10 +8,18 @@ the formation is the synchronization (136 answer 7); the planes static, the thro
 READ: Maldacena-Susskind PDF p.17 (residue/OUTSIDE.md): "there does not seem to be any way to create a bridge between
 them without preexisting bridges".
 
-  B7a THE MAKING IS A WIDENING (the board's reading, H-BRIDGE-PREEXISTS).  A bridge forms only from bridges already
-      there (Maldacena-Susskind); on your rulings the planes' matter is always entangled (100, 140), and for physical
-      matter entanglement is bridges (122 (4)).  So the bridge the corridor widens is already there, and your "made"
-      (86 answer 3) is the widening of item 101 answer 1 -- the two answers are one
+  B7a THE MAKING IS A WIDENING (DERIVED from your rulings and one READ source).  Every link is yours or READ:
+        (i)   everything everywhere is always entangled (100, 140: H-UNIVERSAL-ENTANGLEMENT), so the matter at position 1
+              and at position 2 is entangled;
+        (ii)  for physical matter, ER = EPR applies (122 (4), "The er=epr only apply to physical matter":
+              H-ER=EPR-MATTER-ONLY): entangled matter is joined by a bridge, so a bridge joins the two positions now;
+        (iii) "there does not seem to be any way to create a bridge between them without preexisting bridges"
+              (Maldacena-Susskind PDF p.17, READ in residue/OUTSIDE.md, re-read at source), so the corridor is not a
+              new bridge;
+        (iv)  "a corridor can be made under the same conditions used to make one larger" (101 answer 1): made is
+              widened, and your "likely made" (86 answer 3) is that widening -- the two answers are one.
+      First written as the board's reading H-BRIDGE-PREEXISTS; each step is a ruling or READ, so it is a derivation.
+      What stays outside it: the bridge's five-dimensional widening as a dynamical evolution (B4d)
   B7b NO CHANGE OF TOPOLOGY, CONSISTENT AND SAFE (computed, z3, chain.py's seated encoding, imported): as a widening of
       a preexisting bridge that is never pinched (H-NO-PINCH), keyed to the cosmic beat (97, frame.py's lemma), the
       corridor is consistent with Geroch-Borde, Tipler and well-posedness as chain.py encodes them, causal safety is
@@ -19,7 +27,7 @@ them without preexisting bridges".
       bridge is inconsistent; pinched, it is a change of topology
   B7c THE OPENING AND CLOSING ON THE PLANE are opening.py's (seated): the inflow is the README (115 (c)), position 1's
       horizon ends at the closing (115 (a)), position 2's arises when fully realized (115 (b)).  Their FIVE-dimensional
-      evolution -- the bulk widening and closing in time -- is part of lemma B4's global bulk, and is not computed here
+      evolution -- the bulk widening and closing in time -- is lemma B4d, and is not computed here
 Imports copy/chain.py by path.  Stdlib + z3.  python3 b7_formation.py [--selftest]
 """
 import contextlib

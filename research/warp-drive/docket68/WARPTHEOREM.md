@@ -71,19 +71,19 @@ The theorem is proved exactly when no lemma below is OPEN.
 | O | O3 the corridor survives its hold, which lies in a window: above the READ bounds (h/(4E) = (2π²/ln2)/N clocks; 1/(2ξ)), below the bulk's certified 13.0 clocks | **proved**, o3_hold.py: the per-bit 28.48 clocks (H-ONE-STEP-PER-BIT, H-HOLD-AT-BOUND) withdrawn — the bulk refutes it |
 | Z | Z1 5D null energy zero along the passage; deficit = bulk pull | **proved**, passage5d.py P2 |
 | Z | Z2 the integral equals the plane's reading on both legs | **proved**, passage5d.py P3, coin.py |
-| Z | Z3 null energy never violated | **derived**, axioms.py: bulk R(k,k) = 0, passage 0 (Z1), composite ≥ 0 (B5a, so it inherits B5's reading) |
+| Z | Z3 null energy never violated | **derived**, axioms.py: bulk R(k,k) = 0, passage 0 (Z1), composite ≥ 0 (B5a: your 117/120, shown consistent) |
 | B | B1 plane matter-free; Gauss and Codazzi met | **proved**, localbulk.py |
 | B | B2 a local vacuum bulk exists, unique among analytic ones | **proved**, localbulk.py |
 | B | **B3 a complete bulk exists, under closed-index criteria** | **OPEN**, equivalent to B4a–B4d |
 | B | B4a the global bulk's shape: two separate positions reached through a dimension (152 (1)) are one end of the bulk; CGS Thm 3.5's deformation; topology fixed before the opening | **proved** (STRUCTURAL), given W2 inside T, b4_global.py |
-| B | B4c the far boundary untrapped, uniformly in time | **reading**, b4_global.py: in the board's model T exists beyond the hold's reach iff ℓ > 2R_reach (≈ 26 m, corridor units); H-WEAK-RADIATION, H-NEAR-ZONE |
+| B | B4c the far boundary untrapped, uniformly in time | **reading**, b4_global.py: H-FAR-MODEL — in the board's model T exists beyond the hold's reach iff ℓ > 2R_reach (≈ 26 m); radiation after the closing cannot trap it (Raychaudhuri, margin ~5) and eq. (17) holds only within the reach (causality), both now derived |
 | B | B4b the bulk regular within every admissible hold's double cone: the static bulk, forced there with eq. (17) on the plane, certified regular for holds below 13.0 clocks; longer holds reach its curvature singularity above the throat (y_b ≈ 2.50m at r = 2.15m, K ∝ (y_b − y)⁻³) | **proved** (computed: exact order-60/80 series, Padé continuation, the full double cone; flat limit), b4_static.py |
 | B | **B4d the opening and closing evolve regularly in five dimensions; data beyond the cone join the exterior** | **OPEN**: a nonlinear 5D initial-boundary problem (H-EVOLUTION, H-GLUING) |
-| B | B5 positivity for the entangled pin, at every point | **reading**, b5_positive.py: H-SHARED-PROFILE, H-PIN-IS-COINCIDENCE |
+| B | B5 positivity for the entangled pin, at every point | **derived**, b5_positive.py: null energy at every point is your 117/120, shown consistent (summed tension +λ_RS at one place, 127; a smooth wall keeping it exists); no radion, the separation held at zero (127, 141) |
 | B | B6 k's ratio fixed by the work, k_R = 3k_L/4; every clause b6_k.py checks free of k's scale — **not B4**, whose depth and far boundary depend on ℓ | **proved**, b6_k.py, kderive.py K3 — narrowed twice |
 | B | B6′ k's scale | **nature**, item 136 answer 8 |
-| B | B7 formation: the widening of a preexisting bridge, consistent and safe; 5D evolution with B4 | **reading**, b7_formation.py: H-BRIDGE-PREEXISTS; Maldacena–Susskind p.17 READ |
-| I | I1 the passage is N bits of entanglement | **derived**, axioms.py: Maldacena–Susskind p.5 READ; extremal case H-EXTREMAL-ENTROPY, READ for a class (Strominger–Vafa) and carried to the corridor by the board |
+| B | B7 formation: the widening of the bridge already there, consistent and safe; 5D evolution with B4d | **derived**, b7_formation.py: 100, 140, 122 (4), 101 answer 1; Maldacena–Susskind p.17 READ |
+| I | I1 the passage is N bits of entanglement | **derived**, axioms.py: your 137 (1) with H1; Maldacena–Susskind p.5 and Strominger–Vafa (READ) agree |
 | I | I2 the README within the capacity bound as READ | **proved**, i2_capacity.py |
 | E | E1 E carried through three holds into position 2 | **derived**, axioms.py: 115 (c), 136 G, O1, 136 answer 3, 109, conservation (z3, with controls) |
 | E | E2 released at position 2 at the closing | **derived**, axioms.py: 106, 109, 115 (b) |
@@ -96,7 +96,7 @@ The theorem is proved exactly when no lemma below is OPEN.
 | R | R4 the corridor's length as the trajectory difference, given a measure (not a distance) | **reading**, r4_length.py: H-LENGTH-AS-DIFFERENCE |
 | R | R5 the build's mechanism | **reading**, r5_build.py: the mechanism yours; the fields the board's reading of 148 under 149 |
 
-- **The count:** 34 lemmas. **16 proved, 6 derived, 3 definitions, 6 on the board's readings, 1 a measurement, 2 OPEN**
+- **The count:** 34 lemmas. **16 proved, 8 derived, 3 definitions, 4 on the board's readings, 1 a measurement, 2 OPEN**
   (B3 and B4d, one lemma in effect). warptheorem.py prints it from its list; selftest 8/8.
 - **T2 (STRUCTURAL)** confirms that the theorem follows from all its lemmas, and that dropping any OPEN lemma loses it.
 
@@ -139,8 +139,9 @@ The theorem is proved exactly when no lemma below is OPEN.
 
 - **Open:** B4d, the opening and closing as a five-dimensional evolution. It carries B3, and with B4a–B4c closes
   formation and the address. See lemmas/B4.md.
-- **On the board's readings, each labelled and withdrawn if you correct it:** B5 (and Z3 through it), B7, B4c, E3, R4,
-  R5. O3 left this list when step 5 refuted its readings.
+- **On the board's readings, each labelled and withdrawn if you correct it:** B4c (H-FAR-MODEL), E3 (reading (a)), R4
+  (H-LENGTH-AS-DIFFERENCE), R5 (the fields of 148 under 149). O3 left this list when step 5 refuted its readings; B5,
+  B7 and I1 left it under item 154, each now derived from your rulings.
 - **Caveats the board can clear:** I1's extremal step, READ for a class only; the duration quantum inequality (old wall
   D7), not yet re-run against Z3.
 - **A measurement, by your ruling:** B6′, k's scale.
@@ -210,4 +211,12 @@ The theorem is proved exactly when no lemma below is OPEN.
   - **O3, PROVED as a window.** O3's 28.48 clocks reaches K = 2.3×10⁴ and the singular surface. So H-ONE-STEP-PER-BIT
     and H-HOLD-AT-BOUND are withdrawn, and O3 is now the window from the READ bounds up to 13.0 clocks.
   - **B4d, OPEN.** The opening and closing as a five-dimensional evolution.
+- **The readings worked, item 154.**
+  - **B5 is derived.** Null energy at every point is your 117/120, shown consistent. That replaces H-SHARED-PROFILE.
+    No radion is your 127 with 141, which replaces H-PIN-IS-COINCIDENCE. Z3's composite step follows.
+  - **B7 is derived.** It follows from 100, 140, 122 (4) and 101 answer 1, with Maldacena–Susskind p.17 READ.
+  - **I1 is derived** from your 137 (1). H-EXTREMAL-ENTROPY is no longer needed.
+  - **B4c is down to one reading.** Its radiation step (Raychaudhuri) and its near-zone step (causality) are derived;
+    the far model, H-FAR-MODEL, stays the board's.
+  - **Still readings:** B4c, E3, R4 and R5, each for the reason its row gives.
 

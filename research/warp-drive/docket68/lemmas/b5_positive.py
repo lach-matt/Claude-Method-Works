@@ -6,20 +6,28 @@ Your rulings: position 2's plane negative, a quarter of ours, ours positive (139
 planes coincide, the extra dimension included (127).  The board's composite (STATIC.md S4): the sheets' tensions sum to
 +1 of the Randall-Sundrum value, +4/3 and -1/3.
 
-  B5a ONE PROFILE.  Coinciding in the extra dimension (127), the two sheets, thickened, occupy the same place, so they
-      share one profile f(y) >= 0 (H-SHARED-PROFILE, the board's reading of 127).  The summed surface stress on any
-      null vector is then S_kk = (4/3 - 1/3) lambda_RS f(y) k_y^2 = lambda_RS f(y) k_y^2 >= 0 at EVERY depth y.
-      Control: two different profiles (the case DOORS.md warned of) go negative where the negative sheet is the wider
+  B5a THE NULL ENERGY AT EVERY POINT IS YOURS; ITS CONSISTENCY IS COMPUTED (DERIVED).  "An NEC is never violated"
+      (117) and "the NEC only ever appears to break, but never does" (120): pointwise null energy in five dimensions is
+      your ruling, not the board's reading.  What the board must show is that the composite admits it.  At one place
+      (127: the planes coincide, the extra dimension included), the junction condition sees only the sheets' summed
+      surface stress (Israel's condition, standard, not READ): (4/3 - 1/3) lambda_RS = +lambda_RS, positive (139 (1),
+      computed).  A smooth composite with that summed stress keeping null energy at every point exists (B5b), so your
+      ruling is consistent; and on it the null stress is S_kk = lambda_RS f(y) k_y^2 >= 0 at every depth.  Control: if
+      the two sheets were thickened with different profiles (the case DOORS.md warned of) the null stress goes negative
+      where the negative sheet is the wider -- a thickening your ruling 120 excludes.  First written with this resting on
+      the board's H-SHARED-PROFILE, a reading of 127; with 117 and 120 read as rulings on every point, it is not needed
   B5b A SMOOTH WALL THAT KEEPS IT.  The composite as a canonical scalar domain wall, ds^2 = e^{2A(y)} eta + dy^2: the
       5D Einstein equations give phi'^2 = -3 A'' (kappa_5 = 1), and the scalar's null energy is T_kk = (k.dphi)^2 >= 0
       identically.  With A = -(w/ell) ln cosh(y/w): A'' < 0, so phi is real everywhere; as the width w -> 0, A -> -|y|/ell
       and the extrinsic curvature -> -g/ell, the Randall-Sundrum plane of localbulk.py (computed).  So a smoothing that
       keeps null energy at every point exists: CENSOR5D's W1 holds, escape (d) closes
-  B5c THE PIN CARRIES NO NEGATIVE ENERGY.  With the sheets coinciding (127) their separation is not a degree of freedom
-      while the corridor exists, so there is no radion field, and with it no negative kinetic energy (PRZ's ghost needs a
-      separation that moves; STATIC.md S3 computed it for one).  The pin is the coincidence itself (H-PIN-IS-COINCIDENCE,
-      the board's reading of 140 with 127): a constraint, carrying no energy.  The energy that remains is the composite's
-      positive tension (B5a) and, on the plane, the positive density outside the neck (ledger.py E4b)
+  B5c THE PIN CARRIES NO NEGATIVE ENERGY (DERIVED).  The planes coincide while the corridor exists (127) and do not move
+      relative to each other -- the pin holds the separation fixed (141).  A separation held at zero is not a degree of
+      freedom, so there is no radion: no field for PRZ's ghost to live in (it needs a separation that moves; STATIC.md
+      S3 computed it for one -- standard that the radion is the separation's modulus, not READ here).  So item 139 (2)'s
+      "positive": the energy that remains is the composite's positive summed tension (B5a) and, on the plane, the
+      positive density outside the neck (ledger.py E4b).  First written as the board's H-PIN-IS-COINCIDENCE; it is 127
+      with 141, both yours
 Imports nothing beyond sympy.  python3 b5_positive.py [--selftest]
 """
 import sys
@@ -97,9 +105,11 @@ def selftest():
 
     d = compute()
     a, b = d["a"], d["b"]
-    chk("B5a: with one shared profile the composite's null stress is lambda_RS f(y) k_y^2 >= 0 at every depth",
+    chk("B5a: at one place (127) the summed tension is +lambda_RS, and on your ruling (117, 120) the null stress is "
+        "lambda_RS f(y) k_y^2 >= 0 at every depth",
         a["shared_nonneg"])
-    chk("B5a control: with the negative sheet twice as wide the stress goes negative at y = 3w", a["diff_negative_far"])
+    chk("B5a control: two different profiles (negative sheet twice as wide) go negative at y = 3w -- excluded by 120",
+        a["diff_negative_far"])
     chk("B5b: the 5D Einstein equations give phi'^2 = -3A'' for a scalar wall (computed from the metric)",
         b["einstein_rel"])
     chk("B5b: for A = -(w/ell) ln cosh(y/w), phi'^2 = 3 sech^2(y/w)/(w ell) > 0: the wall is a real scalar, NEC at every point",

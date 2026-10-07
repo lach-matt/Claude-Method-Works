@@ -75,7 +75,7 @@ LEMMAS = [
     ("Z", "Z1 5D null energy zero along the passage (a null geodesic of the 5D geometry -- not light, item 90); plane "
           "deficit = bulk pull", "PROVED", "bulk/passage5d.py P2 (verified)"),
     ("Z", "Z2 the integral equals the plane's reading on both legs", "PROVED", "bulk/passage5d.py P3; copy/coin.py"),
-    ("Z", "Z3 NEC never violated", "DERIVED", "lemmas/axioms.py: bulk R(k,k) = 0; composite >= 0 at every depth (B5a, the board's reading); passage 0 (Z1)"),
+    ("Z", "Z3 NEC never violated", "DERIVED", "lemmas/axioms.py: bulk R(k,k) = 0; composite >= 0 at every depth (B5a, your 117/120 shown consistent); passage 0 (Z1)"),
     ("B", "B1 the plane is matter-free (R = 0) and meets Gauss and Codazzi", "PROVED", "bulk/localbulk.py L1-L2 (verified)"),
     ("B", "B2 a local vacuum bulk exists, unique among analytic ones", "PROVED", "bulk/localbulk.py L4 (verified)"),
     ("B", "B3 a complete bulk exists, built under closed-index criteria", "OPEN", "equivalent to B4: the local bulk is proved (B2), the complete one is B4a-B4d"),
@@ -87,8 +87,10 @@ LEMMAS = [
      "Ake Hau-Flores-Sanchez READ"),
     ("B", "B4c the far boundary T strictly untrapped, uniformly in time: in the board's model theta+- has the sign of "
           "ell - 2R over the throat, so T exists beyond the hold's reach iff ell > 2 R_reach (~26 m in corridor units); "
-          "after the closing, outgoing radiation leaves T untrapped", "READING",
-     "lemmas/b4_global.py: H-FAR-MODEL, H-WEAK-RADIATION, H-NEAR-ZONE (the board's); a -> 0 gives CENSOR5D C1's 3/R"),
+          "radiation after the closing cannot trap it (Raychaudhuri, margin ~5); eq. (17) holds only within the reach "
+          "(causality)", "READING",
+     "lemmas/b4_global.py: H-FAR-MODEL (the board's); the radiation and near-zone steps now derived; a -> 0 gives "
+     "CENSOR5D C1's 3/R"),
     ("B", "B4b the bulk regular within every admissible hold's double cone: with eq. (17) held on the plane, the static "
           "bulk (forced there in a locally analytic class) is certified regular for every hold below 13.0 clocks, its "
           "curvature at most 3.9; longer holds reach the curvature singularity above the throat (y_b ~ 2.50m at r = 2.15m, "
@@ -99,19 +101,21 @@ LEMMAS = [
           "untouched exterior (H-EVOLUTION, H-GLUING)", "OPEN",
      "a nonlinear 5D initial-boundary problem; at linear order around the static bulk Holmgren closes the non-analytic "
      "escape inside the cone (standard, not READ)"),
-    ("B", "B5 positivity for the entangled pin (140): met for the sum only under the board's H-COMPOSITE-SURFACE; at "
-          "every point and the pin's own energy", "READING",
-     "lemmas/b5_positive.py: one shared profile (127) keeps NEC at every depth; a real scalar wall tends to the RS "
-     "plane; the pin is the coincidence, no radion (H-SHARED-PROFILE, H-PIN-IS-COINCIDENCE, the board's)"),
+    ("B", "B5 positivity for the entangled pin (140, 139 (2)): null energy at every point is your ruling (117, 120), "
+          "shown consistent -- at one place (127) the sheets' summed tension is +lambda_RS and a smooth wall keeping null "
+          "energy at every point exists; the pin carries no negative energy, the separation held at zero (127, 141) leaving "
+          "no radion", "DERIVED",
+     "lemmas/b5_positive.py, 5/5: first resting on H-SHARED-PROFILE and H-PIN-IS-COINCIDENCE, both now read as 117/120 "
+     "and 127/141; Israel's junction and the radion as the separation's modulus, standard, not READ"),
     ("B", "B6 k's ratio fixed by the work, k_R = 3 k_L/4; every clause b6_k.py checks free of k's scale (not B4: "
           "b4_regular.py R4, b4_global.py B4c)", "PROVED",
      "lemmas/b6_k.py; kderive.py K3 -- narrowed from 'k fixed by the work'"),
     ("B", "B6' k's scale, by measurement", "NATURE", "item 136 answer 8; b6_k.py B6c"),
-    ("B", "B7 formation: the opening and closing between static planes -- a widening of a preexisting bridge, no "
-          "change of topology, consistent and safe; its 5D evolution goes with B4d", "READING",
-     "lemmas/b7_formation.py: chain.py's z3 encoding; H-BRIDGE-PREEXISTS (items 100, 101.1, 122 (4), 140; "
-     "Maldacena-Susskind p.17), the board's"),
-    ("I", "I1 the passage is N bits of entanglement", "DERIVED", "lemmas/axioms.py: Maldacena-Susskind p.5 (READ) with H2: N bits; extremal via ground-state degeneracy (H-EXTREMAL-ENTROPY: READ for a class, Strominger-Vafa hep-th/9601029 abstract; carried to the corridor by the board)"),
+    ("B", "B7 formation: the opening and closing between static planes -- a widening of the bridge already there, no "
+          "change of topology, consistent and safe; its 5D evolution goes with B4d", "DERIVED",
+     "lemmas/b7_formation.py: items 100, 140, 122 (4) (H-ER=EPR-MATTER-ONLY), 101 answer 1, Maldacena-Susskind p.17 "
+     "(READ); chain.py's z3 encoding, controls inconsistent -- first written as the board's H-BRIDGE-PREEXISTS"),
+    ("I", "I1 the passage is N bits of entanglement", "DERIVED", "lemmas/axioms.py: your item 137 (1) (H-PASSAGE-IS-N) with H1 (area N A_bit) -- N bits; Maldacena-Susskind p.5 and Strominger-Vafa (READ) agree, no longer load-bearing"),
     ("I", "I2 the README's N bits within the capacity bound as READ: information at most what is sent to set up the "
           "interaction (Maldacena-Stanford-Yang p.4; parametric, p.12) -- N is the device's input (130 (2))", "PROVED",
      "lemmas/i2_capacity.py: holding bound = N, interaction bound met with equality, channel bound N/2 <= N"),

@@ -43,10 +43,15 @@ fixed, to a curve included in T".  This instrument does what the board can do ab
       structure).  So in the model: ell > ~26 m (corridor units; ~57 m under the withdrawn hold) -- met by orders of
       magnitude if ell is anywhere near
       its measured bound, and impossible at ell = r0, where no such T exists and escape (a) is not shown.  "Uniformly in
-      time" (CGS p.9) holds in the model before the opening and through the hold; after the closing (E2) outgoing
-      radiation reaches any fixed T, and that it leaves T untrapped is H-WEAK-RADIATION, the board's.  Scoping eq. (17)
-      to inside the reach -- which is what keeps its 1/r tail (GLOBALBULK G2) off T -- is GLOBALBULK OPEN 5's weaker
-      form, a hypothesis (H-NEAR-ZONE), not a result
+      time" (CGS p.9) holds in the model before the opening and through the hold.  After the closing (E2) outgoing
+      radiation reaches any fixed T; it cannot trap it (derived, an estimate): by Raychaudhuri's equation (standard, not
+      READ) energy E_rad crossing a sphere of radius R lowers its expansion by about 2 G E_rad/(c^4 R^2) against
+      theta ~ 1/R, and E_rad cannot exceed the corridor's own total, (5/4) m (E4), so T stays untrapped once
+      R >> 2.5 m -- beyond the reach, R >= 13 m, a margin of about 5 (first written as the board's H-WEAK-RADIATION).
+      Eq. (17) holds on the plane only within the reach: under the brief evolution (152 (2)) and causality, the plane
+      beyond the hold's light-reach keeps its prior state -- which keeps eq. (17)'s 1/r tail (GLOBALBULK G2) off T
+      (derived; first written as the board's H-NEAR-ZONE).  What stays the board's is the model itself, H-FAR-MODEL:
+      the bridge's geometry deep in the bulk, where T crosses it
   NOT HERE: W1 (pointwise null energy) inherits B5's reading; W2 (the bulk regular through the hold) is b4_regular.py
       and b4_static.py
 Imports lemmas/o3_hold.py by path.  Stdlib + sympy.  python3 b4_global.py [--selftest]
