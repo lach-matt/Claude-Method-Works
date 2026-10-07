@@ -25,6 +25,10 @@ README becomes, one way and exactly, the object at position 2:
   (R) RECONSTRUCTION  position 2's matter rearranges to the README exactly, no tolerance, after which position 2's laws
                  govern; the corridor's length is set by the trajectories, the difference between the positions.
 
+First written with 26 lemmas counted as "11 M's, 9 proved, 7 open"; the count was 9, 10, 7, and the verifier of the
+reassessment added the hold's length (O3), the field energy outside the neck (E4), the read (R0) and the build's
+mechanism (R5), and corrected B4, B5, E3 and I2 (WARPTHEOREM.md History).
+
 Each clause is a conjunction of lemmas.  A lemma is AXIOM (M's ruling, cited), PROVED (an owner, imported and re-run
 here), or OPEN.  The theorem is proved exactly when no lemma is OPEN.
 
@@ -33,10 +37,12 @@ here), or OPEN.  The theorem is proved exactly when no lemma is OPEN.
   T2  (STRUCTURAL) the theorem follows from all its lemmas, and from no proper subset that drops an OPEN one: each OPEN
       lemma is needed.  So the OPEN list is exactly what stands between the statement and a proof
   T3  (genuine) the energy ledger, clause (E), at the example README: with the copy's composition exact (146) and its
-      matter reorganized (137), the copy can absorb at most the assembly energy, 1.1947e10 J; E = 2.405878e16 J.  The
-      axioms are then INCONSISTENT unless the remainder has somewhere to go -- z3 finds the system unsatisfiable with no
-      sink, satisfiable with item 139's expansion of position 2's universe as the sink.  Control: at N = 600 bits,
-      E < assembly, consistent with no sink.  So lemma E3 (where the remainder goes) is not optional
+      matter reorganized (137), the copy itself can absorb at most the assembly energy, 1.1947e10 J; E = 2.405878e16 J,
+      and items 110 and 111 (a) put all of E into position 2's build.  z3 finds that unsatisfiable unless the build
+      includes an absorber besides the copy, and satisfiable with one -- the board's reading (a), the expansion of
+      position 2's universe (136 G, 136 answer 6, 139 (3)).  Control: at N = 600 bits, E < assembly, consistent with
+      none.  First written reading the remainder from item 139 alone, as a sink outside the build; that over-read 139,
+      whose words concern the trigger, and set the sink against 111 (a)
 Imports copy/exactE.py, copy/coin.py, bulk/passage5d.py, bulk/localbulk.py, bulk/stability.py by path.
 Stdlib + sympy + z3 (pip install z3-solver).  python3 warptheorem.py [--selftest]   (~2 min, mostly loading owners)
 """
@@ -60,30 +66,48 @@ LEMMAS = [
     ("H", "H2 the horizons hold the README as well as the throat", "AXIOM", "items 106, 132"),
     ("O", "O1 one way, 1 -> 2, nonsingular", "PROVED", "copy/plane.py P1 (seated); exactE.py one-way check"),
     ("O", "O2 the horizon is extremal (surface gravity 0)", "PROVED", "bulk/stability.py S1 (verified)"),
-    ("Z", "Z1 5D null energy zero along the passage; plane deficit = bulk pull", "PROVED", "bulk/passage5d.py P2 (verified)"),
+    ("O", "O3 the corridor survives its hold: the hold's length in the corridor's clocks, derived, against S4's rate and "
+          "S5b's v^2 blueshift", "OPEN", "items 86 answer 5 ('relative'), 94, 136 E; bulk/STABILITY.md OPEN 1, 3"),
+    ("Z", "Z1 5D null energy zero along the passage (a null geodesic of the 5D geometry -- not light, item 90); plane "
+          "deficit = bulk pull", "PROVED", "bulk/passage5d.py P2 (verified)"),
     ("Z", "Z2 the integral equals the plane's reading on both legs", "PROVED", "bulk/passage5d.py P3; copy/coin.py"),
     ("Z", "Z3 NEC never violated", "AXIOM", "items 117, 120, 123"),
     ("B", "B1 the plane is matter-free (R = 0) and meets Gauss and Codazzi", "PROVED", "bulk/localbulk.py L1-L2 (verified)"),
     ("B", "B2 a local vacuum bulk exists, unique among analytic ones", "PROVED", "bulk/localbulk.py L4 (verified)"),
     ("B", "B3 a complete bulk exists, built under closed-index criteria", "AXIOM", "items 120, 121"),
     ("B", "B4 the global bulk: the plane's two ends one end of the bulk (CGS Thm 3.1 escape (a)), with Thm 3.5's "
-          "deformation", "OPEN", "bulk/CENSOR5D.md; items 126, 127 read by the board"),
-    ("B", "B5 positivity at every point (a null-energy thickening of the composite)", "OPEN",
-     "item 139 (2) M-PROVE-POSITIVE; bulk/STATIC.md S4 met for the sum"),
+          "deformation; reconciled with separate universes (101 answer 5), no loop (128), and infinitely many planes as "
+          "further boundary components (123, 124, 136 answer 9, 138)", "OPEN",
+     "bulk/CENSOR5D.md; items 126, 127 read by the board; 122 (1), 136 D"),
+    ("B", "B5 positivity for the entangled pin (140): met for the sum only under the board's H-COMPOSITE-SURFACE; at "
+          "every point (H-THICK-COMPOSITE) and the pin's own energy not shown", "OPEN",
+     "item 139 (2) M-PROVE-POSITIVE; bulk/STATIC.md S4 and OPEN 3"),
     ("B", "B6 k fixed by the work", "OPEN", "item 140; bulk/KDERIVE.md (ratio fixed, scale open)"),
     ("B", "B7 formation: the opening and closing between static planes", "OPEN",
      "items 115, 136 A, 136 answer 7, 141"),
     ("I", "I1 the passage is N bits of entanglement", "AXIOM", "item 137 (H-PASSAGE-IS-N)"),
-    ("I", "I2 N bits carried by N bits of entanglement meets the capacity bound", "OPEN",
-     "Gao-Jafferis-Wall (READ in STATUS wall B); to compute"),
+    ("I", "I2 the README's N bits within the capacity bound as READ: information at most what is sent to set up the "
+          "interaction (Maldacena-Stanford-Yang p.4; parametric, p.12) -- N is the device's input (130 (2))", "OPEN",
+     "STATUS wall B; DOORS K4; to show"),
     ("E", "E1 E carried through three holds into position 2", "AXIOM", "items 106, 110, 111, 115"),
     ("E", "E2 released at position 2 at the closing", "AXIOM", "item 136 answer 2"),
-    ("E", "E3 where the remainder E - E_assembly goes, shown to close the ledger", "OPEN",
-     "item 139 (3) expansion, read by the board; T3 below"),
+    ("E", "E3 the ledger closes: E goes into position 2 (110) and the build uses exactly it (111 (a)), with the copy "
+          "exact (146) and its matter reorganized (137).  The board's reading (a): the copy's matter is the stock's; E is "
+          "absorbed as the expansion of position 2's universe (136 G, 136 answer 6, 139 (3)), counted as part of the "
+          "build; item 108's E/c^2 is the appearance accounting (107)", "OPEN",
+     "the one place the rulings pull against each other (108, 111 (a), 136 answer 2 against 137, 146); T3 below"),
+    ("E", "E4 the field energy outside the neck, total - pull = E/4, placed in the one-energy ledger", "OPEN",
+     "items 104 (b), 111 (b), 133; residue/LOOSE.md OPEN 5"),
+    ("R", "R0 the read: the corridor takes the README as its inflow at the opening; N is read from the object", "AXIOM",
+     "items 70, 101 answer 8, 115 (c), 130 (2)"),
     ("R", "R1 exact reconstruction, no tolerance", "AXIOM", "items 145, 146"),
     ("R", "R2 position 2 rearranges to the README; then its laws govern", "AXIOM", "item 148"),
     ("R", "R3 exactness at the instant over the mass window", "PROVED", "bulk/exactcopy.py, rearrange.py (verified)"),
-    ("R", "R4 the corridor's length as the trajectory difference, given a measure", "OPEN", "items 114 (c), 116, 117, 136 answer 3"),
+    ("R", "R4 the corridor's length as the trajectory difference, given a measure -- not a distance (101 answer 7, "
+          "136 answer 3, 139 (4))", "OPEN", "items 114 (c), 116, 117"),
+    ("R", "R5 the build's mechanism: the field reaction by which the released energy and the README rearrange position "
+          "2's matter -- which field, and what 'activation' is when the field is non-zero everywhere", "OPEN",
+     "items 91 (b), 101 answers 3 & 4, 136 B and G, 139 (3), 148"),
 ]
 
 
@@ -172,13 +196,16 @@ def report(d):
             if c == clause:
                 print("  (%s) %-6s %s  [%s]" % (c, status, name, where))
     a, b, c = d["t1"], d["t2"], d["t3"]
-    print("\nT1 proved lemmas re-run: E = %.8f J x sqrt(N); H1/G3/O1 %s; Z1 %s; Z2 %s; B1 %s; O2 %s"
+    counts = {k: sum(1 for l in LEMMAS if l[2] == k) for k in ("AXIOM", "PROVED", "OPEN")}
+    print("\n%d lemmas: %d yours (AXIOM), %d PROVED, %d OPEN" % (len(LEMMAS), counts["AXIOM"], counts["PROVED"],
+                                                                 counts["OPEN"]))
+    print("T1 proved lemmas re-run: E = %.8f J x sqrt(N); H1/G3/O1 %s; Z1 %s; Z2 %s; B1 %s; O2 %s"
           % (a["E_per_sqrt_bit"], a["H1_G3_O1"], a["Z1"], a["Z2"], a["B1"], a["O2"]))
     print("T2 the theorem follows from its lemmas: %s; each OPEN lemma needed: %s" % (b["entailed"],
                                                                                       all(b["needed"].values())))
     print("   OPEN (%d): %s" % (len(b["open"]), "; ".join(o.split(" ", 1)[0] for o in b["open"])))
     print("T3 energy ledger at the example README (E = %.6e J, assembly <= %.4e J): consistent with no sink: %s; with "
-          "a sink (item 139's expansion): %s; control N = 600 (E = %.4e J), no sink: %s"
+          "an absorber besides the copy (the board's reading (a)): %s; control N = 600 (E = %.4e J), no sink: %s"
           % (c["E_example"], ASSEMBLY_MAX_J, c["no_sink"], c["with_sink"], c["E_small"], c["control_small_N"]))
 
 
@@ -200,7 +227,7 @@ def selftest():
         a["B1"] and a["O2"])
     chk("T2 (STRUCTURAL): the theorem follows from its lemmas, and each OPEN lemma is needed",
         b["entailed"] and all(b["needed"].values()))
-    chk("T3: the ledger is inconsistent with no sink at the example README, consistent with one",
+    chk("T3: the ledger is inconsistent unless the build has an absorber besides the copy, consistent with one",
         (not c["no_sink"]) and c["with_sink"])
     chk("T3 control: at N = 600 bits E is below the assembly ceiling and needs no sink", c["control_small_N"])
     print("selftest: %d/%d" % (ok, n))
