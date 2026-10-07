@@ -68,7 +68,7 @@ The theorem is proved exactly when no lemma below is OPEN.
 | H | H2 the horizons hold the README too | **derived**, axioms.py: the horizon at r = 2m sits on the throat (G3) and holds N·A_bit (H1) |
 | O | O1 one way, 1 → 2, nonsingular | **proved**, plane.py P1 (seated); exactE.py |
 | O | O2 extremal horizon | **proved**, stability.py S1 |
-| O | O3 the corridor survives its hold, which lies in a window: above the READ bounds (h/(4E) = (2π²/ln2)/N clocks; 1/(2ξ)), below the bulk's certified 13.0 clocks | **proved**, o3_hold.py: the per-bit 28.48 clocks (H-ONE-STEP-PER-BIT, H-HOLD-AT-BOUND) withdrawn — the bulk refutes it |
+| O | O3 the corridor survives any hold in its window — above the READ bounds, max(h/(4E), 1/(2ξ)) clocks, below the ~11.3 clocks the bulk carries — and its hold lies there | **reading**, o3_hold.py: survival computed for every hold in the window; that the hold lies there is H-HOLD-IN-WINDOW, a requirement on the write; the per-bit 28.48 clocks withdrawn |
 | Z | Z1 5D null energy zero along the passage; deficit = bulk pull | **proved**, passage5d.py P2 |
 | Z | Z2 the integral equals the plane's reading on both legs | **proved**, passage5d.py P3, coin.py |
 | Z | Z3 null energy never violated | **derived**, axioms.py: bulk R(k,k) = 0, passage 0 (Z1), composite ≥ 0 (B5a: your 117/120, shown consistent) |
@@ -76,8 +76,8 @@ The theorem is proved exactly when no lemma below is OPEN.
 | B | B2 a local vacuum bulk exists, unique among analytic ones | **proved**, localbulk.py |
 | B | **B3 a complete bulk exists, under closed-index criteria** | **OPEN**, equivalent to B4a–B4d |
 | B | B4a the global bulk's shape: two separate positions reached through a dimension (152 (1)) are one end of the bulk; CGS Thm 3.5's deformation; topology fixed before the opening | **proved** (STRUCTURAL), given W2 inside T, b4_global.py |
-| B | B4c the far boundary untrapped, uniformly in time | **reading**, b4_global.py: H-FAR-MODEL — in the board's model T exists beyond the hold's reach iff ℓ > 2R_reach (≈ 26 m); radiation after the closing cannot trap it (Raychaudhuri, margin ~5) and eq. (17) holds only within the reach (causality), both now derived |
-| B | B4b the bulk regular within every admissible hold's double cone: the static bulk, forced there with eq. (17) on the plane, certified regular for holds below 13.0 clocks; longer holds reach its curvature singularity above the throat (y_b ≈ 2.50m at r = 2.15m, K ∝ (y_b − y)⁻³) | **proved** (computed: exact order-60/80 series, Padé continuation, the full double cone; flat limit), b4_static.py |
+| B | B4c the far boundary untrapped, uniformly in time | **reading**, b4_global.py: H-FAR-MODEL — in the board's model T exists beyond the hold's reach iff ℓ > 2R_reach (≈ 23 m); radiation after the closing cannot trap it (Raychaudhuri, margin ~4.5) and eq. (17) holds only within the reach (causality), both derived |
+| B | B4b the bulk regular within every admissible hold's double cone: the static bulk, forced there with eq. (17) on the plane, is regular and Padé-stable for holds below ~11.3 clocks; longer holds reach the surface above the throat where its curvature diverges (y_b = 2.49–2.50m at r = 2.15m, K ∝ (y_b − y)^−p, p ≈ 2.5–3) | **reading** (computed: exact order-60/80 series, Padé continuation, the full double cone converged; flat limit; the board's locally analytic class), b4_static.py |
 | B | **B4d the opening and closing evolve regularly in five dimensions; data beyond the cone join the exterior** | **OPEN**: a nonlinear 5D initial-boundary problem (H-EVOLUTION, H-GLUING) |
 | B | B5 positivity for the entangled pin, at every point | **derived**, b5_positive.py: null energy at every point is your 117/120, shown consistent (summed tension +λ_RS at one place, 127; a smooth wall keeping it exists); no radion, the separation held at zero (127, 141) |
 | B | B6 k's ratio fixed by the work, k_R = 3k_L/4; every clause b6_k.py checks free of k's scale — **not B4**, whose depth and far boundary depend on ℓ | **proved**, b6_k.py, kderive.py K3 — narrowed twice |
@@ -96,7 +96,7 @@ The theorem is proved exactly when no lemma below is OPEN.
 | R | R4 the corridor's length as the trajectory difference, in bits (not a distance) | **derived**, r4_length.py: the measure confirmed by you (item 155) |
 | R | R5 the build's mechanism | **derived**, r5_build.py: the mechanism yours; the trigger reading confirmed by you (item 155) |
 
-- **The count:** 34 lemmas. **16 proved, 11 derived, 3 definitions, 1 on the board's reading, 1 a measurement, 2 OPEN**
+- **The count:** 34 lemmas. **14 proved, 11 derived, 3 definitions, 3 on the board's readings, 1 a measurement, 2 OPEN**
   (B3 and B4d, one lemma in effect). warptheorem.py prints it from its list; selftest 8/8.
 - **T2 (STRUCTURAL)** confirms that the theorem follows from all its lemmas, and that dropping any OPEN lemma loses it.
 
@@ -139,8 +139,9 @@ The theorem is proved exactly when no lemma below is OPEN.
 
 - **Open:** B4d, the opening and closing as a five-dimensional evolution. It carries B3, and with B4a–B4c closes
   formation and the address. See lemmas/B4.md.
-- **On the board's reading:** B4c only (H-FAR-MODEL, the bridge's geometry deep in the bulk). O3 left the list when
-  step 5 refuted its readings; B5, B7 and I1 under item 154; E3, R4 and R5 when you confirmed them (item 155).
+- **On the board's readings:** B4c (H-FAR-MODEL), B4b (the locally analytic class and Padé continuation, computed),
+  O3 (H-HOLD-IN-WINDOW). B5, B7 and I1 left the list under item 154; E3, R4 and R5 when you confirmed them (item 155).
+  B4b and O3 returned to it on step 5's verifier.
 - **Caveats the board can clear:** I1's extremal step, READ for a class only; the duration quantum inequality (old wall
   D7), not yet re-run against Z3.
 - **A measurement, by your ruling:** B6′, k's scale.
@@ -227,4 +228,11 @@ The theorem is proved exactly when no lemma below is OPEN.
 
   All three are derived from your rulings now. One lemma rests on the board's reading, B4c's far model; one is open,
   B4d.
+- **Step 5's verifier (lemmas/B4.md History).**
+  - **The hold's cutoff.** The refined, converged double cone puts it at ~11.3 clocks, not 13.0. Edge columns
+    r = 2.005–2.01 and 10–32m are added.
+  - **B4b and O3 are READINGS (computed), not PROVED.**
+    - B4b rests on the locally analytic class, on agreement between Padé orders, and on the flat limit.
+    - O3's hold lying in the window is a requirement on the write, H-HOLD-IN-WINDOW.
+  - **The count:** 14 proved, 11 derived, 3 definitions, 3 readings, 1 measurement, 2 open.
 

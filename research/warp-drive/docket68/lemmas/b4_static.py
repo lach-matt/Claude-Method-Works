@@ -32,12 +32,15 @@ the series and decides that condition.
       between two columns a point counts as verified only below the lower of their tops.  (First written on the 25 bare
       columns with a 16-move stencil, which cannot follow oblique paths and overstated the times: 13.0 clocks; the
       verifier's converged figure was 11.9 by column tops and 11.3 counting the strips.)
-        * Holds below T_CERT clocks keep their whole computed double cone inside the verified region -- REGULAR and
-          Padé-stable there (not a certificate: a heuristic agreement of orders).  The strip r < 2.005m (the cone only
-          ~0.3m deep there, the static chart degenerating at the throat) and r > 32m (K ~ m^2/r^6) are not computed
-        * Between T_CERT and the singular surface the bulk is undecided; the singular surface itself (y_b = 2.49-2.50m
-          at r = 2.15m) is reached by about T_SING clocks along oblique paths.  K >= 100, finite, is reached from
-          T_K2 clocks: a large curvature, not a failure
+        * Holds below 11.28 clocks (11.32 at twice the resolution) keep their whole computed double cone inside the
+          verified region, K at most 2.7 there against 1.29 on the plane at the throat -- REGULAR and Padé-stable there
+          (not a certificate: a heuristic agreement of orders).  The binding point is r = 2.59m, y = 2.84m.  The strip r < 2.005m (the cone only
+          0.28m deep at r = 2.005m, the static chart degenerating at the throat) and r > 32m (5.4m deep at r = 32m,
+          inside its verified 16m; K falls as ~m^2/r^6, 6e-8 at r = 32m) are not computed
+        * Between 11.3 clocks and the singular surface the bulk is undecided.  K >= 100, finite, is reached from 14.9
+          clocks (a large curvature, not a failure); the verified layer just beneath the singular surface (K 10^2-10^3,
+          r = 2.13-2.17m) from 15.3; the surface itself (y_b = 2.49-2.50m at r = 2.15m), continuing A past the verified
+          tops, by about 18 clocks along oblique paths (the verifier's figure)
         * O3's per-bit 28.48 clocks reaches the singular surface
       Control: away from the throat, at r = 4m, the column is verified to 10.1m with K <= 0.014 throughout
   S4 WHAT THIS DOES TO THE THEOREM (deduced).  The bulk refutes a conjunction: H-ONE-STEP-PER-BIT (the per-bit write,
@@ -49,7 +52,7 @@ the series and decides that condition.
       whole register, h/(4E) = (2 pi^2/ln2)/N clocks; Bremermann's bound as Bekenstein gives it (quant-ph/0311049 eq.
       (26), p.10: "we shall take xi = 10 for illustration", "at some large value"), N bits need >= 1/(2 xi) clocks --
       0.05 clocks at xi = 10 -- applying a channel-rate bound to the register write being the board's mapping.  The
-      window is [max(h/(4E), 1/(2 xi)), T_CERT).  M's 136 E, "instantaneous or near instantaneous", is consistent with it
+      window is [max(h/(4E), 1/(2 xi)), ~11.3 clocks).  M's 136 E, "instantaneous or near instantaneous", is consistent with it
       and does not choose between it and the per-bit figure
   NOT DECIDED HERE: whether the opening and closing themselves -- non-static, and so non-analytic somewhere -- evolve
       regularly in five dimensions (H-EVOLUTION), and whether data beyond the cone join the untouched exterior
@@ -431,7 +434,8 @@ def report(d):
     print("S3 regular (Padé-stable): any hold < %.2f clocks (binding point r = %.3f m, y = %.2f m); max K in that cone "
           "%.3f (plane at the throat %.3f)" % (cn["t_cert"], cn["cert_r"], cn["cert_y"], d["Kmax_cert"],
                                               d["K_plane_throat"]))
-    print("   K >= 1e2 from %.2f clocks, >= 1e3 from %.2f, >= 1e4 from %.2f; singular surface reached by ~%.1f; the "
+    print("   K >= 1e2 from %.2f clocks, >= 1e3 from %.2f, >= 1e4 from %.2f; the layer beneath the singular surface "
+          "from ~%.1f (the surface ~18); the "
           "per-bit 28.48: max K in its cone (verified region) %.4g" % (cn["t_fail_2"], cn["t_fail_3"], cn["t_fail_4"],
                                                                     cn["t_sing_est"], d["Kmax_o3"]))
     print("   uncomputed strips at t_cert: r < 2.005 (cone %.2f m deep at r = 2.005), r > 32 (%.2f m deep at r = 32)"
@@ -465,7 +469,8 @@ def selftest():
         abs(cn["t_cert"] - d["converged"]) < 0.03 * d["converged"])
     chk("S3: holds below t_cert keep their computed cone in the verified region, K <= 5 there; t_cert between 10 and 12",
         10 < cn["t_cert"] < 12 and d["Kmax_cert"] < 5)
-    chk("S3: the per-bit hold (28.48 clocks) reaches K >= 1e4 inside the verified region and the singular surface",
+    chk("S3: the per-bit hold (28.48 clocks) reaches K >= 1e4 inside the verified region, and the layer beneath the "
+        "singular surface",
         d["Kmax_o3"] > 1e4 and cn["t_sing_est"] < HOLD_PER_BIT)
     chk("S3: the uncomputed strips are shallow at t_cert -- under 0.5m at r = 2.005; at r = 32 within its verified column",
         d["inner_depth"] < 0.5 and d["outer_depth"] < (cn["top"][-1] - 1) * cn["dy"])

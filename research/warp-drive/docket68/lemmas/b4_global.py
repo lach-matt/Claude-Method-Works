@@ -36,18 +36,19 @@ fixed, to a curve included in T".  This instrument does what the board can do ab
       Control: a -> 0 gives C1's 3/R exactly.  Over the throat (alpha = pi/2) its sign is that of ell - 2R: T is strictly
       untrapped iff R < ell/2.  T must also lie beyond the opening's reach, so the model needs ell > 2 R_reach.  The
       reach (Randall-Sundrum estimate, from eq. (17)'s plane: 1 - F H = x (4x - 3)^2/(2 - 3x) with x = m/r, so the
-      coordinate speed dr/dt = sqrt(F H) < 1 and Delta r <= Delta t) is at most 13.0 m over the longest hold the bulk
-      admits (O3's window, b4_static.py; first written 28.48 m, O3's withdrawn per-bit hold) -- an estimate, since
+      coordinate speed dr/dt = sqrt(F H) < 1 and Delta r <= Delta t) is at most ~11.3 m over the longest hold the bulk
+      admits (O3's window, b4_static.py; first written 28.48 m under O3's withdrawn per-bit hold, then 13.0 m before
+      the cone was refined) -- an estimate, since
       the lapse near the core is not shown to be RS's; under W2 the influenced set is compact whatever the core does
       (J+(K) n J-(Sigma) compact; standard, not READ, and with timelike boundary resting on Ake Hau-Flores-Sanchez-type
-      structure).  So in the model: ell > ~26 m (corridor units; ~57 m under the withdrawn hold) -- met by orders of
+      structure).  So in the model: ell > ~23 m (corridor units; ~57 m under the withdrawn hold) -- met by orders of
       magnitude if ell is anywhere near
       its measured bound, and impossible at ell = r0, where no such T exists and escape (a) is not shown.  "Uniformly in
       time" (CGS p.9) holds in the model before the opening and through the hold.  After the closing (E2) outgoing
       radiation reaches any fixed T; it cannot trap it (derived, an estimate): by Raychaudhuri's equation (standard, not
       READ) energy E_rad crossing a sphere of radius R lowers its expansion by about 2 G E_rad/(c^4 R^2) against
       theta ~ 1/R, and E_rad cannot exceed the corridor's own total, (5/4) m (E4), so T stays untrapped once
-      R >> 2.5 m -- beyond the reach, R >= 13 m, a margin of about 5 (first written as the board's H-WEAK-RADIATION).
+      R >> 2.5 m -- beyond the reach, R >= ~11.3 m, a margin of about 4.5 (first written as the board's H-WEAK-RADIATION).
       Eq. (17) holds on the plane only within the reach: under the brief evolution (152 (2)) and causality, the plane
       beyond the hold's light-reach keeps its prior state -- which keeps eq. (17)'s 1/r tail (GLOBALBULK G2) off T
       (derived; first written as the board's H-NEAR-ZONE).  What stays the board's is the model itself, H-FAR-MODEL:
@@ -260,7 +261,7 @@ def selftest():
         "(so B4a needs W2 inside T)", h["far"]["n"] == 1 and h["T"]["joins_ends"] and not h["homotopy"])
     ls = d["ls"]
     chk("B4c: on the plane 1 - F H = x(4x - 3)^2/(2 - 3x) > 0 for r > 2m (zero only at r = 4m/3), so dr/dt < 1",
-        ls["identity"] and ls["zero_at"] == [sp.Rational(3, 4)] and abs(d["hold"] - 13.0) < 0.1)
+        ls["identity"] and ls["zero_at"] == [sp.Rational(3, 4)] and 10.5 < d["hold"] < 12)
     fb = d["fb"]
     ell, Rr, a = fb["symbols"]
     chk("B4c: theta+ of T in the model, closed form; control a -> 0 gives C1's 3/R",

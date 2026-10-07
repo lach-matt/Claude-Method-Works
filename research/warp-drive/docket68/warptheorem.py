@@ -67,11 +67,10 @@ LEMMAS = [
     ("H", "H2 the horizons hold the README as well as the throat", "DERIVED", "lemmas/axioms.py: the horizon at r = 2m sits on the throat (G3) and holds N A_bit (H1)"),
     ("O", "O1 one way, 1 -> 2, nonsingular", "PROVED", "copy/plane.py P1 (seated); exactE.py one-way check"),
     ("O", "O2 the horizon is extremal (surface gravity 0)", "PROVED", "bulk/stability.py S1 (verified)"),
-    ("O", "O3 the corridor survives its hold, which lies in a window: above the READ bounds (Margolus-Levitin on the whole "
-          "register, h/(4E) = (2 pi^2/ln2)/N clocks; Bremermann-Bekenstein transfer, 1/(2 xi)), below the bulk's certified "
-          "13.0 clocks (B4b); survival at the top: growth <= 6.89 against the control's 7.8", "PROVED",
-     "lemmas/o3_hold.py, 7/7: the per-bit 28.48 clocks (H-ONE-STEP-PER-BIT, H-HOLD-AT-BOUND) withdrawn -- the bulk "
-     "refutes it (b4_static.py)"),
+    ("O", "O3 the corridor survives any hold in its window -- above the READ bounds (max of h/(4E) = (2 pi^2/ln2)/N and "
+          "1/(2 xi) clocks), below the ~11.3 clocks the bulk carries (B4b) -- and its hold lies there", "READING",
+     "lemmas/o3_hold.py: survival for every hold in the window computed (linear theory); that the hold lies in it is "
+     "H-HOLD-IN-WINDOW, a requirement the theorem places on the write -- the per-bit 28.48 clocks withdrawn"),
     ("Z", "Z1 5D null energy zero along the passage (a null geodesic of the 5D geometry -- not light, item 90); plane "
           "deficit = bulk pull", "PROVED", "bulk/passage5d.py P2 (verified)"),
     ("Z", "Z2 the integral equals the plane's reading on both legs", "PROVED", "bulk/passage5d.py P3; copy/coin.py"),
@@ -86,17 +85,17 @@ LEMMAS = [
      "lemmas/b4_global.py, 6/6: STRUCTURAL encoding; controls two-ended, and excised regions block the deformation; "
      "Ake Hau-Flores-Sanchez READ"),
     ("B", "B4c the far boundary T strictly untrapped, uniformly in time: in the board's model theta+- has the sign of "
-          "ell - 2R over the throat, so T exists beyond the hold's reach iff ell > 2 R_reach (~26 m in corridor units); "
+          "ell - 2R over the throat, so T exists beyond the hold's reach iff ell > 2 R_reach (~23 m in corridor units); "
           "radiation after the closing cannot trap it (Raychaudhuri, margin ~5); eq. (17) holds only within the reach "
           "(causality)", "READING",
      "lemmas/b4_global.py: H-FAR-MODEL (the board's); the radiation and near-zone steps now derived; a -> 0 gives "
      "CENSOR5D C1's 3/R"),
     ("B", "B4b the bulk regular within every admissible hold's double cone: with eq. (17) held on the plane, the static "
-          "bulk (forced there in a locally analytic class) is certified regular for every hold below 13.0 clocks, its "
-          "curvature at most 3.9; longer holds reach the curvature singularity above the throat (y_b ~ 2.50m at r = 2.15m, "
-          "K ~ (y_b - y)^-3), from ~16-24 clocks", "PROVED",
-     "lemmas/b4_static.py, 8/8: exact order-60/80 series (checked against bulkseries.py), Padé continuation, the full "
-     "double cone; flat limit (ell >> r0); lemmas/b4_regular.py"),
+          "bulk (forced there in the board's locally analytic class) is regular and Pade-stable for every hold below ~11.3 "
+          "clocks; the surface above the throat where its curvature diverges (y_b = 2.49-2.50m at r = 2.15m, K ~ (y_b - "
+          "y)^-p, p ~ 2.5-3) is reached by longer holds", "READING",
+     "lemmas/b4_static.py: exact order-60/80 series (checked against bulkseries.py), Pade continuation (agreement of "
+     "orders, a heuristic), the full double cone converged; flat limit (ell >> r0); Holmgren (uniqueness only) not READ"),
     ("B", "B4d the opening and closing evolve regularly in five dimensions, and data beyond the hold's cone join the "
           "untouched exterior (H-EVOLUTION, H-GLUING)", "OPEN",
      "a nonlinear 5D initial-boundary problem; at linear order around the static bulk Holmgren closes the non-analytic "
