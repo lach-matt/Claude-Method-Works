@@ -9,24 +9,32 @@ questions left open by positivity.py (is the energy positive?) and kderive.py (w
   S1  a static configuration exists at every separation: in the Lykken-Randall bulk (PRZ hep-th/0004028v2, READ, eqs.
       2.16-2.17) the tensions do not depend on the separation r, so no force moves the planes; r is still physical
       (the 4D Planck mass depends on it), so "static" is a real condition, not a choice of coordinates
-  S2  the force law on our plane splits EXACTLY into a massless graviton and the radion:
+  S2  the force law on our plane splits EXACTLY into a massless graviton and the radion (PRZ p.10 state it; READ):
         (1/(8 Mhat^2))(P2 - (2/3) P0) - (1/(24 ML^2)) P0  =  (1/(8 Mhat^2))(P2 - P0)  +  (1/C_r) P0
-      (PRZ eq. 3.3, by their identity 3.4).  The radion term is the only source of gamma != 1: remove it and gamma = 1;
-      keep it and gamma = 5/4 at the coinciding planes (multiplane.py M4)
-  S3  how the planes are held matters: with kinetic coefficient C_r < 0, ANY restoring potential leaves a mode of
-      negative energy (a massive ghost); only a constraint -- the separation not a variable at all -- removes it
-  S4  under the static constraint the energy is positive in both senses the board can compute: the background keeps the
-      null energy condition (positivity.py Q3) and the one remaining long-range mode, the graviton, has positive norm
+      (eq. 3.3, by identity 3.4).  Within PRZ's zero-mode truncation (eq. 3.5's KK term unread), the radion term is the
+      only source of gamma != 1: removed, c0 = -1 and gamma = 1; live at the coinciding planes, gamma = 5/4
+  S2b at r = 0 with the radion removed the pair IS one Randall-Sundrum II plane of curvature k_R: Mhat^2 = M^3/k_R, and
+      k_L drops out of every zero-mode observable (positivity.py's fused case (a), reached by another road)
+  S3  a restoring potential does not cure the radion (PRZ p.9: "giving a mass to a field with negative kinetic term
+      clearly does not remove the associated instability"): with C_r < 0 the motion runs away exponentially for every
+      m^2, and the energy is unbounded below; control C_r > 0 oscillates.  Only removing the separation as a variable
+      does it -- for a free negative-tension sheet PRZ p.2 call that "probably not even well posed"; the one known
+      realization is a surface that is its own mirror image (PRZ p.3), which at r = 0 is S2b's one plane
+  S4  radion removed: the summed surface keeps the null energy condition (positivity.py Q3, H-COMPOSITE-SURFACE) and the
+      graviton has positive norm
   S5  the surfaces' movements cost nothing and change nothing the bulk sees, if they are reorganizations: E depends on
       the README's bit count N alone (exactE.py's defining relation), and a permutation of the README's states keeps
-      its entropy, so Landauer's erasure cost is zero; a map that merges states (the control) costs at least kT ln2
+      its entropy, so Landauer's lower bound is zero; a map that merges states (the control) costs at least kT ln2.
+      That the bulk then sees nothing is H-ENERGY-BLIND (the board's: the stress reads count, not arrangement);
+      Landauer says nothing of the motion's own kinetic energy or dissipation
   S6  matching: two surfaces whose N-bit arrangements match carry N bits of mutual information (H-PASSAGE-IS-N);
       arrangements that match by chance do so with probability 2^-N, so the match is made, not found
   S7  M's image, run: two Rubik's cubes face to face.  Face turns never move a centre (the frame is static, the content
       moves); they keep every colour's count (reorganization); each quarter turn has order 4 (reversible).  Cube A is
       the mirror image of cube B through the plane between them; if A makes the mirror of each of B's moves, their
       facing sides stay matched through any scramble.  Control: the same, unmirrored moves break the match.  And since
-      centres never move, two cubes whose facing centres differ (a frame not shared) can never be matched by turning
+      centres never move under face turns, two cubes whose facing centres differ cannot be matched by face turns with
+      orientation held; reoriented, one face can be matched, but tracking move for move needs the mirror colour scheme
 Imports multiplane.py, positivity.py, exactE.py (by path); stdlib + sympy.  python3 static.py [--selftest]
 """
 import contextlib
@@ -87,20 +95,30 @@ def s2(cr_scale=1):
     prz = (P2 - sp.Rational(2, 3) * P0) / (8 * d["Mhat2"]) - P0 / (24 * d["ML2"])
     split = (P2 - P0) / (8 * d["Mhat2"]) + P0 / (cr_scale * d["Cr"])
     residue = sp.simplify(sp.expand(prz - split))
-    graviton_only_c0 = sp.Integer(-1)                       # (P2 - P0): the massless graviton alone
+    frozen = sp.expand(split - P0 / (cr_scale * d["Cr"]))  # the radion removed
+    c0_frozen = sp.simplify(frozen.coeff(P0) / frozen.coeff(P2))
     at = {mp.M: 1, mp.kL: 1, mp.kR: sp.Rational(3, 4), mp.r: 0}
-    return {"residue": residue, "gamma_frozen": mp.gamma_from_c0(graviton_only_c0),
+    mhat_r0 = sp.simplify(d["Mhat2"].subs(mp.r, 0))
+    mhat_half = sp.simplify(d["Mhat2"].subs(mp.r, sp.Rational(1, 2)))
+    return {"residue": residue, "c0_frozen": c0_frozen, "gamma_frozen": mp.gamma_from_c0(c0_frozen),
+            "mhat_r0": mhat_r0, "mhat_r0_is_rs": sp.simplify(mhat_r0 - mp.M**3 / mp.kR) == 0,
+            "mhat_r0_free_of_kL": mp.kL not in mhat_r0.free_symbols, "mhat_half_has_kL": mp.kL in mhat_half.free_symbols,
             "gamma_with_radion": sp.simplify(d["gamma"].subs(at)), "graviton_coeff_r0": sp.simplify(
                 (1 / (8 * d["Mhat2"])).subs(at)), "Cr_r0": sp.simplify(d["Cr"].subs(at))}
 
 
-def s3(Cr):
-    """Energy of one mode with kinetic coefficient Cr and restoring potential m^2 >= 0: H = Cr/2 v^2 + m^2/2 phi^2.
-    Returns whether H is non-negative for every state, for every m^2 >= 0, and H at (phi, v) = (0, 1)."""
-    m2 = sp.Symbol("m2", nonnegative=True)
-    phi, v = sp.symbols("phi v", real=True)
-    Hm = sp.Rational(1, 2) * Cr * v**2 + sp.Rational(1, 2) * m2 * phi**2
-    return {"H_at_v1": Hm.subs({phi: 0, v: 1}), "positive_for_all": bool(Cr >= 0)}
+def s3(Cr, m2_values=(sp.Rational(1, 100), 1, 100)):
+    """One mode with kinetic coefficient Cr and a restoring potential +m^2 phi^2/2: L = Cr v^2/2 - m^2 phi^2/2.
+    Equation of motion Cr phi'' = -m^2 phi, characteristic roots s = +-sqrt(-m^2/Cr).  Real roots = exponential runaway;
+    imaginary = oscillation.  Also the energy H = Cr v^2/2 + m^2 phi^2/2 along (0, t): bounded below or not."""
+    s, t = sp.symbols("s t")
+    runaway = []
+    for m2 in m2_values:
+        roots = sp.solve(sp.Eq(Cr * s**2 + m2, 0), s)
+        runaway.append(any(sp.im(x) == 0 and sp.re(x) > 0 for x in roots))
+    H_line = sp.Rational(1, 2) * Cr * t**2
+    return {"runaway_all": all(runaway), "runaway_none": not any(runaway),
+            "H_unbounded_below": sp.limit(H_line, t, sp.oo) == -sp.oo}
 
 
 def s4():
@@ -126,17 +144,18 @@ def push(dist, f):
 
 def s5(nbits=4, seed=141):
     ex = _load(os.path.join(D68, "copy", "exactE.py"), "st_exactE")
-    E_N = sp.sqrt(sp.Symbol("N", positive=True)) * sp.Float(str(ex.e_per_sqrt_bit()), 25)
+    E_N = sp.sqrt(sp.Symbol("N", positive=True)) * sp.Float(ex.e_per_sqrt_bit())
     states = list(itertools.product((0, 1), repeat=nbits))
-    uniform = {s: 1 / len(states) for s in states}
+    raw = [i + 1 for i in range(len(states))]                # a non-dist README distribution
+    dist = {s: w / sum(raw) for s, w in zip(states, raw)}
     rng = random.Random(seed)
     perm = states[:]
     rng.shuffle(perm)
     P = dict(zip(states, perm))
-    after_perm = push(uniform, lambda s: P[s])
-    erase = push(uniform, lambda s: (0,) + s[1:])           # control: reset the first bit
+    after_perm = push(dist, lambda s: P[s])
+    erase = push(dist, lambda s: (0,) + s[1:])           # control: reset the first bit
     return {"E_free_symbols": sorted(str(x) for x in E_N.free_symbols),
-            "H_before": entropy_bits(uniform), "H_perm": entropy_bits(after_perm), "H_erase": entropy_bits(erase),
+            "H_before": entropy_bits(dist), "H_perm": entropy_bits(after_perm), "H_erase": entropy_bits(erase),
             "nbits": nbits}
 
 
@@ -264,26 +283,32 @@ def s7(nmoves=40, seed=141):
 # ----------------------------------------------------------------
 
 def report():
-    a, b, c_neg, c_pos, d, e, f, g = s1(), s2(), s3(-96), s3(96), s4(), s5(), s6(), s7()
+    a, b, d, e, f, g = s1(), s2(), s4(), s5(), s6(), s7()
+    c_neg, c_pos = s3(b["Cr_r0"]), s3(96)
     print("static.py -- M's static planes with moving surfaces (item 141)\n")
-    print("S1 static exists at every separation: d(tau1)/dr = %s, d(tau2)/dr = %s; but d(Mhat^2)/dr = %s (zero only if "
-          "k_R = k_L: %s) -- the separation is physical" % (a["dtau1_dr"], a["dtau2_dr"], a["dMhat2_dr"],
-                                                           a["dMhat2_dr_equal_k"]))
-    print("S2 PRZ eq. 3.3 = graviton (P2 - P0)/(8 Mhat^2) + radion P0/C_r: residue %s.  Radion frozen: gamma = %s; "
-          "radion live at the coinciding planes: gamma = %s" % (b["residue"], b["gamma_frozen"], b["gamma_with_radion"]))
-    print("S3 a mode held by a restoring potential: with C_r = -96 (the coinciding planes) the energy at rest position, "
-          "unit speed, is %s for every m^2 -- a massive ghost; with C_r = +96 non-negative for all states: %s"
-          % (c_neg["H_at_v1"], c_pos["positive_for_all"]))
-    print("S4 under the static constraint: background null energy %s on the summed surface; graviton coefficient %s > 0"
-          % (d["S_total"], d["graviton_coeff_r0"]))
-    print("S5 E(N) depends on %s only; a permutation of %d bits keeps the entropy (%.3f -> %.3f bits: Landauer cost 0); "
-          "erasing one bit (control) %.3f -> %.3f" % (e["E_free_symbols"], e["nbits"], e["H_before"], e["H_perm"],
-                                                     e["H_before"], e["H_erase"]))
-    print("S6 matched %d-bit surfaces share %.3f bits; independent ones %.3f; a chance match at the example README has "
-          "probability 10^(%.4g)" % (f["nbits"], f["MI_matched"], f["MI_independent"], f["log10_chance_example"]))
+    print("(units M = k_L = 1, k_R = 3/4 wherever a number is printed for the coinciding planes)")
+    print("S1 (READ) static exists at every separation: d(tau1)/dr = %s, d(tau2)/dr = %s; but d(Mhat^2)/dr = %s (zero "
+          "only if k_R = k_L: %s) -- the separation is physical" % (a["dtau1_dr"], a["dtau2_dr"], a["dMhat2_dr"],
+                                                                    a["dMhat2_dr_equal_k"]))
+    print("S2 (READ, PRZ p.10) eq. 3.3 = graviton (P2 - P0)/(8 Mhat^2) + radion P0/C_r: residue %s.  Radion removed: "
+          "c0 = %s, gamma = %s; live at the coinciding planes: gamma = %s (zero modes only; PRZ eq. 3.5's KK term unread)"
+          % (b["residue"], b["c0_frozen"], b["gamma_frozen"], b["gamma_with_radion"]))
+    print("S2b at r = 0, Mhat^2 = %s: the one-plane (RS II) value at k_R, free of k_L: %s (at r = 1/2 k_L enters: %s)"
+          % (b["mhat_r0"], b["mhat_r0_free_of_kL"], b["mhat_half_has_kL"]))
+    print("S3 a restoring potential on the radion (C_r = %s): runaway for every m^2 tried %s, energy unbounded below %s; "
+          "control C_r = +96: oscillates for every m^2 %s" % (b["Cr_r0"], c_neg["runaway_all"],
+                                                            c_neg["H_unbounded_below"], c_pos["runaway_none"]))
+    print("S4 radion removed: background null energy %s on the summed surface (H-COMPOSITE-SURFACE); graviton "
+          "coefficient %s > 0" % (d["S_total"], d["graviton_coeff_r0"]))
+    print("S5 E(N) depends on %s only (STRUCTURAL); a permutation of a non-uniform %d-bit distribution keeps the entropy "
+          "(%.4f -> %.4f bits: Landauer lower bound 0); erasing one bit (control) %.4f -> %.4f"
+          % (e["E_free_symbols"], e["nbits"], e["H_before"], e["H_perm"], e["H_before"], e["H_erase"]))
+    print("S6 matched %d-bit surfaces (uniform prior) share %.3f bits; independent ones %.3f; a chance match at the "
+          "example README: probability 10^(%.4g)" % (f["nbits"], f["MI_matched"], f["MI_independent"],
+                                                     f["log10_chance_example"]))
     print("S7 Rubik's cubes face to face: matched at start %s; after a %d-move scramble with mirrored moves %s; with the "
           "same moves unmirrored %s.  Centres fixed under every face turn %s (a middle slice moves them: %s); colour "
-          "counts kept %s; quarter turns of order 4 %s.  A frame not shared can never match: %s"
+          "counts kept %s; quarter turns of order 4 %s; with orientation held, an unshared frame cannot match: %s"
           % (g["start_match"], g["nmoves"], g["kept_match"], g["control_match"], g["centres_fixed"],
              g["slice_moves_centre"], g["counts_kept"], g["order4"], g["unshared_frame_blocks"]))
 
@@ -298,38 +323,43 @@ def selftest():
         print("  [%s] %s" % ("ok" if cond else "FAIL", name))
 
     a, b, bctl = s1(), s2(), s2(cr_scale=2)
-    chk("S1: the tensions do not depend on the separation -- a static configuration exists at every r",
+    chk("S1 (READ, STRUCTURAL): the transcribed tensions carry no r -- a static configuration exists at every r",
         a["dtau1_dr"] == 0 and a["dtau2_dr"] == 0)
     chk("S1 control: the 4D Planck mass does depend on r (unless k_R = k_L), so r is physical",
         a["dMhat2_dr"] != 0 and a["dMhat2_dr_equal_k"] == 0)
-    chk("S2: PRZ eq. 3.3 splits exactly into a massless graviton and P0/C_r", b["residue"] == 0)
-    chk("S2 control: with the radion coefficient doubled the split leaves a residue", bctl["residue"] != 0)
-    chk("S2: radion frozen gives gamma = 1; live at the coinciding planes, 5/4",
-        b["gamma_frozen"] == 1 and b["gamma_with_radion"] == sp.Rational(5, 4))
+    chk("S2 (READ, PRZ p.10; identity 3.4 again): eq. 3.3 splits exactly into a massless graviton and P0/C_r",
+        b["residue"] == 0)
+    chk("S2 control (weak): with the radion coefficient doubled the split leaves a residue", bctl["residue"] != 0)
+    chk("S2: c0 read off the split with the radion removed is -1, so gamma = 1; live at the coinciding planes, 5/4",
+        b["c0_frozen"] == -1 and b["gamma_frozen"] == 1 and b["gamma_with_radion"] == sp.Rational(5, 4))
+    chk("S2b: at r = 0 the 4D Planck mass is the one-plane value M^3/k_R and k_L drops out (radion removed, the pair "
+        "is one Randall-Sundrum plane)", b["mhat_r0_is_rs"] and b["mhat_r0_free_of_kL"])
+    chk("S2b control: apart (r = 1/2) k_L enters the 4D Planck mass", b["mhat_half_has_kL"])
     neg, posi = s3(b["Cr_r0"]), s3(96)
-    chk("S3: with the coinciding planes' C_r = %s a restoring potential leaves negative energy (a massive ghost)"
-        % b["Cr_r0"], neg["H_at_v1"] < 0 and not neg["positive_for_all"])
-    chk("S3 control: a mode with positive kinetic coefficient is non-negative for every state", posi["positive_for_all"])
+    chk("S3: with C_r = %s a restoring potential gives a runaway for every m^2 tried, and the energy is unbounded below"
+        % b["Cr_r0"], neg["runaway_all"] and neg["H_unbounded_below"])
+    chk("S3 control: with C_r = +96 the same potential gives oscillation for every m^2 tried", posi["runaway_none"])
     d = s4()
-    chk("S4: under the static constraint the background keeps null energy and the graviton's norm is positive",
+    chk("S4: radion removed, the summed surface keeps null energy and the graviton's norm is positive",
         d["S_ok"] and d["graviton_coeff_r0"] > 0)
     e = s5()
-    chk("S5: E depends on N alone (no other free symbol)", e["E_free_symbols"] == ["N"])
-    chk("S5: a permutation of the README's states keeps its entropy: Landauer cost zero",
+    chk("S5 (STRUCTURAL): E depends on N alone -- the chain's defining relation restated",
+        e["E_free_symbols"] == ["N"])
+    chk("S5: a permutation of a non-uniform README distribution keeps its entropy: Landauer lower bound zero",
         abs(e["H_perm"] - e["H_before"]) < 1e-12)
-    chk("S5 control: erasing one bit lowers the entropy by one bit (cost kT ln2)",
-        abs(e["H_before"] - e["H_erase"] - 1) < 1e-12)
+    chk("S5 control: erasing one bit lowers the entropy (Landauer cost > 0)", e["H_before"] - e["H_erase"] > 1e-3)
     f = s6()
-    chk("S6: matched surfaces carry exactly N bits of mutual information; independent ones none",
+    chk("S6: matched surfaces carry exactly N bits of mutual information (uniform prior); independent ones none",
         abs(f["MI_matched"] - f["nbits"]) < 1e-12 and abs(f["MI_independent"]) < 1e-12)
     g = s7()
     chk("S7: mirrored moves keep the facing sides matched through a scramble", g["start_match"] and g["kept_match"]
         and g["scrambled"])
     chk("S7 control: the same moves unmirrored break the match", not g["control_match"])
     chk("S7: face turns never move a centre; a middle slice does (control)", g["centres_fixed"] and g["slice_moves_centre"])
-    chk("S7: with a frame not shared (an unmirrored copy) the facing centres differ, and as centres never move, no "
-        "sequence of turns can match the facing sides", g["unshared_frame_blocks"])
-    chk("S7: colour counts kept, quarter turns of order 4 (reorganization, reversible)", g["counts_kept"] and g["order4"])
+    chk("S7 (STRUCTURAL): orientation held, an unmirrored copy's facing centre differs and centres never move, so face "
+        "turns cannot match it", g["unshared_frame_blocks"])
+    chk("S7: quarter turns of order 4 (reversible); colour counts kept (STRUCTURAL: turns relabel)",
+        g["counts_kept"] and g["order4"])
     print("selftest: %d/%d" % (ok, n))
     return ok == n
 
